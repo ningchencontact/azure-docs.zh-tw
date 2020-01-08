@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 28897ca6f80632210032b7f800404fc921143adf
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 5780477be71988653e89379ae17e9009337bbc0f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954549"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457110"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>將 Raspberry Pi 連接至 Azure IoT Hub (Node.js)
 
@@ -51,7 +51,7 @@ ms.locfileid: "73954549"
 
 * Raspberry Pi 2 或 Raspberry Pi 3 主機板。
 
-* Azure 訂閱。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 * 連接至 Pi 的監視器、USB 鍵盤及滑鼠。
 
@@ -96,13 +96,13 @@ ms.locfileid: "73954549"
 
    a. [使用桌面的 Raspbian Buster](https://www.raspberrypi.org/downloads/raspbian/) （.zip 檔案）。
 
-   b.這是另一個 C# 主控台應用程式。 將 Raspbian 映像解壓縮到您電腦上的資料夾。
+   b. 將 Raspbian 映像解壓縮到您電腦上的資料夾。
 
 2. 將 Raspbian 安裝到 microSD 記憶卡。
 
    a. [下載並安裝 Etcher SD 記憶卡燒錄器公用程式](https://etcher.io/)。
 
-   b.這是另一個 C# 主控台應用程式。 執行 Etcher 並選取您在步驟 1 中解壓縮的 Raspbian 映像。
+   b. 執行 Etcher 並選取您在步驟 1 中解壓縮的 Raspbian 映像。
 
    c. 選取 microSD 記憶卡磁碟機。 Etcher 可能已經選取正確的磁碟機。
 
@@ -148,7 +148,7 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
 | LED VDD (針腳 18F)        | GPIO 24 (針腳 18)       | 白色纜線   |
 | LED GND (針腳 17F)        | GND (針腳 20)           | 黑色纜線   |
 
-按一下以檢視 [Raspberry Pi 2 和 3 針腳對應](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi)來供您參考。
+按一下以檢視 [Raspberry Pi 2 和 3 針腳對應](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi)來供您參考。
 
 將 BME280 成功連接至 Raspberry Pi 之後，應該如下圖所示。
 
@@ -173,7 +173,7 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
 
    a. 下載並安裝適用於 Windows 的 [PuTTY](https://www.putty.org/)。
 
-   b.這是另一個 C# 主控台應用程式。 將 Pi 的 IP 位址複製到 [主機名稱] 或 [IP 位址] 區段，並且選取 SSH 作為連線類型。
+   b. 將 Pi 的 IP 位址複製到 [主機名稱] 或 [IP 位址] 區段，並且選取 SSH 作為連線類型。
 
    ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7-putty-windows.png)
 

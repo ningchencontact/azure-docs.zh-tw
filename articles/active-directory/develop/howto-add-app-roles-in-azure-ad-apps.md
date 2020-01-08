@@ -15,12 +15,12 @@ ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe116b5ae26522c9bce0322123836a6e08d3cfd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 805f984ebdb5e95a9f3a46fab010cecf5c811547
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917909"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424486"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>如何：在您的應用程式中新增應用程式角色，並且在權杖中接收這些角色
 
@@ -125,7 +125,7 @@ ms.locfileid: "74917909"
 
 - [使用 Azure AD 應用程式角色在 Web 應用程式中授權 &amp; 角色宣告 (範例)](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims)
 - [在您的應用程式中使用安全性群組和應用程式角色 (影片)](https://www.youtube.com/watch?v=V8VUPixLSiM)
-- [Azure Active Directory 現在具有群組宣告和應用程式角色](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
+- [Azure Active Directory 現在具有群組宣告和應用程式角色](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Azure Active Directory 應用程式資訊清單](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 - [AAD 存取權杖](access-tokens.md)
 - [AAD `id_tokens`](id-tokens.md)

@@ -3,12 +3,12 @@ title: 使用 Azure 原則自動啟用 VM 建立的備份
 description: 本文說明如何使用 Azure 原則自動啟用在指定範圍內建立之所有 Vm 的備份
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: ea3c0d217c8495078e91e171caef695bb32d129b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7a3b526d654936d4e7ec89127a9074146c1b0179
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980123"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450126"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>使用 Azure 原則自動啟用 VM 建立的備份
 
@@ -25,6 +25,8 @@ ms.locfileid: "74980123"
 * 指定的保存庫和為備份設定的 Vm 可以位於不同的資源群組下。
 
 * 目前不支援管理群組範圍。
+
+* 內建原則目前無法在國家雲端中使用。
 
 ## <a name="using-the-built-in-policy"></a>使用內建原則
 

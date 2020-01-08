@@ -3,21 +3,21 @@ title: 如何設定雲端服務 (入口網站) | Microsoft Docs
 description: 了解如何在 Azure 中設定雲端服務。 了解更新雲端服務組態和設定角色執行個體的遠端存取。 這些範例使用 Azure 入口網站。
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: gwallace
-ms.openlocfilehash: 8b60a81e06b95c69a02f88ff3275743b056c191d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 554d3e465b42ca889ba03565e87193f80e89ed1d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359647"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361002"
 ---
 # <a name="how-to-configure-cloud-services"></a>如何設定雲端服務
 
-您可以在 Azure 入口網站中設定雲端服務的最常用設定。 或者，如果您想要直接更新組態檔，可以下載要更新的服務組態檔、上傳更新過的檔案，然後將雲端服務更新為使用這些組態變更。 使用上述任一種方式，都會將組態更新推送到所有角色執行個體。
+您可以在 Azure 入口網站中設定雲端服務的最常用設定。 或者，如果想要直接更新組態檔案，請下載要更新的服務組態檔案，然後上傳更新後的檔案並以組態變更來更新雲端服務。 採用任一種方法，組態更新都會推送至所有角色執行個體。
 
 您也可以管理雲端服務角色的執行個體，或從遠端桌面存取它們。
 
@@ -104,3 +104,6 @@ ms.locfileid: "68359647"
 * 設定 [自訂網域名稱](cloud-services-custom-domain-name-portal.md)。
 * [管理您的雲端服務](cloud-services-how-to-manage-portal.md)。
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
+
+
+

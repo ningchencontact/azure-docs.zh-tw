@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
-ms.openlocfilehash: 1c990c864f9daa98460832166b31f43fece1ed15
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a153a8000552100d62807442d466c22cd0964e43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093847"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389837"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>在 Batch 集區上掛接虛擬檔案系統
 
@@ -39,17 +39,17 @@ Azure Batch 現在支援在 Batch 集區中的 Windows 或 Linux 計算節點上
 
 在集區上裝載虛擬檔案系統，可讓檔案系統供集區中的每個計算節點使用。 檔案系統是在計算節點加入集區時，或是節點重新開機或重新安裝映射時進行設定。
 
-若要在集區上裝載檔案系統，請`MountConfiguration`建立物件。 選擇適合您虛擬檔案系統的物件`AzureBlobFileSystemConfiguration`：、 `AzureFileShareConfiguration`、 `NfsMountConfiguration`或`CifsMountConfiguration`。
+若要在集區上裝載檔案系統，請建立 `MountConfiguration` 物件。 選擇適合您虛擬檔案系統的物件： `AzureBlobFileSystemConfiguration`、`AzureFileShareConfiguration`、`NfsMountConfiguration`或 `CifsMountConfiguration`。
 
 所有掛接設定物件都需要下列基底參數。 某些掛接設定具有所使用之檔案系統的特定參數，在程式碼範例中會更詳細地討論。
 
 - **帳戶名稱或來源**：若要掛接虛擬檔案共用，您需要儲存體帳戶或其來源的名稱。
-- **相對掛接路徑或來源**：裝載于計算節點上的檔案系統位置，相對於透過`fsmounts` `AZ_BATCH_NODE_MOUNTS_DIR`節點可存取的標準目錄。 確切的位置會根據節點上所使用的作業系統而有所不同。 例如，Ubuntu 節點上的實體位置會對應至`mnt\batch\tasks\fsmounts`，並在其`mnt\resources\batch\tasks\fsmounts`對應的 CentOS 節點上。
-- **掛接選項或 blobfuse 選項**：這些選項說明用來掛接檔案系統的特定參數。
+- **相對掛接路徑或來源**：裝載于計算節點上的檔案系統位置（相對於透過 `AZ_BATCH_NODE_MOUNTS_DIR`可在節點上存取的標準 `fsmounts` 目錄）。 確切的位置會根據節點上所使用的作業系統而有所不同。 例如，Ubuntu 節點上的實體位置會對應到 `mnt\batch\tasks\fsmounts`，而且在 CentOS 節點上會對應到 `mnt\resources\batch\tasks\fsmounts`。
+- **掛接選項或 blobfuse 選項**：這些選項描述用來掛載檔案系統的特定參數。
 
-建立物件之後，當您建立集區時， `MountConfigurationList`請將物件指派給屬性。 `MountConfiguration` 當節點加入集區，或節點重新開機或重新安裝映射時，就會掛接檔案系統。
+建立 `MountConfiguration` 物件之後，當您建立集區時，請將物件指派給 `MountConfigurationList` 屬性。 當節點加入集區，或節點重新開機或重新安裝映射時，就會掛接檔案系統。
 
-掛接檔案系統時，會建立環境變數`AZ_BATCH_NODE_MOUNTS_DIR` ，以指向掛接的檔案系統位置，以及記錄檔，這對於疑難排解和偵錯工具很有用。 在[診斷掛接錯誤](#diagnose-mount-errors)一節中，將會更詳細地說明記錄檔。  
+掛接檔案系統時，會建立環境變數 `AZ_BATCH_NODE_MOUNTS_DIR`，以指向掛接的檔案系統位置以及記錄檔，這對於疑難排解和偵錯工具很有用。 在[診斷掛接錯誤](#diagnose-mount-errors)一節中，將會更詳細地說明記錄檔。  
 
 > [!IMPORTANT]
 > 集區上裝載的檔案系統數目上限為10。 如需詳細資訊和其他限制，請參閱[Batch 服務配額和限制](batch-quota-limit.md#other-limits)。
@@ -85,7 +85,7 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>Azure Blob 檔案系統
 
-另一個選項是透過[blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)使用 Azure Blob 儲存體。 裝載 blob 檔案系統需要`AccountKey`您的儲存體帳戶或。 `SasKey` 如需取得這些金鑰的資訊，請參閱[查看帳戶金鑰](../storage/common/storage-account-manage.md#view-account-keys-and-connection-string)或[使用共用存取簽章（SAS）](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。 如需使用 blobfuse 的詳細資訊，請參閱 blobfuse[疑難排解常見問題](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)。 若要取得 blobfuse 裝載目錄的預設存取權，請以**系統管理員**身分執行工作。 Blobfuse 會在使用者空間裝載目錄，而在建立集區時，它會裝載為 root。 在 Linux 中，所有**系統管理員**工作都是 root。 熔斷器模組的所有選項都會在 [[保險絲參考] 頁面](http://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html)中說明。
+另一個選項是透過[blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)使用 Azure Blob 儲存體。 裝載 blob 檔案系統需要您的儲存體帳戶 `AccountKey` 或 `SasKey`。 如需取得這些金鑰的資訊，請參閱[管理儲存體帳戶存取金鑰](../storage/common/storage-account-keys-manage.md)，或[使用共用存取簽章（SAS）](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。 如需使用 blobfuse 的詳細資訊，請參閱 blobfuse[疑難排解常見問題](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)。 若要取得 blobfuse 裝載目錄的預設存取權，請以**系統管理員**身分執行工作。 Blobfuse 會在使用者空間裝載目錄，而在建立集區時，它會裝載為 root。 在 Linux 中，所有**系統管理員**工作都是 root。 熔斷器模組的所有選項都會在 [[保險絲參考] 頁面](http://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html)中說明。
 
 除了疑難排解指南以外，blobfuse 存放庫中的 GitHub 問題也是檢查目前 blobfuse 問題和解決方法的實用方式。 如需詳細資訊，請參閱[blobfuse 問題](https://github.com/Azure/azure-storage-fuse/issues)。
 
@@ -116,7 +116,7 @@ new PoolAddParameter
 
 ### <a name="network-file-system"></a>網路檔案系統
 
-網路檔案系統（NFS）也可以掛接到集區節點，讓 Azure Batch 的節點能夠輕鬆地存取傳統檔案系統。 這可能是部署在雲端中的單一 NFS 伺服器，或透過虛擬網路存取的內部部署 NFS 伺服器。 或者，利用[Avere vFXT](../avere-vfxt/avere-vfxt-overview.md)分散式記憶體內部快取解決方案，其可提供與內部部署儲存體的順暢連線、視需要將資料讀取到其快取中，並提供高效能並調整為雲端式計算子.
+網路檔案系統（NFS）也可以掛接到集區節點，讓 Azure Batch 的節點能夠輕鬆地存取傳統檔案系統。 這可能是部署在雲端中的單一 NFS 伺服器，或透過虛擬網路存取的內部部署 NFS 伺服器。 或者，利用[Avere vFXT](../avere-vfxt/avere-vfxt-overview.md)分散式記憶體內部快取解決方案，其可提供與內部部署儲存體的順暢連線、視需要將資料讀取到其快取，以及為雲端式計算節點提供高效能和規模調整。
 
 ```csharp
 new PoolAddParameter
@@ -164,20 +164,20 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>診斷掛接錯誤
 
-如果掛接設定失敗，集區中的計算節點將會失敗，且節點狀態會變成無法使用。 若要診斷掛接設定失敗，請檢查[`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror)屬性，以取得錯誤的詳細資料。
+如果掛接設定失敗，集區中的計算節點將會失敗，且節點狀態會變成無法使用。 若要診斷掛接設定失敗，請檢查 [ [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) ] 屬性，以取得錯誤的詳細資料。
 
-若要取得用於進行偵錯工具的記錄檔，請使用`*.log` [OutputFiles](batch-task-output-files.md) 上傳檔案。 檔案包含`AZ_BATCH_NODE_MOUNTS_DIR`位置上檔案系統掛接的相關資訊。 `*.log` 掛接記錄檔的格式為： `<type>-<mountDirOrDrive>.log`每個掛接。 例如，掛接在`cifs`名為`test`的掛接目錄中，將會有一個名為的`cifs-test.log`掛接記錄檔：。
+若要取得用於進行偵錯工具的記錄檔，請使用`*.log` [OutputFiles](batch-task-output-files.md) 上傳檔案。 `*.log` 檔案包含 `AZ_BATCH_NODE_MOUNTS_DIR` 位置之檔案系統掛接的相關資訊。 掛接記錄檔的格式為：每個掛接的 `<type>-<mountDirOrDrive>.log`。 例如，在名為 `test` 的掛接目錄中掛接 `cifs` 將會有一個名為的掛接記錄檔： `cifs-test.log`。
 
 ## <a name="supported-skus"></a>支援的 SKU
 
-| 發行者 | 供應項目 | SKU | Azure 檔案儲存體共用 | Blobfuse | NFS 掛接 | CIFS 掛接 |
+| 發佈者 | 供應項目 | SKU | Azure 檔案儲存體共用 | Blobfuse | NFS 掛接 | CIFS 掛接 |
 |---|---|---|---|---|---|---|
-| 批次 | rendering-centos73 | 轉譯 | :heavy_check_mark: <br>注意：與 CentOS 7.7 相容</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| batch | rendering-centos73 | 轉譯 | :heavy_check_mark: <br>注意：與 CentOS 7.7 相容</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canonical | UbuntuServer | 16.04-LTS，18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Credativ | Debian | 8、9 | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>注意：與 CentOS 7.4 相容。 </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | centos-container | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | centos-container-rdma | 7.4 | :heavy_check_mark: <br>注意：支援 A_8 或9儲存體</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-azure-batch | centos-container-rdma | 7.4 | :heavy_check_mark: <br>注意：支援 A_8 或9個儲存體</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | ubuntu-server-container | 16.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | OpenLogic | CentOS | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

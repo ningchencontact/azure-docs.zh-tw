@@ -1,7 +1,7 @@
 ---
 title: SMOTE
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的 SMOTE 模組，藉由使用超取樣來增加資料集中的低程度範例數目。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的 SMOTE 模組，藉由使用超取樣來增加資料集內的低程度範例數目。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: d78e3d0d30cc44f2f30b1a856297f2c31d8f8469
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 16ae6775494f9076d442e181f70a2ecde5863dab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717010"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428442"
 ---
 # <a name="smote"></a>SMOTE
 
@@ -28,19 +28,19 @@ ms.locfileid: "73717010"
 
 綜合少數超取樣技術（SMOTE）是一種統計技術，可讓您以平衡的方式增加資料集中的案例數目。 此模組的運作方式是從您提供做為輸入的現有少數案例產生新的實例。 這種 SMOTE 的執行*不會變更多數*案例的數目。
 
-新的實例不只是現有少數案例的複本。 相反地，此演算法會針對每個目標類別及其最近的鄰近專案，取得*功能空間*的範例。 然後，此演算法會產生新的範例，將目標案例的功能與鄰近專案的功能結合在一起。 這種方法會增加每個類別可用的功能，並讓範例更為普遍。
+新的實例不只是現有少數案例的複本。 相反地，此演算法會針對每個目標類別及其最近的鄰近專案，取得*功能空間*的範例。 然後，此演算法會產生新的範例，將目標案例的功能與鄰近專案的功能結合在一起。 此方法能增加每個類別可用的特徵，並讓樣本更加一般化。
   
 SMOTE 會將整個資料集當做輸入，但只會增加少數案例的百分比。 例如，假設您有一個不平衡資料集，其中只有1% 的案例具有目標值 A （少數類別），而99% 的案例具有值 B。若要將少數案例的百分比增加到前一個百分比的兩倍，您可以在模組的屬性中輸入**200**的**SMOTE 百分比**。  
   
 ## <a name="examples"></a>範例  
 
-我們建議您嘗試使用具有小型資料集的 SMOTE 來查看其運作方式。 下列範例會使用 Azure Machine Learning 設計工具中提供的血捐贈資料集。
+我們建議您嘗試將 SMOTE 用於小型的資料集，藉此了解它的作用為何。 下列範例會使用 Azure Machine Learning 設計工具中提供的血捐贈資料集。
   
 如果您將資料集加入至管線，並在資料集的輸出上選取 [**視覺化**]，您可以看到資料集的748個數據列或案例中，570案例（76百分比）是類別0，而178案例（24%）是類別1。 雖然這項結果並不不平衡，但類別1代表捐贈了血壓的人，因此這些資料列包含您想要建立模型的*功能空間*。
  
 若要增加案例數目，您可以使用100的倍數來設定**SMOTE 百分比**的值，如下所示：
 
-||類別0|類別1|total|  
+||類別 0|類別1|total|  
 |-|-------------|-------------|-----------|  
 |原始資料集<br /><br /> （相當於**SMOTE 百分比** = **0**）|570<br /><br /> 76%|178<br /><br /> 天|748|  
 |**SMOTE 百分比** = **100**|570<br /><br /> 62%|356<br /><br /> 38%|926|  
@@ -73,7 +73,7 @@ SMOTE 會將整個資料集當做輸入，但只會增加少數案例的百分�
     > [!NOTE]
     > SMOTE 百分比僅使用100的倍數。
 
-6.  使用 [**最近的鄰近專案數**] 選項，決定 SMOTE 演算法在建立新案例時所使用的功能空間大小。 最近的鄰近是類似于目標案例的資料列（案例）。 任何兩個案例之間的距離是藉由結合所有特徵的加權向量來測量。  
+6.  使用 [**最近的鄰近專案數**] 選項，決定 SMOTE 演算法在建立新案例時所使用的功能空間大小。 最近的鄰近是類似于目標案例的資料列（案例）。 任兩個案例之間的距離是藉由結合所有功能的加權向量來測量。  
   
     + 藉由增加最近鄰近專案的數目，您就可以從更多案例中取得功能。
     + 藉由保持最接近的鄰近專案數目，您可以使用與原始範例相同的功能。  
@@ -99,5 +99,5 @@ SMOTE 會將整個資料集當做輸入，但只會增加少數案例的百分�
 
 ## <a name="next-steps"></a>後續步驟
 
-查看 Azure Machine Learning 服務[可用的模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 
 

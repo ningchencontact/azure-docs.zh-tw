@@ -1,5 +1,5 @@
 ---
-title: 使用 Microsoft Flow 自動化 Azure Application Insights 流程
+title: 使用 Microsoft Flow 自動化 Azure Application Insights 程序
 description: 了解如何利用 Application Insights Connector，使用 Microsoft Flow 來快速自動執行可重複的程序。
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/29/2019
-ms.openlocfilehash: ff0896498c0270b8eb43b762228916985f924def
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 7d9c966051c2756d7936fa079a0aac68e694425d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678313"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407550"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>使用適用於 Microsoft Flow 的連接器自動執行 Azure Application Insights 程序
 
@@ -41,7 +41,7 @@ ms.locfileid: "72678313"
 
     ![以輸入頻率和間隔設定排程週期](./media/automate-with-flow/2-schedule.png)
 
-1. 按一下 [建立]。
+1. 按一下頁面底部的 [新增]。
 
 ### <a name="step-3-add-an-application-insights-action"></a>步驟 3：新增 Application Insights 動作
 
@@ -66,7 +66,7 @@ ms.locfileid: "72678313"
 
 如果 [連接] 方塊不會立即顯示，而是直接進入查詢，請按一下方塊右上方的省略號。 然後選取 [我的連線] 或使用現有的連接。
 
-按一下 [建立]。
+按一下頁面底部的 [新增]。
 
 ### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>步驟 5：指定 Analytics 查詢和圖表類型
 此範例查詢會選取最後一天內的失敗要求，並將它們與作業發生的例外狀況相互關聯。 Analytics 會根據 operation_Id 識別碼使其相互關聯。 查詢接著會使用自動叢集演算法將結果分段。
@@ -99,7 +99,7 @@ ms.locfileid: "72678313"
 
    a. 輸入收件者的電子郵件地址。
 
-   b.這是另一個 C# 主控台應用程式。 輸入電子郵件的主旨。
+   b. 輸入電子郵件的主旨。
 
    c. 按一下 [內文] 方塊中的任意處，然後在右方開啟的動態內容功能表上，選取 [內文]。
 
@@ -109,7 +109,7 @@ ms.locfileid: "72678313"
 
     a. 選取 [附件名稱]。
 
-    b.這是另一個 C# 主控台應用程式。 選取 [附件內容]。
+    b. 選取 [附件內容]。
     
     c. 在 [為 HTML] 方塊中選取 [是]。
 
@@ -117,9 +117,9 @@ ms.locfileid: "72678313"
 
 ### <a name="step-7-save-and-test-your-flow"></a>步驟 7：儲存並測試流程
 
-按一下 [儲存]。
+按一下 [檔案]。
 
-您可以等候觸發程式執行此動作，或按一下頂端的 [![燒杯測試 圖示](./media/automate-with-flow/testicon.png)**測試**]。
+您可以等候觸發程式執行此動作, 或按一下![頂端的 燒杯測試圖示](./media/automate-with-flow/testicon.png)測試。
 
 選取 [**測試**] 之後：
 

@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 305de556cc6e50af21cb38aa1b8073b420efbf43
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 006ea071ce1ab0354ecf191cdde2e031255ef4ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887761"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407658"
 ---
 # <a name="application-map-triage-distributed-applications"></a>應用程式對應：對分散式應用程式進行分級
 
@@ -69,15 +69,15 @@ ms.locfileid: "73887761"
 
 ![端對端交易詳細資料的螢幕擷取畫面](media/app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>在 Analytics 中檢視
+### <a name="view-logs-analytics"></a>查看記錄（分析）
 
-若要進一步查詢及調查應用程式資料，請按一下 [在 Analytics 中檢視]。
+若要進一步查詢及調查應用程式資料，請按一下 **[記錄（分析）] 中的 [查看**]。
 
-![在 Analytics 中檢視按鈕的螢幕擷取畫面](media/app-map/view-in-analytics.png)
+![在 Analytics 中檢視按鈕的螢幕擷取畫面](media/app-map/view-logs.png)
 
-![Analytics 體驗的螢幕擷取畫面](media/app-map/analytics.png)
+![分析體驗的螢幕擷取畫面。 摘要說明過去12小時內要求的平均回應持續時間的折線圖。](media/app-map/log-analytics.png)
 
-### <a name="alerts"></a>Alerts
+### <a name="alerts"></a>警示
 
 若要檢視作用中警示和導致警示觸發的基礎規則，請選取 [警示]。
 
@@ -230,7 +230,7 @@ appInsights.addTelemetryInitializer((envelope) => {
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-或者，**雲端角色實例**對於**雲端角色名稱**指出問題是在 web 前端中某處的案例很有説明，但您可能會在多部負載平衡的伺服器上執行 web 前端，讓能夠透過 Kusto 查詢更深入地切入圖層，並瞭解問題是否會影響所有 web 前端伺服器/實例，或只是其中一項可能非常重要。
+或者，**雲端角色實例**對於**雲端角色名稱**指出問題是在 web 前端某處的案例很有説明，但您可能會在多個負載平衡伺服器上執行 web 前端，讓您能夠透過 Kusto 查詢更深入地深入探索，並知道問題是否會影響所有 web 前端伺服器/實例，或是只是一個非常重要的情況。
 
 如果您的應用程式是在容器化環境中執行，您可能想要覆寫雲端角色實例的值，而這種情況下，只要知道個別伺服器可能沒有足夠的資訊來找出指定的問題。
 

@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4731a7265265c48bed02e836de91d61971b9be14
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 17f02d38c77fce6a256e3c42d887f2b7d560add9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921913"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424232"
 ---
 # <a name="confidential-client-assertions"></a>機密用戶端判斷提示
 
@@ -42,7 +42,7 @@ MSAL.NET 有四種方法可將認證或判斷提示提供給機密用戶端應�
 
 已簽署的用戶端判斷提示會採用帶正負號的 JWT 格式，其承載包含 Azure AD，Base64 編碼的必要驗證宣告。 使用方式：
 
-```CSharp
+```csharp
 string signedClientAssertion = ComputeAssertion();
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientAssertion(signedClientAssertion)
@@ -51,7 +51,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Azure AD 所需的宣告為：
 
-宣告類型 | Value | 描述
+宣告類型 | 值 | 說明
 ---------- | ---------- | ----------
 aud | https://login.microsoftonline.com/{tenantId}/v2.0 | "Aud" （物件）宣告可識別 JWT 適用的收件者（此處 Azure AD），請參閱 [RFC 7519，區段 4.1.3]
 exp | 星期四6月 27 2019 15:04:17 GMT + 0200 （羅馬日光節約時間） | "exp" (到期時間) 宣告會識別到期時間，等於或晚於此時間都不得接受 JWT 以進行處理。 請參閱 [RFC 7519，第4.1.4 節]
@@ -62,7 +62,7 @@ sub | ClientID | "Sub" （subject）宣告會識別 JWT 的主旨。 JWT 中的�
 
 以下是如何製作這些宣告的範例：
 
-```CSharp
+```csharp
 private static IDictionary<string, string> GetClaims()
 {
       //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
@@ -88,7 +88,7 @@ private static IDictionary<string, string> GetClaims()
 
 以下說明如何製作已簽署的用戶端判斷提示：
 
-```CSharp
+```csharp
 string Encode(byte[] arg)
 {
     char Base64PadCharacter = '=';
@@ -138,7 +138,7 @@ string GetSignedClientAssertion()
 
 您也可以選擇使用[Microsoft.identitymodel jsonwebtoken](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/)來為您建立判斷提示。 這段程式碼會更簡潔，如下列範例所示：
 
-```CSharp
+```csharp
         string GetSignedClientAssertion()
         {
             var cert = new X509Certificate2("Certificate.pfx", "Password", X509KeyStorageFlags.EphemeralKeySet);
@@ -171,7 +171,7 @@ string GetSignedClientAssertion()
 
 一旦您擁有已簽署的用戶端判斷提示之後，您就可以將它與 MSAL api 搭配使用，如下所示。
 
-```CSharp
+```csharp
             string signedClientAssertion = GetSignedClientAssertion();
 
             var confidentialApp = ConfidentialClientApplicationBuilder
@@ -184,7 +184,7 @@ string GetSignedClientAssertion()
 
 `WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)` 預設會產生帶正負號的判斷提示，其中包含 Azure AD 加上您想要傳送的其他用戶端宣告所預期的宣告。 以下是如何執行此動作的程式碼片段。
 
-```CSharp
+```csharp
 string ipAddress = "192.168.1.2";
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)

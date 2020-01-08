@@ -1,5 +1,5 @@
 ---
-title: 針對 Cosmos DB 使用 Azure Functions 觸發程式時，診斷並疑難排解問題
+title: 針對 Cosmos DB 使用 Azure Functions 觸發程式時的問題進行疑難排解
 description: 使用 Cosmos DB 的 Azure Functions 觸發程式時，常見的問題、解決方法和診斷步驟
 author: ealsur
 ms.service: cosmos-db
@@ -7,18 +7,18 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e3ff86770ec0337c9a4a11b30c6d88e8365bfa24
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f3af350c96d1dd9eaf4773db503acb10d8a08a8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064112"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441111"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>針對 Cosmos DB 使用 Azure Functions 觸發程式時，診斷並疑難排解問題
 
 本文涵蓋當您使用[Cosmos DB 的 Azure Functions 觸發程式](change-feed-functions.md)時，常見的問題、解決方法和診斷步驟。
 
-## <a name="dependencies"></a>相依項目
+## <a name="dependencies"></a>相依性
 
 Cosmos DB 的 Azure Functions 觸發程式和系結相依于基底 Azure Functions 執行時間上的延伸模組套件。 請一律保持這些套件的更新，因為它們可能包含修正和新功能，可解決您可能會遇到的任何潛在問題：
 
@@ -78,12 +78,12 @@ Azure 函數失敗，並出現錯誤訊息：「來源集合 ' collection-name '
 
 如果目的地上遺失某些變更，這可能表示在收到變更之後，Azure 函式執行期間發生了一些錯誤。
 
-在此案例中，最佳做法是在您的程式碼中，以及可能正在處理變更的迴圈內加入 `try/catch` 區塊，以偵測特定專案子集的任何失敗，並據以處理（將它們傳送至其他儲存體以供進一步使用分析或重試）。 
+在此案例中，最佳做法是在您的程式碼中，以及可能正在處理變更的迴圈內加入 `try/catch` 區塊，以偵測特定專案子集的任何失敗，並據以處理（將它們傳送到其他儲存體以供進一步分析或重試）。 
 
 > [!NOTE]
 > 根據預設，Cosmos DB 的 Azure Functions 觸發程式在程式碼執行期間發生未處理的例外狀況時，不會重試一批變更。 這表示變更未抵達目的地的原因是因為您無法處理它們。
 
-如果您發現您的觸發程式完全不會收到某些變更，最常見的情況就是**另一個 Azure 函數正在**執行。 它可能是部署在 Azure 中的另一個 Azure 函式，或是在具有**完全相同**設定（相同的受監視和租用容器）的開發人員電腦本機上執行的 azure function，而此 Azure function 會竊取您所做的變更子集會預期您的 Azure 函式會進行處理。
+如果您發現您的觸發程式完全不會收到某些變更，最常見的情況就是**另一個 Azure 函數正在**執行。 它可能是部署在 Azure 中的另一個 Azure 函式，或是在具有**完全相同**設定（相同的受監視和租用容器）的開發人員電腦上本機執行的 azure function，而此 Azure 函式會竊取您預期 Azure 函式所要處理的變更子集。
 
 此外，如果您知道您正在執行多少個 Azure 函數應用程式實例，就可以驗證此案例。 如果您檢查租用容器並計算中的租用專案數，則其中 `Owner` 屬性的相異值應該等於您函數應用程式的實例數目。 如果擁有者人數超過已知的 Azure 函式應用程式執行個體，則表示是這些額外的擁有者「竊取」了變更。
 

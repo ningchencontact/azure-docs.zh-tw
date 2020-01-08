@@ -3,12 +3,12 @@ title: 建議的安全性作法
 description: 在使用 Azure 委派的資源管理時，請務必考慮安全性與存取控制。
 ms.date: 07/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 18decc337722c1dc64fac94679d783dd55915ee6
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 8972d6548eccb1006d90bfcbb4dba8c01b05a981
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463894"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456877"
 ---
 # <a name="recommended-security-practices"></a>建議的安全性作法
 
@@ -16,7 +16,7 @@ ms.locfileid: "74463894"
 
 ## <a name="require-azure-multi-factor-authentication"></a>要求使用 Azure Multi-Factor Authentication
 
-[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (亦稱為雙步驟驗證) 可透過要求執行多個驗證步驟，來協助防止攻擊者取得帳戶存取權。 您應該針對服務提供者租用戶中的所有使用者要求使用 Multi-Factor Authentication，這包括將能夠存取客戶資源的所有使用者。
+[Azure 多重要素驗證](../../active-directory/authentication/concept-mfa-howitworks.md)（也稱為雙步驟驗證）有助於防止攻擊者透過要求多個驗證步驟來取得帳戶的存取權。 您應該針對服務提供者租用戶中的所有使用者要求使用 Multi-Factor Authentication，這包括將能夠存取客戶資源的所有使用者。
 
 我們建議您要求客戶也在其租用戶中實作 Azure Multi-Factor Authentication。
 
@@ -28,12 +28,12 @@ ms.locfileid: "74463894"
 
 例如，您應該使用像這樣的結構：
 
-|群組名稱  |在系統提示您進行確認時，輸入  |principalId  |角色定義  |角色定義識別碼  |
+|群組名稱  |類型  |principalId  |角色定義  |角色定義識別碼  |
 |---------|---------|---------|---------|---------|
 |結構設計師     |使用者群組         |\<principalId\>         |參與者         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
-|評量     |使用者群組         |\<principalId\>         |讀取器         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
+|評量     |使用者群組         |\<principalId\>         |讀取者         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |VM 專家     |使用者群組         |\<principalId\>         |VM 參與者         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|自動化     |服務主體名稱 (SPN)         |\<principalId\>         |參與者         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Automation     |服務主體名稱 (SPN)         |\<principalId\>         |參與者         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 在您建立這些群組之後，便可以視需要指派使用者。 請僅加入真正需要存取權的使用者。 請務必定期檢閱群組成員，並移除已不再適合或需要包含在該群組內的任何使用者。
 

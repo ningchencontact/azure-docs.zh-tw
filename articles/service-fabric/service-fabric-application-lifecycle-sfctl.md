@@ -1,31 +1,28 @@
 ---
-title: 使用 Azure Service Fabric CLI 來管理 Azure Service Fabric 應用程式 (sfctl)
+title: 使用 sfctl 管理 Azure Service Fabric 應用程式
 description: 了解如何使用 Azure Service Fabric CLI 在 Azure Service Fabric 叢集中部署和移除應用程式
-services: service-fabric
 author: Christina-Kang
-manager: chackdan
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: db271d479fd84e5338d53cc25ecc0122d856c442
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60621372"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610228"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>使用 Azure Service Fabric CLI 來管理 Azure Service Fabric 應用程式 (sfctl)
 
 了解如何建立和刪除在 Azure Service Fabric 叢集中執行的應用程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 安裝 Service Fabric CLI。 然後選取 Service Fabric 叢集。 如需詳細資訊，請參閱[開始使用 Service Fabric CLI](service-fabric-cli.md)。
 
 * 備妥 Service Fabric 應用程式封裝以供部署。 如需有關如何撰寫及封裝應用程式的詳細資訊，請參閱 [Service Fabric 應用程式模型](service-fabric-application-model.md)。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 若要部署新應用程式，請完成下列步驟：
 

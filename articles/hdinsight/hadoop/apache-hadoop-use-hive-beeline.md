@@ -6,19 +6,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: 26a166e61086af8cf10f761b608fcf66eb8734fd
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 12/12/2019
+ms.openlocfilehash: 39217a883863fd663b02cafea699dcbc4e070dfb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406257"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435736"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>使用 Apache Beeline 用戶端搭配 Apache Hive
 
 了解如何使用 [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) 在 HDInsight 上執行 Apache Hive 查詢。
 
-Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 Beeline 會使用 JDBC 連線至 HiveServer2，它是裝載在 HDInsight 叢集上的服務。 您也可以使用 Beeline 透過網際網路從遠端存取 HDInsight 上的 Hive。 下列範例中提供用來從 Beeline 連接到 HDInsight 最常見的連接字串：
+Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 若要在本機安裝 Beeline，請參閱下方的[install Beeline client](#install-beeline-client)。 Beeline 會使用 JDBC 連線至 HiveServer2，它是裝載在 HDInsight 叢集上的服務。 您也可以使用 Beeline 透過網際網路從遠端存取 HDInsight 上的 Hive。 下列範例中提供用來從 Beeline 連接到 HDInsight 最常見的連接字串：
 
 ## <a name="types-of-connections"></a>連線類型
 
@@ -59,19 +59,19 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD
 
 ### <a name="over-public-or-private-endpoints"></a>透過公用或私用端點
 
-使用公用或私人端點連接到叢集時，您必須提供叢集登入帳戶名稱（預設 `admin`）和密碼。 例如，使用 Beeline 從用戶端系統連線到 `<clustername>.azurehdinsight.net` 位址。 此連線是透過連接埠 `443`，並使用 SSL 加密：
+使用公用或私人端點連接到叢集時，您必須提供叢集登入帳戶名稱（預設 `admin`）和密碼。 例如，使用 Beeline 從用戶端系統連線到 `clustername.azurehdinsight.net` 位址。 此連線是透過連接埠 `443`，並使用 SSL 加密：
 
 ```bash
-beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n <username> -p password
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p 'password'
 ```
 
 或適用于私人端點：
 
 ```bash
-beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n <username> -p password
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p 'password'
 ```
 
-將 `clustername` 替換為 HDInsight 叢集的名稱。 將 `<username>` 取代為叢集的叢集登入帳戶。 針對 ESP 叢集，請使用完整的 UPN （例如 user@domain.com）。 將 `password` 取代為叢集登入帳戶的密碼。
+將 `clustername` 替換為 HDInsight 叢集的名稱。 將 `admin` 取代為叢集的叢集登入帳戶。 針對 ESP 叢集，請使用完整的 UPN （例如 user@domain.com）。 將 `password` 取代為叢集登入帳戶的密碼。
 
 私人端點會指向基本負載平衡器，只能從相同區域中的 Vnet 對等互連存取。 如需詳細資訊，請參閱[全域 VNet 對等互連的條件約束和負載平衡](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)器。 您可以使用 `curl` 命令搭配 `-v` 選項，針對公用或私用端點的任何連線問題進行疑難排解，然後再使用 beeline。
 
@@ -86,16 +86,16 @@ Apache Spark 提供自己的 HiveServer2 (有時稱為 Spark Thrift 伺服器) �
 使用的連接字串稍有不同。 而不是包含 `httpPath=/hive2` `httpPath/sparkhive2`：
 
 ```bash
-beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'
 ```
 
 或適用于私人端點：
 
 ```bash
-beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'
 ```
 
-將 `clustername` 替換為 HDInsight 叢集的名稱。 將 `<username>` 取代為叢集的叢集登入帳戶。 針對 ESP 叢集，請使用完整的 UPN （例如 user@domain.com）。 將 `password` 取代為叢集登入帳戶的密碼。
+將 `clustername` 替換為 HDInsight 叢集的名稱。 將 `admin` 取代為叢集的叢集登入帳戶。 針對 ESP 叢集，請使用完整的 UPN （例如 user@domain.com）。 將 `password` 取代為叢集登入帳戶的密碼。
 
 私人端點會指向基本負載平衡器，只能從相同區域中的 Vnet 對等互連存取。 如需詳細資訊，請參閱[全域 VNet 對等互連的條件約束和負載平衡](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)器。 您可以使用 `curl` 命令搭配 `-v` 選項，針對公用或私用端點的任何連線問題進行疑難排解，然後再使用 beeline。
 
@@ -210,7 +210,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
    > [!NOTE]  
    > 當您預期會由外部來源來更新基礎資料時，請使用外部資料表。 例如，自動化的資料上傳程序，或透過其他 MapReduce 作業。
    >
-   > 捨棄外部資料表並 **不** 會刪除資料，只會刪除資料表定義。
+   > 捨棄外部資料表並 **不會** 刪除資料，只會刪除資料表定義。
 
     此命令的輸出類似下列文字：
 
@@ -238,7 +238,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 6. 若要結束 Beeline，請使用 `!exit`。
 
-## <a id="file"></a>執行 HiveQL 檔案
+## <a name="run-a-hiveql-file"></a>執行 HiveQL 檔案
 
 這是先前範例中的接續。 使用下列步驟建立檔案，然後利用執行該檔案。
 
@@ -292,7 +292,64 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         3 rows selected (0.813 seconds)
 
-## <a id="summary"></a><a id="nextsteps"></a>後續步驟
+## <a name="install-beeline-client"></a>安裝 beeline 用戶端
+
+雖然 Beeline 包含在 HDInsight 叢集的前端節點上，但您可能會想要將它安裝在本機電腦上。  在本機電腦上安裝 Beeline 的步驟是以[適用于 Linux 的 Windows 子系統](https://docs.microsoft.com/windows/wsl/install-win10)為基礎。
+
+1. 更新封裝清單。 在您的 bash shell 中輸入下列命令：
+
+    ```bash
+    sudo apt-get update
+    ```
+
+1. 如果未安裝，請安裝 JAVA。 您可以使用 `which java` 命令來檢查。
+
+    1. 如果未安裝任何 java 封裝，請輸入下列命令：
+
+        ```bash
+        sudo apt install openjdk-11-jre-headless
+        ```
+
+    1. 修改 .bashrc 檔案（通常是在 ~/.bashrc 中找到）。 使用 `nano ~/.bashrc` 開啟檔案，然後在檔案結尾處新增下列程式程式碼：
+
+        ```bash
+        export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+        ```
+
+        然後按下**Ctrl + X**，再按**Y**，然後按 enter。
+
+1. 下載 Hadoop 和 Beeline 封存，輸入下列命令：
+
+    ```bash
+    wget https://archive.apache.org/dist/hadoop/core/hadoop-2.7.3/hadoop-2.7.3.tar.gz
+    wget https://archive.apache.org/dist/hive/hive-1.2.1/apache-hive-1.2.1-bin.tar.gz
+    ```
+
+1. 將封存解壓縮後，輸入下列命令：
+
+    ```bash
+    tar -xvzf hadoop-2.7.3.tar.gz
+    tar -xvzf apache-hive-1.2.1-bin.tar.gz
+    ```
+
+1. 進一步修改 .bashrc 檔。 您必須識別封存已解壓縮的路徑。 如果使用[適用于 Linux 的 Windows 子系統](https://docs.microsoft.com/windows/wsl/install-win10)，且您完全遵循這些步驟，您的路徑會是 `/mnt/c/Users/user/`，其中 `user` 是您的使用者名稱。
+
+    1. 開啟檔案： `nano ~/.bashrc`
+    1. 以適當的路徑修改下列命令，然後在 .bashrc 檔案的結尾輸入它們：
+
+        ```bash
+        export HADOOP_HOME=/$(path_where_the_archives_were_unpacked)/hadoop-2.7.3
+        export HIVE_HOME=/$(path_where_the_archives_were_unpacked)/apache-hive-1.2.1-bin
+        PATH=$PATH:$HIVE_HOME/bin
+        ```
+
+    1. 然後按下**Ctrl + X**，再按**Y**，然後按 enter。
+
+1. 關閉並重新開啟您的 bash 會話。
+
+1. 測試您的連接。 使用上方[公用或私用端點](#over-public-or-private-endpoints)的連接格式。
+
+## <a name="next-steps"></a>後續步驟
 
 * 如需 HDInsight 中 Hive 的一般資訊，請參閱[在 hdinsight 上搭配使用 Apache Hive 與 Apache Hadoop](hdinsight-use-hive.md)
 

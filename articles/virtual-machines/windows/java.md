@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: bf0f2928bd7cbac08a2a887481f19b3acb99f6fa
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 618d9a8d941202db05981566203bf96c02f415a5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039728"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358304"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>在 Azure 中使用 JAVA 建立並管理 Windows VM
 
@@ -140,7 +140,7 @@ ms.locfileid: "74039728"
 
 ### <a name="create-the-management-client"></a>建立管理用戶端
 
-1. 在 `App.java` 下開啟 `src\main\java\com\fabrikam` 檔案，並確定此 package 陳述式位於最上方：
+1. 在 `src\main\java\com\fabrikam` 下開啟 `App.java` 檔案，並確定此 package 陳述式位於最上方：
 
     ```java
     package com.fabrikam.testAzureApp;
@@ -188,7 +188,7 @@ ms.locfileid: "74039728"
 
 ### <a name="create-the-resource-group"></a>建立資源群組
 
-所有資源都必須包含在[資源群組](../../azure-resource-manager/resource-group-overview.md)中。
+所有資源都必須包含在[資源群組](../../azure-resource-manager/management/overview.md)中。
 
 若要指定應用程式的值並建立資源群組，請將以下程式碼新增到 Main 方法中的 try 區塊：
 

@@ -14,20 +14,22 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6b2546226d31334592034cfe0455fc32644a3900
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 7c93538982b7fd7bb2f5ac25027ed92cc6ccbfa3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132768"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357844"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>使用 Azure 擴充 SQL Server 2008 和 SQL Server 2008 R2 的支援
 
-SQL Server 2008 和 SQL Server 2008 R2 都已接近[其支援（EOS）生命週期的結尾](https://www.microsoft.com/sql-server/sql-server-2008)。 因為許多客戶仍在使用這兩個版本，所以我們會提供數個選項來繼續取得支援。 您可以將內部部署 SQL Server 實例遷移至 Azure 虛擬機器（Vm）、遷移至 Azure SQL Database，或保持內部部署和購買延伸的安全性更新。
+SQL Server 2008 和 SQL Server 2008 R2 都已達到[其支援（EOS）生命週期的結尾](https://www.microsoft.com/sql-server/sql-server-2008)。 因為許多客戶仍在使用這兩個版本，所以我們會提供數個選項來繼續取得支援。 您可以將內部部署 SQL Server 實例遷移至 Azure 虛擬機器（Vm）、遷移至 Azure SQL Database，或保持內部部署和購買延伸的安全性更新。
 
 與受控實例不同的是，遷移至 Azure VM 不需要 recertifying 您的應用程式。 與保持內部部署不同的是，您將會藉由遷移至 Azure VM，而收到免費的延伸安全性修補程式。
 
 本文的其餘部分提供將您的 SQL Server 實例遷移至 Azure VM 的考慮。
+
+如需結束支援選項的詳細資訊，請參閱[支援終止](/sql/sql-server/end-of-support/sql-server-end-of-life-overview)。
 
 ## <a name="provisioning"></a>佈建
 
@@ -87,3 +89,7 @@ Azure VM 上的 EOS SQL Server 的嚴重損壞修復解決方案如下：
 取得 SQL Server Vm 的常見問題解答：
 
 * [Azure 虛擬機器上 SQL Server 的常見問題](virtual-machines-windows-sql-server-iaas-faq.md)
+
+深入瞭解結束支援選項和擴充安全性更新：
+
+* [結束支援](/sql/sql-server/end-of-support/sql-server-end-of-life-overview) & [擴充的安全性更新](/sql/sql-server/end-of-support/sql-server-extended-security-updates)

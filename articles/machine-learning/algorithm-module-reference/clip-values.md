@@ -1,7 +1,7 @@
 ---
 title: 剪輯值
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的 [剪輯值] 模組來偵測極端值和裁剪，或取代其值。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的 [剪輯值] 模組來偵測極端值和裁剪，或取代其值。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 704b7c8a0c55bdcdd69bd8a44b0f9f44e8ddf457
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 68f73afbf81914938f78baad2cacda7327e7789a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493831"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428595"
 ---
 # <a name="clip-values"></a>剪輯值
 
@@ -90,11 +90,11 @@ ms.locfileid: "73493831"
  
 ### <a name="examples-for-clipping-using-percentiles"></a>使用百分位數進行裁剪的範例
 
-若要瞭解百分位數的裁剪如何運作，請考慮具有10個數據列的資料集，其中每個值都有一個實例1-10。  
+為了瞭解如何依百分位數來裁剪，假設資料集有 10 個資料列，每一個值 1-10 各有一個執行個體。  
   
-- 如果您使用百分位數做為上限臨界值，則在第90個百分位數的值上，資料集中所有值的90百分比必須小於該值。  
+- 如果您使用百分位數做為臨界值上限，並決定值為第 90 個百分位數，則資料集的所有值中，90% 必須小於該值。  
   
-- 如果您使用百分位數做為下限閾值，則在第10個百分位數的值中，資料集內所有值的 10% 必須小於該值。  
+- 如果您使用百分位數做為臨界值下限，並決定值為第 10 個百分位數，則資料集的所有值中，10% 必須小於該值。  
   
 1.  針對**閾值的集合**，選擇 [ **ClipPeaksAndSubPeaks**]。  
   
@@ -108,16 +108,16 @@ ms.locfileid: "73493831"
   
 1.  取消選取 [**覆寫旗**標] 選項，然後選取 [**加入指標資料行**] 選項。  
   
-現在，使用60做為最高百分位數臨界值，並使用30做為較低百分位數閾值來嘗試相同的管線，並使用閾值做為取代值。 下表會比較這兩個結果：  
+現在，使用60做為最高百分位數臨界值，並使用30做為較低百分位數閾值來嘗試相同的管線，並使用閾值做為取代值。 下表比較這兩個結果：  
   
 1.  取代為遺漏;上限臨界值 = 90;下限臨界值 = 20  
   
 1.  取代為臨界值;上限百分位數 = 60;百分位數下限 = 40  
   
-|原始資料|取代為遺漏|取代為閾值|  
+|原始資料|取代遺漏|取代臨界值|  
 |-------------------|--------------------------|----------------------------|  
 |1<br /><br /> 2<br /><br /> 3<br /><br /> 4<br /><br /> 5<br /><br /> 6<br /><br /> 7<br /><br /> 8<br /><br /> 9<br /><br /> 10|TRUE<br /><br /> TRUE<br /><br /> 3、FALSE<br /><br /> 4、FALSE<br /><br /> 5、FALSE<br /><br /> 6、FALSE<br /><br /> 7、FALSE<br /><br /> 8、FALSE<br /><br /> 9、FALSE<br /><br /> TRUE|4，TRUE<br /><br /> 4，TRUE<br /><br /> 4，TRUE<br /><br /> 4，TRUE<br /><br /> 5、FALSE<br /><br /> 6、FALSE<br /><br /> 7，TRUE<br /><br /> 7，TRUE<br /><br /> 7，TRUE<br /><br /> 7，TRUE| 
  
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

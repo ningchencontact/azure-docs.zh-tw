@@ -1,6 +1,6 @@
 ---
-title: 錯誤和例外狀況處理
-description: 了解 Azure Logic Apps 中的錯誤和例外狀況處理模式
+title: 處理錯誤和例外狀況
+description: 瞭解如何處理使用 Azure Logic Apps 所建立之自動化工作和工作流程中發生的錯誤和例外狀況
 services: logic-apps
 ms.suite: integration
 author: dereklee
@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/31/2018
 ms.topic: article
-ms.openlocfilehash: 781abb1ce92a9d96a93ac0c6b04d55075d752db8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
-ms.translationtype: HT
+ms.openlocfilehash: fa197a04b91f398bda2e402b18a638b9bf0ab9a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792077"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453399"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>處理 Azure Logic Apps 中的錯誤和例外狀況
 
@@ -27,7 +27,7 @@ ms.locfileid: "74792077"
 
 以下是重試原則的類型： 
 
-| Type | 描述 | 
+| 類型 | 說明 | 
 |------|-------------| 
 | **預設值** | 此原則會以*指數漸增*的間隔 (依 7.5 秒調整，但限制在 5 到 45 秒之間) 傳送最多 4 次重試。 | 
 | **指數間隔**  | 此原則會先等待選自指數成長範圍內的隨機間隔時間，再傳送下一個要求。 | 
@@ -69,7 +69,7 @@ ms.locfileid: "74792077"
 
 *必要*
 
-| Value | Type | 描述 |
+| 值 | 類型 | 說明 |
 |-------|------|-------------|
 | <retry-policy-type> | String | 您想要使用的重試原則類型：`default`、`none`、`fixed` 或 `exponential` | 
 | <retry-interval> | String | 值必須使用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)的重試間隔。 預設最小間隔是 `PT5S`，最大間隔則是 `PT1D`。 當您使用指數間隔原則時，您可以指定不同的最小和最大值。 | 
@@ -78,7 +78,7 @@ ms.locfileid: "74792077"
 
 *選擇性*
 
-| Value | Type | 描述 |
+| 值 | 類型 | 說明 |
 |-------|------|-------------|
 | <minimum-interval> | String | 對於指數間隔原則，此為隨機選取間隔的最小間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 | <maximum-interval> | String | 對於指數間隔原則，此為隨機選取間隔的最大間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
@@ -88,7 +88,7 @@ ms.locfileid: "74792077"
 
 <a name="default-retry"></a>
 
-### <a name="default"></a>預設值
+### <a name="default"></a>預設
 
 若您未指定重試原則，則動作會使用預設原則 (實際上就是[指數間隔原則](#exponential-interval))，此原則會以指數漸增間隔 (以 7.5 秒作調整) 傳送最多四次重試。 間隔的最小值與最大值為 5 秒和 45 秒。 
 
@@ -112,7 +112,7 @@ ms.locfileid: "74792077"
 }
 ```
 
-### <a name="none"></a>None
+### <a name="none"></a>無
 
 若要將動作或觸發程序指定為不會重試失敗的要求，請將 <retry-policy-type> 設定為 `none`。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: a1e75416db34514425436bc3ceae9f27b156b557
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8379b7f48e7e494370f3fdba81676d34821d7b6f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792692"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563372"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>儲存體佇列和服務匯流排佇列 - 異同比較
 本文將分析 Microsoft Azure 目前所提供之兩種佇列類型之間的差異和相似性：儲存體佇列和服務匯流排佇列。 透過使用此資訊，您可以比較及對照對應的技術，並能在掌握更多資訊的情況下做出最符合您需求的決策。
@@ -52,7 +52,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 * 您想要讓應用程式將訊息當成長時間執行的平行資料流來處理 (訊息是透過訊息上的 [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) 屬性與資料流相關聯)。 在這個模型中，取用端應用程式中的每個節點都會競爭取得資料流而不是訊息。 將資料流提供給取用端節點時，節點可以檢查應用程式資料流使用交易的狀態。
 * 從佇列傳送或接收多個訊息時，您的方案需要交易行為和不可部分完成性。
 * 您的應用程式所處理的訊息可能會超過 64 KB，但是不太可能會接近 256 KB 的限制。
-* 您需要提供角色型存取模型給佇列，並且針對傳送者和接收者提供不同的權限。 如需詳細資訊，請參閱下列文章。
+* 您需要提供角色型存取模型給佇列，並且針對傳送者和接收者提供不同的權限。 如需詳細資訊，請參閱下列文章：
     - [使用受控識別進行驗證](service-bus-managed-service-identity.md)
     - [從應用程式進行驗證](authenticate-application.md)
 * 您的佇列大小不會成長超過 80 GB。
@@ -175,7 +175,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 
 | 比較準則 | 儲存體佇列 | Service Bus queues |
 | --- | --- | --- |
-| Authentication |**對稱金鑰** |**對稱金鑰** |
+| 驗證 |**對稱金鑰** |**對稱金鑰** |
 | 安全性模型 |透過 SAS 權杖進行委派存取。 |SAS |
 | 識別提供者同盟 |**否** |**是** |
 
@@ -194,7 +194,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 * [開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用佇列儲存體服務](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [使用服務匯流排代理傳訊的效能改進最佳作法](service-bus-performance-improvements.md)
-* [Azure 服務匯流排的佇列和主題簡介 (部落格文章)](https://www.code-magazine.com/article.aspx?quickid=1112041)
+* [Azure 服務匯流排的佇列和主題簡介 (部落格文章)](https://www.serverless360.com/blog/azure-service-bus-queues-vs-topics)
 * [服務匯流排的開發人員指南](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
 * [使用 Azure 中的佇列服務](https://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 

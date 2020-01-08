@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 04/25/2019
-ms.openlocfilehash: c1f9a9248494344cd6577ca2bf743a4c80730cda
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bc4eea53c026eef9dc8f390976442426e2ba1067
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837990"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427536"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>適用于 Azure Machine Learning Studio 的 PowerShell 模組（傳統）
 
 您可以使用 PowerShell 模組，以程式設計方式管理您的 Studio （傳統）資源和資產，例如工作區、資料集和 web 服務。
 
-您可以使用三個 Powershell 模組，與傳統版本的 Studio 資源互動：
+您可以使用三個 Powershell 模組與 Studio （傳統）資源互動：
 
 * 2018 年發行的 [Azure PowerShell Az](#az-rm) (包含 AzureRM 的所有功能)，雖然使用不同的 Cmdlet 名稱
 * 以2016發行的[AzureRM](#az-rm) ，由 PowerShell Az 取代

@@ -1,17 +1,17 @@
 ---
 title: 使用 Azure 資料科學虛擬機器
-description: 連線到 Azure 資料科學虛擬機器（DSVM），以擴充可供 Azure Notebooks 的計算能力。
+description: 瞭解如何連線到 Azure 資料科學虛擬機器（DSVM），以擴充可供 Azure Notebooks 預覽的計算能力。
 author: getroyer
 manager: andneil
 ms.author: getroyer
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 0559442cb3f6c3937e6930082940e9354c43bc30
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7a47be46818c633c016c791d0c52eb9393029973
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277412"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646989"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>使用 Azure 資料科學虛擬機器
 
@@ -19,6 +19,8 @@ ms.locfileid: "74277412"
 
 > [!Note]
 > 只有在使用 on Linux Ubuntu 映射建立的 Dsvm 上，才支援 Azure Notebooks。 Windows 2012、Windows 2016 或 Linux CentOS 映射不支援筆記本。
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="create-a-dsvm-instance"></a>建立 DSVM 實例
 
@@ -56,7 +58,7 @@ DSVM 版本的19.06.15 或更新版本支援檔案系統存取。 若要檢查�
 
 如果有多個使用者共用 DSVM，您可以建立並使用每個筆記本使用者的 DSVM 使用者，以避免彼此封鎖：
 
-1. 在[Azure 入口網站](https://portal.azure.com)中，流覽至您的虛擬機器。
+1. 在  [Azure 入口網站](https://portal.azure.com)上，流覽至您的虛擬機器。
 1. 在左邊界的 [**支援與疑難排解**] 底下，選取 [**重設密碼**]。
 1. 輸入新的使用者名稱和密碼，然後選取 [**更新**]。 （現有的使用者名稱不會受到影響）。
 1. 針對任何其他使用者重複上一個步驟。

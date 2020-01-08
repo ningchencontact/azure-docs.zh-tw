@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 62a010480dc83561a11c6ee99c76f35b29e808c1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 8c703cc2fd93900e13d39021992bc11247881b47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932123"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394694"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>將 Azure 監視器記錄資料匯入 Power BI
 
@@ -63,7 +63,7 @@ Power BI Desktop 是桌面應用程式，可讓您建立可發行至 Power BI �
 1. 發佈完成時，按一下**在 Power BI 中開啟**，以新的資料集開啟 Power BI。
 
 
-### <a name="configure-scheduled-refresh"></a>設定排定的重新整理
+### <a name="configure-scheduled-refresh"></a>設定排程的重新整理
 在 Power BI 中建立的資料集將具有與您先前在 Power BI Desktop 看見的相同資料。  您需要定期重新整理資料集以再次執行查詢，並將最新的資料填入 Azure 監視器。  
 
 1. 按一下您上傳報表的工作區，並選取**資料集**功能表。 

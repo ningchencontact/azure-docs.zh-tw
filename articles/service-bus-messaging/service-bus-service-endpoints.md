@@ -1,6 +1,6 @@
 ---
 title: 虛擬網路服務端點-Azure 服務匯流排
-description: 新增 Microsoft.ServiceBus 服務端點至虛擬網路。
+description: 本文提供如何將 Microsoft 服務端點新增至虛擬網路的相關資訊。
 services: service-bus
 documentationcenter: ''
 author: axisc
@@ -8,18 +8,18 @@ editor: spelluru
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 99a705c3923821739ddc1dedd8f7c079dc534a1a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5446ee12a6933a916444d4f64a0eb983a35a59f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277298"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462052"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>搭配 Azure 服務匯流排使用虛擬網路服務端點
 
-服務匯流排與[虛擬網路（VNet）服務端點][vnet-sep]的整合，可讓您安全地從系結至虛擬網路的工作負載（例如虛擬機器）存取訊息功能，同時保護兩者的網路流量路徑結束.
+將服務匯流排與[虛擬網路（VNet）服務端點][vnet-sep]整合，可讓您從系結至虛擬網路的工作負載（例如虛擬機器）安全地存取訊息功能，而兩端的網路流量路徑都受到保護。
 
 一旦設定為繫結到至少一個虛擬網路子網路服務端點，個別的服務匯流排命名空間除了授權的虛擬網路以外，無法再接受任何位置的流量。 從虛擬網路的觀點而言，將服務匯流排命名空間繫結至服務端點，會設定從虛擬網路子網路到傳訊服務的隔離網路通道。
 
@@ -51,7 +51,7 @@ ms.locfileid: "74277298"
 
 需要緊密和劃分安全性，而且虛擬網路子網路分割各劃分服務的解決方案，通常仍然需要位於這些區間之各項服務之間的通訊路徑。
 
-區間之間的任何立即 IP 路由，包括那些運輸 HTTPS over TCP/IP，會帶來上層網路的弱點危害風險。 傳訊服務提供完全隔離的通訊路徑，在該路徑中，若通訊雙方之間轉換訊息，甚至會將訊息寫入到磁碟。 兩個都繫結到相同服務匯流排執行個體的不同虛擬網路，其中的工作負載可以透過訊息有效且可靠地通訊，同時保留各自的網路隔離界限完整性。
+區間之間的任何立即 IP 路由，包括那些運輸 HTTPS over TCP/IP，會帶來上層網路的弱點危害風險。 傳訊服務提供完全隔離的通訊路徑，在其中，當訊息在對象之間轉換時，甚至會寫入到磁碟。 兩個都繫結到相同服務匯流排執行個體的不同虛擬網路，其中的工作負載可以透過訊息有效且可靠地通訊，同時保留各自的網路隔離界限完整性。
  
 這表示您的安全性敏感雲端解決方案，不只獲得了 Azure 領先業界可靠和可擴充非同步傳訊功能支援，且現在可以使用傳訊來建立安全解決方案區間之間的通訊路徑，本質上會比任何對等通訊模式 (包括 HTTPS 和其他受 TLS 保護的通訊端通訊協定) 所能達成的更為安全。
 
@@ -80,7 +80,7 @@ ms.locfileid: "74277298"
 > ```json
 > "defaultAction": "Allow"
 > ```
-> 收件人
+> to
 > ```json
 > "defaultAction": "Deny"
 > ```

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha
-ms.openlocfilehash: 5d55aafc29b3b022d1023077d2d8f459b0608ae7
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 6f72371077aab813cc22c9bbbe755fdfaa9ac00a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555648"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433827"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>規劃雲端 HR 應用程式以 Azure Active Directory 使用者布建
 
@@ -96,7 +96,7 @@ Azure AD 的使用者布建服務可自動化下列以 HR 為基礎的身分識�
 | | [如何在 Active Directory 中部署使用者布建？](https://youtu.be/pKzyts6kfrw) |
 | 教學課程 | 請參閱[教學課程清單，以瞭解如何整合 SaaS 應用程式與 Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) |
 | | [教學課程：設定 Workday 來自動布建使用者](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
-| 常見問題集 | [自動化使用者布建](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#frequently-asked-questions) |
+| 常見問題集 | [自動化使用者布建](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [從 Workday 布建至 Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>方案架構
@@ -319,14 +319,14 @@ SSPR 是一種簡單的方法，可讓 IT 系統管理員用來重設其密碼�
 
 ## <a name="plan-for-initial-cycle"></a>規劃初始週期
 
-當 Azure AD 布建服務第一次執行時，它會對雲端 HR 應用程式執行[初始迴圈](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning)，以建立雲端 hr 應用程式中所有使用者物件的快照集。 初始週期所花費的時間，會直接取決於來源系統中有多少使用者。 有些雲端 HR 應用程式租使用者的初始週期若有超過100000個使用者，可能需要很長的時間。
+當 Azure AD 布建服務第一次執行時，它會對雲端 HR 應用程式執行[初始迴圈](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle)，以建立雲端 hr 應用程式中所有使用者物件的快照集。 初始週期所花費的時間，會直接取決於來源系統中有多少使用者。 有些雲端 HR 應用程式租使用者的初始週期若有超過100000個使用者，可能需要很長的時間。
 
 **針對大型雲端 HR 應用程式租使用者（> 30000 使用者），建議**您在漸進階段執行初始迴圈，並只在驗證 AD 中針對不同使用者布建案例設定正確的屬性之後，才啟動累加式更新。 遵循下列順序：
 
 1. 藉由設定[範圍篩選器](#plan-scoping-filters-and-attribute-mapping)，只針對一組有限的使用者執行初始迴圈。
 2. 確認 AD 帳戶的布建和為第一次執行選取的使用者設定的屬性值。 如果結果符合您的預期，請展開 [範圍] 篩選器，以漸進方式包含更多使用者，並確認第二次執行的結果。
 
-一旦您滿意測試使用者的初始週期結果之後，就可以啟動累加[式更新](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#incremental-cycles)。
+一旦您滿意測試使用者的初始週期結果之後，就可以啟動累加[式更新](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#incremental-cycles)。
 
 ## <a name="plan-testing-and-security"></a>規劃測試和安全性
 
@@ -358,7 +358,7 @@ SSPR 是一種簡單的方法，可讓 IT 系統管理員用來重設其密碼�
 
 如果雲端 HR 使用者布建實現在生產環境中無法如預期般運作，下列的復原步驟可協助您還原至先前已知良好的狀態：
 
-1. 檢查布建[摘要報告](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#getting-provisioning-reports-from-the-azure-management-portal)和布建[記錄](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#provisioning-audit-logs)（請參閱[管理雲端 HR 應用程式使用者](#manage-your-configuration)布建），以判斷哪些不正確的作業在受影響的使用者和/或群組上執行。
+1. 檢查布建[摘要報告](check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal)和布建[記錄](check-status-user-account-provisioning.md#provisioning-logs-preview)（請參閱[管理雲端 HR 應用程式使用者](#manage-your-configuration)布建），以判斷哪些不正確的作業在受影響的使用者和/或群組上執行。
 2. 受影響的使用者和/或群組的最後已知良好狀態可以透過布建 audit 記錄，或藉由檢查目標系統（Azure AD 或 AD）來決定。
 3. 與應用程式擁有者合作，使用最後一個已知的正確狀態值來更新直接在應用程式中影響的使用者和/或群組。
 
@@ -374,7 +374,7 @@ Azure AD 可以透過 audit 記錄和報告，為您組織的使用者布建使�
 
 ### <a name="gain-insights-from-reports-and-logs"></a>從報表和記錄中取得見解
 
-在成功的[初始迴圈](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning)之後，Azure AD 布建服務會以無限期的間隔，以每個應用程式特定的教學課程中所定義的間隔持續執行，直到發生下列其中一個事件為止：
+在成功的[初始迴圈](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle)之後，Azure AD 布建服務會以無限期的間隔，以每個應用程式特定的教學課程中所定義的間隔持續執行，直到發生下列其中一個事件為止：
 
 - 此服務會以手動方式停止，並使用[Azure 入口網站](https://portal.azure.com/)或使用適當的[Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)命令來觸發新的初始迴圈。
 - 因為屬性對應或範圍篩選器的變更，而觸發了新的初始迴圈。

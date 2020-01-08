@@ -2,19 +2,15 @@
 title: Runbook 輸入參數
 description: Runbook 輸入參數可讓您將資料傳遞至剛啟動的 Runbook，以增加 Runbook 的彈性。 本文說明在 Runbook 中使用輸入參數的不同案例。
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 02/14/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: be7d244f5aa422b2083d35fc56a52318a4379b79
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b16219c34ea30b4229195c8f019dfa8e1f147d8b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850222"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417594"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 輸入參數
 
@@ -32,8 +28,8 @@ Azure 自動化中的 PowerShell 和 PowerShell 工作流程 Runbook 支援透�
 |:--- |:--- |
 | `Type` |必要。 對參數值預期的資料類型。 任何 .NET 類型皆有效。 |
 | `Name` |必要。 參數名稱。 這在 Runbook 中必須是唯一的，並且只能包含字母、數字或底線字元。 而且必須以字母開頭。 |
-| `Mandatory` |選用。 指定是否必須提供參數的值。 如果您將此項目設定為 **\$true**，則在 Runbook 啟動時必須提供其值。 如果您將此項目設定為 **\$false**，則該值是選擇性的。 |
-| `Default value` |選用。 指定在 Runbook 啟動時未傳遞值的情況下所將用於參數的值。 任何參數皆可設定為預設值，此值將會使參數自動成為選擇性，無論 [強制] 設定為何。 |
+| `Mandatory` |選擇性。 指定是否必須提供參數的值。 如果您將此項目設定為 **\$true**，則在 Runbook 啟動時必須提供其值。 如果您將此項目設定為 **\$false**，則該值是選擇性的。 |
+| `Default value` |選擇性。 指定在 Runbook 啟動時未傳遞值的情況下所將用於參數的值。 任何參數皆可設定為預設值，此值將會使參數自動成為選擇性，無論 [強制] 設定為何。 |
 
 Windows PowerShell 所支援的輸入參數屬性比此處所列的多，例如驗證、別名和參數集。 不過，Azure 自動化目前僅支援上述的輸入參數。
 
@@ -73,7 +69,7 @@ Param
 ```
 
 > [!NOTE]
-> 當您未將任何值傳遞至 _預設值_ 為 `\$null` 的選用 `[String]` 類型參數時，參數的值會是 _空白字串_ ，而**不是** `\$null`。
+> 當您未將任何值傳遞至_預設值_為 `\$null`的選擇性 `[String]` 型別參數時，參數的值將會是_空字串_，**而不**是 `\$null`。
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>在圖形化 Runbook 中設定輸入參數
 
@@ -95,10 +91,10 @@ Param
    | **屬性** | **說明** |
    |:--- |:--- |
    | `Name` |必要。 參數名稱。 這在 Runbook 中必須是唯一的，並且只能包含字母、數字或底線字元。 而且必須以字母開頭。 |
-   | `Description` |選用。 關於輸入參數用途的說明。 |
-   | `Type` |選用。 對參數值預期的資料類型。 支援的參數類型有：**String**、**Int32**、**Int64**、**Decimal**、**Boolean**、**DateTime**、**Object**。 若未選取資料類型，將預設為 **String**。 |
-   | `Mandatory` |選用。 指定是否必須提供參數的值。 如果您選擇 [是]，則在 Runbook 啟動時必須提供其值。 如果您選擇 [否]，則在 Runbook 啟動時不一定需要值，並且可設定預設值。 |
-   | `Default Value` |選用。 指定在 Runbook 啟動時未傳遞值的情況下所將用於參數的值。 不是強制性的參數可以設定預設值。 若要設定預設值，請選擇 [自訂]。 除非在 Runbook 啟動時提供了其他值，否則將會使用此值。 若不想提供任何預設值，請選擇 [無] 。 |
+   | `Description` |選擇性。 關於輸入參數用途的說明。 |
+   | `Type` |選擇性。 對參數值預期的資料類型。 支援的參數類型有：**String**、**Int32**、**Int64**、**Decimal**、**Boolean**、**DateTime**、**Object**。 若未選取資料類型，將預設為 **String**。 |
+   | `Mandatory` |選擇性。 指定是否必須提供參數的值。 如果您選擇 [是]，則在 Runbook 啟動時必須提供其值。 如果您選擇 [否]，則在 Runbook 啟動時不一定需要值，並且可設定預設值。 |
+   | `Default Value` |選擇性。 指定在 Runbook 啟動時未傳遞值的情況下所將用於參數的值。 不是強制性的參數可以設定預設值。 若要設定預設值，請選擇 [自訂]。 除非在 Runbook 啟動時提供了其他值，否則將會使用此值。 若不想提供任何預設值，請選擇 [無] 。 |
 
     ![加入新的輸入](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
 4. 使用下列屬性，建立由 **Get-AzureRmVm** 活動使用的兩個參數：
@@ -148,7 +144,7 @@ Runbook 有多種啟動方式：透過 Azure 入口網站、透過 Webhook、透
 
 * **Azure Resource Manager Cmdlet：** 您可以使用 [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook)啟動在資源群組中建立的自動化 Runbook。
   
-  **範例：**
+  **範例︰**
 
   ```powershell
   $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
@@ -158,7 +154,7 @@ Runbook 有多種啟動方式：透過 Azure 入口網站、透過 Webhook、透
 
 * **Azure 傳統部署模型 Cmdlet：** 您可以使用 [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook) 啟動在預設資源群組中建立的自動化 Runbook。
   
-  **範例：**
+  **範例︰**
 
   ```powershell
   $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}

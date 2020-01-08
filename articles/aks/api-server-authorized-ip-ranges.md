@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: mlearned
-ms.openlocfilehash: 6fc1af356d035c4db73f761ce679f7ad16126d4f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5f3e6cf8c5de8d5f3de17ad0b5d4bb4c004c06df
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013006"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442986"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service （AKS）中使用授權的 IP 位址範圍來保護 API 伺服器的存取
 
@@ -21,7 +21,7 @@ ms.locfileid: "74013006"
 本文說明如何使用 API 伺服器授權的 IP 位址範圍，來限制哪些 IP 位址和 CIDRs 可以存取控制平面。
 
 > [!IMPORTANT]
-> 在新叢集上，只有*標準*SKU 負載平衡器才支援 API 伺服器授權的 IP 位址範圍。 已設定*基本*SKU 負載平衡器和 API 伺服器授權 IP 位址範圍的現有叢集將會繼續正常執行。 這些現有的叢集也可以升級，而且它們會繼續正常執行。
+> 在新叢集上，只有*標準*SKU 負載平衡器才支援 API 伺服器授權的 IP 位址範圍。 已設定*基本*SKU 負載平衡器和 API 伺服器授權 IP 位址範圍的現有叢集，會繼續正常工作，但無法遷移至*標準*SKU 負載平衡器。 如果升級 Kubernetes 版本或控制平面，這些現有的叢集也會繼續工作。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -65,7 +65,7 @@ az aks create \
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>指定標準 SKU 負載平衡器的輸出 Ip
 
-建立 AKS 叢集時，如果您指定叢集的輸出 IP 位址或首碼，則也會允許這些位址或首碼。 例如︰
+建立 AKS 叢集時，如果您指定叢集的輸出 IP 位址或首碼，則也會允許這些位址或首碼。 例如：
 
 ```azurecli-interactive
 az aks create \
@@ -102,7 +102,7 @@ az aks create \
 
 ## <a name="update-a-clusters-api-server-authorized-ip-ranges"></a>更新叢集的 API 伺服器授權 IP 範圍
 
-若要在現有叢集上更新 API 伺服器授權的 IP 範圍，請使用[az aks update][az-aks-update]命令並使用 *--API-* --------------------------- *--* ----------- *---* --或 *--負載平衡器-輸出-ip 首碼*參數。
+若要在現有叢集上更新 API 伺服器授權的 IP 範圍，請使用[az aks update][az-aks-update]命令並使用 *--API-* --------------------------------- *---* ---------------負載-
 
 下列範例會在名為*myResourceGroup*的資源群組中，更新名為*myAKSCluster*的叢集上的 API 伺服器授權 IP 範圍。 要授權的 IP 位址範圍是*73.140.245.0/24*：
 
@@ -117,7 +117,7 @@ az aks update \
 
 ## <a name="disable-authorized-ip-ranges"></a>停用授權的 IP 範圍
 
-若要停用授權的 IP 範圍，請使用[az aks update][az-aks-update]並指定空的範圍來停用 API 伺服器授權的 IP 範圍。 例如︰
+若要停用授權的 IP 範圍，請使用[az aks update][az-aks-update]並指定空的範圍來停用 API 伺服器授權的 IP 範圍。 例如：
 
 ```azurecli-interactive
 az aks update \

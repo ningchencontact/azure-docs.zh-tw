@@ -1,18 +1,20 @@
 ---
-title: 在 Azure 上以投影片放映 Jupyter Notebook
-description: 如何在 Jupyter Notebook 中設定投影片模式的資料格，然後使用 RISE 擴充功能放映投影片。
-ms.topic: article
+title: 以 Azure Notebooks Preview 的投影片形式呈現 Jupyter 筆記本
+description: 瞭解如何在 Jupyter 筆記本中設定投影片模式的儲存格，然後使用增加延伸模組來呈現投影片。
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: d180eaf571fa57191e3b0856020b02f05d05e344
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 05dd3d9c5580e208ecf6f9e6d762476b0b493a6c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277585"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647113"
 ---
-# <a name="run-a-notebook-slideshow"></a>執行 Notebook 投影片
+# <a name="run-a-notebook-slideshow-in-azure-notebooks-preview"></a>在 Azure Notebooks Preview 中執行筆記本投影片
 
 Azure Notebooks 預先設定有 Jupyter/IPython 投影片擴充功能 (RISE)，可讓您直接以投影片放映 Notebook。 在投影片模式中，資料格通常會使用適合呈現於大型螢幕的字型大小逐一顯示，且您仍可執行程式碼，而無須切換至不同的示範電腦。
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 下圖顯示標準 Notebook 檢視，在其中您可以同時檢視 Markdown 和程式碼資料格：
 
@@ -50,8 +52,8 @@ Azure Notebooks 預先設定有 Jupyter/IPython 投影片擴充功能 (RISE)，�
     | 投影片 | 資料格是主要的投影片，可使用導覽控制項的左右箭號來瀏覽。 |
     | 子投影片 | 資料格位於主要投影片「下方」，可使用導覽控制項的向下箭號來瀏覽。 向上箭號可回到主要投影片。 子投影片可用於您在簡報的主要流程中可略過的次要資料，但如有需要隨時可使用。 |
     | 片段 | 使用向下導覽箭號時，資料格內容會出現在上一張投影片或子投影片的內容中 (使用向上箭號時，會移除片段)。 您可以對程式碼資料格使用片段，使該程式碼出現在投影片內，或者，您可以使用多個片段，使文字項目符號逐一出現 (請參閱下一節的範例)。 由於片段建置於目前的投影片上，因此額外的片段不會顯示在瀏覽器視窗底部。 |
-    | Skip | 資料格不會顯示在投影片中。 |
-    | 注意事項 | 資料格會包含在主講人備忘稿內，而不會顯示在投影片中。 |
+    | 跳過 | 資料格不會顯示在投影片中。 |
+    | 注意 | 資料格會包含在主講人備忘稿內，而不會顯示在投影片中。 |
 
 1. 一開始最好為每個資料格選擇 [投影片]。 接著，您可以執行投影片，並進行適當的調整。
 

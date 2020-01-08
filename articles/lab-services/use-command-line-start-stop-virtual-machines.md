@@ -1,6 +1,6 @@
 ---
-title: 使用命令列工具來啟動和停止 Vm 的 Azure DevTest Labs |Microsoft Docs
-description: 了解如何使用命令列工具來啟動和停止 Azure DevTest Labs 中的虛擬機器。
+title: 使用命令列工具來啟動和停止 Vm Azure DevTest Labs |Microsoft Docs
+description: 瞭解如何使用命令列工具來啟動和停止 Azure DevTest Labs 中的虛擬機器。
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,29 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: a8132735d1af08055e9341608dcac0564ed4b927
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e00de295a7f41bf0ff768c4f948a667bc188616
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236687"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456941"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>使用命令列工具來啟動和停止 Azure DevTest Labs 虛擬機器
-本文說明如何使用 Azure PowerShell 或 Azure CLI 來啟動或停止在 Azure DevTest Labs 中對實驗室中的虛擬機器。 您可以建立 PowerShell/CLI 指令碼來自動化這些作業。 
+本文說明如何使用 Azure PowerShell 或 Azure CLI，在 Azure DevTest Labs 中啟動或停止實驗室中的虛擬機器。 您可以建立 PowerShell/CLI 腳本，將這些作業自動化。 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>總覽
-Azure DevTest Labs 是建立快速、 簡易且高效的開發/測試環境的方法。 它可讓您管理成本、 快速佈建 Vm，並減少浪費。  有內建在 Azure 入口網站中的功能，讓您在自動啟動，並在特定時間停止實驗室中設定 Vm。 
+## <a name="overview"></a>概觀
+Azure DevTest Labs 是建立快速、輕鬆且精簡的開發/測試環境的一種方式。 它可讓您管理成本、快速布建 Vm，並將浪費降至最低。  Azure 入口網站中有內建功能，可讓您將實驗室中的 Vm 設定為在特定時間自動啟動和停止。 
 
-不過，在某些情況下，您可能想要自動化啟動和停止的 Vm，從 PowerShell/CLI 指令碼。 它可讓您的開始和停止個別的機器，在任何時間，而不是在特定時間的一些彈性。 以下是一些在哪一個執行這些工作，藉由使用指令碼會有幫助的情況。
+不過，在某些情況下，您可能會想要從 PowerShell/CLI 腳本自動啟動和停止 Vm。 它可讓您在任何時間，而不是在特定時間啟動和停止個別機器，而有一些彈性。 以下是使用腳本執行這些工作的一些情況會很有説明。
 
-- 使用時的 3 層式架構應用程式測試環境的一部分，各層必須啟動序列中。 
-- 自訂準則符合以節省成本時，請關閉 VM。 
-- 使用它作為 CI/CD 工作流程內的工作流程的開頭開始，使用 Vm 當做組建電腦，測試機器或基礎結構，然後完成程序時停止的 Vm。 這個範例會使用 Azure DevTest Labs 自訂映像處理站。  
+- 在測試環境中使用3層應用程式時，階層必須以序列啟動。 
+- 符合自訂準則以節省成本時，請關閉 VM。 
+- 在 CI/CD 工作流程內，使用它做為在流程開始時啟動、使用 Vm 作為組建電腦、測試電腦或基礎結構，然後在程式完成時停止 Vm。 其中一個範例是具有 Azure DevTest Labs 的自訂映射 factory。  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-下列 PowerShell 指令碼會在實驗室中啟動 VM。 [叫用 AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0)是此指令碼的主要焦點。 **ResourceId**參數是在實驗室中 VM 的完整的資源識別碼。 **動作**參數是要在哪裡**開始**或是**停止**選項都設為視需要的項目。
+
+> [!NOTE]
+> 下列腳本會使用 Azure PowerShell Az 模組。 
+
+下列 PowerShell 腳本會在實驗室中啟動 VM。 [AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0)是此腳本的主要焦點。 **ResourceId**參數是實驗室中 VM 的完整資源識別碼。 **動作**參數是根據所需的設定，**啟動**或**停止**選項的位置。
 
 ```powershell
 # The id of the subscription
@@ -53,11 +57,7 @@ $vmAction = "Start"
 Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Get the lab information
-if ($(Get-Module -Name AzureRM).Version.Major -eq 6) {
-    $devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -Name $devTestLabName
-} else {
-    $devTestLab = Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $devTestLabName
-}
+$devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName $devTestLabName
 
 # Start the VM and return a succeeded or failed status
 $returnStatus = Invoke-AzResourceAction `
@@ -75,7 +75,7 @@ else {
 
 
 ## <a name="azure-cli"></a>Azure CLI
-[Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)自動化啟動和停止的 DevTest Labs Vm 的另一種方法。 可以是 azure CLI[安裝](/cli/azure/install-azure-cli?view=azure-cli-latest)不同作業系統上。 下列指令碼可讓您啟動及停止 VM，以在實驗室中的命令。 
+[Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)是將 DevTest Labs vm 的啟動和停止自動化的另一種方式。 Azure CLI 可以[安裝](/cli/azure/install-azure-cli?view=azure-cli-latest)在不同的作業系統上。 下列腳本提供在實驗室中啟動和停止 VM 的命令。 
 
 ```azurecli
 # Sign in to Azure
@@ -93,4 +93,4 @@ az lab vm stop --lab-name yourlabname --name vmname --resource-group labResource
 
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列文章中的有使用 Azure 入口網站來執行這些作業：[重新啟動 VM](devtest-lab-restart-vm.md)。
+請參閱下列文章，以瞭解如何使用 Azure 入口網站來執行這些作業：[重新開機 VM](devtest-lab-restart-vm.md)。

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 3feadaca361950df2a09f8da33fe380fc3763763
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: cd859a4009782ca39732ec004a3d3e05edd377b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614821"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442907"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中的容器映像管理與安全性最佳做法
 
@@ -25,6 +25,8 @@ ms.locfileid: "67614821"
 > * 更新基底映像時，自動觸發和重新部署容器映像
 
 您也可以閱讀叢集[安全性][best-practices-cluster-security]和[pod 安全性][best-practices-pod-security]的最佳做法。
+
+您也可以使用[資訊安全中心中的容器安全性][security-center-containers]，協助掃描您的容器是否有弱點。  此外，也[Azure Container Registry][security-center-acr]與資訊安全中心整合，以協助保護您的映射和登錄不受弱點影響。
 
 ## <a name="secure-the-images-and-run-time"></a>保護映像與執行階段
 
@@ -40,11 +42,11 @@ ms.locfileid: "67614821"
 
 **最佳做法指導方針** - 當您使用基底映像作為應用程式映像時，在更新基底映像時，使用自動化功能建置新的映像。 這些基底映像通常包含安全性修正程式，請一併更新任何下游應用程式的容器映像。
 
-每次更新基底映像時，也應該更新任何下游的容器映像。 此組建程式應整合至驗證和部署管線, 例如[Azure Pipelines][azure-pipelines]或 Jenkins。 這些管線可確保應用程式會持續在更新的基底映像上執行。 驗證應用程式容器映像之後，可以更新 AKS 部署以執行最新且安全的映像。
+每次更新基底映像時，也應該更新任何下游的容器映像。 此組建程式應整合至驗證和部署管線，例如[Azure Pipelines][azure-pipelines]或 Jenkins。 這些管線可確保應用程式會持續在更新的基底映像上執行。 驗證應用程式容器映像之後，可以更新 AKS 部署以執行最新且安全的映像。
 
 Azure Container Registry 工作也可在更新基底映像時自動更新容器映像。 這項功能可讓您少量建置基底映像，並以 Bug 與安全性修正程式定期更新。
 
-如需基底映射更新的詳細資訊, 請參閱[使用 Azure Container Registry 工作在基底映射更新上自動化映射組建][acr-base-image-update]。
+如需基底映射更新的詳細資訊，請參閱[使用 Azure Container Registry 工作在基底映射更新上自動化映射組建][acr-base-image-update]。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -61,3 +63,5 @@ Azure Container Registry 工作也可在更新基底映像時自動更新容器�
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md
+[security-center-containers]: /azure/security-center/container-security
+[security-center-acr]: /azure/security-center/azure-container-registry-integration

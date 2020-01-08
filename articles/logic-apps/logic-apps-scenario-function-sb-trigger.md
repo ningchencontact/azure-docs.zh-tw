@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: 66f0e0cd2bd09e22260574992f92f7210bd6aa51
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: afd2735bae2a79ad942c347219019ef200b61070
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792955"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428712"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>使用 Azure Functions 和 Azure 服務匯流排來呼叫或觸發邏輯應用程式
 
@@ -19,7 +19,7 @@ ms.locfileid: "74792955"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * Azure 服務匯流排命名空間。 如果您沒有命名空間，請[先建立命名空間](../service-bus-messaging/service-bus-create-namespace-portal.md)。
 
@@ -125,7 +125,7 @@ ms.locfileid: "74792955"
 
    這個範例會在[非同步](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async)模式中使用[`Task.Run` 方法](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run)。 如需詳細資訊，請參閱[使用 async 和 await 進行非同步程式設計](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)。
 
-   ```CSharp
+   ```csharp
    using System;
    using System.Threading.Tasks;
    using System.Net.Http;

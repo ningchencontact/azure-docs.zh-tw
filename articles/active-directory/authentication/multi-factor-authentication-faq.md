@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86cce0ee2a4966e2c2c8d74ad63a50976c199eb6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2a622245a7431058582131d9ba224ddfb676d8aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967297"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425145"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
 
@@ -26,9 +26,12 @@ ms.locfileid: "74967297"
 
 > [!IMPORTANT]
 > 從2019年7月1日起，Microsoft 將不再為新的部署提供 MFA 伺服器。 新客戶若想要從他們的使用者要求多重要素驗證，應該使用雲端式 Azure 多重要素驗證。 在7月1日前啟動 MFA Server 的現有客戶將能夠下載最新版本、未來的更新，並如往常般產生啟用認證。
+> 
+> 自2018年9月1日起，新客戶將無法再使用以耗用量為基礎的授權。
+> 自2018年9月1日起，可能不再建立新的驗證提供者。 現有的驗證提供者可繼續使用與更新。 多重要素驗證將繼續為 Azure AD Premium 授權中的可用功能。
+
 > [!NOTE]
 > 下列關於 Azure 多因素驗證服務器的共用資訊僅適用于已執行 MFA Server 的使用者。
-
 
 **問：Azure Multi-Factor Authentication Server 如何處理使用者資料？**
 

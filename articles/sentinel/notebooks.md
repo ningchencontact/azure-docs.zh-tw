@@ -1,27 +1,21 @@
 ---
-title: 在 Azure Sentinel 中使用筆記本的搜尋功能 |Microsoft Docs
+title: 使用具有 Azure Sentinel 的筆記本進行安全性搜尋
 description: 本文說明如何使用具有 Azure Sentinel 搜尋功能的筆記本。
 services: sentinel
-documentationcenter: na
 author: rkarlin
-manager: rkarlin
-editor: ''
+ms.author: rkarlin
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/25/2019
-ms.author: rkarlin
-ms.openlocfilehash: 1b78f6f0773e114a4dda536213e2684d8fbd706d
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 44a37fb8d06040b0d872f15ab25bdd2c7ff685b8
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483274"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563695"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>使用 Jupyter 筆記本來尋找安全性威脅
 
@@ -68,7 +62,7 @@ Azure Sentinel 的筆記本會使用許多熱門的 Python 程式庫，例如 pa
  
 1. 在 [Azure 入口網站中，流覽至**Azure Sentinel** > **威脅管理**] > [**筆記本**]，您可以在其中看到 Azure Sentinel 提供的筆記本。 
 
-2. 選取個別的筆記本以閱讀其描述、必要的資料類型和資料來源。 例如︰
+2. 選取個別的筆記本以閱讀其描述、必要的資料類型和資料來源。 例如：
     
     > [!div class="mx-imgBorder"]
     > ![啟動筆記本](./media/notebooks/sentinel-azure-notebooks-launch.png)
@@ -92,7 +86,7 @@ Azure Sentinel 的筆記本會使用許多熱門的 Python 程式庫，例如 pa
 
    ![匯入筆記本](./media/notebooks/sentinel-create-project.png)
 
-4. 開啟您剛建立的專案，然後開啟 [**筆記本**] 資料夾以查看筆記本。 例如︰
+4. 開啟您剛建立的專案，然後開啟 [**筆記本**] 資料夾以查看筆記本。 例如：
 
    ![匯入存放庫](./media/notebooks/sentinel-open-notebook1.png)
 

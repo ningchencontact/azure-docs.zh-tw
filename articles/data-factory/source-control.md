@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: 1f31bb78fced6db2a26559cbd098407823161dfc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: fc38dce3deaa601c9ed36f60439a08bb89cc7630
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928774"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646892"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory 中的原始檔控制
 
@@ -70,7 +70,7 @@ Azure Data Factory 的使用者介面體驗（UX）有兩種適用于視覺製�
 
 [設定] 窗格會顯示下列 Azure Repos 程式碼存放庫設定：
 
-| 設定 | 描述 | Value |
+| 設定 | 說明 | 值 |
 |:--- |:--- |:--- |
 | **存放庫類型** | Azure Repos 程式碼存放庫的類型。<br/> | Azure DevOps Git 或 GitHub |
 | **Azure Active Directory** | 您的 Azure AD 租用戶名稱。 | `<your tenant name>` |
@@ -137,7 +137,7 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 
 [設定] 窗格會顯示下列 GitHub 存放庫設定：
 
-| **設定** | **說明**  | **值**  |
+| **設定** | **說明**  | **ReplTest1**  |
 |:--- |:--- |:--- |
 | **存放庫類型** | Azure Repos 程式碼存放庫的類型。 | GitHub |
 | **使用 GitHub Enterprise** | 選取 GitHub Enterprise 的核取方塊 | 未選取（預設值） |
@@ -156,6 +156,8 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 - 早於 2.14.0 的 GitHub Enterprise 版本不適用於 Microsoft Edge 瀏覽器。
 
 - GitHub 與 Data Factory 的視覺效果撰寫工具整合僅適用于 Data Factory 的正式運作版本。
+
+- 針對每個資源類型（例如管線和資料集），最多可以從單一 GitHub 分支提取1000個實體。 若達到此限制，建議您將資源分割成不同的工廠。
 
 ## <a name="switch-to-a-different-git-repo"></a>切換至不同的 Git 存放庫
 

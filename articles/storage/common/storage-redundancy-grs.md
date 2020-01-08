@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c44c13f268a561e3094ae76757504a86627e1f58
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6bb93c3fb6599a05978e11ef5fbc179ccfaa9ec2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895211"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614893"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>異地備援儲存體 (GRS)：適用於 Azure 儲存體的跨區域複寫
 
@@ -31,7 +31,7 @@ ms.locfileid: "74895211"
 
 - 您的應用程式必須管理在使用 RA-GRS 時，與哪一個端點進行互動。
 - 由於非同步複寫會涉及延遲，因此如果無法從主要區域復原資料，則尚未複寫到次要區域的變更可能會遺失。
-- 您可以查看儲存體帳戶的上次同步處理時間。 上次同步處理時間是 GMT 日期/時間值。 在上次同步處理時間之前完成的所有主要位置寫入都已成功寫入到次要位置，這表示現在已經可以從次要位置讀取這些資料。 在上次同步處理時間之後完成的主要位置寫入可能已可讀取，也可能無法讀取。 您可以使用 [Azure 入口網站](https://portal.azure.com/)、[Azure PowerShell](storage-powershell-guide-full.md)、或 Azure 儲存體用戶端程式庫之一查詢這個值。
+- 您可以檢查儲存體帳戶的 [**上次同步時間**] 屬性。 **上次同步處理時間**是 GMT 日期/時間值。 在**上次同步處理時間**之前進行的所有主要寫入都已成功寫入到次要位置，這表示它們可以從次要位置讀取。 **上次同步處理時間**之後的主要寫入可能也不會供讀取。 您可以使用 PowerShell、Azure CLI 或其中一個 Azure 儲存體用戶端程式庫來查詢此值。 如需詳細資訊，請參閱[使用讀取權限異地多餘儲存體來設計高可用性應用程式](storage-designing-ha-apps-with-ragrs.md#getting-the-last-sync-time)中**的上次同步處理時間**。
 - 如果您將 GRS 或 RA-GRS 帳戶進行帳戶容錯移轉 (預覽) 至次要區域，該帳戶的寫入權限則會在容錯移轉完成後還原。 如需詳細資訊，請參閱[災害復原和儲存體帳戶容錯移轉 (預覽)](storage-disaster-recovery-guidance.md)。
 - RA-GRS 適用於高可用性目的。 如需延展性方面的指引，請檢閱[效能檢查清單](storage-performance-checklist.md)。
 - 如需有關 RA-GRS 高可用性的設計建議，請參閱[使用 RA-GRS 儲存體設計高可用性應用程式](storage-designing-ha-apps-with-ragrs.md)。

@@ -1,7 +1,7 @@
 ---
 title: 交叉驗證模型：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何在 Azure Machine Learning 服務中使用交叉驗證模型模組，藉由分割資料來交叉驗證分類或回歸模型的參數估計值。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何在 Azure Machine Learning 中使用交叉驗證模型模組，藉由分割資料來交叉驗證分類或回歸模型的參數估計值。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: d83a9b5df7acc9d626613e53369f483367e55a54
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b7c898c232dc39398b13f16beea814aa4e554845
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717232"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428553"
 ---
 # <a name="cross-validate-model"></a>交叉驗證模型
 
@@ -28,7 +28,7 @@ ms.locfileid: "73717232"
 
 1. 交叉驗證會隨機將定型資料分成折迭。 
 
-   如果您先前沒有分割資料集，演算法會預設為10個折迭。 若要將資料集分割成不同的折迭數，您可以使用[分割區和範例](partition-and-sample.md)模組，並指定要使用多少折迭。  
+   如果您先前未分割資料集，演算法的預設值為 10 個摺疊。 若要將資料集分割成不同的折迭數，您可以使用[分割區和範例](partition-and-sample.md)模組，並指定要使用多少折迭。  
 
 2.  模組會將 [折迭 1] 中的資料設定為用於驗證。 （這有時稱為「*維持折*迭」）。此模組會使用其餘的折迭來定型模型。 
 
@@ -82,13 +82,13 @@ ms.locfileid: "73717232"
 
 所有的反復專案都完成之後，[交叉驗證模型] 會為整個資料集建立分數。 它也會建立可用來評估模型品質的效能度量。
 
-### <a name="scored-results"></a>評分的結果
+### <a name="scored-results"></a>計分的結果
 
 模組的第一個輸出會提供每個資料列的來源資料，以及一些預測的值和相關的機率。 
 
 若要查看這些結果，請在管線中，以滑鼠右鍵按一下 [交叉驗證模型] 模組。 選取 [**計分的結果**]，然後選取 [**視覺化**]。
 
-| 新的資料行名稱      | 說明                              |
+| 新資料行名稱      | 說明                              |
 | -------------------- | ---------------------------------------- |
 | 評分標籤        | 這個資料行會加入至資料集的結尾。 它包含每個資料列的預測值。 |
 | 計分機率 | 這個資料行會加入至資料集的結尾。 它會指出**評分標籤**中值的預估機率。 |
@@ -127,5 +127,5 @@ ms.locfileid: "73717232"
 
 ## <a name="next-steps"></a>後續步驟
 
-查看 Azure Machine Learning 服務[可用的模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 
 

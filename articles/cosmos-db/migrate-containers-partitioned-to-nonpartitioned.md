@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1afca920a8146ce5501900bcc9e36bdebcccca09
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b7eed4089a65f62056027c70f08902f531567c17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706080"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445273"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>將非資料分割的容器遷移至分割的容器
 
@@ -117,6 +117,14 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 舊版的 Azure Cosmos DB Sdk （例如 V2. x. x. x. x）不支援系統定義的分割區索引鍵屬性。 因此，當您從較舊的 SDK 讀取容器定義時，它不會包含任何資料分割索引鍵定義，而這些容器的行為會與之前完全相同。 以舊版 Sdk 建立的應用程式會繼續使用非資料分割，但不會有任何變更。 
 
 如果遷移的容器是由 SDK 的最新/V3 版本所取用，而且您開始在新檔中填入系統定義的分割區索引鍵，您就無法再從較舊的 Sdk 存取（讀取、更新、刪除、查詢）這類檔。
+
+## <a name="known-issues"></a>已知問題
+
+**使用 V3 SDK 查詢不含分割區索引鍵的專案計數，可能需要較高的輸送量耗用量**
+
+如果您從 V3 SDK 針對使用 V2 SDK 所插入的專案進行查詢，或使用 V3 SDK 搭配 `PartitionKey.None` 參數插入的專案，則如果 FeedOptions 中提供了 `PartitionKey.None` 參數，則 count 查詢可能會耗用更多 RU/秒。 如果沒有使用分割區索引鍵來插入其他專案，我們建議您不要提供 `PartitionKey.None` 參數。
+
+如果使用不同的分割區索引鍵值來插入新的專案，則在 `FeedOptions` 中傳遞適當的金鑰來查詢這類專案計數，將不會有任何問題。 使用分割區索引鍵插入新檔之後，如果您只需要查詢檔計數而沒有分割區索引鍵值，則該查詢可能會再次產生與一般資料分割集合類似的 RU/秒。
 
 ## <a name="next-steps"></a>後續步驟
 

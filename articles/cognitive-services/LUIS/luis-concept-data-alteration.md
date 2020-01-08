@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: a199821c4db7fd8131ec54700b8c999dfe604a6e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1bde70dadbe1e5b8ba9bf90bd9ca2f48a4c65491
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74222030"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381795"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>預測之前或預測期間變更語句資料
 LUIS 提供可在預測之前或預測期間操作語句的方法。 其中包括[修正拼寫](luis-tutorial-bing-spellcheck.md)，以及修正預先建立之[datetimeV2](luis-reference-prebuilt-datetimev2.md)的時區問題。 
@@ -37,9 +37,9 @@ Usage of the key in the test panel and at the endpoint count toward the [key usa
 
 端點必須有兩個參數，才能讓拼字校正運作：
 
-|參數|Value|
+|Param|值|
 |--|--|
-|`spellCheck`|布林值|
+|`spellCheck`|boolean|
 |`bing-spell-check-subscription-key`|[Bing 拼字檢查 API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 端點金鑰|
 
 當 [Bing 拼字檢查 API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 偵測到錯誤時，系統會將原始語句和校正後語句及預測一起從端點傳回。
@@ -87,7 +87,7 @@ LUIS 中使用的 Bing 拼寫檢查 API 不支援在拼寫檢查改變期間忽�
 ### <a name="endpoint-querystring-parameter"></a>端點查詢字串參數
 更正時區的方式是使用 `timezoneOffset` 參數將使用者時區新增至[端點](https://go.microsoft.com/fwlink/?linkid=2092356)。 `timezoneOffset` 的值應該是用以變更時間的正數或負數 (以分鐘為單位)。  
 
-|參數|Value|
+|Param|值|
 |--|--|
 |`timezoneOffset`|正數或負數 (以分鐘為單位)|
 
@@ -121,7 +121,7 @@ HTTPs：//{region}. luis/v 3.0-預覽/應用程式/{appId}/插槽/生產/預測�
 ## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>C# 程式碼可判斷 timezoneOffset 的正確值
 下列 C# 程式碼使用 [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) 類別的 [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) 方法，根據系統時間判斷正確的 `timezoneOffset`：
 
-```CSharp
+```csharp
 // Get CST zone id
 TimeZoneInfo targetZone = TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time");
 

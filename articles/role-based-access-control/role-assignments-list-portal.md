@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 25e11ae1311df9d0392340b32e0691298f78ee1c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c265e03cfea2ebe8bbe55a63ade04bffd06360e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74710421"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462275"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>使用 Azure RBAC 和 Azure 入口網站列出角色指派
 
@@ -80,6 +80,32 @@ ms.locfileid: "74710421"
     ![[指派] 窗格](./media/role-assignments-list-portal/check-access-assignments.png)
 
     在此窗格上，您可以看到已指派所選安全性主體的角色與範圍。 若此範圍中有任何拒絕指派，或有任何拒絕指派繼承到此範圍，它們將會被列出。
+
+## <a name="list-role-assignments-for-a-system-assigned-managed-identity"></a>列出系統指派受控識別的角色指派
+
+1. 在 Azure 入口網站中，開啟系統指派的受控識別。
+
+1. 在左側功能表中，按一下 [身分**識別**]。
+
+    ![系統指派的受控識別](./media/role-assignments-list-portal/identity-system-assigned.png)
+
+1. 在 [**角色指派**] 底下，按一下 **[顯示指派給此受控識別的 Azure RBAC 角色**]。
+
+    您會在各種範圍（例如管理群組、訂用帳戶、資源群組或資源）上，看到指派給所選系統指派受控識別的角色清單。 這份清單包含您有權讀取的所有角色指派。
+
+    ![系統指派受控識別的角色指派](./media/role-assignments-list-portal/azure-resources-system-assigned.png)
+
+## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>列出使用者指派的受控識別的角色指派
+
+1. 在 Azure 入口網站中，開啟系統指派的受控識別。
+
+1. 按一下 [Azure 資源]。
+
+    您會在各種範圍（例如管理群組、訂用帳戶、資源群組或資源）上，看到指派給所選使用者指派受控識別的角色清單。 這份清單包含您有權讀取的所有角色指派。
+
+    ![系統指派受控識別的角色指派](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
+
+1. 若要變更訂用帳戶，請按一下 [**訂閱**] 清單。
 
 ## <a name="next-steps"></a>後續步驟
 

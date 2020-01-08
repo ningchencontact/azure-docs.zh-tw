@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 4512fd8a236c888937eb60a75d01cfb0ef2c1913
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 616f10b32d0a9c1a05d759a0e27550cd2808808b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792639"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428872"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>從 Power Automate 匯出流程，並部署至 Azure Logic Apps
 
@@ -24,7 +24,7 @@ ms.locfileid: "74792639"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 您想要從電源自動匯出的流程
 
@@ -85,7 +85,7 @@ ms.locfileid: "74792639"
 
    1. 針對需要授權連接的每個步驟，展開該步驟，然後選取 [**新增**]。
 
-      ![加入新的連接](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
+      ![增加新的連線](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
 
    1. 登入每個服務，或提供必要的認證來授權連線。
 
@@ -125,7 +125,7 @@ ms.locfileid: "74792639"
 
    1. 針對需要授權連接的每個步驟，展開該步驟，然後選取 [**新增**]。
 
-      ![加入新的連接](./media/export-from-microsoft-flow-logic-app-template/add-new-connection-vs.png)
+      ![增加新的連線](./media/export-from-microsoft-flow-logic-app-template/add-new-connection-vs.png)
 
    1. 登入每個服務，或提供必要的認證來授權連線。
 
@@ -133,7 +133,7 @@ ms.locfileid: "74792639"
 
 1. 在方案總管中，開啟 [專案] 快捷方式功能表，然後選取 [**部署** > **新增**]。 如果出現提示，登入您的 Azure 帳戶。
 
-1. 出現提示時，請確認 Azure 訂用帳戶、Azure 資源群組，以及您想要用於部署的任何其他設定，例如用來傳遞範本參數值的[參數](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)檔案，然後選取 [**部署**]。
+1. 出現提示時，請確認 Azure 訂用帳戶、Azure 資源群組，以及您想要用於部署的任何其他設定，例如用來傳遞範本參數值的[參數](../azure-resource-manager/templates/parameter-files.md)檔案，然後選取 [**部署**]。
 
    ![確認部署設定](./media/export-from-microsoft-flow-logic-app-template/confirm-azure-subscription-resource-group-deployment.png)
 

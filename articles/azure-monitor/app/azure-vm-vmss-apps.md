@@ -1,5 +1,5 @@
 ---
-title: 監視裝載于 Azure VM 和 Azure 虛擬機器擴展集的應用程式效能 |Microsoft Docs
+title: 監視 Azure Vm 上的效能-Azure 應用程式深入資訊
 description: Azure VM 和 Azure 虛擬機器擴展集的應用程式效能監視。 圖表載入和回應時間、相依性資訊，以及設定效能警示。
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/26/2019
-ms.openlocfilehash: 248dfb83c26d3f49fb492272ee3bd87d1e34fefa
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 2fdd07d01e6bb1258a3f2ae2e856e440e5ed2818
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161468"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407343"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>在 Azure 虛擬機器和 Azure 虛擬機器擴展集上部署 Azure 監視器 Application Insights 代理程式
 
@@ -50,7 +50,7 @@ ms.locfileid: "73161468"
 ## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machines-using-powershell"></a>使用 PowerShell 管理 Azure 虛擬機器上的 .NET 應用程式 Application Insights 代理程式
 
 > [!NOTE]
-> 安裝 Application Insights 代理程式之前，您需要有檢測金鑰。 [建立新的 Application Insights 資源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)，或從現有的 application Insights 資源複製檢測金鑰。
+> 在安裝 Application Insights 代理程式之前，您需要連接字串。 [建立新的 Application Insights 資源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)，或從現有的 application Insights 資源複製連接字串。
 
 > [!NOTE]
 > 不熟悉 powershell 嗎？ 請參閱開始使用[指南](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azps-2.5.0)。
@@ -65,8 +65,9 @@ $publicCfgJsonString = '
         {
           "appFilter": ".*",
           "machineFilter": ".*",
+          "virtualPathFilter": ".*",
           "instrumentationSettings" : {
-            "instrumentationKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            "connectionString": "InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           }
         }
       ]
@@ -105,7 +106,7 @@ Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<my
 您也可以在入口網站的 [ [Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)] 分頁中，看到已安裝的延伸模組。
 
 > [!NOTE]
-> 在與您用來部署 Application Insights 代理程式擴充功能的檢測金鑰相關聯的 Application Insights 資源中，按一下即時計量資料流，以確認安裝。 如果您從多個虛擬機器傳送資料，請選取 [伺服器名稱] 下的 [目標 Azure 虛擬機器]。 最多可能需要一分鐘的時間，資料才會開始流動。
+> 在與您用來部署 Application Insights 代理程式擴充功能的連接字串相關聯的 Application Insights 資源中，按一下即時計量資料流，以確認安裝。 如果您從多個虛擬機器傳送資料，請選取 [伺服器名稱] 下的 [目標 Azure 虛擬機器]。 最多可能需要一分鐘的時間，資料才會開始流動。
 
 ## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machine-scale-sets-using-powershell"></a>使用 powershell 管理 Azure 虛擬機器擴展集上的 .NET 應用程式 Application Insights 代理程式
 
@@ -119,8 +120,9 @@ $publicCfgHashtable =
         @{
           "appFilter"= ".*";
           "machineFilter"= ".*";
-          "instrumentationSettings"= @{
-            "instrumentationKey"= "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"; # Application Insights Instrumentation Key, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
+          "virtualPathFilter": ".*",
+          "instrumentationSettings" : {
+            "connectionString": "InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" # Application Insights connection string, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
           }
         }
       )

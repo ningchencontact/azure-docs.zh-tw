@@ -1,19 +1,14 @@
 ---
-title: 利用 Azure Advisor 改善 Azure 應用程式的效能 | Microsoft Docs
+title: 利用 Azure Advisor 改善 Azure 應用程式的效能
 description: 使用 Advisor 將 Azure 部署的效能最佳化。
-services: advisor
-documentationcenter: NA
-author: saket-ms
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: sagupt
-ms.openlocfilehash: 82c77568a2c62a0e02bf00c164f4600e221376da
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 405ec395feeb33b8511b9b915151b2ed9503c371
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183126"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443064"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>利用 Azure Advisor 改善 Azure 應用程式的效能
 
@@ -120,9 +115,9 @@ Azure Advisor 會識別使用100查詢頁面大小的 Azure Cosmos DB 容器，�
 
 若要深入了解 Advisor 建議，請參閱：
 
-* [建議程式簡介](advisor-overview.md)
+* [Advisor 簡介](advisor-overview.md)
 * [開始使用 Advisor](advisor-get-started.md)
-* [建議程式成本建議](advisor-cost-recommendations.md)
-* [建議程式高可用性建議](advisor-high-availability-recommendations.md)
-* [建議程式安全性建議](advisor-security-recommendations.md)
+* [Advisor 成本建議](advisor-cost-recommendations.md)
+* [Advisor 高可用性建議](advisor-high-availability-recommendations.md)
+* [Advisor 安全性建議](advisor-security-recommendations.md)
 * [Advisor 操作卓越建議](advisor-operational-excellence-recommendations.md)

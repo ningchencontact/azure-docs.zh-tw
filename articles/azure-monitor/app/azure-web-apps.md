@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/04/2019
-ms.openlocfilehash: 86a94cfdbd2c1755907bc13aa698fba92f5ce649
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.date: 12/11/2019
+ms.openlocfilehash: 62a66f180fd6e89329fe17a96115ecc4ca914107
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850069"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407240"
 ---
 # <a name="monitor-azure-app-service-performance"></a>監視 Azure App Service 效能
 
@@ -77,9 +77,9 @@ ms.locfileid: "74850069"
 
 # <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
 
-支援下列 .NET Core 版本： ASP.NET Core 2.0、ASP.NET Core 2.1、ASP.NET Core 2。2
+支援下列 .NET Core 版本： ASP.NET Core 2.0、ASP.NET Core 2.1、ASP.NET Core 2.2、ASP.NET Core 3。0
 
-以 .NET Core、獨立式部署和 ASP.NET Core 3.0 為目標的完整架構，目前**不支援**以代理程式/延伸模組為基礎的監視。 （透過程式碼的[手動檢測](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)功能將在先前的所有案例中使用）。
+以 .NET Core、獨立式部署和以 Linux 為基礎的應用程式為目標的完整架構，目前**不支援**以代理程式/延伸模組為基礎的監視。 （透過程式碼的[手動檢測](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)功能將在先前的所有案例中使用）。
 
 1. 在 Azure 控制台中，選取您應用程式服務的 [Application Insights]。
 
@@ -92,7 +92,7 @@ ms.locfileid: "74850069"
 
      ![檢測 Web 應用程式](./media/azure-web-apps/create-resource-01.png)
 
-2. 在指定要使用的資源之後，您可以選擇您想要 Application Insights 為應用程式的每個平臺收集資料。 .NET Core 針對 .NET Core 2.0、2.1 和2.2 提供**建議的集合**或**停用**。
+2. 在指定要使用的資源之後，您可以選擇您想要 Application Insights 為應用程式的每個平臺收集資料。 .NET Core 針對 .NET Core 2.0、2.1、2.2 和3.0 提供**建議的收集**或**停用**。
 
     ![選擇每個平台的選項](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -168,7 +168,7 @@ ms.locfileid: "74850069"
 
 ### <a name="application-settings-definitions"></a>應用程式設定定義
 
-|應用程式設定名稱 |  定義 | Value |
+|應用程式設定名稱 |  定義 | 值 |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 主要延伸模組，控制執行時間監視。 | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  只有在預設模式下，才會啟用基本功能，以確保最佳效能。 | `default` 或 `recommended`。 |

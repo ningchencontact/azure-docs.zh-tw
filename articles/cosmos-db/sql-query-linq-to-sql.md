@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: d8dd6392cf22852a10c1dc2600edcbc647f3c510
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d43f95b91df7d0c9c442339de51936200f4688e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871154"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441261"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ 至 SQL 轉譯
 
@@ -64,7 +64,7 @@ Azure Cosmos DB 查詢提供者會執行從 LINQ 查詢到 Cosmos DB SQL 查詢�
 - **OrderBy**和**OrderByDescending**：轉譯為 ORDER BY 加上 ASC 或 DESC。
 - 彙總的 **Count**、**Sum**、**Min**、**Max** 與 **Average** 運算子，以及其非同步對應項 **CountAsync**、**SumAsync**、**MinAsync**、**MaxAsync** 與 **AverageAsync**。
 - **CompareTo**：轉譯為範圍比較。 通常用於字串，因為它們在 .NET 中無法比較。
-- **Take**：轉譯為 SQL TOP，以限制查詢的結果。
+- **Skip**和**Take**：轉譯為 SQL 位移和限制，以限制查詢的結果並執行分頁。
 - **數學函數**：支援從 .net `Abs`、`Acos`、`Asin`、`Atan`、`Ceiling`、`Cos`、`Exp`、`Floor`、`Log`、`Log10`、`Pow`、`Round`、`Sign`、`Sin`、`Sqrt`、`Tan`和 `Truncate` 轉換為對等的 SQL 內建函數。
 - **字串函數**：支援從 .net `Concat`、`Contains`、`Count`、`EndsWith`、`IndexOf`、`Replace`、`Reverse`、`StartsWith`、`SubString`、`ToLower`、`ToUpper`、`TrimEnd`和 `TrimStart` 轉換為對等的 SQL 內建函數。
 - **陣列函數**：支援從 .net `Concat`、`Contains`和 `Count` 轉換為對等的 SQL 內建函數。

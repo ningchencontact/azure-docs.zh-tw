@@ -1,0 +1,70 @@
+---
+title: Azure 中的 Red Hat Enterprise Linux 映像 | Microsoft Docs
+description: 了解 Microsoft Azure 中的 Red Hat Enterprise Linux 映像
+services: virtual-machines-linux
+documentationcenter: ''
+author: asinn826
+manager: BorisB2015
+editor: ''
+ms.service: virtual-machines-linux
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 12/18/2019
+ms.author: alsin
+ms.openlocfilehash: 61991e271a68c9160a34d0de99fe4c9259ca41cb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75486335"
+---
+# <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Azure 中可用的 Red Hat Enterprise Linux （RHEL）映射
+Azure 針對不同的使用案例提供各種 RHEL 映射。
+
+## <a name="list-of-rhel-images"></a>RHEL 映射清單
+這是 Azure 中可用的 RHEL 映射清單。 除非另有說明，否則所有映射都會分割並附加至一般 RHEL 存放庫（不是 EUS，而非 E4S）。 以下是目前可供一般使用的映射：
+
+供應項目| SKU | 分割 | 佈建 | 注意
+:----|:----|:-------------|:-------------|:-----
+RHEL          | 6.7      | RAW    | Linux 代理程式 |
+|             | 6.8      | RAW    | Linux 代理程式 |
+|             | 6.9      | RAW    | Linux 代理程式 |
+|             | 6.10     | RAW    | Linux 代理程式 |
+|             | 7-RAW    | RAW    | Linux 代理程式 | RHEL 7.x 系列映射。 <br> 預設會附加至一般存放庫（非 EUS）。
+|             | 7-LVM    | LVM    | Linux 代理程式 | RHEL 7.x 系列映射。 <br> 預設會附加至一般存放庫（非 EUS）。
+|             | 7-RAW-CI | RAW-CI | Cloud-init  | RHEL 7.x 系列映射。 <br> 預設會附加至一般存放庫（非 EUS）。
+|             | 7.2      | RAW    | Linux 代理程式 |
+|             | 7.3      | RAW    | Linux 代理程式 |
+|             | 7.4      | RAW    | Linux 代理程式 | 預設會附加至 EUS 存放庫，從2019年4月起。
+|             | 7.5      | RAW    | Linux 代理程式 | 預設會附加至 EUS 存放庫，從2019年6月起。
+|             | 7.6      | RAW    | Linux 代理程式 | 預設會附加至 EUS 存放庫，從5月2019。
+|             | 7.7      | LVM    | Linux 代理程式 | 預設會附加至 EUS 存放庫。
+|             | 8        | LVM    | Linux 代理程式 | RHEL 8.x 系列映射
+|             | 8-gen2   | LVM    | Linux 代理程式 | Hyper-v 第2代-RHEL 8.x 系列映射。
+RHEL-SAP      | 7.4      | LVM    | Linux 代理程式 | 適用于 SAP Hana 和商務應用程式的 RHEL 7.4。 附加至 E4S 存放庫，將會收取 SAP 和 RHEL 的 premium，以及基礎計算費用。
+|             | 7.5      | LVM    | Linux 代理程式 | 適用于 SAP Hana 和商務應用程式的 RHEL 7.5。 附加至 E4S 存放庫，將會收取 SAP 和 RHEL 的 premium，以及基礎計算費用。
+|             | 7.6      | LVM    | Linux 代理程式 | 適用于 SAP Hana 和商務應用程式的 RHEL 7.5。 附加至 E4S 存放庫，將會收取 SAP 和 RHEL 的 premium，以及基礎計算費用。
+|             | 7.7      | LVM    | Linux 代理程式 | 適用于 SAP Hana 和商務應用程式的 RHEL 7.5。 附加至 E4S 存放庫，將會收取 SAP 和 RHEL 的 premium，以及基礎計算費用。
+RHEL-SAP-HANA | 6.7      | RAW    | Linux 代理程式 | 適用于 SAP Hana 的 RHEL 6.7。 已過期，以支援 RHEL-SAP 映射。
+|             | 7.2      | LVM    | Linux 代理程式 | 適用于 SAP Hana 的 RHEL 7.2。 已過期，以支援 RHEL-SAP 映射。
+|             | 7.3      | LVM    | Linux 代理程式 | 適用于 SAP Hana 的 RHEL 7.3。 已過期，以支援 RHEL-SAP 映射。
+RHEL-SAP-APPS | 6.8      | RAW    | Linux 代理程式 | 適用于 SAP Business Applications 的 RHEL 6.8。 已過期，以支援 RHEL-SAP 映射。
+|             | 7.3      | LVM    | Linux 代理程式 | 適用于 SAP Business Applications 的 RHEL 7.3。 已過期，以支援 RHEL-SAP 映射。
+RHEL-HA       | 7.4      | LVM    | Linux 代理程式 | RHEL 7.4 搭配 HA 附加元件。 會在基礎計算費用上收取 HA 和 RHEL 的 premium 費用。
+|             | 7.5      | LVM    | Linux 代理程式 | RHEL 7.5 搭配 HA 附加元件。 會在基礎計算費用上收取 HA 和 RHEL 的 premium 費用。
+|             | 7.6      | LVM    | Linux 代理程式 | RHEL 7.6 搭配 HA 附加元件。 會在基礎計算費用上收取 HA 和 RHEL 的 premium 費用。
+RHEL-SAP-HA   | 7.4      | LVM    | Linux 代理程式 | RHEL 7.4 for SAP with HA 附加元件。 已附加至 E4S 存放庫。 會在基礎計算費用之上收取 SAP 和 HA 存放庫以及 RHEL 的 premium。
+|             | 7.5      | LVM    | Linux 代理程式 | RHEL 7.5 for SAP with HA 附加元件。 已附加至 E4S 存放庫。 會在基礎計算費用之上收取 SAP 和 HA 存放庫以及 RHEL 的 premium。
+|             | 7.6      | LVM    | Linux 代理程式 | RHEL 7.6 for SAP with HA 附加元件。 已附加至 E4S 存放庫。 會在基礎計算費用之上收取 SAP 和 HA 存放庫以及 RHEL 的 premium。
+rhel-byos     |rhel-lvm74| LVM    | Linux 代理程式 | RHEL 7.4 BYOS 映射（不會附加至任何更新來源）不會向 RHEL premium 收費。
+|             |rhel-lvm75| LVM    | Linux 代理程式 | RHEL 7.5 BYOS 映射（不會附加至任何更新來源）不會向 RHEL premium 收費。
+|             |rhel-lvm76| LVM    | Linux 代理程式 | RHEL 7.6 BYOS 映射（不會附加至任何更新來源）不會向 RHEL premium 收費。
+|             |rhel-lvm77| LVM    | Linux 代理程式 | RHEL 7.7 BYOS 映射（不會附加至任何更新來源）不會向 RHEL premium 收費。
+|             |rhel-lvm8 | LVM    | Linux 代理程式 | RHEL 8 BYOS 映射（RHEL 次要版本會顯示在 [映射版本] 值中），未附加至任何更新來源，將不會向 RHEL premium 收費。
+
+## <a name="next-steps"></a>後續步驟
+* 深入瞭解[Azure 中的 Red Hat 映射](./redhat-images.md)。
+* 深入瞭解[Red Hat 更新基礎結構](./redhat-rhui.md)。
+* 深入瞭解[RHEL BYOS 供應](./redhat-byos.md)專案。
+* 如需所有 RHEL 版本的 Red Hat 支援原則資訊，請參閱 [Red Hat Enterprise Linux 生命週期](https://access.redhat.com/support/policy/updates/errata)頁面。

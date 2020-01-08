@@ -1,6 +1,6 @@
 ---
-title: Azure 虛擬機器擴展集常見問題集 | Microsoft Docs
-description: 取得關於虛擬機器擴展集常見問題集的解答。
+title: Azure 虛擬機器擴展集常見問題集
+description: 取得 Azure 中虛擬機器擴展集常見問題的解答。
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 429e201ba1d15103ae130ee2fb767cd1b4fa909a
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 47ea23f3018e9d28c0ccfd6640b3d365103ab9ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779419"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356208"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虛擬機器擴展集常見問題集
 
@@ -35,7 +35,7 @@ ms.locfileid: "68779419"
 
 ### <a name="are-data-disks-supported-within-scale-sets"></a>在擴展集內是否支援資料磁碟？
 
-是的。 擴展集可以定義套用至集合中所有 VM 的連結資料磁碟組態。 如需詳細資訊，請參閱 [Azure 擴展集和連結的資料磁碟](virtual-machine-scale-sets-attached-disks.md)。 其他用於儲存資料的選項包括：
+可以。 擴展集可以定義套用至集合中所有 VM 的連結資料磁碟組態。 如需詳細資訊，請參閱 [Azure 擴展集和連結的資料磁碟](virtual-machine-scale-sets-attached-disks.md)。 其他用於儲存資料的選項包括：
 
 * Azure 檔案 (SMB 共用磁碟機)
 * OS 磁碟機
@@ -69,10 +69,10 @@ ms.locfileid: "68779419"
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>擴展集是否可與 Azure 可用性區域搭配使用？
 
-是! 如需詳細資訊，請參閱[擴展集區域文件](./virtual-machine-scale-sets-use-availability-zones.md)。
+可以！ 如需詳細資訊，請參閱[擴展集區域文件](./virtual-machine-scale-sets-use-availability-zones.md)。
 
 
-## <a name="autoscale"></a>自動調整
+## <a name="autoscale"></a>自動調整規模
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>什麼是 Azure 自動調整的最佳做法？
 
@@ -84,7 +84,7 @@ ms.locfileid: "68779419"
 
 ### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>是否有任何根據 Azure 服務匯流排主題和佇列長度自動調整的範例？
 
-是的。 如需根據 Azure 服務匯流排主題和佇列長度自動調整的範例，請參閱 [Azure 監視器的自動調整常用計量](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/)。
+可以。 如需根據 Azure 服務匯流排主題和佇列長度自動調整的範例，請參閱 [Azure 監視器的自動調整常用計量](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/)。
 
 如需服務匯流排佇列，請使用下列 JSON：
 
@@ -134,7 +134,7 @@ ms.locfileid: "68779419"
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>如果我已停止 (已取消配置) VM，該 VM 是否在自動調整作業中啟動？
 
-資料分割 如果自動調整規則需有額外的 VM 執行個體作為擴展集的一部分，則會建立新的 VM 執行個體。 已停止 (已取消配置) 的 VM 執行個體不會在自動調整事件中啟動。 不過，這些已停止 (已取消配置) 的 VM 可能會在執行個體數目相應縮小的自動調整事件中遭到刪除，同樣地系統可以根據 VM 執行個體識別碼的順序刪除任何 VM 執行個體。
+不會。 如果自動調整規則需有額外的 VM 執行個體作為擴展集的一部分，則會建立新的 VM 執行個體。 已停止 (已取消配置) 的 VM 執行個體不會在自動調整事件中啟動。 不過，這些已停止 (已取消配置) 的 VM 可能會在執行個體數目相應縮小的自動調整事件中遭到刪除，同樣地系統可以根據 VM 執行個體識別碼的順序刪除任何 VM 執行個體。
 
 
 
@@ -178,7 +178,7 @@ az sf cluster create -h
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>是否可指定 SSH 金鑰組以便透過 Resource Manager 範本中的 Linux 虛擬機器擴展集來進行 SSH 驗證？
 
-是的。 **osProfile** 的 REST API 類似於標準 VM REST API。
+可以。 **osProfile** 的 REST API 類似於標準 VM REST API。
 
 在您的範本中包含 **osProfile**︰
 
@@ -208,7 +208,7 @@ az sf cluster create -h
 
 若要移除已被取代的憑證，請從保存庫憑證清單中移除舊的憑證。 將您想要的所有憑證保留在清單中的電腦上。 這樣不會從所有的 VM 移除憑證。 但也不會將憑證新增至虛擬機器擴展集中所建立的新 VM。
 
-若要從現有的 Vm 中移除憑證, 請使用自訂腳本擴充功能, 手動從憑證存放區中移除憑證。
+若要從現有的 Vm 中移除憑證，請使用自訂腳本擴充功能，手動從憑證存放區中移除憑證。
 
 ### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning"></a>如何在佈建期間將現有的 SSH 公開金鑰插入至虛擬機器擴展集 SSH 層？
 
@@ -229,17 +229,17 @@ az sf cluster create -h
 }
 ```
 
-linuxConfiguration 元素名稱 | 必要項 | Type | 描述
+linuxConfiguration 元素名稱 | 必要項 | 類型 | 說明
 --- | --- | --- | ---
-ssh | 否 | Collection | 指定 Linux OS 的 SSH 金鑰組態
-路徑 | 是 | String | 指定 SSH 金鑰或憑證必須位於的 Linux 檔案路徑
+ssh | 否 | 集合 | 指定 Linux OS 的 SSH 金鑰組態
+path | 是 | String | 指定 SSH 金鑰或憑證必須位於的 Linux 檔案路徑
 keyData | 是 | String | 指定 base64 編碼的 SSH 公開金鑰
 
 如需範例，請參閱 [101-vm-sshkey GitHub 快速入門範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)。
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>當我在從相同金鑰保存庫新增一個以上的憑證之後執行 `Update-AzVmss` 時，我會看到下列錯誤︰
 
->Update-AzVmss：清單密碼包含/subscriptions/\<我的訂用帳戶識別碼的重複實例 >/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, 這是不允許的。
+>Get-azvmss： List secret 包含重複的/subscriptions/實例，\<我的訂用帳戶識別碼 >/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev，這是不允許的。
 
 如果您嘗試重新新增相同的保存庫，而不是對現有的來源保存庫使用新的保存庫憑證，就會發生這種情形。 如果您要新增其他密碼，`Add-AzVmssSecret` 命令無法正常運作。
 
@@ -341,8 +341,15 @@ CRP 元件不會保存客戶密碼。 如果您對虛擬機器擴展集中的所
 
 ### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>[Azure 資源的受控識別](https://docs.microsoft.com/azure/active-directory/msi-overview)是否可以與虛擬機器擴展集搭配運作？
 
-是的。 您可以在適用于[Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi)和[Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi)的 Azure 快速入門範本中看到一些範例 MSI 範本。
+可以。 您可以在適用于[Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi)和[Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi)的 Azure 快速入門範本中看到一些範例 MSI 範本。
 
+## <a name="deleting"></a>正在刪除 
+
+### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>刪除實例時，是否會遵守我在虛擬機器擴展集實例上設定的鎖定？
+
+在 Azure 入口網站中，您可以藉由選取多個實例來刪除個別實例或大量刪除。 如果您嘗試刪除已鎖定的單一實例，則會遵守鎖定，而且您將無法刪除該實例。 不過，如果您大量選取多個實例，而且其中任何一個實例都已鎖定，將不會遵守鎖定，而且所有選取的實例也會被刪除。 
+ 
+在 Azure CLI 中，您只有刪除個別實例的能力。 如果您嘗試刪除已有鎖定的單一實例，則會遵守鎖定，而且您將無法刪除該實例。 
 
 ## <a name="extensions"></a>延伸模組
 
@@ -362,7 +369,7 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 ### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>是否有與 Azure 監視器記錄整合的虛擬機器擴展集範本範例？
 
-如需與 Azure 監視器記錄整合的虛擬機器擴展集範本範例, 請參閱[部署 Azure Service Fabric 叢集和使用 Azure 監視器記錄啟用監視](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)中的第二個範例。
+如需與 Azure 監視器記錄整合的虛擬機器擴展集範本範例，請參閱[部署 Azure Service Fabric 叢集和使用 Azure 監視器記錄啟用監視](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)中的第二個範例。
 
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>如何將擴充功能新增至虛擬機器擴展集中的所有 VM？
 
@@ -374,9 +381,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 如果已更新虛擬機器擴展集模型中的擴充定義且 upgradePolicy 屬性設定為 **automatic**，則會更新 VM。 如果 upgradePolicy 屬性設定為 **manual**，則會將擴充功能標示為不符合模型。
 
-### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>當現有的電腦為服務修復或重新安裝映射時, 會再次執行延伸模組嗎？
+### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>當現有的電腦為服務修復或重新安裝映射時，會再次執行延伸模組嗎？
 
-如果現有的 VM 是服務修復, 它會顯示為重新啟動, 而且不會再次執行延伸模組。 如果 VM 是重新安裝映射, 則此程式類似于將 OS 磁片磁碟機取代為來源映射。 最新模型中的任何特製化 (例如擴充功能) 都會再次執行。
+如果現有的 VM 是服務修復，它會顯示為重新啟動，而且不會再次執行延伸模組。 如果 VM 是重新安裝映射，則此程式類似于將 OS 磁片磁碟機取代為來源映射。 最新模型中的任何特製化（例如擴充功能）都會再次執行。
 
 ### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>如何將虛擬機器擴展集加入至 Active Directory 網域？
 
@@ -434,7 +441,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>如何? 執行裝載于私人儲存體帳戶的自訂腳本嗎？
 
-若要執行裝載於私人儲存體帳戶的自訂指令碼，請使用儲存體帳戶金鑰和名稱來進行受保護的設定。 如需詳細資訊, 請參閱[自訂腳本延伸](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)模組。
+若要執行裝載於私人儲存體帳戶的自訂指令碼，請使用儲存體帳戶金鑰和名稱來進行受保護的設定。 如需詳細資訊，請參閱[自訂腳本延伸](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)模組。
 
 ## <a name="passwords"></a>密碼
 
@@ -463,11 +470,11 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
     Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
     ```
 
-## <a name="networking"></a>網路功能
+## <a name="networking"></a>網路
 
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>是否可以將「網路安全性群組」(NSG) 指派給擴展集，以便將它套用至擴展集中的所有 VM NIC？
 
-是的。 您可以透過在網路設定檔的 networkInterfaceConfigurations 區段中參考「網路安全性群組」，將它直接套用至擴展集。 範例:
+可以。 您可以透過在網路設定檔的 networkInterfaceConfigurations 區段中參考「網路安全性群組」，將它直接套用至擴展集。 範例：
 
 ```json
 "networkProfile": {
@@ -507,7 +514,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>如何在相同訂用帳戶和相同區域中進行虛擬機器擴展集的 VIP 交換？
 
-如果您擁有兩個含 Azure Load Balancer 前端的虛擬機器擴展集，而且它們位於相同的訂用帳戶和區域，則您可以解除配置每個擴展集的公用 IP 位址，並指派給另一個。 請參閱 [VIP 交換：例如，請參閱 Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) 中藍綠色版本的部署。 這確實意味著在網路層級取消配置/配置資源時會產生延遲。 更快的選項是搭配兩個後端集區和一個路由規則來使用 Azure 應用程式閘道。 或者，您可以透過 [Azure App Service](https://azure.microsoft.com/services/app-service/) 裝載應用程式，以提供在預備與生產位置之間快速切換的支援。
+如果您擁有兩個含 Azure Load Balancer 前端的虛擬機器擴展集，而且它們位於相同的訂用帳戶和區域，則您可以解除配置每個擴展集的公用 IP 位址，並指派給另一個。 例如，請參閱 [VIP 交換：Azure Resource Manager 中藍綠色版本部署](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) \(英文\)。 這確實意味著在網路層級取消配置/配置資源時會產生延遲。 更快的選項是搭配兩個後端集區和一個路由規則來使用 Azure 應用程式閘道。 或者，您可以透過 [Azure App Service](https://azure.microsoft.com/services/app-service/) 裝載應用程式，以提供在預備與生產位置之間快速切換的支援。
 
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>如何指定要用於靜態私人 IP 位址配置的私人 IP 位址範圍？
 
@@ -521,7 +528,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>我可以搭配加速的網路使用擴展集嗎？
 
-是的。 若要使用加速的網路，請在擴展集的 networkInterfaceConfigurations 設定中，將enableAcceleratedNetworking 設為 true。 例如：
+可以。 若要使用加速的網路，請在擴展集的 networkInterfaceConfigurations 設定中，將enableAcceleratedNetworking 設為 true。 例如：
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -540,7 +547,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>如何設定擴展集所使用的 DNS 伺服器？
 
-若要建立含自訂 DNS 設定的虛擬機器擴展集，請將 dnsSettings JSON 封包加入至擴展集 networkInterfaceConfigurations 區段。 範例:
+若要建立含自訂 DNS 設定的虛擬機器擴展集，請將 dnsSettings JSON 封包加入至擴展集 networkInterfaceConfigurations 區段。 範例：
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -549,7 +556,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>如何設定擴展集以將公用 IP 位址指派給每部 VM？
 
-若要建立虛擬機器擴展集以將公用 IP 位址指派給每部虛擬機器，請確定 Microsoft.Compute/virtualMachineScaleSets 資源的 API 版本為 2017-03-30，並將 _publicipaddressconfiguration_ JSON 封包新增至擴展集 ipConfigurations 區段。 範例:
+若要建立虛擬機器擴展集以將公用 IP 位址指派給每部虛擬機器，請確定 Microsoft.Compute/virtualMachineScaleSets 資源的 API 版本為 2017-03-30，並將 _publicipaddressconfiguration_ JSON 封包新增至擴展集 ipConfigurations 區段。 範例：
 
 ```json
     "publicipaddressconfiguration": {
@@ -562,9 +569,9 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>我可以設定擴展集以搭配多個應用程式閘道使用嗎？
 
-是的。 您可以將多個應用程式閘道後端位址集區的資源識別碼新增至擴展集網路設定檔的 [ _ipconfiguration_ ] 區段中的 [ _applicationGatewayBackendAddressPools_ ] 清單。
+可以。 您可以將多個應用程式閘道後端位址集區的資源識別碼新增至擴展集網路設定檔的 [ _ipconfiguration_ ] 區段中的 [ _applicationGatewayBackendAddressPools_ ] 清單。
 
-## <a name="scale"></a>調整規模
+## <a name="scale"></a>擴展性
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>在何種情況下，我會建立具有兩部以下 VM 的虛擬機器擴展集？
 
@@ -623,7 +630,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>我可以在現有的資源群組中建立擴展集嗎？
 
-是, 您可以在現有的資源群組中建立擴展集。
+是，您可以在現有的資源群組中建立擴展集。
 
 ### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>我可以將擴展集移至另一個資源群組嗎？
 
@@ -639,14 +646,14 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>是否可以將擴展集與 Azure 監視器記錄整合？
 
-是, 您可以藉由在擴展集 Vm 上安裝 Azure 監視器擴充功能來進行。 Azure CLI 的範例如下：
+是，您可以藉由在擴展集 Vm 上安裝 Azure 監視器擴充功能來進行。 Azure CLI 的範例如下：
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
 您可以在 Azure 入口網站的 Log Analytics 工作區中找到所需的 workspaceId 和 workspaceKey。 在 [概觀] 頁面中，按一下 [設定] 圖格。 按一下頂端的 [連接的來源] 索引標籤。
 
 > [!NOTE]
-> 如果您的擴展集_upgradePolicy_設為 [手動], 您必須呼叫升級, 將擴充功能套用至集合中的所有 vm。 在 CLI 中，這會是 _az vmss update-instances_。
+> 如果您的擴展集_upgradePolicy_設為 [手動]，您必須呼叫升級，將擴充功能套用至集合中的所有 vm。 在 CLI 中，這會是 _az vmss update-instances_。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -686,7 +693,7 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 
 否，您無法將不同的擴充引數傳遞至虛擬機器擴展集中的不同 VM。 不過，擴充功能可以根據它們執行所在 VM 的唯一屬性來行動，例如根據電腦名稱。 擴充功能也可以在 http://169.254.169.254 上查詢執行個體中繼資料，以取得 VM 詳細資訊。
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>為何我的虛擬機器擴展集 VM 電腦名稱與 VM 識別碼之間會有落差？ 例如: 0, 1, 3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>為何我的虛擬機器擴展集 VM 電腦名稱與 VM 識別碼之間會有落差？ 例如：0、1、3...
 
 您的虛擬機器擴展集 VM 電腦名稱與 VM 識別碼之間有落差，是因為虛擬機器擴展集將 **overprovision** 屬性設定為預設值 **true**。 如果過度佈建設定為 **true**，則會建立超過要求的 VM。 然後會刪除額外的 VM。 在此情況下，您會取得更高的部署可靠性，但代價是連續的命名和連續的網路位址轉譯 (NAT) 規則。
 

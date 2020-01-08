@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: fe9b0f590dbb728a54ac66fcaa49bf3d00417e41
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 130d3315b5a9a6f175bd3d67ed33a034ab5f8dda
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033116"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371406"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>如何使用 Azure 入口網站開啟虛擬機器的連接埠
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -85,5 +85,5 @@ ms.locfileid: "74033116"
 在本文中，您會建立網路安全性群組、建立允許連接埠 80 上 HTTP 流量的輸入規則，然後將該規則與子網路建立關聯。 
 
 您可以從下列文章中，找到有關建立更詳細環境的資訊︰
-- [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)
+- [Azure Resource Manager 概觀](../../azure-resource-manager/management/overview.md)
 - [安全性群組](../../virtual-network/security-overview.md)

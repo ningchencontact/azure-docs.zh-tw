@@ -1,35 +1,26 @@
 ---
-title: Azure Service Fabric CLI - sfctl is | Microsoft Docs
-description: 描述 Service Fabric CLI sfctl is 命令。
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI-sfctl 是
+description: 深入瞭解 sfctl，這是 Azure Service Fabric 命令列介面。 包含用來管理基礎結構的命令清單。
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 9a09d8c36fd282450767880a9ad144e1192dcd2e
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c3c98e8da0c2a5449296a0fd108977ec0633f83d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901574"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639117"
 ---
 # <a name="sfctl-is"></a>sfctl is
 查詢命令，並將其傳送至基礎結構服務。
 
 ## <a name="commands"></a>命令
 
-|命令|描述|
+|Command|說明|
 | --- | --- |
-| command | 叫用指定基礎結構服務執行個體上的系統管理命令。 |
-| query | 叫用指定基礎結構服務執行個體上的唯讀查詢。 |
+| 命令 | 叫用指定基礎結構服務執行個體上的系統管理命令。 |
+| 查詢 | 叫用指定基礎結構服務執行個體上的唯讀查詢。 |
 
 ## <a name="sfctl-is-command"></a>sfctl is command
 叫用指定基礎結構服務執行個體上的系統管理命令。
@@ -38,7 +29,7 @@ ms.locfileid: "72901574"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --command [必要] | 要叫用的命令文字。 命令的內容與基礎結構有關。 |
 | --service-id | 基礎結構服務的識別。 <br><br> 這是不含 'fabric\:' URI 配置的基礎結構服務完整名稱。 只有當叢集中有多個基礎結構服務執行個體正在執行時，才需要提供此參數。 |
@@ -46,13 +37,13 @@ ms.locfileid: "72901574"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-is-query"></a>sfctl is query
 叫用指定基礎結構服務執行個體上的唯讀查詢。
@@ -61,7 +52,7 @@ ms.locfileid: "72901574"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --command [必要] | 要叫用的命令文字。 命令的內容與基礎結構有關。 |
 | --service-id | 基礎結構服務的識別。 <br><br> 這是不含 'fabric\:' URI 配置的基礎結構服務完整名稱。 只有當叢集中有多個基礎結構服務執行個體正在執行時，才需要提供此參數。 |
@@ -69,13 +60,13 @@ ms.locfileid: "72901574"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 
 ## <a name="next-steps"></a>後續步驟

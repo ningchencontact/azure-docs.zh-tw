@@ -1,20 +1,14 @@
 ---
-title: Service Fabric Azure 檔案儲存體磁片區驅動程式（GA） |Microsoft Docs
+title: Service Fabric Azure 檔案儲存體磁片區驅動程式（GA）
 description: Service Fabric 支援使用 Azure 檔案服務以備份來自您容器的磁碟區。
-services: service-fabric
-author: athinanthny
-manager: chackdan
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.author: atsenthi
-ms.openlocfilehash: 1287df567c60b7ad851c94a8ba787270255d0f35
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
-ms.translationtype: MT
+ms.openlocfilehash: 0bd84c8367f722c013abff5c2a6caaa991fa841f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422776"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464783"
 ---
 # <a name="service-fabric-azure-files-volume-driver"></a>Service Fabric Azure 檔案儲存體磁片區驅動程式
 Azure 檔案儲存體磁片區外掛程式，提供 Docker 容器[Azure 檔案儲存體](/azure/storage/files/storage-files-introduction)型磁片區的[docker 磁片區外掛程式](https://docs.docker.com/engine/extend/plugins_volume/)現在已**正式推出（** 正式運作）。
@@ -25,7 +19,7 @@ Azure 檔案儲存體磁片區外掛程式，提供 Docker 容器[Azure 檔案�
 > Azure 檔案儲存體磁片區外掛程式的版本6.5.661.9590 是 GA （正式推出）版本。 
 >
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * Azure 檔案服務磁碟區外掛程式的 Windows 版本只能在 [Windows Server 1709 版](/windows-server/get-started/whats-new-in-windows-server-1709)、[Windows 10 1709 版](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709)或更新版本的作業系統上運作。
 
 * Azure 檔案服務磁碟區外掛程式的 Linux 版本可在 Service Fabric 所支援的所有作業系統版本上運作。

@@ -1,20 +1,17 @@
 ---
 title: Azure 串流分析中可設定的閾值型規則
 description: 本文說明如何使用參考資料在 Azure 串流分析中達成具有可設定閾值型規則的警示解決方案。
-services: stream-analytics
-author: zhongc
-ms.author: zhongc
-manager: kfile
-ms.reviewer: jasonh
+author: mamccrea
+ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: f8fd21f411093e22b2b1dc5afd6da9cb26db6ff8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 94fdddf11acb6763ed98a4b7e17304fbde0e25dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934250"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369706"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>在 Azure 串流分析中處理可設定閾值型規則
 本文說明如何使用參考資料在 Azure 串流分析中達成使用可設定閾值型規則的警示解決方案。

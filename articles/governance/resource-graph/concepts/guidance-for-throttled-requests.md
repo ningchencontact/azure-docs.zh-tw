@@ -1,14 +1,14 @@
 ---
 title: 節流要求指引
-description: 瞭解如何以平行方式進行批次、錯開、分頁和查詢，以避免要求受到 Azure Resource Graph 的節流。
-ms.date: 11/21/2019
+description: 瞭解如何分組、錯開、分頁和平行查詢，以避免要求受到 Azure Resource Graph 的節流。
+ms.date: 12/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4405cce567a75f83823cc2d441b2a59985c196ad
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: fbd4bec715b187bcc643fe32b8452b0e062e7713
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304676"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436069"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Azure Resource Graph 中的節流要求指引
 
@@ -17,7 +17,7 @@ ms.locfileid: "74304676"
 本文涵蓋四個與在 Azure Resource Graph 中建立查詢相關的區域和模式：
 
 - 瞭解節流標頭
-- 批次處理查詢
+- 群組查詢
 - 錯開查詢
 - 分頁的影響
 
@@ -37,9 +37,9 @@ Azure Resource Graph 會根據時間範圍，為每個使用者配置配額編�
 
 若要_查看在查詢要求上使用_標頭輪詢的範例，請參閱[平行查詢](#query-in-parallel)中的範例。
 
-## <a name="batching-queries"></a>批次處理查詢
+## <a name="grouping-queries"></a>群組查詢
 
-依訂用帳戶、資源群組或個別資源批次處理查詢，會比平行處理查詢更有效率。 較大查詢的配額成本通常小於許多小型和目標查詢的配額成本。 建議將批次大小設為小於_300_。
+依訂用帳戶、資源群組或個別資源來分組查詢，會比平行處理查詢更有效率。 較大查詢的配額成本通常小於許多小型和目標查詢的配額成本。 建議將群組大小設為小於_300_。
 
 - 不佳的最佳方法範例
 
@@ -62,19 +62,19 @@ Azure Resource Graph 會根據時間範圍，為每個使用者配置配額編�
   }
   ```
 
-- 優化批次處理方法的範例 #1
+- 優化群組方法的範例 #1
 
   ```csharp
   // RECOMMENDED
   var header = /* your request header */
   var subscriptionIds = /* A big list of subscriptionIds */
 
-  const int batchSize = 100;
-  for (var i = 0; i <= subscriptionIds.Count / batchSize; ++i)
+  const int groupSize = 100;
+  for (var i = 0; i <= subscriptionIds.Count / groupSize; ++i)
   {
-      var currSubscriptionBatch = subscriptionIds.Skip(i * batchSize).Take(batchSize).ToList();
+      var currSubscriptionGroup = subscriptionIds.Skip(i * groupSize).Take(groupSize).ToList();
       var userQueryRequest = new QueryRequest(
-          subscriptions: currSubscriptionBatch,
+          subscriptions: currSubscriptionGroup,
           query: "Resources | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
@@ -85,21 +85,25 @@ Azure Resource Graph 會根據時間範圍，為每個使用者配置配額編�
   }
   ```
 
-- 優化批次處理方法的範例 #2
+- 在單一查詢中取得多個資源的優化群組方法範例 #2
+
+  ```kusto
+  Resources | where id in~ ({resourceIdGroup}) | project name, type
+  ```
 
   ```csharp
   // RECOMMENDED
   var header = /* your request header */
   var resourceIds = /* A big list of resourceIds */
 
-  const int batchSize = 100;
-  for (var i = 0; i <= resourceIds.Count / batchSize; ++i)
+  const int groupSize = 100;
+  for (var i = 0; i <= resourceIds.Count / groupSize; ++i)
   {
-      var resourceIdBatch = string.Join(",",
-          resourceIds.Skip(i * batchSize).Take(batchSize).Select(id => string.Format("'{0}'", id)));
+      var resourceIdGroup = string.Join(",",
+          resourceIds.Skip(i * groupSize).Take(groupSize).Select(id => string.Format("'{0}'", id)));
       var userQueryRequest = new QueryRequest(
           subscriptions: subscriptionList,
-          query: $"Resources | where id in~ ({resourceIds}) | project name, type");
+          query: $"Resources | where id in~ ({resourceIdGroup}) | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -115,13 +119,13 @@ Azure Resource Graph 會根據時間範圍，為每個使用者配置配額編�
 
 - 非交錯查詢排程
 
-  | 查詢計數         | 60  | 0    | 0     | 0     |
+  | Query Count         | 60  | 0    | 0     | 0     |
   |---------------------|-----|------|-------|-------|
   | 時間間隔（秒） | 0-5 | 5-10 | 10-15 | 15-20 |
 
 - 錯開的查詢排程
 
-  | 查詢計數         | 15  | 15   | 15    | 15    |
+  | Query Count         | 15  | 15   | 15    | 15    |
   |---------------------|-----|------|-------|-------|
   | 時間間隔（秒） | 0-5 | 5-10 | 10-15 | 15-20 |
 
@@ -149,12 +153,12 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>平行查詢
 
-雖然建議透過平行處理來進行批次處理，但有時無法輕鬆地批次處理查詢。 在這些情況下，您可能會想要以平行方式傳送多個查詢來查詢 Azure Resource Graph。 以下範例說明如何根據這類案例中的節流標_頭來進行_輪詢：
+雖然建議在平行處理時使用群組，但有時候查詢無法輕鬆地分組。 在這些情況下，您可能會想要以平行方式傳送多個查詢來查詢 Azure Resource Graph。 以下範例說明如何根據這類案例中的節流標_頭來進行_輪詢：
 
 ```csharp
-IEnumerable<IEnumerable<string>> queryBatches = /* Batches of queries  */
-// Run batches in parallel.
-await Task.WhenAll(queryBatches.Select(ExecuteQueries)).ConfigureAwait(false);
+IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */
+// Run groups in parallel.
+await Task.WhenAll(queryGroup.Select(ExecuteQueries)).ConfigureAwait(false);
 
 async Task ExecuteQueries(IEnumerable<string> queries)
 {
@@ -181,7 +185,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 }
 ```
 
-## <a name="pagination"></a>分頁
+## <a name="pagination"></a>頁數
 
 因為 Azure Resource Graph 在單一查詢回應中最多傳回1000個專案，所以您可能需要將查詢[分頁](./work-with-data.md#paging-results)，以取得您要尋找的完整資料集。 不過，某些 Azure Resource Graph 的用戶端處理分頁的方式與其他不同。
 

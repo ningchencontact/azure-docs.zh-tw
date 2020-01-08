@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d54ef06fd63a1064962aea6099a2289d04ff658
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 35700247eb2d0fb3026540776226a632122c63c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74462005"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422378"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的必要條件
 本主題描述 Azure AD Connect 的必要條件和硬體需求。
@@ -57,11 +57,7 @@ ms.locfileid: "74462005"
 >[!IMPORTANT]
 >不支援在 small business server、server essentials 或 server core 上安裝 Azure AD Connect。
 
-* Azure AD Connect 必須安裝於 Windows Server 2008 R2 或更新版本上。 此伺服器必須已加入網域，而且可能是網域控制站或成員伺服器。
-* 如果您要在 Windows Server 2008 R2 上安裝 Azure AD Connect，請務必套用來自 Windows Update 的最新 Hotfix。 無法在未修補的伺服器上開始進行安裝。
-* 如果您打算使用「密碼同步處理」功能，Azure AD Connect 伺服器必須是 Windows Server 2008 R2 SP1 或更新版本。
-* 如果您計畫使用「群組受控服務帳戶」，則 Azure AD Connect 伺服器必須位於 Windows Server 2012 或更新版本上。
-* Azure AD Connect 伺服器必須已安裝 [.NET Framework 4.5.1](#component-prerequisites) 或更新的版本及 [Microsoft PowerShell 3.0](#component-prerequisites) 或更新的版本。
+* Azure AD Connect 必須安裝在 Windows Server 2012 或更新版本上。 此伺服器必須已加入網域，而且可能是網域控制站或成員伺服器。
 * 如果您使用 Azure AD Connect wizard 來管理 ADFS 設定，Azure AD Connect 伺服器就不能群組原則啟用 PowerShell 轉譯。 如果您使用 Azure AD Connect 精靈來管理同步處理組態，您可以啟用 PowerShell 轉譯。
 * 如果部署的是 Active Directory Federation Services，則安裝 AD FS 或 Web 應用程式 Proxy 的伺服器必須是 Windows Server 2012 R2 或更新版本。 [Windows 遠端管理](#windows-remote-management) ，才能執行遠端安裝。
 * 如果部署的是 Active Directory 同盟服務，則您需要 [SSL 憑證](#ssl-certificate-requirements)。
@@ -141,9 +137,9 @@ ms.locfileid: "74462005"
 Azure AD Connect 需要 Microsoft PowerShell 和 .NET Framework 4.5.1。 您需要在伺服器上安裝此版本或更新版本。 依您的 Windows Server 版本來執行下列作業：
 
 * Windows Server 2012R2
-  * 預設會安裝 Microsoft PowerShell。 不需採取任何動作。
+  * 預設會安裝 Microsoft PowerShell。 不需執行任何動作。
   * .NET Framework 4.5.1 和更新版本會透過 Windows Update 提供。 請確定您已在控制台安裝 Windows Server 的最新更新。
-* Windows Server 2008 R2 和 Windows Server 2012
+* Windows Server 2012
   * **Windows Management Framework 4.0**中包含最新的 Microsoft PowerShell 版本，可從 [Microsoft 下載中心](https://www.microsoft.com/downloads)取得。
   * .NET Framework 4.5.1 和更新版本可從 [Microsoft 下載中心](https://www.microsoft.com/downloads)取得。
 
@@ -151,81 +147,75 @@ Azure AD Connect 需要 Microsoft PowerShell 和 .NET Framework 4.5.1。 您需�
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>啟用 Azure AD Connect 的 TLS 1.2
 在 1.1.614.0 版之前的版本中，Azure AD Connect 預設會使用 TLS 1.0 來加密同步引擎伺服器與 Azure AD 之間的通訊。 您可以設定 .NET 應用程式在伺服器上預設使用 TLS 1.2，藉此進行變更。 您可以在 [Microsoft 資訊安全摘要報告 2960358](https://technet.microsoft.com/security/advisory/2960358) 中找到 TLS 1.2 的相關詳細資訊。
 
-1. 在 Windows Server 2008 R2 或更早版本之前，無法啟用 TLS 1.2。 請確定您已安裝適用于您作業系統的 .NET 4.5.1 修補程式，請參閱[Microsoft 安全性諮詢 2960358](https://technet.microsoft.com/security/advisory/2960358)。 您的伺服器上可能已經安裝此 Hotfix 或更新版本。
-2. 如果您使用 Windows Server 2008 R2，請確定已啟用 TLS 1.2。 在 Windows Server 2012 伺服器和更新版本上，TLS 1.2 應該已經啟用。
+1.  請確定您已安裝適用于您作業系統的 .NET 4.5.1 修補程式，請參閱[Microsoft 安全性諮詢 2960358](https://technet.microsoft.com/security/advisory/2960358)。 您的伺服器上可能已經安裝此 Hotfix 或更新版本。
     ```
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+2. For all operating systems, set this registry key and restart the server.
     ```
-3. 請針對所有作業系統設定此登錄機碼並重新啟動伺服器。
+    HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\.NETFramework\v4.0.30319 "SchUseStrongCrypto" = dword：00000001
     ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
-    "SchUseStrongCrypto"=dword:00000001
-    ```
-4. 如果您也想要在同步引擎伺服器和遠端 SQL Server 之間啟用 TLS 1.2，請確定您已經安裝必要版本以獲得 [TLS 1.2 support for Microsoft SQL Server (Microsoft SQL Server 的 TLS 1.2 支援)](https://support.microsoft.com/kb/3135244)。
+4. If you also want to enable TLS 1.2 between the sync engine server and a remote SQL Server, then make sure you have the required versions installed for [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 
-## <a name="prerequisites-for-federation-installation-and-configuration"></a>同盟安裝和組態的必要條件
-### <a name="windows-remote-management"></a>Windows 遠端管理
-當您使用 Azure AD Connect 部署 Active Directory 同盟服務或 Web 應用程式 Proxy 時，請檢查這些需求：
+## Prerequisites for federation installation and configuration
+### Windows Remote Management
+When using Azure AD Connect to deploy Active Directory Federation Services or the Web Application Proxy, check these requirements:
 
-* 如果目標伺服器已加入網域，請確定已啟用 Windows 遠端管理
-  * 在提高權限的 PSH 命令視窗中，使用 `Enable-PSRemoting –force`
-* 如果目標伺服器是未加入網域的 WAP 電腦，則需要遵循一些額外需求
-  * 在目標電腦 (WAP 電腦) 上：
-    * 請確定 winrm (Windows 遠端管理/WS-Management) 服務正在透過 [服務] 嵌入式管理單元執行
-    * 在提高權限的 PSH 命令視窗中，使用 `Enable-PSRemoting –force`
-  * 在執行精靈的電腦上 (如果目標電腦未加入網域或為未受信任的網域)：
-    * 在提高權限的 PSH 命令視窗中，使用 `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
-    * 在伺服器管理員中：
-      * 將 DMZ WAP 主機加入至電腦集區 ([伺服器管理員] -> [管理] -> [加入伺服器]...使用 DNS 索引標籤)
-      * 伺服器管理員的 [所有伺服器] 索引標籤：以滑鼠右鍵按一下 WAP 伺服器並選擇 [管理]，然後輸入 WAP 電腦的本機 (非網域) 認證
-      * 若要驗證遠端 PSH 的連線能力，請在伺服器管理員的 [所有伺服器] 索引標籤中：以滑鼠右鍵按一下 WAP 伺服器，然後選擇 [Windows PowerShell]。 遠端 PSH 工作階段應隨即開啟，以確保可建立遠端 PowerShell 工作階段。
+* If the target server is domain joined, then ensure that Windows Remote Managed is enabled
+  * In an elevated PSH command window, use command `Enable-PSRemoting –force`
+* If the target server is a non-domain joined WAP machine, then there are a couple of additional requirements
+  * On the target machine (WAP machine):
+    * Ensure the winrm (Windows Remote Management / WS-Management) service is running via the Services snap-in
+    * In an elevated PSH command window, use command `Enable-PSRemoting –force`
+  * On the machine on which the wizard is running (if the target machine is non-domain joined or untrusted domain):
+    * In an elevated PSH command window, use the command `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
+    * In Server Manager:
+      * add DMZ WAP host to machine pool (server manager -> Manage -> Add Servers...use DNS tab)
+      * Server Manager All Servers tab: right click WAP server and choose Manage As..., enter local (not domain) creds for the WAP machine
+      * To validate remote PSH connectivity, in the Server Manager All Servers tab: right click WAP server and choose Windows PowerShell. A remote PSH session should open to ensure remote PowerShell sessions can be established.
 
-### <a name="ssl-certificate-requirements"></a>SSL 憑證需求
-* 強烈建議您在 AD FS 伺服器陣列的所有節點以及所有 Web 應用程式 Proxy 伺服器上使用相同的 SSL 憑證。
-* 此憑證必須是 X509 憑證。
-* 您可以在測試實驗室環境中的同盟伺服器上使用自我簽署的憑證。 不過，在生產環境中，我們建議您從公用 CA 取得憑證。
-  * 如果使用非公開信任的憑證，請確定每個 Web 應用程式 Proxy 伺服器上安裝的憑證已取得本機伺服器和所有同盟伺服器的信任
-* 憑證的身分識別必須與同盟服務名稱相符 (例如 sts.contoso.com)。
-  * 身分識別可以是 dNSName 類型的主體別名 (SAN) 副檔名；或如果沒有 SAN 項目，則會將主體名稱指定為通用名稱。  
-  * 憑證中可顯示多個 SAN 項目，前提是其中一個項目與 Federation Service 名稱相符。
-  * 如果您打算使用「新增工作場所」，則需要一個值為 **enterpriseregistration** 的額外 SAN。 後面接著組織的「使用者主體名稱」(UPN) 尾碼 (例如 **enterpriseregistration.contoso.com**)。
-* 不支援以 CryptoAPI 新一代 (CNG) 金鑰和金鑰儲存體為基礎的憑證。 這表示您必須使用以 CSP (密碼編譯服務提供者) 為基礎的憑證，而不是 KSP (金鑰儲存體提供者)。
-* 支援萬用字元憑證。
+### SSL Certificate Requirements
+* It’s strongly recommended to use the same SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
+* The certificate must be an X509 certificate.
+* You can use a self-signed certificate on federation servers in a test lab environment. However, for a production environment, we recommend that you obtain the certificate from a public CA.
+  * If using a certificate that is not publicly trusted, ensure that the certificate installed on each Web Application Proxy server is trusted on both the local server and on all federation servers
+* The identity of the certificate must match the federation service name (for example, sts.contoso.com).
+  * The identity is either a subject alternative name (SAN) extension of type dNSName or, if there are no SAN entries, the subject name specified as a common name.  
+  * Multiple SAN entries can be present in the certificate, provided one of them matches the federation service name.
+  * If you are planning to use Workplace Join, an additional SAN is required with the value **enterpriseregistration.** followed by the User Principal Name (UPN) suffix of your organization, for example, **enterpriseregistration.contoso.com**.
+* Certificates based on CryptoAPI next generation (CNG) keys and key storage providers are not supported. This means you must use a certificate based on a CSP (cryptographic service provider) and not a KSP (key storage provider).
+* Wild-card certificates are supported.
 
-### <a name="name-resolution-for-federation-servers"></a>同盟伺服器的名稱解析
-* 針對內部網路 (內部 DNS 伺服器) 和外部網路 (透過網域註冊機構註冊的公用 DNS)，設定 AD FS 同盟服務名稱 (例如 sts.contoso.com) 的 DNS 記錄。 請確認內部網路 DNS 記錄是使用 A 記錄而非 CNAME 記錄。 因為必須如此，Windows 驗證才能在您加入網域的電腦上正常運作。
-* 如果要部署多部 AD FS 伺服器或 Web 應用程式 Proxy 伺服器，則確定您已設定負載平衡器，並且 AD FS 同盟服務名稱 (例如 sts.contoso.com) 的 DNS 記錄指向負載平衡器。
-* 若要讓 Windows 整合式驗證能夠對您內部網路中使用 Internet Explorer 的瀏覽器應用程式發揮作用，請確定 AD FS 同盟服務名稱 (例如 sts.contoso.com) 已新增到 IE 中的內部網路區域。 這項作業可以透過群組原則加以控制，並部署到您所有加入網域的電腦中。
+### Name resolution for federation servers
+* Set up DNS records for the AD FS federation service name (for example sts.contoso.com) for both the intranet (your internal DNS server) and the extranet (public DNS through your domain registrar). For the intranet DNS record, ensure that you use A records and not CNAME records. This is required for windows authentication to work correctly from your domain joined machine.
+* If you are deploying more than one AD FS server or Web Application Proxy server, then ensure that you have configured your load balancer and that the DNS records for the AD FS federation service name (for example sts.contoso.com) point to the load balancer.
+* For windows integrated authentication to work for browser applications using Internet Explorer in your intranet, ensure that the AD FS federation service name (for example sts.contoso.com) is added to the intranet zone in IE. This can be controlled via group policy and deployed to all your domain joined computers.
 
-## <a name="azure-ad-connect-supporting-components"></a>Azure AD Connect 支援元件
-下列是 Azure AD Connect 會在要安裝 Azure AD Connect 的伺服器上安裝的元件清單。 此清單適用於基本快速安裝。 如果您在 [安裝同步處理服務] 頁面上選擇使用不同的 SQL Server，則不會在本機安裝 SQL Express LocalDB。
+## Azure AD Connect supporting components
+The following is a list of components that Azure AD Connect installs on the server where Azure AD Connect is installed. This list is for a basic Express installation. If you choose to use a different SQL Server on the Install synchronization services page, then SQL Express LocalDB is not installed locally.
 
 * Azure AD Connect Health
-* Microsoft SQL Server 2012 命令列公用程式
+* Microsoft SQL Server 2012 Command Line Utilities
 * Microsoft SQL Server 2012 Express LocalDB
 * Microsoft SQL Server 2012 Native Client
 * Microsoft Visual C++ 2013 Redistribution Package
 
-## <a name="hardware-requirements-for-azure-ad-connect"></a>Azure AD Connect 的硬體需求
-下表顯示 Azure AD Connect 同步處理電腦的基本需求。
+## Hardware requirements for Azure AD Connect
+The table below shows the minimum requirements for the Azure AD Connect sync computer.
 
-| Active Directory 中的物件數目 | CPU | 記憶體 | 硬碟大小 |
+| Number of objects in Active Directory | CPU | Memory | Hard drive size |
 | --- | --- | --- | --- |
-| 少於 10,000 個 |1.6 GHz |4 GB |70 GB |
-| 10,000–50,000 個 |1.6 GHz |4 GB |70 GB |
-| 50,000–100,000 個 |1.6 GHz |16 GB |100 GB |
-| 若有 100,000 個以上的物件，則需要完整版本的 SQL Server | | | |
-| 100,000–300,000 個 |1.6 GHz |32 GB |300 GB |
-| 300,000–600,000 個 |1.6 GHz |32 GB |450 GB |
-| 超過 600,000 個 |1.6 GHz |32 GB |500 GB |
+| Fewer than 10,000 |1.6 GHz |4 GB |70 GB |
+| 10,000–50,000 |1.6 GHz |4 GB |70 GB |
+| 50,000–100,000 |1.6 GHz |16 GB |100 GB |
+| For 100,000 or more objects the full version of SQL Server is required | | | |
+| 100,000–300,000 |1.6 GHz |32 GB |300 GB |
+| 300,000–600,000 |1.6 GHz |32 GB |450 GB |
+| More than 600,000 |1.6 GHz |32 GB |500 GB |
 
-執行 AD FS 或 Web 應用程式 Proxy 伺服器的電腦的最低需求如下：
+The minimum requirements for computers running AD FS or Web Application Proxy Servers is the following:
 
-* CPU：雙核心 1.6 GHz 以上
-* 記憶體：2 GB 以上
-* Azure VM：A2 組態或更高等級
+* CPU: Dual core 1.6 GHz or higher
+* MEMORY: 2 GB or higher
+* Azure VM: A2 configuration or higher
 
-## <a name="next-steps"></a>後續步驟
-深入了解 [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。
+## Next steps
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

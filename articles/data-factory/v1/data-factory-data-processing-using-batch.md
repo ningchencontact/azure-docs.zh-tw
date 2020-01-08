@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 611c2a36cac5a589ecd6f9063f5f1bc325860ef6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 699aab617e56ab87eb0bd6d6c4ceabf9aac4c4fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682672"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438895"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>使用 Data Factory 和 Batch 來處理大型資料集
 > [!NOTE]
@@ -43,8 +43,8 @@ ms.locfileid: "73682672"
 
 （選擇性）若要深入瞭解 Batch，請參閱[batch 檔](https://docs.microsoft.com/azure/batch/)。
 
-## <a name="why-azure-data-factory"></a>為何使用 Azure Data Factory？
-Data Factory 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。 您可以使用 Data Factory 來建立受控資料管線，以將資料從內部部署和雲端資料存放區移至集中式資料存放區。 Azure Blob 儲存體便是一個例子。 您可以使用 Data Factory 透過 Azure HDInsight 和 Azure Machine Learning 之類的服務來處理/轉換資料。 您也可以排定讓資料管線以排程方式執行 (例如每小時、每天及每週)。 您一眼就能監視及管理管線來找出問題點並採取行動。
+## <a name="why-azure-data-factory"></a>為何要使用 Azure Data Factory？
+Data Factory 是雲端式資料整合服務，可協調和自動化資料的移動及轉換作業。 您可以使用 Data Factory 來建立受控資料管線，以將資料從內部部署和雲端資料存放區移至集中式資料存放區。 Azure Blob 儲存體便是一個例子。 您可以使用 Data Factory 透過 Azure HDInsight 和 Azure Machine Learning 之類的服務來處理/轉換資料。 您也可以排定讓資料管線以排程方式執行 (例如每小時、每天及每週)。 您一眼就能監視及管理管線來找出問題點並採取行動。
 
   如果您不熟悉 Data Factory，下列文章將可協助您了解本文所述解決方案的架構/實作：  
 
@@ -87,7 +87,7 @@ Data Factory 包含內建的活動。 例如，使用「複製」活動可將資
 **時間**：如果您熟悉 Azure、Data Factory 和 Batch 的基本概念，並已符合下列先決條件，此解決方案將需要 1 到 2 小時的時間來完成。
 
 ### <a name="prerequisites"></a>必要條件
-#### <a name="azure-subscription"></a>Azure 訂閱
+#### <a name="azure-subscription"></a>Azure 訂用帳戶
 如果您沒有 Azure 訂用帳戶，您可以快速建立免費的試用帳戶。 如需詳細資訊，請參閱[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 #### <a name="azure-storage-account"></a>Azure 儲存體帳戶
@@ -111,7 +111,7 @@ Data Factory 包含內建的活動。 例如，使用「複製」活動可將資
 
    a. 輸入集區的識別碼 (**集區識別碼**)。 請記下集區的識別碼。 在建立資料處理站解決方案時會需要它。
 
-   b.這是另一個 C# 主控台應用程式。 為 [作業系統系列] 設定指定 [Windows Server 2012 R2]。
+   b. 為 [作業系統系列] 設定指定 [Windows Server 2012 R2]。
 
    c. 選取 **節點定價層**。
 
@@ -180,17 +180,17 @@ public IDictionary<string, string> Execute(
 
    a. 啟動 Visual Studio 2012/2013/2015。
 
-   b.這是另一個 C# 主控台應用程式。 選取 [檔案] > [新增] > [專案]。
+   b. 選取 [File] \(檔案\) >  [New] \(新增\) >  [Project] \(專案\)。
 
    c. 展開 [範本]，然後選取 [Visual C#] **\#** 。 在此逐步解說中，您使用 C\# 中，但您可以使用任何 .NET 語言來開發自訂活動。
 
    d. 從右邊的專案類型清單中選取 [類別庫]。
 
-   e. 輸入 **Execute** for the **MyDotNetActivity**中的逐步指示。
+   e. 針對 [名稱] 輸入 **MyDotNetActivity**。
 
-   f. 在 [位置] **\\ 中選取** C:**ADF**。 建立 [ADF] 資料夾 (如果不存在)。
+   f. 在 [位置] 中選取 **C:\\ADF**。 建立 [ADF] 資料夾 (如果不存在)。
 
-   g. 選取 [確定] 以建立專案。
+   g. 選取 [確定] 可建立專案。
 
 1. 選取 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。
 
@@ -528,7 +528,7 @@ test custom activity Microsoft test custom activity Microsoft
 
    a. 選取左側功能表上的 [新增]。
 
-   b.這是另一個 C# 主控台應用程式。 選取 [新增] 刀鋒視窗上的 [資料 + 分析]。
+   b. 選取 [新增] 刀鋒視窗上的 [資料 + 分析]。
 
    c. 選取 [資料分析] 刀鋒視窗上的 [資料處理站]。
 
@@ -556,9 +556,9 @@ test custom activity Microsoft test custom activity Microsoft
 
    ![新增資料存放區](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. 將**帳戶名稱**取代成您儲存體帳戶的名稱。 將**帳戶金鑰**取代成儲存體帳戶的存取金鑰。 若要了解如何取得儲存體存取金鑰，請參閱[檢視、複製和重新產生儲存體存取金鑰](../../storage/common/storage-account-manage.md#access-keys)。
+1. 將**帳戶名稱**取代成您儲存體帳戶的名稱。 將**帳戶金鑰**取代成儲存體帳戶的存取金鑰。 若要瞭解如何取得儲存體存取金鑰，請參閱[管理儲存體帳戶存取金鑰](../../storage/common/storage-account-keys-manage.md)。
 
-1. 選取命令列上的 [部署] 以部署已連結的服務。
+1. 選取命令列上的 [部署] 以部署連結服務。
 
    ![部署](./media/data-factory-data-processing-using-batch/image8.png)
 
@@ -571,14 +571,14 @@ test custom activity Microsoft test custom activity Microsoft
 
    a. 將**帳戶名稱**取代成您 Batch 帳戶的名稱。
 
-   b.這是另一個 C# 主控台應用程式。 將**存取金鑰**取代成 Batch 帳戶的存取金鑰。
+   b. 將**存取金鑰**取代成 Batch 帳戶的存取金鑰。
 
    c. 針對 **poolName** 屬性輸入集區的識別碼。 您可以針對此屬性指定集區名稱或集區識別碼。
 
    d. 針對 **batchUri** JSON 屬性，輸入 Batch URI。
 
       > [!IMPORTANT]
-      > [Batch 帳戶] 刀鋒視窗中的 URL 格式如下：\<accountname\>.\<region\>.batch.azure.com。 針對 JSON 指令碼中的 **batchUri** 屬性，您必須從該 URL 中移除 a88"accountname."**。 例如 `"batchUri": "https://eastus.batch.azure.com"`。
+      > [Batch 帳戶] 刀鋒視窗中的 URL 格式如下：\<accountname\>.\<region\>.batch.azure.com。 針對 JSON 腳本中的**batchUri**屬性，您必須移除 a88 "accountname"。* * 從 URL。 例如 `"batchUri": "https://eastus.batch.azure.com"`。
       >
       >
 
@@ -593,7 +593,7 @@ test custom activity Microsoft test custom activity Microsoft
    
    e. 指定作業系統系列設定的 **StorageLinkedService** for the **StorageLinkedService** 。 您已在前述步驟中建立此連結服務。 此儲存體會做為檔案和記錄的預備區域。
 
-1. 選取命令列上的 [部署] 以部署已連結的服務。
+1. 選取命令列上的 [部署] 以部署連結服務。
 
 #### <a name="step-3-create-datasets"></a>步驟 3：建立資料集
 在此步驟中，您會建立資料集來代表輸入和輸出資料。
@@ -659,7 +659,7 @@ test custom activity Microsoft test custom activity Microsoft
     }
     ```
 
-    您稍後會在本逐步解說中建立一個開始時間為 2015-11-16T00:00:00Z 而結束時間為 2015-11-16T05:00:00Z 的管線。 此管線排定在每小時產生資料，因此會有 5 個輸入/輸出配量 (在 **00**:00:00 -\> **05**:00:00 之間)。
+    您稍後會在本逐步解說中建立一個開始時間為 2015-11-16T00:00:00Z 而結束時間為 2015-11-16T05:00:00Z 的管線。 排程為每小時產生資料，因此有5個輸入/輸出配量（介於**00**： 00:00-\> **05**：00:00）。
 
     輸入資料集的 **frequency** 和 **interval** 已設定為 **Hour** 和 **1**，這意謂著每小時都會有輸入配量。
 
@@ -828,7 +828,7 @@ test custom activity Microsoft test custom activity Microsoft
 
 1. 使用入口網站來檢視與配量關聯的工作，並查看每個配量在哪個 VM 上執行。 如需詳細資訊，請參閱 [Data Factory 和 Batch 整合](#data-factory-and-batch-integration)一節。
 
-1. 輸出檔案會出現在您 Blob 儲存體內 `mycontainer` 中的 `outputfolder` 底下。
+1. 輸出檔案會出現在您 Blob 儲存體內 `outputfolder` 中的 `mycontainer` 底下。
 
    ![儲存體中的輸出檔案](./media/data-factory-data-processing-using-batch/image15.png)
 
@@ -849,7 +849,7 @@ test custom activity Microsoft test custom activity Microsoft
 
     ![執行](./media/data-factory-data-processing-using-batch/image17.png)
 
-1. 在配量執行且其狀態變成 [就緒] 之後，驗證此配量之輸出檔案 (**2015-11-16-01.txt**) 中的內容。 此輸出檔案會出現在您 Blob 儲存體內 `mycontainer` 中的 `outputfolder` 底下。 配量的每個檔案應該都有一行。
+1. 在配量執行且其狀態變成 [就緒] 之後，驗證此配量之輸出檔案 (**2015-11-16-01.txt**) 中的內容。 此輸出檔案會出現在您 Blob 儲存體內 `outputfolder` 中的 `mycontainer` 底下。 配量的每個檔案應該都有一行。
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.

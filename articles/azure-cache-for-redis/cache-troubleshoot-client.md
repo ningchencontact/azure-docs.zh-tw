@@ -1,17 +1,17 @@
 ---
 title: 針對 Azure Cache for Redis 用戶端問題進行疑難排解
-description: 瞭解如何解決 Azure Cache for Redis 的常見用戶端問題
+description: 瞭解如何解決 Azure Cache for Redis 的常見用戶端問題，例如 Redis 用戶端記憶體壓力、流量高載、高 CPU、有限頻寬、大型要求或大型回應大小。
 author: yegu-ms
-ms.service: cache
-ms.topic: conceptual
-ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: a4fdbe9c0943e77719a9ee9da7dc358696284d99
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.service: cache
+ms.topic: troubleshooting
+ms.date: 10/18/2019
+ms.openlocfilehash: abb73f93116fae217f527e0a9faaf61e2b42ba6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122626"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433365"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>針對 Azure Cache for Redis 用戶端問題進行疑難排解
 
@@ -60,7 +60,7 @@ ms.locfileid: "74122626"
 使用 Azure 入口網站中可用的計量，或透過電腦上的效能計數器，監視用戶端全系統的 CPU 使用量。 請小心不要監視*處理*程式 CPU，因為單一進程可能會有較低的 cpu 使用量，但全系統的 cpu 可能很高。 請監看與逾時對應的 CPU 使用量暴增。 高 CPU 可能也會導致 `TimeoutException` 錯誤訊息中的高 `in: XXX` 值，如[流量](#traffic-burst)激增一節中所述。
 
 > [!NOTE]
-> StackExchange.Redis 1.1.603 和更新版本在 `local-cpu` 錯誤訊息中包含 `TimeoutException` 度量。 請確定您使用最新版的 [StackExchange.Redis NuGet 封裝](https://www.nuget.org/packages/StackExchange.Redis/)。 程式碼中的錯誤會經常修正，以便更能應付逾時問題，因此請務必要擁有最新版本。
+> StackExchange.Redis 1.1.603 和更新版本在 `TimeoutException` 錯誤訊息中包含 `local-cpu` 度量。 請確定您使用最新版的 [StackExchange.Redis NuGet 封裝](https://www.nuget.org/packages/StackExchange.Redis/)。 程式碼中的錯誤會經常修正，以便更能應付逾時問題，因此請務必要擁有最新版本。
 >
 
 若要降低用戶端的高 CPU 使用量：

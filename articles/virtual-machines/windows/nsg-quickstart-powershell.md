@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 3577c97b55baebe08ca4020b0c570160d551dfd3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ecc996cc07cfbf22a04a620ca426ca97056a9a9d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033081"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371202"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>如何使用 PowerShell 對 Azure 中的 VM 開啟連接埠與端點
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -60,7 +60,7 @@ $nsg = New-AzNetworkSecurityGroup `
     -SecurityRules $httprule
 ```
 
-現在，讓我們將「網路安全性群組」指派給子網路。 下列範例使用 *Get-AzVirtualNetwork* 將名為 myVnet 的現有虛擬網路指派至變數 $vnet[](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork)：
+現在，讓我們將「網路安全性群組」指派給子網路。 下列範例使用 [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) 將名為 myVnet 的現有虛擬網路指派至變數 $vnet：
 
 ```powershell
 $vnet = Get-AzVirtualNetwork `
@@ -95,7 +95,7 @@ Set-AzVirtualNetwork -VirtualNetwork $vnet
 ## <a name="next-steps"></a>後續步驟
 在此範例中，您建立了簡單的規則來允許 HTTP 流量。 您可以從下列文章中，找到有關建立更詳細環境的資訊︰
 
-* [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)
+* [Azure Resource Manager 概觀](../../azure-resource-manager/management/overview.md)
 * [什麼是網路安全性群組？](../../virtual-network/security-overview.md)
 * [負載平衡器的 Azure Resource Manager 概觀](../../load-balancer/load-balancer-arm.md)
 

@@ -1,27 +1,22 @@
 ---
-title: 使用 Azure Advisor 降低服務成本 | Microsoft Docs
+title: 使用 Azure Advisor 降低服務成本
 description: 使用 Azure Advisor 程式將 Azure 部署的成本最佳化。
-services: advisor
-documentationcenter: NA
-author: saket-ms
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: sagupt
-ms.openlocfilehash: 9f074c8077f41392fa9d45022a6a7a537964afa9
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: afa5a4068d2ec5f4730d261801760fe68d7a330e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74180593"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443116"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>使用 Azure Advisor 降低服務成本
 
-建議程式可找出閒置和未充分利用的資源，協助您最佳化並減少 Azure 整體費用。 您可以從 Advisor 儀表板上的 [**成本**] 索引標籤取得成本建議。
+Advisor 可找出閒置和未充分利用的資源，協助您減少 Azure 的整體費用並加以最佳化。 您可以從 Advisor 儀表板上的 [**成本**] 索引標籤取得成本建議。
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>關閉使用量過低的執行個體，或者重新調整其大小或，從而將虛擬機器的費用最佳化 
 
-雖然特定應用程式案例的設計可能導致低使用率，但您通常可藉由管理虛擬機器的大小和數目來節省金錢。 當 CPU 使用率的最大值上限低於3% 且網路使用率在7天期間內低於2% 時，Advisor advanced 評估模型會將虛擬機器視為關機。 當可能符合較小 SKU （在相同 SKU 系列內）的目前負載，或較小的實例數目時，會將虛擬機器視為正確的大小，如此一來，當非使用者面向的工作負載時，目前的負載不會超過80% 的使用率，而當使用者對應的工作負載時，則不超過40%。 在這裡，工作負載的類型是藉由分析工作負載的 CPU 使用率特性來決定。
+雖然特定應用程式的設計情境可能導致低使用率，但您通常可以藉由調整虛擬機器的大小和數量來節省費用。 當 CPU 使用率的最大值 P95th 小於3%，且網路使用率在7天內低於2% 時，Advisor advanced 評估模型會將虛擬機器視為關閉。 當可能符合較小 SKU （在相同 SKU 系列內）的目前負載，或較小的實例數目時，會將虛擬機器視為正確的大小，如此一來，當非使用者面向的工作負載時，目前的負載不會超過80% 的使用率，而當使用者對應的工作負載時，則不超過40%。 在這裡，工作負載的類型是藉由分析工作負載的 CPU 使用率特性來決定。
 
 建議的動作是 [關閉] 或 [調整大小]，特別是建議的資源。 Advisor 會顯示建議動作的預估成本節約-調整大小或關機。 此外，若要調整建議的動作大小，Advisor 會提供目前和目標的 SKU 資訊。 
 
@@ -50,20 +45,22 @@ Advisor 會識別目前未與 Azure 資源相關聯的公用 IP 位址，例如�
 Azure Advisor 會偵測重複失敗的 Azure Data Factory 管線，並建議您解決問題，或在不再需要失敗的管線時將其刪除。 這些管線即使在失敗時仍未提供服務，也會向您收取費用。 
 
 ## <a name="use-standard-snapshots-for-managed-disks"></a>使用受控磁碟的標準快照集
-若要節省60% 的成本，建議您將快照集儲存在標準儲存體中，不論父磁片的儲存體類型為何。 這是受控磁碟快照集的預設選項。 Azure Advisor 會識別儲存進階儲存體的快照集，並建議您將快照集從 Premium 遷移至標準儲存體。 [深入瞭解受控磁片定價](https://aka.ms/aa_manageddisksnapshot_learnmore)
+若要節省 60% 的成本，無論父代磁片的儲存體類型為何，建議您將快照集儲存在標準儲存體中。 此選項是受控磁碟快照集的預設選項。 Azure Advisor 會識別儲存進階儲存體的快照集，並建議您將快照集從 Premium 遷移至標準儲存體。 [深入瞭解受控磁片定價](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>如何存取 Azure Advisor 中的成本建議
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後開啟 [Advisor](https://aka.ms/azureadvisordashboard)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2.  在 Advisor 儀表板上，按一下 [成本] 索引標籤。
+1. 從任何頁面搜尋並選取 [ [**Advisor**](https://aka.ms/azureadvisordashboard) ]。
+
+1. 在**Advisor**儀表板上，選取 [**成本**] 索引標籤。
 
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解 Advisor 建議，請參閱：
-* [建議程式簡介](advisor-overview.md)
+* [Advisor 簡介](advisor-overview.md)
 * [開始使用](advisor-get-started.md)
-* [建議程式效能建議](advisor-performance-recommendations.md)
-* [建議程式高可用性建議](advisor-high-availability-recommendations.md)
-* [建議程式安全性建議](advisor-security-recommendations.md)
+* [Advisor 效能建議](advisor-performance-recommendations.md)
+* [Advisor 高可用性建議](advisor-high-availability-recommendations.md)
+* [Advisor 安全性建議](advisor-security-recommendations.md)
 * [Advisor 操作卓越建議](advisor-operational-excellence-recommendations.md)

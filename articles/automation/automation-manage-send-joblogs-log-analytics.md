@@ -2,19 +2,15 @@
 title: 將 Azure 自動化作業資料轉送至 Azure 監視器記錄
 description: 本文示範如何將作業狀態和 runbook 作業串流傳送至 Azure 監視器記錄，以提供額外的深入解析和管理。
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 02/05/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: d2433e8193026b8aaa3cbf29eb1411c7449a4953
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: beb69edc57b5a13db0f6d2e5e1536804f3472aff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849729"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421906"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>將作業狀態和作業串流從自動化轉送至 Azure 監視器記錄
 
@@ -89,7 +85,7 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 
 ### <a name="job-logs"></a>作業記錄
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | TimeGenerated |Runbook 作業的執行日期和時間。 |
 | RunbookName_s |Runbook 的名稱。 |
@@ -111,12 +107,12 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 
 
 ### <a name="job-streams"></a>作業串流
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | TimeGenerated |Runbook 作業的執行日期和時間。 |
 | RunbookName_s |Runbook 的名稱。 |
 | Caller_s |起始作業的人員。 可能的值為電子郵件地址或排程作業的系統。 |
-| StreamType_s |作業串流的類型。 可能的值包括：<br>-Progress (進度)<br>- Output (輸出)<br>- Warning (警告)<br>- Error (錯誤)<br>- Debug (偵錯)<br>- Verbose |
+| StreamType_s |作業串流的類型。 可能的值包括：<br>-Progress (進度)<br>- Output<br>- Warning (警告)<br>- Error (錯誤)<br>- Debug (偵錯)<br>- Verbose |
 | Tenant_g | 識別呼叫端租用戶的 GUID。 |
 | JobId_g |Runbook 作業之識別碼的 GUID。 |
 | ResultType |Runbook 作業的狀態。 可能的值包括：<br>- In Progress |
@@ -176,7 +172,7 @@ $automationAccountId = "[resource id of your automation account]"
 Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 藉由將您的自動化作業狀態和串流資料傳送至 Azure 監視器記錄，您可以藉由下列方式取得自動化作業狀態的更深入解析：
 + 設定警示以在發生問題時通知您。

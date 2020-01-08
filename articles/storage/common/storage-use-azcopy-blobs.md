@@ -8,12 +8,12 @@ ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f5aafbb22ecbff416d90aa5b98eb027c33872b35
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 19b5635d8444c28e66bcf4c6d34f602c9914e7e4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048548"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371525"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>使用 AzCopy 和 Blob 儲存體傳輸資料
 
@@ -28,7 +28,7 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製資料�
 >
 > 如果您想要使用 SAS 權杖來授權 blob 資料的存取權，您可以在每個 AzCopy 命令中，將該權杖附加至資源 URL。
 >
-> 例如： `'https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>'`。
+> 例如： `'https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>'` 。
 
 ## <a name="create-a-container"></a>建立容器
 
@@ -100,7 +100,7 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製資料�
 
 |    |     |
 |--------|-----------|
-| **語法** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>` |
+| **語法** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` |
 | **範例** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory'` |
 | **範例**（階層式命名空間） | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'` |
 
@@ -173,7 +173,7 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製資料�
 |--------|-----------|
 | **語法** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>' '<local-directory-path>' --recursive` |
 | **範例** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
-| **範例**（階層式命名空間） | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory 'C:\myDirectory'  --recursive` |
+| **範例**（階層式命名空間） | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
 
 這個範例會產生名為 `C:\myDirectory\myBlobDirectory` 的目錄，其中包含所有下載的檔案。
 
@@ -224,7 +224,7 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製資料�
 
 [`--include-pattern`] 和 [`--exclude-pattern`] 選項僅適用于檔案名，而不會套用至路徑。  如果您想要複製存在於目錄樹狀結構中的所有文字檔，請使用 `–recursive` 選項來取得整個目錄樹狀結構，然後使用 `–include-pattern` 並指定 `*.txt` 來取得所有文字檔。
 
-## <a name="copy-blobs-between-storage-accounts"></a>在儲存體帳戶之間複製 blob
+## <a name="copy-blobs-between-storage-accounts"></a>在儲存體帳戶間複製 Blob
 
 您可以使用 AzCopy 將 blob 複製到其他儲存體帳戶。 複製作業是同步的，因此當命令傳回時，表示已複製所有檔案。 
 
@@ -233,7 +233,6 @@ AzCopy 會使用[伺服器對伺服器](https://docs.microsoft.com/rest/api/stor
 > [!NOTE]
 > 此案例在目前版本中具有下列限制。
 >
-> - 僅支援沒有階層式命名空間的帳戶。
 > - 您必須將 SAS 權杖附加至每個來源 URL。 如果您使用 Azure Active Directory （AD）提供授權認證，則只能從目的地 URL 省略 SAS 權杖。
 >-  Premium 區塊 blob 儲存體帳戶不支援存取層。 將 `s2s-preserve-access-tier` 設定為 `false` （例如： `--s2s-preserve-access-tier=false`），以從複製作業中省略 blob 的存取層。
 
@@ -244,6 +243,8 @@ AzCopy 會使用[伺服器對伺服器](https://docs.microsoft.com/rest/api/stor
 > * 將目錄複寫到另一個儲存體帳戶
 > * 將容器複製到另一個儲存體帳戶
 > * 將所有容器、目錄和檔案複製到另一個儲存體帳戶
+
+這些範例也適用于具有階層式命名空間的帳戶。
 
 如需詳細的參考檔，請參閱[azcopy copy](storage-ref-azcopy-copy.md)。
 
@@ -280,10 +281,10 @@ AzCopy 會使用[伺服器對伺服器](https://docs.microsoft.com/rest/api/stor
 
 ## <a name="synchronize-files"></a>同步處理檔案
 
-您可以同步處理本機檔案系統與 blob 容器的內容。 您也可以彼此同步處理容器和虛擬目錄。 同步處理是單向的。 換句話說，您可以選擇這兩個端點中的哪一個是來源，以及哪一個是目的地。 同步處理也會使用伺服器到伺服器 Api。
+您可以同步處理本機檔案系統與 blob 容器的內容。 您也可以彼此同步處理容器和虛擬目錄。 同步處理是單向的。 換句話說，您可以選擇這兩個端點中的哪一個是來源，以及哪一個是目的地。 同步處理也會使用伺服器到伺服器 Api。 本節中顯示的範例也適用于具有階層式命名空間的帳戶。 
 
 > [!NOTE]
-> 目前，只有沒有階層式命名空間的帳戶才支援此案例。 目前的 AzCopy 版本不會在其他來源和目的地之間同步處理（例如：檔案儲存體或 Amazon Web Services （AWS） S3 bucket）。
+> 目前的 AzCopy 版本不會在其他來源和目的地之間同步處理（例如：檔案儲存體或 Amazon Web Services （AWS） S3 bucket）。
 
 [同步](storage-ref-azcopy-sync.md)命令會比較檔案名和上次修改的時間戳記。 將 [`--delete-destination` 選擇性] 旗標設定為 `true` 或 `prompt` 的值，以便在來原始目錄中不存在這些檔案時，刪除目的地目錄中的檔案。
 
@@ -299,7 +300,7 @@ AzCopy 會使用[伺服器對伺服器](https://docs.microsoft.com/rest/api/stor
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>使用本機檔案系統的變更來更新容器
 
-在此情況下，容器是目的地，而本機檔案系統則是來源。
+在此情況下，容器是目的地，而本機檔案系統則是來源。 
 
 |    |     |
 |--------|-----------|
@@ -314,7 +315,6 @@ AzCopy 會使用[伺服器對伺服器](https://docs.microsoft.com/rest/api/stor
 |--------|-----------|
 | **語法** | `azcopy sync 'https://<storage-account-name>.blob.core.windows.net/<container-name>' 'C:\myDirectory' --recursive` |
 | **範例** | `azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myDirectory' --recursive` |
-|
 
 ### <a name="update-a-container-with-changes-in-another-container"></a>使用另一個容器中的變更來更新容器
 

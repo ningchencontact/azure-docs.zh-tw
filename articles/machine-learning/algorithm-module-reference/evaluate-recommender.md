@@ -1,7 +1,7 @@
 ---
 title: 評估推薦：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的 [評估推薦] 模組來評估推薦模型預測的精確度。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的 [評估推薦] 模組來評估推薦模型預測的精確度。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9a80fce04aa939895d1dc9572714046d9203bad7
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717169"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428544"
 ---
 # <a name="evaluate-recommender"></a>評估推薦
 
@@ -43,7 +43,7 @@ ms.locfileid: "73717169"
 
 測試資料集包含以使用者-專案-評等三合一形式呈現的「真實」資料。  
 
-#### <a name="scored-dataset"></a>評分資料集
+#### <a name="scored-dataset"></a>計分的資料集
 
 評分資料集包含建議模型產生的預測。  
   
@@ -52,7 +52,7 @@ ms.locfileid: "73717169"
 - 使用者可能為專案提供的使用者、專案和評等
 - 建議的使用者和專案清單 
 
-### <a name="metrics"></a>度量
+### <a name="metrics"></a>計量
 
 模型的效能計量是根據輸入的類型產生。 下列各節提供詳細資料。
 
@@ -90,4 +90,4 @@ ms.locfileid: "73717169"
 
 ## <a name="next-steps"></a>後續步驟
 
-查看 Azure Machine Learning 服務[可用的模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

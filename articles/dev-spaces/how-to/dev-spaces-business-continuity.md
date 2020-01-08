@@ -5,15 +5,15 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.date: 01/28/2019
 ms.topic: conceptual
-description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
+description: 瞭解如何使用 Azure Dev Spaces 和 Azure Kubernetes Services 來供應商務持續性，並為嚴重損壞修復做準備
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: c7594059a5627c3967aba52144ed3dc99cb510e3
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8a223e9610d2b243cd78bf8b674262d6438421a9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327284"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438510"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure Dev Space 的商務持續性和災害復原
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 87e1d94fe9f86f5916219feac732bf80af1f3121
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: a197f95963e5a4138136f5d336e276ec1c7f7af7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769025"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407620"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure 地圖服務氣象涵蓋範圍
 
-本文提供 Azure 地圖服務[氣象服務](https://aka.ms/AzureMapsWeatherService)的涵蓋範圍資訊。 Azure 地圖服務氣象資料服務可以傳回詳細資訊，例如雷達圖、目前天氣狀況、天氣預測和路線中的天氣。
+本文提供 Azure 地圖服務[氣象服務](https://aka.ms/AzureMapsWeatherService)的涵蓋範圍資訊。 Azure 地圖服務氣象資料服務可以傳回如雷達圖、目前天氣狀況、天氣預測及路線中天氣的詳細資訊。
 
 Azure 地圖服務對於所有國家/地區沒有相同層級的資訊和精確度。
 
@@ -87,7 +87,7 @@ Azure 地圖服務對於所有國家/地區沒有相同層級的資訊和精確�
 | 千里達及托巴哥                      | ✓ |   |  ✓| 
 | 土克斯及開科斯群島                 | ✓ |   |  ✓| 
 | 美國外島                    | ✓ |   |  ✓| 
-| 美國英屬維爾京群島                      | ✓ |   |  ✓| 
+| 美屬維爾京群島                      | ✓ |   |  ✓| 
 | 美國                            | ✓ | ✓ |  ✓| 
 | 烏拉圭                                  | ✓ |   |  ✓| 
 | 委內瑞拉                                | ✓ |   |  ✓| 
@@ -110,8 +110,8 @@ Azure 地圖服務對於所有國家/地區沒有相同層級的資訊和精確�
 | 中非共和國    | ✓               |                              |        ✓| 
 | 查德                        | ✓               |                              |        ✓| 
 | 葛摩                     | ✓               |                              |        ✓| 
-| 剛果（剛果民主共和國）                 | ✓               |                              |        ✓|
-| 象牙海岸               | ✓               |                              |        ✓| 
+| 剛果民主共和國 (DRC)                 | ✓               |                              |        ✓|
+| 科特迪瓦 (Côte d’Ivoire)               | ✓               |                              |        ✓| 
 | 吉布地                    | ✓               |                              |        ✓| 
 | 埃及                       | ✓               |                              |        ✓| 
 | 赤道幾內亞           | ✓               |                              |        ✓| 
@@ -151,7 +151,7 @@ Azure 地圖服務對於所有國家/地區沒有相同層級的資訊和精確�
 | 留尼旺                     | ✓               |                              |        ✓| 
 | 盧安達                      | ✓               |                              |        ✓| 
 | 聖赫勒拿、阿森松、特裡斯坦達庫尼亞群島        | ✓               |                              |        ✓| 
-| 聖多美及普林西比島       | ✓               |                              |        ✓| 
+| 聖多美普林西比       | ✓               |                              |        ✓| 
 | 沙烏地阿拉伯                | ✓               |                              |        ✓| 
 | 塞內加爾                     | ✓               |                              |        ✓| 
 | 塞席爾                  | ✓               |                              |        ✓| 
@@ -221,7 +221,7 @@ Azure 地圖服務對於所有國家/地區沒有相同層級的資訊和精確�
 | 帛琉                             | ✓ |   |  ✓| 
 | 巴布亞紐幾內亞                  | ✓ |   |  ✓| 
 | 菲律賓                       | ✓ |   |  ✓| 
-| 皮特凱恩群島                  | ✓ |   |  ✓| 
+| 皮特康群島                  | ✓ |   |  ✓| 
 | 薩摩亞                             | ✓ |   |  ✓| 
 | 新加坡                         | ✓ |   |  ✓| 
 | 索羅門群島                   | ✓ |   |  ✓| 

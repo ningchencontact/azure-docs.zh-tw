@@ -4,18 +4,18 @@ description: Azure IoT Edge 會使用憑證來驗證裝置、模組和分葉裝�
 author: stevebus
 manager: philmea
 ms.author: stevebus
-ms.date: 09/13/2018
+ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0aa70e591c7aac977fe13ed638f8ee56b88e4bd1
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 9e4fd0203d68ef1f39d6efbb9d17d3e517969bff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982917"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457270"
 ---
-# <a name="azure-iot-edge-certificate-usage-detail"></a>Azure IoT Edge 憑證使用方式詳細資料
+# <a name="understand-how-azure-iot-edge-uses-certificates"></a>瞭解 Azure IoT Edge 如何使用憑證
 
 IoT Edge 憑證用於各種模組和下游 IoT 裝置上，可驗證其連線到的 [IoT Edge 中樞](iot-edge-runtime.md#iot-edge-hub)執行階段模組的身分識別和合法性。 這類驗證作業可在執行階段、模組和 IoT 裝置之間建立 TLS (傳輸層安全性) 安全連線。 和 IoT 中樞本身一樣，IoT Edge 也需要 IoT 下游 (或分葉) 裝置和 IoT Edge 模組的安全加密連線。 為了建立安全的 TLS 連線，IoT Edge 中樞模組會提供連線用戶端的伺服器信任鏈結，以便用戶端驗證其身分識別。
 
@@ -51,7 +51,7 @@ IoT Edge 憑證用於各種模組和下游 IoT 裝置上，可驗證其連線到
 
 ### <a name="device-ca-certificate"></a>裝置 CA 憑證
 
-裝置 CA 憑證是流程內最終的中繼 CA 憑證所產生和簽署的憑證。 此憑證會安裝在 IoT Edge 裝置上，最好是放置在安全儲存體中，例如硬體安全性模組 (HSM)。 此外，裝置 CA 憑證可唯一識別出 IoT Edge 裝置。 對於 IoT Edge，裝置 CA 憑證可核發其他憑證。 例如，裝置 CA 憑證會核發分葉裝置憑證，用來向 [Azure IoT 裝置佈建服務](../iot-dps/about-iot-dps.md)驗證裝置。
+裝置 CA 憑證是流程內最終的中繼 CA 憑證所產生和簽署的憑證。 此憑證會安裝在 IoT Edge 裝置上，最好是放置在安全儲存體中，例如硬體安全性模組 (HSM)。 此外，裝置 CA 憑證可唯一識別出 IoT Edge 裝置。 裝置 CA 憑證可以簽署其他憑證。 
 
 ### <a name="iot-edge-workload-ca"></a>IoT Edge 工作負載 CA
 
@@ -78,29 +78,7 @@ IoT Edge 中樞伺服器憑證是提供給分葉裝置和模組的實際憑證�
 
 ## <a name="devtest-implications"></a>開發/測試影響
 
-為了簡化開發和測試過程，Microsoft 提供了一組[便利性指令碼](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)，用來產生透明閘道案例中試用 IoT Edge 的非生產憑證。 如需指令碼運作方式的範例，請參閱[設定 IoT Edge 裝置作為透明閘道](how-to-create-transparent-gateway.md)。
-
-這些指令碼產生的憑證會遵循本文所述的憑證鏈結結構。 下列命令會產生「根 CA 憑證 」和單一「中繼 CA 憑證」。
-
-```bash
-./certGen.sh create_root_and_intermediate 
-```
-
-```Powershell
-New-CACertsCertChain rsa 
-```
-
-同樣地，這些命令會產生「裝置 CA 憑證」。
-
-```bash
-./certGen.sh create_edge_device_ca_certificate "<gateway device name>"
-```
-
-```Powershell
-New-CACertsEdgeDeviceCA "<gateway device name>"
-```
-
-* 傳入這些腳本的 **\<閘道裝置\>名稱**不應該與 yaml 中的 "hostname" 參數相同。 如果使用者在兩個位置中使用相同的名稱設定 IoT Edge，則這些指令碼可將「.ca」字串附加到 **\<閘道裝置名稱\>** 上來避免名稱衝突，進而發生問題。 不過，最好避免使用相同的名稱。
+為了簡化開發和測試過程，Microsoft 提供了一組[便利性指令碼](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)，用來產生透明閘道案例中試用 IoT Edge 的非生產憑證。 如需腳本如何工作的範例，請參閱[建立示範憑證來測試 IoT Edge 裝置功能](how-to-create-test-certificates.md)。
 
 >[!Tip]
 > 若要將裝置的 IoT「分葉」裝置連線到透過 IoT Edge 使用我們的 IoT 裝置 SDK 的應用程式，必須將選擇性的「GatewayHostName」參數家到裝置連接字串的尾端。 產生 Edge 中樞伺服器憑證時，會以小寫的 config.yaml 主機名稱為基礎，因此，若要名稱相符並且成功通過 TLS 憑證驗證，請輸入小寫的 GatewayHostName 參數。

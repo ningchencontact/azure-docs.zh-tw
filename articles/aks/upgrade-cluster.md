@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 36bd05940644b62bc3e58b642bfe6c00238383fa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7113fd7f17fd7695e25489931d7a6cbf35e334ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472471"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442825"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>升級 Azure Kubernetes Service (AKS) 叢集
 
@@ -26,6 +26,7 @@ ms.locfileid: "73472471"
 
 > [!WARNING]
 > AKS 叢集升級會觸發 cordon 並清空您的節點。 如果您有可用的計算配額不足，升級可能會失敗。  如需詳細資訊，請參閱[增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289)。
+> 如果您正在執行自己的叢集自動調整程式部署，請在升級期間將它停用（您可以將它調整為零個複本），因為它可能會干擾升級程式。 受控自動調整程式會自動處理這種情況。 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>檢查可用的 AKS 叢集升級
 

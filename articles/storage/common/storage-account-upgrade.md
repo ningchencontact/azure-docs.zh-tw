@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 7c7b0a0bb79f3f00d7a8dff64ec1b7143241a1f8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e7228556659a7a4a9f01ea31f61e75b5e870d50c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892221"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457429"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升級至一般用途 v2 儲存體帳戶
 
@@ -168,4 +168,3 @@ Blob 存取層可讓您根據預期的使用模式，選擇最符合成本效益
 ## <a name="next-steps"></a>後續步驟
 
 * [建立儲存體帳戶](storage-quickstart-create-account.md)
-* [管理 Azure 儲存體帳戶](storage-account-manage.md)

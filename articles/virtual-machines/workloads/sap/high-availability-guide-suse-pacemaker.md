@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 8136e65636561079603986f0d6ff30bcbd68258f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 32865b84de2dc1c1f8a3fd6beca80a2659f1e3d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534215"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370760"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>在 Azure 中於 SUSE Linux Enterprise Server 上設定 Pacemaker
 
@@ -474,7 +474,7 @@ o- / ...........................................................................
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   將下列粗體內容新增至檔案 (如果檔案中沒有這些值或不同)。 請務必將權杖變更為 30000，以允許記憶體保留維護。 如需詳細資訊，請參閱[適用于 Linux 或 Windows 的這篇文章][virtual-machines-linux-maintenance]。 [][virtual-machines-windows-maintenance]
+   將下列粗體內容新增至檔案 (如果檔案中沒有這些值或不同)。 請務必將權杖變更為 30000，以允許記憶體保留維護。 如需詳細資訊, 請參閱[適用于 Linux][virtual-machines-linux-maintenance] 或 [Windows][virtual-machines-windows-maintenance] 的這篇文章。
 
    <pre><code>[...]
      <b>token:          30000
@@ -528,7 +528,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 1. 選取 [憑證和密碼]，然後按一下 [新增用戶端密碼]
 1. 輸入新金鑰的描述，選取 [永不過期]，然後按一下 [新增]
 1. 記下值。 此值會用來做為服務主體的**密碼**
-1. 選取 [總覽]。 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的 **login id**)
+1. 選取 [總覽]。 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的「登入識別碼」)
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 為柵欄代理程式建立自訂角色
 
@@ -545,7 +545,8 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
   "Actions": [
     "Microsoft.Compute/*/read",
     "Microsoft.Compute/virtualMachines/deallocate/action",
-    "Microsoft.Compute/virtualMachines/start/action"
+    "Microsoft.Compute/virtualMachines/start/action", 
+    "Microsoft.Compute/virtualMachines/powerOff/action" 
   ],
   "NotActions": [
   ],
@@ -567,7 +568,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 1. 按一下 [新增角色指派]
 1. 選取「Linux 柵欄代理程式角色」角色
 1. 輸入您先前建立的應用程式名稱
-1. 按一下 [Save] (儲存)。
+1. 按一下 [儲存]
 
 針對第二個叢集節點重複上述步驟。
 

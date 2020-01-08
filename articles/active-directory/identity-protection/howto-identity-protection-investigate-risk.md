@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 12/13/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27753d965949d3e677606111139a5d86ccf26dbf
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c5191f05752c177aa29d121abe9d1aa29fde265a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382127"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430974"
 ---
 # <a name="how-to-investigate-risk"></a>如何：調查風險
 
@@ -30,7 +30,7 @@ Identity Protection 為組織提供三份報告，可用於調查其環境中的
 
 ## <a name="navigating-the-reports"></a>導覽報表
 
-每份報表都會以報表頂端顯示之期間的所有偵測清單來啟動。 每份報表都允許根據系統管理員喜好設定來新增或移除資料行。 系統管理員可以選擇下載中的資料。CSV 格式。 您可以使用報表頂端的篩選來篩選報表。
+每份報表都會以報表頂端顯示之期間的所有偵測清單來啟動。 每份報表都允許根據系統管理員喜好設定來新增或移除資料行。 系統管理員可以選擇下載中的資料。CSV 或。JSON 格式。 您可以使用報表頂端的篩選來篩選報表。
 
 選取個別專案可能會在報表的頂端啟用其他專案，例如確認登入遭盜用或安全的功能、確認使用者是否遭到入侵，或解除使用者風險。
 
@@ -44,7 +44,7 @@ Identity Protection 為組織提供三份報告，可用於調查其環境中的
 
 - 哪些使用者有風險、已補救風險，或已解除風險？
 - 偵測的詳細資料
-- 有風險的登入歷程記錄
+- 所有具風險登入的歷程記錄
 - 風險記錄
  
 然後，系統管理員可以選擇對這些事件採取動作。 系統管理員可以選擇：

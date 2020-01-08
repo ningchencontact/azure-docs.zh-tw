@@ -1,17 +1,17 @@
 ---
-title: 工作流程定義語言的架構
-description: Azure Logic Apps 中工作流程定義語言的架構參考
+title: 工作流程定義語言架構參考
+description: 描述 Azure Logic Apps 中工作流程之 JSON 架構和語法的參考指南
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 9c235c76e3d96ce02efc113c65c62081fcba20ee
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ff2267c2d03076d3abc44d0bd1dddc64577cc7f1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790801"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428653"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中工作流程定義語言的架構參考指南
 
@@ -35,7 +35,7 @@ ms.locfileid: "74790801"
 }
 ```
 
-| 屬性 | 必要項 | 描述 |
+| 屬性 | 必要項 | 說明 |
 |-----------|----------|-------------|
 | `definition` | 是 | 工作流程定義的起始元素 |
 | `$schema` | 只有在外部參考工作流程定義時 | JSON 結構描述檔案的位置，該檔案說明工作流程定義語言版本，您可以在此找到此版本： <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
@@ -74,16 +74,16 @@ ms.locfileid: "74790801"
 },
 ```
 
-| 屬性 | 必要項 | Type | 描述 |
+| 屬性 | 必要項 | 類型 | 說明 |
 |-----------|----------|------|-------------|
-| <*參數名稱*> | 是 | String | 您想要定義之參數的名稱 |
+| <*parameter-name*> | 是 | String | 您想要定義之參數的名稱 |
 | <*參數類型*> | 是 | int、float、string、bool、array、object、securestring、secureobject <p><p>**注意**：對於所有密碼、金鑰和秘密，請使用 `securestring` 或 `secureobject` 類型，因為 `GET` 作業不會傳回這些類型。 如需保護參數的詳細資訊，請參閱[動作和輸入參數的安全性建議](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。 | 參數的類型 |
-| <*預設-參數-值*> | 是 | 與 `type` 相同 | 當工作流程具現化時，若未指定任何值時，所要使用的預設參數值。 `defaultValue` 屬性是必要的，讓邏輯應用程式設計工具可以正確地顯示參數，但您可以指定空值。 |
-| <*陣列-具有允許的參數值*> | 否 | 陣列 | 具有參數可接受值的陣列 |
-| <*參數-描述*> | 否 | JSON 物件 | 任何其他參數詳細資料，例如參數的描述 |
+| <*default-parameter-value*> | 是 | 與 `type` 相同 | 當工作流程具現化時，若未指定任何值時，所要使用的預設參數值。 `defaultValue` 屬性是必要的，讓邏輯應用程式設計工具可以正確地顯示參數，但您可以指定空值。 |
+| <*陣列-具有允許的參數值*> | 否 | Array | 具有參數可接受值的陣列 |
+| <*parameter-description*> | 否 | JSON 物件 | 任何其他參數詳細資料，例如參數的描述 |
 ||||
 
-接下來，為您的工作流程定義建立[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)、定義範本參數，以在部署時接受您想要的值，並適當地將已硬式編碼的值取代為範本或工作流程定義參數，並在個別的[參數](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)檔案中儲存要用於部署的值。 如此一來，您就可以更輕鬆地透過參數檔案來變更這些值，而不需要更新和重新部署邏輯應用程式。 對於機密或必須受到保護的資訊，例如使用者名稱、密碼和秘密，您可以將這些值儲存在 Azure Key Vault 中，並讓您的參數檔案從您的金鑰保存庫中抓取這些值。 如需在範本和工作流程定義層級定義參數的詳細資訊和範例，請參閱[總覽：使用 Azure Resource Manager 範本自動部署邏輯應用程式](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)。
+接下來，為您的工作流程定義建立[Azure Resource Manager 範本](../azure-resource-manager/templates/overview.md)、定義範本參數，以在部署時接受您想要的值，並適當地將已硬式編碼的值取代為範本或工作流程定義參數，並在個別的[參數](../azure-resource-manager/templates/parameter-files.md)檔案中儲存要用於部署的值。 如此一來，您就可以更輕鬆地透過參數檔案來變更這些值，而不需要更新和重新部署邏輯應用程式。 對於機密或必須受到保護的資訊，例如使用者名稱、密碼和秘密，您可以將這些值儲存在 Azure Key Vault 中，並讓您的參數檔案從您的金鑰保存庫中抓取這些值。 如需在範本和工作流程定義層級定義參數的詳細資訊和範例，請參閱[總覽：使用 Azure Resource Manager 範本自動部署邏輯應用程式](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)。
 
 <a name="static-results"></a>
 
@@ -112,10 +112,10 @@ ms.locfileid: "74790801"
 }
 ```
 
-| 屬性 | 必要項 | Type | 描述 |
+| 屬性 | 必要項 | 類型 | 說明 |
 |-----------|----------|------|-------------|
 | <*靜態結果定義名稱*> | 是 | String | 動作定義可以透過 `runtimeConfiguration.staticResult` 物件來參考的靜態結果定義名稱。 如需詳細資訊，請參閱[執行階段組態設定](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options)。 <p>您可以使用任何您想要的唯一名稱。 根據預設，這個唯一名稱會附加一個數位，視需要遞增。 |
-| <*的輸出-屬性和值-傳回*> | 是 | 視情況而異 | 這些屬性的需求會根據不同的條件而有所不同。 例如，當 `status` `Succeeded`時，`outputs` 屬性會包含由動作以模擬輸出傳回的屬性和值。 如果 `status` 是 `Failed`，`outputs` 屬性會包含 `errors` 屬性，這是具有一或多個錯誤的陣列，`message` 具有錯誤資訊的物件。 |
+| <*的輸出-屬性和值-傳回*> | 是 | 不定 | 這些屬性的需求會根據不同的條件而有所不同。 例如，當 `status` `Succeeded`時，`outputs` 屬性會包含由動作以模擬輸出傳回的屬性和值。 如果 `status` 是 `Failed`，`outputs` 屬性會包含 `errors` 屬性，這是具有一或多個錯誤的陣列，`message` 具有錯誤資訊的物件。 |
 | <*header-values*> | 否 | JSON | 動作傳回的任何標頭值 |
 | <*狀態-程式碼傳回*> | 是 | String | 動作所傳回的狀態碼 |
 | <*動作-狀態*> | 是 | String | 動作的狀態，例如 `Succeeded` 或 `Failed` |
@@ -275,7 +275,7 @@ HTTP 動作會傳回 `staticResults`內 `HTTP0` 定義中的輸出。 在此範�
 }
 ```
 
-| 屬性 | 必要項 | Type | 描述 |
+| 屬性 | 必要項 | 類型 | 說明 |
 |-----------|----------|------|-------------|
 | <*key-name*> | 是 | String | 輸出傳回值的索引鍵名稱 |
 | <索引*鍵類型*> | 是 | int、float、string、securestring、bool、array、JSON 物件 | 輸出傳回值的類型 |
@@ -286,7 +286,7 @@ HTTP 動作會傳回 `staticResults`內 `HTTP0` 定義中的輸出。 在此範�
 
 <a name="operators"></a>
 
-## <a name="operators"></a>運算子
+## <a name="operators"></a>操作員
 
 在[運算式](#expressions)和[函式](#functions)中，運算子會執行特定工作，例如參考屬性或陣列中的值。
 

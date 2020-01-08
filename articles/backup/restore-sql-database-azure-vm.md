@@ -3,12 +3,12 @@ title: 在 Azure VM 上還原 SQL Server 資料庫
 description: 本文說明如何還原在 Azure VM 上執行，並使用 Azure 備份備份的 SQL Server 資料庫。
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 0dbf5c48884dc665355d2806ff343facfbeffc29
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 58525069af28be250c3536db076a38fb350bc1da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171895"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390754"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>在 Azure VM 上還原 SQL Server 資料庫
 
@@ -23,7 +23,7 @@ Azure 備份可以還原在 Azure Vm 上執行 SQL Server 資料庫，如下所�
 - 使用交易記錄備份還原到特定的日期或時間（到第二個）。 Azure 備份會自動決定適當的完整差異備份，以及根據所選時間還原所需的記錄備份鏈。
 - 還原特定的完整或差異備份，以還原到特定的復原點。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在還原資料庫之前，請注意下列事項：
 
@@ -47,7 +47,7 @@ Azure 備份可以還原在 Azure Vm 上執行 SQL Server 資料庫，如下所�
   - 如果您要還原至相同的 VM，這就是來源 VM。
   - 如果您要還原至替代位置，這就是新的目標 VM。
 
-以下方式進行還原：
+以下列方式進行還原：
 
 1. 開啟其中有已註冊 SQL Server VM 的保存庫。
 2. 在保存庫儀表板中的 [使用量] 底下，選取 [備份項目]。
@@ -110,7 +110,15 @@ Azure 備份可以還原在 Azure Vm 上執行 SQL Server 資料庫，如下所�
 
 1. 在 [**還原**設定] 功能表的 [**要還原的位置**] 底下，選取 [**還原為**檔案]。
 2. 選取您要還原備份檔案的 SQL Server 名稱。
-3. 在**伺服器的目的地路徑**中，輸入在步驟2中選取之伺服器上的資料夾路徑。 這是服務將會傾印所有必要備份檔案的位置。 一般而言，當指定為目的地路徑時，已掛接之 Azure 檔案共用的網路共用路徑或路徑，可讓相同網路中的其他電腦或掛接在其上的相同 Azure 檔案共用，更輕鬆地存取這些檔案。
+3. 在**伺服器的目的地路徑**中，輸入在步驟2中選取之伺服器上的資料夾路徑。 這是服務將會傾印所有必要備份檔案的位置。 一般而言，當指定為目的地路徑時，已掛接之 Azure 檔案共用的網路共用路徑或路徑，可讓相同網路中的其他電腦或掛接在其上的相同 Azure 檔案共用，更輕鬆地存取這些檔案。<BR>
+
+>若要在裝載于目標的已註冊 VM 上的 Azure 檔案共用上還原資料庫備份檔案，請確定 NT AUTHORITY\SYSTEM 具有檔案共用的存取權。 您可以執行下列步驟，將讀取/寫入權限授與在 VM 上裝載的 AFS：
+>- 執行 `PsExec -s cmd` 以進入 NT AUTHORITY\SYSTEM shell
+>   - 執行 `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
+>   - 使用 `dir \\<storageacct>.file.core.windows.net\<filesharename>` 驗證存取
+>- 從備份保存庫開始還原為檔案，以 `\\<storageacct>.file.core.windows.net\<filesharename>` 做為路徑<BR>
+您可以透過 <https://docs.microsoft.com/sysinternals/downloads/psexec> 下載 Psexec
+
 4. 選取 [確定]。
 
 ![選取還原為檔案](./media/backup-azure-sql-database/restore-as-files.png)

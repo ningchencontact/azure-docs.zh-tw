@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f58623ec179965c8f8f165805cb181f8c102e746
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: a2adc2acdb9c1d850bb12833540ed8da51701e58
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370131"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>教學課程：將資料載入 Azure SQL 資料倉儲
 
@@ -45,7 +45,7 @@ ms.locfileid: "74132372"
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>建立空白 SQL 資料倉儲
 
-Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-concurrency-limits.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-features.md)內。 
+Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-concurrency-limits.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/management/overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-features.md)內。 
 
 請遵循下列步驟來建立空白的 SQL 資料倉儲。 
 
@@ -57,7 +57,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-concurrency-
 
 3. 在 SQL 資料倉儲表單中填寫下列資訊︰   
 
-   | 設定 | 建議的值 | 描述 | 
+   | 設定 | 建議的值 | 說明 | 
    | ------- | --------------- | ----------- | 
    | **資料庫名稱** | SampleDW | 如需有效的資料庫名稱，請參閱[資料庫識別碼](/sql/relational-databases/databases/database-identifiers)。 | 
    | **訂用帳戶** | 您的訂用帳戶  | 如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
@@ -68,12 +68,12 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-concurrency-
 
 4. 按一下 [伺服器] 為您的新資料庫建立及設定新的伺服器。 在**新伺服器表單**表單中填寫下列資訊︰ 
 
-    | 設定 | 建議的值 | 描述 | 
+    | 設定 | 建議的值 | 說明 | 
     | ------- | --------------- | ----------- |
     | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。 | 
-    | 伺服器管理員登入 | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。|
+    | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。|
     | **密碼** | 任何有效密碼 | 您的密碼至少要有 8 個字元，而且必須包含下列幾種字元的其中三種︰大寫字元、小寫字元、數字和非英數字元。 |
-    | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | 任何有效位置 | 如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |
+    | **位置** | 任何有效位置 | 如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |
 
     ![建立資料庫伺服器](media/load-data-wideworldimportersdw/create-database-server.png)
 
@@ -85,7 +85,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-concurrency-
 
     ![設定效能](media/load-data-wideworldimportersdw/configure-performance.png)
 
-8. 按一下 [Apply (套用)]。
+8. 按一下 [套用]。
 9. 在 [SQL 資料倉儲] 頁面上，針對空白資料庫選取 [定序]。 本教學課程使用預設值。 如需定序的詳細資訊，請參閱[定序](/sql/t-sql/statements/collations)。
 
 11. 您現在已完成 SQL Database 表單，請按一下 [建立] 來佈建資料庫。 佈建需要幾分鐘的時間。 
@@ -145,21 +145,21 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 1. 開啟 SQL Server Management Studio。
 
-2. 在 [連接到伺服器] 對話方塊中，輸入下列資訊：
+2. 在 [連線至伺服器] 對話方塊中，輸入下列資訊：
 
-    | 設定      | 建議的值 | 描述 | 
+    | 設定      | 建議的值 | 說明 | 
     | ------------ | --------------- | ----------- | 
     | 伺服器類型 | 資料庫引擎 | 這是必要值 |
     | 伺服器名稱 | 完整伺服器名稱 | 例如，**sample-svr.database.windows.net** 是完整的伺服器名稱。 |
     | 驗證 | SQL Server 驗證 | SQL 驗證是本教學課程中設定的唯一驗證類型。 |
-    | 登入 | 伺服器管理帳戶 | 這是您在建立伺服器時所指定的帳戶。 |
-    | 密碼 | 伺服器管理帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
+    | 登入 | 伺服器系統管理員帳戶 | 這是您在建立伺服器時指定的帳戶。 |
+    | 密碼 | 伺服器系統管理員帳戶的密碼 | 這是您在建立伺服器時指定的密碼。 |
 
-    ![連接到伺服器](media/load-data-wideworldimportersdw/connect-to-server.png)
+    ![連線至伺服器](media/load-data-wideworldimportersdw/connect-to-server.png)
 
-4. 按一下 [連接]。 [物件總管] 視窗隨即在 SSMS 中開啟。 
+4. 按一下 [ **連接**]。 [物件總管] 視窗會在 SSMS 中開啟。 
 
-5. 在 [物件總管] 中，展開 [資料庫]。 然後展開 [系統資料庫] 和 [主要資料庫] 來檢視主要資料庫中的物件。  展開 [ **SampleDW** ] 以查看新資料庫中的物件。
+5. 在 [物件總管] 中展開 [資料庫]。 然後展開 [系統資料庫] 和 [主要資料庫] 來檢視主要資料庫中的物件。  展開 [ **SampleDW** ] 以查看新資料庫中的物件。
 
     ![資料庫物件](media/load-data-wideworldimportersdw/connected.png) 
 
@@ -171,7 +171,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 因為您目前以伺服器管理員的身分連線，就可以建立登入和使用者。 使用下列步驟來建立登入和名為 **LoaderRC60** 的使用者。 然後將使用者指派至 **staticrc60** 資源類別。 
 
-1.  在 SSMS 中，以滑鼠右鍵按一下 [主要資料庫] 可顯示下拉式選單，然後選擇 [新增查詢]。 新的查詢視窗隨即開啟。
+1.  在 SSMS 中，以滑鼠右鍵按一下 [主要資料庫] 可顯示下拉式選單，然後選擇 [新增查詢]。 隨即開啟 [新增查詢] 視窗。
 
     ![主要資料庫上的新增查詢](media/load-data-wideworldimportersdw/create-loader-login.png)
 
@@ -182,7 +182,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
     ```
 
-3. 按一下 [Execute (執行)]。
+3. 按一下 **[執行]** 。
 
 4. 以滑鼠右鍵按一下 [SampleDW]，然後選擇 [新增查詢]。 新的查詢視窗隨即開啟。  
 
@@ -196,7 +196,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     EXEC sp_addrolemember 'staticrc60', 'LoaderRC60';
     ```
 
-6. 按一下 [Execute (執行)]。
+6. 按一下 **[執行]** 。
 
 ## <a name="connect-to-the-server-as-the-loading-user"></a>以載入使用者身分連線到伺服器
 
@@ -208,7 +208,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 2. 輸入完整伺服器名稱，以及輸入 **LoaderRC60** 作為登入。  輸入您 LoaderRC60 的密碼。
 
-3. 按一下 [連接]。
+3. 按一下 [ **連接**]。
 
 4. 您的連線就緒時，會在 [物件總管] 中看到兩個伺服器連線。 一個是以 ServerAdmin 連線，另一個是以 LoaderRC60 連線。
 
@@ -1099,7 +1099,7 @@ SQL 資料倉儲會藉由將資料快取到每個計算節點來複寫資料表�
 
     ![清除資源](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. 如果您需要將資料保留在儲存體中，可以在您不使用資料倉儲時暫停運算。 藉由暫停計算，您只需支付資料儲存體的費用，而且當您準備好要使用資料時，您可以繼續計算。 若要暫停計算，請按一下 [暫停] 按鈕。 資料倉儲暫停時，您會看到 [啟動] 按鈕。  若要繼續計算，請按一下 [啟動]。
+2. 如果您需要將資料保留在儲存體中，可以在您不使用資料倉儲時暫停計算。 藉由暫停計算，您只需支付資料儲存體的費用，而且當您準備好要使用資料時，您可以繼續計算。 若要暫停計算，請按一下 [暫停] 按鈕。 資料倉儲暫停時，您會看到 [啟動] 按鈕。  若要繼續計算，請按一下 [啟動]。
 
 3. 如果您需要移除未來的費用，可以將資料倉儲刪除。 若要移除資料倉儲而不再支付運算或儲存體的費用，請按一下 [刪除]。
 

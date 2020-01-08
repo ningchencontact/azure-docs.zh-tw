@@ -11,17 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 9dd81484d8afab66fcb76f8fccdea348ef6a34c4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 90e51e8b56bd3fb63d56c630d47770e97f439796
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681491"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563526"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Azure Data Factory 中的連結服務
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-create-datasets.md)
-> * [目前的版本](concepts-datasets-linked-services.md)
+> * [目前的版本](concepts-linked-services.md)
 
 本文說明連結的服務是什麼、如何以 JSON 格式定義它們，以及如何在 Azure Data Factory 管線中使用它們。
 
@@ -61,10 +61,10 @@ Data Factory 中的連結服務會以 JSON 格式定義如下：
 
 下表描述上述 JSON 的屬性：
 
-屬性 | 說明 | 必要 |
+屬性 | 說明 | 必要項 |
 -------- | ----------- | -------- |
-名稱 | 連結服務的名稱。 請參閱 [Azure Data Factory - 命名規則](naming-rules.md)。 |  是 |
-類型 | 連結服務的類型。 例如：AzureStorage (資料存放區) 或 AzureBatch (計算)。 請參閱 typeProperties 的描述。 | 是 |
+NAME | 連結服務的名稱。 請參閱 [Azure Data Factory - 命名規則](naming-rules.md)。 |  是 |
+type | 連結服務的類型。 例如：AzureStorage (資料存放區) 或 AzureBatch (計算)。 請參閱 typeProperties 的描述。 | 是 |
 typeProperties | 每個資料存放區和計算的類型屬性都不同。 <br/><br/> 如需支援的資料存放區類型及其類型屬性，請參閱本文章的[資料集類型](concepts-datasets-linked-services.md#dataset-type)表格。 請瀏覽資料存放區連接器的文章，以了解資料存放區特有的類型屬性。 <br/><br/> 如需支援的計算類型與其類型屬性，請參閱[計算連結服務](compute-linked-services.md)。 | 是 |
 connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否
 
@@ -77,10 +77,7 @@ connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-in
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -95,9 +92,9 @@ connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-in
 您可以使用下列其中一個工具或 Sdk 來建立連結服務： [.NET API](quickstart-create-data-factory-dot-net.md)、 [PowerShell](quickstart-create-data-factory-powershell.md)、 [REST API](quickstart-create-data-factory-rest-api.md)、Azure Resource Manager 範本，以及 Azure 入口網站
 
 ## <a name="data-store-linked-services"></a>資料存放區連結服務
-您可以從[連接器總覽](copy-activity-overview.md#supported-data-stores-and-formats)一文中，找到 Data Factory 所支援的資料清單。 按一下資料存放區，以瞭解支援的連接屬性。
+您可以從[連接器總覽](copy-activity-overview.md#supported-data-stores-and-formats)一文中，找到 Data Factory 所支援的資料存放區清單。 按一下資料存放區，以瞭解支援的連接屬性。
 
-## <a name="compute-linked-services"></a>計算連結服務
+## <a name="compute-linked-services"></a>計算已連結的服務
 如需您可以從資料處理站和不同設定連線的不同計算環境詳細資料，請參閱[支援的計算環境](compute-linked-services.md)。
 
 ## <a name="next-steps"></a>後續步驟

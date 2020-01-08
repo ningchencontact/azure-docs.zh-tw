@@ -1,18 +1,14 @@
 ---
-title: Azure Service Fabric-使用系統指派的受控識別來部署 Azure Service Fabric 應用程式 |Microsoft Docs
+title: 使用系統指派的 MI 來部署 Service Fabric 應用程式
 description: 本文說明如何將系統指派的受控識別指派給 Azure Service Fabric 應用程式
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: cf971d71c2566d91bc5a2490d47521725c62b17d
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d5a14722363d642957904f9c7c699d3cf1d66c0f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973416"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614820"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>使用系統指派的受控識別（預覽）部署 Service Fabric 應用程式
 

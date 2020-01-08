@@ -1,24 +1,14 @@
 ---
 title: 建立叢集的 Azure Load Balancer 規則
 description: 設定 Azure Load Balancer 來開啟 Azure Service Fabric 叢集的連接埠。
-services: service-fabric
-documentationcenter: na
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
-ms.openlocfilehash: 2e730ae8ecf6f1fab12aff23cab0ac3aa246233a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 5cc392a74b8cf5ef92be8b5783b5b70289e602af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173368"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351488"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>開啟 Service Fabric 叢集的連接埠
 
@@ -60,7 +50,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 Azure CLI 命令有幾個參數，如下表所述：
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --------- | ----------- |
 | `--backend-port`  | Service Fabric 應用程式正在接聽的連接埠。 |
 | `--frontend-port` | 負載平衡器公開給外部連線的連接埠。 |

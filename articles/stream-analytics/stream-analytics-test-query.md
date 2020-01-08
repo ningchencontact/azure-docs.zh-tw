@@ -1,24 +1,23 @@
 ---
 title: 使用樣本資料測試 Azure 串流分析作業
 description: 本文說明如何使用 Azure 入口網站測試 Azure 串流分析作業、輸入取樣，以及上傳樣本資料。
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: d68c1ee084efc146d69d8404aadb8acbb4cc33d1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 85d32e96335a9fffa874f1f370f72883ff420df0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891763"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369859"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>使用樣本資料測試 Azure 串流分析作業
 
-在 Azure 串流分析中，您可以測試查詢，而不需要啟動或停止您的作業。 您可以針對來自輸入接收的傳入資料，或從 Azure 入口網站上的本機檔案上傳的範例資料來測試查詢。 您也可以從本機範例資料或[Visual Studio](stream-analytics-live-data-local-testing.md)和[Visual Studio Code](vscode-local-run.md)中的即時資料，在本機測試查詢。 
+在 Azure 串流分析中，您可以測試查詢，而不需要啟動或停止您的作業。 您可以針對來自輸入接收的傳入資料，或從 Azure 入口網站上的本機檔案上傳的範例資料來測試查詢。 您也可以從本機範例資料或[Visual Studio](stream-analytics-live-data-local-testing.md)和[Visual Studio Code](visual-studio-code-local-run-live-input.md)中的即時資料，在本機測試查詢。
 
 ## <a name="sample-incoming-data-from-input"></a>輸入的範例傳入資料
 
@@ -30,11 +29,11 @@ Azure 串流分析會自動從您的串流輸入提取事件。 您可以針對�
 
 3. 在 [串流分析作業] 頁面上，[工作拓撲] 標題下方，選取 [查詢] 開啟 [查詢] 編輯器視窗。 
 
-4. 若要查看傳入事件的範例清單，請選取 [具有檔案的輸入] 圖示，範例事件就會自動出現在**輸入預覽**中。 
+4. 若要查看傳入事件的範例清單，請選取 [具有檔案的輸入] 圖示，範例事件就會自動出現在**輸入預覽**中。
 
    a. 如果您的資料的 JSON 或 CSV，則會自動偵測到其序列化類型。 您也可以藉由變更下拉式功能表中的選項，手動將它變更為 JSON、CSV、AVRO。
     
-   b.這是另一個 C# 主控台應用程式。 使用選取器來以**資料表**或**原始**格式來查看您的資料。
+   b. 使用選取器來以**資料表**或**原始**格式來查看您的資料。
     
    c. 如果顯示的資料不是最新的，**請選取 [** 重新整理] 以查看最新的事件。
 

@@ -1,25 +1,14 @@
 ---
-title: 將存取原則指派給 Azure Service Fabric 服務端點 | Microsoft Docs
+title: 將存取原則指派給服務端點
 description: 了解如何將安全性存取原則指派給 Service Fabric 服務中的 HTTP 或 HTTPS 端點。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/21/2018
-ms.author: atsenthi
-ms.openlocfilehash: 3e892e443f5e3309add48f939f26ba14eaf5a51b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c7d30e85848f045b5724bb8bdc6e5c810102c044
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60614195"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614650"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>為 HTTP 和 HTTPS 端點指派安全性存取原則
 如果您套用執行身分原則，而且服務資訊清單宣告 HTTP 端點資源，您就必須指定 **SecurityAccessPolicy**。  **SecurityAccessPolicy** 可確保配置給這些端點的連接埠受到正確限制，唯有執行服務的使用者帳戶才能使用。 否則， **http.sys** 無法存取服務，而且您從用戶端呼叫時將會失敗。 下列範例會將 Customer1 帳戶套用到名為 **EndpointName** 的端點，這會給予它完整的存取權限。
@@ -32,7 +21,7 @@ ms.locfileid: "60614195"
 </Policies>
 ```
 
-針對 HTTPS 端點，請同時指出要傳回給用戶端的憑證名稱。 您可以使用 **EndpointBindingPolicy** 參考憑證。  憑證的定義位於應用程式資訊清單的 [憑證]  區段。
+針對 HTTPS 端點，請同時指出要傳回給用戶端的憑證名稱。 您可以使用 **EndpointBindingPolicy** 參考憑證。  憑證的定義位於應用程式資訊清單的 [憑證] 區段。
 
 ```xml
 <Policies>

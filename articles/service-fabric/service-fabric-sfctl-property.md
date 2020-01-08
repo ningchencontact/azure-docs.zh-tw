@@ -1,32 +1,23 @@
 ---
-title: Azure Service Fabric CLI- sfctl property | Microsoft Docs
-description: 描述 Service Fabric CLI sfctl property 命令。
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI-sfctl 屬性
+description: 深入瞭解 sfctl，這是 Azure Service Fabric 命令列介面。 包含用來 storying 及查詢屬性的命令清單。
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 368dad54c611e4532b46f11669bcf8e363b9a740
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d9129f07db9f3499b51707965d10426dbc3d3c12
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901064"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639100"
 ---
 # <a name="sfctl-property"></a>sfctl property
 在 Service Fabric 名稱底下儲存和查詢屬性。
 
 ## <a name="commands"></a>命令
 
-|命令|描述|
+|Command|說明|
 | --- | --- |
 | delete | 刪除指定的 Service Fabric 屬性。 |
 | get | 取得指定的 Service Fabric 屬性。 |
@@ -40,7 +31,7 @@ ms.locfileid: "72901064"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --name-id       [必要] | 不含 'fabric\:' URI 配置的 Service Fabric 名稱。 |
 | --property-name [必要] | 指定要取得之屬性的名稱。 |
@@ -48,13 +39,13 @@ ms.locfileid: "72901064"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-property-get"></a>sfctl property get
 取得指定的 Service Fabric 屬性。
@@ -63,7 +54,7 @@ ms.locfileid: "72901064"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --name-id       [必要] | 不含 'fabric\:' URI 配置的 Service Fabric 名稱。 |
 | --property-name [必要] | 指定要取得之屬性的名稱。 |
@@ -71,13 +62,13 @@ ms.locfileid: "72901064"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-property-list"></a>sfctl property list
 取得指定名稱下所有 Service Fabric 屬性的相關資訊。
@@ -86,7 +77,7 @@ Service Fabric 名稱可以包含一或多個儲存自訂資訊的具名屬性�
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --name-id [必要] | 不含 'fabric\:' URI 配置的 Service Fabric 名稱。 |
 | --continuation-token | 接續權杖參數可用來取得下一組結果。 當來自系統的結果無法放入單一回應中時，API 的回應中會包含具有非空白值的接續權杖。 當此值傳遞至下一個 API 呼叫時，API 會傳回下一組結果。 如果沒有任何進一步的結果，接續權杖就不會包含值。 此參數的值不能經過 URL 編碼。 |
@@ -95,13 +86,13 @@ Service Fabric 名稱可以包含一或多個儲存自訂資訊的具名屬性�
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-property-put"></a>sfctl property put
 建立或更新 Service Fabric 屬性。
@@ -110,7 +101,7 @@ Service Fabric 名稱可以包含一或多個儲存自訂資訊的具名屬性�
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --name-id       [必要] | 不含 'fabric\:' URI 配置的 Service Fabric 名稱。 |
 | --property-name [必要] | Service Fabric 屬性的名稱。 |
@@ -120,13 +111,13 @@ Service Fabric 名稱可以包含一或多個儲存自訂資訊的具名屬性�
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 
 ## <a name="next-steps"></a>後續步驟

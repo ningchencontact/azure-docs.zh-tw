@@ -3,14 +3,14 @@ title: Visual Studio Code 如何與 Azure Dev Spaces 搭配運作
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: conceptual
-description: Visual Studio Code 如何與 Azure Dev Spaces 搭配運作
+description: 瞭解 Visual Studio Code 和 Azure Dev Spaces 如何協助您進行 Kubernetes 的應用程式快速反復查看
 keywords: Azure Dev Spaces，Dev Spaces，Docker，Kubernetes，Azure，AKS，Azure Kubernetes Service，容器
-ms.openlocfilehash: 50ce5e90e091ea72761cd7513d2508c657981e60
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f7fbcdd36e9c0db74a71a50cb7cde44484e6c555
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279879"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438373"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Visual Studio Code 如何與 Azure Dev Spaces 搭配運作
 

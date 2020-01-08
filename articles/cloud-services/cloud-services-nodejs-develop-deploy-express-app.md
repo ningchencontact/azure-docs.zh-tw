@@ -1,25 +1,26 @@
 ---
 title: 建立 Node.js Express 應用程式並部署到 Azure 雲端服務
+titleSuffix: Azure Cloud Services
 description: 在 Node.js 中建立 Express.js 應用程式並部署到 Azure 雲端服務
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: gwallace
-ms.openlocfilehash: 080ec61df2042a4cf2eac9d5175c4681f98fd9df
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.author: tagore
+ms.openlocfilehash: 79a998930a384420b22add8825ee4b2269eb4539
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306781"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360747"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>在 Azure 雲端服務上使用 Express 建置和部署 Node.js Web 應用程式
 
 Node.js 包含核心執行時期的一組最低功能。
-開發人員在開發 Node.js 應用程式時，通常會使用協力廠商模組來提供更多功能。 在本教學課程中，您將使用 [Express](https://github.com/expressjs/express) 模組來建立新的應用程式，此模組提供建立 Node.js Web 應用程式的 MVC 架構。
+開發人員在開發 Node.js 應用程式時，通常會使用協力廠商模組來提供更多功能。 在本教學課程中，您將使用 [Express](https://github.com/expressjs/express) 模組來建立新的應用程式，此模組提供用於建立 Node.js Web 應用程式的 MVC 架構。
 
 完成之應用程式的螢幕擷取畫面如下：
 
@@ -93,7 +94,7 @@ Node.js 包含核心執行時期的一組最低功能。
    
    ![The contents of the index.jade file.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade 是 Express 應用程式使用的預設檢視引擎。 如需 Jade view 引擎的詳細資訊，請[http://jade-lang.com][http://jade-lang.com]參閱。
+   Jade 是 Express 應用程式使用的預設檢視引擎。 如需有關 Jade view engine 的詳細資訊，請參閱[http://jade-lang.com][http://jade-lang.com]。
 2. 修改最後一行文字，加上 **in Azure**。
    
    ![index.jade 檔案，最後一行是：p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
@@ -119,5 +120,8 @@ Node.js 包含核心執行時期的一組最低功能。
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: https://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
+
+
+
 
 

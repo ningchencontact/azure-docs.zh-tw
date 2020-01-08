@@ -1,7 +1,7 @@
 ---
-title: 摘要資料
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的摘要資料模組，針對資料集中的資料行產生基本的描述性統計資料包表。
+title: 資料總結
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的摘要資料模組，針對資料集中的資料行產生基本的描述性統計資料包表。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 503eb533b83cbeedcc16b73a9c1dbe821a4d4d94
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80e2acf08960796ccb2f3ad87c16674e477c9c00
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492567"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428463"
 ---
-# <a name="summarize-data"></a>摘要資料
+# <a name="summarize-data"></a>資料總結
 
 本文說明 Azure Machine Learning 設計工具（預覽）的模組。
 
@@ -24,7 +24,7 @@ ms.locfileid: "73492567"
 
 當您想要瞭解完整資料集的特性時，摘要統計資料會很有用。 例如，您可能需要知道：
 
-- 每個資料行中有多少個遺漏值？
+- 每個資料行中遺漏多少值？
 - 功能資料行中有多少個唯一值？
 - 每個資料行的平均值和標準差為何？
 
@@ -52,12 +52,12 @@ ms.locfileid: "73492567"
 |**Count**|所有資料列的計數|
 |**唯一值計數**|資料行中的唯一值數目|
 |**遺漏值計數**|資料行中的唯一值數目|
-|**分鐘**|資料行中的最小值|  
-|**讀數**|資料行中的最大值|
-|**表明**|所有資料行值的平均值|
+|**Min**|資料行中的最小值|  
+|**Max**|資料行中的最大值|
+|**平均數**|所有資料行值的平均值|
 |**平均偏差**|資料行值的平均偏差|
 |**第1個四位**|第一個分位的值|
-|**中位數**|中位數資料行值|
+|**Median**|中位數資料行值|
 |**第3個四位**|第三個分位的值|
 |**模式**|資料行值的模式|
 |**Range**|代表最大值與最小值之間值數目的整數|
@@ -73,4 +73,4 @@ ms.locfileid: "73492567"
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。  
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。  

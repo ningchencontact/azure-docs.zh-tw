@@ -1,17 +1,17 @@
 ---
-title: 資料作業範例
-description: Azure Logic Apps 中資料作業動作的程式碼範例
+title: 使用資料作業的程式碼範例
+description: 請嘗試這些程式碼範例，示範如何在使用 Azure Logic Apps 建立的自動化工作流程中使用資料作業
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
-ms.openlocfilehash: d59e461fab52bddf9cb1f881d52a751931c7312b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793080"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428700"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>適用於 Azure Logic Apps 的資料作業程式碼範例
 
@@ -222,7 +222,7 @@ ms.locfileid: "74793080"
 
 <a name="join-action-example"></a>
 
-## <a name="join"></a>聯結
+## <a name="join"></a>Join
 
 若要嘗試[**加入**動作範例](../logic-apps/logic-apps-perform-data-operations.md#join-action)，以下是您可以使用的動作定義：
 

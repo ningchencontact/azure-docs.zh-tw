@@ -1,18 +1,18 @@
 ---
 title: 轉譯功能 - Azure Batch
-description: Azure Batch 中的特定轉譯功能
+description: 標準 Azure Batch 功能是用來執行轉譯工作負載和應用程式。 Batch 包含支援轉譯工作負載的特定功能。
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: b5eaaa6d41b9dae97a2d6219ffa44fb75ed67e61
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 697e2640b7215e0bbb9202c672f936535831eb99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350037"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449715"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 轉譯功能
 
@@ -30,10 +30,10 @@ ms.locfileid: "71350037"
 
 如需範例集區設定，請參閱 [Azure CLI 轉譯教學課程](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)。  Azure 入口網站和 Batch Explorer 提供 GUI 工具，讓您在建立集區時選取轉譯 VM 映像。  如果使用 Batch API，則在建立集區時指定 [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) 的下列屬性值：
 
-| 發行者 | 供應項目 | SKU | Version |
+| 發佈者 | 供應項目 | SKU | 版本 |
 |---------|---------|---------|--------|
-| 批次 | rendering-centos73 | 轉譯 | 最新 |
-| 批次 | rendering-windows2016 | 轉譯 | 最新 |
+| batch | rendering-centos73 | 轉譯 | latest |
+| batch | rendering-windows2016 | 轉譯 | latest |
 
 如果集區 VM 上需要額外的應用程式，則適用其他選項：
 

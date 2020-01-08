@@ -3,12 +3,12 @@ title: 架構概觀
 description: 概略說明 Azure 備份服務所使用的架構、元件和程序。
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: ae7b0c2b81bd3d393b7e749e077a6f5fa0379562
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: de532bb02b4ecf5e912a71df404418338325d582
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173512"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450187"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure 備份架構和元件
 
@@ -44,8 +44,8 @@ Azure 備份會將已備份的資料儲存在復原服務保存庫中。 保存�
 - 您可以在保存庫中監視已備份的專案，包括 Azure Vm 和內部部署機器。
 - 您可以使用 Azure [角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 來管理保存庫存取。
 - 您可以指定如何複寫保存庫中的資料以提供備援性：
-  - **本機多餘儲存體（LRS）** ：若要防止資料中心發生失敗，您可以使用 LRS。 LRS 會將資料複寫至儲存體縮放單位。 [詳細資訊](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)。
-  - **異地多餘儲存體（GRS）** ：若要防止全區域中斷，您可以使用 GRS。 GRS 會將您的資料複寫至次要區域。 [詳細資訊](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)。
+  - **本機多餘儲存體（LRS）** ：若要防止資料中心發生失敗，您可以使用 LRS。 LRS 會將資料複寫至儲存體縮放單位。 [深入了解](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)。
+  - **異地多餘儲存體（GRS）** ：若要防止全區域中斷，您可以使用 GRS。 GRS 會將您的資料複寫至次要區域。 [深入了解](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)。
   - 根據預設，復原服務保存庫會使用 GRS。
 
 ## <a name="backup-agents"></a>備份代理程式
@@ -94,10 +94,10 @@ Azure 備份提供不同的備份代理程式，視要備份的機器類型而�
 
 **功能** | **直接備份檔案和資料夾（使用 MARS 代理程式）** | **Azure VM 備份** | **具有 DPM/MABS 的機器或應用程式**
 --- | --- | --- | ---
-備份至保存庫 | ![yes][green] | ![yes][green] | ![yes][green]
-備份至 DPM/MABS 磁片，到 Azure | | | ![yes][green]
-壓縮要備份的傳輸資料 | ![yes][green] | 傳輸資料時不使用壓縮。 儲存體會略為膨脹，但還原速度較快。  | ![yes][green]
-執行增量備份 |![yes][green] |![yes][green] |![yes][green]
+備份至保存庫 | ![是][green] | ![是][green] | ![是][green]
+備份至 DPM/MABS 磁片，到 Azure | | | ![是][green]
+壓縮要備份的傳輸資料 | ![是][green] | 傳輸資料時不使用壓縮。 儲存體會略為膨脹，但還原速度較快。  | ![是][green]
+執行增量備份 |![是][green] |![是][green] |![是][green]
 備份已刪除重複資料的磁碟 | | | ![部分][yellow]<br/><br/> 僅用於內部部署的 DPM/MABS 伺服器。
 
 ![資料表索引鍵](./media/backup-architecture/table-key.png)
@@ -174,7 +174,7 @@ Azure VM 會使用磁碟來儲存其作業系統、應用程式和資料。 每�
 您可以使用具有 Azure 備份的 premium 儲存體來備份 Azure Vm：
 
 - 在使用 premium 儲存體備份 Vm 的過程中，備份服務會在儲存體帳戶中建立名為*AzureBackup 的*暫存位置。 預備位置的大小等於復原點快照集的大小。
-- 確定進階儲存體帳戶有足夠的可用空間可容納暫存位置。 [詳細資訊](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits)。 請勿修改暫存位置。
+- 確定進階儲存體帳戶有足夠的可用空間可容納暫存位置。 如需詳細資訊，請參閱[premium 分頁 blob 儲存體帳戶的擴充性目標](../storage/blobs/scalability-targets-premium-page-blobs.md)。 請勿修改暫存位置。
 - 備份作業完成後，就會刪除暫存位置。
 - 用於暫存位置的儲存體，價格會與[進階儲存體價格](../virtual-machines/windows/disks-types.md#billing)一致。
 

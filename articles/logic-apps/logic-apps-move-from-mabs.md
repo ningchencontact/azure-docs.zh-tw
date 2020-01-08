@@ -1,6 +1,6 @@
 ---
-title: 將應用程式從 BizTalk 服務移至 Azure Logic Apps
-description: 從 Azure BizTalk 服務 (MABS) 遷移至 Azure Logic Apps
+title: 將應用程式從 BizTalk 服務遷移至 Azure Logic Apps
+description: 如何將您的應用程式和解決方案從 Microsoft Azure BizTalk 服務（MABS）移至 Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: jonfancey
@@ -8,14 +8,14 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 97b498091451b0bf39741ed4340b8e02517c5447
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 10c9a1d3723ed30bee5437c3ab7a41308e253bd8
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791886"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666647"
 ---
-# <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>從 BizTalk 服務遷移至 Azure Logic Apps
+# <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>將您的應用程式和解決方案從 BizTalk 服務遷移至 Azure Logic Apps
 
 Microsoft Azure BizTalk 服務 (MABS) 即將停用。 若要將 MABS 整合解決方案移至 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)，請遵循本文中的指引。 
 

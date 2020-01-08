@@ -1,5 +1,5 @@
 ---
-title: 限制 Azure Active Directory 註冊的應用程式使用者 |Azure
+title: 將 Azure AD 應用程式限制為一組使用者 |Azure
 titleSuffix: Microsoft identity platform
 description: 了解如何將已在 Azure AD 中註冊的應用程式限制為僅供一組選取的使用者存取。
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cd52a62d5ab8185e18c849f6009e4632c96ede
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ff6e9d101159af33a05a2dc50e227bc97970b12d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917619"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424452"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>如何：將您的 Azure AD 應用程式限制為一組使用者
 
@@ -46,7 +46,7 @@ Azure AD 可讓租用戶系統管理員和開發人員將應用程式限制為�
 
 有兩種方式可建立具有已啟用使用者指派的應用程式。 其中一個需要**全域管理員**角色，第二個則否。
 
-### <a name="enterprise-applications-requires-the-global-adminstrator-role"></a>企業應用程式（需要全域管理員角色）
+### <a name="enterprise-applications-requires-the-global-administrator-role"></a>企業應用程式（需要全域管理員角色）
 
 1. 移至[**Azure 入口網站**](https://portal.azure.com/)，並以**全域管理員**身分登入。
 1. 在頂端列中，選取已登入的帳戶。 

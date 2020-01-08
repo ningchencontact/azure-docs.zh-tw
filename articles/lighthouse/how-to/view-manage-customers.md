@@ -1,22 +1,24 @@
 ---
 title: 檢視及管理客戶與委派的資源
 description: 身為使用 Azure 委派的資源管理的服務提供者，您可以移至 Azure 入口網站中的 [我的客戶] 來檢視所有委派的客戶資源與訂用帳戶。
-ms.date: 10/23/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: f115ecad09b01869a465f50485e191671970d521
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: ac268d2899dcc3d940072bfbfd17770044dc3c66
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463834"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456825"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>檢視及管理客戶與委派的資源
 
-使用 [Azure 委派的資源管理](../concepts/azure-delegated-resource-management.md)的服務提供者，可以使用 **Azure 入口網站**中的 [我的客戶][](https://portal.azure.com) 頁面來檢視委派的客戶資源與訂用帳戶。 雖然我們在此所述的是服務提供者與其客戶，但管理多個租用戶的企業也可以使用相同的程序來合併其管理體驗。
+使用 [Azure 委派的資源管理](../concepts/azure-delegated-resource-management.md)的服務提供者，可以使用 [Azure 入口網站](https://portal.azure.com)中的 [我的客戶] 頁面來檢視委派的客戶資源與訂用帳戶。 雖然我們在此所述的是服務提供者與其客戶，但管理多個租用戶的企業也可以使用相同的程序來合併其管理體驗。
 
 若要存取 Azure 入口網站中的 [我的客戶] 頁面，請選取 [所有服務]，然後搜尋**我的客戶**並選取它。 您也可以在靠近 Azure 入口網站頂端的搜尋方塊中輸入「我的客戶」來找到它。
 
-請記住，[我的客戶] 頁面最上方的區段只會顯示委派的訂用帳戶或資源群組之客戶的資訊。 如果您還有其他客戶 (例如透過[雲端解決方案提供者計畫](https://docs.microsoft.com/partner-center/csp-overview)所取得的客戶)，您將無法在此看見那些客戶的資訊，除非您將其資源上線以進行委派的資源管理。 在此頁面下方，[雲端解決方案提供者 (預覽)] 區段會針對已[簽署 Microsoft 客戶合約 (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) 且加入 Azure 方案的 CSP 客戶，顯示帳單資訊和資源 (不論他們是否已經上線以進行 Azure 委派的資源管理)。 如需詳細資訊，請參閱[開始使用您的 Microsoft 合作夥伴合約計費帳戶](https://docs.microsoft.com/azure/billing/mpa-overview)。
+請記住，[**我的客戶**] 頁面的 [最上層**客戶**] 區段只會顯示有委派的訂用帳戶或資源群組之客戶的相關資訊。 如果您使用其他客戶（例如透過[雲端解決方案提供者方案](https://docs.microsoft.com/partner-center/csp-overview)，您將不會在 [**客戶**] 區段中看到這些客戶的相關資訊，除非您已針對 Azure 委派的資源管理上架其資源。
+
+在頁面上降低，稱為「**雲端解決方案提供者（預覽）** 」的個別區段會顯示已[簽署 Microsoft 客戶合約（MCA）](https://docs.microsoft.com/partner-center/confirm-customer-agreement)且位於[Azure 方案](https://docs.microsoft.com/partner-center/azure-plan-get-started)底下之 CSP 客戶的帳單資訊和資源。 如需詳細資訊，請參閱[開始使用您的 Microsoft 合作夥伴合約計費帳戶](../../billing/mpa-overview.md)。 請注意，這一節會顯示這類 CSP 客戶，無論您是否也已上架它們以進行 Azure 委派的資源管理。 同樣地，CSP 客戶不需要出現在 [**我的客戶**] 的 [**雲端解決方案提供者（預覽）** ] 區段中，讓您將其上線以進行 Azure 委派的資源管理。
 
 > [!NOTE]
 > 您的客戶可以在 Azure 入口網站中瀏覽至 [服務提供者]，來檢視服務提供者的相關資訊。 如需詳細資訊，請參閱[檢視和管理服務提供者](view-manage-service-providers.md)。
@@ -28,7 +30,7 @@ ms.locfileid: "74463834"
 針對每個客戶，您將會看見該客戶的名稱、客戶識別碼 (租用戶識別碼)，以及與此業務開發相關聯的供應項目。 在 [委派] 欄中，您將會看見委派的訂用帳戶和/或資源群組的數目。
 
 > [!IMPORTANT]
-> 若要查看委派，使用者必須在上線程序中，獲授與[讀取者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)角色 (或包含讀取者存取權的其他內建角色)。
+> 若要查看委派，使用者必須在上線程序中，獲授與[讀取者](../../role-based-access-control/built-in-roles.md#reader)角色 (或包含讀取者存取權的其他內建角色)。
 
 頁面頂端的篩選可讓您對客戶資訊進行排序及分組，或是依特定客戶、供應項目或關鍵字進行篩選。
 
@@ -63,4 +65,4 @@ ms.locfileid: "74463834"
 ## <a name="next-steps"></a>後續步驟
 
 - 了解[跨租用戶管理體驗](../concepts/cross-tenant-management-experience.md)。
-- 了解客戶如何能透過移至 Azure 入口網站中的 [服務提供者][](view-manage-service-providers.md) 來**檢視和管理服務提供者**。
+- 了解客戶如何能透過移至 Azure 入口網站中的 [服務提供者] 來[檢視和管理服務提供者](view-manage-service-providers.md)。

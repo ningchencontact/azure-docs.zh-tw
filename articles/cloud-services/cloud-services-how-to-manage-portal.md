@@ -3,17 +3,17 @@ title: 常見的雲端服務管理工作 | Microsoft Docs
 description: 了解如何在 Azure 入口網站中管理雲端服務。 這些範例使用 Azure 入口網站。
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: 8ec7784fb51d0fa4de2563f76444b0b5e5f34902
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 185bb9d03bec042a5c8e9223616b40eba6629e36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359606"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360900"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>在 Azure 入口網站中管理雲端服務
 在 Azure 入口網站的 [雲端服務] 區域中，您可以：
@@ -49,9 +49,9 @@ ms.locfileid: "68359606"
 7. 選取 [確定] 開始更新服務。
 
 ## <a name="swap-deployments-to-promote-a-staged-deployment-to-production"></a>交換部署以使預備部署升格為生產部署
-當您決定部署新版的雲端服務時，可以在您的雲端服務預備環境中，預備並測試新版本。 使用 [交換]  將這兩個部署的 URL 位址互換，並將新版本升級為生產部署。
+當您決定部署新版的雲端服務時，可以在您的雲端服務預備環境中，預備並測試新版本。 使用 [交換] 將這兩個部署的 URL 位址互換，並將新版本升級為生產部署。
 
-您可以在 [雲端服務]  頁面或儀表板交換部署。
+您可以在 [雲端服務] 頁面或儀表板交換部署。
 
 1. 在 [Azure 入口網站][Azure portal]，選取您想要更新的雲端服務。 這會開啟雲端服務執行個體刀鋒視窗。
 
@@ -81,7 +81,7 @@ ms.locfileid: "68359606"
 
 請注意，客體 OS 更新和服務修復作業也可能導致部署交換失敗。 如需詳細資訊，請參閱[對雲端服務部署問題進行疑難排解](cloud-services-troubleshoot-deployment-problems.md)。
 
-**交換是否會導致我的應用程式停止運作？我應該如何處理該情況？**
+**交換是否會產生應用程式的停機時間？我該如何處理？**
 
 如上一節中所述，部署交換通常很快，因為它只是 Azure 負載平衡器中的設定變更。 在某些情況下，它會花費 10 秒以上的時間，而導致暫時性的連線失敗。 若要限縮對您客戶造成的影響，請考慮實作[用戶端重試邏輯](../best-practices-retry-general.md)。
 
@@ -124,3 +124,6 @@ ms.locfileid: "68359606"
 * 了解如何 [部署雲端服務](cloud-services-how-to-create-deploy-portal.md)。
 * 設定 [自訂網域名稱](cloud-services-custom-domain-name-portal.md)。
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
+
+
+

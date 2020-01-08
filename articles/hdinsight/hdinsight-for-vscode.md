@@ -7,38 +7,38 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 03d0d26a21e710c07019d3ffcb13a1482a96af50
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 9a81868d678b4c0277e904e879c73185a378bf70
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311726"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435675"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>使用 Spark & Hive 工具進行 Visual Studio Code
 
 瞭解如何使用 Spark & Hive 工具來 Visual Studio Code 建立和提交 Apache Hive 批次作業、互動式 Hive 查詢，以及適用于 Apache Spark 的 PySpark 腳本。 首先，我們將說明如何在 Visual Studio Code 中安裝 Spark & Hive 工具，然後逐步解說如何將作業提交至 Spark & Hive 工具。  
 
-Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包括 Windows、Linux 和 macOS。 請注意，適用于不同平臺的下列必要條件。
+您可以在 Visual Studio Code 所支援的平台上安裝 Spark & Hive Tools，這包括 Windows、Linux 及 macOS。 請注意，適用于不同平臺的下列必要條件。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-需要有下列項目才能完成本文中的步驟：
+若要完成此文章中的步驟，將會需要下列項目：
 
 - Azure HDInsight 叢集。 若要建立叢集，請參閱[開始使用 HDInsight](hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)。 或使用支援 Apache Livy 端點的 Spark 和 Hive 叢集。
-- [Visual Studio Code](https://code.visualstudio.com/)。
-- [Mono](https://www.mono-project.com/docs/getting-started/install/)。 只有 Linux 和 macOS 才需要 Mono。
+- [Visual Studio Code](https://code.visualstudio.com/) \(英文\)。
+- [Mono](https://www.mono-project.com/docs/getting-started/install/) \(英文\)。 只有 Linux 和 macOS 才需要 Mono。
 - [Visual Studio Code 的 PySpark 互動式環境](set-up-pyspark-interactive-environment.md)。
-- 本機目錄。 本文使用 **C:\HD\HDexample**。
+- 本機目錄。 此文章使用 **C:\HD\HDexample**。
 
-## <a name="install-spark--hive-tools"></a>安裝 Spark & Hive 工具
+## <a name="install-spark--hive-tools"></a>安裝 Spark & Hive Tools
 
 符合必要條件之後，您可以遵循下列步驟，安裝適用于 Visual Studio Code 的 Spark & Hive 工具：
 
 1. 開啟 Visual Studio Code。
 
-2. 從功能表列，瀏覽至 [檢視]  >  [延伸模組]。
+2. 從功能表列，瀏覽至 [檢視] > [擴充功能]。
 
-3. 在 [搜尋] 方塊中，輸入**Spark & Hive**。
+3. 在搜尋方塊中，輸入 **Spark & Hive**。
 
 4. 從搜尋結果中選取 [ **Spark & Hive 工具**]，然後選取 [**安裝**]：
 
@@ -50,7 +50,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 若要開啟工作資料夾，並在 Visual Studio Code 中建立檔案，請遵循下列步驟：
 
-1. 從功能表列，**流覽至** 檔案 > **開啟資料夾 ...**  > **C:\HD\HDexample**，然後選取 **選取資料夾** 按鈕。 資料夾會出現在左側的 [總管] 檢視中。
+1. 從功能表列，**流覽至** 檔案 > **開啟資料夾 ...**  > **C:\HD\HDexample**，然後選取 **選取資料夾** 按鈕。 該資料夾會出現在左側的 [檔案總管] 檢視中。
 
 2. 在 [ **Explorer** ] 視圖中，選取 [ **hdexample 已**] 資料夾，然後選取工作資料夾旁邊的 [**新增**檔案] 圖示：
 
@@ -100,7 +100,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 7. 設定叢集的顯示名稱（選擇性）。
 
-8. 檢閱 [輸出] 檢視以進行驗證。
+8. 檢閱 [輸出] 檢視以確認。
 
    > [!NOTE]  
    > 如果叢集已登入 Azure 訂用帳戶並連結叢集，則會使用連結的使用者名稱和密碼。  
@@ -117,7 +117,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
     &emsp;a. 輸入您的 Ambari 使用者名稱;預設值為**admin**。  
     &emsp;b. 輸入您的 Ambari 密碼。
 
-5. 檢閱 [輸出] 檢視以進行驗證。
+5. 檢閱 [輸出] 檢視以確認。
 
 ## <a name="list-clusters"></a>列出叢集
 
@@ -127,7 +127,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 3. 檢閱 [輸出] 檢視。 此視圖會顯示您的 Azure 訂用帳戶下連結的叢集（或叢集）和所有叢集：
 
-    ![設定預設叢集組態](./media/hdinsight-for-vscode/list-cluster-result1.png)
+    ![設定預設叢集設定](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## <a name="set-the-default-cluster"></a>設定預設叢集
 
@@ -139,9 +139,9 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 4. [連接](#connect-to-an-azure-account)到您的 Azure 帳戶，或連結叢集（如果您尚未這麼做）。
 
-5. 選取某個叢集來作為目前指令碼檔案的預設叢集。 這些工具會自動更新 **。VSCode\settings.json**設定檔：
+5. 選取某個叢集作為目前指令檔的預設叢集。 這些工具會自動更新 **。VSCode\settings.json**設定檔：
 
-   ![設定預設叢集組態](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
+   ![設定預設叢集設定](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
 
 ## <a name="submit-interactive-hive-queries-and-hive-batch-scripts"></a>提交互動式 Hive 查詢和 Hive 批次腳本
 
@@ -177,7 +177,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 2. 遵循[先前](#open-a-work-folder)的步驟，建立新的**HelloWorld.py**檔案。
 
-3. 複製以下程式碼並貼到指令碼檔案中：
+3. 將下列程式碼複製並貼到該指令檔：
 
    ```python
    from operator import add
@@ -197,11 +197,11 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 5. 選取所有程式碼，以滑鼠右鍵按一下腳本編輯器，然後選取 [ **Spark： PySpark Interactive** ] 來提交查詢。 或者，使用 Ctrl + Alt + I 快捷方式。
 
-   ![pyspark 互動式操作功能表](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
+   ![[PySpark 互動式] 內容功能表](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
 6. 如果您尚未指定預設叢集，請選取叢集。 幾分鐘後， **Python 互動式**結果會出現在新的索引標籤中。這些工具也可讓您使用內容功能表來提交程式碼區塊，而不是整個腳本檔案：
 
-   ![pyspark 互動式 python 互動式視窗](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
+   ![PySpark 互動式 Python 互動式視窗](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
 7. 輸入 **%% info**，然後按 Shift + enter 以查看作業資訊（選擇性）：
 
@@ -217,15 +217,15 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
    >
    > 在設定中清除 [**啟用 Python 延伸**模組] 時（預設為已選取），提交的 pyspark 互動結果將使用舊的視窗：
    >
-   > ![pyspark 互動式 python 延伸模組已停用](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-disabled.png)
+   > ![PySpark 互動式 Python 擴充功能已停用](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-disabled.png)
 
-## <a name="submit-pyspark-batch-job"></a>提交 PySpark 批次作業
+## <a name="submit-pyspark-batch-job"></a>提交 PySpark 批次工作
 
 1. 如果已關閉，請重新開啟您稍[早](#open-a-work-folder)所討論的**hdexample 已**資料夾。  
 
 2. 遵循[先前](#open-a-work-folder)的步驟，建立新的**BatchFile.py**檔案。
 
-3. 複製以下程式碼並貼到指令碼檔案中：
+3. 將下列程式碼複製並貼到該指令檔：
 
     ```python
     from __future__ import print_function
@@ -256,18 +256,18 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
    ![提交 Python 作業結果輸出](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-在提交 Python 作業後，提交記錄會出現在 Visual Studio Code 的 [輸出] 視窗中。 也會顯示 [Spark UI URL] 和 [Yarn UI URL]。 您可以在網頁瀏覽器中開啟 URL 來追蹤作業狀態。
+在您提交 Python 作業之後，提交記錄便會出現在 Visual Studio Code 的 [輸出] 視窗中。 也會顯示 [Spark UI URL] 和 [Yarn UI URL]。 您可以在網頁瀏覽器中開啟該 URL 來追蹤作業狀態。
 
 ## <a name="apache-livy-configuration"></a>Apache Livy 設定
 
-支援[Apache Livy](https://livy.incubator.apache.org/)設定。 您可以在中設定它 **。** 工作區資料夾中的 VSCode\settings.json 檔案。 目前，Livy 設定只支援 Python 腳本。 如需詳細資訊，請參閱[LIVY 讀我檔案](https://github.com/cloudera/livy/blob/master/README.rst )。
+支援[Apache Livy](https://livy.incubator.apache.org/)設定。 您可以在中設定它 **。** 工作區資料夾中的 VSCode\settings.json 檔案。 目前 Livy 設定僅支援 Python 指令碼。 如需詳細資訊，請參閱[LIVY 讀我檔案](https://github.com/cloudera/livy/blob/master/README.rst )。
 
 <a id="triggerlivyconf"></a>**如何觸發 Livy 設定**
 
 方法 1  
-1. 從功能表，瀏覽至 [檔案]  >  [喜好設定]  >  [設定]。
+1. 從功能表列，瀏覽至 [檔案] > [喜好設定] > [設定]。
 2. 在 [**搜尋設定**] 方塊中，輸入**HDInsight 作業提交： Livy 會議**。  
-3. 選取 [在 settings.json 中編輯] 以取得相關搜尋結果。
+3. 選取 [在 settings.json 中編輯] 以取得相關的搜尋結果。
 
 方法2：提交檔案，並注意 vscode 資料夾會自動新增至工作資料夾。 您可以選取 [ **vscode\settings.json**] 來查看 Livy 設定。
 
@@ -282,34 +282,34 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
     **張貼/batches**要求本文
 
-    | 名稱 | Description | 類型 |
+    | NAME | description | type |
     | :- | :- | :- |
-    | file | 要執行的應用程式所在的檔案 | 路徑（必要） |
-    | proxyUser | 要在執行作業時模擬的使用者 | 字串 |
-    | className | 應用程式 Java/Spark 主要類別 | 字串 |
+    | 檔案 | 包含要執行之應用程式的檔案 | 路徑（必要） |
+    | proxyUser | 執行作業時要模擬的使用者 | String |
+    | className | 應用程式 Java/Spark 主要類別 | String |
     | args | 應用程式的命令列引數 | 字串清單 |
     | jars | 要在此會話中使用的 jar | 字串清單 | 
-    | pyFiles | 要在此工作階段中使用的 Python 檔案 | 字串清單 |
-    | 檔案 | 要在此會話中使用的檔案 | 字串清單 |
-    | driverMemory | 要用於驅動程式處理序的記憶體數量 | 字串 |
-    | driverCores | 要用於驅動程式處理序的核心數量 | int |
-    | executorMemory | 每一個執行程式處理序所要使用的記憶體數量 | 字串 |
-    | executorCores | 每個執行程式所要使用的核心數量 | int |
-    | numExecutors | 要為此工作階段啟動的執行程式數量 | int |
-    | archives | 要在此工作階段中使用的封存 | 字串清單 |
-    | 佇列 | 要提交的 YARN 佇列名稱| 字串 |
-    | 名稱 | 此會話的名稱 | 字串 |
-    | conf | Spark 組態屬性 | key=val 的對應 |
+    | pyFiles | 要用於此工作階段的 Python 檔案 | 字串清單 |
+    | files | 要在此會話中使用的檔案 | 字串清單 |
+    | driverMemory | 要用於驅動程式程序的記憶體數量 | String |
+    | driverCores | 要用於驅動程式程序的核心數目 | Int |
+    | executorMemory | 要用於每個執行程式程序的記憶體數量 | String |
+    | executorCores | 要用於每個執行程式的核心數目 | Int |
+    | numExecutors | 要針對此工作階段啟動的執行程式數目 | Int |
+    | archives | 要用於此工作階段的封存 | 字串清單 |
+    | queue | 要提交的 YARN 佇列名稱| String |
+    | NAME | 此會話的名稱 | String |
+    | conf | Spark 設定屬性 | key=val 的對應 |
 
     已建立之批次物件的回應主體。
 
-    | 名稱 | Description | 類型 |
+    | NAME | description | type |
     | :- | :- | :- |
-    | id | 工作階段識別碼 | int |
-    | appId | 此會話的應用程式識別碼 | 字串 |
+    | id | 工作階段識別碼 | Int |
+    | appId | 此會話的應用程式識別碼 | String |
     | appInfo | 詳細的應用程式資訊 | key=val 的對應 |
     | log | 記錄行 | 字串清單 |
-    | state |批次狀態 | 字串 |
+    | state |批次狀態 | String |
 
     > [!NOTE]
     > 當您提交腳本時，會在 [輸出] 窗格中顯示指派的 Livy 設定。
@@ -326,7 +326,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 4. 展開叢集以查看 Hive 中繼資料資料庫和資料表架構。
 
-5. 以滑鼠右鍵按一下 [Hive] 資料表。 例如： **hivesampletable**。 選取 [**預覽**]。
+5. 以滑鼠右鍵按一下 [Hive] 資料表。 例如： **hivesampletable**。 選取 [預覽]。
 
    ![適用于 Visual Studio Code preview hive 資料表的 Spark & Hive](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
@@ -358,9 +358,9 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
     ![適用于 Visual Studio Code IntelliSense 物件的 Spark & Hive 工具](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
 
 - **IntelliSense 錯誤標記**。 語言服務會在 Hive 腳本中的編輯錯誤加上底線。     
-- **語法醒目顯示**。 語言服務會使用不同的色彩來區分變數、關鍵字、資料類型、函數和其他程式設計項目：
+- **語法醒目提示**。 語言服務會使用不同的色彩來區分變數、關鍵字、資料類型、函數和其他程式設計項目：
 
-    ![適用于 Visual Studio Code 語法重點的 Spark & Hive 工具](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
+    ![適用於 Visual Studio Code 的 Spark & Hive Tools 語法醒目提示](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
 ## <a name="reader-only-role"></a>僅限讀取者角色
 
@@ -403,9 +403,9 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上，包�
 
 > [!NOTE]
 >
-> 您可以從 Azure 入口網站取得儲存體帳戶的存取金鑰。 如需詳細資訊，請參閱[查看及複製存取金鑰](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys)。
+> 您可以從 Azure 入口網站取得儲存體帳戶的存取金鑰。 如需詳細資訊，請參閱[管理儲存體帳戶存取金鑰](../storage/common/storage-account-keys-manage.md)。
 
-## <a name="unlink-cluster"></a>取消連結叢集
+## <a name="unlink-cluster"></a>將叢集取消連結
 
 1. 從功能表列中，移至 [ **View** ] > [**命令**選擇區]，然後輸入**Spark/Hive：取消連結**叢集。  
 

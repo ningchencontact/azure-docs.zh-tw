@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 08cae51da20b6093b284618de92c61aab4bf5b55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22fd78ccd58be1790fcd167da396600e8b876564
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65508391"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428907"
 ---
-# <a name="devtest-labs-concepts"></a>研發/測試實驗室概念
-## <a name="overview"></a>總覽
+# <a name="devtest-labs-concepts"></a>DevTest Labs 概念
+## <a name="overview"></a>概觀
 下列清單包含重要的研發/測試實驗室概念和定義：
 
 ## <a name="labs"></a>實驗室
@@ -44,14 +44,14 @@ Azure 可宣告 VM 是可供任何具有權限的實驗室使用者使用的虛�
 ## <a name="base-images"></a>基礎映像
 基礎映像是 VM 映像，包含預先安裝並加以設定的所有工具與設定，可用來快速建立 VM。 您可以挑選現有的基本映像並加入構件來安裝測試代理程式，藉以佈建 VM。 您接著可以儲存佈建的 VM 做為基本映像，如此一來，不必針對 VM 的每個佈建重新安裝測試代理程式，就能使用該基本映像。
 
-## <a name="artifacts"></a>構件
-構件是在佈建 VM 之後用來部署和設定您的應用程式。 構件可以是：
+## <a name="artifacts"></a>Artifacts
+構件是在佈建 VM 之後用來部署和設定您的應用程式。 構件可以是以下項目：
 
 * 您想要在 VM 上安裝的工具 - 例如，代理程式、Fiddler 及 Visual Studio。
 * 您想要在 VM 上執行的動作 - 例如，複製儲存機制。
-* 您想要測試的應用程式。
+* 您想測試的應用程式。
 
-構件是 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) JSON 檔案，其中包含執行部署及套用組態的指示。
+構件是 [Azure Resource Manager](../azure-resource-manager/management/overview.md) JSON 檔案，其中包含執行部署及套用組態的指示。
 
 ## <a name="artifact-repositories"></a>構件儲存機制
 構件儲存機制是已簽入構件的 Git 儲存機制。 構件儲存機制可以加入組織中的多個實驗室，以便重複使用及共用。
@@ -60,7 +60,7 @@ Azure 可宣告 VM 是可供任何具有權限的實驗室使用者使用的虛�
 除了基底映像，公式提供快速 VM 佈建的機制。 研發/測試實驗室中的公式是用來建立實驗室 VM 的預設屬性值清單。
 透過公式，可以建立具備相同屬性集 - 例如基底映像、VM 大小、虛擬網路以及成品 - 的 VM，而不需要每次都指定這些屬性。 透過公式建立 VM 時，可以依現況使用預設值，或修改預設值。
 
-## <a name="policies"></a>policies
+## <a name="policies"></a>原則
 原則可協助控制實驗室中的成本。 例如，您可以建立一個原則，根據定義的排程自動關閉 VM。
 
 ## <a name="caps"></a>最高限度
@@ -70,7 +70,7 @@ Azure 可宣告 VM 是可供任何具有權限的實驗室使用者使用的虛�
 安全性存取權是由 Azure 角色型存取控制 (RBAC) 所決定。 若要了解存取權的運作方式，了解 RBAC 所定義的權限、角色和範圍之間的差異將有所幫助。
 
 * 權限 - 權限是針對特定動作所定義的存取權 (例如，針對所有虛擬機器的讀取權限)。
-* 角色 - 角色是一組可以分組並指派給使用者的權限。 例如，「訂用帳戶擁有者」  角色擁有訂用帳戶內所有資源的存取權。
+* 角色 - 角色是一組可以分組並指派給使用者的權限。 例如，「訂用帳戶擁有者」 角色擁有訂用帳戶內所有資源的存取權。
 * 範圍 - 範圍是 Azure 資源階層的其中一個層級，例如，資源群組、單一實驗室或整個訂用帳戶。
 
 在 DevTest Labs 的範圍內有兩種可用來定義使用者權限的角色類型︰實驗室擁有者和實驗室使用者。
@@ -82,7 +82,7 @@ Azure 可宣告 VM 是可供任何具有權限的實驗室使用者使用的虛�
 
 由於範圍是階層形式，當使用者擁有特定範圍的權限時，就會自動獲得該範圍所包含的每個較低層級範圍的權限。 例如，如果有使用者指派給訂用帳戶擁有者角色，他們就可以存取訂用帳戶中的所有資源，其中包括所有虛擬機器、所有虛擬網路和所有實驗室。 因此，訂用帳戶擁有者會自動繼承實驗室擁有者角色。 不過，若情形顛倒過來就不成立。 實驗室擁有者可存取實驗室，而實驗室是比訂用帳戶層級還低的範圍。 因此，實驗室擁有者將無法看到實驗室以外的虛擬機器、虛擬網路或任何資源。
 
-## <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本
+## <a name="azure-resource-manager-templates"></a>Azure Resource Manager 範本
 此文章中討論的所有概念都可以使用 Azure Resource Manager 範本來設定，範本可以讓您定義 Azure 解決方案的基礎結構/設定，並重複以一致的狀態來部署。
 
 [了解 Azure Resource Manager 範本的結構和語法](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format)描述 Azure Resource Manager 範本的結構，以及範本的各區段中可用的屬性。

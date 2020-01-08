@@ -8,127 +8,163 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: fb1bfb30d531f8b93489c8fc1dfbc6b8172339a3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 268973f27336e97fe85e493da18714df46171f8a
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006466"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497735"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽版中的資料模型
 
 本文說明如何使用 Azure 時間序列深入解析 Preview 中的時間序列模型。 它詳細說明數個常見資料案例。
 
-若要深入了解如何使用該更新，請參閱 [Azure 時間序列深入解析預覽版總管](./time-series-insights-update-explorer.md)。
-
-## <a name="types"></a>類型
-
-### <a name="create-a-single-type"></a>建立單一類型
-
-1. 移至時間序列模型選取器面板，然後從功能表中選取 [**類型**]。 折迭面板以將焦點放在時間序列模型類型上。
-
-    [![「類型」窗格](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
-
-1. 選取 [+ 新增]。
-1. 輸入與類型相關的所有詳細資料，然後選取 [**建立**]。 此動作會在環境中建立類型。
-
-    [新增類型的![選取專案](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
-
-### <a name="bulk-upload-one-or-more-types"></a>大量上傳一或多個類型
-
-1. 選取 [上傳 JSON]。
-1. 選取包含類型承載的檔案。
-1. 選取 [上傳]。
-
-    [![選取一或多個類型的大量上傳](media/v2-update-how-to-tsm/portal-three.png)](media/v2-update-how-to-tsm/portal-three.png#lightbox)
-
-### <a name="edit-a-single-type"></a>編輯單一類型
-
-1. 選取類型，然後選取 [編輯]。 
-1. 進行必要的變更，然後選取 [儲存]。
-
-    [編輯類型的![選取專案](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
-
-### <a name="delete-a-type"></a>刪除類型
-
-1. 選取類型，然後選取 [刪除]。
-1. 如果沒有執行個體與該類型相關聯，系統就會刪除它。
-
-    [![[刪除] 按鈕](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
-
-## <a name="hierarchies"></a>階層
-
-### <a name="create-a-single-hierarchy"></a>建立單一階層
-
-1. 移至時間序列模型選取器面板，**然後從功能表**中選取 [階層]。 折迭面板以將焦點放在時間序列模型階層。
-
-    [![[階層] 窗格](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
-
-1. 選取 [+ 新增]。
-
-    [![[新增] 按鈕](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
-
-1. 在右窗格中選取 [ **+ 新增層級**]。
-
-    [![[新增層級] 按鈕](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
-
-1. 請輸入階層的詳細資訊，並選取 [建立]。
-
-    [![階層詳細資料和 [建立] 按鈕](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
-
-### <a name="bulk-upload-one-or-more-hierarchies"></a>大量上傳一或多個階層
-
-1. 選取 [上傳 JSON]。
-1. 選取包含階層承載的檔案。
-1. 選取 [上傳]。
-
-    [大量上傳階層的![選項](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
-
-### <a name="edit-a-single-hierarchy"></a>編輯單一階層
-
-1. 選取階層，然後選取 [編輯]。
-1. 進行必要的變更，然後選取 [儲存]。
-
-    [編輯單一階層的![選取專案](media/v2-update-how-to-tsm/portal-eleven.png)](media/v2-update-how-to-tsm/portal-eleven.png#lightbox)
-
-### <a name="delete-a-hierarchy"></a>刪除階層
-
-1. 選取階層，然後選取 [**刪除**]。 
-1. 如果沒有執行個體與該階層相關聯，系統就會刪除它。
-
-    [![[刪除] 按鈕](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox)
+> [!TIP]
+> * 閱讀預覽[時間序列模型](time-series-insights-update-tsm.md)的相關資訊。
+> * 深入瞭解如何在[Azure 時間序列深入解析 preview explorer](./time-series-insights-update-explorer.md)中流覽預覽 UI。
 
 ## <a name="instances"></a>執行個體
 
+Azure 時間序列深入解析 explorer 支援瀏覽器中的實例**建立**、**讀取**、**更新**和**刪除**作業。 
+
+若要開始，請從時間序列深入解析 explorer 的 [**分析**] 視圖中選取**模型**view。
+
 ### <a name="create-a-single-instance"></a>建立單一執行個體
 
-1. 移至時間序列模型選取器面板，然後從功能表中選取 [**實例**]。 折迭面板以將焦點放在時間序列模型實例上。
+1. 移至時間序列模型選取器面板，然後從功能表中選取 [**實例**]。 將會顯示與您所選時間序列深入解析環境相關聯的所有實例。
 
-    [![「實例」窗格](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox)
+    [![先選取 [實例] 來建立單一實例。](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png#lightbox)
 
-1. 選取 [新增]。
+1. 選取 [+ 新增]。
 
-    [新增實例的![選取專案](media/v2-update-how-to-tsm/portal-fourteen.png)](media/v2-update-how-to-tsm/portal-fourteen.png#lightbox)
+    [選取 [+ 新增] 按鈕，![加入實例。](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png#lightbox)
 
 1. 輸入執行個體詳細資料，選取類型和階層關聯，然後選取 [建立]。
 
 ### <a name="bulk-upload-one-or-more-instances"></a>大量上傳一或多個執行個體
 
+> [!TIP]
+> 您可以將您的實例以 JSON 格式儲存到您的桌面。接著，您可以透過下列步驟來上傳下載的 JSON 檔案。
+
 1. 選取 [上傳 JSON]。
 1. 選取包含執行個體承載的檔案。
 
-    [針對一或多個實例的大量上傳![選取專案](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
+    [![透過 JSON 大量上傳實例。](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png#lightbox)
 
 1. 選取 [上傳]。
 
 ### <a name="edit-a-single-instance"></a>編輯單一執行個體
 
-1. 選取執行個體，然後選取 [編輯]。 
+1. 選取實例，然後選取 [**編輯**] 或 [**鉛筆] 圖示**。 
 1. 進行必要的變更，然後選取 [儲存]。
 
-    [編輯單一實例![選取專案](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
+    [![編輯單一實例。](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png#lightbox)
+
+### <a name="delete-an-instance"></a>刪除執行個體
+
+1. 選取類型，然後選取 [**刪除**] 或 [**廢 bin] 圖示**。
+
+   [![選取 [刪除] 來刪除類型。](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
+
+1. 選取 [**刪除**] 以確認刪除。
+
+> [!NOTE]
+> 實例必須成功傳遞要刪除的欄位驗證檢查。
+
+## <a name="hierarchies"></a>階層
+
+Azure 時間序列深入解析 explorer 支援在瀏覽器中**建立**、**讀取**、**更新**和**刪除**作業的階層。 
+
+若要開始，請從時間序列深入解析 explorer 的 [**分析**] 視圖中選取**模型**view。
+
+### <a name="create-a-single-hierarchy"></a>建立單一階層
+
+1. 移至時間序列模型選取器面板，**然後從功能表**中選取 [階層]。 將會顯示與您所選時間序列深入解析環境相關聯的所有階層。
+
+    [![透過窗格建立階層。](media/v2-update-how-to-tsm/how-to-tsm-hierarchy-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-hierarchy-panel.png#lightbox)
+
+1. 選取 [+ 新增]。
+
+    [![階層 + 新增 按鈕。](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png#lightbox)
+
+1. 在右窗格中選取 [ **+ 新增層級**]。
+
+    [![在階層中加入層級。](media/v2-update-how-to-tsm/how-to-tsm-save-hierarchy-levels.png)](media/v2-update-how-to-tsm/how-to-tsm-save-hierarchy-levels.png#lightbox)
+
+1. 輸入階層詳細資料，然後選取 [**儲存**]。
+
+    [![指定階層詳細資料。](media/v2-update-how-to-tsm/how-to-tsm-add-hierarchy-level.png)](media/v2-update-how-to-tsm/how-to-tsm-add-hierarchy-level.png#lightbox)
+
+### <a name="bulk-upload-one-or-more-hierarchies"></a>大量上傳一或多個階層
+
+> [!TIP]
+> 您可以將階層以 JSON 格式儲存到您的桌面。接著，您可以透過下列步驟來上傳下載的 JSON 檔案。
+
+1. 選取 [上傳 JSON]。
+1. 選取包含階層承載的檔案。
+1. 選取 [上傳]。
+
+    [大量上傳階層的 ![選項。](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png#lightbox)
+
+### <a name="edit-a-single-hierarchy"></a>編輯單一階層
+
+1. 選取階層，然後選取 [**編輯**] 或 [**鉛筆] 圖示**。
+1. 進行必要的變更，然後選取 [儲存]。
+
+    [![選取以編輯單一階層。](media/v2-update-how-to-tsm/how-to-tsm-edit-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-hierarchy.png#lightbox)
+
+### <a name="delete-a-hierarchy"></a>刪除階層
+
+1. 選取階層，然後選取 [**刪除**] 或 [**廢 bin] 圖示**。 
+
+    [![選取 [刪除] 按鈕來刪除階層。](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png#lightbox)
+
+1. 選取 [**刪除**] 以確認刪除。
+
+## <a name="types"></a>類型
+
+Azure 時間序列深入解析 explorer 支援瀏覽器中的類型**建立**、**讀取**、**更新**和**刪除**作業。 
+
+若要開始，請從時間序列深入解析 explorer 的 [**分析**] 視圖中選取**模型**view。
+
+### <a name="create-a-single-type"></a>建立單一類型
+
+1. 移至時間序列模型選取器面板，然後從功能表中選取 [**類型**]。 將會顯示與您所選時間序列深入解析環境相關聯的所有類型。
+
+    [![時間序列模型類型 窗格。](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png#lightbox)
+
+1. 選取 [ **+ 新增**] 以顯示 [**加入新的類型**] 快顯視窗強制回應。
+1. 輸入類型的屬性和變數。 輸入後，選取 [**儲存**]。 
+
+    [![的設定來新增類型。](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png#lightbox)
+
+### <a name="bulk-upload-one-or-more-types"></a>大量上傳一或多個類型
+
+> [!TIP]
+> 您可以將類型以 JSON 格式儲存到您的桌面。接著，您可以透過下列步驟來上傳下載的 JSON 檔案。
+
+1. 選取 [上傳 JSON]。
+1. 選取包含類型承載的檔案。
+1. 選取 [上傳]。
+
+    [![大量類型上傳選項。](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png#lightbox)
+
+### <a name="edit-a-single-type"></a>編輯單一類型
+
+1. 選取類型，然後選取 [**編輯**] 或 [**鉛筆] 圖示**。
+1. 進行必要的變更，然後選取 [儲存]。
+
+    [![編輯窗格中的類型。](media/v2-update-how-to-tsm/how-to-tsm-edit-type.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-type.png#lightbox)
+
+### <a name="delete-a-type"></a>刪除類型
+
+1. 選取類型，然後選取 [**刪除**] 或 [**廢 bin] 圖示**。 。
+
+   [![選取 [刪除] 來刪除類型。](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png#lightbox)
+
+1. 選取 [**刪除**] 以確認刪除。
 
 ## <a name="next-steps"></a>後續步驟
 

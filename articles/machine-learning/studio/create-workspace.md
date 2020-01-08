@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 1652febf6c3eb906990b2405590274911a45348e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 91ba4d1f7d32071cce0de1de528abf02982ce7be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839906"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427625"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>建立和共用 Azure Machine Learning Studio （傳統）工作區
 
@@ -41,13 +41,13 @@ ms.locfileid: "73839906"
 
      ![建立新的 Studio （傳統）工作區](./media/create-workspace/create-new-workspace.png)
 
-5. 按一下 [建立]。
+5. 按一下頁面底部的 [新增]。
 
 > [!NOTE]
 > Machine Learning Studio （傳統）依賴您提供的 Azure 儲存體帳戶，以在執行工作流程時儲存中繼資料。 建立工作區之後，如果儲存體帳戶遭到刪除，或存取金鑰變更，工作區會停止運作，並且該工作區中的所有實驗將會失敗。
 如果您不小心刪除儲存體帳戶，請使用與所刪除儲存體帳戶相同的區域中的相同名稱來重新建立儲存體帳戶並重新同步存取金鑰。 如果您變更了儲存體帳戶存取金鑰，請使用 Azure 入口網站在工作區中重新同步處理存取金鑰。
 
-部署工作區之後，您就可以在 Machine Learning Studio 的傳統版本中開啟它。
+部署工作區之後，您就可以在 Machine Learning Studio （傳統）中開啟它。
 
 1. 流覽至[https://studio.azureml.net/](https://studio.azureml.net/)的 Machine Learning Studio （傳統）。
 
@@ -76,7 +76,7 @@ ms.locfileid: "73839906"
 
 ### <a name="to-share-a-studio-classic-workspace"></a>共用 Studio （傳統）工作區
 
-1. 登入傳統版本的 Machine Learning Studio，網址為[https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. 在[https://studio.azureml.net/Home](https://studio.azureml.net/Home)登入 Machine Learning Studio （傳統）
 
 2. 按一下左面板中的 [設定]
 

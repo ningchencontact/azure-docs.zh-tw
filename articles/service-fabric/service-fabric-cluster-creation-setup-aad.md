@@ -1,25 +1,14 @@
 ---
-title: 設定 Azure Active Directory 以進行 Service Fabric 用戶端驗證 | Microsoft Docs
+title: 設定用戶端驗用的 Azure Active Directory
 description: 了解如何設定 Azure Active Directory (Azure AD) 以驗證 Service Fabric 叢集的用戶端。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: chackdan
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/28/2019
-ms.author: atsenthi
-ms.openlocfilehash: 77814d04daca0ebb649ffa2e8ff46becddec4f0f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: bbad991e955a31e3f3c53931889f630e521e1a8c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901513"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614684"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>設定用戶端驗用的 Azure Active Directory
 
@@ -31,6 +20,11 @@ Service Fabric 叢集提供其管理功能的各種進入點 (包括 Web 型 [Se
 
 > [!NOTE]
 > 在 Linux 上，您必須在建立叢集之前完成下列步驟。 在 Windows 上，您也可以選擇[設定現有叢集的 Azure AD 驗證](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md)。
+
+> [!NOTE]
+> 在 Azure 入口網站中無法查看啟用 Linux AAD 的叢集上的應用程式和節點，這是[已知的問題](https://github.com/microsoft/service-fabric/issues/399)。
+
+
 
 ## <a name="prerequisites"></a>必要條件
 在本文中，我們假設您已經建立租用戶。 如果您尚未建立租用戶，請先閱讀[如何取得 Azure Active Directory 租用戶][active-directory-howto-tenant]。
@@ -90,14 +84,14 @@ https://&lt;cluster_domain&gt;:19080/Explorer
 #### <a name="reason"></a>原因
 使用者未獲指派 Azure AD 叢集應用程式中的角色。 因此，Azure AD 驗證在 Service Fabric 叢集上發生失敗。 Service Fabric Explorer 會回復到憑證驗證。
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方案
 請依照設定 Azure AD 的指示進行操作，然後指派使用者角色。 另外，建議您如 `SetupApplications.ps1` 所做的一樣，開啟 [存取應用程式需要使用者指派]。
 
 ### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>使用 PowerShell 進行連線時失敗，發生錯誤：「指定的認證無效」
 #### <a name="problem"></a>問題
 在您順利登入 Azure AD 之後，於使用 PowerShell 以 “AzureActiveDirectory” 安全性模式連接到叢集時連線失敗，發生錯誤：「指定的認證無效」。
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方案
 此解決方案與前一個相同。
 
 ### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer 在您登入時傳回失敗："AADSTS50011"
@@ -109,7 +103,7 @@ https://&lt;cluster_domain&gt;:19080/Explorer
 #### <a name="reason"></a>原因
 代表 Service Fabric Explorer 的叢集 (Web) 應用程式嘗試對照 Azure AD 來進行驗證，而它在要求中提供重新導向傳回 URL。 但該 URL 並未列在 Azure AD 應用程式 [回覆 URL] 清單中。
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方案
 在 AAD 頁面中選取 [應用程式註冊]，選取您的叢集應用程式，然後選取 [回覆 URL] 按鈕。 在 [回覆 URL] 頁面上，將 Service Fabric Explorer 的 URL 新增到清單中，或取代清單內的其中一個項目。 完成時，請儲存變更。
 
 ![Web 應用程式回覆 url][web-application-reply-url]

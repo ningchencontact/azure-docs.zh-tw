@@ -7,18 +7,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: daeb09acd11d727b11ad8a7b98d97ff90fddc6d8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c17576bb8cd772742b5335000a2453ff34753779
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228254"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457075"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>參考 - IoT 中樞配額和節流
 
 本文說明 IoT 中樞的配額，並提供資訊來協助您瞭解節流的運作方式。
 
-## <a name="quotas-and-throttling"></a>配額和節流
+## <a name="quotas-and-throttling"></a>配額及節流
 
 每個 Azure 訂用帳戶最多可以有 50 個 IoT 中樞，以及最多 1 個可用中樞。
 
@@ -26,7 +26,7 @@ ms.locfileid: "74228254"
 
 層級也會決定「IoT 中樞」在所有作業上強制執行的節流限制。
 
-### <a name="iot-plug-and-play"></a>IoT 隨插即用
+### <a name="iot-plug-and-play"></a>IoT Plug and Play
 
 在公開預覽期間，IoT 隨插即用裝置會針對每個介面傳送個別的訊息，這可能會增加計入訊息配額的訊息數目。
 
@@ -104,8 +104,8 @@ IoT 中樞會強制執行其他操作限制：
 | 裝置到雲端傳訊 | 訊息大小上限為 256 KB |
 | 雲端到裝置的傳訊<sup>1</sup> | 訊息大小上限為 64 KB。 每個裝置的傳遞擱置訊息上限為50。 |
 | 直接方法<sup>1</sup> | 直接方法承載的大小上限為 128 KB。 |
-| 自動裝置組態 <sup>1</sup> | 每個付費 SKU 中樞 100 項設定。 每個免費 SKU 中樞 20 項設定。 |
-| IoT Edge 自動部署<sup>1</sup> | 每個部署 20 個模組。 每個付費中樞 100 個部署。 每個免費 SKU 中樞10個部署。 |
+| 自動裝置和模組設定<sup>1</sup> | 每個付費 SKU 中樞 100 項設定。 每個免費 SKU 中樞 20 項設定。 |
+| IoT Edge 自動部署<sup>1</sup> | 每個部署 20 個模組。 每個付費 SKU 中樞100部署（包括分層部署）。 每個免費 SKU 中樞10個部署。 |
 | 對應項<sup>1</sup> | 所需屬性和報告屬性區段的大小上限為 32 KB。 標記的大小上限為 8 KB。 |
 
 <sup>1</sup>「IoT 中樞」的基本層中不提供此功能。 如需詳細資訊，請參閱[如何選擇適合的 IoT 中樞](iot-hub-scaling.md)。
@@ -114,7 +114,7 @@ IoT 中樞會強制執行其他操作限制：
 
 在任何指定的時間，您都可以藉由[增加 IoT 中樞內布建的單位數](iot-hub-upgrade.md)來增加配額或節流限制。
 
-## <a name="latency"></a>Latency
+## <a name="latency"></a>延遲
 
 IoT 中樞會努力地為所有作業提供低延遲的服務。 不過，由於網路狀況和其他無法預測的因素，它無法保證特定的延遲。 設計您的解決方案時，您應該：
 

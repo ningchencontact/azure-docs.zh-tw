@@ -1,20 +1,18 @@
 ---
 title: 使用 Azure 串流分析中的查詢平行化和調整作業
 description: 本文說明如何透過設定輸入資料分割、微調查詢定義，及設定工作串流處理單元來調整串流分析工作。
-services: stream-analytics
 author: JSeb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 985746989af39aa55d5d8af735edf62f4c4b77b7
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: d1afb6037b5fc290de93faba405982ebd1fb68ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932294"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431559"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 串流分析中的查詢平行化作業
 本文會示範如何利用 Azure 串流分析中的平行化作業。 您可以了解如何透過設定輸入資料分割並調整分析查詢定義來調整串流分析工作。
@@ -34,7 +32,7 @@ ms.locfileid: "73932294"
 -   IoT 中樞 (需要明確地使用 PARTITION BY 關鍵字設定分割區索引鍵)
 -   Blob 儲存體
 
-### <a name="outputs"></a>reference
+### <a name="outputs"></a>輸出
 
 使用串流分析時，您可以利用輸出中的資料分割：
 -   Azure Data Lake 儲存體
@@ -254,7 +252,7 @@ Power BI 輸出目前不支援資料分割。 因此，此情節不是窘迫平�
 
 下列觀察會使用具有無狀態（passthrough）查詢的串流分析作業，這是寫入事件中樞、Azure SQL DB 或 Cosmos DB 的基本 JavaScript UDF。
 
-#### <a name="event-hub"></a>事件中樞
+#### <a name="event-hub"></a>Event Hub
 
 |攝取速率（每秒的事件數） | 串流處理單位 | 輸出資源  |
 |--------|---------|---------|

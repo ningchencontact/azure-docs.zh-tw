@@ -2,19 +2,15 @@
 title: 管理 Azure 自動化資料
 description: 本文章包含用於管理 Azure 自動化環境的多個主題。  目前將資料保留和備份 Azure 自動化災害復原併入 Azure 自動化中。
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: da1b151a150dfbf602593451d3d68043352b73eb
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: daa5bab7c8d4cbe98ffe9a8a8a4b66da029fef5c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850766"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421897"
 ---
 # <a name="managing-azure-automation-data"></a>管理 Azure 自動化資料
 本文章包含用於管理 Azure 自動化環境的多個主題。
@@ -29,7 +25,7 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 | 資料 | 原則 |
 |:--- |:--- |
 | 帳戶 |刪除使用者帳戶 90 天後永久移除。 |
-| 資產 |使用者刪除資產後 90 天，或使用者刪除持有資產的帳戶 90 天後永久移除。 |
+| Assets |使用者刪除資產後 90 天，或使用者刪除持有資產的帳戶 90 天後永久移除。 |
 | 模組 |使用者刪除模組後 90 天，或使用者刪除持有模組的帳戶 90 天後永久移除。 |
 | Runbook |使用者刪除資源後 90 天，或使用者刪除持有資源的帳戶 90 天後永久移除。 |
 | 工作 |在上次修改日期的 90 天後刪除並永久移除。 這可以是在工作完成、停止或暫止之後。 |
@@ -50,7 +46,7 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 ### <a name="integration-modules"></a>整合模組
 您無法從 Azure 自動化匯出整合模組。  您必須確定它們可供在自動化帳戶外部使用。
 
-### <a name="assets"></a>資產
+### <a name="assets"></a>Assets
 您無法從 Azure 自動化匯出 [資產](/previous-versions/azure/dn939988(v=azure.100)) 。  使用 Azure 入口網站時，您必須記下變數、認證、憑證、連線及排程的詳細資料。  然後必須手動建立您匯入到另一個自動化的 Runbook 所使用的任何資產。
 
 您可以使用 [Azure Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) 來擷取未加密的資產的詳細資料並加以儲存供日後參考，或在另一個自動化帳戶中建立對等的資產。
@@ -67,7 +63,7 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 
 下表顯示可用的主要和次要區域配對：
 
-| 主要 | 次要 |
+| Primary | 次要 |
 | --- | --- |
 | 美國中南部 |美國中北部 |
 | 美國東部 2 |美國中部 |

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e4a5f83e3f4d26c2321ed1b4c48a385d07e6489d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ceee257cd09589fc953c2b32e978a35433b0a49b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895144"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371814"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>使用共用存取簽章（SAS）授與 Azure 儲存體資源的有限存取權
 
@@ -25,7 +25,7 @@ ms.locfileid: "74895144"
 
 Azure 儲存體支援三種類型的共用存取簽章：
 
-- **使用者委派 SAS （預覽）。** 使用者委派 SAS 會使用 Azure Active Directory （Azure AD）認證以及針對 SAS 指定的許可權來加以保護。 使用者委派 SAS 僅適用于 Blob 儲存體。
+- **使用者委派 SAS。** 使用者委派 SAS 會使用 Azure Active Directory （Azure AD）認證以及針對 SAS 指定的許可權來加以保護。 使用者委派 SAS 僅適用于 Blob 儲存體。
 
     如需使用者委派 SAS 的詳細資訊，請參閱[建立使用者委派 sas （REST API）](/rest/api/storageservices/create-user-delegation-sas)。
 
@@ -122,9 +122,9 @@ SAS 權杖是您在用戶端上產生的字串，例如，使用其中一個 Azu
 
 ### <a name="user-delegation-sas"></a>使用者委派 SAS
 
-- [使用 PowerShell 建立容器或 blob 的使用者委派 SAS （預覽）](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
-- [使用 Azure CLI （預覽）建立容器或 blob 的使用者委派 SAS](../blobs/storage-blob-user-delegation-sas-create-cli.md)
-- [使用 .NET 建立容器或 blob 的使用者委派 SAS （預覽）](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
+- [使用 PowerShell 建立容器或 blob 的使用者委派 SAS](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
+- [使用 Azure CLI 建立容器或 blob 的使用者委派 SAS](../blobs/storage-blob-user-delegation-sas-create-cli.md)
+- [使用 .NET 建立容器或 blob 的使用者委派 SAS](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
 
 ### <a name="service-sas"></a>服務 SAS
 

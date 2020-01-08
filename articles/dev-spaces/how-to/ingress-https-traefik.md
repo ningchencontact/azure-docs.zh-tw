@@ -1,28 +1,28 @@
 ---
 title: 使用自訂 traefik 輸入控制器並設定 HTTPS
 services: azure-dev-spaces
-ms.date: 08/13/2019
+ms.date: 12/10/2019
 ms.topic: conceptual
 description: 瞭解如何設定 Azure Dev Spaces 以使用自訂 traefik 輸入控制器，並使用該輸入控制器來設定 HTTPS
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
-ms.openlocfilehash: 8ddaa7b3e982cb85428a7faef20b59525a175778
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: db9afc3a5e33d1a12246c2af80428137043aa242
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482544"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438480"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>使用自訂 traefik 輸入控制器並設定 HTTPS
 
 本文說明如何將 Azure Dev Spaces 設定為使用自訂 traefik 輸入控制器。 本文也會說明如何將該自訂輸入控制器設定為使用 HTTPS。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* Azure 訂閱。 如果您沒有帳戶，您可以建立[免費帳戶][azure-account-create]。
+* Azure 訂用帳戶。 如果您沒有帳戶，您可以建立[免費帳戶][azure-account-create]。
 * [已安裝 Azure CLI][az-cli]。
 * [已啟用 Azure Dev Spaces 的 Azure Kubernetes Service （AKS）][qs-cli]叢集。
 * 已安裝[kubectl][kubectl] 。
-* [已安裝 Helm 2.13-2.16][helm-installed]。
+* [已安裝 Helm 3][helm-installed]。
 * 在與您的 AKS 叢集相同的資源群組中，具有[DNS 區域][dns-zone]的[自訂網域][custom-domain]。
 
 ## <a name="configure-a-custom-traefik-ingress-controller"></a>設定自訂 traefik 輸入控制器
@@ -33,7 +33,7 @@ ms.locfileid: "74482544"
 az aks get-credentials --resource-group myResourceGroup --name myAKS
 ```
 
-若要驗證叢集的連線，請使用 [kubectl get][kubectl-get] 命令來傳回叢集節點的清單。
+若要驗證針對您叢集的連線，請使用 [kubectl get][kubectl-get] 命令來傳回叢集節點的清單。
 
 ```console
 $ kubectl get nodes
@@ -41,12 +41,17 @@ NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 ```
 
+新增[正式的穩定 Helm 存放庫][helm-stable-repo]，其中包含 traefik 輸入控制器 Helm 圖表。
+
+```console
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+```
+
 為 traefik 輸入控制器建立 Kubernetes 命名空間，並使用 `helm`進行安裝。
 
 ```console
 kubectl create ns traefik
-helm init --wait
-helm install stable/traefik --name traefik --namespace traefik --set kubernetes.ingressClass=traefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true
+helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --version 1.85.0
 ```
 
 使用[kubectl get][kubectl-get]取得 traefik 輸入控制器服務的 IP 位址。
@@ -106,18 +111,23 @@ gateway:
 
 儲存變更並關閉該檔案。
 
+使用 `azds space select`，透過您的範例應用程式建立*開發人員*空間。
+
+```console
+azds space select -n dev -y
+```
+
 使用 `helm install`部署範例應用程式。
 
 ```console
-helm install -n bikesharing . --dep-up --namespace dev --atomic
+helm install bikesharing . --dependency-update --namespace dev --atomic
 ```
 
 上述範例會將範例應用程式部署至*dev*命名空間。
 
-使用 `azds space select` 選取包含範例應用程式的*開發人員*空間，並顯示使用 `azds list-uris`存取範例應用程式的 url。
+顯示 Url，以使用 `azds list-uris`來存取範例應用程式。
 
 ```console
-azds space select -n dev
 azds list-uris
 ```
 
@@ -130,7 +140,7 @@ http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/  Available
 http://dev.gateway.traefik.MY_CUSTOM_DOMAIN/         Available
 ```
 
-開啟來自 *命令的公用 URL，來瀏覽至*bikesharingweb`azds list-uris` 服務。 在上述範例中，*bikesharingweb* 服務的公用 URL 是 `http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`。
+開啟來自 `azds list-uris` 命令的公用 URL，來瀏覽至 *bikesharingweb* 服務。 在上述範例中，*bikesharingweb* 服務的公用 URL 是 `http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`。
 
 使用 `azds space select` 命令在*dev*底下建立子空間，並列出 url 以存取子開發人員空間。
 
@@ -152,70 +162,94 @@ http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/         Available
 
 ## <a name="configure-the-traefik-ingress-controller-to-use-https"></a>將 traefik 輸入控制器設定為使用 HTTPS
 
-建立與下列範例類似的 `dev-spaces/samples/BikeSharingApp/traefik-values.yaml` 檔案。 使用您自己的電子郵件更新*電子郵件*值，這是用來產生具有 Let 的加密的憑證。
-
-```yaml
-fullnameOverride: traefik
-replicas: 1
-cpuLimit: 400m
-memoryRequest: 200Mi
-memoryLimit: 500Mi
-externalTrafficPolicy: Local
-kubernetes:
-  ingressClass: traefik
-  ingressEndpoint:
-    useDefaultPublishedService: true
-dashboard:
-  enabled: false
-debug:
-  enabled: false
-accessLogs:
-  enabled: true
-  fields:
-    defaultMode: keep
-    headers:
-      defaultMode: keep
-      names:
-        Authorization: redact
-acme:
-  enabled: true
-  email: "someone@example.com"
-  staging: false
-  challengeType: tls-alpn-01
-ssl:
-  enabled: true
-  enforced: true
-  permanentRedirect: true
-  tlsMinVersion: VersionTLS12
-  cipherSuites:
-    - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-    - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-    - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-    - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-    - TLS_RSA_WITH_AES_128_GCM_SHA256
-    - TLS_RSA_WITH_AES_256_GCM_SHA384
-    - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-```
-
-使用 `helm repo update` 更新您的*traefik*服務，並包含您所建立的*traefik-yaml*檔案。
+將 traefik 輸入控制器設定為使用 HTTPS 時，請使用[cert 管理員][cert-manager]來自動化 TLS 憑證的管理。 使用 `helm` 安裝*certmanager*圖表。
 
 ```console
-cd ..
-helm upgrade traefik stable/traefik --namespace traefik --values traefik-values.yaml
+kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.12/deploy/manifests/00-crds.yaml --namespace traefik
+kubectl label namespace traefik certmanager.k8s.io/disable-validation=true
+helm repo add jetstack https://charts.jetstack.io
+helm repo update
+helm install cert-manager --namespace traefik --version v0.12.0 jetstack/cert-manager --set ingressShim.defaultIssuerName=letsencrypt --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
 
-上述命令會使用*traefik-values. yaml*中的值來執行 traefik 服務的新版本，並移除先前的服務。 Traefik 服務也會使用 Let's Encrypt 來建立 TLS 憑證，並開始將 web 流量重新導向至使用 HTTPS。
+建立 `letsencrypt-clusterissuer.yaml` 檔案，並以您的電子郵件地址更新 [電子郵件] 欄位。
+
+```yaml
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: MY_EMAIL_ADDRESS
+    privateKeySecretRef:
+      name: letsencrypt
+    solvers:
+      - http01:
+          ingress:
+            class: traefik
+```
 
 > [!NOTE]
-> 可能需要幾分鐘的時間，新的 traefik 服務版本才會啟動。 您可以使用 `kubectl get pods --namespace traefik --watch`來檢查進度。
+> 若要進行測試，您也可以使用*ClusterIssuer*的[預備伺服器][letsencrypt-staging-issuer]。
 
-流覽至*dev/azureuser1*子空間中的範例應用程式，並注意您會重新導向至使用 HTTPS。 另請注意，頁面會載入，但瀏覽器會顯示一些錯誤。 開啟瀏覽器主控台會顯示與嘗試載入 HTTP 資源的 HTTPS 頁面相關的錯誤。 例如︰
+使用 `kubectl` 來套用 `letsencrypt-clusterissuer.yaml`。
+
+```console
+kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
+```
+
+將 traefik 升級為使用 `helm`的 HTTPS。
+
+```console
+helm upgrade traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --version 1.85.0 --set ssl.enabled=true --set ssl.enforced=true --set ssl.permanentRedirect=true
+```
+
+更新[值。 yaml][values-yaml]以包含使用*cert-管理員*和 HTTPS 的詳細資料。 以下是已更新 `values.yaml` 檔案的範例：
+
+```yaml
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+bikesharingweb:
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: traefik  # Custom Ingress
+      cert-manager.io/cluster-issuer: letsencrypt
+    hosts:
+      - dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN  # Assumes deployment to the 'dev' space
+    tls:
+    - hosts:
+      - dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN
+      secretName: dev-bikesharingweb-secret
+
+gateway:
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: traefik  # Custom Ingress
+      cert-manager.io/cluster-issuer: letsencrypt
+    hosts:
+      - dev.gateway.traefik.MY_CUSTOM_DOMAIN  # Assumes deployment to the 'dev' space
+    tls:
+    - hosts:
+      - dev.gateway.traefik.MY_CUSTOM_DOMAIN
+      secretName: dev-gateway-secret
+```
+
+使用 `helm`升級範例應用程式：
+
+```console
+helm upgrade bikesharing . --namespace dev --atomic
+```
+
+流覽至*dev/azureuser1*子空間中的範例應用程式，並注意您會重新導向至使用 HTTPS。 另請注意，頁面會載入，但瀏覽器會顯示一些錯誤。 開啟瀏覽器主控台會顯示與嘗試載入 HTTP 資源的 HTTPS 頁面相關的錯誤。 例如：
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
 ```
 
-若要修正此錯誤，請將[BikeSharingWeb/azds][azds-yaml]更新為使用*kubernetes.io/ingress.class*的*traefik* ，並將您的自訂網域用於 *$ （hostSuffix）* 。 例如︰
+若要修正此錯誤，請將[BikeSharingWeb/azds][azds-yaml]更新為使用*kubernetes.io/ingress.class*的*traefik* ，並將您的自訂網域用於 *$ （hostSuffix）* 。 例如：
 
 ```yaml
 ...
@@ -260,7 +294,7 @@ Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_C
 流覽至 `BikeSharingWeb` 目錄，然後使用 `azds up` 來執行更新的 BikeSharingWeb 服務。
 
 ```console
-cd BikeSharingWeb/
+cd ../BikeSharingWeb/
 azds up
 ```
 
@@ -284,9 +318,12 @@ azds up
 
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free
-[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
+[cert-manager]: https://cert-manager.io/
+[helm-installed]: https://helm.sh/docs/intro/install/
+[helm-stable-repo]: https://helm.sh/docs/intro/quickstart/#initialize-a-helm-chart-repository
 [helpers-js]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/pages/helpers.js#L7
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[letsencrypt-staging-issuer]: https://cert-manager.io/docs/configuration/acme/#creating-a-basic-acme-issuer
 [package-json]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/package.json
 [values-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/charts/values.yaml

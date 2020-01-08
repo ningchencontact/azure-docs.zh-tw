@@ -1,5 +1,5 @@
 ---
-title: 使用已連線的服務新增 Azure AD
+title: 使用 Active Directory 聯機服務（Visual Studio）
 description: 使用 Visual Studio 的 [加入已連接服務] 對話方塊加入 Azure Active Directory
 author: ghogen
 manager: jillfra
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bbbf002110d997d18c49fb03ad599342cdf618d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 435ec76a6a7ffe81c1be2752d69b79c1fb8d0bd2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964194"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423190"
 ---
-# <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>在 Visual Studio 中使用已連接服務加入 Azure Active Directory
+# <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>在 Visual Studio 中使用已連線的服務來新增 Azure Active Directory
 
 藉由使用 Azure Active Directory (Azure AD)，您便可以針對 ASP.NET MVC Web 應用程式支援「單一登入」(SSO)，或在 Web API 服務中支援「Active Directory 驗證」。 在使用 Azure AD 驗證的情況下，您的使用者可以從 Azure Active Directory 使用其帳戶來連線到您的 Web 應用程式。 透過 Web API 的 Azure AD 驗證優點包括從 Web 應用程式公開 API 時的資料安全性會增強。 有了 Azure AD，您不必以各自的帳戶和使用者管理作業來管理個別的驗證系統。
 
@@ -67,7 +67,7 @@ ms.locfileid: "74964194"
 
 ## <a name="how-your-project-is-modified"></a>您的專案修改方式
 
-當您新增連線服務精靈時，Visual Studio 會將 Azure Active Directory 和關聯的參考新增到您的專案。 您專案中的組態檔和程式碼也會進行修改，以加入 Azure AD 支援。 Visual Studio 所做的特定修改視專案類型而定。 請參閱以下文章中的詳細資訊：
+當您新增連線服務精靈時，Visual Studio 會將 Azure Active Directory 和關聯的參考新增到您的專案。 您專案中的組態檔和程式碼也會進行修改，以加入 Azure AD 支援。 Visual Studio 所做的特定修改視專案類型而定。 如需詳細資料，請參閱下文：
 
 - [我的 .NET MVC 專案發生什麼情形？](vs-active-directory-dotnet-what-happened.md)
 - [我的 Web API 專案發生什麼情形？](vs-active-directory-webapi-what-happened.md)

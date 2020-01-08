@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 86b4b19ca80b7dfb2bd9a1a56069fe3d347377ec
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4a5ab0b0ae76f3c646df42953c1602c63a274824
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927859"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457386"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 
@@ -37,7 +37,7 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 ### <a name="solution-for-cause-1"></a>原因 1 的解決方案
 
 1. 從支援 SMB 加密的用戶端 (Windows 8、Windows Server 2012 和更新版本) 進行連線，或從 Azure 檔案共用所使用的 Azure 儲存體帳戶相同的資料中心上的虛擬機器進行連線。
-2. 如果用戶端不支援 SMB 加密，請確認儲存體帳戶上已停用[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定。
+2. 如果用戶端不支援 SMB 加密，請確認儲存體帳戶上的[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定已經停用。
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>原因2：已在儲存體帳戶上啟用虛擬網路或防火牆規則 
 
@@ -94,7 +94,7 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 ### <a name="solution-for-cause-1"></a>原因 1 的解決方案
 
 #### <a name="solution-1---use-azure-file-sync"></a>解決方案 1-使用 Azure 檔案同步
-Azure 檔案同步可以將您的內部部署 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定以從本機存取資料，包括 SMB、NFS 和 FTPS。 Azure 檔案同步會透過埠443運作，因此可作為因應措施，從已封鎖埠445的用戶端存取 Azure 檔案儲存體。 [瞭解如何設定 Azure 檔案同步](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers)。
+Azure 檔案同步可以將您的內部部署 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 Azure 檔案同步會透過埠443運作，因此可作為因應措施，從已封鎖埠445的用戶端存取 Azure 檔案儲存體。 [瞭解如何設定 Azure 檔案同步](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers)。
 
 #### <a name="solution-2---use-vpn"></a>解決方案 2-使用 VPN
 藉由設定特定儲存體帳戶的 VPN，流量會通過安全通道，而不是透過網際網路。 請遵循[指示來設定 VPN](storage-files-configure-p2s-vpn-windows.md) ，以從 Windows 存取 Azure 檔案儲存體。
@@ -128,7 +128,7 @@ Azure 檔案儲存體也支援 SMB 以外的 REST。 REST 存取會透過埠443�
 
 當您到達同時開啟的控制代碼上限時 (此為針對掛接檔案共用之電腦上的檔案所允許的上限)，即會發生錯誤 1816。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方案
 
 關閉一些控制代碼以減少同時開啟的控制代碼數，然後再試一次。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體效能與延展性檢查清單](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
 
@@ -151,7 +151,7 @@ Azure 檔案儲存體也支援 SMB 以外的 REST。 REST 存取會透過埠443�
 
 ### <a name="solution-for-cause-1"></a>原因 1 的解決方案
 
-瀏覽至 Azure 檔案共用所在的儲存體帳戶，按一下 [存取控制 (IAM)]，並確認您的使用者帳戶擁有儲存體帳戶的存取權。 若要深入了解，請參閱[如何使用角色型存取控制 (RBAC) 保護儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac)。
+瀏覽至 Azure 檔案共用所在的儲存體帳戶，按一下 [存取控制 (IAM)]，並確認您的使用者帳戶擁有儲存體帳戶的存取權。 若要深入了解，請參閱[如何使用角色型存取控制 (RBAC) 保護儲存體帳戶](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection)。
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>原因2：已在儲存體帳戶上啟用虛擬網路或防火牆規則
 
@@ -165,7 +165,7 @@ Azure 檔案儲存體也支援 SMB 以外的 REST。 REST 存取會透過埠443�
 ### <a name="cause"></a>原因
 如果檔案或目錄有開啟的控制碼，通常就會發生此問題。 
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方案
 
 如果 SMB 用戶端已關閉所有開啟的控制碼，且問題持續發生，請執行下列動作：
 
@@ -211,7 +211,7 @@ Azure 檔案儲存體也支援 SMB 以外的 REST。 REST 存取會透過埠443�
 
 根據預設，Windows 檔案總管不會以系統管理員身分執行。 如果您從系統管理命令提示字元執行 net use，就是以系統管理員身分對應網路磁碟機。 因為對應的磁碟機是以使用者為中心，如果磁碟機掛接在不同的使用者帳戶下，登入的使用者帳戶不會顯示此磁碟機。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方案
 從非系統管理員命令掛接共用。 或者，您可以依照[此 TechNet 主題](https://technet.microsoft.com/library/ee844140.aspx)設定 **EnableLinkedConnections** 登錄值。
 
 <a id="netuse"></a>
@@ -221,7 +221,7 @@ Azure 檔案儲存體也支援 SMB 以外的 REST。 REST 存取會透過埠443�
 
 Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者帳戶名稱開頭為斜線，磁碟機對應將會失敗。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方案
 
 您可以使用下列其中一種方式來解決這個問題：
 
@@ -242,7 +242,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 
 磁碟機是按每個使用者掛接。 如果您的應用程式或服務正在與掛接磁碟機之帳戶不同的使用者帳戶下執行，應用程式將不會看到該磁碟機。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方案
 
 使用下列其中一個解決方案：
 
@@ -266,7 +266,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 如果您使用加密檔案系統 (EFS)，可能會發生此問題。 BitLocker 加密的檔案可以複製到 Azure 檔案服務。 不過，Azure 檔案服務不支援 NTFS EFS。
 
 ### <a name="workaround"></a>因應措施
-若要透過網路複製檔案，您必須先將它解密。 使用下列其中一種方法：
+若要透過網路複製檔案，您必須先將它解密。 請使用下列其中一個方法：
 
 - 使用 **copy /d** 命令。 它可讓加密的檔案另存為目的地上的解密檔案。
 - 設定下列登錄機碼：
@@ -283,7 +283,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 
 如果用戶端機器上沒有足夠的快取可供大型目錄使用時，就會發生此問題。
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方案
 
 若要解決此問題，請調整 **DirectoryCacheEntrySizeMax** 登錄值，以允許在用戶端機器快取較大型的目錄清單：
 
@@ -300,7 +300,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 
 當您嘗試 Azure 檔案儲存體針對未在相關聯訂用帳戶的 AAD 租使用者上建立[Aad 網域服務（AAD ds）](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)的儲存體帳戶[啟用 Azure Active Directory 網域服務（aad ds）驗證](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable)時，就會發生錯誤 AadDsTenantNotFound。  
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方案
 
 在您儲存體帳戶部署所在訂用帳戶的 AAD 租用戶上啟用 AAD DS。 您必須有 AAD 租用戶的系統管理員權限，才能建立受控網域。 如果您不是 Azure AD 租用戶的系統管理員，請連絡系統管理員，並遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) 的逐步指導。
 
@@ -312,7 +312,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 
 錯誤「發生系統錯誤1359。 當您嘗試使用以數位字元開頭的網域 DNS 名稱，針對 AAD DS 啟用 AAD DS 驗證來連線到檔案共用時，就會發生內部錯誤。 例如，如果您的 AAD DS 網域 DNS 名稱是 "1domain"，當您嘗試使用 AAD 認證掛接檔案共用時，就會收到此錯誤。 
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方案
 
 目前，您可以考慮使用適用于下列規則的新網域 DNS 名稱來重新部署 AAD DS：
 - 名稱的開頭不能是數位字元。

@@ -4,15 +4,15 @@ description: 本文說明客戶準備在 Azure 監視器中部署工作區的考
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 373c498b9ce58062e42f4318c9fa94688556d8c5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3d4fe7319e0af9c463bd64483f43a4e73ef8871d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894210"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395750"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>設計您的 Azure 監視器記錄部署
 
@@ -63,7 +63,7 @@ Log Analytics 工作區提供：
 
 使用者可以存取的資料是由下表所列的因素組合所決定。 以下各節將說明每個步驟。
 
-| 因素 | 描述 |
+| 因數 | 說明 |
 |:---|:---|
 | [存取模式](#access-mode) | 使用者用來存取工作區的方法。  定義可用資料的範圍，以及套用的存取控制模式。 |
 | [存取控制模式](#access-control-mode) | 在工作區上設定，以定義是否要在工作區或資源層級套用許可權。 |
@@ -128,7 +128,9 @@ Azure 監視器會根據您執行記錄搜尋的內容，自動決定正確的�
 
 ## <a name="ingestion-volume-rate-limit"></a>內嵌磁片區速率限制
 
-Azure 監視器是一種大規模的資料服務，服務對象為每月需傳送數 TB 資料 (且不斷成長) 的上千名客戶。 預設的 [攝取速率] 閾值會設定為每個工作區**500 MB/分鐘**。 如果您以較高的速率將資料傳送至單一工作區，則會卸載某些資料，並每隔6小時將事件傳送至工作區中的*作業資料表，* 而臨界值會繼續超過閾值。 如果您的內嵌磁片區持續超過速率限制，或您希望很快就會到達，您可以開啟支援要求來要求增加您的工作區。
+Azure 監視器是一種大規模的資料服務，服務對象為每月需傳送數 TB 資料 (且不斷成長) 的上千名客戶。 預設的 [攝取速率] 閾值會設定為每個工作區**6 GB/分鐘**。 這是估計值，因為根據記錄長度和其壓縮比率，實際大小可能會在資料類型之間有所不同。 此限制不適用於從代理程式或[資料收集器 API](data-collector-api.md)傳送的資料。
+
+如果您以較高的速率將資料傳送至單一工作區，則會卸載某些資料，並每隔6小時將事件傳送至工作區中的*作業資料表，* 而臨界值會繼續超過閾值。 如果您的內嵌磁片區持續超過速率限制，或您希望很快就會到達，您可以開啟支援要求來要求增加您的工作區。
  
 若要在您的工作區中收到這類事件的通知，請使用下列查詢建立[記錄警示規則](alerts-log.md)，並以大於的結果數目為零的警示邏輯基底。
 

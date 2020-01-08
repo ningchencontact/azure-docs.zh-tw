@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 11/09/2019
+ms.date: 12/06/2019
 ms.author: helohr
-ms.openlocfilehash: 7f80fb07bbed3bdb478bce557241a92cd571cc83
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 817cd09797ad861521a462da9c5d0850c65bf562
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904887"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459586"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>疑難排解概觀、意見反應和支援
 
@@ -38,21 +38,22 @@ ms.locfileid: "73904887"
 | 工作階段主機集區虛擬機器（VM）會在未使用 Windows 虛擬桌面提供的 Azure Resource Manager 範本時建立 | 聯絡**Azure 支援（計算）** 。 <br> <br> 如需 Windows 虛擬桌面隨附之 Azure Resource Manager 範本的問題，請參閱建立租使用者的 Windows 虛擬桌面租使用者一節[和建立主機集](troubleshoot-set-up-issues.md)區。 |
 | 從 Azure 入口網站管理 Windows 虛擬桌面工作階段主機環境    | 請聯絡**Azure 支援**。 <br> <br> 如需使用遠端桌面服務/Windows 虛擬桌面 PowerShell 時的管理問題，請參閱[Windows 虛擬桌面 PowerShell](troubleshoot-powershell.md)或**開啟 Windows 虛擬桌面的支援要求（計算）** 。 |
 | 管理系結至主機集區和應用程式群組的 Windows 虛擬桌面設定（應用程式群組）      | 請參閱[Windows 虛擬桌面 PowerShell](troubleshoot-powershell.md)，或**開啟 Windows 虛擬桌面（計算）的支援要求**。 <br> <br> 如果問題系結至範例圖形化使用者介面（GUI），請與 Yammer 社區聯繫。|
-| 遠端桌面用戶端在啟動時無法正常運作                                                 | 請參閱[遠端桌面用戶端](troubleshoot-client-connection.md)連線，如果無法解決問題，請**開啟 Windows 虛擬桌面的支援要求（計算）** 。  <br> <br> 如果是網路問題，您的使用者必須聯絡其網路系統管理員。 |
-| 已連線但沒有摘要                                                                 | 使用[遠端桌面用戶端](troubleshoot-client-connection.md)連線的「使用者連接但不顯示任何內容（沒有摘要）」區段進行疑難排解。 <br> <br> 如果您的使用者已指派給應用程式群組，請**開啟 Windows 虛擬桌面的支援要求（計算）** 。 |
+| 遠端桌面用戶端在啟動時無法正常運作                                                 | 請參閱針對[遠端桌面用戶端進行疑難排解](troubleshoot-client.md)，如果無法解決問題，請**開啟 Windows 虛擬桌面的支援要求（計算）** 。  <br> <br> 如果是網路問題，您的使用者必須聯絡其網路系統管理員。 |
+| 已連線但沒有摘要                                                                 | 針對[疑難排解遠端桌面用戶端](troubleshoot-client.md)的「使用者連接但不顯示任何內容（沒有摘要）」一節進行疑難排解。 <br> <br> 如果您的使用者已指派給應用程式群組，請**開啟 Windows 虛擬桌面的支援要求（計算）** 。 |
 | 因網路而造成的摘要探索問題                                            | 您的使用者必須聯絡其網路系統管理員。 |
-| 連接用戶端                                                                    | 請參閱[遠端桌面用戶端](troubleshoot-client-connection.md)連線，如果無法解決您的問題，請參閱[工作階段主機虛擬機器](troubleshoot-vm-configuration.md)設定。 |
+| 連接用戶端                                                                    | 請參閱[Windows 虛擬桌面服務](troubleshoot-service-connection.md)連線，如果無法解決您的問題，請參閱[工作階段主機虛擬機器](troubleshoot-vm-configuration.md)設定。 |
 | 遠端應用程式或桌上型電腦的回應能力                                      | 如果問題系結至特定的應用程式或產品，請洽詢負責該產品的小組。 |
 | 授權訊息或錯誤                                                          | 如果問題系結至特定的應用程式或產品，請洽詢負責該產品的小組。 |
-| 在 GitHub 上使用 Windows 虛擬桌面工具時的問題（Azure Resource Manager 範本、診斷工具、管理工具） | 如需報告問題的遠端桌面服務，請參閱[ARM 範本](https://github.com/Azure/RDS-Templates/blob/master/README.md)。 |
+| 在 GitHub 上使用 Windows 虛擬桌面工具時的問題（Azure Resource Manager 範本、診斷工具、管理工具） | 如需遠端桌面服務報告問題[的 Azure Resource Manager 範本](https://github.com/Azure/RDS-Templates/blob/master/README.md)，請參閱。 |
 
 ## <a name="next-steps"></a>後續步驟
 
 - 若要針對在 Windows 虛擬桌面環境中建立租使用者和主機集區的問題進行疑難排解，請參閱[建立租使用者和主機集](troubleshoot-set-up-issues.md)區。
 - 若要在 Windows 虛擬桌面中設定虛擬機器（VM）時針對問題進行疑難排解，請參閱[工作階段主機虛擬機器](troubleshoot-vm-configuration.md)設定。
-- 若要疑難排解 Windows 虛擬桌面用戶端連線的問題，請參閱[遠端桌面用戶端連接](troubleshoot-client-connection.md)。
+- 若要針對 Windows 虛擬桌面用戶端連接的問題進行疑難排解，請參閱[Windows 虛擬桌面服務連接](troubleshoot-service-connection.md)。
+- 若要疑難排解遠端桌面用戶端的問題，請參閱針對[遠端桌面用戶端進行疑難排解](troubleshoot-client.md)
 - 若要針對搭配 Windows 虛擬桌面使用 PowerShell 時的問題進行疑難排解，請參閱[Windows 虛擬桌面 PowerShell](troubleshoot-powershell.md)。
-- 若要深入瞭解此服務，請參閱[Windows 虛擬桌面環境](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)。
-- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署進行疑難排解](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)。
-- 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)。
-- 若要瞭解在部署期間判斷錯誤的動作，請參閱[查看部署作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)。
+- 若要深入瞭解此服務，請參閱[Windows 虛擬桌面環境](environment-setup.md)。
+- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署進行疑難排解](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md)。
+- 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](../azure-resource-manager/resource-group-audit.md)。
+- 若要瞭解在部署期間判斷錯誤的動作，請參閱[查看部署作業](../azure-resource-manager/resource-manager-deployment-operations.md)。

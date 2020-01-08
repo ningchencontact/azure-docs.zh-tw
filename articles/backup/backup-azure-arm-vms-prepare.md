@@ -3,18 +3,18 @@ title: 備份復原服務保存庫中的 Azure VM
 description: 說明如何使用 Azure 備份在復原服務保存庫中備份 Azure Vm
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: dc47aa2b4da08a0fc2c9a91b4d547a0d19e1869a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f2954ad2693d7b4f56e3f1b33e804a6936cf8a65
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173348"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450138"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>備份復原服務保存庫中的 Azure VM
 
 本文說明如何使用[Azure 備份](backup-overview.md)服務來備份復原服務保存庫中的 Azure vm。
 
-在本文中，您將了解：
+在本文中，您將學會如何：
 
 > [!div class="checklist"]
 >
@@ -55,7 +55,7 @@ ms.locfileid: "74173348"
     * 必須是 Azure 訂用帳戶中唯一的名稱。
     * 它可以包含 2 到 50 個字元。
     * 該名稱必須以字母開頭，而且只可以包含字母、數字和連字號。
-5. 選取要在其中建立保存庫的 Azure 訂用帳戶、資源群組和地理區域。 然後按一下 [建立]。
+5. 選取要在其中建立保存庫的 Azure 訂用帳戶、資源群組和地理區域。 接著，按一下 [建立]。
     * 建立保存庫可能需要一些時間。
     * 請監視入口網站右上方區域中的狀態通知。
 
@@ -63,9 +63,8 @@ ms.locfileid: "74173348"
 
 ![備份保存庫的清單](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-> [!NOTE]
-> Azure 備份服務會建立個別的資源群組（而不是 VM 資源群組）來儲存快照集，其命名格式為**AzureBackupRG_geography_number** （範例： AzureBackupRG_northeurope_1）。 此資源群組中的資料將會保留在 Azure 虛擬機器備份原則的 [*保留立即復原快照*集] 區段中所指定的持續時間（以天為單位）。  對此資源群組套用鎖定可能會導致備份失敗。<br>
-此資源群組也應從任何名稱/標記限制中排除，因為限制原則會再次阻止建立資源點集合，進而造成備份失敗。
+>[!NOTE]
+> Azure 備份現在允許自訂由 Azure 備份服務所建立的資源組名。 如需詳細資訊，請參閱[虛擬機器的 Azure 備份資源群組](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines)。
 
 ### <a name="modify-storage-replication"></a>修改儲存體複寫
 
@@ -167,13 +166,13 @@ ms.locfileid: "74173348"
 
 作業狀態會根據下列案例而有所不同：
 
-**快照集** | **將資料傳輸到保存庫** | **作業狀態**
+**快照式** | **將資料傳輸到保存庫** | **作業狀態**
 --- | --- | ---
 Completed | 進行中 | 進行中
-Completed | Skipped | Completed
+Completed | 已略過 | Completed
 Completed | Completed | Completed
-Completed | Failed | 已完成，但出現警告
-Failed | Failed | Failed
+Completed | 失敗 | 已完成，但出現警告
+失敗 | 失敗 | 失敗
 
 現在有了這項功能，針對相同的 VM，兩個備份可以平行執行，但是在任一階段（快照集，將資料傳送到保存庫）中，只有一個子工作可以執行。 因此，在某些情況下，進行中的備份作業會導致下一天的備份失敗，並透過這項分離功能來避免。 如果前一天的備份作業正在進行中，則在將**資料傳輸到保存庫**時，會略過後續日的備份。
 在保存庫中建立的增量復原點將會從保存庫中建立的最後一個復原點來捕獲所有變換。 使用者不會產生任何成本影響。
@@ -196,9 +195,9 @@ Failed | Failed | Failed
 * 一般來說，您不需要明確地允許 Azure VM 的輸出網路存取，以便與 Azure 備份進行通訊。
 * 如果您在連接 Vm 時遇到問題，或如果您在嘗試連線時看到錯誤**ExtensionSnapshotFailedNoNetwork** ，您應該明確地允許存取，讓備份延伸模組可以與 AZURE 公用 IP 位址進行通訊，以進行備份流量。 下表摘要說明存取方法。
 
-**選項** | **Action** | **詳細資料**
+**選項** | **動作** | **詳細資料**
 --- | --- | ---
-**設定 NSG 規則** | 允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。<br/><br/> 您可以新增規則，允許使用[服務](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)標籤來存取 Azure 備份服務，而不是允許及管理每個位址範圍。 | [深入了解](../virtual-network/security-overview.md#service-tags)服務標記。<br/><br/> 服務標記會簡化存取管理，而不會產生額外的成本。
+**設定 NSG 規則** | 允許[Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。<br/><br/> 您可以新增規則，允許使用[服務](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)標籤來存取 Azure 備份服務，而不是允許及管理每個位址範圍。 | [深入了解](../virtual-network/security-overview.md#service-tags)服務標記。<br/><br/> 服務標記會簡化存取管理，而不會產生額外的成本。
 **部署 Proxy** | 部署 HTTP Proxy 伺服器來路由傳送流量。 | 提供整個 Azure 的存取權，而不只是儲存體的存取權。<br/><br/> 可精確控制儲存體 URL。<br/><br/> VM 具有單一網際網路存取點。<br/><br/> Proxy 需要額外成本。
 **設定 Azure 防火牆** | 使用 Azure 備份服務的 FQDN 標記，允許流量通過 VM 上的 Azure 防火牆 | 如果您已在 VNet 子網中設定 Azure 防火牆，則可輕鬆使用。<br/><br/> 您無法建立自己的 FQDN 標記，或修改標記中的 Fqdn。<br/><br/> 如果您的 Azure Vm 具有受控磁片，您可能需要在防火牆上開啟額外的埠（8443）。
 

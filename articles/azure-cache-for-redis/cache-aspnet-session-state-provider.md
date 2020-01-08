@@ -1,17 +1,17 @@
 ---
 title: 快取 ASP.NET 工作階段狀態提供者
-description: 了解如何使用 Azure Cache for Redis 來儲存 ASP.NET 工作階段狀態
+description: 瞭解如何使用 Azure Cache for Redis 將 ASP.NET 會話狀態儲存在記憶體中。
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.author: yegu
-ms.openlocfilehash: cfcad48060a3cf33da80c09c3900ce4322b947da
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 5c9af862ca2df3d812384c0f4ab660730aece872
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122815"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433549"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>適用於 Azure Cache for Redis 的 ASP.NET 工作階段狀態提供者
 
@@ -85,7 +85,7 @@ NuGet 封裝會下載和加入必要的組件參考，並將下列區段加入�
 * **連接埠** – 使用您的非 SSL 連接埠或 SSL 連接埠，依 ssl 設定而定。
 * **accessKey** – 用於快取的主要或次要金鑰。
 * **ssl** – 如果您想要使用 ssl 保護快取/用戶端通訊則為 true，否則為 false。 請務必指定正確的連接埠。
-  * 預設會為新快取停用非 SSL 連接埠。 請於此設定指定為 true，使用 SSL 連接埠。 如需啟用非 SSL 連接埠的相關詳細資訊，請參閱[設定快取](cache-configure.md#access-ports)主題中的[存取連接埠](cache-configure.md)一節。
+  * 預設會為新快取停用非 SSL 連接埠。 請於此設定指定為 true，使用 SSL 連接埠。 如需啟用非 SSL 連接埠的相關詳細資訊，請參閱[設定快取](cache-configure.md)主題中的[存取連接埠](cache-configure.md#access-ports)一節。
 * **throwOnError** – true (如果您想在發生失敗時擲出例外狀況) 或 false (如果您想在作業失敗時為無訊息模式)。 您可以核取靜態 Microsoft.Web.Redis.RedisSessionStateProvider.LastException 屬性以檢查失敗。 預設值是 true。
 * **retryTimeoutInMilliseconds** – 會在此間隔期間 (以毫秒指定) 重試失敗的作業。 第一次重試會在 20 毫秒後發生，然後每秒進行重試，直到 retryTimeoutInMilliseconds 間隔到期為止。 緊接著此間隔之後，作業會進行最後一次重試。 如果作業仍失敗，會視 throwOnError 設定將例外狀況擲回給呼叫者。 預設值為 0，表示不會重試。
 * **databaseId** – 指定快取輸出資料所使用的資料庫。 若未指定，就會使用預設值 0。
@@ -122,7 +122,7 @@ NuGet 封裝會下載和加入必要的組件參考，並將下列區段加入�
 
 * 記憶體中工作階段狀態提供者 – 此提供者會將工作階段狀態儲存在記憶體中。 使用此提供者的好處是它既簡單又快速。 不過，您在使用記憶體中提供者時將無法調整 Web Apps，因為它不是分散式的。
 * SQL Server 工作階段狀態提供者 – 此提供者會將工作階段狀態儲存在 SQL Server 中。 如果您想要在永續性儲存體中儲存工作階段狀態，請使用此供應器。 您可以調整您的 Web 應用程式，但將 SQL Server 用於工作階段，會對 Web 應用程式的效能造成影響。 您也可以使用此提供者搭配[記憶體內部 OLTP 組態](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/)，協助改善效能。
-* 分散式記憶體中工作階段狀態提供者，例如 Azure Cache for Redis 工作階段狀態提供者 – 此提供者可讓您同時兼顧兩方面。 您的 Web 應用程式可擁有簡單、快速而可調整的工作階段狀態供應器。 因為此供應器會將工作階段狀態儲存在快取中，您的應用程式必須考量與分散式記憶體中快取 (例如暫時性網路失敗) 通訊時的所有相關特性。 如需使用快取的最佳作法，請參閱 Microsoft 模式和作法 [Azure 雲端應用程式設計和實作指引](../best-practices-caching.md)中的[快取指引](https://github.com/mspnp/azure-guidance)。
+* 分散式記憶體中工作階段狀態提供者，例如 Azure Cache for Redis 工作階段狀態提供者 – 此提供者可讓您同時兼顧兩方面。 您的 Web 應用程式可擁有簡單、快速而可調整的工作階段狀態供應器。 因為此供應器會將工作階段狀態儲存在快取中，您的應用程式必須考量與分散式記憶體中快取 (例如暫時性網路失敗) 通訊時的所有相關特性。 如需使用快取的最佳作法，請參閱 Microsoft 模式和作法 [Azure 雲端應用程式設計和實作指引](https://github.com/mspnp/azure-guidance)中的[快取指引](../best-practices-caching.md)。
 
 如需工作階段狀態和其他最佳作法的相關詳細資訊，請參閱 [Web 開發最佳作法 (使用 Azure 建置實際的雲端應用程式)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)(英文)。
 

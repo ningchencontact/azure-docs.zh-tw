@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: cf1c18fc799014ad862c93076d695f2516c6363d
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5c407edfedd6eb1156a0fec5719cc9435858bd4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456935"
 ---
-# <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中建立自訂映射 factory
+# <a name="set-up-retention-policy-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中設定保留原則
 本文涵蓋設定保留原則、清除處理站，以及淘汰組織中所有其他 DevTest 實驗室的舊映射。 
 
 ## <a name="prerequisites"></a>必要條件
@@ -66,7 +66,7 @@ ms.locfileid: "74560160"
 
 
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 現在您有一個執行中的映射處理站，可依需求產生自訂映射並將其散發給您的實驗室。 此時，只是要讓您的映射正確設定，並識別目標實驗室。 如前一篇文章中所述，位於您的**Configuration**資料夾中的**Labs. json**檔案會指定每個目標實驗室中應該提供哪些映射。 當您將其他 DevTest Labs 新增至您的組織時，您只需要在新實驗室的 Labs 中新增一個專案。
 
 將新的影像加入至您的處理站也很簡單。 當您想要在 factory 中包含新的映射時，請開啟 [ [Azure 入口網站](https://portal.azure.com)]，流覽至您的 Factory DevTest 實驗室，選取 [新增 VM] 按鈕，然後選擇所需的 marketplace 映射和構件。 若不選取 [**建立**] 按鈕來建立新的 VM，請選取 [ **View Azure Resource Manager template**]，然後將範本儲存為 json 檔案，並將其儲存在存放庫中**GoldenImages**資料夾內的某個位置。 下一次執行映射處理站時，它會建立您的自訂映射。

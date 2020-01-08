@@ -3,12 +3,12 @@ title: 了解效果的運作方式
 description: Azure 原則定義有各種不同的效果，可決定合規性的管理和報告方式。
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8338f3bf965f121a553a56c551d2095bf60e4880
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: fec2f966260d997b45be50554e0f41d5fd0491aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279520"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436355"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure 原則效果
 
@@ -16,7 +16,7 @@ ms.locfileid: "74279520"
 
 原則定義中目前支援這些效果：
 
-- [追加](#append)
+- [Append](#append)
 - [稽核](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [拒絕](#deny)
@@ -24,11 +24,11 @@ ms.locfileid: "74279520"
 - [Disabled](#disabled)
 - [EnforceOPAConstraint](#enforceopaconstraint) （預覽）
 - [EnforceRegoPolicy](#enforceregopolicy) （預覽）
-- [編輯](#modify)
+- [修改](#modify)
 
 ## <a name="order-of-evaluation"></a>評估順序
 
-透過 Azure Resource Manager 來建立或更新資源的要求，會先由 Azure 原則評估。 Azure 原則會建立適用于資源的所有指派清單，然後根據每個定義來評估資源。 Azure 原則會先處理數個效果，再將要求交給適當的資源提供者。 這麼做可避免資源提供者在資源不符合 Azure 原則的設計治理控制項時進行不必要的處理。
+「Azure 原則」會先評估透過 Azure Resource Manager 進行的資源建立或更新要求。 Azure 原則會建立適用于資源的所有指派清單，然後根據每個定義來評估資源。 Azure 原則會先處理數個效果，再將要求交給適當的資源提供者。 這麼做可避免資源提供者在資源不符合 Azure 原則的設計治理控制項時進行不必要的處理。
 
 - 首先會檢查 **Disabled**，以決定是否應評估原則規則。
 - 接著會評估 [**附加**] 和 [**修改**]。 由於可能會改變要求，因此所做的變更可能會導致無法觸發 audit 或 deny 的影響。
@@ -46,7 +46,7 @@ ms.locfileid: "74279520"
 已停用效果的替代方法是在原則指派上設定的**enforcementMode** 。
 _停用_ **enforcementMode**時，仍會評估資源。 記錄（例如活動記錄）和原則效果都不會發生。 如需詳細資訊，請參閱[原則指派-強制模式](./assignment-structure.md#enforcement-mode)。
 
-## <a name="append"></a>Append
+## <a name="append"></a>附加
 
 Append 可用來在建立或更新所要求的資源時，為資源新增額外的欄位。 常見的範例是針對儲存體資源指定允許的 Ip。
 
@@ -108,7 +108,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 當使用 Modify 效果的原則定義在評估週期中執行時，不會對已經存在的資源進行變更。 取而代之的是，會將符合 **if** 條件的所有資源標示為不符合規範。
 
-### <a name="modify-properties"></a>修改屬性
+### <a name="modify-properties"></a>修改內容
 
 [修改] 效果的 [**詳細資料**] 屬性具有所有子屬性，可定義補救所需的許可權，以及用來新增、更新或移除標記值的**作業**。
 
@@ -158,7 +158,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 **Operation**屬性具有下列選項：
 
-|作業 |描述 |
+|作業 |說明 |
 |-|-|
 |addOrReplace |將已定義的標籤和值新增至資源，即使標記已經存在且具有不同的值。 |
 |新增 |將已定義的標記和值加入至資源。 |
@@ -327,7 +327,7 @@ AuditIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 類似于 AuditIfNotExists，DeployIfNotExists 原則定義會在符合條件時執行範本部署。
 
 > [!NOTE]
-> 使用 [deployIfNotExists](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template) 時，支援**巢狀範本**，但目前不支援[連結的範本](../../../azure-resource-manager/resource-group-linked-templates.md)。
+> 使用 **deployIfNotExists** 時，支援[巢狀範本](../../../azure-resource-manager/templates/linked-templates.md#nested-template)，但目前不支援[連結的範本](../../../azure-resource-manager/templates/linked-templates.md#linked-template)。
 
 ### <a name="deployifnotexists-evaluation"></a>DeployIfNotExists 評估
 
@@ -539,7 +539,7 @@ EnforceRegoPolicy 效果的**details**屬性具有描述閘道管理員 v2 許�
 
 ## <a name="layering-policies"></a>分層原則
 
-一個資源可能會受到數個指派影響。 這些指派可能屬於相同範圍，也可能屬於不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 針對每個原則的條件和效果，都會以獨立方式進行評估。 例如︰
+一個資源可能會受到數個指派影響。 這些指派可能屬於相同範圍，也可能屬於不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 針對每個原則的條件和效果，都會以獨立方式進行評估。 例如：
 
 - 原則 1
   - 將資源位置限制為 'westus'

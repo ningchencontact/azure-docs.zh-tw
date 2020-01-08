@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 3e60c0e165b8f9ec79aac2048011d9e315b0ce18
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 34dbace304ccf70891ef53dd768de60d87e26967
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483967"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666630"
 ---
 # <a name="using-custom-security-policies-preview"></a>使用自訂安全性原則（預覽）
 
 為了協助保護您的系統和環境，Azure 資訊安全中心會產生安全性建議。 這些建議是以業界最佳作法為基礎，並併入提供給所有客戶的一般預設安全性原則中。 它們也可以來自資訊安全中心的產業和法規標準知識。
 
-透過這項預覽功能，您可以新增自己的*自訂*方案。 如果您的環境未遵循您所建立的原則，您就會收到建議。
+透過這項預覽功能，您可以新增自己的*自訂*方案。 如果您的環境未遵循您所建立的原則，您就會收到建議。 您所建立的任何自訂計畫，將會與 [法規合規性] 儀表板中的內建方案一起出現，本教學課程會在[改進您的法規合規性](security-center-compliance-dashboard.md)
 
 如 Azure 原則檔中[所述，](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location)當您指定自訂方案的位置時，它必須是管理群組或訂用帳戶。 
 
@@ -58,6 +58,12 @@ ms.locfileid: "74483967"
 
     > [!NOTE]
     > 建立新的方案需要訂用帳戶擁有者認證。 如需 Azure 角色的詳細資訊，請參閱[Azure 資訊安全中心中的許可權](security-center-permissions.md)。
+
+    您的新計畫會生效，而且您可以看到下列兩種方式的影響：
+
+    * 從 [資訊安全中心] 提要欄位的 [原則 & 相容性] 底下，選取 [**法規合規性**]。 [合規性儀表板] 隨即開啟，以顯示新的自訂計畫與內建的方案。
+    
+    * 如果您的環境未遵循您所定義的原則，您將會開始收到建議。
 
 1. 若要查看您的原則所產生的建議，請按一下提要欄位中的 [**建議**] 以開啟 [建議] 頁面。 建議會顯示「自訂」標籤，並在大約一小時內提供。
 

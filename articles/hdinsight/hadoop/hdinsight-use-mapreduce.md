@@ -5,25 +5,25 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.openlocfilehash: c4f975b56d3658731b6dc165e01b54ac09f3b89c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 238f37cc1e8cbc8d3260693181d6e54ac5f592f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435713"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>搭配 MapReduce 與 HDInsight 上的 Apache Hadoop
 
 了解如何在 HDInsight 叢集上執行 MapReduce 工作。
 
-## <a id="data"></a>範例資料
+## <a name="example-data"></a>範例資料
 
-HDInsight 提供各種範例資料集，這些範例資料及儲存在 `/example/data` 和 `/HdiSamples` 目錄。 這些目錄位於您叢集的預設儲存體中。 在本文件中，我們使用 `/example/data/gutenberg/davinci.txt` 檔案。 此檔案包含達文西 da Vinci 的筆記本。
+HDInsight 提供各種範例資料集，這些範例資料及儲存在 `/example/data` 和 `/HdiSamples` 目錄。 這些目錄位於您的叢集預設儲存體中。 在本文件中，我們使用 `/example/data/gutenberg/davinci.txt` 檔案。 此檔案包含達文西 da Vinci 的筆記本。
 
-## <a id="job"></a>範例 MapReduce
+## <a name="example-mapreduce"></a>範例 MapReduce
 
 範例 MapReduce 字數統計應用程式會包含您的 HDInsight 叢集。 此範例位於您叢集的預設儲存體上的 `/example/jars/hadoop-mapreduce-examples.jar`。
 
@@ -101,35 +101,22 @@ public class WordCount {
 }
 ```
 
-如需撰寫自己的 MapReduce 應用程式的指示，請參閱下列檔：
+如需撰寫自己的 MapReduce 應用程式的指示，請參閱[開發適用于 HDInsight 的 JAVA MapReduce 應用程式](apache-hadoop-develop-deploy-java-mapreduce-linux.md)。
 
-* [開發 HDInsight 的 Java MapReduce 應用程式](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-## <a id="run"></a>執行 MapReduce
+## <a name="run-the-mapreduce"></a>執行 MapReduce
 
 HDInsight 可以使用各種方法執行 HiveQL 工作。 請使用下表決定適合您的方法，然後跟著連結逐項閱讀介紹。
 
-| **使用此方法**... | **...執行此工作** | ...搭配此 **叢集作業系統** | ...從此 **用戶端作業系統** |
+| **使用此方法**... | **...執行此工作** |  ...從此 **用戶端作業系統** |
 |:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |透過 **SSH** |Linux |Linux、Unix、Mac OS X 或 Windows |
-| [Curl](apache-hadoop-use-mapreduce-curl.md) |使用 **REST** |Linux 或 Windows |Linux、Unix、Mac OS X 或 Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |使用 **Windows PowerShell** |Linux 或 Windows |Windows |
+| [SSH](apache-hadoop-use-mapreduce-ssh.md) |透過 **SSH** |Linux、Unix、Mac OS X 或 Windows |
+| [Curl](apache-hadoop-use-mapreduce-curl.md) |使用 **REST** |Linux、Unix、Mac OS X 或 Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |使用 **Windows PowerShell**  |Windows |
 
-## <a id="nextsteps"></a>接續步驟
+## <a name="next-steps"></a>後續步驟
 
 若要深入了解如何處理 HDInsight 的資料，請參閱下列文件：
 
 * [開發 HDInsight 的 Java MapReduce 程式](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [搭配 HDInsight 使用 Apache Hive][hdinsight-use-hive]
-
-* [搭配 HDInsight 使用 Apache Pig][hdinsight-use-pig]
-
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-mapreduce-jobs]: apache-hadoop-develop-deploy-java-mapreduce-linux.md
-[hdinsight-use-hive]:../hdinsight-use-hive.md
-[hdinsight-use-pig]:hdinsight-use-pig.md
-
-
-[powershell-install-configure]: /powershell/azureps-cmdlets-docs
+* [搭配 HDInsight 使用 Apache Hive](./hdinsight-use-hive.md)

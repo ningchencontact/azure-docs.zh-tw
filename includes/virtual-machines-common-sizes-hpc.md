@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/26/2019
 ms.author: azcspmt;jonbeck;cynthn;amverma
 ms.custom: include file
-ms.openlocfilehash: 489ac7fa37c10a27de971151f0be35c647d2186f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 006a44e42ed209b6f0e614b92f97e43ec30b99ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116599"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469212"
 ---
 Azure HPC 優化虛擬機器（Vm）的設計目的是為各種真實世界的應用程式提供領導層級的效能、MPI 擴充性和成本效益。
  
@@ -34,7 +34,7 @@ HBv2 系列 Vm 已針對記憶體頻寬所驅動的應用程式優化，例如�
 
 | 大小 | vCPU | 處理器 | 記憶體 (GB) | 記憶體頻寬 GB/秒 | 基本 CPU 頻率（GHz） | 所有核心頻率（GHz、尖峰） | 單核心頻率（GHz、尖峰） | RDMA 效能（Gb/s） | MPI 支援 | 暫存儲存體（GB） | 最大資料磁碟 | 最大乙太網路 Nic |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HB120rs | 120 | AMD EPYC 7742 | 480 | 350 | 2.45 | 2.45 | 3.4 | 200 | 全部 | 480 + 960 | 8 | 1 |
+| Standard_HB120rs | 120 | AMD EPYC 7742 | 480 | 350 | 2.45 | 2.45 | 3.4 | 200 | 所有 | 480 + 960 | 8 | 1 |
 
 <br>
 
@@ -47,9 +47,9 @@ ACU：199-216
 
 進階儲存體快取：支援
 
-| 大小 | vCPU | 處理器 | 記憶體 (GB) | 記憶體頻寬 GB/秒 | 基本 CPU 頻率（GHz） | 所有核心頻率（GHz、尖峰） | 單核心頻率（GHz、尖峰） | RDMA 效能（Gb/s） | MPI 支援 | 暫存儲存體（GB） | 最大資料磁碟 | 最大乙太網路 Nic |
+| 大小 | vCPU | 處理器 | 記憶體 (GiB) | 記憶體頻寬 GiB/秒 | 基本 CPU 頻率（GHz） | 所有核心頻率（GHz、尖峰） | 單核心頻率（GHz、尖峰） | RDMA 效能（GiB/s） | MPI 支援 | 暫存儲存體 (GiB) | 最大資料磁碟 | 最大乙太網路 Nic |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | 全部 | 700 | 4 | 1 |
+| Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | 所有 | 700 | 4 | 1 |
 
 <br>
 
@@ -63,9 +63,9 @@ ACU：297-315
 進階儲存體快取：支援
 
 
-| 大小 | vCPU | 處理器 | 記憶體 (GB) | 記憶體頻寬 GB/秒 | 基本 CPU 頻率（GHz） | 所有核心頻率（GHz、尖峰） | 單核心頻率（GHz、尖峰） | RDMA 效能（Gb/s） | MPI 支援 | 暫存儲存體（GB） | 最大資料磁碟 | 最大乙太網路 Nic |
+| 大小 | vCPU | 處理器 | 記憶體 (GiB) | 記憶體頻寬 GiB/秒 | 基本 CPU 頻率（GHz） | 所有核心頻率（GHz、尖峰） | 單核心頻率（GHz、尖峰） | RDMA 效能（GiB/s） | MPI 支援 | 暫存儲存體 (GiB) | 最大資料磁碟 | 最大乙太網路 Nic |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HC44rs | 44 | Intel 8168 技術白金 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | 全部 | 700 | 4 | 1 |
+| Standard_HC44rs | 44 | Intel 8168 技術白金 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | 所有 | 700 | 4 | 1 |
 
 
 <br>
@@ -79,7 +79,7 @@ ACU：290 - 300
 
 進階儲存體快取：不支援
 
-| 大小 | vCPU | 處理器 | 記憶體 (GB) | 記憶體頻寬 GB/秒 | 基本 CPU 頻率（GHz） | 所有核心頻率（GHz、尖峰） | 單核心頻率（GHz、尖峰） | RDMA 效能（Gb/s） | MPI 支援 | 暫存儲存體（GB） | 最大資料磁碟 | 最大乙太網路 Nic |
+| 大小 | vCPU | 處理器 | 記憶體 (GiB) | 記憶體頻寬 GiB/秒 | 基本 CPU 頻率（GHz） | 所有核心頻率（GHz、尖峰） | 單核心頻率（GHz、尖峰） | RDMA 效能（GiB/s） | MPI 支援 | 暫存儲存體 (GiB) | 最大資料磁碟 | 最大乙太網路 Nic |
 | --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 | 8 | Intel 強 E5 2667 v3 | 56 | 40 | 3.2 | 3.3 | 3.6 | - | Intel 5.x、MS-MPI | 1000 | 32 | 2 |
 | Standard_H16 | 16 | Intel 強 E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 |  - | Intel 5.x、MS-MPI | 2000 | 64 | 4 |

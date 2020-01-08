@@ -1,5 +1,6 @@
 ---
-title: 如何搭配使用虛擬網路中的 Azure API 管理與應用程式閘道 | Microsoft Docs
+title: 如何在虛擬網路中使用應用程式閘道的 API 管理
+titleSuffix: Azure API Management
 description: 了解如何以應用程式閘道 (WAF) 做為前端在內部虛擬網路中安裝和設定 Azure API 管理
 services: api-management
 documentationcenter: ''
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: d1ab7089ba76890488aa73d03e0fd9fc8efbe4d5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4e4d4c69eb51e0058d3b6b561b5167051079bf89
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176734"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442696"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>整合內部 VNET 中的 API 管理與應用程式閘道
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 API 管理服務可以內部模式設定於虛擬網路中，因此只能從虛擬網路中加以存取。 Azure 應用程式閘道是一項 PAAS 服務，可提供第 7 層負載平衡器。 它可做為反向 Proxy 服務，並在其供應項目中提供 Web 應用程式防火牆 (WAF)。
 
@@ -68,7 +69,7 @@ API 管理服務可以內部模式設定於虛擬網路中，因此只能從虛�
 * **自訂健全狀況探查︰** 應用程式閘道預設會使用 IP 位址型探查，來找出 BackendAddressPool 中有哪些伺服器正在作用中。 API 管理服務只會回應具有正確主機標頭的要求，因此預設探查會失敗。 需要定義自訂的健全狀況探查以協助應用程式閘道判斷服務正在執行，因此它應該轉送要求。
 * **自訂網域憑證︰** 若要從網際網路存取 API 管理，您需要建立其主機名稱和應用程式閘道前端 DNS 名稱的 CNAME 對應。 這可確保主機名稱的標頭和憑證傳送到轉送至 API 管理的應用程式閘道，是 APIM 可以辨識為有效的。 在此範例中，我們將使用兩個憑證 - 分別用於後端和開發人員入口網站。  
 
-## <a name="overview-steps"></a>整合 API 管理和應用程式閘道的所需步驟
+## <a name="overview-steps"></a>整合 API 管理和應用程式閘道所需的步驟
 
 1. 建立資源管理員的資源群組。
 2. 建立應用程式閘道的虛擬網路、子網路和公用 IP。 為 API 管理建立其他子網路。

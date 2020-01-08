@@ -2,22 +2,22 @@
 title: 儲存體：將內部部署 Apache Hadoop 遷移至 Azure HDInsight
 description: 了解將內部部署 Hadoop 叢集移轉至 Azure HDInsight 的儲存體最佳做法。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: b22c3c7e7dbbf7a93fff10ded1fbb7bef8fc5900
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/10/2019
+ms.openlocfilehash: 6fe7dfaccc3cf1c3fbe4a9ea42578c56f910ea36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494946"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435761"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>將內部部署 Apache Hadoop 叢集遷移至 Azure HDInsight
 
-本文提供 Azure HDInsight 系統中的資料儲存建議。 將內部部署 Apache Hadoop 系統遷移到 Azure HDInsight 有一系列的最佳做法，這是其中一部分。
+本文提供 Azure HDInsight 系統中的資料儲存建議。 本文是系列文章中的一篇，提供有助於將內部部署 Apache Hadoop 系統移轉至 Azure HDInsight 的最佳做法。
 
 ## <a name="choose-right-storage-system-for-hdinsight-clusters"></a>為 HDInsight 叢集選擇正確的儲存體系統
 
@@ -25,26 +25,25 @@ ms.locfileid: "73494946"
 
 ### <a name="azure-storage"></a>Azure 儲存體
 
-HDInsight 叢集可以使用 Azure 儲存體中的 Blob 容器作為預設檔案系統或其他檔案系統。 標準層儲存體帳戶支援搭配 HDInsight 叢集使用。 進階層不受支援。 預設 Blob 容器會儲存叢集特定資訊，例如作業歷程記錄和記錄。 不支援共用一個 blob 容器做為多個叢集的預設檔案系統。
+HDInsight 叢集可以使用 Azure 儲存體中的 Blob 容器作為預設檔案系統或其他檔案系統。 標準層儲存體帳戶支援搭配 HDInsight 叢集使用。 不支援頂級層。 預設 Blob 容器會儲存叢集特定資訊，例如作業歷程記錄和記錄。 不支援共用一個 blob 容器做為多個叢集的預設檔案系統。
 
 建立程序中定義的儲存體帳戶及其各自的金鑰會儲存在叢集節點的 `%HADOOP_HOME%/conf/core-site.xml` 中。 您也可以在 Ambari UI 中，從 HDFS 組態中的 [自訂核心網站] 區段下加以存取。 依預設會為儲存體帳戶金鑰加密，並在金鑰傳至 Hadoop 精靈之前使用自訂解密指令碼將金鑰解密。 包括 Hive、MapReduce、Hadoop 串流和 Pig 在內的各項作業，可夾帶儲存體帳戶的說明和中繼資料。
 
-Azure 儲存體可進行異地複寫。 雖然異地複寫可提供地理位置復原和資料備援性，但容錯移轉至異地複寫的位置會嚴重影響效能，且可能產生額外的成本。 建議您明智地選擇異地複寫，且最好在資料的價值大於額外成本時才這樣做。
+Azure 儲存體可以進行異地複寫。 雖然異地複寫可提供地理位置復原和資料備援性，但容錯移轉至異地複寫的位置會嚴重影響效能，且可能產生額外的成本。 建議您明智地選擇異地複寫，且最好在資料的價值大於額外成本時才這樣做。
 
 您可以使用下列其中一種格式來存取儲存在 Azure 儲存體中的資料：
 
-|資料存取格式 |描述 |
+|資料存取格式 |說明 |
 |---|---|
 |`wasb:///`|使用未加密通訊存取預設儲存體。|
 |`wasbs:///`|使用加密通訊存取預設儲存體。|
 |`wasb://<container-name>@<account-name>.blob.core.windows.net/`|與非預設儲存體帳戶進行通訊時使用。 |
 
-
-[Azure 儲存體的延展性與效能目標](../../storage/common/storage-scalability-targets.md)會列出 Azure 儲存體帳戶目前的限制。 如果應用程式的需求超出單一儲存體帳戶的延展性目標，您可以建置使用多個儲存體帳戶的應用程式，並將資料物件分割到這些儲存體帳戶中。
+[標準儲存體帳戶的擴充性目標](../../storage/common/scalability-targets-standard-account.md)會列出 Azure 儲存體帳戶目前的限制。 如果應用程式的需求超出單一儲存體帳戶的延展性目標，您可以建置使用多個儲存體帳戶的應用程式，並將資料物件分割到這些儲存體帳戶中。
 
 [Azure 儲存體分析](../../storage/storage-analytics.md) 可提供所有儲存體服務的計量，並且可設定 Azure 入口網站，使其收集要透過圖表來呈現的計量。 您可以建立警示，以在儲存體資源計量達到閾值時獲得通知。
 
-Azure 儲存體提供 [Blob 物件的虛刪除功能](../../storage/blobs/storage-blob-soft-delete.md)，以協助您在應用程式或其他儲存體帳戶使用者意外修改或刪除資料時加以復原。
+Azure 儲存體提供[blob 物件](../../storage/blobs/storage-blob-soft-delete.md)的虛刪除，以在應用程式或其他儲存體帳戶使用者意外修改或刪除資料時協助復原。
 
 您可以建立 [Blob 快照集](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)。 快照集是在某個點時間建立的唯讀 Blob 版本，可作為備份 Blob 的途徑。 一旦建立快照集後，即可加以讀取、複製或刪除，但不能修改。
 
@@ -71,10 +70,11 @@ keytool -import -trustcacerts -keystore /path/to/jre/lib/security/cacerts -store
 keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 ```
 
-如需詳細資訊，請參閱下列文章。
+如需詳細資訊，請參閱下列文章：
 
-- [搭配使用 Azure 儲存體與 Azure HDInsight 叢集](../hdinsight-hadoop-use-blob-storage.md)
-- [Azure 儲存體的延展性與效能目標](../../storage/common/storage-scalability-targets.md)
+- [搭配 Azure HDInsight 叢集使用 Azure 儲存體](../hdinsight-hadoop-use-blob-storage.md)
+- [標準儲存體帳戶的擴充性目標](../../storage/common/scalability-targets-standard-account.md)
+- [Blob 儲存體的擴充性和效能目標](../../storage/blobs/scalability-targets.md)
 - [Microsoft Azure 儲存體效能與延展性檢查清單](../../storage/common/storage-performance-checklist.md)
 - [監視、診斷與疑難排解 Microsoft Azure 儲存體](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [在 Azure 入口網站中監視儲存體帳戶](../../storage/common/storage-monitor-storage-account.md)
@@ -83,7 +83,7 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 
 Azure Data Lake Storage 會實作 HDFS 和 POSIX 樣式的存取控制模型。 它可與 AAD 緊密整合，以進行精細的存取控制。 它可儲存的資料並沒有大小的限制，且其執行大量平行分析的能力也不受限。
 
-如需詳細資訊，請參閱下列文章。
+如需詳細資訊，請參閱下列文章：
 
 - [使用 Azure 入口網站建立搭配 Data Lake Storage 的 HDInsight 叢集](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 - [搭配使用 Data Lake Storage 與 Azure HDInsight 叢集](../hdinsight-hadoop-use-data-lake-store.md)
@@ -112,7 +112,7 @@ Data Lake Storage Gen2 的基本功能是將 [階層式命名空間](../../stor
 - `abfs:///`︰存取叢集的預設 Data Lake Storage。
 - `abfs://file_system@account_name.dfs.core.windows.net`：與非預設 Data Lake Storage 進行通訊時使用。
 
-如需詳細資訊，請參閱下列文章。
+如需詳細資訊，請參閱下列文章：
 
 - [Azure Data Lake Storage Gen2 簡介](../../storage/data-lake-storage/introduction.md)
 - [Azure Blob Filesystem 驅動程式 (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
@@ -120,7 +120,7 @@ Data Lake Storage Gen2 的基本功能是將 [階層式命名空間](../../stor
 
 ## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>保護內部部署 Hadoop 叢集組態內的 Azure 儲存體金鑰
 
-新增至 Hadoop 組態檔中的 Azure 儲存體金鑰可建立內部部署 HDFS 與 Azure Blob 儲存體之間的連線。 這些金鑰可透過以 Hadoop 認證提供者架構進行加密而受到保護。 加密之後，即可安全地儲存及存取這些金鑰。
+新增至 Hadoop 設定檔的 Azure 儲存體金鑰，會建立內部部署 HDFS 與 Azure Blob 儲存體之間的連線。 這些金鑰可透過以 Hadoop 認證提供者架構進行加密而受到保護。 加密之後，即可安全地儲存及存取這些金鑰。
 
 **若要佈建認證：**
 
@@ -155,7 +155,7 @@ hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode
 
 1. 開啟 [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) 檔案並變更下列值：
 
-    |權杖屬性|描述|
+    |權杖屬性|說明|
     |---|---|
     |policy_name|要建立的預存原則所要使用的名稱。|
     |storage_account_name|儲存體帳戶的名稱。|
@@ -173,7 +173,7 @@ hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode
 
 6. 針對 [金鑰] 和 [值] 欄位使用下列值：
 
-    **金鑰**：`fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **值**：Python 應用程式在前述的步驟 4 中傳回的 SAS 金鑰。
+    機**碼**： `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net`**值**：從上述步驟4中的 Python 應用程式傳回的 SAS 金鑰。
 
 7. 按一下 [新增] 按鈕以儲存這個金鑰和值，然後按一下 [儲存] 按鈕以儲存組態變更。 出現提示時，加入變更的描述 (例如，「新增 SAS 儲存體存取權」)，然後按一下 [儲存]。
 
@@ -181,35 +181,35 @@ hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode
 
 9. 對 MapReduce2 和 YARN 重複此程序。
 
-在 Azure 中使用 SAS 權杖時，須牢記三個重要注意事項：
+在 Azure 中使用 SAS 權杖有三個重要事項：
 
 1. 以「讀取 + 列出」權限建立 SAS 權杖時，使用該 SAS 權杖存取 Blob 容器的使用者將無法「寫入和刪除」資料。 使用該 SAS 權杖存取 Blob 容器的使用者若嘗試寫入或刪除作業，將會收到類似於 `"This request is not authorized to perform this operation"` 的訊息。
 
-2. 以 `READ + LIST + WRITE` 權限 (僅限制 `DELETE`) 產生 SAS 權杖時，會先將 `hadoop fs -put` 之類的命令寫入至 `\_COPYING\_` 檔案，然後嘗試將該檔案重新命名。 此 HDFS 作業對應於 WASB 的 `copy+delete`。 由於未提供 `DELETE` 權限，因此「放置」將會失敗。 `\_COPYING\_` 作業是一項 Hadoop 功能，用以提供某種程度的並行存取控制。 目前無法僅限制「刪除」作業而不連帶影響「寫入」作業。
+2. 以 `READ + LIST + WRITE` 權限 (僅限制 `DELETE`) 產生 SAS 權杖時，會先將 `hadoop fs -put` 之類的命令寫入至 `\_COPYING\_` 檔案，然後嘗試將該檔案重新命名。 此 HDFS 作業對應於 WASB 的 `copy+delete`。 由於未提供 `DELETE` 許可權，因此 "put" 將會失敗。 `\_COPYING\_` 作業是一項 Hadoop 功能，用以提供某種程度的並行存取控制。 目前沒有任何方法可以只限制「刪除」作業，而不會影響「寫入」操作。
 
-3. 很可惜，Hadoop 認證提供者和解密金鑰提供者 (ShellDecryptionKeyProvider) 目前並未使用 SAS 權杖，因此目前無法使其不顯示。
+3. 可惜的是，hadoop 認證提供者和解密金鑰提供者（ShellDecryptionKeyProvider）目前無法使用 SAS 權杖，因此目前無法保護它的可見度。
 
 如需詳細資訊，請參閱[使用 Azure 儲存體共用存取簽章來限制 HDInsight 對資料的存取](../hdinsight-storage-sharedaccesssignature-permissions.md)。
 
 ## <a name="use-data-encryption-and-replication"></a>使用資料加密和複寫
 
-所有寫入至 Azure 儲存體的資料，都會使用 [儲存體服務加密 (SSE)](../../storage/common/storage-service-encryption.md) 自動加密。 Azure 儲存體帳戶中的資料一律會進行複寫，以確保高可用性。 當您建立儲存體帳戶時，可以選擇下列其中一個複寫選項：
+所有寫入至 Azure 儲存體的資料，都會使用 [儲存體服務加密 (SSE)](../../storage/common/storage-service-encryption.md) 自動加密。 Azure 儲存體帳戶中的資料一律會進行複寫以提供高可用性。 當您建立儲存體帳戶時，可以選擇下列其中一個複寫選項：
 
 - [本地備援儲存體 (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [區域備援儲存體 (ZRS)](../../storage/common/storage-redundancy-zrs.md)
 - [異地備援儲存體 (GRS)](../../storage/common/storage-redundancy-grs.md)
 - [讀取權限異地備援儲存體 (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
-Azure Data Lake Storage 提供本地備援儲存體 (LRS)，但您也應以符合災害復原計畫需求的頻率，將重要資料複製到位於其他區域的另一個 Data Lake Storage 帳戶。 有各種方法可以複製資料，包括 [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)、DistCp、 [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md)或 [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)。 也建議對 Data Lake Storage 帳戶強制執行存取原則，以防止意外刪除。
+Azure Data Lake Storage 提供本地備援儲存體 (LRS)，但您也應以符合災害復原計畫需求的頻率，將重要資料複製到位於其他區域的另一個 Data Lake Storage 帳戶。 有不同的方法可以複製資料，包括 [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)、 [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html)、 [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md)或 [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)。 也建議對 Data Lake Storage 帳戶強制執行存取原則，以防止意外刪除。
 
-如需詳細資訊，請參閱下列文章。
+如需詳細資訊，請參閱下列文章：
 
 - [Azure 儲存體複寫](../../storage/common/storage-redundancy.md)
 - [Azure Data Lake Storage (ADLS) 的災害指引](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
 
-## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>將其他 Azure 儲存體帳戶連結至叢集
+## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>將其他 Azure 儲存體帳戶附加至叢集
 
-進行 HDInsight 建立程序期間，可以選擇 Azure 儲存體帳戶或 Azure Data Lake Storage 帳戶作為預設檔案系統。 除了這個預設的儲存體帳戶以外，也可以在叢集建立的過程中或在叢集建立之後，從相同或不同的 Azure 訂用帳戶中新增其他儲存體帳戶。
+在 HDInsight 建立程式期間，會選擇 Azure 儲存體帳戶或 Azure Data Lake Storage 帳戶做為預設檔案系統。 除了這個預設的儲存體帳戶以外，也可以在叢集建立的過程中或在叢集建立之後，從相同或不同的 Azure 訂用帳戶中新增其他儲存體帳戶。
 
 額外的儲存體帳戶可透過下列其中一種方法來新增：
 - Ambari HDFS > [設定] > [進階] > [自訂核心網站] > [新增儲存體帳戶] > [名稱和金鑰] > [重新啟動服務]
@@ -218,11 +218,8 @@ Azure Data Lake Storage 提供本地備援儲存體 (LRS)，但您也應以符�
 > [!Note]
 > 在有效的使用案例中，可透過對  [Azure 支援](https://azure.microsoft.com/support/faq/)提出要求來提高 Azure 儲存體的限制。
 
-如需詳細資訊，請參閱下列文章。
-- [將其他儲存體帳戶新增至 HDInsight](../hdinsight-hadoop-add-storage.md)
+如需詳細資訊，請參閱[將其他儲存體帳戶新增至 HDInsight](../hdinsight-hadoop-add-storage.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-閱讀此系列中的下一篇文章：
-
-- [從內部部署移轉至 Azure HDInsight Hadoop 的資料移轉最佳做法](apache-hadoop-on-premises-migration-best-practices-data-migration.md)
+閱讀此系列中的下一篇文章：內部[部署到 Azure HDInsight Hadoop 遷移的資料移轉最佳作法](apache-hadoop-on-premises-migration-best-practices-data-migration.md)。

@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure Active Directory 來授權開發人員帳戶 - Azure API 管理 | Microsoft Docs
+title: 使用 Azure Active Directory 授權開發人員帳戶
+titleSuffix: Azure API Management
 description: 了解如何在 API 管理中使用 Azure Active Directory 來授權使用者。
 services: api-management
 documentationcenter: API Management
@@ -12,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 067d4488b064ede572a4b3ad94c94fb1552c827d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 131621e05d7800e59ce3bbdec5c11c1da9facf11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454464"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442803"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 來授權開發人員帳戶
 
 本文說明如何讓使用者能夠從 Azure Active Directory (Azure AD) 來存取開發人員入口網站。 本指南也說明如何新增包含 Azure AD 使用者的外部群組來管理使用者。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
 - 匯入並發佈 Azure API 管理執行個體。 如需詳細資訊，請參閱[匯入和發佈](import-and-publish.md)。
@@ -33,7 +34,7 @@ ms.locfileid: "74454464"
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>使用 Azure AD 來授權開發人員帳戶
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
-2. 選取 [封裝設定] ![箭號](./media/api-management-howto-aad/arrow.png)，通常您會使用 collectd。
+2. 選取 ![箭號](./media/api-management-howto-aad/arrow.png)。
 3. 在搜尋方塊中，輸入 **api**。
 4. 選取 [API 管理服務]。
 5. 選取 API 管理服務執行個體。
@@ -49,7 +50,7 @@ ms.locfileid: "74454464"
    ![在 Azure 入口網站中新增識別提供者的步驟](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. 在瀏覽器中開啟其他索引標籤。 
 11. 流覽至[Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)，在 Active Directory 中註冊應用程式。
-12. 在 [**管理**] 下，選取 [**應用程式註冊**]。
+12. 在 [管理] 底下，選取 [應用程式註冊]。
 13. 選取 [新增註冊]。 在 [**註冊應用程式**] 頁面上，設定值，如下所示：
     
 * 將 [**名稱**] 設定為有意義的名稱。 例如，*開發人員-入口網站*
@@ -59,7 +60,7 @@ ms.locfileid: "74454464"
 
 14.  註冊應用程式之後，請從 [**總覽**] 頁面複製**應用程式（用戶端）識別碼**。 
 15. 回到您的 API 管理實例。 在 [**新增識別提供者**] 視窗中，將 [**應用程式（用戶端）識別碼**] 值貼到 [**用戶端識別碼**] 方塊中。
-16. 切換回 Azure AD 設定，選取 [**管理**] 底下的 [**憑證 & 秘密**]。 選取 [**新增用戶端密碼**] 按鈕。 在 [**描述**] 中輸入值，選取 [**到期**] 的任何選項，然後選擇 [**新增**]。 請先複製用戶端密碼值，再離開頁面。 您在下一個步驟將會用到這些資料。 
+16. 切換回 Azure AD 設定，選取 [**管理**] 底下的 [**憑證 & 秘密**]。 選取 [新增用戶端密碼] 按鈕。 在 [描述] 中輸入值、針對 [到期] 選取任意選項，然後選擇 [新增]。 請先複製用戶端密碼值，再離開頁面。 您在下一個步驟將會用到這些資料。 
 17. 在 **管理** 底下選取 **驗證**，然後選取**隱含授**與 底下的 **識別碼**
 18. 回到您的 API 管理實例，將密碼貼入 [**用戶端密碼**] 方塊中。
 
@@ -71,8 +72,8 @@ ms.locfileid: "74454464"
 19. [新增識別提供者] 視窗也包含 [允許的租用戶] 文字方塊。 請在該處指定 Azure AD 執行個體的網域，您將會對它授與 API 管理服務執行個體的 API 存取權。 您可以使用換行符號、空格或逗號來分隔多個網域。
 
 > [!NOTE]
-> 您可以在 [允許的租用戶] 區段中指定多個網域。 在使用者可透過與註冊應用程式之原始網域不同的網域登入前，不同網域的全域管理員必須授與權限，應用程式才能存取目錄資料。 若要授與許可權，全域管理員應該： a。 移至 `https://<URL of your developer portal>/aadadminconsent` (例如， https://contoso.portal.azure-api.net/aadadminconsent)。
-> b.這是另一個 C# 主控台應用程式。 輸入想要授與存取權的 Azure AD 租用戶網域名稱。
+> 您可以在 [允許的租用戶] 區段中指定多個網域。 在使用者可透過與註冊應用程式之原始網域不同的網域登入前，不同網域的全域管理員必須授與權限，應用程式才能存取目錄資料。 若要授與許可權，全域管理員應該： a。 移至 `https://<URL of your developer portal>/aadadminconsent` (例如， https://contoso.portal.azure-api.net/aadadminconsent) 。
+> b. 輸入想要授與存取權的 Azure AD 租用戶網域名稱。
 > c. 選取 [提交]。 
 
 20.  在您指定所需的設定之後，請選取 [新增]。

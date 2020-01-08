@@ -1,20 +1,19 @@
 ---
 title: Azure 串流分析與 Azure Machine Learning 整合
 description: 本文說明如何使用使用者定義函式，快速設定與 Azure Machine Learning 整合的簡單 Azure 串流分析作業。
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: b078c92d02c55080cb84c386b7bbdabf3e1f85bf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c683cfeadcc13e5112a4687e18db9338d3574cd3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467889"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459596"
 ---
 # <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic-preview"></a>使用 Azure 串流分析和 Azure Machine Learning Studio （傳統）執行情感分析（預覽）
 本文說明如何快速設定簡單的 Azure 串流分析作業，以整合 Azure Machine Learning Studio （傳統）。 您要使用 Cortana 智慧資源庫的機器學習服務情感分析模型，來分析串流文字資料並即時判斷情感分數。 使用 Cortana Intelligence Suite 可讓您完成這項工作，而不需擔心建立情感分析模型的複雜性。
@@ -60,7 +59,7 @@ ms.locfileid: "73467889"
 
     ![提供儲存體帳戶詳細資料](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-4. 在 Azure 入口網站中，選取儲存體帳戶。 在 [儲存體帳戶] 刀鋒視窗中，按一下 [容器]，然後按一下 [ **+容器]&nbsp;** 建立 Blob 儲存體。
+4. 在 Azure 入口網站中，選取儲存體帳戶。 在 [儲存體帳戶] 刀鋒視窗中，按一下 [容器]，然後按一下 [+&nbsp;容器] 建立 Blob 儲存體。
 
     ![建立供輸入使用的 Blob 儲存體容器](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
@@ -115,7 +114,7 @@ ms.locfileid: "73467889"
 
 您現在可以建立從 Blob 儲存體的 CSV 檔案中讀取範例推文的串流分析工作。 
 
-### <a name="create-the-job"></a>建立作業
+### <a name="create-the-job"></a>建立工作
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。  
 
@@ -145,7 +144,7 @@ ms.locfileid: "73467889"
 
    ![新串流分析作業輸入設定](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-1. 按一下 [儲存]。
+1. 按一下 [檔案]。
 
 ### <a name="configure-the-job-output"></a>設定工作輸出
 工作會將結果傳送至取得輸入的相同 Blob 儲存體。 
@@ -165,7 +164,7 @@ ms.locfileid: "73467889"
 
    ![新串流分析作業輸出設定](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-output.png) 
 
-4. 按一下 [儲存]。   
+4. 按一下 [檔案]。   
 
 
 ### <a name="add-the-machine-learning-function"></a>新增機器學習服務函數 
@@ -183,11 +182,11 @@ ms.locfileid: "73467889"
    |---------|---------|
    | **函式別名** | 使用名稱 `sentiment` 並選取 [手動提供 Azure Machine Learning 函式設定]，讓您能夠選擇輸入 URL 和金鑰。      |
    | **URL**| 貼上 Web 服務 URL。|
-   |**金鑰** | 貼上 API 金鑰。 |
+   |**索引鍵** | 貼上 API 金鑰。 |
   
    ![將機器學習服務函式新增至串流分析作業的設定](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     
-4. 按一下 [儲存]。
+4. 按一下 [檔案]。
 
 ### <a name="create-a-query-to-transform-the-data"></a>建立查詢來轉換資料
 

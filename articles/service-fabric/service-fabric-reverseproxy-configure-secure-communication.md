@@ -1,24 +1,16 @@
 ---
-title: Azure Service Fabric 反向 Proxy 安全通訊 | Microsoft Docs
-description: 設定反向 Proxy，以確保安全的端對端通訊。
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric 反向 proxy 安全通訊
+description: 設定反向 proxy，以在 Azure Service Fabric 應用程式中啟用安全的端對端通訊。
 author: kavyako
-manager: vipulm
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: e915e689f09ba7f5c92958ebf8531aa67eef4493
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4cfeaf34a39231ffa91ea970a61f66632bae40c7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933945"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639389"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>安全服務與反向 Proxy 的連線
 
@@ -30,7 +22,7 @@ ms.locfileid: "72933945"
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>建立反向 Proxy 與服務之間的安全連線 
 
 ### <a name="reverse-proxy-authenticating-to-services"></a>服務的反向 Proxy 驗證：
-反向 Proxy 會使用其憑證對服務進行自我識別。 針對 Azure 叢集，該憑證會以 Resource Manager 範本之 [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) \(英文\) [資源類型區段](../azure-resource-manager/resource-group-authoring-templates.md)中的 ***reverseProxyCertificate*** 屬性來指定。 針對獨立叢集，該憑證會以 ClusterConfig.json 之 **Security** 區段中的 ***ReverseProxyCertificate*** 或 ***ReverseProxyCertificateCommonNames*** 屬性來指定。 若要深入了解，請參閱[在獨立叢集上啟用反向 Proxy](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters)。 
+反向 Proxy 會使用其憑證對服務進行自我識別。 針對 Azure 叢集，憑證是使用 Resource Manager 範本的[**ServiceFabric/** ](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters)叢集[資源類型區段](../azure-resource-manager/templates/template-syntax.md)中的***reverseProxyCertificate***屬性所指定。 針對獨立叢集，該憑證會以 ClusterConfig.json 之 **Security** 區段中的 ***ReverseProxyCertificate*** 或 ***ReverseProxyCertificateCommonNames*** 屬性來指定。 若要深入了解，請參閱[在獨立叢集上啟用反向 Proxy](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters)。 
 
 服務可以實作邏輯來驗證反向 Proxy 出示的憑證。 服務可以將接受的用戶端憑證詳細資料指定為設定套件中的組態設定。 系統會在執行階段時加以讀取，並用來驗證反向 Proxy 出示的憑證。 若要新增組態設定，請參閱[管理應用程式參數](service-fabric-manage-multiple-environment-app-configuration.md)。 
 

@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 9d17ff38ad521dcc282be4f06d33021faeb495b8
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 51aad01d5b03335bd1b57f6e5a9c775556187cca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837621"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427596"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>從 Azure Machine Learning Studio 匯出和刪除產品中的使用者資料（傳統）
 
-您可以使用 Azure 入口網站、Studio （傳統）介面、PowerShell 和已驗證的 REST Api，來刪除或匯出 Azure Machine Learning Studio （傳統）儲存的產品中資料。 本文會說明如何做到。 
+您可以使用 Azure 入口網站、Studio （傳統）介面、PowerShell 和已驗證的 REST Api，來刪除或匯出 Azure Machine Learning Studio （傳統）儲存的產品中資料。 本文會說明做法。 
 
 透過 Azure 隱私權入口網站可以存取遙測資料。 
 
@@ -70,7 +70,7 @@ Machine Learning Studio （傳統）中有三種帳戶。 您擁有的帳戶種�
 ![刪除 Machine Learning Studio 中的免費工作區（傳統）](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-classic-data-with-powershell"></a>使用 PowerShell 匯出 Studio （傳統）資料
-使用 PowerShell，從傳統版本的 Azure Machine Learning Studio 使用命令，將您所有的資訊匯出為可攜的格式。 如需相關資訊，請參閱[Azure Machine Learning Studio （傳統）的 PowerShell 模組](powershell-module.md)文章。
+使用 PowerShell，使用命令從 Azure Machine Learning Studio （傳統）將您所有的資訊匯出為可攜的格式。 如需相關資訊，請參閱[Azure Machine Learning Studio （傳統）的 PowerShell 模組](powershell-module.md)文章。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,18 +1,18 @@
 ---
-title: 限制對 IP 位址的存取
-description: 瞭解如何藉由明確允許清單用戶端 IP 位址或位址範圍，在 Azure App Service 中保護您的應用程式。
+title: Azure App Service 存取限制
+description: 瞭解如何藉由指定存取限制，在 Azure App Service 中保護您的應用程式。
 author: ccompy
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 64ce74c84f8f69e72510be76a1309e1a5ea42f2f
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 42f25c1b66261ac644f015290bed2c7473acbdaa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672175"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422229"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App Service 存取限制 #
 
@@ -24,7 +24,7 @@ ms.locfileid: "74672175"
 
 存取限制功能會在 App Service 前端角色中執行，這是您的程式碼執行所在之背景工作主機的上游。 因此，存取限制實際上是網路 Acl。
 
-限制從 Azure 虛擬網路（VNet）存取您的 web 應用程式的能力，稱為「[服務端點][serviceendpoints]」。 服務端點可讓您限制從選取的子網存取多租使用者服務。 您必須同時在網路端和其啟用的服務上啟用此功能。 將流量限制為裝載于 App Service 環境中的應用程式，並不會有任何作用。  如果您是在 App Service 環境中，您可以使用 IP 位址規則來控制對應用程式的存取。
+限制從 Azure 虛擬網路（VNet）存取您的 web 應用程式的能力，稱為「[服務端點][serviceendpoints]」。 服務端點可讓您限制從選取的子網存取多租使用者服務。 您必須同時在網路端和其啟用的服務上啟用此功能。 將流量限制為裝載于 App Service 環境中的應用程式，並不會有任何作用。 如果您是在 App Service 環境中，您可以使用 IP 位址規則來控制對應用程式的存取。
 
 ![存取限制流程](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -58,7 +58,7 @@ ms.locfileid: "74672175"
 
 服務端點不能用來限制對 App Service 環境中執行之應用程式的存取。 當您的應用程式在 App Service 環境時，您可以使用 IP 存取規則來控制對應用程式的存取。 
 
-透過服務端點，您可以使用應用程式閘道或其他 WAF 裝置來設定您的應用程式。 您也可以使用安全後端來設定多層式應用程式。 如需某些可能性的詳細資訊，請參閱[網路功能和 App Service](networking-features.md)。
+透過服務端點，您可以使用應用程式閘道或其他 WAF 裝置來設定您的應用程式。 您也可以使用安全後端來設定多層式應用程式。 如需某些可能性的詳細資訊，請參閱[網路功能和 App Service](networking-features.md) ，以及[與服務端點的應用程式閘道整合](networking/app-gateway-with-service-endpoints.md)。
 
 ## <a name="managing-access-restriction-rules"></a>管理存取限制規則
 
@@ -90,34 +90,49 @@ ms.locfileid: "74672175"
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>以程式設計方式操作存取限制規則 ##
 
-目前沒有適用于新存取限制功能的 CLI 或 PowerShell，但您可以在 Resource Manager 的應用程式設定上，使用[Azure REST API](https://docs.microsoft.com/rest/api/azure/) PUT 作業手動設定這些值。 例如，您可以使用 resources.azure.com，並編輯 ipSecurityRestrictions 區塊來新增必要的 JSON。
+[Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest)和[Azure PowerShell](https://docs.microsoft.com/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0)支援編輯存取限制。 使用 Azure CLI 新增存取限制的範例：
+
+```azurecli-interactive
+az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
+    --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
+```
+使用 Azure PowerShell 新增存取限制的範例：
+
+```azurepowershell-interactive
+Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
+    -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
+```
+
+您也可以使用 Resource Manager 中應用程式設定的[Azure REST API](https://docs.microsoft.com/rest/api/azure/) PUT 作業或使用 Azure Resource Manager 範本，以手動方式設定值。 例如，您可以使用 resources.azure.com，並編輯 ipSecurityRestrictions 區塊來新增必要的 JSON。
 
 您可以在資源管理員中的以下位置找到此資訊：
 
 management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2018-02-01
 
 先前的 JSON 語法範例為：
-
-    {
-      "properties": {
-        "ipSecurityRestrictions": [
-          {
-            "ipAddress": "122.133.144.0/24",
-            "action": "Allow",
-            "tag": "Default",
-            "priority": 100,
-            "name": "IP example rule"
-          }
-        ]
+```json
+{
+  "properties": {
+    "ipSecurityRestrictions": [
+      {
+        "ipAddress": "122.133.144.0/24",
+        "action": "Allow",
+        "priority": 100,
+        "name": "IP example rule"
       }
-    }
+    ]
+  }
+}
+```
 
-## <a name="function-app-ip-restrictions"></a>函數應用程式 IP 限制
+## <a name="azure-function-app-access-restrictions"></a>Azure 函數應用程式存取限制
 
-這兩個函式應用程式的 IP 限制適用于與 App Service 方案相同的功能。 啟用 IP 限制將會針對任何不允許的 Ip 停用入口網站程式碼編輯器。
+存取限制適用于這兩個函數應用程式，具有與 App Service 方案相同的功能。 啟用存取限制將會針對任何不允許的 Ip 停用入口網站程式碼編輯器。
 
-[在這裡深入了解](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
+## <a name="next-steps"></a>後續步驟
+[Azure 函數應用程式的存取限制](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
+[與服務端點的應用程式閘道整合](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->
 [serviceendpoints]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview

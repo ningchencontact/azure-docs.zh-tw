@@ -1,5 +1,5 @@
 ---
-title: 使用適用于 JAVA 的 MSAL （MSAL4j）從權杖快取取得和移除帳戶
+title: 取得 & 從權杖快取中移除帳戶（MSAL4j） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解如何使用適用于 JAVA 的 Microsoft 驗證程式庫，從權杖快取中查看和移除帳戶。
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a40c5f2e272a44727d4da91600093e8dc691a95f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e2f800d8d8665667c51ee57e3fe1c556c3a2d8eb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916633"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424333"
 ---
 # <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>使用適用于 JAVA 的 MSAL 從權杖快取取得和移除帳戶
 

@@ -2,19 +2,15 @@
 title: 在 Azure 中的更新管理部署上設定前置和後置腳本
 description: 本文說明如何設定及管理更新部署的前置腳本和後置腳本。
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/17/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: a5d68b64fc24577621c82be62f833c356e8fb9c2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 35fba966fcdb6d1c5cd7c531bb22c9c78ae16ff3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850239"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417791"
 ---
 # <a name="manage-pre-and-post-scripts"></a>管理前置和後置腳本
 
@@ -72,7 +68,7 @@ ms.locfileid: "74850239"
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext 屬性
 
-|屬性  |描述  |
+|屬性  |說明  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | 軟體更新設定的名稱。        |
 |SoftwareUpdateConfigurationRunId     | 執行的唯一識別碼。        |

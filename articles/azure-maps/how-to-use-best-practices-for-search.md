@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: de9e484e43c87375c2fdf9b34dd2efce3bb8aa8c
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6a51d764b8e42419bc331e3d4731ef5c5f511f91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429173"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408723"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>使用 Azure 地圖服務搜尋服務的最佳做法
 
@@ -25,9 +25,9 @@ Azure 地圖服務[搜尋服務](https://docs.microsoft.com/rest/api/maps/search
 * 讀取位址搜尋回應結構
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-若要對地圖服務 API 進行呼叫，您需要有地圖服務帳戶和金鑰。 如需建立帳戶的相關資訊，請遵循[管理帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account)中的指示，然後依照[取得主要金鑰](./tutorial-search-location.md#getkey)中的步驟來抓取您帳戶的主要訂用帳戶金鑰。
+若要對地圖服務 API 進行呼叫，您需要有地圖服務帳戶和金鑰。 如需建立帳戶的相關資訊，請遵循[建立帳戶](quick-demo-map-app.md#create-an-account-with-azure-maps)中的指示，然後依照[取得主要金鑰](quick-demo-map-app.md#get-the-primary-key-for-your-account)中的步驟來抓取您帳戶的主要金鑰（訂用帳戶）。 如需 Azure 地圖服務中驗證的詳細資訊，請參閱[Azure 地圖服務中的管理驗證](./how-to-manage-authentication.md)。
 
 > [!Tip]
 > 若要查詢搜尋服務，您可以使用[Postman 應用程式](https://www.getpostman.com/apps)來建立 REST 呼叫，也可以使用您偏好的任何 API 開發環境。

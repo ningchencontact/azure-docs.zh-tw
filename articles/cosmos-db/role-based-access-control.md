@@ -1,17 +1,17 @@
 ---
-title: Azure Active Directory 整合的 Azure Cosmos DB 中的角色型存取控制
+title: Azure Cosmos DB 中以角色為基礎的存取控制
 description: 瞭解 Azure Cosmos DB 如何透過 Active directory 整合（RBAC）提供資料庫保護。
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: c7605bbc1824e2e859cc94296834daf4e4e0907b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0c7332a42751b35b6ad8ec3f88afb7bc78cc85e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445092"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB 中以角色為基礎的存取控制
 
@@ -21,7 +21,7 @@ Azure Cosmos DB 提供內建的角色型存取控制（RBAC），適用于 Azure
 
 以下是 Azure Cosmos DB 支援的內建角色：
 
-|**內建角色**  |**描述**  |
+|**內建角色**  |**說明**  |
 |---------|---------|
 |[DocumentDB 帳戶參與者](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|可以管理 Azure Cosmos DB 帳戶。|
 |[Cosmos DB 帳戶讀者](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|可以讀取 Azure Cosmos DB 帳戶資料。|

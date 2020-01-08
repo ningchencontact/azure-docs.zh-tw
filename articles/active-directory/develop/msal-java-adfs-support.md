@@ -1,5 +1,5 @@
 ---
-title: 適用于 JAVA 的 Microsoft 驗證程式庫中的 AD FS 支援
+title: AD FS 支援（適用于 JAVA 的 MSAL）
 titleSuffix: Microsoft identity platform
 description: 瞭解適用于 JAVA 的 Microsoft 驗證程式庫（MSAL4j）中的 Active Directory 同盟服務（AD FS）支援。
 services: active-directory
@@ -14,16 +14,16 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 665cef55965f6871a654b9baceaad3e4f5d196c7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 04079a6e284deac076d7e296cc44774c97462534
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916650"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424357"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>MSAL for JAVA 中的 Active Directory 同盟服務支援
 
-Windows Server 中的 Active Directory 同盟服務（AD FS）可讓您將 OpenID Connect 和 OAuth 2.0 型驗證和授權新增至您的 Microsoft Authentication Library for JAVA （MSAL for JAVA）應用程式。 整合之後，您的應用程式就可以在 AD FS 中驗證使用者，並透過 Azure AD 進行同盟。 如需案例的詳細資訊，請參閱[開發人員的 AD FS 案例](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers)。
+Windows Server 中的 Active Directory 同盟服務（AD FS）可讓您將 OpenID Connect 和 OAuth 2.0 型驗證和授權新增至您的 Microsoft Authentication Library for JAVA （MSAL for JAVA）應用程式。 整合之後，您的應用程式就可以在 AD FS 中驗證使用者，並透過 Azure AD 進行同盟。 如需案例的詳細資訊，請參閱[開發人員的 AD FS 案例](/windows-server/identity/ad-fs/ad-fs-development)。
 
 使用 MSAL for JAVA 的應用程式將會與 Azure Active Directory （Azure AD）交談，然後則聯盟至 AD FS。
 

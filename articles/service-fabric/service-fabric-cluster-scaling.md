@@ -1,24 +1,15 @@
 ---
-title: Azure Service Fabric 叢集調整 | Microsoft Docs
-description: 了解 Azure Service Fabric 叢集的相應縮小、相應放大、相應增加或相應減少。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Azure Service Fabric 叢集調整
+description: 了解 Azure Service Fabric 叢集的相應縮小、相應放大、相應增加或相應減少。 當應用程式需求變更時，就可以 Service Fabric 叢集。
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: c4d7027438f19cd16fd87d629364cdf725e91607
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599853"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610075"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>調整 Azure Service Fabric 叢集
 Service Fabric 叢集是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 屬於叢集一部分的機器或 VM 都稱為節點。 叢集有可能包含數千個節點。 在建立 Service Fabric 叢集之後，您可以水平調整叢集 (變更節點數目)，或以垂直方式調整 (變更節點的資源)。  您可以隨時調整叢集，即使正在叢集上執行工作負載，也是如此。  在叢集進行調整時，您的應用程式也會自動調整。
@@ -55,7 +46,7 @@ Service Fabric 叢集是一組由網路連接的虛擬或實體機器，可用�
 
 Azure API 的存在可讓應用程式以程式設計方式使用虛擬機器擴展集和 Service Fabric 叢集。 如果現有自動調整選項不適用於您的案例，這些 API 可讓您實作自訂調整邏輯。 
 
-若要實作此「自製」自動調整功能，有一個方法是將新的無狀態服務新增至 Service Fabric 應用程式以管理調整作業。 建立自己的調整服務就能對應用程式的調整行為握有最高程度的控制力與自訂能力。 這很適合用於需要精確控制應用程式相應縮小或放大之時機或方式的案例。不過，伴隨此控制能力而來的是程式碼會變得複雜。 使用這種方式就表示您必須擁有調整程式碼 (此程式碼很複雜)。 在服務的 `RunAsync` 方法內，有一組觸發程序可以判斷是否需要調整 (包括檢查最大叢集大小和調整冷卻等參數)。   
+若要實作此「自製」自動調整功能，有一個方法是將新的無狀態服務新增至 Service Fabric 應用程式以管理調整作業。 建立自己的調整服務就能對應用程式的調整行為握有最高程度的控制力與自訂能力。 這對於需要精確控制應用程式何時或如何相應縮小或相應放大的案例很有用。不過，此控制項的缺點在於程式碼複雜度。 使用這種方式就表示您必須擁有調整程式碼 (此程式碼很複雜)。 在服務的 `RunAsync` 方法內，有一組觸發程序可以判斷是否需要調整 (包括檢查最大叢集大小和調整冷卻等參數)。   
 
 用於虛擬機器擴展集互動 (檢查目前的虛擬機器執行個體數目並加以修改) 的 API 是 [Fluent Azure 管理計算程式庫](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/)。 Fluent 計算程式庫可提供方便使用的 API 來與虛擬機器擴展集互動。  若要與 Service Fabric 叢集本身互動，請使用 [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient)。
 
@@ -80,7 +71,7 @@ Azure API 的存在可讓應用程式以程式設計方式使用虛擬機器擴�
 將節點類型相應增加或相應減少的程序，會根據它是非主要還是主要節點類型而有所不同。
 
 ### <a name="scaling-non-primary-node-types"></a>調整非主要節點類型
-以您所需的資源建立新的節點類型。  更新執行中服務的放置條件約束，以包含新的節點類型。  請漸次 (一次一個) 將舊節點類型執行個體的執行個體計數縮減為零，使叢集的可靠性不受影響。  服務會逐漸遷移至新的節點類型, 因為舊節點類型已解除委任。
+以您所需的資源建立新的節點類型。  更新執行中服務的放置條件約束，以包含新的節點類型。  請漸次 (一次一個) 將舊節點類型執行個體的執行個體計數縮減為零，使叢集的可靠性不受影響。  服務會逐漸遷移至新的節點類型，因為舊節點類型已解除委任。
 
 ### <a name="scaling-the-primary-node-type"></a>調整主要節點類型
 建議您不要變更主要節點類型的 VM SKU。 如果您需要更多叢集容量，建議您新增更多執行個體。 

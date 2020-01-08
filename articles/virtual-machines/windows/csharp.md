@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: fe838ade7a65161efaeb60b9e4d8de17a7080da1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bb0962991701dc780e50fec60982083b20d4ab0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032778"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358372"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>在 Azure 中使用 C# 建立並管理 Windows VM #
 
@@ -111,7 +111,7 @@ NuGet 套件是安裝完成這些步驟所需之程式庫的最簡單方式。 �
 
 ### <a name="create-the-resource-group"></a>建立資源群組
 
-所有資源都必須包含在[資源群組](../../azure-resource-manager/resource-group-overview.md)中。
+所有資源都必須包含在[資源群組](../../azure-resource-manager/management/overview.md)中。
 
 若要指定應用程式的值並建立資源群組，請將以下程式碼新增到 Main 方法：
 

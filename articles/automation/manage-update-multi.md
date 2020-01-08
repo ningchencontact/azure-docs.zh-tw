@@ -2,19 +2,15 @@
 title: 管理多部 Azure 虛擬機器的更新
 description: 本文說明如何管理 Azure 和非 Azure 虛擬機器的更新。
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/20/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 16e79043db80b69d2a2ca7d0a90e6d4921c15b22
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e9a5a4330a90bd376114f836250e290944f03860
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806502"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417833"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -33,7 +29,7 @@ ms.locfileid: "74806502"
 
 - 存取 Linux Vm 的更新存放庫上架到解決方案。
 
-## <a name="supported-operating-systems"></a>受支援的作業系統
+## <a name="supported-operating-systems"></a>支援的作業系統
 
 下列作業系統支援「更新管理」：
 
@@ -99,7 +95,7 @@ ms.locfileid: "74806502"
 
 下表描述本解決方案支援的連線來源：
 
-| 連線的來源 | 支援的 | 描述 |
+| 連線的來源 | 支援的 | 說明 |
 | --- | --- | --- |
 | Windows 代理程式 |是 |「更新管理」會從 Windows 代理程式收集系統更新的相關資訊，然後起始必要更新的安裝。 |
 | Linux 代理程式 |是 |「更新管理」會從 Linux 代理程式收集系統更新的相關資訊，然後在支援的發行版本上起始必要更新的安裝。 |
@@ -116,12 +112,12 @@ ms.locfileid: "74806502"
 
 儀表板可能需要 30 分鐘到 6 小時，才能顯示來自受控電腦的已更新資料。
 
-## <a name="schedule-an-update-deployment"></a>排程更新部署
+## <a name="schedule-an-update-deployment"></a>排定更新部署
 
 若要安裝更新，請將部署排定在發行排程和服務時段之後。 您可以選擇要在部署中包含的更新類型。 例如，您可以包含重大更新或安全性更新，並排除更新彙總套件。
 
 >[!NOTE]
->當您排程更新部署時，它會建立一個連結至**MicrosoftOMSComputers** runbook 的[排程](shared-resources/schedules.md)資源，以處理目的電腦上的更新部署。 如果您從 Azure 入口網站刪除排程資源，或在建立部署之後使用 PowerShell，則會中斷排程的更新部署，並在您嘗試從入口網站重新設定它時顯示錯誤。 您只能藉由刪除對應的部署排程來刪除排程資源。
+>當您排程更新部署時，將會建立一個連結至 **Patch-MicrosoftOMSComputers** Runbook 的[排程](shared-resources/schedules.md)資源，以處理目標電腦上的更新部署。 如果您在建立部署後從 Azure 入口網站或使用 PowerShell 刪除了排程資源，將會中斷已排程的更新部署，並在您嘗試從入口網站重新加以設定時顯示錯誤。 您只能藉由刪除對應的部署排程來刪除排程資源。
 >
 
 若要為一或多部虛擬機器排定新的更新部署，請在 [更新管理] 下，選取 [排程更新部署]。
@@ -163,7 +159,7 @@ ms.locfileid: "74806502"
 
 - **重新啟動控制** - 此設定可決定如何處理更新部署的重新開機。
 
-   |選項|描述|
+   |選項|說明|
    |---|---|
    |在必要時重新開機| **(預設值)** 如有需要，會在維護時段允許的情況下啟動重新開機。|
    |一律重新開機|不論是否有必要，皆會啟動重新開機。 |

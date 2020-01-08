@@ -1,30 +1,28 @@
 ---
 title: 以程式設計方式監視和管理 Azure 串流分析作業
 description: 本文說明如何以程式設計方式監視透過 REST API、Azure SDK 或 PowerShell 建立的串流分析作業。
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: bf84a5b89e4769e37c45714a30d5d98300a4328d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 23c0cc0d0e4a007fdf46021f857b559266f6a193
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612260"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431675"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>以程式設計方式來建立串流分析工作監視
 
 本文示範如何為串流分析工作啟用監視。 透過 REST API、Azure SDK 或 PowerShell 建立的串流分析作業預設不會啟用監視。 您可以在 Azure 入口網站中前往該作業的 [監視] 頁面，然後按一下 [啟用] 按鈕來手動啟用，或是按照本文中的步驟執行，將此程序自動化。 串流分析工作的監視資料將會顯示在 Azure 入口網站的 [計量] 區域中。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-在開始此程序之前，您必須具有下列必要條件：
+開始進行此程式之前，您必須具備下列必要條件：
 
-* Visual Studio 2019 或 2015
+* Visual Studio 2019 或2015
 * 已下載並安裝 [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 * 一項已啟用監視的現有串流分析作業
 
@@ -137,7 +135,7 @@ ms.locfileid: "67612260"
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>為現有串流分析作業啟用監視
 
-下列程式碼將為「現有」  串流分析作業啟用監視。 程式碼的第一部分會對串流分析服務執行 GET 要求，以擷取特定串流分析工作的相關資訊。 它會使用*識別碼*屬性 （擷取自 GET 要求） 當成 Put 方法，在下半部的程式碼，傳送 PUT 要求至 Insights 服務的 Stream Analytics 作業啟用監視，第二個參數。
+下列程式碼將為「現有」 串流分析作業啟用監視。 程式碼的第一部分會對串流分析服務執行 GET 要求，以擷取特定串流分析工作的相關資訊。 在程式碼的後半部中，它會使用*ID*屬性（從 GET 要求中抓取）當做 put 方法的參數，將 put 要求傳送至 Insights 服務，以啟用串流分析作業的監視。
 
 > [!WARNING]
 > 如果您先前已經為不同的串流分析作業啟用監視 (不論是透過 Azure 入口網站，還是以程式設計方式透過以下的程式碼)，**建議您提供先前啟用監視時所提供的相同儲存體帳戶名稱。**

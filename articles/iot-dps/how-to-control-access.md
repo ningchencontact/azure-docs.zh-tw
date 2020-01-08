@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: f36a48e0cedc309deda8416face5549a54eb8c73
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975120"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453811"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>控制 Azure IoT 中樞裝置佈建服務的存取權
 
@@ -39,7 +39,7 @@ ms.locfileid: "74975120"
 > [!NOTE]
 > 如需詳細資訊，請參閱[權限](#device-provisioning-service-permissions)。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 Azure IoT 中樞裝置佈建服務可根據共用存取原則驗證權杖，以授與端點的存取權。 安全性認證 (例如對稱金鑰) 決不會在網路上傳送。
 
@@ -75,7 +75,7 @@ SharedAccessSignature sr =
 
 以下是預期的值：
 
-| Value | 描述 |
+| 值 | 說明 |
 | --- | --- |
 | {signature} |HMAC-SHA256 簽章字串，格式為： `{URL-encoded-resourceURI} + "\n" + expiry`。 **重要事項**：金鑰是從 base64 解碼而來，並且會做為用來執行 HMAC-SHA256 計算的金鑰。|
 | {expiry} |從新紀元時間 (Epoch) 1970 年 1 月 1日 00:00:00 UTC 時間至今秒數的 UTF8 字串。 |
@@ -190,5 +190,5 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 [img-add-shared-access-policy]: ./media/how-to-control-access/how-to-add-shared-access-policy.PNG
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-management-portal]: https://portal.azure.com
-[lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
+[lnk-azure-resource-manager]: ../azure-resource-manager/management/overview.md
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iot-dps/

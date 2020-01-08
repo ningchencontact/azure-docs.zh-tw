@@ -1,25 +1,18 @@
 ---
-title: 對 Windows 或 Linux 虛擬機器掛接或取消掛接 Azure NetApp Files 磁碟區 | Microsoft Docs
-description: 說明如何對 Windows 虛擬機器或 Linux 虛擬機器掛接或取消掛接磁碟區。
-services: azure-netapp-files
-documentationcenter: ''
+title: 掛接適用于虛擬機器的 Azure NetApp Files 磁片區
+description: 瞭解如何在 Azure 中掛接或卸載 Windows 虛擬機器或 Linux 虛擬機器的磁片區。
 author: b-juche
-manager: ''
-editor: ''
-ms.assetid: ''
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.author: b-juche
-ms.openlocfilehash: 7f1e9500a9268e0fba054f7065e858cd801aca7b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3457adf67fa067a154eef008b08d8cfcc1d9eaa0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894091"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551534"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>對 Windows 或 Linux 虛擬機器掛接或取消掛接磁碟區 
 
@@ -45,7 +38,7 @@ ms.locfileid: "74894091"
 4. 如果您想要使用 NFS 將磁片區掛接到 Windows：
 
     a. 請先將磁片區掛接到 Unix 或 Linux VM。  
-    b.這是另一個 C# 主控台應用程式。 針對磁片區執行 `chmod 777` 或 `chmod 775` 命令。  
+    b. 針對磁片區執行 `chmod 777` 或 `chmod 775` 命令。  
     c. 透過 Windows 上的 NFS 用戶端掛接磁片區。
 
 ## <a name="next-steps"></a>後續步驟

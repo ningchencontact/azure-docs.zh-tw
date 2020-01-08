@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f62406a341c7e1467cdf17b21662bb5c0993881c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 901e075572e0ed73dc7d0633941311c04b4f3c1c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232405"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358355"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -36,18 +36,18 @@ Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https:
 
 這項服務可於正式推出的 Azure 區域中使用。 並非所有的 API 版本都能在所有 Azure 區域使用。
 
-區域                                        | 可用性？                                 | 支援的版本
+地區                                        | 可用性？                                 | 支援的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
 [所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30、2019-06-01、2019-06-04
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30
 [Azure China](https://www.azure.cn/)                                                     | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30
 
-當有服務更新和/或提供新支援的版本時，此表格便會更新。
+當有服務更新和/或有新支援的版本可取得時，此表格便會更新。
 
 若要試用執行個體中繼資料服務，請從 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 或 [Azure 入口網站](https://portal.azure.com)的上述區域中建立 VM，並遵循以下的範例。
 
-## <a name="usage"></a>使用方式
+## <a name="usage"></a>用量
 
 ### <a name="versioning"></a>版本控制
 
@@ -103,11 +103,11 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 API | 預設資料格式 | 其他格式
 --------|---------------------|--------------
-/instance | json | 文字
+/instance | json | text
 /scheduledevents | json | 無
 /attested | json | 無
 
-若要存取非預設的回應格式，請指定要求的格式作為要求中的查詢字串參數。 例如︰
+若要存取非預設的回應格式，請指定要求的格式作為要求中的查詢字串參數。 例如：
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -116,20 +116,20 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > [!NOTE]
 > 對於分葉節點，`format=json` 無法使用。 若為這些查詢 `format=text` 需要在預設格式為 json 時明確指定。
 
-### <a name="security"></a>Security
+### <a name="security"></a>安全性
 
 執行個體中繼資料服務端點只能從非可路由 IP 位址上的執行中虛擬機器執行個體內存取。 此外，服務會拒絕任何具有 `X-Forwarded-For` 標頭的要求。
 要求也必須包含 `Metadata: true` 標頭，以確認直接預期實際要求，而不是非預期重新導向的一部分。
 
 ### <a name="error"></a>錯誤
 
-如果找不到資料元素或要求的格式錯誤，則執行個體中繼資料服務會傳回標準 HTTP 錯誤。 例如︰
+如果找不到資料元素或要求的格式錯誤，則執行個體中繼資料服務會傳回標準 HTTP 錯誤。 例如：
 
 HTTP 狀態碼 | 原因
 ----------------|-------
 200 確定 |
 400 不正確的要求 | 查詢分葉節點時遺漏 `Metadata: true` 標頭或遺失格式
-404 找不到 | 要求的元素不存在
+404 - 找不到 | 要求的元素不存在
 405 不允許的方法 | 僅支援 `GET` 和 `POST` 要求
 429 要求太多 | API 目前支援最多每秒 5 個查詢
 500 服務錯誤     | 稍後重試
@@ -337,11 +337,11 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 }
 ```
 
-## <a name="metadata-apis"></a>中繼資料 Api
+## <a name="metadata-apis"></a>中繼資料 API
 
 #### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>下列 Api 可透過中繼資料端點取得：
 
-資料 | 描述 | 引進的版本
+資料 | 說明 | 引進的版本
 -----|-------------|-----------------------
 attested | 請參閱[證明資料](#attested-data) | 2018-10-01
 身分識別 | 適用於 Azure 資源的受控識別。 請參閱[取得存取權杖](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
@@ -354,12 +354,12 @@ scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-08-01
 > [!NOTE]
 > 透過中繼資料端點，可以透過實例/計算來存取下列類別目錄
 
-資料 | 描述 | 引進的版本
+資料 | 說明 | 引進的版本
 -----|-------------|-----------------------
 Get-azenvironment | VM 執行所在的 Azure 環境 | 2018-10-01
 customData | 請參閱[自訂資料](#custom-data) | 2019-02-01
 location | VM 執行所在的 Azure 區域 | 2017-04-02
-名稱 | VM 的名稱 | 2017-04-02
+NAME | VM 的名稱 | 2017-04-02
 供應項目 | 提供 VM 映射的資訊，而且只會針對從 Azure 映射庫部署的映射呈現 | 2017-04-02
 osType | Linux 或 Windows | 2017-04-02
 placementGroupId | 虛擬機器擴展集的[放置群組](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
@@ -369,13 +369,13 @@ platformFaultDomain | VM 執行所在的[容錯網域](manage-availability.md) |
 provider | VM 的提供者 | 2018-10-01
 publicKeys | 指派給 VM 和路徑[的公用金鑰集合](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) | 2018-04-02
 publisher | VM 映像的發佈者 | 2017-04-02
-resourceGroupName | 虛擬機器的[資源群組](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
+resourceGroupName | 虛擬機器的[資源群組](../../azure-resource-manager/management/overview.md) | 2017-08-01
 resourceId | 資源的[完整](https://docs.microsoft.com/rest/api/resources/resources/getbyid)識別碼 | 2019-03-11
 sku | VM 映像的特定 SKU | 2017-04-02
 subscriptionId | 虛擬機器的 Azure 訂用帳戶 | 2017-08-01
-標籤 | 虛擬機器的[標籤](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
+tags | 虛擬機器的[標籤](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
 tagsList | 格式化為 JSON 陣列以方便程式設計剖析的標記  | 2019-06-04
-版本 | VM 映像的版本 | 2017-04-02
+version | VM 映像的版本 | 2017-04-02
 vmId | VM 的[唯一識別碼](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
 vmScaleSetName | 虛擬機器擴展集的[虛擬機器擴展集名稱](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 vmSize | [VM 大小](sizes.md) | 2017-04-02
@@ -386,7 +386,7 @@ vmSize | [VM 大小](sizes.md) | 2017-04-02
 > [!NOTE]
 > 透過中繼資料端點，可以透過實例/網路/介面來存取下列類別
 
-資料 | 描述 | 引進的版本
+資料 | 說明 | 引進的版本
 -----|-------------|-----------------------
 ipv4/privateIpAddress | VM 的本機 IPv4 位址 | 2017-04-02
 ipv4/publicIpAddress | VM 的公用 IPv4 位址 | 2017-04-02
@@ -545,7 +545,7 @@ AzurePublicCloud
 
 Azure 環境的區域和值如下所示。
 
- 區域 | Azure 環境
+ 地區 | Azure 環境
 ---------|-----------------
 [所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
@@ -595,9 +595,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList
 ]
 ```
 
-### <a name="validating-that-the-vm-is-running-in-azure"></a>驗證 VM 在 Azure 中執行
+### <a name="validating-that-the-vm-is-running-in-azure"></a>驗證 VM 是在 Azure 中執行
 
-Marketplace 廠商想要確保其軟體全都只授權在 Azure 中執行。 如果有人將 VHD 複製到內部部署環境，則他們應該能夠偵測到該應用程式。 藉由呼叫 Instance Metadata Service，Marketplace 廠商可以取得簽署的資料，以保證回應只會來自 Azure。
+Marketplace 廠商想要確保其軟體是授權為只在 Azure 中執行。 如果有人將 VHD 複製到內部部署環境，則他們應該能夠偵測到該應用程式。 藉由呼叫 Instance Metadata Service，Marketplace 廠商可以取得簽署的資料，以保證回應只會來自 Azure。
 
 > [!NOTE]
 > 必須安裝 jq。
@@ -641,7 +641,7 @@ Verification successful
 }
 ```
 
-資料 | 描述
+資料 | 說明
 -----|------------
 nonce | 使用者隨要求提供的選擇性字串。 如果要求中未提供 nonce，則會傳回目前的 UTC 時間戳記
 計劃 | VM 在其 Azure Marketplace 映像中的[方案](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) \(英文\)，包含名稱、產品及發行者
@@ -760,12 +760,12 @@ My custom data.
 
 語言 | 範例
 ---------|----------------
-Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
+拼音     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
-Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl

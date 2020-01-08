@@ -43,8 +43,10 @@
       href: tutorial-azure-security.md
     - name: 14 - 部署 Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 15 - 具有 Azure Pipelines 的 CI/CD
+    - name: 15a - 使用 Azure Pipelines 部署
       href: tutorial-build-deploy-jenkins.md
+    - name: 15b - 採用 Azure Pipelines 的 CI/CD
+      href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a - 建立 LAMP 堆疊
       href: tutorial-lamp-stack.md
     - name: 16b - 建立 LEMP 堆疊
@@ -62,7 +64,7 @@
 - name: 概念
   items:
     - name: Azure Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 區域
       href: regions.md
     - name: 可用性和效能
@@ -178,7 +180,7 @@
       href: backup-recovery.md
     - name: 基礎結構方針
       href: infrastructure-example.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 建立 VM
       items:
@@ -203,7 +205,7 @@
               href: spot-cli.md
             - name: 入口網站
               href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
-            - name: 範本
+            - name: '[範本]'
               href: spot-template.md
             - name: 錯誤碼
               href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
@@ -213,7 +215,7 @@
           href: security-recommendations.md
         - name: Just-In-Time 存取
           href: ../../security-center/security-center-just-in-time.md
-        - name: 加密
+        - name: Encrypt
           items:
             - name: 適用於 Linux 的磁碟加密案例
               href: disk-encryption-linux.md
@@ -429,7 +431,7 @@
       items:
         - name: Ansible
           items:
-            - name: 安裝及設定
+            - name: 安裝和設定
               href: ansible-install-configure.md
             - name: 建立 Linux VM
               href: ansible-create-vm.md
@@ -437,7 +439,7 @@
               href: ansible-manage-linux-vm.md
         - name: Terraform
           items:
-            - name: 安裝及設定
+            - name: 安裝和設定
               href: terraform-install-configure.md
             - name: 建立完整 VM
               href: terraform-create-complete-vm.md
@@ -645,7 +647,7 @@
           items:
             - name: 深入了解移轉
               href: migration-classic-resource-manager-deep-dive.md
-            - name: 為移轉做規劃
+            - name: 規劃移轉
               href: migration-classic-resource-manager-plan.md
             - name: 使用 CLI 進行移轉
               href: migration-classic-resource-manager-cli.md

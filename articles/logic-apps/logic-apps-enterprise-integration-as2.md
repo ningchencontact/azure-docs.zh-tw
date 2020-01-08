@@ -1,6 +1,6 @@
 ---
 title: 傳送和接收 B2B 的 AS2 訊息
-description: 使用 Azure Logic Apps 交換 B2B 企業整合案例的 AS2 訊息
+description: 在企業整合套件中使用 Azure Logic Apps，以交換 B2B 企業整合案例的 AS2 訊息
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 08/22/2019
-ms.openlocfilehash: b2d7c8840da3bb44f9e220f2963dc4fee63176e2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 9f72edecc07c34a0f176e52f6b70644f9ceb16e0
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790726"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666698"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>在採用 Enterprise Integration Pack 的 Azure Logic Apps 中交換適用於 B2B 企業整合的 AS2 訊息
 
@@ -31,7 +31,7 @@ ms.locfileid: "74790726"
   * 處理 AS2/HTTP 標頭。
   * 將接收的 Mdn 與原始輸出訊息協調。
   * 在不可否認性的資料庫中更新記錄並使其相互關聯。
-  * 寫入 AS2 狀態報表的記錄。
+  * 寫入 AS2 狀態報告的記錄
   * 將裝載內容輸出為 base64 編碼。
   * 判斷是否需要 Mdn。 根據 AS2 合約，判斷 Mdn 是否應為同步或非同步。
   * 根據 AS2 合約產生同步或非同步 Mdn。
@@ -39,7 +39,7 @@ ms.locfileid: "74790726"
 
   此動作也會在設定時執行下列工作：
 
-  * 驗證簽章。
+  * 確認簽章。
   * 解密訊息。
   * 解壓縮訊息。
   * 檢查並不允許訊息識別碼重複。
@@ -81,7 +81,7 @@ ms.locfileid: "74790726"
 
 1. 現在提供這些屬性的資訊：
 
-   | 屬性 | 描述 |
+   | 屬性 | 說明 |
    |----------|-------------|
    | **要編碼的訊息** | 訊息承載 |
    | **AS2 來源** | AS2 合約所指定之訊息寄件者的識別碼 |

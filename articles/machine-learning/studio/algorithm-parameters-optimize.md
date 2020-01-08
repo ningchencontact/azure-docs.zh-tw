@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 4d44598bd1352ac6d4d98ae73838fbfc9e2485e7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ac3aa0dc619ec05dcd79a4f8740026b1eabc19aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838441"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427705"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>選擇參數以優化 Azure Machine Learning Studio 中的演算法（傳統）
 
@@ -23,7 +23,7 @@ ms.locfileid: "73838441"
 
 
 
-有各種方法可用來進行模型選擇。 在機器學習中，交叉驗證是其中一種最廣泛使用的模型選擇方法，而且是傳統 Azure Machine Learning Studio 版本中的預設模型選擇機制。 由於傳統版本的 Azure Machine Learning Studio 支援 R 和 Python，因此您一律可以使用 R 或 Python 來執行自己的模型選擇機制。
+有各種方法可用來進行模型選擇。 在機器學習中，交叉驗證是其中一種最廣泛使用的模型選擇方法，而且是 Azure Machine Learning Studio （傳統）中的預設模型選擇機制。 因為 Azure Machine Learning Studio （傳統）支援 R 和 Python，所以您一律可以使用 R 或 Python 來執行自己的模型選擇機制。
 
 找出最佳參數集的過程有四個步驟：
 
@@ -32,7 +32,7 @@ ms.locfileid: "73838441"
 3. **定義計量**：決定要使用哪一種計量來判斷最佳的參數集，例如正確度、均方根誤差、精確度、召回率或 f 分數。
 4. **訓練、評估和比較**：對於每個唯一的參數值組合，執行交叉驗證並根據您定義的錯誤計量。 評估和比較之後，您可以選擇最佳的模型。
 
-下圖說明如何在傳統版本的 Azure Machine Learning Studio 中達成此目的。
+下圖說明如何以 Azure Machine Learning Studio （傳統）來達成此目的。
 
 ![尋找最佳的參數集](./media/algorithm-parameters-optimize/fig1.png)
 

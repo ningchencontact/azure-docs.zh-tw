@@ -1,7 +1,7 @@
 ---
 title: 以篩選器為基礎的特徵選取：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何在 Azure Machine Learning 服務中使用以篩選為基礎的特徵選取模組，以識別資料集內具有最佳預測能力的功能。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何在 Azure Machine Learning 中使用以篩選為基礎的特徵選取模組，以識別資料集內具有最佳預測能力的功能。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: f8ae4982f7602cd7403a78517fec79fa95d33aa2
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 43565a72ce795c4ee0142ec48c13842a8c43e604
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717198"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428517"
 ---
-# <a name="filter-based-feature-selection"></a>以篩選器為基礎的特徵選取
+# <a name="filter-based-feature-selection"></a>以篩選為基礎的特徵選取
 
 本文說明如何在 Azure Machine Learning 設計工具（預覽）中使用以篩選為基礎的特徵選取模組。 此模組可協助您識別輸入資料集中具有最佳預測能力的資料行。 
 
@@ -30,7 +30,7 @@ ms.locfileid: "73717198"
 
 此特徵選取模組稱為「以篩選為基礎」，因為您使用選取的度量來尋找不相關的屬性。 接著，您可以從模型中篩選掉多餘的資料行。 您可以選擇適合您資料的單一統計量值，而此模組會計算每個特徵資料行的分數。 這些資料行會依其特性分數來排序。 
 
-藉由選擇正確的功能，您可能會改善分類的正確性和效率。 
+選擇正確的特徵就有可能改善分類的精確度和效率。 
 
 您通常只會使用具有最佳分數的資料行來建立您的預測模型。 特徵選取分數不佳的資料行可以留在 dataset 中，並在您建立模型時忽略。  
 
@@ -40,13 +40,13 @@ ms.locfileid: "73717198"
 
 -   **皮耳森相互關聯**  
 
-    皮耳森的相互關聯統計資料（或皮耳森的相互關聯係數）在統計模型中也稱為 `r` 值。 針對任何兩個變數，它會傳回一個值，指出相互關聯的強度。
+    皮耳森的相互關聯統計資料（或皮耳森的相互關聯係數）在統計模型中也稱為 `r` 值。 對於任何兩個變數，它會傳一個指出相關強度的值。
 
-    皮耳森的相互關聯係數是藉由接受兩個變數的共變數，並除以其標準差的乘積來計算。 這兩個變數中的 scale 變更不會影響係數。  
+    皮耳森相關係數的計算公式是先取兩個變數的共變異數，再除以其標準差的乘積。 這兩個變數中的 scale 變更不會影響係數。  
 
 -   **卡方平方**  
 
-    雙向卡方測試是一種統計方法，可測量接近預期的值對實際結果的影響。 方法假設變數是隨機的，並且是從適當的獨立變數範例中繪製而來。 產生的卡方統計資料表示結果與預期（隨機）結果的距離。  
+    雙向卡方測試是一種統計方法，它能測量期望值與實際結果之間的差距。 該方法假設變數是隨機的，並且是從適當的獨立變數範例中抽出。 產生的卡方統計量能指出結果與預期 (隨機) 結果之間的差距。  
 
 
 > [!TIP]
@@ -86,7 +86,7 @@ ms.locfileid: "73717198"
 
     - 您可以指定的最小功能數目是一，但我們建議您增加此值。  
 
-    - 如果指定的所需特徵數目大於資料集內的資料行數目，則會傳回所有功能。 甚至會傳回具有零分數的特徵。  
+    - 如果指定的所需特徵數目大於資料集的資料行數目，則會傳回所有特徵。 甚至會傳回具有零分數的特徵。  
 
     - 如果您指定的結果資料行數目少於功能資料行，則這些功能會依遞減的分數排序。 只會傳回最大的功能。 
 
@@ -135,5 +135,5 @@ ms.locfileid: "73717198"
 
 ## <a name="next-steps"></a>後續步驟
 
-查看 Azure Machine Learning 服務[可用的模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 
 

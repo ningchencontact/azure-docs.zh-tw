@@ -2,19 +2,15 @@
 title: 使用 Azure 自動化中的 SCCM 集合進行目標更新 - 更新管理
 description: 本文旨在協助您設定 System Center Configuration Manager，以使用此解決方案來管理 SCCM 受控電腦的更新。
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/19/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 345adeee37f5f9bc4c794eb9bb624e7797197f22
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b52db95b6a6ce21a5e5b68342ac123526d11ca62
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850205"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417630"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>整合 System Center Configuration Manager 與更新管理
 
@@ -40,7 +36,7 @@ ms.locfileid: "74850205"
 1. 從使用[部署軟體更新程序](/sccm/sum/deploy-use/deploy-software-updates)中描述的程序，從 Configuration Manager 階層中的頂層站台建立軟體更新部署。 必須與標準部署不同的唯一設定為可控制部署封裝下載行為的選項 [不要安裝軟體更新]。 此行為是由更新管理解決方案透過在下一個步驟中建立排定的更新部署來管理。
 
 1. 在 Azure 自動化中，選取 [更新管理]。 遵循[建立更新部署](automation-tutorial-update-management.md#schedule-an-update-deployment)中所述的步驟來建立新的部署，然後在 [類型] 下拉式清單中選取 [已匯入的群組]，以選取適當的 Configuration Manager 集合。 請記住下列重點：a. 如果已在所選的 Configuration Manager 裝置集合上定義維護時段，該集合的成員會接受它，而不是排程部署中定義的 [持續時間] 設定。
-    b.這是另一個 C# 主控台應用程式。 目標集合的成員必須具有網際網路連線 (不論是直接、透過 Proxy 伺服器，還是透過 Log Analytics 閘道)。
+    b. 目標集合的成員必須具有網際網路連線 (不論是直接、透過 Proxy 伺服器，還是透過 Log Analytics 閘道)。
 
 透過 Azure 自動化完成更新部署之後，屬於所選電腦群組成員的目標電腦會在排定的時間，從其本機用戶端快取安裝更新。 您可以[檢視更新部署狀態](automation-tutorial-update-management.md#view-results-of-an-update-deployment)，以監視您的部署結果。
 

@@ -1,20 +1,14 @@
 ---
-title: 建立新建議的 Azure Advisor 警示 |Microsoft Docs
+title: 建立新建議的 Azure Advisor 警示
 description: 建立新建議的 Azure Advisor 警示
-services: advisor
-author: sagupt
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/09/2019
-ms.author: sagupt
-ms.openlocfilehash: d641008a7caf4a006344d886aec945a6e8da2568
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 07cbc57ef718b6cac104d2b5238ff4e3196f197a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326623"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443162"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations"></a>建立新建議的 Azure Advisor 警示 
 
@@ -24,7 +18,7 @@ ms.locfileid: "71326623"
 
 您也可以使用下列屬性來判斷建議的類型：
 
-* Category
+* 類別
 * 影響層級
 * 建議類型
 
@@ -274,11 +268,11 @@ ms.locfileid: "71326623"
 }
 ```
 
-在任一架構中，您都可以藉由尋找**eventSource**是`Recommendation` ，而**operationName**是`Microsoft.Advisor/recommendations/available/action`，來識別 Advisor 的建議事件。
+在任一架構中，您都可以藉由尋找**eventSource** is `Recommendation`， **operationName**是 `Microsoft.Advisor/recommendations/available/action`來識別 Advisor 的建議事件。
 
 您可能會想要使用的一些其他重要欄位如下： 
 
-* *alertTargetIDs*（在通用架構中）或*resourceId* （舊版架構）
+* *alertTargetIDs* （在通用架構中）或*resourceId* （舊版架構）
 * *recommendationType*
 * *recommendationName*
 * *recommendationCategory*

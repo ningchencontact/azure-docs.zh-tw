@@ -2,19 +2,15 @@
 title: 了解如何讓 Azure 自動化中的更新管理、變更追蹤和清查解決方案上線
 description: 了解如何在 Azure 虛擬機器上讓屬於 Azure 自動化一部分的更新管理、變更追蹤和清查解決方案上線
 services: automation
-ms.service: automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 4/11/2019
 ms.topic: conceptual
-manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ab934db026b598e80541f98d74df70c893692120
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a63202fd5f29c3c2eee4ecaaae9a940078c15edc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849695"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421884"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>讓更新管理、變更追蹤和清查解決方案上線
 
@@ -63,9 +59,9 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 當電腦新增至「更新管理」或「變更追蹤」和「清查」解決方案時，它們會被新增至工作區中兩個已儲存搜尋的其中一個。 這些已儲存的搜尋都是查詢，其中包含這些解決方案的目標電腦。
 
-瀏覽至您的自動化帳戶，然後選取 [一般] 下的 [已儲存搜尋]。 下表顯示這些解決方案所使用的兩個已儲存的搜尋：
+瀏覽至您的自動化帳戶，然後選取 [一般] 下的 [已儲存搜尋]。 下表顯示這些解決方案所使用的兩個已儲存搜尋：
 
-|Name     |類別  |Alias  |
+|名稱     |類別  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | 更新        | Updates__MicrosoftDefaultComputerGroup         |
@@ -158,7 +154,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ## <a name="next-steps"></a>後續步驟
 
-繼續進行解決方案的教學課程以了解如何加以使用。
+繼續進行解決方案的教學課程以了解如何使用。
 
 * [教學課程 - 管理 VM 的更新](automation-tutorial-update-management.md)
 

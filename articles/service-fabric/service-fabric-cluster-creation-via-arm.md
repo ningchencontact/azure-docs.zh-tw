@@ -1,25 +1,14 @@
 ---
-title: 建立 Azure Service Fabric 叢集 | Microsoft Docs
+title: 建立 Azure Service Fabric 叢集
 description: 了解如何使用 Azure Resource Manager 在 Azure 中設定安全的 Service Fabric 叢集。  您可以使用預設範本或您自己的叢集範本來建立叢集。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: chackdan
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/16/2018
-ms.author: atsenthi
-ms.openlocfilehash: 241349724929845afa2fd2a4bacabf9b5017cc7c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 935f67c25f4a2aee7d06be7591dbe7576c87806e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901556"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349860"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>使用 Azure Resource Manager 來建立 Service Fabric 叢集 
 > [!div class="op_single_selector"]

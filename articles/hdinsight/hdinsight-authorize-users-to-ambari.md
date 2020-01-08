@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: cbdf4a4c9e7f3816a0a5b280c81bfa60b65d9769
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3bb58334e96bf5378fb78b70125f9c7994a7c2fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687931"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435650"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>授權 Apache Ambari 檢視的使用者
 
@@ -179,9 +179,9 @@ Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://t
 
 3. 向下捲動到 [檢視] \(Views\) 頁面底部。 在 [權限] \(Permissions\) 區段底下，您有兩個選項來授與網域使用者對檢視的權限：
 
-**Grant permission to these users (將權限授與這些使用者)** ![Grant permission to these users (將權限授與這些使用者)](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png)
+**授與這些使用者的許可權**![授與這些使用者的許可權](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png)
 
-**Grant permission to these groups (將權限授與這些群組)** ![Grant permission to these groups (將權限授與這些群組)](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
+**授與這些群組的許可權**![授與這些群組的許可權](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
 
 1. 若要新增使用者，請選取 [Add User] \(新增使用者\) 按鈕。
 
@@ -248,7 +248,7 @@ Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://t
 
     ![Apache Ambari 角色清單視圖-使用者](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* [List] \(清單\) 檢視的 [Groups] \(群組\) 類別會顯示所有群組，以及指派給每個群組的角色。 在我們的範例中，群組清單是透過同步處理，從叢集 [Domain] \(網域\) 設定之 [Access user group] \(存取使用者群組\) 屬性中指定的 Azure AD 群組取得。 請參閱[建立啟用 ESP 的 HDInsight 叢集](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp)。
+* [List] \(清單\) 檢視的 [Groups] \(群組\) 類別會顯示所有群組，以及指派給每個群組的角色。 在我們的範例中，群組清單是透過同步處理，從叢集 [Domain] \(網域\) 設定之 [Access user group] \(存取使用者群組\) 屬性中指定的 Azure AD 群組取得。 請參閱[建立啟用 ESP 的 HDInsight 叢集](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp)。
 
     ![Apache Ambari 角色清單視圖-群組](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

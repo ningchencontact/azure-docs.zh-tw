@@ -4,15 +4,15 @@ description: Syslog 是通用於 Linux 的事件記錄通訊協定。 本文描�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/22/2019
-ms.openlocfilehash: 5daa9e99ccf71da680dad00b06c4e53f6c8b4e81
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ffc6c48a6b49edded97570fd1ac421933b5f6b72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932423"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450644"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure 監視器中的 Syslog 資料來源
 Syslog 是通用於 Linux 的事件記錄通訊協定。 應用程式將傳送的訊息可能會儲存在本機電腦上，或傳遞到 Syslog 收集器。 安裝 Log Analytics Linux 代理程式時，它會設定本機 Syslog 精靈來將訊息轉送到代理程式。 然後，代理程式會將訊息傳送至 Azure 監視器 (建立相對應記錄的位置)。  
@@ -48,7 +48,7 @@ Log Analytics Linux 代理程式只會收集具有其設定中指定之設備和
 ### <a name="configure-syslog-in-the-azure-portal"></a>在 Azure 入口網站中設定 Syslog
 從 [[進階設定] 中的 [資料] 功能表](agent-data-sources.md#configuring-data-sources)設定 Syslog。 這個組態會傳遞到每個 Linux 代理程式上的組態檔。
 
-您可以輸入新設備的名稱，然後按一下 **+** 設定 Syslog。 針對每個設備，僅會收集包含所選嚴重性的訊息。  請檢查您想要收集之特定設備的嚴重性。 您無法提供任何其他準則來篩選訊息。
+您可以藉由先選取 [將下列設定套用**至我的電腦**] 選項，然後輸入其名稱並按一下 [ **+** ]，來新增設施。 針對每個設備，僅會收集包含所選嚴重性的訊息。  請檢查您想要收集之特定設備的嚴重性。 您無法提供任何其他準則來篩選訊息。
 
 ![設定 Syslog](media/data-sources-syslog/configure.png)
 
@@ -195,7 +195,7 @@ Log Analytics 代理程式會在本機用戶端的連接埠 25224 上接聽 Sysl
 ## <a name="syslog-record-properties"></a>Syslog 記錄屬性
 Syslog 記錄具有 **Syslog** 類型，以及下表中的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | 電腦 |收集事件的來源電腦。 |
 | Facility |定義產生訊息之系統的一部分。 |
@@ -209,9 +209,9 @@ Syslog 記錄具有 **Syslog** 類型，以及下表中的屬性。
 ## <a name="log-queries-with-syslog-records"></a>含有 Syslog 記錄的記錄查詢
 下表提供擷取 Syslog 記錄的不同記錄查詢範例。
 
-| 查詢 | 描述 |
+| 查詢 | 說明 |
 |:--- |:--- |
-| syslog |所有的 Syslog。 |
+| Syslog |所有的 Syslog。 |
 | Syslog &#124; where SeverityLevel == "error" |嚴重性為錯誤的所有 Syslog 記錄。 |
 | Syslog &#124; summarize AggregatedValue = count() by Computer |依電腦的 Syslog 記錄計數。 |
 | Syslog &#124; summarize AggregatedValue = count() by Facility |依設備的 Syslog 記錄計數。 |

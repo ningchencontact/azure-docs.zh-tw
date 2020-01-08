@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: 5f5fc4ecc0949f2f224c1d6a05742900a751ef45
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ac62ec49803bf55bbe61e08e60b648dd6c268510
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756244"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357959"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中 SQL Server 的高可用性和災害復原
 
@@ -35,10 +35,10 @@ ms.locfileid: "72756244"
 ## <a name="hadr-deployment-architectures"></a>HADR 部署架構
 在 Azure 中支援的 SQL Server HADR 技術包括：
 
-* [Always On 可用性群組](https://technet.microsoft.com/library/hh510230.aspx)
-* [Always On 容錯移轉叢集執行個體](https://technet.microsoft.com/library/ms189134.aspx)
+* [AlwaysOn 可用性群組](https://technet.microsoft.com/library/hh510230.aspx)
+* [AlwaysOn 容錯移轉叢集執行個體](https://technet.microsoft.com/library/ms189134.aspx)
 * [記錄傳送](https://technet.microsoft.com/library/ms187103.aspx)
-* [SQL Server 備份及還原與 Azure Blob 儲存體服務](https://msdn.microsoft.com/library/jj919148.aspx)
+* [使用 Azure Blob 儲存體服務的 SQL Server 備份及還原](https://msdn.microsoft.com/library/jj919148.aspx)
 * [資料庫鏡像](https://technet.microsoft.com/library/ms189852.aspx) - SQL Server 2016 中已被取代
 
 您可以將這些技術合併在一起，以實作同時具有高可用性及嚴重損壞修復功能的 SQL Server 解決方案。 根據您使用的技術而定，混合式部署可能會需要使用 Azure 虛擬網路的 VPN 通道。 下列各節會說明部分範例部署架構。
@@ -49,8 +49,8 @@ ms.locfileid: "72756244"
 
 | 技術 | 範例架構 |
 | --- | --- |
-| **可用性群組** |在相同區域的 Azure VM 中執行的可用性複本提供高可用性。  由於 Windows 容錯移轉叢集需要使用 Active Directory 網域，因此您需要設定網域控制站 VM。<br/><br/> 如需更高的冗余和可用性，Azure Vm 可以部署在不同的[可用性區域](../../../availability-zones/az-overview.md)中，如[可用性群組總覽](virtual-machines-windows-portal-sql-availability-group-overview.md)中所述。 如果可用性群組中的 SQL Server Vm 部署在可用性區域中，則請使用適用于接聽程式的[標準負載平衡器](../../../load-balancer/load-balancer-standard-overview.md)，如下列文章所述： [AZURE SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) & [azure 快速入門範本](virtual-machines-windows-sql-availability-group-quickstart-template.md)。<br/> ![可用性群組](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-ha-always-on.png)<br/>如需詳細資訊，請參閱[在 Azure (GUI) 中設定可用性群組](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)。 |
-| **容錯移轉叢集執行個體** |需要共用存放裝置的容錯移轉叢集實例（FCI）可以用4種不同的方式建立。<br/><br/>1. 在 Azure Vm 中執行的雙節點容錯移轉叢集與使用[Windows Server 2016 的連結儲存體儲存空間直接存取 \(S2D \)](virtual-machines-windows-portal-sql-create-failover-cluster.md)來提供軟體虛擬 SAN。<br/><br/> 2. 使用[Premium 檔案共用](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md)在 Azure vm 中執行的雙節點容錯移轉叢集。 Premium 檔案共用是以 SSD 為基礎且一致的低延遲檔案共用，完全支援與容錯移轉叢集實例搭配使用。<br/><br/>3. 在 Azure Vm 中執行的雙節點容錯移轉叢集，並提供協力廠商叢集解決方案支援的儲存體。 如需使用 SIOS DataKeeper 的特定範例，請參閱[使用容錯移轉叢集和協力廠商軟體 SIOS DataKeeper 之檔案共用的高可用性](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/) \(英文\)。<br/><br/>4. 在 Azure Vm 中執行的雙節點容錯移轉叢集，搭配透過 ExpressRoute 的遠端 iSCSI 目標共用區塊儲存體。 例如，NetApp 私用儲存體 (NPS) 會透過 ExpressRoute 使用 Equinix 將 iSCSI 目標公開至 Azure VM。<br/><br/>對於協力廠商共用儲存體和資料複寫解決方案，針對有關存取容錯移轉資料的任何問題您應該連絡廠商。<br/><br/>|
+| **可用性群組** |在相同區域的 Azure VM 中執行的可用性複本提供高可用性。  由於 Windows 容錯移轉叢集需要使用 Active Directory 網域，因此您需要設定網域控制站 VM。<br/><br/> 如需更高的冗余和可用性，Azure Vm 可以部署在不同的[可用性區域](../../../availability-zones/az-overview.md)中，如[可用性群組總覽](virtual-machines-windows-portal-sql-availability-group-overview.md)中所述。 如果可用性群組中的 SQL Server Vm 部署在可用性區域中，則請使用如下列文章中所述的適用于接聽程式的[標準負載平衡器](../../../load-balancer/load-balancer-standard-overview.md)- [AZURE SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) & [azure 快速入門範本](virtual-machines-windows-sql-availability-group-quickstart-template.md)。<br/> ![可用性群組](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-ha-always-on.png)<br/>如需詳細資訊，請參閱[在 Azure (GUI) 中設定可用性群組](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)。 |
+| **容錯移轉叢集執行個體** |需要共用存放裝置的容錯移轉叢集實例（FCI）可以用4種不同的方式建立。<br/><br/>1. 在 Azure Vm 中執行的雙節點容錯移轉叢集與使用[Windows Server 2016 的連結儲存體儲存空間直接存取 \(S2D\)](virtual-machines-windows-portal-sql-create-failover-cluster.md)來提供軟體虛擬 SAN。<br/><br/> 2. 使用[Premium 檔案共用](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md)在 Azure vm 中執行的雙節點容錯移轉叢集。 Premium 檔案共用是以 SSD 為基礎且一致的低延遲檔案共用，完全支援與容錯移轉叢集實例搭配使用。<br/><br/>3. 在 Azure Vm 中執行的雙節點容錯移轉叢集，並提供協力廠商叢集解決方案支援的儲存體。 如需使用 SIOS DataKeeper 的特定範例，請參閱[使用容錯移轉叢集和協力廠商軟體 SIOS DataKeeper 之檔案共用的高可用性](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)。<br/><br/>4. 在 Azure Vm 中執行的雙節點容錯移轉叢集，搭配透過 ExpressRoute 的遠端 iSCSI 目標共用區塊儲存體。 例如，NetApp 私用儲存體 (NPS) 會透過 ExpressRoute 使用 Equinix 將 iSCSI 目標公開至 Azure VM。<br/><br/>對於協力廠商共用儲存體和資料複寫解決方案，針對有關存取容錯移轉資料的任何問題您應該連絡廠商。<br/><br/>|
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>僅限 Azure：災害復原解決方案
 您可以使用可用性群組或資料庫鏡像，為 Azure 中的 SQL Server 資料庫提供災害復原解決方案，或者使用儲存體 Blob 進行備份和還原。
@@ -73,6 +73,22 @@ ms.locfileid: "72756244"
 | **記錄傳送** |為了進行跨網站嚴重損壞修復，一個合作夥伴會在 Azure VM 中執行，而其他合作夥伴會在內部部署中執行。 記錄傳送依賴 Windows 檔案共用，因此需要 Azure 虛擬網路和內部部署網路之間的 VPN 連線。<br/>![記錄傳送](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-log-shipping.png)<br/>若要成功對資料庫進行災害復原，您也應該在災害復原網站安裝複本網域控制站。 |
 | **備份及還原與 Azure Blob 儲存體服務** |內部部署生產資料庫直接備份到 Azure blob 儲存體以進行災害復原。<br/>![備份與還原](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-backup-restore.png)<br/>如需詳細資訊，請參閱 [Azure 虛擬機器中 SQL Server 的備份與還原](virtual-machines-windows-sql-backup-recovery.md)。 |
 | **使用 Azure Site Recovery 複寫 SQL Server 並將其容錯移轉至 Azure** |內部部署實際執行 SQL Server 直接複寫至 Azure 儲存體進行嚴重損壞修復。<br/>![使用 Azure Site Recovery 複寫](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-standalone-sqlserver-asr.png)<br/>如需詳細資訊，請參閱[使用 SQL Server 嚴重損壞修復和 Azure Site Recovery 保護 SQL Server](../../../site-recovery/site-recovery-sql.md)。 |
+
+
+## <a name="free-dr-replica-in-azure"></a>Azure 中的免費 DR 複本
+
+如果您有[軟體保證](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3)，您可以使用 Always On 可用性群組或容錯移轉叢集實例的 SQL Server 來執行混合式嚴重損壞修復（DR）計畫，而不會針對被動 DR 實例產生額外的授權成本。
+
+在下圖中，安裝程式會使用在 Azure 虛擬機器上執行的 SQL Server，利用12個核心作為內部部署 SQL Server 部署的嚴重損壞修復複本，並使用12個核心。 在過去，您需要為內部部署和 Azure 虛擬機器部署授權12個 SQL Server 核心。 新的權益會提供在 Azure 虛擬機器上執行的被動複本權益。 現在，只要符合 Azure 虛擬機器上被動複本的嚴重損壞修復準則，您就只需要授權執行內部部署 SQL Server 的12個核心。
+
+![Azure 中的免費 DR 複本](media/virtual-machines-windows-sql-high-availability-dr/free-dr-replica-azure.png)
+
+如需詳細資訊，請參閱[產品授權條款](https://www.microsoft.com/licensing/product-licensing/products)。 
+
+若要啟用此權益，請流覽至您的[SQL Server 虛擬機器資源](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource)，**並在 [** 設定] 底下選取 [設定]，然後選擇 [ **SQL Server 授權**] 底下的 [嚴重損壞**修復**] 選項 選取核取方塊以確認此 SQL Server VM 將用來做為被動複本，**然後選取 [** 套用] 以儲存您的設定。 
+
+![在 Azure 中設定 DR 複本](media/virtual-machines-windows-sql-high-availability-dr/dr-replica-in-portal.png)
+
 
 ## <a name="important-considerations-for-sql-server-hadr-in-azure"></a>Azure 中 SQL Server HADR 的重要考量
 與內部部署、非虛擬化的 IT 基礎結構相較之下，Azure VM、儲存體和網路各有不同的作業特性。 若要在 Azure 中成功實作 HADR SQL Server 解決方案，您必須了解這些差異，並配合這些差異設計您的解決方案。
@@ -124,7 +140,7 @@ Azure 中的可用性設定組可讓您將高可用性節點分別放入容錯�
 * [搭配 SQL Server Native Client 使用連接字串關鍵字](https://msdn.microsoft.com/library/ms130822.aspx)
 * [將用戶端連接至資料庫鏡像工作階段 (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
 * [連線至混合式 IT 中的可用性群組接聽程式 (英文)](https://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx)
-* [可用性群組接聽程式、用戶端連接及應用程式容錯移轉 (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
+* [可用性群組接聽程式、用戶端連線及應用程式容錯移轉 (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
 * [搭配可用性群組使用資料庫鏡像連接字串](https://technet.microsoft.com/library/hh213417.aspx)
 
 ### <a name="network-latency-in-hybrid-it"></a>混合式 IT 中的網路延遲
@@ -138,7 +154,7 @@ Azure 磁碟中的異地複寫不支援將相同資料庫的資料檔與記錄�
 
 若要獲得在 Azure VM 上執行的 SQL Server 的最佳效能，請參閱 [Azure 虛擬機器中 SQL Server 的效能最佳作法](virtual-machines-windows-sql-performance.md)中的指引。
 
-如需有關在 Azure VM 中執行 SQL Server 的其他主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)。
+如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)。
 
 ### <a name="other-resources"></a>其他資源
 * [在 Azure 中安裝新的 Active Directory 樹系](../../../active-directory/active-directory-new-forest-virtual-machine.md)

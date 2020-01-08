@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: mlearned
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: b233c5dd639bb6652f201727748a081f6a8a4c64
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 382895c1b5a4cb2bc88ff2371cec59267ea4e176
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950326"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442929"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用 kubenet 網路與您自己的 IP 位址範圍
 
@@ -22,6 +22,15 @@ ms.locfileid: "71950326"
 使用[Azure 容器網路介面（CNI）][cni-networking]，每個 pod 都會從子網取得 IP 位址，而且可以直接存取。 這些 IP 位址在您的網路空間中必須是唯一的，且必須事先規劃。 每個節點都有一個組態參數，用於所支援的最大 Pod 數目。 然後，為該節點預先保留每個節點的相同 IP 位址數目。 此方法需要更多規劃，並且通常會導致 IP 位址耗盡，或者隨著應用程式需求增加，需要在更大型子網路中重建叢集。
 
 本文將說明如何使用 *kubenet* 網路來建立虛擬網路子網路，並將其與 AKS 叢集搭配使用。 如需網路選項和考慮的詳細資訊，請參閱[Kubernetes 和 AKS 的網路概念][aks-network-concepts]。
+
+## <a name="prerequisites"></a>必要條件
+
+* 適用於 AKS 叢集的虛擬網路必須允許輸出網際網路連線.
+* 請勿在相同子網路中建立多個 AKS 叢集。
+* AKS 叢集可能不會使用 Kubernetes 服務位址範圍的 `169.254.0.0/16`、`172.30.0.0/16`、`172.31.0.0/16`或 `192.0.2.0/24`。
+* AKS 叢集所使用的服務主體在您虛擬網路內的子網路上必須至少具有[網路參與者](../role-based-access-control/built-in-roles.md#network-contributor)權限。 如果您想要定義[自訂角色](../role-based-access-control/custom-roles.md)，而不使用內建的網路參與者角色，則需要下列權限：
+  * `Microsoft.Network/virtualNetworks/subnets/join/action`
+  * `Microsoft.Network/virtualNetworks/subnets/read`
 
 > [!WARNING]
 > 若要使用 Windows Server 節點集區（目前在 AKS 中處於預覽狀態），您必須使用 Azure CNI。 使用 kubenet 作為網路模型不適用於 Windows Server 容器。

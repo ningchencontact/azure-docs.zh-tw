@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3d85850fb18b80490bba44b293ece7765124133
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1d8d803a8256845c61def1b1df4d633ce95a3ce6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846108"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424980"
 ---
 # <a name="common-conditional-access-policies"></a>一般條件式存取原則
 
-基準保護原則很棒，但許多組織所需的彈性比所提供的還要多。 例如，許多組織都需要從需要多重要素驗證的條件式存取原則中排除特定帳戶，例如其緊急存取或中斷玻璃系統管理帳戶。 針對這些組織，本文中所參考的一般原則可以使用。
+[安全性預設值](../fundamentals/concept-fundamentals-security-defaults.md)非常適合某些組織，但許多組織所需的彈性比所提供的還要多。 例如，許多人都必須能夠從需要多重要素驗證的條件式存取原則中排除特定帳戶，例如其緊急存取或中斷玻璃管理帳戶。 針對這些組織，本文中所參考的一般原則可以使用。
 
 ![Azure 入口網站中的條件式存取原則](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
 

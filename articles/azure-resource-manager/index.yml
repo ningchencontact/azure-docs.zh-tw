@@ -1,133 +1,109 @@
-### YamlMime:Landing
+### YamlMime:Hub
 title: Azure Resource Manager 文件
-summary: Resource Manager 範本是一個 JavaScript 物件標記法 (JSON) 檔案，定義了專案的基礎結構和組態。
+summary: Azure Resource Manager 是 Azure 的部署和管理服務。 使用基礎結構即程式碼，可靠地部署和管理您的 Azure 解決方案。
+brand: azure
 metadata:
   title: Azure Resource Manager 文件
-  description: 了解如何開發 Azure Resource Manager 範本，並使用它們來部署 Azure 資源
-  services: azure-resource-manager
+  description: Azure Resource Manager 是 Azure 的部署和管理服務。
   ms.service: azure-resource-manager
-  ms.subservice: na
-  ms.topic: landing-page
-  ms.collection: na
-  author: mumian
-  ms.author: jgao
-  ms.date: 09/25/2019
-  ms.openlocfilehash: 1d50556eb09a35857ed9db4ccbbba99397606f8b
-  ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+  ms.topic: hub-page
+  ms.collection: collection
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 12/19/2019
+  ms.openlocfilehash: 2910576517be35652d8e1ed1e82687a56a10467e
+  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 11/25/2019
-  ms.locfileid: "74483425"
-landingContent:
-- title: 關於 Resource Manager
-  linkLists:
-  - linkListType: overview
+  ms.lasthandoff: 01/03/2020
+  ms.locfileid: "75642467"
+highlightedContent:
+  items:
+  - title: 什麼是範本？
+    itemType: overview
+    url: templates/overview.md
+  - title: 建立您的第一個範本
+    itemType: tutorial
+    url: templates/template-tutorial-create-first-template.md
+  - title: 什麼是 Resource Manager？
+    itemType: overview
+    url: management/overview.md
+conceptualContent:
+  items:
+  - title: 部署 Resource Manager 範本
     links:
-    - text: 什麼是 Resource Manager？
-      url: resource-group-overview.md
-    - text: 什麼是 Resource Manager 範本？
-      url: template-deployment-overview.md
-  - linkListType: concept
+    - url: templates/overview.md
+      itemType: overview
+      text: 概觀
+    - url: templates/template-tutorial-create-first-template.md
+      itemType: tutorial
+      text: 初學者教學課程系列
+    - url: templates/template-syntax.md
+      itemType: reference
+      text: 範本檔案結構
+    - url: templates/template-functions.md
+      itemType: reference
+      text: 範本函式
+    - url: templates/deploy-powershell.md
+      itemType: how-to-guide
+      text: 部署
+    - url: templates/template-best-practices.md
+      itemType: concept
+      text: 最佳作法
+    footerLink:
+      url: templates/index.yml
+      text: 查看更多
+  - title: 管理資源
     links:
-    - text: 最佳作法
-      url: template-best-practices.md
-    - text: 部署模式
-      url: deployment-modes.md
-    - text: 連結的範本
-      url: resource-group-linked-templates.md
-    - text: 訂用帳戶層級部署
-      url: deploy-to-subscription.md
-    - text: 部署管理員
-      url: deployment-manager-overview.md
-  - linkListType: video
+    - url: management/overview.md
+      itemType: overview
+      text: 概觀
+    - url: management/tag-resources.md
+      itemType: how-to-guide
+      text: 標記資源
+    - url: management/move-resource-group-and-subscription.md
+      itemType: concept
+      text: 移動資源
+    - url: management/lock-resources.md
+      itemType: how-to-guide
+      text: 鎖定資源
+    - url: management/resource-providers-and-types.md
+      itemType: concept
+      text: 資源提供者和類型
+    footerLink:
+      url: management/index.yml
+      text: 查看更多
+  - title: 受控應用程式
     links:
-    - text: 新功能
-      url: https://youtu.be/3D-JIKShrws
-- title: 開始使用
-  linkLists:
-  - linkListType: quickstart
+    - url: managed-applications/overview.md
+      itemType: overview
+      text: 概觀
+    - url: managed-applications/publish-service-catalog-app.md
+      itemType: tutorial
+      text: 發佈服務目錄應用程式
+    - url: managed-applications/create-uidefinition-overview.md
+      itemType: how-to-guide
+      text: 建立 UI 定義
+    - url: managed-applications/publish-marketplace-app.md
+      itemType: tutorial
+      text: 新增至 Marketplace
+    footerLink:
+      url: managed-applications/index.yml
+      text: 查看更多
+  - title: Azure 自訂提供者
     links:
-    - text: 建立範本 - 入口網站
-      url: resource-manager-quickstart-create-templates-use-the-portal.md
-    - text: 建立範本 - VS Code
-      url: resource-manager-quickstart-create-templates-use-visual-studio-code.md
-    - text: 建立範本 - Visual Studio
-      url: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
-  - linkListType: tutorial
-    links:
-    - text: 初學者教學課程
-      url: template-tutorial-create-first-template.md
-    - text: 部署多個執行個體
-      url: resource-manager-tutorial-create-multiple-instances.md
-    - text: 設定部署順序
-      url: resource-manager-tutorial-create-templates-with-dependent-resources.md
-    - text: 整合金鑰保存庫
-      url: resource-manager-tutorial-use-key-vault.md
-- title: 開發範本
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 使用 VS 程式碼
-      url: resource-manager-tools-vs-code.md
-    - text: 使用函式
-      url: resource-group-template-functions.md
-    - text: 定義參數
-      url: template-parameters.md
-    - text: 定義變數
-      url: template-variables.md
-    - text: 定義資源
-      url: child-resource-name-type.md
-    - text: 定義輸出
-      url: template-outputs.md
-  - linkListType: reference
-    links:
-    - text: Azure 快速入門範本
-      url: template-deployment-overview.md
-- title: 部署範本
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 使用 PowerShell
-      url: resource-group-template-deploy.md
-    - text: 使用 CLI
-      url: resource-group-template-deploy-cli.md
-    - text: 使用入口網站
-      url: resource-group-template-deploy-portal.md
-    - text: 使用 REST API
-      url: resource-group-template-deploy-rest.md
-- title: 管理範本
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 匯出範本
-      url: export-template-portal.md
-    - text: CI/CD
-      url: vs-resource-groups-project-devops-pipelines.md
-- title: 管理資源
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 移動資源
-      url: resource-group-move-resources.md
-    - text: 標記資源
-      url: resource-group-using-tags.md
-    - text: 鎖定資源
-      url: resource-group-lock-resources.md
-- title: 監視及疑難排解
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 檢視活動記錄
-      url: resource-group-audit.md
-    - text: 檢視部署作業
-      url: resource-manager-deployment-operations.md
-    - text: 針對部署錯誤進行疑難排解
-      url: resource-manager-common-deployment-errors.md
-- title: 探索參考內容
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: 資源提供者和類型
-      url: resource-manager-supported-services.md
-    - text: 範本參考
-      url: /azure/templates/
+    - url: custom-providers/overview.md
+      itemType: overview
+      text: 概觀
+    - url: custom-providers/create-custom-provider.md
+      itemType: quickstart
+      text: 建立自訂提供者
+    - url: custom-providers/tutorial-get-started-with-custom-providers.md
+      itemType: tutorial
+      text: 建立自訂動作和資源
+    - url: custom-providers/custom-providers-action-endpoint-how-to.md
+      itemType: how-to-guide
+      text: 將自訂動作新增至 Azure REST API
+    footerLink:
+      url: custom-providers/index.yml
+      text: 查看更多

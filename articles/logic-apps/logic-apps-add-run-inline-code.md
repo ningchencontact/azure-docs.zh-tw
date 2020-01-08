@@ -1,17 +1,17 @@
 ---
-title: 新增和執行程式碼片段
-description: 在 Azure Logic Apps 中使用內嵌程式碼新增和執行程式碼片段
+title: 使用內嵌程式碼新增和執行程式碼片段
+description: 瞭解如何使用內嵌程式碼動作來建立和執行程式碼片段，以用於您使用建立的自動化工作和工作流程 Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: f28a93e47aa028f152d7ca797abb17cb3832aa60
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f7a134fd026b42d1666b8310b3fb0c10642c7bb0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792614"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453502"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用內嵌程式碼來新增和執行程式碼片段
 
@@ -34,7 +34,7 @@ ms.locfileid: "74792614"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 您想要在其中新增程式碼片段的邏輯應用程式，包括觸發程式。 如果您沒有邏輯應用程式，請參閱[快速入門：建立您的第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
@@ -128,11 +128,11 @@ ms.locfileid: "74792614"
 
 此資料表包含這些子屬性的詳細資訊：
 
-| 屬性 | Type | 描述 |
+| 屬性 | 類型 | 說明 |
 |----------|------|-------|
 | `actions` | 物件集合 | 在您的程式碼片段執行之前執行之動作的結果物件。 每個物件都有索引*鍵/值*組，其中索引鍵是動作的名稱，而值相當於使用 `@actions('<action-name>')`呼叫[actions （）](../logic-apps/workflow-definition-language-functions-reference.md#actions)函式。 動作的名稱會使用在基礎工作流程定義中使用的相同動作名稱，這會以底線（_）取代動作名稱中的空格（""）。 這個物件可讓您從目前的工作流程實例執行存取動作屬性值。 |
-| `trigger` | Object | 來自觸發程式的結果物件，相當於呼叫[trigger （）函數](../logic-apps/workflow-definition-language-functions-reference.md#trigger)。 這個物件可讓您從目前的工作流程實例執行，存取觸發程式的屬性值。 |
-| `workflow` | Object | 工作流程物件，相當於呼叫[workflow （）函數](../logic-apps/workflow-definition-language-functions-reference.md#workflow)。 這個物件可讓您從目前的工作流程實例執行，存取工作流程屬性值，例如工作流程名稱、執行識別碼等等。 |
+| `trigger` | 物件 | 來自觸發程式的結果物件，相當於呼叫[trigger （）函數](../logic-apps/workflow-definition-language-functions-reference.md#trigger)。 這個物件可讓您從目前的工作流程實例執行，存取觸發程式的屬性值。 |
+| `workflow` | 物件 | 工作流程物件，相當於呼叫[workflow （）函數](../logic-apps/workflow-definition-language-functions-reference.md#workflow)。 這個物件可讓您從目前的工作流程實例執行，存取工作流程屬性值，例如工作流程名稱、執行識別碼等等。 |
 |||
 
 在本主題的範例中，`workflowContext` 物件具有您的程式碼可以存取的下列屬性：
@@ -218,7 +218,7 @@ ms.locfileid: "74792614"
 
    ![新增參數](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
-   | 參數 | 描述 |
+   | 參數 | 說明 |
    |-----------|-------------|
    | **動作** | 包含先前動作的結果。 請參閱[包含動作結果](#action-results)。 |
    | **觸發程序** | 包含來自觸發程式的結果。 請參閱[包含觸發程式結果](#trigger-results)。 |

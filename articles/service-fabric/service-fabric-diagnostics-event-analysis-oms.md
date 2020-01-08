@@ -1,28 +1,19 @@
 ---
-title: Azure Service Fabric 事件分析，使用 Azure 監視器記錄檔 |Microsoft Docs
-description: 深入了解視覺化及分析監視和診斷 Azure Service Fabric 叢集使用 Azure 監視器記錄檔的事件。
-services: service-fabric
-documentationcenter: .net
+title: 使用 Azure 監視器記錄的 Azure Service Fabric 事件分析
+description: 瞭解如何使用 Azure 監視器記錄來視覺化和分析事件，以進行 Azure Service Fabric 叢集的監視和診斷。
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 40dd930aa21e3056d5ecc908359215d6874ed8ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393408"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464733"
 ---
-# <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>事件分析和視覺效果，與 Azure 監視器記錄檔
- Azure 監視器記錄會從裝載於雲端的應用程式和服務收集和分析遙測，並提供分析工具來協助您將其可用性和效能最大化。 本文概述如何在 Azure 監視器來深入了解及疑難排解在叢集中的事情的記錄檔中執行查詢。 我們將討論下列常見的問題：
+# <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Azure 監視器記錄檔進行事件分析和視覺效果
+ Azure 監視器記錄會從裝載於雲端的應用程式和服務收集和分析遙測，並提供分析工具來協助您將其可用性和效能最大化。 本文概述如何在 Azure 監視器記錄中執行查詢，以深入瞭解及疑難排解您的叢集中發生的情況。 我們將討論下列常見的問題：
 
 * 如何針對健康情況事件進行疑難排解？
 * 如何知道節點發生故障？
@@ -30,22 +21,22 @@ ms.locfileid: "60393408"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="overview-of-the-log-analytics-workspace"></a>Log Analytics 工作區的概觀
+## <a name="overview-of-the-log-analytics-workspace"></a>Log Analytics 工作區總覽
 
 >[!NOTE] 
 >雖然在叢集建立時預設會啟用診斷儲存體，但您仍必須設定 Log Analytics 工作區才能讀取診斷儲存體。
 
-Azure 監視器收集資料記錄從受管理的資源，包括 Azure 儲存體資料表或代理程式，並維護在中央儲存機制。 此資料可接著用於分析、警示和視覺效果，或進一步匯出。 Azure 監視器記錄支援事件、 效能資料或任何其他自訂的資料。 簽出[步驟來設定診斷延伸模組來彙總事件](service-fabric-diagnostics-event-aggregation-wad.md)並[建立的 Log Analytics 工作區，以讀取儲存體中的事件步驟](service-fabric-diagnostics-oms-setup.md)以確定資料會流入 Azure 監視器記錄檔。
+Azure 監視器記錄會從受管理的資源（包括 Azure 儲存體資料表或代理程式）收集資料，並將它保留在中央存放庫中。 此資料可接著用於分析、警示和視覺效果，或進一步匯出。 Azure 監視器記錄檔支援事件、效能資料或任何其他自訂資料。 請查看[設定診斷延伸模組來匯總事件](service-fabric-diagnostics-event-aggregation-wad.md)和步驟的步驟，[以建立 Log Analytics 工作區以讀取儲存體中的事件](service-fabric-diagnostics-oms-setup.md)，以確保資料流程入 Azure 監視器記錄。
 
-Azure 監視器記錄檔會收到資料之後，Azure 有數個*監視解決方案*預先封裝的解決方案或操作的儀表板來監視數個案例自訂的傳入資料。 其中包括 *Service Fabric 分析*解決方案和*容器*解決方案，這是與使用 Service Fabric 叢集進行診斷和監視最相關的兩個解決方案。 本文說明如何使用 Service Fabric 分析解決方案，它是用工作區建立的。
+Azure 監視器記錄收到資料之後，Azure 會有數個*監視解決方案*，這些是預先封裝的解決方案或作業儀表板，可用於監視傳入的資料（自訂于數個案例）。 其中包括 *Service Fabric 分析*解決方案和*容器*解決方案，這是與使用 Service Fabric 叢集進行診斷和監視最相關的兩個解決方案。 本文說明如何使用 Service Fabric 分析解決方案，它是用工作區建立的。
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>存取 Service Fabric 分析解決方案
 
-在  [Azure 入口網站](https://portal.azure.com)，請移至您建立 Service Fabric 分析解決方案所在的資源群組。
+在[Azure 入口網站](https://portal.azure.com)中，移至您在其中建立 Service Fabric 分析解決方案的資源群組。
 
 選取資源 **ServiceFabric\<nameOfOMSWorkspace\>** 。
 
-在 `Summary` 中，您會看到每一個所啟用解決方案的圖格以圖形形式顯示，其中一個屬於 Service Fabric。 按一下 [Service Fabric]  圖形以繼續進行「Service Fabric 分析」解決方案。
+在 `Summary` 中，您會看到每一個所啟用解決方案的圖格以圖形形式顯示，其中一個屬於 Service Fabric。 按一下 [Service Fabric] 圖形以繼續進行「Service Fabric 分析」解決方案。
 
 ![Service Fabric 解決方案](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
@@ -68,7 +59,7 @@ Azure 監視器記錄檔會收到資料之後，Azure 有數個*監視解決方�
 
 ![Service Fabric 解決方案操作通道](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
-按一下 [清單]  來檢視清單中的事件。 這裡您會看到所有收集的系統事件。 為了方便參考，這些記錄均來自 Azure 儲存體帳戶中的 **WADServiceFabricSystemEventsTable**，而且同樣地，您接下來看到的 Reliable Service 和 Actor 事件均分別來自那些表格。
+按一下 [清單] 來檢視清單中的事件。 這裡您會看到所有收集的系統事件。 為了方便參考，這些記錄均來自 Azure 儲存體帳戶中的 **WADServiceFabricSystemEventsTable**，而且同樣地，您接下來看到的 Reliable Service 和 Actor 事件均分別來自那些表格。
     
 ![查詢操作通道](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
@@ -87,7 +78,7 @@ ServiceFabricOperationalEvent
 
 ![Service Fabric 解決方案 Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
 
-按一下 [清單]  來檢視清單中的事件。 這裡您會看到來自 Reliable Services 的事件。 啟動及完成 runasync 服務時，您可以看到不同的事件，它們通常是在部署和升級發生的。 
+按一下 [清單] 來檢視清單中的事件。 這裡您會看到來自 Reliable Services 的事件。 啟動及完成 runasync 服務時，您可以看到不同的事件，它們通常是在部署和升級發生的。 
 
 ![查詢 Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 
@@ -112,7 +103,7 @@ Kusto 查詢語言功能很強大。 您可以執行的另一個重要查詢是�
 ## <a name="next-steps"></a>後續步驟
 
 * 若要啟用基礎結構監視 (也就是監視效能計數器)，請前往[新增 Log Analytics 代理程式](service-fabric-diagnostics-oms-agent.md)。 這個代理程式會收集效能計數器，並將它們新增至現有的工作區。
-* 針對內部部署叢集 Azure 監視器記錄檔會提供可用來將資料傳送至 Azure 監視器記錄檔的閘道 (HTTP 正向 Proxy)。 深入的了解，在[無法存取網際網路的電腦連線到 Azure 監視器記錄檔使用 Log Analytics 閘道](../azure-monitor/platform/gateway.md)。
+* 針對內部部署叢集，Azure 監視器記錄會提供可用來將資料傳送至 Azure 監視器記錄的閘道（HTTP 正向 Proxy）。 深入瞭解[如何使用 Log Analytics 閘道將電腦連線到沒有網際網路存取 Azure 監視器記錄](../azure-monitor/platform/gateway.md)。
 * 設定[自動化警示](../log-analytics/log-analytics-alerts.md)，以協助偵測與診斷。
 * 熟悉 Azure 監視器記錄中提供的[記錄搜尋和查詢](../log-analytics/log-analytics-log-searches.md)功能。
-* 取得 Azure 監視器記錄檔和它所提供的更詳細的概觀，請閱讀[什麼是 Azure 監視器記錄檔？](../operations-management-suite/operations-management-suite-overview.md)。
+* 深入瞭解 Azure 監視器記錄及其提供的內容，請參閱[什麼是 Azure 監視器記錄？](../operations-management-suite/operations-management-suite-overview.md)。

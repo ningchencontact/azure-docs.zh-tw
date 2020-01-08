@@ -3,16 +3,16 @@ title: 瞭解適用于 AKS 引擎的 Azure 原則
 description: 瞭解 Azure 原則如何使用 CustomResourceDefinitions，並從閘道管理員 v3 開啟原則代理程式，以使用 AKS 引擎來管理叢集。
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d1ae33755dcb52c5fe65ec46f0d02e090f6f417
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c41a9d84dfe43e356e9a4a17af523a37209c2933
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267259"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436432"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>瞭解 AKS 引擎 Azure 原則
 
-Azure 原則與[AKS Engine](https://github.com/Azure/aks-engine/blob/master/docs/README.md)整合，這是一種系統，可提供便利的工具，在 Azure 上快速啟動自我管理的 Kubernetes 叢集。 這項整合可讓您以集中、一致的方式，在 AKS 引擎自我管理的叢集上進行大規模的實行原則和保護。 藉由擴充[開放原則代理程式](https://www.openpolicyagent.org/)（OPA）[閘道管理員](https://github.com/open-policy-agent/gatekeeper)（搶鮮版（Beta））（適用于 Azure 原則 Kubernetes 的_許可控制站 webhook_ ）的使用，讓您可以管理和報告 Azure 資源和 AKS 引擎的合規性狀態來自單一位置的自我管理叢集。
+Azure 原則與[AKS Engine](https://github.com/Azure/aks-engine/blob/master/docs/README.md)整合，這是一種系統，可提供便利的工具，在 Azure 上快速啟動自我管理的 Kubernetes 叢集。 這項整合可讓您以集中、一致的方式，在 AKS 引擎自我管理的叢集上進行大規模的實行原則和保護。 藉由擴充[開放式原則代理程式](https://www.openpolicyagent.org/)（OPA）[閘道管理員](https://github.com/open-policy-agent/gatekeeper)（搶鮮版（Beta））（適用于 Kubernetes 的_許可控制站 webhook_ ），Azure 原則可讓您從一個位置管理和報告 Azure 資源和 AKS 引擎自我管理叢集的合規性狀態。
 
 > [!NOTE]
 > 適用于 AKS 引擎的 Azure 原則處於公開預覽狀態，而且沒有 SLA。 閘道管理員 v3 處於搶鮮版（Beta），並受到開放原始碼社區的支援。 服務僅支援內建原則定義，以及使用服務主體設定之每個資源群組的單一 AKS 引擎叢集。
@@ -20,20 +20,20 @@ Azure 原則與[AKS Engine](https://github.com/Azure/aks-engine/blob/master/docs
 > [!IMPORTANT]
 > 若要取得 AKS 引擎、AKS 引擎或閘道管理員 v3 Azure 原則的支援，請在 AKS 引擎 GitHub 存放庫中建立[新的問題](https://github.com/Azure/aks-engine/issues/new/choose)。
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 若要在 Azure 上以自我管理的 Kubernetes 叢集啟用和使用 Azure 原則 for AKS Engine，請採取下列動作：
 
-- [必要條件](#prerequisites)
+- [先決條件](#prerequisites)
 - [安裝 Azure 原則附加元件](#installing-the-add-on)
 - [指派 AKS 引擎的原則定義](#built-in-policies)
 - [等待驗證](#validation-and-reporting-frequency)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在安裝 Azure 原則附加元件或啟用任何服務功能之前，您的訂用帳戶必須啟用**microsoft.policyinsights**資源提供者，並建立叢集服務主體的角色指派。 
 
-1. 若要啟用資源提供者，請遵循[資源提供者和類型](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal)中的步驟，或執行 Azure CLI 或 Azure PowerShell 命令：
+1. 若要啟用資源提供者，請遵循[資源提供者和類型](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)中的步驟，或執行 Azure CLI 或 Azure PowerShell 命令：
 
    - Azure CLI
 
@@ -233,7 +233,7 @@ kubectl logs gatekeeper-controller-manager-0 -n $NAMESPACE
 
   1. 移除舊的條件約束
 
-     目前，卸載機制只會移除閘道管理員系統，它不會移除使用者所建立的任何_ConstraintTemplate_、_條件約束_ _或設定_資源，也不會移除其隨附的_CRDs_.
+     目前，卸載機制只會移除閘道管理員系統，它不會移除使用者所建立的任何_ConstraintTemplate_、_條件約束_ _或設定_資源，也不會移除其隨附的_CRDs_。
 
      當閘道管理員正在執行時，可以藉由下列方式移除不必要的條件約束：
 
@@ -255,7 +255,7 @@ kubectl logs gatekeeper-controller-manager-0 -n $NAMESPACE
 
 ## <a name="diagnostic-data-collected-by-azure-policy-add-on"></a>Azure 原則附加元件所收集的診斷資料
 
-適用于 Kubernetes 的 Azure 原則附加元件會收集有限的叢集診斷資料。 此診斷資料是與軟體和效能相關的重要技術資料。 其使用方式如下：
+適用于 Kubernetes 的 Azure 原則附加元件會收集有限的叢集診斷資料。 此診斷資料是與軟體和效能相關的重要技術資料。 資料會用於下列用途：
 
 - 保持 Azure 原則最新的附加元件
 - 保持 Azure 原則附加元件安全、可靠、高效能

@@ -1,25 +1,21 @@
 ---
-title: 將 Azure 資訊保護資料連線到 Azure Sentinel |Microsoft Docs
+title: 將 Azure 資訊保護連接到 Azure Sentinel
 description: 瞭解如何在 Azure Sentinel 中連接 Azure 資訊保護資料。
 services: sentinel
-documentationcenter: na
 author: cabailey
 manager: rkarlin
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/24/2019
 ms.author: cabailey
-ms.openlocfilehash: a2760b53dbb9776501cb5e58c681045743471166
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: ef97ad601436faf44b0f49bd48d78c4c9420c7c8
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261826"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563678"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>從 Azure 資訊保護連接資料
 
@@ -29,7 +25,7 @@ ms.locfileid: "71261826"
 
 您可以藉由設定 Azure 資訊保護資料連線器，將[Azure 資訊保護](https://azure.microsoft.com/services/information-protection/)中的記錄資訊串流至 Azure Sentinel。 Azure 資訊保護可協助您控制及保護您的敏感性資料，不論其儲存在雲端或內部部署中。
 
-如果已設定[Azure 資訊保護的中央報告](https://docs.microsoft.com/azure/information-protection/reports-aip)，讓來自此服務的記錄資訊儲存在與您目前為 Azure Sentinel 所選取的相同 Log Analytics 工作區中，您可以略過下列設定：此資料連線器。 Azure 資訊保護的記錄資訊已可供 Azure Sentinel。
+如果已設定[Azure 資訊保護的中央報告](https://docs.microsoft.com/azure/information-protection/reports-aip)，讓來自此服務的記錄資訊儲存在與您目前為 Azure Sentinel 所選取的相同 Log Analytics 工作區中，您可以略過此資料連線器的設定。 Azure 資訊保護的記錄資訊已可供 Azure Sentinel。
 
 不過，如果 Azure 資訊保護的記錄資訊會與您目前為 Azure Sentinel 選取的記錄分析工作區不同，請執行下列其中一項動作：
 
@@ -76,5 +72,5 @@ ms.locfileid: "71261826"
 ## <a name="next-steps"></a>後續步驟
 
 在本檔中，您已瞭解如何將 Azure 資訊保護連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 深入了解如何[取得資料的可見度以及潛在威脅](quickstart-get-visibility.md)。
 - 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats-built-in.md)。

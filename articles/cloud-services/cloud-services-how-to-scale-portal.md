@@ -2,17 +2,17 @@
 title: 在入口網站中自動調整雲端服務 | Microsoft Docs
 description: 了解如何使用入口網站在 Azure 中設定雲端服務 web 角色或背景工作角色的自動調整規則。
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 7e106dbd237be79be924afadbe893669c4f3daf8
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359618"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360832"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>如何在入口網站中設定雲端服務的自動調整
 
@@ -41,10 +41,10 @@ ms.locfileid: "68359618"
 當您選取雲端服務之後，應該會看見雲端服務刀鋒視窗。
 
 1. 在 [雲端服務] 刀鋒視窗的 [角色和執行個體] 圖格上，選取雲端服務的名稱。   
-   **重要事項**：請務必按一下雲端服務角色, 而不是角色底下的角色實例。
+   **重要**︰請務必按一下雲端服務角色，而不是角色底下的角色執行個體。
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
-2. 選取 [調整]  磚。
+2. 選取 [調整] 磚。
 
     ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
@@ -61,12 +61,12 @@ ms.locfileid: "68359618"
 
 選取 [新增設定檔]。 設定檔決定您要用於調整規模的模式︰**一律**、**週期性**、**固定日期**。
 
-當您設定設定檔與規則之後，請選取頂端的 [儲存]  圖示。
+當您設定設定檔與規則之後，請選取頂端的 [儲存] 圖示。
 
-#### <a name="profile"></a>個人資料
+#### <a name="profile"></a>設定檔
 設定檔會設定調整規模的最小和最大執行個體個數，而且也會在此調整範圍作用中時。
 
-* **一律**
+* **永遠**
 
     一律讓此範圍的執行個體個數保持可用狀態。  
 
@@ -82,7 +82,7 @@ ms.locfileid: "68359618"
 
     ![具有固定日期的雲端服務調整規模](./media/cloud-services-how-to-scale-portal/select-fixed.png)
 
-當您設定設定檔之後，請選取設定檔刀鋒視窗底部的 [確定]  按鈕。
+當您設定設定檔之後，請選取設定檔刀鋒視窗底部的 [確定] 按鈕。
 
 #### <a name="rule"></a>規則
 規則會新增至設定檔，並顯示將觸發調整規模的條件。
@@ -91,7 +91,7 @@ ms.locfileid: "68359618"
 
 ![](./media/cloud-services-how-to-scale-portal/rule-settings.png)
 
-當您設定規則之後，請選取規則刀鋒視窗底部的 [確定]  按鈕。
+當您設定規則之後，請選取規則刀鋒視窗底部的 [確定] 按鈕。
 
 ## <a name="back-to-manual-scale"></a>回到手動調整
 瀏覽至[調整規模設定](#where-scale-is-located)，並將 [調整規模依據] 選項設定為 [手動輸入的執行個體計數]。
@@ -104,4 +104,7 @@ ms.locfileid: "68359618"
 2. 角色執行個體滑桿，可用來設定要調整的執行個體。
 3. 要調整之角色的執行個體。
 
-當您設定調整規模設定之後，請選取頂端的 [儲存]  圖示。
+當您設定調整規模設定之後，請選取頂端的 [儲存] 圖示。
+
+
+

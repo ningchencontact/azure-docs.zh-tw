@@ -1,25 +1,16 @@
 ---
-title: 在 gMSA 帳戶下執行 Azure Service Fabric 服務 |Microsoft Docs
+title: 在 gMSA 帳戶下執行 Azure Service Fabric 服務
 description: 了解如何以 gMSA 身分在 Service Fabric Windows 標準叢集上執行 Service Fabric。
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/29/2018
 ms.author: dekapur
-ms.openlocfilehash: d00eceffebb222196191a389058c0feb496e169a
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 99d8089bd12d05e46f91e55c933d58d50baa92f5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307649"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464266"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>以群組受控服務帳戶身分執行服務
 在 Windows Server 獨立叢集上，您可以使用 RunAs 原則，以群組受控服務帳戶 (gMSA) 身分執行服務。  根據預設，Service Fabric 應用程式會在用以執行 Fabric.exe 程序的帳戶之下執行。 即使在共用主控環境中，以不同帳戶執行應用程式能避免彼此干擾。 請注意，這會使用網域內部部署的 Active Directory，不是 Azure Active Directory (Azure AD)。 使用 gMSA，就不需將密碼或加密的密碼儲存於應用程式資訊清單中。  您也可以利用 [Active Directory 使用者或群組](service-fabric-run-service-as-ad-user-or-group.md)身分執行服務。

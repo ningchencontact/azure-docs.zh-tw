@@ -1,23 +1,15 @@
 ---
-title: 使用 Jenkins 連續建置和整合 Azure Service Fabric Linux 應用程式 | Microsoft Docs
+title: 使用 Jenkins 的 Linux 應用程式持續組建
 description: 使用 Jenkins 連續建置和整合 Service Fabric Linux 應用程式
-services: service-fabric
-documentationcenter: java
 author: sayantancs
-manager: jpconnock
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/31/2018
-ms.author: jeconnoc
-ms.openlocfilehash: b757a0a5f3ce968b396fa89d5b32c18257d620c3
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 175338fef600f6e726fd02eee6b0f416181bd9dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875090"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610211"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>使用 Jenkins 建置和部署您的 Linux 應用程式
 Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 Jenkins 建置和部署 Azure Service Fabric 應用程式的方式。
@@ -35,7 +27,7 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
    * 對於開發和測試環境，請使用[使用叢集管理觀點設定部署](#configure-deployment-using-cluster-management-endpoint)。 這是最簡單的設定部署方法。
    * 對於生產環境，請使用[使用 Azure 認證設定部署](#configure-deployment-using-azure-credentials)。 Microsoft 建議針對生產環境使用此方法，因為使用 Azure 認證，您就可以限制 Jenkins 工作對 Azure 資源的存取權。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 確定已在本機安裝 Git。 您可以根據您的作業系統，從 [Git 下載頁面](https://git-scm.com/downloads)安裝適當的 Git 版本。 如果您不熟悉 Git，請從 [Git 文件](https://git-scm.com/docs)深入了解。
 - 本文針對要建置和部署的應用程式，使用 GitHub 的 *Service Fabric 使用者入門範例*：[https://github.com/Azure-Samples/service-fabric-java-getting-started](https://github.com/Azure-Samples/service-fabric-java-getting-started)。 您可以為此儲存機制建立分支來據以進行作業，或對指示稍微做一些修改，以使用您自己的 GitHub 專案。
@@ -84,7 +76,7 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
 1. 在檔案共用中保存 Jenkins 容器的狀態：
    1. 以 `sfjenkinsstorage1` 之類的名稱，在和叢集**相同的區域**中建立 Azure 儲存體帳戶。
    1. 以 `sfjenkins` 之類的名稱，在儲存體帳戶下建立**檔案共用**。
-   1. 針對該檔案共用按一下 [連接]  ，並記下 [正在從 Linux 連線]  底下顯示的值，該值看起來應該如下所示：
+   1. 針對該檔案共用按一下 [連接]，並記下 [正在從 Linux 連線] 底下顯示的值，該值看起來應該如下所示：
 
       ```sh
       sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
@@ -155,7 +147,7 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
    ```sh
    cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the password value
    ```
-1. 在 [Jenkins 入門] 頁面上，選擇 [選取要安裝的外掛程式] 選項，選取 [無]  核取方塊，然後按一下 [安裝]。
+1. 在 [Jenkins 入門] 頁面上，選擇 [選取要安裝的外掛程式] 選項，選取 [無] 核取方塊，然後按一下 [安裝]。
 1. 建立使用者，或選擇繼續使用系統管理員身分。
 
 在您設定 Jenkins 之後，略過至[建立及設定 Jenkins 工作](#create-and-configure-a-jenkins-job)。  
@@ -164,7 +156,7 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
 
 您可以在 Service Fabric 叢集內部或外部設定 Jenkins。 下列各節顯示如何在叢集外設定。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 - 確定您的電腦上已安裝 Docker。 使用下列命令可從終端機安裝 Docker︰
 
   ```sh
@@ -191,7 +183,7 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
       cat /var/jenkins_home/secrets/initialAdminPassword
       ```      
    1. 若要登入 Jenkins 儀表板，請在網頁瀏覽器中開啟以下 URL：`http://<HOST-IP>:8080`。 使用之前步驟的密碼將 Jenkins 解除鎖定。
-   1. (選擇性。)第一次登入之後，您可以建立您自己的使用者帳戶，並針對下列步驟使用該帳戶，或者您可以繼續使用系統管理員帳戶。 如果您建立使用者，就需要繼續使用該使用者。
+   1. （選擇性）。第一次登入之後，您可以建立自己的使用者帳戶，並將其用於下列步驟，或者您可以繼續使用系統管理員帳戶。 如果您建立使用者，就需要繼續使用該使用者。
 1. 設定 GitHub 以 Jenkins，方法為使用[產生新的 SSH 金鑰，並將它新增至 SSH 代理程式](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)中的步驟。
    * 使用 GitHub 所提供的指示產生 SSH 金鑰，並將 SSH 金鑰新增至裝載存放庫的 GitHub 帳戶。
    * 在 Jenkins Docker 殼層 (而非在主機上) 執行上述連結內所提到的命令。
@@ -209,31 +201,31 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
 
 本節中的步驟會說明如何設定 Jenkins 工作，以回應 GitHub 儲存機制中的變更，擷取變更，然後建置它們。 在本小節結尾處，會將您導向至設定工作的最終步驟，以依據您是要部署至開發/測試環境，或部署至生產環境來部署應用程式。 
 
-1. 在 Jenkins 儀表板中，按一下 [新增項目]  。
-1. 輸入項目名稱 (例如，**MyJob**)。 選取 [自由樣式專案]  ，然後按一下 [確定]  。
-1. 隨即開啟 [工作組態] 頁面。 (若要從 Jenkins 儀表板前往組態，請按一下工作，然後按一下 [設定]  )。
+1. 在 Jenkins 儀表板中，按一下 [新增項目]。
+1. 輸入項目名稱 (例如，**MyJob**)。 選取 [自由樣式專案]，然後按一下 [確定]。
+1. 隨即開啟 [工作組態] 頁面。 (若要從 Jenkins 儀表板前往組態，請按一下工作，然後按一下 [設定])。
 
-1. 在 [一般]  索引標籤中，選取 [GitHub 專案]  的核取方塊，然後指定您的 GitHub 專案 URL。 此 URL 會裝載您想要與 Jenkins 連續整合、連續部署 (CI/CD) 流程整合的 Service Fabric Java 應用程式 (例如，`https://github.com/{your-github-account}/service-fabric-java-getting-started`)。
+1. 在 [一般] 索引標籤中，選取 [GitHub 專案] 的核取方塊，然後指定您的 GitHub 專案 URL。 此 URL 會裝載您想要與 Jenkins 連續整合、連續部署 (CI/CD) 流程整合的 Service Fabric Java 應用程式 (例如，`https://github.com/{your-github-account}/service-fabric-java-getting-started`)。
 
-1. 在 [原始程式碼管理]  索引標籤中，選取 [Git]  。 指定存放庫 URL，它會裝載您想要與 Jenkins CI/CD 流程整合的 Service Fabric Java 應用程式 (例如，`https://github.com/{your-github-account}/service-fabric-java-getting-started`)。 您也可以指定要建置一個分支 (例如，`/master`)。
+1. 在 [原始程式碼管理] 索引標籤中，選取 [Git]。 指定存放庫 URL，它會裝載您想要與 Jenkins CI/CD 流程整合的 Service Fabric Java 應用程式 (例如，`https://github.com/{your-github-account}/service-fabric-java-getting-started`)。 您也可以指定要建置一個分支 (例如，`/master`)。
 1. 將您的 *GitHub* 儲存機制設定為與 Jenkins 通訊：
 
-   a. 在您的 GitHub 儲存機制頁面中，前往 [設定]   > [整合和服務]  。
+   a. 在您的 GitHub 儲存機制頁面中，前往 [設定] > [整合和服務]。
 
-   b. 選取 [新增服務]  、輸入 **Jenkins**，然後選取 [Jenkins-Github 外掛程式]  。
+   b. 選取 [新增服務]、輸入 **Jenkins**，然後選取 [Jenkins-Github 外掛程式]。
 
-   c. 輸入您的 Jenkins webhook URL (根據預設，它應該是 `http://<PublicIPorFQDN>:8081/github-webhook/`)。 按一下 [新增/更新服務]  。
+   c. 輸入您的 Jenkins webhook URL (根據預設，它應該是 `http://<PublicIPorFQDN>:8081/github-webhook/`)。 按一下 [新增/更新服務]。
 
    d. 隨即會將測試事件傳送至您的 Jenkins 執行個體。 您應該會在 GitHub 中看到 webhook 所做的綠色勾號，而且您的專案將會建置。
 
-1. 在 Jenkins 的 [建置觸發程序]  索引標籤中，選取您想要的建置選項。 對於此範例，您想要在推入至儲存機制時觸發組建，因此請選取 [GITScm 輪詢的 GitHub 勾點觸發程序]  。 (在先前，此選項稱為**當變更推送至 GitHub 時建置**。)
-1. 在 [建置]  索引標籤上，視您要建置 Java 應用程式或 .NET Core 應用程式，執行下列其中一個動作：
+1. 在 Jenkins 的 [建置觸發程序] 索引標籤中，選取您想要的建置選項。 對於此範例，您想要在推入至儲存機制時觸發組建，因此請選取 [GITScm 輪詢的 GitHub 勾點觸發程序]。 (在先前，此選項稱為**當變更推送至 GitHub 時建置**。)
+1. 在 [建置] 索引標籤上，視您要建置 Java 應用程式或 .NET Core 應用程式，執行下列其中一個動作：
 
-   * **對於 Java 應用程式：** 從 [新增建置步驟]  下拉式清單中，選取 [呼叫 Gradle 指令碼]  。 按一下 [進階]  。 在進階功能表，針對您的應用程式指定 [根建置指令碼]  的路徑。 它會從指定的路徑挑選 build.gradle，並據以運作。 對於 [ActorCounter 應用程式](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter)，這是：`${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
+   * **對於 Java 應用程式：** 從 [新增建置步驟] 下拉式清單中，選取 [呼叫 Gradle 指令碼]。 按一下 **[進階]** 。 在進階功能表，針對您的應用程式指定 [根建置指令碼] 的路徑。 它會從指定的路徑挑選 build.gradle，並據以運作。 對於 [ActorCounter 應用程式](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter)，這是：`${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
 
      ![Service Fabric Jenkins 建置動作][build-step]
 
-   * **對於 .NET Core 應用程式：** 從 [新增建置步驟]  下拉式清單中，選取 [執行殼層]  。 在出現的命令方塊中，首先需要將目錄變更為 build.sh 檔案所在的路徑。 一旦目錄變更，就可以執行 build.sh 指令碼，並建置應用程式。
+   * **對於 .NET Core 應用程式：** 從 [新增建置步驟] 下拉式清單中，選取 [執行殼層]。 在出現的命令方塊中，首先需要將目錄變更為 build.sh 檔案所在的路徑。 一旦目錄變更，就可以執行 build.sh 指令碼，並建置應用程式。
 
       ```sh
       cd /var/jenkins_home/workspace/[Job Name]/[Path to build.sh]  # change directory to location of build.sh file
@@ -259,7 +251,7 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
         ``` 
 
-        如果 PFX 檔案受密碼保護，請在 `-passin` 參數中包括密碼。 例如:
+        如果 PFX 檔案受密碼保護，請在 `-passin` 參數中包括密碼。 例如：
 
         ```sh
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
@@ -280,16 +272,16 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
 ## <a name="configure-deployment-using-cluster-management-endpoint"></a>使用叢集管理端點設定部署
 對於開發和測試環境，您可以使用叢集管理端點部署應用程式。 使用叢集管理端點設定建置後動作部署應用程式時，需要進行最少的設定。 如果您是要部署至生產環境，請略過至[使用 Azure 認證設定部署](#configure-deployment-using-azure-credentials)，以設定 Azure Active Directory 服務主體，以在部署期間使用。    
 
-1. 在 Jenkins 作業中，按一下 [建置後動作]  索引標籤。 
-1. 從 [建置後動作]  下拉式清單，選取 [部署 Service Fabric 專案]  。 
-1. 在 [Service Fabric 叢集組態]  底下，選取 [填入 Service Fabric 管理端點]  選項按鈕。
-1. 對於 [管理主機]  ，請輸入叢集的連線端點；例如 `{your-cluster}.eastus.cloudapp.azure.com`。
-1. 對於 [用戶端金鑰]  和 [用戶端憑證]  ，請輸入您 Jenkins 容器中 PEM 檔案的位置；例如 `/var/jenkins_home/clustercert.pem`。 (您已經在[建立及設定 Jenkins 作業](#create-and-configure-a-jenkins-job)的最後一個步驟複製憑證位置。)
-1. 在 [應用程式組態]  底下，設定 [應用程式名稱]  、[應用程式類型]  ，和 (相關) [應用程式資訊清單路徑]  欄位。
+1. 在 Jenkins 作業中，按一下 [建置後動作] 索引標籤。 
+1. 從 [建置後動作] 下拉式清單，選取 [部署 Service Fabric 專案]。 
+1. 在 [Service Fabric 叢集組態] 底下，選取 [填入 Service Fabric 管理端點] 選項按鈕。
+1. 對於 [管理主機]，請輸入叢集的連線端點；例如 `{your-cluster}.eastus.cloudapp.azure.com`。
+1. 對於 [用戶端金鑰] 和 [用戶端憑證]，請輸入您 Jenkins 容器中 PEM 檔案的位置；例如 `/var/jenkins_home/clustercert.pem`。 (您已經在[建立及設定 Jenkins 作業](#create-and-configure-a-jenkins-job)的最後一個步驟複製憑證位置。)
+1. 在 [應用程式組態] 底下，設定 [應用程式名稱]、[應用程式類型]，和 (相關) [應用程式資訊清單路徑] 欄位。
 
    ![Service Fabric Jenkins 建置後動作設定管理端點](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-endpoint.png)
 
-1. 按一下 [驗證組態  ]。 在驗證成功之後，按一下 [儲存]  。 您的 Jenkins 作業管線現在已完整設定。 略過至 [後續步驟](#next-steps) 以測試部署。
+1. 按一下 [驗證組態]。 在驗證成功之後，按一下 [儲存]。 您的 Jenkins 作業管線現在已完整設定。 略過至 [後續步驟](#next-steps) 以測試部署。
 
 ## <a name="configure-deployment-using-azure-credentials"></a>使用 Azure 認證設定部署
 對於生產環境，強烈建議您設定 Azure 認證以部署應用程式。 本節會說明如何設定 Azure Active Directory 服務主體，以用來在建置後動作中部署應用程式。 您可以指派服務主體給目錄中的角色，以限制 Jenkins 作業的權限。 
@@ -299,30 +291,30 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
 1. 若要建立 Azure Active Directory 服務主體，並在 Azure 訂用帳戶中指派權限給它，請依照[使用入口網站建立 Azure Active Directory 應用程式和服務主體](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)中的步驟進行。 請注意以下事項：
 
    * 依照主題中的步驟進行時，請務必複製並儲存下列值：*應用程式 ID*、*應用程式金鑰*、*目錄 ID (租用戶 ID)* ，和*訂用帳戶 ID*。 您需要它們才能在 Jenkins 中設定 Azure 認證。
-   * 如果您沒有目錄的[必要權限](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) \(英文\)，將需要要求系統管理員授予權限，或為您建立服務主體，或者您需要針對 Jenkins 中的工作，在 [建置後動作]  中為叢集設定管理端點。
-   * 在[建立 Azure Active Directory 應用程式](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application)[登入 URL]  輸入任何格式正確的 URL。
+   * 如果您沒有目錄的[必要權限](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) \(英文\)，將需要要求系統管理員授予權限，或為您建立服務主體，或者您需要針對 Jenkins 中的工作，在 [建置後動作] 中為叢集設定管理端點。
+   * 在[建立 Azure Active Directory 應用程式](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application)[登入 URL] 輸入任何格式正確的 URL。
    * 在[指派應用程式給角色](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) 一節中，您可以將叢集資源群組的 *Reader* 角色指派給應用程式。
 
-1. 回到 Jenkins 作業，按一下 [建置後動作]  索引標籤。
-1. 從 [建置後動作]  下拉式清單，選取 [部署 Service Fabric 專案]  。 
-1. 在 [Service Fabric 叢集組態]  底下，選取 [選取 Service Fabric 叢集]  選項按鈕。 按下 [Azure 認證]  旁邊的 [新增]  。 按一下 [Jenkins]  選取 Jenkins 認證提供者。
-1. 在 Jenkins 認證提供者中，從 [種類]  下拉式清單中，選取 [Microsoft Azure 服務主體]  。
+1. 回到 Jenkins 作業，按一下 [建置後動作] 索引標籤。
+1. 從 [建置後動作] 下拉式清單，選取 [部署 Service Fabric 專案]。 
+1. 在 [Service Fabric 叢集組態] 底下，選取 [選取 Service Fabric 叢集] 選項按鈕。 按下 [Azure 認證] 旁邊的 [新增]。 按一下 [Jenkins] 選取 Jenkins 認證提供者。
+1. 在 Jenkins 認證提供者中，從 [種類] 下拉式清單中，選取 [Microsoft Azure 服務主體]。
 1. 使用您在步驟 1 設定服務主體時儲存的值設定下列欄位：
 
-   * **用戶端識別碼**：*應用程式識別碼*
-   * **用戶端密碼**：*應用程式金鑰*
-   * **租用戶識別碼**：*目錄識別碼*
-   * **訂用帳戶識別碼**：*訂用帳戶識別碼*
-1. 輸入您用來在 Jenkins 中選取認證的描述性 [識別碼]  ，和簡短的 [描述]  。 然後按一下 [驗證服務主體]  。 如果驗證成功，請按一下 [新增]  。
+   * [用戶端識別碼]：[應用程式識別碼]
+   * [用戶端祕密]：[應用程式金鑰]
+   * [租用戶識別碼]：[目錄識別碼]
+   * [訂用帳戶識別碼]：[訂用帳戶識別碼]
+1. 輸入您用來在 Jenkins 中選取認證的描述性 [識別碼]，和簡短的 [描述]。 然後按一下 [驗證服務主體]。 如果驗證成功，請按一下 [新增]。
 
    ![Service Fabric Jenkins 輸入 Azure 認證](./media/service-fabric-cicd-your-linux-application-with-jenkins/enter-azure-credentials.png)
-1. 回到 [Service Fabric 叢集組態]  底下，確認您已經針對 [Azure 認證]  選取新的認證。 
-1. 從 [資源群組]  下拉式清單中，針對您要部署應用程式的叢集，選取叢集的資源群組。
-1. 從 [Service Fabric]  下拉式清單，選取您要部署應用程式的叢集。
-1. 對於 [用戶端金鑰]  和 [用戶端憑證]  ，請輸入您 Jenkins 容器中 PEM 檔案的位置。 例如 `/var/jenkins_home/clustercert.pem`。 
-1. 在 [應用程式組態]  底下，設定 [應用程式名稱]  、[應用程式類型]  ，和 (相關) [應用程式資訊清單路徑]  欄位。
+1. 回到 [Service Fabric 叢集組態] 底下，確認您已經針對 [Azure 認證] 選取新的認證。 
+1. 從 [資源群組] 下拉式清單中，針對您要部署應用程式的叢集，選取叢集的資源群組。
+1. 從 [Service Fabric] 下拉式清單，選取您要部署應用程式的叢集。
+1. 對於 [用戶端金鑰] 和 [用戶端憑證]，請輸入您 Jenkins 容器中 PEM 檔案的位置。 例如 `/var/jenkins_home/clustercert.pem` 。 
+1. 在 [應用程式組態] 底下，設定 [應用程式名稱]、[應用程式類型]，和 (相關) [應用程式資訊清單路徑] 欄位。
     ![Service Fabric Jenkins 建置後動作設定 Azure 認證](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
-1. 按一下 [驗證組態  ]。 在驗證成功之後，按一下 [儲存]  。 您的 Jenkins 作業管線現在已完整設定。 繼續至 [後續步驟](#next-steps) 以測試部署。
+1. 按一下 [驗證組態]。 在驗證成功之後，按一下 [儲存]。 您的 Jenkins 作業管線現在已完整設定。 繼續至 [後續步驟](#next-steps) 以測試部署。
 
 ## <a name="troubleshooting-the-jenkins-plugin"></a>對 Jenkins 外掛程式進行疑難排解
 

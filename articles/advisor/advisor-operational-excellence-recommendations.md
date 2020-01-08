@@ -1,19 +1,14 @@
 ---
-title: 使用 Azure Advisor 改善 Azure 訂用帳戶的操作 excellency |Microsoft Docs
-description: 使用 Advisor 優化您的 Azure 訂用帳戶，並在操作上獲得成熟的品質。
-services: advisor
-documentationcenter: NA
-author: sagupt
-ms.service: advisor
+title: 使用 Azure Advisor 改善 Azure 訂用帳戶的操作 excellency
+description: 使用 Advisor 優化您的 Azure 訂用帳戶，並獲得成熟的營運品質
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: sagupt
-ms.openlocfilehash: 7cf3d3b34d0921cd111f8111bc2008ef0eced962
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: f34284ba62bd5dea98345ebe73365b332d38ee78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033286"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443081"
 ---
 # <a name="achieve-operational-excellence-with-azure-advisor"></a>透過 Azure Advisor 實現卓越的營運
 
@@ -37,7 +32,7 @@ Azure Advisor 將會偵測到其 [條件] 區段中指定了無效查詢的警�
 
 ## <a name="follow-best-practices-using-azure-policy"></a>遵循使用 Azure 原則的最佳做法
 
-Azure 原則是 Azure 中的一個服務，您可以用來建立、指派和管理原則。 這些原則會對您的資源強制執行不同的規則和效果。 以下是可協助您達成營運 excellency 的 Azure 原則建議： 
+Azure 原則是 Azure 中的一個服務，您可以用來建立、指派和管理原則。 這些原則會對您的資源強制執行不同規則和影響。 以下是可協助您達成營運 excellency 的 Azure 原則建議： 
 1. 使用 Azure 原則管理標記：此原則會在建立或更新任何資源時，新增或取代指定的標記和值。 您可以藉由觸發補救工作來補救現有的資源。 此外，這不會修改資源群組上的標記。
 2. 使用 Azure 原則強制執行地理合規性需求：原則可讓您限制組織在部署資源時可指定的位置。 
 3. 指定部署所允許的虛擬機器 Sku：此原則可讓您指定您的組織可以部署的一組虛擬機器 Sku。

@@ -2,19 +2,15 @@
 title: 將您的 OMS 更新部署遷移至 Azure
 description: 本文說明如何將您現有的 OMS 更新部署遷移至 Azure
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 08b3f11f3e44c6580df9942aab2a890115c79ba3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2660e4a348d2ffd71f912ff80c36a5a9a3c9fe88
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849491"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417773"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>將您的 OMS 更新部署遷移至 Azure
 
@@ -57,9 +53,9 @@ Operations Management Suite (OMS) 入口網站已被[取代](../azure-monitor/pl
 
 針對要更新的電腦，選取現有 OMS 部署所使用的已儲存搜尋。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
-|Name |用以識別更新部署的唯一名稱。 |
+|名稱 |用以識別更新部署的唯一名稱。 |
 |作業系統| 選取 [Linux] 或 [Windows]。|
 |要更新的機器 |選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。</br> 若要深入了解在 Azure 監視器記錄中建立電腦群組的不同方法，請參閱 [Azure 監視器記錄中的電腦群組](../azure-monitor/platform/computer-groups.md) |
 |更新分類|選取您需要的所有更新分類。 CentOS 預設不支援這種更新分類。|

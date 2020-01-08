@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 0c5f64e08446698bbd8d1ee4af5454e3aa1dd5ff
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 264c434849d5d5afb5934873c75d172a3783ac86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693549"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459683"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>使用受控識別來驗證您的 Azure 串流分析作業，以 Power BI （預覽）
 
@@ -169,6 +169,29 @@ Azure Resource Manager 可讓您將串流分析作業的部署作業完全自動
 3. 選取 [**新增**]，然後關閉窗格。
 
    ![將串流分析作業新增至 Power BI 工作區](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-add-job-to-powerbi-workspace.png)
+
+### <a name="use-the-power-bi-powershell-cmdlets"></a>使用 Power BI PowerShell Cmdlet
+
+1. 安裝 Power BI `MicrosoftPowerBIMgmt` PowerShell Cmdlet。
+
+   > [!Important]
+   > 請確定您使用的是1.0.821 或更新版本的 Cmdlet。
+
+```powershell
+Install-Module -Name MicrosoftPowerBIMgmt
+```
+
+2. 登入 Power BI。
+
+```powershell
+Login-PowerBI
+```
+
+3. 將您的串流分析作業新增為工作區的參與者。
+
+```powershell
+Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+```
 
 ### <a name="use-the-power-bi-rest-api"></a>使用 Power BI REST API
 

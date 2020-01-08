@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 0f35f22d6bd32d75d5c3b07d8a20b4bb7714e247
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: aacba12b32e9da75c2a4b9a20c0faa235cf6836a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71799567"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459314"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>整合 Microsoft Azure 和 Oracle 雲端基礎結構的 oracle 應用程式解決方案（預覽）
 
@@ -50,9 +50,9 @@ Microsoft 和 Oracle 合作提供低延遲、高輸送量的跨雲端連線能�
 
 ## <a name="preview-limitations"></a>預覽限制
 
-* 預覽中的跨雲端連線能力僅限於 Azure 美國東部（eastus） & 英國南部（uksouth）區域和 OCI 阿什本（美國東部） & 倫敦（英國南部）區域。 針對英國南部，請在部署進行中的延遲時間較低時，在 OCI 中使用可用性網域1（AD 1）。
+* 預覽中的跨雲端連線僅限於 Azure 美國東部（eastus）、英國南部（uksouth）和加拿大中部（canadacentral）區域，以及 OCI 阿什本（美國東部）、倫敦（英國南部）和多倫多（加拿大東南部）區域。 針對英國南部，請在部署進行中的延遲時間較低時，在 OCI 中使用可用性網域1（AD 1）。
 
-## <a name="networking"></a>網路功能
+## <a name="networking"></a>網路
 
 企業客戶通常會選擇在多個雲端上 多樣化和部署工作負載，以因應各種商務和操作的原因。 若要 多樣化，客戶可以使用網際網路、IPSec VPN，或透過內部部署網路使用雲端提供者的直接連線解決方案，來與雲端網路互連。 將雲端網路互連，可能需要大量投資時間、金錢、設計、採購、安裝、測試和作業。 
 

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
-ms.openlocfilehash: c69b4c15397dc13f36a707f932c2464a4ff94ca7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2073123a61e919c10caaaea141f776e842f4d717
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838473"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427743"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio-classic"></a>如何選擇 Azure Machine Learning Studio 的演算法（傳統）
 
@@ -23,7 +23,7 @@ ms.locfileid: "73838473"
 
 「我該使用何種機器學習演算法？ 」的答案永遠都是「視情況。 」 這可視資料的大小、品質和本質而定。 也可取決於您想用這個答案來做些什麼。 或是取決於演算法的數學運算如何針對您正在使用的電腦轉譯成指令。 而這又需視您有多少時間。 即使經驗最豐富的資料科學家，在沒有嘗試之前，也無法確認哪一個演算法效果會最好。
 
-Machine Learning Studio （傳統）提供最先進的演算法，例如可擴充的推進式決策樹、貝氏建議系統、深度類神經網路，以及在 Microsoft Research 開發的決策叢林。 此外也包含可調整的開放原始碼機器學習套件，例如 Vowpal Wabbit。 傳統版本的 Machine Learning Studio 支援多元和二元分類、回歸和叢集的機器學習演算法。 請參閱[機器學習服務單元](/azure/machine-learning/studio-module-reference/index)的完整清單。
+Machine Learning Studio （傳統）提供最先進的演算法，例如可擴充的推進式決策樹、貝氏建議系統、深度類神經網路，以及在 Microsoft Research 開發的決策叢林。 此外也包含可調整的開放原始碼機器學習套件，例如 Vowpal Wabbit。 Machine Learning Studio （傳統）支援多元和二元分類、回歸和叢集的機器學習演算法。 請參閱[機器學習服務單元](/azure/machine-learning/studio-module-reference/index)的完整清單。
 文件提供每個演算法的一些相關資訊，以及如何微調參數，以針對您的使用最佳化演算法。  
 
 
@@ -49,7 +49,7 @@ Machine Learning Studio （傳統）提供最先進的演算法，例如可擴�
 
 監督式學習演算法會根據一組範例做出預測。 比方說，歷史股票價格可以用來對未來價格進行猜測。 用於定型的各個範例都會標上需要關注的值，在這裡指的就是股價。 監督式學習演算法會在這些值標籤中尋找模式。 它可以使用任何可能相關的資訊 (星期幾、季度、公司的財務資料、產業類型、是否有破壞性的地緣政治事件等)，然後每個演算法就會尋找不同類型的模式。 當演算法找到最佳模式之後，它會使用這種模式為沒有標示的測試資料 (也就是未來的股價) 做出預測。
 
-監督式學習是常見且實用的機器學習類型。 但有一個例外，傳統版本 Azure Machine Learning Studio 中的所有模組都是監督式學習演算法。 有數種特定類型的監督式學習會在 Azure Machine Learning Studio （傳統）中呈現：分類、回歸和異常偵測。
+監督式學習是常見且實用的機器學習類型。 但有一個例外狀況，Azure Machine Learning Studio （傳統）中的所有模組都是監督式學習演算法。 有數種特定類型的監督式學習會在 Azure Machine Learning Studio （傳統）中呈現：分類、回歸和異常偵測。
 
 * **分類**。 當資料用來預測類別時，這種監督式學習也稱為分類。 將影像指定為 'cat' 或 'dog' 的圖片便屬這種情況。 如果只有兩個選擇，則稱作**雙類別**或**二項式分類**。 如果有多個類別，例如預測 NCAA 季後賽的優勝隊伍，則這個問題就稱為 **多類別分類**。
 * **迴歸**。 如果要預測值，例如股價，這種監督式學習稱為迴歸。
@@ -83,11 +83,11 @@ Machine Learning Studio （傳統）提供最先進的演算法，例如可擴�
 
 ![非線性類別界限](./media/algorithm-choice/image1.png)
 
-***非線性類別界限*** *- 依賴線性分類演算法會造成低精確度的結果*
+非線性***類別界限*** *-依賴線性分類演算法會導致低精確度*
 
 ![具有非線性趨勢的資料](./media/algorithm-choice/image2.png)
 
-***具有非線性趨勢的資料*** *：使用線性迴歸方法會產生較大且不必要的誤差*
+***具有非線性趨勢的資料*** *-使用線性回歸方法會產生比所需更大的錯誤*
 
 儘管有風險，線性演算法對於首次攻擊而言仍是一種非常熱門的方式。 這種演算法定型起來通常又快又簡單。
 
@@ -95,7 +95,7 @@ Machine Learning Studio （傳統）提供最先進的演算法，例如可擴�
 
 參數是資料科學家在設定演算法時的必經之路。 參數就是會影響演算法行為的數值，例如容錯或反覆運算次數，或是演算法運作方式的變化選項。 定型時間和演算法的精確度有時候很容易因為設定是否正確而受到影響。 通常，具有大量參數的演算法需要最多的試用和錯誤，才能找到良好的組合。
 
-或者，在傳統版本的 Azure Machine Learning Studio 中有一個[參數](algorithm-parameters-optimize.md)清除模組區塊，會自動以您選擇的任何資料細微性來嘗試所有參數組合。 雖然這是確認是否定義出參數空間的好方法，但定型模型時所需的時間，仍會以指數方式隨著參數數目而增加。
+或者，在 Azure Machine Learning Studio （傳統）中有一個[參數](algorithm-parameters-optimize.md)清除模組區塊，會自動以您選擇的任何資料細微性來嘗試所有參數組合。 雖然這是確認是否定義出參數空間的好方法，但定型模型時所需的時間，仍會以指數方式隨著參數數目而增加。
 
 一般而言，具有許多參數的優點是可讓演算法有更大的彈性。 如果您可以找到正確的參數設定組合，它通常可以達到極佳的精確度。
 
@@ -161,7 +161,7 @@ Machine Learning Studio （傳統）提供最先進的演算法，例如可擴�
 
 ![羅吉斯迴歸與只有一項特徵的雙類別資料](./media/algorithm-choice/image4.png)
 
-***羅吉斯迴歸與只有一項特徵的雙類別資料*** *- 類別界限的點就是羅吉斯曲線接近這兩個類別的地方*
+***羅吉斯回歸為只有一項特徵的雙類別資料*** *-類別界限是羅吉斯曲線接近這兩個類別的點*
 
 ### <a name="trees-forests-and-jungles"></a>樹、樹系和叢林
 
@@ -179,7 +179,7 @@ Machine Learning Studio （傳統）提供最先進的演算法，例如可擴�
 
 ### <a name="neural-networks-and-perceptrons"></a>類神經網路和感知器
 
-類神經網路是受大腦啟發的學習演算法，其中涵蓋[多類別](/azure/machine-learning/studio-module-reference/multiclass-neural-network)、[雙類別](/azure/machine-learning/studio-module-reference/two-class-neural-network)和[迴歸](/azure/machine-learning/studio-module-reference/neural-network-regression)問題。 它們都有無限的不同，但傳統版本 Azure Machine Learning Studio 內的類神經網路，全都是導向非循環圖表的形式。 這表示輸入的特徵在轉換成輸出前，會在一連串的層中一直向前傳遞，且永遠不會向後。 在每個層中，會以各種組合加權輸入、再加以加總，然後傳遞到下一個層。 這種簡單的計算組合能夠學習複雜的類別界限和資料趨勢，就好像魔術一樣。 這類擁有許多層的網路會執行所謂的「深度學習」，聽起來很適合當作科技報導和科幻小說題材的能力。
+類神經網路是受大腦啟發的學習演算法，其中涵蓋[多類別](/azure/machine-learning/studio-module-reference/multiclass-neural-network)、[雙類別](/azure/machine-learning/studio-module-reference/two-class-neural-network)和[迴歸](/azure/machine-learning/studio-module-reference/neural-network-regression)問題。 它們都有無限的不同，但 Azure Machine Learning Studio （傳統）內的類神經網路都是導向非循環圖表的形式。 這表示輸入的特徵在轉換成輸出前，會在一連串的層中一直向前傳遞，且永遠不會向後。 在每個層中，會以各種組合加權輸入、再加以加總，然後傳遞到下一個層。 這種簡單的計算組合能夠學習複雜的類別界限和資料趨勢，就好像魔術一樣。 這類擁有許多層的網路會執行所謂的「深度學習」，聽起來很適合當作科技報導和科幻小說題材的能力。
 
 可惜這種高效能並非隨手可得。 類神經網路需要用很長的時間來定型，特別是有許多特徵的大型資料集。 它們也比大部分的演算法具有更多參數，這表示參數掃掠會大幅延長定型時間。
 但對於那些想要 [自行指定專屬網路結構](azure-ml-netsharp-reference-guide.md)的佼佼者而言，它們所賦予的可能性將會是取之不盡的。
@@ -199,13 +199,13 @@ Machine Learning Studio （傳統）提供最先進的演算法，例如可擴�
 
 ***典型的支援向量機器類別界限，會將分隔兩個類別的邊界最大化***
 
-另一個 Microsoft Research 的產品 [雙類別本機深度 SVM](/azure/machine-learning/studio-module-reference/two-class-locally-deep-support-vector-machine) 是 SVM 的非線性變體，能夠保留線性版本中大部分的速度和記憶體效率。 當線性方法的答案不夠精確時，就非常適合使用它。 開發人員藉由將問題細分成幾個小型線性 SVM 問題，來保持 it 的速度。 請閱讀 [完整說明](http://proceedings.mlr.press/v28/jose13.html) ，其中有如何完成這個技巧的詳細資料。
+另一個 Microsoft Research 的產品 [雙類別本機深度 SVM](/azure/machine-learning/studio-module-reference/two-class-locally-deep-support-vector-machine) 是 SVM 的非線性變體，能夠保留線性版本中大部分的速度和記憶體效率。 當線性方法的答案不夠精確時，就非常適合使用它。 開發人員藉由將問題細分成幾個小型線性 SVM 問題，來保持 it 的速度。 請閱讀[完整說明](http://proceedings.mlr.press/v28/jose13.html) ，其中有如何完成這個技巧的詳細資料。
 
 使用聰明的非線性 SVM 延伸模組 (即 [單一類別 SVM](/azure/machine-learning/studio-module-reference/one-class-support-vector-machine) )，可繪製出緊密圍繞整個資料集的界限。 這適合用於異常偵測。 任何遠超出該界限外的新資料點，其異常程度都值得特別注意。
 
 ### <a name="bayesian-methods"></a>貝氏方法
 
-貝氏方法具有令人滿意的高品質：可避免過度學習。 這些方法會針對可能的答案分佈事先做出一些假設。 這種方法的另一個附加好處在於其參數非常少。 傳統版本的 Azure Machine Learning Studio 具有分類（[雙類別貝氏機率分類「點電腦](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine)」）和回歸（[貝氏線性回歸](/azure/machine-learning/studio-module-reference/bayesian-linear-regression)）的貝氏演算法。
+貝氏方法具有令人滿意的高品質：可避免過度學習。 這些方法會針對可能的答案分佈事先做出一些假設。 這種方法的另一個附加好處在於其參數非常少。 Azure Machine Learning Studio （傳統）有適用于分類（[雙類別貝氏機率分類「點電腦](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine)」）和回歸（[貝氏線性回歸](/azure/machine-learning/studio-module-reference/bayesian-linear-regression)）的貝氏演算法。
 請注意，這些假設是建立在資料可以用一條直線分割或符合一條直線的情況下。
 
 在歷史記錄中，貝氏點機器是由 Microsoft Research 所開發。 它們有一些格外出色的理論做為後盾。 有興趣的學生可參考 [JMLR 中的原始文章](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf)和 [Chris Bishop 深入探討的部落格](https://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx)。
@@ -218,21 +218,21 @@ Machine Learning Studio （傳統）提供最先進的演算法，例如可擴�
 - 異常偵測 (一個以[主體元件分析](/azure/machine-learning/studio-module-reference/pca-based-anomaly-detection)為基礎，一個以[支援向量機器](/azure/machine-learning/studio-module-reference/one-class-support-vector-machine)為基礎)
 - 叢集 ([K-means](/azure/machine-learning/studio-module-reference/k-means-clustering))
 
-![以 PCA 為基礎的異常偵測](./media/algorithm-choice/image8.png)
+![PCA 型異常偵測](./media/algorithm-choice/image8.png)
 
-***以 PCA 為基礎的異常偵測*** *：大部分的資料均可分成舊式的散佈；而大幅偏離該散佈的點都是可疑之處*
+以***PCA 為基礎的異常偵測*** *-大部分的資料都落在舊式分佈中，而從該散發套件中而偏離明顯的點*
 
 ![使用 K-means 分組的資料集](./media/algorithm-choice/image9.png)
 
 ***資料集使用 K-means 分為五個叢集***
 
-另外還有整體的 [一對多多類別分類器](/azure/machine-learning/studio-module-reference/one-vs-all-multiclass)，其中會將 N 類別分類問題分成 N-1 雙類別分類問題。 精確度、定型時間和線性屬性是由使用的雙類別分類器來決定。
+另外還有整體的[一對多多類別分類器](/azure/machine-learning/studio-module-reference/one-vs-all-multiclass)，其中會將 N 類別分類問題分成 N-1 雙類別分類問題。 精確度、定型時間和線性屬性是由使用的雙類別分類器來決定。
 
 ![雙類別分類器結合成三個類別分類器](./media/algorithm-choice/image10.png)
 
 ***一組雙類別分類器結合成三個類別分類器***
 
-傳統版本的 Azure Machine Learning Studio 也可存取[Vowpal Wabbit](/azure/machine-learning/studio-module-reference/train-vowpal-wabbit-version-7-4-model)標題下的功能強大的機器學習架構。
+Azure Machine Learning Studio （傳統）也可存取[Vowpal Wabbit](/azure/machine-learning/studio-module-reference/train-vowpal-wabbit-version-7-4-model)標題下的功能強大的機器學習架構。
 VW 背離這裡的歸納，因為它可以學習分類和迴歸問題，甚至還能從一些沒有標記的資料中學習。 您可以將它設定為任意使用一些學習演算法、損失函式以及最佳化演算法。 它從一開始就是設計為高效率、可平行工作且速度極快。 它可以輕鬆處理大到不可思議的特徵集。
 由創辦 Microsoft Research 的 John Langford 所發起及領導的 VW，可謂原裝賽車演算法領域中的一級方程式項目。 並非所有問題都符合 VW，但如果能符合，或許會值得您花時間在它的介面中了解它的學習曲線。 它也有以數種語言提供 [獨立的開放原始程式碼](https://github.com/JohnLangford/vowpal_wabbit) 。
 
@@ -242,4 +242,4 @@ VW 背離這裡的歸納，因為它可以學習分類和迴歸問題，甚至�
 
 * 如需 Machine Learning Studio （傳統）中可用的所有機器學習演算法的清單，請參閱 Machine Learning Studio （傳統）演算法和模組說明中的 [[初始化模型](/azure/machine-learning/studio-module-reference/machine-learning-initialize-model)]。
 
-* 如需傳統版 Machine Learning Studio 的演算法和模組的完整字母順序清單，請參閱 Machine Learning Studio （傳統）演算法和模組說明中的[Machine Learning Studio （傳統）模組的 a-z 清單](/azure/machine-learning/studio-module-reference/a-z-module-list)。
+* 如需 Machine Learning Studio （傳統）中的演算法和模組的完整字母清單，請參閱 Machine Learning Studio （傳統）演算法和模組說明中的[Machine Learning Studio （傳統）模組的 a-z 清單](/azure/machine-learning/studio-module-reference/a-z-module-list)。

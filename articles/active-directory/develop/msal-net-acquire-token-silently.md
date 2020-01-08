@@ -1,5 +1,5 @@
 ---
-title: 以無訊息方式取得權杖（MSAL.NET）
+title: 從快取取得權杖（MSAL.NET）
 titleSuffix: Microsoft identity platform
 description: 瞭解如何使用適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET），以無訊息方式（從權杖快取）取得存取權杖。
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9c988eba278e184d0e60a4ede456a340c258e71
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 67a72b295005e328723be5d3b577d15330c05134
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915980"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424265"
 ---
 # <a name="get-a-token-from-the-token-cache-using-msalnet"></a>使用 MSAL.NET 從權杖快取取得權杖
 

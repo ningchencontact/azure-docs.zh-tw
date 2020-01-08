@@ -1,25 +1,16 @@
 ---
-title: 在 Azure Service Fabric 服務啟動時執行指令碼 | Microsoft Docs
+title: 在 Azure Service Fabric 服務啟動時執行腳本
 description: 了解如何設定 Service Fabric 服務安裝程式進入點的原則，並在服務啟動期間執行指令碼。
-services: service-fabric
-documentationcenter: .net
 author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/21/2018
 ms.author: atsenthi
-ms.openlocfilehash: 76be814e0dd4c054fc3a873716dbfe395eeeb2dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837774"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464282"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>以本機使用者或系統帳戶身分執行服務啟動指令碼
 在 Service Fabric 服務可執行檔啟動之前，可能需要執行一些設定或安裝工作。  例如，設定環境變數。 您可以在服務可執行檔於服務的服務資訊清單中啟動之前，指定要執行的指令碼。 藉由設定服務安裝程式進入點的 RunAs 原則，您可以變更安裝程式的可執行檔要在哪一個帳戶下執行。  個別的安裝程式進入點可讓您在短時間內執行高權限設定，因此，服務主機的可執行檔不需要長時間使用高權限來執行。
@@ -106,7 +97,7 @@ ms.locfileid: "60837774"
 
 首先，以使用者名稱 (例如 SetupAdminUser) 建立 **Principals** 區段。 SetupAdminUser 使用者帳戶是 Administrators 系統群組的成員。
 
-接著在 **ServiceManifestImport** 區段下方設定原則，以將此主體套用至 **SetupEntryPoint**。 此原則會告知 Service Fabric，當 **MySetup.bat** 檔案執行時，應該以 SetupAdminUser (具備系統管理員權限) 身分執行。 由於您「尚未」  將原則套用至主要進入點，因此，**MyServiceHost.exe** 中的程式碼會在系統 **NetworkService** 帳戶下執行。 這是用來執行所有服務進入點的預設帳戶。
+接著在 **ServiceManifestImport** 區段下方設定原則，以將此主體套用至 **SetupEntryPoint**。 此原則會告知 Service Fabric，當 **MySetup.bat** 檔案執行時，應該以 SetupAdminUser (具備系統管理員權限) 身分執行。 由於您「尚未」將原則套用至主要進入點，因此，**MyServiceHost.exe** 中的程式碼會在系統 **NetworkService** 帳戶下執行。 這是用來執行所有服務進入點的預設帳戶。
 
 ### <a name="configure-the-policy-by-using-local-system-accounts"></a>使用本機系統帳戶設定原則
 通常最好是使用本機系統帳戶 (而不是系統管理員帳戶) 執行啟動指令碼。 使用 Administrators 群組成員的身分執行 RunAs 原則通常無法正常運作，因為電腦預設會啟用使用者存取控制 (UAC)。 在此情況下，建議以 LocalSystem 身分 (而不是以新增到 Administrators 群組的本機使用者身分) 執行 SetupEntryPoint。 下列範例示範如何設定 SetupEntryPoint 以 LocalSystem 身分執行：
@@ -147,7 +138,7 @@ ms.locfileid: "60837774"
 
 在 Visual Studio 中，以滑鼠右鍵按一下服務專案，並新增名為 *MySetup.bat* 的新檔案。
 
-接下來，確定 *MySetup.bat* 檔案已包含於服務套件中。 預設不會包含該檔案。 選取該檔案、以滑鼠右鍵按一下操作功能表，然後選擇 [屬性]  。 在 [屬性] 對話方塊中，確定已將 [複製到輸出目錄]  設為 [有更新時才複製]  。 請參閱下列螢幕擷取畫面。
+接下來，確定 *MySetup.bat* 檔案已包含於服務套件中。 預設不會包含該檔案。 選取該檔案、以滑鼠右鍵按一下操作功能表，然後選擇 [屬性]。 在 [屬性] 對話方塊中，確定已將 [複製到輸出目錄] 設為 [有更新時才複製]。 請參閱下列螢幕擷取畫面。
 
 ![Visual Studio CopyToOutput for SetupEntryPoint 批次檔][image1]
 
@@ -177,7 +168,7 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ```
 
 ## <a name="run-powershell-commands-from-a-setup-entry-point"></a>從安裝程式進入點執行 PowerShell 命令
-若要從 **SetupEntryPoint** 點執行 PowerShell，您可以在指向 PowerShell 檔案的批次檔中執行 **PowerShell.exe**。 首先，將 PowerShell 檔案新增至服務專案，例如 **MySetup.ps1**。 請記得設定 [有更新時才複製]  屬性，讓這個檔案也會包含於服務封裝內。 下列範例顯示的範例批次檔可啟動名為 MySetup.ps1 的 PowerShell 檔案，以設定名為 **TestVariable** 的系統環境變數。
+若要從 **SetupEntryPoint** 點執行 PowerShell，您可以在指向 PowerShell 檔案的批次檔中執行 **PowerShell.exe**。 首先，將 PowerShell 檔案新增至服務專案，例如 **MySetup.ps1**。 請記得設定 [有更新時才複製] 屬性，讓這個檔案也會包含於服務封裝內。 下列範例顯示的範例批次檔可啟動名為 MySetup.ps1 的 PowerShell 檔案，以設定名為 **TestVariable** 的系統環境變數。
 
 MySetup.bat 可啟動 PowerShell 檔案：
 
@@ -210,7 +201,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 基於偵錯的目的，查看執行安裝指令碼後的主控台輸出偶爾會有幫助。 您可以在服務資訊清單中的安裝程式進入點上設定主控台重新導向原則，其會將輸出寫入至檔案。 檔案輸出會寫入至部署並執行應用程式所在的叢集節點上，稱為 **log** 的應用程式資料夾中。 
 
 > [!WARNING]
-> 切勿在實際部署的應用程式中使用主控台重新導向原則，因為這可能會影響應用程式容錯移轉。 僅  將此原則用於本機開發及偵錯。  
+> 切勿在實際部署的應用程式中使用主控台重新導向原則，因為這可能會影響應用程式容錯移轉。 僅將此原則用於本機開發及偵錯。  
 > 
 > 
 

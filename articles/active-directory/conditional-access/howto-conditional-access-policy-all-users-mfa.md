@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc0d22e2e6478c265ba9219ae4df5d5ddb34d481
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 52faa2b6167606a46bf189d514a1eb314b443783
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803881"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424928"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>條件式存取：所有使用者都需要 MFA
 
@@ -57,8 +57,24 @@ ms.locfileid: "74803881"
 1. 確認您的設定，並將 [**啟用原則**] 設為 [**開啟**]。
 1. 選取 [**建立**] 以建立以啟用您的原則。
 
+### <a name="named-locations"></a>具名位置
+
+組織可以選擇將已知的網路位置（稱為「**已命名位置**」）併入其條件式存取原則。 這些命名位置可能包括受信任的 IPv4 網路，例如總公司位置的。 如需有關設定命名位置的詳細資訊，請參閱[Azure Active Directory 條件式存取中的位置條件為何？](location-condition.md)一文。
+
+在上述範例原則中，如果從公司網路存取雲端應用程式，組織可能會選擇不要求多重要素驗證。 在此情況下，他們可以將下列設定新增至原則：
+
+1. 在 [**指派**] 底下，選取 [**條件** > **位置**]。
+   1. 設定 **[是]** 。
+   1. 包含**任何位置**。
+   1. 排除**所有信任的位置**。
+   1. 選取 [完成]。
+1. 選取 [完成]。
+1. **儲存**原則變更。
+
 ## <a name="next-steps"></a>後續步驟
 
 [條件式存取的一般原則](concept-conditional-access-policy-common.md)
+
+[使用條件式存取僅限報告模式判斷影響](howto-conditional-access-report-only.md)
 
 [使用條件式存取 What If 工具模擬登入行為](troubleshoot-conditional-access-what-if.md)

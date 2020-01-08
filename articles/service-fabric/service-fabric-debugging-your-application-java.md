@@ -1,25 +1,16 @@
 ---
-title: 在 Eclipse 中針對 Azure Service Fabric 應用程式進行偵錯 | Microsoft Docs
+title: 在 Eclipse 中對應用程式進行 Debug
 description: 透過 Eclipse 在本機開發叢集上進行服務開發和偵錯，來改善您服務的可靠性和效能。
-services: service-fabric
-documentationcenter: .net
 author: suhuruli
-manager: chackdan
-editor: ''
-ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 2f00636da2b29e7815569a683fdf51c6a4e3b0e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 15448a9bd8998a99e8fce578b05130694ecd5fd0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393583"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614480"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>使用 Eclipse 針對 Java Service Fabric 應用程式進行偵錯
 > [!div class="op_single_selector"]
@@ -38,7 +29,7 @@ ms.locfileid: "60393583"
 
 4. 部署應用程式。
 
-5. 在 Eclipse IDE 中，選取 [Run] \(執行) -> [Debug Configurations] \(偵錯組態) -> [Remote Java Application and input connection properties] \(遠端 Java 應用程式和輸入連線屬性)  ，然後依照下列方式設定屬性：
+5. 在 Eclipse IDE 中，選取 [Run] \(執行) -> [Debug Configurations] \(偵錯組態) -> [Remote Java Application and input connection properties] \(遠端 Java 應用程式和輸入連線屬性)，然後依照下列方式設定屬性：
 
    ```
    Host: ipaddress

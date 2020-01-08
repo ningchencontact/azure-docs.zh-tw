@@ -1,18 +1,14 @@
 ---
 title: 關於 Azure Site Recovery 服務的一般問題
 description: 本文討論有關 Azure Site Recovery 的熱門一般問題。
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: fb88d28ea47495dcbdb0844901a03ee7efa4e4eb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: f64b885e82d2f790d7d146e16bb6ccb44e207465
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74078529"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497544"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>關於 Azure Site Recovery 的一般問題
 
@@ -25,7 +21,7 @@ ms.locfileid: "74078529"
 ## <a name="general"></a>一般
 
 ### <a name="what-does-site-recovery-do"></a>Site Recovery 的功能是什麼？
-Site Recovery 可協調並自動執行區域、內部部署虛擬機器和實體伺服器之間至 Azure 的 Azure VM 複寫；協調並自動執行內部部署機器至次要資料中心的複寫，藉此保障您的商務持續性與災害復原 (BCDR) 策略。 [詳細資訊](site-recovery-overview.md)。
+Site Recovery 可協調並自動執行區域、內部部署虛擬機器和實體伺服器之間至 Azure 的 Azure VM 複寫；協調並自動執行內部部署機器至次要資料中心的複寫，藉此保障您的商務持續性與災害復原 (BCDR) 策略。 [深入了解](site-recovery-overview.md)。
 
 ### <a name="can-i-protect-a-virtual-machine-that-has-a-docker-disk"></a>我可以保護具有 Docker 磁片的虛擬機器嗎？
 
@@ -37,7 +33,7 @@ Site Recovery 可協調並自動執行區域、內部部署虛擬機器和實體
 是，Site Recovery 同時支援專用與共用的基礎結構模型。
 
 ### <a name="for-a-service-provider-is-the-identity-of-my-tenant-shared-with-the-site-recovery-service"></a>對服務提供者而言，租用戶的身分識別是否會與 Site Recovery 服務共用？
-號 租用戶身分識別會保持匿名。 您的租用戶不需要存取 Site Recovery 入口網站。 只有服務提供者系統管理員會與入口網站互動。
+不會。 租用戶身分識別會保持匿名。 您的租用戶不需要存取 Site Recovery 入口網站。 只有服務提供者系統管理員會與入口網站互動。
 
 ### <a name="will-tenant-application-data-ever-go-to-azure"></a>租用戶應用程式資料是否會傳送到 Azure？
 在服務提供者擁有的站台之間進行複寫時，永遠不會將應用程式資料傳送到 Azure。 資料會在傳輸中加密，並且會在服務提供者站台之間直接進行複寫。
@@ -45,13 +41,13 @@ Site Recovery 可協調並自動執行區域、內部部署虛擬機器和實體
 如果您是複寫至 Azure，應用程式資料就會傳送到 Azure 儲存體而不是 Site Recovery 服務。 資料會在傳輸中加密並在 Azure 中繼續維持加密狀態。
 
 ### <a name="will-my-tenants-receive-a-bill-for-any-azure-services"></a>我的租用戶會收到來自 Azure 服務的帳單嗎？
-號 Azure 的計費關係是直接與服務提供者相關。 服務提供者負責為其租用戶產生特定的帳單。
+不會。 Azure 的計費關係是直接與服務提供者相關。 服務提供者負責為其租用戶產生特定的帳單。
 
 ### <a name="if-im-replicating-to-azure-do-we-need-to-run-virtual-machines-in-azure-at-all-times"></a>如果我複寫至 Azure，我們需要在 Azure 中隨時執行虛擬機器嗎？
 否，資料會複寫至您訂用帳戶中的 Azure 儲存體。 當您執行測試容錯移轉 (DR 演練) 或實際容錯移轉時，Site Recovery 會自動在您的訂用帳戶中建立虛擬機器。
 
 ### <a name="do-you-ensure-tenant-level-isolation-when-i-replicate-to-azure"></a>當我複寫至 Azure 時，您會確保提供租用戶層級的隔離嗎？
-是。
+可以。
 
 ### <a name="what-platforms-do-you-currently-support"></a>目前支援哪些平台？
 我們支援「Azure 套件」、「雲端平台系統」及 System Center 架構 (2012 及更新版本) 的部署。 [深入了解](https://technet.microsoft.com/library/dn850370.aspx) 「Azure 套件」和 Site Recovery 整合
@@ -76,11 +72,11 @@ Site Recovery 可協調並自動執行區域、內部部署虛擬機器和實體
 
 否，快取不會產生額外費用。 當您複寫到標準儲存體帳戶時，此快取儲存體會屬於相同的目標儲存體帳戶。
 
-### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>我已經使用 Azure Site Recovery 一個多月了。 我的每個受保護的執行個體是否前 31 天仍然都免費？
+### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>我已經使用 Azure Site Recovery 一個多月了。 這樣的話，每個受保護的執行個體前 31 天仍然免費嗎？
 
-是。 每個受保護的執行個體在前 31 天皆無 Azure Site Recovery 費用。 例如，如果您在過去6個月內保護了10個實例，而您將第11個實例連接到 Azure Site Recovery，則前31天不會有11個實例的費用。 因為前10個實例受到保護超過31天，所以會繼續產生 Azure Site Recovery 費用。
+可以。 每個受保護的執行個體在前 31 天皆無 Azure Site Recovery 費用。 例如，如果您在過去6個月內保護了10個實例，而您將第11個實例連接到 Azure Site Recovery，則前31天不會有11個實例的費用。 因為前10個實例受到保護超過31天，所以會繼續產生 Azure Site Recovery 費用。
 
-### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>在這前 31 天，我是否須負擔任何其他 Azure 費用？
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>在這前 31 天，我是否須負擔任何其他費用？
 
 可以，即使 Site Recovery 在受保護實例的前31天免費，也可能會產生 Azure 儲存體、儲存體交易和資料傳輸的費用。 復原的虛擬機器也可能會產生 Azure 計算費用。
 
@@ -91,7 +87,7 @@ DR 演練沒有個別的成本。 在測試容錯移轉之後建立 VM 之後，
 
 
 
-## <a name="security"></a>Security
+## <a name="security"></a>安全性
 
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>複寫資料會傳送到 Site Recovery 服務嗎？
 否，Site Recovery 不會攔截複寫的資料，也不會擁有任何關於您虛擬機器或實體伺服器上執行哪些項目的資訊。
@@ -100,7 +96,7 @@ DR 演練沒有個別的成本。 在測試容錯移轉之後建立 VM 之後，
 Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正在進行 SOC2 和 FedRAMP JAB 評定程序。
 
 ### <a name="for-compliance-reasons-even-our-on-premises-metadata-must-remain-within-the-same-geographic-region-can-site-recovery-help-us"></a>為了遵循法規，甚至我們的內部部署中繼資料也必須保留在相同的地理區域內。 Site Recovery 可以幫助我們嗎？
-是。 當您在某個區域中建立 Site Recovery 保存庫時，我們會確保我們啟用及協調複寫與容錯移轉時所需的一切中繼資料都會保留在該區域地理界限內。
+可以。 當您在某個區域中建立 Site Recovery 保存庫時，我們會確保我們啟用及協調複寫與容錯移轉時所需的一切中繼資料都會保留在該區域地理界限內。
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery 會將複寫加密嗎？
 就虛擬機器和實體伺服器而言，在內部部署站台之間進行複寫時，支援傳輸中加密。 在將虛擬機器和實體伺服器複寫至 Azure 時，則同時支援傳輸中加密和[靜態加密 (在 Azure 中)](https://docs.microsoft.com/azure/storage/storage-service-encryption)。
@@ -120,7 +116,7 @@ Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正�
 您可以使用 Site Recovery 來保護在支援的 VM 或實體伺服器上執行的大多數工作負載。 Site Recovery 支援應用程式感知複寫，可讓應用程式復原為智慧型狀態。 除了與 Microsoft 應用程式 (例如 SharePoint、Exchange、Dynamics、SQL Server 及 Active Directory) 整合之外，它還與產業龍頭 (包括 Oracle、SAP、IBM 及 Red Hat) 密切合作。 [深入了解](site-recovery-workload.md) 工作負載保護。
 
 ### <a name="can-i-manage-disaster-recovery-for-my-branch-offices-with-site-recovery"></a>我可以使用 Site Recovery 來管理分公司的災害復原嗎？
-是。 當您使用 Site Recovery 來協調分公司中的複寫與容錯移轉時，會為您集中提供所有分公司工作負載的整合協調與檢視。 您不需要造訪分公司，就可以從總公司輕鬆執行所有分公司的容錯移轉及管理災害復原。
+可以。 當您使用 Site Recovery 來協調分公司中的複寫與容錯移轉時，會為您集中提供所有分公司工作負載的整合協調與檢視。 您不需要造訪分公司，就可以從總公司輕鬆執行所有分公司的容錯移轉及管理災害復原。
 
 
 ### <a name="is-disaster-recovery-supported-for-azure-vms"></a>是否支援 Azure Vm 的嚴重損壞修復？
@@ -158,9 +154,9 @@ Azure Site Recovery 會透過公用端點，將資料複寫到 Azure 儲存體�
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>可以使用 ExpressRoute 將虛擬機器複寫到 Azure 嗎？
 是的，[可以使用 ExpressRoute](concepts-expressroute-with-site-recovery.md) 將內部部署虛擬機器複寫至 Azure。
 
-- Azure Site Recovery 會透過公用端點，將資料複寫至 Azure 儲存體。 您必須設定 Microsoft 對[等互連](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)，或使用現有的[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)（新線路已淘汰）來使用 ExpressRoute 進行 Site Recovery 複寫。
+- Azure Site Recovery 會透過公用端點，將資料複寫至 Azure 儲存體。 您必須設定 Microsoft 對[等互連](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)，或使用現有的[公用對等互連](../expressroute/about-public-peering.md)（新線路已淘汰）來使用 ExpressRoute 進行 Site Recovery 複寫。
 - Microsoft 對等互連是建議用於複寫的路由網域。
-- 私人對等互連不支援複寫。
+- 私用對等互連不支援複寫。
 - 如果您要保護 VMware 機器或實體機器，請確定也符合設定伺服器的[網路需求](vmware-azure-configuration-server-requirements.md#network-requirements)。 設定伺服器需要連線到特定的 Url，才能進行 Site Recovery 複寫的協調流程。 ExpressRoute 無法用於此連線。
 - 在虛擬機器容錯移轉到 Azure 虛擬網路之後，您可以 Azure 虛擬網路使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)安裝來存取這些虛擬機器。
 
@@ -187,7 +183,7 @@ Azure Site Recovery 會透過公用端點，將資料複寫到 Azure 儲存體�
 
 
 ### <a name="can-i-throttle-bandwidth-allotted-for-replication-traffic"></a>我可以節流配置給複寫流量的頻寬嗎？
-是。 若要深入瞭解節流頻寬，請參閱下列文章：
+可以。 若要深入瞭解節流頻寬，請參閱下列文章：
 
 * [適用於複寫 VMware VM 和實體伺服器的容量規劃](site-recovery-plan-capacity-vmware.md)
 * [適用於將 Hyper-V VM 複寫至 Azure 的容量規劃](site-recovery-capacity-planning-for-hyper-v-replication.md)
@@ -197,7 +193,7 @@ Azure Site Recovery 會透過公用端點，將資料複寫到 Azure 儲存體�
 ## <a name="failover"></a>容錯移轉
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>如果我容錯移轉至 Azure，如何在容錯移轉之後存取 Azure Vm？
 
-您可以透過安全的網際網路連線、透過站台對站台 VPN 或透過 Azure ExpressRoute 存取 Azure VM。 您需要準備一些專案才能連接。 [詳細資訊](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)。
+您可以透過安全的網際網路連線、透過站台對站台 VPN 或透過 Azure ExpressRoute 存取 Azure VM。 您需要準備一些專案才能連接。 [深入了解](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)。
 
 
 ### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>如果我容錯移轉到 Azure，Azure 如何確定我的資料具有復原能力？
@@ -219,12 +215,12 @@ Azure 是針對復原能力而設計的。 根據 Azure SLA，Site Recovery 已�
 是，您可以使用替代位置復原從 Azure 針對不同的主機進行容錯回復。
 
 * [針對 VMware 虛擬機器](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [針對 Hyper-V 虛擬機器](hyper-v-azure-failback.md#perform-failback)
+* [針對 Hyper-V 虛擬機器](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
 
-## <a name="automation"></a>自動化
+## <a name="automation"></a>Automation
 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>我是否可以透過 SDK 自動化 Site Recovery 案例？
-是。 您可以使用 Rest API、PowerShell 或 Azure SDK 將 Site Recovery 的工作流程自動化。 針對使用 PowerShell 來部署 Site Recovery，目前支援的案例包括︰
+可以。 您可以使用 Rest API、PowerShell 或 Azure SDK 將 Site Recovery 的工作流程自動化。 針對使用 PowerShell 來部署 Site Recovery，目前支援的案例包括︰
 
 * [將 VMM 雲端中的 Hyper-V VM 複寫至 Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
 * [將不使用 VMM 的 Hyper-V VM 複寫至 Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)

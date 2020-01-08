@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 6046ab98e657cd14a2ac883cd32709c9a1b5da57
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ba65c8ed30bce1f0128e1a1f8604744a732384c1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721493"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646824"
 ---
 # <a name="security-groups"></a>安全性群組
 <a name="network-security-groups"></a>
@@ -29,7 +29,7 @@ ms.locfileid: "73721493"
 
 ## <a name="security-rules"></a>安全性規則
 
-視 Azure 訂用帳戶[限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)而定，網路安全性群組可包含零個或多個規則。 每個規則都會指定下列屬性：
+視 Azure 訂用帳戶[限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)而定，網路安全性群組可包含零個或多個規則。 每個規則都會指定下列屬性：
 
 |屬性  |說明  |
 |---------|---------|
@@ -39,16 +39,16 @@ ms.locfileid: "73721493"
 |通訊協定     | TCP、UDP、ICMP 或 Any。|
 |方向| 規則是否套用至輸入或輸出流量。|
 |連接埠範圍     |您可以指定個別連接埠或連接埠範圍。 例如，您可以指定 80 或 10000-10005。 指定範圍可讓您建立較少的安全性規則。 增強型安全性規則只可以在透過 Resource Manager 部署模型建立的網路安全性群組中建立。 您無法在透過傳統部署模型建立之網路安全性群組的相同安全性規則中指定多個連接埠與連接埠範圍。   |
-|動作     | 允許或拒絕        |
+|行動     | 允許或拒絕        |
 
 系統會依優先順序使用 5 項 Tuple 資訊 (來源、來源連接埠、目的地、目的地連接埠和通訊協定) 來評估網路安全性群組的安全性規則，以允許或拒絕流量。 系統會為現有連線建立流程記錄。 允許或拒絕通訊都會以此流程記錄的連線狀態為依據。 流程記錄可讓網路安全性群組成為具狀態的形式。 如果您將輸出安全性規則指定至任何透過連接埠 80 (舉例來說) 的位址，則不必為了回應輸出流量來指定輸入安全性規則。 如果在外部起始通訊，您只需要指定輸入安全性規則。 反之亦然。 如果允許透過連接埠傳送輸入流量，則不必指定輸出安全性規則來透過連接埠回應流量。
 當您移除啟用流量的安全性規則時，現有的連線不會中斷。 當連線停止，且兩個方向至少有數分鐘都沒有流量時，流量即會中斷。
 
-您可以在網路安全性群組中建立的安全性規則數量會有所限制。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
+您可以在網路安全性群組中建立的安全性規則數量會有所限制。 如需詳細資訊，請參閱 [Azure 限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
 ## <a name="augmented-security-rules"></a>增強型安全性規則
 
-增強型安全性規則可簡化虛擬網路的安全性定義，讓您定義更大且複雜的網路安全性原則 (但規則比較少)。 您可以將多個連接埠和多個明確 IP 位址與範圍，合併成易於了解的單一安全性規則。 在規則的來源、目的地和連接埠欄位中使用增強型規則。 若要簡化安全性規則定義的維護，請合併增強型安全性規則與[服務標籤](service-tags-overview.md)或[應用程式安全性群組](#application-security-groups)。 您可以在規則中指定的位址、範圍和連接埠數量會有所限制。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
+增強型安全性規則可簡化虛擬網路的安全性定義，讓您定義更大且複雜的網路安全性原則 (但規則比較少)。 您可以將多個連接埠和多個明確 IP 位址與範圍，合併成易於了解的單一安全性規則。 在規則的來源、目的地和連接埠欄位中使用增強型規則。 若要簡化安全性規則定義的維護，請合併增強型安全性規則與[服務標籤](service-tags-overview.md)或[應用程式安全性群組](#application-security-groups)。 您可以在規則中指定的位址、範圍和連接埠數量會有所限制。 如需詳細資訊，請參閱 [Azure 限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
 ## <a name="service-tags"></a>服務標籤
 
@@ -100,7 +100,7 @@ Azure 會在您建立的每個網路安全性群組中，建立下列預設規�
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | 任意 | 拒絕 |
 
-在 [來源] 和 [目的地] 欄中，*VirtualNetwork*、*AzureLoadBalancer*和 *Internet* 都是[服務標籤](service-tags-overview.md)，而不是 IP 位址。 [通訊協定] 資料行**中包含 TCP** 、UDP 和 ICMP。 建立規則時，您可以指定 [TCP]、[UDP]、[ICMP] 或 [任何]。 [來源] 和 [目的地] 欄中的 **0.0.0.0/0** 代表所有位址。 Azure 入口網站、Azure CLI 或 Powershell 之類的用戶端可以在此運算式中使用 * 或 any。
+在 [來源] 和 [目的地] 欄中，*VirtualNetwork*、*AzureLoadBalancer*和 *Internet* 都是[服務標籤](service-tags-overview.md)，而不是 IP 位址。 [通訊協定] 資料行**中包含 TCP** 、UDP 和 ICMP。 建立規則時，您可以指定 [TCP]、[UDP]、[ICMP] 或 [任何]。 [來源] 和 [目的地] 欄中的 *0.0.0.0/0* 代表所有位址。 Azure 入口網站、Azure CLI 或 Powershell 之類的用戶端可以在此運算式中使用 * 或 any。
  
 您無法移除預設規則，但可以建立較高優先順序的規則來覆寫預設規則。
 
@@ -110,7 +110,7 @@ Azure 會在您建立的每個網路安全性群組中，建立下列預設規�
 
 ![應用程式安全性群組](./media/security-groups/application-security-groups.png)
 
-在上圖中，NIC1 和 NIC2 都是 AsgWeb 應用程式安全性群組的成員。 NIC3 是 AsgLogic 應用程式安全性群組的成員。 NIC4 是 AsgDb 應用程式安全性群組的成員。 雖然在此範例中的每個網路介面都只是一個應用程式安全性群組的成員，但網路介面可以是多個應用程式安全性群組的成員，數量上限可參照 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 這些網路介面都沒有相關聯的網路安全性群組。 NSG1 與這兩個子網路相關聯且包含下列規則：
+在上圖中，NIC1 和 NIC2 都是 AsgWeb 應用程式安全性群組的成員。 NIC3 是 AsgLogic 應用程式安全性群組的成員。 NIC4 是 AsgDb 應用程式安全性群組的成員。 雖然在此範例中的每個網路介面都只是一個應用程式安全性群組的成員，但網路介面可以是多個應用程式安全性群組的成員，數量上限可參照 [Azure 限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 這些網路介面都沒有相關聯的網路安全性群組。 NSG1 與這兩個子網路相關聯且包含下列規則：
 
 ### <a name="allow-http-inbound-internet"></a>Allow-HTTP-Inbound-Internet
 
@@ -140,7 +140,7 @@ Azure 會在您建立的每個網路安全性群組中，建立下列預設規�
 
 應用程式安全性群組具有下列條件約束：
 
--   您可以在訂用帳戶中擁有的應用程式安全性群組數量會有所限制，而且還有其他與應用程式安全性群組相關的限制。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
+-   您可以在訂用帳戶中擁有的應用程式安全性群組數量會有所限制，而且還有其他與應用程式安全性群組相關的限制。 如需詳細資訊，請參閱 [Azure 限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 - 您可以將一個應用程式安全性群組指定為安全性規則中的來源和目的地。 您無法在來源或目的地中指定多個應用程式安全性群組。
 - 指派給應用程式安全性群組的所有網路介面，都必須與指派給應用程式安全性群組的第一個網路介面位於相同虛擬網路中。 例如，如果指派給應用程式安全性群組 AsgWeb 的第一個網路介面位於名為 VNet1 的虛擬網路中，則後續所有指派給 ASGWeb 的網路介面都必須存在於 VNet1 中。 您無法將不同虛擬網路的網路介面新增至相同的應用程式安全性群組。
 - 如果您指定安全性群組作為安全性規則中的來源和目的地，兩個應用程式安全性群組中的網路介面都必須在相同的虛擬網路中。 例如，如果 AsgLogic 包含來自 VNet1 的網路介面，而 AsgDb 包含來自 VNet2 的網路介面，您無法在規則中將 AsgLogic 指派為來源，將 AsgDb 指派為目的地。 來源和目的地應用程式安全性群組的所有網路介面都必須位在相同的虛擬網路中。
@@ -171,7 +171,7 @@ Azure 會在您建立的每個網路安全性群組中，建立下列預設規�
 
 針對輸出流量，Azure 會先針對與網路介面相關聯的網路安全性群組，處理其中的規則 (如果有的話)，然後再針對與子網路相關聯的網路安全性群組，處理其中的規則 (如果有的話)。
 
-- **VM1**：NSG2 中的安全性規則會進行處理。 除非您建立安全性規則來拒絕向網際網路輸出流量的連接埠 80，否則 NSG1[](#allowinternetoutbound) 和 NSG2 中的 *AllowInternetOutbound* 預設安全性規則會允許流量通過。 如果 NSG2 具有拒絕連接埠 80 的安全性規則，則流量會遭到拒絕，且永遠不會由 NSG1 進行評估。 若要拒絕流量從連接埠 80 輸出虛擬機器，其中一個網路安全性群組或兩個網路安全性群組必須有規則來拒絕將流量流向網際網路的連接埠 80。
+- **VM1**：NSG2 中的安全性規則會進行處理。 除非您建立安全性規則來拒絕向網際網路輸出流量的連接埠 80，否則 NSG1 和 NSG2 中的 [AllowInternetOutbound](#allowinternetoutbound) 預設安全性規則會允許流量通過。 如果 NSG2 具有拒絕連接埠 80 的安全性規則，則流量會遭到拒絕，且永遠不會由 NSG1 進行評估。 若要拒絕流量從連接埠 80 輸出虛擬機器，其中一個網路安全性群組或兩個網路安全性群組必須有規則來拒絕將流量流向網際網路的連接埠 80。
 - **VM2**：所有流量都會通過網路介面流向子網路，因為連結到 VM2 的網路介面沒有與網路安全性群組相關聯。 NSG1 中的規則會進行處理。
 - **VM3**：如果 NSG2 具有拒絕連接埠 80 的安全性規則，則流量會遭到拒絕。 如果 NSG2 有允許連接埠 80 的安全性規則，則連接埠 80 允許輸出流量到網際網路，因為沒有與 Subnet2 相關聯的網路安全性群組。
 - **VM4**：所有網路流量會允許從 VM4 輸出，因為網路安全性群組未與連結至虛擬機器的網路介面或 Subnet3 相關聯。

@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 08/13/2018
+ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: 5ae97f18bb15b5ab2fe092a1e3b857ea3ef0aed0
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5652c5035c2e4cd35ac6943ef90c8bcc02b95dba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012975"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442881"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑難排解
 
@@ -23,16 +23,16 @@ ms.locfileid: "74012975"
 嘗試[針對 Kubernetes 叢集進行疑難排解的官方指南](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/)。
 此外，也有 Microsoft 工程師所發佈的[疑難排解指南](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md)，該指南可用來針對 Pod、節點、叢集和其他功能進行疑難排解。
 
-## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>我在建立或升級期間收到「已超出配額」錯誤。 我該怎麼辦？ 
+## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>我在建立或升級期間收到「已超出配額」錯誤。 我該怎麼做？ 
 
 您需要[要求核心](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。
 
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>對於 AKS，每個節點的最大 Pod 數設定為何？
 
 如果您在 Azure 入口網站中部署 AKS 叢集，則每個節點的最大 Pod 數設定會預設為 30。
-如果您在 Azure CLI 中部署 AKS 叢集，則每個節點的最大 Pod 數設定會預設為 110。 (確定您使用最新版的 Azure CLI)。 在 `–-max-pods` 命令中使用 `az aks create` 旗標，即可變更此預設設定。
+如果您在 Azure CLI 中部署 AKS 叢集，則每個節點的最大 Pod 數設定會預設為 110。 (確定您使用最新版的 Azure CLI)。 在 `az aks create` 命令中使用 `–-max-pods` 旗標，即可變更此預設設定。
 
-## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>當我使用進階網路設定部署 AKS 叢集時，收到 insufficientSubnetSize 錯誤。 我該怎麼辦？
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>當我使用進階網路設定部署 AKS 叢集時，收到 insufficientSubnetSize 錯誤。 我該怎麼做？
 
 如果使用 Azure CNI （advanced 網路），AKS 會根據每個節點設定的「最大 pod」來配置 IP 位址。 根據每個節點設定的最大 pod 數，子網大小必須大於節點數目和每個節點的最大 pod 數設定的乘積。 下列方程式會概述這一點：
 
@@ -40,7 +40,7 @@ ms.locfileid: "74012975"
 
 如需詳細資訊，請參閱[為你的叢集規劃 IP 位址](configure-azure-cni.md#plan-ip-addressing-for-your-cluster)。
 
-## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>我的 Pod 會在 CrashLoopBackOff 模式中停滯。 我該怎麼辦？
+## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>我的 Pod 會在 CrashLoopBackOff 模式中停滯。 我該怎麼做？
 
 有各種不同的原因可能會讓 Pod 在該模式中停滯。 您可以查看：
 
@@ -53,17 +53,17 @@ ms.locfileid: "74012975"
 
 很遺憾，目前不支援在現有叢集上啟用角色型存取控制 (RBAC)。 您必須明確地建立新的叢集。 如果您使用 CLI，預設會啟用 RBAC。 如果您使用 AKS 入口網站，可在建立工作流程中使用切換按鈕來啟用 RBAC。
 
-## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>我已使用 Azure CLI 搭配預設值或 Azure 入口網站來建立已啟用 RBAC 的叢集，但現在於 Kubernetes 儀表板上看到許多警告。 該儀表板一直可正常運作，而且未產生任何警告。 我該怎麼辦？
+## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>我已使用 Azure CLI 搭配預設值或 Azure 入口網站來建立已啟用 RBAC 的叢集，但現在於 Kubernetes 儀表板上看到許多警告。 該儀表板一直可正常運作，而且未產生任何警告。 我該怎麼做？
 
 儀表板上警告的原因是因為根據預設，現在會透過 RBAC 啟用叢集並已停用對它的存取權。 這種方法通常是良好的做法，因為預設向叢集的所有使用者公開該儀表板可能會導致安全性威脅。 如果您仍然想要啟用該儀表板，請依照[這篇部落格文章](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/) \(英文\) 中的步驟執行。
 
-## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>我無法連線到儀表板。 我該怎麼辦？
+## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>我無法連線到儀表板。 我該怎麼做？
 
 存取叢集外部服務的最簡單方法是執行 `kubectl proxy`，它會將傳送至 localhost 連接埠 8001 的要求 Proxy 到 Kubernetes API 伺服器。 API 伺服器可以從該處 Proxy 到您的服務：`http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`。
 
 如果沒有看到 Kubernetes 儀表板，請檢查 `kube-proxy` Pod 是否正在 `kube-system` 命名空間中執行。 如果它並未處於執行中狀態，請刪除該 Pod，而它會重新啟動。
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>我無法使用 kubectl 記錄取得記錄，或無法連線到 API 伺服器。 我收到「伺服器發生錯誤：撥接後端：撥接 tcp ...」。 我該怎麼辦？
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>我無法使用 kubectl 記錄取得記錄，或無法連線到 API 伺服器。 我收到「伺服器發生錯誤：撥接後端：撥接 tcp ...」。 我該怎麼做？
 
 請確定預設的網路安全性群組並未修改，而且埠22和9000已開放給 API 伺服器連接。 使用 `kubectl get pods --namespace kube-system` 命令，檢查 `tunnelfront` pod 是否正在*kube 系統*命名空間中執行。 若非如此，請強制刪除該 Pod，而它會重新啟動。
 
@@ -79,7 +79,7 @@ ms.locfileid: "74012975"
 
 1. 在叢集 `failed` 狀態之前，`upgrade` 和 `scale` 作業將會失敗。 常見的根本問題和解決方式包括：
     * 使用**不足的計算（CRP）配額**進行調整。 若要解決此問題，請先將叢集調整回配額內的穩定目標狀態。 然後，請遵循下列[步驟來要求增加計算配額](../azure-supportability/resource-manager-core-quotas-request.md)，然後再嘗試重新擴充超過初始配額限制。
-    * 使用 advanced 網路和**不足的子網（網路）資源**來調整叢集。 若要解決此問題，請先將叢集調整回配額內的穩定目標狀態。 然後[，遵循下列步驟來要求增加資源配額，](../azure-resource-manager/resource-manager-quota-errors.md#solution)再嘗試重新相應增加超過初始配額限制。
+    * 使用 advanced 網路和**不足的子網（網路）資源**來調整叢集。 若要解決此問題，請先將叢集調整回配額內的穩定目標狀態。 然後[，遵循下列步驟來要求增加資源配額，](../azure-resource-manager/templates/error-resource-quota.md#solution)再嘗試重新相應增加超過初始配額限制。
 2. 解決升級失敗的根本原因之後，您的叢集應該會處於成功狀態。 一旦驗證成功狀態之後，請重試原始操作。
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>我在嘗試升級或調整狀態時收到錯誤。我的叢集目前正在升級或升級失敗
@@ -173,14 +173,14 @@ ms.locfileid: "74012975"
 
 在 Kubernetes 1.10 版中，MountVolume. WaitForAttach 可能會因為 Azure 磁片重新掛接而失敗。
 
-在 Linux 上，您可能會看到不正確的 DevicePath 格式錯誤。 例如︰
+在 Linux 上，您可能會看到不正確的 DevicePath 格式錯誤。 例如：
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-在 Windows 上，您可能會看到錯誤的 DevicePath （LUN）數位錯誤。 例如︰
+在 Windows 上，您可能會看到錯誤的 DevicePath （LUN）數位錯誤。 例如：
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -226,7 +226,7 @@ spec:
   >[!NOTE]
   > 由於 gid 和 uid 預設會以 root 或0的形式裝載。 如果 gid 或 uid 設定為非根目錄，例如1000，則 Kubernetes 會使用 `chown` 來變更該磁片下的所有目錄和檔案。 這種作業可能非常耗時，而且可能會使磁片的載入速度變慢。
 
-* 使用 initContainers 中的 `chown` 來設定 gid 和 uid。 例如︰
+* 使用 initContainers 中的 `chown` 來設定 gid 和 uid。 例如：
 
 ```yaml
 initContainers:
@@ -240,7 +240,7 @@ initContainers:
 
 ### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>刪除 pod 使用中的 Azure 磁片 PersistentVolumeClaim 時發生錯誤
 
-如果您嘗試刪除 pod 所使用的 Azure 磁片 PersistentVolumeClaim，可能會看到錯誤。 例如︰
+如果您嘗試刪除 pod 所使用的 Azure 磁片 PersistentVolumeClaim，可能會看到錯誤。 例如：
 
 ```console
 $ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
@@ -296,7 +296,7 @@ MountVolume.WaitForAttach failed for volume "pvc-12b458f4-c23f-11e8-8d27-46799c2
 
 ### <a name="azure-disk-waiting-to-detach-indefinitely"></a>Azure 磁片正在等候無限期卸離
 
-在某些情況下，如果第一次嘗試時 Azure 磁片中斷連結失敗，則不會重試卸離作業，且會繼續連接至原始節點 VM。 將磁片從一個節點移至另一個節點時，可能會發生此錯誤。 例如︰
+在某些情況下，如果第一次嘗試時 Azure 磁片中斷連結失敗，則不會重試卸離作業，且會繼續連接至原始節點 VM。 將磁片從一個節點移至另一個節點時，可能會發生此錯誤。 例如：
 
 ```console
 [Warning] AttachVolume.Attach failed for volume “pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9” : Attach volume “kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance “/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0” failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code=“ConflictingUserInput” Message=“Disk ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9’ cannot be attached as the disk is already owned by VM ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1’.”
@@ -469,16 +469,30 @@ E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"k
 
 您可以使用 base64 編碼的儲存體帳戶金鑰，在 Azure 檔案密碼中手動更新*azurestorageaccountkey*欄位，以減輕問題。
 
-若要以 base64 編碼您的儲存體帳戶金鑰，您可以使用 `base64`。 例如︰
+若要以 base64 編碼您的儲存體帳戶金鑰，您可以使用 `base64`。 例如：
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-若要更新您的 Azure 秘密檔案，請使用 `kubectl edit secret`。 例如︰
+若要更新您的 Azure 秘密檔案，請使用 `kubectl edit secret`。 例如：
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret
 ```
 
 幾分鐘後，代理程式節點會以更新的儲存體金鑰重試 azure 檔案掛接。
+
+### <a name="cluster-autoscaler-fails-to-scale-with-error-failed-to-fix-node-group-sizes"></a>叢集自動調整程式無法調整，因為發生錯誤而無法修正節點群組大小
+
+如果您的叢集自動調整程式未相應增加/減少，而且您在叢集[自動調整程式記錄][view-master-logs]中看到類似下面的錯誤。
+
+```console
+E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes: failed to decrease aks-default-35246781-vmss: attempt to delete existing nodes
+```
+
+此錯誤的原因是上游叢集自動調整程式競爭情況，其中叢集自動調整程式的值會與實際上在叢集中的不同。 若要離開此狀態，只需要停用再重新啟用叢集[自動調整程式][cluster-autoscaler]。
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

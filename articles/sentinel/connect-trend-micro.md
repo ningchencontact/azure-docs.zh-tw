@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 12/30/2019
 ms.author: cabailey
-ms.openlocfilehash: af4095b41da4d7f5fca5d1f7ed72a0c0dbc5b1d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ba5b560f068d453f07e2dbbfdf5140ca1f4ac2b8
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521033"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610432"
 ---
 # <a name="connect-trend-micro-deep-security"></a>連接趨勢微深度安全性
 
@@ -40,6 +40,8 @@ ms.locfileid: "73521033"
 
 ## <a name="next-steps"></a>後續步驟
 在本檔中，您已瞭解如何將趨勢微深度安全性連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 深入了解如何[取得資料的可見度以及潛在威脅](quickstart-get-visibility.md)。
 - 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats-built-in.md)。
+- [使用活頁簿](tutorial-monitor-your-data.md)來監視您的資料。
+
 

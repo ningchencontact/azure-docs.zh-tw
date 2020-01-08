@@ -1,5 +1,5 @@
 ---
-title: MSAL for JAVA 中的自訂權杖快取序列化
+title: 自訂權杖快取序列化（MSAL4j）
 titleSuffix: Microsoft identity platform
 description: 瞭解如何序列化適用于 JAVA 的 MSAL 的權杖快取
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2166cda772c358ed060b0e52a7410c7039fedf5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d80011d3fbf8973ce913ac885a7841fe19760c4b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916531"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424310"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-java"></a>MSAL for JAVA 中的自訂權杖快取序列化
 

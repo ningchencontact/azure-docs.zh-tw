@@ -1,20 +1,15 @@
 ---
-title: Azure Service Fabric Mesh 的常見問題 | Microsoft Docs
+title: Azure Service Fabric 網格的常見問題
 description: 了解 Azure Service Fabric Mesh 的常見問題和解答。
-services: service-fabric-mesh
-keywords: ''
-author: chackdan
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.service: service-fabric-mesh
-manager: jeanpaul.connock
-ms.openlocfilehash: edd30dc8799ae9e5410ebc862574d632d09b9483
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3fe6289ad7616dec97706c2f1779a74c508a0f76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168689"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461990"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh 的常見問題
 
@@ -32,13 +27,13 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>核心和 RAM 數目是否有配額限制？
 
-是的。 每個訂用帳戶的配額如下：
+可以。 每個訂用帳戶的配額如下：
 
 - 應用程式數目：5
-- 每個應用程式的核心數目：12
-- 每個應用程式的 RAM 總計：48 GB
-- 網路與輸入端點數目：5
-- 您可以連結的 Azure 磁碟區數目：10
+- 每個應用程式的核心數：12
+- 每個應用程式的 RAM 總計： 48 GB
+- 網路與輸入端點：5
+- 您可以附加的 Azure 磁片區：10
 - 服務複本數目：3
 - 您可以部署的最大容器限制為 4 個核心和 16 GB 的 RAM。
 - 您可以將部分核心配置給容器，遞增量為 0.5 個核心，最多 6 個核心。
@@ -49,7 +44,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 如果確實發生此情況，可以藉由在 Azure CLI 中執行 `az mesh app show` 命令，以驗證系統是否將它關閉。 請檢查是否傳回 `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
-例如: 
+例如： 
 
 ```cli
 ~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
@@ -86,7 +81,6 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 如果您是在 Windows 10 April 2018 update (1803 版) 機器上進行開發，則可以使用 Windows 1709 版或 Windows 1803 版的 Docker 映像。
 
 可以使用下列容器 OS 映像部署服務：
-
 - Windows：windowsservercore 和 nanoserver
     - Windows Server 1709
     - Windows Server 1803
@@ -109,8 +103,8 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 從容器連出到 Service Fabric DNS 服務的 DNS 查詢在某些情況下可能會失敗。 我們正在調查此問題。 減輕問題：
 
 - 使用 Windows Fall Creators Update (1709版) 或更新版本作為基礎容器映像。
-- 如果只有服務名稱時無法運作，請嘗試完整名稱：ServiceName.ApplicationName。
-- 在您服務的 Docker 檔案中新增 `EXPOSE <port>`，其中的 port 是您公開服務的連接埠。 例如:
+- 如果服務名稱單獨無法使用，請嘗試完整名稱： ServiceName. ApplicationName。
+- 在您服務的 Docker 檔案中新增 `EXPOSE <port>`，其中的 port 是您公開服務的連接埠。 例如：
 
 ```Dockerfile
 EXPOSE 80
@@ -124,9 +118,9 @@ EXPOSE 80
 
 Azure Mesh 目前不支援跨應用程式的 DNS 解析。
 
-對於在 Windows 10 上執行 Service Fabric 開發叢集的其他已知 DNS 問題，請參閱：[對 Windows 容器進行偵錯](/azure/service-fabric/service-fabric-how-to-debug-windows-containers)和[已知 DNS 問題](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues)。
+如需在 Windows 10 上執行 Service Fabric 開發叢集的其他已知 DNS 問題，請參閱：[偵錯工具 windows 容器](/azure/service-fabric/service-fabric-how-to-debug-windows-containers)和[已知的 DNS 問題](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues)。
 
-### <a name="networking"></a>網路功能
+### <a name="networking"></a>網路
 
 在本機電腦上執行應用程式時，ServiceFabric 網路 NAT 可能會消失。 若要診斷是否發生此問題，請從命令提示字元執行以下命令：
 

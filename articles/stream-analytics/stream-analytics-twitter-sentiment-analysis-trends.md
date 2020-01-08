@@ -1,27 +1,26 @@
 ---
 title: Azure 串流分析的即時 Twitter 情感分析
 description: 本文說明如何使用串流分析來執行即時 Twitter 情感分析。 從事件產生到即時儀表板資料的逐步指導。
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 8561789d53c3c1b00ac1477909bcbe356fe6a85d
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: f3ab21d55b7d59bb58760bfba452b4ea2d103496
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173155"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369893"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure 串流分析中的即時 Twitter 情感分析
 
-本文將透過把即時的 Twitter 事件帶入 Azure 事件中樞，來讓您了解如何建立社交媒體分析的情感分析解決方案。 然後, 撰寫 Azure 串流分析查詢來分析資料, 並儲存結果以供稍後使用, 或建立[Power BI](https://powerbi.com/)的儀表板來即時提供深入解析。
+本文將透過把即時的 Twitter 事件帶入 Azure 事件中樞，來讓您了解如何建立社交媒體分析的情感分析解決方案。 然後，撰寫 Azure 串流分析查詢來分析資料，並儲存結果以供稍後使用，或建立[Power BI](https://powerbi.com/)的儀表板來即時提供深入解析。
 
-社交媒體分析工具可協助組織了解熱門話題。 趨勢主題是在社交媒體上有大量文章的主題和態度。 情感分析 (亦稱為*意見挖掘*) 會使用社交媒體分析工具來判斷對產品或想法的態度。 
+社交媒體分析工具可協助組織了解熱門話題。 趨勢主題是在社交媒體上有大量文章的主題和態度。 情感分析（亦稱為*意見挖掘*）會使用社交媒體分析工具來判斷對產品或想法的態度。 
 
-即時 Twitter 趨勢分析是分析工具的絕佳範例, 因為主題標籤訂閱模型可讓您接聽特定關鍵字 (主題標籤), 並開發摘要的情感分析。
+即時 Twitter 趨勢分析是分析工具的絕佳範例，因為主題標籤訂閱模型可讓您接聽特定關鍵字（主題標籤），並開發摘要的情感分析。
 
 ## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>案例：即時的社交媒體情感分析
 
@@ -30,7 +29,7 @@ ms.locfileid: "70173155"
 為了在 Twitter 上即時找出熱門話題，公司需要即時分析重要話題的推文數量和情感。
 
 ## <a name="prerequisites"></a>必要條件
-在本操作指南中, 您會使用連接到 Twitter 的用戶端應用程式, 並尋找具有特定主題標籤 (您可以設定) 的推文。 若要執行應用程式並使用 Azure 串流分析來分析推文, 您必須具備下列各項:
+在本操作指南中，您會使用連接到 Twitter 的用戶端應用程式，並尋找具有特定主題標籤（您可以設定）的推文。 若要執行應用程式並使用 Azure 串流分析來分析推文，您必須具備下列各項：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/)。
 * [Twitter](https://twitter.com)帳戶。
@@ -41,7 +40,7 @@ ms.locfileid: "70173155"
 此範例應用程式會產生事件，並將事件發送至 Azure 事件中樞。 Azure 事件中樞是串流分析擷取事件的慣用方法。 如需詳細資訊，請參閱 [Azure 事件中樞文件](../event-hubs/event-hubs-what-is-event-hubs.md)。
 
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>建立事件中樞命名空間和事件中樞
-建立事件中樞命名空間, 然後將事件中樞新增至該命名空間。 事件中樞命名空間可在邏輯上將相關的事件匯流排執行個體分組。 
+建立事件中樞命名空間，然後將事件中樞新增至該命名空間。 事件中樞命名空間可在邏輯上將相關的事件匯流排執行個體分組。 
 
 1. 登入 Azure 入口網站，按一下 [建立資源] > [物聯網] > [事件中樞]。 
 
@@ -61,7 +60,7 @@ ms.locfileid: "70173155"
 
     ![建立新事件中樞的刀鋒視窗](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub.png)
  
-7. 按一下 [建立]。
+7. 按一下頁面底部的 [新增]。
 
 
 ### <a name="grant-access-to-the-event-hub"></a>授權存取事件中樞
@@ -79,7 +78,7 @@ ms.locfileid: "70173155"
 
     ![建立新事件中樞存取原則的刀鋒視窗](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-shared-access-policy-manage.png)
  
-4.  按一下 [建立]。
+4.  按一下頁面底部的 [新增]。
 
 5.  部署原則之後，在共用存取原則清單中按一下此原則。
 
@@ -107,7 +106,7 @@ ms.locfileid: "70173155"
 用戶端應用程式會直接從 Twitter 取得推文事件。 為了這樣做，它需要權限來呼叫 Twitter 串流 API。 若要設定該權限，您需要在 Twitter 中建立應用程式，以產生唯一認證 (例如 OAuth 權杖)。 然後，您可以設定用戶端應用程式在呼叫 API 時使用這些認證。 
 
 ### <a name="create-a-twitter-application"></a>建立 Twitter 應用程式
-如果您還沒有可用於此操作指南的 Twitter 應用程式, 您可以建立一個。 您必須已經有 Twitter 帳戶。
+如果您還沒有可用於此操作指南的 Twitter 應用程式，您可以建立一個。 您必須已經有 Twitter 帳戶。
 
 > [!NOTE]
 > 在 Twitter 中建立應用程式及取得金鑰、秘密和權杖的確切流程可能不同。 如果這些指示不符合您在 Twitter 網站上看到的內容，請參閱 Twitter 開發人員文件。
@@ -199,7 +198,7 @@ ms.locfileid: "70173155"
 
     ![建立新的串流分析作業](./media/stream-analytics-twitter-sentiment-analysis-trends/newjob.png)
 
-3. 按一下 [建立]。
+3. 按一下頁面底部的 [新增]。
 
     即可建立作業，入口網站會顯示作業詳細資料。
 
@@ -220,7 +219,7 @@ ms.locfileid: "70173155"
 
      ![建立串流分析作業的新輸入](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
-3. 按一下 [建立]。
+3. 按一下頁面底部的 [新增]。
 
 
 ## <a name="specify-the-job-query"></a>指定作業查詢
@@ -265,7 +264,7 @@ ms.locfileid: "70173155"
 
 5. 按一下 [ **測試**]。 這時會針對您已取樣的資料執行查詢。
     
-6. 按一下 [儲存]。 這會將查詢儲存在串流分析作業中。 (不會儲存範例資料。)
+6. 按一下 [檔案]。 這會將查詢儲存在串流分析作業中。 (不會儲存範例資料。)
 
 
 ## <a name="experiment-using-different-fields-from-the-stream"></a>使用資料流中的不同欄位進行實驗 
@@ -275,7 +274,7 @@ ms.locfileid: "70173155"
 |JSON 屬性 | 定義|
 |--- | ---|
 |CreatedAt | 建立推文的時間|
-|話題 | 符合所指定關鍵字的話題|
+|主題 | 符合所指定關鍵字的話題|
 |SentimentScore | 來自 Sentiment140 的情感分數|
 |作者 | 傳送推文的 Twitter 控制代碼|
 |文字 | 推文的全文|
@@ -285,7 +284,7 @@ ms.locfileid: "70173155"
 
 您現在已定義事件資料流、用來內嵌事件的事件中樞，以及用來轉換資料流的查詢。 最後一個步驟是定義作業的輸出接收。  
 
-在此操作指南中, 您會將作業查詢中的匯總推文事件寫入 Azure Blob 儲存體。  根據您的應用程式需求，您也可以將結果發送至 Azure SQL Database、Azure 資料表儲存體、事件中樞或 Power BI。
+在此操作指南中，您會將作業查詢中的匯總推文事件寫入 Azure Blob 儲存體。  根據您的應用程式需求，您也可以將結果發送至 Azure SQL Database、Azure 資料表儲存體、事件中樞或 Power BI。
 
 ## <a name="specify-the-job-output"></a>指定作業輸出
 
@@ -294,18 +293,18 @@ ms.locfileid: "70173155"
 2. 在 [輸出] 刀鋒視窗中，按一下 [+&nbsp;新增]，然後在刀鋒視窗中填入這些值：
 
    * **輸出別名**：使用名稱 `TwitterStream-Output`。 
-   * **接收**：選取 [Blob 儲存體]。
-   * **匯入選項**：選取 [從目前的訂用帳戶使用 Blob 儲存體]。
+   * **接收器**：選取 [Blob 儲存體]。
+   * **匯入選項**：選取 [使用來自目前訂用帳戶的 Blob 儲存體]。
    * **儲存體帳戶**。 選取 [建立新儲存體帳戶]。
    * **儲存體帳戶** (第二個方塊)。 輸入 `YOURNAMEsa`，其中 `YOURNAME` 是您的名稱或另一個唯一字串。 名稱只能使用小寫字母和數字，而且在整個 Azure 中必須是唯一的。 
-   * **容器**。 輸入 `socialtwitter` 。
+   * **容器**。 輸入 `socialtwitter`。
      儲存體帳戶名稱和容器名稱一起用來提供 blob 儲存體的 URI，例如： 
 
      `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
     
      ![串流分析作業的 [新輸出] 刀鋒視窗](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
-4. 按一下 [建立]。 
+4. 按一下頁面底部的 [新增]。 
 
     Azure 會建立儲存體帳戶，並自動產生金鑰。 
 
@@ -343,7 +342,7 @@ ms.locfileid: "70173155"
 
 另一個可用來了解 Twitter 情緒的查詢是根據[滑動視窗](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics)。 若要識別熱門話題，您需要找出在指定的時間內提及次數超過臨界值的話題。
 
-基於此操作說明的目的, 您會檢查過去5秒內提及超過20次的主題。
+基於此操作說明的目的，您會檢查過去5秒內提及超過20次的主題。
 
 1. 在作業刀鋒視窗中，按一下 [停止] 來停止作業。 
 
@@ -358,7 +357,7 @@ ms.locfileid: "70173155"
     HAVING COUNT(*) > 20
     ```
 
-4. 按一下 [儲存]。
+4. 按一下 [檔案]。
 
 5. 請確定 TwitterWpfClient 應用程式正在執行。 
 

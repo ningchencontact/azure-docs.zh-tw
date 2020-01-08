@@ -1,33 +1,33 @@
 ---
 title: 使用 PowerShell 建立容器或 blob 的使用者委派 SAS
 titleSuffix: Azure Storage
-description: 瞭解如何使用 PowerShell 建立具有 Azure Active Directory 認證的使用者委派 SAS （預覽）。
+description: 瞭解如何使用 PowerShell 建立具有 Azure Active Directory 認證的使用者委派 SAS。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 5f4947921a77f2bc94d1810c9b1d1951431d3d71
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 63075152ea4b3bf1a3aa208cf2a9642ef46642db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892510"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371765"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>使用 PowerShell 建立容器或 blob 的使用者委派 SAS （預覽）
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>使用 PowerShell 建立容器或 blob 的使用者委派 SAS
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-本文說明如何使用 Azure Active Directory （Azure AD）認證，以 Azure PowerShell （預覽）來建立容器或 blob 的使用者委派 SAS。
+本文說明如何使用 Azure Active Directory （Azure AD）認證，以 Azure PowerShell 建立容器或 blob 的使用者委派 SAS。
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="install-the-preview-module"></a>安裝預覽模組
+## <a name="install-the-powershell-module"></a>安裝 PowerShell 模組
 
-若要使用 PowerShell 建立使用者委派 SAS，您必須先安裝 Az. Storage 1.3.1 （預覽）模組。 請依照下列步驟安裝此模組：
+若要使用 PowerShell 建立使用者委派 SAS，請安裝1.10.0 或更新版本的 Az. Storage 模組。 請遵循下列步驟來安裝模組的最新版本：
 
 1. 解除安裝任何先前安裝的 Azure PowerShell：
 
@@ -48,23 +48,18 @@ ms.locfileid: "74892510"
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. 安裝支援使用者委派 SAS 的 Azure 儲存體預覽模組：
+1. 請確定您已安裝 Azure PowerShell 版3.2.0 或更新版本。 執行下列命令，以安裝最新版的 Azure 儲存體 PowerShell 模組：
 
     ```powershell
-    Install-Module Az.Storage `
-        –Repository PSGallery `
-        -RequiredVersion 1.3.1-preview `
-        –AllowPrerelease `
-        –AllowClobber `
-        –Force
+    Install-Module -Name Az.Storage -Repository PSGallery -Force
     ```
 
 1. 關閉並重新開啟 PowerShell 視窗。
 
-因為 PowerShell 預設會載入最新的 Az. Storage 模組，所以當您啟動主控台時，您可能需要明確載入 1.3.1-preview 模組。 若要明確載入預覽模組，請執行[import-module](/powershell/module/microsoft.powershell.core/import-module)命令：
+若要檢查已安裝的 Az. Storage 模組版本，請執行下列命令：
 
 ```powershell
-Import-Module Az.Storage -RequiredVersion 1.3.1
+Get-Module -ListAvailable -Name Az.Storage -Refresh
 ```
 
 如需有關安裝 Azure PowerShell 的詳細資訊，請參閱[使用 PowerShellGet 安裝 Azure PowerShell](/powershell/azure/install-az-ps)。

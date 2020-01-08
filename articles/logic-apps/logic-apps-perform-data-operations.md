@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f98daf301e8e17ad3f0bfb850ded1a8ed8bce417
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793109"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666732"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>在 Azure Logic Apps 中執行資料作業
 
@@ -29,7 +29,7 @@ ms.locfileid: "74793109"
 
 下列動作可協助您使用陣列中的資料。
 
-| 行動 | 描述 |
+| 行動 | 說明 |
 |--------|-------------|
 | [**建立 CSV 資料表**](#create-csv-table-action) | 從陣列建立逗號分隔值 (CSV) 資料表。 |
 | [**建立 HTML 資料表**](#create-html-table-action) | 從陣列建立 HTML 資料表。 |
@@ -42,7 +42,7 @@ ms.locfileid: "74793109"
 
 下列動作可協助您使用 JavaScript 物件標記法 (JSON) 格式的資料。
 
-| 行動 | 描述 |
+| 行動 | 說明 |
 |--------|-------------|
 | [**撰寫**](#compose-action) | 從可具有各種資料類型的多個輸入建立訊息或字串。 其後，您可以使用此字串作為單一輸入，而無須重複輸入相同的內容。 例如，您可以從多種輸入建立單一 JSON 訊息。 |
 | [**剖析 JSON**](#parse-json-action) | 為 JSON 內容中的屬性建立易記的權杖，以便在您的邏輯應用程式中輕鬆使用這些屬性。 |
@@ -443,6 +443,9 @@ Oranges,2
 > 任何在您的條件中使用篩選文字，都會區分大小寫。 此外，此動作不可變更陣列中各個項目的格式或元件。 
 > 
 > 若要讓動作使用**篩選陣列**動作的陣列輸出，這些動作必須將陣列作為輸入，或者您可能必須將輸出陣列轉換為其他相容的格式。
+> 
+> 如果您呼叫 HTTP 端點並接收 JSON 回應，請使用**剖析 json**動作來處理 json 回應。 
+> 否則，**篩選陣列**動作只能讀取回應主體，而不是 JSON 裝載的結構。
 
 如果您偏好在程式碼檢視編輯器中工作，您可以將本文中的範例**篩選陣列**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例 - 篩選陣列](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
 

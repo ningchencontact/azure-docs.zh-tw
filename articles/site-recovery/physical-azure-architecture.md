@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 23e8e4f9a092e871e62da27c8bf0c58a3bb8eb5b
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: f61d4beac5b5285b80fb05521cffc961f7f702c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084675"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356517"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>實體伺服器至 Azure 的災害復原架構
 
@@ -27,7 +27,7 @@ ms.locfileid: "74084675"
 --- | --- | ---
 **Azure** | Azure 訂用帳戶和 Azure 網路。 | 從內部部署實體機器複寫的資料會儲存在 Azure 受控磁片中。 從內部部署環境容錯移轉至 Azure 時，便會以複寫的資料建立 Azure VM。 Azure VM 在建立後會連線到 Azure 虛擬網路。
 **組態伺服器** | 系統會部署單一內部部署實體機器或 VMware VM，以執行所有的內部部署 Site Recovery 元件。 此 VM 會執行組態伺服器、處理序伺服器和主要目標伺服器。 | 組態伺服器會協調內部部署與 Azure 之間的通訊，以及管理資料複寫。
- **處理序伺服器**：  | 預設會與組態伺服器一起安裝。 | 做為複寫閘道。 接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。<br/><br/> 處理序伺服器也會在您要複寫的伺服器上安裝行動服務。<br/><br/> 隨著部署規模擴大，您可以新增額外的個別處理序伺服器，以處理日較大的複寫流量。
+ **處理序伺服器**：  | 預設會與組態伺服器一起安裝。 | 會做為複寫閘道器。 接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。<br/><br/> 處理序伺服器也會在您要複寫的伺服器上安裝行動服務。<br/><br/> 隨著部署規模擴大，您可以新增額外的個別處理序伺服器，以處理日較大的複寫流量。
  **主要目標伺服器** | 預設會與組態伺服器一起安裝。 | 在從 Azure 容錯回復期間，處理複寫資料。<br/><br/> 針對大型部署，您可以新增額外的個別主要目標伺服器進行容錯回復。
 **複寫的伺服器** | 行動服務會安裝在您複寫的每部伺服器上。 | 我們建議您允許從處理序伺服器自動安裝。 或者，您可以手動安裝服務，或使用 System Center Configuration Manager 等自動化部署方法。
 
@@ -45,7 +45,7 @@ ms.locfileid: "74084675"
     - 組態伺服器會透過輸出連接埠 HTTPS 443 與 Azure 協調複寫管理。
     - 處理序伺服器會透過輸出連接埠 443，接收來源機器所傳來的資料、將其最佳化並加密，再將它傳送至 Azure 儲存體。
     - 如果您啟用多部 VM 一致性，則複寫群組中的機器會透過連接埠 20004 彼此通訊。 如果您將多部機器群組為幾個共用當機時保持一致復原點和應用程式一致復原點的複寫群組，當這些群組在進行容錯移轉時，便會使用多部 VM。 如果機器執行的是相同的工作負載，且需要保持一致，此功能就很實用。
-4. 流量透過網際網路複寫到 Azure 儲存體的公用端點。 或者，您可以使用 Azure ExpressRoute [公用對等](../expressroute/expressroute-circuit-peerings.md#publicpeering)。 不支援從內部部署網站透過站台對站台 VPN 將流量複寫至 Azure。
+4. 流量透過網際網路複寫到 Azure 儲存體的公用端點。 或者，您可以使用 Azure ExpressRoute [公用對等](../expressroute/about-public-peering.md)。 不支援從內部部署網站透過站台對站台 VPN 將流量複寫至 Azure。
 
 
 **實體到 Azure 複寫程序**

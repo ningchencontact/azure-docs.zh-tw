@@ -1,17 +1,17 @@
 ---
-title: 最佳化在 Azure Cosmos DB 中執行查詢的要求單位和成本
+title: 將成本和 RU/秒優化，以在 Azure Cosmos DB 中執行查詢
 description: 了解如何評估查詢的要求單位費用，並在效能和成本方面最佳化查詢。
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 376c1a32a70951448b35a4c02022719229a3aad2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753295"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445138"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化查詢成本
 
@@ -105,7 +105,7 @@ Total Query Execution Time               :   �
 
 * 深入了解 [Azure Cosmos 定價的運作方式](how-pricing-works.md)
 * 深入了解[最佳化開發與測試](optimize-dev-test.md)
-* 深入了解 [Azure Cosmos DB 上的計費](understand-your-bill.md)
+* 深入了解 [Azure Cosmos DB 帳單](understand-your-bill.md)
 * 深入了解[最佳化輸送量成本](optimize-cost-throughput.md)
 * 深入了解[最佳化儲存體成本](optimize-cost-storage.md)
 * 深入了解[最佳化讀取和寫入的成本](optimize-cost-reads-writes.md)

@@ -1,6 +1,6 @@
 ---
-title: 使用 Microsoft 身分識別平臺隱含流程保護單一頁面應用程式 |Azure
-description: 使用單一頁面應用程式的隱含流程的 Microsoft 身分識別平臺執行，建立 web 應用程式。
+title: OAuth 2.0 隱含授與流程-Microsoft 身分識別平臺 |Azure
+description: 使用 Microsoft 身分識別平臺隱含流程保護單一頁面應用程式。
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8afae9535c190c05bca3153dfbe5279cd4c47968
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a73056914d08cc9c0c90b1c91cc67c18eaad86da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919217"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423234"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft 身分識別平臺和隱含授與流程
 
@@ -74,16 +74,16 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 若要使用隱含流程來測試登入，請按一下 [ <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize.. ]。</a>登入之後，您的瀏覽器應重新導向至網址列中具有 `id_token` 的 `https://localhost/myapp/` 。
 >
 
-| 參數 |  | 描述 |
+| 參數 |  | 說明 |
 | --- | --- | --- |
-| `tenant` | 必要 |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 允許的值為 `common`、`organizations`、`consumers` 及租用戶識別碼。 如需更多詳細資訊，請參閱 [通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。 |
-| `client_id` | 必要 | 指派給您應用程式的[Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面的應用程式（用戶端）識別碼。 |
-| `response_type` | 必要 |必須包含 OpenID Connect 登入的 `id_token` 。 它也可能包含 response_type `token`。 這裡使用 `token` ，讓您的應用程式能夠立即從授權端點接收存取權杖，而不需要向授權端點進行第二次要求。 如果您使用 `token` response_type，`scope` 參數必須包含範圍，以指出要對哪個資源發出權杖（例如，使用者. 讀取于 Microsoft Graph）。  |
+| `tenant` | required |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 允許的值為 `common`、`organizations`、`consumers` 及租用戶識別碼。 如需更多詳細資訊，請參閱 [通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。 |
+| `client_id` | required | 指派給您應用程式的[Azure 入口網站應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面的應用程式（用戶端）識別碼。 |
+| `response_type` | required |必須包含 OpenID Connect 登入的 `id_token` 。 它也可能包含 response_type `token`。 這裡使用 `token` ，讓您的應用程式能夠立即從授權端點接收存取權杖，而不需要向授權端點進行第二次要求。 如果您使用 `token` response_type，`scope` 參數必須包含範圍，以指出要對哪個資源發出權杖（例如，使用者. 讀取于 Microsoft Graph）。  |
 | `redirect_uri` | 建議使用 |應用程式的 redirect_uri，您的應用程式可在此傳送及接收驗證回應。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 |
-| `scope` | 必要 |[範圍](v2-permissions-and-consent.md)的空格分隔清單。 針對 OpenID Connect （id_tokens），它必須包含範圍 `openid`，這會轉譯為同意 UI 中的「登入」許可權。 （選擇性）您也可以包含 `email` 和 `profile` 範圍，以取得其他使用者資料的存取權。 如果要求存取權杖，您也可以在此要求中包含其他範圍，要求同意各種資源。 |
+| `scope` | required |[範圍](v2-permissions-and-consent.md)的空格分隔清單。 針對 OpenID Connect （id_tokens），它必須包含範圍 `openid`，這會轉譯為同意 UI 中的「登入」許可權。 （選擇性）您也可以包含 `email` 和 `profile` 範圍，以取得其他使用者資料的存取權。 如果要求存取權杖，您也可以在此要求中包含其他範圍，要求同意各種資源。 |
 | `response_mode` | 選用 |指定將產生的權杖送回到應用程式所應該使用的方法。 預設為僅查詢存取權杖，但如果要求包含 id_token，則為片段。 |
 | `state` | 建議使用 |同樣會隨權杖回應傳回之要求中所包含的值。 其可以是您想要之任何內容的字串。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
-| `nonce` | 必要 |由應用程式產生且包含在要求中的值，會以宣告方式包含在產生的 id_token 中。 應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 只有要求 id_token 時，才需要此值。 |
+| `nonce` | required |由應用程式產生且包含在要求中的值，會以宣告方式包含在產生的 id_token 中。 應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 只有要求 id_token 時，才需要此值。 |
 | `prompt` | 選用 |表示需要的使用者互動類型。 目前的有效值只有 'login'、'none'、'select_account' 和 'consent'。 `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。 `prompt=none` 是相反的，它會確保使用者不會看到任何互動式提示。 如果要求無法透過單一登入以無訊息方式完成，Microsoft 身分識別平臺端點會傳回錯誤。 `prompt=select_account` 會將使用者傳送至帳戶選擇器，工作階段中記下的所有帳戶都會出現在當中。 `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
 | `login_hint`  |選用 |如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。 通常應用程式會在重新驗證期間使用此參數，已經使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。|
 | `domain_hint` | 選用 |如果包含，它會略過使用者在登入頁面上經歷的以電子郵件為基礎的探索程式，進而提升使用者體驗的效率。 這通常用於在單一租使用者中運作的企業營運應用程式，在此情況下，它們會在指定的租使用者內提供功能變數名稱。  這會將使用者轉送至該租使用者的同盟提供者。  請注意，這會導致來賓無法登入此應用程式。  |
@@ -104,7 +104,7 @@ GET https://localhost/myapp/#
 &state=12345
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | `access_token` |如果 `response_type` 包含 `token` 則納入。 應用程式要求的存取權杖。 存取權杖不應解碼或檢查，應視為不透明的字串。 |
 | `token_type` |如果 `response_type` 包含 `token` 則納入。 一律為 `Bearer`。 |
@@ -123,7 +123,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | `error` |用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
 | `error_description` |協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
@@ -172,7 +172,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | `access_token` |如果 `response_type` 包含 `token` 則納入。 應用程式要求的存取權杖，在此案例中為 Microsoft Graph 的存取權杖。 存取權杖不應解碼或檢查，應視為不透明的字串。 |
 | `token_type` | 一律為 `Bearer`。 |
@@ -191,7 +191,7 @@ error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | `error` |用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
 | `error_description` |協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
@@ -210,9 +210,9 @@ OpenID Connect `end_session_endpoint` 可讓您的應用程式將要求傳送至
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| 參數 |  | 描述 |
+| 參數 |  | 說明 |
 | --- | --- | --- |
-| `tenant` |必要 |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 允許的值為 `common`、`organizations`、`consumers` 及租用戶識別碼。 如需更多詳細資訊，請參閱 [通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。 |
+| `tenant` |required |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 允許的值為 `common`、`organizations`、`consumers` 及租用戶識別碼。 如需更多詳細資訊，請參閱 [通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。 |
 | `post_logout_redirect_uri` | 建議使用 | 使用者在完成登出之後應該要返回的 URL。 這個值必須符合為應用程式註冊的其中一個重新導向 URI。 如果未包含，則會由 Microsoft 身分識別平臺端點向使用者顯示一般訊息。 |
 
 ## <a name="next-steps"></a>後續步驟

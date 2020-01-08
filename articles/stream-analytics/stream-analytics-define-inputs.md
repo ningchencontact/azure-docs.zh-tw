@@ -1,19 +1,18 @@
 ---
 title: 將資料作為輸入串流處理至 Azure 串流分析中
 description: 了解如何設定 Azure 串流分析中的資料連線。 輸入包括來自事件的資料流，以及參考資料。
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: df111d605b7c05bcb934771b6063f2be04770ea9
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 72568be0cf87770e8878f95de4a9c82842b470df
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606470"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646841"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>將資料作為輸入串流處理至串流分析中
 
@@ -31,7 +30,7 @@ ms.locfileid: "73606470"
 
 ## <a name="create-edit-or-test-inputs"></a>建立、編輯或測試輸入
 
-您可以使用 [ [Azure 入口網站](stream-analytics-quick-create-portal.md)]、[ [Visual Studio](stream-analytics-quick-create-vs.md)] 和 [ [Visual Studio Code](quick-create-vs-code.md) ] 來新增和查看或編輯串流作業上的現有輸入。 您也可以從 Azure 入口網站、 [Visual Studio](stream-analytics-vs-tools-local-run.md)和[Visual Studio Code](vscode-local-run.md)的範例資料，測試輸入連接和[測試查詢](stream-analytics-manage-job.md#test-your-query)。 當您撰寫查詢時，您會列出 FROM 子句中的輸入。 您可以從入口網站的 [查詢] 頁面取得可用輸入的清單。 如果您想要使用多個輸入，則可 `JOIN` 它們或撰寫多個 `SELECT` 查詢。
+您可以使用 [ [Azure 入口網站](stream-analytics-quick-create-portal.md)]、[ [Visual Studio](stream-analytics-quick-create-vs.md)] 和 [ [Visual Studio Code](quick-create-vs-code.md) ] 來新增和查看或編輯串流作業上的現有輸入。 您也可以從 Azure 入口網站、 [Visual Studio](stream-analytics-vs-tools-local-run.md)和[Visual Studio Code](visual-studio-code-local-run.md)的範例資料，測試輸入連接和[測試查詢](stream-analytics-manage-job.md#test-your-query)。 當您撰寫查詢時，您會列出 FROM 子句中的輸入。 您可以從入口網站的 [查詢] 頁面取得可用輸入的清單。 如果您想要使用多個輸入，則可 `JOIN` 它們或撰寫多個 `SELECT` 查詢。
 
 
 ## <a name="stream-data-from-event-hubs"></a>來自事件中樞的串流資料
@@ -57,7 +56,7 @@ Azure 事件中樞提供高延展性的發佈-訂閱事件擷取器。 事件中
 | **事件中樞原則名稱** | 支援存取事件中樞的共用存取原則。 每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 此選項會自動填入，除非您選取手動提供事件中樞設定的選項。|
 | **事件中樞取用者群組** (建議使用) | 強烈建議您為每一個串流分析作業使用不同的取用者群組。 此字串可識別要用來從事件中樞擷取資料的取用者群組。 若未指定取用者群組，串流分析作業會使用 $Default 取用者群組。  |
 | **事件序列化格式** | 傳入資料流程的序列化格式（JSON、CSV、Avro 或[其他（Protobuf、XML、專屬 ...）](custom-deserializer.md)）。  確認 JSON 格式與規格一致，並且不包含以 0 開頭的十進位數字。 |
-| **編碼** | UTF-8 是目前唯一支援的編碼格式。 |
+| **編碼方式** | UTF-8 是目前唯一支援的編碼格式。 |
 | **事件壓縮類型** | 用來讀取內送資料流的壓縮類型，例如無 (預設值)、GZip 或 Deflate。 |
 
 如果您的資料來自事件中樞資料流輸入，您將可在串流分析查詢中存取下列中繼資料欄位：
@@ -106,7 +105,7 @@ Azure IoT 中樞是可高度擴充的發佈-訂閱事件擷取器，針對 IoT �
 | **共用存取原則金鑰** | 用來授與 IoT 中樞存取權的共用存取金鑰。  此選項會自動填入，除非您選取手動提供 IoT 中樞設定的選項。 |
 | **取用者群組** | 強烈建議讓每個串流分析作業使用不同的取用者群組。 用來從 IoT 中樞擷取資料的取用者群組。 串流分析會使用 $Default 取用者群組，除非您另有指定。  |
 | **事件序列化格式** | 傳入資料流程的序列化格式（JSON、CSV、Avro 或[其他（Protobuf、XML、專屬 ...）](custom-deserializer.md)）。  確認 JSON 格式與規格一致，並且不包含以 0 開頭的十進位數字。 |
-| **編碼** | UTF-8 是目前唯一支援的編碼格式。 |
+| **編碼方式** | UTF-8 是目前唯一支援的編碼格式。 |
 | **事件壓縮類型** | 用來讀取內送資料流的壓縮類型，例如無 (預設值)、GZip 或 Deflate。 |
 
 
@@ -155,11 +154,11 @@ CSV 格式的輸入需要一個標頭資料列來定義資料集的欄位，而�
 | **儲存體帳戶** | Blob 檔案所在的儲存體帳戶名稱。 |
 | **儲存體帳戶金鑰** | 與儲存體帳戶相關聯的密碼金鑰。 此選項會自動填入，除非您選取手動提供 Blob 儲存體設定的選項。 |
 | **容器** | Blob 輸入的容器。 容器提供邏輯分組給儲存在 Microsoft Azure Blob 服務中的 blob。 將 blob 上傳至 Azure Blob 儲存體服務時，您必須指定該 blob 的容器。 您可以選擇**使用現有的**容器，或選擇**新建**以使用新建立的容器。|
-| **路徑模式** (選用) | 用來在指定的容器中找出 blob 的檔案路徑。 如果您想要從容器的根目錄讀取 blob，請勿設定路徑模式。 在該路徑內，您可以指定下列三個變數的一個或多個執行個體：`{date}`、`{time}` 或 `{partition}`<br/><br/>範例 1：`cluster1/logs/{date}/{time}/{partition}`<br/><br/>範例 2：`cluster1/logs/{date}`<br/><br/>`*` 字元不是路徑前置詞允許的值。 僅允許有效的 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 字元</a>。 請勿包含容器名稱或檔案名稱。 |
-| **日期格式** (選用) | 在路徑中使用日期變數時，用來組織檔案的日期格式。 範例︰ `YYYY/MM/DD` |
+| **路徑模式** (選用) | 用來在指定的容器中找出 blob 的檔案路徑。 如果您想要從容器的根目錄讀取 blob，請勿設定路徑模式。 在該路徑內，您可以指定下列三個變數的一個或多個執行個體：`{date}`、`{time}` 或 `{partition}`<br/><br/>範例 1：`cluster1/logs/{date}/{time}/{partition}`<br/><br/>範例 2：`cluster1/logs/{date}`<br/><br/>`*` 字元不是路徑前置詞允許的值。 僅允許有效的 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 字元</a>。 請勿包含容器名稱或檔案名。 |
+| **日期格式** (選用) | 在路徑中使用日期變數時，用來組織檔案的日期格式。 範例： `YYYY/MM/DD` |
 | **時間格式** (選用) |  在路徑中使用時間變數時，用來組織檔案的時間格式。 目前唯一支援的值為 `HH` (表示小時)。 |
 | **事件序列化格式** | 傳入資料流程的序列化格式（JSON、CSV、Avro 或[其他（Protobuf、XML、專屬 ...）](custom-deserializer.md)）。  確認 JSON 格式與規格一致，並且不包含以 0 開頭的十進位數字。 |
-| **編碼** | 對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式。 |
+| **編碼方式** | 對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式。 |
 | **壓縮** | 用來讀取內送資料流的壓縮類型，例如無 (預設值)、GZip 或 Deflate。 |
 
 當您的資料來自 Blob 儲存體來源時，您可以在串流分析查詢中存取下列中繼資料欄位：

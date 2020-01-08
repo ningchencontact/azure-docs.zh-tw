@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7616bcdaf2a2ae6f80b0c1e964f311ef5409a64f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b08a124ade6e2db8ca27ef61c7f5a6b3fe839885
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707157"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442770"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -33,7 +33,7 @@ ms.locfileid: "74707157"
 |Azure HDInsight Spark     |   是       |   否       |<sup>[1](#tab1400a)</sup>、 <sup> [4](#databricks)</sup>|
 ||||
 
-**附注：**    
+**注意：**    
 <a name="tab1400a">1</a> - 僅限 Tabular 1400 和更高模型。  
 <a name="azprovider">2</a> -當指定為表格式1200和更高模型中的*提供者*資料來源時，記憶體內部和 DirectQuery 模型都需要 Microsoft OLE DB Driver for SQL Server 內含 msoledbsql.h （建議）、SQL Server Native Client 11.0，或 Data Provider 的 .NET Framework SQL Server。    
 <a name="azsqlmanaged">3</a> -支援 Azure SQL Database 受控執行個體。 因為受控實例會在具有私人 IP 位址的 Azure VNet 中執行，所以必須在實例上啟用公用端點。 如果未啟用，則需要內部[部署資料閘道](analysis-services-gateway.md)。    
@@ -75,7 +75,7 @@ ms.locfileid: "74707157"
 |XML 資料表    |  是 | 否 | <sup>[7](#tab1400b)</sup> |
 | | | |
 
-**附注：**    
+**注意：**    
 <a name="tab1400b">6</a> -僅限表格式1400和更高的模型。  
 <a name="sqlim">7</a> -當指定為表格式1200和更高模型中的*提供者*資料來源時，請為 Data Provider 指定 SQL Server 內含 msoledbsql.h （建議）的 Microsoft OLE DB 驅動程式、SQL Server Native Client 11.0 或 .NET Framework SQL Server。  
 <a name="instgw">8</a> -如果將內含 msoledbsql.h 指定為數據提供者，可能需要在與內部部署資料閘道相同的電腦上，下載並安裝[適用于 SQL Server 的 Microsoft OLE DB 驅動程式](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server)。  
@@ -87,7 +87,7 @@ ms.locfileid: "74707157"
 
 ## <a name="understanding-providers"></a>瞭解提供者
 
-在 Visual Studio 中建立表格式1400和更高版本的模型專案時，根據預設，當您使用 [**取得資料**] 連接到資料來源時，不會指定資料提供者。 表格式1400和更新版本的模型會使用[Power Query](/power-query/power-query-what-is-power-query.md)連接器來管理資料來源與 Analysis Services 之間的連接、資料查詢和混搭程式。 這些在連接屬性設定中，有時稱為*結構化*資料來源連接。 不過，您可以啟用舊版資料來源。 啟用時，您可以使用 [**資料表匯入嚮導**]，連接到傳統上支援1200的某些資料來源，以及*舊版*或*提供者*資料來源的較低模型。 當指定為提供者資料來源時，您可以指定特定的資料提供者和其他的 advanced 連接屬性。 例如，您可以連接到內部部署 SQL Server 資料倉儲，或甚至 Azure SQL Database 作為舊版資料來源。 然後，您可以選取 SQL Server 內含 MSOLEDBSQL.H 資料提供者的 OLE DB 驅動程式。 在此情況下，選取 OLE DB 資料提供者可能會透過 Power Query 連接器來提供改善的效能。 
+在 Visual Studio 中建立表格式1400和更高版本的模型專案時，根據預設，當您使用 [**取得資料**] 連接到資料來源時，不會指定資料提供者。 表格式1400和更新版本的模型會使用[Power Query](/power-query/power-query-what-is-power-query)連接器來管理資料來源與 Analysis Services 之間的連接、資料查詢和混搭程式。 這些在連接屬性設定中，有時稱為*結構化*資料來源連接。 不過，您可以啟用舊版資料來源。 啟用時，您可以使用 [**資料表匯入嚮導**]，連接到傳統上支援1200的某些資料來源，以及*舊版*或*提供者*資料來源的較低模型。 當指定為提供者資料來源時，您可以指定特定的資料提供者和其他的 advanced 連接屬性。 例如，您可以連接到內部部署 SQL Server 資料倉儲，或甚至 Azure SQL Database 作為舊版資料來源。 然後，您可以選取 SQL Server 內含 MSOLEDBSQL.H 資料提供者的 OLE DB 驅動程式。 在此情況下，選取 OLE DB 資料提供者可能會透過 Power Query 連接器來提供改善的效能。 
 
 在 Visual Studio 中使用 [資料表匯入] 時，與任何資料來源的連接都需要資料提供者。 系統會為您選取預設的資料提供者。 如有需要，您可以變更資料提供者。 您選擇的提供者類型可能取決於效能、模型是否使用記憶體內部儲存體或 DirectQuery，以及您要將模型部署到哪個 Analysis Services 平臺。
 

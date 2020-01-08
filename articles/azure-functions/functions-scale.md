@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6520f205d0a9c1a33d0cb4911a58a5e680bdadb7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6b8f5708aa14b4cc7cffa62da055f92f8d99dee5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929721"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409112"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
@@ -122,11 +122,13 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 如果此命令的輸出是 `dynamic`，表示函式應用程式在取用方案中。 當此命令的輸出是 `ElasticPremium`時，您的函數應用程式會在 Premium 方案中。 所有其他值表示 App Service 方案的不同層級。
 
-## <a name="storage-account-requirements"></a>儲存體帳戶需求
+## <a name="storage-account-requirements"></a>儲存體帳戶的需求
 
 在任何方案上，函數應用程式都需要一般 Azure 儲存體帳戶，其支援 Azure Blob、佇列、檔案和表格儲存體。 這是因為函式依賴 Azure 儲存體來執行作業，例如管理觸發程序和記錄函式執行等，但有些儲存體帳戶不支援佇列和表格。 這些帳戶 (包括僅限 Blob 的儲存體帳戶 (包含進階儲存體) 和搭配區域備援儲存體複寫的一般用途儲存體帳戶) 會在您建立函式應用程式時，從現有**儲存體帳戶**選項中篩選出來。
 
-您的函式應用程式所使用的相同儲存體帳戶也可供您的觸發程式和系結用來儲存應用程式資料。 不過，針對需要大量儲存體的作業，您應該使用個別的儲存體帳戶。   
+您的函式應用程式所使用的相同儲存體帳戶也可供您的觸發程式和系結用來儲存應用程式資料。 不過，針對需要大量儲存體的作業，您應該使用個別的儲存體帳戶。  
+
+有可能會有多個函式應用程式共用相同的儲存體帳戶，而不會有任何問題。 （有一個很好的例子，就是當您使用 Azure 儲存體模擬器在本機環境中開發多個應用程式時，它的作用就像一個儲存體帳戶）。 
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
@@ -161,6 +163,8 @@ Azure Functions 的尺規單位是函式應用程式。 當函式應用程式相
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>可調整應用程式的最佳做法與模式
 
 函數應用程式中有多個面向會影響其調整規模的效果，包括主機設定、執行階段耗用量和資源效率。  如需詳細資訊，請參閱[效能考量文章中的延展性一節](functions-best-practices.md#scalability-best-practices)。 您也應了解在縮放函式應用程式後，連線會如何運作。 如需詳細資訊，請參閱[如何管理 Azure Functions 中的連線](manage-connections.md)。
+
+如需有關在 Python 和 node.js 中進行調整的詳細資訊，請參閱[Azure Functions python 開發人員指南-調整和並行](functions-reference-python.md#scaling-and-concurrency)存取和[Azure Functions node.js 開發人員指南-調整和並行](functions-reference-node.md#scaling-and-concurrency)存取。
 
 ### <a name="billing-model"></a>計費模式
 

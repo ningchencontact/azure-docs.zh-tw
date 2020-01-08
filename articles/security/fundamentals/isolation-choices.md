@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 5e6910db7765c4cb8f151401a6803e6d4d3f998e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c666d718586d3e5351974da287a91f6a3a8c04ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159750"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459152"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 公用雲端中的隔離
 Azure 可讓您在共用實體基礎結構上執行應用程式和虛擬機器（Vm）。 在雲端環境中執行應用程式的主要經濟動機之一是，能夠將共用資源的成本分散到多位客戶。 這種多重租用的作法會以低成本在不同客戶間進行資源的多工處理來提升效率。 不幸的是，它也會導致下列風險：共用實體伺服器和其他基礎結構資源來執行您的機密應用程式和 VM，而它們或許隸屬於可能惡意的任意使用者。
@@ -67,11 +67,11 @@ Azure Active Directory 會透過租用戶單獨擁有且管理之容器內的原
 
 Azure RBAC 有適用於所有資源類型的三個基本角色：
 
-- **擁有者**：具有所有資源的完整存取權，包括將存取權委派給其他人的權限。
+- **擁有者** 具有所有資源的完整存取權，包括將存取權委派給其他人的權限。
 
 - **參與者** 可以建立和管理所有類型的 Azure 資源，但是不能將存取權授與其他人。
 
-- **讀者**：可以檢視現有的 Azure 資源。
+- **讀者** 可以檢視現有的 Azure 資源。
 
 ![Azure 角色型存取控制](./media/isolation-choices/azure-isolation-fig3.png)
 
@@ -205,18 +205,18 @@ Azure 提供下列加密類型來保護資料：
 
 -   [傳輸層級加密](../../storage/common/storage-security-guide.md)，例如從 Azure 儲存體傳入或傳出資料時的 HTTPS。
 
--   [連線加密](../../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares)，例如 Azure 檔案共用的 SMB 3.0 加密。
+-   [連線加密](../../storage/common/storage-security-guide.md)，例如 Azure 檔案共用的 SMB 3.0 加密。
 
 -   [用戶端加密](../../storage/common/storage-security-guide.md)，以在將資料傳輸至儲存體之前加密資料，以及自儲存體傳出後解密資料。
 
 #### <a name="encryption-at-rest"></a>待用加密
 對許多組織來說， [待用資料加密](isolation-choices.md) 是達到資料隱私性、法規遵循及資料主權的必要步驟。 有三個 Azure 功能可提供「待用」資料的加密。
 
--   [儲存體服務加密](../../storage/common/storage-security-guide.md)可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加密資料。
+-   [儲存體服務加密](../../storage/common/storage-security-guide.md) 可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加密資料。
 
 -   [用戶端加密](../../storage/common/storage-security-guide.md) 也會提供待用加密的功能。
 
--   [Azure 磁碟加密](../azure-security-disk-encryption-overview.md)允許您加密 IaaS 虛擬機器所使用的 OS 磁碟和資料磁碟。
+-   [Azure 磁碟加密](../azure-security-disk-encryption-overview.md) 允許您加密 IaaS 虛擬機器所使用的作業系統磁碟和資料磁碟。
 
 #### <a name="azure-disk-encryption"></a>Azure 磁碟加密
 適用於虛擬機器 (VM) 的 [Azure 磁碟加密](../azure-security-disk-encryption-overview.md)會使用您在 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 中所控制的金鑰與原則來將 VM 磁碟 (包括開機和資料磁碟) 加密，以協助您達成組織安全性與合規性需求。

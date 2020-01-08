@@ -1,27 +1,18 @@
 ---
-title: 使用 Service Fabric 回報和檢查健全狀況 | Microsoft Docs
+title: 使用 Azure Service Fabric 報告和檢查健全狀況
 description: 了解如何從您的服務程式碼傳送健全狀況報告，以及如何使用 Azure Service Fabric 所提供的健全狀況監視工具檢查您服務的健全狀況。
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: mfussell
-editor: ''
-ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 0db341a9e36d61761321821de5631a564adea050
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b7a9c44a84e3ce15eaec22c8f57bb48f79dae05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428165"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464634"
 ---
-# <a name="report-and-check-service-health"></a>回報和檢查服務健康情況
+# <a name="report-and-check-service-health"></a>報告及檢查健康狀態
 當您的服務發生問題時，您回應並修正事件和中斷的能力，取決於您快速偵測問題的能力。 如果您從服務程式碼向 Azure Service Fabric 健全狀況管理員回報問題和失敗，您便可以使用 Service Fabric 提供的標準健全狀況監視工具來檢查健全狀況。
 
 有三種方式可讓您回報服務的健全狀況：
@@ -51,7 +42,7 @@ ms.locfileid: "66428165"
    
     ![建立與具狀態服務搭配使用的 Service Fabric 應用程式](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-stateful-service-application-dialog.png)
 1. 按 **F5** 以在偵錯模式中執行應用程式。 應用程式會部署至本機叢集。
-1. 應用程式執行之後，在通知區域中的本機叢集管理員圖示上按一下滑鼠右鍵，然後從捷徑功能表選取 管理本機叢集  ，以開啟 Service Fabric 總管。
+1. 應用程式執行之後，在通知區域中的本機叢集管理員圖示上按一下滑鼠右鍵，然後從捷徑功能表選取 管理本機叢集 ，以開啟 Service Fabric 總管。
    
     ![從通知區域開啟 Service Fabric 總管](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/LaunchSFX.png)
 1. 應用程式健全狀況應該會如此圖所示。 此時，應用程式應該狀況良好而沒有任何錯誤。
@@ -65,7 +56,7 @@ ms.locfileid: "66428165"
 Visual Studio 中的 Service Fabric 專案範本包含範例程式碼。 以下步驟說明如何從您的服務程式碼回報自訂健全狀況事件。 這類報告會自動顯示在 Service Fabric 所提供之健康情況監視的標準工具中，例如 Service Fabric Explorer、Azure 入口網站健康情況檢視以及 PowerShell。
 
 1. 在 Visual Studio 中重新開啟您先前建立的應用程式，或使用 **具狀態服務** Visual Studio 範本建立新應用程式。
-1. 開啟 Stateful1.cs 檔案，並尋找 `RunAsync` 方法中的 `myDictionary.TryGetValueAsync` 呼叫。 您可以看到這個方法傳回存放目前計數器值的 `result` ，因為此應用程式的主要邏輯是要讓計數能夠執行。 如果此應用程式是實際的應用程式，且缺乏結果代表失敗，您會想要標示該事件。
+1. 開啟 Stateful1.cs 檔案，並尋找 `RunAsync` 方法中的 `myDictionary.TryGetValueAsync` 呼叫。 您可以看到這個方法傳回存放目前計數器值的 `result` ，因為此應用程式的主要邏輯是要讓計數能夠執行。 如果此應用程式是實際的應用程式，而且如果缺少結果表示失敗，您會想要標示該事件。
 1. 若要在缺乏結果代表失敗時回報健全狀況事件，請新增下列步驟。
    
     a. 請將 `System.Fabric.Health` 命名空間新增至 Stateful1.cs 檔案。
@@ -124,7 +115,7 @@ Visual Studio 中的 Service Fabric 專案範本包含範例程式碼。 以下�
     }
     ```
    此程式碼會在每次 `RunAsync` 執行時引發健康情況報告。 在您進行變更之後，請按 **F5** 執行應用程式。
-1. 在應用程式執行之後，開啟 [Service Fabric 總管] 來檢查應用程式的健全狀況。 這次，[Service Fabric Explorer] 會將應用程式顯示為健康情況不良。 應用程式會顯示為狀況不良的錯誤是因為我們先前新增的程式碼中。
+1. 在應用程式執行之後，開啟 [Service Fabric 總管] 來檢查應用程式的健全狀況。 這次，[Service Fabric Explorer] 會將應用程式顯示為健康情況不良。 應用程式會顯示為狀況不良，因為我們先前加入的程式碼所報告的錯誤。
    
     ![Service Fabric 總管中狀況不良的應用程式](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
 1. 如果您在 [Service Fabric 總管] 的樹狀結構檢視中選取主要複本，您將會看到 **健全狀態** 也顯示為發生錯誤。 [Service Fabric 總管] 也會顯示已新增至程式碼中 `HealthInformation` 參數的健全狀況報告詳細資料。 您可以在 PowerShell 和 Azure 入口網站中看到相同的健全狀況報告。

@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8e29c632ff3920c77a757fe45475a12c212cf579
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
-ms.translationtype: HT
+ms.openlocfilehash: 2d9de5e7294fdca7514989ba009e9dee8985a084
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684008"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421953"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -84,7 +84,7 @@ static void Main(string[] args)
 第3版。*x*使用標準 ASP.NET Core api。 呼叫[`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder)實例上的[`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment)方法。 傳遞名為 `development`的字串，如下列範例所示：
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.UseEnvironment("development");
@@ -95,7 +95,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -236,7 +236,7 @@ static void Main(string[] args)
 在第3版中。*x*，儲存體系結會包含在 `Microsoft.Azure.WebJobs.Extensions.Storage` 封裝中。 在 `ConfigureWebJobs` 方法中呼叫 `AddAzureStorage` 擴充方法，如下所示：
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -247,7 +247,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -255,7 +255,7 @@ static void Main()
 若要使用其他觸發程序與繫結類型，請安裝包含這些項目的 NuGet 套件，並呼叫在擴充功能中實作的 `Add<binding>` 擴充方法。 例如，如果您想要使用 Azure Cosmos DB 系結，請安裝 `Microsoft.Azure.WebJobs.Extensions.CosmosDB` 並呼叫 `AddCosmosDB`，如下所示：
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -266,7 +266,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -279,7 +279,7 @@ static void Main()
 
 * Blob 儲存體
 * 佇列儲存體
-* 表格儲存體
+* 資料表儲存體
 
 若要使用其他觸發程序與繫結型別，請安裝包含它們的 NuGet 封裝，並在 `JobHostConfiguration` 物件上呼叫 `Use<binding>` 方法。 例如，如果您想要使用計時器觸發程式，請安裝 `Microsoft.Azure.WebJobs.Extensions` 並在 `Main` 方法中呼叫 `UseTimers`，如下所示：
 
@@ -318,7 +318,7 @@ public class Functions
 在 `ConfigureWebJobs` 方法中呼叫 `AddExecutionContextBinding` 擴充方法，如下所示：
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -329,7 +329,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -373,7 +373,7 @@ class Program
 這個範例顯示如何設定 Azure Cosmos DB 觸發程式：
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -390,8 +390,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -403,7 +402,7 @@ static void Main()
 這個範例顯示如何設定事件中樞觸發程式：
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -419,8 +418,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -434,7 +432,7 @@ static void Main()
 #### <a name="version-3x"></a>第3版。*x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -450,8 +448,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -480,7 +477,7 @@ static void Main(string[] args)
 此範例說明如何設定 SendGrid 輸出系結：
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -495,8 +492,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -508,7 +504,7 @@ static void Main()
 這個範例顯示如何設定服務匯流排觸發程式：
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -523,8 +519,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -538,7 +533,7 @@ static void Main()
 #### <a name="version-3x"></a>第3版。*x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -549,8 +544,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -690,7 +684,7 @@ Azure Functions 檔提供有關每個系結類型的參考資訊。 您會在每
 * [範例](../azure-functions/functions-bindings-storage-queue.md#trigger---example)。 程式碼範例。 C#類別庫範例適用于 webjob SDK。 只要省略 `FunctionName` 屬性即可。
 * [屬性](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes)。 要用於系結類型的屬性。
 * [設定](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration)。 屬性屬性和構造函式參數的說明。
-* [使用量](../azure-functions/functions-bindings-storage-queue.md#trigger---usage)。 您可以系結的類型，以及系結運作方式的相關資訊。 例如：輪詢演算法、有害佇列處理。
+* [使用方式](../azure-functions/functions-bindings-storage-queue.md#trigger---usage)。 您可以系結的類型，以及系結運作方式的相關資訊。 例如：輪詢演算法、有害佇列處理。
   
 如需系結參考文章的清單，請參閱 Azure Functions 的觸發程式[和](../azure-functions/functions-triggers-bindings.md#supported-bindings)系結文章中的「支援的系結」。 在該清單中，只有 Azure Functions （而非 Webjob SDK）支援 HTTP、Webhook 和 Event Grid 系結。
 
@@ -833,9 +827,9 @@ WebJobs SDK 使用 [Azure 二進位大型物件租用](../storage/common/storage
 |偵錯       | 1 |
 |資訊 | 2 |
 |警告     | 3 |
-|Error       | 4 |
+|錯誤       | 4 |
 |危急    | 5 |
-|None        | 6 |
+|無        | 6 |
 
 您可以將每個類別個別篩選成特定[`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)。 例如，您可能想要看見二進位大型物件觸發程序處理的所有記錄，但只看見所有其他項目的 `Error` 以上等級記錄。
 
@@ -924,7 +918,7 @@ internal class CustomTelemetryInitializer : ITelemetryInitializer
 在建立器中呼叫 [`ConfigureServices`]，以將您的自訂 [`ITelemetryInitializer`] 新增至管線。
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -951,8 +945,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```

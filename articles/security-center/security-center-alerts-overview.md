@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: bd538d436d1c900a370f522bccf724eaf87210b4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3cd3cef4d70ea3f78d7e135ad01e0e00b38c60b9
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582613"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666273"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure 資訊安全中心的安全性警示
 
@@ -35,7 +35,7 @@ ms.locfileid: "73582613"
 
 ## <a name="what-are-security-alerts"></a>什麼是安全性警示：
 
-警示是當偵測到您資源的威脅時，資訊安全中心產生的通知。 資訊安全中心會排定優先順序並列出警示，以及快速調查問題所需的資訊。 資訊安全中心也會提供如何修復攻擊的建議。
+警示是當資訊安全中心偵測到您資源受到威脅時，所產生的通知。 資訊安全中心會排定優先順序並列出警示，以及快速調查問題所需的資訊。 資訊安全中心也提供如何修復攻擊的建議。
 
 ## 資訊安全中心偵測到威脅的方式為何？ <a name="detect-threats"> </a>
 
@@ -105,13 +105,17 @@ Azure 資訊安全中心受益于在 Microsoft 中提供安全性研究和資料
 下列主題說明資訊安全中心如何使用它從與 Azure 基礎結構整合所收集的不同遙測資料，以針對部署在 Azure 上的資源套用額外的保護層級：
 
 * [服務層警示](security-center-alerts-service-layer.md)
-* [與 Azure 安全性產品整合](security-center-alerts-integration.md)
+* [Azure WAF 和 Azure DDoS 保護的威脅偵測](security-center-alerts-integration.md)
 
 ## <a name="what-are-security-incidents"></a>什麼是安全性事件？
 
 安全性事件是相關警示的集合，而不是個別列出每個警示。 資訊安全中心使用[雲端智慧警示相互關聯](security-center-alerts-cloud-smart.md)，將不同的警示和低精確度信號相互關聯至安全性事件。
 
 資訊安全中心會使用事件，為您提供攻擊活動和所有相關警示的單一觀點。 這個視圖可讓您快速瞭解攻擊者所採取的動作，以及受影響的資源。 如需詳細資訊，請參閱[雲端智慧警示相互關聯](security-center-alerts-cloud-smart.md)。
+
+## <a name="security-alerts-in-azure-activity-log"></a>Azure 活動記錄中的安全性警示
+
+除了在 Azure 入口網站中或以程式設計方式提供時，也會在[Azure 活動記錄](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)中將安全性警示和事件視為事件進行審核。 如需事件架構的詳細資訊，請參閱[Azure 活動記錄中的安全性警示](https://go.microsoft.com/fwlink/?linkid=2114113)。
 
 ## <a name="next-steps"></a>後續步驟
 

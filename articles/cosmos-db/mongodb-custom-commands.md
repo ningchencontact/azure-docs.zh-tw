@@ -1,27 +1,27 @@
 ---
-title: 管理適用於 MongoDB 的 Azure Cosmos DB 的 API 中所儲存資料的 MongoDB 延伸模組命令
-description: 本文說明如何使用 MongoDB 的延伸模組命令來管理適用於 MongoDB 的 Azure Cosmos DB 的 API 中所儲存資料。
+title: MongoDB 擴充命令，用來管理 Azure Cosmos DB 的 MongoDB API 中的資料
+description: 本文說明如何使用 MongoDB 延伸模組命令來管理 Azure Cosmos DB 的 MongoDB API 中儲存的資料。
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: 94b1048befc8716caf5f7f51adb1f95d047d4077
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f57b274715eb1c8a4d517f5655c09c366574d412
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925662"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445212"
 ---
-# <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>使用 MongoDB 的延伸模組命令來管理適用於 MongoDB 的 Azure Cosmos DB 的 API 中所儲存資料 
+# <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>使用 MongoDB 延伸模組命令來管理 Azure Cosmos DB 的 MongoDB API 中儲存的資料 
 
-Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以與 Azure Cosmos DB API 通訊 mongodb 使用任何開放原始碼[MongoDB 用戶端驅動程式](https://docs.mongodb.org/ecosystem/drivers)。 Azure Cosmos DB 的 MongoDB API 藉由遵循使用現有的用戶端驅動程式[MongoDB 有線通訊協定](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)。
+Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以使用任何開放原始碼[MongoDB 用戶端驅動程式](https://docs.mongodb.org/ecosystem/drivers)，與適用于 MongoDB 的 Azure Cosmos DB API 進行通訊。 Azure Cosmos DB 適用于 MongoDB 的 API 可讓您藉由遵循[mongodb 有線通訊協定](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)，來使用現有的用戶端驅動程式。
 
-您可以使用 Azure Cosmos DB 的 API for MongoDB，您即可享有 Cosmos DB 全域散發、 自動分區、 高可用性、 延遲保證、 自動、 待用加密，備份，例如，和許多，同時保留您的投資在您的 MongoDB 應用程式。
+藉由使用適用于 MongoDB 的 Azure Cosmos DB API，您可以享有 Cosmos DB 的優點，例如全域散發、自動分區化、高可用性、延遲保證、自動、待用加密、備份等，同時保留您的投資在您的 MongoDB 應用程式中。
 
-## <a name="mongodb-protocol-support"></a>MongoDB 的通訊協定支援
+## <a name="mongodb-protocol-support"></a>MongoDB 通訊協定支援
 
-根據預設，Azure Cosmos DB API for MongoDB 適用於 MongoDB 伺服器 3.2 版，如需詳細資訊，請參閱[支援的功能和語法](mongodb-feature-support.md)。 MongoDB 3.4 版中新增的查詢運算子的功能是目前可供 Azure Cosmos DB API for MongoDB 中預覽。 下列延伸模組命令執行 CRUD 作業，儲存在 Azure Cosmos DB 的 API，適用於 MongoDB 的資料時，支援特定功能，Azure Cosmos DB:
+根據預設，Azure Cosmos DB 適用于 MongoDB 的 API 與 MongoDB 伺服器版本3.2 相容，如需詳細資訊，請參閱[支援的功能和語法](mongodb-feature-support.md)。 MongoDB 3.4 版中新增的功能或查詢運算子目前可在 Azure Cosmos DB 的 MongoDB API 中預覽。 下列擴充命令支援在對 MongoDB 的 Azure Cosmos DB API 中儲存的資料執行 CRUD 作業時，Azure Cosmos DB 特定功能：
 
 * [建立資料庫](#create-database)
 * [更新資料庫](#update-database)
@@ -30,9 +30,9 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 * [更新集合](#update-collection)
 * [取得集合](#get-collection)
 
-## <a id="create-database"></a> 建立資料庫
+## <a id="create-database"></a>建立資料庫
 
-建立資料庫的擴充功能命令會建立新的 MongoDB 資料庫。 從命令執行所針對的資料庫內容時使用的資料庫名稱。 CreateDatabase 命令的格式如下所示：
+建立資料庫延伸模組命令會建立新的 MongoDB 資料庫。 資料庫名稱會從執行命令的資料庫內容中使用。 CreateDatabase 命令的格式如下所示：
 
 ```
 {
@@ -41,40 +41,40 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 }
 ```
 
-下表描述在命令中的參數：
+下表描述命令中的參數：
 
-|**欄位**|**型別** |**描述** |
+|**欄位**|**型別** |**說明** |
 |---------|---------|---------|
-| customAction   |  string  |   名稱的自訂命令，它必須是"CreateDatabase 」。      |
-| offerThroughput | int  | 您在資料庫設定的佈建的輸送量。 這個參數是選擇性的。 |
+| customAction   |  string  |   自訂命令的名稱，必須是 "CreateDatabase"。      |
+| offerThroughput | int  | 您在資料庫上設定的布建輸送量。 這是選擇性參數。 |
 
-### <a name="output"></a>Output
+### <a name="output"></a>輸出
 
-傳回預設的自訂命令回應。 請參閱[預設輸出](#default-output)的自訂命令輸出中的參數。
+傳回預設的自訂命令回應。 請參閱自訂命令的[預設輸出](#default-output)，以取得輸出中的參數。
 
 ### <a name="examples"></a>範例
 
 **建立資料庫**
 
-若要建立名為"test"的資料庫，請使用下列命令：
+若要建立名為 "test" 的資料庫，請使用下列命令：
 
 ```shell
 use test
 db.runCommand({customAction: "CreateDatabase"});
 ```
 
-**建立與輸送量的資料庫**
+**建立具有輸送量的資料庫**
 
-若要建立的資料庫名為"test"和 1000 Ru 的佈建的輸送量，請使用下列命令：
+若要建立名為 "test" 的資料庫和布建的 1000 ru 輸送量，請使用下列命令：
 
 ```shell
 use test
 db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 ```
 
-## <a id="update-database"></a> 更新資料庫
+## <a id="update-database"></a>更新資料庫
 
-更新資料庫擴充功能命令會更新具有指定之資料庫相關聯的屬性。 目前，您只能更新 「 offerThroughput"屬性。
+更新資料庫延伸模組命令會更新與指定資料庫相關聯的屬性。 目前，您只能更新 "offerThroughput" 屬性。
 
 ```
 {
@@ -83,31 +83,31 @@ db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 }
 ```
 
-下表描述在命令中的參數：
+下表描述命令中的參數：
 
-|**欄位**|**型別** |**描述** |
+|**欄位**|**型別** |**說明** |
 |---------|---------|---------|
-| customAction    |    string     |   自訂命令名稱。 必須是"UpdateDatabase 」。      |
-|  offerThroughput   |  int       |     您想要在資料庫上設定的新佈建的輸送量。    |
+| customAction    |    string     |   自訂命令的名稱。 必須是 "Updatedatabase.vbs"。      |
+|  offerThroughput   |  int       |     您想要在資料庫上設定的新布建輸送量。    |
 
-### <a name="output"></a>Output
+### <a name="output"></a>輸出
 
-傳回預設的自訂命令回應。 請參閱[預設輸出](#default-output)的自訂命令輸出中的參數。
+傳回預設的自訂命令回應。 請參閱自訂命令的[預設輸出](#default-output)，以取得輸出中的參數。
 
 ### <a name="examples"></a>範例
 
-**更新與資料庫相關聯的已佈建的輸送量**
+**更新與資料庫相關聯的布建輸送量**
 
-若要更新資料庫的佈建的輸送量，以名稱"test"1200 ru，使用下列命令：
+若要將名稱為 "test" 之資料庫的已布建輸送量更新為 1200 ru，請使用下列命令：
 
 ```shell
 use test
 db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 ```
 
-## <a id="get-database"></a> 取得資料庫
+## <a id="get-database"></a>取得資料庫
 
-取得資料庫的擴充功能命令會傳回資料庫物件。 從命令執行所針對的資料庫內容時使用的資料庫名稱。
+取得資料庫延伸模組命令會傳回資料庫物件。 資料庫名稱會從執行命令的資料庫內容中使用。
 
 ```
 {
@@ -115,39 +115,39 @@ db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 }
 ```
 
-下表描述在命令中的參數：
+下表描述命令中的參數：
 
 
-|**欄位**|**型別** |**描述** |
+|**欄位**|**型別** |**說明** |
 |---------|---------|---------|
-|  customAction   |   string      |   自訂命令名稱。 必須是 「 GetDatabase"|
+|  customAction   |   string      |   自訂命令的名稱。 必須是 "GetDatabase"|
         
-### <a name="output"></a>Output
+### <a name="output"></a>輸出
 
-如果命令成功，回應會包含具有下列欄位的文件：
+如果命令成功，回應會包含具有下欄欄位的檔：
 
 |**欄位**|**型別** |**說明** |
 |---------|---------|---------|
 |  `ok`   |   `int`     |   回應的狀態。 1 = = 成功。 0 = = 失敗。      |
-| `database`    |    `string`        |   資料庫名稱。      |
-|   `provisionedThroughput`  |    `int`      |    設定資料庫的佈建的輸送量。 這是選擇性的回應參數。     |
+| `database`    |    `string`        |   資料庫的名稱。      |
+|   `provisionedThroughput`  |    `int`      |    在資料庫上設定的布建輸送量。 這是選擇性的回應參數。     |
 
-如果命令失敗，則會傳回預設的自訂命令回應。 請參閱[預設輸出](#default-output)的自訂命令輸出中的參數。
+如果命令失敗，則會傳回預設的自訂命令回應。 請參閱自訂命令的[預設輸出](#default-output)，以取得輸出中的參數。
 
 ### <a name="examples"></a>範例
 
 **取得資料庫**
 
-若要取得名為"test"的資料庫的資料庫物件，使用下列命令：
+若要取得名為 "test" 之資料庫的資料庫物件，請使用下列命令：
 
 ```shell
 use test
 db.runCommand({customAction: "GetDatabase"});
 ```
 
-## <a id="create-collection"></a> 建立集合
+## <a id="create-collection"></a>建立集合
 
-建立集合的擴充功能命令會建立新的 MongoDB 集合。 從命令執行所針對的資料庫內容時使用的資料庫名稱。 CreateCollection 命令的格式如下所示：
+建立集合擴充功能命令會建立新的 MongoDB 集合。 資料庫名稱會從執行命令的資料庫內容中使用。 CreateCollection 命令的格式如下所示：
 
 ```
 {
@@ -158,24 +158,24 @@ db.runCommand({customAction: "GetDatabase"});
 }
 ```
 
-下表描述在命令中的參數：
+下表描述命令中的參數：
 
-|**欄位**|**型別** |**描述** |
+|**欄位**|**型別** |**說明** |
 |---------|---------|---------|
-| customAction    | string | 自訂命令名稱。 必須是 「 CreateCollection"     |
+| customAction    | string | 自訂命令的名稱。 必須是 "CreateCollection"     |
 | collection      | string | 集合的名稱                                   |
-| offerThroughput | int    | 若要在資料庫上設定的佈建的輸送量。 這是選擇性參數 |
-| shardKey        | string | 分區金鑰路徑，以建立分區化集合。 這是選擇性參數 |
+| offerThroughput | int    | 要在資料庫上設定的布建輸送量。 這是選擇性參數 |
+| shardKey        | string | 分區用來建立分區化集合的索引鍵路徑。 這是選擇性參數 |
 
-### <a name="output"></a>Output
+### <a name="output"></a>輸出
 
-傳回預設的自訂命令回應。 請參閱[預設輸出](#default-output)的自訂命令輸出中的參數。
+傳回預設的自訂命令回應。 請參閱自訂命令的[預設輸出](#default-output)，以取得輸出中的參數。
 
 ### <a name="examples"></a>範例
 
-**建立 unsharded 集合**
+**建立分區集合**
 
-若要建立具有名稱"testCollection 」 和 1000 Ru 的佈建的輸送量 unsharded 集合，使用下列命令： 
+若要建立名稱為 "testCollection" 且布建輸送量為 1000 ru 的分區集合，請使用下列命令： 
 
 ```shell
 use test
@@ -184,16 +184,16 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 **建立分區化集合**
 
-若要建立分區化集合名稱"testCollection 」 與 1000 Ru 的佈建的輸送量，請使用下列命令：
+若要建立名稱為 "testCollection" 且布建輸送量為 1000 ru 的分區化集合，請使用下列命令：
 
 ```shell
 use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection", offerThroughput: 1000, shardKey: "a.b" });
 ```
 
-## <a id="update-collection"></a> 更新集合
+## <a id="update-collection"></a>更新集合
 
-更新集合擴充功能命令會更新指定之集合相關聯的屬性。
+更新集合延伸模組命令會更新與指定的集合相關聯的屬性。
 
 ```
 {
@@ -203,32 +203,32 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 }
 ```
 
-下表描述在命令中的參數：
+下表描述命令中的參數：
 
-|**欄位**|**型別** |**描述** |
+|**欄位**|**型別** |**說明** |
 |---------|---------|---------|
-|  customAction   |   string      |   自訂命令名稱。 必須是"UpdateCollection 」。      |
+|  customAction   |   string      |   自訂命令的名稱。 必須是 "UpdateCollection"。      |
 |  collection   |   string      |   集合的名稱。       |
-| offerThroughput   |int|   若要設定的集合上佈建的輸送量。|
+| offerThroughput   |int|   要在集合上設定的布建輸送量。|
 
-## <a name="output"></a>Output
+## <a name="output"></a>輸出
 
-傳回預設的自訂命令回應。 請參閱[預設輸出](#default-output)的自訂命令輸出中的參數。
+傳回預設的自訂命令回應。 請參閱自訂命令的[預設輸出](#default-output)，以取得輸出中的參數。
 
 ### <a name="examples"></a>範例
 
-**更新與集合相關聯的已佈建的輸送量**
+**更新與集合相關聯的已布建輸送量**
 
-若要更新具有名稱"testCollection 」 集合的佈建的輸送量，1200 ru，使用下列命令：
+若要將名為 "testCollection" 之集合的已布建輸送量更新為 1200 ru，請使用下列命令：
 
 ```shell
 use test
 db.runCommand({customAction: "UpdateCollection", collection: "testCollection", offerThroughput: 1200 });
 ```
 
-## <a id="get-collection"></a> 取得集合
+## <a id="get-collection"></a>取得集合
 
-取得集合的自訂命令傳回的集合物件。
+取得集合自訂命令會傳回集合物件。
 
 ```
 {
@@ -237,53 +237,53 @@ db.runCommand({customAction: "UpdateCollection", collection: "testCollection", o
 }
 ```
 
-下表描述在命令中的參數：
+下表描述命令中的參數：
 
 
-|**欄位**|**型別** |**描述** |
+|**欄位**|**型別** |**說明** |
 |---------|---------|---------|
-| customAction    |   string      |   自訂命令名稱。 必須是"GetCollection 」。      |
+| customAction    |   string      |   自訂命令的名稱。 必須是 "GetCollection"。      |
 | collection    |    string     |    集合的名稱。     |
 
-### <a name="output"></a>Output
+### <a name="output"></a>輸出
 
-如果命令成功，回應會包含具有下列欄位的文件
+如果命令成功，回應會包含具有下欄欄位的檔
 
 
 |**欄位**|**型別** |**說明** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   回應的狀態。 1 = = 成功。 0 = = 失敗。      |
-| `database`    |    `string`     |   資料庫名稱。      |
+| `database`    |    `string`     |   資料庫的名稱。      |
 | `collection`    |    `string`     |    集合的名稱。     |
-|  `shardKeyDefinition`   |   `document`      |  做為分區化索引鍵 > 規格文件編製索引。 這是選擇性的回應參數。       |
-|  `provisionedThroughput`   |   `int`      |    若要設定的集合上佈建的輸送量。 這是選擇性的回應參數。     |
+|  `shardKeyDefinition`   |   `document`      |  當做分區金鑰使用的索引規格檔。 這是選擇性的回應參數。       |
+|  `provisionedThroughput`   |   `int`      |    要在集合上設定的布建輸送量。 這是選擇性的回應參數。     |
 
-如果命令失敗，則會傳回預設的自訂命令回應。 請參閱[預設輸出](#default-output)的自訂命令輸出中的參數。
+如果命令失敗，則會傳回預設的自訂命令回應。 請參閱自訂命令的[預設輸出](#default-output)，以取得輸出中的參數。
 
 ### <a name="examples"></a>範例
 
 **取得集合**
 
-若要取得名為"testCollection 」 的集合的集合物件，使用下列命令：
+若要取得名為 "testCollection" 之集合的集合物件，請使用下列命令：
 
 ```shell
 use test
 db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 ```
 
-## <a id="default-output"></a> 預設輸出的自訂命令
+## <a id="default-output"></a>自訂命令的預設輸出
 
-如果未指定，自訂的回應會包含具有下列欄位的文件：
+如果未指定，自訂回應會包含具有下欄欄位的檔：
 
 |**欄位**|**型別** |**說明** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   回應的狀態。 1 = = 成功。 0 = = 失敗。      |
-| `code`    |   `int`      |   命令失敗時，才傳回 （也就是 [確定] = = 0）。 包含 MongoDB 錯誤程式碼。 這是選擇性的回應參數。      |
-|  `errMsg`   |  `string`      |    命令失敗時，才傳回 （也就是 [確定] = = 0）。 包含的使用者易記錯誤訊息。 這是選擇性的回應參數。      |
+| `code`    |   `int`      |   只有在命令失敗時傳回（亦即 ok = = 0）。 包含 MongoDB 錯誤碼。 這是選擇性的回應參數。      |
+|  `errMsg`   |  `string`      |    只有在命令失敗時傳回（亦即 ok = = 0）。 包含使用者易記的錯誤訊息。 這是選擇性的回應參數。      |
 
 ## <a name="next-steps"></a>後續步驟
 
-接下來，您可以繼續了解下列的 Azure Cosmos DB 概念： 
+接下來，您可以繼續瞭解下列 Azure Cosmos DB 概念： 
 
 * [Azure Cosmos DB 中的編製索引](../cosmos-db/index-policy.md)
 * [利用存留時間讓 Azure Cosmos DB 中的資料自動過期](../cosmos-db/time-to-live.md)

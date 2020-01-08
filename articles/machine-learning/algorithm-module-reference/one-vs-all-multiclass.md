@@ -1,7 +1,7 @@
 ---
-title: 「一對多」多元分類
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何在 Azure Machine Learning 服務中使用 vs All 多元模組，從二元分類模型的集團建立多元分類模型。
+title: 一對多多級
+titleSuffix: Azure Machine Learning
+description: 瞭解如何在 Azure Machine Learning 中使用一對一多元模組，從二元分類模型的集團建立多元分類模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 5c59f2865e7ebf768cdd8b80e59d69359f8607c6
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: bf4f176eef502cdd1c68f19904a24bd2500e1302
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717191"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428506"
 ---
-# <a name="one-vs-all-multiclass"></a>「一對多」多元分類
+# <a name="one-vs-all-multiclass"></a>一對多多級
 
 本文說明如何在 Azure Machine Learning 設計工具（預覽）中使用一對一的多元模組。 目標是使用*一對一*方法來建立可預測多個類別的分類模型。
 
-當結果相依于連續或類別預測變數時，此模組可用於建立預測三個或更多可能結果的模型。 此方法也可讓您針對需要多個輸出類別的問題使用二元分類方法。
+當結果取決於連續或類別預測量變數時，此模組可用來建立能夠預測三個或更多可能結果的模型。 此方法也可讓您使用二元分類方法解決需要多個輸出級別的問題。
 
 ### <a name="more-about-one-versus-all-models"></a>深入瞭解一對一與所有模型
 
@@ -61,4 +61,4 @@ ms.locfileid: "73717191"
 
 ## <a name="next-steps"></a>後續步驟
 
-查看 Azure Machine Learning 服務[可用的模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 0f5216181efcd6593fc9f85de0792b98a5d7fd0a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 000271095530e269472fba4bc5f1c5563aa16ff9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792560"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428810"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>總覽：使用 Azure Resource Manager 範本自動部署 Azure Logic Apps
 
-當您準備好要自動建立和部署邏輯應用程式時，您可以將邏輯應用程式的基礎工作流程定義擴充到[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)中。 此範本會定義用來布建和部署邏輯應用程式的基礎結構、資源、參數和其他資訊。 藉由定義不同部署（也稱為*參數*化）的值參數，您可以根據不同的部署需求，重複且一致地部署邏輯應用程式。
+當您準備好要自動建立和部署邏輯應用程式時，您可以將邏輯應用程式的基礎工作流程定義擴充到[Azure Resource Manager 範本](../azure-resource-manager/management/overview.md)中。 此範本會定義用來布建和部署邏輯應用程式的基礎結構、資源、參數和其他資訊。 藉由定義不同部署（也稱為*參數*化）的值參數，您可以根據不同的部署需求，重複且一致地部署邏輯應用程式。
 
-例如，如果您部署至開發、測試和生產環境，您可能會在每個環境中使用不同的連接字串。 您可以宣告接受不同連接字串的範本參數，然後將這些字串儲存在不同的[參數](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)檔案中。 如此一來，您就可以變更這些值，而不需要更新和重新部署範本。 對於您有機密或必須受到保護之參數值的案例（例如密碼和秘密），您可以將這些值儲存在[Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)中，並讓您的參數檔案抓取這些值。 不過，在這些情況下，您會重新部署以取得目前的值。
+例如，如果您部署至開發、測試和生產環境，您可能會在每個環境中使用不同的連接字串。 您可以宣告接受不同連接字串的範本參數，然後將這些字串儲存在不同的[參數](../azure-resource-manager/templates/parameter-files.md)檔案中。 如此一來，您就可以變更這些值，而不需要更新和重新部署範本。 對於您有機密或必須受到保護之參數值的案例（例如密碼和秘密），您可以將這些值儲存在[Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)中，並讓您的參數檔案抓取這些值。 不過，在這些情況下，您會重新部署以取得目前的值。
 
 本總覽描述 Resource Manager 範本中的屬性，其中包含邏輯應用程式工作流程定義。 範本和您的工作流程定義都使用 JSON 語法，但有一些差異存在，因為工作流程定義也會遵循[工作流程定義語言架構](../logic-apps/logic-apps-workflow-definition-language.md)。 例如，範本運算式和工作流程定義運算式的[參考參數](#parameter-references)和其可接受的值有何不同。
 
@@ -30,7 +30,7 @@ ms.locfileid: "74792560"
 
 如需 Resource Manager 範本的詳細資訊，請參閱下列主題：
 
-* [Azure Resource Manager 範本結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure Resource Manager 範本結構和語法](../azure-resource-manager/templates/template-syntax.md)
 * [Azure Resource Manager 範本最佳做法](../azure-resource-manager/template-best-practices.md)
 * [針對雲端一致性開發 Azure Resource Manager 範本](../azure-resource-manager/templates-cloud-consistency.md)
 
@@ -45,7 +45,7 @@ ms.locfileid: "74792560"
 
 ## <a name="template-structure"></a>範本結構
 
-在最上層，Resource Manager 範本會遵循此結構，如[Azure Resource Manager 範本結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)主題中所述：
+在最上層，Resource Manager 範本會遵循此結構，如[Azure Resource Manager 範本結構和語法](../azure-resource-manager/templates/template-syntax.md)主題中所述：
 
 ```json
 {
@@ -61,10 +61,10 @@ ms.locfileid: "74792560"
 
 針對邏輯應用程式範本，您主要會使用這些範本物件：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |-----------|-------------|
-| `parameters` | 宣告[範本參數](../azure-resource-manager/resource-group-authoring-templates.md#parameters)，以便在 Azure 中建立和自訂要部署的資源時，接受要使用的值。 例如，這些參數會接受您的邏輯應用程式名稱和位置、連線，以及部署所需的其他資源的值。 您可以將這些參數值儲存在[參數](#template-parameter-files)檔案中，本主題稍後會加以描述。 如需一般詳細資料，請參閱[參數-Resource Manager 範本結構和語法](../azure-resource-manager/resource-group-authoring-templates.md#parameters)。 |
-| `resources` | 定義要建立或更新並部署至 Azure 資源群組的[資源](../azure-resource-manager/resource-group-authoring-templates.md#resources)，例如您的邏輯應用程式、連線、Azure 儲存體帳戶等等。 如需一般詳細資料，請參閱[資源-Resource Manager 範本結構和語法](../azure-resource-manager/resource-group-authoring-templates.md#resources)。 |
+| `parameters` | 宣告[範本參數](../azure-resource-manager/templates/template-syntax.md#parameters)，以便在 Azure 中建立和自訂要部署的資源時，接受要使用的值。 例如，這些參數會接受您的邏輯應用程式名稱和位置、連線，以及部署所需的其他資源的值。 您可以將這些參數值儲存在[參數](#template-parameter-files)檔案中，本主題稍後會加以描述。 如需一般詳細資料，請參閱[參數-Resource Manager 範本結構和語法](../azure-resource-manager/templates/template-syntax.md#parameters)。 |
+| `resources` | 定義要建立或更新並部署至 Azure 資源群組的[資源](../azure-resource-manager/templates/template-syntax.md#resources)，例如您的邏輯應用程式、連線、Azure 儲存體帳戶等等。 如需一般詳細資料，請參閱[資源-Resource Manager 範本結構和語法](../azure-resource-manager/templates/template-syntax.md#resources)。 |
 ||||
 
 您的邏輯應用程式範本會使用此檔案名格式：
@@ -78,7 +78,7 @@ ms.locfileid: "74792560"
 
 ## <a name="template-parameters"></a>範本參數
 
-邏輯應用程式範本有多個存在於不同層級的 `parameters` 物件，並執行不同的功能。 例如，您可以在最上層宣告[範本參數](../azure-resource-manager/resource-group-authoring-templates.md#parameters)，以取得在 Azure 中建立及部署資源時要接受並在部署時使用的值，例如：
+邏輯應用程式範本有多個存在於不同層級的 `parameters` 物件，並執行不同的功能。 例如，您可以在最上層宣告[範本參數](../azure-resource-manager/templates/template-syntax.md#parameters)，以取得在 Azure 中建立及部署資源時要接受並在部署時使用的值，例如：
 
 * 您的邏輯應用程式
 * 您的邏輯用來透過[受控連接器](../connectors/apis-list.md)存取其他服務和系統的連接
@@ -86,7 +86,7 @@ ms.locfileid: "74792560"
 
   例如，如果您的邏輯應用程式使用企業對企業（B2B）案例的[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)，範本的頂層 `parameters` 物件會宣告可接受該整合帳戶之資源識別碼的參數。
 
-以下是參數定義的一般結構和語法，其完全由[參數 Resource Manager 範本結構和語法](../azure-resource-manager/resource-group-authoring-templates.md#parameters)所描述：
+以下是參數定義的一般結構和語法，其完全由[參數 Resource Manager 範本結構和語法](../azure-resource-manager/templates/template-syntax.md#parameters)所描述：
 
 ```json
 "<parameter-name>": {
@@ -147,7 +147,7 @@ ms.locfileid: "74792560"
 
 若要保護範本參數，請參閱下列主題：
 
-* [範本參數的安全性建議](../azure-resource-manager/template-best-practices.md#parameters)
+* [範本參數的安全性建議](../azure-resource-manager/templates/template-best-practices.md#parameters)
 * [安全範本參數](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 * [使用 Azure Key Vault 傳遞安全參數值](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 
@@ -169,7 +169,7 @@ ms.locfileid: "74792560"
 
 * 針對所有參數包含可指定空值的 `defaultValue` 屬性，但不包括機密或必須保護的值。 請一律將安全參數用於使用者名稱、密碼和秘密。 若要隱藏或保護敏感性參數值，請遵循下列主題中的指導方針：
 
-  * [範本參數的安全性建議](../azure-resource-manager/template-best-practices.md#parameters)
+  * [範本參數的安全性建議](../azure-resource-manager/templates/template-best-practices.md#parameters)
 
   * [安全範本參數](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
@@ -177,13 +177,13 @@ ms.locfileid: "74792560"
 
 * 若要區別範本參數名稱與工作流程定義參數名稱，您可以使用描述性範本參數名稱，例如： `TemplateFabrikamPassword`
 
-如需更多範本的最佳做法，請參閱[範本參數的最佳做法](../azure-resource-manager/template-best-practices.md#parameters)。
+如需更多範本的最佳做法，請參閱[範本參數的最佳做法](../azure-resource-manager/templates/template-best-practices.md#parameters)。
 
 <a name="template-parameter-files"></a>
 
 ## <a name="template-parameters-file"></a>範本參數檔案
 
-若要提供範本參數的值，請將這些值儲存在[參數](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)檔案中。 如此一來，您就可以根據您的部署需求來使用不同的參數檔案。 以下是要使用的檔案名格式：
+若要提供範本參數的值，請將這些值儲存在[參數](../azure-resource-manager/templates/parameter-files.md)檔案中。 如此一來，您就可以根據您的部署需求來使用不同的參數檔案。 以下是要使用的檔案名格式：
 
 * 邏輯應用程式範本檔案名： **<*邏輯-應用程式名稱*>. json**
 * 參數檔案名： **<*邏輯-應用程式名稱*>. parameters. json**
@@ -267,8 +267,8 @@ ms.locfileid: "74792560"
 
 如需範本資源及其屬性的一般資訊，請參閱下列主題：
 
-* [資源-Resource Manager 範本結構和語法](../azure-resource-manager/resource-group-authoring-templates.md#resources)
-* [範本資源的最佳作法](../azure-resource-manager/template-best-practices.md#resources)
+* [資源-Resource Manager 範本結構和語法](../azure-resource-manager/templates/template-syntax.md#resources)
+* [範本資源的最佳作法](../azure-resource-manager/templates/template-best-practices.md#resources)
 
 <a name="logic-app-resource-definition"></a>
 
@@ -319,13 +319,13 @@ ms.locfileid: "74792560"
 
 以下是您的邏輯應用程式資源定義特有的屬性：
 
-| 屬性 | 必要項 | Type | 描述 |
+| 屬性 | 必要項 | 類型 | 說明 |
 |-----------|----------|------|-------------|
 | `state` | 是 | String | 您的邏輯應用程式在部署時的狀態，其中 `Enabled` 表示邏輯應用程式已上線，`Disabled` 表示邏輯應用程式為非使用中。 例如，如果您還沒有準備好讓邏輯應用程式上線，但想要部署草稿版本，您可以使用 `Disabled` 選項。 |
-| `integrationAccount` | 否 | Object | 如果您的邏輯應用程式使用整合帳戶來儲存企業對企業（B2B）案例的成品，此物件會包含 `id` 屬性，以指定整合帳戶的識別碼。 |
-| `definition` | 是 | Object | 邏輯應用程式的基礎工作流程定義，也就是出現在程式碼視圖中的相同物件，而且會在[工作流程定義語言的架構參考](../logic-apps/logic-apps-workflow-definition-language.md)主題中完整說明。 在此工作流程定義中，`parameters` 物件會宣告要在邏輯應用程式執行時間使用之值的參數。 如需詳細資訊，請參閱[工作流程定義和參數](#workflow-definition-parameters)。 <p><p>若要在邏輯應用程式的工作流程定義中查看屬性，請從 [設計檢視] 切換至 Azure 入口網站或 Visual Studio 中的 [程式碼視圖]，或使用[Azure 資源總管](https://resources.azure.com)之類的工具。 |
-| `parameters` | 否 | Object | 要在邏輯應用程式執行時間使用的[工作流程定義參數值](#workflow-definition-parameters)。 這些值的參數定義會出現在您[工作流程定義的 parameters 物件](#workflow-definition-parameters)中。 此外，如果您的邏輯應用程式使用[managed 連接器](../connectors/apis-list.md)來存取其他服務和系統，此物件會包含 `$connections` 物件，以設定要在執行時間使用的連接值。 |
-| `accessControl` | 否 | Object | 用於指定邏輯應用程式的安全性屬性，例如限制要求觸發程式的 IP 存取或執行歷程記錄輸入和輸出。 如需詳細資訊，請參閱[保護邏輯應用程式的存取](../logic-apps/logic-apps-securing-a-logic-app.md)。 |
+| `integrationAccount` | 否 | 物件 | 如果您的邏輯應用程式使用整合帳戶來儲存企業對企業（B2B）案例的成品，此物件會包含 `id` 屬性，以指定整合帳戶的識別碼。 |
+| `definition` | 是 | 物件 | 邏輯應用程式的基礎工作流程定義，也就是出現在程式碼視圖中的相同物件，而且會在[工作流程定義語言的架構參考](../logic-apps/logic-apps-workflow-definition-language.md)主題中完整說明。 在此工作流程定義中，`parameters` 物件會宣告要在邏輯應用程式執行時間使用之值的參數。 如需詳細資訊，請參閱[工作流程定義和參數](#workflow-definition-parameters)。 <p><p>若要在邏輯應用程式的工作流程定義中查看屬性，請從 [設計檢視] 切換至 Azure 入口網站或 Visual Studio 中的 [程式碼視圖]，或使用[Azure 資源總管](https://resources.azure.com)之類的工具。 |
+| `parameters` | 否 | 物件 | 要在邏輯應用程式執行時間使用的[工作流程定義參數值](#workflow-definition-parameters)。 這些值的參數定義會出現在您[工作流程定義的 parameters 物件](#workflow-definition-parameters)中。 此外，如果您的邏輯應用程式使用[managed 連接器](../connectors/apis-list.md)來存取其他服務和系統，此物件會包含 `$connections` 物件，以設定要在執行時間使用的連接值。 |
+| `accessControl` | 否 | 物件 | 用於指定邏輯應用程式的安全性屬性，例如限制要求觸發程式的 IP 存取或執行歷程記錄輸入和輸出。 如需詳細資訊，請參閱[保護邏輯應用程式的存取](../logic-apps/logic-apps-securing-a-logic-app.md)。 |
 ||||
 
 如需邏輯應用程式、整合帳戶和整合帳戶成品特有的範本資源資訊，請參閱[Microsoft. 邏輯資源類型](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions)。
@@ -936,7 +936,7 @@ ms.locfileid: "74792560"
 }
 ```
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |-----------|-------------|
 | `token:clientId` | 與服務主體相關聯的應用程式或用戶端識別碼 |
 | `token:clientSecret` | 與服務主體相關聯的金鑰值 |

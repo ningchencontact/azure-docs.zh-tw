@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2019
 ms.author: spelluru
-ms.openlocfilehash: a0505b987deb67f93de6f6166154211359515ad7
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: fc5051667100a2ebaa01b7815f825fadd766b08f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807884"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456985"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>針對在 Azure DevTest Labs 虛擬機器中套用成品時的問題進行疑難排解
 在虛擬機器上套用成品可能會因各種原因而失敗。 本文會引導您完成一些方法，以協助找出可能的原因。
@@ -69,7 +69,7 @@ $vm.Properties.canApplyArtifacts
 - **嘗試執行成品時**。 這可能是因為網路或存放裝置問題所導致。 如需詳細資訊，請參閱本文稍後的個別章節。 這也可能是因為撰寫腳本的方式所造成。 例如：
     - PowerShell 腳本具有**強制參數**，但因為您允許使用者保留空白，或因為您在 artifactfile.json 定義檔中沒有屬性的預設值，所以無法將值傳遞給它。 腳本會停止回應，因為它正在等候使用者輸入。
     - PowerShell 腳本**需要使用者輸入**做為執行的一部分。 腳本必須撰寫成以無訊息模式工作，而不需要使用者介入。
-- **VM 代理程式需要很長的時間才會就緒**。 當 VM 第一次啟動，或第一次安裝自訂腳本擴充功能以提供套用成品的要求時，VM 可能需要升級 VM 代理程式或等待 VM 代理程式初始化。 VM 代理程式所依存的服務可能會花很長的時間來初始化。 在這種情況下，請參閱[Azure 虛擬機器代理程式總覽](/virtual-machines/extensions/agent-windows.md)以取得進一步的疑難排解。
+- **VM 代理程式需要很長的時間才會就緒**。 當 VM 第一次啟動，或第一次安裝自訂腳本擴充功能以提供套用成品的要求時，VM 可能需要升級 VM 代理程式或等待 VM 代理程式初始化。 VM 代理程式所依存的服務可能會花很長的時間來初始化。 在這種情況下，請參閱[Azure 虛擬機器代理程式總覽](../virtual-machines/extensions/agent-windows.md)以取得進一步的疑難排解。
 
 ### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-script"></a>若要確認成品是否因腳本而出現停止回應
 
@@ -101,7 +101,7 @@ $vm.Properties.canApplyArtifacts
     在此範例中，您可以看到 VM 代理程式啟動時間花了10分鐘20秒，因為已傳送了一個信號。 這種情況的原因是 OOBE 服務花很長的時間才能啟動。
 
 > [!TIP]
-> 如需 Azure 延伸模組的一般資訊，請參閱[azure 虛擬機器擴充功能和功能](/virtual-machines/extensions/overview.md)。
+> 如需 Azure 延伸模組的一般資訊，請參閱[azure 虛擬機器擴充功能和功能](../virtual-machines/extensions/overview.md)。
 
 ## <a name="storage-errors"></a>儲存體錯誤
 DevTest Labs 需要存取建立來快取成品的實驗室儲存體帳戶。 當 DevTest Labs 套用成品時，它會從已設定的存放庫讀取成品設定和其檔案。 根據預設，DevTest Labs 會設定**公用**成品存放庫的存取權。

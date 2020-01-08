@@ -1,5 +1,5 @@
 ---
-title: Microsoft 身分識別平臺 & OpenID Connect 通訊協定 |Azure
+title: OpenID Connect 通訊協定-Microsoft 身分識別平臺 |Azure
 description: 使用 OpenID Connect 驗證通訊協定的 Microsoft 身分識別平臺執行來建立 web 應用程式。
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc3778f31cb5dd68d3f3f49ed3cddf574b1cc3bd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 270fda72378b61e6011d5bbf4ce43496df045c25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966736"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423214"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft 身分識別平臺和 OpenID Connect 通訊協定
 
@@ -52,7 +52,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 `{tenant}` 可以接受下列四個值的其中一個：
 
-| Value | 描述 |
+| 值 | 說明 |
 | --- | --- |
 | `common` |具有個人 Microsoft 帳戶的使用者，以及 Azure AD 的工作或學校帳戶都可以登入應用程式。 |
 | `organizations` |只有具有來自 Azure AD 之工作或學校帳戶的使用者可以登入應用程式。 |
@@ -89,7 +89,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 * 要求必須包含 `nonce` 參數。
 
 > [!IMPORTANT]
-> 若要從/authorization 端點成功要求識別碼權杖，[註冊入口網站](https://portal.azure.com)中的應用程式註冊必須已在 [驗證] 索引標籤中啟用 id_tokens 的隱含授與（這會將[應用程式資訊清單](reference-app-manifest.md)中的 `oauth2AllowIdTokenImplicitFlow` 旗標設定為 `true`）。 如果未啟用，則會傳回 `unsupported_response` 錯誤：「此用戶端不允許提供輸入參數 ' response_type ' 的值。 Expected value is 'code'" (此用戶端的 'response_type' 輸入參數不允許使用所提供的值。預期的值為「程式碼」)
+> 若要從/authorization 端點成功要求識別碼權杖，[註冊入口網站](https://portal.azure.com)中的應用程式註冊必須已在 [驗證] 索引標籤中啟用 id_tokens 的隱含授與（這會將[應用程式資訊清單](reference-app-manifest.md)中的 `oauth2AllowIdTokenImplicitFlow` 旗標設定為 `true`）。 如果未啟用，則會傳回 `unsupported_response` 錯誤：「此用戶端不允許提供輸入參數 ' response_type ' 的值。 Expected value is 'code'" (此用戶端的 'response_type' 輸入參數不允許使用所提供的值。預期的值為 'code')
 
 例如：
 
@@ -110,7 +110,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 請按一下以下連結來執行此要求。 登入之後，您的瀏覽器將會重新導向至 `https://localhost/myapp/`，網址列中會有識別碼權杖。 請注意，此要求會使用 `response_mode=fragment` (僅限用於示範)。 建議您使用 `response_mode=form_post`。
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| 參數 | 條件 | 描述 |
+| 參數 | 條件 | 說明 |
 | --- | --- | --- |
 | `tenant` | 必要項 | 您可以要求路徑中使用 `{tenant}` 值來控制可登入應用程式的人員。 允許的值為 `common`、`organizations`、`consumers` 及租用戶識別碼。 如需詳細資訊，請參閱[通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。 |
 | `client_id` | 必要項 | **應用程式（用戶端）識別碼**， [Azure 入口網站](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您應用程式的應用程式註冊體驗。 |
@@ -140,7 +140,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | `id_token` | 應用程式所要求的識別碼權杖。 您可以使用 `id_token` 參數來確認使用者的身分識別，並開始與使用者的工作階段。 如需識別碼權杖及其內容的詳細資料，請參閱 [`id_tokens` 參考](id-tokens.md)。 |
 | `state` | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該確認要求和回應中的狀態值完全相同。 |
@@ -157,7 +157,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | `error` | 您可用來分類發生的錯誤類型並對錯誤做出反應的錯誤碼字串。 |
 | `error_description` | 可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |
@@ -166,7 +166,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 下表說明可能在錯誤回應的 `error` 參數中傳回的錯誤碼：
 
-| 錯誤碼 | 描述 | 用戶端動作 |
+| 錯誤碼 | 說明 | 用戶端動作 |
 | --- | --- | --- |
 | `invalid_request` | 通訊協定錯誤，例如遺漏必要的參數。 |修正並重新提交要求。 這是通常在初始測試期間擷取到的開發錯誤。 |
 | `unauthorized_client` | 用戶端應用程式無法要求授權碼。 |當用戶端應用程式未在 Azure AD 中註冊，或未新增至使用者的 Azure AD 租使用者時，通常就會發生這種情況。 應用程式可以對使用者提示一些指示，來安裝應用程式並將它新增到 Azure AD。 |
@@ -201,7 +201,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| 參數 | 條件 | 描述 |
+| 參數 | 條件 | 說明 |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | 建議 | 成功登出之後，使用者會重新導向至的 URL。如果未包含參數，使用者會看到由 Microsoft 身分識別平臺端點產生的一般訊息。 此 URL 必須與您在應用程式註冊入口網站中為應用程式註冊的其中一個重新導向 URI 相符。 |
 
@@ -253,7 +253,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | `id_token` | 應用程式所要求的識別碼權杖。 您可以使用識別碼權杖來確認使用者的身分識別，然後開始與使用者的工作階段。 如需有關識別碼權杖及其內容的更多詳細資料，請參閱 [`id_tokens` 參考](id-tokens.md)。 |
 | `code` | 應用程式所要求的授權碼。 應用程式可以使用授權碼要求目標資源的存取權杖。 授權碼的存留期很短。 授權碼的有效期通常大約是 10 分鐘。 |
@@ -271,7 +271,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | `error` | 您可用來分類發生的錯誤類型並對錯誤做出反應的錯誤碼字串。 |
 | `error_description` | 可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |

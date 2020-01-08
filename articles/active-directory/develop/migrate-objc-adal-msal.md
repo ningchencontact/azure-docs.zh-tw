@@ -1,5 +1,5 @@
 ---
-title: 將應用程式遷移至 MSAL （iOS/macOS） |Azure
+title: ADAL 至 MSAL 遷移指南（MSAL iOS/macOS） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解 iOS/macOS 的 MSAL 與 ObjectiveC 的 Azure AD 驗證程式庫之間的差異（ADAL）。ObjC），以及如何遷移至適用于 iOS/macOS 的 MSAL。
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88fcb3422c900419abf68173ff5026a7dd0b87ea
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f35243e29755c42dbe8e3a696f2718ee3d10178c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963591"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424422"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>將應用程式遷移至適用于 iOS 和 macOS 的 MSAL
 
@@ -62,7 +62,7 @@ MSAL 公用 API 會反映 Azure AD v1.0 與 Microsoft 身分識別平臺之間�
 
 在 ADAL 中，應用程式必須提供*資源*識別碼（例如 `https://graph.microsoft.com`）來取得來自 Azure Active Directory v1.0 端點的權杖。 資源可以在應用程式資訊清單中定義一些範圍，或在其瞭解的 oAuth2Permissions。 這可讓用戶端應用程式針對在應用程式註冊期間預先定義的一組特定範圍，要求該資源的權杖。
 
-在 MSAL 中，應用程式會針對每個要求提供一組範圍，而不是單一資源識別碼。 範圍是資源識別碼，後面接著許可權名稱，其格式為資源/許可權。 例如，`https://graph.microsoft.com/user.read`
+在 MSAL 中，應用程式會針對每個要求提供一組範圍，而不是單一資源識別碼。 範圍是資源識別碼，後面接著許可權名稱，其格式為資源/許可權。 例如， `https://graph.microsoft.com/user.read`
 
 有兩種方式可以在 MSAL 中提供範圍：
 
@@ -227,7 +227,7 @@ IOS 上的 MSAL 也支援兩種其他類型的 SSO：
 
 重新導向 URI 應採用下列格式： `msauth.<app.bundle.id>://auth`。 以您應用程式的套件組合識別碼取代 `<app.bundle.id>`。 在[Azure 入口網站](https://aka.ms/MobileAppReg)中指定 [重新導向 URI]。
 
-僅適用于 iOS，若要支援以憑證為基礎的驗證，必須在您的應用程式中註冊額外的重新導向 URI，並以下列格式登錄 Azure 入口網站： `msauth://code/<broker-redirect-uri-in-url-encoded-form>`。 例如，`msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
+僅適用于 iOS，若要支援以憑證為基礎的驗證，必須在您的應用程式中註冊額外的重新導向 URI，並以下列格式登錄 Azure 入口網站： `msauth://code/<broker-redirect-uri-in-url-encoded-form>`。 例如， `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
 
 建議所有應用程式都註冊這兩個重新導向 Uri。
 

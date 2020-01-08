@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a1e6dc3ed1c1f9af6f6b935cdd3a6ceaedbe7a4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 07845bb5b742b1bcfbb22d260457e9a8e16edab6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848250"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425273"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>管理雲端中 Azure Multi-Factor Authentication 的使用者設定
 
@@ -30,7 +30,7 @@ ms.locfileid: "74848250"
 
 身為系統管理員指派「驗證系統管理員」角色，您可以要求使用者重設其密碼、重新註冊 MFA，或從使用者物件撤銷現有的 MFA 會話。
 
-![從 Azure 入口網站管理驗證方法](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
+![從 Azure 入口網站管理驗證方法](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 選取左邊的 [Azure Active Directory] > [使用者] > [所有使用者]。

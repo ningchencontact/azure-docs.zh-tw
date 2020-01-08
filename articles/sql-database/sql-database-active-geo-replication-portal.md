@@ -1,6 +1,6 @@
 ---
-title: Azure 入口網站：異地複寫
-description: 使用 Azure 入口網站為 Azure SQL Database 中的單一或集區資料庫設定異地複寫並啟動容錯移轉
+title: 教學課程：在入口網站中進行異地複寫 & 容錯移轉
+description: 使用 Azure 入口網站在 Azure SQL Database 中設定單一或集區資料庫的異地複寫，並起始容錯移轉。
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,16 +11,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 7ddaefb0f65db1cfc828e4baa844f6d8e01f9d2e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 601c537a51e29ae1f107127e1b83c07448eee9ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808115"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75348887"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>在 Azure 入口網站中為 Azure SQL Database 設定主動式異地複寫，並起始容錯移轉
 
-本文說明您如何使用 [Azure 入口網站](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)在 Azure SQL Database 中為[獨立和集區資料庫設定主動式異地複寫](https://portal.azure.com)，並起始容錯移轉。
+本文說明您如何使用 [Azure 入口網站](https://portal.azure.com)在 Azure SQL Database 中為[獨立和集區資料庫設定主動式異地複寫](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)，並起始容錯移轉。
 
 如需單一和集區資料庫的自動容錯移轉群組的相關資訊，請參閱[使用容錯移轉群組搭配單一和集區資料庫的最佳作法](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools)。 如需使用受控實例之自動容錯移轉群組的相關資訊，請參閱[使用容錯移轉群組搭配受控實例的最佳做法](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances)。
 
@@ -69,7 +69,7 @@ ms.locfileid: "73808115"
 2. 在 [SQL Database] 刀鋒視窗上，選取 [所有設定] > [異地複寫]。
 3. 在 [次要] 清單中，選取要做為新主要資料庫的資料庫，然後按一下 [容錯移轉]。
 
-    ![容錯移轉](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+    ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. 按一下 [是] 即可開始容錯移轉。
 
 命令會立即將次要資料庫切換為主要角色。 此程式通常會在30秒內完成或減少。

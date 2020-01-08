@@ -4,15 +4,15 @@ description: Azure 監視器記錄分析服務常見問題的解答。
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/01/2019
-ms.openlocfilehash: 9eb921fc8ea19486db0fc3311764931f09e11464
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 77159e0fa73a1f56688c867c55ae46f28016992c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579318"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394792"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常見問題集
 
@@ -31,42 +31,42 @@ ms.locfileid: "73579318"
 
 答：「記錄搜尋」目前仍可在 OMS 入口網站和 Azure 入口網站中以 **Logs (傳統)** 名稱取得。 OMS 入口網站將於 2019 年 1 月 15 日正式淘汰。 Azure 入口網站中的傳統 Logs 體驗會逐漸淘汰並取代新的 Logs 體驗。 
 
-### <a name="q-can-i-still-use-advanced-analytics-portal"></a>問： 我仍可使用進階分析入口網站嗎？ 
+### <a name="q-can-i-still-use-advanced-analytics-portal"></a>Q. 我仍可使用進階分析入口網站嗎？ 
 Azure 入口網站中的新 [Logs] 體驗是以進階分析入口網站為基礎，但仍可在 Azure 入口網站外部存取。 即將將宣布淘汰此外部入口網站的藍圖。
 
-### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>問： 何無法在新的 Logs 體驗中看見 [查詢總管] 和 [儲存] 按鈕？
+### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>Q. 何無法在新的 Logs 體驗中看見 [查詢總管] 和 [儲存] 按鈕？
 
 在特定資源的內容中探索 Logs 時，無法使用 [查詢總管]、[儲存] 和 [設定警示] 按鈕。 若要建立警示、儲存或載入查詢，Logs 必須受限於工作區。 若要在工作區內容中開啟 Logs，請選取 [所有服務] > [監視器] > [Logs]。 已選取上次使用的工作區，但您可以選取任何其他工作區。 如需詳細資訊，請參閱[在 Log Analytics 中檢視及分析資料](../log-query/portals.md)。
 
-### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>問： 如何在新的 Logs 體驗中擷取自訂欄位？ 
+### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>Q. 如何在新的 Logs 體驗中擷取自訂欄位？ 
 
 答：目前傳統 Logs 體驗才支援自訂欄位擷取。 
 
-### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>問： 在新的 Logs 中哪裡可以找到 [清單] 檢視？ 
+### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>Q. 在新的 Logs 中哪裡可以找到 [清單] 檢視？ 
 
 答：新的 Logs 中無法使用 [清單] 檢視。 結果表格中的每筆記錄左邊會有一個箭號。 按一下此箭號就能開啟特定記錄的詳細資料。 
 
-### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>問： 執行查詢之後，會有建議的篩選條件清單可供使用。 如何查看篩選條件？ 
+### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>Q. 執行查詢之後，會有建議的篩選條件清單可供使用。 如何查看篩選條件？ 
 
 答：按一下左窗格中的 [篩選]，即可查看新篩選器執行的預覽。 這現在是以您的完整結果集為基礎，而不是受限於 UI 的 10,000 筆記錄限制。 這目前是最熱門篩選條件的清單，以及每個篩選條件最常用的 10 個值。 
 
-### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>問： 從 VM 深入鑽研之後，為何會在 Logs 中收到錯誤：「為此訂用帳戶註冊資源提供者 'Microsoft.Insights' 以啟用此查詢」？ 
+### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>Q. 從 VM 深入鑽研之後，為何會在 Logs 中收到錯誤：「為此訂用帳戶註冊資源提供者 'Microsoft.Insights' 以啟用此查詢」？ 
 
-答：根據預設，許多資源提供者都會自動註冊。不過，您可能需要手動註冊某些資源提供者。 這會將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 如需詳細資訊，請參閱[資源提供者和類型](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal)。
+答：根據預設，許多資源提供者都會自動註冊。不過，您可能需要手動註冊某些資源提供者。 這會將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 如需詳細資訊，請參閱[資源提供者和類型](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)。
 
-### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>問： 從 VM 頁面存取 Logs 時，為何不會收到任何存取錯誤訊息？ 
+### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>Q. 從 VM 頁面存取 Logs 時，為何不會收到任何存取錯誤訊息？ 
 
 答：若要檢視 VM 記錄，您必須獲得存放 VM 記錄的工作區讀取權限。 在這些情況下，系統管理員必須授與您 Azure 權限。
 
-### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>問： 為何我可以在 OMS 入口網站中存取我的工作區，但卻在 Azure 入口網站中收到錯誤「您沒有存取權」？  
+### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>Q. 為何我可以在 OMS 入口網站中存取我的工作區，但卻在 Azure 入口網站中收到錯誤「您沒有存取權」？  
 
 答：若要在 Azure 中存取工作區，您必須獲得 Azure 權限。 有某些情況下，您可能沒有適當的存取權限。 在這些情況下，系統管理員必須授與您 Azure 權限。如需詳細資訊，請參閱 [OMS 入口網站移至 Azure](oms-portal-transition.md)。
 
-### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>問： 為何在 Logs 中看不到「檢視設計工具」項目？
+### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>Q. 為何在 Logs 中看不到「檢視設計工具」項目？
 
 答：Logs 中的「檢視設計工具」僅適用於獲派「參與者」權限或更高權限的使用者。
 
-### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>問： 我仍可在 Azure 外部使用 Analytics 入口網站嗎？
+### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>Q. 我仍可在 Azure 外部使用 Analytics 入口網站嗎？
 
 A. 是，Azure 中的 [Logs] 頁面和進階分析入口網站是以相同的程式碼為基礎。 Log Analytics 會整合為 Azure 監視器中的功能，以提供更加統一的監視體驗。 您仍然可以使用 URL： HTTPs：\/\/portal. loganalytics. io/訂用帳戶/{subscriptionId}/resourcegroups/{resourceGroupName}/工作區/{workspaceName} 來存取分析入口網站。
 
@@ -74,20 +74,15 @@ A. 是，Azure 中的 [Logs] 頁面和進階分析入口網站是以相同的程
 
 ## <a name="general"></a>一般
 
-### <a name="q-how-can-i-see-my-views-and-solutions-in-azure-portal"></a>問： 如何在 Azure 入口網站中查看我的檢視和解決方案？ 
+### <a name="q-how-can-i-see-my-views-and-solutions-in-azure-portal"></a>Q. 如何在 Azure 入口網站中查看我的檢視和解決方案？ 
 
 答：在 Azure 入口網站中可取得檢視和已安裝解決方案的清單。 按一下 [所有服務]。 在資源清單中，選取 [監視]，然後按一下 [...更多]。 已選取上次使用的工作區，但您可以選取任何其他工作區。 
 
-### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>問： 為何無法在美國中西部區域建立工作區？ 
-
-答：此區域有暫存容量限制。 這項限制預計會在2019年9月底解決。
-
-
-### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>問： Log Analytics 會使用相同的代理程式作為 Azure 資訊安全中心嗎？
+### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>Q. Log Analytics 會使用相同的代理程式作為 Azure 資訊安全中心嗎？
 
 答：在 2017 年 6 月初，Azure 資訊安全中心開始使用 Microsoft Monitoring Agent 來收集與儲存資料。 若要深入了解，請參閱 [Azure 資訊安全中心平台移轉常見問題集](../../security-center/security-center-enable-data-collection.md)。
 
-### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>問： AD 和 SQL 評估解決方案會執行哪些檢查？
+### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>Q. AD 和 SQL 評估解決方案會執行哪些檢查？
 
 答：下列查詢會顯示目前執行的所有檢查的描述：
 
@@ -97,7 +92,7 @@ A. 是，Azure 中的 [Logs] 頁面和進階分析入口網站是以相同的程
 
 然後可將結果匯出至 Excel 供進一步檢閱。
 
-### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>問： 為什麼我在 System Center Operations Manager 主控台中看到與 OMS 不同的項目？
+### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>Q. 為什麼我在 System Center Operations Manager 主控台中看到與 OMS 不同的項目？
 
 答：根據您所採用的 Operations Manager 更新彙總套件而定，您可能會看到 *System Center Advisor*、*Operational Insights* 或 *Log Analytics* 節點。
 
@@ -105,9 +100,9 @@ A. 是，Azure 中的 [Logs] 頁面和進階分析入口網站是以相同的程
 
 ### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>問：Log Analytics 是否有內部部署版本？
 
-答：沒有。 Log Analytics 是一個可擴充的雲端服務，可處理並儲存大量資料。 
+答：否。 Log Analytics 是一個可擴充的雲端服務，可處理並儲存大量資料。 
 
-### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>問： 如何在資料收集停止時收到通知？
+### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>Q. 如何在資料收集停止時收到通知？
 
 答：使用[建立新記錄警示](../../azure-monitor/platform/alerts-metric.md)中所述的步驟，以在資料收集停止時收到通知。
 
@@ -127,23 +122,23 @@ A. 是，Azure 中的 [Logs] 頁面和進階分析入口網站是以相同的程
 
 ## <a name="configuration"></a>組態
 
-### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>問： 可以變更用來從 Azure 診斷 (WAD) 讀取的資料表/Blob 容器的名稱嗎？
+### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. 可以變更用來從 Azure 診斷 (WAD) 讀取的資料表/Blob 容器的名稱嗎？
 
 A. 不可以，目前無法讀取 Azure 儲存體中的任意資料表或容器。
 
-### <a name="q-what-ip-addresses-does-the-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-to-the-log-analytics-service"></a>問： Log Analytics 服務使用哪些 IP 位址？ 如何確保我的防火牆只允許對 Log Analytics 服務的流量？
+### <a name="q-what-ip-addresses-does-the-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-to-the-log-analytics-service"></a>Q. Log Analytics 服務使用哪些 IP 位址？ 如何確保我的防火牆只允許對 Log Analytics 服務的流量？
 
 A. Log Analytics 服務以 Azure 為建置基礎。 Log Analytics IP 位址位於 [Microsoft Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)內。
 
 進行服務部署時，Log Analytics 服務的實際 IP 位址會變更。 允許通過防火牆的 DNS 名稱會記載於[網路需求](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements)中。
 
-### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>問： 我可以使用 ExpressRoute 連接到 Azure。 我的 Log Analytics 流量是否會使用我的 ExpressRoute 連線？
+### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. 我可以使用 ExpressRoute 連接到 Azure。 我的 Log Analytics 流量是否會使用我的 ExpressRoute 連線？
 
 A. [ExpressRoute 文件](../../expressroute/expressroute-faqs.md#supported-services)中描述不同類型的 ExpressRoute 流量。
 
 通往 Log Analytics 的流量都會使用公用互連 ExpressRoute 電路。
 
-### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>問： 有簡單且輕鬆的方法，可將現有的 Log Analytics 工作區移至另一個 Log Analytics 工作區/Azure 訂用帳戶嗎？
+### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>Q. 有簡單且輕鬆的方法，可將現有的 Log Analytics 工作區移至另一個 Log Analytics 工作區/Azure 訂用帳戶嗎？
 
 A. `Move-AzResource` Cmdlet 可讓您將 Log Analytics 工作區及自動化帳戶從一個 Azure 訂用帳戶移至另一個 Azure 訂用帳戶。 如需詳細資訊，請參閱[get-azresource](https://msdn.microsoft.com/library/mt652516.aspx)。
 
@@ -191,18 +186,18 @@ A. `Move-AzResource` Cmdlet 可讓您將 Log Analytics 工作區及自動化帳�
 ```
 
 ## <a name="agent-data"></a>代理程式資料
-### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>問： 我可以透過代理程式傳送多少資料到 Log Analytics？ 是否有每位客戶最大的資料量？
+### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>Q. 我可以透過代理程式傳送多少資料到 Log Analytics？ 是否有每位客戶最大的資料量？
 A. 上傳的資料量沒有限制，它是根據您選取的定價選項-[容量保留] 或 [隨用隨付]。 Log Analytics 工作區的設計目的是要自動相應增加，以處理來自客戶的量（即使是每天數 tb）。 如需詳細資訊，請參閱[定價詳細資料](https://azure.microsoft.com/pricing/details/monitor/)。
 
 Log Analytics 代理程式的設計是為了確保它的使用量很小。 資料量會視您啟用的解決方案而不同。 您可以在[使用量](../../azure-monitor/platform/data-usage.md)頁面中找到有關資料量的詳細資訊，並依解決方案查看細目。
 
 如需詳細資訊，您可以在評估 Log Analytics 代理程式的資源使用率（使用量）之後，閱讀[客戶的 blog](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html)以顯示其結果。
 
-### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>問： 傳送資料到 Log Analytics 時，Microsoft 管理代理程式 (MMA) 使用多少網路頻寬？
+### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>Q. 傳送資料到 Log Analytics 時，Microsoft 管理代理程式 (MMA) 使用多少網路頻寬？
 
 A. 頻寬是關於傳送的資料量的功能。 透過網路傳送資料時，會壓縮資料。
 
-### <a name="q-how-much-data-is-sent-per-agent"></a>問： 每個代理程式會傳送多少資料？
+### <a name="q-how-much-data-is-sent-per-agent"></a>Q. 每個代理程式會傳送多少資料？
 
 A. 每個代理程式所傳送的資料量取決於：
 

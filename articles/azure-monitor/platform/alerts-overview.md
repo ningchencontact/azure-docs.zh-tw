@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: b655181f41aeda71364edd061b7c81db23e59990
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 26516b99f3ffd9a16a24a4d5d1906ed781a8034a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951134"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396515"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示概觀 
 
@@ -79,7 +79,7 @@ ms.locfileid: "74951134"
 
 支援下列警示狀態：
 
-| 狀況 | 描述 |
+| 狀態 | 說明 |
 |:---|:---|
 | 新功能 | 已偵測到此問題，而且尚未進行審核。 |
 | 已認可 | 系統管理員已檢閱警示，且已開始處理。 |
@@ -106,15 +106,15 @@ ms.locfileid: "74951134"
 
 您可以在頁面頂端的下拉式功能表中選取值，以篩選此視圖。
 
-| Column | 描述 |
+| Column | 說明 |
 |:---|:---|
-| Subscription | 選取您要查看其警示的 Azure 訂用帳戶。 您可以選擇性地選擇選取所有訂用帳戶。 只有您在所選訂用帳戶中有權存取的警示才會包含在此視圖中。 |
-| Resource group | 選取單一資源群組。 檢視僅會包含所選資源群組中具有目標的警示。 |
+| 訂閱 | 選取您要查看其警示的 Azure 訂用帳戶。 您可以選擇性地選擇選取所有訂用帳戶。 只有您在所選訂用帳戶中有權存取的警示才會包含在此視圖中。 |
+| 資源群組 | 選取單一資源群組。 檢視僅會包含所選資源群組中具有目標的警示。 |
 | 時間範圍 | 只有在所選時間範圍內引發的警示才會包含在此視圖中。 支援的值為過去 1 小時、過去 24 小時、過去 7 天和過去 30 天。 |
 
 選取 [警示] 頁面頂端的下列值，以開啟另一個頁面：
 
-| Value | 描述 |
+| 值 | 說明 |
 |:---|:---|
 | 警示總計 | 符合所選準則的警示總數。 選取此值以開啟沒有任何篩選的 [所有警示] 檢視。 |
 | 智慧群組 | 從符合所選準則之警示建立的智慧群組總數。 選取此值將開啟 [所有警示] 檢視中的智慧群組清單。
@@ -149,10 +149,10 @@ ms.locfileid: "74951134"
 
 您可以在頁面頂端的下拉式功能表中選取下列值來篩選此視圖：
 
-| Column | 描述 |
+| Column | 說明 |
 |:---|:---|
-| Subscription | 選取您要查看其警示的 Azure 訂用帳戶。 您可以選擇性地選擇選取所有訂用帳戶。 只有您在所選訂用帳戶中有權存取的警示才會包含在此視圖中。 |
-| Resource group | 選取單一資源群組。 檢視僅會包含所選資源群組中具有目標的警示。 |
+| 訂閱 | 選取您要查看其警示的 Azure 訂用帳戶。 您可以選擇性地選擇選取所有訂用帳戶。 只有您在所選訂用帳戶中有權存取的警示才會包含在此視圖中。 |
+| 資源群組 | 選取單一資源群組。 檢視僅會包含所選資源群組中具有目標的警示。 |
 | 資源類型 | 選取一個或多個資源類型。 檢視僅會包含所選類型目標之具目標的警示。 指定資源群組之後，才可使用此欄。 |
 | 資源 | 選取資源。 只有以該資源作為目標的警示才會包含在檢視中。 指定資源類型之後，才可使用此欄。 |
 | 嚴重性 | 選取警示嚴重性，或選取 [所有] 以包含所有嚴重性的警示。 |
@@ -170,9 +170,9 @@ ms.locfileid: "74951134"
 
 [警示詳細資料] 頁面包含下列區段：
 
-| 區段 | 描述 |
+| 區段 | 說明 |
 |:---|:---|
-| 總結 | 顯示警示的內容和其他重要資訊。 |
+| 摘要 | 顯示警示的內容和其他重要資訊。 |
 | 歷程記錄 | 列出警示採取的每個動作，以及對警示所做的任何變更。 目前僅限於狀態變更。 |
 | 診斷程式 | 包含警示之智慧群組的相關資訊。 「警示計數」是指智慧群組中包含的警示數目。 包含在過去30天內建立的相同智慧群組中的其他警示，而不論警示清單頁面中的時間篩選準則為何。 選取警示以檢視其詳細資料。 |
 
@@ -184,23 +184,23 @@ ms.locfileid: "74951134"
 
 您可能想要以程式設計方式查詢針對您的訂用帳戶所產生的警示。 這可能是在 Azure 入口網站外部建立自訂的視圖，或是用來分析您的警示以識別模式和趨勢。
 
-您可以使用[警示管理 REST API](https://aka.ms/alert-management-api)或使用警示的  [Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)）來查詢針對您的訂用帳戶所產生的警示。
+您可以使用[警示管理 REST API](https://aka.ms/alert-management-api) ，或使用[Azure Resource Graph](../../governance/resource-graph/overview.md)和[資源的 REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)，查詢針對您的訂用帳戶所產生的警示。
 
-警示的  [Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)）可讓您大規模查詢警示實例。 當您必須管理跨多個訂用帳戶所產生的警示時，建議使用此選項。 
+資源的 [Resource Graph] REST API 可讓您大規模查詢警示實例。 當您必須管理跨多個訂用帳戶所產生的警示時，建議使用此選項。 
 
-下列對 API 的範例要求會傳回一個訂用帳戶內的警示計數：
+下列對 Resource Graph 的範例要求 REST API 會傳回一個訂用帳戶內的警示計數：
 
 ```json
 {
   "subscriptions": [
     <subscriptionId>
   ],
-  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
-  "options": {
-            "dataset":"alerts"
-  }
+  "query": "AlertsManagementResources | where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()"
 }
 ```
+
+您也可以在入口網站中，使用 Azure Resource Graph Explorer 來查看此 Resource Graph 查詢的結果： [portal.azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AlertsManagementResources%20%7C%20where%20type%20%3D~%20%27Microsoft.AlertsManagement%2Falerts%27%20%7C%20summarize%20count())
+
 您可以查詢這些警示的[必要](alerts-common-schema-definitions.md#essentials)欄位。
 
 使用[警示管理 REST API](https://aka.ms/alert-management-api)取得特定警示的詳細資訊，包括其[警示內容](alerts-common-schema-definitions.md#alert-context)欄位。

@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/23/2019
-ms.openlocfilehash: b93bf4f67c2581b7cac476b83fc130bf344cfa83
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.date: 12/19/2019
+ms.openlocfilehash: 73aa4a8a5dad0e2839c6a643f2ab58494d55458a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476734"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450640"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure 監視器的監視資料來源
 Azure 監視器是以常見的[監視資料平臺](data-platform.md)為基礎，其中包含[記錄](data-platform-logs.md)和[計量](data-platform-metrics.md)。 將資料收集到這個平臺可讓您使用 Azure 監視器中的一組常用工具來分析多個資源的資料。 監視資料也可能會傳送到其他位置以支援特定案例，某些資源可能會在其他位置寫入至記錄或計量。
@@ -57,21 +57,21 @@ Azure 監視器是以常見的[監視資料平臺](data-platform.md)為基礎，
 |:---|:---|:---|
 | Azure 監視器記錄 | 設定要在 Azure 監視器中收集 Azure AD 記錄，以使用其他監視資料進行分析。 | [整合 Azure AD 記錄與 Azure 監視器記錄（預覽）](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
 | Azure 儲存體 | 將 Azure AD 記錄匯出至 Azure 儲存體以進行封存。 | [教學課程：將 Azure AD 記錄封存到 Azure 儲存體帳戶（預覽）](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| 事件中樞 | 使用事件中樞，將 Azure AD 記錄串流至其他位置。 | [教學課程：將 Azure Active Directory 記錄串流至 Azure 事件中樞（預覽）](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)。 |
+| Event Hub | 使用事件中樞，將 Azure AD 記錄串流至其他位置。 | [教學課程：將 Azure Active Directory 記錄串流至 Azure 事件中樞（預覽）](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)。 |
 
 
 
-## <a name="azure-subscription"></a>Azure 訂閱
+## <a name="azure-subscription"></a>Azure 訂用帳戶
 與您 Azure 訂用帳戶的健康情況和作業相關的遙測。
 
-![Azure 訂閱](media/data-sources/azure-subscription.png)
+![Azure 訂用帳戶](media/data-sources/azure-subscription.png)
 
 ### <a name="azure-activity-log"></a>Azure 活動記錄 
 [Azure 活動記錄](activity-logs-overview.md)包含服務健康狀態記錄，以及對您的 Azure 訂用帳戶中的資源所做的任何設定變更記錄。 所有 Azure 資源都會有活動記錄，也代表了資源的_外部_檢視。
 
 | 目的地 | 說明 | 參考 |
 |:---|:---|
-| 活動記錄檔 | 活動記錄會收集到自己的資料存放區中，您可以從 [Azure 監視器] 功能表查看，或用來建立活動記錄警示。 | [查詢 Azure 入口網站中的活動記錄](activity-log-view.md#azure-portal) |
+| 活動記錄 | 活動記錄會收集到自己的資料存放區中，您可以從 [Azure 監視器] 功能表查看，或用來建立活動記錄警示。 | [查詢 Azure 入口網站中的活動記錄](activity-log-view.md#azure-portal) |
 | Azure 監視器記錄 | 設定 Azure 監視器記錄來收集活動記錄，以使用其他監視資料進行分析。 | [在 Azure 監視器的 Log Analytics 工作區中收集並分析 Azure 活動記錄](activity-log-collect.md) |
 | Azure 儲存體 | 將活動記錄檔匯出至 Azure 儲存體以進行封存。 | [封存活動記錄](activity-log-export.md#archive-activity-log)  |
 | 事件中樞 | 使用事件中樞將活動記錄串流至其他位置 | [將活動記錄串流至事件中樞](activity-log-export.md#stream-activity-log-to-event-hub)。 |
@@ -81,7 +81,7 @@ Azure 監視器是以常見的[監視資料平臺](data-platform.md)為基礎，
 
 | 目的地 | 說明 | 參考 |
 |:---|:---|:---|
-| 活動記錄檔<br>Azure 監視器記錄 | 服務健康狀態記錄會儲存在 Azure 活動記錄中，因此您可以在 Azure 入口網站中加以查看，或執行可使用活動記錄來執行的任何其他活動。 | [使用 Azure 入口網站檢視服務健康情況通知](service-notifications.md) |
+| 活動記錄<br>Azure 監視器記錄 | 服務健康狀態記錄會儲存在 Azure 活動記錄中，因此您可以在 Azure 入口網站中加以查看，或執行可使用活動記錄來執行的任何其他活動。 | [使用 Azure 入口網站檢視服務健康情況通知](service-notifications.md) |
 
 
 ## <a name="azure-resources"></a>Azure 資源
@@ -131,6 +131,7 @@ Azure、其他雲端和內部部署中的計算資源具有要監視的客體作
 | 目的地 | 說明 | 參考 |
 |:---|:---|:---|
 | Azure 監視器記錄 | Log Analytics 代理程式會直接或透過 System Center Operations Manager 連線至 Azure 監視器，並可讓您從所設定的資料來源或從提供額外深入解析應用程式的監視解決方案收集資料正在虛擬機器上執行。 | [Azure 監視器中的代理程式資料來源](agent-data-sources.md)<br>[將 Operations Manager 連接到 Azure 監視器](om-agents.md) |
+| VM 儲存 | 適用於 VM 的 Azure 監視器會使用 Log Analytics 代理程式，將 heath 狀態資訊儲存在自訂位置。 如需詳細資訊，請參閱下一節。  |
 
 
 ### <a name="azure-monitor-for-vms"></a>適用於 VM 的 Azure 監視器 
@@ -139,11 +140,11 @@ Azure、其他雲端和內部部署中的計算資源具有要監視的客體作
 | 目的地 | 說明 | 參考 |
 |:---|:---|:---|
 | Azure 監視器記錄 | 將有關進程和相依性的資料儲存在代理程式上。 | [使用適用於 VM 的 Azure 監視器（預覽）對應來瞭解應用程式元件](../insights/vminsights-maps.md) |
-| VM 儲存體 | 適用於 VM 的 Azure 監視器會將 heath 狀態資訊儲存在自訂位置。 這僅適用于 Azure 入口網站中的適用於 VM 的 Azure 監視器，以及[Azure 資源健康情況 REST API](/rest/api/resourcehealth/)。 | [瞭解 Azure 虛擬機器的健康情況](../insights/vminsights-health.md)<br>[Azure 資源健康狀態 REST API](https://docs.microsoft.com/rest/api/resourcehealth/) |
+| VM 儲存 | 適用於 VM 的 Azure 監視器會使用 Log Analytics 代理程式，將 heath 狀態資訊儲存在自訂位置。 這僅適用于 Azure 入口網站中的適用於 VM 的 Azure 監視器，以及[Azure 資源健康情況 REST API](/rest/api/resourcehealth/)。 | [瞭解 Azure 虛擬機器的健康情況](../insights/vminsights-health.md)<br>[Azure 資源健康狀態 REST API](https://docs.microsoft.com/rest/api/resourcehealth/) |
 
 
 
-## <a name="application-code"></a>應用程式代碼
+## <a name="application-code"></a>應用程式程式碼
 Azure 監視器中的詳細應用程式監視是透過[Application Insights](https://docs.microsoft.com/azure/application-insights/) ，它會從在各種平臺上執行的應用程式收集資料。 應用程式可以在 Azure、其他雲端或內部部署中執行。
 
 ![應用程式資料收集](media/data-sources/applications.png)
@@ -157,7 +158,7 @@ Azure 監視器中的詳細應用程式監視是透過[Application Insights](htt
 | Azure 監視器記錄 | 應用程式的相關運算元據，包括頁面流覽、應用程式要求、例外狀況和追蹤。 | [分析 Azure 監視器中的記錄資料](../log-query/log-query-overview.md) |
 |                    | 應用程式元件之間的相依性資訊，以支援應用程式對應和遙測相互關聯。 | [Application Insights 中的遙測相互關聯](../app/correlation.md) <br> [應用程式對應](../app/app-map.md) |
 |            | 可用性測試的結果，可從公用網際網路上的不同位置測試應用程式的可用性和回應性。 | [監視任何網站的可用性和回應性](../app/monitor-web-app-availability.md) |
-| Azure 監視器計量 | Application Insights 會收集描述應用程式效能和作業的計量，以及您在應用程式中定義為 Azure 監視器計量資料庫的自訂計量。 | [Application Insights 中以記錄為基礎和預先匯總的計量](../app/pre-aggregated-metrics-log-metrics.md)<br>[適用于自訂事件和計量的 Application Insights API](../app/api-custom-events-metrics.md) |
+| Azure 監視器計量 | Application Insights 會收集描述應用程式效能和作業的計量，以及您在應用程式中定義為 Azure 監視器計量資料庫的自訂計量。 | [Application Insights 中記錄型和預先彙總的計量](../app/pre-aggregated-metrics-log-metrics.md)<br>[自訂事件和度量的 Application Insights API](../app/api-custom-events-metrics.md) |
 | Azure 儲存體 | 將應用程式資料傳送至 Azure 儲存體以進行封存。 | [從 Application Insights 匯出遙測](../app/export-telemetry.md) |
 |            | 可用性測試的詳細資料會儲存在 Azure 儲存體中。 使用 Azure 入口網站中的 Application Insights 下載以進行本機分析。 可用性測試的結果會儲存在 Azure 監視器記錄中。 | [監視任何網站的可用性和回應性](../app/monitor-web-app-availability.md) |
 |            | Profiler 追蹤資料會儲存在 Azure 儲存體中。 使用 Azure 入口網站中的 Application Insights 下載以進行本機分析。  | [使用 Application Insights 分析 Azure 中的生產應用程式](../app/profiler-overview.md) 

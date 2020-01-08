@@ -8,16 +8,16 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 74014a91684749eec7c4086a88785f2024694677
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: MT
+ms.openlocfilehash: aadf3a18d41d8dfe878439893c9d1ed25172fa2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929081"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406491"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Application Insights 智慧偵測規則
 
-您可以使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)來管理和設定 Application Insights 中的智慧偵測規則。
+您可以使用 [Azure Resource Manager 範本](../../azure-resource-manager/templates/template-syntax.md)來管理和設定 Application Insights 中的智慧偵測規則。
 在使用 Azure Resource Manager 自動化來部署新的 Application Insights 資源時，便可使用此方法，而且此方法也可用於修改現有資源的設定。
 
 ## <a name="smart-detection-rule-configuration"></a>智慧偵測規則設定

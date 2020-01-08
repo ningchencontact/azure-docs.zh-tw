@@ -1,20 +1,16 @@
 ---
-title: 將 Azure Service Fabric Mesh 專案的 Visual Studio 效能最佳化 | Microsoft Docs
+title: 優化 Azure Service Fabric 網狀 Visual Studio
 description: 本文說明如何將 Service Fabric Mesh 專案的 Visual Studio 效能最佳化，以大幅加快您執行第一次偵錯 (F5) 的速度。
-services: service-fabric-mesh
-keywords: 將偵錯效能最佳化
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chakdan
-ms.openlocfilehash: 04aeaa6b008b50789f4380e4bb98beba3957c2e9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 40c4e9972a3d83a5dd8247bacac12e9d67a15f66
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663424"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497973"
 ---
 # <a name="optimize-visual-studio-performance-for-service-fabric-mesh-projects"></a>將 Service Fabric Mesh 專案的 Visual Studio 效能最佳化
 

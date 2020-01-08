@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: b073c4244d2a7abc7c2c066c3fad036f0caa5faa
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 529e188d1a4ee00cee7f3d023ab45a48dd0d3c5f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929550"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428380"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>在 Azure 中使用 Linux 資料科學虛擬機器的資料科學
 
@@ -24,14 +24,14 @@ ms.locfileid: "73929550"
 
 在此逐步解說中，我們會分析[spambase](https://archive.ics.uci.edu/ml/datasets/spambase)資料集。 Spambase 是一組標示為垃圾郵件或 ham （非垃圾郵件）的電子郵件。 Spambase 也包含有關電子郵件內容的一些統計資料。 我們稍後會在本逐步解說中討論統計資料。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須具備下列必要條件，才能使用 Linux DSVM：
 
 * **Azure 訂用帳戶**。 若要取得 Azure 訂用帳戶，請[立即建立免費的 azure 帳戶](https://azure.microsoft.com/free/)。
 * [**Linux 資料科學虛擬機器**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm)。 如需布建虛擬機器的相關資訊，請參閱布建[Linux 資料科學虛擬機器](linux-dsvm-intro.md)。
 * [**X2Go**](https://wiki.x2go.org/doku.php)已安裝在您的電腦上，並具有開啟的 XFCE 會話。 如需詳細資訊，請參閱[安裝和設定 X2Go 用戶端](linux-dsvm-intro.md#x2go)。
-* 若要取得更流暢的滾動體驗，請在 DSVM 的 Firefox 網頁瀏覽器中，切換 `about:config`中的 `gfx.xrender.enabled` 旗標。 [詳細資訊](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/)。 也請考慮將 `mousewheel.enable_pixel_scrolling` 設定為 `False`。 [詳細資訊](https://support.mozilla.org/questions/981140)。
+* 若要取得更流暢的滾動體驗，請在 DSVM 的 Firefox 網頁瀏覽器中，切換 `about:config`中的 `gfx.xrender.enabled` 旗標。 [深入了解](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/)。 也請考慮將 `mousewheel.enable_pixel_scrolling` 設定為 `False`。 [深入了解](https://support.mozilla.org/questions/981140)。
 * **Azure Machine Learning 帳戶**。 如果您還沒有帳戶，請在[Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//) 首頁上註冊新的帳戶。
 
 ## <a name="download-the-spambase-dataset"></a>下載 spambase 資料集
@@ -174,17 +174,17 @@ ms.locfileid: "73929550"
 
 ## <a name="deploy-a-model-to-azure-machine-learning-studio-classic"></a>將模型部署至 Azure Machine Learning Studio （傳統）
 
-[Azure Machine Learning Studio （傳統）](https://studio.azureml.net/)是一種雲端服務，可讓您輕鬆地建立及部署預測性分析模型。 傳統版本 Azure Machine Learning Studio 的一項絕佳功能，就是能夠將任何 R 函數發佈為 web 服務。 Azure Machine Learning Studio R 封裝可讓您輕鬆地從 DSVM 上的 R 會話進行部署。
+[Azure Machine Learning Studio （傳統）](https://studio.azureml.net/)是一種雲端服務，可讓您輕鬆地建立及部署預測性分析模型。 Azure Machine Learning Studio （傳統）的一項絕佳功能是能夠將任何 R 函數發佈為 web 服務。 Azure Machine Learning Studio （傳統） R 封裝可讓您輕鬆地從 DSVM 上的 R 會話進行部署。
 
 若要部署上一節的決策樹程式碼，請登入 Azure Machine Learning Studio （傳統）。 您需要工作區識別碼和驗證權杖才能登入。 若要尋找這些值，並使用它們來初始化 Azure Machine Learning 變數，請完成下列步驟：
 
 1. 在左側功能表中，選取 [**設定**]。 請記下 [**工作區識別碼**] 的值。
 
-   ![Azure Machine Learning Studio 的工作區識別碼](./media/linux-dsvm-walkthrough/workspace-id.png)
+   ![Azure Machine Learning Studio （傳統）工作區識別碼](./media/linux-dsvm-walkthrough/workspace-id.png)
 
 1. 選取 [**授權權杖**] 索引標籤。請記下 [**主要授權權杖**] 的值。
 
-   ![Azure Machine Learning Studio 的主要授權權杖](./media/linux-dsvm-walkthrough/workspace-token.png)
+   ![Azure Machine Learning Studio （傳統）主要授權權杖](./media/linux-dsvm-walkthrough/workspace-token.png)
 1. 載入**AzureML**封裝，然後在 DSVM 的 R 會話中以您的權杖和工作區識別碼設定變數的值：
 
         if(!require("AzureML")) install.packages("AzureML")
@@ -499,7 +499,7 @@ DSVM 隨附安裝 PostgreSQL。 PostgreSQL 是複雜的開放原始碼關聯式�
 1. 輸入您的使用者名稱和密碼。
 1. 選取 [確定]。
 1. 若要開啟 [連線] 視窗，請按兩下**垃圾郵件資料庫**別名。
-1. 選取 [ **連接**]。
+1. 選取 [連接]。
 
 若要執行一些查詢︰
 

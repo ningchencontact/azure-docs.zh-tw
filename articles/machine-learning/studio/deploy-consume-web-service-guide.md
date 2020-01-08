@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 1c97fd4f4d5646b6654f5261abd99372c521c389
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 564126ab262306f2b01948e29baf239b725083e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228244"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427612"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio （傳統） Web 服務：部署和耗用量
 
@@ -41,13 +41,13 @@ Studio （傳統）入口網站和 Microsoft Azure Machine Learning Web 服務�
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>使用 Web 服務資源提供者 API (Azure Resource Manager API)
 
-Web 服務 Azure Machine Learning Studio 資源提供者的傳統版本可讓您使用 REST API 呼叫來部署和管理 web 服務。 如需詳細資訊，請參閱 [Machine Learning Web 服務 (REST)](/rest/api/machinelearning/index) 參考資料。
+Web 服務的 Azure Machine Learning Studio （傳統）資源提供者可讓您使用 REST API 呼叫來部署和管理 web 服務。 如需詳細資訊，請參閱 [Machine Learning Web 服務 (REST)](/rest/api/machinelearning/index) 參考資料。
 
 <!-- [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference. -->
 
 ### <a name="with-powershell-cmdlets"></a>使用 PowerShell Cmdlet
 
-Web 服務 Azure Machine Learning Studio 資源提供者的傳統版本可讓您使用 PowerShell Cmdlet 來部署和管理 web 服務。
+Web 服務的 Azure Machine Learning Studio （傳統）資源提供者可讓您使用 PowerShell Cmdlet 來部署和管理 web 服務。
 
 若要使用這些 Cmdlet，您必須先使用[disconnect-azaccount](/powershell/module/az.accounts/connect-azaccount)指令程式，從 PowerShell 環境中登入您的 Azure 帳戶。 如果您不熟悉如何呼叫以 Resource Manager 為基礎的 PowerShell 命令，請參閱 [搭配使用 Azure PowerShell 與 Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md)。
 

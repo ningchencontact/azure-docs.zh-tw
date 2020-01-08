@@ -1,17 +1,17 @@
 ---
-title: 疑難排解和診斷失敗
-description: 了解如何針對 Azure Logic Apps 中的失敗進行疑難排解和診斷
+title: 疑難排解和診斷工作流程失敗
+description: 瞭解如何在 Azure Logic Apps 中，針對工作流程中的問題、錯誤和失敗進行疑難排解和診斷
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 93b6d9d2975aa1758afffd19deb1d315b974cc47
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 79cc9d1bf7aa9e8848197525646b0a3646a558d2
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790773"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666800"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>針對 Azure Logic Apps 中的失敗進行疑難排解和診斷
 
@@ -34,7 +34,7 @@ ms.locfileid: "74790773"
 
    以下是觸發程序嘗試的可能狀態：
 
-   | 狀態 | 描述 | 
+   | 狀態 | 說明 | 
    | ------ | ----------- | 
    | **已成功** | 觸發程序檢查了端點，並找到可用的資料。 通常，「已引發」狀態也會隨著這個狀態一起出現。 如果沒有，則觸發程序定義可能有條件或 `SplitOn` 命令不符合要求。 <p>此狀態可以套用至手動觸發程序、循環觸發程序或輪詢觸發程序。 觸發程序可以順利執行，但執行本身在動作產生未處理的錯誤時可能會失敗。 | 
    | **已略過** | 觸發程序檢查了端點，但不找到任何資料。 | 
@@ -75,7 +75,7 @@ ms.locfileid: "74790773"
 
    以下是執行的可能狀態：
 
-   | 狀態 | 描述 | 
+   | 狀態 | 說明 | 
    | ------ | ----------- | 
    | **已成功** | 所有動作都已成功。 <p>如果特定動作發生任何失敗，工作流程中的後續動作已處理該失敗。 | 
    | **已失敗** | 至少一個動作失敗，並且工作流程中沒有設定後續動作來處理失敗。 | 

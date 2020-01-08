@@ -1,5 +1,5 @@
 ---
-title: '& Microsoft Edge 的 Internet Explorer 上的 MSAL 問題 |Azure'
+title: Internet Explorer & Microsoft Edge 的問題（MSAL） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解在使用 Internet Explorer 和 Microsoft Edge 瀏覽器的適用于 JavaScript 的 Microsoft 驗證程式庫（MSAL）時的已知問題。
 services: active-directory
@@ -14,14 +14,14 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe9f8ff420698d5afe617973abc7874256efe260
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a3a4e847bc0d297f3aa41551fbf56242ae1a566f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916378"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424317"
 ---
-# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Internet Explorer 和 Microsoft Edge 瀏覽器與 MSAL 的已知問題
+# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Internet Explorer 和 Microsoft Edge 瀏覽器（MSAL）的已知問題
 
 ## <a name="issues-due-to-security-zones"></a>因安全性區域而產生的問題
 在 IE 和 Microsoft Edge 中，我們有多個驗證問題的報告（自*Microsoft edge 瀏覽器版本更新至 40.15063.0.0*）。 我們正在追蹤這些專案，並告知 Microsoft Edge 團隊。 雖然 Microsoft Edge 是以解決方案為依據，但以下是經常發生之問題的描述，以及可實行的可能因應措施。

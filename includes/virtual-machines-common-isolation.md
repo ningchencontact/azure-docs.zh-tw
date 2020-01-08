@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 2251725597e44a15e421f33cc315be3fb1c7846f
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 78b73688306fb51278afba7283a1ea82af603349
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485511"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459148"
 ---
-Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制，而且為單一客戶專用。  這些虛擬機器大小最適合需要與其他客戶高度隔離，且涉及合規性和法規要求等元素的工作負載。  客戶也可以選擇使用 [Azure 的巢狀虛擬機器支援](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)，進一步細分這些隔離虛擬機器的資源。
+Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制，而且為單一客戶專用。  這些虛擬機器大小最適合需要與其他客戶高度隔離，且涉及合規性和法規要求等項目的工作負載。  客戶也可以選擇使用 [Azure 的巢狀虛擬機器支援](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)，進一步細分這些隔離虛擬機器的資源。
 
 使用隔離大小可確保只有您的虛擬機器會在該特定伺服器執行個體上執行。  目前的隔離虛擬機器供應項目包括：
 * Standard_E64is_v3
@@ -30,9 +30,9 @@ Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制�
 您可以在[這裡](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)深入瞭解每個可用的隔離大小。
 
 ## <a name="retiring-d15_v2ds15_v2-isolation-on-february-15-2020"></a>在2020年2月15日淘汰 D15_v2/DS15_v2 隔離
-我們最近宣佈了 Azure 專用主機的預覽版本，可讓您在單一租使用者實體伺服器上執行貴組織的 Linux 和 Windows 虛擬機器。 我們計畫將隔離的 Azure Vm 完全取代為 Azure 專用主機。 **2020 年2月15日**之後，D15_v2/DS15_v2 Azure vm 可能不再是硬體隔離。
+Azure 專用主機現已正式推出，可讓您在單一租使用者實體伺服器上執行貴組織的 Linux 和 Windows 虛擬機器。 我們計畫將隔離的 Azure Vm 完全取代為 Azure 專用主機。 **2020 年2月15日**之後，D15_v2/DS15_v2 Azure vm 可能不再是硬體隔離。
 
-## <a name="how-does-this-affect-me"></a>這對我有何影響？
+## <a name="how-does-this-affect-me"></a>此變更會對我造成什麼影響？
 2020年2月15日之後，我們將不再針對您的 D15_v2/DS15_v2 Azure 虛擬機器提供隔離保證。 
 
 ## <a name="what-actions-should-i-take"></a>我應該採取哪些動作？
@@ -40,7 +40,7 @@ Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制�
 
 如果您需要隔離，在2020年2月15日之前，您需要執行下列其中一項：
 
-•將您的工作負載[遷移](https://azure.microsoft.com/blog/introducing-azure-dedicated-host)至 Azure 專用主機預覽
+•將您的工作負載[遷移](https://azure.microsoft.com/blog/introducing-azure-dedicated-host)至 Azure 專用主機。
 
 •[要求存取](https://aka.ms/D15iRequestAccess)D15i_v2 並 DS15I_V2 Azure VM，以取得相同的價格效能。 此選項僅適用于隨用隨付和一年期保留實例案例。    
 
@@ -49,7 +49,7 @@ Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制�
 如需詳細資訊，請參閱下列內容：
 
 ## <a name="timeline"></a>時間軸
-| Date | 動作 | 
+| 日期 | 行動 | 
 | --- | --- |
 | 2019年11月18日  | D/DS15i_v2 的可用性（PAYG，1年 RI） |
 | 2020年2月14日  | 購買的最後一天 D/DS15i_v2 1 年 RI | 
@@ -78,21 +78,21 @@ Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制�
 
 | RI |  實例大小彈性 | 權益資格 |   
 | --- | --- | --- |
-|   D15_v2  |   關閉     |   D15_v2 和 D15i_v2 |    
-|   D15_v2  |   另一  |   D15_v2 系列和 D15i_v2 全都會獲得 RI 權益。 |    
-|   D14_v2  |   另一  |   D15_v2 系列和 D15i_v2 全都會獲得 RI 權益。 |    
+|   D15_v2  |   關     |   D15_v2 和 D15i_v2 |    
+|   D15_v2  |   開啟  |   D15_v2 系列和 D15i_v2 全都會獲得 RI 權益。 |    
+|   D14_v2  |   開啟  |   D15_v2 系列和 D15i_v2 全都會獲得 RI 權益。 |    
  
 同樣地，Dsv2 系列也一樣。
  
-### <a name="q-i-want-to-purchase-additional-reserved-instances-for-dv2-which-one-should-i-choose"></a>問：我想要購買 Dv2 的其他保留實例。 我應該選擇哪一個？
+### <a name="q-i-want-to-purchase-additional-reserved-instances-for-dv2-which-one-should-i-choose"></a>問：我想要購買 Dv2 的其他保留實例。 我該選哪一種？
 **答**：在2019年11月18日之後購買的所有 RIs 都具有下列行為。 
 
 | RI |  實例大小彈性 | 權益資格 |   
 | --- | --- | --- |
-| D15_v2 |  關閉 |   僅 D15_v2  
-| D15_v2 |  另一 |    D15_v2 系列將會獲得 RI 權益。 新的 D15i_v2 將無法享有此 RI 類型的 RI 權益。 | 
-| D15i_v2 |     關閉 | 僅 D15i_v2 |  
-| D15i_v2 |     另一  | 僅 D15i_v2 | 
+| D15_v2 |  關 |   僅 D15_v2  
+| D15_v2 |  開啟 |    D15_v2 系列將會獲得 RI 權益。 新的 D15i_v2 將無法享有此 RI 類型的 RI 權益。 | 
+| D15i_v2 |     關 | 僅 D15i_v2 |  
+| D15i_v2 |     開啟  | 僅 D15i_v2 | 
  
 實例大小彈性不能用來套用至任何其他大小，例如 D2_v2、D4_v2 或 D15_v2。 同樣地，針對 Dsv2 系列。  
  

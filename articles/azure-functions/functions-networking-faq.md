@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 4534e20a1156f1d3550d247dfd15d9dc538e9d80
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226839"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409535"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>有關 Azure Functions 網路功能的常見問題
 
@@ -51,9 +51,7 @@ ms.locfileid: "74226839"
 
 您可以使用[服務端點](./functions-networking-options.md#private-site-access)，允許從虛擬網路呼叫 HTTP 觸發程式。 
 
-您也可以藉由將函式應用程式部署至 App Service 環境，從虛擬網路中的資源觸發函式。 如需使用 App Service 環境的詳細資訊，請參閱使用[App Service 環境建立和使用內部負載平衡器](../app-service/environment/create-ilb-ase.md)。
-
-Premium 和 App Service 方案支援來自虛擬網路的 HTTP 觸發程式，但只有 App Service 環境支援透過虛擬網路的所有其他函數觸發程式類型。
+您也可以將函式應用程式部署至 Premium 方案、App Service 方案或 App Service 環境，以從虛擬網路中的所有其他資源觸發函式。 如需詳細資訊，請參閱[非 HTTP 虛擬網路觸發](./functions-networking-options.md#virtual-network-triggers-non-http)程式
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>如何在虛擬網路中部署函數應用程式？
 

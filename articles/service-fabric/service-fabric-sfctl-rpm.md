@@ -1,32 +1,23 @@
 ---
-title: Azure Service Fabric CLI- sfctl rpm| Microsoft Docs
-description: 描述 Service Fabric CLI sfctl rpm 命令。
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI-sfctl rpm
+description: 深入瞭解 sfctl，這是 Azure Service Fabric 命令列介面。 包含修復管理員服務的命令清單。
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 9c37dc8131f14a3b35e68b3e88502c91f96810f6
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 674970276046034d13801db7c1bb4ab5175385fb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901026"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639083"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 查詢命令，並將其傳送至修復管理員服務。
 
 ## <a name="commands"></a>命令
 
-|命令|描述|
+|Command|說明|
 | --- | --- |
 | approve-force | 強制核准指定的修復工作。 |
 | delete | 刪除已完成的修復工作。 |
@@ -39,20 +30,20 @@ ms.locfileid: "72901026"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --task-id [必要] | 修復工作的識別碼。 |
 | --version | 修復工作的目前版本號碼。 如果不是零，則只有在此值符合修復工作的實際目前版本時，要求才會成功。 如果是零，則會不執行任何版本檢查。 |
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-rpm-delete"></a>sfctl rpm delete
 刪除已完成的修復工作。
@@ -61,20 +52,20 @@ ms.locfileid: "72901026"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --task-id [必要] | 要刪除之已完成修復工作的識別碼。 |
 | --version | 修復工作的目前版本號碼。 如果不是零，則只有在此值符合修復工作的實際目前版本時，要求才會成功。 如果是零，則會不執行任何版本檢查。 |
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-rpm-list"></a>sfctl rpm list
 取得符合所指定篩選條件的修復工作清單。
@@ -83,7 +74,7 @@ ms.locfileid: "72901026"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --executor-filter | 其宣告的工作應該包含在清單中的修復執行程式名稱。 |
 | --state-filter | 下列值的位元 OR，指定結果清單中應該包含哪些工作狀態。 <br> 1 - 已建立 <br>2 - 已宣告  <br>4 - 正在準備  <br>8 - 已核准  <br>16 - 正在執行  <br>32 - 正在還原  <br>64 - 已完成 |
@@ -91,13 +82,13 @@ ms.locfileid: "72901026"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 
 ## <a name="next-steps"></a>後續步驟

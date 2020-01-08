@@ -3,17 +3,17 @@ title: 雲端服務和管理憑證 | Microsoft Docs
 description: 了解如何建立憑證並搭配 Microsoft Azure 使用
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: 3c84c6832856986a45be7d275fb94a6c5fc066f0
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 783343dd8877bdf18e783494960c3052c293cc7c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359187"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361342"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure 雲端服務的憑證概觀
 在 Azure 中，憑證用於雲端服務 ([服務憑證](#what-are-service-certificates)) 與驗證管理 API ([管理憑證](#what-are-management-certificates))。 本主題提供兩種憑證類型、如何[建立](#create)這些憑證類型，以及如何將其部署到 Azure 的一般概觀。
@@ -58,7 +58,7 @@ Azure 所使用的憑證可以包含私密或公開金鑰。 憑證具有指紋�
     > 您無法取得 cloudapp.net 網域 (或針對任何 Azure 相關網域) 的 SSL 憑證；憑證的主體名稱必須符合用來存取應用程式的自訂網域名稱。 例如，**contoso.net**，而非 **contoso.cloudapp.net**。
 
 * 至少為 2048 位元加密。
-* **僅限服務憑證**：用戶端憑證必須位於「個人」憑證存放區。
+* **僅限服務憑證**：用戶端憑證必須位於 *個人* 憑證存放區。
 
 在 Windows 上建立憑證有兩個簡單的方法：使用 `makecert.exe` 公用程式或 IIS。
 
@@ -92,4 +92,7 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 [將服務憑證上傳到 Azure 入口網站](cloud-services-configure-ssl-certificate-portal.md)。
 
 將[管理 API 憑證](../azure-api-management-certs.md)上傳至 Azure 入口網站。
+
+
+
 

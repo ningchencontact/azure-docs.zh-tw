@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: 62b42a39e2ce2c86d7f17c611e89d60bc583640e
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 43110036c685cd17ba912766dd8ec19aa274e7c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816410"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459527"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>自訂主機集區的遠端桌面通訊協定屬性
 
@@ -26,6 +26,18 @@ ms.locfileid: "74816410"
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
+## <a name="default-rdp-properties"></a>預設 RDP 屬性
+
+根據預設，已發佈的 RDP 檔案包含下列屬性：
+
+|RDP 屬性 | 桌上型電腦 | RemoteApp |
+|---|---| --- |
+| 多監視器模式 | 啟用 | N/A |
+| 磁片磁碟機重新導向已啟用 | 磁片磁碟機、剪貼簿、印表機、COM 埠、USB 裝置和智慧卡| 磁片磁碟機、剪貼簿和印表機 |
+| 遠端音訊模式 | 在本機播放 | 在本機播放 |
+
+您為主機集區定義的任何自訂屬性都會覆寫這些預設值。
+
 ## <a name="add-or-edit-a-single-custom-rdp-property"></a>新增或編輯單一自訂 RDP 屬性
 
 若要新增或編輯單一自訂 RDP 屬性，請執行下列 PowerShell Cmdlet：
@@ -33,6 +45,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty "<property>"
 ```
+
 ![已反白顯示 [名稱] 和 [FriendlyName] 的 PowerShell Cmdlet RDSRemoteApp 螢幕擷取畫面。](media/singlecustomrdpproperty.png)
 
 ## <a name="add-or-edit-multiple-custom-rdp-properties"></a>新增或編輯多個自訂 RDP 屬性
@@ -43,6 +56,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 $properties="<property1>;<property2>;<property3>"
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
+
 ![已反白顯示 [名稱] 和 [FriendlyName] 的 PowerShell Cmdlet RDSRemoteApp 螢幕擷取畫面。](media/multiplecustomrdpproperty.png)
 
 ## <a name="reset-all-custom-rdp-properties"></a>重設所有自訂 RDP 屬性
@@ -52,11 +66,12 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty ""
 ```
+
 ![已反白顯示 [名稱] 和 [FriendlyName] 的 PowerShell Cmdlet RDSRemoteApp 螢幕擷取畫面。](media/resetcustomrdpproperty.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已自訂指定主機集區的 RDP 內容，您可以登入 Windows 虛擬桌面用戶端，在使用者會話中測試這些屬性。 若要這麼做，請繼續進行連線至 Windows 虛擬桌面的作法：
+既然您已自訂指定主機集區的 RDP 內容，您可以登入 Windows 虛擬桌面用戶端，在使用者會話中測試這些屬性。 接下來的兩個操作說明會告訴您如何使用您選擇的用戶端連接到會話：
 
-- [從 Windows 10 和 Windows 7 連接](connect-windows-7-and-10.md)
-- [從網頁瀏覽器連線](connect-web.md)
+- [與 Windows 桌面用戶端連接](connect-windows-7-and-10.md)
+- [與 web 用戶端連接](connect-web.md)

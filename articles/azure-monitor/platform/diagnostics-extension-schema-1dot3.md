@@ -4,15 +4,15 @@ description: 適用於 Azure 診斷的結構描述 1.3 版和更新版本隨附�
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: reference
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 09/20/2018
-ms.openlocfilehash: 3d79fe6a415b7d1f862797bf41caed89bfe50a41
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2a3ee9731ebeb3b002f4dd9f5b856e720bf719d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834753"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395101"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 診斷 1.3 版和更新版本的組態結構描述
 > [!NOTE]
@@ -164,7 +164,7 @@ ms.locfileid: "73834753"
 ```  
 > [!NOTE]
 > 公用設定 Azure 監視器接收定義具有兩個屬性：resourceId 與 region。 這些只有傳統 VM 和傳統雲端服務才需要使用。 這些屬性不應該用於 Resource Manager 虛擬機器或虛擬機器擴展集。
-> Azure 監視器接收另外還有一個私用設定項目，可傳入主體識別碼和密碼。 這只有傳統 VM 和傳統雲端服務才需要使用。 對於 Resource Manager VM 與 VMSS，可排除私用組態項目中的 Azure 監視器定義。
+> Azure 監視器接收另外還有一個私用設定項目，可傳入主體識別碼和密碼。 這只有傳統 VM 和傳統雲端服務才需要使用。 對於 Resource Manager VM 與 VMSS，可排除私用設定項目中的 Azure 監視器定義。
 >
 
 先前 XML 組態檔的對應 JSON。
@@ -392,7 +392,7 @@ ms.locfileid: "73834753"
 ```
 
 > [!NOTE]
-> Azure 監視器接收另外有一個私用設定 項目，可傳入主體識別碼和密碼。 這只有傳統 VM 和傳統雲端服務才需要使用。 對於 Resource Manager VM 與 VMSS，可排除私用組態項目中的 Azure 監視器定義。
+> Azure 監視器接收另外有一個私用設定 項目，可傳入主體識別碼和密碼。 這只有傳統 VM 和傳統雲端服務才需要使用。 對於 Resource Manager VM 與 VMSS，可排除私用設定項目中的 Azure 監視器定義。
 >
 
 
@@ -417,7 +417,7 @@ ms.locfileid: "73834753"
 |子元素|說明|  
 |--------------------|-----------------|  
 |**PublicConfig**|必要。 請參閱本頁面上其他部分的說明。|  
-|**PrivateConfig**|選用。 請參閱本頁面上其他部分的說明。|  
+|**PrivateConfig**|選擇性。 請參閱本頁面上其他部分的說明。|  
 |**IsEnabled**|布林值。 請參閱本頁面上其他部分的說明。|  
 
 ## <a name="publicconfig-element"></a>PublicConfig 元素  
@@ -441,13 +441,13 @@ ms.locfileid: "73834753"
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration 元素
  樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration
 
- 必要
+ 必要項
 
 |屬性|說明|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | 可供 Azure 診斷所收集的各種類型診斷資料取用的本機磁碟空間量上限。 預設設定為 4096 MB。<br />
 |**useProxyServer** | 設定 Azure 診斷來使用 Proxy 伺服器設定，如 IE 設定中所設定。|
-|**sinks** | 在 1.5 中新增。 選用。 針對支援接收的所有子元素，同時要傳送診斷資料的接收位置指標。 接收範例為 Application Insights 或事件中樞。|  
+|**sinks** | 在 1.5 中新增。 選擇性。 針對支援接收的所有子元素，同時要傳送診斷資料的接收位置指標。 接收範例為 Application Insights 或事件中樞。|  
 
 
 <br /> <br />
@@ -472,9 +472,9 @@ ms.locfileid: "73834753"
 
 |屬性|說明|  
 |----------------|-----------------|  
-|**containerName**|選用。 在您的 Azure 儲存體帳戶中用來儲存損毀傾印的 Blob 容器名稱。|  
-|**crashDumpType**|選用。  設定 Azure 診斷來收集迷你或完整的損毀傾印。|  
-|**directoryQuotaPercentage**|選用。  設定要在 VM 上保留以供損毀傾印使用的 **overallQuotaInMB** 百分比。|  
+|**containerName**|選擇性。 在您的 Azure 儲存體帳戶中用來儲存損毀傾印的 Blob 容器名稱。|  
+|**crashDumpType**|選擇性。  設定 Azure 診斷來收集迷你或完整的損毀傾印。|  
+|**directoryQuotaPercentage**|選擇性。  設定要在 VM 上保留以供損毀傾印使用的 **overallQuotaInMB** 百分比。|  
 
 |子元素|說明|  
 |--------------------|-----------------|  
@@ -541,7 +541,7 @@ ms.locfileid: "73834753"
 |子元素|說明|  
 |--------------------|-----------------|  
 |**DefaultEvents**|選用屬性：<br/><br/> **eventDestination** - 要儲存事件的資料表名稱|  
-|**Event**|必要屬性：<br /><br /> **id** - 事件的識別碼。<br /><br /> 選用屬性：<br /><br /> **eventDestination** - 要儲存事件的資料表名稱|  
+|**事件**|必要屬性：<br /><br /> **id** - 事件的識別碼。<br /><br /> 選用屬性：<br /><br /> **eventDestination** - 要儲存事件的資料表名稱|  
 
 
 
@@ -551,7 +551,7 @@ ms.locfileid: "73834753"
 |子元素|說明|  
 |--------------------|-----------------|  
 |**DefaultEvents**|選用屬性：<br /><br /> **eventDestination** - 要儲存事件的資料表名稱|  
-|**Event**|必要屬性：<br /><br /> **id** - 事件的識別碼。<br /><br /> 選用屬性：<br /><br /> **eventDestination** - 要儲存事件的資料表名稱|  
+|**事件**|必要屬性：<br /><br /> **id** - 事件的識別碼。<br /><br /> 選用屬性：<br /><br /> **eventDestination** - 要儲存事件的資料表名稱|  
 
 
 
@@ -560,7 +560,7 @@ ms.locfileid: "73834753"
 
  讓您能夠產生已最佳化的效能計數器資料表來進行快速查詢。 除了效能計數器資料表之外，**PerformanceCounters** 元素中所定義的每個效能計數器都會儲存於 Metrics 資料表中。  
 
- **resourceId** 是必要屬性。  您要部署 Azure 診斷的虛擬機器或虛擬機器擴展集資源識別碼。 從 **Azure 入口網站**取得 [resourceID](https://portal.azure.com)。 選取 [瀏覽][資源群組] ->  ->  **<Name\>** 。 按一下 [屬性] 圖格，並複製 [識別碼] 欄位的值。  
+ **resourceId** 是必要屬性。  您要部署 Azure 診斷的虛擬機器或虛擬機器擴展集資源識別碼。 從 [Azure 入口網站](https://portal.azure.com)取得 **resourceID**。 選取 [瀏覽][資源群組] ->  ->  **<Name\>** 。 按一下 [屬性] 圖格，並複製 [識別碼] 欄位的值。  
 
 |子元素|說明|  
 |--------------------|-----------------|  
@@ -579,8 +579,8 @@ ms.locfileid: "73834753"
 
 |子元素|說明|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|以下為必要屬性：<br /><br /> - **counterSpecifier** - 效能計數器的名稱。 例如， `\Processor(_Total)\% Processor Time`。 若要在主機上取得效能計數器清單，請執行 `typeperf` 命令。<br /><br /> - **sampleRate** - 應針對計數器進行取樣的頻率。<br /><br /> 選用屬性：<br /><br /> **unit** - 計數器的測量單位。|
-|**sinks** | 在 1.5 中新增。 選用。 同時要傳送診斷資料的接收位置指標。 例如，Azure 監視器或事件中樞。|    
+|**PerformanceCounterConfiguration**|以下為必要屬性：<br /><br /> - **counterSpecifier** - 效能計數器的名稱。 例如： `\Processor(_Total)\% Processor Time` 。 若要在主機上取得效能計數器清單，請執行 `typeperf` 命令。<br /><br /> - **sampleRate** - 應針對計數器進行取樣的頻率。<br /><br /> 選用屬性：<br /><br /> **unit** - 計數器的測量單位。|
+|**sinks** | 在 1.5 中新增。 選擇性。 同時要傳送診斷資料的接收位置指標。 例如，Azure 監視器或事件中樞。|    
 
 
 
@@ -608,10 +608,10 @@ ms.locfileid: "73834753"
 
 |屬性|類型|說明|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|**unsignedInt**|選用。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
-|**scheduledTransferLogLevelFilter**|**字串**|選用。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**，會傳輸所有記錄。 其他可能的值 (按照從大到小的順序排列) 為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
-|**scheduledTransferPeriod**|**duration**|選用。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
-|**sinks** |**字串**| 在 1.5 中新增。 選用。 同時要傳送診斷資料的接收位置指標。 例如，Application Insights 或事件中樞。|  
+|**bufferQuotaInMB**|**unsignedInt**|選擇性。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值是 0。|  
+|**scheduledTransferLogLevelFilter**|**string**|選擇性。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**，會傳輸所有記錄。 其他可能的值 (按照從大到小的順序排列) 為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
+|**scheduledTransferPeriod**|**duration**|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
+|**sinks** |**string**| 在 1.5 中新增。 選擇性。 同時要傳送診斷資料的接收位置指標。 例如，Application Insights 或事件中樞。|  
 
 ## <a name="dockersources"></a>DockerSources
  樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources
@@ -640,12 +640,12 @@ ms.locfileid: "73834753"
 
 |屬性|類型|說明|  
 |---------------|----------|-----------------|  
-|**name**|字串|識別 sinkname 的字串。|  
+|**name**|string|識別 sinkname 的字串。|  
 
-|項目|類型|說明|  
+|元素|類型|說明|  
 |-------------|----------|-----------------|  
-|**Application Insights**|字串|僅會在將資料傳送至 Application Insights 時使用。 包含您有權存取之使用中 Application Insights 帳戶的檢測金鑰。|  
-|**Channels**|字串|每個可額外篩選該資料流的其中一個|  
+|**Application Insights**|string|僅會在將資料傳送至 Application Insights 時使用。 包含您有權存取之使用中 Application Insights 帳戶的檢測金鑰。|  
+|**Channels**|string|每個可額外篩選該資料流的其中一個|  
 
 ## <a name="channels-element"></a>Channels 元素  
  樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels
@@ -654,9 +654,9 @@ ms.locfileid: "73834753"
 
  針對通過接收之記錄資料的資料流定義篩選器。  
 
-|項目|類型|說明|  
+|元素|類型|說明|  
 |-------------|----------|-----------------|  
-|**Channel**|字串|請參閱本頁面上其他部分的說明。|  
+|**通路**|string|請參閱本頁面上其他部分的說明。|  
 
 ## <a name="channel-element"></a>Channel 元素
  樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel
@@ -667,8 +667,8 @@ ms.locfileid: "73834753"
 
 |屬性|類型|說明|  
 |----------------|----------|-----------------|  
-|**logLevel**|**字串**|指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**，會傳輸所有記錄。 其他可能的值 (按照從大到小的順序排列) 為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
-|**name**|**字串**|要參考之通道的唯一名稱|  
+|**logLevel**|**string**|指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**，會傳輸所有記錄。 其他可能的值 (按照從大到小的順序排列) 為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
+|**name**|**string**|要參考之通道的唯一名稱|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig 元素

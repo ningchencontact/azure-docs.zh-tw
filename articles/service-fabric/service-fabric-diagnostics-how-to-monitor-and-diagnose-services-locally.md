@@ -1,25 +1,16 @@
 ---
-title: 在 Windows 中針對 Azure Service Fabric 應用程式進行偵錯 | Microsoft Docs
+title: 在 Windows 中對 Azure Service Fabric 應用程式進行 Debug
 description: 了解如何監視和診斷在本機開發電腦上使用 Microsoft Azure Service Fabric 所撰寫的服務。
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 31c559c1ab314b7e1f29bd96f74d6d82cfcc0420
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8435bb82afddd0070679768bb8d22ad9290f2279
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60392821"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464615"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>監視和診斷本機開發設定中的服務
 > [!div class="op_single_selector"]
@@ -41,15 +32,15 @@ ms.locfileid: "60392821"
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>在 Visual Studio 中檢視 Service Fabric 系統事件
 Service Fabric 會發出 ETW 事件，以協助應用程式開發人員了解平台中發生的事情。 如果您還沒有這麼做，請繼續遵循 [在 Visual Studio 中建立第一個應用程式](service-fabric-tutorial-create-dotnet-app.md)中的步驟。 此資訊將協助您啟動應用程式，並執行可顯示追蹤訊息的 [診斷事件檢視器]。
 
-1. 若 [診斷事件] 視窗不會自動顯示，請移至 Visual Studio 中的 [檢視]  索引標籤，選擇 [其他視窗]  ，然後選擇 [診斷事件檢視器]  。
-2. 每個事件皆有標準的中繼資料資訊，可告訴您事件所來自的節點、應用程式和服務。 您也可以使用事件視窗頂端的 [篩選事件]  方塊來篩選事件清單。 例如，您可以依 [節點名稱]  或 [服務名稱]  進行篩選。 而當您查看事件詳細資料時，您也可以使用事件視窗頂端的 [暫停]  按鈕來暫停並於稍後繼續，而不會遺失任何事件。
+1. 若 [診斷事件] 視窗不會自動顯示，請移至 Visual Studio 中的 [檢視] 索引標籤，選擇 [其他視窗]，然後選擇 [診斷事件檢視器]。
+2. 每個事件皆有標準的中繼資料資訊，可告訴您事件所來自的節點、應用程式和服務。 您也可以使用事件視窗頂端的 [篩選事件] 方塊來篩選事件清單。 例如，您可以依 [節點名稱] 或 [服務名稱] 進行篩選。 而當您查看事件詳細資料時，您也可以使用事件視窗頂端的 [暫停] 按鈕來暫停並於稍後繼續，而不會遺失任何事件。
    
    ![Visual Studio 診斷事件檢視器](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
 ## <a name="add-your-own-custom-traces-to-the-application-code"></a>將您自己自訂的追蹤新增至應用程式程式碼
 Service Fabric Visual Studio 專案範本包含範例程式碼。 程式碼示範如何新增自訂的應用程式程式碼 ETW 追蹤，其會與來自 Service Fabric 的系統追蹤一併顯示在 Visual Studio ETW 檢視器中。 這個方法的優點是中繼資料會自動新增至追蹤，且 Visual Studio 診斷事件檢視器已設定為顯示追蹤。
 
-針對從「服務範本」  (無狀態或可設定狀態) 建立的專案，只要搜尋 `RunAsync` 實作即可：
+針對從「服務範本」(無狀態或可設定狀態) 建立的專案，只要搜尋 `RunAsync` 實作即可：
 
 1. 使用 `ServiceEventSource.Current.ServiceMessage` in the `RunAsync` 時會顯示來自應用程式程式碼的自訂 ETW 追蹤範例。
 2. 在 **ServiceEventSource.cs** 檔案中，您會找到 `ServiceEventSource.ServiceMessage` 方法的多載，出於效能因素，應該將其用於高頻率事件。

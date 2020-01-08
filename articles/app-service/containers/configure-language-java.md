@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 571d4cd395cd0cec0982fedf267a88143fd73872
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
-ms.translationtype: MT
+ms.openlocfilehash: 5ee07e5b0ac9c73a686a0f8c7d489ecc7ee96425
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805734"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422201"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Linux JAVA 應用程式
 
@@ -248,8 +248,7 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
-- [Cassandra](https://docs.datastax.com/developer/java-driver/4.3/)
-
+- [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
 #### <a name="manually-initialize-and-load-the-key-store"></a>手動初始化和載入金鑰存放區
 
@@ -663,7 +662,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
 
 下次 App Service 重新開機時，它將會執行啟動腳本，並執行必要的設定步驟。 若要測試此設定是否正確發生，您可以使用 SSH 存取您的 App Service，然後從 Bash 提示字元自行執行啟動腳本。 您也可以檢查 App Service 記錄。 如需這些選項的詳細資訊，請參閱[記錄和偵錯工具](#logging-and-debugging-apps)。
 
-接下來，您將需要更新應用程式的 WildFly 設定，並重新部署它。 請使用下列步驟：
+接下來，您將需要更新應用程式的 WildFly 設定，並重新部署它。 使用下列步驟：
 
 1. 開啟應用程式的*src/main/resources/META-INF/持續性 .xml*檔案，並尋找 `<jta-data-source>` 元素。 取代其內容，如下所示：
 
@@ -709,7 +708,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
 
 1. 開啟 Bash 終端機，並使用下列命令，將您的 Azure 資源資訊儲存在環境變數中。 將預留位置（包括角括弧）取代為指定的值。
 
-    | 變數            | Value                                                                      |
+    | 變數            | 值                                                                      |
     |---------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME  | 包含您 App Service 實例之資源群組的名稱。       |
     | WEBAPP_NAME         | App Service 實例的名稱。                                     |
@@ -993,7 +992,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
 
 1. 開啟 Bash 終端機，並使用 `<variable>=<value>` 來設定下列每個環境變數。
 
-    | 變數                 | Value                                                                      |
+    | 變數                 | 值                                                                      |
     |--------------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME       | 包含您 App Service 實例之資源群組的名稱。       |
     | WEBAPP_NAME              | App Service 實例的名稱。                                     |

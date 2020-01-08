@@ -1,6 +1,6 @@
 ---
 title: 批次處理以群組方式處理訊息
-description: 在 Azure Logic Apps 中以批次方式傳送和接收訊息
+description: 在工作流程中使用批次處理，以群組的方式傳送和接收訊息 Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 813c625fc72fa7c1440b5d1b9147af9a44c2260f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e48d2bb2ffce0dd4f9293417534165165d426784
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791570"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666749"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>在 Azure Logic Apps 中傳送、接收及批次處理訊息
 
@@ -55,14 +55,14 @@ ms.locfileid: "74791570"
 
 3. 設定批次接收者的屬性： 
 
-   | 屬性 | 描述 | 
+   | 屬性 | 說明 | 
    |----------|-------------|
    | **批次模式** | - **內嵌**：用來定義批次觸發程序內的發行準則 <br>- **整合帳戶**：透過[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)，可定義多個發行準則組態。 透過整合帳戶，您可以在同一個地方維護上述所有組態，而不是在個別的邏輯應用程式中進行維護。 | 
    | **批次名稱** | 您的批次名稱 (在此範例中為 "TestBatch")，只適用於 [內嵌] 批次模式 |  
-   | **釋出準則** | 僅適用於 [內嵌] 批次模式，可選取在處理每個批次之前要先符合的準則： <p>以**訊息計數為基礎**的 - ：根據批次所收集的訊息數目來釋放批次。 <br>以**大小為基礎**的 - ：根據該批次收集之所有訊息的總大小（以位元組為單位）來釋放批次。 <br>- **排程**：根據週期排程釋放批次，這會指定間隔和頻率。 在進階選項中，您也可以選取時區並提供開始日期和時間。 <br>- **全選**：使用所有指定的準則。 | 
+   | **發行準則** | 僅適用於 [內嵌] 批次模式，可選取在處理每個批次之前要先符合的準則： <p>以**訊息計數為基礎**的 - ：根據批次所收集的訊息數目來釋放批次。 <br>以**大小為基礎**的 - ：根據該批次收集之所有訊息的總大小（以位元組為單位）來釋放批次。 <br>- **排程**：根據週期排程釋放批次，這會指定間隔和頻率。 在進階選項中，您也可以選取時區並提供開始日期和時間。 <br>- **全選**：使用所有指定的準則。 | 
    | **訊息計數** | 要在批次中收集的訊息數目，例如 10 則訊息。 批次的限制為 8,000 則訊息。 | 
    | **批次大小** | 要在批次中收集的大小總計 (以位元組為單)，例如 10 MB。 批次的大小限制為 80 MB。 | 
-   | **排程** | 批次發行之間的間隔和頻率，例如 10 分鐘。 最小週期是 60 秒或 1 分鐘。 小數的分鐘會無條件進位至 1 分鐘。 若要指定時區或開始日期和時間，請選擇 [顯示進階選項]。 | 
+   | **[排程]** | 批次發行之間的間隔和頻率，例如 10 分鐘。 最小週期是 60 秒或 1 分鐘。 小數的分鐘會無條件進位至 1 分鐘。 若要指定時區或開始日期和時間，請選擇 [顯示進階選項]。 | 
    ||| 
 
    > [!NOTE]
@@ -162,13 +162,13 @@ ms.locfileid: "74791570"
       > 
       > 如果您使用 Visual Studio，而且您未看到任何可選取的批次接收者，請確認您已將批次接收者部署至 Azure。 如果您尚未這麼做，請了解如何[將批次接收者邏輯應用程式部署至 Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure)。 
 
-   4. 選取此動作：**Batch_messages - <your-batch-receiver>**
+   4. 選取此動作：**Batch_messages - <*your-batch-receiver*>**
 
       ![選取此動作："Batch_messages - <your-logic-app>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
 3. 設定批次傳送者的屬性：
 
-   | 屬性 | 描述 | 
+   | 屬性 | 說明 | 
    |----------|-------------| 
    | **批次名稱** | 接收者邏輯應用程式所定義的批次名稱，在本例中為 "TestBatch" <p>**重要**：批次名稱會在執行階段驗證，而且必須符合接收者邏輯應用程式所指定的名稱。 變更批次名稱會導致批次傳送者失敗。 | 
    | **訊息內容** | 您要傳送的訊息內容 | 
@@ -186,7 +186,7 @@ ms.locfileid: "74791570"
 
 4. 現在設定批次的資料分割。 在 "BatchReceiver" 動作中，選擇 [顯示進階選項] 並設定下列屬性：
 
-   | 屬性 | 描述 | 
+   | 屬性 | 說明 | 
    |----------|-------------| 
    | **分割名稱** | 選擇性的唯一分割索引鍵，可用於將目標批次分割誠邏輯子集，以及根據該索引鍵收集訊息 | 
    | **訊息識別碼** | 選擇性的訊息識別碼，空白時是一個產生的 全域唯一識別碼 (GUID) | 

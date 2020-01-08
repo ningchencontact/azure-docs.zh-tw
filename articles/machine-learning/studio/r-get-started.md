@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: f55b6e743ff82d4192cbdd91ba54c92efef432bc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 81e232e37e437c4fa9d23a49a720b88511423905
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838749"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427568"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio 中的 R 程式設計語言入門（傳統）
 
@@ -23,9 +23,9 @@ ms.locfileid: "73838749"
 
 ## <a name="introduction"></a>簡介
 
-本教學課程將協助您使用 R 程式設計語言開始擴充 Azure Machine Learning Studio （傳統）。 遵循此 R 程式設計教學課程來建立、測試和執行 Studio （傳統）中的 R 程式碼。 當您逐步進行教學課程時，您將會在傳統版本的 Studio 中使用 R 語言來建立完整的預測解決方案。  
+本教學課程將協助您使用 R 程式設計語言開始擴充 Azure Machine Learning Studio （傳統）。 遵循此 R 程式設計教學課程來建立、測試和執行 Studio （傳統）中的 R 程式碼。 當您逐步進行教學課程時，您將會使用 Studio 中的 R 語言（傳統）來建立完整的預測解決方案。  
 
-傳統版本的 Azure Machine Learning Studio 包含許多功能強大的機器學習和資料操作模組。 功能強大的 R 語言被描述為分析通用語言。 幸好，您可以使用 R 擴充傳統版本 Studio 中的分析和資料操作。此組合可讓您使用 R 的彈性和深度分析，來擴充和輕鬆部署傳統版本的 Studio。
+Azure Machine Learning Studio （傳統）包含許多功能強大的機器學習和資料操作模組。 功能強大的 R 語言被描述為分析通用語言。 幸好，您可以使用 R 擴充 Studio （傳統）中的分析和資料操作。這項組合提供了使用 R 的彈性和深度分析，來擴充和輕鬆部署 Studio （傳統）。
 
 ### <a name="forecasting-and-the-dataset"></a>預測和資料集
 
@@ -39,23 +39,23 @@ ms.locfileid: "73838749"
 
 ### <a name="organization"></a>組織
 
-我們會逐步完成數個步驟，您將瞭解如何在傳統版本的 Azure Machine Learning Studio 環境中建立、測試及執行分析和資料操作 R 程式碼。  
+當您瞭解如何在 Azure Machine Learning Studio （傳統）環境中建立、測試及執行分析和資料操作 R 程式碼時，我們會逐步完成數個步驟。  
 
-* 首先，我們將探討在傳統版本的 Azure Machine Learning Studio 環境中使用 R 語言的基本概念。
-* 然後，我們會討論在傳統版本的 Azure Machine Learning Studio 環境中，適用于資料、R 程式碼和圖形的各種不同層面。
+* 首先，我們將探討在 Azure Machine Learning Studio （傳統）環境中使用 R 語言的基本概念。
+* 接下來，我們要討論 Azure Machine Learning Studio （傳統）環境中資料、R 程式碼和圖形的各種不同層面。
 * 再接著，我們會藉由建立可清理和轉換資料的程式碼，建構預測解決方案的第一個部分。
 * 在備妥資料後，我們將執行資料集內數個變數之間的相互關聯分析。
 * 最後，我們將針對牛奶產量建立季節性的時間序列預測模型。
 
 ## <a id="mlstudio"></a>在 Machine Learning Studio 中與 R 語言互動（傳統）
 
-本節會引導您瞭解在 Machine Learning Studio （傳統）環境中與 R 程式設計語言互動的一些基本概念。 R 語言提供功能強大的工具，可在傳統版本的 Azure Machine Learning Studio 環境內建立自訂的分析和資料操作模組。
+本節會引導您瞭解在 Machine Learning Studio （傳統）環境中與 R 程式設計語言互動的一些基本概念。 R 語言提供功能強大的工具，可在 Azure Machine Learning Studio （傳統）環境內建立自訂的分析和資料操作模組。
 
-我將使用 RStudio 來進行小規模的 R 程式碼開發、測試及偵錯。 這段程式碼接著會剪下並貼到[執行 R 腳本][execute-r-script]模組中，準備好在 Machine Learning Studio 的傳統版本中執行。  
+我將使用 RStudio 來進行小規模的 R 程式碼開發、測試及偵錯。 這段程式碼接著會剪下並貼到[執行 R 腳本][execute-r-script]模組中，準備好在 Azure Machine Learning Studio （傳統）中執行。  
 
 ### <a name="the-execute-r-script-module"></a>執行 R 指令碼模組
 
-在傳統版本的 Machine Learning Studio 中，R 腳本會在[執行 r 腳本][execute-r-script]模組內執行。 [圖 1] 顯示傳統版本 Machine Learning Studio 中的 [[執行 R 腳本][execute-r-script]] 模組的範例。
+在 Machine Learning Studio （傳統）中，R 腳本是在[執行 r 腳本][execute-r-script]模組內執行。 [圖 1] 顯示 Machine Learning Studio （傳統）中[執行 R 腳本][execute-r-script]模組的範例。
 
  ![R 程式設計語言： Machine Learning Studio 中選取的執行 R 腳本模組（傳統）](./media/r-quickstart/fig1.png)
 
@@ -69,7 +69,7 @@ ms.locfileid: "73838749"
 
 當然，我們將在本文的其餘部分更詳細地討論[執行 R 腳本][execute-r-script]。
 
-使用複雜的 R 函式時，建議您在 RStudio 中進行編輯、測試及偵錯。 與進行任何軟體開發相同，請以累加方式擴充您的程式碼，並在小型的簡單測試案例上進行測試。 然後將您的函式剪下並貼到 [[執行 r 腳本][execute-r-script]] 模組的 [R 腳本] 視窗中。 這種方法可讓您同時控制 RStudio 整合式開發環境（IDE）和傳統 Azure Machine Learning Studio 版本的功能。  
+使用複雜的 R 函式時，建議您在 RStudio 中進行編輯、測試及偵錯。 與進行任何軟體開發相同，請以累加方式擴充您的程式碼，並在小型的簡單測試案例上進行測試。 然後將您的函式剪下並貼到 [[執行 r 腳本][execute-r-script]] 模組的 [R 腳本] 視窗中。 這種方法可讓您同時控制 RStudio 整合式開發環境（IDE）和 Azure Machine Learning Studio （傳統）的功能。  
 
 #### <a name="execute-r-code"></a>執行 R 程式碼
 
@@ -77,17 +77,17 @@ ms.locfileid: "73838749"
 
 #### <a name="defensive-r-coding-for-azure-machine-learning"></a>Azure Machine Learning 的防禦型 R 編碼
 
-如果您是使用 Azure Machine Learning Studio 的傳統版本來開發 web 服務的 R 程式碼，您應該明確地規劃程式碼如何處理非預期的資料輸入和例外狀況。 為了清楚起見，在所示範的大多數程式碼中，並未包含太多有關檢查或例外狀況處理的部分。 不過，隨著我們繼續進行，我將會提供您幾個使用 R 例外狀況處理功能的函式範例。  
+如果您是使用 Azure Machine Learning Studio （傳統）開發 web 服務的 R 程式碼，您應該明確地規劃程式碼如何處理非預期的資料輸入和例外狀況。 為了清楚起見，在所示範的大多數程式碼中，並未包含太多有關檢查或例外狀況處理的部分。 不過，隨著我們繼續進行，我將會提供您幾個使用 R 例外狀況處理功能的函式範例。  
 
 如果您需要更完整的 R 例外狀況處理方式，我建議您閱讀下面所列的 Wickham 針對中適用的章節，以[進一步閱讀](#appendixb)。
 
 #### <a name="debug-and-test-r-in-machine-learning-studio-classic"></a>Machine Learning Studio 中的 Debug 和 test R （傳統）
 
-再次提醒您，建議您在 RStudio 中進行小規模的 R 程式碼測試和偵錯。 不過，在某些情況下，您必須追蹤[執行 r 腳本][execute-r-script]本身的 r 程式碼問題。 此外，在傳統版本的 Machine Learning Studio 中檢查結果是很好的作法。
+再次提醒您，建議您在 RStudio 中進行小規模的 R 程式碼測試和偵錯。 不過，在某些情況下，您必須追蹤[執行 r 腳本][execute-r-script]本身的 r 程式碼問題。 此外，在 Machine Learning Studio （傳統）中檢查結果是很好的作法。
 
-執行 R 程式碼和傳統 Azure Machine Learning Studio 平臺版本的輸出，主要是在 output .log 中找到。 有些其他資訊會顯示在 error.log 中。  
+執行 R 程式碼和 Azure Machine Learning Studio （傳統）平臺上的輸出，主要是在 output .log 中找到。 有些其他資訊會顯示在 error.log 中。  
 
-如果在執行 R 程式碼時，傳統版本的 Machine Learning Studio 中發生錯誤，您的第一個動作應該是查看 error .log。 此檔案可能包含可協助您了解並更正錯誤的實用錯誤訊息。 若要查看 error，請在包含錯誤的[執行 R 腳本][execute-r-script]的 [**屬性] 窗格**上，選取 [**查看錯誤記錄**檔]。
+如果在執行 R 程式碼時 Machine Learning Studio （傳統）中發生錯誤，您的第一個動作應該是查看 error .log。 此檔案可能包含可協助您了解並更正錯誤的實用錯誤訊息。 若要查看 error，請在包含錯誤的[執行 R 腳本][execute-r-script]的 [**屬性] 窗格**上，選取 [**查看錯誤記錄**檔]。
 
 例如，我在[執行 r 腳本][execute-r-script]模組中，以未定義的變數 y 執行下列 R 程式碼：
 
@@ -149,9 +149,9 @@ RStudio 是適用于 R 的廣泛使用 IDE。我將使用 RStudio 來編輯、�
 
 #### <a id="loading"></a>載入資料集
 
-首先，我們會將**csdairydata.csv**載入 Azure Machine Learning Studio 的傳統版本。
+首先，我們會將**csdairydata.csv**載入 Azure Machine Learning Studio （傳統）。
 
-1. 啟動您的 Azure Machine Learning Studio 環境的傳統版本。
+1. 啟動您的 Azure Machine Learning Studio （傳統）環境。
 1. 選取畫面左下方的 [ **+ 新增**]，然後選取 [**資料集**]。
 1. 選取 [從本機檔案]，然後按一下 [瀏覽] 以選取檔案。
 1. 請確定您已選取 **含標頭的一般 CSV 檔案 (.csv)** 做為資料集類型。
@@ -160,7 +160,7 @@ RStudio 是適用于 R 的廣泛使用 IDE。我將使用 RStudio 來編輯、�
 
 #### <a name="create-an-experiment"></a>建立實驗
 
-既然傳統版本的 Machine Learning Studio 中有一些資料，我們必須建立實驗來進行分析。  
+既然我們已在 Machine Learning Studio （傳統）中有一些資料，我們需要建立實驗來進行分析。  
 
 1. 選取左下方的 [ **+ 新增**]，然後依序選取 [**實驗**] 和 [**空白實驗**]。
 1. 您可以選取和修改頁面頂端的 **實驗建立目的** 標題，為您的實驗命名。 例如，將它變更為「加州乳製品分析」。
@@ -185,11 +185,11 @@ RStudio 是適用于 R 的廣泛使用 IDE。我將使用 RStudio 來編輯、�
 
 *圖 4：cadairydata.csv 資料集的摘要。*
 
-在這個檢視中，我們會看到許多有用的資訊。 我們可以看到該資料集的前幾列。 如果我們選取資料行，[統計資料] 區段會顯示有關資料行的詳細資訊。 例如，[功能類型] 列會顯示哪些資料類型 Azure Machine Learning Studio 指派給資料行的傳統版本。 擁有一個類似這樣的快速檢視，對於開始執行任何正式工作來說，是相當好的執行前例行性檢查。
+在這個檢視中，我們會看到許多有用的資訊。 我們可以看到該資料集的前幾列。 如果我們選取資料行，[統計資料] 區段會顯示有關資料行的詳細資訊。 例如，[功能類型] 資料列會顯示指派給資料行的資料類型 Azure Machine Learning Studio （傳統）。 擁有一個類似這樣的快速檢視，對於開始執行任何正式工作來說，是相當好的執行前例行性檢查。
 
 ### <a name="first-r-script"></a>第一個 R 指令碼
 
-讓我們建立一個簡單的第一個 R 腳本，以便在傳統版本的 Azure Machine Learning Studio 中進行實驗。 我已在 RStudio 中建立並測試下列指令碼。  
+讓我們建立一個簡單的第一個 R 腳本，以在 Azure Machine Learning Studio （傳統）內進行實驗。 我已在 RStudio 中建立並測試下列指令碼。  
 
 ```R
 ## Only one of the following two lines should be used
@@ -204,7 +204,7 @@ pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = c
 maml.mapOutputPort('cadairydata')
 ```
 
-現在我需要將此腳本傳輸到 Azure Machine Learning Studio 的傳統版本。 我可以只利用剪下並貼上。 不過，在此案例中，我將透過 Zip 檔案轉移我的 R 指令碼。
+現在我需要將此腳本傳輸到 Azure Machine Learning Studio （傳統）。 我可以只利用剪下並貼上。 不過，在此案例中，我將透過 Zip 檔案轉移我的 R 指令碼。
 
 ### <a name="data-input-to-the-execute-r-script-module"></a>執行 R 指令碼模組的資料輸入
 
@@ -224,7 +224,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 ```
 
 > [!NOTE]
-> 傳統版本的 Azure Machine Learning Studio 會將 zip 中的檔案視為在 src/目錄中，因此您必須在檔案名前面加上此目錄名稱。 例如，如果 Zip 在其根目錄中包含檔案 `yourfile.R` 和 `yourData.rdata`，使用 `src/yourfile.R` 和 `src/yourData.rdata` 時，您會將這些處理為 `source` 和 `load`。
+> Azure Machine Learning Studio （傳統）會將 zip 中的檔案視為在 src/目錄中，因此您必須在檔案名前面加上此目錄名稱。 例如，如果 Zip 在其根目錄中包含檔案 `yourfile.R` 和 `yourData.rdata`，使用 `source` 和 `load` 時，您會將這些處理為 `src/yourfile.R` 和 `src/yourData.rdata`。
 
 我們已經在[載入資料集](#loading)中討論載入資料集。 在您建立並測試上一節中所示的 R 指令碼之後，請執行下列作業：
 
@@ -245,7 +245,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 
 1. 建立一個 Zip 檔案，然後將您的指令碼複製到此 Zip 檔案。 在 Windows 上，您可以在檔案上按一下滑鼠右鍵，然後依序選取 [**傳送至**] 和 [**壓縮資料夾**]。 這會建立包含 "simpleplot.R" 檔案的新 Zip 檔案。
 
-1. 將您的檔案新增至傳統版本 Machine Learning Studio 中的**資料集**，並將類型指定為**zip**。 您現在應該會在您的資料集內看到的此 Zip 檔案。
+1. 將您的檔案新增至 Azure Machine Learning Studio （傳統）中的**資料集**，並將類型指定為**zip**。 您現在應該會在您的資料集內看到的此 Zip 檔案。
 
 1. 將 zip 檔案從 [**資料集**] 拖放到**ML Studio （傳統）畫布**上。
 
@@ -374,7 +374,7 @@ R 是動態指定類型的語言，這表示會視需要強制將資料類型從
 
 看看我們在上一節中輸入之資料行的資料類型：除了標示為 'Month' 的資料行為字元類型之外，所有資料行的類型都是數值。 讓我們將其轉換成因素，然後測試結果。  
 
-我已經刪除建立散佈圖矩陣的程式碼行，並新增將 'Month' 資料行轉換成因素的程式碼行。 在我的實驗中，我只是將 R 程式碼剪下並貼到[執行 r 腳本][execute-r-script]模組的程式碼視窗中。 您也可以更新 zip 檔案，並將它上傳至傳統版本的 Azure Machine Learning Studio，但這需要數個步驟。  
+我已經刪除建立散佈圖矩陣的程式碼行，並新增將 'Month' 資料行轉換成因素的程式碼行。 在我的實驗中，我只是將 R 程式碼剪下並貼到[執行 r 腳本][execute-r-script]模組的程式碼視窗中。 您也可以更新 zip 檔案，並將它上傳至 Azure Machine Learning Studio （傳統），但這需要數個步驟。  
 
 ```R
 ## Only one of the following two lines should be used
@@ -468,7 +468,7 @@ R 資料框架支援強大的篩選功能。 藉由在資料列或資料行使�
 有一些篩選是我們應該在資料集上執行的。 如果您看一下 cadariydata 資料框架中的資料行，您會看到兩個不必要的資料行。 第一個資料行只存放了資料列編號，這不是很有用。 第二個資料行 Year.Month 包含重複的資訊。 我們可以使用下列 R 程式碼輕鬆地排除這些資料行。
 
 > [!NOTE]
-> 從現在開始，我只會在 [[執行 R 腳本][execute-r-script]] 模組中顯示我新增的其他程式碼。 我會在  **函式**之前`str()`新增每個新程式碼行。 我使用這個函數來驗證傳統版本 Azure Machine Learning Studio 中的結果。
+> 從現在開始，我只會在 [[執行 R 腳本][execute-r-script]] 模組中顯示我新增的其他程式碼。 我會在 `str()` 函式**之前**新增每個新程式碼行。 我使用這個函數來驗證 Azure Machine Learning Studio （傳統）中的結果。
 
 我在[執行 r 腳本][execute-r-script]模組的 r 程式碼中加入下面這一行。
 
@@ -813,7 +813,7 @@ pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = d
 
 請注意，用於去除趨勢的線性迴歸是時間序列迴歸。 預測工具變數是時間序列物件。  
 
-定義 `ts.detrend()` 之後，我們會將它套用到資料框架中感興趣的變數。 我們必須使用 `lapply()` 將 `as.data.frame()` 所建立的結果清單強制轉換成資料框架。 由於 `ts.detrend()`的防禦性層面緣故，因此即使無法處理其中一個變數，也不會導致無法處理其他變數。  
+定義 `ts.detrend()` 之後，我們會將它套用到資料框架中感興趣的變數。 我們必須使用 `as.data.frame()` 將 `lapply()` 所建立的結果清單強制轉換成資料框架。 由於 `ts.detrend()`的防禦性層面緣故，因此即使無法處理其中一個變數，也不會導致無法處理其他變數。  
 
 最後一行程式碼會建立成對的散佈圖。 執行 R 程式碼之後，散佈圖的結果會如圖 17 所示。
 
@@ -931,7 +931,7 @@ outframe
 第一行程式碼是需要一點技巧，一些說明可以幫助您了解它。 由內而外可分為下列項目：
 
 1. 含有引數 '**1**' 的 ' **[[** ' 運算子會從 ccf 物件清單的第一個元素選取各段延隔時間的相互關聯向量。
-2. `do.call()` 函式會在 `rbind()` 所傳回之清單的項目上套用 `lapply()` 函式。
+2. `do.call()` 函式會在 `lapply()` 所傳回之清單的項目上套用 `rbind()` 函式。
 3. `data.frame()` 函式會強制將 `do.call()` 產生的結果轉換成資料框架。
 
 請注意，資料列名稱會在資料框架的資料行中。 這麼做會在從[執行 R 腳本][execute-r-script]輸出時，保留資料列名稱。
@@ -1030,7 +1030,7 @@ Map(function(y, Ylabs){plot(cadairytrain$Time, y, xlab = "Time", ylab = Ylabs, t
 
 建立時間序列物件並查看過資料之後，讓我們開始建構加州牛奶產量資料的趨勢模型。 我們可以使用時間序列迴歸來進行這項操作。 不過，從圖中可以清楚看出，若要精確地為在訓練資料中所觀察到的趨勢建立模型，我們所需要的將不只是一個斜率和截距。
 
-根據資料的小規模，我會在 RStudio 中建立趨勢的模型，然後將產生的模型剪下並貼入 Azure Machine Learning Studio 的傳統版本中。 RStudio 針對這種互動式分析提供了互動式環境。
+根據資料的小規模，我會在 RStudio 中建立趨勢的模型，然後將產生的模型剪下並貼到 Azure Machine Learning Studio （傳統）中。 RStudio 針對這種互動式分析提供了互動式環境。
 
 在第一個嘗試中，我會試試最多 3 次方的多項式迴歸。 這些種類的模型實際蘊藏過度配適的危險。 因此，最好避免高階項。 `I()` 函式禁止解譯內容 (會「依照原狀」解譯內容 )，並且允許您在迴歸方程式中撰寫逐字解譯的函式。
 
@@ -1094,7 +1094,7 @@ summary(milk.lm)
 
 這樣看起來較好。 所有的項都變得有意義。 不過，2e-16 值是預設值，因此不應該太認真看待。  
 
-讓我們繪製顯示趨勢曲線的加州乳製品產量資料時間序列圖，來做為例行性測試。 我已在傳統版本的 Azure Machine Learning Studio[執行 R 腳本][execute-r-script]模型（非 RStudio）中新增下列程式碼，以建立模型並建立繪圖。 結果顯示在「圖 23」中。
+讓我們繪製顯示趨勢曲線的加州乳製品產量資料時間序列圖，來做為例行性測試。 我已在 Azure Machine Learning Studio （傳統）[執行 R 腳本][execute-r-script]模型（非 RStudio）中新增下列程式碼，以建立模型並建立繪圖。 結果顯示在「圖 23」中。
 
 ```R
 milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
@@ -1156,7 +1156,7 @@ summary(milk.lm2)
 
 我們會看到模型不再具有截距項，並且擁有 12 個重要的月份因素。 這就是我們想要看到的。
 
-讓我們繪製另一張加州乳製品產量資料的時間序列圖，看看季節性模型運作得如何。 我已在傳統版本的 Azure Machine Learning Studio[執行 R 腳本][execute-r-script]中新增下列程式碼，以建立模型並建立繪圖。
+讓我們繪製另一張加州乳製品產量資料的時間序列圖，看看季節性模型運作得如何。 我已在 Azure Machine Learning Studio （傳統）[執行 R 腳本][execute-r-script]中新增下列程式碼，以建立模型並建立繪圖。
 
 ```R
 milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
@@ -1165,7 +1165,7 @@ plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Mi
 lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 ```
 
-在傳統版本的 Azure Machine Learning Studio 中執行此程式碼，會產生如 [圖 24] 所示的繪圖。
+在 Azure Machine Learning Studio （傳統）中執行此程式碼，會產生如 [圖 24] 所示的繪圖。
 
 ![模型包含季節性效果的加州牛奶產量](./media/r-quickstart/unnamed-chunk-20.png)
 
@@ -1310,7 +1310,7 @@ RStudio 已經過妥善記載。 以下是 RStudio 檔中重要章節的一些�
 
 ## <a id="appendixb"></a>進一步閱讀
 
-此 R 程式設計教學課程涵蓋了使用 R 語言搭配傳統版 Azure Machine Learning Studio 所需的基本概念。 如果您不熟悉 R，CRAN 有提供兩本簡介：
+此 R 程式設計教學課程涵蓋使用 R 語言搭配 Azure Machine Learning Studio （傳統）所需的基本概念。 如果您不熟悉 R，CRAN 有提供兩本簡介：
 
 * [R For 初學者](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf)By Emmanuel Paradis 是不錯的開端。  
 * [R 的簡介，](https://cran.r-project.org/doc/manuals/R-intro.html)由 W. N。 Venables et. 所著的《An Introduction to R》 更深入探討。

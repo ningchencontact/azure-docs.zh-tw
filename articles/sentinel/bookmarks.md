@@ -1,27 +1,21 @@
 ---
-title: 使用搜尋書簽在 Azure Sentinel 中進行搜尋時，追蹤資料 |Microsoft Docs
+title: 在 Azure Sentinel 中使用搜尋書簽進行資料調查
 description: 本文說明如何使用 Azure Sentinel 搜尋書簽來追蹤資料。
-services: sentinel
-documentationcenter: na
 author: cabailey
+ms.author: cabailey
 manager: rkarlin
-editor: ''
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2019
-ms.author: cabailey
-ms.openlocfilehash: f4714dd09ada01f1adaa9081819e836601599a53
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 457898e257aa7a347ff99d0987c5ad594637b5f4
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935277"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563729"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>使用 Azure Sentinel 在搜尋期間追蹤資料
 
@@ -40,7 +34,7 @@ ms.locfileid: "72935277"
 
 此外，在預覽中，您可以從書簽詳細資料按一下 [**調查**]，將已加入書簽的資料視覺化。 這會啟動調查體驗，讓您可以使用互動式實體圖表和時程表來查看、調查和視覺化您的結果。
 
-## <a name="add-a-bookmark"></a>新增書簽
+## <a name="add-a-bookmark"></a>新增書籤
 
 1. 在 Azure 入口網站中，流覽至**Sentinel** > **威脅管理** > **搜尋**來執行可疑和異常行為的查詢。
 
@@ -124,7 +118,7 @@ ms.locfileid: "72935277"
 若要在事件內查看書簽：流覽至**Sentinel** > **威脅管理** > **事件**，然後選取含有書簽的事件。 選取 [ **View full details**]，然後選取 [**書簽**] 索引標籤。
 
 > [!TIP]
-> 除了命令列上的 [**事件動作（預覽）** ] 選項之外，您還可以針對一或多個書簽使用內容功能表（ **...** ）來選取**建立新事件**、新增**至現有事件**，以及**從移除的選項。事件**。 
+> 除了命令列上的 [**事件動作（預覽）** ] 選項之外，您還可以使用一或多個書簽的操作功能表（ **...** ）來選取**建立新事件**、新增**至現有事件**，以及**從事件中移除**的選項。 
 
 ## <a name="view-bookmarked-data-in-logs"></a>在記錄中查看已標記的資料
 

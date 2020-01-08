@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB 的 Azure Resource Manager 範本 Cassandra API
+title: Azure Cosmos DB 的 Resource Manager 範本 Cassandra API
 description: 使用 Azure Resource Manager 範本來建立和設定 Azure Cosmos DB Cassandra API。
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: f09ab6958eb768895a2d16f129354074cb6f00c8
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 54d1c27148f20c89e17b343f0ac87295f978c140
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961874"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445282"
 ---
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本管理 Azure Cosmos DB Cassandra API 資源
 

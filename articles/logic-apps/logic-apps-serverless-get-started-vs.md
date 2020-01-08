@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 4ed2ad2d2ff92e9320a7b9c773c4d6e5857fb905
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a3fcff9f895fba3574bbce976087295018ab51c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792960"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428752"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>使用中的 Azure Logic Apps 和 Azure Functions，建立您的第一個無伺服器應用程式 Visual Studio
 
@@ -21,7 +21,7 @@ ms.locfileid: "74792960"
 
 若要在 Visual Studio 中建立無伺服器應用程式，您需要：
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 下列工具。 如果您還沒有這些專案，請下載並安裝它們。
 
@@ -56,7 +56,7 @@ ms.locfileid: "74792960"
 
 ## <a name="create-a-resource-group-project"></a>建立資源群組專案
 
-若要開始進行，請為您的無伺服器應用程式建立 [Azure 資源群組專案](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)。 在 Azure 中，您會在*資源群組*內建立資源，這是一個邏輯集合，可用來將整個應用程式的資源組織、管理和部署為單一資產。 對於 Azure 中的無伺服器應用程式，您的資源群組包含 Azure Logic Apps 和 Azure Functions 資源。 深入了解 [Azure 資源群組和資源](../azure-resource-manager/resource-group-overview.md)。
+若要開始進行，請為您的無伺服器應用程式建立 [Azure 資源群組專案](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)。 在 Azure 中，您會在*資源群組*內建立資源，這是一個邏輯集合，可用來將整個應用程式的資源組織、管理和部署為單一資產。 對於 Azure 中的無伺服器應用程式，您的資源群組包含 Azure Logic Apps 和 Azure Functions 資源。 深入了解 [Azure 資源群組和資源](../azure-resource-manager/management/overview.md)。
 
 1. 啟動 Visual Studio，然後使用您的 Azure 帳戶登入。
 

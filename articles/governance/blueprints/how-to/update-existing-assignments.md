@@ -3,12 +3,12 @@ title: 從入口網站更新現有的指派
 description: 瞭解在 Azure 藍圖中，從入口網站更新現有藍圖指派的機制。
 ms.date: 11/21/2019
 ms.topic: how-to
-ms.openlocfilehash: 3cce84127475b2f11388b4ad4eb48dedec19cd1d
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 2c1a24399d8fa1529665bfa60d1b889a84a29a60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436574"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>如何更新現有的藍圖指派
 
@@ -55,7 +55,7 @@ ms.locfileid: "74873160"
 
 ## <a name="possible-errors-on-updating-assignments"></a>更新指派時的可能錯誤
 
-在更新指派時，所進行的變更可能會在執行時中斷。 例如，在資源群組部署好之後，變更其位置。 只要是 [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) 所支援的變更均可進行，但會透過 Azure Resource Manager 導致錯誤發生的變更，也會導致指派失敗。
+在更新指派時，所進行的變更可能會在執行時中斷。 例如，在資源群組部署好之後，變更其位置。 只要是 [Azure Resource Manager](../../../azure-resource-manager/management/overview.md) 所支援的變更均可進行，但會透過 Azure Resource Manager 導致錯誤發生的變更，也會導致指派失敗。
 
 指派的更新次數沒有限制。 如果發生錯誤，請判斷錯誤並對指派進行其他更新。  範例錯誤案例：
 

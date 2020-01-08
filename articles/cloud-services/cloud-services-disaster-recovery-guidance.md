@@ -1,5 +1,6 @@
 ---
-title: 發生影響 Azure 雲端服務的 Azure 服務中斷事件時該怎麼辦 | Microsoft Docs
+title: 處理影響 Azure 雲端服務的 Azure 服務中斷
+titleSuffix: Azure Cloud Services
 description: 了解發生影響 Azure 雲端服務的 Azure 服務中斷事件時該怎麼辦。
 services: cloud-services
 documentationcenter: ''
@@ -9,12 +10,12 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: a014c3d5ada2024609e9262d8943090ac7b205c6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f65b61d7265268b33d2c9a113503cc1b5a87db8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888318"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361206"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>發生影響 Azure 雲端服務的 Azure 服務中斷事件時該怎麼辦
 Microsoft 的同仁一向努力確保提供您需要的服務。 有時候因為不可抗力之影響，造成服務意外中斷。

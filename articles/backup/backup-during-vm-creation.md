@@ -3,12 +3,12 @@ title: 建立 Azure VM 時啟用備份
 description: 說明當您使用 Azure 備份建立 Azure VM 時，如何啟用備份。
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: f34c5dd8cfdc94775b9bd9a896b4cfbe4154ecf8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172365"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449938"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>建立 Azure VM 時啟用備份
 
@@ -48,8 +48,22 @@ ms.locfileid: "74172365"
 
       ![預設備份原則](./media/backup-during-vm-creation/daily-policy.png)
 
-> [!NOTE]
-> Azure 備份服務會建立個別的資源群組（而不是 VM 資源群組）來儲存快照集，其命名格式為**AzureBackupRG_geography_number** （範例： AzureBackupRG_northeurope_1）。 此資源群組中的資料將會保留在 Azure 虛擬機器備份原則的 [*保留立即復原快照*集] 區段中所指定的持續時間（以天為單位）。  對此資源群組套用鎖定可能會導致備份失敗。 <br> 此資源群組也應從任何名稱/標記限制中排除，因為限制原則會再次阻止建立資源點集合，進而造成備份失敗。
+## <a name="azure-backup-resource-group-for-virtual-machines"></a>虛擬機器的 Azure 備份資源群組
+
+備份服務會建立個別的資源群組（RG），與用來儲存還原點集合（RPC）的 VM 資源群組不同。 RPC 會裝載受管理 Vm 的立即復原點。 備份服務所建立之資源群組的預設命名格式為： `AzureBackupRG_<Geo>_<number>`。 例如： *AzureBackupRG_northeurope_1*。 您現在可以自訂 Azure 備份所建立的資源組名。
+
+注意事項：
+
+1. 您可以使用 RG 的預設名稱，或根據您的公司需求進行編輯。
+2. 在建立 VM 備份原則時，您會提供 RG 名稱模式做為輸入。 RG 名稱應為下列格式： `<alpha-numeric string>* n <alpha-numeric string>`。 ' n ' 已取代為整數（從1開始），而且在第一個 RG 已滿時用於相應放大。 一個 RG 目前最多可以有600個 Rpc。
+              ![在建立原則時選擇名稱](./media/backup-during-vm-creation/create-policy.png)
+3. 此模式應遵循下列 RG 命名規則，而總長度不應超過允許的 RG 名稱長度上限。
+    1. 資源組名只允許英數位元、句號、底線、連字號和括弧。 它們不能以句點結尾。
+    2. 資源組名最多可以包含74個字元，包括 RG 的名稱和尾碼。
+4. 第一個 `<alpha-numeric-string>` 是必要項，而第二個則是選擇性的。 只有當您提供自訂名稱時，才適用這種情況。 如果您未在任一文字方塊中輸入任何內容，則會使用預設名稱。
+5. 如果需要，您可以修改原則來編輯 RG 的名稱。 如果名稱模式有所變更，新的 RG 就會建立新的 RPs。 不過，舊的 RPs 仍然會位於舊的 RG 中，而且不會移動，因為 RP 集合不支援資源移動。 最後，RPs 會在點過期時進行垃圾收集。
+修改原則時 ![變更名稱](./media/backup-during-vm-creation/modify-policy.png)
+6. 建議不要鎖定為備份服務所建立的資源群組。
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>建立 VM 之後啟動備份
 

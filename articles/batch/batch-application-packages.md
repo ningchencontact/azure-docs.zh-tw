@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c9d6d13efaa07bff2a1eaabe05725a3257cf895
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9e8fdafc3e8f83cb529718993ffe9d0f7383c10c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70095684"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449814"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>使用 Batch 應用程式套件將應用程式部署至計算節點
 
@@ -94,7 +94,7 @@ Batch 服務會使用相關聯的儲存體帳戶來儲存應用程式套件。 �
 > 您目前無法使用應用程式套件搭配使用已設定[防火牆規則](../storage/common/storage-network-security.md)的 Azure 儲存體帳戶。
 > 
 
-Batch 服務會使用 Azure 儲存體將應用程式套件儲存為區塊 Blob。 針對區塊 blob 資料，您需[支付一般費用][storage_pricing]，而每個套件的大小不能超過[區塊 blob 大小上限](../storage/common/storage-scalability-targets.md#azure-blob-storage-scale-targets)。 請務必考量應用程式套件的大小和數目，並定期移除過時的套件以降低成本。
+Batch 服務會使用 Azure 儲存體將應用程式套件儲存為區塊 Blob。 針對區塊 blob 資料，您需[支付一般費用][storage_pricing]，而每個套件的大小不能超過區塊 blob 大小上限。 如需詳細資訊，請參閱[儲存體帳戶的 Azure 儲存體擴充性和效能目標](../storage/blobs/scalability-targets.md)。 請務必考量應用程式套件的大小和數目，並定期移除過時的套件以降低成本。
 > 
 > 
 
@@ -110,7 +110,7 @@ Batch 服務會使用 Azure 儲存體將應用程式套件儲存為區塊 Blob�
 此視窗會顯示帳戶中每個應用程式的識別碼，以及下列屬性︰
 
 * **套件**：與此應用程式相關聯的版本號碼。
-* **預設版本**：如果您在指定集區的應用程式時未指定版本，系統會安裝的應用程式版本。 這項設定是選擇性的。
+* **預設版本**：如果您在指定集區的應用程式時未指定版本，系統會安裝的應用程式版本。 這個設定是選擇性的。
 * **允許更新**：此值會指定是否允許更新、刪除和新增套件。 如果此值設為 [否]，應用程式會停用套件的更新和刪除， 而只能新增新的應用程式封裝版本。 預設值為 [是]。
 
 如果您想要在計算節點上查看應用程式套件的檔案結構，請在入口網站中流覽至您的 Batch 帳戶。 從您的 Batch 帳戶，流覽至 [集區 **]。** 選取包含您感興趣之計算節點的集區。
@@ -182,7 +182,7 @@ Batch 服務會使用 Azure 儲存體將應用程式套件儲存為區塊 Blob�
 
 ![在 Azure 入口網站中更新或刪除套件][7]
 
-更新
+**更新**
 
 當您按一下 [更新] 時，[更新套件] 視窗隨即出現。 此視窗與 [新增應用程式套件] 視窗相似，只不過已啟用套件選取欄位，因此您可以指定要上傳的新 ZIP 檔案。
 

@@ -3,24 +3,24 @@ title: 在 Azure 雲端服務角色上安裝 .NET | Microsoft Docs
 description: 本文說明如何在雲端服務 Web 和背景工作角色上手動安裝 .NET Framework
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/22/2018
-ms.author: gwallace
-ms.openlocfilehash: 25151f154b9806646406639df3efd7616e53f6bf
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: c950fbedde19e3b7708d3640487d413fcac7787f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359645"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360985"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>在 Azure 雲端服務角色上安裝 .NET
 本文說明如何安裝未隨附於 Azure 客體 OS 的 .NET Framework 版本。 若要設定雲端服務 web 和背景工作角色，您可以在客體 OS 上使用 .NET。
 
-例如，您可以在未隨附於任何版本的 .NET 4.6.2 客體 OS 系列 4 上安裝 .NET 4.6。 (客體 OS 系列 5 會隨附於 .NET 4.6。)如需 Azure 客體 OS 版本的最新資訊，請參閱 [Azure 客體 OS 發行新聞](cloud-services-guestos-update-matrix.md)。 
+例如，您可以在未隨附於任何版本的 .NET 4.6.2 客體 OS 系列 4 上安裝 .NET 4.6。 （虛擬作業系統系列5則隨附于 .NET 4.6）。如需 Azure 虛擬作業系統版本的最新資訊，請參閱[Azure 來賓 os 發行新聞](cloud-services-guestos-update-matrix.md)。 
 
 >[!IMPORTANT]
 >Azure SDK 2.9 包含客體 OS 系列 4 或更舊版本部署 .NET 4.6 的限制。 可在 [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) 網站上取得限制的修正程式。
@@ -234,3 +234,6 @@ ms.locfileid: "68359645"
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
+
+
+

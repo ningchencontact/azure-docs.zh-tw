@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: dd2c29632d70da64251c5e1736a9cb7d82f5d0dc
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 495f53bc97835c4940f7b36d23349b768a7a637f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667341"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440972"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>使用在 Azure 資料總管中的資料，來連接資料庫
 
@@ -32,7 +32,7 @@ ms.locfileid: "74667341"
 1. 為領導者和進行中[建立叢集和資料庫](/azure/data-explorer/create-cluster-database-portal)。
 1. 使用內嵌[總覽](/azure/data-explorer/ingest-data-overview)中所討論的各種方法之一，將[資料](/azure/data-explorer/ingest-sample-data)內嵌至領導者資料庫。
 
-## <a name="attach-a-database"></a>連結資料庫
+## <a name="attach-a-database"></a>附加資料庫
 
 您可以使用各種方法來附加資料庫。 在本文中，我們會討論如何使用C#或 Azure Resource Manager 範本附加資料庫。 若要附加資料庫，您必須擁有領導者叢集和消費者叢集的許可權。 如需許可權的詳細資訊，請參閱[管理許可權](#manage-permissions)。
 
@@ -127,7 +127,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本附加資料庫
 
-在本節中，您將瞭解如何使用[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)附加資料庫。 
+在本節中，您將瞭解如何使用[Azure Resource Manager 範本](../azure-resource-manager/management/overview.md)附加資料庫。 
 
 ```json
 {
@@ -222,7 +222,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 |資料庫名稱     |      要遵循的資料庫名稱。 如果您想要追蹤所有領導者的資料庫，請使用 ' * '。   |
 |領導者叢集資源識別碼    |   領導者叢集的資源識別碼。      |
 |預設主體修改種類    |   預設的主體修改種類。 可以是 `Union`、`Replace` 或 `None`。 如需預設主體修改種類的詳細資訊，請參閱[principal 修改種類控制命令](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind)。      |
-|Location   |   所有資源的位置。 領導人和進行者必須位於相同的位置。       |
+|位置   |   所有資源的位置。 領導人和進行者必須位於相同的位置。       |
  
 ### <a name="verify-that-the-database-was-successfully-attached"></a>確認資料庫已成功附加
 
@@ -376,13 +376,13 @@ poller = kusto_management_client.clusters.detach_follower_databases(resource_gro
 
 |**種類** |**說明**  |
 |---------|---------|
-|**並**     |   附加的資料庫主體一律會包含原始資料庫主體，加上加入至資料後資料庫的額外新主體。      |
+|**Union**     |   附加的資料庫主體一律會包含原始資料庫主體，加上加入至資料後資料庫的額外新主體。      |
 |**Replace**   |    不會繼承原始資料庫的主體。 必須為附加的資料庫建立新的主體。     |
 |**None**   |   附加的資料庫主體只包含原始資料庫的主體，且沒有其他主體。      |
 
 如需使用控制命令來設定授權主體的詳細資訊，請參閱[控制管理使用](/azure/kusto/management/cluster-follower)中叢集的命令。
 
-### <a name="manage-permissions"></a>管理許可權
+### <a name="manage-permissions"></a>管理權限
 
 管理唯讀資料庫許可權與所有資料庫類型相同。 請參閱[管理 Azure 入口網站中的許可權](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal)。
 

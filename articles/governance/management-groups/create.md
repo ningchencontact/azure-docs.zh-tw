@@ -1,22 +1,24 @@
 ---
 title: 建立管理群組來組織資源-Azure 治理
 description: 了解如何使用入口網站、Azure PowerShell 和 Azure CLI 建立 Azure 管理群組來管理多個資源。
-ms.date: 04/05/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 335dd8f7f3a9ec20c2b7740e4ec97454489027f6
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: d9bb2e82404c0188094298f40da3346ee132eec3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960208"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436538"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>建立用於資源組織及管理的管理群組
 
 管理群組是可協助您跨多個訂用帳戶管理容器存取、原則及合規性的容器。 建立這些容器來建置可與 [Azure 原則](../policy/overview.md)和 [Azure 角色型存取控制](../../role-based-access-control/overview.md)搭配使用的高效率階層。 如需有關管理群組的詳細資訊，請參閱[使用 Azure 管理群組來組織資源](overview.md)。
 
-在目錄中建立的第一個管理群組可能需要 15 分鐘的時間才能完成。 第一次在 Azure 中設定目錄的管理群組服務時會執行一些程序。 程序完成時，您會收到通知。
+在目錄中建立的第一個管理群組可能需要 15 分鐘的時間才能完成。 第一次在 Azure 中設定目錄的管理群組服務時會執行一些程序。 程序完成時，您會收到通知。 如需詳細資訊，請參閱[管理群組的初始設定](./overview.md#initial-setup-of-management-groups)。 
 
 ## <a name="create-a-management-group"></a>建立管理群組
+
+租使用者中的任何 Azure AD 使用者都可以建立管理群組，而不需將管理群組寫入權限指派給該使用者。  這個新的管理群組將是根管理群組的子系，而建立者將會獲得「擁有者」角色指派。 管理群組服務允許此功能，因此不需要根層級的角色指派。 建立根管理群組時，沒有任何使用者可以存取它。  為了避免尋找 Azure AD 全域管理員開始使用管理群組的障礙，我們允許在根層級建立初始管理群組。      
 
 您可以使用入口網站、PowerShell 或 Azure CLI 來建立管理群組。 目前，您無法使用 Resource Manager 範本來建立管理群組。
 
@@ -41,7 +43,7 @@ ms.locfileid: "73960208"
 
    ![用於建立新管理群組的選項窗格](./media/create_context_menu.png)  
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 ### <a name="create-in-powershell"></a>在 PowerShell 中建立
 
@@ -92,7 +94,7 @@ az account management-group create --name ContosoSubGroup --parent Contoso
 
 若要深入了解管理群組，請參閱：
 
-- [建立管理群組來組織 Azure 資源](create.md)
+- [建立管理群組以組織 Azure 資源](create.md)
 - [如何變更、刪除或管理您的管理群組](manage.md)
 - [檢閱 Azure PowerShell 資源模組中的管理群組](/powershell/module/az.resources#resources)
 - [檢閱 REST API 中的管理群組](/rest/api/resources/managementgroups)

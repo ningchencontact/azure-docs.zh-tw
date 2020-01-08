@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: d9b2dc7432ee1b847c8c7900a3e91daa71b5a771
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d45cf8d951eb542e248a3ff4fe714b4d2af90cc7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793198"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428734"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>建立 Azure Resource Manager 範本來自動化 Azure Logic Apps 的部署
 
-為了協助您自動建立和部署邏輯應用程式，本文說明您可以為邏輯應用程式建立[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)的方式。 如需有關範本的結構和語法的總覽，其中包含您的工作流程定義和部署所需的其他資源，請參閱[總覽：使用 Azure Resource Manager 範本自動部署邏輯應用程式](logic-apps-azure-resource-manager-templates-overview.md)。
+為了協助您自動建立和部署邏輯應用程式，本文說明您可以為邏輯應用程式建立[Azure Resource Manager 範本](../azure-resource-manager/management/overview.md)的方式。 如需有關範本的結構和語法的總覽，其中包含您的工作流程定義和部署所需的其他資源，請參閱[總覽：使用 Azure Resource Manager 範本自動部署邏輯應用程式](logic-apps-azure-resource-manager-templates-overview.md)。
 
 Azure Logic Apps 提供預先建立的[邏輯應用程式 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json)，您可以重複使用它，而不只是用來建立邏輯應用程式，還能定義要用於部署的資源和參數。 您可以在自己的商務案例中使用此範本，或自訂此範本以符合您的需求。
 
@@ -24,8 +24,8 @@ Azure Logic Apps 提供預先建立的[邏輯應用程式 Azure Resource Manager
 
 如需 Azure Resource Manager 範本的詳細資訊，請參閱下列主題：
 
-* [Azure Resource Manager 範本結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)
-* [編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure Resource Manager 範本結構和語法](../azure-resource-manager/templates/template-syntax.md)
+* [編寫 Azure Resource Manager 範本](../azure-resource-manager/templates/template-syntax.md)
 * [針對雲端一致性開發 Azure Resource Manager 範本](../azure-resource-manager/templates-cloud-consistency.md)
 
 <a name="visual-studio"></a>
@@ -104,7 +104,7 @@ PS> Get-ParameterTemplate -TemplateFile $filename | Out-File '<parameters-file-n
 PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
-| 參數 | 必要項 | 描述 |
+| 參數 | 必要項 | 說明 |
 |------------|----------|-------------|
 | TemplateFile | 是 | 範本檔案的檔案路徑 |
 | KeyVault | 否 | 列舉，描述如何處理可能的金鑰保存庫值。 預設值為 `None`。 |

@@ -1,14 +1,14 @@
 ---
 title: 如何使用您的管理群組-Azure 治理
 description: 了解如何檢視、維護、更新及刪除您的管理群組階層。
-ms.date: 05/22/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 90f4bacf462ed5f2590f51d15b6b660057c51738
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
-ms.translationtype: MT
+ms.openlocfilehash: 3b5b67dbf1fad5c74570c4bf70401df1a5ed943f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960231"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436547"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>利用管理群組來管理您的資源
 
@@ -40,7 +40,7 @@ ms.locfileid: "73960231"
 
    ![重新命名群組窗格以重新命名管理群組](./media/rename_context.png)
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 ### <a name="change-the-name-in-powershell"></a>在 PowerShell 中變更名稱
 
@@ -64,11 +64,9 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 1. 管理群組下沒有任何子管理群組或訂用帳戶。
 
-   - 若要將訂用帳戶移出管理群組，請參閱[將訂用帳戶移至另一個管理群組](#move-subscriptions-in-the-hierarchy)。
+   - 若要將訂用帳戶或管理群組移至另一個管理群組，請參閱在階層[中移動管理群組和訂閱](#moving-management-groups-and-subscriptions)。
 
-   - 若要將管理群組移至另一個管理群組，請參閱[在階層中移動管理群組](#move-management-groups-in-the-hierarchy)。
-
-1. 您具有管理群組（「擁有者」、「參與者」或「管理群組參與者」）的寫入權限。 若要查看您有哪些權限，請選取管理群組，然後選取 **IAM**。 若要深入了解 RBAC 角色，請參閱[使用 RBAC 管理存取權與權限](../../role-based-access-control/overview.md)。  
+1. 您需要管理群組（「擁有者」、「參與者」或「管理群組參與者」）的寫入權限。 若要查看您有哪些權限，請選取管理群組，然後選取 **IAM**。 若要深入了解 RBAC 角色，請參閱[使用 RBAC 管理存取權與權限](../../role-based-access-control/overview.md)。  
 
 ### <a name="delete-in-the-portal"></a>在入口網站中刪除
 
@@ -194,25 +192,31 @@ az account management-group show --name 'Contoso'
 az account management-group show --name 'Contoso' -e -r
 ```
 
-## <a name="move-subscriptions-in-the-hierarchy"></a>在階層中移動訂用帳戶
+## <a name="moving-management-groups-and-subscriptions"></a>移動管理群組和訂用帳戶   
 
-建立管理群組的其中一個原因是要將訂用帳戶組合在一起。 只有管理群組和訂用帳戶才能設為另一個管理群組的子群組。 移至管理群組的訂用帳戶會繼承父管理群組中的所有使用者存取權和原則。
+建立管理群組的其中一個原因是要將訂用帳戶組合在一起。 只有管理群組和訂用帳戶才能設為另一個管理群組的子群組。 移至管理群組的訂用帳戶會繼承父管理群組的所有使用者存取權和原則
 
-若要移動訂用帳戶，下列所有 RBAC 許可權都必須為 true：
+將管理群組或訂用帳戶移至另一個管理群組的子系時，必須將三個規則評估為 true。
 
-- 子訂用帳戶上的「擁有者」角色。
-- 目標父管理群組上的「擁有者」、「參與者」或「管理群組參與者」角色。
-- 現有父管理群組上的「擁有者」、「參與者」或「管理群組參與者」角色。
+如果您要執行移動動作，您需要： 
 
-如果目標或現有的父管理群組是根管理群組，則不適用許可權需求。 因為根管理群組是所有新管理群組和訂用帳戶的預設登陸點，所以您不需要它的許可權來移動專案。
+-  子訂用帳戶或管理群組的管理群組寫入和角色指派寫入權限。
+    - 內建角色範例**擁有**者
+- 目標父管理群組上的管理群組寫入權限。
+    - 內建角色範例：**擁有**者、**參與者**、**管理群組參與者**
+- 現有父管理群組上的管理群組寫入權限。
+    - 內建角色範例：**擁有**者、**參與者**、**管理群組參與者**
 
-如果訂用帳戶上的「擁有者」角色繼承自目前的管理群組，則您的移動目標會受到限制。 您只能將訂用帳戶移至具有擁有者角色的另一個管理群組。 因為您會失去訂用帳戶的擁有權，所以無法將它移至您是參與者的管理群組。 如果您直接指派給訂用帳戶的「擁有者」角色（不是繼承自管理群組），您可以將它移至您是參與者的任何管理群組。
+**例外**狀況：如果目標或現有的父管理群組是根管理群組，則不適用許可權需求。 因為根管理群組是所有新管理群組和訂用帳戶的預設登陸點，所以您不需要它的許可權來移動專案。
+
+如果訂用帳戶上的「擁有者」角色繼承自目前的管理群組，則您的移動目標會受到限制。 您只能將訂用帳戶移至具有擁有者角色的另一個管理群組。 因為您會失去訂用帳戶的擁有權，所以無法將它移至您是參與者的管理群組。 如果您直接指派給訂用帳戶的「擁有者」角色（而不是繼承自管理群組），您可以將它移至您是參與者的任何管理群組。 
 
 若要查看 Azure 入口網站中的許可權，請選取管理群組，然後選取 [ **IAM**]。 若要深入了解 RBAC 角色，請參閱[使用 RBAC 管理存取權與權限](../../role-based-access-control/overview.md)。
 
-### <a name="move-subscriptions-in-the-portal"></a>在入口網站中移動訂用帳戶
 
-#### <a name="add-an-existing-subscription-to-a-management-group"></a>將現有的訂用帳戶新增到管理群組
+## <a name="move-subscriptions"></a>移動訂閱 
+
+#### <a name="add-an-existing-subscription-to-a-management-group-in-the-portal"></a>在入口網站中將現有的訂用帳戶新增至管理群組
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -228,7 +232,7 @@ az account management-group show --name 'Contoso' -e -r
 
 1. 選取 [儲存]。
 
-#### <a name="remove-a-subscription-from-a-management-group"></a>從管理群組移除訂用帳戶
+#### <a name="remove-a-subscription-from-a-management-group-in-the-portal"></a>在入口網站中從管理群組移除訂用帳戶
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -246,7 +250,7 @@ az account management-group show --name 'Contoso' -e -r
 
    ![移動窗格以變更父群組](./media/move_small_context.png)
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 ### <a name="move-subscriptions-in-powershell"></a>在 PowerShell 中移動訂用帳戶
 
@@ -276,9 +280,7 @@ az account management-group subscription add --name 'Contoso' --subscription '12
 az account management-group subscription remove --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
 ```
 
-## <a name="move-management-groups-in-the-hierarchy"></a>移動階層中的管理群組  
-
-當您移動父管理群組時，該群組下的階層會隨之移動。 如需移動管理群組的存取權，請參閱[管理群組存取權](overview.md#management-group-access)。
+## <a name="move-management-groups"></a>移動管理群組 
 
 ### <a name="move-management-groups-in-the-portal"></a>在入口網站中移動管理群組
 
@@ -297,7 +299,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
    ![將管理群組移至新的或現有的群組](./media/add_context_MG.png)
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 ### <a name="move-management-groups-in-powershell"></a>在 PowerShell 中移動管理群組
 
@@ -346,7 +348,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 
 若要深入了解管理群組，請參閱：
 
-- [建立管理群組來組織 Azure 資源](create.md)
+- [建立管理群組以組織 Azure 資源](create.md)
 - [如何變更、刪除或管理您的管理群組](manage.md)
 - [檢閱 Azure PowerShell 資源模組中的管理群組](/powershell/module/az.resources#resources)
 - [檢閱 REST API 中的管理群組](/rest/api/resources/managementgroups)

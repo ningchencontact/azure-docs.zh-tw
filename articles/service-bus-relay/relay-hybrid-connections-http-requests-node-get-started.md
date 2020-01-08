@@ -1,5 +1,5 @@
 ---
-title: 在 Node 中開始使用 Azure 轉送混合式連線 HTTP 要求 | Microsoft Docs
+title: Azure 轉送混合式連接-Node 中的 HTTP 要求
 description: 在 Node 中為 Azure 轉送混合式連線 HTTP 要求撰寫 Node.js 主控台應用程式。
 services: service-bus-relay
 documentationcenter: node
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: clemensv
-ms.openlocfilehash: e54a096bd27efddaa9eafb8619e787178550a6e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d71386b86bf7133bb73ddce2e65c3b88743009ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60553929"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462020"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>在 Node 中開始使用轉送混合式連線 HTTP 要求
 
@@ -35,7 +35,7 @@ ms.locfileid: "60553929"
 4. 撰寫用戶端 (傳送端) 主控台應用程式來傳送訊息。
 5. 執行應用程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 - [Node.js](https://nodejs.org/en/).
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
 

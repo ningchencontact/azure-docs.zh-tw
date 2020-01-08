@@ -1,25 +1,14 @@
 ---
-title: 對 Azure Service Fabric 應用程式進行封裝 | Microsoft Docs
-description: 如何在將 Service Fabric 應用程式部署至叢集之前對它進行封裝。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
+title: 封裝 Azure Service Fabric 應用程式
+description: 瞭解如何封裝 Azure Service Fabric 應用程式，以及如何準備部署至叢集。
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: b8e66a9d5bba0c48f15b1ccd3f2d47e5405db792
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16bd48963040a8e30ff81f40c01134014eaccf48
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718358"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639678"
 ---
 # <a name="package-an-application"></a>封裝應用程式
 
@@ -54,7 +43,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ## <a name="use-setupentrypoint"></a>使用 SetupEntryPoint
 
-使用 **SetupEntryPoint** 的一般案例，是當您必須在服務啟動之前執行可執行檔，或必須使用提高的權限來執行作業時。 例如:
+使用 **SetupEntryPoint** 的一般案例，是當您必須在服務啟動之前執行可執行檔，或必須使用提高的權限來執行作業時。 例如：
 
 * 設定及初始化服務可執行檔需要的環境變數。 這不僅限於透過 Service Fabric 程式設計模型撰寫的可執行檔。 例如，npm.exe 部署 node.js 應用程式，需要設定某些環境變數。
 * 透過安裝安全性憑證設定存取控制。
@@ -73,7 +62,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ![使用 Visual Studio 封裝應用程式][vs-package-command]
 
-封裝完成時，您會在 [輸出]  視窗中找到封裝的位置。 當您在 Visual Studio 中部署或偵錯應用程式時，封裝步驟會自動執行。
+封裝完成時，您會在 [輸出] 視窗中找到封裝的位置。 當您在 Visual Studio 中部署或偵錯應用程式時，封裝步驟會自動執行。
 
 ### <a name="build-a-package-by-command-line"></a>透過命令列建置封裝
 
@@ -237,11 +226,11 @@ ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
 
 ## <a name="next-steps"></a>後續步驟
 
-[部署與移除應用程式][10]說明如何使用 PowerShell 來管理應用程式執行個體。
+[部署和移除應用程式][10]說明如何使用 PowerShell 來管理應用程式實例
 
-[管理多個環境的應用程式參數][11]說明如何為不同的應用程式執行個體設定參數和環境變數。
+[管理多個環境的應用程式參數][11]說明如何為不同的應用程式實例設定參數和環境變數。
 
-[設定應用程式的安全性原則][12]說明如何依據安全性原則執行服務來限制存取。
+[設定應用程式的安全性原則][12]說明如何在安全性原則下執行服務來限制存取。
 
 <!--Image references-->
 [vs-package-command]: ./media/service-fabric-package-apps/vs-package-command.png

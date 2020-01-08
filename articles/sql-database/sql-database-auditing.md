@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: f36906bfa6bbef43c0e3133bfa1e8a163810086f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 450f40c8ba49028d99143d7cf2b2995eb354f8fd
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928705"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551619"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -73,7 +73,7 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至 SQL 資料庫/伺服器窗格中 [安全性] 標題下的 [稽核]。
 
-    <a id="auditing-screenshot"></a> ![導覽窗格][1]
+    <a id="auditing-screenshot"></a>![流覽窗格][1]
 
 3. 如果您想要設定伺服器稽核原則，可以選取資料庫稽核頁面上的 [檢視伺服器設定] 連結。 然後，您可以檢視或修改伺服器稽核設定。 伺服器稽核原則會套用至此伺服器上所有現有和新建立的資料庫。
 
@@ -108,7 +108,7 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 
     ![事件中樞](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. 按一下 [儲存]。
+9. 按一下 [檔案]。
 10. 如果您想要自訂稽核的事件，您可以透過 [PowerShell Cmdlet](#subheading-7) 或 [REST API](#subheading-9) 來自訂。
 11. 設定您的稽核設定之後，您可以開啟新的威脅偵測功能，並設定電子郵件以接收安全性警示。 使用威脅偵測時，您會接收與指示潛在安全性威脅的異常資料庫活動相關的主動式警示。 如需詳細資訊，請參閱[開始使用威脅偵測](sql-database-threat-detection-get-started.md)。
 
@@ -210,7 +210,7 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 
 ### <a id="subheading-6">儲存體金鑰重新產生</a>
 
-在生產中，您可能會定期重新整理儲存體金鑰。 當您將稽核記錄寫入至 Azure 儲存體時，您需要在重新整理金鑰期間重新儲存稽核原則。 程序如下：
+在生產中，您可能會定期重新整理儲存體金鑰。 當您將稽核記錄寫入至 Azure 儲存體時，您需要在重新整理金鑰期間重新儲存稽核原則。 此程序如下：
 
 1. 開啟 [儲存體詳細資料]。 在 [儲存體存取金鑰] 方塊中，選取 [次要]，然後按一下 [確定]。 然後按一下稽核設定頁面頂端的 [儲存]。
 
@@ -243,7 +243,7 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 - 使用 AAD 驗證時，失敗的登入記錄「不會」顯示在 SQL 稽核記錄中。 若要檢視失敗的登入稽核記錄，您需要瀏覽 [Azure Active Directory 入口網站]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)，其中會記錄這些事件的詳細資料。
 
 
-## <a id="subheading-7"></a>使用 Azure PowerShell 管理 SQL 資料庫稽核
+## <a id="subheading-7"></a>使用 Azure PowerShell 管理 Azure SQL Server 和資料庫審核
 
 **PowerShell Cmdlet (包含其他篩選的 WHERE 子句支援)** ：
 
@@ -256,7 +256,7 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 
 如需指令碼範例，請參閱[使用 PowerShell 設定稽核與威脅偵測](scripts/sql-database-auditing-and-threat-detection-powershell.md)。
 
-## <a id="subheading-9"></a>使用 REST API 管理 SQL 資料庫稽核
+## <a id="subheading-8"></a>使用 REST API 管理 Azure SQL Server 和資料庫審核
 
 **REST API**：
 
@@ -272,7 +272,7 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 - [取得資料庫*延伸*的稽核原則](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [取得伺服器*擴充*的稽核原則](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>使用 Azure Resource Manager 範本管理 SQL database 審核
+## <a id="subheading-9"></a>使用 Azure Resource Manager 範本來管理 Azure SQL Server 和資料庫審核
 
 您可以使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 範本來管 Azure SQL 資料庫，如下列範例所示：
 
@@ -289,10 +289,9 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Manage SQL database auditing using Azure PowerShell]: #subheading-7
-[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
-[Manage SQL database auditing using REST API]: #subheading-9
-[Manage SQL database auditing using ARM templates]: #subheading-10
+[Manage Azure SQL Server and Database auditing using Azure PowerShell]: #subheading-7
+[Manage SQL database auditing using REST API]: #subheading-8
+[Manage Azure SQL Server and Database auditing using ARM templates]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

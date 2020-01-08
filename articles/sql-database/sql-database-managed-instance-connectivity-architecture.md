@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 1f5f5f2064baa4b2821ccb7b9a2237e6aeeb86f5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 7cb3b4d6b490d09d14046465e0fc58526be5b045
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048764"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433837"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database 中受控實例的連線架構
 
@@ -81,161 +81,13 @@ Microsoft 會使用管理端點來管理受控實例。 此端點位於實例的
 > [!NOTE]
 > 移至受控實例區域內部 Azure 服務的流量會經過優化，因此不會 NATed 至受控實例管理端點的公用 IP 位址。 基於這個理由，如果您需要使用以 IP 為基礎的防火牆規則，最常見的是儲存體，服務必須與受控實例位於不同的區域。
 
-## <a name="network-requirements"></a>網路需求
-
-在虛擬網路內的專用子網中部署受控實例。 子網必須具有下列特性：
-
-- **專用子網：** 受控實例的子網不能包含與其相關聯的任何其他雲端服務，也不能是閘道子網。 子網不能包含任何資源，而是受控實例，而且您稍後無法在子網中新增其他類型的資源。
-- **網路安全性群組（NSG）：** 與虛擬網路相關聯的 NSG 必須在任何其他規則之前定義[輸入安全性規則](#mandatory-inbound-security-rules)和[輸出安全性規則](#mandatory-outbound-security-rules)。 當受控實例設定為重新導向連線時，您可以使用 NSG 來控制對受控實例資料端點的存取權，方法是篩選埠1433和埠11000-11999 上的流量。
-- **使用者定義的路由（UDR）資料表：** 與虛擬網路相關聯的 UDR 資料表必須包含特定的[專案](#user-defined-routes)。
-- **沒有服務端點：** 不應該有任何服務端點與受控實例的子網相關聯。 當您建立虛擬網路時，請確定已停用 [服務端點] 選項。
-- **足夠的 IP 位址：** 受控實例子網必須至少有16個 IP 位址。 建議的最小值為32個 IP 位址。 如需詳細資訊，請參閱[決定受控實例的子網大小](sql-database-managed-instance-determine-size-vnet-subnet.md)。 設定受控實例以滿足[受控實例的網路需求](#network-requirements)之後，您就可以在[現有的網路](sql-database-managed-instance-configure-vnet-subnet.md)中部署受管理的實例。 否則，請建立[新的網路和子網](sql-database-managed-instance-create-vnet-subnet.md)。
-
-> [!IMPORTANT]
-> 如果目的地子網缺少這些特性，您就無法部署新的受控實例。 當您建立受控實例時，會在子網上套用網路意圖原則，以防止不相容的網路設定變更。 從子網移除最後一個實例之後，也會一併移除網路意圖原則。
-
-### <a name="mandatory-inbound-security-rules"></a>必要輸入安全性規則
-
-| 名稱       |Port                        |通訊協定|來源           |目的地|動作|
-|------------|----------------------------|--------|-----------------|-----------|------|
-|管理  |9000、9003、1438、1440、1452|TCP     |任意              |MI SUBNET  |允許 |
-|mi_subnet   |任意                         |任意     |MI SUBNET        |MI SUBNET  |允許 |
-|health_probe|任意                         |任意     |AzureLoadBalancer|MI SUBNET  |允許 |
-
-### <a name="mandatory-outbound-security-rules"></a>必要輸出安全性規則
-
-| 名稱       |Port          |通訊協定|來源           |目的地|動作|
-|------------|--------------|--------|-----------------|-----------|------|
-|管理  |443、12000    |TCP     |MI SUBNET        |AzureCloud |允許 |
-|mi_subnet   |任意           |任意     |MI SUBNET        |MI SUBNET  |允許 |
-
-> [!IMPORTANT]
-> 請確定埠9000、9003、1438、1440、1452和一個用於埠443、12000的輸出規則都只有一個輸入規則。 如果為每個埠分別設定輸入和輸出規則，透過 Azure Resource Manager 部署的受控執行個體布建將會失敗。 如果這些埠是在不同的規則中，部署將會失敗，並出現錯誤代碼 `VnetSubnetConflictWithIntendedPolicy`
-
-\* MI 子網指的是子網的 IP 位址範圍，其格式為 10. x. x/y。 您可以在 [Azure 入口網站] 的 [子網] 屬性中找到這項資訊。
-
-> [!IMPORTANT]
-> 雖然必要的輸入安全性規則允許來自埠9000、9003、1438、1440和1452的_任何_來源流量，但這些埠會受到內建防火牆的保護。 如需詳細資訊，請參閱[判斷管理端點位址](sql-database-managed-instance-find-management-endpoint-ip-address.md)。
-> [!NOTE]
-> 如果您在受控實例中使用異動複寫，而且您使用任何實例資料庫做為發行者或散發者，請在子網的安全性規則中開啟埠445（TCP 輸出）。 此埠可讓您存取 Azure 檔案共用。
-
-### <a name="user-defined-routes"></a>使用者定義的路由
-
-|名稱|位址首碼|下一個躍點|
-|----|--------------|-------|
-|subnet_to_vnetlocal|MI SUBNET|虛擬網路|
-|mi-13-64-11-nexthop-網際網路|13.64.0.0/11|Internet|
-|mi-13-96-13-nexthop-網際網路|13.96.0.0/13|Internet|
-|mi-13-104-14-nexthop-網際網路|13.104.0.0/14|Internet|
-|mi-20-8-nexthop-網際網路|20.0.0.0/8|Internet|
-|mi-23-96-13-nexthop-網際網路|23.96.0.0/13|Internet|
-|mi-40-64-10-nexthop-網際網路|40.64.0.0/10|Internet|
-|mi-42-159-16-nexthop-網際網路|42.159.0.0/16|Internet|
-|mi-51-8-nexthop-網際網路|51.0.0.0/8|Internet|
-|mi-52-8-nexthop-網際網路|52.0.0.0/8|Internet|
-|mi-64-4-18-nexthop-網際網路|64.4.0.0/18|Internet|
-|mi-65-52-14-nexthop-網際網路|65.52.0.0/14|Internet|
-|mi-66-119-144-20-nexthop-網際網路|66.119.144.0/20|Internet|
-|mi-70-37-17-nexthop-網際網路|70.37.0.0/17|Internet|
-|mi-70-37-128-18-nexthop-網際網路|70.37.128.0/18|Internet|
-|mi-91-190-216-21-nexthop-網際網路|91.190.216.0/21|Internet|
-|mi-94-245-64-18-nexthop-網際網路|94.245.64.0/18|Internet|
-|mi-103-9-8-22-nexthop-網際網路|103.9.8.0/22|Internet|
-|mi-103-25-156-22-nexthop-網際網路|103.25.156.0/22|Internet|
-|mi-103-36-96-22-nexthop-網際網路|103.36.96.0/22|Internet|
-|mi-103-255-140-22-nexthop-網際網路|103.255.140.0/22|Internet|
-|mi-104-40-13-nexthop-網際網路|104.40.0.0/13|Internet|
-|mi-104-146-15-nexthop-網際網路|104.146.0.0/15|Internet|
-|mi-104-208-13-nexthop-網際網路|104.208.0.0/13|Internet|
-|mi-111-221-16-20-nexthop-網際網路|111.221.16.0/20|Internet|
-|mi-111-221-64-18-nexthop-網際網路|111.221.64.0/18|Internet|
-|mi-129-75-16-nexthop-網際網路|129.75.0.0/16|Internet|
-|mi-131-253-16-nexthop-網際網路|131.253.0.0/16|Internet|
-|mi-132-245-16-nexthop-網際網路|132.245.0.0/16|Internet|
-|mi-134-170-16-nexthop-網際網路|134.170.0.0/16|Internet|
-|mi-134-177-16-nexthop-網際網路|134.177.0.0/16|Internet|
-|mi-137-116-15-nexthop-網際網路|137.116.0.0/15|Internet|
-|mi-137-135-16-nexthop-網際網路|137.135.0.0/16|Internet|
-|mi-138-91-16-nexthop-網際網路|138.91.0.0/16|Internet|
-|mi-138-196-16-nexthop-網際網路|138.196.0.0/16|Internet|
-|mi-139-217-16-nexthop-網際網路|139.217.0.0/16|Internet|
-|mi-139-219-16-nexthop-網際網路|139.219.0.0/16|Internet|
-|mi-141-251-16-nexthop-網際網路|141.251.0.0/16|Internet|
-|mi-146-147-16-nexthop-網際網路|146.147.0.0/16|Internet|
-|mi-147-243-16-nexthop-網際網路|147.243.0.0/16|Internet|
-|mi-150-171-16-nexthop-網際網路|150.171.0.0/16|Internet|
-|mi-150-242-48-22-nexthop-網際網路|150.242.48.0/22|Internet|
-|mi-157-54-15-nexthop-網際網路|157.54.0.0/15|Internet|
-|mi-157-56-14-nexthop-網際網路|157.56.0.0/14|Internet|
-|mi-157-60-16-nexthop-網際網路|157.60.0.0/16|Internet|
-|mi-167-220-16-nexthop-網際網路|167.220.0.0/16|Internet|
-|mi-168-61-16-nexthop-網際網路|168.61.0.0/16|Internet|
-|mi-168-62-15-nexthop-網際網路|168.62.0.0/15|Internet|
-|mi-191-232-13-nexthop-網際網路|191.232.0.0/13|Internet|
-|mi-192-32-16-nexthop-網際網路|192.32.0.0/16|Internet|
-|mi-192-48-225-24-nexthop-網際網路|192.48.225.0/24|Internet|
-|mi-192-84-159-24-nexthop-網際網路|192.84.159.0/24|Internet|
-|mi-192-84-160-23-nexthop-網際網路|192.84.160.0/23|Internet|
-|mi-192-100-102-24-nexthop-網際網路|192.100.102.0/24|Internet|
-|mi-192-100-103-24-nexthop-網際網路|192.100.103.0/24|Internet|
-|mi-192-197-157-24-nexthop-網際網路|192.197.157.0/24|Internet|
-|mi-193-149-64-19-nexthop-網際網路|193.149.64.0/19|Internet|
-|mi-193-221-113-24-nexthop-網際網路|193.221.113.0/24|Internet|
-|mi-194-69-96-19-nexthop-網際網路|194.69.96.0/19|Internet|
-|mi-194-110-197-24-nexthop-網際網路|194.110.197.0/24|Internet|
-|mi-198-105-232-22-nexthop-網際網路|198.105.232.0/22|Internet|
-|mi-198-200-130-24-nexthop-網際網路|198.200.130.0/24|Internet|
-|mi-198-206-164-24-nexthop-網際網路|198.206.164.0/24|Internet|
-|mi-199-60-28-24-nexthop-網際網路|199.60.28.0/24|Internet|
-|mi-199-74-210-24-nexthop-網際網路|199.74.210.0/24|Internet|
-|mi-199-103-90-23-nexthop-網際網路|199.103.90.0/23|Internet|
-|mi-199-103-122-24-nexthop-網際網路|199.103.122.0/24|Internet|
-|mi-199-242-32-20-nexthop-網際網路|199.242.32.0/20|Internet|
-|mi-199-242-48-21-nexthop-網際網路|199.242.48.0/21|Internet|
-|mi-202-89-224-20-nexthop-網際網路|202.89.224.0/20|Internet|
-|mi-204-13-120-21-nexthop-網際網路|204.13.120.0/21|Internet|
-|mi-204-14-180-22-nexthop-網際網路|204.14.180.0/22|Internet|
-|mi-204-79-135-24-nexthop-網際網路|204.79.135.0/24|Internet|
-|mi-204-79-179-24-nexthop-網際網路|204.79.179.0/24|Internet|
-|mi-204-79-181-24-nexthop-網際網路|204.79.181.0/24|Internet|
-|mi-204-79-188-24-nexthop-網際網路|204.79.188.0/24|Internet|
-|mi-204-79-195-24-nexthop-網際網路|204.79.195.0/24|Internet|
-|mi-204-79-196-23-nexthop-網際網路|204.79.196.0/23|Internet|
-|mi-204-79-252-24-nexthop-網際網路|204.79.252.0/24|Internet|
-|mi-204-152-18-23-nexthop-網際網路|204.152.18.0/23|Internet|
-|mi-204-152-140-23-nexthop-網際網路|204.152.140.0/23|Internet|
-|mi-204-231-192-24-nexthop-網際網路|204.231.192.0/24|Internet|
-|mi-204-231-194-23-nexthop-網際網路|204.231.194.0/23|Internet|
-|mi-204-231-197-24-nexthop-網際網路|204.231.197.0/24|Internet|
-|mi-204-231-198-23-nexthop-網際網路|204.231.198.0/23|Internet|
-|mi-204-231-200-21-nexthop-網際網路|204.231.200.0/21|Internet|
-|mi-204-231-208-20-nexthop-網際網路|204.231.208.0/20|Internet|
-|mi-204-231-236-24-nexthop-網際網路|204.231.236.0/24|Internet|
-|mi-205-174-224-20-nexthop-網際網路|205.174.224.0/20|Internet|
-|mi-206-138-168-21-nexthop-網際網路|206.138.168.0/21|Internet|
-|mi-206-191-224-19-nexthop-網際網路|206.191.224.0/19|Internet|
-|mi-207-46-16-nexthop-網際網路|207.46.0.0/16|Internet|
-|mi-207-68-128-18-nexthop-網際網路|207.68.128.0/18|Internet|
-|mi-208-68-136-21-nexthop-網際網路|208.68.136.0/21|Internet|
-|mi-208-76-44-22-nexthop-網際網路|208.76.44.0/22|Internet|
-|mi-208-84-21-nexthop-網際網路|208.84.0.0/21|Internet|
-|mi-209-240-192-19-nexthop-網際網路|209.240.192.0/19|Internet|
-|mi-213-199-128-18-nexthop-網際網路|213.199.128.0/18|Internet|
-|mi-216-32-180-22-nexthop-網際網路|216.32.180.0/22|Internet|
-|mi-216-220-208-20-nexthop-網際網路|216.220.208.0/20|Internet|
-||||
-
-此外，您可以將專案新增至路由表，以透過虛擬網路閘道或虛擬網路設備（NVA）將具有內部部署私人 IP 範圍的流量路由傳送至目的地。
-
-如果虛擬網路包含自訂 DNS，則自訂 DNS 伺服器必須能夠解析公用 dns 記錄。 使用 Azure AD 驗證之類的其他功能可能需要解析額外的 Fqdn。 如需詳細資訊，請參閱[設定自訂 DNS](sql-database-managed-instance-custom-dns.md)。
-
-## <a name="service-aided-subnet-configuration-public-preview-in-east-us-and-west-us"></a>服務輔助子網設定（美國東部和美國西部的公開預覽）
+## <a name="service-aided-subnet-configuration"></a>服務輔助子網設定
 
 為了解決客戶的安全性和管理能力需求，受控執行個體從手動轉換至服務輔助子網設定。
 
 使用服務輔助子網設定使用者可完全控制資料（TDS）流量，而受控執行個體會負責確保管理流量不中斷，以履行 SLA。
 
-### <a name="network-requirements-with-service-aided-subnet-configuration"></a>具有服務輔助子網設定的網路需求 
+### <a name="network-requirements"></a>網路需求 
 
 在虛擬網路內的專用子網中部署受控實例。 子網必須具有下列特性：
 
@@ -251,17 +103,17 @@ Microsoft 會使用管理端點來管理受控實例。 此端點位於實例的
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>具有服務輔助子網設定的必要輸入安全性規則 
 
-| 名稱       |Port                        |通訊協定|來源           |目的地|動作|
+| 名稱       |Port                        |通訊協定|來源           |目的地|行動|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |管理  |9000、9003、1438、1440、1452|TCP     |SqlManagement    |MI SUBNET  |允許 |
 |            |9000、9003                  |TCP     |CorpnetSaw       |MI SUBNET  |允許 |
-|            |9000、9003                  |TCP     |65.55.188.0/24、167.220.0.0/16、131.107.0.0/16|MI SUBNET  |允許 |
+|            |9000、9003                  |TCP     |65.55.188.0/24、167.220.0.0/16、131.107.0.0/16、94.245.87.0/24|MI SUBNET  |允許 |
 |mi_subnet   |任意                         |任意     |MI SUBNET        |MI SUBNET  |允許 |
 |health_probe|任意                         |任意     |AzureLoadBalancer|MI SUBNET  |允許 |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>具有服務輔助子網設定的必要輸出安全性規則 
 
-| 名稱       |Port          |通訊協定|來源           |目的地|動作|
+| 名稱       |Port          |通訊協定|來源           |目的地|行動|
 |------------|--------------|--------|-----------------|-----------|------|
 |管理  |443、12000    |TCP     |MI SUBNET        |AzureCloud |允許 |
 |mi_subnet   |任意           |任意     |MI SUBNET        |MI SUBNET  |允許 |
@@ -426,6 +278,154 @@ Microsoft 會使用管理端點來管理受控實例。 此端點位於實例的
 ||||
 
 \* MI 子網指的是子網的 IP 位址範圍，其格式為 10. x. x/y。 您可以在 [Azure 入口網站] 的 [子網] 屬性中找到這項資訊。
+
+此外，您可以將專案新增至路由表，以透過虛擬網路閘道或虛擬網路設備（NVA）將具有內部部署私人 IP 範圍的流量路由傳送至目的地。
+
+如果虛擬網路包含自訂 DNS，則自訂 DNS 伺服器必須能夠解析公用 dns 記錄。 使用 Azure AD 驗證之類的其他功能可能需要解析額外的 Fqdn。 如需詳細資訊，請參閱[設定自訂 DNS](sql-database-managed-instance-custom-dns.md)。
+
+### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>不再不含服務輔助子網設定的網路需求
+
+在虛擬網路內的專用子網中部署受控實例。 子網必須具有下列特性：
+
+- **專用子網：** 受控實例的子網不能包含與其相關聯的任何其他雲端服務，也不能是閘道子網。 子網不能包含任何資源，而是受控實例，而且您稍後無法在子網中新增其他類型的資源。
+- **網路安全性群組（NSG）：** 與虛擬網路相關聯的 NSG 必須在任何其他規則之前定義[輸入安全性規則](#mandatory-inbound-security-rules)和[輸出安全性規則](#mandatory-outbound-security-rules)。 當受控實例設定為重新導向連線時，您可以使用 NSG 來控制對受控實例資料端點的存取權，方法是篩選埠1433和埠11000-11999 上的流量。
+- **使用者定義的路由（UDR）資料表：** 與虛擬網路相關聯的 UDR 資料表必須包含特定的[專案](#user-defined-routes)。
+- **沒有服務端點：** 不應該有任何服務端點與受控實例的子網相關聯。 當您建立虛擬網路時，請確定已停用 [服務端點] 選項。
+- **足夠的 IP 位址：** 受控實例子網必須至少有16個 IP 位址。 建議的最小值為32個 IP 位址。 如需詳細資訊，請參閱[決定受控實例的子網大小](sql-database-managed-instance-determine-size-vnet-subnet.md)。 設定受控實例以滿足[受控實例的網路需求](#network-requirements)之後，您就可以在[現有的網路](sql-database-managed-instance-configure-vnet-subnet.md)中部署受管理的實例。 否則，請建立[新的網路和子網](sql-database-managed-instance-create-vnet-subnet.md)。
+
+> [!IMPORTANT]
+> 如果目的地子網缺少這些特性，您就無法部署新的受控實例。 當您建立受控實例時，會在子網上套用網路意圖原則，以防止不相容的網路設定變更。 從子網移除最後一個實例之後，也會一併移除網路意圖原則。
+
+### <a name="mandatory-inbound-security-rules"></a>必要輸入安全性規則
+
+| 名稱       |Port                        |通訊協定|來源           |目的地|行動|
+|------------|----------------------------|--------|-----------------|-----------|------|
+|管理  |9000、9003、1438、1440、1452|TCP     |任意              |MI SUBNET  |允許 |
+|mi_subnet   |任意                         |任意     |MI SUBNET        |MI SUBNET  |允許 |
+|health_probe|任意                         |任意     |AzureLoadBalancer|MI SUBNET  |允許 |
+
+### <a name="mandatory-outbound-security-rules"></a>必要輸出安全性規則
+
+| 名稱       |Port          |通訊協定|來源           |目的地|行動|
+|------------|--------------|--------|-----------------|-----------|------|
+|管理  |443、12000    |TCP     |MI SUBNET        |AzureCloud |允許 |
+|mi_subnet   |任意           |任意     |MI SUBNET        |MI SUBNET  |允許 |
+
+> [!IMPORTANT]
+> 請確定埠9000、9003、1438、1440、1452和一個用於埠443、12000的輸出規則都只有一個輸入規則。 如果為每個埠分別設定輸入和輸出規則，透過 Azure Resource Manager 部署的受控執行個體布建將會失敗。 如果這些埠是在不同的規則中，部署將會失敗，並出現錯誤代碼 `VnetSubnetConflictWithIntendedPolicy`
+
+\* MI 子網指的是子網的 IP 位址範圍，其格式為 10. x. x/y。 您可以在 [Azure 入口網站] 的 [子網] 屬性中找到這項資訊。
+
+> [!IMPORTANT]
+> 雖然必要的輸入安全性規則允許來自埠9000、9003、1438、1440和1452的_任何_來源流量，但這些埠會受到內建防火牆的保護。 如需詳細資訊，請參閱[判斷管理端點位址](sql-database-managed-instance-find-management-endpoint-ip-address.md)。
+> [!NOTE]
+> 如果您在受控實例中使用異動複寫，而且您使用任何實例資料庫做為發行者或散發者，請在子網的安全性規則中開啟埠445（TCP 輸出）。 此埠可讓您存取 Azure 檔案共用。
+
+### <a name="user-defined-routes"></a>使用者定義的路由
+
+|名稱|位址首碼|下一個躍點|
+|----|--------------|-------|
+|subnet_to_vnetlocal|MI SUBNET|虛擬網路|
+|mi-13-64-11-nexthop-網際網路|13.64.0.0/11|Internet|
+|mi-13-96-13-nexthop-網際網路|13.96.0.0/13|Internet|
+|mi-13-104-14-nexthop-網際網路|13.104.0.0/14|Internet|
+|mi-20-8-nexthop-網際網路|20.0.0.0/8|Internet|
+|mi-23-96-13-nexthop-網際網路|23.96.0.0/13|Internet|
+|mi-40-64-10-nexthop-網際網路|40.64.0.0/10|Internet|
+|mi-42-159-16-nexthop-網際網路|42.159.0.0/16|Internet|
+|mi-51-8-nexthop-網際網路|51.0.0.0/8|Internet|
+|mi-52-8-nexthop-網際網路|52.0.0.0/8|Internet|
+|mi-64-4-18-nexthop-網際網路|64.4.0.0/18|Internet|
+|mi-65-52-14-nexthop-網際網路|65.52.0.0/14|Internet|
+|mi-66-119-144-20-nexthop-網際網路|66.119.144.0/20|Internet|
+|mi-70-37-17-nexthop-網際網路|70.37.0.0/17|Internet|
+|mi-70-37-128-18-nexthop-網際網路|70.37.128.0/18|Internet|
+|mi-91-190-216-21-nexthop-網際網路|91.190.216.0/21|Internet|
+|mi-94-245-64-18-nexthop-網際網路|94.245.64.0/18|Internet|
+|mi-103-9-8-22-nexthop-網際網路|103.9.8.0/22|Internet|
+|mi-103-25-156-22-nexthop-網際網路|103.25.156.0/22|Internet|
+|mi-103-36-96-22-nexthop-網際網路|103.36.96.0/22|Internet|
+|mi-103-255-140-22-nexthop-網際網路|103.255.140.0/22|Internet|
+|mi-104-40-13-nexthop-網際網路|104.40.0.0/13|Internet|
+|mi-104-146-15-nexthop-網際網路|104.146.0.0/15|Internet|
+|mi-104-208-13-nexthop-網際網路|104.208.0.0/13|Internet|
+|mi-111-221-16-20-nexthop-網際網路|111.221.16.0/20|Internet|
+|mi-111-221-64-18-nexthop-網際網路|111.221.64.0/18|Internet|
+|mi-129-75-16-nexthop-網際網路|129.75.0.0/16|Internet|
+|mi-131-253-16-nexthop-網際網路|131.253.0.0/16|Internet|
+|mi-132-245-16-nexthop-網際網路|132.245.0.0/16|Internet|
+|mi-134-170-16-nexthop-網際網路|134.170.0.0/16|Internet|
+|mi-134-177-16-nexthop-網際網路|134.177.0.0/16|Internet|
+|mi-137-116-15-nexthop-網際網路|137.116.0.0/15|Internet|
+|mi-137-135-16-nexthop-網際網路|137.135.0.0/16|Internet|
+|mi-138-91-16-nexthop-網際網路|138.91.0.0/16|Internet|
+|mi-138-196-16-nexthop-網際網路|138.196.0.0/16|Internet|
+|mi-139-217-16-nexthop-網際網路|139.217.0.0/16|Internet|
+|mi-139-219-16-nexthop-網際網路|139.219.0.0/16|Internet|
+|mi-141-251-16-nexthop-網際網路|141.251.0.0/16|Internet|
+|mi-146-147-16-nexthop-網際網路|146.147.0.0/16|Internet|
+|mi-147-243-16-nexthop-網際網路|147.243.0.0/16|Internet|
+|mi-150-171-16-nexthop-網際網路|150.171.0.0/16|Internet|
+|mi-150-242-48-22-nexthop-網際網路|150.242.48.0/22|Internet|
+|mi-157-54-15-nexthop-網際網路|157.54.0.0/15|Internet|
+|mi-157-56-14-nexthop-網際網路|157.56.0.0/14|Internet|
+|mi-157-60-16-nexthop-網際網路|157.60.0.0/16|Internet|
+|mi-167-220-16-nexthop-網際網路|167.220.0.0/16|Internet|
+|mi-168-61-16-nexthop-網際網路|168.61.0.0/16|Internet|
+|mi-168-62-15-nexthop-網際網路|168.62.0.0/15|Internet|
+|mi-191-232-13-nexthop-網際網路|191.232.0.0/13|Internet|
+|mi-192-32-16-nexthop-網際網路|192.32.0.0/16|Internet|
+|mi-192-48-225-24-nexthop-網際網路|192.48.225.0/24|Internet|
+|mi-192-84-159-24-nexthop-網際網路|192.84.159.0/24|Internet|
+|mi-192-84-160-23-nexthop-網際網路|192.84.160.0/23|Internet|
+|mi-192-100-102-24-nexthop-網際網路|192.100.102.0/24|Internet|
+|mi-192-100-103-24-nexthop-網際網路|192.100.103.0/24|Internet|
+|mi-192-197-157-24-nexthop-網際網路|192.197.157.0/24|Internet|
+|mi-193-149-64-19-nexthop-網際網路|193.149.64.0/19|Internet|
+|mi-193-221-113-24-nexthop-網際網路|193.221.113.0/24|Internet|
+|mi-194-69-96-19-nexthop-網際網路|194.69.96.0/19|Internet|
+|mi-194-110-197-24-nexthop-網際網路|194.110.197.0/24|Internet|
+|mi-198-105-232-22-nexthop-網際網路|198.105.232.0/22|Internet|
+|mi-198-200-130-24-nexthop-網際網路|198.200.130.0/24|Internet|
+|mi-198-206-164-24-nexthop-網際網路|198.206.164.0/24|Internet|
+|mi-199-60-28-24-nexthop-網際網路|199.60.28.0/24|Internet|
+|mi-199-74-210-24-nexthop-網際網路|199.74.210.0/24|Internet|
+|mi-199-103-90-23-nexthop-網際網路|199.103.90.0/23|Internet|
+|mi-199-103-122-24-nexthop-網際網路|199.103.122.0/24|Internet|
+|mi-199-242-32-20-nexthop-網際網路|199.242.32.0/20|Internet|
+|mi-199-242-48-21-nexthop-網際網路|199.242.48.0/21|Internet|
+|mi-202-89-224-20-nexthop-網際網路|202.89.224.0/20|Internet|
+|mi-204-13-120-21-nexthop-網際網路|204.13.120.0/21|Internet|
+|mi-204-14-180-22-nexthop-網際網路|204.14.180.0/22|Internet|
+|mi-204-79-135-24-nexthop-網際網路|204.79.135.0/24|Internet|
+|mi-204-79-179-24-nexthop-網際網路|204.79.179.0/24|Internet|
+|mi-204-79-181-24-nexthop-網際網路|204.79.181.0/24|Internet|
+|mi-204-79-188-24-nexthop-網際網路|204.79.188.0/24|Internet|
+|mi-204-79-195-24-nexthop-網際網路|204.79.195.0/24|Internet|
+|mi-204-79-196-23-nexthop-網際網路|204.79.196.0/23|Internet|
+|mi-204-79-252-24-nexthop-網際網路|204.79.252.0/24|Internet|
+|mi-204-152-18-23-nexthop-網際網路|204.152.18.0/23|Internet|
+|mi-204-152-140-23-nexthop-網際網路|204.152.140.0/23|Internet|
+|mi-204-231-192-24-nexthop-網際網路|204.231.192.0/24|Internet|
+|mi-204-231-194-23-nexthop-網際網路|204.231.194.0/23|Internet|
+|mi-204-231-197-24-nexthop-網際網路|204.231.197.0/24|Internet|
+|mi-204-231-198-23-nexthop-網際網路|204.231.198.0/23|Internet|
+|mi-204-231-200-21-nexthop-網際網路|204.231.200.0/21|Internet|
+|mi-204-231-208-20-nexthop-網際網路|204.231.208.0/20|Internet|
+|mi-204-231-236-24-nexthop-網際網路|204.231.236.0/24|Internet|
+|mi-205-174-224-20-nexthop-網際網路|205.174.224.0/20|Internet|
+|mi-206-138-168-21-nexthop-網際網路|206.138.168.0/21|Internet|
+|mi-206-191-224-19-nexthop-網際網路|206.191.224.0/19|Internet|
+|mi-207-46-16-nexthop-網際網路|207.46.0.0/16|Internet|
+|mi-207-68-128-18-nexthop-網際網路|207.68.128.0/18|Internet|
+|mi-208-68-136-21-nexthop-網際網路|208.68.136.0/21|Internet|
+|mi-208-76-44-22-nexthop-網際網路|208.76.44.0/22|Internet|
+|mi-208-84-21-nexthop-網際網路|208.84.0.0/21|Internet|
+|mi-209-240-192-19-nexthop-網際網路|209.240.192.0/19|Internet|
+|mi-213-199-128-18-nexthop-網際網路|213.199.128.0/18|Internet|
+|mi-216-32-180-22-nexthop-網際網路|216.32.180.0/22|Internet|
+|mi-216-220-208-20-nexthop-網際網路|216.220.208.0/20|Internet|
+||||
 
 ## <a name="next-steps"></a>後續步驟
 

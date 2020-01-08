@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 12/30/2019
 ms.author: cabailey
-ms.openlocfilehash: 06c1415b07b1ed9ce4d0b4900510465496b9dbd9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7e33580c253c98279644e10305557a7e60701c90
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514104"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610500"
 ---
 # <a name="connect-one-identity-safeguard"></a>連接一個身分識別保護
 一種身分識別保護資料連線器可增強標準的一般事件格式（CEF）連接器，並提供特殊許可權會話特定儀表板的防護。 使用此連接器可輕鬆地開始使用您的裝置所產生的事件，以進行視覺效果、警示、調查等等。
@@ -40,6 +40,8 @@ ms.locfileid: "73514104"
 
 ## <a name="next-steps"></a>後續步驟
 在本檔中，您已瞭解如何將一個身分識別保護連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 深入了解如何[取得資料的可見度以及潛在威脅](quickstart-get-visibility.md)。
 - 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats-built-in.md)。
+- [使用活頁簿](tutorial-monitor-your-data.md)來監視您的資料。
+
 

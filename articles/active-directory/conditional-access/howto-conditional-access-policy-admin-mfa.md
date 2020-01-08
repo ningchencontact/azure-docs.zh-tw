@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd3de14d8c82a3e51d38a1e32241cb106e0f95b3
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: cce506f88802dee75898a3da4fa795a64ccbbd02
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74804613"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424945"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>條件式存取：系統管理員需要 MFA
 
@@ -74,5 +74,7 @@ Microsoft 建議您至少要求下列角色的 MFA：
 ## <a name="next-steps"></a>後續步驟
 
 [條件式存取的一般原則](concept-conditional-access-policy-common.md)
+
+[使用條件式存取僅限報告模式判斷影響](howto-conditional-access-report-only.md)
 
 [使用條件式存取 What If 工具模擬登入行為](troubleshoot-conditional-access-what-if.md)

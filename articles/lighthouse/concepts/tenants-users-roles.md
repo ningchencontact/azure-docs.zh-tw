@@ -3,12 +3,12 @@ title: Azure Lighthouse 案例中的租用戶、角色和使用者
 description: 了解 Azure Active Directory 租用戶、使用者和角色的概念，以及如何在 Azure Lighthouse 案例中使用它們。
 ms.date: 11/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: a1ad004c79f90f4642640405da9e8876b9202e98
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 77a247c86765f25539833a6ba70f80e737c6846d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463941"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453560"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Azure Lighthouse 案例中的租用戶、角色和使用者
 
@@ -22,13 +22,13 @@ ms.locfileid: "74463941"
 
 ## <a name="role-support-for-azure-delegated-resource-management"></a>適用於 Azure 委派資源管理的角色支援
 
-定義授權時，每個使用者帳戶都必須獲指派其中一個[角色型存取控制 (RBAC) 內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)。 此外，不支援自訂角色與[傳統訂用帳戶管理員角色](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) \(部分機器翻譯\)。
+定義授權時，每個使用者帳戶都必須獲指派其中一個[角色型存取控制 (RBAC) 內建角色](../../role-based-access-control/built-in-roles.md)。 此外，不支援自訂角色與[傳統訂用帳戶管理員角色](../../role-based-access-control/classic-administrators.md) \(部分機器翻譯\)。
 
-Azure 委派的資源管理目前支援所有[內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)，但有下列例外狀況：
+Azure 委派的資源管理目前支援所有[內建角色](../../role-based-access-control/built-in-roles.md)，但有下列例外狀況：
 
-- 不支援[擁有者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)角色。
-- 不支援具有 [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) 權限的任何內建角色。
-- 支援[使用者存取系統管理員](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator)內建角色，但僅限於[將角色指派給客戶租用戶中的受控識別](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)。 將不適用此角色通常授與的其他任何權限。 如果您定義具有此角色的使用者，您也必須指定此使用者可以指派給受控識別的內建角色。
+- 不支援[擁有者](../../role-based-access-control/built-in-roles.md#owner)角色。
+- 不支援具有 [DataActions](../../role-based-access-control/role-definitions.md#dataactions) 權限的任何內建角色。
+- 支援[使用者存取系統管理員](../../role-based-access-control/built-in-roles.md#user-access-administrator)內建角色，但僅限於[將角色指派給客戶租用戶中的受控識別](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)。 將不適用此角色通常授與的其他任何權限。 如果您定義具有此角色的使用者，您也必須指定此使用者可以指派給受控識別的內建角色。
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>定義使用者和角色的最佳做法
 
@@ -36,8 +36,8 @@ Azure 委派的資源管理目前支援所有[內建角色](https://docs.microso
 
 - 在多數情況下，建議您指派權限給 Azure AD 使用者群組或服務主體，而不是指派給一系列個別使用者帳戶。 如此一來，當您的存取需求變更時，就可以新增或移除個別使用者的存取權，而不需要更新並重新發佈方案。
 - 請務必遵循最少特殊權限準則，讓使用者只具備完成其工作所需的權限，以協助減少發生意外錯誤的機會。 如需詳細資訊，請參閱[建議的安全性作法](../concepts/recommended-security-practices.md)。
-- 包含具有[受控服務註冊指派刪除角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role)的使用者，讓您可以在稍後，視需要[移除對委派的存取權](../how-to/onboard-customer.md#remove-access-to-a-delegation)。 如果未指派此角色，則只有客戶租用戶中的使用者可以移除委派的資源。
-- 請確定需要[在 Azure 入口網站檢視 [我的客戶] 頁面](../how-to/view-manage-customers.md)的任何使用者都具有[讀取者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)角色 (或包含讀取者存取權的其他內建角色)。
+- 包含具有[受控服務註冊指派刪除角色](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)的使用者，讓您可以在稍後，視需要[移除對委派的存取權](../how-to/onboard-customer.md#remove-access-to-a-delegation)。 如果未指派此角色，則只有客戶租用戶中的使用者可以移除委派的資源。
+- 請確定需要[在 Azure 入口網站檢視 [我的客戶] 頁面](../how-to/view-manage-customers.md)的任何使用者都具有[讀取者](../../role-based-access-control/built-in-roles.md#reader)角色 (或包含讀取者存取權的其他內建角色)。
 
 ## <a name="next-steps"></a>後續步驟
 

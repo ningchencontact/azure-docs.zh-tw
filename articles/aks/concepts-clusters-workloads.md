@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 78fb06c7ecd20d8ed2af40bcc294f2fb1b166d96
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: a6b696e16d2c946572cc213115fb440775fce3fe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120605"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442967"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 的 Kubernetes 核心概念
 
@@ -152,7 +152,7 @@ spec:
 
 Kubernetes 會使用 *Pod* 執行您的應用程式執行個體。 一個 Pod 代表應用程式的單一執行個體。 Pod 與容器之間通常會有 1:1 的對應，不過在進階案例中，Pod 可能會包含多個容器。 這些多容器 Pod 會一起排程於相同的節點上，並允許容器共用相關資源。
 
-當您建立 Pod 時，您可以定義*資源限制*以要求特定數量的 CPU 或記憶體資源。 Kubernetes 排程器會嘗試將 Pod 排程在具有可用資源的節點上執行，以符合要求。 您也可以指定資源上限，以防止指定的 Pod 在基礎節點上耗用太多計算資源。 最佳做法是為所有 Pod 加上資源限制，以協助 Kubernetes 排程器了解哪些是必要且可供使用的資源。
+當您建立 pod 時，可以定義*資源要求*來要求特定數量的 CPU 或記憶體資源。 Kubernetes 排程器會嘗試將 Pod 排程在具有可用資源的節點上執行，以符合要求。 您也可以指定資源上限，以防止指定的 Pod 在基礎節點上耗用太多計算資源。 最佳做法是為所有 Pod 加上資源限制，以協助 Kubernetes 排程器了解哪些是必要且可供使用的資源。
 
 如需詳細資訊，請參閱 [Kubernetes pod][kubernetes-pods] 和 [Kubernetes pod 生命週期][kubernetes-pod-lifecycle]。
 

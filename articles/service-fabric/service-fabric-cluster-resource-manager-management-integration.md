@@ -1,25 +1,16 @@
 ---
-title: Service Fabric 叢集 Resource Manager - 管理整合 | Microsoft Docs
+title: 叢集 Resource Manager-管理整合
 description: 叢集資源管理員和 Service Fabric 管理之間的整合點概觀。
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2b3ccf16aca04ebd398e2f97007b817cc0a6ef8d
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196504"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614616"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>叢集資源管理員與 Service Fabric 叢集管理整合
 Service Fabric 叢集資源管理員不會促使 Service Fabric 升級，但有所關聯。 叢集資源管理員協助管理的第一種方法是追蹤所需的叢集狀態及其內部的服務。 當叢集資源管理員無法讓叢集處於所需的設定時，它會送出健全狀況報告。 例如，如果容量不足，叢集資源管理員會發出健康情況警告和錯誤，指出問題所在。 整合的另一方面必定與升級方式有關。 在升級期間，叢集資源管理員會稍微改變其行為。  
@@ -77,7 +68,7 @@ HealthEvents          :
 2. 目前違反升級網域發佈條件約束。 這表示特定升級網域擁有這個磁碟的過多分割複本。
 3. 哪個節點包含造成違規的複本。 在此案例中是名為「Node.8」的節點。
 4. 無論此分割區是否正在升級 (「Currently Upgrading -- false」)
-5. 此服務的發佈原則：「Distribution Policy -- Packing」。 這是由`RequireDomainDistribution`[放置原則](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)控管。 「封裝」表示在此情況下_不_需要 DomainDistribution，因此可知道並未替該服務指定放置原則。 
+5. 此服務的發佈原則：「Distribution Policy -- Packing」。 這是由 `RequireDomainDistribution`[放置原則](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)所控管。 「封裝」表示在此情況下_不_需要 DomainDistribution，因此可知道並未替該服務指定放置原則。 
 6. 報告時間 - 2015 年 8 月 10 日下午 7:13:02
 
 這種資訊會引出在生產環境中出現的警示，讓您知道已發生問題，也會用來偵測和停止不正確的升級。 在此情況下，我們需要查明 Resource Manager 為何一定要將複本封裝至升級網域。 例如，封裝是暫時性的，因為其他升級網域中的節點已關閉。
@@ -114,7 +105,7 @@ HealthEvents          :
 
 所有這些條件約束可能會讓您覺得：「嘿，對我的系統來說，預設網域條件約束是最重要的。 為了確保不會違反預設網域條件約束，我願意違反其他條件約束。」
 
-可以使用不同的優先順序等級來設定條件約束。 它們是：
+可以使用不同的優先順序等級來設定條件約束。 分別是：
 
    - 「硬性」(0)
    - 「彈性」(1)
@@ -183,7 +174,7 @@ ClusterManifest.xml
 ## <a name="fault-domain-and-upgrade-domain-constraints"></a>容錯網域和升級網域的條件約束
 叢集資源管理員想要保留遍佈於容錯網域和升級網域的服務。 它會將此設定為叢集資源管理員的引擎內的條件約束。 如需其使用方式及特定行為的詳細資訊，請參閱[叢集設定](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior)一文。
 
-叢集資源管理員可能需要將一些複本封裝至升級網域，以處理升級、失敗或其他條件約束違規情形。 通常，只有當系統中發生許多失敗或其他問題，導致無法正確放置時，才會封裝到容錯網域或升級網域。 如果即使在這類情況下也想要避免進行封裝，可以利用`RequireDomainDistribution`[放置原則](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)。 請注意，這可能會產生影響服務可用性和可靠性的副作用，請審慎考慮。
+叢集資源管理員可能需要將一些複本封裝至升級網域，以處理升級、失敗或其他條件約束違規情形。 通常，只有當系統中發生許多失敗或其他問題，導致無法正確放置時，才會封裝到容錯網域或升級網域。 如果您想要避免在這些情況下進行封裝，您可以利用 `RequireDomainDistribution`[放置原則](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)。 請注意，這可能會產生影響服務可用性和可靠性的副作用，請審慎考慮。
 
 如果已正確設定環境，則會完全遵守所有條件約束，甚至在升級期間也是如此。 關鍵在於叢集資源管理員會監看您的條件約束， 在偵測到違規時會立即回報，並嘗試更正問題。
 
@@ -209,4 +200,4 @@ PreferredLocation 條件約束稍有不同，因為它有兩種不同的用途�
 通常，即使叢集整體受條件約束或接近滿載，您也希望升級完成。 在升級期間，叢集容量的管理比平常更重要。 根據升級網域的數目，叢集內展開升級時，5% 到 20% 的容量必須移轉。 工作必須移至別處。 [緩衝容量](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity)的概念在此真正派上用場。 在正常作業期間，系統會採用緩衝處理的容量。 在升級期間，叢集資源管理員可能會視需要而使用到節點的所有容量 (消耗緩衝區)。
 
 ## <a name="next-steps"></a>後續步驟
-* 從頭開始，並 [取得 Service Fabric 叢集 Resource Manager 的簡介](service-fabric-cluster-resource-manager-introduction.md)
+* 從頭開始，並 [取得 Service Fabric 叢集資源管理員的簡介](service-fabric-cluster-resource-manager-introduction.md)

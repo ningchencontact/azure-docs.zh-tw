@@ -4,15 +4,15 @@ description: 針對在 Azure 虛擬機器、Service Fabric 或 雲端服務中�
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: 0a6322edccc2047ffd9d67e4e3ed113e668898da
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: facd52ea1fdaa2ad30d6b1544cb1f2d6d5833bfa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834699"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450564"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 診斷疑難排解
 本文說明有關使用 Azure 診斷的疑難排解資訊。 如需有關 Azure 診斷的詳細資訊，請參閱 [Azure 診斷概觀](diagnostics-extension-overview.md)。
@@ -28,7 +28,7 @@ ms.locfileid: "73834699"
 以下是一些重要記錄和構件的路徑。 稍後在本文中我們會參考這些資訊。
 
 ### <a name="azure-cloud-services"></a>Azure 雲端服務
-| 構件 | 路徑 |
+| 構件 | Path |
 | --- | --- |
 | **Azure 診斷組態檔** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **記錄檔** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -39,7 +39,7 @@ ms.locfileid: "73834699"
 | **MonAgentHost 記錄檔** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>虛擬機器
-| 構件 | 路徑 |
+| 構件 | Path |
 | --- | --- |
 | **Azure 診斷組態檔** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **記錄檔** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -55,7 +55,7 @@ Azure 診斷會提供計量資料，這些資料可以在 Azure 入口網站中�
 
 此處的表格 **PartitionKey** 是資源識別碼、虛擬機器或虛擬機器擴展集。 **RowKey** 是度量的名稱 (也稱為效能計數器名稱)。
 
-如果資源識別碼不正確，請檢查 [診斷組態] > [計量] > [資源識別碼]，以查看資源識別碼是否正確地設定。
+如果資源識別碼不正確，請檢查 [**診斷**設定 **] > [** **計量**] > [ **ResourceId** ]，以查看資源識別碼是否設定正確。
 
 如果沒有特定計量的資料，請檢查 [診斷組態] > [PerformanceCounter]，以查看是否包含計量 (效能計數器)。 我們預設會啟用下列計數器：
 - \Processor(_Total)\% Processor Time
@@ -90,7 +90,7 @@ Azure 診斷會提供計量資料，這些資料可以在 Azure 入口網站中�
 ```
 DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] DiagnosticPlugin exited with code 0
 ```
-如果結束代碼為「負值」，請參閱[參考](#azure-diagnostics-plugin-exit-codes)一節中的[結束代碼表格](#references)。
+如果結束代碼為「負值」，請參閱[參考](#references)一節中的[結束代碼表格](#azure-diagnostics-plugin-exit-codes)。
 
 ## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>診斷資料未記錄至 Azure 儲存體
 判斷是沒有出現任何資料，或是出現部分的資料。
@@ -166,7 +166,7 @@ Azure 儲存體中保存 ETW 事件的表格使用以下程式碼來命名：
             tableName = "WAD" + eventDestination;
 ```
 
-下列是一個範例：
+範例如下：
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">
@@ -257,7 +257,7 @@ Azure 儲存體中保存 ETW 事件的表格使用以下程式碼來命名：
 ```
 <Azure diagnostics extension package>\Monitor\x64\table2csv.exe <relevantLogFile>.tsf
 ```
-在對應的 `<relevantLogFile>.csv` 檔案所在的相同路徑中，會建立一個名為 `.tsf` 的新檔案。
+在對應的 `.tsf` 檔案所在的相同路徑中，會建立一個名為 `<relevantLogFile>.csv` 的新檔案。
 
 >[!NOTE]
 > 您只需要針對主要的 tsf 檔案 (例如 PerformanceCountersTable.tsf) 來執行此公用程式。 系統會自動處理隨附的檔案 (例如，PerformanceCountersTables_\*\*001.tsf、PerformanceCountersTables_\*\*002.tsf 等等)。

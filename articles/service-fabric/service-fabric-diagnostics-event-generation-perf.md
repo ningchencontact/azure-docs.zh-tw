@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 效能監視 | Microsoft Docs
+title: Azure Service Fabric 效能監視
 description: 了解用於監視及診斷 Azure Service Fabric 叢集的效能計數器。
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: ee1608c40801f568b38ace4670b0d5ea7f73003c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60392886"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464713"
 ---
 # <a name="performance-metrics"></a>效能度量
 
@@ -32,10 +23,10 @@ ms.locfileid: "60392886"
 | 計數器類別 | 計數器名稱 |
 | --- | --- |
 | Logical Disk | 邏輯磁碟可用空間 |
-| PhysicalDisk(per Disk) | Avg.磁碟讀取佇列長度 |
-| PhysicalDisk(per Disk) | Avg.磁碟寫入佇列長度 |
-| PhysicalDisk(per Disk) | Avg.Disk sec/Read |
-| PhysicalDisk(per Disk) | Avg.Disk sec/Write |
+| PhysicalDisk(per Disk) | 平均磁片讀取佇列長度 |
+| PhysicalDisk(per Disk) | 平均磁片寫入佇列長度 |
+| PhysicalDisk(per Disk) | Avg. Disk sec/Read |
+| PhysicalDisk(per Disk) | Avg. Disk sec/Write |
 | PhysicalDisk(per Disk) | Disk Reads/sec |
 | PhysicalDisk(per Disk) | Disk Read Bytes/sec |
 | PhysicalDisk(per Disk) | Disk Writes/sec |

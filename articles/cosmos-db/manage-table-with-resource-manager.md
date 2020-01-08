@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB 的 Azure Resource Manager 範本資料表 API
+title: Azure Cosmos DB 的 Resource Manager 範本資料表 API
 description: 使用 Azure Resource Manager 範本來建立和設定 Azure Cosmos DB 資料表 API。
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: bd30f240700ea4dcf9c9ec20b8007a4445ae35e5
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 0f3c4562fde9ac57315c72b89ed156051aea062b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960569"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445232"
 ---
 # <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本管理 Azure Cosmos DB 資料表 API 資源
 
@@ -51,7 +51,7 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2015-04-08" --ResourceGroupName $resourceGroupName).name
 ```
 
-如果您選擇使用本機安裝的 PowerShell 版本，而不是從 Azure Cloud shell，您必須[安裝](/powershell/azure/install-az-ps)Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 找出版本。
+如果您選擇使用本機安裝的 PowerShell 版本，而不是從 Azure Cloud shell，您必須[安裝](/powershell/azure/install-az-ps)Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 以尋找版本。
 
 ### <a name="deploy-via-the-azure-cli"></a>透過 Azure CLI 部署
 

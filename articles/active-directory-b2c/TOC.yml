@@ -72,12 +72,15 @@
           href: active-directory-b2c-overview-custom.md
     - name: 使用者帳戶
       href: user-overview.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 應用程式整合
       items:
-        - name: 註冊應用程式
+        - name: 註冊 OIDC 應用程式
           href: tutorial-register-applications.md
+        - name: 註冊 SAML 服務提供者
+          href: connect-with-saml-service-providers.md
+          displayName: 'SP, RP, service provider, connect'
         - name: 新增 Web API 應用程式
           href: add-web-application.md
         - name: 新增原生用戶端應用程式
@@ -160,6 +163,9 @@
               href: active-directory-b2c-reference-kmsi-custom.md
             - name: 密碼變更
               href: active-directory-b2c-reference-password-change-custom.md
+            - name: 手機註冊和登入
+              href: phone-authentication.md
+              displayName: 'otp, passwordless, phone number'
         - name: UX 自訂
           items:
             - name: 設定使用者輸入
@@ -168,6 +174,9 @@
               href: active-directory-b2c-ui-customization-custom.md
             - name: 以動態方式自訂 UI
               href: active-directory-b2c-ui-customization-custom-dynamic.md
+            - name: 自訂電子郵件
+              href: custom-email.md
+              displayName: verification
             - name: 頁面配置
               href: page-layout.md
             - name: 啟用 JavaScript
@@ -196,8 +205,10 @@
               items:
                 - name: ADFS
                   href: active-directory-b2c-custom-setup-adfs2016-idp.md
+                  displayName: SAML
                 - name: Salesforce
                   href: active-directory-b2c-setup-sf-app-custom.md
+                  displayName: SAML
         - name: 權杖和工作階段管理
           items:
             - name: 自訂權杖
@@ -244,9 +255,9 @@
                 - name: ClaimsTransformations
                   href: claimstransformations.md
                   items:
-                    - name: BOOLEAN
+                    - name: Boolean
                       href: boolean-transformations.md
-                    - name: 日期
+                    - name: Date
                       href: date-transformations.md
                     - name: 一般
                       href: general-transformations.md
@@ -254,11 +265,13 @@
                       href: integer-transformations.md
                     - name: JSON
                       href: json-transformations.md
+                    - name: 電話號碼
+                      href: phone-number-claims-transformations.md
                     - name: 外部帳戶
                       href: social-transformations.md
                     - name: StringCollection
                       href: stringcollection-transformations.md
-                    - name: 字串
+                    - name: String
                       href: string-transformations.md
                 - name: 述詞
                   href: predicates.md
@@ -277,6 +290,9 @@
                   items:
                     - name: 關於技術設定檔
                       href: technical-profiles-overview.md
+                    - name: Azure Multi-Factor Authentication
+                      href: multi-factor-auth-technical-profile.md
+                      displayName: mfa
                     - name: 宣告解析程式
                       href: claim-resolver-overview.md
                     - name: Azure Active Directory
@@ -289,6 +305,9 @@
                       href: oauth1-technical-profile.md
                     - name: OAuth2
                       href: oauth2-technical-profile.md
+                    - name: 一次密碼
+                      href: one-time-password-technical-profile.md
+                      displayName: otp
                     - name: OpenID Connect
                       href: openid-connect-technical-profile.md
                     - name: REST
@@ -301,6 +320,11 @@
                       href: active-directory-b2c-reference-sso-custom.md
                     - name: 驗證
                       href: validation-technical-profile.md
+            - name: DisplayControls
+              href: display-controls.md
+              items:
+                - name: 驗證
+                  href: display-control-verification.md
             - name: UserJourneys
               href: userjourneys.md
             - name: RelyingParty

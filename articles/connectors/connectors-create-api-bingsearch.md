@@ -1,26 +1,26 @@
 ---
 title: 連線到 Bing 搜尋
-description: 使用 Bing 搜尋 REST API 和 Azure Logic Apps 尋找新聞
+description: 使用 Azure Logic Apps 將在 Bing 搜尋中尋找結果的工作和工作流程自動化
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: c3b6cb61e2f7b91b3b1e3595da2d105c5cdb01c8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789958"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665882"
 ---
-# <a name="find-news-with-bing-search-and-azure-logic-apps"></a>使用 Bing 搜尋和 Azure Logic Apps 尋找新聞
+# <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 在 Bing 搜尋中尋找結果
 
 本文會示範如何從邏輯應用程式與 Bing 搜尋連接器，透過 Bing 搜尋尋找新聞、影片和其他項目。 這樣一來，您可以為處理搜尋結果建立可自動化工作和工作流程的邏輯應用程式，並讓這些項目可供其他動作使用。 
 
 例如，您可以根據搜尋準則尋找新聞項目，並讓 Twitter 張貼這些項目作為 Twitter 摘要中的推文。
 
-如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 如果您還不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 如果您還不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 如需連接器專屬的技術資訊，請參閱 [Bing 搜尋連接器參考](https://docs.microsoft.com/connectors/bingsearch/)。
 
 ## <a name="prerequisites"></a>必要條件
@@ -50,7 +50,7 @@ ms.locfileid: "74789958"
 
    在此範例中，針對從 Bing 搜尋傳回相符的新聞文章提供準則。
 
-   | 屬性 | 必要項 | Value | 描述 |
+   | 屬性 | 必要項 | 值 | 說明 |
    |----------|----------|-------|-------------|
    | 搜尋查詢 | 是 | <*search-words*> | 輸入您要使用的搜尋關鍵字。 |
    | 市場 | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
@@ -101,7 +101,7 @@ ms.locfileid: "74789958"
 
    在此範例中，針對傳回觸發程序結果的子集提供準則。
 
-   | 屬性 | 必要項 | Value | 描述 |
+   | 屬性 | 必要項 | 值 | 說明 |
    |----------|----------|-------|-------------|
    | 搜尋查詢 | 是 | <*search-expression*> | 輸入查詢觸發程序結果的運算式。 您可以從動態內容清單中的欄位選取，或使用運算式產生器建立運算式。 |
    | 市場 | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
@@ -148,7 +148,7 @@ ms.locfileid: "74789958"
 
 1. 當系統提示您需要連線資訊時，請提供以下詳細資料：
 
-   | 屬性 | 必要項 | Value | 描述 |
+   | 屬性 | 必要項 | 值 | 說明 |
    |----------|----------|-------|-------------|
    | 連線名稱 | 是 | <*connection-name*> | 要為連線建立的名稱 |
    | API 版本 | 是 | <*API-version*> | 依預設，Bing 搜尋 API 版本會設定為目前的版本。 您可以視需要選取較舊版本。 |
@@ -163,7 +163,7 @@ ms.locfileid: "74789958"
 
 ## <a name="connector-reference"></a>連接器參考
 
-如需如連接器的 OpenAPI （先前為 Swagger）檔案所述的技術詳細資料（例如觸發程式、動作和限制），請參閱[連接器的參考頁面](/connectors/bingsearch/)。
+如需連接器的 Swagger 檔案所敘述的技術詳細資料 (例如，觸發程序、動作和限制)，請參閱[連接器的參考頁面](/connectors/bingsearch/)。
 
 ## <a name="next-steps"></a>後續步驟
 

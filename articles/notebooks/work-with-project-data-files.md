@@ -1,18 +1,20 @@
 ---
-title: 使用 Azure Notebooks 隨專案匯入和匯出資料
-description: 如何從外部來源將資料帶入 Azure Notebooks 專案，以及如何匯出專案中的資料。
-ms.topic: article
+title: 使用 Azure Notebooks 預覽的專案匯入和匯出資料
+description: 瞭解如何將資料從外部來源帶入 Azure Notebooks 預覽專案，以及如何從專案匯出資料。
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: bd7ba27859e9d05c0d57c2f78b6449c2bc48ca33
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e1d4a52ab7f4ad2ca3438af4bc87bec0b79f34d1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277392"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646971"
 ---
-# <a name="work-with-data-files-in-azure-notebook-projects"></a>使用 Azure Notebook 專案中的資料檔案
+# <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>使用 Azure Notebooks 預覽專案中的資料檔案
 
 資料是許多的 Jupyter Notebook 的命脈，特別是用於資料科學的 Notebook。 使用 Azure Notebooks，您可以輕鬆地從各種來源匯入專案中，然後從 Notebook 使用該資料。 您也可以讓 Notebooks 產生儲存在專案中的資料，再下載用於其他地方。
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 執行中 Notebook 內的 [資料] 功能表，也提供 [上傳] 與 [下載] 命令，可使用專案中的檔案以及目前 Notebook 工作階段的暫存檔案。
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Internet Explorer 搭配 MSAL |Azure
+title: Internet Explorer 的問題（MSAL） |Azure
 titleSuffix: Microsoft identity platform
 description: 搭配 Internet Explorer 瀏覽器使用適用于 JavaScript 的 Microsoft 驗證程式庫（MSAL）。
 services: active-directory
@@ -14,14 +14,14 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 715e92a10ca0b4cbe38119931bc66d36c3b9259a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4de918d87abca521f3b573f831f8bfd6a7e17728
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916276"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424283"
 ---
-# <a name="use-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>使用 Internet Explorer 和 Microsoft Edge 瀏覽器搭配 MSAL
+# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Internet Explorer 和 Microsoft Edge 瀏覽器（MSAL）的已知問題
 
 系統會針對[JAVASCRIPT ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29)產生適用于 javascript 的 Microsoft 驗證程式庫（MSAL），讓它可以在 Internet Explorer 中執行。 不過，有幾件事需要知道。
 

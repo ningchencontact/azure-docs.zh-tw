@@ -1,18 +1,20 @@
 ---
-title: 在 Azure Notebooks 中使用 Azure Machine Learning
-description: 概述可用於 Azure Notebooks Azure Machine Learning 的範例筆記本。
-ms.topic: article
+title: 使用 Azure Notebooks Preview 中的 Azure Machine Learning
+description: 概述可用於 Azure Notebooks 預覽之 Azure Machine Learning 的範例筆記本。
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: e3c4fbdf35bf7ea1f4dddbceb9d7235c67ed13a4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3c0e0e9ccea079d7e8f4e35e9af2a0e1c1ec5051
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277447"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646947"
 ---
-# <a name="use-azure-machine-learning-in-a-notebook"></a>在筆記本中使用 Azure Machine Learning
+# <a name="use-azure-machine-learning-in-azure-notebooks-preview"></a>使用 Azure Notebooks Preview 中的 Azure Machine Learning
 
 Azure Notebooks 已預先設定為使用[Azure Machine Learning](/azure/machine-learning/service/)所需的環境。 您可以輕鬆將範例專案複製到 Notebook 帳戶，探索各種不同的 Machine Learning 服務案例。
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="clone-the-sample-into-your-account"></a>將範例複製到帳戶
 

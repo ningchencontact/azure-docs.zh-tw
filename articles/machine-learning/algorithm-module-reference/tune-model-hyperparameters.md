@@ -1,7 +1,7 @@
 ---
 title: 調整模型超參數
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的微調模型超參數模組，在模型上執行參數清除，以判斷最佳的參數設定。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的微調模型超參數模組，在模型上執行參數清除，以判斷最佳的參數設定。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 834907528e4062de583197cf91e98372b96451d7
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 3db20110571203588ac15f4f64a2ae0a6ab6ef27
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131217"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428398"
 ---
 # <a name="tune-model-hyperparameters"></a>調整模型超參數
 
@@ -155,5 +155,5 @@ ms.locfileid: "74131217"
 
 ## <a name="next-steps"></a>後續步驟
 
-查看 Azure Machine Learning 服務[可用的模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 
 

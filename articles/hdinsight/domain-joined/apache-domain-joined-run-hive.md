@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 9005b2e01cdb17d6aa6c630ec8be3d702d5b138c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ff612c43a058fce02bd801e15632c27979f22d17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688084"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435865"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>在具有企業安全性套件的 HDInsight 中設定 Apache Hive 原則
 
@@ -40,11 +40,11 @@ ms.locfileid: "74688084"
 
 ## <a name="create-domain-users"></a>建立網域使用者
 
-如需如何建立 hiveruser1 與 hiveuser2 的相關資訊，請參閱[建立具有 ESP 的 HDInsight 叢集](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp)。 在本文中，您會使用兩個使用者帳戶。
+如需如何建立 hiveruser1 與 hiveuser2 的相關資訊，請參閱[建立具有 ESP 的 HDInsight 叢集](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp)。 在本文中，您會使用兩個使用者帳戶。
 
 ## <a name="create-ranger-policies"></a>建立 Ranger 原則
 
-在這一節中，您會建立兩個 Ranger 原則以供存取 hivesampletable。 您會提供不同資料行集的選取權限。 兩個使用者都是使用[建立具有 ESP 的 HDInsight 叢集](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp)中的指示建立。 在下一節中，您將在 Excel 中測試這兩個原則。
+在這一節中，您會建立兩個 Ranger 原則以供存取 hivesampletable。 您會提供不同資料行集的選取權限。 兩個使用者都是使用[建立具有 ESP 的 HDInsight 叢集](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp)中的指示建立。 在下一節中，您將在 Excel 中測試這兩個原則。
 
 **建立 Ranger 原則**
 
@@ -52,14 +52,14 @@ ms.locfileid: "74688084"
 2. 選取 [ **Hive**] 底下的 [ **CLUSTERNAME_Hive**]。 您會看到兩個預先設定的原則。
 3. 選取 [**新增原則**]，然後輸入下列值：
 
-    |屬性 |Value |
+    |屬性 |值 |
     |---|---|
     |原則名稱|hivesampletable-全部|
-    |Hive 資料庫|預設值|
+    |Hive 資料庫|預設|
     |資料表|hivesampletable|
     |Hive 資料行|*|
     |選取使用者|hiveuser1|
-    |使用權限|選取|
+    |使用權限|select|
 
     ![HDInsight ESP Ranger Hive 原則設定](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png)。
 
@@ -70,29 +70,29 @@ ms.locfileid: "74688084"
 
 5. 重複最後兩個步驟，使用下列屬性建立另一個原則︰
 
-    |屬性 |Value |
+    |屬性 |值 |
     |---|---|
     |原則名稱|hivesampletable-devicemake|
-    |Hive 資料庫|預設值|
+    |Hive 資料庫|預設|
     |資料表|hivesampletable|
     |Hive 資料行|clientid、devicemake|
     |選取使用者|hiveuser2|
-    |使用權限|選取|
+    |使用權限|select|
 
 ## <a name="create-hive-odbc-data-source"></a>建立 Hive ODBC 資料來源
 
 在[建立 Hive ODBC 資料來源](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)中可找到相關指示。  
 
- | 屬性  |描述 |
+ | 屬性  |說明 |
  | --- | --- |
  | 資料來源名稱 | 為資料來源指定名稱 |
  | 主機 | 輸入 CLUSTERNAME.azurehdinsight.net。 例如，myHDICluster.azurehdinsight.net |
- | 連接埠 | 使用 **443** (此連接埠已從 563 變更為 443)。 |
+ | Port | 使用 **443** (此連接埠已從 563 變更為 443)。 |
  | 資料庫 | 使用**預設值** |
  | Hive 伺服器類型 | 選取 [Hive Server 2] |
  | 機制 | 選取 [Azure HDInsight 服務] |
  | HTTP 路徑 | 保留為空白。 |
- | 使用者名稱 | 輸入 hiveuser1@contoso158.onmicrosoft.com 。 更新功能變數名稱（如果不同的話）。 |
+ | 使用者名稱 | 輸入 hiveuser1@contoso158.onmicrosoft.com。 更新功能變數名稱（如果不同的話）。 |
  | 密碼 | 輸入 hiveuser1 的密碼。 |
 
 請務必先按一下 [測試]，再儲存資料來源。
@@ -150,7 +150,7 @@ ms.locfileid: "74688084"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需使用企業安全性套件設定 HDInsight 叢集，請參閱[使用 ESP 設定 HDInsight 叢集](apache-domain-joined-configure.md)。
+* 如需設定具有企業安全性套件的 HDInsight 叢集，請參閱[設定具有 ESP 的 HDInsight 叢集](apache-domain-joined-configure.md)。
 * 如需管理具有 ESP 的 HDInsight 叢集，請參閱[管理具有 ESP 的 HDInsight 叢集](apache-domain-joined-manage.md)。
 * 如需在具有 ESP 的 HDInsight 叢集上使用 SSH 執行 Hive 查詢，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)。
 * 如需使用 Hive JDBC 連接 Hive，請參閱 [使用 Hive JDBC 驅動程式連接到 Azure HDInsight 上的 Apache Hive](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)

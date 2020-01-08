@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a183dc3b318cb9d740fe91bf553dc9f0c7ec99c4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ad6c63ee15bc97ddd0ca6432f0b0f7b25a859804
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707810"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462204"
 ---
 # <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>使用 Azure RBAC 和 Azure Resource Manager 範本新增角色指派
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] 除了使用 Azure PowerShell 或 Azure CLI 以外，您還可以使用[Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)來指派角色。 如果您需要以一致性和重複的方式來部署資源，範本可以派上用場。 本文說明如何使用範本指派角色。
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] 除了使用 Azure PowerShell 或 Azure CLI 以外，您還可以使用[Azure Resource Manager 範本](../azure-resource-manager/templates/template-syntax.md)來指派角色。 如果您需要以一致性和重複的方式來部署資源，範本可以派上用場。 本文說明如何使用範本指派角色。
 
 ## <a name="get-object-ids"></a>取得物件識別碼
 
@@ -52,7 +52,7 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
-### <a name="application"></a>Application
+### <a name="application"></a>應用程式
 
 若要取得服務主體（應用程式所使用的身分識別）的識別碼，您可以使用[new-azadserviceprincipal](/powershell/module/az.resources/get-azadserviceprincipal)或[az ad sp list](/cli/azure/ad/sp#az-ad-sp-list)命令。 針對服務主體，請使用物件識別碼，而**不**是應用程式識別碼。
 
@@ -362,6 +362,6 @@ az group deployment create --resource-group ExampleGroup2 --template-file rbac-t
 ## <a name="next-steps"></a>後續步驟
 
 - [快速入門：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
-- [了解 Azure Resource Manager 範本的的結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)
+- [了解 Azure Resource Manager 範本的的結構和語法](../azure-resource-manager/templates/template-syntax.md)
 - [在訂用帳戶層級建立資源群組和資源](../azure-resource-manager/deploy-to-subscription.md)
 - [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=rbac)

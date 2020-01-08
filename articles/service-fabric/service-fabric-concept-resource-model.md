@@ -1,18 +1,14 @@
 ---
-title: Azure Service Fabric 應用程式資源模型 |Microsoft Docs
+title: Azure Service Fabric 應用程式資源模型
 description: 本文概述如何使用 Azure Resource Manager 管理 Azure Service Fabric 應用程式
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.author: atsenthi
-ms.openlocfilehash: b9a3534c24649e71385cd8fdc8b4981ac471cf90
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: MT
+ms.openlocfilehash: b3cf0b8f21565a8d51b16ff6c8b4c52bbfe8edc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752309"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464815"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>什麼是 Service Fabric 應用程式資源模型？
 建議您透過 Azure Resource Manager，將 Service Fabric 應用程式部署到您的 Service Fabric 叢集。 這個方法可讓您以 JSON 描述應用程式和服務，並將它們部署在與叢集相同的 Resource Manager 範本中。 相對於透過 PowerShell 或 Azure CLI 來部署和管理應用程式，不需要等待叢集準備就緒。 應用程式註冊、佈建和部署程序全都可以透過一個步驟完成。 這是在叢集中管理應用程式生命週期的最佳做法。 如需詳細資訊，請參閱[最佳做法](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources)。
@@ -72,12 +68,12 @@ ms.locfileid: "72752309"
 >
 >
 
-| 參數              | 描述                                 | 範例                                                      | 註解                                                     |
+| 參數              | 說明                                 | 範例                                                      | 註解                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | 您正在部署的叢集名稱 | sf-cluster123                                                |                                                              |
 | 應用程式            | 應用程式的名稱                 | 投票                                                       |
 | applicationTypeName    | 應用程式的類型名稱           | VotingType                                                   | 必須符合 ApplicationManifest 中的內容                 |
-| ApplicationTypeVersion | 應用程式類型的版本         | 1.0.0                                                        | 必須符合 ApplicationManifest 中的內容                 |
+| applicationTypeVersion | 應用程式類型的版本         | 1.0.0                                                        | 必須符合 ApplicationManifest 中的內容                 |
 | serviceName            | 服務的服務名稱         | 投票 ~ VotingWeb                                             | 的格式必須為 ApplicationName ~ ServiceType            |
 | serviceTypeName        | 服務的類型名稱                | VotingWeb                                                    | 必須符合 ServiceManifest 中的內容                 |
 | appPackageUrl          | 應用程式的 blob 儲存體 URL     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | Blob 儲存體中應用程式封裝的 URL （設定此項的程式如下所述） |

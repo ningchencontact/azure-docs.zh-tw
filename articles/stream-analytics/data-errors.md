@@ -1,28 +1,27 @@
 ---
-title: Azure Stream Analytics 的診斷記錄資料錯誤
-description: 這篇文章會說明不同的輸入和輸出資料錯誤時使用 Azure Stream Analytics 可能發生的。
-services: stream-analytics
+title: Azure 串流分析診斷記錄資料錯誤
+description: 本文說明使用 Azure 串流分析時可能發生的不同輸入和輸出資料錯誤。
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: ecc7077bf208adf1ac89adcce2f2e480ce34888e
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 0546464b4d1bcc9eaa4fbffe265486985d9c58f3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329589"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465021"
 ---
-# <a name="azure-stream-analytics-data-errors"></a>Azure Stream Analytics 資料錯誤
+# <a name="azure-stream-analytics-data-errors"></a>Azure 串流分析資料錯誤
 
-資料錯誤是在處理資料時所發生的錯誤。  這些錯誤通常發生在資料還原序列化，序列化期間，和寫入作業。  發生資料錯誤時，Stream Analytics 就會寫入至診斷記錄的詳細的資訊和範例的事件。  在某些情況下，這項資訊的摘要也提供透過入口網站的通知。
+資料錯誤是處理資料時所發生的錯誤。  這些錯誤通常會在資料還原序列化、序列化和寫入作業期間發生。  發生資料錯誤時，串流分析會將詳細的資訊和範例事件寫入診斷記錄中。  在某些情況下，也會透過入口網站通知來提供這項資訊的摘要。
 
-本文章概述各種錯誤類型、 原因和診斷記錄的輸入和輸出資料錯誤的詳細資料。
+本文概述輸入和輸出資料錯誤的不同錯誤類型、原因和診斷記錄詳細資料。
 
-## <a name="diagnostic-log-schema"></a>診斷記錄結構描述
+## <a name="diagnostic-log-schema"></a>診斷記錄架構
 
-請參閱[使用診斷記錄檔中疑難排解 Azure Stream Analytics](stream-analytics-job-diagnostic-logs.md#diagnostics-logs-schema)以查看診斷記錄檔的結構描述。 下列 JSON 是範例值**屬性**了資料錯誤的診斷記錄的欄位。
+請參閱[使用診斷記錄來針對 Azure 串流分析進行疑難排解](stream-analytics-job-diagnostic-logs.md#diagnostics-logs-schema)，以查看診斷記錄的架構。 下列 JSON 是資料錯誤之診斷記錄的 [**屬性**] 欄位的範例值。
 
 ```json
 {
@@ -38,16 +37,16 @@ ms.locfileid: "67329589"
 }
 ```
 
-## <a name="input-data-errors"></a>輸入的資料錯誤
+## <a name="input-data-errors"></a>輸入資料錯誤
 
 ### <a name="inputdeserializererrorinvalidcompressiontype"></a>InputDeserializerError.InvalidCompressionType
 
-* 原因：選取的輸入的壓縮類型不符合的資料。
+* 原因：選取的輸入壓縮類型不符合資料。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
-* 影響：從輸入會捨棄任何包含無效的壓縮類型的還原序列化錯誤的訊息。
+* 影響：具有任何還原序列化錯誤的訊息（包括不正確壓縮類型）都會從輸入中卸載。
 * 記錄詳細資料
-   * 輸入訊息識別項。 事件中樞的識別項是 PartitionId、 位移和序號。
+   * 輸入訊息識別碼。 對於事件中樞，識別碼為 PartitionId、Offset 和序號。
 
 **錯誤訊息**
 
@@ -57,13 +56,13 @@ ms.locfileid: "67329589"
 
 ### <a name="inputdeserializererrorinvalidheader"></a>InputDeserializerError.InvalidHeader
 
-* 原因：輸入資料的標頭無效。 例如，CSV 都有名稱重複的資料行。
+* 原因：輸入資料的標頭無效。 例如，CSV 具有名稱重複的資料行。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
-* 影響：包含無效的標頭的任何還原序列化錯誤的訊息會從輸入卸除。
+* 影響：具有任何還原序列化錯誤的訊息（包括不正確標頭）會從輸入中卸載。
 * 記錄詳細資料
-   * 輸入訊息識別項。 
-   * 實際最多幾 kb 的承載。
+   * 輸入訊息識別碼。 
+   * 實際的承載，最多可達 kb。
 
 **錯誤訊息**
 
@@ -73,14 +72,14 @@ ms.locfileid: "67329589"
 
 ### <a name="inputdeserializererrormissingcolumns"></a>InputDeserializerError.MissingColumns
 
-* 原因：搭配 CREATE TABLE 或透過時間戳記所定義的輸入資料行不存在。
+* 原因：以 CREATE TABLE 或透過時間戳記所定義的輸入資料行不存在。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
-* 影響：從輸入會捨棄具有遺失的資料行的事件。
+* 影響：遺漏資料行的事件會從輸入中卸載。
 * 記錄詳細資料
-   * 輸入訊息識別項。 
+   * 輸入訊息識別碼。 
    * 遺漏的資料行名稱。 
-   * 實際最多幾 kb 的承載。
+   * 實際的承載，最多可達數 kb。
 
 **錯誤訊息**
 
@@ -94,13 +93,13 @@ ms.locfileid: "67329589"
 
 ### <a name="inputdeserializererrortypeconversionerror"></a>InputDeserializerError.TypeConversionError
 
-* 原因：無法將輸入轉換成 CREATE TABLE 陳述式中指定的類型。
+* 原因：無法將輸入轉換成 CREATE TABLE 語句中指定的類型。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
-* 影響：從輸入會捨棄具有類型轉換錯誤的事件。
+* 影響：類型轉換錯誤的事件會從輸入中卸載。
 * 記錄詳細資料
-   * 輸入訊息識別項。 
-   * 預期的類型與資料行的名稱。
+   * 輸入訊息識別碼。 
+   * 資料行的名稱和預期的類型。
 
 **錯誤訊息**
 
@@ -112,15 +111,15 @@ ms.locfileid: "67329589"
 "Message": "Unable to convert column: dateColumn to expected type."
 ```
 
-### <a name="inputdeserializererrorinvaliddata"></a>InputDeserializerError.InvalidData
+### <a name="inputdeserializererrorinvaliddata"></a>InputDeserializerError. Fileshare invaliddata
 
-* 原因：輸入的資料不正確的格式。 例如，輸入不是有效的 JSON。
+* 原因：輸入資料的格式不正確。 例如，輸入不是有效的 JSON。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
-* 影響：從輸入，會卸除無效的資料錯誤發生後的訊息中的所有事件。
+* 影響：遇到不正確資料錯誤之後，訊息中的所有事件都會從輸入中卸載。
 * 記錄詳細資料
-   * 輸入訊息識別項。 
-   * 實際最多幾 kb 的承載。
+   * 輸入訊息識別碼。 
+   * 實際的承載，最多可達 kb。
 
 **錯誤訊息**
 
@@ -134,14 +133,14 @@ ms.locfileid: "67329589"
 
 ### <a name="invalidinputtimestamp"></a>InvalidInputTimeStamp
 
-* 原因：TIMESTAMP BY 運算式的值無法轉換成日期時間。
+* 原因： TIMESTAMP BY 運算式的值無法轉換成 datetime。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
-* 影響：從輸入會捨棄無效的輸入時間戳記的事件。
+* 影響：具有無效輸入時間戳記的事件會從輸入中卸載。
 * 記錄詳細資料
-   * 輸入訊息識別項。 
+   * 輸入訊息識別碼。 
    * 錯誤訊息。 
-   * 實際最多幾 kb 的承載。
+   * 實際的承載，最多可達 kb。
 
 **錯誤訊息**
 
@@ -151,12 +150,12 @@ ms.locfileid: "67329589"
 
 ### <a name="invalidinputtimestampkey"></a>InvalidInputTimeStampKey
 
-* 原因：TIMESTAMP BY OVER timestampColumn 的值是 NULL。
+* 原因： [透過 timestampColumn 的時間戳記] 的值是 Null。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
-* 影響：從輸入會捨棄具有無效的輸入時間戳記索引鍵的事件。
+* 影響：具有無效輸入時間戳記索引鍵的事件會從輸入中卸載。
 * 記錄詳細資料
-   * 最多幾 kb 實際的承載。
+   * 實際的承載，最多可達 kb。
 
 **錯誤訊息**
 
@@ -166,13 +165,13 @@ ms.locfileid: "67329589"
 
 ### <a name="lateinputevent"></a>LateInputEvent
 
-* 原因：應用程式的時間與抵達時間之間的差異大於延遲傳入容錯時間。
+* 原因：應用程式時間與抵達時間之間的差異大於延遲抵達容錯時段。
 * 提供的入口網站通知：否
 * 診斷記錄層級：資訊
-* 影響：延遲輸入的事件會根據 「 處理其他事件 」 來處理設定在事件排序作業的組態區段。 如需詳細資訊，請參閱[時間處理原則](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
+* 影響：延遲輸入事件會根據作業設定的事件順序區段中的 [處理其他事件] 設定來處理。 如需詳細資訊，請參閱[時間處理原則](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
 * 記錄詳細資料
-   * 應用時間與抵達時間。 
-   * 實際最多幾 kb 的承載。
+   * 應用程式時間和抵達時間。 
+   * 實際的承載，最多可達 kb。
 
 **錯誤訊息**
 
@@ -182,13 +181,13 @@ ms.locfileid: "67329589"
 
 ### <a name="earlyinputevent"></a>EarlyInputEvent
 
-* 原因：應用程式的時間與抵達時間之間的差異是 5 分鐘以上。
+* 原因：應用程式時間與抵達時間之間的差異大於5分鐘。
 * 提供的入口網站通知：否
 * 診斷記錄層級：資訊
-* 影響：早期輸入的事件會根據 「 處理其他事件 」 來處理設定在事件排序作業的組態區段。 如需詳細資訊，請參閱[時間處理原則](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
+* 影響：早期輸入事件會根據作業設定的事件順序區段中的 [處理其他事件] 設定來處理。 如需詳細資訊，請參閱[時間處理原則](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
 * 記錄詳細資料
-   * 應用時間與抵達時間。 
-   * 實際最多幾 kb 的承載。
+   * 應用程式時間和抵達時間。 
+   * 實際的承載，最多可達 kb。
 
 **錯誤訊息**
 
@@ -198,12 +197,12 @@ ms.locfileid: "67329589"
 
 ### <a name="outoforderevent"></a>OutOfOrderEvent
 
-* 原因：事件會被視為根據所定義的順序錯亂容許視窗按順序。
+* 原因：根據定義的順序不按照順序來考慮事件。
 * 提供的入口網站通知：否
 * 診斷記錄層級：資訊
-* 影響：根據 「 處理其他事件 」 會處理事件的順序設定在事件工作組態的 [訂購] 區段。 如需詳細資訊，請參閱[時間處理原則](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
+* 影響：根據作業設定的事件順序區段中的 [處理其他事件] 設定，處理順序不好的事件。 如需詳細資訊，請參閱[時間處理原則](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
 * 記錄詳細資料
-   * 實際最多幾 kb 的承載。
+   * 實際的承載，最多可達 kb。
 
 **錯誤訊息**
 
@@ -215,12 +214,12 @@ ms.locfileid: "67329589"
 
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
 
-* 原因：所需的輸出資料行不存在。 比方說，資料行定義為 Azure 資料表 PartitionKey 不存在。
+* 原因：輸出所需的資料行不存在。 例如，定義為 Azure 資料表 PartitionKey 不的資料行存在。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
-* 影響：根據處理的所有輸出資料轉換錯誤包括遺漏必要的資料行[輸出資料原則](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)設定。
+* 影響：所有輸出資料轉換錯誤（包括遺漏必要資料行）都會根據[輸出資料原則](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)設定進行處理。
 * 記錄詳細資料
-   * 名稱資料行和資料錄的識別項或記錄的一部分。
+   * 資料行的名稱，以及記錄識別碼或記錄的一部分。
 
 **錯誤訊息**
 
@@ -230,12 +229,12 @@ ms.locfileid: "67329589"
 
 ### <a name="outputdataconversionerrorcolumnnameinvalid"></a>OutputDataConversionError.ColumnNameInvalid
 
-* 原因：資料行的值不符合的輸出。 例如，資料行名稱不是有效的 Azure 資料表資料行。
+* 原因：資料行值不符合輸出。 例如，資料行名稱不是有效的 Azure 資料表資料行。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
-* 影響：包含無效的資料行名稱所有的輸出資料轉換錯誤的處理根據[輸出資料原則](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)設定。
+* 影響：所有輸出資料轉換錯誤（包括不正確資料行名稱）都會根據[輸出資料原則](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)設定進行處理。
 * 記錄詳細資料
-   * 名稱資料行和記錄識別碼或記錄的一部分。
+   * 資料行的名稱，以及記錄識別碼或部分記錄。
 
 **錯誤訊息**
 
@@ -245,13 +244,13 @@ ms.locfileid: "67329589"
 
 ### <a name="outputdataconversionerrortypeconversionerror"></a>OutputDataConversionError.TypeConversionError
 
-* 原因：資料行無法轉換成有效的型別，在輸出中。 例如，資料行的值是與條件約束或 SQL 資料表中定義的類型不相容。
+* 原因：無法將資料行轉換成輸出中的有效類型。 例如，資料行的值與 SQL 資料表中定義的條件約束或類型不相容。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
-* 影響：根據處理的所有輸出資料轉換錯誤包括型別轉換錯誤[輸出資料原則](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)設定。
+* 影響：所有輸出資料轉換錯誤（包括類型轉換錯誤）都會根據[輸出資料原則](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)設定進行處理。
 * 記錄詳細資料
    * 資料行的名稱。
-   * 記錄識別碼或記錄的一部分。
+   * 記錄識別碼或部分記錄。
 
 **錯誤訊息**
 
@@ -261,12 +260,12 @@ ms.locfileid: "67329589"
 
 ### <a name="outputdataconversionerrorrecordexceededsizelimit"></a>OutputDataConversionError.RecordExceededSizeLimit
 
-* 原因：訊息的值大於支援的輸出大小。 例如，記錄是大於 1 MB，做為事件中樞輸出。
+* 原因：訊息的值大於支援的輸出大小。 例如，事件中樞輸出的記錄大於 1 MB。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
-* 影響：處理包括記錄超過的大小限制所有的輸出資料轉換錯誤的根據[輸出資料原則](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)設定。
+* 影響：會根據[輸出資料原則](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)設定來處理所有輸出資料轉換錯誤，包括超過記錄的大小限制。
 * 記錄詳細資料
-   * 記錄識別碼或記錄的一部分。
+   * 記錄識別碼或部分記錄。
 
 **錯誤訊息**
 
@@ -276,13 +275,13 @@ ms.locfileid: "67329589"
 
 ### <a name="outputdataconversionerrorduplicatekey"></a>OutputDataConversionError.DuplicateKey
 
-* 原因：記錄已經包含具有相同名稱的系統資料行的資料行。 比方說，CosmosDB 輸出資料行識別碼資料行是以不同的資料行名為 ID。
+* 原因：記錄已經包含與系統資料行同名的資料行。 例如，當 ID 資料行指向不同的資料行時，CosmosDB 具有名為 ID 之資料行的輸出。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
-* 影響：根據處理的所有輸出資料轉換錯誤包括重複的索引鍵[輸出資料原則](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)設定。
+* 影響：所有包含重複索引鍵的輸出資料轉換錯誤都會根據[輸出資料原則](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)設定進行處理。
 * 記錄詳細資料
    * 資料行的名稱。
-   * 記錄識別碼或記錄的一部分。
+   * 記錄識別碼或部分記錄。
 
 ```json
 "BriefMessage": "Column 'devicePartitionKey' is being mapped to multiple columns."
@@ -290,6 +289,6 @@ ms.locfileid: "67329589"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用診斷記錄進行疑難排解 Azure Stream Analytics](stream-analytics-job-diagnostic-logs.md)
+* [使用診斷記錄針對 Azure 串流分析進行疑難排解](stream-analytics-job-diagnostic-logs.md)
 
-* [了解 Stream Analytics 作業的監視，以及如何監視查詢](stream-analytics-monitoring.md)
+* [瞭解串流分析作業監視，以及如何監視查詢](stream-analytics-monitoring.md)

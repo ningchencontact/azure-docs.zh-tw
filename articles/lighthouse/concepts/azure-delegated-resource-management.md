@@ -3,12 +3,12 @@ title: Azure 委派的資源管理
 description: 受控服務供應項目能允許服務提供者在 Azure Marketplace 中向客戶銷售資源管理供應項目。
 ms.date: 07/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: ccbd09cd51216f9076e3b5bd462ee2180ac8f3ab
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 2baa66acb4abc250ff69a1560f1bc6fe9a531ba8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464017"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453634"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure 委派的資源管理
 
@@ -33,7 +33,7 @@ Azure 委派的資源管理可讓使用者以邏輯方式將資源從某個租�
 
 概括而言，以下是 Azure 委派的資源管理的運作方式：
 
-1. 身為服務提供者，您會識別您的群組、服務主體或使用者管理客戶 Azure 資源所需的存取權 (角色)。 存取權定義包含服務提供者的租用戶識別碼，以及適用於該供應項目的必要存取權，這是使用來自您的租用戶並對應至**內建** roleDefinition[ 值 **\(部分機器翻譯\) 的**principalId](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 身分識別 (參與者、VM 參與者、讀者等) 來定義的。
+1. 身為服務提供者，您會識別您的群組、服務主體或使用者管理客戶 Azure 資源所需的存取權 (角色)。 存取權定義包含服務提供者的租用戶識別碼，以及適用於該供應項目的必要存取權，這是使用來自您的租用戶並對應至[內建 **roleDefinition** 值](../../role-based-access-control/built-in-roles.md) \(部分機器翻譯\) 的 **principalId** 身分識別 (參與者、VM 參與者、讀者等) 來定義的。
 2. 您會以下列其中一種方式來指定此存取權並將客戶上線至 Azure 委派的資源管理：
    - [發佈 Azure Marketplace 受控服務供應項目](../how-to/publish-managed-services-offers.md) (私人或公用) 並由客戶接受
    - 針對一或多個特定訂用帳戶或資源群組[將 Azure Resource Manager 範本部署至客戶的租用戶](../how-to/onboard-customer.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 23a3a2629c6f2f89c4b8f6d5af57bcf3b6bb67dd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 63f386212b0277c3b5ee383e707d4c32fa4e63fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214919"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428839"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>適用于公用基本 Load Balancer 的 Azure 監視器記錄
 
@@ -87,7 +87,7 @@ ms.locfileid: "74214919"
 
 11. 確認一切看起來正確，然後按一下 [建立**診斷設定**] 窗格頂端的 [**儲存**]。
 
-## <a name="activity-log"></a>活動記錄檔
+## <a name="activity-log"></a>活動記錄
 
 預設會產生活動記錄。 記錄會在 Azure 的 [事件記錄] 存放區中保留 90 天。 若要深入瞭解這些記錄，請閱讀[View 活動記錄以監視資源上的動作](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)一文。
 
@@ -171,7 +171,7 @@ JSON 輸出在屬性欄位中顯示了探查健全狀況狀態的基本資訊。
 > 如果您熟悉 Visual Studio 以及在 C# 中變更常數和變數值的基本概念，您可以使用 GitHub 所提供的[記錄檔轉換器工具 (英文)](https://github.com/Azure-Samples/networking-dotnet-log-converter)。
 
 ## <a name="stream-to-an-event-hub"></a>串流至事件中樞
-當診斷資訊串流處理到事件中樞時，它可以用於具有 Azure 監視器整合之協力廠商 SIEM 工具中的集中式記錄分析。 如需詳細資訊，請參閱[將 Azure 監視資料串流至事件中樞](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#tools-with-azure-monitor-integration)
+當診斷資訊串流處理到事件中樞時，它可以用於具有 Azure 監視器整合之協力廠商 SIEM 工具中的集中式記錄分析。 如需詳細資訊，請參閱[將 Azure 監視資料串流至事件中樞](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>傳送至 Log Analytics
 Azure 中的資源可以將其診斷資訊直接傳送至 Log Analytics 工作區，其中可以針對疑難排解和分析的資訊執行複雜的查詢。  如需詳細資訊，請參閱[在 Log Analytics 工作區中收集 Azure 資源記錄 Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)

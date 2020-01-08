@@ -1,20 +1,18 @@
 ---
 title: 在 Visual Studio 中檢視 Azure 串流分析工作
 description: 瞭解如何使用 Visual Studio 來觀看、啟動和停止、測試連線、檢查結果，以及匯出您的 Azure 串流分析作業。
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: d73955436e651dfdb9db9d602481213fcc2cf502
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ad35ed342dfd40b98d61919749479ec5612cdd4f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893545"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369621"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>使用 Visual Studio 檢視 Azure 串流分析工作
 

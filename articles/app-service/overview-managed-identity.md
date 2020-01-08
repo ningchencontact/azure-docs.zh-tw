@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 6fa8e560dc50859fc0501dde8109ddc7cbd596b8
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: f341f5bbf7221664301ca53eea1edd6af7544950
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688624"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422024"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用 App Service 和 Azure Functions 的受控身分識別
 
@@ -38,9 +38,9 @@ ms.locfileid: "74688624"
 
 3. 選取 [身分**識別**]。
 
-4. 在 [系統指派] 索引標籤內，將 [狀態] 切換為 [開啟]。 按一下 [儲存]。
+4. 在 [系統指派] 索引標籤內，將 [狀態] 切換為 [開啟]。 按一下 [檔案]。
 
-    ![App Service 中的受控身分識別](media/app-service-managed-service-identity/msi-blade-system.png)
+    ![App Service 中的受控身分識別](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 ### <a name="using-the-azure-cli"></a>使用 Azure CLI
 
@@ -77,7 +77,7 @@ ms.locfileid: "74688624"
 
 下列步驟將逐步引導您建立 Web 應用程式，並使用 Azure PowerShell 指派身分識別給它：
 
-1. 您可以視需要使用 [Azure PowerShell 指南 (英文)](/powershell/azure/overview) 中的指示來安裝 Azure PowerShell，然後執行 `Login-AzAccount` 來建立與 Azure 的連線。
+1. 您可以視需要使用 [Azure PowerShell 指南](/powershell/azure/overview) \(英文\) 中的指示來安裝 Azure PowerShell，然後執行 `Login-AzAccount` 來建立與 Azure 的連線。
 
 2. 使用 Azure PowerShell 建立 Web 應用程式。 如需更多如何使用 Azure PowerShell 搭配 App Service 的相關範例，請參閱 [App Service PowerShell 範例](../app-service/samples-powershell.md)：
 
@@ -169,7 +169,7 @@ ms.locfileid: "74688624"
 
 6. 搜尋您之前建立的身分識別，並加以選取。 按一下 [新增]。
 
-    ![App Service 中的受控身分識別](media/app-service-managed-service-identity/msi-blade-user.png)
+    ![App Service 中的受控身分識別](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
 ### <a name="using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本
 
@@ -251,11 +251,11 @@ ms.locfileid: "74688624"
 
 **MSI_ENDPOINT** 是應用程式要求權杖的來源本機 URL。 若要取得資源的權杖，請向該端點提出包含以下參數的 HTTP GET 要求：
 
-> |參數名稱|在|描述|
+> |參數名稱|在|說明|
 > |-----|-----|-----|
-> |資源|查詢|資源的 AAD 資源 URI，也就是要取得權杖的目標資源。 這可能是其中一個[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)，或任何其他資源 URI。|
+> |resource|查詢|資源的 AAD 資源 URI，也就是要取得權杖的目標資源。 這可能是其中一個[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)，或任何其他資源 URI。|
 > |api-version|查詢|要使用的權杖 API 版本。 目前唯一支援的版本為 "2017-09-01"。|
-> |secret|標頭|MSI_SECRET 環境變數的值。 此標頭用來協助減輕伺服器端要求偽造 (SSRF) 攻擊。|
+> |secret|頁首|MSI_SECRET 環境變數的值。 此標頭用來協助減輕伺服器端要求偽造 (SSRF) 攻擊。|
 > |clientid|查詢|（除非為使用者指派，否則為選擇性）要使用之使用者指派身分識別的識別碼。 如果省略，則使用系統指派的身分識別。|
 
 > [!IMPORTANT]
@@ -263,11 +263,11 @@ ms.locfileid: "74688624"
 
 成功的 200 OK 回應包括含以下屬性的 JSON 本文：
 
-> |屬性名稱|描述|
+> |屬性名稱|說明|
 > |-------------|----------|
 > |access_token|所要求的存取權杖。 呼叫端 Web 服務可以使用此權杖來向接收端 Web 服務進行驗證。|
 > |expires_on|存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。|
-> |資源|接收端 Web 服務的應用程式識別碼 URI。|
+> |resource|接收端 Web 服務的應用程式識別碼 URI。|
 > |token_type|表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 如需持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖用法 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)。|
 
 該回應與 [AAD 服務對服務存取權杖要求的回應](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)。

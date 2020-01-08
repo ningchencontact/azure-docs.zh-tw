@@ -1,25 +1,14 @@
 ---
-title: 說明 Azure Service Fabric 應用程式和服務 | Microsoft Docs
+title: 描述 Azure Service Fabric 應用程式和服務
 description: 說明如何使用資訊清單來描述 Service Fabric 應用程式和服務。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/12/2019
-ms.author: atsenthi
-ms.openlocfilehash: a5e452bf3dc9f35c345a5f27af829904b4839ece
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977118"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349971"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 應用程式和服務資訊清單
 本文說明如何使用 ApplicationManifest.xml 和 ServiceManifest.xml 檔案來定義 Service Fabric 應用程式和服務及設定其版本。  如需更詳細的範例，請參閱[應用程式和服務資訊清單範例](service-fabric-manifest-examples.md)。  這些資訊清單檔的 XML 結構描述記載於 [ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)中。
@@ -74,7 +63,7 @@ ms.locfileid: "68977118"
 
 **EntryPoint** 指定的可執行檔通常是長時間執行的服務主機。 **SetupEntryPoint** 是以與 Service Fabric 相同的認證執行的特殊權限進入點 (通常 *LocalSystem* 帳戶)，優先於任何其他進入點。  有個別設定的進入點，就不需要使用較高權限來長時間執行服務主機。 **EntryPoint** 指定的可執行檔是在 **SetupEntryPoint** 成功結束之後執行。 如果程序曾經終止或當機，則產生的程序會受到監視並重新啟動 (以 **SetupEntryPoint**再次開始)。  
 
-使用 **SetupEntryPoint** 的一般案例，是當您在服務啟動之前執行可執行檔，或使用提高的權限來執行作業時。 例如:
+使用 **SetupEntryPoint** 的一般案例，是當您在服務啟動之前執行可執行檔，或使用提高的權限來執行作業時。 例如：
 
 * 設定及初始化服務可執行檔需要的環境變數。 這不限於透過 Service Fabric 程式設計模型撰寫的執行檔。 例如，npm.exe 部署 node.js 應用程式，需要設定某些環境變數。
 * 透過安裝安全性憑證設定存取控制。
@@ -85,7 +74,7 @@ ms.locfileid: "68977118"
 
 **DataPackage** (未設定於前一個範例中) 會宣告 **Name** 屬性所命名的資料夾，包含由程序在執行階段使用的任意靜態資料。
 
-**ConfigPackage** 宣告 **Name** 屬性所命名的資料夾，其中包含 *Settings.xml* 檔案。 設定檔案包含程序在執行階段讀回的使用者定義、成對的索引鍵/值設定等區段。 在升級期間，如果只有 **ConfigPackage** **版本**已變更，則不會重新啟動執行中程序。 相反地，回呼會通知程序組態設定已變更，因此它們可以動態方式重新載入。 以下是 *Settings.xml* 檔案的範例：
+**ConfigPackage** 宣告 **Name** 屬性所命名的資料夾，其中包含 *Settings.xml* 檔案。 設定檔案包含程序在執行階段讀回的使用者定義、成對的索引鍵/值設定等區段。 在升級期間，如果只有**ConfigPackage** **版本**已變更，則不會重新開機執行中的進程。 相反地，回呼會通知程序組態設定已變更，因此它們可以動態方式重新載入。 以下是 *Settings.xml* 檔案的範例：
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -96,11 +85,11 @@ ms.locfileid: "68977118"
 </Settings>
 ```
 
-Service Fabric 服務**端點**是 Service Fabric 資源的範例。 Service Fabric 的資源可以宣告/變更, 而不需要變更已編譯的程式碼。 透過應用程式資訊清單中的 **SecurityGroup**，即可控制存取服務資訊清單中指定的 Service Fabric 資源。 在服務資訊清單中定義端點資源時，若沒有明確指定連接埠，Service Fabric 會從保留的應用程式連接埠範圍指派連接埠。 深入了解[指定或覆寫端點資源](service-fabric-service-manifest-resources.md)。
+Service Fabric 服務**端點**是 Service Fabric 資源的範例。 Service Fabric 的資源可以宣告/變更，而不需要變更已編譯的程式碼。 透過應用程式資訊清單中的 **SecurityGroup**，即可控制存取服務資訊清單中指定的 Service Fabric 資源。 在服務資訊清單中定義端點資源時，若沒有明確指定連接埠，Service Fabric 會從保留的應用程式連接埠範圍指派連接埠。 深入了解[指定或覆寫端點資源](service-fabric-service-manifest-resources.md)。
 
  
 > [!WARNING]
-> 依照設計, 靜態埠不應該與 ClusterManifest 中指定的應用程式埠範圍重迭。 如果您指定靜態通訊埠, 請在應用程式埠範圍外指派它, 否則會導致埠衝突。 在 release 6.5 CU2 中, 我們會在偵測到這類衝突時發出**健全狀況警告**, 但讓部署繼續與隨附的6.5 行為同步。 不過, 我們可能會防止應用程式部署到下一個主要版本。
+> 依照設計，靜態埠不應該與 ClusterManifest 中指定的應用程式埠範圍重迭。 如果您指定靜態通訊埠，請在應用程式埠範圍外指派它，否則會導致埠衝突。 在 release 6.5 CU2 中，我們會在偵測到這類衝突時發出**健全狀況警告**，但讓部署繼續與隨附的6.5 行為同步。 不過，我們可能會防止應用程式部署到下一個主要版本。
 >
 
 <!--
@@ -168,12 +157,12 @@ For more information about other features supported by service manifests, refer 
 
 **Certificates** (未設定於前一個範例中) 會宣告用來[設定 HTTPS 端點](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service)或[在應用程式資訊清單中加密密碼](service-fabric-application-secret-management.md)。
 
-**放置條件約束**是定義服務應在何處執行的語句。 這些語句會附加至您為一個或多個節點屬性選取的個別服務。 如需詳細資訊, 請參閱[放置條件約束和節點屬性語法](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
+**放置條件約束**是定義服務應在何處執行的語句。 這些語句會附加至您為一個或多個節點屬性選取的個別服務。 如需詳細資訊，請參閱[放置條件約束和節點屬性語法](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
 
-**原則**(在上述範例中未設定) 描述要在應用層級設定的記錄集合、[預設執行](service-fabric-application-runas-security.md)身分、[健康](service-fabric-health-introduction.md#health-policies)情況和[安全性存取](service-fabric-application-runas-security.md)原則, 包括服務是否可存取 Service Fabric 執行時間。
+**原則**（在上述範例中未設定）描述要在應用層級設定的記錄集合、[預設執行](service-fabric-application-runas-security.md)身分、[健康](service-fabric-health-introduction.md#health-policies)情況和[安全性存取](service-fabric-application-runas-security.md)原則，包括服務是否可存取 Service Fabric 執行時間。
 
 > [!NOTE] 
-> 根據預設, Service Fabric 應用程式可以存取 Service Fabric 執行時間, 其格式為接受應用程式特定要求的端點, 以及指向包含網狀架構和應用程式特定檔案之主機上檔案路徑的環境變數. 當應用程式裝載不受信任的程式碼 (也就是來源不明或應用程式擁有者知道不安全執行的程式碼) 時, 請考慮停用此存取。 如需詳細資訊, 請參閱[Service Fabric 中的安全性最佳做法](service-fabric-best-practices-security.md#platform-isolation)。 
+> 根據預設，Service Fabric 應用程式可以存取 Service Fabric 執行時間，其格式為接受應用程式特定要求的端點，以及指向包含網狀架構和應用程式特定檔案之主機上檔案路徑的環境變數. 當應用程式裝載不受信任的程式碼（也就是來源不明或應用程式擁有者知道不安全執行的程式碼）時，請考慮停用此存取。 如需詳細資訊，請參閱[Service Fabric 中的安全性最佳做法](service-fabric-best-practices-security.md#platform-isolation)。 
 >
 
 **Principals** (未設定於前一個範例中) 說明[執行服務和保護服務資源](service-fabric-application-runas-security.md)所需的安全性主體 (使用者或群組)。  主體會在 **Policies** 區段中參考。

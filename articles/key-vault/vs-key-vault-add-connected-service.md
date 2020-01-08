@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 1df0ff3b6fea335dde5a3200f824adf14f924d9c
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 1c12cf4a7bd097c6d33d032065734b477920644b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452361"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457008"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>使用 Visual Studio 連線服務在 Web 應用程式中新增 Key Vault
 
@@ -22,7 +22,7 @@ ms.locfileid: "74452361"
 
 針對「連線服務」在您專案中為啟用 Key Vault 所做的變更，如需詳細資料，請參閱 [Key Vault 連線服務 - 我的 ASP.NET 4.7.1 專案發生什麼情形](#how-your-aspnet-framework-project-is-modified)或 [Key Vault 連線服務 - 我的 ASP.NET Core 專案發生什麼情形](#how-your-aspnet-core-project-is-modified)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - **Azure 訂用帳戶**。 如果您沒有訂用帳戶，請註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 - **Visual Studio 2019 16.3 版**或更新版本，或**Visual Studio 2017 版本 15.7**並已安裝**Web 開發**工作負載。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
@@ -112,7 +112,7 @@ ms.locfileid: "74452361"
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-        private static string GetKeyVaultEndpoint() => "https://WebApplication4-3-kv.vault.azure.net";
+        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     ```
 
 1. 接下來，開啟其中一個分頁檔案，例如*Index.cshtml.cs* ，並撰寫下列程式碼：
@@ -205,7 +205,7 @@ ms.locfileid: "74452361"
 
 會影響專案檔案 .NET 參考和 NuGet 套件參考。
 
-| 在系統提示您進行確認時，輸入 | 參考 |
+| 類型 | 參考 |
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
@@ -241,7 +241,7 @@ ms.locfileid: "74452361"
 
 會影響專案檔案 .NET 參考和 `packages.config` （NuGet 參考）。
 
-| 在系統提示您進行確認時，輸入 | 參考 |
+| 類型 | 參考 |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
 | .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |

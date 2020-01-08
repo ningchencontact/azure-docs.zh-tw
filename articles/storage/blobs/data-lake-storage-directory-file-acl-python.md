@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Data Lake Storage Gen2 中使用適用于檔案 & Acl 的 Python （預覽）
+title: Azure Data Lake Storage Gen2 適用于檔案 & Acl 的 Python SDK （預覽）
 description: 使用已啟用階層命名空間（HNS）之儲存體帳戶中的 Python [管理目錄] 和 [檔案和目錄存取控制清單（ACL）]。
 author: normesta
 ms.service: storage
@@ -8,14 +8,14 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: a65e8b2c5fbcdd4f6df0f8f39b24fa97b8deeca3
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: e07bb6aa9d1fe22baaebb7bc7239ce03a728c6b9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534421"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431802"
 ---
-# <a name="use-python-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>在 Azure Data Lake Storage Gen2 中使用適用于檔案 & Acl 的 Python （預覽）
+# <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>使用 Python 來管理 Azure Data Lake Storage Gen2 中的目錄、檔案和 Acl （預覽）
 
 本文說明如何使用 Python 來建立和管理已啟用階層命名空間（HNS）之儲存體帳戶中的目錄、檔案和許可權。 
 
@@ -99,7 +99,7 @@ def create_directory():
      print(e) 
 ```
 
-## <a name="rename-or-move-a-directory"></a>重新命名或移動目錄
+## <a name="rename-or-move-a-directory"></a>重新命名目錄或移動目錄
 
 藉由呼叫 DataLakeDirectoryClient 來重新命名或移動目錄 **。 rename_directory**方法。 傳遞所需目錄的路徑 a 參數。 
 

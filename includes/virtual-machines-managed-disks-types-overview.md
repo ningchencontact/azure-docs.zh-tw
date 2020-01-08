@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 45168c23964c735a4bd51ba11c2340d4ff95fed4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 31a9da0678f602afcc117e5b2f7927af379da668
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012439"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469200"
 ---
 Azure 受控磁片目前提供四種磁片類型，每種類型都是針對特定的客戶案例。
 
@@ -21,17 +21,17 @@ Azure 受控磁片目前提供四種磁片類型，每種類型都是針對特�
 
 下表提供適用于受控磁片的 ultra 磁片、premium 固態硬碟（SSD）、標準 SSD 和標準硬碟（HDD）的比較，協助您決定要使用的內容。
 
-|   | Ultra 磁片   | 進階 SSD   | 標準 SSD   | 標準 HDD   |
+|   | Ultra 磁碟   | 高階 SSD   | 標準 SSD   | 標準 HDD   |
 |---------|---------|---------|---------|---------|
 |磁碟類型   |SSD   |SSD   |SSD   |HDD   |
 |案例   |IO 密集的工作負載，例如[SAP Hana](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)、最上層資料庫（例如 SQL、Oracle）和其他大量交易的工作負載。   |生產環境和重視效能的工作負載   |網頁伺服器，輕量使用的企業應用程式和開發/測試   |備份、不重要、存取不頻繁   |
-|最大磁片大小   |65536 gib （GiB）    |32,767 GiB    |32,767 GiB   |32,767 GiB   |
-|最大輸送量   |2000 MiB/秒    |900 MiB/秒   |750 MiB/秒   |500 MiB/秒   |
+|最大磁碟大小   |65,536 GiB    |32,767 GiB    |32,767 GiB   |32,767 GiB   |
+|最大輸送量   |2,000 MiB/秒    |900 MiB/秒   |750 MiB/秒   |500 MiB/秒   |
 |最大 IOPS   |160,000    |20,000   |6,000   |2,000   |
 
-## <a name="ultra-disk"></a>Ultra 磁片
+## <a name="ultra-disk"></a>Ultra 磁碟
 
-Azure ultra 磁片可為 Azure IaaS Vm 提供高輸送量、高 IOPS 以及一致的低延遲磁片儲存體。 Ultra 磁片的一些額外優點包括能夠以動態方式變更磁片的效能，以及您的工作負載，而不需要重新開機您的虛擬機器（VM）。 Ultra 磁片適用于資料密集的工作負載，例如 SAP Hana、最上層資料庫，以及高交易量的工作負載。 Ultra 磁片只能用來做為資料磁片。 建議您使用進階 SSD 作為作業系統磁碟。
+Azure Ultra 磁碟可為 Azure IaaS VM 提供高輸送量、高 IOPS 以及一致的低延遲磁碟儲存體。 Ultra 磁片的一些額外優點包括能夠以動態方式變更磁片的效能，以及您的工作負載，而不需要重新開機您的虛擬機器（VM）。 Ultra 磁碟適用於處理大量資料的工作負載 (例如 SAP Hana)、最上層資料庫，以及高交易量的工作負載。 Ultra 磁碟只可用來作為資料磁碟。 建議您使用進階 SSD 作為作業系統磁碟。
 
 ### <a name="performance"></a>效能
 

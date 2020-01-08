@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 803deb9a4d9eaf02129bd16dd6465362b87b7e84
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 1e6465584dd4e67f736b94d2939678c1a69163bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995910"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435657"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 Apache HBase 叢集複寫
 
@@ -51,10 +51,10 @@ ms.locfileid: "74995910"
 
 本文涵蓋異地複寫案例。
 
-為了協助您設定環境，我們建立了一些 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-overview.md)。 如果您偏好使用其他方法設定環境，請參閱：
+為了協助您設定環境，我們建立了一些 [Azure Resource Manager 範本](../../azure-resource-manager/management/overview.md)。 如果您偏好使用其他方法設定環境，請參閱：
 
 - [在 HDInsight 中建立 Apache Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)
-- [在 Azure 虛擬網路上建立 Apache HBase 叢集](apache-hbase-provision-vnet.md)
+- [在 Azure 虛擬網路中建立 Apache HBase 叢集](apache-hbase-provision-vnet.md)
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>在兩個不同區域中設定兩個虛擬網路
 
@@ -66,9 +66,9 @@ ms.locfileid: "74995910"
 
 **VNet 1**
 
-| 屬性 | Value |
+| 屬性 | 值 |
 |----------|-------|
-| Location | 美國西部 |
+| 位置 | 美國西部 |
 | VNet 名稱 | &lt;ClusterNamePrevix>-vnet1 |
 | 位址空間首碼 | 10.1.0.0/16 |
 | 子網路名稱 | subnet 1 |
@@ -83,9 +83,9 @@ ms.locfileid: "74995910"
 
 **VNet 2**
 
-| 屬性 | Value |
+| 屬性 | 值 |
 |----------|-------|
-| Location | 美國東部 |
+| 位置 | 美國東部 |
 | VNet 名稱 | &lt;ClusterNamePrevix>-vnet2 |
 | 位址空間首碼 | 10.2.0.0/16 |
 | 子網路名稱 | subnet 1 |
@@ -307,7 +307,7 @@ sudo service bind9 status
 
 必要的引數︰
 
-|Name|描述|
+|名稱|說明|
 |----|-----------|
 |-s, --src-cluster | 指定來源 HBase 叢集的 DNS 名稱。 例如：-s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | 指定目的地 (複本) HBase 叢集的 DNS 名稱。 例如：-s dsthbcluster, --src-cluster=dsthbcluster |
@@ -316,7 +316,7 @@ sudo service bind9 status
 
 選擇性的引數︰
 
-|Name|描述|
+|名稱|說明|
 |----|-----------|
 |-su, --src-ambari-user | 指定來源 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
 |-du, --dst-ambari-user | 指定目的地 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
@@ -410,5 +410,5 @@ sudo service bind9 status
 
 * [開始使用 HDInsight 中的 Apache HBase](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight Apache HBase 概觀](./apache-hbase-overview.md)
-* [在 Azure 虛擬網路上建立 Apache HBase 叢集](./apache-hbase-provision-vnet.md)
+* [在 Azure 虛擬網路中建立 Apache HBase 叢集](./apache-hbase-provision-vnet.md)
 

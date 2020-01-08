@@ -1,19 +1,14 @@
 ---
-title: 利用 Azure Advisor 改善應用程式的可用性 | Microsoft Docs
+title: 利用 Azure Advisor 改善應用程式的可用性
 description: 使用 Azure 建議程式來改善 Azure 部署的高可用性。
-services: advisor
-documentationcenter: NA
-author: saket-ms
-ms.author: sagupt
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: dd1b898adf4c4cdff45e05427757d90d5f80bf25
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 997681ed62fa9985e3122ece22565dbae0e65b53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145340"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443099"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>利用 Azure Advisor 改善應用程式的可用性
 
@@ -108,7 +103,7 @@ Azure Advisor 將會識別使用舊版 Cosmos DB Spark 連接器的 Azure Cosmos
 如需 Advisor 建議的詳細資訊，請參閱：
 * [Azure 建議程式簡介](advisor-overview.md)
 * [開始使用 Advisor](advisor-get-started.md)
-* [建議程式成本建議](advisor-cost-recommendations.md)
-* [建議程式效能建議](advisor-performance-recommendations.md)
-* [建議程式安全性建議](advisor-security-recommendations.md)
+* [Advisor 成本建議](advisor-cost-recommendations.md)
+* [Advisor 效能建議](advisor-performance-recommendations.md)
+* [Advisor 安全性建議](advisor-security-recommendations.md)
 * [Advisor 操作卓越建議](advisor-operational-excellence-recommendations.md)

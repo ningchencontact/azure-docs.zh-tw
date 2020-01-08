@@ -1,17 +1,17 @@
 ---
 title: 針對 Azure Cache for Redis 伺服器端問題進行疑難排解
-description: 瞭解如何解決 Azure Cache for Redis 的一般伺服器端問題
+description: 瞭解如何解決 Azure Cache for Redis 的一般伺服器端問題，例如記憶體壓力、高 CPU、長時間執行的命令或頻寬限制。
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: yegu
-ms.openlocfilehash: 22cb4beb3411c617882972e1b91c5f538019fae4
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: a68c27de304a0da6470745ee4abf69590d9bf78c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122568"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433360"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>針對 Azure Cache for Redis 伺服器端問題進行疑難排解
 

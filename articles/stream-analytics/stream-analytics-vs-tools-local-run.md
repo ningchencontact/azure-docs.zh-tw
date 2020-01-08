@@ -1,20 +1,18 @@
 ---
 title: 在本機測試 Azure 串流分析查詢 Visual Studio
 description: 本文說明如何使用適用於 Visual Studio 的 Azure 串流分析工具在本機測試查詢。
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 01383531293635af8c15f891928eec004e05b54d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c4854d050cce18082def436243a669ba09c474ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925048"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369655"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>使用 Visual Studio 在本機測試串流分析查詢
 
@@ -62,7 +60,7 @@ ms.locfileid: "72925048"
 ### <a name="sample-input"></a>範例輸入
 您也可以從您的輸入來源將範例輸入資料收集到本機檔案。 以滑鼠右鍵按一下輸入設定檔，然後選取 [範例資料]。 
 
-![範例資料](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
+![取樣資料](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
 
 您只能對來自事件中樞或 IoT 中樞的資料流取樣。 不支援其他輸入來源。 在快顯對話方塊中，填入用來儲存範例資料的本機路徑並選取 [範例]。
 

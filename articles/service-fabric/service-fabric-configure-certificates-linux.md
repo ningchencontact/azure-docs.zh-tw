@@ -1,24 +1,15 @@
 ---
-title: 在 Linux 上設定 Azure Service Fabric 應用程式的憑證 | Microsoft Docs
+title: 在 Linux 上設定應用程式的憑證
 description: 在 Linux 叢集上為您的應用程式設定用於 Service Fabric 執行階段的憑證
-services: service-fabric
-documentationcenter: NA
-author: JimacoMS2
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2019
 ms.author: pepogors
-ms.openlocfilehash: 8ae25a02e6170972972c5b2b7e159ef39d1a3673
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 802e76614f51e1f6479a311e61a49d83b8125546
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167345"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614582"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 叢集上的憑證和安全性
 
@@ -26,7 +17,7 @@ ms.locfileid: "72167345"
 
 ## <a name="location-and-format-of-x509-certificates-on-linux-nodes"></a>Linux 節點上 X.509 憑證的位置與格式
 
-對於 Service Fabric，X.509 憑證通常會出現在 Linux 叢集節點上的 */var/lib/sfcerts* 目錄中。 叢集憑證、用戶端憑證等憑證都是如此。在某些情況下，您可以為憑證指定 *var/lib/sfcerts* 資料夾以外的位置。 例如，針對使用 Service Fabric Java SDK 的 Reliable Services，您可以透過某些應用程式專用憑證的組態套件 (Settings.xml) 指定不同的位置。 若要深入了解，請參閱[組態套件 (Settings.xml) 中參考的憑證](#certificates-referenced-in-the-configuration-package-settingsxml)。
+對於 Service Fabric，X.509 憑證通常會出現在 Linux 叢集節點上的 */var/lib/sfcerts* 目錄中。 這適用于叢集憑證、用戶端憑證等。在某些情況下，您可以為憑證指定*var/lib/sfcerts*資料夾以外的位置。 例如，針對使用 Service Fabric Java SDK 的 Reliable Services，您可以透過某些應用程式專用憑證的組態套件 (Settings.xml) 指定不同的位置。 若要深入了解，請參閱[組態套件 (Settings.xml) 中參考的憑證](#certificates-referenced-in-the-configuration-package-settingsxml)。
 
 針對 Linux 叢集，Service Fabric 的憑證通常會以包含憑證和私密金鑰的 .pem 檔案形式提供，或以包含憑證的 .crt 檔案和包含私密金鑰的 .key 檔案個別提供。 所有檔案均應為 PEM 格式。 
 

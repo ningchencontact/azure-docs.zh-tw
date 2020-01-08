@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 3911d4e780e993fdd1c2945b34cd683d47fb884a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 24777c0b14bc6bb16a5f9c5c8213a9f3d524833e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827280"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408659"
 ---
 # <a name="use-the-azure-maps-services-module"></a>使用 Azure 地圖服務 services 模組
 
@@ -29,14 +29,14 @@ Azure 地圖服務 Web SDK 提供*服務模組*。 此模組是協助程式程�
         <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
         ```
 
-    - 或者，使用[Azure 對應-rest](https://www.npmjs.com/package/azure-maps-rest) npm 套件，在本機載入 AZURE 地圖服務 Web SDK 原始程式碼，然後將它裝載在您的應用程式中。 此套件也包含 TypeScript 定義。 使用此命令：
+    - 或者，使用[Azure 對應-rest](https://www.npmjs.com/package/azure-maps-rest) npm 套件，在本機載入 AZURE 地圖服務 Web SDK 原始程式碼的服務模組，然後將它裝載在您的應用程式中。 此套件也包含 TypeScript 定義。 使用此命令：
     
-        > **npm 安裝 azure-地圖服務-rest**
+        > **npm install azure-maps-rest**
     
         然後，將腳本參考新增至檔案的 `<head>` 元素：
 
          ```html
-        <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
+        <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
          ```
 
 1. 建立驗證管線。 您必須先建立管線，才能初始化服務 URL 用戶端端點。 使用您自己的 Azure 地圖服務帳戶金鑰或 Azure Active Directory （Azure AD）認證來驗證 Azure 地圖服務搜尋服務用戶端。 在此範例中，將會建立搜尋服務 URL 用戶端。 
@@ -162,6 +162,28 @@ Azure 地圖服務 Web SDK 提供*服務模組*。 此模組是協助程式程�
 <iframe height="500" style="width: 100%;" scrolling="no" title="使用服務模組" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>），請參閱在<a href='https://codepen.io'>CodePen</a>上<a href='https://codepen.io/azuremaps/pen/zbXGMR/'>使用服務模組</a>的畫筆。
 </iframe>
+
+<br/>
+
+## <a name="azure-government-cloud-support"></a>Azure Government 雲端支援
+
+Azure 地圖服務 Web SDK 支援 Azure Government 雲端。 所有用來存取 Azure 地圖服務 Web SDK 的 JavaScript 和 CSS Url 都會維持不變，不過必須完成下列工作，才能連接到 Azure 地圖服務平臺的 Azure Government 雲端版本。
+
+使用互動式地圖控制項時，請在建立 `Map` 類別的實例之前，加入下列程式程式碼。 
+
+```javascript
+atlas.setDomain('atlas.azure.us');
+```
+
+驗證對應和服務時，請務必使用來自 Azure Government 雲端平臺的 Azure 地圖服務驗證詳細資料。
+
+使用服務模組時，必須在建立 API URL 端點的實例時設定服務的網域。 例如，下列程式碼會建立 `SearchURL` 類別的實例，並將該網域指向 Azure Government 雲端。
+
+```javascript
+var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
+```
+
+如果直接存取 Azure 地圖服務 REST 服務，請將 URL 網域變更為 `atlas.azure.us`。 例如，如果使用搜尋 API 服務，請將 URL 網域從 `https://atlas.microsoft.com/search/` 變更為 `https://atlas.azure.us/search/`。
 
 ## <a name="next-steps"></a>後續步驟
 

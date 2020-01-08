@@ -1,7 +1,7 @@
 ---
 title: 選取資料行轉換：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務中的 [選取資料行轉換] 模組來建立轉換，以選取資料行的相同子集，如同指定的資料集。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的 [選取資料行轉換] 模組來建立轉換，以選取資料行的相同子集，如同指定的資料集。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 383adeb2bd081893d4202239cb97c12bf9a5a170
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d0dfbec3abd379c7bf8add6445296dff74d92a76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717043"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428479"
 ---
 # <a name="select-columns-transform"></a>選取資料行轉換
 
@@ -55,4 +55,4 @@ ms.locfileid: "73717043"
 
 ## <a name="next-steps"></a>後續步驟
 
-查看 Azure Machine Learning 服務[可用的模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

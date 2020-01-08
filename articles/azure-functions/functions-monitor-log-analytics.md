@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: aelnably
-ms.openlocfilehash: 9aac6662304395b1bce5dfc21770d296f6a4f2ab
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4ebf6ecea0b08f416bd1bd11382116dda2107ecf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226857"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409646"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>使用 Azure 監視器記錄監視 Azure Functions
 
@@ -37,35 +37,38 @@ Azure 監視器使用 Azure 資料總管使用的 [Kusto 查詢語言](/azure/ku
 
 若要產生自訂記錄檔，您可以使用特定的記錄語句，視您的語言而定，以下是範例程式碼片段：
 
-**JavaScript**
 
-```javascript
-    context.log('My app logs here.');
-```
-
-**Python**
-
-```python
-    logging.info('My app logs here.')
-```
-
-**.NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
-    log.LogInformation("My app logs here.");
+log.LogInformation("My app logs here.");
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```java
-    context.getLogger().info("My app logs here.");
+context.getLogger().info("My app logs here.");
 ```
 
-**PowerShell**
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+context.log('My app logs here.');
+```
+
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
-    Write-Host "My app logs here."
+Write-Host "My app logs here."
 ```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+```python
+logging.info('My app logs here.')
+```
+
+---
 
 ## <a name="querying-the-logs"></a>查詢記錄
 

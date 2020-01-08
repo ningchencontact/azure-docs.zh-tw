@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: c16fea8f710751a051995ecece8a3d0ce8f933c7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: HT
+ms.openlocfilehash: 6a1dcd2d8734d7701dab6d913beb8af0ad4e35ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926461"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371389"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>設定、優化和疑難排解 AzCopy
 
@@ -38,7 +38,7 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製 blob �
 
 目前，AzCopy 不支援需要使用 NTLM 或 Kerberos 進行驗證的 proxy。
 
-## <a name="optimize-performance"></a>效能最佳化
+## <a name="optimize-performance"></a>將效能最佳化
 
 您可以基準效能，然後使用命令和環境變數來尋找效能和資源耗用量之間的最佳取捨。
 
@@ -56,16 +56,21 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製 blob �
 | **語法** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **範例** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
+> [!TIP]
+> 這個範例會使用單引號（' '）來括住路徑引數。 在所有命令 shell 中使用單引號，但 Windows 命令介面（cmd.exe）除外。 如果您使用 Windows 命令 Shell （cmd.exe），請將路徑引數括在雙引號（""），而不是單引號（' '）。
+
 此命令會將測試資料上傳至指定的目的地，以執行效能基準測試。 測試資料會在記憶體中產生、上傳至目的地，然後在測試完成後從目的地中刪除。 您可以使用選擇性的命令參數，指定要產生的檔案數目，以及您想要的大小。
+
+如需詳細的參考檔，請參閱[azcopy 工作臺](storage-ref-azcopy-bench.md)。
 
 若要查看此命令的詳細說明指引，請輸入 `azcopy bench -h`，然後按 ENTER 鍵。
 
 ### <a name="optimize-throughput"></a>輸送量最佳化
 
-您可以使用 `cap-mbps` 旗標，將輸送量資料速率設為上限。 例如，下列命令會將輸送量設為每秒 `10` 百萬位元（MB）。
+您可以使用命令中的 `cap-mbps` 旗標，將輸送量資料速率設為上限。 例如，下列命令會繼續作業，並將每秒的上限輸送量增加到 `10` mb （MB）。 
 
 ```azcopy
-azcopy --cap-mbps 10
+azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
 傳輸小型檔案時，輸送量可能會降低。 您可以藉由設定 `AZCOPY_CONCURRENCY_VALUE` 環境變數來增加輸送量。 此變數會指定可能發生的並行要求數目。  
@@ -146,6 +151,9 @@ azcopy jobs show <job-id> --with-status=Failed
 azcopy jobs resume <job-id> --source-sas="<sas-token>"
 azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
+
+> [!TIP]
+> 將路徑引數（例如 SAS 權杖）括在單引號（' '）。 在所有命令 shell 中使用單引號，但 Windows 命令介面（cmd.exe）除外。 如果您使用 Windows 命令 Shell （cmd.exe），請將路徑引數括在雙引號（""），而不是單引號（' '）。
 
 當您繼續工作時，AzCopy 會查看作業計畫檔案。 計畫檔案會列出第一次建立作業時識別要處理的所有檔案。 當您繼續工作時，AzCopy 會嘗試傳送尚未傳送的計畫檔案中列出的所有檔案。
 

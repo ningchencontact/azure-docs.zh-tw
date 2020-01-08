@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/27/2019
 ms.author: aschhab
-ms.openlocfilehash: c1f9c8a03a503444c7c45d5374b67e5b453a8931
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 49abd1b0542b1a658517561cf1ffead402fa93a5
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561610"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563389"
 ---
 # <a name="get-started-with-service-bus-queues"></a>開始使用服務匯流排佇列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -74,7 +74,7 @@ ms.locfileid: "74561610"
 
     輸入命名空間的連接字串做為 `ServiceBusConnectionString` 變數。 輸入您的佇列名稱。
 
-1. 使用下列**非同步**`Main` 方法來取代 `Main()` 方法。 它會呼叫您將在下一個步驟中新增的 SendMessagesAsync 方法，以將訊息傳送至佇列。 
+1. 使用下列**非同步**`Main` 方法來取代 `Main()` 方法。 它會呼叫您將在下一個步驟中新增的 `SendMessagesAsync()` 方法，以將訊息傳送至佇列。 
 
     ```csharp
     public static async Task Main(string[] args)

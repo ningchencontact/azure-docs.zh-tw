@@ -1,17 +1,17 @@
 ---
-title: 如何建立多個獨立的 Azure Functions 的 Cosmos DB 觸發程序
+title: 為 Cosmos DB 建立多個獨立的 Azure Functions 觸發程式
 description: 了解如何設定多個獨立的「Azure Functions 的 Cosmos DB 觸發程序」，以建立事件驅動的架構。
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 987136bf8aba1313e1bef21f58691bf9a860ea32
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fbf1e11d7a283ca6c93356f055198c35350e0332
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093367"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445344"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>建立多個 Azure Functions 的 Cosmos DB 觸發程序
 
@@ -31,14 +31,14 @@ ms.locfileid: "70093367"
 
 在此，您有兩個選項：
 
-* 建立**每個函式一個租用容器**：除非您使用[共用輸送量資料庫](./set-throughput.md#set-throughput-on-a-database)，否則這種方法可能會轉變成額外的費用。 請記住，容器層級的最小輸送量為 400 個[要求單位](./request-units.md)，而在租用容器的案例中，只會用來檢查進度及維護狀態。
-* 取得**一個租用容器並加以共用** (針對您所有的函式)：此第二個選項可更加妥善使用容器上佈建的要求單位，因為它可讓多個 Azure 函式共用及使用相同佈建的輸送量。
+* **針對每個函式建立一個租用容器**：除非您使用的是[共用輸送量資料庫](./set-throughput.md#set-throughput-on-a-database)，否則此方法會轉譯為額外成本。 請記住，容器層級的最小輸送量為 400 個[要求單位](./request-units.md)，而在租用容器的案例中，只會用來檢查進度及維護狀態。
+* 有**一個租用容器，並將它共用**于您所有的函式：第二個選項可讓您更有效地使用容器上已布建的要求單位，因為它可讓多個 Azure Functions 共用並使用相同的布建輸送量。
 
 本文的目標是引導您完成第二個選項。
 
 ## <a name="configuring-a-shared-leases-container"></a>設定共用租用容器
 
-若要設定共用的租用容器，您必須對觸發程序進行的唯一額外設定就是新增 `LeaseCollectionPrefix` [屬性](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes) (若使用 C#) 或 `leaseCollectionPrefix` [屬性](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example) (若使用 JavaScript)。 屬性值應該是該特定觸發程序的邏輯描述項。
+若要設定共用租用容器，只有在使用 JavaScript 時，如果您使用C#或 `leaseCollectionPrefix`[屬性](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example)，則必須在觸發程式中加入 `LeaseCollectionPrefix`[屬性](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes)。 屬性值應該是該特定觸發程序的邏輯描述項。
 
 例如，如果您有三個觸發程序：一個會傳送電子郵件、一個會進行彙總以建立具體化檢視，還有一個會將變更傳送至另一個儲存體以供稍後分析，您可以將 `LeaseCollectionPrefix` 為 "emails" 指派給第一個、將其值為 "materialized" 指派給第二個，以及將其值為 "analytics" 指派給第三個。
 

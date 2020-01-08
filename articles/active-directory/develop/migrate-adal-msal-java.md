@@ -1,5 +1,5 @@
 ---
-title: 適用于 JAVA 的 MSAL 遷移指南的 ADAL |Azure
+title: ADAL 至 MSAL 遷移指南（MSAL4j） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解如何將您的 Azure Active Directory Authentication Library （ADAL） JAVA 應用程式遷移至 Microsoft 驗證程式庫（MSAL）。
 services: active-directory
@@ -16,12 +16,12 @@ ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e99cee3f21a4e0088fa97dcbec8fdcfdf982d80
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c228e708988d9d1ec9f58fce4f1289fd61f817b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917381"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424451"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>適用于 JAVA 的 MSAL 遷移指南的 ADAL
 

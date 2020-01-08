@@ -1,42 +1,39 @@
 ---
-title: 使用 webhook 設定現有問題管理系統的 Azure 服務健康狀態通知
+title: 使用 webhook 傳送 Azure 服務健康狀態通知
 description: 將有關服務健康狀態事件的個人化通知傳送到您現有的問題管理系統。
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
-ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 8f84b43519c197797b39397cfd15c4f90444177c
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 95926185057d9fc1177b974fe76b2da18ebfc124
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854373"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551670"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>使用 webhook 設定問題管理系統的健康情況通知
 
-本文說明如何設定 Azure 服務健康狀態警示, 以便透過 webhook 將資料傳送到您現有的通知系統。
+本文說明如何設定 Azure 服務健康狀態警示，以便透過 webhook 將資料傳送到您現有的通知系統。
 
-您可以設定服務健康狀態警示, 以便在 Azure 服務事件影響您時, 以文字訊息或電子郵件通知您。
+您可以設定服務健康狀態警示，以便在 Azure 服務事件影響您時，以文字訊息或電子郵件通知您。
 
-但您可能已經有想要使用的現有外部通知系統。 本文會識別 webhook 承載中最重要的部分。 並說明如何建立自訂警示, 以在發生相關服務問題時通知您。
+但您可能已經有想要使用的現有外部通知系統。 本文會識別 webhook 承載中最重要的部分。 並說明如何建立自訂警示，以在發生相關服務問題時通知您。
 
-如果您想要使用預先設定的整合, 請參閱:
+如果您想要使用預先設定的整合，請參閱：
 * [使用 ServiceNow 設定警示](service-health-alert-webhook-servicenow.md)
 * [使用 PagerDuty 設定警示](service-health-alert-webhook-pagerduty.md)
 * [使用 OpsGenie 設定警示](service-health-alert-webhook-opsgenie.md)
 
-**觀看簡介影片:**
+**觀看簡介影片：**
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUV]
 
 ## <a name="configure-a-custom-notification-by-using-the-service-health-webhook-payload"></a>使用服務健康狀態 webhook 承載來設定自訂通知
-若要設定您自己的自訂 webhook 整合, 您必須剖析透過服務健康狀態通知傳送的 JSON 承載。
+若要設定您自己的自訂 webhook 整合，您必須剖析透過服務健康狀態通知傳送的 JSON 承載。
 
-請參閱[範例](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` webhook 承載。
+請參閱 `ServiceHealth` webhook 承載[的範例](../azure-monitor/platform/activity-log-alerts-webhook.md)。
 
-您可以藉由查看`context.eventSource == "ServiceHealth"`來確認它是服務健康狀態警示。 以下是最相關的屬性:
+您可以查看 `context.eventSource == "ServiceHealth"`來確認它是服務健康狀態警示。 以下是最相關的屬性：
 - **activityLog。狀態**
 - **activityLog. level**
 - **activityLog. subscriptionId**
@@ -47,27 +44,27 @@ ms.locfileid: "67854373"
 - **activityLog. properties. trackingId**
 
 ## <a name="create-a-link-to-the-service-health-dashboard-for-an-incident"></a>建立事件服務健康狀態儀表板的連結
-您可以藉由產生特殊的 URL, 在桌上型電腦或行動裝置上建立服務健康狀態儀表板的直接連結。 使用*trackingId*和您的*subscriptionId*的前三個和最後三個數字, 格式如下:
+您可以藉由產生特殊的 URL，在桌上型電腦或行動裝置上建立服務健康狀態儀表板的直接連結。 使用*trackingId*和您的*subscriptionId*的前三個和最後三個數字，格式如下：
 
-HTTPs<i></i>:// *&lt;app.azure.com/h/&gt;trackingId* / *subscriptionId 的前三個和最後三個數字&gt; &lt;*
+HTTPs<i></i>：//App.azure.com/h/ *&lt;trackingId&gt;* / *&lt;subscriptionId 的前三個和最後三個數字&gt;*
 
-例如, 如果您的*subscriptionId*是 bba14129-e895-429b-8809-278e836ecdb3, 而您的*trackingId*是 0DET-URB, 則您的服務健康狀態 URL 為:
+例如，如果您的*subscriptionId*是 bba14129-e895-429b-8809-278e836ecdb3，而您的*trackingId*是 0DET-URB，則您的服務健康狀態 URL 為：
 
-HTTPs<i></i>://app.azure.com/h/0DET-URB/bbadb3
+HTTPs<i></i>：//app.azure.com/h/0DET-URB/bbadb3
 
 ## <a name="use-the-level-to-detect-the-severity-of-the-issue"></a>使用層級來偵測問題的嚴重性
-從最低到最高嚴重性, 裝載中的**level**屬性可以是*資訊*、*警告*、*錯誤*或*重大*。
+從最低到最高嚴重性，裝載中的**level**屬性可以是*資訊*、*警告*、*錯誤*或*重大*。
 
 ## <a name="parse-the-impacted-services-to-determine-the-incident-scope"></a>剖析受影響的服務以判斷事件範圍
-服務健康狀態警示可以通知您跨多個區域和服務的問題。 若要取得完整的詳細資料, 您必須剖析的`impactedServices`值。
+服務健康狀態警示可以通知您跨多個區域和服務的問題。 若要取得完整的詳細資料，您必須剖析 `impactedServices`的值。
 
-內的內容是一個已轉義的[json](https://json.org/)字串, 如果未經過轉義, 則會包含可定期剖析的另一個 json 物件。 例如:
+內的內容是一個已轉義的[json](https://json.org/)字串，如果未經過轉義，則會包含可定期剖析的另一個 json 物件。 例如：
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}
 ```
 
-滿
+就變成：
 
 ```json
 [
@@ -93,7 +90,7 @@ HTTPs<i></i>://app.azure.com/h/0DET-URB/bbadb3
 ]
 ```
 
-這個範例會顯示下列問題:
+這個範例會顯示下列問題：
 - [澳大利亞東部和澳大利亞東南部中的警示 & 計量]。
 - 澳大利亞東南部中的「App Service」。
 
@@ -101,7 +98,7 @@ HTTPs<i></i>://app.azure.com/h/0DET-URB/bbadb3
 
 請遵循下列步驟：
 
-1. 建立您想要傳送的服務健康情況承載。 如需[Azure 活動記錄警示](../azure-monitor/platform/activity-log-alerts-webhook.md), 請參閱 webhook 上的服務健康情況 webhook 承載範例。
+1. 建立您想要傳送的服務健康情況承載。 如需[Azure 活動記錄警示](../azure-monitor/platform/activity-log-alerts-webhook.md)，請參閱 webhook 上的服務健康情況 webhook 承載範例。
 
 1. 建立 HTTP POST 要求，如下所示：
 

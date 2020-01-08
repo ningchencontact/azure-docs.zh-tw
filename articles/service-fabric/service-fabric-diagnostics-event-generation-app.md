@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 應用程式層級監視 | Microsoft Docs
+title: Azure Service Fabric 應用層級監視
 description: 了解用來監視和診斷 Azure Service Fabric 叢集的應用程式與服務層級事件和記錄。
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 613faf5bbc9498b82bc04460d30b2e94c30340db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 97c3be391dfbee7301ea47bf7234a9549d373370
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393090"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464714"
 ---
 # <a name="application-logging"></a>應用程式記錄檔
 

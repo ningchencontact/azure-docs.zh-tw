@@ -1,5 +1,6 @@
 ---
-title: Azure 儲存體的先進威脅防護
+title: 設定 advanced 威脅防護
+titleSuffix: Azure Storage
 description: 設定 Azure 儲存體的「先進的威脅防護」來偵測帳戶活動中的異常狀況，並收到可能有害的帳戶存取嘗試的通知。
 services: storage
 author: tamram
@@ -8,14 +9,14 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: b9413807cda096adf1056c07e026373ea19359b9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8efbf2107104f31bcfc5e4e5669dbed1835a034b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495961"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457407"
 ---
-# <a name="advanced-threat-protection-for-azure-storage"></a>Azure 儲存體的先進威脅防護
+# <a name="configure-advanced-threat-protection-for-azure-storage"></a>設定 Azure 儲存體的先進威脅防護
 
 Azure 儲存體的先進威脅防護提供一層額外的安全性情報，可偵測不尋常且可能有害的存取或惡意探索儲存體帳戶的嘗試。 這一層保護可讓您在不是安全性專家或管理安全性監視系統的情況下處理威脅。
 
@@ -48,13 +49,13 @@ Azure 儲存體的先進威脅防護提供一層額外的安全性情報，可�
 1. 從主功能表中，按一下 [定價] [ **& 設定**]。
 1. 按一下您要啟用或停用其儲存體帳戶的 [威脅防護] 的訂用帳戶。
 
-    ![選取訂用帳戶](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
+    ![選取訂閱](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
 
 1. 按一下 [定價層]。
 1. 在 [**依資源類型選取定價層**] 區段的 [**儲存體帳戶**] 資料列中，按一下 [**已啟用**] 或 [**已停用**]。
 
     ![在資訊安全中心中啟用 ATP](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
-1. 按一下 [儲存]。
+1. 按一下 [檔案]。
 
 ### <a name="templatetabtemplate"></a>[範本](#tab/template)
 

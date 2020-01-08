@@ -1,6 +1,6 @@
 ---
-title: Azure Batch 集區調整大小完成事件 | Microsoft Docs
-description: Batch 集區調整大小完成事件的參考。
+title: Azure Batch 集區調整大小完成事件
+description: Batch 集區調整大小完成事件的參考。 查看已增加大小且已成功完成的集區範例。
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 8c0843db216ff99aabfda9074ee751597b43a2a2
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 44d7aaa60ee89a1ec6b0b98c38b83038fc4e70d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258412"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449762"
 ---
 # <a name="pool-resize-complete-event"></a>集區調整大小完成事件
 
@@ -51,7 +51,7 @@ ms.locfileid: "70258412"
 |`targetLowPriorityNodes`|Int32|針對集區要求的低優先順序計算節點數目。|
 |`enableAutoScale`|Bool|指定集區大小是否隨著時間自動調整。|
 |`isAutoPool`|Bool|指定是否已透過作業的 AutoPool 機制建立集區。|
-|`startTime`|DateTime|集區調整大小開始時間。|
-|`endTime`|DateTime|集區調整大小完成時間。|
+|`startTime`|日期時間|集區調整大小開始時間。|
+|`endTime`|日期時間|集區調整大小完成時間。|
 |`resultCode`|String|調整大小的結果。|
 |`resultMessage`|String| 有關結果的詳細訊息。<br /><br /> 如果調整大小已成功完成，表示作業已成功。|

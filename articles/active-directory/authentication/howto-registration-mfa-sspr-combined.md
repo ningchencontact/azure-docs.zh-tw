@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2bd3f61ffc07881ed8e502788b11fc0f435735b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 25c64d9e959b1d68de23e83e26d3495bd3939986
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847349"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425171"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>啟用結合的安全性資訊註冊（預覽）
 
@@ -39,10 +39,10 @@ ms.locfileid: "74847349"
 請完成下列步驟以啟用合併的註冊：
 
 1. 以使用者系統管理員或全域管理員身分登入 Azure 入口網站。
-2. 移至**Azure Active Directory** > **使用者設定** > **管理存取面板預覽功能的設定**。
-3. 在 [**使用者可以使用預覽功能來註冊及管理安全性資訊-** 重新整理] 底下，選擇針對**選取**的使用者群組或針對**所有**使用者啟用。
+2. 移至**Azure Active Directory** > **使用者設定** > **管理使用者功能預覽設定**。
+3. 在 [**使用者可以使用預覽功能來註冊及管理安全性資訊**] 下，選擇 [針對**選取**的使用者群組] 或 [**所有**使用者] 啟用。
 
-   ![為所有使用者啟用結合的安全性資訊預覽體驗](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+   ![為所有使用者啟用結合的安全性資訊預覽體驗](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
 
 > [!IMPORTANT]
 > 自2019年3月起，通話選項將無法用於多重要素驗證，並可 Azure AD 租使用者中的免費/試用版 SSPR 使用者。 SMS 訊息不會受到這項變更的影響。 付費 Azure AD 租使用者中的使用者仍可使用通話選項。
@@ -64,9 +64,9 @@ ms.locfileid: "74847349"
 
 下列原則適用于所有選取的使用者，其嘗試使用合併的註冊體驗進行註冊，並封鎖存取，除非它們是從標示為受信任的網路的位置進行連接。
 
-![建立 CA 原則來控制安全性資訊註冊](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
+![建立 CA 原則來控制安全性資訊註冊](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
-1. 在**Azure 入口網站**中，流覽至**Azure Active Directory** > **條件式存取**
+1. 在**Azure 入口網站**中，流覽至**Azure Active Directory** > 的**安全性** > **條件式存取**
 1. 選取 [新增原則]
 1. 在 [名稱] 中，輸入此原則的名稱。 例如，**受信任網路上的結合安全性資訊註冊**
 1. 在 [**指派**] 底下，按一下 [**使用者和群組**]，然後選取您想要套用此原則的使用者和群組

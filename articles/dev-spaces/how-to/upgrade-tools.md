@@ -3,14 +3,14 @@ title: 如何升級 Azure Dev Spaces 工具
 services: azure-dev-spaces
 ms.date: 07/03/2018
 ms.topic: conceptual
-description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
+description: 瞭解如何升級 Azure Dev Spaces 命令列工具、Visual Studo 程式碼延伸模組，以及 Visual Studio 延伸模組
 keywords: Docker、Kubernetes、Azure、AKS、Azure Container Service、容器
-ms.openlocfilehash: 6ad28a5da05cf77cfaa834ed9752daefeb5f4fdb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 07d55689ac94a865527f4b595765d67b28ddb97a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279963"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438411"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>如何升級 Azure Dev Spaces 工具
 
@@ -25,7 +25,7 @@ ms.locfileid: "74279963"
 
 ## <a name="update-the-dev-spaces-cli-extension-and-command-line-tools"></a>更新 Dev Spaces CLI 擴充功能和命令列工具
 
-執行下列命令：
+執行以下命令：
 
 ```cmd
 az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group> --update

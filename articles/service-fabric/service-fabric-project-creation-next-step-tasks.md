@@ -1,31 +1,20 @@
 ---
-title: Service Fabric 專案建立後續步驟 |Microsoft Docs
+title: Service Fabric 專案建立後續步驟
 description: 了解您剛才在 Visual Studio 中建立的應用程式專案。  了解如何使用教學課程建置服務，並深入了解為 Service Fabric 開發服務。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/07/2017
-ms.author: atsenthi
-ms.openlocfilehash: e5371cd3ea9de1993f0f824325f6cbf1e25343d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8fc105657bda6114851f4819be4658926ad621c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773038"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349404"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>您的 Service Fabric 應用程式和後續步驟
 您的 Azure Service Fabric 應用程式已經建立。 本文說明一些可嘗試的教學課程、專案的組成、您感興趣的一些其他資訊，以及潛在後續步驟。
 
 ## <a name="get-started-with-tutorials-walk-throughs-and-samples"></a>開始使用教學課程、逐步解說和範例
-準備好開始了嗎？  
+準備開始了嗎？  
 
 逐步查看 .NET 應用程式教學課程。 了解如何使用 ASP.NET Core 前端和具狀態後端來[建置應用程式](service-fabric-tutorial-create-dotnet-app.md)、[部署應用程式](service-fabric-tutorial-deploy-app-to-party-cluster.md)至叢集、[設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)，以及[設定監視和診斷](service-fabric-tutorial-monitoring-aspnet.md)。
 

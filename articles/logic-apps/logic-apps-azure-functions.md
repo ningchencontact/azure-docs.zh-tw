@@ -1,17 +1,17 @@
 ---
-title: 從 Azure Logic Apps 新增和呼叫 Azure 函式
-description: 從邏輯應用程式新增和執行 Azure 函式
+title: 從 Azure Logic Apps 新增和呼叫 Azure Functions
+description: 從中的自動化工作和工作流程，在您的 Azure Functions 中呼叫並執行自訂程式碼 Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 8e72cda1965280e0694493e533f49f71c746ebc6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2525ca681d805a3b6f086335531a4beaeb9c4e51
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792569"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453460"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>從 Azure Logic Apps 呼叫 Azure 函式
 
@@ -28,7 +28,7 @@ ms.locfileid: "74792569"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * Azure 函數應用程式，這是 Azure 函式的容器，以及您的 Azure 函式。 如果您沒有函式應用程式，[請先建立該函式應用程式](../azure-functions/functions-create-first-azure-function.md)。 接著，您可以在 Azure 入口網站的邏輯應用程式之外，或從邏輯應用程式設計工具中的[邏輯應用程式內部](#create-function-designer)建立函式。
 

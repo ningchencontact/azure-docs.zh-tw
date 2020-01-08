@@ -1,5 +1,5 @@
 ---
-title: 使用 Logic Apps 自動執行 Azure Application Insights 程序。
+title: 使用 Logic Apps 自動化 Azure 應用程式 Insights 進程
 description: 了解如何透過將 Application Insights Connector 新增到您的邏輯應用程式，快速自動執行重複程序。
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/11/2019
-ms.openlocfilehash: 8211598071d0835a32f9e25cfcf4e34576702770
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 95a3577d352b6bc4b56d36b5b79658571a6be1ff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677607"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407525"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>使用 Logic Apps 自動執行 Application Insights 程序
 
@@ -98,7 +98,7 @@ ms.locfileid: "72677607"
 
    a. 輸入收件者的電子郵件地址。
 
-   b.這是另一個 C# 主控台應用程式。 輸入電子郵件的主旨。
+   b. 輸入電子郵件的主旨。
 
    c. 按一下 [內文] 方塊中的任意處，然後在右方開啟的動態內容功能表上，選取 [內文]。
     
@@ -112,7 +112,7 @@ ms.locfileid: "72677607"
 
     a. 選取 [附件名稱]。
 
-    b.這是另一個 C# 主控台應用程式。 選取 [附件內容]。
+    b. 選取 [附件內容]。
     
     c. 在 [為 HTML] 方塊中選取 [是]。
 

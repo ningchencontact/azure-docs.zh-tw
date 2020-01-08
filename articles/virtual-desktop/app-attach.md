@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: fde3ddf052e47e7550d15aba4ff26d32c91e34b9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8d9a6664caa7d0d84de54de232d6f8d0eab0a793
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972383"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356255"
 ---
 # <a name="set-up-msix-app-attach"></a>設定 MSIX 應用程式附加
 
@@ -172,8 +172,8 @@ sc config wuauserv start=disabled
 如果您的應用程式使用不是公開信任或自我簽署的憑證，以下是安裝它的方法：
 
 1. 以滑鼠右鍵按一下封裝，然後選取 [**屬性**]。
-2. 在出現的視窗中，選取 [**數位簽章**] 索引標籤。索引標籤上的清單中應該只有一個專案，如下圖所示。 選取該專案以反白顯示專案，然後選取 [De]
-3. 當 [數位信號詳細資料] 視窗出現時，選取 [**一般**] 索引標籤，然後選取 [**安裝憑證**]。
+2. 在出現的視窗中，選取 [**數位簽章**] 索引標籤。索引標籤上的清單中應該只有一個專案，如下圖所示。 選取該專案以反白顯示專案，然後選取 [**詳細資料**]。
+3. 當 [數位簽章詳細資料] 視窗出現時，選取 [**一般**] 索引標籤，然後選取 [**安裝憑證**]。
 4. 當安裝程式開啟時，選取 [**本機電腦**] 作為您的儲存位置，然後選取 **[下一步]** 。
 5. 如果安裝程式詢問您是否要允許應用程式對您的裝置進行變更，請選取 **[是]** 。
 6. 選取 **[將所有憑證放入下列存放區**]，然後選取 **[流覽]** 。
@@ -185,7 +185,7 @@ sc config wuauserv start=disabled
 MSIX 應用程式附加有四個不同的階段，必須依照下列循序執行：
 
 1. 階段
-2. Register
+2. 註冊
 3. 登出
 4. 移
 
@@ -199,12 +199,12 @@ MSIX 應用程式附加有四個不同的階段，必須依照下列循序執行
 
 2.  以滑鼠右鍵按一下 VHD，然後選取 [**掛接**]。 這會將 VHD 掛接到磁碟機號。
 
-3.  掛接 VHD 之後，[檔案**瀏覽器**] 視窗隨即開啟。 捕捉父資料夾並更新 **\$parentFolder**變數
+3.  掛接 VHD 之後，[檔案**瀏覽器**] 視窗隨即開啟。 捕捉父資料夾並更新 **$parentFolder**變數
 
     >[!NOTE]
     >如果您看不到父資料夾，這表示 MSIX 未正確擴充。 重做上一節，然後再試一次。
 
-4.  開啟父資料夾。 如果正確展開，您會看到與封裝同名的資料夾。 更新 **\$packageName**變數以符合此資料夾的名稱。
+4.  開啟父資料夾。 如果正確展開，您會看到與封裝同名的資料夾。 更新 **$packageName**變數以符合此資料夾的名稱。
 
     例如： `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe` 。
 
@@ -227,7 +227,7 @@ MSIX 應用程式附加有四個不同的階段，必須依照下列循序執行
     ```
 
 
-6.  使用您剛才複製的磁片區 GUID 來更新 **\$volumeGuid**變數。
+6.  使用您剛才複製的磁片區 GUID 來更新 **$volumeGuid**變數。
 
 7. 開啟系統管理 PowerShell 提示字元，並使用適用于您環境的變數來更新下列 PowerShell 腳本。
 
@@ -256,9 +256,9 @@ MSIX 應用程式附加有四個不同的階段，必須依照下列循序執行
 
     {
 
-    Mount-Diskimage -ImagePath \$vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
 
-    Write-Host ("Mounting of " + \$vhdSrc + " was completed!") -BackgroundColor Green
+    Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 
     }
 
@@ -266,7 +266,7 @@ MSIX 應用程式附加有四個不同的階段，必須依照下列循序執行
 
     {
 
-    Write-Host ("Mounting of " + \$vhdSrc + " has failed!") -BackgroundColor Red
+    Write-Host ("Mounting of " + $vhdSrc + " has failed!") -BackgroundColor Red
 
     }
 
@@ -298,8 +298,8 @@ MSIX 應用程式附加有四個不同的階段，必須依照下列循序執行
     Add-Type -AssemblyName System.Runtime.WindowsRuntime
 
     $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where {
-    $_.ToString() -eq 'System.Threading.Tasks.Task\`1[TResult]
-    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress\`2[TResult,TProgress])'})[0]
+    $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult]
+    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
 
     $asTaskAsyncOperation =
     $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult],
@@ -344,7 +344,7 @@ Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
 
 ### <a name="deregister-powershell-script"></a>取消註冊 PowerShell 腳本
 
-針對此腳本，將 **\$packageName**的預留位置取代為您要測試之封裝的名稱。
+針對此腳本，請將 **$packageName**的預留位置取代為您要測試之封裝的名稱。
 
 ```powershell
 #MSIX app attach deregistration sample
@@ -364,7 +364,7 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### <a name="destage-powershell-script"></a>將 PowerShell 腳本移至
 
-針對此腳本，將 **\$packageName**的預留位置取代為您要測試之封裝的名稱。
+針對此腳本，請將 **$packageName**的預留位置取代為您要測試之封裝的名稱。
 
 ```powershell
 #MSIX app attach de staging sample

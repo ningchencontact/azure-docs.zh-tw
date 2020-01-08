@@ -3,14 +3,14 @@ title: 管理 Azure Vm 上已備份的 SAP Hana 資料庫
 description: 在本文中，您將瞭解管理和監視在 Azure 虛擬機器上執行 SAP Hana 資料庫的一般工作。
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: f76054c7c78c55a9754975267ee4fa3caab968a3
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: a9462f8608fc5ae35255ac321a0742b3f1834fde
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288343"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390575"
 ---
-# <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>管理和監視備份 SAP Hana 資料庫
+# <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>管理和監視已備份的 SAP Hana 資料庫
 
 本文說明管理和監視 Azure 虛擬機器（VM）上執行的 SAP Hana 資料庫，以及由[Azure 備份](https://docs.microsoft.com/azure/backup/backup-overview)服務備份到 Azure 備份復原服務保存庫的一般工作。 您將瞭解如何監視作業和警示、觸發隨選備份、編輯原則、停止和繼續資料庫保護，以及從備份取消註冊 VM。
 
@@ -75,25 +75,38 @@ Azure 備份利用其支援的豐富管理作業，輕鬆管理已備份的 SAP 
 3. 若要這麼做，請按兩下 [systemdb ** > 設定**] > **選取 [資料庫** > **篩選（記錄）** ]。
 4. 將**enable_auto_log_backup**設定為 [**否**]。
 5. 將**log_backup_using_backint**設定為**False**。
-6. 進行資料庫的臨機操作完整備份。
+6. 依照需求進行資料庫的完整備份。
 7. 等待完整備份和目錄備份完成。
 8. 將先前的設定還原回 Azure：
    * 將**enable_auto_log_backup**設定為 **[是]** 。
    * 將**log_backup_using_backint**設定為**True**。
 
-### <a name="edit-underlying-policy"></a>編輯基礎原則
+### <a name="change-policy"></a>變更原則
 
-修改原則以變更備份頻率或保留範圍：
+您可以變更 SAP Hana 備份專案的基礎原則。
 
-* 在保存庫儀表板中，移至 [**管理**] > **備份原則**
+* 在保存庫儀表板中，移至 [**備份專案**]：
 
-  ![保存庫儀表板中的備份原則](./media/sap-hana-db-manage/backup-policies-dashboard.png)
+  ![選取備份項目](./media/sap-hana-db-manage/backup-items.png)
 
-* 選擇您想要編輯的原則：
+* 選擇**AZURE VM 中的 SAP Hana**
 
-  ![備份原則的清單](./media/sap-hana-db-manage/backup-policies-list.png)
+  ![選擇 Azure VM 中的 SAP Hana](./media/sap-hana-db-manage/sap-hana-in-azure-vm.png)
 
-  ![備份原則詳細資料](./media/sap-hana-db-manage/backup-policy-details.png)
+* 選擇您想要變更其基礎原則的備份專案
+* 按一下現有的備份原則
+
+  ![選取現有的備份原則](./media/sap-hana-db-manage/existing-backup-policy.png)
+
+* 變更原則，並從清單中選擇。 視需要[建立新的備份原則](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database#create-a-backup-policy)。
+
+  ![從下拉式清單中選擇原則](./media/sap-hana-db-manage/choose-backup-policy.png)
+
+* 儲存變更
+
+  ![儲存變更](./media/sap-hana-db-manage/save-changes.png)
+
+* 修改原則會影響所有相關聯的備份專案，並觸發對應的 [**設定保護**工作]。
 
 >[!NOTE]
 > 除了新的復原點以外，保留期限內的任何變更也會反而要套用。
@@ -175,4 +188,3 @@ Azure 備份利用其支援的豐富管理作業，輕鬆管理已備份的 SAP 
 ## <a name="next-steps"></a>後續步驟
 
 * 瞭解如何針對[備份 SAP Hana 資料庫時的常見問題進行疑難排解。](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot)
-

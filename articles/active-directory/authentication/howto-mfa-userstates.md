@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46195a0a799f9edabcd8cd5a27e1b79752d03a45
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1c39546d47e9916dbc138a4660d73b79e54ebbe3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964050"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425234"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>如何要求使用者使用雙步驟驗證
 
@@ -29,9 +29,9 @@ ms.locfileid: "74964050"
 
 **藉由變更使用者狀態來啟用** - 這是要求使用雙步驟驗證的傳統方法，本文會加以討論。 這種方法適用於雲端 Azure MFA 和 Azure MFA Server。 使用此方法時，使用者必須在**每次**登入時執行雙步驟驗證，並覆寫條件式存取原則。
 
-由條件式存取原則啟用-這是為您的使用者啟用雙步驟驗證最具彈性的方法。 啟用使用條件式存取原則僅適用于雲端中的 Azure MFA，而且是 Azure AD 的 premium 功能。 如需這個方法的詳細資訊，請參閱[部署雲端式 Azure Multi-Factor Authentication](howto-mfa-getstarted.md)。
+**由條件式存取原則啟用**-這是為您的使用者啟用雙步驟驗證最具彈性的方法。 啟用使用條件式存取原則僅適用于雲端中的 Azure MFA，而且是 Azure AD 的 premium 功能。 如需這個方法的詳細資訊，請參閱[部署雲端式 Azure Multi-Factor Authentication](howto-mfa-getstarted.md)。
 
-由 Azure AD Identity Protection 啟用 - 這個方法使用 Azure AD Identity Protection 風險原則，要求所有雲端應用程式進行只根據登入風險的雙步驟驗證。 這個方法需要 Azure Active Directory P2 授權。 如需這個方法的詳細資訊，請參閱 [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md)
+**由 Azure AD Identity Protection 啟用** - 這個方法使用 Azure AD Identity Protection 風險原則，要求所有雲端應用程式進行只根據登入風險的雙步驟驗證。 這個方法需要 Azure Active Directory P2 授權。 如需這個方法的詳細資訊，請參閱 [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md)
 
 > [!Note]
 > 如需授權和定價的詳細資訊，請參閱 [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
@@ -44,10 +44,10 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 > [!IMPORTANT]
 > 透過條件式存取原則來啟用 Azure MFA 並不會變更使用者的狀態。 不要驚慌使用者會被停用。 條件式存取不會變更狀態。 **如果組織使用條件式存取原則，則不應啟用或強制執行使用者。**
 
-| 狀態 | 描述 | 受影響的非瀏覽器應用程式 | 受影響的瀏覽器應用程式 | 受影響的新式驗證 |
+| 狀態 | 說明 | 受影響的非瀏覽器應用程式 | 受影響的瀏覽器應用程式 | 受影響的新式驗證 |
 |:---:| --- |:---:|:--:|:--:|
 | 已停用 | 未註冊 Azure MFA 之新使用者的預設狀態。 | 否 | 否 | 否 |
-| 已啟用 | 已在 Azure MFA 中註冊使用者，但使用者尚未註冊。 系統將在他們下一次登入時提示他們註冊。 | 不會。  它們會繼續運作，直到註冊程序完成為止。 | 可以。 工作階段到期之後，必須進行 Azure MFA 註冊。| 可以。 存取權杖到期之後，必須進行 Azure MFA 註冊。 |
+| 啟用 | 已在 Azure MFA 中註冊使用者，但使用者尚未註冊。 系統將在他們下一次登入時提示他們註冊。 | 不會。  它們會繼續運作，直到註冊程序完成為止。 | 可以。 工作階段到期之後，必須進行 Azure MFA 註冊。| 可以。 存取權杖到期之後，必須進行 Azure MFA 註冊。 |
 | 已強制 | 已註冊使用者，而且使用者已完成 Azure MFA 的註冊程序。 | 可以。 應用程式需要應用程式密碼。 | 可以。 在登入時需要使用 Azure MFA。 | 可以。 在登入時需要使用 Azure MFA。 |
 
 使用者的狀態會反映系統管理員是否已在 Azure MFA 中註冊他們，以及他們是否已完成註冊程序。
@@ -88,7 +88,7 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 
 若要使用 [Azure AD PowerShell](/powershell/azure/overview) 來變更使用者狀態，請變更 `$st.State`。 有三個可能的狀態︰
 
-* 已啟用
+* 啟用
 * 已強制
 * 已停用  
 

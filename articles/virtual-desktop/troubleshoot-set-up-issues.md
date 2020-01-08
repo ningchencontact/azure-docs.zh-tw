@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: b53bf80774a0715c7a02d837975284e985958635
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
-ms.translationtype: MT
+ms.openlocfilehash: 925894aea267e4f100f7bcdb817424b5cdfe6c25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607443"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459473"
 ---
 # <a name="tenant-and-host-pool-creation"></a>建立租用戶和主機集區
 
@@ -59,7 +59,7 @@ ms.locfileid: "73607443"
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>建立 Windows 虛擬桌面工作階段主機 Vm
 
-您可以透過數種方式建立工作階段主機 Vm，但遠端桌面服務/Windows 虛擬桌面小組僅支援與 Azure Resource Manager 範本相關的 VM 布建問題。 Azure Resource Manager 範本可在[Azure Marketplace](https://azuremarketplace.microsoft.com/)和[GitHub](https://github.com/)中取得。
+您可以透過數種方式建立工作階段主機 Vm，但 Windows 虛擬桌面小組僅支援與[Azure Marketplace](https://azuremarketplace.microsoft.com/)供應專案相關的 VM 布建問題。 如需詳細資訊，請參閱[使用 Windows 虛擬桌面布建主機集區 Azure Marketplace 供應](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering)專案的問題。
 
 ## <a name="issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering"></a>使用 Windows 虛擬桌面的問題–布建主機集區 Azure Marketplace 供應專案
 
@@ -87,6 +87,27 @@ ms.locfileid: "73607443"
     #create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
     2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
     ```
+
+### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>錯誤：您收到「範本部署無效」錯誤
+
+![[範本部署 ...] 的螢幕擷取畫面無效」錯誤](media/troubleshooting-marketplace-validation-error-generic.png)
+
+採取特定動作之前，您必須先檢查活動記錄檔，以查看失敗的部署驗證的詳細錯誤。
+
+若要在活動記錄中查看錯誤：
+
+1. 結束目前的 Azure Marketplace 部署供應專案。
+2. 在頂端的搜尋列中，搜尋並選取 [**活動記錄**]。
+3. 尋找名為 [**驗證部署**] 且狀態為 [**失敗**] 的活動，然後選取該活動。
+   ![個別 * * 驗證部署 * * 活動的螢幕擷取畫面，其狀態為「失敗」](media/troubleshooting-marketplace-validation-error-activity-summary.png)
+
+4. 選取 [JSON]，然後向下滾動到畫面底部，直到您看到 [statusMessage] 欄位為止。
+   ![失敗活動的螢幕擷取畫面，並在 JSON 文字的 statusMessage 屬性周圍加上紅色方塊。](media/troubleshooting-marketplace-validation-error-json-boxed.png)
+
+如果您的工作範本超過配額限制，您可以執行下列其中一項動作來修正此問題：
+
+ - 使用您第一次使用的參數執行 Azure Marketplace，但這次使用較少的 Vm 和 VM 核心。
+ - 開啟您在瀏覽器的 [ **statusMessage** ] 欄位中看到的連結以提交要求，為指定的 VM SKU 增加 Azure 訂用帳戶的配額。
 
 ## <a name="azure-resource-manager-template-and-powershell-desired-state-configuration-dsc-errors"></a>Azure Resource Manager 範本和 PowerShell Desired State Configuration （DSC）錯誤
 
@@ -346,9 +367,10 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 
 - 如需疑難排解 Windows 虛擬桌面和擴大追蹤的總覽，請參閱[疑難排解總覽、意見反應和支援](troubleshoot-set-up-overview.md)。
 - 若要在 Windows 虛擬桌面中設定虛擬機器（VM）時針對問題進行疑難排解，請參閱[工作階段主機虛擬機器](troubleshoot-vm-configuration.md)設定。
-- 若要疑難排解 Windows 虛擬桌面用戶端連線的問題，請參閱[遠端桌面用戶端連接](troubleshoot-client-connection.md)。
+- 若要針對 Windows 虛擬桌面用戶端連接的問題進行疑難排解，請參閱[Windows 虛擬桌面服務連接](troubleshoot-service-connection.md)。
+- 若要疑難排解遠端桌面用戶端的問題，請參閱針對[遠端桌面用戶端進行疑難排解](troubleshoot-client.md)
 - 若要針對搭配 Windows 虛擬桌面使用 PowerShell 時的問題進行疑難排解，請參閱[Windows 虛擬桌面 PowerShell](troubleshoot-powershell.md)。
-- 若要深入瞭解此服務，請參閱[Windows 虛擬桌面環境](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)。
-- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署進行疑難排解](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)。
-- 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)。
-- 若要了解部署期間可採取哪些動作來判斷錯誤，請參閱 [檢視部署作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)。
+- 若要深入瞭解此服務，請參閱[Windows 虛擬桌面環境](environment-setup.md)。
+- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署進行疑難排解](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md)。
+- 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](../azure-resource-manager/resource-group-audit.md)。
+- 若要了解部署期間可採取哪些動作來判斷錯誤，請參閱 [檢視部署作業](../azure-resource-manager/resource-manager-deployment-operations.md)。

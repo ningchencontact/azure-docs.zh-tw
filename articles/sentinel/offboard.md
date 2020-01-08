@@ -1,5 +1,5 @@
 ---
-title: 下架 Azure Sentinel |Microsoft Docs
+title: 移除 Azure Sentinel |Microsoft Docs
 description: 如何刪除您的 Azure Sentinel 實例。
 services: sentinel
 documentationcenter: na
@@ -12,43 +12,38 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2019
+ms.date: 12/29/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4c0c415235fd290bc47ac402a6b81a1afa7af903
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d71a9fc21cca75312696a1bc17c4896c2e5bce2d
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74777429"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610349"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>從您的工作區移除 Azure Sentinel
 
 如果您不想再使用 Azure Sentinel，本文會說明如何從您的工作區中移除它。
 
-## <a name="how-to-delete-azure-sentinel"></a>如何刪除 Azure Sentinel
+## <a name="how-to-remove-azure-sentinel"></a>如何移除 Azure Sentinel
 
-在背景中，當您安裝 Azure Sentinel 時， **SecurityInsights**解決方案會安裝在您選取的工作區上。 因此，您必須做的第一件事就是移除**SecurityInsights**解決方案。
+遵循此程式，從您的工作區中移除 Azure Sentinel：
 
-1.  移至**Azure Sentinel**，然後依序接著 [設定 **]、[** **工作區設定**] 和 [**解決方案**]。
+1. 移至**Azure Sentinel**，然後依序選取 [**設定**] 和 [**移除 Azure Sentinel**] 索引標籤。
 
-2.  選取 `SecurityInsights`，然後按一下它。
+1. 移除 Azure Sentinel 之前，請使用核取方塊讓我們知道您要移除的原因。
 
-    ![尋找 SecurityInsights 解決方案](media/offboard/find-solution.png)
-
-3.  在頁面頂端，選取 [**刪除**]。
-
-    > [!IMPORTANT]
-    > 如果您移除工作區，它可能會影響使用此工作區的其他解決方案和資料來源，包括 Azure 監視器。 若要檢查哪些解決方案正在使用此工作區，請參閱[列出已安裝的監視解決方案](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions)。 若要檢查哪些解決方案的資料正在內嵌至工作區，請參閱[瞭解內嵌資料量](../azure-monitor/platform/manage-cost-storage.md#understanding-ingested-data-volume)。
-
+1. **從您的工作區選取 [移除 Azure Sentinel**]。
+    
     ![刪除 SecurityInsights 解決方案](media/offboard/delete-solution.png)
 
 ## <a name="what-happens-behind-the-scenes"></a>幕後會發生什麼事？
 
-當您刪除解決方案時，Azure Sentinel 需要最多48小時的時間，才能完成刪除程式的第一個階段。
+當您移除解決方案時，Azure Sentinel 最多需要48小時的時間，才能完成刪除程式的第一個階段。
 
 在識別中斷連線之後，就會開始進行脫離進程。
 
-**這些連接器的設定已刪除：**
+**這些連接器的設定已移除：**
 -   Office 365
 
 -   AWS
@@ -61,19 +56,19 @@ ms.locfileid: "74777429"
 
 -   Windows 安全性事件（如果您有 Azure 資訊安全中心，將會繼續收集這些記錄）。
 
-在前48小時內，資料和警示規則（包括即時自動化設定）在 Azure Sentinel 中將無法再存取或查詢。
+在前48小時內，資料和分析規則（包括即時自動化設定）在 Azure Sentinel 中將無法再存取或查詢。
 
-**30天后，就會刪除這些資源：**
+**30天后，就會移除這些資源：**
 
 -   事件（包括調查中繼資料）
 
--   警示規則
+-   分析規則
 
--   標籤
+-   書籤
 
-您的腳本、儲存的活頁簿、儲存的搜尋查詢和筆記本不會被刪除。 **有些可能會因為移除的資料而中斷。您可以手動移除這些。**
+您的腳本、儲存的活頁簿、儲存的搜尋查詢和筆記本都不會移除。 **有些可能會因為移除的資料而中斷。您可以手動移除這些。**
 
-移除服務之後，有30天的寬限期，您可以重新啟用解決方案，而您的資料和警示規則將會還原，但已中斷連線的已設定連接器必須重新連接。
+移除服務之後，有30天的寬限期，您可以重新啟用解決方案，而您的資料和分析規則將會還原，但已中斷連線的已設定連接器必須重新連接。
 
 > [!NOTE]
 > 如果您移除此解決方案，您的訂用帳戶將會繼續向 Azure Sentinel 資源提供者註冊。 **您可以手動將它移除。**
@@ -84,4 +79,3 @@ ms.locfileid: "74777429"
 ## <a name="next-steps"></a>後續步驟
 在本檔中，您已瞭解如何移除 Azure Sentinel 服務。 如果您改變主意，而且想要再次安裝它：
 - 快速入門[Azure Sentinel](quickstart-onboard.md)。
-

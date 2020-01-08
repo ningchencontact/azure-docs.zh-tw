@@ -1,22 +1,21 @@
 ---
 title: 在 Azure 串流分析中剖析 JSON 和 AVRO
 description: 本文說明如何對複雜資料類型 (如 陣列、JSON、CSV 格式的資料) 進行作業。
-services: stream-analytics
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: daf5b97e4ac586f89e5964ee16ee73c86f59b01d
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 1741510c7398ce74da81f006cb4109d9a33f8f9f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329350"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431598"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>在 Azure 串流分析中剖析 JSON 和 Avro 資料
 
-Azure Stream Analytics 支援 CSV、 JSON 和 Avro 資料格式的處理事件。 JSON 和 Avro 資料可以結構化，並包含一些複雜的類型，例如巢狀的物件 （記錄） 和陣列。 
+Azure 串流分析支援以 CSV、JSON 和 Avro 資料格式處理事件。 JSON 和 Avro 資料都可以結構化，並包含一些複雜類型，例如，嵌套物件（記錄）和陣列。 
 
 
 
@@ -48,8 +47,8 @@ Azure Stream Analytics 支援 CSV、 JSON 和 Avro 資料格式的處理事件�
 ```
 
 
-### <a name="access-nested-fields-in-known-schema"></a>已知的結構描述中的巢狀的存取欄位
-您可以使用點標記法 （.） 來輕鬆地直接從您的查詢中存取巢狀的欄位。 比方說，這個查詢會選取在先前的 JSON 資料的緯度和經度座標，在 [位置] 屬性。 點標記法可用來瀏覽多個層級，如下所示。
+### <a name="access-nested-fields-in-known-schema"></a>存取已知架構中的嵌套欄位
+使用點標記法（.）可輕鬆地直接從查詢存取嵌套的欄位。 例如，此查詢會選取上述 JSON 資料中 Location 屬性下的緯度和經度座標。 點標記法可以用來導覽多個層級，如下所示。
 
 ```SQL
 SELECT
@@ -61,7 +60,7 @@ FROM input
 ```
 
 ### <a name="select-all-properties"></a>選取所有屬性
-您可以使用 '*' 萬用字元選取巢狀資料列的所有屬性。 參考下列範例：
+您可以使用 '*' 萬用字元選取巢狀資料列的所有屬性。 請考慮下列範例：
 
 ```SQL
 SELECT input.Location.*
@@ -78,10 +77,10 @@ FROM input
 ```
 
 
-### <a name="access-nested-fields-when-property-name-is-a-variable"></a>存取巢狀欄位屬性名稱時，變數
-使用[GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue)函式的屬性名稱為變數。 
+### <a name="access-nested-fields-when-property-name-is-a-variable"></a>當屬性名稱為變數時存取嵌套欄位
+如果屬性名稱是變數，請使用[GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue)函數。 
 
-例如，假設需要每個裝置感應器的參考資料包含臨界值與聯結的範例資料流。 這類的參考資料的程式碼片段如下所示。
+例如，假設有一個範例資料流程需要與包含每個裝置感應器閾值的參考資料聯結。 以下顯示這類參考資料的程式碼片段。
 
 ```json
 {
@@ -104,8 +103,8 @@ WHERE
     -- the where statement selects the property value coming from the reference data
 ```
 
-### <a name="convert-record-fields-into-separate-events"></a>將記錄的欄位轉換成不同的事件
-若要將資料列欄位轉換成個別的事件，請搭配使用 [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) 運算子和 [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics) 函式。 例如，如果前一個範例如 SensorReading 數筆記錄，下列查詢可用來將它們解壓縮到不同的事件：
+### <a name="convert-record-fields-into-separate-events"></a>將記錄欄位轉換成不同的事件
+若要將資料列欄位轉換成個別的事件，請搭配使用 [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) 運算子和 [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics) 函式。 例如，如果先前的範例有數筆 SensorReading 記錄，可以使用下列查詢將它們解壓縮到不同的事件中：
 
 ```SQL
 SELECT
@@ -124,7 +123,7 @@ CROSS APPLY GetRecordProperties(event.SensorReadings) AS sensorReading
 
 這些範例使用函式 [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics)、[GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics)、[GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics)，以及 [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) 運算子。
 
-### <a name="working-with-a-specific-array-element"></a>使用特定的陣列項目
+### <a name="working-with-a-specific-array-element"></a>使用特定陣列元素
 選取在指定索引的陣列元素 (選取第一個陣列元素)：
 
 ```SQL
@@ -133,7 +132,7 @@ SELECT
 FROM input
 ```
 
-### <a name="select-array-length"></a>選取的陣列長度
+### <a name="select-array-length"></a>選取陣列長度
 
 ```SQL
 SELECT
@@ -153,5 +152,5 @@ CROSS APPLY GetArrayElements(event.arrayField) AS arrayElement
 ```
 
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 [Azure 串流分析中的資料類型](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) \(英文\)

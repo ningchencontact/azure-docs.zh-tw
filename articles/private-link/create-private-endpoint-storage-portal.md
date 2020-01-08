@@ -2,23 +2,25 @@
 title: 使用 Azure 私用端點私下連接至儲存體帳戶
 description: 瞭解如何在 Azure 中使用私人端點，私下連線到儲存體帳戶。
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 2a2a96a823867ea7700933c8253a0ba500b0e1cf
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 96edbd62dcb95fa8f24ea5a8a6f0716c1fefdcd8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899815"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357561"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>使用 Azure 私用端點私下連接至儲存體帳戶
 Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Azure 資源（例如虛擬機器（Vm））私下與私人連結資源進行通訊。
 
 在本快速入門中，您將瞭解如何在 Azure 虛擬網路上建立 VM、使用 Azure 入口網站的儲存體帳戶與私人端點。 然後，您可以從 VM 安全地存取儲存體帳戶。
 
+> [!NOTE]
+> 私人端點不允許與相同子網路中的服務端點搭配使用！
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -34,13 +36,13 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 1. 在畫面的左上方，選取 [建立資源] > [網路] > [虛擬網路]。
 1. 在 [建立虛擬網路] 中，輸入或選取這項資訊：
 
-    | 設定 | Value |
+    | 設定 | 值 |
     | ------- | ----- |
-    | Name | 輸入 MyVirtualNetwork。 |
+    | 名稱 | 輸入 MyVirtualNetwork。 |
     | 位址空間 | 輸入 *10.1.0.0/16*。 |
-    | Subscription | 選取您的訂用帳戶。|
-    | Resource group | 選取 [新建]，輸入 *myResourceGroup*，然後選取 [確定]。 |
-    | Location | 選取 [WestCentralUS]。|
+    | 訂閱 | 選取您的訂用帳戶。|
+    | 資源群組 | 選取 [新建]，輸入 *myResourceGroup*，然後選取 [確定]。 |
+    | 位置 | 選取 [WestCentralUS]。|
     | 子網路 - 名稱 | 輸入 mySubnet。 |
     | 子網路 - 位址範圍 | 輸入 *10.1.0.0/24*。 |
     |||
@@ -53,11 +55,11 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 1. 在 [建立虛擬機器 - 基本] 中，輸入或選取這項資訊：
 
-    | 設定 | Value |
+    | 設定 | 值 |
     | ------- | ----- |
     | **專案詳細資料** | |
-    | Subscription | 選取您的訂用帳戶。 |
-    | Resource group | 選取 **myResourceGroup**。 您已在上一節中建立此項目。  |
+    | 訂閱 | 選取您的訂用帳戶。 |
+    | 資源群組 | 選取 **myResourceGroup**。 您已在上一節中建立此項目。  |
     | **執行個體詳細資料** |  |
     | 虛擬機器名稱 | 輸入 myVm。 |
     | 地區 | 選取 [WestCentralUS]。 |
@@ -78,9 +80,9 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 1. 在 [**建立虛擬機器-磁片**] 中保留預設值，然後選取 **[下一步：網路]** 。
 
-1. 在 [建立虛擬機器 - 網路功能] 中，選取這項資訊：
+1. 在 [建立虛擬機器 - 網路] 中，選取這項資訊：
 
-    | 設定 | Value |
+    | 設定 | 值 |
     | ------- | ----- |
     | 虛擬網路 | 保留預設值 [MyVirtualNetwork]。  |
     | 位址空間 | 保留預設值 [10.1.0.0/24]。|
@@ -101,11 +103,11 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 1. 在 [**建立儲存體帳戶-基本**] 中，輸入或選取這項資訊：
 
-    | 設定 | Value |
+    | 設定 | 值 |
     | ------- | ----- |
     | **專案詳細資料** | |
-    | Subscription | 選取您的訂用帳戶。 |
-    | Resource group | 選取 **myResourceGroup**。 您已在上一節中建立此項目。|
+    | 訂閱 | 選取您的訂用帳戶。 |
+    | 資源群組 | 選取 **myResourceGroup**。 您已在上一節中建立此項目。|
     | **執行個體詳細資料** |  |
     | 儲存體帳戶名稱  | 輸入*mystorageaccount*。 如果此名稱已被使用，請建立唯一名稱。 |
     | 地區 | 選取 [WestCentralUS]。 |
@@ -119,13 +121,13 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 5. 在 [**建立儲存體帳戶-網路**] 中，選取 [**新增私人端點**]。 
 6. 在 [**建立私人端點**] 中，輸入或選取這項資訊：
 
-    | 設定 | Value |
+    | 設定 | 值 |
     | ------- | ----- |
     | **專案詳細資料** | |
-    | Subscription | 選取您的訂用帳戶。 |
-    | Resource group | 選取 **myResourceGroup**。 您已在上一節中建立此項目。|
-    |Location|選取 [WestCentralUS]。|
-    |Name|輸入 *myPrivateEndpoint*。  |
+    | 訂閱 | 選取您的訂用帳戶。 |
+    | 資源群組 | 選取 **myResourceGroup**。 您已在上一節中建立此項目。|
+    |位置|選取 [WestCentralUS]。|
+    |名稱|輸入 *myPrivateEndpoint*。  |
     |儲存體子資源|保留預設**Blob**。 |
     | **網路** |  |
     | 虛擬網路  | 從 [資源群組] *myResourceGroup*中選取 [ *MyVirtualNetwork* ]。 |
@@ -151,7 +153,7 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 1. 選取 [下載 RDP 檔案]。 Azure 會建立一個「遠端桌面通訊協定」( *.rdp*) 檔案，並下載至您的電腦。
 
-1. 開啟*下載的 .rdp*檔案。
+1. 開啟 *downloaded.rdp* 檔案。
 
     1. 如果出現提示，請選取 [連接]。
 
@@ -187,7 +189,7 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 7. 選取 [下一步]。
 8. 貼入先前複製的資訊，以輸入連接字串。
 9. 選取 [下一步]。
-10. 選取 [ **連接**]。
+10. 選取 [連接]。
 11. 從 mystorageaccount 流覽 Blob 容器 
 12. 也建立資料夾及/或將檔案上傳至*mystorageaccount*。 
 13. 關閉對 *myVM*的遠端桌面連線。 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Cosmos DB 中使用 JavaScript Language-integrated Query (LINQ) API
+title: 在 Azure Cosmos DB 中使用 JavaScript 整合式查詢 API
 description: 本文會介紹 JavaScript Language-integrated Query (LINQ) API 的概念，以在 Azure Cosmos DB 中建立預存程序和觸發程序。
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 01e5e95da3c19c03d07c7f3c1d716f5f1e97de98
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 8396608cdbc5638a3640f94c94b44ad7c5f52a73
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717600"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445320"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 JavaScript 查詢 API
 
@@ -20,7 +20,7 @@ ms.locfileid: "68717600"
 
 ## <a name="supported-javascript-functions"></a>支援的 JavaScript 函式
 
-| **Function** | **描述** |
+| **Function** | **說明** |
 |---------|---------|
 |`chain() ... .value([callback] [, options])`|啟動鏈結的呼叫，此呼叫必須以 value() 終止。|
 |`filter(predicateFunction [, options] [, callback])`|使用述詞函式來篩選輸入，此函式會傳回 true/false 以在結果集內篩出/篩除輸入文件。 此函式的行為類似於 SQL 中的 WHERE 子句。|
@@ -33,7 +33,7 @@ ms.locfileid: "68717600"
 
 當裡面包含述詞和/或選取器函式時，下列 JavaScript 建構會自動取得最佳化，以便直接在 Azure Cosmos DB 索引上執行：
 
-- 簡單運算子：`=` `+` `-` `*` `/` `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!` `~`
+- 簡單運算子： `=` `+` `-` `*` `/` `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!` `~`
 - 常值，包含物件常值：{}
 - var、return
 
@@ -51,7 +51,7 @@ ms.locfileid: "68717600"
 > [!NOTE]
 > 使用 JavaScript 查詢 API 時，`__` (雙底線) 是 `getContext().getCollection()` 的別名。
 
-|**SQL**|**JavaScript 查詢 API**|**描述**|
+|**SQL**|**JavaScript 查詢 API**|**說明**|
 |---|---|---|
 |SELECT *<br>FROM docs| __.map(function(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;return doc;<br>});|所有文件中的結果 (使用連續權杖分頁)。|
 |SELECT <br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;docs.message AS msg,<br>&nbsp;&nbsp;&nbsp;docs.actions <br>FROM docs|__.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actions:doc.actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|投射識別碼、訊息 (別名為 msg)，和所有文件中的動作。|

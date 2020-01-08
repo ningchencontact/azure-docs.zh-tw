@@ -1,5 +1,5 @@
 ---
-title: Android Microsoft 驗證程式庫設定檔 |Azure
+title: Android MSAL 設定檔 |Azure
 titleSuffix: Microsoft identity platform
 description: 概述「Android Microsoft 驗證程式庫」（MSAL）設定檔，其代表 Azure Active Directory 中的應用程式設定。
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f643022c85a44b2202fcbd91be50664882c8ba7b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e2d366a48adf536276697959be3418f36e10d8ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916821"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424394"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Android Microsoft 驗證程式庫設定檔
 
@@ -87,7 +87,7 @@ Android Microsoft 驗證程式庫（MSAL）隨附預設的設定[JSON](https://g
 
 #### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>將 AAD 授權單位 & 物件對應至 Microsoft 身分識別平臺端點
 
-| Type | 對象 | 租用戶識別碼 | Authority_Url | 產生的端點 | 注意 |
+| 類型 | 觀眾 | 租用戶識別碼 | Authority_Url | 產生的端點 | 注意 |
 |------|------------|------------|----------------|----------------------|---------|
 | AAD | AzureADandPersonalMicrosoftAccount | | | https://login.microsoftonline.com/common | `common` 是帳戶所在的租使用者別名。 例如，特定 Azure Active Directory 租使用者或 Microsoft 帳戶系統。 |
 | AAD | AzureADMyOrg | contoso.com | | https://login.microsoftonline.com/contoso.com | 只有存在於 contoso.com 的帳戶可以取得權杖。 任何已驗證的網域（或租使用者 GUID）都可用來做為租使用者識別碼。 |
@@ -105,9 +105,9 @@ Android Microsoft 驗證程式庫（MSAL）隨附預設的設定[JSON](https://g
 | 屬性 | Data type  | 必要項 | 注意 |
 |-----------|-------------|-----------|--------|
 | `type` | String | 是 | 鏡像應用程式的目標物件或帳戶類型。 可能的值： `AAD`、`B2C` |
-| `audience` | Object | 否 | 只有在 type =`AAD`時才適用。 指定應用程式的目標身分識別。 使用應用程式註冊的值 |
+| `audience` | 物件 | 否 | 只有在 type =`AAD`時才適用。 指定應用程式的目標身分識別。 使用應用程式註冊的值 |
 | `authority_url` | String | 是 | 只有當 type =`B2C`時才需要。 指定您的應用程式應使用的授權單位 URL 或原則  |
-| `default` | 布林值 | 是 | 當指定一個或多個授權單位時，就需要單一 `"default":true`。 |
+| `default` | boolean | 是 | 當指定一個或多個授權單位時，就需要單一 `"default":true`。 |
 
 #### <a name="audience-properties"></a>物件屬性
 
@@ -150,9 +150,9 @@ Android Microsoft 驗證程式庫（MSAL）隨附預設的設定[JSON](https://g
 
 | 屬性 | 資料類型  | 必要項 | 注意 |
 | ----------|-------------|-----------|---------|
-| `pii_enabled`  | 布林值 | 否 | 是否要發出個人資料 |
-| `log_level`   | 布林值 | 否 | 要輸出的記錄訊息 |
-| `logcat_enabled` | 布林值 | 否 | 是否除了記錄介面外，輸出至記錄 cat |
+| `pii_enabled`  | boolean | 否 | 是否要發出個人資料 |
+| `log_level`   | boolean | 否 | 要輸出的記錄訊息 |
+| `logcat_enabled` | boolean | 否 | 是否除了記錄介面外，輸出至記錄 cat |
 
 ### <a name="account_mode"></a>account_mode
 

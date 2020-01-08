@@ -1,9 +1,9 @@
 ---
-title: 修補 Service Fabric 叢集中的 Windows 作業系統 |Microsoft Docs
+title: 修補 Service Fabric 叢集中的 Windows 作業系統
 description: 本文討論如何使用修補協調流程應用程式，將 Service Fabric 叢集上的作業系統修補作業自動化。
 services: service-fabric
 documentationcenter: .net
-author: khandelwalbrijeshiitr
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
-ms.author: brkhande
-ms.openlocfilehash: a02228593a9d8efc9fb363232da1cede3c80a8b3
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.author: atsenthi
+ms.openlocfilehash: 3115c65c7027f5624b7b60b9be702ee4192d8cb6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592523"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464443"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Windows 作業系統
 
@@ -155,17 +155,17 @@ POA 需要在叢集上啟用修復管理員服務。
 
 您可以設定 POA 行為，以符合您的需求。 當您建立或更新應用程式時，藉由傳入應用程式參數來覆寫預設值。 您可以藉由指定 `Start-ServiceFabricApplicationUpgrade` 或 `New-ServiceFabricApplication` Cmdlet 的 `ApplicationParameter`，來提供應用程式參數。
 
-| 參數        | Type                          | 詳細資料 |
+| 參數        | 類型                          | 詳細資料 |
 |:-|-|-|
-|MaxResultsToCache    |長                              | 應快取的 Windows Update 結果數目上限。 <br><br>預設值為3000，假設： <br> &nbsp; &nbsp;-節點數目為20。 <br> &nbsp; &nbsp;-每月節點的更新數目為5。 <br> &nbsp; &nbsp;-每個作業的結果數目可以是10。 <br> &nbsp; &nbsp;-應該儲存過去三個月的結果。 |
-|TaskApprovalPolicy   |例舉 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy 會指出協調器服務在 Service Fabric 叢集節點中用來安裝 Windows 更新的原則。<br><br>允許的值為： <br>*NodeWise*： Windows 更新會一次安裝一個節點。 <br> *UpgradeDomainWise*： Windows 更新會一次安裝一個更新網域。 （最多，屬於更新網域的所有節點都可以進行 Windows update）。<br><br> 若要協助決定哪一個原則最適合您的叢集，請參閱[常見問題](#frequently-asked-questions)一節。
+|MaxResultsToCache    |長                              | 應快取的 Windows Update 結果數目上限。 <br><br>預設值為3000，假設： <br> &nbsp;&nbsp;-節點數目為20。 <br> &nbsp;&nbsp;-每月節點的更新數目為5。 <br> &nbsp;&nbsp;-每個作業的結果數目可以是10。 <br> &nbsp;&nbsp;-應該儲存過去三個月的結果。 |
+|TaskApprovalPolicy   |例舉 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy 會指出協調器服務在 Service Fabric 叢集節點中用來安裝 Windows 更新的原則。<br><br>允許的值包括： <br>*NodeWise*： Windows 更新會一次安裝一個節點。 <br> *UpgradeDomainWise*： Windows 更新會一次安裝一個更新網域。 （最多，屬於更新網域的所有節點都可以進行 Windows update）。<br><br> 若要協助決定哪一個原則最適合您的叢集，請參閱[常見問題](#frequently-asked-questions)一節。
 |LogsDiskQuotaInMB   |長  <br> （預設值： *1024*）               | 修補程式協調流程應用程式記錄檔的大小上限（以 MB 為單位），可以在本機節點上保存。
 | WUQuery               | string<br>（預設值： *IsInstalled = 0*）                | 用以取得 Windows 更新的查詢。 如需詳細資訊，請參閱 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)。
 | InstallWindowsOSOnlyUpdates | *布林值* <br> (預設值：False)                 | 使用此旗標可控制所應下載並安裝的更新。 允許下列值 <br>true - 只安裝 Windows 作業系統的更新。<br>false - 在電腦上安裝所有可用的更新。          |
 | WUOperationTimeOutInMinutes | Int <br>（預設值： *90*）                   | 指定任何 Windows Update 作業的逾時 (搜尋或下載或安裝)。 如果作業未在指定的逾時內完成，它就會中止。       |
 | WURescheduleCount     | Int <br> （預設值： *5*）                  | 如果作業持續失敗，服務會將 Windows update 重新排程的次數上限。          |
 | WURescheduleTimeInMinutes | Int <br>（預設值： *30*） | 如果失敗持續發生，服務重新排定 Windows 更新的間隔。 |
-| WUFrequency           | 以逗號分隔的字串（預設值：*每週、星期三、7:00:00*）     | 安裝 Windows 更新的頻率。 格式與可能的值如下： <br>&nbsp; &nbsp;-每月： DD，HH： MM： SS （例如，*每月，5，12：22： 32*）<br>欄位 DD （日）允許的值為1到28和 "last" 的數位。 <br> &nbsp; &nbsp;-每週、日、HH： MM： SS （例如，*每週、星期二、12:22:32*）  <br> &nbsp; &nbsp;-每日，HH： MM： SS （例如，*每日，12:22:32*）  <br> &nbsp; &nbsp; -  *None*表示不應執行 Windows 更新。  <br><br> 時間為 UTC。|
+| WUFrequency           | 以逗號分隔的字串（預設值：*每週、星期三、7:00:00*）     | 安裝 Windows 更新的頻率。 格式與可能的值如下： <br>&nbsp;&nbsp;-每月： DD，HH： MM： SS （例如，*每月，5，12：22： 32*）<br>欄位 DD （日）允許的值為1到28和 "last" 的數位。 <br> &nbsp;&nbsp;-每週、日、HH： MM： SS （例如，*每週、星期二、12:22:32*）  <br> &nbsp;&nbsp;-每日，HH： MM： SS （例如，*每日，12:22:32*）  <br> &nbsp;&nbsp;-  *None*表示不應執行 Windows 更新。  <br><br> 時間為 UTC。|
 | AcceptWindowsUpdateEula | Boolean <br>（預設值： *true*） | 藉由設定這個旗標，應用程式會代表電腦的擁有者接受 Windows Update 的使用者授權合約 (EULA)。              |
 
 > [!TIP]
@@ -248,7 +248,7 @@ HResult | 0-成功<br> 其他-失敗| 指出具有 updateID "7392acaf-6a85-427c-
 
 如果尚未排程更新，JSON 結果會是空的。
 
-登入叢集以查詢 Windows Update 結果。 找出協調員服務主要位址的複本 IP 位址，並從瀏覽器開啟下列 URL： HTTP://&lt;REPLICA-IP &gt;： &lt;ApplicationPort &gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
+登入叢集以查詢 Windows Update 結果。 找出協調員服務主要位址的複本 IP 位址，並從瀏覽器開啟下列 URL： HTTP://&lt;REPLICA-IP&gt;：&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults。
 
 協調器服務的 REST 端點具有動態連接埠。 若要檢查確切的 URL，請參閱 Service Fabric Explorer。 例如，您可以在 *http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults* 取得結果。
 
@@ -256,7 +256,7 @@ HResult | 0-成功<br> 其他-失敗| 指出具有 updateID "7392acaf-6a85-427c-
 
 如果在叢集上啟用反向 proxy，您也可以從叢集外部存取 URL。
 
-您需要叫用的端點是*HTTP://&lt;SERVERURL &gt;： &lt;REVERSEPROXYPORT &gt;/patchorchestrationapplication/coordinatorservice/v1/getwindowsupdateresults*。
+您需要叫用的端點是*HTTP://&lt;SERVERURL&gt;：&lt;REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults*。
 
 若要在叢集上啟用反向 proxy，請遵循[Azure 中的反向 proxy Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy)中的指示。 
 
@@ -277,15 +277,15 @@ HResult | 0-成功<br> 其他-失敗| 指出具有 updateID "7392acaf-6a85-427c-
 
 1. 在每個節點上執行的 NodeAgentNTService，會在排程的時間尋找可用的 Windows 更新。 如果有可用的更新，它會將它們下載到節點上。
 
-1. 下載更新之後，節點代理程式 NTService 會為名稱為*POS___ \<unique_id >* 的節點建立對應的修復工作。 您可以使用[ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) Cmdlet 或在 [節點詳細資料] 區段中使用 SFX 來查看這些修復工作。 建立修復工作之後，它很快就會移至[*宣告*的狀態](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet)。
+1. 下載更新之後，節點代理程式 NTService 會針對名稱為*POS___\<unique_id >* 的節點，建立對應的修復工作。 您可以使用[ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) Cmdlet 或在 [節點詳細資料] 區段中使用 SFX 來查看這些修復工作。 建立修復工作之後，它很快就會移至[*宣告*的狀態](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet)。
 
 1. 協調器服務會定期尋找已*宣告*狀態的修復工作，然後更新它們以根據 taskapprovalpolicy 會*準備*狀態。 如果 Taskapprovalpolicy 會設定為 NodeWise，則只有在沒有其他修復工作正在*準備*、*核准*、*執行*或*還原*狀態時，才會備妥對應至節點的修復工作。 
 
    同樣地，在 UpgradeWise Taskapprovalpolicy 會的案例中，上述狀態中的工作僅適用于屬於相同更新網域的節點。 將修復工作移至*準備*狀態之後，會[停](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps)用對應的 Service Fabric 節點，意圖設定為 [*重新開機*]。
 
-   POA 版本1.4.0 和更新版本會在 CoordinatorService 上使用 ClusterPatchingStatus 屬性張貼事件，以顯示正在修補的節點。 更新會安裝到 _poanode_0 上，如下圖所示：
+   POA 版本1.4.0 和更新版本會在 CoordinatorService 上使用 ClusterPatchingStatus 屬性張貼事件，以顯示正在修補的節點。 更新會安裝在 _poanode_0 上，如下圖所示：
 
-    [叢集修補狀態 ![Image](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
+    [![叢集修補狀態的映射](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
 
 1. 停用節點之後，修復工作會移至 [*執行*中] 狀態。 
    
@@ -294,15 +294,15 @@ HResult | 0-成功<br> 其他-失敗| 指出具有 updateID "7392acaf-6a85-427c-
 
 1. 當修復工作處於 [*執行*中] 狀態時，該節點上的修補程式安裝就會開始。 安裝修補程式之後，節點可能會或可能不會重新開機，視修補程式而定。 接下來，修復工作會移至*還原*狀態，以 reenables 節點。 然後，修復工作會標示為已完成。
 
-   在 POA 版本1.4.0 和更新版本中，您可以使用 WUOperationStatus-\<NodeName > 屬性來查看 NodeAgentService 上的健全狀況事件，以尋找更新的狀態。 下圖中反白顯示的區段會顯示*poanode_0*和*poanode_2*節點上的 Windows 更新狀態：
+   在 POA 版本1.4.0 和更新版本中，您可以使用 WUOperationStatus-\<NodeName > 屬性，在 NodeAgentService 上查看健康情況事件，以尋找更新的狀態。 下圖中反白顯示的區段會顯示*poanode_0*和*poanode_2*節點上的 Windows 更新狀態：
 
-   [Windows Update 作業狀態的 ![Image](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+   [Windows Update 作業狀態的 ![影像](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 
-   [Windows Update 作業狀態的 ![Image](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+   [Windows Update 作業狀態的 ![影像](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
    您也可以使用 PowerShell 來取得詳細資料。 若要這麼做，您可以使用[ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps)連接到叢集，並提取修復工作的狀態。 
    
-   在下列範例中，"POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" 工作處於*DownloadComplete*狀態。 這表示已下載*poanode_2*節點上的更新，並會在工作移至*執行*狀態時嘗試安裝。
+   在下列範例中，"POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" 工作處於*DownloadComplete*狀態。 這表示已在*poanode_2*節點上下載更新，並會在工作移至*執行*狀態時嘗試安裝。
 
    ``` powershell
     D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k = Get-ServiceFabricRepairTask -TaskId "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15"
@@ -313,7 +313,7 @@ HResult | 0-成功<br> 其他-失敗| 指出具有 updateID "7392acaf-6a85-427c-
 
    如果仍然發現更多問題，請使用 Windows 事件記錄檔登入您的虛擬機器（VM）或 Vm，並瞭解它們。 先前提到的修復工作只能存在於下列執行程式 substates 中：
 
-      ExecutorSubState | 描述
+      ExecutorSubState | 說明
     -- | -- 
       無 = 1 |  表示節點上沒有進行中的作業。 狀態可能是「轉換中」。
       DownloadCompleted = 2 | 表示下載作業已完成，但發生「成功」、「部分失敗」或「失敗」。
@@ -328,7 +328,7 @@ HResult | 0-成功<br> 其他-失敗| 指出具有 updateID "7392acaf-6a85-427c-
 
 1. 在 POA 版本1.4.0 和更新版本中，當節點更新嘗試完成時，會在 NodeAgentService 上公佈具有 "WUOperationStatus-[NodeName]" 屬性的事件，以在下一次嘗試下載並安裝 Windows 更新時通知您。 這會顯示在下圖中：
 
-     [Windows Update 作業狀態的 ![Image](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+     [Windows Update 作業狀態的 ![影像](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
 
 ### <a name="diagnostics-logs"></a>診斷記錄
 

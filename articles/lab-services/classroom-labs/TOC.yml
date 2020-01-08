@@ -26,8 +26,10 @@
       items:
         - name: 使用實驗室教授課程
           href: classroom-labs-scenarios.md
-- name: 使用說明指南
+- name: 操作指南
   items:
+    - name: 系統管理員指南
+      href: administrator-guide.md
     - name: 教室實驗室 - 類別類型
       items:
         - name: 課程類型概觀
@@ -52,6 +54,8 @@
           href: how-to-connect-peer-virtual-network.md
         - name: 附加或中斷連結共用映像資源庫
           href: how-to-attach-detach-shared-image-gallery.md
+        - name: 將使用者新增為教室實驗室的擁有者
+          href: how-to-add-user-lab-owner.md
     - name: 建立和設定教室實驗室 (講師)
       items:
         - name: 建立和管理教室實驗室
@@ -70,6 +74,8 @@
           href: how-to-use-shared-image-gallery.md
         - name: 啟用 Linux 遠端桌面連線檔案
           href: how-to-enable-remote-desktop-linux.md
+        - name: 在中斷連線時啟用自動關機
+          href: how-to-enable-shutdown-disconnect.md
         - name: 在範本 VM 上啟用巢狀虛擬化
           href: how-to-enable-nested-virtualization-template-vm.md
         - name: 準備 Windows 範本 VM

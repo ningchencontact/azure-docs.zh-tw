@@ -1,20 +1,21 @@
 ---
 title: 連接到 Office 365 使用者
-description: 使用 Office 365 使用者 REST API 和 Azure Logic Apps 管理使用者設定檔
+description: 使用 Azure Logic Apps，將在 Office 365 使用者設定檔中取得及管理設定檔的工作和工作流程自動化
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 08/18/2016
 ms.topic: article
 tags: connectors
-ms.openlocfilehash: addb64a9b43c51af8363caa6f0fb3261a618e893
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 179c7538d8072f0e1a4f7d049cf521971efd7a21
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789509"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666851"
 ---
-# <a name="get-started-with-the-office-365-users-connector"></a>開始使用 Office 365 使用者連接器
+# <a name="get-and-manage-profiles-in-office-365-users-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 在 Office 365 使用者中取得及管理設定檔
+
 連接至 Office 365 使用者，以取得設定檔、搜尋使用者等等。 您可以利用 Office 365 使用者來：
 
 * 根據您從 Office 365 使用者所取得的資料，來建置您的商務流程。 
@@ -23,7 +24,8 @@ ms.locfileid: "74789509"
 您可以從建立邏輯應用程式立即開始，請參閱[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="create-a-connection-to-office-365-users"></a>建立至 Office 365 使用者的連線
-當您將這個連接器新增到邏輯應用程式時，您必須登入您的 Office 365 使用者帳戶，並允許邏輯應用程式連線到您的帳戶。
+
+當您將此連接器新增至邏輯應用程式時，您必須登入您的 Office 365 使用者帳戶，Azure Logic Apps 才能連線到您的帳戶。
 
 > [!INCLUDE [Steps to create a connection to Office 365 Users](../../includes/connectors-create-api-office365users.md)]
 > 
@@ -33,7 +35,8 @@ ms.locfileid: "74789509"
 
 ## <a name="connector-specific-details"></a>連接器特定的詳細資料
 
-檢視 Swagger 中定義的任何觸發程序和動作，另請參閱[連接器詳細資料](/connectors/officeusers/)的所有限制。
+如需有關觸發程式、動作和限制的技術詳細資訊（由連接器的 Swagger 描述所描述），請參閱[連接器的參考頁面](/connectors/officeusers/)。
 
-## <a name="more-connectors"></a>其他連接器
-返回 [API 清單](apis-list.md)。
+## <a name="next-steps"></a>後續步驟
+
+* 了解其他 [Logic Apps 連接器](apis-list.md)

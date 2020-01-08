@@ -2,13 +2,13 @@
 title: 適用於 Azure Functions 的 Python 開發人員參考
 description: 了解如何使用 Python 開發函式
 ms.topic: article
-ms.date: 04/16/2018
-ms.openlocfilehash: 7c8ce87fdf396bc488a7deaf576eea28f989e0e4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/13/2019
+ms.openlocfilehash: 55eb1fe53aa4256f1b7eee44547703328816cd32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226653"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409096"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 開發人員指南
 
@@ -174,11 +174,11 @@ def main(req: func.HttpRequest,
 叫用此函式時，HTTP 要求會以 `req` 形式傳遞至函式。 系統會根據路由 URL 中的_識別碼_從 Azure Blob 儲存體中抓取專案，並在函式主體中以 `obj` 的形式提供。  在這裡，指定的儲存體帳戶是在中找到的連接字串，這是函數應用程式所使用的相同儲存體帳戶。
 
 
-## <a name="outputs"></a>reference
+## <a name="outputs"></a>輸出
 
 輸出可以使用傳回值和輸出參數來表示。 如果只有一個輸出，我們建議使用傳回的值。 若為多個輸出，您必須使用輸出參數。
 
-若要使用函式的傳回值作為輸出繫結的值，應該將 `name` 中的繫結 `$return` 屬性設定為 `function.json`。
+若要使用函式的傳回值作為輸出繫結的值，應該將 `function.json` 中的繫結 `name` 屬性設定為 `$return`。
 
 若要產生多個輸出，請使用[`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python)介面提供的 `set()` 方法，將值指派給系結。 例如，下列函式可以將訊息推送至佇列，同時也會傳回 HTTP 回應。
 
@@ -236,7 +236,7 @@ def main(req):
 
 其他的記錄方法可讓您在不同追蹤層級寫入主控台記錄中︰
 
-| 方法                 | 描述                                |
+| 方法                 | 說明                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | 在根記錄器上寫入層級為 CRITICAL (重大) 的訊息。  |
 | **`error(_message_)`**   | 在根記錄器上寫入層級為 ERROR (錯誤) 的訊息。    |
@@ -280,28 +280,30 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 同樣地，您可以在傳回的[HttpResponse]物件中設定回應訊息的 `status_code` 和 `headers`。
 
-## <a name="concurrency"></a>並行
+## <a name="scaling-and-concurrency"></a>調整和並行
 
-根據預設，Python 執行時間一次只能處理一個函式的調用。 此並行層級可能不足以符合下列一或多個條件：
+根據預設，Azure Functions 會自動監視應用程式上的負載，並視需要建立適用于 Python 的其他主機實例。 函式會針對不同的觸發程式類型使用內建（非使用者可設定）閾值，以決定何時要新增實例，例如訊息的存留期和 QueueTrigger 的佇列大小。 如需詳細資訊，請參閱[耗用量和 premium 方案的工作方式](functions-scale.md#how-the-consumption-and-premium-plans-work)。
 
-+ 您正嘗試處理同時進行的多個調用。
-+ 您正在處理大量 i/o 事件。
-+ 您的應用程式與 i/o 系結。
+這種調整行為足以滿足許多應用程式的需求。 不過，具有下列任何特性的應用程式可能無法有效地進行調整：
 
-在這些情況下，您可以透過非同步方式執行，並使用多個語言背景工作進程來改善效能。  
+- 應用程式必須處理許多並行調用。
+- 應用程式會處理大量的 i/o 事件。
+- 應用程式是 i/o 系結的。
+
+在這種情況下，您可以藉由採用非同步模式和使用多個語言背景工作進程，進一步改善效能。
 
 ### <a name="async"></a>非同步處理
 
-建議您使用 `async def` 語句，讓函式以非同步協同程式的方式執行。
+因為 Python 是單一執行緒執行時間，所以適用于 Python 的主控制項實例一次只能處理一個函式呼叫。 對於處理大量 i/o 事件和/或 i/o 系結的應用程式，您可以透過非同步方式執行函式來改善效能。
+
+若要以非同步方式執行函式，請使用 `async def` 語句，這會直接以[asyncio](https://docs.python.org/3/library/asyncio.html)執行函數：
 
 ```python
-# Runs with asyncio directly
-
 async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-當 `main()` 函式是同步的（沒有 `async` 限定詞）時，函數會自動在 `asyncio` 執行緒集區中執行。
+不含 `async` 關鍵字的函式會在 asyncio 執行緒集區中自動執行：
 
 ```python
 # Runs in an asyncio thread-pool
@@ -312,13 +314,15 @@ def main():
 
 ### <a name="use-multiple-language-worker-processes"></a>使用多個語言工作者進程
 
-根據預設，每個函式主控制項實例都有單一的語言工作者進程。 不過，支援每個主控制項實例有多個語言工作者進程。 接著，函式呼叫可以平均分散在這些語言工作者進程中。 請使用[FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count)應用程式設定來變更此值。 
+根據預設，每個函式主控制項實例都有單一的語言工作者進程。 您可以使用 [ [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) ] 應用程式設定，增加每部主機的工作者進程數（最多10個）。 Azure Functions 接著會嘗試在這些背景工作中平均散發並行函式呼叫。 
+
+FUNCTIONS_WORKER_PROCESS_COUNT 適用于在相應放大應用程式以符合需求時所建立的每個主機。 
 
 ## <a name="context"></a>Context
 
 若要在執行期間取得函數的調用內容，請在其簽章中包含[`context`](/python/api/azure-functions/azure.functions.context?view=azure-python)引數。 
 
-例如︰
+例如：
 
 ```python
 import azure.functions
@@ -335,7 +339,7 @@ def main(req: azure.functions.HttpRequest,
 函式執行所在的目錄。
 
 `function_name`  
-函式的名稱。
+函數的名稱。
 
 `invocation_id`  
 目前函式引動的識別碼。
@@ -380,7 +384,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 目前，Azure Functions 支援 Python 3.6. x 和 3.7. x （官方 CPython 散發套件）。 在本機執行時，執行時間會使用可用的 Python 版本。 若要在 Azure 中建立函數應用程式時要求特定的 Python 版本，請使用[`az functionapp create`](/cli/azure/functionapp#az-functionapp-create)命令的 `--runtime-version` 選項。  
 
-## <a name="package-management"></a>封裝管理
+## <a name="package-management"></a>套件管理
 
 使用 Azure Functions Core Tools 或 Visual Studio Code 在本機進行開發時，將所需的套件名稱和版本新增到 `requirements.txt` 檔案，並使用 `pip` 進行安裝。 
 

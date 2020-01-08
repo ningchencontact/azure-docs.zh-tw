@@ -1,33 +1,35 @@
 ---
 title: 使用 Azure CLI 來建立容器或 blob 的使用者委派 SAS
 titleSuffix: Azure Storage
-description: 瞭解如何使用 Azure CLI 來建立具有 Azure Active Directory 認證的使用者委派 SAS （預覽）。
+description: 瞭解如何使用 Azure CLI 來建立具有 Azure Active Directory 認證的使用者委派 SAS。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 85f49799472c92770cc8a503a5a1be0b496387f7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e1a81b25042501a166cee122279d21e3702cd419
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892544"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371984"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>使用 Azure CLI （預覽）建立容器或 blob 的使用者委派 SAS
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>使用 Azure CLI 建立容器或 blob 的使用者委派 SAS
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-本文說明如何使用 Azure Active Directory （Azure AD）認證，以 Azure CLI （預覽）來建立容器或 blob 的使用者委派 SAS。
+本文說明如何使用 Azure Active Directory （Azure AD）認證，以 Azure CLI 建立容器或 blob 的使用者委派 SAS。
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
 ## <a name="install-the-latest-version-of-the-azure-cli"></a>安裝最新版的 Azure CLI
 
 若要使用 Azure CLI 來保護具有 Azure AD 認證的 SAS，請先確定您已安裝最新版本的 Azure CLI。 如需有關安裝 Azure CLI 的詳細資訊，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+
+若要使用 Azure CLI 建立使用者委派 SAS，請確定您已安裝2.0.78 版或更新版本。 若要檢查您已安裝的版本，請使用 `az --version` 命令。
 
 ## <a name="sign-in-with-azure-ad-credentials"></a>使用 Azure AD 認證登入
 

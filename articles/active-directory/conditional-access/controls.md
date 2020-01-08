@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 12/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cac92da744b3d5b7aeaa325c7cc564a3d7e2abdd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 342ec46aabafec975d780aa03fe75d7e3cf50497
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380801"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424977"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的存取控制？
 
@@ -51,7 +51,7 @@ ms.locfileid: "74380801"
 
 ![控制](./media/controls/18.png)
 
-### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+### <a name="multi-factor-authentication"></a>多因素驗證
 
 您可以使用這個控制項來要求使用者通過 Multi-Factor Authentication 後，才能存取指定的雲端應用程式。 這個控制項支援以下多重要素提供者：
 
@@ -62,7 +62,7 @@ ms.locfileid: "74380801"
 
 ### <a name="compliant-device"></a>符合規範的裝置
 
-您可以設定以裝置為基礎的條件式存取原則。 裝置型條件式存取原則的目標是只從[受管理的裝置](require-managed-devices.md)授與對所選雲端應用程式的存取權。 您必須限制對受控裝置的存取的其中一個選項，是要求將裝置標示為符合規範。 Intune (適用於任何裝置作業系統) 或您的協力廠商 MDM 系統 (適用於 Windows 10 裝置) 可以將裝置標示為符合規範。 不支援針對 Windows 10 以外的裝置 OS 類型使用的協力廠商 MDM 系統。 
+您可以設定以裝置為基礎的條件式存取原則。 裝置型條件式存取原則的目標是只從[受管理的裝置](require-managed-devices.md)授與對所選雲端應用程式的存取權。 您必須限制對受控裝置的存取的其中一個選項，是要求將裝置標示為符合規範。 Intune (適用於任何裝置作業系統) 或您的協力廠商 MDM 系統 (適用於 Windows 10 裝置) 可以將裝置標示為符合規範。 不支援針對 Windows 10 以外的裝置 OS 類型使用的第三方 MDM 系統。 
 
 您的裝置必須向 Azure AD 註冊，才能標示為符合規範。 若要註冊裝置，您會有三個選項： 
 
@@ -76,7 +76,7 @@ ms.locfileid: "74380801"
 
 ### <a name="hybrid-azure-ad-joined-device"></a>已加入混合式 Azure AD 的裝置
 
-您必須設定裝置型條件式存取原則，才能要求已加入混合式 Azure AD 的裝置。 這項需求是指加入內部部署 Active Directory 的 Windows 桌上型電腦、膝上型電腦和企業平板電腦。 如果選取此選項，您的條件式存取原則會授與存取權給已加入內部部署 Active Directory 和您 Azure Active Directory 之裝置的存取權。  
+您必須設定裝置型條件式存取原則的另一個選項，就是需要混合式 Azure AD 聯結裝置。 這項需求是指加入內部部署 Active Directory 的 Windows 桌上型電腦、膝上型電腦和企業平板電腦。 如果選取此選項，您的條件式存取原則會授與存取權給已加入內部部署 Active Directory 和您 Azure Active Directory 之裝置的存取權。 Mac 裝置不支援混合式 Azure AD 聯結。
 
 如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](require-managed-devices.md)。
 
@@ -114,7 +114,7 @@ ms.locfileid: "74380801"
 - [委託 Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [GSMA](https://mobileconnect.io/azure/)
 - [Ping 身分識別](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
-- RSA
+- [與眾不同](https://community.rsa.com/docs/DOC-81278)
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
 - [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)

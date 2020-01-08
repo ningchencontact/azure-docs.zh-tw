@@ -1,20 +1,20 @@
 ---
 title: 將 EDI 訊息批次處理為群組
-description: 在 Azure Logic Apps 中以批次、群組或集合的方式傳送和接收 EDI 訊息
+description: 在 Azure Logic Apps 中使用批次處理，以批次、群組或集合的方式傳送和接收 EDI 訊息
 services: logic-apps
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 1c4b32bfec667620101d588974e0411a9c7438d2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792993"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666664"
 ---
-# <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>使用 Azure Logic Apps 對合作對象批次傳送 EDI 訊息
+# <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>在 Azure Logic Apps 的交易夥伴之間，以批次或群組交換 EDI 訊息
 
 在企業對企業 (B2B) 案例中，合作夥伴通常是以群組或批次方式交換訊息。 當您使用 Logic Apps 建置批次處理解決方案時，您可以傳送訊息給合作對象，並以批次方式一起處理這些訊息。 本文說明如何使用 X12 作為範例，藉由建立「批次傳送者」邏輯應用程式和「批次接收者」邏輯應用程式，來批次處理 EDI 訊息。 
 
@@ -64,14 +64,14 @@ ms.locfileid: "74792993"
 
 4. 設定批次接收者屬性： 
 
-   | 屬性 | Value | 注意 | 
+   | 屬性 | 值 | 注意 | 
    |----------|-------|-------|
    | **批次模式** | 內嵌 |  |  
    | **批次名稱** | TestBatch | 僅適用於**內嵌**批次模式 | 
-   | **釋出準則** | 依據訊息計數、依據排程 | 僅適用於**內嵌**批次模式 | 
+   | **發行準則** | 依據訊息計數、依據排程 | 僅適用於**內嵌**批次模式 | 
    | **訊息計數** | 10 | 僅適用於**依據訊息計數**釋出準則 | 
    | **間隔** | 10 | 僅適用於**依據排程**釋出準則 | 
-   | **頻率** | 分鐘 | 僅適用於**依據排程**釋出準則 | 
+   | **頻率** | minute | 僅適用於**依據排程**釋出準則 | 
    ||| 
 
    ![提供批次觸發程序詳細資料](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
@@ -93,7 +93,7 @@ ms.locfileid: "74792993"
 
    4. 為批次編碼器動作設定這些屬性：
 
-      | 屬性 | 描述 |
+      | 屬性 | 說明 |
       |----------|-------------|
       | **X12 協議的名稱** | 開啟清單，然後選取現有的協議。 <p>如果清單是空的，請務必[將邏輯應用程式連結至整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) (具有所需協議)。 | 
       | **BatchName** | 按一下此方塊內部，然後在動態內容清單出現後，選取 [批次名稱] 權杖。 | 
@@ -123,11 +123,11 @@ ms.locfileid: "74792993"
 
 3. 設定 HTTP 動作的屬性：
 
-   | 屬性 | 描述 | 
+   | 屬性 | 說明 | 
    |----------|-------------|
    | **方法** | 從這個清單中選取 [POST]。 | 
    | **Uri** | 為要求 Bin 產生 URI，然後在這個方塊中輸入該 URI。 | 
-   | **內文** | 按一下此方塊內部，然後在動態內容清單開啟後，選取 [主體] 權杖，其會出現在 [依合約名稱的批次編碼] 區段中。 <p>如果您沒有看到 [主體] 權杖，請選取 [依合約名稱的批次編碼] 旁邊的 [查看更多]。 | 
+   | **本文** | 按一下此方塊內部，然後在動態內容清單開啟後，選取 [主體] 權杖，其會出現在 [依合約名稱的批次編碼] 區段中。 <p>如果您沒有看到 [主體] 權杖，請選取 [依合約名稱的批次編碼] 旁邊的 [查看更多]。 | 
    ||| 
 
    ![提供 HTTP 動作詳細資料](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action-details.png)
@@ -167,13 +167,13 @@ ms.locfileid: "74792993"
 
       ![選取「批次接收者」邏輯應用程式](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   4. 選取此動作：**Batch_messages - <your-batch-receiver>**
+   4. 選取此動作：**Batch_messages - <*your-batch-receiver*>**
 
       ![選取 [Batch_messages] 動作](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 
 4. 設定批次傳送者的屬性。
 
-   | 屬性 | 描述 | 
+   | 屬性 | 說明 | 
    |----------|-------------| 
    | **批次名稱** | 接收者邏輯應用程式所定義的批次名稱，在本例中為 "TestBatch" <p>**重要**：批次名稱會在執行階段驗證，而且必須符合接收者邏輯應用程式所指定的名稱。 變更批次名稱會導致批次傳送者失敗。 | 
    | **訊息內容** | 您想要傳送的訊息內容，在本例中為**主體**權杖 | 

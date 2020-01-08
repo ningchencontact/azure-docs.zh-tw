@@ -1,17 +1,17 @@
 ---
-title: 適用于 MongoDB 的 Azure Cosmos DB API Azure Resource Manager 範本
+title: 適用于 MongoDB 的 Azure Cosmos DB API Resource Manager 範本
 description: 使用 Azure Resource Manager 範本來建立和設定適用于 MongoDB 的 Azure Cosmos DB API。
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: e0d28de67082c4b4d582f62653ad474e9ad5dadd
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 66f1ea27692433b72fe05ea89454806bf851c519
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960572"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445243"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Azure Cosmos DB MongoDB API 資源
 

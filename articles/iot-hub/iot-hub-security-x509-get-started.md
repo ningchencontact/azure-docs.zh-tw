@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 32219eeaee7980b685ac3453c6af3beff716abe2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 968241eff1bcab449f9a4def7a394a508461ec95
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824093"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457015"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>在您的 Azure IoT 中樞中設定 X.509 安全性
 
@@ -29,7 +29,7 @@ ms.locfileid: "73824093"
 
 ## <a name="get-x509-ca-certificates"></a>取得 X.509 CA 憑證
 
-「IoT 中樞」中的 X.509 憑證型安全性會要求您從 [X.509 憑證鏈結](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification) \(英文\) 開始著手，此鏈結包含根憑證，以及向上包含任何中繼憑證，一直到分葉憑證為止。
+「IoT 中樞」中的 X.509 憑證型安全性會要求您從 [X.509 憑證鏈結](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification)開始著手，此鏈結包含根憑證，以及向上包含任何中繼憑證，一直到分葉憑證為止。
 
 您可以選擇下列任何方式來取得您的憑證：
 
@@ -97,9 +97,9 @@ ms.locfileid: "73824093"
 
     此步驟會下載及安裝 Azure IoT 裝置 SDK NuGet 套件及其相依專案，並新增對它的參考。
 
-1. 在 `using`Program.cs**檔案開頭處新增下列** 陳述式：
+1. 在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
 
-    ```CSharp
+    ```csharp
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
         using System.Security.Cryptography.X509Certificates;
@@ -107,7 +107,7 @@ ms.locfileid: "73824093"
 
 1. 將下欄欄位新增至**Program**類別：
 
-    ```CSharp
+    ```csharp
         private static int MESSAGE_COUNT = 5;
         private const int TEMPERATURE_THRESHOLD = 30;
         private static String deviceId = "<your-device-id>";
@@ -120,7 +120,7 @@ ms.locfileid: "73824093"
 
 1. 新增下列函式來建立氣溫和溼度的隨機數字，並將這些值傳送至中樞：
 
-    ```CSharp
+    ```csharp
     static async Task SendEvent(DeviceClient deviceClient)
     {
         string dataBuffer;
@@ -142,7 +142,7 @@ ms.locfileid: "73824093"
 
 1. 最後，將下列幾行程式碼新增至**Main**函式，並根據您的設定來取代預留位置_裝置識別碼_、_您的 iot 中樞名稱_和_絕對路徑到裝置的 pfx_檔案。
 
-    ```CSharp
+    ```csharp
     try
     {
         var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "1234");

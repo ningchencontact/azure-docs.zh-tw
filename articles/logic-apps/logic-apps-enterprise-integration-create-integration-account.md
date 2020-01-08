@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 650355bc79e786839377a9b3e574dfbfa08868d6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2738e7be6ae40afd5f0d94f1ad32b7b4cda0417f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793074"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453421"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立和管理 B2B 企業整合的整合帳戶
 
@@ -35,7 +35,7 @@ ms.locfileid: "74793074"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="create-integration-account"></a>建立整合帳戶
 
@@ -55,11 +55,11 @@ ms.locfileid: "74793074"
 
    ![提供整合帳戶詳細資料](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | 屬性 | 必要項 | Value | 描述 |
+   | 屬性 | 必要項 | 值 | 說明 |
    |----------|----------|-------|-------------|
    | **名稱** | 是 | <*integration-account-name*> | 您的整合帳戶名稱，其中只能包含字母、數位、連字號（`-`）、底線（`_`）、括弧（`(`、`)`）和句點（`.`）。 這個範例會使用「Fabrikam-整合」。 |
    | **訂用帳戶** | 是 | <*Azure-subscription-name*> | Azure 訂用帳戶的名稱 |
-   | **資源群組** | 是 | <*Azure-resource-group-name*> | 用來組織相關資源之[Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 針對此範例，請建立名為 "FabrikamIntegration-RG" 的新資源群組。 |
+   | **資源群組** | 是 | <*Azure-resource-group-name*> | 用來組織相關資源之[Azure 資源群組](../azure-resource-manager/management/overview.md)的名稱。 針對此範例，請建立名為 "FabrikamIntegration-RG" 的新資源群組。 |
    | 定價層 | 是 | <*定價層級*> | 整合帳戶的定價層，您可于稍後變更。 針對此範例，請選取 [**免費**]。 如需詳細資訊，請參閱下列主題： <p>- [Logic Apps 計價模式](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps 限制和](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)設定 <p>- [Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps/) |
    | **位置** | 是 | <*Azure-region*> | 要儲存整合帳戶中繼資料的區域。 請選取與邏輯應用程式相同的位置，或在與整合帳戶相同的位置中建立邏輯應用程式。 在此範例中，請使用「美國西部」。 <p>**注意**：若要在[整合服務環境（ISE）](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)內建立整合帳戶，請選取該 ISE 作為位置。 如需詳細資訊，請參閱[在 ISE 中建立整合帳戶](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)。 |
    | **Log Analytics** | 否 | Off、On | 針對此範例，請保留 [**關閉**] 設定。 |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 876e64cd29aabe1fd4274872800a29cf1a83a0d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731595"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350499"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>在 Linux 虛擬機器中設定 DPDK
 
@@ -31,12 +31,12 @@ DPDK 由一組使用者空間程式庫組成，可提供對低層級資源的存
 
 DPDK 可以在 Azure 虛擬機器中執行，並支援多個作業系統散發套件。 DPDK 在驅使網路功能虛擬化實作方面有關鍵效能差異。 這些實作可為網路虛擬設備 (NVA) 形式，例如虛擬路由器、防火牆、VPN、負載平衡器、進化型封包核心與阻斷服務 (DDoS) 應用程式。
 
-## <a name="benefit"></a>優點
+## <a name="benefit"></a>權益
 
-**每秒 (PPS) 更高的封包**:略過的核心和控制使用者空間中的封包可減少循環計數消除內容切換。 它也可以改善 Azure Linux 虛擬機器中每秒處理的封包速率。
+**更高的每秒封包數 (PPS)** ：略過核心並掌控使用者空間中的封包，可透過消除環境切換來減少週期計數。 它也可以改善 Azure Linux 虛擬機器中每秒處理的封包速率。
 
 
-## <a name="supported-operating-systems"></a>受支援的作業系統
+## <a name="supported-operating-systems"></a>支援的作業系統
 
 以下是 Azure 資源庫中支援的散發套件：
 
@@ -73,6 +73,7 @@ sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev lib
 ### <a name="ubuntu-1804"></a>Ubuntu 18.04
 
 ```bash
+sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
 sudo apt-get update
 sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
 ```
@@ -133,11 +134,11 @@ zypper \
      > [!NOTE]
      > 依照 DPDK 的[指示](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment)可以修改 grub 檔案，以便在開機時保留 Hugepage。 指示位於頁面底部。 當您使用 Azure Linux 虛擬機器時，請改為修改 **/etc/config/grub.d** 下的檔案，以在重新開機期間保留 Hugepage。
 
-2. MAC 和 IP 位址：使用`ifconfig –a`若要檢視網路介面的 MAC 和 IP 位址。 *VF* 網路介面和 *NETVSC* 網路介面都有相同的 MAC 位址，但僅限於具有 IP 位址的 *NETVSC* 網路介面。 VF 介面會當作 NETVSC 介面的從屬介面執行。
+2. MAC 和 IP 位址： 使用 `ifconfig –a` 來檢視網路介面的 MAC 和 IP 位址。 *VF* 網路介面和 *NETVSC* 網路介面都有相同的 MAC 位址，但僅限於具有 IP 位址的 *NETVSC* 網路介面。 VF 介面會當作 NETVSC 介面的從屬介面執行。
 
 3. PCI 位址
 
-   * 使用 來了解哪個 PCI 位址要用於 `ethtool -i <vf interface name>` *VF*。
+   * 使用 來了解哪個 PCI 位址要用於 `ethtool -i <vf interface name>`*VF*。
    * 若 *eth0* 已啟用網路加速，請確定 testpmd 不會意外取代 *eth0* 的 VF PCI 裝置。 若 DPDK 應用程式意外取代管理網路介面並導致您的 SSH 連線中斷，請使用序列主控台來停止 DPDK 應用程式。 您也可以使用序列主控台來停止或啟動虛擬機器。
 
 4. 在每次開機時使用 `modprobe -a ib_uverbs` 載入 *ibuverbs*。 僅限於 SLES 15，也可使用 `modprobe -a mlx4_ib` 載入 *mlx4_ib*。
@@ -152,7 +153,7 @@ DPDK 應用程式必須透過在 Azure 中公開的保全 PMD 執行。 若應�
 
 若要在 root 模式中執行 testpmd，請在 *testpmd* 命令之前使用 `sudo`。
 
-### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>基本：例行性檢查，保全配接器初始化
+### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>基本：例行性檢查、保全配接器初始化
 
 1. 執行下列命令來啟動單一連接埠 testpmd 應用程式：
 
@@ -216,7 +217,7 @@ DPDK 應用程式必須透過在 Azure 中公開的保全 PMD 執行。 若應�
 
 當您在虛擬機器上執行前述命令時，變更 `app/test-pmd/txonly.c` 中的 *IP_SRC_ADDR* 與 *IP_DST_ADDR*，以在編譯前符合虛擬機器的實際 IP 位址。 否則，封包會在到達接收者之前捨棄。
 
-### <a name="advanced-single-sendersingle-forwarder"></a>進階：單一傳送者/單一轉寄站
+### <a name="advanced-single-sendersingle-forwarder"></a>進階：單一傳送者/單一轉寄者
 下列命令會定期列印每秒封包數的統計資料：
 
 1. 在 TX 端上，執行下列命令：

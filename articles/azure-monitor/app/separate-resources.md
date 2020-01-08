@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Application Insights 中區分開發、測試及發行的遙測 | Microsoft Docs
+title: 在 Azure 應用程式深入解析中分隔遙測
 description: 將遙測導向開發、測試和生產戳記的不同資源。
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
-ms.openlocfilehash: c4d029de782ae408b83c265322a865db7b166c1e
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c58a54dd4916b5687d46cbf4b816bd656113f9ff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928308"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406402"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>區分開發、測試及生產環境的遙測
 
@@ -147,7 +147,7 @@ ms.locfileid: "73928308"
 
 不過，請注意，組建版本號碼只會由 Microsoft Build Engine 產生，而不是由 Visual Studio 的開發人員組建產生。
 
-### <a name="release-annotations"></a>版本註解
+### <a name="release-annotations"></a>版本註釋
 如果您使用 Azure DevOps，您可以[取得註解標記](../../azure-monitor/app/annotations.md) (每當發行新版本時，此標記就會新增至您的圖表)。 下圖顯示此標記的顯示方式。
 
 ![圖表上版本註解範例的螢幕擷取畫面](media/separate-resources/release-annotation.png)

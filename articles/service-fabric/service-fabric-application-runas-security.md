@@ -1,25 +1,14 @@
 ---
-title: 在系統和本機安全性帳戶下執行 Azure Service Fabric 服務 | Microsoft Docs
+title: 在系統和本機安全性帳戶下執行服務
 description: 了解如何在系統和本機安全性帳戶下執行 Service Fabric 應用程式。  建立安全性主體並套用「執行身分」原則以安全地執行您的服務。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/29/2018
-ms.author: atsenthi
-ms.openlocfilehash: 8b0ddc619a7e840b0379a790bd21e7beae812109
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 53212f8636602705899834b6db1d3f0d80b5fe4f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600061"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610111"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>以本機使用者帳戶或本機系統帳戶身分執行服務
 藉由使用 Azure Service Fabric，您便可以保護在叢集中以不同使用者帳戶執行的應用程式。 根據預設，Service Fabric 應用程式會在用以執行 Fabric.exe 程序的帳戶之下執行。 Service Fabric 也會提供在本機使用者或系統帳戶底下執行應用程式的功能。 支援的本機系統帳戶類型為 **LocalUser**、**NetworkService**、**LocalService** 和 **LocalSystem**。  如果您在 Windows 獨立叢集上執行 Service Fabric，便可以在 [Active Directory 網域帳戶](service-fabric-run-service-as-ad-user-or-group.md)或[群組受控服務帳戶](service-fabric-run-service-as-gmsa.md)底下執行服務。

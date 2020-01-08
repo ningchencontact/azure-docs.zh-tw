@@ -3,14 +3,14 @@ title: Azure Functions 的最佳作法
 description: 了解 Azure Functions 的最佳作法與模式。
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
-ms.date: 10/16/2017
+ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa85f636233a067713d127938d674b359bd03696
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 19674cb024bd9b9c9ea9f510080e30614fad8b60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227375"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433303"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>將 Azure Functions 效能和可靠性最佳化
 
@@ -70,7 +70,11 @@ ms.locfileid: "74227375"
 
 ### <a name="share-and-manage-connections"></a>共用及管理連線
 
-盡可能重複使用外部資源的連接。  請參閱[如何管理 Azure Functions 中的連線](./manage-connections.md)。
+盡可能重複使用外部資源的連接。 請參閱[如何管理 Azure Functions 中的連線](./manage-connections.md)。
+
+### <a name="avoid-sharing-storage-accounts"></a>避免共用儲存體帳戶
+
+當您建立函數應用程式時，您必須將它與儲存體帳戶產生關聯。 儲存體帳戶連線會保留在[AzureWebJobsStorage 應用程式設定](./functions-app-settings.md#azurewebjobsstorage)中。 若要將效能最大化，請針對每個函式應用程式使用個別的儲存體帳戶。 當您有 Durable Functions 或事件中樞觸發的函式時，這一點特別重要，這兩個函數都會產生大量的儲存體交易。 當您的應用程式邏輯與 Azure 儲存體（不論是直接（使用儲存體 SDK）或其中一個儲存體系結）互動時，您應該使用專用的儲存體帳戶。 例如，如果您有事件中樞觸發的函式將一些資料寫入 blob 儲存體，請使用兩個儲存體帳戶&mdash;一個用於函式應用程式，另一個用於函式所儲存的 blob。
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>不要在相同函式應用程式中混用測試和實際執行程式碼
 
@@ -84,15 +88,23 @@ ms.locfileid: "74227375"
 
 ### <a name="use-async-code-but-avoid-blocking-calls"></a>使用非同步程式碼但避免封鎖呼叫
 
-非同步程式設計是建議的最佳作法。 不過，請務必避免在 `Result` 執行個體上參考 `Wait` 屬性或呼叫 `Task` 方法。 這個方法可能會導致執行緒耗盡。
+非同步程式設計是建議的最佳作法，特別是在涉及封鎖 i/o 作業時。
+
+在C#中，請一律避免參考 `Task` 實例上的 `Result` 屬性或呼叫 `Wait` 方法。 這個方法可能會導致執行緒耗盡。
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
+### <a name="use-multiple-worker-processes"></a>使用多個背景工作進程
+
+根據預設，函式的任何主控制項實例都會使用單一背景工作進程。 若要改善效能，尤其是使用像是 Python 的單一執行緒執行時間，請使用[FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count)來增加每一主機的工作者進程數（最多10個）。 Azure Functions 接著會嘗試在這些背景工作中平均散發並行函式呼叫。 
+
+FUNCTIONS_WORKER_PROCESS_COUNT 適用于在相應放大應用程式以符合需求時所建立的每個主機。 
+
 ### <a name="receive-messages-in-batch-whenever-possible"></a>儘可能分批接收訊息
 
-某些觸發程序 (如事件中樞) 能夠在單一引動過程中接收一批訊息。  分批處理訊息的效能比較好。  如 `host.json`host.json 參考文件[所述，您可以在 ](functions-host-json.md) 檔案中設定批次大小上限。
+某些觸發程序 (如事件中樞) 能夠在單一引動過程中接收一批訊息。  分批處理訊息的效能比較好。  如 [host.json 參考文件](functions-host-json.md)所述，您可以在 `host.json` 檔案中設定批次大小上限。
 
-針對C#函式，您可以將型別變更為強型別陣列。  例如，方法簽章可能是 `EventData sensorEvent`，而不是 `EventData[] sensorEvent`。  針對其他語言，您必須將 `function.json` 中的 [基數] 屬性明確設定為 [`many`]，才能啟用批次處理，[如下所示](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10)。
+針對C#函式，您可以將型別變更為強型別陣列。  例如，方法簽章可能是 `EventData[] sensorEvent`，而不是 `EventData sensorEvent`。  針對其他語言，您必須將 `function.json` 中的 [基數] 屬性明確設定為 [`many`]，才能啟用批次處理，[如下所示](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10)。
 
 ### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>設定主機的行為，更妥善處理並行作業
 

@@ -1,19 +1,14 @@
 ---
-title: Azure Service Fabric-搭配 Service Fabric 應用程式使用受控識別 |Microsoft Docs
-description: 如何使用來自 Service Fabric 應用程式代碼的受控識別
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
-ms.devlang: dotnet
+title: 搭配應用程式使用受控識別
+description: 如何在 Azure 中使用受控識別 Service Fabric 應用程式代碼來存取 Azure 服務。 這項功能處於公開預覽狀態。
 ms.topic: article
-ms.date: 7/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: 6a3d33954bda0605e752555922914a9fd432d8c1
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.date: 10/09/2019
+ms.openlocfilehash: 59680ec7911f55c3dc49d8834b410a039aa435dc
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968227"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610313"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>如何利用 Service Fabric 應用程式的受控識別來存取 Azure 服務（預覽）
 
@@ -33,10 +28,10 @@ Service Fabric 應用程式可以利用受控識別來存取支援 Azure Active 
 - ' MSI_SECRET '：驗證碼，這是不透明的字串，可唯一代表目前節點上的服務
 
 > [!NOTE]
-> 名稱 ' MSI_ENDPOINT ' 和 ' MSI_SECRET ' 會參考先前指定的受控識別（"受控服務識別"），現在已被取代。 這些名稱也會與其他支援受控識別的 Azure 服務所使用的對等環境變數名稱一致。
+> 名稱 ' MSI_ENDPOINT ' 和 ' MSI_SECRET ' 指的是先前指定的受控識別（"受控服務識別"），現在已被取代。 這些名稱也會與其他支援受控識別的 Azure 服務所使用的對等環境變數名稱一致。
 
 > [!IMPORTANT]
-> 應用程式程式碼應將 ' MSI_SECRET ' 環境變數的值視為機密資料-它不應該記錄或簡易性。 驗證碼沒有本機節點以外的值，或裝載服務的進程終止之後，但它確實代表 Service Fabric 服務的身分識別，因此應該使用與存取權杖本身相同的預防措施來處理。
+> 應用程式程式碼應該將 ' MSI_SECRET ' 環境變數的值視為機密資料-它不應該記錄或簡易性。 驗證碼沒有本機節點以外的值，或裝載服務的進程終止之後，但它確實代表 Service Fabric 服務的身分識別，因此應該使用與存取權杖本身相同的預防措施來處理。
 
 若要取得權杖，用戶端會執行下列步驟：
 - 將受控識別端點（MSI_ENDPOINT 值）與 API 版本和權杖所需的資源（物件）串連，以形成 URI
@@ -55,12 +50,12 @@ GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01
 ```
 其中：
 
-| 元素 | 描述 |
+| 元素 | 說明 |
 | ------- | ----------- |
 | `GET` | HTTP 指令動詞，指出您想要擷取端點中的資料。 在此案例中是 OAuth 存取權杖。 | 
-| `http://localhost:2377/metadata/identity/oauth2/token` | 透過 MSI_ENDPOINT 環境變數提供之 Service Fabric 應用程式的受控識別端點。 |
-| `api-version` | 查詢字串參數，指定受控識別權杖服務的 API 版本;目前唯一接受的值是`2019-07-01-preview`，而且可能會變更。 |
-| `resource` | 查詢字串參數，指出目標資源的應用程式識別碼 URI。 這會反映為所發行`aud`權杖的（物件）宣告。 此範例會要求權杖來存取 Azure Key Vault，其應用程式識別碼 URI 為 HTTPs：\//keyvault.azure.com/。 |
+| `http://localhost:2377/metadata/identity/oauth2/token` | 透過 MSI_ENDPOINT 環境變數提供 Service Fabric 應用程式的受控識別端點。 |
+| `api-version` | 查詢字串參數，指定受控識別權杖服務的 API 版本;目前唯一接受的值是 `2019-07-01-preview`，而且可能會變更。 |
+| `resource` | 查詢字串參數，指出目標資源的應用程式識別碼 URI。 這會反映為所發行權杖的 `aud` （物件）宣告。 此範例會要求權杖來存取 Azure Key Vault，其應用程式識別碼 URI 為 HTTPs：\//keyvault.azure.com/。 |
 | `Secret` | Service Fabric 服務的 Service Fabric 受控識別權杖服務所需的 HTTP 要求標頭欄位，用來驗證呼叫者。 此值是由 SF 執行時間透過 MSI_SECRET 環境變數提供。 |
 
 
@@ -77,12 +72,12 @@ Content-Type: application/json
 ```
 其中：
 
-| 元素 | 描述 |
+| 元素 | 說明 |
 | ------- | ----------- |
 | `token_type` | Token 的類型;在此情況下，就是「持有人」存取權杖，這表示此權杖的展示者（「持有人」）是權杖的預定主旨。 |
 | `access_token` | 所要求的存取權杖。 呼叫受保護的 REST API 時，權杖會內嵌在 `Authorization` 要求標頭欄位中成為「持有人」權杖，以允許 API 驗證呼叫端。 | 
-| `expires_on` | 存取權杖的到期時間戳記;以 "1970-01-01T0：0： 0Z UTC" 的秒數表示，並對應至權杖的`exp`宣告。 在此情況下，此權杖會在 2019-08-08T06：10： 11 + 00：00（在 RFC 3339 中）到期|
-| `resource` | 發出存取權杖的資源（透過要求的`resource`查詢字串參數指定）; 對應至權杖的 ' aud ' 宣告。 |
+| `expires_on` | 存取權杖的到期時間戳記;以 "1970-01-01T0：0： 0Z UTC" 的秒數表示，並對應至權杖的 `exp` 宣告。 在此情況下，此權杖會在 2019-08-08T06：10： 11 + 00：00（在 RFC 3339 中）到期|
+| `resource` | 發出存取權杖的資源（透過要求的 `resource` 查詢字串參數指定）;對應至權杖的 ' aud ' 宣告。 |
 
 
 ## <a name="acquiring-an-access-token-using-c"></a>使用取得存取權杖C#
@@ -326,9 +321,9 @@ HTTP 回應標頭的 [狀態碼] 欄位會指出要求的成功狀態。「200�
 
 如果發生錯誤，對應的 HTTP 回應主體會包含 JSON 物件，其中含有錯誤詳細資料：
 
-| 元素 | 描述 |
+| 元素 | 說明 |
 | ------- | ----------- |
-| code | 錯誤碼。 |
+| 代碼 | 錯誤碼。 |
 | correlationId | 可用於進行偵錯工具的相互關聯識別碼。 |
 | message | 錯誤的詳細資訊描述。 **錯誤描述可以隨時變更。不依賴錯誤訊息本身。**|
 
@@ -339,7 +334,7 @@ HTTP 回應標頭的 [狀態碼] 欄位會指出要求的成功狀態。「200�
 
 以下是受控識別特有的一般 Service Fabric 錯誤清單：
 
-| 程式碼 | Message | 描述 | 
+| 程式碼 | 訊息 | 說明 | 
 | ----------- | ----- | ----------------- |
 | SecretHeaderNotFound | 在要求標頭中找不到秘密。 | 要求未提供驗證碼。 | 
 | ManagedIdentityNotFound | 找不到指定之應用程式主機的受控識別。 | 應用程式沒有身分識別，或驗證碼不明。 |
@@ -351,7 +346,7 @@ HTTP 回應標頭的 [狀態碼] 欄位會指出要求的成功狀態。「200�
 
 通常唯一可重試的錯誤碼為429（要求太多）;內部伺服器錯誤/5xx 錯誤碼可能是可重試的，但原因可能是永久性的。 
 
-節流限制適用于對受控識別子系統發出的呼叫數，特別是「上游」相依性（受控識別 Azure 服務或安全權杖服務）。 Service Fabric 會在管線中的不同層級快取權杖，但基於相關元件的分散式本質，呼叫者可能會遇到不一致的節流回應（也就是在應用程式的一個節點/實例上進行節流，而不是在要求相同身分識別的權杖時，會有不同的節點）。設定節流條件時，來自相同應用程式的後續要求可能會失敗，並出現 HTTP 狀態碼429（太多要求），直到清除該條件為止。  
+節流限制適用于對受控識別子系統發出的呼叫數，特別是「上游」相依性（受控識別 Azure 服務或安全權杖服務）。 Service Fabric 會在管線中的各種層級快取權杖，但基於相關元件的分散式本質，呼叫者可能會遇到不一致的節流回應（也就是在應用程式的一個節點/實例上進行節流處理，但在要求相同身分識別的權杖時，不會在不同的節點上）。設定節流條件時，來自相同應用程式的後續要求可能會失敗，並出現 HTTP 狀態碼429（太多要求），直到清除該條件為止。  
 
 建議因為節流會以指數輪詢重試而導致要求失敗，如下所示： 
 

@@ -1,17 +1,17 @@
 ---
-title: 如何設定進階 Azure Redis 快取的 Redis 叢集功能
+title: 設定 Redis 叢集-Premium Azure Cache for Redis
 description: 了解如何建立和管理「進階」層「Azure Redis 快取」執行個體的 Redis 叢集功能
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.author: yegu
-ms.openlocfilehash: 1f0c97d6c0854254026e194ffd5030976fc506b2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: ddb44a064090a108f77d6a6f9a270fab8c55ec90
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122152"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433440"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>如何設定進階 Azure Redis 快取的 Redis 叢集功能
 Azure Cache for Redis 有不同的快取供應項目，可讓您彈性選擇快取大小和功能，包括叢集功能、持續性及虛擬網路支援等「進階」層功能。 本文說明如何在進階「Azure Redis 快取」執行個體中設定叢集功能。
@@ -53,7 +53,7 @@ Azure Cache for Redis 有不同的快取供應項目，可讓您彈性選擇快�
 > 
 > 
 
-如需搭配 StackExchange.Redis 用戶端使用叢集的範例程式碼，請參閱 [Hello World](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 範例的 [clustering.cs](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 部分。
+如需搭配 StackExchange.Redis 用戶端使用叢集的範例程式碼，請參閱 [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 範例的 [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 部分。
 
 <a name="cluster-size"></a>
 
@@ -110,26 +110,25 @@ Azure Cache for Redis 有不同的快取供應項目，可讓您彈性選擇快�
 
 如需詳細資訊，請參閱[金鑰散發模型](https://redis.io/topics/cluster-spec#keys-distribution-model)、[Redis 叢集資料分區化](https://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding)和[金鑰主題標籤](https://redis.io/topics/cluster-spec#keys-hash-tags)。
 
-如需搭配 StackExchange.Redis 用戶端使用叢集，並尋找相同分區中之金鑰的範例程式碼，請參閱 [Hello World](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 範例的 [clustering.cs](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 部分。
+如需搭配 StackExchange.Redis 用戶端使用叢集，並尋找相同分區中之金鑰的範例程式碼，請參閱 [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 範例的 [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 部分。
 
 ### <a name="what-is-the-largest-cache-size-i-can-create"></a>我可以建立的最大快取大小為何？
 最大的 premium 快取大小為 120 GB。 您最多可以建立10個分區，讓您的大小上限為 1.2 TB GB。 如果您需要較大的大小，可以 [要求更多](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)。 如需詳細資訊，請參閱 [Azure Redis 快取價格](https://azure.microsoft.com/pricing/details/cache/)。
 
 ### <a name="do-all-redis-clients-support-clustering"></a>所有 Redis 用戶端都支援叢集嗎？
-並非所有用戶端都支援 Redis 叢集！ 請查看您所使用之程式庫的檔，以確認您使用的是支援叢集的程式庫和版本。 Stackexchange.redis. Redis 是一個程式庫，在其較新版本中支援叢集。 如需其他用戶端的詳細資訊，請參閱 [Redis 叢集教學課程](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster)的 [試用叢集](https://redis.io/topics/cluster-tutorial)一節。 
+並非所有用戶端都支援 Redis 叢集！ 請查看您所使用之程式庫的檔，以確認您使用的是支援叢集的程式庫和版本。 Stackexchange.redis. Redis 是一個程式庫，在其較新版本中支援叢集。 如需其他用戶端的詳細資訊，請參閱 [Redis 叢集教學課程](https://redis.io/topics/cluster-tutorial)的 [試用叢集](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster)一節。 
 
 Redis 叢集通訊協定需要每個用戶端直接以群集模式連接到每個分區，同時定義新的錯誤回應，例如 ' 已移動 ' na ' CROSSSLOTS '。 嘗試使用不支援叢集模式快取叢集的用戶端，可能會導致許多移動的重新導向[例外](https://redis.io/topics/cluster-spec#moved-redirection)狀況，或只是中斷您的應用程式（如果您要進行跨位置的多金鑰要求）。
 
 > [!NOTE]
 > 如果您使用 StackExchange.Redis 做為您的用戶端，請確定您使用的是最新版的 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) (1.0.481) 或更新版本，叢集才能正常運作。 如果您有任何關於 Move 例外狀況的問題，請參閱 [Move 例外狀況](#move-exceptions) ，以取得詳細資訊。
-> 
-> 
+>
 
 ### <a name="how-do-i-connect-to-my-cache-when-clustering-is-enabled"></a>啟用叢集後，要如何連接到我的快取？
 您可以使用與連接未啟用叢集的快取時所用的相同 [端點](cache-configure.md#properties)、[連接埠](cache-configure.md#properties)和[金鑰](cache-configure.md#access-keys)來連接快取。 Redis 會管理後端上的叢集，因此您不需從用戶端進行管理。
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>我可以直接連接到我的快取的個別分區嗎？
-叢集通訊協定需要用戶端進行正確的分區連線。 因此，用戶端應該正確地為您執行此操作。 如前所述，每個分區都包含一個主要/複本快取組，統稱為快取執行個體。 您可以使用 GitHub 中 Redis 存放庫 [不穩定](https://redis.io/download) 分支內的 redis-cli 公用程式，連接到這些快取執行個體。 使用 `-c` 參數啟用這個版本時，會實作基本支援。 如需詳細資訊，請參閱 [](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster)[ 上 https://redis.ioRedis 叢集教學課程](https://redis.io)中的[試用叢集](https://redis.io/topics/cluster-tutorial)。
+叢集通訊協定需要用戶端進行正確的分區連線。 因此，用戶端應該正確地為您執行此操作。 如前所述，每個分區都包含一個主要/複本快取組，統稱為快取執行個體。 您可以使用 GitHub 中 Redis 存放庫[不穩定](https://redis.io/download)分支內的 redis-cli 公用程式，連線到這些快取執行個體。 使用 `-c` 參數啟用這個版本時，會實作基本支援。 如需詳細資訊，請參閱[Redis cluster 教學](https://redis.io/topics/cluster-tutorial)課程中的在[https://redis.io](https://redis.io)上[使用叢集播放](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster)。
 
 如為非 SSL，請使用下列命令。
 
@@ -142,7 +141,7 @@ Redis 叢集通訊協定需要每個用戶端直接以群集模式連接到每�
 如為 SSL，將 `1300N` 取代為 `1500N`。
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>我可以為先前建立的快取設定叢集嗎？
-是。 如果不是，請先確定您的快取為 premium。 接下來，您應該能夠看到叢集設定選項，包括啟用叢集的選項。 您可以在建立快取之後，或在您第一次啟用叢集之後，變更叢集大小。
+可以。 如果不是，請先確定您的快取為 premium。 接下來，您應該能夠看到叢集設定選項，包括啟用叢集的選項。 您可以在建立快取之後，或在您第一次啟用叢集之後，變更叢集大小。
 
    >[!IMPORTANT]
    >您無法復原啟用群集。 和已啟用叢集的快取，而且只有一個分區的行為*不同*于*不*含叢集的相同大小快取。
@@ -152,7 +151,7 @@ Redis 叢集通訊協定需要每個用戶端直接以群集模式連接到每�
 
 ### <a name="can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers"></a>我可以將叢集使用於 Redis ASP.NET 工作階段狀態和輸出快取提供者嗎？
 * **Redis 輸出快取提供者** - 不需要變更。
-* **Redis 工作階段狀態供應器** - 若要使用叢集，您必須使用 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 或更高版本，否則會擲回例外狀況。 這是一項重大變更。如需詳細資訊，請參閱 [v2.0.0 重大變更詳細資料](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)。
+* **Redis 工作階段狀態供應器** - 若要使用叢集，您必須使用 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 或更高版本，否則會擲回例外狀況。 這是一種重大變更;如需詳細資訊，請參閱[v 2.0.0 重大變更詳細資料](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)。
 
 <a name="move-exceptions"></a>
 
@@ -171,10 +170,3 @@ Redis 叢集通訊協定需要每個用戶端直接以群集模式連接到每�
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
-
-
-
-
-
-
-

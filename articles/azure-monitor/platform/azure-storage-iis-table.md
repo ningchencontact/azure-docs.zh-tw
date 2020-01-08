@@ -4,15 +4,15 @@ description: Azure 監視器可以讀取 Azure 服務（將診斷寫入表格儲
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 04/12/2017
-ms.openlocfilehash: 2d2d8d43cb5ee91810d639c4ee8925d185987954
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3e8968f544e347b7b4cfe6db484c2ce8bd404820
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893547"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395997"
 ---
 # <a name="collect-azure-resource-logs-from-azure-storage"></a>從 Azure 儲存體收集 Azure 資源記錄
 
@@ -30,10 +30,10 @@ Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角
 
 若要讓 Azure 監視器收集這些 Azure 診斷記錄，記錄檔必須位於下列位置：
 
-| 記錄類型 | 資源類型 | Location |
+| 記錄類型 | 資源類型 | 位置 |
 | --- | --- | --- |
 | IIS 記錄 |虛擬機器 <br> Web 角色 <br> 背景工作角色 |wad-iis-logfiles (Blob 儲存體) |
-| syslog |虛擬機器 |LinuxsyslogVer2v0 (表格儲存體) |
+| Syslog |虛擬機器 |LinuxsyslogVer2v0 (表格儲存體) |
 | Service Fabric 運作事件 |Service Fabric 節點 |WADServiceFabricSystemEventTable |
 | Service Fabric Reliable Actor 事件 |Service Fabric 節點 |WADServiceFabricReliableActorEventTable |
 | Service Fabric Reliable Service 事件 |Service Fabric 節點 |WADServiceFabricReliableServiceEventTable |
@@ -61,7 +61,7 @@ Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角
 2. 在現有的 VM 上啟用監視和設定事件記錄。 您可以在 VM 層級上啟用診斷。 若要啟用診斷然後設定事件記錄，請執行下列步驟：
 
    1. 選取 VM。
-   2. 按一下 [監視]。
+   2. 按一下 **[監視]** 。
    3. 按一下 [診斷]。
    4. 將 [狀態] 設為 [開啟]。
    5. 選取您想要收集的每個診斷記錄。

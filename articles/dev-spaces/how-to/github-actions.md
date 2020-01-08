@@ -3,15 +3,15 @@ title: GitHub 動作 & Azure Kubernetes Service
 services: azure-dev-spaces
 ms.date: 11/04/2019
 ms.topic: conceptual
-description: 使用 GitHub 動作和 Azure Dev Spaces，直接在 Azure Kubernetes Service 中檢查並測試提取要求的變更。
+description: 使用 GitHub 動作和 Azure Dev Spaces，直接在 Azure Kubernetes Service 中檢查並測試提取要求的變更
 keywords: Docker，Kubernetes，Azure，AKS，Azure Kubernetes Service，容器，GitHub 動作，Helm，服務網格，服務網格路由，kubectl，k8s
 manager: gwallace
-ms.openlocfilehash: e20efc6b109eeef234dcd621374d25b812cdc0ce
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: ace94bdeccf3063f6a3b72ea208f437a14332694
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483927"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438499"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub 動作 & Azure Kubernetes Service （預覽）
 
@@ -25,13 +25,13 @@ Azure Dev Spaces 提供使用 GitHub 動作的工作流程，可讓您在提取�
 * 在獨立的開發人員空間中以完整應用程式的內容測試單一微服務。
 
 > [!IMPORTANT]
-> 這項功能目前只能預覽。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
+> 此功能目前為預覽狀態。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* Azure 訂閱。 如果您沒有 Azure 訂用帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
 * [已安裝 Azure CLI][azure-cli-installed]。
-* [已安裝 Helm 2.13-2.16][helm-installed]。
+* [已安裝 Helm 3][helm-installed]。
 * [已啟用 Github 動作][github-actions-beta-signup]的 github 帳戶。
 * 在 AKS 叢集上執行的[Azure Dev Spaces 自行車共用範例應用程式](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp/README.md)。
 
@@ -50,7 +50,7 @@ az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 
 ## <a name="create-a-service-principal-for-authentication"></a>建立用於驗證的服務主體
 
-使用[az ad sp create for-rbac][az-ad-sp-create-for-rbac]來建立服務主體。 例如︰
+使用[az ad sp create for-rbac][az-ad-sp-create-for-rbac]來建立服務主體。 例如：
 
 ```cmd
 az ad sp create-for-rbac --sdk-auth --skip-assignment
@@ -180,8 +180,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 [github-actions-beta-signup]: https://github.com/features/actions
 [github-action-yaml]: https://github.com/Azure/dev-spaces/blob/master/.github/workflows/bikes.yml
 [github-action-bikesharing-yaml]: https://github.com/Azure/dev-spaces/blob/master/.github/workflows/bikesharing.yml
-[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
-[tiller-rbac]: https://helm.sh/docs/using_helm/#role-based-access-control
+[helm-installed]: https://helm.sh/docs/intro/install/
 [supported-regions]: ../about.md#supported-regions-and-configurations
 [sp-acr]: ../../container-registry/container-registry-auth-service-principal.md
 [sp-aks]: ../../aks/kubernetes-service-principal.md

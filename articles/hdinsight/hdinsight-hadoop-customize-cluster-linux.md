@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 16b0fdcbae51b30e14fbf7ea4d98699dfaf19804
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
-ms.translationtype: MT
+ms.openlocfilehash: 6df7eebae0f0e7cfab790a4fca12dbb6ee5a5acf
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035726"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638981"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>使用腳本動作自訂 Azure HDInsight 叢集
 
@@ -20,7 +20,7 @@ Azure HDInsight 提供名為**指令碼動作**的設定方法，會叫用自訂
 
 指令碼動作也可以發佈到 Azure Marketplace 做為 HDInsight 應用程式。 如需有關 HDInsight 應用程式的詳細資訊，請參閱[將 HDInsight 應用程式發佈到 Azure Marketplace](hdinsight-apps-publish-applications.md)。
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>使用權限
 
 針對已加入網域的 HDInsight 叢集，當您對叢集使用指令碼動作時，必須有兩個 Apache Ambari 權限︰
 
@@ -48,7 +48,7 @@ Azure HDInsight 提供名為**指令碼動作**的設定方法，會叫用自訂
 
     * 針對一般叢集：
 
-      * ADLS Gen1：HDInsight 用來存取 Data Lake Storage 的服務主體必須具有指令碼的讀取存取權。 Data Lake Storage Gen1 中所儲存指令碼的 URI 格式為 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`。
+      * ADLS Gen1： HDInsight 用來存取 Data Lake Storage 的服務主體必須具有腳本的讀取存取權。 Data Lake Storage Gen1 中所儲存指令碼的 URI 格式為 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`。
 
       * 本身是 HDInsight 叢集主要或額外儲存體帳戶之「Azure 儲存體」帳戶中的 Blob。 在建立叢集期間，已將這兩種儲存體帳戶的存取權都授與 HDInsight。
 
@@ -110,7 +110,7 @@ Azure HDInsight 提供名為**指令碼動作**的設定方法，會叫用自訂
 在叢集建立期間，您可以同時使用許多指令碼動作。 這些指令碼會以指定的順序叫用。
 
 > [!IMPORTANT]  
-> 指令碼動作必須在 60 分鐘內完成，否則就會逾時。在叢集佈建期間，同時執行指令碼與其他安裝和組態程序。 與在您開發環境中的執行時間相較，爭用 CPU 時間和網路頻寬等資源可能會導致指令碼需要較長的時間才能完成。
+> 腳本動作必須在60分鐘內完成，否則會超時。在叢集布建期間，腳本會與其他安裝程式和設定進程同時執行。 與在您開發環境中的執行時間相較，爭用 CPU 時間和網路頻寬等資源可能會導致指令碼需要較長的時間才能完成。
 >
 > 若要讓執行指令碼所花費的時間縮到最短，請避免進行從來源下載和編譯應用程式之類的工作。 請預先編譯應用程式，並將二進位檔儲存在「Azure 儲存體」中。
 
@@ -144,12 +144,12 @@ Azure HDInsight 提供名為**指令碼動作**的設定方法，會叫用自訂
 
 HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
-| Name | 指令碼 |
+| 名稱 | 指令碼 |
 | --- | --- |
-| 新增 Azure 儲存體帳戶 |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. 請參閱[將其他儲存體帳戶新增至 HDInsight](hdinsight-hadoop-add-storage.md)。 |
-| 安裝 Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. 請參閱[在 HDInsight Hadoop 叢集上安裝和使用 Hue](hdinsight-hadoop-hue-linux.md)。 |
-| 安裝 Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. 請參閱[在 HDInsight Hadoop 叢集上安裝 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
-| 預先載入 Hive 程式庫 |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. 請參閱[建立 HDInsight 叢集時新增自訂 Apache Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md)。 |
+| 新增 Azure 儲存體帳戶 |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`答案中所述步驟，工作帳戶即會啟用。 請參閱[將其他儲存體帳戶新增至 HDInsight](hdinsight-hadoop-add-storage.md)。 |
+| 安裝 Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`答案中所述步驟，工作帳戶即會啟用。 請參閱[在 HDInsight Hadoop 叢集上安裝和使用 Hue](hdinsight-hadoop-hue-linux.md)。 |
+| 安裝 Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`答案中所述步驟，工作帳戶即會啟用。 請參閱[在 HDInsight Hadoop 叢集上安裝 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
+| 預先載入 Hive 程式庫 |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`答案中所述步驟，工作帳戶即會啟用。 請參閱[建立 HDInsight 叢集時新增自訂 Apache Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md)。 |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>在建立叢集期間使用指令碼動作
 
@@ -157,7 +157,7 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>在建立叢集期間從 Azure 入口網站使用指令碼動作
 
-1. 開始建立叢集，如在[HDInsight 中建立以 Linux 為基礎](hdinsight-hadoop-create-linux-clusters-portal.md)的叢集中所述，使用 Azure 入口網站。 在叢集建立期間，您會到達步驟6：**腳本動作**。 流覽至**選擇性**的  >  **+ 提交新**的。
+1. 開始建立叢集，如在[HDInsight 中建立以 Linux 為基礎](hdinsight-hadoop-create-linux-clusters-portal.md)的叢集中所述，使用 Azure 入口網站。 在叢集建立期間，您會到達步驟6：**腳本動作**。 流覽至**選擇性** >  **+ [提交新**的]。
 
     ![Azure 入口網站叢集腳本動作](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-classic-script-action.png)
 
@@ -170,9 +170,9 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
     | 屬性 | 值 |
     | --- | --- |
     | 選取指令碼 | 若要使用自己的指令碼，請選取 [自訂]。 或是選取其中一個提供的指令碼。 |
-    | Name |指定指令碼動作的名稱。 |
+    | 名稱 |指定指令碼動作的名稱。 |
     | Bash 指令碼 URI |指定指令碼的 URI。 |
-    | Head/Worker/ZooKeeper |指定用來執行指令碼的節點：Head、Worker 或 ZooKeeper。 |
+    | Head/Worker/ZooKeeper |指定執行腳本的節點： [ **Head**]、[ **Worker**] 或 [ **ZooKeeper**]。 |
     | 參數 |如果指令碼要求，請指定參數。 |
 
     請使用 [保存此指令碼動作] 項目，以確保在執行規模調整作業期間會套用此指令碼。
@@ -231,7 +231,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
 移至 [Azure 入口網站](https://portal.azure.com)：
 
-1. 從左側功能表中，流覽至 [**所有服務**] [ >  **分析**] [ >  個**HDInsight**叢集]。
+1. 從左側功能表中，流覽至 [**所有服務**] [ >  **分析**] [ > ] [ **HDInsight**叢集]。
 
 1. 從清單中選取您的叢集，這會開啟預設檢視。
 
@@ -250,9 +250,9 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
     | 屬性 | 值 |
     | --- | --- |
     | 選取指令碼 | 若要使用自己的指令碼，請選取 [自訂]。 否則，請選取提供的指令碼。 |
-    | Name |指定指令碼動作的名稱。 |
+    | 名稱 |指定指令碼動作的名稱。 |
     | Bash 指令碼 URI |指定指令碼的 URI。 |
-    | Head/Worker/Zookeeper |指定用來執行指令碼的節點：Head、Worker 或 ZooKeeper。 |
+    | Head/Worker/Zookeeper |指定執行腳本的節點： [ **Head**]、[ **Worker**] 或 [ **ZooKeeper**]。 |
     | 參數 |如果指令碼要求，請指定參數。 |
 
     使用 [保存此指令碼動作] 項目，可確保在執行規模調整作業時套用此指令碼。
@@ -302,7 +302,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
     如果您省略這個命令的參數，系統會提示您輸入參數。 如果您以 `-u` 指定的指令碼可接受參數，您可以使用 `-p` 參數來指定它們。
 
-    有效的節點類型為 `headnode``workernode` 和 `zookeeper`。 如果指令碼應該要套用至數個節點類型，請以分號 `;` 分隔來指定類型。 例如，`-n headnode;workernode`。
+    有效的節點類型為 `headnode``workernode` 和 `zookeeper`。 如果指令碼應該要套用至數個節點類型，請以分號 `;` 分隔來指定類型。 例如： `-n headnode;workernode` 。
 
     若要保存指令碼，請新增 `--persistOnSuccess`。 您之後也可以使用 `azure hdinsight script-action persisted set` 來保存指令碼。
 
@@ -330,7 +330,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 從左側功能表中，流覽至 [**所有服務**] [ > **分析**] [ >  個**HDInsight**叢集]。
+1. 從左側功能表中，流覽至 [**所有服務**] [ > **分析**] [ > ] [ **HDInsight**叢集]。
 
 1. 從清單中選取您的叢集，這會開啟預設檢視。
 
@@ -350,7 +350,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-| Cmdlet | 函數 |
+| Cmdlet | 函式 |
 | --- | --- |
 | `Get-AzHDInsightPersistedScriptAction` |擷取持續性指令碼動作的相關資訊。 |
 | `Get-AzHDInsightScriptActionHistory` |擷取已套用到叢集的指令碼動作歷程記錄，或特定指令碼的詳細資料。 |
@@ -366,7 +366,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
 ### <a name="the-azure-classic-cli"></a>Azure 傳統 CLI
 
-| Cmdlet | 函數 |
+| Cmdlet | 函式 |
 | --- | --- |
 | `azure hdinsight script-action persisted list <clustername>` |擷取持續性指令碼動作的清單。 |
 | `azure hdinsight script-action persisted show <clustername> <scriptname>` |擷取特定持續性指令碼動作的相關資訊。 |
@@ -422,7 +422,7 @@ HDInsight 服務提供數種方式以使用自訂元件。 不論元件在叢集
 
 ### <a name="the-apache-ambari-web-ui"></a>Apache Ambari Web UI
 
-1. 在瀏覽器中，前往 https://CLUSTERNAME.azurehdinsight.net 。 將 **CLUSTERNAME** 取代為 HDInsight 叢集的名稱。
+1. 在瀏覽器中，前往 `https://CLUSTERNAME.azurehdinsight.net`。 將 **CLUSTERNAME** 取代為 HDInsight 叢集的名稱。
 
     出現提示時，請輸入管理帳戶名稱 (**admin**) 和叢集的密碼。 您可能必須在 Web 表單中重新輸入管理員認證。
 

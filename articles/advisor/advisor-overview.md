@@ -1,21 +1,14 @@
 ---
-title: Azure 建議程式簡介 | Microsoft Docs
+title: Azure 建議程式簡介
 description: 使用 Azure 建議程式將 Azure 部署最佳化。
-services: advisor
-documentationcenter: NA
-author: sagupt
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: sagupt
-ms.openlocfilehash: 1a1ed13697d838041d1ac98b966695e24c06edbe
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 600bda282d46f86979d0366719826c3a6c1323e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145360"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443085"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure 建議程式簡介
 
@@ -37,7 +30,7 @@ Advisor 儀表板會顯示您所有訂用帳戶的個人化建議。  您可以�
 * **安全性**偵測可能導致安全性漏洞的威脅和弱點。 如需詳細資訊，請參閱[建議程式安全性建議](advisor-security-recommendations.md)。
 * **效能**提升應用程式的速度。 如需詳細資訊，請參閱[建議程式效能建議](advisor-performance-recommendations.md)。
 * **成本**：最佳化並降低整體 Azure 費用。 如需詳細資訊，請參閱[建議程式成本建議](advisor-cost-recommendations.md)。
-* **卓越操作**：協助您達成流程和工作流程效率、資源管理能力和部署最佳作法。 ，通常您會使用 collectd。 如需詳細資訊，請參閱[Advisor 操作卓越建議](advisor-operational-excellence-recommendations.md)。
+* **卓越操作**：協助您達成流程和工作流程效率、資源管理能力和部署最佳作法。 。 如需詳細資訊，請參閱[Advisor 操作卓越建議](advisor-operational-excellence-recommendations.md)。
 
   ![建議程式建議類型](./media/advisor-overview/advisor-dashboard.png)
 
@@ -51,12 +44,12 @@ Advisor 儀表板會顯示您所有訂用帳戶的個人化建議。  您可以�
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
-### <a name="how-do-i-access-advisor"></a>如何存取建議程式？
+### <a name="how-do-i-access-advisor"></a>如何存取 Advisor？
 您可以透過 [Azure 入口網站](https://aka.ms/azureadvisordashboard)存取建議程式。 登入[入口網站](https://portal.azure.com)，在導覽功能表中找出 [Advisor]，或在 [所有服務] 功能表中搜尋它。
 
 您也可以透過虛擬機器資源介面檢視 Advisor 建議。 選擇虛擬機器，然後捲動至功能表中的建議程式建議。 
 
-### <a name="what-permissions-do-i-need-to-access-advisor"></a>我需要哪些權限才能存取建議程式？
+### <a name="what-permissions-do-i-need-to-access-advisor"></a>我需要哪些權限才能存取 Advisor？
  
 您能夠以訂用帳戶的「擁有者」、「參與者」或「讀取者」身分存取 Advisor 建議。
 
@@ -75,7 +68,7 @@ Azure Advisor 也包含來自[Azure 資訊安全中心](https://docs.microsoft.c
 若要深入了解 Advisor 建議，請參閱：
 
 * [開始使用 Advisor](advisor-get-started.md)
-* [建議程式高可用性建議](advisor-high-availability-recommendations.md)
-* [建議程式安全性建議](advisor-security-recommendations.md)
-* [建議程式效能建議](advisor-performance-recommendations.md)
-* [建議程式成本建議](advisor-cost-recommendations.md)
+* [Advisor 高可用性建議](advisor-high-availability-recommendations.md)
+* [Advisor 安全性建議](advisor-security-recommendations.md)
+* [Advisor 效能建議](advisor-performance-recommendations.md)
+* [Advisor 成本建議](advisor-cost-recommendations.md)

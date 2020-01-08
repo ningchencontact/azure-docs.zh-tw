@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: ac2aabe12697336377df808e02e283dde0e4da16
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 00fae22b91b2ad68392a21a29df3c2aec6bf5c5e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927214"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406738"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流︰以 1 秒的延遲進行監視與診斷
 
@@ -35,7 +35,7 @@ ms.locfileid: "74927214"
 
 ## <a name="get-started"></a>開始使用
 
-1. 如果您尚未在 Web 應用程式中[安裝 Application Insights](../../azure-monitor/azure-monitor-app-hub.md)，請立即安裝。
+1. 如果您尚未在 Web 應用程式中[安裝 Application Insights](../../azure-monitor/azure-monitor-app-hub.yml)，請立即安裝。
 2. 除了標準 Application Insights 套件之外，還需要 [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/)，才能啟用「即時計量」串流。
 3. **更新至最新版本**的 Application Insights 套件。 在 Visual Studio 中，以滑鼠右鍵按一下專案，然後選擇 [管理 Nuget 套件]。 開啟 [更新] 索引標籤，然後選取所有 Microsoft.ApplicationInsights.* 套件。
 
@@ -157,7 +157,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 請從 Application Insights 資源內部建立 API 金鑰，然後前往您「函數應用程式」的 [應用程式設定]。 選取 [新增設訂]，然後輸入名稱 `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` 及與您 API 金鑰對應的值。
 
-### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (需要 Application Insights ASP.NET Core SDK 2.3.0-beta 或更新版本)
+### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-or-greater"></a>ASP.NET Core （需要 Application Insights ASP.NET Core SDK 2.3.0 或更高版本）
 
 修改您的 startup.cs 檔案，如下所示：
 

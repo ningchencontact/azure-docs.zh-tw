@@ -115,11 +115,11 @@
           href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 安全性
           items:
-            - name: 安全性概觀
-              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 安全性建議
+              href: security-recommendations.md
             - name: Azure 儲存體加密
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Authorization
+            - name: 授權資料作業
               href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
                 - name: 使用 Azure AD 授權
@@ -130,6 +130,8 @@
                   href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 匿名存取 Blob
                   href: storage-manage-access-to-resources.md
+            - name: 授權管理作業
+              href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 固定 Blob
               href: storage-blob-immutable-storage.md
             - name: 進階威脅防護
@@ -165,8 +167,6 @@
               href: storage-lifecycle-management-concepts.md
         - name: 效能、調整和成本最佳化
           items:
-            - name: 擴充和效能目標
-              href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 效能和延展性檢查清單
               href: storage-performance-checklist.md
             - name: Blob 儲存體中的延遲
@@ -205,7 +205,7 @@
                   href: ../common/storage-import-export-data-to-files.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 從 Blob 匯出資料
                   href: ../common/storage-import-export-data-from-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 作法
+                - name: 操作方式
                   items:
                     - name: 檢視磁碟機狀態
                       href: ../common/storage-import-export-view-drive-status.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -253,17 +253,15 @@
           href: storage-blob-pageblob-overview.md
         - name: 靜態網站
           href: storage-blob-static-website.md
-    - name: 作法
+    - name: 如何
       items:
         - name: 建立及管理儲存體帳戶
           items:
             - name: 建立一般用途的儲存體帳戶
               displayName: 'Resource Manager, Resource Manager template, template, ARM'
-              href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 建立區塊 Blob 儲存體帳戶
               href: storage-blob-create-account-block-blob.md
-            - name: 管理儲存體帳戶
-              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 升級儲存體帳戶
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 取得帳戶類型和 SKU 名稱 (.NET)
@@ -276,8 +274,6 @@
               href: storage-blob-containers-list.md
             - name: 管理屬性和中繼資料 (.NET)
               href: storage-blob-container-properties-metadata.md
-            - name: 設定和管理不變性原則
-              href: storage-blob-immutability-policies-manage.md
         - name: 建立和管理 Blob
           items:
             - name: 列出 Blob (.NET)
@@ -296,8 +292,10 @@
                   items:
                     - name: 入口網站
                       href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: PowerShell 或 Azure CLI
-                      href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: PowerShell
+                      href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Azure CLI
+                      href: ../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 使用 RBAC 管理存取權限
                   items:
                     - name: 入口網站
@@ -314,6 +312,8 @@
                       href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 使用共用金鑰進行授權
                   items:
+                    - name: 檢視和管理帳戶金鑰
+                      href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: 設定連接字串
                       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: 使用 Azure 儲存體 REST API
@@ -368,6 +368,8 @@
                   href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 啟用傳輸層安全性
                   href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 設定和管理不變性原則
+              href: storage-blob-immutability-policies-manage.md
         - name: 災害復原
           items:
             - name: 初始化帳戶容錯移轉
@@ -442,6 +444,18 @@
               href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 參考
       items:
+        - name: 擴充和效能目標
+          items:
+            - name: Blob 儲存體
+              href: scalability-targets.md
+            - name: 標準儲存體帳戶
+              href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 進階區塊 Blob 儲存體帳戶
+              href: scalability-targets-premium-block-blobs.md
+            - name: 進階頁面 Blob 儲存體帳戶
+              href: scalability-targets-premium-page-blobs.md
+            - name: 儲存體資源提供者
+              href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure PowerShell
           href: /powershell/module/az.storage
         - name: Azure CLI
@@ -637,7 +651,7 @@
       items:
         - name: 多重通訊協定存取
           href: ../blobs/data-lake-storage-multi-protocol-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 巨量資料處理
+        - name: 處理巨量資料
           href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 與 Azure 服務整合
           href: ../blobs/data-lake-storage-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -669,14 +683,12 @@
               href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 事件處理
           href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: 作法
+    - name: 如何
       items:
         - name: 建立及管理儲存體帳戶
           items:
             - name: 為您的 Data Lake 建立儲存體帳戶
               href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 管理儲存體帳戶
-              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 以儲存體總管管理資料
               href: ../blobs/data-lake-storage-explorer.md
             - name: 升級儲存體帳戶

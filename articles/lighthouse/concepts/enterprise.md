@@ -3,16 +3,16 @@ title: Azure Lighthouse 在企業案例中的運用
 description: Azure Lighthouse 的功能可在使用多個 Azure AD 租用戶的企業內用來簡化跨租用戶管理。
 ms.date: 09/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: f610f943ed7faa0d2ad64ff2f1554cdd41d76ee8
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
-ms.translationtype: MT
+ms.openlocfilehash: ae10ef2a18ace13d7b86347674c04f972e1ab8d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463909"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456894"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse 在企業案例中的運用
 
-[Azure 燈塔](../overview.md)最常見的案例是在其客戶的 Azure Active Directory （Azure AD）租使用者中管理資源的服務提供者。 不過，Azure Lighthouse 的功能也可在使用多個 Azure AD 租用戶的企業內用來簡化跨租用戶管理。
+[Azure Lighthouse](../overview.md) 最常見的案例是在其客戶的 Azure Active Directory (Azure AD) 租用戶中管理資源的服務提供者。 不過，Azure Lighthouse 的功能也可在使用多個 Azure AD 租用戶的企業內用來簡化跨租用戶管理。
 
 ## <a name="single-vs-multiple-tenants"></a>單一與多個租用戶的比較
 
@@ -38,7 +38,7 @@ ms.locfileid: "74463909"
 
 Azure Lighthouse 和 Azure 委派的資源管理只會提供管理租用戶與受控租用戶之間的邏輯連結，而不會實際移動資料或資源。 此外，存取一律只限單一方向：從管理租用戶到受控租用戶。  管理租用戶中的使用者和群組在對受控租用戶資源執行管理作業時，應繼續使用多重要素驗證。
 
-具有內部或外部治理和合規性防護的企業可以使用 [Azure 活動記錄](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview)來符合其透明度需求。 當企業租用戶已建立管理和受控租用戶關聯性時，每個租用戶中的使用者均可藉由檢視已記錄的活動，監視及看見另一個租用戶中使用者所採取的動作。
+具有內部或外部治理和合規性防護的企業可以使用 [Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)來符合其透明度需求。 當企業租用戶已建立管理和受控租用戶關聯性時，每個租用戶中的使用者均可藉由檢視已記錄的活動，監視及看見另一個租用戶中使用者所採取的動作。
 
 ## <a name="onboarding-process-considerations"></a>上架程序考慮
 
@@ -54,7 +54,7 @@ Azure Lighthouse 和 Azure 委派的資源管理只會提供管理租用戶與�
 
 例如，在上述範例中，可以將租用戶 A 視為服務提供者租用戶 (管理租用戶)，而租用戶 B 和租用戶 C 則被視為客戶租用戶。
 
-在該範例中，具有適當權限的租用戶 A 使用者可以在 Azure 入口網站的 [我的客戶][](../how-to/view-manage-customers.md) 頁面中，**檢視和管理委派的資源**。 同樣地，具有適當權限的租用戶 B 和租用戶 C 使用者可以在 Azure 入口網站的 [服務提供者][](../how-to/view-manage-service-providers.md) 頁面中，**檢視和管理已被委派的資源**。
+在該範例中，具有適當權限的租用戶 A 使用者可以在 Azure 入口網站的 [我的客戶] 頁面中，[檢視和管理委派的資源](../how-to/view-manage-customers.md)。 同樣地，具有適當權限的租用戶 B 和租用戶 C 使用者可以在 Azure 入口網站的 [服務提供者] 頁面中，[檢視和管理已被委派的資源](../how-to/view-manage-service-providers.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

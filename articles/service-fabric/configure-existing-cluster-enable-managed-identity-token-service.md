@@ -1,32 +1,28 @@
 ---
-title: Azure Service Fabric-設定現有的 Azure Service Fabric 叢集以啟用受控識別支援 |Microsoft Docs
-description: 本文說明如何設定現有的 Azure Service Fabric 叢集, 以啟用受控識別的支援
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
+title: Azure Service Fabric-設定現有的 Azure Service Fabric 叢集以啟用受控識別支援
+description: 本文說明如何設定現有的 Azure Service Fabric 叢集，以啟用受控識別的支援
 ms.topic: article
-ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: adc21358011454c8687998dc5d257052959b933b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 12/09/2019
+ms.openlocfilehash: 13b8b38a206b0dae0877263a5cda56a134d4788d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640740"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351598"
 ---
-# <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support-preview"></a>設定現有的 Azure Service Fabric 叢集以啟用受控識別支援 (預覽)
-為了存取 Azure Service Fabric 應用程式的受控識別功能, 您必須先在叢集上啟用**受控識別權杖服務**。 此服務負責使用其受控識別來驗證 Service Fabric 應用程式, 並代表其取得存取權杖。 啟用服務之後, 您可以在左窗格中的 [**系統**] 區段底下的 [ManagedIdentityTokenService] Service Fabric Explorer 中看到它, 並在 [ **Fabric:/system/** ] 名稱底下執行。
+# <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support-preview"></a>設定現有的 Azure Service Fabric 叢集以啟用受控識別支援（預覽）
+為了存取 Azure Service Fabric 應用程式的受控識別功能，您必須先在叢集上啟用**受控識別權杖服務**。 此服務負責使用其受控識別來驗證 Service Fabric 應用程式，並代表其取得存取權杖。 啟用服務之後，您可以在左窗格中的 [**系統**] 區段底下的 [ManagedIdentityTokenService] Service Fabric Explorer 中看到它，並在 [ **Fabric：/system/** ] 名稱底下執行。
 
 > [!NOTE]
-> 若要啟用**受控識別權杖服務**, 需要 Service Fabric 執行階段版本6.5.658.9590 或更高版本。  
+> 若要啟用**受控識別權杖服務**，需要 Service Fabric 執行階段版本6.5.658.9590 或更高版本。  
 > 
-> 您可以在 [**基本**功能] 區段中開啟叢集資源, 並檢查 [ **Service Fabric 版本**] 屬性, 以從 Azure 入口網站尋找叢集的 Service Fabric 版本。
+> 您可以在 [**基本**功能] 區段中開啟叢集資源，並檢查 [ **Service Fabric 版本**] 屬性，以從 Azure 入口網站尋找叢集的 Service Fabric 版本。
 > 
-> 如果叢集處於**手動**升級模式, 您必須先將它升級為6.5.658.9590 或更新版本。
+> 如果叢集處於**手動**升級模式，您必須先將它升級為6.5.658.9590 或更新版本。
 
 
 ## <a name="enable-the-managed-identity-token-service-in-an-existing-cluster"></a>在現有的叢集中啟用受控識別權杖服務
-若要在現有的叢集中啟用受控識別權杖服務, 您必須起始叢集升級, 並指定兩個變更: 啟用受控識別權杖服務, 並要求重新開機每個節點。 若要這麼做, 請在 Azure Resource Manager 範本中新增下列兩個程式碼片段:
+若要在現有的叢集中啟用受控識別權杖服務，您必須起始叢集升級，並指定兩個變更：啟用受控識別權杖服務，並要求重新開機每個節點。 若要這麼做，請在 Azure Resource Manager 範本中新增下列兩個程式碼片段：
 
 ```json
 "fabricSettings": [
@@ -42,7 +38,7 @@ ms.locfileid: "69640740"
 ]
 ```
 
-為了讓變更生效, 您也需要變更升級原則, 以便在升級完成叢集時, 在每個節點上指定強制重新開機 Service Fabric 執行時間。 此重新開機可確保新啟用的系統服務已在每個節點上啟動並執行。 在下列程式碼片段中`forceRestart` , 是必要的設定, 請使用您現有的值進行其餘設定。  
+為了讓變更生效，您也需要變更升級原則，以便在升級完成叢集時，在每個節點上指定強制重新開機 Service Fabric 執行時間。 此重新開機可確保新啟用的系統服務已在每個節點上啟動並執行。 在下列程式碼片段中，`forceRestart` 是必要的設定。將您現有的值用於其餘的設定。  
 
 ```json
 "upgradeDescription": {
@@ -57,11 +53,11 @@ ms.locfileid: "69640740"
 ```
 
 > [!NOTE]
-> 升級成功完成時, 請記得復原`forceRestart`設定, 以將後續升級的影響降至最低。 
+> 升級成功完成後，別忘了復原 `forceRestart` 設定，以將後續升級的影響降至最低。 
 
 ## <a name="errors-and-troubleshooting"></a>錯誤和疑難排解
 
-如果部署失敗並出現下列訊息, 表示叢集未在足夠的 Service Fabric 版本上執行:
+如果部署失敗並出現下列訊息，表示叢集未在足夠的 Service Fabric 版本上執行：
 
 ```json
 {

@@ -4,16 +4,16 @@ description: 如何在適用于 .NET 和 .NET Core 的 Azure 應用程式 Insigh
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: cef8a06fb7e4cfb713d6531f23df9ae9c5836b68
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: cef35ae5cb2b66385332a3b1f9ebe177ea26a3e4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173617"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406366"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Application Insights 中的遙測通道
 
@@ -128,7 +128,7 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 1. `MaxTransmissionBufferCapacity`：通道在記憶體中緩衝傳輸所使用的最大記憶體數量（以位元組為單位）。 當達到此容量時，新的專案會直接儲存到本機磁片。 預設值是 5 MB。 設定較高的值會導致磁片使用量較少，但請記住，如果應用程式當機，記憶體中的專案將會遺失。
 
-1. `MaxTransmissionSenderCapacity`：將同時傳送至 Application Insights 的 `Transmission` 實例數目上限。 預設值為10。 這項設定可以設定為較高的數目，這在產生大量遙測資料時建議使用。 高容量通常發生于負載測試或關閉取樣時。
+1. `MaxTransmissionSenderCapacity`：將同時傳送至 Application Insights 的 `Transmission` 實例數目上限。 預設值是 10。 這項設定可以設定為較高的數目，這在產生大量遙測資料時建議使用。 高容量通常發生于負載測試或關閉取樣時。
 
 1. `StorageFolder`：通道用來將專案儲存至磁片的資料夾（如有需要）。 在 Windows 中，如果未明確指定其他路徑，則會使用% LOCALAPPDATA% 或% TEMP%。 在 Windows 以外的環境中，您必須指定有效的位置，否則遙測不會儲存到本機磁片。
 
@@ -146,7 +146,7 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 1. 當應用程式當機時，記憶體中的專案就會遺失。
 
-1. 遙測會在網路問題延伸期間遺失。 遙測會在網路中斷時或 Application Insights 後端發生問題時，儲存到本機磁片。 不過，早于24小時的專案會被捨棄。
+1. 遙測會在網路問題延伸期間遺失。 遙測會在網路中斷時或 Application Insights 後端發生問題時，儲存到本機磁片。 不過，超過48小時的專案會被捨棄。
 
 1. 在 Windows 中儲存遙測資料的預設磁片位置為% LOCALAPPDATA% 或% TEMP%。 這些位置通常是本機電腦。 如果應用程式從一個位置實際遷移到另一個位置，則儲存在原始位置的任何遙測都會遺失。
 

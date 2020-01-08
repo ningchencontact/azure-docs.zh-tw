@@ -2,20 +2,20 @@
 title: 什麼是雲端服務模型和封裝 | Microsoft Docs
 description: 說明 Azure 中的雲端服務模型 (.csdef、.cscfg) 和封裝 (.cspkg)
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 0d04236861287074087cc125d7b0d44dc65eccbf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359547"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360696"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>什麼是雲端服務模型？如何封裝？
-雲端服務是從三個元件建立的，也就是服務定義 (.csdef)  、服務組態 (.cscfg)  和服務封裝 (.cspkg)  。 **ServiceDefinition.csdef** 和 **ServiceConfig.cscfg** 這兩個檔案是以 XML 為基礎，描述雲端服務的結構及其設定方式，統稱為模型。 **ServicePackage.cspkg** 是從 **ServiceDefinition.csdef** 產生的 zip 檔案，此外，包含所有必要的二進位型相依性。 Azure 會從 **ServicePackage.cspkg** 和 **ServiceConfig.cscfg** 建立雲端服務。
+雲端服務是從三個元件建立的，也就是服務定義 (.csdef)、服務組態 (.cscfg) 和服務封裝 (.cspkg)。 **ServiceDefinition.csdef** 和 **ServiceConfig.cscfg** 這兩個檔案是以 XML 為基礎，描述雲端服務的結構及其設定方式，統稱為模型。 **ServicePackage.cspkg** 是從 **ServiceDefinition.csdef** 產生的 zip 檔案，此外，包含所有必要的二進位型相依性。 Azure 會從 **ServicePackage.cspkg** 和 **ServiceConfig.cscfg** 建立雲端服務。
 
 一旦雲端服務在 Azure 中執行之後，您就可以透過 **ServiceConfig.cscfg** 檔案重新設定它，但您無法改變定義。
 
@@ -97,7 +97,7 @@ ms.locfileid: "68359547"
 **ConfigurationSettings**  
 包含特定角色功能的設定定義。
 
-**Certificates**  
+**憑證**  
 包含角色所需的憑證的定義。 上述程式碼範例顯示用於設定 Azure Connect 的憑證。
 
 **LocalResources**  
@@ -142,13 +142,13 @@ ms.locfileid: "68359547"
 **ConfigurationSettings**  
 設定執行中角色執行個體的設定。 `<Setting>` 元素的名稱必須符合服務定義檔中的設定定義。
 
-**Certificates**  
+**憑證**  
 設定服務所使用的憑證。 上述程式碼範例顯示如何定義 RemoteAccess 模組的憑證。 *thumbprint* 屬性的值必須設定為要使用的憑證的指紋。
 
 <p/>
 
 > [!NOTE]
-> 您可以使用文字編輯器，將憑證指紋新增至組態檔。 或者，在 Visual Studio 中，也可以在角色 [屬性]  頁面的 [憑證]  索引標籤上新增值。
+> 您可以使用文字編輯器，將憑證指紋新增至組態檔。 或者，在 Visual Studio 中，也可以在角色 [屬性] 頁面的 [憑證] 索引標籤上新增值。
 > 
 > 
 
@@ -289,3 +289,6 @@ cspack [DirectoryName]\[ServiceDefinition]
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
+
+
+

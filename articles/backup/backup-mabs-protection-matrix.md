@@ -3,12 +3,12 @@ title: Azure 備份伺服器可以備份哪些內容
 description: 本文提供支援矩陣，其中列出 Azure 備份伺服器保護的所有工作負載、資料類型和安裝。
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e34ba81ad20b2d6a4e89995ab8b834f5f7dc725
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 8f1ae1432f619dafc5084d250e3f89707405e08b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996148"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449897"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure 備份伺服器保護矩陣
 
@@ -82,9 +82,23 @@ ms.locfileid: "74996148"
 
 ## <a name="azure-expressroute-support"></a>Azure ExpressRoute 支援
 
-如果 Azure ExpressRoute 設定了私人或 Microsoft 對等互連，則無法用來將資料備份至 Azure。
+您可以使用公用對等互連（適用于舊的線路）和 Microsoft 對等互連，透過 Azure ExpressRoute 來備份您的資料。 不支援透過私用對等互連進行備份。
 
-如果 Azure ExpressRoute 已設定公用對等互連，則可用於將資料備份至 Azure。
+使用公用對等互連：請確認存取下列網域/位址：
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+透過 Microsoft 對等互連，請選取下列服務/區域和相關的「社區」值：
+
+* Azure Active Directory （12076:5060）
+* Microsoft Azure 區域（根據復原服務保存庫的位置）
+* Azure 儲存體（根據您的復原服務保存庫的位置）
+
+如需詳細資訊，請參閱[ExpressRoute 路由需求](https://docs.microsoft.com/azure/expressroute/expressroute-routing)。
 
 >[!NOTE]
 >新線路的公用對等互連已被取代。
@@ -93,17 +107,17 @@ ms.locfileid: "74996148"
 
 Azure 備份伺服器可以保護下列叢集應用程式中的資料：
 
-- 檔案伺服器
+* 檔案伺服器
 
-- SQL Server
+* SQL Server
 
-- Hyper-v-如果您使用向外延展的 MABS 保護代理程式來保護 Hyper-v 叢集，就無法為受保護的 Hyper-v 工作負載新增次要保護。
+* Hyper-v-如果您使用向外延展的 MABS 保護代理程式來保護 Hyper-v 叢集，就無法為受保護的 Hyper-v 工作負載新增次要保護。
 
     如果您在 Windows Server 2008 R2 上執行 Hyper-V，請務必安裝 KB [975354](https://support.microsoft.com/kb/975354) 中所述的更新。
     如果您在叢集設定的 Windows Server 2008 R2 上執行 Hyper-V，請務必安裝 SP2 和 KB [971394](https://support.microsoft.com/kb/971394)。
 
-- Exchange Server - Azure 備份伺服器可以保護支援之 Exchange Server 版本的非共用磁碟叢集 (叢集連續複寫)，也可以保護設定用於本機連續複寫的 Exchange Server。
+* Exchange Server - Azure 備份伺服器可以保護支援之 Exchange Server 版本的非共用磁碟叢集 (叢集連續複寫)，也可以保護設定用於本機連續複寫的 Exchange Server。
 
-- SQL Server - Azure 備份伺服器不支援備份裝載於叢集共用磁碟區 (CSV) 上的 SQL Server 資料庫。
+* SQL Server - Azure 備份伺服器不支援備份裝載於叢集共用磁碟區 (CSV) 上的 SQL Server 資料庫。
 
 Azure 備份伺服器可以保護位於與 MABS 伺服器相同的網域和子域或受信任網域中的叢集工作負載。 如果您想要保護未信任網域或工作群組中的資料來源，請針對單一伺服器使用 NTLM 或憑證驗證，或是針對叢集只使用憑證驗證。

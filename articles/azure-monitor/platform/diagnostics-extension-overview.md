@@ -4,15 +4,15 @@ description: 使用 Azure 診斷來在雲端服務、虛擬機器及 Service Fab
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: d1721411b57fc3542af48fc5f48eca7e4a2d06c8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1bdefc6b61e4e5cc5b8648880c5fdd8662af1bc1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552158"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395361"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>什麼是 Azure 診斷延伸模組
 Azure 診斷延伸模組是 Azure 中的代理程式，可對部署的應用程式收集診斷資料。 您可以使用來自許多不同來源的診斷延伸模組。 目前支援 Azure 雲端服務 (傳統) Web 和背景工作角色、虛擬機器、虛擬機器擴展集和 Service Fabric。 其他 Azure 服務有不同的診斷方法。 請參閱 [Azure 中的監視概觀](../../azure-monitor/overview.md)。
@@ -23,7 +23,7 @@ Azure 診斷延伸模組是 Azure 中的代理程式，可對部署的應用程�
 ## <a name="data-you-can-collect"></a>您可以收集的資料
 Azure 診斷延伸模組可以收集下列類型的資料：
 
-| 資料來源 | 描述 |
+| 資料來源 | 說明 |
 | --- | --- |
 | 效能計數器計量 |作業系統和自訂效能計數器 |
 | 應用程式記錄 |追蹤您應用程式寫入的訊息 |
@@ -62,7 +62,7 @@ Azure 診斷延伸模組可以收集下列類型的資料：
 選擇您想要在哪個服務上收集診斷資料，並使用下列文章來開始。 如需特定工作的參考，請使用一般的 Azure 診斷連結。
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>使用 Azure 診斷的雲端服務
-* 如果您使用 Visual Studio，請參閱 [使用 Visual Studio 來追蹤雲端服務應用程式](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) 來開始。 否則，請參閱
+* 如果您使用 Visual Studio，請參閱[使用 Visual Studio 來追蹤雲端服務應用程式](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines)來開始。 否則，請參閱
 * [如何使用 Azure 診斷來監視雲端服務](../../cloud-services/cloud-services-how-to-monitor.md)
 * [在雲端服務應用程式中設定 Azure 診斷](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
@@ -73,7 +73,7 @@ Azure 診斷延伸模組可以收集下列類型的資料：
 * [使用 PowerShell 在雲端服務上設定診斷](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="virtual-machines"></a>虛擬機器
-* 如果您使用 Visual Studio，請參閱 [使用 Visual Studio 來追蹤 Microsoft Azure 虛擬機器](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) 來開始。 否則，請參閱
+* 如果您使用 Visual Studio，請參閱[使用 Visual Studio 來追蹤 Microsoft Azure 虛擬機器](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines)來開始。 否則，請參閱
 * [在 Azure 虛擬機器上設定 Azure 診斷](/azure/virtual-machines/extensions/diagnostics-windows)
 
 如需更進階的主題，請參閱
@@ -82,9 +82,9 @@ Azure 診斷延伸模組可以收集下列類型的資料：
 * [使用 Azure Resource Manager 範本建立具有監視和診斷的 Windows 虛擬機器](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric"></a>Service Fabric
-請參閱 [監視 Service Fabric 應用程式](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)來開始。 當您抵達這篇文章所在網頁時，可以利用左側的導覽樹狀目錄前往許多其他的 Service Fabric 診斷文章。
+請參閱[監視 Service Fabric 應用程式](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)來開始。 當您抵達這篇文章所在網頁時，可以利用左側的導覽樹狀目錄前往許多其他的 Service Fabric 診斷文章。
 
 ## <a name="general-articles"></a>一般文章
-* 了解如何 [在 Azure 診斷中使用效能計數器](../../cloud-services/diagnostics-performance-counters.md)。
+* 了解如何[在 Azure 診斷中使用效能計數器](../../cloud-services/diagnostics-performance-counters.md)。
 * 如果您在開始診斷，或是在 Azure 儲存體資料表中尋找資料時遇到問題，請參閱[針對 Azure 診斷進行疑難排解](diagnostics-extension-troubleshooting.md)
 

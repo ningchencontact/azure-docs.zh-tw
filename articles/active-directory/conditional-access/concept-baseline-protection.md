@@ -5,28 +5,31 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb, rogoya
+ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9bb384045c8b2e0a5743fdc301a829792639b7e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a15b55aa3d8cc8f16a35c858d11e3d20c260bff8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420579"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425029"
 ---
 # <a name="what-are-baseline-policies"></a>什麼是基準原則？
 
-基準原則是一組預先定義的原則，可協助組織抵禦許多常見的攻擊。 這些常見的攻擊可能包括密碼噴灑、重新執行和網路釣魚。 基準原則適用于所有版本的 Azure AD。 Microsoft 將這些基準保護原則提供給所有人，因為以身分識別為基礎的攻擊已在過去幾年的增加。 這四個原則的目標是要確保所有組織都已啟用基準層級的安全性，而不需要額外成本。  
+基準原則是一組預先定義的原則，可協助組織抵禦許多常見的攻擊。 這些常見的攻擊可能包括密碼噴灑、重播和網路釣魚。 基準原則適用于所有版本的 Azure AD。 Microsoft 將這些基準保護原則提供給所有人使用的原因，是因為以身分識別為基礎的攻擊在過去幾年一直持續攀升。 這四個原則的目標是要確保所有組織都已啟用基準層級的安全性，而不需要額外成本。
 
 管理自訂的條件式存取原則需要 Azure AD Premium 授權。
 
+> [!IMPORTANT]
+> 正在淘汰基準原則。 如需詳細資訊，請參閱[Azure Active Directory 的新功能？](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) 。
+
 ## <a name="baseline-policies"></a>基準原則
 
-![Azure 入口網站中的條件式存取基準原則](./media/concept-baseline-protection/conditional-access-policies.png)
+![Azure 入口網站中的條件式存取基準原則](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
 有四個基準原則：
 
@@ -36,6 +39,10 @@ ms.locfileid: "74420579"
 * 服務管理需要 MFA （預覽）
 
 這四種原則都會影響舊版的驗證流程，例如 POP、IMAP 和較舊的 Office 桌面用戶端。
+
+### <a name="exclusions"></a>排除
+
+當基準原則進入其初始公開預覽時，可以選擇從原則中排除使用者。 這項功能已透過預覽演變，並于2019年7月移除。 已經建立排除專案的組織可以繼續保留新的使用者無法將排除專案新增至原則。
 
 ### <a name="require-mfa-for-admins-preview"></a>需要系統管理員的 MFA （預覽）
 
@@ -52,16 +59,16 @@ ms.locfileid: "74420579"
 * 計費管理員
 * 使用者管理員
 
-如果您的組織在腳本或程式碼中使用這些帳戶，請考慮將它們取代為[受控](../managed-identities-azure-resources/overview.md)識別。
+如果您的組織在指令碼或程式碼中使用這些帳戶，請考慮將它們取代為[受管理的身分識別](../managed-identities-azure-resources/overview.md)。
 
 ### <a name="end-user-protection-preview"></a>終端使用者保護（預覽）
 
 高特殊許可權的系統管理員並不是攻擊的唯一目標。 不良執行者通常會以一般使用者為目標。 取得存取權之後，這些不良的執行者就可以代表原始帳戶持有者要求存取許可權資訊，或下載整個目錄並在整個組織中執行網路釣魚攻擊。 有一個改善所有使用者保護的常見方法，就是在偵測到有風險的登入時，需要更強大的帳戶驗證形式。
 
-**終端使用者保護（預覽）** 是保護目錄中所有使用者的基準原則。 若要啟用此原則，所有使用者都必須在14天內註冊 Azure 多重要素驗證。 註冊之後，只有在有風險的登入嘗試時，才會提示使用者進行 MFA。 遭盜用的使用者帳戶會遭到封鎖，直到重設密碼和風險關閉為止。 
+**終端使用者保護（預覽）** 是保護目錄中所有使用者的基準原則。 若要啟用此原則，所有使用者都必須在14天內註冊 Azure 多重要素驗證。 註冊之後，只有在有風險的登入嘗試時，才會提示使用者進行 MFA。 遭盜用的使用者帳戶會遭到封鎖，直到重設密碼和風險解除為止。 
 
-[!NOTE]
-先前標示為有風險的任何使用者都會遭到封鎖，直到發生密碼重設和在原則啟用關閉的風險為止。
+> [!NOTE]
+> 先前標示為有風險的任何使用者都會遭到封鎖，直到發生密碼重設和在原則啟用關閉的風險為止。
 
 ### <a name="block-legacy-authentication-preview"></a>封鎖舊版驗證（預覽）
 
@@ -75,7 +82,7 @@ ms.locfileid: "74420579"
 
 組織會使用各種不同的 Azure 服務，並從以 Azure Resource Manager 為基礎的工具進行管理，例如：
 
-* Azure 入口網站
+* Azure Portal
 * Azure PowerShell
 * Azure CLI
 
@@ -87,6 +94,6 @@ ms.locfileid: "74420579"
 
 如需詳細資訊，請參閱：
 
+* [啟用安全性預設值](../fundamentals/concept-fundamentals-security-defaults.md)
 * [一般條件式存取原則](concept-conditional-access-policy-common.md)
 * [可保護身分識別基礎結構的五個步驟](../../security/fundamentals/steps-secure-identity.md)
-* [什麼是 Azure Active Directory 中的條件式存取？](overview.md)

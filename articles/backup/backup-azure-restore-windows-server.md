@@ -4,12 +4,12 @@ description: 在本文中，您將瞭解如何將儲存在 Azure 中的資料還
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 4d663739f25762723fc3a8f566c4b5ef3f957338
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e12596b496483b872f76ccd610fd70710327b586
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172792"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450018"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>使用 Azure Resource Manager 部署模型將檔案還原至 Windows
 
@@ -21,7 +21,7 @@ ms.locfileid: "74172792"
 您可以使用「立即還原」功能裝載可寫入的復原點快照做為復原磁碟區。 您接著可以探索復磁碟區並將檔案複製至本機電腦，藉此選擇性地還原檔案。
 
 > [!NOTE]
-> 如果您要使用「立即還原」來還原資料，必須要有 [2017 年 1 月 Azure 備份更新](https://support.microsoft.com/help/3216528?preview)。 另外，您也必須在支援文章所列出地區設定的保存庫中，保護備份資料。 請參閱 [2017 年 1 月 Azure 備份更新](https://support.microsoft.com/help/3216528?preview)，了解支援「立即還原」的最新地區設定清單。
+> 如果您要使用「立即還原」來還原資料，必須要有 [2017 年 1 月 Azure 備份更新](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar)。 另外，您也必須在支援文章所列出地區設定的保存庫中，保護備份資料。 請參閱 [2017 年 1 月 Azure 備份更新](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar)，了解支援「立即還原」的最新地區設定清單。
 >
 
 在 Azure 入口網站中搭配復原服務保存庫使用立即還原。 如果您已在備份保存庫中儲存資料，則已將它們轉換至復原服務保存庫。 如果您想要使用「立即還原」，請下載 MARS 更新，並依照提及「立即還原」部分中的程序進行操作。
@@ -40,7 +40,7 @@ ms.locfileid: "74172792"
 
     ![Azure 備份的螢幕擷取畫面，已反白顯示復原資料](./media/backup-azure-restore-windows-server/recover.png)
 
-3. 在 [開始使用] 頁面中，若要將資料還原至同一台伺服器或電腦，請選取 [這台伺服器 ( **)]`<server name>`**  > [下一步]。
+3. 在 [開始使用] 頁面中，若要將資料還原至同一台伺服器或電腦，請選取 [這台伺服器 (`<server name>`)] > [下一步]。
 
     ![復原資料精靈 [開始使用] 頁面的螢幕擷取畫面](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
@@ -110,7 +110,7 @@ ms.locfileid: "74172792"
 
     如果保存庫認證檔無效 (或已過期)，請從 Azure 入口網站中的「範例保存庫」下載新的保存庫認證檔。 在您提供有效的保存庫認證檔之後，就會顯示對應的備份保存庫名稱。
 
-6. 在 [選取備份伺服器] 頁面中，從顯示的電腦清單選取來源電腦，並提供複雜密碼。 然後，選取 [下一步]。
+6. 在 [選取備份伺服器] 頁面中，從顯示的電腦清單選取來源電腦，並提供複雜密碼。 然後選取 [下一步]。
 
     ![復原資料精靈 [選取備份伺服器] 頁面的螢幕擷取畫面](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 

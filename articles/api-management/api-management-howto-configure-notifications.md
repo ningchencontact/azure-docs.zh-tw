@@ -1,5 +1,6 @@
 ---
-title: 在 Azure API 管理中設定通知和電子郵件範本 | Microsoft Docs
+title: 設定通知和電子郵件範本
+titleSuffix: Azure API Management
 description: 了解如何在 Azure API 管理中設定通知和電子郵件範本。
 services: api-management
 documentationcenter: ''
@@ -12,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: d49e861a529f3b2265f65c53cc0ee2f6feb151da
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e0477b1ba044004eaf95cc138bc2e19f40379566
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072488"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442686"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>如何在 Azure API 管理中設定通知和電子郵件範本
 API 管理可讓您設定特定事件的通知，以及設定用來與 API 管理執行個體的管理員和開發人員通訊的電子郵件範本。 本文說明如何為可用的事件設定通知，並提供設定這些事件所使用之電子郵件範本的概觀。
 
 ## <a name="prerequisites"></a>必要條件
 
-如果您沒有 API 管理服務實例, 請完成下列快速入門:[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。
+如果您沒有 API 管理服務執行個體，請完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="publisher-notifications"> </a>設定通知
+## <a name="publisher-notifications"></a>設定通知
 
 1. 選取您的 [API 管理] 執行個體。
 2. 按一下 [通知] 以檢視可用的通知。
@@ -52,7 +53,7 @@ API 管理可讓您設定特定事件的通知，以及設定用來與 API 管�
     ![Notification recipients][api-management-email-addresses]
 4. 按 [新增]。
 
-## <a name="email-templates"> </a>設定通知範本
+## <a name="email-templates"></a>設定通知範本
 對於管理和使用服務期間傳送的電子郵件訊息，API 管理提供通知件範本。 提供的電子郵件範本如下。
 
 * 已核准應用程式庫提交

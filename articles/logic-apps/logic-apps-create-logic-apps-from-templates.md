@@ -1,6 +1,6 @@
 ---
-title: 從範本建立工作流程
-description: 使用 Azure Logic Apps 中的邏輯應用程式範本加快建置工作流程的速度
+title: 使用預先建立的範本更快速地建立邏輯應用程式工作流程
+description: 使用 Azure Logic Apps 提供的預建範本，快速建立邏輯應用程式工作流程
 services: logic-apps
 ms.suite: integration
 author: kevinlam1
@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: c7033185ac3a5411568195d788242a674b569183
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 58c0ff8cf8a579e2b97ebbe195f47e4baef4621a
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793193"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666817"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>從預先建置的範本建立邏輯應用程式工作流程
 
@@ -21,7 +21,7 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
 
 以下是一些範本類別：
 
-| 範本類型 | 描述 | 
+| 範本類型 | 說明 | 
 | ------------- | ----------- | 
 | 企業雲端範本 | 用來整合 Azure Blob、Dynamics CRM、Salesforce、Box，並且包含其他可滿足您企業雲端需求的連接器。 例如，您可以使用這些範本來組織業務潛在客戶，或備份公司檔案資料。 | 
 | 個人生產力範本 | 藉由設定每日提醒、將重要的工作項目轉換成待辦事項清單，以及將冗長的工作自動縮減成單一的使用者核准步驟，提升個人生產力。 | 
@@ -44,11 +44,11 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
 
    ![提供邏輯應用程式詳細資料](./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png)
 
-   | 設定 | Value | 描述 | 
+   | 設定 | 值 | 說明 | 
    | ------- | ----- | ----------- | 
    | **名稱** | *邏輯應用程式的名稱* | 提供唯一的邏輯應用程式名稱。 | 
    | **訂用帳戶** | 您的 Azure 訂用帳戶名稱 | 選取您要使用的 Azure 訂用帳戶。 | 
-   | **資源群組** | 您的 Azure 資源群組名稱 | 為此邏輯應用程式建立或選取一個 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)，並用以組織與此應用程式關聯的所有資源。 | 
+   | **資源群組** | 您的 Azure 資源群組名稱 | 為此邏輯應用程式建立或選取一個 [Azure 資源群組](../azure-resource-manager/management/overview.md)，並用以組織與此應用程式關聯的所有資源。 | 
    | **位置** | 您的 Azure 資料中心區域 | 選取用於部署邏輯應用程式的資料中心區域，例如，美國西部。 | 
    | **Log Analytics** | **Off** (預設值) 或 **On** | 透過[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)，開啟邏輯應用程式的[診斷記錄](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app)。 您必須已經有 Log Analytics 工作區。 | 
    |||| 
@@ -147,7 +147,7 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
 ## <a name="get-support"></a>取得支援
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要送出或票選功能構想，請前往 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

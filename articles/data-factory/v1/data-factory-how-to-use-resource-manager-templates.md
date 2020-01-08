@@ -11,16 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d9ee060b7d1f7a443357c7116c01e8aaf972e666
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 96adcfa4bbfc4ed0066ccfbdbe57f9840e8b07f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682527"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438814"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>使用範本來建立 Azure Data Factory 實體
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 
+> 本文適用於 Data Factory 第 1 版。 
 
 ## <a name="overview"></a>概觀
 基於資料整合需求使用 Azure Data Factory 時，您可能會發現自己跨不同環境重複使用相同的模式，或在相同的解決方案內反覆地實作相同的工作。 範本可協助您輕鬆地實作和管理這些案例。 Azure Data Factory 中的範本最適用於涉及重複使用和重複時。
@@ -32,7 +32,7 @@ ms.locfileid: "73682527"
 此外，組織想要跨不同環境部署這 10 個資料處理站多次時，範本可以針對開發、測試和生產環境使用不同的參數檔案，來使用這個**重複使用性**。
 
 ## <a name="templating-with-azure-resource-manager"></a>使用 Azure Resource Manager 範本化
-[Azure Resource Manager 範本](../../azure-resource-manager/template-deployment-overview.md)是達成 Azure Data Factory 中範本化的不錯方式。 Resource Manager 範本透過 JSON 檔案來定義 Azure 解決方案的基礎結構和組態。 因為 Azure Resource Manager 範本是與所有/大部分 Azure 服務搭配運作，所以可以廣泛用來輕鬆地管理 Azure 資產的所有資源。 若要深入了解 Resource Manager 範本的一般資訊，請參閱[撰寫 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md) 。
+[Azure Resource Manager 範本](../../azure-resource-manager/template-deployment-overview.md)是達成 Azure Data Factory 中範本化的不錯方式。 Resource Manager 範本透過 JSON 檔案來定義 Azure 解決方案的基礎結構和組態。 因為 Azure Resource Manager 範本是與所有/大部分 Azure 服務搭配運作，所以可以廣泛用來輕鬆地管理 Azure 資產的所有資源。 若要深入了解 Resource Manager 範本的一般資訊，請參閱[撰寫 Azure Resource Manager 範本](../../azure-resource-manager/templates/template-syntax.md) 。
 
 ## <a name="tutorials"></a>教學課程
 如需使用 Resource Manager 範本建立 Data Factory 實體的逐步指示，請參閱下列教學課程︰

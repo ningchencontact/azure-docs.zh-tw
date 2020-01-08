@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6d52062561e3f08a214f3e191706583edc844786
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ec19f4b4140fb6f4a1dc968f4e2cac3c3d7a1e76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447721"
 ---
 # <a name="manage-qna-maker-resources"></a>管理 QnA Maker 資源
 
@@ -30,8 +30,8 @@ ms.locfileid: "73794220"
 
 |名稱|位置|目的|
 |--|--|--|
-|訂用帳戶金鑰|[Azure 入口網站](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|這些金鑰可用來存取 [QnA Maker 管理服務 API](https://go.microsoft.com/fwlink/?linkid=2092179)。 這些 Api 可讓您編輯知識庫中的問題和答案，併發布您的知識庫。 當您建立新的 QnA Maker 服務時，會建立這些金鑰。<br><br>在 [**金鑰**] 頁面上的**認知服務**資源上尋找這些金鑰。|
-|端點金鑰|[QnA Maker 入口網站](http://www.qnamaker.ai)|這些金鑰可用來存取已發佈的知識庫端點，以取得使用者問題的回應。 您通常會在聊天機器人或連接到 QnA Maker 服務的用戶端應用程式程式碼中使用此端點。 當您發佈 QnA Maker 知識庫時，會建立這些金鑰。<br><br>在 [**服務設定**] 頁面中尋找這些金鑰。 從下拉式選單上頁面右上方的使用者功能表中，尋找此頁面。|
+|訂用帳戶金鑰|[Azure 入口網站](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|這些金鑰可用來存取[QnA Maker 管理服務 api](https://go.microsoft.com/fwlink/?linkid=2092179)。 這些 Api 可讓您編輯知識庫中的問題和答案，併發布您的知識庫。 當您建立新的 QnA Maker 服務時，會建立這些金鑰。<br><br>在 [**金鑰**] 頁面上的**認知服務**資源上尋找這些金鑰。|
+|端點金鑰|[QnA Maker 入口網站](https://www.qnamaker.ai)|這些金鑰可用來存取已發佈的知識庫端點，以取得使用者問題的回應。 您通常會在聊天機器人或連接到 QnA Maker 服務的用戶端應用程式程式碼中使用此端點。 當您發佈 QnA Maker 知識庫時，會建立這些金鑰。<br><br>在 [**服務設定**] 頁面中尋找這些金鑰。 從下拉式選單上頁面右上方的使用者功能表中，尋找此頁面。|
 
 ## <a name="create-a-new-qna-maker-service"></a>建立新的 QnA Maker 服務
 
@@ -63,7 +63,7 @@ ms.locfileid: "73794220"
 
     * 選擇您是否要啟用**Application Insights**。 如果啟用 **Application Insights**，QnA Maker 會收集流量、交談記錄和錯誤的遙測資料。
     * 選擇將部署 Application Insights 資源的**App insights 位置**。
-    * 針對成本節約量值，您可以[共用](#share-existing-services-with-qna-maker)部分（而非所有）為 QnA Maker 建立的 Azure 資源。 
+    * 如需節省成本的方法，您可以[共用](#share-existing-services-with-qna-maker)一些 (不是全部) 為 QnA Maker 建立的 Azure 資源。
 
 1. 驗證所有欄位之後，請選取 [**建立**]。 此程式可能需要幾分鐘的時間才能完成。
 
@@ -108,7 +108,7 @@ QnA Maker 會建立數個 Azure 資源。 若要減少管理和受益于成本�
 
 |服務|共用|原因|
 |--|--|--|
-|認知服務|X|設計不可行|
+|辨識服務|X|設計不可行|
 |App Service 方案|✔|已修正配置給 App Service 方案的磁碟空間。 如果其他共用相同 App Service 方案的應用程式使用大量磁碟空間，QnAMaker App Service 實例就會發生問題。|
 |App Service|X|設計不可行|
 |Application Insights|✔|可以共用|
@@ -187,7 +187,7 @@ QnA Maker 會建立數個 Azure 資源。 若要減少管理和受益于成本�
 
 QnAMaker 執行時間是您在 Azure 入口網站中[建立 QnAMaker 服務](./set-up-qnamaker-service-azure.md)時所部署 Azure App Service 實例的一部分。 執行階段會定期進行更新。 2019年4月網站延伸模組版本（第5版 +）之後，QnA Maker App Service 實例處於自動更新模式。 此更新的設計目的是要在升級期間處理零停機時間。
 
-您可以在 https://www.qnamaker.ai/UserSettings檢查目前的版本。 如果您的版本早于版本5.x，則必須重新開機 App Service，才能套用最新的更新：
+您可以在 https://www.qnamaker.ai/UserSettings 檢查目前的版本。 如果您的版本早于版本5.x，則必須重新開機 App Service，才能套用最新的更新：
 
 1. 在[Azure 入口網站](https://portal.azure.com)中，移至您的 QnAMaker 服務（資源群組）。
 

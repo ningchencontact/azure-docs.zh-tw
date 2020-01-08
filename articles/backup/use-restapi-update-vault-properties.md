@@ -4,12 +4,12 @@ description: 在本文中，您將瞭解如何使用 REST API 來更新保存庫
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: cbd958dd71d2d62f7b4c7e8d66ab7e56dc679a51
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 3739f95e3962def9ab669970c48b2d1c546fdc0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74998741"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390546"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>使用 REST API 更新 Azure 復原服務保存庫設定
 
@@ -43,7 +43,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 「取得」作業的成功回應如下所示：
 
-|Name  |Type  |描述  |
+|名稱  |類型  |說明  |
 |---------|---------|---------|
 |200 確定     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 確定        |
 
@@ -83,16 +83,16 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 如需詳細資訊，請參閱[REST API 檔](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
-|Name  |必要項  |Type  |描述  |
+|名稱  |必要項  |類型  |說明  |
 |---------|---------|---------|---------|
 |etag     |         |   String      |  選擇性 eTag       |
 |location     |  true       |String         |   資源位置      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  保存庫的屬性       |
-|tags     |         | Object        |     資源標籤    |
+|tags     |         | 物件        |     資源標籤    |
 
 #### <a name="example-request-body"></a>要求本文範例
 
-下列範例是用來將虛刪除不良更新為「已停用」。
+下列範例是用來將虛刪除狀態更新為「已停用」。
 
 ```json
 {
@@ -107,7 +107,7 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 「修補程式」作業的成功回應如下所示：
 
-|Name  |Type  |描述  |
+|名稱  |類型  |說明  |
 |---------|---------|---------|
 |200 確定     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 確定        |
 

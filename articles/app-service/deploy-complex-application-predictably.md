@@ -5,17 +5,17 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9ec3a6b39a857f888514b0a3872ae411e1819f3a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 1168faa1f39546dc75af28b885c9095cfffa1135
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671815"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422124"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>透過可預測方式在 Azure 中佈建和部署微服務
 本教學課程示範如何在 [Azure App Service](https://azure.microsoft.com/services/app-service/) 中將包含[微服務](https://en.wikipedia.org/wiki/Microservices)的應用程式佈建和部署為單一單位，並且使用 JSON 資源群組範本和 PowerShell 指令碼的可預測方式。 
 
-佈建和部署包含高低耦合微服務的高級別應用程式時，重複性和可預測性是成功的重要關鍵。 [Azure App Service](https://azure.microsoft.com/services/app-service/) 可讓您建立微服務，其中包括 Web 應用程式、行動後端和 API 應用程式。 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 可讓您將所有微服務當成一個單位來進行管理，以及管理資源相依性 (例如資料庫和原始檔控制設定)。 現在，您也可以使用 JSON 範本和簡單 PowerShell 指令碼來部署這類應用程式。 
+佈建和部署包含高低耦合微服務的高級別應用程式時，重複性和可預測性是成功的重要關鍵。 [Azure App Service](https://azure.microsoft.com/services/app-service/) 可讓您建立微服務，其中包括 Web 應用程式、行動後端和 API 應用程式。 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 可讓您將所有微服務當成一個單位來進行管理，以及管理資源相依性 (例如資料庫和原始檔控制設定)。 現在，您也可以使用 JSON 範本和簡單 PowerShell 指令碼來部署這類應用程式。 
 
 ## <a name="what-you-will-do"></a>將執行的作業
 在教學課程中，您將部署的應用程式包括：
@@ -29,7 +29,7 @@ ms.locfileid: "74671815"
 在本教學課程中，您將使用下列工具。 這不是工具的完整討論，因此將著重在端對端案例，並且只對每個工具進行簡短介紹，以及您可以在哪裡找到更多資訊。 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure 資源管理員範本 (JSON)
-例如，每次在 Azure App Service 中建立應用程式時，Azure Resource Manager 都會使用 JSON 範本來建立具有元件資源的整個資源群組。 來自 [Azure Marketplace](/azure/marketplace) 的複雜範本，可包括資料庫、儲存體帳戶、App Service 方案、應用程式本身、警示規則、應用程式設定、自動調整設定等等，而且您可以透過 PowerShell 使用所有這類範本。 如需 Azure 資源管理員範本的詳細資訊，請參閱 [編寫 Azure 資源管理員範本](../azure-resource-manager/resource-group-authoring-templates.md)
+例如，每次在 Azure App Service 中建立應用程式時，Azure Resource Manager 都會使用 JSON 範本來建立具有元件資源的整個資源群組。 來自 [Azure Marketplace](/azure/marketplace) 的複雜範本，可包括資料庫、儲存體帳戶、App Service 方案、應用程式本身、警示規則、應用程式設定、自動調整設定等等，而且您可以透過 PowerShell 使用所有這類範本。 如需 Azure 資源管理員範本的詳細資訊，請參閱 [編寫 Azure 資源管理員範本](../azure-resource-manager/templates/template-syntax.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2.6 for Visual Studio
 最新 SDK 已增強 JSON 編輯器中的資源管理員範本支援。 您可以使用此項快速從頭開始建立資源群組範本，或開啟現有 JSON 範本 (例如已下載的資源庫範本) 進行修改、填入參數檔案，甚至直接從 Azure 資源群組方案部署資源群組。
@@ -117,7 +117,7 @@ ms.locfileid: "74671815"
 * `“resources”: […]` 內巢狀資源 (其中已定義資料庫和防火牆規則) 的 `dependsOn` 項目指定根層級 SQLServer 資源的資源識別碼。 這會告訴 Azure 資源管理員：「建立此資源之前，那個其他資源必須已經存在；如果那個其他資源定義在範本中，則請先建立它」。
   
   > [!NOTE]
-  > 如需如何使用 `resourceId()` 函式的詳細資訊，請參閱 [Azure Resource Manager 範本函式](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid)。
+  > 如需如何使用 `resourceId()` 函式的詳細資訊，請參閱 [Azure Resource Manager 範本函式](../azure-resource-manager/templates/template-functions-resource.md#resourceid)。
   > 
   > 
 * `dependsOn` 項目的作用是 Azure 資源管理員可以知道可平行建立哪些資源，以及必須依序建立哪些資源。 
@@ -244,17 +244,17 @@ ms.locfileid: "74671815"
 
 最後一個 Cmdlet ( `New-AzureResourceGroup`) 是實際執行動作的 Cmdlet。 所有這些動作都是在告訴您，在工具的協助下，透過可預測方式部署您的雲端應用程式相當簡單。 每次對具有相同參數檔案的相同範本執行 Cmdlet 時，結果都會相同。
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 在 DevOps 中，重複性和可預測性是任何成功部署包含微服務之高級別應用程式的關鍵。 在本教學課程中，您已使用 Azure 資源管理員範本將雙微服務應用程式部署至 Azure 以做為單一資源群組。 希望這可讓您了解如何開始將 Azure 中的應用程式轉換成範本，而且可以透過可預測方式進行佈建和部署。 
 
 <a name="resources"></a>
 
 ## <a name="more-resources"></a>更多資源
-* [Azure 資源管理員範本語言](../azure-resource-manager/resource-group-authoring-templates.md)
-* [編寫 Azure 資源管理員範本](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure 資源管理員範本語言](../azure-resource-manager/templates/template-syntax.md)
+* [編寫 Azure 資源管理員範本](../azure-resource-manager/templates/template-syntax.md)
 * [Azure 資源管理員範本函式](../azure-resource-manager/resource-group-template-functions.md)
 * [使用 Azure 資源管理員範本部署應用程式](../azure-resource-manager/resource-group-template-deploy.md)
-* [搭配使用 Azure PowerShell 與 Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [搭配使用 Azure PowerShell 與 Azure 資源管理員](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Azure 中的資源群組部署疑難排解](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 
 ## <a name="next-steps"></a>後續步驟

@@ -3,12 +3,12 @@ title: 原則定義結構的詳細資料
 description: 說明如何使用原則定義來建立組織中 Azure 資源的慣例。
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2126415c3ae7ecb14a47c79dacd67aee656cd745
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f1baffb60234a154df544552dba3c34ced25b518
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894294"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436419"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -19,10 +19,10 @@ ms.locfileid: "74894294"
 
 使用 JSON 來建立原則定義。 原則定義中包含以下的項目︰
 
-- 模式
+- mode
 - 參數
 - 顯示名稱
-- 說明
+- description
 - 原則規則
   - 邏輯評估
   - 效果
@@ -63,7 +63,7 @@ ms.locfileid: "74894294"
 
 所有 Azure 原則範例都位於[Azure 原則的範例](../samples/index.md)。
 
-## <a name="mode"></a>Mode
+## <a name="mode"></a>[模式]
 
 根據原則是以 Azure Resource Manager 屬性或資源提供者屬性為目標，設定**模式**。
 
@@ -308,7 +308,7 @@ ms.locfileid: "74894294"
 }
 ```
 
-### <a name="value"></a>Value
+### <a name="value"></a>值
 
 條件也可以使用 **value** 形成。 **value** 會檢查 [parameters](#parameters)、[支援的範本函式](#policy-functions)或常值的條件。
 **value** 已和任何支援的 [condition](#conditions) 配對。
@@ -318,7 +318,7 @@ ms.locfileid: "74894294"
 
 #### <a name="value-examples"></a>Value 範例
 
-此原則規則範例使用 **value** 來將 `resourceGroup()` 函式和傳回的 **name** 屬性與 `*netrg` 的 **like** 條件比較。 規則會拒絕名稱結尾是 `*netrg` 的任何資源群組中，任何不屬於 `Microsoft.Network/*` **type** 的任何資源。
+此原則規則範例使用 **value** 來將 `resourceGroup()` 函式和傳回的 **name** 屬性與 `*netrg` 的 **like** 條件比較。 此規則會拒絕名稱結尾為 `*netrg`的任何資源群組中不屬於 `Microsoft.Network/*`**類型**的任何資源。
 
 ```json
 {
@@ -339,7 +339,7 @@ ms.locfileid: "74894294"
 }
 ```
 
-此原則規則範例使用 **value** 來檢查多個巢狀函式的結果是否 **equals** `true`。 規則會拒絕沒有至少三個標籤的任何資源。
+此原則規則範例會使用**值**來檢查多個嵌套函式的結果是否**等於**`true`。 規則會拒絕沒有至少三個標籤的任何資源。
 
 ```json
 {
@@ -374,9 +374,9 @@ ms.locfileid: "74894294"
 }
 ```
 
-上述範例原則規則使用[substring （）](../../../azure-resource-manager/resource-group-template-functions-string.md#substring)來比較**名稱**的前三個字元和**abc**。 如果**name**少於3個字元，`substring()` 函式會導致錯誤。 此錯誤會導致原則變成**拒絕**效果。
+上述範例原則規則使用[substring （）](../../../azure-resource-manager/templates/template-functions-string.md#substring)來比較**名稱**的前三個字元和**abc**。 如果**name**少於3個字元，`substring()` 函式會導致錯誤。 此錯誤會導致原則變成**拒絕**效果。
 
-相反地，請使用[if （）](../../../azure-resource-manager/resource-group-template-functions-logical.md#if)函式來檢查**name**的前三個字元是否等於**abc** ，而不允許少於3個字元的**名稱**導致錯誤：
+相反地，請使用[if （）](../../../azure-resource-manager/templates/template-functions-logical.md#if)函式來檢查**name**的前三個字元是否等於**abc** ，而不允許少於3個字元的**名稱**導致錯誤：
 
 ```json
 {

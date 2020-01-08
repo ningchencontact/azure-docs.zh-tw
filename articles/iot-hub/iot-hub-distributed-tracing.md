@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 835a359d3b5781ad814e423e4a69e8d60379c97b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4cd4cffdb0357b1cd73b1613e52c2a6c1a60f71e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953144"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457045"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>透過分散式追蹤來追蹤 Azure IoT 裝置到雲端的訊息 (預覽)
 
@@ -30,7 +30,7 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 
 在本文中，您會使用 [適用於 C 的 Azure IoT 裝置 SDK](iot-hub-device-sdk-c-intro.md) 搭配分散式追蹤。 其他 SDK 的分散式追蹤支援仍在進行中。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 分散式追蹤的預覽版目前僅支援在下列區域建立的 IoT 中樞：
 
@@ -88,22 +88,23 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 
 ### <a name="clone-the-source-code-and-initialize"></a>複製原始程式碼並初始化
 
-1. 針對 Visual Studio 2015 或 2017 安裝[「使用 C++ 進行桌面開發」工作負載](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2017)。
+1. 安裝適用于 Visual Studio 2019 的「[桌面C++開發」工作負載](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019)。 也支援 Visual Studio 2017 和2015。
 
-1. 安裝 [CMake](https://cmake.org/)。 在命令提示字元中輸入 `PATH`，確定它位於您的 `cmake -version` 中。
+1. 安裝 [CMake](https://cmake.org/)。 在命令提示字元中輸入 `cmake -version`，確定它位於您的 `PATH` 中。
 
-1. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
+1. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令，以複製最新版本的[Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
 
     ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     預期此作業需要幾分鐘的時間才能完成。
 
-1. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。
+1. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。 從 `azure-iot-sdk-c` 目錄執行下列命令：
 
     ```cmd
-    cd azure-iot-sdk-c    
     mkdir cmake
     cd cmake
     cmake ..
@@ -111,7 +112,7 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 
     如果 `cmake` 找不到 C++ 編譯器，您在執行上述命令時，可能會收到建置錯誤。 如果發生這種情況，請嘗試在 [Visual Studio 命令提示字元](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)中執行此命令。 
 
-    建置成功後，最後幾行輸出會看起來類似下列輸出：
+    建置成功後，最後幾行輸出會類似於下列輸出：
 
     ```cmd
     $ cmake ..
@@ -135,7 +136,7 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=2)]
 
-    使用您在`connectionString`傳送遙測 C 快速入門[的](./quickstart-send-telemetry-c.md#register-a-device)註冊裝置[一節中記下的裝置連接字串，取代 ](./quickstart-send-telemetry-c.md) 常數的值。
+    使用您在[傳送遙測 C 快速入門](./quickstart-send-telemetry-c.md)的[註冊裝置](./quickstart-send-telemetry-c.md#register-a-device)一節中記下的裝置連接字串，取代 `connectionString` 常數的值。
 
 1. 將 `MESSAGE_COUNT` 定義變更為 `5000`：
 
@@ -151,9 +152,9 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_sleep&highlight=8)]
 
-### <a name="compile-and-run"></a>編譯和執行
+### <a name="compile-and-run"></a>編譯及執行
 
-1. 從您先前建立的 CMake 目錄 ( *) 瀏覽至* iothub_ll_telemetry_sample`azure-iot-sdk-c/cmake` 專案目錄，然後編譯範例：
+1. 從您先前建立的 CMake 目錄 (`azure-iot-sdk-c/cmake`) 瀏覽至 *iothub_ll_telemetry_sample* 專案目錄，然後編譯範例：
 
     ```cmd
     cd iothub_client/samples/iothub_ll_telemetry_sample
@@ -240,10 +241,10 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 }
 ```
 
-| 元素名稱 | 必要 | 在系統提示您進行確認時，輸入 | 描述 |
+| 元素名稱 | 必要項 | 類型 | 說明 |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | yes | 整數， | 目前支援兩個模式值來開啟和關閉取樣。 `1` 為開啟，而 `2` 為關閉。 |
-| `sampling_rate` | yes | 整數， | 這個值是百分比。 只允許從 `0` 到 `100` (含) 的值。  |
+| `sampling_mode` | 是 | 整數 | 目前支援兩個模式值來開啟和關閉取樣。 `1` 為開啟，而 `2` 為關閉。 |
+| `sampling_rate` | 是 | 整數 | 這個值是百分比。 只允許從 `0` 到 `100` (含) 的值。  |
 
 ## <a name="query-and-visualize"></a>查詢並以視覺方式呈現
 
@@ -263,7 +264,7 @@ AzureDiagnostics
 
 Log Analytics 所顯示的範例記錄：
 
-| TimeGenerated | OperationName | 類別 | 等級 | CorrelationId | DurationMs | properties |
+| TimeGenerated | OperationName | 類別 | 層級 | CorrelationId | DurationMs | 屬性 |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | 資訊 | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | 資訊 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |

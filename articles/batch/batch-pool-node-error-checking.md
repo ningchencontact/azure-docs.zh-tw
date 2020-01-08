@@ -1,18 +1,18 @@
 ---
 title: 檢查是否有集區和節點錯誤 - Azure Batch
-description: 建立集區和節點時所要檢查的錯誤及如何加以避免
+description: 本文涵蓋可能發生的背景作業，以及要檢查的錯誤，以及如何在建立集區和節點時加以避免。
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3c8e189e84e0a467125995b3e2d633c285eb7367
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dea45cec29101c3b085ab8098c3b05906e1049cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350058"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449795"
 ---
 # <a name="check-for-pool-and-node-errors"></a>檢查是否有集區和節點錯誤
 
@@ -56,7 +56,7 @@ ms.locfileid: "71350058"
 
 [集區調整大小完成事件](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event)會擷取所有評估的相關資訊。
 
-### <a name="delete"></a>DELETE
+### <a name="delete"></a>刪除
 
 當您刪除包含節點的集區時，Batch 會先刪除節點。 然後它會刪除集區物件本身。 刪除這些節點可能需要幾分鐘的時間。
 

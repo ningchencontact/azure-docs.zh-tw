@@ -3,18 +3,18 @@ title: 使用 Socket.io 的 Node.js 應用程式 - Azure
 description: 學習如何在裝載於 Azure 的 node.js 應用程式中使用 socket.io。
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: gwallace
-ms.openlocfilehash: bbeaacd4c7028905e279dd5dc421414f4eafae54
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.author: tagore
+ms.openlocfilehash: 0b515c630d8a3539cdab1df64b1925e9fcaf206e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306768"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360764"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 交談應用程式
 
@@ -104,7 +104,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > 如果您遇到啟動模擬器的問題，例如：開始-Stop-azureemulator：發生未預期的失敗。  詳細資料：發生未預期的錯誤，通訊物件 ServiceChannel 無法用於通訊，因為它處於錯誤狀態。
+   > 如果您在啟動模擬器時遇到問題，例如：Start-AzureEmulator：發生未預期的失敗。  詳細資料：發生未預期的錯誤。通訊物件 System.ServiceModel.Channels.ServiceChannel 無法用於通訊，因為它處於錯誤狀態。
    > 
    > 重新安裝 AzureAuthoringTools v 2.7.1 和 AzureComputeEmulator v 2.7-請確定該版本符合。
 
@@ -116,7 +116,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學
 4. 測試應用程式之後，發出下列命令來停止模擬器：
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. 若要將應用程式部署至 Azure，請使用 **Publish-AzureServiceProject** Cmdlet。 例如:
+5. 若要將應用程式部署至 Azure，請使用 **Publish-AzureServiceProject** Cmdlet。 例如：
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    
@@ -166,5 +166,8 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學
 [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
 [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
+
+
+
 
 

@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 67953f552b5b2bcdd7d13253548227e57dab8548
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: b04a17c893f748670eb1c79f0ada879c0d5c401f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132663"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381710"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>如何藉由審查端點語句來改善 LUIS 應用程式
 
 針對正確的預測來審查端點語句的程式稱為[主動式學習](luis-concept-review-endpoint-utterances.md)。 主動式學習會捕捉端點查詢，並選取不確定的使用者端點語句。 您可以檢查這些語句來選取意圖，並標記這些讀取世界語句的實體。 在您的範例語句中接受這些變更，然後進行定型和發佈。 然後，LUIS 會更準確地識別語句。
-
-如果您有許多人參與 LUIS 應用程式， 
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
@@ -32,21 +30,21 @@ ms.locfileid: "74132663"
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>更正意圖預測以對齊語句
 
-每個意圖都有建議的意圖顯示在 [一致的意圖] 資料行中。 
+每個意圖都有建議的意圖顯示在 [一致的意圖] 資料行中。
 
 > [!div class="mx-imgBorder"]
 > [![審查 LUIS 不確定的端點語句](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
-如果您同意該意圖，請選取核取記號。 如果您不同意該建議，請從一致的意圖下拉式清單中選取正確的意圖，然後選取一致的意圖右邊的核取記號。 在您選取核取記號之後，語句會移至意圖，並從 [**審核端點語句**] 清單中移除。 
+如果您同意該意圖，請選取核取記號。 如果您不同意該建議，請從一致的意圖下拉式清單中選取正確的意圖，然後選取一致的意圖右邊的核取記號。 在您選取核取記號之後，語句會移至意圖，並從 [**審核端點語句**] 清單中移除。
 
 > [!TIP]
 > 請務必移至意圖詳細資料頁面，以從**審核端點語句**清單中的所有範例語句來審查和更正實體預測。
 
 ## <a name="delete-utterance"></a>刪除語句
 
-您可以從檢閱清單中刪除每個語句。 刪除後，它就不再出現於清單中。 即使使用者從端點輸入相同意圖，情況也是如此。 
+您可以從檢閱清單中刪除每個語句。 刪除後，它就不再出現於清單中。 即使使用者從端點輸入相同意圖，情況也是如此。
 
-如果您不確定是否應該刪除語句，請將它移至 [無] 意圖，或建立新的意圖（例如 `miscellaneous`，並將語句移至該意圖。 
+如果您不確定是否應該刪除語句，請將它移至 [無] 意圖，或建立新的意圖（例如 `miscellaneous`，並將語句移至該意圖。
 
 ## <a name="disable-active-learning"></a>停用主動式學習
 

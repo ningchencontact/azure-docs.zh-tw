@@ -3,12 +3,12 @@ title: 設定 Power BI 報告
 description: 使用復原服務保存庫針對 Azure 備份設定 Power BI 報告。
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 6e8482aea4f1d757550d4490e3a9972f664729c9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 9b6ef62a924761642ef3217ff8af64ac6847c766
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173196"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450114"
 ---
 # <a name="configure-azure-backup-reports"></a>設定 Azure 備份報告
 
@@ -28,7 +28,7 @@ ms.locfileid: "74173196"
 - 如果針對每個保存庫皆設定相同的儲存體帳戶，您便可以跨保存庫和訂用帳戶檢閱報告。 所選儲存體帳戶必須與「復原服務」保存庫位於相同的區域。
 - Power BI 中報告的排程重新整理頻率為 24 小時。 您也可以在 Power BI 中執行報表的隨選重新整理。 在此情況下，會使用客戶儲存體帳戶中的最新資料來轉譯報告。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 建立 [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)以針對報告進行設定。 這個儲存體帳戶會用來儲存與報告相關的資料。
 - [建立 Power BI 帳戶](https://powerbi.microsoft.com/landing/signin/)，以使用 Power BI 入口網站來檢視、自訂及建立您自己的報告。
@@ -88,7 +88,7 @@ ms.locfileid: "74173196"
 4. 輸入在先前步驟 5 中所設定儲存體帳戶的名稱，然後選取 [下一步]。
 
     ![輸入儲存體帳戶名稱](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)
-5. 使用驗證方法「金鑰」輸入此儲存體帳戶的儲存體帳戶金鑰。 若要[檢視並複製儲存體存取金鑰](../storage/common/storage-account-manage.md#access-keys)，請移至 Azure 入口網站中您的儲存體帳戶。
+5. 使用驗證方法「金鑰」輸入此儲存體帳戶的儲存體帳戶金鑰。 您可以在 Azure 入口網站中找到您的儲存體帳戶存取金鑰。 如需詳細資訊，請參閱[管理儲存體帳戶存取金鑰](../storage/common/storage-account-keys-manage.md)。
 
      ![輸入儲存體帳戶](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
 
@@ -112,9 +112,9 @@ ms.locfileid: "74173196"
 
       ![Azure 備份報告索引標籤](./media/backup-azure-configure-reports/reports-tab-view.png)
 
-## <a name="troubleshooting-errors"></a>錯誤疑難排解
+## <a name="troubleshooting-errors"></a>疑難排解錯誤
 
-| 錯誤詳細資料 | 解決方案 |
+| 錯誤詳細資料 | 解析度 |
 | --- | --- |
 | 在您為「備份報告」設定儲存體帳戶之後，[儲存體帳戶] 仍然顯示 [未設定]。 | 如果您已成功設定儲存體帳戶，則儘管發生此問題，報告資料仍然會流入。 若要解決此問題，請前往 Azure 入口網站，然後選取 [所有服務] > [診斷設定] > [復原服務保存庫] > [編輯設定]。 請刪除先前所做的設定，然後在同一個刀鋒視窗上建立新的設定。 這次，請在 [名稱] 方塊中選取 [服務]。 此時便會顯示所設定的儲存體帳戶。 |
 |在 Power BI 中匯入 Azure 備份範本應用程式之後，就會出現「404-找不到容器」錯誤訊息。 | 如先前所述，在於「復原服務」保存庫中設定報告之後，您必須等候 24 小時，才能在 Power BI 中正確查看報告。 如果您在 24 小時之前嘗試存取報告，便會出現此錯誤訊息，因為還沒有完整的資料可供顯示有效的報告。 |

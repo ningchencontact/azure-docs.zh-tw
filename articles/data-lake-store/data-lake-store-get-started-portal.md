@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: e5a3df82fae9d81a870d3dba929bc7e4cd4123d2
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904683"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438751"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>使用 Azure 入口網站開始使用 Azure Data Lake Storage Gen1
 
@@ -26,11 +26,11 @@ ms.locfileid: "73904683"
 
 瞭解如何使用 Azure 入口網站建立 Data Lake Storage Gen1 帳戶，並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需詳細資訊，請參閱[Azure Data Lake Storage Gen1 的總覽](data-lake-store-overview.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前，您必須具備下列項目：
 
-* **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>建立 Data Lake Storage Gen1 帳戶
 
@@ -42,7 +42,7 @@ ms.locfileid: "73904683"
 
    * **名稱**。 輸入 Data Lake Storage Gen1 帳戶的唯一名稱。
    * **訂用帳戶**。 選取您想要建立新 Data Lake Storage Gen1 帳戶所在的訂用帳戶。
-   * **資源群組**。 選取現有的資源群組，或選取 [建立新的] 選項來建立一個。 資源群組是保留應用程式相關資源的容器。 如需詳細資訊，請參閱 [Azure 中的資源群組](../azure-resource-manager/resource-group-overview.md#resource-groups)。
+   * **資源群組**。 選取現有的資源群組，或選取 [建立新的] 選項來建立一個。 資源群組是保留應用程式相關資源的容器。 如需詳細資訊，請參閱 [Azure 中的資源群組](../azure-resource-manager/management/overview.md#resource-groups)。
    * **位置**：選取您要建立 Data Lake Storage Gen1 帳戶的位置。
    * **加密設定**。 選項有三個：
 
@@ -105,7 +105,7 @@ ms.locfileid: "73904683"
 
     ![上傳資料](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "上傳資料")
 
-如果您正在尋找一些可上傳的範例資料，可以從 **Azure 資料湖 Git 存放庫** 取得 [Ambulance Data](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)資料夾。
+如果您正在尋找一些可上傳的範例資料，您可以從 **Azure Data Lake Git 存放庫** 取得 [Ambulance Data](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)資料夾。
 
 ## <a name="properties"></a>儲存資料可用的動作
 
@@ -113,11 +113,11 @@ ms.locfileid: "73904683"
 
 ![資料的屬性](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "資料上的屬性")
 
-## <a name="secure-your-data"></a>保護您的資料
+## <a name="secure-your-data"></a>保護資料
 
 您可以在您的 Data Lake Storage Gen1 帳戶中，使用 Azure Active Directory 和存取控制 (ACL) 保護儲存的資料。 如需如何執行此工作的指示，請參閱 [在 Data Lake Storage Gen1 中保護資料](data-lake-store-secure-data.md)。
 
-## <a name="delete-your-account"></a>刪除您的帳戶
+## <a name="delete-your-account"></a>建立您的帳戶
 
 若要刪除 Data Lake Storage Gen1 帳戶，請從 [Data Lake Storage Gen1] 刀鋒視窗按一下 [刪除]。 為了確認此動作，將提示您輸入您要刪除的帳戶名稱。 輸入帳戶的名稱，然後按一下 [刪除]。
 

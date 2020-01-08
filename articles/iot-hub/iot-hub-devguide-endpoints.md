@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 689a702863dda53870f775bd8520d5dd406d242f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: da6d17e42407048b7ecbcacade67ef48046d7fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640612"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457117"
 ---
 # <a name="reference---iot-hub-endpoints"></a>參考 - IoT 中樞端點
 
@@ -31,7 +31,7 @@ Azure IoT 中樞是一項多租用戶服務，可將其功能公開給各種動�
 
 下列清單說明這些端點：
 
-* **資源提供者**。 IoT 中樞資源提供者會公開 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 介面。 此介面可讓 Azure 訂用帳戶擁有者建立和刪除 IoT 中樞，以及更新 IoT 中樞屬性。 IoT 中樞屬性用來管理[中樞層級的安全性原則](iot-hub-devguide-security.md#access-control-and-permissions) (相對於裝置層級的存取控制) 和雲端到裝置與裝置到雲端傳訊的功能選項。 IoT 中樞資源提供者也可讓您[匯出裝置身分識別](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)。
+* **資源提供者**。 IoT 中樞資源提供者會公開 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 介面。 此介面可讓 Azure 訂用帳戶擁有者建立和刪除 IoT 中樞，以及更新 IoT 中樞屬性。 IoT 中樞屬性用來管理[中樞層級的安全性原則](iot-hub-devguide-security.md#access-control-and-permissions) (相對於裝置層級的存取控制) 和雲端到裝置與裝置到雲端傳訊的功能選項。 IoT 中樞資源提供者也可讓您[匯出裝置身分識別](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)。
 
 * **裝置身分識別管理**。 每個 IoT 中樞都會公開一組 HTTPS REST 端點，用來管理裝置身分識別 (建立、擷取、更新和刪除)。 [裝置身分識別](iot-hub-devguide-identity-registry.md)用於裝置驗證和存取控制。
 
@@ -82,14 +82,14 @@ IoT 中樞目前支援下列 Azure 服務做為額外的端點︰
 
 如需您可以新增的端點數目限制，請參閱[配額和節流](iot-hub-devguide-quotas-throttling.md)。
 
-您可以使用 REST API[取得端點健全狀況](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth)來取得端點的健全狀況狀態。 我們建議使用與路由訊息延遲相關的[IoT 中樞計量](iot-hub-metrics.md), 在端點健康狀態為 [無作用] 或 [狀況不良] 時識別和偵測錯誤, 因為當端點處於其中一種狀態時, 我們預期會有更高的延遲。
+您可以使用 REST API[取得端點健全狀況](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth)來取得端點的健全狀況狀態。 我們建議使用與路由訊息延遲相關的[IoT 中樞計量](iot-hub-metrics.md)，在端點健康狀態為 [無作用] 或 [狀況不良] 時識別和偵測錯誤，因為當端點處於其中一種狀態時，我們預期會有更高的延遲。
 
-|健全狀況狀態|描述|
+|健康情況狀態|說明|
 |---|---|
-|良好|端點會如預期般接受訊息。|
-|isapi|端點不會如預期般接受訊息, IoT 中樞會重試將資料傳送到此端點。 當 IoT 中樞已建立最終一致的健全狀況狀態時, 狀態不良的端點就會更新為狀況良好。|
+|healthy|端點會如預期般接受訊息。|
+|Isapi|端點不會如預期般接受訊息，IoT 中樞會重試將資料傳送到此端點。 當 IoT 中樞已建立最終一致的健全狀況狀態時，狀態不良的端點就會更新為狀況良好。|
 |未知|IoT 中樞尚未與端點建立連接。 未將任何訊息傳遞至此端點或從中拒絕。|
-|損|在 IoT 中樞重試傳送 retrial 期間的訊息之後, 端點不接受訊息。|
+|損|在 IoT 中樞重試傳送 retrial 期間的訊息之後，端點不接受訊息。|
 
 ## <a name="field-gateways"></a>現場閘道器
 

@@ -1,5 +1,5 @@
 ---
-title: .NET 應用程式的 Azure Application Insights 快照集偵錯工具 | Microsoft Docs
+title: .NET 應用程式的 Azure 應用程式 Insights 快照偵錯工具
 description: 在生產環境 .NET 應用程式中擲回例外狀況時，會自動收集偵錯快照集
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: brahmnes
-ms.openlocfilehash: 33a9db5fa9f31a0c4548ecdeb6c0ca2f12ac8246
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 681190a23fd09402ae96c328b7d98044baf3444e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899784"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406400"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 應用程式中的例外狀況偵錯快照集
 發生例外狀況時，您可以自動從即時 Web 應用程式收集偵錯快照集。 快照集會顯示擲回例外狀況時原始程式碼和變數的狀態。 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的快照集偵錯工具 (預覽) 會監視 web 應用程式的例外狀況遙測。 它會收集前幾個擲回例外狀況的快照集，讓您取得診斷生產環境中問題所需的資訊。 在您的應用程式中包含[快照集收集器 NuGet 套件](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)，並選擇性地設定[ApplicationInsights](../../azure-monitor/app/configuration-with-applicationinsights-config.md)中的集合參數。快照集會出現在 Application Insights 入口網站的[例外](../../azure-monitor/app/asp-net-exceptions.md)狀況中。
@@ -29,7 +29,7 @@ ms.locfileid: "72899784"
 
 支援下列環境：
 
-* [](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
 * 執行 OS 系列4或更新版本的[Azure 雲端服務](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * 在 Windows Server 2012 R2 或更新版本上執行的[Azure Service Fabric 服務](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * 執行 Windows Server 2012 R2 或更新版本的[Azure 虛擬機器和虛擬機器擴展集](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -134,7 +134,7 @@ Visual Studio 2017 的 15.2 版 (或更新版本) 在發佈至 App Service 時�
 ## <a name="next-steps"></a>後續步驟
 啟用應用程式的 Application Insights 快照偵錯工具：
 
-* [](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure 雲端服務](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric 服務](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure 虛擬機器和虛擬機器擴展集](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)

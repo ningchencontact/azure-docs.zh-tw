@@ -1,7 +1,7 @@
 ---
 title: 套用數學運算
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何在 Azure Machine Learning 服務中使用 [套用數學運算] 模組，以將數學運算套用至管線中的資料行值。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何在 Azure Machine Learning 中使用 [套用數學運算] 模組，以將數學運算套用至管線中的資料行值。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: a2f3665355cc2023aaf4b66c9207aaff4a3bc6db
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: af7431dd808a7d5eb106eff96a790eb876a20026
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493935"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428616"
 ---
 # <a name="apply-math-operation"></a>套用數學運算
 
@@ -72,7 +72,7 @@ ms.locfileid: "73493935"
 1.  選取要在其上執行計算的一個或多個來源資料行。   
   
     - 您選擇的任何資料行都必須是數值資料類型。 
-    - 資料的範圍必須對選取的數學運算有效。 否則，可能會發生錯誤或 NaN （不是數位）結果。 例如，Ln （-1.0）是不正確作業，且會產生 `NaN`的值。
+    - 資料的範圍必須對選取的數學運算有效。 否則可能會發生錯誤或 NaN (不是數字) 結果。 例如，Ln （-1.0）是不正確作業，且會產生 `NaN`的值。
   
 1.  按一下 [**類別**] 以選取要執行的數學運算**類型**。
     
@@ -82,7 +82,7 @@ ms.locfileid: "73493935"
   
 1.  使用 [**輸出模式]** 選項，表示您要如何產生數學運算： 
 
-    - **附加**。 當做輸入使用的所有資料行都包含在輸出資料集中，再加上一個附加資料行，其中包含數學運算的結果。
+    - **Append**。 當做輸入使用的所有資料行都包含在輸出資料集中，再加上一個附加資料行，其中包含數學運算的結果。
     - **就地**。 當做輸入使用之資料行中的值會取代為新的計算值。 
     - **ResultOnly**。 傳回單一資料行，其中包含數學運算的結果。
   
@@ -109,7 +109,7 @@ ms.locfileid: "73493935"
   
 ### <a name="atan2"></a>Atan2
 
-傳回四象限反正切值。  
+傳回四象限反正切函數。  
 
 選取包含點座標的資料行。 對於對應至 x 座標的第二個引數，您也可以指定常數。  
 
@@ -128,7 +128,7 @@ ms.locfileid: "73493935"
 
 ### <a name="eps"></a>Eps
 
-傳回目前值與下一個最高雙精確度數位之間的間距大小。 對應至 Matlab 中的 EPS 函數。  
+傳回目前的值與次高雙精度數字之間的差距大小。 對應至 Matlab 中的 EPS 函數。  
   
 ### <a name="exp"></a>Exp
 
@@ -151,10 +151,10 @@ ms.locfileid: "73493935"
 ### <a name="factorial"></a>階乘
 傳回所選資料行中值的階乘。  
 
-### <a name="hypotenuse"></a>說
+### <a name="hypotenuse"></a>Hypotenuse
 計算三角形的斜邊，其中某一端的長度指定為值的資料行，而第二個端的長度則指定為常數或兩個數據行。  
 
-### <a name="ln"></a>平均數
+### <a name="ln"></a>Ln
 
 傳回所選資料行中值的自然對數。  
 
@@ -162,9 +162,9 @@ ms.locfileid: "73493935"
 
 傳回所選資料行中值的自然對數加一。  
 
-### <a name="log"></a>記錄檔
+### <a name="log"></a>記錄
 
-根據指定的基底，傳回所選資料行中值的記錄檔。  
+根據給定的指定基底，傳回選定資料行中之值的對數。  
 
 您可以指定基底（第二個引數）做為常數，或選取另一個值的資料行。  
 
@@ -192,7 +192,7 @@ ms.locfileid: "73493935"
 
 在 [**第二個引數類型**] 中，選取包含指數的資料行，或指定要用來做為指數的常數。  
 
-如果第二個引數是資料行，則會使用資料行中的每個值做為對應資料列的指數。 如果第二個引數為常數，請在 [**第二個引數**] 文字方塊中輸入指數的值。  
+如果第二個引數是資料行，則會以資料行中的每個值做為對應資料列的指數。 如果第二個引數為常數，請在 [**第二個引數**] 文字方塊中輸入指數的值。  
 
 ### <a name="sqrt"></a>Sqrt
 
@@ -202,18 +202,18 @@ ms.locfileid: "73493935"
 
 針對所選資料行中的每個值，將值乘以 pi，然後傳回結果的平方根。  
 
-### <a name="square"></a>正方形
+### <a name="square"></a>Square
 
 將所選資料行中的值平方。  
 
-## <a name="comparison-operations"></a>比較作業  
+## <a name="comparison-operations"></a>比較運算  
 
 每當您需要測試兩組值時，請在 Azure Machine Learning 設計工具中使用比較函數。 例如，在管線中，您可能需要執行這些比較作業：  
 
 - 根據臨界值評估機率分數模型的資料行。
 - 判斷兩組結果是否相同。 針對每個不同的資料列，新增可用於進一步處理或篩選的 FALSE 旗標。  
 
-### <a name="equalto"></a>Equalto 在
+### <a name="equalto"></a>EqualTo
 
 如果值相同，則傳回 True。  
 
@@ -245,7 +245,7 @@ ms.locfileid: "73493935"
 
 傳回較小的值，也就是 [資料**行集**] 中的值或常數或比較資料行中的值。  
   
-##  <a name="arithmetic-operations"></a>算數運算   
+##  <a name="arithmetic-operations"></a>算術運算   
 
 包含基本算數運算：加法和減法、除法和乘法。  因為大部分的作業都是二進位，所以需要兩個數字，您必須先選擇運算，然後選擇要在第一個和第二個引數中使用的資料行。
 
@@ -253,12 +253,12 @@ ms.locfileid: "73493935"
 
 作業|Num1|Num2|結果資料行|結果值|
 ----|----|----|----|----
-|加法|1|5|新增（Num2_Num1）| 4|
-|乘法|1|5|多個（Num2_Num1）|5|
-|減法|1|5|減去（Num2_Num1）|4|
-|減法|0|1|減去（Num2_Num1）|0|
-|除法|1|5|除法（Num2_Num1）|5|
-|除法|0|1|除法（Num2_Num1）|Infinity|
+|加|1|5|新增（Num2_Num1）| 4|
+|乘|1|5|多個（Num2_Num1）|5|
+|減|1|5|減去（Num2_Num1）|4|
+|減|0|1|減去（Num2_Num1）|0|
+|除|1|5|除法（Num2_Num1）|5|
+|除|0|1|除法（Num2_Num1）|Infinity|
 
 ### <a name="add"></a>新增
 
@@ -286,7 +286,7 @@ Azure Machine Learning 設計工具支援各種舍入作業。 對於許多作�
 
 - 若要針對資料集中的每個資料列使用不同的精確度值，請將 [**精確度類型**] 設定為 [ **ColumnSet**]，然後選擇包含適當有效位數值的資料行。  
 
-### <a name="ceiling"></a>向上
+### <a name="ceiling"></a>Ceiling
 
 傳回 [資料**行集**] 中之值的上限。  
 
@@ -298,15 +298,15 @@ Azure Machine Learning 設計工具支援各種舍入作業。 對於許多作�
 
 將 [資料**行集**] 中的值的樓層傳回指定的有效位數。  
 
-### <a name="mod"></a>乘
+### <a name="mod"></a>Mod
 
 將 [資料**行集**] 中的值小數部分，傳回指定的有效位數。  
 
-### <a name="quotient"></a>商數
+### <a name="quotient"></a>Quotient
 
 將 [資料**行集**] 中的值小數部分，傳回指定的有效位數。  
 
-### <a name="remainder"></a>數量
+### <a name="remainder"></a>Remainder
 
 傳回 [資料**行集**] 中之值的餘數。  
 
@@ -330,7 +330,7 @@ Azure Machine Learning 設計工具支援各種舍入作業。 對於許多作�
 
 傳回 [資料**行集**] 中的值，四捨五入為最接近的整數奇數。  
 
-### <a name="truncate"></a>各
+### <a name="truncate"></a>Truncate
 
 藉由移除指定精確度不允許的所有位數，截斷資料**行集中**的值。  
   
@@ -340,7 +340,7 @@ Azure Machine Learning 設計工具支援各種舍入作業。 對於許多作�
 
 ### <a name="beta"></a>Beta
 
-傳回歐拉的搶鮮版（Beta）函數值。  
+傳回歐拉 beta 函數的值。  
 
 ### <a name="ellipticintegrale"></a>EllipticIntegralE
 傳回不完整橢圓整數的值。  
@@ -348,13 +348,13 @@ Azure Machine Learning 設計工具支援各種舍入作業。 對於許多作�
 
 ### <a name="ellipticintegralk"></a>EllipticIntegralK
 
-傳回完整橢圓整數（K）的值。  
+傳回完整橢圓積分 (K) 的值。  
 
 ### <a name="erf"></a>Erf
 
-傳回錯誤函式的值。  
+傳回誤差函數的值。  
 
-Error 函式（也稱為高斯 error function）是 sigmoid 圖形的特殊功能，會在機率中用來描述擴散。  
+誤差函數 (也稱為高斯誤差函數) 是一個 S 形的特殊函數，可在機率中用來說明擴散。  
 
 ### <a name="erfc"></a>Erfc
 
@@ -364,9 +364,9 @@ Erfc 會定義為1– erf （x）。
 
 ### <a name="erfscaled"></a>ErfScaled
 
-傳回縮放誤差函數的值。  
+傳回調整誤差函數的值。  
 
-誤差函數的縮放版本可用來避免算術下溢。  
+調整版的誤差函數可用來避免算術反向溢位。  
 
 ### <a name="erfinverse"></a>ErfInverse
 
@@ -376,35 +376,35 @@ Erfc 會定義為1– erf （x）。
 
 傳回指數整數 Ei 的值。  
 
-### <a name="gamma"></a>Gamma
+### <a name="gamma"></a>色差補正
 
 傳回 gamma 函數的值。  
 
-### <a name="gammaln"></a>GammaLn
+### <a name="gammaln"></a>Gammaln 函數
 
 傳回 gamma 函數的自然對數。  
 
 ### <a name="gammaregularizedp"></a>GammaRegularizedP
 
-傳回正規化不完整 gamma 函數的值。  
+傳回正則化不完整 gamma 函數的值。  
 
 此函式採用第二個引數，可提供做為常數或值的資料行。  
 
 ### <a name="gammaregularizedpinverse"></a>GammaRegularizedPInverse
 
-傳回反向正規化不完整 gamma 函數的值。  
+傳回反向正則化不完整 gamma 函數的值。  
 
 此函式採用第二個引數，可提供做為常數或值的資料行。  
 
 ### <a name="gammaregularizedq"></a>GammaRegularizedQ  
 
-傳回正規化不完整 gamma 函數的值。  
+傳回正則化不完整 gamma 函數的值。  
 
 此函式採用第二個引數，可提供做為常數或值的資料行。  
 
 ### <a name="gammaregularizedqinverse"></a>GammaRegularizedQInverse
 
-傳回反向一般化正規化不完整 gamma 函數的值。
+傳回反向廣義正則化不完整 gamma 函數的值。
 
 此函式採用第二個引數，可提供做為常數或值的資料行。  
 
@@ -416,7 +416,7 @@ Erfc 會定義為1– erf （x）。
 
 ##  <a name="trigonometric-functions"></a>三角函數 
 
-此類別會 iIncludes 大部分的重要三角和反三角函數。 所有三角函數都是一元的，而且不需要額外的引數。  
+此類別會 iIncludes 大部分的重要三角和反三角函數。 所有三角函數都是一元的，不需要額外的引數。  
 
 ### <a name="acos"></a>Acos
 
@@ -485,7 +485,7 @@ Erfc 會定義為1– erf （x）。
 
 計算資料行值的雙曲反正切。  
 
-### <a name="cos"></a>纜
+### <a name="cos"></a>Cos
 
 計算資料行值的余弦函數。  
 
@@ -524,7 +524,7 @@ Erfc 會定義為1– erf （x）。
 
 將度數轉換為弧度。  
 
-### <a name="sec"></a>截面
+### <a name="sec"></a>次要
 
 計算資料行值的正割。  
 
@@ -544,7 +544,7 @@ Erfc 會定義為1– erf （x）。
 
 計算資料行值的正弦。  
 
-### <a name="sinc"></a>其中
+### <a name="sinc"></a>Sinc
 
 計算資料行值的正弦余弦值。  
 
@@ -556,7 +556,7 @@ Erfc 會定義為1– erf （x）。
 
 計算資料行值的雙曲正弦。  
 
-### <a name="tan"></a>相切
+### <a name="tan"></a>Tan
 
 計算資料行值的正切函數。  
 
@@ -590,4 +590,4 @@ Erfc 會定義為1– erf （x）。
   
 ## <a name="next-steps"></a>後續步驟
 
-請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

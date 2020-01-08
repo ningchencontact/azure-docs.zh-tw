@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 7676077f0122cb731d2d5d2c7acf78acbd8aa1a7
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f92226a76462289b9f26ae9d3bab22d780fb35db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792200"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464987"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>在 Azure 虛擬機器上使用 premium 檔案共用設定 SQL Server 容錯移轉叢集實例
 
@@ -55,7 +55,7 @@ Premium 檔案共用可提供 IOPS 和整個容量，以符合許多工作負載
 
 如需 premium 檔案共用效能的詳細資訊，請參閱檔案[共用效能層級](https://docs.microsoft.com/azure/storage/files/storage-files-planning#file-share-performance-tiers)。
 
-### <a name="licensing-and-pricing"></a>授權和價格
+### <a name="licensing-and-pricing"></a>授權和定價
 
 在 Azure 虛擬機器上，您可以使用隨用隨付（PAYG）或攜帶您自己的授權（BYOL） VM 映射來授權 SQL Server。 您選擇的映射類型會影響向您收費的方式。
 
@@ -67,7 +67,7 @@ Premium 檔案共用可提供 IOPS 和整個容量，以符合許多工作負載
 
 如需授權 SQL Server 的完整資訊，請參閱[定價](https://www.microsoft.com/sql-server/sql-server-2017-pricing)。
 
-### <a name="filestream"></a>Filestream
+### <a name="filestream"></a>檔案資料流
 
 具有 premium 檔案共用的容錯移轉叢集不支援 Filestream。 若要使用 filestream，請使用[儲存空間直接存取](virtual-machines-windows-portal-sql-create-failover-cluster.md)來部署您的叢集。
 
@@ -84,7 +84,6 @@ Premium 檔案共用可提供 IOPS 和整個容量，以符合許多工作負載
    - 每個 FCI 上一個 IP 位址。
 - 在 Azure 網路上設定的 DNS，指向網域控制站。
 - 高階檔案[共用](../../../storage/files/storage-how-to-create-premium-fileshare.md)，是以您的資料庫儲存配額為基礎，供您的資料檔案使用。
-- 用於備份的檔案共用，與用於資料檔案的 premium 檔案共用不同。 此檔案共用可以是 standard 或 premium。
 
 準備好這些必要條件之後，您就可以開始建立您的容錯移轉叢集。 第一步是建立虛擬機器。
 
@@ -152,7 +151,7 @@ Premium 檔案共用可提供 IOPS 和整個容量，以符合許多工作負載
 
    在每部虛擬機器上，開啟 Windows 防火牆上的下列埠：
 
-   | 目的 | TCP 埠 | 注意
+   | 目的 | TCP 連接埠 | 注意
    | ------ | ------ | ------
    | SQL Server | 1433 | 適用於 SDL Server 預設執行個體的一般連接埠。 若您曾使用來自資源庫的映像，此連接埠會自動開啟。
    | 健全狀況探查 | 59999 | 任何開啟的 TCP 連接埠。 在接下來的步驟中，設定負載平衝器[健全狀況探查](#probe)和要使用此連接埠的叢集。
@@ -175,7 +174,7 @@ Premium 檔案共用可提供 IOPS 和整個容量，以符合許多工作負載
 1. 使用您的 SQL Server FCI 將用於服務帳戶的帳戶，透過 RDP 連線到 SQL Server VM。
 1. 開啟系統管理 PowerShell 命令主控台。
 1. 執行您稍早在入口網站中工作時所儲存的命令。
-1. 使用 [檔案瀏覽器] 或 [**執行**] 對話方塊（Windows 標誌鍵 + r）移至共用。 使用網路路徑 `\\storageaccountname.file.core.windows.net\filesharename`。 例如，`\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
+1. 使用 [檔案瀏覽器] 或 [**執行**] 對話方塊（Windows 標誌鍵 + r）移至共用。 使用網路路徑 `\\storageaccountname.file.core.windows.net\filesharename`。 例如， `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
 1. 在新連接的檔案共用上，至少建立一個資料夾，以便將您的 SQL 資料檔案放入其中。
 1. 在要參與叢集的每個 SQL Server VM 上重複這些步驟。

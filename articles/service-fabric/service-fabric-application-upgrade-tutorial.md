@@ -1,25 +1,14 @@
 ---
-title: Service Fabric 應用程式升級教學課程 | Microsoft Docs
+title: Service Fabric 應用程式升級教學課程
 description: 本文章會逐步解說使用 Visual Studio 部署 Service Fabric 應用程式、變更程式碼及執行升級的體驗。
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 5e693a219c4a430f742ebd27878518ebb99ce5da
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: db814b972db1aee56be0858c9ff5d1c382640642
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167379"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464816"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>使用 Visual Studio 進行 Service Fabric 應用程式升級的教學課程
 > [!div class="op_single_selector"]
@@ -32,7 +21,7 @@ ms.locfileid: "72167379"
 
 Azure Service Fabric 藉由確保只升級已變更的服務，並且在整個升級程序中監視應用程式健康狀態，簡化雲端應用程式的升級程序。 它也會在應用程式發生問題時自動回復到舊版。 Service Fabric 應用程式升級並「不需要停機」，因為可以在不停機的情況下升級應用程式。 本教學課程涵蓋如何從 Visual Studio 完成輪流升級。
 
-## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>步驟 1:建立和發佈視覺物件範例
+## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>步驟 1：建置和發佈視覺物件範例
 首先從 GitHub 下載 [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) 應用程式。 然後在應用程式專案 **VisualObjects** 上按一下滑鼠右鍵，選取 Service Fabric 功能表項目中的 [發佈] 命令來建置和發佈應用程式。
 
 ![Service Fabric 應用程式的操作功能表][image1]
@@ -43,9 +32,9 @@ Azure Service Fabric 藉由確保只升級已變更的服務，並且在整個�
 
 現在，您可以按一下對話方塊中的 [發佈] 。 您可以使用 [Service Fabric 總管來檢視叢集與應用程式](service-fabric-visualizing-your-cluster.md)。 Visual Objects 應用程式有一個 Web 服務，您可在瀏覽器的網址列中輸入 [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/)，以移至該服務。  您應該會看到 10 個浮動的視覺物件在畫面中四處移動。
 
-**注意：** 如果部署到 `Cloud.xml` 設定檔（Azure Service Fabric），應用程式應該就可以在**HTTP：//{ServiceFabricName} 中使用。 {區域}. cloudapp. azure .com： 8081/visualobjects/** 。 請確定您確實已在負載平衡器 (在與 Service Fabric 執行個體相同的資源群組中尋找負載平衡器) 中設定 `8081/TCP`。
+**注意︰** 如果部署至 `Cloud.xml` 設定檔 (Azure Service Fabric)，則應該可在 **http://{ServiceFabricName}.{Region}.cloudapp.azure.com:8081/visualobjects/** 上取得應用程式。 請確定您確實已在負載平衡器 (在與 Service Fabric 執行個體相同的資源群組中尋找負載平衡器) 中設定 `8081/TCP`。
 
-## <a name="step-2-update-the-visual-objects-sample"></a>步驟 2:更新視覺物件範例
+## <a name="step-2-update-the-visual-objects-sample"></a>步驟 2：更新視覺物件範例
 您可能會注意到使用步驟 1 中部署的版本，視覺物件不會旋轉。 讓我們將這個應用程式升級到其中的視覺物件也會旋轉的版本。
 
 選取 VisualObjects 方案內的 VisualObjects.ActorService 專案，然後開啟 **VisualObjectActor.cs** 檔案。 在該檔案內，移至 `MoveObject` 方法，將 `visualObject.Move(false)` 標記為註解，並將 `visualObject.Move(true)` 取消註解。 這項程式碼變更會在服務升級後旋轉物件。  **現在您可以建置 (而非重建) 方案**，這會建置修改過的專案。 如果您選取 [全部重建]，則必須更新所有專案的版本。
@@ -62,7 +51,7 @@ Azure Service Fabric 藉由確保只升級已變更的服務，並且在整個�
 
 儲存變更，然後立即核取 [升級應用程式] 方塊。
 
-## <a name="step-3--upgrade-your-application"></a>步驟 3：將您的應用程式升級
+## <a name="step-3--upgrade-your-application"></a>步驟 3：升級應用程式
 請您熟悉[應用程式升級參數](service-fabric-application-upgrade-parameters.md)和[升級程序](service-fabric-application-upgrade.md)，以了解可以套用的各種升級參數、逾時和健康狀態準則。 針對此逐步解說，服務健康狀態評估準則會設定為預設值 (未受監視的模式)。 您可以選取 [設定升級設定] ，然後視需要修改參數，來設定這些設定。
 
 現在，我們已經準備好選取 [發佈]來啟動應用程式升級。 此選項會將您的應用程式升級到其中物件會旋轉的版本 2.0.0。 Service Fabric 會一次升級一個更新網域 (某些物件會先更新，其他物件再接著更新)，在升級期間仍可存取服務。 透過您的用戶端 (瀏覽器) 可檢查服務的存取權。  

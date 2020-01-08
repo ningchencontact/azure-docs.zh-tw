@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 11/27/2019
-ms.openlocfilehash: 1a9c24846606c53fefa1ffc1de59f358524020c4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: d5b3733947876958b4d72da4cb7bb0f10a3a9165
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707633"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614952"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>什麼是 Azure SQL Database 受控實例？
 
@@ -29,7 +29,7 @@ ms.locfileid: "74707633"
 
 ![主要功能](./media/sql-database-managed-instance/key-features.png)
 
-受控執行個體部署模型專為以下客戶設計：想要盡可能輕鬆地將大量應用程式，從內部部署或 IaaS、自行建置或 ISV 提供的環境遷移至完全受控的 PaaS 雲端環境。 利用 Azure 中完全自動化的[資料移轉服務 (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)，客戶可以將內部部署 SQL Server 隨即移轉至受控執行個體，受控執行個體可與 SQL Server 內部部署環境相容，並透過原生 VNet 支援來完全隔離客戶執行個體。  您可以透過軟體保證使用[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，以折扣優惠在受控執行個體上交換執行個體的現有授權。  對於需要高度安全性和程式設計介面豐富的 SQL Server 執行個體而言，受控執行個體是雲端中最佳的移轉目的地。
+受控執行個體部署模型專為以下客戶設計：想要盡可能輕鬆地將大量應用程式，從內部部署或 IaaS、自行建置或 ISV 提供的環境遷移至完全受控的 PaaS 雲端環境。 利用 Azure 中完全自動化的[資料移轉服務 (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)，客戶可以將內部部署 SQL Server 隨即移轉至受控執行個體，受控執行個體可與 SQL Server 內部部署環境相容，並透過原生 VNet 支援來完全隔離客戶執行個體。  透過軟體保證，您可以使用[SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，以折扣費率在受控實例上交換您現有的授權。  對於需要高度安全性和程式設計介面豐富的 SQL Server 執行個體而言，受控執行個體是雲端中最佳的移轉目的地。
 
 受控執行個體部署選項的目標是透過階段式發行計劃，為最新版內部部署 SQL Server 提供幾乎 100% 的介面區相容性。
 
@@ -53,7 +53,7 @@ ms.locfileid: "74707633"
 
 下表顯示受控執行個體的主要功能：
 
-|功能 | 描述|
+|功能 | 說明|
 |---|---|
 | SQL Server 版本/組建 | SQL Server 資料庫引擎 (最新穩定版) |
 | 受控自動化備份 | 是 |
@@ -147,19 +147,19 @@ Azure SQL Database 提供管理作業，可讓您在不再需要時，用來自�
 
 下表摘要說明作業和一般的整體持續時間：
 
-|類別  |作業  |長時間執行的區段  |預估持續時間  |
+|類別  |作業  |長時間執行的區段  |預估持續期間  |
 |---------|---------|---------|---------|
 |**部署** |空白子網中的第一個實例|建立虛擬叢集|90% 的作業在4小時內完成|
-|Deployment |非空白子網中另一個硬體世代的第一個實例（例如，第一個 Gen 5 實例，位於具有 Gen 4 實例的子網中）|虛擬叢集建立 *|90% 的作業在4小時內完成|
-|Deployment |在空白或非空白的子網中，第一個建立4虛擬核心的實例|虛擬叢集建立 * *|90% 的作業在4小時內完成|
-|Deployment |在非空白子網內建立的後續實例（第二、第三等實例）|虛擬叢集調整大小|90% 的作業在2.5 小時內完成|
-|更新 |實例屬性變更（管理員密碼、AAD 登入、Azure Hybrid Benefit 旗標）|N/A|最多1分鐘|
-|更新 |實例儲存體相應增加/減少（一般用途服務層級）|-虛擬叢集調整大小<br>-附加資料庫檔案|90% 的作業在2.5 小時內完成|
+|部署 |非空白子網中另一個硬體世代的第一個實例（例如，第一個 Gen 5 實例，位於具有 Gen 4 實例的子網中）|虛擬叢集建立 *|90% 的作業在4小時內完成|
+|部署 |在空白或非空白的子網中，第一個建立4虛擬核心的實例|虛擬叢集建立 * *|90% 的作業在4小時內完成|
+|部署 |在非空白子網內建立的後續實例（第二、第三等實例）|虛擬叢集調整大小|90% 的作業在2.5 小時內完成|
+|**更新** |實例屬性變更（管理員密碼、AAD 登入、Azure Hybrid Benefit 旗標）|N/A|最多1分鐘|
+|更新 |實例儲存體相應增加/減少（一般用途服務層級）|附加資料庫檔案|90% 的作業會在5分鐘內完成|
 |更新 |實例儲存體相應增加/減少（商務關鍵服務層級）|-虛擬叢集調整大小<br>-Always On 可用性群組植入|90% 的作業會在2.5 小時內完成，並將所有資料庫植入的時間（220 GB/小時）|
 |更新 |實例計算（虛擬核心）相應增加和減少（一般用途）|-虛擬叢集調整大小<br>-附加資料庫檔案|90% 的作業在2.5 小時內完成|
 |更新 |實例計算（虛擬核心）相應增加和減少（業務關鍵）|-虛擬叢集調整大小<br>-Always On 可用性群組植入|90% 的作業會在2.5 小時內完成，並將所有資料庫植入的時間（220 GB/小時）|
 |更新 |實例相應減少為4虛擬核心（一般用途）|-虛擬叢集調整大小（如果是第一次完成，可能需要建立虛擬叢集 * *）<br>-附加資料庫檔案|90% 的作業以4小時5分鐘完成|
-|更新 |實例相應減少為4虛擬核心（一般用途）|-虛擬叢集調整大小（如果是第一次完成，可能需要建立虛擬叢集 * *）<br>-Always On 可用性群組植入|90% 的作業會在4小時內完成，並將所有資料庫植入的時間（220 GB/小時）|
+|更新 |實例相應減少為4虛擬核心（業務關鍵）|-虛擬叢集調整大小（如果是第一次完成，可能需要建立虛擬叢集 * *）<br>-Always On 可用性群組植入|90% 的作業會在4小時內完成，並將所有資料庫植入的時間（220 GB/小時）|
 |更新 |實例服務層級變更（一般用途到業務關鍵，反之亦然）|-虛擬叢集調整大小<br>-Always On 可用性群組植入|90% 的作業會在2.5 小時內完成，並將所有資料庫植入的時間（220 GB/小時）|
 |**操作**|執行個體刪除|所有資料庫的記錄尾備份|90% 作業會在最多1分鐘內完成。<br>注意：如果刪除子網中的最後一個實例，此作業會在12小時後排程刪除虛擬叢集 * * *|
 |刪除|虛擬叢集刪除（作為使用者起始的作業）|虛擬叢集刪除|90% 的作業會在最多1.5 小時內完成|
@@ -174,14 +174,45 @@ Azure SQL Database 提供管理作業，可讓您在不再需要時，用來自�
 
 在部署和刪除作業期間，用戶端應用程式無法使用受控實例。
 
-在更新作業期間可以使用受控實例，但在更新結束時（通常會持續10秒），會發生短暫的停機時間。
+在更新作業期間可以使用受控實例，但在更新結束時（通常會持續10秒），會發生短暫的停機時間。 例外狀況是更新一般用途服務層級中的保留儲存空間，這不會產生容錯移轉，也不會影響實例可用性。
 
 > [!IMPORTANT]
 > 容錯移轉的持續時間可能會因為在資料庫上發生長時間執行的交易而有很大的差異，因為復原[時間](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process)過長。 因此，不建議您調整 Azure SQL Database 受控實例的計算或儲存體，或同時使用長時間執行的交易（資料匯入、資料處理作業、索引重建等）來變更服務層級。 將在作業結束時執行的資料庫容錯移轉將會取消進行中的交易，並導致長時間復原。
 
+> [!TIP]
+> 一般用途服務層級中的保留儲存空間更新不會產生容錯移轉，也不會影響實例可用性。
+
 Azure SQL Database 受控實例目前無法使用[加速資料庫](sql-database-accelerated-database-recovery.md)復原。 一旦啟用，這項功能會大幅降低容錯移轉時間的變動性，即使是長時間執行的交易也一樣。
 
+### <a name="canceling-management-operations"></a>取消管理作業
 
+下表摘要說明取消特定管理作業的能力，以及一般的整體持續時間：
+
+類別  |作業  |可取消  |估計的取消持續時間  |
+|---------|---------|---------|---------|
+|部署 |實例建立 |否 |  |
+|更新 |實例儲存體相應增加/減少（一般用途） |否 |  |
+|更新 |實例儲存體相應增加/減少（業務關鍵） |是 |90% 的作業會在5分鐘內完成 |
+|更新 |實例計算（虛擬核心）相應增加和減少（一般用途） |是 |90% 的作業會在5分鐘內完成 |
+|更新 |實例計算（虛擬核心）相應增加和減少（業務關鍵） |是 |90% 的作業會在5分鐘內完成 |
+|更新 |實例服務層級變更（一般用途到業務關鍵，反之亦然） |是 |90% 的作業會在5分鐘內完成 |
+|刪除 |執行個體刪除 |否 |  |
+|刪除 |虛擬叢集刪除（作為使用者起始的作業） |否 |  |
+
+若要取消管理作業，請移至 [總覽] 分頁，然後按一下 [進行中作業的通知方塊]。 右側會出現具有進行中作業的畫面，而且會有取消作業的按鈕。 第一次按一下之後，系統會要求您再次按一下，並確認您想要取消此操作。
+
+[![](./media/sql-database-managed-instance/canceling-operation.png)](./media/sql-database-managed-instance/canceling-operation.png#lightbox)
+
+提交並處理取消要求之後，如果取消提交成功，您就會收到通知。 
+
+如果取消成功，管理作業會在幾分鐘內取消，導致失敗。
+
+![正在取消操作結果](./media/sql-database-managed-instance/canceling-operation-result.png)
+
+如果 [取消要求失敗] 或 [取消] 按鈕未啟用，這表示管理作業已進入 [無法取消] 狀態，而且會在幾分鐘內完成。 管理作業會繼續執行，直到完成為止。
+
+> [!IMPORTANT]
+> 目前只有在入口網站中才支援取消作業。
 
 ## <a name="advanced-security-and-compliance"></a>進階安全性與合規性
 
@@ -211,7 +242,7 @@ Azure SQL Database 提供一組可用來保護資料的進階安全性功能。
 - [受控執行個體稽核](sql-database-managed-instance-auditing.md)會追蹤資料庫事件並將事件寫入您 Azure 儲存體帳戶中的稽核記錄檔。 稽核有助於保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
 - 移動中資料加密 - 受控執行個體會使用傳輸層安全性對移動中的資料加密，藉此保護您的資料。 除了傳輸層安全性，受控執行個體部署選項會使用 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) 來保護傳輸中、待用和查詢處理期間的敏感性資料。 Always Encrypted 是業界優先，可提供無與倫比的資料安全性，以對抗涉及重要資料竊取的入侵。 例如，透過 Always Encrypted，信用卡號碼會永遠加密儲存在資料庫中，即使在查詢處理期間，都允許需要處理該資料的已授權人員或應用程式在使用時解密。
 - [先進的威脅防護](sql-database-managed-instance-threat-detection.md)提供一層內建于服務中的額外安全情報，以偵測存取或惡意探索資料庫的異常且可能有害的嘗試，藉此補充[審核](sql-database-managed-instance-auditing.md)程式。 系統會警示您有關可疑活動、潛在弱點、SQL 插入式攻擊和異常資料庫存取模式。 您可以從[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)查看先進的威脅防護警示，並提供可疑活動的詳細資料，以及如何調查和緩和威脅的建議動作。  
-- [動態資料遮罩](/sql/relational-databases/security/dynamic-data-masking)可藉由遮罩處理，使不具權限的使用者無法看見敏感性資料。 動態資料遮罩可讓您在應用程式層級受到最小影響的情況下指定要顯示多少敏感性資料，而協助防止未經授權者存取敏感性資料。 它是以原則為基礎的安全性功能，可針對指定的資料庫欄位隱藏查詢結果集中的機密資料，而不變更資料庫中的資料。
+- [動態資料遮罩](/sql/relational-databases/security/dynamic-data-masking)可藉由遮罩處理，使不具權限的使用者無法看見敏感性資料。 動態資料遮罩可讓您在應用程式層級受到最小影響的情況下指定要顯示多少敏感性資料，而協助防止未經授權者存取敏感性資料。 這項原則式安全性功能會將機密資料隱藏在指定資料庫欄位的查詢結果集內，而資料庫中的資料則不會變更。
 - [資料列層級安全性](/sql/relational-databases/security/row-level-security)讓您能夠根據執行查詢之使用者的特性 (例如，依群組成員資格或執行內容) 來控制資料庫資料表中的資料列存取。 資料列層級安全性 (RLS) 可簡化應用程式安全性的設計和編碼。 RLS 可讓您實作資料的資料列存取限制。 例如，確保背景工作角色只能存取其部門相關資料列，或將資料存取權限制為僅限相關資料。
 - [透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 會將受控執行個體的資料檔案加密，也稱為「待用資料加密」。 TDE 會執行資料和記錄檔的即時 I/O 加密和解密。 加密會使用資料庫加密金鑰 (DEK)，此金鑰會儲存在資料庫開機記錄中，以在復原期間提供可用性。 您可以使用透明資料加密來保護受控執行個體中的所有資料庫。 TDE 是 SQL Server 經實證的靜態加密技術，許多合規性標準都需要這項技術才能防禦儲存媒體的竊取。
 
@@ -227,7 +258,7 @@ Azure SQL Database 提供一組可用來保護資料的進階安全性功能。
 
 受控執行個體部署選項可讓您透過 [Azure Active Directory 整合](sql-database-aad-authentication.md)，集中管理資料庫使用者和其他 Microsoft 服務的身分識別。 這項功能簡化了權限管理並增強安全性。 Azure Active Directory 支援[多重要素驗證](sql-database-ssms-mfa-authentication-configure.md) (MFA)，以提高資料和應用程式安全性，同時支援單一登入程序。
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>驗證
 
 受控執行個體驗證是指使用者連線到資料庫時如何證明他們的身分識別。 SQL Database 支援兩種驗證類型：  
 
@@ -238,7 +269,7 @@ Azure SQL Database 提供一組可用來保護資料的進階安全性功能。
 
   此驗證方法會使用由 Azure Active Directory 管理的身分識別，並且受控網域和整合式網域都支援此驗證。 [盡可能](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode)使用 Active Directory 驗證 (整合式安全性)。
 
-### <a name="authorization"></a>Authorization
+### <a name="authorization"></a>授權
 
 授權是指使用者可以在 Azure SQL Database 內執行的動作，這是由使用者帳戶的資料庫角色成員資格和物件層級權限所控制。 受控執行個體與 SQL Server 2017 具有相同的授權功能。
 
@@ -292,7 +323,7 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 
 下表顯示數個透過 Transact SQL 使用的屬性，可用來檢測出應用程式正在使用受控執行個體，並擷取重要的屬性。
 
-|屬性|Value|註解|
+|屬性|值|註解|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|此值與 SQL Database 中的相同。|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|此值與 SQL Database 中的相同。|
@@ -302,7 +333,7 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 ## <a name="next-steps"></a>後續步驟
 
 - 若要了解如何建立您的第一個受控執行個體，請參閱[快速入門指南](sql-database-managed-instance-get-started.md)。
-- 如需功能與比較清單，請參閱[SQL 的一般功能](sql-database-features.md)。
+- 如需功能與比較清單，請參閱 [SQL 的一般功能](sql-database-features.md)。
 - 如需 VNet 組態的詳細資訊，請參閱[受控執行個體 VNet 組態](sql-database-managed-instance-connectivity-architecture.md)。
 - 如需建立受控執行個體，並從備份檔案還原資料庫的快速入門，請參閱[建立受控執行個體](sql-database-managed-instance-get-started.md)。
 - 如需使用 Azure 資料庫移轉服務 (DMS) 進行移轉的教學課程，請參閱[使用 DMS 的受控執行個體移轉](../dms/tutorial-sql-server-to-managed-instance.md)。

@@ -1,18 +1,18 @@
 ---
 title: 轉譯管理員支援 - Azure Batch
-description: 使用 Azure 進行轉譯 (使用 Azure Batch 轉譯管理員整合)
+description: 使用 Azure Batch render manager 整合。 瞭解適用于熱門轉譯管理員的內建支援或附加元件。
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: eb3ce47e5ffed697392065a1faacbbfaec19f4d1
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 246907b16534d1a91833cab633a1973c97429f47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983678"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449687"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>使用 Azure Batch 搭配轉譯伺服陣列管理員
 
@@ -26,7 +26,7 @@ Azure 會為受歡迎的轉譯管理員提供內建支援或附加元件。 您�
 * [Royal Render](https://www.royalrender.de/)
 * [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
 
-## <a name="azure-render-hub"></a>Azure Render 中樞
+## <a name="azure-render-hub"></a>Azure 轉譯中樞
 
 Azure 轉譯中樞可簡化 Azure render 伺服器陣列的建立和管理。  呈現中樞具有 PipelineFx Qube 和期限10的原生支援。  如需詳細資訊和詳細指示，請參閱[GitHub 存放庫](https://github.com/Azure/azure-render-hub)。
 

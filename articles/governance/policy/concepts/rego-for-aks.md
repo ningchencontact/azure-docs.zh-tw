@@ -3,12 +3,12 @@ title: 瞭解 Azure Kubernetes Service 的 Azure 原則
 description: 瞭解 Azure 原則如何使用 Rego 和開啟原則代理程式來管理 Azure Kubernetes Service 上的叢集。
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: d8d5c1ebeded62f475804e4e704f823aba2c10eb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9a4dd6bbc71c66c3ff37200ed57859b309909ae9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279385"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436399"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>瞭解 Azure Kubernetes Service 的 Azure 原則
 
@@ -18,7 +18,7 @@ Azure 原則與[Azure Kubernetes Service](../../../aks/intro-kubernetes.md) （A
 > [!NOTE]
 > 適用于 AKS 的 Azure 原則處於有限預覽狀態，而且只支援內建原則定義。
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 若要啟用和使用 AKS 搭配 AKS 叢集的 Azure 原則，請採取下列動作：
 
@@ -29,11 +29,11 @@ Azure 原則與[Azure Kubernetes Service](../../../aks/intro-kubernetes.md) （A
 
 ## <a name="opt-in-for-preview"></a>加入宣告預覽版
 
-在安裝 Azure 原則附加元件或啟用任何服務功能之前，您的訂用帳戶必須啟用**microsoft.containerservice**資源提供者和**microsoft.policyinsights**資源提供者，然後獲得核准加入預覽版。 若要加入預覽，請遵循 Azure 入口網站或 Azure CLI 中的下列步驟：
+在安裝 Azure 原則附加元件或啟用任何服務功能之前，您的訂用帳戶必須啟用**microsoft.containerservice**資源提供者和**microsoft.policyinsights**資源提供者，然後核准加入預覽版。 若要加入預覽，請遵循 Azure 入口網站或 Azure CLI 中的下列步驟：
 
 - Azure 入口網站：
 
-  1. 註冊**microsoft.containerservice**和**microsoft.policyinsights**資源提供者。 如需相關步驟，請參閱[資源提供者和類型](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal)。
+  1. 註冊**microsoft.containerservice**和**microsoft.policyinsights**資源提供者。 如需相關步驟，請參閱[資源提供者和類型](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)。
 
   1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
 
@@ -89,11 +89,11 @@ Kubernetes 的_Azure 原則附加_元件會將 Azure 原則服務連接到閘道
 
 ### <a name="installing-the-add-on"></a>安裝附加元件
 
-#### <a name="prerequisites"></a>先決條件
+#### <a name="prerequisites"></a>必要條件
 
 在您的 AKS 叢集中安裝附加元件之前，必須先安裝預覽延伸模組。 此步驟是使用 Azure CLI 完成：
 
-1. 您需要安裝並設定 Azure CLI 版本2.0.62 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+1. 您需要安裝並設定 Azure CLI 版本2.0.62 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 1. AKS 叢集必須是_1.10_或更高版本。 使用下列腳本來驗證您的 AKS 叢集版本：
 
@@ -123,7 +123,7 @@ Kubernetes 的_Azure 原則附加_元件會將 Azure 原則服務連接到閘道
 
 完成必要條件之後，請在您想要管理的 AKS 叢集中安裝 Azure 原則附加元件。
 
-- Azure 入口網站
+- Azure Portal
 
   1. 按一下 [**所有服務**]，然後搜尋並選取 [ **Kubernetes 服務**]，以在 Azure 入口網站中啟動 AKS 服務。
 
@@ -206,7 +206,7 @@ Azure 原則附加元件是 Kubernetes 控制器/容器，會將記錄保留在 
 
 若要從您的 AKS 叢集中移除 Azure 原則附加元件，請使用 Azure 入口網站或 Azure CLI：
 
-- Azure 入口網站
+- Azure Portal
 
   1. 按一下 [**所有服務**]，然後搜尋並選取 [ **Kubernetes 服務**]，以在 Azure 入口網站中啟動 AKS 服務。
 
@@ -230,7 +230,7 @@ Azure 原則附加元件是 Kubernetes 控制器/容器，會將記錄保留在 
 
 ## <a name="diagnostic-data-collected-by-azure-policy-add-on"></a>Azure 原則附加元件所收集的診斷資料
 
-適用于 Kubernetes 的 Azure 原則附加元件會收集有限的叢集診斷資料。 此診斷資料是與軟體和效能相關的重要技術資料。 其使用方式如下：
+適用于 Kubernetes 的 Azure 原則附加元件會收集有限的叢集診斷資料。 此診斷資料是與軟體和效能相關的重要技術資料。 資料會用於下列用途：
 
 - 保持 Azure 原則最新的附加元件
 - 保持 Azure 原則附加元件安全、可靠、高效能

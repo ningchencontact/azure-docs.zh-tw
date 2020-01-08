@@ -1,25 +1,17 @@
 ---
-title: 在 Service Fabric Mesh 應用程式中使用以檔案儲存體為基礎的磁碟區 | Microsoft Docs
+title: 在 Service Fabric 網狀應用程式中使用以 Azure 檔案儲存體為基礎的磁片區
 description: 了解如何使用 Azure CLI 在服務內裝載以檔案儲存體為基礎的磁碟區，以在 Azure Service Fabric Mesh 應用程式中儲存狀態。
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e02afde27335e9a512d1e297880993b19fa4304e
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: e2172c1808ddf72c09bc08efe680ed497f960b75
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034720"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497993"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>在 Service Fabric Mesh 應用程式中裝載以檔案儲存體為基礎的磁碟區 
 
@@ -29,13 +21,13 @@ ms.locfileid: "69034720"
 
 ## <a name="prerequisites"></a>必要條件
 > [!NOTE]
-> **Windows RS5 開發電腦上部署的已知問題:** RS5 Windows 機器上的 Powershell Cmdlet SmbGlobalMapping 有 open bug, 可防止掛接 Azurefile 磁片區。 以下是在本機開發電腦上裝載以 AzureFile 為基礎的磁片區時, 所遇到的範例錯誤。
+> **WINDOWS RS5 開發電腦上部署的已知問題：** RS5 Windows 機器上的 Powershell Cmdlet SmbGlobalMapping 有 open bug，可防止掛接 Azurefile 磁片區。 以下是在本機開發電腦上裝載以 AzureFile 為基礎的磁片區時，所遇到的範例錯誤。
 ```
 Error event: SourceId='System.Hosting', Property='CodePackageActivation:counterService:EntryPoint:131884291000691067'.
 There was an error during CodePackage activation.System.Fabric.FabricException (-2147017731)
 Failed to start Container. ContainerName=sf-2-63fc668f-362d-4220-873d-85abaaacc83e_6d6879cf-dd43-4092-887d-17d23ed9cc78, ApplicationId=SingleInstance_0_App2, ApplicationName=fabric:/counterApp. DockerRequest returned StatusCode=InternalServerError with ResponseBody={"message":"error while mounting volume '': mount failed"}
 ```
-問題的因應措施是 1) 以 Powershell 管理員身分執行下列命令, 2) 重新開機電腦。
+問題的因應措施是1）以 Powershell 管理員身分執行下列命令，2）重新開機電腦。
 ```powershell
 PS C:\WINDOWS\system32> Mofcomp c:\windows\system32\wbem\smbwmiv2.mof
 ```

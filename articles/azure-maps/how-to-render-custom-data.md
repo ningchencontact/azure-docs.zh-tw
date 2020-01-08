@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 41166d57a8ea9b9cf34f76ecce318351d5131794
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: b77cb73f08852768d10de8c76cde5e299f0776c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559986"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408907"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>在點陣地圖上轉譯自訂資料
 
@@ -22,12 +22,14 @@ ms.locfileid: "74559986"
 
 若要呈現自訂圖釘、標籤和幾何重迭，您可以使用 Postman 應用程式。 您可以使用 Azure 地圖服務[資料服務 api](https://docs.microsoft.com/rest/api/maps/data)來儲存和呈現重迭。
 
+> [!Tip]
+> 使用 Azure 地圖服務 Web SDK 在網頁上顯示簡單的地圖，而不是使用靜態映射服務，通常會更符合成本效益。 Web SDK 會使用地圖底圖，除非使用者移動並縮放地圖，否則通常只會針對每個地圖負載產生一小部分的交易。 請注意，Azure 地圖服務 web SDK 有選項可停用移動流覽和縮放。 此外，Azure 地圖服務 web SDK 提供比靜態地圖 web 服務更豐富的資料視覺效果選項組。  
 
 ## <a name="prerequisites"></a>必要條件
 
 ### <a name="create-an-azure-maps-account"></a>建立 Azure 地圖服務帳戶
 
-若要完成本文中的程式，您必須先遵循[管理帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account)中的指示來建立 Azure 地圖服務帳戶，然後依照[取得主要金鑰](./tutorial-search-location.md#getkey)中的步驟來抓取您帳戶的主要訂用帳戶金鑰。
+若要完成本文中的程式，您必須先建立 Azure 地圖服務帳戶，並取得對應的帳戶金鑰。 依照[建立帳戶](quick-demo-map-app.md#create-an-account-with-azure-maps)中的指示來建立 Azure 地圖服務帳戶訂用帳戶，並遵循[取得主要金鑰](quick-demo-map-app.md#get-the-primary-key-for-your-account)中的步驟來取得您帳戶的主要金鑰。 如需 Azure 地圖服務中驗證的詳細資訊，請參閱[Azure 地圖服務中的管理驗證](./how-to-manage-authentication.md)。
 
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>呈現具有標籤和自訂影像的圖釘

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 00d8546cb20d12c5f1a94bdcababa04a77c73133
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 9c2da82034a3742f789c736d8c0410f005f20edb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134407"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422305"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service 中輪替憑證（AKS）
 
@@ -22,20 +22,7 @@ Azure Kubernetes Service （AKS）會使用憑證來驗證其許多元件。 基
 
 ## <a name="before-you-begin"></a>開始之前
 
-本文會要求您執行 Azure CLI 版本2.0.76 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
-
-
-### <a name="install-aks-preview-cli-extension"></a>安裝 aks-preview CLI 擴充功能
-
-若要使用這項功能，您需要*aks-preview* CLI 擴充功能版本0.4.21 或更高版本。 使用[az extension add][az-extension-add]命令來安裝*aks-preview* Azure CLI 擴充功能，然後使用[az extension update][az-extension-update]命令檢查是否有任何可用的更新：
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+本文會要求您執行 Azure CLI 版本2.0.77 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 ## <a name="aks-certificates-certificate-authorities-and-service-accounts"></a>AKS 憑證、憑證授權單位單位和服務帳戶
 
@@ -51,7 +38,13 @@ AKS 會產生並使用下列憑證、憑證授權單位單位和服務帳戶：
 * `kubectl` 用戶端具有與 AKS 叢集通訊的憑證。
 
 > [!NOTE]
-> 在2019年3月之前建立的 AKS 叢集，其憑證會在兩年後到期。 2019年3月之後建立的任何叢集，或任何已輪替其憑證的叢集，其憑證會在30年後到期。
+> 在2019年3月之前建立的 AKS 叢集，其憑證會在兩年後到期。 2019年3月之後建立的任何叢集，或任何已輪替其憑證的叢集，其憑證會在30年後到期。 若要確認您的叢集建立時間，請使用 `kubectl get nodes` 查看節點集區的*存留期*。
+> 
+> 此外，您可以檢查叢集憑證的到期日。 例如，下列命令會顯示*myAKSCluster*叢集的憑證詳細資料。
+> ```console
+> kubectl config view --raw -o jsonpath='{.clusters[?(@.name == "myAKSCluster")].cluster.certificate-authority-data}' | base64 -d > my-cert.crt
+> openssl x509 -in my-cert.crt -text
+> ```
 
 ## <a name="rotate-your-cluster-certificates"></a>旋轉您的叢集憑證
 
@@ -73,7 +66,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > 最多可能需要30分鐘的時間，才能完成 `az aks rotate-certs`。 如果命令在完成之前失敗，請使用 `az aks show` 來確認叢集的狀態為 [*憑證輪替*]。 如果叢集處於失敗狀態，請重新執行 `az aks rotate-certs` 以再次輪替您的憑證。
 
-執行 `kubectl` 命令，確認舊憑證已不再有效。 由於您尚未更新 `kubectl`所使用的憑證，因此您會看到錯誤。  例如︰
+執行 `kubectl` 命令，確認舊憑證已不再有效。 由於您尚未更新 `kubectl`所使用的憑證，因此您會看到錯誤。  例如：
 
 ```console
 $ kubectl get no
@@ -86,7 +79,7 @@ Unable to connect to the server: x509: certificate signed by unknown authority (
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-藉由執行 `kubectl` 命令來確認憑證已更新，這現在將會成功。 例如︰
+藉由執行 `kubectl` 命令來確認憑證已更新，這現在將會成功。 例如：
 
 ```console
 kubectl get no

@@ -1,6 +1,6 @@
 ---
-title: 使用以 Azure Sentinel 中的 Azure 監視器活頁簿為基礎的儀表板來監視您的資料 |Microsoft Docs
-description: 使用此教學課程來瞭解如何使用以 Azure Sentinel 中的活頁簿為基礎的儀表板來監視資料。
+title: 使用以 Azure Sentinel 中 Azure 監視器活頁簿為基礎的儀表板，將您的資料視覺化 |Microsoft Docs
+description: 使用此教學課程，以瞭解如何使用以 Azure Sentinel 中的活頁簿為基礎的儀表板來視覺化您的資料。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2019
+ms.date: 01/01/2020
 ms.author: rkarlin
-ms.openlocfilehash: c5f4bd079fa215e3fbd4241f603aa29d19f7aad7
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 7baf8cf2e954d773376b7c3c989bce01f60ae0a6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158862"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610449"
 ---
-# <a name="tutorial-monitor-your-data"></a>教學課程：監視您的資料
+# <a name="tutorial-visualize-and-monitor-your-data"></a>教學課程：將您的資料視覺化並加以監視
 
 
 
-在您 [連接資料來源](quickstart-onboard.md) Azure Sentinel 之後，您可以使用與 Azure 監視器活頁簿的 Azure Sentinel 整合來監視資料，這可提供建立自訂儀表板的豐富功能。 雖然活頁簿在 Azure Sentinel 中的顯示方式不同，但您還是可以查看如何[使用 Azure 監視器活頁簿建立互動式報表](../azure-monitor/app/usage-workbooks.md)。 Azure Sentinel 可讓您建立資料的自訂活頁簿，同時還隨附內建活頁簿範本，可讓您在連線資料來源後快速取得資料的見解。
+在您 [連接資料來源](quickstart-onboard.md) Azure Sentinel 之後，您可以使用 Azure 監視器活頁簿的 Azure Sentinel 採用來視覺化和監視資料，這可提供建立自訂儀表板的豐富功能。 雖然活頁簿在 Azure Sentinel 中的顯示方式不同，但您還是可以查看如何[使用 Azure 監視器活頁簿建立互動式報表](../azure-monitor/app/usage-workbooks.md)。 Azure Sentinel 可讓您建立資料的自訂活頁簿，同時還隨附內建活頁簿範本，可讓您在連線資料來源後快速取得資料的見解。
 
 
-本教學課程可協助您監視 Azure Sentinel 中的資料。
+本教學課程可協助您在 Azure Sentinel 中將資料視覺化。
 > [!div class="checklist"]
 > * 使用內建活頁簿
 > * 建立新活頁簿
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 在 Azure Sentinel 工作區的資源群組上，您至少必須擁有活頁簿讀取者或活頁簿參與者許可權。
 

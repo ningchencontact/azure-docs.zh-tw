@@ -1,25 +1,18 @@
 ---
-title: 在 Windows Server 和 Linux 上建立 Azure Service Fabric 叢集 | Microsoft Docs
+title: 在 Windows Server 和 Linux 上建立叢集
 description: Service Fabric 叢集會在 Windows Server 或 Linux 上執行，這表示您能夠在任何您可以執行 Windows Server 和 Linux 的環境中部署和裝載 Service Fabric 應用程式。
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: edb6a84762ce65e65ff33492f3a7bcebbce60777
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390368"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614667"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Azure 上的 Service Fabric 叢集概觀
 Service Fabric 叢集是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 隸屬於叢集的機器或 VM 稱為叢集模式。 叢集可擴充至數千個節點。 若您新增節點至叢集，則 Service Fabric 會重新平衡全體增加節點數的服務資料分割複本和執行個體。 整體應用程式效能會有所改善，改善，並減少爭用記憶體的存取權。 若未有效率地使用叢集中的節點，您可減少叢集中的節點數目。 Service Fabric 會再次重新平衡全體減少節點數的資料分割複本和執行個體，以善加使用每個節點上的硬體。
@@ -80,7 +73,7 @@ Service Fabric 叢集是您所擁有的資源。  保護叢集是您的責任，
 ### <a name="role-based-access-control"></a>角色型存取控制
 角色型存取控制 (RBAC) 可讓您指派 Azure 資源的更細緻存取控制。  您可以將不同的存取規則指派給訂用帳戶、資源群組和資源。  RBAC 規則會與資源階層一起繼承，除非在較低層級覆寫。  您可以在具有 RBAC 規則的 AAD 上指派任何使用者或使用者群組，讓指定的使用者和群組可以修改您的叢集。  如需詳細資訊，請參閱 [Azure RBAC 概觀](/azure/role-based-access-control/overview)。
 
-Service Fabric 也支援存取控制來限制存取不同使用者群組的特定叢集作業。 這樣有助於讓叢集更安全。 針對連線到叢集的用戶端，支援兩種存取控制類型：系統管理員角色和使用者角色。  
+Service Fabric 也支援存取控制來限制不同使用者群組對特定叢集作業的存取。 這樣有助於讓叢集更安全。 針對連線到叢集的用戶端，支援兩種存取控制類型：系統管理員角色和使用者角色。  
 
 如需詳細資訊，請參閱 [Service Fabric 角色型存取控制 (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac)。
 
@@ -89,18 +82,18 @@ Service Fabric 也支援存取控制來限制存取不同使用者群組的特�
 
 如需詳細資訊，請參閱[安全性群組](/azure/virtual-network/security-overview)
 
-## <a name="scaling"></a>縮放
+## <a name="scaling"></a>調整
 
 應用程式需求會隨著時間而變更。 您可能需要增加叢集資源以因應增加的應用程式工作負載或網路流量，或是在需要下降時減少叢集資源。 在建立 Service Fabric 叢集之後，您可以水平調整叢集 (變更節點數目)，或以垂直方式調整 (變更節點的資源)。 您可以隨時調整叢集，即使正在叢集上執行工作負載，也是如此。 在叢集進行調整時，您的應用程式也會自動調整。
 
 如需詳細資訊，請參閱[調整 Azure 叢集](service-fabric-cluster-scaling.md)。
 
-## <a name="upgrading"></a>正在升級
-Azure Service Fabric 叢集是您所擁有，但部分由 Microsoft 管理的資源。 Microsoft 負責修補基礎 OS，以及在叢集上執行 Service Fabric 執行階段升級。 您可以設定您的叢集 (當 Microsoft 發行新版本時) 接收自動執行階段升級，或選擇選取您需要的受支援執行階段版本。 除了執行階段升級之外，您亦可更新憑證或應用程式連接埠等叢集組態。
+## <a name="upgrading"></a>升級中
+Azure Service Fabric 叢集是您所擁有，但部分由 Microsoft 管理的資源。 Microsoft 負責修補基礎 OS，以及在叢集上執行 Service Fabric 執行階段升級。 您可以設定您的叢集 (在 Microsoft 發行新版本時) 接收自動執行階段升級，或選擇選取您需要的受支援執行階段版本。 除了執行階段升級之外，您亦可更新憑證或應用程式連接埠等叢集組態。
 
 如需詳細資訊，請參閱[升級叢集](service-fabric-cluster-upgrade.md)。
 
-## <a name="supported-operating-systems"></a>受支援的作業系統
+## <a name="supported-operating-systems"></a>支援的作業系統
 您可以在執行下列作業系統的虛擬機器上建立叢集：
 
 | 作業系統 | 最早支援的 Service Fabric 版本 |
