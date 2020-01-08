@@ -1,18 +1,14 @@
 ---
 title: 服務健康狀態概觀 | Microsoft Docs
 description: 目前和未來的 Azure 服務問題和維修如何影響 Azure 應用程式的個人化資訊。
-author: stephbaron
-ms.author: stbaron
-services: service-health
-ms.service: service-health
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: 3e3c83b7233ad4da263dec31c6012209ebaca0fe
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6a06ae22493292e33c94cc83cba1f17361bce45f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515859"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451581"
 ---
 # <a name="service-health-overview"></a>服務健康狀態總覽
 
@@ -71,4 +67,4 @@ ms.locfileid: "72515859"
 
 ## <a name="next-steps"></a>後續步驟
 
-設定警示，如此就能收到健康狀態問題的通知。 如需詳細資訊，請參閱[設定 Azure 服務健康狀態警示的最佳做法](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s)。 
+設定警示，如此就能收到健康情況問題的通知。 如需詳細資訊，請參閱[設定 Azure 服務健康狀態警示的最佳做法](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s)。 

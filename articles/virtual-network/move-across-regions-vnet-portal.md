@@ -6,18 +6,18 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: d6f417e53e7d7a1a242a0c0dc56c2356f78f5344
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c54725d9a947b0c912a822686d7b2cffe1a7b5c9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828959"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640783"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>使用 Azure 入口網站將 Azure 虛擬網路移至另一個區域
 
 有各種不同的案例可將現有的 Azure 虛擬網路從一個區域移至另一個區域。 例如，您可能想要使用與現有虛擬網路相同的測試和可用性設定來建立虛擬網路。 或者，您可能想要將生產虛擬網路移至另一個區域，做為嚴重損壞修復計畫的一部分。
 
-您可以使用 Azure Resource Manager 範本來完成將虛擬網路移至另一個區域的工作。 若要這麼做，您可以將虛擬網路匯出至範本、修改參數以符合目的地區域，然後將範本部署到新的區域。 如需 Resource Manager 範本的詳細資訊，請參閱 [Quickstart：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)。
+您可以使用 Azure Resource Manager 範本來完成將虛擬網路移至另一個區域的工作。 若要這麼做，您可以將虛擬網路匯出至範本、修改參數以符合目的地區域，然後將範本部署到新的區域。 如需 Resource Manager 範本的詳細資訊，請參閱[快速入門：使用 Azure 入口網站來建立和部署 Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -32,7 +32,7 @@ ms.locfileid: "71828959"
 
 - 確認您的 Azure 訂用帳戶可讓您在目的地區域中建立虛擬網路。 若要啟用所需的配額，請聯絡支援人員。
 
-- 請確定您的訂用帳戶有足夠的資源，可支援在此程式中新增虛擬網路。 如需詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)。
+- 請確定您的訂用帳戶有足夠的資源，可支援在此程式中新增虛擬網路。 如需詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)。
 
 
 ## <a name="prepare-for-the-move"></a>準備移動
@@ -42,9 +42,9 @@ ms.locfileid: "71828959"
 
 1. 登入[Azure 入口網站](https://portal.azure.com)，然後選取 [**資源群組**]。
 1. 找出包含來源虛擬網路的資源群組，然後選取它。
-1. 選取 [**設定** > ] [**匯出範本**]。
+1. 選取 [**設定**] > [**匯出範本**]。
 1. 在 [**匯出範本**] 窗格中，選取 [**部署**]。
-1. 若要在線上編輯器中開啟*parameters json*檔案，請選取 [**範本**] [ > **編輯參數**]。
+1. 若要在線上編輯器中開啟*parameters json*檔案，請選取 [**範本**] > [**編輯參數**]。
 1. 若要編輯虛擬網路名稱的參數，請變更 [**參數**] 底下的 [**值**] 屬性：
 
     ```json
@@ -63,7 +63,7 @@ ms.locfileid: "71828959"
 
 1. 在編輯器中選取 [**儲存**]。
 
-1. 若要在線上編輯器中開啟*範本. json*檔案，請選取 [**範本**] [ > **編輯範本**]。
+1. 若要在線上編輯器中開啟*範本. json*檔案，請選取 [**範本**] > [**編輯範本**]。
 
 1. 在線上編輯器中，若要編輯將移動虛擬網路的目的地區域，請變更 [**資源**] 底下的 [**位置**] 屬性：
 
@@ -89,7 +89,7 @@ ms.locfileid: "71828959"
 
 1. 選擇性您也可以根據您的需求變更範本中的其他參數：
 
-    * **位址空間**：儲存檔案之前，您可以藉由修改**資源** > **addressSpace**區段並變更**addressPrefixes**屬性，來改變虛擬網路的位址空間：
+    * **位址空間**：儲存檔案之前，您可以藉由修改**resources** > **addressSpace**區段並變更**addressPrefixes**屬性，來改變虛擬網路的位址空間：
 
         ```json
                 "resources": [
@@ -109,7 +109,7 @@ ms.locfileid: "71828959"
 
         ```
 
-    * **子網路**：您可以藉由變更範本的**子**網區段來變更或新增至子網名稱和子網位址空間。 您可以藉由變更 [**名稱**] 屬性來變更子網的名稱。 而且您可以藉由變更**addressPrefix**屬性來變更子網位址空間：
+    * **子網**：您可以藉由變更範本的**子**網區段來變更或新增至子網名稱和子網位址空間。 您可以藉由變更 [**名稱**] 屬性來變更子網的名稱。 而且您可以藉由變更**addressPrefix**屬性來變更子網位址空間：
 
         ```json
                 "subnets": [
@@ -180,11 +180,11 @@ ms.locfileid: "71828959"
 
 1. 若要選擇將部署目標虛擬網路的訂用帳戶，請選取 [**基本**] [ > **訂**用帳戶]。
 
-1. 若要選擇將部署目標虛擬網路的資源群組，請選取 [**基本**] [ > ] [**資源群組**]。 
+1. 若要選擇將部署目標虛擬網路的資源群組，請選取 [**基本**] > [**資源群組**]。 
 
     如果您需要為目標虛擬網路建立新的資源群組，**請選取 [新建]** 。 請確定該名稱與現有虛擬網路中的來源資源組名不相同。
 
-1. 確認 [**基本** > ] [**位置**] 已設定為您要部署虛擬網路的目標位置。
+1. 確認 [**基本**] > [**位置**] 已設定為您要部署虛擬網路的目標位置。
 
 1. 在 [**設定**] 底下，確認名稱與您先前在 [參數編輯器] 中輸入的名稱相符。
 
@@ -194,13 +194,13 @@ ms.locfileid: "71828959"
 
 ## <a name="delete-the-target-virtual-network"></a>刪除目標虛擬網路
 
-若要捨棄目標虛擬網路，您可以刪除包含目標虛擬網路的資源群組。 方法如下：
+若要捨棄目標虛擬網路，您可以刪除包含目標虛擬網路的資源群組。 若要這樣做：
 1. 在 [Azure 入口網站] 儀表板上，選取 [資源群組]。
 1. 在 [**總覽**] 窗格的頂端，選取 [**刪除**]。
 
 ## <a name="clean-up"></a>清除
 
-若要認可變更並完成虛擬網路移動，您可以刪除來源虛擬網路或資源群組。 方法如下：
+若要認可變更並完成虛擬網路移動，您可以刪除來源虛擬網路或資源群組。 若要這樣做：
 1. 在 [Azure 入口網站] 儀表板上，選取 [虛擬網路] 或 [資源群組]。
 1. 在每個窗格的頂端，選取 [**刪除**]。
 

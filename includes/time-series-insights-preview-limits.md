@@ -4,17 +4,17 @@ description: 包含檔案
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/06/2019
+ms.date: 12/31/2019
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: be46a0dda24dc990e895a3e983c730337f9cf31d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 90e6e5c8d6d4f10e2d63f80b9c0840854424f5a7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981510"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75616194"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>一般可用性和預覽比較
 
@@ -49,6 +49,8 @@ ms.locfileid: "74981510"
 
 * 瞭解如何[新增事件中樞來源](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub)。
 * 設定[IoT 中樞來源](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub)。
+
+根據預設，[預覽環境支援](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress)每個環境每**秒最多 1 mb （MB/s）** 的輸入速率。 如有需要，客戶可以將其預覽環境調整為最多**16 MB/秒**的輸送量。 此外，每個分割區的限制為**0.5 MB/秒**。 
 
 ### <a name="api-limits"></a>API 限制
 

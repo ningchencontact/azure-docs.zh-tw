@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 678096037da69bbddf95933e3fdf988f540ca4a6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d367d9eedc06dbfe0e5096372a4f09c66ea35013
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819827"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462605"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>在最短停機時間的情況下動態調整資料庫資源
 
@@ -62,9 +62,9 @@ Azure SQL Database 的三個特性全部都提供某種動態調整資料庫的�
 
 ## <a name="alternative-scale-methods"></a>替代調整方法
 
-調整資源是最簡單且最有效的方式，可改善資料庫效能，而不需要變更資料庫或應用程式碼。 在某些情況下，即使是最高服務層級、計算大小和效能最佳化可能也無法以成功且具成本效益的方式來處理工作負載。 在該情況下，您有其他選項可調整資料庫：
+調整資源是改善資料庫效能的最簡單且最有效的方式，而不需要變更資料庫或應用程式的程式碼。 在某些情況下，即使是最高的服務層級、計算大小和效能優化可能也無法以成功且符合成本效益的方式處理您的工作負載。 在此情況下，您有下列其他選項可調整您的資料庫：
 
-- [讀取縮放](sql-database-read-scale-out.md)是您收到資料之一個唯讀複本的可用功能，您可以在其中執行要求唯讀查詢 (例如報告)。 唯讀複本會處理您的唯讀工作負載，而不影響您主要資料庫上的資源使用狀況。
+- [[讀取](sql-database-read-scale-out.md)相應放大] 是一種可用的功能，您可以在其中取得資料的唯讀複本，以便執行報表等需求的唯讀查詢。 唯讀複本會處理您的唯讀工作負載，而不影響您主要資料庫上的資源使用狀況。
 - [資料庫分區](sql-database-elastic-scale-introduction.md)是一組技術，可讓您將資料分割成數個資料庫，並分別調整它們。
 
 ## <a name="next-steps"></a>後續步驟

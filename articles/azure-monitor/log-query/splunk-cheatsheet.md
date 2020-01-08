@@ -1,18 +1,17 @@
 ---
 title: 從 Splunk 到 Azure 監視器記錄查詢 | Microsoft Docs
 description: 協助熟悉 Splunk 的使用者了解 Azure 監視器記錄查詢。
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
-ms.openlocfilehash: e16bf152e739a6145bfabaf8546fa71199f8d732
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6346055f1169bfa533d5dbfe441ecf27fb0d78a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932956"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397753"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>從 Splunk 到 Azure 監視器記錄查詢
 
@@ -26,12 +25,12 @@ ms.locfileid: "72932956"
  | --- | --- | --- | ---
  | 部署單位  | 叢集 |  叢集 |  Azure 監視器可允許任意跨叢集的查詢。 Splunk 則無法。 |
  | 資料快取 |  貯體  |  快取與保留原則 |  控制資料的期間和快取層級。 此設定會直接影響查詢效能和部署成本。 |
- | 資料的邏輯分割區  |  index  |  資料庫  |  可允許資料的邏輯分隔。 兩種實作皆允許分割區的集合聯集和聯結。 |
+ | 資料的邏輯分割區  |  索引  |  資料庫  |  可允許資料的邏輯分隔。 兩種實作皆允許分割區的集合聯集和聯結。 |
  | 結構化的事件中繼資料 | N/A | 資料表 |  Splunk 沒有事件中繼資料的搜尋語言概念。 Azure 監視器記錄有資料表的概念，且資料表具有資料行。 每個事件執行個體會對應至一個資料列。 |
- | 資料記錄 | 事件 | 資料列 |  僅限詞彙變更。 |
- | 資料記錄屬性 | field |  資料行 |  在 Azure 監視器中，這已預先定義為資料表結構的一部分。 在 Splunk 中，每個事件都有自己的欄位集。 |
+ | 資料記錄 | event | 資料列 |  僅限詞彙變更。 |
+ | 資料記錄屬性 | field |  column |  在 Azure 監視器中，這已預先定義為資料表結構的一部分。 在 Splunk 中，每個事件都有自己的欄位集。 |
  | 類型 | datatype |  datatype |  Azure 監視器資料類型在資料行上設定時更明確。 兩者都能夠以動態方式使用資料類型，且擁有大致相當的資料類型集，包括 JSON 支援。 |
- | 查詢和搜尋  | 搜尋 | query |  Azure 監視器與 Splunk 兩者的概念基本上相同。 |
+ | 查詢和搜尋  | 搜尋 | 查詢 |  Azure 監視器與 Splunk 兩者的概念基本上相同。 |
  | 事件擷取時間 | 系統時間 | ingestion_time() |  在 Splunk 中，每個事件都會取得事件編製索引時間的系統時間戳記。 在 Azure 監視器中，您可以定義稱為 ingestion_time 的原則，其會公開可透過 ingestion_time() 函式參考的系統資料行。 |
 
 ## <a name="functions"></a>Functions
@@ -54,19 +53,19 @@ ms.locfileid: "72932956"
 | searchmatch | == | 在 Splunk 中，`searchmatch` 可允許搜尋完全相符的字串。
 | 隨機 | rand()<br>rand(n) | Splunk 的函式會傳回 0 到 2<sup>31</sup>-1 的數字。 Azure 監視器的函式會傳回介於 0.0 和 1.0 之間的數字，或如果提供參數，則介於 0 到 n-1 之間。
 | 現在 | now() | (1)
-| relative_time | totimespan() | (1)<br>在 Azure 監視器中，Splunk 的 relative_time(datetimeVal, offsetVal) 對等項目為 datetimeVal + totimespan(offsetVal)。<br>例如，<code>search &#124; eval n=relative_time(now(), "-1d@d")</code> 會變成 <code>...  &#124; extend myTime = now() - totimespan("1d")</code>。
+| relative_time | totimespan() | (1)<br>在 Azure 監視器中，Splunk 的 relative_time(datetimeVal, offsetVal) 對等項目為 datetimeVal + totimespan(offsetVal)。<br>例如，<code>search &#124; eval n=relative_time(now(), "-1d@d")</code> 會成為 <code>...  &#124; extend myTime = now() - totimespan("1d")</code>。
 
 (1) 在 Splunk 中，會使用 `eval` 運算子叫用函式。 在 Azure 監視器中，它會用做 `extend` 或 `project` 的一部分。<br>(2) 在 Splunk 中，會使用 `eval` 運算子叫用函式。 在 Azure 監視器中，它可以搭配 `where` 運算子使用。
 
 
-## <a name="operators"></a>運算子
+## <a name="operators"></a>操作員
 
 下列章節會提供使用 Splunk 與 Azure 監視器之間不同運算子的範例。
 
 > [!NOTE]
 > 針對下列範例目的，Splunk 欄位 _rule_ 對應至 Azure 監視器中的資料表，而 Splunk 的預設時間戳記對應至 Log Analytics _ingestion_time()_ 資料行。
 
-### <a name="search"></a>Search
+### <a name="search"></a>搜尋
 在 Splunk 中，您可以省略 `search` 關鍵字，並指定不具引號的字串。 在 Azure 監視器中，您必須使用 `find` 啟動每個查詢，不具引號的字串是資料行名稱，且查閱值必須是加上引號的字串。 
 
 | |  | |
@@ -135,7 +134,7 @@ Splunk 似乎沒有類似 `project-away` 的運算子。 您可以使用 UI 篩�
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **資料表** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
+| Splunk | **table** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
 | Azure Monitor | **project**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 | | |
 
@@ -152,7 +151,7 @@ Splunk 似乎沒有類似 `project-away` 的運算子。 您可以使用 UI 篩�
 
 
 
-### <a name="join"></a>聯結
+### <a name="join"></a>Join
 Splunk 中的聯結具有重大限制。 子查詢的限制為 10000 筆結果 (設定在部署組態檔中)，且聯結類別的數目有限。
 
 | |  | |

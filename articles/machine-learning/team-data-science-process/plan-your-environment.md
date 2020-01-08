@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 46d0e8aa1fa934f778e950f0187a853ba46772d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ba87461c6c195a6b483538fd94d8be76239b8dc5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495035"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647300"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>如何識別案例和規劃進階分析資料處理
 
@@ -56,7 +56,7 @@ ms.locfileid: "73495035"
 
 * Azure Blob 儲存體
 * SQL Azure 資料庫
-* 在 Azure VM 上的 SQL Server
+* Azure VM 上的 SQL Server
 * HDInsight (Azure 上的 Hadoop) 或 Hive 資料表
 * Azure Machine Learning
 * 可裝載的 Azure 虛擬硬碟
@@ -109,7 +109,7 @@ ms.locfileid: "73495035"
 採用 Azure Machine Learning Studio （傳統）環境，例如：
 
 * 如需 Azure Machine Learning Studio 支援的資料格式和 類型的清單，請參閱 [支援的資料格式和資料類型](../studio/import-data.md#supported-data-formats-and-data-types) 一節。
-* 如需分析程序中使用的其他 Azure 服務限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與限制](../../azure-subscription-service-limits.md)。
+* 如需分析程序中使用的其他 Azure 服務限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與限制](../../azure-resource-manager/management/azure-subscription-service-limits.md)。
 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>資料品質問題：探索和前置處理
 
@@ -131,7 +131,7 @@ ms.locfileid: "73495035"
 
 ### <a name="does-the-data-require-preprocessing-or-cleaning"></a>資料是否需要前置處理或清除？
 
-您可能需要前置處理與清除您的資料，才能有效率地將資料用於機器學習。 未經處理的資料通常會有雜訊且不可靠， 還可能會有遺漏值。 使用這類資料進行模型化可能會產生誤導的結果。 如需說明，請參閱 [工作以準備資料增強機器學習](prepare-data.md)。
+您可能需要前置處理與清除您的資料，才能有效率地將資料用於機器學習。 未經處理的資料通常會有雜訊且不可靠， 還可能會有遺漏值。 使用這類資料進行模型化可能會產生誤導的結果。 如需說明，請參閱 [準備增強機器學習服務的資料的工作](prepare-data.md)。
 
 ## <a name="tools-and-languages-questions"></a>工具和語言的問題
 
@@ -149,7 +149,7 @@ ms.locfileid: "73495035"
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
-* [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)
+* [適用於 Visual Studio 的 Python 工具](https://aka.ms/ptvsdocs)
 * [Anaconda](https://www.continuum.io/why-anaconda)
 * [Jupyter 筆記本](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)

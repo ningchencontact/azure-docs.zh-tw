@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights 智慧偵測：預設通知收件者即將推出的變更 | Microsoft Docs
-description: 透過 Azure Application Insights 監控應用程式追蹤，以了解追蹤遙測中的異常模式。
+title: 智慧型偵測通知變更-Azure 應用程式深入解析
+description: 從智慧偵測變更為預設通知收件者。 「智慧型偵測」可讓您使用 Azure 應用程式 Insights 監視追蹤遙測中不尋常模式的應用程式追蹤。
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
@@ -8,12 +8,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: fa1f98b5a9ee592a4c702e87e365eff7941194d4
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 493deea89586347d5847895acd5eb73a866f84ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820619"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432443"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>智慧偵測電子郵件通知變更
 

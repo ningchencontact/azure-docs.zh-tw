@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 19b1b345c72361ae1fcdad5221dcd0e877b32fe7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5809307ff8e047ebc6120cb5ebf36590f2a2a51a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926311"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444012"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Data Lake Storage Gen1 複製到 Gen2
 
@@ -49,7 +49,7 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
  
     * **名稱**：輸入 Azure 資料處理站的全域唯一名稱。 如果您收到「資料處理站名稱 \"LoadADLSDemo\" 無法使用」的錯誤，請為資料處理站輸入其他名稱。 例如，使用**您的名稱** **ADFTutorialDataFactory**。 再次建立資料處理站。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
     * **訂用帳戶**：選取用來在其中建立資料處理站的 Azure 訂用帳戶。 
-    * **資源群組**：從下拉式清單中選取現有的資源群組。 您也可以選取 [**建立新**的] 選項，並輸入資源群組的名稱。 若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。 
+    * **資源群組**：從下拉式清單中選取現有的資源群組。 您也可以選取 [**建立新**的] 選項，並輸入資源群組的名稱。 若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。 
     * **版本**：選取 [V2]。
     * **位置**：選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區可位於其他位置和區域。 
 
@@ -80,7 +80,7 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
 
    a. 選取 [Data Lake Storage Gen1] 作為帳戶名稱，並指定或驗證 [租用戶]。
   
-   b.這是另一個 C# 主控台應用程式。 選取 [**測試連接**] 來驗證設定。 然後選取 [完成]。
+   b. 選取 [**測試連接**] 來驗證設定。 然後選取 [完成]。
   
    c. 您會看到已建立新的連接。 選取 [下一步]。
    
@@ -105,7 +105,7 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
 
    a. 從 [**儲存體帳戶名稱**] 下拉式清單中選取您的 Data Lake Storage Gen2 支援的帳戶。
    
-   b.這是另一個 C# 主控台應用程式。 選取 [完成] 以建立連線。 然後，選取 [下一步]。
+   b. 選取 [完成] 以建立連線。 然後選取 [下一步]。
    
    ![指定 Azure Data Lake Storage Gen2 帳戶](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 

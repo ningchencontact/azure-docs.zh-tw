@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 526c359367271c69ccd461e4421c3223b00fbc36
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f2880044e48e59d0d5f005f9772cdd0f807f7f29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900291"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397819"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Azure 監視器記錄查詢中的聯結
 
@@ -80,7 +80,7 @@ SecurityEvent
 ## <a name="join-kinds"></a>聯結類型
 使用 _kind_ 引數指定聯結類型。 每種類型都會在給定資料表的記錄之間執行不同的比對，如下表所示。
 
-| 聯結類型 | 描述 |
+| 聯結類型 | 說明 |
 |:---|:---|
 | innerunique | 這是預設聯結模式。 首先，系統會找到左側資料表上的相符資料行，然後移除重複值。  接著，會和右側資料表比對唯一值集合。 |
 | inner | 只有兩個資料表中都有的相符記錄才會包含在結果中。 |

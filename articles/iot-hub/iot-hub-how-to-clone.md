@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 6e4d110221c7f360e8177505de2a7789f9616d51
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976140"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429160"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>如何將 Azure IoT 中樞複製到另一個區域
 
@@ -29,7 +29,7 @@ ms.locfileid: "74976140"
 若要複製中樞，您需要具有原始中樞之系統管理存取權的訂用帳戶。 您可以將新的中樞放在新的資源群組和區域、與原始中樞相同的訂用帳戶中，或甚至在新的訂用帳戶中。 您不能使用相同的名稱，因為中樞名稱必須是全域唯一的。
 
 > [!NOTE]
-> 目前沒有第一類的功能可複製 IoT 中樞。 這主要是手動程式，因此相當容易出錯。 複製中樞的複雜性與中樞的複雜性直接成正比。 例如，複製不含訊息路由的 IoT 中樞相當簡單。 如果您新增訊息路由只是一個複雜性，則複製中樞的速度會變得越複雜。 如果您也移動用來路由端點的資源，這就是 magniture 更為複雜的另一個順序。 
+> 目前沒有任何功能可自動複製 IoT 中樞。 這主要是手動程式，因此相當容易出錯。 複製中樞的複雜性與中樞的複雜性直接成正比。 例如，複製不含訊息路由的 IoT 中樞相當簡單。 如果您新增訊息路由只是一個複雜性，則複製中樞的速度會變得越複雜。 如果您也移動用來路由端點的資源，這就是 magniture 更為複雜的另一個順序。 
 
 ## <a name="things-to-consider"></a>考量事項
 
@@ -485,7 +485,7 @@ DPS 服務已認可這項變更。
 
 ### <a name="running-the-sample-application-and-using-command-line-arguments"></a>執行範例應用程式和使用命令列引數
 
-1. 開啟命令提示字元視窗。 選取 Windows，然後在 `command prompt` 中輸入，以取得 命令提示字元 視窗。
+1. 開啟 [命令提示字元] 視窗。 選取 Windows，然後在 `command prompt` 中輸入，以取得 命令提示字元 視窗。
 
 1. 複製設定環境變數的命令（一次一個），並將其貼到 [命令提示字元] 視窗中，然後選取 Enter 鍵。 當您完成時，請在 [命令提示字元] 視窗中輸入 `SET`，以查看您的環境變數及其值。 將這些專案複製到 [命令提示字元] 視窗之後，除非您開啟新的 [命令提示字元] 視窗，否則不需要再次複製它們。
 

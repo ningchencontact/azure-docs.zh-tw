@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Cosmos DB 中使用變更摘要處理器程式庫
-description: 瞭解如何使用 Azure Cosmos DB 變更摘要處理器程式庫來讀取變更摘要、變更摘要處理器的元件，以及執行生命週期
+title: Azure Cosmos DB 中的變更摘要處理器程式庫
+description: 瞭解如何使用 Azure Cosmos DB 變更摘要處理器程式庫來讀取變更摘要，也就是變更摘要處理器的元件
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ea2b72e926923357e9ee7dac87720292fbbf9696
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3e7f5e46068844da538864fdfaa03ca7023e4372
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872225"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445571"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB 中的變更摘要處理器 
 

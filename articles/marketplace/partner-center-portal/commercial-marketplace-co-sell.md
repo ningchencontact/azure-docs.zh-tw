@@ -1,50 +1,69 @@
 ---
 title: 合作夥伴中心內的共同銷售選項 |Azure Marketplace
 description: Microsoft 銷售小組會使用您在供應專案的 [共同銷售] 索引標籤上提供的資訊，在評估其是否符合客戶需求時，深入瞭解您的解決方案。
-author: qianw211
+author: ChJenk
 manager: evansma
-ms.author: v-qiwe
+ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: 027a35db9fcb6c0e95be5da276f673b9295ad436
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/06/2019
+ms.openlocfilehash: 5f5f98b908ce54624a5d73a2ed74b2e9ea8966ff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812709"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431962"
 ---
 # <a name="co-sell-option-in-partner-center"></a>合作夥伴中心內的共同銷售選項
 
 在 [共同銷售] 索引標籤上提供資訊完全是選擇性的。 必須達到共同銷售就緒和 IP 共同銷售就緒狀態。 Microsoft 銷售小組會使用您提供的資訊，在評估其是否符合客戶需求時，深入瞭解您的解決方案。 它無法直接提供給客戶。 如需詳細資訊，請參閱[透過 Microsoft 銷售](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft)。
 
-## <a name="applicable-products"></a>適用的產品
+合作夥伴中心內的共同銷售選項目前適用于某些供應專案類型。 其他供應專案類型的支援將會在一段時間內提供使用。
 
-選擇您的供應專案建立在其上的任何 Microsoft 產品，或設計為使用。
+| **供應項目類型** | **合作夥伴中心提供的共同銷售頁面** |
+|    -----------------------    |    -----------------------------  |
+| 軟體即服務（SaaS） |     2020年2月正式推出      |
+| Dynamics 365 for Customer Engagement & PowerApps      |     現已推出      |
+| Dynamics 365 for Operations     |     現已推出       |
+| Dynamics 365 Business Central      |  2020年2月正式推出     |
+| Azure 應用程式     |     2020年2月正式推出     |
+| Azure 虛擬機器      |     即將宣佈       |
+| Azure 容器     |     即將宣佈       |
+| 諮詢服務      |     即將宣佈       |
+| IoT Edge 模組      |     即將宣佈       |
+| Power BI 服務應用程式     |     即將宣佈       |
+|  |
 
-## <a name="customer-segments"></a>客戶區段
+## <a name="listing"></a>列出清單
 
-選取您供應專案的目標企業大小。
+共同銷售清單可協助 Microsoft 銷售小組將您的解決方案推向更多物件。
 
-## <a name="offer-type"></a>供應項目類型
+- 選擇您的供應專案建立的 Microsoft 平臺、擴充或整合。
+- 選取您供應專案的目標市場區段。
+- 選取供應專案的[解決方案類型](#solution-type)。
+- 選擇最多三個[解決方案區域](#solution-areas)和子領域。
 
-選取您的供應專案類型：
+### <a name="solution-type"></a>解決方案類型
 
-| **供應項目類型**    | **說明**  |
+解決方案類型可協助定義您的供應專案所要處理的案例。
+
+| **解決方案類型**    | **說明**  |
 | :------------------- | :-------------------|
-| 裝置 | 一種供應專案，牽涉到從裝置製造商建立或銷售硬體。 |
-| IP | 授權給客戶使用的應用程式或其他 copyrightable 材料。 例如，可以在內部部署授權和安裝的 CRM 程式。 |
+| 裝置（硬體） | 一種供應專案，牽涉到從裝置製造商建立或銷售硬體。 |
+| IP （應用程式） | 授權給客戶使用的應用程式或其他 copyrightable 材料。 例如，可以在內部部署授權和安裝的 CRM 程式。 |
 | 服務 | 特定一次性專案的實際操作專業知識，通常是透過顧問來提供。 例如：設定用戶端的客戶資料庫（用戶端會假設在傳遞之後負責運算元據庫）。 |
 | 受控服務 | 以雲端為基礎的專案的實際操作專業知識，通常會持續進行。 例如：提供執行線上資料庫的平臺和工具，以及受控服務提供者所提供的持續管理。 |
 
-## <a name="solution-areas"></a>解決方案區域
+### <a name="solution-areas"></a>解決方案區域
 
-您可以為您的供應專案新增最多三個解決方案區域。  針對每個解決方案區域，您最多可以選擇兩個方案子領域。 若要選取多個子類別，請使用 `Ctrl` 鍵（在 Windows 上）或命令鍵（在 Mac OS 上）。
+解決方案區域可協助您進一步定義解決方案。
 
-解決方案區域可協助定義您的供應專案所要處理的案例。
+您可以為您的供應專案新增最多三個解決方案區域。 針對每個解決方案區域，您最多可以選擇兩個方案子領域。 若要選取多個子類別，請使用 `Ctrl` 鍵（在 Windows 上）或命令鍵（在 Mac OS 上）。
 
 ## <a name="documents"></a>文件
+
+您可以提供 Microsoft 用來評估客戶需求的輔助。
 
 | **文件**    | **說明**  |
 | :------------------- | :-------------------|
@@ -60,7 +79,7 @@ ms.locfileid: "73812709"
 
 ## <a name="contacts"></a>連絡人
 
-您的連絡人資訊可讓 Microsoft 銷售團隊和通路轉銷商，從您組織中的適當資源要求其他資訊。 所有 Microsoft 銷售小組皆可使用連絡人資訊。 如果您選擇在 CSP 方案中提供供應專案，此連絡人資訊也可供頻道轉銷商使用。 
+您的連絡人資訊可讓 Microsoft 銷售團隊和通路轉銷商，從您組織中的適當資源要求其他資訊。 所有 Microsoft 銷售小組皆可使用連絡人資訊。 如果您選擇在 CSP 方案中提供供應專案，此連絡人資訊也可供頻道轉銷商使用。
 
 本檔提供合作夥伴不同角色的指引，以及如何在兩者之間進行選擇。 您可以從合作夥伴中心下載 CSV 範本、以連絡人的相關資訊填入每個資料列，以及匯入此 CSV 檔案，以提供您的連絡人。 匯入 CSV 檔案將會覆寫現有的連絡人。
 

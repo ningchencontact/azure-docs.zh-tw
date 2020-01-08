@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: d74bd67dedb70308061e54c05d23a4bb63adc8f8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0e49a5c8edd074c71d5972ee8d9c2e81f9c512ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851327"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453956"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>從 CSP 入口網站建立和管理 Azure IoT Central 應用程式
 
@@ -33,7 +33,7 @@ Azure IoT Central 會列為可供系統管理員使用的服務。 選取頁面�
 
 ![建立 CSP 的管理員](media/howto-create-application-csp/image3.png)
 
-若要建立 Azure IoT Central 應用程式，請選取左側功能表中的 [**組建**]。 選擇其中一個產業範本，或選擇 [**自訂應用**程式] 從頭開始建立應用程式。 這會載入 [應用程式建立] 頁面。 您必須完成此頁面上的所有欄位，然後選擇 [建立]。 您可以在下方找到更多關於每個欄位的詳細資訊。
+若要建立 Azure IoT Central 應用程式，請選取左側功能表中的 [**組建**]。 選擇其中一個產業範本，或選擇 [**繼承應用程式**] 從頭開始建立應用程式。 這會載入 [應用程式建立] 頁面。 您必須完成此頁面上的所有欄位，然後選擇 [建立]。 您可以在下方找到更多關於每個欄位的詳細資訊。
 
 ![建立 CSP 的應用程式頁面](media/howto-create-application-csp/image4.png)
 
@@ -81,17 +81,16 @@ Azure 訂用帳戶可讓您建立 Azure 服務執行個體。 Azure IoT Central 
 您可以在[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central)頁面上，看到可以使用 Azure IoT 中心的區域。
 
 > [!Note]
-> 選擇區域後，之後便無法將應用程式移到不同的區域。
+> 選擇區域後，即無法將應用程式移到不同的區域。
 
 ## <a name="application-template"></a>應用程式範本
 
-您可以為新的 Azure IoT 中心應用程式，選擇其中一個可用的應用程式範本。 應用程式範本可以包含預先定義的項目 (例如裝置範本和儀表板)，協助您開始使用。
+您可以為新的 Azure IoT Central 應用程式選擇下列應用程式範本。
 
-| 應用程式範本 | 描述 |
+| 應用程式範本 | 說明 |
 | -------------------- | ----------- |
-| 自訂應用程式   | 為您建立空的應用程式，以填入您自己的裝置範本和裝置。 |
-| Contoso 範例       | 建立一個應用程式，其中包含簡單連線裝置的裝置範本。 使用此範本來開始探索 Azure IoT 中心。 |
-| Devkits 範例       | 使用您可使用的裝置範本來建立應用程式，以連線 MXChip 或 Raspberry Pi 裝置。 如果您是會在其中一個裝置上試驗程式碼的裝置開發人員，請使用此範本。 |
+| 繼承應用程式   | 為您建立空的應用程式，以填入您自己的裝置範本和裝置。 |
+
 
 ## <a name="next-steps"></a>後續步驟
 

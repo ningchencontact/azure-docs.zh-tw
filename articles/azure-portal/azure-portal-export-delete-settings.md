@@ -1,6 +1,6 @@
 ---
 title: 匯出或刪除 Azure 入口網站設定 | Microsoft Docs
-description: 了解如何匯出或刪除使用者設定、 私用儀表板和在 Azure 入口網站中的自訂設定。
+description: 瞭解如何匯出或刪除您的使用者設定、私人儀表板，以及 Azure 入口網站中的自訂設定。
 services: azure-portal
 keywords: ''
 author: santhoshsomayajula
@@ -9,46 +9,46 @@ ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.author: kfollis
-ms.openlocfilehash: fde7ffbaa3ef4d47eea48302a99948932aeb4f00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mblythe
+ms.openlocfilehash: f033af37985077f4d8df9d541b55764df0c75eda
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551635"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640171"
 ---
 # <a name="export-or-delete-user-settings"></a>匯出或刪除使用者設定
 
-您可以在 Azure 入口網站中使用的設定和功能，來建立自訂的體驗。 您的自訂設定的相關資訊會儲存在 Azure 中。 您可以匯出或刪除下列的使用者資料：
+您可以使用 Azure 入口網站中的設定和功能來建立自訂體驗。 您的自訂設定的相關資訊會儲存在 Azure 中。 您可以匯出或刪除下列使用者資料：
 
-* 在 Azure 入口網站中的私人儀表板
-* 使用者設定，例如最愛的訂用帳戶或目錄和最後一個登入的目錄
-* 佈景主題和其他自訂的入口網站設定
+* Azure 入口網站中的私用儀表板
+* 使用者設定，例如我的最愛訂閱或目錄，以及最後一個登入的目錄
+* 主題和其他自訂入口網站設定
 
-它是個不錯的主意，匯出和刪除它們之前，先檢閱您的設定。 重新建立儀表板，或重做的自訂設定可能很費時。
+在刪除您的設定之前，最好先匯出並加以檢查。 重建儀表板或重做自訂設定可能相當耗時。
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="export-or-delete-your-portal-settings"></a>匯出或刪除入口網站設定
+## <a name="export-or-delete-your-portal-settings"></a>匯出或刪除您的入口網站設定
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在入口網站的標頭，選取**設定**。
+2. 在入口網站的標頭中，選取 [**設定**]。
 
     ![顯示入口網站設定齒輪圖示的螢幕擷取畫面](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)
 
-3. 選取 [匯出所有設定]  或 [刪除所有設定和私人儀表板]  。
+3. 選取 [匯出所有設定] 或 [刪除所有設定和私人儀表板]。
 
-    ![螢幕擷取畫面顯示在入口網站匯出及刪除設定](media/azure-portal-export-delete-settings/azure-portal-export-delete-settings.png)
+    ![顯示入口網站匯出和刪除設定的螢幕擷取畫面](media/azure-portal-export-delete-settings/azure-portal-export-delete-settings.png)
 
       下表描述這些動作。
 
-      | 動作 | 描述 |
+      | 行動 | 說明 |
       | --- | --- |
-      | **匯出所有設定** | 建立包含您的使用者設定，例如您的色彩佈景主題、 我的最愛，以及私人儀表板的.json 檔案。|
-      | **刪除所有設定和私人儀表板** | 刪除所有連結至私人儀表板和其他入口網站所做的自訂設定。 |
+      | **匯出所有設定** | 建立 json 檔案，其中包含您的使用者設定，例如您的色彩主題、我的最愛和私人儀表板。|
+      | **刪除所有設定和私人儀表板** | 刪除私人儀表板的所有連結，以及您在入口網站中所做的其他自訂設定。 |
 
 > [!NOTE]
-> 由於使用者設定的動態本質和資料損毀的風險，您無法從.json 檔案匯入設定。
+> 由於使用者設定的動態性質和資料損毀的風險，因此您無法從 json 檔案匯入設定。
 >
 >
 
@@ -56,4 +56,4 @@ ms.locfileid: "60551635"
 ## <a name="next-steps"></a>後續步驟
 
 * [建立和共用 Azure 儀表板](azure-portal-dashboard-share-access.md)
-* [新增、 移除及排序 [我的最愛]](azure-portal-add-remove-sort-favorites.md)
+* [新增、移除和排序我的最愛](azure-portal-add-remove-sort-favorites.md)

@@ -1,20 +1,21 @@
 ---
-title: 設定 Azure 儲存體的連接字串
-description: 設定 Azure 儲存體帳戶的連接字串。 連接字串包含在執行時間使用共用金鑰授權, 從您的應用程式授權存取儲存體帳戶所需的資訊。
+title: 設定連接字串
+titleSuffix: Azure Storage
+description: 設定 Azure 儲存體帳戶的連接字串。 連接字串包含在執行時間使用共用金鑰授權，從您的應用程式授權存取儲存體帳戶所需的資訊。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/20/2019
+ms.date: 12/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d1106865b3a2ea3164090896c5b90ab08f996f3d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f617beec8a53570ede7755040cfbb92a7d1712b7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640496"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460569"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>設定 Azure 儲存體連接字串
 
@@ -23,8 +24,6 @@ ms.locfileid: "69640496"
 * 連線至 Azure 儲存體模擬器
 * 在 Azure 中存取儲存體帳戶。
 * 透過共用存取簽章 (SAS) 存取 Azure 中的指定資源。
-
-[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -119,7 +118,7 @@ AccountKey=<account-key>
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>建立包含端點尾碼的連接字串
 
-若要在區域或具有不同端點尾碼的實例中建立儲存體服務的連接字串 (例如, 針對 Azure 中國世紀或 Azure Government, 請使用下列連接字串格式)。 指出您是否要透過 HTTPS (建議) 或 HTTP 連線至儲存體帳戶、使用您的儲存體帳戶名稱來取代 `myAccountName`、使用您的帳戶存取金鑰來取代 `myAccountKey`，以及使用 URI 尾碼來取代 `mySuffix`：
+若要在區域或具有不同端點尾碼的實例中建立儲存體服務的連接字串（例如，針對 Azure 中國世紀或 Azure Government，請使用下列連接字串格式）。 指出您是否要透過 HTTPS (建議) 或 HTTP 連線至儲存體帳戶、使用您的儲存體帳戶名稱來取代 `myAccountName`、使用您的帳戶存取金鑰來取代 `myAccountKey`，以及使用 URI 尾碼來取代 `mySuffix`：
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -128,7 +127,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-以下是 Azure 中國世紀儲存體服務的範例連接字串:
+以下是 Azure 中國世紀儲存體服務的範例連接字串：
 
 ```
 DefaultEndpointsProtocol=https;
@@ -145,4 +144,4 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 * [使用 Azure 儲存體模擬器進行開發和測試](storage-use-emulator.md)
 * [Azure 儲存體總管](storage-explorers.md)
-* [使用共用的存取簽章 (SAS)](storage-sas-overview.md)
+* [使用共用存取簽章 (SAS)](storage-sas-overview.md)

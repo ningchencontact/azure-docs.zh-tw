@@ -1,26 +1,15 @@
 ---
-title: 整合 API 管理與 Azure 中的 Service Fabric | Microsoft Docs
+title: 整合 API 管理與 Azure 中的 Service Fabric
 description: 了解如何快速開始使用 Azure API 管理以及將流量路由至 Service Fabric 中的後端服務。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 470eacee5c71742678497edf48169e14a4073829
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 201d617ce15216ba168bc484f644e165d5ae0e71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598837"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465352"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>整合 API 管理與 Azure 中的 Service Fabric
 
@@ -36,7 +25,7 @@ ms.locfileid: "68598837"
 > [!IMPORTANT]
 > 由於這項功能需要支援虛擬網路，因此可用於 API 管理的**進階**與**開發人員**層級。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始之前：
 
@@ -88,7 +77,7 @@ az account set --subscription <guid>
     </Resources>
     ```
 
-    移除埠可讓 Service Fabric 從應用程式埠範圍動態指定埠, 透過叢集 Resource Manager 範本中的「網路安全性群組」開啟, 允許流量從「API 管理」流到它。
+    移除埠可讓 Service Fabric 從應用程式埠範圍動態指定埠，透過叢集 Resource Manager 範本中的「網路安全性群組」開啟，允許流量從「API 管理」流到它。
 
  6. 在 Visual Studio 中按 F5 以確認本機有提供 Web API。
 
@@ -145,7 +134,7 @@ az account set --subscription <guid>
 
 * **displayName** 可以是 API 的任何名稱。 本文使用 "Service Fabric App"。
 * **name** 提供 API 的唯一和描述性名稱，例如 "service-fabric-app"。 它會顯示在開發人員和發行者入口網站中。
-* **serviceUrl** 會參考實作 API 的 HTTP 服務。 API 管理則將要求轉送至此位址。 就 Service Fabric 後端而言，並不使用此 URL 值。 您可以在這裡輸入任何值。 針對本文, 例如 "HTTP:\//servicefabric"。
+* **serviceUrl** 會參考實作 API 的 HTTP 服務。 API 管理則將要求轉送至此位址。 就 Service Fabric 後端而言，並不使用此 URL 值。 您可以在這裡輸入任何值。 在本文中，例如 "HTTP：\//servicefabric"。
 * **path** 會附加至 API 管理服務的基底 URL 後面。 基礎 URL 是 API 管理服務主控的所有 API 所共有。 API 管理依尾碼來區分 API，因此，特定發行者的每一個 API 必須有唯一的尾碼。
 * **protocols** 會決定可使用哪些通訊協定來存取 API。 在本文中，請列出 **http** 和 **https**。
 * **path** 是 API 的尾碼。 在本文中，請使用 "myapp"。
@@ -201,7 +190,7 @@ az account set --subscription <guid>
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
-|apimSku|開發人員|
+|apimSku|Developer|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
 |certificatePassword|q6D7nN%6ck@6|
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
@@ -314,7 +303,7 @@ az group delete --name $ResourceGroupName
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png
-vice-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.parameters.jsonn
+vice-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim。n
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

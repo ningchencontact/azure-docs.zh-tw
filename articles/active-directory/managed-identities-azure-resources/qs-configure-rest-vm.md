@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d78ddaaae886a33b4d22e8724ade04ab63508f1
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9f975595e935a5c0254450168aa295e6e7366a94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547330"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430010"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>使用 REST API 呼叫在 Azure VM 上設定 Azure 資源受控識別
 
@@ -35,7 +35,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您不熟悉 Azure 資源受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-the-managed-identities-for-azure-resources-work)** 。
+- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-the-managed-identities-for-azure-resources-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
 - 如果您使用的是 Windows，請安裝[適用於 Linux 的 Windows 子系統](https://msdn.microsoft.com/commandline/wsl/about)，或使用 Azure 入口網站中的 [Azure Cloud Shell](../../cloud-shell/overview.md)。
 - 如果您使用的是[適用於 Linux 的 Windows 子系統](https://msdn.microsoft.com/commandline/wsl/about)或 [Linux 散發作業系統](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)，請[安裝 Azure CLI 本機主控台](/cli/azure/install-azure-cli)。
@@ -51,7 +51,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 若要建立已啟用系統指派受控識別的 Azure VM，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)角色指派。  不需要其他 Azure AD 目錄角色指派。
 
-1. 使用 [az group create](/cli/azure/group/#az-group-create)，為您的 VM 和其相關資源建立[資源群組](../../azure-resource-manager/resource-group-overview.md#terminology)。 如果您已經有想要使用的資源群組，您可以略過此步驟：
+1. 使用 [az group create](/cli/azure/group/#az-group-create)，為您的 VM 和其相關資源建立[資源群組](../../azure-resource-manager/management/overview.md#terminology)。 如果您已經有想要使用的資源群組，您可以略過此步驟：
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
@@ -81,7 +81,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    
    **要求標頭**
    
-   |要求標頭  |描述  |
+   |要求標頭  |說明  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -170,7 +170,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    ```
    **要求標頭**
 
-   |要求標頭  |描述  |
+   |要求標頭  |說明  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -202,7 +202,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    ```
    **要求標頭**
 
-   |要求標頭  |描述  |
+   |要求標頭  |說明  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -237,7 +237,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
     
    **要求標頭**
 
-   |要求標頭  |描述  |
+   |要求標頭  |說明  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -280,7 +280,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    ```
    **要求標頭**
 
-   |要求標頭  |描述  |
+   |要求標頭  |說明  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -339,7 +339,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    **要求標頭**
 
-   |要求標頭  |描述  |
+   |要求標頭  |說明  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -420,7 +420,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    **要求標頭**
 
-   |要求標頭  |描述  |
+   |要求標頭  |說明  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -511,7 +511,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    ```
    **要求標頭**
 
-   |要求標頭  |描述  |
+   |要求標頭  |說明  |
    |---------|---------|
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。
 
@@ -532,7 +532,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    ```
    **要求標頭**
 
-   |要求標頭  |描述  |
+   |要求標頭  |說明  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        |
@@ -564,7 +564,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    
    **要求標頭**
 
-   |要求標頭  |描述  |
+   |要求標頭  |說明  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -600,7 +600,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    
    **要求標頭**
 
-   |要求標頭  |描述  |
+   |要求標頭  |說明  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -639,7 +639,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    **要求標頭**
 
-   |要求標頭  |描述  |
+   |要求標頭  |說明  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -680,7 +680,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    **要求標頭**
 
-   |要求標頭  |描述  |
+   |要求標頭  |說明  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。
@@ -703,7 +703,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    **要求標頭**
 
-   |要求標頭  |描述  |
+   |要求標頭  |說明  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -735,7 +735,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    **要求標頭**
 
-   |要求標頭  |描述  |
+   |要求標頭  |說明  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
    |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
@@ -765,7 +765,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **要求標頭**
 
-|要求標頭  |描述  |
+|要求標頭  |說明  |
 |---------|---------|
 |*Content-Type*     | 必要。 設定為 `application/json`。        |
 |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
@@ -792,7 +792,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **要求標頭**
 
-|要求標頭  |描述  |
+|要求標頭  |說明  |
 |---------|---------|
 |*Content-Type*     | 必要。 設定為 `application/json`。        |
 |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。| 

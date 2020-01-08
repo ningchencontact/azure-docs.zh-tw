@@ -7,12 +7,12 @@ ms.date: 06/19/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 5cadd0479a6ddc97cc7ee7d9b5aee1bbffba02bb
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: c4351afe7781f4340dfd943828d65e94efbdc0a7
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120975"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659299"
 ---
 # <a name="networking-limit-increase"></a>增加網路限制
 
@@ -27,13 +27,13 @@ ms.locfileid: "74120975"
 
 請依照下列指示，透過 Azure 入口網站中提供的 Azure [說明 + 支援] 分頁來建立支援要求。 
 
-1. 從 https://portal.azure.com選取 [說明 **+ 支援**]。
+1. 從 https://portal.azure.com 選取 [說明 **+ 支援**]。
 
     ![說明 + 支援](./media/resource-manager-core-quotas-request/helpsupport.png)
  
 2.  選取 [新增支援要求]。 
 
-    ![新的支援要求](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+    ![新增支援要求](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
 3. 在 [問題類型] 下拉式清單中，選擇 [**服務與訂用帳戶限制（配額）** ]。
 
@@ -66,11 +66,11 @@ ms.locfileid: "74120975"
 
 1. 從 https://portal.azure.com 選取 [訂用帳戶]。
 
-    ![訂用帳戶](./media/resource-manager-core-quotas-request/subscriptions.png)
+    ![訂閱](./media/resource-manager-core-quotas-request/subscriptions.png)
 
 2. 選取需要增加配額的訂用帳戶。
 
-    ![選取訂用帳戶](./media/resource-manager-core-quotas-request/select-subscription.png)
+    ![選取訂閱](./media/resource-manager-core-quotas-request/select-subscription.png)
 
 3. 選取 [使用量 + 配額]
 
@@ -84,4 +84,4 @@ ms.locfileid: "74120975"
 
 ## <a name="about-networking-limits"></a>關於網路限制
 
-若要深入瞭解網路限制，請參閱限制頁面的[網路功能區段](../azure-subscription-service-limits.md#networking-limits)或我們的網路限制常見問題
+若要深入瞭解網路限制，請參閱限制頁面的[網路功能區段](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)或我們的網路限制常見問題

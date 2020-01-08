@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 82ac27e10a74dc99adb7615d604502e696aa9edb
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 940c82e9ef7016639a3ab334040c408f83996e2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894315"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365303"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>在 Azure 監視器記錄查詢中處理 JSON 與資料結構
 
@@ -55,7 +55,7 @@ print hosts_report
 ```
 
 
-## <a name="working-with-objects"></a>處理物件
+## <a name="working-with-objects"></a>使用物件
 
 ### <a name="parsejson"></a>parsejson
 若要存取您 json 結構中的多個元素，以動態物件方式來存取比較簡單。 使用 `parsejson` 將文字資料轉換為動態物件。 一旦轉換為動態型別，就能使用額外函式來分析資料。

@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: e90bff7548be5f469ebbcdc21dd9b93dc887a30e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2b11bbc22714ab1905421812e3cb24ee660ee667
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931960"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372325"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database 無伺服器
 
@@ -66,7 +66,7 @@ Azure SQL Database 無伺服器是單一資料庫的計算層，可根據工作�
 | | **無伺服器計算** | **佈建計算** |
 |:---|:---|:---|
 |**資料庫使用模式**| 一段時間內，平均計算使用率較低的間歇性、無法預測的使用量。 |  使用一段時間的平均計算使用量較高的一般使用模式，或使用彈性集區的多個資料庫。|
-| **效能管理投入量** |較低|較高|
+| **效能管理投入量** |Lower|較高|
 |**計算調整**|自動|手動|
 |**計算回應性**|在非使用期間後降低|立即|
 |**計費細微度**|每秒|每小時|
@@ -155,7 +155,7 @@ SQL 快取會隨著資料以相同的方式從磁片提取，而且速度與布�
 
 1. 指定服務目標名稱。 服務目標會規定服務層、硬體世代和最大虛擬核心。 下表顯示服務目標選項：
 
-   |服務目標名稱|服務層級|硬體世代|最大虛擬核心數|
+   |服務目標名稱|服務層級|硬體世代|虛擬核心數上限|
    |---|---|---|---|
    |GP_S_Gen5_1|一般用途|Gen5|1|
    |GP_S_Gen5_2|一般用途|Gen5|2|
@@ -177,30 +177,27 @@ SQL 快取會隨著資料以相同的方式從磁片提取，而且速度與布�
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>在無伺服器計算層中建立新資料庫 
 
+下列範例會在無伺服器計算層中建立新的資料庫。 這些範例會明確指定最小虛擬核心、最大虛擬核心和自動暫停延遲。
+
 #### <a name="use-azure-portal"></a>使用 Azure 入口網站
 
 請參閱[快速入門：使用 Azure 入口網站在 Azure SQL Database 中建立單一資料庫](sql-database-single-database-get-started.md)。
 
+
 #### <a name="use-powershell"></a>使用 PowerShell
-
-下列範例會在無伺服器計算層中建立新的資料庫。  此範例明確指定最小虛擬核心數、最大虛擬核心數和自動暫停延遲。
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
   -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
   -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
+#### <a name="use-azure-cli"></a>使用 Azure CLI
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```powershell
+```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
   -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
 ```
 
-* * *
 
 #### <a name="use-transact-sql-t-sql"></a>使用 Transact-sql （T-sql）
 
@@ -215,11 +212,10 @@ CREATE DATABASE testdb
 
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>將資料庫從已布建的計算層移到無伺服器計算層
 
+下列範例會將資料庫從已布建的計算層移到無伺服器計算層。 這些範例會明確指定最小虛擬核心、最大虛擬核心和自動暫停延遲。
+
 #### <a name="use-powershell"></a>使用 PowerShell
 
-下列範例會將資料庫從已布建的計算層移到無伺服器計算層。 此範例明確指定最小虛擬核心數、最大虛擬核心數和自動暫停延遲。
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
@@ -227,14 +223,13 @@ Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+#### <a name="use-azure-cli"></a>使用 Azure CLI
 
-```powershell
+```azurecli
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
   --edition GeneralPurpose --min-capacity 1 --capacity 4 --family Gen5 --compute-model Serverless --auto-pause-delay 1440
 ```
 
-* * *
 
 #### <a name="use-transact-sql-t-sql"></a>使用 Transact-sql （T-sql）
 
@@ -253,15 +248,14 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 ## <a name="modifying-serverless-configuration"></a>修改無伺服器設定
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="use-powershell"></a>使用 PowerShell
 
 若要修改最大或最小虛擬核心，以及自動暫停延遲，請在 PowerShell 中使用[set-azsqldatabase 搭配](/powershell/module/az.sql/set-azsqldatabase)命令，並使用 `MaxVcore`、`MinVcore`和 `AutoPauseDelayInMinutes` 引數來執行。
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="use-azure-cli"></a>使用 Azure CLI
 
 修改最大或最小虛擬核心，以及自動暫停延遲，是使用 Azure CLI 中的[az sql db update](/cli/azure/sql/db#az-sql-db-update)命令來執行，方法是使用 `capacity`、`min-capacity`和 `auto-pause-delay` 引數。
 
-* * *
 
 ## <a name="monitoring"></a>監視
 
@@ -281,7 +275,7 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 下表列出監視應用程式套件的資源使用量和無伺服器資料庫使用者集區的計量：
 
-|單位|計量|描述|單位數|
+|單位|計量|說明|單位數|
 |---|---|---|---|
 |應用程式套件|app_cpu_percent|應用程式所使用的虛擬核心百分比，相對於應用程式所允許的最大虛擬核心數。|百分比|
 |應用程式套件|app_cpu_billed|在報告期間內針對應用程式計費的計算數量。 在這段期間所支付的金額為此計量與虛擬核心單價的乘積。 <br><br>彙總一段時間內每秒使用的最大 CPU 與記憶體，即可判斷此計量的值。 如果使用的數量小於依照最小虛擬核心數與最小記憶體所設定的最小佈建數量，就會收取最小佈建數量的費用。 為了比較 CPU 與記憶體以供計費之用，記憶體會藉由重新調整每個 vCore 的記憶體數量（GB），以正規化為虛擬核心單位。|虛擬核心秒數|
@@ -296,22 +290,21 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 在 Azure 入口網站中，資料庫狀態會顯示於伺服器的 [概觀] 窗格，其中列出它所包含的資料庫。 資料庫狀態也會顯示在資料庫的 [概觀] 窗格中。
 
-使用下列 PowerShell 命令來查詢資料庫的暫停和繼續狀態：
+使用下列命令來查詢資料庫的暫停和繼續狀態：
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="use-powershell"></a>使用 PowerShell
 
 ```powershell
 Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename `
   | Select -ExpandProperty "Status"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+#### <a name="use-azure-cli"></a>使用 Azure CLI
 
-```powershell
+```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
 ```
 
-* * *
 
 ## <a name="resource-limits"></a>資源限制
 

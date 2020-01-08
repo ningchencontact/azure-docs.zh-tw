@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 0572a18e530eaff2b5a2d8aa8ced5af26f762aa8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c4e2681121a15e0b84a11c7cf35119c3f1b69f11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873925"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443729"
 ---
 # <a name="get-started-with-azcopy"></a>開始使用 AzCopy
 
@@ -34,14 +34,7 @@ AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間複製 blob �
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-這些檔案會壓縮成 zip 檔案（Windows 和 Mac）或 tar 檔案（Linux）。
-
-您可以使用這些命令，在 Linux 上下載和解壓縮 tar 檔案。
-
-```bash
-wget -O azcopy.tar.gz https://aka.ms/downloadazcopy-v10-linux
-tar -xf azcopy.tar.gz
-```
+這些檔案會壓縮成 zip 檔案（Windows 和 Mac）或 tar 檔案（Linux）。 若要在 Linux 上下載並解壓縮 tar 檔案，請參閱 Linux 散發套件的檔。
 
 > [!NOTE]
 > 如果您想要將資料複製到您的[Azure 資料表儲存體](https://docs.microsoft.com/azure/storage/tables/table-storage-overview)服務，請安裝[AzCopy 7.3 版](https://aka.ms/downloadazcopynet)。
@@ -98,8 +91,8 @@ tar -xf azcopy.tar.gz
 
 - 容器（檔案系統）
 - 儲存體帳戶
-- Resource group
-- Subscription
+- 資源群組
+- 訂閱
 
 若要瞭解如何驗證和指派角色，請參閱[在 Azure 入口網站中使用 RBAC 授與 Azure blob 和佇列資料的存取權](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
@@ -278,7 +271,7 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 
 若要取得連結，請執行此命令：
 
-| 作業系統  | 命令 |
+| 作業系統  | Command |
 |--------|-----------|
 | **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
 | **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
@@ -288,7 +281,7 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 
 此 URL 會出現在此命令的輸出中。 接著，您的腳本就可以使用該 URL 來下載 AzCopy。
 
-| 作業系統  | 命令 |
+| 作業系統  | Command |
 |--------|-----------|
 | **Linux** | `wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |

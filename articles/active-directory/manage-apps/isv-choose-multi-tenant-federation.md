@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c05ad3eace1219e19e0bfb117d3ec8de68a756f9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3b3edbbe037c3874d639476e516b3732b7573d9b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232303"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443384"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>為您的多租使用者應用程式選擇正確的同盟通訊協定
 
@@ -44,9 +44,9 @@ ms.locfileid: "74232303"
 
 ## <a name="oauth-20-and-open-id-connect"></a>OAuth 2.0 和 Open ID Connect
 
-OAuth 2.0 是用於授權的[業界標準](https://oauth.net/2/)通訊協定。 OIDC （OpenID Connect）是以 Oath 2.0 通訊協定為基礎的[業界標準](https://openid.net/connect/)身分識別驗證層。
+OAuth 2.0 是用於授權的[業界標準](https://oauth.net/2/)通訊協定。 OIDC （OpenID Connect）是以 OAuth 2.0 通訊協定為基礎的[業界標準](https://openid.net/connect/)身分識別驗證層。
 
-### <a name="benefits"></a>優點
+### <a name="benefits"></a>優勢
 
 Microsoft 建議使用 OIDC/OAuth 2.0，因為它們具有內建于通訊協定的驗證和授權。 使用 SAML 時，您必須另外執行授權。
 
@@ -74,7 +74,7 @@ Microsoft 建議使用 OIDC/OAuth 2.0，因為它們具有內建于通訊協定�
 
 Web 服務同盟（WSFed）是一種[業界標準](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html)，通常用於使用 .net 平臺開發的 web 應用程式。
 
-### <a name="benefits"></a>優點
+### <a name="benefits"></a>優勢
 
 SAML 2.0 是一個成熟的標準，而大部分的技術平臺都支援 SAML 2.0 的開放原始碼程式庫。 您可以為客戶提供管理介面來設定 SAML SSO。 他們可以設定 Microsoft Azure AD 的 SAML SSO，以及任何其他支援 SAML 2 的身分識別提供者
 

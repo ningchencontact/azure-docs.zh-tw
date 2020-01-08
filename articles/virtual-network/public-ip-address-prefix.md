@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: f89218b066b0a22559c00c4a53316f0df9c0bb8f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 12fb7e03062600745cd8511d37b439ce44f2ef78
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488441"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640715"
 ---
 # <a name="public-ip-address-prefix"></a>公用 IP 位址首碼
 
@@ -34,12 +34,12 @@ ms.locfileid: "73488441"
 
 當您建立公用 IP 位址資源時，Azure 會從區域中使用的任何範圍指派可用的公用 IP 位址。 Azure 指派位址後，您就會知道是哪個位址，但在 Azure 指派位址之前，您不知道可能指派的地址。 例如，當您或您的業務合作夥伴設定允許特定 IP 位址的防火牆規則時，這可能會造成問題。 每次為資源指派新的公用 IP 位址時，都必須將該位址加入至防火牆規則中。 當您從公用 IP 位址首碼將位址指派給您的資源時，不需要每次指派其中一個位址時就更新防火牆規則，因為整個範圍可以新增至規則中。
 
-## <a name="benefits"></a>優點
+## <a name="benefits"></a>優勢
 
 - 您可以從已知範圍建立公用 IP 位址資源。
 - 您或您的業務合作夥伴可以建立防火牆規則，其範圍包括您目前獲指派的公用 IP 位址，以及尚未分配的位址。 這樣就不需要在將位址指派給新資源時變更防火牆規則。
 - 您可以建立之範圍的預設大小是 /28 或 16 個 IP 位址。
-- 您可以建立多少範圍沒有任何限制，但是，Azure 訂用帳戶中可以擁有的靜態公用 IP 位址的數目上限有限制。 因此，您所建立的範圍數目不能包含比訂用帳戶中的位址更多的靜態公用 IP 位址。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
+- 您可以建立多少範圍沒有任何限制，但是，Azure 訂用帳戶中可以擁有的靜態公用 IP 位址的數目上限有限制。 因此，您所建立的範圍數目不能包含比訂用帳戶中的位址更多的靜態公用 IP 位址。 如需詳細資訊，請參閱 [Azure 限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 - 使用首碼中的位址建立的位址，可以指派給任何可為其指派公用 IP 位址的 Azure 資源。
 - 您可以輕鬆查看該範圍內已配置與尚未配置的 IP 位址。
 
@@ -56,7 +56,7 @@ ms.locfileid: "73488441"
 ## <a name="constraints"></a>條件約束
 
 - 您無法指定首碼的 IP 位址。 Azure 會根據您指定的大小為首碼配置 IP 位址。
-- 您可以建立最多16個 IP 位址或/28 的前置詞。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
+- 您可以建立最多16個 IP 位址或/28 的前置詞。 如需詳細資訊，請參閱 [Azure 限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 - 建立首碼之後，就無法變更範圍。
 - 只能從首碼的範圍指派使用標準 SKU 建立的靜態公用 IP 位址。 若要深入了解公用 IP 位址 SKU，請參閱[公用 IP 位址](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)。
 - 範圍中的位址只能指派給 Azure Resource Manager 資源。 無法將位址指派給傳統部署模型中的資源。

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7bdd1e1922d9d8845a8187cabb3fd39af4694ab
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 75fe9c8587a15ed37366dceda05b5befb353ebb3
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70077904"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647504"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>在 Azure 之 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用上安裝 SAP NetWeaver 高可用性
 
@@ -36,8 +36,8 @@ ms.locfileid: "70077904"
 
 [sap-powershell-scrips]:https://github.com/Azure-Samples/sap-powershell
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [s2d-in-win-2016]:https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
 [sofs-overview]:https://technet.microsoft.com/library/hh831349(v=ws.11).aspx
@@ -193,7 +193,7 @@ ms.locfileid: "70077904"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -231,7 +231,7 @@ ms.locfileid: "70077904"
 
 在 SOFS 叢集上建立下列磁碟區和檔案共用：
 
-* SOFS 叢集共用`C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\`磁片區（CSV）上的 SAP GLOBALHOST 檔案結構
+* SOFS 叢集共用磁片區（CSV）上的 SAP GLOBALHOST 檔案 `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` 結構
 
 * SAPMNT 檔案共用
 
@@ -299,7 +299,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 在第一個叢集節點上安裝 SAP ASCS/SCS 實例。 若要安裝執行個體，在 SAP SWPM 安裝工具中，移至：
 
-**\<產品 >**  >   >  DBMS >安裝 > 應用程式伺服器 ABAP （或 JAVA） >**高可用性系統** **\<**  > **ASCS/SCS 實例** **第一個叢集節點。**  > 
+**\<產品 >**  >  **\<DBMS >**  > **安裝** > **應用程式伺服器 ABAP** （或**JAVA**） >**高可用性系統** > **ASCS/SCS 實例** > **第一個叢集節點**。
 
 ### <a name="add-a-probe-port"></a>新增探查連接埠
 
@@ -309,12 +309,12 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 在第二個叢集節點上安裝 SAP ASCS/SCS 實例。 若要安裝執行個體，在 SAP SWPM 安裝工具中，移至：
 
-**\<產品 >**  >   >  DBMS >安裝 > 應用程式伺服器 ABAP （或 JAVA） >**高可用性系統** **\<**  > **ASCS/SCS 實例** **其他叢集節點。**  > 
+**\<產品 >**  >  **\<DBMS >**  > **安裝** > **應用程式伺服器 ABAP** （或**JAVA**） >**高可用性系統** > **ASCS/SCS 實例** > **其他叢集節點**。
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>更新 SAP ASCS/SCS 執行個體設定檔
 
-更新 SAP ASCS/scs 實例設定檔\<SID 中的參數 >_ASCS/\<scs Nr >_ \<主機 >。
+更新 SAP ASCS/SCS 實例設定檔中的參數 \<SID >_ASCS/scs\<Nr >_ \<主機 >。
 
 
 | 參數名稱 | 參數值 |
@@ -323,7 +323,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-重新開機 SAP ASCS/SCS 實例。 在`KeepAlive` sap ASCS/scs 叢集節點上設定參數遵循指示，在[sap ASCS/scs 實例的叢集節點上設定登錄專案][high-availability-guide]。 
+重新開機 SAP ASCS/SCS 實例。 在 SAP ASCS/SCS 叢集節點上設定 `KeepAlive` 參數時，請遵循指示，在[SAP ASCS/scs 實例的叢集節點上設定登錄專案][high-availability-guide]。 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>安裝 DBMS 執行個體和 SAP 應用程式伺服器
 

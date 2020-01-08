@@ -3,17 +3,17 @@ title: 在 Azure 雲端服務中收集效能計數器 | Microsoft Docs
 description: 了解如何在雲端服務中使用 Azure 診斷和 Application Insights 來探索、使用及建立效能計數器。
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 02/02/2018
-ms.author: gwallace
-ms.openlocfilehash: d6b16b859b29ef835bca75c5fca0ea1a9d35a306
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.author: tagore
+ms.openlocfilehash: 16b0727a78ad8ad582535fa1f5b0e57079cc4c05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68358944"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385581"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>為您的 Azure 雲端服務收集效能計數器
 
@@ -103,7 +103,7 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 
 Application Insights 會自動收集下列效能計數器：
 
-* \Process(??APP_WIN32_PROC??)\%Processor Time
+* \Process （？APP_WIN32_PROC？？）\% 處理器時間
 * \Memory\Available Bytes
 * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
 * \Process(??APP_WIN32_PROC??)\Private Bytes
@@ -292,3 +292,6 @@ counterServiceUsed.Increment();
 - [Application Insights 中的系統效能計數器](../azure-monitor/app/performance-counters.md)
 - [指定計數器路徑](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Azure 診斷結構描述 - 效能計數器](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)
+
+
+

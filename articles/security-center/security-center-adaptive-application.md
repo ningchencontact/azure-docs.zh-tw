@@ -1,6 +1,6 @@
 ---
-title: Azure 資訊安全中心的自適性應用程式控制 | Microsoft Docs
-description: 本文件協助您了解如何使用 Azure 資訊安全中心的自適性應用程式控制，將在 Azure VM 中執行的應用程式列入允許清單。
+title: Azure 資訊安全中心的自適性應用程式控制
+description: 本檔可協助您使用 Azure 資訊安全中心中的適應性應用程式控制，將在 Azure 機器中執行的應用程式列入允許清單。
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2019
+ms.date: 12/23/2019
 ms.author: memildin
-ms.openlocfilehash: 46ab2fc5c796d960de8b1c5e3391a6356563b50a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 862fb4f8a9dcd357148f73a729ffc7e92ba0083a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202810"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353431"
 ---
-# <a name="adaptive-application-controls-in-azure-security-center"></a>Azure 資訊安全中心的自適性應用程式控制
+# <a name="adaptive-application-controls"></a>自適性應用程式控制
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定應用程式控制。
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>什麼是 Azure 資訊安全中心的自適性應用程式控制？
-彈性應用程式控制是來自 Azure 資訊安全中心的智慧型、自動化、端對端解決方案，可協助您控制哪些應用程式可以在您的 Azure 和非 Azure Vm （Windows 和 Linux）上執行。 除了其他優點以外，這有助於強化您的 Vm 以抵禦惡意程式碼。 資訊安全中心使用機器學習服務來分析在 Vm 上執行的應用程式，並從這個智慧建立允許清單。 這項功能可大幅簡化設定和維護應用程式允許清單原則的流程，讓您能夠：
+彈性應用程式控制是來自 Azure 資訊安全中心的智慧型、自動化、端對端解決方案，可協助您控制哪些應用程式可在您的 Azure 和非 Azure 機器（Windows 和 Linux）上執行。 除了其他優點，這有助於強化電腦免于惡意程式碼的攻擊。 資訊安全中心使用機器學習服務來分析在您電腦上執行的應用程式，並從這個智慧建立允許清單。 這項功能可大幅簡化設定和維護應用程式允許清單原則的流程，讓您能夠：
 
 - 封鎖執行惡意應用程式的嘗試或提出警示，包括反惡意程式碼解決方案可能遺漏的嘗試。
 - 符合您組織規定只能使用授權軟體的安全性原則。
@@ -34,15 +34,17 @@ ms.locfileid: "71202810"
 - 讓 IT 能夠透過應用程式使用量來控制敏感性資料的存取。
 
 > [!NOTE]
-> 針對非 Azure 和 Linux Vm，只有 audit 模式支援彈性應用程式控制。
+> 針對非 Azure 和 Linux 機器，只有 audit 模式支援彈性應用程式控制。
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>如何啟用自適性應用程式控制？
-自適性應用程式控制可協助您定義一組可以對已設定的 VM 群組執行的應用程式。 這項功能適用于 Azure 和非 Azure Windows （所有版本、傳統或 Azure Resource Manager）和 Linux Vm 和伺服器。 使用下列步驟來設定您的應用程式允許清單：
+
+彈性應用程式控制可協助您定義一組允許在已設定的電腦群組上執行的應用程式。 這項功能適用于 Azure 和非 Azure Windows （所有版本、傳統或 Azure Resource Manager）和 Linux 電腦。 使用下列步驟來設定您的應用程式允許清單：
 
 1. 開啟 [資訊安全中心] 儀表板。
-2. 在左側窗格中，選取位於 [進階雲端防禦] 之下的 [自適性應用程式控制]。
 
-    ![防禦](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
+1. 在左側窗格中，選取位於 [進階雲端防禦] 之下的 [自適性應用程式控制]。
+
+    [![防衛](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png#lightbox)
 
 [自適性應用程式控制] 頁面隨即出現。
 
@@ -60,7 +62,8 @@ ms.locfileid: "71202810"
 >
 
 ### <a name="configure-a-new-application-control-policy"></a>設定新的應用程式控制原則
-1. 針對具有應用程式控制建議的群組清單，按一下 [建議] 索引標籤：
+
+1. 針對具有應用程式控制建議的群組清單選取 [**建議**] 索引標籤：
 
    ![建議](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
@@ -73,7 +76,7 @@ ms.locfileid: "71202810"
 
 2. 按一下群組以開啟 [建立應用程式控制規則] 選項。
 
-   ![應用程式控制規則](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
+   [![應用程式控制規則](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png#lightbox)
 
 3. 在 [選取 VM] 中，檢閱建議的 VM 清單，並取消選取任何不想套用應用程式允許清單原則的 VM。 接下來，您會看到兩份清單：
 
@@ -106,7 +109,7 @@ ms.locfileid: "71202810"
 
    - **組名**：訂用帳戶和群組的名稱
    - **Vm 和電腦**：群組中的虛擬機器數目
-   - **模式**：Audit 模式會記錄執行不在允許清單上之應用程式的嘗試;[強制] 不允許應用程式執行，除非它們位於允許清單上
+   - **模式**： Audit 模式會記錄嘗試執行不在允許清單上的應用程式;[強制] 不允許應用程式執行，除非它們位於允許清單上
    - **警示**：目前所有的違規情形
 
 2. 按一下群組以在 [編輯應用程式控制原則] 頁面中進行變更。
@@ -132,7 +135,7 @@ ms.locfileid: "71202810"
 6. 在 [發行者允許清單規則]、[路徑允許清單規則] 和 [雜湊允許清單規則] 底下，可以根據規則集合類型，查看群組中的 VM 上目前設定了哪些應用程式允許清單規則。 在每個規則中，您可以看到：：
 
    - **規則**：特定的參數，AppLocker 會根據這些參數來檢查應用程式，判斷是否允許執行應用程式。
-   - **檔案類型**：特定規則所涵蓋的檔案類型。 這可以是下列任何一項：EXE、指令碼、MSI 或這些檔案類型的任何排列。
+   - **檔案類型**：特定規則所涵蓋的檔案類型。 這可以是下列任一項：EXE、指令碼、MSI 或這些檔案類型的任何排列。
    - **使用者**：使用者的名稱或數目，這些使用者可以執行應用程式允許清單規則所涵蓋的應用程式。
 
    ![列入允許清單規則](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)

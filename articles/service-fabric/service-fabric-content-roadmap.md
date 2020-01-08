@@ -1,25 +1,14 @@
 ---
-title: 深入了解 Azure Service Fabric | Microsoft Docs
+title: 深入瞭解 Azure Service Fabric
 description: 了解 Azure Service Fabric 的核心概念和主要領域。 提供 Service Fabric 及如何建立微服務的延伸概觀。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/08/2017
-ms.author: atsenthi
-ms.openlocfilehash: 1227871f2003ded7b9cb92eaf32bd9a984958f9f
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 4e6e21f5f9ebfeddb5292e00dc8a929341e77372
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537806"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458158"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>您想要了解 Service Fabric 嗎？
 Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。  Service Fabric 有相當大的介面區，不過，要了解的方面很多。  本文提供 Service Fabric 的概述，並描述核心概念、程式設計模型、應用程式生命週期、測試、叢集及健康情況監視。 如需相關簡介及了解如何使用 Service Fabric 來建立微服務，請參閱[概觀](service-fabric-overview.md)和[什麼是微服務？](service-fabric-overview-microservices.md)。 本文並未包含完整的內容清單，但有連結到 Service Fabric 每個領域的概觀與入門文章。 
@@ -27,18 +16,18 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署�
 ## <a name="core-concepts"></a>核心概念
 [Service Fabric 術語](service-fabric-technical-overview.md)、[應用程式模型](service-fabric-application-model.md)及[支援的程式設計模型](service-fabric-choose-framework.md)提供更多概念和描述，但這裡提供基本概念。
 
-### <a name="design-time-service-type-service-package-and-manifest-application-type-application-package-and-manifest"></a>設計階段： 服務類型、 服務套件和資訊清單、 應用程式類型、 應用程式套件和資訊清單
-服務類型是指派給服務的程式碼封裝、資料封裝及組態封裝的名稱/版本。 這被定義在 ServiceManifest.xml 檔案中。 服務類型是由可執行程式碼和服務組態設定，會在執行階段載入，以及靜態資料是由服務所組成。
+### <a name="design-time-service-type-service-package-and-manifest-application-type-application-package-and-manifest"></a>設計階段：服務類型、服務封裝和資訊清單、應用程式類型、應用程式封裝和資訊清單
+服務類型是指派給服務的程式碼封裝、資料封裝及組態封裝的名稱/版本。 這會在 ServiceManifest 中定義。 服務類型是由可執行程式碼和服務設定（在執行時間載入），以及服務所使用的靜態資料所組成。
 
 服務封裝是一個磁碟目錄，其中包含服務類型的 ServiceManifest.xml 檔案，此檔案會參考服務類型的程式碼、靜態資料及組態封裝。 例如，服務套件可能會參考構成資料庫服務的程式碼、靜態資料和組態封裝。
 
-應用程式類型是指派給服務類型集合的名稱/版本。 這被定義在 ApplicationManifest.xml 檔案中。
+應用程式類型是指派給服務類型集合的名稱/版本。 這會在 ApplicationManifest 中定義。
 
 ![Service Fabric 應用程式類型和服務類型][cluster-imagestore-apptypes]
 
-應用程式封裝是一個磁碟目錄，其中包含應用程式類型的 ApplicationManifest.xml 檔案，此檔案會參考之每個服務類型組成的應用程式類型的服務封裝。 例如，電子郵件應用程式類型的應用程式封裝可能包含指向佇列服務封裝、前端服務封裝、資料庫服務封裝的參考。  
+應用程式封裝是一個磁碟目錄，其中包含應用程式類型的 ApplicationManifest 檔案，該檔案會參考組成應用程式類型之每個服務類型的服務封裝。 例如，電子郵件應用程式類型的應用程式封裝可能包含指向佇列服務封裝、前端服務封裝、資料庫服務封裝的參考。  
 
-應用程式封裝目錄中的檔案會複製到 Service Fabric 叢集的映像存放區。 您可以接著從這個應用程式類型建立一個具名應用程式，然後在叢集內執行該應用程式。 建立具名應用程式之後, 您可以建立具名的服務從應用程式類型的服務類型之一。 
+應用程式封裝目錄中的檔案會複製到 Service Fabric 叢集的映像存放區。 您可以接著從這個應用程式類型建立一個具名應用程式，然後在叢集內執行該應用程式。 建立名為的應用程式之後，您可以從應用程式類型的其中一個服務類型建立名為的服務。 
 
 ### <a name="run-time-clusters-and-nodes-named-applications-named-services-partitions-and-replicas"></a>執行階段︰叢集和節點、具名應用程式、具名服務、分割區及複本
 [Service Fabric 叢集](service-fabric-deploy-anywhere.md)是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 叢集可擴充至數千部機器。
@@ -67,7 +56,7 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署�
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Service Fabric 的無狀態與具狀態微服務
 Service Fabric 可讓您建置由微服務或容器組成的應用程式。 無狀態微服務 (如通訊協定閘道器、Web Proxy) 不會維護要求之外的可變動狀態及來自服務的回應。 Azure 雲端服務背景工作角色即為無狀態服務的範例。 可設定狀態的微服務 (如使用者帳戶、資料庫、裝置、購物車、佇列) 會維護要求及其回應外的可變動授權狀態。 現今的網際網路級別應用程式包含無狀態與可設定狀態微服務的組合。 
 
-使用 Service Fabric 的主要差異是它強烈著重在建置具狀態服務，不論是使用[內建的程式設計模型](service-fabric-choose-framework.md)還是使用容器化具狀態服務。 [應用程式案例](service-fabric-application-scenarios.md)說明使用具狀態服務的案例。
+與 Service Fabric 的主要差異在於，它會以[內建的程式設計模型](service-fabric-choose-framework.md)或容器化的具狀態服務，建立具狀態服務的強大焦點。 [應用程式案例](service-fabric-application-scenarios.md)說明使用具狀態服務的案例。
 
 為什麼有具狀態的微服務以及無狀態的微服務？ 兩個主要原因如下：
 
@@ -95,7 +84,7 @@ Service Fabric 與 [ASP.NET Core](service-fabric-reliable-services-communication
 ### <a name="guest-executables"></a>客體可執行檔
 [客體可執行檔](service-fabric-guest-executables-introduction.md)是以任何語言所撰寫，且與其他服務一同裝載於 Service Fabric 叢集的現有任意可執行檔。 客體可執行檔未直接與 Service Fabric API 整合。 不過，它們仍然受惠於功能和平台供應項目，例如自訂健康情況和負載報告，以及透過呼叫 REST API 來探索服務。 它們也具備完整的應用程式生命週期支援。 
 
-## <a name="application-lifecycle"></a>應用程式生命週期
+## <a name="application-lifecycle"></a>應用程式週期
 如同其他平台，Service Fabric 上的應用程式通常會經歷下列階段：設計、開發、測試、部署、升級、維護和移除。 從開發到部署、到每日管理、維護，以及最終的解除委任，Service Fabric 為雲端應用程式的完整應用程式生命週期提供第一等的支援。 服務模型可以啟用數個不同的角色，在應用程式生命週期中獨立參與。 [Service Fabric 應用程式生命週期](service-fabric-application-lifecycle.md)說明 API 的概觀，以及不同的角色如何在 Service Fabric 應用程式生命週期的各個階段使用 API。 
 
 您可使用 [PowerShell cmdlet](/powershell/module/ServiceFabric/)、[CLI 命令](service-fabric-sfctl.md)、[C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient)、[Java APIs](/java/api/overview/azure/servicefabric) 和 [REST APIs](/rest/api/servicefabric/) 來管理整個應用程式生命週期。 您也可使用 [Azure Pipelines](service-fabric-set-up-continuous-integration.md) 或 [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md) 等工具來設定持續整合/持續部署管線。
@@ -116,12 +105,12 @@ Service Fabric 與 [ASP.NET Core](service-fabric-reliable-services-communication
 * [容錯移轉測試案例](service-fabric-testability-scenarios.md#failover-test)是以特定服務資料分割為目標的混亂測試案例版本，且其他服務不會受到任何影響。
 
 ## <a name="clusters"></a>叢集
-[Service Fabric 叢集](service-fabric-deploy-anywhere.md)是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 叢集可擴充至數千部機器。 隸屬於叢集的機器或 VM 稱為叢集模式。 需為每個節點指派節點名稱 (字串)。 節點具有各種特性，如 placement 屬性。 每部電腦或 VM 皆有自動啟動的服務 `FabricHost.exe`，該服務會在開機時開始執行，然後啟動兩個可執行檔：Fabric.exe 和 FabricGateway.exe。 這兩個執行檔構成節點。 在測試案例中，您可以藉由執行 `Fabric.exe` 和 `FabricGateway.exe` 的多個執行個體，在單一電腦或 VM 上裝載多個節點。
+[Service Fabric 叢集](service-fabric-deploy-anywhere.md)是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 叢集可擴充至數千部機器。 隸屬於叢集的機器或 VM 稱為叢集模式。 需為每個節點指派節點名稱 (字串)。 節點具有各種特性，如 placement 屬性。 每部電腦或 VM 皆有自動啟動服務 `FabricHost.exe`，此服務會在開機時開始執行，然後啟動兩個可執行檔：Fabric.exe 和 FabricGateway.exe。 這兩個執行檔構成節點。 在測試案例中，您可以藉由執行 `Fabric.exe` 和 `FabricGateway.exe` 的多個執行個體，在單一電腦或 VM 上裝載多個節點。
 
 您可在執行 Windows Server 或 Linux 的虛擬機器或實體機器上，建立 Service Fabric 叢集。 只要有一組互連式 Windows Server 或 Linux 電腦，不論是在內部部署、Microsoft Azure 或透過任何雲端提供者，您皆可在任何環境中部署和執行 Service Fabric 應用程式。
 
 ### <a name="clusters-on-azure"></a>Azure 上的叢集
-我們可藉由在 Azure 上執行 Service Fabric 叢集，與其他的 Azure 功能和服務整合，而能夠更加輕鬆可靠地操作及管理叢集。 叢集為 Azure Resource Manager 資源，因此您可如同 Azure 中的其他任何資源般建立叢集模型。 Resource Manager 亦可輕鬆管理由叢集以單一單位方式使用的所有資源。 Azure 上的叢集會與整合 Azure 診斷，Azure 監視器記錄檔。 叢集節點類型是[虛擬機器擴展集](/azure/virtual-machine-scale-sets/index)，因此內建自動調整功能。
+我們可藉由在 Azure 上執行 Service Fabric 叢集，與其他的 Azure 功能和服務整合，而能夠更加輕鬆可靠地操作及管理叢集。 叢集為 Azure Resource Manager 資源，因此您可如同 Azure 中的其他任何資源般建立叢集模型。 Resource Manager 亦可輕鬆管理由叢集以單一單位方式使用的所有資源。 Azure 上的叢集會與 Azure 診斷和 Azure 監視器記錄整合。 叢集節點類型是[虛擬機器擴展集](/azure/virtual-machine-scale-sets/index)，因此內建自動調整功能。
 
 您可透過 [Azure 入口網站](service-fabric-cluster-creation-via-portal.md)、[範本](service-fabric-cluster-creation-via-arm.md)或 [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md)，在 Azure 上建立叢集。
 
@@ -146,7 +135,7 @@ Service Fabric 提供安裝套件，可讓您在內部部署環境或任何雲�
 
 如需詳細資訊，請參閱[保護叢集](service-fabric-cluster-security.md)。
 
-### <a name="scaling"></a>縮放
+### <a name="scaling"></a>調整
 若您新增節點至叢集，則 Service Fabric 會重新平衡全體增加節點數的資料分割複本和執行個體。 整體應用程式效能會有所改善，改善，並減少爭用記憶體的存取權。 若未有效率地使用叢集中的節點，您可減少叢集中的節點數目。 Service Fabric 會再次重新平衡全體減少節點數的資料分割複本和執行個體，以善加使用每個節點上的硬體。 您可透過[手動](service-fabric-cluster-scale-up-down.md)或[程式設計方式](service-fabric-cluster-programmatic-scaling.md)，調整 Azure 上叢集的規模。 您可[手動](service-fabric-cluster-windows-server-add-remove-nodes.md)調整獨立叢集的規模。
 
 ### <a name="cluster-upgrades"></a>叢集升級
@@ -156,7 +145,7 @@ Service Fabric 叢集是由您所擁有，但由 Microsoft 部分管理的資源
 
 獨立叢集是由您完全擁有的資源。 由您負責修補基礎 OS 和起始網狀架構升級。 若您的叢集可連線至 [https://www.microsoft.com/download](https://www.microsoft.com/download)，則您可將叢集設為自動下載和佈建新的 Service Fabric 執行階段套件。 接著您即會起始升級。 若您的叢集無法存取 [https://www.microsoft.com/download](https://www.microsoft.com/download)，則您可透過連線至網際網路的電腦下載新執行階段套件，然後再起始升級。 如需詳細資訊，請參閱[升級獨立 Service Fabric 叢集](service-fabric-cluster-upgrade-windows-server.md)。
 
-## <a name="health-monitoring"></a>健康狀況監視
+## <a name="health-monitoring"></a>狀況監控
 Service Fabric 引入了[健康狀態模型](service-fabric-health-introduction.md)，主要用於在特定實體 (例如叢集節點和服務複本) 上標示狀況不良的叢集和應用程式條件。 健康狀態模型使用健康狀態報告程式 (系統元件及看門狗)。 目標為輕易迅速的診斷並修復問題。 服務撰寫者必須預先考量健康狀態以及如何[設計健康狀態報告](service-fabric-report-health.md#design-health-reporting)等相關層面。 任何可能會影響到健康狀態的條件都需加以回報，尤其是如果它有助標示出接近根目錄的問題。 一旦在生產階段大規模啟動並執行服務，健康狀態資訊將可有效減少偵錯和調查工作所需的時間和心力。
 
 Service Fabric 報告程式可監控感興趣的已識別條件。 它們會依據其本機檢視回報這些條件。 [健康狀態存放區](service-fabric-health-introduction.md#health-store) 可彙總報告程式送出的所有健康狀態資料，以判斷實體的健康狀態是否為全域良好。 必須為豐富、彈性且容易使用的模型。 健康狀態報告的品質可決定叢集的健康狀態檢視準確度。 不正確顯示出健康不良的問題之誤報，會對升級或其他使用健康狀態資料的服務產生負面影響。 這類服務的範例包括修復服務和警示機制。 因此，需要針對報告加以考量，才能讓其以最佳的方式擷取感興趣的條件。
@@ -167,14 +156,14 @@ Service Fabric 報告程式可監控感興趣的已識別條件。 它們會依�
 * 在 Service Fabric 節點上執行，但未以 Service Fabric 服務實作的內部看門狗監視程式。
 * 從 Service Fabric 叢集外探查資源的外部看門狗監視程式 (例如，監視 Gomez 等服務)。
 
-Service Fabric 元件會針對叢集中的所有實體，提供現成的報告。 [系統健康狀態報告](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)可讓您全盤掌握叢集和應用程式功能，並透過健康狀態標記問題。 系統健康狀態報告會針對應用程式和服務來確認實體是否已實作，並從 Service Fabric 執行階段的角度來確認其是行為是否正確。 報告請勿提供任何健全狀況監視服務的商務邏輯或偵測已停止回應的處理程序。 若要將特定的健康狀態資訊新增至服務的邏輯，請在服務中[實作自訂健康狀態報告](service-fabric-report-health.md)。
+Service Fabric 元件會針對叢集中的所有實體，提供現成的報告。 [系統健康狀態報告](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)可讓您全盤掌握叢集和應用程式功能，並透過健康狀態標記問題。 系統健康狀態報告會針對應用程式和服務來確認實體是否已實作，並從 Service Fabric 執行階段的角度來確認其是行為是否正確。 這些報告不會提供任何服務商務邏輯的健康情況監視，也不會偵測已停止回應的處理常式。 若要將特定的健康狀態資訊新增至服務的邏輯，請在服務中[實作自訂健康狀態報告](service-fabric-report-health.md)。
 
 Service Fabric 提供多種[健康狀態報告檢視](service-fabric-view-entities-aggregated-health.md)方式，且會將此報告彙總於健康狀態資料存放區：
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 或其他視覺效果工具。
 * 健康情況查詢 (透過 [PowerShell](/powershell/module/ServiceFabric/)、[CLI](service-fabric-sfctl.md)、[C# FabricClient API](/dotnet/api/system.fabric.fabricclient.healthclient) 和 [Java FabricClient API](/java/api/system.fabric)，或是 [REST API](/rest/api/servicefabric))。
 * 一般查詢會傳回一份實體清單，這些實體的其中一個屬性即為健康情況 (透過 Powershell、CLI、API 或 REST)。
 
-## <a name="monitoring-and-diagnostics"></a>監視和診斷
+## <a name="monitoring-and-diagnostics"></a>監視與診斷
 不論任何環境，針對應用程式與服務的開發、測試及部署進行[監視和診斷](service-fabric-diagnostics-overview.md)，都極為重要。 如果您要規劃和實作監視和診斷功能，以協助確保應用程式和服務可在本機開發環境或生產環境中如預期般運作，Service Fabric 解決方案就是理想之選。
 
 監視和診斷的主要目標是︰

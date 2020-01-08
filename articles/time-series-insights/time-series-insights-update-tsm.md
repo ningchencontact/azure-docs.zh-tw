@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c045a4b5ccda47b786d86f1c004e9da4c8d85f3
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 7d588e11525e5087f8667da4602797e5299c76f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112304"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374682"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽中的時間序列模型
 
@@ -24,8 +24,9 @@ ms.locfileid: "74112304"
 > [!TIP]
 >  * 移至 [Contoso 風伺服器陣列示範](https://insights.timeseries.azure.com/preview/samples)環境，以取得即時時間序列模型範例。
 > * 閱讀[Azure 時間序列深入解析 Preview explorer](time-series-insights-update-explorer.md)以瞭解如何流覽您的時間序列模型 UI。
+> * 瞭解如何使用時間序列深入解析 web explorer[來處理時間序列模型](time-series-insights-update-how-to-tsm.md)。
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>摘要
 
 傳統上，從 IoT 裝置收集的資料缺發關聯的資訊，因此很難快速地尋找及分析感應器。 時間序列模型的主要動機是簡化尋找和分析 IoT 或時間序列資料的程式。 它可讓您鑒藏、維護和擴充時間序列資料，以協助準備取用者準備好用於分析的資料集，達到此目標。
 
@@ -48,11 +49,11 @@ ms.locfileid: "74112304"
 
 **時間序列模型**會針對在此虛構範例中遇到的許多案例提供便利的解決方案：
 
-[![時間序列模型圖表](media/v2-update-tsm/tsi-charting.png)](media/v2-update-tsm/tsi-charting.png#lightbox)
+[![時間序列模型智慧型 oven 圖表範例](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
 
-* 時間序列模型在查詢和導覽中扮演重要的角色，因為它可讓您跨時間範圍以及感應器與裝置種類之間繪製比較，藉此就資料。
-* 資料會進一步內容相關，因為保存在時間序列模型中的資料會將時間序列查詢計算保留為變數，並在查詢時使用它們。
-* 時間序列模型會組織並匯總資料，以改善視覺效果和管理功能。
+* 時間序列模型在查詢和導覽中扮演重要的角色，因為它可讓您跨時間範圍以及感應器與裝置種類之間繪製比較，藉此就資料。 （**A**） 
+* 資料會進一步內容相關，因為時間序列模型中保存的資料會將時間序列查詢計算保留為變數，並在查詢時重複使用它們。
+* 時間序列模型會組織並匯總資料，以改善視覺效果和管理功能。 （**B**） 
 
 ### <a name="key-capabilities"></a>主要功能
 
@@ -72,7 +73,7 @@ ms.locfileid: "74112304"
 
 這些元件會結合以指定時間序列模型，並組織您的 Azure 時間序列深入解析資料。
 
-[![時間序列模型總覽](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
+[![時間序列模型總覽圖表](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
 您可以透過[時間序列深入解析 Preview](time-series-insights-update-how-to-tsm.md)介面來建立和管理時間序列模型。 時間序列模型設定可以透過[模型設定 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api)來管理。
 
@@ -90,18 +91,18 @@ ms.locfileid: "74112304"
 
 [Contoso 風伺服器陣列示範](https://insights.timeseries.azure.com/preview/samples)提供數個即時實例範例。
 
-[![時間序列模型實例](media/v2-update-tsm/instance.png)](media/v2-update-tsm/instance.png#lightbox)
+[![時間序列模型實例範例](media/v2-update-tsm/time-series-model-instance.png)](media/v2-update-tsm/time-series-model-instance.png#lightbox)
 
 ### <a name="instance-properties"></a>實例屬性
 
 實例是由**timeSeriesId**、 **typeId**、 **name**、 **description**、 **hierarchyIds**和**instancefields 定義**所定義。 每個實例只會對應至一個*類型*，以及一個或多個*階層。*
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | ---|
 | timeSeriesId | 與實例相關聯之時間序列的 UUID。 |
 | typeId | 與實例相關聯之時間序列模型類型的 UUID。 根據預設，所有探索到的新實例都會與預設類型建立關聯。
-| 名稱 | name 屬性是選擇性的，而且區分大小寫。 如果 [**名稱**] 無法使用，則預設為 [ **timeSeriesId**]。 如果[提供了名稱](time-series-insights-update-explorer.md#4-time-series-well)， **timeSeriesId**仍然可供使用。 |
-| Description | 實例的文字描述。 |
+| NAME | **Name**屬性是選擇性的，而且區分大小寫。 如果 [**名稱**] 無法使用，則預設為 [ **timeSeriesId**]。 如果[提供了名稱](time-series-insights-update-explorer.md#4-time-series-well)， **timeSeriesId**仍然可供使用。 |
+| description | 實例的文字描述。 |
 | hierarchyIds | 定義實例所屬的階層。 |
 | Instancefields 定義 | 實例的屬性，以及定義實例的任何靜態資料。 它們定義階層或非階層的值，同時也支援建立索引以執行搜尋作業。 |
 
@@ -112,18 +113,18 @@ ms.locfileid: "74112304"
 
 ```JSON
 {
-    "timeSeriesId": ["PU2"],
-    "typeId": "545314a5-7166-4b90-abb9-fd93966fa39b",
-    "hierarchyIds": ["95f0a8d1-a3ef-4549-b4b3-f138856b3a12"],
-    "description": "Pump #2",
-    "instanceFields": {
-        "Location": "Redmond",
-        "Fleet": "Fleet 5",
-        "Unit": "Pump Unit 3",
-        "Manufacturer": "Contoso",
-        "ScalePres": "0.54",
-        "scaleTemp": "0.54"
-    }
+  "timeSeriesId": ["PU2"],
+  "typeId": "545314a5-7166-4b90-abb9-fd93966fa39b",
+  "hierarchyIds": ["95f0a8d1-a3ef-4549-b4b3-f138856b3a12"],
+  "description": "Pump #2",
+  "instanceFields": {
+    "Location": "Redmond",
+    "Fleet": "Fleet 5",
+    "Unit": "Pump Unit 3",
+    "Manufacturer": "Contoso",
+    "ScalePres": "0.54",
+    "scaleTemp": "0.54"
+  }
 }
 ```
 
@@ -138,17 +139,17 @@ ms.locfileid: "74112304"
 
 [Contoso 風伺服器陣列示範](https://insights.timeseries.azure.com/preview/samples)用戶端介面會顯示標準實例和類型階層。
 
-[![時間序列模型階層](media/v2-update-tsm/hierarchy.png)](media/v2-update-tsm/hierarchy.png#lightbox)
+[![時間序列模型階層範例](media/v2-update-tsm/time-series-model-hierarchies.png)](media/v2-update-tsm/time-series-model-hierarchies.png#lightbox)
 
 ### <a name="hierarchy-definition"></a>階層定義
 
 階層是由階層**識別碼**、**名稱**和**來源**所定義。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | ---| ---|
 | id | 階層的唯一識別碼，例如，當您定義實例時使用。 |
-| 名稱 | 用來提供階層名稱的字串。 |
-| 來源 | 指定組織階層或路徑，這是使用者想要建立之階層的由上而下的父子式順序。 父子式屬性會對應實例欄位。 |
+| NAME | 用來提供階層名稱的字串。 |
+| source | 指定組織階層或路徑，這是使用者想要建立之階層的由上而下的父子式順序。 父子式屬性會對應實例欄位。 |
 
 階層會以 JSON 表示為：
 
@@ -215,7 +216,7 @@ ms.locfileid: "74112304"
 | ID4 | "building" = "1000", "floor" = "10"  |
 | ID5 | 未設定任何「建築物」、「樓層」或「房間」。 |
 
-時間序列**ID1**和**ID4**會在[Azure 時間序列深入解析 Explorer](time-series-insights-update-explorer.md)中顯示為階層**H1**的一部分，因為它們已完全定義且正確排序的*建築物*、*樓層*和*房間*參數.
+時間序列**ID1**和**ID4**會在[Azure 時間序列深入解析 Explorer](time-series-insights-update-explorer.md)中顯示為階層**H1**的一部分，因為它們具有完整定義且正確排序的*建築物*、*樓層*和*房間*參數。
 
 其他專案會在*無上層實例*之下分類，因為它們不符合指定的資料層次。
 
@@ -227,7 +228,7 @@ ms.locfileid: "74112304"
 
 [Contoso 風伺服器陣列示範](https://insights.timeseries.azure.com/preview/samples)會將數個與個別實例相關聯的時間序列模型類型視覺化。
 
-[![時間序列模型類型](media/v2-update-tsm/types.png)](media/v2-update-tsm/types.png#lightbox)
+[![時間序列模型類型範例](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
 > 如需時間序列深入解析實例 API 和 CRUD 支援，請參閱[資料查詢](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis)文章和[類型 API REST 檔](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api)。
@@ -236,12 +237,12 @@ ms.locfileid: "74112304"
 
 時間序列模型類型是由**識別碼**、**名稱**、**描述**和**變數**所定義。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | ---| ---|
 | id | 類型的 UUID。 |
-| 名稱 | 用來提供型別名稱的字串。 |
-| Description | 類型的字串描述。 |
-| 變數 | 指定與類型相關聯的變數。 |
+| NAME | 用來提供型別名稱的字串。 |
+| description | 類型的字串描述。 |
+| variables | 指定與類型相關聯的變數。 |
 
 類型符合下列 JSON 範例：
 
@@ -295,11 +296,11 @@ ms.locfileid: "74112304"
 
 下表顯示每個變數種類的相關屬性。
 
-[![時間序列模型類型](media/v2-update-tsm/variable-table.png)](media/v2-update-tsm/variable-table.png#lightbox)
+[![時間序列模型變數資料表](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
 
 #### <a name="numeric-variables"></a>數值變數
 
-| Variable 屬性 | 描述 |
+| Variable 屬性 | 說明 |
 | --- | ---|
 | 變數篩選條件 | 篩選是選擇性的條件子句，可限制要考慮計算的資料列數目。 |
 | 變數值 | 用於計算來自裝置或感應器，或使用時間序列運算式轉換的遙測值。 數數值型別變數必須是*Double*類型。|
@@ -329,7 +330,7 @@ ms.locfileid: "74112304"
 
 #### <a name="categorical-variables"></a>類別變數
 
-| Variable 屬性 | 描述 |
+| Variable 屬性 | 說明 |
 | --- | ---|
 | 變數篩選條件 | 篩選是選擇性的條件子句，可限制要考慮計算的資料列數目。 |
 | 變數值 | 用於計算來自裝置或感應器的遙測值。 類別類型變數必須是*Long*或*String*。 |
@@ -342,7 +343,9 @@ ms.locfileid: "74112304"
 ```JSON
 "Status": {
   "kind": "categorical",
-  "value": "toLong($event.[Status].Double)",
+  "value": {
+     "tsx": "toLong($event.[Status].Double)" 
+},
   "interpolation": {
     "kind": "step",
     "boundary": {
@@ -367,7 +370,7 @@ ms.locfileid: "74112304"
 
 #### <a name="aggregate-variables"></a>匯總變數
 
-| Variable 屬性 | 描述 |
+| Variable 屬性 | 說明 |
 | --- | ---|
 | 變數篩選條件 | 篩選是選擇性的條件子句，可限制要考慮計算的資料列數目。 |
 | 變數彙總 | 支援透過*Avg*、 *Min*、 *Max*、 *Sum*、 *Count*、 *First*、 *Last*進行計算。 |
@@ -389,5 +392,7 @@ ms.locfileid: "74112304"
 ## <a name="next-steps"></a>後續步驟
 
 - 請參閱 [Azure 時間序列深入解析預覽版儲存體和輸入](./time-series-insights-update-storage-ingress.md)。
+
 - 瞭解[Azure 時間序列深入解析 Preview 中資料模型](./time-series-insights-update-how-to-tsm.md)化的一般時間序列模型作業
+
 - 閱讀新的[時間序列模型](https://docs.microsoft.com/rest/api/time-series-insights/preview-model)參考檔。

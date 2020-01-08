@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 入口網站擷取串流事件 - Azure 事件中樞 | Microsoft Docs
+title: 事件中樞-使用 Azure 入口網站來捕捉串流事件
 description: 本文說明如何才能使用 Azure 入口網站透過 Azure 事件中樞擷取事件串流。
 services: event-hubs
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 12/20/2019
 ms.author: shvija
-ms.openlocfilehash: 18dea8e8e4cfcabec63e35dd302f6a5259721a8a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 267f7c47d101406463378ad12c295ace80aecb7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320302"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437228"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>允許透過 Azure 事件中樞擷取事件串流
 
@@ -28,11 +28,11 @@ Azure[事件中樞 Capture][capture-overview]可讓您將事件中樞中的串�
 
 您可以使用 [Azure 入口網站](https://portal.azure.com)，在建立事件中樞時設定擷取功能。 您可以將資料擷取至 Azure [Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)容器或 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) 帳戶。
 
-如需詳細資訊, 請參閱[事件中樞 Capture 總覽][capture-overview]。
+如需詳細資訊，請參閱[事件中樞 Capture 總覽][capture-overview]。
 
 ## <a name="capture-data-to-an-azure-storage-account"></a>將資料擷取至 Azure 儲存體帳戶  
 
-當您建立事件中樞時，按一下 [建立事件中樞]  入口網站畫面中的 [開啟]  按鈕，即可啟用擷取功能。 然後按一下 [擷取提供者]  方塊中的 [Azure 儲存體]  ，以指定儲存體帳戶和容器。 事件中樞擷取會對儲存體使用服務對服務驗證，因此您不需要指定儲存體連接字串。 資源選擇器會自動選取儲存體帳戶的資源 URI。 如果您使用 Azure Resource Manager，您必須以字串形式明確提供此 URI。
+當您建立事件中樞時，按一下 [建立事件中樞] 入口網站畫面中的 [開啟] 按鈕，即可啟用擷取功能。 然後按一下 [擷取提供者] 方塊中的 [Azure 儲存體]，以指定儲存體帳戶和容器。 事件中樞擷取會對儲存體使用服務對服務驗證，因此您不需要指定儲存體連接字串。 資源選擇器會自動選取儲存體帳戶的資源 URI。 如果您使用 Azure Resource Manager，您必須以字串形式明確提供此 URI。
 
 預設時間範圍為 5 分鐘。 最小值是 1，最大值是 15。 **大小** 範圍為 10-500 MB。
 
@@ -54,15 +54,15 @@ Azure[事件中樞 Capture][capture-overview]可讓您將事件中樞中的串�
 
 ### <a name="create-an-event-hub"></a>建立事件中樞
 
-1. 請注意，事件中樞必須位於與您剛建立之 Azure Data Lake Store 相同的 Azure 訂用帳戶中。 按一下 [建立事件中樞]  入口網站頁面中 [擷取]  之下的 [開啟]  按鈕，以建立事件中樞。 
-2. 在 [建立事件中樞]  入口網站頁面中，從 [擷取提供者]  方塊選取 [Azure Data Lake Store]  。
-3. 在 [選取 Data Lake Store]  中，指定您先前建立的 Data Lake Store 帳戶，以及在 [Data Lake 路徑]  欄位中，輸入您建立之資料資料夾的路徑。
+1. 請注意，事件中樞必須位於與您剛建立之 Azure Data Lake Store 相同的 Azure 訂用帳戶中。 按一下 [建立事件中樞] 入口網站頁面中 [擷取] 之下的 [開啟] 按鈕，以建立事件中樞。 
+2. 在 [建立事件中樞] 入口網站頁面中，從 [擷取提供者] 方塊選取 [Azure Data Lake Store]。
+3. 在 [選取 Data Lake Store] 中，指定您先前建立的 Data Lake Store 帳戶，以及在 [Data Lake 路徑] 欄位中，輸入您建立之資料資料夾的路徑。
 
     ![選取 Data Lake Storage 帳戶][3]
 
 ## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>在現有的事件中樞上新增或設定擷取功能
 
-您可以在位於事件中樞命名空間的現有事件中樞上設定擷取功能。 若要在現有事件中樞上啟用擷取功能，或變更您的擷取設定，請按一下命名空間以載入概觀畫面，然後按一下您要啟用或變更擷取設定的事件中樞。 最後，按一下開啟之頁面左側的 [擷取]  選項，然後編輯設定，如下圖所示：
+您可以在位於事件中樞命名空間的現有事件中樞上設定擷取功能。 若要在現有事件中樞上啟用擷取功能，或變更您的擷取設定，請按一下命名空間以載入概觀畫面，然後按一下您要啟用或變更擷取設定的事件中樞。 最後，按一下開啟之頁面左側的 [擷取] 選項，然後編輯設定，如下圖所示：
 
 ### <a name="azure-blob-storage"></a>Azure Blob 儲存體
 
@@ -79,7 +79,7 @@ Azure[事件中樞 Capture][capture-overview]可讓您將事件中樞中的串�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 閱讀[事件中樞 capture 總覽][capture-overview], 深入瞭解事件中樞 capture。
+- 閱讀[事件中樞 capture 總覽][capture-overview]，深入瞭解事件中樞 capture。
 - 您也可以透過 Azure Resource Manager 範本來設定事件中樞擷取。 如需詳細資訊，請參閱[使用 Azure Resource Manager 範本啟用擷取功能](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)。
 - [了解如何以事件中樞命名空間作為來源來建立 Azure 事件方格訂用帳戶](store-captured-data-data-warehouse.md)
 - [使用 Azure 入口網站開始使用 Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b484acc0dc1a92a857f254ed37392ffb29eddb8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 5c882d286a73900f58ef06e7c51b05c7237e39a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848624"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425352"
 ---
 # <a name="combined-security-information-registration-preview"></a>結合的安全性資訊註冊（預覽）
 
@@ -47,7 +47,7 @@ Azure 美國政府、Azure 德國或 Azure 中國世紀等國家雲端目前無�
 
 合併的註冊支援下列驗證方法和動作：
 
-|   | Register | 變更 | 刪除 |
+|   | 註冊 | 變更 | 刪除 |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | 是（最多5個） | 否 | 是 |
 | 其他驗證器應用程式 | 是（最多5個） | 否 | 是 |
@@ -67,7 +67,7 @@ Azure 美國政府、Azure 德國或 Azure 中國世紀等國家雲端目前無�
 - Microsoft Authenticator –通知。
 - 驗證器應用程式或硬體權杖-代碼。
 - 通話。
-- 簡訊。
+- 文字訊息。
 
 隨著我們繼續新增更多驗證方法來 Azure AD，這些方法將會在合併註冊中提供。
 
@@ -108,7 +108,7 @@ Azure 美國政府、Azure 德國或 Azure 中國世紀等國家雲端目前無�
 
 如果您同時啟用多重要素驗證和 SSPR，建議您強制執行多重要素驗證註冊。
 
-如果 SSPR 原則要求使用者定期檢查其安全性資訊，則使用者會在登入期間中斷，並顯示其所有已註冊的方法。 他們可以確認目前的資訊是否為最新狀態，或者可以在需要時進行變更。
+如果 SSPR 原則要求使用者定期檢查其安全性資訊，則使用者會在登入期間中斷，並顯示其所有已註冊的方法。 他們可以確認目前的資訊是否為最新狀態，或者可以在需要時進行變更。 使用者必須在存取此頁面時執行多重要素驗證。
 
 ### <a name="manage-mode"></a>管理模式
 

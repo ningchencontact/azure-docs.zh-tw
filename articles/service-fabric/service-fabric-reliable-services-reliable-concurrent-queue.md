@@ -1,25 +1,14 @@
 ---
 title: Azure Service Fabric 中的 ReliableConcurrentQueue
 description: ReliableConcurrentQueue 是高輸送量的佇列，可允許平行將和清除。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: raja,tyadam,masnider,vturecek
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 5/1/2017
-ms.author: atsenthi
-ms.openlocfilehash: 776d330e36e6bcafe610bbab54e13ff6c41e2edf
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a7115db8259fde0e87e53557ecef730f8e82d2fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350287"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462733"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric 中的 ReliableConcurrentQueue 簡介
 可靠的並行佇列是非同步、交易式和複寫的佇列，特徵是加入佇列與清除佇列作業的高並行存取。 它旨在提供高輸送量和低延遲，方法是將[可靠的佇列](https://msdn.microsoft.com/library/azure/dn971527.aspx)所提供的嚴格 FIFO 順序放寬，並改為提供最佳的順序。
@@ -62,7 +51,7 @@ IReliableConcurrentQueue<int> queue = await this.StateManager.GetOrAddAsync<IRel
 ### <a name="enqueueasync"></a>EnqueueAsync
 以下是使用 EnqueueAsync 的幾個程式碼片段，隨後是其預期的輸出。
 
-- *案例 1：單一加入佇列工作*
+- 案例 1︰單一加入佇列工作
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -81,7 +70,7 @@ using (var txn = this.StateManager.CreateTransaction())
 > 20, 10
 
 
-- *案例 2：平行加入佇列工作*
+- 案例 2︰平行加入佇列工作
 
 ```
 // Parallel Task 1
@@ -110,7 +99,7 @@ using (var txn = this.StateManager.CreateTransaction())
 以下是使用 TryDequeueAsync 的幾個程式碼片段，隨後是預期的輸出。 假設已將佇列中的下列項目填入佇列︰
 > 10, 20, 30, 40, 50, 60
 
-- *案例 1：單一清除佇列工作*
+- 案例 1︰單一清除佇列工作
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -125,7 +114,7 @@ using (var txn = this.StateManager.CreateTransaction())
 
 假設已順利完成工作，且沒有修改佇列的並行交易。 由於無法推斷佇列中的項目順序，任何三個項目都可能會以任何順序加以清除佇列。 佇列會嘗試以原始順序保留項目 (佇列)，但可能會因並行作業或錯誤而強制將它們重新排序。  
 
-- *案例 2：平行清除佇列工作*
+- 案例 2︰平行清除佇列工作
 
 ```
 // Parallel Task 1
@@ -153,7 +142,7 @@ using (var txn = this.StateManager.CreateTransaction())
 
 相同項目不會同時出現在兩份清單中。 因此，如果 dequeue1 包含 10、*30*，dequeue2 就會包含 *20*、*40*。
 
-- *案例 3：使用交易中止來清除佇列排序*
+- 案例 3︰使用交易中止來清除佇列排序
 
 使用執行中的清除佇列將交易中止，會將項目放回佇列的前端。 無法保證將項目放回佇列前端的順序。 我們來看看下面的程式碼：
 

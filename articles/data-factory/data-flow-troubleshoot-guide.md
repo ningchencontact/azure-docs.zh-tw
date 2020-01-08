@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019
-ms.date: 12/06/2019
-ms.openlocfilehash: b972bbeac419d88afdd257a7fd19587dbaedf0d9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 06746cfc3b39a242c16a6b4f4c95b3c212a9abd5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930163"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443940"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>針對 Azure Data Factory 資料流程進行疑難排解
 
@@ -92,8 +92,18 @@ ms.locfileid: "74930163"
 
 - **原因**：正在聯結的資料流程具有一般資料行名稱
 
-- **解決**方式：在聯結後面新增選取 transforamtion，然後選取 [移除重複的資料行] 來輸入和輸出。
+- **解決**方式：在聯結之後加入 Select 轉換，然後針對輸入和輸出選取 [移除重複的資料行]。
 
+### <a name="error-message-possible-cartesian-product"></a>錯誤訊息：可能是笛卡兒乘積
+
+- **徵兆**：聯結或查閱轉換在資料流程執行時偵測到可能的笛卡兒乘積
+
+- **原因**：如果您尚未明確指示 ADF 使用交叉聯結，資料流程可能會失敗
+
+- **解決**方式：使用自訂交叉聯結將查閱或聯結轉換變更為聯結，並在運算式編輯器中輸入查閱或聯結條件。 如果您想要明確產生整個笛卡兒乘積，請在聯結之前的兩個獨立資料流程中使用「衍生的資料行」轉換，以建立要符合的綜合索引鍵。 例如，在名為 ```SyntheticKey``` 之每個資料流程的衍生資料行中建立新的資料行，並將它設定為等於 ```1```。 然後使用 ```a.SyntheticKey == b.SyntheticKey``` 做為自訂聯結運算式。
+
+> [!NOTE]
+> 請務必在自訂交叉聯結中包含至少一個資料行，而左邊和右邊關聯性的每一側都有一個。 使用靜態值來執行交叉聯結，而不是每個端的資料行，將會導致整個資料集的完整掃描，導致資料流程執行效能不佳。
 
 ## <a name="general-troubleshooting-guidance"></a>一般疑難排解指引
 

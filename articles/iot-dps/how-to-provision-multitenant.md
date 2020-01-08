@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 5703db90307f679ff4728386dc24647437f9f9ba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974950"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434744"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>如何針對多組織用戶佈建 
 
@@ -24,7 +24,7 @@ ms.locfileid: "74974950"
 
 合併這兩種案例是很常見的。 例如，多租用戶 IoT 解決方案通常會使用一群散佈在多個區域的 IoT 中樞指派租用戶裝置。 這些租用戶裝置可依據地理位置指派給該群組中最低延遲的 IoT 中樞。
 
-此文章使用 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 的模擬裝置範例，示範如何在多租用戶情況下跨多個區域佈建裝置。 您將在本文中執行下列步驟：
+此文章使用 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 的模擬裝置範例，示範如何在多租用戶情況下跨多個區域佈建裝置。 您將在此文章中執行下列步驟：
 
 * 使用 Azure CLI 建立兩個區域 IoT 中樞 (**美國西部**與**美國東部**)
 * 建立多租用戶註冊
@@ -49,9 +49,9 @@ ms.locfileid: "74974950"
 在此節中，您將使用 Azure Cloud Shell 為租用戶在**美國西部**與**美國東部**區域建立兩個新的區域 IoT 中樞。
 
 
-1. 在 Azure Cloud Shell 中使用 [az group create](/cli/azure/group#az-group-create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
+1. 使用 Azure Cloud Shell 以 [az group create](/cli/azure/group#az-group-create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
-    下列範例會在 *eastus* 區域中建立名為 *contoso-us-resource-group* 的資源群組。 建議您將此群組用於在本文中建立的所有資源。 這將會讓您在完成作業後更容易清除資源。
+    下列範例會在 *eastus* 區域中建立名為 *contoso-us-resource-group* 的資源群組。 建議您將此群組用於在此文章中建立的所有資源。 這將會讓您在完成作業後更容易清除資源。
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location eastus
@@ -83,7 +83,7 @@ ms.locfileid: "74974950"
 
 在此節中，您將會為租用戶裝置建立新的註冊群組。  
 
-為了簡單起見，本文將在註冊中使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)。 如需更安全的解決方案，請考慮使用 [X.509 憑證證明](concepts-security.md#x509-certificates)與信任鏈結。
+為了簡單起見，此文章將在註冊中使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)。 如需更安全的解決方案，請考慮使用 [X.509 憑證證明](concepts-security.md#x509-certificates)與信任鏈結。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，並開啟您的裝置佈建服務執行個體。
 
@@ -108,7 +108,7 @@ ms.locfileid: "74974950"
 
     **IoT 中樞**：選取您建立的其中一個區域中樞。
 
-    **存取原則**：選擇 **iothubowner**。
+    **存取原則**：選擇 [iothubowner]。
 
     ![使用佈建服務連結區域 IoT 中樞](./media/how-to-provision-multitenant/link-regional-hubs.png)
 
@@ -118,7 +118,7 @@ ms.locfileid: "74974950"
     ![建立註冊的區域中樞群組](./media/how-to-provision-multitenant/enrollment-regional-hub-group.png)
 
 
-6. 儲存註冊之後，請重新加以開啟，並記下 [主要金鑰]。 您必須先儲存註冊，才能產生金鑰。 此金鑰將在後續用來產生兩個模擬裝置的唯一裝置金鑰。
+6. 儲存註冊之後，請重新開啟它，並記下 [主要金鑰]。 您必須先儲存註冊，才能產生金鑰。 此金鑰將在後續用來產生兩個模擬裝置的唯一裝置金鑰。
 
 
 ## <a name="create-regional-linux-vms"></a>建立區域 Linux VM
@@ -191,20 +191,21 @@ ms.locfileid: "74974950"
 
 在此節中，您將會將 Azure IoT C SDK 複製到每部 VM 上。 SDK 包含一個範例，此範例將會模擬從每個區域佈建租用戶裝置。
 
-
-1. 使用下列命令為每部 VM 安裝 **Cmake**、**g++** 、**gcc** 與 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)：
+1. 針對每個 VM，請使用下列命令來安裝**CMake**、 **g + +** 、 **gcc**和[Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) ：
 
     ```bash
     sudo apt-get update
     sudo apt-get install cmake build-essential libssl-dev libcurl4-openssl-dev uuid-dev git-all
     ```
 
+1. 尋找[最新版本](https://github.com/Azure/azure-iot-sdk-c/releases/latest)SDK 的標記名稱。
 
-1. 將 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) \(英文\) 複製到兩部 VM 上。
+1. 將 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) \(英文\) 複製到兩部 VM 上。  使用您在上一個步驟中找到的標記做為 `-b` 參數的值：
 
     ```bash
-    cd ~/
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     預期此作業需要幾分鐘的時間才能完成。
@@ -250,7 +251,7 @@ ms.locfileid: "74974950"
 
 若要產生裝置金鑰，請使用群組主要金鑰為裝置計算唯一註冊識別碼的 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)，並將結果轉換為 Base64 格式。
 
-請勿在裝置代碼中包含群組主要金鑰。
+請勿在裝置程式碼中包含群組主要金鑰。
 
 使用 Bash 殼層範例以使用 **openssl** 為每部裝置建立衍生的裝置金鑰。
 
@@ -309,7 +310,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
     vi ~/azure-iot-sdk-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c
     ```
 
-1. 尋找 `id_scope` 常數，並以您稍早複製的**識別碼範圍**值取代該值。 
+1. 找出 `id_scope` 常數，並將其值取代為您先前複製的 [識別碼範圍] 值。 
 
     ```c
     static const char* id_scope = "0ne00002193";
@@ -399,7 +400,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算繼續使用在本文中建立的資源，您可加以保留。 如果不打算繼續使用這些資源，請使用下列步驟刪除此文章建立的所有資源，以避免產生非必要費用。
+如果您打算繼續使用在此文章中建立的資源，可以保留它們。 如果不打算繼續使用這些資源，請使用下列步驟刪除此文章建立的所有資源，以避免產生非必要費用。
 
 以下步驟假設您依照指示在名為 **contoso-us-resource-group** 的相同資源群組中建立了此文章中的所有資源。
 

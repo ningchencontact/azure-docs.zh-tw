@@ -7,14 +7,14 @@ services: firewall-manager
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: victorh
-ms.openlocfilehash: cb8a2fdd14cfa7d361e3d78a64f3aaf60ea7676d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b92242ce9086579d0397f78853402cfc08453f68
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468563"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436780"
 ---
-# <a name="what-are-trusted-security-partners-preview"></a>什麼是信任的安全性合作夥伴（預覽）？
+# <a name="what-are-trusted-security-partners-preview"></a>什麼是信任的安全性合作夥伴 (預覽)？
 
 > [!IMPORTANT]
 > 此公開預覽版是在沒有服務等級協定的情況下提供，不得用於生產工作負載。 可能不支援特定功能、可能已經限制功能，或者可能無法在所有 Azure 位置提供使用。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
@@ -23,7 +23,7 @@ Azure 防火牆管理員中的*信任安全性合作夥伴（預覽）* 可讓�
 
 使用快速設定時，您可以使用支援的安全性合作夥伴來保護中樞，以及從您的虛擬網路（Vnet）或區域內的分支位置來路由和篩選網際網路流量。 這是使用自動化路由管理來完成的，而不需設定和管理使用者定義的路由（Udr）。
 
-您可以在多個 Azure 區域中，使用您選擇的安全性合作夥伴來部署安全的中樞，以便在這些區域的全球各地取得使用者的連線能力和安全性。 透過將安全性合作夥伴的供應專案用於網際網路/SaaS 應用程式流量的能力，以及可用於安全中樞內私人流量的 Azure 防火牆，您現在可以開始在 Azure 上建立接近您的全域散發使用者的安全性邊緣，以及應用程式.
+您可以在多個 Azure 區域中，使用您選擇的安全性合作夥伴來部署安全的中樞，以便在這些區域的全球各地取得使用者的連線能力和安全性。 透過使用安全性合作夥伴的供應專案來提供網際網路/SaaS 應用程式流量的功能，以及在安全中樞內用於私人流量的 Azure 防火牆，您現在可以開始在 Azure 上建立接近您全域散發的使用者和應用程式的安全性邊緣。
 
 在此預覽中，支援的安全性合作夥伴為**ZScaler**和**iboss**。 支援的區域為 WestCentralUS、NorthCentralUS、WestUS、WestUS2 和 EastUS。
 
@@ -35,13 +35,13 @@ Azure 防火牆管理員中的*信任安全性合作夥伴（預覽）* 可讓�
 
 - 虛擬網路（VNet）到網際網路
 
-   針對在 Azure 上執行的雲端工作負載，運用先進的使用者感知網際網路保護。
+   針對在 Azure 上執行的雲端工作負載，使用進階使用者感知網際網路保護。
 
 - 分支到網際網路
 
    利用您的 Azure 連線能力和全域散發，輕鬆為分公司新增協力廠商 NSaaS 篩選。 您可以使用 Azure 虛擬 WAN 來建立全球傳輸網路和安全性邊緣。
 
-支援下列案例：
+以下是支援的案例：
 -   透過協力廠商合作夥伴提供的 VNet 到網際網路。
 -   透過協力廠商合作夥伴服務分支到網際網路。
 -   透過 Azure 防火牆，透過協力廠商合作夥伴供應專案，將其餘的私用流量（輪輻、輪輻分支、分支到輪輻）分支到網際網路。
@@ -75,7 +75,7 @@ Azure 防火牆管理員中的*信任安全性合作夥伴（預覽）* 可讓�
 
 [Office 365 網路連線原則](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles)會呼叫主要的 office 365 網路連線，以從使用者分支或行動裝置在本機進行路由傳送，並直接透過網際網路在最接近的 Microsoft 網路點上進行通訊。
 
-此外，基於效能的考慮，Office 365 連線已針對隱私權和使用有效率的專屬通訊協定進行增強式加密。 這讓它不切合影響力，而是要將這些連線設為傳統網路層級安全性解決方案。 基於這些理由，我們強烈建議客戶在透過 Azure 傳送其餘流量之前，直接從分支傳送 Office 365 流量。 Microsoft 與數個與 Azure 和 Office 365 整合的 SD WAN 解決方案提供者合作，讓客戶能夠輕鬆地啟用 Office 365 direct 和當地網際網路的分類。 如需詳細資訊，請參閱[如何? 透過虛擬 WAN 設定我的 O365 原則？](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview#how-do-i-set-my-o365-policies-via-virtual-wan)
+此外，基於效能的考慮，Office 365 連線已針對隱私權和使用有效率的專屬通訊協定進行增強式加密。 這讓它不切合影響力，而是要將這些連線設為傳統網路層級安全性解決方案。 基於這些理由，我們強烈建議客戶在透過 Azure 傳送其餘流量之前，直接從分支傳送 Office 365 流量。 Microsoft 與數個與 Azure 和 Office 365 整合的 SD WAN 解決方案提供者合作，讓客戶能夠輕鬆地啟用 Office 365 direct 和當地網際網路的分類。 如需詳細資訊，請參閱[如何? 透過虛擬 WAN 設定我的 O365 原則？](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview)
 
 
 ## <a name="next-steps"></a>後續步驟

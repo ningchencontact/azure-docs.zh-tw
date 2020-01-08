@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/25/2018
-ms.openlocfilehash: c42946733ee49ed6acf2c8deadf850208e003339
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 12/27/2019
+ms.openlocfilehash: 247e41faa39520089dc5c95a34b4fb4b6b618761
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684530"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552129"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>透過範例了解 Data Factory 定價
 
@@ -126,13 +126,13 @@ ms.locfileid: "73684530"
   - 管線活動 = $0.00003 (依比例分配 1 分鐘的執行時間。 Azure 整合執行階段上每小時 $0.002 美元)
   - 外部管線活動 = $0.000041 (依比例分配 10 分鐘的執行時間。 Azure 整合執行階段上每小時 0.00025 美元)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>針對一般 workday 使用對應資料流程 debug （預覽定價）
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>針對一般 workday 使用對應資料流程 debug
 
-身為數據工程師，您必須負責每天設計、建立和測試對應的資料流程。 您會在早上登入 ADF UI，並啟用資料流程的「偵錯工具」模式。 Debug 會話的預設 TTL 為60分鐘。 您每天工作10小時，讓您的 Debug 會話永不過期。 因此，您當天的費用將會是：
+身為數據工程師，您必須負責每天設計、建立和測試對應的資料流程。 您會在早上登入 ADF UI，並啟用資料流程的「偵錯工具」模式。 Debug 會話的預設 TTL 為60分鐘。 您每天的工作時間為8小時，因此您的 Debug 會話永不過期。 因此，您當天的費用將會是：
 
-**10（小時） x 8 （核心） x $0.112 = $8.96**
+**8（小時） x 8 （計算優化核心） x $0.193 = $12.35**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>使用對應的資料流程轉換 blob 存放區中的資料（預覽定價）
+## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>使用對應資料流程轉換 blob 存放區中的資料
 
 在此案例中，您想要以每小時的排程，以視覺化方式在 ADF 對應資料流程中轉換 Blob 存放區中的資料。
 
@@ -153,7 +153,7 @@ ms.locfileid: "73684530"
 | 建立管線 | 3 個讀取/寫入實體 (1 個用於建立管線，2 個用於資料集參考) |
 | 取得管線 | 1 個讀取/寫入實體 |
 | 執行管線 | 2 個活動執行 (1 個用於觸發程序執行，1 個用於活動執行) |
-| 資料流程假設：執行時間 = 10 分鐘 + 10 最小 TTL | 10 \* 8 個一般計算的核心，TTL 為10 |
+| 資料流程假設：執行時間 = 10 分鐘 + 10 最小 TTL | 10 \* 16 核心的一般計算，TTL 為10 |
 | 監視管線假設：僅發生 1 次執行 | 2 個重試的監視執行記錄 (1 個用於管線執行，1 個用於活動執行) |
 
 **總案例定價： $0.3011**
@@ -161,9 +161,9 @@ ms.locfileid: "73684530"
 - Data Factory 作業 = **$0.0001**
   - 讀取/寫入 = 10\*00001 = $0.0001 [1 讀取/寫入 = $0.50/50000 = 0.00001]
   - 監視 = 2\*000005 = $0.00001 [1 監視 = $0.25/50000 = 0.000005]
-- 管線協調流程 &amp; 執行 = **$0.301**
+- 管線協調流程 &amp; 執行 = **$1.463**
   - 活動執行 = 001\*2 = 0.002 [1 執行 = $1/1000 = 0.001]
-  - 資料流程活動 = $0.299 已按比例計費20分鐘（執行時間為10分鐘，TTL 為10分鐘）。 8核心一般計算的 Azure Integration Runtime $ 0.112/小時
+  - 資料流程活動 = $1.461 已按比例計費20分鐘（執行時間為10分鐘，TTL 為10分鐘）。 Azure Integration Runtime 上的 $ 0.274/小時具有16個核心的一般計算
 
 ## <a name="next-steps"></a>後續步驟
 

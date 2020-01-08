@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9b7ac97cb190073966f9be450e9f9e04014fbd7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cc2295f6151b3cde81c27c8ed1116013e1a3f9a9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078046"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647538"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP 高可用性準備 Azure 基礎結構
 
@@ -39,8 +39,8 @@ ms.locfileid: "70078046"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -203,7 +203,7 @@ ms.locfileid: "70078046"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -218,7 +218,7 @@ ms.locfileid: "70078046"
 
 ## <a name="host-names-and-ip-addresses"></a>主機名稱和 IP 位址
 
-| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性集合 |
+| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性設定組 |
 | --- | --- | --- | --- |
 | 第一個叢集節點 ASCS/SCS 叢集 | ascs-1 | 10.0.6.4 | ascs-as |
 | 第二個叢集節點 ASCS/SCS 叢集 | ascs-2 | 10.0.6.5 | ascs-as |
@@ -226,16 +226,16 @@ ms.locfileid: "70078046"
 | SAP PR1 ASCS 叢集網路名稱 |pr1-ascs | 10.0.6.7 | n/a |
 
 
-**表 1**:ASCS/SCS 叢集
+**表 1**：ASCS/SCS 叢集
 
 | SAP \<SID> | SAP ASCS/SCS 執行個體號碼 |
 | --- | --- |
 | PR1 | 00 |
 
-**表 2**:SAP ASCS/SCS 實例詳細資料
+**表 2**：SAP ASCS/SCS 執行個體詳細資料
 
 
-| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性集合 |
+| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性設定組 |
 | --- | --- | --- | --- |
 | 第一個叢集節點 | sofs-1 | 10.0.6.10 | sofs-as |
 | 第二個叢集節點 | sofs-2 | 10.0.6.11 | sofs-as |
@@ -243,7 +243,7 @@ ms.locfileid: "70078046"
 | 叢集網路名稱 | sofs-cl | 10.0.6.13 | n/a |
 | SAP 全域主機名稱 | sapglobal | 使用所有叢集節點的 IP | n/a |
 
-**表 3**:向外延展檔案伺服器叢集
+**表 3**：向外延展檔案伺服器叢集
 
 
 ## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>部署適用於 SAP ASCS/SCS 叢集、資料庫管理系統 (DBMS) 叢集和 SAP Application Server 執行個體的 VM
@@ -268,12 +268,12 @@ ms.locfileid: "70078046"
 
 * 在[SAP ASCS/SCS 實例的兩個叢集節點上新增登錄專案][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]。
 
-* 當您使用 Windows Server 2016 時, 建議您設定[Azure 雲端見證][deploy-cloud-witness]。
+* 當您使用 Windows Server 2016 時，建議您設定[Azure 雲端見證][deploy-cloud-witness]。
 
 
 ## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>手動部署向外延展檔案伺服器叢集 
 
-您可以藉由執行下列程式碼, 以手動方式部署 Microsoft 向外延展檔案伺服器叢集, 如[Azure 中的 blog 儲存空間直接存取中][ms-blog-s2d-in-azure]所述:  
+您可以藉由執行下列程式碼，以手動方式部署 Microsoft 向外延展檔案伺服器叢集，如[Azure 中的 blog 儲存空間直接存取中][ms-blog-s2d-in-azure]所述：  
 
 
 ```powershell
@@ -322,9 +322,9 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 
 建議您使用受控磁碟。
 
-![圖 1：具有受控磁片的向外延展檔案伺服器 Resource Manager 範本的 UI 畫面][sap-ha-guide-figure-8010]
+![圖 1：含受控磁碟之向外延展檔案伺服器 Resource Manager 範本的 UI 畫面][sap-ha-guide-figure-8010]
 
-_**圖 1**:具有受控磁片的向外延展檔案伺服器 Resource Manager 範本的 UI 畫面_
+_**圖 1**：含受控磁碟之向外延展檔案伺服器 Resource Manager 範本的 UI 畫面_
 
 在此範本中，執行下列作業︰
 1. 在 [VM 計數] 方塊中，輸入最小計數 **2**。
@@ -336,21 +336,21 @@ _**圖 1**:具有受控磁片的向外延展檔案伺服器 Resource Manager 範
 
 在[GitHub][arm-sofs-s2d-non-managed-disks]上可取得使用儲存空間直接存取和 Azure 非受控磁片部署向外延展檔案伺服器的 Azure Resource Manager 範本。
 
-![圖 2：無受控磁片的向外延展檔案伺服器 Azure Resource Manager 範本的 UI 畫面][sap-ha-guide-figure-8011]
+![圖 2：不含受控磁碟之向外延展檔案伺服器 Azure Resource Manager 範本的 UI 畫面][sap-ha-guide-figure-8011]
 
-_**圖 2**:無受控磁片的向外延展檔案伺服器 Azure Resource Manager 範本的 UI 畫面_
+_**圖 2**：不含受控磁碟之向外延展檔案伺服器 Azure Resource Manager 範本的 UI 畫面_
 
 在 [儲存體帳戶類型] 方塊中，選取 [進階儲存體]。 所有其他設定與受控磁碟的設定相同。
 
 ## <a name="adjust-cluster-timeout-settings"></a>調整叢集超時設定
 
-成功安裝 Windows 向外延展檔案伺服器叢集之後, 請將容錯移轉偵測的超時閾值調整為 Azure 中的條件。 要變更的參數記載于[調整容錯移轉叢集網路閾值][tuning-failover-cluster-network-thresholds]中。 假設您的叢集 Vm 位於相同的子網中, 請將下列參數變更為這些值:
+成功安裝 Windows 向外延展檔案伺服器叢集之後，請將容錯移轉偵測的超時閾值調整為 Azure 中的條件。 要變更的參數記載于[調整容錯移轉叢集網路閾值][tuning-failover-cluster-network-thresholds]中。 假設您的叢集 Vm 位於相同的子網中，請將下列參數變更為這些值：
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
 - RoutingHistoryLength = 30
 
-這些設定已與客戶進行測試，並提供很好的折衷方案。 它們具有足夠的彈性, 但它們也可在真實錯誤狀況或 VM 失敗中提供快速的容錯移轉。
+這些設定已與客戶進行測試，並提供很好的折衷方案。 它們具有足夠的彈性，但它們也可在真實錯誤狀況或 VM 失敗中提供快速的容錯移轉。
 
 ## <a name="next-steps"></a>後續步驟
 

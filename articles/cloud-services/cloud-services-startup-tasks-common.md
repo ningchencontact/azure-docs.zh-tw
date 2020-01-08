@@ -3,17 +3,17 @@ title: 雲端服務的常見啟動工作 | Microsoft Docs
 description: 提供一些常見的啟動工作範例，做為您在雲端服務 Web 角色或背景工作角色中執行的參考。
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 2eb299ad841444a3100eac207b225d5377959f85
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 5c6173971ac5272c2c2d769551fc9caf3dfa2573
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358965"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385791"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>常見的雲端服務啟動工作
 本文提供一些常見的啟動工作範例，做為您在雲端服務中執行的參考。 您可以利用啟動工作，在角色啟動之前執行作業。 您可能想要執行的作業包括安裝元件、註冊 COM 元件、設定登錄機碼，或啟動長時間執行的處理序。 
@@ -153,7 +153,7 @@ EXIT /B %errorlevel%
 ## <a name="block-a-specific-ip-address"></a>封鎖特定的 IP 位址
 您可以透過修改 IIS **web.config** 檔來限制 Azure Web 角色只能存取一組指定的 IP 位址。 您也必須使用命令檔來解除鎖定 **ApplicationHost.config** 檔案的 **ipSecurity** 區段。
 
-若要解除鎖定 **ApplicationHost.config** 檔案的 **ipSecurity** 區段，請建立會在角色啟動時執行的命令檔。 在 Web 角色的根層級建立名為 **startup** 的資料夾，然後在此資料夾中建立名為 **startup.cmd** 的批次檔。 將這個檔案新增至 Visual Studio 專案，並將屬性設為 [一律複製]  ，以確保將它納入套件中。
+若要解除鎖定 **ApplicationHost.config** 檔案的 **ipSecurity** 區段，請建立會在角色啟動時執行的命令檔。 在 Web 角色的根層級建立名為 **startup** 的資料夾，然後在此資料夾中建立名為 **startup.cmd** 的批次檔。 將這個檔案新增至 Visual Studio 專案，並將屬性設為 [一律複製]，以確保將它納入套件中。
 
 將以下啟動工作加入 [EndPoints] 檔案。
 
@@ -512,3 +512,6 @@ EXIT %ERRORLEVEL%
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+
+
+

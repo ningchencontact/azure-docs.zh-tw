@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 12/06/2019
-ms.openlocfilehash: c3eeb59809a4028702022e8a18db633a26b01d5c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 4d32980e825f12c76b5c8bf8df0673fa82065751
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980881"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460411"
 ---
 1. 在 [Azure 入口網站](https://ms.portal.azure.com/)中，選取 [Azure Active Directory] > [應用程式註冊] > [新增註冊]。
 
@@ -41,9 +41,9 @@ ms.locfileid: "74980881"
 
     1. 藉由檢查**存取權杖**或**識別碼權杖**來啟用隱含授與流程。
 
-   [![建立新的用戶端密碼](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+   [![建立重新導向 Uri 及設定隱含授與](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
-   按一下 [儲存]。
+   按一下 [檔案]。
 
 1. 選取 [憑證 & 密碼]，接著 [新的用戶端密碼] 來建立應用程式密碼，以供用戶端用來證明其身分識別。
 

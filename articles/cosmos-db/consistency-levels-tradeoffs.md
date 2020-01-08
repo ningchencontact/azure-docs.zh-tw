@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Cosmos DB 中各種一致性層級的可用性和效能權衡取捨
+title: Azure Cosmos DB 一致性、可用性和效能取捨
 description: 在 Azure Cosmos DB 中各種一致性層級的可用性和效能權衡取捨。
 author: markjbrown
 ms.author: mjbrown
@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f241f243860635db443b732f94d12956bbe0f9d8
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: a16acfc8f9be820e9cc9b3bd59d6675b7f75d2ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990627"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445556"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>一致性、可用性與效能權衡取捨 
 
@@ -53,11 +53,11 @@ Azure Cosmos DB 會針對資料一致性提供選項頻譜。 這個方法所包
 |**區域**|**複寫模式**|**一致性層級**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|單一或多重主機|任何一致性層級|< 240 分鐘|< 1 週|
-|>1|單一主機|工作階段、開頭一致、最終|< 15 分鐘|< 15 分鐘|
-|>1|單一主機|限定過期|*K* & *t*|< 15 分鐘|
-|>1|單一主機|Strong|0|< 15 分鐘|
-|>1|多重主機|工作階段、開頭一致、最終|< 15 分鐘|0|
-|>1|多重主機|限定過期|*K* & *t*|0|
+|> 1|單一主機|工作階段、開頭一致、最終|< 15 分鐘|< 15 分鐘|
+|> 1|單一主機|限定過期|*K* & *t*|< 15 分鐘|
+|> 1|單一主機|Strong|0|< 15 分鐘|
+|> 1|多重主機|工作階段、開頭一致、最終|< 15 分鐘|0|
+|> 1|多重主機|限定過期|*K* & *t*|0|
 
 *K* = 專案的 *"K"* 版本（也就是更新）的數目。
 
@@ -69,7 +69,7 @@ Azure Cosmos DB 會針對資料一致性提供選項頻譜。 這個方法所包
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解分散式系統中的全域散發和一般一致性權衡取捨。 請參閱下列文章：
+深入了解分散式系統中的全域散發和一般一致性權衡取捨。 查看下列文章：
 
 - [新式分散式資料庫系統設計的一致性權衡取捨](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k) \(英文\)
 - [高可用性](high-availability.md)

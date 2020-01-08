@@ -3,14 +3,14 @@ title: Durable Functions Azure Functions 中的 HTTP Api
 description: 了解如何在 Azure Functions 的「長期函式」延伸模組中實作 HTTP API。
 author: cgillum
 ms.topic: conceptual
-ms.date: 09/07/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0390211e6fc42bd7183a770cac409b880310d317
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5cf357f5f0c1d58c390cf48d636aadf059579396
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231393"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410137"
 ---
 # <a name="http-api-reference"></a>HTTP API 參考
 
@@ -18,7 +18,7 @@ Durable Functions 擴充功能會公開一組內建的 HTTP Api，可用來在�
 
 延伸模組所執行的所有 HTTP Api 都需要下列參數。 所有參數的資料類型是 `string`。
 
-| 參數        | 參數類型  | 描述 |
+| 參數        | 參數類型  | 說明 |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | 查詢字串    | [工作中樞](durable-functions-task-hubs.md)的名稱。 如果未指定，則會假設為目前函式應用程式的工作中樞名稱。 |
 | **`connection`** | 查詢字串    | 儲存體帳戶之連接字串的**名稱**。 如果未指定，則會假設為函式應用程式的預設連接字串。 |
@@ -54,13 +54,13 @@ POST /runtime/webhooks/durabletask/orchestrators/{functionName}/{instanceId?}
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
 
-| 欄位              | 參數類型  | 描述 |
+| 欄位              | 參數類型  | 說明 |
 |--------------------|-----------------|-------------|
 | **`functionName`** | URL             | 要啟動的協調器函式名稱。 |
 | **`instanceId`**   | URL             | 選擇性參數。 協調流程執行個體的識別碼。 如果未指定，協調器函式會以隨機實例識別碼作為開頭。 |
-| **`{content}`**    | 要求內容 | 選用。 JSON 格式的協調器函數輸入。 |
+| **`{content}`**    | 要求內容 | 選擇性。 JSON 格式的協調器函數輸入。 |
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 可以傳回幾個可能的狀態字碼值。
 
@@ -82,7 +82,7 @@ Content-Length: 83
 
 **HTTP 202**案例的回應承載是具有下欄欄位的 JSON 物件：
 
-| 欄位                       | 描述                          |
+| 欄位                       | 說明                          |
 |-----------------------------|--------------------------------------|
 | **`id`**                    |協調流程執行個體的識別碼。 |
 | **`statusQueryGetUri`**     |協調流程執行個體的狀態 URL。 |
@@ -108,7 +108,7 @@ Content-Length: 83
 Http 回應的目的是要與*輪詢取用者模式*相容。 它也包含下列值得注意的回應標頭：
 
 * **位置**：狀態端點的 URL。 此 URL 包含與 [`statusQueryGetUri`] 欄位相同的值。
-* **重試**次數：輪詢作業之間等待的秒數。 預設值為 `10`。
+* **重試**次數：輪詢作業之間等待的秒數。 預設值是 `10`。
 
 如需非同步 HTTP 輪詢模式的詳細資訊，請參閱[HTTP 非同步作業追蹤](durable-functions-http-features.md#async-operation-tracking)檔。
 
@@ -144,7 +144,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
 
-| 欄位                   | 參數類型  | 描述 |
+| 欄位                   | 參數類型  | 說明 |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | 協調流程執行個體的識別碼。 |
 | **`showInput`**         | 查詢字串    | 選擇性參數。 如果設定為 `false`，函數輸入將不會包含在回應承載中。|
@@ -154,7 +154,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 | **`createdTimeTo`**     | 查詢字串    | 選擇性參數。 當指定時，會篩選在指定 ISO8601 時間戳記或之前所建立之傳回實例的清單。|
 | **`runtimeStatus`**     | 查詢字串    | 選擇性參數。 指定時，會根據所傳回執行個體的執行階段狀態來篩選所傳回執行個體的清單。 如要查看可能的執行時間狀態值清單，請參閱[查詢實例](durable-functions-instance-management.md)一文。 |
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 可以傳回幾個可能的狀態字碼值。
 
@@ -166,14 +166,14 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 **HTTP 200** 和 **HTTP 202** 案例的回應承載是 JSON 物件，具有下列欄位：
 
-| 欄位                 | 資料類型 | 描述 |
+| 欄位                 | Data type | 說明 |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | 字串    | 執行個體的執行階段狀態。 值包括 [執行中]、[擱置]、[失敗]、[已取消]、[終止]、[已完成]。 |
+| **`runtimeStatus`**   | string    | 執行個體的執行階段狀態。 值包括 [執行中]、[擱置]、[失敗]、[已取消]、[終止]、[已完成]。 |
 | **`input`**           | JSON      | JSON 資料，用來初始化執行個體。 這個欄位為 `null`，如果 `showInput` 查詢字串參數設定為 `false`。|
 | **`customStatus`**    | JSON      | 用於自訂協調流程狀態的 JSON 資料。 如果未設定，欄位會是 `null`。 |
 | **`output`**          | JSON      | 執行個體的 JSON 輸出。 如果執行個體不是已完成狀態，則這個欄位是 `null`。 |
-| **`createdTime`**     | 字串    | 執行個體建立的時間。 使用 ISO 8601 延伸標記法。 |
-| **`lastUpdatedTime`** | 字串    | 執行個體保存的時間。 使用 ISO 8601 延伸標記法。 |
+| **`createdTime`**     | string    | 執行個體建立的時間。 使用 ISO 8601 延伸標記法。 |
+| **`lastUpdatedTime`** | string    | 執行個體保存的時間。 使用 ISO 8601 延伸標記法。 |
 | **`historyEvents`**   | JSON      | 包含協調流程執行歷程記錄的 JSON 陣列。 這個欄位為 `null`，除非 `showHistory` 查詢字串參數設定為 `true`。 |
 
 以下是範例回應承載，其中包含協調流程執行歷程記錄和活動輸出 (針對可讀性格式化)：
@@ -272,7 +272,7 @@ GET /runtime/webhooks/durableTask/instances?
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
 
-| 欄位                   | 參數類型  | 描述 |
+| 欄位                   | 參數類型  | 說明 |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | 協調流程執行個體的識別碼。 |
 | **`showInput`**         | 查詢字串    | 選擇性參數。 如果設定為 `false`，函數輸入將不會包含在回應承載中。|
@@ -283,7 +283,7 @@ GET /runtime/webhooks/durableTask/instances?
 | **`runtimeStatus`**     | 查詢字串    | 選擇性參數。 指定時，會根據所傳回執行個體的執行階段狀態來篩選所傳回執行個體的清單。 如要查看可能的執行時間狀態值清單，請參閱[查詢實例](durable-functions-instance-management.md)一文。 |
 | **`top`**               | 查詢字串    | 選擇性參數。 當指定時，會限制查詢所傳回的實例數目。 |
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 以下是回應承載範例，包括協調流程狀態 (針對可讀性格式化)：
 
@@ -370,11 +370,11 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
 
-| 欄位             | 參數類型  | 描述 |
+| 欄位             | 參數類型  | 說明 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 協調流程執行個體的識別碼。 |
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 可以傳回下列 HTTP 狀態碼值。
 
@@ -383,7 +383,7 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 **HTTP 200**案例的回應承載是具有下欄欄位的 JSON 物件：
 
-| 欄位                  | 資料類型 | 描述 |
+| 欄位                  | Data type | 說明 |
 |------------------------|-----------|-------------|
 | **`instancesDeleted`** | integer   | 已刪除的實例數目。 針對單一實例案例，此值應該一律為 `1`。 |
 
@@ -427,7 +427,7 @@ DELETE /runtime/webhooks/durabletask/instances
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
 
-| 欄位                 | 參數類型  | 描述 |
+| 欄位                 | 參數類型  | 說明 |
 |-----------------------|-----------------|-------------|
 | **`createdTimeFrom`** | 查詢字串    | 篩選在指定 ISO8601 時間戳記或之後建立的已清除實例清單。|
 | **`createdTimeTo`**   | 查詢字串    | 選擇性參數。 當指定時，會篩選在指定 ISO8601 時間戳記或之前所建立的已清除實例清單。|
@@ -436,7 +436,7 @@ DELETE /runtime/webhooks/durabletask/instances
 > [!NOTE]
 > 如果實例和/或歷程記錄資料表中有很多資料列，則這項作業的 Azure 儲存體 i/o 方面可能非常耗費資源。 如需這些資料表的詳細資訊，請參閱[Durable Functions （Azure Functions）檔中的效能和規模](durable-functions-perf-and-scale.md#instances-table)。
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 可以傳回下列 HTTP 狀態碼值。
 
@@ -445,7 +445,7 @@ DELETE /runtime/webhooks/durabletask/instances
 
 **HTTP 200**案例的回應承載是具有下欄欄位的 JSON 物件：
 
-| 欄位                   | 資料類型 | 描述 |
+| 欄位                   | Data type | 說明 |
 |-------------------------|-----------|-------------|
 | **`instancesDeleted`**  | integer   | 已刪除的實例數目。 |
 
@@ -483,13 +483,13 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
 
-| 欄位             | 參數類型  | 描述 |
+| 欄位             | 參數類型  | 說明 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 協調流程執行個體的識別碼。 |
 | **`eventName`**   | URL             | 目標協調流程執行個體等候之事件的名稱。 |
 | **`{content}`**   | 要求內容 | JSON 格式的事件裝載。 |
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 可以傳回幾個可能的狀態字碼值。
 
@@ -538,12 +538,12 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數。
 
-| 欄位             | 參數類型  | 描述 |
+| 欄位             | 參數類型  | 說明 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 協調流程執行個體的識別碼。 |
-| **`reason`**      | 查詢字串    | 選用。 終止協調流程執行個體的原因。 |
+| **`reason`**      | 查詢字串    | 選擇性。 終止協調流程執行個體的原因。 |
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 可以傳回幾個可能的狀態字碼值。
 
@@ -587,12 +587,12 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數。
 
-| 欄位             | 參數類型  | 描述 |
+| 欄位             | 參數類型  | 說明 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 協調流程執行個體的識別碼。 |
-| **`reason`**      | 查詢字串    | 選用。 倒轉協調流程執行個體的原因。 |
+| **`reason`**      | 查詢字串    | 選擇性。 倒轉協調流程執行個體的原因。 |
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 可以傳回幾個可能的狀態字碼值。
 
@@ -620,7 +620,7 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 HTTP 要求的格式如下（為了清楚起見，會顯示多行）：
 
 ```http
-POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+POST /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
     ?taskHub={taskHub}
     &connection={connectionName}
     &code={systemKey}
@@ -629,11 +629,11 @@ POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
 
-| 欄位             | 參數類型  | 描述 |
+| 欄位             | 參數類型  | 說明 |
 |-------------------|-----------------|-------------|
-| **`entityType`**  | URL             | 實體的類型。 |
-| **`entityKey`**   | URL             | 實體的唯一名稱。 |
-| **`op`**          | 查詢字串    | 選用。 要叫用的使用者定義作業名稱。 |
+| **`entityName`**  | URL             | 實體的名稱（類型）。 |
+| **`entityKey`**   | URL             | 實體的索引鍵（唯一識別碼）。 |
+| **`op`**          | 查詢字串    | 選擇性。 要叫用的使用者定義作業名稱。 |
 | **`{content}`**   | 要求內容 | JSON 格式的事件裝載。 |
 
 以下範例要求會將使用者定義的「新增」訊息傳送至名為 `steps`的 `Counter` 實體。 訊息的內容是 `5`的值。 如果實體不存在，則會由此要求建立：
@@ -645,17 +645,20 @@ Content-Type: application/json
 5
 ```
 
-### <a name="response"></a>Response
+> [!NOTE]
+> 根據預設，[在 .net 中](durable-functions-dotnet-entities.md#defining-entity-classes)使用以類別為基礎的實體，指定 `delete` 的 `op` 值將會刪除實體的狀態。 不過，如果實體定義名為 `delete`的作業，則會改為叫用該使用者定義的作業。
+
+### <a name="response"></a>回應
 
 這項作業有數個可能的回應：
 
 * **HTTP 202 （已接受）** ：已接受非同步處理的信號操作。
 * **HTTP 400 （不正確的要求）** ：要求內容的類型不是 `application/json`、不是有效的 JSON，或具有不正確 `entityKey` 值。
-* **HTTP 404 （找不到）** ：找不到指定的 `entityType`。
+* **HTTP 404 （找不到）** ：找不到指定的 `entityName`。
 
 成功的 HTTP 要求不包含回應中的任何內容。 失敗的 HTTP 要求可能會在回應內容中包含 JSON 格式的錯誤資訊。
 
-## <a name="query-entity"></a>查詢實體
+## <a name="get-entity"></a>取得實體
 
 取得指定實體的狀態。
 
@@ -664,13 +667,13 @@ Content-Type: application/json
 HTTP 要求的格式如下（為了清楚起見，會顯示多行）：
 
 ```http
-GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+GET /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
     ?taskHub={taskHub}
     &connection={connectionName}
     &code={systemKey}
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 此作業有兩個可能的回應：
 
@@ -692,6 +695,100 @@ GET /runtime/webhooks/durabletask/entities/Counter/steps
 {
     "currentValue": 5
 }
+```
+
+## <a name="list-entities"></a>清單實體
+
+您可以依據機構名稱或上次作業日期來查詢多個實體。
+
+### <a name="request"></a>要求
+
+HTTP 要求的格式如下（為了清楚起見，會顯示多行）：
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityName}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &lastOperationTimeFrom={timestamp}
+    &lastOperationTimeTo={timestamp}
+    &fetchState=[true|false]
+    &top={integer}
+```
+
+此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
+
+| 欄位                       | 參數類型  | 說明 |
+|-----------------------------|-----------------|-------------|
+| **`entityName`**            | URL             | 選擇性。 當指定時，會依據機構名稱（不區分大小寫）來篩選傳回的實體清單。 |
+| **`fetchState`**            | 查詢字串    | 選擇性參數。 如果設定為 `true`，實體狀態將會包含在回應承載中。 |
+| **`lastOperationTimeFrom`** | 查詢字串    | 選擇性參數。 當指定時，會篩選在給定 ISO8601 時間戳記之後處理作業的傳回實體清單。 |
+| **`lastOperationTimeTo`**   | 查詢字串    | 選擇性參數。 當指定時，會篩選在指定的 ISO8601 時間戳記之前處理作業的傳回實體清單。 |
+| **`top`**                   | 查詢字串    | 選擇性參數。 當指定時，會限制查詢所傳回的實體數目。 |
+
+
+### <a name="response"></a>回應
+
+成功的 HTTP 200 回應包含實體的 JSON 序列化陣列，以及（選擇性）每個實體的狀態。
+
+根據預設，作業會傳回符合查詢準則的前100個實體。 呼叫端可以為 `top` 指定查詢字串參數值，以傳回不同的結果數目上限。 如果超過傳回的結果，則接續 token 也會在回應標頭中傳回。 標頭的名稱為 `x-ms-continuation-token`。
+
+如果您在下一個要求標頭中設定接續 token 值，您可以取得下一頁的結果。 要求標頭的這個名稱也 `x-ms-continuation-token`。
+
+### <a name="example---list-all-entities"></a>範例-列出所有實體
+
+下列範例 HTTP 要求會列出工作中樞內的所有實體：
+
+```http
+GET /runtime/webhooks/durabletask/entities
+```
+
+回應 JSON 看起來可能像下面這樣（針對可讀性進行格式化）：
+
+```json
+[
+    {
+        "entityId": { "key": "cats", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:45:44.6326361Z",
+    },
+    {
+        "entityId": { "key": "dogs", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:01.9477382Z"
+    },
+    {
+        "entityId": { "key": "mice", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:15.4626159Z"
+    },
+    {
+        "entityId": { "key": "radio", "name": "device" },
+        "lastOperationTime": "2019-12-18T21:46:18.2616154Z"
+    },
+]
+```
+
+### <a name="example---filtering-the-list-of-entities"></a>範例-篩選實體清單
+
+下列範例 HTTP 要求只會列出 `counter` 類型的前兩個實體，而且也會提取其狀態：
+
+```http
+GET /runtime/webhooks/durabletask/entities/counter?top=2&fetchState=true
+```
+
+回應 JSON 看起來可能像下面這樣（針對可讀性進行格式化）：
+
+```json
+[
+    {
+        "entityId": { "key": "cats", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:45:44.6326361Z",
+        "state": { "value": 9 }
+    },
+    {
+        "entityId": { "key": "dogs", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:01.9477382Z",
+        "state": { "value": 10 }
+    }
+]
 ```
 
 ## <a name="next-steps"></a>後續步驟

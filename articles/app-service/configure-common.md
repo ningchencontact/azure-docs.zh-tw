@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45de3b79263fd43a93fcea73c271ede4bc5f96fe
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e4ba7326d9c23bed2406e62fe1a206501d05a1b1
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671955"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666173"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>在 Azure 入口網站中設定 App Service 應用程式
 
@@ -21,7 +21,11 @@ ms.locfileid: "74671955"
 
 在 App Service 中，應用程式設定是以環境變數形式傳遞給應用程式程式碼的變數。 針對 Linux 應用程式和自訂容器，App Service 會使用 `--env` 旗標將應用程式設定傳遞至容器，以設定容器中的環境變數。
 
-在  [Azure 入口網站]中，流覽至您應用程式的 [管理] 頁面。 在應用程式的左側功能表中，**按一下 [** 設定] [ > **應用程式設定**]。
+在  [Azure 入口網站]中，搜尋並選取 **應用程式服務**，然後選取您的應用程式。 
+
+![搜尋應用程式服務](./media/configure-common/search-for-app-services.png)
+
+在應用程式的左側功能表中，**選取 [** 設定] [ > **應用程式設定**]。
 
 ![應用程式設定](./media/configure-common/open-ui.png)
 
@@ -82,7 +86,7 @@ ms.locfileid: "74671955"
 
 ## <a name="configure-connection-strings"></a>設定連接字串
 
-在  [Azure 入口網站]中，流覽至應用程式的 [管理] 頁面。 在應用程式的左側功能表中，**按一下 [** 設定] [ > **應用程式設定**]。
+在  [Azure 入口網站]中，搜尋並選取 **應用程式服務**，然後選取您的應用程式。 在應用程式的左側功能表中，**選取 [** 設定] [ > **應用程式設定**]。
 
 ![應用程式設定](./media/configure-common/open-ui.png)
 
@@ -153,7 +157,7 @@ ms.locfileid: "74671955"
 
 ## <a name="configure-general-settings"></a>設定一般設定
 
-在  [Azure 入口網站]中，流覽至應用程式的 [管理] 頁面。 在應用程式的左側功能表中，**按一下 [** 設定] [ > **應用程式設定**]。
+在  [Azure 入口網站]中，搜尋並選取 **應用程式服務**，然後選取您的應用程式。 在應用程式的左側功能表中，**選取** **[設定] > [一般設定**]。
 
 ![一般設定](./media/configure-common/open-general.png)
 
@@ -176,9 +180,9 @@ ms.locfileid: "74671955"
 
 此設定僅適用于 Windows 應用程式。
 
-在  [Azure 入口網站]中，流覽至應用程式的 [管理] 頁面。 在應用程式的左側功能表中，**按一下 [** 設定] > [**預設檔**]。
+在  [Azure 入口網站]中，搜尋並選取 **應用程式服務**，然後選取您的應用程式。 在應用程式的左側功能表中，**選取 [** 設定] > [**預設檔**]。
 
-![一般設定](./media/configure-common/open-documents.png)
+![預設文件](./media/configure-common/open-documents.png)
 
 預設檔是在網站的根 URL 顯示的網頁。 系統會使用清單中第一個相符的檔案。 若要加入新的預設檔，請按一下 [**新增檔**]。 別忘了按一下 [**儲存**]。
 
@@ -186,9 +190,9 @@ ms.locfileid: "74671955"
 
 ## <a name="configure-path-mappings"></a>設定路徑對應
 
-在  [Azure 入口網站]中，流覽至應用程式的 [管理] 頁面。 在應用程式的左側功能表中，**按一下 [** 設定] [ > **路徑**對應]。
+在  [Azure 入口網站]中，搜尋並選取 **應用程式服務**，然後選取您的應用程式。 在應用程式的左側功能表中，**選取 [** 設定] [ > **路徑**對應]。
 
-![一般設定](./media/configure-common/open-path.png)
+![路徑對應](./media/configure-common/open-path.png)
 
 [**路徑**對應] 頁面會根據 OS 類型來顯示不同的專案。
 

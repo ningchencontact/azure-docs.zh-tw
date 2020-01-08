@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 2bd25ad823217c5e9260142912a3d2d748b9c15a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 0f444838c87e14fa88f2785030c29915df637cf8
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767699"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552197"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>使用 MirrorMaker，透過 HDInsight 上的 Kafka 來複寫 Apache Kafka 主題
 
@@ -63,10 +63,10 @@ ms.locfileid: "74767699"
 
 1. 建立兩個新的資源群組：
 
-    |資源群組 | Location |
+    |資源群組 | 位置 |
     |---|---|
     | kafka-主要-rg | 美國中部 |
-    | kafka-次要-rg | 美國中北部 |
+    | kafka-secondary-rg | 美國中北部 |
 
 1. 在**kafka**中建立新的虛擬網路**kafka-主要-vnet** 。 保留預設設定。
 1. 在**kafka**中建立新的虛擬網路**kafka-次要-vnet** ，同時也使用預設設定。
@@ -75,8 +75,8 @@ ms.locfileid: "74767699"
 
     | 叢集名稱 | 資源群組 | 虛擬網路 | 儲存體帳戶 |
     |---|---|---|---|
-    | kafka-主要-叢集 | kafka-主要-rg | kafka-主要-vnet | kafkaprimarystorage |
-    | kafka-次要叢集 | kafka-次要-rg | kafka-次要-vnet | kafkasecondarystorage |
+    | kafka-主要-叢集 | kafka-主要-rg | kafka-primary-vnet | kafkaprimarystorage |
+    | kafka-secondary-cluster | kafka-secondary-rg | kafka-secondary-vnet | kafkasecondarystorage |
 
 1. 建立虛擬網路對等互連。 此步驟會建立兩個對等互連：一個從**kafka-主要-vnet**到**kafka-次要 vnet** ，另一個從**kafka-次要**vnet 到**kafka-主要 vnet**。
     1. 選取 [ **kafka-主要-vnet** ] 虛擬網路。
@@ -86,36 +86,41 @@ ms.locfileid: "74767699"
 
         ![HDInsight Kafka 新增 vnet 對等互連](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
-1. 設定 IP 公告：
-    1. 移至主要叢集的 Ambari 儀表板： `https://PRIMARYCLUSTERNAME.azurehdinsight.net`。
-    1. 選取 [**服務** > **Kafka**]。 CliSelectck [**選項**] 索引標籤。
-    1. 將下列設定行新增至底部的 [ **kafka-env] 範本**區段。 選取 [儲存]。
+### <a name="configure-ip-advertising"></a>設定 IP 廣告
 
-        ```
-        # Configure Kafka to advertise IP addresses instead of FQDN
-        IP_ADDRESS=$(hostname -i)
-        echo advertised.listeners=$IP_ADDRESS
-        sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
-        echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
-        ```
+設定 IP 廣告，讓用戶端使用 broker IP 位址來連線，而不是功能變數名稱。
 
-    1. 在 [**儲存**設定] 畫面上輸入附注，然後按一下 [**儲存**]。
-    1. 如果系統提示您設定警告，請按一下 [**仍繼續**]。
-    1. 在 [儲存設定**變更**] 上選取 **[確定]** 。
-    1. 選取 [**重新開機**] > 重新開機 [**需要重新開機**] 通知中的**所有受影響**。 選取 [確認重新啟動所有項目]。
+1. 移至主要叢集的 Ambari 儀表板： `https://PRIMARYCLUSTERNAME.azurehdinsight.net`。
+1. 選取 [**服務** > **Kafka**]。 CliSelectck [**選項**] 索引標籤。
+1. 將下列設定行新增至底部的 [ **kafka-env] 範本**區段。 選取 [儲存]。
 
-        ![Apache Ambari 重新開機所有受影響的](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+    ```
+    # Configure Kafka to advertise IP addresses instead of FQDN
+    IP_ADDRESS=$(hostname -i)
+    echo advertised.listeners=$IP_ADDRESS
+    sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    ```
 
-1. 設定 Kafka 以接聽所有網路介面。
-    1. 停留**在 [** **服務** > **Kafka**] 底下的 [[]] 索引標籤。 在 [ **Kafka Broker** ] 區段中 **，將**[接聽程式] 屬性設為 `PLAINTEXT://0.0.0.0:9092`。
-    1. 選取 [儲存]。
-    1. 選取 [**重新開機**]，並**確認 [全部重新開機**]。
+1. 在 [**儲存**設定] 畫面上輸入附注，然後按一下 [**儲存**]。
+1. 如果系統提示您設定警告，請按一下 [**仍繼續**]。
+1. 在 [儲存設定**變更**] 上選取 **[確定]** 。
+1. 選取 [**重新開機**] > 重新開機 [**需要重新開機**] 通知中的**所有受影響**。 選取 [確認重新啟動所有項目]。
 
-1. 記錄主要叢集的訊息代理程式 IP 位址和 Zookeeper 位址。
-    1. 選取 [Ambari] 儀表板上的 [**主機**]。
-    1. 記下訊息代理程式和 Zookeeper 的 IP 位址。 訊息代理程式節點的**w)** 是主機名稱的前兩個字母，而 zookeeper 節點則具有**zk**做為主機名稱的前兩個字母。
+    ![Apache Ambari 重新開機所有受影響的](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
-        ![Apache Ambari view node ip 位址](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>設定 Kafka 以接聽所有網路介面。
+    
+1. 停留**在 [** **服務** > **Kafka**] 底下的 [[]] 索引標籤。 在 [ **Kafka Broker** ] 區段中 **，將**[接聽程式] 屬性設為 `PLAINTEXT://0.0.0.0:9092`。
+1. 選取 [儲存]。
+1. 選取 [**重新開機**]，並**確認 [全部重新開機**]。
+
+### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>記錄主要叢集的訊息代理程式 IP 位址和 Zookeeper 位址。
+
+1. 選取 [Ambari] 儀表板上的 [**主機**]。
+1. 記下訊息代理程式和 Zookeeper 的 IP 位址。 訊息代理程式節點的**w)** 是主機名稱的前兩個字母，而 zookeeper 節點則具有**zk**做為主機名稱的前兩個字母。
+
+    ![Apache Ambari view node ip 位址](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
 1. 針對第二個叢集 kafka 重複前面的三個步驟 **-[次要**叢集]：設定 IP 廣告、設定接聽程式，並記下 Broker 和 Zookeeper IP 位址。
 
@@ -263,7 +268,7 @@ ms.locfileid: "74767699"
 
     此範例中使用的參數：
 
-    |參數 |描述 |
+    |參數 |說明 |
     |---|---|
     |--取用者 .config|指定包含取用者屬性的檔案。 這些屬性是用來建立從*主要*Kafka 叢集讀取的取用者。|
     |--生產者 .config|指定包含產生者屬性的檔案。 這些屬性是用來建立寫入*次要*Kafka 叢集的產生者。|
@@ -289,7 +294,7 @@ ms.locfileid: "74767699"
 
     主題清單現在包含 `testtopic`，會在 MirrorMaster 將主題從主要叢集鏡像到次要叢集時建立。 從主題中抓取的訊息與您在主要叢集上輸入的訊息相同。
 
-## <a name="delete-the-cluster"></a>刪除叢集
+## <a name="delete-the-cluster"></a>選取叢集
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: 什麼是 Azure AD 權利管理？ -Azure Active Directory
+title: 什麼是權利管理？ -Azure AD
 description: 取得 Azure Active Directory 權利管理的總覽，以及如何使用它來管理內部和外部使用者對群組、應用程式和 SharePoint Online 網站的存取。
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fd72bba6e8c01644adebaa333c8fe588c35b8c7
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b0a99b9089e568351cf736310e778ba477441407
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927308"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422581"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>什麼是 Azure AD 權利管理？
 
@@ -38,7 +38,7 @@ Azure AD 權利管理可協助您更有效率地管理內部使用者對群組�
 - 使用者可能不知道他們應該擁有哪些存取權，即使他們這麼做，他們可能難以找到適當的個人來核准他們的存取權
 - 一旦使用者找到並接收資源的存取權，他們可能會因為商務目的而讓存取時間超過所需
 
-這些問題對於需要來自另一個組織（例如來自供應鏈組織或其他商務合作夥伴的外部使用者）存取權的使用者而言是更複雜的。 例如︰
+這些問題對於需要來自另一個組織（例如來自供應鏈組織或其他商務合作夥伴的外部使用者）存取權的使用者而言是更複雜的。 例如：
 
 - 任何人都不能知道其他組織目錄中的所有特定個人都能邀請他們
 - 即使他們可以邀請這些使用者，組織中也不會有任何人記得以一致的方式管理所有使用者的存取權
@@ -71,7 +71,7 @@ Azure AD 權利管理有助於解決這些挑戰。  若要深入瞭解客戶如
 - 指派給 Azure AD 企業應用程式，包括 SaaS 應用程式和支援同盟/單一登入和/或布建的自訂整合應用程式
 - SharePoint Online 網站的成員資格
 
-您也可以控制依賴 Azure AD 安全性群組或 Office 365 群組之其他資源的存取權。  例如︰
+您也可以控制依賴 Azure AD 安全性群組或 Office 365 群組之其他資源的存取權。  例如：
 
 - 您可以使用存取套件中的 Azure AD 安全性群組，以及為該群組設定以[群組為基礎的授權](../users-groups-roles/licensing-groups-assign.md)，為使用者提供 Microsoft Office 365 授權
 - 您可以使用存取套件中的 Azure AD 安全性群組，並建立該群組的[azure 角色指派](../../role-based-access-control/role-assignments-portal.md)，以授與使用者管理 azure 資源的存取權
@@ -114,7 +114,7 @@ Azure AD 權利管理有助於解決這些挑戰。  若要深入瞭解客戶如
 
 若要進一步瞭解權利管理及其檔，您可以參考下列條款清單。
 
-| 詞彙 | 描述 |
+| 條款 | 說明 |
 | --- | --- |
 | 存取套件 | 小組或專案所需且受原則規範的資源組合。 存取套件一律包含在目錄中。 在使用者需要要求存取權的案例中，您會建立新的存取封裝。  |
 | 存取要求 | 存取存取套件中資源的要求。 要求通常會經過核准工作流程。  若已核准，要求的使用者會收到存取套件指派。 |

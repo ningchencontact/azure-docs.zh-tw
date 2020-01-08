@@ -6,18 +6,18 @@ manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 11/19/2019
 ms.author: kgremban
-ms.openlocfilehash: 649c7f620b83464d1bb56cf4b8191b0747105f01
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8a9f0008f1a1ea1a57f3c0e7e17b8cf3ae5e959c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457208"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434550"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>透過 IoT Edge 裝置閘道連線 Modbus TCP 裝置
 
-如果您想要將使用 Modbus TCP 或 RTU 通訊協定的 IoT 裝置連線到 Azure IoT 中樞，請使用 IoT Edge 裝置作為閘道。 閘道裝置會從您的 Modbus 裝置讀取資料，然後使用支援的通訊協定將該資料傳達至雲端。
+如果您想要將使用 Modbus TCP 或 RTU 通訊協定的 IoT 裝置連線到 Azure IoT 中樞，您可以使用 IoT Edge 裝置作為閘道。 閘道裝置會從您的 Modbus 裝置讀取資料，然後使用支援的通訊協定將該資料傳達至雲端。
 
 ![Modbus 裝置透過 IoT Edge 閘道連接到 IoT 中樞](./media/deploy-modbus-gateway/diagram.png)
 
@@ -25,14 +25,14 @@ ms.locfileid: "74457208"
 
 本文假設您使用 Modbus TCP 通訊協定。 如需有關如何設定此模組以支援 Modbus RTU 的詳細資訊，請參閱 GitHub 上的 [Azure IoT Edge Modbus 模組](https://github.com/Azure/iot-edge-modbus)專案。
 
-## <a name="prerequisites"></a>先決條件
-* Azure IoT Edge 裝置。 如需如何設定一個的逐步解說，請參閱[在 Windows 或 Linux 上部署 Azure IoT Edge](quickstart.md) 。 [](quickstart-linux.md)
+## <a name="prerequisites"></a>必要條件
+* Azure IoT Edge 裝置。 如需如何設定一個的逐步解說，[請參閱](quickstart-linux.md)[在 Windows 或 Linux 上部署 Azure IoT Edge](quickstart.md) 。
 * IoT Edge 裝置的主索引鍵連接字串。
-* 支援 Modbus TCP 的實體或模擬 Modbus 裝置。
+* 支援 Modbus TCP 的實體或模擬 Modbus 裝置。 您將需要知道它的 IPv4 位址。
 
 ## <a name="prepare-a-modbus-container"></a>準備 Modbus 容器
 
-如果您想要測試 Modbus 閘道功能，Microsoft 有可供您使用的範例模組。 您可以從 Azure Marketplace [Modbus](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)，或使用映射 URI **mcr.microsoft.com/azureiotedge/modbus:1.0**來存取模組。
+如果您想要測試 Modbus 閘道功能，Microsoft 有可供您使用的範例模組。 您可以使用 Azure Marketplace、 [Modbus](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)或 `mcr.microsoft.com/azureiotedge/modbus:1.0`的映射 URI 來存取模組。
 
 如果您想要建立自己的模組並針對您的環境進行自訂，GitHub 上有提供開放原始碼 [Azure IoT Edge Modbus 模組](https://github.com/Azure/iot-edge-modbus)專案。 請遵循該專案中的方針，建立您自己的容器映像。 若要建立容器映射，請參閱[在C# Visual Studio 中開發模組](how-to-visual-studio-develop-csharp-module.md)或[在 Visual Studio Code 中開發模組](how-to-vs-code-develop-module.md)。 這些文章提供有關建立新模組以及將容器映射發佈至登錄的指示。
 
@@ -46,62 +46,27 @@ ms.locfileid: "74457208"
 
 3. 選取 [設定模組]。
 
-4. 新增 Modbus 模組：
+4. 在 [ **IoT Edge 模組**] 區段中，新增 Modbus 模組：
 
-   1. 按一下 [新增]，然後選取 [IoT Edge 模組]。
+   1. 按一下 [**新增**] 下拉式清單，然後選取 [ **Marketplace 模組**]。
+   2. 搜尋 `Modbus` 並選取 [Microsoft **MODBUS TCP 模組**]。
+   3. 系統會自動為您的 IoT 中樞設定模組，並出現在 IoT Edge 模組清單中。 路由也會自動設定。 選取 [檢閱 + 建立]。
+   4. 檢查部署資訊清單，然後選取 [**建立**]。
 
-   2. 在 [名稱] 欄位中，輸入 "modbus"。
+5. 選取 Modbus 模組，`ModbusTCPModule`，並在清單中選取 [模組對應項**設定**] 索引標籤。已自動填入模組對應項所需屬性的必要 JSON。
 
-   3. 在 [映像] 欄位中，輸入範例容器的映像 URI：`mcr.microsoft.com/azureiotedge/modbus:1.0`。
+6. 尋找 JSON 中的**SlaveConnection**屬性，並將其值設定為 Modbus 裝置的 IPv4 位址。
 
-   4. 核取 [啟用] 方塊以更新模組對應項所需的屬性。
+7. 選取 [更新]。
 
-   5. 將下列 JSON 複製到文字方塊中。 將 [SlaveConnection] 的值變更為 Modbus 裝置的 IPv4 位址。
+8. 選取 [審核] [ **+ 建立**]，檢查部署，然後選取 [**建立**]。
 
-      ```JSON
-      {
-        "properties.desired":{
-          "PublishInterval":"2000",
-          "SlaveConfigs":{
-            "Slave01":{
-              "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
-              "Operations":{
-                "Op01":{
-                  "PollingInterval": "1000",
-                  "UnitId":"1",
-                  "StartAddress":"40001",
-                  "Count":"2",
-                  "DisplayName":"Voltage"
-                }
-              }
-            }
-          }
-        }
-      }
-      ```
-
-   6. 選取 [ **儲存**]。
-
-5. 回到 [新增模組] 步驟中，選取 [下一步]。
-
-7. 在 [指定路由] 步驟中，將下列 JSON 複製到文字方塊中。 此路由會將 Modbus 模組收集的所有訊息傳送到 IoT 中樞。 在此路由中， **modbusOutput**是 Modbus 模組用來輸出資料的端點， **$upstream**是告知 IoT Edge 中樞將訊息傳送至 IoT 中樞的特殊目的地。
-
-   ```JSON
-   {
-     "routes": {
-       "modbusToIoTHub":"FROM /messages/modules/modbus/outputs/modbusOutput INTO $upstream"
-     }
-   }
-   ```
-
-8. 選取 [下一步]。
-
-9. 在 [檢閱部署] 步驟中，選取 [提交]。
-
-10. 返回裝置的詳細資料頁面，選取 [重新整理]。 您應該會看到新的 **modbus** 模組隨著 IoT Edge 執行階段而執行。
+9. 返回裝置的詳細資料頁面，選取 [重新整理]。 您應該會看到新的 `ModbusTCPModule` 模組與 IoT Edge 執行時間一起執行。
 
 ## <a name="view-data"></a>檢視資料
-檢視透過 modbus 模組提供的資料：
+
+查看透過 Modbus 模組傳來的資料：
+
 ```cmd/sh
 iotedge logs modbus
 ```
@@ -110,5 +75,5 @@ iotedge logs modbus
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入瞭解 IoT Edge 裝置如何作為閘道，請參閱[建立作為透明閘道的 IoT Edge 裝置](./how-to-create-transparent-gateway.md)。
-- 如需 IoT Edge 模組如何發揮作用的詳細資訊，請參閱[瞭解 Azure IoT Edge 模組](iot-edge-modules.md)。
+* 若要深入瞭解 IoT Edge 裝置如何作為閘道，請參閱[建立作為透明閘道的 IoT Edge 裝置](./how-to-create-transparent-gateway.md)。
+* 如需 IoT Edge 模組如何發揮作用的詳細資訊，請參閱[瞭解 Azure IoT Edge 模組](iot-edge-modules.md)。

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: hamusa
-ms.openlocfilehash: 17ba06d6ac09f220b4343092292275a1cc315377
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 828f3078c992bed4fa556a374468e69dd58ebc04
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489207"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494518"
 ---
 # <a name="dependency-visualization"></a>相依性視覺效果
 
@@ -32,8 +32,8 @@ ms.locfileid: "73489207"
 
 有兩個選項可以部署相依性視覺效果：
 
-- **無代理**程式相依性視覺效果：此選項目前為預覽狀態。 您不需要在電腦上安裝任何代理程式。 
-    - 其運作方式是從已啟用它的機器中，捕獲 TCP 連接資料。 [詳細資訊](how-to-create-group-machine-dependencies-agentless.md)。
+- **無代理**程式相依性視覺效果：此選項目前為預覽狀態，僅適用于 VMware vm。 您不需要在電腦上安裝任何代理程式。 
+    - 其運作方式是從已啟用它的機器中，捕獲 TCP 連接資料。 [深入了解](how-to-create-group-machine-dependencies-agentless.md)。
 相依性探索開始之後，應用裝置會以五分鐘的輪詢間隔從機器收集資料。
     - 收集的資料如下：
         - TCP 連線
@@ -54,7 +54,7 @@ ms.locfileid: "73489207"
 [深入瞭解](how-to-assess.md)如何新增工具，以及如何部署[hyper-v](how-to-set-up-appliance-hyper-v.md)、 [VMware](how-to-set-up-appliance-vmware.md)或實體伺服器的應用裝置。
 
 
-### <a name="how-does-it-work"></a>運作方式
+### <a name="how-does-it-work"></a>怎麼運作的呢？
 
 Azure Migrate 使用[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)中的[服務對應](../operations-management-suite/operations-management-suite-service-map.md)解決方案來進行相依性視覺效果。
 
@@ -93,6 +93,6 @@ Azure Migrate 使用[Azure 監視器記錄](../log-analytics/log-analytics-overv
 
 ## <a name="next-steps"></a>後續步驟
 - [使用機器相依性的群組機器](how-to-create-group-machine-dependencies.md)
-- [深入了解](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization)相依性視覺效果常見問題集。
+- [深入了解](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization)相依性視覺效果的常見問題集。
 
 

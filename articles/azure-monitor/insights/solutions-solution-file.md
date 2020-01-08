@@ -8,18 +8,18 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 47ee691186da7f915ca8fcf87415784ab12ef1e0
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 517b9768c1df928012c34a4dcdd2dfa6b0c94d0c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553854"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401591"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中建立管理解決方案檔 (預覽)
 > [!NOTE]
 > 這是在 Azure 中建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。  
 
-Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)。  學習如何撰寫管理解決方案的主要工作，是學習如何[撰寫範本](../../azure-resource-manager/resource-group-authoring-templates.md)。  本文提供用於解決方案的範本獨特詳細資料，以及設定一般解決方案資源的方式。
+Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)。  學習如何撰寫管理解決方案的主要工作，是學習如何[撰寫範本](../../azure-resource-manager/templates/template-syntax.md)。  本文提供用於解決方案的範本獨特詳細資料，以及設定一般解決方案資源的方式。
 
 
 ## <a name="tools"></a>工具
@@ -32,8 +32,8 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 
 
 
-## <a name="structure"></a>Structure
-管理解決方案檔案與[資源管理員範本](../../azure-resource-manager/resource-group-authoring-templates.md#template-format)的基本結構相同，如下所示。  下列各節說明最上層元素及其在解決方案中的內容。  
+## <a name="structure"></a>結構
+管理解決方案檔案與[資源管理員範本](../../azure-resource-manager/templates/template-syntax.md#template-format)的基本結構相同，如下所示。  下列各節說明最上層元素及其在解決方案中的內容。  
 
     {
        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -45,7 +45,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
     }
 
 ## <a name="parameters"></a>參數
-[Parameters](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) 是您在使用者安裝解決方案時向他們要求的值。  所有解決方案都會有標準參數，而您可以視需要針對特定解決方案新增額外的參數。  使用者在安裝解決方案時提供參數值的方式，將取決於特定參數以及解決方案的安裝方式。
+[Parameters](../../azure-resource-manager/templates/template-syntax.md#parameters) 是您在使用者安裝解決方案時向他們要求的值。  所有解決方案都會有標準參數，而您可以視需要針對特定解決方案新增額外的參數。  使用者在安裝解決方案時提供參數值的方式，將取決於特定參數以及解決方案的安裝方式。
 
 當使用者透過 Azure Marketplace 或 Azure 快速入門範本[安裝您的管理解決方案](solutions.md#install-a-monitoring-solution)時，系統會提示他們選取 [Log Analytics 工作區和自動化帳戶](solutions.md#log-analytics-workspace-and-automation-account)。  這些用來填入每個標準參數的值。  系統不會提示使用者直接提供標準參數的值，但會提示他們提供任何其他參數的值。
 
@@ -62,12 +62,12 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 
 下表說明參數的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
-| 類型 |變數的資料類型。 針對使用者顯示的輸入控制項視資料類型而定。<br><br>bool - 下拉式方塊<br>string - 文字方塊<br>int - 文字方塊<br>securestring - 密碼欄位<br> |
+| type |變數的資料類型。 針對使用者顯示的輸入控制項視資料類型而定。<br><br>bool - 下拉式方塊<br>string - 文字方塊<br>int - 文字方塊<br>securestring - 密碼欄位<br> |
 | category |參數的選擇性類別。  相同類別中的參數會群組在一起。 |
-| control |string 參數的其他功能。<br><br>datetime - Datetime 控制項隨即顯示。<br>guid - 會自動產生 Guid 值，但未顯示此參數。 |
-| 說明 |參數的選擇性說明。  顯示於參數旁邊的資訊球形文字說明。 |
+| 控制 |string 參數的其他功能。<br><br>datetime - Datetime 控制項隨即顯示。<br>guid - 會自動產生 Guid 值，但未顯示此參數。 |
+| description |參數的選擇性說明。  顯示於參數旁邊的資訊球形文字說明。 |
 
 ### <a name="standard-parameters"></a>標準參數
 下表列出所有管理解決方案的標準參數。  系統會為使用者填入這些值，而不會在他們從 Azure Marketplace 或快速入門範本安裝解決方案時提示他們輸入這些值。  如果以其他方法安裝解決方案，使用者必須提供這些值。
@@ -77,7 +77,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 >
 >
 
-| 參數 | Type | 描述 |
+| 參數 | 類型 | 說明 |
 |:--- |:--- |:--- |
 | accountName |string |Azure 自動化帳戶名稱。 |
 | pricingTier |string |Log Analytics 工作區和 Azure 自動化帳戶的定價層。 |
@@ -126,7 +126,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 參考解決方案的其他項目中使用 **parameters('parameter name')** 語法的參數值。  例如，若要存取工作區名稱，您會使用 **parameters('workspaceName')**
 
 ## <a name="variables"></a>變數
-[變數](../../azure-resource-manager/resource-group-authoring-templates.md#variables)是您會在管理解決方案的其餘部分中使用的值。  這些值不會公開給安裝解決方案的使用者。  它們旨在為作者提供單一位置，讓他們可以管理在整個解決方案可能會重複使用的值。 您應該將解決方案特有的值放在變數中，而非將這些值硬式編碼在 **resources** 元素中。  這會讓程式碼更容易閱讀，並可讓您輕鬆地在後續的版本中變更這些值。
+[變數](../../azure-resource-manager/templates/template-syntax.md#variables)是您會在管理解決方案的其餘部分中使用的值。  這些值不會公開給安裝解決方案的使用者。  它們旨在為作者提供單一位置，讓他們可以管理在整個解決方案可能會重複使用的值。 您應該將解決方案特有的值放在變數中，而非將這些值硬式編碼在 **resources** 元素中。  這會讓程式碼更容易閱讀，並可讓您輕鬆地在後續的版本中變更這些值。
 
 下列範例為 **variables** 項目，包含解決方案中所使用的一般參數。
 
@@ -155,10 +155,10 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 在此情況下，您會以 **variables('variable name').property** 語法透過解決方案參考變數。  例如，若要存取 Solution Name 變數，您會使用 **variables('Solution').Name**。
 
 ## <a name="resources"></a>資源
-[資源](../../azure-resource-manager/resource-group-authoring-templates.md#resources)會定義您的管理解決方案將會安裝並設定的不同資源。  這是範本最大且最複雜的部分。  您可以在[編寫 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md#resources)中取得 resource 元素的架構和完整描述。  本文件中的其他文章會詳述您經常定義的其他資源。 
+[資源](../../azure-resource-manager/templates/template-syntax.md#resources)會定義您的管理解決方案將會安裝並設定的不同資源。  這是範本最大且最複雜的部分。  您可以在[編寫 Azure Resource Manager 範本](../../azure-resource-manager/templates/template-syntax.md#resources)中取得 resource 元素的架構和完整描述。  本文件中的其他文章會詳述您經常定義的其他資源。 
 
 
-### <a name="dependencies"></a>相依項目
+### <a name="dependencies"></a>相依性
 **dependsOn** 元素指定對另一個資源的[相依性](../../azure-resource-manager/resource-group-define-dependencies.md)。  安裝解決方案時，直到所有相依性建立後才會建立資源。  例如，解決方案可能會在使用[作業資源](solutions-resources-automation.md#automation-jobs)安裝時[啟動 Runbook](solutions-resources-automation.md#runbooks)。  作業資源會相依於 Runbook 資源，以確保在建立作業前建立 Runbook。
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 工作區和自動化帳戶
@@ -199,15 +199,15 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 
 
 
-### <a name="dependencies"></a>相依項目
+### <a name="dependencies"></a>相依性
 解決方案資源在解決方案中的每隔一個資源上須有[相依性](../../azure-resource-manager/resource-group-define-dependencies.md)，因為必須先存在相依性，才能建立解決方案。  您可以在 **dependsOn** 項目中針對每個資源新增一個項目。
 
 ### <a name="properties"></a>屬性
 解決方案資源具有下表中的屬性。  這包括由定義解決方案安裝後如何管理資源的解決方案所參考及包含的資源。  解決方案中的每個資源應列在 **referencedResources** 或 **containedResources** 屬性中。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
-| workspaceResourceId |Log Analytics 工作區的識別碼，格式為 *\<Resource 群組識別碼 >:/providers/microsoft.operationalinsights/workspaces/\<Workspace 名稱 \>* 。 |
+| workspaceResourceId |Log Analytics 工作區的識別碼，格式為 *\<資源群組識別碼 >:/providers/microsoft.operationalinsights/workspaces/\<工作區名稱\>* 。 |
 | referencedResources |解決方案移除時不應移除的解決方案資源清單。 |
 | containedResources |解決方案移除時應移除的解決方案資源清單。 |
 
@@ -216,9 +216,9 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 ### <a name="plan"></a>方案
 解決方案資源的**計劃**實體具有下表中的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
-| 名稱 |解決方案的名稱。 |
+| NAME |解決方案的名稱。 |
 | version |作者所決定的解決方案版本。 |
 | product |識別解決方案的唯一字串。 |
 | publisher |解決方案的發佈者。 |
@@ -229,5 +229,5 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 * 在您的管理解決方案中[新增儲存的搜尋和警示](solutions-resources-searches-alerts.md)。
 * 在您的管理解決方案中[新增檢視](solutions-resources-views.md)。
 * 在您的管理解決方案中[新增 Runbook 及其他自動化資源](solutions-resources-automation.md)。
-* 了解[編寫 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)的詳細資料。
+* 了解[編寫 Azure Resource Manager 範本](../../azure-resource-manager/templates/template-syntax.md)的詳細資料。
 * 搜尋 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates)不同 Resource Manager 範本的範例。

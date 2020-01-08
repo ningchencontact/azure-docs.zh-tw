@@ -1,5 +1,5 @@
 ---
-title: Azure AD 權利管理中的常見案例-Azure Active Directory
+title: 權利管理中的常見案例-Azure AD
 description: 瞭解 Azure Active Directory 權利管理中常見案例應遵循的高階步驟。
 services: active-directory
 documentationCenter: ''
@@ -16,18 +16,18 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d2dc82d0e81c9ac374d96387677774dc916b8c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d780e6e11d2c067261f6862e1678ef5de0aaa9bb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173495"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422512"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Azure AD 權利管理的常見案例
 
 有數種方式可讓您為組織設定權利管理。 不過，如果您剛開始使用，瞭解系統管理員、目錄擁有者、存取封裝管理員、核准者和要求者的常見案例，會很有説明。
 
-## <a name="delegate"></a>委託人
+## <a name="delegate"></a>委派
 
 ### <a name="administrator-delegate-management-of-resources"></a>系統管理員：委派資源的管理
 
@@ -36,7 +36,7 @@ ms.locfileid: "73173495"
 
 ### <a name="catalog-creator-delegate-management-of-resources"></a>目錄建立者：委派資源的管理
 
-- [建立新的目錄](entitlement-management-catalog-create.md#create-a-catalog)
+- [[建立新的目錄]](entitlement-management-catalog-create.md#create-a-catalog)
 
 ### <a name="catalog-owner-delegate-management-of-resources"></a>目錄擁有者：委派資源的管理
 

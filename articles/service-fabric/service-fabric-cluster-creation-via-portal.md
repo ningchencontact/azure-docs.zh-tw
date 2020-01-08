@@ -1,25 +1,14 @@
 ---
-title: 在 Azure 入口網站中建立 Service Fabric 叢集 | Microsoft Docs
+title: 在 Azure 入口網站中建立 Service Fabric 叢集
 description: 了解如何使用 Azure 入口網站和 Azure Key Vault 在 Azure 中建立安全的 Service Fabric 叢集。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2018
-ms.author: atsenthi
-ms.openlocfilehash: ca050e19ed37e2895507507338ebf4b4217851b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934050"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452306"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 入口網站在 Azure 中建立 Service Fabric 叢集
 > [!div class="op_single_selector"]
@@ -184,7 +173,7 @@ ms.locfileid: "72934050"
 
 若要完成叢集建立作業，請按一下 [建立]。 您也可以選擇性下載此範本。
 
-![總結]
+![摘要]
 
 您可以在通知功能中看到叢集的建立進度。 （按一下畫面右上方狀態列附近的「鐘」圖示）。如果您在建立叢集時按了 [**釘選到開始面板**]，您會看到將 Service Fabric 的叢集**部署**到**開始**面板。 此程序需要一些時間。 
 

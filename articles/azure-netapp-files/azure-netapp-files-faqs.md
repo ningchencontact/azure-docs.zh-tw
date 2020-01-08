@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 01/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 5e69df816e67ddc346ac8452c9bdc8bbd68fa426
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 630535103656e13ca43d958ef2a4124a4ea940ac
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546947"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658282"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>關於 Azure NetApp Files 的常見問題
 
@@ -131,7 +131,7 @@ Azure NetApp Files 支援 NFSv3 和 NFSv 4.1。 您可以使用任何一個 NFS 
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>支援多少個 Active Directory 連接？
 
-Azure NetApp Files 目前支援每個訂用帳戶有一個 Active Directory 連接。 此外，Active Directory 連線僅適用于單一 NetApp 帳戶;它不會在帳戶之間共用。 
+Azure NetApp Files 目前僅支援每個 NetApp 帳戶、每個訂用帳戶和每個區域中有一個 Active Directory 連線;連接不會在 NetApp 帳戶之間共用。
 
 ### <a name="does-azure-netapp-files-support-azure-active-directory"></a>Azure NetApp Files 是否支援 Azure Active Directory？ 
 

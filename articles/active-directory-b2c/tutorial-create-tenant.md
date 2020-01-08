@@ -10,40 +10,41 @@ ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: de29929c8fda476fe276f91d4a68ce4d632503fd
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: b7e872f3320a2c72b6e9fb3ffba65510b205ca03
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425567"
 ---
-# <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>教學課程：建立 Active Directory B2C 租用戶
+# <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>教學課程：建立 Azure Active Directory B2C 租用戶
 
 您的應用程式必須先在您管理的租使用者中註冊，才可以與 Azure Active Directory B2C （Azure AD B2C）互動。
 
-在本文中，您將了解：
+在本文中，您將學會如何：
 
 > [!div class="checklist"]
 > * 建立 Azure AD B2C 租用戶
 > * 將您的租用戶連結至您的訂用帳戶
 > * 切換至包含您 Azure AD B2C 租使用者的目錄
-> * 在 Azure 入口網站中將 Azure AD B2C 資源新增為我的*最愛*
+> * 在 Azure 入口網站中將 Azure AD B2C 資源新增為我的**最愛**
 
 您會在下一個教學課程中了解如何註冊應用程式。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="create-an-azure-ad-b2c-tenant"></a>建立 Azure AD B2C 租用戶
 
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-1. 請確定您使用的是包含訂用帳戶的目錄。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。 使用至少已指派訂用帳戶中的[參與者](../role-based-access-control/built-in-roles.md)角色，或訂用帳戶內的資源群組，登入 Azure 帳戶。
 
-    在頂端功能表中選取 [**目錄 + 訂**用帳戶] 篩選，然後選取包含您訂用帳戶的目錄。 此目錄不同于將包含您 Azure AD B2C 租使用者的目錄。
+1. 選取包含您的訂用帳戶的目錄。
 
-    ![已選取訂用帳戶租使用者的目錄 + 訂用帳戶篩選](media/tutorial-create-tenant/portal-01-select-directory.png)
+    在 [Azure 入口網站] 工具列中，選取 [**目錄 + 訂**用帳戶] 圖示，然後選取包含訂用帳戶的目錄。 此目錄不同于將包含您 Azure AD B2C 租使用者的目錄。
 
-1. 在 Azure 入口網站的左上角，選取 [**建立資源**]。
-1. 搜尋並選取 [ **Active Directory B2C**]，然後選取 [**建立**]。
+    ![訂用帳戶租使用者，目錄 + 訂用帳戶篩選已選取訂用帳戶租使用者](media/tutorial-create-tenant/portal-01-pick-directory.png)
+
+1. 從 Azure 入口網站功能表或 **[首頁]** 頁面，選取 [建立資源]。
+1. 搜尋**Azure Active Directory B2C**，然後選取 [**建立**]。
 1. 選取 [建立新的 Azure AD B2C 租用戶]。
 
     ![建立在 Azure 入口網站中選取的新 Azure AD B2C 租使用者](media/tutorial-create-tenant/portal-02-create-tenant.png)
@@ -82,16 +83,16 @@ ms.locfileid: "71345220"
 
 這個選擇性步驟可讓您更輕鬆地在下列和所有後續教學課程中選取您的 Azure AD B2C 租使用者。
 
-您不需要在每次想要使用租使用者時搜尋**所有服務**中的「Azure AD B2C」，而可以改為將資源加入最愛。 然後，您可以從左側的 [我的最愛 **] 功能表中**選取它，以快速流覽至您的 Azure AD B2C 租使用者。
+您不需要在每次想要使用租使用者時搜尋**所有服務**中的*Azure AD B2C* ，而可以改為我的最愛資源。 然後，您可以從入口網站功能表的 [我的最愛 **] 區段中**選取它，以快速流覽至您的 Azure AD B2C 租使用者。
 
 您只需要執行此作業一次。 執行這些步驟之前，請確定您已切換至包含 Azure AD B2C 租使用者的目錄，如上一節[選取 B2C 租使用者目錄](#select-your-b2c-tenant-directory)中所述。
 
-1. 選取左側功能表中的 [**所有服務**] [Azure 入口網站](https://portal.azure.com)
-1. 在 [搜尋] 文字方塊中輸入*Azure AD B2C*
-1. 選取**星號**以將 Azure AD B2C 新增至我的最愛
-1. *Azure AD B2C*現在會顯示在 [我的最愛 **]** 左側功能表中。 您可以視需要在清單中選取並將它拖曳至較高的位置，如下圖所示：
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 在 [Azure 入口網站] 功能表中，選取 [**所有服務**]。
+1. 在 [**所有服務**] 搜尋方塊中，搜尋**Azure AD B2C**，將滑鼠停留在搜尋結果上方，然後選取工具提示中的星星圖示。 **Azure AD B2C**現在會出現在 [我的最愛 **]** 下的 Azure 入口網站中。
+1. 如果您想要變更新的我的最愛位置，請移至 [Azure 入口網站] 功能表，選取 [ **Azure AD B2C**]，然後將它向上或向下拖曳至想要的位置。
 
-![在 Azure 入口網站中將 Azure AD B2C 新增為我的最愛的步驟](media/tutorial-create-tenant/portal-08-favorite-b2c.png)
+    ![Azure AD B2C、我的最愛功能表 Microsoft Azure 入口網站](media/tutorial-create-tenant/portal-08-b2c-favorite.png)
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -101,9 +102,9 @@ ms.locfileid: "71345220"
 > * 建立 Azure AD B2C 租用戶
 > * 將您的租用戶連結至您的訂用帳戶
 > * 切換至包含您 Azure AD B2C 租使用者的目錄
-> * 在 Azure 入口網站中將 Azure AD B2C 資源新增為我的*最愛*
+> * 在 Azure 入口網站中將 Azure AD B2C 資源新增為我的**最愛**
 
-接下來, 瞭解如何在新的租使用者中註冊 web 應用程式。
+接下來，瞭解如何在新的租使用者中註冊 web 應用程式。
 
 > [!div class="nextstepaction"]
 > [註冊您的應用程式 >](tutorial-register-applications.md)

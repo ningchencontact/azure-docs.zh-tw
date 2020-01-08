@@ -2,17 +2,17 @@
 title: 什麼是 Azure 私人連結服務？
 description: 瞭解 Azure 私人連結服務。
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: f9bdc180bf0dfd6f35fb18f5c76176a68d8f1644
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f8d49a62ae9006e65ef86db1ae90cd5a5e9f1c6d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74912987"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647368"
 ---
 # <a name="what-is-azure-private-link-service"></a>什麼是 Azure 私人連結服務？
 
@@ -68,7 +68,7 @@ Azure 私人連結服務是由 Azure 私用連結所支援的專屬服務參考�
  
 - 單一私人連結服務可以從屬於不同 Vnet、訂用帳戶及/或 Active Directory 租使用者的多個私人端點存取。 連接是透過連接工作流程所建立。 
  
-- 您可以使用不同的前端 IP 設定，在相同的 Standard Load Balancer 上建立多個私人連結服務。 針對每個 Standard Load Balancer 和每個訂用帳戶，您可以建立的私人連結服務數目有所限制。 如需詳細資訊，請參閱 [Azure 限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)。
+- 您可以使用不同的前端 IP 設定，在相同的 Standard Load Balancer 上建立多個私人連結服務。 針對每個 Standard Load Balancer 和每個訂用帳戶，您可以建立的私人連結服務數目有所限制。 如需詳細資訊，請參閱 [Azure 限制](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)。
  
 - 私人連結服務可以有一個以上的 NAT IP 設定連結。 選擇一個以上的 NAT IP 設定可協助服務提供者進行調整。 目前，服務提供者最多可以為每個私人連結服務指派八個 NAT IP 位址。 您可以使用每個 NAT IP 位址，為您的 TCP 連線指派更多埠，進而相應放大。將多個 NAT IP 位址新增到私人連結服務之後，您就無法刪除 NAT IP 位址。 這是為了確保在刪除 NAT IP 位址時，不會影響作用中的連接。
 

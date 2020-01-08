@@ -1,7 +1,7 @@
 ---
-title: 不使用瀏覽器登入使用者 |Azure
+title: OAuth 2.0 裝置程式碼流程 |Azure
 titleSuffix: Microsoft identity platform
-description: 使用裝置授權授與，建立內嵌和無瀏覽器的驗證流程。
+description: 不使用瀏覽器登入使用者。 使用裝置授權授與，建立內嵌和無瀏覽器的驗證流程。
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e937955f0b122d3a878141655475f34b051622e7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1035d5cd7c992bea74180b482bb8e3c2c9e0f461
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919234"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423246"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft 身分識別平臺和 OAuth 2.0 裝置授權授與流程
 
@@ -61,7 +61,7 @@ scope=user.read%20openid%20profile
 
 ```
 
-| 參數 | 條件 | 描述 |
+| 參數 | 條件 | 說明 |
 | --- | --- | --- |
 | `tenant` | 必要項 | 可以是/common、/consumers 或/organizations。  它也可以是您想要以 GUID 或易記名稱格式來要求許可權的目錄租使用者。  |
 | `client_id` | 必要項 | **應用程式（用戶端）識別碼**， [Azure 入口網站](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您應用程式的應用程式註冊體驗。 |
@@ -71,7 +71,7 @@ scope=user.read%20openid%20profile
 
 成功的回應會是一個 JSON 物件，其中包含允許使用者登入的所需資訊。  
 
-| 參數 | 格式 | 描述 |
+| 參數 | [格式] | 說明 |
 | ---              | --- | --- |
 |`device_code`     | String | 長字串，可用於驗證用戶端與授權伺服器之間的工作階段。 用戶端會使用此參數來向授權伺服器要求存取權杖。 |
 |`user_code`       | String | 向使用者顯示的簡短字串，用來識別次要裝置上的會話。|
@@ -100,7 +100,7 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
-| 參數 | 必要項 | 描述|
+| 參數 | 必要項 | 說明|
 | -------- | -------- | ---------- |
 | `tenant`  | 必要項 | 初始要求中使用的相同租使用者或租使用者別名。 | 
 | `grant_type` | 必要項 | 必須是 `urn:ietf:params:oauth:grant-type:device_code`|
@@ -111,7 +111,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 裝置程式碼流程是一種輪詢通訊協定，因此您的用戶端在使用者完成驗證之前，必須預期會收到錯誤。  
 
-| Error | 描述 | 用戶端動作 |
+| 錯誤 | 說明 | 用戶端動作 |
 | ------ | ----------- | -------------|
 | `authorization_pending` | 使用者尚未完成驗證，但尚未取消流程。 | 經過至少 `interval` 秒後，重複要求流程。 |
 | `authorization_declined` | 終端使用者拒絕了授權要求。| 停止輪詢，並還原到未驗證的狀態。  |
@@ -133,7 +133,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 }
 ```
 
-| 參數 | 格式 | 描述 |
+| 參數 | [格式] | 說明 |
 | --------- | ------ | ----------- |
 | `token_type` | String| 一律是「Bearer」。 |
 | `scope` | 空格分隔的字串 | 如果傳回了存取權杖，則會列出存取權杖的有效範圍。 |

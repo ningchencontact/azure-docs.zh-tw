@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 212f10bd33479e5a9f7244d5b2090c0324f937c2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 358f26af8d990d29f226978387fdf8093d2b8644
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226768"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612967"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>如何針對「無法連線至函式執行階段」的情形進行疑難排解
 
@@ -20,7 +20,7 @@ ms.locfileid: "74226768"
 
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>摘要
 當 Azure Functions 執行階段無法啟動時，就會發生此問題。 之所以會發生這個錯誤，最常見的原因是函式應用程式無法存取其儲存體帳戶。 [在此深入了解儲存體帳戶需求](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
 ### <a name="troubleshooting"></a>疑難排解
@@ -31,6 +31,8 @@ ms.locfileid: "74226768"
 1. 儲存體帳戶的認證無效
 1. 無法存取儲存體帳戶
 1. 每日執行配額已滿
+1. 應用程式位於防火牆後方
+
 
 ## <a name="storage-account-deleted"></a>儲存體帳戶已刪除
 
@@ -48,7 +50,7 @@ ms.locfileid: "74226768"
 
 ### <a name="required-application-settings"></a>必要的應用程式設定
 
-* 必要
+* 必要項
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 * 取用方案函式所必備
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
@@ -56,7 +58,7 @@ ms.locfileid: "74226768"
 
 [在此了解這些應用程式設定](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-### <a name="guidance"></a>指引
+### <a name="guidance"></a>指導方針
 
 * 請勿對上述任何設定核取 [位置設定]。 當您交換部署位置時，函式將會中斷。
 * 請勿將這些設定修改為自動化部署的一部分。
@@ -80,6 +82,12 @@ ms.locfileid: "74226768"
 * 若要驗證，請在入口網站中檢查開啟的 [平台功能] > [函數應用程式設定]。 如果您已超過配額，就會看到下列訊息
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
 * 請移除配額，然後重新啟動應用程式來解決此問題。
+
+## <a name="app-is-behind-a-firewall"></a>應用程式位於防火牆後方
+
+如果您的函式應用程式[裝載于內部負載平衡的 App Service 環境](../app-service/environment/create-ilb-ase.md)中，而且設定為封鎖輸入網際網路流量，或設定了[輸入 IP 限制](functions-networking-options.md#inbound-ip-restrictions)以封鎖網際網路存取，則無法連線到您的函式執行時間。 Azure 入口網站會直接呼叫執行中的應用程式來提取函式清單，也會對 KUDU 端點進行 HTTP 呼叫。 [`Platform Features`] 索引標籤下的平台層級設定仍然可以使用。
+
+* 若要驗證您的 ASE 設定，請流覽至 ASE 所在子網的 NSG，並驗證輸入規則，以允許來自您正在存取應用程式之電腦的公用 IP 流量。 您也可以從連線至執行應用程式之虛擬網路的電腦，或在虛擬網路中執行的虛擬機器，使用入口網站。 [如需輸入規則設定的詳細資訊，請參閱這裡](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups)
 
 ## <a name="next-steps"></a>後續步驟
 

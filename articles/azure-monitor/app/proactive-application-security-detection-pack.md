@@ -1,18 +1,18 @@
 ---
-title: 智慧偵測 - 使用 Azure Application Insights 的智慧偵測套件 | Microsoft Docs
-description: 使用 Azure Application Insights 監視應用程式的潛在安全性問題。
+title: 具有 Azure 應用程式深入解析的安全性偵測套件
+description: 針對潛在的安全性問題，使用 Azure 應用程式的深入解析和智慧偵測來監視應用程式。
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
-ms.openlocfilehash: 10c8a38af9e4f04b874bfa75e9e78d241b093117
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: ba35b3a3e1985f49ade468c4d2e82ca579fdac2a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820659"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432464"
 ---
 # <a name="application-security-detection-pack-preview"></a>應用程式安全性偵測套件 (預覽)
 
@@ -32,14 +32,14 @@ Application Insights 會自動分析由您的應用程式所產生的遙測，�
 ## <a name="how-do-i-fix-the-insecure-url-access-detection"></a>如何修正「不安全的 URL 存取」偵測？
 1. **分級。** 通知會提供存取不安全之 URL 的使用者數目，以及受到不安全的存取影響最深的 URL。 這可協助您將優先順序指派給此問題。
 2. **範圍。** 存取不安全之 URL 的使用者的百分比是多少？ 有多少 URL 受到影響？ 可以從通知取得這項資訊。
-3. **診斷**。 偵測會提供不安全的要求清單，以及受到影響之 URL 和使用者的清單，協助您進一步診斷問題。
+3. **診斷。** 偵測會提供不安全的要求清單，以及受到影響之 URL 和使用者的清單，協助您進一步診斷問題。
 
 ## <a name="how-do-i-fix-the-insecure-form-detection"></a>如何修正「不安全的表單」偵測？
 1. **分級。** 通知會提供不安全的表單數目，及其資料可能受到危害的使用者數目。 這可協助您將優先順序指派給此問題。
 2. **範圍。** 哪個表單牽涉到最大的不安全傳輸數目，以及一段時間的不安全傳輸散佈如何？ 可以從通知取得這項資訊。
-3. **診斷**。 偵測會提供不安全的表單清單以及每個表單之不安全傳輸數目細分，協助您進一步診斷問題。
+3. **診斷。** 偵測會提供不安全的表單清單以及每個表單之不安全傳輸數目細分，協助您進一步診斷問題。
 
 ## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>如何修正「可疑的使用者活動」偵測？
 1. **分級。** 通知會提供展現可疑行為的不同使用者數目。 這可協助您將優先順序指派給此問題。
 2. **範圍。** 可疑的要求源自于哪些國家/地區？ 哪個使用者最可疑？ 可以從通知取得這項資訊。
-3. **診斷**。 偵測會提供可疑使用者的清單，以及每個使用者的國家/地區清單，協助您進一步診斷問題。
+3. **診斷。** 偵測會提供可疑使用者的清單，以及每個使用者的國家/地區清單，協助您進一步診斷問題。

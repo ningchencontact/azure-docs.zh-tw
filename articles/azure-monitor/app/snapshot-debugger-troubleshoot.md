@@ -8,12 +8,12 @@ author: brahmnes
 ms.author: mbullwin
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ded4a1a718d2cb061aba5f0d27565633e6cb603a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4544f42e7c024b21c4ae050d9b11e0f9e2786d57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932096"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432332"
 ---
 # <a id="troubleshooting"></a>針對啟用 Application Insights 快照偵錯工具或查看快照集的問題進行疑難排解
 如果您已為應用程式啟用 Application Insights 快照偵錯工具，但看不到例外狀況的快照集，您可以使用這些指示來進行疑難排解。 不會產生快照集有許多不同的原因。 您可以執行快照集健康情況檢查，以找出一些可能的常見原因。
@@ -202,7 +202,7 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
 建立快照集後，擲回中的例外狀況會以快照集識別碼標記。 向 Application Insights 回報例外狀況遙測後，該快照集識別碼就會包含為自訂屬性。 使用 Application Insights 中的 [搜尋] 刀鋒視窗，您可以找到具有 `ai.snapshot.id` 自訂屬性的所有遙測。
 
 1. 在 Azure 入口網站中瀏覽至您的 Application Insights 資源。
-2. 按一下 [搜尋]。
+2. 按一下 **[搜尋]** 。
 3. 在 [搜尋] 文字方塊中輸入 `ai.snapshot.id`，然後按 Enter 鍵。
 
 ![在入口網站中使用快照集識別碼搜尋遙測](./media/snapshot-debugger/search-snapshot-portal.png)
@@ -219,4 +219,4 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>編輯網路 Proxy 或防火牆規則
 
-如果應用程式透過 Proxy 或防火牆連線至網際網路，您可能需要編輯規則以允許應用程式與快照集偵錯工具服務進行通訊。 以下是[快照集偵錯工具使用的 IP 位址和連接埠清單](../../azure-monitor/app/ip-addresses.md#snapshot-debugger)。
+如果應用程式透過 Proxy 或防火牆連線至網際網路，您可能需要編輯規則以允許應用程式與快照集偵錯工具服務進行通訊。 快照偵錯工具所使用的 Ip 會包含在 Azure 監視器服務標記中。

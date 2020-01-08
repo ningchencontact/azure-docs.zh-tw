@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/08/2017
-ms.openlocfilehash: 02c4fca42f3d5d7494dc8fd6fe0e33161904ddbe
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b524000f78741b2ff8cf442d2daaef0c7945799a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928233"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432427"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>磁碟區例外狀況異常升高 (預覽)
 
 Application Insights 會自動分析應用程式中擲回的例外狀況，並且能夠針對例外狀況搖測中的異常模式向您提出警告。
 
-除了為您的應用程式[設定例外狀況報告](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-exceptions#set-up-exception-reporting)以外，這項功能不需要任何特殊設定。 當您的應用程式產生足夠的例外狀況遙測時，它就會是在作用中。
+除了為您的應用程式[設定例外狀況報告](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-exceptions#set-up-exception-reporting)以外，這項功能不需要任何特殊設定。 當您的應用程式產生足夠的例外狀況遙測時，它就會是在作用中狀態。
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>何時會取得這個類型的智慧偵測通知？
 如果您的應用程式在某一天 (相較於過去七天的計算基準) 發生特定類型例外狀況的次數異常升高，您就可能會收到此類通知。
@@ -31,4 +31,4 @@ Application Insights 會自動分析應用程式中擲回的例外狀況，並�
 通知包括要在診斷程序中支援的診斷資訊：
 1. **分級。** 通知會顯示受影響的使用者人數或要求數。 這可協助您將優先順序指派給此問題。
 2. **範圍。** 此問題是否會影響所有流量，還是只會影響某些作業？ 可以從通知取得這項資訊。
-3. **診斷**。 偵測包含了擲回例外狀況的方法及例外狀況類型的相關資訊。 您也可以使用連結到支援資訊的相關項目和報表，協助您進一步診斷問題。
+3. **診斷。** 偵測包含了擲回例外狀況的方法及例外狀況類型的相關資訊。 您也可以使用連結到支援資訊的相關項目和報表，協助您進一步診斷問題。

@@ -66,7 +66,7 @@
           href: troubleshooting-monitoring.md
         - name: 從 HANA 端進行監視和疑難排解
           href: hana-monitor-troubleshoot.md
-    - name: 作法
+    - name: 如何
       items:
         - name: 透過 Azure 入口網站控制 Azure HANA Large Instances
           href: hana-li-portal.md
@@ -104,6 +104,8 @@
           href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
         - name: 使用 SLES 上的 Azure NetApp Files 以待命節點相應放大 SAP Hana
           href: sap-hana-scale-out-standby-netapp-files-suse.md
+        - name: 使用 RHEL 上的 Azure NetApp Files 以待命節點相應放大 SAP Hana
+          href: sap-hana-scale-out-standby-netapp-files-rhel.md
     - name: SAP HANA 備份概觀
       href: sap-hana-backup-guide.md
     - name: SAP HANA 檔案層級備份
@@ -214,6 +216,8 @@
               href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
             - name: Windows 和適用於 (A)SCS 執行個體的檔案共用
               href: sap-ascs-ha-multi-sid-wsfc-file-share.md
+            - name: SLES 和適用於 A(SCS) 執行個體的 Pacemaker 多重 SID
+              href: high-availability-guide-suse-multi-sid.md
     - name: 適用於 SAP 災害復原的 Azure Site Recovery
       href: '../../../site-recovery/site-recovery-workload.md#protect-sap'
     - name: 適用於最佳網路延遲的 Azure Proximity Placement Groups (搭配 SAP 應用程式)

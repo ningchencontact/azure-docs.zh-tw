@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: b6e66bea6dd86409866db1fee3564d21236ecbce
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 05a05c46a49c0262bd5db33390bb995ebe849fd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286189"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364113"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>使用 Windows 虛擬機器的 Resource Manager 範本將客體作業系統計量傳送至 Azure 監視器計量存放區
 
@@ -25,9 +25,9 @@ ms.locfileid: "74286189"
 
 將它們儲存在此位置可讓您存取與平台計量相同的動作。 動作包括近乎即時的警示、圖表、路由，以及從 REST API 存取和更多功能。 在過去，診斷擴充功能會寫入到 Azure 儲存體，而不是 Azure 監視器資料存放區。
 
-如果您剛開始使用 Resource Manager 範本，請了解[範本部署](../../azure-resource-manager/resource-group-overview.md)與其結構和語法。
+如果您剛開始使用 Resource Manager 範本，請了解[範本部署](../../azure-resource-manager/management/overview.md)與其結構和語法。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 您必須先向 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) 註冊您的訂用帳戶。
 
@@ -40,7 +40,7 @@ ms.locfileid: "74286189"
 Azure 診斷擴充功能會使用稱為「資料接收器」的功能，將計量與記錄路由傳送至不同的位置。 下列步驟示範如何使用新的「Azure 監視器 」資料接收器，使用 Resource Manager 範本與 PowerShell 來部署 VM。
 
 ## <a name="author-resource-manager-template"></a>製作 Resource Manager 範本
-針對此範例，您可以使用公開提供的範例範本。 起始範本位於 https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows。
+針對此範例，您可以使用公開提供的範例範本。 起始範本位於 https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows 。
 
 - **Azuredeploy.json** 是預先設定的 Resource Manager 範本，可用於部署虛擬機器。
 
@@ -285,7 +285,7 @@ Azure 診斷擴充功能會使用稱為「資料接收器」的功能，將計�
 
 6. 在 [命名空間] 下拉式功能表中，選取 **azure.vm.windows.guest**
 
-7. 在 [計量] 下拉式功能表中，選取 [記憶體**認可的位元組 (使用中)]\%** 。
+7. 在 [計量] 下拉式功能表中，選取 [記憶體\%認可的位元組 (使用中)]。
 
 
 ## <a name="next-steps"></a>後續步驟

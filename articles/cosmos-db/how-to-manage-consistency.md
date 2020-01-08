@@ -1,17 +1,17 @@
 ---
-title: 了解如何在 Azure Cosmos DB 中管理一致性
+title: 管理 Azure Cosmos DB 中的一致性
 description: 瞭解如何使用 Azure 入口網站、.Net SDK、JAVA SDK 和各種其他 Sdk，在 Azure Cosmos DB 中設定和管理一致性層級
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 46c4c4afe737fd11c2e711a23a3355f48dbd6231
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 68be15e1ffd9093ab67fc046edaad991d633ca7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872072"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445374"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的一致性層級
 
@@ -238,7 +238,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解如何管理資料衝突，或繼續 Azure Cosmos DB 中的下一個重要概念。 請參閱下列文章：
+深入了解如何管理資料衝突，或繼續 Azure Cosmos DB 中的下一個重要概念。 查看下列文章：
 
 * [Azure Cosmos DB 中的一致性層級](consistency-levels.md)
 * [管理區域之間的衝突](how-to-manage-conflicts.md)

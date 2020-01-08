@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.openlocfilehash: 1b1b02e310c98a78006d258333c0ec10e89e3b31
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 28d0da369083d75bc175111d808828e186a366fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927456"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444126"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>複製活動效能和擴充性指南
 
@@ -151,7 +151,7 @@ Azure Data Factory 提供下列效能優化功能：
 > [!NOTE]
 > 目前只有當您將多個檔案從 Azure Blob/ADLS Gen1/ADLS Gen2/Amazon S3/Google Cloud Storage/雲端 FTP/雲端 SFTP 或已啟用分割選項的雲端關聯式資料存放區（包括[Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)）複製到任何其他雲端資料存放區時，才會套用超過四個 diu 的設定。
 
-**範例：**
+**範例︰**
 
 ```json
 "activities":[
@@ -198,7 +198,7 @@ Azure Data Factory 提供下列效能優化功能：
 - **ParallelCopies**屬性正交于**dataIntegrationUnits**。 前者會跨所有資料整合單位計算。
 - 當您指定**parallelCopies**屬性的值時，請考慮來源和接收資料存放區的負載增加。 也請考慮負載增加至自我裝載整合執行時間（如果複製活動是由其進行授權），例如針對混合式複製。 當您對相同的資料存放區執行相同活動的多個活動或並存執行時，就會發生這種負載增加的情況。 如果您注意到資料存放區或自我裝載整合執行時間已負擔負載，請減少**parallelCopies**值以減輕負載。
 
-**範例：**
+**範例︰**
 
 ```json
 "activities":[
@@ -242,7 +242,7 @@ Azure Data Factory 提供下列效能優化功能：
 
 設定 [複製] 活動中的 [ **enableStaging** ] 設定，指定在將資料載入目的地資料存放區之前，是否要在 Blob 儲存體中暫存資料。 當您將**enableStaging**設定為 `TRUE`時，請指定下表所列的其他屬性。 您也需要建立 Azure 儲存體或儲存體共用存取簽章連結服務，以供暫存（如果您沒有的話）。
 
-| 屬性 | 描述 | 預設值 | 必要項 |
+| 屬性 | 說明 | 預設值 | 必要項 |
 | --- | --- | --- | --- |
 | enableStaging |指定您是否要透過過渡暫存存放區複製資料。 |否 |否 |
 | linkedServiceName |指定 [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) 連結服務的名稱，以代表您用來做為過渡暫存存放區的儲存體執行個體。 <br/><br/> 您無法使用具有共用存取簽章的儲存體，透過 PolyBase 將資料載入 SQL 資料倉儲。 您可以將它用於其他所有案例。 |N/A |是，當 **enableStaging** 設為 TRUE |
@@ -293,7 +293,8 @@ Azure Data Factory 提供下列效能優化功能：
 
 以下是幾個支援的資料存放區所適用的效能監視及調整參考：
 
-* Azure 儲存體，其中包括 Blob 儲存體和資料表儲存體： [Azure 儲存體擴充性目標](../storage/common/storage-scalability-targets.md)，以及[Azure 儲存體效能和擴充性檢查清單](../storage/common/storage-performance-checklist.md)。
+* Azure Blob 儲存體： blob[儲存體的擴充性和效能目標](../storage/blobs/scalability-targets.md)，以及[Blob 儲存體的效能和擴充性檢查清單](../storage/blobs/storage-performance-checklist.md)。
+* Azure 資料表儲存體：資料表儲存體[的擴充性和效能目標](../storage/tables/scalability-targets.md)，以及[資料表儲存體的效能和擴充性檢查清單](../storage/tables/storage-performance-checklist.md)。
 * Azure SQL Database：您可以[監視效能](../sql-database/sql-database-single-database-monitor.md)，並檢查資料庫交易單位（DTU）百分比。
 * Azure SQL 資料倉儲：其功能會以資料倉儲單位（Dwu）來測量。 請參閱[管理 Azure SQL 資料倉儲中的計算能力（總覽）](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)。
 * Azure Cosmos DB： [Azure Cosmos DB 中的效能層級](../cosmos-db/performance-levels.md)。

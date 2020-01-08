@@ -1,21 +1,21 @@
 ---
-title: 建立、編輯或擴充邏輯應用程式定義
-description: 如何在 Azure Logic Apps 中撰寫、編輯和擴充邏輯應用程式 JSON 定義
+title: 建立、編輯或擴充邏輯應用程式 JSON 工作流程定義
+description: 如何在 Azure Logic Apps 中撰寫、編輯和擴充邏輯應用程式的 JSON 工作流程定義
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: bffbc29322a57d6bb9b8497299add5dbb0478d2c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 95e9f7211c8cd6cb4edd59d099ae9c189bae3780
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792583"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666919"
 ---
-# <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立、編輯或擴充邏輯應用程式定義的 JSON
+# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立、編輯或擴充邏輯應用程式工作流程定義的 JSON
 
-當您在 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 中使用自動化工作流程建立企業整合解決方案時，基礎邏輯應用程式定義會針對其描述和驗證，使用簡單的宣告式 JavaScript 物件標記法 (JSON) 及[工作流程定義語言 (WDL) 結構描述](../logic-apps/logic-apps-workflow-definition-language.md)。 這些格式讓邏輯應用程式定義更容易閱讀及了解，且無須很多程式碼方面的知識。 如果您想要自動化邏輯應用程式的建立及部署，您可以將邏輯應用程式定義納入 [Azure Resource Manager 範本](../azure-resource-manager/template-deployment-overview.md)中的 [Azure 資源](../azure-resource-manager/resource-group-overview.md)。 然後您可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp)、[Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 或 [Azure Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/) 來建立、管理及部署邏輯應用程式。
+當您在 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 中使用自動化工作流程建立企業整合解決方案時，基礎邏輯應用程式定義會針對其描述和驗證，使用簡單的宣告式 JavaScript 物件標記法 (JSON) 及[工作流程定義語言 (WDL) 結構描述](../logic-apps/logic-apps-workflow-definition-language.md)。 這些格式讓邏輯應用程式定義更容易閱讀及了解，且無須很多程式碼方面的知識。 如果您想要自動化邏輯應用程式的建立及部署，您可以將邏輯應用程式定義納入 [Azure Resource Manager 範本](../azure-resource-manager/template-deployment-overview.md)中的 [Azure 資源](../azure-resource-manager/management/overview.md)。 然後您可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp)、[Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 或 [Azure Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/) 來建立、管理及部署邏輯應用程式。
 
 若要以 JSON 編寫邏輯應用程式定義，可以在 Azure 入口網站或 Visual Studio 中開啟程式碼檢視編輯器，或將定義複製到任何您想要的編輯器中。 如果您還不熟悉邏輯應用程式，請先檢閱[如何建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
@@ -39,7 +39,7 @@ ms.locfileid: "74792583"
 
 在 Visual Studio 中，您可以開啟直接從 Azure 入口網站建立或部署的邏輯應用程式，或開啟 Visual Studio 中以 Azure Resource Manager 專案形式建立或部署的邏輯應用程式。
 
-1. 開啟包含邏輯應用程式的 Visual Studio 解決方案或 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)專案。
+1. 開啟包含邏輯應用程式的 Visual Studio 解決方案或 [Azure 資源群組](../azure-resource-manager/management/overview.md)專案。
 
 2. 尋找並開啟邏輯應用程式的定義，根據預設，該定義在 [Resource Manager 範本](../azure-resource-manager/template-deployment-overview.md)中會以 **LogicApp.json** 的名稱顯示。 您可以使用及自訂此範本，以部署至不同的環境。
 
@@ -58,7 +58,7 @@ ms.locfileid: "74792583"
 
 ## <a name="parameters"></a>參數
 
-部署生命週期通常會有不同的環境來進行開發、測試、預備和生產。 如果您想要在沒有硬式編碼的情況下重複使用邏輯應用程式，或是根據您的部署需求而有所不同的值，您可以為工作流程定義建立[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)，如此一來，您也可以將邏輯應用程式部署自動化。 
+部署生命週期通常會有不同的環境來進行開發、測試、預備和生產。 如果您想要在沒有硬式編碼的情況下重複使用邏輯應用程式，或是根據您的部署需求而有所不同的值，您可以為工作流程定義建立[Azure Resource Manager 範本](../azure-resource-manager/management/overview.md)，如此一來，您也可以將邏輯應用程式部署自動化。 
 
 請遵循下列一般步驟*來參數*化或定義和使用這些值的參數。 接著，您可以在個別的參數檔案中提供值，將這些值傳遞至您的範本。 如此一來，您就可以更輕鬆地變更這些值，而不需要更新和重新部署邏輯應用程式。 如需完整詳細資料，請參閱[總覽：使用 Azure Resource Manager 範本自動部署邏輯應用程式](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)。
 
@@ -72,7 +72,7 @@ ms.locfileid: "74792583"
 
    當您指定工作流程定義參數的值時，您可以使用工作流程定義外的 parameters 區段，但仍在邏輯應用程式的資源定義中，來參考範本參數。 如此一來，您就可以將範本參數值傳遞至您的工作流程定義參數。
 
-1. 將參數的值儲存在個別的[參數](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)檔案中，並將該檔案包含在您的部署中。
+1. 將參數的值儲存在個別的[參數](../azure-resource-manager/templates/parameter-files.md)檔案中，並將該檔案包含在您的部署中。
 
 ## <a name="process-strings-with-functions"></a>使用函式處理字串
 

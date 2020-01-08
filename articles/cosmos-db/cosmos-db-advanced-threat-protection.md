@@ -3,19 +3,19 @@ title: Azure Cosmos DB 的先進威脅防護
 description: 瞭解 Azure Cosmos DB 如何提供待用資料的加密，以及它的實作為方式。
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 12/13/2019
 ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: c816c9877a9c796ee76310f2452f3505531c3018
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5cea2f1dac50744c974917347b4428bc39aa737d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555021"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445537"
 ---
-# <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Azure Cosmos DB 的先進威脅防護
+# <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Azure Cosmos DB 的先進威脅防護（預覽）
 
 Azure Cosmos DB 的先進威脅防護提供一層額外的安全性情報，可偵測不尋常且可能有害的嘗試存取或惡意探索 Azure Cosmos DB 帳戶。 這一層保護可讓您處理威脅，即使不是安全性專家，也能將它們與中央安全性監視系統整合。
 
@@ -27,6 +27,14 @@ Azure Cosmos DB 的先進威脅防護提供一層額外的安全性情報，可�
 > * Azure Cosmos DB 的先進威脅防護目前無法在 Azure 政府和主權雲端區域中使用。
 
 如需安全性警示的完整調查體驗，建議您[在 Azure Cosmos DB 中啟用診斷記錄](https://docs.microsoft.com/azure/cosmos-db/logging)，這會記錄資料庫本身的作業，包括對所有檔、容器和資料庫的 CRUD 作業。
+
+## <a name="threat-types"></a>威脅類型
+
+Azure Cosmos DB 的先進威脅防護會偵測異常活動，指出不尋常且可能有害的嘗試存取或惡意探索資料庫。 它目前可以觸發下列警示：
+
+- **從不尋常的位置存取**：當 Azure Cosmos 帳戶的存取模式變更時，如果有人從不尋常的地理位置連線到 Azure Cosmos DB 端點，就會觸發此警示。 在某些情況下，警示會偵測合法的動作，這表示新的應用程式或開發人員的維護作業。 在其他情況下，警示會偵測先前員工、外部攻擊者等的惡意動作。
+
+- 不**尋常的資料解壓縮**：當用戶端從 Azure Cosmos DB 帳戶解壓縮不尋常的資料量時，就會觸發此警示。 這可能是某些資料外泄執行的徵兆，以將帳戶中儲存的所有資料傳輸到外部資料存放區。
 
 ## <a name="set-up-advanced-threat-protection"></a>設定先進的威脅防護
 
@@ -101,5 +109,5 @@ Azure Cosmos DB 的先進威脅防護提供一層額外的安全性情報，可�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入瞭解[Azure Cosmos DB 中的診斷記錄](monitor-cosmos-db.md#diagnostic-settings)
+* 深入瞭解[Azure Cosmos DB 中的診斷記錄](cosmosdb-monitor-resource-logs.md)
 * 深入了解 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)

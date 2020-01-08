@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: dcd75cfefd53b3c9104052146607869515e1c86e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 596f8334b647daf6fe3a15521f7caeecb0c0e303
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534287"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462598"
 ---
-# <a name="use-azure-cli-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>在 Azure Data Lake Storage Gen2 中使用檔案 & Acl 的 Azure CLI （預覽）
+# <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>使用 Azure CLI 管理 Azure Data Lake Storage Gen2 中的目錄、檔案和 Acl （預覽）
 
 本文說明如何使用[Azure 命令列介面（CLI）](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)來建立及管理具有階層命名空間的儲存體帳戶中的目錄、檔案和許可權。 
 
@@ -98,7 +98,7 @@ az storage blob directory create -c my-file-system -d my-directory --account-nam
 az storage blob directory show -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="rename-or-move-a-directory"></a>重新命名或移動目錄
+## <a name="rename-or-move-a-directory"></a>重新命名目錄或移動目錄
 
 使用 `az storage blob directory move` 命令來重新命名或移動目錄。
 
@@ -178,7 +178,7 @@ az storage blob directory upload -c my-file-system --account-name mystorageaccou
 az storage blob show -c my-file-system -b my-file.txt --account-name mystorageaccount
 ```
 
-## <a name="rename-or-move-a-file"></a>重新命名或移動檔案
+## <a name="rename-or-move-a-file"></a>重新命名檔案或移動檔案
 
 使用 `az storage blob move` 命令來重新命名或移動檔案。
 
@@ -198,7 +198,7 @@ az storage blob move -c my-file-system -d my-file-renamed.txt -s my-file.txt --a
 az storage blob delete -c my-file-system -b my-file.txt --account-name mystorageaccount 
 ```
 
-## <a name="manage-permissions"></a>管理許可權
+## <a name="manage-permissions"></a>管理權限
 
 您可以取得、設定及更新目錄和檔案的存取權限。
 

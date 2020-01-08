@@ -6,14 +6,14 @@ services: cloud-services
 ms.service: cloud-services
 ms.topic: reference
 caps.latest.revision: 28
-author: georgewallace
-ms.author: gwallace
-ms.openlocfilehash: c5a6501c71420ca5b43c4c08c2a29ae5f27b4af5
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+author: tgore03
+ms.author: tagore
+ms.openlocfilehash: cacc8b1f2909965594fdf0d841963e792acf648c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945933"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385419"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Azure 雲端服務組態 NetworkConfiguration 結構描述
 
@@ -26,7 +26,7 @@ ms.locfileid: "68945933"
 - [建立虛擬網路 (傳統)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)
 
 ## <a name="networkconfiguration-element"></a>NetworkConfiguration 元素
-下列範例說明 `NetworkConfiguration` 元素和其子項目。
+下列範例說明 `NetworkConfiguration` 元素和其子元素。
 
 ```xml
 <ServiceConfiguration>
@@ -61,7 +61,7 @@ ms.locfileid: "68945933"
 
 下表說明 `NetworkConfiguration` 元素的子項目。
 
-| 元素       | 描述 |
+| 元素       | 說明 |
 | ------------- | ----------- |
 | AccessControl | 選擇性。 指定存取雲端服務端點的規則。 存取控制名稱是由 `name` 屬性的字串所定義。 `AccessControl` 元素包含一或多個 `Rule` 元素。 可以定義多個 `AccessControl` 元素。|
 | 規則 | 選擇性。 指定 IP 位址的指定子網路範圍所應採取的動作。 規則的順序是由 `order` 屬性的字串值所定義。 規則編號愈低，優先順序愈高。 例如，可以 100、200 和 300 的順序編號來指定規則。 順序編號為 100 的規則優先於順序為 200 的規則。<br /><br /> 規則的動作是由 `action` 屬性的字串所定義。 可能的值包括：<br /><br /> -   `permit` – 指定只有指定子網路範圍的封包可與端點通訊。<br />-   `deny` – 指定拒絕存取指定子網路範圍內的端點。<br /><br /> 受規則影響的 IP 位址的子網路範圍是由 `remoteSubnet` 屬性的字串所定義。 規則的說明是由 `description` 屬性的字串所定義。|
@@ -69,7 +69,7 @@ ms.locfileid: "68945933"
 | DnsServer | 選擇性。 指定 DNS 伺服器的設定。 您無須使用虛擬網路就可以指定 DNS 伺服器的設定。 DNS 伺服器的名稱是由 `name` 屬性的字串所定義。 DNS 伺服器的 IP 位址是由 `IPAddress` 屬性的字串所定義。 IP 位址必須是有效的 IPv4 位址。|
 | VirtualNetworkSite | 選擇性。 指定您要在其中部署雲端服務的虛擬網路站台名稱。 此設定不會建立虛擬網路站台。 它會參考先前已在虛擬網路網路檔案中定義的站台。 雲端服務只能是一個虛擬網路的成員。 如果您未指定此設定，雲端服務就不會部署到虛擬網路。 虛擬網路站台的名稱是由 `name` 屬性的字串所定義。|
 | InstanceAddress | 選擇性。 在虛擬網路中，將角色的關聯指定為子網路或子網路集。 當您將角色名稱與執行個體位址建立關聯時，可以指定您需要與此角色相關聯的子網路。 `InstanceAddress` 包含一個 Subnets 元素。 與一個或多個子網路相關聯的角色名稱是由 `roleName` 屬性的字串所定義。|
-| Subnet | 選擇性。 指定對應至網路組態檔中之子網路名稱的子網路。 子網路的名稱是由 `name` 屬性的字串所定義。|
+| 子網路 | 選擇性。 指定對應至網路組態檔中之子網路名稱的子網路。 子網路的名稱是由 `name` 屬性的字串所定義。|
 | ReservedIP | 選擇性。 指定應與部署相關聯的保留 IP 位址。 您必須使用「建立保留的 IP 位址」才能建立保留的 IP 位址。 雲端服務中的每個部署都可與一個保留的 IP 位址相關聯。 保留 IP 位址的名稱是由 `name` 屬性的字串所定義。|
 
 ## <a name="see-also"></a>另請參閱

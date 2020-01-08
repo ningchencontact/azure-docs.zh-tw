@@ -1,5 +1,5 @@
 ---
-title: 模型化 Azure 儲存體資料表設計中的關聯性 | Microsoft Docs
+title: Azure 資料表儲存體設計中的模型關聯性 |Microsoft Docs
 description: 了解設計表格儲存體解決方案時的模型化程序。
 services: storage
 author: MarkMcGeeAtAquent
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502479"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457556"
 ---
 # <a name="modeling-relationships"></a>將關聯性模型化
 本文討論的模型化程序有助於您設計 Azure 表格儲存體解決方案。

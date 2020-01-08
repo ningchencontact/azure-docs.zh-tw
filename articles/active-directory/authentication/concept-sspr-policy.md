@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b95ea51db4f0c6bcdbfa905ff8b57a5a330411e6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1e9a22e6ff76c0d26a346192c69bc067e7d42ccf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848539"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425329"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>密碼原則和 Azure Active Directory 中的限制
 
@@ -54,7 +54,7 @@ ms.locfileid: "74848539"
   * 具有特殊許可權的驗證管理員
 
 * 如果試用版訂用帳戶已經過 30 天；或
-* 已存在虛名網域，例如 contoso.com；或
+* 已為您的 Azure AD 租使用者設定自訂網域，例如*contoso.com*;或
 * Azure AD Connect 正在同步處理內部部署目錄中的身分識別
 
 ### <a name="exceptions"></a>例外狀況
@@ -62,7 +62,7 @@ ms.locfileid: "74848539"
 一個閘道原則需要一項驗證資料，例如電子郵件地址*或*電話號碼。 一個閘道原則適用於下列情況：
 
 * 處於試用訂用帳戶的第一個 30 天內；或
-* 不存在虛名網域 (*.onmicrosoft.com)；和
+* 尚未為您的 Azure AD 租使用者設定自訂網域，因此會使用預設的 * *. onmicrosoft.com*。 請注意，不建議在生產環境中使用預設的 * *. onmicrosoft.com*網域。和
 * Azure AD Connect 未同步身分識別
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>適用於所有使用者帳戶的 UserPrincipalName 原則

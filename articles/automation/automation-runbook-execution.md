@@ -2,19 +2,15 @@
 title: Azure 自動化中的 Runbook 執行
 description: 描述如何處理 Azure 自動化中的 Runbook 的詳細資料。
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: ddeeaeccc0a10d19a070a91d7bd9bef2b31c0570
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4f9fd3a94cf2b6d6ca077b7363e01085e134babd
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850749"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658112"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure 自動化中的 Runbook 執行
 
@@ -37,12 +33,12 @@ Azure 自動化中的 Runbook 可以在 Azure 中的沙箱或[混合式 Runbook 
 |與 Azure 資源整合|Azure 沙箱|裝載於 Azure 中，驗證會比較簡單。 如果您在 Azure VM 上使用混合式 Runbook 背景工作角色，則可改用 [Azure 資源的受控識別](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
 |管理 Azure 資源的最佳效能|Azure 沙箱|腳本會在相同的環境中執行，因而降低延遲|
 |將營運成本最小化|Azure 沙箱|沒有任何計算額外負荷，不需針對 VM 使用|
-|長時間執行指令碼|Hybrid Runbook Worker|Azure 沙箱會有[資源限制](../azure-subscription-service-limits.md#automation-limits)|
+|長時間執行指令碼|Hybrid Runbook Worker|Azure 沙箱會有[資源限制](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
 |與本機服務互動|Hybrid Runbook Worker|可以直接存取主機電腦|
 |需要第三方軟體和可執行檔|Hybrid Runbook Worker|您要管理 OS 且可安裝軟體|
 |使用 Runbook 監視檔案或資料夾|Hybrid Runbook Worker|在混合式 Runbook 背景工作角色上使用[監看員工作](automation-watchers-tutorial.md)|
-|耗用大量資源的指令碼|Hybrid Runbook Worker| Azure 沙箱會有[資源限制](../azure-subscription-service-limits.md#automation-limits)|
-|使用具特定需求的模組| Hybrid Runbook Worker|部分範例如下：</br> **WinSCP**：winscp.exe 上的相依性 </br> **IISAdministration**：需要啟用 IIS|
+|耗用大量資源的指令碼|Hybrid Runbook Worker| Azure 沙箱會有[資源限制](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
+|使用具特定需求的模組| Hybrid Runbook Worker|部份範例如下：</br> **WinSCP**：winscp.exe 上的相依性 </br> **IISAdministration**：需要啟用 IIS|
 |安裝需要安裝程式的模組|Hybrid Runbook Worker|沙箱模組必須是可|
 |使用需要 4.7.2 以外之 .NET Framework 的 Runbook 或模組|Hybrid Runbook Worker|自動化沙箱具備 .NET Framework 4.7.2，而且沒有任何方法可將它升級|
 |需要提高許可權的腳本|Hybrid Runbook Worker|沙箱不允許提高許可權。 若要解決此問題，請使用混合式 Runbook 背景工作角色，而您可以在執行需要提高許可權的命令時，關閉 UAC 並使用 `Invoke-Command`|
@@ -201,7 +197,7 @@ function Get-ContosoFiles
 
 下表描述工作可能會有不同的狀態。 PowerShell 有兩種錯誤類型：終止和非終止錯誤。 如果發生終止錯誤，則會將 Runbook 狀態設為 [失敗]。 非終止錯誤可讓指令碼在錯誤發生後繼續執行。 非終止錯誤的範例會使用 `Get-ChildItem` Cmdlet 搭配不存在的路徑。 PowerShell 發現路徑不存在，則會擲回錯誤，並繼續下一步資料夾。 此錯誤不會將 Runbook 狀態設為 [失敗] 且可能標示為 [已完成]。 若要強制 Runbook 在非終止錯誤時停止，您可以在 Cmdlet 上使用 `-ErrorAction Stop`。
 
-| 狀態 | 描述 |
+| 狀態 | 說明 |
 |:--- |:--- |
 | Completed |工作已成功完成。 |
 | 失敗 |針對 [圖形化和 PowerShell 工作流程 Runbook](automation-runbook-types.md)，此 Runbook 無法編譯。 針對 [PowerShell 指令碼 Runbook](automation-runbook-types.md)，此 Runbook 無法啟動，或作業發生例外狀況。 |
@@ -214,7 +210,7 @@ function Get-ContosoFiles
 | 已停止 |工作完成之前已由使用者停止。 |
 | 正在停止 |系統正在停止作業。 |
 | 暫止 |工作已由使用者、系統或 Runbook 中的命令暫停。 如果 Runbook 沒有檢查點，它會從 Runbook 的開頭開始。 如果它有檢查點，則可重新啟動並從其最後一個檢查點繼續。 只有在發生例外狀況時，系統才會暫止 Runbook。 根據預設，ErrorActionPreference 會設定為 [繼續]，代表作業會在發生錯誤時繼續執行。 如果此喜好設定變數設定為 [停止]，作業會在發生錯誤時暫停。 只適用於 [圖形化和 PowerShell 工作流程 Runbook](automation-runbook-types.md) 。 |
-| 暫停中 |因使用者要求，系統正在嘗試暫停工作。 Runbook 必須達到其下一個檢查點才能暫停。 如果它已通過其最後一個檢查點，則可在暫停之前完成。 只適用於 [圖形化和 PowerShell 工作流程 Runbook](automation-runbook-types.md) 。 |
+| Suspending |因使用者要求，系統正在嘗試暫停工作。 Runbook 必須達到其下一個檢查點才能暫停。 如果它已通過其最後一個檢查點，則可在暫停之前完成。 只適用於 [圖形化和 PowerShell 工作流程 Runbook](automation-runbook-types.md) 。 |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>從 Azure 入口網站檢視作業狀態
 
@@ -320,7 +316,7 @@ $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 
 若要在雲端中的所有 runbook 之間共用資源，Azure 自動化暫時卸載或停止已執行超過三小時的任何工作。 [PowerShell 型 Runbook](automation-runbook-types.md#powershell-runbooks) 和 [Python Runbook](automation-runbook-types.md#python-runbooks) 的作業會停止且不會重新啟動，而作業狀態顯示 [已停止]。
 
-對於長時間執行的工作，建議使用[混合式 Runbook 背景工作角色](automation-hrw-run-runbooks.md#job-behavior)。 混合式 Runbook 背景工作角色並未受限於公平共用，而且未限制 Runbook 執行時間長度。 其他作業[限制](../azure-subscription-service-limits.md#automation-limits)會套用至 Azure 沙箱和混合式 Runbook 背景工作角色。 雖然混合式 Runbook 背景工作角色不會受限於3小時的公平共用限制，但在其上執行的 runbook 應進行開發，以支援從非預期的本機基礎結構問題重新開機行為。
+對於長時間執行的工作，建議使用[混合式 Runbook 背景工作角色](automation-hrw-run-runbooks.md#job-behavior)。 混合式 Runbook 背景工作角色並未受限於公平共用，而且未限制 Runbook 執行時間長度。 其他作業[限制](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)會套用至 Azure 沙箱和混合式 Runbook 背景工作角色。 雖然混合式 Runbook 背景工作角色不會受限於3小時的公平共用限制，但在其上執行的 runbook 應進行開發，以支援從非預期的本機基礎結構問題重新開機行為。
 
 另一個選項是使用子 Runbook 將 Runbook 最佳化。 如果您的 Runbook 會在多個資源上重複執行同一個函式，例如在數個資料庫上重複進行某一個資料庫作業，您可以將該函式移到[子 Runbook](automation-child-runbooks.md) 並使用 [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) Cmdlet 呼叫它。 每一個 Runbook 會在個別的處理程序中平行執行。 此行為可減少完成父代 Runbook 的時間總計。 您可以在 runbook 中使用[get-azurermautomationjob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob)指令程式，以檢查子 runbook 完成後執行的作業時，每個子系的工作狀態。
 

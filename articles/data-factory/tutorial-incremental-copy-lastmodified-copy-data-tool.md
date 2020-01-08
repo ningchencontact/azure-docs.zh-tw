@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 5ff3ade800b2a3474a68a34dc77d0c9b009e8822
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 05696ae2fed31c267aa37013fac32db0916e24bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923149"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439309"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>使用資料複製工具，根據 LastModifiedDate 以累加方式複製新的和變更的檔案
 
@@ -68,7 +68,7 @@ ms.locfileid: "74923149"
 
     * 選取 [建立新的]，然後輸入資源群組的名稱。 
          
-    若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。
+    若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。
 
 5. 在 [**版本**] 底下，選取 [ **V2**]。
 6. 在 [位置] 下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 您的資料處理站所使用的資料存放區（例如，Azure 儲存體和 SQL Database）和計算（例如 Azure HDInsight）可位於其他位置和區域中。
@@ -92,7 +92,7 @@ ms.locfileid: "74923149"
 
     a. 在 [工作**名稱**] 下，輸入**DeltaCopyFromBlobPipeline**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [工作**步調**] 或 [工作**排程**] 底下，選取 [依**排程定期執行**]。
+    b. 在 [工作**步調**] 或 [工作**排程**] 底下，選取 [依**排程定期執行**]。
 
     c. 在 [**觸發程式類型**] 底下，選取 [**輪轉視窗]** 。
     
@@ -110,7 +110,7 @@ ms.locfileid: "74923149"
     
     ![來源資料存放區頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page.png)
 
-    b.這是另一個 C# 主控台應用程式。 從資源庫選取 [Azure Blob 儲存體]，然後選取 [繼續]。
+    b. 從資源庫選取 [Azure Blob 儲存體]，然後選取 [繼續]。
     
     ![來源資料存放區頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
@@ -128,7 +128,7 @@ ms.locfileid: "74923149"
     
     ![選擇輸入檔案或資料夾](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-input-file-folder.png)
     
-    b.這是另一個 C# 主控台應用程式。 在 [檔案**載入行為**] 底下，選取 [累加**式載入： LastModifiedDate**]。
+    b. 在 [檔案**載入行為**] 底下，選取 [累加**式載入： LastModifiedDate**]。
     
     ![選擇輸入檔案或資料夾](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-loading-behavior.png)
     
@@ -136,7 +136,7 @@ ms.locfileid: "74923149"
     
      ![選擇輸入檔案或資料夾](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
      
-5. 在 [**目的地資料存放區**] 頁面上，選取 [ **AzureBlobStorage**]。 這是與來源資料存放區相同的儲存體帳戶。 然後，選取 [下一步]。
+5. 在 [**目的地資料存放區**] 頁面上，選取 [ **AzureBlobStorage**]。 這是與來源資料存放區相同的儲存體帳戶。 然後選取 [下一步]。
 
     ![目的地資料存放區頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/destination-data-store-page-select-linkedservice.png)
     
@@ -146,7 +146,7 @@ ms.locfileid: "74923149"
     
     ![選擇輸出檔案或資料夾](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
     
-    b.這是另一個 C# 主控台應用程式。 選取 [下一步]。
+    b. 選取 [下一步]。
     
      ![選擇輸出檔案或資料夾](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/click-next-after-output-folder.png)
     

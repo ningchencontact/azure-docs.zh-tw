@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: a623c8d3ff755338ac8b40faa970f2f007115a02
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: c3dbd01faf61c164c88f09b0da03c07be4abd187
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144870"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429111"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>裝置到雲端 IoT 中樞訊息的訊息擴充
 
@@ -54,7 +54,7 @@ Message 擴充有三個主要元素：
 
 您可以將擴充新增至要傳送至 IoT 中樞內建端點的訊息，或將訊息路由至自訂端點（例如 Azure Blob 儲存體、服務匯流排佇列或服務匯流排主題）。
 
-您可以藉由選取端點作為事件方格，將擴充新增至要發佈至事件方格的訊息。 我們會根據您的「事件方格」訂用帳戶，在裝置遙測 IoT 中樞中建立預設路由。 這個單一路由可以處理您的所有事件方格訂用帳戶。 您可以在建立裝置遙測的事件方格訂用帳戶之後，設定事件方格 ent 的擴充 [點]。 如需詳細資訊，請參閱[Iot 中樞和事件方格](iot-hub-event-grid.md)。
+您可以藉由選取端點作為事件方格，將擴充新增至要發佈至事件方格的訊息。 我們會根據您的「事件方格」訂用帳戶，在裝置遙測 IoT 中樞中建立預設路由。 這個單一路由可以處理您的所有事件方格訂用帳戶。 您可以在建立裝置遙測的事件方格訂用帳戶之後，設定事件方格端點的擴充。 如需詳細資訊，請參閱[Iot 中樞和事件方格](iot-hub-event-grid.md)。
 
 擴充適用于每個端點。 如果您指定要為特定端點戳記的五個擴充，則所有傳送至該端點的訊息都會以相同的五個擴充戳記。
 

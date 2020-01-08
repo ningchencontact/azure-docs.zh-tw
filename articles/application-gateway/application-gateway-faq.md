@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: c93198848058bad8c9af6903cc68253e71e2d668
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 72c44f47060a745c5a5266a0ca7173276eb5cb66
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996644"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658299"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>關於應用程式閘道的常見問題
 
@@ -158,7 +158,7 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>應用程式閘道的限制為何？ 是否可以增加這些限制？
 
-請參閱[應用程式閘道限制](../azure-subscription-service-limits.md#application-gateway-limits)。
+請參閱[應用程式閘道限制](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits)。
 
 ### <a name="can-i-simultaneously-use-application-gateway-for-both-external-and-internal-traffic"></a>我可以同時針對外部和內部流量使用應用程式閘道嗎？
 
@@ -200,6 +200,9 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 可以。 如需詳細資訊，請參閱[將 Azure 應用程式閘道和 Web 應用程式防火牆從 V1 遷移至 v2](migrate-v1-v2.md)。
 
+### <a name="does-application-gateway-support-ipv6"></a>應用程式閘道是否支援 IPv6？
+
+應用程式閘道 v2 目前不支援 IPv6。 它只能使用 IPv4 在雙重堆疊 VNet 中運作，但閘道子網必須是僅 IPv4。 應用程式閘道 v1 不支援雙重堆疊 Vnet。 
 
 ## <a name="configuration---ssl"></a>設定-SSL
 
@@ -380,6 +383,30 @@ Kubernetes 可讓您建立 `deployment` 和 `service` 資源，以在叢集內�
 - 您已部署應用程式閘道 v2
 - 您在應用程式閘道子網上有 NSG
 - 您已在該 NSG 上啟用 NSG 流量記錄
+
+### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>如何? 使用只有私人前端 IP 位址的應用程式閘道 V2？
+
+應用程式閘道 V2 目前不支援私人 IP 模式。 它支援下列組合
+* 私人 IP 和公用 IP
+* 僅限公用 IP
+
+但是，如果您想要使用只有私人 IP 的應用程式閘道 V2，您可以遵循下列程式：
+1. 建立具有公用和私人前端 IP 位址的應用程式閘道
+2. 請勿建立公用前端 IP 位址的任何接聽程式。 如果沒有為其建立接聽程式，應用程式閘道將不會在公用 IP 位址上接聽任何流量。
+3. 使用下列設定，以優先順序建立並附加應用程式閘道子網的[網路安全性群組](https://docs.microsoft.com/azure/virtual-network/security-overview)：
+    
+    a. 允許來自來源作為**GatewayManager**服務標籤和目的地的流量，做為**任何**和目的地埠，例如**65200-65535**。 Azure 基礎結構通訊需要此連接埠範圍。 這些埠會受到憑證驗證的保護（鎖定）。 外部實體（包括閘道使用者系統管理員）無法在沒有適當憑證的情況下，對這些端點起始變更
+    
+    b. 允許從來源作為**AzureLoadBalancer**服務標籤和目的地和目的地**埠的流量**
+    
+    c. 拒絕來自來源的所有輸入流量，做為**網際網路**服務標籤，以及目的地和目的地**埠。** 為此規則提供輸入規則中的*最高優先順序*
+    
+    d. 保留預設規則，例如允許 VirtualNetwork 輸入，如此就不會封鎖私人 IP 位址上的存取
+    
+    e. 無法封鎖輸出網際網路連線。 否則，您會面臨記錄、計量等問題。
+
+僅限私人 IP 存取的範例 NSG 設定： ![應用程式閘道 V2 NSG 設定僅供私人 IP 存取](./media/application-gateway-faq/appgw-privip-nsg.png)
+
 
 ## <a name="next-steps"></a>後續步驟
 

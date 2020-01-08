@@ -1,19 +1,14 @@
 ---
 title: 什麼是 Azure 服務健康情況通知？
 description: 藉由服務健康情況通知，您可以檢視由 Microsoft Azure 發佈的服務健康情況訊息。
-author: stephbaron
-services: monitoring
-ms.service: azure-monitor
-ms.topic: conceptual
+ms.topic: article
 ms.date: 4/12/2018
-ms.author: stbaron
-ms.subservice: logs
-ms.openlocfilehash: b41c2cdc54ab5eecdc4503cbd98e69932c901a3d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f2d79dc920129241c801c75cc9009b3ba8f34b78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007095"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451560"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>使用 Azure 入口網站檢視服務健康情況通知
 
@@ -29,7 +24,7 @@ Azure 會發佈服務健康情況通知，其中包含您訂用帳戶下資源�
 
 每個服務健康狀態通知皆會包含關於範圍以及資源所受影響的詳細資料。 詳細資料包括：
 
-屬性名稱 | 描述
+屬性名稱 | 說明
 -------- | -----------
 通道 | 為下列其中一個值：**Admin** 或 **Operation**。
 correlationId | 通常是字串格式的 GUID。 屬於相同動作的事件通常會共用同一個 correlationId。
@@ -53,7 +48,7 @@ Properties.trackingId | 與此事件 (event) 相關聯的附帶事件 (Incident)
 Properties.impactedServices | 逸出的 JSON blob，描述受到附帶事件 (Incident) 影響的服務和區域。 屬性包含服務清單 (每一份都有 **ServiceName**) 和受影響區域清單 (每一份都有 **RegionName**)。
 Properties.defaultLanguageTitle | 英文的通訊。
 Properties.defaultLanguageContent | 英文的通訊，如 html 標記或純文字。
-Properties.stage | **Incident** 和 **Security** 的可能值為 **Active**、**Resolved** 或 **RCA**。 針對 **ActionRequired** 或 **Informational**，唯一的值為 **Active**。 **Maintenance** 的可能值︰**Active**、**Planned**、**InProgress**、**Canceled**、**Rescheduled**、**Resolved** 或 **Complete**。
+Properties.stage | **事件**和**安全性**的可能值為 [作用**中]、** [**已解決**] 或 [ **RCA**]。 針對 **ActionRequired** 或 **Informational**，唯一的值為 **Active**。 **Maintenance** 的可能值︰**Active**、**Planned**、**InProgress**、**Canceled**、**Rescheduled**、**Resolved** 或 **Complete**。
 Properties.communicationId | 與此事件相關聯的通訊。
 
 ### <a name="details-on-service-health-level-information"></a>服務健康情況層級資訊的詳細資料

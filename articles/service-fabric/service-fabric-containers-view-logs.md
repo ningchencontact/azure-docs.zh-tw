@@ -1,25 +1,14 @@
 ---
-title: 在 Azure Service Fabric 中檢視容器記錄 | Microsoft Docs
+title: 在 Azure 中查看容器記錄 Service Fabric
 description: 說明如何使用 Service Fabric Explorer，對執行中的 Service Fabric 容器服務檢視其容器記錄。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/15/2018
-ms.author: atsenthi
-ms.openlocfilehash: fd1787318e8573183293ddd832a11cf8cfe09cf2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c47a408b272f95dbfcf3d791c644bfeb52254a72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832612"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458176"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>檢視 Service Fabric 容器服務的記錄
 Azure Service Fabric 是一種容器協調器，可支援 [Linux 和 Windows 容器](service-fabric-containers-overview.md)。  本文說明如何檢視執行中容器服務或無作用容器的容器記錄，以便您診斷問題並進行疑難排解。
@@ -44,7 +33,7 @@ Azure Service Fabric 是一種容器協調器，可支援 [Linux 和 Windows 容
 
 **ContainersRetentionCount** 設定會指定容器失敗時要保留的容器數目。 如果指定負數值，就會保留所有失敗的容器。 如果未指定 **ContainersRetentionCount** 屬性，就不會保留任何容器。 **ContainersRetentionCount** 屬性也支援應用程式參數，因此使用者可以為測試和生產叢集指定不同的值。 使用此功能時，請使用位置限制將容器服務鎖定在特定節點上，以避免容器服務移到其他節點上。 使用此功能的所有容器皆需要手動移除。
 
-設定 **RunInteractive** 對應到 Docker 的 `--interactive` 和 `tty`[旗標](https://docs.docker.com/engine/reference/commandline/run/#options)。 在資訊清單檔中將此設定設為 true 時，這些旗標用於啟動容器。  
+設定**RunInteractive**會對應至 Docker 的 `--interactive` 和 `tty`[旗標](https://docs.docker.com/engine/reference/commandline/run/#options)。 在資訊清單檔中將此設定設為 true 時，這些旗標用於啟動容器。  
 
 ### <a name="rest"></a>REST
 使用[取得部署在節點上的容器記錄](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode)作業，來取得已損毀容器的記錄。 指定執行容器的節點名稱、應用程式名稱、服務資訊清單名稱，以及程式碼套件名稱。  指定 `&Previous=true`。 回應包含的容器記錄會來自程式碼套件執行個體的無作用容器。

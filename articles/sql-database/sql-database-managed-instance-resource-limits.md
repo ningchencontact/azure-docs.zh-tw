@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 11/27/2019
-ms.openlocfilehash: 816cf7cc78d3dfcb783b09f039f468ef3b23a06b
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 90f39a5edd32225b7fed259ca48dcf4802d0ced3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548376"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443820"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控實例資源限制的總覽
 
@@ -47,8 +47,8 @@ ms.locfileid: "74548376"
 
 | 記憶體內部 OLTP 空間  | **Gen5** | **Gen4** |
 | --- | --- | --- |
-| 4虛擬核心  | 3.14 GB | |   
-| 8虛擬核心  | 6.28 GB | 8 GB |
+| 4 個 V 核心  | 3.14 GB | |   
+| 8 個 V 核心  | 6.28 GB | 8 GB |
 | 16虛擬核心 | 15.77 GB | 20GB |
 | 24虛擬核心 | 25.25 GB | 36 GB |
 | 32虛擬核心 | 37.94 GB | |
@@ -87,7 +87,7 @@ ms.locfileid: "74548376"
 > - 使用者和系統資料庫中的資料和記錄檔大小都會計入執行個體儲存體大小，並與儲存體大小上限相比較。 使用 <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 系統檢視來判斷資料庫所使用的總空間。 錯誤記錄不會持續留存，也不計入大小。 備份並未計入儲存體大小。
 > - 一般用途層的輸送量和 IOPS 也取決於受控實例未明確限制的檔案[大小](#file-io-characteristics-in-general-purpose-tier)。
 > - 您可以使用自動容錯移轉群組，在不同的 Azure 區域中建立另一個可讀取的複本。
-> - 最大實例 IOPS 取決於工作負載的檔案配置和散發。 例如，如果您建立 7 x 1GB 的檔案，其中每個都有最大的大小上限 IOPS，每個為7個小型檔案（小於 128 GB），每個都有 500 IOPS，如果您的工作負載可以使用所有檔案，您可以取得每個實例 38500 IOPS （7x5000 + 7x500）。 請注意，某些 IOPS 數量也會用於自動備份。
+> - 最大實例 IOPS 取決於工作負載的檔案配置和散發。 例如，如果您建立 7 x TB 的檔案，其中每個都有最大的「大小上限」 IOPS 和每個7個小型檔案（小於 128 GB），而且每個都有 500 IOPS，如果您的工作負載可以使用所有檔案，您可以取得每個實例 38500 IOPS （7x5000 + 7x500 請注意，某些 IOPS 數量也會用於自動備份。
 
 > [!NOTE]
 > [在本文中，尋找受控實例集區中資源限制](sql-database-instance-pools.md#instance-pools-resource-limitations)的詳細資訊。
@@ -162,7 +162,7 @@ ms.locfileid: "74548376"
 
      ![問題類型配額](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. 按一下 [下一步]。
+3. 按 [下一步]。
 4. 在新支援要求的 [**問題]** 索引標籤上：
    - 針對 [嚴重性]，選取問題的嚴重性層級。
    - 針對 [詳細資料]，提供關於問題的其他資訊，包括錯誤訊息在內。
@@ -176,9 +176,9 @@ ms.locfileid: "74548376"
      > - 在配額增加之後，現有子網中的每個服務層級所需的虛擬核心數目（如果需要擴充任何現有的子網）。
      > - 新子網中的每個服務層級所需的新子網數和虛擬核心總數（如果您需要在新的子網中部署受控實例）。
 
-5. 按一下 [下一步]。
+5. 按 [下一步]。
 6. 在新支援要求的 [連絡資訊] 索引標籤上，輸入慣用的連絡方法 (電子郵件或電話) 和連絡人詳細資料。
-7. 按一下 [建立]。
+7. 按一下頁面底部的 [新增]。
 
 ## <a name="next-steps"></a>後續步驟
 

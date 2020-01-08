@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: d28893133c27fe4945918071c60b889e997b775b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 01327d24aebee02c3b14594c2b0b2f2f175211fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424168"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450813"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>使用憑證驗證設定點對站連線 (傳統)
 
@@ -43,7 +43,7 @@ ms.locfileid: "74424168"
 
 ![Point-to-Site-diagram](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 點對站憑證驗證連線需要下列先決條件：
 
@@ -101,7 +101,7 @@ ms.locfileid: "74424168"
 
 5. 從下拉式清單選取您想要使用的 [訂用帳戶]。
 
-6. 選取現有的 [資源群組]。 或者，選取 [新建] 並輸入名稱來建立新的資源群組。 如果您要建立新的資源群組，請根據您計劃的組態值來命名資源群組。 如需有關資源群組的詳細資訊，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md#resource-groups)。
+6. 選取現有的 [資源群組]。 或者，選取 [新建] 並輸入名稱來建立新的資源群組。 如果您要建立新的資源群組，請根據您計劃的組態值來命名資源群組。 如需有關資源群組的詳細資訊，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/management/overview.md#resource-groups)。
 
 7. 選取 VNet 的 [位置]。 此設定會決定您部署到此 VNet 的資源所在的地理位置。
 
@@ -210,7 +210,7 @@ ms.locfileid: "74424168"
 >
 >
 
-1. 若要連接到您的 VNet，請在用戶端電腦上移至 Azure 入口網站中的 [ **vpn**連線]，並找出您所建立的 vpn 連線。 VPN 連線的名稱會與虛擬網路相同。 選取 [ **連接**]。 如果出現關於憑證的快顯訊息，請選取 [繼續] 以使用較高的權限。
+1. 若要連接到您的 VNet，請在用戶端電腦上移至 Azure 入口網站中的 [ **vpn**連線]，並找出您所建立的 vpn 連線。 VPN 連線的名稱會與虛擬網路相同。 選取 [連接]。 如果出現關於憑證的快顯訊息，請選取 [繼續] 以使用較高的權限。
 
 2. 在 [連線] 狀態頁面上，選取 [連線] 以便開始連線。 如果您看到 [選取憑證] 畫面，請確認所顯示的用戶端憑證是否正確。 如果不正確，請從下拉式清單中選取正確的憑證，然後選取 [確定]。
 
@@ -280,7 +280,7 @@ ms.locfileid: "74424168"
 3. 移至傳統虛擬網路。 選取 [點對站 VPN 連線]，然後選取 [管理憑證] 來開啟 [憑證] 頁面。
 4. 選取 [撤銷清單] 來開啟 [撤銷清單] 頁面。 
 5. 選取 [新增憑證] 來開啟 [將憑證新增至撤銷清單] 頁面。
-6. 在 [指紋] 中，貼上連續一行文字且不含空格的憑證指紋。 選取 [確定] 以完成。
+6. 在 [指紋] 中，貼上連續一行文字且不含空格的憑證指紋。 選取 [確定] 來完成。
 
 更新完成之後，憑證無法再用於連線。 嘗試使用此憑證進行連線的用戶端會收到訊息，指出憑證不再有效。
 

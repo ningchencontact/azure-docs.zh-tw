@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: abcd6dc8c50b819dd02347b938602af7f2152d04
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 358895f84b43437a174214eaf75e77574b3f02e8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996630"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462467"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure 資訊安全中心規劃和操作指南
 本指南適用于規劃使用 Azure 資訊安全中心的資訊技術（IT）專業人員、IT 架構設計師、資訊安全分析師和雲端系統管理員。
@@ -41,7 +41,7 @@ ms.locfileid: "71996630"
 
 ![角色](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-資訊安全中心可讓這些人符合不同的責任。 例如:
+資訊安全中心可讓這些人符合不同的責任。 例如：
 
 **Jeff (工作負載擁有者)**
 
@@ -82,6 +82,10 @@ ms.locfileid: "71996630"
 **Jeff (工作負載擁有者)**
 
 * 資源群組擁有者/參與者
+
+**Ellen (CISO/CIO)**
+
+* 訂用帳戶擁有者/參與者或安全性管理員
 
 **David (IT 安全性)**
 
@@ -195,7 +199,7 @@ Azure 資訊安全中心使用 Microsoft Monitoring Agent –這是 Azure 監視
 
 您也應該定期監視現有資源，查看可能已建立安全性風險的設定變更、不受建議基準的漂移和安全性警示。 從資訊安全中心儀表板開始。 從這裡，您有三個主要區域可以一致地進行審查。
 
-![作業](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
+![Dynamics 365](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
 
 1. [預防] 區段面板可供您快速存取關鍵資源。 使用此選項來監視 [計算]、[網路服務]、[儲存體和資料] 及 [應用程式]。
 2. **建議** 面板可讓您檢閱資訊安全中心建議。 在進行中的監視期間，您可能會發現每日不會有任何建議，這是正常現象，因為您已解決初始資訊安全中心設定的所有建議。 基於這個理由，這個區段中可能不會每天都有新資訊，您只需要視需要進行存取。

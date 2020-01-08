@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/5/2019
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 496e8673e1cbf31f4c71db00b7eaf1c0618e509f
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7b2751957bf341b37527697f92931bacfb425c09
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872939"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397347"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 範本建立計量警示
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-本文章將說明如何使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)在 Azure 監視器中設定[新版計量警示](../../azure-monitor/platform/alerts-metric-near-real-time.md)。 Resource Manager 範本可讓您以程式設計方式，在環境中以一致且可重現的方式設定警示。 新版計量警示目前可在[這組資源類型](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)上使用。
+本文章將說明如何使用 [Azure Resource Manager 範本](../../azure-resource-manager/templates/template-syntax.md)在 Azure 監視器中設定[新版計量警示](../../azure-monitor/platform/alerts-metric-near-real-time.md)。 Resource Manager 範本可讓您以程式設計方式，在環境中以一致且可重現的方式設定警示。 新版計量警示目前可在[這組資源類型](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)上使用。
 
 > [!IMPORTANT]
 > 建立資源類型計量警示的資源範本： `Microsoft.OperationalInsights/workspaces`的 Azure Log Analytics 工作區（亦即），需要額外的步驟。 如需詳細資訊，請參閱[記錄的計量警示 - 資源範本](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)上的文章。
@@ -3552,6 +3552,11 @@ az group deployment create \
 ```
 
 您可以在命令列上或透過參數檔案，設定參數的值。 範例參數檔案如下所示。
+
+
+> [!NOTE]
+>
+> `&amp`;這是 & 的 HTML 實體參考。 URL 參數仍會以單一 & 分隔，但如果您在 HTML 中提及 URL，則需要對其進行編碼。 因此，如果您的 pingURL 參數值中有任何 "&"，您就必須使用 "`&amp`;" 來將它換成
 
 將以下的 json 儲存為 availabilityalert，並視需要加以修改。
 

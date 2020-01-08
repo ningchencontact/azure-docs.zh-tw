@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/10/2019
 ms.author: helohr
-ms.openlocfilehash: 744f7d5c191180757620e87d926422c9f1e0baba
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a991a41466d216b9f245c20dbd8054f3ae5ef3d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607449"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451331"
 ---
 # <a name="scale-session-hosts-dynamically"></a>動態調整工作階段主機
 
@@ -73,11 +73,11 @@ ms.locfileid: "73607449"
     ```
     
     例如，**集合-變數名稱 KeyPath-範圍全域值 "c：\\調整-HostPool1"**
-5. 執行**StoredCredential-KeyPath \$KeyPath** Cmdlet。 出現提示時，請輸入您的 Windows 虛擬桌面認證，其具有查詢主機集區的許可權（在**config.xml**中指定主機集區）。
+5. 執行**StoredCredential-KeyPath \$KeyPath** Cmdlet。 出現提示時，請輸入您的 Windows 虛擬桌面認證，其具有查詢主機集區的許可權（主機集區是在**config.xml**中指定）。
     - 如果您使用不同的服務主體或標準帳戶，請針對每個帳戶執行**StoredCredential-KeyPath \$KeyPath** Cmdlet 一次，以建立本機儲存的認證。
 6. 執行**StoredCredential-List** ，確認已成功建立認證。
 
-### <a name="configure-the-configxml-file"></a>設定 config.xml 檔案
+### <a name="configure-the-configjson-file"></a>設定 config json 檔案
 
 在下欄欄位中輸入相關的值，以更新 config.xml 中的調整腳本設定：
 
@@ -103,7 +103,7 @@ ms.locfileid: "73607449"
 
 ### <a name="configure-the-task-scheduler"></a>設定工作排程器
 
-在設定 .xml 檔案之後，您必須將工作排程器設定為定期執行 basicScaler 檔案的時間。
+設定 JSON 檔案之後，您必須將工作排程器設為定期執行 basicScaler 檔案的時間。
 
 1. 啟動**工作排程器**。
 2. 在 [**工作排程器**] 視窗中，選取 [**建立**工作]。
@@ -119,7 +119,7 @@ ms.locfileid: "73607449"
 
 此調整腳本會從 config.xml 檔案讀取設定，包括一天內尖峰使用期間的開始和結束。
 
-在尖峰使用時間期間，腳本會檢查目前的會話數目，以及每個主機集區目前執行的 RDSH 容量。 它會根據 config.xml 檔案中定義的 SessionThresholdPerCPU 參數，計算執行中的工作階段主機 Vm 是否有足夠的容量可支援現有的會話。 如果不是，腳本會啟動主機集區中的其他工作階段主機 Vm。
+在尖峰使用時間期間，腳本會檢查目前的會話數目，以及每個主機集區目前執行的 RDSH 容量。 它會計算執行中的工作階段主機 Vm 是否有足夠的容量來支援以 config.xml 檔案中定義的 SessionThresholdPerCPU 參數為基礎的現有會話。 如果不是，腳本會啟動主機集區中的其他工作階段主機 Vm。
 
 在離峰使用時間期間，腳本會根據 config.xml 檔案中的 MinimumNumberOfRDSH 參數，決定應關閉哪些工作階段主機 Vm。 腳本會將工作階段主機 Vm 設定為清空模式，以防止新會話連接到主機。 如果您將 config.xml 檔案中的**LimitSecondsToForceLogOffUser**參數設定為非零的正值，腳本會通知任何目前已登入的使用者儲存工作、等候設定的時間量，然後強制使用者登出。在工作階段主機 VM 上登出所有使用者會話之後，腳本將會關閉伺服器。
 

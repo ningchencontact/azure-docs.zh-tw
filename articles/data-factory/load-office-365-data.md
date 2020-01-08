@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 896265311a67b74ccf9d0226a2969284ee491c9b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: cd2b530375beb3e8fa1f79e004f4f1ac7fd4d0bb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931426"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443917"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Office 365 載入資料
 
@@ -24,17 +24,17 @@ ms.locfileid: "74931426"
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
-1. 在左側功能表中，選取 [建立資源] > [分析] > [資料處理站]： 
+1. 在左側功能表上，選取 [建立資源] > [分析] > [資料處理站]： 
    
    ![在 [新增] 窗格中選取資料處理站](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
 2. 在 [新增資料處理站] 頁面中，為下圖所示的欄位提供值：
       
-   ![新增 Data Factory 網頁](./media/load-office-365-data/new-azure-data-factory.png)
+   ![新增資料處理站頁面](./media/load-office-365-data/new-azure-data-factory.png)
  
     * **名稱**：輸入 Azure 資料處理站的全域唯一名稱。 如果您收到「資料處理站名稱*LoadFromOffice365Demo*無法使用」錯誤，請為資料處理站輸入不同的名稱。 例如，您可以使用 _**yourname**_ **LoadFromOffice365Demo**。 請嘗試再次建立資料處理站。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
     * **訂用帳戶**：選取用來在其中建立資料處理站的 Azure 訂用帳戶。 
-    * **資源群組**：從下拉式清單中選取現有資源群組，或選取 [新建] 選項，然後輸入資源群組的名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
+    * **資源群組**：從下拉式清單中選取現有資源群組，或選取 [新建] 選項，然後輸入資源群組的名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。  
     * **版本**：選取 [V2]。
     * **位置**：選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區可位於其他位置和區域。 這些資料存放區包含 Azure Data Lake Store、Azure 儲存體、Azure SQL Database 等等。
 
@@ -128,7 +128,7 @@ ms.locfileid: "74931426"
 
 ![監視活動](./media/load-office-365-data/activity-status.png) 
 
-如果這是您第一次要求此內容的資料（其中一個資料表正在存取的組合、哪個目的地帳戶是要載入的資料，以及哪些使用者識別正在進行資料存取要求），您將會看到複製活動狀態為 [**進行中**]，而且只有當您按一下 [動作] 底下的 [詳細資料] 連結時，您才會看到狀態為**RequesetingConsent**。  資料存取核准者群組的成員必須核准 Privileged Access Management 中的要求，資料擷取才能繼續。
+如果這是您第一次要求此內容的資料（其中一個資料表正在存取的組合、哪個目的地帳戶是要載入的資料，以及哪些使用者識別正在進行資料存取要求），您將會看到複製活動狀態為 [**進行中**]，而且只有當您按一下 [動作] 底下的 [詳細資料] 連結時，您才會看到狀態為**RequesetingConsent**。  資料存取核准者群組的成員必須先在 Privileged Access Management 中核准該要求，資料擷取才能繼續。
 
 _要求同意時的狀態：_ 
 ![活動執行詳細資料 - 要求同意](./media/load-office-365-data/activity-details-request-consent.png) 

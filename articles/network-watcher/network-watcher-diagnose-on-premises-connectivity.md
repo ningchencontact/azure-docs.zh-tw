@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: c3300338ab37d502646c55411d658ad30581019f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 528684031404dbd907205e69f3565155fa1856b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531820"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454300"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>透過 VPN 閘道診斷內部部署連線
 
-Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網路與 Azure 虛擬網路之間的安全連線需求。 由於這項需求很獨特，所以選擇的內部部署 VPN 裝置也很獨特。 Azure 目前支援與裝置廠商合作來持續驗證的[數個 VPN 裝置](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)。 請先檢閱裝置特定的組態設定，再設定內部部署 VPN 裝置。 同樣地，Azure VPN 閘道也使用一組用於建立連線的[受支援 IPsec 參數](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec)來進行設定。 目前您無法指定或選取來自 Azure VPN 閘道之 IPsec 參數的特定組合。 若要在內部部署環境與 Azure 之間成功建立連線，內部部署 VPN 裝置設定必須符合 Azure VPN 閘道所規定的 IPsec 參數。 如果設定不正確，連線會中斷，而且到目前為止，針對這些問題進行疑難排解並不容易，而且通常需要好幾個小時才能識別並修正問題。
+Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網路與 Azure 虛擬網路之間的安全連線需求。 由於這項需求很獨特，所以選擇的內部部署 VPN 裝置也很獨特。 Azure 目前支援與裝置廠商合作來持續驗證的[數個 VPN 裝置](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)。 請先檢閱裝置特定的組態設定，再設定內部部署 VPN 裝置。 同樣地，Azure VPN 閘道也使用一組用於建立連線的[受支援 IPsec 參數](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec)來進行設定。 目前您無法指定或選取來自 Azure VPN 閘道之 IPsec 參數的特定組合。 若要在內部部署環境與 Azure 之間成功建立連線，內部部署 VPN 裝置設定必須符合 Azure VPN 閘道所規定的 IPsec 參數。 如果設定不正確，則連線會中斷，而且直到立即疑難排解這些問題並不簡單，而且通常需要數小時來找出並修正問題。
 
 使用 Azure 網路監看員疑難排解功能後，您將能夠診斷閘道和連線的任何問題，並在幾分鐘內獲得足夠資訊來做出明智的問題改正決定。
 
@@ -80,7 +80,7 @@ Error: On-premises device rejected Quick Mode settings. Check values.
 
 Azure 網路監看員疑難排解功能可讓您輕鬆地利用簡單的 PowerShell Cmdlet，來針對 VPN 閘道和連線進行診斷和疑難排解。 目前我們支援診斷下列狀況，並正在努力新增更多狀況。
 
-### <a name="gateway"></a>閘道器
+### <a name="gateway"></a>閘道
 
 | 錯誤類型 | 原因 | 記錄|
 |---|---|---|
@@ -108,7 +108,7 @@ Azure 網路監看員疑難排解功能可讓您輕鬆地利用簡單的 PowerSh
 | ConnectionIsMarkedDisconnected | 連線標記為「已中斷連線」。 |否|
 | ConnectionNotConfiguredOnGateway | 基礎服務未設定連線。 | 是 |
 | ConnectionMarkedStandby | 基礎服務標記為「待命」。| 是|
-| Authentication | 預先共用的金鑰不相符。 | 是|
+| 驗證 | 預先共用的金鑰不相符。 | 是|
 | PeerReachability | 無法連線到對等閘道。 | 是|
 | IkePolicyMismatch | 對等閘道的 IKE 原則不受 Azure 支援。 | 是|
 | WfpParse Error | 剖析 WFP 記錄時發生錯誤。 |是|

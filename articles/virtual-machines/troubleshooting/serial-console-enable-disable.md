@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: fa400d875a8f39d54d10820c603e12e97f0cd854
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: e09e08f8ba36cf576bc27551254225adee3bb0fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452225"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451293"
 ---
 # <a name="enable-and-disable-the-azure-serial-console"></a>啟用和停用 Azure 序列主控台
 
@@ -32,6 +32,9 @@ ms.locfileid: "74452225"
 
 
 ## <a name="subscription-level-enabledisable"></a>訂用帳戶層級啟用/停用
+
+> [!NOTE]
+> 在執行此命令之前，請確定您是在正確的雲端（Azure 公用雲端、Azure 美國政府雲端）。 您可以使用 `az cloud set -n <Name of cloud>`來檢查 `az cloud list` 並設定您的雲端。
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -57,9 +60,6 @@ subscriptionId=$(az account show --output=json | jq -r .id)
 
 az resource show --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --output=json --api-version="2018-05-01" | jq .properties
 ```
-
-> [!NOTE]
-> 在執行此命令之前，請確定您是在正確的雲端（Azure 公用雲端、Azure 美國政府雲端）。 您可以使用 `az cloud set -n <Name of cloud>`來檢查 `az cloud list` 並設定您的雲端。
 
 ### <a name="powershell"></a>PowerShell
 

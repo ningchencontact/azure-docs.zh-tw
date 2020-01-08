@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 具狀態可靠服務診斷 | Microsoft Docs
+title: Azure Service Fabric 具狀態 Reliable Services 診斷
 description: Azure Service Fabric 具狀態可靠服務診斷功能
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 50e3368aa8808307fa479a290eaf10ca3f22289d
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242867"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462924"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>具狀態 Reliable Services 診斷功能
 Azure Service Fabric 具狀態可靠服務 StatefulServiceBase 類別會發出 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 事件，可用於偵錯服務、提供執行階段運作情形的深入了解，以及協助疑難排解。
@@ -29,14 +20,14 @@ Azure Service Fabric 具狀態可靠服務 StatefulServiceBase 類別會發出 [
 
 可協助您收集和/或檢視 EventSource 事件之工具和技術的範例包括 [PerfView](https://www.microsoft.com/download/details.aspx?id=28567)、[Azure 診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)和 [Microsoft TraceEvent 程式庫](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)。
 
-## <a name="events"></a>事件
-| 事件名稱 | 事件識別碼 | 層級 | 事件說明 |
+## <a name="events"></a>活動
+| 事件名稱 | 事件識別碼 | 層級 | 事件描述 |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |資訊 |啟動服務 RunAsync 工作時發出 |
 | StatefulRunAsyncCancellation |2 |資訊 |取消服務 RunAsync 工作時發出 |
 | StatefulRunAsyncCompletion |3 |資訊 |完成服務 RunAsync 工作時發出 |
 | StatefulRunAsyncSlowCancellation |4 |警告 |服務 RunAsync 工作花太多時間才能完成取消時發出 |
-| StatefulRunAsyncFailure |5 |Error |服務 RunAsync 工作擲回例外狀況時發出 |
+| StatefulRunAsyncFailure |5 |錯誤 |服務 RunAsync 工作擲回例外狀況時發出 |
 
 ## <a name="interpret-events"></a>解譯事件
 StatefulRunAsyncInvocation、StatefulRunAsyncCompletion，和 StatefulRunAsyncCancellation 事件可讓服務撰寫者了解服務的生命週期--以及服務啟動、取消或完成的時機。 此資訊可能適用於偵錯服務問題或了解服務生命週期。
@@ -50,7 +41,7 @@ StatefulRunAsyncInvocation、StatefulRunAsyncCompletion，和 StatefulRunAsyncCa
 ## <a name="performance-counters"></a>效能計數器
 Reliable Services 執行階段定義下列效能計數器類別：
 
-| 類別 | 描述 |
+| 類別 | 說明 |
 | --- | --- |
 | Service Fabric 異動複寫器 |Azure Service Fabric 異動複寫器特有的計數器 |
 | Service Fabric TStore |Azure Service Fabric TStore 特有的計數器 |
@@ -104,7 +95,7 @@ PerformanceCounterInstanceDifferentiator 是區別識別碼，與狀態供應器
 
 Reliable Services 執行階段會發出 `Service Fabric Transactional Replicator` 類別底下的下列事件
 
- 計數器名稱 | 描述 |
+ 計數器名稱 | 說明 |
 | --- | --- |
 | Begin Txn Operations/sec | 每秒建立的新寫入異動數目。|
 | Txn Operations/sec | 每秒在可靠集合上所執行的新增/更新/刪除作業數目。|
@@ -117,7 +108,7 @@ Reliable Services 執行階段會發出 `Service Fabric Transactional Replicator
 
 Reliable Services 執行階段會發出 `Service Fabric TStore` 類別底下的下列事件
 
- 計數器名稱 | 描述 |
+ 計數器名稱 | 說明 |
 | --- | --- |
 | 項目計數 | 存放區中的項目數。|
 | 磁碟大小 | 存放區檢查點檔案的磁碟大小總計 (位元組)。|

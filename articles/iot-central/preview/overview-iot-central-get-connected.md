@@ -3,17 +3,17 @@ title: Azure IoT Central 中的裝置連線能力 | Microsoft Docs
 description: 本文介紹 Azure IoT Central 裝置連線能力的重要相關概念
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/09/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: ef0e4c9070733266349a37e863c48901eae90c16
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 412a678465589da87c713a55a7b67193b254bf96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894587"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434938"
 ---
 # <a name="get-connected-to-azure-iot-central-preview-features"></a>連線到 Azure IoT Central （預覽功能）
 
@@ -37,7 +37,7 @@ Azure IoT Central 會使用[Azure IoT 中樞裝置布建服務（DPS）](https:/
 - [使用 SAS 快速連接單一裝置](#connect-a-single-device)
 - [使用 SAS 大規模連接裝置](#connect-devices-at-scale-using-sas)
 - [使用 x.509 憑證大規模](#connect-devices-using-x509-certificates)地連線裝置。這是建議用於生產環境的方法。
-- [連線但不先註冊裝置](#connect-without-registering-devices)
+- [將裝置連線但先不註冊](#connect-without-registering-devices)
 - [使用 IoT 隨插即用功能來連接裝置](#connect-devices-with-iot-plug-and-play)
 
 ## <a name="connect-a-single-device"></a>將單一裝置連線
@@ -215,7 +215,7 @@ Azure 裝置 Sdk 提供最簡單的方式來執行您的裝置程式碼。 可�
 
 下表摘要說明 Azure IoT Central 裝置功能與 IoT 中樞功能的對應方式：
 
-| Azure IoT 中心 | Azure IoT 中心 |
+| Azure IoT Central | Azure IoT 中心 |
 | ----------- | ------- |
 | 量測：遙測 | 裝置到雲端傳訊 |
 | 裝置屬性 | 裝置對應項的報告屬性 |
@@ -235,7 +235,7 @@ Azure 裝置 Sdk 提供最簡單的方式來執行您的裝置程式碼。 可�
 
 如果裝置無法使用任何所支援的通訊協定，則可以使用 Azure IoT Edge 來轉換通訊協定。 IoT Edge 支援其他 intelligence-on-the-edge 案例，可從 Azure IoT Central 應用程式將處理卸載至邊緣。
 
-## <a name="security"></a>Security
+## <a name="security"></a>安全性
 
 在裝置與 Azure IoT Central 之間交換的資料會都加密。 IoT 中樞會對每個要從裝置連線至任何裝置面向 IoT 中樞端點的要求進行驗證。 為了避免透過網路交換認證，裝置會使用已簽署的權杖來進行驗證。 如需詳細資訊，請參閱[控制 IoT 中樞的存取權](../../iot-hub/iot-hub-devguide-security.md)。
 

@@ -1,6 +1,6 @@
 ---
-title: 撰寫可登入使用者的 web 應用程式-Microsoft 身分識別平臺 |Azure
-description: 瞭解如何建立可登入使用者的 web 應用程式（登入）
+title: 撰寫可登入/登出使用者的 web 應用程式-Microsoft 身分識別平臺 |Azure
+description: 瞭解如何建立可登入/登出使用者的 web 應用程式
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d7d5737a8332416a225154709ab7d66e447764
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6bb32ae29c533b8ea27bf68e012040a17bb36355
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961976"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423496"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>登入使用者的 Web 應用程式：登入和登出
 
@@ -118,7 +118,7 @@ def index():
 
 在 ASP.NET 中，登出是從控制器上的 `SignOut()` 方法觸發（例如[AccountController .cs # l16 也-L23](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23)）。 這個方法不是 ASP.NET 架構的一部分（相對於 ASP.NET Core 所發生的情況）。 在建議重新導向 URI 之後，它會傳送 OpenID 登入挑戰。
 
-```CSharp
+```csharp
 public void SignIn()
 {
     // Send an OpenID Connect sign-in request.
@@ -342,7 +342,7 @@ else
 - 清除快取。
 - 重新導向至它想要的頁面。
 
-```CSharp
+```csharp
 /// <summary>
 /// Send an OpenID Connect sign-out request.
 /// </summary>
@@ -396,7 +396,7 @@ def logout():
 
 ASP.NET Core OpenID Connect 中介軟體可讓您的應用程式藉由提供名為 `OnRedirectToIdentityProviderForSignOut`的 OpenID Connect 事件，攔截對 Microsoft 身分識別平臺 `logout` 端點的呼叫。 如需如何訂閱此事件（以清除權杖快取）的範例，請參閱[WebAppServiceCollectionExtensions。 cs # L151-L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156)。
 
-```CSharp
+```csharp
     // Handling the global sign-out
     options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
     {
@@ -408,7 +408,7 @@ ASP.NET Core OpenID Connect 中介軟體可讓您的應用程式藉由提供名�
 
 在 ASP.NET 中，您會委派至中介軟體來執行登出，並清除會話 cookie：
 
-```CSharp
+```csharp
 public class AccountController : Controller
 {
  ...

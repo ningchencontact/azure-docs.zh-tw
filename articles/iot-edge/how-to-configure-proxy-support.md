@@ -3,32 +3,32 @@ title: 針對網路 Proxy 設定裝置 - Azure IoT Edge | Microsoft Docs
 description: 如何設定 Azure IoT Edge 執行階段及任何網際網路對應的 IoT Edge 模組，以透過 Proxy 伺服器進行通訊。
 author: kgremban
 ms.author: kgremban
-ms.date: 06/05/2019
+ms.date: 11/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9a4ed17ceddf01ec628d80dc3ba9f4d7ee305f3b
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 6cc37875b84e215066c52ca8daef0fa0d879c54f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457165"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434454"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊
 
-IoT Edge 裝置會傳送 HTTPS 要求以和 IoT 中樞通訊。 如果您的裝置是連線至使用 Proxy 伺服器的網路，便必須設定 IoT Edge 執行階段以透過伺服器進行通訊。 如果 IoT Edge 模組做出沒有透過 IoT Edge 中樞進行路由的 HTTP 或 HTTPS 要求，則 Proxy 伺服器也可能會影響這些個別的 IoT Edge 模組。 
+IoT Edge 裝置會傳送 HTTPS 要求以和 IoT 中樞通訊。 如果您的裝置是連線至使用 Proxy 伺服器的網路，便必須設定 IoT Edge 執行階段以透過伺服器進行通訊。 如果 IoT Edge 模組做出沒有透過 IoT Edge 中樞進行路由的 HTTP 或 HTTPS 要求，則 Proxy 伺服器也可能會影響這些個別的 IoT Edge 模組。
 
-本文會逐步解說下列四個步驟，以設定並管理 proxy 伺服器後方的 IoT Edge 裝置： 
+本文會逐步解說下列四個步驟，以設定並管理 proxy 伺服器後方的 IoT Edge 裝置：
 
 1. **在您的裝置上安裝 IoT Edge 執行時間。**
 
-   IoT Edge 安裝腳本會從網際網路提取套件和檔案，因此您的裝置必須透過 proxy 伺服器進行通訊，才能提出這些要求。 如需詳細步驟，請參閱本文的[透過 Proxy 安裝運行](#install-the-runtime-through-a-proxy)時間一節。 針對 Windows 裝置，安裝腳本也會提供[離線安裝](how-to-install-iot-edge-windows.md#offline-installation)選項。 
+   IoT Edge 安裝腳本會從網際網路提取套件和檔案，因此您的裝置必須透過 proxy 伺服器進行通訊，才能提出這些要求。 如需詳細步驟，請參閱本文的[透過 Proxy 安裝運行](#install-the-runtime-through-a-proxy)時間一節。 針對 Windows 裝置，安裝腳本也會提供[離線安裝](how-to-install-iot-edge-windows.md#offline-installation)選項。
 
-   此步驟是您第一次設定時，在 IoT Edge 裝置上執行的一次性程式。 當您更新 IoT Edge 執行時間時，也需要相同的連接。 
+   此步驟是您第一次設定時，在 IoT Edge 裝置上執行的一次性程式。 當您更新 IoT Edge 執行時間時，也需要相同的連接。
 
 2. **在您的裝置上設定 Docker daemon 和 IoT Edge daemon。**
 
-   IoT Edge 在裝置上使用兩個守護程式，這兩者都需要透過 proxy 伺服器提出 web 要求。 IoT Edge daemon 負責與 IoT 中樞通訊。 Moby daemon 負責管理容器，因此會與容器登錄通訊。 如需詳細步驟，請參閱本文的[設定守護](#configure-the-daemons)程式一節。 
+   IoT Edge 在裝置上使用兩個守護程式，這兩者都需要透過 proxy 伺服器提出 web 要求。 IoT Edge daemon 負責與 IoT 中樞通訊。 Moby daemon 負責管理容器，因此會與容器登錄通訊。 如需詳細步驟，請參閱本文的[設定守護](#configure-the-daemons)程式一節。
 
    此步驟是您第一次設定時，在 IoT Edge 裝置上執行的一次性程式。
 
@@ -42,7 +42,7 @@ IoT Edge 裝置會傳送 HTTPS 要求以和 IoT 中樞通訊。 如果您的裝�
 
    一旦您的 IoT Edge 裝置已設定並透過 proxy 伺服器連接到 IoT 中樞，您就必須在所有未來的模組部署中維護連接。 如需詳細步驟，請參閱本文的[設定部署資訊清單](#configure-deployment-manifests)一節。 
 
-   此步驟是從遠端執行的持續程式，讓每個新的模組或部署更新都能維護裝置透過 proxy 伺服器進行通訊的能力。 
+   此步驟是從遠端執行的持續程式，讓每個新的模組或部署更新都能維護裝置透過 proxy 伺服器進行通訊的能力。
 
 ## <a name="know-your-proxy-url"></a>知道您的 Proxy URL
 
@@ -58,15 +58,15 @@ Proxy URL 採用下列格式：**protocol**://**proxy_host**:**proxy_port**。
 
 ## <a name="install-the-runtime-through-a-proxy"></a>透過 proxy 安裝執行時間
 
-無論您的 IoT Edge 裝置是否在 Windows 或 Linux 上執行，都必須透過 proxy 伺服器存取安裝套件。 視您的作業系統而定，請遵循步驟，透過 proxy 伺服器安裝 IoT Edge 執行時間。 
+無論您的 IoT Edge 裝置是否在 Windows 或 Linux 上執行，都必須透過 proxy 伺服器存取安裝套件。 視您的作業系統而定，請遵循步驟，透過 proxy 伺服器安裝 IoT Edge 執行時間。
 
-### <a name="linux"></a>Linux
+### <a name="linux-devices"></a>Linux 裝置
 
 若您正於 Linux 裝置上安裝 IoT Edge 執行階段，請設定套件管理員以 Proxy 伺服器存取安裝套件。 例如，[設定 apt-get 以使用 http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy) \(英文\)。 一旦設定您的套件管理員，請依照往常在[Linux 上安裝 Azure IoT Edge 執行時間](how-to-install-iot-edge-linux.md)中的指示進行。
 
-### <a name="windows"></a>Windows
+### <a name="windows-devices"></a>Windows 裝置
 
-如果您要在 Windows 裝置上安裝 IoT Edge 執行時間，則必須經過 proxy 伺服器兩次。 第一個連接會下載安裝程式腳本檔案，而第二個連接會在安裝期間下載必要的元件。 您可以在 Windows 設定中設定 proxy 資訊，或直接在 PowerShell 命令中包含您的 proxy 資訊。 
+如果您要在 Windows 裝置上安裝 IoT Edge 執行時間，則必須經過 proxy 伺服器兩次。 第一個連接會下載安裝程式腳本檔案，而第二個連接會在安裝期間下載必要的元件。 您可以在 Windows 設定中設定 proxy 資訊，或直接在 PowerShell 命令中包含您的 proxy 資訊。
 
 下列步驟示範使用 `-proxy` 引數進行 windows 安裝的範例：
 
@@ -82,7 +82,7 @@ Proxy URL 採用下列格式：**protocol**://**proxy_host**:**proxy_port**。
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
    ```
 
-如果您的 Proxy 伺服器有複雜的認證而無法包含在 URL 中，請在 `-ProxyCredential` 中使用 `-InvokeWebRequestParameters` 參數。 例如，
+如果您的 Proxy 伺服器有複雜的認證而無法包含在 URL 中，請在 `-InvokeWebRequestParameters` 中使用 `-ProxyCredential` 參數。 例如，
 
 ```powershell
 $proxyCredential = (Get-Credential).GetNetworkCredential()
@@ -96,34 +96,32 @@ Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyC
 
 IoT Edge 依賴在 IoT Edge 裝置上執行的兩個守護程式。 Moby daemon 會發出 web 要求，以從容器登錄提取容器映射。 IoT Edge 精靈會發出 Web 要求，以和 IoT 中樞通訊。
 
-Moby 和 IoT Edge 的守護程式都必須設定為使用 proxy 伺服器來進行持續的裝置功能。 此步驟會在初始裝置安裝期間，于 IoT Edge 裝置上進行。 
+Moby 和 IoT Edge 的守護程式都必須設定為使用 proxy 伺服器來進行持續的裝置功能。 此步驟會在初始裝置安裝期間，于 IoT Edge 裝置上進行。
 
 ### <a name="moby-daemon"></a>Moby daemon
 
-由於 Moby 是以 Docker 為基礎建立，請參閱 Docker 檔，以使用環境變數設定 Moby daemon。 大部分的容器登錄 (包括 Docker Hub 和 Azure Container Registry) 皆支援 HTTPS 要求，因此您應該設定的參數為 **HTTPS_PROXY**。 如果您是從不支援傳輸層安全性 (TLS) 的登錄提取映像，則應該設定 **HTTP_PROXY** 參數。 
+由於 Moby 是以 Docker 為基礎建立，請參閱 Docker 檔，以使用環境變數設定 Moby daemon。 大部分的容器登錄 (包括 Docker Hub 和 Azure Container Registry) 皆支援 HTTPS 要求，因此您應該設定的參數為 **HTTPS_PROXY**。 如果您是從不支援傳輸層安全性 (TLS) 的登錄提取映像，則應該設定 **HTTP_PROXY** 參數。
 
-選擇適用于您 IoT Edge 裝置作業系統的文章： 
+選擇適用于您 IoT Edge 裝置作業系統的文章：
 
-* [在 Linux 上設定 Docker daemon](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
-    * Linux 裝置上的 Moby daemon 會保留 Docker 的名稱。
-* [在 Windows 上設定 Docker daemon](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
-    * Windows 裝置上的 Moby daemon 稱為 iotedge-Moby。 名稱會不同，因為可以在 Windows 裝置上同時執行 Docker Desktop 和 Moby。 
+* [在 Linux 上設定 Docker daemon](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)Linux 裝置上的 Moby daemon 會保留 Docker 的名稱。
+* [在 Windows 上設定 Docker daemon](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)Windows 裝置上的 Moby daemon 稱為 iotedge-Moby。 名稱會不同，因為可以在 Windows 裝置上同時執行 Docker Desktop 和 Moby。
 
 ### <a name="iot-edge-daemon"></a>IoT Edge 精靈
 
-IoT Edge 守護程式會以類似的方式設定 Moby daemon。 請根據您的作業系統，使用下列相對應的步驟來針對服務設定環境變數。 
+IoT Edge 守護程式會以類似的方式設定 Moby daemon。 請根據您的作業系統，使用下列相對應的步驟來針對服務設定環境變數。
 
 IoT Edge daemon 一律會使用 HTTPS 將要求傳送至 IoT 中樞。
 
 #### <a name="linux"></a>Linux
 
-在終端機中開啟編輯器以設定 IoT 精靈。 
+在終端機中開啟編輯器以設定 IoT 精靈。
 
 ```bash
 sudo systemctl edit iotedge
 ```
 
-輸入下列文字，並將 **\<proxy URL>** 取代為您 Proxy 伺服器的位址和連接埠。 然後儲存並結束。 
+輸入下列文字，並將 **\<proxy URL>** 取代為您 Proxy 伺服器的位址和連接埠。 然後儲存並結束。
 
 ```ini
 [Service]
@@ -142,7 +140,7 @@ sudo systemctl daemon-reload
 sudo systemctl restart iotedge
 ```
 
-確認您的環境變數已經建立，並已載入新的設定。 
+確認您的環境變數已經建立，並已載入新的設定。
 
 ```bash
 systemctl show --property=Environment iotedge
@@ -150,7 +148,7 @@ systemctl show --property=Environment iotedge
 
 #### <a name="windows"></a>Windows
 
-以系統管理員身分開啟 PowerShell 視窗，並執行下列命令以搭配新的環境變數編輯登錄。 將 **\<proxy url>** 取代為您 Proxy 伺服器的位址和連接埠。 
+以系統管理員身分開啟 PowerShell 視窗，並執行下列命令以搭配新的環境變數編輯登錄。 將 **\<proxy url>** 取代為您 Proxy 伺服器的位址和連接埠。
 
 ```powershell
 reg add HKLM\SYSTEM\CurrentControlSet\Services\iotedge /v Environment /t REG_MULTI_SZ /d https_proxy=<proxy URL>
@@ -188,13 +186,13 @@ IoT Edge 代理程式是在任何 IoT Edge 裝置上皆應第一個啟動的模�
 
 5. 儲存對 config.yaml 所做的變更，然後關閉編輯器。 重新啟動 IoT Edge 來讓變更生效。 
 
-   * Linux： 
+   * Linux：
 
       ```bash
       sudo systemctl restart iotedge
       ```
 
-   * Windows:
+   * Windows：
 
       ```powershell
       Restart-Service iotedge
@@ -202,23 +200,23 @@ IoT Edge 代理程式是在任何 IoT Edge 裝置上皆應第一個啟動的模�
 
 ## <a name="configure-deployment-manifests"></a>設定部署資訊清單  
 
-在您的 IoT Edge 裝置已設定為能搭配您的 Proxy 伺服器運作之後，您需要在未來的部署資訊清單中繼續宣告環境變數。 您可以使用 Azure 入口網站 wizard 或編輯部署資訊清單 JSON 檔案來編輯部署資訊清單。 
+在您的 IoT Edge 裝置已設定為能搭配您的 Proxy 伺服器運作之後，您需要在未來的部署資訊清單中繼續宣告環境變數。 您可以使用 Azure 入口網站 wizard 或編輯部署資訊清單 JSON 檔案來編輯部署資訊清單。
 
-請一律設定兩個執行階段模組 (edgeAgent 和 edgeHub) 透過 Proxy 伺服器進行通訊，以維持與 IoT 中樞的連線。 如果您從 edgeAgent 模組移除 proxy 資訊，重新建立連線的唯一方式是編輯裝置上的 yaml 檔案，如上一節中所述。 
+請一律設定兩個執行階段模組 (edgeAgent 和 edgeHub) 透過 Proxy 伺服器進行通訊，以維持與 IoT 中樞的連線。 如果您從 edgeAgent 模組移除 proxy 資訊，重新建立連線的唯一方式是編輯裝置上的 yaml 檔案，如上一節中所述。
 
-其他連接到網際網路的 IoT Edge 模組也應該設定為透過 proxy 伺服器進行通訊。 不過，透過 edgeHub 路由其訊息的模組，或是僅會與裝置上其他模組進行通訊的模組，則不需要 Proxy 伺服器詳細資料。 
+其他連接到網際網路的 IoT Edge 模組也應該設定為透過 proxy 伺服器進行通訊。 不過，透過 edgeHub 路由其訊息的模組，或是僅會與裝置上其他模組進行通訊的模組，則不需要 Proxy 伺服器詳細資料。
 
-此步驟會在 IoT Edge 裝置的整個生命週期中進行。 
+此步驟會在 IoT Edge 裝置的整個生命週期中進行。
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
-當您使用 [設定模組] 精靈來針對 IoT Edge 裝置建立部署時，每個模組都會有 [環境變數] 區段可供您用來設定 Proxy 伺服器連線。 
+當您使用 [設定模組] 精靈來針對 IoT Edge 裝置建立部署時，每個模組都會有 [環境變數] 區段可供您用來設定 Proxy 伺服器連線。
 
-若要設定 IoT Edge 代理程式和 IoT Edge 中樞模組，請在精靈的第一個步驟中選取 [設定進階 Edge 執行階段設定]。 
+若要設定 IoT Edge 代理程式和 IoT Edge 中樞模組，請在嚮導的第一個步驟中選取 [**執行時間設定**]。
 
 ![設定進階 Edge 執行階段設定](./media/how-to-configure-proxy-support/configure-runtime.png)
 
-將 **https_proxy** 環境變數同時新增至 IoT Edge 代理程式和 IoT Edge 中樞模組定義。 如果您已在 IoT Edge 裝置上的 config.yaml 檔案中包含 **UpstreamProtocol** 環境變數，請同時將該環境變數新增至 IoT Edge 代理程式模組定義。 
+將 **https_proxy** 環境變數同時新增至 IoT Edge 代理程式和 IoT Edge 中樞模組定義。 如果您已在 IoT Edge 裝置上的 config.yaml 檔案中包含 **UpstreamProtocol** 環境變數，請同時將該環境變數新增至 IoT Edge 代理程式模組定義。
 
 ![設定 https_proxy 環境變數](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
@@ -226,9 +224,9 @@ IoT Edge 代理程式是在任何 IoT Edge 裝置上皆應第一個啟動的模�
 
 ### <a name="json-deployment-manifest-files"></a>JSON 部署資訊清單檔案
 
-如果您是使用 Visual Studio Code 中的範本，或是手動建立 JSON 檔案來針對 IoT Edge 裝置建立部署，您可以將環境變數直接新增至每個模組定義中。 
+如果您是使用 Visual Studio Code 中的範本，或是手動建立 JSON 檔案來針對 IoT Edge 裝置建立部署，您可以將環境變數直接新增至每個模組定義中。
 
-使用下列 JSON 格式： 
+使用下列 JSON 格式：
 
 ```json
 "env": {
@@ -257,7 +255,7 @@ IoT Edge 代理程式是在任何 IoT Edge 裝置上皆應第一個啟動的模�
 }
 ```
 
-如果您已在 IoT Edge 裝置上的 confige.yaml 檔案中包含 **UpstreamProtocol** 環境變數，請同時將該環境變數新增至 IoT Edge 代理程式模組定義。 
+如果您已在 IoT Edge 裝置上的 confige.yaml 檔案中包含 **UpstreamProtocol** 環境變數，請同時將該環境變數新增至 IoT Edge 代理程式模組定義。
 
 ```json
 "env": {
@@ -275,4 +273,3 @@ IoT Edge 代理程式是在任何 IoT Edge 裝置上皆應第一個啟動的模�
 深入了解 [IoT Edge 執行階段](iot-edge-runtime.md)的角色。
 
 使用 [Azure IoT Edge 的常見問題和解決方案](troubleshoot.md)來對安裝和設定錯誤進行疑難排解
-

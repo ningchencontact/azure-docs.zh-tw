@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure AD 權利管理進行疑難排解-Azure Active Directory
+title: 針對權利管理進行疑難排解-Azure AD
 description: 瞭解您應該檢查的一些專案，以協助您針對 Azure Active Directory 權利管理進行疑難排解。
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f7e5e6168e8b365a04040f595f30e68e4e82f0a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e291a032c1aac45ebc783126e69b524e1d0af95b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173326"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422484"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>針對 Azure AD 權利管理進行疑難排解
 
@@ -57,7 +57,7 @@ ms.locfileid: "73173326"
 
 * 如果新的外部使用者先前尚未登入您的目錄，則會收到包含 SharePoint Online 網站的存取套件，其存取套件會顯示為未完全傳遞，直到其帳戶布建于 SharePoint Online 為止。 如需共用設定的詳細資訊，請參閱[審查 SharePoint Online 外部共用設定](entitlement-management-external-users.md#review-your-sharepoint-online-external-sharing-settings)。
 
-## <a name="requests"></a>Requests
+## <a name="requests"></a>要求
 
 * 當使用者想要要求存取套件的存取權時，請確定他們使用的是存取套件的**我的存取權入口網站連結**。 如需詳細資訊，請參閱[共用連結以要求存取封裝](entitlement-management-access-package-settings.md)。
 
@@ -129,7 +129,7 @@ ms.locfileid: "73173326"
 
 * 套用多個原則時，自動選取的原則或向要求者顯示的原則會以下列優先權邏輯為基礎：
 
-    | 原則優先順序 | Scope |
+    | 原則優先順序 | 範圍 |
     | --- | --- |
     | P1 | 您目錄中的特定使用者和群組，或特定的已連線組織 |
     | P2 | 目錄中的所有成員（不包括來賓） |

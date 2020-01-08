@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88094e7ade688505bb971dd85505ddfacb1d8859
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9ca44b1917cfaed5d01c31f8f06d98e5e4b611a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926794"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438928"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
 
@@ -26,7 +26,7 @@ ms.locfileid: "74926794"
 > * [第 2 版 (目前的版本)](../copy-activity-performance.md)
 
 > [!NOTE]
-> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 的複製活動效能及微調指南](../copy-activity-performance.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 的複製活動效能及微調指南](../copy-activity-performance.md)。
 
 Azure Data Factory 複製活動會提供安全、可靠、高效能的頂級資料載入解決方案。 它可讓您複製每天在各式各樣雲端和內部部署資料存放區上數十 TB 的資料。 超快的資料載入效能是可確保您能夠專注於核心「巨量資料」問題的關鍵︰建置進階的分析解決方案，並從該所有資料獲得深入解析。
 
@@ -205,11 +205,11 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 ### <a name="configuration"></a>組態
 在複製活動中設定 **enableStaging** 設定，指定您是否想要讓資料在載入至目的地資料存放區之前，暫存在 Blob 儲存體中。 當您將 **enableStaging** 設定為 TRUE 時，請指定下一份資料表所列出的其他屬性。 如果還未指定，您也需要建立 Azure 儲存體或儲存體共用存取簽章連結服務以供暫存使用。
 
-| 屬性 | 描述 | 預設值 | 必要項 |
+| 屬性 | 說明 | 預設值 | 必要項 |
 | --- | --- | --- | --- |
 | **enableStaging** |指定您是否要透過過渡暫存存放區複製資料。 |否 |否 |
 | **linkedServiceName** |指定 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 或 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 連結服務的名稱，以代表您用來做為過渡暫存存放區的儲存體執行個體。 <br/><br/> 您無法使用具有共用存取簽章的儲存體來透過 PolyBase 將資料載入至 SQL 資料倉儲。 您可以將它用於其他所有案例。 |N/A |是，當 **enableStaging** 設為 TRUE |
-| **路徑** |指定要包含分段資料的 Blob 儲存體路徑。 如果未提供路徑，服務會建立容器來儲存暫存資料。 <br/><br/> 只有在使用具有共用存取簽章的儲存體時，或需要讓暫存資料位於特定位置時，才指定路徑。 |N/A |否 |
+| **path** |指定要包含分段資料的 Blob 儲存體路徑。 如果未提供路徑，服務會建立容器來儲存暫存資料。 <br/><br/> 只有在使用具有共用存取簽章的儲存體時，或需要讓暫存資料位於特定位置時，才指定路徑。 |N/A |否 |
 | **enableCompression** |指定將資料複製到目的地之前，是否應該壓縮資料。 此設定可減少傳輸的資料量。 |否 |否 |
 
 以下是具有上表所述屬性的「複製活動」的範例定義︰
@@ -263,7 +263,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
      * [分段複製](#staged-copy)
      * [資料管理閘道延展性](data-factory-data-management-gateway-high-availability-scalability.md)
    * [資料管理閘道](#considerations-for-data-management-gateway)
-   * [來源](#considerations-for-the-source)
+   * [Source](#considerations-for-the-source)
    * [接收](#considerations-for-the-sink)
    * [序列化和還原序列化](#considerations-for-serialization-and-deserialization)
    * [壓縮](#considerations-for-compression)
@@ -379,7 +379,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 如您所見，資料將會以串流序列的方式處理和移動：SQL Server -> LAN -> 閘道器 -> WAN -> Blob 儲存體。 **整體效能受限於管線的最小輸送量**。
 
-![資料流](./media/data-factory-copy-activity-performance/case-study-pic-1.png)
+![設計師中](./media/data-factory-copy-activity-performance/case-study-pic-1.png)
 
 下列一或多個因素可能會造成效能瓶頸：
 
@@ -399,7 +399,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 **分析和效能微調**︰例如，如果您已在四核心電腦上安裝閘道器，Data Factory 會使用 16 個平行複製，以並行方式從檔案系統中將檔案移至 Blob 儲存體。 此平行執行應該會導致高輸送量。 您也可以明確指定平行複製計數。 在複製許多小型檔案時，平行複製可藉由更有效率地使用資源，而對輸送量大有幫助。
 
-![案例 1](./media/data-factory-copy-activity-performance/scenario-1.png)
+![實例 1](./media/data-factory-copy-activity-performance/scenario-1.png)
 
 **案例 II**：從 Blob 儲存體複製 20 個 Blob (每個 Blob 有 500 MB) 到 Data Lake Store 分析，然後微調效能。
 
@@ -416,7 +416,8 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 ## <a name="reference"></a>參考
 以下是幾個支援的資料存放區所適用的效能監視及調整參考：
 
-* Azure 儲存體 (包括 Blob 儲存體和表格儲存體)：[Azure 儲存體的擴充性目標](../../storage/common/storage-scalability-targets.md)和 [Azure 儲存體效能和擴充性檢查清單](../../storage/common/storage-performance-checklist.md)
+* Azure Blob 儲存體： blob[儲存體的擴充性和效能目標](../../storage/blobs/scalability-targets.md)，以及[Blob 儲存體的效能和擴充性檢查清單](../../storage/blobs/storage-performance-checklist.md)。
+* Azure 資料表儲存體：資料表儲存體[的擴充性和效能目標](../../storage/tables/scalability-targets.md)，以及[資料表儲存體的效能和擴充性檢查清單](../../storage/tables/storage-performance-checklist.md)。
 * Azure SQL Database：您可以 [監視效能](../../sql-database/sql-database-single-database-monitor.md) ，並檢查資料庫交易單位 (DTU) 百分比
 * Azure SQL 資料倉儲：其能力會以資料倉儲單位 (DWU) 來測量；請參閱 [管理 Azure SQL 資料倉儲中的計算能力 (概觀)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB：[Azure Cosmos DB 中的效能等級](../../cosmos-db/performance-levels.md)

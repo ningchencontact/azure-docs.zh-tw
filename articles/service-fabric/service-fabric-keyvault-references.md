@@ -1,25 +1,20 @@
 ---
-title: Azure Service Fabric-使用 Service Fabric 應用程式 KeyVault 參考 |Microsoft Docs
+title: Azure Service Fabric-使用 Service Fabric 應用程式 KeyVault 參考
 description: 本文說明如何使用應用程式密碼的 service fabric KeyVaultReference 支援。
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/20/2019
-ms.author: atsenthi
-ms.openlocfilehash: 96da89a00b054767553b0ed3d8debf30c344dd62
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: b0e882c2b39c06a3040d22fc6694599966ceeb39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307331"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463045"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Service Fabric 應用程式的 KeyVaultReference 支援（預覽）
 
 建立雲端應用程式時，常見的挑戰是如何安全地儲存應用程式所需的秘密。 例如，您可能會想要將容器儲存機制認證儲存在 keyvault 中，並在應用程式資訊清單中參考它。 Service Fabric KeyVaultReference 使用 Service Fabric 受控身分識別，並可讓您輕鬆地參考 keyvault 的秘密。 本文的其餘部分將詳細說明如何使用 Service Fabric KeyVaultReference，並包含一些一般的使用方式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 應用程式的受控識別（MIT）
     
@@ -36,8 +31,8 @@ ms.locfileid: "74307331"
     [
         ...
     {
-        "parameters":  [
-            "name":  "CentralSecretService",
+                "name":  "CentralSecretService",
+                "parameters":  [
                 {
                     "name":  "IsEnabled",
                     "value":  "true"
@@ -50,7 +45,7 @@ ms.locfileid: "74307331"
                     "name":  "TargetReplicaSetSize",
                     "value":  "3"
                 }
-                ],
+                ]
             },
             {
                 "name":  "ManagedIdentityTokenService",

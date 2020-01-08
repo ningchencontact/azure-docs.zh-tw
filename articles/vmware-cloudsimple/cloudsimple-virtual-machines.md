@@ -1,5 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple-虛擬機器總覽
+title: 虛擬機器總覽
+titleSuffix: Azure VMware Solution by CloudSimple
 description: 深入瞭解 CloudSimple 虛擬機器及其優點。
 author: sharaths-cs
 ms.author: dikamath
@@ -8,22 +9,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 213ab51dae20d281a1a0e0f8ea18f4bde888e64d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 436a5ab6fb286ce206f981487b6a29d774ecd1a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877903"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372784"
 ---
 # <a name="cloudsimple-virtual-machines-overview"></a>CloudSimple 虛擬機器總覽
 
-CloudSimple 可讓您從 Azure 入口網站管理 VMware 虛擬機器 (Vm)。  來自 vSphere 叢集的叢集或資源集區會透過 Azure 對應到您的訂用帳戶來進行管理。
+CloudSimple 可讓您從 Azure 入口網站管理 VMware 虛擬機器（Vm）。  來自 vSphere 叢集的叢集或資源集區會透過 Azure 對應到您的訂用帳戶來進行管理。
 
-若要從 Azure 建立 CloudSimple VM, VM 範本必須存在於您的私用雲端 vCenter 上。  此範本是用來自訂作業系統和應用程式。  您可以強化範本 VM 以符合企業安全性原則。  您可以使用範本來建立 Vm, 然後使用自助模型從 Azure 入口網站取用它們。
+若要從 Azure 建立 CloudSimple VM，VM 範本必須存在於您的私用雲端 vCenter 上。  此範本是用來自訂作業系統和應用程式。  您可以強化範本 VM 以符合企業安全性原則。  您可以使用範本來建立 Vm，然後使用自助模型從 Azure 入口網站取用它們。
 
-## <a name="benefits"></a>優點
+## <a name="benefits"></a>優勢
 
-從 Azure 入口網站 CloudSimple 虛擬機器提供自助機制, 讓使用者建立和管理 VMware 虛擬機器。
+從 Azure 入口網站 CloudSimple 虛擬機器提供自助機制，讓使用者建立和管理 VMware 虛擬機器。
 
 * 在您的私用雲端 vCenter 上建立 CloudSimple VM
 * 管理 VM 屬性

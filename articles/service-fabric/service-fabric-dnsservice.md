@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric DNS 服務 | Microsoft Docs
+title: Azure Service Fabric DNS 服務
 description: 使用 Service Fabric 的 DNS 服務來從叢集內部探索微服務。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 7/20/2018
-ms.author: atsenthi
-ms.openlocfilehash: 707fc9f073e37d60c6c6fca8e9a8392b2550da9f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 317aa81238ec7a0dc24b69b1d00568901b9bc34f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229295"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458024"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric 中的 DNS 服務
 「DNS 服務」是一個選用的系統服務，您可以在叢集中啟用以使用 DNS 通訊協定來探索其他服務。 
@@ -57,7 +46,7 @@ DNS 服務不支援動態連接埠。 若要解決動態連接埠上所公開的
 
 擁有範本後，您可以使用下列步驟來啟用 DNS 服務：
 
-1. 檢查 `apiversion` 資源的 `2017-07-01-preview` 是否已設定為 `Microsoft.ServiceFabric/clusters` 或更新版本，如果不是請加以更新，如下列範例所示：
+1. 檢查 `Microsoft.ServiceFabric/clusters` 資源的 `apiversion` 是否已設定為 `2017-07-01-preview` 或更新版本，如果不是請加以更新，如下列範例所示：
 
     ```json
     {
@@ -71,7 +60,7 @@ DNS 服務不支援動態連接埠。 若要解決動態連接埠上所公開的
 
 2. 現在，請以下列其中一種方式啟用 DNS 服務：
 
-   - 若要使用預設設定啟用 DNS 服務，將其新增至 `addonFeatures` 區段內的 `properties`區段，如下列範例所示：
+   - 若要使用預設設定啟用 DNS 服務，將其新增至 `properties` 區段內的 `addonFeatures`區段，如下列範例所示：
 
         ```json
           "properties": {
@@ -83,7 +72,7 @@ DNS 服務不支援動態連接埠。 若要解決動態連接埠上所公開的
           }
         ```
 
-   - 若要以預設值以外的設定啟用服務，請將 `DnsService` 區段新增至 `fabricSettings` 區段內的 `properties` 區段。 在此案例中，您不需要將 DnsService 新增至 `addonFeatures`。 若要深入了解可為 DNS 服務設定的屬性，請參閱 [DNS 服務設定](./service-fabric-cluster-fabric-settings.md#dnsservice)。
+   - 若要以預設值以外的設定啟用服務，請將 `DnsService` 區段新增至 `properties` 區段內的 `fabricSettings` 區段。 在此案例中，您不需要將 DnsService 新增至 `addonFeatures`。 若要深入了解可為 DNS 服務設定的屬性，請參閱 [DNS 服務設定](./service-fabric-cluster-fabric-settings.md#dnsservice)。
 
        ```json
            "properties": {
@@ -181,7 +170,7 @@ DNS 服務不支援動態連接埠。 若要解決動態連接埠上所公開的
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-其中：
+地點：
 
 - *First-Label-Of-Partitioned-Service-DNSName* 是服務 DNS 名稱的第一個部分。
 - *PartitionPrefix* 是可在叢集資訊清單的 DnsService 區段中設定的值，或可透過叢集的 Resource Manager 範本設定的值。 預設值為 "--"。 若要深入了解，請參閱 [DNS 服務設定](./service-fabric-cluster-fabric-settings.md#dnsservice)。

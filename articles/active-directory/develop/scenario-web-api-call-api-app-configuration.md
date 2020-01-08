@@ -16,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 219724186e3fa69fec35e89435af495b662c871d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2082265b96388b4fbf860118efc3eefd4c5c67af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919744"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423600"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>呼叫 web Api 的 web API-程式碼設定
 
@@ -33,7 +33,7 @@ ms.locfileid: "74919744"
 
 在任何受保護 web Api 的程式碼設定之上，您必須訂閱在呼叫 API 時所收到的持有人權杖驗證：
 
-```CSharp
+```csharp
 /// <summary>
 /// Protects the web API with Microsoft Identity Platform (a.k.k AAD v2.0)
 /// This supposes that the configuration files have a section named "AzureAD"
@@ -77,9 +77,9 @@ AddAccountToCacheFromJwt （）方法必須：
 
 此流程僅適用于機密用戶端流程，因此受保護的 Web API 會分別透過 `WithClientSecret` 或 `WithCertificate` 方法，提供用戶端認證（用戶端密碼或憑證）給[ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) 。
 
-![映像](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
+![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
-```CSharp
+```csharp
 IConfidentialClientApplication app;
 
 #if !VariationWithCertificateCredentials
@@ -104,11 +104,11 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 `UserAssertion` 是從本身用戶端的 Web API 所收到的持有人權杖所建立。 有[兩個](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet)使用 JWT 持有人權杖的函式，另一個則採用任何類型的使用者判斷提示（其他類型的安全性權杖，然後在名為 `assertionType`的其他參數中指定）。
 
-![映像](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
+![image](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
 實際上，OBO 流程通常用來取得下游 API 的權杖，並將它儲存在 MSAL.NET 的使用者權杖快取中，讓 Web API 的其他部分稍後可以呼叫 ``AcquireTokenOnSilent`` 的[覆寫](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet)來呼叫下游 api。 此呼叫具有重新整理權杖的效果（如有需要）。
 
-```CSharp
+```csharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
 {
     try

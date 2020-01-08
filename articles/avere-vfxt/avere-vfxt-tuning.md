@@ -6,17 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 274a20f84b978b38a284d1feb315d6621b7d3ccd
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8e25b3408482d9be9cb870df338ba0e53af52507
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256144"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75414323"
 ---
 # <a name="cluster-tuning"></a>叢集調整
 
-
-大部分的 vFXT 叢集都可以受益於自訂的效能設定。 這些設定可協助叢集妥善搭配您特定的工作流程、資料集和工具使用。 
+大部分的 vFXT 叢集都可以受益於自訂的效能設定。 這些設定可協助叢集妥善搭配您特定的工作流程、資料集和工具使用。
 
 這項自訂工作應該與支援代表一起完成，因為它通常會牽涉到設定 Avere 控制項台中不提供的功能。
 
@@ -34,9 +33,9 @@ ms.locfileid: "72256144"
 
 根據資料集品質或工作流程樣式，可能會建議使用這些變更。
 
-* 如果是大量寫入的工作負載，從其預設的 20% 增加寫入快取的大小。 
-* 如果資料集涉及許多小檔案，請增加叢集快取的檔案計數限制。 
-* 如果工作牽涉到複製或移動兩個存放庫之間的資料，調整用於移動資料之執行緒的數目： 
+* 如果是大量寫入的工作負載，從其預設的 20% 增加寫入快取的大小。
+* 如果資料集涉及許多小檔案，請增加叢集快取的檔案計數限制。
+* 如果工作牽涉到複製或移動兩個存放庫之間的資料，調整用於移動資料之執行緒的數目：
   * 若要增加速度，您可能要增加使用之平行執行緒的數目。
   * 如果後端儲存體磁碟區變成超載，您可能需要減少使用之平行執行緒的數目。
 * 如果叢集快取使用 NFSv4 ACL 之核心篩選的資料，啟用存取模式快取可簡化特定用戶端的檔案授權。
@@ -58,4 +57,4 @@ ms.locfileid: "72256144"
 
 ## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>協助最佳化 Avere vFXT for Azure
 
-使用[取得有關系統的協助](avere-vfxt-open-ticket.md)中所述的程序，連絡支援人員了解這些最佳化相關問題。 
+使用[取得有關系統的協助](avere-vfxt-open-ticket.md)中所述的程序，連絡支援人員了解這些最佳化相關問題。

@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: af16643ed877ca427a22428afec028264de7a5d8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 83b4e1e10af8e398f6671f6b2561485bfdb6b7f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928983"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432493"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>設定 Python 應用程式的 Azure 監視器（預覽）
 
@@ -38,7 +38,7 @@ Azure 監視器透過與[OpenCensus](https://opencensus.io)的整合，支援 Py
 
 1. [設定] 方塊隨即出現。 使用下表來填寫輸入欄位。
 
-   | 設定        | Value           | 描述  |
+   | 設定        | 值           | 說明  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 全域唯一值 | 識別您要監視之應用程式的名稱 |
    | **資源群組**     | myResourceGroup      | 要裝載 Application Insights 資料之新資源群組的名稱 |
@@ -353,7 +353,7 @@ OpenCensus 提供的匯出工具會對應至您將在 Azure 監視器中看到�
     logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
     ```
 
-7. 如需如何使用追蹤內容資料來擴充記錄檔的詳細資訊，請參閱 OpenCensus Python[記錄整合](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation)。
+7. 如需如何使用追蹤內容資料來擴充記錄檔的詳細資訊，請參閱 OpenCensus Python[記錄整合](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation)。
 
 ## <a name="view-your-data-with-queries"></a>使用查詢來查看您的資料
 

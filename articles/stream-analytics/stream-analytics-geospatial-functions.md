@@ -1,19 +1,18 @@
 ---
 title: Azure 串流分析地理空間函式簡介
 description: 本文說明 Azure 串流分析作業所使用的地理空間函式。
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: dfbe7e607395006f9bd7da0be0d5673353e2801f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f47f34b60c858bb9a0feafd25176e4a811046630
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162603"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426232"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>串流分析地理空間函式簡介
 
@@ -43,7 +42,7 @@ FROM input
 
 ### <a name="input-example"></a>輸入範例  
   
-|緯度|經度|  
+|緯度 (latitude)|經度 (longitude)|  
 |--------------|---------------|  
 |3.0|-10.2|  
 |-87.33|20.2321|  
@@ -70,7 +69,7 @@ FROM input
 
 ### <a name="input-example"></a>輸入範例  
   
-|緯度|經度|  
+|緯度 (latitude)|經度 (longitude)|  
 |--------------|---------------|  
 |3.0|-10.2|  
 |-87.33|20.2321|  
@@ -97,7 +96,7 @@ FROM input
 
 ### <a name="input-example"></a>輸入範例  
   
-|緯度|經度|  
+|緯度 (latitude)|經度 (longitude)|  
 |--------------|---------------|  
 |3.0|-10.2|  
 |-87.33|20.2321|  
@@ -200,7 +199,7 @@ FROM input
 ## <a name="next-steps"></a>後續步驟
 
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
-* [開始使用 Azure 資料流分析](stream-analytics-real-time-fraud-detection.md)
+* [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

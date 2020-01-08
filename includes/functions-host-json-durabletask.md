@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 614d93a16b9149a217b5ff1004031e0a2d7337ca
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d430d7d94f8eed76bb78042a174aeddf2e6ccaa3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615036"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410224"
 ---
 [Durable Functions](../articles/azure-functions/durable-functions-overview.md) 的組態設定。
 
@@ -52,14 +52,15 @@ ms.locfileid: "73615036"
   "durableTask": {
     "hubName": "MyTaskHub",
     "storageProvider": {
-      "controlQueueBatchSize": 32,
-      "partitionCount": 4,
-      "controlQueueVisibilityTimeout": "00:05:00",
-      "workItemQueueVisibilityTimeout": "00:05:00",
-      "maxQueuePollingInterval": "00:00:30",
       "connectionStringName": "AzureWebJobsStorage",
+      "controlQueueBatchSize": 32,
+      "controlQueueBufferThreshold": 256,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "maxQueuePollingInterval": "00:00:30",
+      "partitionCount": 4,
       "trackingStoreConnectionStringName": "TrackingStorage",
-      "trackingStoreNamePrefix": "DurableTask"
+      "trackingStoreNamePrefix": "DurableTask",
+      "workItemQueueVisibilityTimeout": "00:05:00",
     },
     "tracing": {
       "traceInputsAndOutputs": false,
@@ -82,17 +83,19 @@ ms.locfileid: "73615036"
     "maxConcurrentActivityFunctions": 10,
     "maxConcurrentOrchestratorFunctions": 10,
     "extendedSessionsEnabled": false,
-    "extendedSessionIdleTimeoutInSeconds": 30
+    "extendedSessionIdleTimeoutInSeconds": 30,
+    "useGracefulShutdown": false
   }
 }
 ```
 
-工作中樞名稱必須以字母開頭，僅包含字母和數字。 如果未指定，函式應用程式的預設工作中樞名稱是 **DurableFunctionsHub**。 如需詳細資訊，請參閱[工作中樞](../articles/azure-functions/durable-functions-task-hubs.md)。
+工作中樞名稱必須以字母開頭，且只包含字母和數字。 如果未指定函式應用程式的工作中樞名稱，則預設為 **DurableFunctionsHub**。 如需詳細資訊，請參閱[工作中樞](../articles/azure-functions/durable-functions-task-hubs.md)。
 
-|屬性  |預設值 | 說明 |
+|屬性  |預設 | 說明 |
 |---------|---------|---------|
 |hubName|DurableFunctionsHub|替代[工作中樞](../articles/azure-functions/durable-functions-task-hubs.md)名稱可用來彼此隔離多個 Durable Functions 應用程式，即使它們使用相同的儲存體後端。|
 |controlQueueBatchSize|32|要從控制佇列中一次提取的訊息數。|
+|controlQueueBufferThreshold|256|可以在記憶體中一次緩衝處理的控制佇列訊息數目，此時發送器會在清除任何其他訊息之前等待。|
 |partitionCount |4|控制佇列的資料分割計數。 必須是介於 1 到 16 之間的正整數。|
 |controlQueueVisibilityTimeout |5 分鐘|已從控制佇列中清除之訊息的可見度逾時。|
 |workItemQueueVisibilityTimeout |5 分鐘|已從工作項目佇列中清除之訊息的可見度逾時。|
@@ -109,5 +112,6 @@ ms.locfileid: "73615036"
 |eventGridPublishRetryCount|0|如果發佈到 Event Grid 主題失敗，重試的次數。|
 |eventGridPublishRetryInterval|5 分鐘|「事件方格」會以 *hh:mm:ss* 格式發佈重試間隔。|
 |eventGridPublishEventTypes||要發佈至事件方格的事件種類清單。 如果未指定，則會發行所有事件種類。 允許的值包括 `Started`、`Completed`、`Failed`、`Terminated`。|
+|useGracefulShutdown|false|預覽啟用正常關機，以降低主機關機失敗的進程內函式執行的機會。|
 
 這些設定中有許多都是用來優化效能。 如需詳細資訊，請參閱[效能和級別](../articles/azure-functions/durable-functions-perf-and-scale.md)。

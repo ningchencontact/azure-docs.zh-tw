@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 6c81cd927ac26779cab042d1d4e54f2e8c02918c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fdd91b62355b11ba99aafcda04f86282ce5a4f71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838870"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454748"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>定義 Azure Machine Learning Studio 的自訂 R 模組（傳統）
 
@@ -24,9 +24,9 @@ ms.locfileid: "73838870"
 
 
 ## <a name="what-is-a-custom-r-module"></a>什麼是自訂 R 模組？
-**自訂模組**是一種使用者定義的模組，可上傳至您的工作區，並在 Azure Machine Learning Studio 實驗的傳統版本中執行。 **自訂 R 模組** 是執行使用者定義之 R 函數的自訂模組。 **R** 是一種適用於統計運算和圖形的程式設計語言，由實作演算法的統計學家和資料科學家廣泛使用。 目前，R 是自訂模組中唯一支援的語言，但未來版本將新增更多語言的支援。
+**自訂模組**是一種使用者定義的模組，可上傳至您的工作區，並作為 Azure Machine Learning Studio （傳統）實驗的一部分來執行。 **自訂 R 模組** 是執行使用者定義之 R 函數的自訂模組。 **R** 是一種適用於統計運算和圖形的程式設計語言，由實作演算法的統計學家和資料科學家廣泛使用。 目前，R 是自訂模組中唯一支援的語言，但未來版本將新增更多語言的支援。
 
-自訂模組在傳統版本的 Azure Machine Learning Studio 中具有**第一類狀態**，這表示它們可以像其他任何模組一樣使用。 它們可以與已發行實驗或視覺效果中包含的其他模組一起執行。 您可以控制模組實作的演算法、要使用的輸入與輸出連接埠、模型參數，以及其他多種執行階段行為。 包含自訂模組的實驗也可以發佈至 Azure AI 資源庫以輕鬆共用。
+自訂模組在 Azure Machine Learning Studio （傳統）中具有**第一類狀態**，這表示它們可以像任何其他模組一樣使用。 它們可以與已發行實驗或視覺效果中包含的其他模組一起執行。 您可以控制模組實作的演算法、要使用的輸入與輸出連接埠、模型參數，以及其他多種執行階段行為。 包含自訂模組的實驗也可以發佈至 Azure AI 資源庫以輕鬆共用。
 
 ## <a name="files-in-a-custom-r-module"></a>自訂 R 模組中的檔案
 自訂 R 模組是由至少包含兩個檔案的 .zip 檔案所定義：
@@ -55,7 +55,7 @@ ms.locfileid: "73838870"
     } 
 
 ### <a name="the-xml-definition-file"></a>XML 定義檔
-若要將此 `CustomAddRows` 函式公開為 Azure Machine Learning Studio 模組的傳統版本，必須建立 XML 定義檔以指定**自訂加入資料列**模組的外觀與行為。 
+若要將此 `CustomAddRows` 函式公開為 Azure Machine Learning Studio （傳統）模組，必須建立 XML 定義檔以指定**自訂加入資料列**模組的外觀與行為。 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
@@ -92,12 +92,12 @@ ms.locfileid: "73838870"
 
 這一點很重要，請注意 XML 檔案中之 **Input** 和 **Arg** 元素的 **id** 屬性值必須完全符合在 CustomAddRows.R 檔案中 R 程式碼的函式參數名稱 (在本例中為 *dataset1*、*dataset2* 和 *swap*)。 同樣地，**Language** 元素的 **entryPoint** 屬性值必須完全符合 R 指令碼中的函式名稱 (在本例中為 *CustomAddRows*)。 
 
-相反地，**Output** 元素的 **id** 屬性不會對應至 R 指令碼中的任何變數。 如果需要多個輸入，請直接從 R 函式傳回清單，其中包含的結果會依照 *Output* 元素在 XML 檔案中宣告的**相同順序**來排列。
+相反地，**Output** 元素的 **id** 屬性不會對應至 R 指令碼中的任何變數。 如果需要多個輸入，請直接從 R 函式傳回清單，其中包含的結果會依照 **Output** 元素在 XML 檔案中宣告的*相同順序*來排列。
 
 ### <a name="package-and-register-the-module"></a>封裝並註冊模組
 將這兩個檔案另存為 *CustomAddRows.R* 和 *CustomAddRows.xml*，然後一起壓縮成 *CustomAddRows.zip* 檔案。
 
-若要在您的 Machine Learning 工作區中註冊它們，請移至傳統版本 Machine Learning Studio 中的工作區，按一下底部的 [ **+ 新增**] 按鈕，然後從 [ZIP 套件] 選擇 [**模組->** ] 上傳新的**自訂加入資料列**module.
+若要在您的 Machine Learning 工作區中註冊這些專案，請移至 Azure Machine Learning Studio （傳統）中的工作區，按一下底部的 [ **+ 新增**] 按鈕，然後從 [ZIP 封裝] 選擇 [**模組->** ] 上傳新的**自訂資料列**模組。
 
 ![上傳 Zip 檔案](./media/custom-r-modules/upload-from-zip-package.png)
 
@@ -123,7 +123,7 @@ Module 元素中的字元限制規則：
 * **Description** 元素的內容長度不能超過 128 個字元。
 * **Owner** 元素的內容長度不能超過 32 個字元。
 
-模組的結果可能具決定性或不具決定性。** 依預設，所有模組都視為具決定性。 也就是說，假設有一組不變的輸入參數和資料，模組應該會傳回相同的結果 Rand 或其執行的函數時間。 基於此行為，只有在參數或輸入資料已變更時，Azure Machine Learning Studio 的傳統版本才會重新運行已標記為具決定性的模組。 傳回快取的結果也會讓實驗的執行速度加快許多。
+模組的結果可能具決定性或不具決定性。** 依預設，所有模組都視為具決定性。 也就是說，假設有一組不變的輸入參數和資料，模組應該會傳回相同的結果 Rand 或其執行的函數時間。 基於此行為，Azure Machine Learning Studio （傳統）只有在參數或輸入資料已變更時，才會將標示為具決定性的模組重新運行。 傳回快取的結果也會讓實驗的執行速度加快許多。
 
 也有不具決定性的函式，例如 RAND 或傳回目前日期或時間的函式。 如果您的模組使用不具決定性的函式，您可以將選擇性屬性 **isDeterministic** 設為 **FALSE**，藉此方式指定模組是不具決定性。 這可確保每次執行實驗時，都會重新執行模組，即使模組輸入和參數未變更亦然。 
 
@@ -281,19 +281,19 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
 * *必要屬性*： **portId** -符合類型為*DATATABLE*之 Input 元素的識別碼。
 * *選擇性屬性*：
   
-  * **allowedTypes** - 篩選您可以從中挑選的資料行類型。 有效值包含： 
+  * **allowedTypes** - 篩選您可以從中挑選的資料行類型。 有效值包括： 
     
     * 數值
     * Boolean
     * 類別
-    * 字串
+    * String
     * 標籤
     * 功能
     * 分數
-    * 全部
+    * 所有
   * **default** - 資料行選擇器的有效預設選取項目包括： 
     
-    * None
+    * 無
     * NumericFeature
     * NumericLabel
     * NumericScore
@@ -313,7 +313,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
     * AllLabel
     * AllFeature
     * AllScore
-    * 全部
+    * 所有
 
 **DropDown**：使用者指定的列舉 (下拉式) 清單。 下拉式清單項目是在 **Properties** 元素中透過 **Item** 元素所指定。 每個 **Item** 的 **id** 必須是唯一且有效的 R 變數。 **Item** 的 **name** 的值可以同時做為您看到的文字以及傳遞至 R 函式的值。
 
@@ -330,7 +330,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
   * **default** -預設屬性的值必須對應至其中一個**ITEM**元素的識別碼值。
 
 ### <a name="auxiliary-files"></a>輔助檔案
-放在自訂模組 ZIP 檔案中的所有檔案在執行期間都可供使用。 所有存在的目錄結構皆會保留。 這表示檔案來源在本機和傳統 Azure Machine Learning Studio 執行版本中的運作方式相同。 
+放在自訂模組 ZIP 檔案中的所有檔案在執行期間都可供使用。 所有存在的目錄結構皆會保留。 這表示檔案來源在本機和 Azure Machine Learning Studio （傳統）執行中的運作方式相同。 
 
 > [!NOTE]
 > 請注意，所有檔案都會解壓縮到 ‘src’ 目錄中，因此所有路徑應該都有 ‘src/’ 前置詞。

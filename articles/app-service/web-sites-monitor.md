@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 4c0d3822b5000611d1b5229924cb44d055795468
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 2bca4521184fa42002e6649a90bb9101fded595c
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688284"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658435"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>監視 Azure App Service 中的應用程式
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 會在 [Azure 入口網站](https://portal.azure.com)中為 Web 應用程式、行動後端和 API 應用程式提供內建的監視功能。
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)為[Azure 入口網站](https://portal.azure.com)中的 web 應用程式、行動裝置和 API 應用程式提供內建的監視功能。
 
-在 Azure 入口網站中，您可以查看應用程式的*配額*和*計量*，並 App Service 方案，並設定以計量為基礎的*警示*和*自動調整*。
+在 Azure 入口網站中，您可以查看應用程式的*配額*和*計量*，並 App Service 方案，並設定以度量為基礎的*警示* *和自動*調整。
 
 ## <a name="understand-quotas"></a>了解配額
 
@@ -31,7 +31,7 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 
 免費或共用應用程式的配額如下︰
 
-| Quota | 描述 |
+| 配額 | 說明 |
 | --- | --- |
 | **CPU (短期)** | 此應用程式在 5 分鐘間隔內允許的 CPU 數量。 此配額會每 5 分鐘重設一次。 |
 | **CPU (天)** | 此應用程式在 1 天內允許的 CPU 總量。 此配額會每隔 24 小時在午夜 (UTC) 重設一次。 |
@@ -41,7 +41,7 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 
 唯一適用于*基本*、*標準*和高階託管應用*程式的配額是 Filesystem* 。
 
-如需有關不同 App Service SKU 可用特定配額、限制和功能的詳細資訊，請參閱 [Azure 訂用帳戶服務限制](../azure-subscription-service-limits.md#app-service-limits)。
+如需有關不同 App Service SKU 可用特定配額、限制和功能的詳細資訊，請參閱 [Azure 訂用帳戶服務限制](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)。
 
 ### <a name="quota-enforcement"></a>強制配額
 
@@ -65,7 +65,7 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 
 若為應用程式，可用的計量如下︰
 
-| 計量 | 描述 |
+| 計量 | 說明 |
 | --- | --- |
 | **平均回應時間** | 應用程式處理要求所花費的平均時間（以秒為單位）。 |
 | **平均記憶體工作集** | 應用程式使用的平均記憶體數量 (以 MiB 為單位)。 |
@@ -87,14 +87,14 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 | **Http 406** | 導致 HTTP 406 狀態碼的要求計數。 |
 | **Http 4xx** | 導致 HTTP 狀態碼 >= 400 但 < 500 的要求計數。 |
 | **Http 伺服器錯誤** | 導致 HTTP 狀態碼 >= 500 但 < 600 的要求計數。 |
-| **每秒的 IO 其他位元組數** | 應用程式處理序對不涉及資料的 I/O 作業 (例如控制作業) 發出位元組的速率。|
+| **每秒的 IO 其他位元組數** | 應用程式進程對不包含資料的 i/o 作業（例如控制作業）發出位元組的速率。|
 | **每秒的 IO 其他作業數** | 應用程式進程發出非讀取或寫入作業之 i/o 作業的速率。|
 | **每秒 IO 讀取位元組數** | 應用程式處理序從 I/O 作業讀取位元組的速率。|
 | **每秒 IO 讀取作業數** | 應用程式處理序發出讀取 I/O 作業的速率。|
 | **每秒 IO 寫入位元組數** | 應用程式處理序將位元組寫入至 I/O 作業的速率。|
 | **每秒 IO 寫入作業數** | 應用程式處理序發出寫入 I/O 作業的速率。|
 | **記憶體工作集** | 應用程式目前使用的記憶體數量 (MiB)。 |
-| **私用位元組** | 「私用位元組」是應用程式處理序已配置但無法與其他處理序共用的目前記憶體大小 (以位元組為單位)。|
+| **私用位元組** | 私用位元組是指應用程式進程已配置但無法與其他進程共用之記憶體的目前大小（以位元組為單位）。|
 | **要求** | 要求總數 (不論其導致的 HTTP 狀態碼為何)。 |
 | **應用程式佇列中的要求數** | 應用程式要求佇列中的要求數目。|
 | **執行緒計數** | 應用程式處理序中目前作用中的執行緒數目。|
@@ -108,13 +108,13 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 > App Service 方案計量只適用於基本、標準和進階層中的方案。
 > 
 
-| 計量 | 描述 |
+| 計量 | 說明 |
 | --- | --- |
 | **CPU 百分比** | 方案的所有執行個體使用的平均 CPU。 |
 | **記憶體百分比** | 方案的所有執行個體使用的平均記憶體。 |
 | **資料輸入** | 方案的所有執行個體使用的平均連入頻寬。 |
 | **資料輸出** | 方案的所有執行個體使用的平均連出頻寬。 |
-| **磁碟佇列長度** | 儲存體上已排入佇列的平均讀取和寫入要求數目。 磁碟佇列長度很大表示應用程式可能因為過度的磁碟 I/O 而變慢。 |
+| **磁碟佇列長度** | 儲存體上已排入佇列的平均讀取和寫入要求數目。 磁片佇列長度很大表示應用程式可能因為過度的磁片 i/o 而變慢。 |
 | **Http 佇列長度** | 必須在履行前排入佇列的平均 HTTP 要求數目。 HTTP 佇列長度很大或不斷增加是方案負載過重的徵兆。 |
 
 ### <a name="cpu-time-vs-cpu-percentage"></a>CPU 時間與 CPU 百分比
@@ -129,9 +129,9 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 ## <a name="metrics-granularity-and-retention-policy"></a>計量資料細微性和保留原則
 服務會記錄和彙總應用程式和 App Service 方案的計量，其資料細微性和保留原則如下︰
 
-* **分鐘**資料細微性計量會保留 30 小時。
-* **小時**資料細微性計量會保留 30 天。
-* **天**資料細微性度量會保留 30 天。
+* **分鐘**資料細微性度量會保留30小時。
+* **小時**資料細微性度量會保留30天。
+* **天**資料細微性度量會保留30天。
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>在 Azure 入口網站中監視配額和計量
 若要檢閱影響應用程式的各種配額和計量狀態，請前往 [Azure 入口網站](https://portal.azure.com)。
@@ -144,19 +144,16 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 1. 目前限制。
 1. 目前的值。
 
-![Azure 入口網站中的計量圖表][metrics]您可以直接從**資源**頁面存取計量。 自訂圖表： 
-1. 選取圖表。
-1. 選取 [編輯圖表]。
-1. 編輯 [時間範圍]。
-1. 編輯 [圖表類型]。
-1. 編輯您想要顯示的計量。  
+![Azure 入口網站中的計量圖表][metrics] 您可以直接從資源的 [**總覽**] 頁面存取度量。 在這裡，您會看到代表一些應用程式計量的圖表。
+
+按一下任一圖表會帶您前往 [計量] 視圖，您可以在其中建立自訂圖表、查詢不同的計量，以及其他更多功能。 
 
 若要進一步了解計量，請參閱[監視服務計量](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
 
 ## <a name="alerts-and-autoscale"></a>警示和自動調整
 應用程式或 App Service 方案的計量可以連接到警示。 如需詳細資訊，請參閱[接收警示通知](../monitoring-and-diagnostics/insights-alerts-portal.md)。
 
-基本、標準或進階 App Service 方案中裝載的 App Service 應用程式支援自動調整。 自動調整可讓您設定用以監視 App Service 方案計量的規則。 這些規則可以增加或減少執行個體計數，並視需要提供其他資源。 當應用程式過度佈建時，這些規則也可協助您節省成本。
+在基本或更高版本中裝載的 App Service 應用程式，App Service 方案支援自動調整。 自動調整可讓您設定用以監視 App Service 方案計量的規則。 這些規則可以增加或減少執行個體計數，並視需要提供其他資源。 當應用程式過度佈建時，這些規則也可協助您節省成本。
 
 如需詳細資訊，請參閱[如何調整](../monitoring-and-diagnostics/insights-how-to-scale.md)和 [Azure 監視器自動調整的最佳做法](../azure-monitor/platform/autoscale-best-practices.md)。
 

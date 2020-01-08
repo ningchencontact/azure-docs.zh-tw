@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 3305590f2d8abf0d894bc1df42b84edcc96a2b2d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 97fcd3241be6dac81adfa8e17999d92d84abaa19
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598230"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647283"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>關於 Azure 網路監看員的常見問題（FAQ）
 [Azure 網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)服務提供一套工具，可用來監視、診斷、查看計量，以及啟用或停用 Azure 虛擬網路中的資源記錄。 本文會回答有關此服務的常見問題。
@@ -51,14 +51,20 @@ ms.locfileid: "72598230"
 ### <a name="how-does-network-watcher-pricing-work"></a>網路監看員定價如何運作？
 請流覽[定價頁面](https://azure.microsoft.com/pricing/details/network-watcher/)以取得網路監看員元件和其定價。
 
-### <a name="which-regions-is-network-watcher-available-in"></a>網路監看員提供哪些區域？
+### <a name="which-regions-is-network-watcher-supportedavailable-in"></a>網路監看員支援/提供哪些區域？
 您可以在[Azure 服務可用性頁面](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)上查看最新的區域可用性
 
 ### <a name="what-are-resource-limits-on-network-watcher"></a>網路監看員上的資源限制為何？
-如需所有限制，請參閱[服務限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#network-watcher-limits)頁面。  
+如需所有限制，請參閱[服務限制](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits)頁面。  
 
 ### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>為什麼每個區域只允許一個網路監看員實例？
 網路監看員只需要針對訂用帳戶啟用一次，它的功能才能正常執行，這不是服務的限制。
+
+### <a name="why-do-i-need-to-install-the-network-watcher-extension"></a>為什麼需要安裝網路監看員延伸模組？ 
+需要產生或攔截 VM 流量的任何功能都需要網路監看員延伸模組。 
+
+### <a name="which-features-require-the-network-watcher-extension"></a>哪些功能需要網路監看員延伸模組？
+只有封包捕獲、連線疑難排解和連線監視需要有網路監看員延伸模組。
 
 ## <a name="nsg-flow-logs"></a>NSG 流量記錄
 

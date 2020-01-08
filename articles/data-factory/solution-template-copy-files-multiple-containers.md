@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 35eff70c12e6f98fa74a4180bf82a369c1ecfaa4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0c4c26ba163f83483b3eb48e51d91f9a919a887c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927692"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439778"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>使用 Azure Data Factory 從多個容器複製檔案
 
@@ -34,9 +34,11 @@ ms.locfileid: "74927692"
 - **ForEach**會從**GetMetadata**活動取得容器清單，然後逐一查看清單，並將每個容器傳遞至複製活動。
 - [**複製**] 會將每個容器從來源儲存體存放區複製到目的地存放區。
 
-範本定義兩個參數：
-- *SourceFilePath*是您的資料來源存放區的路徑，您可以在其中取得容器清單。 在大部分情況下，此路徑是根目錄，其包含多個容器資料夾。 此參數的預設值為 `/`。
-- *路徑*是要將檔案複製到目的地存放區中的路徑。 此參數的預設值為 `/`。
+範本會定義下列參數：
+- *SourceFileFolder*是您的資料來源存放區的資料夾路徑，您可以在其中取得容器清單。 路徑是根目錄，其中包含多個容器檔案夾。 此參數的預設值為 `sourcefolder`。
+- *SourceFileDirectory*是您的資料來源存放區根目錄下的子資料夾路徑。 此參數的預設值為 `subfolder`。
+- *DestinationFileFolder*是要將檔案複製到目的地存放區中的資料夾路徑。 此參數的預設值為 `destinationfolder`。
+- *DestinationFileDirectory*是要將檔案複製到目的地存放區中的子資料夾路徑。 此參數的預設值為 `subfolder`。
 
 ## <a name="how-to-use-this-solution-template"></a>如何使用此解決方案範本
 

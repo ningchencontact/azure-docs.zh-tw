@@ -1,21 +1,23 @@
 ---
-title: 設定多個 Ise 的存取權
-description: 針對多個整合服務環境（Ise），您可以設定單一公用輸出 IP 位址，以從 Azure Logic Apps 存取外部系統
+title: 為 Ise 設定公用輸出 IP 位址
+description: 瞭解如何在 Azure Logic Apps 中設定整合服務環境（Ise）的單一公用輸出 IP 位址
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 11/27/2019
-ms.openlocfilehash: f3b422a55b7e2abbc8b1538183fd57fb234900d4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/16/2019
+ms.openlocfilehash: b2b07882afb6c89c6920726db3c313dbb6a6dfc4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792695"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453490"
 ---
-# <a name="set-up-access-for-multiple-integration-service-environments-in-azure-logic-apps"></a>在 Azure Logic Apps 中設定多個整合服務環境的存取權
+# <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>在 Azure Logic Apps 中設定一或多個整合服務環境的單一 IP 位址
 
-當您使用 Azure Logic Apps 時，您可以設定[*整合服務環境*（ISE）](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)來裝載需要存取[Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)中資源的邏輯應用程式。 如果您有多個 ISE 實例需要存取具有 IP 限制的其他端點，請將[Azure 防火牆](../firewall/overview.md)或[網路虛擬裝置](../virtual-network/virtual-networks-overview.md#filter-network-traffic)部署至您的虛擬網路，並透過該防火牆或網路虛擬裝置來路由輸出流量。 接著，您可以讓虛擬網路中的所有 ISE 實例使用單一、可預測的公用 IP 位址與目的地系統進行通訊。 如此一來，您就不需要在目的地系統上為每個 ISE 設定額外的防火牆開頭。 本主題說明如何透過 Azure 防火牆路由輸出流量，但您可以將類似的概念套用至虛擬網路虛擬裝置，例如 Azure Marketplace 的協力廠商防火牆。
+當您使用 Azure Logic Apps 時，您可以設定[*整合服務環境*（ISE）](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)來裝載需要存取[Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)中資源的邏輯應用程式。 當您有多個 ISE 實例需要存取其他具有 IP 限制的端點時，請將[Azure 防火牆](../firewall/overview.md)或[網路虛擬裝置](../virtual-network/virtual-networks-overview.md#filter-network-traffic)部署至您的虛擬網路，並透過該防火牆或網路虛擬裝置來路由輸出流量。 接著，您可以讓虛擬網路中的所有 ISE 實例使用單一、公用、靜態和可預測的 IP 位址來與目的地系統進行通訊。 如此一來，您就不需要在每個 ISE 的目的地系統上設定額外的防火牆。
+
+本主題說明如何透過 Azure 防火牆路由輸出流量，但是您可以將類似的概念套用至網路虛擬裝置，例如 Azure Marketplace 的協力廠商防火牆。 雖然本主題著重于多個 ISE 實例的設定，但當您的案例需要限制需要存取的 IP 位址數目時，您也可以將此方法用於單一 ISE。 請考慮防火牆或虛擬網路設備的額外成本對您的案例是否有意義。 深入瞭解[Azure 防火牆定價](https://azure.microsoft.com/pricing/details/azure-firewall/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -47,7 +49,7 @@ ms.locfileid: "74792695"
 
    ![設定規則以引導輸出流量](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-rule-to-route-table.png)
 
-   | 屬性 | Value | 描述 |
+   | 屬性 | 值 | 說明 |
    |----------|-------|-------------|
    | **路由名稱** | <*唯一的路由名稱*> | 路由表中路由的唯一名稱 |
    | **位址前置詞** | <*目的地位址*> | 您想要流量前往的目的地系統位址。 請確定您針對此位址使用無[類別網域間路由（CIDR）標記法](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)。 |
@@ -69,16 +71,16 @@ ms.locfileid: "74792695"
 
    **網路規則集合屬性**
 
-   | 屬性 | Value | 描述 |
+   | 屬性 | 值 | 說明 |
    |----------|-------|-------------|
    | **名稱** | <*網路-規則-集合-名稱*> | 網路規則集合的名稱 |
    | **優先順序** | <*優先權層級*> | 要用來執行規則集合的優先順序順序。 如需詳細資訊，請參閱[什麼是 Azure 防火牆的概念](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)？ |
-   | **Action** | **允許** | 要為此規則執行的動作類型 |
+   | **動作** | **允許** | 要為此規則執行的動作類型 |
    |||
 
    **網路規則屬性**
 
-   | 屬性 | Value | 描述 |
+   | 屬性 | 值 | 說明 |
    |----------|-------|-------------|
    | **名稱** | <*的網路-規則-名稱*> | 網路規則的名稱 |
    | **通訊協定** | <*連接-通訊協定*> | 要使用的連接通訊協定。 例如，如果您使用 NSG 規則，請同時選取 [ **tcp** ] 和 [ **UDP**]，而不是 [ **tcp**]。 |

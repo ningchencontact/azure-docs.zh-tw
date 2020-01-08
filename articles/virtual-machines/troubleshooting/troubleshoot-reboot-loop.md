@@ -12,17 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: d8a1d64ac8e65fd52730ee1750c0b0b1949b3512
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 3fd0a8bf6bacfec5e2be6dfa52ca51e46c7025f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088475"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443590"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM 的 Windows 重新開機迴圈
 本文說明您在 Microsoft Azure 中的 Windows 虛擬機器 (VM) 上可能會遇到的重新開機迴圈。
 
-## <a name="symptom"></a>徵兆
+## <a name="symptom"></a>徵狀
 
 當您使用[開機診斷](./boot-diagnostics.md)取得 VM 的螢幕擷取畫面時，您發現虛擬機器正在開機，但開機程序中斷，並從頭開始。
 
@@ -48,7 +48,7 @@ ms.locfileid: "71088475"
 
 這可能是檔案系統損毀所致。 不過，我們很難診斷並找出導致作業系統損毀的變更。
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方案
 
 若要解決此問題，請[備份 OS 磁碟](../windows/snapshot-copy-managed-disk.md)，並[將 OS 磁碟連結至救援 VM](../windows/troubleshoot-recovery-disks-portal.md)，然後據以執行解決方案選項，或逐一嘗試每個解決方案。
 
@@ -86,7 +86,7 @@ ms.locfileid: "71088475"
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
-13. 選取 **BROKENSYSTEM** 機碼，然後從功能表中選取 [檔案] > [載入登錄區]。
+13. 選取**BROKENSYSTEM**機碼，然後從功能表中選取 [檔案 **] > ** **[卸載 Hive** ]。
 
 14. 從疑難排解中的 VM 卸離 OS 磁碟。
 

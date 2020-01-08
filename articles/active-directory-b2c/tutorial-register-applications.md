@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76d38e4b35111cd2c09685653fb4948f98387132
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 2a9e4828428a91c1d1b75fb9d1b9004e52988084
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950777"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425473"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中註冊應用程式
 
 您的[應用程式](active-directory-b2c-apps.md)必須先在您管理的租使用者中註冊，才可以與 Azure Active Directory B2C （Azure AD B2C）互動。 本教學課程示範如何使用 Azure 入口網站註冊 Web 應用程式。
 
-在本文中，您將了解：
+在本文中，您將學會如何：
 
 > [!div class="checklist"]
 > * 註冊 Web 應用程式
@@ -40,8 +40,9 @@ ms.locfileid: "74950777"
 
 #### <a name="applicationstabapplications"></a>[應用程式](#tab/applications/)
 
-1. 選取頂端功能表中的 [目錄 + 訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-1. 選擇 Azure 入口網站左上角的**所有服務**，然後搜尋並選取 **Azure AD B2C**。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 在入口網站工具列中選取 [**目錄 + 訂**用帳戶] 圖示，然後選取包含您 Azure AD B2C 租使用者的目錄。
+1. 在 Azure 入口網站中，搜尋並選取  **Azure AD B2C**。
 1. 選取 [應用程式]，然後選取 [新增]。
 1. 輸入應用程式的名稱。 例如，*webapp1*。
 1. 針對 [包含 Web 應用程式/Web API] 和 [允許隱含流程]，選取 [是]。
@@ -54,13 +55,13 @@ ms.locfileid: "74950777"
     * 回復 URL 的開頭必須是配置 `https`。
     * 回復 URL 會區分大小寫。 其大小寫必須符合您執行中應用程式之 URL 路徑的大小寫。 例如，如果您的應用程式包含作為其路徑 `.../abc/response-oidc`的一部分，請勿在回復 URL 中指定 `.../ABC/response-oidc`。 由於網頁瀏覽器會將路徑視為區分大小寫，因此如果將與 `.../abc/response-oidc` 相關聯的 cookie 重新導向至不相符的 `.../ABC/response-oidc` URL，可能會予以排除。
 
-1. 按一下 [**建立**] 以完成應用程式註冊。
+1. 選取 [**建立**] 以完成應用程式註冊。
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[應用程式註冊 (預覽)](#tab/app-reg-preview/)
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 在頂端功能表中選取 [目錄 + 訂用帳戶] 篩選，然後選取包含您 Azure AD B2C 租用戶的目錄。
-1. 在左側功能表中，選取 [Azure AD B2C]。 或者，選取 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+1. 在入口網站工具列中選取 [**目錄 + 訂**用帳戶] 圖示，然後選取包含您 Azure AD B2C 租使用者的目錄。
+1. 在 Azure 入口網站中，搜尋並選取  **Azure AD B2C**。
 1. 選取 [應用程式註冊 (預覽)]，然後選取 [新增註冊]。
 1. 輸入應用程式的 [名稱]。 例如，*webapp1*。
 1. 選取**任何組織目錄中的帳戶或任何識別提供者**。

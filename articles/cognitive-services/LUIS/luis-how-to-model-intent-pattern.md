@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 4432aecee882ff2e312587baa543dd66c0372a78
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: eb3e473535c394818772ac949808023254087555
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968913"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448027"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>如何新增模式以改善預測精確度
 LUIS 應用程式收到端點語句之後，請使用[模式](luis-concept-patterns.md)來改善以單字順序和字組選擇顯示模式之語句的預測精確度。 模式會使用特定的[語法](luis-concept-patterns.md#pattern-syntax)來指出的位置：[實體](luis-concept-entity-types.md)、實體[角色](luis-concept-roles.md)和選擇性文字。
@@ -26,7 +26,27 @@ LUIS 應用程式收到端點語句之後，請使用[模式](luis-concept-patte
 > [!CAUTION]
 > 模式只包含機器學習的實體父系，而非子元件。
 
-## <a name="add-template-utterance-to-create-pattern"></a>將範本語句新增至建立模式
+## <a name="adding-example-utterances-as-pattern"></a>將範例語句新增為模式
+
+如果您想要加入實體的模式，_最簡單_的方式是從 [意圖詳細資料] 頁面建立模式。 這可確保您的語法符合範例語句。
+
+1. 在[預覽 LUIS 入口網站](https://preview.luis.ai)中，從 [**我的應用程式**] 頁面選取應用程式。
+1. 在 [**意圖**清單] 頁面上，選取您想要建立語句的範本範例語句的意圖名稱。
+1. 在 [意圖詳細資料] 頁面上，選取您想要作為範本語句之範例語句的資料列，然後從內容工具列選取 [ **+ 新增為模式**]。
+
+    > [!div class="mx-imgBorder"]
+    > ![在 [意圖詳細資料] 頁面上選取 [範例語句] 做為範本模式的螢幕擷取畫面。](./media/luis-how-to-model-intent-pattern/add-example-utterances-as-pattern-template-utterance-from-intent-detail-page.png)
+
+1. 在快顯方塊中，選取 [**確認模式**] 頁面上的 [**完成**]。 您不需要定義實體的子元件、條件約束或描述項。 您只需要列出機器學習的實體。
+
+    > [!div class="mx-imgBorder"]
+    > ![在 [意圖詳細資料] 頁面上確認範例語句為範本模式的螢幕擷取畫面。](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
+
+1. 如果您需要編輯範本（例如，選取 [文字] 做為選擇性）和 [`[]` （方形）] 括弧，您需要將此編輯表單為 [**模式**] 頁面。
+
+1. 在導覽列中，選取 [**定型**]，以新的模式訓練應用程式。
+
+## <a name="add-template-utterance-using-correct-syntax"></a>使用正確的語法新增範本語句
 
 1. 在 [我的應用程式]頁面上選取您的應用程式名稱加以開啟，然後在 [改善應用程式效能] 之下，選取左面板中的 [模式]。
 

@@ -1,6 +1,6 @@
 ---
-title: 設計用於查詢的 Azure 儲存體資料表 | Microsoft Docs
-description: 設計 Azure 表格儲存體中用於查詢的資料表。
+title: 設計適用于查詢的 Azure 資料表儲存體 |Microsoft Docs
+description: 針對 Azure 資料表儲存體中的查詢設計資料表。
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325862"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457637"
 ---
 # <a name="design-for-querying"></a>查詢的設計
 資料表服務方案可以是讀取密集、寫入密集或兩者混合的方案。 本文主要說明您在設計表格服務以有效地支援讀取作業時應謹記在心的事項。 一般而言，支援有效讀取作業的設計，也可兼顧寫入作業的效率。 不過，設計支援寫入作業時還有其他考量必須牢記在心，這將在[資料修改的設計](table-storage-design-for-modification.md)一文中說明這些考量。
@@ -35,14 +35,14 @@ ms.locfileid: "60325862"
 ## <a name="how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance"></a>您選擇的 PartitionKey 和 RowKey 對查詢效能有何影響
 下列範例假設表格服務會以下列結構儲存員工實體 (為求簡潔，大部分的範例皆省略 **Timestamp** 屬性)：  
 
-| *資料行名稱* | *資料類型* |
+| *資料行名稱* | *Data type* |
 | --- | --- |
-| **PartitionKey** (部門名稱) |字串 |
-| **RowKey** (員工識別碼) |字串 |
-| **名字** |字串 |
-| **姓氏** |字串 |
+| **PartitionKey** (部門名稱) |String |
+| **RowKey** (員工識別碼) |String |
+| **名字** |String |
+| **姓氏** |String |
 | **年齡** |整數 |
-| **EmailAddress** |字串 |
+| **EmailAddress** |String |
 
 ＜[Azure 表格儲存體概觀](table-storage-overview.md) ＞一文將說明某些對查詢設計有直接影響的重要 Azure 表格服務功能。 這些功能產生了設計資料表服務查詢的一般指導方針。 請注意，下列範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱 [查詢實體](https://docs.microsoft.com/rest/api/storageservices/Query-Entities)。  
 

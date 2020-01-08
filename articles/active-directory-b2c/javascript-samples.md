@@ -10,25 +10,29 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 92ac1e6a85023d49ceb8242b93651a60da3d2166
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 996893f95b11d716feb4253688d3ab1d62d140ee
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064173"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659520"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>適用於 Azure Active Directory B2C 中的 JavaScript 範例
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-您可以將自己的 JavaScript 用戶端程式代碼新增至您的 Azure Active Directory B2C （Azure AD B2C）應用程式。 若要為您的應用程式啟用 JavaScript, 您必須將元素新增至您的[自訂原則](active-directory-b2c-overview-custom.md)、選取[頁面配置](page-layout.md), 然後在您的要求中使用[b2clogin.com](b2clogin.md) 。 本文說明如何變更自訂原則, 以啟用腳本執行。
+您可以將自己的 JavaScript 用戶端程式代碼新增至您的 Azure Active Directory B2C （Azure AD B2C）應用程式。 若要為您的應用程式啟用 JavaScript，您必須將元素新增至您的[自訂原則](active-directory-b2c-overview-custom.md)、選取[頁面配置](page-layout.md)，然後在您的要求中使用[b2clogin.com](b2clogin.md) 。 本文說明如何變更自訂原則，以啟用腳本執行。
 
 > [!NOTE]
-> 如果您想要為使用者流程啟用 JavaScript, 請參閱[Azure Active Directory B2C 中的 javascript 和頁面配置版本](user-flow-javascript-overview.md)。
+> 如果您想要為使用者流程啟用 JavaScript，請參閱[Azure Active Directory B2C 中的 javascript 和頁面配置版本](user-flow-javascript-overview.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-為應用程式的使用者介面元素選取頁面配置。 如果您想要使用 JavaScript, 您必須為自訂原則中的所有內容定義定義頁面配置版本。
+### <a name="select-a-page-layout"></a>選取頁面配置
+
+* 為應用程式的使用者介面元素[選取頁面配置](page-layout.md)。
+
+    如果您想要使用 JavaScript，您必須為自訂原則中的*所有*內容定義[定義頁面配置版本](page-layout.md#replace-datauri-values)。
 
 ## <a name="add-the-scriptexecution-element"></a>新增 ScriptExecution 元素
 
@@ -143,7 +147,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-在程式碼中，請將 `termsOfUseUrl` 取代為您使用規定合約的連結。 針對您的目錄, 建立名為**termsOfUse**的新使用者屬性, 然後將**termsOfUse**納入為使用者屬性。
+在程式碼中，請將 `termsOfUseUrl` 取代為您使用規定合約的連結。 針對您的目錄，建立名為**termsOfUse**的新使用者屬性，然後將**termsOfUse**納入為使用者屬性。
 
 ## <a name="next-steps"></a>後續步驟
 

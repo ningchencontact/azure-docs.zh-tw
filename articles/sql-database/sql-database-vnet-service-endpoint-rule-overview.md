@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4d3c74db9a0c4e13ee7c17eb78552d8c11cd7afb
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 5669b606d7dc06483641c2bdd6ef27c82e75bf4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422517"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431865"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>對資料庫伺服器使用虛擬網路服務端點和規則
 
@@ -53,8 +53,8 @@ ms.locfileid: "74422517"
 
 有一組獨立的安全性角色負責管理虛擬網路服務端點。 下列每個角色都需要採取動作：
 
-- **網路管理員：** &nbsp;開啟端點。
-- **資料庫管理員：** &nbsp;更新存取控制清單 (ACL)，將給定的子網路新增至 SQL Database 伺服器。
+- **網路系統管理員：** &nbsp; 開啟端點。
+- **資料庫管理員：** &nbsp; 更新存取控制清單（ACL），以將指定的子網新增至 SQL Database 伺服器。
 
 RBAC 替代方案：
 
@@ -110,7 +110,7 @@ Azure 儲存體已實作功能，可讓您限制連線至 Azure 儲存體帳戶�
 
 PolyBase 通常用於將資料從 Azure 儲存體帳戶載入 Azure SQL 資料倉儲。 如果您正在載入資料的來源 Azure 儲存體帳戶限制只能存取一組 VNet 子網路，從 PolyBase 到帳戶的連線會中斷。 如需透過連線至固定到 VNet 的 Azure 儲存體的 Azure SQL 資料倉儲來啟用 PolyBase 匯入和匯出案例，請按照下列所示的步驟進行：
 
-#### <a name="prerequisites"></a>先決條件
+#### <a name="prerequisites"></a>必要條件
 
 - 使用此[指南](https://docs.microsoft.com/powershell/azure/install-az-ps)安裝 Azure PowerShell。
 - 如果您有一般用途 v1 或 Blob 儲存體帳戶，您必須先使用此[指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)先升級至一般用途 v2。
@@ -129,10 +129,10 @@ PolyBase 通常用於將資料從 Azure 儲存體帳戶載入 Azure SQL 資料�
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-1. 以此**指南**建立[一般用途的 v2 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)。
+1. 以此[指南](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)建立**一般用途的 v2 儲存體帳戶**。
 
    > [!NOTE]
-   > - 如果您有一般用途 v1 或 Blob 儲存體帳戶，您必須先使用此 **指南**[升級至 v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)。
+   > - 如果您有一般用途 v1 或 Blob 儲存體帳戶，您必須先使用此 [指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)**升級至 v2**。
    > - 關於 Azure Data Lake Storage Gen2 的已知問題，請參閱此[指南](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues)。
     
 1. 請瀏覽至您儲存體帳戶之下的 [存取控制 \(IAM\)]，然後按一下 [新增角色指派]。 將**儲存體 Blob 資料參與者**RBAC 角色指派給您的 Azure SQL Server 裝載您已向 AZURE ACTIVE DIRECTORY （AAD）註冊的 Azure SQL 資料倉儲，如步驟 # 1 所示。
@@ -158,15 +158,15 @@ PolyBase 通常用於將資料從 Azure 儲存體帳戶載入 Azure SQL 資料�
        > - 不需要使用 Azure 儲存體存取金鑰指定 SECRET，因為此機制會秘密使用[受控身分識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。
        > - PolyBase 連線的 IDENTITY 名稱應為 **'Managed Service Identity'** ，才能搭配使用固定至 VNet 的 Azure 儲存體帳戶。
 
-   1. 使用 abfss:// 配置建立外部資料來源，以使用 PolyBase 連接至您的一般用途 v2 儲存體帳戶：
+   1. 建立具有 `abfss://` 配置的外部資料源，以使用 PolyBase 連接到您的一般用途 v2 儲存體帳戶：
 
        ```SQL
        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
        ```
 
        > [!NOTE]
-       > - 如果您已有與一般用途 v1 或 Blob 儲存體帳戶相關聯的外部資料表，請先卸除這些外部資料表，再卸除對應的外部資料來源。 然後使用連線至上述一般用途 v2 儲存體帳戶的 abfss:// 配置來建立外部資料來源，再使用新的外部資料來源重新建立所有的外部資料表。 您可以使用[產生和發佈指令碼精靈](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard)，輕鬆地為所有的外部資料表產生建立指令碼。
-       > - 如需 abfss:// 配置的詳細資訊，請參閱此[指南](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri) (英文)。
+       > - 如果您已有與一般用途 v1 或 Blob 儲存體帳戶相關聯的外部資料表，請先卸除這些外部資料表，再卸除對應的外部資料來源。 然後，使用 `abfss://` 配置來建立外部資料源，並連接到上述的一般用途 v2 儲存體帳戶，然後使用這個新的外部資料源重新建立所有外部資料表。 您可以使用[產生和發佈指令碼精靈](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard)，輕鬆地為所有的外部資料表產生建立指令碼。
+       > - 如需 `abfss://` 配置的詳細資訊，請參閱本[指南](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri)。
        > - 如需 CREATE EXTERNAL DATA SOURCE 的詳細資訊，請參閱此[指南](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) (英文)。
 
    1. 以一般方式使用[外部資料表](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)查詢。
@@ -224,7 +224,7 @@ SQL VNet 動作的 PowerShell cmdlet 會在內部呼叫 REST API。 您可以直
 
 - [虛擬網路規則：作業][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須已有一個子網路是以 Azure SQL Database 相關的特定虛擬網路服務端點「類型名稱」所標記。
 
@@ -237,7 +237,7 @@ SQL VNet 動作的 PowerShell cmdlet 會在內部呼叫 REST API。 您可以直
 
 1. 登入 [Azure 入口網站][http-azure-portal-link-ref-477t]。
 
-2. 然後，在入口網站中瀏覽至 [SQL 伺服器] &gt; [防火牆/虛擬網路]。
+2. 搜尋並選取 **[SQL**server]，然後選取您的伺服器。 在 [**安全性**] 底下，選取 [**防火牆和虛擬網路**]。
 
 3. 將 [允許存取 Azure 服務] 控制項設為 [關閉]。
 
@@ -252,7 +252,7 @@ SQL VNet 動作的 PowerShell cmdlet 會在內部呼叫 REST API。 您可以直
 
     > [!TIP]
     > 必須包含子網路的正確 [位址首碼]。 您可以在入口網站中找到值。
-    > 瀏覽 [所有資源] &gt;  **[所有類型]** &gt;  **[虛擬網路]** 。 篩選條件會顯示您的虛擬網路。 按一下您的虛擬網路，然後按一下 [子網路]。 [位址範圍] 資料行具有您需要的位址首碼。
+    > 流覽**所有資源**&gt; &gt;**虛擬網路**的**所有類型**。 篩選條件會顯示您的虛擬網路。 按一下您的虛擬網路，然後按一下 [子網路]。 [位址範圍] 資料行具有您需要的位址首碼。
 
     ![填入新規則的欄位。][image-portal-firewall-create-update-vnet-rule-20-png]
 

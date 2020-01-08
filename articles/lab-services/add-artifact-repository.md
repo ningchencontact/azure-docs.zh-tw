@@ -1,6 +1,6 @@
 ---
-title: 將構件儲存機制新增至您在 Azure DevTest Labs 的實驗室 |Microsoft Docs
-description: 了解如何將構件儲存機制新增至您在 Azure DevTest labs 的實驗室。
+title: 在 Azure DevTest Labs 中，將成品存放庫新增至您的實驗室 |Microsoft Docs
+description: 瞭解如何在 Azure DevTest labs 中將成品存放庫新增至您的實驗室。
 services: devtest-lab
 documentationcenter: na
 author: spelluru
@@ -13,67 +13,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: c391aa157e35bdc389bd30efe48fa380d06c193e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: ff410d3767e90f92a946b72354b39f87e4f37b9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508366"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429020"
 ---
-# <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>將構件儲存機制新增至您在 DevTest Labs 的實驗室
-DevTest Labs 可讓您指定要加入至 VM，在建立 VM 時或之後建立 VM 構件。 一種工具或您想要在 VM 上安裝的應用程式，可能是此成品。 從 GitHub 或 Azure DevOps Git 儲存機制載入的 JSON 檔案中定義的成品。 
+# <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>在 DevTest Labs 中將成品存放庫新增至您的實驗室
+DevTest Labs 可讓您在建立 VM 時或在建立 VM 之後，指定要新增至 VM 的成品。 此成品可能是您想要在 VM 上安裝的工具或應用程式。 成品定義于從 GitHub 或 Azure DevOps Git 存放庫載入的 JSON 檔案中。 
 
-[公用成品儲存機制](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)、 由 DevTest Labs 維護、 適用於 Windows 和 Linux 提供許多常用工具。 此存放庫的連結會自動加入至您的實驗室。 您可以使用公用成品儲存機制中無法使用的特定工具來建立您自己的構件儲存機制。 若要了解如何建立自訂構件，請參閱[建立自訂構件](devtest-lab-artifact-author.md)。
+DevTest Labs 所維護的公用構件存放[庫](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)提供許多適用于 Windows 和 Linux 的常用工具。 此存放庫的連結會自動新增至您的實驗室。 您可以使用公用構件存放庫中未提供的特定工具來建立自己的成品存放庫。 若要瞭解如何建立自訂構件，請參閱[建立自訂](devtest-lab-artifact-author.md)成品。
 
-本文章提供有關如何使用 Azure 入口網站、 Azure 資源管理範本和 Azure PowerShell 新增您的自訂構件儲存機制的資訊。 您可以自動化撰寫 PowerShell 或 CLI 指令碼將構件儲存機制加入實驗室。 
+本文提供有關如何使用 Azure 入口網站、Azure 資源管理範本和 Azure PowerShell，來新增自訂構件儲存機制的資訊。 您可以撰寫 PowerShell 或 CLI 腳本，自動將成品存放庫新增至實驗室。 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
-若要將存放庫新增至實驗室，請取得存放庫中的重要資訊。 下列各節說明如何取得所需的資訊裝載的儲存機制**GitHub**或是**Azure DevOps**。
+若要將存放庫新增至實驗室，請取得存放庫中的重要資訊。 下列各節說明如何取得**GitHub**或**Azure DevOps**上主控之存放庫的必要資訊。
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>取得 GitHub 儲存機制複製 URL 和個人存取權杖
 
 1. 移至包含構件或 Resource Manager 範本定義的 GitHub 存放庫首頁。
-2. 選取 [複製或下載]  。
-3. 若要將 URL 複製到剪貼簿，請選取 [HTTPS 複製 URL]  按鈕。 儲存 URL 以供稍後使用。
-4. 選取 GitHub 右上角的設定檔影像，然後選取 [設定]  。
-5. 在 **個人設定**左側功能表，選取**開發人員設定**。
-6. 選取 **個人存取權杖**左側功能表上。
-7. 選取 [產生新的權杖]  。
-8. 在 [新增個人存取權杖]  頁面上，於 [權杖描述]  底下輸入描述。 接受 [選取範圍]  底下的預設項目，然後選取 [產生權杖]  。
+2. 選取 [複製或下載]。
+3. 若要將 URL 複製到剪貼簿，請選取 [HTTPS 複製 URL] 按鈕。 儲存 URL 以供稍後使用。
+4. 選取 GitHub 右上角的設定檔影像，然後選取 [設定]。
+5. 在左側的 [**個人設定**] 功能表中，選取 [**開發人員設定**]。
+6. 選取左側功能表上的 [**個人存取權杖**]。
+7. 選取 [產生新的權杖]。
+8. 在 [新增個人存取權杖] 頁面上，於 [權杖描述] 底下輸入描述。 接受 [選取範圍] 底下的預設項目，然後選取 [產生權杖]。
 9. 儲存產生的權杖。 您稍後會用到該權杖。
 10. 關閉 GitHub。   
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>取得 Azure Repos 複製 URL 和個人存取權杖
 1. 移至您的小組集合首頁 (例如 https://contoso-web-team.visualstudio.com) ，然後選取專案。
-2. 在專案首頁上，選取 [程式碼]  。
-3. 若要檢視複製 URL，可在專案 [程式碼]  頁面上，選取 [複製]  。
+2. 在專案首頁上，選取 [程式碼]。
+3. 若要檢視複製 URL，可在專案 [程式碼] 頁面上，選取 [複製]。
 4. 儲存 URL。 您稍後會用到該 URL。
-5. 若要建立個人存取權杖，請選取使用者帳戶下拉式功能表中的 [我的設定檔]  。
-6. 在 [設定檔資訊] 頁面上，選取 [安全性]  。
-7. 在 [安全性]  索引標籤上，選取 [新增]  。
-8. 在 [建立個人存取權杖]  頁面上：
+5. 若要建立個人存取權杖，請選取使用者帳戶下拉式功能表中的 [我的設定檔]。
+6. 在 [設定檔資訊] 頁面上，選取 [安全性]。
+7. 在 [安全性] 索引標籤上，選取 [新增]。
+8. 在 [建立個人存取權杖] 頁面上：
    1. 輸入權杖的 **描述** 。
-   2. 在 [到期日]  清單中選取 [180 天]  。
-   3. 在 [帳戶]  清單中選取 [所有可存取的帳戶]  。
-   4. 選取 [所有範圍]  選項。
-   5. 選擇 [建立權杖]  。
-9. 新的權杖會出現在 [個人存取權杖]  清單中。 選取 [複製權杖]  ，然後儲存權杖值供稍後使用。
-10. 繼續 連線您的實驗室的儲存機制 」 一節。
+   2. 在 [到期日] 清單中選取 [180 天]。
+   3. 在 [帳戶] 清單中選取 [所有可存取的帳戶]。
+   4. 選取 [所有範圍] 選項。
+   5. 選擇 [建立權杖]。
+9. 新的權杖會出現在 [個人存取權杖] 清單中。 選取 [複製權杖]，然後儲存權杖值供稍後使用。
+10. 繼續前往將您的實驗室連接至存放庫一節。
 
 ## <a name="use-azure-portal"></a>使用 Azure 入口網站
-本節提供在 Azure 入口網站中對實驗室新增構件儲存機制的步驟。 
+本節提供在 Azure 入口網站中新增成品存放庫至實驗室的步驟。 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [更多服務]  ，然後從服務清單中選取 [DevTest Labs]  。
+2. 選取 [更多服務]，然後從服務清單中選取 [DevTest Labs]。
 3. 從實驗室清單中選取您的實驗室。 
-4. 選取 **組態和原則**左側功能表上。
-5. 選取**儲存機制**下方**外部資源**左側功能表上的一節。
-6. 選取  **+ 新增**工具列上。
+4. 選取左側功能表上的 [設定**和原則**]。
+5. 在左側功能表中，選取 [**外部資源**] 區段底下的 [**存放庫**]。
+6. 選取工具列上的 [ **+ 新增**]。
 
     ![[新增存放庫] 按鈕](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
-5. 在 **存放庫**頁面上，指定下列資訊：
+5. 在 [**存放庫**] 頁面上，指定下列資訊：
    1. **名稱**。 輸入存放庫的名稱。
    2. **Git Clone URL**。 輸入您先前從 GitHub 或 Azure DevOps Services 複製的 Git HTTPS 複製 URL。
    3. **分支**。 若要取得您的定義，請輸入分支。
@@ -81,22 +81,22 @@ DevTest Labs 可讓您指定要加入至 VM，在建立 VM 時或之後建立 VM
    5. **資料夾路徑**。 輸入至少與複製 URL 相關的一個資料夾路徑，其中包含構件或 Resource Manager 範本。 指定子目錄時，請確定您有在資料夾路徑中包含斜線。
 
         ![存放庫區域](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]。
 
 ## <a name="use-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本
-Azure Resource Management (Azure Resource Manager) 範本是 JSON 檔案，描述您想要建立的 Azure 中的資源。 如需有關這些範本的詳細資訊，請參閱 <<c0> [ 編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)。
+Azure 資源管理（Azure Resource Manager）範本是 JSON 檔案，可描述您想要建立的 Azure 資源。 如需這些範本的詳細資訊，請參閱[撰寫 Azure Resource Manager 範本](../azure-resource-manager/templates/template-syntax.md)。
 
-本節提供使用 Azure Resource Manager 範本，將構件儲存機制加入實驗室的步驟。  如果不存在，此範本會建立實驗室。 
+本節提供使用 Azure Resource Manager 範本將成品存放庫新增至實驗室的步驟。  範本會建立實驗室（如果尚未存在）。 
 
 ### <a name="template"></a>範本
-這篇文章中所用的範例範本會透過參數收集下列資訊。 大多數的參數執行智慧型預設值，但是有幾個必須指定的值。 您必須指定 實驗室名稱，如 構件儲存機制的 URI 和儲存機制的安全性權杖。 
+本文中使用的範例範本會透過參數來收集下列資訊。 大部分的參數都有智慧型預設值，但有幾個必須指定的值。 您必須指定實驗室名稱、成品存放庫的 URI，以及存放庫的安全性權杖。 
 
 - 實驗室名稱。
-- 構件儲存機制，在 DevTest Labs 使用者介面 (UI) 中的顯示名稱。 預設值是： `Team Repository`。
-- 儲存機制的 URI (範例：`https://github.com/<myteam>/<nameofrepo>.git`或`"https://MyProject1.visualstudio.com/DefaultCollection/_git/TeamArtifacts"`。
-- 包含成品的存放庫中的分支。 預設值是： `master`。
-- 包含成品的資料夾名稱。 預設值是： `/Artifacts`。
-- 存放庫類型。 允許的值為`VsoGit`或`GitHub`。
+- DevTest Labs 使用者介面（UI）中構件存放庫的顯示名稱。 預設值為： `Team Repository`。
+- 存放庫的 URI （例如： `https://github.com/<myteam>/<nameofrepo>.git` 或 `"https://MyProject1.visualstudio.com/DefaultCollection/_git/TeamArtifacts"`。
+- 包含成品之存放庫中的分支。 預設值為： `master`。
+- 包含構件的資料夾名稱。 預設值為： `/Artifacts`。
+- 存放庫的類型。 允許的值為 `VsoGit` 或 `GitHub`。
 - 存放庫的存取權杖。 
 
     ```json
@@ -165,22 +165,22 @@ Azure Resource Management (Azure Resource Manager) 範本是 JSON 檔案，描�
 
 
 ### <a name="deploy-the-template"></a>部署範本
-有幾種方式將範本部署至 Azure，並已在資源建立，如果不存在，或更新，如果檔案存在。 如需詳細資訊，請參閱下列文章：
+有幾種方式可將範本部署至 Azure，並建立資源（如果不存在或已更新）（如果有的話）。 如需詳細資料，請參閱下文：
 
 - [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../azure-resource-manager/resource-group-template-deploy.md)
 - [使用 Resource Manager 範本與 Azure CLI 部署資源](../azure-resource-manager/resource-group-template-deploy-cli.md)
 - [使用 Resource Manager 範本與 Azure 入口網站來部署資源](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [使用 Resource Manager 範本和 Resource Manager REST API 部署資源](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
-我們繼續並了解如何部署在 PowerShell 中的範本。 用來部署範本的 Cmdlet 是特定內容，因此會使用目前的租用戶和目前的訂用帳戶。 使用[組 AzContext](/powershell/module/az.accounts/set-azcontext)之前部署此範本中，如有需要若要變更內容。
+讓我們繼續瞭解如何在 PowerShell 中部署範本。 用來部署範本的 Cmdlet 是內容特定的，因此會使用目前的租使用者和目前的訂用帳戶。 如有需要，請使用[set-azcoNtext](/powershell/module/az.accounts/set-azcontext)部署範本，以變更內容。
 
-首先，使用下列方法建立資源群組[新增 AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)。 如果您想要已使用的資源群組存在，請略過此步驟。
+首先，使用[remove-azresourcegroup](/powershell/module/az.resources/new-azresourcegroup)建立資源群組。 如果您想要使用的資源群組已存在，請略過此步驟。
 
 ```powershell
 New-AzResourceGroup -Name MyLabResourceGroup1 -Location westus
 ```
 
-接下來，建立使用您建立資源群組部署[新增 AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)。 此 cmdlet 會適用於 Azure 資源的變更。 數個資源的部署可以對任何指定的資源群組。 如果您要多次部署相同的資源群組，請確定每個部署的名稱是唯一的。
+接下來，使用[new-azresourcegroupdeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)建立資源群組的部署。 此 Cmdlet 會將資源變更套用至 Azure。 您可以對任何指定的資源群組進行數個資源部署。 如果您要將數次部署到相同的資源群組，請確定每個部署的名稱都是唯一的。
 
 ```powershell
 New-AzResourceGroupDeployment `
@@ -190,15 +190,15 @@ New-AzResourceGroupDeployment `
     -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-新增 AzResourceGroupDeployment 順利執行之後，命令會輸出類似 (應該 succeeded) 的佈建狀態和任何的輸出，如需範本的重要資訊。
+New-azresourcegroupdeployment 成功執行之後，命令會輸出重要資訊，例如布建狀態（應該成功）和範本的任何輸出。
  
 ## <a name="use-azure-powershell"></a>使用 Azure PowerShell 
-本節提供可用來將構件儲存機制加入實驗室的範例 PowerShell 指令碼。 如果您沒有 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0)如需詳細指示來安裝它。
+本節提供範例 PowerShell 腳本，可用來將成品存放庫新增至實驗室。 如果您沒有 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0)以取得安裝的詳細指示。
 
 ### <a name="full-script"></a>完整指令碼
-以下是完整的指令碼，包括一些詳細資訊訊息及註解：
+以下是完整的腳本，包括一些詳細訊息和批註：
 
-**新 DevTestLabArtifactRepository.ps1**:
+**New-DevTestLabArtifactRepository. ps1**：
 
 ```powershell
 
@@ -336,7 +336,7 @@ return $result
 ```
 
 ### <a name="run-the-powershell-script"></a>執行 PowerShell 指令碼
-下列範例會示範如何執行指令碼： 
+下列範例顯示如何執行腳本： 
 
 ```powershell
 Set-AzContext -SubscriptionId <Your Azure subscription ID>
@@ -346,20 +346,20 @@ Set-AzContext -SubscriptionId <Your Azure subscription ID>
 
 
 ### <a name="parameters"></a>參數
-這篇文章中的範例 PowerShell 指令碼會使用下列參數：
+本文中的範例 PowerShell 腳本會採用下列參數：
 
-| 參數 | 描述 | 
+| 參數 | 說明 | 
 | --------- | ----------- | 
-| LabName | 實驗室名稱。 |
-| ArtifactRepositoryName | 新的成品存放庫的名稱。 如果未指定，指令碼會建立存放庫的隨機名稱。 |
-| ArtifactRepositoryDisplayName | 構件儲存機制的顯示名稱。 這是顯示在 Azure 入口網站的名稱 (https://portal.azure.com) 時檢視實驗室的所有構件儲存機制。 |
-| RepositoryUri | 儲存機制的 Uri。 範例：`https://github.com/<myteam>/<nameofrepo>.git`或`"https://MyProject1.visualstudio.com/DefaultCollection/_git/TeamArtifacts"`。| 
-| RepositoryBranch | 哪些成品中可以找到檔案的分支。 預設值為 'master'。 | 
-| FolderPath | 可以找到成品所在的資料夾。 預設值為 '/' 成品 |
-| PersonalAccessToken | 用於存取 GitHub 或 VSOGit 存放庫的安全性權杖。 請參閱 < 必要條件 > 一節的指示，以取得個人存取權杖 |
-| SourceType | 成品是否 VSOGit 或 GitHub 存放庫。 |
+| LabName | 實驗室的名稱。 |
+| ArtifactRepositoryName | 新成品存放庫的名稱。 如果未指定存放庫，腳本會為其建立隨機名稱。 |
+| ArtifactRepositoryDisplayName | 構件存放庫的顯示名稱。 這是在查看實驗室的所有成品存放庫時，在 Azure 入口網站中顯示的名稱（ https://portal.azure.com) 。 |
+| RepositoryUri | 儲存機制的 Uri。 範例： `https://github.com/<myteam>/<nameofrepo>.git` 或 `"https://MyProject1.visualstudio.com/DefaultCollection/_git/TeamArtifacts"`。| 
+| RepositoryBranch | 可在其中找到成品檔案的分支。 預設為「主要」。 | 
+| FolderPath | 可在其下找到構件的資料夾。 預設為 '/Artifacts ' |
+| PersonalAccessToken | 用於存取 GitHub 或 VSOGit 存放庫的安全性權杖。 如需取得個人存取權杖的指示，請參閱必要條件一節。 |
+| SourceType | 成品為 VSOGit 或 GitHub 存放庫。 |
 
-存放庫本身需要內部名稱識別，也就是不同的 Azure 入口網站中所看到的顯示名稱。 您不會看到使用 Azure 入口網站的內部名稱，但您會看到它時使用 Azure REST Api 或 Azure PowerShell。 指令碼會提供名稱，如果沒有指定我們的指令碼的使用者。
+存放庫本身需要識別的內部名稱，這與在 Azure 入口網站中看到的顯示名稱不同。 您不會看到使用 Azure 入口網站的內部名稱，但在使用 Azure REST Api 或 Azure PowerShell 時，您會看到它。 腳本會提供名稱（如果腳本的使用者未指定的話）。
 
 ```powershell
 #Set artifact repository name, if not set by user
@@ -368,22 +368,22 @@ if ($ArtifactRepositoryName -eq $null){
 }
 ```
 
-### <a name="powershell-commands-used-in-the-script"></a>指令碼中使用的 PowerShell 命令
+### <a name="powershell-commands-used-in-the-script"></a>腳本中使用的 PowerShell 命令
 
 | PowerShell 命令 | 注意 |
 | ------------------ | ----- |
-| [Get-AzResource](/powershell/module/az.resources/get-azresource) | 此命令用來取得實驗室的詳細資料，例如其位置。 |
-| [New-AzResource](/powershell/module/az.resources/new-azresource) | 沒有任何特定的命令，來新增構件儲存機制。 泛型[新增 AzResource](/powershell/module/az.resources/new-azresource)指令程式可以達到目的。 此 cmdlet 需要其中一個**ResourceId**或**ResourceName**並**ResourceType**知道要建立的資源類型的組。 此範例指令碼會使用的資源名稱和資源類型組。 <br/><br/>請注意，在相同的位置，並與實驗室位於相同資源群組下，您要建立成品儲存機制來源。|
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | 此命令可用來取得實驗室的詳細資料，例如其位置。 |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | 沒有用於新增成品存放庫的特定命令。 一般的[get-azresource](/powershell/module/az.resources/new-azresource) Cmdlet 會執行作業。 此 Cmdlet 需要**ResourceId**或資源**組和** **ResourceType** ，才能知道要建立的資源類型。 此範例腳本會使用資源名稱和資源類型配對。 <br/><br/>請注意，您會在與實驗室相同的資源群組下，建立成品存放庫來源。|
 
-指令碼會將新的資源加入至目前的訂用帳戶。 使用[Get AzContext](/powershell/module/az.accounts/get-azcontext)若要查看這項資訊。 使用[組 AzContext](/powershell/module/az.accounts/set-azcontext)設定目前的租用戶和訂用帳戶。
+腳本會將新的資源加入至目前的訂用帳戶。 請使用[set-azcoNtext](/powershell/module/az.accounts/get-azcontext)來查看此資訊。 使用[set-azcoNtext](/powershell/module/az.accounts/set-azcontext)設定目前的租使用者和訂用帳戶。
 
-若要探索的資源名稱和資源類型資訊的最佳方式是使用[測試磁碟機 Azure REST Api](https://azure.github.io/projects/apis/)網站。 請參閱[DevTest Labs – 2016年-05-15](https://aka.ms/dtlrestapis)若要查看可用的 REST Api，DevTest Labs 提供者的提供者。 指令碼的使用者下的資源識別碼。 
+探索資源名稱和資源類型資訊的最佳方式是使用[試用產品 AZURE REST api](https://azure.github.io/projects/apis/)網站。 請查看[DevTest Labs – 2016-05-15](https://aka.ms/dtlrestapis)提供者，以查看 DevTest Labs 提供者可用的 REST api。 腳本會使用者下列資源識別碼。 
 
 ```powershell
 "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"
 ```
  
-資源類型是所有項目列出之後 'providers' 在 URI 中，大括號中列出的項目除外。 資源名稱是在大括號中看到的所有項目。 如果多個項目應該做為資源名稱，每個項目使用斜線分隔像我們一樣。 
+資源類型是 URI 中的「提供者」後面列出的所有專案，但在大括弧中列出的專案除外。 資源名稱是在大括弧中看到的所有內容。 如果資源名稱預期會有一個以上的專案，請將每個專案以斜線分隔，如同我們已完成。 
 
 ```powershell
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
@@ -392,7 +392,7 @@ $resourceName = $LabName + '/' + $ArtifactRepositoryName
 
 
 ## <a name="next-steps"></a>後續步驟
-- [在 Azure DevTest Labs 中指定必要的成品，您的實驗室](devtest-lab-mandatory-artifacts.md)
-- [為您的 DevTest Labs 虛擬機器建立自訂構件](devtest-lab-artifact-author.md)
-- [在實驗室中的構件失敗進行診斷](devtest-lab-troubleshoot-artifact-failure.md)
+- [在 Azure DevTest Labs 中指定實驗室的必要構件](devtest-lab-mandatory-artifacts.md)
+- [為 DevTest Labs 虛擬機器建立自訂構件](devtest-lab-artifact-author.md)
+- [診斷實驗室中的構件失敗](devtest-lab-troubleshoot-artifact-failure.md)
 

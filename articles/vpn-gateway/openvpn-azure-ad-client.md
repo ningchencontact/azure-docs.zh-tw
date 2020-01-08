@@ -5,30 +5,30 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 12/18/2019
 ms.author: alzam
-ms.openlocfilehash: 2836a89f491d731a11e6bc6fc56e0d049f01ac9a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 59af4189b52c2ad7a1109ffb03accedbc69dc6c6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151414"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647912"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication-preview"></a>設定 VPN 用戶端以進行 P2S OpenVPN 通訊協定連線： Azure AD authentication （預覽）
 
 本文可協助您設定 VPN 用戶端，以使用點對站 VPN 和 Azure Active Directory 驗證來連線到虛擬網路。 您必須先設定 Azure AD 租使用者，才可以使用 Azure AD 進行連線和驗證。 如需詳細資訊，請參閱[設定 Azure AD 租](openvpn-azure-ad-tenant.md)使用者。
 
 > [!NOTE]
-> Azure AD 驗證僅支援 OpenVPN®通訊協定連線。
+> Azure AD 驗證僅支援 OpenVPN® 通訊協定連線。
 >
 
 ## <a name="profile"></a>使用用戶端設定檔
 
 若要連線，您必須下載 Azure VPN 用戶端（預覽），並在每一部要連線到 VNet 的電腦上設定 VPN 用戶端設定檔。 您可以在電腦上建立用戶端設定檔、將它匯出，然後將它匯入到其他電腦。
 
-### <a name="to-download-the-azure-vpn-client"></a>下載 Azure VPN 用戶端
+### <a name="to-download-the-azure-vpn-client"></a>下載 Azure VPN Client
 
-使用此[連結](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)來下載 Azure VPN 用戶端（預覽）。
+使用此[連結](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)下載 Azure VPN Client (預覽)。
 
 ### <a name="cert"></a>建立以憑證為基礎的用戶端設定檔
 
@@ -38,7 +38,11 @@ ms.locfileid: "74151414"
 
 ### <a name="radius"></a>建立 RADIUS 用戶端設定檔
 
-  ![圓圈](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+  ![半徑](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+  
+> [!NOTE]
+> 您可以在 P2S VPN 用戶端設定檔中匯出伺服器密碼。  如需如何匯出用戶端設定檔的指示，請參閱[這裡](about-vpn-profile-download.md)。
+>
 
 ### <a name="export"></a>匯出和散發用戶端設定檔
 
@@ -46,41 +50,41 @@ ms.locfileid: "74151414"
 
 1. 反白顯示您要匯出的 VPN 用戶端設定檔，選取 [ **...** ]，然後選取 [**匯出**]。
 
-    ![進出口](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![匯出](./media/openvpn-azure-ad-client/export/export1.jpg)
 
 2. 選取您要儲存此設定檔的位置，並將檔案名保持原狀，然後選取 [**儲存**] 以儲存 xml 檔案。
 
-    ![進出口](./media/openvpn-azure-ad-client/export/export2.jpg)
+    ![匯出](./media/openvpn-azure-ad-client/export/export2.jpg)
 
 ### <a name="import"></a>匯入用戶端設定檔
 
-1. 在頁面上，選取 [匯**入**]。
+1. 在頁面上，選取 [匯入]。
 
     ![入口](./media/openvpn-azure-ad-client/import/import1.jpg)
 
-2. 流覽至設定檔 xml 檔案並加以選取。 選取檔案後，選取 [**開啟**]。
+2. 瀏覽至設定檔 xml 檔案，並加以選取。 選取檔案後，請選取 [開啟]。
 
     ![入口](./media/openvpn-azure-ad-client/import/import2.jpg)
 
-3. 指定設定檔的名稱，然後選取 [**儲存**]。
+3. 指定設定檔的名稱，然後選取 [儲存]。
 
     ![入口](./media/openvpn-azure-ad-client/import/import3.jpg)
 
-4. 選取 **[** 連線] 以連線到 VPN。
+4. 選取 [連線] 以連線至 VPN。
 
     ![入口](./media/openvpn-azure-ad-client/import/import4.jpg)
 
-5. 連接之後，圖示就會變成綠色並說出**已連線**。
+5. 連線之後，圖示將會變成綠色，並顯示為 [已連線]。
 
     ![入口](./media/openvpn-azure-ad-client/import/import5.jpg)
 
 ### <a name="delete"></a>刪除用戶端設定檔
 
-1. 選取您想要刪除的用戶端設定檔旁邊的省略號。 然後選取 [**移除**]。
+1. 選取您想要刪除的用戶端設定檔旁邊的省略號。 然後，選取 [移除]。
 
     ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
-2. 選取 [**移除**] 以刪除。
+2. 選取 [移除] 以刪除。
 
     ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
@@ -88,23 +92,23 @@ ms.locfileid: "74151414"
 
 1. 在頁面上，依序選取 [ **+** ] 和 [ **+ 新增**]。
 
-    ![connection](./media/openvpn-azure-ad-client/create/create1.jpg)
+    ![連接](./media/openvpn-azure-ad-client/create/create1.jpg)
 
 2. 填寫連接資訊。 如果您不確定這些值，請洽詢您的系統管理員。 填寫值之後，選取 [**儲存**]。
 
-    ![connection](./media/openvpn-azure-ad-client/create/create2.jpg)
+    ![連接](./media/openvpn-azure-ad-client/create/create2.jpg)
 
-3. 選取 **[** 連線] 以連線到 VPN。
+3. 選取 [連線] 以連線至 VPN。
 
-    ![connection](./media/openvpn-azure-ad-client/create/create3.jpg)
+    ![連接](./media/openvpn-azure-ad-client/create/create3.jpg)
 
 4. 選取適當的認證，然後選取 [**繼續**]。
 
-    ![connection](./media/openvpn-azure-ad-client/create/create4.jpg)
+    ![連接](./media/openvpn-azure-ad-client/create/create4.jpg)
 
 5. 成功連線後，圖示將會變成綠色，並顯示 [**已連線**]。
 
-    ![connection](./media/openvpn-azure-ad-client/create/create5.jpg)
+    ![連接](./media/openvpn-azure-ad-client/create/create5.jpg)
 
 ### <a name="autoconnect"></a>自動連接
 
@@ -126,13 +130,13 @@ ms.locfileid: "74151414"
 
     ![自動](./media/openvpn-azure-ad-client/auto/auto4.jpg)
 
-## <a name="diagnose"></a>診斷連接問題
+## <a name="diagnose"></a>診斷連線問題
 
-1. 若要診斷連接問題，您可以使用 [**診斷**] 工具。 選取您要診斷之 VPN 連線旁的 [ **...** ]，以顯示功能表。 然後選取 [**診斷**]。
+1. 若要診斷連線問題，您可以使用**診斷**工具。 選取您要診斷之 VPN 連線旁的 [ **...** ]，以顯示功能表。 然後，選取 [診斷]。
 
     ![診斷](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
 
-2. 在 [**連接屬性**] 頁面上，選取 [**執行診斷**]。
+2. 在 [連線屬性] 頁面上，選取 [執行診斷]。
 
     ![診斷](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
 
@@ -140,9 +144,29 @@ ms.locfileid: "74151414"
 
     ![診斷](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
 
-4. 查看診斷結果。
+4. 檢視診斷結果。
 
     ![診斷](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+
+## <a name="faq"></a>常見問題集
+
+### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>如何? 將 DNS 尾碼新增至 VPN 用戶端嗎？
+
+您可以修改下載的設定檔 XML 檔案，並將 **\<dnssuffixes >\<dnssufix > \</dnssufix >\</dnssuffixes >** 標記
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnssuffixes>
+          <dnssuffix>.mycorp.com</dnssuffix>
+          <dnssuffix>.xyz.com</dnssuffix>
+          <dnssuffix>.etc.net</dnssuffix>
+    </dnssuffixes>
+    
+</clientconfig>
+</azvpnprofile>
+```
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 4b07150ac9f35085763786c505d3d746428a542b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e397cfaa9ce521ebe3c2f46ef6cc015bff3112f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839669"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454832"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>如何準備您的模型以在 Azure Machine Learning Studio 中部署（傳統）
 
 Azure Machine Learning Studio （傳統）提供您開發預測性分析模型所需的工具，然後將其部署為 Azure web 服務來加以讓。
 
-若要這樣做，您可以使用傳統版本的 Studio 來建立實驗-所謂的*訓練實驗*，您可以在其中定型、評分和編輯您的模型。 滿意之後，即備妥模型以進行部署，方法是將訓練實驗轉換成「預測實驗」，並將後者設定成給使用者資料評分。
+若要這樣做，您可以使用 Studio （傳統）來建立實驗-所謂的*訓練實驗*，您可以在其中定型、評分和編輯您的模型。 滿意之後，即備妥模型以進行部署，方法是將訓練實驗轉換成「預測實驗」，並將後者設定成給使用者資料評分。
 
 您可以在[教學課程1：預測信用風險](tutorial-part1-credit-risk.md)中查看此程式的範例。
 

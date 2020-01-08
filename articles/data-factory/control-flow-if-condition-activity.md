@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 562e84b4fe51603ae32884057578541f5536ebd4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ef63a159c132f5b565123eeb4824fb1ae5812ce1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679836"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444156"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Azure Data Factory 中的 If Condition 活動
 If Condition 活動所提供的功能，與 If 陳述式在程式設計語言中提供的功能相同。 它能在條件評估為 `true` 時執行一系列的活動，並在條件評估為 `false` 時執行另一系列的活動。 
@@ -63,13 +63,13 @@ If Condition 活動所提供的功能，與 If 陳述式在程式設計語言中
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 說明 | 允許的值 | 必要
+屬性 | 說明 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
-名稱 | If-Condition 活動的名稱。 | 字串 | 是
-類型 | 必須設為 [IfCondition] | 字串 | 是
+NAME | If-Condition 活動的名稱。 | String | 是
+type | 必須設為 [IfCondition] | String | 是
 expression | 必須評估為 true 或 false 的運算式 | 結果類型為布林的運算式 | 是
-ifTrueActivities | 會在運算式評估為 `true` 時執行的一系列活動。 | 陣列 | 是
-ifFalseActivities | 會在運算式評估為 `false` 時執行的一系列活動。 | 陣列 | 是
+ifTrueActivities | 會在運算式評估為 `true` 時執行的一系列活動。 | Array | 是
+ifFalseActivities | 會在運算式評估為 `false` 時執行的一系列活動。 | Array | 是
 
 ## <a name="example"></a>範例
 此範例中的管線會將資料從輸入資料夾複製到輸出資料夾。 輸出資料夾是由下列管線參數的值所決定：routeSelection。 如果 routeSelection 的值為 true，資料將會被複製到 outputPath1。 而如果 routeSelection 的值為 false，資料將會被複製到 outputPath2。 
@@ -196,10 +196,7 @@ ifFalseActivities | 會在運算式評估為 `false` 時執行的一系列活動
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }
@@ -291,7 +288,7 @@ $result.Error -join "`r`n"
 ## <a name="next-steps"></a>後續步驟
 請參閱 Data Factory 支援的其他控制流程活動： 
 
-- [執行管線活動](control-flow-execute-pipeline-activity.md)
+- [執行管道活動](control-flow-execute-pipeline-activity.md)
 - [For Each 活動](control-flow-for-each-activity.md)
 - [取得中繼資料活動](control-flow-get-metadata-activity.md)
 - [查閱活動](control-flow-lookup-activity.md)

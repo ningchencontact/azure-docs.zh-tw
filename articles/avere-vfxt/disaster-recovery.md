@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 4a8dbe9d1c66955e585f7b2cbf842193c965252e
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 19f31a2fafc112f499ff87eed23843915cab32a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74998767"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75414228"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Avere vFXT for Azure 的嚴重損壞修復指引
 
@@ -104,7 +104,7 @@ Avere vFXT for Azure 使用 Azure Blob 核心檔存放區的本機多餘儲存�
 1. 如有需要，請在不受影響的區域中建立新的 Avere vFXT for Azure 叢集。
 
    > [!TIP]
-   > 當您建立 Avere vFXT for Azure 叢集時，您可以儲存其建立範本和參數的複本。 如果您在建立主要叢集時儲存此資訊，您可以使用它來建立具有相同屬性的替代叢集。 在 [[驗證與摘要](avere-vfxt-deploy.md#validation-and-purchase)] 頁面上，按一下 [**下載範本和參數**] 連結。 在您按一下 [**確定]** 按鈕以建立叢集之前，請先將資訊儲存至檔案。
+   > 當您建立 Avere vFXT for Azure 叢集時，您可以儲存其建立範本和參數的複本。 如果您在建立主要叢集時儲存此資訊，您可以使用它來建立具有相同屬性的替代叢集。 在 [[摘要](avere-vfxt-deploy.md#validation-and-purchase)] 頁面上，按一下 [**下載範本和參數**] 連結。 建立叢集之前，請先將資訊儲存至檔案。
 
 1. 新增指向重複 Blob 容器的新雲端核心檔案管理工具。
 

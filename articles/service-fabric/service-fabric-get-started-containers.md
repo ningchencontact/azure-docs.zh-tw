@@ -1,25 +1,14 @@
 ---
-title: 建立 Azure Service Fabric 容器應用程式 | Microsoft Docs
+title: 建立 Azure Service Fabric 容器應用程式
 description: 在 Azure Service Fabric 上建立第一個 Windows 容器應用程式。 使用 Python 應用程式建置 Docker 映像、將映像推送到容器登錄，建置和部署 Service Fabric 容器應用程式。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: jpconnock
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: 4fd6de848756cedf21d7bb1f7f1be31175de6627
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 6ff3fb3057b21f389d42ad98fe4ebb2803f5fc8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838245"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458020"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 建立第一個 Service Fabric 容器應用程式
 
@@ -35,7 +24,7 @@ ms.locfileid: "73838245"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 執行下列項目的開發電腦︰
   * Visual Studio 2015 或 Visual Studio 2019。
@@ -48,8 +37,8 @@ ms.locfileid: "73838245"
   
 若要判斷具有您叢集所需容器的 Windows Server 版本，請在開發電腦上從 Windows 命令提示字元執行 `ver` 命令：
 
-* 如果版本包含 x.x.14323.x，則請在*建立叢集*時選取 [WindowsServer 2016-Datacenter-with-Containers][](service-fabric-cluster-creation-via-portal.md) 作為作業系統。
-  * 如果版本包含 x.x.16299.x，則請在*建立叢集*時選取 [WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers][](service-fabric-cluster-creation-via-portal.md) 作為作業系統。
+* 如果版本包含 x.x.14323.x，則請在[建立叢集](service-fabric-cluster-creation-via-portal.md)時選取 [WindowsServer 2016-Datacenter-with-Containers] 作為作業系統。
+  * 如果版本包含 x.x.16299.x，則請在[建立叢集](service-fabric-cluster-creation-via-portal.md)時選取 [WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers] 作為作業系統。
 
 * Azure Container Registry 中的登錄 - 在 Azure 訂用帳戶中[建立容器登錄](../container-registry/container-registry-get-started-portal.md)。
 
@@ -120,7 +109,7 @@ if __name__ == "__main__":
 
 <a id="Build-Containers"></a>
 ## <a name="build-the-image"></a>建立映像
-執行 `docker build` 命令來建立可執行 Web 應用程式的映像。 開啟 PowerShell 視窗，然後瀏覽至包含 Dockerfile 的目錄。 執行下列命令：
+執行 `docker build` 命令來建立可執行 Web 應用程式的映像。 開啟 PowerShell 視窗，然後瀏覽至包含 Dockerfile 的目錄。 執行以下命令：
 
 ```
 docker build -t helloworldapp .
@@ -200,7 +189,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>在 Visual Studio 中建立容器化服務
 Service Fabric SDK 和工具會提供一個服務範本，協助您建立容器化應用程式。
 
-1. 啟動 Visual Studio。 選取 [檔案] > [新增] > [專案]。
+1. 啟動 Visual Studio。 選取 [File] \(檔案\) >  [New] \(新增\) >  [Project] \(專案\)。
 2. 選取 [Service Fabric 應用程式]，將它命名為 "MyFirstContainer"，然後按一下 [確定]。
 3. 從 [服務範本] 的清單中選取 [容器]。
 4. 在 [映像名稱] 中輸入 "myregistry.azurecr.io/samples/helloworldapp"，也就是您推送至容器存放庫的映像。
@@ -249,7 +238,7 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您建立容器�
 ```
 
 ## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>設定容器連接埠對主機連接埠對應，以及容器對容器探索
-設定用來與容器通訊的主機連接埠。 連接埠繫結會將服務在容器內接聽的連接埠，對應至主機上的連接埠。 在 ApplicationManifest.xml 檔案的 `PortBinding` 元素中，新增 `ContainerHostPolicies` 元素。 在本文中，`ContainerPort` 為 80 (如 Dockerfile 所指定，容器會公開連接埠 80)，而 `EndpointRef` 為 "Guest1TypeEndpoint" (先前在服務資訊清單中定義的端點)。 通訊埠 8081 上服務的連入要求會對應到容器上的連接埠 80。
+設定用來與容器通訊的主機連接埠。 連接埠繫結會將服務在容器內接聽的連接埠，對應至主機上的連接埠。 在 ApplicationManifest.xml 檔案的 `ContainerHostPolicies` 元素中，新增 `PortBinding` 元素。 在本文中，`ContainerPort` 為 80 (如 Dockerfile 所指定，容器會公開連接埠 80)，而 `EndpointRef` 為 "Guest1TypeEndpoint" (先前在服務資訊清單中定義的端點)。 通訊埠 8081 上服務的連入要求會對應到容器上的連接埠 80。
 
 ```xml
 <ServiceManifestImport>
@@ -294,7 +283,7 @@ Windows 支援兩種容器隔離模式：分別為處理序和 Hyper-V。 在處
 ```
 ## <a name="configure-docker-healthcheck"></a>設定 Docker HEALTHCHECK 
 
-從 6.1 版開始，Service Fabric 會自動將 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 事件整合至其系統健康情況報告。 這表示，如果您的容器已啟用 **HEALTHCHECK**，每當 Docker 報告容器的健康情況狀態發生變更時，Service Fabric 就會報告健康情況。 如果 health_status 為「狀況良好」[](service-fabric-visualizing-your-cluster.md)，則 *Service Fabric Explorer* 中的健康情況報告會顯示 *OK (正常)* ，如果 health_status 為「狀況不良」，則顯示 *WARNING (警告)* 。 
+從 6.1 版開始，Service Fabric 會自動將 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 事件整合至其系統健康情況報告。 這表示，如果您的容器已啟用 **HEALTHCHECK**，每當 Docker 報告容器的健康情況狀態發生變更時，Service Fabric 就會報告健康情況。 如果 health_status 為「狀況良好」，則 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 中的健康情況報告會顯示 **OK (正常)** ，如果 health_status 為「狀況不良」，則顯示 **WARNING (警告)** 。 
 
 從6.4 版的最新重新整理版本開始，您可以選擇指定 docker HEALTHCHECK 評估應回報為錯誤。 若已啟用此選項，當*health_status*狀況*良好*時，將會出現 **[確定]** 健康情況報告，而當*health_status* *狀況不良*時，將會出現**錯誤**。
 
@@ -326,20 +315,20 @@ Windows 支援兩種容器隔離模式：分別為處理序和 Hyper-V。 在處
 
 如果*TreatContainerUnhealthyStatusAsError*設定為**true**，當容器的*health_status* *狀況不良*時，將會出現**錯誤**健康情況報告。
 
-如果您想要停用整個 Service Fabric 叢集的 **HEALTHCHECK** 整合，您必須將 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) 設為 **false**。
+如果您需要停用整個 Service Fabric 叢集的 **HEALTHCHECK** 整合，就必須將 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) 設為 **false**。
 
 ## <a name="deploy-the-container-application"></a>部署容器應用程式
 儲存所有變更，並建置應用程式。 若要發佈您的應用程式，以滑鼠右鍵按一下 [方案總管] 中的 **MyFirstContainer**，然後選取 [發佈]。
 
-在 [連線端點] 中，輸入叢集的管理端點。 例如， `containercluster.westus2.cloudapp.azure.com:19000`。 在 [Azure 入口網站](https://portal.azure.com)中，您可以在叢集的 [概觀] 索引標籤中找到用戶端連線端點。
+在 [連線端點] 中，輸入叢集的管理端點。 例如： `containercluster.westus2.cloudapp.azure.com:19000` 。 在 [Azure 入口網站](https://portal.azure.com)中，您可以在叢集的 [概觀] 索引標籤中找到用戶端連線端點。
 
-按一下 [發行]。
+按一下 [發佈]。
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 是一個 Web 型工具，可檢查和管理 Service Fabric 叢集中的應用程式與節點。 開啟瀏覽器並瀏覽至 `http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/` 然後遵循應用程式部署。 此應用程式會進行部署，但在叢集節點中下載映像之前 (視映像大小而定，這可能需要一些時間) 會處於錯誤狀態︰![錯誤][1]
 
 應用程式處於 ```Ready``` 狀態時便已準備就緒︰![就緒][2]
 
-開啟瀏覽器並瀏覽至 `http://containercluster.westus2.cloudapp.azure.com:8081`。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
+開啟瀏覽器並瀏覽至 `http://containercluster.westus2.cloudapp.azure.com:8081` 。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
 ## <a name="clean-up"></a>清除
 
@@ -354,7 +343,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Windows Server 容器作業系統和主機作業系統的相容性
 
-Windows Server 容器在主機 OS 的所有版本之間不相容。 例如︰
+Windows Server 容器在主機 OS 的所有版本之間不相容。 例如：
  
 - 使用 Windows Server 1709 版本所建置的 Windows Server 容器無法在執行 Windows Server 2016 版本的主機上運作。 
 - 使用 Windows Server 2016 所建立的 windows Server 容器，只能在執行 Windows Server 1709 版的主機上使用 Hyper-v 隔離模式。 
@@ -362,7 +351,7 @@ Windows Server 容器在主機 OS 的所有版本之間不相容。 例如︰
  
 若要深入了解，請參閱 [Windows 容器版本相容性](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility)。
 
-在建置容器並部署到 Service Fabric 叢集時，請考慮主機 OS 和容器 OS 的相容性。 例如︰
+在建置容器並部署到 Service Fabric 叢集時，請考慮主機 OS 和容器 OS 的相容性。 例如：
 
 - 請確定您部署的容器具有的 OS 與您叢集節點上的 OS 相容。
 - 請確定為容器應用程式所指定的隔離模式，與其部署所在節點上的容器 OS 支援一致。

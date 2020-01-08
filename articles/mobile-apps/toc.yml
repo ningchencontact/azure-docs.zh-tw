@@ -8,7 +8,7 @@
       href: front-end-development-platform.md
     - name: 使用後端服務規劃及設計行動應用程式
       items:
-        - name: Authentication
+        - name: 驗證
           href: authentication.md
         - name: 資料儲存體
           href: data-storage.md
@@ -22,7 +22,7 @@
       href: code-hosting-services.md
     - name: DevOps
       items:
-        - name: 什麼是 DevOps
+        - name: 什麼是 DevOps？
           href: devops.md
         - name: 持續建置與整合
           href: continuous-integration.md
@@ -32,7 +32,7 @@
           href: continuous-delivery.md
     - name: 分析使用方式和使用者行為
       href: analytics.md
-    - name: 即時損毀報告
+    - name: 即時失敗報告
       href: diagnostics.md
     - name: 推播通知
       href: push-notifications.md
@@ -42,7 +42,7 @@
       href: cognitive-services.md
     - name: Azure 地圖服務
       href: azure-maps.md
-    - name: Azure CDN
+    - name: Azure 內容傳遞網路
       href: azure-cdn.md
     - name: Azue 認知搜尋
       href: azure-search.md

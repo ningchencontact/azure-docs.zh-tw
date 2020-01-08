@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 0d48f3eacad86dac520d837b80605a75cce8cfd5
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 87ccb1c4995337b385f685797980a9fc3962bc6f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514495"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451245"
 ---
 # <a name="azure-serial-console-for-windows"></a>適用于 Windows 的 Azure 序列主控台
 
@@ -29,7 +29,7 @@ Azure 入口網站中的序列主控台可讓您存取 Windows 虛擬機器（Vm
 如需適用于 Linux 的序列主控台檔，請參閱[適用于 linux 的 Azure 序列主控台](serial-console-linux.md)。
 
 > [!NOTE]
-> 序列主控台已在全球 Azure 區域中正式推出。 目前尚未在 Azure Government 或「Azure 中國」雲端中提供序列主控台。
+> 序列主控台已在全球 Azure 區域正式推出，且在 Azure Government 中為公開預覽。 Azure 中國雲端尚未提供此功能。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -124,7 +124,7 @@ Azure 上較新的 Windows Server 映射預設會啟用[特別的管理主控台
 如需有關將 Windows 設定成在收到 NMI 時建立損毀傾印的資訊，請參閱：[如何使用 NMI 來產生損毀傾印檔案](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file) \(機器翻譯\)。
 
 ### <a name="use-function-keys-in-serial-console"></a>在序列主控台中使用功能鍵
-系統會啟用功能鍵供 Windows VM 中的序列主控台使用。 序列主控台下拉式清單中的 F8 提供方便進入 [進階開機設定] 功能表的簡單方式，但序列主控台與所有其他功能鍵相容。 視您使用序列主控台的電腦而定，您可能需要按下鍵盤上的**Fn**  + **F1** （或 F2、F3 等）。
+系統會啟用功能鍵供 Windows VM 中的序列主控台使用。 序列主控台下拉式清單中的 F8 提供方便進入 [進階開機設定] 功能表的簡單方式，但序列主控台與所有其他功能鍵相容。 視您使用序列主控台的電腦而定，您可能需要按下鍵盤上的**Fn** + **F1** （或 F2、F3 等）。
 
 ### <a name="use-wsl-in-serial-console"></a>在序列主控台中使用 WSL
 Windows Server 2019 或更新版本已支援適用於 Linux 的 Windows 子系統 (WSL)，所以如果您是執行 Windows Server 2019 或更新版本，也可以啟用 WSL 以在序列主控台內使用。 這對已經熟悉 Linux 命令使用者來說可能有許多好處。 若要啟用 Windows Server 的 WSL，請參閱[安裝指南](https://docs.microsoft.com/windows/wsl/install-on-server)。
@@ -159,7 +159,7 @@ Windows Server 2019 或更新版本已支援適用於 Linux 的 Windows 子系�
 > [!CAUTION]
 > 這表示已中斷連線的使用者將不會登出。在進行中斷連線時強制登出的功能（使用 SIGHUP 或類似的機制）仍在藍圖中。 就 Windows 而言，在 SAC 中會啟用自動逾時，不過，針對 Linux，您則可以設定終端機逾時設定。
 
-## <a name="accessibility"></a>協助工具
+## <a name="accessibility"></a>Accessibility
 協助工具是 Azure 序列主控台的按鍵焦點。 為此，我們已確保視障和聽障人士以及無法使用滑鼠的使用者都能存取序列主控台。
 
 ### <a name="keyboard-navigation"></a>鍵盤導覽
@@ -181,7 +181,7 @@ RDP 設定問題 | 存取序列主控台，然後變更設定。 如需詳細資
 ## <a name="known-issues"></a>已知問題
 我們注意到序列主控台和 VM 的作業系統有一些問題。 以下是這些問題的清單，以及 Windows Vm 的緩和措施步驟。 這些問題和緩和措施適用于 Vm 和虛擬機器擴展集實例。 如果這些不符合您所看到的錯誤，請[參閱常見的](./serial-console-errors.md)序列主控台服務錯誤。
 
-問題                             |   緩和
+問題                             |   降低
 :---------------------------------|:--------------------------------------------|
 在連線橫幅之後按下 **Enter** 鍵並不會顯示登入提示。 | 如需詳細資訊，請參閱[按 Enter 鍵沒有任何作用](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) \(英文\)。 如果您執行的是自訂 VM、強化設備，或是導致 Windows 無法正確地連線至序列埠的開機組態，則可能發生此錯誤。 如果您正在執行 Windows 10 VM，也會發生此錯誤，因為只有 Windows Server Vm 設定為啟用 EMS。
 連線至 Windows VM 時只有顯示健康情況資訊| 如果您的 Windows 映像未啟用特殊系統管理主控台，就會發生此錯誤。 請參閱[在自訂或舊版的映像中啟用序列主控台](#enable-the-serial-console-in-custom-or-older-images)，以取得在 Windows VM 上手動啟用 SAC 的指示。 如需詳細資訊，請參閱 [Windows 健康情況訊號](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md)。
@@ -195,27 +195,27 @@ SAC 不會佔用瀏覽器中的整個序列主控台區域 | 這是 Windows 和�
 
 **問：我要如何傳送意見反應？**
 
-答： 在 https://aka.ms/serialconsolefeedback 建立 GitHub 問題來提供意見反應。 或者，您也可以透過 azserialhelp@microsoft.com 或在 https://feedback.azure.com 的虛擬機器類別中傳送意見反應 (較不建議)。
+A. 在 https://aka.ms/serialconsolefeedback 建立 GitHub 問題來提供意見反應。 或者，您也可以透過 azserialhelp@microsoft.com 或在 https://feedback.azure.com 的虛擬機器類別中傳送意見反應 (較不建議)。
 
 **問：序列主控台是否支援複製/貼上？**
 
-答： 可以。 請使用 **Ctrl**+**Shift**+**C** 與 **Ctrl**+**Shift**+**V** 來針對終端機進行複製及貼上。
+A. 可以。 請使用 **Ctrl**+**Shift**+**C** 與 **Ctrl**+**Shift**+**V** 來針對終端機進行複製及貼上。
 
 **問：誰可以針對我的訂用帳戶啟用或停用序列主控台？**
 
-答： 若要以訂用帳戶層級的規模啟用或停用序列主控台，您必須有該訂用帳戶的寫入權限。 具有寫入權限的角色包括系統管理員或擁有者角色。 自訂角色也可以有寫入權限。
+A. 若要以訂用帳戶層級的規模啟用或停用序列主控台，您必須有該訂用帳戶的寫入權限。 具有寫入權限的角色包括系統管理員或擁有者角色。 自訂角色也可以有寫入權限。
 
 **問：誰可以存取我 VM 的序列主控台？**
 
-答： 您必須具有 VM 的虛擬機器參與者角色或更高級別的角色，才能存取 VM 的序列主控台。
+A. 您必須具有 VM 的虛擬機器參與者角色或更高級別的角色，才能存取 VM 的序列主控台。
 
 **問：我的序列主控台沒有顯示任何內容，我該怎麼做？**
 
-答： 您映像的序列主控台存取設定很有可能是錯誤的。 如需有關設定您的映像以啟用序列主控台的詳細資訊，請參閱[在自訂或舊版的映像中啟用序列主控台](#enable-the-serial-console-in-custom-or-older-images)。
+A. 您映像的序列主控台存取設定很有可能是錯誤的。 如需有關設定您的映像以啟用序列主控台的詳細資訊，請參閱[在自訂或舊版的映像中啟用序列主控台](#enable-the-serial-console-in-custom-or-older-images)。
 
 **問：序列主控台是否適用于虛擬機器擴展集？**
 
-答： 是的，它是！ 請參閱[序列主控台以取得虛擬機器擴展集](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
+A. 是的，它是！ 請參閱[序列主控台以取得虛擬機器擴展集](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
 ## <a name="next-steps"></a>後續步驟
 * 如需您可以在 Windows SAC 中使用之 CMD 及 PowerShell 命令的深入指南，請參閱 [Windows 命令：CMD 和 PowerShell](serial-console-cmd-ps-commands.md)。

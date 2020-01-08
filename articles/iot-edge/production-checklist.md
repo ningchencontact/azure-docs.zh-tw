@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a19fdfaf70dffb7f0bcb8001475fee89b2d05086
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 1213ab4c623cb1d475dff1d71e65439b1d08f5c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665809"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429441"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>準備在生產環境中部署 IoT Edge 解決方案
 
@@ -39,7 +39,7 @@ IoT Edge 裝置可以是任何項目，包括 Raspberry Pi、膝上型電腦或�
 
 若要了解裝置 CA 憑證的角色，請參閱 [Azure IoT Edge 如何使用憑證](iot-edge-certs.md)。
 
-如需如何在 IoT Edge 裝置上安裝憑證，並參考 config.yaml 檔案中的憑證等詳細資訊，請參閱[設定 IoT Edge 裝置作為透明閘道](how-to-create-transparent-gateway.md)。 無論裝置是否作為閘道使用，設定憑證的步驟都相同。 本文為了建立範例憑證所提供的指令碼僅供測試之用。 請勿在生產環境中使用這些範例憑證。 
+如需如何在 IoT Edge 裝置上安裝憑證，並從 yaml 檔案參考它們的詳細資訊，請參閱[在 IoT Edge 裝置上安裝生產憑證](how-to-create-transparent-gateway.md)。 
 
 ### <a name="have-a-device-management-plan"></a>研擬裝置管理計畫
 
@@ -72,7 +72,7 @@ IoT Edge 裝置可以是任何項目，包括 Raspberry Pi、膝上型電腦或�
 
 一旦您的 IoT Edge 裝置連線，請務必在未來的部署中繼續設定這兩個執行階段模組的 UpstreamProtocol 變數。 [設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)中提供此程序的範例。
 
-## <a name="deployment"></a>Deployment
+## <a name="deployment"></a>部署
 
 * **實用**
     * 與上游的通訊協定一致
@@ -148,7 +148,7 @@ timeToLiveSecs 參數的預設值是 7200 秒，也就是兩小時。
 
 如需標籤慣例的範例，請參閱[更新 IoT Edge 執行階段](how-to-update-iot-edge.md#understand-iot-edge-tags)，了解 IoT Edge 如何使用循環標籤 (rolling tag) 和特定標籤來追蹤版本。 
 
-## <a name="networking"></a>網路功能
+## <a name="networking"></a>網路
 
 * **實用**
     * 檢閱輸出/輸入設定
@@ -224,7 +224,7 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 將此資訊新增（或附加）至名為 `daemon.json` 的檔案，並將它放在您裝置平臺的正確位置。
 
-| 平台 | Location |
+| 平台 | 位置 |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |

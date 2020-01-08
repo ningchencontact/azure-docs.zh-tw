@@ -1,27 +1,16 @@
 ---
-title: 以安全的方式連線到 Azure Service Fabric 叢集 | Microsoft Docs
+title: 安全地連接到 Azure Service Fabric 叢集
 description: 說明如何驗證用戶端對 Service Fabric 叢集的存取，以及如何保護用戶端與叢集之間的通訊。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/29/2019
-ms.author: atsenthi
-ms.openlocfilehash: c350b53b2d0b235c5e34431386205f090f37b482
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 89d9f67ba1a202b3830df7a5b960c6ef01091bf2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599705"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458266"
 ---
-# <a name="connect-to-a-secure-cluster"></a>連線到安全的叢集
+# <a name="connect-to-a-secure-cluster"></a>連線以保護叢集
 
 當用戶端連線到 Service Fabric 叢集節點時，用戶端可以使用憑證安全性或 Azure Active Directory (AAD) 來接受驗證及保護已建立的通訊。 此驗證可確保只有已獲授權的使用者可以存取叢集和已部署的應用程式，以及執行管理工作。  憑證或 AAD 安全性必須在叢集建立之時即事先在叢集上啟用。  如需有關叢集安全性案例的詳細資訊，請參閱 [叢集安全性](service-fabric-cluster-security.md)。 如果您要連接到使用憑證保護的叢集，請在要連接到叢集的電腦上[設定用戶端憑證](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert)。 
 
@@ -41,7 +30,7 @@ openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pas
 
 如果您的 .pfx 檔案未受密碼保護，請針對最後一個參數使用 -passin pass:。
 
-若要以 pem 檔案指定用戶端憑證，請在 `--pem` 引數中指定檔案路徑。 例如:
+若要以 pem 檔案指定用戶端憑證，請在 `--pem` 引數中指定檔案路徑。 例如：
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -55,7 +44,7 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./clie
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-有時，用來保護測試或開發叢集的憑證會讓憑證驗證失敗。 若要略過憑證驗證，請指定 `--no-verify` 選項。 例如:
+有時，用來保護測試或開發叢集的憑證會讓憑證驗證失敗。 若要略過憑證驗證，請指定 `--no-verify` 選項。 例如：
 
 > [!WARNING]
 > 連線到生產環境 Service Fabric 叢集時，請勿使用 `no-verify` 選項。
@@ -64,7 +53,7 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./cli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-此外，您可以指定受信任 CA 憑證，或個別憑證的目錄路徑。 若要指定這些路徑，請使用 `--ca` 引數。 例如:
+此外，您可以指定受信任 CA 憑證，或個別憑證的目錄路徑。 若要指定這些路徑，請使用 `--ca` 引數。 例如：
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca

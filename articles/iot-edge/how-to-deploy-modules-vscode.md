@@ -1,6 +1,6 @@
 ---
-title: 從 Visual Studio Code 部署模組 - Azure IoT Edge | Microsoft Docs
-description: 使用 Visual Studio Code 將模組部署到 IoT Edge 裝置
+title: 從 Visual Studio Code Azure IoT Edge 部署模組
+description: 搭配 Azure IoT Tools 使用 Visual Studio Code，將 IoT Edge 模組從您的 IoT 中樞推送至您的 IoT Edge 裝置，如部署資訊清單所設定。
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 415494fed0870a855a20314816bcebbe22680a98
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
-ms.translationtype: MT
+ms.openlocfilehash: d1c5897240f627d52af056767943b59d85dd2d0c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457410"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434279"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>從 Visual Studio Code 部署 Azure IoT Edge 模組
 
@@ -22,11 +22,11 @@ ms.locfileid: "74457410"
 
 本文說明如何建立 JSON 部署資訊清單，然後使用該檔案將部署發送到 IoT Edge 裝置。 如需根據裝置共用標籤，建立目標為多個裝置的部署資訊，請參閱[大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md) (英文)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶中的 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
 * 已安裝 IoT Edge 執行階段的 [IoT Edge 裝置](how-to-register-device.md#register-with-visual-studio-code)。
-* [Visual Studio Code](https://code.visualstudio.com/)。
+* [Visual Studio Code](https://code.visualstudio.com/) \(英文\)。
 * 適用於 Visual Studio Code 的 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview)。
 
 ## <a name="configure-a-deployment-manifest"></a>設定部署資訊清單
@@ -101,7 +101,7 @@ ms.locfileid: "74457410"
    }
    ```
 
-## <a name="sign-in-to-access-your-iot-hub"></a>登入以存取您的 IoT 中樞
+## <a name="sign-in-to-access-your-iot-hub"></a>登入以存取 IoT 中樞
 
 您可以使用適用於 Visual Studio Code 的 Azure IoT 擴充功能來透過 IoT 中樞執行各種操作。 為了讓這些作業發揮作用，您需要登入 Azure 帳戶，並選取現用的 IoT 中樞。
 
@@ -111,7 +111,7 @@ ms.locfileid: "74457410"
 
    ![展開 [Azure IoT 中樞裝置] 區段](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
-1. 按一下 [Azure IoT 中樞裝置] 區段標頭中的 [...]。 如果您沒有看到省略符號，將滑鼠停留在標頭上方。
+1. 按一下 [Azure IoT 中樞裝置] 區段標題中的 **...** 。 若未看到省略符號，請將滑鼠暫留在標題上方。
 
 1. 選擇 [選取 IoT 中樞]。
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba8f4f715856538b9555b1bcb8c8a812503fabd2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 77e24fa41c5f716460d82e1079659e6aee5e9a9b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842402"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561145"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>使用 Azure Active Directory authentication （預覽）登入 Azure 中的 Windows 虛擬機器
 
@@ -36,6 +36,9 @@ ms.locfileid: "74842402"
    - 多因素驗證
    - 登入風險檢查
 - 將屬於您 VDI 部署的 Azure Windows Vm 的 Azure AD 聯結自動化並加以調整。
+
+> [!NOTE]
+> 一旦您啟用此功能，您在 Azure 中的 Windows Vm 將會 Azure AD 聯結。 您不能將它加入其他網域（例如內部部署 AD 或 Azure AD DS）。 如果您需要這樣做，您必須卸載擴充功能，將 VM 從您的 Azure AD 租使用者中斷連線。
 
 ## <a name="requirements"></a>要求
 
@@ -200,7 +203,7 @@ az role assignment create \
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>使用 Azure AD 認證登入 Windows VM
 
 > [!IMPORTANT]
-> 只有已加入 Azure AD 的 Windows 10 電腦或混合式 Azure AD 加入與 VM**相同**的目錄，才允許從遠端連線至已加入 Azure AD 的 vm。 此外，若要使用 Azure AD 認證的 RDP，使用者必須屬於下列其中一個 RBAC 角色： [虛擬機器系統管理員登入] 或 [虛擬機器使用者登入]。
+> 只有已加入 Azure AD 的 Windows 10 電腦或混合式 Azure AD 加入與 VM**相同**的目錄，才允許從遠端連線至已加入 Azure AD 的 vm。 此外，若要使用 Azure AD 認證的 RDP，使用者必須屬於下列其中一個 RBAC 角色： [虛擬機器系統管理員登入] 或 [虛擬機器使用者登入]。 目前，Azure 防禦無法用來以 AADLoginForWindows 延伸模組的 Azure Active Directory 驗證進行登入。 僅支援直接 RDP。
 
 若要使用 Azure AD 登入您的 Windows Server 2019 虛擬機器： 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 89c7e398e24fb48c1829dbaa2811f440c5485a60
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f3044a2701b0f1cd0e5f9ab3ab60c1d60cfb8f45
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038114"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436803"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>透過 ExpressRoute Microsoft 對等互連，設定站對站 VPN
 
@@ -130,7 +130,7 @@ Get-AzBgpServiceCommunity
 
 ### <a name="about-the-azure-resource-manager-template-examples"></a>關於 Azure Resource Manager 範本範例
 
-在這些範例中，VPN 閘道和 IPsec 通道終止是使用 Azure Resource Manager 範本設定的。 如果您不熟悉如何使用 Resource Manager 範本，或是想要了解 Resource Manager 範本的基本概念，請參閱[了解 Azure Resource Manager 範本的結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)。 本節中的範本會建立原創 Azure 環境 (VNet)。 但是，如果您有現有的 VNet，可以在範本中加以參考。 如果您不熟悉 VPN 閘道 IPsec/IKE 站對站設定，請參閱[建立站對站連線](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)。
+在這些範例中，VPN 閘道和 IPsec 通道終止是使用 Azure Resource Manager 範本設定的。 如果您不熟悉如何使用 Resource Manager 範本，或是想要了解 Resource Manager 範本的基本概念，請參閱[了解 Azure Resource Manager 範本的結構和語法](../azure-resource-manager/templates/template-syntax.md)。 本節中的範本會建立原創 Azure 環境 (VNet)。 但是，如果您有現有的 VNet，可以在範本中加以參考。 如果您不熟悉 VPN 閘道 IPsec/IKE 站對站設定，請參閱[建立站對站連線](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)。
 
 >[!NOTE]
 >您不需要使用 Azure Resource Manager 範本，就可以建立此設定。 您可以使用 Azure 入口網站或 PowerShell 建立此設定。

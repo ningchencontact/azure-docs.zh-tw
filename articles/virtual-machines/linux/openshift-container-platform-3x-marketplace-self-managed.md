@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 20a17e52064c5beb09ce4db5815ddd6faf7cbcba
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 235efd746562ea4bd52b9cb57da0d8165d60de02
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035530"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561315"
 ---
 # <a name="configure-prerequisites"></a>設定必要條件
 
@@ -28,7 +28,7 @@ ms.locfileid: "74035530"
  
 ## <a name="deploy-using-the-marketplace-offer"></a>使用 Marketplace 供應專案進行部署
 
-將自我管理的 OpenShift 容器平臺3.11 叢集部署到 Azure 的最簡單方式，就是使用[Azure Marketplace 的供應](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview)專案。
+將自我管理的 OpenShift 容器平臺3.11 叢集部署到 Azure 的最簡單方式，就是使用[Azure Marketplace 的供應](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy)專案。
 
 此選項是最簡單的，但它也具有有限的自訂功能。 Marketplace 供應專案會部署 OpenShift 容器平臺3.11.82，並包含下列設定選項：
 
@@ -172,7 +172,7 @@ ms.locfileid: "74035530"
    ![提供額外的 cn 安裝](media/openshift-marketplace-self-managed/ocp-additionalcnsall.png)  
 <br>
 
-**摘要**
+**總結**
 
 此階段會進行驗證，以檢查核心配額是否足以部署為叢集選取的 Vm 總數。  檢查所有輸入的參數。  如果可以接受輸入，請按一下 **[確定]** 繼續進行。
 

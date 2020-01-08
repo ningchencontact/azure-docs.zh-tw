@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: b5304f2f9af3f3dac5a1259669cdd78548c2e832
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7ea7051b24deeddea25b1db771b73a226f650067
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933732"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401157"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure 監視器中的監視解決方案
 監視解決方案會運用 Azure 中的服務，提供特定應用程式或服務的額外作業見解。 本文提供 Azure 中監視解決方案的簡短概觀，以及使用和安裝它們的詳細資料。
@@ -22,18 +22,17 @@ ms.locfileid: "72933732"
 
 監視解決方案通常會收集記錄資料，並提供查詢和檢視來分析所收集的資料。 它們也會運用 Azure 自動化等其他服務，執行應用程式或服務相關的動作。
 
-您可以針對您使用的任何應用程式和服務，將監視解決方案新增至 Azure 監視器。 這些管理解決方案通常免費提供，但是會收集可能造成使用費用的資料。 除了 [Microsoft 所提供的解決方案](solutions-creating.md)，合作夥伴和客戶可以建立要用於其自己的環境中或可透過社群供您客戶使用的管理解決方案。
+您可以針對您使用的任何應用程式和服務，將監視解決方案新增至 Azure 監視器。 它們通常是免費提供的，但會收集可能會叫用使用費用的資料。 除了 [Microsoft 所提供的解決方案](solutions-creating.md)，合作夥伴和客戶可以建立要用於其自己的環境中或可透過社群供您客戶使用的管理解決方案。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="use-monitoring-solutions"></a>使用監視解決方案
 在 Azure 監視器中開啟 [概觀] 頁面，以顯示工作區中每個已安裝解決方案的圖格。 
 
-1. 登入 Azure 管理入口網站。
-1. 開啟 [所有服務] 並找出**監視器**。
+1. 移至 [Azure 入口網站](https://ms.portal.azure.com)。 搜尋並選取 [**監視**]。
 1. 在 [Insights] 功能表下方，選取 [其他]。
 1. 使用畫面頂端的下拉式清單方塊，來變更針對圖格所使用的工作區或時間範圍。
-1. 按一下解決方案的圖格以開啟其檢視，其中包含所收集資料的更詳細分析。
+1. 按一下解決方案的圖格，以開啟其視圖，其中包含更詳細的分析收集的資料。
 
 ![概觀](media/solutions/overview.png)
 
@@ -42,9 +41,8 @@ ms.locfileid: "72933732"
 ## <a name="list-installed-monitoring-solutions"></a>列出已安裝的監視解決方案 
 使用下列程序，列出您的訂用帳戶中已安裝的監視解決方案。
 
-1. 登入 Azure 管理入口網站。
-1. 開啟 [所有服務] 並找出**解決方案**。
-4. 隨即列出您所有工作區中安裝的解決方案。 解決方案的名稱後面接著其安裝所在的工作區名稱。
+1. 移至 [Azure 入口網站](https://ms.portal.azure.com)。 搜尋並選取 [**解決方案**]。
+1. 隨即列出您所有工作區中安裝的解決方案。 解決方案的名稱後面接著其安裝所在的工作區名稱。
 1. 使用畫面頂端的下拉式方塊，依據訂用帳戶或資源群組進行篩選。
 
 

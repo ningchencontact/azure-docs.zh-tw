@@ -3,21 +3,21 @@ title: Azure 入口網站文件
 summary: Azure 入口網站是統一的 Web 式主控台，提供有別於命令列工具的替代方案。 您可以透過 Azure 入口網站管理 Azure 訂用帳戶。 建置、管理和監視各種事件，包含簡單 Web 應用程式到複雜的雲端部署等。 建立自訂儀表板以提供一目瞭然的資源檢視，同時設定協助工具選項以提供最佳的使用體驗。
 metadata:
   title: Azure 入口網站文件
-  description: 了解如何使用 Azure 入口網站 Web 式主控台管理 Azure 訂用帳戶和資源。
+  description: 了解如何使用 Azure 入口網站 Web 式主控台管理 Azure 訂用帳戶和資源。 Azure 入口網站是使用命令列工具的替代方法。
   services: Azure portal
   ms.service: azure-portal
   ms.subservice: 
   ms.topic: landing-page
   ms.collection: collection
-  author: kfollis
-  ms.author: kfollis
-  ms.date: 09/17/2019
-  ms.openlocfilehash: 7fdd6f95ee2f84abc151f5c6e6e7929df2bc57a1
-  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+  author: mblythe
+  ms.author: mblythe
+  ms.date: 12/19/2019
+  ms.openlocfilehash: 4c04ae88f69ab4e17ea70e94683ce0add4823040
+  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 09/17/2019
-  ms.locfileid: "71076660"
+  ms.lasthandoff: 01/03/2020
+  ms.locfileid: "75640035"
 landingContent:
 - title: 關於 Azure 入口網站
   linkLists:
@@ -31,6 +31,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: 設定您的入口網站喜好設定
+      url: set-preferences.md
     - text: 建立和共用自訂儀表板
       url: azure-portal-dashboards.md
     - text: 管理我的最愛項目

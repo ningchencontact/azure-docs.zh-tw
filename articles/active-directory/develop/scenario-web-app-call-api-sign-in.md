@@ -1,5 +1,5 @@
 ---
-title: 登出時從快取中移除帳戶-Microsoft 身分識別平臺 |Azure
+title: 登出時從權杖快取移除帳戶-Microsoft 身分識別平臺 |Azure
 description: 瞭解如何在登出時從權杖快取移除帳戶
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 375382b1245186197657c5067e3c5b4ec2b15655
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5472b424f7d2b44b62e6e4495afaf7bdfbbc8439
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961653"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423516"
 ---
 # <a name="remove-accounts-from-the-cache-on-global-sign-out"></a>從全域登出的快取中移除帳戶
 
@@ -38,7 +38,7 @@ ms.locfileid: "74961653"
 
 您為應用程式註冊的**登出 Url**可讓您執行單一登出。Microsoft 身分識別平臺 `logout` 端點會呼叫向您的應用程式註冊的**登出 URL** 。 如果登出是從您的 web 應用程式或從另一個 web 應用程式或瀏覽器起始，就會發生此呼叫。 如需詳細資訊，請參閱[單一登出](v2-protocols-oidc.md#single-sign-out)。
 
-```CSharp
+```csharp
 public static class WebAppServiceCollectionExtensions
 {
  public static IServiceCollection AddMsal(this IServiceCollection services, IConfiguration configuration, IEnumerable<string> initialScopes, string configSectionName = "AzureAd")

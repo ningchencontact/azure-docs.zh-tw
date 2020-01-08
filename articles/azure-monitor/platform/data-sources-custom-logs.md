@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 3bd40e9a266305ac94ed53806bf394891e89c125
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6d85ada428ab448bd8e96545999ca038e532a32b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932503"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450670"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure 監視器中的自訂記錄
 
@@ -47,7 +47,7 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 ## <a name="defining-a-custom-log"></a>定義自訂記錄檔
 使用下列程序來定義自訂記錄檔。  如需新增自訂記錄檔之範例的逐步解說，請捲動到本文結尾處。
 
-### <a name="step-1-open-the-custom-log-wizard"></a>步驟 1. 開啟自訂記錄檔精靈
+### <a name="step-1-open-the-custom-log-wizard"></a>步驟 1： 開啟自訂記錄檔精靈
 自訂記錄檔精靈會在 Azure 入口網站中執行，並可讓您定義要收集的新自訂記錄檔。
 
 1. 在 Azure 入口網站中，選取 [Log Analytics 工作區] > 您的工作區 > [進階設定]。
@@ -55,7 +55,7 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 3. 根據預設，所有組態變更都會自動發送給所有代理程式。 若是 Linux 代理程式，組態檔會傳送給 Fluentd 資料收集器。
 4. 按一下 [新增+] 開啟自訂記錄檔精靈。
 
-### <a name="step-2-upload-and-parse-a-sample-log"></a>步驟 2. 上傳和剖析範例記錄檔
+### <a name="step-2-upload-and-parse-a-sample-log"></a>步驟 2： 上傳和剖析範例記錄檔
 一開始您要上傳自訂記錄檔的範例。  精靈會剖析並顯示此檔案中的項目以供您驗證。  Azure 監視器會使用您指定的分隔符號來識別每一筆記錄。
 
 **新行字元** 是預設的分隔符號，並且會用於每行一個項目的記錄檔。  如果一行的開頭是其中一種可用格式的日期和時間，則您可以指定 **時間戳記** 分隔符號，其可支援跨越多行的多個項目。
@@ -63,19 +63,19 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 如果使用時間戳記分隔符號，則儲存在 Azure 監視器中的每一筆記錄的 TimeGenerated 屬性將會填入針對記錄檔中的該項目指定的日期/時間。  如果使用新行字元分隔符號，則 TimeGenerated 會填入 Azure 監視器收集項目的日期和時間。
 
 1. 按一下 [瀏覽] 並瀏覽至範例檔案。  請注意，在某些瀏覽器中，這個按鈕可能標示為 [選擇檔案] 。
-2. 按一下 [下一步]。
+2. 按 [下一步]。
 3. 自訂記錄檔精靈會上傳檔案並列出其識別的記錄。
 4. 變更用來識別新記錄的分隔符號，並選取最能識別記錄檔中的記錄的分隔符號。
-5. 按一下 [下一步]。
+5. 按 [下一步]。
 
-### <a name="step-3-add-log-collection-paths"></a>步驟 3. 新增記錄檔收集路徑
+### <a name="step-3-add-log-collection-paths"></a>步驟 3： 新增記錄檔收集路徑
 您必須在代理程式上定義一個或多個它可以在其中找到自訂記錄檔的路徑。  您可以提供該記錄檔的特定路徑和名稱，或者您可以使用萬用字元為該名稱指定路徑。 這可支援每天會建立一個新檔案的應用程式或在一個檔案到達特定大小時提供支援。 您也可以為單一記錄檔提供多個路徑。
 
 例如，應用程式可能會每天建立一個記錄檔，且名稱中會包含日期，如同 log20100316.txt。 這類記錄檔的模式可能是 *log\*.txt*，而這會套用到任何遵循應用程式命名配置的記錄檔。
 
 下表提供可用來指定不同記錄檔的有效模式範例。
 
-| 描述 | 路徑 |
+| 說明 | Path |
 |:--- |:--- |
 | Windows 代理程式上的 *C:\Logs* 中，副檔名為 .txt 的所有檔案 |C:\Logs\\\*.txt |
 | Windows 代理程式上的 *C:\Logs* 中，名稱開頭為 log 且副檔名為 .txt 的所有檔案 |C:\Logs\log\*.txt |
@@ -86,7 +86,7 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 2. 輸入路徑並按一下 [+] **+** 按鈕。
 3. 針對任何其他路徑重複此程序。
 
-### <a name="step-4-provide-a-name-and-description-for-the-log"></a>步驟 4. 提供記錄檔的名稱和描述
+### <a name="step-4-provide-a-name-and-description-for-the-log"></a>步驟 4： 提供記錄檔的名稱和描述
 您指定的名稱將用於如上所述的記錄檔類型。  它一定會以 _CL 結尾以將自己辨別為自訂記錄檔。
 
 1. 輸入記錄檔的名稱。  **\__CL** 尾碼會自動提供。
@@ -118,7 +118,7 @@ Azure 監視器會從每個自訂記錄檔收集新的項目，間隔大約為�
 ## <a name="custom-log-record-properties"></a>自訂記錄檔記錄的屬性
 自訂記錄檔記錄的類型具有您提供的記錄檔名稱和下表中的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | TimeGenerated |Azure 監視器收集記錄的日期和時間。  如果記錄使用以時間為基礎的分隔符號，則這是從項目收集到的時間。 |
 | SourceSystem |收集記錄的來源代理程式類型。 <br> OpsManager - Windows 代理程式，直接連線或由 System Center Operations Manager 管理 <br> Linux – 所有的 Linux 代理程式 |
@@ -151,7 +151,7 @@ Azure 監視器會從每個自訂記錄檔收集新的項目，間隔大約為�
 ![記錄檔名稱](media/data-sources-custom-logs/log-name.png)
 
 ### <a name="validate-that-the-custom-logs-are-being-collected"></a>驗證會收集自訂記錄
-我們會使用*MyApp_CL*的簡單查詢，從收集的記錄檔傳回所有記錄。
+我們使用*MyApp_CL*的簡單查詢，從收集的記錄檔傳回所有記錄。
 
 ![無自訂欄位的記錄檔查詢](media/data-sources-custom-logs/query-01.png)
 

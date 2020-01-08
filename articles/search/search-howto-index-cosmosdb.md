@@ -1,20 +1,20 @@
 ---
 title: 搜尋 Azure Cosmos DB 的資料
 titleSuffix: Azure Cognitive Search
-description: 在 Azure 認知搜尋中，將 Azure Cosmos DB 資料來源編目，並將資料內嵌在全文檢索搜尋索引中。 索引子可為選取的資料來源 (例如 Azure Cosmos DB) 將資料擷取自動化。
+description: 從 Azure Cosmos DB 將資料匯入 Azure 認知搜尋中的可搜尋索引。 索引子可為選取的資料來源 (例如 Azure Cosmos DB) 將資料擷取自動化。
 author: mgottein
 manager: nitinme
 ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 616e5dc5ac6416d2efe1d9338b99c2b400fe572a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 01/02/2020
+ms.openlocfilehash: ef136345c7c41c720efd3c79923b6ce646de41e2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977109"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75642160"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>如何使用 Azure 認知搜尋中的索引子為 Cosmos DB 資料編制索引 
 
@@ -173,14 +173,14 @@ Azure 認知搜尋中的 Cosmos DB 索引子可以編目透過不同通訊協定
 
 要求的主體包含資料來源定義，其中應包含下列欄位：
 
-| 欄位   | 描述 |
+| 欄位   | 說明 |
 |---------|-------------|
 | **name** | 必要。 選擇任何名稱來表示您的資料來源物件。 |
 |**type**| 必要。 必須是 `cosmosdb`。 |
 |**credentials** | 必要。 必須是 Cosmos DB 連接字串。<br/>若是 SQL 集合，連接字串的格式如下： `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>針對 MongoDB 集合，請將**ApiKind = MongoDB**新增至連接字串：<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>針對 Gremlin 圖形和 Cassandra 資料表，請註冊[閘道索引子預覽](https://aka.ms/azure-cognitive-search/indexer-preview)以取得預覽的存取權，以及如何格式化認證的相關資訊。<br/><br/>請避免在端點 URL 中使用連接埠號碼。 如果您包含埠號碼，Azure 認知搜尋將無法為您的 Azure Cosmos DB 資料庫編制索引。|
 | **container** | 包含下列元素： <br/>**名稱**：必要。 指定要編制索引之資料庫集合的識別碼。<br/>**查詢**：選擇性。 您可以指定查詢，將任意 JSON 檔壓平合併為 Azure 認知搜尋可以編制索引的一般架構。<br/>針對 MongoDB API、Gremlin API 和 Cassandra API，不支援查詢。 |
 | **dataChangeDetectionPolicy** | 建議使用。 請參閱[索引變更的文件](#DataChangeDetectionPolicy)小節。|
-|**dataDeletionDetectionPolicy** | 選用。 請參閱[索引刪除的文件](#DataDeletionDetectionPolicy)小節。|
+|**dataDeletionDetectionPolicy** | 選擇性。 請參閱[索引刪除的文件](#DataDeletionDetectionPolicy)小節。|
 
 ### <a name="using-queries-to-shape-indexed-data"></a>使用查詢來形塑索引的資料
 您可以指定 SQL 查詢來壓平合併巢狀屬性或陣列、投影 JSON 屬性，以及篩選要編製索引的資料。 

@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: b598fafbbfce9a2c0a824dd6530d07a5933a2873
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 92e213a87796247128e7e3810db99fde8525e12a
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765201"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659214"
 ---
 # <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>處理暫時性錯誤並有效率地連接到適用於 MySQL 的 Azure 資料庫
 
@@ -52,7 +52,7 @@ ms.locfileid: "74765201"
 
 管理資料庫連接可能會對整體應用程式的效能造成重大影響。 若要優化應用程式的效能，目標應該是要減少建立連線的次數，以及在關鍵程式碼路徑中建立連接的時間。 我們強烈建議使用資料庫連接共用或持續連線來連接到適用於 MySQL 的 Azure 資料庫。 資料庫連接共用會處理資料庫連接的建立、管理和配置。 當程式要求資料庫連接時，它會排列現有閒置資料庫連接的配置優先順序，而不是建立新的連接。 當程式完成使用資料庫連接之後，就會復原連接以準備進一步使用，而不是單純地關閉。
 
-為了更清楚說明，本文提供[了](./sample-scripts-java-connection-pooling.md)使用 JAVA 做為範例的範例程式碼。 如需詳細資訊，請參閱[Apache COMMON DBCP](http://commons.apache.org/proper/commons-dbcp/)。
+為了更清楚說明，本文提供[了](./sample-scripts-java-connection-pooling.md)使用 JAVA 做為範例的範例程式碼。 如需詳細資訊，請參閱[Apache COMMON DBCP](https://commons.apache.org/proper/commons-dbcp/)。
 
 > [!NOTE]
 > 伺服器會將超時機制設定為關閉處於閒置狀態的連線，以釋放資源。 請務必設定驗證系統，以確保持續連線在使用時的有效性。 如需詳細資訊，請參閱在[用戶端設定驗證系統，以確保持續連線的有效性](concepts-connectivity.md#configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections)。
@@ -112,4 +112,4 @@ public class SimpleTestOnBorrowExample {
 
 ## <a name="next-steps"></a>後續步驟
 
-* [針對適用於 MySQL 的 Azure 資料庫的連線問題進行疑難排解](howto-troubleshoot-common-connection-issues.md)
+* [針對適用於 MySQL 的 Azure 資料庫連線問題進行疑難排解](howto-troubleshoot-common-connection-issues.md)

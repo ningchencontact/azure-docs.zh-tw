@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a9c1ca3ac55c1c995ac858e758d6930b49c5ea1c
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: abee04afca45a2d6f558858b4490c8be1f37a2f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287017"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451289"
 ---
 # <a name="azure-serial-console-for-linux"></a>適用于 Linux 的 Azure 序列主控台
 
@@ -29,10 +29,10 @@ Azure 入口網站中的序列主控台可讓您存取 Linux 虛擬機器（Vm�
 如需 Windows 的序列主控台檔，請參閱[windows 的序列主控台](../windows/serial-console.md)。
 
 > [!NOTE]
-> 序列主控台已在全球 Azure 區域中正式推出。 目前尚未在 Azure Government 或「Azure 中國」雲端中提供序列主控台。
+> 序列主控台已在全球 Azure 區域正式推出，且在 Azure Government 中為公開預覽。 Azure 中國雲端尚未提供此功能。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 您的 VM 或虛擬機器擴展集實例必須使用資源管理部署模型。 不支援傳統部署。
 
@@ -59,7 +59,7 @@ Azure 入口網站中的序列主控台可讓您存取 Linux 虛擬機器（Vm�
 > [!NOTE]
 > 如果您在序列主控台中沒有看到任何項目，請確定您的 VM 上已啟用開機診斷。 按**Enter**通常會修正序列主控台中沒有顯示任何內容的問題。
 
-配送映像      | 序列主控台存取
+通路業      | 序列主控台存取
 :-----------|:---------------------
 Red Hat Enterprise Linux    | 預設啟用的序列主控台存取。
 CentOS      | 預設啟用的序列主控台存取。
@@ -69,7 +69,7 @@ SUSE        | Azure 上提供的較新 SLES 映像已預設啟用序列主控台
 Oracle Linux        | 預設啟用的序列主控台存取。
 
 ### <a name="custom-linux-images"></a>自訂 Linux 映像
-若要啟用自訂 Linux VM 映像的序列主控台，請在 */etc/inittab* 檔案中啟用主控台存取以在 `ttyS0` 上執行終端機。 例如： `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`。 您可能也需要在 ttyS0 上產生 getty。 這可以透過 `systemctl start serial-getty@ttyS0.service`來完成。
+若要啟用自訂 Linux VM 映像的序列主控台，請在 */etc/inittab* 檔案中啟用主控台存取以在 `ttyS0` 上執行終端機。 例如： `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` 。 您可能也需要在 ttyS0 上產生 getty。 這可以透過 `systemctl start serial-getty@ttyS0.service`來完成。
 
 您也會想要新增 ttys0 做為序列輸出的目的地。 如需有關設定自訂映射以使用序列主控台的詳細資訊，請參閱在[Azure 中建立及上傳 LINUX VHD](https://aka.ms/createuploadvhd#general-linux-system-requirements)的一般系統需求。
 
@@ -101,15 +101,15 @@ SSH 設定問題 | 存取序列主控台，然後變更設定。 無論 VM 的 S
 目前對序列主控台進行的所有存取都會記錄在虛擬機器的[開機診斷](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics)記錄中。 這些記錄的存取權均由 Azure 虛擬機器系統管理員所擁有和控制。
 
 > [!CAUTION]
-> 不會記錄主控台的存取密碼。 但是，如果在主控台內執行的命令包含或輸出密碼、祕密、使用者名稱，或任何其他形式的個人識別資訊 (PII)，則這些命令將會寫入至 VM 開機診斷記錄。 它們將與所有其他可見文字一起寫入，作為序列主控台回滾函式實作的一部分。 這些記錄是循環的，只有具有診斷儲存體帳戶讀取權限的個人才能存取它們。 但是，我們建議遵循使用遠端桌面的最佳作法，以取得可能涉及祕密和/或 PII 的任何項目。
+> 不會記錄主控台的存取密碼。 但是，如果在主控台內執行的命令包含或輸出密碼、祕密、使用者名稱，或任何其他形式的個人識別資訊 (PII)，則這些命令將會寫入至 VM 開機診斷記錄。 它們將與所有其他可見文字一起寫入，作為序列主控台回滾函式實作的一部分。 這些記錄是循環的，只有具有診斷儲存體帳戶讀取權限的個人才能存取它們。 如果您要輸入包含秘密或 PII 的任何 dataor 命令，則建議使用 SSH，除非序列主控台是絕對必要的。
 
 ### <a name="concurrent-usage"></a>並行使用方式
 如果在某位使用者已連線至序列主控台的情況下，另一位使用者成功取得該相同虛擬機器的存取權，系統就會將第一位使用者中斷連線，而讓第二位使用者連線至相同的工作階段。
 
 > [!CAUTION]
-> 這表示已中斷連線的使用者將不會登出。在進行中斷連線時強制登出的功能（使用 SIGHUP 或類似的機制）仍在藍圖中。 就 Windows 而言，在特殊系統管理主控台 (SAC) 中會啟用自動逾時，不過，針對 Linux，您則可以設定終端機逾時設定。 為此，請在您用以登入主控台之使用者的 `export TMOUT=600`.bash_profile*或*.profile*檔案中新增*。 此設定將在 10 分鐘後逾時。
+> 這表示已中斷連線的使用者將不會登出。在進行中斷連線時強制登出的功能（使用 SIGHUP 或類似的機制）仍在藍圖中。 就 Windows 而言，在特殊系統管理主控台 (SAC) 中會啟用自動逾時，不過，針對 Linux，您則可以設定終端機逾時設定。 為此，請在您用以登入主控台之使用者的 *.bash_profile* 或 *.profile* 檔案中新增 `export TMOUT=600`。 此設定將在 10 分鐘後逾時。
 
-## <a name="accessibility"></a>協助工具
+## <a name="accessibility"></a>Accessibility
 協助工具是 Azure 序列主控台的主要焦點。 為此，我們已確認序列主控台完全可供存取。
 
 ### <a name="keyboard-navigation"></a>鍵盤導覽
@@ -121,7 +121,7 @@ SSH 設定問題 | 存取序列主控台，然後變更設定。 無論 VM 的 S
 ## <a name="known-issues"></a>已知問題
 我們注意到序列主控台和 VM 的作業系統有一些問題。 以下是這些問題的清單，以及適用于 Linux Vm 的緩和措施步驟。 這些問題和緩和措施適用于 Vm 和虛擬機器擴展集實例。 如果這些不符合您所看到的錯誤，請[參閱常見的](./serial-console-errors.md)序列主控台服務錯誤。
 
-問題                           |   緩和
+問題                           |   降低
 :---------------------------------|:--------------------------------------------|
 在連線橫幅之後按下 **Enter** 鍵並不會顯示登入提示。 | 如需詳細資訊，請參閱[按 Enter 鍵沒有任何作用](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) \(英文\)。 如果您執行的是自訂 VM、強化設備，或是導致 Linux 無法連線到序列埠的 GRUB 設定，就可能會發生此問題。
 序列主控台文字只會佔用部分的螢幕大小 (通常在使用文字編輯器之後)。 | 序列主控台不支援對視窗大小進行交涉 ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt))，這表示系統將不會傳送 SIGWINCH 訊號以更新螢幕大小，而且 VM 將無法得知您終端機的大小。 安裝 xterm 或類似的公用程式，以向您提供 `resize` 命令，然後再執行 `resize`。
@@ -133,43 +133,43 @@ SLES BYOS 映射中的鍵盤輸入不穩定。 鍵盤輸入只會偶爾被辨識
 
 **問：我要如何傳送意見反應？**
 
-答： 在 https://aka.ms/serialconsolefeedback 建立 GitHub 問題來提供意見反應。 或者，您也可以透過 azserialhelp@microsoft.com 或在 https://feedback.azure.com 的虛擬機器類別中傳送意見反應 (較不建議)。
+A. 在 https://aka.ms/serialconsolefeedback 建立 GitHub 問題來提供意見反應。 或者，您也可以透過 azserialhelp@microsoft.com 或在 https://feedback.azure.com 的虛擬機器類別中傳送意見反應 (較不建議)。
 
 **問：序列主控台是否支援複製/貼上？**
 
-答： 是。 請使用 **Ctrl**+**Shift**+**C** 與 **Ctrl**+**Shift**+**V** 來針對終端機進行複製及貼上。
+A. 可以。 請使用 **Ctrl**+**Shift**+**C** 與 **Ctrl**+**Shift**+**V** 來針對終端機進行複製及貼上。
 
 **問：我可以使用序列主控台，而不是 SSH 連線嗎？**
 
-答： 雖然這在技術上應該是可行的，但序列主控台主要是要作為無法透過 SSH 進行連線時的疑難排解工具。 基於以下兩個原因，建議您不要以序列主控台取代 SSH：
+A. 雖然這在技術上應該是可行的，但序列主控台主要是要作為無法透過 SSH 進行連線時的疑難排解工具。 基於以下兩個原因，建議您不要以序列主控台取代 SSH：
 
 - 序列主控台沒有如 SSH 一樣多的頻寬。 因為它是純文字的連線，所以很難進行更多 GUI 大量互動。
 - 目前，只有透過使用使用者名稱和密碼才能存取序列主控台。 因為 SSH 金鑰的安全性遠高於使用者名稱/密碼的組合，因此就登入安全性的觀點而言，我們建議 SSH 應比序列主控台優先使用。
 
 **問：誰可以針對我的訂用帳戶啟用或停用序列主控台？**
 
-答： 若要以訂用帳戶層級的規模啟用或停用序列主控台，您必須有該訂用帳戶的寫入權限。 具有寫入權限的角色包括系統管理員或擁有者角色。 自訂角色也可以有寫入權限。
+A. 若要以訂用帳戶層級的規模啟用或停用序列主控台，您必須有該訂用帳戶的寫入權限。 具有寫入權限的角色包括系統管理員或擁有者角色。 自訂角色也可以有寫入權限。
 
 **問：誰可以存取我的 VM/虛擬機器擴展集的序列主控台？**
 
-答： 您必須擁有 VM 或虛擬機器擴展集的虛擬機器參與者角色或更高的許可權，才能存取序列主控台。
+A. 您必須擁有 VM 或虛擬機器擴展集的虛擬機器參與者角色或更高的許可權，才能存取序列主控台。
 
 **問：我的序列主控台沒有顯示任何內容，我該怎麼做？**
 
-答： 您映像的序列主控台存取設定很有可能是錯誤的。 如需有關設定您的映像以啟用序列主控台的詳細資訊，請參閱[序列主控台 Linux 發行版本可用性](#serial-console-linux-distribution-availability)。
+A. 您映像的序列主控台存取設定很有可能是錯誤的。 如需有關設定您的映像以啟用序列主控台的詳細資訊，請參閱[序列主控台 Linux 發行版本可用性](#serial-console-linux-distribution-availability)。
 
 **問：序列主控台是否適用于虛擬機器擴展集？**
 
-答： 是的，它是！ 請參閱[序列主控台以取得虛擬機器擴展集](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
+A. 是的，它是！ 請參閱[序列主控台以取得虛擬機器擴展集](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
 **問：如果我只使用 SSH 金鑰驗證來設定 VM 或虛擬機器擴展集，仍然可以使用序列主控台來連線到我的 VM/虛擬機器擴展集實例嗎？**
 
-答： 是。 因為序列主控台並不需要 SSH 金鑰，因此您只需要設定使用者名稱/密碼組合就可以。 您可以透過在 Azure 入口網站中選取 [重設密碼] 並使用這些認證登入序列主控台來執行此操作。
+A. 可以。 因為序列主控台並不需要 SSH 金鑰，因此您只需要設定使用者名稱/密碼組合就可以。 您可以透過在 Azure 入口網站中選取 [重設密碼] 並使用這些認證登入序列主控台來執行此操作。
 
 ## <a name="next-steps"></a>後續步驟
 * 使用序列主控台來[存取 GRUB 與單一使用者模式](serial-console-grub-single-user-mode.md)。
 * 使用序列主控台來進行 [NMI 和 SysRq 呼叫](serial-console-nmi-sysrq.md)。
-* 瞭解如何使用序列主控台[在各種散發版本中啟用 GRUB](serial-console-grub-proactive-configuration.md) 
+* 瞭解如何使用序列主控台[在各種散發版本中啟用 GRUB](serial-console-grub-proactive-configuration.md)
 * 序列主控台也適用於 [Windows VM](../windows/serial-console.md)。
 * 深入了解[開機診斷](boot-diagnostics.md)。
 

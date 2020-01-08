@@ -1,25 +1,25 @@
 ---
 title: 將受控服務供應項目發佈到 Azure Marketplace
 description: 了解如何發佈將客戶上線至 Azure 委派資源管理的受控服務。
-ms.date: 11/15/2019
+ms.date: 12/16/2019
 ms.topic: conceptual
-ms.openlocfilehash: be9d93c2b71bb3db7df86ddd44e0171bec522294
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: d1eb06794551be498e05e2b9c3b893013b718ce9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483184"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453526"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>將受控服務供應項目發佈到 Azure Marketplace
 
-在此文章中，您將了解如何使用 [Cloud Partner 入口網站](https://azuremarketplace.microsoft.com)，將公用或私人受控服務供應項目發佈至 [Azure Marketplace](https://cloudpartner.azure.com/)，讓購買供應項目的客戶能將資源上線，以使用 Azure 委派的資源管理。
+在此文章中，您將了解如何使用 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)，將公用或私人受控服務供應項目發佈至 [Azure Marketplace](https://azuremarketplace.microsoft.com)，讓購買供應項目的客戶能將資源上線，以使用 Azure 委派的資源管理。
 
 > [!NOTE]
-> 您也需要有效的[合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)，才能建立並發佈這些供應項目。 如果您還沒有帳戶，[註冊程序](https://aka.ms/joinmarketplace)會引導您完成在合作夥伴中心建立帳戶並註冊商業 Marketplace 計畫的步驟。 您的 Microsoft 合作夥伴網路 (MPN) 識別碼將會與您發佈的供應項目[自動關聯](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) \(部分機器翻譯\)，以追蹤您對客戶參與整體的影響。
+> 您也需要有效的[合作夥伴中心帳戶](../../marketplace/partner-center-portal/create-account.md)，才能建立並發佈這些供應項目。 如果您還沒有帳戶，[註冊程序](https://aka.ms/joinmarketplace)會引導您完成在合作夥伴中心建立帳戶並註冊商業 Marketplace 計畫的步驟。 您的 Microsoft 合作夥伴網路 (MPN) 識別碼將會與您發佈的供應項目[自動關聯](../../billing/billing-partner-admin-link-started.md) \(部分機器翻譯\)，以追蹤您對客戶參與整體的影響。
 >
 > 如果您不想將供應項目發佈至 Azure Marketplace，您可以使用 Azure Resource Manager 範本手動讓客戶上線。 如需詳細資訊，請參閱[讓客戶在 Azure 委派的資源管理中上線](onboard-customer.md)。
 
-發佈受控服務供應項目，類似於將任何其他類型供應項目發佈至 Azure Marketplace。 若要了解該程序，請參閱 [Azure Marketplace 和 Azure Marketplace 和 AppSource 發行指南](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) \(部分機器翻譯\) 和[管理 Azure 與 AppSource Marketplace 供應項目](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers) \(部分機器翻譯\)。 您也應檢閱[商業市集認證原則](https://docs.microsoft.com/legal/marketplace/certification-policies)，尤其是[受控服務](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)一節。
+發佈受控服務供應項目，類似於將任何其他類型供應項目發佈至 Azure Marketplace。 若要了解該程序，請參閱 [Azure Marketplace 和 Azure Marketplace 和 AppSource 發行指南](../../marketplace/marketplace-publishers-guide.md) \(部分機器翻譯\) 和[管理 Azure 與 AppSource Marketplace 供應項目](../../marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers.md) \(部分機器翻譯\)。 您也應檢閱[商業市集認證原則](https://docs.microsoft.com/legal/marketplace/certification-policies)，尤其是[受控服務](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)一節。
 
 當客戶新增您的供應項目時，他們將能夠[委派一個或多個特定訂用帳戶或資源群組](#the-customer-onboarding-process)，然後讓這些項目上線，以進行 Azure 委派的資源管理。 請注意，在訂用帳戶 (或訂用帳戶內的資源群組) 可以上線之前，訂用帳戶必須藉由手動註冊 **Microsoft.ManagedServices** 資源提供者來獲得上線的權限。
 
@@ -36,11 +36,11 @@ ms.locfileid: "74483184"
 
 在 [供應項目設定] 區段中，提供下列項目：
 
-|欄位  |描述  |
+|欄位  |說明  |
 |---------|---------|
 |**供應項目識別碼**     | 您供應項目的唯一識別碼 (您的發行者設定檔內)。 此識別碼只能包含小寫英數字元、連字號與底線，且最多 50 個字元。 請記住，客戶可能會在產品 URL 與帳單報表之類的地方看到供應項目識別碼。 一旦發佈供應項目，就無法變更此值。        |
 |**發行者識別碼**     | 將會與供應項目相關聯的發行者識別碼。 如果您有多個發行者識別碼，您可以選取要用於此供應項目的識別碼。       |
-|**Name**     | 您的供應項目在 Azure Marketplace 和 Azure 入口網站中，客戶所看到的名稱 (最多 50 個字元)。 使用客戶能理解且容易識別的品牌名稱 - 如果要透過您自己的網站宣傳此供應項目，請務必在此使用完全相同的名稱。        |
+|**名稱**     | 您的供應項目在 Azure Marketplace 和 Azure 入口網站中，客戶所看到的名稱 (最多 50 個字元)。 使用客戶能理解且容易識別的品牌名稱 - 如果要透過您自己的網站宣傳此供應項目，請務必在此使用完全相同的名稱。        |
 
 完成之後，請選取 [儲存]。 現在，您可以到 [方案] 區段繼續設定。
 
@@ -54,13 +54,16 @@ ms.locfileid: "74483184"
 
 完成 [方案詳細資料] 區段中的下列區段：
 
-|欄位  |描述  |
+|欄位  |說明  |
 |---------|---------|
-|**標題**     | 方案所顯示的易記名稱。 長度上限為 50 個字元。        |
-|**摘要**     | 顯示在標題下的方案簡短說明。 長度上限是 100 個字元。        |
-|**描述**     | 描述文字，提供詳細的方案說明。         |
+|**Title** (標題)     | 方案所顯示的易記名稱。 長度上限為 50 個字元。        |
+|**總結**     | 顯示在標題下的方案簡短說明。 長度上限是 100 個字元。        |
+|**說明**     | 描述文字，提供詳細的方案說明。         |
 |**計費模型**     | 這裡顯示 2 個計費模型，但您必須為受控服務供應項目選擇 [自備授權]。 這表示您會直接向您的客戶收取此供應項目的相關費用，而且 Microsoft 不會向您收取任何費用。   |
-|**這是否為私人方案？**     | 表明 SKU 為私人或公用。 預設值為 [否] (公用)。 如果您不變更此選項，您的方案不會限於特定客戶 (或特定數目的客戶)；發佈公用方案之後，您無法再將它變更為私人方案。 若要使此方案只有特定客戶才能取得，請選取 [是]。 當您這麼做時，必須提供訂用帳戶識別碼來識別客戶。 您可以逐一輸入 (最多 10 個訂用帳戶)，或上傳 .csv 檔案 (最多 20,000 個訂用帳戶)。 請務必在此包含您自己的訂用帳戶，以便您可以測試及驗證供應項目。 如需詳細資訊，請參閱[私人 SKU 和方案](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus) \(部分機器翻譯\)。  |
+|**這是否為私人方案？**     | 表明 SKU 為私人或公用。 預設值為 [否] (公用)。 如果您不變更此選項，您的方案不會限於特定客戶 (或特定數目的客戶)；發佈公用方案之後，您無法再將它變更為私人方案。 若要使此方案只有特定客戶才能取得，請選取 [是]。 當您這麼做時，必須提供訂用帳戶識別碼來識別客戶。 您可以逐一輸入 (最多 10 個訂用帳戶)，或上傳 .csv 檔案 (最多 20,000 個訂用帳戶)。 請務必在此包含您自己的訂用帳戶，以便您可以測試及驗證供應項目。 如需詳細資訊，請參閱[私人 SKU 和方案](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) \(部分機器翻譯\)。  |
+
+> [!IMPORTANT]
+> 方案發行為公開之後，您就無法將它變更為私用。 若要控制哪些客戶可以接受您的供應專案和委派資源，請使用私用方案。 有了公用方案，您就不能將可用性限制在特定客戶或甚至是特定數目的客戶（不過，如果您選擇這樣做，則可以完全停止銷售方案）。 當客戶接受供應專案之後，目前沒有任何機制可以拒絕或移除委派，雖然您可以隨時聯繫客戶，並要求他們[移除您的存取權](view-manage-service-providers.md#add-or-remove-service-provider-offers)。
 
 ### <a name="manifest-details"></a>資訊清單詳細資料
 
@@ -79,8 +82,8 @@ ms.locfileid: "74483184"
 
 - **Azure AD 物件**識別碼：使用者、使用者群組或應用程式的 Azure AD 識別碼，會將特定許可權（如角色定義所述）授與客戶的資源。
 - **Azure AD 物件顯示名稱**：可協助客戶瞭解此授權用途的易記名稱。 客戶會在委派資源時看到此名稱。
-- **角色定義**：從清單中選取其中一個可用的 Azure AD 內建角色。 此角色將會決定 [Azure AD 物件識別碼] 欄位中的使用者，對於您的客戶資源會有那些權限。 如需這些角色的描述，請參閱[內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)和[適用於 Azure 委派資源管理的角色支援](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
-- 可**指派的角色**：只有在您已在此授權的**角色定義**中選取 [使用者存取系統管理員] 時，才需要執行此動作。 若是如此，您必須在此新增一或多個可指派的角色。 [Azure AD 物件識別碼] 欄位中的使用者將能夠將這些**可指派的角色**指派給[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)，[部署可補救的原則](deploy-policy-remediation.md)時需要這些角色。 請注意，不會有其他一般與「使用者存取系統管理員」角色相關聯的權限套用至此使用者。 如果您未在此選取一個或多個角色，您的提交將不會通過認證。 (如果您沒有為此使用者的 [角色定義] 選取 [使用者存取系統管理員]，則此欄位無效。)
+- **角色定義**：從清單中選取其中一個可用的 Azure AD 內建角色。 此角色將會決定 [Azure AD 物件識別碼] 欄位中的使用者，對於您的客戶資源會有那些權限。 如需這些角色的說明，請參閱[Azure 委派資源管理的](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)[內建角色](../../role-based-access-control/built-in-roles.md)和角色支援。
+- 可**指派的角色**：只有在您已在此授權的**角色定義**中選取 [使用者存取系統管理員] 時，才需要執行此動作。 若是如此，您必須在此新增一或多個可指派的角色。 [Azure AD 物件識別碼] 欄位中的使用者將能夠將這些**可指派的角色**指派給[受控識別](../../active-directory/managed-identities-azure-resources/overview.md)，[部署可補救的原則](deploy-policy-remediation.md)時需要這些角色。 請注意，不會有其他一般與「使用者存取系統管理員」角色相關聯的權限套用至此使用者。 如果您未在此選取一個或多個角色，您的提交將不會通過認證。 (如果您沒有為此使用者的 [角色定義] 選取 [使用者存取系統管理員]，則此欄位無效。)
 
 > [!TIP]
 > 在多數情況下，建議您指派權限給 Azure AD 使用者群組或服務主體，而不是指派給一系列個別使用者帳戶。 如此一來，當您的存取需求變更時，就可以新增或移除個別使用者的存取權，而不需要更新並重新發佈方案。 如需其他建議，請參閱 [Azure Lighthouse 案例中的租用戶、角色和使用者](../concepts/tenants-users-roles.md)。
@@ -93,12 +96,12 @@ ms.locfileid: "74483184"
 
 在 [概觀] 區段中完成下列欄位：
 
-|欄位  |描述  |
+|欄位  |說明  |
 |---------|---------|
-|**標題**     |  供應項目的標題，通常是較長的正式名稱。 這個標題會醒目顯示在 Marketplace 中。 長度上限為 50 個字元。 在多數情況下，這應該與您在 [供應項目設定] 區段中所提供的 [名稱] 相同。       |
-|**摘要**     | 您供應項目的用途或功能簡介。 此項目通常顯示在標題底下。 長度上限是 100 個字元。        |
+|**Title** (標題)     |  供應項目的標題，通常是較長的正式名稱。 這個標題會醒目顯示在 Marketplace 中。 長度上限為 50 個字元。 在多數情況下，這應該與您在 [供應項目設定] 區段中所提供的 [名稱] 相同。       |
+|**總結**     | 您供應項目的用途或功能簡介。 此項目通常顯示在標題底下。 長度上限是 100 個字元。        |
 |**完整摘要**     | 您供應項目用途或功能的較長摘要。 長度上限為 256 個字元。        |
-|**描述**     | 關於供應項目的詳細資訊。 此欄位的最大長度為 3000 個字元，且支援簡單 HTML 格式設定。 您必須在描述中的某處包含「受控服務」這些字。       |
+|**說明**     | 關於供應項目的詳細資訊。 此欄位的最大長度為 3000 個字元，且支援簡單 HTML 格式設定。 您必須在描述中的某處包含「受控服務」這些字。       |
 |**行銷識別碼**     | 適合 URL 的唯一識別碼。 此識別碼只能包含小寫英數位元和連字號。 這會用於此供應專案的 Marketplace Url。 例如，如果您的發行者識別碼為 *contoso*，而行銷識別碼是 *sampleApp*，則 Azure Marketplace 中供應項目的 URL 會是 *https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp* 。        |
 |**預覽訂用帳戶識別碼**     | 可新增一到 100 個訂用帳戶識別碼。 與這些訂用帳戶相關聯的客戶，將能夠在供應項目於 Azure Marketplace 上線之前檢視它。 我們建議您在此包含自己的訂用帳戶，以便您能在供應項目可供客戶取得之前，預覽供應項目在 Azure Marketplace 中的顯示方式。  (Microsoft 支援和工程小組也能在此預覽期間檢視您的供應項目。)   |
 |**實用連結**     | 與您供應項目相關的 URL，例如文件、版本資訊、常見問題集等等。        |
@@ -123,7 +126,7 @@ ms.locfileid: "74483184"
 
 在 [潛在客戶管理] 區段中，您可以選取將會儲存您潛在客戶的 CRM 系統。 請注意，根據[受控服務認證原則](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)，必須要有**潛在客戶目的地**。
 
-最後，在 [法律] 區段中，提供您的 [隱私權原則 URL] 與 [使用規定]。 您也可以在這裡指定此供應項目是否要使用[標準合約](https://docs.microsoft.com/azure/marketplace/standard-contract) \(部分機器翻譯\)。
+最後，在 [法律] 區段中，提供您的 [隱私權原則 URL] 與 [使用規定]。 您也可以在這裡指定此供應項目是否要使用[標準合約](../../marketplace/standard-contract.md) \(部分機器翻譯\)。
 
 請務必先儲存您的變更，再到 [支援] 區段繼續設定。
 
@@ -135,23 +138,23 @@ ms.locfileid: "74483184"
 
 ## <a name="publish-your-offer"></a>發佈您的供應項目
 
-完成所有區段之後，下一步是將供應項目發佈至 Azure Marketplace。 選取 [發行] 按鈕來起始供應項目上線程序。 如需有關此程序的詳細資訊，請參閱[發行 Azure Marketplace 和 AppSource 供應項目](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer) \(部分機器翻譯\)。
+完成所有區段之後，下一步是將供應項目發佈至 Azure Marketplace。 選取 [發行] 按鈕來起始供應項目上線程序。 如需有關此程序的詳細資訊，請參閱[發行 Azure Marketplace 和 AppSource 供應項目](../../marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer.md) \(部分機器翻譯\)。
 
-您可以隨時[發佈供應專案的更新版本](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-update-offer)。 例如，您可能會想要將新的角色定義新增至先前發佈的供應專案。 當您這麼做時，已新增供應專案的客戶會在 [Azure 入口網站] 的 [[**服務提供者**](view-manage-service-providers.md)] 頁面中看到一個圖示，讓他們知道有可用的更新。 每位客戶都可以[檢查變更](view-manage-service-providers.md#update-service-provider-offers)，並決定是否要更新為新的版本。 
+您可以隨時[發佈供應項目的更新版本](../../marketplace/cloud-partner-portal/manage-offers/cpp-update-offer.md)。 例如，您可能會想要將新的角色定義新增至先前發佈的供應項目。 當您這麼做時，已新增供應項目的客戶會在 Azure 入口網站的 [[服務提供者](view-manage-service-providers.md)] 頁面中看到一個圖示，讓他們知道有可用的更新。 每個客戶都可以[檢閱變更](view-manage-service-providers.md#update-service-provider-offers)，並決定是否要更新為新的版本。 
 
 ## <a name="the-customer-onboarding-process"></a>客戶上線程序
 
-客戶新增您的供應專案之後，他們將能夠[委派一或多個特定](view-manage-service-providers.md#delegate-resources)的訂用帳戶或資源群組，然後針對 Azure 委派的資源管理進行上架。 如果客戶已接受供應項目，但未委派任何資源，則他們會在 Azure 入口網站中服務提供者[**頁面上的 [提供者供應項目]** ](view-manage-service-providers.md) 區段頂端看到一個備註。
+客戶新增您的供應項目之後，他們將能夠[委派一個或多個特定訂用帳戶或資源群組](view-manage-service-providers.md#delegate-resources)，然後讓這些項目上線，以進行 Azure 委派的資源管理。 如果客戶已接受供應項目，但未委派任何資源，則他們會在 Azure 入口網站中[**服務提供者**](view-manage-service-providers.md)頁面上的 [提供者供應項目] 區段頂端看到一個備註。
 
 > [!IMPORTANT]
-> 委派必須由客戶租使用者中的非來賓帳戶完成，其中具有所要上架之訂用帳戶的[擁有者內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)（或包含正在上架的資源群組）。 若要查看可委派訂用帳戶的所有使用者，客戶租用戶中的使用者可以在 Azure 入口網站中選取訂用帳戶並開啟 [存取控制 (IAM)]，然後[查看所有具有「擁有者」角色的使用者](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions)。
+> 委派必須由客戶租用戶中的非來賓帳戶執行，且該租用戶對於要上線的訂用帳戶必須有[「擁有者」內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) (部分機器翻譯) (或包含要上線的資源群組)。 若要查看所有可委派訂用帳戶的使用者，客戶租使用者中的使用者可以在 Azure 入口網站中選取訂用帳戶，開啟 **存取控制（IAM）** ，[列出所有角色](../../role-based-access-control/role-definitions-list.md#list-all-roles)，然後選取 **擁有**者 以查看具有該角色的所有使用者。
 
-在客戶委派訂用帳戶（或訂用帳戶內的一或多個資源群組）之後， **ManagedServices**資源提供者將會針對該訂用帳戶註冊，而您租使用者中的使用者將能夠根據您供應專案中的授權存取委派的資源。
+客戶委派訂用帳戶 (或訂用帳戶內的一或多個資源群組) 之後，將會為該訂用帳戶註冊 **Microsoft.ManagedServices** 資源提供者，您租用戶中的使用者將能夠根據您供應項目中的授權存取委派的資源。
 
 > [!NOTE]
-> 此時，如果訂用帳戶使用 Azure Databricks，就無法委派訂用帳戶（或訂閱內的資源群組）。 同樣地，如果已委派訂用帳戶（或訂用帳戶內的資源群組），則目前無法在該訂用帳戶中建立 Databricks 工作區。
+> 此時，如果訂用帳戶使用 Azure Databricks，就無法委派訂用帳戶 (或訂用帳戶內的資源群組)。 同樣地，如果已委派訂用帳戶 (或訂用帳戶內的資源群組)，則目前無法在該訂用帳戶中建立 Databricks 工作區。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 了解[跨租用戶管理體驗](../concepts/cross-tenant-management-experience.md)。
-- 前往 Azure 入口網站中的 [我的客戶][](view-manage-customers.md)，來**檢視和管理客戶**。
+- 前往 Azure 入口網站中的 [我的客戶]，以[檢視及管理客戶](view-manage-customers.md)。

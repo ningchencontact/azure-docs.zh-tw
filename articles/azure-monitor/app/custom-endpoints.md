@@ -1,22 +1,22 @@
 ---
-title: Azure 監視器 Azure 應用程式 Insights 會覆寫預設 SDK 端點 |Microsoft Docs
-description: 針對 Azure Government 之類的區域，修改預設 Azure 應用程式 Insights SDK 端點。
+title: Azure 應用程式 Insights 覆寫預設 SDK 端點
+description: 針對 Azure Government 之類的區域，修改預設 Azure 監視器 Application Insights SDK 端點。
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/26/2019
-ms.openlocfilehash: e1db9782fe923f7a5759f4e001cd0db970606fed
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: c04b793512eccf6aaff7d3ed3cc65efdd3dfc303
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677486"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432580"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>覆寫預設端點 Application Insights
 
-若要從 Application Insights 將資料傳送到特定區域，您必須覆寫預設端點位址。 每個 SDK 都需要稍微不同的修改，這全都會在本文中說明。 這些變更需要調整範例程式碼，並將 `QuickPulse_Endpoint_Address`、`TelemetryChannel_Endpoint_Address` 和 `Profile_Query_Endpoint_address` 的預留位置值取代為特定區域的實際端點位址。 本文結尾包含需要此設定之區域的端點位址連結。
+若要從 Application Insights 將資料傳送到特定區域，您必須覆寫預設端點位址。 每個 SDK 都需要稍微不同的修改，這全都會在本文中說明。 這些變更需要調整範例程式碼，並將 `QuickPulse_Endpoint_Address`、`TelemetryChannel_Endpoint_Address`和 `Profile_Query_Endpoint_address` 的預留位置值取代為特定區域的實際端點位址。 本文結尾包含需要此設定之區域的端點位址連結。
 
 ## <a name="sdk-code-changes"></a>SDK 程式碼變更
 
@@ -178,7 +178,7 @@ Profile Endpoint: "Profile_Query_Endpoint_address"
 Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 ```
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 
 ```javascript
 <script type="text/javascript">
@@ -195,7 +195,7 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 目前只有要求端點修改的區域會[Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)和[Azure 中國](https://docs.microsoft.com/azure/china/resources-developer-guide)。
 
-|地區 |  端點名稱 | Value |
+|地區 |  端點名稱 | 值 |
 |-----------------|:------------|:-------------|
 | Azure 中國 | 遙測通道 | `https://dc.applicationinsights.azure.cn/v2/track` |
 | Azure 中國 | QuickPulse （即時計量） |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
@@ -207,7 +207,7 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 如果您目前使用的是通常透過 ' api.applicationinsights.io ' 存取的[Application Insights REST API](https://dev.applicationinsights.io/
 ) ，您將需要使用區域的本機端點：
 
-|地區 |  端點名稱 | Value |
+|地區 |  端點名稱 | 值 |
 |-----------------|:------------|:-------------|
 | Azure 中國 | REST API | `api.applicationinsights.azure.cn` |
 | Azure 政府機構 | REST API | `api.applicationinsights.us`|

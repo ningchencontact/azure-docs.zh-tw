@@ -15,12 +15,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 28f00db3b604534be5ff9cee79c0aacc41f066b5
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 1fdf776570b6f10a363fb98dfe343387d86219d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464159"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350896"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>如何在 Azure 入口網站中佈建 Windows SQL Server 虛擬機器
 
@@ -29,9 +29,9 @@ ms.locfileid: "74464159"
 使用本指南建立您自己的 SQL Server VM。 或者，將本指南當做 Azure 入口網站中可用選項的參考資料。
 
 > [!TIP]
-> 如果您有 SQL Server 虛擬機器相關問題，請參閱[常見問題集](virtual-machines-windows-sql-server-iaas-faq.md)。
+> 如果您有 SQL Server 虛擬機器的相關問題，請參閱[常見問題集](virtual-machines-windows-sql-server-iaas-faq.md)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a id="select"></a> SQL Server 虛擬機器資源庫映像
 
@@ -67,7 +67,7 @@ ms.locfileid: "74464159"
     ![訂閱](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
-  > 如果您只是測試或了解 Azure 中的 SQL Server 部署，使用新的資源群組很有幫助。 完成測試之後，請刪除資源群組以自動刪除此 VM 以及與該資源群組相關聯的所有資源。 如需有關資源群組的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../../azure-resource-manager/resource-group-overview.md)。
+  > 如果您只是測試或了解 Azure 中的 SQL Server 部署，使用新的資源群組很有幫助。 完成測試之後，請刪除資源群組以自動刪除此 VM 以及與該資源群組相關聯的所有資源。 如需有關資源群組的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../../azure-resource-manager/management/overview.md)。
 
 
 * 在 [執行個體詳細資料] 下方：
@@ -118,7 +118,7 @@ ms.locfileid: "74464159"
 
 ![SQL VM 網路功能設定](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-networking.png)
 
-#### <a name="monitoring"></a>監控
+#### <a name="monitoring"></a>監視
 
 在 [**監視**] 索引標籤上，設定監視和 autoshutdown。 
 
@@ -185,7 +185,7 @@ ms.locfileid: "74464159"
 
 下表列出設定「Azure 金鑰保存庫整合」時所需的參數。
 
-| 參數 | 說明 | 範例 |
+| 參數 | DESCRIPTION | 範例 |
 | --- | --- | --- |
 | **金鑰保存庫 URL** |金鑰保存庫的位置。 |HTTPs：\//contosokeyvault.vault.azure.net/ |
 | **主體名稱** |Azure Active Directory 服務主體名稱。 此名稱也稱為「用戶端識別碼」。 |fde2b411-33d5-4e11-af04eb07b669ccf2 |

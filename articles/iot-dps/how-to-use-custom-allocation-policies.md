@@ -7,12 +7,12 @@ ms.date: 11/14/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b6b7d4614d3c63fe93e213fb830b85d0b7f9c474
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 87ffca1957d4ec449753f1966ed05cf3948f5ca2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974865"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453948"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>如何使用自訂配置原則
 
@@ -41,7 +41,10 @@ ms.locfileid: "74974865"
 
 ## <a name="prerequisites"></a>必要條件
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 或更新版本，並啟用[使用 C++ 的桌面開發](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載。
+下列必要條件適用于 Windows 開發環境。 針對 Linux 或 macOS，請參閱 SDK 檔中的[準備開發環境](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)中的適當章節。
+
+* 已啟用「[桌面開發C++ ](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) 」工作負載的[Visual Studio](https://visualstudio.microsoft.com/vs/) 2019。 同時也支援 Visual Studio 2015 和 Visual Studio 2017。
+
 * 已安裝最新版的 [Git](https://git-scm.com/download/)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -54,9 +57,9 @@ ms.locfileid: "74974865"
 > 本文中使用的命令會建立「美國西部」位置的布建服務和其他資源。 我們建議您在最接近支援裝置布建服務的區域中建立資源。 執行 `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` 命令，或移至 [Azure 狀態](https://azure.microsoft.com/status/)頁面並搜尋「裝置佈建服務」，即可檢視可用的位置清單。 在命令中，可以用一個單字或多字格式來指定位置。例如： westus、美國西部、美國西部等等。此值不區分大小寫。 如果您使用多字格式來指定位置，此值會用引號括住；例如 `-- location "West US"`。
 >
 
-1. 在 Azure Cloud Shell 中使用 [az group create](/cli/azure/group#az-group-create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
+1. 使用 Azure Cloud Shell 以 [az group create](/cli/azure/group#az-group-create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-    下列範例會在*westus*區域中建立名為*contoso-us 資源群組*的資源群組。 建議您將此群組用於在本文中建立的所有資源。 當您完成之後，這種方法會讓清理變得更容易。
+    下列範例會在*westus*區域中建立名為*contoso-us 資源群組*的資源群組。 建議您將此群組用於在此文章中建立的所有資源。 當您完成之後，這種方法會讓清理變得更容易。
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location westus
@@ -294,7 +297,7 @@ ms.locfileid: "74974865"
 
 ## <a name="create-the-enrollment"></a>建立註冊
 
-在本節中，您將建立使用自訂配置原則的新註冊群組。 為了簡單起見，本文將在註冊中使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)。 如需更安全的解決方案，請考慮使用 [X.509 憑證證明](concepts-security.md#x509-certificates)與信任鏈結。
+在本節中，您將建立使用自訂配置原則的新註冊群組。 為了簡單起見，此文章將在註冊中使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)。 如需更安全的解決方案，請考慮使用 [X.509 憑證證明](concepts-security.md#x509-certificates)與信任鏈結。
 
 1. 仍在[Azure 入口網站](https://portal.azure.com)上，開啟您的布建服務。
 
@@ -320,7 +323,7 @@ ms.locfileid: "74974865"
 
     **IoT 中樞**：選取您建立的其中一個部門中樞。
 
-    **存取原則**：選擇 **iothubowner**。
+    **存取原則**：選擇 [iothubowner]。
 
     ![連結部門 IoT 中樞與佈建服務](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
 
@@ -332,7 +335,7 @@ ms.locfileid: "74974865"
 
     ![選取函式並儲存註冊群組](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
 
-7. 儲存註冊之後，請重新加以開啟，並記下 [主要金鑰]。 您必須先儲存註冊，才能產生金鑰。 此金鑰將在後續用來產生模擬裝置的唯一裝置金鑰。
+7. 儲存註冊之後，請重新開啟它，並記下 [主要金鑰]。 您必須先儲存註冊，才能產生金鑰。 此金鑰將在後續用來產生模擬裝置的唯一裝置金鑰。
 
 ## <a name="derive-unique-device-keys"></a>衍生唯一的裝置金鑰
 
@@ -400,31 +403,34 @@ ms.locfileid: "74974865"
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>準備 Azure IoT C SDK 開發環境
 
-在本節中，您會準備用來建立[Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)的開發環境。 SDK 包含模擬裝置的範例程式碼。 這個模擬的裝置將會嘗試在裝置開機順序期間進行佈建。
+在本節中，您會準備用來建立[Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)的開發環境。 SDK 包含模擬裝置的範例程式碼。 這個模擬裝置將會嘗試在裝置開機順序期間進行佈建。
 
 此節以 Windows 工作站為基礎來說明。 如需 Linux 範例，請參閱[如何針對多組織用戶佈建](how-to-provision-multitenant.md)中的 VM 設定。
 
 1. 下載 [CMake 建置系統](https://cmake.org/download/)。
 
-    在開始安裝 `CMake` **之前**，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
+    在開始安裝 `CMake`**之前**，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
 
-2. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製 Azure IoT C SDK GitHub 存放庫：
+2. 尋找[最新版本](https://github.com/Azure/azure-iot-sdk-c/releases/latest)SDK 的標記名稱。
+
+3. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令，以複製最新版本的[Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫。 使用您在上一個步驟中找到的標記做為 `-b` 參數的值：
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     預期此作業需要幾分鐘的時間才能完成。
 
-3. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。 
+4. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。 從 `azure-iot-sdk-c` 目錄執行下列命令：
 
     ```cmd/sh
-    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-4. 請執行下列命令，以建置您開發用戶端平台特有的 SDK 版本。 `cmake` 目錄中會產生模擬裝置的 Visual Studio 解決方案。 
+5. 請執行下列命令，以建置您開發用戶端平台特有的 SDK 版本。 `cmake` 目錄中會產生模擬裝置的 Visual Studio 解決方案。 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -458,7 +464,7 @@ ms.locfileid: "74974865"
 
     ![從入口網站刀鋒視窗擷取裝置佈建服務端點資訊](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. 在 Visual Studio 中，開啟先前藉由執行 CMake 而產生的 **azure_iot_sdks.sln** 解決方案檔案。 該方案檔案應該位於下列位置：
+2. 在 Visual Studio 中，開啟先前藉由執行 CMake 而產生的 **azure_iot_sdks.sln** 解決方案檔案。 該方案檔案應位於下列位置：
 
     ```
     azure-iot-sdk-c\cmake\azure_iot_sdks.sln
@@ -466,7 +472,7 @@ ms.locfileid: "74974865"
 
 3. 在 Visual Studio 的 [方案總管] 視窗中，瀏覽至 **Provision\_Samples** 資料夾。 展開名為 **prov\_dev\_client\_sample** 的範例專案。 展開 [來源檔案]，然後開啟 **prov\_dev\_client\_sample.c**。
 
-4. 尋找 `id_scope` 常數，並以您稍早複製的**識別碼範圍**值取代該值。 
+4. 找出 `id_scope` 常數，並將其值取代為您先前複製的 [識別碼範圍] 值。 
 
     ```c
     static const char* id_scope = "0ne00002193";

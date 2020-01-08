@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: 9ea9bea83de0a177fa37d9a186f8962bac1394a4
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: d62704feaaa46f6780c302f5564b112dd1badbc1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101414"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353241"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>可保護身分識別基礎結構的五個步驟
 
@@ -112,9 +112,14 @@ Microsoft 建議採用下列根據 [NIST 指導方針](https://pages.nist.gov/80
 
 使用假想入侵心態，應該就能在使用者認證遭到入侵時降低其影響。 對於環境中的每個應用程式，請考慮有效的使用案例：哪些群組、哪些網路、哪些裝置和其他元素有獲得授權，然後將其餘項目封鎖。 透過[Azure AD 條件式存取](../../active-directory/conditional-access/overview.md)，您可以根據您所定義的特定條件，控制授權使用者存取其應用程式和資源的方式。
 
-### <a name="block-end-user-consent"></a>封鎖使用者同意
+### <a name="restrict-user-consent-operations"></a>限制使用者同意作業
 
-根據預設，系統會允許 Azure AD 中的所有使用者向採用 OAuth 2.0 及 Microsoft 身分識別[同意架構](../../active-directory/develop/consent-framework.md)的應用程式授與公司資料的存取權限。 雖然同意功能確實可讓使用者輕鬆取得能與 Microsoft 365 和 Azure 整合的有用應用程式，如果沒有小心使用及監視，此作法可能會帶來風險。 [停用未來所有的使用者同意作業](../../active-directory/manage-apps/methods-for-removing-user-access.md)可協助減少介面區並降低此風險。 停用使用者同意功能時，先前所授與的同意仍然會有效，但未來所有的同意作業都必須由系統管理員執行。 停用此功能之前，建議您確定使用者將瞭解如何要求新應用程式的系統管理員核准;這麼做應該有助於減少使用者的摩擦、將支援量降到最低，並確保使用者不會使用非 Azure AD 認證來註冊應用程式。
+請務必瞭解各種[Azure AD 的應用程式同意體驗](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience)、[許可權和同意類型](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)，以及其對您組織安全性狀態的影響。 根據預設，Azure AD 中的所有使用者都可以授與應用程式，利用 Microsoft 身分識別平臺來存取貴組織的資料。 雖然允許使用者自行同意，可以讓使用者輕鬆地取得與 Microsoft 365、Azure 及其他服務整合的實用應用程式，如果未小心使用和監視，則可能會代表風險。
+
+Microsoft 建議[停用未來的使用者同意作業](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application)，以協助降低您的介面區並降低此風險。 如果停用使用者同意，仍然會接受先前的同意授與，但所有未來的同意作業都必須由系統管理員執行。 使用者可以透過整合式[管理員同意要求工作流程](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow)或您自己的支援程式來要求系統管理員同意。 停用此功能之前，建議您先檢查您的審核記錄，以瞭解使用者同意哪些應用程式，並據此規劃變更。 對於您想要允許所有使用者存取的應用程式，請考慮[代表所有使用者](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent)授與同意，並確保尚未個別同意的使用者能夠存取應用程式。 如果您不想讓這些應用程式可供所有案例中的所有使用者使用，請使用[應用程式指派](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups)和[條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)來限制使用者對應用程式的存取。
+
+請確定使用者可以要求系統管理員核准新的應用程式，以減少使用者的摩擦、將支援量降到最低，以及防止使用者使用非 Azure AD 認證來註冊應用程式。 一旦您控制同意作業，系統管理員應該定期審核應用程式和同意的許可權。
+
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>實作 Azure AD Privileged Identity Management
 
@@ -173,7 +178,9 @@ Azure AD Identity Protection 能提供兩個您應該每天監視的重要報告
 
 ### <a name="audit-apps-and-consented-permissions"></a>稽核應用程式和已同意的權限
 
-使用者可以誘騙流覽至遭入侵的網站，或能夠存取其設定檔資訊和使用者資料的應用程式，例如其電子郵件。 惡意的執行者可以使用其所接收到的已同意權限來對使用者的信箱內容進行加密，並要求使用者支付贖金以重新存取其信箱資料。 [系統管理員應該檢閱並稽核](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) \(英文\) 使用者所提供的權限。
+使用者可以誘騙流覽至遭入侵的網站，或能夠存取其設定檔資訊和使用者資料的應用程式，例如其電子郵件。 惡意的執行者可以使用其所接收到的已同意權限來對使用者的信箱內容進行加密，並要求使用者支付贖金以重新存取其信箱資料。 系統[管理員應該檢查並審核](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants)使用者所提供的許可權，或停用使用者預設同意的能力。 
+
+除了審核使用者所提供的許可權之外，它也可以協助您嘗試並明確[找出有風險或不想要的 OAuth 應用程式](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth)，這是高階環境可用的功能。
 
 ## <a name="step-5---enable-end-user-self-service"></a>步驟 5-啟用終端使用者自助服務
 
@@ -191,7 +198,7 @@ Azure AD 提供非系統管理員使用安全性群組、Office 365 群組、應
 
 透過[Azure AD 的存取權審查](../../active-directory/governance/access-reviews-overview.md)，您可以管理存取套件和群組成員資格、企業應用程式的存取權，以及特殊許可權角色指派，以確保您維持安全性標準。  使用者本身的定期監督、資源擁有者和其他審查人員可確保使用者在不再需要時，不會長期保留存取權。
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 安全的身分識別基礎結構涉及許多層面，但這份有五個步驟的檢查清單會協助您快速完成更安全可靠的身分識別基礎結構：
 

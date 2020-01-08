@@ -63,6 +63,17 @@
         - name: 部署步驟
           displayName: 'standards, fedramp, moderate'
           href: ./samples/fedramp-m/deploy.md
+    - name: HIPAA HITRUST
+      items:
+        - name: 概觀
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/index.md
+        - name: 控制項對應
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/control-mapping.md
+        - name: 部署步驟
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/deploy.md
     - name: IRS 1075
       items:
         - name: 概觀
@@ -184,7 +195,7 @@
     - name: 在藍圖中鎖定資源
       displayName: 'mode, state, read only, edit, denyAssignments'
       href: ./concepts/resource-locking.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 以 PowerShell 管理指派
       displayName: 'create, update, remove'

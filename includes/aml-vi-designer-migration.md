@@ -8,14 +8,14 @@ ms.topic: include
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/18/2019
-ms.openlocfilehash: 08833f869a7838fe893b8e941072078f89033c2b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e3cb977871af2e6cd7a59dd48505090dd29e8a76
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517848"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75541799"
 ---
-1. 登入[Azure Machine Learning studio](https://ml.azure.com)。
+1. 登入 [Azure Machine Learning Studio](https://ml.azure.com)。
 
 1. 將您的工作區升級至 Enterprise edition。
 
@@ -38,5 +38,5 @@ ms.locfileid: "73517848"
 
 - 匯**入資料**或**匯出資料**模組
         
-    如果您在實驗中有 [匯**入資料**] 或 [**匯出資料**] 模組，您必須更新資料來源以使用資料存放區。 若要瞭解如何建立資料存放區，請參閱[如何存取 Azure 儲存體服務中的資料](../articles/machine-learning/service/how-to-access-data.md)。 您的雲端儲存體帳戶資訊已新增至 [匯**入資料**] 或 [**匯出資料**] 模組的批註中，以方便您使用。 
+    如果您在實驗中有 [匯**入資料**] 或 [**匯出資料**] 模組，您必須更新資料來源以使用資料存放區。 若要瞭解如何建立資料存放區，請參閱[如何存取 Azure 儲存體服務中的資料](../articles/machine-learning/how-to-access-data.md)。 您的雲端儲存體帳戶資訊已新增至 [匯**入資料**] 或 [**匯出資料**] 模組的批註中，以方便您使用。 
       

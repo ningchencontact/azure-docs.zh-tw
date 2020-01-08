@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 00f6e763006cbb8e5a2724536664291e0381e42f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 66cda98f272e7353b620059a731972714db585ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749661"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374127"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>使用 Azure PowerShell 將 OS 磁碟連結至復原 VM，以針對 Windows VM 進行疑難排解
 如果 Azure 中的 Windows 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對磁碟本身執行疑難排解步驟。 常見的例子是應用程式更新無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure PowerShell 將磁碟連接至另一部 Windows VM，以修正任何錯誤，然後重新建立原始 VM。 
@@ -51,7 +51,7 @@ Connect-AzAccount
 在下列範例中，以您自己的值取代參數名稱。 
 
 ## <a name="determine-boot-issues"></a>判斷開機問題
-您可以在 Azure 中檢視 VM 的螢幕擷取畫面，以協助疑難排解開機問題。 這個螢幕擷取畫面有助於找出 VM 無法開機的原因。 下列範例會從名為 `myVM` 的資源群組中名為 `myResourceGroup` 的 Windows VM 取得螢幕擷取畫面：
+您可以在 Azure 中檢視 VM 的螢幕擷取畫面，以協助疑難排解開機問題。 這個螢幕擷取畫面有助於找出 VM 無法開機的原因。 下列範例會從名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 Windows VM 取得螢幕擷取畫面：
 
 ```powershell
 Get-AzVMBootDiagnosticsData -ResourceGroupName myResourceGroup `
@@ -62,7 +62,7 @@ Get-AzVMBootDiagnosticsData -ResourceGroupName myResourceGroup `
 
 ## <a name="stop-the-vm"></a>停止 VM
 
-下列範例會從資源群組 `myVM` 中停止 VM `myResourceGroup`：
+下列範例會從資源群組 `myResourceGroup` 中停止 VM `myVM`：
 
 ```powershell
 Stop-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -103,7 +103,7 @@ New-AzSnapshot `
 
 ## <a name="create-a-disk-from-the-snapshot"></a>從快照集建立磁碟
 
-此指令碼會從快照集 `newOSDisk` 建立名為 `mysnapshot` 的受控磁碟。  
+此指令碼會從快照集 `mysnapshot` 建立名為 `newOSDisk` 的受控磁碟。  
 
 ```powershell
 #Set the context to the subscription Id where Managed Disk will be created
@@ -165,7 +165,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="connect-to-the-recovery-vm-and-fix-issues-on-the-attached-disk"></a>連線至復原 VM 並修正所連結磁碟的問題
 
-1. 使用適當的認證以 RDP 登入復原 VM。 下列範例會下載名為 `RecoveryVM` 的資源群組中名為 `myResourceGroup`的 VM 之 RDP 連接檔案，並將它下載至 `C:\Users\ops\Documents`」
+1. 使用適當的認證以 RDP 登入復原 VM。 下列範例會下載名為 `myResourceGroup` 的資源群組中名為 `RecoveryVM`的 VM 之 RDP 連接檔案，並將它下載至 `C:\Users\ops\Documents`」
 
     ```powershell
     Get-AzRemoteDesktopFile -ResourceGroupName "myResourceGroup" -Name "RecoveryVM" `
@@ -221,7 +221,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="change-the-os-disk-for-the-affected-vm"></a>變更受影響 VM 的 OS 磁碟
 
-您可以使用 Azure PowerShell 來交換 OS 磁碟。 您不需要刪除並重新建立 VM。
+您可以使用 Azure PowerShell 來交換 OS 磁碟。 您不需要刪除及重新建立虛擬機器。
 
 此範例會停止名為 `myVM` 的 VM，並將名為 `newOSDisk` 的磁碟指派為新的 OS 磁碟。 
 
@@ -247,7 +247,7 @@ Start-AzVM -Name $vm.Name -ResourceGroupName myResourceGroup
 
 ## <a name="verify-and-enable-boot-diagnostics"></a>確認並啟用開機診斷
 
-下列範例會在資源群組 `myVMDeployed` 中的 VM `myResourceGroup` 上啟用診斷擴充：
+下列範例會在資源群組 `myResourceGroup` 中的 VM `myVMDeployed` 上啟用診斷擴充：
 
 ```powershell
 $myVM = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"
@@ -258,4 +258,4 @@ Update-AzVM -ResourceGroup "myResourceGroup" -VM $myVM
 ## <a name="next-steps"></a>後續步驟
 如果連接至 VM 時發生問題，請參閱[針對 Azure VM 的 RDP 連接進行疑難排解](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 如果存取 VM 上執行的應用程式時發生問題，請參閱[針對 Windows VM 上的應用程式連線問題進行疑難排解](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-如需使用 Resource Manager 的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)。
+如需使用 Resource Manager 的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../azure-resource-manager/management/overview.md)。

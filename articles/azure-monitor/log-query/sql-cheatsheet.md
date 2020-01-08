@@ -1,18 +1,17 @@
 ---
 title: 從 SQL 到 Azure 監視器記錄查詢功能提要 | Microsoft Docs
 description: 幫助使用者熟悉 Azure 監視器中撰寫記錄檔查詢的 SQL。
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
-ms.openlocfilehash: 4acf3c2f8cee3ca9e679915eec677b6dd92792bf
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c76ab145fd2fdd077075b345ecac9c6a473f2369
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932917"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365184"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>從 SQL 到 Azure 監視器記錄查詢功能提要 
 
@@ -20,7 +19,7 @@ ms.locfileid: "72932917"
 
 ## <a name="sql-to-azure-monitor"></a>從 SQL 到 Azure 監視器
 
-描述                             |SQL 查詢                                                                                          |Azure 監視器記錄查詢
+說明                             |SQL 查詢                                                                                          |Azure 監視器記錄查詢
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 從資料表選取所有資料            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 從資料表選取特定資料行    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>
@@ -39,7 +38,7 @@ Distinct                                |`SELECT DISTINCT name, type  FROM depen
 依量值列出的前 n 筆記錄                |`SELECT TOP 100 name, COUNT(*) as Count FROM dependencies GROUP BY name ORDER BY Count asc`        |<code>dependencies <br>&#124; summarize Count=count() by name <br>&#124; top 100 by Count asc</code>
 Union                                   |`SELECT * FROM dependencies UNION SELECT * FROM exceptions`                                        |<code>union dependencies, exceptions</code>
 集合聯集：具有條件                  |`SELECT * FROM dependencies WHERE value > 4 UNION SELECT * FROM exceptions WHERE value < 5`                |<code>dependencies <br>&#124; where value > 4 <br>&#124; union (exceptions <br>&#124; where value < 5)</code>
-聯結                                    |`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id = exceptions.operation_Id`|<code>dependencies <br>&#124; join (exceptions) on operation_Id == operation_Id</code>
+Join                                    |`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id = exceptions.operation_Id`|<code>dependencies <br>&#124; join (exceptions) on operation_Id == operation_Id</code>
 
 
 ## <a name="next-steps"></a>後續步驟

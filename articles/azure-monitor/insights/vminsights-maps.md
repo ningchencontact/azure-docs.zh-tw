@@ -4,15 +4,15 @@ description: Map 是適用於 VM 的 Azure 監視器的功能。 它會自動探
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 7ca79b0df55dbfea6a0e2c016773f9f32bf29667
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: d91c4f7c3abdb06bfe0116e0fadf67c5b7a7a394
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199087"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450713"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>使用適用於 VM 的 Azure 監視器（預覽）的對應功能來瞭解應用程式元件
 在適用於 VM 的 Azure 監視器中，您可以在 Azure 或您的環境中執行的 Windows 和 Linux 虛擬機器（Vm）上，查看探索到的應用程式元件。 您可以透過兩種方式來觀察 Vm。 直接從 VM 觀看地圖，或從 Azure 監視器 view map，以查看跨 Vm 群組的元件。 本文將協助您瞭解這兩種視圖方法，以及如何使用對應功能。 
@@ -115,7 +115,7 @@ ms.locfileid: "73199087"
 ![直接 VM 對應概觀](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->您也可以從虛擬機器擴展集的 [**實例**] 視圖，存取特定實例的對應。 在 **設定** 區段中，移至 **實例**  > **深入解析（預覽）** 。
+>您也可以從虛擬機器擴展集的 [**實例**] 視圖，存取特定實例的對應。 在 **設定** 區段中，移至 **實例** > **深入解析（預覽）** 。
 
 ## <a name="view-a-map-from-azure-monitor"></a>從 Azure 監視器視圖地圖
 

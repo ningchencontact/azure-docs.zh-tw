@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6f2159ddf3e3039dc0c38fc8f942c508ac177f06
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: dfb1d71a02ae3bf06a5f2d8a93bcb3ac83433a86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038166"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460356"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 開發 Azure 檔案服務
 
@@ -23,7 +23,7 @@ ms.locfileid: "72038166"
 
 * 取得檔案的內容。
 * 設定檔案共用的大小上限或*配額*。
-* 為使用共用上所定義之共用存取原則的檔案建立共用存取簽章 (SAS 金鑰)。
+* 為使用共用上所定義之預存存取原則的檔案建立共用存取簽章（SAS 金鑰）。
 * 將檔案複製到相同儲存體帳戶中的另一個檔案。
 * 將檔案複製到相同儲存體帳戶中的 Blob。
 * 使用 Azure 儲存體計量進行疑難排解。
@@ -36,7 +36,7 @@ ms.locfileid: "72038166"
 
 Azure 檔案服務會提供兩種廣泛的方法給用戶端應用程式：伺服器訊息區 (SMB) 和 REST。 在 .NET 中，`System.IO` 和 `WindowsAzure.Storage` Api 會將這些方法抽象化。
 
-API | 使用時機 | 注意事項
+API | When to use | 注意
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 您的應用程式： <ul><li>需要使用 SMB 來讀取/寫入檔案</li><li>正在可透過連接埠 445 存取您 Azure 檔案服務帳戶的裝置上執行</li><li>不需要管理檔案共用的任何系統管理設定</li></ul> | 透過 SMB Azure 檔案儲存體執行的檔案 i/o，通常與任何網路檔案共用或本機儲存裝置的 i/o 相同。 如需 .NET 中一些功能的簡介（包括檔案 i/o），請參閱[主控台應用程式](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)教學課程。
 [Microsoft. Azure 儲存檔案](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | 您的應用程式： <ul><li>因為防火牆或 ISP 的條件約束，所以無法使用埠445上的 SMB 存取 Azure 檔案儲存體</li><li>需要系統管理功能，例如設定檔案共用的配額，或建立共用存取簽章的能力</li></ul> | 本文示範如何使用 REST 來執行檔案 i/o 的 `Microsoft.Azure.Storage.File`，而不是 SMB 及檔案共用的管理。
@@ -192,9 +192,9 @@ if (share.Exists())
 
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>產生檔案或檔案共用的共用存取簽章
 
-從 Azure 儲存體用戶端程式庫 5.x 版開始，您可以產生檔案共用或個別檔案的共用存取簽章 (SAS)。 您也可以在檔案共用上建立共用存取原則，以管理共用存取簽章。 我們建議您建立共用存取原則，因為它可讓您在 SAS 遭到入侵時撤銷它。
+從 Azure 儲存體用戶端程式庫 5.x 版開始，您可以產生檔案共用或個別檔案的共用存取簽章 (SAS)。 您也可以在檔案共用上建立預存存取原則，以管理共用存取簽章。 我們建議您建立預存存取原則，因為它可讓您在 SAS 遭到入侵時撤銷它。
 
-下列範例會在共用上建立共用存取原則。 此範例會使用該原則，為共用中的檔案提供 SAS 的條件約束。
+下列範例會在共用上建立預存存取原則。 此範例會使用該原則，為共用中的檔案提供 SAS 的條件約束。
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -212,7 +212,7 @@ if (share.Exists())
 {
     string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
 
-    // Create a new shared access policy and define its constraints.
+    // Create a new stored access policy and define its constraints.
     SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
         {
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
@@ -222,7 +222,7 @@ if (share.Exists())
     // Get existing permissions for the share.
     FileSharePermissions permissions = share.GetPermissions();
 
-    // Add the shared access policy to the share's policies. Note that each policy must have a unique name.
+    // Add the stored access policy to the share's policies. Note that each policy must have a unique name.
     permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
     share.SetPermissions(permissions);
 
@@ -497,7 +497,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 ### <a name="reference"></a>參考
 
-* [適用于 .NET 的 Azure 儲存體 Api](/dotnet/api/overview/azure/storage)
+* [適用於 .NET 的 Azure 儲存體 API](/dotnet/api/overview/azure/storage)
 * [檔案服務 REST API](/rest/api/storageservices/File-Service-REST-API)
 
 ### <a name="blog-posts"></a>部落格文章

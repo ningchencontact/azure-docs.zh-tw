@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 95083809f8fcfe42ae76faa0af507c7ce4acd709
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 268a7e7c94285d3c4fdcb0c5fb91b685c09b58c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083421"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436905"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 監視、計量和警示
 
@@ -24,19 +24,19 @@ ms.locfileid: "74083421"
 
 ## <a name="expressroute-metrics"></a>ExpressRoute 計量
 
-若要查看**計量**，請流覽至 [ *Azure 監視器*] 頁面，然後按一下 [*計量*]。 若要依資源類型的 expressroute*線路*來查看**expressroute**計量，請使用檔案管理工具。 若要查看**全球**觸達計量，請依資源類型的*expressroute 線路*進行篩選，然後選取已啟用全域觸達的 ExpressRoute 線路資源。 若要查看**Expressroute Direct**計量，請依*Expressroute 埠*篩選資源類型。 
+若要查看**計量**，請流覽至 [ *Azure 監視器*] 頁面，然後按一下 [*計量*]。 若要查看**expressroute**計量，請依資源類型的*expressroute 線路*進行篩選。 若要查看**全球**觸達計量，請依資源類型的*expressroute 線路*進行篩選，然後選取已啟用全域觸達的 ExpressRoute 線路資源。 若要查看**Expressroute Direct**計量，請依*Expressroute 埠*篩選資源類型。 
 
 選取度量之後，將會套用預設匯總。 （選擇性）您可以套用 [分割]，這將會顯示具有不同維度的度量。
 
-### <a name="available-metrics"></a>可用的計量
-|**計量**|**類別**|**維度**|**功能**|
+### <a name="available-metrics"></a>可用的度量
+|**度量**|**類別目錄**|**維度**|**功能**|
 | --- | --- | --- | --- |
 |ARP 可用性|可用性|<ui><li>對等（主要/次要 ExpressRoute 路由器）</ui></li><ui><li> 對等互連類型（私用/公用/Microsoft）</ui></li>|ExpressRoute|
 |Bgp 可用性|可用性|<ui><li> 對等（主要/次要 ExpressRoute 路由器）</ui></li><ui><li> 對等互連類型</ui></li>|ExpressRoute|
 |BitsInPerSecond|交通流量|<ui><li> 對等互連類型（ExpressRoute）</ui></li><ui><li>連結（ExpressRoute Direct）</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
 |BitsOutPerSecond|交通流量| <ui><li>對等互連類型（ExpressRoute）</ui></li><ui><li> 連結（ExpressRoute Direct） | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
-|GlobalReachBitsInPerSecond|交通流量|<ui><li>對等互連線路 Skey （服務金鑰）</ui></li>|Global Reach|
-|GlobalReachBitsOutPerSecond|交通流量|<ui><li>對等互連線路 Skey （服務金鑰）</ui></li>|Global Reach|
+|GlobalReachBitsInPerSecond|交通流量|<ui><li>對等互連線路 Skey （服務金鑰）</ui></li>|觸角擴及全球|
+|GlobalReachBitsOutPerSecond|交通流量|<ui><li>對等互連線路 Skey （服務金鑰）</ui></li>|觸角擴及全球|
 |AdminState|實體連線能力|連結|ExpressRoute Direct|
 |LineProtocol|實體連線能力|連結|ExpressRoute Direct|
 |RxLightLevel|實體連線能力|<ui><li>連結</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|

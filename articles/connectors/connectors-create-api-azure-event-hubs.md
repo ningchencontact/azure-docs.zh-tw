@@ -1,18 +1,18 @@
 ---
 title: 連線到 Azure 事件中樞
-description: 使用 Azure 事件中樞與 Azure Logic Apps 管理和監視事件
+description: 使用 Azure 事件中樞和 Azure Logic Apps 建立自動化的工作和工作流程，以監視和管理事件
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 77ff24f3af77e012b9ae9bc702d6a5a2639a5b11
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a0ba747fcc3015df961aa40de794071828d73a33
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789929"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446174"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>使用 Azure 事件中樞與 Azure Logic Apps 監視、接收和傳送事件
 
@@ -20,7 +20,7 @@ ms.locfileid: "74789929"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * [Azure 事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)
 
@@ -74,7 +74,7 @@ ms.locfileid: "74789929"
 
    ![觸發程序屬性](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
-   | 屬性 | 必要項 | 描述 |
+   | 屬性 | 必要項 | 說明 |
    |----------|----------|-------------|
    | **事件中樞名稱** | 是 | 您想要監視的事件中樞名稱 |
    | **內容類型** | 否 | 事件的內容類型。 預設值為 `application/octet-stream`。 |
@@ -86,7 +86,7 @@ ms.locfileid: "74789929"
 
    **其他屬性**
 
-   | 屬性 | 必要項 | 描述 |
+   | 屬性 | 必要項 | 說明 |
    |----------|----------|-------------|
    | **內容架構** | 否 | 要從事件中樞讀取之事件的 JSON 內容架構。 例如，如果您指定內容架構，則只能針對符合架構的事件觸發邏輯應用程式。 |
    | **最小分割區索引鍵** | 否 | 輸入要讀取的最小[分割區](../event-hubs/event-hubs-features.md#partitions)識別碼。 預設會讀取所有分割區。 |
@@ -130,7 +130,7 @@ ms.locfileid: "74789929"
 
    ![選取事件中樞名稱，並提供事件內容](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-   | 屬性 | 必要項 | 描述 |
+   | 屬性 | 必要項 | 說明 |
    |----------|----------|-------------|
    | **事件中樞名稱** | 是 | 您要傳送事件的事件中樞 |
    | **內容** | 否 | 您要傳送事件的內容 |
@@ -152,9 +152,9 @@ ms.locfileid: "74789929"
 
 1. 當系統提示您需要連線資訊時，請提供以下詳細資料：
 
-   | 屬性 | 必要項 | Value | 描述 |
+   | 屬性 | 必要項 | 值 | 說明 |
    |----------|----------|-------|-------------|
-   | 連線名稱 | 是 | <*connection-name*> | 要為連線建立的名稱 |
+   | **連接名稱** | 是 | <*connection-name*> | 要為連線建立的名稱 |
    | **事件中樞命名空間** | 是 | <*event-hubs-namespace*> | 選取您想要使用的事件中樞命名空間。 |
    |||||  
 

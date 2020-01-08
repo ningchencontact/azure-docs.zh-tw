@@ -1,19 +1,17 @@
 ---
-title: 傳送與 OpsGenie 使用 webhook 搭配運作的 Azure 服務健康情況警示
+title: 使用 webhook 透過 OpsGenie 傳送 Azure 服務健康狀態警示
 description: 取得關於 OpsGenie 執行個體服務健康情況事件的個人化通知。
-author: stephbaron
-ms.author: stbaron
-ms.topic: article
 ms.service: service-health
+ms.topic: article
 ms.date: 06/10/2019
-ms.openlocfilehash: fab99b7093ac3f18f6313273d21905e0a3ed7e5b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d1f0ddb506b915697335ec71eab341a7cdb73dd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067173"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465224"
 ---
-# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>傳送與 OpsGenie 使用 webhook 搭配運作的 Azure 服務健康情況警示
+# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>使用 webhook 透過 OpsGenie 傳送 Azure 服務健康狀態警示
 
 本文會示範如何使用 Webhook 來設定 Azure 服務健康情況警示與 OpsGenie。 透過使用 [OpsGenie](https://www.opsgenie.com/) 的 Azure 服務健康情況整合，您可以將 Azure 服務健康情況警示轉送給 OpsGenie。 OpsGenie 可以依據值勤排程來決定要通知的合適人員，其方式是使用電子郵件、簡訊 (SMS)、電話、iOS 和 Android 推播通知及擴大警示，直到警示被接受或關閉。
 
@@ -24,19 +22,19 @@ ms.locfileid: "67067173"
 
     ![OpsGenie 中的「整合」區段](./media/webhook-alerts/opsgenie-integrations-section.png)
 
-1.  選取 [Azure 服務健康況] 整合按鈕  。
+1.  選取 [Azure 服務健康況] 整合按鈕。
 
     ![OpsGenie 中的 [Azure 服務健康情況] 按鈕](./media/webhook-alerts/opsgenie-azureservicehealth-button.png)
 
-1.  為您的警示**命名**，並指定 [指派給小組]  欄位。
+1.  為您的警示**命名**，並指定 [指派給小組] 欄位。
 
-1.  填寫其他欄位，例如 [收件者]  、[已啟用]  和 [隱藏通知]  。
+1.  填寫其他欄位，例如 [收件者]、[已啟用]和 [隱藏通知]。
 
 1.  複製並儲存**整合 URL**，其應該已包含您的 `apiKey` (附加在結尾)。
 
     ![OpsGenie 中的「整合 URL」](./media/webhook-alerts/opsgenie-integration-url.png)
 
-1.  選取 [儲存整合] 
+1.  選取 [儲存整合]
 
 ## <a name="create-an-alert-using-opsgenie-in-the-azure-portal"></a>在 Azure 入口網站使用 OpsGenie 建立警示
 ### <a name="for-a-new-action-group"></a>新的動作群組：
@@ -48,14 +46,14 @@ ms.locfileid: "67067173"
 
     b. **詳細資料：** 您先前儲存的 OpsGenie **整合 URL**。
 
-    c. **名稱：** Webhook 的名稱、別名或識別項。
+    c. **名稱：** 的名稱、別名或識別項。
 
-1. 完成後選取 [儲存]  以建立警示。
+1. 完成後選取 [儲存] 以建立警示。
 
 ### <a name="for-an-existing-action-group"></a>現有的動作群組：
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [監視]  。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [監視]。
 
-1. 在 [設定]  區段上，選取 [動作群組]  。
+1. 在 [設定] 區段上，選取 [動作群組]。
 
 1. 尋找並選取您要編輯的動作群組。
 
@@ -65,9 +63,9 @@ ms.locfileid: "67067173"
 
     b. **詳細資料：** 您先前儲存的 OpsGenie **整合 URL**。
 
-    c. **名稱：** Webhook 的名稱、別名或識別項。
+    c. **名稱：** 的名稱、別名或識別項。
 
-1. 完成後選取 [儲存]  來更新動作群組。
+1. 完成後選取 [儲存] 來更新動作群組。
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>透過 HTTP POST 要求測試 Webhook 整合
 1. 建立您想要傳送的服務健康情況承載。 您可以在 [Azure 活動記錄警示的 Webhook](../azure-monitor/platform/activity-log-alerts-webhook.md) 上，找到服務服務健康情況 Webhook 承載範例。

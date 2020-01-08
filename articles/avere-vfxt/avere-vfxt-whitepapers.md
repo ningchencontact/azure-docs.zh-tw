@@ -6,38 +6,38 @@ author: ekpgh
 ms.author: rohogue
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.openlocfilehash: 257164a7417d4356c83cd1804939973b7029a4f1
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: a85b939eb222fa459d33ba4eb79b4937baf9056f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75414269"
 ---
-# <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Avere vFXT for Azure 白皮書與其他資源 
+# <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Avere vFXT for Azure 白皮書與其他資源
 
-本表格中的資源包含可協助您了解 Avere vFXT for Azure 如何能融入您工作流程的個案研究、技術白皮書、資訊圖，以及其他文章。 
+本表格中的資源包含可協助您了解 Avere vFXT for Azure 如何能融入您工作流程的個案研究、技術白皮書、資訊圖，以及其他文章。
 
 ## <a name="deploy-agisoft-photoscan-on-azure"></a>在 Azure 上部署 Agisoft PhotoScan
 
-**連結：** [在 Azure 上使用 Avere vFXT for Azure 或 BeeGFS 部署 Agisoft PhotoScan](https://azure.microsoft.com/mediahandler/files/resourcefiles/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/AgiSoft%20PhotoScan%20on%20Azure%20using%20Avere%20vFXT%20or%20BeeGFS.pdf) 
+**連結：** [使用 Avere vFXT for Azure 或 BeeGFS 在 Azure 上部署 Agisoft PhotoScan](https://azure.microsoft.com/mediahandler/files/resourcefiles/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/AgiSoft%20PhotoScan%20on%20Azure%20using%20Avere%20vFXT%20or%20BeeGFS.pdf)
 
 此指南能針對透過 Avere vFXT 儲存體或 BeeGFS 平行檔案系統安裝 Agisoft PhotoScan 攝影測量軟體提供逐步指引。 作者為 AzureCAT 的 Paulo Marques da Costa，其會示範在 Azure 虛擬機器 (VM) 上設定 PhotoScan 的方式。 高效能儲存體能加速處理時間，指南中也包含作者基準測試的結果。 此環境可以視需要相應放大和縮小，且支援數 TB 的儲存體，而不會犧牲效能。
 
-## <a name="datasheet-avere-vfxt-for-azure"></a>資料表：Avere vFXT for Azure
+## <a name="datasheet-avere-vfxt-for-azure"></a>資料工作表： Avere vFXT for Azure
 
-**連結：** [Avere vFXT for Azure 資料表](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/) \(英文\)
+**連結：** [Avere vFXT for Azure 資料表](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/)
 
 這份兩頁簡介具有能說明如何在數種使用案例下使用 Avere vFXT for Azure 的基礎資訊和圖表。
 
 ## <a name="hybrid-cloud-for-file-based-workloads"></a>適用於檔案型工作負載的混合式雲端
 
-**連結：** [資訊圖：針對檔案型工作負載建置混合式雲端](https://azure.microsoft.com/resources/building-a-hybrid-cloud-for-file-based-hpc-workloads/) \(英文\) 
+**連結：** [資訊圖：為以檔案為基礎的工作負載建立混合式雲端](https://azure.microsoft.com/resources/building-a-hybrid-cloud-for-file-based-hpc-workloads/)
 
-此圖說明使用 Avere vFXT for Azure 將雲端基礎結構新增到現有系統的元件和配置。 使用 Avere vFXT for Azure 來加強現有內部部署基礎結構的運算容量，或是暫時性或永久性地將資料和運算移至雲端。  
+此圖說明使用 Avere vFXT for Azure 將雲端基礎結構新增到現有系統的元件和配置。 使用 Avere vFXT for Azure 來加強現有內部部署基礎結構的運算容量，或是暫時性或永久性地將資料和運算移至雲端。
 
-## <a name="cloud-bursting"></a>雲端負載平衡 
+## <a name="cloud-bursting"></a>雲端負載平衡
 
-**連結：** [適用於高效能、可調整 NAS 的雲端負載平衡](https://microsoft.sharepoint.com/sites/Infopedia_G01KC/KCDOCs2/Avere%20customer%20resources/Solution%20Brief%20Cloud%20Bursting.pdf) 
+**連結：** [適用于高效能、可擴充的 NAS 的雲端](https://microsoft.sharepoint.com/sites/Infopedia_G01KC/KCDOCs2/Avere%20customer%20resources/Solution%20Brief%20Cloud%20Bursting.pdf)負載平衡
 
  此雲端負載平衡解決方案簡介會說明如何使用 Avere vFXT for Azure 來以不造成干擾的方式迅速地為雲端運算資源提供資料。
 

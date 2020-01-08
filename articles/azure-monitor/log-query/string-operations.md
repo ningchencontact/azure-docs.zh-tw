@@ -1,18 +1,17 @@
 ---
 title: 在 Azure 監視器記錄查詢中使用字串 |Microsoft Docs
 description: 說明如何編輯、比較、搜尋字串，以及如何在 Azure Monitor 記錄查詢中字串上執行各種其他作業。
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 0d7bf025b414df819887192bb59f7fd8da64b5d9
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932924"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397460"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>在 Azure 監視器記錄查詢中使用字串
 
@@ -47,7 +46,7 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>字串比較
 
-運算子       |描述                         |區分大小寫|範例 (結果為 `true`)
+運算子       |說明                         |區分大小寫|範例 (結果為 `true`)
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |等於                              |是           |`"aBc" == "aBc"`
 `!=`           |不等於                          |是           |`"abc" != "ABC"`
@@ -96,7 +95,7 @@ countof(text, search [, kind])
 - `search` - 要比對內部文字的純文字或規則運算式。
 - `kind` - _normal_ | _regex_ (預設值：normal)。
 
-### <a name="returns"></a>傳回
+### <a name="returns"></a>傳回值
 
 搜尋字串可在容器中相符的次數。 純文字字串比對可能會重疊，而規則運算式比對則不會。
 
@@ -138,7 +137,7 @@ extract(regex, captureGroup, text [, typeLiteral])
 - `text` - 要搜尋的字串。
 - `typeLiteral` - 選擇性的型別常值 (例如 typeof(long))。 如果提供，所擷取的子字串會轉換為此類型。
 
-### <a name="returns"></a>傳回
+### <a name="returns"></a>傳回值
 針對指定擷取群組 captureGroup 比對的子字串，選擇性地轉換為 typeLiteral。
 如果沒有相符項目或型別轉換失敗，則傳回 Null。
 
@@ -244,7 +243,7 @@ replace(regex, rewrite, input_text)
 - `rewrite` - 針對由進行比對之規則運算式所進行之比對的取代規則運算式。 使用 \0 來代表整個相符項目、\1 來代表第一個擷取群組，\2 和以上的數字來代表後續的擷取群組。
 - `input_text` - 要在其中搜尋的輸入字串。
 
-### <a name="returns"></a>傳回
+### <a name="returns"></a>傳回值
 以重寫的評估取代規則運算式之所有相符項目後的文字。 相符項目不會重疊。
 
 ### <a name="examples"></a>範例
@@ -307,7 +306,7 @@ print strcat("hello", " ", "world") // result: "hello world"
 
 ## <a name="strlen"></a>strlen
 
-傳回字串長度。
+傳回字串的長度。
 
 ### <a name="syntax"></a>語法
 ```

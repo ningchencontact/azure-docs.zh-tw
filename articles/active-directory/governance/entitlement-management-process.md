@@ -1,5 +1,5 @@
 ---
-title: Azure AD 權利管理中的要求處理和電子郵件通知-Azure Active Directory
+title: 要求處理 & 通知-Azure AD 權利管理
 description: 瞭解存取套件的要求程式，以及在 Azure Active Directory 權利管理中傳送電子郵件通知的時間。
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f336e9f2bdf1553a72bdc35fecc1b0b735fad274
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b86e4019b26eebb8b805a4846e583c68acb53ad6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206994"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422615"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Azure AD 權利管理中的要求處理和電子郵件通知
 
@@ -33,9 +33,9 @@ ms.locfileid: "74206994"
 
 ![核准流程圖表](./media/entitlement-management-process/request-process.png)
 
-| State | 描述 |
+| 狀態 | 說明 |
 | --- | --- |
-| 呈交 | 使用者提交要求。 |
+| Submitted | 使用者提交要求。 |
 | 等待核准 | 如果存取套件的原則需要核准，則要求會移至 [待核准]。 |
 | 已過期 | 如果沒有核准者核准要求超時內的要求，要求就會過期。 若要再試一次，使用者將必須重新提交其要求。 |
 | 拒絕 | 核准者拒絕要求。 |
@@ -79,8 +79,8 @@ ms.locfileid: "74206994"
 | 6 | *[Access_package]* 的要求已過期 | 此電子郵件將會在要求過期後，傳送給第一個核准者和第1階段的替代核准者。 | 第一次核准者，第1階段替代核准者 |
 | 7 | [要求者 *]* 已核准至 *[access_package]* | 這封電子郵件將會在要求完成時，傳送給第一個核准者和第1階段的替代核准者。 | 第一次核准者，第1階段替代核准者 |
 | 8 | [要求者 *]* 已核准至 *[access_package]* | 這封電子郵件將會傳送給第一次核准者，而當階段-1 要求獲得核准時，則是2階段要求的第1階段替代核准者。 | 第一次核准者，第1階段替代核准者 |
-| 9 | 拒絕要求至 *[access_package]* | 當要求遭到拒絕時，會將此電子郵件傳送給要求者 | 申請者 |
-| 10 | 您的要求已過期 *[access_package]* | 這封電子郵件將會在單一或2階段要求結束時傳送給要求者。 此電子郵件會通知要求者要求已過期。 | 申請者 |
+| 9 | 拒絕要求至 *[access_package]* | 當要求遭到拒絕時，會將此電子郵件傳送給要求者 | Requestor |
+| 10 | 您的要求已過期 *[access_package]* | 這封電子郵件將會在單一或2階段要求結束時傳送給要求者。 此電子郵件會通知要求者要求已過期。 | Requestor |
 | 11 | 必要動作：依 *[日期]* 核准或拒絕要求 | 此電子郵件將會傳送給第二個核准者，如果已停用呈報，則採取動作。 | 第二核准者 |
 | 12 | 必要動作提醒：依 *[日期]* 核准或拒絕要求 | 如果已停用呈報，此提醒電子郵件將會傳送給第二個核准者。 通知會要求他們採取動作（如果尚未這麼做）。 | 第二核准者 |
 | 13 | 需要的動作： [要求者 *]* 的 *[日期]* 核准或拒絕要求 | 此電子郵件將會傳送給第二個核准者（如果已啟用擴大），以採取行動。 | 第二核准者 |
@@ -88,9 +88,9 @@ ms.locfileid: "74206994"
 | 15 | 必要動作：依 *[日期]* 核准或拒絕轉送的要求 | 這封電子郵件會傳送給第2階段的替代核准者（如果已啟用擴大），以採取行動。 | 第2階段替代核准者 |
 | 16 | [要求者 *]* 已核准至 *[access_package]* | 這封電子郵件將會傳送給第二個核准者，並在核准要求時，第2階段替代核准者。 | 第二個核准者，第2階段替代核准者 |
 | 17 | *[Access_package]* 的要求已過期 | 此電子郵件將會在要求到期後傳送給第二位核准者或替代核准者。 | 第二個核准者，第2階段替代核准者 |
-| 18 | 您現在可以存取 *[access_package]* | 這封電子郵件將會傳送給使用者，以開始使用他們的存取權。 | 申請者 |
-| 19 | 依 *[date]* 擴充 *[access_package]* 的存取權 | 這封電子郵件將會傳送給使用者，讓他們的存取權過期。 | 申請者 |
-| 20 | 已結束 *[access_package]* 的存取 | 這封電子郵件會在其存取權過期後傳送給終端使用者。 | 申請者 |
+| 18 | 您現在可以存取 *[access_package]* | 這封電子郵件將會傳送給使用者，以開始使用他們的存取權。 | Requestor |
+| 19 | 依 *[date]* 擴充 *[access_package]* 的存取權 | 這封電子郵件將會傳送給使用者，讓他們的存取權過期。 | Requestor |
+| 20 | 已結束 *[access_package]* 的存取 | 這封電子郵件會在其存取權過期後傳送給終端使用者。 | Requestor |
 
 ### <a name="access-request-emails"></a>存取要求電子郵件
 

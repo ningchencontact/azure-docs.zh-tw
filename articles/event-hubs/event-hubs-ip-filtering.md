@@ -9,20 +9,20 @@ ms.service: event-hubs
 ms.devlang: na
 ms.custom: seodec18
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 2350586501fae84726aa2aa2438ea676b90c1dbb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a988fbb089bd94456e0b91b377574ab27a67617f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279678"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437200"
 ---
-# <a name="use-firewall-rules"></a>使用防火牆規則
+# <a name="azure-event-hubs---use-firewall-rules"></a>Azure 事件中樞-使用防火牆規則
 
 針對應該只能從特定已知網站存取「Azure 事件中樞」的情況，防火牆規則可讓您設定規則來接受源自特定 IPv4 位址的流量。 例如，這些位址可能是企業 NAT 閘道的位址。
 
-## <a name="when-to-use"></a>使用時機
+## <a name="when-to-use"></a>When to use
 
 如果想要設定「事件中樞」命名空間，讓其應該只接收來自某個指定 IP 位址範圍的流量，並拒絕所有其他流量，您可以利用「防火牆規則」封鎖來自其他其他 IP 位址的事件中樞端點。 例如，如果您將事件中樞與[Azure Express Route][express-route]搭配使用，您可以建立*防火牆規則*，以限制來自內部部署基礎結構 IP 位址的流量。
 
@@ -74,7 +74,7 @@ IP 篩選器規則會依序套用，而且第一個符合 IP 位址的規則會�
 > ```json
 > "defaultAction": "Allow"
 > ```
-> 收件人
+> to
 > ```json
 > "defaultAction": "Deny"
 > ```

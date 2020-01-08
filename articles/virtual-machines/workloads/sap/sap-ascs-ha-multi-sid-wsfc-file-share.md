@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00c38c5c8140bffe0767ebe69470285bb15f5fc6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5638d71748c485c593dde8d9876400a40821ca28
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098707"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643146"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -39,9 +39,9 @@ ms.locfileid: "70098707"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 [sap-installation-guides-file-share]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
-[networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 [load-balancer-multivip-overview]:../../../load-balancer/load-balancer-multivip-overview.md
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -189,7 +189,7 @@ ms.locfileid: "70098707"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -215,7 +215,7 @@ ms.locfileid: "70098707"
 > 本文件所介紹的組態尚不支援用於 [Azure 可用性區域](https://docs.microsoft.com/azure/availability-zones/az-overview)
 > 
 
-如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager]。 也請考慮使用 [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 而非 Azure 負載平衡器的基本 SKU。
+如需負載平衡器限制的詳細資訊，請參閱[網路限制： Azure Resource Manager][networking-limits-azure-resource-manager]中的「每個負載平衡器的私人前端 IP」一節。 也請考慮使用 [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 而非 Azure 負載平衡器的基本 SKU。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -240,7 +240,7 @@ _**圖 1：** 在兩個叢集中部署 SAP ASCS/SCS 執行個體和 SOFS 部署_
 
 _**圖 2：** 兩個叢集中的 SAP 多重 SID 設定_
 
-安裝額外的 **\<SAP SID2 >** 系統等同于安裝一個\<SID > 系統。 ASCS/SCS 叢集以及檔案共用 SOFS 叢集上需要另兩個準備步驟。
+安裝額外的**SAP \<SID2 >** 系統，等同于安裝一個 \<SID > 系統。 ASCS/SCS 叢集以及檔案共用 SOFS 叢集上需要另兩個準備步驟。
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>準備 SAP 多重 SID 案例的基礎結構
 
@@ -260,7 +260,7 @@ _**圖 2：** 兩個叢集中的 SAP 多重 SID 設定_
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>使用現有的 SAP 全域主機準備 SOFS 叢集上的基礎結構
 
-您可以重複使用現有\<的 SAPGlobalHost > 和第一個 SAP \<SID1 > 系統的 Volume1。
+您可以重複使用現有的 \<SAPGlobalHost > 和第一個 SAP \<SID1 > 系統的 Volume1。
 
 ![圖 3：多重 SID SOFS 與 SAP 全域主機名稱相同][sap-ha-guide-figure-8014]
 
@@ -270,7 +270,7 @@ _**圖 3：** 多重 SID SOFS 與 SAP 全域主機名稱相同_
 >對於第二個 **SAP \<SID2>** 系統，使用的是相同的 Volume1 及相同的 **\<SAPGlobalHost>** 網路名稱。
 >因為您已將 **SAPMNT** 設定為各種不同 SAP 系統的共用名稱，因此若要重複使用 **\<SAPGlobalHost>** 網路名稱，您必須使用相同的 **Volume1**。
 >
->\<SID2 > global 主機的檔案路徑為 C:\ClusterStorage\\ **Volume1**\usr\sap\<SID2 > \SYS\.
+>\<SID2 > global 主機的檔案路徑為 C:\ClusterStorage\\**Volume1**\USR\SAP\<SID2 > \SYS\.
 >
 
 針對 \<SID2> 系統，您必須準備 SAP 全域主機 ..\SYS\.. SOFS 叢集上的資料夾。
@@ -346,7 +346,7 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![圖 5：容錯移轉叢集管理員中的第二個 Volume2][sap-ha-guide-figure-8016]
+![圖5：容錯移轉叢集管理員中的第二個 Volume2][sap-ha-guide-figure-8016]
 
 _**圖 5：** 「容錯移轉叢集管理員」中的第二個 Volume2_
 
@@ -403,27 +403,27 @@ _**圖 6：** 啟動 [新增檔案共用] 精靈_
 
 <br>
 
-![圖 7︰「選取 SMB 共用-快速」][sap-ha-guide-figure-8018]
+![圖7：「選取 SMB 共用-快速」][sap-ha-guide-figure-8018]
 
 _**圖 7：** 選取 [SMB 共用 - 快速]_
 
 <br>
 
-![圖 8︰選取 [sapglobalhost2] 並在 Volume2 上指定路徑][sap-ha-guide-figure-8019]
+![圖8：選取 [sapglobalhost2] 並在 Volume2 上指定路徑][sap-ha-guide-figure-8019]
 
-_**圖 8︰** 選取 [sapglobalhost2] 並在 Volume2 上指定路徑_
-
-<br>
-
-![圖 9：將檔案共用名稱設定為 "sapmnt"][sap-ha-guide-figure-8020]
-
-_**圖 9︰** 將檔案共用名稱設定為 [sapmnt]_
+_**圖 8：** 選取 [sapglobalhost2] 並在 Volume2 上指定路徑_
 
 <br>
 
-![圖 10︰停用所有設定][sap-ha-guide-figure-8021]
+![圖9：將檔案共用名稱設定為 "sapmnt"][sap-ha-guide-figure-8020]
 
-_**圖 10︰** 停用所有設定_
+_**圖 9：** 將檔案共用名稱設定為「sapmnt」_
+
+<br>
+
+![圖 10：停用所有設定][sap-ha-guide-figure-8021]
+
+_**圖 10：** 停用所有設定_
 
 <br>
 
@@ -431,19 +431,19 @@ _**圖 10︰** 停用所有設定_
 * **SAP_\<SID>_GlobalAdmin** 網域使用者群組
 * ASCS/SCS 叢集節點 **ascs-1$** 和 **ascs-2$** 的電腦物件
 
-![圖 11︰將完全控制權限指派給使用者群組和電腦帳戶][sap-ha-guide-figure-8022]
+![圖 11：將完全控制權限指派給使用者群組和電腦帳戶][sap-ha-guide-figure-8022]
 
-_**圖 11︰** 將「完全控制」指派給使用者群組和電腦帳戶_
-
-<br>
-
-![圖 12︰選取 [建立]][sap-ha-guide-figure-8023]
-
-_**圖 12︰** 選取 [建立]_
+_**圖 11：** 將「完全控制」指派給使用者群組和電腦帳戶_
 
 <br>
 
-![圖 13：已建立系結至 sapglobal2 主機和 Volume2 的第二個 sapmnt][sap-ha-guide-figure-8024]
+![圖12：選取 [建立]][sap-ha-guide-figure-8023]
+
+_**圖 12：** 選取 [建立]_
+
+<br>
+
+![圖 13：已建立繫結至 sapglobal2 主機和 Volume2 的第二個 sapmnt][sap-ha-guide-figure-8024]
 
 _**圖 13：** 已建立繫結至 sapglobal2 主機和 Volume2 的第二個 sapmnt_
 
@@ -460,7 +460,7 @@ _**圖 13：** 已建立繫結至 sapglobal2 主機和 Volume2 的第二個 sapm
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在沒有共用磁片的容錯移轉叢集上安裝 ASCS/SCS 實例][sap-official-ha-file-share-document]:HA 檔案共用的官方 SAP 指導方針
+* [在沒有共用磁片的容錯移轉叢集上安裝 ASCS/SCS 實例][sap-official-ha-file-share-document]： HA 檔案共用的官方 SAP 指導方針
 
 * [Windows Server 2016 中的儲存空間直接存取][s2d-in-win-2016]
 

@@ -11,12 +11,12 @@ ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5b33d8fc804d339d3808e5231998fbba41cd4ee9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8a7da1bf80025cfe9b59c42f3338254b86f2ff05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839871"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376336"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>教學課程：將紐約計程車資料載入 Azure SQL 資料倉儲
 
@@ -45,7 +45,7 @@ ms.locfileid: "73839871"
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>建立空白 SQL 資料倉儲
 
-建立 Azure SQL 資料倉儲時，會使用一組已定義的 [compute resources] 記憶體並行 limits.md）。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-features.md)內。 
+建立 Azure SQL 資料倉儲時，會使用一組已定義的 [compute resources] 記憶體並行 limits.md）。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/management/overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-features.md)內。 
 
 請遵循下列步驟來建立空白的 SQL 資料倉儲。 
 
@@ -71,7 +71,7 @@ ms.locfileid: "73839871"
     | 設定 | 建議的值 | 說明 | 
     | ------- | --------------- | ----------- |
     | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。 | 
-    | 伺服器管理員登入 | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。|
+    | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。|
     | **密碼** | 任何有效密碼 | 您的密碼至少要有 8 個字元，而且必須包含下列幾種字元的其中三種︰大寫字元、小寫字元、數字和非英數字元。 |
     | **位置** | 任何有效位置 | 如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |
 
@@ -120,7 +120,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 4. 按一下工具列上的 [新增用戶端 IP]，將目前的 IP 位址新增至新的防火牆規則。 防火牆規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。
 
-5. 按一下 [儲存]。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
+5. 按一下 [檔案]。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
 
 6. 依序按一下 [確定]，然後關閉 [防火牆設定] 頁面。
 
@@ -145,21 +145,21 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 1. 開啟 SQL Server Management Studio。
 
-2. 在 [連接到伺服器] 對話方塊中，輸入下列資訊：
+2. 在 [連線至伺服器] 對話方塊中，輸入下列資訊：
 
     | 設定      | 建議的值 | 說明 | 
     | ------------ | --------------- | ----------- | 
     | 伺服器類型 | 資料庫引擎 | 這是必要值 |
     | 伺服器名稱 | 完整伺服器名稱 | 名稱應該類似這樣︰**mynewserver-20180430.database.windows.net**。 |
     | 驗證 | SQL Server 驗證 | 在本教學課程中，我們只設定了 SQL 驗證這個驗證類型。 |
-    | 登入 | 伺服器管理帳戶 | 這是您在建立伺服器時所指定的帳戶。 |
-    | 密碼 | 伺服器管理帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
+    | 登入 | 伺服器系統管理員帳戶 | 這是您在建立伺服器時指定的帳戶。 |
+    | 密碼 | 伺服器系統管理員帳戶的密碼 | 這是您在建立伺服器時指定的密碼。 |
 
-    ![連接到伺服器](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
+    ![連線至伺服器](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-4. 按一下 [連接]。 [物件總管] 視窗隨即在 SSMS 中開啟。 
+4. 按一下 [ **連接**]。 [物件總管] 視窗會在 SSMS 中開啟。 
 
-5. 在 [物件總管] 中，展開 [資料庫]。 然後展開 [系統資料庫] 和 [主要資料庫] 來檢視主要資料庫中的物件。  展開 [mySampleDatabase] 可檢視新資料庫中的物件。
+5. 在 [物件總管] 中展開 [資料庫]。 然後展開 [系統資料庫] 和 [主要資料庫] 來檢視主要資料庫中的物件。  展開 [mySampleDatabase] 可檢視新資料庫中的物件。
 
     ![資料庫物件](media/load-data-from-azure-blob-storage-using-polybase/connected.png) 
 
@@ -171,7 +171,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 因為您目前以伺服器管理員的身分連線，就可以建立登入和使用者。 使用下列步驟來建立登入和名為 **LoaderRC20** 的使用者。 然後將使用者指派至 **staticrc20** 資源類別。 
 
-1.  在 SSMS 中，以滑鼠右鍵按一下 [主要資料庫] 可顯示下拉式選單，然後選擇 [新增查詢]。 新的查詢視窗隨即開啟。
+1.  在 SSMS 中，以滑鼠右鍵按一下 [主要資料庫] 可顯示下拉式選單，然後選擇 [新增查詢]。 隨即開啟 [新增查詢] 視窗。
 
     ![主要資料庫上的新增查詢](media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
@@ -182,7 +182,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
     ```
 
-3. 按一下 [Execute (執行)]。
+3. 按一下 **[執行]** 。
 
 4. 以滑鼠右鍵按一下 [mySampleDataWarehouse]，然後選擇 [新增查詢]。 新的查詢視窗隨即開啟。  
 
@@ -196,7 +196,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
     ```
 
-6. 按一下 [Execute (執行)]。
+6. 按一下 **[執行]** 。
 
 ## <a name="connect-to-the-server-as-the-loading-user"></a>以載入使用者身分連線到伺服器
 
@@ -208,7 +208,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 2. 輸入完整伺服器名稱，以及輸入 **LoaderRC20** 作為登入。  輸入您 LoaderRC20 的密碼。
 
-3. 按一下 [連接]。
+3. 按一下 [ **連接**]。
 
 4. 您的連線就緒時，會在 [物件總管] 中看到兩個伺服器連線。 一個是以 ServerAdmin 連線，另一個是以 MedRCLogin 連線。
 
@@ -579,10 +579,10 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
    ```
     
-   1. 以此**指南**建立[一般用途的 v2 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)。
+   1. 以此[指南](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)建立**一般用途的 v2 儲存體帳戶**。
 
    > [!NOTE]
-   > - 如果您有一般用途 v1 或 Blob 儲存體帳戶，您必須先使用此 **指南**[升級至 v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)。
+   > - 如果您有一般用途 v1 或 Blob 儲存體帳戶，您必須先使用此 [指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)**升級至 v2**。
     
 1. 請瀏覽至您儲存體帳戶之下的 [存取控制 \(IAM\)]，然後按一下 [新增角色指派]。 將**儲存體 Blob 資料參與者**RBAC 角色指派給您的 SQL Database 伺服器。
 
@@ -610,7 +610,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 您需要支付計算資源和您載入資料倉儲之資料的費用。 這些會分開計費。 
 
-- 如果您需要將資料保留在儲存體中，可以在您不使用資料倉儲時暫停運算。 暫停計算時，您只需支付資料儲存體的費用，並在您準備好要使用資料時，隨時繼續計算。
+- 如果您需要將資料保留在儲存體中，可以在您不使用資料倉儲時暫停計算。 暫停計算時，您只需支付資料儲存體的費用，並在您準備好要使用資料時，隨時繼續計算。
 - 如果您需要移除未來的費用，可以將資料倉儲刪除。 
 
 遵循下列步驟，視需要清除資源。

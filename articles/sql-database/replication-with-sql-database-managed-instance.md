@@ -1,26 +1,30 @@
 ---
 title: 在受控實例資料庫中設定複寫
-description: 了解如何在 Azure SQL Database 受控執行個體資料庫中設定異動複寫
+description: 瞭解如何在 Azure SQL Database 受控實例發行者/散發者與受控實例訂閱者之間設定異動複寫。
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: MashaMSFT
+ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: f303a363fd4d42889e7817273be5d5e5440a2293
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: fd881142e0260d313e197d5e40ae25a2621646df
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822581"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372462"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>在 Azure SQL Database 受控執行個體資料庫中設定複寫
 
 異動複寫可讓您將資料從 SQL Server 資料庫或其他執行個體資料庫複寫到 Azure SQL Database 受控執行個體資料庫。 
+
+本文說明如何設定受控實例發行者/散發者與受控實例訂閱者之間的複寫。 
+
+![在兩個受控實例之間複寫](media/replication-with-sql-database-managed-instance/sqlmi-sqlmi-repl.png)
 
 您也可以使用異動複寫，將 Azure SQL Database 受控實例中實例資料庫所做的變更推送至：
 
@@ -31,9 +35,10 @@ ms.locfileid: "73822581"
 異動複寫在[Azure SQL Database 受控實例](sql-database-managed-instance.md)上處於公開預覽狀態。 受控執行個體可以裝載發行者、散發者和訂閱者資料庫。 如需可用設定的相關資訊，請參閱[異動複寫設定](sql-database-managed-instance-transactional-replication.md#common-configurations)。
 
   > [!NOTE]
-  > 本文旨在引導使用者從端對端設定 Azure 資料庫受控實例的複寫，從建立資源群組開始。 如果您已經部署受控實例，請直接跳到[步驟 4](#4---create-a-publisher-database)來建立發行者資料庫，如果您已經有發行者和訂閱者資料庫，而且準備好開始設定複寫，請略過步驟[6](#6---configure-distribution) 。  
+  > - 本文旨在引導使用者從端對端設定 Azure 資料庫受控實例的複寫，從建立資源群組開始。 如果您已經部署受控實例，請直接跳到[步驟 4](#4---create-a-publisher-database)來建立發行者資料庫，如果您已經有發行者和訂閱者資料庫，而且準備好開始設定複寫，請略過步驟[6](#6---configure-distribution) 。  
+  > - 這篇文章會在同一個受控實例上設定您的發行者和散發者。 若要將散發者放在個別的受控實例上，請參閱[設定 MI 發行者與 mi 散發者之間](sql-database-managed-instance-configure-replication-tutorial.md)的複寫教學課程。 
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 
 將受控實例設定為「發行者」和/或「散發者」時，需要：
 
@@ -48,7 +53,7 @@ ms.locfileid: "73822581"
  > Azure SQL Database 中的單一資料庫與集區資料庫只能是訂閱者。 
 
 
-## <a name="features"></a>特性
+## <a name="features"></a>功能
 
 支援：
 
@@ -67,10 +72,10 @@ Azure SQL Database 的受控執行個體中不支援下列功能：
 
 ## <a name="2---create-managed-instances"></a>2-建立受控實例
 
-使用[Azure 入口網站](https://portal.azure.com)在相同的虛擬網路和子網上建立兩個[受控實例](sql-database-managed-instance-create-tutorial-portal.md)。 這兩個受控實例的名稱應該是：
+使用[Azure 入口網站](https://portal.azure.com)在相同的虛擬網路和子網上建立兩個[受控實例](sql-database-managed-instance-create-tutorial-portal.md)。 例如，將兩個受控實例命名為：
 
-- `sql-mi-pub`
-- `sql-mi-sub`
+- `sql-mi-pub` （以及隨機的部分字元）
+- `sql-mi-sub` （以及隨機的部分字元）
 
 您也需要[設定 AZURE VM，以](sql-database-managed-instance-configure-vm.md)連線到您 Azure SQL Database 的受控實例。 
 
@@ -80,9 +85,13 @@ Azure SQL Database 的受控執行個體中不支援下列功能：
 
 以下列格式複製檔案共用路徑： `\\storage-account-name.file.core.windows.net\file-share-name`
 
+範例： `\\replstorage.file.core.windows.net\replshare`
+
 以下列格式複製儲存體存取金鑰： `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
- 如需詳細資訊，請參閱 [檢視和複製儲存體存取金鑰](../storage/common/storage-account-manage.md#access-keys)。 
+範例： `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
+
+如需詳細資訊，請參閱[管理儲存體帳戶存取金鑰](../storage/common/storage-account-keys-manage.md)。 
 
 ## <a name="4---create-a-publisher-database"></a>4-建立發行者資料庫
 
@@ -160,8 +169,9 @@ GO
 :setvar username loginUsedToAccessSourceManagedInstance
 :setvar password passwordUsedToAccessSourceManagedInstance
 :setvar file_storage "\\storage-account-name.file.core.windows.net\file-share-name"
+-- example: file_storage "\\replstorage.file.core.windows.net\replshare"
 :setvar file_storage_key "DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net"
-
+-- example: file_storage_key "DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net"
 
 USE [master]
 EXEC sp_adddistpublisher
@@ -173,6 +183,9 @@ EXEC sp_adddistpublisher
   @working_directory = N'$(file_storage)',
   @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
+
+   > [!NOTE]
+   > 請務必只針對 file_storage 參數使用反斜線（`\`）。 當連接到檔案共用時，使用正斜線（`/`）可能會導致錯誤。 
 
 此腳本會在受控實例上設定本機發行者、加入連結的伺服器，並為 SQL Server Agent 建立一組作業。 
 
@@ -322,10 +335,11 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-您可以[從資源群組中刪除受控實例資源](../azure-resource-manager/manage-resources-portal.md#delete-resources)，然後刪除資源群組 `SQLMI-Repl`，以清除您的 Azure 資源。 
+您可以[從資源群組中刪除受控實例資源](../azure-resource-manager/management/manage-resources-portal.md#delete-resources)，然後刪除資源群組 `SQLMI-Repl`，以清除您的 Azure 資源。 
 
    
 ## <a name="see-also"></a>另請參閱
 
 - [異動複寫](sql-database-managed-instance-transactional-replication.md)
+- [教學課程：設定 MI 發行者與 SQL Server 訂閱者之間的異動複寫](sql-database-managed-instance-configure-replication-tutorial.md)
 - [什麼是受控執行個體？](sql-database-managed-instance.md)

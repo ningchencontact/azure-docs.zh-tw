@@ -1,5 +1,5 @@
 ---
-title: 使用入口網站建立 Azure AD 應用程式 & 服務主體
+title: 在入口網站中建立 Azure AD 應用程式 & 服務主體
 titleSuffix: Microsoft identity platform
 description: 建立新的 Azure Active Directory 應用程式 & 服務主體，以使用 Azure Resource Manager 中的角色型存取控制來管理資源的存取權。
 services: active-directory
@@ -13,16 +13,16 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249c313f8f6195371985f3dad2e707638e52d0df
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0261c060358b9f0f42624008341f80245ff57aca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967110"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424521"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>操作說明：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體
 
-本文說明如何建立可與角色型存取控制搭配使用的新 Azure Active Directory （Azure AD）應用程式和服務主體。 如果您擁有需要存取或修改資源的程式碼，您可以建立應用程式的身分識別。 此身分識別就是所謂的服務主體。 然後，您可以將必要的權限指派給服務主體。 本文說明如何使用入口網站來建立服務主體。 其中著重在說明單一租用戶應用程式，此應用程式的目的是只在一個組織內執行。 您通常會將單一租用戶應用程式用在組織內執行的企業營運系統應用程式。
+本文說明如何建立可與角色型存取控制搭配使用的新 Azure Active Directory （Azure AD）應用程式和服務主體。 如果您擁有需要存取或修改資源的程式碼，則可以建立應用程式的身分識別。 此身分識別就是所謂的服務主體。 然後，您可以將必要的權限指派給服務主體。 本文說明如何使用入口網站來建立服務主體。 其中著重在說明單一租用戶應用程式，此應用程式的目的是只在一個組織內執行。 您通常會將單一租用戶應用程式用在組織內執行的企業營運系統應用程式。
 
 > [!IMPORTANT]
 > 若不要建立服務主體，可考慮使用 Azure 資源的受控識別作為應用程式識別碼。 如果您的程式碼在支援受控識別的服務上執行，並存取支援 Azure AD authentication 的資源，則受控識別會是較好的選項。 若要深入了解 Azure 資源的受控識別，包含目前哪些服務支援該功能，請參閱[什麼是適用於 Azure 資源的受控識別？](../managed-identities-azure-resources/overview.md)。
@@ -69,7 +69,7 @@ ms.locfileid: "74967110"
 
 ## <a name="get-values-for-signing-in"></a>取得值以便登入
 
-以程式設計方式登入時，您需要將租用戶識別碼與您的驗證要求一起傳送。 您也需要應用程式識別碼和驗證金鑰。 若要取得這些值，請使用下列步驟︰
+以程式設計方式登入時，您需要將租用戶識別碼與驗證要求一起傳送。 您也需要應用程式識別碼和驗證金鑰。 若要取得這些值，請使用下列步驟︰
 
 1. 選取 **Azure Active Directory**。
 1. 在 Azure AD 中，從 [應用程式註冊] 選取您的應用程式。

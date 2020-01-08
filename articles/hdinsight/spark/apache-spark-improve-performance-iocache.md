@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/29/2019
-ms.openlocfilehash: 3ef2def6329dc31eb1b175133b4525f87de9181c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/23/2019
+ms.openlocfilehash: 43875b87d26f144b85454077fd3c044c820132bf
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494655"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494981"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>使用 Azure HDInsight IO 快取來改善 Apache Spark 工作負載的效能
 
@@ -22,7 +22,7 @@ IO 快取是適用於 Azure HDInsight 的資料快取服務，可改進 Apache S
 
 > [!Note]  
 > IO 快取目前使用 RubiX 做為快取元件，但在未來的服務版本中可能會變更。 請使用 IO 快取介面，而不要直接相依於任何 RubiX 實作。
->目前只有 Azure BLOB 儲存體支援 IO 快取。 
+>目前只有 Azure BLOB 儲存體支援 IO 快取。
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Azure HDInsight IO 快取的優點
 
@@ -32,21 +32,19 @@ IO 快取是適用於 Azure HDInsight 的資料快取服務，可改進 Apache S
 
 ## <a name="getting-started"></a>開始使用
 
-Azure HDInsight IO 快取在預覽版中預設是停用的。 您可以在 Azure HDInsight 3.6+ Spark 叢集中使用 IO 快取，這些叢集執行 Apache Spark 2.3。  若要啟用 IO 快取，請執行下列動作：
+Azure HDInsight IO 快取在預覽版中預設是停用的。 您可以在 Azure HDInsight 3.6+ Spark 叢集中使用 IO 快取，這些叢集執行 Apache Spark 2.3。  若要在 HDInsight 4.0 上啟用 IO 快取，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取您的 HDInsight 叢集。
-
-1. 在 [概觀] 頁面 (選取叢集時預設即會開啟) 中，選取 [叢集儀表板] 下的 [Ambari 首頁]。
+1. 從網頁瀏覽器流覽至 `https://CLUSTERNAME.azurehdinsight.net`，其中 `CLUSTERNAME` 是叢集的名稱。
 
 1. 選取左邊的 [IO 快取]。
 
-1. 選取 [動作] 與 [啟用]。
+1. 選取 [**動作**] （HDI 3.6 中的**服務動作**）和 [**啟動**]。
 
     ![在 Ambari 中啟用 IO 快取服務](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "在 Ambari 中啟用 IO 快取服務")
 
 1. 確認叢集上的所有受影響服務都已重新啟動。
 
->[!NOTE]  
+> [!NOTE]  
 > 雖然進度列顯示已啟用，但 IO 快取在您重新啟動其他受影響的服務之前實際上不會啟用。
 
 ## <a name="troubleshooting"></a>疑難排解
@@ -71,12 +69,12 @@ Azure HDInsight IO 快取在預覽版中預設是停用的。 您可以在 Azure
 
 1. 選取 [重新啟動] > [重新啟動所有受影響項目]。
 
-    ![Apache Ambari 重新開機所有受影響的](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "重新開機所有受影響的")
+    ![Apache Ambari 會重新開機所有受影響的](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "重新開機所有受影響的")
 
 1. 選取 [確認重新啟動所有項目]。
 
-若那樣沒有用，請停用 IO 快取。
+如果沒有作用，請停用 IO 快取。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 在此部落格文章中深入了解 IO 快取，包括效能基準測試：[Apache Spark 作業透過 HDInsight IO 快取獲得快 9 倍的速度](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/) \(英文\)
+在此部落格文章中深入了解 IO 快取，包括效能基準測試：[Apache Spark 作業透過 HDInsight IO 快取獲得快 9 倍的速度](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/) \(英文\)

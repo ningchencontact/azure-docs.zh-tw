@@ -1,31 +1,20 @@
 ---
-title: 分割 Service Fabric 服務 | Microsoft Docs
+title: 分割 Service Fabric 服務
 description: 描述如何分割 Service Fabric 具狀態服務。 資料分割可讓資料儲存在本機電腦上，因此可以一起調整資料和計算。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/30/2017
-ms.author: atsenthi
-ms.openlocfilehash: 833d87dab59890b9903ea8eecf2334d7dd1c7436
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1f3ee2196bad8b8a0c992ed498d40b4cf5820f2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711842"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434070"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>分割 Service Fabric 可靠服務
 這篇文章介紹分割 Azure Service Fabric 可靠服務的基本概念。 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)上也提供本文中使用的原始碼。
 
 ## <a name="partitioning"></a>分割
-分割不是 Service Fabric 所獨有。 事實上，它是建置可調整服務的核心模式。 廣義上，我們可以將分割視為將狀態 (資料) 和計算分成較小的可存取單位來改善延展性和效能。 [資料分割][wikipartition]是一種知名的分割形式，也稱為分區化。
+分割不是 Service Fabric 所獨有。 事實上，它是建置可調整服務的核心模式。 廣義上，我們可以將分割視為將狀態 (資料) 和計算分成較小的可存取單位來改善延展性和效能。 一種知名的資料分割形式是[資料分割][wikipartition]，也稱為分區化。
 
 ### <a name="partition-service-fabric-stateless-services"></a>分割 Service Fabric 無狀態服務
 對於無狀態服務，您可以將資料分割視為邏輯單元，其中包含服務的一個或多個執行個體。 圖 1 顯示無狀態服務有 5 個執行個體分散到使用一個資料分割的叢集。
@@ -55,11 +44,11 @@ Service Fabric 提供一流的方法來分割狀態 (資料)，讓您輕鬆開�
 如此一來，因為來自用戶端要求會分散到各電腦而達成相應放大，應用程式的整體效能獲得改善，也減少競爭存取資料區塊的情況。
 
 ## <a name="plan-for-partitioning"></a>規劃分割
-實作服務之前，一定要考慮相應放大所需的分割策略。方法不同，但全部都著重於應用程式必須達到的目的。 在這篇文章中，讓我們看一些更重要的層面。
+在執行服務之前，您應該一律考慮相應放大所需的資料分割策略。有不同的方法，但全都專注于應用程式必須達成的目標。 在這篇文章中，讓我們看一些更重要的層面。
 
 第一步先思考必須分割的狀態結構是個不錯的方法。
 
-我們來看一個簡單的範例。 如果您要建置整個郡的輪詢服務，您可以建立郡中的每個城市的資料分割。 然後，您可以將城市中每一個人的投票存放在對應到該城市的資料分割中。 圖 3 說明一組人及其居住城市。
+我們來看一個簡單的範例。 如果您要為全縣的輪詢建立服務，您可以為縣中的每個城市建立一個資料分割。 然後，您可以將城市中每一個人的投票存放在對應到該城市的資料分割中。 圖 3 說明一組人及其居住城市。
 
 ![簡單資料分割](./media/service-fabric-concepts-partitioning/cities.png)
 
@@ -126,10 +115,10 @@ Service Fabric 有三個資料分割配置可選擇：
 > 
 > 
 
-1. 開啟 [Visual Studio]   > [檔案]   > [新增]   > [專案]  。
-2. 在 [新增專案]  對話方塊中，選擇 Service Fabric 應用程式
+1. 開啟 [Visual Studio] > [檔案] > [新增] > [專案]。
+2. 在 [新增專案] 對話方塊中，選擇 Service Fabric 應用程式
 3. 將專案命名為 "AlphabetPartitions"。
-4. 在 [建立服務]  對話方塊中，選擇 [具狀態]  服務並且命名為 "Alphabet.Processing"。
+4. 在 [建立服務] 對話方塊中，選擇 [具狀態] 服務並且命名為 "Alphabet.Processing"。
 5. 設定資料分割數目。 開啟位於 AlphabetPartitions 專案的 ApplicationPackageRoot 資料夾中的 ApplicationManifest.xml 檔案，將參數 Processing_PartitionCount 更新為 26，如下所示。
    
     ```xml
@@ -163,9 +152,9 @@ Service Fabric 有三個資料分割配置可選擇：
    
     相同電腦上可能裝載此服務的多個複本，因此複本的此位址必須是唯一的。 這就是為什麼我們在 URL 中有資料分割識別碼 + 複本識別碼。 只要 URL 首碼是唯一的，HttpListener 就可以在相同連接埠上的多個位址接聽。
    
-    在進階案例中，次要複本也會接聽唯讀要求，所以有額外 GUID。 在這種情況下，從主要轉換到次要時，您想要確保使用新的唯一位址以強制用戶端重新解析位址。 '+' 在此做為位址，因此複本會接聽所有可用的主機 (IP、FQDN、localhost 等等)。下列程式碼顯示範例。
+    在進階案例中，次要複本也會接聽唯讀要求，所以有額外 GUID。 在這種情況下，從主要轉換到次要時，您想要確保使用新的唯一位址以強制用戶端重新解析位址。 在這裡使用 ' + ' 作為位址，讓複本接聽所有可用的主機（IP、FQDN、localhost 等等）下列程式碼顯示範例。
    
-    ```CSharp
+    ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
          return new[] { new ServiceReplicaListener(context => this.CreateInternalListener(context))};
@@ -193,7 +182,7 @@ Service Fabric 有三個資料分割配置可選擇：
     接聽 URL 提供給 HttpListener。 發佈的 URL 是發佈給 Service Fabric 命名服務 (用於服務探索) 的 URL。 用戶端會透過該探索服務來要求這個位址。 用戶端取得的位址必須有節點的實際 IP 或 FQDN 才能連接。 所以您必須以節點的 IP 或 FQDN 取代 '+'，如上所示。
 9. 最後一個步驟是將處理邏輯加入至服務，如下所示。
    
-    ```CSharp
+    ```csharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
         string output = null;
@@ -239,9 +228,9 @@ Service Fabric 有三個資料分割配置可選擇：
 10. 讓我們將無狀態服務加入至專案，瞭解如何呼叫特定的資料分割。
     
     這項服務做為簡單的 Web 介面，將接受 lastname 做為查詢字串參數、決定資料分割索引鍵，然後將它傳送給 Alphabet.Processing 服務來處理。
-11. 在 [建立服務]  對話方塊中，選擇 [無狀態]  服務，命名為 "Alphabet.Web"，如下圖所示。
+11. 在 [建立服務] 對話方塊中，選擇 [無狀態] 服務，命名為 "Alphabet.Web"，如下圖所示。
     
-    ![無狀態服務螢幕擷取畫面](./media/service-fabric-concepts-partitioning/createnewstateless.png)上也提供本文中使用的原始碼。
+    ![無狀態服務螢幕擷取畫面](./media/service-fabric-concepts-partitioning/createnewstateless.png)。
 12. 更新 Alphabet.WebApi 服務的 ServiceManifest.xml 中的端點資訊，以開啟連接埠，如下所示。
     
     ```xml
@@ -249,7 +238,7 @@ Service Fabric 有三個資料分割配置可選擇：
     ```
 13. 您需要傳回 Web 類別中 ServiceInstanceListeners 的集合。 同樣地，您可以選擇實作簡單的 HttpCommunicationListener。
     
-    ```CSharp
+    ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return new[] {new ServiceInstanceListener(context => this.CreateInputListener(context))};
@@ -265,7 +254,7 @@ Service Fabric 有三個資料分割配置可選擇：
     ```
 14. 現在您需要實作處理邏輯。 有要求傳入時，HttpCommunicationListener 會呼叫 `ProcessInputRequest` 。 讓我們繼續並加入下列程式碼。
     
-    ```CSharp
+    ```csharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
         String output = null;
@@ -311,7 +300,7 @@ Service Fabric 有三個資料分割配置可選擇：
     
     讓我們帶您逐步了解。 程式碼將查詢字串參數 `lastname` 的第一個字母讀取為字元。 並從姓氏第一個字母的十六進位值中擷取 `A` 的十六進位值，判斷此字母的分割區索引鍵。
     
-    ```CSharp
+    ```csharp
     string lastname = context.Request.QueryString["lastname"];
     char firstLetterOfLastName = lastname.First();
     ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfLastName) - 'A');
@@ -320,19 +309,19 @@ Service Fabric 有三個資料分割配置可選擇：
     請記得，在此範例中，我們使用 26 個資料分割，每個資料分割有一個資料分割索引鍵。
     接下來，我們使用 `servicePartitionResolver` 物件的 `ResolveAsync` 方法，取得此索引鍵的服務資料分割 `partition`。 `servicePartitionResolver` 定義為
     
-    ```CSharp
+    ```csharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
     
     `ResolveAsync` 方法接受服務 URI、資料分割索引鍵和取消語 Token 做為參數。 處理服務的服務 URI 是 `fabric:/AlphabetPartitions/Processing`。 接下來，我們會取得資料分割的端點。
     
-    ```CSharp
+    ```csharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
     ```
     
     最後，我們建置端點 URL 加上查詢字串，並呼叫處理服務。
     
-    ```CSharp
+    ```csharp
     JObject addresses = JObject.Parse(ep.Address);
     string primaryReplicaAddress = (string)addresses["Endpoints"].First();
     

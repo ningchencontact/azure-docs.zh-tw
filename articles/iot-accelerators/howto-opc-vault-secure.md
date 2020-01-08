@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b5c886625c944e2f5501859e78506ca89ec3d765
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71203685"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454200"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>使用 OPC 保存庫憑證管理服務
 
@@ -36,7 +36,7 @@ ms.locfileid: "71203685"
 > [!IMPORTANT]
 > 必須要有寫入器角色，才能註冊應用程式。
 
-1. 在 `https://myResourceGroup-app.azurewebsites.net` 開啟憑證服務，然後登入。
+1. 在 `https://myResourceGroup-app.azurewebsites.net`開啟憑證服務，然後登入。
 2. 移至 [**註冊新**的]。 若為應用程式註冊，使用者至少必須指派寫入者角色。
 2. 輸入表單會遵循 OPC UA 中的命名慣例。 例如，在下列螢幕擷取畫面中，會顯示 OPC UA .NET Standard 堆疊中的[OPC Ua 參照伺服器](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference)範例設定：
 
@@ -90,7 +90,7 @@ ms.locfileid: "71203685"
 
 5. 核准需要擁有核准者角色的使用者，並具有 Azure Key Vault 的簽署許可權。 選取 [**核准**] 或 [**拒絕**]，以開始或取消實際的簽署作業。 具有公開金鑰的產生憑證是由 CA 簽署。 此作業可能需要幾秒鐘的時間才能完成。
 
-   ![視圖憑證要求詳細資料的螢幕擷取畫面，其中的核准訊息位於底部](media/howto-opc-vault-secure/view-cert-csr.png "查看憑證")
+   ![視圖憑證要求詳細資料的螢幕擷取畫面，其中的核准訊息位於底部](media/howto-opc-vault-secure/view-cert-csr.png "檢視憑證")
 
 6. 產生的憑證（DER）可以從這裡下載為二進位檔案。 您也可以使用 base64 編碼版本，例如，將憑證複製並貼到命令列或文字輸入。 
 10. 安全地下載並儲存憑證之後，您可以選取 [**刪除憑證**]。
@@ -98,7 +98,7 @@ ms.locfileid: "71203685"
 
 現在它取決於 OPC UA 裝置如何套用新憑證。 通常會將 CA 憑證和 CRL 複製到 `trusted` 資料夾，而應用程式憑證會套用至憑證存放區中的 `own` 資料夾。 某些裝置可能已支援伺服器推送以進行憑證更新。 請參閱 OPC UA 裝置的檔。
 
-### <a name="step-4-device-secured"></a>步驟4：裝置安全
+### <a name="step-3-device-secured"></a>步驟3：裝置安全
 
 OPC UA 裝置現在已準備好與 CA 簽署憑證所保護的其他 OPC UA 裝置通訊，而不需要進一步設定。
 

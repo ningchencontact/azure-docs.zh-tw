@@ -3,12 +3,12 @@ title: Azure 中的 IP 位址 中的 IP 位址
 description: 了解如何尋找函式應用程式的輸入和輸出 IP 位址，以及造成其變更的原因。
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 327d616c36bcbbb1562349afffd529efb2b5d27f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230333"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612882"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure 中的 IP 位址 中的 IP 位址
 
@@ -78,7 +78,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 }
 ```
 
- 如需有關此檔案何時更新和 IP 位址何時變更的資訊，請展開**下載中心頁面**的 [詳細資料][](https://www.microsoft.com/en-us/download/details.aspx?id=56519) 區段。
+ 如需有關此檔案何時更新和 IP 位址何時變更的資訊，請展開[下載中心頁面](https://www.microsoft.com/en-us/download/details.aspx?id=56519)的 [詳細資料] 區段。
 
 ## <a name="inbound-ip-address-changes"></a>輸入 IP 位址變更
 
@@ -86,9 +86,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 - 刪除函式應用程式，並在不同資源群組中重建。
 - 刪除資源群組和區域組合中的最後一個函式應用程式，並予以重建。
-- 刪除 SSL 繫結，例如在[憑證更新](../app-service/configure-ssl-certificate.md#renew-certificate)期間。
+- 刪除 SSL 系結，例如在[憑證更新](../app-service/configure-ssl-certificate.md#renew-certificate)期間。
 
-當函式應用程式在[取用方案](functions-scale.md#consumption-plan)中執行時，如果您尚未採取任何動作 (例如所列的動作)，輸入 IP 位址也可能會改變。
+當您的函式應用程式在取用[方案](functions-scale.md#consumption-plan)中執行時，即使您未採取任何動作（如[上方所列](#inbound-ip-address-changes)的動作），輸入 IP 位址也可能會變更。
 
 ## <a name="outbound-ip-address-changes"></a>輸出 IP 位址變更
 
@@ -97,7 +97,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 * 採取任何可變更輸入 IP 位址的動作。
 * 變更您的 App Service 方案定價層。 您的應用程式可使用的所有可能輸出 IP 位址清單 (適用於所有定價層) 位於 `possibleOutboundIPAddresses` 屬性中。 請參閱[尋找輸出 IP](#find-outbound-ip-addresses)。
 
-當函式應用程式在[取用方案](functions-scale.md#consumption-plan)中執行時，如果您尚未採取任何動作 (例如所列的動作)，輸出 IP 位址也可能會改變。
+當您的函式應用程式在取用[方案](functions-scale.md#consumption-plan)中執行時，即使您未採取任何動作（如[上面所列](#inbound-ip-address-changes)），輸出 IP 位址也可能會變更。
 
 若要故意強制輸出 IP 位址變更：
 

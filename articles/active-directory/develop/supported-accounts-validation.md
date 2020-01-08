@@ -1,5 +1,5 @@
 ---
-title: 依帳戶類型的驗證差異-Microsoft 身分識別平臺 |Azure
+title: 依支援的帳戶類型的驗證差異-Microsoft 身分識別平臺 |Azure
 description: 瞭解使用 Microsoft 身分識別平臺註冊應用程式時，不同支援的帳戶類型之各種屬性的驗證差異。
 author: SureshJa
 ms.author: sureshja
@@ -11,12 +11,12 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 576adc99ef7d794f50efeb61375f3e59f8815033
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2d15c22e2495432926285dbdbd55a4a6f3b0aa35
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919353"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423463"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>依支援的帳戶類型（signInAudience）的驗證差異
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 1719c917ee2a4c0a11e4a79953a8b67e946d5931
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5a47f5c2f9c9d4e22e8205853d85214997a2bea7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889119"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406947"
 ---
 # <a name="eventcounters-introduction"></a>EventCounters 簡介
 
@@ -55,7 +55,7 @@ Application Insights 支援以其 `EventCounterCollectionModule`來收集 `Event
 |`Microsoft.AspNetCore.Hosting` | `failed-requests` |
 
 > [!NOTE]
-> AspNetCore 類別的計數器只會新增至 Asp.Net Core 應用程式中。
+> AspNetCore 類別目錄的計數器只會加入 ASP.NET Core 應用程式中。
 
 ## <a name="customizing-counters-to-be-collected"></a>自訂要收集的計數器
 
@@ -95,19 +95,19 @@ Application Insights 支援以其 `EventCounterCollectionModule`來收集 `Event
 
 ## <a name="event-counters-in-metric-explorer"></a>計量瀏覽器中的事件計數器
 
-若要在計量[瀏覽器](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)中查看 EventCounter 度量，請選取 [Application Insights 資源]，然後選擇 [以記錄為基礎的計量] 做為 度量 然後，EventCounter 計量會顯示在 [PerformanceCounter] 類別之下。
+若要在計量[瀏覽器](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)中查看 EventCounter 度量，請選取 [Application Insights 資源]，然後選擇 [以記錄為基礎的計量] 做為 [度量] 然後，EventCounter 計量會顯示在 [自訂類別] 之下。
 
 > [!div class="mx-imgBorder"]
 > Application Insights](./media/event-counters/metrics-explorer-counter-list.png) 中所報告的 ![事件計數器
 
 ## <a name="event-counters-in-analytics"></a>分析中的事件計數器
 
-您也可以在 [ **performanceCounters** ] 資料表的 [[分析](../../azure-monitor/app/analytics.md)] 中搜尋和顯示事件計數器報告。
+您也可以在 [ **customMetrics** ] 資料表的 [[分析](../../azure-monitor/app/analytics.md)] 中搜尋和顯示事件計數器報告。
 
 例如，執行下列查詢以查看哪些計數器已收集並可供查詢：
 
 ```Kusto
-performanceCounters | summarize avg(value) by name
+customMetrics | summarize avg(value) by name
 ```
 
 > [!div class="mx-imgBorder"]
@@ -116,7 +116,7 @@ performanceCounters | summarize avg(value) by name
 若要取得最近一段時間內特定計數器的圖表（例如： `ThreadPool Completed Work Item Count`），請執行下列查詢。
 
 ```Kusto
-performanceCounters 
+customMetrics 
 | where name contains "System.Runtime|ThreadPool Completed Work Item Count"
 | where timestamp >= ago(1h)
 | summarize  avg(value) by cloud_RoleInstance, bin(timestamp, 1m)
@@ -125,7 +125,7 @@ performanceCounters
 > [!div class="mx-imgBorder"]
 > ![在 Application Insights 中對單一計數器的交談](./media/event-counters/analytics-completeditems-counters.png)
 
-與其他遙測一樣，**performanceCounters** 也有 `cloud_RoleInstance` 資料行可指出應用程式執行所在主機伺服器執行個體的身分識別。 上述查詢會顯示每個實例的計數器值，而且可以用來比較不同伺服器實例的效能。
+就像其他遙測一樣， **customMetrics**也有資料行 `cloud_RoleInstance`，指出您的應用程式執行所在之主機伺服器實例的身分識別。 上述查詢會顯示每個實例的計數器值，而且可以用來比較不同伺服器實例的效能。
 
 ## <a name="alerts"></a>警示
 就像其他計量一樣，您可以[設定警示](../../azure-monitor/app/alerts.md)，在事件計數器超出您指定的限制時警告您。 開啟 [警示] 窗格，然後按一下 [新增警示]。
@@ -138,7 +138,7 @@ performanceCounters
 
 ### <a name="which-platforms-can-i-see-the-default-list-of-net-core-30-counters"></a>我可以在哪些平臺上看到 .NET Core 3.0 計數器的預設清單？
 
-EventCounter 不需要任何特殊許可權，而且所有平臺都支援 .NET Core 3.0。 其中包括：
+EventCounter 不需要任何特殊許可權，而且所有平臺都支援 .NET Core 3.0。 這包括：
 
 * **作業系統**： Windows、Linux 或 macOS。
 * **裝載方法**：處理中或進程外。

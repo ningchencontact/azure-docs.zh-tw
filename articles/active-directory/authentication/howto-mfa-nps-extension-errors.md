@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e93666c9a6388fb008bbe85c836d732685ed63a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a8d67d1d318bf823145a57d2e55774695d151996
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848318"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425310"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>解決 Azure Multi-Factor Authentication NPS 擴充功能的錯誤訊息
 
@@ -95,6 +95,10 @@ ms.locfileid: "74848318"
 ### <a name="troubleshoot-user-accounts"></a>針對使用者帳戶進行移難排解
 
 如果您的使用者[進行雙步驟驗證時發生問題](../user-help/multi-factor-authentication-end-user-troubleshoot.md)，請協助助他們自行診斷問題。
+
+### <a name="health-check-script"></a>健全狀況檢查腳本
+
+您可以在 TechNet 資源庫上取得[AZURE MFA NPS 擴充功能健全狀況檢查腳本](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)，以在疑難排解 NPS 延伸模組時執行基本的健全狀況檢查。 執行腳本，然後選擇 [選項 3]。
 
 ### <a name="contact-microsoft-support"></a>連絡 Microsoft 支援
 

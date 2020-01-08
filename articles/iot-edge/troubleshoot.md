@@ -4,16 +4,16 @@ description: 使用本文以了解 Azure IoT Edge 的標準診斷技巧，例如
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/26/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cc05d820a409500e66e2525654954e4dddf48e4b
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 279b09250aaa3a87e066ade81fc63719adaf07b5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457255"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429396"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
 
@@ -52,35 +52,36 @@ ms.locfileid: "74457255"
 ### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>檢查 IoT Edge 安全性管理員及其記錄的狀態
 
 在 Linux 上：
-- 若要檢視 IoT Edge 安全性管理員的狀態：
+
+* 若要檢視 IoT Edge 安全性管理員的狀態：
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-- 若要檢視 IoT Edge 安全性管理員的記錄：
+* 若要檢視 IoT Edge 安全性管理員的記錄：
 
     ```bash
     sudo journalctl -u iotedge -f
     ```
 
-- 若要檢視 IoT Edge 安全性管理員更詳細的記錄：
+* 若要檢視 IoT Edge 安全性管理員更詳細的記錄：
 
-   - 編輯 iotedge 精靈設定：
+  * 編輯 iotedge 精靈設定：
 
       ```bash
       sudo systemctl edit iotedge.service
       ```
-   
-   - 更新以下幾行：
-    
-      ```
+
+  * 更新以下幾行：
+
+      ```bash
       [Service]
       Environment=IOTEDGE_LOG=edgelet=debug
       ```
-    
-   - 重新啟動 IoT Edge 安全性精靈：
-    
+
+  * 重新啟動 IoT Edge 安全性精靈：
+
       ```bash
       sudo systemctl cat iotedge.service
       sudo systemctl daemon-reload
@@ -88,13 +89,14 @@ ms.locfileid: "74457255"
       ```
 
 在 Windows 上：
-- 若要檢視 IoT Edge 安全性管理員的狀態：
+
+* 若要檢視 IoT Edge 安全性管理員的狀態：
 
    ```powershell
    Get-Service iotedge
    ```
 
-- 若要檢視 IoT Edge 安全性管理員的記錄：
+* 若要檢視 IoT Edge 安全性管理員的記錄：
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
@@ -168,15 +170,16 @@ ms.locfileid: "74457255"
 您也可以檢查在 IoT 中樞與 IoT Edge 裝置之間傳送的訊息。 請使用適用於 Visual Studio Code 的 [Azure IoT 中樞工具組](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)延伸模組 (先前稱為「Azure IoT 工作組」延伸模組) 來檢視這些訊息。 如需詳細資訊，請參閱[使用 Azure IoT 進行開發時的便利工具](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)。
 
 ### <a name="restart-containers"></a>重新啟動容器
+
 檢查過記錄和訊息並取得資訊後，您可以嘗試重新啟動容器：
 
-```
+```cmd
 iotedge restart <container name>
 ```
 
 重新啟動 IoT Edge 執行階段容器：
 
-```
+```cmd
 iotedge restart edgeAgent && iotedge restart edgeHub
 ```
 
@@ -200,52 +203,53 @@ iotedge restart edgeAgent && iotedge restart edgeHub
 
 ## <a name="iot-edge-agent-stops-after-about-a-minute"></a>IoT Edge 代理程式會在大約一分鐘後停止
 
-EdgeAgent 模組會啟動並順利執行約一分鐘，然後停止。 記錄指出 IoT Edge 代理程式會嘗試透過 AMQP 連線到 IoT 中樞，然後嘗試使用 AMQP over WebSocket 進行連接。 當失敗時，IoT Edge 代理程式就會結束。 
+EdgeAgent 模組會啟動並順利執行約一分鐘，然後停止。 記錄指出 IoT Edge 代理程式會嘗試透過 AMQP 連線到 IoT 中樞，然後嘗試使用 AMQP over WebSocket 進行連接。 當失敗時，IoT Edge 代理程式就會結束。
 
 範例 edgeAgent 記錄：
 
 ```output
-2017-11-28 18:46:19 [INF] - Starting module management agent. 
-2017-11-28 18:46:19 [INF] - Version - 1.0.7516610 (03c94f85d0833a861a43c669842f0817924911d5) 
-2017-11-28 18:46:19 [INF] - Edge agent attempting to connect to IoT Hub via AMQP... 
-2017-11-28 18:46:49 [INF] - Edge agent attempting to connect to IoT Hub via AMQP over WebSocket... 
+2017-11-28 18:46:19 [INF] - Starting module management agent.
+2017-11-28 18:46:19 [INF] - Version - 1.0.7516610 (03c94f85d0833a861a43c669842f0817924911d5)
+2017-11-28 18:46:19 [INF] - Edge agent attempting to connect to IoT Hub via AMQP...
+2017-11-28 18:46:49 [INF] - Edge agent attempting to connect to IoT Hub via AMQP over WebSocket...
 ```
 
 **根本原因**
 
 主機網路上的網路設定導致 IoT Edge 代理程式無法到達網路。 代理程式首先嘗試透過 AMQP (連接埠 5671) 進行連線。 如果連線失敗，代理程式會嘗試 Websocket (連接埠 443)。
 
-IoT Edge 執行階段會為每個模組設定要在其中通訊的網路。 在 Linux 上，此網路是橋接網路。 在 Windows 上則是使用 NAT。 此問題較常見於使用 Windows 容器 (使用 NAT 網路) 的 Windows 裝置。 
+IoT Edge 執行階段會為每個模組設定要在其中通訊的網路。 在 Linux 上，此網路是橋接網路。 在 Windows 上則是使用 NAT。 此問題較常見於使用 Windows 容器 (使用 NAT 網路) 的 Windows 裝置。
 
 **解決方案**
 
-確認指派給此橋接器/NAT 網路的 IP 位址能路由至網際網路。 有時候主機上的 VPN 組態會覆寫 IoT Edge 網路。 
+確認指派給此橋接器/NAT 網路的 IP 位址能路由至網際網路。 有時候主機上的 VPN 組態會覆寫 IoT Edge 網路。
 
 ## <a name="iot-edge-hub-fails-to-start"></a>IoT Edge hub 無法啟動
 
-EdgeHub 模組無法啟動，並會將下列訊息列印到記錄檔： 
+EdgeHub 模組無法啟動，並會將下列訊息列印到記錄檔：
 
 ```output
 One or more errors occurred. 
 (Docker API responded with status code=InternalServerError, response=
 {\"message\":\"driver failed programming external connectivity on endpoint edgeHub (6a82e5e994bab5187939049684fb64efe07606d2bb8a4cc5655b2a9bad5f8c80): 
-Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allocated\"}\n) 
+Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allocated\"}\n)
 ```
 
 **根本原因**
 
-在主機機器上的某些其他程序已繫結連接埠 443。 IoT Edge 中樞會對應埠5671和443，以用於閘道案例。 如果另一個程序已繫結此連接埠，則此連接埠對應會失敗。 
+在主機機器上的某些其他程序已繫結連接埠 443。 IoT Edge 中樞會對應埠5671和443，以用於閘道案例。 如果另一個程序已繫結此連接埠，則此連接埠對應會失敗。
 
 **解決方案**
 
 尋找並停止正在使用連接埠 443 的程序。 此程序通常是網頁伺服器。
 
 ## <a name="iot-edge-agent-cant-access-a-modules-image-403"></a>IoT Edge 代理程式無法存取模組的映射（403）
-容器無法執行，且 edgeAgent 記錄顯示403錯誤。 
+
+容器無法執行，且 edgeAgent 記錄顯示403錯誤。
 
 **根本原因**
 
-Iot Edge 代理程式沒有存取模組映射的許可權。 
+Iot Edge 代理程式沒有存取模組映射的許可權。
 
 **解決方案**
 
@@ -253,7 +257,7 @@ Iot Edge 代理程式沒有存取模組映射的許可權。
 
 ## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>IoT Edge 安全性精靈因主機名稱無效而失敗
 
-命令 `sudo journalctl -u iotedge` 失敗，並列印下列訊息： 
+命令 `sudo journalctl -u iotedge` 失敗，並列印下列訊息：
 
 ```output
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
@@ -267,8 +271,8 @@ IoT Edge 執行階段只能支援少於 64 個字元的主機名稱。 實體機
 
 當發現這個錯誤時，可以設定虛擬機器的 DNS 名稱，然後將 DNS 名稱設定為安裝命令中的主機名稱來解決。
 
-1. 在 Azure 入口網站中，瀏覽至虛擬機器的概觀頁面。 
-2. 選取 DNS 名稱下的 [設定]。 如果虛擬機器已設定 DNS 名稱，則不需要設定新的名稱。 
+1. 在 Azure 入口網站中，瀏覽至虛擬機器的概觀頁面。
+2. 選取 DNS 名稱下的 [設定]。 如果虛擬機器已設定 DNS 名稱，則不需要設定新的名稱。
 
    ![設定虛擬機器的 DNS 名稱](./media/troubleshoot/configure-dns.png)
 
@@ -276,19 +280,20 @@ IoT Edge 執行階段只能支援少於 64 個字元的主機名稱。 實體機
 4. 複製新的 DNS 名稱，格式應該是 **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**。
 5. 在虛擬機器中，使用下列命令以您的 DNS 名稱設定 IoT Edge 執行階段：
 
-   - 在 Linux 上：
+   * 在 Linux 上：
 
       ```bash
       sudo nano /etc/iotedge/config.yaml
       ```
 
-   - 在 Windows 上：
+   * 在 Windows 上：
 
       ```cmd
       notepad C:\ProgramData\iotedge\config.yaml
       ```
 
-## <a name="stability-issues-on-resource-constrained-devices"></a>資源受限裝置的穩定性問題 
+## <a name="stability-issues-on-resource-constrained-devices"></a>資源受限裝置的穩定性問題
+
 您可能會遇到受限裝置 (例如 Raspberry Pi) 的穩定性問題，尤其在該裝置當作閘道的時候。 徵兆包括 Edge 中樞模組的記憶體不足例外狀況，下游裝置無法連線，或裝置在幾小時後停止傳送遙測訊息。
 
 **根本原因**
@@ -299,13 +304,13 @@ IoT Edge 中樞（屬於 IoT Edge 執行時間的一部分）預設會針對效�
 
 針對 IoT Edge 中樞，將環境變數**OptimizeForPerformance**設定為**false**。 作法有二：
 
-在 UI 中： 
+在 Azure 入口網站中：
 
-在入口網站中，流覽至 **裝置詳細資料** > **設定模組** > 設定**advanced Edge Runtime 設定**。 為 Edge 中樞模組建立一個設定為*false*的環境變數，稱為*OptimizeForPerformance* 。
+在您的 IoT 中樞中，選取您的 IoT Edge 裝置，然後從 [裝置詳細資料] 頁面選取 [**設定模組**] [ > **執行時間設定**]。 為 Edge 中樞模組建立一個設定為*false*的環境變數，稱為*OptimizeForPerformance* 。
 
 ![將 OptimizeForPerformance 設定為 false](./media/troubleshoot/optimizeforperformance-false.png)
 
-**或**
+**OR**
 
 在部署資訊清單中：
 
@@ -322,7 +327,9 @@ IoT Edge 中樞（屬於 IoT Edge 執行時間的一部分）預設會針對效�
       }
     },
 ```
+
 ## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>無法在 Windows 上取得 IoT Edge 精靈記錄 (daemon log)
+
 如果您在 Windows 上使用 `Get-WinEvent` 時收到 EventLogException，請檢查您的登錄項目。
 
 **根本原因**
@@ -360,13 +367,13 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 
 請確定自訂 IoT Edge 模組一律使用相同的處理序識別碼將訊息傳送給 edgeHub。 例如，請務必在 Docker 檔案中 `ENTRYPOINT` 而不是 `CMD` 命令，因為 `CMD` 會導致模組有一個處理序識別碼，而執行主要程式的 bash 命令有另一個處理序識別碼，而 `ENTRYPOINT` 會導致單一處理序識別碼。
 
-
 ## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>適用於 IoT Edge 部署的防火牆和連接埠設定規則
+
 Azure IoT Edge 允許使用支援的 IoT 中樞通訊協定，從內部部署伺服器到 Azure 雲端的通訊，請參閱[選擇通訊協定](../iot-hub/iot-hub-devguide-protocols.md)。 為了加強安全性，Azure IoT Edge 和 Azure IoT 中樞之間的通訊通道一律會設定為輸出。 此設定根據[服務輔助通訊模式](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)，可有效減少惡意實體要探索的攻擊面。 僅當 Azure IoT 中樞需要將訊息推送到 Azure IoT Edge 裝置的特定案例時，才需要輸入通信。 使用安全的 TLS 通道保護雲端到裝置訊息，並且可以使用 X.509 憑證和 TPM 裝置模組進一步保護雲端。 「Azure IoT Edge 安全性管理員」會控管此通訊的建立方式，請參閱 [IoT Edge 安全性管理員](../iot-edge/iot-edge-security-manager.md)。
 
 雖然 IoT Edge 提供增強的設定來保護 Azure IoT Edge 執行階段和已部署的模組，但它仍然倚賴基礎的機器和網路設定。 因此，請務必確定已設定適當的網路和防火牆規則，以提供安全的邊緣對雲端通訊。 當裝載 Azure IoT Edge 執行時間的基礎伺服器設定防火牆規則時，可以使用下表做為指導方針：
 
-|通訊協定|Port|傳入|傳出|指引|
+|通訊協定|Port|傳入|傳出|指導方針|
 |--|--|--|--|--|
 |MQTT|8883|已封鎖 (預設值)|已封鎖 (預設值)|<ul> <li>使用 MQTT 作為通訊協定時，請將「傳出」(輸出) 設定為「開放」。<li>IoT Edge 不支援適用於 MQTT 的 1883。 <li>應該將傳入 (輸入) 連線封鎖。</ul>|
 |AMQP|5671|已封鎖 (預設值)|開放 (預設值)|<ul> <li>IoT Edge 的預設通訊協定。 <li> 如果未設定 Azure IoT Edge 使用其他支援的通訊協定，或 AMQP 是所需的通訊協定，則必須設定為「開放」。<li>IoT Edge 不支援適用於 AMQP 的 5672。<li>當 Azure IoT Edge 使用不同的 IoT Hub 已支援通訊協定時，請封鎖此連接埠。<li>應該將傳入 (輸入) 連線封鎖。</ul></ul>|
@@ -382,12 +389,11 @@ Azure IoT Edge 允許使用支援的 IoT 中樞通訊協定，從內部部署伺
 
 **解決方案**
 
-
 **選項1：在容器引擎設定中設定 DNS 伺服器**
 
-在 [容器引擎設定] 中，為您的環境指定 DNS 伺服器，這會套用至引擎啟動的所有容器模組。 建立名為 `daemon.json` 的檔案，以指定要使用的 DNS 伺服器。 例如︰
+在 [容器引擎設定] 中，為您的環境指定 DNS 伺服器，這會套用至引擎啟動的所有容器模組。 建立名為 `daemon.json` 的檔案，以指定要使用的 DNS 伺服器。 例如：
 
-```
+```json
 {
     "dns": ["1.1.1.1"]
 }
@@ -406,16 +412,16 @@ Azure IoT Edge 允許使用支援的 IoT 中樞通訊協定，從內部部署伺
 
 *重新開機容器引擎，更新才會生效*
 
-| 平台 | 命令 |
+| 平台 | Command |
 | --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
 | Windows （系統管理員 Powershell） | `Restart-Service iotedge-moby -Force` |
 
 **選項2：在每個模組的 IoT Edge 部署中設定 DNS 伺服器**
 
-您可以在 IoT Edge 部署中，為每個模組的*createOptions*設定 DNS 伺服器。 例如︰
+您可以在 IoT Edge 部署中，為每個模組的*createOptions*設定 DNS 伺服器。 例如：
 
-```
+```json
 "createOptions": {
   "HostConfig": {
     "Dns": [
@@ -425,10 +431,10 @@ Azure IoT Edge 允許使用支援的 IoT 中樞通訊協定，從內部部署伺
 }
 ```
 
-也請務必為*edgeAgent*和*edgeHub*模組設定此程式。 
+也請務必為*edgeAgent*和*edgeHub*模組設定此程式。
 
 ## <a name="next-steps"></a>後續步驟
+
 您在 IoT Edge 平台中發現到錯誤嗎？ [提交問題](https://github.com/Azure/iotedge/issues)，讓我們可以持續進行改善。 
 
-如果您有其他問題，請建立[支援要求](https://portal.azure.com/#create/Microsoft.Support)以取得協助。 
-
+如果您有其他問題，請建立[支援要求](https://portal.azure.com/#create/Microsoft.Support)以取得協助。

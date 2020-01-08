@@ -1,7 +1,7 @@
 ---
 title: 應用程式生命週期管理
 titleSuffix: ML Studio (classic) - Azure
-description: 在傳統版本的 Azure Machine Learning Studio 中套用應用程式生命週期管理最佳作法
+description: 在 Azure Machine Learning Studio （傳統）中套用應用程式生命週期管理最佳作法
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -9,15 +9,15 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 10/27/2016
-ms.openlocfilehash: 2dd401918edc0b2d08390b1012efbf44fe2be1e9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3cc659bf633c74dab785b696cafb364974926aec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839426"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432229"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio 中的應用程式生命週期管理（傳統）
-Azure Machine Learning Studio （傳統）是一種工具，可用於開發在 Azure 雲端平臺中運作的機器學習實驗。 它就像是合併到單一平台的 Visual Studio IDE 和可調整的雲端服務。 您可以將標準應用程式生命週期管理（ALM）做法從版本控制各種資產納入自動化執行和部署，以 Azure Machine Learning Studio 的傳統版本。 本文會討論其中的部分選項和方法。
+Azure Machine Learning Studio （傳統）是一種工具，可用於開發在 Azure 雲端平臺中運作的機器學習實驗。 它就像是合併到單一平台的 Visual Studio IDE 和可調整的雲端服務。 您可以將標準應用程式生命週期管理（ALM）做法從版本控制各種資產納入自動化執行和部署，以 Azure Machine Learning Studio （傳統）。 本文會討論其中的部分選項和方法。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -25,7 +25,7 @@ Azure Machine Learning Studio （傳統）是一種工具，可用於開發在 A
 有兩個建議方法可控制您的實驗版本。 您可以仰賴內建的執行歷程記錄或以 JSON 格式匯出實驗，以便在外部進行管理。 每種方法都有其優缺點。
 
 ### <a name="experiment-snapshots-using-run-history"></a>使用執行歷程記錄的實驗快照
-在傳統版 Azure Machine Learning Studio 學習實驗的執行模型中，每當您在實驗編輯器中按一下 [**執行**] 時，實驗的不可變快照集會提交至工作排程器。 若要檢視這份快照清單，請在實驗編輯器的畫面中，按一下命令列上的 [執行歷程記錄] 按鈕。
+在 Azure Machine Learning Studio （傳統）學習實驗的執行模型中，每當您在實驗編輯器中按一下 [**執行**] 時，就會將實驗的不可變快照集提交至工作排程器。 若要檢視這份快照清單，請在實驗編輯器的畫面中，按一下命令列上的 [執行歷程記錄] 按鈕。
 
 ![執行歷程記錄按鈕](./media/version-control/runhistory.png)
 
@@ -33,17 +33,17 @@ Azure Machine Learning Studio （傳統）是一種工具，可用於開發在 A
 
 ![執行歷程記錄清單](./media/version-control/runhistorylist.png)
 
-開啟後，您就可以將快照實驗儲存為新的實驗，然後加以修改。 如果實驗快照包含具有已更新版本的資產 (如定型模型、轉換或資料集)，此快照會在擷取快照時保留原始版本的參考。 如果您將鎖定的快照儲存為新的實驗，則傳統版本的 Azure Machine Learning Studio 會偵測這些資產是否存在，並在新的實驗中自動加以更新。
+開啟後，您就可以將快照實驗儲存為新的實驗，然後加以修改。 如果實驗快照包含具有已更新版本的資產 (如定型模型、轉換或資料集)，此快照會在擷取快照時保留原始版本的參考。 如果您將鎖定的快照儲存為新的實驗，Azure Machine Learning Studio （傳統）會偵測到這些資產有較新的版本存在，並在新的實驗中自動加以更新。
 
 如果您刪除此實驗，該實驗的所有快照會遭到刪除。
 
 ### <a name="exportimport-experiment-in-json-format"></a>以 JSON 格式匯出/匯入實驗
-執行歷程記錄快照集會在每次提交執行時，將不變的實驗版本保留在傳統版本的 Azure Machine Learning Studio 中。 您也可以在本機儲存實驗的複本，並將其簽入到您最喜愛的原始檔控制系統 (例如 Team Foundation Server)，稍後再從該本機檔案重新建立實驗。 您可以使用 [Azure Machine Learning PowerShell](https://aka.ms/amlps) Cmdlet [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph) 和 [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph) 來完成此作業。
+執行歷程記錄快照集會在每次提交執行時，將不變的實驗版本保留 Azure Machine Learning Studio （傳統）。 您也可以在本機儲存實驗的複本，並將其簽入到您最喜愛的原始檔控制系統 (例如 Team Foundation Server)，稍後再從該本機檔案重新建立實驗。 您可以使用 [Azure Machine Learning PowerShell](https://aka.ms/amlps) Cmdlet [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph) 和 [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph) 來完成此作業。
 
 JSON 檔案是實驗圖形的文字表示法，但可能在工作區中包含資產的參考，例如資料集或定型模型。 它不會包含資產的序列化版本。 如果您嘗試將 JSON 文件匯回工作區中，所參考的資產必須已經存在且具有實驗中所參考的相同資產識別碼。 否則您無法存取匯入的實驗。
 
 ## <a name="versioning-trained-model"></a>定型模型版本控制
-傳統版本 Azure Machine Learning Studio 中的定型模型會序列化為一種格式，稱為 .Ilearner 檔案（`.iLearner`），並儲存在與工作區相關聯的 Azure Blob 儲存體帳戶中。 取得 .iLearner 檔案複本的方法之一是透過重新訓練 API。 [本文](/azure/machine-learning/studio/retrain-machine-learning-model)說明重新訓練 API 的運作方式。 高階步驟：
+Azure Machine Learning Studio （傳統）中的定型模型會序列化為一種格式，稱為 .Ilearner 檔案（`.iLearner`），並儲存在與工作區相關聯的 Azure Blob 儲存體帳戶中。 取得 .iLearner 檔案複本的方法之一是透過重新訓練 API。 [本文](/azure/machine-learning/studio/retrain-machine-learning-model)說明重新訓練 API 的運作方式。 高階步驟：
 
 1. 設定您的訓練實驗。
 2. 將 Web 服務輸出連接埠新增至「訓練模型」模組，或是可產生定型模型的模組，例如「微調模型參數」或「建立 R 模型」。
@@ -75,12 +75,12 @@ JSON 檔案是實驗圖形的文字表示法，但可能在工作區中包含資
 您也可以建立許多相同的 Web 服務端點，然後將不同版本的 .iLearner 檔案修補至端點，以達到類似的效果。 [本文](create-models-and-endpoints-with-powershell.md)更詳細地說明如何完成此項作業。
 
 ### <a name="new-web-service"></a>新的 Web 服務
-如果您建立以 Azure Resource Manager 為基礎的新 Web 服務，就無法再使用端點建構。 相反地，您可以使用[Export-amlwebservicedefinitionfromexperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet，或使用[*AZMLWEBSERVICE*](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) ，以 JSON 格式從預測實驗產生 WEB 服務定義（WSD）檔案。來自已部署 Resource Manager 型 web 服務的 PowerShell commandlet。
+如果您建立以 Azure Resource Manager 為基礎的新 Web 服務，就無法再使用端點建構。 相反地，您可以使用[Export-amlwebservicedefinitionfromexperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet，或從已部署的 Resource Manager 型 web 服務使用[*AzMlWebservice*](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) POWERSHELL commandlet，以 JSON 格式從預測性實驗產生 WEB 服務定義（WSD）檔案。
 
 在擁有匯出的 WSD 檔案並對其進行版本控制後，您也可以將 WSD 部署為不同 Azure 區域中不同 Web 服務方案的新 Web 服務。 只要確定您提供適當的儲存體帳戶組態，以及新的 Web 服務方案識別碼。 若要在不同的 .iLearner 檔案中修補，您可以修改 WSD 檔案和更新定型模型的位置參考，並且部署為新的 Web 服務。
 
 ## <a name="automate-experiment-execution-and-deployment"></a>自動進行實驗執行和部署
-ALM 的重要層面就是能夠自動進行應用程式的執行和部署程序。 在傳統版本的 Azure Machine Learning Studio 中，您可以使用[PowerShell 模組](https://aka.ms/amlps)來完成這項操作。 以下是使用[Azure Machine Learning Studio （傳統） PowerShell 模組](https://aka.ms/amlps)，與標準 ALM 自動化執行/部署程式相關的端對端步驟範例。 每個步驟都會連結至一或多個 PowerShell Cmdlet，您可以使用它來完成該步驟。
+ALM 的重要層面就是能夠自動進行應用程式的執行和部署程序。 在 Azure Machine Learning Studio （傳統）中，您可以使用[PowerShell 模組](https://aka.ms/amlps)來完成這項操作。 以下是使用[Azure Machine Learning Studio （傳統） PowerShell 模組](https://aka.ms/amlps)，與標準 ALM 自動化執行/部署程式相關的端對端步驟範例。 每個步驟都會連結至一或多個 PowerShell Cmdlet，您可以使用它來完成該步驟。
 
 1. [上傳資料集](https://github.com/hning86/azuremlps#upload-amldataset)。
 2. 將訓練實驗從[工作區](https://github.com/hning86/azuremlps#copy-amlexperiment)或[資源庫](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery)複製到工作區，或從本機磁碟[匯入](https://github.com/hning86/azuremlps#import-amlexperimentgraph)一個[已匯出的](https://github.com/hning86/azuremlps#export-amlexperimentgraph)實驗。

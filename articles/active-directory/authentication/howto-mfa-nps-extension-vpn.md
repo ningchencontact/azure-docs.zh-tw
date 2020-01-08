@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2ccfc2219c063a9cef25f82cef33f446993a02
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f446f1549b3efcd5f27752fac972dfd80c8650d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848369"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425415"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>使用 Azure 的網路原則伺服器擴充功能來整合您的 VPN 基礎結構與 Azure MFA
 
@@ -167,7 +167,7 @@ NPS 擴充功能需要 Windows Server 2008 R2 SP1 或更新版本，並安裝網
 
     ![建立新的 RADIUS 用戶端視窗](./media/howto-mfa-nps-extension-vpn/image5.png)
 
-6. 選取 [確定]，然後選取 [下一步]。
+6. 依序選取 [確定] 和 [下一步]。
 
 7. 在 [設定驗證方法] 視窗中，接受預設的選取項目「Microsoft 加密驗證第 2 版 (MS-CHAPv2)」 或選擇另一個選項，然後選取 [下一步]。
 
@@ -242,7 +242,7 @@ NPS 擴充功能需要 Windows Server 2008 R2 SP1 或更新版本，並安裝網
 
     a. 在 [伺服器名稱] 方塊中輸入您在上一節所設定之 RADIUS 伺服器的名稱或 IP 位址。
 
-    b.這是另一個 C# 主控台應用程式。 在 [共用密碼] 中選取 [變更]，然後輸入您稍早所建立並記錄下來的共用密碼。
+    b. 在 [共用密碼] 中選取 [變更]，然後輸入您稍早所建立並記錄下來的共用密碼。
 
     c. 在 [超時 **（秒）** ] 方塊中，輸入**30**的值。  
     您必須設定逾時值，才能讓第二個驗證要素有足夠的時間完成。
@@ -326,13 +326,13 @@ NPS 擴充功能需要 Windows Server 2008 R2 SP1 或更新版本，並安裝網
 
 1. 以 Azure 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在左窗格中選取 [Azure Active Directory] 按鈕。
+2. 在 [Azure 入口網站] 功能表中，選取 [ **Azure Active Directory**]，或搜尋並從任何頁面選取 [ **Azure Active Directory** ]。
 
 3. 選取 [屬性]。
 
 4. 若要複製您的 Azure AD 識別碼，請選取 [複製] 按鈕。
 
-    ![Azure 入口網站中的 Azure AD 目錄識別碼](./media/howto-mfa-nps-extension-vpn/image35.png)
+    ![Azure 入口網站中的 Azure AD 目錄識別碼](./media/howto-mfa-nps-extension-vpn/azure-active-directory-id-in-azure-portal.png)
 
 ### <a name="install-the-nps-extension"></a>安裝 NPS 擴充功能
 
@@ -390,7 +390,7 @@ NPS 擴充功能必須安裝於已安裝「網路原則與存取服務」角色�
 
     ![顯示自我簽署憑證的 PowerShell 視窗](./media/howto-mfa-nps-extension-vpn/image41.png)
 
-6. 重新啟動伺服器。
+6. 重新開機伺服器。
 
 ### <a name="verify-the-configuration"></a>驗證組態
 

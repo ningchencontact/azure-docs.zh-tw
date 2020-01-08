@@ -4,15 +4,15 @@ description: 了解 VMware 監視解決方案如何協助您管理記錄和監�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: dc453ad42312bb096aed1356d376b0906870a7b0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ac735c9131ebe7b7273d93a927cb4d4a8be24508
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900599"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399199"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Azure 監視器中的 VMware 監控（已淘汰）解決方案
 
@@ -41,10 +41,10 @@ vSphere ESXi 主機 5.5、6.0 和 6.5
    ![syslog 流程](./media/vmware/diagram.png)
 
 ### <a name="configure-syslog-collection"></a>設定 syslog 收集
-1. 設定 VSphere 的 syslog 轉送。 如需協助設定 syslog 轉送的詳細資訊，請參閱[設定 ESXi 5.0 和更新版本上的 syslog (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322)。 移至 [ESXi 主機組態]  >  [軟體]  >  [進階設定]  >  [Syslog]。
+1. 設定 VSphere 的 syslog 轉送。 如需協助設定 syslog 轉送的詳細資訊，請參閱[設定 ESXi 5.0 和更新版本上的 syslog (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322)。 移至 [ESXi 主機組態] >  [軟體] >  [進階設定] >  [Syslog]。
    ![vsphereconfig](./media/vmware/vsphere1.png)  
 1. 在 [Syslog.global.logHost] 欄位中，新增您的 Linux 伺服器和連接埠號碼 1514。 例如，`tcp://hostname:1514` 或 `tcp://123.456.789.101:1514`。
-1. 為 syslog 開啟 ESXi 主機防火牆。 [ESXi 主機組態]  >  [軟體]  >  [安全性設定檔]  >  [防火牆]，然後開啟 [屬性]。  
+1. 為 syslog 開啟 ESXi 主機防火牆。 [ESXi 主機組態] >  [軟體] >  [安全性設定檔] >  [防火牆]，然後開啟 [屬性]。  
 
     ![vspherefw](./media/vmware/vsphere2.png)  
 
@@ -67,7 +67,7 @@ vSphere ESXi 主機 5.5、6.0 和 6.5
 
 1. 在 Azure 入口網站中，執行 `VMware_CL`的記錄查詢。 當 Azure 監視器收集 syslog 資料時，它會保留 syslog 格式。 在入口網站中，會擷取某些特定欄位，例如 Hostname 和 ProcessName。  
 
-    ![類型](./media/vmware/type.png)  
+    ![type](./media/vmware/type.png)  
 
     如果您的檢視記錄搜尋結果類似上圖，表示您已設定為可使用 VMware 監控解決方案儀表板。  
 
@@ -82,7 +82,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 
 下表顯示由 VMware 監控解決方案收集的資料欄位範例︰
 
-| 欄位名稱 | 說明 |
+| 欄位名稱 | description |
 | --- | --- |
 | Device_s |VMware 儲存裝置 |
 | ESXIFailure_s |失敗類型 |
@@ -128,7 +128,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 #### <a name="find-esxi-host-events"></a>尋找 ESXi 主機事件
 單一 ESXi 主機會產生多個記錄，取決於其程序。 VMware 監控解決方案會將它們集中在一起，並總結事件計數。 這個集中式的檢視可幫助您了解哪些 ESXi 主機有大量的事件，以及在您的環境中最常發生哪些事件。
 
-![事件](./media/vmware/events.png)
+![event](./media/vmware/events.png)
 
 您可以按一下 ESXi 主機或事件類型，進一步深入探詢。
 
@@ -191,7 +191,7 @@ syslog 時間戳記有一個 ESXi 主機錯誤。 如需詳細資訊，請參閱
 
     a. 請使用 `ps -ef | grep oms` 確認 Log Analytics 代理程式是否在執行中。 如果它沒有執行，請執行命令 `sudo /opt/microsoft/omsagent/bin/service_control start`
 
-     b.這是另一個 C# 主控台應用程式。 開啟 `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` 檔案。
+     b. 開啟 `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` 檔案。
 
      c. 確認適當的使用者和群組設定有效，類似於：`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 

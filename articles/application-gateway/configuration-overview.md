@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 79867bd048be882414e247af11c133ed481788a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: ce6f07a20044efed43cf24b3f0652691dff8b8aa
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996624"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658333"
 ---
 # <a name="application-gateway-configuration-overview"></a>應用程式閘道設定總覽
 
@@ -46,9 +46,9 @@ Azure 也會在每個子網中保留5個 IP 位址供內部使用：前4個和�
 
 #### <a name="network-security-groups-on-the-application-gateway-subnet"></a>應用程式閘道子網上的網路安全性群組
 
-應用程式閘道支援網路安全性群組（Nsg）。 但有幾項限制：
+應用程式閘道支援網路安全性群組（Nsg）。 但有一些限制：
 
-- 您必須允許應用程式閘道 v1 SKU 的 TCP 埠65503-65534 上的連入網際網路流量，並在目的地子網為 [*任何*] 的 tcp 埠65200-65535。 Azure 基礎結構通訊需要此連接埠範圍。 這些埠會受到 Azure 憑證的保護（鎖定）。 外部實體（包括這些閘道的客戶）無法在沒有適當憑證的情況下，對這些端點起始變更。
+- 您必須允許應用程式閘道 v1 SKU 的 TCP 埠65503-65534 上的連入網際網路流量，以及使用目的地子網做為**Any**和 Source as **GatewayManager**服務標籤的 v2 sku 的 tcp 埠65200-65535。 Azure 基礎結構通訊需要此連接埠範圍。 這些埠會受到 Azure 憑證的保護（鎖定）。 外部實體（包括這些閘道的客戶）無法在這些端點上進行通訊。
 
 - 無法封鎖輸出網際網路連線。 NSG 中的預設輸出規則允許網際網路連線能力。 建議您：
 
@@ -57,12 +57,12 @@ Azure 也會在每個子網中保留5個 IP 位址供內部使用：前4個和�
 
 - 必須允許來自**AzureLoadBalancer**標記的流量。
 
-##### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>允許應用程式閘道存取一些來源 Ip
+#### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>允許應用程式閘道存取一些來源 Ip
 
 針對此案例，請在應用程式閘道子網上使用 Nsg。 依照優先順序，將下列限制放在子網上：
 
-1. 允許來自來源 IP 或 IP 範圍和目的地的連入流量作為整個應用程式閘道子網，或設定為特定的私人前端 IP。 NSG 無法在公用 IP 上作用。
-2. 允許應用程式閘道 v1 SKU 的所有來源的連入要求到埠65503-65534，以及 v2 SKU 的埠65200-65535 以進行[後端健康情況通訊](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)。 Azure 基礎結構通訊需要此連接埠範圍。 這些埠會受到 Azure 憑證的保護（鎖定）。 若沒有適當的憑證，外部實體就無法在這些端點上起始變更。
+1. 允許來自來源 IP 或 IP 範圍的連入流量，並以目的地作為您的輸入存取埠（例如，用於 HTTP 存取的埠80）做為整個應用程式閘道子網位址範圍和目的地埠。
+2. 允許來自來源的傳入要求做為**GatewayManager**服務標籤和目的地，做為應用程式閘道 v1 SKU 的**任何**和目的地埠（65503-65534），以及 v2 sku 的埠65200-65535 （適用于[後端健康狀態通訊](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)）。 Azure 基礎結構通訊需要此連接埠範圍。 這些埠會受到 Azure 憑證的保護（鎖定）。 若沒有適當的憑證，外部實體就無法在這些端點上起始變更。
 3. 允許[網路安全性群組](https://docs.microsoft.com/azure/virtual-network/security-overview)上的傳入 Azure Load Balancer 探查（*AzureLoadBalancer*標記）和輸入虛擬網路流量（*VirtualNetwork*標記）。
 4. 使用「全部拒絕」規則封鎖所有其他連入流量。
 5. 允許所有目的地對網際網路的輸出流量。
@@ -74,10 +74,10 @@ Azure 也會在每個子網中保留5個 IP 位址供內部使用：前4個和�
 針對 v2 SKU，應用程式閘道子網不支援 Udr。 如需詳細資訊，請參閱[Azure 應用程式 Gateway V2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku)。
 
 > [!NOTE]
-> V2 SKU 不支援 Udr。  如果您需要 Udr，您應該繼續部署 v1 SKU。
+> 目前的 v2 SKU 不支援 Udr。
 
 > [!NOTE]
-> 在應用程式閘道子網上使用 Udr，會導致[後端健全狀況視圖](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health)中的健康狀態顯示為「未知」。 它也會造成應用程式閘道記錄和計量的產生失敗。 我們建議您不要在應用程式閘道子網上使用 Udr，以便您可以查看後端健康情況、記錄和計量。
+> 在應用程式閘道子網上使用 Udr 可能會導致[後端健康](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health)情況中的健康狀態顯示為「未知」。 它也可能會產生應用程式閘道記錄和計量的產生失敗。 我們建議您不要在應用程式閘道子網上使用 Udr，以便您可以查看後端健康情況、記錄和計量。
 
 ## <a name="front-end-ip"></a>前端 IP
 
@@ -241,7 +241,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 #### <a name="rewrite-the-http-header-setting"></a>重寫 HTTP 標頭設定
 
-此設定會在要求和回應封包于用戶端與後端集區之間移動時，新增、移除或更新 HTTP 要求和回應標頭。 如需詳細資訊，請參閱
+此設定會在要求和回應封包于用戶端與後端集區之間移動時，新增、移除或更新 HTTP 要求和回應標頭。 如需詳細資訊，請參閱：
 
  - [重寫 HTTP 標頭總覽](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
  - [設定 HTTP 標頭重寫](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
@@ -256,7 +256,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ### <a name="connection-draining"></a>清空連線
 
-清空連線可協助您在規劃的服務更新期間，正常地移除後端集區成員。 您可以在建立規則時，將此設定套用至後端集區的所有成員。 它可確保後端集區的所有取消註冊實例繼續維持現有的連線，並提供可設定的超時時間的要求，而且不會收到任何新的要求或連接。 唯一的例外狀況是因為閘道管理的會話親和性，而系結至 deregistring 實例的要求，會繼續以 proxy 的的 deregistring 實例。 清空連接會套用至從後端集區明確移除的後端實例。
+清空連線可協助您在規劃的服務更新期間，正常地移除後端集區成員。 您可以在建立規則時，將此設定套用至後端集區的所有成員。 它可確保後端集區的所有取消註冊實例繼續維持現有的連線，並提供可設定的超時時間的要求，而且不會收到任何新的要求或連接。 唯一的例外是因為閘道管理的會話親和性，而系結至取消註冊實例的要求，而且會繼續轉送到取消註冊的實例。 清空連接會套用至從後端集區明確移除的後端實例。
 
 ### <a name="protocol"></a>通訊協定
 
@@ -264,7 +264,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 這項設定與接聽程式中的 HTTPS 結合，[可支援端對端 SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview)。 這可讓您安全地將加密的機密資料傳輸至後端。 後端集區中已啟用端對端 SSL 的每部後端伺服器，都必須使用憑證來設定，以允許安全通訊。
 
-### <a name="port"></a>連接埠
+### <a name="port"></a>Port
 
 此設定會指定後端伺服器用來接聽來自應用程式閘道之流量的埠。 您可以設定範圍從1到65535的埠。
 

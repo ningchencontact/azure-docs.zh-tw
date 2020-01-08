@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 258410bcd4f916ac381188bb38d90a3b89c87c89
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3daa567a916bd0abeb407028c7d06bd1f2bd464b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954236"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454093"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>將 Raspberry Pi 連線到 Azure IoT Central 應用程式 (Python)
 
@@ -27,15 +27,15 @@ ms.locfileid: "72954236"
 
 若要完成本文中的步驟，您需要下列元件︰
 
-* Azure IoT 中心應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立應用程式快速入門](quick-deploy-iot-central.md)。
+* 從**舊版應用**程式範本建立的 Azure IoT Central 應用程式。 如需詳細資訊，請參閱[建立應用程式快速入門](quick-deploy-iot-central.md)。
 * 執行 Raspbian 作業系統的 Raspberry Pi 裝置。 Raspberry Pi 必須能夠連接到網際網路。 如需詳細資訊，請參閱[設定您的 Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3)。
 
 > [!TIP]
 > 若要瞭解如何設定並聯機到 Raspberry Pi 裝置，請流覽[開始使用 Raspberry pi](https://projects.raspberrypi.org/en/pathways/getting-started-with-raspberry-pi)
 
-## <a name="sample-devkits-application"></a>**範例 Devkits** 應用程式
+## <a name="add-a-device-template"></a>新增裝置範本
 
-從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **Raspberry Pi**  裝置範本：
+在您的 Azure IoT Central 應用程式中，新增具有下列特性的新**Raspberry Pi**裝置範本：
 
 - 遙測，包括裝置將會收集的下列度量：
   - 溼度
@@ -46,18 +46,24 @@ ms.locfileid: "72954236"
   - 迴轉儀 (X, Y, Z)
 - 設定
   - 電壓
-  - Current
+  - 目前
   - 風扇速度
   - IR 切換。
 - 屬性
   - 模具編號裝置屬性
   - 位置雲端屬性
 
+1. 從 [裝置範本] 中選取 [ **+ 新增**] ![裝置範本](media/howto-connect-raspberry-pi-python/adddevicetemplate.png)
+   
+
+2. 選取 **Raspberry pi**  並建立 Raspberry pi 裝置範本 ![新增裝置範本](media/howto-connect-raspberry-pi-python/newdevicetemplate.png)
+   
+
 如需裝置範本設定的完整詳細資訊，請參閱[Raspberry Pi 裝置範本詳細資料](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)。
 
-## <a name="add-a-real-device"></a>新增實際裝置
+## <a name="add-a-real-device"></a>新增真實裝置
 
-在您的 Azure IoT Central 應用程式中，從**Raspberry Pi**裝置範本新增實際裝置。 記下裝置連線詳細資料（**範圍識別碼**、**裝置識別碼**和**主要金鑰**）。 如需詳細資訊，請參閱[將真實裝置新增至 Azure IoT 中心應用程式](tutorial-add-device.md)。
+在您的 Azure IoT Central 應用程式中，從**Raspberry Pi**裝置範本新增實際裝置。 記下裝置連線詳細資料（**範圍識別碼**、**裝置識別碼**和**主要金鑰**）。 如需詳細資訊，請參閱[將真實裝置新增至 Azure IoT Central 應用程式](tutorial-add-device.md)。
 
 ### <a name="configure-the-raspberry-pi"></a>設定 Raspberry Pi
 
@@ -103,7 +109,7 @@ ms.locfileid: "72954236"
 
 從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **Raspberry Pi**  裝置範本：
 
-### <a name="telemetry-measurements"></a>遙測量值
+### <a name="telemetry-measurements"></a>遙測量測
 
 | 欄位名稱     | 單位數  | 最小值 | 最大值 | 小數位數 |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -127,21 +133,21 @@ ms.locfileid: "72954236"
 | 顯示名稱 | 欄位名稱 | 單位數 | 小數位數 | 最小值 | 最大值 | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 電壓      | setVoltage | 伏特 | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | 安培  | 0              | 0       | 100     | 0       |
+| 目前      | setCurrent | 安培  | 0              | 0       | 100     | 0       |
 | 風扇速度    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 切換設定
 
 | 顯示名稱 | 欄位名稱 | 開啟文字 | 關閉文字 | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | 開啟      | 關      | 關     |
+| IR           | activateIR | 開啟      | OFF      | 關     |
 
 ### <a name="properties"></a>屬性
 
-| Type            | 顯示名稱 | 欄位名稱 | Data type |
+| 類型            | 顯示名稱 | 欄位名稱 | Data type |
 | --------------- | ------------ | ---------- | --------- |
 | 裝置屬性 | 模具編號   | dieNumber  | number    |
-| 文字            | Location     | location   | N/A       |
+| 文字            | 位置     | location   | N/A       |
 
 ## <a name="next-steps"></a>後續步驟
 

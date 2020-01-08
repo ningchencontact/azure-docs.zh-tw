@@ -24,24 +24,24 @@
 - name: 概念
   items:
     - name: 深度學習和 AI 架構
-      href: dsvm-deep-learning-ai-frameworks.md
+      href: dsvm-tools-deep-learning-frameworks.md
     - name: 程式設計語言
-      href: dsvm-languages.md
+      href: dsvm-tools-languages.md
     - name: 開發工具
       href: dsvm-tools-development.md
     - name: ML 和資料科學工具
-      href: dsvm-ml-data-science-tools.md
+      href: dsvm-tools-data-science.md
     - name: 資料平台
-      href: dsvm-data-platforms.md
+      href: dsvm-tools-data-platforms.md
     - name: 資料擷取工具
       href: dsvm-tools-ingestion.md
-    - name: 資料探索和虛擬化工具
-      href: dsvm-tools-explore-and-visualize.md
+    - name: 生產力工具
+      href: dsvm-tools-productivity.md
     - name: 企業安全性和指導方針
       href: dsvm-enterprise-overview.md
 - name: 範例
   href: dsvm-samples-and-walkthroughs.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 使用 Windows DSVM
       href: vm-do-ten-things.md

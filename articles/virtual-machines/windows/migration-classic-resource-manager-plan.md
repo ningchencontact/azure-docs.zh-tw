@@ -1,5 +1,5 @@
 ---
-title: 將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
+title: 規劃從傳統遷移至 Azure Resource Manager
 description: 將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 2c0f4924c41b36c306d4e6b9286105662744c4da
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bebfcedcd2944e2c6b05c3203e67df7658dd751a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033231"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460061"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
 雖然 Azure Resource Manager 提供了許多令人讚嘆的功能，但請務必詳加規劃您的移轉作業，以確保一切順利進行。 詳細規劃可確保您在執行移轉活動期間不會遇到問題。
@@ -31,7 +31,7 @@ ms.locfileid: "74033231"
 
 ![移轉階段](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>規劃
+## <a name="plan"></a>方案
 
 ### <a name="technical-considerations-and-tradeoffs"></a>技術考量和取捨
 
@@ -44,7 +44,7 @@ ms.locfileid: "74033231"
 5. 您的作業團隊目前支援傳統和 Azure Resource Manager 中的應用程式/VM 嗎？
 6. Azure Resource Manager 如何變更您的 VM 部署、管理、監視和報告處理程序 (如果有的話)？  需要更新部署指令碼嗎？
 7. 警示專案關係人 (使用者、應用程式擁有者，以及基礎結構擁有者) 的通訊規劃為何？
-8. 根據環境的複雜度，是否應該有應用程式無法供使用者和應用程式擁有者使用的維護期間？  如果是這樣，該期間需要多久？
+8. 根據環境的複雜度，是否應該有應用程式無法供使用者和應用程式擁有者使用的維護期間？  如果曾用過，使用了多久？
 9. 確保專案關係人了解並精通 Azure Resource Manager 的訓練規劃為何？
 10. 移轉的程式管理或專案管理規劃為何？
 11. Azure Resource Manager 移轉和其他相關技術藍圖的時間表為何？  它們之間的配合是否理想？
@@ -133,19 +133,19 @@ ms.locfileid: "74033231"
     
      
 
-    **計算** *(核心，可用性設定組)*
+    **計算** *（核心、可用性設定組）*
 
     ```powershell
     Get-AzVMUsage -Location <azure-region>
     ```
 
-    **網路** *(虛擬網路、靜態公用 IP、公用 IP、網路安全性群組、網路介面、負載平衡器、路由表)*
+    **網路** *（虛擬網路、靜態公用 Ip、公用 Ip、網路安全性群組、網路介面、負載平衡器、路由表）*
 
     ```powershell
     Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
-    **儲存體** *(儲存體帳戶)*
+    **儲存體** *（儲存體帳戶）*
 
     ```powershell
     Get-AzStorageUsage
@@ -190,7 +190,7 @@ ms.locfileid: "74033231"
 
 ### <a name="technical-considerations-and-tradeoffs"></a>技術考量和取捨
 
-既然您已採用 Azure Resource Manager，請善加利用平台。  閱讀 [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)，找出相關的其他優點。
+既然您已採用 Azure Resource Manager，請善加利用平台。  閱讀 [Azure Resource Manager 概觀](../../azure-resource-manager/management/overview.md)，找出相關的其他優點。
 
 需考量的事項：
 

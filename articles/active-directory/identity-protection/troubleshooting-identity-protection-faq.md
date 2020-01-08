@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 12/13/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d22973867782ddb64ced2ac95e84c0b27a3addd
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887594"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443580"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Azure Active Directory 中的常見問題身分識別保護
 
@@ -42,6 +42,14 @@ ms.locfileid: "72887594"
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
+### <a name="why-is-a-user-is-at-risk"></a>為什麼使用者有風險？
+
+如果您是 Azure AD Identity Protection 客戶，請移至 [具風險的[使用者](howto-identity-protection-investigate-risk.md#risky-users)] 視圖，並按一下 [有風險的使用者]。 在底部的下拉式清單中，[風險歷程記錄] 索引標籤會顯示導致使用者風險變更的所有事件。 若要查看使用者的所有具風險登入，請按一下 [使用者的具風險登入]。 若要查看此使用者的所有風險偵測，請按一下 [使用者的風險偵測]。
+
+### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>如何取得特定類型的偵測報告？
+
+移至 [風險偵測] 視圖，並依 [偵測類型] 篩選。 然後您就可以在中下載這份報表。CSV 或。使用頂端的 [**下載**] 按鈕的 JSON 格式。 如需詳細資訊，請參閱[如何：調查風險](howto-identity-protection-investigate-risk.md#risk-detections)一文。
+
 ### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-detection"></a>為什麼我無法針對每個風險偵測設定自己的風險層級？
 
 Identity Protection 中的風險層級是以偵測的精確度為基礎，並由我們所監督的機器學習系統技術支援。 若要自訂向使用者呈現哪些體驗，管理員可以在使用者風險原則與登入風險原則中包含/排除特定的使用者/群組。
@@ -49,6 +57,20 @@ Identity Protection 中的風險層級是以偵測的精確度為基礎，並由
 ### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>登入的位置為何與使用者真正登入自的位置不符合？
 
 IP 地理位置對應對整個產業而言是項挑戰。 如果您認為登入報告中所列的位置與實際位置不相符，請聯繫 Microsoft 支援服務。 
+
+### <a name="how-can-i-close-specific-risk-detections-like-i-did-in-the-old-ui"></a>我要如何在舊的 UI 中關閉特定的風險偵測？
+
+您可以確認連結的登入遭盜用或安全，以提供有關風險偵測的意見反應。 登入所提供的意見反應會向下分流至該登入所做的所有偵測。 如果您想要關閉未連結至登入的偵測，您可以在使用者層級提供該意見反應。 如需詳細資訊，請參閱[如何：在 Azure AD Identity Protection 中提供風險回饋](howto-identity-protection-risk-feedback.md)一文。
+
+### <a name="how-far-can-i-go-back-in-time-to-understand-whats-going-on-with-my-user"></a>我可以回到多久的時間，瞭解我的使用者會發生什麼事？
+
+- [具[風險的使用者](howto-identity-protection-investigate-risk.md#risky-users)] 視圖會根據所有過去的登入顯示使用者的風險。 
+- [有風險的登[入](howto-identity-protection-investigate-risk.md#risky-sign-ins)] 視圖會顯示過去30天內的風險正負號。 
+- [[風險](howto-identity-protection-investigate-risk.md#risk-detections)偵測] 視圖會顯示過去90天內所進行的風險偵測。
+
+### <a name="how-can-i-learn-more-about-a-specific-detection"></a>如何深入瞭解特定偵測？
+
+所有風險偵測都記載在「[什麼是風險](concept-identity-protection-risks.md#risk-types-and-detection)」一文中。 您可以將滑鼠停留在 Azure 入口網站上偵測旁的（i）符號，以深入瞭解偵測。
 
 ### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>Identity Protection 中的意見反應機制如何運作？
 

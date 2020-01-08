@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 24e755edbb18e85bcaa97435dee27418c1457221
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 59dd5d38b1cb89ce966a74284f0e392af52e9827
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174931"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457651"
 ---
 ## <a name="what-is-queue-storage"></a>什麼是佇列儲存體？
 
@@ -22,14 +22,13 @@ Azure 佇列服務包含下列元件：
 
 ![Azure 佇列服務元件](./media/storage-queue-concepts-include/azure-queue-service-components.png)
 
-* **URL 格式：** 可利用下列 URL 格式來定址佇列：   
-    http://`<storage account>`.queue.core.windows.net/`<queue>` 
+* **URL 格式：** 您可以使用下列 URL 格式來定址佇列： HTTP://`<storage account>`. queue.core.windows.net/`<queue>`
   
     下列 URL 可定址圖中的佇列：  
   
     `http://myaccount.queue.core.windows.net/images-to-download`
 
-* **儲存體帳戶：** 一律透過儲存體帳戶來存取 Azure 儲存體。 如需關於儲存體帳戶容量的詳細資訊，請參閱＜ [Azure 儲存體延展性和效能目標](../articles/storage/common/storage-scalability-targets.md) ＞(英文)。
+* **儲存體帳戶：** 一律透過儲存體帳戶來存取 Azure 儲存體。 如需有關儲存體帳戶的詳細資訊，請參閱 [儲存體帳戶總覽] [。/articles/storage/common/storage-account-overview.md].
 * **佇列：** 佇列包含一組訊息。 所有訊息都必須放在佇列中。 請注意，佇列名稱必須是小寫。 如需為佇列命名的詳細資訊，請參閱 [為佇列和中繼資料命名](https://msdn.microsoft.com/library/azure/dd179349.aspx)。
 * **訊息：** 大小上限為 64 KB 的訊息 (任何格式)。 訊息可保留在佇列中的時間上限為 7 天。 如需版本 2017-07-29 或更新版本，最大存留時間可以是任何正數，或是表示訊息未過期的 -1。 如果省略此參數，則預設存留時間為 7 天。
 

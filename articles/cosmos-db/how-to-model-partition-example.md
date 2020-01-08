@@ -1,17 +1,17 @@
 ---
-title: 如何使用實際範例在 Azure Cosmos DB 上建立資料的模型及加以分割
+title: 在 Azure Cosmos DB 上使用真實世界的範例來建立模型和分割資料
 description: 了解如何使用 Azure Cosmos DB Core API 建立實際範例的模型及加以分割
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 55290b88fedabe59417ea49f1cd3c3bc9961678d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 10f8ffd90215a21ca03e112aea463d444c623d06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093422"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445384"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>如何使用實際範例在 Azure Cosmos DB 上建立資料的模型及加以分割
 
@@ -53,7 +53,7 @@ ms.locfileid: "70093422"
 - **[Q5]** 列出貼文的讚
 - **[Q6]** 以簡短形式列出最近建立的 *x* 篇貼文 (摘要)
 
-在此階段中，我們尚未考慮到每個實體 (使用者、貼文等) 所將包含的詳細資料。 在針對關聯式存放區進行設計時，此步驟通常是我們必須先行處理的步驟之一，因為我們必須釐清這些實體在資料表、資料行、外部索引鍵等方面將如何轉譯。對於在寫入時不會強制執行任何結構描述的文件資料庫，這方面的顧慮就少得多。
+在此階段中，我們尚未考慮到每個實體 (使用者、貼文等) 所將包含的詳細資料。 此步驟通常是在針對關聯式存放區進行設計時要破解的第一個步驟，因為我們必須找出這些實體在資料表、資料行、外鍵等方面的轉譯方式。對於不會在寫入時強制執行任何架構的檔資料庫，這方面的顧慮就少很多。
 
 之所以要在一開始就找出存取模式，主要是因為這份要求清單將成為我們的測試套件。 我們在每次反覆執行資料模型時，都將查看每個要求，並檢查其效能和延展性。
 
@@ -223,7 +223,7 @@ ms.locfileid: "70093422"
 
 ![擷取最新的貼文並彙總其他資料](./media/how-to-model-partition-example/V1-Q6.png)
 
-同樣地，我們的初始查詢並未依 `posts` 容器的分割區索引鍵進行篩選，這會觸發高成本的展開傳送。但這次情況更糟，因為我們以更大的結果集作為目標，並且以 `ORDER BY` 子句排序結果，因而導致要求單位的成本更加昂貴。
+同樣地，我們的初始查詢不會篩選 `posts` 容器的分割區索引鍵，這會觸發昂貴的展開傳送。當我們以較大的結果集為目標，並使用 `ORDER BY` 子句來排序結果，這會更糟，這會使要求單位的成本更高。
 
 | **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
@@ -238,7 +238,7 @@ ms.locfileid: "70093422"
 
 我們將從第一個問題開始逐一解決這些問題。
 
-## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2：導入反正規化以最佳化讀取查詢
+## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2：介紹反正規化以優化讀取查詢
 
 我們之所以必須在某些情況下發出其他要求，是因為初始要求的結果未包含我們需要傳回的所有資料。 在使用 Azure Cosmos DB 等非關聯式資料存放區時，這類問題通常可藉由對我們的資料集反正規化資料而獲得解決。
 
@@ -394,7 +394,7 @@ function updateUsernames(userId, username) {
 | --- | --- | --- |
 | 4 毫秒 | 8.92 RU | ✅ |
 
-## <a name="v3-making-sure-all-requests-are-scalable"></a>V3：確定所有要求都可調整
+## <a name="v3-making-sure-all-requests-are-scalable"></a>V3：確定所有要求都是可調整的
 
 檢視整體效能的改進時，我們發現還有兩個要求未完全最佳化： **[Q3]** 和 **[Q6]** 。 這些要求牽涉到不會依目標容器的分割區索引鍵進行篩選的查詢。
 
@@ -410,7 +410,7 @@ function updateUsernames(userId, username) {
 
 1. 此要求*必須*依 `userId` 進行篩選，因為我們想要擷取特定使用者的所有貼文
 1. 其執行效果不佳，因為執行依據為 `posts` 容器，但其分割依據並非 `userId`
-1. 顯而易見，我們會對分割依據為 `userId` 的容器執行此要求，以解決效能問題
+1. 顯而易見，我們會對分割依據為`userId` 的容器執行此要求，以解決效能問題
 1. 而其實我們已有這樣的容器：`users` 容器！
 
 因此，我們藉由將所有貼文複製到 `users` 容器，來導入第二層反正規化。 藉由這麼做，我們有效地取得以不同維度分割的貼文複本，使其能更有效地依 `userId` 擷取。

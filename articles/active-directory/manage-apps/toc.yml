@@ -21,6 +21,10 @@
       href: /azure/active-directory/saas-apps/
     - name: 透過應用程式 Proxy 新增內部部署應用程式
       href: application-proxy-add-on-premises-application.md
+- name: 範例
+  items:
+    - name: 適用於應用程式 Proxy 的 Azure PowerShell 範例
+      href: application-proxy-powershell-samples.md
 - name: 概念
   expanded: true
   items:
@@ -70,12 +74,10 @@
               href: end-user-experiences.md
     - name: 應用程式佈建 (SCIM)
       items:
+        - name: 佈建運作方式
+          href: how-provisioning-works.md
         - name: 規劃自動使用者佈建部署
           href: plan-auto-user-provisioning.md
-        - name: 啟用 SCIM 應用程式的自動化佈建
-          href: use-scim-to-provision-users-and-groups.md
-        - name: 手動與自動佈建
-          href: application-provisioning-config-how-to.md
     - name: 雲端 HR 佈建
       items:
         - name: 規劃雲端 HR 使用者佈建部署
@@ -98,7 +100,7 @@
           href: application-proxy-high-availability-load-balancing.md
         - name: 比較遠端存取解決方案
           href: application-proxy-migration.md
-- name: 使用說明指南
+- name: 操作指南
   expanded: true
   items:
     - name: 雲端應用程式和單一登入
@@ -139,6 +141,8 @@
           items:
             - name: 設定使用者同意
               href: configure-user-consent.md
+            - name: 授與全租用戶管理員同意
+              href: grant-admin-consent.md
             - name: 設定管理員同意工作流程 (預覽)
               href: configure-admin-consent-workflow.md
             - name: 將使用者和群組指派給應用程式的方法
@@ -233,28 +237,32 @@
                   href: access-panel-troubleshoot-self-service-access.md
     - name: 應用程式佈建 (SCIM)
       items:
-        - name: 設定應用程式佈建
+        - name: 設定資源庫應用程式的佈建
+          href: configure-automatic-user-provisioning-portal.md
+        - name: 建立 SCIM 端點和設定佈建
+          href: use-scim-to-provision-users-and-groups.md
+        - name: 編輯屬性對應
           items:
-            - name: 設定使用者自動佈建
-              href: configure-automatic-user-provisioning-portal.md
-            - name: 使用 SCIM 進行自動化佈建
-              href: use-scim-to-provision-users-and-groups.md
             - name: 自訂屬性對應
               href: Customize-application-attributes.md
             - name: 撰寫屬性對應的運算式
               href: functions-for-customizing-application-data.md
+        - name: 包含或排除範圍中的使用者和群組
+          items:
             - name: 設定要佈建的使用者或群組範圍
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: 跳過且不刪除範圍外使用者
               href: skip-out-of-scope-deletions.md
+        - name: 監視和報告佈建
+          items:
             - name: 監視佈建狀態和效能
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
             - name: 應用程式佈建報告
               href: check-status-user-account-provisioning.md
-            - name: 匯出及匯入您的設定
+            - name: 匯出及匯入您的組態
               href: export-import-provisioning-configuration.md
-            - name: 使用 MS Graph 將組態自動化
-              href: application-provisioning-configure-api.md
+        - name: 使用 MS Graph 將組態自動化
+          href: application-provisioning-configure-api.md
         - name: 針對使用者佈建進行疑難排解
           items:
             - name: T應用程式佈建疑難排解

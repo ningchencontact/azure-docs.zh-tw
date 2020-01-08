@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 612b6caf47ec4764aa2bbef162592100198ed0c4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 47c1ce3391129525237566fb92cec2e9b33ca08f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832202"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443405"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory （Azure AD）應用程式 Proxy 的常見問題
 
@@ -53,9 +53,9 @@ ms.locfileid: "73832202"
 
 否，不支援此案例。 只有連接器和更新服務可以設定為對 Azure 的輸出流量使用正向 proxy。 請參閱使用[現有的內部部署 proxy 伺服器](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)
 
-### <a name="is-ssl-termination-sslhhtps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>是否支援從連接器伺服器到 Azure 的流量進行 SSL 終止（SSL/HHTPS 檢查或加速）？
+### <a name="is-ssl-termination-sslhttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>是否支援從連接器伺服器到 Azure 的流量進行 SSL 終止（SSL/HTTPS 檢查或加速）？
 
-應用程式 Proxy 連接器會對 Azure 執行以憑證為基礎的驗證。 SSL 終止（SSL/HHTPS 檢查或加速）會中斷此驗證方法，且不受支援。 從連接器到 Azure 的流量必須略過任何正在執行 SSL 終止的裝置。  
+應用程式 Proxy 連接器會對 Azure 執行以憑證為基礎的驗證。 SSL 終止（SSL/HTTPS 檢查或加速）會中斷此驗證方法，且不受支援。 從連接器到 Azure 的流量必須略過任何正在執行 SSL 終止的裝置。  
 
 ### <a name="should-i-create-a-dedicated-account-to-register-the-connector-with-azure-ad-application-proxy"></a>我是否應該建立專用帳戶以向 Azure AD 應用程式 Proxy 註冊連接器？
 
@@ -63,7 +63,7 @@ ms.locfileid: "73832202"
 
 ### <a name="how-can-i-monitor-the-performance-of-the-azure-ad-application-proxy-connector"></a>如何監視 Azure AD 應用程式 Proxy 連接器的效能？
 
-其中包含隨連接器一起安裝的效能監視器計數器。 若要查看它們：  
+其中包含隨連接器一起安裝的效能監視器計數器。 檢視方法：  
 
 1. 選取 [**開始**]，輸入 "Perfmon"，然後按 enter。
 2. 選取 [**效能監視器**]，然後按一下綠色 **+** 圖示。
@@ -151,7 +151,7 @@ ms.locfileid: "73832202"
 
 ### <a name="does-using-link-translation-affect-performance"></a>使用連結轉譯會影響效能嗎？
 
-是。 連結轉譯會影響效能。 應用程式 Proxy 服務會掃描應用程式中是否有硬式編碼的連結，並將它們取代為其各自的已發佈外部 Url，然後才呈現給使用者。 
+可以。 連結轉譯會影響效能。 應用程式 Proxy 服務會掃描應用程式中是否有硬式編碼的連結，並將它們取代為其各自的已發佈外部 Url，然後才呈現給使用者。 
 
 為了達到最佳效能，我們建議您藉由設定[自訂網域](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain)來使用相同的內部和外部 url。 如果無法使用自訂網域，您可以在行動裝置上使用我的應用程式安全登入延伸模組或 Microsoft Edge 瀏覽器來改善連結轉譯效能。 請參閱重新[導向使用 Azure AD 應用程式 Proxy 發佈之應用程式的硬式編碼連結](application-proxy-configure-hard-coded-link-translation.md)。
 

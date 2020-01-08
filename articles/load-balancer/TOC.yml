@@ -15,13 +15,13 @@
     - name: 建立標準 Load Balancer - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
     - name: 建立 Standard Load Balancer - 範本
+      href: quickstart-load-balancer-standard-public-template.md
     - name: 建立基本 Load Balancer - 入口網站
       href: quickstart-create-basic-load-balancer-portal.md
     - name: 建立基本 Load Balancer - Azure CLI
       href: quickstart-create-basic-load-balancer-cli.md
     - name: 建立基本 Load Balancer - Azure PowerShell
-      href: quickstart-load-balancer-standard-public-template.md
-      displayName: ARM
+      href: quickstart-create-basic-load-balancer-powershell.md
 - name: 教學課程
   items:
     - name: VM 的負載平衡網際網路流量
@@ -62,7 +62,7 @@
       href: load-balancer-standard-diagnostics.md
     - name: 內建安全性控制
       href: load-balancer-security-controls.md
-- name: 作法
+- name: 如何
   items:
     - name: 建立區域備援公用標準 Load Balancer
       href: load-balancer-get-started-internet-az-portal.md

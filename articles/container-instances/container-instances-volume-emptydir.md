@@ -3,16 +3,16 @@ title: 將 emptyDir 磁片區掛接至容器群組
 description: 了解如何在 Azure 容器執行個體中掛接 emptyDir 磁碟區，以在容器群組中的容器之間共用資料
 ms.topic: article
 ms.date: 02/08/2018
-ms.openlocfilehash: 0440bcc490b766c12b2117d2453557707df2a1c4
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 955423b685ebb3979271c7c2dc7e835a16100c2b
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533240"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552452"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>在 Azure 容器執行個體中掛接 emptyDir 磁碟區
 
-了解如何在 Azure 容器執行個體中掛接 *emptyDir* 磁碟區，以在容器群組中的容器之間共用資料。
+了解如何在 Azure 容器執行個體中掛接 *emptyDir* 磁碟區，以在容器群組中的容器之間共用資料。 使用*emptyDir*磁片區作為容器化工作負載的暫時快取。
 
 > [!NOTE]
 > 目前只有 Linux 容器才能掛接 *emptyDir* 磁碟區。 雖然我們正致力於將所有功能帶入 Windows 容器，但是您可以在[總覽](container-instances-overview.md#linux-and-windows-containers)中找到目前的平臺差異。
@@ -27,7 +27,7 @@ ms.locfileid: "74533240"
 * 長時間執行工作期間的檢查點
 * 側車容器所擷取和應用程式容器所提供的儲存資料
 
-*emptyDir* 磁碟區中的資料會透過容器損毀保存。 不過，重新啟動的容器不保證會保存 *emptyDir* 磁碟區中的資料。
+*emptyDir* 磁碟區中的資料會透過容器損毀保存。 不過，重新啟動的容器不保證會保存 *emptyDir* 磁碟區中的資料。 如果您停止容器群組， *emptyDir*磁片區不會保存。
 
 ## <a name="mount-an-emptydir-volume"></a>掛接 emptyDir 磁碟區
 

@@ -4,17 +4,17 @@ description: 使用 Azure CLI 的 IoT 擴充功能來註冊新的 IoT Edge 裝�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/21/2019
+ms.date: 11/12/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 793ddcb9f218248c396e10f23201dfe905545ceb
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 5ab9c778adef29a8e531158e062e9d35d4e80ae4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456845"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434095"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>註冊 Azure IoT Edge 裝置
 
@@ -42,7 +42,7 @@ Azure 訂用帳戶中的免費或標準[IoT 中樞](../iot-hub/iot-hub-create-th
 2. 在左窗格中，從功能表中選取 [ **IoT Edge** ]。
 3. 選取 [新增 IoT Edge 裝置]。
 4. 提供描述性裝置識別碼。 使用預設設定來自動產生驗證金鑰，並將新的裝置連接到您的中樞。
-5. 選取 [ **儲存**]。
+5. 選取 [儲存]。
 
 ### <a name="view-iot-edge-devices-in-the-azure-portal"></a>在 Azure 入口網站中觀看 IoT Edge 裝置
 
@@ -55,7 +55,7 @@ Azure 訂用帳戶中的免費或標準[IoT 中樞](../iot-hub/iot-hub-create-th
 當您準備好開始設定裝置時，需要連接字串才能利用實體裝置在 IoT 中樞中的身分識別來連結實體裝置。
 
 1. 從入口網站的 [ **IoT Edge** ] 頁面，按一下 IoT Edge 裝置清單中的 [裝置識別碼]。
-2. 複製 [連接字串 (主要金鑰)] 或 [連接字串 (次要金鑰)] 的值。
+2. 複製 [**主要連接字串**] 或 [**次要連接字串**] 的值。
 
 ## <a name="register-with-visual-studio-code"></a>向 Visual Studio Code 註冊
 
@@ -67,7 +67,7 @@ Azure 訂用帳戶中的免費或標準[IoT 中樞](../iot-hub/iot-hub-create-th
 * [Visual Studio Code](https://code.visualstudio.com/)
 * 適用於 Visual Studio Code 的 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
-### <a name="sign-in-to-access-your-iot-hub"></a>登入以存取您的 IoT 中樞
+### <a name="sign-in-to-access-your-iot-hub"></a>登入以存取 IoT 中樞
 
 您可以使用適用于 Visual Studio Code 的 Azure IoT 擴充功能來執行 IoT 中樞的作業。 若要讓這些作業運作，您必須登入您的 Azure 帳戶並選取您的 IoT 中樞。
 
@@ -85,7 +85,7 @@ Azure 訂用帳戶中的免費或標準[IoT 中樞](../iot-hub/iot-hub-create-th
 ### <a name="create-an-iot-edge-device-with-visual-studio-code"></a>使用 Visual Studio Code 建立 IoT Edge 裝置
 
 1. 在 VS Code 總管中，展開 [Azure IoT 中樞裝置] 區段。
-1. 按一下 [Azure IoT 中樞裝置] 區段標頭中的 [...]。 若未看到省略符號，請按一下標題或將滑鼠暫留在其上方。
+1. 按一下 [Azure IoT 中樞裝置] 區段標題中的 **...** 。 若未看到省略符號，請按一下標題或將滑鼠暫留在其上方。
 1. 選取 [建立 IoT Edge 裝置]。
 1. 在開啟的文字方塊中，提供裝置的識別碼。
 
@@ -122,7 +122,7 @@ Azure 訂用帳戶中的免費或標準[IoT 中樞](../iot-hub/iot-hub-create-th
 
 ### <a name="create-an-iot-edge-device-with-the-azure-cli"></a>使用 Azure CLI 建立 IoT Edge 裝置
 
-使用[az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create)命令，在您的 iot 中樞建立新的裝置身分識別。 例如︰
+使用[az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create)命令，在您的 iot 中樞建立新的裝置身分識別。 例如：
 
    ```cli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -138,7 +138,7 @@ Azure 訂用帳戶中的免費或標準[IoT 中樞](../iot-hub/iot-hub-create-th
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>使用 Azure CLI 來觀看 IoT Edge 裝置
 
-使用[az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-list)命令來查看 iot 中樞內的所有裝置。 例如︰
+使用[az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-list)命令來查看 iot 中樞內的所有裝置。 例如：
 
    ```cli
    az iot hub device-identity list --hub-name [hub name]

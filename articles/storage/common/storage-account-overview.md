@@ -1,21 +1,22 @@
 ---
-title: Azure 儲存體帳戶概觀 | Microsoft Docs
+title: 儲存體帳戶概觀
+titleSuffix: Azure Storage
 description: 了解用於建立和使用 Azure 儲存體帳戶的選項。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: dc5869acffe9a42d154bca61b9de7821121c85ec
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 30f39fc72d6a96b83f57d6553db3f348c8486ee5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851619"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460608"
 ---
-# <a name="azure-storage-account-overview"></a>Azure 儲存體帳戶概觀
+# <a name="storage-account-overview"></a>儲存體帳戶概觀
 
 Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔案、佇列、資料表和磁碟。 儲存體帳戶會為您的 Azure 儲存體資料提供唯一的命名空間，可透過 HTTP 或 HTTPS 從世界各地存取。 您的 Azure 儲存體帳戶中的資料既持久又高可用性、安全且可大幅擴充。
 
@@ -55,11 +56,11 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 
 在大部分情況下，您應該使用一般用途 v2 帳戶。 在這些情況下，您可以使用一般用途 v1 帳戶：
 
-* 您的應用程式需要 Azure 傳統部署模型。 一般用途 v2 帳戶和 Blob 儲存體帳戶僅支援 Azure Resource Manager 部署模型。
+- 您的應用程式需要 Azure 傳統部署模型。 一般用途 v2 帳戶和 Blob 儲存體帳戶僅支援 Azure Resource Manager 部署模型。
 
-* 您的應用程式會耗用大量交易或使用重要的異地複寫頻寬，但不需要大量的容量。 在此情況下，一般用途 v1 可能是最經濟實惠的選擇。
+- 您的應用程式會耗用大量交易或使用重要的異地複寫頻寬，但不需要大量的容量。 在此情況下，一般用途 v1 可能是最經濟實惠的選擇。
 
-* 您使用的[儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx)版本早于2014-02-14 或版本低於4.x 的用戶端程式庫。 您無法升級您的應用程式。
+- 您使用的[儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx)版本早于2014-02-14 或版本低於4.x 的用戶端程式庫。 您無法升級您的應用程式。
 
 ### <a name="blockblobstorage-accounts"></a>BlockBlobStorage 帳戶
 
@@ -86,12 +87,12 @@ FileStorage 帳戶提供獨特的效能專用特性，例如 IOPS 負載平衡�
 
 可以針對下列任一效能層級設定一般用途儲存體帳戶：
 
-* 標準效能層可供儲存 Blob、檔案、資料表、佇列和 Azure 虛擬機器磁碟。
-* 進階效能層僅供儲存非受控虛擬機器磁碟。
+- 標準效能層可供儲存 Blob、檔案、資料表、佇列和 Azure 虛擬機器磁碟。 如需標準儲存體帳戶之擴充性目標的詳細資訊，請參閱[標準儲存體帳戶的擴充性目標](scalability-targets-standard-account.md)。
+- 進階效能層僅供儲存非受控虛擬機器磁碟。 Microsoft 建議使用受控磁片搭配 Azure 虛擬機器，而不是非受控磁片。 如需高階效能層級之擴充性目標的詳細資訊，請參閱[premium 分頁 blob 儲存體帳戶的擴充性目標](../blobs/scalability-targets-premium-page-blobs.md)。
 
-BlockBlobStorage 儲存體帳戶可提供高階效能層來儲存區塊 blob 和附加 blob。
+BlockBlobStorage 儲存體帳戶可提供高階效能層來儲存區塊 blob 和附加 blob。 如需詳細資訊，請參閱[premium 區塊 blob 儲存體帳戶的擴充性目標](../blobs/scalability-targets-premium-block-blobs.md)。
 
-FileStorage 儲存體帳戶可提供 Azure 檔案共用的 premium 效能層級。
+FileStorage 儲存體帳戶可提供 Azure 檔案共用的 premium 效能層級。 如需詳細資訊，請參閱[Azure 檔案儲存體擴充性和效能目標](../files/storage-files-scale-targets.md)。
 
 ## <a name="access-tiers-for-block-blob-data"></a>區塊 blob 資料的存取層
 
@@ -99,9 +100,9 @@ Azure 儲存體提供不同的選項，以便根據使用量模式來存取區�
 
 可用的存取層如下：
 
-* **熱**存取層。 此層級已針對儲存體帳戶中的物件頻繁存取進行優化。 存取經常性存取層中的資料最符合成本效益，而儲存成本較高。 預設會在經常性存取層中建立新的儲存體帳戶。
-* 非**經常性存取層**。 這一層已優化，可用於儲存不常存取且至少儲存30天的大量資料。 在非經常性存取層中儲存資料更符合成本效益，但是存取該資料可能比存取經常性存取層中的資料更昂貴。
-* 封存**層。** 這一層僅適用于個別的區塊 blob。 封存層已針對可容忍數小時的抓取延遲，而且將保留在封存層中至少180天的資料進行優化。 封存層是儲存資料最符合成本效益的選項。 不過，存取該資料比存取經常性或非經常性存取層中的資料更耗費資源。
+- **熱**存取層。 此層級已針對儲存體帳戶中的物件頻繁存取進行優化。 存取經常性存取層中的資料最符合成本效益，而儲存成本較高。 預設會在經常性存取層中建立新的儲存體帳戶。
+- 非**經常性存取層**。 這一層已優化，可用於儲存不常存取且至少儲存30天的大量資料。 在非經常性存取層中儲存資料更符合成本效益，但是存取該資料可能比存取經常性存取層中的資料更昂貴。
+- 封存**層。** 這一層僅適用于個別的區塊 blob。 封存層已針對可容忍數小時的抓取延遲，而且將保留在封存層中至少180天的資料進行優化。 封存層是儲存資料最符合成本效益的選項。 不過，存取該資料比存取經常性或非經常性存取層中的資料更耗費資源。
 
 如果您的資料使用模式有所變更，您可以隨時在這些存取層之間切換。 如需存取層的詳細資訊，請參閱[Azure Blob 儲存體：經常性存取、非經常性存取和封存存取層](../blobs/storage-blob-storage-tiers.md)。
 
@@ -124,13 +125,13 @@ Azure 儲存體提供不同的選項，以便根據使用量模式來存取區�
 
 例如，如果您的一般用途儲存體帳戶名為 mystorageaccount，則該帳戶的預設端點如下：
 
-* Blob 儲存體： http://*mystorageaccount*.blob.core.windows.net
-* 資料表儲存體： http://*mystorageaccount*.table.core.windows.net
-* 佇列儲存體： http://*mystorageaccount*.queue.core.windows.net
-* Azure 檔案服務： http://*mystorageaccount*.file.core.windows.net
+- Blob 儲存體： `https://*mystorageaccount*.blob.core.windows.net`
+- 資料表儲存體： `https://*mystorageaccount*.table.core.windows.net`
+- 佇列儲存體： `https://*mystorageaccount*.queue.core.windows.net`
+- Azure 檔案儲存體： `https://*mystorageaccount*.file.core.windows.net`
 
 > [!NOTE]
-> 區塊 blob 和 blob 儲存體帳戶只會公開 blob 服務端點。
+> 區塊 blob 和 blob 儲存體帳戶只會公開 Blob 服務端點。
 
 藉由將儲存體帳戶中物件的位置附加至端點，來建立用來存取儲存體帳戶中物件的 URL。 例如，blob 位址可能會有如下格式︰ http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*。
 
@@ -171,7 +172,7 @@ AzCopy 為 Windows 命令列公用程式，可以極高效能將資料複製到 
 
 您可以建立自訂應用程式，以將您的資料從一般用途 v1 儲存體帳戶遷移至 Blob 儲存體帳戶。 使用其中一個 Azure 用戶端程式庫或 Azure 儲存體服務 REST API。 Azure 儲存體針對以下多種語言和平台提供豐富的用戶端程式庫：例如 .NET、Java、C++、Node.JS、PHP、Ruby 和 Python。 這些用戶端程式庫提供多種進階功能，例如大重試邏輯、記錄與並行上傳等等。 您也可以直接透過 REST API 開發，它可以透過提出 HTTP/HTTPS 要求的任何語言進行呼叫。
 
-如需 Azure 儲存體 REST API 的詳細資訊，請參閱 [Azure 儲存體服務 REST API 參考](https://docs.microsoft.com/rest/api/storageservices/)。 
+如需 Azure 儲存體 REST API 的詳細資訊，請參閱 [Azure 儲存體服務 REST API 參考](https://docs.microsoft.com/rest/api/storageservices/)。
 
 > [!IMPORTANT]
 > 使用用戶端加密來加密的 Blob 會儲存 Blob 加密相關中繼資料。 如果您複製使用用戶端加密來加密的 blob，請確定複製作業會保留 blob 中繼資料，特別是加密相關中繼資料。 如果您複製不含加密中繼資料的 Blob，便無法再次擷取 Blob 內容。 若想進一步了解與加密有關的中繼資料，請參閱 [Azure 儲存體用戶端加密](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
@@ -182,6 +183,5 @@ AzCopy 為 Windows 命令列公用程式，可以極高效能將資料複製到 
 
 ## <a name="next-steps"></a>後續步驟
 
-* [建立儲存體帳戶](storage-quickstart-create-account.md)
-* [建立區塊 Blob 儲存體帳戶](../blobs/storage-blob-create-account-block-blob.md)
-* [管理 Azure 儲存體帳戶](storage-account-manage.md)
+- [建立儲存體帳戶](storage-quickstart-create-account.md)
+- [建立區塊 Blob 儲存體帳戶](../blobs/storage-blob-create-account-block-blob.md)

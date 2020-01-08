@@ -5,12 +5,12 @@ author: stevelasker
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: 2d407f041456ea3856fbeedf98147356eaeb61d6
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454992"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445742"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>標記和版本設定容器映射的建議
 
@@ -38,6 +38,10 @@ ms.locfileid: "74454992"
 
 在此情況下，會持續維護主要和次要標記。 從基底映射案例中，這可讓映射擁有者提供服務的映射。
 
+### <a name="delete-untagged-manifests"></a>刪除未標記的資訊清單
+
+如果更新具有穩定標籤的映射，則先前標記的影像會取消標示，因而產生孤立的影像。 先前的映射資訊清單和唯一層資料會保留在登錄中。 若要維護您的登錄大小，您可以定期刪除穩定映射更新所產生的未標記資訊清單。 例如，[自動清除](container-registry-auto-purge.md)早于指定期間的未標記資訊清單，或為未標記的資訊清單設定[保留原則](container-registry-retention-policy.md)。
+
 ## <a name="unique-tags"></a>唯一標記
 
 **建議**. 針對**部署**使用唯一標記，特別是在可在多個節點上調整的環境中。 您可能想要故意部署一致版本的元件。 如果您的容器重新開機，或協調器相應放大更多實例，則您的主機不會意外提取較新的版本，與其他節點不一致。
@@ -50,6 +54,12 @@ ms.locfileid: "74454992"
 * **組建識別碼**-這個選項可能最適合，因為它可能是累加的，而且可讓您與特定的組建相互關聯，以尋找所有成品和記錄。 不過，就像資訊清單摘要一樣，人可能很難以閱讀。
 
   如果您的組織有數個組建系統，請在標記前面加上組建系統名稱，這是此選項的變化： `<build-system>-<build-id>`。 例如，您可以區分 API 小組的 Jenkins 組建系統和 web 小組的 Azure Pipelines 組建系統的組建。
+
+### <a name="lock-deployed-image-tags"></a>鎖定已部署的映射標記
+
+建議的最佳作法是將其 `write-enabled` 屬性設為 `false`，以[鎖定](container-registry-image-lock.md)任何已部署的影像標記。 這種做法可防止您不小心移除登錄中的映射，而且可能會中斷您的部署。 您可以在發行管線中包含鎖定步驟。
+
+鎖定已部署的映射仍然可讓您使用 Azure Container Registry 功能來維護您的登錄，從登錄中移除其他已解除部署的映射。 例如，[自動清除](container-registry-auto-purge.md)未標記的資訊清單或已解除鎖定的映射超過指定的持續時間，或為未標記的資訊清單設定[保留原則](container-registry-retention-policy.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

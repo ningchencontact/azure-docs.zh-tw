@@ -1,25 +1,14 @@
 ---
-title: Service Fabric 和容器的概觀 | Microsoft Docs
+title: Service Fabric 和容器的總覽
 description: Service Fabric 及使用容器來部署微服務應用程式的概觀。 本文提供如何使用容器及 Service Fabric 所提供之功能的概觀。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/8/2018
-ms.author: atsenthi
-ms.openlocfilehash: 2ed3a9d4b1ec219d22a9e01e7acec5d7e950289b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599770"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458215"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 和容器
 
@@ -35,7 +24,7 @@ Service Fabric 是將微服務部署至整個機器叢集的 Microsoft [容器�
 
 若要直接進入正題並試用 Service Fabric 上的容器，請嘗試快速入門、教學課程或範例：  
 
-[快速入門：將 Linux 容器應用程式部署至 Service Fabric](service-fabric-quickstart-containers-linux.md)  
+[快速入門：將 Linux 容器應用程式部署到 Service Fabric](service-fabric-quickstart-containers-linux.md)  
 [快速入門：將 Windows 容器應用程式部署到 Service Fabric](service-fabric-quickstart-containers.md)  
 [將現有的 .NET 應用程式容器化](service-fabric-host-app-in-a-container.md)  
 [Service Fabric 容器範例](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
@@ -48,10 +37,10 @@ Service Fabric 是將微服務部署至整個機器叢集的 Microsoft [容器�
 
 相較於虛擬機器，容器的優點如下︰
 
-* **小型**：容器會使用單一儲存空間和層級版本和更新來提高效率。
-* **快速**:容器不需要啟動整個作業系統, 因此可以更快啟動, 通常是以秒為單位。
-* 可**移植性**:容器化應用程式映射可以移植到在雲端、內部部署、虛擬機器內或直接在實體機器上執行。
-* **資源管理**:容器可以限制在其主機上可使用的實體資源。
+* **小**︰容器使用單一儲存空間和層級版本與更新，以增加效率。
+* **快**︰容器不需要啟動整個作業系統，因此可以更快啟動，通常差個幾秒。
+* **可攜性**︰容器化應用程式映像可以移植到雲端或內部部署中，而在虛擬機器內或直接在實體機器上執行。
+* **資源管理**：容器可以限制在其主機上可取用的實體資源。
 
 ### <a name="container-types-and-supported-environments"></a>容器類型和支援的環境
 
@@ -76,11 +65,11 @@ Windows Server 2016 提供兩種不同的容器，其隔離程度有所不同。
 
 以下是典型範例，容器是很好的選擇︰
 
-* **IIS 隨即轉移**:您可以將現有的[ASP.NET MVC](https://www.asp.net/mvc)應用程式放在容器中, 而不是將它遷移至 ASP.NET Core。 這些 ASP.NET MVC 應用程式相依於網際網路資訊服務 (IIS)。 您可以從預先建立的 IIS 映像將這些應用程式封裝成容器映像，然後與 Service Fabric 一起部署。 請參閱 [Windows Server 上的容器映像](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) (英文)，以取得 Windows 容器的相關資訊。
+* **IIS 提起然後平移**︰您可以將現有的 [ASP.NET MVC](https://www.asp.net/mvc) 應用程式放在一個容器中，而不是將它遷移到 ASP.NET Core。 這些 ASP.NET MVC 應用程式相依於網際網路資訊服務 (IIS)。 您可以從預先建立的 IIS 映像將這些應用程式封裝成容器映像，然後與 Service Fabric 一起部署。 請參閱 [Windows Server 上的容器映像](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) (英文)，以取得 Windows 容器的相關資訊。
 
-* **混合容器和 Service Fabric 微服務**:對應用程式的一部分使用現有的容器映像。 例如，對於應用程式的 Web 前端系統，您可以使用 [NGINX 容器](https://hub.docker.com/_/nginx/)，而對於更密集的後端運算，則可以使用具狀態服務。
+* **混合容器和 Service Fabric 微服務**︰針對您的應用程式的一部分使用現有的容器映像。 例如，對於應用程式的 Web 前端系統，您可以使用 [NGINX 容器](https://hub.docker.com/_/nginx/)，而對於更密集的後端運算，則可以使用具狀態服務。
 
-* **降低「有雜訊的鄰近專案」服務的影響**:您可以使用容器的資源控管能力來限制服務在主機上使用的資源。 如果服務可能會耗用大量資源，因而影響其他服務的效能 (例如，像作業一樣長時間執行的查詢)，請考慮將這些服務放到可控管資源的容器中。
+* **減少「壟斷」服務的影響**︰您可以使用容器的資源控管能力來限制服務在主機上使用的資源。 如果服務可能會耗用大量資源，因而影響其他服務的效能 (例如，像作業一樣長時間執行的查詢)，請考慮將這些服務放到可控管資源的容器中。
 
 ## <a name="service-fabric-support-for-containers"></a>Service Fabric 的容器支援
 

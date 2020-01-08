@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: ce8ea76cfc1f3f30418b66cd21de43d244da6764
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043966"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448250"
 ---
 # <a name="moderate-images-from-the-api-console"></a>從 API 主控台審核影像
 
-使用 Azure Content Moderator 中的[影像審核 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) 來起始影像內容的掃描與檢閱審核工作流程。 審核作業會掃描內容中是否有粗話，並將內容與自訂和共用的封鎖清單做比較。
+使用 Azure Content Moderator 中的[影像審核 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) 來起始影像內容的掃描與檢閱審核工作流程。 審核作業會掃描您的內容是否有不雅內容，並將其與自訂和共用封鎖清單做比較。
 
 ## <a name="use-the-api-console"></a>使用 API 主控台
 您需要有訂用帳戶金鑰，才能在線上主控台中試用 API。 這位於 [設定] 索引標籤的 [Ocp-Apim-Subscription-Key] 方塊中。 如需詳細資訊，請參閱[概觀](overview.md)。
@@ -28,13 +28,13 @@ ms.locfileid: "73043966"
 
    [影像 - 評估] 影像審核頁面隨即開啟。
 
-2. 在 [開啟 API 測試主控台] 中，選取最能描述您所在位置的區域。 
+2. 針對 [Open API testing console] \(開啟 API 測試主控台\) 中，選取最能描述您位置的區域。 
 
    ![嘗試 [影像 - 評估] 頁面區域選取項目](images/test-drive-region.png)
   
    [影像 - 評估] API 主控台隨即開啟。
 
-3. 在 [Ocp-Apim-Subscription-Key] 方塊中，輸入訂用帳戶金鑰。
+3. 在 [Ocp-Apim-Subscription-Key] 中，輸入您的訂用帳戶金鑰。
 
    ![嘗試 [影像 - 評估] 主控台訂用帳戶金鑰](images/try-image-api-1.PNG)
 
@@ -62,7 +62,7 @@ ms.locfileid: "73043966"
 
    [影像 - 尋找臉部] 頁面隨即開啟。
 
-2. 在 [開啟 API 測試主控台] 中，選取最能描述您所在位置的區域。 
+2. 針對 [Open API testing console] \(開啟 API 測試主控台\) 中，選取最能描述您位置的區域。 
 
    ![嘗試 [影像 - 尋找臉部] 頁面區域選取項目](images/test-drive-region.png)
 
@@ -86,13 +86,13 @@ ms.locfileid: "73043966"
 
    [影像 - OCR] 頁面隨即開啟。
 
-2. 在 [開啟 API 測試主控台] 中，選取最能描述您所在位置的區域。 
+2. 針對 [Open API testing console] \(開啟 API 測試主控台\) 中，選取最能描述您位置的區域。 
 
    ![[影像 - OCR] 頁面區域選取項目](images/test-drive-region.png)
 
    [影像 - OCR] API 主控台隨即開啟。
 
-3. 在 [Ocp-Apim-Subscription-Key] 方塊中，輸入訂用帳戶金鑰。
+3. 在 [Ocp-Apim-Subscription-Key] 中，輸入您的訂用帳戶金鑰。
 
 4. 在 [要求本文] 方塊中，使用預設的影像範例。 此影像與上一節所使用的影像相同。
 

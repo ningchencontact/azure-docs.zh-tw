@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 9faf7de25b8bf227dd4c7f3588972f98f7493439
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1a1b1e662a2e9adedfc68f1818f868c0a5318652
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583974"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428971"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>在 Azure 實驗室服務中設定實驗室帳戶 
 在 Azure 實驗室服務中，實驗室帳戶是適用于受控實驗室類型的容器，例如教室實驗室。 系統管理員會使用 Azure 實驗室服務來設定實驗室帳戶，並向可以在帳戶中建立實驗室的實驗室擁有者提供存取權。 本文說明如何建立實驗室帳戶、檢視所有實驗室帳戶，或刪除實驗室帳戶。
@@ -32,7 +32,7 @@ ms.locfileid: "73583974"
 1. 針對 [**對等虛擬網路**]，選取 [**啟用**] 或 [**停用**] 預設值為**Disabled**。 若要啟用對等虛擬網路，請執行下列步驟： 
     1. 選取 [啟用]。
     2. 從下拉式清單中選取**VNet** 。 
-3. 在工具列上，選取 [儲存]。 
+3. 在工具列上選取 [儲存]。 
 
 在此帳戶中建立的實驗室會連線到選取的虛擬網路。 他們可以存取所選虛擬網路中的資源。 如需詳細資訊，請參閱[將您的實驗室網路與 Azure 實驗室服務中的對等虛擬網路](how-to-connect-peer-virtual-network.md)連線。
 
@@ -45,7 +45,7 @@ ms.locfileid: "73583974"
 2. 針對 [**允許實驗室建立者選擇實驗室位置**]，如果您希望實驗室建立者能夠選取實驗室的位置，請選取 [**已啟用**]。 如果已停用，則會在實驗室帳戶所在的相同位置自動建立實驗室。 
     
     當您選取虛擬網路作為 [**對等虛擬網路**] 欄位時，會停用此欄位。 這是因為實驗室帳戶中的實驗室必須與實驗室帳戶位在相同的區域中，才能存取對等虛擬網路中的資源。 
-1. 在工具列上，選取 [儲存]。 
+1. 在工具列上選取 [儲存]。 
 
     ![設定實驗室位置設定](../media/how-to-manage-lab-accounts/labs-configuration-page-lab-location.png)
 
@@ -60,7 +60,7 @@ ms.locfileid: "73583974"
 
 1. 在 [**實驗室帳戶**] 頁面上，選取左側功能表上的 [**實驗室**設定]。
 2. 針對 [**位址範圍**] 欄位，指定要在實驗室中建立之 vm 的位址範圍。 位址範圍應該是無類別網域間路由（CIDR）標記法（例如： 10.20.0.0/23）。 實驗室中的虛擬機器將會建立在此位址範圍內。
-3. 在工具列上，選取 [儲存]。 
+3. 在工具列上選取 [儲存]。 
 
     ![設定位址範圍](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)
 
@@ -133,9 +133,17 @@ ms.locfileid: "73583974"
 
 最後，系統會提示他們建立連結至其 GitHub 帳戶的 Microsoft 帳戶。 當講師選取 **[下一步]** 時，就會自動發生。  然後，講師會立即登入並聯機到教室實驗室。
 
+## <a name="automatic-shutdown-of-vms-on-disconnect"></a>在中斷連線時自動關閉 Vm
+您可以在遠端桌面連線中斷連線之後，啟用或停用 Windows 實驗室 Vm （範本或學生）的自動關閉。 您也可以指定 Vm 在自動關機之前，應等候多久的時間才能重新連線。
+
+![實驗室帳戶的自動關閉設定](../media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
+
+此設定適用于在實驗室帳戶中建立的所有實驗室。 實驗室擁有者可以在實驗室層級覆寫此設定。 在實驗室帳戶對此設定進行的變更，只會影響在進行變更之後所建立的實驗室。
+
+若要瞭解實驗室擁有者如何在實驗室層級進行這項設定，請參閱[這篇文章](how-to-enable-shutdown-disconnect.md)
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列文章：
+查看下列文章：
 
 - [以實驗室擁有者身分建立及管理實驗室](how-to-manage-classroom-labs.md)
 - [以實驗室擁有者身分設定及發佈範本](how-to-create-manage-template.md)

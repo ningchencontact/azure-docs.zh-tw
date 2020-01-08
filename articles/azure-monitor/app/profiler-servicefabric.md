@@ -1,5 +1,5 @@
 ---
-title: 使用 Application Insights 來分析即時 Azure Service Fabric 應用程式 | Microsoft Docs
+title: 使用 Application Insights 來分析即時 Azure Service Fabric 應用程式
 description: 針對 Service Fabric 應用程式啟用 Profiler
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,17 +8,17 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: a7a64be3c73ea82c6bf3d905772f3278f9bda5df
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 162a8c3f90b7adab356ebb07c80b8de283fd818d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818472"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432395"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>使用 Application Insights 來分析即時 Azure Service Fabric 應用程式
 
 您也可以在這些服務上部署 Application Insights Profiler：
-* [](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure 雲端服務](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure 虛擬機器](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 

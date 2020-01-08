@@ -4,15 +4,15 @@ description: 若要維護 System Center Operations Manager 中的現有投資，
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 79fcbb6f972eb022ce4d0e47a608e6f0d053a9ad
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5dc9412c7884eb62795fd04240f6cfa7d103e3be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162232"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363654"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>將 Operations Manager 連接到 Azure 監視器
 
@@ -106,7 +106,7 @@ ms.locfileid: "73162232"
 
 1. 開啟提升權限的命令提示字元。
    a. 移至 [開始] 並輸入 **cmd**。
-   b.這是另一個 C# 主控台應用程式。 用滑鼠右鍵按一下 [命令提示字元]，然後選取 [以系統管理員身分執行]**。
+   b. 用滑鼠右鍵按一下 [命令提示字元]，然後選取 [以系統管理員身分執行]**。
 1. 輸入下列命令並按 **Enter** 鍵：
 
     `netsh winhttp set proxy <proxy>:<port>`
@@ -248,7 +248,7 @@ ms.locfileid: "73162232"
     > 在偵測到已連線的管理群組有 14 天沒有任何活動之後，[移除] 連結才能使用。  
     >
 
-1. 將出現視窗，要求您確認想要繼續移除。  按一下 [是] 以繼續。
+1. 將出現視窗，要求您確認想要繼續移除。  按一下 **[是]** 以繼續。
 
 若要刪除兩個連接器 - Microsoft.SystemCenter.Advisor.DataConnector 和 Advisor 連接器，請將以下 PowerShell 指令碼儲存至您的電腦，並使用下列範例來執行：
 

@@ -2,18 +2,18 @@
 title: Azure 資料庫移轉服務文件
 summary: Azure 資料庫移轉服務能夠從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低。 服務會使用 Data Migration Assistant 來產生評估報表，提供建議以引導您在移轉之前完成所需的變更。 當您準備好要開始移轉程序時，Azure 資料庫移轉服務會執行所有必要步驟。
 metadata:
-  description: " 了解如何使用 Azure 資料庫移轉服務，從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低。"
+  description: 了解如何使用 Azure 資料庫移轉服務，從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低。
   author: HJToland3
   ms.author: jtoland
-  ms.date: 10/25/2019
+  ms.date: 12/19/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: 1d064144d040a45fbc655879a6869da4ceaa4b79
-  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.openlocfilehash: 8ca7f2618c6415dd3dbe22cada35bccb56be50ee
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73584000"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75437889"
 landingContent:
 - title: 關於 Azure 資料庫移轉服務
   linkLists:
@@ -33,6 +33,10 @@ landingContent:
       url: quickstart-create-data-migration-service-portal.md
     - text: 在混合模式中建立服務 - 入口網站
       url: quickstart-create-data-migration-service-hybrid-portal.md
+  - linkListType: reference
+    links:
+    - text: 已知問題 - 使用混合模式
+      url: known-issues-dms-hybrid-mode.md
   - linkListType: video
     links:
     - text: Azure 資料移轉服務簡介
@@ -47,7 +51,7 @@ landingContent:
     links:
     - text: 請查看我們的部落格
       url: https://techcommunity.microsoft.com/t5/Microsoft-Data-Migration/bg-p/MicrosoftDataMigration
-- title: 將 SQL Server 移轉到 Azure SQL Database
+- title: 將 SQL Server 移轉至 Azure SQL Database
   linkLists:
   - linkListType: tutorial
     links:
@@ -65,6 +69,8 @@ landingContent:
     links:
     - text: 已知問題 - 線上移轉至 SQL Database 單一資料庫
       url: known-issues-azure-sql-online.md
+    - text: 已知問題 - 線上移轉至 SQL Database 受控執行個體
+      url: known-issues-azure-sql-db-managed-instance-online.md
     - text: 適用於 SQL Database 受控執行個體移轉的網路拓撲
       url: resource-network-topologies.md
     - text: 從 SQL Server 線上移轉至 SQL Database 受控執行個體的自訂角色

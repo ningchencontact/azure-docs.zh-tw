@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/19/2019
 ms.author: genli
-ms.openlocfilehash: 87b4d761eb7bd1c4a16998e44e8160cda24a05b4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: e45de5c12f0d93645a0b1253acf8300527cafdbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088251"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374636"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>使用 Azure 入口網站將 OS 磁碟連結至復原 VM，以針對 Linux VM 進行疑難排解
 如果 Linux 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是 `/etc/fstab` 中的項目無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure 入口網站將虛擬硬碟連接至另一個 Linux VM，以修正任何錯誤，然後重新建立原始 VM。
@@ -50,7 +50,7 @@ ms.locfileid: "71088251"
 
 1. 移至 [Azure 入口網站 ](https://portal.azure.com)。 從側邊欄選取 [**虛擬機器**]，然後選取發生問題的 VM。
 1. 在左窗格中選取 [**磁片**]，然後選取作業系統磁片的名稱。
-    ![關於 OS 磁片名稱的影像](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
+    有關 OS 磁片名稱的 ![映射](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
 1. 在作業系統磁片的 [**總覽**] 頁面上，選取 [**建立快照**集]。
 1. 在與 OS 磁片相同的位置中建立快照集。
 
@@ -95,11 +95,11 @@ ms.locfileid: "71088251"
 ## <a name="attach-disk-to-another-vm"></a>將磁片連接至另一個 VM
 在接下來幾個步驟中，您將使用另一個 VM 進行疑難排解。 將磁片連結至疑難排解 VM 之後，您可以流覽並編輯磁片的內容。 此程式可讓您更正任何設定錯誤，或檢查其他應用程式或系統記錄檔。 若要將磁片連結至另一個 VM，請遵循下列步驟：
 
-1. 從入口網站選取資源群組，然後選取疑難排解 VM。 選取 [**磁片**], 選取 [**編輯**], 然後按一下 [**新增資料磁片**]:
+1. 從入口網站選取資源群組，然後選取疑難排解 VM。 選取 [**磁片**]，選取 [**編輯**]，然後按一下 [**新增資料磁片**]：
 
     ![在入口網站中連結現有磁碟](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
-2. 在 [**資料磁片**] 清單中, 選取您所識別 VM 的 OS 磁片。 如果您看不到 OS 磁片, 請確定疑難排解 VM 和 OS 磁片位於相同的區域 (位置)。 
+2. 在 [**資料磁片**] 清單中，選取您所識別 VM 的 OS 磁片。 如果您看不到 OS 磁片，請確定疑難排解 VM 和 OS 磁片位於相同的區域（位置）。 
 3. 選取 [**儲存**] 以套用變更。
 
 ## <a name="mount-the-attached-data-disk"></a>掛接已連結的資料磁碟
@@ -170,7 +170,7 @@ Azure 入口網站現在支援變更 VM 的 OS 磁片。 若要這樣做，請�
 
 1. 移至 [Azure 入口網站 ](https://portal.azure.com)。 從側邊欄選取 [**虛擬機器**]，然後選取發生問題的 VM。
 1. 在左窗格中選取 [**磁片**]，然後選取 [**交換 OS 磁片**]。
-        ![Azure 入口網站中交換 OS 磁片的相關影像](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
+        ![Azure 入口網站中交換 OS 磁片的相關映射](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
 1. 選擇您已修復的新磁片，然後輸入 VM 的名稱以確認變更。 如果您在清單中看不到磁片，請在從疑難排解 VM 卸離磁片後，等待 10 ~ 15 分鐘。 也請確定磁片與 VM 位於相同的位置。
 1. 選取 [確定]。
@@ -178,4 +178,4 @@ Azure 入口網站現在支援變更 VM 的 OS 磁片。 若要這樣做，請�
 ## <a name="next-steps"></a>後續步驟
 如果連接至 VM 時發生問題，請參閱[針對 Azure VM 的 SSH 連接進行疑難排解](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 如果存取 VM 上執行的應用程式時發生問題，請參閱[針對 Linux VM 上的應用程式連線問題進行疑難排解](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
-如需使用 Resource Manager 的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+如需使用 Resource Manager 的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。

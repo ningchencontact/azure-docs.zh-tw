@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 12/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3366f3470e01e455acacf8748830f2b15c826f49
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: f78f416aaeedb2905cd77e94589121050757a202
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997151"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425731"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>設定適用于 Azure VPN 閘道的 OpenVPN 用戶端
 
@@ -63,9 +63,9 @@ ms.locfileid: "74997151"
 
 1. 下載並安裝 OpenVPN 用戶端，例如[TunnelBlick](https://tunnelblick.net/downloads.html)。 
 2. 下載閘道的 VPN 設定檔。 這可從 Azure 入口網站中的 [點對站設定] 索引標籤，或是使用 PowerShell 中的 'New-AzVpnClientConfiguration' 來完成。
-3. 將設定檔解壓縮。 在記事本中開啟 OpenVPN 資料夾中的 vpnconfig.ovpn 設定檔。
+3. 將設定檔解壓縮。 在文字編輯器中，從 OpenVPN 資料夾開啟 vpnconfig vpnconfig.ovpn 設定檔案。
 4. 以 Base64 的 P2S 用戶端憑證公開金鑰填入 P2S 用戶端憑證區段。 在 PEM 格式的憑證中，您只需開啟 .cer 檔案並在憑證標題之間複製 Base64 金鑰。 如需如何匯出憑證以取得編碼的公開金鑰的詳細資訊，請參閱[匯出公開金鑰](vpn-gateway-certificates-point-to-site.md#cer)。
-5. 以 base64 的 P2S 用戶端憑證私密金鑰填入私密金鑰區段。 如需如何擷取私用金鑰的資訊，請參閱[匯出私密金鑰](https://openvpn.net/community-resources/how-to/#pki)。
+5. 以 Base64 的 P2S 用戶端憑證私密金鑰填入私密金鑰區段。 如需如何擷取私用金鑰的資訊，請參閱[匯出私密金鑰](https://openvpn.net/community-resources/how-to/#pki)。
 6. 請勿變更任何其他欄位。 使用用戶端輸入中填入的設定來連線至 VPN。
 7. 按兩下設定檔，在 Tunnelblick 中建立設定檔。
 8. 從 [應用程式] 資料夾啟動 Tunnelblick。
@@ -74,6 +74,39 @@ ms.locfileid: "74997151"
 > [!IMPORTANT]
 >OpenVPN 通訊協定僅支援 iOS 11.0 和更新版本以及 MacOS 10.13 和更新版本。
 >
+## <a name="iOS"></a>iOS 用戶端
+
+1. 從 App store 安裝 OpenVPN 用戶端（2.4 版或更高版本）。
+2. 下載閘道的 VPN 設定檔。 這可從 Azure 入口網站中的 [點對站設定] 索引標籤，或是使用 PowerShell 中的 'New-AzVpnClientConfiguration' 來完成。
+3. 將設定檔解壓縮。 在文字編輯器中，從 OpenVPN 資料夾開啟 vpnconfig vpnconfig.ovpn 設定檔案。
+4. 以 Base64 的 P2S 用戶端憑證公開金鑰填入 P2S 用戶端憑證區段。 在 PEM 格式的憑證中，您只需開啟 .cer 檔案並在憑證標題之間複製 Base64 金鑰。 如需如何匯出憑證以取得編碼的公開金鑰的詳細資訊，請參閱[匯出公開金鑰](vpn-gateway-certificates-point-to-site.md#cer)。
+5. 以 Base64 的 P2S 用戶端憑證私密金鑰填入私密金鑰區段。 如需如何擷取私用金鑰的資訊，請參閱[匯出私密金鑰](https://openvpn.net/community-resources/how-to/#pki)。
+6. 請勿變更任何其他欄位。
+7. 將設定檔（. vpnconfig.ovpn）以電子郵件傳送到您在 iPhone 上的郵件應用程式中設定的電子郵件帳戶。 
+8. 在 iPhone 上的郵件應用程式中開啟電子郵件，然後按一下附加的檔案
+
+    ![開啟電子郵件](./media/vpn-gateway-howto-openvpn-clients/ios2.png)
+
+9. 如果看不**到 [複製到 OpenVPN** ] 選項，請按一下 [**更多**]
+
+    ![複製到 OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios3.png)
+
+10. 按一下 [**複製到 OpenVPN** ] 
+
+    ![複製到 OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios4.png)
+
+11. 在 [匯**入設定檔**] 頁面中按一下 [**新增**]
+
+    ![複製到 OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios5.png)
+
+12. 在匯**入的設定檔**頁面中，按一下 [**新增**]
+
+    ![複製到 OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios6.png)
+
+13. 啟動 OpenVPN 應用程式，並在 [**設定檔**] 頁面上滑動開關以連線
+
+    ![連接](./media/vpn-gateway-howto-openvpn-clients/ios8.png)
+
 
 ## <a name="linux"></a>Linux 用戶端
 

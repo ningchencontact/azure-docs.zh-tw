@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: d37333c0ca3f8acab7a35c23bbab67beef056b72
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9c776a32b4a35c72fc40a16afb87db9896a763cf
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664398"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611061"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>在 Azure 資訊安全中心自訂 SQL 資訊保護原則 (預覽)
  
 您可以在 Azure 資訊安全中心中定義和自訂整個 Azure 租使用者的 SQL 資訊保護原則。
 
-資訊保護是一項先進的安全性功能，可用於探索、分類、標記及保護 Azure 資料資源中的機密資料。 探索和分類最敏感的資料（商務、財務、醫療保健、個人資料等等），可以在您的組織資訊保護等級中扮演 pivotal 角色。 它可以作為以下的基礎結構：
-- 協助符合資料隱私標準和法規合規性需求
+資訊保護是一項先進的安全性功能，可用於探索、分類、標記和報告 Azure 資料資源中的敏感性資料。 探索和分類最敏感的資料（商務、財務、醫療保健、個人資料等等），可以在您的組織資訊保護等級中扮演 pivotal 角色。 它可以作為下列的基礎結構：
+- 協助符合資料隱私權標準和法規合規性需求
 - 安全性案例，例如監視（審核）和警示對敏感性資料的異常存取
 - 對包含高度敏感性資料的資料存放區進行存取控制並強化安全性
  

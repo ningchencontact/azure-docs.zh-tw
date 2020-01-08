@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 2768c2d4cef68dcf25e25c047aaa69653af5e0b6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 85ef34f8644d95f6cfd2c7262bfe4bbc0683547f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170840"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561733"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中安裝和使用 Istio
 
@@ -25,7 +25,7 @@ ms.locfileid: "74170840"
 >
 > Istio 團隊已針對 Kubernetes 版本 `1.13`、`1.14``1.15`，測試了 Istio `1.4.x` 版本。 您可以在[GitHub Istio 版本][istio-github-releases]（英文）中找到其他 Istio 版本、 [Istio 新聞][istio-release-notes]中每個版本的相關資訊，以及[Istio 一般常見問題][istio-faq]中的支援 Kubernetes 版本。
 
-在本文中，您將了解：
+在本文中，您將學會如何：
 
 > [!div class="checklist"]
 > * 下載並安裝 Istio istioctl 用戶端二進位檔
@@ -136,7 +136,7 @@ spec:
 使用 `istioctl apply` 命令和上述 `istio.aks.yaml` Istio 控制平面規格檔案安裝 istio，如下所示：
 
 ```console
-istioctl manifest apply -f istio.aks.yaml
+istioctl manifest apply -f istio.aks.yaml --logtostderr --set installPackagePath=./install/kubernetes/operator/charts
 ```
 
 安裝程式將會部署一些[CRDs][kubernetes-crd] ，然後管理相依性，以安裝針對此 Istio 設定所定義的所有相關物件。 您應該會看到類似下列的輸出程式碼片段。
@@ -361,7 +361,9 @@ istioctl dashboard envoy <pod-name>.<namespace>
 若要從您的 AKS 叢集中移除 Istio，請使用 `istioctl manifest generate` 命令搭配 `istio.aks.yaml` Istio 控制平面規格檔案。 這會產生已部署的資訊清單，我們將透過管道傳送至 `kubectl delete`，以移除所有已安裝的元件和 `istio-system` 命名空間。
 
 ```console
-istioctl manifest generate -f istio.aks.yaml | kubectl delete -f -
+istioctl manifest generate -f istio.aks.yaml -o istio-components-aks --logtostderr --set installPackagePath=./install/kubernetes/operator/charts 
+
+kubectl delete -f istio-components-aks -R
 ```
 
 ### <a name="remove-istio-crds-and-secrets"></a>移除 Istio CRDs 和秘密

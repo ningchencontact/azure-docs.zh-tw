@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fada16b3ca5307a28eebca4dfe97dc96ba389212
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1f7e9551e6a48350b8f23e9d6ce1d47a1a903c63
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098704"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643248"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -34,9 +34,9 @@ ms.locfileid: "70098704"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
-[networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
 [load-balancer-multivip-overview]:../../../load-balancer/load-balancer-multivip-overview.md
 
 
@@ -199,7 +199,7 @@ ms.locfileid: "70098704"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -208,7 +208,7 @@ ms.locfileid: "70098704"
 > ![Windows][Logo_Windows] Windows
 >
 
-Microsoft 于2016年9月發行了一項功能, 可讓您使用[Azure 內部負載平衡器][load-balancer-multivip-overview]管理多個虛擬 IP 位址。 這項功能已存在 Azure 外部負載平衡器。 
+Microsoft 于2016年9月發行了一項功能，可讓您使用[Azure 內部負載平衡器][load-balancer-multivip-overview]管理多個虛擬 IP 位址。 這項功能已存在 Azure 外部負載平衡器。 
 
 如果您有 SAP 部署，則必須使用內部負載平衡器，建立 SAP Central Services 執行個體的 Windows 叢集組態。
 
@@ -222,7 +222,7 @@ Microsoft 于2016年9月發行了一項功能, 可讓您使用[Azure 內部負�
 >一個 WSFC 叢集中 SAP ASCS/SCS 執行個體數目上限等於每個 Azure 內部負載平衡器的私人前端 IP 數目上限。
 >
 
-如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager]。
+如需負載平衡器限制的詳細資訊，請參閱[網路限制： Azure Resource Manager][networking-limits-azure-resource-manager]中的「每個負載平衡器的私人前端 IP」一節。
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -244,7 +244,7 @@ Microsoft 于2016年9月發行了一項功能, 可讓您使用[Azure 內部負�
 
 ![Azure 中多個 SAP ASCS/SCS 叢集執行個體][sap-ha-guide-figure-6002]
 
-如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager]。
+如需負載平衡器限制的詳細資訊，請參閱[網路限制： Azure Resource Manager][networking-limits-azure-resource-manager]中的「每個負載平衡器的私人前端 IP」一節。
 
 具有兩個高度可用 SAP 系統的完整配置畫面如下所示：
 
@@ -384,7 +384,7 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 對於每個額外 SAP ASCS/SCS 執行個體，您必須新增叢集共用磁碟。 針對 Windows Server 2012 R2，目前使用的 WSFC 叢集共用磁碟是 SIOS DataKeeper 軟體解決方案。
 
-請執行下列動作：
+執行下列動作：
 1. 將額外磁碟或大小相同的磁碟 (您需要等量的磁碟) 新增至每個叢集節點中，並將其格式化。
 2. 使用 SIOS DataKeeper 設定儲存體複寫。
 
@@ -401,7 +401,7 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 ## <a name="install-an-sap-netweaver-multi-sid-system"></a>安裝 SAP NetWeaver 多重 SID 系統
 
-如需安裝第二個 SAP SID2 系統的完整程式說明, 請參閱 sap [ASCS/SCS 實例的 Windows 容錯移轉叢集和共用磁片上的 Sap NETWEAVER HA 安裝][sap-high-availability-installation-wsfc-shared-disk]。
+如需安裝第二個 SAP SID2 系統的完整程式說明，請參閱 sap [ASCS/SCS 實例的 Windows 容錯移轉叢集和共用磁片上的 Sap NETWEAVER HA 安裝][sap-high-availability-installation-wsfc-shared-disk]。
 
 高階程序如下所示︰
 
@@ -422,11 +422,11 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 6. 開啟 SAP ASCS/SCS 執行個體和 ProbePort 的 Windows 防火牆連接埠。  
     在用於 SAP ASCS/SCS 執行個體的兩個叢集節點上，您要開啟 SAP ASCS/SCS 所使用的所有 Windows 防火牆連接埠。 這些 SAP ASCS/SCS 實例埠會列在[SAP ASCS/Scs 埠][sap-net-weaver-ports-ascs-scs-ports]一章中。
 
-    如需所有其他 SAP 埠的清單, 請參閱[所有 sap 產品的 tcp/ip 埠][sap-net-weaver-ports]。  
+    如需所有其他 SAP 埠的清單，請參閱[所有 sap 產品的 tcp/ip 埠][sap-net-weaver-ports]。  
 
     此外，開啟 Azure 內部負載平衡器探查連接埠，在我們的案例中為 62350。 [這會在本文中][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port]加以說明。
 
-7. [變更 SAP 評估回條 (ERS) Windows 服務實例的啟動類型][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type]。
+7. [變更 SAP 評估回條（ERS） Windows 服務實例的啟動類型][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type]。
 
 8. 在新的專用 VM 上安裝 SAP 主要應用程式伺服器，如 SAP 安裝指南所述。  
 
@@ -436,5 +436,5 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 ## <a name="next-steps"></a>後續步驟
 
-- [網路限制：Azure Resource Manager][networking-limits-azure-resource-manager]
+- [網路限制： Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Azure Load Balancer 的多個 Vip][load-balancer-multivip-overview]

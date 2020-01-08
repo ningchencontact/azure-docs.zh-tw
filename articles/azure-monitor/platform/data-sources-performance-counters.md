@@ -4,15 +4,15 @@ description: Azure 監視器會收集效能計數器以分析 Windows 和 Linux 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: d007d3dab1625d58a561d35bb111923fbdeb3482
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 624996c86423bf486111fde8743117ea888862e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932431"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363824"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure 監視器中的 Windows 和 Linux 效能資料來源
 Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業系統及應用程式的效能。  Azure 監視器可收集效能計數器，以頻繁間隔進行接近即時 (NRT) 的分析，並彙總較長期分析和報告所需的效能資料。
@@ -26,7 +26,7 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
 
 對於 Windows 效能計數器，您可以選擇每個效能計數器的特定執行個體。 對於 Linux 效能計數器，您選擇的每個計數器的執行個體會套用至父計數器的所有子計數器。 下表顯示可用於 Linux 和 Windows 效能計數器的常見執行個體。
 
-| 執行個體名稱 | 描述 |
+| 執行個體名稱 | 說明 |
 | --- | --- |
 | \_總計 |所有執行個體的總數 |
 | \* |所有執行個體 |
@@ -74,7 +74,7 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
 
 下表說明此元素中的參數。
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 |:--|:--|
 | object\_name | 收集的物件名稱。 |
 | instance\_regex |  此「規則運算式」定義要收集的執行個體。 值 `.*` 指定所有執行個體。 若只要收集 \_Total 執行個體的處理器計量，您可以指定 `_Total`。 若只要收集 crond 或 sshd 執行個體的程序計量，您可以指定： `(crond\|sshd)`。 |
@@ -132,13 +132,13 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
 | 處理器 | % Privileged Time |
 | 處理器 | % Processor Time |
 | 處理器 | % User Time |
-| System | Free Physical Memory |
-| System | Free Space in Paging Files |
-| System | Free Virtual Memory |
-| System | 程序 |
-| System | Size Stored In Paging Files |
-| System | Uptime |
-| System | 使用者人數 |
+| 系統 | Free Physical Memory |
+| 系統 | Free Space in Paging Files |
+| 系統 | Free Virtual Memory |
+| 系統 | 程序 |
+| 系統 | Size Stored In Paging Files |
+| 系統 | Uptime |
+| 系統 | 使用者人數 |
 
 
 以下是效能計量的預設組態。
@@ -181,7 +181,7 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
 ## <a name="performance-record-properties"></a>效能記錄屬性
 效能記錄都具有 **Perf** 類型以及下表中的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | 電腦 |收集事件的來源電腦。 |
 | CounterName |效能計數器的名稱 |
@@ -200,12 +200,12 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
 ## <a name="log-queries-with-performance-records"></a>記錄查詢與效能記錄
 下表提供擷取效能記錄的不同記錄查詢範例。
 
-| 查詢 | 描述 |
+| 查詢 | 說明 |
 |:--- |:--- |
 | Perf |所有效能資料 |
 | Perf &#124; where Computer == "MyComputer" |來自特定電腦的所有效能資料 |
 | Perf &#124; where CounterName == "Current Disk Queue Length" |來自特定計數器的所有效能資料 |
-| 效能&#124; ，其中 ObjectName = = "Processor" and CounterName = = "% Processor Time" and InstanceName = = "_total &#124; " 摘要 AVGCPU = avg （CounterValue） by Computer |所有電腦的平均 CPU 使用率 |
+| 效能&#124; where ObjectName = = "Processor" and CounterName = = "% Processor Time" and InstanceName = = "_Total" &#124;摘要 AVGCPU = avg （CounterValue） by Computer |所有電腦的平均 CPU 使用率 |
 | Perf &#124; where CounterName = = "% Processor Time" &#124;摘要 AggregatedValue = max （CounterValue） by Computer |所有電腦的最大 CPU 使用率 |
 | Perf &#124; where ObjectName = = "LogicalDisk" and CounterName = = "Current Disk Queue Length" and Computer = = "MyComputerName" &#124;摘要 AggregatedValue = avg （CounterValue） by InstanceName |指定電腦之所有執行個體的平均目前磁碟佇列長度 |
 | 效能&#124; ，其中 CounterName = = "磁片傳輸/秒&#124; " 摘要 AggregatedValue = 電腦的百分位數（CounterValue，95） |所有電腦之第 95 個百分位數的 Disk Transfers/Sec |

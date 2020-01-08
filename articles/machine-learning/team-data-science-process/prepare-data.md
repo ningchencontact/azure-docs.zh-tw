@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d0754f7ac85976b5ef307bf1266d26a9380ab1c6
-ms.sourcegitcommit: 6e42ce0ca0a7ac572398e9d024fcf69906670d74
+ms.openlocfilehash: d17ca5d4bd709ec2529a771008e47ce6f1b68daf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74936032"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432144"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>準備增強機器學習服務的資料的工作
 前置處理和清除資料是很重要的工作，必須先執行這些工作，才能有效地將資料集用於機器學習服務。 未經處理的資料通常會有雜訊且不可靠，還可能會有遺漏值。 使用這類資料進行模型化可能會產生誤導的結果。 這些工作屬於 Team Data Science Process (TDSP)，通常會遵循用來探索及計劃所需預先處理的資料集初始探索。 如需更多關於 TDSP 程序的詳細指示，請參閱 [Team Data Science Process](overview.md)中概述的步驟。
 
-前置處理和清除工作，例如資料探索工作，可以在各種不同環境中實行，例如 SQL 或 Hive 或 Azure Machine Learning Studio，並使用各種工具與語言，例如 R 或 Python，取決於您的資料的儲存位置和格式。 由於 TDSP 本質上是反覆的，所以這些工作可以在程序工作流程中的各個步驟進行。
+前置處理和清除工作（例如資料探索工作）可在各種不同的環境中執行，如 SQL 或 Hive 或 Azure Machine Learning Studio （傳統），以及各種工具和語言（例如 R 或 Python），視您的資料而定會儲存以及其格式化方式。 由於 TDSP 本質上是反覆的，所以這些工作可以在程序工作流程中的各個步驟進行。
 
-本文介紹可在將資料內嵌至 Azure ML Studio （傳統）之前或之後採取的各種資料處理概念和工作。
+本文介紹各種資料處理概念和工作，可以在將資料內嵌到 Azure Machine Learning Studio （傳統）之前或之後採取。
 
-如需在 Azure ML Studio （傳統）內進行資料探索和前置處理的範例，請參閱[前置處理資料](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)影片。
+如需在 Azure Machine Learning Studio （傳統）內進行資料探索和前置處理的範例，請參閱[前置處理資料](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)影片。
 
 ## <a name="why-pre-process-and-clean-data"></a>為何要前置處理和清除資料？
 真實世界的資料是從各種不同的來源和程序蒐集而來，其中可能包含危及資料集品質的違規或損毀資料。 一般會發生的資料品質問題如下：
@@ -51,7 +51,7 @@ ms.locfileid: "74936032"
 
 當您找到資料問題時， **處理步驟** 是必需的，這通常包含清除遺漏值、資料正規化、離散化、可移除和 (或) 取代可能影響資料對齊之內嵌字元的文字處理、共通欄位的混合資料類型，以及其他項目。
 
-**Azure Machine Learning 會取用正確格式的表格式資料**。  如果資料已是表格式格式，則可以使用 Machine Learning 中的 Azure ML Studio （傳統）直接執行資料前置處理。  如果資料的格式不是表格式，假設是 XML，就可能需要進行剖析，才能將資料的格式轉換成表格式。  
+**Azure Machine Learning 會取用正確格式的表格式資料**。  如果資料已經是表格式格式，則可以使用 Machine Learning 中的 Azure Machine Learning Studio （傳統）直接執行資料前置處理。  如果資料的格式不是表格式，假設是 XML，就可能需要進行剖析，才能將資料的格式轉換成表格式。  
 
 ## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>資料前置處理中有哪些主要工作？
 * **資料清除**：填入值或遺漏值，偵測並移除雜訊資料和極端值。

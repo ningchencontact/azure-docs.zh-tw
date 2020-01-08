@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 12/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6ff1dac312bcb4df1e1afc9679df09fc8a2b28ff
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c03be46207e7698d0557729c546488412c0cc5dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74897360"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437106"
 ---
 # <a name="about-expressroute-fastpath"></a>關於 ExpressRoute FastPath
 
@@ -26,12 +26,22 @@ FastPath 適用于所有 ExpressRoute 線路。
 
 ### <a name="gateways"></a>閘道
 
-FastPath 仍然需要建立虛擬網路閘道，才能在虛擬網路和內部部署網路之間交換路由。 如需虛擬網路閘道和 ExpressRoute 的詳細資訊，請參閱[ExpressRoute 虛擬網路閘道](expressroute-about-virtual-network-gateways.md)。
+FastPath 仍然需要建立虛擬網路閘道，才能在虛擬網路和內部部署網路之間交換路由。 如需虛擬網路閘道和 ExpressRoute 的詳細資訊，包括效能資訊和閘道 Sku，請參閱[ExpressRoute 虛擬網路閘道](expressroute-about-virtual-network-gateways.md)。
 
-虛擬網路閘道必須是：
+若要設定 FastPath，虛擬網路閘道必須是：
 
 * 超級效能
 * ErGw3AZ
+
+#### <a name="aggthroughput"></a>閘道 SKU 預估的效能
+下表顯示閘道類型和預估的效能。 此資料表適用於資源管理員與傳統部署模型。
+
+[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
+
+> [!IMPORTANT]
+> 應用程式效能取決於多項因素，例如端對端延遲以及應用程式開啟之流量的數目。 表格中的數字代表應用程式在理想的環境中，理論上可以達成的最高上限。
+>
+>
 
 ## <a name="supported-features"></a>支援的功能
 

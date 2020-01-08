@@ -1,17 +1,17 @@
 ---
-title: 使用 Azure 入口網站和各種 Sdk，建立具有大型分割區索引鍵的 Azure Cosmos 容器。
+title: 建立具有大型分割區索引鍵的 Azure Cosmos 容器
 description: 瞭解如何使用 Azure 入口網站和不同的 Sdk，在具有大型分割區索引鍵的 Azure Cosmos DB 中建立容器。
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: e2ea934140322a13f07a90f4246bacd3f9dbe6c9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 42e92fa2b088fc04d4aa670e6586fcfe26ff3a70
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721086"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441693"
 ---
 # <a name="create-containers-with-large-partition-key"></a>建立具有大型分割區索引鍵的容器
 
@@ -66,7 +66,7 @@ database,
 
 下列 Sdk 的最低版本支援大型分割區索引鍵：
 
-|SDK 類型  | 最低版本   |
+|SDK 類型  | 最小版本   |
 |---------|---------|
 |.NET     |    1.18     |
 |JAVA 同步處理     |   2.4.0      |

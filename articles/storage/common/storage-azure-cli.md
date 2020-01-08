@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure CLI 搭配 Azure 儲存體 | Microsoft Docs
+title: 使用 Azure CLI 搭配 Azure 儲存體
 description: 了解如何搭配 Azure 儲存體使用 Azure 命令列介面 (Azure CLI) 來建立和管理儲存體帳戶，以及使用 Azure Blob 和檔案。
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 46ae70bf4f1c2fe0276a3327ff37650dd57341d0
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: f8e745b214ced865ac41d72bdfd5e44ca36b803a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259394"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460465"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>使用 Azure CLI 搭配 Azure 儲存體
 
@@ -195,8 +195,8 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
-  * `Standard_GZRS`預覽
-  * `Standard_RAGZRS`預覽
+  * `Standard_GZRS` （預覽）
+  * `Standard_RAGZRS` （預覽）
 
 ### <a name="set-default-azure-storage-account-environment-variables"></a>設定預設 Azure 儲存體帳戶環境變數
 
@@ -248,8 +248,8 @@ az storage container create --name <container_name>
 您可以指定選擇性 `--public-access` 引數，以針對新容器設定讀取權限的三個層級之一︰
 
 * `off` (預設值)︰容器資料為帳戶擁有者私有。
-* `blob`:Blob 的公用讀取權限。
-* `container`:整個容器的公用讀取和清單權限。
+* `blob`：Blob 的公用讀取權限。
+* `container`︰整個容器的公用讀取和清單權限。
 
 如需詳細資訊，請參閱 [管理對容器與 Blob 的匿名讀取權限](../blobs/storage-manage-access-to-resources.md)。
 
@@ -331,7 +331,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 
 ### <a name="set-the-content-type"></a>設定內容類型
 
-內容類型也稱為 MIME 類型，可識別 blob 中的資料格式。 瀏覽器和其他軟體會使用內容類型來決定如何處理資料。 例如, PNG 影像的內容類型為`image/png`。 若要設定內容類型, 請使用`blob update`命令:
+內容類型也稱為 MIME 類型，可識別 blob 中的資料格式。 瀏覽器和其他軟體會使用內容類型來決定如何處理資料。 例如，PNG 影像的內容類型為 `image/png`。 若要設定內容類型，請使用 `blob update` 命令：
 
 ```azurecli
 az storage blob update

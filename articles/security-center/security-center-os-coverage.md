@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 47e66bfc4550372b571b7263ef5b7f2f149712dc
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 42bd6037bcc94a83e649433e9ea0425fbdf11cd2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307315"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353311"
 ---
 # <a name="supported-platforms"></a>支援的平台 
 
@@ -41,7 +41,7 @@ ms.locfileid: "74307315"
 
 ### Windows server 作業系統<a name="os-windows"></a>
 
-|作業系統|支援 Azure 資訊安全中心|支援與 Microsoft Defender ATP 整合|
+|OS|支援 Azure 資訊安全中心|支援與 Microsoft Defender ATP 整合|
 |:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
@@ -56,7 +56,7 @@ ms.locfileid: "74307315"
 
 * CentOS 6 和 7
 * Amazon Linux 2017.09
-* Oracle Linux 6 和 7
+* Oracle Linux 6 和 Oracle Linux 7
 * Red Hat Enterprise Linux Server 6 和 7
 * Debian GNU/Linux 8 和 9
 * Ubuntu Linux 14.04 LTS、16.04 LTS 和 18.04 LTS
@@ -92,8 +92,8 @@ Azure 資訊安全中心支援下列 Azure PaaS 資源：
 * CosmosDB
 * 儲存體帳戶
 * App Service
-* 函數
-* 服務雲端
+* 函式
+* 雲端服務
 * VNet
 * 子網路
 * NIC
@@ -109,7 +109,7 @@ Azure 資訊安全中心支援下列 Azure PaaS 資源：
 * 邏輯應用程式
 * Redis
 * Data Lake Analytics
-* 資料湖存放區
+* Data Lake Store
 * 金鑰保存庫
 
 若要深入瞭解上述 PaaS 資源清單所支援的功能，請參閱[paas 服務支援的功能](security-center-services.md#paas-services)。

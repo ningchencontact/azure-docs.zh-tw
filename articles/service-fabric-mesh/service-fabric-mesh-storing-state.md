@@ -1,20 +1,16 @@
 ---
-title: Azure Service Fabric Mesh 的狀態儲存體選項 | Microsoft Docs
+title: Azure Service Fabric 網格上的狀態儲存體選項
 description: 深入了解如何在 Azure Service Fabric Mesh 上執行的 Service Fabric Mesh 應用程式中可靠地儲存狀態。
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: jeconnoc
-ms.openlocfilehash: ef51040d1bad74ee74d5901d1f5acbe875c02a07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b0bd611fa86d155bb5bf2e07808e7365e28871c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60810526"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352339"
 ---
 # <a name="state-management-with-service-fabric"></a>使用 Service Fabric 的狀態管理
 

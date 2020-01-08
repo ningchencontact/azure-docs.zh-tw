@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: a85f9f8b9d98f77cf673778f031d8f47f132fbe1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 875d8f498fc8405a53d8fb60631c52ce09b30a62
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327353"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431919"
 ---
 # <a name="live-transcription-preview"></a>即時轉譯（預覽）
 
@@ -102,7 +102,7 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 
 * 此功能僅適用于美國西部2。
 * 應用程式需要使用預覽 Api，如[媒體服務 V3 OpenAPI 規格](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json)規格中所述。
-* 唯一支援的語言是英文。
+* 唯一支援的語言是英文（en-us）。
 * 關於內容保護，只支援 AES 信封加密。
 
 ## <a name="next-steps"></a>後續步驟

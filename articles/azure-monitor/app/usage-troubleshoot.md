@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure Application Insights 中的使用者行為分析工具進行疑難排解
+title: 針對使用者分析工具進行疑難排解-Azure 應用程式 Insights
 description: 疑難排解指南 - 使用 Application Insights 分析網站和應用程式使用情況。
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9222f4611f87869c1bacf3084035c0ab9322fa40
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: aa540cdaef1af3016d87ab93768ceb30802cef0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899356"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432288"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>針對 Application Insights 中的使用者行為分析工具進行疑難排解
 您有關於 [Application Insights 中的使用者行為分析工具](usage-overview.md)：[使用者、工作階段、事件](usage-segmentation.md)、[漏斗圖](usage-funnels.md)、[使用者流程](usage-flows.md)[保留期](usage-retention.md)或同群使用者的問題嗎？ 以下是一些解答。

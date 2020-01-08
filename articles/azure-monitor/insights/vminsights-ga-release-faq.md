@@ -1,18 +1,18 @@
 ---
 title: 適用於 VM 的 Azure 監視器（GA）常見問題 |Microsoft Docs
-description: 適用於 VM 的 Azure 監視器是 Azure 中的解決方案，結合了 Azure VM 作業系統的健康情況和效能監視，以及自動探索應用程式元件和其他資源的相依性，並對應它們之間的通訊。 本文會回答有關 GA 版本的常見問題。
+description: 適用於 VM 的 Azure 監視器是結合了 Azure VM 作業系統健康情況與效能監控的 Azure 解決方案，其會自動探索應用程式元件和與其他資源的相依性，並且會對應它們之間的通訊。 本文會回答有關 GA 版本的常見問題。
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 12/05/2019
-ms.openlocfilehash: ec0580d3360a56fc6b779b8c0a69eb2a09b007db
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4833b8a1835bd5da3327c73058f170fb0a5738a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928933"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450693"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>適用於 VM 的 Azure 監視器正式推出（GA）的常見問題
 

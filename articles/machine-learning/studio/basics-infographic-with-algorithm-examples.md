@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodc18
 ms.date: 03/04/2019
-ms.openlocfilehash: 75f1424c68f3fe78f0dbf5e729943771ff25a09d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b57728b56efc84b903ed442c0dea7e70d4eb5bb2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839702"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454845"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>可下載的資訊圖︰機器學習服務基本概念和演算法範例
 
@@ -34,8 +34,8 @@ ms.locfileid: "73839702"
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>適用於初學者與進階使用者的演算法詳細說明
 
 * 如需不同類型機器學習服務演算法、使用方式，以及如何為您的解決方案選擇正確的方法的詳細討論，請參閱[如何選擇適用于 Microsoft Azure Machine Learning Studio 的演算法（傳統）](algorithm-choice.md)。
-* 如需傳統版本 Machine Learning Studio 中可用的所有機器學習演算法的清單，請參閱 Machine Learning Studio （傳統）演算法和模組說明中的 [[初始化模型][initialize-model]]。
-* 如需傳統版 Machine Learning Studio 中的演算法和模組的完整字母清單，請參閱 Machine Learning Studio （傳統）演算法和模組說明中的[Machine Learning Studio （傳統）模組的 a-z 清單][a-z-list]。
+* 如需 Machine Learning Studio （傳統）中可用的所有機器學習演算法的清單，請參閱 Machine Learning Studio （傳統）演算法和模組說明中的 [[初始化模型][initialize-model]]。
+* 如需 Machine Learning Studio （傳統）中的演算法和模組的完整字母清單，請參閱 Machine Learning Studio （傳統）演算法和模組說明中的[Machine Learning Studio （傳統）模組的 a-z 清單][a-z-list]。
 * 如需 Azure AI 資源庫和其中許多由社群所產生之可用資源的概觀，請參閱[在 Azure AI 資源庫中共用及探索資源](gallery-how-to-use-contribute-publish.md)。
 
 

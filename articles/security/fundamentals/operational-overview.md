@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: c5ab994ce7b4e3d195ec3a4c83094974c5767e66
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643776"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443870"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 作業安全性概觀
 
@@ -32,13 +32,13 @@ IT 作業小組負責管理資料中心基礎結構、應用程式和資料，�
 
 [Microsoft Azure 監視器記錄](/azure/operations-management-suite/operations-management-suite-overview)是雲端式 IT 管理解決方案，可協助您管理及保護您的內部部署和雲端基礎結構。 它的核心功能是由在 Azure 中執行的下列服務所提供的。 Azure 包含多種服務，可協助您管理並保護您的內部部署和雲端基礎結構。 每個服務都提供特定的管理功能。 您可以結合服務，以達成不同的管理案例。 
 
-### <a name="azure-monitor"></a>Azure 監視器
+### <a name="azure-monitor"></a>Azure Monitor
 
 [Azure 監視器](/azure/azure-monitor/overview)能收集受控來源的資料，並將其儲存至中央資料存放區。 此資料可以包括事件、效能資料，或透過 API 提供的自訂資料。 收集資料之後，即可將其用於警示、分析和匯出。
 
 您可以合併各種來源的資料，並結合來自 Azure 服務與現有內部部署環境的資料。 Azure 監視器記錄也會清楚地分隔資料的收集與對該資料採取的動作，讓所有動作都可供所有類型的資料使用。
 
-### <a name="automation"></a>自動化
+### <a name="automation"></a>Automation
 
 [Azure 自動化](/azure/automation/automation-intro)提供方法，讓您將通常會在雲端和企業環境中執行的手動、長時間執行、易發生錯誤且重複性高的工作加以自動化。 它可以節省時間並提高管理工作的可靠性。 甚至還能為這些工作設定排程以定期自動執行。 您可以使用 Runbook 來將程序自動化，或使用 Desired State Configuration 來將設定管理自動化。
 
@@ -48,9 +48,9 @@ IT 作業小組負責管理資料中心基礎結構、應用程式和資料，�
 
 Azure 備份提供元件，讓您可以下載並部署於適當的電腦或伺服器上，或是雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份元件 (無論您要保護的是內部部署或雲端中的資料) 都可用來將資料備份至 Azure 中的 Azure 復原服務保存庫。
 
-如需詳細資訊，請參閱 [Azure 備份元件表格](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use)。
+如需詳細資訊，請參閱 [Azure 備份元件表格](/azure/backup/backup-overview#what-can-i-back-up)。
 
-### <a name="site-recovery"></a>站台復原
+### <a name="site-recovery"></a>Site Recovery
 
 [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) 透過協調內部部署虛擬和實體機器至 Azure 或次要網站的複寫，來提供商務持續性。 如果主要網站無法使用，您會容錯移轉到次要位置，讓使用者可以繼續工作。 您會在系統回到正常運作時進行容錯回復。 使用 Azure 資訊安全中心來執行更聰明且有效的威脅偵測。
 
@@ -64,7 +64,7 @@ Azure 備份提供元件，讓您可以下載並部署於適當的電腦或伺�
 
 Azure AD 還隨附一套完整的[身分識別管理功能](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports)，其中包括：
 
-- [Multi-Factor Authentication](/azure/multi-factor-authentication/multi-factor-authentication)
+- [多重要素驗證](/azure/multi-factor-authentication/multi-factor-authentication)
 - [自助密碼管理](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [自助式群組管理](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [具有特殊權限的帳戶管理](/azure/active-directory/active-directory-privileged-identity-management-configure)
@@ -96,7 +96,7 @@ Azure AD 還隨附一套完整的[身分識別管理功能](/azure/security/secu
 
 資訊安全中心會使用 Microsoft Monitoring Agent。 這是 Azure 監視器服務所使用的相同代理程式。 從這個代理程式收集的資料會儲存在與您 Azure 訂用帳戶相關聯的現有 Log Analytics [工作區](/azure/log-analytics/log-analytics-manage-access)或新的工作區中 (將 VM 的地理位置納入考量)。
 
-## <a name="azure-monitor"></a>Azure 監視器
+## <a name="azure-monitor"></a>Azure Monitor
 
 您雲端應用程式中的效能問題可能會對企業產生影響。 透過多個互連的元件和頻繁的發行，隨時都可能導致效能降低。 此外，如果您正在開發應用程式，您的使用者通常會探索到您在測試時未發現的問題。 您應該立即知道這些問題，並應具備可用以診斷和修正問題的工具。
 
@@ -118,7 +118,7 @@ Windows 事件系統記錄是適用於 VM 的診斷記錄類別之一。 Blob、
 
 診斷記錄與[活動記錄](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)不同。 活動記錄能讓您了解訂用帳戶中的資源所執行之作業。 診斷記錄能讓您了解您的資源自行執行的作業。
 
-### <a name="metrics"></a>度量
+### <a name="metrics"></a>計量
 
 Azure 監視器提供遙測功能，讓您可以在 Azure 上查看工作負載的效能與健康情況。 Azure 遙測資料最重要的類型是由大多數 Azure 資源所發出的[計量](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (也稱為效能計數器)。 Azure 監視器提供數種方式可設定及取用這些度量進行監視與疑難排解。
 
@@ -166,7 +166,7 @@ Microsoft 支援工程師只有在極少數的情況下 (例如對遠端存取�
 
 - 角色指派
 - 原則指派
-- Azure 資源管理員範本
+- Azure Resource Manager 範本
 - 資源群組
 
 ## <a name="devops"></a>DevOps

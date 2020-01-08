@@ -3,16 +3,18 @@ title: 登錄最佳做法
 description: 了解如何依照這些最佳做法來有效地使用 Azure Container Registry。
 ms.topic: article
 ms.date: 09/27/2018
-ms.openlocfilehash: 4b0512674358d4db2e29596408ebbf44af4ea2a9
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 7efea468a6c5c042f709d8a5bb493516458ce52b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455325"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445795"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry 的最佳做法
 
 藉由依照這些最佳做法進行操作，您將可協助發揮最大效能，以及以符合成本效益的方式在 Azure 中使用您的私人 Docker 登錄。
+
+如需在登錄中標記和版本映射的策略，另請參閱[標記和版本設定容器映射的建議](container-registry-image-tag-version.md)。 
 
 ## <a name="network-close-deployment"></a>網路鄰近部署
 
@@ -31,7 +33,7 @@ ms.locfileid: "74455325"
 
 您可以利用儲存機制命名空間，來允許在組織內的多個群組之間共用單一登錄。 登錄可以在各個部署與小組之間共用。 Azure Container Registry 支援巢狀命名空間，可讓您進行群組隔離。
 
-例如，請思考一下下列容器映像標記。 全公司使用的映象 (例如 `aspnetcore`) 會放在根命名空間中，而「生產」及「行銷」群組所擁有的容器映像則會各自使用自己的命名空間。
+例如，請思考一下下列容器映像標記。 全公司使用的影像（例如 `aspnetcore`）會放在根命名空間中，而產品和行銷群組所擁有的容器映射則各自使用自己的命名空間。
 
 ```
 contoso.azurecr.io/aspnetcore:2.0
@@ -50,7 +52,7 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 向 Azure Container Registry 進行驗證時，有兩種主要的案例：個人驗證和服務 (或「遠端控制」) 驗證。 下表提供這些案例的簡要概觀，以及各個案例的建議驗證方法。
 
-| 在系統提示您進行確認時，輸入 | 範例案例 | 建議的方法 |
+| 類型 | 範例案例 | 建議的方法 |
 |---|---|---|
 | 個人身分識別 | 將映像提取至其開發電腦或從該電腦提取映像的開發人員。 | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | 遠端控制/服務身分識別 | 未直接涉及使用者的組建和部署管線。 | [服務主體](container-registry-authentication.md#service-principal) |

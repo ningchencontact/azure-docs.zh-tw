@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 12/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 108d86e35422e1dc1d10aeb6b2c9488f5067232e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b8bf44893bf23502aaf8c446d9e6d7c9022bfce3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389676"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425647"
 ---
 # <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>使用自訂原則在 Azure Active Directory B2C 中選取頁面配置
 
@@ -46,9 +46,9 @@ ms.locfileid: "72389676"
 </ContentDefinition>
 ```
 
-若要選取頁面配置，您可以在原則中變更[ContentDefinitions](contentdefinitions.md)中的**DataUri**值。 藉由從舊的 **DataUri** 值切換到新的值，您將會選取不可變的套件。 使用此套件的優點，在於您知道它不會變更，並在您的頁面上造成未預期的行為。
+若要選取頁面配置，您可以在原則中變更[ContentDefinitions](contentdefinitions.md)中的**DataUri**值。 藉由從舊的 **DataUri** 值切換到新的值，您將會選取不可變的套件。 使用此套件的優點是您知道它不會變更，而且會在您的頁面上造成非預期的行為。
 
-若要設定頁面配置，請使用下表來尋找**DataUri**值。
+若要在使用舊**DataUri**值的自訂原則中指定頁面配置，請在 `elements` 和頁面類型之間插入 `contract` （例如 `selfasserted`），並指定版本號碼。 例如：
 
 | 舊的 DataUri 值 | 新的 DataUri 值 |
 | ----------------- | ----------------- |
@@ -68,17 +68,23 @@ ms.locfileid: "72389676"
 
 頁面配置套件會定期更新，以在其頁面元素中包含修正和改善。 下列變更記錄檔指定每個版本中引進的變更。
 
-### <a name="120"></a>1.2.0 
+### <a name="200"></a>2.0.0
+
+- 自我判斷頁（`selfasserted`）
+  - 已新增自訂原則中的[顯示控制項](display-controls.md)支援。
+
+### <a name="120"></a>1.2.0
+
 - 所有頁面
   - 協助工具修正程式
   - 您現在可以在 HTML 標籤中加入 `data-preload="true"` 屬性，以控制 CSS 和 JavaScript 的載入順序。 案例包括：
-      - 在您的 CSS 連結上使用這種方式，同時載入 CSS 與 HTML，使其不會在載入檔案時「閃爍」
-      - 這個屬性可讓您控制在頁面載入之前提取和執行腳本標記的順序
+    - 在您的 CSS 連結上使用這種方式，同時載入 CSS 與 HTML，使其不會在載入檔案時「閃爍」
+    - 這個屬性可讓您控制在頁面載入之前提取和執行腳本標記的順序
   - [電子郵件] 欄位現在已 `type=email`，而行動電話鍵盤會提供正確的建議
   - 支援 Chrome 轉譯
 - 統一且自我判斷的頁面
   - [使用者名稱/電子郵件] 和 [密碼] 欄位現在會使用表單 HTML 元素。  這現在會允許 Edge 和 IE 適當地儲存此資訊
-  
+
 ### <a name="110"></a>1.1.0
 
 - 例外狀況頁面（globalexception）

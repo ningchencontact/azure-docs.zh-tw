@@ -1,25 +1,15 @@
 ---
-title: 規劃 Service Fabric 叢集容量 | Microsoft Docs
+title: 規劃 Service Fabric 叢集容量
 description: Service Fabric 叢集容量規劃考量。 Nodetypes、Operations、持久性和可靠性層級
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: chackdan
-editor: ''
-ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 1cbbc1fde22262d5841766978d40487f812e0963
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333115"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463300"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 叢集容量規劃考量
 對於任何生產部署而言，容量規劃都是一個很重要的步驟。 以下是一些您在該程序中必須考量的項目。
@@ -76,9 +66,9 @@ Service Fabric 系統服務 (例如，叢集管理員服務或映像存放區服
 
 | 耐久性層級  | 所需的 VM 數目下限 | 支援的 VM SKU                                                                  | 您對虛擬機器擴展集所做的更新                               | Azure 所起始的更新和維護                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Gold             | 5                              | 單一客戶專用的完整節點 SKU (例如 L32s、GS5、G5、DS15_v2、D15_v2) | 可以延遲到 Service Fabric 叢集核准為止 | 每一 UD 可以暫停 2 小時，讓複本有額外時間從先前的失敗中復原 |
-| Silver           | 5                              | 單一核心或更高版本的 Vm，具有至少 50 GB 的本機 SSD                      | 可以延遲到 Service Fabric 叢集核准為止 | 無法延遲很長的期間                                                    |
-| Bronze           | 1                              | 至少具有 50 GB 本機 SSD 的 Vm                                              | Service Fabric 叢集不會延遲           | 無法延遲很長的期間                                                    |
+| 金卡             | 5                              | 單一客戶專用的完整節點 SKU (例如 L32s、GS5、G5、DS15_v2、D15_v2) | 可以延遲到 Service Fabric 叢集核准為止 | 每一 UD 可以暫停 2 小時，讓複本有額外時間從先前的失敗中復原 |
+| 銀卡           | 5                              | 單一核心或更高版本的 Vm，具有至少 50 GB 的本機 SSD                      | 可以延遲到 Service Fabric 叢集核准為止 | 無法延遲很長的期間                                                    |
+| 青銅卡           | 1                              | 至少具有 50 GB 本機 SSD 的 Vm                                              | Service Fabric 叢集不會延遲           | 無法延遲很長的期間                                                    |
 
 > [!WARNING]
 > 執行 Bronze 持久性的節點類型「沒有權限」。 這表示影響您具狀態工作負載的基礎結構工作將不會停止或延遲，這可能會影響您的工作負載。 針對僅執行無狀態工作負載的節點類型，只能使用 Bronze。 對於生產工作負載，建議執行 Silver 或以上的層級。 
@@ -142,9 +132,9 @@ Service Fabric 系統服務 (例如，叢集管理員服務或映像存放區服
 | **叢集節點數目** | **可靠性層級** |
 | --- | --- |
 | 1 |不指定「可靠性層級」參數，系統會進行計算 |
-| 3 |Bronze |
-| 5 或 6|Silver |
-| 7 或 8 |Gold |
+| 3 |青銅卡 |
+| 5 或 6|銀卡 |
+| 7 或 8 |金卡 |
 | 9 以上 |Platinum |
 
 ## <a name="primary-node-type---capacity-guidance"></a>主要節點類型 - 容量指引
@@ -160,8 +150,8 @@ Service Fabric 系統服務 (例如，叢集管理員服務或映像存放區服
 生產工作負載： 
 
 - 建議將叢集主要 NodeType 專用於系統服務，並使用放置限制式，將應用程式部署到次要 NodeTypes。
-- 建議的 VM SKU 是標準 D2_V2 或對等，最少為 50 GB 的本機 SSD。
-- 支援的最低使用 VM SKU 為 Standard_D2_V3 或標準 D1_V2，或對等的最小值為 50 GB 的本機 SSD。 
+- 建議的 VM SKU 是標準 D2_V2 或同等的，最少為 50 GB 的本機 SSD。
+- 支援的最小使用 VM SKU 為 Standard_D2_V3 或標準 D1_V2 或等同于最少 50 GB 的本機 SSD。 
 - 我們建議的最小值為 50 GB。 針對您的工作負載，特別是在執行 Windows 容器時，則需要較大的磁碟。 
 - 局部核心 VM SKU 不支援生產工作負載，例如標準 A0。
 - 基於效能考慮，不支援針對生產環境工作負載使用系列的 VM Sku。
@@ -182,8 +172,8 @@ Service Fabric 系統服務 (例如，叢集管理員服務或映像存放區服
 
 生產工作負載 
 
-- 建議的 VM SKU 是標準 D2_V2 或對等，最少為 50 GB 的本機 SSD。
-- 支援的最低使用 VM SKU 為 Standard_D2_V3 或標準 D1_V2，或對等的最小值為 50 GB 的本機 SSD。 
+- 建議的 VM SKU 是標準 D2_V2 或同等的，最少為 50 GB 的本機 SSD。
+- 支援的最小使用 VM SKU 為 Standard_D2_V3 或標準 D1_V2 或等同于最少 50 GB 的本機 SSD。 
 - 局部核心 VM SKU 不支援生產工作負載，例如標準 A0。
 - 基於效能考慮，不支援針對生產環境工作負載使用系列的 VM Sku。
 
@@ -197,7 +187,7 @@ Service Fabric 系統服務 (例如，叢集管理員服務或映像存放區服
 
 生產工作負載 
 
-- 建議的 VM SKU 是標準 D2_V2 或對等。 
+- 建議的 VM SKU 是標準 D2_V2 或對等用法。 
 - 支援使用的最小 VM SKU 是標準 D1 或標準 D1_V2 或對等項目。 
 - 局部核心 VM SKU 不支援生產工作負載，例如標準 A0。
 - 基於效能考慮，不支援針對生產環境工作負載使用系列的 VM Sku。

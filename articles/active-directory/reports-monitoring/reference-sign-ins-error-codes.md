@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed91396dd747bb800d88bc3cd083439a5648624
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fa19425de41b182db8c0a8c3b1a7940dbdf5701f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786362"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429453"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登入活動報告錯誤碼 
 
@@ -36,9 +36,13 @@ ms.locfileid: "74786362"
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>如何顯示失敗的登入？ 
 
-巡覽至 [Azure 入口網站](https://portal.azure.com)中的[登入報告](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)。
+在 [ [Azure 入口網站](https://portal.azure.com)] 功能表上，選取 [ **Azure Active Directory**]，或搜尋並從任何頁面選取 [ **Azure Active Directory** ]。
 
-![登入活動](./media/reference-sign-ins-error-codes/61.png "登入活動")
+![選取 Azure Active Directory](./media/reference-sign-ins-error-codes/select-azure-active-directory.png "Azure Active Directory")
+
+在 [**監視**] 底下，選取 [登**入**] 以開啟登[入報告](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)。
+
+![登入活動](./media/reference-sign-ins-error-codes/monitoring-sign-ins-in-azure-active-directory.png "登入活動")
 
 篩選報告以顯示所有失敗的登入，其做法是從 [登入狀態] 下拉式方塊中選取 [失敗]。
 
@@ -53,7 +57,7 @@ ms.locfileid: "74786362"
 ## <a name="error-codes"></a>錯誤碼
 
 
-|Error|描述|
+|錯誤|說明|
 |---|---|
 |16000|這是內部實作詳細資料，而不是錯誤狀況。 您可以放心地忽略此參考。|
 |20001|同盟識別提供者有問題。 請連絡 IDP 以解決此問題。|

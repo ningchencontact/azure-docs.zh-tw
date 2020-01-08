@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: d7999488302098980ff9306836ec9d54aceac3be
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ae9550e797ad13f78f222cb6120f040721914964
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837864"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454770"
 ---
 # <a name="use-powershell-to-create-studio-classic-models-and-web-service-endpoints-from-one-experiment"></a>使用 PowerShell 從一個實驗建立 Studio （傳統）模型和 web 服務端點
 
@@ -25,7 +25,7 @@ ms.locfileid: "73837864"
 
 您可以使用所有地點的所有資料集合併版本，將模型訓練一次。 但是，您的每個地點都有其獨特的環境。 較好的作法是使用每個地點的資料集，個別地訓練您的迴歸模型。 這樣一來，每個訓練的模型就會將店面大小、數量、地理位置、人口、自行車友善交通環境等因素納入考量。
 
-這可能是最好的方法，但您不想在傳統版本的 Azure Machine Learning Studio 中建立1000訓練實驗，而每一個都代表一個唯一的位置。 除了工作繁重，看起來也很沒效率，因為除了訓練資料集外，每個實驗的元件都完全相同。
+這可能是最好的方法，但您不想要在 Azure Machine Learning Studio （傳統）中建立1000訓練實驗，而每一個都代表一個唯一的位置。 除了工作繁重，看起來也很沒效率，因為除了訓練資料集外，每個實驗的元件都完全相同。
 
 幸好，您可以使用[Azure Machine Learning Studio （傳統）](/azure/machine-learning/studio/retrain-machine-learning-model)重新訓練 API，並使用[Azure Machine Learning Studio （傳統） PowerShell](powershell-module.md)將工作自動化，來完成這項作業。
 
@@ -35,7 +35,7 @@ ms.locfileid: "73837864"
 > 
 
 ## <a name="set-up-the-training-experiment"></a>設定訓練實驗
-請使用 [Cortana Intelligence Gallery](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) 中的[訓練實驗](https://gallery.azure.ai)範例。 在您的[Azure Machine Learning Studio （傳統）](https://studio.azureml.net)工作區中開啟此實驗。
+請使用 [Cortana Intelligence Gallery](https://gallery.azure.ai) 中的[訓練實驗](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1)範例。 在您的[Azure Machine Learning Studio （傳統）](https://studio.azureml.net)工作區中開啟此實驗。
 
 > [!NOTE]
 > 為了依照此範例進行，建議您使用標準工作區，而不是免費工作區。 您將為每個客戶建立一個端點 (總共 10 個端點)，而這需要標準工作區，因為免費工作區只能有 3 個端點。
@@ -94,7 +94,7 @@ ms.locfileid: "73837864"
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>使用 PowerShell 更新端點來使用不同的訓練資料集
 下一步是使用經過每個客戶的個別資料所特別訓練的模型來更新端點。 但首先您必須從**自行車出租訓練** Web 服務來產生這些模型。 讓我們回到 **自行車出租訓練** Web 服務。 您必須以 10 個不同的訓練資料集呼叫其 BES 端點 10 次，以產生 10 個不同的模型。 請使用 **InovkeAmlWebServiceBESEndpoint** PowerShell Cmdlet 來執行這項操作。
 
-您也必須在 `$configContent` 中提供您 Blob 儲存體帳戶的認證。 也就是說，必須填寫欄位 `AccountName`、`AccountKey` 和 `RelativeLocation`。 `AccountName` 可以是您的其中一個帳戶名稱，如 **Azure 入口網站** ([儲存體] 索引標籤) 中所示。 按一下儲存體帳戶後，按下底部的 [管理存取金鑰]`AccountKey`**按鈕，即可找到儲存體帳戶的**，並複製*主要存取金鑰*。 `RelativeLocation` 是相對於您儲存體的路徑，其可儲存新模型。 例如，下列指令碼中的路徑 `hai/retrain/bike_rental/` 指向名為 `hai` 的容器，而 `/retrain/bike_rental/` 是子資料夾。 目前，您無法透過入口網站 UI 建立子資料夾，但有[數個 Azure 儲存體總管](../../storage/common/storage-explorers.md)可讓您執行這項操作。 建議您在儲存體中建立新的容器，以儲存新的訓練模型 (.iLearner 檔案)，如下所示︰從儲存體頁面中，按一下底部的 [新增] 按鈕，並將其命名為 `retrain`。 簡而言之，下列指令碼的必要變更係有關於 `AccountName`、`AccountKey` 和 `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`)。
+您也必須在 `$configContent` 中提供您 Blob 儲存體帳戶的認證。 也就是說，必須填寫欄位 `AccountName`、`AccountKey` 和 `RelativeLocation`。 `AccountName` 可以是您的其中一個帳戶名稱，如 **Azure 入口網站** ([儲存體] 索引標籤) 中所示。 按一下儲存體帳戶後，按下底部的 [管理存取金鑰] 按鈕，即可找到儲存體帳戶的 `AccountKey`，並複製*主要存取金鑰*。 `RelativeLocation` 是相對於您儲存體的路徑，其可儲存新模型。 例如，下列指令碼中的路徑 `hai/retrain/bike_rental/` 指向名為 `hai` 的容器，而 `/retrain/bike_rental/` 是子資料夾。 目前，您無法透過入口網站 UI 建立子資料夾，但有[數個 Azure 儲存體總管](../../storage/common/storage-explorers.md)可讓您執行這項操作。 建議您在儲存體中建立新的容器，以儲存新的訓練模型 (.iLearner 檔案)，如下所示︰從儲存體頁面中，按一下底部的 [新增] 按鈕，並將其命名為 `retrain`。 簡而言之，下列指令碼的必要變更係有關於 `AccountName`、`AccountKey` 和 `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`)。
 
     # Invoke the retraining API 10 times
     # This is the default (and the only) endpoint on the training web service
@@ -114,7 +114,7 @@ ms.locfileid: "73837864"
 > 
 > 
 
-如您所見，您並未建構 10 個不同的 BES 作業設定 json 檔案，而是以動態方式建立了設定字串。 接著，請將其傳給 *InvokeAmlWebServceBESEndpoint* Cmdlet 的 **jobConfigString** 參數。 您不需要在磁碟上保留複本。
+如您所見，您並未建構 10 個不同的 BES 作業設定 json 檔案，而是以動態方式建立了設定字串。 接著，請將其傳給 **InvokeAmlWebServceBESEndpoint** Cmdlet 的 *jobConfigString* 參數。 您不需要在磁碟上保留複本。
 
 如果一切順利，一段時間之後，您應該會在 Azure 儲存體帳戶中看到 10 個 .iLearner 檔案，從 *model001.ilearner* 至 *model010.ilearner*。 現在，您已準備好要使用 **Patch-AmlWebServiceEndpoint** PowerShell Cmdlet，根據這些模型來更新 10 個評分 Web 服務端點。 同樣地，請記住您只能修補稍早以程式設計方式建立的非預設端點。
 

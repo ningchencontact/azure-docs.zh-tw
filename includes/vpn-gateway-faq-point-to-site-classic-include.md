@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0c0ad6ea5a687d066c78533b45a7f531561661bf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5c663bb507656dad6f073b9906fdbf104714c8f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173846"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450816"
 ---
 這個常見問題集適用於使用傳統部署模型的 P2S 連線。
 
@@ -31,19 +31,20 @@ ms.locfileid: "67173846"
 
 ### <a name="can-i-use-any-software-vpn-client-that-supports-sstp-for-point-to-site"></a>是否任何支援 SSTP 的軟體 VPN 用戶端都適用於點對站功能？
 
-沒有。 僅支援列出的 Windows 作業系統版本。
+不會。 僅支援列出的 Windows 作業系統版本。
 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>在我的點對站組態中可以有多少個 VPN 用戶端端點？
 
-最多 128 個 VPN 用戶端可以同時連線到虛擬網路。
+VPN 用戶端端點的數量取決於您的閘道 sku 和通訊協定。
+[!包含 SKU 的匯總輸送量]
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>是否可以使用自己的內部 PKI 根 CA 進行點對站台連線？
 
-是。 先前只能使用自我簽署的根憑證。 您仍可將 20 個根憑證上傳。
+可以。 先前只能使用自我簽署的根憑證。 您仍可將 20 個根憑證上傳。
 
 ### <a name="can-i-traverse-proxies-and-firewalls-by-using-point-to-site"></a>是否可以使用點對站功能周遊 Proxy 和防火牆？
 
-是。 我們使用安全通訊端通道通訊協定 (SSTP) 穿過防火牆。 此通道將會顯示為 HTTPS 連線。
+可以。 我們使用安全通訊端通道通訊協定 (SSTP) 穿過防火牆。 此通道將會顯示為 HTTPS 連線。
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>如果我重新啟動針對點對站台設定的用戶端電腦，VPN 將自動重新連線嗎？
 
@@ -51,15 +52,15 @@ ms.locfileid: "67173846"
 
 ### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a>在 VPN 用戶端上點對站功能支援自動重新連線和 DDNS 嗎？
 
-沒有。 點對站 VPN 目前不支援自動重新連接和 DDNS。
+不會。 點對站 VPN 目前不支援自動重新連接和 DDNS。
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-for-the-same-virtual-network"></a>可以對相同虛擬網路使用站對站和點對站組態嗎？
 
-是。 如果閘道是路由式 VPN 類型，這兩個解決方案都可正常運作。 如果是傳統部署模型，則需要動態閘道。 靜態路由 VPN 閘道或使用 **-VpnType PolicyBased** Cmdlet 的閘道不支援點對站。
+可以。 如果閘道是路由式 VPN 類型，這兩個解決方案都可正常運作。 如果是傳統部署模型，則需要動態閘道。 靜態路由 VPN 閘道或使用 **-VpnType PolicyBased** Cmdlet 的閘道不支援點對站。
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>是否可以將點對站台用戶端設定為同時連接到多個虛擬網路？
 
-是。 但是虛擬網路不能有重疊的 IP 前置詞，而且點對站台位址空間在虛擬網路之間不得重疊。
+可以。 但是虛擬網路不能有重疊的 IP 前置詞，而且點對站台位址空間在虛擬網路之間不得重疊。
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>透過網站間或點對站台連線可以獲得多少輸送量？
 

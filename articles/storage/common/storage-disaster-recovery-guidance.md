@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7bbad4adce88b8b669c5c5739bfa45b079f321d0
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2e0ae05ff8c32a70991769171cb29b229c2b0be1
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895360"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526357"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>嚴重損壞修復和帳戶容錯移轉（預覽）
 
@@ -123,7 +123,7 @@ Microsoft 也建議您將應用程式設計成可以因應可能的寫入失敗�
 - 東亞
 - 東南亞
 - 澳大利亞東部
-- 澳大利亞東南部
+- 澳洲東南部
 - 美國中部
 - 美國東部 2
 - 美國中西部
@@ -177,7 +177,8 @@ Azure 虛擬機器 (VM) 不會隨著帳戶容錯移轉一起容錯移轉。 如�
 - Azure 檔案同步不支援儲存體帳戶容錯移轉。 不應該容錯移轉包含在 Azure 檔案同步中作為雲端端點使用之 Azure 檔案共用的儲存體帳戶。 這麼做將導致同步停止運作，且可能會在新分層的檔案中產生未預期的資料遺失。  
 - 無法容錯移轉包含封存 Blob 的儲存體帳戶。 請在您不打算進行容錯移轉的個別儲存體帳戶中維護封存 Blob。
 - 無法容錯移轉包含進階區塊 Blob 的儲存體帳戶。 支援進階區塊 Blob 的儲存體帳戶目前不支援異地備援。
-- 在容錯移轉完成之後，如果原本啟用下列功能，將會停止運作：[事件訂閱](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview)、[生命週期原則](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)、[儲存體分析記錄](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging)。
+- 包含已啟用任何 WORM 不存在[原則](../blobs/storage-blob-immutable-storage.md)之容器的儲存體帳戶，無法進行故障切換。 已解除鎖定/鎖定以時間為基礎的保留或合法保存原則會防止容錯移轉，以維持合規性。
+- 在容錯移轉完成之後，下列功能可能會在原始啟用時停止運作：[事件訂閱](../blobs/storage-blob-event-overview.md)、[變更](../blobs/storage-blob-change-feed.md)摘要、[生命週期原則](../blobs/storage-lifecycle-management-concepts.md)和[儲存體分析記錄](storage-analytics-logging.md)。
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>將複製資料作為容錯移轉的替代項目
 

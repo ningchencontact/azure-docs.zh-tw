@@ -1,17 +1,17 @@
 ---
 title: 如何搭配 Azure Cache for Redis 使用 redis-cli
-description: 了解如何搭配使用 redis-cli 與「Azure Redis 快取」。
+description: 瞭解如何使用*redis-cli.exe*做為命令列工具，以便與 Azure Cache for redis 做為用戶端互動。
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: yegu
-ms.openlocfilehash: 510110a201e943b8ffce07fc7d0de1361264ae62
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: a48e69f19db88c7823365964c2fe9c0629a078bc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122728"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75412678"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>如何搭配使用 Redis 命令列工具與 Azure Redis 快取
 
@@ -48,9 +48,9 @@ ms.locfileid: "74122728"
 
     以滑鼠右鍵按一下 stunnel 伺服器的工作列圖示，然後按一下 [Show Log Window \(顯示記錄視窗\)]。
 
-    在 stunnel 的 [Log Windows \(記錄視窗\)] 功能表上按一下 [Configuration \(設定\)]  >  [Edit Configuration \(編輯設定\)] 開啟目前的設定檔。
+    在 stunnel 的 [Log Windows \(記錄視窗\)] 功能表上按一下 [Configuration \(設定\)] >  [Edit Configuration \(編輯設定\)] 開啟目前的設定檔。
 
-    在 [Service definitions \(服務定義\)] 區段下加入 **redis-cli.exe** 的下列項目。 取代 `yourcachename`，插入您實際的快取名稱。 
+    在 [Service definitions \(服務定義\)] 區段下加入 *redis-cli.exe* 的下列項目。 取代 `yourcachename`，插入您實際的快取名稱。 
 
     ```
     [redis-cli]
@@ -61,7 +61,7 @@ ms.locfileid: "74122728"
 
     儲存並關閉設定檔。 
   
-    在 stunnel 的 [Log Window \(記錄視窗\)] 功能表上按一下 [Configuration \(設定\)]  >  [Reload Configuration \(重新載入設定\)]。
+    在 stunnel 的 [Log Window \(記錄視窗\)] 功能表上按一下 [Configuration \(設定\)] >  [Reload Configuration \(重新載入設定\)]。
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>使用 Redis 命令列工具連線。

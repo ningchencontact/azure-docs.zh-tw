@@ -9,20 +9,20 @@ editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 02d6e150e638321e11a8dec9838e360faa00783e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 59afdb0e273511f3d8255a9c859b86f93e0b7269
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462403"
 ---
-# <a name="use-firewall-rules"></a>使用防火牆規則
+# <a name="azure-service-bus---use-firewall-rules"></a>Azure 服務匯流排-使用防火牆規則
 
 針對應該只能從特定已知網站存取「Azure 服務匯流排」的情況，防火牆規則可讓您設定規則來接受源自特定 IPv4 位址的流量。 例如，這些位址可能是企業 NAT 閘道的位址。
 
-## <a name="when-to-use"></a>使用時機
+## <a name="when-to-use"></a>When to use
 
 如果想要設定「服務匯流排」，讓它應該只接收來自某個指定範圍 IP 位址的流量，並拒絕所有其他流量，您可以利用「防火牆規則」封鎖來自其他其他 IP 位址的服務匯流排端點。 例如，您使用服務匯流排搭配[Azure Express Route][express-route]來建立內部部署基礎結構的私人連線。 
 
@@ -74,7 +74,7 @@ IP 篩選器規則會依序套用，第一個符合 IP 位址的規則會決定�
 > ```json
 > "defaultAction": "Allow"
 > ```
-> 收件人
+> to
 > ```json
 > "defaultAction": "Deny"
 > ```

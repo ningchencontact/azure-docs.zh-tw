@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 9c72bc9c0862820b72fbecee7966e946f4ba0001
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b6826fa53e9810bdd30af4faf9fbf6bc3c3492e8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928042"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439241"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>使用資料複製工具根據時間分割的檔案名，以累加方式複製新檔案
 
@@ -70,9 +70,9 @@ ms.locfileid: "74928042"
      
     a. 選取 [使用現有的]，然後從下拉式清單選取現有的資源群組。
 
-    b.這是另一個 C# 主控台應用程式。 選取 [建立新的]，然後輸入資源群組的名稱。 
+    b. 選取 [建立新的]，然後輸入資源群組的名稱。 
          
-    若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。
+    若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。
 
 5. 在 [版本] 下，選取 [V2] 作為版本。
 6. 在 [位置] 下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (例如 Azure 儲存體和 SQL Database) 和計算 (例如 Azure HDInsight) 可位於其他地區和區域。
@@ -96,7 +96,7 @@ ms.locfileid: "74928042"
 
     a. 在 [工作**名稱**] 下，輸入**DeltaCopyFromBlobPipeline**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [工作**步調] 或**[工作排程] 底下，選取 [依**排程定期執行**]。
+    b. 在 [工作**步調] 或**[工作排程] 底下，選取 [依**排程定期執行**]。
 
     c. 在 [**觸發程式類型**] 底下，選取 [**輪轉視窗]** 。
     
@@ -113,7 +113,7 @@ ms.locfileid: "74928042"
 
     ![來源資料存放區頁面](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page.png)
     
-    b.這是另一個 C# 主控台應用程式。 從資源庫中選取 [ **Azure Blob 儲存體**]，然後按一下 [**繼續**]。
+    b. 從資源庫中選取 [ **Azure Blob 儲存體**]，然後按一下 [**繼續**]。
 
     ![來源資料存放區頁面](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-blob.png)
     
@@ -130,7 +130,7 @@ ms.locfileid: "74928042"
     
     ![選擇輸入檔案或資料夾](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
     
-    b.這是另一個 C# 主控台應用程式。 在 [檔案**載入行為**] 底下，選取 [累加**式載入：時間分割的資料夾/檔案名**]。
+    b. 在 [檔案**載入行為**] 底下，選取 [累加**式載入：時間分割的資料夾/檔案名**]。
     
     ![選擇輸入檔案或資料夾](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-loading-behavior.png)
     
@@ -150,11 +150,11 @@ ms.locfileid: "74928042"
     
     ![選擇輸出檔案或資料夾](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-output-file-folder.png)   
     
-    b.這是另一個 C# 主控台應用程式。 將動態資料夾路徑當做**來源/{year}/{month}/{day}/{hour}/** 寫入，並如下所示變更格式：
+    b. 將動態資料夾路徑當做**來源/{year}/{month}/{day}/{hour}/** 寫入，並如下所示變更格式：
     
     ![選擇輸出檔案或資料夾](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)    
     
-    c. 按一下 [下一步]。
+    c. 按 [下一步]。
     
     ![選擇輸出檔案或資料夾](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)  
 7. 在 [設定] 頁面上，選取 [下一步]。 

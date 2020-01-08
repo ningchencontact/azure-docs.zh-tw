@@ -8,20 +8,20 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: aa92b72b09ed28b41d85ac7c7605077761657d40
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5ffee146bdbd666d4175af2f49f6b447743b2bc0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721568"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457676"
 ---
-# <a name="get-started-with-azure-queue-storage-using-net"></a>以 .NET 開始使用 Azure 佇列儲存體
+# <a name="get-started-with-azure-queue-storage-using-net"></a>透過 .NET 開始使用 Azure 佇列儲存體
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計擴充性的應用程式時，會經常分離應用程式元件，以便進行個別擴充。 佇列儲存體可針對應用程式元件間的通訊，提供非同步傳訊，無論應用程式元件是在雲端、桌面、內部部署伺服器或行動裝置上執行。 佇列儲存體也支援管理非同步工作並建置處理工作流程。
 
@@ -31,7 +31,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 
 **預估完成時間：** 45 分鐘
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [適用于 .NET 的 Azure 儲存體一般用戶端程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
@@ -43,7 +43,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="set-up-your-development-environment"></a>設定開發環境
+## <a name="set-up-your-development-environment"></a>設定您的開發環境
 
 接下來，在 Visual Studio 中設定您的開發環境，以便您開始嘗試本指南中的程式碼範例。
 
@@ -52,35 +52,35 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 在 Visual Studio 中，建立新的 Windows 主控台應用程式。 下列步驟說明如何在 Visual Studio 2019 中建立主控台應用程式。 這些步驟類似其他 Visual Studio 版本中的步驟。
 
 1. 選取 [檔案] > [新增] > [專案]
-2. 選取**平臺** > **視窗**
+2. 選取**平臺** > **Windows**
 3. 選取 **主控台應用程式 (.NET Framework)**
-4. 選取 [下一步]
-5. 在 [**專案名稱**] 欄位中, 輸入應用程式的名稱
+4. 選取 [**下一步**]
+5. 在 [**專案名稱**] 欄位中，輸入應用程式的名稱
 6. 選取 [建立]
 
-本教學課程中的所有程式碼範例都可以新增至主控台應用程式**Program.cs**檔的**Main ()** 方法中。
+本教學課程中的所有程式碼範例都可以新增至主控台應用程式**Program.cs**檔的**Main （）** 方法中。
 
-您可以在任何類型的 .NET 應用程式中使用 Azure 儲存體的用戶端程式庫, 包括 Azure 雲端服務或 web 應用程式, 以及桌面和行動應用程式。 在本指南中，為求簡化，我們會使用主控台應用程式。
+您可以在任何類型的 .NET 應用程式中使用 Azure 儲存體的用戶端程式庫，包括 Azure 雲端服務或 web 應用程式，以及桌面和行動應用程式。 在本指南中，為求簡化，我們會使用主控台應用程式。
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>使用 NuGet 來安裝必要的封裝
 
-您必須參考專案中的下列三個套件, 才能完成本教學課程:
+您必須參考專案中的下列三個套件，才能完成本教學課程：
 
-* [適用于 .net 的 Microsoft Azure 儲存體一般用戶端程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/):此套件可讓您以程式設計方式存取儲存體帳戶中的資料資源。
-* [適用于 .net 的 Microsoft Azure 儲存體佇列程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/):此用戶端程式庫可讓您使用 Microsoft Azure 儲存體佇列服務來儲存用戶端可能存取的訊息。
-* [適用於 .NET 的 Microsoft Azure Configuration Manager 程式庫](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)：此套件提供一個類別，無論您的應用程式於何處執行，均可用來剖析組態檔中的連接字串。
+* [適用于 .net 的 Microsoft Azure 儲存體一般用戶端程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)：此套件可讓您以程式設計方式存取儲存體帳戶中的資料資源。
+* [適用于 .net 的 Microsoft Azure 儲存體佇列程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)：此用戶端程式庫可讓您使用 Microsoft Azure 儲存體佇列服務來儲存用戶端可能存取的訊息。
+* [適用於 .NET 的 Microsoft Azure Configuration Manager 程式庫](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)︰此套件提供一個類別，無論您的應用程式於何處執行，均可用來剖析組態檔中的連接字串。
 
 您可以使用 NuGet 來取得這些套件。 請遵循下列步驟：
 
 1. 在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 套件]。
 2. 選取 [瀏覽]
-3. 在線上搜尋 "Microsoft. Azure. node.js", 然後選取 [**安裝**] 以安裝儲存體用戶端程式庫及其相依性。 這也會安裝 Microsoft. Azure 儲存庫, 這是佇列程式庫的相依性。
-4. 在線上搜尋 "ConfigurationManager", 然後選取 [**安裝**] 以安裝 Azure Configuration Manager。
+3. 在線上搜尋 "Microsoft. Azure. node.js"，然後選取 [**安裝**] 以安裝儲存體用戶端程式庫及其相依性。 這也會安裝 Microsoft. Azure 儲存庫，這是佇列程式庫的相依性。
+4. 在線上搜尋 "ConfigurationManager"，然後選取 [**安裝**] 以安裝 Azure Configuration Manager。
 
 > [!NOTE]
-> 儲存體用戶端程式庫套件也包含在[適用于 .net 的 AZURE SDK](https://azure.microsoft.com/downloads/)中。 不過, 我們建議您也從 NuGet 安裝儲存體用戶端程式庫, 以確保您一律擁有最新版本。
+> 儲存體用戶端程式庫套件也包含在[適用于 .net 的 AZURE SDK](https://azure.microsoft.com/downloads/)中。 不過，我們建議您也從 NuGet 安裝儲存體用戶端程式庫，以確保您一律擁有最新版本。
 >
-> 適用于 .NET 的儲存體用戶端程式庫中的 ODataLib 相依性是由 NuGet 提供的 ODataLib 套件解析, 而不是從 WCF Data Services。 您可以直接下載 ODataLib 程式庫，或是由您的程式碼專案透過 NuGet 參照這些程式庫。 儲存體用戶端程式庫所使用的特定 ODataLib 封裝是[OData](https://nuget.org/packages/Microsoft.Data.OData/)、 [Edm](https://nuget.org/packages/Microsoft.Data.Edm/)和[空間](https://nuget.org/packages/System.Spatial/)。 雖然 Azure 資料表儲存體類別使用這些程式庫, 但它們是使用儲存體用戶端程式庫進行程式設計的必要相依性。
+> 適用于 .NET 的儲存體用戶端程式庫中的 ODataLib 相依性是由 NuGet 提供的 ODataLib 套件解析，而不是從 WCF Data Services。 您可以直接下載 ODataLib 程式庫，或是由您的程式碼專案透過 NuGet 參照這些程式庫。 儲存體用戶端程式庫所使用的特定 ODataLib 封裝是[OData](https://nuget.org/packages/Microsoft.Data.OData/)、 [Edm](https://nuget.org/packages/Microsoft.Data.Edm/)和[空間](https://nuget.org/packages/System.Spatial/)。 雖然 Azure 資料表儲存體類別使用這些程式庫，但它們是使用儲存體用戶端程式庫進行程式設計的必要相依性。
 
 ### <a name="determine-your-target-environment"></a>決定您的目標環境
 
@@ -89,21 +89,21 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 * 您可以對雲端中的 Azure 儲存體帳戶執行您的程式碼。
 * 您可以對 Azure 儲存體模擬器執行您的程式碼。 儲存體模擬器是模擬雲端中 Azure 儲存體帳戶的本機環境。 模擬器是一個免費選項，在開發您的應用程式時可用於測試和偵錯您的程式碼。 模擬器會使用已知的帳戶和金鑰。 如需詳細資訊，請參閱[使用 Azure 儲存體模擬器進行開發和測試](../common/storage-use-emulator.md)。
 
-如果您要選擇以雲端中的儲存體帳戶為目標，請從 Azure 入口網站複製您的儲存體帳戶的主要存取金鑰。 如需詳細資訊，請參閱[存取金鑰](../common/storage-account-manage.md#access-keys)。
+如果您要選擇以雲端中的儲存體帳戶為目標，請從 Azure 入口網站複製您的儲存體帳戶的主要存取金鑰。 如需詳細資訊，請參閱[管理儲存體帳戶存取金鑰](../common/storage-account-keys-manage.md)。
 
 > [!NOTE]
 > 您可以選擇以儲存體模擬器為目標，以避免產生與 Azure 儲存體相關聯的任何費用。 不過，如果您選擇以雲端中的 Azure 儲存體帳戶為目標，則執行本教學課程的費用可以忽略不計。
 
 ### <a name="configure-your-storage-connection-string"></a>設定儲存體連接字串
 
-適用于 .NET 的 Azure 儲存體用戶端程式庫支援使用儲存體連接字串來設定端點和認證, 以存取儲存體服務。 在組態檔中維護儲存體連接字串是最佳方式。
+適用于 .NET 的 Azure 儲存體用戶端程式庫支援使用儲存體連接字串來設定端點和認證，以存取儲存體服務。 在組態檔中維護儲存體連接字串是最佳方式。
 
 如需有關連接字串的詳細資訊，請參閱[設定 Azure 儲存體的連接字串](../common/storage-configure-connection-string.md)。
 
 > [!NOTE]
 > 儲存體帳戶金鑰很類似儲存體帳戶的根密碼。 請務必小心保護您的儲存體帳戶金鑰。 請避免轉發給其他使用者、進行硬式編碼，或將它儲存在其他人可以存取的純文字檔案。 如果您認為金鑰可能遭到破解，請使用 Azure 入口網站重新產生金鑰。
 
-若要設定您的連接字串, 請從 Visual Studio 中的方案總管開啟**app.config**檔案。 新增 **\< appSettings\>** 元素的內容, 如下所示。 以您的儲存體帳戶名稱取代*帳戶名稱*, 並以您的帳戶存取金鑰取代*帳戶金鑰*:
+若要設定您的連接字串，請從 Visual Studio 中的方案總管開啟**app.config**檔案。 新增 **\<appSettings\>** 元素的內容，如下所示。 以您的儲存體帳戶名稱取代*帳戶名稱*，並以您的帳戶存取金鑰取代*帳戶金鑰*：
 
 ```xml
 <configuration>

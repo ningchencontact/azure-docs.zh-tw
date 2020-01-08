@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 56607de57939be769b1951f0eee9078c46d610c0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 615d9a3c5c359174ef15028e82044a85da0dd733
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035453"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561281"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>在 Azure 中部署 OpenShift 容器平臺3.11
 
@@ -27,7 +27,7 @@ ms.locfileid: "74035453"
 
 - 您可以手動部署必要的 Azure 基礎結構元件，然後依照 [OpenShift 容器平台文件](https://docs.openshift.com/container-platform)進行。
 - 您也可以使用能夠簡化 OpenShift 容器平台叢集部署的現有 [Resource Manager 範本](https://github.com/Microsoft/openshift-container-platform/) \(英文\)。
-- 另一個選項是使用 [Azure Marketplace 供應項目](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview) \(英文\)。
+- 另一個選項是使用 [Azure Marketplace 供應項目](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy) \(英文\)。
 
 對於所有選項，都需要有 Red Hat 訂用帳戶。 在部署期間，Red Hat Enterprise Linux 執行個體會向 Red Hat 訂用帳戶註冊，並且附加至包含 OpenShift 容器平台之權利的集區識別碼。
 請確定您具備有效的 Red Hat Subscription Manager (RHSM) 使用者名稱、密碼和集區識別碼。 您可以使用啟用金鑰、組織識別碼和集區識別碼。 您可以登入 https://access.redhat.com 來驗證這項資訊。
@@ -59,7 +59,7 @@ ms.locfileid: "74035453"
 
 [OpenShift 容器平台範本](https://github.com/Microsoft/openshift-container-platform)有多個分支可用於不同版本的 OpenShift 容器平台。  根據您的需求，您可以直接從存放庫部署或可以分支處理存放庫，並且在部署前，先對範本或指令碼進行自訂變更。
 
-使用您稍早針對 `appId` 參數所建立之服務主體中的 `aadClientId` 值。
+使用您稍早針對 `aadClientId` 參數所建立之服務主體中的 `appId` 值。
 
 下列範例顯示名為 azuredeploy.parameters.json，且具有所有必要輸入的參數檔案。
 
@@ -248,7 +248,7 @@ ms.locfileid: "74035453"
 
 ### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy.parameters.json」.已說明的參數. json 檔案
 
-| 屬性 | 描述 | 有效的選項 | 預設值 |
+| 屬性 | 說明 | 有效選項 | 預設值 |
 |----------|-------------|---------------|---------------|
 | `_artifactsLocation`  | 成品的 URL （json、腳本等） |  |  HTTPs：\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | 要部署資源的 Azure 區域 |  |  |
@@ -258,7 +258,7 @@ ms.locfileid: "74035453"
 | `cnsVmSize` | 容器原生儲存體（CN）節點 VM 的大小。 從 azuredeploy.parameters.json」所列的其中一個允許的 VM 大小中選取 |  | Standard_E4s_v3 |
 | `osImageType` | 要使用的 RHEL 映射。 defaultgallery：隨選;marketplace：協力廠商映射 | defaultgallery <br> Marketplace | defaultgallery |
 | `marketplaceOsImage` | 如果 `osImageType` 是 marketplace，則請為 marketplace 供應專案的「發行者」、「供應專案」、「sku」、「版本」輸入適當的值。 這個參數是物件類型 |  |  |
-| `storageKind` | 要使用的儲存體類型  | 受控<br> 納入 | 受控 |
+| `storageKind` | 要使用的儲存體類型  | 受控<br> Unmanaged | 受控 |
 | `openshiftClusterPrefix` | 用來為所有節點設定主機名稱的叢集首碼。  介於1到20個字元之間 |  | mycluster |
 | `minoVersion` | 要部署的 OpenShift 容器平臺3.11 次要版本 |  | 69 |
 | `masterInstanceCount` | 要部署的主機節點數目 | 1，3，5 | 3 |
@@ -282,11 +282,11 @@ ms.locfileid: "74035453"
 | `enableAzure` | 啟用 Azure 雲端提供者 | true <br> false | true |
 | `aadClientId` | Azure Active Directory 用戶端識別碼，也稱為服務主體的應用程式識別碼 |  |  |
 | `domainName` | 要使用的自訂功能變數名稱名稱（如果適用的話）。 如果未部署完整的私用叢集，則設定為 "none" |  | 無 |
-| `masterClusterDnsType` | OpenShift web 主控台的網欄位型別。 「預設」會使用主要基礎公用 IP 的 DNS 標籤。 「自訂」可讓您定義自己的名稱 | 預設值 <br> 客戶 | 預設值 |
+| `masterClusterDnsType` | OpenShift web 主控台的網欄位型別。 「預設」會使用主要基礎公用 IP 的 DNS 標籤。 「自訂」可讓您定義自己的名稱 | 預設 <br> 自訂 | 預設 |
 | `masterClusterDns` | 當您選取 [自訂] 進行 `masterClusterDnsType` 時，用來存取 OpenShift web 主控台的自訂 DNS 名稱 |  | console.contoso.com |
-| `routingSubDomainType` | 如果設定為 ' nipio '，`routingSubDomain` 將會使用 nip.io。  如果您有想要用於路由的自己網域，請使用 [自訂] | nipio <br> 客戶 | nipio |
+| `routingSubDomainType` | 如果設定為 ' nipio '，`routingSubDomain` 將會使用 nip.io。  如果您有想要用於路由的自己網域，請使用 [自訂] | nipio <br> 自訂 | nipio |
 | `routingSubDomain` | 如果您已選取 [自訂] 做為 `routingSubDomainType`，您想要用於路由的萬用字元 DNS 名稱 |  | apps.contoso.com |
-| `virtualNetworkNewOrExisting` | 選取要使用現有的虛擬網路還是建立新的虛擬網路 | 已 <br> new | new |
+| `virtualNetworkNewOrExisting` | 選取要使用現有的虛擬網路還是建立新的虛擬網路 | 已 <br> 新功能 | 新功能 |
 | `virtualNetworkResourceGroupName` | 如果您為 `virtualNetworkNewOrExisting` 選取了 [新增]，新虛擬網路的資源組名 |  | resourceGroup （）. name |
 | `virtualNetworkName` | 如果您為 `virtualNetworkNewOrExisting` 選取了 [新增]，要建立的新虛擬網路名稱 |  | openshiftvnet |
 | `addressPrefixes` | 新虛擬網路的位址首碼 |  | 10.0.0.0/14 |
@@ -304,8 +304,8 @@ ms.locfileid: "74035453"
 | `masterPrivateClusterIp` | 如果選取私人主要節點，則必須指定私人 IP 位址，以供主要節點的內部負載平衡器使用。 此靜態 IP 必須位於主要子網的 CIDR 區塊內，而且尚未使用。 如果選取了 [公用主要節點]，則不會使用此值，但仍然必須指定 |  | 10.1.0.200 |
 | `routerClusterType` | 指定叢集是使用私用或公用基礎節點。 如果選擇 [私人]，則基礎節點將不會透過公用 IP 向網際網路公開。 相反地，它會使用在 `routerPrivateClusterIp` 中指定的私人 IP。 | 公開 <br> 私用 | 公開 |
 | `routerPrivateClusterIp` | 如果選取私人基礎節點，則必須指定私人 IP 位址，以供基礎節點的內部負載平衡器使用。 此靜態 IP 必須位於主要子網的 CIDR 區塊內，而且尚未使用。 如果選取公用基礎節點，則不會使用此值，但仍然必須指定 |  | 10.2.0.200 |
-| `routingCertType` | 將自訂憑證用於路由網域或預設的自我簽署憑證-遵循**自訂憑證**一節中的指示 | lnk-selfsigned 之類 <br> 客戶 | lnk-selfsigned 之類 |
-| `masterCertType` | 將自訂憑證用於主要網域或預設的自我簽署憑證-遵循**自訂憑證**一節中的指示 | lnk-selfsigned 之類 <br> 客戶 | lnk-selfsigned 之類 |
+| `routingCertType` | 將自訂憑證用於路由網域或預設的自我簽署憑證-遵循**自訂憑證**一節中的指示 | lnk-selfsigned 之類 <br> 自訂 | lnk-selfsigned 之類 |
+| `masterCertType` | 將自訂憑證用於主要網域或預設的自我簽署憑證-遵循**自訂憑證**一節中的指示 | lnk-selfsigned 之類 <br> 自訂 | lnk-selfsigned 之類 |
 
 <br>
 

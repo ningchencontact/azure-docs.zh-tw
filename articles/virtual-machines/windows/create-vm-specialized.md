@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: ac18056f9bfdf22c55b5effac810b8c24ab4d81d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fc157c2253a718860e028fa493574cb9aa2ccdf2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033848"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460198"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>使用 PowerShell 從特製化磁碟建立 Windows VM
 
@@ -70,7 +70,7 @@ $osDisk = Get-AzDisk `
 
 您可以藉由建立 VM 的快照集，然後使用該快照集來建立新的受控磁碟和新的 VM，建立使用受控磁碟的 VM 複本。
 
-如果您想要將現有的 VM 複製到另一個區域，您可能會想要使用 azcopy 來[建立另一個區域中的磁片複本](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)。 
+如果您想要將現有的 VM 複製到另一個區域，您可能會想要使用 azcopy，[在另一個區域中建立磁片的複本](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)。 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>製作 OS 磁碟的快照集
 

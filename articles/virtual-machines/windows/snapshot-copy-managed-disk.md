@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中建立 VHD 的快照集
+title: 在 Azure 中建立虛擬硬碟的快照集
 description: 了解如何建立 Azure VHD 的複本作為備份，或用來針對問題進行疑難排解。
 documentationcenter: ''
 author: roygara
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b564e20ca8aa5acd7fbd4ea69ac2b1cd72e66d5e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bc74a3eea1f99de6080788d6f3fddcac823092dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075329"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370896"
 ---
 # <a name="create-a-snapshot"></a>建立快照集
 
@@ -29,11 +29,12 @@ ms.locfileid: "74075329"
 
 ## <a name="use-the-azure-portal"></a>使用 Azure 入口網站 
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 從左側功能表中選取 [建立資源]，然後搜尋並選取 [快照集]。
+若要建立快照集，請完成下列步驟： 
+1.  在  [Azure 入口網站](https://portal.azure.com)上，選取 **建立資源**。
+2. 搜尋並選取 [**快照**集]。
 3. 在 [快照集] 視窗中，選取 [建立]。 [建立快照集] 視窗隨即出現。
 4. 輸入快照集的 [名稱]。
-5. 選取現有的[資源群組](../../azure-resource-manager/resource-group-overview.md#resource-groups)，或輸入新資源群組的名稱。 
+5. 選取現有的[資源群組](../../azure-resource-manager/management/overview.md#resource-groups)，或輸入新資源群組的名稱。 
 6. 選取 Azure 資料中心的 [位置]。  
 7. 在 [來源磁碟] 中，選取要建立快照集的受控磁碟。
 8. 選取用來儲存快照集的 [帳戶類型]。 除非需要將快照集存放在高效能磁碟上，否則選取 [Standard_HDD]。
@@ -41,7 +42,7 @@ ms.locfileid: "74075329"
 
 ## <a name="use-powershell"></a>使用 PowerShell
 
-下列步驟示範如何複製 VHD 磁碟、建立快照集組態，以及使用 [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet 建立磁碟的快照集。 
+下列步驟說明如何複製 VHD 磁片並建立快照集設定。 接著，您可以使用[new-azsnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot)指令程式建立磁片的快照集。 
 
  
 

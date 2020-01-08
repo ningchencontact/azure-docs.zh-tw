@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 1211a7f2aa82f7084dc87e2c9a8bdaab9997be45
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e686648680261e2d13707f1704c56f306c510397
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439476"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>使用對應資料流程轉換資料
 
@@ -41,7 +41,7 @@ ms.locfileid: "74927197"
 在此步驟中，您會建立資料處理站，並開啟 Data Factory UX，以在 data factory 中建立管線。 
 
 1. 開啟 **Microsoft Edge** 或 **Google Chrome**。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
-2. 在左側功能表中，選取 [建立資源] > [分析] > [資料處理站]： 
+2. 在左側功能表上，選取 [建立資源] > [分析] > [資料處理站]： 
   
    ![在 [新增] 窗格中選取資料處理站](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -55,11 +55,11 @@ ms.locfileid: "74927197"
      
     a. 選取 [使用現有的]，然後從下拉式清單選取現有的資源群組。
 
-    b.這是另一個 C# 主控台應用程式。 選取 [建立新的]，然後輸入資源群組的名稱。 
+    b. 選取 [建立新的]，然後輸入資源群組的名稱。 
          
-    若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。 
+    若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。 
 6. 在 [版本] 下，選取 [V2]。
-7. 在 [位置] 下，選取資料處理站的位置。 只有受到支援的位置才會顯示在下拉式清單中。 資料處理站所使用的資料存放區（例如，Azure 儲存體和 SQL Database）和計算（例如 Azure HDInsight）可位於其他區域。
+7. 在 [位置] 下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區（例如，Azure 儲存體和 SQL Database）和計算（例如 Azure HDInsight）可位於其他區域。
 8. 選取 [建立]。 
 9. 建立完成後，您會在 [通知中心] 看到通知。 選取 [移至資源]，以瀏覽至 Data Factory 頁面。
 10. 選取 [編寫與監視]，以在個別索引標籤中啟動 Data Factory 使用者介面。
@@ -95,13 +95,13 @@ ms.locfileid: "74927197"
     ![資料流程畫布](media/tutorial-data-flow/dataflow3.png)
 1. 選擇 [ **Azure Data Lake Storage Gen2**]。 按一下 [繼續]。
 
-    ![Dataset](media/tutorial-data-flow/dataset1.png)
+    ![資料集](media/tutorial-data-flow/dataset1.png)
 1. 選擇 [ **DelimitedText**]。 按一下 [繼續]。
 
-    ![Dataset](media/tutorial-data-flow/dataset2.png)
+    ![資料集](media/tutorial-data-flow/dataset2.png)
 1. 將您的資料集命名為**MoviesDB**。 在 [連結服務] 下拉式清單中，選擇 [**新增**]。
 
-    ![Dataset](media/tutorial-data-flow/dataset3.png)
+    ![資料集](media/tutorial-data-flow/dataset3.png)
 1. 在 [已連結的服務建立] 畫面中，為您的 ADLS gen2 連結服務**ADLSGen2**命名，並指定您的驗證方法。 然後輸入您的連接認證。 在本教學課程中，我們會使用帳戶金鑰來連接到我們的儲存體帳戶。 您可以按一下 [**測試連接**] 來確認您的認證已正確輸入。 完成時，按一下 [建立]。
 
     ![連結服務](media/tutorial-data-flow/ls1.png)
@@ -138,23 +138,23 @@ ms.locfileid: "74927197"
     ![篩選](media/tutorial-data-flow/filter3.png)
 1. 下一個要新增的轉換是**架構修飾**詞底下的**匯總**轉換。
     
-    ![彙總](media/tutorial-data-flow/agg1.png)
+    ![Aggregate](media/tutorial-data-flow/agg1.png)
 1. 命名您的匯總轉換**AggregateComedyRatings**。 在 [**分組方式**] 索引標籤中，從下拉式清單中選取 [**年**]，以依據電影的年份將匯總分組。
     
-    ![彙總](media/tutorial-data-flow/agg2.png)
+    ![Aggregate](media/tutorial-data-flow/agg2.png)
 1. 移至 [**匯總**] 索引標籤。在左側文字方塊中，將匯總資料行命名為**AverageComedyRating**。 按一下 [右運算式] 方塊，透過運算式產生器輸入匯總運算式。
     
-    ![彙總](media/tutorial-data-flow/agg3.png)
+    ![Aggregate](media/tutorial-data-flow/agg3.png)
 1. 若要取得資料行**分級**的平均值，請使用 ```avg()``` 彙總函式。 由於**評**等是字串，```avg()``` 接受數值輸入，因此必須透過 ```toInteger()``` 函數將值轉換成數位。 這個運算式看起來像這樣：
 
     ```avg(toInteger(Rating))```
     
     完成時 **，按一下 [儲存並完成]** 。 
 
-    ![彙總](media/tutorial-data-flow/agg4.png)
+    ![Aggregate](media/tutorial-data-flow/agg4.png)
 1. 移至 [**資料預覽**] 索引標籤，以查看轉換輸出。 請注意，只有兩個數據行是**year**和**AverageComedyRating**。
     
-    ![彙總](media/tutorial-data-flow/agg3.png)
+    ![Aggregate](media/tutorial-data-flow/agg3.png)
 1. 接下來，您想要在 [**目的地**] 底下新增 [**接收**] 轉換。
     
     ![接收](media/tutorial-data-flow/sink1.png)
@@ -163,11 +163,11 @@ ms.locfileid: "74927197"
     ![接收](media/tutorial-data-flow/sink2.png)
 1. 選擇 [ **Azure Data Lake Storage Gen2**]。 按一下 [繼續]。
 
-    ![Dataset](media/tutorial-data-flow/dataset1.png)
+    ![資料集](media/tutorial-data-flow/dataset1.png)
 1. 選擇 [ **DelimitedText**]。 按一下 [繼續]。
 
-    ![Dataset](media/tutorial-data-flow/dataset2.png)
-1. 將您的接收資料集命名為**MoviesSink**。 針對 [已連結的服務]，選擇您在步驟6中建立的 ADLS gen2 連結服務。 輸入要寫入資料的輸出檔案夾。 在本教學課程中，我們會寫入容器「範例-資料」中的資料夾「輸出」。 資料夾不需要事先存在，而且可以動態建立。 將**第一個資料列**設定為 true，並針對 [匯**入架構**] 選取 [**無**]。 按一下 [完成] (Finish)。
+    ![資料集](media/tutorial-data-flow/dataset2.png)
+1. 將您的接收資料集命名為**MoviesSink**。 針對 [已連結的服務]，選擇您在步驟6中建立的 ADLS gen2 連結服務。 輸入要寫入資料的輸出檔案夾。 在本教學課程中，我們會寫入容器「範例-資料」中的資料夾「輸出」。 資料夾不需要事先存在，而且可以動態建立。 將**第一個資料列**設定為 true，並針對 [匯**入架構**] 選取 [**無**]。 按一下 [完成]。
     
     ![接收](media/tutorial-data-flow/sink3.png)
 

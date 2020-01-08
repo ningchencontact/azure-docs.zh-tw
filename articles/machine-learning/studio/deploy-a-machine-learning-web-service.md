@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: a2c1ba1d4cd2dfdbf2a94005c539e70705486ba4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1b9a836491e989b676663d13b8eebb994c5145d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851089"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454795"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>部署 Azure Machine Learning Studio （傳統） web 服務
 
@@ -23,7 +23,7 @@ Azure Machine Learning Studio （傳統）可讓您建立和測試預測性分�
 
 Machine Learning Studio （傳統） web 服務會在應用程式和 Machine Learning Studio （傳統）工作流程評分模型之間提供介面。 外部應用程式可以即時與 Machine Learning Studio （傳統）工作流程計分模型通訊。 對 Machine Learning Studio （傳統） web 服務的呼叫會將預測結果傳回外部應用程式。 若要進行 Web 服務呼叫，您可以傳遞在部署 Web 服務時所建立的 API 金鑰。 Machine Learning Studio （傳統） web 服務是以 REST 為基礎，這是一種熱門的 web 程式設計專案架構選擇。
 
-傳統版本的 Azure Machine Learning Studio 有兩種 web 服務類型：
+Azure Machine Learning Studio （傳統）有兩種類型的 web 服務：
 
 * 要求-回應服務（RR）：一種低延遲、高擴充性的服務，可對單一資料記錄進行評分。
 * 批次執行服務（BE）：為一批資料記錄評分的非同步服務。
@@ -32,13 +32,13 @@ BES 的輸入就像 RRS 使用的資料輸入。 主要差異在於，BES 會從
 
 從高階觀點而言，部署模型分為下列三個步驟：
 
-* **[建立訓練實驗]** -在傳統版本的 Studio 中，您可以使用您所提供的定型資料來定型和測試預測性分析模型，並使用一組大型的內建機器學習演算法。
+* **[建立訓練實驗]** -在 Studio （傳統）中，您可以使用一組大型內建機器學習演算法來定型和測試預測性分析模型，其方式是使用您所提供的定型資料。
 * **[將其轉換為預測實驗]** - 一旦您的模型已使用現有資料訓練好，並準備好使用該模型為新資料評分之後，您就是在準備並簡化您的實驗進行預測。
 * **部署**為 **[新式 Web 服務]** 或 **[傳統 Web 服務]** - 您將您的預測實驗部署為 Azure Web 服務，使用者可將資料傳送至您的模型，並收到您模型的預測。
 
 ## <a name="create-a-training-experiment"></a>建立訓練實驗
 
-若要定型預測性分析模型，您可以使用傳統版本的 Azure Machine Learning Studio 來建立訓練實驗，其中包含各種模組來載入訓練資料、視需要準備資料、套用機器學習演算法，以及評估結果。 您可以逐一查看實驗，並且嘗試不同的機器學習演算法以比較及評估結果。
+若要定型預測性分析模型，您可以使用 Azure Machine Learning Studio （傳統）來建立訓練實驗，其中包含各種模組來載入訓練資料、視需要準備資料、套用機器學習演算法，以及評估更. 您可以逐一查看實驗，並且嘗試不同的機器學習演算法以比較及評估結果。
 
 關於建立和管理訓練實驗的處理，其他地方有更詳盡的說明。 如需詳細資訊，請參閱這些文章：
 
@@ -95,9 +95,9 @@ RRS 測試頁面會顯示輸入、輸出以及任何您已為實驗定義的全�
 
 ![輸入適當的值來測試您的 web 服務](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
-若要測試您的 BES，請按一下 [批次]。 在 [批次] 測試頁面上，在您的輸入下按一下 [瀏覽] 並選取包含適當範例值的 CSV 檔案。 如果您沒有 CSV 檔案，而且已使用傳統版本的 Machine Learning Studio 建立預測實驗，您可以下載預測性實驗的資料集並加以使用。
+若要測試您的 BES，請按一下 [批次]。 在 [批次] 測試頁面上，在您的輸入下按一下 [瀏覽] 並選取包含適當範例值的 CSV 檔案。 如果您沒有 CSV 檔案，而且已使用 Machine Learning Studio （傳統）建立預測實驗，您可以下載預測性實驗的資料集並加以使用。
 
-若要下載資料集，請開啟 Machine Learning Studio 的傳統版本。 開啟您的預測實驗，並以滑鼠右鍵按一下實驗的輸入。 從操作功能表中，選取 [資料集]，然後選取 [下載]。
+若要下載資料集，請開啟 [Machine Learning Studio （傳統）]。 開啟您的預測實驗，並以滑鼠右鍵按一下實驗的輸入。 從操作功能表中，選取 [資料集]，然後選取 [下載]。
 
 ![從 Studio （傳統）畫布下載您的資料集](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
@@ -113,7 +113,7 @@ RRS 測試頁面會顯示輸入、輸出以及任何您已為實驗定義的全�
 
 ### <a name="access-your-new-web-service"></a>存取新式 Web 服務
 
-從傳統版本的 Machine Learning Studio 部署 web 服務之後，您就可以將資料傳送至服務，並以程式設計方式接收回應。
+從 Machine Learning Studio （傳統）部署 web 服務之後，您可以將資料傳送至服務，並以程式設計方式接收回應。
 
 [取用] 頁面提供您存取 Web 服務所需的所有資訊。 例如，API 金鑰可用來允許經過授權的存取服務。
 
@@ -136,10 +136,10 @@ RRS 測試頁面會顯示輸入、輸出以及任何您已為實驗定義的全�
 3. 在方案概觀頁面上，按一下 [新增]。
 4. 從 [訂用帳戶] 下拉式清單中，選取新方案所在的訂用帳戶。
 5. 從 [區域] 下拉式清單中，選取新方案的區域。 所選區域的「方案選項」會顯示在頁面的 [方案選項] 區段中。
-6. 從 [資源群組] 下拉式清單中，選取方案的資源群組。 如需資源群組的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)。
+6. 從 [資源群組] 下拉式清單中，選取方案的資源群組。 如需資源群組的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../azure-resource-manager/management/overview.md)。
 7. 在 [方案名稱] 中，輸入方案的名稱。
 8. 在 [方案選項]下，按一下新方案的計費層級。
-9. 按一下 [建立]。
+9. 按一下頁面底部的 [新增]。
 
 #### <a name="deploy-the-web-service-to-another-region"></a>將 Web 服務部署到另一個區域
 
@@ -149,7 +149,7 @@ RRS 測試頁面會顯示輸入、輸出以及任何您已為實驗定義的全�
 4. 在 [Web 服務名稱]中，輸入 Web 服務的新名稱。
 5. 在 [Web 服務描述]中，輸入 Web 服務的描述。
 6. 從 [訂用帳戶] 下拉式清單中，選取新 Web 服務所在的訂用帳戶。
-7. 從 [資源群組] 下拉式清單中，選取 Web 服務的資源群組。 如需資源群組的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)。
+7. 從 [資源群組] 下拉式清單中，選取 Web 服務的資源群組。 如需資源群組的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../azure-resource-manager/management/overview.md)。
 8. 從 [區域] 下拉式清單中，選取要部署 Web 服務的區域。
 9. 從 [儲存體帳戶] 下拉式清單中，選取要儲存 Web 服務的儲存體帳戶。
 10. 從 [價格方案] 下拉式清單中，在您在步驟 8 選取的區域中選取方案。
@@ -169,9 +169,9 @@ RRS 測試頁面會顯示輸入、輸出以及任何您已為實驗定義的全�
 
 若要測試「要求-回應」Web 服務，請按一下 Web 服務儀表板中的 [測試] 按鈕。 對話方塊隨即顯示，要求您提供服務的輸入資料。 這些是評分實驗預期的資料行。 輸入一組資料，然後按一下 [確定]。 Web 服務產生的結果會顯示在儀表板底部。
 
-您可以按一下 [**測試**預覽] 連結，在傳統版本的 Azure Machine Learning Studio Web 服務入口網站中測試您的服務，如先前的「新的 web 服務」一節所示。
+您可以按一下 [**測試**預覽] 連結，在 Azure Machine Learning Studio （傳統） web 服務入口網站中測試您的服務，如先前的「新的 web 服務」一節所示。
 
-若要測試批次執行服務，請按一下 [測試] 預覽連結。 在 [批次] 測試頁面上，在您的輸入下按一下 [瀏覽] 並選取包含適當範例值的 CSV 檔案。 如果您沒有 CSV 檔案，而且已使用傳統版本的 Machine Learning Studio 建立預測實驗，您可以下載預測性實驗的資料集並加以使用。
+若要測試批次執行服務，請按一下 [測試] 預覽連結。 在 [批次] 測試頁面上，在您的輸入下按一下 [瀏覽] 並選取包含適當範例值的 CSV 檔案。 如果您沒有 CSV 檔案，而且已使用 Machine Learning Studio （傳統）建立預測實驗，您可以下載預測性實驗的資料集並加以使用。
 
 ![測試 Web 服務](./media/publish-a-machine-learning-web-service/figure-3.png)
 
@@ -187,7 +187,7 @@ RRS 測試頁面會顯示輸入、輸出以及任何您已為實驗定義的全�
 
 ### <a name="access-your-classic-web-service"></a>存取傳統 Web 服務
 
-從傳統版本的 Machine Learning Studio 部署 web 服務之後，您就可以將資料傳送至服務，並以程式設計方式接收回應。
+從 Azure Machine Learning Studio （傳統）部署 web 服務之後，您可以將資料傳送至服務，並以程式設計方式接收回應。
 
 儀表板提供您存取 Web 服務所需的所有資訊。 例如，提供 API 金鑰以允許服務的授權存取權，以及提供 API 說明頁面以協助您開始撰寫程式碼。
 

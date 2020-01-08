@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 941dcc268c2af9e011af01d3da224b90e9ee5018
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: aea0adc9217a7729c9bf14211cf5da422ac9e198
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820814"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432543"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Application Insights for Java 的疑難排解和問答集
 [JAVA 中 Azure 應用程式深入][java]解析的問題或問題嗎？ 以下是一些秘訣。
@@ -22,7 +22,7 @@ ms.locfileid: "72820814"
 
 * 如果相依性 `<version>` 元素使用具有萬用字元的模式 (例如 (Maven) `<version>[2.0,)</version>` 或 (Gradle) `version:'2.0.+'`)，請嘗試改為指定特定版本 (例如 `2.0.1`)。 請參閱最新版本的 [版本資訊](https://github.com/Microsoft/ApplicationInsights-Java/releases) 。
 
-## <a name="no-data"></a>沒有資料
+## <a name="no-data"></a>無資料
 **我已成功加入 Application Insights 並執行我的應用程式，但在入口網站中從未看到資料。**
 
 * 請稍等片刻，然後按一下 [重新整理]。 圖表會定期自行重新整理，但您也可以手動重新整理。 重新整理間隔取決於圖表的時間範圍。
@@ -52,7 +52,6 @@ ms.locfileid: "72820814"
 * 您是否已依下列的[設定 Java 代理程式](java-agent.md)設定 Java 代理程式？
 * 請確定 Java 代理程式 jar 與 AI-Agent.xml 檔案放在相同的資料夾中。
 * 請確定您嘗試要自動收集的相依性支援自動收集。 目前我們只支援 MySQL、MsSQL、Oracle DB 和 Azure Cache for Redis 相依性集合。
-* 您使用的是 JDK 1.7 或 1.8？ 目前我們不支援 JDK 9 中的相依性集合。
 
 ## <a name="no-usage-data"></a>沒有使用狀況資料
 **我看到要求和回應時間的相關資料，但沒有看到頁面檢視、瀏覽器或使用者資料的相關資料。**
@@ -75,7 +74,7 @@ ms.locfileid: "72820814"
     config.setTrackingIsDisabled(true);
 ```
 
-**或**
+**Or**
 
 更新 ApplicationInsights.xml (位於專案的 resources 資料夾)。 在根節點下加入下列程式碼：
 

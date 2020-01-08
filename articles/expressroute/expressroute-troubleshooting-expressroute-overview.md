@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 833e7788a5b17b12ad883f705d56f660c2f1d832
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 69c32370b1f7f7cabb642ab140d69dcec57fb4aa
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033794"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551976"
 ---
 # <a name="verifying-expressroute-connectivity"></a>確認 ExpressRoute 連線
 本文將協助您確認 ExpressRoute 連線及針對連線問題進行疑難排解。 ExpressRoute 透過連線提供者經常提供的私人連線，將內部部署網路延伸至 Microsoft 雲端。 ExpressRoute 連線通常牽涉到三個不同的網路區域，如下所示：
@@ -23,7 +23,7 @@ ms.locfileid: "74033794"
 -   Microsoft 資料中心
 
 > [!NOTE]
-> 在 ExpressRoute direct connectivity 模型（以 10/100 Gbps 頻寬提供）中，cusomters 可以直接連線到 Microsoft Enterprise Edge （MSEE）路由器的埠。 因此，在直接連線模型中，只有 [客戶] 和 [Microsoft] 網路區域。
+> 在 ExpressRoute direct connectivity 模型中（以 10/100 Gbps 頻寬提供），客戶可以直接連線到 Microsoft Enterprise Edge （MSEE）路由器的埠。 因此，在直接連線模型中，只有 [客戶] 和 [Microsoft] 網路區域。
 >
 
 
@@ -34,7 +34,7 @@ ms.locfileid: "74033794"
 >
 >
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 下圖顯示使用 ExpressRoute 從客戶網路連至 Microsoft 網路的邏輯連線。
 [![1]][1]
 

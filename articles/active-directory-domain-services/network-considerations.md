@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: iainfou
-ms.openlocfilehash: 325b9e8edc997e41e48e11b3ee752bc38d7dc4a1
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 1a6fb12311fe4474f03c22c91d9b478220adf5d1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024016"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425523"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Azure AD Domain Services 的虛擬網路設計考慮和設定選項
 
@@ -60,7 +60,7 @@ Azure AD DS 受控網域會連線到 Azure 虛擬網路中的子網。 為 Azure
 您可以使用下列其中一種方法來連接裝載于其他 Azure 虛擬網路中的應用程式工作負載：
 
 * 虛擬網路對等互連
-* 虛擬私人網路（VPN）
+* 虛擬私人網路 (VPN)
 
 ### <a name="virtual-network-peering"></a>虛擬網路對等互連
 
@@ -88,7 +88,7 @@ Azure AD DS 受控網域會連線到 Azure 虛擬網路中的子網。 為 Azure
 
 Azure AD DS 受控網域會在部署期間建立一些網路資源。 若要成功操作和管理 Azure AD DS 受控網域，則需要這些資源，而不應手動設定。
 
-| Azure 資源                          | 描述 |
+| Azure 資源                          | 說明 |
 |:----------------------------------------|:---|
 | 網路介面卡                  | 在做為 Azure Vm 的 Windows Server 上執行的兩個網域控制站（Dc）上，Azure AD DS 裝載受控網域。 每個 VM 都有一個虛擬網路介面，可連線到您的虛擬網路子網。 |
 | 動態標準公用 IP 位址         | Azure AD DS 會使用標準 SKU 公用 IP 位址與同步處理和管理服務進行通訊。 如需公用 IP 位址的詳細資訊，請參閱[Azure 中的 IP 位址類型和配置方法](../virtual-network/virtual-network-ip-addresses-overview-arm.md)。 |
@@ -142,7 +142,7 @@ Azure AD DS 受控網域會在部署期間建立一些網路資源。 若要成�
 * 用來在您的 Azure AD DS 受控網域中，使用 PowerShell 遠端執行管理工作。
 * 若沒有此埠的存取權，您的 Azure AD DS 受控網域將無法更新、設定、備份或監視。
 * 針對使用以 Resource Manager 為基礎之虛擬網路的 Azure AD DS 受控網域，您可以將此埠的輸入存取限制為*AzureActiveDirectoryDomainServices*服務標記。
-    * 針對使用傳統虛擬網路的舊版 Azure AD DS 受控網域，您可以將此埠的輸入存取限制為下列來源 IP 位址： *52.180.183.8*、 *23.101.0.70*、 *52.225.184.198*、 *52.179.126.223*、 *13.74.249.156*、 *52.187.117.83*、 *52.161.13.95*、 *104.40.156.18*和*104.40.87.209*。
+    * 針對舊版 Azure AD 使用傳統虛擬網路的 DS 受控網域，您可以將此埠的輸入存取限制為下列來源 IP 位址： *52.180.183.8*、 *23.101.0.70*、 *52.225.184.198*、 *52.179.126.223*、 *13.74.249.156*、 *52.187.117.83*、 *52.161.13.95*、 *104.40.156.18*和*104.40.87.209*。
 
 ## <a name="user-defined-routes"></a>使用者定義路由
 

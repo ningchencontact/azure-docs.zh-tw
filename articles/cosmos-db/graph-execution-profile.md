@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Cosmos DB Gremlin API 的執行設定檔函式來評估您的查詢
+title: 使用執行設定檔來評估 Azure Cosmos DB Gremlin API 中的查詢
 description: 瞭解如何使用執行設定檔步驟來疑難排解和改善您的 Gremlin 查詢。
 services: cosmos-db
 author: luisbosquez
@@ -9,20 +9,20 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: lbosq
-ms.openlocfilehash: ab5c55105eeb912281f35e3d6094c0c43a76f89a
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 5705ef4fb6aa895009d554617c968543cc3fcd63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915892"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441843"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>如何使用執行設定檔步驟來評估您的 Gremlin 查詢
 
 本文概述如何使用 Azure Cosmos DB Gremlin API 圖形資料庫的執行設定檔步驟。 此步驟提供疑難排解和查詢優化的相關資訊，並與可針對 Cosmos DB Gremlin API 帳戶執行的任何 Gremlin 查詢相容。
 
-若要使用此步驟，只要在`executionProfile()` Gremlin 查詢的結尾附加函式呼叫即可。 **您的 Gremlin 查詢將會執行**，且作業的結果會傳回具有查詢執行設定檔的 JSON 回應物件。
+若要使用此步驟，只要在 Gremlin 查詢的結尾附加 `executionProfile()` 函式呼叫即可。 **您的 Gremlin 查詢將會執行**，且作業的結果會傳回具有查詢執行設定檔的 JSON 回應物件。
 
-例如:
+例如：
 
 ```java
     // Basic traversal
@@ -32,7 +32,7 @@ ms.locfileid: "70915892"
     g.V('mary').out().executionProfile()
 ```
 
-呼叫`executionProfile()`步驟之後，回應將會是 JSON 物件，其中包含已執行的 Gremlin 步驟、所花費的總時間，以及語句產生的 Cosmos DB 執行時間運算子陣列。
+呼叫 `executionProfile()` 步驟之後，回應將會是 JSON 物件，其中包含已執行的 Gremlin 步驟、所花費的總時間，以及語句產生的 Cosmos DB 執行時間運算子陣列。
 
 > [!NOTE]
 > Apache Tinkerpop 規格中未定義執行設定檔的這個實作為。 這是 Azure Cosmos DB Gremlin API 的實作為特定。
@@ -134,34 +134,34 @@ ms.locfileid: "70915892"
 ```
 
 > [!NOTE]
-> ExecutionProfile 步驟將會執行 Gremlin 查詢。 這包括`addV`或`addE`步驟，這會導致建立並認可查詢中指定的變更。 因此，Gremlin 查詢所產生的要求單位也會收費。
+> ExecutionProfile 步驟將會執行 Gremlin 查詢。 這包括 `addV` 或 `addE`步驟，這會導致建立並認可在查詢中指定的變更。 因此，Gremlin 查詢所產生的要求單位也會收費。
 
 ## <a name="execution-profile-response-objects"></a>執行設定檔回應物件
 
 ExecutionProfile （）函數的回應將會產生具有下列結構的 JSON 物件階層：
-  - **Gremlin operation 物件**：表示已執行的整個 Gremlin 作業。 包含下列屬性。
-    - `gremlin`:已執行的明確 Gremlin 語句。
-    - `totalTime`:執行所產生之步驟的時間（以毫秒為單位）。 
-    - `metrics`:陣列，其中包含為了滿足查詢而執行的每個 Cosmos DB 執行時間運算子。 這份清單會依執行順序排序。
+  - **Gremlin operation 物件**：代表已執行的整個 Gremlin 作業。 包含下列屬性。
+    - `gremlin`：已執行的明確 Gremlin 語句。
+    - `totalTime`：執行所產生之步驟的時間（以毫秒為單位）。 
+    - `metrics`：陣列，其中包含為了滿足查詢而執行的每個 Cosmos DB 執行時間運算子。 這份清單會依執行順序排序。
     
   - **Cosmos DB 執行時間運算子**：代表整個 Gremlin 作業的每個元件。 這份清單會依執行順序排序。 每個物件都包含下列屬性：
-    - `name`:操作員的名稱。 這是已評估和執行的步驟類型。 如需詳細資訊，請參閱下表。
-    - `time`:指定運算子所花的時間量（以毫秒為單位）。
-    - `annotations`:包含已執行之運算子特有的其他資訊。
-    - `annotations.percentTime`:執行特定運算子所花費的總時間百分比。
-    - `counts`:由這個運算子從儲存層傳回的物件數目。 這會包含在內`counts.resultCount`的純量值中。
-    - `storeOps`:代表可以跨越一個或多個資料分割的儲存體作業。
-    - `storeOps.fanoutFactor`:表示此特定儲存體作業存取的資料分割數目。
-    - `storeOps.count`:表示此儲存體作業傳回的結果數目。
-    - `storeOps.size`:代表給定儲存作業的結果大小（以位元組為單位）。
+    - `name`：操作員的名稱。 這是已評估和執行的步驟類型。 如需詳細資訊，請參閱下表。
+    - `time`：指定運算子所花的時間量（以毫秒為單位）。
+    - `annotations`：包含已執行之運算子特有的其他資訊。
+    - `annotations.percentTime`：執行特定運算子所花費的總時間百分比。
+    - `counts`：由這個運算子從儲存層傳回的物件數目。 這包含在內的 `counts.resultCount` 純量值中。
+    - `storeOps`：代表可以跨越一個或多個分割區的儲存體作業。
+    - `storeOps.fanoutFactor`：代表此特定儲存體作業存取的資料分割數目。
+    - `storeOps.count`：代表此儲存體作業傳回的結果數目。
+    - `storeOps.size`：代表給定儲存作業的結果大小（以位元組為單位）。
 
-Cosmos DB Gremlin 執行時間運算子|描述
+Cosmos DB Gremlin 執行時間運算子|說明
 ---|---
 `GetVertices`| 此步驟會從持續性層取得一組前提的物件。 
 `GetEdges`| 此步驟會取得與一組頂點連續的邊緣。 此步驟可能會產生一或多個儲存體作業。
 `GetNeighborVertices`| 此步驟會取得連接到一組邊緣的頂點。 邊緣包含其來源和目標頂點的分割區索引鍵和識別碼。
-`Coalesce`| 此步驟會說明每次`coalesce()`執行 Gremlin 步驟時，評估兩項作業。
-`CartesianProductOperator`| 此步驟會計算兩個資料集之間的笛卡兒乘積。 通常會在`to()`每次使用`from()`述詞或時執行。
+`Coalesce`| 此步驟會說明每次執行 `coalesce()` Gremlin 步驟時，評估兩項作業。
+`CartesianProductOperator`| 此步驟會計算兩個資料集之間的笛卡兒乘積。 當使用述詞 `to()` 或 `from()` 時，通常會執行。
 `ConstantSourceOperator`| 此步驟會計算運算式，以產生常數值做為結果。
 `ProjectOperator`| 此步驟會使用先前作業的結果來準備和序列化回應。
 `ProjectAggregation`| 此步驟會準備並序列化匯總作業的回應。
@@ -219,17 +219,17 @@ Cosmos DB Gremlin 執行時間運算子|描述
 ```
 
 您可以從它進行下列結論：
-- 查詢是單一識別碼查詢，因為 Gremlin 語句會遵循模式`g.V('id')`。
-- 從`time`度量判斷，此查詢的延遲似乎很高，因為它的[10 毫秒只是用於單一點讀取](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide)作業。
-- 如果我們查看`storeOps`物件，我們可以看到`fanoutFactor`是`5`，這表示這項作業已存取[5 個](https://docs.microsoft.com/azure/cosmos-db/partition-data)資料分割。
+- 查詢是單一識別碼查詢，因為 Gremlin 語句會遵循模式 `g.V('id')`。
+- 從 `time` 度量判斷，此查詢的延遲似乎很高，因為[單一點讀取](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide)作業的10毫秒不只如此。
+- 如果我們查看 `storeOps` 物件，我們可以看到 `fanoutFactor` `5`，這表示這項作業已存取[5 個](https://docs.microsoft.com/azure/cosmos-db/partition-data)資料分割。
 
-這項分析的結論是，我們可以判斷第一個查詢所存取的資料分割數目超出所需的數目。 將查詢中的分割索引鍵指定為述詞，即可解決此問題。 這會導致每個查詢的延遲較少且成本較低。 深入了解[圖表分割](graph-partitioning.md)。 更理想的查詢是`g.V('tt0093640').has('partitionKey', 't1001')`。
+這項分析的結論是，我們可以判斷第一個查詢所存取的資料分割數目超出所需的數目。 將查詢中的分割索引鍵指定為述詞，即可解決此問題。 這會導致每個查詢的延遲較少且成本較低。 深入了解[圖表分割](graph-partitioning.md)。 較佳的查詢會 `g.V('tt0093640').has('partitionKey', 't1001')`。
 
 ### <a name="unfiltered-query-patterns"></a>未篩選的查詢模式
 
 比較下列兩個執行設定檔回應。 為了簡單起見，這些範例會使用單一分割的圖形。
 
-第一個查詢會抓取具有標籤`tweet`的所有頂點，然後取得其相鄰頂點：
+第一個查詢會抓取 `tweet` 標籤的所有頂點，然後取得其相鄰頂點：
 
 ```json
 [
@@ -306,7 +306,7 @@ Cosmos DB Gremlin 執行時間運算子|描述
 ]
 ```
 
-在探索連續的頂點之前，請注意相同查詢的設定檔， `has('lang', 'en')`但現在有額外的篩選準則：
+請注意相同查詢的設定檔，但現在有額外的篩選準則，`has('lang', 'en')`，然後再流覽連續的頂點：
 
 ```json
 [
@@ -384,8 +384,8 @@ Cosmos DB Gremlin 執行時間運算子|描述
 ```
 
 這兩個查詢已達到相同的結果，但是第一個會需要更多的要求單位，因為在查詢連續的專案之前，需要先反覆運算較大的初始資料集。 比較兩個回應中的下列參數時，我們可以看到此行為的指標：
-- 第`metrics[0].time`一個回應中的值較高，表示這個單一步驟需要較長的時間來解決。
-- `metrics[0].counts.resultsCount`值在第一個回應中也會更高，這表示初始工作資料集較大。
+- 第一個回應中的 `metrics[0].time` 值較高，表示這個單一步驟需要較長的時間來解決。
+- `metrics[0].counts.resultsCount` 值在第一個回應中也會更高，這表示初始工作資料集較大。
 
 ## <a name="next-steps"></a>後續步驟
 * 瞭解 Azure Cosmos DB 中[支援的 Gremlin 功能](gremlin-support.md)。 

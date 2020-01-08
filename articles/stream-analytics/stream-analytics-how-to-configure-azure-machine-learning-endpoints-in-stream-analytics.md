@@ -1,19 +1,18 @@
 ---
 title: 使用 Azure 串流分析中的 Machine Learning 端點
 description: 本文說明如何使用 Azure 串流分析中的機器語言使用者定義函式。
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 1adb7d58246ea37fd8322cb6fc6ffd53c5f19efb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 239955025f21d8679cbcf0bbfe68f9070f0217c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467827"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426190"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>串流分析中的 Azure Machine Learning Studio （傳統）整合（預覽）
 串流分析支援呼叫 out to Azure Machine Learning Studio （傳統）端點的使用者定義函數。 [串流分析 REST API 程式庫](https://msdn.microsoft.com/library/azure/dn835031.aspx)中會詳細說明此功能的 REST API 支援。 本文提供要在串流分析中成功實作這項功能所需的補充資訊。 您也可以在 [這裡](stream-analytics-machine-learning-integration-tutorial.md)取得已發佈的教學課程。
@@ -34,7 +33,7 @@ Microsoft Azure Machine Learning Studio （傳統）提供共同作業式的拖�
 ## <a name="configure-a-stream-analytics-and-machine-learning-udf-via-rest-api"></a>透過 REST API 設定串流分析和機器學習服務 UDF
 透過使用 REST API，您可以設定作業來呼叫 Azure 機器語言函式。 步驟如下：
 
-1. 建立串流分析工作
+1. 建立串流分析作業
 2. 定義輸入
 3. 定義輸出
 4. 建立使用者定義函式 (UDF)

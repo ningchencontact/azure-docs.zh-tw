@@ -12,20 +12,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: dac941b621c8df6b5c242bb5d0e0d5cdd1f864a9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 9eb7a80599966345d90cc4a079b586e743ca37d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057958"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451213"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>嘗試透過遠端桌面連線至 Azure VM 時發生內部錯誤
 
 本文說明當您嘗試連線至 Microsoft Azure 中的虛擬機器 (VM) 時所可能遇到的錯誤。
 > [!NOTE]
-> Azure 建立和處理資源的部署模型有二種，分別是 [Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文說明如何使用 Resource Manager 部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
+> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文說明如何使用 Resource Manager 部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
 
-## <a name="symptoms"></a>徵兆
+## <a name="symptoms"></a>徵狀
 
 您無法使用遠端桌面通訊協定 (RDP) 來連線至 Azure VM。 連線會停滯在「正在設定遠端」區段，或者您會收到下列錯誤訊息：
 
@@ -42,7 +42,7 @@ ms.locfileid: "71057958"
 - TLS 通訊協定已停用。
 - 憑證損毀或過期。
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方案
 
 在遵循下列步驟之前，請擷取受影響虛擬機器作業系統磁碟的快照集作為備份。 如需詳細資訊，請參閱[擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
 
@@ -54,7 +54,7 @@ ms.locfileid: "71057958"
 連線至[序列主控台並開啟 PowerShell 執行個體](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 )。 如果 VM 上未啟用序列主控台，請移至[修復離線的 VM](#repair-the-vm-offline) 一節。
 
-#### <a name="step-1-check-the-rdp-port"></a>步驟：1 檢查 RDP 連接埠
+#### <a name="step-1-check-the-rdp-port"></a>步驟 1：檢查 RDP 連接埠
 
 1. 在 PowerShell 執行個體中，使用 [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
 ) 來檢查是否有其他應用程式正在使用連接埠 8080：
@@ -135,7 +135,7 @@ ms.locfileid: "71057958"
 
 4. 重新啟動 VM，然後嘗試啟動 VM 的遠端桌面連線。 如果仍然發生錯誤，請移至下一個步驟。
 
-步驟 3：啟用所有支援的 TLS 版本
+#### <a name="step-3-enable-all-supported-tls-versions"></a>步驟 3︰啟用所有支援的 TLS 版本
 
 RDP 用戶端會使用 TLS 1.0 作為預設通訊協定。 不過，您也可以將此設定變更為已成為新標準的 TLS 1.1。 如果 VM 上停用了 TLS 1.1，連線將會失敗。
 1.  在 CMD 執行個體中，啟用 TLS 通訊協定：
@@ -160,7 +160,7 @@ RDP 用戶端會使用 TLS 1.0 作為預設通訊協定。 不過，您也可以
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>將 OS 磁碟連結至復原 VM
 
 1. [將 OS 磁碟連結至復原 VM](../windows/troubleshoot-recovery-disks-portal.md)。
-2. 在 OS 磁碟連結至復原 VM 後，請確定該磁碟在磁碟管理主控台中標示為 [線上]。 記下為已連結的 OS 磁碟指派的磁碟機代號。
+2. 在 OS 磁碟連結至復原 VM 後，請確定該磁碟在磁碟管理主控台中標示為 [線上]。 記下指派給已連結 OS 磁碟的磁碟機代號。
 3. 啟動復原 VM 的遠端桌面連線。
 
 #### <a name="enable-dump-log-and-serial-console"></a>啟用傾印記錄檔和序列主控台

@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: d18dfa7ebed3aefbf6fdb3ffdb6fdd2cf2160cb4
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: c55b6011381d385fed7c7b8175ff02ec9be66fdb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71038923"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641532"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-azure-powershell"></a>使用 Azure PowerShell 將 Azure 公用 IP 移至另一個區域
 
@@ -32,7 +32,7 @@ Azure 公用 Ip 是特定區域，無法從一個區域移至另一個區域。 
 
 - 確認您的 Azure 訂用帳戶可讓您在使用的目的地區域中建立公用 Ip。 請連絡支援人員啟用所需的配額。
 
-- 請確定您的訂用帳戶有足夠的資源，可支援在此程式中新增公用 Ip。  請參閱 [Azure 訂用帳戶和服務限制、配額與限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)。
+- 請確定您的訂用帳戶有足夠的資源，可支援在此程式中新增公用 Ip。  請參閱 [Azure 訂用帳戶和服務限制、配額與限制](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)。
 
 
 ## <a name="prepare-and-move"></a>準備和移動
@@ -61,7 +61,7 @@ Azure 公用 Ip 是特定區域，無法從一個區域移至另一個區域。 
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. 下載的檔案將會以匯出資源的來源資源群組命名。  找出從名為 **\<[資源-群組-名稱 >** ] 的命令匯出的檔案，並在您選擇的編輯器中開啟它：
+4. 下載的檔案將會以匯出資源的來源資源群組命名。  找出從名為 **\<資源群組-名稱 >** 的命令匯出的檔案，並在您選擇的編輯器中開啟它：
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -117,7 +117,7 @@ Azure 公用 Ip 是特定區域，無法從一個區域移至另一個區域。 
     ```
 8. 您也可以根據您的需求，變更範本中的其他參數，而且是選擇性的：
 
-    * **Sku** -您可以藉由變更 **\<資源群組名稱**中的**sku**  > **名稱**屬性 > json 檔案，將設定中的公用 IP sku 從 standard 變更為「基本」或「基本」到「標準」：
+    * **Sku** -您可以藉由變更 **\<資源群組名稱 > json**檔案中的**sku** > **name**屬性，將設定中的公用 IP sku 從標準變更為基本或基本設定為標準。
 
          ```json
             "resources": [
@@ -134,7 +134,7 @@ Azure 公用 Ip 是特定區域，無法從一個區域移至另一個區域。 
 
          如需基本和標準 sku 公用 ip 之間差異的詳細資訊，請參閱[建立、變更或刪除公用 IP 位址](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)。
 
-    * **公用 IP 配置方法**和**閒置時間**-您可以在範本中變更這兩個選項，方法是將**publicIPAllocationMethod**屬性從**動態**變更為**靜態**，或從**靜態**變更為**動態。** . 藉由將**idleTimeoutInMinutes**屬性變更為您想要的數量，可以變更閒置的超時時間。  預設值為**4**：
+    * **公用 IP 配置方法**和**閒置時間**-您可以在範本中變更這兩個選項，方法是將 [ **PublicIPAllocationMethod** ] 屬性從 [**動態**] 變更為 [**靜態**] 或 [**靜態**] 變更為 [**動態**]。 藉由將**idleTimeoutInMinutes**屬性變更為您想要的數量，可以變更閒置的超時時間。  預設值為**4**：
 
          ```json
          "resources": [
@@ -162,14 +162,14 @@ Azure 公用 Ip 是特定區域，無法從一個區域移至另一個區域。 
         如需配置方法和閒置超時值的詳細資訊，請參閱[建立、變更或刪除公用 IP 位址](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)。
 
 
-9. 將資源**群組名稱儲存>json檔案。\<**
+9. 儲存 **\<資源群組名稱 >. json**檔案。
 
 10. 在目的地區域中建立資源群組，以使用[remove-azresourcegroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)部署目標公用 IP。
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. 使用[new-azresourcegroupdeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)，將已編輯 **\<的資源群組名稱 >. json**檔案部署到在上一個步驟中建立的資源群組：
+11. 使用[new-azresourcegroupdeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)，將已編輯的 **\<資源群組名稱 >. json**檔案部署到上一個步驟中建立的資源群組：
 
     ```azurepowershell-interactive
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: f861303b7f3bc8d37caf6da0eaf2f4cef4b36ee5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd0ec46d224e68f92b5d042826633d1efc7c336e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233593"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425425"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>教學課程：在 Azure Active Directory Domain Services （預覽）中建立內部部署網域的輸出樹系信任
 
@@ -23,7 +23,7 @@ ms.locfileid: "74233593"
 
 ![從 Azure AD DS 到內部部署 AD DS 的樹系信任圖表](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 在內部部署 AD DS 環境中設定 DNS，以支援 Azure AD DS 連線能力
@@ -33,7 +33,7 @@ ms.locfileid: "74233593"
 
 如果您沒有 Azure 訂用帳戶，請先[建立帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)再開始。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成此教學課程，您需要下列資源和權限：
 
@@ -43,12 +43,15 @@ ms.locfileid: "74233593"
     * 如果需要，請[建立 Azure Active Directory 租用戶][create-azure-ad-tenant]或[將 Azure 訂用帳戶與您的帳戶建立關聯][associate-azure-ad-tenant]。
 * 使用資源樹系建立並在您的 Azure AD 租使用者中設定的 Azure Active Directory Domain Services 受控網域。
     * 如有需要，請[建立並設定 Azure Active Directory Domain Services 執行個體][create-azure-ad-ds-instance-advanced]。
+    
+    > [!IMPORTANT]
+    > 請確定您使用*資源*樹系建立了 Azure AD DS 受控網域。 預設選項會建立*使用者*樹系。 只有資源樹系可以建立對內部內部部署 AD DS 環境的信任。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
 在本教學課程中，您會使用 Azure 入口網站來建立及設定來自 Azure AD DS 的輸出樹系信任。 若要開始使用，請先登入 [Azure 入口網站](https://portal.azure.com)。
 
-## <a name="networking-considerations"></a>網路考量
+## <a name="networking-considerations"></a>網路功能考量
 
 裝載 Azure AD DS 資源樹系的虛擬網路需要內部部署 Active Directory 的網路連接。 應用程式和服務也需要對裝載 Azure AD DS 資源樹系的虛擬網路進行網路連線。 Azure AD DS 資源樹系的網路連線必須一律開啟且穩定，否則使用者可能無法驗證或存取資源。
 
@@ -82,6 +85,10 @@ ms.locfileid: "74233593"
 1. 選取 [**開始] |系統管理工具 |Active Directory 網域和信任**
 1. 以滑鼠右鍵選取 [網域]，例如*onprem.contoso.com*，然後選取 [**屬性**]
 1. 依序選擇 [**信任**] 索引標籤和 [**新增信任**]
+
+   > [!NOTE]
+   > 如果您沒有看到 [**信任**] 功能表選項，請檢查樹系*類型*的 [**屬性**]。 只有*資源*樹系可以建立信任。 如果樹系類型為*User*，您就無法建立信任。 目前沒有任何方法可以變更 Azure AD DS 受控網域的樹系類型。 您必須刪除並重新建立受控網域作為資源樹系。
+
 1. 在 [Azure AD DS 功能變數名稱] 上輸入名稱，例如*aadds.contoso.com*，然後選取 **[下一步]**
 1. 選取 [建立**樹系信任**] 選項，然後選擇 [建立一個**方式：連入**信任]。
 1. 選擇**只建立此網域**的信任。 在下一個步驟中，您會在 Azure AD DS 受控網域的 Azure 入口網站中建立信任。
@@ -181,7 +188,7 @@ ms.locfileid: "74233593"
 1. 從 [**群組或使用者名稱**] 清單中選取 [ *FileServerAccess* ]。 在 [ **FileServerAccess 的許可權**] 清單中，選擇 [*允許*] 作為 [**修改**] 和 [**寫入**] 許可權，然後選取 **[確定]** 。
 1. 選取 [**共用**] 索引標籤，然後選擇 [ **Advanced 共用 ...** ]
 1. 選擇 [**共用此資料夾**]，然後在 [**共用名稱**] 中為檔案共用輸入易記的名稱，例如*CrossForestShare*。
-1. 選取 [**許可權**]。 在 [ **Everyone 的許可權**] 清單中，選擇 [**允許**] 做為 [**變更**] 許可權。
+1. 選取 [權限]。 在 [ **Everyone 的許可權**] 清單中，選擇 [**允許**] 做為 [**變更**] 許可權。
 1. 選取 **[確定]** 兩次，然後按一下 [**關閉**]。
 
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>驗證資源的跨樹系驗證

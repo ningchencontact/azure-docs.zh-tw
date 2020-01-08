@@ -4,12 +4,12 @@ description: 在本文中，您將瞭解如何使用 Azure 備份來備份 Azure
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 3d6875d8c466400da79e1b749d11914b3bf77d86
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 52a7e98702299e790ee097cca871332ebb6a52c5
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172109"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611384"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>備份 Azure VM 中的 SQL Server 資料庫
 
@@ -17,7 +17,7 @@ SQL Server 資料庫是需要低復原點目標（RPO）和長期保留的重要
 
 本文說明如何將在 Azure VM 上執行的 SQL Server 資料庫備份至 Azure 備份復原服務保存庫。
 
-在本文中，您將了解如何：
+在本文中，您將學會如何：
 
 > [!div class="checklist"]
 >
@@ -25,7 +25,7 @@ SQL Server 資料庫是需要低復原點目標（RPO）和長期保留的重要
 > * 探索資料庫並設定備份。
 > * 為資料庫設定自動保護。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在備份 SQL Server 資料庫之前，請先檢查下列準則：
 
@@ -43,32 +43,47 @@ SQL Server 資料庫是需要低復原點目標（RPO）和長期保留的重要
 
 使用下列其中一個選項來建立連線：
 
-* **允許 Azure 資料中心 IP 範圍**。 此選項允許下載中的[IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 若要存取網路安全性群組（NSG），請使用 Set-azurenetworksecurityrule Cmdlet。 如果您是安全的收件者清單，只列出特定區域的 Ip，您也需要更新安全的收件者清單 Azure Active Directory （Azure AD）服務標籤以啟用驗證。
+#### <a name="allow-the-azure-datacenter-ip-ranges"></a>允許 Azure 資料中心 IP 範圍
 
-* **允許使用 NSG 標記進行存取**。  如果您使用 NSG 來限制連線，則應該使用 AzureBackup 服務標籤允許 Azure 備份的輸出存取。 此外，您也應該使用 Azure AD 和 Azure 儲存體的[規則](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)，允許連線進行驗證和資料傳輸。 這可以透過入口網站或 PowerShell 來完成。
+此選項允許下載檔案中的[IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 若要存取網路安全性群組（NSG），請使用 Set-azurenetworksecurityrule Cmdlet。 如果您的安全收件者清單只包含特定區域的 Ip，您也必須更新安全收件者清單 Azure Active Directory （Azure AD）服務標籤以啟用驗證。
 
-    若要使用入口網站建立規則：
+#### <a name="allow-access-using-nsg-tags"></a>允許使用 NSG 標記存取
 
-  * 在 [**所有服務**] 中，移至 [**網路安全**組]，然後選取 [網路安全性群組]。
-  * 選取 [**設定**] 底下的 [**輸出安全性規則**]。
-  * 選取 [新增]。 輸入建立新規則所需的所有詳細資料，如[安全性規則設定](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)中所述。 確定 [**目的地**] 選項設定為 [**服務**標籤]，而 [**目的地服務**標籤] 設定為 [ **AzureBackup**]。
-  * 按一下 [**新增**] 以儲存新建立的輸出安全性規則。
+如果您使用 NSG 來限制連線，則應該使用 AzureBackup 服務標籤允許 Azure 備份的輸出存取。 此外，您也應該使用 Azure AD 和 Azure 儲存體的[規則](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)，允許連線進行驗證和資料傳輸。 這可以從 Azure 入口網站或透過 PowerShell 來完成。
 
-   若要使用 Powershell 建立規則：
+若要使用入口網站建立規則：
 
-  * 新增 Azure 帳號憑證並更新國家雲端<br/>
-    ``Add-AzureRmAccount``
-  * 選取 NSG 訂用帳戶<br/>
-    ``Select-AzureRmSubscription "<Subscription Id>"``
-  * 選取 NSG<br/>
-    ```$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"```
-  * 新增 Azure 備份服務標籤的允許輸出規則<br/>
-   ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"```
-  * 儲存 NSG<br/>
-    ```Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg```
+  1. 在 [**所有服務**] 中，移至 [**網路安全**組]，然後選取 [網路安全性群組]。
+  2. 選取 [**設定**] 底下的 [**輸出安全性規則**]。
+  3. 選取 [新增]。 輸入建立新規則所需的所有詳細資料，如[安全性規則設定](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)中所述。 確定 [**目的地**] 選項設定為 [**服務**標籤]，而 [**目的地服務**標籤] 設定為 [ **AzureBackup**]。
+  4. 按一下 [**新增**] 以儲存新建立的輸出安全性規則。
 
-* **允許使用 Azure 防火牆標記來存取**。 如果您使用的是 Azure 防火牆，請使用 AzureBackup [FQDN 標記](https://docs.microsoft.com/azure/firewall/fqdn-tags)來建立應用程式規則。 這允許 Azure 備份的輸出存取。
-* **部署 HTTP proxy 伺服器以路由傳送流量**。 當您備份 Azure VM 上的 SQL Server 資料庫時，VM 上的備份擴充功能會使用 HTTPS Api 將管理命令傳送至 Azure 備份和資料以 Azure 儲存體。 備份延伸模組也會使用 Azure AD 進行驗證。 透過 HTTP Proxy 路由傳送這三項服務的備份延伸模組流量。 延伸模組是唯一為了要存取公用網際網路而設定的元件。
+若要使用 PowerShell 建立規則：
+
+ 1. 新增 Azure 帳號憑證並更新國家雲端<br/>
+      `Add-AzureRmAccount`<br/>
+
+ 2. 選取 NSG 訂用帳戶<br/>
+      `Select-AzureRmSubscription "<Subscription Id>"`
+
+ 3. 選取 NSG<br/>
+    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
+
+ 4. 新增 Azure 備份服務標籤的允許輸出規則<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 5. 新增儲存體服務標籤的允許輸出規則<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 6. 新增 AzureActiveDirectory 服務標記的允許輸出規則<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
+
+ 7. 儲存 NSG<br/>
+    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+
+**允許使用 Azure 防火牆標記來存取**。 如果您使用的是 Azure 防火牆，請使用 AzureBackup [FQDN 標記](https://docs.microsoft.com/azure/firewall/fqdn-tags)來建立應用程式規則。 這允許 Azure 備份的輸出存取。
+
+**部署 HTTP proxy 伺服器以路由傳送流量**。 當您備份 Azure VM 上的 SQL Server 資料庫時，VM 上的備份擴充功能會使用 HTTPS Api 將管理命令傳送至 Azure 備份和資料以 Azure 儲存體。 備份延伸模組也會使用 Azure AD 進行驗證。 透過 HTTP Proxy 路由傳送這三項服務的備份延伸模組流量。 延伸模組是唯一為了要存取公用網際網路而設定的元件。
 
 連接選項包含下列優點和缺點：
 
@@ -194,7 +209,7 @@ SQL Server 資料庫是需要低復原點目標（RPO）和長期保留的重要
    ![針對新備份原則選擇原則類型](./media/backup-azure-sql-database/policy-type-details.png)
 
 3. 在 [原則名稱] 中，為新原則輸入名稱。
-4. 在 [**完整備份原則**] 中，選取**備份頻率**。 選擇 [**每天**] 或 [**每週**]。
+4. 在 [完整備份原則] 中，選取 [備份頻率]。 選擇 [**每天**] 或 [**每週**]。
 
    * 若選擇 [每日]，請選取備份作業的開始時間和時區。
    * 若選擇 [每週]，請選取備份作業的開始日期 (星期幾)、時間和時區。
@@ -232,11 +247,12 @@ SQL Server 資料庫是需要低復原點目標（RPO）和長期保留的重要
 
     ![編輯記錄備份原則](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-13. 在 [備份原則] 功能表上，選擇是否要啟用 [SQL 備份壓縮]。
-    * 預設會停用壓縮。
-    * Azure 備份在後端使用 SQL 原生備份壓縮。
+13. 在 [**備份原則**] 功能表上，選擇是否要啟用**SQL 備份壓縮**。 此選項預設為停用。 若已啟用，SQL Server 會將壓縮的備份串流傳送到 VDI。  請注意，Azure 備份會根據此控制項的值，以 COMPRESSION/NO_COMPRESSION 子句覆寫實例層級預設值。
 
 14. 完成備份原則的編輯之後，請選取 [確定]。
+
+> [!NOTE]
+> 每個記錄備份都會連結到先前的完整備份，以形成復原鏈。 系統會保留此完整備份，直到最後一個記錄備份的保留期過期為止。 這可能表示完整備份會保留一段額外的時間，以確保可以復原所有記錄。 假設使用者有每週的完整備份、每日差異和2小時記錄。 所有這些專案都會保留30天。 但是，只有在下一次完整備份（也就是 30 + 7 天之後）可以使用之後，才能真正清除/刪除每週的完整功能。 比方說，每週的完整備份會在11月16日執行。 根據保留原則，它應該保留到12月16日為止。 此完整的最後一個記錄備份會在11月22日的下一次排定的完整時間之前進行。 直到 Dec 22 日為止，才可使用此記錄檔，但無法刪除11月16日完整版。 因此，11月16日的完整版會保留到 Dec 22 日。
 
 ## <a name="enable-auto-protection"></a>啟用自動保護  
 

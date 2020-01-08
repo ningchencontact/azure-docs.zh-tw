@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: f22b29cfcaf1d4c4ce28b2b0557d70b281b6891f
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 6f0c33ee7fd5790a060574230f1156c569a63936
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74146390"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425675"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>設定 Always On VPN 裝置通道
 
@@ -37,7 +37,7 @@ Always On VPN 連接包含兩種類型的通道：
 
 必須符合下列需求，才能成功建立裝置通道：
 
-* 裝置必須是執行 Windows 10 企業版或教育版1709或更新版本的已加入網域的電腦。
+* 裝置必須是執行 Windows 10 企業版或教育版1809或更新版本的已加入網域的電腦。
 * 通道只能針對 Windows 內建 VPN 解決方案進行設定，而且是使用 IKEv2 與電腦憑證驗證來建立。 
 * 每一裝置只能設定一個裝置通道。
 
@@ -139,15 +139,15 @@ Always On VPN 連接包含兩種類型的通道：
 1. 從系統管理員命令提示字元中，執行以啟動 PowerShell：
 
    ```
-   C:\PsTools\PsExec.exe Powershell for 32-bit Windows
-   C:\PsTools\PsExec64.exe Powershell for 64-bit Windows
+   PsExec.exe Powershell for 32-bit Windows
+   PsExec64.exe Powershell for 64-bit Windows
    ```
 
    ![powershell](./media/vpn-gateway-howto-always-on-device-tunnel/powershell.png)
 1. 在 PowerShell 中，切換至**devicecert**和**VPNProfile**所在的資料夾，然後執行下列命令：
 
    ```powershell
-   C:\> .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
+   .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
    ![MachineCertTest](./media/vpn-gateway-howto-always-on-device-tunnel/machinecerttest.png)
@@ -156,14 +156,14 @@ Always On VPN 連接包含兩種類型的通道：
    ![rasphone](./media/vpn-gateway-howto-always-on-device-tunnel/rasphone.png)
 1. 尋找**MachineCertTest**專案，然後按一下 **[連接]** 。
 
-   ![連線](./media/vpn-gateway-howto-always-on-device-tunnel/connect.png)
+   ![連接](./media/vpn-gateway-howto-always-on-device-tunnel/connect.png)
 1. 如果連接成功，請將電腦重新開機。 通道會自動連接。
 
-## <a name="cleanup"></a>清除
+## <a name="cleanup"></a>清理
 
 若要移除設定檔，請執行下列命令：
 
-![清除](./media/vpn-gateway-howto-always-on-device-tunnel/cleanup.png)
+![清理](./media/vpn-gateway-howto-always-on-device-tunnel/cleanup.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -17,12 +17,12 @@ ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc996c7b5d8a63834f548689c83f7a72685120d2
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 256194d8b0b5e6b08210e9338d945774603ac328
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951168"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429794"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告
 
@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 - **活動** 
     - **登入** – 受控應用程式和使用者登入活動的使用情況相關資訊。
     - **Audit logs** - [audit 記錄](concept-audit-logs.md)提供使用者和群組管理、受控應用程式和目錄活動的相關系統活動資訊。
-- **Security** 
+- **安全性** 
     - 有**風險**的登入-有風險的登[入](concept-risky-sign-ins.md)是指不是使用者帳戶合法擁有者的人登入嘗試的指標。
     - **標幟為有風險的使用者** - [有風險的使用者](concept-user-at-risk.md)表示可能被盜用的使用者帳戶。
 
@@ -57,9 +57,15 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 * 一週內有多少使用者登入？
 * 這些登入的狀態為何？
 
-從[Azure 入口網站](https://portal.azure.com)開始。 若要存取登入報告，請選取 [登**入**]，然後繼續進行**監視。** 最多可能需要兩個小時，才會在入口網站中顯示某些登入記錄。
+在 [ [Azure 入口網站](https://portal.azure.com)] 功能表上，選取 [ **Azure Active Directory**]，或搜尋並從任何頁面選取 [ **Azure Active Directory** ]。
 
-![登入活動](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "登入活動")
+![選取 Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+
+在 [**監視**] 底下，選取 [登**入**] 以開啟登[入報告](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)。
+
+![登入活動](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "登入活動")
+
+最多可能需要兩個小時，才會在入口網站中顯示某些登入記錄。
 
 > [!IMPORTANT]
 > 登入報告只會顯示使用者透過使用者名稱和密碼以手動方式登入的**互動式**登入。 非互動式登入 (例如服務對服務驗證) 不會顯示在登入報告中。 
@@ -79,7 +85,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 ![登入活動](./media/concept-sign-ins/19.png "登入活動")
 
-[資料**行**] 對話方塊可讓您存取可選取的屬性。 在登入報告中，您只能有與其他屬性為數據行不具有一對多關聯性的屬性。
+[資料**行**] 對話方塊可讓您存取可選取的屬性。 在登入報告中，針對指定的登入要求，您不能有一個以上的值做為資料行。 例如，針對驗證詳細資料、條件式存取資料和網路位置為 true。   
 
 ![登入活動](./media/concept-sign-ins/columns.png "登入活動")
 
@@ -106,14 +112,14 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 [登入狀態] 篩選條件可讓您選取︰
 
 - 所有
-- 成功
+- Success
 - 失敗
 
 **條件式存取**篩選條件可讓您選取登入的 CA 原則狀態：
 
 - 所有
 - 未套用
-- 成功
+- Success
 - 失敗
 
 [日期] 篩選條件可讓您定義傳回資料的時間範圍。  
@@ -189,9 +195,9 @@ Azure AD 和 Azure 入口網站都提供登入資料的額外進入點：
 - User
 - 使用者名稱
 - 應用程式識別碼
-- Application
-- 用戶端
-- Location
+- 應用程式
+- Client
+- 位置
 - IP 位址
 - 日期
 - 需要 MFA
@@ -222,7 +228,7 @@ Azure AD 和 Azure 入口網站都提供登入資料的額外進入點：
 
 如果您想要，您可以將焦點設在特定的應用程式。
 
-![報告](./media/concept-sign-ins/single-app-usage-graph.png "報告")
+![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "報告")
 
 當您按一下應用程式使用圖中的某一天時，您會取得登入活動的詳細清單。
 

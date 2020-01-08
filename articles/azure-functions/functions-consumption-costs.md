@@ -3,18 +3,18 @@ title: 估計 Azure Functions 中的耗用量方案成本
 description: 瞭解如何在 Azure 中的取用方案中執行函數應用程式時，更清楚地預估可能產生的成本。
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9d81c99f3602e3d7ed5508884b0b313ef2f2fcaf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 38a3435ddbc6e7cce5d18c99e227d405fdc2e7dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230866"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613053"
 ---
 # <a name="estimating-consumption-plan-costs"></a>估計耗用量方案成本
 
 在 Azure Functions 中執行的應用程式目前有三種類型的主控方案，每個方案都有自己的定價模型： 
 
-| 規劃 | 描述 |
+| 方案 | 說明 |
 | ---- | ----------- |
 | [**率**](functions-scale.md#consumption-plan) | 您只需針對函數應用程式執行的時間付費。 此方案包含每個訂用帳戶的[免費授]與[定價頁面]。|
 | [**進階**](functions-scale.md#premium-plan) | 提供您與取用方案相同的功能和調整機制，但具備增強的效能和 VNET 存取權。 成本是根據您選擇的定價層。 若要深入瞭解，請參閱[Azure Functions Premium 方案](functions-premium-plan.md)。 |
@@ -45,7 +45,7 @@ Durable Functions 也可以在取用量方案中執行。 若要深入瞭解使�
 
 估計函數應用程式和相關服務的整體成本時，請使用[Azure 定價計算機](https://azure.microsoft.com/pricing/calculator/?service=functions)。 
 
-| 相關成本 | 描述 |
+| 相關成本 | 說明 |
 | ------------ | ----------- |
 | **儲存體帳戶** | 每個函式應用程式都需要您擁有相關聯的一般用途[Azure 儲存體帳戶](../storage/common/storage-introduction.md#types-of-storage-accounts)，這會[分別計費](https://azure.microsoft.com/pricing/details/storage/)。 此帳戶是由函式執行時間在內部使用，但您也可以將它用於儲存體觸發程式和系結。 如果您沒有儲存體帳戶，則會在建立函數應用程式時為您建立一個。 若要深入瞭解，請參閱[儲存體帳戶需求](functions-scale.md#storage-account-requirements)。|
 | **Application Insights** | 函式依賴[Application Insights](../azure-monitor/app/app-insights-overview.md) ，為您的函式應用程式提供高效能的監視體驗。 雖然並非必要，但您應該[啟用 Application Insights 整合](functions-monitoring.md#enable-application-insights-integration)。 每個月都會包含免費的遙測資料授與。 若要深入瞭解，請參閱[Azure 監視器定價頁面](https://azure.microsoft.com/pricing/details/monitor/)。 |
@@ -76,7 +76,7 @@ Durable Functions 也可以在取用量方案中執行。 若要深入瞭解使�
     ![選取您的函數應用程式資源](media/functions-consumption-costing/select-a-resource.png)
 
       
-    |設定  |建議的值  |描述  |
+    |設定  |建議的值  |說明  |
     |---------|---------|---------|
     | 訂閱    |  您的訂用帳戶  | 您的函數應用程式的訂用帳戶。  |
     | 資源群組     | 您的資源群組  | 包含函數應用程式的資源群組。   |
@@ -188,7 +188,7 @@ az monitor metrics list --resource /subscriptions/<AZURE_SUBSCRIPTION_ID>/resour
   ]
 }
 ```
-此特定回應顯示從 `2019-09-11T21:46` 到 `2019-09-11T23:18`，應用程式會在這段期間內使用 1110000000 MB-毫秒（1083.98 GB-秒）。
+此特定回應顯示從 `2019-09-11T21:46` 到 `2019-09-11T23:18`，應用程式耗用 1110000000 MB-毫秒（1083.98 GB-秒）。
 
 ## <a name="determine-memory-usage"></a>判斷記憶體使用量
 
@@ -206,7 +206,7 @@ performanceCounters
 
 結果看起來如下列範例所示：
 
-| 時間戳記 \[UTC\]          | 名稱          | 值       |
+| 時間戳記 \[UTC\]          | NAME          | value       |
 |----------------------------|---------------|-------------|
 | 9/12/2019、1:05:14\.947 AM | 私用位元組 | 209932288 |
 | 9/12/2019、1:06:14\.994 AM | 私用位元組 | 212189184 |
@@ -226,7 +226,7 @@ customMetrics
 | summarize averageDurationMilliseconds=avg(averageDuration) by name
 ```
 
-| 名稱                       | averageDurationMilliseconds |
+| NAME                       | averageDurationMilliseconds |
 |----------------------------|-----------------------------|
 | QueueTrigger AvgDurationMs | 16\.087                     |
 | QueueTrigger MaxDurationMs | 90\.249                     |

@@ -3,17 +3,17 @@ title: Azure IoT Central 中的裝置連線能力 | Microsoft Docs
 description: 本文摘要說明 Azure IoT Central 如何協助您讓裝置保持連線且狀況良好。
 author: aaronbjork
 ms.author: abjork
-ms.date: 10/21/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: ''
-ms.openlocfilehash: 20001247c608a52ffd18920c0b6b1f1aabd28313
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 938d93b1df077914323c7b5f4ee1d42276aeff04
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895549"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434920"
 ---
 # <a name="stay-connected-with-azure-iot-central-preview-features"></a>保持與 Azure IoT Central 的連線（預覽功能）
 
@@ -29,7 +29,7 @@ ms.locfileid: "73895549"
 ## <a name="rules-and-actions"></a>執行和動作 
 根據裝置狀態和遙測來建立[自訂規則](tutorial-create-telemetry-rules.md)，以快速識別需要注意的裝置。 設定動作以通知適當人員，以及時的方式進行更正措施。
 
-## <a name="jobs"></a>作業 
+## <a name="jobs"></a>工作 
 [作業](../core/howto-run-a-job.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)可讓您對裝置屬性、設定和命令執行單一或大量更新。 
 
 ## <a name="user-roles-and-permissions"></a>使用者角色和許可權

@@ -4,15 +4,15 @@ description: 本文說明如何針對包含一或多部虛擬機器的混合式�
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: e9e5504125920cedaf383f8fa4299a4b1b1d60ed
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 40d89dd675e063283d1ed90cf145575b8164e4e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553863"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400695"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>針對混合式環境啟用適用於 VM 的 Azure 監視器（預覽）
 
@@ -49,7 +49,7 @@ ms.locfileid: "72553863"
 
 下表將強調說明命令列中適用於代理程式的安裝程式所支援的參數。
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 |:--|:--|
 | /? | 傳回命令列選項的清單。 |
 | /S | 執行無訊息安裝，而不需要與使用者互動。 |
@@ -66,10 +66,10 @@ Windows Dependency Agent 的檔案預設安裝在 *C:\Program Files\Microsoft De
 > 必須有 root 權限，以便安裝或設定代理程式。
 >
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 |:--|:--|
 | -help | 取得命令列選項的清單。 |
-| -s | 執行無訊息安裝，不會出現任何使用者提示。 |
+| -S | 執行無訊息安裝，不會出現任何使用者提示。 |
 | --check | 檢查權限和作業系統，但不會安裝代理程式。 |
 
 例如，若要使用 `-help` 參數執行安裝程式，請輸入**installdependencyagent-linux64.bin (** 。
@@ -80,7 +80,7 @@ Windows Dependency Agent 的檔案預設安裝在 *C:\Program Files\Microsoft De
 
 Dependency Agent 的檔案位於下列目錄：
 
-| 檔案 | Location |
+| 檔案 | 位置 |
 |:--|:--|
 | 核心檔案 | /opt/microsoft/dependency-agent |
 | 記錄檔 | /var/opt/microsoft/dependency-agent/log |

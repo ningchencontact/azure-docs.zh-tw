@@ -49,7 +49,7 @@
           href: stream-analytics-define-inputs.md
         - name: 參考資料輸入
           href: stream-analytics-use-reference-data.md
-        - name: 寫入 .NET 自訂還原序列化
+        - name: 使用自訂還原序列化程式讀取任何格式的輸入
           href: custom-deserializer-examples.md
     - name: 作業的輸出類型
       items:
@@ -79,7 +79,7 @@
       href: stream-analytics-concepts-checkpoint-replay.md
     - name: 錯誤原則
       href: stream-analytics-output-error-policy.md
-- name: 使用指南
+- name: 操作指南
   items:
     - name: 管理
       items:
@@ -174,9 +174,9 @@
       items:
         - name: 安裝工具
           href: stream-analytics-tools-for-visual-studio-install.md
-        - name: 使用範例資料來測試
+        - name: 使用範例資料在本機測試
           href: stream-analytics-vs-tools-local-run.md
-        - name: 使用實際資料來測試
+        - name: 使用即時資料在本機測試
           href: stream-analytics-live-data-local-testing.md
         - name: 檢視 Visual Studio 中的作業
           href: stream-analytics-vs-tools.md
@@ -188,12 +188,14 @@
           href: stream-analytics-edge-csharp-udf-methods.md
     - name: Visual Studio Code
       items:
-        - name: 使用範例資料來測試
-          href: vscode-local-run.md
+        - name: 使用範例資料在本機測試
+          href: visual-studio-code-local-run.md
+        - name: 使用即時資料在本機測試
+          href: visual-studio-code-local-run-live-input.md
         - name: 設定 CI/CD 管線
           href: setup-cicd-vs-code.md
         - name: 探索作業
-          href: vscode-explore-jobs.md
+          href: visual-studio-code-explore-jobs.md
     - name: 疑難排解
       items:
         - name: 輸入

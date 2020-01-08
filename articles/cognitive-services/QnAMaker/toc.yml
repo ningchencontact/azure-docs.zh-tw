@@ -14,6 +14,8 @@
       href: quickstarts/add-question-metadata-portal.md
     - name: 使用 Postman 或 cURL 來獲得答案
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
+    - name: 使用批次檔進行測試
+      href: Quickstarts/batch-testing.md
     - name: 使用 REST API
       items:
         - name: 建立新的知識庫
@@ -25,7 +27,7 @@
             - name: Java
               href: Quickstarts/create-new-kb-java.md
             - name: Node.js
-              href: Quickstarts/create-knowledge-rest-api-nodejs.md
+              href: Quickstarts/publish-kb-nodejs.md
             - name: Python
               href: Quickstarts/create-new-kb-python.md
         - name: 發佈知識庫
@@ -37,7 +39,7 @@
             - name: Java
               href: Quickstarts/publish-kb-java.md
             - name: Node.js
-              href: 'Quickstarts/create-knowledge-rest-api-nodejs.md##publish-a-knowledge-base'
+              href: 'Quickstarts/publish-kb-nodejs.md#publish-a-knowledge-base'
             - name: Python
               href: Quickstarts/publish-kb-python.md
         - name: 取得答案
@@ -88,7 +90,7 @@
     - name: 支援的資料來源
       href: Concepts/data-sources-supported.md
       displayName: 'metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard'
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 編輯知識庫
       items:

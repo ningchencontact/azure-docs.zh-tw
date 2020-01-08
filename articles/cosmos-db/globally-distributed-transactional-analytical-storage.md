@@ -1,5 +1,5 @@
 ---
-title: 適用于 Azure Cosmos 容器的全域分散式交易式和分析儲存體
+title: 適用于 Azure Cosmos 容器的全域分散式交易和分析（在私人預覽中）儲存體
 description: 瞭解適用于 Azure Cosmos 容器的交易式和分析儲存體及其設定選項。
 author: markjbrown
 ms.author: mjbrown
@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 22bb36e3b22f65bbf9922bd31e4b2e041cdb8979
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 18cf43ba137c92fc00d5f8e82e13501d03b4b6a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601223"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445394"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>適用于 Azure Cosmos 容器的全域分散式交易式和分析儲存體
 
-Azure Cosmos 容器在內部由兩個儲存引擎支援-交易式儲存引擎和可更新的分析儲存引擎。 儲存引擎都有記錄結構化和寫入優化，以進行更快速的更新。 不過，每個都有不同的編碼方式：
+Azure Cosmos 容器在內部由兩個儲存引擎支援-交易式儲存引擎和可更新的分析儲存引擎（在個人預覽版中）。 儲存引擎都有記錄結構化和寫入優化，以進行更快速的更新。 不過，每個都有不同的編碼方式：
 
 * **交易式儲存引擎**–它是以資料列導向的格式編碼，以進行快速的交易式讀取和查詢。
 

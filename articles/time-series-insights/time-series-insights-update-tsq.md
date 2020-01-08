@@ -1,6 +1,6 @@
 ---
 title: 預覽中的資料查詢-Azure 時間序列深入解析 |Microsoft Docs
-description: 深入瞭解 Azure 時間序列深入解析預覽資料查詢。
+description: Azure 時間序列深入解析 Preview 中的資料查詢概念和 HTTP REST API 總覽。
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: f44aa5c0a412dc53f4b1a5f127887257a1b0b550
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 53693c64ff03146619e17b276a1f817e69f5ed6e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006319"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374573"
 ---
 # <a name="data-querying-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽中的資料查詢
 

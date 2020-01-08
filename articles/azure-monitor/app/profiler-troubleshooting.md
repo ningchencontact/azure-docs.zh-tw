@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure Application Insights Profiler 的問題進行疑難排解 | Microsoft Docs
+title: 針對 Azure 應用程式 Insights Profiler 的問題進行疑難排解
 description: 本文提供疑難排解步驟和資訊，可為無法啟用或使用 Application Insights Profiler 的開發人員提供協助。
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7430f04846a1e66680f85f939854fd50a5df41e4
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6022bf975352f9f70c4ba8aa716a695ead590a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899983"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432375"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>針對啟用或檢視 Application Insights Profiler 的問題進行疑難排解
 
@@ -65,7 +65,7 @@ Profiler 會將追蹤訊息和自訂事件寫入至您的 Application Insights �
 * 您的 Web 應用程式必須已啟用 Application Insights。
 * 您的 web 應用程式必須具有下列應用程式設定：
 
-    |應用程式設定    | Value    |
+    |應用程式設定    | 值    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 資源的 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -97,7 +97,7 @@ Profiler 會將追蹤訊息和自訂事件寫入至您的 Application Insights �
 1. 將 [一律開啟] 設定為 [開啟]。
 1. 建立下列應用程式設定：
 
-    |應用程式設定    | Value    |
+    |應用程式設定    | 值    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 資源的 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -163,6 +163,11 @@ Profiler 會在 Web 應用程式中以連續 WebJob 的形式執行。 您可以
     如果 Profiler 是在您的應用程式接收要求時執行，則會顯示下列訊息：*從 iKey 偵測到活動*。 
 
     上傳追蹤時，會顯示下列訊息：*開始上傳追蹤*。 
+
+
+## <a name="edit-network-proxy-or-firewall-rules"></a>編輯網路 Proxy 或防火牆規則
+
+如果您的應用程式透過 proxy 或防火牆連線到網際網路，您可能需要編輯規則，以允許您的應用程式與 Application Insights Profiler 服務進行通訊。 Application Insights Profiler 所使用的 Ip 會包含在 Azure 監視器服務標記中。
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png

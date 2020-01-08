@@ -1,5 +1,6 @@
 ---
-title: 使用 .NET 建立帳戶 SAS-Azure 儲存體
+title: 使用 .NET 建立帳戶 SAS
+titleSuffix: Azure Storage
 description: 瞭解如何使用 .NET 用戶端程式庫建立帳戶共用存取簽章（SAS）。
 services: storage
 author: tamram
@@ -9,12 +10,12 @@ ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: aa93ee292ab95c68034ad595d6cda608d1886c0a
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 46374c35e6810bf056272ab2be355676f7b028b8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673263"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460598"
 ---
 # <a name="create-an-account-sas-with-net"></a>使用 .NET 建立帳戶 SAS
 
@@ -26,7 +27,7 @@ ms.locfileid: "71673263"
 
 若要建立容器的帳戶 SAS，請呼叫[CloudStorageAccount. cloudblobcontainer.getsharedaccesssignature](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.getsharedaccesssignature)方法。
 
-下列程式碼範例會建立適用於 Blob 和檔案服務的帳戶 SAS，並提供用戶端權限讀取、寫入和列出權限來存取服務層級 API。 帳戶 SAS 會將通訊協定限制為 HTTPS，因此必須使用 HTTPS 提出要求。 請記得使用您自己的值來取代角括弧中的預留位置值:
+下列程式碼範例會建立適用於 Blob 和檔案服務的帳戶 SAS，並提供用戶端權限讀取、寫入和列出權限來存取服務層級 API。 帳戶 SAS 會將通訊協定限制為 HTTPS，因此必須使用 HTTPS 提出要求。 請記得以您自己的值取代角括號中的預留位置值：
 
 ```csharp
 static string GetAccountSASToken()
@@ -52,7 +53,7 @@ static string GetAccountSASToken()
 
 ## <a name="use-an-account-sas-from-a-client"></a>從用戶端使用帳戶 SAS
 
-若要使用帳戶 SAS 來存取 Blob 服務的服務層級 Api，請使用 SAS 和儲存體帳戶的 Blob 儲存體端點來建立 Blob 服務用戶端物件。 請記得使用您自己的值來取代角括弧中的預留位置值:
+若要使用帳戶 SAS 來存取 Blob 服務的服務層級 Api，請使用 SAS 和儲存體帳戶的 Blob 儲存體端點來建立 Blob 服務用戶端物件。 請記得以您自己的值取代角括號中的預留位置值：
 
 ```csharp
 static void UseAccountSAS(string sasToken)

@@ -1,5 +1,5 @@
 ---
-title: Azure AD 權利管理-Azure Active Directory 中的存取權套件要求存取權
+title: 要求存取套件-Azure AD 的權利管理
 description: 瞭解如何在 Azure Active Directory 的權利管理中，使用我的存取權入口網站來要求存取套件的存取權。
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81697293be235c12ca009c76a9fd9d3975e232fc
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5a49c69b0f96add61501d9e2c5fc00ba564eba2a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554117"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422532"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>要求存取 Azure AD 權利管理中的存取套件
 

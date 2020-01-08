@@ -1,6 +1,7 @@
 ---
-title: 教學課程：使用 Azure 資料庫移轉服務執行從 RDS SQL Server 至 Azure SQL Database 或 Azure SQL Database 受控執行個體的線上移轉 | Microsoft Docs
-description: 了解如何使用 Azure 資料庫移轉服務，執行從 RDS SQL Server 至 Azure SQL Database 或 Azure SQL Database 受控執行個體的線上移轉。
+title: 教學課程：將 RDS SQL Server 線上遷移至 SQL Database
+titleSuffix: Azure Database Migration Service
+description: 瞭解如何使用 Azure 資料庫移轉服務，執行從 RDS SQL Server 到 Azure SQL Database 單一資料庫或受控實例的線上遷移。
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -8,20 +9,20 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 982ead69ba3d206e1aa2538597927dcbeaab70e9
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2c10bde323f3611047fe5c5a0c06a1f2786f642a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416094"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437567"
 ---
-# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>教學課程：使用 DMS 將 RDS SQL Server 線上移轉至 Azure SQL Database 或 Azure SQL Database 受控執行個體
+# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>教學課程：使用 DMS 在線上將 RDS SQL Server 遷移至 Azure SQL Database 或 Azure SQL Database 受控實例
 您可以使用 Azure 資料庫移轉服務，以最短停機時間將資料庫從 RDS SQL Server 執行個體移轉至 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) 或 [Azure SQL Database 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)。 在本教學課程中，您會使用 Azure 資料庫移轉服務，將已還原至 SQL Server 2012 (或更新版本) RDS SQL Server 執行個體的 **Adventureworks2012** 資料庫移轉至 Azure SQL Database 或 Azure SQL Database 受控執行個體。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 > * 建立 Azure SQL Database 的執行個體或 Azure SQL Database 受控執行個體。 
 > * 使用 Data Migration Assistant 移轉範例結構描述。
@@ -62,7 +63,7 @@ ms.locfileid: "65416094"
     >
     > 此為必要設定，因為 Azure 資料庫移轉服務沒有網際網路連線。 
 
-* 確定您的 VNet 網路安全性群組規則不會對 Azure 資料庫移轉服務封鎖下列輸入通訊埠：443、53、9354、445、12000。 如需 Azure VNet NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
+* 請確定您的 VNet 網路安全性群組規則不會對 Azure 資料庫移轉服務封鎖下列輸入通訊埠：443、53、9354、445、12000。 如需 Azure VNet NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
 * 設定[用於 Database Engine 存取的 Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
 * 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 SQL Server，其預設會通過 TCP 連接埠 1433。
 * 針對 Azure SQL Database 伺服器建立伺服器層級的[防火牆規則](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)，以允許 Azure 資料庫移轉服務存取目標資料庫。 提供用於 Azure 資料庫移轉服務之 VNET 的子網路範圍。
@@ -205,7 +206,7 @@ ms.locfileid: "65416094"
     > [!NOTE]
     > 或者，您可以選擇 [僅建立專案] 以立即建立移轉專案，並於後續再執行移轉。
 
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]。
 
 7. 選取 [建立及執行活動]，以建立專案並執行移轉活動。
 

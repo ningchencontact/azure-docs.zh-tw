@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 75d4c4e38069cb192917f275245d87bb4c63d502
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ff01bd0d6586cf75dcfdb7277c34120c6ec22894
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078157"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647487"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>建立 SAP NetWeaver 多 SID 組態
 
@@ -33,7 +33,7 @@ ms.locfileid: "70078157"
 [sap-ha-guide-figure-6004]:./media/virtual-machines-shared-sap-high-availability-guide/6004-sap-multi-sid-dns.png
 [sap-ha-guide-figure-6005]:./media/virtual-machines-shared-sap-high-availability-guide/6005-sap-multi-sid-azure-portal.png
 [sap-ha-guide-figure-6006]:./media/virtual-machines-shared-sap-high-availability-guide/6006-sap-multi-sid-sios-replication.png
-[networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
 [sap-ha-guide-9.1.1]:sap-high-availability-guide.md#a97ad604-9094-44fe-a364-f89cb39bf097 
 [sap-ha-guide-8.8]:sap-high-availability-guide.md#f19bd997-154d-4583-a46e-7f5a69d0153c
 [sap-ha-guide-8.12.3.3]:sap-high-availability-guide.md#d9c1fc8e-8710-4dff-bec2-1f535db7b006 
@@ -49,14 +49,14 @@ ms.locfileid: "70078157"
 
 Microsoft 在 2016 年 9 月發行的功能，可讓您使用 Azure 內部負載平衡器管理多個虛擬 IP 位址。 這項功能已存在 Azure 外部負載平衡器。
 
-如果您有 SAP 部署, 您可以使用內部負載平衡器來建立 SAP ASCS/SCS 的 Windows 叢集設定, 如[Windows vm 上的高可用性 SAP NetWeaver 指南][sap-ha-guide]中所述。
+如果您有 SAP 部署，您可以使用內部負載平衡器來建立 SAP ASCS/SCS 的 Windows 叢集設定，如[Windows vm 上的高可用性 SAP NetWeaver 指南][sap-ha-guide]中所述。
 
 本文將著重於如何將單一 ASCS/SCS 安裝移至 SAP 多 SID 組態，方法是將其他 SAP ASCS/SCS 叢集執行個體安裝至現有 Windows Server 容錯移轉叢集 (WSFC) 叢集。 完成此程序之後，您將已設定 SAP 多 SID 叢集。
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
-您已設定一個用於一個 SAP ASCS/SCS 實例的 WSFC 叢集, 如[Windows vm 上的高可用性 SAP NetWeaver 指南][sap-ha-guide]中所述, 如本圖所示。
+您已設定一個用於一個 SAP ASCS/SCS 實例的 WSFC 叢集，如[Windows vm 上的高可用性 SAP NetWeaver 指南][sap-ha-guide]中所述，如本圖所示。
 
 ![高可用性的 SAP ASCS/SCS 執行個體][sap-ha-guide-figure-6001]
 
@@ -72,7 +72,7 @@ Microsoft 在 2016 年 9 月發行的功能，可讓您使用 Azure 內部負載
 >一個 WSFC 叢集中 SAP ASCS/SCS 執行個體數目上限等於每個 Azure 內部負載平衡器的私人前端 IP 數目上限。
 >
 
-如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager]。
+如需負載平衡器限制的詳細資訊，請參閱[網路限制： Azure Resource Manager][networking-limits-azure-resource-manager]中的「每個負載平衡器的私人前端 IP」。
 
 具有兩個高度可用 SAP 系統的完整配置畫面如下所示：
 
@@ -219,7 +219,7 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 對於每個額外 SAP ASCS/SCS 執行個體，您必須新增叢集共用磁碟。 針對 Windows Server 2012 R2，目前使用的 WSFC 叢集共用磁碟是 SIOS DataKeeper 軟體解決方案。
 
-請執行下列動作：
+執行下列動作：
 1. 將額外磁碟或大小相同的磁碟 (您需要等量的磁碟) 新增至每個叢集節點中，並將其格式化。
 2. 使用 SIOS DataKeeper 設定儲存體複寫。
 
@@ -237,7 +237,7 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 ## <a name="install-the-second-sap-sid2-netweaver-system"></a>安裝第二個 SAP SID2 NetWeaver 系統
 
-如需安裝第二個 SAP SID2 系統的完整程式, 請參閱[Windows vm 上的高可用性 SAP NetWeaver 主要指南][sap-ha-guide-9]。
+如需安裝第二個 SAP SID2 系統的完整程式，請參閱[Windows vm 上的高可用性 SAP NetWeaver 主要指南][sap-ha-guide-9]。
 
 高階程序如下所示︰
 
@@ -269,6 +269,6 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 ## <a name="next-steps"></a>後續步驟
 
-- [網路限制：Azure Resource Manager][networking-limits-azure-resource-manager]
+- [網路限制： Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Azure Load Balancer 的多個 Vip][load-balancer-multivip-overview]
 - [Windows Vm 上的高可用性 SAP NetWeaver 指南][sap-ha-guide]

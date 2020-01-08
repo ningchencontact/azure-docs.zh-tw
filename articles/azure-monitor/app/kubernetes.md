@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 3056b6c56be32cf5c054c4526a88157650a3e30b
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: a7821db85d4218cbccb6c10f12ecbc624f2702fe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820774"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432513"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Kubernetes 託管應用程式的零檢測應用程式監視
 
@@ -21,10 +21,10 @@ ms.locfileid: "72820774"
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
 > 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-Azure 監視器現在會利用 Kubernetes 叢集上的服務網格技術，為任何 Kubernetes 託管應用程式提供現成的應用程式監視。 使用預設的應用程式深入解析功能（例如[應用程式對應](../../azure-monitor/app/app-map.md)）來建立相依性模型，[即時計量資料流](../../azure-monitor/app/live-stream.md)使用[預設儀表板](../../azure-monitor/app/overview-dashboard.md)、計量[瀏覽器](../../azure-monitor/platform/metrics-getting-started.md)，來進行即時監視、功能強大的視覺效果，以及[活頁簿](../../azure-monitor/app/usage-workbooks.md)。 這項功能可協助使用者找出所選 Kubernetes 命名空間內所有 Kubernetes 工作負載的效能瓶頸和失敗熱點。 藉由使用 Istio 之類的技術，讓您的現有服務網格投資發揮最大效益，Azure 監視器不需要修改應用程式的程式碼，就能進行自動檢測的應用程式監視。
+Azure 監視器現在會利用 Kubernetes 叢集上的服務網格技術，為任何 Kubernetes 託管應用程式提供現成的應用程式監視。 使用預設的應用程式深入解析功能（例如[應用程式對應](../../azure-monitor/app/app-map.md)）來建立相依性模型，[即時計量資料流](../../azure-monitor/app/live-stream.md)使用[預設儀表板](../../azure-monitor/app/overview-dashboard.md)、計量[瀏覽器](../../azure-monitor/platform/metrics-getting-started.md)和活頁[簿](../../azure-monitor/app/usage-workbooks.md)的即時監視、強大的視覺效果。 這項功能可協助使用者找出所選 Kubernetes 命名空間內所有 Kubernetes 工作負載的效能瓶頸和失敗熱點。 藉由使用 Istio 之類的技術，讓您的現有服務網格投資發揮最大效益，Azure 監視器不需要修改應用程式的程式碼，就能進行自動檢測的應用程式監視。
 
 > [!NOTE]
-> 這是在 Kubernetes 上執行應用程式監視的眾多方法之一。 您也可以使用[APPLICATION INSIGHTS SDK](../../azure-monitor/azure-monitor-app-hub.md) ，檢測裝載于 Kubernetes 中的任何應用程式，而不需要服務網格。 若要監視 Kubernetes，而不使用 SDK 檢測應用程式，您可以使用下列方法。
+> 這是在 Kubernetes 上執行應用程式監視的眾多方法之一。 您也可以使用[APPLICATION INSIGHTS SDK](../../azure-monitor/azure-monitor-app-hub.yml) ，檢測裝載于 Kubernetes 中的任何應用程式，而不需要服務網格。 若要監視 Kubernetes，而不使用 SDK 檢測應用程式，您可以使用下列方法。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -75,7 +75,7 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 1. 下載並解壓縮[ *Application Insights 介面卡*版本](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/)。
 2. 流覽至發行資料夾內的 */src/kubernetes/* 。
 3. 編輯*應用程式-insights-istio-混音器-介面卡-部署 yaml*
-    - 編輯*ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY*環境變數的值，以包含 Azure 入口網站中包含遙測之 Application Insights 資源的檢測金鑰。
+    - 編輯*ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY*環境變數的值，以包含 Azure 入口網站中要包含遙測之 Application Insights 資源的檢測金鑰。
     - 如有需要，請編輯*ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES*環境變數的值，以包含您想要啟用監視的命名空間清單（以逗號分隔）。 將其保留為空白以監視所有命名空間。
 4. 藉由執行下列動作，套用*src/kubernetes*下所找到的*每個*YAML 檔案（您仍然必須在 */src/kubernetes/* 內）：
 
@@ -103,8 +103,8 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 以下是當遙測未如預期般出現在 Azure 入口網站時，所要使用的疑難排解流程。
 
 1. 請確定應用程式正在進行負載，並以一般 HTTP 傳送/接收要求。 因為遙測已從網路中解除，所以不支援加密的流量。 如果沒有傳入或傳出要求，則不會有任何遙測。
-2. 請確定已在*application insights-ISTIO-yaml*中的*ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY*環境變數中提供正確的檢測金鑰。 您可在 Azure 入口網站中 Application Insights 資源的 [*總覽*] 索引標籤上找到檢測金鑰。
-3. 請確定*ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES*環境變數中提供的 Kubernetes 命名空間正確，位於*application insights-ISTIO-混合器-adapter-yaml*。 將其保留為空白以監視所有命名空間。
+2. 請確定在*ISTIO-混合器-yaml*中的*ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY*環境變數中提供正確的檢測金鑰。 您可在 Azure 入口網站中 Application Insights 資源的 [*總覽*] 索引標籤上找到檢測金鑰。
+3. 請確定已在*application insights-ISTIO-yaml*中的*ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES*環境變數中提供正確的 Kubernetes 命名空間。 將其保留為空白以監視所有命名空間。
 4. 請確定您的應用程式 pod 已由 Istio 側車插入。 確認 Istio 的側車存在於每個 pod 上。
 
    ```console

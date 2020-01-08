@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 1a567e8f910ccf539038a19eef0319f21833f336
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: a53128605e1f124cbd26fb679e799822b8abad29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839697"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454801"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>如何使用 Azure Machine Learning Studio （傳統） web 服務
 
@@ -32,7 +32,7 @@ ms.locfileid: "73839697"
 ## <a name="overview"></a>概觀
 使用 Azure Machine Learning Web 服務，外部應用程式會即時與機器學習服務工作流程計分模型通訊。 機器學習 Web 服務呼叫會將預測結果傳回外部應用程式。 若要進行機器學習 Web 服務呼叫，您可以傳遞部署預測時所建立的 API 金鑰。 機器學習服務 Web 服務以 REST 為基礎，這是一種常見的 Web 程式設計專案架構。
 
-傳統版本的 Azure Machine Learning Studio 有兩種類型的服務：
+Azure Machine Learning Studio （傳統）有兩種類型的服務：
 
 * 要求-回應服務（RR）–這是一種低延遲、高擴充性的服務，可為從 Machine Learning Studio （傳統）建立和部署的無狀態模型提供介面。
 * 批次執行服務 (BES) – 這是一種非同步的服務，為一批資料記錄進行計分。
@@ -63,7 +63,7 @@ ms.locfileid: "73839697"
 ### <a name="classic-web-service"></a>傳統 Web 服務
  您也可以從 Machine Learning Studio （傳統）取得傳統 Web 服務的金鑰。
 
-#### <a name="machine-learning-studio-classic"></a>Machine Learning Studio （傳統）
+#### <a name="machine-learning-studio-classic"></a>Machine Learning Studio (傳統)
 1. 在 [Machine Learning Studio （傳統）] 中，按一下左側的 [ **WEB 服務**]。
 2. 按一下某個 Web 服務。 [API 金鑰] 位於 [儀表板] 索引標籤上。
 

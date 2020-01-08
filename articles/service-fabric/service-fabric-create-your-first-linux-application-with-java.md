@@ -1,25 +1,14 @@
 ---
-title: 在 Linux 上建立 Azure Service Fabric Reliable Actors Java 應用程式 | Microsoft Docs
+title: 在 Linux 上建立 Azure Service Fabric 可靠的動作專案 JAVA 應用程式
 description: 了解如何在五分鐘內建立和部署 Java Service Fabric Reliable Actors 應用程式。
-services: service-fabric
-documentationcenter: java
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/18/2018
-ms.author: atsenthi
-ms.openlocfilehash: 4b008c001e1c4749b6ab6f9f21eff479f007c05c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 82d4446d76254657adfe64ed41386c06a0a873eb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599676"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458173"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>在 Linux 上建立第一個 Java Service Fabric Reliable Actors 應用程式
 > [!div class="op_single_selector"]
@@ -30,7 +19,7 @@ ms.locfileid: "68599676"
 
 本快速入門可協助您在短短幾分鐘內在 Linux 開發環境中建立第一個 Azure Service Fabric Java 應用程式。  當您完成時，您會有一個在本機開發叢集上執行的簡單 Java 單一服務應用程式。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 開始之前，請在 [Linux 開發環境](service-fabric-get-started-linux.md)中安裝 Service Fabric SDK、Service Fabric CLI、Yeoman，然後設定 Java 開發環境，並設定開發叢集。 如果您使用 Mac OS X，您可以[使用 Docker 在 Mac 上設定開發環境](service-fabric-get-started-mac.md)。
 
 另請安裝 [Service Fabric CLI](service-fabric-cli.md)。
@@ -50,8 +39,8 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 * **動作項目介面**。 動作項目介面用於定義動作項目的強型別公用介面。 在 Reliable Actor 模型術語中，動作項目介面定義動作項目可以了解並處理的訊息類型。 其他的動作項目或用戶端應用程式會使用動作項目介面將訊息「傳送」(非同步) 給動作項目。 Reliable Actors 可實作多個介面。
 * **ActorProxy 類別**。 用戶端應用程式會使用 ActorProxy 類別來叫用透過動作項目介面公開的方法。 ActorProxy 類別提供兩個重要的功能：
   
-  * 名稱解析：它能夠在叢集中找到動作項目 (尋找裝載動作項目的叢集節點)。
-  * 失敗處理：它可以重試方法叫用並重新解析動作項目位置，例如在需要動作項目重新定位至叢集中另一個節點失敗後進行。
+  * 名稱解析︰它能夠在叢集中找到動作項目 (尋找裝載動作項目的叢集節點)。
+  * 處理失敗：它可以重試方法叫用並重新解析動作項目位置，例如在需要動作項目重新定位至叢集中另一個節點失敗後進行。
 
 值得一提的是下列與動作項目介面相關的規則︰
 
@@ -114,7 +103,7 @@ HelloWorldActorApplication/
 ### <a name="actor-interface"></a>動作項目介面
 包含動作項目的介面定義。 這個介面定義由動作項目實作與呼叫動作項目的用戶端所共用的動作項目合約，因此通常適合在不同於動作項目實作的地方定義該合約，並可由多個其他服務或用戶端應用程式共用。
 
-`HelloWorldActorInterface/src/reliableactor/HelloWorldActor.java`:
+`HelloWorldActorInterface/src/reliableactor/HelloWorldActor.java`：
 
 ```java
 public interface HelloWorldActor extends Actor {
@@ -128,7 +117,7 @@ public interface HelloWorldActor extends Actor {
 ### <a name="actor-service"></a>動作項目服務
 這包含您的動作項目實作和動作項目註冊碼。 動作項目類別會實作動作項目介面。 這是您的動作項目工作之處。
 
-`HelloWorldActor/src/reliableactor/HelloWorldActorImpl`:
+`HelloWorldActor/src/reliableactor/HelloWorldActorImpl`：
 
 ```java
 @ActorServiceAttribute(name = "HelloWorldActorService")
@@ -164,7 +153,7 @@ public class HelloWorldActorImpl extends FabricActor implements HelloWorldActor 
 ### <a name="actor-registration"></a>動作項目註冊
 必須在 Service Fabric 執行階段中以某個服務類型註冊動作項目服務。 為了讓動作項目服務執行您的動作項目執行個體，也必須向動作項目服務註冊動作項目類型。 `ActorRuntime` 註冊方法會替動作項目執行這項工作。
 
-`HelloWorldActor/src/reliableactor/HelloWorldActorHost`:
+`HelloWorldActor/src/reliableactor/HelloWorldActorHost`：
 
 ```java
 public class HelloWorldActorHost {
@@ -243,7 +232,7 @@ Service Fabric Yeoman 範本包含 [Gradle](https://gradle.org/) 的建置指令
     watch -n 1 ./testclient.sh
     ```
 
-2. 在 Service Fabric Explorer 中，找出裝載動作項目服務主要複本的節點。 在以下的螢幕擷取畫面中是節點 3。 主要服務複本會處理讀取和寫入作業。  服務狀態的變更接著會複寫到次要複本, 並在下列螢幕擷取畫面中的節點0和1上執行。
+2. 在 Service Fabric Explorer 中，找出裝載動作項目服務主要複本的節點。 在以下的螢幕擷取畫面中是節點 3。 主要服務複本會處理讀取和寫入作業。  服務狀態的變更接著會複寫到次要複本，並在下列螢幕擷取畫面中的節點0和1上執行。
 
     ![在 Service Fabric Explorer 中尋找主要複本][sfx-primary]
 
@@ -304,7 +293,7 @@ Service Fabric Java 程式庫已裝載於 Maven 中。 您可以在專案的 ``p
   ```
 
 ### <a name="others"></a>其他
-#### <a name="transport"></a>傳輸
+#### <a name="transport"></a>運輸
 
 Service Fabric Java 應用程式的傳輸層支援。 除非您在傳輸層進行程式設計，否則不需要明確地將此相依性新增至 Reliable Actor 或服務應用程式。
 

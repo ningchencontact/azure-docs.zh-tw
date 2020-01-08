@@ -6,13 +6,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.author: nberdy
-ms.openlocfilehash: d7c63ffe5a318507053f59bf3a18242ee8c327a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rezas
+ms.openlocfilehash: f4125aae954519beead99db45fc8a35264d5731e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61327749"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429275"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解 IoT 中樞的直接方法並從中樞叫用直接方法
 
@@ -36,7 +36,7 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
 > 當您在裝置上叫用直接方法時，屬性名稱和值只能包含 US-ASCII 可列印英數字元，下列集合中的任何字元除外︰``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``。
 > 
 
-直接方法是同步的，可能在逾時期間後成功或失敗 (預設︰30 秒，最多可設定為 300 秒)。 在您想要讓裝置只有在線上且接收命令的情況下才採取行動的互動式案例中，直接方法相當有用。 例如，透過手機開燈。 在這些案例中，您想要查看立即成功或失敗，讓雲端服務可以儘速處理結果。 裝置可能會傳回部分訊息本文作為方法的結果，但是不需要方法這麼做。 不保證方法呼叫的順序或任何並行語意。
+直接方法是同步的，而且會在超時時間之後成功或失敗（預設為30秒，最多可設定300秒）。 在您想要讓裝置只有在線上且接收命令的情況下才採取行動的互動式案例中，直接方法相當有用。 例如，透過手機開燈。 在這些案例中，您想要查看立即成功或失敗，讓雲端服務可以儘速處理結果。 裝置可能會傳回部分訊息本文作為方法的結果，但是不需要方法這麼做。 不保證方法呼叫的順序或任何並行語意。
 
 直接方法從雲端來說，僅限使用 HTTPS，從裝置端來說，則使用 MQTT 或 AMQP。
 
@@ -58,7 +58,7 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
 
 * POST *方法*
 
-* 標頭  ，包含授權、要求識別碼、內容類型及內容編碼。
+* 標頭，包含授權、要求識別碼、內容類型及內容編碼。
 
 * 透明 JSON *本文*格式如下︰
 
@@ -94,13 +94,13 @@ curl -X POST \
 }'
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 後端應用程式會接收由下列項目組成的回應：
 
-* HTTP 狀態碼  ，用於來自 IoT 中樞的錯誤，包括裝置目前未連接的 404 錯誤。
+* HTTP 狀態碼，用於來自 IoT 中樞的錯誤，包括裝置目前未連接的 404 錯誤。
 
-* 標頭  ，包含 ETag、要求識別碼、內容類型及內容編碼。
+* 標頭，包含 ETag、要求識別碼、內容類型及內容編碼。
 
 * JSON *本文*格式如下︰
 
@@ -142,7 +142,7 @@ curl -X POST \
 
 方法要求為 QoS 0。
 
-#### <a name="response"></a>Response
+#### <a name="response"></a>回應
 
 裝置會傳送回應至 `$iothub/methods/res/{status}/?$rid={request id}`，其中︰
 
@@ -168,7 +168,7 @@ AMQP 訊息會送達代表方法要求的接收連結。 它包含下列區段�
 
 * AMQP 訊息內文，內含 JSON 形式的方法承載。
 
-#### <a name="response"></a>Response
+#### <a name="response"></a>回應
 
 裝置會建立傳送連結，以在 `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound` 位址上傳回方法回應。
 

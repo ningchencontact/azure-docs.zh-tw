@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 50c0a670eb492aef01c3499bc2c8605917f4c7b8
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: a836c6b47e0e1346b5e8de9ba5fbe94f88961cbd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965477"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615041"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>針對 Linux 或 Windows 上的 Azure 虛擬機器效能進行疑難排解
 
@@ -30,7 +30,7 @@ ms.locfileid: "72965477"
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Azure IAAS 虛擬機器監視
 
-若要監視來賓 VM，請使用 Azure VM 監視，這會向您發出特定高階資源條件的警示。 若要檢查是否已啟用 VM 診斷，請參閱[Azure 資源記錄檔總覽](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#collecting-resource-logs)。 如果您看到下列內容，則您很可能未啟用診斷：
+若要監視來賓 VM，請使用 Azure VM 監視，這會向您發出特定高階資源條件的警示。 若要檢查是否已啟用 VM 診斷，請參閱[Azure 資源記錄檔總覽](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)。 如果您看到下列內容，則您很可能未啟用診斷：
 
 ![未啟用監視](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
