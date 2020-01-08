@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
 ms.openlocfilehash: e7e57c6a821731874dcb1d99a3133b6ede1da26e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 12/25/2019
 ms.locfileid: "67173968"
 ---
 **Premium 非受控虛擬機器磁片：每個帳戶的限制**
 
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | 每一帳戶的磁碟容量總計 |35 TB |
 | 每一帳戶的快照集容量總計 |10 TB |
@@ -32,7 +32,7 @@ ms.locfileid: "67173968"
 
 **Premium 非受控虛擬機器磁片：每個 VM 的限制**
 
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | 每個 VM 的最大 IOPS |80,000 IOPS (使用 GS5 虛擬機器) |
 | 每個 VM 的最大輸送量 |2000 MB/秒（使用 GS5 VM） |

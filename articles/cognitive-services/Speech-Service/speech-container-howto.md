@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
 ms.openlocfilehash: d5ecc104c7845a1881cbcdecfbccb75148f6e070
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 12/28/2019
 ms.locfileid: "74815368"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>安裝和執行語音服務容器（預覽）
@@ -112,25 +112,25 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 # <a name="speech-to-texttabstt"></a>[語音轉文字](#tab/stt)
 
-| 容器 | 存放庫 |
+| 容器 | Repository |
 |-----------|------------|
 | 語音轉文字 | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 
 # <a name="custom-speech-to-texttabcstt"></a>[自訂語音轉換文字](#tab/cstt)
 
-| 容器 | 存放庫 |
+| 容器 | Repository |
 |-----------|------------|
 | 自訂語音轉換文字 | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
 # <a name="text-to-speechtabtts"></a>[文字轉換語音](#tab/tts)
 
-| 容器 | 存放庫 |
+| 容器 | Repository |
 |-----------|------------|
 | 文字轉換語音 | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
 # <a name="custom-text-to-speechtabctts"></a>[自訂文字轉換語音](#tab/ctts)
 
-| 容器 | 存放庫 |
+| 容器 | Repository |
 |-----------|------------|
 | 自訂文字轉換語音 | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
 
@@ -273,7 +273,7 @@ ApiKey={API_KEY}
 
 下表代表各種 `docker run` 參數及其對應的描述：
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker 用來保存自訂模型的主機電腦[磁片區掛接](https://docs.docker.com/storage/volumes/)。 例如， *C:\CustomSpeech* ，其中*C 磁片磁碟機*位於主機電腦上。 |
 | `{MODEL_ID}` | 自訂語音入口網站的 [**訓練**] 頁面中的自訂語音**模型識別碼**。 |
@@ -335,7 +335,7 @@ ApiKey={API_KEY}
 
 下表代表各種 `docker run` 參數及其對應的描述：
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker 用來保存自訂模型的主機電腦[磁片區掛接](https://docs.docker.com/storage/volumes/)。 例如， *C:\CustomSpeech* ，其中*C 磁片磁碟機*位於主機電腦上。 |
 | `{MODEL_ID}` | 自訂語音入口網站的 [**訓練**] 頁面中的自訂語音**模型識別碼**。 |
@@ -374,7 +374,7 @@ ApiKey={API_KEY}
 | 容器 | SDK 主機 URL | 通訊協定 |
 |--|--|--|
 | 語音轉換文字和自訂語音轉換文字 | `ws://localhost:5000` | WS |
-| 文字轉換語音和自訂文字轉換語音 | `http://localhost:5000` | http |
+| 文字轉換語音和自訂文字轉換語音 | `http://localhost:5000` | HTTP |
 
 如需有關使用 WSS 和 HTTPS 通訊協定的詳細資訊，請參閱[容器安全性](../cognitive-services-container-support.md#azure-cognitive-services-container-security)。
 
@@ -414,7 +414,7 @@ ApiKey={API_KEY}
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 在本文中，您已瞭解下載、安裝及執行語音容器的概念和工作流程。 摘要說明：
 
