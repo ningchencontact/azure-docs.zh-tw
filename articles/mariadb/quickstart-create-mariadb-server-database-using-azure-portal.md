@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 12/02/2019
-ms.openlocfilehash: 240329ba3dc50cef249716f951595fea0cdc67eb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9ba02f53ba5765d90e8bba80e4d99922d7eb7c46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769977"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432040"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>使用 Azure 入口網站建立適用於 MariaDB 的 Azure 資料庫伺服器
 
@@ -26,7 +26,7 @@ ms.locfileid: "74769977"
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>建立適用於 MariaDB 的 Azure 資料庫伺服器
 
-您可使用一組已定義的[計算和儲存體資源](concepts-pricing-tiers.md)來建立適用於 MariaDB 的 Azure 資料庫伺服器。 您可在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內建立伺服器。
+您可使用一組已定義的[計算和儲存體資源](concepts-pricing-tiers.md)來建立適用於 MariaDB 的 Azure 資料庫伺服器。 您可在 [Azure 資源群組](../azure-resource-manager/management/overview.md)內建立伺服器。
 
 若要建立適用於 MariaDB 的 Azure 資料庫伺服器：
 
@@ -40,7 +40,7 @@ ms.locfileid: "74769977"
    
    ![建立伺服器表單](./media/quickstart-create-mariadb-server-database-using-azure-portal/4-create-form.png)
 
-    設定 | 建議的值 | 說明
+    設定 | 建議的值 | 描述
     ---|---|---
     伺服器名稱 | 唯一的伺服器名稱  | 選擇可識別適用於 MariaDB 的 Azure 資料庫伺服器的唯一名稱。 例如，**mydemoserver**。 網域名稱 *.mariadb.database.azure.com* 會附加至您輸入的伺服器名稱。 伺服器名稱只能包含小寫字母、數字及連字號 (-) 字元。 它必須包含 3 到 63 個字元。
     訂用帳戶 | *您的訂用帳戶* | 選取您要用於伺服器的 Azure 訂用帳戶。 如果您有多個訂用帳戶，請選擇資源計費的訂用帳戶。
@@ -49,7 +49,7 @@ ms.locfileid: "74769977"
     伺服器管理員登入 | myadmin  | 當您連線至伺服器時所要使用的登入帳戶。 系統管理員登入名稱不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。
     密碼 | 您的選擇  | 為伺服器管理帳戶輸入新密碼。 其必須包含 8 到 128 個字元。 您的密碼必須包含下列類別中三種類別的字元：英文大寫字母、英文小寫字母、數字 (0-9) 及非英數字元 (!、$、#、% 等等)。
     確認密碼 | 您的選擇 | 確認管理帳戶密碼。
-    位置 | 最接近使用者的區域 | 選擇最靠近使用者或其他 Azure 應用程式的位置。
+    Location | 最接近使用者的區域 | 選擇最靠近使用者或其他 Azure 應用程式的位置。
     版本 | 最新版本 | 最新版本 (除非您有使用不同版本的特定需求)。
     定價層 | 請參閱說明。 | 新伺服器的計算、儲存體和備份組態。 選取 [定價層]   > [一般用途]  。 保留下列設定的預設值：<br><ul><li>**計算產生** (Gen 5)</li><li>**vCore** (4 個 vCore)</li><li>**儲存體** (100 GB)</li><li>**備份保留期限** (7 天)</li></ul><br>若要啟用異地備援儲存體中的伺服器備份，請為 [備份備援選項]  選取 [異地備援]  。 <br><br>若要儲存此定價層選取項目，請選取 [確定]  。 下方螢幕擷取畫面會擷取這些選取項目。
   
@@ -123,7 +123,7 @@ ms.locfileid: "74769977"
     mysql --host mydemoserver.mariadb.database.azure.com --user myadmin@mydemoserver -p
     ```
 
-    mysql 參數 |建議的值|說明
+    mysql 參數 |建議的值|描述
     ---|---|---
     --host | 伺服器名稱  | 您建立適用於 MariaDB 的 Azure 資料庫伺服器時所使用的伺服器名稱值。 範例伺服器是 **mydemoserver.mariadb.database.azure.com**。 使用如範例所示的完整網域名稱 ( **\*.mariadb.database.azure.com**)。 如果您不記得伺服器名稱，請完成上一節中的步驟以取得連線資訊。
     --user | 伺服器管理員登入名稱  |您建立適用於 MariaDB 的 Azure 資料庫伺服器時所使用的伺服器管理員登入使用者名稱。 如果您不記得使用者名稱，請完成上一節中的步驟以取得連線資訊。 格式是 *username\@servername*。
@@ -199,9 +199,9 @@ ms.locfileid: "74769977"
     |設定 |建議的值|欄位描述|
     |---|---|---|
      連接名稱 | **示範連線** | 此連線的標籤。 |
-    連線方式 | **標準 (TCP/IP)** | 標準 (TCP/IP) 就足夠了。 |
+    連線方法 | **標準 (TCP/IP)** | 標準 (TCP/IP) 就足夠了。 |
     主機名稱 | 伺服器名稱  | 您建立適用於 MariaDB 的 Azure 資料庫伺服器時所使用的伺服器名稱值。 範例伺服器是 **mydemoserver.mariadb.database.azure.com**。 使用如範例所示的完整網域名稱 ( **\*.mariadb.database.azure.com**)。 如果您不記得伺服器名稱，請完成本文稍早的步驟以取得連線資訊。|
-     Port | 3306 | 連線至適用於 MariaDB 的 Azure 資料庫伺服器時所要使用的連接埠。 |
+     連接埠 | 3306 | 連線至適用於 MariaDB 的 Azure 資料庫伺服器時所要使用的連接埠。 |
     使用者名稱 |  伺服器管理員登入名稱  | 您建立適用於 MariaDB 的 Azure 資料庫伺服器時所使用的伺服器管理員登入資訊。 我們的範例使用者名稱為 **myadmin\@mydemoserver**。 如果您不記得使用者名稱，請完成本文稍早的步驟以取得連線資訊。 格式是 *username\@servername*。
     密碼 | 您的密碼  | 若要儲存密碼，請選取 [儲存在保存庫]  。 |
 
@@ -213,7 +213,7 @@ ms.locfileid: "74769977"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-您有兩種方式可以清除您在本快速入門中建立的資源。 您可以刪除 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)。 此選項會連帶刪除資源群組內的所有資源。 如果您想要讓其他資源保持不變，只要刪除一個伺服器資源。
+您有兩種方式可以清除您在本快速入門中建立的資源。 您可以刪除 [Azure 資源群組](../azure-resource-manager/management/overview.md)。 此選項會連帶刪除資源群組內的所有資源。 如果您想要讓其他資源保持不變，只要刪除一個伺服器資源。
 
 > [!TIP]
 > 此集合中的其他快速入門會以本快速入門為基礎。 如果您打算繼續進行「適用於 MariaDB 的 Azure 資料庫」快速入門，請勿清除您在此快速入門中建立的資源。 如果您不打算繼續，請使用下列步驟，刪除您在本快速入門中建立的所有資源。

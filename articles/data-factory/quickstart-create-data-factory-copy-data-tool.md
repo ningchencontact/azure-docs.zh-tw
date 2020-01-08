@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
-ms.openlocfilehash: 4ead3472e1706742781cb64a12103f3dec1fd27a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: edf03b663383f10168ee5b78a3ad5f1a9fdac288
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922465"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440135"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>快速入門：使用複製資料工具複製資料
 
@@ -39,7 +39,7 @@ ms.locfileid: "74922465"
 
     ![從 Azure 入口網站功能表建立資源](./media/quickstart-create-data-factory-copy-data-tool/create-data-factory-resource.png)
 
-1. 選取 [分析]  ，然後選取 [Data Factory]  。
+1. 選取 [Analytics]  ，然後選取 [Data Factory]  。
 
    ![在 [新增] 窗格中選取資料處理站](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory-menu.png)
 
@@ -54,7 +54,7 @@ ms.locfileid: "74922465"
    - 選取 [使用現有的]  ，然後從清單中選取現有的資源群組。 
    - 選取 [建立新的]  ，然後輸入資源群組的名稱。   
          
-   若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
+   若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。  
 1. 針對 [版本]  ，選取 [V2]  。
 1. 針對 [位置]  ，選取資料處理站的位置。
 

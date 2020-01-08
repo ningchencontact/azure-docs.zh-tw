@@ -36,6 +36,14 @@
       href: tutorial-backup-windows-server-to-azure.md
     - name: 將檔案還原到 Windows Server
       href: tutorial-backup-restore-files-windows-server.md
+    - name: Azure VM 上的 SAP HANA 資料庫 - 使用 CLI
+      items:
+        - name: 備份 SAP HANA 資料庫 - CLI
+          href: tutorial-sap-hana-backup-cli.md
+        - name: 還原 SAP HANA 資料庫 - CLI
+          href: tutorial-sap-hana-restore-cli.md
+        - name: 管理備份的 SAP HANA 資料庫 - CLI
+          href: tutorial-sap-hana-manage-cli.md
 - name: 範例
   items:
     - name: Azure PowerShell
@@ -94,7 +102,7 @@
       href: backup-azure-backup-server-import-export-.md
     - name: 取代磁帶媒體櫃
       href: backup-azure-backup-cloud-as-tape.md
-- name: 作法
+- name: 如何
   items:
     - name: Azure 備份伺服器
       items:
@@ -244,6 +252,8 @@
           href: manage-monitor-sql-database-backup.md
     - name: Azure VM 上的 SAP Hana 資料庫
       items:
+        - name: 關於 Azure VM 上的 SAP HANA 備份
+          href: sap-hana-db-about.md
         - name: 將 SAP HANA 資料庫備份到 Azure VM
           href: backup-azure-sap-hana-database.md
         - name: 還原 Azure VM 中的 SAP Hana 資料庫

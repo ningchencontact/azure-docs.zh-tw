@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
 ms.date: 09/09/2019
-ms.openlocfilehash: 482fc3f08fb986908efcab83a82338ced36ee689
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5cfccd6e79b7289b6fd59abcabba05abab6ab09b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821015"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443847"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>快速入門：使用 Azure 入口網站、PowerShell 和 Azure CLI，在 Azure SQL Database 中建立單一資料庫
 
@@ -33,7 +33,7 @@ ms.locfileid: "73821015"
 - 已佈建計算層中的單一資料庫會使用其中一種[購買模型](sql-database-purchase-models.md)，預先配置固定數量的計算資源，包括 CPU 和記憶體。
 - 無伺服器計算層中的單一資料庫具有 CPU 和記憶體等多種可自動調整的計算資源，且僅適用於[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 
-當您建立單一資料庫時，您也會定義 [SQL Database 伺服器](sql-database-servers.md)加以管理，並將其放入指定區域中的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內。
+當您建立單一資料庫時，您也會定義 [SQL Database 伺服器](sql-database-servers.md)加以管理，並將其放入指定區域中的 [Azure 資源群組](../azure-resource-manager/management/overview.md)內。
 
 > [!NOTE]
 > 本快速入門使用[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)，但[以 DTU 為基礎的購買模型](sql-database-service-tiers-DTU.md)也可供使用。

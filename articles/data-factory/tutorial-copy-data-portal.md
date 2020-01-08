@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: a42d796010368ec24cc6cfde8a704c4b7608963d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4c6b96f4b8b3a0a90c136967578bfb56c83b7e3f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926630"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439493"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Blob 儲存體複製到 SQL 資料庫
 在本教學課程中，您會使用 Azure Data Factory 使用者介面 (UI) 建立資料處理站。 此資料處理站中的管線會將資料從 Azure Blob 儲存體複製到 SQL 資料庫。 本教學課程中的設定模式從以檔案為基礎的資料存放區複製到關聯式資料存放區。 如需支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -35,7 +35,7 @@ ms.locfileid: "74926630"
 > * 觸發排程的管線。
 > * 監視管線和活動執行。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 * **Azure 訂用帳戶**。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 * **Azure 儲存體帳戶**。 您會使用 Blob 儲存體作為*來源*資料存放區。 如果您沒有儲存體帳戶，請參閱[建立 Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)，按照步驟建立此帳戶。
 * **Azure SQL Database**。 您會使用資料庫作為*接收*資料存放區。 如果您沒有 SQL 資料庫，請參閱[建立 SQL 資料庫](../sql-database/sql-database-get-started-portal.md)，按照步驟建立此資料庫。
@@ -77,7 +77,7 @@ ms.locfileid: "74926630"
 在此步驟中，您可以建立資料處理站，並啟動 Data Factory 使用者介面，在資料處理站中建立管線。 
 
 1. 開啟 **Microsoft Edge** 或 **Google Chrome**。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
-2. 在左側功能表中，選取 [建立資源]   > [分析]   > [資料處理站]  ： 
+2. 在左側功能表上，選取 [建立資源]   > [分析]   > [資料處理站]  ： 
   
    ![在 [新增] 窗格中選取資料處理站](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "74926630"
 
     b. 選取 [建立新的]  ，然後輸入資源群組的名稱。 
          
-    若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。 
+    若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。 
 6. 在 [版本]  下，選取 [V2]  。
 7. 在 [位置]  下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (例如 Azure 儲存體和 SQL Database) 和計算 (例如 Azure HDInsight) 可位於其他區域。
 8. 選取 [建立]  。 

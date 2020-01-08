@@ -3,17 +3,17 @@ title: Azure 串流分析概觀
 description: 了解串流分析，這是可協助您即時分析物聯網 (IoT) 資料流的受控服務。
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 0982cc90d26c9f04e8d547c7d634e09280d7fca2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3399cc47af20df05d6315a4bd77965f799eaf5f9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467908"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426177"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure 串流分析是什麼？
 

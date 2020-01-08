@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: d93c6333b811885eec37e8401bee27afeedf1475
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 82f2acb811bcb239f6329ab8d8b4008e13ac6490
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975749"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446738"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>快速入門：建置、部署和使用自訂模型來進行翻譯
 
 本文會逐步說明如何使用自訂翻譯工具來建置翻譯系統。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 1. 若要使用[自訂翻譯工具](https://portal.customtranslator.azure.ai)入口網站，您必須擁有 [Microsoft 帳戶](https://signup.live.com)或 [Azure AD 帳戶](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (裝載於 Azure 上的組織帳戶) 以便進行登入。
 
@@ -37,7 +37,7 @@ ms.locfileid: "74975749"
 
 ## <a name="upload-documents"></a>上傳文件
 
-接著，上傳[訓練](training-and-model.md#training-dataset-for-custom-translator)、[微調](training-and-model.md#tuning-dataset-for-custom-translator)和[測試](training-and-model.md#testing-dataset-for-custom-translator)文件集。 您可以上傳[平行處理](what-are-parallel-documents.md)和組合文件。 您也可以上傳[字典](what-is-dictionary.md)。
+接著，上傳[訓練](training-and-model.md#training-document-type-for-custom-translator)、[微調](training-and-model.md#tuning-document-type-for-custom-translator)和[測試](training-and-model.md#testing-dataset-for-custom-translator)文件集。 您可以上傳[平行處理](what-are-parallel-documents.md)和組合文件。 您也可以上傳[字典](what-is-dictionary.md)。
 
 您可以從 [文件] 索引標籤或從特定專案的頁面上傳文件。
 
@@ -49,7 +49,7 @@ ms.locfileid: "74975749"
 
 所有必要文件皆已上傳時，下一步是建置模型。
 
-選取您所建立的專案。 您會看到所有已上傳、且與這個專案共用語言組的文件。 選取您想要包含在模型中的文件。 您可以選取[訓練](training-and-model.md#training-dataset-for-custom-translator)、[微調](training-and-model.md#tuning-dataset-for-custom-translator)和[測試](training-and-model.md#testing-dataset-for-custom-translator)資料，也可以只選取訓練資料，然後讓自訂翻譯工具自動建置模型的微調和測試集。
+選取您所建立的專案。 您會看到所有已上傳、且與這個專案共用語言組的文件。 選取您想要包含在模型中的文件。 您可以選取[訓練](training-and-model.md#training-document-type-for-custom-translator)、[微調](training-and-model.md#tuning-document-type-for-custom-translator)和[測試](training-and-model.md#testing-dataset-for-custom-translator)資料，也可以只選取訓練資料，然後讓自訂翻譯工具自動建置模型的微調和測試集。
 
 ![建立模型](media/quickstart/ct-how-to-train.png)
 

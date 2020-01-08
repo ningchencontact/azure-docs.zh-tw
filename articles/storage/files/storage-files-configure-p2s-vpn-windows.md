@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 527ab905997d18433d1dba5c16ee67c8146f5afa
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 90995b1c9d10c7b589706f5abf37f92d76e4362b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73126454"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560346"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>在 Windows 上設定點對站 (P2S) VPN 以用於 Azure 檔案儲存體
 您可以使用點對站 (P2S) VPN 連線，從 Azure 外部透過 SMB 掛接 Azure 檔案共用，而不需要開啟連接埠 445。 點對站 VPN 連線是 Azure 與個別用戶端之間的 VPN 連線。 若要將 P2S VPN 連線用於 Azure 檔案儲存體，必須為每個要連線的用戶端設定 P2S VPN 連線。 如果您有許多用戶端需要從內部部署網路連線至 Azure 檔案共用，您可以對每個用戶端使用站對站 (S2S) VPN 連線，而不使用點對站連線。 若要深入了解，請參閱[設定站對站 VPN 以用於 Azure 檔案儲存體](storage-files-configure-s2s-vpn.md)。
@@ -21,7 +21,7 @@ ms.locfileid: "73126454"
 
 本文將詳細說明在 Windows (Windows 用戶端和 Windows Server) 上設定點對站 VPN 以直接在內部部署掛接 Azure 檔案共用的步驟。 如果您想要透過 VPN 來路由傳送 Azure 檔案同步流量，請參閱[設定 Azure 檔案同步 Proxy 和防火牆設定](storage-sync-files-firewall-and-proxy.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 - 最新版本的 Azure PowerShell 模組。 如需如何安裝 Azure PowerShell 的詳細資訊，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)，並選取您的作業系統。 您也可以在 Windows 上使用 Azure CLI，但以下顯示的是適用於 Azure PowerShell 的指示。
 
 - Azure 私人 DNS PowerShell 模組。 此模組目前並未發佈為 Azure PowerShell 模組的一部分，您可以使用下列方法加以安裝：
@@ -161,7 +161,7 @@ foreach($ipconfig in $internalNic.Properties.ipConfigurations) {
         $recordName = $fqdn.split('.', 2)[0]
         $dnsZone = $fqdn.split('.', 2)[1]
         New-AzPrivateDnsRecordSet `
-            -ResourceGroupName $resourceGroupName ` 
+            -ResourceGroupName $resourceGroupName `
             -Name $recordName `
             -RecordType A `
             -ZoneName $zone.Name `

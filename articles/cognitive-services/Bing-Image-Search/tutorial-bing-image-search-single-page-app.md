@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: c0f06f02a274780085fdb3c4c270ad541a0daa8c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: decfeb9c46c32c6388228de6597db0c840354c19
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930706"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448576"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>教學課程：使用 Bing 影像搜尋 API 來建立單頁應用程式
 
@@ -31,7 +31,7 @@ ms.locfileid: "74930706"
 
 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search) 上有此教學課程的完整原始程式碼。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * 最新版的 [Node.js](https://nodejs.org/)。
 * 適用於 Node.js 的 [Express.js](https://expressjs.com/) 架構。 GitHub 範例讀我檔案中會提供原始程式碼的安裝指示。
@@ -316,7 +316,7 @@ function renderImageResults(items) {
 
 「Bing 影像搜尋 API」可以傳回四種類型的搜尋建議來協助引導使用者的搜尋體驗，其中每種建議都在自己的最上層物件中：
 
-| 建議         | 說明                                                                                                                                                                                                         |
+| 建議         | 描述                                                                                                                                                                                                         |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pivotSuggestions` | 將原始搜尋中的樞紐字組取代為不同樞紐字組的查詢。 比方說，若您搜尋「紅色花卉」，樞紐字組可能是「紅色」，而樞紐建議可能是「黃色花卉」。 |
 | `queryExpansions`  | 藉由新增多個字詞以縮小原始搜尋範圍的查詢。 比方說，若您搜尋 "Microsoft Surface"，可能是查詢擴充可能是 "Microsoft Surface Pro"。                                   |
@@ -338,7 +338,7 @@ searchItemRenderers = {
 
 這些轉譯器函式可接受下列參數：
 
-| 參數         | 說明                                                                                              |
+| 參數         | 描述                                                                                              |
 |---------|----------------------------------------------------------------------------------------------|
 | `item`  | JavaScript 物件，其中包含項目的屬性，例如其 URL 及其描述。 |
 | `index` | 集合內結果項目的索引。                                          |

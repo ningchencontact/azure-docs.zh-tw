@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: d3f523bbc0236536734f21870474492a61532ada
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3fb2f4a4969e8df94a60ac20c761f073b6a9d030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719016"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462096"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>教學課程：使用 Azure Functions 和 Azure Logic Apps 來回應透過 Azure 事件方格所收到的 Azure 服務匯流排事件
 在本教學課程中，您將了解如何使用 Azure Functions 和 Azure Logic Apps 來回應透過 Azure 事件方格所收到的 Azure 服務匯流排事件。 您將會執行下列步驟：
@@ -50,7 +50,7 @@ ms.locfileid: "73719016"
 3. 移至 **MessageSender** 專案，然後選取 **Program.cs**。
 4. 填入您從上一個步驟獲得的服務匯流排主題名稱和連接字串：
 
-    ```CSharp
+    ```csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     const string TopicName = "YOUR TOPIC NAME";
     ```
@@ -69,7 +69,7 @@ ms.locfileid: "73719016"
 
 1. 在樹狀檢視中展開 [Functions]  ，然後選取您的函式。 使用下列程式碼取代該函式的程式碼： 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     
     using System.Net;
@@ -131,7 +131,7 @@ ms.locfileid: "73719016"
     2. 選取 [~1]  作為 [執行階段版本]  。 
 2. 在樹狀檢視中展開 [Functions]  ，然後選取您的函式。 使用下列程式碼取代該函式的程式碼： 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     using System.Net;
     using Newtonsoft.Json;
@@ -288,7 +288,7 @@ ms.locfileid: "73719016"
     4. 選取 [從主題訂用帳戶取得訊息 (查看鎖定)]  。 
 
         ![Logic Apps 設計工具 - 取得訊息動作](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
-    5. 輸入**連線的名稱**。 例如︰**從主題訂用帳戶取得訊息**，然後選取服務匯流排命名空間。 
+    5. 輸入**連線的名稱**。 例如：**從主題訂用帳戶取得訊息**，然後選取服務匯流排命名空間。 
 
         ![Logic Apps 設計工具 - 選取服務匯流排命名空間](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
     6. 選取 [RootManageSharedAccessKey]  。

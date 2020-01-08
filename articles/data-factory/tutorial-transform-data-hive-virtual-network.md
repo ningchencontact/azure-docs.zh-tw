@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: f90933dea5421d68116d29df6b9429d298bb0d88
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ab8df188027ada2119334e058ffc5a10cca23914
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925074"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439159"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 虛擬網路中使用 Azure Data Factory 中的 Hive 活動轉換資料
 
@@ -32,7 +32,7 @@ ms.locfileid: "74925074"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -174,10 +174,7 @@ ms.locfileid: "74925074"
     "properties": {
       "type": "AzureStorage",
       "typeProperties": {
-        "connectionString": {
-          "value": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>",
-          "type": "SecureString"
-        }
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>"
       },
       "connectVia": {
         "referenceName": "MySelfhostedIR",
@@ -280,8 +277,8 @@ ms.locfileid: "74925074"
 
 請注意下列幾點：
 
-- **scriptPath** 指向您用於 MyStorageLinkedService 的 Azure 儲存體帳戶上的 Hive 指令碼路徑。 路徑區分大小寫。
-- **Output** 是 Hive 指令碼中使用的引數。 請使用 `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 格式，以指向您的 Azure 儲存體上現有的資料夾。 路徑區分大小寫。 
+- **scriptPath** 指向您用於 MyStorageLinkedService 的 Azure 儲存體帳戶上的 Hive 指令碼路徑。 路徑會區分大小寫。
+- **Output** 是 Hive 指令碼中使用的引數。 請使用 `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 格式，以指向您的 Azure 儲存體上現有的資料夾。 路徑會區分大小寫。 
 
 切換至您建立 JSON 檔案的資料夾，然後執行下列命令來部署管道： 
 
@@ -292,7 +289,7 @@ Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName
 
 ## <a name="start-the-pipeline"></a>啟動管道 
 
-1. 啟動管線執行。 它也會擷取管道執行識別碼，方便後續監視。
+1. 啟動管線執行。 它也會擷取管線執行識別碼，方便後續監視。
 
     ```powershell
     $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName

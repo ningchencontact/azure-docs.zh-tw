@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: c2a689f7c3ac1308e12d0e371a9ad7f7187417d6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2abf6187be78ee6cb78676284848051a935b150b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792184"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445474"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>快速入門：將現有的 MongoDB Node.js Web 應用程式遷移至 Azure Cosmos DB 
 
@@ -40,8 +40,8 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
-## <a name="prerequisites"></a>必要條件 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+## <a name="prerequisites"></a>Prerequisites 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 除了 Azure CLI，您還需要在本機安裝 [Node.js](https://nodejs.org/) 和 [Git](https://www.git-scm.com/downloads)，才能執行 `npm` 和 `git` 命令。
@@ -97,7 +97,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](../azure-resource-manager/resource-group-overview.md) 來建立[資源群組](/cli/azure/group#az-group-create)。 Azure 資源群組是在其中部署與管理 Azure 資源 (如 Web 應用程式、資料庫和儲存體帳戶) 的邏輯容器。 
+使用 [az group create](../azure-resource-manager/management/overview.md) 來建立[資源群組](/cli/azure/group#az-group-create)。 Azure 資源群組是在其中部署與管理 Azure 資源 (如 Web 應用程式、資料庫和儲存體帳戶) 的邏輯容器。 
 
 下列範例會在西歐區域中建立一個資源群組。 選擇資源群組的唯一名稱。
 

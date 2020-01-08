@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8265bad5b756ee2ac23bc41c9c58452251ce0717
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 48362b269f38928fec8b1987ea21397b74e7dfb2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950642"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368023"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 登入傳統型應用程式
 
@@ -25,7 +25,7 @@ Azure Active Directory B2C (Azure AD B2C) 提供雲端身分識別管理，使�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)，其中包含 **ASP.NET 和 Web 部署**工作負載。
 - Facebook、Google 或 Microsoft 社交帳戶。
@@ -77,9 +77,9 @@ Azure AD B2C 提供讓使用者更新其設定檔的功能。 範例 Web 應用�
 
 按一下 [呼叫 API]  向受保護的資源提出要求。
 
-    ![Call API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
+![呼叫 API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 
-    The application includes the Azure AD access token in the request to the protected web API resource. The web API sends back the display name contained in the access token.
+此應用程式會在對受保護 Web API 資源的要求中包含 Azure AD 存取權杖。 Web API 會傳回存取權杖中所包含的顯示名稱。
 
 您已成功使用 Azure AD B2C 使用者帳戶，對受 Azure AD B2C 保護的 Web API 提出授權呼叫。
 

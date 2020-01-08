@@ -7,15 +7,15 @@ author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 03aafb133f1d4a18ffe2b46ae5ec36225865a239
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 6bb647273467a07786413ff4ea30cda836b7cb1b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819048"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466897"
 ---
 本指南說明如何安裝適用於 Linux 的[語音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)
 
@@ -25,7 +25,7 @@ ms.locfileid: "74819048"
 
 Linux (Ubuntu 16.04、Ubuntu 18.04、Debian 9)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本快速入門，您將需要：
 

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: banders
-ms.openlocfilehash: cc4b552143917f5a9ca66ad402cca79956186d08
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 112bcf7f5cb33fec56cdc36c5fe8cfe92145705a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841264"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644489"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>了解您的 Azure Enterprise 合約帳單
 
@@ -105,7 +105,7 @@ ms.locfileid: "74841264"
 
 下表列出發票上和企業版入口網站中 [使用量摘要]  上所顯示的詞彙和說明：
 
-|發票詞彙|使用量摘要詞彙|說明|
+|發票詞彙|使用量摘要詞彙|描述|
 |---|---|---|
 |應收金額總計|總使用量|套用信用額度之前針對特定期間的稅前使用量費用總計。|
 |已使用的承諾用量|已使用的承諾用量|在該特定期間內套用的信用額度。|

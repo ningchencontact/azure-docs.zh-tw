@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: a43b945ce11736b16e8e11edbe988a3c48f62d51
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 661edf94fd0c505968fc78a367ceda6a93afe401
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718774"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426882"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本建立服務匯流排命名空間與主題和訂用帳戶
 
@@ -154,7 +154,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 * [使用 PowerShell 管理服務匯流排](service-bus-manage-with-ps.md)
 * [使用服務匯流排總管管理服務匯流排資源](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md

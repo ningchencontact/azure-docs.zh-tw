@@ -7,21 +7,21 @@ author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 498aaa03544acc5a7c8399f1928129b70a7114e9
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 664dbd01ae3e9db7b765eec85e874267c32691e1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816529"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467498"
 ---
 本指南說明如何安裝適用於 [Xamarin](https://docs.microsoft.com/xamarin/get-started/what-is-xamarin) 的[語音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)，Xamarin 是開放原始碼平台，可使用 .NET 建立適用於 iOS、Android 和 Windows 的現代化高效能應用程式。 
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 本快速入門需要：
 

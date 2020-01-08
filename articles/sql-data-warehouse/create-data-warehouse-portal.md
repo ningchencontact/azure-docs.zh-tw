@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4ae1d9ce8a4683f8d55962843fb1070ef24b3a87
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 841041cb9fa20b034dd4522a5231813b71558bd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815813"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457802"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立及查詢 Azure SQL 資料倉儲
 
@@ -37,7 +37,7 @@ ms.locfileid: "74815813"
 
 ## <a name="create-a-data-warehouse"></a>建立資料倉儲
 
-Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-concurrency-limits.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-logical-servers.md)內。 
+Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-concurrency-limits.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/management/overview.md)和 [Azure SQL 邏輯伺服器](../sql-database/sql-database-logical-servers.md)內。 
 
 依照下列步驟來建立包含 AdventureWorksDW 範例資料的 SQL 資料倉儲。 
 
@@ -49,7 +49,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-concurrency-
 
 3. 在 SQL 資料倉儲表單中填寫下列資訊︰
 
-    | 設定 | 建議的值 | 說明 |
+    | 設定 | 建議的值 | 描述 |
     | :------ | :-------------- | :---------- |
     | **訂用帳戶** | 您的訂用帳戶 | 如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
     | **資源群組** | myResourceGroup | 如需有效的資源群組名稱，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。 |
@@ -60,7 +60,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-concurrency-
 
 4. 選取現有的**伺服器**或按一下 [新建]  ，為新的資料庫建立及設定新的伺服器。 在**新伺服器表單**表單中填寫下列資訊︰ 
 
-    | 設定 | 建議的值 | 說明 |
+    | 設定 | 建議的值 | 描述 |
     | :------ | :-------------- | :---------- |
     | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。 |
     | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。|
@@ -70,7 +70,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-concurrency-
 
     ![建立資料庫伺服器](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
-5. 按一下 [選取]  。
+5. 按一下 [選取]。 
 
 6. 按一下 [效能等級]  以指定資料倉儲的效能設定。
 
@@ -136,22 +136,22 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆。 此防火牆會防
 
 1. 開啟 SQL Server Management Studio。
 
-2. 在 [連接到伺服器]  對話方塊中，輸入下列資訊：
+2. 在 [連線至伺服器]  對話方塊中，輸入下列資訊：
 
-   | 設定 | 建議的值 | 說明 |
+   | 設定 | 建議的值 | 描述 |
    | :------ | :-------------- | :---------- |
    | 伺服器類型 | 資料庫引擎 | 這是必要值 |
    | 伺服器名稱 | 完整伺服器名稱 | 以下是範例：**mynewserver-20180430.database.windows.net**。 |
-   | Authentication | SQL Server 驗證 | SQL 驗證是本教學課程中設定的唯一驗證類型。 |
-   | 登入 | 伺服器管理帳戶 | 您在建立伺服器時所指定的帳戶。 |
-   | 密碼 | 伺服器管理帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
+   | 驗證 | SQL Server 驗證 | SQL 驗證是本教學課程中設定的唯一驗證類型。 |
+   | 登入 | 伺服器系統管理員帳戶 | 您在建立伺服器時所指定的帳戶。 |
+   | 密碼 | 伺服器系統管理員帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
    ||||
 
-    ![連接到伺服器](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
+    ![連線至伺服器](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-3. 按一下 [ **連接**]。 [物件總管] 視窗隨即在 SSMS 中開啟。 
+3. 按一下 [ **連接**]。 [物件總管] 視窗會在 SSMS 中開啟。 
 
-4. 在 [物件總管] 中，展開 [資料庫]  。 然後展開 [mySampleDatabase]  可檢視新資料庫中的物件。
+4. 在 [物件總管] 中展開 [資料庫]  。 然後展開 [mySampleDatabase]  可檢視新資料庫中的物件。
 
     ![資料庫物件](media/create-data-warehouse-portal/connected.png) 
 
@@ -159,14 +159,14 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆。 此防火牆會防
 
 SQL 資料倉儲會使用 T-SQL 作為查詢語言。 若要開啟查詢視窗並執行一些 T-SQL 查詢，請使用下列步驟：
 
-1. 以滑鼠右鍵按一下 [mySampleDataWarehouse]  ，然後選取 [新增查詢]  。 新的查詢視窗隨即開啟。
+1. 以滑鼠右鍵按一下 [mySampleDataWarehouse]  ，然後選取 [新增查詢]  。 隨即開啟 [新增查詢] 視窗。
 2. 在新的查詢視窗中，輸入下列命令可查看資料庫清單。
 
     ```sql
     SELECT * FROM sys.databases
     ```
 
-3. 按一下 [Execute (執行)]  。 查詢結果顯示兩個資料庫：**master** 和 **mySampleDataWarehouse**。
+3. 按一下 **[執行]** 。 查詢結果顯示兩個資料庫：**master** 和 **mySampleDataWarehouse**。
 
     ![查詢資料庫](media/create-data-warehouse-portal/query-databases.png)
 

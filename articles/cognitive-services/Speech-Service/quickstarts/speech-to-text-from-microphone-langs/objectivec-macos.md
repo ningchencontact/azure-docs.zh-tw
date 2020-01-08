@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 12/23/2019
 ms.author: chlandsi
-ms.openlocfilehash: be5f62a75d9a3998d843e9865768b46658b8386c
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: c2f0fbe66b26c6eca6e0c0b2530efacba9bae958
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815024"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75380587"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 macOS 上以 Objective-C 辨識語音
 
@@ -23,7 +23,7 @@ ms.locfileid: "74815024"
 
 在本文中，您將了解如何使用 Azure 認知服務語音 SDK 以 Objective-C 建立 iOS 應用程式，以將麥克風錄製的語音轉譯成文字。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始之前，您需要下列項目：
 

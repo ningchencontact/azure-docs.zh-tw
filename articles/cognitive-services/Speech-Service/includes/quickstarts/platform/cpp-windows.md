@@ -7,19 +7,19 @@ author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 7a3984c2a99180bec96f3685b661cd9e6334ff26
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 856d3519ee614ac461cafd6a58417576164959ee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818597"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467784"
 ---
 本指南說明如何在 Windows 桌面上安裝適用於 C++ 的[語音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 本快速入門需要：
 

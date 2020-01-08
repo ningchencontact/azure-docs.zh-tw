@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: cbe5f0023b16aec1ed68e7a78ddb3103f40eb85b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 8222a940909b98fbcce9797fe2d59f0bfb554526
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378601"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448350"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>快速入門：使用適用於 Java 的 Bing 影片搜尋 SDK 來執行影片搜尋
 
 透過本快速入門開始使用適用於 Java 的 Bing 影片搜尋 SDK 來搜尋新聞。 雖然 Bing 影片搜尋具有與大部分程式設計語言相容的 REST API，但 SDK 會提供簡單的方法，將服務整合到您的應用程式。 在 [Github](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch) 上可找到此範例的完整原始程式碼，以及其他註釋和功能。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Java 開發套件 (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 

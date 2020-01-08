@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 073193329950e1d7e6a812da4555ec8ba76f65e3
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 071c44136d917874843bdf080de775ec6739937a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573188"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442861"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>快速入門：建立伺服器 - PowerShell
 
 本快速入門說明如何從命令列使用 PowerShell 在 Azure 訂用帳戶中建立 Azure Analysis Services 伺服器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -44,7 +44,7 @@ Connect-AzAccount
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-[Azure 資源群組](../azure-resource-manager/resource-group-overview.md)是在其中以群組方式部署與管理 Azure 資源的邏輯容器。 當您建立伺服器時，必須指定您訂用帳戶中的資源群組。 如果您還沒有資源群組，可以使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 命令建立一個新的資源群組。 下列範例會在美國西部區域中建立一個名為 `myResourceGroup` 的資源群組。
+[Azure 資源群組](../azure-resource-manager/management/overview.md)是在其中以群組方式部署與管理 Azure 資源的邏輯容器。 當您建立伺服器時，必須指定您訂用帳戶中的資源群組。 如果您還沒有資源群組，可以使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 命令建立一個新的資源群組。 下列範例會在美國西部區域中建立一個名為 `myResourceGroup` 的資源群組。
 
 ```powershell
 New-AzResourceGroup -Name "myResourceGroup" -Location "WestUS"

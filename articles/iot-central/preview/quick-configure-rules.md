@@ -3,18 +3,18 @@ title: 快速入門 - 在 Azure IoT Central 中設定規則和動作
 description: 本快速入門將為建置者說明如何在 Azure IoT Central 應用程式中設定以遙測為基礎的規則和動作。
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/09/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: f81171d0f545bbf7f903d54bee761817e9451d9d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 489a512ea5658aaeaccdba4b91eae7def14a589c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706729"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434810"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central-preview-features"></a>快速入門：在 Azure IoT Central 中為您的裝置設定規則和動作 (預覽功能)
 
@@ -24,7 +24,7 @@ ms.locfileid: "74706729"
 
 在本快速入門中，您會建立在環境感應器裝置的溫度超過 90&deg; F 時傳送電子郵件的規則。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始之前，請先完成[建立 Azure IoT Central 應用程式](./quick-deploy-iot-central.md)和[將模擬裝置新增至 IoT Central 應用程式](./quick-create-pnp-device.md)這兩個先前的快速入門，以建立要使用的**環境感應器**裝置範本。
 

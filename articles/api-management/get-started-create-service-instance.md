@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a0917f2649f1b780429f78406900c599c5ac853e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: acfa10ea506e063bf6b230386ca0722f1c959d18
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472041"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442568"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>建立新的 Azure API 管理服務執行個體
 
@@ -47,11 +47,11 @@ ms.locfileid: "73472041"
    
    ![新執行個體](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
    
-   | 設定                 | 建議的值                               | 說明                                                                                                                                                                                                                                                                                                                         |
+   | 設定                 | 建議的值                               | 描述                                                                                                                                                                                                                                                                                                                         |
 |-------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **名稱**                | API 管理服務的唯一名稱 | 此名稱無法在之後變更。 服務名稱用來產生預設網域名稱，格式為 *{name}.azure-api.net*。 如果您想要使用自訂網域名稱，請參閱[設定自訂網域](configure-custom-domain.md)。 <br/> 服務名稱用來參考服務和對應的 Azure 資源。 |
 | **訂用帳戶**        | 您的訂用帳戶                             | 將在其下建立這個新服務執行個體的訂用帳戶。 您可以從可存取的不同 Azure 訂用帳戶之中，選取一個訂用帳戶。                                                                                                                                                            |
-| **資源群組**      | *apimResourceGroup*                           | 您可以選取新的或現有的資源。 資源群組是共用生命週期、權限及原則的資源集合。 [在此](../azure-resource-manager/resource-group-overview.md#resource-groups)深入了解。                                                                                                  |
+| **資源群組**      | *apimResourceGroup*                           | 您可以選取新的或現有的資源。 資源群組是共用生命週期、權限及原則的資源集合。 [在此](../azure-resource-manager/management/overview.md#resource-groups)深入了解。                                                                                                  |
 | **位置**            | *美國西部*                                    | 選取您附近的地理區域。 只有可用的 API 管理服務區域才會出現在下拉式清單方塊中。                                                                                                                                                                                                          |
 | **組織名稱**   | 您的組織名稱                 | 此名稱會在有許多地方使用，包括開發人員入口網站的標題和通知電子郵件的傳送者。                                                                                                                                                                                                             |
 | **管理員電子郵件** | *admin\@org.com*                               | 設定電子郵件地址以接收所有來自 **API 管理**的通知。                                                                                                                                                                                                                                              |

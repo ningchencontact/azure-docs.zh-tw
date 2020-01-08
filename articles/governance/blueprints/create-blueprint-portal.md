@@ -3,18 +3,18 @@ title: 快速入門：在入口網站中建立藍圖
 description: 在本快速入門中，您將在 Azure 入口網站中使用 Azure 藍圖建立、定義和部署成品。
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: efef8db6086f050829b60b5051ad683bbae9ab75
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: fa9eb8285086e35f8b23798c41a09529d0f49582
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321933"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436624"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>快速入門：在入口網站中定義和指派藍圖
 
 在了解如何建立及指派藍圖後，您即可根據 Resource Manager 範本、原則、安全性等要素定義常用模式，以開發可重複使用並可快速部署的組態。 在本教學課程中，您將了解如何使用 Azure 藍圖在您的組織中處理藍圖的建立、發佈和指派等常見工作。 這些工作包括：
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free)。
 
@@ -268,7 +268,9 @@ ms.locfileid: "74321933"
 
 1. 在 [藍圖指派]  頁面上，驗證已成功部署所有成品，且部署期間並未出現任何錯誤。 如果發生錯誤，請參閱[疑難排解藍圖](./troubleshoot/general.md)的步驟，判斷發生錯誤的原因。
 
-## <a name="unassign-a-blueprint"></a>取消指派藍圖
+## <a name="clean-up-resources"></a>清除資源
+
+### <a name="unassign-a-blueprint"></a>取消指派藍圖
 
 如果不再需要某個藍圖指派，請將其從訂用帳戶中移除。 較新的藍圖可以更新後的模式、原則和設計取代此藍圖。 移除藍圖時，會將指派為該藍圖一部份的成品保留下來。 若要移除藍圖指派，請按照下列步驟操作：
 
@@ -278,7 +280,7 @@ ms.locfileid: "74321933"
 
 1. 閱讀確認訊息，然後選取 [確定]  。
 
-## <a name="delete-a-blueprint"></a>刪除藍圖
+### <a name="delete-a-blueprint"></a>刪除藍圖
 
 1. 在頁面左側選取 [藍圖定義]  。
 

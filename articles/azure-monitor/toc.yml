@@ -8,7 +8,17 @@
       href: terminology.md
 - name: 快速入門
   items:
-    - name: 應用程式
+    - name: 監視 Azure 資源
+      href: learn/quick-monitor-azure-resource.md
+    - name: 監視虛擬機器
+      items:
+        - name: 收集 - Azure VM
+          href: learn/quick-collect-azurevm.md
+        - name: 收集 - Linux 電腦
+          href: learn/quick-collect-linux-computer.md
+        - name: 收集 - Windows 電腦
+          href: learn/quick-collect-windows-computer.md
+    - name: 監視應用程式
       items:
         - name: .NET 應用程式
           href: learn/quick-monitor-portal.md
@@ -20,26 +30,20 @@
           href: learn/mobile-center-quickstart.md
         - name: Web 應用程式
           href: app/website-monitoring.md
-    - name: 虛擬機器
-      items:
-        - name: 收集 - Azure VM
-          href: learn/quick-collect-azurevm.md
-        - name: 收集 - Linux 電腦
-          href: learn/quick-collect-linux-computer.md
-        - name: 收集 - Windows 電腦
-          href: learn/quick-collect-windows-computer.md
 - name: 教學課程
   items:
-    - name: 記錄
-      items:
-        - name: Log Analytics
-          href: log-query/get-started-portal.md
-        - name: 記錄查詢
-          href: log-query/get-started-queries.md
-        - name: 具有記錄資料的儀表板
-          href: learn/tutorial-logs-dashboards.md
-        - name: 記錄資料警示
-          href: learn/tutorial-response.md
+    - name: 建立計量圖表
+      href: learn/tutorial-metrics-explorer.md
+    - name: 從 Azure 資源收集記錄
+      href: learn/tutorial-resource-logs.md
+    - name: 寫入記錄查詢
+      href: log-query/get-started-queries.md
+    - name: 從記錄查詢建立儀表板
+      href: learn/tutorial-logs-dashboards.md
+    - name: 從記錄查詢建立警示
+      href: learn/tutorial-response.md
+    - name: 針對效能和排程自動調整規模
+      href: learn/tutorial-autoscale-performance-schedule.md
     - name: Application Insights
       items:
         - name: 尋找應用程式執行階段例外狀況
@@ -52,10 +56,6 @@
           href: learn/tutorial-users.md
         - name: 具有應用程式資料的儀表板
           href: learn/tutorial-app-dashboards.md
-    - name: 封存平台計量和記錄資料
-      href: learn/tutorial-archive-data.md
-    - name: 針對效能和排程自動調整規模
-      href: learn/tutorial-autoscale-performance-schedule.md
 - name: 範例
   items:
     - name: Azure PowerShell
@@ -117,7 +117,7 @@
         - name: Application Insights
           displayName: FAQ
           href: app/troubleshoot-faq.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 管理 Azure 監視器
       items:
@@ -479,50 +479,46 @@
           href: insights/monitor-azure-resource.md
         - name: 監視資源群組
           href: insights/resource-group-insights.md
-        - name: 平台記錄概觀
-          href: platform/platform-logs-overview.md
-        - name: 資源記錄
+        - name: 平台記錄
           items:
             - name: 概觀
-              displayname: Resource logs
-              href: platform/resource-logs-overview.md
-            - name: 在 Azure 監視器記錄中收集
-              displayname: Resource logs
-              href: platform/resource-logs-collect-workspace.md
-            - name: 封存至儲存體
-              displayname: Resource logs
-              href: platform/resource-logs-collect-storage.md
-            - name: 串流至事件中樞
-              displayname: Resource logs
-              href: platform/resource-logs-stream-event-hubs.md
-        - name: 活動記錄檔
-          items:
-            - name: 概觀
-              displayname: Activity log
-              href: platform/activity-logs-overview.md
-            - name: 使用診斷設定收集
-              displayname: Activity log
-              href: platform/diagnostic-settings-subscription.md
-            - name: 檢視和擷取
-              displayname: Activity log
+              displayName: 'Platform logs, Resource logs, Activity log'
+              href: platform/platform-logs-overview.md
+            - name: 檢視活動記錄
+              displayName: Platform logs
               href: platform/activity-log-view.md
-            - name: 收集和分析
-              displayname: Activity log
-              href: platform/activity-log-collect.md
-            - name: 跨租用戶收集
-              displayname: Activity log
-              href: platform/activity-log-collect-tenants.md
-            - name: 匯出
-              displayname: Activity log
-              href: platform/activity-log-export.md
-            - name: 結構描述
-              displayname: Activity log
-              href: platform/activity-log-schema.md
+            - name: 傳送到目的地
+              items:
+                - name: Log Analytics 工作區
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-collect-workspace.md
+                - name: Azure 儲存體
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-collect-storage.md
+                - name: 事件中樞
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-stream-event-hubs.md
+            - name: 舊版活動記錄集合
+              items:
+                - name: 概觀
+                  displayName: Resource logs
+                  href: platform/diagnostic-settings-legacy.md
+                - name: 收集和分析
+                  displayname: Activity log
+                  href: platform/activity-log-collect.md
+                - name: 跨租用戶收集
+                  displayname: Activity log
+                  href: platform/activity-log-collect-tenants.md
+                - name: 匯出
+                  displayname: Activity log
+                  href: platform/activity-log-export.md
         - name: 診斷設定
           items:
             - name: 建立診斷設定
+              displayName: 'Platform logs, Resource logs, Activity log'
               href: platform/diagnostic-settings.md
-            - name: 使用 Resource Manager 建立診斷設定
+            - name: 使用 Resource Manager 建立
+              displayName: 'diagnostic setting, Platform logs, Resource logs, Activity log'
               href: platform/diagnostic-settings-template.md
             - name: 變更為 Blob 儲存體格式
               displayname: Diagnostic settings
@@ -579,6 +575,8 @@
                   href: platform/log-analytics-agent.md
                 - name: Windows 代理程式
                   href: platform/agent-windows.md
+                - name: Linux 代理程式
+                  href: platform/agent-linux.md
                 - name: Windows 的 VM 延伸模組
                   href: ../virtual-machines/windows/extensions-oms.md
                 - name: Linux 的 VM 延伸模組
@@ -700,7 +698,7 @@
               items:
                 - name: 即時資料 (預覽) 概觀
                   href: insights/container-insights-livedata-overview.md
-                - name: 設定
+                - name: 安裝程式
                   href: insights/container-insights-livedata-setup.md
                 - name: 檢視叢集計量
                   href: insights/container-insights-livedata-metrics.md
@@ -1161,10 +1159,16 @@
       items:
         - name: 支援的計量
           href: platform/metrics-supported.md
+        - name: 可使用診斷設定匯出的計量
+          href: platform/metrics-supported-export-diagnostic-settings.md
         - name: 較新警示的支援計量
           href: platform/alerts-metric-near-real-time.md
-    - name: 平台記錄服務、類別和結構描述
-      href: platform/diagnostic-logs-schema.md
+    - name: 平台記錄
+      items:
+        - name: 資源記錄服務、類別和結構描述
+          href: platform/diagnostic-logs-schema.md
+        - name: 活動記錄結構描述
+          href: platform/activity-log-schema.md
     - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure CLI - Application Insights (預覽)

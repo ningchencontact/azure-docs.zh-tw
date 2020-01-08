@@ -10,12 +10,12 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: d7cafa6ec385ed296a5341efdaec1b16f7742683
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928799"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440065"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>教學課程：使用 Azure Resource Manager 範本建立 Azure Data Factory
 
@@ -38,7 +38,7 @@ ms.locfileid: "74928799"
 
 ## <a name="resource-manager-templates"></a>Resource Manager 範本
 
-若要了解一般的 Azure Resource Manager 範本，請參閱[撰寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)。
+若要了解一般的 Azure Resource Manager 範本，請參閱[撰寫 Azure Resource Manager 範本](../azure-resource-manager/templates/template-syntax.md)。
 
 下節會提供完整的 Resource Manager 範本來定義 Data Factory 實體，如此您可以快速執行教學課程並測試範本。 若要了解每個 Data Factory 實體的定義方式，請參閱[範本中的 Data Factory 實體](#data-factory-entities-in-the-template)一節。
 
@@ -287,7 +287,7 @@ ms.locfileid: "74928799"
 
 > [!IMPORTANT]
 > - 針對此參數檔案中的 **storageAccountName** 和 **storageAccountKey** 參數指定您 Azure 儲存體帳戶的名稱和金鑰。 您已建立 adftutorial 容器並將範例檔案 (emp.txt) 上傳到此 Azure blob 儲存體中的輸入資料夾。
-> - 為 **dataFactoryName** 參數的資料處理站指定全域唯一的名稱。 例如︰ARMTutorialFactoryJohnDoe11282017。
+> - 為 **dataFactoryName** 參數的資料處理站指定全域唯一的名稱。 例如：ARMTutorialFactoryJohnDoe11282017。
 > - 針對 **triggerStartTime**，指定以下格式的當天日期：`2019-09-08T00:00:00`。
 > - 針對 **triggerEndTime**，指定以下格式的隔天日期：`2019-09-09T00:00:00`。 您也可檢查目前的 UTC 時間，並指定下一個小時或兩個小時作為結束時間。 例如，如果現在的 UTC 時間為上午 1:32，則指定 `2019-09-09:03:00:00` 作為結束時間。 在此情況下，觸發程序會執行管線兩次 (在上午 2 點和上午 3 點)。
 

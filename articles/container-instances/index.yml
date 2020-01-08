@@ -3,7 +3,7 @@ title: Azure 容器執行個體文件
 summary: 在受控、無伺服器的 Azure 環境中，視需要執行 Docker 容器。 Azure 容器執行個體是適用於任何可在隔離容器中運作的案例解決方案，而不需要協調流程。 執行事件驅動的應用程式、從容器開發管線快速部署，以及執行資料處理和組建作業。
 metadata:
   title: Azure 容器執行個體文件 - 無伺服器容器 (隨選)
-  description: 在受控、無伺服器的 Azure 環境中執行 Docker 容器。
+  description: Azure Container Instances (ACI) 可讓您在受控、無伺服器的雲端環境中執行 Docker 容器，而不需設定 VM、叢集或協調器。
   services: 
   ms.service: container-instances
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: dlepow
   ms.author: danlep
   ms.date: 09/25/2019
-  ms.openlocfilehash: a031f70cfaad9369f79a0e18f3527250eb82bfeb
-  ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+  ms.openlocfilehash: 4e7be5b6da633d370a2ccdce7331788f2fbe0440
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 09/27/2019
-  ms.locfileid: "71326960"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75445762"
 landingContent:
 - title: 關於 Azure Container Instances
   linkLists:
