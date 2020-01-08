@@ -1,25 +1,14 @@
 ---
-title: 深入了解 Azure Service Fabric 應用程式安全性 | Microsoft Docs
+title: 瞭解 Azure Service Fabric 應用程式安全性
 description: 如何安全地在 Service Fabric 上執行微服務應用程式的概觀。 深入了解如何在不同的安全性帳戶底下執行服務和啟動指令碼、驗證和授權使用者、管理應用程式祕密、保護服務通訊、使用 API 閘道，以及保護應用程式待用資料。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/16/2018
-ms.author: atsenthi
-ms.openlocfilehash: 75a82a0915414d24ab9c58ea15d3fdc9c1922c63
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6c40bf66d1068310790d1440174eeb5b2a571154
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600065"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452246"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 應用程式和服務安全性
 微服務架構可以帶來[許多優點](service-fabric-overview-microservices.md)。 不過，管理微服務的安全性是一種挑戰，而且與管理傳統的整合型應用程式安全性有所不同。 
@@ -28,7 +17,7 @@ ms.locfileid: "68600065"
 
 本文不是微服務安全性的指南 (線上有許多此類資源可供取用)，但會說明如何在 Service Fabric 中完成不同層面的安全性。
 
-## <a name="authentication-and-authorization"></a>驗證和授權
+## <a name="authentication-and-authorization"></a>驗證與授權
 通常需要將服務所公開的資源和 API 限制為適用於特定信任的使用者或用戶端。 驗證是可靠地查明使用者身分識別的程序。  授權是讓 API 或服務可供某些已驗證使用者使用 (其他使用者無法使用) 的程序。
 
 ### <a name="authentication"></a>驗證
@@ -36,9 +25,9 @@ ms.locfileid: "68600065"
 
 如果可以直接存取服務，則驗證服務 (例如 Azure Active Directory 或專用驗證微服務) 會作為安全性權杖服務 (STS)，可用來驗證使用者。 信任決策會在服務與安全性權杖或 Cookie 之間共用。 
 
-針對 ASP.NET Core，[驗證使用者](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)的主要機制是 ASP.NET Core 身分識別成員資格系統。 ASP.NET Core 身分識別會將使用者資訊 (包括登入資訊、角色及宣告) 儲存在由開發人員設定的資料存放區中。 ASP.NET Core 身分識別支援雙因素驗證。  此外, 也支援外部驗證提供者, 讓使用者可以使用來自 Microsoft、Google、Facebook 或 Twitter 等提供者的現有驗證程式進行登入。
+針對 ASP.NET Core，[驗證使用者](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)的主要機制是 ASP.NET Core 身分識別成員資格系統。 ASP.NET Core 身分識別會將使用者資訊 (包括登入資訊、角色及宣告) 儲存在由開發人員設定的資料存放區中。 ASP.NET Core 身分識別支援雙因素驗證。  此外，也支援外部驗證提供者，讓使用者可以使用來自 Microsoft、Google、Facebook 或 Twitter 等提供者的現有驗證程式進行登入。
 
-### <a name="authorization"></a>Authorization
+### <a name="authorization"></a>授權
 驗證之後，服務需要授權使用者存取權，或判斷使用者可以執行哪些作業。 這個程序允許服務讓 API 可供某些已驗證的使用者使用，而不是所有使用者都可使用。 授權與驗證彼此獨立且互不影響，後者是查明使用者是誰的程序。 驗證可為目前使用者建立一或多個身分識別。
 
 [ASP.NET Core 授權](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications)可以根據使用者的角色或根據自訂原則來進行，其中包含檢查宣告或其他啟發學習法。
@@ -66,7 +55,7 @@ ms.locfileid: "68600065"
 3. 在部署應用程式時以憑證來加密密碼的值，並將其插入服務的 Settings.xml 組態檔。
 4. 藉由以相同的編密憑證進行解密，從 Settings.xml 讀取加密的值。 
 
-[Azure Key Vault][key-vault-get-started]在這裡用來作為憑證的安全儲存位置, 以及取得在 Azure 中的 Service Fabric 叢集上安裝憑證的方法。 如果您沒有要部署至 Azure，您不需要使用金鑰保存庫管理 Service Fabric 應用程式中的密碼。
+[Azure Key Vault][key-vault-get-started]在這裡用來作為憑證的安全儲存位置，以及取得在 Azure 中的 Service Fabric 叢集上安裝憑證的方法。 如果您沒有要部署至 Azure，您不需要使用金鑰保存庫管理 Service Fabric 應用程式中的密碼。
 
 如需範例，請參閱[管理應用程式祕密](service-fabric-application-secret-management.md)。
 

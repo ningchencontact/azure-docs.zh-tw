@@ -1,24 +1,16 @@
 ---
-title: Azure Service Fabric 獨立叢集調整 | Microsoft Docs
+title: Azure Service Fabric 獨立叢集調整
 description: 了解 Service Fabric 獨立叢集的相應縮小、相應放大、相應增加或相應減少。
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/13/2018
 ms.author: dekapur
-ms.openlocfilehash: eedf80ec82a748f5da8e51aed8b4d403dffe4169
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 16ec0eb429ec6e8f6613490226b7cff01dff1b32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599861"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451921"
 ---
 # <a name="scaling-service-fabric-standalone-clusters"></a>調整 Service Fabric 獨立叢集
 Service Fabric 叢集是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 屬於叢集一部分的機器或 VM 都稱為節點。 叢集有可能包含數千個節點。 在建立 Service Fabric 叢集之後，您可以水平調整叢集 (變更節點數目)，或以垂直方式調整 (變更節點的資源)。  您可以隨時調整叢集，即使正在叢集上執行工作負載，也是如此。  在叢集進行調整時，您的應用程式也會自動調整。

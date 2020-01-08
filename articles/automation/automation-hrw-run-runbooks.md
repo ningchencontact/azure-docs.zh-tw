@@ -2,19 +2,15 @@
 title: 在 Azure 自動化混合式 Runbook 背景工作角色上執行 Runbook
 description: 本文章提供在您的本機資料中心的電腦上執行 Runbook，或使用混合式 Runbook 背景工作角色之雲端提供者的相關資訊。
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/29/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: c8da5736869a39815d9abf33cf4a03353681b193
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: ac31783f0eb270823b71c86cc8d7f0975d3a586a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849712"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452271"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>在混合式 Runbook 背景工作角色上執行 Runbook
 
@@ -141,7 +137,6 @@ This allows the use of the AzureRunAsConnection to authenticate to Azure and man
 .\Export-RunAsCertificateToHybridWorker
 
 .NOTES
-AUTHOR: Azure Automation Team
 LASTEDIT: 2016.10.13
 #>
 

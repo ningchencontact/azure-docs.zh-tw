@@ -1,25 +1,14 @@
 ---
-title: Service Fabric 叢集安全性：用戶端角色 |Microsoft Docs
+title: Service Fabric 叢集安全性：用戶端角色
 description: 本文說明兩個用戶端角色及提供給這些角色的權限。
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: coreysa
-editor: ''
-ms.assetid: 7bc808d9-3609-46a1-ac12-b4f53bff98dd
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 38656d286cae631cb5def0e0c8b171268e4cf428
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: abca19e686d39338fcaa2e0b0c8126913135170b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167257"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451889"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>角色型存取控制 (適用於 Service Fabric 用戶端)
 Azure Service Fabric 針對連線到 Service Fabric 叢集的用戶端，支援兩種不同的存取控制類型：系統管理員和使用者。 存取控制可讓叢集系統管理員針對不同的使用者群組限制特定叢集作業的存取權，讓叢集更加安全。  
@@ -52,9 +41,9 @@ Azure Service Fabric 針對連線到 Service Fabric 叢集的用戶端，支援�
 * **RecoverSystemPartitions**：復原系統服務分割                             
 
 ### <a name="cluster-operations"></a>叢集作業
-* **ProvisionFabric**：MSI 和/或叢集資訊清單布建                             
+* **ProvisionFabric**：佈建 MSI 和/或叢集資訊清單                             
 * **UpgradeFabric**：啟動叢集升級                             
-* **Unprovisionfabric 解除**：MSI 和/或叢集資訊清單取消布布                         
+* **UnprovisionFabric**：解除 MSI 和/或叢集資訊清單佈建                         
 * **MoveNextFabricUpgradeDomain**：以明確的更新網域繼續進行叢集升級                             
 * **ReportFabricUpgradeHealth**：以目前的升級進度繼續進行叢集升級                             
 * **StartInfrastructureTask**：啟動基礎結構工作                             

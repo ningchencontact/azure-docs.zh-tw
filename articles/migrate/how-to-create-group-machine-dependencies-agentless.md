@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: d0e002f0f1e620c108b23790dfc81574bee23795
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: b13ad375adf20a606b48755a6d57851abf89e549
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158429"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454663"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>設定無代理程式相依性視覺效果以進行評量
 
@@ -19,7 +19,7 @@ ms.locfileid: "74158429"
 
 > [!IMPORTANT]
 > 無代理程式相依性視覺效果目前為使用 Azure Migrate 設備探索到的 Azure VMware Vm 預覽。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
+> 可能不支援特定功能，或可能已經限制功能。 此預覽涵蓋于客戶支援，並可用於生產工作負載。
 > 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="about-dependency-mapping"></a>關於相依性對應
@@ -39,7 +39,7 @@ ms.locfileid: "74158429"
     - TCP 連線
     - 具有使用中連接的進程名稱
     - 執行上述進程的已安裝應用程式名稱
-    - 號 在每個輪詢間隔偵測到的連線數
+    - 不會。 在每個輪詢間隔偵測到的連線數
 
 ## <a name="current-limitations"></a>目前的限制
 
@@ -53,15 +53,15 @@ ms.locfileid: "74158429"
 - 請確定您已[建立](how-to-add-tool-first-time.md)Azure Migrate 專案。
 - 無代理程式相依性分析目前僅適用于 VMware 機器。
 - 如果您已經建立專案，請確定您已[新增](how-to-assess.md)Azure Migrate：伺服器評估工具。
-- 請確定您已在 Azure Migrate 中探索到 VMware 電腦;您可以藉由設定適用于[VMware](how-to-set-up-appliance-vmware.md)的 Azure Migrate 設備來完成這項操作。 設備會探索內部部署機器，並將中繼資料和效能資料傳送至 Azure Migrate：伺服器評量。 [詳細資訊](migrate-appliance.md)。
+- 請確定您已在 Azure Migrate 中探索到 VMware 電腦;您可以藉由設定適用于[VMware](how-to-set-up-appliance-vmware.md)的 Azure Migrate 設備來完成這項操作。 設備會探索內部部署機器，並將中繼資料和效能資料傳送至 Azure Migrate：伺服器評量。 [深入了解](migrate-appliance.md)。
 - 請確定 VMware Vm 支援無代理程式相依性視覺效果，如下表摘要所示。
 
 
-### <a name="supported-operating-systems"></a>受支援的作業系統
+### <a name="supported-operating-systems"></a>支援的作業系統
 
 無代理程式相依性視覺效果的支援作業系統如下所示。
 
-**類型** | **受支援的作業系統**
+**型別** | **受支援的作業系統**
 --- | ---
 **Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 （64位）
 **Linux** | Red Hat Enterprise Linux 7、6、5 <br/> Ubuntu Linux 14.04、16.04 <br/> Debian 7、8 <br/> Oracle Linux 6、7 <br/> CentOS 5、6、7  

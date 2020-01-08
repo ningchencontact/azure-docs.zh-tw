@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 12/16/2019
 ms.author: juliako
-ms.openlocfilehash: 4f8491e31747eda9cbe8689ba7db3026df0ff3ad
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f3825f6c9186c5e04807dd3890a14fcc6d370989
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892765"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454670"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>管理連線到 Azure 的影片索引器帳戶
 
@@ -49,6 +49,17 @@ ms.locfileid: "74892765"
 * 已配置的保留單元類型與數量。
 
 如果您的帳戶需要做一些調整，您會在 [設定] 頁面上看到與帳戶設定相關的錯誤和警告。 這些訊息包含 Azure 入口網站中確切位置的連結，也就是您必須進行變更的位置。 如需詳細資訊，請參閱之後的[錯誤和警告](#errors-and-warnings)一節。
+
+## <a name="repair-the-connection-to-azure"></a>修復與 Azure 的連線
+
+在[影片索引子](https://www.videoindexer.ai/)頁面的 [**更新連線至 Azure 媒體服務**] 對話方塊中，系統會要求您提供下列設定的值： 
+
+|設定|說明|
+|---|---|
+|Azure 訂用帳戶識別碼|訂用帳戶識別碼可從 Azure 入口網站擷取。 按一下左側面板中的 [所有服務]，然後搜尋「訂用帳戶」。 選取 [訂用帳戶]，並從訂用帳戶清單中選擇需要的識別碼。|
+|Azure 媒體服務資源群組名稱|您在其中建立媒體服務帳戶的資源群組名稱。|
+|應用程式識別碼|您為此影片索引子帳戶建立的 Azure AD 應用程式識別碼（具有指定媒體服務帳戶的許可權）。 <br/><br/>若要取得應用程式識別碼，請流覽至 Azure 入口網站。 在媒體服務帳戶底下，選擇您的帳戶並移至 [ **API 存取**]。 按一下 **[連接到具有服務主體的媒體服務 API]**  -> **Azure AD App**。 複製相關的參數。|
+|應用程式金鑰|與您在上面指定的媒體服務帳戶相關聯的 Azure AD 應用程式金鑰。 <br/><br/>若要取得應用程式金鑰，請流覽至 Azure 入口網站。 在媒體服務帳戶底下，選擇您的帳戶並移至 [ **API 存取**]。 按一下**連線到與服務主體媒體服務 API** -> **管理應用程式** -> **憑證 & 秘密**。 複製相關的參數。|
 
 ## <a name="auto-scale-reserved-units"></a>自動調整保留單元
 

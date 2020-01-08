@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: db67defc72dcc7d913f897c6fb61548c5c33cf52
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 548ebfca9a937e58dfc5c1aff1adf6f6cb2dcc5d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278325"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454601"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>設定實體伺服器的設備
 
@@ -82,7 +82,7 @@ Azure Migrate 設備是輕量設備，供 Azure Migrate 伺服器評估用來執
 3. 將 PowerShell 目錄變更為已從下載的 ZIP 壓縮檔案解壓縮內容的資料夾。
 4. 執行下列命令，以執行指令碼：
     ```
-    PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
+    AzureMigrateInstaller.ps1
     ```
 指令碼會在成功完成時啟動設備 Web 應用程式。
 
@@ -112,7 +112,7 @@ Azure Migrate 設備是輕量設備，供 Azure Migrate 伺服器評估用來執
 
 1. 按一下 [登入]。 如果未出現，請確定您已在瀏覽器中停用快顯封鎖程式。
 2. 在新的索引標籤上，使用您的 Azure 認證登入。
-    - 使用您的使用者名稱和密碼登入。
+    - 以您的使用者名稱和密碼登入。
     - 不支援使用 PIN 登入。
 3. 成功登入後，返回 Web 應用程式。
 4. 選取 Azure Migrate 專案建立所在的訂用帳戶。 然後選取專案。
@@ -128,7 +128,7 @@ Azure Migrate 設備是輕量設備，供 Azure Migrate 伺服器評估用來執
 2. 指定**作業系統**、認證的易記名稱、**使用者名稱**與**密碼**，然後按一下 [新增]。
 您可以新增一組適用於 Windows 與 Linux 伺服器的認證。
 4. 按一下 [新增伺服器]，然後指定伺服器詳細資料 - FQDN/IP 位址與認證的易記名稱 (每列一筆輸入) 以連線至伺服器。
-3. 按一下 [驗證]。 驗證之後，就會顯示可探索的伺服器清單。
+3. 按一下 **[驗證]** 。 驗證之後，就會顯示可探索的伺服器清單。
     - 如果伺服器驗證失敗，請將滑鼠停留在 [狀態] 欄中的圖示上以檢閱錯誤。 修正問題，然後再次驗證。
     - 若要移除伺服器，請選取 > [刪除]。
 4. 驗證之後，按一下 [儲存並開始探索] 來開始探索程序。

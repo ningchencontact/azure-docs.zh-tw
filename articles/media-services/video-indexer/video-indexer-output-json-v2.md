@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: juliako
-ms.openlocfilehash: c978fed1675ea80ae9b2f6fb7fbe9a4c84472638
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ab48787edcdd8c28891ca49d0f8b64305ce0e747
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454645"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>檢查 API 所產生的影片索引子輸出
 
-當您呼叫**取得影片索引** API 時，若回應狀態為「確定」，您取得的回應內容會是詳細的 JSON 輸出。 JSON 內容包含指定影片深入解析的詳細資料。 深入解析包括如下的維度：文字記錄、Ocr、臉部、主題、區塊等等。維度具有時間範圍的實例，會顯示每個維度出現在影片中的時機。  
+當您呼叫**取得影片索引** API 時，若回應狀態為「確定」，您取得的回應內容會是詳細的 JSON 輸出。 JSON 內容包含指定影片深入解析的詳細資料。 見解包括：文字記錄、Ocr、臉部、主題、區塊等。每個深入解析類型都包含時間範圍的實例，顯示影片中的深入解析出現的時間。 
 
 1. 若要取出 JSON 檔案，請呼叫[取得影片索引 API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
 1. 如果您也對特定構件感興趣，請呼叫[取得影片成品下載 URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
@@ -38,12 +38,12 @@ ms.locfileid: "74978299"
 
 ## <a name="root-elements"></a>根元素
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |accountId|播放清單的 VI 帳戶識別碼。|
 |id|播放清單的識別碼。|
-|名稱|播放清單的名稱。|
-|說明|播放清單的描述。|
+|NAME|播放清單的名稱。|
+|description|播放清單的描述。|
 |userName|建立播放清單的使用者名稱。|
 |created|播放清單的建立時間。|
 |privacyMode|播放清單的隱私模式 (私人/公用)。|
@@ -78,9 +78,9 @@ ms.locfileid: "74978299"
 
 本節說明深入解析的摘要。
 
-|屬性 | 描述|
+|屬性 | 說明|
 |---|---|
-|名稱|影片的名稱。 例如 Azure 監視器。|
+|NAME|影片的名稱。 例如 Azure 監視器。|
 |id|影片的識別碼。 例如 63c6d532ff。|
 |privacyMode|您的明細可具有下列其中一個模式：**私人**、**公用**。 **公用** - 您帳戶中的所有人和具有影片連結的任何人都可看到影片。 **私人** - 只有您帳戶中的所有人可看到影片。|
 |duration|包含一個持續時間，用以說明深入解析發生的時間。 持續時間以秒為單位。|
@@ -94,15 +94,15 @@ ms.locfileid: "74978299"
 |brands| 可包含零個或多個品牌。 如需詳細資訊，請參閱[品牌](#brands)。|
 |統計資料 | 如需詳細資訊，請參閱[統計資料](#statistics)。|
 |emotions| 可包含零個或多個表情。 如需詳細資訊，請參閱[表情](#emotions)。|
-|topics|可包含零個或多個主題。 [主題](#topics)維度。|
+|topics|可包含零個或多個主題。 [主題](#topics)深入解析。|
 
 ## <a name="videos"></a>videos
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |accountId|影片的 VI 帳戶識別碼。|
 |id|影片的識別碼。|
-|名稱|影片的名稱。
+|NAME|影片的名稱。
 |state|影片的狀態 (已上傳、處理中、已處理、失敗、已隔離)。|
 |processingProgress|處理期間的處理進度 (例如 20%)。|
 |failureCode|無法處理時顯示的失敗碼 (例如 'UnsupportedFileType')。|
@@ -150,7 +150,7 @@ ms.locfileid: "74978299"
 ```
 ### <a name="insights"></a>insights
 
-深入解析是一組維度 (例如，文字記錄行、臉部、品牌等)，每個維度分別為獨特元素的清單 (例如 face1、face2、face3)，而每個元素都有本身的中繼資料和執行個體清單 (具有其他選擇性中繼資料的時間範圍)。
+每個深入解析（例如，文字記錄行、臉部、品牌等等）都包含唯一元素的清單（例如，face1、face2、face3），而每個元素都有自己的中繼資料和其實例清單（這是具有其他選擇性中繼資料的時間範圍）。
 
 臉部可能會有識別碼、名稱、縮圖、其他中繼資料，以及其時態性實例清單（例如：00:00:05 –00:00:10、00:01:00-00:02:30 和00:41:21 –00:41:49）。每個時態實例都可以有額外的中繼資料。 例如，臉部的矩形座標 (20,230,60,60)。
 
@@ -158,20 +158,20 @@ ms.locfileid: "74978299"
 |---|---|
 |sourceLanguage|影片的來源語言 (採用一個主要語言)。 其格式為 [BCP-47](https://tools.ietf.org/html/bcp47) 字串。|
 |語言|深入解析語言 (從來源語言翻譯)。 其格式為 [BCP-47](https://tools.ietf.org/html/bcp47) 字串。|
-|文字記錄|[文字記錄](#transcript)維度。|
-|ocr|[OCR](#ocr)維度。|
-|關鍵字|[關鍵字](#keywords)維度。|
+|文字記錄|文字[記錄](#transcript)深入解析。|
+|ocr|[OCR](#ocr)深入解析。|
+|關鍵字|[關鍵字](#keywords)深入解析。|
 |blocks|可包含一或多個[區塊](#blocks)|
-|臉部|[臉部](#faces)維度。|
-|標籤|[標籤](#labels)維度。|
-|擷取畫面|[擷取畫面](#shots)維度。|
-|brands|[品牌](#brands)維度。|
-|audioEffects|[audioEffects](#audioEffects) 維度。|
-|人氣|[情緒](#sentiments)維度。|
-|visualContentModeration|[visualContentModeration](#visualcontentmoderation) 維度。|
-|textualContentModeration|[textualContentModeration](#textualcontentmoderation) 維度。|
-|emotions| [表情](#emotions)維度。|
-|topics|[主題](#topics)維度。|
+|臉部|[臉部](#faces)深入解析。|
+|標籤|[標籤](#labels)深入解析。|
+|擷取畫面|[照片](#shots)深入解析。|
+|brands|[品牌](#brands)見解。|
+|audioEffects|[AudioEffects](#audioEffects)深入解析。|
+|人氣|[情緒](#sentiments)深入解析。|
+|visualContentModeration|[VisualContentModeration](#visualcontentmoderation)深入解析。|
+|textualContentModeration|[TextualContentModeration](#textualcontentmoderation)深入解析。|
+|emotions| [表情](#emotions)深入解析。|
+|topics|[主題](#topics)深入解析。|
 
 範例：
 
@@ -196,14 +196,14 @@ ms.locfileid: "74978299"
 
 #### <a name="blocks"></a>blocks
 
-屬性 | 描述
+屬性 | 說明
 ---|---
 id|區塊的識別碼。|
 執行個體|此區塊的時間範圍清單。|
 
 #### <a name="transcript"></a>文字記錄
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |id|行識別碼。|
 |text|文字記錄本身。|
@@ -241,7 +241,7 @@ id|區塊的識別碼。|
 
 #### <a name="ocr"></a>ocr
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |id|OCR 行識別碼。|
 |text|OCR 文字。|
@@ -276,7 +276,7 @@ id|區塊的識別碼。|
 
 #### <a name="keywords"></a>關鍵字
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |id|關鍵字識別碼。|
 |text|關鍵字。|
@@ -307,12 +307,12 @@ id|區塊的識別碼。|
 
 #### <a name="faces"></a>臉部
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |id|臉部識別碼。|
-|名稱|臉部的名稱。 這可以是 'Unknown #0、已識別的名人或客戶培訓人員。|
+|NAME|臉部的名稱。 這可以是 'Unknown #0、已識別的名人或客戶培訓人員。|
 |信賴度|臉部識別信賴。|
-|說明|名人的描述。 |
+|description|名人的描述。 |
 |thumbnailId|該臉部的縮圖識別碼。|
 |knownPersonId|如果是已知人物，則為其內部識別碼。|
 |referenceId|若為 Bing 名人，則為其 Bing 識別碼。|
@@ -352,10 +352,10 @@ id|區塊的識別碼。|
 
 #### <a name="labels"></a>標籤
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |id|標籤識別碼。|
-|名稱|標籤名稱 (例如，電腦、電視)。|
+|NAME|標籤名稱 (例如，電腦、電視)。|
 |語言|標籤名稱語言 (轉譯時)。 BCP-47|
 |執行個體|此標籤曾出現的時間範圍清單 (同一個標籤可以出現多次)。 每個執行個體都有一個信賴度欄位。 |
 
@@ -411,7 +411,7 @@ id|區塊的識別碼。|
 
 #### <a name="scenes"></a>場景
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |id|場景識別碼。|
 |執行個體|此場景的時間範圍清單（場景只能有1個實例）。|
@@ -444,7 +444,7 @@ id|區塊的識別碼。|
 
 #### <a name="shots"></a>擷取畫面
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |id|擷取畫面識別碼。|
 |keyFrames|一段期間內的主要畫面格清單（每個都有一個識別碼和實例時間範圍的清單）。 每個主要畫面格實例都有一個 thumbnailId 欄位，其中包含主要畫面格的縮圖識別碼。|
@@ -494,13 +494,13 @@ id|區塊的識別碼。|
 
 在語音轉換文字的文字記錄和/或影片 OCR 中偵測到的商務和產品品牌名稱。 這不包括品牌或標誌的影像辨識偵測。
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |id|品牌識別碼。|
-|名稱|品牌名稱。|
+|NAME|品牌名稱。|
 |referenceId | 品牌 Wikipedia URL 的尾碼。 例如，"Target_Corporation" 是 [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) 的尾碼。
 |referenceUrl | 品牌的 Wikipedia URL (如果存在)。 例如：[https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation)。
-|說明|品牌描述。|
+|description|品牌描述。|
 |tags|與此品牌相關聯的預先定義標記清單。|
 |信賴度|影片索引子品牌偵測器的信賴值 (0-1)。|
 |執行個體|此品牌的時間範圍清單。 每個執行個體都有 brandType，用以指出此品牌會出現在文字記錄還是 OCR 中。|
@@ -553,7 +553,7 @@ id|區塊的識別碼。|
 
 #### <a name="statistics"></a>統計資料
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |CorrespondenceCount|影片中的對應數目。|
 |SpeakerWordCount|每個說話者的字數。|
@@ -563,10 +563,10 @@ id|區塊的識別碼。|
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |id|音訊效果識別碼。|
-|類型|音訊效果類型 (例如，拍手聲、說話、無聲)。|
+|type|音訊效果類型 (例如，拍手聲、說話、無聲)。|
 |執行個體|此音訊效果曾出現的時間範圍清單。|
 
 ```json
@@ -592,7 +592,7 @@ id|區塊的識別碼。|
 
 人氣會依據其 sentimentType 欄位 (Positive/Neutral/Negative) 加以彙總。 例如：0-0.1、0.1-0.2。
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |id|人氣識別碼。|
 |averageScore |所有該人氣類型執行個體的總分平均值 - Positive/Neutral/Negative|
@@ -631,7 +631,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 經發現含有成人或猥褻內容的影片，只能供私人檢視。 使用者可以要求人工審核影片內容，在此情況下，IsAdult 屬性將包含人工審核的結果。
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |id|視覺內容仲裁識別碼。|
 |adultScore|成人分數 (由內容仲裁提供)。|
@@ -667,7 +667,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |id|文字內容仲裁識別碼。|
 |bannedWordsCount |禁用文字數目。|
@@ -677,10 +677,10 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 影片索引子會根據語音和音訊提示來識別表情。識別的表情可能是：樂趣、悲傷、生氣或恐懼。
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |id|表情識別碼。|
-|類型|根據語音和音訊提示所識別的表情時間。表情可能是：樂趣、悲傷、生氣或恐懼。|
+|type|根據語音和音訊提示所識別的表情時間。表情可能是：樂趣、悲傷、生氣或恐懼。|
 |執行個體|這一個表情出現的時間範圍清單。|
 
 ```json
@@ -767,10 +767,10 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 影片索引子會從文字記錄中推斷主要主題。 可能的話，會包含第二層級的[IPTC](https://iptc.org/standards/media-topics/)分類。 
 
-|Name|描述|
+|名稱|說明|
 |---|---|
 |id|主題識別碼。|
-|名稱|主題名稱，例如："Pharmaceuticals"。|
+|NAME|主題名稱，例如："Pharmaceuticals"。|
 |referenceId|反映主題階層的階層連結。 例如：「健康與福利 / 醫藥與醫療保健 / 藥品」。|
 |信賴度|範圍內 [0,1] 的信賴分數。 值越高，信賴程度就越高。|
 |語言|主題中使用的語言。|
