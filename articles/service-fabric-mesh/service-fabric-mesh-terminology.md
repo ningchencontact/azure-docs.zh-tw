@@ -1,20 +1,16 @@
 ---
-title: 適用於 Azure Service Fabric Mesh 的術語 | Microsoft Docs
+title: 適用于 Azure Service Fabric 網格的術語
 description: 本文詳細說明 Azure Service Fabric 網格所使用的術語，以協助您進一步瞭解檔中使用的詞彙。
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: cacf3a7419982e8c0e8d55700c903e3414cfcbb4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6df7a6b708bca81f1390ac879f24ea4c22c38bee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663017"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351982"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh 術語
 

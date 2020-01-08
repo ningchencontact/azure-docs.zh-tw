@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 6f6c64acf814b39d38138ed0e6a9c6075b693c7d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6a90e9ba264c4abddf2c26cb7b1761a7a51b1778
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707990"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647674"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 連線架構
 
@@ -39,11 +39,11 @@ ms.locfileid: "74707990"
 
 Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定選項：
 
-- 重新**導向（建議）：** 用戶端會直接與裝載資料庫的節點建立連線，進而降低延遲並改善整個。 針對使用此模式的連線，用戶端必須
+- 重新**導向（建議）：** 用戶端會直接與裝載資料庫的節點建立連線，進而降低延遲並改善輸送量。 針對使用此模式的連線，用戶端必須
    - 允許來自用戶端的輸入和輸出通訊，以及位於 11000 11999 範圍內埠上的所有 Azure IP 位址。  
    - 允許來自用戶端的輸入和輸出通訊，以 Azure SQL Database 埠1433上的閘道 IP 位址。
 
-- **Proxy：** 在此模式中，所有連線都會透過 Azure SQL Database 閘道進行 proxy，因而導致延遲增加並減少整個。 針對使用此模式的連線，用戶端需要允許來自用戶端的輸入和輸出通訊，以在埠1433上 Azure SQL Database 閘道 IP 位址。
+- **Proxy：** 在此模式中，所有連線都會透過 Azure SQL Database 閘道進行 proxy，進而增加延遲和降低輸送量。 針對使用此模式的連線，用戶端需要允許來自用戶端的輸入和輸出通訊，以在埠1433上 Azure SQL Database 閘道 IP 位址。
 
 - **預設：** 這是在建立之後所有伺服器上生效的連線原則，除非您明確地將連線原則變更為 `Proxy` 或 `Redirect`。 預設原則會針對源自 Azure （例如從 Azure 虛擬機器）的所有用戶端連線`Redirect`，並 `Proxy`所有源自外部的用戶端連線（例如，來自您的本機工作站的連線）。
 

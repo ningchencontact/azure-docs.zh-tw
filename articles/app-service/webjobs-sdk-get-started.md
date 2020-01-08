@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 33ae3f9f928a55f50f4ecd0c6c98790a384e880b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 11df1557fdcad059910dd2a87e9056e19a90bf01
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684188"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640821"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>開始使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -320,13 +320,13 @@ WebJobs SDK 會在 Azure 中的 [應用程式設定] 尋找儲存體連接字串
 
 1. 在 [連接字串] 中，新增下列項目。
 
-   |Name  |連接字串  |資料庫類型|
+   |名稱  |連接字串  |資料庫類型|
    |---------|---------|------|
    |AzureWebJobsStorage | {您先前複製的儲存體連接字串}|自訂|
 
 1. 如果 [應用程式設定] 方塊沒有 Application Insights 檢測金鑰，請新增您先前複製的檢測金鑰。 (視您建立 App Service 應用程式的方式而言，檢測金鑰可能已經存在。)
 
-   |Name  |Value  |
+   |名稱  |值  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {檢測金鑰} |
 
@@ -399,21 +399,23 @@ WebJobs SDK 會在 Azure 中的 [應用程式設定] 尋找儲存體連接字串
 
 您會在本節中再度於本機執行，確認記錄資料現在正移至 Application Insights 和主控台。
 
-1. 在 Visual Studio 中使用 [伺服器總管] 建立佇列訊息，做法如[稍早](#trigger-the-function-in-azure)一樣，但輸入 Hello App Insights! 作為訊息文字。
+1. 使用 Visual Studio 中的**伺服器總管**來建立佇列訊息，如同您稍[早](#test-locally)所做的一樣，但輸入*Hello App Insights！* 作為訊息文字。
 
 1. 執行專案。
 
-   WebJobs SDK 會處理佇列訊息，而您會在主控台視窗中看見記錄。
+   Webjob SDK 會處理佇列訊息，而您會在主控台視窗中看到記錄。
 
 1. 關閉主控台視窗。
 
-1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後移至 Application Insights 資源。
+1. 移至 [ [Azure 入口網站](https://portal.azure.com/)] 以查看您的 Application Insights 資源。 搜尋並選取 **Application Insights**。
+
+1. 選擇您的 Application Insights 實例。
 
 1. 選取 [搜尋]。
 
    ![選取搜尋](./media/webjobs-sdk-get-started/select-search.png)
 
-1. 如果沒看到 Hello App Insights! 訊息，請選取每隔幾分鐘定期 [重新整理]。 (因為 Application Insights 用戶端需要一些時間排清它所處理的記錄，所以記錄不會立即出現。)
+1. 如果沒看到 Hello App Insights! 訊息，請選取每隔幾分鐘定期 [重新整理]。 （記錄不會立即出現，因為 Application Insights 的用戶端需要一段時間才能排清它所處理的記錄）。
 
    ![Application Insights 中的記錄](./media/webjobs-sdk-get-started/logs-in-ai.png)
 
@@ -474,13 +476,13 @@ WebJobs SDK 會在 Azure 中的 [應用程式設定] 尋找儲存體連接字串
 
    a. 在 Visual Studio 的 [伺服器總管] 中，展開您儲存體帳戶的節點，以滑鼠右鍵按一下 [Blob]，然後選取 [建立 Blob 容器]。
 
-   b.這是另一個 C# 主控台應用程式。 在 [建立 Blob 容器] 對話方塊中，輸入 container 作為容器名稱，然後按一下 [確定]。
+   b. 在 [建立 Blob 容器] 對話方塊中，輸入 container 作為容器名稱，然後按一下 [確定]。
 
 1. 將 Program.cs 檔案上傳至 Blob 容器。 (這個檔案在此作為範例；您可以上傳任何文字檔案，並使用檔案的名稱建立佇列訊息。)
 
    a. 在 [伺服器總管] 中，按兩下您建立的容器節點。
 
-   b.這是另一個 C# 主控台應用程式。 在 [容器] 視窗中，選取 [上傳] 按鈕。
+   b. 在 [容器] 視窗中，選取 [上傳] 按鈕。
 
    ![Blob 上傳按鈕](./media/webjobs-sdk-get-started/blob-upload-button.png)
 

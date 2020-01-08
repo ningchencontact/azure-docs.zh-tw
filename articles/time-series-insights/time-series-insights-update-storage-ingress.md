@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 62ee248c06d2b26b935f72b3bb73cf708f949c72
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: dada1a8ed8b1725905ee2ad159e385d1bee62fc6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014717"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615102"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽中的資料儲存體和輸入
 
@@ -23,7 +23,9 @@ ms.locfileid: "74014717"
 
 ## <a name="data-ingress"></a>資料輸入
 
-您的 Azure 時間序列深入解析環境包含可收集、處理和儲存時間序列資料的內嵌引擎。 在規劃您的環境時，有一些考慮需要考慮，以確保所有傳入的資料都已處理，並可達到高輸入規模並最小化內建延遲（TSI 用來讀取和處理事件資料的時間）來源）。 在時間序列深入解析 Preview 中，資料輸入原則會決定資料的來源，以及資料應該有的格式。
+您的 Azure 時間序列深入解析環境包含可收集、處理和儲存時間序列資料的內嵌引擎。 在規劃您的環境時，有一些考慮需要考慮，以確保所有傳入的資料都已處理，並可達到高輸入規模並最小化內建延遲（TSI 用來讀取和處理事件資料的時間）來源）。 
+
+在時間序列深入解析 Preview 中，資料輸入原則會決定資料的來源，以及資料應該有的格式。
 
 ### <a name="ingress-policies"></a>輸入原則
 
@@ -32,12 +34,12 @@ ms.locfileid: "74014717"
 - [Azure IoT 中心](../iot-hub/about-iot-hub.md)
 - [Azure 事件中樞](../event-hubs/event-hubs-about.md)
 
-時間序列深入解析 Preview 針對每個實例最多支援兩個事件來源。
-  
-Azure 時間序列深入解析支援透過 Azure IoT 中樞或 Azure 事件中樞提交的 JSON。
+時間序列深入解析 Preview 針對每個實例最多支援兩個事件來源。 Azure 時間序列深入解析支援透過 Azure IoT 中樞或 Azure 事件中樞提交的 JSON。
 
 > [!WARNING] 
-> 將新的事件來源附加至時間序列深入解析預覽環境時，會根據目前在 IoT 中樞或事件中樞內的事件數目而定，您可能會遇到較高的初始內嵌延遲。 當資料內嵌時，您應該預期這項高延遲才會減少，但如果您的經驗指出，請透過 Azure 入口網站提交支援票證來洽詢我們。
+> * 將事件來源附加至預覽環境時，您可能會遇到高初始延遲的情況。 
+> 事件來源延遲取決於目前在 IoT 中樞或事件中樞內的事件數目。
+> * 事件來源資料第一次內嵌之後，將會減少高延遲。 如果您遇到持續高延遲的情況，請透過 Azure 入口網站提交支援票證，以洽詢我們。
 
 ## <a name="ingress-best-practices"></a>輸入最佳作法
 
@@ -49,12 +51,19 @@ Azure 時間序列深入解析支援透過 Azure IoT 中樞或 Azure 事件中�
 
 ### <a name="ingress-scale-and-limitations-in-preview"></a>預覽中的輸入規模和限制
 
-根據預設，時間序列深入解析 Preview 支援每個環境每秒最多 1 mb （MB/s）的初始輸入規模。 如有需要，最多有 16 MB/秒的輸送量可供使用，如有需要，請在 Azure 入口網站中提交支援票證以與我們聯繫。 此外，每個分割區的限制為 0.5 MB/秒。 這對於使用 IoT 中樞的客戶而言，特別是在 IoT 中樞裝置分割區之間的親和性。 在一部閘道裝置使用其本身的裝置識別碼和連接字串將訊息轉送至中樞的案例中，假設訊息會抵達單一分割區，則會有達到 0.5 MB/s 限制的風險，即使事件裝載指定不同的 TS識別碼. 一般來說，輸入速率會視為您組織中的裝置數目、事件排放頻率，以及事件的大小等因素。 計算內建速率時，IoT 中樞使用者應使用使用中的中樞連線數目，而不是組織中的裝置總數。 即將推出增強的規模支援。 本檔將會更新，以反映這些改良功能。 
+根據預設，預覽環境支援每個環境每**秒最多 1 mb （MB/s）** 的輸入速率。 如有需要，客戶可以將其預覽環境調整為最多**16 MB/秒**的輸送量。
+此外，每個分割區的限制為**0.5 MB/秒**。 
 
-> [!WARNING]
-> 針對使用 IoT 中樞作為事件來源的環境，請使用使用中的中樞裝置數目來計算內建速率。
+每個分割區的限制對於使用 IoT 中樞的客戶而言會有影響。 具體而言，假設 IoT 中樞裝置和資料分割之間的親和性。 在一部閘道裝置使用自己的裝置識別碼和連接字串將訊息轉送至中樞的情況下，假設訊息會抵達單一分割區，則會有達到 0.5 MB/s 限制的風險，即使事件裝載指定了不同的時間序列識別碼也一樣。 
 
-如需輸送量單位和資料分割的詳細資訊，請參閱下列連結：
+一般來說，輸入速率會視為您組織中的裝置數目、事件排放頻率，以及每個事件的大小因素：
+
+*  **裝置數**×**事件發射頻率**×**每個事件的大小**。
+
+> [!TIP]
+> 針對使用 IoT 中樞作為事件來源的環境，請使用使用中的中樞連線數目來計算內建速率，而不是使用中的裝置總數或組織中的總裝置數。
+
+如需輸送量單位、限制和磁碟分割的詳細資訊：
 
 * [IoT 中樞規模](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
 * [事件中樞規模](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
@@ -109,11 +118,11 @@ Azure 時間序列深入解析支援透過 Azure IoT 中樞或 Azure 事件中�
 
 * 透過時間序列深入解析預覽總管。 您可以從 [explorer] 將資料匯出成 CSV 檔案。 如需詳細資訊，請參閱 [Azure 時間序列深入解析預覽總管](./time-series-insights-update-explorer.md)。
 * 從時間序列深入解析預覽 API。 您可以在 `/getRecorded`連接 API 端點。 若要深入了解此 API，請參閱[時間序列查詢](./time-series-insights-update-tsq.md)。
-* 直接透過 Azure 儲存體帳戶。 您需要您用來存取時間序列深入解析預覽資料的任何帳戶的讀取存取權。 如需詳細資訊，請參閱[管理儲存體帳戶資源的存取](../storage/blobs/storage-manage-access-to-resources.md)。
+* 直接從 Azure 儲存體帳戶。 您需要您用來存取時間序列深入解析預覽資料的任何帳戶的讀取存取權。 如需詳細資訊，請參閱[管理儲存體帳戶資源的存取](../storage/blobs/storage-manage-access-to-resources.md)。
 
 ### <a name="data-deletion"></a>刪除資料
 
-請勿刪除您的時間序列深入解析預覽檔案。 您應該只在時間序列深入解析 Preview 內管理相關資料。
+請勿刪除您的時間序列深入解析預覽檔案。 僅在時間序列深入解析 Preview 內管理相關資料。
 
 ## <a name="parquet-file-format-and-folder-structure"></a>Parquet 檔案格式和資料夾結構
 
@@ -136,7 +145,7 @@ Parquet 是開放原始碼的單欄式檔案格式，專為有效率的儲存和
 > [!NOTE]
 > * `<YYYY>` 對應到四位數年份標記法。
 > * `<MM>` 對應到兩位數的月份標記法。
-> * `<YYYYMMDDHHMMSSfff>` 對應到具有四位數年份（`YYYY`）、兩位數月份（`MM`）、兩位數的日（`DD`）、兩位數的小時（`HH`）、兩位數的分鐘（`MM`）和三位數毫秒（`SS`）的時間戳記標記法（`fff`）。
+> * `<YYYYMMDDHHMMSSfff>` 對應到具有四位數年份（`YYYY`）、兩位數月份（`MM`）、兩位數的日（`DD`）、兩位數的小時（`HH`）、兩位數的分鐘（`MM`）和三位數毫秒（`SS`）的時間戳記標記法。
 
 時間序列深入解析預覽事件會對應至 Parquet 檔案內容，如下所示：
 

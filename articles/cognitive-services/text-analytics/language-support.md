@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 529568cf4f667e72b0b4fb7ba83d0b85c4a90341
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 4927a26b78c8f68f1752abc76c30f143a361a912
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499985"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611112"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>文字分析 API 支援的語言和區域
 
@@ -32,8 +32,8 @@ ms.locfileid: "73499985"
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>情感分析、關鍵片語擷取和命名實體辨識
 
 情感分析、關鍵片語擷取和實體辨識的支援語言清單更具選擇性，因為分析器會進一步調整以配合其他語言的語言規則。 在命名實體辨識 v2 中，對一組完整[實體類型](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition-v2)的支援目前僅限於下列語言： 
-* English
-* 中文-簡體
+* 繁體中文
+* 簡體中文
 * 法文
 * 德文
 * 西班牙文
@@ -47,15 +47,15 @@ ms.locfileid: "73499985"
 > [!NOTE]
 > 如需命名實體辨識（NER） v3 公開預覽的詳細語言支援，請參閱[命名實體類型](named-entity-types.md)。
 
-| 語言              | 語言代碼 | 情感 | 主要片語 | 具名實體辨識 | 實體連結 |       注意事項        |
+| 語言              | 語言代碼 | 人氣 | 關鍵片語 | 具名實體辨識 | 實體連結 |       注意        |
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | 阿拉伯文                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | 捷克文                 |     `cs`      |           |             |           ✔ \*           |                |                    |
-| 中文-簡體    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                |                    |
-| 中文-繁體   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
+| 簡體中文    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                |                    |
+| 繁體中文   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
 | 丹麥文                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | 荷蘭文                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
-| English               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
+| 繁體中文               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
 | 芬蘭文               |     `fi`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | 法文                |     `fr`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
 | 德文                |     `de`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
@@ -75,9 +75,9 @@ ms.locfileid: "73499985"
 
 \* 語言支援現供預覽
 
-\** 也適用于[情感分析 v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)和/或[命名實體辨識 v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview)公開預覽。
+\** 也適用于[情感分析 v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features)和/或[命名實體辨識 v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview)公開預覽。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [認知服務文件頁面](https://docs.microsoft.com/azure/cognitive-services/)   
 [認知服務產品頁面](https://azure.microsoft.com/services/cognitive-services/)

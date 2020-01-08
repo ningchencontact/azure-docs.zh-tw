@@ -1,39 +1,35 @@
 ---
 title: 使用自動調整傳送電子郵件和 Webhook 警示通知
-description: '了解如何在 Azure 監視器中使用自動調整動作呼叫 Web URL 或傳送電子郵件通知。 '
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
+description: 瞭解如何在 Azure 監視器中使用自動調整動作來呼叫 web Url 或傳送電子郵件通知。
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: c1386f4058f9490bad0161b680005db6031bace1
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: fd5aeadd72123b58801ce038b0cc99d17dcfd200
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491517"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364198"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>使用自動調整動作在 Azure 監視器中傳送電子郵件和 Webhook 警示通知
 本文將告訴您如何設定觸發程序，讓您可以根據 Azure 中的自動調整動作呼叫特定的 Web URl 或傳送電子郵件。  
 
-## <a name="webhooks"></a>webhooks
-Webhook 可讓您將 Azure 警示通知路由到其他系統進行後處理或自訂通知。 例如，將警示路由到可處理傳入 Web 要求的服務，以傳送 SMS、記錄錯誤、使用聊天或傳訊服務通知團隊等等。Webhook URI 必須是有效的 HTTP 或 HTTPS 端點。
+## <a name="webhooks"></a>Webhook
+Webhook 可讓您將 Azure 警示通知路由到其他系統進行後處理或自訂通知。 例如，將警示路由傳送至可處理傳入 web 要求以傳送 SMS、記錄錯誤、使用聊天或訊息服務通知小組等的服務。Webhook URI 必須是有效的 HTTP 或 HTTPS 端點。
 
-## <a name="email"></a>Email
+## <a name="email"></a>電子郵件
 電子郵件可以傳送至任何有效的電子郵件地址。 也會通知執行該規則的訂用帳戶的系統管理員和共同管理員。
 
 ## <a name="cloud-services-and-web-apps"></a>雲端服務和 Web Apps
 您可以在 Azure 的雲端服務和伺服器陣列 (Web Apps) 入口網站中選擇加入。
 
-* 選擇做為 [調整依據]  的度量。
+* 選擇做為 [調整依據] 的度量。
 
 ![調整依據](./media/autoscale-webhook-email/insights-autoscale-notify.png)
 
 ## <a name="virtual-machine-scale-sets"></a>虛擬機器擴展集
 對於使用 Resource Manager 建立的較新虛擬機器 (虛擬機器擴展集)，您可以使用 REST API、Resource Manager 範本、PowerShell 和 CLI 設定此項目。 目前尚無入口網站介面。
-當您使用 REST API 或 Resource Manager 範本時，請在下列選項中包含通知項目。
+使用 REST API 或 Resource Manager 範本時，請使用下列選項在[autoscalesettings](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings)中包含通知元素。
 
 ```
 "notifications": [
@@ -60,18 +56,18 @@ Webhook 可讓您將 Azure 警示通知路由到其他系統進行後處理或�
     ]
 ```
 
-| 欄位 | 是否為強制？ | 描述 |
+| 欄位 | 是否為強制？ | 說明 |
 | --- | --- | --- |
-| operation |是 |值必須是 [調整] |
+| operation (作業) |是 |值必須是 [調整] |
 | sendToSubscriptionAdministrator |是 |值必須是 "true" 或 "false" |
 | sendToSubscriptionCoAdministrators |是 |值必須是 "true" 或 "false" |
 | customEmails |是 |值可以是 null 或電子郵件的字串陣列 |
-| webhooks |是 |值可以是 null 或有效的 Uri |
+| Webhook |是 |值可以是 null 或有效的 Uri |
 | serviceUri |是 |有效的 https Uri |
 | properties |是 |值必須是空的 {}，也可以包含索引鍵-值組 |
 
 ## <a name="authentication-in-webhooks"></a>Webhook 中的驗證
-Webhook 可以使用權杖型驗證來驗證，您會在其中儲存 Webhook URI 並以權杖識別碼做為查詢參數。 例如，https:\/mysamplealert/webcallback？ tokenid = sometokenid someparameter = somevalue
+Webhook 可以使用權杖型驗證來驗證，您會在其中儲存 Webhook URI 並以權杖識別碼做為查詢參數。 例如，HTTPs：\//mysamplealert/webcallback？ tokenid = sometokenid & someparameter = somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>自動調整通知 Webhook 承載結構描述
 產生自動調整通知時，Webhook 承載會包含下列中繼資料︰
@@ -103,22 +99,22 @@ Webhook 可以使用權杖型驗證來驗證，您會在其中儲存 Webhook URI
 ```
 
 
-| 欄位 | 是否為強制？ | 描述 |
+| 欄位 | 是否為強制？ | 說明 |
 | --- | --- | --- |
 | status |是 |此狀態表示產生了自動調整動作 |
-| operation |是 |若執行個體增加，它會「相應放大」，若執行個體減少，它會「相應縮小」。 |
-| context |是 |自動調整動作內容 |
+| operation (作業) |是 |若執行個體增加，它會「相應放大」，若執行個體減少，它會「相應縮小」。 |
+| 內容 |是 |自動調整動作內容 |
 | timestamp |是 |自動調整動作觸發時的時間戳記 |
 | id |是 |自動調整設定的 Resource Manager 識別碼 |
-| name |是 |自動調整設定的名稱 |
-| details |是 |說明自動調整服務所採取的動作和執行個體計數的變更 |
+| NAME |是 |自動調整設定的名稱 |
+| 詳細資料 |是 |說明自動調整服務所採取的動作和執行個體計數的變更 |
 | subscriptionId |是 |正在調整的目標資源的訂用帳戶識別碼 |
 | resourceGroupName |是 |正在調整的目標資源的資源群組 |
 | resourceName |是 |正在調整的目標資源的名稱 |
 | resourceType |是 |支援三個值：microsoft.classiccompute/domainnames/slots/roles" (雲端服務角色)、"microsoft.compute/virtualmachinescalesets" (虛擬機器擴展集) 以及 "Microsoft.Web/serverfarms" - (Web 應用程式) |
-| ResourceId |是 |正在調整的目標資源的 Resource Manager 識別碼 |
+| resourceId |是 |正在調整的目標資源的 Resource Manager 識別碼 |
 | portalLink |是 |連到目標資源摘要頁面的 Azure 入口網站連結 |
 | oldCapacity |是 |自動調整進行調整動作時的當前 (舊) 執行個體計數 |
 | newCapacity |是 |自動調整要將資源調整為此數目的新執行個體計數 |
-| properties |否 |選用。 <索引鍵, 值> 組 (例如，字典 <字串, 字串>)。 properties 欄位是選擇性的。 在自訂 UI 或邏輯應用程式的工作流程中，您可以輸入可使用承載傳遞的索引鍵和值。 另一個將自訂屬性傳回給連出 Webhook 呼叫的替代做法，是使用 Webhook URI 本身 (做為查詢參數) |
+| properties |否 |選擇性。 <索引鍵, 值> 組 (例如，字典 <字串, 字串>)。 properties 欄位是選擇性的。 在自訂 UI 或邏輯應用程式的工作流程中，您可以輸入可使用承載傳遞的索引鍵和值。 另一個將自訂屬性傳回給連出 Webhook 呼叫的替代做法，是使用 Webhook URI 本身 (做為查詢參數) |
 

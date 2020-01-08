@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: fa1aa8c560f4b9cc48c7a6a761abe4d69d5d0265
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: b84855057b43daa0aeff4878a69dac4ae765d2ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773180"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429312"
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中樞的存取權
 
@@ -37,7 +37,7 @@ ms.locfileid: "70773180"
 
 * **IoT 中樞層級的共用存取原則**。 共用存取原則可以授與上面所列[權限](#iot-hub-permissions)的任意組合。 您可以使用 [IoT 中樞資源 REST API](/rest/api/iothub/iothubresource)，或使用 [az iot hub policy](/cli/azure/iot/hub/policy?view=azure-cli-latest) CLI，以程式設計方式在 [Azure 入口網站](https://portal.azure.com)中定義原則。 新建立的 IoT 中樞有下列預設原則︰
   
-  | 共用存取原則 | Permissions |
+  | 共用的存取原則 | 使用權限 |
   | -------------------- | ----------- |
   | iothubowner | 所有權限 |
   | 服務 | **ServiceConnect** 權限 |
@@ -64,7 +64,7 @@ Azure IoT 中樞可根據共用存取原則和身分識別登錄安全性認證�
 安全性認證 (例如對稱金鑰) 決不會在網路上傳送。
 
 > [!NOTE]
-> 如同 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 中的所有提供者，Azure IoT 中樞資源提供者也會透過您的 Azure 訂用帳戶而受到保護。
+> 如同 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 中的所有提供者，Azure IoT 中樞資源提供者也會透過您的 Azure 訂用帳戶而受到保護。
 
 如需如何建構和使用安全性權杖的詳細資訊，請參閱 [IoT 中樞安全性權杖](iot-hub-devguide-security.md#security-tokens)。
 
@@ -134,10 +134,10 @@ IoT 中樞也允許裝置使用 [X.509 憑證](iot-hub-devguide-security.md#supp
 
 以下是預期的值：
 
-| 值 | 描述 |
+| 值 | 說明 |
 | --- | --- |
 | {signature} |HMAC-SHA256 簽章字串，格式為： `{URL-encoded-resourceURI} + "\n" + expiry`。 **重要事項**：金鑰是從 base64 解碼而來，並且會做為用來執行 HMAC-SHA256 計算的金鑰。 |
-| {resourceURI} |可使用此權杖存取之端點的 URI 前置詞 (依區段)，開頭為 IoT 中樞的主機名稱 (無通訊協定)。 例如： `myHub.azure-devices.net/devices/device1` |
+| {resourceURI} |可使用此權杖存取之端點的 URI 前置詞 (依區段)，開頭為 IoT 中樞的主機名稱 (無通訊協定)。 例如， `myHub.azure-devices.net/devices/device1` |
 | {expiry} |從新紀元時間 (Epoch) 1970 年 1 月 1日 00:00:00 UTC 時間至今秒數的 UTF8 字串。 |
 | {URL-encoded-resourceURI} |小寫資源 URI 的小寫 URL 編碼 |
 | {policyName} |此權杖所參考的共用存取原則名稱。 在權杖參考裝置登錄認證的情況下不存在。 |
@@ -441,7 +441,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 下表列出可用來控制您的 IoT 中樞存取權的權限。
 
-| 使用權限 | 注意 |
+| 權限 | 注意 |
 | --- | --- |
 | **RegistryRead** |為身分識別登錄授與讀取權限。 如需詳細資訊，請參閱[身分識別登錄](iot-hub-devguide-identity-registry.md)。 <br/>後端雲端服務會使用此權限。 |
 | **RegistryReadWrite** |為身分識別登錄授與讀取和寫入權限。 如需詳細資訊，請參閱[身分識別登錄](iot-hub-devguide-identity-registry.md)。 <br/>後端雲端服務會使用此權限。 |

@@ -1,5 +1,5 @@
 ---
-title: 在存取權審查中，對群組或應用程式檢查自己的存取-Azure Active Directory |Microsoft Docs
+title: 在存取權審查中審查您對群組 & 應用程式的存取權-Azure AD
 description: 瞭解如何在 Azure Active Directory 存取評論中，檢查您自己對群組或應用程式的存取權。
 services: active-directory
 author: msaburnley
@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df8b03d513e2d78083031fbc9a3f6dbc1b7d15d9
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 0d75d7ffe28fa126ee5e359cba19e66e3c0f36e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958576"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422410"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>在 Azure AD 存取評論中，對群組或應用程式的存取權進行審核
 
@@ -40,7 +40,7 @@ Azure Active Directory （Azure AD）藉由稱為 Azure AD 存取評論的功能
 
 如果您沒有電子郵件，您可以遵循下列步驟來尋找您的暫止存取審查。
 
-1. 登入 MyApps 入口網站，網址為[https://myapps.microsoft.com](https://myapps.microsoft.com)。
+1. 在[https://myapps.microsoft.com](https://myapps.microsoft.com)登入 MyApps 入口網站。
 
     ![MyApps 入口網站列出您有許可權的應用程式](./media/review-your-access/myapps-access-panel.png)
 

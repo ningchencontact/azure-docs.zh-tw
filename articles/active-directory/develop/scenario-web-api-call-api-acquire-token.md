@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 276ff1e5e9f709aa5b38d1efa4055dfe3baf3cc5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: cc92fb7bc5ddf451279e6c157f9e93aa7fe9a12a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919778"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423628"
 ---
 # <a name="web-api-that-calls-web-apis---acquire-a-token-for-the-app"></a>呼叫 web Api 的 web API-取得應用程式的權杖
 
@@ -31,7 +31,7 @@ ms.locfileid: "74919778"
 
 以下是會在 API 控制器的動作中呼叫下游 API （名為 todolist）的程式碼範例。
 
-```CSharp
+```csharp
 private async Task GetTodoList(bool isAppStarting)
 {
  ...
@@ -54,7 +54,7 @@ private async Task GetTodoList(bool isAppStarting)
 
 `GetAccountIdentifier` 方法會使用與 Web API 收到 JWT 之使用者的身分識別相關聯的宣告：
 
-```CSharp
+```csharp
 public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
 {
  string userObjectId = GetObjectId(claimsPrincipal);

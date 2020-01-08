@@ -1,24 +1,20 @@
 ---
 title: 使用自訂計量在 Azure 中自動調整規模
 description: 了解如何在 Azure 中依自訂計量調整資源的規模。
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: f83c68dd2f2ddbb73974a2ea4e91e746308945c6
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: f8aaaf8890c3642884b72cc6c8fc2759fec357fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958103"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364538"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>開始在 Azure 中依自訂計量自動調整規模
 本文說明如何在 Azure 入口網站中依自訂計量調整您資源的規模。
 
-Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.microsoft.com/services/virtual-machine-scale-sets/)、[雲端服務](https://azure.microsoft.com/services/cloud-services/)、[App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 和 [API 管理服務](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)。
+Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.microsoft.com/services/virtual-machine-scale-sets/)、[雲端服務](https://azure.microsoft.com/services/cloud-services/)、[App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 與 [API 管理服務](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)。
 
 ## <a name="lets-get-started"></a>開始使用
 本文假設您的 Web 應用程式已設定 Application Insights。 如果您還沒有帳戶，您可以[設定 ASP.NET 網站的 Application Insights][1]

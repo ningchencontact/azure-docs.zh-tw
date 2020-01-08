@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: a1a4dbffed37480178d1b94a77587ca251396db6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 05d849aa0edf5892e568c4078ca619490cfcd98e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931944"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363195"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>在 Azure 監視器中使用 View Designer 建立自訂視圖
 藉由在 Azure 監視器中使用 View Designer，您可以在 Azure 入口網站中建立各種自訂視圖，以協助您將 Log Analytics 工作區中的資料視覺化。 本文提供檢視設計工具的概觀以及建立和編輯自訂檢視的程序。
@@ -32,7 +32,7 @@ Views 會顯示在 Azure 入口網站的 [Azure 監視器**總覽**] 頁面中�
 
 下表說明您使用檢視設計工具所建立檢視的元素：
 
-| 部分 | 描述 |
+| 部分 | 說明 |
 |:--- |:--- |
 | 圖格 | 會顯示在您的 Azure 監視器 **[總覽**] 頁面上。 每個圖格會顯示它所呈現自訂檢視的視覺化摘要。 每個圖格類型提供記錄的不同的視覺效果。 您可以選取圖格來顯示自訂檢視。 |
 | 自訂檢視 | 當您選取圖格時顯示。 每個檢視包含一或多個視覺效果組件。 |
@@ -49,11 +49,11 @@ Views 會顯示在 Azure 入口網站的 [Azure 監視器**總覽**] 頁面中�
 
 下表說明這些選項：
 
-| 選項 | 描述 |
+| 選項 | 說明 |
 |:--|:--|
 | 重新整理   | 使用最新資料重新整理檢視。 | 
 | 記錄      | 開啟[Log Analytics](../log-query/portals.md)以記錄查詢來分析資料。 |
-| Edit       | 在檢視表設計工具中開啟檢視以編輯其內容和設定。  |
+| 編輯       | 在檢視表設計工具中開啟檢視以編輯其內容和設定。  |
 | 複製      | 建立新的檢視並且在檢視表設計工具中開啟。 新檢視的名稱與原始檢視的名稱相同，只是再附加*複製*字樣。 |
 | 日期範圍 | 為檢視中包含的資料設定日期和時間範圍篩選條件。 在檢視中設定查詢的任何日期範圍之前，會套用此日期範圍。  |
 | +          | 定義針對檢視所定義的自訂篩選條件。 |
@@ -95,13 +95,13 @@ Views 會顯示在 Azure 入口網站的 [Azure 監視器**總覽**] 頁面中�
 
 ![編輯功能表](media/view-designer/edit-menu.png)
 
-| 選項 | 描述 |
+| 選項 | 說明 |
 |:--|:--|
 | 儲存        | 儲存變更並關閉檢視。 |
 | 取消      | 捨棄變更並關閉檢視。 |
 | 刪除檢視 | 刪除檢視。 |
-| 匯出      | 將檢視匯出至 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)，您可以將該範本匯入至其他工作區。 檔案的名稱是檢視的名稱，副檔名為 *omsview*。 |
-| Import      | 將您從其他工作區匯出的 *omsview* 檔案匯入。 此動作會覆寫現有檢視的設定。 |
+| 匯出      | 將檢視匯出至 [Azure Resource Manager 範本](../../azure-resource-manager/templates/template-syntax.md)，您可以將該範本匯入至其他工作區。 檔案的名稱是檢視的名稱，副檔名為 *omsview*。 |
+| 匯入      | 將您從其他工作區匯出的 *omsview* 檔案匯入。 此動作會覆寫現有檢視的設定。 |
 | 複製       | 建立新的檢視並且在檢視表設計工具中開啟。 新檢視的名稱與原始檢視的名稱相同，只是再附加*複製*字樣。 |
 
 ## <a name="next-steps"></a>後續步驟

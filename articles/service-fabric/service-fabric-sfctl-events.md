@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric CLI-sfctl 事件 |Microsoft Docs
+title: Azure Service Fabric CLI-sfctl 事件
 description: 描述 Service Fabric CLI sfctl 事件命令。
-services: service-fabric
-documentationcenter: na
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 858fd1971a22b1db2d243838558c3792d3a60cc9
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 35dfbdb3f8b84e797d35c8d7ec1020509f7e8b57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901972"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466041"
 ---
 # <a name="sfctl-events"></a>sfctl 事件
 從事件存放區取出事件（如果已安裝 EventStore 服務）。
@@ -28,7 +19,7 @@ ms.locfileid: "72901972"
 
 ## <a name="commands"></a>命令
 
-|命令|描述|
+|Command|說明|
 | --- | --- |
 | 所有-應用程式-清單 | 取得所有與應用程式相關的事件。 |
 | 所有-節點-清單 | 取得所有節點相關事件。 |
@@ -49,7 +40,7 @@ ms.locfileid: "72901972"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --結束時間-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的結束時間。 |
 | --start-time-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的開始時間。 |
@@ -60,13 +51,13 @@ ms.locfileid: "72901972"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-events-all-nodes-list"></a>sfctl 事件-所有節點-清單
 取得所有節點相關事件。
@@ -75,7 +66,7 @@ ms.locfileid: "72901972"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --結束時間-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的結束時間。 |
 | --start-time-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的開始時間。 |
@@ -86,13 +77,13 @@ ms.locfileid: "72901972"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-events-all-partitions-list"></a>sfctl 事件-所有資料分割-清單
 取得所有資料分割相關的事件。
@@ -101,7 +92,7 @@ ms.locfileid: "72901972"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --結束時間-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的結束時間。 |
 | --start-time-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的開始時間。 |
@@ -112,13 +103,13 @@ ms.locfileid: "72901972"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-events-all-services-list"></a>sfctl 事件-服務-清單
 取得所有服務相關事件。
@@ -127,7 +118,7 @@ ms.locfileid: "72901972"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --結束時間-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的結束時間。 |
 | --start-time-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的開始時間。 |
@@ -138,13 +129,13 @@ ms.locfileid: "72901972"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-events-application-list"></a>sfctl 事件應用程式清單
 取得應用程式相關的事件。
@@ -153,7 +144,7 @@ ms.locfileid: "72901972"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --application-id [必要] | 應用程式的身分識別。 這通常是不含 'fabric\:' URI 配置的完整應用程式名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果應用程式名稱是 "fabric\:/myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp\~app1"，而在舊版中會是 "myapp/app1"。 |
 | --結束時間-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的結束時間。 |
@@ -165,13 +156,13 @@ ms.locfileid: "72901972"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-events-cluster-list"></a>sfctl 事件叢集-清單
 取得所有叢集相關事件。
@@ -180,7 +171,7 @@ ms.locfileid: "72901972"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --結束時間-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的結束時間。 |
 | --start-time-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的開始時間。 |
@@ -191,13 +182,13 @@ ms.locfileid: "72901972"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-events-node-list"></a>sfctl 事件節點清單
 取得節點相關事件。
@@ -206,7 +197,7 @@ ms.locfileid: "72901972"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --結束時間-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的結束時間。 |
 | --node-name      [必要] | 節點的名稱。 |
@@ -218,13 +209,13 @@ ms.locfileid: "72901972"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-events-partition-all-replicas-list"></a>sfctl 事件資料分割-所有-複本-清單
 取得資料分割的所有複本相關事件。
@@ -233,7 +224,7 @@ ms.locfileid: "72901972"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --結束時間-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的結束時間。 |
 | --partition-id   [必要] | 分割區的識別。 |
@@ -245,13 +236,13 @@ ms.locfileid: "72901972"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-events-partition-list"></a>sfctl 事件資料分割-清單
 取得分割區相關事件。
@@ -260,7 +251,7 @@ ms.locfileid: "72901972"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --結束時間-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的結束時間。 |
 | --partition-id   [必要] | 分割區的識別。 |
@@ -272,13 +263,13 @@ ms.locfileid: "72901972"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-events-partition-replica-list"></a>sfctl 事件資料分割-複本-清單
 取得與資料分割複本相關的事件。
@@ -287,7 +278,7 @@ ms.locfileid: "72901972"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --結束時間-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的結束時間。 |
 | --partition-id   [必要] | 分割區的識別。 |
@@ -300,13 +291,13 @@ ms.locfileid: "72901972"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-events-service-list"></a>sfctl 事件服務-清單
 取得服務相關事件。
@@ -315,7 +306,7 @@ ms.locfileid: "72901972"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --結束時間-utc [必要] | 以 ISO UTC yyyy-mm-dd ddTHH\:MM\:ssZ 的查閱查詢的結束時間。 |
 | --service-id     [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
@@ -327,11 +318,11 @@ ms.locfileid: "72901972"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 

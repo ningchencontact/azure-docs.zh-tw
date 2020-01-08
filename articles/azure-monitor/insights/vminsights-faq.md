@@ -4,15 +4,15 @@ description: 除了自動探索及對應應用程式元件及其相依性之外�
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 01/09/2018
-ms.openlocfilehash: 579538996e934c7068c397a284d819f5ddb92f08
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: fa47606112c562402a42bd5ca503ed2d9a311268
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305457"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400387"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>適用於 VM 的 Azure 監視器 (預覽) 常見問題集
 此 Microsoft 常見問題集是適用於 VM 的 Azure 監視器常見問題清單。 若您有任何關於解決方案的其他問題，請前往[討論論壇](https://feedback.azure.com/forums/34192--general-feedback)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
@@ -67,7 +67,7 @@ ms.locfileid: "74305457"
 否，Windows 不包含個別處理器和邏輯處理器層級健全準則，依預設僅會監視 CPU 總使用率，以根據 Azure VM 可用的邏輯 CPU 總數有效評估 CPU 壓力。 
 
 ## <a name="are-all-health-criteria-thresholds-configurable"></a>所有健全準則臨界值都是可設定的嗎？  
-以 Windows VM 為目標的健全準則閾值均為不可修改的，因為其健全準則會設定為「執行中」或「可用」。 當您從[工作負載監視 API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components) \(英文\) 查詢健全狀態時，在下列情況中，會針對服務或實體顯示 *LessThan* 或 **GreaterThan** 的 **comparisonOperator** 值且「閾值」為 **4**：
+以 Windows VM 為目標的健全準則閾值均為不可修改的，因為其健全準則會設定為「執行中」或「可用」。 當您從[工作負載監視 API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components) \(英文\) 查詢健全狀態時，在下列情況中，會針對服務或實體顯示 **LessThan** 或 **GreaterThan** 的 *comparisonOperator* 值且「閾值」為 **4**：
    - DNS 用戶端服務健康情況：服務未執行。 
    - DHCP 用戶端服務健康情況：服務未執行。 
    - RPC 用戶端服務健康情況：服務未執行。 
@@ -77,7 +77,7 @@ ms.locfileid: "74305457"
    - Windows 遠端管理服務健康情況：服務未執行。 
    - 檔案系統錯誤或損毀：邏輯磁碟無法使用。
 
-下列 Linux 健全準則的閾值不可修改，因為其健全狀態已設定為 *true*。 從工作負載監視 API 進行查詢時，實體的健全狀態會根據其內容顯示值為 *LessThan* 的 **comparisonOperator** 且「閾值」為 **1**：
+下列 Linux 健全準則的閾值不可修改，因為其健全狀態已設定為 *true*。 從工作負載監視 API 進行查詢時，實體的健全狀態會根據其內容顯示值為 **LessThan** 的 *comparisonOperator* 且「閾值」為 **1**：
    - 邏輯磁碟狀態：邏輯磁碟未連線/無法使用
    - 磁碟狀態：磁碟未連線/無法使用
    - 網路介面卡狀態 - 網路介面卡已停用

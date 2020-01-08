@@ -1,14 +1,14 @@
 ---
 title: 藍圖範例的索引
 description: 使用 Azure 藍圖部署環境、原則和雲端採用架構基礎的合規性和標準範例索引。
-ms.date: 11/22/2019
+ms.date: 12/05/2019
 ms.topic: sample
-ms.openlocfilehash: ea8759db0fde7d6686acd3c58006be3f59adf6fd
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: a0be956037f6b1ee5229ecde7b1491f552113866
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404120"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436568"
 ---
 # <a name="azure-blueprints-samples"></a>Azure 藍圖範例
 
@@ -21,6 +21,7 @@ ms.locfileid: "74404120"
 | [加拿大聯邦 PBMM](./canada-federal-pbmm/index.md) | 提供符合加拿大聯邦受保護分類 B、中度完整性、中度可用性之保護機制 (PBMM)。 |
 | [CIS Microsoft Azure 基礎基準測試](./cis-azure-1.1.0/index.md)| 提供一組原則，以協助您遵循 CIS Microsoft Azure 基礎的基準測試建議。 |
 | [FedRAMP 適中等級](./fedramp-m/index.md) | 提供一組原則，以協助符合 FedRAMP 適中等級的規範。 |
+| [HIPAA HITRUST](./HIPAA-HITRUST/index.md) | 提供一組原則，以協助符合 HIPAA HITRUST。 |
 | [IRS 1075](./irs-1075/index.md) | 提供成立條件以符合 IRS 1075。|
 | [ISO 27001](./iso27001/index.md) | 提供成立條件以符合 ISO 27001。 |
 | [ISO 27001 共用服務](./iso27001-shared/index.md) | 提供一組符合規範的基礎結構模式和原則防護措施，可協助您取得 ISO 27001 證明。 |

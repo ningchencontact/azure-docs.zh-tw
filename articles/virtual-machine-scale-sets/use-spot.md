@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 68315b1b0d290b107fe2d28a9e3b49be009b78b8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d2c8e599e44e48517920862e1fcf83e1a5e24910
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782238"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647623"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>預覽：適用于虛擬機器擴展集的 Azure 位置 Vm 
 
@@ -29,7 +29,7 @@ ms.locfileid: "74782238"
 >
 > 在公開預覽的早期部分，點實例會有固定的價格，因此不會有任何以價格為基礎的收回。
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 
 「點」實例的定價是以區域和 SKU 為依據的變數。 如需詳細資訊，請參閱[Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)和[Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)的定價。 
 
@@ -151,7 +151,7 @@ $vmssConfig = New-AzVmssConfig `
 
 **問：** 如何管理適用于點的配額？
 
-**答：** 點實例和標準實例會有不同的配額集區。 點配額會在 Vm 與擴展集實例之間共用。 如需詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](https://docs.microsoft.com/azure/azure-subscription-service-limits)。
+**答：** 點實例和標準實例會有不同的配額集區。 點配額會在 Vm 與擴展集實例之間共用。 如需詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)。
 
 
 **問：** 我可以要求額外的時間配額嗎？

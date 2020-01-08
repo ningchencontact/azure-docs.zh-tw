@@ -1,17 +1,17 @@
 ---
-title: 使用 Azure Resource Manager 範本來建立和管理 Azure Cosmos DB
+title: 使用 Resource Manager 範本來建立和管理 Azure Cosmos DB
 description: 使用 Azure Resource Manager 範本來建立和設定適用于 SQL （核心） API 的 Azure Cosmos DB
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 62c04fed03ad2346d0f548a4a8028f2d7d6b3486
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 95301efce4b2abe143ec8c8ea5e5ccc445191d3e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850460"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643792"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Azure Cosmos DB SQL （核心） API 資源
 
@@ -204,5 +204,5 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 * [Azure Resource Manager 檔](/azure/azure-resource-manager/)
 * [Azure Cosmos DB 資源提供者架構](/azure/templates/microsoft.documentdb/allversions)
-* [Azure Cosmos DB 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
+* [Azure Cosmos DB 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb&pageNumber=1&sort=Popular)
 * [針對常見 Azure Resource Manager 部署錯誤進行疑難排解](../azure-resource-manager/resource-manager-common-deployment-errors.md)

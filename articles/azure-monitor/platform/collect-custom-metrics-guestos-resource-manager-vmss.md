@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 691b2ae7e497c9292975083e3687d9240ce6f3e6
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: ec9f7ecf218b635588065c14bd4d11283d027c11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286127"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364079"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>使用 Windows 虛擬機器擴展集的 Azure Resource Manager 範本將客體作業系統計量傳送至 Azure 監視器計量存放區
 
@@ -23,9 +23,9 @@ ms.locfileid: "74286127"
 
 此文章說明將 Windows 虛擬機器擴展集的客體作業系統效能計量傳送至 Azure 監視器資料存放區的程序。 從 Windows Azure 診斷 1.11 版開始，您可以直接將計量寫入到已收集標準平台計量的 Azure 監視器計量存放區。 藉由將計量儲存在此位置，您就可以存取平台計量適用的相同動作。 動作包括近乎即時的警示、圖表、路由、從 REST API 存取以及更多功能。 在過去，Windows Azure 診斷擴充功能會寫入到 Azure 儲存體，而不是 Azure 監視器資料存放區。  
 
-如果您剛開始使用 Resource Manager 範本，請了解[範本部署](../../azure-resource-manager/resource-group-overview.md)與其結構和語法。  
+如果您剛開始使用 Resource Manager 範本，請了解[範本部署](../../azure-resource-manager/management/overview.md)與其結構和語法。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 您必須先向 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) 註冊您的訂用帳戶。 
 
@@ -246,7 +246,7 @@ MSI 擴充功能中的下列程式碼也可以將診斷擴充功能與設定作�
    ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. 為要部署的 VM 建立新的資源群組。 執行下列命令： 
+1. 為要部署的 VM 建立新的資源群組。 執行以下命令： 
 
    ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
@@ -286,7 +286,7 @@ MSI 擴充功能中的下列程式碼也可以將診斷擴充功能與設定作�
 
 1. 在 [命名空間] 下拉式功能表中，選取 **azure.vm.windows.guest**。 
 
-1. 在 [計量] 下拉式功能表中，選取 [記憶體**認可的位元組 (使用中)\]\%** 。  
+1. 在 [計量] 下拉式功能表中，選取 [記憶體\%認可的位元組 (使用中)\]。  
 
 接著，您也可以選擇使用這個計量上的維度，為特定 VM 繪製圖表，或對擴展集中的每個 VM 繪製圖表。 
 

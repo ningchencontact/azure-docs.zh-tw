@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: baa3444773c41bc91de7e35d2c80f066b96b9ed5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7d8d1505a268976161636abd0ed2d24398978284
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790409"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374285"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure 虛擬機器上的 SQL Server 是什麼？ (Windows)
 
@@ -103,20 +103,22 @@ Azure 虛擬機器提供不同的機器大小，以符合各種工作負載需�
 
 Azure 入口網站提供單一頁面，您可以在其中管理[所有的 AZURE sql 資源](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql)，包括您的 SQL 虛擬機器。
 
-若要存取**AZURE sql 資源**頁面，請在 Azure 入口網站的左側功能表中選取 [ **azure sql** ]。 如果 **Azure SQL** 不在清單中，請選取 [所有服務]，然後在搜尋方塊中輸入 Azure SQL。
+若要存取**AZURE sql 資源**頁面，請在 [Azure 入口網站] 功能表中選取 [ **azure sql** ]，或搜尋並從任何頁面中選取 **[azure sql** ]。
+
+![搜尋 Azure SQL](./media/quickstart-sql-vm-create-portal/search-for-azure-sql.png)
 
 > [!NOTE]
 > **AZURE SQL**提供快速且輕鬆的方式來存取您的所有 SQL 資料庫、彈性集區、資料庫伺服器、sql 受控實例和 sql 虛擬機器。 Azure SQL 不是服務或資源。 
 
 若要管理現有的資源，請在清單中選取所需的專案。 若要建立新的 Azure SQL 資源，請選取 [ **+ 新增**]。 
 
-![Azure SQL 入口網站頁面](./media/quickstart-sql-vm-create-portal/azure-sql.png)
+![建立 Azure SQL 資源](./media/quickstart-sql-vm-create-portal/create-azure-sql-resource.png)
 
 選取 [ **+ 新增**] 之後，請選取任何磚上的 [**顯示詳細資料**]，以查看有關不同選項的其他資訊。
 
 ![資料庫磚詳細資料](./media/quickstart-sql-vm-create-portal/sql-vm-details.png)
 
-如需詳細資訊，請參閱：
+如需詳細資料，請參閱：
 
 - [建立單一資料庫](../../../sql-database/sql-database-single-database-get-started.md)
 - [建立彈性集區](../../../sql-database/sql-database-elastic-pool.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
@@ -136,7 +138,7 @@ Azure 只會針對每個支援的作業系統、版本和版次組合，維護�
 ### <a name="storage"></a>儲存體
 * [Microsoft Azure 儲存體簡介](../../../storage/common/storage-introduction.md)
 
-### <a name="networking"></a>網路功能
+### <a name="networking"></a>網路
 * [虛擬網路概觀](../../../virtual-network/virtual-networks-overview.md)
 * [Azure 中的 IP 位址](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [在 Azure 入口網站中建立完整格式的網域名稱](../portal-create-fqdn.md)

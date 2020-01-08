@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8a2a704f39aa678be819a7297b30f8926e414e56
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c303e2b691f8e7aa7ea3c8fcc69e39d7970ef54e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748443"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352880"
 ---
 # <a name="service-bus-faq"></a>服務匯流排常見問題集
 
@@ -58,7 +58,7 @@ ms.locfileid: "73748443"
 | HTTP、HTTPS | 80、443 | 
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>我需要列入允許清單的 IP 位址為何？
-若要針對您的連線尋找適當的 IP 位址給允許清單，請遵循下列步驟：
+若要針對您的連線尋找適當的 IP 位址給白名單，請遵循下列步驟：
 
 1. 從命令提示字元執行下列命令： 
 
@@ -84,7 +84,7 @@ ms.locfileid: "73748443"
 3. 針對每個尾碼為 s1、s2 和 s3 的程式執行 nslookup，以取得三個可用性區域中執行之三個實例的 IP 位址。 
 
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Azure 服務匯流排的最佳做法有哪些？
 請參閱[使用服務匯流排改善效能的最佳做法][Best practices for performance improvements using Service Bus]–這篇文章說明如何在交換訊息時將效能優化。
 
@@ -96,7 +96,7 @@ ms.locfileid: "73748443"
 * 重複偵測
 * 快速實體
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 本節提供服務匯流排價格結構的一些常見問題解答。
 
 [服務匯流排定價與計費](https://azure.microsoft.com/pricing/details/service-bus/)一文說明服務匯流排中的計費計量。 如需服務匯流排價格選項的特定資訊，請參閱[服務匯流排價格詳細資料](https://azure.microsoft.com/pricing/details/service-bus/)。
@@ -113,7 +113,7 @@ ms.locfileid: "73748443"
 不會，服務匯流排不會收取儲存體費用。 不過，有配額會限制每個佇列/主題可保存的資料數量上限。 請參閱下一個常見問題。
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>我有一個服務匯流排標準命名空間。 為什麼我會看到資源群組 ' $system ' 下的費用？
-Azure 服務匯流排最近已升級計費元件。 因此，如果您有服務匯流排標準命名空間，您可能會在資源群組 ' $ 底下看到資源 '/subscriptions/< azure_subscription_id >/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' 的明細專案系統 '。
+Azure 服務匯流排最近已升級計費元件。 因此，如果您有服務匯流排標準命名空間，您可能會在資源群組 ' $system ' 下看到資源 '/subscriptions/< azure_subscription_id >/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' 的明細專案。
 
 這些費用代表已布建服務匯流排標準命名空間的每個 Azure 訂用帳戶基本費用。 
 
@@ -150,7 +150,7 @@ Azure 服務匯流排最近已升級計費元件。 因此，如果您有服務�
 
 #### <a name="portal"></a>入口網站
 
-若要使用 Azure 入口網站將「服務匯流排」移到另一個訂用帳戶，請依照[這裡](../azure-resource-manager/resource-group-move-resources.md#use-the-portal)的指示操作。 
+若要使用 Azure 入口網站將「服務匯流排」移到另一個訂用帳戶，請依照[這裡](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal)的指示操作。 
 
 #### <a name="powershell"></a>PowerShell
 

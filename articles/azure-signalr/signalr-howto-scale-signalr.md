@@ -4,14 +4,14 @@ description: 瞭解如何透過 Azure 入口網站或 Azure CLI 來調整 Azure 
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/11/2019
 ms.author: zhshang
-ms.openlocfilehash: 0c4f91ee9cea5e8b13ecfedafffdc1715fc242c2
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: c8d74342e624b837c7ee803a2bcdcc12a3fb814b
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464174"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659282"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>如何調整 Azure SignalR Service 實例？
 本文說明如何調整 Azure SignalR Service 的實例。 有兩種規模調整、相應增加和相應放大的案例。
@@ -19,12 +19,12 @@ ms.locfileid: "74464174"
 * 相應[增加](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)：取得更多單位、連線、訊息等等。 您可以將定價層從「免費」變更為「標準」，以相應增加規模。
 * [相應](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)放大：增加 SignalR 單位的數目。 您可以相應放大為最多100個單位。
 
-調整規模設定需要幾分鐘的時間才會套用。 它們不會要求您變更程式碼或重新部署您的伺服器應用程式。
+調整規模設定需要幾分鐘的時間才會套用。 在罕見的情況下，可能需要大約30分鐘的時間來套用。 它們不會要求您變更程式碼或重新部署您的伺服器應用程式。
 
 如需個別 SignalR Service 的定價和容量相關資訊，請參閱[Azure SignalR Service 定價詳細資料](https://azure.microsoft.com/pricing/details/signalr-service/)。  
 
 > [!NOTE]
-> 將 SignalR Service 從**免費**層變更為**標準**層，或相反地，公用服務 IP 將會變更，而且通常需要3-60 分鐘的時間，才能將變更傳播到整個網際網路上的 DNS 伺服器。 您的服務可能會在 DNS 更新前無法連線。 通常不建議您經常變更定價層。
+> 將 SignalR Service 從**免費**層變更為**標準**層，或相反地，公用服務 IP 將會變更，而且通常需要30-60 分鐘的時間，才能將變更傳播到整個網際網路上的 DNS 伺服器。 您的服務可能會在 DNS 更新前無法連線。 通常不建議您經常變更定價層。
 
 
 ## <a name="scale-on-azure-portal"></a>相應縮小 Azure 入口網站
@@ -33,7 +33,7 @@ ms.locfileid: "74464174"
 
 2. 在 [SignalR Service] 頁面上，從左側功能表中選取 [**調整**]。
    
-3. 選擇您的定價層，然後按一下 [**選取**]。 您必須設定**標準**層的單位元數目。
+3. 選擇您的定價層，然後按一下 [**選取**]。 設定**標準**層的單位元數目。
    
     ![在入口網站上調整](./media/signalr-howto-scale/signalr-howto-scale.png)
 
@@ -81,7 +81,7 @@ az signalr update \
 
 如需詳細資訊（例如每個定價層的內含訊息和連線），請參閱[SignalR Service 定價詳細資料](https://azure.microsoft.com/pricing/details/signalr-service/)。
 
-如需每個層級的服務限制、配額和條件約束表，請參閱[SignalR Service 限制](../azure-subscription-service-limits.md#azure-signalr-service-limits)。
+如需每個層級的服務限制、配額和條件約束表，請參閱[SignalR Service 限制](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits)。
 
 ## <a name="next-steps"></a>後續步驟
 

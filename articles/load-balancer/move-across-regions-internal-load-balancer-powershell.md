@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 52a43dff5d2e740633675b71d5177d0df876d3cd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: f8e431124155fe23853fe61e985fe4db522c3f77
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092205"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644268"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-powershell"></a>使用 PowerShell 將 Azure 內部 Load Balancer 移至另一個區域
 
@@ -32,7 +32,7 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
 
 - 確認您的 Azure 訂用帳戶可讓您在所使用的目的地區域中建立內部負載平衡器。 請連絡支援人員啟用所需的配額。
 
-- 請確定您的訂用帳戶有足夠的資源可支援新增此程式的負載平衡器。  請參閱 [Azure 訂用帳戶和服務限制、配額與限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)
+- 請確定您的訂用帳戶有足夠的資源可支援新增此程式的負載平衡器。  請參閱 [Azure 訂用帳戶和服務限制、配額與限制](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
 
 
 ## <a name="prepare-and-move"></a>準備和移動
@@ -60,7 +60,7 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. 下載的檔案將會以匯出資源的來源資源群組命名。  找出從名為 **\<[資源-群組-名稱 >** ] 的命令匯出的檔案，並在您選擇的編輯器中開啟它：
+4. 下載的檔案將會以匯出資源的來源資源群組命名。  找出從名為 **\<資源群組-名稱 >** 的命令匯出的檔案，並在您選擇的編輯器中開啟它：
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
@@ -105,9 +105,9 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
     Get-AzLocation | format-table
     
     ```
-8.  如果您選擇，您也可以變更 **\<資源群組名稱**中的其他參數 > json 檔案，而且是選擇性的，視您的需求而定：
+8.  如果您選擇，您也可以變更 **\<資源群組名稱 >. json**檔案中的其他參數，而且這是選擇性的，視您的需求而定：
 
-    * **位址空間**-VNET 的位址空間可以藉由修改**resources**  >  **addressSpace**  **\<一節來變更，並變更中的 addressPrefixes 屬性。資源群組-名稱 > json**檔案：
+    * **位址空間**-VNET 的位址空間可以藉由修改**resources** > **addressSpace**區段來加以變更，並變更 **\<資源群組名稱 > json**檔案中的**addressPrefixes**屬性：
 
         ```json
                 "resources": [
@@ -127,7 +127,7 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
 
         ```
 
-    * **子**網-您可以修改 **\<資源群組名稱 >. json**檔案的**子**網區段，來變更或新增子網名稱和子網位址空間。 您可以藉由變更**name**屬性來變更子網的名稱。 藉由改變 **\<資源群組名稱 >. json**檔案中的**addressPrefix**屬性，即可變更子網位址空間：
+    * **子**網-藉由修改 **\<資源群組名稱 >. json**檔案的**子**網區段，即可變更或新增子網名稱和子網位址空間。 您可以藉由變更**name**屬性來變更子網的名稱。 藉由改變 **\<資源群組-名稱 >. json**檔案中的**addressPrefix**屬性，即可變更子網位址空間：
 
         ```json
                 "subnets": [
@@ -158,7 +158,7 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
                 ]
         ```
 
-         在**資源群組名稱 > json 檔案中，若要變更位址首碼，必須在兩個位置中進行編輯，如上所列的區段和下面所列的類型一節。 \<**  變更**addressPrefix**屬性，使其符合上述各項：
+         在 **\<資源群組-名稱 >. json**檔案中，若要變更位址首碼，必須在兩個位置中進行編輯，如上所列的區段，以及下面所列的**類型**區段。  變更**addressPrefix**屬性，使其符合上述各項：
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -194,7 +194,7 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
          ]
         ```
 
-9.  將資源**群組名稱儲存>json檔案。\<**
+9.  儲存 **\<資源群組名稱 >. json**檔案。
 
 10. 在目的地區域中建立資源群組，以使用[remove-azresourcegroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)部署目標 VNET
     
@@ -202,7 +202,7 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-11. 使用[new-azresourcegroupdeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)，將已編輯 **\<的資源群組名稱 >. json**檔案部署到在上一個步驟中建立的資源群組：
+11. 使用[new-azresourcegroupdeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)，將已編輯的 **\<資源群組名稱 >. json**檔案部署到上一個步驟中建立的資源群組：
 
     ```azurepowershell-interactive
 
@@ -241,7 +241,7 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceIntLBID -IncludeParameterDefaultValue
    ```
-4. 下載的檔案將會以匯出資源的來源資源群組命名。  找出從名為 **\<[資源-群組-名稱 >** ] 的命令匯出的檔案，並在您選擇的編輯器中開啟它：
+4. 下載的檔案將會以匯出資源的來源資源群組命名。  找出從名為 **\<資源群組-名稱 >** 的命令匯出的檔案，並在您選擇的編輯器中開啟它：
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
@@ -263,7 +263,7 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
              }
     ```
  
-6. 若要編輯上方移動之目標虛擬網路的值，您必須先取得資源識別碼，然後將它複製並貼到 **\<資源群組名稱 >. json**檔案中。  若要取得識別碼，請使用[new-azvirtualnetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0)：
+6. 若要編輯上方移動的目標虛擬網路值，您必須先取得資源識別碼，然後將它複製並貼到 **\<的資源組名 >. json**檔案中。  若要取得識別碼，請使用[new-azvirtualnetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0)：
    
    ```azurepowershell-interactive
     $targetVNETID = (Get-AzVirtualNetwork -Name <target-vnet-name> -ResourceGroupName <target-resource-group-name>).Id
@@ -275,7 +275,7 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
     /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupVNET-Move/providers/Microsoft.Network/virtualNetworks/myVNET2-Move
     ```
 
-7.  在資源群組 **名稱 > json 檔案中，貼上變數中的資源識別碼，以取代目標虛擬網路識別碼的第二個參數中的 defaultValue，請務必以引號括住\<** 路徑：
+7.  在 **\<資源群組名稱 >. json**檔案中，貼上變數中的**資源識別碼**，以取代目標虛擬網路識別碼的第二個參數中的**defaultValue** ，確保您以引號括住路徑：
    
     ```json
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -291,7 +291,7 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
              }
     ```
 
-8. 若要編輯將移動內部負載平衡器設定的目的地區域，請變更 **\<資源群組名稱 > json**檔案中 [**資源**] 下的 [**位置**] 屬性：
+8. 若要編輯將移動內部負載平衡器設定的目的地區域，請變更 **\<資源群組-名稱 >. json**檔案中的 [**資源**] 底下的 [**位置**] 屬性：
 
     ```json
         "resources": [
@@ -315,7 +315,7 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
     ```
 12. 您也可以根據您的需求，變更範本中的其他參數，而且是選擇性的：
     
-    * **Sku** -您可以變更  >   **\<資源群組-名稱中的 sku 名稱屬性 > json，將設定中的內部負載平衡器 sku 從標準變更為基本或基本到標準**檔案：
+    * **Sku** -您可以藉由變更 **\<資源群組名稱 > json**檔案中的**sku** > **name**屬性，將設定中的內部負載平衡器 sku 從標準變更為「基本」或「基本至標準」。
 
         ```json
         "resources": [
@@ -331,7 +331,7 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
         ```
       如需基本和標準 sku 負載平衡器之間差異的詳細資訊，請參閱[Azure Standard Load Balancer 總覽](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 
-    * **負載平衡規則**-您可以在設定中新增或移除專案，方法是新增或移除 **\<資源群組名稱 > json**檔案的**loadBalancingRules**區段中的負載平衡規則：
+    * **負載平衡規則**-您可以在設定中新增或移除專案，方法是新增或移除 **\<資源群組-名稱 > Json**檔案的**loadBalancingRules**區段中的負載平衡規則：
 
         ```json
         "loadBalancingRules": [
@@ -363,7 +363,7 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
         ```
        如需負載平衡規則的詳細資訊，請參閱[什麼是 Azure Load Balancer？](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **探查**-您可以藉由新增或移除 **\<資源群組-名稱 > json**檔案的**探查**區段中的專案，在設定中新增或移除負載平衡器的探查：
+    * **探查**-您可以新增或移除設定中負載平衡器的探查，方法是新增或移除 **\<資源群組-名稱 > json**檔案的 [**探查**] 區段中的專案：
 
         ```json
         "probes": [
@@ -383,7 +383,7 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
         ```
        如需 Azure Load Balancer 健康狀態探查的詳細資訊，請參閱[Load Balancer 健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
 
-    * **輸入 nat 規則**-您可以新增或移除負載平衡器的輸入 nat 規則，方法是新增或移除 **\<資源群組名稱 > json**檔案的**loadbalancer.inboundnatrules**區段中的專案：
+    * **輸入 nat 規則**-您可以新增或移除負載平衡器的輸入 nat 規則，方法是新增或移除 **\<資源群組-名稱 > Json**檔案的**loadbalancer.inboundnatrules**區段：
 
         ```json
         "inboundNatRules": [
@@ -405,7 +405,7 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
                     }
                 ]
         ```
-        若要完成輸入 NAT 規則的新增或移除，必須在 **\<資源群組名稱 >. json**檔案的結尾，將此規則顯示或移除為**類型**屬性：
+        若要完成輸入 NAT 規則的新增或移除，必須在 **\<資源群組名稱 >. json**檔案結尾處，以**類型**屬性的形式存在或移除規則：
 
         ```json
         {
@@ -431,14 +431,14 @@ Azure 內部負載平衡器無法從一個區域移至另一個區域。 不過�
         ```
         如需輸入 NAT 規則的詳細資訊，請參閱[什麼是 Azure Load Balancer？](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
     
-13. 將資源**群組名稱儲存>json檔案。\<**
+13. 儲存 **\<資源群組名稱 >. json**檔案。
     
 10. 在目的地區域中，使用[remove-azresourcegroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)建立或部署目標內部負載平衡器的資源群組。 上述的現有資源群組也可以在此程式中重複使用：
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. 使用[new-azresourcegroupdeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)，將已編輯 **\<的資源群組名稱 >. json**檔案部署到在上一個步驟中建立的資源群組：
+11. 使用[new-azresourcegroupdeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)，將已編輯的 **\<資源群組名稱 >. json**檔案部署到上一個步驟中建立的資源群組：
 
     ```azurepowershell-interactive
 

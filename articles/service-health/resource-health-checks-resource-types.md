@@ -1,17 +1,14 @@
 ---
 title: 透過 Azure 資源健康狀態支援的資源類型 | Microsoft Docs
 description: 透過 Azure 資源健康狀態支援的資源類型
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: 1692e8acda88a51173eb0eabcd90c377b431a3c3
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f25dc32774cb040a2b9873c6811ff184373c5104
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955026"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465264"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure 資源健康狀態中的資源類型和健康情況檢查
 以下是依資源類型透過資源健康狀態執行之所有檢查的完整清單。
@@ -72,7 +69,7 @@ ms.locfileid: "68955026"
 |---|
 |<ul><li>使用者將資料上傳至 Data Lake Store 時是否遇到問題？</li><li>使用者從 Data Lake Store 下載資料時是否遇到問題？</li></ul>|
 
-## <a name="microsoftdatamigrationservices"></a>Microsoft.datamigration/services
+## <a name="microsoftdatamigrationservices"></a>Microsoft.datamigration/服務
 |執行的檢查|
 |---|
 |<ul><li>資料庫移轉服務無法布建嗎？</li><li>資料庫移轉服務是否因無活動或使用者要求而停止？</li></ul>|
@@ -132,7 +129,7 @@ ms.locfileid: "68955026"
 |---|
 |<ul><li>媒體服務是否已啟動且正在執行？</li></ul>|
 
-## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft 網路/applicationgateways
 |執行的檢查|
 |---|
 |<ul><li>應用程式閘道效能是否降低？</li><li>應用程式閘道可用嗎？</li></ul>|
@@ -142,12 +139,12 @@ ms.locfileid: "68955026"
 |---|
 |<ul><li>VPN 通道是否已連線？</li><li>連線中有設定衝突嗎？</li><li>是否正確設定預先共用的金鑰？</li><li>是否可連線到 VPN 內部部署裝置？</li><li>IPSec/IKE 安全性原則中是否有不相符之處？</li><li>S2S VPN 連線是否正確佈建，還是處於失敗狀態？</li><li>VNET 對 VNET 連線是否正確佈建，還是處於失敗狀態？</li></ul>|
 
-## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
+## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft 網路/expressreoutecircuits
 |執行的檢查|
 |---|
 |<ul><li>ExpressRoute 線路狀況良好嗎？</li></ul>|
 
-## <a name="microsoftnetworkfrontdoors"></a>Microsoft.network/frontdoors
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft 網路/frontdoors
 |執行的檢查|
 |---|
 |<ul><li>Front 門板後端是否回應健康狀態探查的錯誤？</li><li>設定變更延遲嗎？</li></ul>|
@@ -167,7 +164,7 @@ ms.locfileid: "68955026"
 |---|
 |<ul><li>可以在命名空間上執行註冊、安裝或傳送等執行階段作業嗎？</li></ul>|
 
-## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/workspaces
+## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/工作區
 |執行的檢查|
 |---|
 |<ul><li>工作區有索引延遲嗎？</li></ul>|

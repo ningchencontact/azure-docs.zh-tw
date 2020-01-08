@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 09/19/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1fec6de65fade0bbb35907f9c69334e16d9193bf
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 63070b2c1e6adbb0149446b218e6e58023b2d409
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671747"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666445"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
 <a name="Overview"></a>
@@ -23,7 +23,7 @@ ms.locfileid: "74671747"
 * 先將應用程式部署至某個位置，然後再將它交換到生產位置，可確保該位置的所有執行個體在交換到生產位置之前都已準備就緒。 這麼做可以排除部署應用程式時的停機情況。 流量能夠順暢地重新導向，且不會因為交換作業而捨棄任何要求。 當不需要預先交換驗證時，您可以設定[自動交換](#Auto-Swap)，以自動化整個工作流程。
 * 交換之後，先前具有預備應用程式的位置，現在已經有之前的生產應用程式。 若交換到生產位置的變更不是您需要的變更，您可以立即執行相同的交換，以恢復「上一個已知的良好網站」。
 
-每個 App Service 方案層所支援的部署位置個數都不一樣。 使用部署位置不需要額外付費。 若要找出應用程式層支援的位置數目，請參閱[App Service 限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits)。 
+每個 App Service 方案層所支援的部署位置個數都不一樣。 使用部署位置不需要額外付費。 若要找出應用程式層支援的位置數目，請參閱[App Service 限制](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits)。 
 
 若要將您的應用程式調整為不同的層級，請確定目標層支援您的應用程式已使用的位置數目。 例如，如果您的應用程式有五個以上的位置，您就無法將其向下調整為**標準**層，因為**標準**層只支援五個部署位置。 
 
@@ -32,7 +32,11 @@ ms.locfileid: "74671747"
 ## <a name="add-a-slot"></a>新增位置
 應用程式必須在 [標準]、[進階] 或 [隔離] 層中執行，您才能啟用多個部署位置。
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟應用程式的[資源頁面](../azure-resource-manager/manage-resources-portal.md#manage-resources)。
+
+1. 在  [Azure 入口網站](https://portal.azure.com/)中，搜尋並選取 **應用程式服務**，然後選取您的應用程式。 
+   
+    ![搜尋應用程式服務](./media/web-sites-staged-publishing/search-for-app-services.png)
+   
 
 2. 在左窗格中，選取 [**部署**位置] > [**新增**位置]。
    
@@ -206,7 +210,7 @@ ms.locfileid: "74671747"
 
 您也可以使用下列其中一個或兩個[應用程式設定](configure-common.md)來自訂暖開機行為：
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`：用來讓您的網站進行 ping 的路徑。 請指定開頭為斜線的自訂路徑作為值，以新增此應用程式設定。 例如 `/statuscheck`。 預設值為 `/`。 
+- `WEBSITE_SWAP_WARMUP_PING_PATH`：用來讓您的網站進行 ping 的路徑。 請指定開頭為斜線的自訂路徑作為值，以新增此應用程式設定。 例如 `/statuscheck`。 預設值是 `/`。 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`：準備操作的有效 HTTP 回應碼。 請以 HTTP 代碼的逗號分隔清單方式新增此應用程式設定。 `200,202` 的範例。 如果傳回的狀態碼不在清單中，則會停止準備和交換作業。 預設是所有回應碼都有效。
 
 > [!NOTE]
@@ -241,7 +245,7 @@ ms.locfileid: "74671747"
 用戶端自動路由至特定位置之後，就會在該位置「釘選」在該用戶端會話的生命週期內。 用戶端瀏覽器中，您可以查看 HTTP 標頭中的 `x-ms-routing-name` Cookie，以確認您的工作階段固定到哪個位置。 路由至「預備」位置的要求具有 Cookie `x-ms-routing-name=staging`。 路由至生產位置的要求具有 Cookie `x-ms-routing-name=self`。
 
    > [!NOTE]
-   > 在 Azure 入口網站旁邊，您也可以使用 Azure CLI 中的 [ [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) ] 命令，從 DevOps 管線或其他自動化系統等 CI/CD 工具設定路由百分比。
+   > 在 [Azure 入口網站] 旁，您也可以使用 Azure CLI 中的 [ [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) ] 命令，從 DevOps 管線或其他自動化系統等 CI/CD 工具設定路由百分比。
    > 
 
 ### <a name="route-production-traffic-manually"></a>手動路由生產流量
@@ -268,7 +272,7 @@ ms.locfileid: "74671747"
 
 ## <a name="delete-a-slot"></a>刪除位置
 
-移至您應用程式的資源頁面。 選取**部署**位置 >  *\<位置以刪除 >*  > **總覽**。 選取命令列上的 [**刪除**]。  
+搜尋並選取您的應用程式。 選取**部署**位置 >  *\<位置以刪除 >*  > **總覽**。 選取命令列上的 [**刪除**]。  
 
 ![刪除部署位置](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -327,16 +331,16 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
-## <a name="automate-with-arm-templates"></a>使用 ARM 範本進行自動化
+## <a name="automate-with-resource-manager-templates"></a>使用 Resource Manager 範本進行自動化
 
-[ARM 範本](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview)是用來自動化 Azure 資源部署和設定的宣告式 JSON 檔案。 若要使用 ARM 範本交換位置，您會在*Microsoft web/sites/* 位置和*microsoft web/sites*資源上設定兩個屬性：
+[Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview)是用來自動化 Azure 資源部署和設定的宣告式 JSON 檔案。 若要使用 Resource Manager 範本交換位置，您會在*Microsoft web/sites/* 位置和*microsoft web/sites*資源上設定兩個屬性：
 
 - `buildVersion`：這是字串屬性，代表在位置中部署之應用程式的目前版本。 例如： "v1"、"1.0.0.1" 或 "2019-09-20T11：53： 25.2887393-07： 00"。
 - `targetBuildVersion`：這是一個字串屬性，可指定位置 `buildVersion` 應包含的內容。 如果 targetBuildVersion 不等於目前的 `buildVersion`，就會藉由尋找具有指定 `buildVersion`的位置來觸發交換操作。
 
-### <a name="example-arm-template"></a>範例 ARM 範本
+### <a name="example-resource-manager-template"></a>範例 Resource Manager 範本
 
-下列 ARM 範本會更新預備位置的 `buildVersion`，並在生產位置上設定 `targetBuildVersion`。 這會交換兩個位置。 此範本假設您已經使用名為「預備」的位置建立 webapp。
+下列 Resource Manager 範本會更新預備位置的 `buildVersion`，並在生產位置上設定 `targetBuildVersion`。 這會交換兩個位置。 此範本假設您已經使用名為「預備」的位置建立 webapp。
 
 ```json
 {
@@ -380,7 +384,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 }
 ```
 
-此 ARM 範本具有等冪性，這表示它可以重複執行，並產生相同的插槽狀態。 第一次執行之後，`targetBuildVersion` 會符合目前的 `buildVersion`，因此不會觸發交換。
+此 Resource Manager 範本具有等冪性，這表示它可以重複執行，並產生相同的位置狀態。 第一次執行之後，`targetBuildVersion` 會符合目前的 `buildVersion`，因此不會觸發交換。
 
 <!-- ======== Azure CLI =========== -->
 

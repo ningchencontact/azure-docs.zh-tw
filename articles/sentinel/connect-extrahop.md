@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 12/30/2019
 ms.author: cabailey
-ms.openlocfilehash: ac9de44603eb80ca526e358013d2148240f85258
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 90d2a5a985e904217a461b509fb171822d266f60
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514156"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610572"
 ---
-# <a name="connect-extrahop-revealx"></a>Connect ExtraHop 顯示（x）
+# <a name="connect-extrahop-revealx"></a>連線 ExtraHop Reveal(x)
 
 ExtraHop 顯示（x）資料連線器可讓您輕鬆地連接您的顯示（x）系統與 Azure Sentinel 來觀看儀表板、建立自訂警示，以及改善調查。 此整合可讓您深入瞭解組織的網路，並改善您的安全性作業功能。
 
@@ -42,6 +42,8 @@ ExtraHop 顯示（x）資料連線器可讓您輕鬆地連接您的顯示（x）
 
 ## <a name="next-steps"></a>後續步驟
 在本檔中，您已瞭解如何將 ExtraHop 顯示（x）連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 深入了解如何[取得資料的可見度以及潛在威脅](quickstart-get-visibility.md)。
 - 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats-built-in.md)。
+- [使用活頁簿](tutorial-monitor-your-data.md)來監視您的資料。
+
 

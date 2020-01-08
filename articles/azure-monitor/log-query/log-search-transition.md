@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: b738d532cb458506ca50a07dea11687040f99e02
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: a8d0469d57901f53d8e615f800b5d804944163fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900335"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398149"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>從 Log Analytics 記錄搜尋轉換至 Azure 監視器記錄
 最近以新的體驗取代了 Log Analytics 中的記錄搜尋，以便分析 Azure 監視器記錄。 [記錄搜尋] 頁面目前仍可在 Azure 入口網站中透過 **Log Analytics 工作區** 中的 [記錄 (傳統)] 功能表項目存取，但是該頁面將於 2019 年 2 月 15 日移除。 本文說明兩種體驗之間的差異以協助您從記錄搜尋轉換。 

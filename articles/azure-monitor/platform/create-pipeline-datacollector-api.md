@@ -4,15 +4,15 @@ description: 您可以使用 Azure 監視器 HTTP 資料收集器 API，將 POST
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: 8b739d86ec557ca8c7de7e0999c905b51d1d97a7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3074d8d9dfcb3dbca31821d73cfd6daee056edb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363960"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>使用資料收集器 API 建立資料管線
 
@@ -21,7 +21,7 @@ ms.locfileid: "72932622"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>問題範例
-在本文的其餘部分中，我們將透過 Application Insights 檢查頁面檢視資料。 在我們的假設案例中，我們想要將 Application Insights SDK 預設收集的地理資訊相互關聯至包含全球每個國家/地區擴展的自訂資料，其目標是要識別我們的支出最高的行銷資金。 
+在本文的其餘部分中，我們將透過 Application Insights 檢查頁面檢視資料。 在我們的假設案例中，我們想要將 Application Insights SDK 預設收集的地理資訊相互關聯至包含全球每個國家/地區擴展的自訂資料，其目標是要找出我們應該花費最多行銷金額的位置。 
 
 我們會使用 [UN World Population Prospects](https://esa.un.org/unpd/wpp/) (聯合國世界人口展望) 等公開資料來源來完成此目的。 資料會有下列簡易結構描述：
 

@@ -1,10 +1,10 @@
 ---
 title: 以程式設計方式建立 Azure 儀表板 | Microsoft Docs
-description: 本文說明如何以程式設計方式建立 Azure 儀表板。
+description: 您可以使用 Azure 入口網站中的儀表板做為範本，以程式設計方式建立 Azure 儀表板。 包含 JSON 參考。
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
-manager: dougeby
+manager: mtillman
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: kfollis
-ms.openlocfilehash: b24a0397a1365479907fedc6348caa54508dbbb0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mblythe
+ms.openlocfilehash: 498e0255cfa289f7d8ccb93040980c362cf510a0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60552133"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640341"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>以程式設計方式建立 Azure Dashboards
 
@@ -26,7 +26,7 @@ ms.locfileid: "60552133"
 
 ![範例儀表板](./media/azure-portal-dashboards-create-programmatically/sample-dashboard.png)
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 Azure 中的共用儀表板屬於[資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)，如同虛擬機器和儲存體帳戶。  因此，透過 [Azure Resource Manager REST API](/rest/api/)、[Azure CLI](https://docs.microsoft.com/cli/azure)、[Azure PowerShell 命令](https://docs.microsoft.com/powershell/azure/get-started-azureps)，以及以這些 API 為基礎的許多 [Azure 入口網站](https://portal.azure.com)，都能夠以程式設計方式管理這些儀表板，因此更容易管理資源。  
 

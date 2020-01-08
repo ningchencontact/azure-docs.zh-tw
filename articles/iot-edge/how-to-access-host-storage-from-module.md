@@ -4,16 +4,16 @@ description: 使用環境變數並建立選項，以啟用 IoT Edge 裝置本機
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72fb7cfad5683edeb3b3335c28c53a7e693d00d5
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330812"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434532"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>提供模組存取裝置本機儲存體的權限
 
@@ -23,14 +23,14 @@ ms.locfileid: "72330812"
 
 若要啟用從模組存放裝置到主機系統上存放裝置的連結，請建立模組的環境變數，指向容器中的儲存體資料夾。 然後，使用建立選項，將該儲存體資料夾與主機電腦上的資料夾繫結。
 
-例如，如果您想要讓 IoT Edge 中樞將訊息儲存在您裝置的本機儲存體並于稍後取出，您可以在**設定 Advanced Edge 執行時間設定**一節的 Azure 入口網站中設定環境變數和建立選項。
+例如，如果您想要讓 IoT Edge 中樞將訊息儲存在您裝置的本機儲存體並于稍後取出，您可以在 **執行時間設定** 區段的 Azure 入口網站中設定環境變數和 建立 選項。
 
 1. 針對 IoT Edge hub 和 IoT Edge 代理程式，新增名為**storageFolder**的環境變數，以指向模組中的目錄。
-1. 針對 IoT Edge hub 和 IoT Edge 代理程式，新增系結以將主機電腦上的本機目錄連接到模組中的目錄。 例如︰
+1. 針對 IoT Edge hub 和 IoT Edge 代理程式，新增系結以將主機電腦上的本機目錄連接到模組中的目錄。 例如：
 
    ![新增本機儲存體的建立選項和環境變數](./media/how-to-access-host-storage-from-module/offline-storage.png)
 
-或者，您可以直接在部署資訊清單中設定本機儲存體。 例如︰
+或者，您可以直接在部署資訊清單中設定本機儲存體。 例如：
 
 ```json
 "systemModules": {

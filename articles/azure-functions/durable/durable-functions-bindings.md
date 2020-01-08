@@ -2,14 +2,14 @@
 title: 長期函式中的繫結 - Azure
 description: 如何針對 Azure Functions 的 Durable Functions 擴充功能使用觸發程序和繫結。
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 40b5f0f17cbb6867a6ef293a485d728141a012ef
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233031"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410231"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>長期函式中的繫結 (Azure Functions)
 
@@ -21,7 +21,7 @@ ms.locfileid: "74233031"
 
 當您使用 Azure Functions 適用的 Visual Studio 工具時，協調流程觸發程序會使用 [OrchestrationTriggerAttribute](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.OrchestrationTriggerAttribute?view=azure-dotnet) .NET 屬性進行設定。
 
-當您以指令碼語言 (例如，JavaScript 或 C# 指令碼處理) 撰寫協調器函式時，協調流程觸發程序會由 `bindings`function.json*檔案之* 陣列中的下列 JSON 物件所定義：
+當您以指令碼語言 (例如，JavaScript 或 C# 指令碼處理) 撰寫協調器函式時，協調流程觸發程序會由 *function.json* 檔案之 `bindings` 陣列中的下列 JSON 物件所定義：
 
 ```json
 {
@@ -128,7 +128,7 @@ module.exports = df.orchestrator(function*(context) {
 
 如果您使用 Visual Studio，則會使用 `ActivityTriggerAttribute` .NET 屬性來設定活動觸發程式。
 
-如果您使用 VS Code 或 Azure 入口網站來進行開發，則活動觸發程序會由 `bindings`function.json*之* 陣列中的下列 JSON 物件定義：
+如果您使用 VS Code 或 Azure 入口網站來進行開發，則活動觸發程序會由 *function.json* 之 `bindings` 陣列中的下列 JSON 物件定義：
 
 ```json
 {
@@ -398,7 +398,7 @@ module.exports = async function (context) {
 * **DeleteState （）** ：刪除實體的狀態。 
 * **Getinput t>\<TInput > （）** ：取得目前作業的輸入。 `TInput` 型別參數必須是基本型別或 JSON 型別（可序列化 type）。
 * **Return （arg）** ：將值傳回至呼叫作業的協調流程。 `arg` 參數必須是基本或 JSON 可序列化物件。
-* **SignalEntity （EntityId，operation，input）** ：傳送單向訊息給實體。 `operation` 參數必須為非 null 字串，且 `input` 參數必須是基本或可序列化物件。
+* **SignalEntity （EntityId、scheduledTimeUtc、operation、input）** ：傳送單向訊息至實體。 `operation` 參數必須是非 null 字串，選擇性的 `scheduledTimeUtc` 必須是要叫用作業的 UTC 日期時間，而且 `input` 參數必須是基本型別或可序列化（JSON）物件。
 * **CreateNewOrchestration （orchestratorFunctionName，input）** ：啟動新的協調流程。 `input` 參數必須是基本或 JSON 可序列化物件。
 
 傳遞至實體函式的 `IDurableEntityContext` 物件可以使用 `Entity.Current` 非同步區域屬性來存取。 當使用以類別為基礎的程式設計模型時，這個方法會很方便。
@@ -500,7 +500,7 @@ module.exports = df.entity(function(context) {
 ```
 
 > [!NOTE]
-> 從 **npm 套件**1.3.0`durable-functions` 版開始，JavaScript 提供了耐久性實體。
+> 從 `durable-functions` npm 套件 **1.3.0** 版開始，JavaScript 提供了耐久性實體。
 
 ## <a name="entity-client"></a>實體用戶端
 
@@ -519,7 +519,7 @@ module.exports = df.entity(function(context) {
     "taskHub": "<Optional - name of the task hub>",
     "connectionName": "<Optional - name of the connection string app setting>",
     "type": "durableClient",
-    "direction": "out"
+    "direction": "in"
 }
 ```
 
@@ -535,6 +535,7 @@ module.exports = df.entity(function(context) {
 
 * **ReadEntityStateAsync\<t >** ：讀取實體的狀態。 它會傳迴響應，指出目標實體是否存在，如果有的話，它的狀態為何。
 * **SignalEntityAsync**：將單向訊息傳送至實體，並等候它排入佇列。
+* **ListEntitiesAsync**：查詢多個實體的狀態。 實體可以依*名稱*和上次作業*時間*來查詢。
 
 在傳送信號之前，不需要建立目標實體-可以從處理信號的實體函式內建立實體狀態。
 
@@ -633,7 +634,7 @@ module.exports = async function (context) {
 ```
 
 > [!NOTE]
-> 從 **npm 套件**1.3.0`durable-functions` 版開始，JavaScript 提供了耐久性實體。
+> 從 `durable-functions` npm 套件 **1.3.0** 版開始，JavaScript 提供了耐久性實體。
 
 <a name="host-json"></a>
 ## <a name="hostjson-settings"></a>host.json 設定

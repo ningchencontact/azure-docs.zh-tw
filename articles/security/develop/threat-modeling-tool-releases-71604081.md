@@ -1,30 +1,22 @@
 ---
-title: Threat Modeling Tool 版本 - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool 版本 4/9/2019-Azure
 description: 記載 Threat Modeling Tool 的版本資訊
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: jegeib
-ms.openlocfilehash: 6992ac58ebf8976714e5a478dd7b886efab2a4b7
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 488168b1a17d3f5fac1ae7cca0a37676063bfe03
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934794"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552061"
 ---
 # <a name="threat-modeling-tool-update-release-71604081---492019"></a>Threat Modeling Tool 更新版本 7.1.60408.1-4/9/2019
 
-Microsoft Threat Modeling Tool (TMT) 的版本7.1.60408.1 已于 9 2019 年4月發行, 並包含下列變更:
+Microsoft Threat Modeling Tool （TMT）的版本7.1.60408.1 已于 9 2019 年4月發行，並包含下列變更：
 
 - Azure Key Vault 和 Azure 流量管理員的新樣板
 - TMT 版本號碼現在會顯示在主畫面上
@@ -37,17 +29,17 @@ Microsoft Threat Modeling Tool (TMT) 的版本7.1.60408.1 已于 9 2019 年4月�
 
 ![Azure Key Vault 樣板](./media/threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
 
-已將 Azure Key Vault 和 Azure 流量管理員的新樣板和威脅新增至 Azure 樣板集。 開啟以 Azure 樣板集為基礎的模型時, 系統會提示使用者更新與模型相關聯的範本。 您也可以使用 [檔案] 功能表中的 [套用範本] 命令, 手動起始以 Azure 樣板集為基礎的模型, 並重新套用最新的 Azure 雲端服務 tb7 檔案。
+已將 Azure Key Vault 和 Azure 流量管理員的新樣板和威脅新增至 Azure 樣板集。 開啟以 Azure 樣板集為基礎的模型時，系統會提示使用者更新與模型相關聯的範本。 您也可以使用 [檔案] 功能表中的 [套用範本] 命令，手動起始以 Azure 樣板集為基礎的模型，並重新套用最新的 Azure 雲端服務 tb7 檔案。
 
 ### <a name="tmt-version-number-is-now-shown-on-the-home-screen"></a>TMT 版本號碼現在會顯示在主畫面上
 
-Threat Modeling Tool 的用戶端版本現在會顯示在應用程式的主畫面上, 以方便存取。
+Threat Modeling Tool 的用戶端版本現在會顯示在應用程式的主畫面上，以方便存取。
 
 ![Azure Key Vault 樣板](./media/threat-modeling-tool-releases-71604081/tmt_version.PNG)
 
 ### <a name="support-links-have-been-updated"></a>支援連結已更新
 
-此工具內的所有支援連結都已更新, 可將[tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com)使用者導向至, 而不是 MSDN 論壇。
+此工具內的所有支援連結都已更新，可讓使用者直接[tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) ，而不是 MSDN 論壇。
 
 ## <a name="system-requirements"></a>系統需求
 

@@ -1,23 +1,23 @@
 ---
 title: Phoenix Query Server REST SDK - Azure HDInsight
 description: 在 Azure HDInsight 中安裝和使用 Phoenix Query Server 的 REST SDK。
-ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/04/2017
-ms.openlocfilehash: c9e9258fb7ace93d0866463563d328456cbd1daa
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
+ms.openlocfilehash: 84c2bad1004029fe61dcfc19321957a170284587
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311672"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612252"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
 
-[Apache Phoenix](https://phoenix.apache.org/) 是 [Apache HBase](apache-hbase-overview.md) 上的開放原始碼、大規模平行關聯式資料庫。 Phoenix 可讓您透過 SSH 工具 (例如 [SQLLine](apache-hbase-query-with-phoenix.md))，搭配 HBase 使用類似 SQL 的查詢。 Phoenix 也提供一部名為 Phoenix Query Server (PQS) 的 HTTP 伺服器，這是一個精簡型用戶端，可支援兩種用戶端通訊傳輸機制：JSON 和 Protocol Buffers。 Protocol Buffers 是預設機制，可提供比 JSON 更有效率的通訊。
+[Apache Phoenix](https://phoenix.apache.org/) 是 [Apache HBase](apache-hbase-overview.md) 上的開放原始碼、大規模平行關聯式資料庫。 Phoenix 可讓您透過 SSH 工具 (例如 [SQLLine](apache-hbase-query-with-phoenix.md))，搭配 HBase 使用類似 SQL 的查詢。 Phoenix 也提供一個名為 Phoenix Query Server (PQS) 的 HTTP 伺服器，這是一個精簡型用戶端，可支援兩種用戶端通訊傳輸機制：JSON 和 Protocol Buffers。 Protocol Buffers 是預設機制，可提供比 JSON 更有效率的通訊。
 
 本文說明如何使用 PQS REST SDK，藉由 SQL 陳述式來建立資料表、個別或大量更新插入資料列，以及選取資料。 範例會使用[適用於 Apache Phoenix Query Server 的 Microsoft .NET 驅動程式](https://www.nuget.org/packages/Microsoft.Phoenix.Client) \(英文\)。 此 SDK 建置在 [Apache Calcite 的 Avatica](https://calcite.apache.org/avatica/) \(英文\) API 上，這些 API 完全使用 Protocol Buffers 作為序列化格式。
 
@@ -71,18 +71,18 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 以下是一些相關的屬性：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | -- | -- |
 | AutoCommit | 布林值，用來表示是否為 Phoenix 交易啟用 `autoCommit`。 |
-| 唯讀 | 布林值，用來表示連線是否為唯讀連線。 |
+| ReadOnly | 布林值，用來表示連線是否為唯讀連線。 |
 | TransactionIsolation | 整數，用來表示依據 JDBC 規格的交易隔離層級 - 請參閱下表。|
-| 目錄 | 擷取連線屬性時所要使用的目錄名稱。 |
+| 資料目錄 | 擷取連線屬性時所要使用的目錄名稱。 |
 | 結構描述 | 擷取連線屬性時所要使用的結構描述名稱。 |
 | IsDirty | 布林值，用來表示屬性是否已經更改。 |
 
 以下是 `TransactionIsolation` 值：
 
-| 隔離值 | 描述 |
+| 隔離值 | 說明 |
 | -- | -- |
 | 0 | 不支援交易。 |
 | 1 | 允許進行中途讀取、不可重複的讀取，以及虛設項目讀取。 |
@@ -94,7 +94,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 HBase 與任何其他 RDBMS 一樣，會將資料儲存在資料表中。 Phoenix 使用標準 SQL 查詢來建立新資料表，同時會定義主索引鍵和資料行類型。
 
-以下範例及後續所有範例皆如[將新的 PhoenixClient 物件具現化](#instantiate-new-phoenixclient-object)中所定義，使用已具現化的 `PhoenixClient` 物件。
+這個範例和所有後續的範例會使用具現化的 `PhoenixClient` 物件，如將[新的 PhoenixClient 物件](#instantiate-new-phoenixclient-object)具現化中所定義。
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -170,7 +170,7 @@ finally
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
-後續的選取作業將會使用此資料表的 `StateProvince` 資料行值。
+資料表的 `StateProvince` 資料行值將用於稍後的選取作業。
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -277,7 +277,7 @@ finally
 }
 ```
 
-執行 insert 陳述式的結構與建立新資料表類似。 請注意，在 `try` 區塊的結尾會明確地認可交易。 此範例會重複執行插入交易 300 次。 以下範例示範一個更有效率的批次插入程序。
+執行 insert 陳述式的結構與建立新資料表類似。 在 `try` 區塊的結尾，會明確認可交易。 此範例會重複執行插入交易 300 次。 以下範例示範一個更有效率的批次插入程序。
 
 ## <a name="batch-insert-data"></a>批次插入資料
 
@@ -537,7 +537,7 @@ MH: 6
 FM: 5
 ```
 
-## <a name="next-steps"></a>後續步驟 
+## <a name="next-steps"></a>後續步驟
 
 * [HDInsight 中的 Apache Phoenix](../hdinsight-phoenix-in-hdinsight.md)
 * [使用 Apache HBase REST SDK](apache-hbase-rest-sdk.md)

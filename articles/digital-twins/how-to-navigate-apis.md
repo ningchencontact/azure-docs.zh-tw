@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/27/2019
-ms.openlocfilehash: 135c760919f094f7b2d242ad37cc1cadb614e36e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/27/2019
+ms.openlocfilehash: 86ade45cd00e82e8787a117c23003d2a74750cf0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009995"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552163"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>如何使用 Azure Digital Twins 管理 API
 
@@ -39,7 +39,7 @@ Azure Digital Twins 管理 API 可為您的 IoT 應用程式提供強大功能�
 
 * [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers)：這些 api 可讓您指定您想要從傳入的裝置資料評估的條件。 如需詳細資訊，請參閱[這篇文章](concepts-user-defined-functions.md#matchers)。 
 
-* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions)：這些 api 可讓您建立、刪除或更新自訂函式，該函式會在*比對器*所定義的條件發生時執行，以處理來自您的安裝程式的資料。 如需自訂函式 (也稱為「使用者定義函式」[](concepts-user-defined-functions.md#user-defined-functions)) 的詳細資訊，請參閱*這篇文章*。 
+* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions)：這些 api 可讓您建立、刪除或更新自訂函式，該函式會在*比對器*所定義的條件發生時執行，以處理來自您的安裝程式的資料。 如需自訂函式 (也稱為「使用者定義函式」) 的詳細資訊，請參閱[這篇文章](concepts-user-defined-functions.md#user-defined-functions)。 
 
 * [/endpoints](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Endpoints)：這些 api 可讓您建立端點，讓您的數位 Twins 解決方案可以與其他 Azure 服務通訊，以進行資料儲存和分析。 如需詳細資訊，請閱讀[這篇文章](concepts-events-routing.md)。 
 

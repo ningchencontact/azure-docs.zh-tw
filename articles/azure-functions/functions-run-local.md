@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 5f260ab1df5341a981a388533b06cbcda400e4da
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 65fa8502be43076e06cea18b2499ceed9d7d770e
+ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74941826"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75667522"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -127,9 +127,8 @@ Azure Functions Core Tools 有三個版本。 您使用的版本取決於您的�
 
 1. 查看下列其中一個適當 Linux 版本字串的 `/etc/apt/sources.list.d/dotnetdev.list` 檔案：
 
-    | Linux 散發套件 | 版本 |
+    | Linux 發行版本 | 版本 |
     | --------------- | ----------- |
-    | Debian 10 | `buster` |
     | Debian 9 | `stretch` |
     | Debian 8 | `jessie` |
     | Ubuntu 18.10    | `cosmic`    |
@@ -155,7 +154,7 @@ Azure Functions Core Tools 有三個版本。 您使用的版本取決於您的�
 
 Functions 專案目錄包含 [host.json](functions-host-json.md) 和 [local.settings.json](#local-settings-file) 檔案，以及包含個別函式程式碼的子資料夾。 此目錄相當於 Azure 中的函式應用程式。 若要深入了解 Functions 的資料夾結構，請參閱 [Azure Functions 的開發人員指南](functions-reference.md#folder-structure)。
 
-2\.x 版要求您在初始化時為您的專案選取預設語言，而所有新增的函式會使用預設語言範本。 在 1.x 版中，您會在每次建立函式時指定語言。
+2\.x 版要求您在初始化專案時為其選取預設語言。 在2.x 版中，新增的所有函式都會使用預設語言範本。 在 1.x 版中，您會在每次建立函式時指定語言。
 
 在終端機視窗或命令提示字元中，執行下列命令來建立專案和本機 Git 存放庫：
 
@@ -189,7 +188,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` 支援下列選項 (僅限用於 2.x 版，除非另有指定)：
 
-| 選項     | 描述                            |
+| 選項     | 說明                            |
 | ------------ | -------------------------------------- |
 | **`--csharp`**<br/> **`--dotnet`** | 初始化[ C#類別庫（.cs）專案](functions-dotnet-class-library.md)。 |
 | **`--csx`** | 初始化[ C#腳本（. .csx）專案](functions-reference-csharp.md)。 您必須在後續的命令中指定 `--csx`。 |
@@ -203,7 +202,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--python`**  | 初始化[Python 專案](functions-reference-python.md)。 |
 | **`--source-control`** | 控制是否要建立 Git 存放庫。 依預設不會建立存放庫。 設為 `true` 時，就會建立存放庫。 |
 | **`--typescript`**  | 初始化[TypeScript 專案](functions-reference-node.md#typescript)。 |
-| **`--worker-runtime`** | 設定專案的語言執行階段。 支援的值為： `csharp`、`dotnet`、`java`、`javascript`、`node` （JavaScript）、`powershell`、`python`和 `typescript`。 未設定此選項時，系統會在初始化期間提示您選擇執行階段。 |
+| **`--worker-runtime`** | 設定專案的語言執行階段。 支援的值為： `csharp`、`dotnet`、`java`、`javascript`、`node` （JavaScript）、`powershell`、`python`和 `typescript`。 未設定時，系統會提示您在初始化期間選擇您的執行時間。 |
 
 > [!IMPORTANT]
 > 根據預設，2.x 版的 Core Tools 會建立適用於 .NET 執行階段的函數應用程式專案作為 [C# 類別專案](functions-dotnet-class-library.md) (.csproj)。 這些 C# 專案可以與 Visual Studio 或 Visual Studio Code 搭配使用，並在測試期間以及發佈至 Azure 時進行編譯。 如果您想要改為建立和使用在 1.x 版中以及在入口網站中建立的相同 C# 指令碼 (.csx) 檔案，當您建立及部署函式時，必須包含 `--csx` 參數。
@@ -227,7 +226,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 ### <a name="get-your-storage-connection-strings"></a>取得您的儲存體連接字串
 
-即使使用儲存體模擬器進行開發，您可能想要透過實際的儲存體連接進行測試。 假設您已經[建立了儲存體帳戶](../storage/common/storage-create-storage-account.md)，您可以透過下列其中一種方式取得有效的儲存體連接字串：
+即使在使用 Microsoft Azure 儲存體模擬器進行開發時，您可能會想要使用實際的儲存體連接進行測試。 假設您已經[建立了儲存體帳戶](../storage/common/storage-create-storage-account.md)，您可以透過下列其中一種方式取得有效的儲存體連接字串：
 
 - 從 [ [Azure 入口網站]] 中，搜尋並選取 [**儲存體帳戶**]。 
   ![從 Azure 入口網站選取儲存體帳戶](./media/functions-run-local/select-storage-accounts.png)
@@ -252,7 +251,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    如果您尚未登入 Azure，系統會提示您這麼做。
+    如果您尚未登入 Azure，系統會提示您執行此動作。
 
 ## <a name="create-func"></a>建立函式
 
@@ -290,11 +289,11 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 您也可以使用下列引數，在命令中指定這些選項：
 
-| 引數     | 描述                            |
+| 引數     | 說明                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (2.x 版) 產生 1.x 版中和入口網站中所使用的相同 C# 指令碼 (.csx) 範本。 |
 | **`--language -l`**| 範本程式語言，例如 C#、F# 或 JavaScript。 這是 1.x 版中的必要選項。 在 2.x 版中請勿使用此選項，或選擇符合背景工作執行階段的語言。 |
-| **`--name -n`** | 函式名稱。 |
+| **`--name -n`** | 函數名稱。 |
 | **`--template -t`** | 使用 `func templates list` 命令，以針對每個支援的語言查看可用範本的完整清單。   |
 
 例如，若要在單一命令中建立 JavaScript HTTP 觸發程序，請執行：
@@ -323,7 +322,7 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 func start --build
 ```
 
-#### <a name="javascript"></a>Javascript
+#### <a name="javascript"></a>JavaScript
 
 ```command
 func start
@@ -346,13 +345,13 @@ func host start
 
 `func start` 支援下列選項：
 
-| 選項     | 描述                            |
+| 選項     | 說明                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | 執行前請勿建置目前的專案。 僅適用於 dotnet 專案。 預設會設定為 false。 僅限 2.x 版。 |
 | **`--cert`** | 包含私密金鑰的 .pfx 檔案路徑。 僅能與 `--useHttps` 搭配使用。 僅限 2.x 版。 |
 | **`--cors-credentials`** | 允許跨來源的已驗證要求 (也就是 cookie 及驗證標頭) 僅限 2.x 版。 |
 | **`--cors`** | 以逗號分隔的 CORS 來源清單，不含空格。 |
-| **`--language-worker`** | 用來設定語言背景工作角色的引數。 僅限 2.x 版。 |
+| **`--language-worker`** | 用來設定語言背景工作角色的引數。 例如，您可以藉由提供[debug 埠和其他必要的引數](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers)，啟用語言背景工作的偵錯工具。 僅限 2.x 版。 |
 | **`--nodeDebugPort -n`** | 要使用的節點偵錯工具連接埠。 預設值：Launch.json 中的值或 5858。 僅限 1.x 版。 |
 | **`--password`** | 密碼或包含 .pfx 檔案密碼的檔案。 僅能與 `--cert` 搭配使用。 僅限 2.x 版。 |
 | **`--port -p`** | 要接聽的本機連接埠。 預設值：7071。 |
@@ -436,7 +435,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 `func run` 支援下列選項：
 
-| 選項     | 描述                            |
+| 選項     | 說明                            |
 | ------------ | -------------------------------------- |
 | **`--content -c`** | 內嵌內容。 |
 | **`--debug -d`** | 在執行函式之前，請先將偵錯工具附加到主機處理序。|
@@ -472,14 +471,14 @@ func azure functionapp publish <FunctionAppName>
 
 下列發行選項適用于1.x 和2.x 版：
 
-| 選項     | 描述                            |
+| 選項     | 說明                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  將 local.settings.json 中的設定發佈至 Azure，若設定已經存在，則提示進行覆寫。 如果您使用儲存體模擬器，請先將應用程式設定變更為[實際的儲存體連接](#get-your-storage-connection-strings)。 |
+| **`--publish-local-settings -i`** |  將 local.settings.json 中的設定發佈至 Azure，若設定已經存在，則提示進行覆寫。 如果您使用 Microsoft Azure 儲存體模擬器，請先將應用程式設定變更為[實際的儲存體連接](#get-your-storage-connection-strings)。 |
 | **`--overwrite-settings -y`** | 在使用 `--publish-local-settings -i` 時隱藏覆寫應用程式設定的提示。|
 
 下列發佈選項僅在 2.x 版中受到支援：
 
-| 選項     | 描述                            |
+| 選項     | 說明                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  僅發佈設定而略過內容。 預設值為提示。 |
 |**`--list-ignored-files`** | 顯示在發佈期間忽略的檔案清單，以 .funcignore 檔案為準。 |
@@ -503,7 +502,7 @@ func deploy
 
 以下是可用的自訂容器部署選項：
 
-| 選項     | 描述                            |
+| 選項     | 說明                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | 目前的使用者所登入的 Docker 登錄名稱。 |
 | **`--platform`** | 函式應用程式的裝載平台。 有效選項為 `kubernetes` |
@@ -516,9 +515,9 @@ func deploy
 
 若要監視函式的執行，建議的方法是與 Azure 應用程式 Insights 整合。 您也可以將執行記錄串流至本機電腦。 若要深入了解，請參閱[監視 Azure Functions](functions-monitoring.md)。
 
-### <a name="enable-application-insights-integration"></a>啟用 Application Insights 整合
+### <a name="application-insights-integration"></a>Application Insights 整合
 
-當您在 Azure 入口網站中建立函數應用程式時，預設會為您完成 Application Insights 整合。 不過，當您使用 Azure CLI 建立函式應用程式時，則不會在 Azure 中完成您的函式應用程式整合。
+當您在 Azure 中建立函數應用程式時，應該啟用 Application Insights 整合。 如果您的函式應用程式因為某些原因而未連接到 Application Insights 實例，在 Azure 入口網站中執行此整合很容易。 
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
@@ -530,7 +529,7 @@ func deploy
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
-這種類型的串流處理記錄檔需要您為函式應用程式[啟用 Application Insights 整合](#enable-application-insights-integration)。   
+這種類型的串流記錄需要為您的函數應用程式啟用 Application Insights 整合。   
 
 
 ## <a name="next-steps"></a>後續步驟

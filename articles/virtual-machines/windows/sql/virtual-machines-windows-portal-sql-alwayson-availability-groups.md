@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: a06ea59af0776fe3decb0b56a3ef886f08b2dfda
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d7c88e500886453fbfb53655748ccf7025ab7d3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100721"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374245"
 ---
-# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>自動設定 Azure 虛擬機器中的 Always On 可用性群組:Resource Manager
+# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>在 Azure 虛擬機器中自動設定 Always On 可用性群組：Resource Manager
 
 本教學課程示範如何使用 Azure Resource Manager 虛擬機器來建立 SQL Server 可用性群組。 本教學課程使用 Azure 刀鋒視窗來設定範本。 逐步執行本教學課程時，您可以在入口網站中檢閱預設設定、輸入必要的設定，以及更新刀鋒視窗。
 
@@ -70,18 +70,18 @@ Azure 提供整個解決方案的資源庫映像。 若要找出範本，請執�
    ![AlwaysOn 範本](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 5. 在 [選取部署模型] 中，選擇 [Resource Manager]。
 
-### <a name="basics"></a>基本知識
+### <a name="basics"></a>基本概念
 按一下 [基本] 並設定下列設定：
 
 * [系統管理員使用者名稱] 是具有網域系統管理員權限，且在兩個 SQL Server 執行個體上皆具備 SQL Server sysadmin 固定伺服器角色成員身分的使用者帳戶。 本教學課程使用 **DomainAdmin**。
 * 是網域系統管理員帳戶的密碼。 使用複雜密碼。 確認密碼。
 * [訂用帳戶] 是在執行針對可用性群組部署的所有資源時，Azure 將收費的訂用帳戶。 如果您的帳戶有多個訂用帳戶，您可以指定不同的訂用帳戶。
-* [資源群組] 是此範本建立之所有 Azure 資源所屬群組的名稱。 本教學課程使用 **SQL-HA-RG**。 如需詳細資訊，請參閱 [Azure Resource Manager 概觀](../../../azure-resource-manager/resource-group-overview.md#resource-groups)。
+* [資源群組] 是此範本建立之所有 Azure 資源所屬群組的名稱。 本教學課程使用 **SQL-HA-RG**。 如需詳細資訊，請參閱 [Azure Resource Manager 概觀](../../../azure-resource-manager/management/overview.md#resource-groups)。
 * [位置] 是本教學課程要在其中建立資源的 Azure 區域。 選擇 Azure 區域。
 
 以下螢幕擷取畫面是已完成的 [基本] 刀鋒視窗：
 
-![基本知識](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
+![基本概念](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
 按一下 [確定]。
 
@@ -184,7 +184,7 @@ Azure 提供整個解決方案的資源庫映像。 若要找出範本，請執�
 
 檢閱設定，然後按一下 [確定]。
 
-### <a name="summary"></a>總結
+### <a name="summary"></a>摘要
 在 [摘要] 頁面上，Azure 會驗證設定。 您也可以下載此範本。 檢閱摘要。 按一下 [確定]。
 
 ### <a name="buy"></a>購買
@@ -197,7 +197,7 @@ Azure 入口網站會建立資源群組和所有資源。
 
 ![Azure 儀表板](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
 
-## <a name="connect-to-sql-server"></a>連接到 SQL Server
+## <a name="connect-to-sql-server"></a>連接至 SQL Server
 SQL Server 的新執行個體會在具有已連線網際網路之 IP 位址的虛擬機器上執行。 您可以直接遠端桌面 (RDP) 連線至每部 SQL Server 虛擬機器。
 
 若要以 RDP 連接至 SQL Server，請遵循下列步驟：
@@ -205,9 +205,9 @@ SQL Server 的新執行個體會在具有已連線網際網路之 IP 位址的�
 1. 從 Azure 入口網站儀表板中，確認已成功部署。
 2. 按一下 [資源]。
 3. 在 [資源] 刀鋒視窗中，按一下 [sqlserver-0]，這是執行 SQL Server 之其中一部虛擬機器的電腦名稱。
-4. 在 [sqlserver-0] 的刀鋒視窗上，按一下 [連線]。 瀏覽器會詢問您是否要開啟或儲存遠端連接物件。 按一下 [開啟]。
-5. [遠端桌面連線] 可能會警告您無法識別這個遠端連線的發行者。 按一下 **[連接]** 。
+4. 在 [sqlserver-0] 的刀鋒視窗上，按一下 [連線]。 瀏覽器會詢問您是否要開啟或儲存遠端連接物件。 按一下 **[開啟]** 。
+5. [遠端桌面連線] 可能會警告您無法識別這個遠端連線的發行者。 按一下 [ **連接**]。
 6. Windows 安全性會提示您輸入認證，以連接到主要網域控制站的 IP 位址。 按一下 [使用其他帳戶]。 在 [使用者名稱] 中，輸入 **contoso\DomainAdmin**。 當您在範本中設定系統管理員使用者名稱時，您可以設定此帳戶。 使用您設定範本時選擇的複雜密碼。
-7. [遠端桌面] 可能會警告您因為安全性憑證有問題，無法驗證遠端電腦。 它會顯示安全性憑證名稱。 如果您依照本教學課程進行，此名稱會是 **sqlserver-0.contoso.com**。 按一下 [ **是**]。
+7. [遠端桌面] 可能會警告您因為安全性憑證有問題，無法驗證遠端電腦。 它會顯示安全性憑證名稱。 如果您依照本教學課程進行，此名稱會是 **sqlserver-0.contoso.com**。 按一下 [是]。
 
 您現在已使用 RDP 連線至 SQL Server 虛擬機器。 您可以開啟 SQL Server Management Studio、連線到 SQL Server 的預設執行個體，並確認已設定可用性群組。

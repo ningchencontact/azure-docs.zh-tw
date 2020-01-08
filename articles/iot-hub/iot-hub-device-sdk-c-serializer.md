@@ -8,16 +8,16 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: robinsh
-ms.openlocfilehash: a18f52f0d0979477ff8d6de6745694676f4b4d0e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: dfea53e62383409411925f2fe2f18d61a6855ec1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883156"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429374"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>適用於 C 的 Azure IoT 裝置 SDK - 深入了解序列化程式
 
-本系列的第一篇文章介紹了[適用於 C 的 Azure IoT 裝置 SDK 簡介](iot-hub-device-sdk-c-intro.md)。下一篇文章則提供了[適用於 C 的 Azure IoT 裝置 SDK -- IoTHubClient](iot-hub-device-sdk-c-iothubclient.md) 的更詳細描述。 本文將提供「序列化程式」 程式庫這個最後元件的更詳細描述，來完成 SDK 的涵蓋範圍。
+本系列的第一篇文章介紹了[適用于 C 的 Azure IoT 裝置 SDK 簡介](iot-hub-device-sdk-c-intro.md)。下一篇文章提供了[適用于 C 的 Azure IoT 裝置 SDK--IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)的更詳細描述。 本文將提供「序列化程式」 程式庫這個最後元件的更詳細描述，來完成 SDK 的涵蓋範圍。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -64,21 +64,21 @@ END_NAMESPACE(WeatherStation);
 
 利用 **序列化程式** 程式庫建立的模型支援下列資料類型：
 
-| Type | 描述 |
+| 類型 | 說明 |
 | --- | --- |
 | double |雙精確度浮點數 |
 | int |32 位元整數 |
-| float |單精確度浮點數 |
+| FLOAT |單精確度浮點數 |
 | long |長整數 |
-| int8\_t |8 位元整數 |
-| int16\_t |16 位元整數 |
+| int8\_t |8位整數 |
+| int16\_t |16位整數 |
 | int32\_t |32 位元整數 |
 | int64\_t |64 位元整數 |
 | bool |boolean |
 | ascii\_char\_ptr |ASCII 字串 |
 | EDM\_DATE\_TIME\_OFFSET |日期時間位移 |
 | EDM\_GUID |GUID |
-| EDM\_BINARY |binary |
+| EDM\_BINARY |BINARY |
 | DECLARE\_STRUCT |複雜資料類型 |
 
 我們先從最後一個資料類型開始討論。 **DECLARE\_STRUCT** 可讓您定義複雜的資料類型，也就是其他基本類型的群組。 這些群組可讓我們定義看起來像這樣的模型：
@@ -194,7 +194,7 @@ EDM_DATE_TIME_OFFSET GetDateTimeOffset(time_t time)
 {"aDouble":1.100000000000000, "aInt":2, "aFloat":3.000000, "aLong":4, "aInt8":5, "auInt8":6, "aInt16":7, "aInt32":8, "aInt64":9, "aBool":true, "aAsciiCharPtr":"ascii string 1", "aDateTimeOffset":"2015-09-14T21:18:21Z", "aGuid":"00010203-0405-0607-0809-0A0B0C0D0E0F", "aBinary":"AQID"}
 ```
 
-請注意，序列化屬於 JSON 格式，這是由**序列化程式**庫所產生的格式。 另請注意，序列化 JSON 物件的每個成員皆與在我們模型中定義的 **TestType** 成員相符。 值也與程式碼中使用的值完全相符。 不過, 請注意, 二進位資料是以 base64 編碼:"AQID" 是 {0x01, 0x02, 0x03} 的 base64 編碼方式。
+請注意，序列化屬於 JSON 格式，這是由**序列化程式**庫所產生的格式。 另請注意，序列化 JSON 物件的每個成員皆與在我們模型中定義的 **TestType** 成員相符。 值也與程式碼中使用的值完全相符。 不過，請注意，二進位資料是採用 base64 編碼："AQID" 是 {0x01, 0x02, 0x03} 的 base64 編碼。
 
 這個範例示範使用 **序列化程式** 程式庫的優點 -- 它可讓我們將 JSON 傳送至雲端，而不需要在我們的應用程式中明確處理序列化。 我們所需操心的只有要在模型中設定資料事件的值，然後呼叫簡單的 API 將這些事件傳送至雲端。
 
@@ -233,7 +233,7 @@ WITH_DATA(HumidityEvent, Humidity)
 END_NAMESPACE(Contoso);
 ```
 
-請注意, 此模型包含兩個數據事件:**溫度**和**濕度**。 與先前的範例不同，這裡每個事件的類型都是使用 **DECLARE\_STRUCT** 來定義的結構。 **TemperatureEvent** 包含溫度測量和時間戳記；**HumidityEvent** 包含溼度測量和時間戳記。 此模型可讓我們以自然的方式模型化上述案例的資料。 當我們將事件傳送至雲端時，我們將會傳送溫度/時間戳記組或溼度/時間戳記組。
+請注意，此模型包含兩個資料事件：**Temperature** 和 **Humidity**。 與先前的範例不同，這裡每個事件的類型都是使用 **DECLARE\_STRUCT** 來定義的結構。 **TemperatureEvent** 包含溫度測量和時間戳記；**HumidityEvent** 包含溼度測量和時間戳記。 此模型可讓我們以自然的方式模型化上述案例的資料。 當我們將事件傳送至雲端時，我們將會傳送溫度/時間戳記組或溼度/時間戳記組。
 
 我們可以使用類似以下的程式碼將溫度事件傳送至雲端：
 
@@ -278,7 +278,7 @@ static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned 
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-我們要傳送的溫度屬於 **TemperatureEvent** 類型，而該結構包含 **Temperature** 和 **Time** 成員。 這會直接反映在序列化資料中。
+我們會傳送**TemperatureEvent**類型的溫度，而且該結構包含**溫度**和**時間**成員。 這會直接反映在序列化資料中。
 
 同樣地，我們可以利用此程式碼來傳送溼度事件：
 
@@ -315,7 +315,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-在此情況下，我們去除了 **DECLARE\_STRUCT** 巨集，而只使用來自模型化語言的簡單類型從我們的案例定義資料項目。
+在此情況下，我們消除了**DECLARE\_結構**宏，而且只要使用模型化語言的簡單型別，就可以從我們的案例定義資料項目。
 
 現在請忽略**時間**事件。 忽略該事件之後，以下是要輸入 **溫度**的程式碼：
 
@@ -398,7 +398,7 @@ WITH_DATA(TemperatureAndHumidityEvent, TemperatureAndHumidity),
 
 如果我們使用了這個模型，就會更容易了解如何在相同的序列化訊息中傳送 **Temperature** 和 **Humidity**。 不過，如果您是使用模型 2 將兩個資料事件都傳遞至 **SERIALIZE** ，可能就無法突顯它以該方式運作的原因。
 
-如果您知道 **序列化程式** 程式庫所做的假設，您可以更容易了解這種行為。 若要了解這一點，讓我們回到我們的模型：
+如果您知道 **序列化程式** 程式庫所做的假設，您可以更容易了解這種行為。 為方便了解，讓我們回到我們的模型：
 
 ```C
 DECLARE_MODEL(Thermostat,
@@ -408,7 +408,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-請以物件導向的觀點思考此模型。 在此案例中，我們要模型化的是一個實體裝置 (控溫器)，而該裝置包含 **Temperature** 和 **Humidity** 之類的屬性。
+請以物件導向的觀點思考此模型。 在此情況下，我們會將實體裝置（控溫器）模型化，而該裝置會包含**溫度**和**濕度**等屬性。
 
 我們可以利用類似以下的程式碼來傳送模型的整個狀態：
 
@@ -431,11 +431,11 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-這會產生如同我們使用 **Temperature** 和 **Time** 成員來定義 **TemperatureEvent** 一樣的完全相同 (就像我們在模型 1 所做的一樣) 序列化事件。 在此案例中，我們已可以使用不同的模型 (模型 2) 來產生完全相同的序列化事件，因為我們是以不同的方式呼叫 **SERIALIZE** 。
+這會產生如同我們使用 **Temperature** 和 **Time** 成員來定義 **TemperatureEvent** 一樣的完全相同 (就像我們在模型 1 所做的一樣) 序列化事件。 在此情況下，我們可以使用不同的模型（模型2）來產生完全相同的序列化事件，因為我們以不同的方式呼叫**序列化**。
 
 重點是，如果您將多個資料事件傳送給 **SERIALIZE** ，則它會假設每個事件都是單一 JSON 物件中的一個屬性。
 
-最佳方法取決於您及您對模型的思考方式。 如果您要將「事件」傳送至雲端，且每個事件都包含一組已定義的屬性，則第一種方法較為適合。 在該情況下，您會使用 **DECLARE\_STRUCT** 來定義每個事件的結構，然後利用 **WITH\_DATA** 巨集將它們包含在模型中。 然後您會依照我們在上述第一個範例中使用的方法來傳送每個事件。 採用此方法時，您只會傳送單一資料事件給 **SERIALIZER**。
+最佳方法取決於您及您對模型的思考方式。 如果您要將「事件」傳送至雲端，且每個事件都包含一組已定義的屬性，則第一種方法較為適合。 在該情況下，您會使用 **DECLARE\_STRUCT** 來定義每個事件的結構，然後利用 **WITH\_DATA** 巨集將它們包含在模型中。 然後您會依照我們在上述第一個範例中使用的方法來傳送每個事件。 在這種方法中，您只會將單一資料事件傳遞給**序列化程式**。
 
 如果您以物件導向的方式思考模型，則第二種方法可能比較適合您。 在此情況下，使用 **WITH\_DATA** 來定義的元素是您物件的「屬性」。 您可以依據想要傳送至雲端的「物件」狀態詳細程度而定，隨意傳遞事件的任何子集給 **SERIALIZE** 。
 
@@ -443,7 +443,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 
 ## <a name="message-handling"></a>訊息處理
 
-到目前為止，本文只討論傳送事件到 IoT 中樞，尚未處理接收訊息。 這是因為有關接收訊息的資訊大部分均已涵蓋在[適用於 C 的 Azure IoT 裝置 SDK](iot-hub-device-sdk-c-intro.md) 文章中。請從那篇文章回憶，您是藉由註冊訊息回呼函式來處理訊息：
+到目前為止，本文只討論傳送事件到 IoT 中樞，尚未處理接收訊息。 這是因為[Azure IoT 裝置 SDK For C](iot-hub-device-sdk-c-intro.md)一文已涵蓋接收訊息所需瞭解的內容。回想一下，您可以藉由註冊訊息回呼函式來處理訊息：
 
 ```C
 IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather)
@@ -514,7 +514,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 {"Name" : "", "Parameters" : "" }
 ```
 
-您要傳送具有兩個屬性的已序列化 JSON 物件:**Name**是動作 (訊息) 的名稱, 而**參數**則包含該動作的參數。
+您將使用兩個屬性來傳送序列化的 JSON 物件：**Name** 是動作 (訊息) 的名稱，而 **Parameters** 則包含該動作的參數。
 
 例如，若要叫用 **SetAirResistance** ，您可以將下列訊息傳送給裝置：
 
@@ -537,7 +537,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 如果您使用 **序列化程式** 程式庫，需注意的 SDK 重點位於 azure-c-shared-utility 程式庫中。
 
-如果您已經利用 --recursive 選項，從 GitHub 複製 Azure-iot-sdk-c 儲存機制，您就可以在以下位置找到這個共用公用程式庫：
+如果您已從 GitHub 複製了 Azure-iot-sdk-c 存放庫，併發出 `git submodule update --init` 命令，則您會在這裡找到這個共用公用程式程式庫：
 
 ```C
 .\\c-utility
@@ -557,7 +557,7 @@ azure-c-shared-utility\\macro\_utils\_h\_generator.
 
 此方案中的程式會產生 **macro\_utils.h** 檔案。 SDK 有一個隨附的預設 macro\_utils.h 檔案。 這個解決方案可讓您修改部分參數，然後根據這些參數重新建立標頭檔。
 
-要考慮的兩個重要參數為 **nArithmetic** 和 **nMacroParameters**，這些參數是定義在 macro\_utils.tt 中的這兩行：
+要考慮的兩個主要參數是**nArithmetic**和**nMacroParameters**，這兩行都是在宏\_utils.tt 中找到：
 
 ```C
 <#int nArithmetic=1024;#>
@@ -663,9 +663,9 @@ serializer_deinit();
 
 ## <a name="next-steps"></a>後續步驟
 
-本文詳細說明「適用於 C 的 Azure IoT 裝置 SDK」中所含「序列化程式」程式庫的獨特層面。透過文中提供的資訊，您應該能充分了解如何使用模型來傳送事件和接收來自 IoT 中樞的訊息。
+本文詳細說明「**適用于 C 的 Azure IoT 裝置 SDK**」中所含的**序列化程式**程式庫的獨特層面。透過提供的資訊，您應該已充分瞭解如何使用模型來傳送事件和接收來自 IoT 中樞的訊息。
 
-這也結束了有關如何使用「適用於 C 的 Azure IoT 裝置 SDK」來開發應用程式的三部曲系列。這些資訊應該不僅足以讓您入門，還能讓您徹底了解 API 的運作方式。 如需其他資訊，還有一些 SDK 中的範例未涵蓋在本文中。 除此之外，[Azure IoT SDK 文件](https://github.com/Azure/azure-iot-sdk-c) \(英文\) 也是取得其他資訊的絕佳資源。
+這也會結束如何使用**適用于 C 的 Azure IoT 裝置 SDK**來開發應用程式的三部分系列。這應該是足夠的資訊，不僅讓您開始使用，還能讓您徹底瞭解 Api 的工作方式。 如需其他資訊，還有一些 SDK 中的範例未涵蓋在本文中。 除此之外，[Azure IoT SDK 文件](https://github.com/Azure/azure-iot-sdk-c) \(英文\) 也是取得其他資訊的絕佳資源。
 
 若要深入了解如何開發 IoT 中樞，請參閱 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 

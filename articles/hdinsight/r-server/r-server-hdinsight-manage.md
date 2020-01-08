@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: e0ce8b97df6f2d6e95255d3f4dfc9f76fa08a594
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b2c16c27c0dfc0c30a99c52544cc4d2278eadfc7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123546"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647725"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>在 HDInsight 上管理 ML 服務叢集
 
@@ -23,7 +23,7 @@ ms.locfileid: "71123546"
 
 * HDInsight 上的 ML 服務叢集。 請參閱[使用 Azure 入口網站建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)，然後選取 [ML 服務] 作為 [叢集類型]。
 
-* 安全殼層（SSH）用戶端：SSH 用戶端可用來從遠端連線至 HDInsight 叢集，並直接在叢集上執行命令。 如需詳細資訊，請參閱[搭配使用 SSH 與 HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+* 安全殼層（SSH）用戶端： SSH 用戶端可用來從遠端連線至 HDInsight 叢集，並直接在叢集上執行命令。 如需詳細資訊，請參閱[搭配使用 SSH 與 HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="enable-multiple-concurrent-users"></a>啟用多個並行使用者
 
@@ -48,11 +48,11 @@ HDInsight 上 ML 服務叢集中所使用的 R Studio Server 社群版本，只�
 2. 在邊緣節點中新增更多 Linux 使用者
 3. 使用 RStudio 社群版本搭配所建立的使用者
 
-### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>步驟 1:使用所建立的 SSH 使用者來登入邊緣節點
+### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>步驟 1：使用所建立的 SSH 使用者來登入邊緣節點
 
 遵循[使用 SSH 連線到 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md) 中的指示來存取邊緣節點。 HDInsight 上 ML 服務叢集的邊緣節點位址是 `CLUSTERNAME-ed-ssh.azurehdinsight.net`。
 
-### <a name="step-2-add-more-linux-users-in-edge-node"></a>步驟 2:在邊緣節點中新增更多 Linux 使用者
+### <a name="step-2-add-more-linux-users-in-edge-node"></a>步驟 2：在邊緣節點中新增更多 Linux 使用者
 
 若要將使用者新增至邊緣節點，請執行下列命令︰
 
@@ -68,9 +68,9 @@ HDInsight 上 ML 服務叢集中所使用的 R Studio Server 社群版本，只�
 
 當系統提示您輸入 [目前的 Kerberos 密碼] 時，只要按 **Enter** 加以忽略。 `useradd` 命令中的 `-m` 選項表示系統將為使用者建立主資料夾，這是 RStudio 社群版本所需的。
 
-### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>步驟 3：使用 RStudio 社群版本搭配所建立的使用者
+### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>步驟 3：使用 RStudio 社群版本搭配建立的使用者
 
-從 https://CLUSTERNAME.azurehdinsight.net/rstudio/ 存取 RStudio。 如果您在建立叢集之後首次進行登入，請輸入叢集系統管理員認證，後面接著您建立的 SSH 使用者認證。 如果這不是您第一次登入，則只需針對您所建立的 SSH 使用者輸入認證。
+從 `https://CLUSTERNAME.azurehdinsight.net/rstudio/` 存取 RStudio。 如果您在建立叢集之後首次進行登入，請輸入叢集系統管理員認證，後面接著您建立的 SSH 使用者認證。 如果這不是您第一次登入，則只需針對您所建立的 SSH 使用者輸入認證。
 
 您也可以使用原始認證 (預設是 *sshuser*)，從另一個瀏覽器視窗同時登入。
 
@@ -78,7 +78,7 @@ HDInsight 上 ML 服務叢集中所使用的 R Studio Server 社群版本，只�
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>遠端連線到 Microsoft ML 服務
 
-您可以設定從桌上型電腦上執行的 ML 用戶端遠端執行個體，來存取 HDInsight Spark 計算內容。 若要這樣做，在桌上型電腦上定義 RxSpark 計算內容時，您必須指定選項 (hdfsShareDir、shareDir、sshUsername、sshHostname、sshSwitches 和 sshProfileScript)：例如:
+您可以設定從桌上型電腦上執行的 ML 用戶端遠端執行個體，來存取 HDInsight Spark 計算內容。 若要這樣做，在桌上型電腦上定義 RxSpark 計算內容時，您必須指定選項 (hdfsShareDir、shareDir、sshUsername、sshHostname、sshSwitches 和 sshProfileScript)：例如：
 
     myNameNode <- "default"
     myPort <- 0
@@ -196,7 +196,7 @@ HDInsight ML 服務可讓您在 Hive 和 Parquet 中直接存取資料，以供 
 
    * 只選取**背景工作**的核取方塊。
 
-   * **參數**：要安裝的 R 套件。 例如： `bitops stringr arules`
+   * **參數**︰要安裝的 R 套件。 例如， `bitops stringr arules`
 
    * 選取此核取方塊以**持續此指令碼動作**。  
 

@@ -1,17 +1,17 @@
 ---
-title: 將驗證新增至自訂 Api
-description: 為從 Azure Logic Apps 呼叫自訂 API 的作業設定驗證
+title: 新增驗證以保護自訂 Api 的呼叫
+description: 如何設定驗證以從 Azure Logic Apps 保護自訂 Api 的呼叫
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: f6dfa98550dcfb092ca1fb52a5cf0bed32e697ad
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2f8b1cc002fe3f340ff6d5329329507316577885
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793151"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666885"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>保護從 Azure Logic Apps 對自訂 API 發出的呼叫
 
@@ -197,13 +197,13 @@ ms.locfileid: "74793151"
 }
 ```
 
-| 屬性 | 必要項 | 描述 | 
+| 屬性 | 必要項 | 說明 | 
 | -------- | -------- | ----------- | 
 | tenant | 是 | Azure AD 租用戶的 GUID | 
 | audience | 是 | 您想要存取之目標資源的 GUID - 這是來自您 Web 應用程式或 API 應用程式之應用程式識別碼的用戶端識別碼 | 
 | clientId | 是 | 要求存取權之用戶端的 GUID - 這是來自您邏輯應用程式之應用程式識別碼的用戶端識別碼 | 
 | secret | 是 | 來自要求存取權杖的用戶端之應用程式識別碼的金鑰或密碼 | 
-| 類型 | 是 | 驗證類型。 若為 ActiveDirectoryOAuth 驗證，值為 `ActiveDirectoryOAuth`。 | 
+| type | 是 | 驗證類型。 若為 ActiveDirectoryOAuth 驗證，值為 `ActiveDirectoryOAuth`。 | 
 |||| 
 
 例如：
@@ -248,7 +248,7 @@ ms.locfileid: "74793151"
 } 
 ```
 
-| 屬性 | 必要項 | 描述 |
+| 屬性 | 必要項 | 說明 |
 | -------- | -------- | ----------- |
 | `type` | 是 | 驗證類型。 若為 SSL 用戶端憑證，值必須是 `ClientCertificate`。 |
 | `password` | 否 | 用以存取用戶端憑證的密碼 (PFX 檔案) |
@@ -271,11 +271,11 @@ ms.locfileid: "74793151"
 }
 ```
 
-| 屬性 | 必要項 | 描述 | 
+| 屬性 | 必要項 | 說明 | 
 | -------- | -------- | ----------- | 
-| 類型 | 是 | 您想要使用的驗證類型。 若為基本驗證，值必須是 `Basic`。 | 
+| type | 是 | 您想要使用的驗證類型。 若為基本驗證，值必須是 `Basic`。 | 
 | username | 是 | 您想要用來進行驗證的使用者名稱 | 
-| password | 是 | 您想要用來進行驗證的密碼 | 
+| 密碼 | 是 | 您想要用來進行驗證的密碼 | 
 |||| 
 
 <a name="azure-ad-code"></a>

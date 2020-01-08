@@ -1,19 +1,19 @@
 ---
 title: 採用 Visual Studio 和 C# 的 Apache Storm 拓撲 - Azure HDInsight
 description: 了解如何使用 C# 建立 Storm 拓撲。 使用適用于 Visual Studio 的 Hadoop 工具，在 Visual Studio 中建立字數統計拓撲。
-ms.service: hdinsight
+ROBOTS: NOINDEX
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/06/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: f59328c5894a53b6337ecc04e3daebb2ef180c59
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.date: 12/31/2019
+ms.openlocfilehash: 1903c2faab865152d1f3666f3c9dadd745058b56
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927894"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612286"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 開發 Apache Storm 的 C# 拓撲
 
@@ -21,20 +21,17 @@ ms.locfileid: "73927894"
 
 您也會學習如何建立使用 C# 和 Java 元件的混合式拓撲。
 
-> [!NOTE]  
-> 雖然本文件中的步驟依賴 Windows 開發環境與 Visual Studio，但已編譯的專案可以提交到以 Linux 或 Windows 為基礎的 HDInsight 叢集。 只有2016年10月28日之後建立的以 Linux 為基礎的叢集才支援 SCP.NET 拓撲。
-
-若要使用C#拓撲搭配以 Linux 為基礎的叢集，您必須將專案所使用的 `Microsoft.SCP.Net.SDK` NuGet 套件更新為為0.10.0.6 版或更新版本。 套件版本也必須符合 HDInsight 上安裝的 Storm 主要版本。
+C#拓撲使用 .NET 4.5，並使用 Mono 在 HDInsight 叢集上執行。 如需潛在不相容的資訊，請參閱[Mono 相容性](https://www.mono-project.com/docs/about-mono/compatibility/)。 若要使用C#拓撲，您必須將專案所使用的 `Microsoft.SCP.Net.SDK` NuGet 套件更新為為0.10.0.6 版或更新版本。 套件版本也必須符合 HDInsight 上安裝的 Storm 主要版本。
 
 | HDInsight 版本 | Apache Storm 版本 | SCP.NET 版本 | 預設 Mono 版本 |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
-| 3.3 |0.10.x |0.10.x.x</br>(僅限以 Windows 為基礎的 HDInsight) | NA |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
 | 3.5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
-> [!IMPORTANT]  
-> 在以 Linux 為基礎之叢集上的 C# 拓撲必須使用 .NET 4.5，並使用 Mono 以在 HDInsight 叢集上執行。 如需潛在不相容的資訊，請參閱[Mono 相容性](https://www.mono-project.com/docs/about-mono/compatibility/)。
+## <a name="prerequisite"></a>必要條件
+
+HDInsight 上的 Apache Storm 叢集。 請參閱[使用 Azure 入口網站建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)，然後選取 [Storm] 作為 [叢集類型]。
 
 ## <a name="install-visual-studio"></a>安裝 Visual Studio
 
@@ -52,7 +49,7 @@ ms.locfileid: "73927894"
 
 2. 將 `JAVA_HOME` 環境變數設定為包含 JAVA 的目錄。
 
-3. 設定 `PATH` 環境變數，以包含 *% JAVA_HOME% \ bin*目錄。
+3. 設定 `PATH` 環境變數以包含 `%JAVA_HOME%\bin` 目錄。
 
 您可以建立並執行下列C#主控台應用程式，以確認已正確安裝 JAVA 和 JDK：
 
@@ -145,8 +142,6 @@ HBase 讀取器和寫入器範本會使用 HBase REST API (而不是 HBase Java 
 
 當您建立專案時，NuGet 會下載最新的 [SCP.NET 套件](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) \(英文\)。
 
-[!INCLUDE [scp.net version important](../../../includes/hdinsight-storm-scpdotnet-version.md)]
-
 ### <a name="implement-the-spout"></a>實作 Spout
 
 接下來，新增 spout 的程式碼，用來從外部來源讀取拓撲中的資料。 此 spout 會將句子隨機發出至拓撲。
@@ -236,7 +231,7 @@ HBase 讀取器和寫入器範本會使用 HBase REST API (而不是 HBase Java 
 
 3. 開啟 *Splitter.cs*。 根據預設，它只有一個方法： `Execute`。 當螺栓收到處理的元組時，會呼叫 `Execute` 方法。 此時，您可以讀取和處理內送 Tuple，以及發出輸出 Tuple。
 
-4. 將 `Splitter` 類別的內容取代為下列程式碼：
+4. 以下列程式碼取代 `Splitter` 類別的內容：
 
     ```csharp
     private Context ctx;
@@ -410,12 +405,13 @@ return topologyBuilder;
 
 您現在已準備好將拓撲提交至您的 HDInsight 叢集。
 
+1. 流覽至**View** > **伺服器總管**。
+
+1. 以滑鼠右鍵按一下 [ **Azure**]，選取 **[連線至 Microsoft Azure 訂用帳戶 ...]** ，然後完成登入程式。
+
 1. 在**方案總管**中，以滑鼠右鍵按一下專案，然後選擇 [**在 HDInsight 上提交至風暴**]。
 
-    > [!NOTE]  
-    > 如果出現提示，請輸入您 Azure 訂用帳戶的認證。 如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
-
-2. 在 [**提交拓撲**] 對話方塊的 [**風暴**叢集] 下拉式清單中，選擇您在 HDInsight 叢集上的 [風暴]，然後選取 [**提交**]。 您可以藉由查看 [**輸出**] 窗格來檢查提交是否成功。
+1. 在 [**提交拓撲**] 對話方塊的 [**風暴**叢集] 下拉式清單中，選擇您在 HDInsight 叢集上的 [風暴]，然後選取 [**提交**]。 您可以藉由查看 [**輸出**] 窗格來檢查提交是否成功。
 
     成功提交拓撲時，應該會出現叢集的 [**風暴拓撲] 視圖**視窗。 從清單中選擇 [ **WordCount**拓撲]，以查看執行中拓撲的相關資訊。
 
@@ -426,7 +422,7 @@ return topologyBuilder;
 
     若要查看拓撲中元件的相關資訊，請選取圖表中的元件。
 
-3. 在 [**拓撲摘要**] 區段中，選取 [**終止**] 以停止拓撲。
+1. 在 [**拓撲摘要**] 區段中，選取 [**終止**] 以停止拓撲。
 
     > [!NOTE]  
     > 除非停用 Storm 拓撲或刪除叢集，否則 Storm 拓撲會繼續執行。
@@ -481,7 +477,7 @@ return topologyBuilder;
 
 * 提交拓撲至伺服器時，您必須使用 [其他組態] 選項指定 [Java 檔案路徑]。 指定的路徑應該是具有 JAR 檔案的目錄，其中包含您的 JAVA 類別。
 
-### <a name="azure-event-hubs"></a>Azure 事件中心
+### <a name="azure-event-hubs"></a>Azure 事件中樞
 
 SCP.NET 0.9.4.203 版引進了專用於事件中樞 Spout (從事件中樞讀取的 Java Spout) 的新類別和方法。 當您建立使用事件中樞 spout 的拓撲時（例如，使用「**風暴 EventHub 讀取器」範例**範本），請使用下列 api：
 
@@ -492,7 +488,7 @@ SCP.NET 0.9.4.203 版引進了專用於事件中樞 Spout (從事件中樞讀取
 > [!NOTE]  
 > 您仍然必須使用 `CustomizedInteropJSONSerializer` 來序列化 spout 所產生的資料。
 
-## <a id="configurationmanager"></a>使用 ConfigurationManager
+## <a name="use-configurationmanager"></a>使用 ConfigurationManager
 
 請勿使用 **ConfigurationManager** 從 Bolt 和 Spout 元件擷取設定值。 這麼做會導致 Null 指標例外狀況。 相反地，請將專案的設定傳遞至風暴拓撲，做為拓撲內容中的索引鍵和值組。 仰賴組態值的每個元件則必須在初始化期間從內容擷取這些組態值。
 
@@ -552,7 +548,7 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 專案的設定會以拓撲內容中金鑰和值組的形式傳遞至 Storm 拓撲。 它可以在初始化時，從傳遞至元件的字典物件中抓取。
 
-如需詳細資訊，請參閱本檔的[Use ConfigurationManager](#configurationmanager)一節。
+如需詳細資訊，請參閱本檔的[Use ConfigurationManager](#use-configurationmanager)一節。
 
 ### <a name="systemtypeloadexception"></a>System.TypeLoadException
 
@@ -704,7 +700,7 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 `Context.Logger.Info("Component started");`
 
-您可以從 [Hadoop 服務記錄] (位於**伺服器總管中**) 檢視記錄的資訊。 展開 Storm on HDInsight 叢集的項目，然後展開 [Hadoop 服務記錄]。 最後，選取要檢視的記錄檔。
+您可以從 **[Hadoop 服務記錄]** \(位於**伺服器總管中**) 檢視記錄的資訊。 展開 Storm on HDInsight 叢集的項目，然後展開 [Hadoop 服務記錄]。 最後，選取要檢視的記錄檔。
 
 > [!NOTE]  
 > 記錄會儲存在您叢集所使用的 Azure 儲存體帳戶中。 若要在 Visual Studio 中檢視記錄，您必須登入至擁有儲存體帳戶的 Azure 訂用帳戶。
@@ -725,7 +721,7 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 如果您在提交拓撲至 HDInsight 時遇到錯誤，您可以尋找在 HDInsight 叢集上處理拓撲提交之伺服器端元件的記錄檔。 若要下載這些記錄，請從命令列使用下列命令：
 
-```shell
+```cmd
 scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 ```
 

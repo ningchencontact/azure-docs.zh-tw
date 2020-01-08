@@ -1,52 +1,52 @@
 ---
 title: 使用 .NET 建立或刪除 blob 容器-Azure 儲存體
-description: 瞭解如何使用 .NET 用戶端程式庫, 在您的 Azure 儲存體帳戶中建立或刪除 blob 容器。
+description: 瞭解如何使用 .NET 用戶端程式庫，在您的 Azure 儲存體帳戶中建立或刪除 blob 容器。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d1218b10eadf0788752bab2aec4b21614666888c
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 70f905d15c69876ced56c25ec92f858bb15b7d36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671288"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372205"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>使用 .NET 建立或刪除 Azure 儲存體中的容器
 
-Azure 儲存體中的 blob 會組織成容器。 在您可以上傳 blob 之前, 您必須先建立容器。 本文說明如何使用[適用于 .net 的 Azure 儲存體用戶端程式庫](/dotnet/api/overview/azure/storage/client)來建立和刪除容器。
+Azure 儲存體中的 blob 會組織成容器。 在您可以上傳 blob 之前，您必須先建立容器。 本文說明如何使用[適用于 .net 的 Azure 儲存體用戶端程式庫](/dotnet/api/overview/azure/storage/client)來建立和刪除容器。
 
 ## <a name="name-a-container"></a>為容器命名
 
-容器名稱必須是有效的 DNS 名稱, 因為它會形成用來定址容器或其 blob 的唯一 URI 的一部分。 為容器命名時, 請遵循下列規則:
+容器名稱必須是有效的 DNS 名稱，因為它會形成用來定址容器或其 blob 的唯一 URI 的一部分。 為容器命名時，請遵循下列規則：
 
 - 容器名稱的長度可以介於3到63個字元之間。
-- 容器名稱必須以字母或數位開頭, 且只能包含小寫字母、數位和虛線 (-) 字元。
+- 容器名稱必須以字母或數位開頭，且只能包含小寫字母、數位和虛線（-）字元。
 - 容器名稱中不允許有兩個或多個連續的虛線字元。
 
-容器的 URI 採用下列格式:
+容器的 URI 採用下列格式：
 
 `https://myaccount.blob.core.windows.net/mycontainer`
 
 ## <a name="create-a-container"></a>建立容器
 
-若要建立容器, 請呼叫下列其中一個方法:
+若要建立容器，請呼叫下列其中一個方法：
 
 - [建立](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
 - [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
 - [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
 - [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
 
-如果已有相同名稱的容器, **Create**和**CreateAsync**方法就會擲回例外狀況。
+如果已有相同名稱的容器， **Create**和**CreateAsync**方法就會擲回例外狀況。
 
-**CreateIfNotExists**和**CreateIfNotExistsAsync**方法會傳回布林值, 指出是否已建立容器。 如果已有相同名稱的容器存在, 則這些方法會傳回**False** , 表示尚未建立新的容器。
+**CreateIfNotExists**和**CreateIfNotExistsAsync**方法會傳回布林值，指出是否已建立容器。 如果已有相同名稱的容器存在，則這些方法會傳回**False** ，表示尚未建立新的容器。
 
-容器會立即在儲存體帳戶底下建立。 不可能將一個容器放在另一個容器之下。
+容器會在儲存體帳戶下方直接建立。 您無法將某個容器巢於另一個容器下方。
 
-下列範例會以非同步方式建立容器:
+下列範例會以非同步方式建立容器：
 
 ```csharp
 private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBlobClient blobClient)
@@ -81,13 +81,13 @@ private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBl
 
 ## <a name="create-the-root-container"></a>建立根容器
 
-根容器會作為儲存體帳戶的預設容器。 每個儲存體帳戶可能會有一個根容器, 其必須命名為 *$root.* 。 您必須明確地建立或刪除根容器。
+根容器會做為儲存體帳戶的預設容器。 每個儲存體帳戶可能會有一個根容器，其必須命名為 *$root.* 。 您必須明確地建立或刪除根容器。
 
-您可以參考儲存在根容器中的 blob, 而不需要包含根容器名稱。 根容器可讓您在儲存體帳戶階層的最上層參考 blob。 例如, 您可以透過下列方式參考位於根容器中的 blob:
+您可以參考儲存在根容器中的 blob，而不需要包含根容器名稱。 根容器可讓您在儲存體帳戶階層的最上層參考 blob。 例如，您可以依照下述方式參考位於根容器中的 Blob：
 
 `https://myaccount.blob.core.windows.net/default.html`
 
-下列範例會以同步方式建立根容器:
+下列範例會以同步方式建立根容器：
 
 ```csharp
 private static void CreateRootContainer(CloudBlobClient blobClient)
@@ -117,20 +117,20 @@ private static void CreateRootContainer(CloudBlobClient blobClient)
 
 ## <a name="delete-a-container"></a>刪除容器
 
-若要刪除 .NET 中的容器, 請使用下列其中一種方法:
+若要刪除 .NET 中的容器，請使用下列其中一種方法：
 
 - [刪除](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists)
 - [Cloudblobcontainer.deleteifexistsasync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexistsasync)
 
-如果容器不存在, **Delete**和**DeleteAsync**方法會擲回例外狀況。
+如果容器不存在， **Delete**和**DeleteAsync**方法會擲回例外狀況。
 
-**DeleteIfNotExists**和**DeleteIfNotExistsAsync**方法會傳回布林值, 指出容器是否已刪除。 如果指定的容器不存在, 則這些方法會傳回**False** , 表示容器並未刪除。
+**DeleteIfExists**和**cloudblobcontainer.deleteifexistsasync**方法會傳回布林值，指出容器是否已刪除。 如果指定的容器不存在，則這些方法會傳回**False** ，表示容器並未刪除。
 
-刪除容器之後, 您將無法建立名稱至少為30秒且可能較長的容器。 刪除容器時, 嘗試建立具有相同名稱的容器將會失敗, 並出現 HTTP 錯誤碼 409 (衝突)。 容器或其包含的 blob 上的任何其他作業將會失敗, 並在刪除容器時, 出現 HTTP 錯誤碼 404 (找不到)。
+刪除容器之後，您將無法建立名稱至少為30秒且可能較長的容器。 刪除容器時，嘗試建立具有相同名稱的容器將會失敗，並出現 HTTP 錯誤碼409（衝突）。 容器或其包含的 blob 上的任何其他作業將會失敗，並在刪除容器時，出現 HTTP 錯誤碼404（找不到）。
 
-下列範例會刪除指定的容器, 並在容器不存在時處理例外狀況:
+下列範例會刪除指定的容器，並在容器不存在時處理例外狀況：
 
 ```csharp
 private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient, string containerName)
@@ -153,7 +153,7 @@ private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient,
 }
 ```
 
-下列範例示範如何刪除以指定前置詞開頭的所有容器。 如果容器上有現有的租用, 則此範例會中斷租用。
+下列範例示範如何刪除以指定前置詞開頭的所有容器。 如果容器上有現有的租用，則此範例會中斷租用。
 
 ```csharp
 private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobClient, string prefix)
@@ -185,7 +185,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - [建立容器作業](/rest/api/storageservices/create-container)
 - [刪除容器作業](/rest/api/storageservices/delete-container)

@@ -8,12 +8,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 7d5e38e2ecfa2406ff0f58f73d828aa45d84c512
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c4cb230c9f0b56e3ff9d81e0d85134a7f192e6e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890473"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429166"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>使用資源提供者 REST API 建立 IoT 中樞 (.NET)
 
@@ -25,7 +25,7 @@ ms.locfileid: "73890473"
 
 若要完成此教學課程，您需要下列項目：
 
-* 。
+* Visual Studio。
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
 
@@ -176,7 +176,7 @@ ms.locfileid: "73890473"
 
 * 閱讀[IoT 中樞資源提供者 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)的功能。
 
-* 若要深入瞭解 Azure Resource Manager 的功能，請閱讀[Azure Resource Manager 總覽](../azure-resource-manager/resource-group-overview.md)。
+* 若要深入瞭解 Azure Resource Manager 的功能，請閱讀[Azure Resource Manager 總覽](../azure-resource-manager/management/overview.md)。
 
 若要深入了解如何開發 IoT 中樞，請參閱以下文章︰
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: f87e7795416431305141de24497e9760eb03641e
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 4ee5f06a7256a2092cfed923cf40c6b74254c4a1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484375"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647555"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>使用 PowerShell 將 IaaS 資源從傳統遷移至 Azure Resource Manager
 以下步驟說明如何使用 Azure PowerShell 命令，將基礎結構即服務 (IaaS) 資源從傳統部署模型移轉至 Azure Resource Manager 部署模型。
@@ -33,7 +33,7 @@ ms.locfileid: "74484375"
 <br>
 以下是一個流程圖，識別在遷移過程中需要執行步驟的順序。
 
-![顯示移轉步驟的螢幕擷取畫面](media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](media/migration-classic-resource-manager/migration-flow.png)
 
  
 
@@ -125,7 +125,7 @@ Azure PowerShell 的主要安裝選項有兩個：[PowerShell 資源庫](https:/
 <br>
 
 ## <a name="step-5-have-enough-resource-manager-vm-vcpus"></a>步驟5：有足夠的 Resource Manager VM 個 vcpu
-請確定您目前的部署或虛擬網路的 Azure 區域中有足夠的 Azure Resource Manager 虛擬機器個 vcpu。 您可以使用下列 PowerShell 命令來檢查您目前在 Azure Resource Manager 中擁有的 vCPU 數目。 若要深入了解 vCPU 配額，請參閱[限制和 Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager)。
+請確定您目前的部署或虛擬網路的 Azure 區域中有足夠的 Azure Resource Manager 虛擬機器個 vcpu。 您可以使用下列 PowerShell 命令來檢查您目前在 Azure Resource Manager 中擁有的 vCPU 數目。 若要深入了解 vCPU 配額，請參閱[限制和 Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#limits-and-azure-resource-manager)。
 
 此範例會檢查**美國西部**區域的可用性。 將範例區域名稱取代為您自己的名稱。
 

@@ -1,27 +1,18 @@
 ---
 title: 獨立 Azure Service Fabric 中的定期備份/還原
 description: 使用 Service Fabric 的定期備份與還原功能，啟用應用程式資料的定期資料備份。
-services: service-fabric
-documentationcenter: .net
 author: hrushib
-manager: chackdan
-editor: hrushib
-ms.assetid: FAADBCAB-F0CF-4CBC-B663-4A6DCCB4DEE1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: feec830a81b9afe572e05bb6be21ad39edd7af04
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 938cbbde9f53c52350ef64715f6c61c4aa961057
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232472"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526238"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>在 Azure Service Fabric 中定期備份和還原
+# <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>獨立 Service Fabric 中的定期備份與還原
 > [!div class="op_single_selector"]
 > * [Azure 上的叢集](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [獨立叢集](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -53,7 +44,7 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
 - 暫時暫停備份
 - 備份的保留管理 (即將推出)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 具有 Fabric 6.4 版或更新版本的 Service Fabric 叢集。 如需下載所需套件的步驟，請參閱這篇[文章](service-fabric-cluster-creation-for-windows-server.md)。
 * 用於加密祕密 (連線至儲存體以儲存備份時所需) 的 X.509 憑證。 若要了解如何取得或建立自我簽署的 X.509 憑證，請參閱這篇[文章](service-fabric-windows-cluster-x509-security.md)。
 
@@ -86,7 +77,7 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
     }
     ```
 
-2. 現在，在 _區段底下新增下列_ 區段來啟用「備份與還原服務」`addonFeatures``properties`，如下列程式碼片段所示： 
+2. 現在，在 `properties` 區段底下新增下列 `addonFeatures` 區段來啟用「備份與還原服務」，如下列程式碼片段所示： 
 
     ```json
         "properties": {
@@ -98,7 +89,7 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
 
     ```
 
-3. 設定用於加密認證的 X.509 憑證。 這很重要，可確保所提供來連線至儲存體的認證 (如果有的話) 會先經過加密再進行保存。 在 `BackupRestoreService` 區段底下新增下列 `fabricSettings` 區段來設定加密憑證，如下列程式碼片段所示： 
+3. 設定用於加密認證的 X.509 憑證。 這很重要，可確保所提供來連線至儲存體的認證 (如果有的話) 會先經過加密再進行保存。 在 `fabricSettings` 區段底下新增下列 `BackupRestoreService` 區段來設定加密憑證，如下列程式碼片段所示： 
 
     ```json
     "properties": {
@@ -128,7 +119,7 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
 
 第一步是建立備份原則來描述備份排程、備份資料的目標儲存體、原則名稱，以及觸發備份儲存體的完整備份和保留原則之前所允許的增量備份上限。 
 
-針對備份儲存體，請建立檔案共用，然後將此檔案共用的 ReadWrite 存取權授與所有 Service Fabric 節點電腦。 此範例假設 `BackupStore` 上有名為 `StorageServer` 的共用。
+針對備份儲存體，請建立檔案共用，然後將此檔案共用的 ReadWrite 存取權授與所有 Service Fabric 節點電腦。 此範例假設 `StorageServer` 上有名為 `BackupStore` 的共用。
 
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>使用 ServiceFabric 的 powershell 模組

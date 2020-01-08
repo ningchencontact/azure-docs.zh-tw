@@ -1,23 +1,23 @@
 ---
-title: 在 Azure 入口網站中加入、移除和排序我的最愛 |Microsoft Docs
-description: 瞭解如何在 [我的最愛] 清單中新增或移除專案，以及排序專案的順序
+title: 在 Azure 入口網站中加入、移除和排列我的最愛 |Microsoft Docs
+description: 瞭解如何在 [我的最愛] 清單中新增或移除專案，以及重新排列專案的順序
 services: azure-portal
-keywords: r
-author: kfollis
-ms.author: kfollis
-ms.date: 11/01/2019
+keywords: 我的最愛，入口網站
+author: mblythe
+ms.author: mblythe
+ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: 51228f4a28b5c6e19bf341b5576540d36bcaae64
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 57ce053f268558886dad33d450d48f9a0889a10a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579610"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640562"
 ---
-# <a name="add-remove-and-sort-favorites"></a>新增、移除及排序我的最愛
+# <a name="add-remove-and-rearrange-favorites"></a>新增、移除和重新排列我的最愛
 
 新增或移除**我的最愛清單中**的專案，讓您可以快速地移至最常使用的服務。 我們已將一些常用服務新增至**我的最愛清單，** 但您可能會想要自訂它。 您是唯一看到您對 [我的最愛 **]** 所做變更的人。
 
@@ -51,7 +51,7 @@ ms.locfileid: "73579610"
 
 2. 在資訊卡片上，選取星號，讓它從填滿到未填入。 服務會從 [我的最愛 **]** 清單中移除。
 
-## <a name="sort-favorites"></a>排序我的最愛
+## <a name="rearrange-favorites"></a>重新排列我的最愛
 
 您可以變更列出我的最愛服務的順序。 只要將功能表項目拖放到 [我的最愛 **]** 下的另一個位置即可。
 

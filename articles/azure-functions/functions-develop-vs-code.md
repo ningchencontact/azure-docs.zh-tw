@@ -3,12 +3,12 @@ title: 使用 Visual Studio Code 開發 Azure Functions
 description: 瞭解如何使用適用于 Visual Studio Code 的 Azure Functions 延伸模組來開發和測試 Azure Functions。
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: cf96a0630440904282f076de2f916fb3dbf3eb1c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 54bbc46c703646f4680f6dc22d5c4b6781614ae7
+ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975579"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75667550"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>使用 Visual Studio Code 開發 Azure Functions
 
@@ -94,10 +94,6 @@ Azure Functions 延伸模組提供下列優點：
 
 除了 HTTP 和計時器觸發程式以外，系結會在延伸模組套件中執行。 您必須為需要的觸發程式和系結安裝延伸模組套件。 安裝系結延伸模組的程式取決於您專案的語言。
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 在終端機視窗中執行[dotnet add package](/dotnet/core/tools/dotnet-add-package)命令，以在您的專案中安裝所需的延伸模組套件。 下列命令會安裝 Azure 儲存體延伸模組，其會執行 Blob、佇列和資料表儲存體的系結。
@@ -105,6 +101,10 @@ Azure Functions 延伸模組提供下列優點：
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
+
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ---
 
@@ -114,13 +114,13 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 此動作的結果取決於您專案的語言：
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
-
-專案中會建立新的資料夾。 此資料夾包含新的函式 json 檔案和新的 JavaScript 程式碼檔案。
-
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 新C#的類別庫（.cs）檔案會加入至您的專案。
+
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+
+專案中會建立新的資料夾。 此資料夾包含新的函式 json 檔案和新的 JavaScript 程式碼檔案。
 
 ---
 
@@ -130,6 +130,24 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 下列範例會連線到名為 `outqueue`的儲存體佇列，其中儲存體帳戶的連接字串是在 [web.config] 的 [`MyStorageConnection`] 應用程式設定中設定。
 
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+
+更新函數方法，將下列參數新增至 `Run` 方法定義：
+
+```cs
+[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
+```
+
+此程式碼會要求您新增下列 `using` 語句：
+
+```cs
+using Microsoft.Azure.WebJobs.Extensions.Storage;
+```
+
+`msg` 參數是 `ICollector<T>` 類型，其代表會在函式完成時寫入輸出繫結的訊息集合。 您可以將一或多個訊息新增至集合。 當函式完成時，會將這些訊息傳送至佇列。
+
+若要深入瞭解，請參閱[佇列儲存體輸出](functions-bindings-storage-queue.md#output---c-example)系結檔。
+
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 Visual Studio Code 可讓您遵循一組方便的提示，將系結新增至您的函式. json 檔案。 若要建立系結，請以滑鼠右鍵按一下（Ctrl + 按一下 [macOS]）函式資料夾中的函式**json**檔案，然後選取 [**新增**系結]：
@@ -138,13 +156,13 @@ Visual Studio Code 可讓您遵循一組方便的提示，將系結新增至您�
 
 以下是定義新儲存體輸出系結的範例提示：
 
-| Prompt | Value | 描述 |
+| Prompt | 值 | 說明 |
 | -------- | ----- | ----------- |
 | **選取繫結方向** | `out` | 此繫結為輸出繫結。 |
 | **選取具有方向的系結** | `Azure Queue Storage` | 此繫結是 Azure 儲存體佇列繫結。 |
 | **用以在程式碼中識別此繫結的名稱** | `msg` | 識別您的程式碼中參考之繫結參數的名稱。 |
 | **要接收訊息的佇列** | `outqueue` | 作為繫結寫入目標的佇列名稱。 當 *queueName* 不存在，繫結會在第一次使用時加以建立。 |
-| **"local.setting.json" 選取設定** | `MyStorageConnection` | 應用程式設定的名稱，其中包含儲存體帳戶的連接字串。 `AzureWebJobsStorage` 設定包含您使用函數應用程式所建立之儲存體帳戶的連接字串。 |
+| **從 [local. settings. json] 選取設定** | `MyStorageConnection` | 應用程式設定的名稱，其中包含儲存體帳戶的連接字串。 `AzureWebJobsStorage` 設定包含您使用函數應用程式所建立之儲存體帳戶的連接字串。 |
 
 在此範例中，下列系結會新增至您的函式. json 檔案中的 `bindings` 陣列：
 
@@ -168,25 +186,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 若要深入瞭解，請參閱[佇列儲存體輸出](functions-bindings-storage-queue.md#output---javascript-example)系結參考。
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
-
-更新函數方法，將下列參數新增至 `Run` 方法定義：
-
-```cs
-[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
-```
-
-此程式碼會要求您新增下列 `using` 語句：
-
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
-
 ---
-
-`msg` 參數是 `ICollector<T>` 類型，其代表會在函式完成時寫入輸出繫結的訊息集合。 您可以將一或多個訊息新增至集合。 當函式完成時，會將這些訊息傳送至佇列。
-
-若要深入瞭解，請參閱[佇列儲存體輸出](functions-bindings-storage-queue.md#output---c-example)系結檔。
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
@@ -218,7 +218,7 @@ Visual Studio Code 可讓您將函式專案直接發行至 Azure。 在這過程
 
 1. 依照提示進行，提供下列資訊：
 
-    | Prompt | Value | 描述 |
+    | Prompt | 值 | 說明 |
     | ------ | ----- | ----------- |
     | 選取 Azure 中的函數應用程式 | 在 Azure 中建立新的函數應用程式 | 在下一個提示中，輸入可識別新函數應用程式的全域唯一名稱，然後選取 Enter。 函式應用程式名稱的有效字元為 `a-z`、`0-9` 和 `-`。 |
     | 選取作業系統 | Windows | 函數應用程式會在 Windows 上執行。 |
@@ -383,7 +383,7 @@ HTTP 觸發程式的要求 URL 會顯示在終端機的輸出中。 當專案在
 
 Azure Functions 延伸模組會在區域中提供有用的圖形化介面，以便與 Azure 中的函數應用程式互動。 相同的功能也可以在命令選擇區（F1）中做為命令。 這些 Azure Functions 命令可供使用：
 
-|Azure Functions 命令  | 描述  |
+|Azure Functions 命令  | 說明  |
 |---------|---------|
 |**加入新的設定**  |  在 Azure 中建立新的應用程式設定。 若要深入瞭解，請參閱[發行應用程式設定](#publish-application-settings)。 您可能也需要將[此設定下載到本機設定](#download-settings-from-azure)。 |
 | **設定部署來源** | 將 Azure 中的函數應用程式連接至本機 Git 存放庫。 若要深入瞭解，請參閱[Azure Functions 的持續部署](functions-continuous-deployment.md)。 |

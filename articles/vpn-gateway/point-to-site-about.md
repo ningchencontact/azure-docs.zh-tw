@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 12/17/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7305976060cb5df01f683b3310e59644d7e45b35
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 55433efabea516151cfb858bb61f504e180f5fb7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975086"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353578"
 ---
 # <a name="about-point-to-site-vpn"></a>關於點對站 VPN
 
@@ -51,11 +51,11 @@ Azure AD authentication 可讓使用者使用其 Azure Active Directory 認證�
 
 概括而言，您需要執行下列步驟來設定 Azure AD authentication：
 
-[1. 設定 Azure AD 租使用者](openvpn-azure-ad-tenant.md)
+1. [設定 Azure AD 租使用者](openvpn-azure-ad-tenant.md)
 
-[2. 在閘道上啟用 Azure AD 驗證](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
+2. [在閘道上啟用 Azure AD 驗證](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
 
-[3. 下載並設定 Azure VPN 用戶端（預覽）](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
+3. [下載並設定 Azure VPN 用戶端（預覽）](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
 
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>使用 Azure Active Directory (AD) 網域伺服器進行驗證
@@ -67,10 +67,6 @@ RADIUS 伺服器可以部署在內部部署環境或 Azure VNET 中。 在驗證
 RADIUS 伺服器也可以與 AD 憑證服務整合。 這可讓您對 P2S 憑證驗證使用 RADIUS 伺服器和企業憑證部署，來替代 Azure 憑證驗證。 優點是，您不需要將根憑證及撤銷的憑證上傳至 Azure。
 
 RADIUS 伺服器也可以與其他外部身分識別系統整合。 這會開啟 P2S VPN 的許多驗證選項，包括多重因素選項。
-
->[!NOTE]
->RADIUS 驗證不支援**OpenVPN®通訊協定**。
->
 
 ![點對站](./media/point-to-site-about/p2s.png "點對站")
 

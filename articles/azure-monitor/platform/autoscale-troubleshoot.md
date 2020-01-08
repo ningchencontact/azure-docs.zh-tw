@@ -1,19 +1,15 @@
 ---
 title: 針對 Azure 自動調整進行疑難排解
 description: 追蹤在 Service Fabric、虛擬機器、Web Apps 和雲端服務中使用的 Azure 自動調整問題。
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/4/2019
-ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 410c182075d0aa288ad05195958c396f1a357ff1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
-ms.translationtype: MT
+ms.openlocfilehash: effef22bea0b4224f67737fe1c34c9758749c093
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893564"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364436"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>針對 Azure 自動調整進行疑難排解
  

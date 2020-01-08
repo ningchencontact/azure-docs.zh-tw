@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: f2e9387af3c5922ec5eb0dded3d0d1d4bcee6a01
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084150"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376285"
 ---
 # <a name="deploy-a-configuration-server"></a>部署設定伺服器
 
@@ -26,7 +26,7 @@ ms.locfileid: "74084150"
 
 設定伺服器必須設定為具有特定最低硬體和大小需求的高可用性 VMware VM。 為了方便且輕鬆地部署，Site Recovery 提供可下載的開放式虛擬化應用程式（OVA）範本，以設定符合此處所列所有規定需求的設定伺服器。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 下列各節將摘要說明設定伺服器的最低硬體需求。
 
@@ -92,7 +92,7 @@ ms.locfileid: "74084150"
 如果您想要將其他 NIC 新增至設定伺服器，請在保存庫中註冊伺服器前新增。 註冊之後，便不支援新增其他介面卡。
 
 1. 在 vSphere 用戶端詳細目錄中，以滑鼠右鍵按一下 VM 並選取 [編輯設定]。
-2. 在 [硬體] 中，選取 [新增] > [乙太網路介面卡]。 然後，選取 [下一步]。
+2. 在 [硬體] 中，選取 [新增] > [乙太網路介面卡]。 然後選取 [下一步]。
 3. 選取介面卡類型和網路。
 4. 若要在 VM 開啟時連線虛擬 NIC，請選取 [在電源開啟時連線]。 然後，選取 [下一步] > [完成] > [確定]。
 
@@ -102,16 +102,16 @@ ms.locfileid: "74084150"
 2. VM 會開機進入 Windows Server 2016 安裝體驗。 接受授權合約，並輸入系統管理員密碼。
 3. 在安裝完成之後，以系統管理員身分登入 VM。
 4. 第一次登入時，Azure Site Recovery 設定工具會在幾秒內啟動。
-5. 輸入用來向 Site Recovery 註冊設定伺服器的名稱。 然後，選取 [下一步]。
+5. 輸入用來向 Site Recovery 註冊設定伺服器的名稱。 然後選取 [下一步]。
 6. 此工具會檢查 VM 是否可連線到 Azure。 建立連線之後，選取 [登入] 以登入您的 Azure 訂用帳戶。</br>
     a. 認證必須能夠存取您要在其中註冊組態伺服器的保存庫。</br>
-    b.這是另一個 C# 主控台應用程式。 請確定所選擇的使用者帳戶具有在 Azure 中建立應用程式的許可權。 若要啟用必要的許可權，請遵循[Azure Active Directory 許可權需求](#azure-active-directory-permission-requirements)一節中的指導方針。
+    b. 請確定所選擇的使用者帳戶具有在 Azure 中建立應用程式的許可權。 若要啟用必要的許可權，請遵循[Azure Active Directory 許可權需求](#azure-active-directory-permission-requirements)一節中的指導方針。
 7. 此工具會執行一些設定工作，而後重新開機。
 8. 再次登入機器。 [設定伺服器管理嚮導] 會在幾秒內自動啟動。
 
-### <a name="configure-settings"></a>配置設定
+### <a name="configure-settings"></a>進行設定
 
-1. 在設定伺服器管理精靈中，選取 [設定連線]。 從下拉式方塊中，先選取內建的進程伺服器用來在來源機器上進行行動服務探索和推入安裝的 NIC。 然後選取設定伺服器用來與 Azure 連線的 NIC。 選取 [ **儲存**]。 您在設定後便無法變更此設定。 請勿變更設定伺服器的 IP 位址。 確定指派給設定伺服器的 IP 是靜態 IP，而不是 DHCP IP。
+1. 在設定伺服器管理精靈中，選取 [設定連線]。 從下拉式方塊中，先選取內建的進程伺服器用來在來源機器上進行行動服務探索和推入安裝的 NIC。 然後選取設定伺服器用來與 Azure 連線的 NIC。 選取 [儲存]。 您在設定後便無法變更此設定。 請勿變更設定伺服器的 IP 位址。 確定指派給設定伺服器的 IP 是靜態 IP，而不是 DHCP IP。
 2. 在 [**選取復原服務保存庫**] 上，使用[向 Azure Site Recovery 服務註冊設定伺服器](#register-the-configuration-server-with-azure-site-recovery-services)的步驟6中所使用的認證登入 Microsoft Azure。
 3. 登入之後，請選取您的 Azure 訂用帳戶和相關的資源群組和保存庫。
 
@@ -123,8 +123,8 @@ ms.locfileid: "74084150"
 
     |案例   |要依循的步驟  |
     |---------|---------|
-    |我可以手動下載並安裝 MySQL 嗎？     |  是。 下載 MySQL 應用程式，將它放在**C:\Temp\ASRSetup**資料夾中，然後手動安裝。 在您接受條款並選取 [**下載並安裝**] 之後，入口網站會顯示 [*已安裝*]。 您可以繼續進行下一個步驟。       |
-    |是否可以避免線上下載 MySQL？     |   是。 請將您的 MySQL 安裝程式應用程式放在 **C:\Temp\ASRSetup** 資料夾中。 接受條款，選取 [**下載並安裝**]，入口網站會使用您新增的安裝程式來安裝應用程式。 安裝完成之後，請繼續進行下一個步驟。    |
+    |我可以手動下載並安裝 MySQL 嗎？     |  可以。 下載 MySQL 應用程式，將它放在**C:\Temp\ASRSetup**資料夾中，然後手動安裝。 在您接受條款並選取 [**下載並安裝**] 之後，入口網站會顯示 [*已安裝*]。 您可以繼續進行下一個步驟。       |
+    |是否可以避免線上下載 MySQL？     |   可以。 請將您的 MySQL 安裝程式應用程式放在 **C:\Temp\ASRSetup** 資料夾中。 接受條款，選取 [**下載並安裝**]，入口網站會使用您新增的安裝程式來安裝應用程式。 安裝完成之後，請繼續進行下一個步驟。    |
     |我想要透過 Azure Site Recovery 下載並安裝 MySQL。    |  接受授權合約，然後選取 [**下載並安裝**]。 安裝完成之後，請繼續進行下一個步驟。       |
 
 5. 在 [**驗證設備**設定] 上，必要條件會在您繼續之前進行驗證。
@@ -132,7 +132,7 @@ ms.locfileid: "74084150"
 7. 輸入供設定伺服器用來連線至 VMware 伺服器的認證。 Site Recovery 會使用這些認證來自動探索可用於複寫的 VMware VM。 選取 [新增] > [繼續]。 在這裡輸入的認證會儲存在本機。
 8. 在 [**設定虛擬機器認證**] 中，輸入虛擬機器的使用者名稱和密碼，以在複寫期間自動安裝行動服務。 針對 **Windows** 電腦，此帳戶必須具備您要複寫之電腦的本機系統管理員權限。 針對 **Linux**，請提供根帳戶的詳細資料。
 9. 選取 [完成設定] 以完成註冊。
-10. 註冊完成之後，請開啟 Azure 入口網站並確認設定伺服器和 VMware 伺服器已列在復原**服務保存庫**上， > **管理** > **Site Recovery 基礎結構** > **設定伺服器**。
+10. 註冊完成之後，請開啟 Azure 入口網站並確認設定伺服器和 VMware 伺服器已列在 復原**服務保存庫** > **管理** > **Site Recovery 基礎結構** > 設定**伺服器**。
 
 ## <a name="upgrade-the-configuration-server"></a>升級設定伺服器
 
@@ -142,6 +142,10 @@ ms.locfileid: "74084150"
 
 為避免進行中的複寫中斷，在設定伺服器註冊到保存庫之後，請確定設定伺服器的 IP 位址不會變更。 若要深入瞭解一般設定伺服器管理工作，請參閱[管理 VMWARE VM 嚴重損壞修復的設定伺服器](vmware-azure-manage-configuration-server.md)。
 
+## <a name="troubleshoot-deployment-issues"></a>為部署問題進行疑難排解
+
+如要解決部署 & 連線問題，請參閱我們的[疑難排解文章](vmware-azure-troubleshoot-configuration-server.md)。
+
 ## <a name="faqs"></a>常見問題集
 
 * 透過 OVF 部署的設定伺服器上所提供的授權時間長度是有效的嗎？ 如果我沒有重新啟用授權，會發生什麼事？
@@ -150,13 +154,13 @@ ms.locfileid: "74084150"
 
 * 可以針對不同用途使用設定伺服器安裝所在的 VM 嗎？
 
-    號 將 VM 用於設定伺服器的唯一用途。 請確定您遵循[必要條件](#prerequisites)中所述的所有規格，以有效率地管理嚴重損壞修復。
+    不會。 將 VM 用於設定伺服器的唯一用途。 請確定您遵循[必要條件](#prerequisites)中所述的所有規格，以有效率地管理嚴重損壞修復。
 * 是否可以將已在設定伺服器中註冊的保存庫與新建立的保存庫交換？
 
-    號 在設定伺服器註冊保存庫之後，就無法變更。
+    不會。 在設定伺服器註冊保存庫之後，就無法變更。
 * 我可以使用相同的設定伺服器來保護實體和虛擬機器嗎？
 
-    是。 您可以使用相同的設定伺服器來複寫實體和虛擬機器。 不過，實體機器只能容錯回復到 VMware VM。
+    可以。 您可以使用相同的設定伺服器來複寫實體和虛擬機器。 不過，實體機器只能容錯回復到 VMware VM。
 * 設定伺服器的用途及其使用位置為何？
 
     若要深入瞭解設定伺服器和其功能，請參閱[VMware 至 Azure 複寫架構](vmware-azure-architecture.md)。
@@ -168,28 +172,26 @@ ms.locfileid: "74084150"
     若要下載複雜密碼，請參閱[管理 VMWARE VM 嚴重損壞修復的設定伺服器](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)。
 * 我可以變更複雜密碼嗎？
 
-    號 請勿變更設定伺服器的複雜密碼。 複雜密碼的變更會中斷受保護機器的複寫，並導致嚴重的健全狀況狀態。
+    不會。 請勿變更設定伺服器的複雜密碼。 複雜密碼的變更會中斷受保護機器的複寫，並導致嚴重的健全狀況狀態。
 * 哪裡可以下載保存庫註冊金鑰？
 
     在 [復原**服務保存庫**] 中，選取 [**管理** > **Site Recovery 基礎結構** > 設定**伺服器**]。 在 [伺服器] 中，選取 [下載註冊金鑰] 以下載保存庫認證檔案。
 * 我可以複製現有的設定伺服器，並將它用於複寫協調流程嗎？
 
-    號 不支援使用複製的設定伺服器元件。 複製相應放大進程伺服器也是不支援的案例。 複製 Site Recovery 元件會影響進行中的複寫。
+    不會。 不支援使用複製的設定伺服器元件。 複製相應放大進程伺服器也是不支援的案例。 複製 Site Recovery 元件會影響進行中的複寫。
 
 * 我可以變更設定伺服器的 IP 嗎？
 
-    號 請勿變更設定伺服器的 IP 位址。 確定指派給設定伺服器的所有 Ip 都是靜態 Ip，而不是 DHCP Ip。
+    不會。 請勿變更設定伺服器的 IP 位址。 確定指派給設定伺服器的所有 Ip 都是靜態 Ip，而不是 DHCP Ip。
 * 我可以在 Azure 上設定設定伺服器嗎？
 
     在內部部署環境中設定一部設定伺服器，並可透過 v 中心直接進行連線，並將資料傳輸延遲降到最低。 您可以對設定伺服器建立排程的備份，以實現[容錯回復目的](vmware-azure-manage-configuration-server.md#failback-requirements)。
 
+* 我可以變更設定伺服器或相應放大進程伺服器上的快取驅動程式嗎？
+
+    否，完成設定之後，就無法變更快取驅動程式。
+
 如需設定伺服器的常見問題，請參閱設定[伺服器常見問題](vmware-azure-common-questions.md#configuration-server)。
-
-## <a name="troubleshoot-deployment-issues"></a>為部署問題進行疑難排解
-
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-
-
 
 ## <a name="next-steps"></a>後續步驟
 

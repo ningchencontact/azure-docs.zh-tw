@@ -21,7 +21,7 @@
         - name: 條件式存取
           tocHref: /azure/active-directory/conditional-access/
           topicHref: /azure/active-directory/conditional-access/
-        - name: Authentication
+        - name: 驗證
           tocHref: /azure/active-directory/authentication/
           topicHref: /azure/active-directory/authentication/
         - name: 開發
@@ -48,7 +48,7 @@
         - name: 使用者、群組及角色
           tocHref: /azure/active-directory/users-groups-roles/
           topicHref: /azure/active-directory/users-groups-roles/
-        - name: 身分識別治理
+        - name: Identity Governance
           tocHref: /azure/active-directory/governance/
           topicHref: /azure/active-directory/governance/
         - name: 應用程式管理
@@ -139,6 +139,10 @@
     - name: Azure 監視器
       tocHref: /azure/azure-monitor/
       topicHref: /azure/azure-monitor/
+      items:
+        - name: Application Insights
+          tocHref: /azure/azure-monitor/azure-monitor-app-hub
+          topicHref: /azure/azure-monitor/azure-monitor-app-hub
     - name: Azure Spatial Anchors
       tocHref: /azure/spatial-anchors/
       topicHref: /azure/spatial-anchors/
@@ -167,10 +171,10 @@
     - name: Azure NetApp Files
       tocHref: /azure/azure-netapp-files/
       topicHref: /azure/azure-netapp-files/
-    - name: 依 CloudSimple 的 Azure VMware 解決方案
+    - name: 由 CloudSimple 提供的 Azure VMware 解決方案
       tocHref: /azure/vmware-cloudsimple/
       topicHref: /azure/vmware-cloudsimple/
-    - name: Azure 入口網站自訂
+    - name: Azure 入口網站文件
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/\
     - name: 物聯網
@@ -226,6 +230,19 @@
     - name: Resource Manager
       tocHref: /azure/azure-resource-manager/
       topicHref: /azure/azure-resource-manager/
+      items:
+        - name: 範本
+          tocHref: /azure/azure-resource-manager/templates/
+          topicHref: /azure/azure-resource-manager/templates/
+        - name: 管理性
+          tocHref: /azure/azure-resource-manager/management/
+          topicHref: /azure/azure-resource-manager/management/
+        - name: 受控應用程式
+          tocHref: /azure/azure-resource-manager/managed-applications/
+          topicHref: /azure/azure-resource-manager/managed-applications/
+        - name: Azure 自訂提供者
+          tocHref: /azure/azure-resource-manager/custom-providers/
+          topicHref: /azure/azure-resource-manager/custom-providers/
     - name: SignalR Service
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
@@ -582,7 +599,7 @@
         - name: 影片索引子
           tocHref: /azure/media-services/video-indexer/
           topicHref: /azure/media-services/video-indexer/
-    - name: 移轉
+    - name: 遷移
       tocHref: /azure/migrate/
       topicHref: /azure/migrate/
     - name: Mobile Engagement
@@ -659,6 +676,9 @@
         - name: 開發
           tocHref: /azure/security/develop/
           topicHref: /azure/security/develop/
+        - name: 效能評定
+          tocHref: /azure/security/benchmarks/
+          topicHref: /azure/security/benchmarks/
     - name: 資訊安全中心
       tocHref: /azure/security-center/
       topicHref: /azure/security-center/

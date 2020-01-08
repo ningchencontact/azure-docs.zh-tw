@@ -43,7 +43,7 @@
           href: vmware-azure-tutorial.md
         - name: 執行災害復原演練
           href: tutorial-dr-drill-azure.md
-        - name: 執行容錯移轉和容錯回復
+        - name: 容錯移轉至 Azure
           href: vmware-azure-tutorial-failover-failback.md
     - name: Hyper-V VM 至 Azure 災害復原
       items:
@@ -57,7 +57,7 @@
           href: hyper-v-vmm-azure-tutorial.md
         - name: 執行災害復原演練
           href: tutorial-dr-drill-azure.md
-        - name: 執行容錯移轉和容錯回復
+        - name: 容錯移轉至 Azure
           href: hyper-v-azure-failover-failback-tutorial.md
     - name: 移轉至 Azure
       items:
@@ -73,7 +73,7 @@
   items:
     - name: Site Recovery 的常見問題
       href: site-recovery-faq.md
-    - name: 關於 Azure VM 適用的災害復原
+    - name: 關於 Azure VM 災害復原
       items:
         - name: Azure 至 Azure 架構
           href: azure-to-azure-architecture.md
@@ -87,9 +87,9 @@
           href: azure-vm-disaster-recovery-with-accelerated-networking.md
         - name: 含 Azure 虛擬機器災害復原的 ExpressRoute
           href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: 關於移動 Azure VM
+    - name: 關於將 Azure VM 移至另一個區域
       href: azure-to-azure-move-overview.md
-    - name: 關於 VMware VM 至 Azure 災害復原
+    - name: 關於 VMware VM 災害復原
       items:
         - name: VMware 災害復原概觀
           href: vmware-azure-about-disaster-recovery.md
@@ -103,11 +103,13 @@
           href: vmware-azure-configuration-server-requirements.md
         - name: VMware 至 Azure 架構
           href: vmware-azure-architecture.md
+        - name: 關於將不要複寫的磁碟排除
+          href: exclude-disks-replication.md
         - name: 從 Azure 到 VMware 的容錯回復位置選項
           href: concepts-types-of-failback.md
         - name: VMware 災害復原的多租用戶支援
           href: vmware-azure-multi-tenant-overview.md
-    - name: 關於 Hyper-V VM 至 Azure 災害復原
+    - name: 關於 Hyper-V VM 災害復原
       items:
         - name: 常見問題
           href: hyper-v-azure-common-questions.md
@@ -115,13 +117,17 @@
           href: hyper-v-azure-support-matrix.md
         - name: Hyper-V 至 Azure 架構
           href: hyper-v-azure-architecture.md
-    - name: 關於實體伺服器至 Azure 災害復原
+        - name: 關於將不要複寫的磁碟排除
+          href: exclude-disks-replication.md
+    - name: 關於實體伺服器災害復原
       items:
         - name: VMware/實體至 Azure 支援矩陣
           href: vmware-physical-azure-support-matrix.md
         - name: 實體伺服器至 Azure 架構
           href: physical-azure-architecture.md
-    - name: 關於災害復原至 Azure 的網路功能
+        - name: 關於將不要複寫的磁碟排除
+          href: exclude-disks-replication.md
+    - name: 關於災害復原的網路功能
       items:
         - name: 使用 Site Recovery 的 Azure 流量管理員
           href: concepts-traffic-manager-with-site-recovery.md
@@ -131,7 +137,9 @@
           href: concepts-network-security-group-with-site-recovery.md
         - name: 使用 Site Recovery 搭配公用 IP 位址
           href: concepts-public-ip-address-with-site-recovery.md
-    - name: 關於容錯移轉與復原方案
+    - name: 關於容錯移轉和容錯回復
+      href: failover-failback-overview.md
+    - name: 關於復原方案
       href: recovery-plan-overview.md
     - name: 關於移轉至 Azure
       href: migrate-overview.md
@@ -231,13 +239,13 @@
               items:
                 - name: 行動服務概觀和安裝
                   href: vmware-physical-mobility-service-overview.md
-                - name: 為行動服務的推入安裝做準備
+                - name: 準備推入安裝
                   href: vmware-azure-install-mobility-service.md
-                - name: 使用 System Center Configuration Manager 部署行動服務
+                - name: 將行動服務部署自動化
                   href: vmware-azure-mobility-install-configuration-mgr.md
             - name: 啟用適用於 VMware VM 的複寫
               href: vmware-azure-enable-replication.md
-            - name: 排除磁碟
+            - name: 從複寫排除磁碟
               href: vmware-azure-exclude-disk.md
             - name: 逐步解說 - 使用多租用戶和適用於 VMWare VM 的 CSP 來設定複寫
               href: vmware-azure-multi-tenant-csp-disaster-recovery.md
@@ -249,17 +257,19 @@
               href: site-recovery-test-failover-to-azure.md
             - name: 執行容錯移轉到 Azure
               href: site-recovery-failover.md
-            - name: 從 Azure 移至內部部署 VMware 來重新保護
+            - name: 準備重新保護/容錯回復
+              href: vmware-azure-prepare-failback.md
+            - name: 從 Azure 移至內部部署來重新保護
               href: vmware-azure-reprotect.md
-            - name: 從 Azure 容錯回復至 VMware
+            - name: 從 Azure 容錯回復至內部部署
               href: vmware-azure-failback.md
-            - name: 設定和管理 Azure 中的容錯回復處理序伺服器
+            - name: 在 Azure 中設定容錯回復處理序伺服器
               href: vmware-azure-set-up-process-server-azure.md
             - name: 將 Linux VM 設定為容錯回復的主要目標伺服器
               href: vmware-azure-install-linux-master-target.md
         - name: 管理
           items:
-            - name: 管理適用於 VMware 的行動服務
+            - name: 管理行動代理程式
               href: vmware-physical-manage-mobility-service.md
             - name: 管理 VMware VM 的組態伺服器
               href: vmware-azure-manage-configuration-server.md
@@ -303,9 +313,9 @@
           href: physical-to-azure-failover-failback.md
         - name: 管理
           items:
-            - name: 管理適用於實體伺服器的行動代理程式
+            - name: 管理行動服務
               href: vmware-physical-manage-mobility-service.md
-            - name: 管理組態伺服器以複寫實體伺服器
+            - name: 管理組態伺服器
               href: physical-manage-configuration-server.md
             - name: 管理處理序伺服器
               href: vmware-azure-manage-process-server.md
@@ -345,7 +355,7 @@
           items:
             - name: 準備 Hyper-V VM 災害復原的網路對應功能
               href: hyper-v-vmm-network-mapping.md
-            - name: 讓磁碟不要從 Hyper-V 複寫至 Azure
+            - name: 從複寫排除磁碟
               href: hyper-v-exclude-disk.md
         - name: 執行容錯移轉和容錯回復
           items:

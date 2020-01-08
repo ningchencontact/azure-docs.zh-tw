@@ -4,15 +4,15 @@ description: 效能是適用於 VM 的 Azure 監視器的一項功能，可自�
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: f8879ac2d7827732112fa1a7504484209461b196
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 0d679675758b736455c66066f3df4cb9ea43fdea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555183"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399286"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>如何使用適用於 VM 的 Azure 監視器 (預覽) 來繪製效能圖表
 
@@ -38,7 +38,7 @@ ms.locfileid: "72555183"
 * 可用記憶體 - 顯示平均可用記憶體數量最低的前五部機器 
 * 邏輯磁碟空間使用量 % - 顯示所有磁碟區中平均磁碟空間使用量 % 最高的前五部機器 
 * 位元組傳送率 - 顯示已傳送位元組平均最高的前五部機器 
-* 位元組接收率 - 顯示已傳送位元組平均最高的前五部機器 
+* 位元組接收率-顯示已接收位元組數最高的前五部機器 
 
 按一下五個圖表右上角的釘選圖示，即可將選取的圖表固定到您上次查看的最後一個 Azure 儀表板。  您可以從儀表板調整圖表的大小和位置。 從儀表板選取圖表會將您重新導向至適用於 VM 的 Azure 監視器，並載入正確的範圍和視圖。  
 

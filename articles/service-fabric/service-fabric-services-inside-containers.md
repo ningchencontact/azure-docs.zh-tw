@@ -1,25 +1,15 @@
 ---
 title: 在 Windows 上將 Azure Service Fabric 服務容器化
 description: 了解如何在 Windows 上將 Service Fabric Reliable Services 和 Reliable Actors 容器化。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: anmolah
-editor: roroutra
-ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: 0cb48a2272ce854005f9f3db5b6a9abf62cc7015
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9fe5980c13f655f8f30cc42771971a5015460420
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599200"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466180"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>將 Windows 上的 Service Fabric Reliable Services 和 Reliable Actors 容器化
 
@@ -121,7 +111,7 @@ Service Fabric 支援將 Service Fabric 微服務 (Reliable Services 和 Reliabl
    ```
 
 > [!NOTE] 
-> 根據預設, Service Fabric 應用程式可以存取 Service Fabric 執行時間, 其格式為接受應用程式特定要求的端點。 當應用程式裝載不受信任的程式碼時, 請考慮停用此存取。 如需詳細資訊, 請參閱[Service Fabric 中的安全性最佳做法](service-fabric-best-practices-security.md#platform-isolation)。 若要停用 Service Fabric 執行時間的存取, 請在對應至匯入服務資訊清單的應用程式資訊清單的 [原則] 區段中新增下列設定, 如下所示:
+> 根據預設，Service Fabric 應用程式可以存取 Service Fabric 執行時間，其格式為接受應用程式特定要求的端點。 當應用程式裝載不受信任的程式碼時，請考慮停用此存取。 如需詳細資訊，請參閱[Service Fabric 中的安全性最佳做法](service-fabric-best-practices-security.md#platform-isolation)。 若要停用 Service Fabric 執行時間的存取，請在對應至匯入服務資訊清單的應用程式資訊清單的 [原則] 區段中新增下列設定，如下所示：
 >
 ```xml
   <Policies>

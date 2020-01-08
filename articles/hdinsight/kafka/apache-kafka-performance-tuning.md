@@ -1,85 +1,84 @@
 ---
-title: Apache Kafka 的 HDInsight 叢集的效能最佳化
-description: 最佳化 Azure HDInsight 上的 Apache Kafka 工作負載提供技術的概觀。
+title: Apache Kafka HDInsight 叢集的效能優化
+description: 提供在 Azure HDInsight 上優化 Apache Kafka 工作負載的技術總覽。
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.openlocfilehash: 8226d1f49b8ba73870dba009e97ff2718a0eee27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/19/2019
+ms.openlocfilehash: 752068af531c4a0ecc832d266f88105c14452ecb
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689345"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494919"
 ---
-# <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Apache Kafka 的 HDInsight 叢集的效能最佳化
+# <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Apache Kafka HDInsight 叢集的效能優化
 
-本文提供將 HDInsight 中 Apache Kafka 的工作負載的效能最佳化一些的建議。 重點在於調整產生者和訊息代理程式設定。 有不同的方法可以測量效能，以及您所套用的最佳化作業將取決於您的業務需求。
+本文提供在 HDInsight 中將 Apache Kafka 工作負載的效能優化的一些建議。 重點在於調整生產者和 broker 設定。 測量效能的方法有很多種，而您所套用的優化將取決於您的業務需求。
 
 ## <a name="architecture-overview"></a>架構概觀
 
-Kafka 主題用來組織資料錄。 記錄是由產生者，所產生，並由取用者取用。 產生者會將記錄傳送到 Kafka 訊息代理程式，然後將資料儲存。 HDInsight 叢集中的每個背景工作節點都是 Kafka 訊息代理程式。
+Kafka 主題是用來組織記錄。 記錄是由生產者所產生，並由取用者取用。 產生者會將記錄傳送至 Kafka 訊息代理程式，然後再儲存資料。 HDInsight 叢集中的每個背景工作節點都是 Kafka 訊息代理程式。
 
 主題會將記錄分割至各個訊息代理程式。 取用記錄時，您可以針對每個分割區最多使用一個取用者，以達到資料平行處理。
 
-複寫用來重複節點之間的資料分割。 這可防止節點 (broker) 中斷。 複本的群組之間的單一資料分割指定為資料分割的領導者。 使用 ZooKeeper 所管理的狀態，可將生產者流量路由傳送至每個節點的前端項目。
+複寫是用來跨節點複製資料分割。 這可防止節點（訊息代理程式）中斷。 複本群組之間的單一資料分割會指定為分割區的領導者。 使用 ZooKeeper 所管理的狀態，可將生產者流量路由傳送至每個節點的前端項目。
 
 ## <a name="identify-your-scenario"></a>識別您的案例
 
-Apache Kafka 的效能會有兩個主要部分 – 輸送量和延遲。 輸送量是可以處理資料的最大速率。 更高的輸送量通常會比較好。 延遲是要儲存或擷取資料所花費的時間。 較低的延遲通常會比較好。 尋找適當的平衡之間的輸送量、 延遲及應用程式的基礎結構的成本頗具挑戰性。 您的效能需求可能會比對下列三種常見的情況，根據您是否需要高輸送量、 低延遲，或兩者的其中一個：
+Apache Kafka 效能有兩個主要層面–輸送量和延遲。 輸送量是可以處理資料的最大速率。 較高的輸送量通常較佳。 延遲是儲存或抓取資料所花費的時間。 較低的延遲通常較佳。 在輸送量、延遲和應用程式基礎結構的成本之間尋找適當的平衡，可能是一項挑戰。 您的效能需求可能會符合下列三種常見情況的其中一種，取決於您是否需要高輸送量、低延遲或兩者皆是：
 
-* 高輸送量、 低延遲。 此案例需要高輸送量和低延遲 （~ 100 毫秒為單位）。 這種類型的應用程式的範例是服務可用性監視。
-* 高輸送量、 高延遲。 此案例需要高輸送量 (~1.5 GBps)，但可承受較高的延遲 （< 250 毫秒）。 這種類型的應用程式的範例是用於接近即時的處理程序，例如安全性和入侵偵測應用程式的遙測資料擷取。
-* 低輸送量、 低延遲。 這種情況下進行即時處理，需要低延遲 （< 10 毫秒），但可承受較低的輸送量。 這種類型的應用程式的範例為線上的拼字和文法檢查。
+* 高輸送量、低延遲。 此案例需要高輸送量和低延遲（~ 100 毫秒）。 這類應用程式的其中一個範例是服務可用性監視。
+* 高輸送量、高延遲。 此案例需要高輸送量（~ 1.5 GBps），但可容忍較高的延遲（< 250 毫秒）。 這類應用程式的其中一個範例是針對近乎即時的進程（例如安全性和入侵偵測應用程式），內嵌遙測資料。
+* 低輸送量，低延遲。 此案例需要低延遲（< 10 毫秒）來進行即時處理，但可容忍較低的輸送量。 這類應用程式的範例為線上拼寫與文法檢查。
 
-## <a name="producer-configurations"></a>產生者組態
+## <a name="producer-configurations"></a>生產者設定
 
-下列各節將強調一些最重要的組態屬性，來最佳化您的 Kafka 產生者的效能。 所有的組態屬性的詳細說明，請參閱 <<c0> [ 生產者組態上的 Apache Kafka 文件](https://kafka.apache.org/documentation/#producerconfigs)。
+下列各節將反白顯示一些最重要的設定屬性，以將 Kafka 產生者的效能優化。 如需所有設定屬性的詳細說明，請參閱[生產者設定上的 Apache Kafka 檔](https://kafka.apache.org/documentation/#producerconfigs)。
 
 ### <a name="batch-size"></a>批次大小
 
-Apache Kafka 產生者組合的訊息 （稱為批次） 會當做一個單位傳送至儲存在單一儲存體磁碟分割中的群組。 批次大小表示必須要有該群組傳送之前的位元組數目。 增加`batch.size`參數可以增加輸送量，因為它可以減少額外負荷與網路 IO 要求的處理。 承擔的負載增加的批次大小可能會增加產生者等待批次才能備妥 Kafka 傳送延遲。 負載量大時，建議您增加批次大小，以改善輸送量和延遲。
+Apache Kafka 產生者會組合一組訊息（稱為批次），以一個單位的形式傳送，以儲存在單一儲存體分割區中。 [批次大小] 表示在傳輸該群組之前必須存在的位元組數目。 增加 `batch.size` 參數可能會增加輸送量，因為它可減少網路和 IO 要求的處理負擔。 在輕量負載下，增加的批次大小可能會增加 Kafka 傳送延遲，因為產生者會等待批次就緒。 在負載過重的情況下，建議您增加批次大小，以改善輸送量和延遲。
 
-### <a name="producer-required-acknowledgements"></a>所需的產生者通知
+### <a name="producer-required-acknowledgments"></a>產生者所需的通知
 
-產生者所需`acks`視為寫入要求之前，資料分割指引所需的通知數目會決定設定完成。 此設定會影響資料可靠性和所需的值`0`， `1`，或`-1`。 值`-1`表示，通知必須從接收的所有複本完成寫入之前。 設定`acks = -1`較強的保證，針對資料遺失，但它也提供結果中較高的延遲和較低的輸送量。 如果您的應用程式需求要求更高的輸送量，請嘗試設定`acks = 0`或`acks = 1`。 請記住，未認可所有複本可減少資料可靠性。
+`acks` 設定所需的產生者，會決定在將寫入要求視為完成之前，分割區領導者所需的通知數目。 這項設定會影響資料可靠性，而且會採用 `0`、`1`或 `-1`的值。 `-1` 的值表示必須從所有複本接收通知，才能完成寫入。 設定 `acks = -1` 可針對資料遺失提供更強的保證，但也會產生較高的延遲和較低的輸送量。 如果您的應用程式需求需要較高的輸送量，請嘗試設定 `acks = 0` 或 `acks = 1`。 請記住，未確認所有複本的情況可能會降低資料的可靠性。
 
 ### <a name="compression"></a>壓縮
 
-Kafka 產生者可以設定要壓縮訊息然後傳送給訊息代理程式。 `compression.type`設定會指定要使用的壓縮轉碼器。 支援的壓縮轉碼器是"gzip""snappy，"和"lz4。 」 壓縮是有幫助，而且應該被視為磁碟容量限制時。
+Kafka 產生者可以設定為在將訊息傳送至代理程式之前先進行壓縮。 `compression.type` 設定會指定要使用的壓縮編解碼器。 支援的壓縮編解碼器為 "gzip"、"snappy" 和 "lz4"。 壓縮很有説明，如果磁片容量有限制，應該將其納入考慮。
 
-在兩個常用的壓縮轉碼器之間`gzip`並`snappy`，`gzip`具有較高的壓縮比率，會導致較低的磁碟使用量，但代價是更高的 CPU 負載。 `snappy`轉碼器提供較少的 CPU 負荷較少壓縮。 您可以決定要使用哪些轉碼器會根據 broker 磁碟或生產者 CPU 限制。 `gzip` 可以壓縮資料，費率五次高於`snappy`。
+在兩個常用的壓縮編解碼器中，`gzip` 和 `snappy`，`gzip` 具有較高的壓縮比率，這會導致較高的 CPU 負載成本降低磁片使用量。 `snappy` 編解碼器以較少的 CPU 額外負荷提供較少的壓縮。 您可以根據 broker 磁片或生產者 CPU 限制來決定要使用的編解碼器。 `gzip` 可以使用比 `snappy`高五倍的速率來壓縮資料。
 
-使用資料壓縮會增加可以儲存在磁碟的記錄數目。 它也可以增加 CPU 額外負荷的情況下在其中產生者和訊息代理程式正在使用的壓縮格式之間不相符。 必須傳送前先壓縮資料，並再解壓縮之前處理。
+使用資料壓縮將會增加可儲存在磁片上的記錄數目。 當產生者和訊息代理程式所使用的壓縮格式不相符時，它也可能會增加 CPU 的額外負荷。 因為必須先壓縮資料，然後再進行處理，然後再進行解壓縮。
 
-## <a name="broker-settings"></a>代理人設定
+## <a name="broker-settings"></a>Broker 設定
 
-下列各節將強調一些最重要的設定，來最佳化您的 Kafka 代理程式的效能。 所有的詳細說明 broker 設定，請參閱[生產者組態上的 Apache Kafka 文件](https://kafka.apache.org/documentation/#producerconfigs)。
+下列各節將反白顯示一些最重要的設定，以將 Kafka 代理程式的效能優化。 如需所有 broker 設定的詳細說明，請參閱[生產者設定上的 Apache Kafka 檔](https://kafka.apache.org/documentation/#producerconfigs)。
 
+### <a name="number-of-disks"></a>磁碟數目
 
-### <a name="number-of-disks"></a>磁碟數量
+儲存體磁片具有有限的 IOPS （每秒輸入/輸出作業）和每秒的讀取/寫入位元組數。 建立新的磁碟分割時，Kafka 會將每個新的分割區儲存在具有最少現有資料分割的磁片上，以在可用磁片之間進行平衡 儘管儲存策略，在處理每個磁片上的數百個數據分割複本時，Kafka 可以輕易地將可用的磁片輸送量飽和。 此處的缺點在於輸送量和成本之間。 如果您的應用程式需要更高的輸送量，請建立一個叢集，每個 broker 都有更多受控磁片。 HDInsight 目前不支援將受控磁片新增至執行中的叢集。 如需有關如何設定受控磁片數目的詳細資訊，請參閱[在 HDInsight 上設定 Apache Kafka 的儲存體和擴充性](apache-kafka-scalability.md)。 瞭解增加叢集中節點的儲存空間時的成本影響。
 
-儲存體磁碟有限 （輸入/輸出作業每秒） 的 IOPS 和讀/寫每秒位元組數。 在建立新的分割區時，Kafka 會將每個新的資料分割儲存在具有最少的現有資料分割，以平衡它們的可用磁碟的磁碟上。 儲存策略，處理數百個每個磁碟上的磁碟分割複本時，儘管 Kafka 可以輕鬆地使飽和的可用的磁碟輸送量。 這裡的缺點是輸送量與成本之間。 如果您的應用程式需要更高的輸送量，則在受管理的更多有關建立叢集訊息代理程式每個磁碟。 HDInsight 目前不支援將受控的磁碟新增至執行中的叢集。 如需有關如何設定受管理的磁碟數目的詳細資訊，請參閱 <<c0> [ 設定適用於 HDInsight 上的 Apache Kafka 的儲存體和延展性](apache-kafka-scalability.md)。 了解成本影響的不斷增加的儲存空間，供您的叢集中的節點。
+### <a name="number-of-topics-and-partitions"></a>主題和資料分割的數目
 
-### <a name="number-of-topics-and-partitions"></a>主題和資料分割數目
+Kafka 生產者會寫入主題。 從主題讀取的 Kafka 取用者。 主題與記錄相關聯，這是磁片上的資料結構。 Kafka 會將來自生產者的記錄附加至主題記錄檔的結尾。 主題記錄包含多個分散于多個檔案的磁碟分割。 這些檔案接著會散佈到多個 Kafka 叢集節點。 取用者會以其步調閱讀 Kafka 主題，並可在主題記錄中挑選其位置（位移）。
 
-Kafka 產生者寫入主題。 從主題讀取 Kafka 取用者。 主題是一個記錄檔，也就是在磁碟上的資料結構與相關聯。 Kafka 會將附加 producer(s) 主題記錄檔結尾的記錄。 主題記錄是由許多分散在多個檔案的資料分割所組成。 這些檔案，接著，分散到多個 Kafka 叢集的節點。 取用者從其頻率的 Kafka 主題讀取，並可以挑選它們主題記錄檔中的位置 （位移）。
+每個 Kafka 資料分割都是系統上的記錄檔，而生產者執行緒可以同時寫入多個記錄。 同樣地，由於每個取用者執行緒都會從一個分割區讀取訊息，因此，從多個磁碟分割取用也會平行處理。
 
-每個 Kafka 分割區是在系統上，記錄檔，並產生者執行緒可以同時寫入至多個記錄檔。 同樣地，因為每個取用者執行緒會讀取一個資料分割中的訊息，從多個分割區取用以平行方式也會處理。
+增加資料分割密度（每個訊息代理程式的磁碟分割數目）會增加與中繼資料作業相關的額外負荷，以及分割區領導者和其關注者之間的每個分割區要求/回應。 即使在沒有資料流程經的情況下，分割區複本仍然會從領導人提取資料，這會導致透過網路的傳送和接收要求進行額外的處理。
 
-增加分割區密度 （每個訊息代理程式的資料分割數目） 新增相關的中繼資料作業，並針對每個資料分割要求/回應之間的資料分割領導者和其粉絲有額外負荷。 即使是在通過的資料流不存在，磁碟分割複本仍會向頂尖人士，這會導致傳送額外的處理和透過網路接收要求，擷取資料。
-
-Apache Kafka 叢集 1.1 和上述在 HDInsight，我們建議您擁有最多 1000 個分割區，每個訊息代理程式，包括複本。 增加每個訊息代理程式的資料分割數目會減少輸送量，並可能造成主題無法使用。 如需有關 Kafka 分割區支援的詳細資訊，請參閱[1.1.0 版中支援的資料分割數目的增加上官方的 Apache Kafka 部落格文章](https://blogs.apache.org/kafka/entry/apache-kafka-supports-more-partitions)。 如需修改主題的詳細資訊，請參閱[Apache Kafka： 修改主題](https://kafka.apache.org/documentation/#basic_ops_modify_topic)。
+針對 HDInsight 中的 Apache Kafka 叢集1.1 和更新版本，建議您每個訊息代理程式最多有1000個磁碟分割，包括複本。 增加每個 broker 的分割區數目會降低輸送量，而且也可能造成主題無法用。 如需有關 Kafka 分割區支援的詳細資訊，請參閱[Kafka 版本中支援的磁碟分割數目增加中的官方 Apache blog 文章](https://blogs.apache.org/kafka/entry/apache-kafka-supports-more-partitions)。 如需修改主題的詳細資訊，請參閱[Apache Kafka：修改主題](https://kafka.apache.org/documentation/#basic_ops_modify_topic)。
 
 ### <a name="number-of-replicas"></a>複本數目
 
-更高版本的複寫因素會導致其他要求之間的資料分割指引和粉絲。 因此，較高的複寫因子耗用更多的磁碟和 CPU 處理其他要求，增加寫入延遲及減少輸送量。
+較高的複寫因數會導致分割區領導人和關注者之間的額外要求。 因此，較高的複寫因數會耗用更多的磁片和 CPU 來處理額外的要求、增加寫入延遲和減少輸送量。
 
-我們建議您在 Azure HDInsight 的 kafka 使用至少 3 倍複寫。 大部分的 Azure 區域有三個容錯網域，但在區域只有兩個容錯網域，使用者應該使用 4 倍複寫。
+我們建議您在 Azure HDInsight 中使用至少3倍的 Kafka 複寫。 大部分的 Azure 區域都有三個容錯網域，但在只有兩個容錯網域的區域中，使用者應該使用4x 複寫。
 
-如需有關複寫的詳細資訊，請參閱 < [Apache Kafka： 複寫](https://kafka.apache.org/documentation/#replication)並[Apache Kafka： 增加複寫因子](https://kafka.apache.org/documentation/#basic_ops_increase_replication_factor)。
+如需複寫的詳細資訊，請參閱[Apache Kafka： replication](https://kafka.apache.org/documentation/#replication) And [apache Kafka：增加複寫因數](https://kafka.apache.org/documentation/#basic_ops_increase_replication_factor)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7064496b89143f467ea63fe38233724a7b0af96d
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: d2404ee58f5f44fbe5625f267e6d1c504d0bd237
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131028"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465103"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>搭配使用 Azure PowerShell 與 Azure 儲存體
 
@@ -36,7 +36,7 @@ Azure PowerShell 用來從 PowerShell 命令列或在指令碼中建立和管理
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-這個練習需要 Azure PowerShell 模組 Az 0.7 版或更新版本。 執行 `Get-Module -ListAvailable Az` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
+這個練習需要 Azure PowerShell 模組 Az 0.7 版或更新版本。 執行 `Get-Module -ListAvailable Az` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
 
 在此練習中，您可以將命令鍵入一般 PowerShell 視窗中，或者使用 [Windows PowerShell 整合指令碼環境 (ISE)](/powershell/scripting/components/ise/exploring-the-windows-powershell-ise)，並在編輯器中鍵入命令，然後在您瀏覽範例時一次測試一或多個命令。 您可以反白顯示您要執行的資料列，然後按一下 [執行選取項目] 只執行這些命令。
 
@@ -161,7 +161,7 @@ New-AzStorageAccountKey -ResourceGroupName $resourceGroup `
 重新產生其中一個金鑰，然後再擷取一次，以查看新的值。
 
 > [!NOTE]
-> 您應該先謹慎規劃，再重新產生實際執行儲存體帳戶的金鑰。 重新產生一或兩個金鑰會讓任何使用已重新產生金鑰之應用程式的存取權失效。 如需詳細資訊，請參閱[存取金鑰](storage-account-manage.md#access-keys)。
+> 您應該先謹慎規劃，再重新產生實際執行儲存體帳戶的金鑰。 重新產生一或兩個金鑰會讓任何使用已重新產生金鑰之應用程式的存取權失效。 如需詳細資訊，請參閱[管理儲存體帳戶存取金鑰](storage-account-keys-manage.md)。
 
 
 ### <a name="delete-a-storage-account"></a>刪除儲存體帳戶

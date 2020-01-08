@@ -4,33 +4,29 @@ description: 使用 Azure IoT Edge 中的自動部署，根據共用標籤來管
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/27/2018
+ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb45f2b929c08ce77c83af450726a00dd6af458e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 13390de8d3008907a0b55bf3a61c931dfdcd84e6
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456741"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552350"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>了解單一裝置或大規模的 IoT Edge 自動部署
 
-Azure IoT Edge 裝置會遵循類似其他 IoT 裝置類型的[裝置生命週期](../iot-hub/iot-hub-device-management-overview.md)：
+自動部署和分層部署可協助您管理和設定大量 IoT Edge 裝置上的模組。 
 
-1. 透過建立具有 OS 裝置的映像及安裝 [IoT Edge 執行階段](iot-edge-runtime.md)來佈建新的 IoT Edge 裝置。
-2. 設定裝置執行 [IoT Edge 模組](iot-edge-modules.md) 並監視其健康狀態。 
-3. 最後，在裝置遭取代或過時時淘汰裝置。  
-
-Azure IoT Edge 提供兩種方式來設定要在 IoT Edge 裝置上執行的模組：一個用於單一裝置上的開發和快速反覆運算 (您在 Azure IoT Edge [教學課程](tutorial-deploy-function.md)中使用過此方法)，另一個則用來管理大量 IoT Edge 裝置機群。 這兩種方法均可在 Azure 入口網站中以及利用程式設計方式來使用。 若要以群組或大量裝置作為目標，您可以在裝置對應項中使用[標記](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags)，以指定您想要將模組部署到哪些裝置。 下列步驟將討論如何部署到透過標記屬性識別的華盛頓州裝置群組。 
+Azure IoT Edge 提供兩種方式來設定要在 IoT Edge 裝置上執行的模組。 第一種方法是以每個裝置為基礎來部署模組。 您會建立部署資訊清單，然後依名稱將它套用至特定的裝置。 第二種方法是將模組自動部署至任何已註冊的裝置，以符合一組已定義的條件。 您會建立部署資訊清單，[然後根據裝置對應項中的](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags)標籤，定義要套用的裝置。 
 
 本文著重於多群裝置的設定和監視階段，統稱為 IoT Edge 自動部署。 整體部署步驟如下所示： 
 
 1. 操作員會定義部署，其中描述一組模組以及目標裝置。 每個部署都有一個會反映這項資訊的部署資訊清單。 
 2. IoT 中樞服務會與所有目標裝置通訊，利用所需模組來設定它們。 
 3. IoT 中樞服務會從 IoT Edge 裝置擷取狀態，並使其供操作員使用。  例如，當 Edge 裝置未成功設定，或在執行時間期間模組失敗時，操作員可以看到。 
-4. 隨時都可針對部署設定符合目標條件的新 IoT Edge 裝置。 例如，若部署的目標是在華盛頓州的所有 IoT Edge 裝置，一旦將其佈建並新增至「華盛頓州」裝置群組之後，就會自動設定新的 IoT Edge 裝置。 
+4. 隨時都可針對部署設定符合目標條件的新 IoT Edge 裝置。 
  
 本文說明用來設定及監視部署的每個相關元件。 如需建立和更新部署的逐步解說，請參閱[大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md)。
 
@@ -51,7 +47,7 @@ IoT Edge 自動部署會指派 IoT Edge 模組映像，在一組目標 IoT Edge 
 每個模組的設定中繼資料都會包括： 
 
 * 版本 
-* 在系統提示您進行確認時，輸入 
+* 類型 
 * 狀態 (例如執行中或已停止) 
 * 重新啟動原則 
 * 映像和容器登錄
@@ -88,21 +84,92 @@ IoT Edge 自動部署會指派 IoT Edge 模組映像，在一組目標 IoT Edge 
 
 ### <a name="labels"></a>標籤 
 
-標籤是字串索引鍵/值組，可用來篩選和群組部署。 部署可能會有多個標籤。 標籤是選擇性的，不會對 IoT Edge 裝置的實際設定產生任何影響。 
+標籤是您可以用來篩選和分組部署的字串索引鍵/值組。 部署可能會有多個標籤。 標籤是選擇性的，而且不會影響 IoT Edge 裝置的實際設定。 
 
-### <a name="deployment-status"></a>部署狀態
+### <a name="metrics"></a>計量
 
-您可以監視部署，以判斷是否已針對任何目標 IoT Edge 裝置成功套用該部署。  目標 Edge 裝置會出現在下列一個或多個狀態類別中： 
+根據預設，所有部署都會報告四個計量：
 
-* **目標**會顯示符合部署目標條件的 IoT Edge 裝置。
-* **實際**會顯示另一個優先順序較高的部署並未設為目標的目標 IoT Edge 裝置。
-* **健康情況**顯示的 IoT Edge 裝置已向服務回報已成功部署模組。 
-* **狀況不良**顯示 IoT Edge 裝置已向服務回報未成功部署一或多個模組。 若要進一步調查此錯誤，請遠端連線到那些裝置並檢視記錄檔。
-* **未知**顯示的 IoT Edge 裝置並未回報任何有關此部署的狀態。 若要進一步調查，請檢視服務資訊和記錄檔。
+* [**目標**] 會顯示符合部署目標條件的 IoT Edge 裝置。
+* [已套用]**會顯示目標**IoT Edge 未受其他較高優先順序部署設定目標的裝置。
+* [**報告成功**] 會顯示已向服務回報已成功部署模組的 IoT Edge 裝置。 
+* **報告失敗**顯示已回報給服務的 IoT Edge 裝置，指出一或多個模組尚未成功部署。 若要進一步調查此錯誤，請遠端連線到那些裝置並檢視記錄檔。
+
+此外，您也可以定義自己的自訂計量，以協助監視和管理部署。 
+
+計量會提供裝置因套用部署設定而回報的各種狀態的摘要計數。 計量可以查詢[edgeHub 模組](module-edgeagent-edgehub.md#edgehub-reported-properties)對應項報告的屬性，例如最後所需的狀態或上次連線時間。 例如： 
+
+```sql
+SELECT deviceId FROM devices
+  WHERE properties.reported.lastDesiredStatus.code = 200
+```
+
+新增您自己的計量是選擇性的，而且不會影響 IoT Edge 裝置的實際設定。 
+
+## <a name="layered-deployment"></a>分層部署
+
+分層部署是自動部署，可以合併在一起，以減少需要建立的唯一部署數目。 在許多自動部署的不同組合中重複使用相同模組的案例中，分層部署非常有用。 
+
+分層部署與任何自動部署具有相同的基本元件。 它們會根據裝置 twins 中的標籤來鎖定裝置，並提供與標籤、計量和狀態報表有關的功能。 分層部署也會指派優先順序，但不會使用優先順序來決定要將哪個部署套用至裝置，優先順序會決定如何在裝置上排序多個部署。 例如，如果兩個分層部署具有相同名稱的模組或路由，則會套用優先順序較高的分層部署，同時覆寫較低的優先順序。 
+
+系統執行時間模組（edgeAgent 和 edgeHub）不會設定為分層部署的一部分。 分層部署的任何目標 IoT Edge 裝置，都需要先套用標準自動部署，以提供可新增分層部署的基礎。 
+
+IoT Edge 裝置只能套用一種標準自動部署，但它可以套用多層式自動部署。 以裝置為目標的任何分層部署，其優先順序必須高於該裝置的自動部署。 
+
+例如，請考慮管理大樓之公司的下列案例。 他們開發了 IoT Edge 模組，用於從安全性相機、動作感應器和電梯收集資料。 不過，並非所有建築物都可以使用這三個模組。 使用標準自動部署時，公司必須為大樓所需的所有模組組合，建立個別的部署。 
+
+![標準自動部署需要配合每個模組組合](./media/module-deployment-monitoring/standard-deployment.png)
+
+不過，一旦公司切換到分層自動部署，他們發現他們可以為大樓建立相同的模組組合，以管理較少的部署。 每個模組都有自己的分層部署，而裝置標記會識別要新增至每個建築物的模組。 
+
+![分層自動部署可簡化相同模組以不同方式結合的案例](./media/module-deployment-monitoring/layered-deployment.png)
+
+### <a name="module-twin-configuration"></a>模組對應項設定
+
+當您使用多層式部署時，您可能會刻意或其他方式，有兩個部署具有以裝置為目標的相同模組。 在這些情況下，您可以決定較高的優先順序部署是否應覆寫模組對應項或附加至該對應項。 例如，您的部署可能會將相同的模組套用至100不同的裝置。 不過，這些裝置中的10個是在安全設備中，而且需要額外的設定，才能透過 proxy 伺服器進行通訊。 您可以使用分層部署來新增模組對應項屬性，讓這些10部裝置能夠安全地進行通訊，而不會覆寫基底部署中現有的模組對應項資訊。 
+
+您可以在部署資訊清單中附加模組對應項所需的屬性。 在標準部署中，您會在多層式部署中，將屬性新增至模組對應項的**desired**區段中，您可以宣告所需屬性的新子集。 
+
+例如，在標準部署中，您可以使用下列所需的屬性來新增模擬的溫度感應器模組，以讓它以5秒的間隔傳送資料：
+
+```json
+"SimulatedTemperatureSensor": {
+  "properties.desired": {
+    "SendData": true,
+    "SendInterval": 5
+  }
+}
+```
+
+在以相同裝置或相同裝置子集為目標的多層式部署中，您可能會想要新增額外的屬性，告知模擬感應器傳送1000訊息，然後停止。 您不想要覆寫現有的屬性，因此您會在所需的屬性（稱為 `layeredProperties`）中建立新的區段，其中包含新的屬性：
+
+```json
+"SimulatedTemperatureSensor": {
+  "properties.desired.layeredProperties": {
+    "StopAfterCount": 1000
+  }
+}
+```
+
+已套用兩個部署的裝置會在模擬溫度感應器的模組對應項中反映下列內容： 
+
+```json
+"properties": {
+  "desired": {
+    "SendData": true,
+    "SendInterval": 5,
+    "layeredProperties": {
+      "StopAfterCount": 1000
+    }
+  }
+}
+```
+
+如果您在分層部署中設定模組對應項的 [`properties.desired`] 欄位，它會在任何較低優先順序的部署中，覆寫該模組所需的屬性。 
 
 ## <a name="phased-rollout"></a>階段式推出 
 
-階段式推出是一個整體程序，操作員可藉以將變更部署至一組範圍廣泛的 IoT Edge 裝置。 目標是逐漸進行變更，以降低進行大規模重大變更的風險。  
+階段式推出是一個整體程序，操作員可藉以將變更部署至一組範圍廣泛的 IoT Edge 裝置。 目標是逐漸進行變更，以降低進行大規模重大變更的風險。 自動部署有助於在一群 IoT Edge 裝置上管理分階段的部署。 
 
 階段式推出會在下列階段和步驟中執行： 
 
@@ -115,7 +182,9 @@ IoT Edge 自動部署會指派 IoT Edge 模組映像，在一組目標 IoT Edge 
 
 ## <a name="rollback"></a>復原
 
-部署可以在接收到錯誤或設定錯誤的情況下復原。  因為部署會定義 IoT Edge 裝置的絕對模組設定，所以即使目標是要移除所有模組，也必須以較低的優先順序將額外的部署目標設為相同的裝置。  
+部署可以在接收到錯誤或設定錯誤的情況下復原。 因為部署會定義 IoT Edge 裝置的絕對模組設定，所以即使目標是要移除所有模組，也必須以較低的優先順序將額外的部署目標設為相同的裝置。  
+
+刪除部署並不會從目標裝置移除模組。 必須有另一個部署來定義裝置的新設定，即使是空的部署也是如此。 
 
 依照以下順序執行復原： 
 

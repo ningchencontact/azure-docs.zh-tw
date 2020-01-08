@@ -1,6 +1,6 @@
 ---
 title: Azure 入口網站支援的瀏覽器和裝置 | Microsoft Docs
-description: 描述 Azure 入口網站運作所在的瀏覽器和裝置。
+description: 您可以使用所有新式裝置上的 Azure 入口網站，以及最新的瀏覽器版本。 請參閱這篇文章，以確定您的瀏覽器受到支援。
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -12,19 +12,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2019
-ms.author: kfollis
+ms.date: 12/20/2019
+ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: 1595d744fbfda47a9db9ff27de09cd53c6f73ece
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 792864022cb7c1b2b4b43a4980d86e32b213525c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551144"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640099"
 ---
 # <a name="supported-devices"></a>支援的裝置
 
-[Azure 入口網站](https://portal.azure.com)是網頁型主控台，並在所有新式的桌上型電腦和平板電腦裝置的瀏覽器中執行。 如果您需要從行動裝置管理 Azure 資源，請嘗試[Azure 行動應用程式](https://azure.microsoft.com/features/azure-portal/mobile-app/)。 使用適用於 iOS 和 Android。
+[Azure 入口網站](https://portal.azure.com)是網頁型主控台，並會在所有新式桌上型電腦和平板電腦裝置的瀏覽器中執行。 如果您需要從行動裝置管理 Azure 資源，請嘗試[Azure 行動應用程式](https://azure.microsoft.com/features/azure-portal/mobile-app/)。 適用于 iOS 和 Android。
 
 ## <a name="recommended-browsers"></a>建議的瀏覽器
 

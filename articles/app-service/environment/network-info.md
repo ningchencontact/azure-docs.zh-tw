@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e7d181416123c96e2462180a82c6d0b9670ef5fc
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3b16d7cbba63be9f50b0d186b2162a5755b76802
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687130"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375010"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment 的網路考量 #
 
@@ -55,7 +55,7 @@ ASE 部署之後，就無法變更用來裝載 ASE 的子網路大小。  每個
 
 | 使用 | 從 | 到 |
 |-----|------|----|
-| 管理性 | App Service 管理位址 | ASE 子網路：454、455 |
+| 管理 | App Service 管理位址 | ASE 子網路：454、455 |
 |  ASE 內部通訊 | ASE 子網路：所有連接埠 | ASE 子網路：所有連接埠
 |  允許 Azure Load Balancer 輸入 | Azure Load Balancer | ASE 子網：16001
 
@@ -112,7 +112,7 @@ ASE 會對下列埠上的網際網路可存取位址進行通訊：
 -   Functions
 -   記錄串流
 -   Kudu
--   擴充功能
+-   延伸模組
 -   處理序總管
 -   Console
 
@@ -122,7 +122,7 @@ ASE 會對下列埠上的網際網路可存取位址進行通訊：
 
 ## <a name="ase-ip-addresses"></a>ASE IP 位址 ##
 
-ASE 有一些 IP 位址需要注意。 如下：
+ASE 有一些 IP 位址需要注意。 其中包括：
 
 - **公用輸入 IP 位址**：用於外部 ASE 中的應用程式流量，以及外部 ASE 和 ILB ASE 中的管理流量。
 - **輸出公用 IP**：用來作為 ASE 輸出連線離開 VNet 時的「來源」IP (不會透過 VPN 進行路由)。
@@ -152,7 +152,7 @@ NSG 可以透過 Azure 入口網站或 PowerShell 來設定。 這裡的資訊�
 
 NSG 中需要 ASE 才能運作的必要專案是允許流量：
 
-**阻尼**
+**連入**
 * 從埠454455上的 IP 服務標記 AppServiceManagement
 * 從埠16001上的負載平衡器
 * 從 ASE 子網到所有埠上的 ASE 子網
@@ -244,7 +244,7 @@ DNS 埠不需要新增，因為 NSG 規則不會影響到 DNS 的流量。 這�
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ss-cert.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

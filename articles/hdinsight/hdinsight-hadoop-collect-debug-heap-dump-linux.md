@@ -2,26 +2,26 @@
 title: 在 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印 - Azure
 description: 在以 Linux 為基礎的 HDInsight 叢集上啟用 Apache Hadoop 服務的堆積傾印，以進行偵錯和分析。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: 90de0b4bfad4c5096ebc38eb3d31fc41bca6649b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 01/02/2020
+ms.openlocfilehash: 9134eb6922b0ed37bbe6051b138da2c7c082b175
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494850"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658792"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>在以 Linux 為基礎的 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-堆積傾印含有應用程式記憶體的快照，其中包括建立傾印時的變數值。 因此它們有助於為執行階段發生的問題進行診斷。
+堆積傾印含有應用程式記憶體的快照，其中包括建立傾印時的變數值。 因此，它們很適合用來診斷執行時間發生的問題。
 
-## <a name="whichServices"></a>服務
+## <a name="services"></a>服務
 
 您可以啟用下列服務的堆積傾印：
 
@@ -33,11 +33,11 @@ ms.locfileid: "73494850"
 
 您也可以針對 HDInsight 所執行的 map 和 reduce 處理序來啟用堆積傾印。
 
-## <a name="configuration"></a>了解堆積傾印組態
+## <a name="understanding-heap-dump-configuration"></a>瞭解堆積傾印設定
 
 堆積傾印的啟用方式，是在服務啟動時將選項 (有時稱為參數) 傳遞至 JVM。 就大部分的 [Apache Hadoop](https://hadoop.apache.org/) 服務而言，您可以修改用於啟動服務的殼層指令碼以略過這些選項。
 
-在每個指令碼中，有一項 **\*\_OPTS** 匯出，其中含有傳遞至 JVM 的選項。 例如，在 **hadoop-env.sh** 指令碼中，以 `export HADOOP_NAMENODE_OPTS=` 為開頭的那一行即含有 NameNode 服務的選項。
+在每個腳本中，有 **\*\_** 選擇的匯出，其中包含傳遞至 JVM 的選項。 例如，在 **hadoop-env.sh** 指令碼中，以 `export HADOOP_NAMENODE_OPTS=` 為開頭的那一行即含有 NameNode 服務的選項。
 
 map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務的子處理序。 每個 map 或 reduce 處理序都會在一個子容器中執行，且有兩個含有 JVM 選項的項目。 兩者均包含在 **mapred-site.xml** 中：
 
@@ -81,12 +81,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
 若要修改服務的組態，請依照下列步驟進行：
 
-1. 開啟叢集的 Ambari Web UI。 URL 為 https://YOURCLUSTERNAME.azurehdinsight.net。
-
-    出現提示時，請使用您叢集的 HTTP 帳戶名稱 (預設值：admin) 和密碼來向網站驗證。
-
-   > [!NOTE]  
-   > Ambari 可能會再次提示您輸入使用者名稱和密碼。 此時，請輸入同一組帳戶名稱和密碼。
+1. 從網頁瀏覽器流覽至 `https://CLUSTERNAME.azurehdinsight.net`，其中 `CLUSTERNAME` 是叢集的名稱。
 
 2. 使用左側的清單，選取您想要修改的服務區域。 例如 **HDFS**。 在中間區域內，選取 [設定] 索引標籤。
 
@@ -103,7 +98,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
    > [!NOTE]  
    > 啟用 map 或 reduce 子處理序的堆積傾印時，請尋找名為 **mapreduce.admin.map.child.java.opts** 和 **mapreduce.admin.reduce.child.java.opts** 的欄位。
 
-    按 [儲存] 按鈕以儲存變更。 您可以輸入簡短的附註來說明所做的變更。
+    使用 [儲存] 按鈕來儲存變更。 您可以輸入簡短的附註來說明所做的變更。
 
 5. 套用變更後，一或多個服務旁邊就會出現**必須重新啟動**圖示。
 
@@ -121,4 +116,3 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
    > 其他服務的 [重新啟動] 按鈕項目可能會有所不同。
 
 8. 重新啟動服務後，請使用 [服務動作] 按鈕**關閉維護模式**。 這麼做可讓 Ambari 繼續監視服務是否有警示。
-

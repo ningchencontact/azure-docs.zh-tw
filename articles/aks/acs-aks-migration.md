@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 0c243d216e00adf49a6425e5b7be0d38caeef043
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8070e209910425f9baa0ae81aca349a067c70f76
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929053"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658537"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>遷移至 Azure Kubernetes Service （AKS）
 
@@ -91,7 +91,7 @@ az aks create \
 
 您可能需要要求增加[網路配額](https://docs.microsoft.com/azure/azure-supportability/networking-quota-requests)，以確保您不會耗盡 ip。 如需其他資訊，請參閱[AKS 的網路和 IP 範圍](https://docs.microsoft.com/azure/aks/configure-kubenet)。
 
-如需詳細資訊，請參閱[Azure 訂用帳戶和服務限制](https://docs.microsoft.com/azure/azure-subscription-service-limits)。 若要檢查您目前的配額，請在 Azure 入口網站[中，移](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)至 [訂用帳戶] 分頁，選取您的訂閱，然後選取 [**使用量 + 配額**]。
+如需詳細資訊，請參閱[Azure 訂用帳戶和服務限制](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)。 若要檢查您目前的配額，請在 Azure 入口網站[中，移](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)至 [訂用帳戶] 分頁，選取您的訂閱，然後選取 [**使用量 + 配額**]。
 
 ## <a name="high-availability-and-business-continuity"></a>高可用性和商務持續性
 

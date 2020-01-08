@@ -1,17 +1,17 @@
 ---
 title: 針對 Azure Cache for Redis 超時進行疑難排解
-description: 瞭解如何解決 Azure Cache for Redis 的常見超時問題
+description: 瞭解如何解決 Azure Cache for Redis 的常見超時問題，例如 Redis 伺服器修補和 Stackexchange.redis。 Redis 超時例外狀況。
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: yegu
-ms.openlocfilehash: e58b305a43cc5ad339fb87b9b8a09af04c410839
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 4b8cfed883ffef780de2e82e3f309e97bcb5515c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121376"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75412080"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>針對 Azure Cache for Redis 超時進行疑難排解
 
@@ -40,7 +40,7 @@ Stackexchange.redis 會使用名為 `synctimeout` 的 configuration 設定進行
 | --- | --- |
 | inst |在最後一個時間配量︰已發出 0 個命令 |
 | mgr |通訊端管理員正在執行 `socket.select`，這表示它會要求 OS 指出有一些專案要執行的通訊端。 讀取器不會主動從網路讀取，因為它不認為有任何動作可以執行 |
-| 佇列 |總共有 73 個進行中的作業 |
+| queue |總共有 73 個進行中的作業 |
 | qu |其中6個進行中的作業是在未傳送的佇列中，尚未寫入到輸出網路 |
 | qs |67進行中的作業已傳送到伺服器，但尚未提供回應。 回應可能是 `Not yet sent by the server` 或 `sent by the server but not yet processed by the client.` |
 | qc |有0個進行中的作業已看到 [回復]，但尚未標示為 [完成]，因為他們正在等候完成迴圈 |
@@ -83,7 +83,7 @@ Stackexchange.redis 會使用名為 `synctimeout` 的 configuration 設定進行
 1. 伺服器上是否有命令需要很長的處理時間？ 長時間執行且在 redis 伺服器上需要很長時間來處理的命令可能會造成超時。 如需長時間執行命令的詳細資訊，請參閱[長時間執行的命令](cache-troubleshoot-server.md#long-running-commands)。 您可以使用 Redis-cli 用戶端或[Redis 主控台](cache-configure.md#redis-console)來連線到您的 Azure Cache for Redis 實例。 然後，執行[SLOWLOG](https://redis.io/commands/slowlog)命令，以查看是否有要求速度低於預期。 Redis 伺服器和 StackExchange.Redis 最適合許多小型要求，而非少數幾個大型要求。 將資料分割成較小的區塊可以改善這些問題。
 
     如需使用 redis-cli 和 stunnel 連接到快取 SSL 端點的相關資訊，請參閱[宣佈 Redis 預覽版本的 ASP.NET 會話狀態提供者](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)的 blog 文章。
-1. 高 Redis 伺服器負載可能會導致逾時。 您可以藉由監視 `Redis Server Load` [快取效能度量](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)來監視伺服器負載。 伺服器負載為 100 (最大值) 表示 Redis 伺服器正忙碌處理要求，並沒有閒置的時間。 若要確認特定要求是否會佔用所有伺服器功能，請執行 SlowLog 命令，如上一段所述。 如需詳細資訊，請參閱「高 CPU 使用率/伺服器負載」。
+1. 高 Redis 伺服器負載可能會導致逾時。 您可以藉由監視 `Redis Server Load` 快取[效能度量](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)來監視伺服器負載。 伺服器負載為 100 (最大值) 表示 Redis 伺服器正忙碌處理要求，並沒有閒置的時間。 若要確認特定要求是否會佔用所有伺服器功能，請執行 SlowLog 命令，如上一段所述。 如需詳細資訊，請參閱「高 CPU 使用率/伺服器負載」。
 1. 用戶端上是否有其他任何事件可能導致網路問題？ 常見事件包括：相應增加或相應減少用戶端實例數目、部署新版本的用戶端，或啟用自動調整。 在我們的測試中，我們發現自動調整或相應增加/相應減少可能會導致輸出網路連線中斷幾秒鐘。 StackExchange.Redis 程式碼對於這類事件具有復原能力，因此將會重新連線。 重新連線時，佇列中的任何要求都可能會超時。
 1. 是否有大型的要求會在快取的幾個小型要求上發生？ 錯誤訊息中的參數 `qs` 會告訴您，多少要求已從用戶端傳送到伺服器，但尚未處理回應。 這個值會不斷成長，因為 StackExchange.Redis 使用單一 TCP 連線，而且一次只能讀取一個回應。 即使第一個作業超時，它也不會阻止更多資料從伺服器傳送或傳出。 其他要求將會遭到封鎖，直到大型要求完成，而且可能會導致超時為止。 有一個解決方案是確保快取足以容納工作負載，並將較大的值分割成較小的區塊，以將逾時的機會降到最低。 另一個可能的解決方案是在用戶端中使用 `ConnectionMultiplexer` 物件集區，並在傳送新要求時選擇最少負載的 `ConnectionMultiplexer`。 在多個連線物件之間載入，應該會防止單一超時時間造成其他要求也會超時。
 1. 如果您是使用 `RedisSessionStateProvider`，請確定您已正確設定重試超時。 `retryTimeoutInMilliseconds` 應高於 `operationTimeoutInMilliseconds`，否則不會發生任何重試。 在下列範例中， `retryTimeoutInMilliseconds` 已設定為 3000。 如需詳細資訊，請參閱[適用於 Azure Redis 快取的 ASP.NET 工作階段狀態提供者](cache-aspnet-session-state-provider.md)和[如何使用工作階段狀態提供者和輸出快取提供者的設定參數](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration) \(英文\)。
@@ -103,7 +103,7 @@ Stackexchange.redis 會使用名為 `synctimeout` 的 configuration 設定進行
       retryTimeoutInMilliseconds="3000" />
     ```
 
-1. 透過[監視](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` 和 `Used Memory`，檢查「Azure Redis 快取」伺服器上的記憶體使用量。 如果已備有收回原則，Redis 就會在 `Used_Memory` 達到快取大小時開始收回金鑰。 理想情況下，`Used Memory RSS` 應該只稍微高於 `Used memory`。 較大的差異表示記憶體分散（內部或外部）。 當 `Used Memory RSS` 小於 `Used Memory` 時，則表示作業系統已交換部分快取記憶體。 如果發生此交換情況，您應該就會遇到顯著的延遲。 因為 Redis 無法控制其配置對應到記憶體分頁的方式，所以高 `Used Memory RSS` 通常是記憶體使用量突然增加的結果。 當 Redis 伺服器釋放記憶體時，配置器會取得記憶體，但不一定會將記憶體提供給系統。 `Used Memory` 值和作業系統報告的記憶體耗用量可能會有差異。 記憶體可能已由 Redis 使用和釋放，但不會傳回給系統。 若要協助降低記憶體問題，您可以執行下列步驟：
+1. 藉由[監視](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)`Used Memory RSS` 和 `Used Memory`，檢查 Azure Cache for Redis 伺服器上的記憶體使用量。 如果已備有收回原則，Redis 就會在 `Used_Memory` 達到快取大小時開始收回金鑰。 理想情況下，`Used Memory RSS` 應該只稍微高於 `Used memory`。 較大的差異表示記憶體分散（內部或外部）。 當 `Used Memory RSS` 小於 `Used Memory` 時，則表示作業系統已交換部分快取記憶體。 如果發生此交換情況，您應該就會遇到顯著的延遲。 因為 Redis 無法控制其配置對應到記憶體分頁的方式，所以高 `Used Memory RSS` 通常是記憶體使用量突然增加的結果。 當 Redis 伺服器釋放記憶體時，配置器會取得記憶體，但不一定會將記憶體提供給系統。 `Used Memory` 值和作業系統報告的記憶體耗用量可能會有差異。 記憶體可能已由 Redis 使用和釋放，但不會傳回給系統。 若要協助降低記憶體問題，您可以執行下列步驟：
 
    - 將快取升級為較大的大小，讓您不會在系統上執行記憶體限制。
    - 設定金鑰的到期時間，以便主動收回較舊的值。

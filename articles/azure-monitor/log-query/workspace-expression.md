@@ -1,18 +1,17 @@
 ---
 title: Azure 監視器記錄查詢中的 workspace() 運算式 |Microsoft Docs
 description: 在 Azure 監視器記錄查詢中，workspace 運算式用來從相同資源群組、另一個資源群組或另一個訂用帳戶中的特地工作區擷取資料。
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: f26b9534fbf95cc301ae782d47ab7030988fa469
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 255888acf5da6149b6a964b23ed038b99715481c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932845"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364946"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure 監視器記錄查詢中的 workspace() 運算式
 
@@ -27,7 +26,7 @@ ms.locfileid: "72932845"
 
 - 識別碼：使用下表中的其中一個格式來識別工作區。
 
-| 識別碼 | 描述 | 範例
+| 識別碼 | 說明 | 範例
 |:---|:---|:---|
 | 資源名稱 | 人類可閱讀的工作區名稱 (也稱為「元件名稱」) | workspace("contosoretail") |
 | 完整名稱 | 使用下列形式的工作區完整名稱："subscriptionName/resourceGroup/componentName" | workspace('Contoso/ContosoResource/ContosoWorkspace') |

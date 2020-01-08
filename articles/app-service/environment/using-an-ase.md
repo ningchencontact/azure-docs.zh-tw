@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e5c127673e4b0cb6c68aaf0a9790abbf78758670
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 806d6ddb09cbaf14c9c488e3d3b39909c22ef284
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687100"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374925"
 ---
 # <a name="use-an-app-service-environment"></a>使用 App Service Environment #
 
@@ -41,7 +41,7 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
 
 若要在 ASE 中建立應用程式：
 
-1. 選取 [建立資源]  >  [Web + 行動]  >  [Web 應用程式]。
+1. 選取 [建立資源] >  [Web + 行動] >  [Web 應用程式]。
 
 2. 輸入應用程式的名稱。 如果您已在 ASE 中選取 App Service 方案，則應用程式的網域名稱會反映 ASE 的網域名稱。
 
@@ -57,7 +57,7 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
 
     a. 選取 [新建]。
 
-    b.這是另一個 C# 主控台應用程式。 輸入 App Service 方案的名稱。
+    b. 輸入 App Service 方案的名稱。
 
     c. 在 [位置] 下拉式清單中選取您的 ASE。 
     
@@ -127,9 +127,9 @@ URL contoso.scm.external-ase.p.azurewebsites.net 用來存取 Kudu 主控台，�
 
 根據預設，以網際網路為基礎的 CI 系統（例如 GitHub 和 Azure DevOps）不會與 ILB ASE 搭配使用，因為發佈端點無法存取網際網路。 針對 Azure DevOps，您可以在內部網路中安裝自我裝載的發行代理程式，讓它能夠連線到 ILB，藉此解決此情況。 或者，您也可以使用使用提取模型的 CI 系統，例如 Dropbox。
 
-ILB ASE 中應用程式的發佈端點會使用用來建立 ILB ASE 的網域。 您可以在應用程式的發行設定檔，以及應用程式的入口網站刀鋒視窗中看到 (在 [概觀]  >  [基本資訊]，以及 [屬性] 中)。 
+ILB ASE 中應用程式的發佈端點會使用用來建立 ILB ASE 的網域。 您可以在應用程式的發行設定檔，以及應用程式的入口網站刀鋒視窗中看到 (在 [概觀] >  [基本資訊]，以及 [屬性] 中)。 
 
-## <a name="pricing"></a>價格 ##
+## <a name="pricing"></a>定價 ##
 
 已建立名稱為**隔離**的價格 SKU，僅供與 ASEv2 搭配使用。 ASEv2 中裝載的所有 App Service 方案都位於「隔離」定價 SKU 中。 隔離的 App Service 方案費率會因區域而有所不同。 
 
@@ -172,7 +172,7 @@ ILB ASE 中應用程式的發佈端點會使用用來建立 ILB ASE 的網域。
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md

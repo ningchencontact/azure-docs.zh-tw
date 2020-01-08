@@ -1,5 +1,5 @@
 ---
-title: 常見問題-超大規模資料庫（Citus）-適用於 PostgreSQL 的 Azure 資料庫
+title: Azure SQL Database 超大規模資料庫常見問題
 description: 回答客戶針對超大規模資料庫服務層級中的 Azure SQL 資料庫 (通常稱為「超大規模」資料庫) 經常提出的問題。
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 377de93733d94d8cff5518eebb8ebba38154d10d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6a25d5197746e04ffa25ee397e6d8451e24ae176
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974014"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614994"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database 超大規模資料庫常見問題
 
@@ -39,7 +39,7 @@ ms.locfileid: "74974014"
 
 以 vCore 為基礎的服務層級會根據資料庫可用性和儲存體類型、效能和最大大小來區分，如下表所述。
 
-| | 資源類型 | 一般用途 |  Hyperscale | 商務關鍵性 |
+| | 資源類型 | 一般用途 |  Hyperscale | 業務關鍵 |
 |:---:|:---:|:---:|:---:|:---:|
 | **適用對象** |所有|提供以預算為導向且平衡的計算與儲存體選項。|大部分的商業工作負載。 自動調整儲存體大小，最高可達 100 TB，快速垂直和水準計算縮放，快速資料庫還原。|具有高交易率和低 IO 延遲的 OLTP 應用程式。 為失敗提供最高的復原能力，並使用多個同步更新的複本快速容錯移轉。|
 |  **資源類型** ||單一資料庫/彈性集區/受控執行個體 | 單一資料庫 | 單一資料庫/彈性集區/受控執行個體 |
@@ -157,7 +157,7 @@ ms.locfileid: "74974014"
 
 ### <a name="does-my-tempdb-scale-as-my-database-grows"></a>我的 `tempdb` 會隨著資料庫成長而調整
 
-您的 `tempdb` 資料庫位於本機 SSD 儲存體，會根據您佈建的計算大小設定。 您的 `tempdb` 已優化，可提供最大的效能優勢。 `tempdb` 大小不是可設定的，而且會為您管理。
+您的 `tempdb` 資料庫位於本機 SSD 儲存體，且大小會按比例調整為您布建的計算大小。 您的 `tempdb` 已優化，可提供最大的效能優勢。 `tempdb` 大小不是可設定的，而且會為您管理。
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-data-files"></a>我的資料庫大小會自動成長，還是必須管理資料檔案的大小
 
@@ -165,7 +165,7 @@ ms.locfileid: "74974014"
 
 ### <a name="what-is-the-smallest-database-size-that-hyperscale-supports-or-starts-with"></a>超大規模資料庫支援或開頭的最小資料庫大小為何
 
-10 GB。
+40 GB。 建立超大規模資料庫資料庫，其起始大小為 10 GB。 然後，它會每隔10分鐘開始成長 10 GB，直到達到 40 GB 的大小為止。 這 10 GB chucks 中的每一個都是配置在不同的頁面伺服器中，以提供更多的 IOPS 和更高的 i/o 平行處理原則。 由於這項優化，即使您選擇小於 40 GB 的初始資料庫大小，資料庫也會自動成長到至少 40 GB。
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>資料庫大小成長的遞增量為何
 
@@ -268,13 +268,13 @@ SQL Server 2005。 如需詳細資訊，請參閱[移轉至單一資料庫或集
 
 RPO 為0分鐘。RTO 目標小於10分鐘，不論資料庫大小為何。 
 
-### <a name="do-backups-of-large-databases-affect-compute-performance-on-my-primary"></a>大型資料庫的備份是否會影響主要資料庫的計算效能
+### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>資料庫備份是否會影響我的主要或次要複本上的計算效能
 
-不會。 備份是由儲存子系統所管理，並利用儲存體快照集。 它們不會影響主要複本上的使用者工作負載。
+不會。 備份是由儲存子系統所管理，並利用儲存體快照集。 它們不會影響使用者工作負載。
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>我可以使用超大規模資料庫資料庫執行異地還原
 
-可以。  完全支援異地還原。
+可以。  完全支援異地還原。 不同于時間點還原，地理還原可能需要長時間執行的資料大小作業。
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>我可以使用超大規模資料庫資料庫來設定異地複寫
 
@@ -296,7 +296,7 @@ RPO 為0分鐘。RTO 目標小於10分鐘，不論資料庫大小為何。
 
 ### <a name="does-hyperscale-have-support-for-r-and-python"></a>超大規模資料庫是否支援 R 和 Python
 
-不會。 Azure SQL Database 不支援 R 和 Python。
+目前不是。
 
 ### <a name="are-compute-nodes-containerized"></a>是容器化的計算節點
 
@@ -306,11 +306,11 @@ RPO 為0分鐘。RTO 目標小於10分鐘，不論資料庫大小為何。
 
 ### <a name="how-much-write-throughput-can-i-push-in-a-hyperscale-database"></a>我可以在超大規模資料庫資料庫中推送多少寫入輸送量
 
-針對任何超大規模資料庫計算大小，交易記錄輸送量限制設定為 100 MB/s。 達到此速率的能力取決於多個因素，包括但不限於工作負載類型、用戶端設定，以及在主要計算複本上具有足夠的計算容量，以此速率產生記錄。
+針對任何超大規模資料庫計算大小，交易記錄輸送量上限會設為 100 MB/s。 達到此速率的能力取決於多個因素，包括但不限於工作負載類型、用戶端設定，以及在主要計算複本上具有足夠的計算容量，以此速率產生記錄。
 
 ### <a name="how-many-iops-do-i-get-on-the-largest-compute"></a>我可以在最大的計算上取得多少 IOPS
 
-IOPS 和 IO 延遲會根據工作負載模式而有所不同。 如果要存取的資料會快取在計算複本上，您會看到與本機 SSD 相同的 IO 效能。
+IOPS 和 IO 延遲會根據工作負載模式而有所不同。 如果要存取的資料會快取在計算複本上，您會看到與本機 SSD 類似的 IO 效能。
 
 ### <a name="does-my-throughput-get-affected-by-backups"></a>備份是否會影響到輸送量
 
@@ -318,7 +318,11 @@ IOPS 和 IO 延遲會根據工作負載模式而有所不同。 如果要存取�
 
 ### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-replicas"></a>當我布建額外的計算複本時，我的輸送量會受到影響
 
-由於儲存體是共用的，而且主要和次要計算複本之間不會進行直接的實體複寫，因此在技術上，主要複本上的輸送量不會受到新增次要複本的影響。 不過，我們可能會節流持續主動寫入的工作負載，以允許次要複本和頁面伺服器上的記錄套用，並避免次要複本上的讀取效能不佳。
+由於儲存體是共用的，而且主要和次要計算複本之間不會進行直接的實體複寫，因此主要複本上的輸送量不會受到新增次要複本的直接影響。 不過，我們可能會在主要複本上節流持續的主動寫入工作負載，以允許次要複本和頁面伺服器上的記錄套用，以避免次要複本上的讀取效能不佳。
+
+### <a name="how-do-i-diagnose-and-troubleshoot-performance-problems-in-a-hyperscale-database"></a>如何? 診斷超大規模資料庫資料庫中的效能問題並進行疑難排解
+
+對於大部分的效能問題，特別是不是以儲存體效能為基礎的問題，常見的 SQL Server 診斷和疑難排解步驟適用。 如需超大規模資料庫特定的儲存體診斷，請參閱[SQL 超大規模資料庫效能疑難排解診斷](sql-database-hyperscale-performance-diagnostics.md)。
 
 ## <a name="scalability-questions"></a>擴充性問題
 
@@ -367,7 +371,7 @@ IOPS 和 IO 延遲會根據工作負載模式而有所不同。 如果要存取�
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>系統是否會對讀取工作負載進行智慧型負載平衡
 
-不會。 具有唯讀意圖的連線會重新導向至任意讀取相應放大複本。
+不會。 具有唯讀意圖的新連線會重新導向至任意讀取相應放大複本。
 
 ### <a name="can-i-scale-updown-the-secondary-compute-replicas-independently-of-the-primary-replica"></a>我可以獨立于主要複本之外相應增加/減少次要計算複本
 
@@ -383,7 +387,7 @@ IOPS 和 IO 延遲會根據工作負載模式而有所不同。 如果要存取�
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>主要和次要計算複本之間有多少延遲
 
-從交易在主要端上認可的時間開始，視目前的記錄產生速率而定，它可能是瞬間或以低毫秒為單位。
+從交易在主要複本上認可的時間開始，到它在次要上可見時的資料延遲取決於目前的記錄產生速率。 一般資料延遲是以低毫秒為單位。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed35abd5b9bfb8b9a74d598f1fa93d8f1a985bfb
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 52d9f7a0b2a7cebefdb5ade8e16417043c5c83d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848267"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425300"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的報告
 
 Azure Multi-Factor Authentication 提供數個報告，可供您和貴組織透過 Azure 入口網站使用。 下表列出可用的報告：
 
-| 報告 | Location | 描述 |
+| 報告 | 位置 | 說明 |
 |:--- |:--- |:--- |
 | 已封鎖的使用者歷程記錄 | Azure AD > 安全性 > MFA > 封鎖/解除封鎖使用者 | 顯示使用者封鎖或解除封鎖要求的歷程記錄。 |
 | 使用方式和詐騙警示 | Azure AD > 登入 | 提供整體使用量、使用者摘要和使用者詳細資料的相關資訊；以及在指定的日期範圍期間所提交的詐騙警示歷程記錄。 |
@@ -134,11 +134,21 @@ MFA 的登入活動報告可讓您存取下列資訊：
 
 ```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
+識別已註冊的使用者和輸出方法。 
+
+```PowerShell
+Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
+
+@{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},
+
+@{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
+```
+
 ## <a name="possible-results-in-activity-reports"></a>活動報告中的可能結果
 
 下表可用於使用下載的多因素驗證活動報告版本進行多重要素驗證疑難排解。 它們不會直接出現在 Azure 入口網站中。
 
-| 呼叫結果 | 描述 | 廣泛描述 |
+| 呼叫結果 | 說明 | 廣泛描述 |
 | --- | --- | --- |
 | SUCCESS_WITH_PIN | 已輸入 PIN | 使用者已輸入 PIN。  如果驗證成功，則他們輸入了正確的 PIN。  如果驗證遭到拒絕，則他們輸入了不正確的 PIN，或使用者設定為標準模式。 |
 | SUCCESS_NO_PIN | 僅輸入 # | 如果使用者設定為 PIN 模式且驗證遭到拒絕，這表示使用者未輸入 PIN，只輸入 #。  如果使用者設定為標準模式且驗證成功，這表示使用者只輸入 #，而在標準模式下這是正確的動作。 |

@@ -1,25 +1,16 @@
 ---
-title: 了解 Azure Service Fabric 支援選項 | Microsoft Docs
+title: 瞭解 Azure Service Fabric 支援選項
 description: 支援的 Azure Service Fabric 叢集版本和檔案支援票證連結
-services: service-fabric
-documentationcenter: .net
 author: pkcsf
-manager: jpconnock
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: troubleshooting
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: ac36b1a538d5899613e19f157695d0bc333d9ece
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7494f0072f27f2c9b00db7070f19dfc05627eacf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679050"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465628"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支援選項
 
@@ -35,9 +26,9 @@ ms.locfileid: "68679050"
 - [Microsoft 頂級支援](https://support.microsoft.com/en-us/premier)。
 
 > [!Note]
-> 在銅級可靠性層或單一節點叢集上執行的叢集將可讓您僅執行測試工作負載。 如果您遇到在銅可靠性或單一節點叢集上執行之叢集的問題, Microsoft 支援小組會協助您減輕問題, 但不會執行根本原因分析。 如需詳細資訊, 請參閱叢集[的可靠性特性](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)。
+> 在銅級可靠性層或單一節點叢集上執行的叢集將可讓您僅執行測試工作負載。 如果您遇到在銅可靠性或單一節點叢集上執行之叢集的問題，Microsoft 支援小組會協助您減輕問題，但不會執行根本原因分析。 如需詳細資訊，請參閱叢集[的可靠性特性](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)。
 >
-> 如需適用于生產環境就緒叢集的詳細資訊, 請參閱[生產環境就緒檢查清單](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)。
+> 如需適用于生產環境就緒叢集的詳細資訊，請參閱[生產環境就緒檢查清單](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)。
 
 <a id="getlivesitesupportonprem"></a>
 
@@ -60,11 +51,11 @@ ms.locfileid: "68679050"
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow 和 MSDN 論壇
 
-[StackOverflow 上的 Service Fabric 標記][stackoverflow]和[MSDN 上的 Service Fabric 論壇][msdn-forum]最適合用來詢問有關平臺運作方式的問題, 以及如何使用它來完成特定工作。
+[StackOverflow 上的 Service Fabric 標記][stackoverflow]和[MSDN 上的 Service Fabric 論壇][msdn-forum]最適合用來詢問有關平臺運作方式的問題，以及如何使用它來完成特定工作。
 
 ### <a name="azure-feedback-forum"></a>Azure 意見反應論壇
 
-適用于[Service Fabric 的 Azure 意見反應論壇][uservoice-forum], 是提交您產品所擁有之重大功能想法的最佳位置, 因為我們回顧最受歡迎的要求是我們的中型到長期規劃的一部分。 我們希望您在社群中集結您的建議的支援。
+適用于[Service Fabric 的 Azure 意見反應論壇][uservoice-forum]，是提交您產品所擁有之重大功能想法的最佳位置，因為我們回顧最受歡迎的要求是我們的中型到長期規劃的一部分。 我們希望您在社群中集結您的建議的支援。
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 預覽版本 - 不支援用於生產環境
 

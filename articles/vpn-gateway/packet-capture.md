@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 41c36d302605bb619899131a8ace649b0f1439b2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 2429a8d08baa34aed120cffa069abae1fb9a3df9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151850"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353509"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>設定 VPN 閘道的封包捕獲
 
@@ -25,6 +25,8 @@ ms.locfileid: "74151850"
 VPN 閘道封包捕獲可以根據客戶需求，在閘道或特定連線上執行。 您也可以同時在多個通道上執行封包捕獲。 您可以使用 VPN 閘道上的篩選，來捕捉單一或雙向流量、IKE 和 ESP 流量，以及內部封包。
 
 使用5個元組篩選（來源子網、目的地子網、來源埠、目的地埠、通訊協定）和 TCP 旗標（SYN、ACK、FIN、URG、PSH、RST）在將大量流量的問題隔離時，會很有説明。
+
+執行封包捕獲時，每個屬性只能使用一個選項。
 
 ## <a name="setup-packet-capture-using-powershell"></a>使用 PowerShell 設定封包捕獲
 
@@ -62,7 +64,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 - 執行封包捕獲可能會影響效能。 請記得在不需要封包捕獲時，將它停止。
 - 建議的最小封包捕獲持續時間為600秒。 較短的封包捕捉持續時間可能無法提供完整的資料，因為該路徑上的多個元件之間的同步問題。
-- 封包捕獲資料檔案會以 PCAP 或 ETL 格式產生。 您可能需要 Netmon 剖析器以瞭解資料。
+- 封包捕獲資料檔案會以 PCAP 格式產生。 使用 Wireshark 或其他常用的應用程式來開啟 PCAP 檔案。
 
 ## <a name="next-steps"></a>後續步驟
 

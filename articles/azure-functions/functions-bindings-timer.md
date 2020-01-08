@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: de36f760fb637ad02446265927e7df7aa91b2abf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d5e78c3ab08e791a5f484e45d487c3a85dc95de7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928385"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613086"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
@@ -166,7 +166,9 @@ public void keepAlive(
 
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs)。
 
-該屬性的建構函式會採用 CRON 運算式或是 `TimeSpan`。 僅當函式應用程式是在 App Service 方案中執行時，您才可以使用 `TimeSpan`。 下列範例顯示 CRON 運算式：
+該屬性的建構函式會採用 CRON 運算式或是 `TimeSpan`。 只有在函式應用程式是在 App Service 計畫上執行時，您才能使用 `TimeSpan`。 耗用量或彈性 Premium 函數不支援 `TimeSpan`。
+
+下列範例顯示 CRON 運算式：
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
@@ -213,7 +215,7 @@ public void keepAlive(
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `TimerTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設定為 "timerTrigger"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設定為 "in"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
@@ -254,7 +256,7 @@ Azure Functions 使用[NCronTab](https://github.com/atifaziz/NCrontab)程式庫�
 
 每個欄位可以具備下列類型的值：
 
-|Type  |範例  |觸發時間  |
+|類型  |範例  |觸發時間  |
 |---------|---------|---------|
 |特定值 |<nobr>"0 5 * * * *"</nobr>|於 hh:05:00，其中 hh 是每小時 (一小時一次)|
 |所有值 (`*`)|<nobr>"0 * 5 * * *"</nobr>|於每天 5:mm:00，其中 mm 是小時中的每一分鐘 (一天 60 次)|
@@ -302,13 +304,13 @@ CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON
 
 當您使用 `WEBSITE_TIME_ZONE` 時，時間會隨特定時區的時間變更 (例如日光節約時間) 而調整。 
 
-## <a name="timespan"></a>時間範圍
+## <a name="timespan"></a>TimeSpan
 
  `TimeSpan` 只能用於 App Service 方案上執行的函式應用程式。
 
 不同於 CRON 運算式，`TimeSpan` 值會指定每個函式引動過程之間的時間間隔。 如果函式在執行時間超過指定時間間隔之後完成，計時器會立即再次叫用函式。
 
-以字串表示，當 `hh` 低於 24 時，`TimeSpan` 格式為 `hh:mm:ss`。 當前兩個數字為 24 或更高時，格式為 `dd:hh:mm`。 這裡有一些範例：
+以字串表示，當 `hh` 低於 24 時，`TimeSpan` 格式為 `hh:mm:ss`。 當前兩個數字為 24 或更高時，格式為 `dd:hh:mm`。 以下是一些範例：
 
 |範例 |觸發時間  |
 |---------|---------|

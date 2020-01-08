@@ -14,18 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2019
 ms.author: damaerte
-ms.openlocfilehash: 8e04e7c1919deaf60e083aba4588943147ebd6bf
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 0b3b0b2cc97c86fefe37055e0744b747d4f31687
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284819"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385551"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>在 Azure Cloud Shell 中保存檔案
 Cloud Shell 會運用 Azure 檔案儲存體在工作階段間保存檔案。 在初始啟動時，Cloud Shell 會提示您關聯新的或現有的檔案共用，以在工作階段間保存檔案。
 
 > [!NOTE]
 > Bash 和 PowerShell 會共用相同的檔案共用。 只有一個檔案共用可以與 Cloud Shell 中的自動掛接相關聯。
+
+> [!NOTE]
+> Cloud shell 儲存體帳戶不支援 Azure 儲存體防火牆。
 
 ## <a name="create-new-storage"></a>建立新的儲存體
 
@@ -36,7 +39,7 @@ Cloud Shell 會運用 Azure 檔案儲存體在工作階段間保存檔案。 在
 
 ![訂用帳戶設定](media/persisting-shell-storage/basic-storage.png)
 
-檔案共用會在您的 `clouddrive` 目錄中掛接為 `$Home`。 這是一次性的動作，後續的工作階段會自動掛接檔案共用。 
+檔案共用會在您的 `$Home` 目錄中掛接為 `clouddrive`。 這是一次性的動作，後續的工作階段會自動掛接檔案共用。 
 
 檔案共用也包含為您建立的 5 GB 映像，此映像會自動保存 `$Home` 目錄中的資料。 這適用於 Bash 和 PowerShell。
 
@@ -63,7 +66,7 @@ Cloud Shell 在指定的訂用帳戶內，使用儲存體帳戶中的 Azure 檔�
 
 Cloud Shell 電腦存在於下列區域：
 
-|領域|區域|
+|區域|地區|
 |---|---|
 |美洲|美國東部、美國中南部、美國西部|
 |歐洲|北歐、西歐|
@@ -75,7 +78,7 @@ Cloud Shell 電腦存在於下列區域：
 ## <a name="how-cloud-shell-storage-works"></a>Cloud Shell 儲存體的運作方式 
 Cloud Shell 透過下列兩種方法來保存檔案： 
 * 建立 `$Home` 目錄的磁碟映像，以保存該目錄內的所有內容。 此磁碟映像會在您指定的檔案共用中儲存為 `acc_<User>.img` (位於 `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`)，並自動同步變更。 
-* 在您的 `clouddrive` 目錄中，將指定的檔案共用掛接為 `$Home`，以便直接與檔案共用互動。 `/Home/<User>/clouddrive` 對應至 `fileshare.storage.windows.net/fileshare`。
+* 在您的 `$Home` 目錄中，將指定的檔案共用掛接為 `clouddrive`，以便直接與檔案共用互動。 `/Home/<User>/clouddrive` 對應至 `fileshare.storage.windows.net/fileshare`。
  
 > [!NOTE]
 > `$Home` 目錄中的所有檔案 (例如 SSH 金鑰) 會都保存於已掛接檔案共用中儲存的使用者磁碟映像中。 當您在 `$Home` 目錄和已掛接的檔案共用中保存資訊時，請套用最佳做法。

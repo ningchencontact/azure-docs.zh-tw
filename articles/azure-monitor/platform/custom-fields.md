@@ -1,5 +1,5 @@
 ---
-title: Azure 監視器中的自訂欄位 |Microsoft Docs
+title: Azure 監視器中的自訂欄位（預覽） |Microsoft Docs
 description: Azure 監視器的自訂欄位功能可讓您從 Log Analytics 工作區中的記錄建立您自己的可搜尋欄位，並將其新增至所收集記錄的屬性。  本文說明用來建立自訂欄位的程序，並透過範例事件提供詳細的逐步解說。
 ms.service: azure-monitor
 ms.subservice: logs
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: 1fa8fb8ee944103626966839def358e68a55d8ac
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 880d3ffa9914a8fc6f27edce06c5d353d7903db4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932600"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396872"
 ---
-# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>在 Azure 監視器的 Log Analytics 工作區中建立自訂欄位
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>在 Azure 監視器（預覽）中的 Log Analytics 工作區中建立自訂欄位
 
 > [!NOTE]
 > 本文說明如何在 Log Analytics 工作區中剖析收集的文字資料。 我們建議您遵循[剖析 Azure 監視器中的文字資料](../log-query/parse-text.md)中所述的指導方針，來剖析查詢篩選器中的文字資料。 它透過使用自訂欄位來提供數個優點。
@@ -113,7 +113,7 @@ Azure 監視器的**自訂欄位**功能可讓您藉由新增自己的可搜尋�
 
 ![搜尋結果](media/custom-fields/search-results-02.png)
 
-我們現在可以執行查詢，確認已建立**Service_CF** ，但尚未新增至任何記錄。 這是因為自訂欄位不適用於現有的記錄，所以我們需要等待收集新的記錄。
+我們現在可以執行查詢，確認**Service_CF**已建立，但尚未加入任何記錄中。 這是因為自訂欄位不適用於現有的記錄，所以我們需要等待收集新的記錄。
 
 ![初始計數](media/custom-fields/initial-count.png)
 

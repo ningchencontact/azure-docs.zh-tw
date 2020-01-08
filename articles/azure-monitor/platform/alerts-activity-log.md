@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 06/25/2019
-ms.openlocfilehash: 6c133f99ce31d4994753aba11cee90cfc1b5afc9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 54122d784467bc090d82f4126e03ab688883ea7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552809"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364793"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>使用 Azure 監視器來建立、查看和管理活動記錄警示  
 
@@ -38,7 +38,7 @@ ms.locfileid: "72552809"
 
 ### <a name="create-with-the-azure-portal"></a>使用 Azure 入口網站建立
 
-請使用下列程式。
+請使用下列程序。
 
 1. 在 Azure 入口網站中，選取 **監視** > **警示**。
 2. 在 [**警示**] 視窗的左上角，選取 [**新增警示規則**]。
@@ -51,11 +51,11 @@ ms.locfileid: "72552809"
 
 3. 在 [**定義警示條件**] 底下，提供下列資訊，然後選取 [**完成**]：
 
-   - **警示目標：** 若要查看並選取新警示的目標，請使用 [**依訂**用帳戶篩選]  / **依資源類型篩選**。 從顯示的清單中選取資源或資源群組。
+   - **警示目標：** 若要查看並選取新警示的目標，請使用 [**依訂**用帳戶篩選] / **依資源類型篩選**。 從顯示的清單中選取資源或資源群組。
 
      > [!NOTE]
      > 
-     > 您只能針對活動記錄信號選取[Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)追蹤的資源、資源群組或整個訂用帳戶。 
+     > 您只能針對活動記錄信號選取[Azure Resource Manager](../../azure-resource-manager/management/overview.md)追蹤的資源、資源群組或整個訂用帳戶。 
 
      **警示目標範例檢視**
 
@@ -92,7 +92,7 @@ ms.locfileid: "72552809"
 5. 在 [動作群組] 下，從下拉式功能表中指定您想要指派給此新警示規則的動作群組。 或者，[建立新的動作群組](../../azure-monitor/platform/action-groups.md)，並將它指派給新的規則。 若要建立新的群組，請選取 [ **+ 新增群組**]。
 
 6. 若要在建立規則後加以啟用，請針對 [在**建立時啟用規則**] 選項選取 **[是]** 。
-7. 選取 [**建立警示規則**]。
+7. 選取 [建立警示規則]。
 
     隨即會建立活動記錄的新警示規則，並在視窗的右上角顯示確認訊息。
 
@@ -130,7 +130,7 @@ ms.locfileid: "72552809"
 
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 範本
-若要使用 Azure Resource Manager 範本建立活動記錄警示，您要建立類型 `microsoft.insights/activityLogAlerts` 的資源。 然後要填入所有相關的屬性。 以下是建立活動記錄警示的範本：
+若要使用 Azure Resource Manager 範本建立活動記錄警示，您要建立類型 `microsoft.insights/activityLogAlerts`的資源。 然後要填入所有相關的屬性。 以下是建立活動記錄警示的範本：
 
 ```json
 {

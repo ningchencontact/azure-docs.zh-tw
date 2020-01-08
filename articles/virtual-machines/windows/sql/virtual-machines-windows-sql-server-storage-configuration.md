@@ -11,14 +11,14 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/05/2017
+ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: a91098d06f481afaae75eb497d5a076c3eb42c07
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 231c8cb8e66d658ad49e02fd585f6c8a1593cb2d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72896944"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75373979"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM 的儲存體組態
 
@@ -110,7 +110,6 @@ ms.locfileid: "72896944"
 ![設定現有 SQL Server VM 的儲存體](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-drive.png)
 
 
-
 ## <a name="storage-configuration"></a>儲存體組態
 
 本節提供 Azure 在 Azure 入口網站中的 SQL VM 布建或設定期間自動執行之儲存體設定變更的參考。
@@ -124,14 +123,14 @@ ms.locfileid: "72896944"
 
 Azure 會使用下列設定在 SQL Server VM 上建立存放集區。
 
-| 設定 | Value |
+| 設定 | 值 |
 | --- | --- |
 | 等量大小 |256 KB (資料倉儲)；64 KB (交易式) |
 | 磁碟大小 |每個磁碟 1 TB |
 | 快取 |讀取 |
 | 配置大小 |64 KB NTFS 配置單位大小 |
 | 復原 | 簡單復原 (無恢復功能) |
-| 資料行數目 |最多 8<sup>1</sup>的資料磁片數目 |
+| Number of columns |最多 8<sup>1</sup>的資料磁片數目 |
 
 
 <sup>1</sup> 建立存放集區之後，您就無法改變存放集區中的資料行數目。
@@ -141,9 +140,9 @@ Azure 會使用下列設定在 SQL Server VM 上建立存放集區。
 
 下表描述三個可用的工作負載類型選項以及其對應的最佳化︰
 
-| 工作負載類型 | 描述 | 最佳化 |
+| 工作負載類型 | 說明 | 最佳化 |
 | --- | --- | --- |
-| **一般** |支援大多數工作負載的預設設定 |None |
+| **一般** |支援大多數工作負載的預設設定 |無 |
 | **交易式處理** |可將儲存體最佳化來處理傳統資料庫 OLTP 工作負載。 |追蹤旗標 1117<br/>追蹤旗標 1118 |
 | **資料倉儲** |可將儲存體最佳化來處理分析和報告工作負載。 |追蹤旗標 610<br/>追蹤旗標 1117 |
 
@@ -152,4 +151,4 @@ Azure 會使用下列設定在 SQL Server VM 上建立存放集區。
 
 ## <a name="next-steps"></a>後續步驟
 
-如需有關在 Azure VM 中執行 SQL Server 的其他主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)。
+如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)。

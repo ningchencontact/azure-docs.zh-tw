@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 12/30/2019
 ms.author: cabailey
-ms.openlocfilehash: 3d467026022a7bc90babd94827d64828f59ea714
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f7d5531c8aba3e2e7abb56d82342bfda79dbc71b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518121"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610721"
 ---
-# <a name="connect-barracuda-cloudgen-firewall"></a>連接 Barracuda CloudGen 防火牆
+# <a name="connect-barracuda-cloudgen-firewall"></a>連線 Barracuda CloudGen Firewall
 
 Barracuda CloudGen Firewall （CGFW）連接器可讓您輕鬆地將 Barracuda CGFW 記錄與 Azure Sentinel 連線、查看儀表板、建立自訂警示，以及改善調查。 這可讓您深入瞭解組織的網路，並改善您的安全性作業功能。
 
@@ -45,6 +45,8 @@ Barracuda CloudGen Firewall （CGFW）連接器可讓您輕鬆地將 Barracuda C
 
 ## <a name="next-steps"></a>後續步驟
 在本檔中，您已瞭解如何將 Barracuda CloudGen 防火牆連線至 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 深入了解如何[取得資料的可見度以及潛在威脅](quickstart-get-visibility.md)。
 - 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats-built-in.md)。
+- [使用活頁簿](tutorial-monitor-your-data.md)來監視您的資料。
+
 

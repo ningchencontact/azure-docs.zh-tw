@@ -1,26 +1,21 @@
 ---
 title: 整合多個 Azure 監視器 Application Insights 資源 | Microsoft Docs
 description: 本文提供有關如何使用 Azure 監視器記錄中的函數來查詢多個 Application Insights 資源，並將該資料視覺化的詳細資訊。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.service: azure-monitor
+author: bwren
+ms.author: bwren
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: magoedte
-ms.openlocfilehash: d441b72b34da6146eba523563a09c2908cdcbbf4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 07dd4c96ba51b1ac1e0cb2807c9e26df87a6daa7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650142"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364963"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>整合多個 Azure 監視器 Application Insights 資源 
-本文說明如何在同一個位置查詢和查看所有 Application Insights 記錄資料, 即使它們位於不同的 Azure 訂用帳戶中, 也可以取代 Application Insights Connector。 您可以包含在單一查詢中的 Application Insights 資源數目限制為100。
+本文說明如何在同一個位置查詢和查看所有 Application Insights 記錄資料，即使它們位於不同的 Azure 訂用帳戶中，也可以取代 Application Insights Connector。 您可以包含在單一查詢中的 Application Insights 資源數目限制為100。
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>查詢多個 Application Insights 資源的建議方法 
 在查詢中列出多個 Application Insights 資源可能很麻煩且難以維護。 相反地，您可以利用函數將查詢邏輯與應用程序範圍分開。  
@@ -37,9 +32,9 @@ ApplicationInsights
 您可以隨時修改所列出的應用程式，方法是在入口網站中瀏覽至您工作區中的 [查詢總管] 並選取函式來進行編輯後再儲存，或是使用 `SavedSearch` PowerShell Cmdlet。 
 
 >[!NOTE]
->這個方法無法搭配記錄警示使用, 因為警示規則資源 (包括工作區和應用程式) 的存取驗證是在警示建立期間執行。 不支援在建立警示之後, 將新資源新增至函式。 如果您想要針對記錄警示中的資源範圍使用函式, 您必須在入口網站中編輯警示規則, 或使用 Resource Manager 範本來更新已設定範圍的資源。 或者, 您可以在記錄警示查詢中包含資源的清單。
+>這個方法無法搭配記錄警示使用，因為警示規則資源（包括工作區和應用程式）的存取驗證是在警示建立期間執行。 不支援在建立警示之後，將新資源新增至函式。 如果您想要針對記錄警示中的資源範圍使用函式，您必須在入口網站中編輯警示規則，或使用 Resource Manager 範本來更新已設定範圍的資源。 或者，您可以在記錄警示查詢中包含資源的清單。
 
-`withsource= SourceApp` 命令在結果中新增一個資料行，可指定傳送記錄的應用程式。 在此範例中, parse 運算子是選擇性的, 並使用從 SourceApp 屬性中解壓縮應用程式名稱。 
+`withsource= SourceApp` 命令在結果中新增一個資料行，可指定傳送記錄的應用程式。 在此範例中，parse 運算子是選擇性的，並使用從 SourceApp 屬性中解壓縮應用程式名稱。 
 
 ```
 union withsource=SourceApp 
@@ -103,20 +98,20 @@ applicationsScoping //this brings data from Application Insights resources
 | ApplicationName | appName|
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
-| AvailabilityDuration | 持續時間 |
+| AvailabilityDuration | duration |
 | AvailabilityMessage | message |
-| AvailabilityRunLocation | 位置 |
-| AvailabilityTestId | ID |
-| AvailabilityTestName | name |
+| AvailabilityRunLocation | location |
+| AvailabilityTestId | id |
+| AvailabilityTestName | NAME |
 | AvailabilityTimestamp | timestamp |
-| Browser | client_browser |
-| 縣/市 | client_city |
+| 瀏覽器 | client_browser |
+| 城市 | client_city |
 | ClientIP | client_IP |
-| Computer | cloud_RoleInstance | 
-| Country | client_CountryOrRegion | 
+| 電腦 | cloud_RoleInstance | 
+| 國家/地區 | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
-| CustomEventName | name | 
+| CustomEventName | NAME | 
 | DeviceModel | client_Model | 
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
@@ -127,16 +122,16 @@ applicationsScoping //this brings data from Application Insights resources
 | OperationName | operation_Name | 
 | OS | client_OS | 
 | PageViewCount | itemCount |
-| PageViewDuration | 持續時間 | 
-| PageViewName | name | 
+| PageViewDuration | duration | 
+| PageViewName | NAME | 
 | ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
-| RequestDuration | 持續時間 | 
-| RequestID | ID | 
-| RequestName | name | 
-| RequestSuccess | success | 
-| ResponseCode | resultCode | 
-| Role | cloud_RoleName |
+| RequestDuration | duration | 
+| RequestID | id | 
+| RequestName | NAME | 
+| RequestSuccess | 成功 | 
+| ResponseCode | ResultCode | 
+| 角色 | cloud_RoleName |
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |

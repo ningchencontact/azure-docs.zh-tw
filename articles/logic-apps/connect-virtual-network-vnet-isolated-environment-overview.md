@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 11/08/2019
-ms.openlocfilehash: 9c4dca6dc5def1b1c458f28aa2d3ab992bd705d2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/16/2019
+ms.openlocfilehash: d6bb57c8163f7653f4b10142d7ec2b34f50456f1
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792723"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75527853"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>透過整合服務環境 (ISE) 從 Azure Logic Apps 存取 Azure 虛擬網路資源
 
 有時候，您的邏輯應用程式和整合帳戶需要存取受保護的資源，例如[Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)內的虛擬機器（vm）和其他系統或服務。 若要設定此存取權，您可以[建立*整合服務環境*（ISE）](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) ，您可以在其中執行邏輯應用程式，並建立整合帳戶。
 
-當您建立 ISE 時，Azure 會將 ISE 插入*您的 azure*虛擬網路，然後將 Logic Apps 服務的私用和隔離實例部署至您的 azure 虛擬網路。 此私人執行個體使用專用資源 (例如儲存體)，並會與公用「全域」Logic Apps 服務分別執行。 分隔隔離的私用實例和公用全域實例也有助於降低其他 Azure 租使用者對您應用程式效能的影響，也就是所謂的「[雜訊鄰近](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)程度」效果。
+當您建立 ISE 時，Azure 會將 ISE 插入*您的 azure*虛擬網路，然後將 Logic Apps 服務的私用和隔離實例部署至您的 azure 虛擬網路。 此私用實例會使用專用資源（例如儲存體），並與公用、「全域」、多租使用者 Logic Apps 服務分開執行。 分隔隔離的私用實例和公用全域實例也有助於降低其他 Azure 租使用者對您應用程式效能的影響，也就是所謂的「[雜訊鄰近](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)程度」效果。 ISE 也會為您提供自己的靜態 IP 位址。 這些 IP 位址與公用、多租使用者服務中的邏輯應用程式所共用的靜態 IP 位址不同。
 
 建立 ISE 之後，當您移至建立邏輯應用程式或整合帳戶時，您可以選取您的 ISE 作為邏輯應用程式或整合帳戶的位置：
 
@@ -47,7 +47,7 @@ ISE 中的 Logic Apps 提供與全域 Logic Apps 服務相同的使用者體驗�
 
 * Azure Blob 儲存體、檔案儲存體及表格儲存體
 * Azure 佇列、Azure 服務匯流排、Azure 事件中樞和 IBM MQ
-* 檔案系統、FTP 和 SFTP-SSH
+* FTP 和 SFTP-SSH
 * SQL Server、Azure SQL 資料倉儲、Azure Cosmos DB
 * AS2、X12 及 EDIFACT
 
@@ -86,11 +86,13 @@ ISE 也會針對執行持續時間、儲存體保留、輸送量、HTTP 要求�
 
 ## <a name="ise-endpoint-access"></a>ISE 端點存取
 
-當您建立 ISE 時，您可以選擇使用內部或外部存取端點。 這些端點會判斷 ISE 中的邏輯應用程式上的要求或 webhook 觸發程式是否可以接收來自您虛擬網路外部的呼叫。 這些端點也會影響邏輯應用程式執行歷程記錄中的輸入和輸出存取。
+當您建立 ISE 時，您可以選擇使用內部或外部存取端點。 您的選擇會決定 ISE 中的邏輯應用程式上的要求或 webhook 觸發程式是否可以接收來自虛擬網路外部的呼叫。
 
-* **內部**：允許在您 ISE 中呼叫邏輯應用程式的私用端點，以及僅*從虛擬網路內部*執行歷程記錄中的輸入和輸出存取
+這些端點也會影響您可以在邏輯應用程式的執行歷程記錄中存取輸入和輸出的方式。
 
-* **外部**：允許在您 ISE 中呼叫邏輯應用程式的公用端點，以及*從虛擬網路外部*執行歷程記錄中的輸入和輸出存取
+* **內部**：允許在您的 ISE 中呼叫邏輯應用程式的私用端點，您可以在其中查看及存取邏輯應用程式的輸入，並*只從虛擬網路內*的執行歷程記錄中輸出
+
+* **External**：允許呼叫您 ISE 中邏輯應用程式的公用端點，您可以在其中*從虛擬網路外部*查看並存取邏輯應用程式的輸入和輸出。 如果您使用網路安全性群組（Nsg），請確定它們已設定輸入規則，以允許存取執行歷程記錄的輸入和輸出。 如需詳細資訊，請參閱[啟用 ISE 的存取權](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access)。
 
 > [!IMPORTANT]
 > [存取端點] 選項僅適用于 ISE 建立，且稍後無法變更。

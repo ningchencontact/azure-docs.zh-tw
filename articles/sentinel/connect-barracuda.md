@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5142204db86158937c16d19bf52fb677099598a5
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 97f10058038e3bf4fbcca2cf86d074869ffefed4
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72284651"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610687"
 ---
 # <a name="connect-your-barracuda-appliance"></a>連接您的 Barracuda 應用裝置 
 
@@ -32,7 +32,7 @@ Barracuda Web 應用程式防火牆（WAF）連接器可讓您輕鬆地將 Barra
 > [!NOTE]
 > 資料將會儲存在您執行 Azure Sentinel 之工作區的地理位置中。
 
-## <a name="configure-and-connect-barracuda-waf"></a>設定並連線 Barracuda WAF
+## <a name="configure-and-connect-barracuda-waf"></a>設定及連接 Barracuda WAF
 Barracuda Web 應用程式防火牆可以透過 Log Analytics 代理程式，將記錄直接整合到 Azure Sentinel，並將其匯出。
 1. 移至[BARRACUDA WAF 設定流程](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)，並遵循指示以使用下列參數來設定連線：
     - **工作區識別碼**：從 [Azure Sentinel Barracuda 連接器] 頁面複製工作區識別碼的值。
@@ -48,6 +48,8 @@ Barracuda Web 應用程式防火牆可以透過 Log Analytics 代理程式，將
 
 ## <a name="next-steps"></a>後續步驟
 在本檔中，您已瞭解如何將 Barracuda 設備連線到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 深入了解如何[取得資料的可見度以及潛在威脅](quickstart-get-visibility.md)。
 - 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats-built-in.md)。
+- [使用活頁簿](tutorial-monitor-your-data.md)來監視您的資料。
+
 

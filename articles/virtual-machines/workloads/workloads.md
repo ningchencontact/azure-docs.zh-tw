@@ -14,21 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/20/2019
 ms.author: cynthn
-ms.openlocfilehash: 11d503e7dd15f148208da65d551f9c6ae71a7e7f
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: a08a8c6afd4670bea1c3775466d23135016bf08c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265578"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75373259"
 ---
 # <a name="workloads-on-azure-virtual-machines"></a>Azure 上的工作負載虛擬機器
 
 Azure 中的虛擬機器可支援許多工作負載。 每個工作負載都可以針對在 Azure 中的 Vm 上進行部署的最佳設計，提供專門的指導方針。 以下是我們可以為特製化工作負載提供的一些指引。
 
 - Azure 中的[高效](./hpc/overview.md)能運算會使用 CPU 或 GPU 優化的虛擬機器，來解決複雜、計算密集型的問題。
-- Azure 中的[sap](./sap/get-started.md)可以在可調整、符合規範且經企業證明的平臺上執行您的任務關鍵性 SAP 工作負載和案例。
-- [Oracle](./oracle/oracle-considerations.md)支援在以 Oracle Linux 為基礎的虛擬機器映射上，于 Azure 中執行 Oracle DB 12.1 Standard 和 Enterprise edition。 
-- [大型主機重新裝載](./mainframe-rehosting/overview.md) 
+- Azure 上的[sap](./sap/get-started.md)可以在可調整、符合規範且經企業證明的平臺上執行您的任務關鍵性 SAP 工作負載和案例。
+- [Oracle](./oracle/oracle-considerations.md)支援在以 Oracle Linux 為基礎的虛擬機器映射上，于 Azure 中執行 Oracle DB 12.1 Standard 和 Enterprise edition。
+- Azure 上的[Red hat](./redhat/redhat-overview.md)支援透過各種 Red Hat Enterprise Linux 映射供應專案和 Red Hat 更新基礎結構，以隨選提供更新。
+- [大型主機重新裝載](./mainframe-rehosting/overview.md)
 
 
 

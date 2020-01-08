@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8025228275afeb3f23268db759eb7659b9887132
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
-ms.translationtype: MT
+ms.openlocfilehash: cdddf284028c6fc9749082e1991e5b9dee4acf99
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670790"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560363"
 ---
 # <a name="azure-storage-redundancy"></a>Azure 儲存體備援
 
@@ -32,25 +32,27 @@ Azure 儲存體會定期驗證使用迴圈冗余檢查（CRCs）所儲存之資�
 
 下表快速簡要說明針對所指定類型的事件 (或具有類似影響的事件)，每個複寫策略將為您提供的持久性和可用性範圍。
 
-| 狀況                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | 切換/RA-切換（預覽）                              |
+| 案例                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | 切換/RA-切換（預覽）                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | 資料中心內的節點無法供使用                                                                 | 是                             | 是                              | 是                                  | 是                                  |
-| 整個資料中心 (區域或非區域) 變成無法供使用                                           | 否                              | yes                              | 是                                  | 是                                  |
-| 全區域服務中斷                                                                                     | 否                              | 否                               | yes                                  | 是                                  |
+| 整個資料中心 (區域或非區域) 變成無法供使用                                           | 否                              | 是                              | 是                                  | 是                                  |
+| 全區域服務中斷                                                                                     | 否                              | 否                               | 是                                  | 是                                  |
 | 在全區域服務無法供使用的情況下對資料 (位於遠端、異地複寫區域) 進行讀取存取 | 否                              | 否                               | 是（使用 RA-GRS）                                   | 是（使用 RA-切換）                                 |
-| 設計為可在指定的一年中讓物件持久性達到 \_\_                                          | 至少 99.999999999% (11 個 9) | 至少 99.9999999999% (12 個 9) | 至少 99.99999999999999% (16 個 9) | 至少 99.99999999999999% (16 個 9) |
-| 支援的儲存體帳戶類型                                                                   | GPv2、GPv1、Blob                | GPv2                             | GPv2、GPv1、Blob                     | GPv2                     |
-| 讀取要求的可用性 SLA | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | GRS 至少 99.9% （非經常性存取層為 99%）<br /><br />針對 RA-GRS，至少 99.99% （非經常性存取層為 99.9%） | 切換至少 99.9% （非經常性存取層為 99%）<br /><br />針對 RA-切換，至少 99.99% （非經常性存取層為 99.9%） |
-| 寫入要求的可用性 SLA | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) |
+| 設計為在指定的一年內提供物件的 \_\_ 持久性<sup>1</sup>                                          | 至少 99.999999999% (11 個 9) | 至少 99.9999999999% (12 個 9) | 至少 99.99999999999999% (16 個 9) | 至少 99.99999999999999% (16 個 9) |
+| 支援的儲存體帳戶類型<sup>2</sup>                                                                   | GPv2、GPv1、BlockBlobStorage、BlobStorage、FileStorage                | GPv2、BlockBlobStorage、FileStorage                             | GPv2、GPv1、BlobStorage                     | GPv2                     |
+| 讀取要求的可用性 SLA<sup>1</sup>  | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | GRS 至少99.9% （非經常性存取層為99%）<br /><br />針對 RA-GRS，至少99.99% （非經常性存取層為99.9%） | 切換至少99.9% （非經常性存取層為99%）<br /><br />針對 RA-切換，至少99.99% （非經常性存取層為99.9%） |
+| 寫入要求的可用性 SLA<sup>1</sup>  | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) | 至少 99.9% (非經常性存取層為 99%) |
 
-系統會複寫儲存體帳戶中的所有資料，包括區塊 blob 和附加 blob、分頁 blob、佇列、資料表和檔案。 雖然 ZRS 需要一般用途 v2 儲存體帳戶，但會複寫所有類型的儲存體帳戶。
+<sup>1</sup>如需持續性和可用性 Azure 儲存體保證的相關資訊，請參閱[Azure 儲存體 SLA](https://azure.microsoft.com/support/legal/sla/storage/)。   
 
-如需每個備援選項的定價資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。 
+<sup>2</sup>如需儲存體帳戶類型的資訊，請參閱[儲存體帳戶總覽](storage-account-overview.md)。
 
-如需 Azure 儲存體持續性和可用性保證的相關資訊，請參閱 [Azure 儲存體 SLA](https://azure.microsoft.com/support/legal/sla/storage/)。
+系統會複寫所有儲存體帳戶類型的所有資料，包括區塊 blob、附加 blob、分頁 blob、佇列、資料表和檔案。
+
+如需每個備援選項的定價資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。
 
 > [!NOTE]
-> Azure 進階儲存體目前僅支援本機多餘的儲存體（LRS）。
+> Azure Premium 磁碟儲存體目前僅支援本機多餘的儲存體（LRS）。 Azure Premium 封鎖 Blob 儲存體在特定區域中支援本地備援儲存體（LRS）和區域備援儲存體（ZRS）。
 
 ## <a name="changing-replication-strategy"></a>變更複寫策略
 
@@ -67,8 +69,9 @@ Azure 儲存體會定期驗證使用迴圈冗余檢查（CRCs）所儲存之資�
 
 如果您將儲存體帳戶從 GRS 到 GRS 或 LRS 遷移，則該帳戶會以 RA-GRS 計費，超過其轉換日期的30天。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
+- [儲存體帳戶總覽](storage-account-overview.md)
 - [本地備援儲存體 (LRS)：適用於 Azure 儲存體的低成本資料備援](storage-redundancy-lrs.md)
 - [區域備援儲存體 (ZRS)：高可用性 Azure 儲存體應用程式](storage-redundancy-zrs.md)
 - [異地備援儲存體 (GRS)：適用於 Azure 儲存體的跨區域複寫](storage-redundancy-grs.md)
@@ -76,4 +79,4 @@ Azure 儲存體會定期驗證使用迴圈冗余檢查（CRCs）所儲存之資�
 - [Azure 儲存體的延展性與效能目標](storage-scalability-targets.md)
 - [使用 RA-GRS 儲存體設計高可用性應用程式](../storage-designing-ha-apps-with-ragrs.md)
 - [Microsoft Azure 儲存體的重複選項和讀取權限異地多餘儲存體](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-- [SOSP 文件 - Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) \(英文\)
+- [SOSP 文件：Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

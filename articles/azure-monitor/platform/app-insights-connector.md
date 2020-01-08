@@ -4,15 +4,15 @@ description: 您可以使用 Applications Insights Connector 解決方案來診�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: b956c3bc7d04908db1cc45092cf5926ecfcc305c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d0cfca44878130e870c633040afcfbdd55ba8b7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932736"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396559"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights Connector 管理解決方案 (取代)
 
@@ -43,7 +43,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 不同於大部分其他 Log Analytics 解決方案，代理程式不會收集 Application Insights Connector 的資料。 解決方案使用的所有資料直接來自於 Azure。
 
-| 連接的來源 | 支援的 | 描述 |
+| 連接的來源 | 支援的 | 說明 |
 | --- | --- | --- |
 | [Windows 代理程式](../../azure-monitor/platform/agent-windows.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
 | [Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md) | 否 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
@@ -61,7 +61,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](../../azure-monitor/insights/solutions.md)中所述的程序，啟用 Azure Web Apps 分析解決方案。
 2. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。 選取 [所有服務] 來開啟 Application Insights。 然後，搜尋 Application Insights。 
 3. 在 [訂用帳戶] 之下，選取擁有 Application Insights 資源的訂用帳戶，然後在 [名稱] 之下，選取一或多個應用程式。
-4. 按一下 [儲存]。
+4. 按一下 [檔案]。
 
 大約 30 分鐘內，資料就會變成可用，而且 Application Insights 圖格資料會更新，如下圖所示：
 
@@ -163,7 +163,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 - 可用性
 - 例外狀況
-- Requests
+- 要求
 - 頁面檢視 – 為了讓工作區接收頁面檢視，您必須設定您的應用程式來收集該資訊。 如需詳細資訊，請參閱 [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views)。
 - 自訂事件 – 為了讓工作區接收訂事件，您必須設定您的應用程式來收集該資訊。 如需詳細資訊，請參閱 [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)。
 
@@ -175,9 +175,9 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="generic-fields"></a>一般欄位
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
-| Type | ApplicationInsights |
+| 類型 | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | 記錄的時間 |
 | ApplicationId | Application Insights 應用程式的檢測金鑰 |
@@ -201,7 +201,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="availability-specific-fields"></a>可用性專屬欄位
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | TelemetryType | 可用性 |
 | AvailabilityTestName | Web 測試的名稱 |
@@ -226,7 +226,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="exception-specific-fields"></a>例外狀況專屬欄位
 
-| Type | ApplicationInsights |
+| 類型 | ApplicationInsights |
 | --- | --- |
 | TelemetryType | 例外狀況 |
 | ExceptionType | 例外狀況的類型 |
@@ -243,9 +243,9 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="request-specific-fields"></a>要求專屬欄位
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
-| Type | ApplicationInsights |
+| 類型 | ApplicationInsights |
 | TelemetryType | 要求 |
 | ResponseCode | 傳送至用戶端的 HTTP 回應 |
 | RequestSuccess | 指出成功或失敗。 True 或 False。 |
@@ -262,7 +262,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 | RequestDurationMax | 對於取樣記錄，此欄位會顯示代表性資料點的最大要求持續時間 (毫秒) |
 | RequestDurationStdDev | 對於取樣記錄，此欄位會顯示代表性資料點的所有要求持續時間 (毫秒) 之間的標準差 |
 
-## <a name="sample-log-searches"></a>記錄檔搜尋範例
+## <a name="sample-log-searches"></a>記錄搜尋範例
 
 此解決方案並沒有一組顯示在儀表板上的範例記錄搜尋。 不過，[檢視 Application Insights Connector 資訊](#view-application-insights-connector-information)一節會顯示範例記錄搜尋查詢及說明。
 

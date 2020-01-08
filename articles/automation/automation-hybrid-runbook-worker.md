@@ -2,19 +2,15 @@
 title: Azure 自動化 Hybrid Runbook Worker
 description: 本文提供有關安裝和使用混合式 Runbook 背景工作角色的資訊，它是 Azure 自動化的一項功能，可供您在本機資料中心內或雲端提供者的機器上用來執行 Runbook。
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/05/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 7329d32c01f005f4f5a727f80c6af0b58982b41f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fd90b98f4df195297e31a5dda91f64efcc1f5212
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850256"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658032"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>使用混合式 Runbook 背景工作角色將資料中心內或雲端的資源自動化
 
@@ -26,7 +22,7 @@ Azure 自動化中的 Runbook 可能無法存取其他雲端或內部部署環�
 
 每一個混合式 Runbook 背景工作是您安裝代理程式時指定的混合式 Runbook 背景工作群組的成員。 群組可包含單一代理程式，但您可以在群組中安裝多個代理程式以獲得高可用性。 每部機器可以將一個混合式背景工作角色報告裝載到一個自動化帳戶。
 
-在 Hybrid Runbook Worker 上啟動 Runbook 時，您會指定要執行它的群組。 每個群組中的背景工作角色會對 Azure 自動化進行輪詢，以查看是否有任何可用的作業。 若有可用的作業，會由第一個取得該作業的背景工作角色負責。 作業佇列的處理時間取決於混合式背景工作角色的硬體設定檔和負載。 您無法指定特定背景工作角色。 混合式 Runbook 背景工作角色不會共用 Azure 沙箱所具有的諸多限制。 它們在磁碟空間、記憶體或網路通訊端上並沒有相同的限制。 混合式 Runbook 背景工作角色只會受限於混合式 Runbook 背景工作角色本身上的資源。 此外，混合式 Runbook 背景工作角色不會共用 Azure 沙箱所具有的 180 分鐘[公平共用](automation-runbook-execution.md#fair-share)時間限制。 若要深入了解 Azure 沙箱和混合式 Runbook 背景工作角色的服務限制，請參閱作業[限制](../azure-subscription-service-limits.md#automation-limits)頁面。
+在 Hybrid Runbook Worker 上啟動 Runbook 時，您會指定要執行它的群組。 每個群組中的背景工作角色會對 Azure 自動化進行輪詢，以查看是否有任何可用的作業。 若有可用的作業，會由第一個取得該作業的背景工作角色負責。 作業佇列的處理時間取決於混合式背景工作角色的硬體設定檔和負載。 您無法指定特定背景工作角色。 混合式 Runbook 背景工作角色不會共用 Azure 沙箱所具有的諸多限制。 它們在磁碟空間、記憶體或網路通訊端上並沒有相同的限制。 混合式 Runbook 背景工作角色只會受限於混合式 Runbook 背景工作角色本身上的資源。 此外，混合式 Runbook 背景工作角色不會共用 Azure 沙箱所具有的 180 分鐘[公平共用](automation-runbook-execution.md#fair-share)時間限制。 若要深入了解 Azure 沙箱和混合式 Runbook 背景工作角色的服務限制，請參閱作業[限制](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)頁面。
 
 ## <a name="install-a-hybrid-runbook-worker"></a>安裝混合式 Runbook 背景工作角色
 

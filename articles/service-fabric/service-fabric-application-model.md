@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric 應用程式模型 | Microsoft Docs
-description: 如何在 Service Fabric 中建立模型和描述應用程式與服務。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Azure Service Fabric 應用程式模型
+description: 如何使用應用程式和服務資訊清單檔案，在 Azure Service Fabric 中建立應用程式和服務的模型並加以描述。
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 750970233cbcb14d901dbb5fa94f649f6ff8ae6c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7179686b7d4ef2df267cb95ece8f83d5fb7682b8
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60621398"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551874"
 ---
 # <a name="model-an-application-in-service-fabric"></a>在 Service Fabric 中模型化應用程式
 本文提供 Azure Service Fabric 應用程式模型的概觀，以及如何透過資訊清單檔案定義應用程式和服務。
@@ -31,7 +20,7 @@ ms.locfileid: "60621398"
 
 應用程式類型是應用程式的分類，由服務類型的組合所組成。 服務類型是一項服務分類。 分類可以有不同的設定和組態，但是核心功能保持不變。 服務的執行個體是相同服務類型的不同服務組態變形。  
 
-應用程式和服務的類別 (或「類型」) 是透過 XML 檔案 (應用程式資訊清單和服務資訊清單) 來說明。  資訊清單可描述應用程式與服務，並且是應用程式可以從叢集的映像存放區具現化的範本。  [應用程式及服務資訊清單](service-fabric-application-and-service-manifests.md)中詳細說明資訊清單。 ServiceManifest.xml 和 ApplicationManifest.xml 檔案的結構描述定義是和 Service Fabric SDK 及工具一起安裝在 C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd  。 XML 結構描述則記載在 [ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)中。
+應用程式和服務的類別 (或「類型」) 是透過 XML 檔案 (應用程式資訊清單和服務資訊清單) 來說明。  資訊清單可描述應用程式與服務，並且是應用程式可以從叢集的映像存放區具現化的範本。  [應用程式及服務資訊清單](service-fabric-application-and-service-manifests.md)中詳細說明資訊清單。 ServiceManifest.xml 和 ApplicationManifest.xml 檔案的結構描述定義是和 Service Fabric SDK 及工具一起安裝在 C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd。 XML 結構描述則記載在 [ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)中。
 
 不同應用程式執行個體的程式碼會以個別程序的形式執行，即使是由相同的 Service Fabric 節點所裝載。 此外，每個應用程式執行個體的生命週期可以獨立進行管理 (例如，升級)。 下圖顯示應用程式類型如何由服務類型組成，依序分別為程式碼、組態和資料套件的組成。 為了簡化此圖，只會顯示 `ServiceType4` 的程式碼/組態/資料套件，但每個服務類型都包含這其中部分或所有的套件類型。
 

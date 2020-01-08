@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 398b68221681f0d14dbcc20ac7c0cb603313eaee
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f6a7f3e4e1470bc3788ceae68f035f68f05ae449
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919458"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423541"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>呼叫 web Api 的 web 應用程式-取得應用程式的權杖
 
@@ -33,7 +33,7 @@ ms.locfileid: "74919458"
 
 控制器方法會受到 `[Authorize]` 屬性的保護，強制使用者進行驗證以使用 Web 應用程式。 以下是呼叫 Microsoft Graph 的程式碼。
 
-```CSharp
+```csharp
 [Authorize]
 public class HomeController : Controller
 {
@@ -54,7 +54,7 @@ ASP.NET 會透過相依性插入來插入 `ITokenAcquisition` 服務。
 
 以下是 HomeController 動作的簡化程式碼，它會取得用來呼叫 Microsoft Graph 的 token。
 
-```CSharp
+```csharp
 public async Task<IActionResult> Profile()
 {
  // Acquire the access token
@@ -153,7 +153,7 @@ public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServlet
 
 在 python 範例中，呼叫 Microsoft graph 的程式碼位於[.py # L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62)。
 
-它會嘗試從權杖快取取得權杖，然後在設定 authorization 標頭之後呼叫 eb API。 如果無法這麼做，則會重新登入使用者。
+它會嘗試從權杖快取取得權杖，然後在設定 authorization 標頭之後呼叫 Web API。 如果無法這麼做，則會重新登入使用者。
 
 ```python
 @app.route("/graphcall")

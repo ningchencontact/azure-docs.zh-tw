@@ -4,15 +4,15 @@ description: 本文說明在 Azure 監視器中將 Configuration Manager 連線�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: fee6f09ba8e290ae6599f07d4ed831fb89427f76
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2262c951b52ef58006bacde4be76dc92468a20ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932646"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364045"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>將 Configuration Manager 連接到 Azure 監視器
 您可以將 System Center Configuration Manager 環境連線到 Azure 監視器，以同步處理裝置集合資料，並在 Azure 監視器和 Azure 自動化中參考這些集合。  
@@ -22,7 +22,7 @@ ms.locfileid: "72932646"
 Azure 監視器支援 System Center Configuration Manager 最新分支1606版和更高版本。
 
 >[!NOTE]
->與 Log Analytics 工作區連線 Configuration Manager 的功能是選擇性的，而且預設不會啟用。 您必須先啟用這項功能，才能使用它。 如需詳細資訊，請參閱[從更新啟用選擇性功能](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_options)。
+>與 Log Analytics 工作區連線 Configuration Manager 的功能是選擇性的，而且預設不會啟用。 您必須先先啟用這項功能才能使用它。 如需詳細資訊，請參閱[從更新啟用選擇性功能](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_options)。
 
 ## <a name="configuration-overview"></a>組態概觀
 
@@ -80,8 +80,8 @@ Azure 監視器支援 System Center Configuration Manager 最新分支1606版和
 
 4. 在 Azure 服務嚮導的 [Azure 服務] 頁面上：
 
-    1. 在 Configuration Manager 中指定物件的**名稱**。
-    2. 指定可協助您識別服務的選擇性**描述**。
+    1. 為 Configuration Manager 中的物件指定 [名稱]。
+    2. 指定選用 [描述] 以協助您識別服務。
     3. 選取 [Azure 服務**OMS 連接器**]。
 
     >[!NOTE]
@@ -109,7 +109,7 @@ Azure 監視器支援 System Center Configuration Manager 最新分支1606版和
 
     8. 選取 [**驗證**]，然後在右側顯示 [**成功驗證**的結果！]。
 
-8. **在 [設定**] 頁面上，檢查資訊以確認 [ **azure**訂用帳戶]、[ **azure 資源群組**] 和 [ **Operations Management Suite 工作區**] 欄位已預先填入，指出 Azure AD 應用程式具有資源群組中的足夠許可權。 如果欄位是空的，則表示您的應用程式沒有必要的許可權。 選取要收集並轉寄到工作區的裝置集合，然後選取 [**新增**]。
+8. **在 [設定**] 頁面上，檢查 [確認**azure**訂用帳戶]、[ **azure 資源群組**] 和 [ **Operations Management Suite 工作區**] 欄位是否已預先填入資訊，指出 Azure AD 應用程式在資源群組中具有足夠的許可權。 如果欄位是空的，則表示您的應用程式沒有必要的許可權。 選取要收集並轉寄到工作區的裝置集合，然後選取 [**新增**]。
 
 9. 檢查 [**確認設定**] 頁面上的選項，然後選取 **[下一步]** 以開始建立和設定連線。
 
@@ -150,4 +150,4 @@ Azure 監視器支援 System Center Configuration Manager 最新分支1606版和
 
 ## <a name="next-steps"></a>後續步驟
 
-請使用 [記錄檔搜尋][](../../azure-monitor/log-query/log-query-overview.md)，檢視有關 Configuration Manager 資料的詳細資訊。
+請使用 [記錄檔搜尋](../../azure-monitor/log-query/log-query-overview.md)，檢視有關 Configuration Manager 資料的詳細資訊。

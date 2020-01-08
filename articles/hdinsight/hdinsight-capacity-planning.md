@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: d8d5ecd64ba689dc9cce342513702d8359038162
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9080a0f327aae50a87b5e69ec157a46181a38a65
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682265"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640936"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 叢集的容量規劃
 
@@ -47,7 +47,7 @@ HDInsight 可在多個 Azure 區域中使用。 若要尋找最接近的區域�
 
 部署 HDInsight 叢集之後，您可以連接額外的 Azure 儲存體帳戶，或存取其他 Data Lake Storage。 所有的儲存體帳戶都必須與您的叢集位於相同的位置。 Data Lake Storage 可位於不同的位置，雖然這樣可能會導致某些資料的讀取/寫入延遲。
 
-Azure 儲存體有某些[容量限制](../azure-subscription-service-limits.md#storage-limits)，但 Data Lake Storage Gen1 幾乎不受限制。
+Azure 儲存體有某些[容量限制](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)，但 Data Lake Storage Gen1 幾乎不受限制。
 
 叢集可以存取不同儲存體帳戶的組合。 典型的範例包括：
 
@@ -92,7 +92,17 @@ Azure 儲存體有某些[容量限制](../azure-subscription-service-limits.md#s
 
 ## <a name="quotas"></a>配額
 
-決定您的目標叢集 VM 大小、縮放比例和類型之後，請檢查您訂用帳戶的目前配額容量限制。 當您觸達配額限制時，可能無法部署新的叢集，或新增更多背景工作節點來將現有的叢集相應放大。 唯一的配額限制是 CPU 核心配額，其存在於每個訂用帳戶區域層級。 例如，您的訂用帳戶在美國東部區域可能有 30 個核心限制。 如果您需要要求增加配額，請執行下列步驟：
+決定您的目標叢集 VM 大小、縮放比例和類型之後，請檢查您訂用帳戶的目前配額容量限制。 當您觸達配額限制時，可能無法部署新的叢集，或新增更多背景工作節點來將現有的叢集相應放大。 唯一的配額限制是 CPU 核心配額，其存在於每個訂用帳戶區域層級。 例如，您的訂用帳戶在美國東部區域可能有 30 個核心限制。 
+
+若要檢查可用的核心，請執行下列步驟：
+
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
+2. 流覽至 HDInsight 叢集的 [**總覽**] 頁面。 
+3. 在左側功能表上，按一下 [**配額限制**]。
+
+   此頁面會顯示使用中的核心數目、可用的核心數目，以及核心總數。
+
+如果您需要要求增加配額，請執行下列步驟：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 1. 選取頁面左下方的 [說明 **+ 支援**]。
@@ -115,7 +125,7 @@ Azure 儲存體有某些[容量限制](../azure-subscription-service-limits.md#s
 
 您可以[連絡支援人員以要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。
 
-不過，有一些固定的配額限制，例如單一 Azure 訂用帳戶最多可以有 10,000 個核心。 如需這些限制的詳細資料，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](https://docs.microsoft.com/azure/azure-subscription-service-limits)。
+不過，有一些固定的配額限制，例如單一 Azure 訂用帳戶最多可以有 10,000 個核心。 如需這些限制的詳細資料，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD 權利管理中的委派和角色-Azure Active Directory
+title: 權利管理中的委派和角色-Azure AD
 description: 瞭解如何將 IT 系統管理員的存取管理委派給部門經理和專案經理，讓他們可以自行管理存取權。
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d68728c4ca4f9fe511faedcf2ca177b7160f112
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174268"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422591"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Azure AD 權利管理中的委派和角色
 
@@ -67,7 +67,7 @@ ms.locfileid: "73174268"
 
 | User | 工作角色 | Azure AD 角色 | 權利管理角色 |
 | --- | --- | --- | --- |
-| Hana | IT 系統管理員 | 全域管理員或使用者管理員 |  |
+| Hana | IT 管理員 | 全域管理員或使用者管理員 |  |
 | Mamta | 行銷經理 | User | 目錄建立者和目錄擁有者 |
 | Bob | 行銷組長 | User | 目錄擁有者 |
 | Jessica | 行銷專案經理 | User | 存取套件管理員 |
@@ -76,7 +76,7 @@ ms.locfileid: "73174268"
 
 權利管理具有下列專屬於權利管理的角色。
 
-| 權利管理角色 | 描述 |
+| 權利管理角色 | 說明 |
 | --- | --- |
 | 目錄建立者 | 建立和管理目錄。 通常是不是全域管理員的 IT 系統管理員，或是資源集合的資源擁有者。 建立類別目錄的人員會自動成為目錄的第一個目錄擁有者，而且可以新增其他目錄擁有者。 目錄建立者無法管理或查看其未擁有的類別目錄，也無法將其本身未擁有的資源新增至目錄。 如果目錄建立者需要管理另一個類別目錄，或新增其未擁有的資源，他們可以要求成為該目錄或資源的共同擁有者。 |
 | 目錄擁有者 | 編輯和管理現有的目錄。 通常是 IT 系統管理員或資源擁有者，或是目錄擁有者已指定的使用者。 |
@@ -84,18 +84,18 @@ ms.locfileid: "73174268"
 
 此外，指定的核准者和存取套件的要求者也具有許可權，但它們並不是角色。
 
-| Right | 描述 |
+| Right | 說明 |
 | --- | --- |
 | 核准者 | 由原則授權以核准或拒絕存取封裝的要求，但無法變更存取套件定義。 |
-| 申請者 | 由存取封裝的原則授權，以要求該存取封裝。 |
+| Requestor | 由存取封裝的原則授權，以要求該存取封裝。 |
 
 下表列出權利管理角色可以執行的工作。
 
-| Task | Admin | 目錄建立者 | 目錄擁有者 | 存取套件管理員 |
+| Task | 管理 | 目錄建立者 | 目錄擁有者 | 存取套件管理員 |
 | --- | :---: | :---: | :---: | :---: |
 | [委派給目錄建立者](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
 | [新增已連線的組織](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
-| [建立新的目錄](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| [[建立新的目錄]](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [將資源新增至目錄](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [新增目錄擁有者](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [編輯目錄](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
