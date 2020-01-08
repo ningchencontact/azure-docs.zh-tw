@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4d06b913241d728f4081299fdb64e8c664d6c2d3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ed5e5c63bed90136e498491a6735cbaa127cf1f9
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471633"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689675"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>教學課程：在 Resource Manager 範本中新增標記
 
@@ -36,7 +36,7 @@ ms.locfileid: "75471633"
 
 下列範例會反白顯示對範本所做的變更。 複製整個檔案，並以其內容取代您的範本。
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
+[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,86,103)]
 
 ## <a name="deploy-template"></a>部署範本
 

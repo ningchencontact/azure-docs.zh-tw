@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: b417823d0ec7ed838186d53c1bb25400a148e0e9
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 1790a7806b1abbe4d537f309f33dee686e30662b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533899"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645033"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>教學課程：使用 Azure Toolkit for IntelliJ 建立適用於 HDInsight 叢集的 Apache Spark 應用程式
 
@@ -29,7 +29,7 @@ ms.locfileid: "74533899"
 > * 開發 Apache Spark 應用程式
 > * 將應用程式提交至 Azure HDInsight 叢集
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 
@@ -73,18 +73,18 @@ ms.locfileid: "74533899"
 
 6. 在 [新增專案]  視窗中，提供下列資訊：  
 
-    |  屬性   | 說明   |  
+    |  屬性   | 描述   |  
     | ----- | ----- |  
-    |專案名稱| 輸入名稱。  本教學課程會使用 `myApp`。|  
+    |專案名稱| 輸入名稱。  本教學課程使用 `myApp`。|  
     |專案&nbsp;位置| 輸入所要的位置以儲存您的專案。|
     |專案 SDK| 您第一次使用 IDEA 時，這可能是空白的。  選取 [新增...]  並瀏覽至您的 JDK。|
-    |Spark 版本|建立精靈會為 Spark SDK 和 Scala SDK 整合正確的版本。 如果 Spark 叢集是 2.0 以前的版本，請選取 [Spark 1.x]  。 否則，請選取 [Spark2.x]  。 此範例使用 **Spark 2.3.0 (Scala 2.11.8)** 。|
+    |Spark 版本|建立精靈會為 Spark SDK 和 Scala SDK 整合正確的版本。 如果 Spark 叢集版本早於 2.0，請選取 [Spark 1.x]  。 否則，請選取 [Spark 2.x]  。 此範例使用 **Spark 2.3.0 (Scala 2.11.8)** 。|
 
     ![選取 Apache Spark SDK](./media/apache-spark-intellij-tool-plugin/intellij-new-project.png)
 
 7. 選取 [完成]  。  可能需要幾分鐘的時間，專案才會變成可用。
 
-8. Spark 專案會自動為您建立構件。 若要檢視構件，請執行下列動作：
+8. Spark 專案會自動為您建立成品。 若要檢視構件，請執行下列動作：
 
    a. 從功能表中，瀏覽至 [檔案]   > [專案結構...]  。
 
@@ -92,7 +92,7 @@ ms.locfileid: "74533899"
 
    c. 檢視成品之後，請選取 [取消]  。
 
-      ![對話方塊中的構件資訊](./media/apache-spark-intellij-tool-plugin/default-artifact-dialog.png)
+      ![對話方塊中的成品資訊](./media/apache-spark-intellij-tool-plugin/default-artifact-dialog.png)
 
 9. 若要新增應用程式的原始程式碼，請執行下列動作：
 
@@ -200,7 +200,7 @@ ms.locfileid: "74533899"
         |連結資源類型|從下拉式清單中選取 [Livy 服務]  。|
         |Livy 端點| 輸入 Livy 端點|
         |叢集名稱| 輸入叢集名稱。|
-        |Yarn 端點|選用。|
+        |Yarn 端點|選擇性。|
         |驗證類型| 保留 [基本驗證] |
         |使用者名稱| 輸入叢集使用者名稱，預設值是 admin。|
         |密碼| 輸入使用者名稱的密碼。|
@@ -219,7 +219,7 @@ ms.locfileid: "74533899"
 
 建立 Scala 應用程式之後，您可以將它提交到叢集。
 
-1. 從專案中，瀏覽至 [myApp]   > [src]   > [main]   > [scala]   > [myApp]  。  以滑鼠右鍵按一下 [myApp]  ，然後選取 [提交 Spark 應用程式]\  (可能位於清單底部)。
+1. 在 [Project] \(專案\) 中，瀏覽至 [myApp]   > [src]   > [main]   > [scala]   > [myApp]  。  以滑鼠右鍵按一下 [myApp]  ，然後選取 [提交 Spark 應用程式]\  (可能位於清單底部)。
 
       ![[將 Spark 應用程式提交給 HDInsight] 命令](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
 
@@ -229,21 +229,21 @@ ms.locfileid: "74533899"
 
     |屬性 |值 |
     |----|----|
-    |Spark 叢集 (僅限 Linux)|選取您要在其中執行應用程式的 HDInsight Spark 叢集。|
+    |Spark clusters (Linux only) (Spark 叢集 (僅限 Linux))|選取您要在其中執行應用程式的 HDInsight Spark 叢集。|
     |選取要提交的成品|保留預設值。|
-    |主類別名稱|預設值是來自所選取檔案的主類別。 選取省略符號 ( **...** ) 並選擇另一個類別，即可變更類別。|
-    |作業設定|您可以變更預設的金鑰和/或值。 如需詳細資訊，請參閱 [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html)。|
+    |Main class name (主要類別名稱)|預設值是所選取檔案中的主要類別。 您可以選取省略號 ( **...** ) 並選擇另一個類別來變更類別。|
+    |作業設定|您可以變更預設的金鑰和/或值。 如需詳細資訊，請參閱 [Apache Livy REST API](https://livy.incubator.apache.org/docs/latest/rest-api.html)。|
     |命令列引數|如有需要，您可以為主類別輸入以空格隔開的引數。|
-    |參考的 Jar 和參考的檔案|您可以輸入參考的 Jar 和檔案的路徑 (如果有的話)。 您也可以在 Azure 虛擬檔案系統中瀏覽檔案；此系統目前僅支援 ADLS Gen 2 叢集。 其他資訊：[Apache Spark 設定](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)。  也請參閱[如何將資源上傳至叢集](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)。|
+    |參考的 Jar 和參考的檔案|如果有任何要參考的 Jar 或檔案，您可以輸入其路徑。 您也可以在 Azure 虛擬檔案系統中瀏覽檔案；此系統目前僅支援 ADLS Gen 2 叢集。 其他資訊：[Apache Spark 設定](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)。  也請參閱[如何將資源上傳至叢集](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)。|
     |作業上傳儲存體|展開以顯示其他選項。|
-    |儲存體類型|從下拉式清單選取 [使用 Azure Blob 上傳]  。|
+    |儲存類型|從下拉式清單選取 [使用 Azure Blob 上傳]  。|
     |儲存體帳戶|輸入儲存體帳戶。|
     |儲存體金鑰|輸入儲存體金鑰。|
     |儲存體容器|輸入**儲存體帳戶**和**儲存體金鑰**後，從下拉式清單中選取您的儲存體容器。|
 
     ![[提交 Spark] 對話方塊](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
 
-4. 選取 **SparkJobRun**，將您的專案提交至所選的叢集。 [叢集中的遠端 Spark 作業]  索引標籤會在底部顯示作業執行進度。 按一下紅色按鈕，即可停止應用程式。 若要了解如何存取作業輸出，請參閱本文稍後的＜使用適用於 IntelliJ 的 Azure 工具組來存取和管理 HDInsight Spark 叢集＞一節。  
+4. 選取 **SparkJobRun**，將您的專案提交至所選的叢集。 [Remote Spark Job in Cluster]  \(叢集中的遠端 Spark 作業\) 索引標籤在底部顯示作業執行進度。 您可以按一下紅色按鈕來停止應用程式。 若要了解如何存取作業輸出，請參閱本文稍後的＜使用適用於 IntelliJ 的 Azure 工具組來存取和管理 HDInsight Spark 叢集＞一節。  
 
     ![Apache Spark 提交視窗](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
 
@@ -298,70 +298,70 @@ ms.locfileid: "74533899"
 
 ## <a name="spark-console"></a>Spark 主控台
 
-您可以執行 Spark 本機主控台 (Scala)，或執行 Spark Livy 互動式工作階段主控台 (Scala)。
+您可以執行 Spark 本機主控台 (Scala) 或執行 Spark Livy 互動式工作階段主控台 (Scala)。
 
 ### <a name="spark-local-consolescala"></a>Spark 本機主控台 (Scala)
 
-請確定您符合 WINUTILS.EXE 的必要條件。
+請確定您已滿足 WINUTILS.EXE 的先決條件。
 
-1. 從功能表列中，瀏覽至 [執行]   > [編輯組態...]  。
+1. 從功能表列，瀏覽至 [Run]  \(執行\) > [Edit Configurations]  \(編輯設定\)。
 
 2. 在 [執行/偵錯組態]  視窗中，從左側窗格瀏覽至 [HDInsight 上的 Apache Spark]   > [HDInsight 上的 Spark]  。
 
-3. 從主視窗中，選取 [在本機執行]  索引標籤。
+3. 在主視窗中，選取 [Locally Run]  \(在本機執行\) 索引標籤。
 
-4. 提供下列值，然後選取 [確定]  ：
+4. 提供下列值，然後選取 [OK]  \(確定\)：
 
     |屬性 |值 |
     |----|----|
-    |作業主類別|預設值是來自所選取檔案的主類別。 選取省略符號 ( **...** ) 並選擇另一個類別，即可變更類別。|
-    |環境變數|請確定 HADOOP_HOME 的值正確無誤。|
-    |WINUTILS.exe 位置|請確定路徑正確無誤。|
+    |作業主要類別|預設值是所選取檔案中的主要類別。 您可以選取省略號 ( **...** ) 並選擇另一個類別來變更類別。|
+    |環境變數|請確定 HADOOP_HOME 的值是正確的。|
+    |WINUTILS.exe 位置|請確定路徑是正確的。|
 
     ![本機主控台設定組態](./media/apache-spark-intellij-tool-plugin/console-set-configuration.png)
 
-5. 從專案中，瀏覽至 [myApp]   > [src]   > [main]   > [scala]   > [myApp]  。  
+5. 在 [Project] \(專案\) 中，瀏覽至 [myApp]   > [src]   > [main]   > [scala]   > [myApp]  。  
 
-6. 從功能表列中，瀏覽至 [工具]   > [Spark 主控台]   > [執行 Spark 本機主控台 (Scala)]  。
+6. 在功能表列中，瀏覽至 [Tools]  \(工具\) > [Spark Console]  \(Spark 主控台\) > [Run Spark Local Console(Scala)]  \(執行 Spark 本機主控台 (Scala)\)。
 
-7. 接著會顯示兩個對話方塊，詢問您是否要自動修正相依性。 若是如此，請選取 [自動修正]  。
+7. 然後可能會出現兩個對話方塊，詢問您是否要自動修正相依性。 如果需要，請選取 [Auto Fix]  \(自動修正\)。
 
     ![IntelliJ IDEA Spark 自動修正對話方塊1](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix1.png)
 
     ![IntelliJ IDEA Spark 自動修正對話方塊2](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix2.png)
 
-8. 主控台將類似於下圖。 在主控台視窗中，輸入 `sc.appName`，然後按下 ctrl+Enter。  系統將顯示結果。 按一下紅色按鈕，即可終止本機主控台。
+8. 主控台看起來應該類似下面的圖片。 在主控台視窗中，輸入 `sc.appName`，然後按 Ctrl+Enter。  系統將會顯示結果。 您可以按一下紅色按鈕來終止本機主控台。
 
     ![IntelliJ IDEA 本機主控台結果](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
 
 ### <a name="spark-livy-interactive-session-consolescala"></a>Spark Livy 互動式工作階段主控台 (Scala)
 
-1. 從功能表列中，瀏覽至 [執行]   > [編輯組態...]  。
+1. 從功能表列，瀏覽至 [Run]  \(執行\) > [Edit Configurations]  \(編輯設定\)。
 
 2. 在 [執行/偵錯組態]  視窗中，從左側窗格瀏覽至 [HDInsight 上的 Apache Spark]   > [HDInsight 上的 Spark]  。
 
-3. 從主視窗中，選取 [在叢集中遠端執行]  索引標籤。
+3. 在主視窗中，選取 [Remotely Run in Cluster]  \(在叢集中遠端執行\) 索引標籤。
 
-4. 提供下列值，然後選取 [確定]  ：
+4. 提供下列值，然後選取 [OK]  \(確定\)：
 
     |屬性 |值 |
     |----|----|
-    |Spark 叢集 (僅限 Linux)|選取您要在其中執行應用程式的 HDInsight Spark 叢集。|
-    |主類別名稱|預設值是來自所選取檔案的主類別。 選取省略符號 ( **...** ) 並選擇另一個類別，即可變更類別。|
+    |Spark clusters (Linux only) (Spark 叢集 (僅限 Linux))|選取您要在其中執行應用程式的 HDInsight Spark 叢集。|
+    |Main class name (主要類別名稱)|預設值是所選取檔案中的主要類別。 您可以選取省略號 ( **...** ) 並選擇另一個類別來變更類別。|
 
-    ![互動式主控台的設定組態](./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png)
+    ![互動式主控台設定組態](./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png)
 
-5. 從專案中，瀏覽至 [myApp]   > [src]   > [main]   > [scala]   > [myApp]  。  
+5. 在 [Project] \(專案\) 中，瀏覽至 [myApp]   > [src]   > [main]   > [scala]   > [myApp]  。  
 
-6. 從功能表列中，瀏覽至 [工具]   > [Spark 主控台]   > [執行 Spark Livy 互動式工作階段主控台 (Scala)]  。
+6. 在功能表列中，瀏覽至 [Tools]  \(工具\) > [Spark Console]  \(Spark 主控台\) > [Run Spark Livy Interactive Session Console(Scala)]  \(執行 Spark Livy 互動式工作階段主控台 (Scala)\)。
 
-7. 主控台將類似於下圖。 在主控台視窗中，輸入 `sc.appName`，然後按下 ctrl+Enter。  系統將顯示結果。 按一下紅色按鈕，即可終止本機主控台。
+7. 主控台看起來應該類似下面的圖片。 在主控台視窗中，輸入 `sc.appName`，然後按 Ctrl+Enter。  系統將會顯示結果。 您可以按一下紅色按鈕來終止本機主控台。
 
     ![IntelliJ IDEA 互動式主控台結果](./media/apache-spark-intellij-tool-plugin/interactive-console-result.png)
 
 ### <a name="send-selection-to-spark-console"></a>將選取項目傳送至 Spark 主控台
 
-將一些程式碼傳送至本機主控台或 Livy 互動式工作階段主控台 (Scala)，方便您預見指令碼結果。 您可以在 Scala 檔案中醒目提示某些程式碼，然後以滑鼠右鍵按一下 [將選取項目傳送至 Spark 主控台]  。 所選的程式碼會傳送至主控台並加以執行。 結果會在主控台中顯示於程式碼之後。 主控台會檢查是否有錯誤。  
+將一些程式碼傳送至本機主控台或 Livy 互動式工作階段主控台 (Scala)，方便您預見指令碼結果。 您可以將 Scala 檔案中的某些程式碼反白顯示，然後以滑鼠右鍵按一下 [Send Selection To Spark Console]  \(傳送所選項目至 Spark 主控台\)。 所選的程式碼將會傳送至主控台並執行。 結果會在主控台中顯示於程式碼之後。 主控台會檢查錯誤 (如果有的話)。  
 
    ![將選取項目傳送至 Spark 主控台](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
 

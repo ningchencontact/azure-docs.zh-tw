@@ -3,18 +3,18 @@ title: IoT 隨插即用預覽版簡介 | Microsoft Docs
 description: 了解 IoT 隨插即用預覽版。 IoT 隨插即用以開放式模型語言為基礎，可讓 IoT 裝置宣告其功能。 當 IoT 裝置連線到雲端解決方案 (例如 Azure IoT Central 或合作夥伴應用程式) 時，即會出現該宣告，名為裝置功能模型。 接著，雲端解決方案可自動了解裝置並開始與其互動 — 您不需要撰寫任何程式碼。
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 06/21/2019
+ms.date: 12/23/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: fd1479a224255f74f4d47cfd90576a5afd25010f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 54a18bb20ab9af3ad794ed678ea3234a712bf5cb
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935402"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531157"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>什麼是 IoT 隨插即用預覽版？
 
@@ -86,6 +86,6 @@ IoT 隨插即用適用於兩種類型的開發人員：
 
 現在您已大致了解 IoT 隨插即用，建議執行的下一個步驟是嘗試進行其中一個快速入門：
 
-- [使用裝置功能模型來建立 IoT 隨插即用裝置](./quickstart-create-pnp-device.md)
-- [將裝置連線到 IoT 中樞](./quickstart-connect-pnp-device.md)
-- [連線到解決方案中的裝置](./quickstart-connect-pnp-device-solution.md)
+- [使用裝置功能模型來建立 IoT 隨插即用裝置](./quickstart-create-pnp-device-windows.md)
+- [將裝置連線到 IoT 中樞](./quickstart-connect-pnp-device-c-windows.md)
+- [連線到解決方案中的裝置](./quickstart-connect-pnp-device-solution-node.md)
