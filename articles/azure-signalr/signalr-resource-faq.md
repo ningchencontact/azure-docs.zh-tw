@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 9a8c3fd6c591f25aadc696c3c71f8c4cdfca745f
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 013cf619edd998752265b8fa7e58e36869c830c4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74157562"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450204"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service 常見問題集
 
@@ -63,8 +63,8 @@ SignalR Service 會監視來自應用程式伺服器的活動訊號。
 
 ## <a name="can-i-configure-the-transports-available-in-signalr-service-as-configuring-it-on-server-side-with-aspnet-core-signalr-for-example-disable-websocket-transport"></a>我是否可設定 SignalR Service 中的可用傳輸，如同在伺服器端為 ASP.NET Core SignalR 設定一般？ 例如，停用 WebSocket 傳輸？
 
-沒有。
+否。
 
 Azure SignalR Service 依預設會提供 ASP.NET Core SignalR 所支援的三種傳輸。 您無法加以設定。 SignalR Service 會處理所有用戶端連線的連線與傳輸。
 
-您可以依照[這裡](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports)的說明設定用戶端傳輸。
+您可以依照[這裡](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1&tabs=dotnet#configure-allowed-transports-2)的說明設定用戶端傳輸。

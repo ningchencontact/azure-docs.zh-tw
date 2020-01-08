@@ -104,7 +104,7 @@
       href: security-hardened-vm-host-image.md
     - name: Azure Kubernetes Service 診斷概觀
       href: concepts-diagnostics.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 叢集作業
       items:
@@ -218,6 +218,8 @@
           maintainContext: true
         - name: 輪替憑證
           href: certificate-rotation.md
+        - name: 建立私人叢集
+          href: private-clusters.md
     - name: 監視和記錄
       items:
         - name: 適用於容器的 Azure 監視器
@@ -309,6 +311,9 @@
         - name: 使用 適用於 PostgreSQL 的 Azure 資料庫
           href: ../postgresql/concepts-aks.md
           maintainContext: true
+        - name: 使用 Azure API 管理
+          href: ../api-management/api-management-kubernetes.md
+          maintainContext: true
     - name: 選取和部署服務網格
       items:
         - name: 關於服務網格
@@ -317,7 +322,7 @@
           items:
             - name: 關於 Istio
               href: servicemesh-istio-about.md
-            - name: 安裝及設定
+            - name: 安裝和設定
               href: servicemesh-istio-install.md
             - name: 案例 - 智慧型路由和 Canary 版本
               href: servicemesh-istio-scenario-routing.md
@@ -325,13 +330,13 @@
           items:
             - name: 關於 Linkerd
               href: servicemesh-linkerd-about.md
-            - name: 安裝及設定
+            - name: 安裝和設定
               href: servicemesh-linkerd-install.md
         - name: 使用 Consul
           items:
             - name: 關於 Consul
               href: servicemesh-consul-about.md
-            - name: 安裝及設定
+            - name: 安裝和設定
               href: servicemesh-consul-install.md
     - name: DevOps
       items:

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 08f9310c2ffdb2e7b8d4249495c2ee90b522d694
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 609b1c4500e1602c38f3383df6cbe176a3333bff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926788"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439558"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 
@@ -38,7 +38,7 @@ ms.locfileid: "74926788"
 
 本教學課程使用 Azure 入口網站。 您可以使用其他機制來與 Azure Data Factory 互動，請參閱目錄中的「快速入門」。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * **Azure 訂用帳戶**。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 * **Azure 儲存體帳戶**。 您會使用 Blob 儲存體作為**來源**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)一文，按照步驟來建立帳戶。
@@ -91,7 +91,7 @@ ms.locfileid: "74926788"
 
 ![邏輯應用程式設計工具 - 要求](media/tutorial-control-flow-portal/logic-app-designer-request.png)
 
-對於**傳送電子郵件**動作，利用要求本文 JSON 結構描述中傳遞的屬性，以自訂您要如何格式化電子郵件。 下列是一個範例：
+對於**傳送電子郵件**動作，利用要求本文 JSON 結構描述中傳遞的屬性，以自訂您要如何格式化電子郵件。 範例如下：
 
 ![邏輯應用程式設計工具 - 傳送電子郵件動作](media/tutorial-control-flow-portal/send-email-action-2.png)
 
@@ -103,7 +103,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ### <a name="fail-email-workflow"></a>失敗電子郵件工作流程 
-依照相同的步驟來建立另一個 Logic Apps 工作流程 **CopyFailEmail**。 在要求觸發程序中，`Request Body JSON schema` 相同。 變更電子郵件的格式 (例如 `Subject`)，以調整為適合失敗電子郵件。 下列是一個範例：
+依照相同的步驟來建立另一個 Logic Apps 工作流程 **CopyFailEmail**。 在要求觸發程序中，`Request Body JSON schema` 相同。 變更電子郵件的格式 (例如 `Subject`)，以調整為適合失敗電子郵件。 範例如下：
 
 ![邏輯應用程式設計工具 - 失敗電子郵件工作流程](media/tutorial-control-flow-portal/fail-email-workflow-2.png)
 
@@ -144,7 +144,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
       - 選取 [使用現有的]  ，然後從下拉式清單選取現有的資源群組。 
       - 選取 [建立新的]  ，然後輸入資源群組的名稱。   
          
-        若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
+        若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。  
 4. 針對 [版本]  選取 [V2]  。
 5. 選取 Data Factory 的 [位置]  。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 6. 選取 [釘選到儀表板]  。     

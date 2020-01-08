@@ -77,7 +77,7 @@
           href: iot-edge-modules.md
         - name: IoT Edge 代理程式和中樞屬性
           href: module-edgeagent-edgehub.md
-    - name: 開發
+    - name: 部署
       items:
         - name: 開發模組
           href: module-development.md
@@ -107,7 +107,7 @@
       href: production-checklist.md
     - name: IoT Edge 詞彙
       href: iot-edge-glossary.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 註冊 IoT Edge 裝置
       href: how-to-register-device.md
@@ -125,6 +125,10 @@
           href: how-to-install-iot-edge-ubuntuvm.md
         - name: Kubernetes
           href: how-to-install-iot-edge-kubernetes.md
+        - name: 安裝生產憑證
+          href: how-to-install-production-certificates.md
+        - name: 建立測試憑證
+          href: how-to-create-test-certificates.md
         - name: 更新執行階段版本
           href: how-to-update-iot-edge.md
     - name: 使用 DPS 自動佈建
@@ -189,7 +193,7 @@
       href: troubleshoot.md
 - name: 相關參考
   items:
-    - name: 解決方案
+    - name: 方案
       items:
         - name: IoT 中心
           href: 'https://docs.microsoft.com/microsoft-iot-central/'

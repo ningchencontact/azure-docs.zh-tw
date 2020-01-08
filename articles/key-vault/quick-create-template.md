@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/17/2019
 ms.author: jgao
-ms.openlocfilehash: 1e993ec50694d8672fbe05f982d5dbc45a815abb
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: d3c1070577ee57f18018e9b74be5e29998cc3e64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161481"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453671"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本從 Azure Key Vault 設定及擷取祕密
 
@@ -25,7 +25,7 @@ ms.locfileid: "71161481"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本文，您需要：
 
@@ -153,6 +153,6 @@ Write-Host "Press [ENTER] to continue..."
 在本快速入門中，您已使用 Azure Resource Manager 範本建立金鑰保存庫和祕密，並已驗證部署。 若要深入了解 Key Vault 和 Azure Resource Manager，請繼續閱讀下列文章。
 
 - 閱讀 [Azure Key Vault 概觀](key-vault-overview.md)
-- 深入了解 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+- 深入了解 [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 - 取得[金鑰、秘密和憑證](about-keys-secrets-and-certificates.md)的詳細資訊
 - 檢閱 [Azure Key Vault 最佳做法](key-vault-best-practices.md)

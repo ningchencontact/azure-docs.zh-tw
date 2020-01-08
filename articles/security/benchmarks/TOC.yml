@@ -1,0 +1,30 @@
+- name: Azure 安全性效能評定
+  href: index.yml
+- name: 簡介
+  href: introduction.md
+- name: 安全性控制
+  items:
+    - name: 概觀
+      href: overview.md
+    - name: 網路安全性
+      href: security-control-network-security.md
+    - name: 記錄和監視
+      href: security-control-logging-monitoring.md
+    - name: 身分識別與存取控制
+      href: security-control-identity-access-control.md
+    - name: 資料保護
+      href: security-control-data-protection.md
+    - name: 弱點管理
+      href: security-control-vulnerability-management.md
+    - name: 清查和資產管理
+      href: security-control-inventory-asset-management.md
+    - name: 安全設定
+      href: security-control-secure-configuration.md
+    - name: 惡意程式碼防禦
+      href: security-control-malware-defense.md
+    - name: 資料復原
+      href: security-control-data-recovery.md
+    - name: 事件回應
+      href: security-control-incident-response.md
+    - name: 滲透測試和 Red Team 練習
+      href: security-control-penetration-tests-red-team-exercises.md

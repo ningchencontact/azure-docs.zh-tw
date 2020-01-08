@@ -10,12 +10,12 @@ keywords: azure 自動化, DSC, powershell, Desired State Configuration, 更新�
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d091b89342570b73ccde5fe496a3432102617918
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 06e3b490f4f9cef64ae8bca5aed4d0518f10ba0e
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951423"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659616"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>什麼是適用於伺服器的 Azure Arc
 
@@ -41,7 +41,7 @@ ms.locfileid: "74951423"
 
 ## <a name="azure-subscription-and-service-limits"></a>Azure 訂用帳戶與服務限制
 
-請確定您已閱讀 Azure Resource Manager 限制，並根據針對[訂用帳戶](../../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager)和[資源群組](../../azure-subscription-service-limits.md#resource-group-limits)所列出的指導方針，規劃要連線的機器數目。 特別是，根據預設，每個資源群組各有 800 部伺服器的限制。
+請確定您已閱讀 Azure Resource Manager 限制，並根據針對[訂用帳戶](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager)和[資源群組](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits)所列出的指導方針，規劃要連線的機器數目。 特別是，根據預設，每個資源群組各有 800 部伺服器的限制。
 
 ## <a name="networking-configuration"></a>網路設定
 
@@ -69,7 +69,7 @@ ms.locfileid: "74951423"
 
 從我們的官方散發伺服器下載 [Azure 連線的機器代理程式套件](https://aka.ms/AzureConnectedMachineAgent)，以便透過您的環境存取下列網站。 您可以選擇將套件下載到檔案共用，並從該處安裝代理程式。 在此案例中，您可能需要修改從 Azure 入口網站產生的上線指令碼。
 
-Windows:
+Windows：
 
 * `aka.ms`
 * `download.microsoft.com`
@@ -107,7 +107,7 @@ az provider register --namespace 'Microsoft.HybridCompute'
 az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
-您也可以遵循 [Azure 入口網站](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal)底下的步驟，使用入口網站來註冊資源提供者。
+您也可以遵循 [Azure 入口網站](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)底下的步驟，使用入口網站來註冊資源提供者。
 
 ## <a name="machine-changes-after-installing-the-agent"></a>安裝代理程式之後的機器變更
 

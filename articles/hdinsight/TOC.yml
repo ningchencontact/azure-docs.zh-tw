@@ -17,6 +17,8 @@
           href: ./hdinsight-administer-use-dotnet-sdk.md
         - name: 管理 HDInsight 叢集 - Powershell
           href: ./hdinsight-administer-use-powershell.md
+        - name: 使用 Runbook 建立叢集
+          href: ./manage-clusters-runbooks.md
         - name: 建置 ETL 管線
           href: ./hdinsight-sales-insights-etl.md
     - name: 範例
@@ -57,7 +59,7 @@
           href: ./hdinsight-hadoop-compare-storage-options.md
         - name: 了解受控身分識別
           href: ./hdinsight-managed-identities.md
-    - name: 作法
+    - name: 如何
       items:
         - name: 建立叢集
           items:
@@ -73,14 +75,29 @@
               href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
             - name: 使用 .NET 建立叢集
               href: ./hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-        - name: 使用叢集儲存體
-          items:
-            - name: 使用 Azure 儲存體
-              href: hdinsight-hadoop-use-blob-storage.md
-            - name: 使用 Azure Data Lake Storage Gen2
-              href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-            - name: 使用 Azure Data Lake Storage Gen1
-              href: hdinsight-hadoop-use-data-lake-store.md
+            - name: 叢集建立錯誤
+              href: ./create-cluster-error-dictionary.md
+              title: null
+              summary: null
+              abstract: null
+              achievement: null
+              iconUrl: null
+              levels:
+                - null
+              roles:
+                - null
+              products:
+                - null
+              units:
+                - null
+                - name: 使用叢集儲存體
+                  items:
+                    - name: 使用 Azure 儲存體
+                      href: hdinsight-hadoop-use-blob-storage.md
+                    - name: 使用 Azure Data Lake Storage Gen2
+                      href: hdinsight-hadoop-use-data-lake-storage-gen2.md
+                    - name: 使用 Azure Data Lake Storage Gen1
+                      href: hdinsight-hadoop-use-data-lake-store.md
         - name: 擴充叢集
           items:
             - name: 安裝 HDInsight 應用程式
@@ -115,7 +132,7 @@
               href: hdinsight-storage-sharedaccesssignature-permissions.md
             - name: 授權 Apache Ambari 檢視的使用者
               href: hdinsight-authorize-users-to-ambari.md
-        - name: 移轉
+        - name: 遷移
           items:
             - name: 動機和優點
               href: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
@@ -209,7 +226,7 @@
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet'
         - name: 適用於 Python 的 SDK
           href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python'
-        - name: 適用於 Java 的 SDK
+        - name: SDK for Java
           href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable'
         - name: 適用於 Go 的 SDK
           href: ./hdinsight-go-sdk-overview.md
@@ -287,7 +304,7 @@
           href: ./spark/apache-spark-settings.md
         - name: 最佳化 Apache Spark 作業
           href: ./spark/apache-spark-perf.md
-    - name: 作法
+    - name: 如何
       items:
         - name: 使用工具
           items:
@@ -414,7 +431,7 @@
           href: ./hdinsight-hadoop-create-linux-clusters-adf.md
         - name: 提交 Apache Hadoop 作業
           href: ./hadoop/submit-apache-hadoop-jobs-programmatically.md
-    - name: 作法
+    - name: 如何
       items:
         - name: 使用工具
           items:
@@ -533,6 +550,8 @@
           href: ./hdinsight-apache-kafka-spark-structured-streaming.md
     - name: 概念
       items:
+        - name: 將 Kafka 工作負載遷移至 4.0
+          href: ./kafka/migrate-versions.md
         - name: 儲存體和延展性
           href: ./kafka/apache-kafka-scalability.md
         - name: 資料高可用性
@@ -541,10 +560,12 @@
           href: ./kafka/apache-kafka-performance-tuning.md
         - name: Kafka 常見問題集
           href: ./kafka/kafka-faq.md
-    - name: 作法
+    - name: 如何
       items:
         - name: 開發
           items:
+            - name: 使用 Kafka REST Proxy
+              href: ./kafka/rest-proxy.md
             - name: 啟用自動建立主題
               href: ./kafka/apache-kafka-auto-create-topics.md
             - name: 使用 Apache Kafka 與 IoT 中樞
@@ -589,7 +610,7 @@
       items:
         - name: 使用 HDInsight 中的 Apache HBase
           href: ./hbase/apache-hbase-tutorial-get-started-linux.md
-    - name: 作法
+    - name: 如何
       items:
         - name: 開發
           items:
@@ -659,7 +680,7 @@
       items:
         - name: 使用互動式查詢分析資料
           href: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
-    - name: 作法
+    - name: 如何
       items:
         - name: 開發
           items:
@@ -707,6 +728,8 @@
               href: ./interactive-query/interactive-query-troubleshoot-query-performance.md
             - name: 緩慢歸納器
               href: ./interactive-query/interactive-query-troubleshoot-slow-reducer.md
+            - name: Apache Hive 閘道逾時
+              href: ./interactive-query/troubleshoot-gateway-timeout.md
             - name: Apache Hive 檢視逾時
               href: ./interactive-query/interactive-query-troubleshoot-view-time-out.md
             - name: 建立資料表時發生權限錯誤
@@ -741,7 +764,7 @@
           href: ./r-server/ml-services-tutorial-spark-compute.md
         - name: 使用適用於 Visual Studio 的 R 工具
           href: ./r-server/r-server-submit-jobs-r-tools-vs.md
-    - name: 作法
+    - name: 如何
       items:
         - name: 開發
           items:
@@ -771,7 +794,7 @@
       items:
         - name: 使用 Apache Storm 寫入儲存體
           href: ./storm/apache-storm-write-data-lake-store.md
-    - name: 作法
+    - name: 如何
       items:
         - name: 開發
           items:
@@ -833,16 +856,16 @@
           href: ./hdinsight-management-ip-addresses.md
         - name: Azure 防火牆服務標籤
           href: ./hdinsight-service-tags.md
-    - name: 作法
+    - name: 如何
       items:
+        - name: 使用識別碼訊息代理程式進行認證管理
+          href: ./domain-joined/identity-broker.md
         - name: 建立 ESP 叢集並與內部部署同步
           href: ./domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster.md
         - name: 建立適用於 HDInsight 的 VNET
           href: ./hdinsight-create-virtual-network.md
         - name: 將 HDInsight 與內部部署網路連線
           href: ./connect-on-premises-network.md
-        - name: 在 HDInsight 中設定企業安全性
-          href: ./domain-joined/apache-domain-joined-configure.md
         - name: 使用 Azure AD DS 設定 ESP 叢集
           href: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
         - name: 將 Azure AD 使用者同步處理至 HDInsight 叢集

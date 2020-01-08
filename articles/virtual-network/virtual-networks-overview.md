@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 22c1e3050915fc697a62862620ef492ef22f80b8
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 3aee53b823af5929ce48045d1addcbc4881b2825
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542826"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638267"
 ---
 # <a name="what-is-azure-virtual-network"></a>什麼是 Azure 虛擬網路？
 
@@ -79,7 +79,7 @@ Azure 依預設會路由子網路、連線的虛擬網路、內部部署網路�
 
 ## <a name="azure-vnet-limits"></a>Azure VNet 的限制
 
-您可以部署的 Azure 資源數量有一些限制。 大部分的 Azure 網路限制均在最大值。 不過，您可以[增加某些網路限制](../azure-supportability/networking-quota-requests.md)，如 [VNet 限制頁面](../azure-subscription-service-limits.md#networking-limits)所指定。 
+您可以部署的 Azure 資源數量有一些限制。 大部分的 Azure 網路限制均在最大值。 不過，您可以[增加某些網路限制](../azure-supportability/networking-quota-requests.md)，如 [VNet 限制頁面](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)所指定。 
 
 ## <a name="pricing"></a>價格
 

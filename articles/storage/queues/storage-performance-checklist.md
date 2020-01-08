@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 8ab4cb6b06f0f023a8f6368dac633a97afe29fd4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 55bcefc19723dc275cc8b421d5620c5dfe2c96e7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390015"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614964"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>佇列儲存體的效能和延展性檢查清單
 
@@ -51,7 +51,7 @@ Azure 儲存體具有容量、交易速率和頻寬的延展性和效能目標�
 
 如果您的應用程式達到或超過任何延展性目標，它可能會遇到增加的交易延遲或節流。 當 Azure 儲存體對您的應用程式進行節流時，該服務會開始傳回 503 (伺服器忙碌) 或 500 (作業逾時) 錯誤碼。 保持在延展性目標的限制範圍內以避免這些錯誤，對於提升應用程式效能很重要。
 
-如需佇列服務的延展性目標詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#azure-queue-storage-scale-targets)。
+如需佇列服務的延展性目標詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage)。
 
 ### <a name="maximum-number-of-storage-accounts"></a>儲存體帳戶的數目上限
 
@@ -84,7 +84,7 @@ Azure 儲存體具有容量、交易速率和頻寬的延展性和效能目標�
 
 與任何網路使用方式一樣，請記住導致錯誤和封包遺失的網路狀況將會減慢有效的輸送量。  使用 WireShark 或 NetMon 可能有助於診斷此問題。  
 
-### <a name="location"></a>位置
+### <a name="location"></a>Location
 
 在任何分散式環境中，將用戶端放置於伺服器附近可提供最佳的效能。 若要以最低的延遲時間存取 Azure 儲存體，對用戶端而言的最佳位置是在同一個 Azure 區域內。 例如，如果您擁有使用 Azure 儲存體的 Azure Web 應用程式，則將這兩者置於單一區域內 (例如，美國西部或東南亞)。 共置資源可降低延遲和成本，因為單一區域內的頻寬使用量是免費的。  
 
@@ -145,7 +145,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 ## <a name="client-libraries-and-tools"></a>用戶端程式庫和工具
 
-為了達到最佳效能，請一律使用 Microsoft 所提供的最新用戶端程式庫和工具。 Azure 儲存體的用戶端程式庫適用於各種不同的語言。 Azure 儲存體也支援 PowerShell 和 Azure CLI。 Microsoft 主動開發根據效能考量的這些用戶端程式庫和工具，透過最新的服務版本將他們保持在最新的狀態，並確保這些工具會在內部處理許多已經實證的效能做法。 如需詳細資訊，請參閱 [Azure 儲存體參考文件](/azure/storage/#reference)。
+為了達到最佳效能，請一律使用 Microsoft 所提供的最新用戶端程式庫和工具。 Azure 儲存體的用戶端程式庫適用於各種不同的語言。 Azure 儲存體也支援 PowerShell 和 Azure CLI。 Microsoft 主動開發以效能為考量的這些用戶端程式庫和工具，透過最新的服務版本將他們保持在最新的狀態，並確保這些工具會在內部處理許多已經實證的效能做法。 如需詳細資訊，請參閱 [Azure 儲存體參考文件](/azure/storage/#reference)。
 
 ## <a name="handle-service-errors"></a>處理服務錯誤
 

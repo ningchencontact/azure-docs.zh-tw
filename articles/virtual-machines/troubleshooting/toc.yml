@@ -49,7 +49,7 @@
       href: guest-os-firewall-blocking-inbound-traffic.md
     - name: 客體 OS 防火牆設定不正確
       href: guest-os-firewall-misconfigured.md
-    - name: 針對由 netvsc.sys 所造成的 RDP 錯誤進行疑難排解
+    - name: 針對由 netvsc.sys所造成的 RDP 錯誤進行疑難排解
       href: troubleshoot-rdp-driver-netvsc.md
 - name: SSH
   items:
@@ -159,6 +159,8 @@
       href: troubleshoot-deploy-vm-linux.md
     - name: Windows
       href: troubleshoot-deploy-vm-windows.md
+    - name: 重新啟動、關閉或停止服務
+      href: boot-error-troubleshoot-windows.md
 - name: 裝置名稱已變更
   href: troubleshoot-device-names-problems.md
 - name: VM 復原存取

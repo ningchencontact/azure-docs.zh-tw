@@ -7,17 +7,17 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 0b34c65f6b7003cbdd4d99b684fe2b5a3249c410
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: dfe2d5925e19697a2e3ed4491958da1325df5574
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818041"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467551"
 ---
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始之前，請務必：
 
@@ -68,7 +68,7 @@ namespace helloworld
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ````
 
-## <a name="create-an-audio-configuration"></a>建立音訊組態
+## <a name="create-an-audio-configuration"></a>建立音訊設定
 
 現在，您需要建立指向音訊檔案的 ````AudioConfig```` 物件。 這個物件是在 using 陳述式內建立的，可確保適當釋放未受控資源。 將此程式碼插入您的語音設定下方的 `SynthesisToAudioFileAsync()` 方法中。
 
@@ -103,7 +103,7 @@ var result = await synthesizer.SpeakTextAsync(text);
 
 語音服務傳回合成結果時，您應該檢查並確定您的文字已成功合成。
 
-在 using 陳述式中的 `SpeakTextAsync()` 底下，新增下列程式碼：
+在 using 陳述式中的 `SpeakTextAsync()` 下方，新增此程式碼：
 ````C#
 if (result.Reason == ResultReason.SynthesizingAudioCompleted)
 {
@@ -185,7 +185,7 @@ namespace helloworld
 
 現在您已準備好使用語音服務來建立應用程式，並測試我們的語音合成。
 
-1. **編譯器代碼** - 從 Visual Studio 的功能表列中，選擇 [建置]   > [建置方案]  。
+1. **編譯器代碼** - 從 Visual Studio 的功能表列中，選擇 [建置]   > [建置解決方案]  。
 2. **啟動應用程式** - 從功能表列中，選擇 [偵錯]   > [開始偵錯]  ，或按 **F5**。
 3. **開始合成** - 您的文字會轉換成語音，並儲存在指定的音訊資料中。
 

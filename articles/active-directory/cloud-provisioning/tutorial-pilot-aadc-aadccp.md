@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 812f9bc71cde26b6f32a1259984bb0859ba49d54
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: b83f634e9f5954e7a465761b117b6ee32f843aa2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868757"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425088"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>針對現有的同步 AD 樹系進行雲端佈建試驗 
 
@@ -35,7 +35,7 @@ ms.locfileid: "74868757"
 
 4. 這是進階案例。 請確實遵循本教學課程中記載的步驟。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 下列是完成此教學課程的必要條件
 - 具有 Azure AD Connect 同步 1.4.32.0 版或更新版本的測試環境
 - 在同步範圍內、並且可用於試驗的 OU 或群組。 建議您先從一小組物件開始。
@@ -47,7 +47,7 @@ ms.locfileid: "74868757"
 您至少應有 [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.4.32.0。 若要更新 Azure AD Connect 同步，請完成 [Azure AD Connect：升級至最新版本](../hybrid/how-to-upgrade-previous-version.md)中的步驟。  
 
 ## <a name="stop-the-scheduler"></a>停止排程器
-Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中發生的變更。 若要修改和加入自訂規則，您可以停用排程器，如此，在您進行此作業時就不會執行同步處理。  請使用下列步驟：
+Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中發生的變更。 若要修改和加入自訂規則，您可以停用排程器，如此，在您進行此作業時就不會執行同步處理。  使用下列步驟：
 
 1.  在執行 Azure AD Connect 同步的伺服器上，以系統管理權限開啟 PowerShell。
 2.  執行 `Stop-ADSyncSyncCycle`。  按 Enter 鍵。
@@ -69,14 +69,14 @@ Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中
     **名稱：** 為規則指定有意義的名稱<br>
     **說明：** 新增有意義的描述<br> 
     **連線系統：** 選擇您要為其撰寫自訂同步處理規則的 AD 連接器<br>
-    **連線系統物件類型：** 使用者<br>
+    **連線系統物件類型：** User<br>
     **Metaverse 物件類型：** 個人<br>
     **連結類型：** Join<br>
     **優先順序：** 提供在系統中是唯一的值<br>
     **標籤︰** 將此選項保留空白<br>
     ![自訂規則](media/how-to-cloud-custom-user-rule/user2.png)</br>
  
- 4. 在 [範圍篩選]  頁面上，輸入要作為試驗基礎的 OU 或安全性群組。  若要篩選 OU，請新增辨別名稱的 OU 部分。 此規則會套用到位於該 OU 中的所有使用者。  因此，如果 DN 的結尾為 "OU=CPUsers,DC=contoso,DC=com，您就會新增此篩選。  然後按 [下一步]  。 
+ 4. 在 [範圍篩選]  頁面上，輸入要作為試驗基礎的 OU 或安全性群組。  若要篩選 OU，請新增辨別名稱的 OU 部分。 此規則會套用到位於該 OU 中的所有使用者。  因此，如果 DN 的結尾為 "OU=CPUsers,DC=contoso,DC=com，您就會新增此篩選。  然後按一下 [下一步]  。 
 
     |規則|屬性|運算子|值|
     |-----|----|----|-----|
@@ -101,7 +101,7 @@ Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中
     **名稱：** 為規則指定有意義的名稱<br>
     **說明：** 新增有意義的描述<br> 
     **連線系統：** 選擇您要為其撰寫自訂同步處理規則的 AAD 連接器<br>
-    **連線系統物件類型：** 使用者<br>
+    **連線系統物件類型：** User<br>
     **Metaverse 物件類型：** 個人<br>
     **連結類型：** JoinNoFlow<br>
     **優先順序：** 提供在系統中是唯一的值<br>
@@ -109,7 +109,7 @@ Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中
     
     ![自訂規則](media/how-to-cloud-custom-user-rule/user6.png)</br>
  
- 3. 在 [範圍篩選]  頁面上，選擇 [cloudNoFlow]  等於 [True]  。 然後按 [下一步]  。
+ 3. 在 [範圍篩選]  頁面上，選擇 [cloudNoFlow]  等於 [True]  。 然後按一下 [下一步]  。
  ![自訂規則](media/how-to-cloud-custom-user-rule/user7.png)</br>
  
  4. 在 [聯結規則]  頁面上，按 [下一步]  。
@@ -119,21 +119,6 @@ Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>安裝 Azure AD Connect 佈建代理程式
 1. 以企業系統管理員權限登入您將使用的伺服器。  如果您使用[基本 AD 和 Azure 環境](tutorial-basic-ad-azure.md)教學課程，則會是 CP1。
-2. [在此](https://go.microsoft.com/fwlink/?linkid=2109037)下載 Azure AD Connect 雲端佈建代理程式。
-3. 執行 Azure AD Connect 雲端佈建 (AADConnectProvisioningAgent.Installer)
-3. 在啟動顯示畫面上**接受**授權條款，然後按一下 [安裝]  。</br>
-![歡迎使用畫面](media/how-to-install/install1.png)</br>
-
-4. 此作業完成後，就會啟動組態精靈。  以 Azure AD 全域管理員帳戶登入。
-5. 在 [連線 Active Directory]  畫面上，按一下 [新增目錄]  ，然後以您的 Active Directory 系統管理員帳戶登入。  此作業將會新增您的內部部署目錄。  按 [下一步]  。</br>
-![歡迎使用畫面](media/how-to-install/install3.png)</br>
-
-6. 在 [設定完成]  畫面上，按一下 [確認]  。  此作業將會註冊並重新啟動代理程式。</br>
-![歡迎使用畫面](media/how-to-install/install4.png)</br>
-
-7. 此作業完成後，您應該會看到「您已成功通過驗證」  的通知。  您可以按一下 [結束]  。</br>
-![歡迎使用畫面](media/how-to-install/install5.png)</br>
-8. 如果您仍看到初始啟動顯示畫面，請按一下 [關閉]  。1. 以企業系統管理員權限登入您將使用的伺服器。
 2. [在此](https://go.microsoft.com/fwlink/?linkid=2109037)下載 Azure AD Connect 雲端佈建代理程式。
 3. 執行 Azure AD Connect 雲端佈建 (AADConnectProvisioningAgent.Installer)
 3. 在啟動顯示畫面上**接受**授權條款，然後按一下 [安裝]  。</br>
@@ -207,7 +192,7 @@ Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中
 此外，您可以確認 Azure AD 中是否有使用者和群組存在。
 
 ## <a name="start-the-scheduler"></a>啟動排程器
-Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中發生的變更。 現在您已修改規則，可以重新啟動排程器。  請使用下列步驟：
+Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中發生的變更。 現在您已修改規則，可以重新啟動排程器。  使用下列步驟：
 
 1.  在執行 Azure AD Connect 同步的伺服器上，以系統管理權限開啟 PowerShell
 2.  執行 `Set-ADSyncScheduler -SyncCycleEnabled $true`。
@@ -231,7 +216,7 @@ Azure AD Connect 同步會使用排程器來同步處理您內部部署目錄中
  5. 在 [連線您的目錄]  畫面上，按 [下一步]  。
  6. 在 [網域和 OU 篩選]  畫面上，選取 [同步所選取的網域及 OU]  。
  7. 展開您的網域，然後**取消選取** **CPUsers** OU。  按 [下一步]  。
-scope![](media/tutorial-existing-forest/scope1.png)</br>
+![範圍 (scope)](media/tutorial-existing-forest/scope1.png)</br>
  9. 在 [選用功能]  畫面上，按 [下一步]  。
  10. 在 [已可設定]  畫面上，按一下 [設定]  。
  11. 完成後，按一下 [結束]  。 

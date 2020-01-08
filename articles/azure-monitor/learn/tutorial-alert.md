@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 370d86ae28e49bba9681c6bdc81cc05b4e12a97b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e45e6fb38296c5f3337f9edfb50cd9548ca5e210
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894864"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398436"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>使用 Azure Application Insights 監視應用程式健康情況並傳送警示
 
@@ -25,7 +25,7 @@ Azure Application Insights 可讓您監視您的應用程式，並在應用程�
 > * 建立可用性測試，以持續檢查應用程式的回應
 > * 發生問題時，傳送郵件給系統管理員
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本教學課程：
 

@@ -6,12 +6,12 @@ author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: aa2e0e8be8805187ec1f5b8ea6498e90e2d5a7c4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5c0228feb88296e0c82efa52648ce38d70e5b921
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976871"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409888"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>使用 Azure 學生入門版建立函式
 
@@ -43,14 +43,14 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
 
     <img src="./media/functions-create-student-starter/Function-create-start.png" width="315">
 
-    | 設定      | 建議的值  | 說明                                        |
+    | 設定      | 建議的值  | 描述                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **應用程式名稱** | 全域唯一的名稱 | 用以識別新函式應用程式的名稱。 有效字元是 `a-z`、`0-9` 和 `-`。  | 
     | **訂用帳戶** | 您的訂用帳戶 | 將在其下建立這個新函式應用程式的訂用帳戶。 | 
-    | **[資源群組](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | 要在其中建立函式應用程式的新資源群組名稱。 |
+    | **[資源群組](../azure-resource-manager/management/overview.md)** |  myResourceGroup | 要在其中建立函式應用程式的新資源群組名稱。 |
    | **[App Service 方案/位置](./functions-scale.md)** | 新增 | 裝載方案，用以控制函式應用程式的部署區域和資源的密度。 部署到相同方案的多個函式應用程式全都會共用相同的單一可用執行個體。 這是學生入門版方案的限制。 完整的裝載選項[在此說明。](./functions-scale.md)|
     | **執行階段堆疊** | 慣用語言 | 選擇支援您慣用函式程式設計語言的執行階段。 針對 C# 和 F # 函式選擇 **.NET**。 |
-    |**[Application Insights](./functions-monitoring.md)**| 已啟用 | Application Insights 用來儲存及分析函式應用程式的記錄。 如果您選擇支援 Application Insights 的位置，則會依預設啟用。 手動選擇附近區域來部署 Application Insights，即可針對任何函式啟用 Application Insights。 若沒有 Application Insights，您就只能檢視即時串流記錄。
+    |**[Application Insights](./functions-monitoring.md)**| 啟用 | Application Insights 用來儲存及分析函式應用程式的記錄。 如果您選擇支援 Application Insights 的位置，則會依預設啟用。 手動選擇附近區域來部署 Application Insights，即可針對任何函式啟用 Application Insights。 若沒有 Application Insights，您就只能檢視即時串流記錄。
 
 3. 選取上述的 [App Service 方案/位置]  以選擇不同的位置
 

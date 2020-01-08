@@ -2,17 +2,17 @@
 title: 快速入門 - 使用 Azure CLI 建立 Azure 私人端點
 description: 在本快速入門中了解 Azure 私人端點
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 67513c2155e956e005b143c3049abe70a2f126f2
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: dbcb833e6f8b90cebd3d013e58168558bcd96827
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419820"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459967"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>快速入門：使用 Azure CLI 建立私人端點
 私人端點是 Azure 中私人連結的基本要素。 其可讓 Azure 資源 (例如虛擬機器 (VM)) 與私人連結資源進行私密通訊。 在本快速入門中，您將了解如何使用 Azure CLI 在虛擬網路上建立 VM，以及建立具有私人端點的 SQL Database 伺服器。 然後，您可以存取 VM，並安全地存取私人連結資源 (在此範例中為私人 Azure SQL Database 伺服器)。 
@@ -165,7 +165,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
  密碼：輸入在建立期間提供的密碼。
  記住密碼：選取 [是]。
  
- 5. 選取 [ **連接**]。
+ 5. 選取 [連接]  。
  6. 瀏覽左側功能表中的**資料庫**。
  7. (選擇性) 從 mydatabase  建立或查詢資訊
  8. 關閉對 myVm  的遠端桌面連線。

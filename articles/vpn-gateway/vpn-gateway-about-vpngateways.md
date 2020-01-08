@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 11187b403b9bc23a0aa20eb5ee7a5e4923bb7276
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1a5859517d2f858086c9034c8ee190e99bce5cd5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896672"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647742"
 ---
 # <a name="what-is-vpn-gateway"></a>什麼是 VPN 閘道？
 
@@ -159,5 +159,5 @@ ExpressRoute 是從 WAN (不透過公用網際網路) 到 Microsoft 服務 (包�
 ## <a name="next-steps"></a>後續步驟
 
 - 如需詳細資訊，請參閱 [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md)。
-- 檢視[訂用帳戶與服務限制](../azure-subscription-service-limits.md#networking-limits)。
+- 檢視[訂用帳戶與服務限制](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)。
 - 了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md)。

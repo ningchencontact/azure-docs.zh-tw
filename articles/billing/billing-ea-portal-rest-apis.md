@@ -4,16 +4,16 @@ description: 本文將說明要與您 Azure 企業註冊搭配使用的 REST API
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: ea53ad91dcb411c43b367bfb43bc9dcea3d2bba7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 58f38cc3649c1d08187a4bb93be83422c8e7911b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841416"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644523"
 ---
 # <a name="azure-enterprise-rest-apis"></a>Azure 企業版 REST API
 
@@ -70,20 +70,20 @@ Microsoft Enterprise Azure 客戶可以透過 REST API 取得使用量和帳單�
 
 | 要求標頭金鑰 | 值 |
 | --- | --- |
-| Authorization | 以此格式指定值：**持有人 {API\_KEY}**
+| 授權 | 以此格式指定值：**持有人 {API\_KEY}**
 範例：持有人 \&lt;APIKey\&gt; |
 
 ### <a name="swagger"></a>Swagger
 
-Swagger 端點可在下列 API 的 [Enterprise Reporting v3 API](https://consumption.azure.com/swagger/ui/index) 上使用。 Swagger 有助於檢查 API。 透過 Swagger 使用 [AutoRest](https://github.com/Azure/AutoRest) 或 [Swagger CodeGen](http://swagger.io/swagger-codegen/) 來產生用戶端 SDK。 2014 年 5 月 1 日之後可用的資料可透過 API 取得。
+Swagger 端點可在下列 API 的 [Enterprise Reporting v3 API](https://consumption.azure.com/swagger/ui/index) 上使用。 Swagger 有助於檢查 API。 透過 Swagger 使用 [AutoRest](https://github.com/Azure/AutoRest) 或 [Swagger CodeGen](https://swagger.io/swagger-codegen/) 來產生用戶端 SDK。 2014 年 5 月 1 日之後可用的資料可透過 API 取得。
 
 ### <a name="api-response-codes"></a>API 回應碼
 
 當您使用 API 時，回應狀態碼會隨之顯示。 下表為這些狀態碼的描述。
 
-| 回應狀態碼 | 訊息 | 說明 |
+| 回應狀態碼 | 訊息 | 描述 |
 | --- | --- | --- |
-| 200 | OK | 沒有錯誤 |
+| 200 | [確定] | 沒有錯誤 |
 | 401 | 未經授權 | API 金鑰找不到、無效或過期等。 |
 | 404 | 無法使用 | 找不到報告端點 |
 | 400 | 不正確的要求 | 無效的參數 - 資料範圍、EA 編號等。 |
@@ -122,8 +122,8 @@ JSON 格式是從 CSV 報表產生的。 因此，此格式與摘要 CSV 格式�
 | SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
 | 訂用帳戶名稱 | SubscriptionName | SubscriptionName |   |
 | Date | Date | Date | 顯示服務目錄報表執行的日期。 格式為不含時間戳記的日期字串。 |
-| 月 | 月 | 月 |   |
-| 天 | 天 | 天 |   |
+| Month | Month | Month |   |
+| Day | Day | Day |   |
 | Year | Year | Year |   |
 | Products | BillableItemName | Products |   |
 | 計量識別碼 | ResourceGUID | 計量識別碼 |   |
@@ -157,13 +157,13 @@ JSON 格式是從 CSV 報表產生的。 因此，此格式與摘要 CSV 格式�
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
 | 訂用帳戶名稱 | SubscriptionName |  SubscriptionName |
 | Date | BillingCycle |  日期 (僅限日期字串。 無時間戳記)
-| 月 | 月 |  月 |
-| 天 | 天 |  天 |
+| Month | Month |  Month |
+| Day | Day |  Day |
 | Year | Year |  Year |
 | 計量識別碼 | MeterResourceId |  計量識別碼 |
 | 發行者名稱 | PublisherFriendlyName |  PublisherName |
 | 供應項目名稱 | OfferFriendlyName |  OfferName |
-| 方案名稱 | PlanFriendlyName |  planName |
+| 方案名稱 | PlanFriendlyName |  PlanName |
 | 已耗用的數量 | BilledQty |  ConsumedQuantity |
 | ResourceRate | ResourceRate | ResourceRate |
 | ExtendedCost | ExtendedCost | ExtendedCost |

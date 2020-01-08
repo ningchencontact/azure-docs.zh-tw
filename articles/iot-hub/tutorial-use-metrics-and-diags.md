@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 88101aacab8b4745ce6bc9180521e66500086edd
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e6a2057eee6cf294e401f60c889bcf58ac6fbe32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084367"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429109"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>教學課程：搭配 IoT 中樞來設定及使用計量和診斷記錄
 
@@ -34,7 +34,7 @@ ms.locfileid: "74084367"
 > * 執行應用程式，直到開始引發警示。 
 > * 檢視計量結果，並檢查診斷記錄。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -50,7 +50,7 @@ ms.locfileid: "74084367"
 
 必要步驟如下。
 
-1. 建立[資源群組](../azure-resource-manager/resource-group-overview.md)。 
+1. 建立[資源群組](../azure-resource-manager/management/overview.md)。 
 
 2. 建立 IoT 中樞。
 
@@ -209,7 +209,7 @@ IoT 中樞尚未遷移至 [Azure 監視器中的計量](/azure/azure-monitor/pla
 
     填寫欄位：
 
-    **名稱**：提供警示規則的名稱，例如 telemetry-messages  。
+    **Name**：提供警示規則的名稱，例如 telemetry-messages  。
 
     **描述**：提供描述的警示，例如「傳送了 1000 則遙測訊息時發出警示」  。 
 
@@ -239,7 +239,7 @@ IoT 中樞尚未遷移至 [Azure 監視器中的計量](/azure/azure-monitor/pla
 
    在 [檢視傳統警示]  畫面上，按一下 [新增計量警示 (傳統)]  ，然後在 [新增規則]  窗格上填入這些欄位。
 
-   **名稱**：提供警示規則的名稱，例如 number-of-messages-used  。
+   **Name**：提供警示規則的名稱，例如 number-of-messages-used  。
 
    **描述**：提供描述的警示，例如「在接近配額時發出警示」  。
 

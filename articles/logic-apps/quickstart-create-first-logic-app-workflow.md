@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 45b9cdc74fc57e53ca2cd76f8b1f98671f5bbc7e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6fd9166168a5b21900aa49d42a1dd5b81039dbcd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791871"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428769"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>快速入門：使用 Azure Logic Apps 建立第一個工作流程 - Azure 入口網站
 
@@ -42,11 +42,11 @@ ms.locfileid: "74791871"
 
    ![提供新邏輯應用程式的詳細資料](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | 屬性 | 值 | 說明 |
+   | 屬性 | 值 | 描述 |
    |----------|-------|-------------|
    | **名稱** | <*logic-app-name*> | 您的邏輯應用程式名稱，其中只能包含字母、數字、連字號 (`-`)、底線 (`_`)、括弧(`(`、`)`) 和句點 (`.`)。 此範例使用 "My-First-Logic-App"。 |
    | **訂用帳戶** | <*Azure-subscription-name*> | 您的 Azure 訂用帳戶名稱 |
-   | **資源群組** | <*Azure-resource-group-name*> | 用來組織相關資源之 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 此範例使用 "My-First-LA-RG"。 |
+   | **資源群組** | <*Azure-resource-group-name*> | 用來組織相關資源之 [Azure 資源群組](../azure-resource-manager/management/overview.md)的名稱。 此範例使用 "My-First-LA-RG"。 |
    | **位置** | <*Azure-region*> | 用來存放邏輯應用程式資訊的區域。 此範例使用「美國西部」。 |
    | **Log Analytics** | 關閉 | 保留診斷記錄的 [關閉]  設定。 |
    ||||
@@ -77,11 +77,11 @@ ms.locfileid: "74791871"
 
    ![使用 RSS 摘要、頻率和間隔設定觸發程序](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
-   | 屬性 | 值 | 說明 |
+   | 屬性 | 值 | 描述 |
    |----------|-------|-------------|
    | **RSS 摘要 URL** | `http://feeds.reuters.com/reuters/topNews` | 您想要監視的 RSS 摘要連結 |
    | **間隔** | 1 | 在檢查之間所要等待的間隔數目 |
-   | **頻率** | 分鐘 | 在檢查之間每個間隔的時間單位  |
+   | **頻率** | Minute | 在檢查之間每個間隔的時間單位  |
    ||||
 
    時間間隔和頻率可一起為邏輯應用程式的觸發程序定義排程。 此邏輯應用程式會每分鐘檢查摘要。
@@ -147,7 +147,7 @@ ms.locfileid: "74791871"
 
       ![選取適用於電子郵件內文內容的屬性](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
-      | 屬性 | 說明 |
+      | 屬性 | 描述 |
       |----------|-------------|
       | **摘要標題** | 項目的標題 |
       | **摘要發佈時間** | 項目的發佈日期和時間 |

@@ -3,17 +3,17 @@ title: 快速入門 - 將模擬裝置新增至 Azure IoT Central
 description: 本快速入門說明如何建立裝置範本，並將模擬裝置新增至 IoT Central 應用程式。
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/10/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 46d325fd609363a5425fc16845552e75b575c231
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 669bdcddc7e4bb0c63250d9b571ff7ef4343ef5c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706703"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434833"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application-preview-features"></a>快速入門：將模擬裝置新增至 IoT Central 應用程式 (預覽功能)
 
@@ -30,7 +30,7 @@ ms.locfileid: "74706703"
 * 回應命令，例如開啟和關閉。
 * 報告一般裝置屬性，例如裝置的韌體版本和序號。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 完成[建立 Azure IoT Central 應用程式 (預覽功能)](./quick-deploy-iot-central.md) 快速入門，以使用**自訂應用程式 > 預覽版應用程式**範本建立 IoT Central 應用程式。
 
@@ -73,7 +73,7 @@ ms.locfileid: "74706703"
     | 顯示名稱      | 語意類型 | 結構描述 |
     | ----------------- | ------------- | ------ |
     | 上次維修日期 | None          | Date   |
-    | 客戶名稱     | None          | 字串 |
+    | 客戶名稱     | None          | String |
 
 1. 選取 [儲存]  以儲存變更：
 

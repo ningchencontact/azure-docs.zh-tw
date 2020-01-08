@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: d7b4755bb2e69c4a852901b71d917c6baa5d63ae
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: c7c4da97101ae1277474e62466d78ffbc66b1ce0
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406420"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563270"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>教學課程：使用 REST 和 Python 建立 AI 擴充管線
 
@@ -40,7 +40,7 @@ ms.locfileid: "74406420"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 本教學課程會使用下列服務、工具和資料。 
 
@@ -87,7 +87,7 @@ ms.locfileid: "74406420"
 ## <a name="create-a-jupyter-notebook"></a>建立 Jupyter Notebook
 
 > [!Note]
-> 此文章會示範如何使用一系列的 Python 指令碼建置資料來源、索引、索引子和技能集。 若要下載完整的筆記本範例，請前往 [Azure-Search-python-samples 存放庫](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment-Jupyter-Notebook) \(英文\)。
+> 此文章會示範如何使用一系列的 Python 指令碼建置資料來源、索引、索引子和技能集。 若要下載完整的筆記本範例，請前往 [Azure-Search-python-samples 存放庫](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment) \(英文\)。
 
 使用 Anaconda Navigator 啟動 Jupyter Notebook，然後建立一個新的 Python 3 筆記本。
 
@@ -276,7 +276,7 @@ print(r.status_code)
 
 此練習會使用下列欄位和欄位類型：
 
-| 欄位名稱： | id         | 內容   | languageCode | keyPhrases         | 組織     |
+| 欄位名稱： | id         | content   | languageCode | keyPhrases         | 組織     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | 欄位類型： | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 

@@ -3,18 +3,18 @@ title: 快速入門 - 在 Azure IoT Central 中監視您的裝置
 description: 身為操作員，您可以在本快速入門中使用 Azure IoT Central 應用程式監視您的裝置。
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/09/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a6bc4b76dc00330e39526aec8bc5651b9abb590b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: e0f0e765ba6bb8b0969fbf639c8427e8b65214fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706732"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434763"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices-preview-features"></a>快速入門：使用 Azure IoT Central 監視您的裝置 (預覽功能)
 
@@ -24,7 +24,7 @@ ms.locfileid: "74706732"
 
 本快速入門將為操作員說明如何使用 Microsoft Azure IoT Central 應用程式監視您的裝置和變更設定。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始之前，請先完成[建立 Azure IoT Central 應用程式](./quick-deploy-iot-central.md)、[將模擬裝置新增至 IoT Central 應用程式](./quick-create-pnp-device.md)和[為您的裝置設定規則和動作](quick-configure-rules.md)這三個先前的快速入門。
 

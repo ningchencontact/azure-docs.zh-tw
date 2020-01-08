@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 使用 Azure PowerShell 建立服務匯流排佇列 | Microsoft Docs
+title: 使用 Azure PowerShell 建立服務匯流排佇列
 description: 在本快速入門中，您會了解如何使用 Azure PowerShell 來建立服務匯流排佇列。 然後，您會使用應用程式範例在佇列中傳送和接收訊息。
 services: service-bus-messaging
 author: spelluru
@@ -8,14 +8,14 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/10/2019
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 80cef3efd65a3f68dba1856a892a9a120f7d95cd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 890e8d3a7592a6794fd19ac28b6ca613ac7201c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990290"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426942"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>快速入門：使用 Azure PowerShell 建立服務匯流排佇列
 本快速入門說明如何使用 PowerShell 建立傳訊命名空間和該命名空間內的佇列，以對服務匯流排佇列傳送和接收訊息，以及如何取得該命名空間上的授權認證。 程序接著會說明如何使用 [.NET Standard 程式庫](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)從這個佇列傳送和接收訊息。
@@ -25,12 +25,12 @@ ms.locfileid: "65990290"
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本教學課程，請確定您已安裝︰
 
-- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶][] 。 
-- [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](https://www.visualstudio.com/vs) 或更新版本。 您可以使用 Visual Studio 來建置範例，以將訊息傳送至佇列，並從中接收訊息。 此範例將用來測試您在入口網站中建立的佇列。 
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][]。 
+- [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](https://www.visualstudio.com/vs) 或更新版本。 您會使用 Visual Studio 來建置範例，以將訊息傳送至佇列，並從中接收訊息。 此範例將用來測試您在入口網站中建立的佇列。 
 - [.NET Core SDK](https://www.microsoft.com/net/download/windows)，2.0 版或更新版本。
 
 使用本快速入門時，您必須執行最新版本的 Azure PowerShell。 如果您需要安裝或升級，請參閱[安裝和設定 Azure PowerShell][]。 如果您熟悉 Azure Cloud Shell，您可以直接使用此工具，無須在機器上安裝 Azure PowerShell。 如需 Azure Cloud Shell 的詳細資訊，請參閱 [Azure Cloud Shell 概觀](../cloud-shell/overview.md)

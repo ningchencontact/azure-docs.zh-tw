@@ -2,19 +2,16 @@
 title: 管理 Azure VM 的更新和修補程式
 description: 本文提供概觀，說明如何使用 Azure 自動化更新管理來管理 Azure VM 和非 Azure VM 的更新和修補程式。
 services: automation
-author: mgoedtel
-ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 12/03/2019
-ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 44372f32227bbfef46a72afa6f9b0bd88b29905b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 0fd25863d26c38608b6f64f22782422b844fdec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806553"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420651"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>管理 Azure VM 的更新和修補程式
 
@@ -31,7 +28,7 @@ ms.locfileid: "74806553"
 > * 排定更新部署
 > * 檢視部署的結果
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本教學課程，您需要：
 
@@ -93,7 +90,7 @@ ms.locfileid: "74806553"
 
 按一下 [新增條件]  以選取您更新部署適用的訊號。 下表顯示兩個適用於更新部署之可用訊號的詳細資料：
 
-|訊號名稱|維度|說明|
+|訊號名稱|維度|描述|
 |---|---|---|
 |**更新部署執行總計**|- 更新部署名稱</br>- 狀態|此訊號可用來針對整體更新部署狀態發出警示。|
 |**更新部署機器執行總計**|- 更新部署名稱</br>- 狀態</br>- 目標電腦</br>- 更新部署執行識別碼|此訊號可用來針對以特定機器為目標的更新部署狀態發出警示|
@@ -136,19 +133,19 @@ ms.locfileid: "74806553"
 
 在 [新增更新部署]  之下，指定下列資訊：
 
-* **名稱**：輸入更新部署的唯一名稱。
+* **Name**：輸入更新部署的唯一名稱。
 
 * **作業系統**：為更新部署選取要作為目標的 OS。
 
 * **要更新的群組 (預覽)** ：根據訂用帳戶、資源群組、位置及標記的組合來定義查詢，以建置要包含在您部署中的動態 Azure VM 群組。 若要深入了解，請參閱[動態群組](automation-update-management-groups.md)
 
-* **要更新的電腦**：選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]  ，機器的整備程度會顯示於 [更新代理程式整備程度]  欄中。 若要深入了解在 Azure 監視器記錄中建立電腦群組的不同方法，請參閱 [Azure 監視器記錄中的電腦群組](../azure-monitor/platform/computer-groups.md)
+* **要更新的機器**：選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]  ，機器的整備程度會顯示於 [更新代理程式整備程度]  欄中。 若要深入了解在 Azure 監視器記錄中建立電腦群組的不同方法，請參閱 [Azure 監視器記錄中的電腦群組](../azure-monitor/platform/computer-groups.md)
 
 * **更新分類**：選取更新部署在部署中包含的軟體類型。 此教學課程中，將所有類型保留選取。
 
   分類類型包括：
 
-   |作業系統  |類型  |
+   |OS  |類型  |
    |---------|---------|
    |Windows     | 重大更新</br>安全性更新</br>更新彙總套件</br>Feature Pack</br>Service Pack</br>定義更新</br>工具</br>更新        |
    |Linux     | 重大更新和安全性更新</br>其他更新       |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 1a5401ee76f60c9b9c2a75561cad8f6571d3b308
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7534d425a9a7e00c4e57c0d9faea0750d311dcaf
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920696"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549936"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 Java Web 應用程式
 
@@ -28,7 +28,7 @@ ms.locfileid: "74920696"
 
 ![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要執行此範例，您將需要：
 
@@ -47,7 +47,7 @@ ms.locfileid: "74920696"
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>選項 2：註冊並手動設定您的應用程式和程式碼範例
 >
-> #### <a name="step-1-register-your-application"></a>步驟 1：註冊您的應用程式
+> #### <a name="step-1-register-your-application"></a>步驟 1:註冊您的應用程式
 >
 > 若要註冊您的應用程式，並手動將應用程式註冊資訊新增到您的解決方案，請執行下列步驟：
 >
@@ -61,7 +61,7 @@ ms.locfileid: "74920696"
 >    - 目前先將 [重新導向 URI]  留白，然後選取 [註冊]  。
 > 1. 在 [概觀]  頁面上，尋找應用程式的 [應用程式 (用戶端) 識別碼]  和 [目錄 (租用戶) 識別碼]  值。 請複製這些值以供後續使用。
 > 1. 從功能表中選取 [驗證]  ，然後新增下列資訊：
->    - 在 [重新導向 URL]  中新增 `http://localhost:8080/msal4jsamples/secure/aad` 和 `http://localhost:8080/msal4jsamples/graph/me`。
+>    - 在 [重新導向 URL]  中新增 `http://localhost:8080/msal4jsample/secure/aad` 和 `http://localhost:8080/msal4jsample/graph/me`。
 >    - 選取 [儲存]  。
 > 1. 從功能表中選取 [憑證和秘密]  ，然後在 [用戶端密碼]  區段中，按一下 [新增用戶端密碼]  ：
 >
@@ -71,7 +71,7 @@ ms.locfileid: "74920696"
 >    - 複製金鑰的值以供後續使用。 此金鑰值不會再次顯示，也無法透過任何其他方式來擷取，因此，請於此值出現在 Azure 入口網站後就立即記錄下來。
 >
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>步驟 1：在 Azure 入口網站中設定您的應用程式
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>步驟 1:在 Azure 入口網站中設定您的應用程式
 >
 > 若要讓本快速入門中的程式碼範例能正常運作，您需要：
 >
@@ -83,7 +83,7 @@ ms.locfileid: "74920696"
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![已設定](media/quickstart-v2-aspnet-webapp/green-check.png) 您的應用程式已設定了這些屬性。
 
-#### <a name="step-2-download-the-code-sample"></a>步驟 2：下載程式碼範例
+#### <a name="step-2-download-the-code-sample"></a>步驟 2:下載程式碼範例
 
  [下載程式碼範例](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
@@ -121,7 +121,7 @@ ms.locfileid: "74920696"
 
 1. 在首頁上選取 [登入]  按鈕，以重新導向至 Azure Active Directory，並提示使用者輸入其認證。
 
-1. 使用者通過驗證後，會重新導向至 *http://localhost:8080/msal4jsamples/secure/aad* 。 他們現在已登入，且頁面將會顯示登入帳戶的相關資訊。 範例 UI 有下列按鈕：
+1. 使用者通過驗證後，會重新導向至 *http://localhost:8080/msal4jsample/secure/aad* 。 他們現在已登入，且頁面將會顯示登入帳戶的相關資訊。 範例 UI 有下列按鈕：
     - 登出  ：從應用程式登出目前的使用者，並將他們重新導向至首頁。
     - *顯示使用者資訊*：取得 Microsoft Graph 的權杖，並使用包含該權杖的要求呼叫 Microsoft Graph，這會傳回與已登入的使用者有關的基本資訊。
 

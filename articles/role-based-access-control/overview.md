@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1b40f8e070606a4c21def592fb6104e42e25f9f6
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 2ef528438591006be6e4cdec508dd15a7fb0a143
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707925"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357676"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>什麼是 Azure 資源的角色型存取控制 (RBAC)？
 
 對於使用雲端的任何組織而言，雲端資源的存取管理是非常重要的功能。 角色型存取控制 (RBAC) 協助您管理可存取 Azure 資源的人員、這些人員如何使用資源，以及他們存取的區域。
 
-RBAC 是建置於 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 上的授權系統，可提供更細緻的 Azure 資源存取管理。
+RBAC 是建置於 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 上的授權系統，可提供更細緻的 Azure 資源存取管理。
 
 ## <a name="what-can-i-do-with-rbac"></a>RBAC 有何用途？
 
@@ -84,7 +84,7 @@ Azure 具有可讓您授與物件內資料存取權的資料作業。 例如，�
 
 ![角色指派的範圍](./media/overview/rbac-scope.png)
 
-當您在父範圍授與存取權時，子範圍將會繼承這些權限。 例如︰
+當您在父範圍授與存取權時，子範圍將會繼承這些權限。 例如：
 
 - 如果您在管理群組範圍將[擁有者](built-in-roles.md#owner)角色指派給使用者，該使用者將可對管理群組中所有訂用帳戶的所有項目進行管理。
 - 如果您將[讀者](built-in-roles.md#reader)角色指派給訂用帳戶範圍的群組，則該群組的成員可以檢視訂用帳戶中的每個資源群組和資源。

@@ -9,14 +9,14 @@ ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: cfe198352cae95227a76535544d55a6be0c66abc
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 1c8e0bb136fddeb84dc991e63a761378b38cc470
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203245"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382322"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>使用 C# 建置主控台應用程式搜尋用戶端
 
@@ -27,7 +27,7 @@ ms.locfileid: "67203245"
 - 對 Bing Web 搜尋 API 進行簡單查詢
 - 以已設定順位的順序顯示查詢結果
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要繼續進行本教學課程，您需要：
 
@@ -223,9 +223,9 @@ static void RunQueryAndDisplayResults(string userQuery)
 
 `rankingResponse` JSON 物件 ([文件](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) 會說明搜尋結果的適當顯示順序。 它會包含下列一或多個已設定優先順序的群組：
 
-- `pole`：獲得最明顯處理的搜尋結果 (例如，顯示在主線和資訊看板上方)。
-- `mainline`：要顯示在主線中的搜尋結果。
-- `sidebar`：要顯示在資訊看板中的搜尋結果。 如果沒有資訊看板，則會在主線下方顯示結果。
+- `pole`:獲得最明顯處理的搜尋結果 (例如，顯示在主線和資訊看板上方)。
+- `mainline`:要顯示在主線中的搜尋結果。
+- `sidebar`:要顯示在資訊看板中的搜尋結果。 如果沒有資訊看板，則會在主線下方顯示結果。
 
 已設定順位的回應 JSON 可能包括一或多個群組。
 

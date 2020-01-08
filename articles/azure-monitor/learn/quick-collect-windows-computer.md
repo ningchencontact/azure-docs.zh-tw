@@ -3,7 +3,7 @@ title: 使用 Azure 監視器從混合式 Windows 電腦收集資料
 description: 在本快速入門中，您將了解如何針對在 Azure 外部執行的 Windows 電腦上部署 Log Analytics 代理程式，並使用 Azure 監視器記錄來啟用資料收集。
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
-ms.author: magoedte
+ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 26919a64313df823dddad5dcfca6de5d08dcd993
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 11c51ab702399c73dc93f850d4abde49b45b3775
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199021"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398952"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>使用 Azure 監視器從混合式環境中的 Windows 電腦收集資料
 
@@ -123,7 +123,7 @@ Azure 監視器可以收集您從 Windows 事件記錄檔和效能計數器指�
 
 8. 當您第一次為新的 Log Analytics 工作區設定 Windows 效能計數器時，系統會提供選項，讓您快速建立數個常用的計數器。 此時將列出每個選項，且旁邊有一個核取方塊：
 
-    ![Windows 效能計數器](media/quick-collect-windows-computer/windows-perfcounters-default.png)上也提供本文中使用的原始碼。
+    ![Windows 效能計數器](media/quick-collect-windows-computer/windows-perfcounters-default.png)。
     
     選取 [新增選定的效能計數器]  。 隨即會新增計數器，且收集取樣間隔時間的預設值為 10 秒。
 

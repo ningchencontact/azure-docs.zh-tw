@@ -1,7 +1,6 @@
 ---
 title: 教學課程 - 在 Visual Studio 中針對 Azure 串流分析作業撰寫 C# 使用者定義的函式 (預覽)
 description: 本教學課程說明如何在 Visual Studio 中針對串流分析作業撰寫 C# 使用者定義的函式。
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: d600c891f35a0719012707bdc2cb45101e14e090
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1d71f4c5616efb05efe2733c49507b085ca2dcf6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707351"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426304"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>教學課程：針對 Azure 串流分析作業撰寫 C# 使用者定義的函式 (預覽)
 
@@ -27,7 +26,7 @@ ms.locfileid: "74707351"
 > * 在本機測試您的串流分析作業。
 > * 將您的作業發佈至 Azure。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始之前，請先確定您已完成下列必要條件：
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 04/09/2018
-ms.openlocfilehash: e248c7f37c062fc69e5e42ae7d33e275c4b0aa19
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: db069571258bce8b79d223ce3115737061685b78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926533"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439360"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>使用複製資料工具將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -35,7 +35,7 @@ ms.locfileid: "74926533"
 > * 使用複製資料工具建立管線。
 > * 監視管線和活動執行。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 ### <a name="azure-subscription"></a>Azure 訂用帳戶
 開始之前，如果您還沒有 Azure 訂用帳戶，[請建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -123,7 +123,7 @@ ms.locfileid: "74926533"
 
    - 選取 [建立新的]  ，然後輸入資源群組的名稱。 
         
-     若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。
+     若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。
 1. 在 [版本]  下，選取 [V2]  。
 1. 在 [位置]  下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 Data Factory 所使用的資料存放區 (例如 Azure 儲存體和 SQL Database) 和計算 (例如 Azure HDInsight) 可位於其他地區/區域。
 1. 選取 [建立]  。
@@ -139,7 +139,7 @@ ms.locfileid: "74926533"
 
    ![開始使用頁面](./media/doc-common-process/get-started-page.png)
 
-1. 在複製資料工具的 [屬性]  頁面中上，於 [工作名稱]  下輸入 **CopyFromOnPremSqlToAzureBlobPipeline**。 然後，選取 [下一步]  。 複製資料工具會使用您在此欄位指定的名稱建立管線。 
+1. 在複製資料工具的 [屬性]  頁面中上，於 [工作名稱]  下輸入 **CopyFromOnPremSqlToAzureBlobPipeline**。 然後選取 [下一步]  。 複製資料工具會使用您在此欄位指定的名稱建立管線。 
   ![工作名稱](./media/tutorial-hybrid-copy-data-tool/properties-page.png)
 
 1. 在 [來源資料存放區]  頁面上，按一下 [建立新連線]  。 
@@ -150,11 +150,11 @@ ms.locfileid: "74926533"
 1. 在 [新增連結服務 (SQL Server)]  對話方塊的 [名稱]  下，輸入 **SqlServerLinkedService**。 在 [透過整合執行階段連線]  下選取 [+新增]  。 您必須建立自我裝載的整合執行階段、將其下載到您的機器，並使用 Data Factory 進行註冊。 自我裝載的整合執行階段會在內部部署環境與雲端之間複製資料。
 
 
-1. 在 [整合執行階段設定]  對話方塊中，選取 [自我裝載]  。 然後，選取 [下一步]  。 
+1. 在 [整合執行階段設定]  對話方塊中，選取 [自我裝載]  。 然後選取 [下一步]  。 
 
    ![建立整合執行階段](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
 
-1. 在 [整合執行階段設定]  對話方塊中的 [名稱]  下，輸入 **TutorialIntegrationRuntime**。 然後，選取 [下一步]  。 
+1. 在 [整合執行階段設定]  對話方塊中的 [名稱]  下，輸入 **TutorialIntegrationRuntime**。 然後選取 [下一步]  。 
 
 
 1. 在 [整合執行階段設定]  對話方塊中，選取 [按一下這裡啟動此電腦的快速設定]  。 此動作會在您的機器上安裝整合執行階段，並使用 Data Factory 進行註冊。 或者，您可以使用手動安裝選項來下載安裝檔案、執行它，並使用金鑰來註冊整合執行階段。 
@@ -202,7 +202,7 @@ ms.locfileid: "74926533"
 
    d. 選取 [完成]  。
 
-1. 在 [目的地資料存放區]  對話方塊中，確定已選取 [Azure Blob 儲存體]  。 然後，選取 [下一步]  。 
+1. 在 [目的地資料存放區]  對話方塊中，確定已選取 [Azure Blob 儲存體]  。 然後選取 [下一步]  。 
 
 1. 在 [選擇輸出檔案或資料夾]  對話方塊中的 [資料夾路徑]  下，輸入 **adftutorial/fromonprem**。 您已建立 **adftutorial** 容器作為必要條件的一部分。 如果輸出資料夾不存在 (在此案例中為 **fromonprem**)，Data Factory 會自動加以建立。 您也可以使用 [瀏覽]  按鈕以瀏覽 Blob 儲存體和其容器/資料夾。 如果您未在 [檔案名稱]  下指定任何值，依預設將會使用來自來源的名稱 (在此案例中為 **dbo.emp**)。
            

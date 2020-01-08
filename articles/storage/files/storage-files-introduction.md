@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7fe95a35a6b78bae66521a09d63d376ec8757479
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 43d19f5b3f291f69e7b6f765dcee230345421d1a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699683"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431792"
 ---
 # <a name="what-is-azure-files"></a>什麼是 Azure 檔案服務？
 Azure 檔案提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)存取。 Windows、Linux 和 macOS 的雲端部署或內部部署可同時掛接 Azure 檔案共用。 此外，透過 Azure 檔案同步可以在 Windows Server 上快取 Azure 檔案共用，以便在資料的使用位置附近快速存取。
@@ -32,7 +32,7 @@ Azure 檔案共用可以用來：
     Azure 檔案服務可讓您輕易將預期檔案共用會儲存檔案應用程式或使用者資料的應用程式「原形移轉」到雲端。 Azure 檔案服務可支援「傳統」原形移轉案例 (其中的應用程式及其資料會移至 Azure)，和「混合式」原形移轉案例 (其中的應用程式資料會移至 Azure 檔案服務，而應用程式會繼續在內部部署環境執行)。 
 
 * **簡化雲端開發**：  
-    Azure 檔案服務也可透過數種使用方式來簡化新的雲端開發專案。 例如︰
+    Azure 檔案服務也可透過數種使用方式來簡化新的雲端開發專案。 例如：
     * **共用的應用程式設定**：  
         分散式應用程式的常見模式是將組態檔放在一個集中的位置，這些應用程式可從許多應用程式執行個體進行存取。 應用程式執行個體可透過 File REST API 載入其組態，而使用者可藉由在本機掛接 SMB 共用來視需要進行存取。
 

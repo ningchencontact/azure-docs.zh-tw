@@ -8,28 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 07/15/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 494ef8b76f9767b43e5e1d739c47933ee0f3c40d
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 676427ca2985de51767939891b41f413446d4bb1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383574"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446574"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>快速入門：使用適用於 Node.js 的 Bing 圖像式搜尋 SDK 來取得影像見解
 
 使用本快速入門，開始使用 Node.js SDK 從 Bing 圖像式搜尋服務取得影像見解。 雖然 Bing 圖像式搜尋具有與大部分程式設計語言相容的 REST API，但 SDK 會提供簡單的方法，將服務整合到您的應用程式。 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js) 上找到。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 * [Node.js](https://www.nodejs.org/)
 * 適用於 Node.js 的 Bing 圖像式搜尋 SDK
     * 若要使用 Bing 圖像式搜尋 SDK 來設定主控台應用程式，請執行下列命令：
         1. `npm install ms-rest-azure`
-        2. `npm install azure-cognitiveservices-search-visualSearch` 。
+        2. 第 1 課：建立 Windows Azure 儲存體物件`npm install azure-cognitiveservices-search-visualSearch`。
 
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 <a name="client"></a>
 

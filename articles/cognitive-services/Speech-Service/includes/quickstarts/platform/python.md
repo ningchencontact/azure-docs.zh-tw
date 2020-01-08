@@ -7,28 +7,28 @@ author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 095c591f63cb228b48681ffc67499820631bbaf5
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 37b0deba6531c8e714b8786f8c815cf323c310ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816458"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468377"
 ---
 本指南說明如何安裝適用於 Python 的[語音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)。
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="supported-operating-systems"></a>受支援的作業系統
+## <a name="supported-operating-systems"></a>支援的作業系統
 
 - Python 語音 SDK 套件適用於下列作業系統：
   - Windows：x64 和 x86
   - Mac：macOS X 10.12 版或更新版本
   - Linux：x64 上的 Ubuntu 16.04、Ubuntu 18.04、Debian 9
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 支援的 Linux 平台會要求安裝特定程式庫 (`libssl` 以取得安全通訊端層支援，`libasound2` 以取得音效支援)。 請參閱以下的發佈，以取得安裝這些程式庫正確版本所需的命令。
 
@@ -78,7 +78,7 @@ pip install azure-cognitiveservices-speech
 python3 -m pip install --upgrade pip
 ```
 
-成功使用 `pip` 安裝 `azure-cognitiveservices-speech` 之後，您可以藉由將命名空間匯入 Python 專案中，來使用語音 SDK。 例如︰
+成功使用 `pip` 安裝 `azure-cognitiveservices-speech` 之後，您可以藉由將命名空間匯入 Python 專案中，來使用語音 SDK。 例如：
 
 ```py
 import azure.cognitiveservices.speech as speechsdk

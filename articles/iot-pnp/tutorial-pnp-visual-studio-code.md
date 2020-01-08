@@ -3,18 +3,18 @@ title: 建立和測試 IoT 隨插即用預覽版裝置 | Microsoft Docs
 description: 身為裝置開發人員，請了解如何使用 VS Code 來建立及測試 IoT 隨插即用預覽版裝置的新裝置功能模型。
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2019
+ms.date: 12/30/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b7b9cd1040accda4d39af4d0a18940b56a45f929
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 209c63207653e98967a5a66e36c0cae53b7e044f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569891"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550276"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>教學課程：使用 Visual Studio Code 建立和測試裝置功能模型
 
@@ -30,7 +30,7 @@ ms.locfileid: "73569891"
 > * 在產生的程式碼中實作 Stub
 > * 執行程式碼以測試與 IoT 中樞的互動
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要使用本教學課程中的裝置功能模型，您需要：
 
@@ -43,7 +43,7 @@ ms.locfileid: "73569891"
 
 在本教學課程中，若要在 Windows 上建置產生的 C 程式碼，您需要：
 
-* 具有 **C++ 建置工具**和 **NuGet 套件管理員元件**工作負載的 [Visual Studio 建置工具](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16)。 或是，您的 [Visual Studio (Community、Professional 或 Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019、2017 或 2015 已安裝相同工作負載。
+* 具有 **C++ 建置工具**和 **NuGet 套件管理員元件**工作負載的 [Visual Studio 建置工具](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16)。 或者如果您已安裝具有相同工作負載的 [Visual Studio (Community、Professional 或 Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019、2017 或 2015。
 * [Git](https://git-scm.com/download)
 * [CMake](https://cmake.org/download/)
 
@@ -307,7 +307,7 @@ ms.locfileid: "73569891"
 
 1. 選擇 [透過 IoT 中樞裝置連接字串]  作為連線的方式。
 
-1. 選擇 [Windows 上 CMake 專案]  作為專案範本。
+1. 選擇 [Windows 上的 CMake 專案]  作為專案範本。
 
 1. 選擇 [透過 Vcpkg]  作為包含裝置 SDK 的方式。
 

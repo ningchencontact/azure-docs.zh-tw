@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: banders
-ms.openlocfilehash: 62a16a6a96fbfdfbb4ed2d70b74470e29efaa844
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 03464fca6d7e0694d9492de698c70d5caac89358
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849848"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644472"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>了解 Azure 中的 Azure Enterprise 合約系統管理角色
 
@@ -38,10 +38,10 @@ ms.locfileid: "74849848"
 
 |角色| 使用者限制|
 |---|---|
-|企業系統管理員|無限|
-|企業系統管理員 (唯讀)|無限|
-|部門系統管理員|無限|
-|部門系統管理員 (唯讀)|無限|
+|企業系統管理員|無限制|
+|企業系統管理員 (唯讀)|無限制|
+|部門系統管理員|無限制|
+|部門系統管理員 (唯讀)|無限制|
 |帳戶擁有者|每一帳戶 1 位<sup>1</sup>|
 
 <sup>1</sup> 每個帳戶都必須是唯一的 Microsoft 帳戶，或是公司或學校帳戶。
@@ -95,8 +95,8 @@ ms.locfileid: "74849848"
 |---|---|---|---|
 |帳戶擁有者或部門系統管理員|✔ 已啟用|擁有者|組織的 EA 價格|
 |帳戶擁有者或部門系統管理員|✘ 已停用|擁有者|零售價格|
-|帳戶擁有者或部門系統管理員|✔ 已啟用 |None|沒有價格|
-|帳戶擁有者或部門系統管理員|✘ 已停用 |None|沒有價格|
+|帳戶擁有者或部門系統管理員|✔ 已啟用 |無|沒有價格|
+|帳戶擁有者或部門系統管理員|✘ 已停用 |無|沒有價格|
 |None|不適用 |擁有者|零售價格|
 
 您會在企業版入口網站中設定企業系統管理員角色和檢視費用原則。 RBAC 角色可以在 Azure 入口網站中更新。 如需詳細資料，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../role-based-access-control/role-assignments-portal.md)。

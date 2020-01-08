@@ -3,18 +3,18 @@ title: 快速入門：使用 PowerShell 建立藍圖
 description: 在本快速入門中，您將在 PowerShell 中使用 Azure 藍圖建立、定義和部署成品。
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: ed337fa040804159dae3194de1befc43ff2b698f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8b418fa2b5244c42b8597bbbe7ed4773133d03a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327472"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436644"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>快速入門：使用 PowerShell 定義和指派 Azure 藍圖
 
 了解如何建立及指派有助於定義常用模式的藍圖，以根據 Resource Manager 範本、原則、安全性等，開發出可重複使用並可快速部署的組態。 在本教學課程中，您將了解如何使用 Azure 藍圖在您的組織中處理藍圖的建立、發佈和指派等常見工作，例如：
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free)。
 
@@ -379,7 +379,9 @@ Publish-AzBlueprint -Blueprint $blueprint -Version '{BlueprintVersion}'
      > [!IMPORTANT]
      > 藍圖不會管理使用者指派的受控識別。 使用者需負責指派足夠的角色和權限，否則藍圖指派將會失敗。
 
-## <a name="unassign-a-blueprint"></a>取消指派藍圖
+## <a name="clean-up-resources"></a>清除資源
+
+### <a name="unassign-a-blueprint"></a>取消指派藍圖
 
 您可以從訂用帳戶中移除藍圖。 移除作業通常會在成品資源已不再需要時執行。 移除藍圖時，會將指派為該藍圖一部份的成品保留下來。 若要移除藍圖指派，請使用 `Remove-AzBlueprintAssignment` Cmdlet：
 

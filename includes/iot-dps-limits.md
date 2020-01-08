@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: fb77682bce0d9faef8f9ac8197afd8751560d515
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a306a05899a644f2ee8ea738789b84ee98221531
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224403"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392324"
 ---
 下表列出適用於 Azure IoT 中樞裝置佈建服務資源的限制。
 
@@ -22,10 +22,6 @@ ms.locfileid: "74224403"
 | CA 數目上限 | 25 |
 | 連結的 IoT 中樞數目上限 | 50 |
 | 訊息大小上限 | 96 KB|
-
-
-> [!NOTE]
-> 若要提高您訂用帳戶中的執行個體數目，請連絡 [Microsoft 支援服務](https://azure.microsoft.com/support/options/)。
 
 > [!NOTE]
 > 若要提高佈建服務的註冊和登錄數目，請連絡 [Microsoft 支援服務](https://azure.microsoft.com/support/options/)。

@@ -7,21 +7,21 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 522107d1dc7f0a640c4122799002764968923fd6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: fc3039c80066004e81ca62412912d51312b3f909
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816147"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467629"
 ---
 ## <a name="additional-language-and-platform-support"></a>其他語言和平台支援
 
 按下此索引標籤，表示您可能未找到慣用程式設計語言的快速入門。 別擔心，我們在 GitHub 上有其他的快速入門資料和程式碼範例可供使用。 您可以使用資料表來尋找您程式設計語言和平台/作業系統組合的合適範例。
 
-| 語言 | 其他快速入門 | 程式碼範例 |
+| Language | 其他快速入門 | 程式碼範例 |
 |----------|------------------------|--------------|
 | C++ | |[快速入門](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp)，[範例](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/linux)|
 | C# | |[.NET Framework](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet)、[.NET Core](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnetcore)、[UWP](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp)、[Unity](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/unity)、[Xamarin](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin) |

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: 7bc5544249b7e476afde08281aa005569ef6f8ce
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d1e21827dda26f1c577f6cc70a5e34bb09a34d9c
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873721"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500051"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API 的圖表資料模型
 
@@ -23,7 +23,7 @@ ms.locfileid: "74873721"
 本指南中所述的程序是以下列假設為依據：
  * 已識別問題空間中的**實體**。 這些實體是要讓每個要求_以不可分割方式_方式使用。 換句話說，也就是資料庫系統的設計目的，並不是為了使用多個問題要求來擷取單一實體的資料。
  * 我們都已經了解資料庫系統有**讀取和寫入需求**。 這些需求會主導如何對圖形資料模型進行必要的最佳化作業。
- * 我們已經充分瞭解 [Apache Tinkerpop 屬性圖形標準](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) \(英文)\ 的原則。
+ * 我們已經充分瞭解 [Apache Tinkerpop 屬性圖形標準](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) \(英文)\ 的原則。
 
 ## <a name="when-do-i-need-a-graph-database"></a>需要圖形資料庫時機為何？
 
@@ -41,18 +41,18 @@ ms.locfileid: "74873721"
 
 ## <a name="how-to-use-graph-objects"></a>如何使用圖形物件
 
-[Apache Tinkerpop 屬性圖形標準](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) \(原文\) 定義了兩種類型的物件，也就是**頂點**和**邊緣**。 
+[Apache Tinkerpop 屬性圖形標準](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) \(原文\) 定義了兩種類型的物件，也就是**頂點**和**邊緣**。 
 
 以下是圖表物件中各屬性的最佳做法︰
 
 | Object | 屬性 | 類型 | 注意 |
 | --- | --- | --- |  --- |
-| 頂點 | ID | 字串 | 每個分割區唯一強制執行。 如果沒有在插入時提供值，將會儲存自動產生的 GUID。 |
-| 頂點 | 標籤 | 字串 | 這個屬性是用來定義頂點所代表的實體類型。 如果未提供值，將會使用預設值「頂點」。 |
+| 頂點 | ID | String | 每個分割區唯一強制執行。 如果沒有在插入時提供值，將會儲存自動產生的 GUID。 |
+| 頂點 | 標籤 | String | 這個屬性是用來定義頂點所代表的實體類型。 如果未提供值，將會使用預設值「頂點」。 |
 | 頂點 | properties | 字串、布林值、數值 | 個別屬性的清單會以索引鍵/值組的方式儲存在每個頂點中。 |
 | 頂點 | 分割區索引鍵 | 字串、布林值、數值 | 這個屬性會定義頂點和其傳出邊緣的儲存位置。 深入了解[資料分割](graph-partitioning.md)。 |
-| Edge | ID | 字串 | 每個分割區唯一強制執行。 預設會自動產生。 邊緣通常不需要透過識別碼進行唯一擷取。 |
-| Edge | 標籤 | 字串 | 這個屬性是用來定義兩個頂點之間的關聯性類型。 |
+| Edge | ID | String | 每個分割區唯一強制執行。 預設會自動產生。 邊緣通常不需要透過識別碼進行唯一擷取。 |
+| Edge | 標籤 | String | 這個屬性是用來定義兩個頂點之間的關聯性類型。 |
 | Edge | properties | 字串、布林值、數值 | 個別屬性的清單會以索引鍵/值組的方式儲存在每個邊緣中。 |
 
 > [!NOTE]

@@ -2,20 +2,17 @@
 title: Azure 自動化概觀
 description: 了解如何使用 Azure 自動化，將基礎結構和應用程式的生命週期自動化。
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: eamonoreilly
-ms.author: eamono
 keywords: azure 自動化, DSC, powershell, Desired State Configuration, 更新管理, 變更追蹤, 清查, Runbook, python, 圖形
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: b14550d0e03382a6709924ca5671cb26d09fcc35
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3037f96464b0902ca3923bdaea2bddff39c47733
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434048"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421936"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure 自動化簡介
 
@@ -61,7 +58,7 @@ Azure 自動化能夠[與原始檔控制整合](source-control-integration.md)�
 
 Azure 自動化支援角色型存取控制來控制對自動化帳戶及其資源的存取，若要深入了解如何在您的自動化帳戶、Runbook 及作業上設定 RBAC，請參閱[適用於 Azure 自動化的角色型存取控制](automation-role-based-access-control.md)。
 
-### <a name="windows-and-linux"></a>Windows 和 Linux
+### <a name="windows-and-linux"></a>Windows 與 Linux
 
 Azure 自動化旨在讓您可跨混合式雲端環境運作，並適用於 Windows 和 Linux。 它會提供一致的方式，將部署的工作負載和其所執行的作業系統進行自動化及設定。
 

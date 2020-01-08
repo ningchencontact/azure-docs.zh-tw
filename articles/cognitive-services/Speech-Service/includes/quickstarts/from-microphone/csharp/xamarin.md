@@ -7,17 +7,17 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: ecfdc74c72284da97ebf3107140911e666a3a12d
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 66391f7b9282781902723b0153a5797a5f7ae82b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818852"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467865"
 ---
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始之前：
 
@@ -120,7 +120,7 @@ ms.locfileid: "74818852"
 1. 接下來，在 Visual Studio 中的 helloworld.UWP 專案底下按兩下 `Package.appxmanifest` 檔案。 在 [功能]  底下，確認已選取 [麥克風]  ，然後儲存檔案。
 
 1. 接下來，在 Visual Studio 中按兩下 `helloworld.UWP` 專案下的 `Package.appxmanifest` 檔案，並在勾選 [功能]   > [麥克風]  後儲存檔案。
-   > 注意：如果您看到警告：憑證檔案不存在：helloworld.UWP_TemporaryKey.pfx，請檢查 [語音轉文字](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)範例以取得詳細資訊。
+   > 注意:如果您看到警告：憑證檔案不存在：helloworld.UWP_TemporaryKey.pfx，請檢查 [語音轉文字](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)範例以取得詳細資訊。
 
 1. 從功能表列中選取 [檔案]   > [全部儲存]  來儲存變更。
 

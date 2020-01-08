@@ -2,17 +2,17 @@
 title: 什麼是 Azure Private Link？
 description: 了解如何使用 Azure Private Link 透過虛擬網路中的私人端點存取各項 Azure PaaS 服務 (例如 Azure 儲存體和 SQL Database)，以及 Azure 裝載的客戶/合作夥伴服務。
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 03fdd67adf5df440cafe4e7411064437b8ef89ac
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 127807a57598fcfe239db39cb9874bca955da44e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671548"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647351"
 ---
 # <a name="what-is-azure-private-link-preview"></a>什麼是 Azure Private Link？ (預覽)
 Azure Private Link 可讓您透過虛擬網路中的[私人端點](private-endpoint-overview.md)存取各項 Azure PaaS 服務 (例如 Azure 儲存體、Azure Cosmos DB 和 SQL Database)，以及 Azure 裝載的客戶/合作夥伴服務。 虛擬網路和服務間的流量會在通過 Microsoft 骨幹網路時隨之減少，降低資料在網際網路中公開的風險。 您也可以在虛擬網路 (VNet) 中建立自己的 [Private Link 服務](private-link-service-overview.md)，並私下提供給您的客戶。 使用 Azure Private Link 的設定和取用體驗在 Azure PaaS、客戶自有服務和共用合作夥伴服務之間是一致的。
@@ -38,7 +38,7 @@ Azure Private Link 提供下列優點：
 ## <a name="availability"></a>可用性 
  下表列出 Private Link 服務和適用此服務的區域。 
 
-|案例  |支援的服務  |可用區域 | 狀態  |
+|狀況  |支援的服務  |可用區域 | 狀態  |
 |:---------|:-------------------|:-----------------|:--------|
 |適用於客戶自有服務的 Private Link|Standard Load Balancer 後方的 Private Link 服務 | 所有公用區域  | 預覽  |
 |適用於 Azure PaaS 服務的 Private Link   | Azure 儲存體        |  所有公用區域      | 預覽 <br/> [深入了解](/azure/storage/common/storage-private-endpoints)。  |
@@ -65,7 +65,7 @@ Azure Private Link 會與 Azure 監視器整合，讓您可以將記錄封存至
 若要查看常見問題集，請參閱 [Azure Private Link 常見問題集](private-link-faq.md)。
  
 ## <a name="limits"></a>限制  
-若要查看相關限制，請參閱 [Azure Private Link 限制](../azure-subscription-service-limits.md#private-link-limits)。
+若要查看相關限制，請參閱 [Azure Private Link 限制](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits)。
 
 ## <a name="next-steps"></a>後續步驟
 - [使用入口網站建立適用於 SQL Database 伺服器的私人端點](create-private-endpoint-portal.md)

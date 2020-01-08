@@ -61,7 +61,7 @@
           href: how-dev-spaces-works.md
         - name: VS Code 如可與 Dev Spaces 搭配使用
           href: how-vs-code-works-with-dev-spaces.md
-    - name: 作法
+    - name: 如何
       items:
         - name: 安裝 Azure Dev Spaces
           href: how-to/install-dev-spaces.md
@@ -91,6 +91,8 @@
           href: how-to/run-dev-spaces-windows-containers.md
         - name: 針對自訂輸入和 HTTPS 使用 traefik
           href: how-to/ingress-https-traefik.md
+        - name: 針對自訂輸入和 HTTPS 使用 NGINX
+          href: how-to/ingress-https-nginx.md
         - name: 將您的開發電腦連線至 AKS 叢集 (預覽)
           href: how-to/connect.md
     - name: 疑難排解

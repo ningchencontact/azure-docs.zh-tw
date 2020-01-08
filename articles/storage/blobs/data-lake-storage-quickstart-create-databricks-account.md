@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.reviewer: jeking
-ms.openlocfilehash: 5badd4aeabd8ec322ea5fb847cf134f302269c27
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: a19a6e7e74fc645c891754e5afdbd2a6a1bdefd4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330999"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443802"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>快速入門：使用 Azure Databricks 分析 Azure Data Lake Storage Gen2 中的資料
 
@@ -23,7 +23,7 @@ ms.locfileid: "72330999"
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * 建立 Data Lake Gen2 儲存體帳戶。 請參閱[快速入門：建立 Azure Data Lake Storage Gen2 儲存體帳戶](data-lake-storage-quickstart-create-account.md)
 
@@ -54,11 +54,11 @@ ms.locfileid: "72330999"
 
     提供下列值：
 
-    |屬性  |說明  |
+    |屬性  |描述  |
     |---------|---------|
     |**工作區名稱**     | 提供您 Databricks 工作區的名稱        |
     |**訂用帳戶**     | 從下拉式清單中選取您的 Azure 訂用帳戶。        |
-    |**資源群組**     | 指定您是要建立新的資源群組，還是使用現有資源群組。 資源群組是存放 Azure 方案相關資源的容器。 如需詳細資訊，請參閱 [Azure 資源群組概觀](../../azure-resource-manager/resource-group-overview.md)。 |
+    |**資源群組**     | 指定您是要建立新的資源群組，還是使用現有資源群組。 資源群組是存放 Azure 方案相關資源的容器。 如需詳細資訊，請參閱 [Azure 資源群組概觀](../../azure-resource-manager/management/overview.md)。 |
     |**位置**     | 選取 [美國西部 2]  。 請自由選擇另一個公用區域，如果您想要的話。        |
     |定價層      |  選擇 [標準]  或 [進階]  。 如需這些定價層的詳細資訊，請參閱 [Databricks 定價頁面](https://azure.microsoft.com/pricing/details/databricks/)。       |
 
@@ -96,11 +96,11 @@ ms.locfileid: "72330999"
 
 2. 在左側窗格中，選取 [工作區]  。 從 [工作區]  下拉式清單選取 [建立]   > [Notebook]  。
 
-    ![在 Databricks 中建立 Notebook](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "在 Databricks 中建立 Notebook")
+    ![在 Databricks 中建立筆記本](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "在 Databricks 中建立筆記本")
 
 3. 在 [建立 Notebook]  對話方塊中，輸入 Notebook 的名稱。 選取 [Scala]  作為語言，然後選取您先前建立的 Spark 叢集。
 
-    ![在 Databricks 中建立 Notebook](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-details.png "在 Databricks 中建立 Notebook")
+    ![在 Databricks 中建立筆記本](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-details.png "在 Databricks 中建立筆記本")
 
     選取 [建立]  。
 
@@ -173,7 +173,7 @@ ms.locfileid: "72330999"
 
 3. 您會看到如下列螢幕擷取畫面所示的表格式輸出 (僅顯示某些資料行)：
 
-    ![JSON 資料範例](./media/data-lake-storage-quickstart-create-databricks-account/databricks-sample-csv-data.png "JSON 資料範例")
+    ![範例 JSON 資料](./media/data-lake-storage-quickstart-create-databricks-account/databricks-sample-csv-data.png "範例 JSON 資料")
 
     至於其他細節，資料範例會擷取電台頻道的聽眾性別 (資料行名稱為**性別**)，以及其擁有的是免費或付費訂閱 (資料行名稱為**層級**)。
 

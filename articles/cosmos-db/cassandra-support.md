@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Cassandra API 支援的 Apache Cassandra 功能與命令
+title: Azure Cosmos DB Cassandra API 支援的 Apache Cassandra 功能
 description: 了解 Azure Cosmos DB Cassandra API 中的 Apache Cassandra 功能
 author: kanshiG
 ms.author: govindk
@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: c0a47e922ae8cdca3c70cb53f9fa2f7dafe191c6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8598be504f62089cf20123918779c310b2fb8ec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889216"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445633"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 支援的 Apache Cassandra 功能 
 
@@ -42,25 +42,25 @@ Azure Cosmos DB Cassandra API 支援下列 Cassandra 驅動程式：
 Azure Cosmos DB Cassandra API 支援下列 CQL 資料類型：
 
 * ascii  
-* bigint  
+* BIGINT  
 * blob  
-* 布林值  
+* boolean  
 * counter  
 * date  
 * decimal  
 * double  
-* float  
+* FLOAT  
 * 冰雪奇緣  
 * inet  
 * int  
 * list  
 * set  
-* smallint  
+* SMALLINT  
 * text  
 * time  
 * timestamp  
 * timeuuid  
-* tinyint  
+* TINYINT  
 * Tuple  
 * uuid  
 * varchar  
@@ -73,7 +73,7 @@ Azure Cosmos DB Cassandra API 支援下列 CQL 資料類型：
 
 Azure Cosmos DB Cassandra API 支援下列 CQL 函式：
 
-* token  
+* Token  
 * 彙總函式
   * min、max、avg、count
 * Blob 轉換函式 
@@ -147,7 +147,7 @@ Azure Cosmos DB 支援在 Cassandra API 帳戶上使用下列資料庫命令。
 * CREATE TABLE 
 * ALTER TABLE 
 * USE 
-* INSERT 
+* Insert 
 * SELECT 
 * UPDATE 
 * BATCH - 只支援未記錄的命令 

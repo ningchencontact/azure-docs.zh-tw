@@ -3,6 +3,12 @@
 - name: 了解 Azure 計費
   expanded: true
   items:
+    - name: 計費帳戶和範圍
+      href: billing-view-all-accounts.md
+    - name: Microsoft 客戶合約的帳單帳戶
+      href: billing-mca-overview.md
+    - name: Microsoft 合作夥伴合約的計費帳戶
+      href: mpa-overview.md
     - name: 了解您的帳單
       href: billing-understand-your-bill.md
     - name: 了解您的帳單 - Microsoft 客戶合約
@@ -29,10 +35,6 @@
       href: billing-mpa-invoice-terms-explained.md
     - name: 如何支付帳單 - Microsoft 客戶合約
       href: billing-how-to-pay-bill.md
-    - name: Microsoft 客戶合約的帳單帳戶
-      href: billing-mca-overview.md
-    - name: Microsoft 合作夥伴合約的計費帳戶
-      href: mpa-overview.md
 - name: 管理成本
   items:
     - name: 避免非預期成本
@@ -147,8 +149,6 @@
       href: billing-understand-mca-roles.md
     - name: 連結合作夥伴識別碼
       href: billing-partner-admin-link-started.md
-    - name: 檢視計費帳戶
-      href: billing-view-all-accounts.md
     - name: 利用發票區段整理費用
       href: billing-mca-section-invoice.md
     - name: Microsoft 客戶合約中的 EA 工作
@@ -216,7 +216,7 @@
     - name: 連結 Azure AD 租用戶
       href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
     - name: 限制和配額
-      href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: 疑難排解
   items:
     - name: 找不到訂用帳戶

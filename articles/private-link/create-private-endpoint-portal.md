@@ -2,17 +2,17 @@
 title: 快速入門 - 管理 Azure 中的私人端點
 description: 在本快速入門中，了解如何使用 Azure 入口網站建立私人端點
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 22614b28023a0628fb12c170e934aaab4d1ddfe4
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: bc8141b951dbc27972dc2efb6819a7c0137ea7fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899855"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459927"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>快速入門：使用 Azure 入口網站建立私人端點
 
@@ -20,9 +20,6 @@ ms.locfileid: "74899855"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-
-> [!NOTE]
-> 私人端點不允許與相同子網路中的服務端點搭配使用！
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -45,7 +42,7 @@ ms.locfileid: "74899855"
     | 位址空間 | 輸入 *10.1.0.0/16*。 |
     | 訂用帳戶 | 選取您的訂用帳戶。|
     | 資源群組 | 選取 [新建]  ，輸入 *myResourceGroup*，然後選取 [確定]  。 |
-    | 位置 | 選取 [WestCentralUS]  。|
+    | Location | 選取 [WestCentralUS]  。|
     | 子網路 - 名稱 | 輸入 mySubnet  。 |
     | 子網路 - 位址範圍 | 輸入 *10.1.0.0/24*。 |
     |||
@@ -67,7 +64,7 @@ ms.locfileid: "74899855"
     | 虛擬機器名稱 | 輸入 myVm  。 |
     | 區域 | 選取 [WestCentralUS]  。 |
     | 可用性選項 | 保留預設值 [不需要基礎結構備援]  。 |
-    | 映像 | 選取 [Windows Server 2019 Datacenter]  。 |
+    | 影像 | 選取 [Windows Server 2019 Datacenter]  。 |
     | 大小 | 保留預設值 [標準 DS1 v2]  。 |
     | **系統管理員帳戶** |  |
     | 使用者名稱 | 輸入您選擇的使用者名稱。 |
@@ -83,7 +80,7 @@ ms.locfileid: "74899855"
 
 1. 在 [建立虛擬機器 - 磁碟]  ，保留預設值並選取 [下一步：  網路功能]。
 
-1. 在 [建立虛擬機器 - 網路功能]  中，選取這項資訊：
+1. 在 [建立虛擬機器 - 網路]  中，選取這項資訊：
 
     | 設定 | 值 |
     | ------- | ----- |
@@ -123,7 +120,7 @@ ms.locfileid: "74899855"
     |伺服器名稱  | 輸入 myserver  。 如果此名稱已被使用，請建立唯一名稱。|
     | 伺服器管理員登入| 輸入您所選擇的系統管理員名稱。 |
     | 密碼 | 輸入您選擇的密碼。 密碼長度至少必須有 8 個字元，而且符合定義的需求。 |
-    | 位置 | 選取您想要放置 SQL Server 的 Azure 區域。 |
+    | Location | 選取您想要放置 SQL Server 的 Azure 區域。 |
     
 7. 選取 [確定]  。 
 8. 選取 [檢閱 + 建立]  。 您會移至 [檢閱 + 建立]  頁面，其中 Azure 會驗證您的設定。 
@@ -152,7 +149,7 @@ ms.locfileid: "74899855"
 
     | 設定 | 值 |
     | ------- | ----- |
-    |連線方式  | 選取 [連線到我目錄中的 Azure 資源]。|
+    |連線方法  | 選取 [連線到我目錄中的 Azure 資源]。|
     | 訂用帳戶| 選取您的訂用帳戶。 |
     | 資源類型 | 選取 [Microsoft.Sql/servers]  。 |
     | 資源 |選取 [myServer] |
@@ -223,11 +220,11 @@ ms.locfileid: "74899855"
     | ------- | ----- |
     | 伺服器類型| 選取 [資料庫引擎]  。|
     | 伺服器名稱| 選取 *myserver.database.windows.net* |
-    | 使用者名稱 | 輸入在 SQL Server 建立期間所提供的 username@servername 作為使用者名稱。 |
+    | [使用者名稱] | 輸入在 SQL Server 建立期間所提供的 username@servername 作為使用者名稱。 |
     |密碼 |輸入 SQL Server 建立期間所提供的密碼。 |
     |記住密碼|選取 [是]  。|
     |||
-1. 選取 [ **連接**]。
+1. 選取 [連接]  。
 2. 瀏覽左側功能表中的資料庫。
 3. (選擇性) 從 mydatabase 建立或查詢資訊。
 4. 關閉對  *myVm* 的遠端桌面連線。 

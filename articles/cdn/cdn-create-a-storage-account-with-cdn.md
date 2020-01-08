@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 729ae34d90fd2415fc44fc75391950f18fee6fc0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ffcbeb311a91791432bb285b59f5486393ffe4f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083065"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386981"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>快速入門：整合 Azure 儲存體帳戶與 Azure CDN
 在本快速入門中，您可以啟用 [Azure 內容傳遞網路 (CDN)](cdn-overview.md)，從 Azure 儲存體快取內容。 Azure CDN 提供開發人員一套傳遞高頻寬內容的全域解決方案。 在北美洲、歐洲、亞洲、澳洲及南美洲的實體節點上，皆可快取 blob 和計算執行個體的靜態內容。
@@ -75,7 +75,7 @@ ms.locfileid: "74083065"
     | **效能** | 使用預設值。 |
     | **需要安全傳輸** | 使用預設值。 |
     | **訂用帳戶** | 從下拉式清單中，選取 Azure 訂用帳戶。 |
-    | **資源群組** | 選取 [新建]  ，並輸入 *my-resource-group-123* 作為資源群組名稱。 此名稱必須是全域唯一的。 如果此名稱已在使用中，您可以輸入不同名稱或是選取 [使用現有項目]  ，並從下拉式清單中選取 [my-resource-group-123]  。 <br />如需資源群組的資訊，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md#resource-groups)。| 
+    | **資源群組** | 選取 [新建]  ，並輸入 *my-resource-group-123* 作為資源群組名稱。 此名稱必須是全域唯一的。 如果此名稱已在使用中，您可以輸入不同名稱或是選取 [使用現有項目]  ，並從下拉式清單中選取 [my-resource-group-123]  。 <br />如需資源群組的資訊，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/management/overview.md#resource-groups)。| 
     | **設定虛擬網路** | 使用預設值。 |  
     
 5. 選取 [釘選至儀表板]  ，以在儲存體帳戶建立後將其儲存至儀表板。

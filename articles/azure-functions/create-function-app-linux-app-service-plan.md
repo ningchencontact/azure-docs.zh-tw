@@ -3,12 +3,12 @@ title: 在 Linux 從 Azure 入口網站建立函式應用程式
 description: 了解如何使用 Azure 入口網站來建立您的第一個 Azure 函式以進行無伺服器執行。
 ms.topic: quickstart
 ms.date: 02/28/2019
-ms.openlocfilehash: fdc2d9c7b5945e48cc87f3edd918498c3d45f55e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d48bfc8888afe6b7a46151d2030519f752169551
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233096"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410509"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>在 Azure App Service 方案中建立 Linux 上的函式應用程式
 
@@ -34,18 +34,18 @@ Azure Functions 可讓您在 Linux 上預設的 Azure App Service 容器中裝�
 
     ![定義新的函式應用程式設定](./media/create-function-app-linux-app-service-plan/function-app-create-flow2.png)
 
-    | 設定      | 建議的值  | 說明                                        |
+    | 設定      | 建議的值  | 描述                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **應用程式名稱** | 全域唯一的名稱 | 用以識別新函式應用程式的名稱。 有效字元是 `a-z`、`0-9` 和 `-`。  | 
     | **訂用帳戶** | 您的訂用帳戶 | 將在其下建立這個新函式應用程式的訂用帳戶。 | 
-    | **[資源群組](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | 要在其中建立函式應用程式的新資源群組名稱。 |
+    | **[資源群組](../azure-resource-manager/management/overview.md)** |  myResourceGroup | 要在其中建立函式應用程式的新資源群組名稱。 |
     | **作業系統** | Linux | 此函式應用程式會在 Linux 上執行。 |
-    | **Publish** | 代碼 | 系統會使用 [執行階段堆疊]  的預設 Linux 容器。 您只需要提供函式應用程式的專案代碼。 另一個選項是發佈自訂 [Docker 映像](functions-create-function-linux-custom-image.md)。 |
+    | **Publish** | 程式碼 | 系統會使用 [執行階段堆疊]  的預設 Linux 容器。 您只需要提供函式應用程式的專案代碼。 另一個選項是發佈自訂 [Docker 映像](functions-create-function-linux-custom-image.md)。 |
     | **[主控方案](functions-scale.md)** | App Service 方案 | 會定義如何將資源配置給函式應用程式的主控方案。 在 App Service 方案中執行時，您可以控制[函式應用程式的調整](functions-scale.md)。  |
     | **App Service 方案/位置** | 建立方案 | 選擇 [新建]  並提供 **App Service 方案**名稱。 在[區域](https://azure.microsoft.com/regions/)中選擇 **位置** ，此位置應靠近您或靠近函式會存取的其他服務。 選擇您想要的 **[定價層](https://azure.microsoft.com/pricing/details/app-service/linux/)** 。 <br/>您無法在相同的 App Service 方案中同時執行 Linux 與 Windows 函式應用程式。 |
     | **執行階段堆疊** | 慣用語言 | 選擇支援您慣用函式程式設計語言的執行階段。 針對 C# 和 F # 函式選擇 **.NET**。 |
     | **[儲存體](../storage/common/storage-quickstart-create-account.md)** |  全域唯一的名稱 |  建立您函式應用程式使用的儲存體帳戶。 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。 您也可以使用現有帳戶，條件是必須符合[儲存體帳戶需求](functions-scale.md#storage-account-requirements)。 |
-    | **[Application Insights](functions-monitoring.md)** | 已啟用 | 依預設會停用 Application Insights。 我們建議立即啟用 Application Insights 整合，並選擇您的 App Service 方案位置附近的裝載位置。 如果您想要稍後執行這項操作，請參閱[監視 Azure Functions](functions-monitoring.md)。  |
+    | **[Application Insights](functions-monitoring.md)** | 啟用 | 依預設會停用 Application Insights。 我們建議立即啟用 Application Insights 整合，並選擇您的 App Service 方案位置附近的裝載位置。 如果您想要稍後執行這項操作，請參閱[監視 Azure Functions](functions-monitoring.md)。  |
 
 3. 選取 [建立]  以佈建並部署函式應用程式。
 

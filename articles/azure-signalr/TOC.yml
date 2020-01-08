@@ -25,6 +25,10 @@
   items:
     - name: 建置含驗證功能的無伺服器即時應用程式
       href: signalr-tutorial-authenticate-azure-functions.md
+    - name: 監視
+      items:
+        - name: 使用診斷記錄來監視 SignalR Service
+          href: signalr-tutorial-diagnostic-logs.md
 - name: 範例
   items:
     - name: 程式碼範例
@@ -53,11 +57,11 @@
       href: signalr-concept-messages-and-connections.md
     - name: 效能考量
       href: signalr-concept-performance.md
-    - name: Authentication
+    - name: 驗證
       href: signalr-concept-authenticate-oauth.md
     - name: 事件處理
       href: signalr-concept-event-grid-integration.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 調整
       items:
@@ -87,7 +91,7 @@
       href: 'https://github.com/Azure/azure-signalr/blob/dev/specs/ServiceProtocol.md'
 - name: 資源
   items:
-    - name: 解決方案
+    - name: 方案
       href: 'https://docs.microsoft.com/azure/architecture/'
     - name: 客戶案例
       href: 'https://customers.microsoft.com/en-us/search?sq=signalr'
@@ -100,7 +104,7 @@
     - name: 常見問題集
       href: signalr-resource-faq.md
     - name: SignalR 服務訂用帳戶層級限制
-      href: 'https://docs.microsoft.com/azure/azure-subscription-service-limits#signalr-service-limits'
+      href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'
     - name: 價格
       href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: 影片

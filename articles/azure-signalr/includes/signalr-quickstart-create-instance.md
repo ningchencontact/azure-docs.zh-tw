@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: ac77f0b6a1d90fd78db64618c1e03ade198a67c0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0a228f6d8b4f72acd3783f27bf192fe6bd13f988
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882209"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392127"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>建立 Azure SignalR 服務執行個體
 
@@ -26,11 +26,11 @@ ms.locfileid: "68882209"
 
 1. 輸入下列設定。
 
-    | 設定      | 建議的值  | 說明                                        |
+    | 設定      | 建議的值  | 描述                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **資源名稱** | 全域唯一的名稱 | 能識別您的新 SignalR 服務執行個體的名稱。 有效字元是 `a-z`、`0-9` 和 `-`。  | 
     | **訂用帳戶** | 您的訂用帳戶 | 將在其下建立這個新 SignalR 服務執行個體的訂用帳戶。 | 
-    | **[資源群組](../../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | 要在其中建立 SignalR 服務執行個體之新資源群組的名稱。 | 
+    | **[資源群組](../../azure-resource-manager/management/overview.md)** |  myResourceGroup | 要在其中建立 SignalR 服務執行個體之新資源群組的名稱。 | 
     | **位置** | 美國西部 | 選擇您附近的[區域](https://azure.microsoft.com/regions/)。 |
     | **定價層** | 免費 | 免費試用 Azure SignalR 服務。 |
     | **單位計數** |  不適用 | 單位計數會指出您的 SignalR 服務執行個體可接受的連線數目。 它只能在標準層中設定。 |

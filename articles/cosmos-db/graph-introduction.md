@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/18/2019
 ms.author: lbosq
-ms.openlocfilehash: 1f46eb1995e2e7cb098098ebd22eedbd194dc6a6
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 9151b54d7fa0b64a465aa8384cb4bfdb8e72c482
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310246"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500015"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB 簡介：Gremlin API
 
@@ -56,7 +56,7 @@ Azure Cosmos DB 是一種完全受控的圖表資料庫，提供全域散發、�
 
 * **Apache TinkerPop 相容性**
 
-  Azure Cosmos DB 支援[開放原始碼的 Apache TinkerPop 標準](http://tinkerpop.apache.org/)。 Tinkerpop 標準有豐富的應用程式和程式庫生態系統，可以與 Azure Cosmos DB 的 Gremlin API 輕鬆整合。 
+  Azure Cosmos DB 支援[開放原始碼的 Apache TinkerPop 標準](https://tinkerpop.apache.org/)。 Tinkerpop 標準有豐富的應用程式和程式庫生態系統，可以與 Azure Cosmos DB 的 Gremlin API 輕鬆整合。 
 
 * **可調式一致性層級**
 

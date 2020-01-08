@@ -3,23 +3,25 @@ title: 建立 Azure IoT 隨插即用預覽版裝置 (Linux) | Microsoft Docs
 description: 使用裝置功能模型來產生裝置程式碼。 然後，執行裝置程式碼，並查看裝置連線至 IoT 中樞的情形。
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/10/2019
+ms.date: 12/27/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: ff8303b6af73605aae82bae4d70f9648154f9744
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: d2cc440572d6f33480972c15f5c498cc384cb2e3
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406227"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550476"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-linux"></a>快速入門：使用裝置功能模型建立 IoT 隨插即用預覽版裝置 (Linux)
 
+[!INCLUDE [iot-pnp-quickstarts-1-selector.md](../../includes/iot-pnp-quickstarts-1-selector.md)]
+
 _裝置功能模型_ (DCM) 可說明 IoT 隨插即用裝置的功能。 DCM 通常會與產品 SKU 相關聯。 DCM 中定義的功能會組織成可重複使用的介面。 您可以從 DCM 產生基本架構裝置程式碼。 本快速入門說明如何在 Ubuntu Linux 上使用 VS Code，以便使用 DCM 建立 IoT 隨插即用裝置。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 本快速入門假設您使用的是 Ubuntu Linux 搭配桌上型電腦環境。 本教學課程中的步驟已使用 Ubuntu 18.04 進行測試。
 
@@ -39,7 +41,7 @@ _裝置功能模型_ (DCM) 可說明 IoT 隨插即用裝置的功能。 DCM 通�
     gcc --version
     ```
 
-* [Visual Studio Code](https://code.visualstudio.com/)。
+* [Visual Studio Code](https://code.visualstudio.com/) \(英文\)。
 
 ### <a name="install-azure-iot-tools"></a>安裝 Azure IoT Tools
 
@@ -55,44 +57,7 @@ _裝置功能模型_ (DCM) 可說明 IoT 隨插即用裝置的功能。 DCM 通�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prepare-an-iot-hub"></a>準備 IoT 中樞
-
-您的 Azure 訂用帳戶中也必須要有 Azure IoT 中樞，才能完成本快速入門。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 如果您還沒有可使用的 IoT 中樞，請遵循本節的後半段來建立一個。
-
-如果您在本機使用 Azure CLI，`az` 版本應該是 **2.0.75** 或更新版本，Azure Cloud Shell 會使用最新版本。 使用 `az --version` 命令檢查電腦上所安裝的版本。
-
-執行下列命令，將適用於 Azure CLI 的 Microsoft Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體：
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-本快速入門中的步驟需要 **0.8.5** 版或更新版本的延伸模組。 使用 `az extension list` 命令檢查您已安裝的版本，必要時，使用 `az extension update` 命令更新。
-
-如果沒有 IoT 中樞，請使用下列命令建立一個，並將 `<YourIoTHubName>` 取代為您選擇的唯一名稱。 如果您要在本機執行這些命令，請先使用 `az login` 登入您的 Azure 訂用帳戶。 如果您要在 Azure Cloud Shell 中執行這些命令，則會自動登入：
-
-  ```azurecli-interactive
-  az group create --name pnpquickstarts_rg --location centralus
-  az iot hub create --name <YourIoTHubName> \
-    --resource-group pnpquickstarts_rg --sku S1
-  ```
-
-先前的命令會在美國中部區域建立一個名為 `pnpquickstarts_rg` 的資源群組和 IoT 中樞。
-
-> [!IMPORTANT]
-> 在公開預覽期間，IoT 隨插即用功能只能在**美國中部**、**歐洲北部**和**日本東部**區域中建立的 IoT 中樞上使用。
-
-執行下列命令，在 IoT 中樞建立裝置身分識別。 將 **YourIoTHubName** 和 **YourDeviceID** 預留位置取代為您自行選擇的「IoT 中樞名稱」  和「裝置識別碼」  。
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
-```
-
-執行下列命令，以針對您剛註冊的裝置取得「裝置連接字串」  (請將其記下，以便稍後使用)。
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
 ## <a name="prepare-the-development-environment"></a>準備開發環境
 
@@ -216,13 +181,13 @@ cd vcpkg
 使用下列命令檢視範例裝置正在傳送的遙測。 您可能需要等候一或兩分鐘，才會在輸出中看到任何遙測：
 
 ```azurecli-interactive
-az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDevice>
+az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDeviceID>
 ```
 
 使用下列命令檢視裝置所傳送的所有屬性：
 
 ```azurecli-interactive
-az iot dt list-properties --device-id <YourDevice> --hub-name <YourIoTHubNme> --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
+az iot dt list-properties --device-id <YourDeviceID> --hub-name <YourIoTHubNme> --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
 ```
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]

@@ -4,16 +4,16 @@ description: 了解如何使用 Log Analytics，啟用 Log Analytics 代理程�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: quickstart
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 84b076cf92c57f3cd912a6c4b401a5ef81f8557b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: cec27a2e16489850824d5b662b6bda4b23b1fa99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900563"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398913"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>使用 Azure 監視器從 Azure 虛擬機器收集資料
 

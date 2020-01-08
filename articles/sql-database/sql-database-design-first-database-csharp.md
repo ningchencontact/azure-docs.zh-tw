@@ -10,12 +10,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
-ms.openlocfilehash: 6c4a99367c7fc6a864f6a16bc614e4c10663d0ff
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f1140bbefc7508666e763fcd4f1a04ba48cdfdd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837184"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354950"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>教學課程：使用 C&#x23; 和 ADO.NET 在 Azure SQL Database 的單一資料庫中設計關聯式資料庫
 
@@ -34,13 +34,13 @@ Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
 > [!TIP]
 > 下列 Microsoft Learn 模組可協助您免費學習如何[開發和設定可查詢 Azure SQL Database 的 ASP.NET 應用程式](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/) (包括建立簡易資料庫)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 [Visual Studio 2019](https://www.visualstudio.com/downloads/) 或更新版本的安裝。
 
 ## <a name="create-a-blank-single-database"></a>建立空白的單一資料庫
 
-使用一組定義的計算和儲存體資源建立 Azure SQL Database 的單一資料庫。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內，並使用[資料庫伺服器](sql-database-servers.md)進行管理。
+使用一組定義的計算和儲存體資源建立 Azure SQL Database 的單一資料庫。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/management/overview.md)內，並使用[資料庫伺服器](sql-database-servers.md)進行管理。
 
 遵循以下步驟來建立空白單一資料庫。
 
@@ -51,7 +51,7 @@ Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
 
 3. 使用下列資訊填寫 **SQL Database** 表單，如上圖所示︰
 
-    | 設定       | 建議的值 | 說明 |
+    | 設定       | 建議的值 | 描述 |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **資料庫名稱** | *yourDatabase* | 如需有效的資料庫名稱，請參閱[資料庫識別碼](/sql/relational-databases/databases/database-identifiers)。 |
     | **訂用帳戶** | *yourSubscription*  | 如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
@@ -60,7 +60,7 @@ Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
 
 4. 按一下 [伺服器]  來使用現有的伺服器伺服器，或建立及設定新的資料庫伺服器。 選取現有的伺服器，或按一下 [建立新伺服器]  並且在 [新伺服器]  表單中填寫下列資訊︰
 
-    | 設定       | 建議的值 | 說明 |
+    | 設定       | 建議的值 | 描述 |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。 |
     | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](/sql/relational-databases/databases/database-identifiers)。 |
@@ -69,7 +69,7 @@ Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
 
     ![建立資料庫伺服器](./media/sql-database-design-first-database/create-database-server.png)
 
-5. 按一下 [選取]  。
+5. 按一下 [選取]。 
 6. 按一下 [定價層]  可指定服務層、DTU 或虛擬核心的數目，以及儲存體數量。 您可以瀏覽 DTU/虛擬核心數目的選項，以及可供您每個服務層級使用的儲存體。
 
     在選取服務層、DTU 或 vCore 數目和儲存體數量之後，按一下 [套用]  。
