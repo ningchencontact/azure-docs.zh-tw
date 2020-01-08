@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2e7646d2f84696d0b04183d8d06b96405909de87
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ff4ccb4409bd9a41f390668cb94ef91b1b565421
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750051"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358807"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux Vm 上的 Azure 磁碟加密案例
 
@@ -66,7 +66,7 @@ az account set --subscription "<subscription name or ID>"
 如需詳細資訊，請參閱[開始使用 Azure CLI 2.0](/cli/azure/get-started-with-azure-cli)。 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell az 模組](/powershell/azure/new-azureps-module-az)提供了一組 Cmdlet，可使用[Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)模型來管理您的 Azure 資源。 您可以在瀏覽器中使用[Azure Cloud Shell](../../cloud-shell/overview.md)，也可以使用[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)中的指示，將它安裝在本機電腦上。 
+[Azure PowerShell az 模組](/powershell/azure/new-azureps-module-az)提供了一組 Cmdlet，可使用[Azure Resource Manager](../../azure-resource-manager/management/overview.md)模型來管理您的 Azure 資源。 您可以在瀏覽器中使用[Azure Cloud Shell](../../cloud-shell/overview.md)，也可以使用[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)中的指示，將它安裝在本機電腦上。 
 
 如果您已將它安裝在本機上，請確定您是使用最新版的 Azure PowerShell SDK 版本來設定 Azure 磁碟加密。 下載最新版的 [Azure PowerShell 版本](https://github.com/Azure/azure-powershell/releases)。
 
@@ -196,7 +196,7 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
 | 參數 | 說明 |
 | --- | --- |
 | vmName | 要執行加密作業的 VM 名稱。 |
-| keyVaultName | 應上傳加密金鑰的金鑰保存庫名稱。 您可以使用 Cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 或 Azure CLI 命令 `az keyvault list --resource-group "MyKeyVaultResourceGroupName"` 來取得它。|
+| keyVaultName | 應上傳加密金鑰的金鑰保存庫名稱。 您可以使用 Cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 或 Azure CLI 命令 `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`來取得它。|
 | keyVaultResourceGroup | 包含金鑰保存庫的資源組名。 |
 |  keyEncryptionKeyURL | 用來加密加密金鑰的金鑰加密金鑰 URL。 如果您在 UseExistingKek 下拉式清單中選取 [nokek]，此參數是選擇性的。 如果您在 UseExistingKek 下拉式清單中選取 [kek]，您必須輸入 _keyEncryptionKeyURL_ 值。 |
 | volumeType | 執行加密作業所在磁碟區的類型。 有效值為 _OS_、_Data_ 和 _All_。 
@@ -383,7 +383,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
      ```
 - **透過 Resource Manager 範本停用加密：** 使用[在執行中的 Linux VM 上停用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad)範本來停用加密。
      1. 按一下 [ **部署至 Azure**]。
-     2. 選取訂用帳戶、資源群組、位置、VM、法律條款及協議。
+     2. 選取訂用帳戶、資源群組、位置、VM、法律條款及合約。
 
 ## <a name="unsupported-scenarios"></a>不支援的情節
 
@@ -399,9 +399,10 @@ Azure 磁碟加密不適用於下列 Linux 案例、功能和技術：
 - 動態磁碟區。
 - 暫時的 OS 磁片。
 - 共用/分散式檔案系統的加密，例如（但不限於）： DFS、GFS、DRDB 和 CephFS。
+- 核心損毀傾印（kdump）。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure 磁碟加密總覽](disk-encryption-overview.md)
-- [Azure 磁碟加密範例腳本](disk-encryption-sample-scripts.md)
-- [Azure 磁碟加密疑難排解](disk-encryption-troubleshooting.md)
+- [Azure 磁碟加密概觀](disk-encryption-overview.md)
+- [Azure 磁碟加密範例指令碼](disk-encryption-sample-scripts.md)
+- [Azure 磁碟加密的疑難排解](disk-encryption-troubleshooting.md)

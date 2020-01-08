@@ -4,15 +4,15 @@ description: 您可以使用 Active Directory 健康情況檢查方案定期評�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: bdc84a9213bd98981040775d3fec90f45edac54f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f0de484d58085f598988589d18495c9a6fe1b374
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899195"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406144"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>在 Azure 監視器中使用 Active Directory 健康情況檢查解決方案來最佳化 Active Directory 環境
 
@@ -36,7 +36,7 @@ ms.locfileid: "72899195"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Active Directory 健康情況檢查解決方案需要在安裝適用于 Windows 的 Log Analytics 代理程式（也稱為 Microsoft Monitoring Agent （MMA））的每部電腦上安裝支援的 .NET Framework 4.5.2 或更新版本。  System Center 2016-Operations Manager、Operations Manager 2012 R2 和 Azure 監視器會使用此代理程式。
+* Active Directory 健康情況檢查解決方案需要在安裝適用于 Windows 的 Log Analytics 代理程式（也稱為 Microsoft Monitoring Agent （MMA））的每部電腦上安裝支援的 .NET Framework 4.6.2 或更新版本。  System Center 2016-Operations Manager、Operations Manager 2012 R2 和 Azure 監視器會使用此代理程式。
 * 方案支援執行 Windows Server 2008 和 2008 R2、Windows Server 2012 和 2012 R2 及 Windows Server 2016 的網域控制站。
 * Log Analytics 工作區，可以從 Azure 入口網站中的 Azure 市集將 Active Directory 健康情況檢查方案新增至此。 不需要進行其他設定。
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42378c4377057902937b718555489636bc5dcbaa
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 74375fdb5bf8d571cbdbc778c3c6e7b7b93f59ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900022"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367992"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C：使用 Azure AD 圖形 API
 
@@ -29,9 +29,6 @@ Azure Active Directory B2C （Azure AD B2C）租使用者可以有數千或數�
 * 針對**自動**、連續的工作，您應該使用您以必要許可權提供的某種服務帳戶來執行管理工作。 在 Azure AD 中，作法上您可以註冊應用程式並向 Azure AD 驗證。 使用採用 *OAuth 2.0 用戶端認證授與* 的 [應用程式識別碼](../active-directory/develop/service-to-service.md)即可完成。 在此情況下，應用程式會以本身 (而非使用者的身分) 呼叫圖形 API。
 
 在本文中，您將瞭解如何執行自動化使用案例。 您將建置 .NET 4.5 `B2CGraphClient` 來執行使用者建立、讀取、更新和刪除 (CRUD) 作業。 用戶端會有 Windows 命令列介面讓您叫用各種方法。 不過，程式碼是以非互動式、自動化的方式來撰寫的行為。
-
->[!IMPORTANT]
-> 您**必須**使用[Azure AD 圖形 API](../active-directory/develop/active-directory-graph-api-quickstart.md)來管理 Azure AD B2C 目錄中的使用者。 Azure AD 圖形 API 與 Microsoft Graph API 不同。 在此 MSDN blog 文章中深入瞭解： [Microsoft Graph 或 Azure AD Graph](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -63,8 +60,9 @@ Azure Active Directory B2C （Azure AD B2C）租使用者可以有數千或數�
 
 如果您想要讓應用程式能夠刪除使用者或更新密碼，您必須授與*使用者系統管理員*角色。
 
-1. 登入[Azure 入口網站](https://portal.azure.com)並切換至包含您 Azure AD B2C 租使用者的目錄。
-1. 選取左側功能表中的 [ **Azure AD B2C** ]。 或者，選取 [**所有服務**]，然後搜尋並選取 [ **Azure AD B2C**]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 在入口網站工具列中選取 [**目錄 + 訂**用帳戶] 圖示，然後選取包含您 Azure AD B2C 租使用者的目錄。
+1. 在 Azure 入口網站中，搜尋並選取  **Azure AD B2C**。
 1. 在 [**管理**] 底下，選取 [**角色和系統管理員**]。
 1. 選取 [**使用者系統管理員**] 角色。
 1. 選取 [**新增指派**]。

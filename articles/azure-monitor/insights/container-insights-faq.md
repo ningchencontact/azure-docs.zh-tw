@@ -1,26 +1,63 @@
 ---
 title: 適用於容器的 Azure 監視器常見問題集 | Microsoft Docs
 description: 適用於容器的 Azure 監視器是一種解決方案，可監視 Azure 中 AKS 叢集與容器執行個體的健康狀情況。 本文將回答常見問題。
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: d3779a2d48db82bfccdc0f047119a36ef56c3bdf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0984de51221c506bb1824e4dcfd93eef56453a4d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73477419"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405075"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>適用於容器的 Azure 監視器常見問題集
 
 此 Microsoft 常見問題集是適用於容器的 Azure 監視器常見問題清單。 若您有任何關於解決方案的其他問題，請前往[討論論壇](https://feedback.azure.com/forums/34192--general-feedback)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
 
+## <a name="i-dont-see-image-and-name-property-values-populated-when-i-query-the-containerlog-table"></a>當我查詢 ContainerLog 資料表時，看不到已填入的 [影像] 和 [名稱] 屬性值。
+
+針對代理程式版本 ciprod12042019 和更新版本，預設不會針對每個記錄行填入這兩個屬性，以將收集的記錄資料所產生的成本降至最低。 有兩個選項可查詢包含這些屬性的資料表及其值：
+
+### <a name="option-1"></a>選項 1 
+
+聯結其他資料表以在結果中包含這些屬性值。
+
+藉由在 ContainerID 屬性上聯結，修改您的查詢以包含來自 ```ContainerInventory``` 資料表的影像和 ImageTag 屬性。 藉由聯結 ContainerID 屬性，您可以在 KubepodInventory 資料表的 ContaineName 欄位中包含 Name 屬性（如同之前出現在 ```ContainerLog``` 資料表中）。這是建議的選項。
+
+下列範例是範例詳細查詢，說明如何使用聯結來取得這些域值。
+
+```
+//lets say we are querying an hour worth of logs
+let startTime = ago(1h);
+let endTime = now();
+//below gets the latest Image & ImageTag for every containerID, during the time window
+let ContainerInv = ContainerInventory | where TimeGenerated >= startTime and TimeGenerated < endTime | summarize arg_max(TimeGenerated, *)  by ContainerID, Image, ImageTag | project-away TimeGenerated | project ContainerID1=ContainerID, Image1=Image ,ImageTag1=ImageTag;
+//below gets the latest Name for every containerID, during the time window
+let KubePodInv  = KubePodInventory | where ContainerID != "" | where TimeGenerated >= startTime | where TimeGenerated < endTime | summarize arg_max(TimeGenerated, *)  by ContainerID2 = ContainerID, Name1=ContainerName | project ContainerID2 , Name1;
+//now join the above 2 to get a 'jointed table' that has name, image & imagetag. Outer left is safer in-case there are no kubepod records are if they are latent
+let ContainerData = ContainerInv | join kind=leftouter (KubePodInv) on $left.ContainerID1 == $right.ContainerID2;
+//now join ContainerLog table with the 'jointed table' above and project-away redundant fields/columns and rename columns that were re-written
+//Outer left is safer so you dont lose logs even if we cannot find container metadata for loglines (due to latency, time skew between data types etc...)
+ContainerLog
+| where TimeGenerated >= startTime and TimeGenerated < endTime 
+| join kind= leftouter (
+   ContainerData
+) on $left.ContainerID == $right.ContainerID2 | project-away ContainerID1, ContainerID2, Name, Image, ImageTag | project-rename Name = Name1, Image=Image1, ImageTag=ImageTag1 
+
+```
+
+### <a name="option-2"></a>選項 2
+
+針對每個容器記錄行重新啟用這些屬性的集合。
+
+如果第一個選項由於牽涉到查詢變更而不方便，您可以在代理程式設定對應中啟用 ```log_collection_settings.enrich_container_logs```，藉以重新啟用收集這些欄位，如[資料收集設定](./container-insights-agent-config.md)中所述。
+
+> [!NOTE]
+> 第二個選項不建議使用具有超過50個節點的大型叢集，因為它會從叢集中的每個節點 > 產生 API 伺服器呼叫，以執行此擴充。 此選項也會針對每個收集的記錄行增加資料大小。
+
 ## <a name="can-i-view-metrics-collected-in-grafana"></a>我可以在 Grafana 中查看收集的計量嗎？
 
-容器的 Azure 監視器支援在 Grafana 儀表板中，查看 Log Analytics 工作區中儲存的計量。 我們提供的範本可讓您從 Grafana 的[儀表板儲存](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker)機制下載，協助您瞭解如何從受監視的叢集查詢其他資料，以在自訂 Grafana 儀表板中進行視覺化。 
+容器的 Azure 監視器支援在 Grafana 儀表板中，查看 Log Analytics 工作區中儲存的計量。 我們提供的範本可讓您從 Grafana 的[儀表板儲存](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker)機制下載，協助您瞭解如何從受監視的叢集查詢其他資料，以在自訂的 Grafana 儀表板中進行視覺化。 
 
 ## <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>我可以使用容器的 Azure 監視器來監視 AKS 引擎叢集嗎？
 
@@ -82,7 +119,7 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 如果您在啟用 AKS 叢集的容器 Azure 監視器之後，刪除叢集傳送其資料的 Log Analytics 工作區，當嘗試升級叢集時，將會失敗。 若要解決此情況，您必須停用監視，然後重新啟用它參考您訂用帳戶中不同的有效工作區。 當您嘗試再次執行叢集升級時，應該會處理並順利完成。  
 
-## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>我需要針對代理程式開啟/列入允許清單的埠和網域為何？
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>我需要針對代理程式開啟/列入白名單的埠和網域為何？
 
 如需適用于 Azure、Azure 美國政府和 Azure 中國雲端的容器化代理程式，請參閱[網路防火牆需求](container-insights-onboard.md#network-firewall-requirements)中的 proxy 和防火牆設定資訊。
 

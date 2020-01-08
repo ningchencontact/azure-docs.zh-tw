@@ -2,17 +2,17 @@
 title: 如何更新雲端服務 | Microsoft Docs
 description: 了解如何在 Azure 中更新雲端服務。 了解如何繼續進行雲端服務更新來確保可用性。
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: ae9d124391a1b17187ca98964874f681352498da
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.author: tagore
+ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945343"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360339"
 ---
 # <a name="how-to-update-a-cloud-service"></a>如何更新雲端服務
 
@@ -21,7 +21,7 @@ ms.locfileid: "68945343"
 ## <a name="update-an-azure-service"></a>更新 Azure 服務
 Azure 會將您的角色執行個體組織成名為升級網域 (UD) 的邏輯群組。 升級網域 (UD) 是角色執行個體的邏輯集合，會以群組方式進行更新。  Azure 會一次更新一個 UD 的一個雲端服務，讓其他 UD 中的執行個體能夠繼續處理流量。
 
-預設的升級網域數目為 5。 您可以在服務的定義檔 (.csdef) 中包含 upgradeDomainCount 屬性，以指定不同數目的升級網域。 如需 upgradeDomainCount 屬性的詳細資訊, 請參閱[Azure 雲端服務定義架構 (檔案)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file)。
+預設的升級網域數目為 5。 您可以在服務的定義檔 (.csdef) 中包含 upgradeDomainCount 屬性，以指定不同數目的升級網域。 如需 upgradeDomainCount 屬性的詳細資訊，請參閱[Azure 雲端服務定義架構（檔案）](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file)。
 
 當您在服務中執行一或多個角色的就地更新時，Azure 會根據所屬的升級網域來更新角色執行個體集合。 Azure 會更新指定的升級網域中的所有執行個體 (予以停止、更新、重新上線)，然後移到下一個網域。 Azure 只會停止在目前升級網域中執行的執行個體，以確保更新儘可能對執行中的服務造成最小的影響。 如需詳細資訊，請參閱本文後面的 [如何繼續進行更新](#howanupgradeproceeds) 。
 
@@ -99,7 +99,7 @@ Azure 會將您的角色執行個體組織成名為升級網域 (UD) 的邏輯�
 
 將服務從單一執行個體升級為多個執行個體時，由於 Azure 升級服務的方式，您的服務將會在執行升級時關閉。 保證服務可用性的服務等級協定僅適用於已部署多個執行個體的服務。 下列清單說明每個 Azure 服務升級案例如何影響每個磁碟機上的資料：
 
-|狀況|C 磁碟機|D 磁碟機|E 磁碟機|
+|案例|C 磁碟機|D 磁碟機|E 磁碟機|
 |--------|-------|-------|-------|
 |VM 重新啟動|保留|保留|保留|
 |入口網站重新啟動|保留|保留|終結|
@@ -134,7 +134,7 @@ Azure 讓您在 Azure 網狀架構控制器接受初始更新要求後，於服�
   1. Locked 元素可讓您偵測何時可對指定的部署叫用變更作業。
   2. RollbackAllowed 項目可讓您偵測何時可對指定的部署呼叫 [復原更新或升級](/previous-versions/azure/reference/hh403977(v=azure.100)) 作業。
 
-  若要執行復原，您不必同時檢查 Locked 和 RollbackAllowed 元素。 就足以確認 RollbackAllowed 已設定為 true。 只有在使用設定為 "x-ms-版本的要求標頭叫用這些方法時, 才會傳回這些元素:2011-10-01 "或更新版本。 如需標頭版本控制的詳細資訊，請參閱 [服務管理版本控制](/previous-versions/azure/gg592580(v=azure.100))。
+  若要執行復原，您不必同時檢查 Locked 和 RollbackAllowed 元素。 就足以確認 RollbackAllowed 已設定為 true。 只有在使用設定為 “x-ms-version: 2011-10-01” 或更新版本的要求標頭叫用這些方法時，才會傳回這些元素。 如需標頭版本控制的詳細資訊，請參閱 [服務管理版本控制](/previous-versions/azure/gg592580(v=azure.100))。
 
 有某些情況下，不支援復原更新或升級，如下所示：
 
@@ -155,11 +155,11 @@ Azure 讓您在 Azure 網狀架構控制器接受初始更新要求後，於服�
 
 在第一個更新正在進行時起始第二個更新作業，將類似於執行復原作業。 如果第二個更新處於自動模式，則第一個升級網域將會立即升級，這可能會導致多個升級網域中的執行個體在同一時間離線。
 
-變更作業如下所示:[變更部署](/previous-versions/azure/reference/ee460809(v=azure.100))設定、[升級部署](/previous-versions/azure/reference/ee460793(v=azure.100))、[更新部署狀態](/previous-versions/azure/reference/ee460808(v=azure.100))、[刪除部署](/previous-versions/azure/reference/ee460815(v=azure.100)), 以及[復原更新或升級](/previous-versions/azure/reference/hh403977(v=azure.100))。
+變更作業如下：[變更部署組態](/previous-versions/azure/reference/ee460809(v=azure.100))、[升級部署](/previous-versions/azure/reference/ee460793(v=azure.100))、[更新部署狀態](/previous-versions/azure/reference/ee460808(v=azure.100))、[刪除部署](/previous-versions/azure/reference/ee460815(v=azure.100))及[復原更新或升級](/previous-versions/azure/reference/hh403977(v=azure.100))。
 
 [取得部署](/previous-versions/azure/reference/ee460804(v=azure.100))和[取得雲端服務屬性](/previous-versions/azure/reference/ee460806(v=azure.100))這兩項作業會傳回 Locked 旗標，檢查該旗標可以判斷是否可以在指定的部署上叫用變更作業。
 
-若要呼叫這些傳回鎖定旗標之方法的版本, 您必須將要求標頭設定為 "x-ms-version:2011-10-01 "或更新版本。 如需標頭版本控制的詳細資訊，請參閱 [服務管理版本控制](/previous-versions/azure/gg592580(v=azure.100))。
+若要呼叫可傳回 Locked 旗標的這些方法的版本，您必須將要求標頭設定為 “x-ms-version: 2011-10-01” 或更新版本。 如需標頭版本控制的詳細資訊，請參閱 [服務管理版本控制](/previous-versions/azure/gg592580(v=azure.100))。
 
 <a name="distributiondfroles"></a>
 
@@ -172,7 +172,7 @@ Azure 會將角色的執行個體平均分散於一組升級網域，而升級�
 
 下圖說明當服務定義兩個升級網域時，如何散發包含兩個角色的服務。 此服務正在執行 Web 角色的 8 個執行個體以及背景工作角色的 9 個執行個體。
 
-![升級網域的分配](media/cloud-services-update-azure-service/IC345533.png "升級網域的分配")
+![升級網域的散發](media/cloud-services-update-azure-service/IC345533.png "升級網域的散發")
 
 > [!NOTE]
 > 請注意，Azure 會控制執行個體配置於升級網域的方式。 您無法指定哪些執行個體會配置給哪一個網域。
@@ -183,3 +183,6 @@ Azure 會將角色的執行個體平均分散於一組升級網域，而升級�
 [如何管理雲端服務](cloud-services-how-to-manage-portal.md)  
 [如何監視雲端服務](cloud-services-how-to-monitor.md)  
 [如何設定雲端服務](cloud-services-how-to-configure-portal.md)  
+
+
+

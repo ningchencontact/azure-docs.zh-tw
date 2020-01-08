@@ -1,5 +1,5 @@
 ---
-title: 將現有的 Azure 訂用帳戶新增至您的租用戶 - Azure Active Directory | Microsoft Docs
+title: 將現有的 Azure 訂用帳戶新增至您的租使用者-Azure AD
 description: 以下相關指示說明如何將現有的 Azure 訂用帳戶新增至您的 Azure Active Directory 租用戶。
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f61792235d13ef801cffb3a69c32df54f058a9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8d2111e631dd43b5d86a0bd486642657a20cc3ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073580"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422975"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>將 Azure 訂用帳戶關聯或新增至您的 Azure Active Directory 租用戶
 

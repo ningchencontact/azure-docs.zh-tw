@@ -1,6 +1,6 @@
 ---
-title: 轉換 Azure Resource Manager 擴展集範本以使用受控磁碟 | Microsoft Docs
-description: 轉換擴展集範本至受控磁碟擴展集範本。
+title: 將擴展集範本轉換為使用受控磁碟
+description: 將 Azure Resource Manager 虛擬機器擴展集範本轉換為受控磁片擴展集範本。
 keywords: 虛擬機器擴展集
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
-ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6419da8e87ac32e763e3e796bb49daa562d68030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731732"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359608"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>轉換擴展集範本至受控磁碟擴展集範本
 

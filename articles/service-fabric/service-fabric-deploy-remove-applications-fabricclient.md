@@ -1,29 +1,18 @@
 ---
 title: 使用 FabricClient 部署 Azure Service Fabric
 description: 使用 FabricClient API 來部署和移除 Service Fabric 中的應用程式。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/19/2018
-ms.author: atsenthi
-ms.openlocfilehash: cdb5ae4efbd4119422101eb8a05ce71e7b58d51f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 25b874d1be8ab50d8076ff8fe9423c8cc0187512
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013302"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376965"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>使用 FabricClient 來部署和移除應用程式
 > [!div class="op_single_selector"]
-> * [資源管理員](service-fabric-application-arm-resource.md)
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 > * [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
@@ -46,7 +35,7 @@ ms.locfileid: "74013302"
 
 如果您在本機開發叢集上使用 Visual Studio 來針對應用程式進行部署和偵錯，則先前所有步驟都會透過 PowerShell 指令碼自動處理。  在應用程式專案的 [指令碼] 資料夾中可找到這個指令碼。 本文提供該腳本所執行作業的背景，讓您可以在 Visual Studio 之外執行相同的作業。 
  
-## <a name="connect-to-the-cluster"></a>連接到叢集
+## <a name="connect-to-the-cluster"></a>連線至叢集
 執行本文中任何程式碼範例之前，請先建立 [FabricClient](/dotnet/api/system.fabric.fabricclient) 執行個體來連線到叢集。 針對連線至本機開發叢集或遠端叢集，或是連線至使用 Azure Active Directory、X509 憑證或 Windows Active Directory 保護的叢集，如需相關的範例，請參閱[連線至安全的叢集](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis)。 若要連接到本機開發叢集，請執行下列範例：
 
 ```csharp
@@ -134,7 +123,7 @@ Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\Se
 ### <a name="deploy-large-application-package"></a>部署大型應用程式封裝
 問題︰大型應用程式套件 (GB 的順序) 的 [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API 逾時。
 請嘗試︰
-- 使用 [ 參數指定 ](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage)CopyApplicationPackage`timeout` 方法的較大逾時。 此逾時預設為 30 分鐘。
+- 使用 `timeout` 參數指定 [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) 方法的較大逾時。 此逾時預設為 30 分鐘。
 - 檢查來源電腦與叢集之間的網路連線。 如果連線速度變慢，請考慮使用更佳網路連線的電腦。
 如果用戶端電腦與叢集在不同的區域中，請考慮使用與叢集接近或相同區域中的用戶端電腦。
 - 請檢查是否到達外部節流。 例如，當映像存放區設定為使用 Azure 儲存體時，上傳可能受到節流控制。
@@ -142,13 +131,13 @@ Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\Se
 問題：上傳封裝已順利完成，但[ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API 超時。次
 - 複製到映像存放區之前[壓縮封裝](service-fabric-package-apps.md#compress-a-package)。
 壓縮會減少檔案的大小和數目，而後者則可減少資料傳輸量和 Service Fabric 必須執行的工作。 上傳作業的速度可能會比較慢（尤其是如果您包含壓縮時間），但註冊和取消註冊應用程式類型的速度會更快。
-- 使用 [ 參數為 ](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync)ProvisionApplicationAsync`timeout` API 指定較大的逾時。
+- 使用 `timeout` 參數為 [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API 指定較大的逾時。
 
 ### <a name="deploy-application-package-with-many-files"></a>部署具有很多檔案的應用程式封裝
 問題︰具有很多檔案的應用程式套件 (以千計的順序) [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) 的逾時。
 請嘗試︰
 - 複製到映像存放區之前[壓縮封裝](service-fabric-package-apps.md#compress-a-package)。 壓縮會減少檔案的數目。
-- 使用 [ 參數指定 ](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync)ProvisionApplicationAsync`timeout` 的較大逾時。
+- 使用 `timeout` 參數指定 [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) 的較大逾時。
 
 ## <a name="code-example"></a>程式碼範例
 下列範例會將應用程式套件複製到映射存放區，並布建應用程式類型。 然後，此範例會建立應用程式實例，並建立服務實例。 最後，此範例會移除應用程式實例、unprovisions 應用程式類型，並從映射存放區刪除應用程式封裝。

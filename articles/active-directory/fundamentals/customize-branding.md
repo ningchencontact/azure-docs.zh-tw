@@ -1,5 +1,5 @@
 ---
-title: 將商標新增至組織的登入頁面 - Azure Active Directory | Microsoft Docs
+title: 將商標新增至組織的登入頁面-Azure AD
 description: 以下相關指示說明如何將組織的商標新增至 Azure Active Directory 登入頁面。
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7caf6eff9f5bd497ab6c3a500f3940549b198576
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ea0bc131f7eb3fc66f3b024b4c9902f8c73f9a7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959046"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422827"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>將商標新增至組織的 Azure Active Directory 登入頁面
 使用您組織的標誌和自訂色彩配置，在 Azure Active Directory (Azure AD) 登入頁面上展現一致的外觀與風格。 當使用者登入貴組織的 Web 應用程式 (如 Office 365)，且該應用程式使用 Azure AD 做為識別提供者時，即會顯示您的登入頁面。
@@ -29,7 +29,7 @@ ms.locfileid: "70959046"
 ## <a name="customize-your-azure-ad-sign-in-page"></a>自訂 Azure AD 登入頁面
 您可以自訂 Azure AD 登入頁面，該頁面會在使用者登入您組織的租用戶特定應用程式 (例如 [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com)) 時或傳遞網域變數 (例如 [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com)) 時出現。
 
-當您的使用者前往 www\.office.com 之類的網站時，您的自訂商標不會立即出現。 使用者必須先登入，您的自訂商標才會出現。 在使用者登入之後，商標可能需要15分鐘或更長的時間才會出現。 
+當您的使用者前往 www\.office.com 等網站時，您的自訂商標不會立即出現。 使用者必須先登入，您的自訂商標才會出現。 在使用者登入之後，商標可能需要15分鐘或更長的時間才會出現。 
 
 > [!NOTE]
 > 所有商標元素均為選擇性使用。 舉例而言，如果您指定的橫幅標誌沒有背景影像，登入頁面會顯示您的標誌和目的地網站 (例如，Office 365) 的預設背景影像。<br><br>此外，登入頁面商標不會沿用至個人 Microsoft 帳戶。 如果使用者或商務來賓使用個人 Microsoft 帳戶登入，其登入頁面將不會出現貴組織的商標。
@@ -76,7 +76,7 @@ ms.locfileid: "70959046"
     
         - **方形標誌影像、暗色調佈景主題。** 與上述的方形標誌影像相同。 此標誌影像會取代深色背景下的方形標誌影像，例如，在全新體驗 (OOBE) 期間出現的 Windows 10 Azure AD 連結畫面。  如果您的標誌在白色、深藍色和黑色背景上看起來效果均不錯，則不需要加入此影像。 
         
-        - **顯示保持登入選項。** 您可以選擇讓使用者保持登入 Azure AD，直到明確登出為止。如果您選擇 [否]，此選項會隱藏，而且使用者必須在每次關閉並重新開啟瀏覽器時登入。
+        - **顯示保持登入選項。** 您可以選擇讓使用者保持登入 Azure AD，直到明確登出為止。如果您選擇 [**否**]，則會隱藏此選項，而且使用者必須在每次關閉並重新開啟瀏覽器時登入。
         
             >[!Note]
             >SharePoint Online 和 Office 2010 的某些功能取決於能夠選擇此選項以保持登入的使用者。 如果您將此選項設定為 [否]，使用者可能就會在登入時看見額外和非預期的提示。
@@ -101,7 +101,7 @@ ms.locfileid: "70959046"
 
 3. 請在 [設定公司商標] 頁面上，按照本文的[自訂您的 Azure AD 登入頁面](#customize-your-azure-ad-sign-in-page)一節的說明，新增、移除或變更任何資訊。
 
-4. 選取 [ **儲存**]。
+4. 選取 [儲存]。
 
    您對登入頁面商標所做的任何變更可能最多需要一個小時才會顯示。
 
@@ -118,7 +118,7 @@ ms.locfileid: "70959046"
 
 3. 請在 [設定公司商標] 頁面上，選取您的語言 (例如，法文)，然後按照本文的[自訂您的 Azure AD 登入頁面](#customize-your-azure-ad-sign-in-page)一節的說明，新增經過翻譯的資訊。
 
-4. 選取 [ **儲存**]。
+4. 選取 [儲存]。
 
     [Contoso - 公司商標] 頁面會更新，以顯示新的法文設定。
 

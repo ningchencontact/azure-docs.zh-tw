@@ -1,18 +1,14 @@
 ---
 title: 使用適用于容器的 Azure 監視器來設定 Azure Red Hat OpenShift 叢集 |Microsoft Docs
 description: 本文說明如何設定容器的 Azure 監視器，以監視 Azure Red Hat OpenShift 上託管的 Kubernetes 叢集。
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/21/2019
-ms.openlocfilehash: 07d84175325226af755712ec38ab93b901bbd361
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6922cb7b143989ba329df972a06825629c4c5020
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707516"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405582"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>使用適用于容器的 Azure 監視器來設定 Azure Red Hat OpenShift 叢集
 
@@ -90,7 +86,7 @@ ms.locfileid: "74707516"
     az login    
     ```
     
-    如果您可存取多個訂用帳戶，請執行 `az account set -s {subscription ID}` 並以您想使用的訂用帳戶取代 `{subscription ID}`。
+    如果您可存取多個訂用帳戶，請執行 `az account set -s {subscription ID}` 並以您要使用的訂用帳戶取代 `{subscription ID}`。
  
 3. 如果您的叢集還沒有資源群組，請為它建立。 如需在 Azure 上支援 OpenShift 的 Azure 區域清單，請參閱[支援的區域](../../openshift/supported-resources.md#azure-regions)。 
 
@@ -100,7 +96,7 @@ ms.locfileid: "74707516"
 
 4. 編輯 JSON 參數檔案**newClusterWithMonitoringParam** ，並更新下列值：
 
-    - *位置*
+    - *location*
     - *clusterName*
     - *aadTenantId*
     - *aadClientId*
@@ -179,7 +175,7 @@ ms.locfileid: "74707516"
     az login    
     ```
 
-    如果您可存取多個訂用帳戶，請執行 `az account set -s {subscription ID}` 並以您想使用的訂用帳戶取代 `{subscription ID}`。
+    如果您可存取多個訂用帳戶，請執行 `az account set -s {subscription ID}` 並以您要使用的訂用帳戶取代 `{subscription ID}`。
 
 3. 指定 Azure RedHat OpenShift 叢集的訂用帳戶。
 

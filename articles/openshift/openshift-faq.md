@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: d8707e2edccf144cbe58a530bcfe2c176e656915
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2b4e78db9f3aa3a8f678212c7fcd1b97ed4834b1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582408"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378206"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift 常見問題
 
@@ -29,7 +29,7 @@ ms.locfileid: "73582408"
 
 ## <a name="what-cluster-operations-are-available"></a>有哪些叢集作業可供使用？
 
-您只能相應增加或減少計算節點的數目。 建立後，不允許對 `Microsoft.ContainerService/openShiftManagedClusters` 資源進行其他修改。 計算節點的最大數目限制為20。
+您只能相應增加或減少計算節點的數目。 建立之後，不允許對 `Microsoft.ContainerService/openShiftManagedClusters` 資源進行其他修改。 計算節點的最大數目限制為20。
 
 ## <a name="what-virtual-machine-sizes-can-i-use"></a>我可以使用哪些虛擬機器大小？
 
@@ -57,11 +57,11 @@ Docker 登錄可從 `https://docker-registry.apps.<clustername>.<region>.azmosa.
 
 ## <a name="can-an-admin-manage-users-and-quotas"></a>系統管理員可以管理使用者和配額嗎？
 
-是。 除了存取所有使用者建立的專案之外，Azure Red Hat OpenShift 系統管理員還可以管理使用者和配額。
+可以。 除了存取所有使用者建立的專案之外，Azure Red Hat OpenShift 系統管理員還可以管理使用者和配額。
 
 ## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>我可以將叢集限制為只有特定 Azure AD 的使用者嗎？
 
-是。 您可以藉由設定 Azure AD 應用程式來限制哪些 Azure AD 使用者可以登入叢集。 如需詳細資訊，請參閱[如何：將您的應用程式限制為一組使用者](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
+可以。 您可以藉由設定 Azure AD 應用程式來限制哪些 Azure AD 使用者可以登入叢集。 如需詳細資訊，請參閱[如何：將您的應用程式限制為一組使用者](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>叢集可以跨多個 Azure 區域擁有計算節點嗎？
 
@@ -73,9 +73,9 @@ Docker 登錄可從 `https://docker-registry.apps.<clustername>.<region>.azmosa.
 
 ## <a name="is-open-service-broker-for-azure-osba-supported"></a>是否支援 Open Service Broker for Azure （OSBA）？
 
-是。 您可以使用 OSBA 搭配 Azure Red Hat OpenShift。 如需詳細資訊，請參閱[Open Service Broker For Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) 。
+可以。 您可以使用 OSBA 搭配 Azure Red Hat OpenShift。 如需詳細資訊，請參閱[Open Service Broker For Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) 。
 
-## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>我想要對等互連至不同訂用帳戶中的虛擬網路，但收到 `Failed to get vnet CIDR` 錯誤。
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>我嘗試對等互連至不同訂用帳戶中的虛擬網路，但收到 `Failed to get vnet CIDR` 錯誤。
 
 在具有虛擬網路的訂用帳戶中，請務必向 `az provider register -n Microsoft.ContainerService --wait` 註冊 `Microsoft.ContainerService` 提供者 
 
@@ -83,7 +83,7 @@ Docker 登錄可從 `https://docker-registry.apps.<clustername>.<region>.azmosa.
 
 ARO 有三種類型的維護：升級、備份和還原 etcd 資料，以及雲端提供者起始的維護。
 
-+ 升級包含軟體升級和 Cve。 CVE 補救會在啟動時執行，`yum update` 並提供立即緩和。  在平行中，將會建立新的映射組建，以供未來的叢集建立。
++ 升級包含軟體升級和 Cve。 在啟動時，會執行 `yum update` 並提供立即的緩和措施，以進行 CVE 補救。  在平行中，將會建立新的映射組建，以供未來的叢集建立。
 
 + 備份和管理 etcd 資料是一個自動化程式，視動作而定，可能需要叢集停機。 如果正在從備份還原 etcd 資料庫，將會有停機時間。 我們會每小時備份 etcd，並保留過去6小時的備份。
 
@@ -121,7 +121,7 @@ Syslog、docker logs、日記和 dmesg 是由受控服務處理，不會向客�
 
 ## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>客戶如何取得節點層級的計量（例如 CPU/記憶體），以採取動作來調整規模、進行調試問題等。我似乎無法在 ARO 叢集上執行 `kubectl top`。
 
-`kubectl top` 無法在 Red Hat OpenShift 上使用。 它需要支援的計量來源（Heapster （已淘汰）或計量伺服器（發展或 Alpha），這兩者都不會包含在 OpenShift 監視堆疊中。
+客戶可以使用命令 `oc adm top nodes` 或與客戶管理員 clusterrole `kubectl top nodes`，來存取節點層級的 CPU/記憶體計量。  客戶也可以使用命令 `oc adm top pods` 或 `kubectl top pods` 來存取 `pods` 的 CPU/記憶體計量。
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>ARO 的預設 pod 排程器設定為何？
 
@@ -137,7 +137,7 @@ ARO 會使用 OpenShift 中隨附的預設排程器。 ARO 不支援幾個額外
 
 ## <a name="is-there-a-way-to-manage-pod-placement"></a>是否有管理 pod 位置的方法？
 
-有了客戶管理更新後，客戶就能夠取得節點和視圖標籤。  這會提供將目標設為擴展集中任何 VM 的方式。
+客戶可以取得節點，並以客戶系統管理員的身分來查看標籤。 這會提供將目標設為擴展集中任何 VM 的方式。
 
 使用特定標籤時，必須小心使用：
 
@@ -147,7 +147,7 @@ ARO 會使用 OpenShift 中隨附的預設排程器。 ARO 不支援幾個額外
 
 ## <a name="what-is-the-maximum-number-of-pods-in-an-aro-cluster-what-is-the-maximum-number-of-pods-per-node-in-aro"></a>ARO 叢集中的 pod 數目上限為何？  在 ARO 中，每個節點的 pod 數目上限為何？
 
-如需詳細資訊，請參閱[上游 OpenShift](https://docs.openshift.com/container-platform/3.11/scaling_performance/cluster_limits.html#scaling-performance-current-cluster-limits)檔。 Red Hat OpenShift 3.11 具有250個 pod/節點的限制，而[aro 具有20個計算節點的限制](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available)，因此在 aro 叢集中支援的 pod 數目上限為 250 * 20 = 5000。
+ Azure Red Hat OpenShift 3.11 具有每個節點的 50-pod 限制，其中的[aro 具有20個計算節點的限制](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available)，因此在 aro 叢集中支援的 pod 數目上限為 50 * 20 = 1000。
 
 ## <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>我們可以在私人 VNET 上指定部署的 IP 範圍，避免在對等互連後與其他公司 Vnet 發生衝突嗎？
 

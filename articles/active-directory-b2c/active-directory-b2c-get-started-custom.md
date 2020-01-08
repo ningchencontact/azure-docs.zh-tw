@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 66b361a7eb82610d12a10c9c190f2872c072d7ba
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: f802c2d1f986f5da62f4ffd3205523423f04e49c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664058"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367887"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中開始使用自訂原則
 
@@ -31,10 +31,10 @@ ms.locfileid: "74664058"
 
 ## <a name="add-signing-and-encryption-keys"></a>新增簽署與加密金鑰
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)
-1. 使用上方功能表中的 [**目錄 + 訂**用帳戶] 篩選，選取包含您 Azure AD B2C 租使用者的目錄。
-1. 在左側功能表中，選取 [Azure AD B2C]。 或者，選取 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-1. 在 [總覽] 頁面上，從 [**原則**] 窗格中選取 [ **Identity Experience Framework** ]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 在入口網站工具列中選取 [**目錄 + 訂**用帳戶] 圖示，然後選取包含您 Azure AD B2C 租使用者的目錄。
+1. 在 Azure 入口網站中，搜尋並選取  **Azure AD B2C**。
+1. 在 [總覽] 頁面的 [**原則**] 底下，選取 [ **Identity Experience Framework**]。
 
 ### <a name="create-the-signing-key"></a>建立簽署金鑰
 
@@ -77,10 +77,9 @@ Azure AD B2C 要求您註冊兩個應用程式，以用來註冊和登入具有�
 
 #### <a name="applicationstabapplications"></a>[應用程式](#tab/applications/)
 
-1. 選取 Azure 入口網站左上角的 [**所有服務**]。
-1. 在搜尋方塊中，輸入 `Azure Active Directory`。
-1. 在搜尋結果中選取 [Azure Active Directory]。
-1. 在左側功能表中的 [**管理**] 底下，選取 **[應用程式註冊（舊版）** ]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 在 Azure 入口網站中，搜尋並選取 [Azure Active Directory]。
+1. 在 [ **Azure Active Directory**總覽] 功能表的 [**管理**] 底下，選取 **[應用程式註冊（舊版）** ]。
 1. 選取 [新增應用程式註冊]。
 1. 針對 [名稱] 輸入 `IdentityExperienceFramework`。
 1. 針對 [應用程式類型] 選擇 [Web 應用程式/API]。

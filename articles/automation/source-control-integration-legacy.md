@@ -2,19 +2,15 @@
 title: Azure 自動化中的原始檔控制整合 - 舊版
 description: 本文說明在 Azure 自動化中與 GitHub 的原始檔控制整合。
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/04/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 74d4cb80fbac41294b57bf13f23c2c63babb71ef
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 651b97dabfd3cce858ea1f905a39c10bd7d81c41
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849440"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417446"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure 自動化中的原始檔控制整合 - 舊版
 
@@ -28,7 +24,7 @@ ms.locfileid: "74849440"
 > [!NOTE]
 > 原始檔控制支援提取和推送 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 以及 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks)。 尚未支援[圖形化 Runbook](automation-runbook-types.md#graphical-runbooks)。
 
-為您的自動化帳戶設定原始檔控制時，必須執行兩個簡單的步驟，而如果您已經有 GitHub 帳戶，則只需要執行一個步驟。 如下：
+為您的自動化帳戶設定原始檔控制時，必須執行兩個簡單的步驟，而如果您已經有 GitHub 帳戶，則只需要執行一個步驟。 其中包括：
 
 ## <a name="step-1--create-a-github-repository"></a>步驟 1：建立 GitHub 儲存機制
 
@@ -43,7 +39,7 @@ ms.locfileid: "74849440"
    | **參數** | **說明** |
    |:--- |:--- |
    | 選擇原始檔 |選取原始檔。 目前只支援 **GitHub** 。 |
-   | Authorization |按一下 [授權] 按鈕，授與 GitHub 儲存機制的 Azure 自動化存取權。 如果您已在不同的視窗中登入您的 GitHub 帳戶，則會使用該帳戶的認證。 成功授權之後，分頁會在 [授權屬性] 之下顯示您的 GitHub 使用者名稱。 |
+   | 授權 |按一下 [授權] 按鈕，授與 GitHub 儲存機制的 Azure 自動化存取權。 如果您已在不同的視窗中登入您的 GitHub 帳戶，則會使用該帳戶的認證。 成功授權之後，分頁會在 [授權屬性] 之下顯示您的 GitHub 使用者名稱。 |
    | 選擇儲存機制 |從可用的儲存機制清單中選取 GitHub 儲存機制。 |
    | 選擇分支 |從可用的分支清單中選取分支。 如果您尚未建立任何分支，只會顯示 **master** 分支。 |
    | Runbook 資料夾路徑 |Runbook 資料夾路徑可指定 GitHub 儲存機制中的路徑，以便您從中推送或提取程式碼。 它必須以 **/foldername/subfoldername**格式輸入。 只有 Runbook 資料夾路徑中的 Runbook 會同步處理至您的自動化帳戶。 Runbook 資料夾路徑之子資料夾中的 Runbook **不會** 進行同步處理。 使用 **/** 來同步處理儲存機制下的所有 Runbook。 |
@@ -62,7 +58,7 @@ ms.locfileid: "74849440"
 
    * **Microsoft.Azure.Automation.SourceControl.Connection** 變數包含連接字串的值，如下所示。  
 
-     | **參數** | **值** |
+     | **參數** | **ReplTest1** |
      |:--- |:--- |
      | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
      | `Type`  |String |
@@ -70,7 +66,7 @@ ms.locfileid: "74849440"
 
    * **Microsoft.Azure.Automation.SourceControl.OauthToken**變數包含 OAuthToken 的安全加密值。  
 
-     |**參數**            |**值** |
+     |**參數**            |**ReplTest1** |
      |:---|:---|
      | `Name`  | Microsoft.Azure.Automation.SourceControl.OauthToken |
      | `Type`  | Unknown(Encrypted) |

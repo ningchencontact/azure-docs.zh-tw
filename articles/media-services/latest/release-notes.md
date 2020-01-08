@@ -9,16 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 50c28f86a1ba36ac44a25e047800d14fe314f9bf
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 654787c34c6ceae51f1e1ce500193f73189f8935
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420029"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427085"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊
+
+>藉由複製並貼上此 URL，取得何時要重新流覽此頁面以進行更新的通知： `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` 至您的 RSS 摘要讀取器。
 
 為了讓您隨時掌握最新的開發訊息，本文提供下列相關資訊：
 
@@ -33,6 +35,40 @@ ms.locfileid: "74420029"
 > 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-sdk)、CLI 或其中一個支援的 SDK。
 
 如需詳細資訊，請參閱[從媒體服務 v2 移至 v3 的移轉指導](migrate-from-v2-to-v3.md#known-issues)。
+
+## <a name="november-2019"></a>2019 年 11 月
+
+### <a name="live-transcription-preview"></a>即時轉譯預覽
+
+即時轉譯現在處於公開預覽狀態，並可在美國西部2區域中使用。
+
+即時轉譯是設計來與即時事件搭配使用，做為附加元件功能。  傳遞和標準或高階編碼即時事件皆可支援。  啟用這項功能時，服務會使用認知服務的[語音轉換文字](../../cognitive-services/speech-service/speech-to-text.md)功能，將傳入音訊中的單字轉譯成文字。 然後，這段文字會提供給傳遞，以及以 MPEG-2 和 HLS 通訊協定進行的影片和音訊。 計費是以新的附加元件計量為基礎，當即時事件處於「執行中」狀態時，這會額外收費。  如需即時轉譯和計費的詳細資訊，請參閱[即時](live-transcription.md)轉譯
+
+> [!NOTE]
+> 目前，即時轉譯僅以美國西部2區域中的預覽功能形式提供。 它目前僅支援英文（en-us）的口頭文字轉譯。
+
+### <a name="content-protection"></a>內容保護
+
+在9月的有限區域中發行的權杖重新執行*防護*功能現在已在所有區域推出。
+媒體服務客戶現在可以設定相同權杖可用來要求金鑰或授權的次數限制。 如需詳細資訊，請參閱權杖重新執行[防護](content-protection-overview.md#token-replay-prevention)。
+
+### <a name="new-recommended-live-encoder-partners"></a>新建議的即時編碼器合作夥伴
+
+已針對 RTMP 即時串流新增下列建議的新合作夥伴編碼器支援：
+
+- [Cambria Live 4。3](https://www.capellasystems.net/products/cambria-live/)
+- [GoPro Hero7/8 和最大動作攝影機](https://gopro.com/help/articles/block/getting-started-with-live-streaming)
+- [Restream.io](https://restream.io/)
+
+### <a name="file-encoding-enhancements"></a>檔案編碼增強功能
+
+- 改善媒體編碼器標準中重新 sizer 的效能和多執行緒處理。 在特定情況下，客戶應該會看到 5-40% VOD 編碼之間的效能提升。 以多個位元速率編碼的低複雜性內容將會看到最高效能的增加。 
+- 標準編碼現在會在使用以時間為基礎的 GOP 設定時，為 VOD 編碼期間的變數畫面播放速率（VFR）內容保留一般的 GOP 節奏。  這表示客戶提交混合的畫面播放速率內容，會因 15-30 fps 而有所不同。例如，現在應該會看到輸出到彈性位元速率串流的檔案時，計算出一般的 GOP 距離。 這可改善在傳遞 HLS 或虛線時，在曲目之間順暢切換的能力。 
+-  改善可變畫面播放速率（VFR）來源內容的 AV 同步處理
+
+### <a name="video-indexer-video-analytics"></a>影片索引子，影片分析
+
+- 使用 VideoAnalyzer 預設值解壓縮的主要畫面格，現在會在影片的原始解析度中，而不是調整大小。 高解析度的主要畫面格會提供原始品質影像，並可讓您使用 Microsoft 電腦視覺所提供的影像型人工智慧模型，並自訂視覺服務，從您的影片取得更多見解。
 
 ## <a name="september-2019"></a>2019 年 9 月
 
@@ -74,7 +110,7 @@ ms.locfileid: "74420029"
 
 當串流以權杖限制保護的內容時，終端使用者必須取得在金鑰傳遞要求中傳送的權杖。 「*權杖*重新執行防護」功能可讓媒體服務客戶設定相同權杖可用來要求金鑰或授權的次數限制。 如需詳細資訊，請參閱權杖重新執行[防護](content-protection-overview.md#token-replay-prevention)。
 
-這項功能目前適用于美國中部和美國西部。
+從7月起，預覽功能僅適用于美國中部和美國西部。
 
 ## <a name="june-2019"></a>2019 年 6 月
 
@@ -110,7 +146,7 @@ ms.locfileid: "74420029"
 
 如需詳細資訊，請參閱[媒體服務 v3 所在的雲端和區域](azure-clouds-regions.md)。
 
-### <a name="performance-improvements"></a>效能改進
+### <a name="performance-improvements"></a>效能改善
 
 已新增包含媒體服務效能改進的更新。
 
@@ -199,7 +235,7 @@ CLI 2.0 模組現已適用於 [Azure 媒體服務 v3 GA](https://docs.microsoft.
 
 - ```--preset-names``` 引數已取代為 ```--preset```。 現在您一次只能設定 1 個輸出/預設 (以新增更多必須執行 ```az ams transform output add``` 的項目)。 此外，您可傳遞自訂 JSON 的路徑以設定自訂 StandardEncoderPreset。
 - 傳遞要移除的輸出索引即可執行 ```az ams transform output remove```。
-- 已在 ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` 和 ```az ams transform create``` 命令中新增 ```az ams transform output add``` 引數。
+- 已在 ```az ams transform create``` 和 ```az ams transform output add``` 命令中新增 ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` 引數。
 
 ## <a name="october-2018---ga"></a>2018 年 10 月 - GA
 
@@ -258,7 +294,7 @@ Azure AD 驗證和角色型存取控制 (RBAC) 會啟用 Azure AD 中的安全�
 
 Apple HLS (iOS 11 +) 的 CMAF 和 'cbcs' 加密支援和支援 CMAF 的 MPEG-DASH 播放程式。
 
-### <a name="video-indexer"></a>影片索引子
+### <a name="video-indexer"></a>影片索引器
 
 我們已在 8 月發表了影片索引器 GA 版本。 如需目前支援功能的全新詳細資訊，請參閱[什麼是影片索引器](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)。 
 
@@ -289,7 +325,7 @@ Azure CLI 2.0 模組即將推出，內含所有功能的操作 (包括即時、�
 
 ### <a name="known-issues"></a>已知問題
 
-* 提交工作時，您可以使用 HTTPS URL、SAS URL 或位於 Azure Blob 儲存體中檔案的路徑來指定內嵌您的來源影片。 目前，AMS v3 不支援透過 HTTPS URL 的區塊傳輸編碼。
+* 提交工作時，您可以使用 HTTPS URL、SAS URL 或位於 Azure Blob 儲存體中檔案的路徑來指定內嵌您的來源影片。 目前，AMS v3 不支援透過 HTTPS URL 的區塊傳送編碼。
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 

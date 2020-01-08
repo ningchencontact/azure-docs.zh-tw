@@ -1,5 +1,5 @@
 ---
-title: 使用群組管理應用程式和資源存取權 - Azure Active Directory | Microsoft Docs
+title: 使用群組來管理應用程式 & 資源存取-Azure AD
 description: 了解如何使用 Azure Active Directory 群組來管理貴組織雲端式應用程式、內部部署應用程式以及資源的存取權。
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acbc19c2148a2b62ff1aa28d705591430b4fad20
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8a90d54932561ed564a23d4d2785170aa85b5c9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561827"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422966"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>使用 Azure Active Directory 群組來管理應用程式和資源的存取權
 Azure Active Directory (Azure AD) 可協助您使用貴組織的群組來管理雲端式應用程式、內部部署應用程式以及資源。 資源既可以是目錄的一部分 (例如，透過目錄中的角色來管理物件的權限)，也可以在目錄外部 (例如，用於軟體即服務 (SaaS) 應用程式、Azure 服務、SharePoint 網站以及內部部署資源)。
@@ -36,7 +36,7 @@ Azure AD 可協助您藉由對單一使用者或整個 Azure AD 群組提供存�
 
 - **直接指派。** 資源擁有者可直接將使用者指派給資源。
 
-- **群組指派。** 資源擁有者可將 Azure AD 群組指派給資源，以自動對所有群組成員提供資源的存取權。 群組成員資格會由群組擁有者和資源擁有者共同管理，讓任一擁有者可以在群組中新增或移除成員。 如需新增或移除群組成員的詳細資訊，請參閱[作法：使用 Azure Active Directory 入口網站從另一個群組新增或移除群組](active-directory-groups-membership-azure-portal.md)。 
+- **群組指派。** 資源擁有者可將 Azure AD 群組指派給資源，以自動對所有群組成員提供資源的存取權。 群組成員資格會由群組擁有者和資源擁有者共同管理，讓任一擁有者可以在群組中新增或移除成員。 如需新增或移除群組成員資格的詳細資訊，請參閱[如何：使用 Azure Active Directory 入口網站從某個群組新增或移除另一個群組](active-directory-groups-membership-azure-portal.md)。 
 
 - **以規則為基礎的指派。** 資源擁有者可建立群組，並使用規則來定義要將哪些使用者指派給特定資源。 此規則會以指派給個別使用者的屬性為基礎。 資源擁有者可管理規則，決定需要有哪些屬性和值才能允許存取資源。 如需詳細資訊，請參閱[建立動態群組並檢查狀態](../users-groups-roles/groups-create-rule.md)。
 
@@ -58,6 +58,6 @@ Azure AD 可協助您藉由對單一使用者或整個 Azure AD 群組提供存�
 
 - [使用 Azure Active Directory 建立新的群組](active-directory-groups-create-azure-portal.md)或[使用 PowerShell Cmdlet 建立和管理新的群組](../users-groups-roles/groups-settings-v2-cmdlets.md)
 
-- [使用群組來指派整合後 SaaS 應用程式的存取權](../users-groups-roles/groups-saasapps.md)
+- [使用群組來指派對整合 SaaS 應用程式的存取權](../users-groups-roles/groups-saasapps.md)
 
 - [使用 Azure AD Connect 將內部部署群組同步處理至 Azure](../hybrid/whatis-hybrid-identity.md)

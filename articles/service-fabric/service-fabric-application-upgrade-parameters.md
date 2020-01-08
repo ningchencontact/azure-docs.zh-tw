@@ -1,25 +1,14 @@
 ---
-title: 應用程式升級：升級參數 | Microsoft Docs
+title: 應用程式升級：升級參數
 description: 描述升級 Service Fabric 應用程式的相關參數，包括執行健全狀況檢查和自動復原升級的原則。
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/08/2018
-ms.author: atsenthi
-ms.openlocfilehash: 8503b3c8a630575b917e3710ce4d7c5d6fbe70cb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 42b5c52181cfb006ae57e43c183b96a059a9c63a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934042"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377968"
 ---
 # <a name="application-upgrade-parameters"></a>應用程式升級參數
 本文說明在 Azure Service Fabric 應用程式升級期間套用的各種參數。 應用程式升級參數會控制升級時套用的逾時與健康情況檢查，並且指定升級失敗時必須套用的原則。 應用程式參數會使用下列各項套用到升級：
@@ -29,7 +18,7 @@ ms.locfileid: "72934042"
 - [REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-startapplicationupgrade)
 
 您可以從三個使用者可選取的升級模式中選一個來起始應用程式升級。 每一種模式都有自己的一組應用程式參數：
-- 受監視的升級 (Monitored)
+- Monitored
 - 未受監視的自動升級 (Unmonitored Auto)
 - 未受監視的手動升級 (Unmonitored Manual)
 
@@ -44,12 +33,12 @@ Visual Studio Service Fabric 應用程式升級參數會透過 [Visual Studio �
 ### <a name="required-parameters"></a>必要參數
 (PS=PowerShell, VS=Visual Studio)
 
-| 參數 | 套用至 | 描述 |
+| 參數 | 套用至 | 說明 |
 | --- | --- | --- |
 ApplicationName |PS| 正在升級的應用程式名稱。 範例：fabric:/VisualObjects、fabric:/ClusterMonitor。 |
 ApplicationTypeVersion|PS|升級目標的應用程式類型的版本。 |
 FailureAction |PS, VS|允許的值為 **Rollback**、**Manual** 和 **Invalid**。 「受監視」的升級遇到監視原則或健康原則違規時，所要執行的補償動作。 <br>**Rollback** 會指定升級自動復原為升級前的版本。 <br>**Manual** 表示升級將切換為 UnmonitoredManual 升級模式。 <br>**Invalid** 表示失敗動作無效。|
-受監視的升級 (Monitored) |PS|表示升級模式受到監視。 當 Cmdlet 完成一個升級網域的升級後，如果升級網域和叢集的健康情況符合您定義的健康情況原則，則 Service Fabric 會升級下一個升級網域。 如果升級網域或叢集不符合健康原則，升級將會失敗，而且 Service Fabric 會根據指定的原則復原該升級網域的升級，或還原為手動模式。 這是在生產環境中升級應用程式的建議模式。 |
+Monitored |PS|表示升級模式受到監視。 當 Cmdlet 完成一個升級網域的升級後，如果升級網域和叢集的健康情況符合您定義的健康情況原則，則 Service Fabric 會升級下一個升級網域。 如果升級網域或叢集不符合健康原則，升級將會失敗，而且 Service Fabric 會根據指定的原則復原該升級網域的升級，或還原為手動模式。 這是在生產環境中升級應用程式的建議模式。 |
 UpgradeMode | VS | 允許的值為 **Monitored** (預設值)、**UnmonitoredAuto**或 **UnmonitoredManual**。 請在本文中參閱每個模式的 PowerShell 參數，以取得詳細資訊。 |
 UnmonitoredAuto | PS | 表示升級模式為未受監視的自動升級。 當 Service Fabric 升級一個升級網域後，不管應用程式健康狀態為何，Service Fabric 都會升級下一個升級網域。 此模式中不建議用於生產環境中，而且僅適用於應用程式的開發。 |
 UnmonitoredManual | PS | 表示升級模式為未受監視的手動升級。 當 Service Fabric 升級一個升級網域後，它會等候您使用 *Resume-servicefabricapplicationupgrade* Cmdlet 來升級下一個升級網域。 |
@@ -59,7 +48,7 @@ UnmonitoredManual | PS | 表示升級模式為未受監視的手動升級。 當
 健康情況評估參數是選擇性的。 如果啟動升級時未指定健康狀態評估準則，則 Service Fabric 會使用應用程式執行個體的 ApplicationManifest.xml 中指定的應用程式健康狀態原則。
 
 > [!div class="mx-tdBreakAll"]
-> | 參數 | 套用至 | 描述 |
+> | 參數 | 套用至 | 說明 |
 > | --- | --- | --- |
 > | ApplicationParameter |PS, VS| 指定覆寫應用程式參數。<br>PowerShell 應用程式參數會指定為雜湊表的名稱/值組。 例如，@{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }.<br>您可以在 [應用程式參數檔案] 欄位中的 [發行 Service Fabric 應用程式] 對話方塊中，指定 Visual Studio 應用程式參數。
 > | 確認 |PS| 允許的值為 **True** 和 **False**。 在執行 Cmdlet 前提示您確認。 |
@@ -89,7 +78,7 @@ UnmonitoredManual | PS | 表示升級模式為未受監視的手動升級。 當
 
 ### <a name="required-parameters"></a>必要參數
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | application-id  |正在升級的應用程式識別碼。 <br> 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 '\~' 字元分隔。 例如，如果應用程式名稱是 ' fabric：/myapp/app1 '，則應用程式識別在 6.0 + 中會是 ' myapp\~app1 '，而在舊版中會是 ' myapp/app1 '。|
 application-version |升級目標的應用程式類型的版本。|
@@ -97,7 +86,7 @@ application-version |升級目標的應用程式類型的版本。|
 
 ### <a name="optional-parameters"></a>選擇性參數
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 default-service-health-policy | 預設用來評估服務類型健康情況的健康原則 [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) 編碼規格。 對應預設是空的。 |
 failure-action | 允許的值為 **Rollback**、**Manual** 和 **Invalid**。 「受監視」的升級遇到監視原則或健康原則違規時，所要執行的補償動作。 <br>**Rollback** 會指定升級自動復原為升級前的版本。 <br>**Manual** 表示升級將切換為 UnmonitoredManual 升級模式。 <br>**Invalid** 表示失敗動作無效。|
@@ -106,7 +95,7 @@ health-check-retry-timeout | 當應用程式或叢集狀況不良時，在執行
 health-check-stable-duration | 在升級繼續進入下一個升級網域之前，應用程式或叢集必須維持狀況良好的時間長度。 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 預設值：PT0H2M0S。 |
 health-check-wait-duration | 完成升級網域之後，在套用健康原則之前，要等待的時間長度。 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 預設值︰0。|
 max-unhealthy-apps | 預設值和建議值為 0。 指定應用程式被視為不健康和更新失敗之前，應用程式不健康之已部署的應用程式數目上限 (請參閱 [健康狀態章節](service-fabric-health-introduction.md))。 這個參數定義節點上的應用程式健康狀態，協助在升級期間偵測問題。 應用程式複本通常會負載平衡至其他節點，讓應用程式健康狀態良好，以便繼續升級。 藉由指定嚴謹的 *max-unhealthy-apps* 健康情況，Service Fabric 可以快速偵測應用程式封裝的問題，並協助產生快速檢錯升級。 以介於 0 到 100 之間的數字來表示。 |
-模式 | 允許的值為 **Monitored**、**UpgradeMode**、**UnmonitoredAuto**、**UnmonitoredManual**。 預設值為 **UnmonitoredAuto**。 如需這些值的說明，請參閱 Visual Studio 和 PowerShell 的「必要參數」一節。|
+mode | 允許的值為 **Monitored**、**UpgradeMode**、**UnmonitoredAuto**、**UnmonitoredManual**。 預設值為 **UnmonitoredAuto**。 如需這些值的說明，請參閱 Visual Studio 和 PowerShell 的「必要參數」一節。|
 replica-set-check-timeout |測量單位：秒。 <br>**無狀態服務**- 在單一升級網域內，Service Fabric 會嘗試確保服務的額外執行個體可用。 如果目標執行個體計數超過一個，Service Fabric 會等到有一個以上的執行個體可用，最多到逾時值上限。 此逾時是使用 *replica-set-check-timeout* 屬性指定。 如果逾時已到期，Service Fabric 會繼續進行升級，不論服務執行個體數目。 如果目標執行個體計數是一個，Service Fabric 不會等待，它會立即繼續進行升級。<br><br>**可設定狀態的服務**- 在單一升級網域內，Service Fabric 會嘗試確保複本集有仲裁。 Service Fabric 會等待有仲裁可用，最多到逾時值上限 (由 *replica-set-check-timeout* 屬性指定)。 如果逾時已到期，Service Fabric 會繼續進行升級，不論是否有仲裁。 此設定在向前回復時是設定為永不 (無限)，向後回復時則為 1200 秒。 |
 service-health-policy | 每個服務類型名稱相對於服務類型健康原則的 JSON 編碼對應。 對應預設是空的。 [參數 JSON 格式](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-applicationhealthpolicy#servicetypehealthpolicymap)。 「值」部分適用的 JSON 包含 **MaxPercentUnhealthyServices**、**MaxPercentUnhealthyPartitionsPerService** 和 **MaxPercentUnhealthyReplicasPerPartition**。 如需這些參數的說明，請參閱 Visual Studio 和 PowerShell 的「選擇性參數」一節。
 timeout | 指定作業的逾時期限 (以秒為單位)。 預設值：60。 |

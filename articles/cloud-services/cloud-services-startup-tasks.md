@@ -2,17 +2,17 @@
 title: 在 Azure 雲端服務中執行啟動工作 | Microsoft Docs
 description: 啟動工作可協助您為應用程式備妥雲端服務環境。 本文將說明啟動工作的運作方式，以及建立啟動工作的方法
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: cea28aba4c57f69a030d05ac192f9578967cbc3f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: fa48953e5e86ffa758fe556b7fb1072be9d74647
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359471"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360305"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>如何設定和執行雲端服務的啟動工作
 您可以利用啟動工作，在角色啟動之前執行作業。 您可能想要執行的作業包括安裝元件、註冊 COM 元件、設定登錄機碼，或啟動長時間執行的處理序。
@@ -23,11 +23,11 @@ ms.locfileid: "68359471"
 > 
 
 ## <a name="how-startup-tasks-work"></a>啟動工作的運作方式
-啟動工作是在您的角色開始之前採取的動作，而且在 [ServiceDefinition.csdef] 檔案中利用 [Startup] 元素內的 [Task] 元素來定義。 啟動工作經常是批次檔，但也可以是主控台應用程式，或是啟動 PowerShell 指令碼的批次檔。
+啟動工作是在您的角色開始之前採取的動作，而且在 [EndPoints] 檔案中利用 [Startup] 元素內的 [Task] 元素來定義。 啟動工作經常是批次檔，但也可以是主控台應用程式，或是啟動 PowerShell 指令碼的批次檔。
 
 環境變數可將資訊傳入啟動工作，而本機存放區可以用來傳遞來自啟動工作的資訊。 例如，環境變數可以指定您想要安裝的程式路徑，以及可以將哪些檔案寫入本機存放區，以便日後供您的角色讀取。
 
-啟動工作可以將資訊和錯誤記錄到 **TEMP** 環境變數所指定的目錄中。 啟動工作期間，如果在雲端上執行，**TEMP** 環境變數會解析成 C:\\Resources\\temp\\[guid].[rolename]\\RoleTemp  目錄。
+啟動工作可以將資訊和錯誤記錄到 **TEMP** 環境變數所指定的目錄中。 啟動工作期間，如果在雲端上執行，**TEMP** 環境變數會解析成 C:\\Resources\\temp\\[guid].[rolename]\\RoleTemp 目錄。
 
 啟動工作也可以在重新開機之間執行數次。 例如，每次角色回收時，都會執行啟動工作，但每次角色回收不一定會重新開機。 啟動工作的撰寫方式，應該要可讓它們順利執行多次。
 
@@ -52,7 +52,7 @@ ms.locfileid: "68359471"
 6. 呼叫了 [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](/previous-versions/azure/reference/ee772746(v=azure.100)) 方法。
 
 ## <a name="example-of-a-startup-task"></a>啟動工作範例
-啟動工作會在 [ServiceDefinition.csdef] 檔案中的 **Task** 項目定義。 **commandLine** 屬性指定啟動批次檔案或主控台命令的名稱和參數，**executionContext** 屬性指定啟動工作的權限等級，而 **taskType** 屬性則指定工作執行的方式。
+啟動工作會在 [EndPoints] 檔案中的 **Task** 項目定義。 **commandLine** 屬性指定啟動批次檔案或主控台命令的名稱和參數，**executionContext** 屬性指定啟動工作的權限等級，而 **taskType** 屬性則指定工作執行的方式。
 
 在此範例中，針對啟動工作建立環境變數 **MyVersionNumber**，並設定為值 "**1.0.0.0**"。
 
@@ -76,12 +76,12 @@ EXIT /B 0
 ```
 
 > [!NOTE]
-> 在 Visual Studio 中，啟動批次檔的 [複製到輸出目錄]  屬性應該設為 [永遠複製]  ，才能確保將啟動批次檔正確部署至您在 Azure 上的專案 (Web 角色為 **approot\\bin**，背景工作角色為 **approot**)。
+> 在 Visual Studio 中，啟動批次檔的 [複製到輸出目錄]屬性應該設為 [永遠複製]，才能確保將啟動批次檔正確部署至您在 Azure 上的專案 (Web 角色為 **approot\\bin**，背景工作角色為 **approot**)。
 > 
 > 
 
 ## <a name="description-of-task-attributes"></a>工作屬性說明
-以下說明 **ServiceDefinition.csdef** 檔案中 [ServiceDefinition.csdef] 項目的屬性：
+以下說明 **ServiceDefinition.csdef** 檔案中 [EndPoints] 項目的屬性：
 
 **commandLine** - 指定啟動工作的命令列：
 
@@ -105,7 +105,7 @@ EXIT /B 0
 **taskType** - 指定啟動工作執行的方式。
 
 * **simple**  
-  工作會以同步的方式執行，一次一個，並依照 [ServiceDefinition.csdef] 檔案所指定的順序。 當某個 **simple** 啟動工作結束時的 **errorlevel** 為零，就會執行下一個 **simple** 啟動工作。 如果沒有任何 **simple** 啟動工作需要執行，則會啟動角色本身。   
+  工作會以同步的方式執行，一次一個，並依照 [EndPoints] 檔案所指定的順序。 當某個 **simple** 啟動工作結束時的 **errorlevel** 為零，就會執行下一個 **simple** 啟動工作。 如果沒有任何 **simple** 啟動工作需要執行，則會啟動角色本身。   
   
   > [!NOTE]
   > 如果 **simple** 工作結束時的 **errorlevel** 不是零，則會封鎖執行個體。 後續的 **simple** 啟動工作和角色本身將不會啟動。
@@ -121,7 +121,7 @@ EXIT /B 0
 ## <a name="environment-variables"></a>環境變數
 環境變數是將資訊傳遞給啟動工作的方式。 例如，您可以放上這些項目的路徑：含有要安裝之程式的 Blob，或角色要使用的連接埠號碼，或是各項可控制啟動工作功能的設定。
 
-啟動工作的環境變數有兩種類型，包括靜態環境變數，還有以 [RoleEnvironment] 類別的成員為基礎的環境變數。 這兩者都位於 [ServiceDefinition.csdef] 檔案的 [Environment] 區段中，而且都使用 [Variable] 元素和 **name** 屬性。
+啟動工作的環境變數有兩種類型，包括靜態環境變數，還有以 [RoleEnvironment] 類別的成員為基礎的環境變數。 這兩者都位於 [EndPoints] 檔案的 [Environment] 區段中，而且都使用 [Variable] 元素和 **name** 屬性。
 
 靜態環境變數會使用 **Variable** 項目的 [Variable] 屬性。 上述範例會建立環境變數 **MyVersionNumber**，這具有靜態值 "**1.0.0.0**"。 另一個範例則是建立 **StagingOrProduction** 環境變數，您可以手動將值設為 "**staging**" 或 "**production**"，以根據 **StagingOrProduction** 環境變數的值執行不同的啟動動作。
 
@@ -153,7 +153,7 @@ EXIT /B 0
 
 [封裝](cloud-services-model-and-package.md) 雲端服務。  
 
-[ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
+[EndPoints]: cloud-services-model-and-package.md#csdef
 [Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
@@ -161,3 +161,6 @@ EXIT /B 0
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
+
+
+

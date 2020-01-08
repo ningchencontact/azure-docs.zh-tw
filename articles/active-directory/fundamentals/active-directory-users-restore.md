@@ -1,5 +1,5 @@
 ---
-title: 將最近刪除的使用者還原或永久移除- Azure Active Directory | Microsoft Docs
+title: 還原或永久移除最近刪除的使用者-Azure AD
 description: 如何使用 Azure Active Directory 檢視可還原的使用者、還原已刪除的使用者，或是永久刪除使用者。
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9864634020ad115a48bdb70a6736733919d0f0d3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 573269da1ca6b9ee09b493f4e758e78121d6c2f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561672"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422870"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>使用 Azure Active Directory 將最近刪除的使用者還原或移除
 刪除使用者之後，其帳戶會維持在暫時停權狀態 30 天。 在這 30 天期間，可以還原該使用者帳戶及其所有屬性。 30 天期限過後，系統會自動將該使用者永久刪除。
@@ -28,7 +28,7 @@ ms.locfileid: "68561672"
 >[!Important]
 >您和 Microsoft 客戶支援服務都無法還原已永久刪除的使用者。
 
-## <a name="required-permissions"></a>必要權限
+## <a name="required-permissions"></a>所需的權限
 您必須具備下列其中一個角色，才能還原及永久刪除使用者。
 
 - 全域管理員
@@ -37,7 +37,7 @@ ms.locfileid: "68561672"
 
 - 合作夥伴第 2 層支援
 
-- 使用者系統管理員
+- 使用者管理員
 
 ## <a name="view-your-restorable-users"></a>檢視可還原的使用者
 您可以查看刪除 30 天以內的所有使用者。 這些使用者均可還原。
@@ -53,10 +53,10 @@ ms.locfileid: "68561672"
 
 ## <a name="restore-a-recently-deleted-user"></a>還原最近刪除的使用者
 
-從組織刪除使用者帳戶時, 帳戶會處於已暫停狀態, 並會保留所有相關的組織資訊。 當您還原使用者時, 也會還原此組織資訊。
+從組織刪除使用者帳戶時，帳戶會處於已暫停狀態，並會保留所有相關的組織資訊。 當您還原使用者時，也會還原此組織資訊。
 
 > [!Note]
-> 一旦還原使用者, 在刪除時指派給使用者的授權也會還原, 即使這些授權沒有可用的基座也一樣。 如果您所使用的授權數量超過購買次數, 則您的組織可能暫時不符合授權使用方式。
+> 一旦還原使用者，在刪除時指派給使用者的授權也會還原，即使這些授權沒有可用的基座也一樣。 如果您所使用的授權數量超過購買次數，則您的組織可能暫時不符合授權使用方式。
 
 ### <a name="to-restore-a-user"></a>若要還原使用者
 1. 在 [使用者 - 已刪除的使用者]頁面上，搜尋並選取其中一個可用的使用者。 例如 _Mary Parker_。
@@ -66,7 +66,7 @@ ms.locfileid: "68561672"
     ![[使用者 - 已刪除的使用者] 頁面上顯示反白的 [還原使用者] 選項](media/active-directory-users-restore/users-deleted-users-restore-user.png)
 
 ## <a name="permanently-delete-a-user"></a>永久刪除使用者
-您可以永久刪除組織中的使用者, 而不需要等待30天的時間自動刪除。 無論是您、其他系統管理員還是 Microsoft 客戶支援服務，均無法還原已永久刪除的使用者。
+您可以永久刪除組織中的使用者，而不需要等待30天的時間自動刪除。 無論是您、其他系統管理員還是 Microsoft 客戶支援服務，均無法還原已永久刪除的使用者。
 
 >[!Note]
 >如果您意外永久刪除使用者，則必須建立新的使用者，並以手動方式輸入所有先前的資訊。 如需如何建立使用者的詳細資訊，請參閱[新增或刪除使用者](add-users-azure-active-directory.md)。
@@ -90,4 +90,4 @@ ms.locfileid: "68561672"
 
 - [新增來自另一個組織的來賓使用者](../b2b/what-is-b2b.md)
 
-如需其他可用使用者管理工作的詳細資訊, 請[Azure AD 使用者管理檔](../users-groups-roles/index.yml)。
+如需其他可用使用者管理工作的詳細資訊，請[Azure AD 使用者管理檔](../users-groups-roles/index.yml)。

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 1489d29f854b02cf493493fe022c73dc050e2615
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: adb78682e80d78aa4fa6b48507f1fcce789a3fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185865"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360169"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>設定適用于 VMware Vm 的應用裝置
 
@@ -100,7 +100,7 @@ VMware VM 應用裝置是一種輕量設備，Azure Migrate Server 評估/遷移
 
 1. 按一下 [登入]。 如果未出現，請確定您已在瀏覽器中停用快顯封鎖程式。
 2. 在新的索引標籤上，使用您的 Azure 認證登入。
-    - 使用您的使用者名稱和密碼登入。
+    - 以您的使用者名稱和密碼登入。
     - 不支援使用 PIN 登入。
 3. 成功登入後，返回 Web 應用程式。
 2. 選取 Azure Migrate 專案建立所在的訂用帳戶。 然後選取專案。
@@ -114,7 +114,7 @@ VMware VM 應用裝置是一種輕量設備，Azure Migrate Server 評估/遷移
 
 ### <a name="specify-vcenter-server-details"></a>指定 vCenter Server 詳細資料
 1. 在 [指定 vCenter Server 詳細資料] 中，指定 vCenter Server 的名稱 (FQDN) 或 IP 位址。 您可以保留預設的連接埠，或指定您 vCenter Server 接聽的自訂連接埠。
-2. 在 [使用者名稱] 和 [密碼] 中，指定設備要用來探索 vCenter Server 上之 VM 的唯讀帳戶認證。 請確定帳戶具有[探索所需的許可權](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions)。您可以藉由限制對 vCenter 帳戶的存取，來界定探索的範圍。[在這裡](tutorial-assess-vmware.md#scoping-discovery)深入瞭解範圍探索。
+2. 在 [使用者名稱] 和 [密碼] 中，指定設備要用來探索 vCenter Server 上之 VM 的唯讀帳戶認證。 請確定帳戶具有[探索所需的權限](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions)。 您可以藉由限制 vCenter 帳戶的存取來界定探索的範圍；[請從此處](tutorial-assess-vmware.md#set-the-scope-of-discovery)深入了解探索範圍。
 3. 按一下 [驗證連線] 以確定設備可以連線到 vCenter Server。
 
 ### <a name="specify-vm-credentials"></a>指定 VM 認證
@@ -127,7 +127,7 @@ VMware VM 應用裝置是一種輕量設備，Azure Migrate Server 評估/遷移
 2. 選取 [作業系統]。
 3. 為認證提供易記名稱。
 4. 在 [使用者名稱] 與 [密碼] 中，指定至少在 VM 上具有來賓存取權的帳戶。
-5. 按一下頁面底部的 [新增]。
+5. 按一下 [新增]。
 
 一旦指定 vCenter Server 與 VM 認證 (選擇性)，請按一下 [儲存並開始探索] 以開始探索內部部署環境。
 

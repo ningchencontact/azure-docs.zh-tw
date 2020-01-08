@@ -1,25 +1,16 @@
 ---
 title: 使用容器的 Azure 監視器監視 Kubernetes 叢集健全狀況 |Microsoft Docs
 description: 本文說明如何使用適用于容器的 Azure 監視器，來查看和分析 AKS 和非 AKS 叢集的健康情況。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/18/2019
-ms.author: magoedte
-ms.openlocfilehash: 08f7cf5a26108608aa3719085d69ec9543f4aa51
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.date: 12/01/2019
+ms.openlocfilehash: 9ee710eb916923756633e65f3287751ba9a9dde3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279645"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405087"
 ---
-# <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>瞭解適用于容器 Azure 監視器的 Kubernetes 叢集健康情況
+# <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>了解使用適用於容器之 Azure 監視器的 Kubernetes 叢集健康狀態
 
 使用容器的 Azure 監視器，它會監視並報告受管理基礎結構元件的健全狀況狀態，以及針對容器 Azure 監視器所支援的任何 Kubernetes 叢集上執行的所有節點。 此體驗延伸超過叢集健全狀況狀態，並會在[多叢集視圖](container-insights-analyze.md#multi-cluster-view-from-azure-monitor)上進行計算並回報，現在您可以瞭解叢集中的一或多個節點是否受資源限制，或節點或 pod 是否無法使用，而可能會影響叢集中的執行中應用程式（以策劃的計量為基礎）。
 
@@ -35,7 +26,7 @@ ms.locfileid: "74279645"
 >- 容器化代理程式版本為*microsoft/oms： ciprod11012019*。 若要升級代理程式，請參閱[升級 Kubernetes 叢集上的代理程式](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster)。
 >
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 在容器的 Azure 監視器中，[健康情況（預覽）] 功能會提供 Kubernetes 叢集的主動式健全狀況監視，以協助您識別和診斷問題。 它讓您能夠看到所偵測到的重大問題。 監視叢集上容器化代理程式上執行的叢集健全狀況，並將健康情況資料寫入 Log Analytics 工作區中的**KubeHealth**資料表。 
 
@@ -57,13 +48,13 @@ Kubernetes 叢集健康情況是根據下列 Kubernetes 物件和抽象概念所
 * 評估節點和容器的記憶體使用率。
 * Pod 和節點的狀態，取決於 Kubernetes 回報的就緒狀態計算。
 
-用來表示狀態的圖示如下所示：
+用來指示狀態的圖示如下：
 
 |圖示|意義|  
 |--------|-----------|  
-|![綠色核取圖示表示狀況良好](./media/container-insights-health/healthyicon.png)|成功，健全狀況正常（綠色）|  
-|![黃色三角形和驚嘆號為警告](./media/container-insights-health/warningicon.png)|警告（黃色）|  
-|![具有白色 X 的紅色按鈕表示重大狀態](./media/container-insights-health/criticalicon.png)|重大（紅色）|  
+|![綠色核取圖示表示狀況良好](./media/container-insights-health/healthyicon.png)|成功，健全狀況正常 (綠色)|  
+|![黃色三角形和驚嘆號表示警告](./media/container-insights-health/warningicon.png)|警告 (黃色)|  
+|![具有白色 X 的紅色按鈕表示重大狀態](./media/container-insights-health/criticalicon.png)|重大 (紅色)|  
 |![呈現灰色圖示](./media/container-insights-health/grayicon.png)|未知（灰色）|  
 
 ## <a name="monitor-configuration"></a>監視設定

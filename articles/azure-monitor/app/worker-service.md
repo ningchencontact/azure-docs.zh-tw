@@ -1,18 +1,18 @@
 ---
-title: 背景工作服務應用程式（非 HTTP 應用程式）的 Application Insights |Microsoft Docs
-description: 使用 Application Insights 監視 .NET Core/NET Framework 非 HTTP 應用程式。
+title: 背景工作服務應用程式的 Application Insights （非 HTTP 應用程式）
+description: 使用 Azure 監視器 Application Insights 監視 .NET Core/NET Framework 非 HTTP 應用程式。
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/15/2019
-ms.openlocfilehash: 386c171e4785fac2c7fa6da39f249e211f4c660c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/16/2019
+ms.openlocfilehash: bea30ade6d9f6eb77d18c671b824b138ba94fddb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893293"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406194"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>背景工作服務應用程式的 Application Insights （非 HTTP 應用程式）
 
@@ -35,7 +35,7 @@ Application Insights 發行稱為 `Microsoft.ApplicationInsights.WorkerService`�
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.2" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.12.0" />
     </ItemGroup>
 ```
 
@@ -127,7 +127,7 @@ Application Insights 發行稱為 `Microsoft.ApplicationInsights.WorkerService`�
 或者，在下列其中一個環境變數中指定檢測金鑰。
 `APPINSIGHTS_INSTRUMENTATIONKEY` 或 `ApplicationInsights:InstrumentationKey`
 
-例如：`SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
+例如： `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 或 `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
 一般來說，`APPINSIGHTS_INSTRUMENTATIONKEY` 會針對部署至 Web Apps 作為 Web 作業的應用程式指定檢測金鑰。
@@ -251,7 +251,8 @@ Application Insights 發行稱為 `Microsoft.ApplicationInsights.WorkerService`�
                 IServiceCollection services = new ServiceCollection();
 
                 // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
-                // Hence instrumentation key must be specified here.
+                // Hence instrumentation key and any changes to default logging level must be specified here.
+                services.AddLogging(loggingBuilder => loggingBuilder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("Category", LogLevel.Information));
                 services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
 
                 // Build ServiceProvider.
@@ -309,7 +310,7 @@ Application Insights 發行稱為 `Microsoft.ApplicationInsights.WorkerService`�
 
 系統會自動捕捉透過 `ILogger` 嚴重性 `Warning` 或更新版本所發出的記錄。 遵循[ILogger](ilogger.md#control-logging-level)檔來自訂 Application Insights 所要捕獲的記錄層級。
 
-### <a name="dependencies"></a>相依項目
+### <a name="dependencies"></a>相依性
 
 依預設會啟用相依性集合。 [本文說明](asp-net-dependencies.md#automatically-tracked-dependencies)自動收集的相依性，也包含執行手動追蹤的步驟。
 
@@ -354,7 +355,7 @@ Application Insights 發行稱為 `Microsoft.ApplicationInsights.WorkerService`�
 
 `ApplicationInsightsServiceOptions` 中常用的設定
 
-|設定 | 描述 | 預設值
+|設定 | 說明 | 預設
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | 啟用/停用 LiveMetrics 功能 | true
 |EnableAdaptiveSampling | 啟用/停用調適型取樣 | true

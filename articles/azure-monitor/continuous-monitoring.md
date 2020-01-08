@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 88934d469ddcca50d7dfc3f35b18ab332d4bd172
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7dc8001d74ea026625d7496fb84053b4e9109dce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596789"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406160"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>使用 Azure 監視器持續監視
 
@@ -67,7 +67,7 @@ Azure 上的一般應用程式包含多個資源，例如 VM 和應用程式服�
 
 - 根據記錄和計量[在 Azure 監視器中建立警示](../azure-monitor/platform/alerts-overview.md)，以識別可預測的失敗狀態。 您的目標應該是讓所有的警示可採取動作，這表示它們代表實際的重大情況，並設法減少誤判。 使用[動態閾值](platform/alerts-dynamic-thresholds.md)即可自動計算計量資料的基準，而不是定義您自己的靜態閾值。 
 - 定義警示的動作，以使用最有效的方式通知您的系統管理員。 [通知的可用動作](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal)包括 SMS、電子郵件、推播通知，或語音通話。
-- 使用更進階的動作透過 [webhook](platform/activity-log-alerts-webhook.md) [連接到您的 ITSM 工具](platform/itsmc-overview.md)或其他警示管理系統。
+- 使用更進階的動作透過 [webhook](platform/activity-log-alerts-webhook.md)[連接到您的 ITSM 工具](platform/itsmc-overview.md)或其他警示管理系統。
 - 修復警示中所識別的情況，以及可以使用 webhook 從警示啟動的 [Azure 自動化 runbook](../automation/automation-webhooks.md) 或 [Logic Apps](/connectors/custom-connectors/create-webhook-trigger)。 
 - 根據所收集的計量，使用[自動調整](../azure-monitor/learn/tutorial-autoscale-performance-schedule.md)來動態增加和減少計算資源。
 

@@ -1,31 +1,33 @@
 ---
-title: 整合式解決方案 |Azure
+title: 整合式解決方案-Azure Marketplace
 description: Azure Marketplace 和 AppSource 中的整合式解決方案
 services: Azure, Marketplace, Compute, Storage, Networking
 author: ChJenk
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 12/16/2019
 ms.author: v-chjen
-ms.openlocfilehash: 420dfbc117a45c325db8e9fa2a622414bc78bd07
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 11f1504e8bd57fe34eb7acdc50598403225adcd9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023606"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427183"
 ---
-# <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Azure Marketplace 和 AppSource 中的整合式解決方案
+# <a name="integrated-solutions-in-microsoft-appsource-and-azure-marketplace"></a>Microsoft AppSource 和 Azure Marketplace 中的整合式解決方案
 
-整合式解決方案結合了 Microsoft 合作夥伴的最佳技術，並提供諮詢、部署和支援專家系統整合者（SI）。
+整合式解決方案結合了 Microsoft 合作夥伴的最佳技術，以及諮詢、部署和支援專家服務合作夥伴提供的協助。
 
-這些解決方案是專為解決特定的客戶需求或案例而設計，並從瞭解產業挑戰或痛點開始。 SI 整合了兩個以上的最佳技術，為客戶建立一致且可重複的部署體驗，讓他們能夠快速啟動並執行。 系統整合者也為客戶提供了單一的聯絡點，提供有關解決方案的相關自訂、諮詢和支援。  結果是一個整合式解決方案，包括技術和服務。
+有兩個或多個 Microsoft 合作夥伴整合其技術和服務，以建立統一、順暢且可重複的部署體驗，讓客戶能夠快速啟動並執行。  解決方案中的潛在客戶合作夥伴（通常是服務合作夥伴）會為客戶提供單一連絡人點，並提供相關的自訂、諮詢及解決方案支援。
+
+在其他案例中，合作夥伴共同銷售或共同行銷其解決方案，而整合式解決方案則是共同建立的新解決方案，可整合合作夥伴之間的技術和服務。
 
 ## <a name="advantages"></a>優點
 
 整合式方法的優點如下：
 
-* *業界專長*：提供業界專屬解決方案和知識的系統整合者
+* *產業專業知識*：提供業界專屬解決方案和知識的服務合作夥伴
 * *時間值*：整合部署方法，可協助您實現立即的優勢
 * *最佳解決方案*：探索輕鬆的整合式購買與執行體驗
 

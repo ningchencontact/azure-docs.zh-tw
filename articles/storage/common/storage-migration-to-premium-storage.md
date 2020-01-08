@@ -9,12 +9,12 @@ ms.date: 06/27/2017
 ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 1bf46240303d1f31cd09c1a2723e18d27d3ef789
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
-ms.translationtype: MT
+ms.openlocfilehash: b8b3679676cf019a48c55211d81bee0523764db5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124693"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351247"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>移轉至 Azure 進階儲存體 (非受控磁碟)
 
@@ -33,7 +33,7 @@ ms.locfileid: "70124693"
 您可以將 VM 從其他平台移轉到 Azure 進階儲存體，或將現有的 Azure VM 從標準儲存體移轉到進階儲存體。 本指南涵蓋這兩種案例的步驟。 請根據您的案例，依照相關小節中所指定的步驟操作。
 
 > [!NOTE]
-> 您可以在下列位置找到進階 SSD 的功能概觀和價格：[選取適用於 IaaS VM 的磁碟類型](../../virtual-machines/windows/disks-types.md#premium-ssd)。 建議您將任何需要高 IOPS 的虛擬機器磁碟移轉到「Azure 進階儲存體」，以發揮應用程式最佳效能。 如果您的磁碟不需要高 IOPS，您可以在「標準儲存體」中維護它來限制成本，這會將虛擬機器磁碟資料儲存在「硬碟機 (HDD)」上而非 SSD 上。
+> 您可以在中找到高階 Ssd 的功能總覽和定價：[選取 IaaS vm 的磁片類型](../../virtual-machines/windows/disks-types.md#premium-ssd)。 建議您將任何需要高 IOPS 的虛擬機器磁碟移轉到「Azure 進階儲存體」，以發揮應用程式最佳效能。 如果您的磁碟不需要高 IOPS，您可以在「標準儲存體」中維護它來限制成本，這會將虛擬機器磁碟資料儲存在「硬碟機 (HDD)」上而非 SSD 上。
 >
 
 要完整地完成移轉程序，可能需要在本指南中提供的步驟之前和之後執行其他動作。 例如，設定虛擬網路或端點，或是在應用程式本身中進行程式碼變更，應用程式可能都需要一些停機時間。 這些動作會隨著每個應用程式而不同，您應完成這些動作以及本指南中所提供的步驟，才能盡可能順暢地完整轉換至進階儲存體。
@@ -61,34 +61,34 @@ Azure VM 大小的規格已列在 [虛擬機器的大小](../../virtual-machines
 | 每一磁碟的 IOPS       | 500   | 2300  | 5000           | 7500           | 7500           | 
 | 每一磁碟的輸送量 | 每秒 100 MB | 每秒 150 MB | 每秒 200 MB | 每秒 250 MB | 每秒 250 MB |
 
-根據您的工作負載，決定您的 VM 是否需要額外的資料磁碟。 您可以將數個持續性資料磁碟連接至您的 VM。 如有需要，您可以跨磁碟等量磁碟區以增加磁碟區的容量和效能。 (請參閱[這裡](../../virtual-machines/windows/premium-storage-performance.md#disk-striping)的磁碟等量化說明。)如果您使用 [儲存空間][4]等量 Premium 儲存體資料磁碟，應該為所使用的每個磁碟，以一個資料行進行設定。 否則，等量磁碟區的整體效能可能會因為磁碟之間的流量分配不平均而低於預期。 而對於 Linux VM，您可以使用 *mdadm* 公用程式來達到相同的效果。 如需詳細資訊，請參閱文章 [在 Linux 上設定軟體 RAID](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 。
+根據您的工作負載，決定您的 VM 是否需要額外的資料磁碟。 您可以將數個持續性資料磁碟連接至您的 VM。 如有需要，您可以跨磁碟等量磁碟區以增加磁碟區的容量和效能。 （請參閱[這裡](../../virtual-machines/windows/premium-storage-performance.md#disk-striping)的磁片等量分割）。如果您使用[儲存空間][4]等量分割進階儲存體資料磁片，您應該為每個使用的磁片設定一個資料行。 否則，等量磁碟區的整體效能可能會因為磁碟之間的流量分配不平均而低於預期。 而對於 Linux VM，您可以使用 *mdadm* 公用程式來達到相同的效果。 如需詳細資訊，請參閱文章 [在 Linux 上設定軟體 RAID](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 。
 
 #### <a name="storage-account-scalability-targets"></a>儲存體帳戶延展性目標
 進階儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md)之外，還有以下延展性目標。 如果您的應用程式需求超出單一儲存體帳戶的延展性目標，請建置使用多個儲存體帳戶的應用程式，並將資料分散到那些儲存體帳戶中。
 
 | 總帳戶容量 | 本地備援儲存體帳戶總頻寬 |
 |:--- |:--- |
-| 磁碟容量：35TB<br />快照容量：10 TB |每秒最多 50 Gbps (輸入 + 輸出) |
+| 磁碟容量：35 TB<br />快照容量：10 TB |每秒最多 50 Gbps (輸入 + 輸出) |
 
-如需有關進階儲存體規格的詳細資訊，請查看 [Azure 儲存體的擴充和效能目標](storage-scalability-targets.md#premium-performance-storage-account-scale-limits)。
+如需進階儲存體規格的詳細資訊，請參閱[Premium 分頁 blob 儲存體帳戶的擴充性目標](../blobs/scalability-targets-premium-page-blobs.md)。
 
 #### <a name="disk-caching-policy"></a>磁碟快取原則
-根據預設，所有 Premium 資料磁碟的磁碟快取原則都是*唯讀*，而連接至 VM 的 Premium 作業系統磁碟的磁碟快取原則則是*讀寫*。 為使應用程式的 IO 達到最佳效能，建議使用此組態設定。 對於頻繁寫入或唯寫的資料磁碟 (例如 SQL Server 記錄檔)，停用磁碟快取可獲得更佳的應用程式效能。 使用*set-azuredatadisk*指令程式的[Azure 入口網站](https://portal.azure.com)或 *-HostCaching*參數, 可以更新現有資料磁片的快取設定。
+根據預設，所有 Premium 資料磁碟的磁碟快取原則都是*唯讀*，而連接至 VM 的 Premium 作業系統磁碟的磁碟快取原則則是*讀寫*。 為使應用程式的 IO 達到最佳效能，建議使用此組態設定。 對於頻繁寫入或唯寫的資料磁碟 (例如 SQL Server 記錄檔)，停用磁碟快取可獲得更佳的應用程式效能。 使用*set-azuredatadisk*指令程式的[Azure 入口網站](https://portal.azure.com)或 *-HostCaching*參數，可以更新現有資料磁片的快取設定。
 
-#### <a name="location"></a>Location
+#### <a name="location"></a>位置
 挑選 Azure 進階儲存體可用的位置。 如需可使用 Azure 服務之地點的最新資訊，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/#services)。 相較於與儲存 VM 磁碟的儲存體帳戶位於不同區域的 VM，位於相同區域將提供更優越的效能。
 
 #### <a name="other-azure-vm-configuration-settings"></a>其他 Azure VM 組態設定
 建立 Azure VM 時，系統會要求您設定某些 VM 設定。 請記住，有一些對於 VM 存留期的設定是固定的，但是您稍後可以修改或新增其他設定。 檢閱這些 Azure VM 組態設定，並確定會適當地設定這些設定以符合您的工作負載需求。
 
 ### <a name="optimization"></a>最佳化
-[Azure 進階儲存體：針對高效能進行設計](../../virtual-machines/windows/premium-storage-performance.md)提供使用 Azure 進階儲存體來建置高效能應用程式的指導方針。 您可以遵循指定方針，並根據您的應用程式所採用的技術，結合適合的效能最佳作法。
+[Azure 進階儲存體︰針對高效能進行設計](../../virtual-machines/windows/premium-storage-performance.md)提供使用 Azure 進階儲存體來建置高效能應用程式的指導方針。 您可以遵循指定方針，並根據您的應用程式所採用的技術，結合適合的效能最佳作法。
 
 ## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>準備並將虛擬硬碟 (VHD) 複製到進階儲存體
 下一節提供從您的 VM 準備 VHD 以及將 VHD 複製到 Azure 儲存體的指導方針。
 
 * [案例 1：「將現有的 Azure VM 移轉到 Azure 進階儲存體。」](#scenario1)
-* [案例 2：「將其他平台上的 VM 移轉到 Azure 進階儲存體。」](#scenario2)
+* [案例 2：「我要將其他平台上的 VM 移轉到 Azure 進階儲存體。」](#scenario2)
 
 ### <a name="prerequisites"></a>必要條件
 若要準備移轉 VHD，您需要︰
@@ -111,7 +111,7 @@ Azure VM 大小的規格已列在 [虛擬機器的大小](../../virtual-machines
 
 VM 必須完全關閉，才能以全新狀態移轉。 在移轉完成之前會有停機時間。
 
-#### <a name="step-1-prepare-vhds-for-migration"></a>步驟 1. 準備 VHD 進行移轉
+#### <a name="step-1-prepare-vhds-for-migration"></a>步驟 1： 準備 VHD 進行移轉
 如果是將現有的 Azure VM 移轉到進階儲存體，您的 VHD 可能是：
 
 * 一般化作業系統映像
@@ -149,7 +149,7 @@ VM 必須完全關閉，才能以全新狀態移轉。 在移轉完成之前會�
 
 遵循以下所述的步驟，將 VHD 複製到 Azure 進階儲存體並註冊為佈建的資料磁碟。
 
-#### <a name="step-2-create-the-destination-for-your-vhd"></a>步驟 2. 為您的 VHD 建立目的地
+#### <a name="step-2-create-the-destination-for-your-vhd"></a>步驟 2： 為您的 VHD 建立目的地
 建立儲存體帳戶來維護您的 VHD。 規劃儲存 VHD 的位置時，請考量下列幾點：
 
 * 目標進階儲存體帳戶。
@@ -159,12 +159,12 @@ VM 必須完全關閉，才能以全新狀態移轉。 在移轉完成之前會�
 若是資料磁碟，您可以選擇將一些資料磁碟保留在標準儲存體帳戶中 (例如，具有散熱器儲存體的磁碟)，但我們強烈建議您移動生產工作負載的所有資料以使用進階儲存體。
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>步驟 3. 使用 AzCopy 或 PowerShell 複製 VHD
-您必須尋找您的容器路徑和儲存體帳戶金鑰，才能處理這兩個選項之一。 容器路徑和儲存體帳戶金鑰位於 **Azure 入口網站** > **儲存體**。 容器 URL 會類似 "HTTPs:\//myaccount.blob.core.windows.net/mycontainer/"。
+您必須尋找您的容器路徑和儲存體帳戶金鑰，才能處理這兩個選項之一。 容器路徑和儲存體帳戶金鑰位於 **Azure 入口網站** > **儲存體**。 容器 URL 會類似 "HTTPs：\//myaccount.blob.core.windows.net/mycontainer/"。
 
-##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>選項 1：使用 AzCopy 複製 VHD (非同步複製)
+##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>選項 1︰使用 AzCopy 複製 VHD (非同步複製)
 您可以使用 AzCopy，透過網際網路輕鬆上傳 VHD。 根據 VHD 的大小，這可能需要一些時間。 使用這個選項時，請記得檢查儲存體帳戶輸入/輸出限制。 如需詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md) 。
 
-1. 從此處下載並安裝 AzCopy：[最新版 AzCopy](https://aka.ms/downloadazcopy)
+1. 從這裡下載並安裝 AzCopy： [AzCopy 的最新版本](https://aka.ms/downloadazcopy)
 2. 開啟 Azure PowerShell，並移至安裝 AzCopy 所在的資料夾。
 3. 使用下列命令，將 VHD 檔案從「來源」複製到「目的地」。
 
@@ -180,15 +180,15 @@ VM 必須完全關閉，才能以全新狀態移轉。 在移轉完成之前會�
  
    以下是有關用於 AzCopy 命令中之參數的描述：
 
-   * **/Source:** _來源:&gt; &lt;_ 包含 VHD 的資料夾或儲存體容器 URL 的位置。
-   * **/Sourcekey source-account-key:** _來源-帳戶金鑰&gt;: &lt;_ 來源儲存體帳戶的儲存體帳戶金鑰。
-   * **/Dest:** _目的地:&gt; &lt;_ 要複製 VHD 的目的地儲存體容器 URL。
-   * **/Destkey dest-account-key:** _目的地-帳戶金鑰&gt;: &lt;_ 目的地儲存體帳戶的儲存體帳戶金鑰。
-   * **/Pattern file-name:** _檔案名:&lt; &gt;_ 指定要複製 VHD 的目標檔案名稱。
+   * **/Source：** _&lt;來源&gt;：_ 包含 VHD 的資料夾或儲存體容器 URL 的位置。
+   * **/Sourcekey source-account-key：** _&lt;來源-帳戶-金鑰&gt;：_ 來源儲存體帳戶的儲存體帳戶金鑰。
+   * **/Dest：** _&lt;目的地&gt;：_ 要將 VHD 複製到其中的儲存體容器 URL。
+   * **/Destkey dest-account-key：** _&lt;dest-account-key&gt;：_ 目的地儲存體帳戶的儲存體帳戶金鑰。
+   * **/Pattern file-name：** _&lt;檔案名&gt;：_ 指定要複製之 VHD 的檔案名。
 
 如需使用 AzCopy 工具的詳細資訊，請參閱 [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)》\。
 
-##### <a name="option-2-copy-a-vhd-with-powershell-synchronized-copy"></a>選項 2：使用 PowerShell 複製 VHD (同步複製)
+##### <a name="option-2-copy-a-vhd-with-powershell-synchronized-copy"></a>選項 2：使用 PowerShell 複製 VHD (同步處理的複製)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -216,10 +216,10 @@ C:\PS> $destinationContext = New-AzStorageContext  –StorageAccountName "destac
 C:\PS> Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer "vhds" -DestBlob "myvhd.vhd" -DestContext $destinationContext
 ```
 
-### <a name="scenario2"></a>案例 2：「將其他平台上的 VM 移轉到 Azure 進階儲存體。」
+### <a name="scenario2"></a>案例 2：「我要將其他平台上的 VM 移轉到 Azure 進階儲存體。」
 如果您將 VHD 從非 Azure 雲端儲存體移轉至 Azure，您必須先將 VHD 匯出至本機目錄。 讓儲存 VHD 所在本機目錄的完整來源路徑位於方便取得的位置，然後使用 AzCopy 將它上傳至 Azure 儲存體。
 
-#### <a name="step-1-export-vhd-to-a-local-directory"></a>步驟 1. 將 VHD 匯出至本機目錄
+#### <a name="step-1-export-vhd-to-a-local-directory"></a>步驟 1： 將 VHD 匯出至本機目錄
 ##### <a name="copy-a-vhd-from-aws"></a>從 AWS 複製 VHD
 1. 如果您使用的是 AWS，請將 EC2 執行個體匯出至 Amazon S3 貯體中的 VHD。 請依照 Amazon 文件中所述的「匯出 Amazon EC2 執行個體」步驟，安裝 Amazon EC2 命令列介面 (CLI) 工具並執行 create-instance-export-task 命令，將 EC2 執行個體匯出到 VHD 檔案。 執行 **create-instance-export-task** 命令時，請務必讓 DISK&#95;IMAGE&#95;FORMAT 變數使用 **VHD**。 已匯出的 VHD 檔案會儲存在您在該程序期間所指定的 Amazon S3 貯體中。
 
@@ -238,7 +238,7 @@ C:\PS> Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext
 ##### <a name="copy-a-vhd-from-on-premises"></a>從內部部署複製 VHD
 如果您要從內部部署環境移轉 VHD，將需要儲存 VHD 的完整來源路徑。 來源路徑可能是伺服器位置或檔案共用。
 
-#### <a name="step-2-create-the-destination-for-your-vhd"></a>步驟 2. 為您的 VHD 建立目的地
+#### <a name="step-2-create-the-destination-for-your-vhd"></a>步驟 2： 為您的 VHD 建立目的地
 建立儲存體帳戶來維護您的 VHD。 規劃儲存 VHD 的位置時，請考量下列幾點：
 
 * 目標儲存體帳戶可能是 Standard 或進階儲存體，端視您的應用程式需求而定。
@@ -247,21 +247,21 @@ C:\PS> Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext
 
 強烈建議您移動生產工作負載的所有資料以使用進階儲存體。
 
-#### <a name="step-3-upload-the-vhd-to-azure-storage"></a>步驟 3. 將 VHD 上傳至 Azure 儲存體
+#### <a name="step-3-upload-the-vhd-to-azure-storage"></a>步驟 3： 將 VHD 上傳至 Azure 儲存體
 現在，您的 VHD 位於本機目錄中，您可以使用 AzCopy 或 AzurePowerShell 將 .vhd 檔案上傳至 Azure 儲存體。 下面提供兩個選項︰
 
-##### <a name="option-1-using-azure-powershell-add-azurevhd-to-upload-the-vhd-file"></a>選項 1：使用 Azure PowerShell Add-AzureVhd 上傳 .vhd 檔案
+##### <a name="option-1-using-azure-powershell-add-azurevhd-to-upload-the-vhd-file"></a>選項 1︰使用 Azure PowerShell Add-AzureVhd 上傳 .vhd 檔案
 
 ```powershell
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-舉例\<Uri > 可能 **_"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd_** 。 舉例\<FileInfo > 可能 **_"C:\path\to\upload.vhd"_** 。
+\<Uri > 的範例可能是 **_"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"_** 。 \<FileInfo > 的範例可能是 **_"C:\path\to\upload.vhd"_** 。
 
-##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>選項 2：使用 AzCopy 上傳 .vhd 檔案
+##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>選項 2︰使用 AzCopy 上傳 .vhd 檔案
 您可以使用 AzCopy，透過網際網路輕鬆上傳 VHD。 根據 VHD 的大小，這可能需要一些時間。 使用這個選項時，請記得檢查儲存體帳戶輸入/輸出限制。 如需詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md) 。
 
-1. 從此處下載並安裝 AzCopy：[最新版 AzCopy](https://aka.ms/downloadazcopy)
+1. 從這裡下載並安裝 AzCopy： [AzCopy 的最新版本](https://aka.ms/downloadazcopy)
 2. 開啟 Azure PowerShell，並移至安裝 AzCopy 所在的資料夾。
 3. 使用下列命令，將 VHD 檔案從「來源」複製到「目的地」。
 
@@ -277,12 +277,12 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 
    以下是有關用於 AzCopy 命令中之參數的描述：
 
-   * **/Source:** _來源:&gt; &lt;_ 包含 VHD 的資料夾或儲存體容器 URL 的位置。
-   * **/Sourcekey source-account-key:** _來源-帳戶金鑰&gt;: &lt;_ 來源儲存體帳戶的儲存體帳戶金鑰。
-   * **/Dest:** _目的地:&gt; &lt;_ 要複製 VHD 的目的地儲存體容器 URL。
-   * **/Destkey dest-account-key:** _目的地-帳戶金鑰&gt;: &lt;_ 目的地儲存體帳戶的儲存體帳戶金鑰。
-   * **/BlobType: page：** 將目的地指定為分頁 Blob。
-   * **/Pattern file-name:** _檔案名:&lt; &gt;_ 指定要複製 VHD 的目標檔案名稱。
+   * **/Source：** _&lt;來源&gt;：_ 包含 VHD 的資料夾或儲存體容器 URL 的位置。
+   * **/Sourcekey source-account-key：** _&lt;來源-帳戶-金鑰&gt;：_ 來源儲存體帳戶的儲存體帳戶金鑰。
+   * **/Dest：** _&lt;目的地&gt;：_ 要將 VHD 複製到其中的儲存體容器 URL。
+   * **/Destkey dest-account-key：** _&lt;dest-account-key&gt;：_ 目的地儲存體帳戶的儲存體帳戶金鑰。
+   * **/BlobType: page:** 將目的地指定為分頁 Blob。
+   * **/Pattern file-name：** _&lt;檔案名&gt;：_ 指定要複製之 VHD 的檔案名。
 
 如需使用 AzCopy 工具的詳細資訊，請參閱 [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)》\。
 
@@ -308,7 +308,7 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 1. 等到所有的 VHD 磁碟複製完成。
 2. 請確定進階儲存體可在您要移轉到的區域中使用。
 3. 決定您將要使用的新 VM 系列。 這應可支援進階儲存體，而且大小取決於區域中的可用性和您的需求。
-4. 決定您將要使用的確切 VM 大小。 VM 大小必須足以支援您所擁有的資料磁碟數目。 例如 如果您有 4 個資料磁碟，VM 必須有 2 個或多個核心。 也請考慮處理能力、記憶體和網路頻寬需求。
+4. 決定您將要使用的確切 VM 大小。 VM 大小必須足以支援您所擁有的資料磁碟數目。 例如： 如果您有 4 個資料磁碟，VM 必須有 2 個或多個核心。 也請考慮處理能力、記憶體和網路頻寬需求。
 5. 在目標區域中建立進階儲存體帳戶。 這是您將用於新 VM 的帳戶。
 6. 請備妥目前 VM 的詳細資料，包括磁碟和對應 VHD Blob 的清單。
 
@@ -434,7 +434,7 @@ Update-AzureVM  -VM $vm
 假設如下：
 
 * 您正在建立傳統 Azure VM。
-* 您的來源作業系統磁碟和來源資料磁碟位於相同儲存體帳戶和相同容器中。 如果您的作業系統磁碟和資料磁碟不在相同的地方，您可以使用 AzCopy 或 Azure PowerShell 來複製不同儲存體帳戶和容器之間的 VHD。 請參閱上一個步驟：[使用 AzCopy 或 PowerShell 複製 VHD](#copy-vhd-with-azcopy-or-powershell)。 編輯此指令碼以符合您的案例是另一個選擇，但我們建議使用 AzCopy 或 PowerShell，因為比較容易且快速。
+* 您的來源作業系統磁碟和來源資料磁碟位於相同儲存體帳戶和相同容器中。 如果您的作業系統磁碟和資料磁碟不在相同的地方，您可以使用 AzCopy 或 Azure PowerShell 來複製不同儲存體帳戶和容器之間的 VHD。 請參閱上一個步驟︰[使用 AzCopy 或 PowerShell 複製 VHD](#copy-vhd-with-azcopy-or-powershell)。 編輯此指令碼以符合您的案例是另一個選擇，但我們建議使用 AzCopy 或 PowerShell，因為比較容易且快速。
 
 以下提供自動化指令碼。 以您的資訊取代文字，並更新指令碼以符合您的特定案例。
 
@@ -739,7 +739,7 @@ Update-AzureVM  -VM $vm
 #### <a name="optimization"></a>最佳化
 您目前的 VM 組態可以自訂，以適用於標準磁碟。 例如，在等量磁碟區中使用多個磁碟，以提高效能。 例如，您無須在進階儲存體上個別使用 4 個磁碟，而可以藉由單一磁碟發揮成本效益。 這樣最佳化必須就個別案例來處理，且在移轉之後需執行自訂步驟。 另請注意，此程序可能不適用於依賴設定中所定義之磁碟配置的資料庫和應用程式。
 
-##### <a name="preparation"></a>準備工作
+##### <a name="preparation"></a>準備
 1. 依照前一節中的說明完成簡單移轉。 在移轉之後，將會在新 VM 上執行最佳化。
 2. 定義最佳化組態所需的新磁碟大小。
 3. 判斷目前磁碟/磁碟區與新磁碟規格之間的對應。
@@ -752,7 +752,7 @@ Update-AzureVM  -VM $vm
 如需調整應用程式以獲得更好的磁碟效能，請參閱[為高效能而設計](../../virtual-machines/windows/premium-storage-performance.md)一文中的＜最佳化應用程式效能＞小節。
 
 ### <a name="application-migrations"></a>應用程式移轉
-資料庫和其他複雜的應用程式在移轉時，可能需要應用程式提供者所定義的特殊步驟。 請參閱個別的應用程式文件。 例如 資料庫通常可透過備份和還原來移轉。
+資料庫和其他複雜的應用程式在移轉時，可能需要應用程式提供者所定義的特殊步驟。 請參閱個別的應用程式文件。 例如： 資料庫通常可透過備份和還原來移轉。
 
 ## <a name="next-steps"></a>後續步驟
 如需移轉虛擬機器的特定案例，請參閱下列資源：

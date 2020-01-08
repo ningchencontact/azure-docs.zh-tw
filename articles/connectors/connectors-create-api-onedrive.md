@@ -1,22 +1,22 @@
 ---
-title: 連線到 OneDrive
-description: 使用 OneDrive REST API 和 Azure Logic Apps上傳及管理檔案
+title: 存取和管理 Microsoft OneDrive 中的檔案
+description: 在 Azure Logic Apps 中建立自動化工作流程，以上傳和管理 OneDrive 中的檔案
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 93528e257ab45644a79c58fbf600dca10317eb0b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: edfbf090c3409d583cda6fd2c9957c37be5dfb7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789671"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378427"
 ---
-# <a name="get-started-with-the-onedrive-connector"></a>開始使用 OneDrive 連接器
+# <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 存取和管理 OneDrive 連接器中的檔案
 
-連線到 OneDrive 來管理您的檔案，包括上傳檔案、取得、刪除檔案等等。 透過 OneDrive，您可以執行下列工作：
+藉由使用[Azure Logic Apps](../logic-apps/logic-apps-overview.md)和[OneDrive 連接器](/connectors/onedriveconnector/)，您可以建立自動化的工作和工作流程來管理您的檔案，包括上傳、取得、刪除檔案等等。 透過 OneDrive，您可以執行下列工作：
 
 * 將檔案儲存在 OneDrive 中或更新 OneDrive 中的現有檔案以建置您的工作流程。 
 * 使用觸發程序，在 OneDrive 內有檔案建立或更新時，啟動工作流程。
@@ -38,7 +38,7 @@ ms.locfileid: "74789671"
 
 觸發程序是可用來啟動邏輯應用程式中所定義之工作流程的事件。 觸發程序會以您想要的間隔和頻率「輪詢」服務。 [深入了解觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)。
 
-1. 在邏輯應用程式中，輸入「onedrive」以取得觸發程序的清單︰  
+1. 在邏輯應用程式設計工具中，輸入 `onedrive` 以取得觸發程式的清單：  
 
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "74789671"
 
 2. 選擇 [新增動作]。
 
-3. 在文字方塊中，輸入「onedrive」以取得所有可用動作的清單。
+3. 在 [搜尋] 方塊中，輸入 `onedrive` 以取得所有可用動作的清單。
 
    ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 

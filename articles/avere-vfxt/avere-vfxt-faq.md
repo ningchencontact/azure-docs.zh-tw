@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: rohogue
-ms.openlocfilehash: 7839530463ea834ed5f8ae2ae06854985a77c673
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 5340952d6d30ae80d53234530a7e2ca6c067cf1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847374"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415347"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure 常見問題集
 
@@ -77,7 +77,7 @@ Avere vFXT 算是一種快取， 因此不會特別儲存資料。 而是結合�
 
 是，客戶可使用一個以上的雲端提供者搭配 Avere vFXT 叢集。 它支援 AWS S3 標準貯體、Google 雲端服務標準貯體和 Azure Blob 容器。
 
-> [!NOTE] 
+> [!NOTE]
 > 在 AWS 或 Google 雲端中使用 Avere vFXT 會收取軟體費用，但搭配 Azure 則否。
 
 ## <a name="technical-compute"></a>技術：計算
@@ -97,7 +97,6 @@ No, you must choose one virtual machine type or the other.
 ### Can I move between virtual machine types?
 
 Yes, there is a migration path to move from one VM type to the other. [Open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to learn how.
-
 -->
 
 ### <a name="does-the-avere-vfxt-environment-scale"></a>Avere vFXT 環境規模可以調整嗎？
@@ -122,7 +121,7 @@ Avere vFXT 不支援部署虛擬機器擴展集。 數個內建的可用性支�
 
 ### <a name="do-the-avere-vfxt-vms-count-against-my-compute-quota"></a>Avere vFXT VM 計數會佔用我的計算配額嗎？
 
-是。 請確定要支援叢集的區域中有足夠的配額。  
+可以。 請確定要支援叢集的區域中有足夠的配額。  
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-machines-in-different-availability-zones"></a>可以在不同的可用性區域中執行 Avere vFXT 叢集機器嗎？
 
@@ -130,7 +129,7 @@ Avere vFXT 不支援部署虛擬機器擴展集。 數個內建的可用性支�
 
 ### <a name="can-i-clone-avere-vfxt-virtual-machines"></a>可以複製 Avere vFXT 虛擬機器嗎？
 
-否，您必須使用支援的 Python 指令碼，在 Avere vFXT 叢集中新增或移除節點。 如需 的詳細資訊，請閱讀[管理 Avere vFXT 叢集](avere-vfxt-manage-cluster.md)。  
+否，您必須使用支援的 Python 指令碼，在 Avere vFXT 叢集中新增或移除節點。 如需 的詳細資訊，請閱讀[管理 Avere vFXT 叢集](avere-vfxt-manage-cluster.md)。
 
 ### <a name="is-there-a-vm-version-of-the-software-i-can-run-in-my-own-local-environment"></a>是否有 "VM" 版的軟體可在我自己的本機環境中執行？
 
@@ -177,7 +176,7 @@ Avere vFXT for Azure 目前不支援本機 SSD。 用於 Avere vFXT 的磁碟必
 
 ### <a name="does-avere-vfxt-require-its-own-subnet"></a>Avere vFXT 需要自己的子網路嗎？
 
-是。 Avere vFXT 完全以高可用性（HA）叢集的方式執行，而且需要多個 IP 位址才能運作。 如果叢集位於自己的子網路中，您要避免 IP 位址發生衝突，這可能會造成安裝和一般操作發生問題。 只要 IP 位址沒有重疊，叢集的子網路可以位於現有的虛擬網路內。
+可以。 Avere vFXT 完全以高可用性（HA）叢集的方式執行，而且需要多個 IP 位址才能運作。 如果叢集位於自己的子網路中，您要避免 IP 位址發生衝突，這可能會造成安裝和一般操作發生問題。 只要 IP 位址沒有重疊，叢集的子網路可以位於現有的虛擬網路內。
 
 ### <a name="can-i-run-avere-vfxt-on-infiniband"></a>可以在 InfiniBand 上執行 Avere vFXT 嗎？
 

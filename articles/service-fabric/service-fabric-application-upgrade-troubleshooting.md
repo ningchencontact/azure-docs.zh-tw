@@ -1,27 +1,16 @@
 ---
-title: 疑難排解應用程式升級 | Microsoft Docs
+title: 疑難排解應用程式升級
 description: 本文涵蓋升級 Service Fabric 應用程式的一些常見問題，以及解決方式。
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: f5df528c7e46a5cb2a5df98f0088a451eb08cd6a
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167525"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377917"
 ---
-# <a name="troubleshoot-application-upgrades"></a>疑難排解應用程式升級
+# <a name="troubleshoot-application-upgrades"></a>對應用程式升級進行疑難排解
 
 本文涵蓋升級 Azure Service Fabric 應用程式的一些常見問題，以及解決方式。
 
@@ -223,9 +212,9 @@ Service Fabric 將所有百分比轉譯為健康狀態評估的實體 (例如複
 
 以下是逾時與升級時間之間的互動方式快速複習：
 
-升級網域的升級完成時間無法快於 HealthCheckWaitDuration  +  HealthCheckStableDuration。
+升級網域的升級完成時間無法快於 HealthCheckWaitDuration +  HealthCheckStableDuration。
 
-升級失敗發生時間無法快於 HealthCheckWaitDuration  +  HealthCheckRetryTimeout。
+升級失敗發生時間無法快於 HealthCheckWaitDuration +  HealthCheckRetryTimeout。
 
 升級網域的升級時間受到 *UpgradeDomainTimeout*限制。  如果 HealthCheckRetryTimeout 和 HealthCheckStableDuration 兩者都為非零且應用程式的健康狀態會保持來回切換，則升級最終會在 UpgradeDomainTimeout 逾時。 *UpgradeDomainTimeout* 就會開始倒數計時。
 

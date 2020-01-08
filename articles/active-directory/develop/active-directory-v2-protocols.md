@@ -1,5 +1,5 @@
 ---
-title: Microsoft 身分識別平臺支援的授權通訊協定 |Azure
+title: OAuth 2.0 和 OpenID Connect 通訊協定-Microsoft 身分識別平臺 |Azure
 description: Microsoft 身分識別平臺端點所支援的 OAuth 2.0 和 OpenID Connect 通訊協定指南。
 services: active-directory
 author: rwike77
@@ -14,14 +14,14 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04ba26f592c02814412493cf4811e30aefa6ee3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7b25f1753e6dcb415927ee6278c36b3b179dd353
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918283"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424739"
 ---
-# <a name="microsoft-identity-platform-protocols"></a>Microsoft 身分識別平臺通訊協定
+# <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Microsoft 身分識別平臺上的 OAuth 2.0 和 OpenID Connect 通訊協定
 
 適用于身分識別即服務的 Microsoft 身分識別平臺端點，具有業界標準通訊協定、OpenID Connect 和 OAuth 2.0。 雖然這是符合標準的服務，但這些通訊協定在任兩個實作之間仍會有些微差異。 若您想要透過直接傳送和處理 HTTP 要求，或使用第三方開放原始碼程式庫來撰寫程式碼，而非使用我們的其中一個[開放原始碼程式庫](reference-v2-libraries.md)，可以參考這裡提供的實用資訊。
 
@@ -60,7 +60,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 其中 `{tenant}` 可以接受下列這四個不同值的其中一個：
 
-| Value | 描述 |
+| 值 | 說明 |
 | --- | --- |
 | `common` | 允許使用者使用個人的 Microsoft 帳戶和工作/學校帳戶，從 Azure AD 登入應用程式。 |
 | `organizations` | 僅允許使用者使用工作/學校帳戶，從 Azure AD 登入應用程式。 |

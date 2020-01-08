@@ -8,36 +8,36 @@ ms.author: b-majude
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: 5028ce3c71538e67b50a15abb6076871d5af7050
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: d88be50468f55a848b43613e1f7851621202052d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559618"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378223"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>管理 Azure Red Hat OpenShift 叢集中的專案、範本、影像串流 
 
-在 OpenShift 容器平臺中, 專案是用來將相關物件分組並加以隔離。 身為系統管理員, 您可以為開發人員提供特定專案的存取權, 讓他們可以建立自己的專案, 並將系統管理許可權授與個別的專案。
+在 OpenShift 容器平臺中，專案是用來將相關物件分組並加以隔離。 身為系統管理員，您可以為開發人員提供特定專案的存取權，讓他們可以建立自己的專案，並將系統管理許可權授與個別的專案。
 
 ## <a name="self-provisioning-projects"></a>自我布建專案
 
-您可以讓開發人員建立自己的專案。 API 端點會負責根據名為專案要求的範本來布建專案。 當開發人員建立新`oc new-project`的專案時, web 主控台和命令會使用此端點。
+您可以讓開發人員建立自己的專案。 API 端點會負責根據名為專案要求的範本來布建專案。 當開發人員建立新的專案時，web 主控台和 `oc new-project` 命令會使用此端點。
 
-提交專案要求時, API 會替代範本中的下列參數:
+提交專案要求時，API 會替代範本中的下列參數：
 
-| 參數               | 描述                                    |
+| 參數               | 說明                                    |
 | ----------------------- | ---------------------------------------------- |
-| PROJECT_NAME            | 專案的名稱。 必要項。             |
-| PROJECT_DISPLAYNAME     | 專案的顯示名稱。 可能是空的。 |
-| PROJECT_DESCRIPTION     | 專案的描述。 可能是空的。  |
+| PROJECT_NAME            | 專案的名稱。 必要。             |
+| PROJECT_DISPLAYNAME     | 專案的顯示名稱。 可以是空的。 |
+| PROJECT_DESCRIPTION     | 專案的描述。 可以是空的。  |
 | PROJECT_ADMIN_USER      | 管理使用者的使用者名稱。       |
 | PROJECT_REQUESTING_USER | 要求使用者的使用者名稱。           |
 
-API 的存取權會授與具有自我 provisioners 叢集角色系結的開發人員。 根據預設, 所有已驗證的開發人員都可以使用這項功能。
+API 的存取權會授與具有自我 provisioners 叢集角色系結的開發人員。 根據預設，所有已驗證的開發人員都可以使用這項功能。
 
 ## <a name="modify-the-template-for-a-new-project"></a>修改新專案的範本 
 
-1. 以具有`customer-admin`許可權的使用者身分登入。
+1. 以具有 `customer-admin` 許可權的使用者身分登入。
 
 2. 編輯 [預設專案-要求] 範本。
 
@@ -45,7 +45,7 @@ API 的存取權會授與具有自我 provisioners 叢集角色系結的開發�
    oc edit template project-request -n openshift
    ```
 
-3. 藉由新增下列注釋, 從 Azure Red Hat OpenShift (ARO) 更新程式中移除預設專案範本:`openshift.io/reconcile-protect: "true"`
+3. 藉由新增下列注釋，從 Azure Red Hat OpenShift （ARO）更新程式中移除預設專案範本： `openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -55,21 +55,21 @@ API 的存取權會授與具有自我 provisioners 叢集角色系結的開發�
    ...
    ```
 
-   ARO 更新程式將不會更新專案要求範本。 這可讓客戶自訂範本, 並在叢集更新時保留這些自訂專案。
+   ARO 更新程式將不會更新專案要求範本。 這可讓客戶自訂範本，並在叢集更新時保留這些自訂專案。
 
 ## <a name="disable-the-self-provisioning-role"></a>停用自我布建角色
 
 您可以防止已驗證的使用者群組自行布建新專案。
 
-1. 以具有`customer-admin`許可權的使用者身分登入。
+1. 以具有 `customer-admin` 許可權的使用者身分登入。
 
 2. 編輯自我 provisioners 叢集角色系結。
 
    ```
-   oc edit clusterrolebinding self-provisioners
+   oc edit clusterrolebinding.rbac.authorization.k8s.io self-provisioners
    ```
 
-3. 藉由新增下列注釋, 從 ARO 更新程式中移除角色: `openshift.io/reconcile-protect: "true"`。
+3. 藉由新增下列注釋，從 ARO 更新程式中移除角色： `openshift.io/reconcile-protect: "true"`。
 
    ```
    ...
@@ -79,10 +79,10 @@ API 的存取權會授與具有自我 provisioners 叢集角色系結的開發�
    ...
    ```
 
-4. 變更叢集角色系結以防止`system:authenticated:oauth`建立專案:
+4. 變更叢集角色系結以防止 `system:authenticated:oauth` 建立專案：
 
    ```
-   apiVersion: authorization.openshift.io/v1
+   apiVersion: rbac.authorization.k8s.io/v1
    groupNames:
    - osa-customer-admins
    kind: ClusterRoleBinding
@@ -101,18 +101,18 @@ API 的存取權會授與具有自我 provisioners 叢集角色系結的開發�
 
 ## <a name="manage-default-templates-and-imagestreams"></a>管理預設範本和 imageStreams
 
-在 Azure Red Hat OpenShift 中, 您可以停用命名空間內`openshift`任何預設範本和影像串流的更新。
-若要在命名空間`Templates`中`ImageStreams`停`openshift`用所有和的更新:
+在 Azure Red Hat OpenShift 中，您可以停用 `openshift` 命名空間內任何預設範本和影像串流的更新。
+若要停用 `openshift` 命名空間中所有 `Templates` 和 `ImageStreams` 的更新：
 
-1. 以具有`customer-admin`許可權的使用者身分登入。
+1. 以具有 `customer-admin` 許可權的使用者身分登入。
 
-2. 編輯`openshift`命名空間:
+2. 編輯 `openshift` 命名空間：
 
    ```
    oc edit namespace openshift
    ```
 
-3. 藉`openshift`由新增下列注釋, 從 ARO 更新程式中移除命名空間:`openshift.io/reconcile-protect: "true"`
+3. 藉由新增下列注釋，從 ARO 更新程式中移除 `openshift` 命名空間： `openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -122,10 +122,10 @@ API 的存取權會授與具有自我 provisioners 叢集角色系結的開發�
    ...
    ```
 
-   `openshift`命名空間中的任何個別物件都可以藉由在其中加入批註`openshift.io/reconcile-protect: "true"` , 從更新程式中移除。
+   `openshift` 命名空間中的任何個別物件可以從更新程式中移除，方法是在其中加入批註 `openshift.io/reconcile-protect: "true"`。
 
 ## <a name="next-steps"></a>後續步驟
 
-嘗試教學課程:
+嘗試教學課程：
 > [!div class="nextstepaction"]
 > [建立 Azure Red Hat OpenShift 叢集](tutorial-create-cluster.md)

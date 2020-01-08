@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 8387e41d57edfa0e54ac930c9462714aca571f2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95272956da4567ec21e1c4603b88472e45373a39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848277"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351198"
 ---
-# <a name="design-scalable-and-performant-tables"></a>設計可擴充且具效能的資料表
+# <a name="design-scalable-and-performant-tables"></a>設計可調式和具效能的資料表
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -37,11 +37,11 @@ ms.locfileid: "60848277"
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Timestamp</th>
+<th>時間戳記</th>
 <th></th>
 </tr>
 <tr>
-<td>行銷</td>
+<td>Dynamics 365</td>
 <td>00001</td>
 <td>2014-08-22T00:50:32Z</td>
 <td>
@@ -49,8 +49,8 @@ ms.locfileid: "60848277"
 <tr>
 <th>名字</th>
 <th>姓氏</th>
-<th>Age</th>
-<th>Email</th>
+<th>年齡</th>
+<th>電子郵件</th>
 </tr>
 <tr>
 <td>Don</td>
@@ -61,7 +61,7 @@ ms.locfileid: "60848277"
 </table>
 </tr>
 <tr>
-<td>行銷</td>
+<td>Dynamics 365</td>
 <td>00002</td>
 <td>2014-08-22T00:50:34Z</td>
 <td>
@@ -69,11 +69,11 @@ ms.locfileid: "60848277"
 <tr>
 <th>名字</th>
 <th>姓氏</th>
-<th>Age</th>
-<th>Email</th>
+<th>年齡</th>
+<th>電子郵件</th>
 </tr>
 <tr>
-<td>Jun</td>
+<td>六月</td>
 <td>Cao</td>
 <td>47</td>
 <td>junc@contoso.com</td>
@@ -81,8 +81,8 @@ ms.locfileid: "60848277"
 </table>
 </tr>
 <tr>
-<td>行銷</td>
-<td>系所</td>
+<td>Dynamics 365</td>
+<td>department</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
 <table>
@@ -91,14 +91,14 @@ ms.locfileid: "60848277"
 <th>EmployeeCount</th>
 </tr>
 <tr>
-<td>行銷</td>
+<td>Dynamics 365</td>
 <td>153</td>
 </tr>
 </table>
 </td>
 </tr>
 <tr>
-<td>銷售</td>
+<td>銷售專線</td>
 <td>00010</td>
 <td>2014-08-22T00:50:44Z</td>
 <td>
@@ -106,8 +106,8 @@ ms.locfileid: "60848277"
 <tr>
 <th>名字</th>
 <th>姓氏</th>
-<th>Age</th>
-<th>Email</th>
+<th>年齡</th>
+<th>電子郵件</th>
 </tr>
 <tr>
 <td>Ken</td>
@@ -127,17 +127,17 @@ ms.locfileid: "60848277"
 
 資料表由一或多個分割所組成，您所做的許多設計決策都牽涉到必須選擇適合的 **PartitionKey** 和 **RowKey** 以最佳化解決方案。 方案可以由單一資料表組成 (其中組織成資料分割的所有實體)，但方案通常會有多個資料表。 資料表可幫助您以邏輯方式組織您的實體，幫助您使用存取控制清單管理資料的存取，而且您可以使用單一儲存體作業放置整個資料表。  
 
-## <a name="table-partitions"></a>資料表的資料分割
-帳戶名稱、資料表名稱和 **PartitionKey** 這三個項目可共同識別儲存體服務中的分割，而儲存體服務即是表格服務儲存實體的地方。 分割也同時是實體的定址配置的一部分，可定義交易的範圍 (請參閱下方的 [實體群組交易](#entity-group-transactions) )，並打造表格服務調整方式的基礎。 如需分割的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](../../storage/common/storage-scalability-targets.md)。  
+## <a name="table-partitions"></a>表格分割區
+帳戶名稱、資料表名稱和 **PartitionKey** 這三個項目可共同識別儲存體服務中的分割，而儲存體服務即是表格服務儲存實體的地方。 分割也同時是實體的定址配置的一部分，可定義交易的範圍 (請參閱下方的 [實體群組交易](#entity-group-transactions) )，並打造表格服務調整方式的基礎。 如需資料分割的詳細資訊，請參閱[資料表儲存體的效能和擴充性檢查清單](storage-performance-checklist.md)。  
 
 在表格服務中，個別節點可為一或多個完整資料分割提供服務，且服務會透過動態的負載平衡資料分割在節點間進行調整。 如果某節點的負載過大，表格服務可將由該節點提供服務的分割範圍*分割*到不同的節點；當流量變小時，服務可將分割範圍從靜止節點*合併*回單一節點。  
 
-如需表格服務之內部詳細資料的詳細資訊 (特別是服務管理分割的方式)，請參閱文件 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) \(英文\)。  
+如需表格服務之內部詳細資料的詳細資訊 (特別是服務管理分割的方式)，請參閱文件 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。  
 
 ## <a name="entity-group-transactions"></a>實體群組交易
-在資料表服務中，實體群組交易 (EGT) 是唯一的內建機制，可跨越多個實體執行不可部分完成的更新。 EGT 有時也稱為「批次交易」  。 EGT 僅能對相同分割 (亦即，共用指定表格中的相同分割索引鍵) 中儲存的實體進行作業。 因此每當您需要跨多個實體執行不可部分完成的交易行為時，您必須確定這些實體位於相同的分割中。 通常就是基於此原因，才需要將多個實體類型放在相同的資料表 (和資料分割) 中，而不讓不同的實體類型使用多個資料表。 單一 EGT 最多可以操作 100 個實體。  如果您送出多個並行 EGT 進行處理，請務必確保這些 EGT 不會在 EGT 的通用實體上運作，否則處理可能會延遲。
+在資料表服務中，實體群組交易 (EGT) 是唯一的內建機制，可跨越多個實體執行不可部分完成的更新。 EGT 有時也稱為「批次交易」。 EGT 僅能對相同分割 (亦即，共用指定表格中的相同分割索引鍵) 中儲存的實體進行作業。 因此每當您需要跨多個實體執行不可部分完成的交易行為時，您必須確定這些實體位於相同的分割中。 通常就是基於此原因，才需要將多個實體類型放在相同的資料表 (和資料分割) 中，而不讓不同的實體類型使用多個資料表。 單一 EGT 最多可以操作 100 個實體。  如果您送出多個並行 EGT 進行處理，請務必確保這些 EGT 不會在 EGT 的通用實體上運作，否則處理可能會延遲。
 
-EGT 也會帶來需在您設計中評估的潛在取捨。 那就是，使用較多分割會增加應用程式的延展性，因為 Azure 有更多機會可在多個節點間執行負載平衡要求。 但是，使用多個分割可能會在應用程式執行不可部分完成的交易時，及維護資料的嚴格一致性時造成限制。 此外，還有些在分割層級上的特定延展性目標，可能會限制單一節點的預期交易輸送量。 如需深入了解 Azure 儲存體帳戶和表格服務的延展性目標，請參閱 [Azure 儲存體延展性和效能目標](../../storage/common/storage-scalability-targets.md)。   
+EGT 也會帶來需在您設計中評估的潛在取捨。 那就是，使用較多分割會增加應用程式的延展性，因為 Azure 有更多機會可在多個節點間執行負載平衡要求。 但是，使用多個分割可能會在應用程式執行不可部分完成的交易時，及維護資料的嚴格一致性時造成限制。 此外，還有些在分割層級上的特定延展性目標，可能會限制單一節點的預期交易輸送量。 如需 Azure 標準儲存體帳戶之擴充性目標的詳細資訊，請參閱[標準儲存體帳戶的擴充性目標](../common/scalability-targets-standard-account.md)。 如需表格服務之擴充性目標的詳細資訊，請參閱[資料表儲存體的擴充性和效能目標](scalability-targets.md)。
 
 ## <a name="capacity-considerations"></a>容量考量
 下表說明您在設計表格服務方案時所需注意的某些索引鍵值：  

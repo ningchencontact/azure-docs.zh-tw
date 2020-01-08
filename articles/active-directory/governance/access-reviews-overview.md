@@ -16,12 +16,12 @@ ms.date: 08/05/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65def17622f026aa4869a4c60e7cb5146d56c5b0
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 4d9922f1c4cbb0afca74c911d9b2bc9f0eab0714
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389533"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422796"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>什麼是 Azure AD 存取權檢閱？
 
@@ -58,19 +58,21 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 | --- | --- | --- | --- |
 | 安全性群組成員</br>Office 群組成員 | 指定的檢閱者</br>群組擁有者</br>自我審查 | Azure AD 存取權檢閱</br>Azure AD 群組 | 存取面板 |
 | 指派給已連線的應用程式 | 指定的檢閱者</br>自我審查 | Azure AD 存取權檢閱</br>Azure AD 企業應用程式 (預覽版) | 存取面板 |
-| Azure AD 角色 | 指定的檢閱者</br>自我審查 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 入口網站 |
-| Azure 資源角色 | 指定的檢閱者</br>自我審查 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 入口網站 |
+| Azure AD 角色 | 指定的檢閱者</br>自我審查 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
+| Azure 資源角色 | 指定的檢閱者</br>自我審查 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
 
 
 ## <a name="onboard-access-reviews"></a>上架存取權檢閱
 
 若要上架存取權審查，請遵循下列步驟。
 
-1. 身為全域管理員或使用者系統管理員，請登入您想要使用存取權審查的[Azure 入口網站](https://portal.azure.com)。
+1. 移至 [ [Azure 入口網站](https://portal.azure.com)] 以全域管理員或使用者系統管理員身分，管理存取審查並登入。
 
-1. 在左側導覽列中，按一下 [Azure Active Directory]。
+1. 搜尋並選取 [Azure Active Directory]。
 
-1. 在左側功能表中，按一下 [身分**識別管理**]。
+      ![Azure 入口網站搜尋 Azure Active Directory](media/access-reviews-overview/search-azure-active-directory.png)
+
+1. 選取 [身分**識別管理**]。
 
 1. 按一下 [**存取評論**]。
  
@@ -97,7 +99,7 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 
 ### <a name="which-users-must-have-licenses"></a>哪些使用者必須有授權？
 
-與存取評論互動的每個使用者都必須具有付費 Azure AD Premium P2 授權。 範例包括︰
+與存取評論互動的每個使用者都必須具有付費 Azure AD Premium P2 授權。 例如：
 
 - 建立存取權審查的系統管理員
 - 執行存取權審查的群組擁有者

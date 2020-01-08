@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 84ac2b43c9ec2e46bcd2967cf411f1bb1f60f42a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c2700c8241905f6e219b566a10e3378dd6c7251d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839396"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427433"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>使用 Azure Machine Learning Studio 中的範例資料集（傳統）
 [top]: #machine-learning-sample-datasets
@@ -169,7 +169,7 @@ KDD Cup 2009 客戶關係預測挑戰 (<a href="http://www.sigkdd.org/site/2009/
   <td>
 乘客從美國運輸部門的 TranStats 資料收集（<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">準時</a>）取得的航班準時效能資料。
 <p></p>
-此資料集涵蓋的其間為 2013 年 4 月至 10 月。 在上傳至 Azure Machine Learning Studio 的傳統版本之前，資料集的處理方式如下：
+此資料集涵蓋的其間為 2013 年 4 月至 10 月。 在上傳至 Azure Machine Learning Studio （傳統）之前，資料集的處理方式如下：
 <ul>
   <li>資料集已經過篩選，僅涵蓋美國大陸 70 個最繁忙的機場</li>
   <li>取消的航班已標示為誤點達 15 分鐘以上</li>
@@ -329,7 +329,7 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
   <td>
 NOAA 提供的每小時起降天候觀測值 (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">將 201304 的資料合併至 201310</a>)。
 <p></p>
-天氣資料涵蓋從機場天候觀測站進行的觀測，涵蓋期間為 2013 年 4 月至 10 月。 在上傳至 Azure Machine Learning Studio 的傳統版本之前，資料集的處理方式如下：
+天氣資料涵蓋從機場天候觀測站進行的觀測，涵蓋期間為 2013 年 4 月至 10 月。 在上傳至 Azure Machine Learning Studio （傳統）之前，資料集的處理方式如下：
 <ul>
   <li>天候觀測站識別碼已對應至相對應的機場識別碼</li>
   <li>已篩選掉與 70 個最繁忙的機場沒有關聯的天候觀測站</li>
@@ -344,7 +344,7 @@ NOAA 提供的每小時起降天候觀測值 (<a href="https://az754797.vo.msecn
   <td>
 資料是從 Wikipedia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) 上每家 S&P 500 公司的文章衍生而來 (儲存為 XML 資料)。
 <p></p>
-在上傳至 Azure Machine Learning Studio 的傳統版本之前，資料集的處理方式如下：
+在上傳至 Azure Machine Learning Studio （傳統）之前，資料集的處理方式如下：
 <ul>
   <li>擷取每家特定公司的文字內容</li>
   <li>移除 wiki 格式</li>
@@ -390,7 +390,7 @@ RCV1-V2 路透社新聞資料集中訓練功能的範例。 資料集有 2 萬 3
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
-RCV1-V2 路透社新聞資料集中新聞文章的主題指派。 一篇新聞文章可以指派給數個主題。 每個資料列的格式為 "&lt;topic name&gt; &lt;document id&gt; 1"。 資料集包含 260 萬個主題指派。 資料集由 David. D. Lewis D. 提供。
+RCV1-V2 路透社新聞資料集中新聞文章的主題指派。 一篇新聞文章可以指派給數個主題。 每個資料列的格式為「&lt;主題名稱&gt; &lt;檔識別碼&gt; 1」。 資料集包含 260 萬個主題指派。 資料集由 David. D. Lewis D. 提供。
   </td>
 </tr>
 

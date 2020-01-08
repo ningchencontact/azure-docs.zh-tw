@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a3518dfcad3678dc298ba8529e731d48ec1d195
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 1023583b5527e4d565580e8f094dc2f68d38f4ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893467"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424798"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 條件式存取設定參考
 
@@ -71,7 +71,7 @@ ms.locfileid: "72893467"
 - Power BI 服務
 - Project Online
 - 商務用 Skype Online
-- 虛擬私人網路（VPN）
+- 虛擬私人網路 (VPN)
 - Windows Defender ATP
 
 ### <a name="other-applications"></a>其他應用程式
@@ -142,18 +142,18 @@ ms.locfileid: "72893467"
 
 |    |    |
 | --- | --- |
-| 路徑 | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Name | 1 |
-| Type | REG_SZ (字串) |
+| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| 名稱 | 1 |
+| 類型 | REG_SZ (字串) |
 | 資料 | ppnbnpeolgkicgegkbkbjmhlideopiji; HTTPs\://clients2.google.com/service/update2/crx |
 
 如需 **Windows 8.1 和 7** 中的 Chrome 支援，請建立下列登錄機碼：
 
 |    |    |
 | --- | --- |
-| 路徑 | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Name | 1 |
-| Type | REG_SZ (字串) |
+| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| 名稱 | 1 |
+| 類型 | REG_SZ (字串) |
 | 資料 | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 這些瀏覽器支援裝置驗證，因此可以根據原則來識別和驗證裝置。 如果瀏覽器在私用模式中執行，裝置檢查將會失敗。
@@ -235,6 +235,7 @@ ms.locfileid: "72893467"
 - 經過核准的用戶端應用程式支援 Intune 行動應用程式管理功能。
 - **需要經過核准的用戶端應用程式**需求：
    - 僅支援[裝置平台條件](#device-platform-condition)適用的 iOS 和 Android。
+- 條件式存取在 InPrivate 模式中無法將 Microsoft Edge 視為已核准的用戶端應用程式。
 
 ## <a name="app-protection-policy-requirement"></a>應用程式保護原則需求 
 

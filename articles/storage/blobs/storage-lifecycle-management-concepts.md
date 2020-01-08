@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: f5578d00d633b4b1ccce41236526e1696744f59f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 012ff33bb31c78b26791e6337ae434acfe4bc865
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851769"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351359"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 儲存體生命週期
 
@@ -32,9 +32,9 @@ ms.locfileid: "74851769"
 
 ## <a name="storage-account-support"></a>儲存體帳戶支援
 
-生命週期管理原則適用于一般用途 v2 （GPv2）帳戶、Blob 儲存體帳戶，以及 Premium 區塊 Blob 儲存體帳戶。 在 Azure 入口網站中，您可以將現有的一般用途（GPv1）帳戶升級至 GPv2 帳戶。 如需儲存體帳戶的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](../common/storage-account-overview.md)。  
+生命週期管理原則適用于一般用途 v2 （GPv2）帳戶、Blob 儲存體帳戶，以及 Premium 區塊 Blob 儲存體帳戶。 在 Azure 入口網站中，您可以將現有的一般用途（GPv1）帳戶升級至 GPv2 帳戶。 如需有關儲存體帳戶的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](../common/storage-account-overview.md)。  
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 
 生命週期管理功能是免費的。 客戶需針對 [List Blobs ](https://docs.microsoft.com/rest/api/storageservices/list-blobs) (列出 Blob) 和[Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) (設定 Blob 層) API 呼叫的一般作業成本支付費用。 刪除作業是免費的。 如需定價的詳細資訊，請參閱[區塊 Blob 價格](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 
@@ -69,7 +69,7 @@ ms.locfileid: "74851769"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 選取 [**所有資源**]，然後選取您的儲存體帳戶。
+2. 在 Azure 入口網站中，搜尋並選取您的儲存體帳戶。 
 
 3. 在 [ **Blob 服務**] 底下，選取 [**生命週期管理**] 以查看或變更您的規則。
 
@@ -90,7 +90,7 @@ ms.locfileid: "74851769"
 #### <a name="azure-portal-code-view"></a>Azure 入口網站程式碼視圖
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 選取 [**所有資源**]，然後選取您的儲存體帳戶。
+2. 在 Azure 入口網站中，搜尋並選取您的儲存體帳戶。
 
 3. 在 [ **Blob 服務**] 底下，選取 [**生命週期管理**] 以查看或變更您的原則。
 
@@ -297,7 +297,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 生命週期管理支援分層及刪除 blob 和刪除 blob 快照集。 在 Blob 或 Blob 快照集上每項規則至少需定義一個動作。
 
-| 行動        | 基底 Blob                                   | 快照      |
+| 行動        | 基底 Blob                                   | 快照集      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | 支援目前在經常性儲存層的 Blob         | 不支援 |
 | tierToArchive | 支援目前在經常儲存性或非經常性儲存層的 Blob | 不支援 |
@@ -308,7 +308,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 執行條件是以年齡為基礎。 基底 Blob 使用上次修改時間來追蹤存在時間，而 Blob 快照集使用快照集建立時間來追蹤存在時間。
 
-| 動作執行條件             | 條件值                          | 描述                             |
+| 動作執行條件             | 條件值                          | 說明                             |
 |----------------------------------|------------------------------------------|-----------------------------------------|
 | daysAfterModificationGreaterThan | 表示存在時間的整數值 (以天數為單位) | 基底 blob 動作的條件     |
 | daysAfterCreationGreaterThan     | 表示存在時間的整數值 (以天數為單位) | Blob 快照集動作的條件 |

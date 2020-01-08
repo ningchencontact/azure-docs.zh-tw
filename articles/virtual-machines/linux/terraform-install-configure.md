@@ -14,18 +14,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: efba440448ac912b7656eeab017eef947ab25e95
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 02b6ddf723e47e4608e631aef96f8a12d5f68698
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034691"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368992"
 ---
 # <a name="install-and-configure-terraform-to-provision-azure-resources"></a>安裝和設定 Terraform 以布建 Azure 資源
  
 Terraform 使用[簡易範本化語言](https://www.terraform.io/docs/configuration/syntax.html)，提供簡單的方法來定義、預覽及部署雲端基礎結構。 本文說明在 Azure 中使用 Terraform 來佈建資源的必要步驟。
 
 若要深入了解如何搭配 Azure 使用 Terraform，請造訪 [Terraform 中樞](/azure/terraform)。
+> [!NOTE]
+> 如需 Terraform 特定的支援，請直接使用其中一個社區頻道來 Terraform：
+>
+>   •社區入口網站的 [ [Terraform] 區段](https://discuss.hashicorp.com/c/terraform-core)包含問題、使用案例和有用的模式。
+>
+>   •關於提供者相關的問題，請造訪社區入口網站的[Terraform 提供者](https://discuss.hashicorp.com/c/terraform-providers)一節。
+
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

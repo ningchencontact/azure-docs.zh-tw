@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0caf8e8d5e18efc0a7332f97acccc394051ed360
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 6cd3a0341d9cf041155b09d41d8ff84d0b0cc3dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452390"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424825"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>作法：透過條件式存取要求受管理的裝置存取雲端應用程式
 
@@ -24,7 +24,7 @@ ms.locfileid: "74452390"
 
 本文說明如何設定條件式存取原則，以要求受管理的裝置存取您環境中的特定雲端應用程式。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 需要受管理的裝置進行雲端應用程式存取系結**Azure AD 條件式存取**和**Azure AD 裝置管理**。 如果您還不熟悉上述其中一種領域，您應該先閱讀下列主題：
 
@@ -80,7 +80,7 @@ ms.locfileid: "74452390"
 此選項要求向 Azure AD 註冊裝置，而且裝置要由下列項目標示為符合規範：
          
 - Intune
-- 一個第三方行動裝置管理 (MDM) 系統，可透過 Azure AD 整合來管理 Windows 10 裝置。 不支援針對 Windows 10 以外的裝置 OS 類型使用的協力廠商 MDM 系統。
+- 一個第三方行動裝置管理 (MDM) 系統，可透過 Azure AD 整合來管理 Windows 10 裝置。 不支援針對 Windows 10 以外的裝置 OS 類型使用的第三方 MDM 系統。
  
 ![裝置型條件](./media/require-managed-devices/46.png)
 
@@ -91,8 +91,9 @@ ms.locfileid: "74452390"
 - 協助控制您的員工存取及共用公司資訊的方式，進而保護公司資訊
 - 裝置與其應用程式都符合公司安全性需求的規範
 
-> [!NOTE]
-> 如果您將原則設定為要求符合規範的裝置，使用者可能會在 Mac、iOS 和 Android 上出現提示，在原則評估期間選取裝置憑證。 這是已知的行為。
+### <a name="known-behavior"></a>已知的行為
+
+在 Windows 7、iOS、Android、macOS 和一些協力廠商網頁瀏覽器上，Azure AD 使用向 Azure AD 註冊裝置時所布建的用戶端憑證來識別裝置。 當使用者第一次透過瀏覽器登入時，系統會提示使用者選取憑證。 終端使用者必須選取此憑證，才能繼續使用瀏覽器。
 
 ## <a name="next-steps"></a>後續步驟
 

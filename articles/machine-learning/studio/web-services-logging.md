@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.openlocfilehash: 90ee036275e13b209d9f6c37aba6d16ed564cf5d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0b0dfeb6a19e2f6f24568de0b4712758d2b7ad4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466952"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427405"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>啟用 Azure Machine Learning Studio （傳統） web 服務的記錄功能
 本檔提供 Machine Learning Studio （傳統） web 服務之記錄功能的相關資訊。 記錄除了錯誤號碼和訊息以外，還提供額外的資訊，可協助您針對 Machine Learning Studio （傳統） Api 的呼叫進行疑難排解。  
@@ -25,7 +25,7 @@ ms.locfileid: "73466952"
 
 您可以從[Azure Machine Learning Studio （傳統） Web 服務](https://services.azureml.net)入口網站啟用記錄。 
 
-1. 在[https://services.azureml.net](https://services.azureml.net)登入 Azure Machine Learning Studio （傳統） Web 服務入口網站。 若為傳統 web 服務，您也可以在傳統版本的 Machine Learning Studio 中，按一下 [Machine Learning Studio （傳統） Web 服務] 頁面上的 [**新增 Web 服務體驗**]，以進入入口網站。
+1. 在[https://services.azureml.net](https://services.azureml.net)登入 Azure Machine Learning Studio （傳統） Web 服務入口網站。 針對傳統 web 服務，您也可以在 Studio 中按一下 [Machine Learning Studio （傳統） Web 服務] 頁面上的 [**新增 Web 服務體驗**]，以進入入口網站（傳統）。
 
    ![新的 Web 服務體驗連結](./media/web-services-logging/new-web-services-experience-link.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "73466952"
 
    ![選取記錄等級](./media/web-services-logging/enable-logging.png)
 
-6. 按一下 [儲存]。
+6. 按一下 [檔案]。
 
 7. 對於傳統 Web 服務，請建立 **ml-診斷**容器。
 
@@ -57,7 +57,7 @@ ms.locfileid: "73466952"
 
 > [!TIP]
 >
-> 若為傳統 web 服務，傳統版 Machine Learning Studio 中的 Web 服務儀表板也會有啟用記錄的交換器。 不過，由於記錄現在是透過 Web 服務入口網站所管理，您需要透過入口網站來啟用記錄，如本文所述。 如果您已經在 Studio （傳統）中啟用記錄，則請在 Web 服務入口網站中停用記錄，然後再次啟用它。
+> 若為傳統 web 服務，Machine Learning Studio （傳統）中的 Web 服務儀表板也會有啟用記錄的交換器。 不過，由於記錄現在是透過 Web 服務入口網站所管理，您需要透過入口網站來啟用記錄，如本文所述。 如果您已經在 Studio （傳統）中啟用記錄，則請在 Web 服務入口網站中停用記錄，然後再次啟用它。
 
 
 ## <a name="the-effects-of-enabling-logging"></a>啟用記錄的效果
@@ -80,7 +80,7 @@ ms.locfileid: "73466952"
 
 其中的_記錄型別_是下列其中一個值：  
 
-* 批次  
+* batch  
 * 分數/要求  
 * 分數/初始  
 

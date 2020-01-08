@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: bcc60c0f934111f779e3fdedc399881acb16f208
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f3f8f377ac8e65d375f8f78c803db5427fd31007
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872786"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394477"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure 監視器活頁簿視覺效果
 
@@ -197,7 +197,7 @@ Azure 監視器活頁簿支援多種不同的視覺效果樣式，以符合您�
 | `Show the expander on` | 要在其上顯示樹狀結構展開器的資料行。 樹狀結構方格通常會隱藏其 [識別碼] 和 [父系識別碼] 欄位，因為它們並不容易閱讀。 相反地，展開器會出現在具有更容易閱讀值的欄位上（例如實體的名稱） |
 | `Expand the top level of the tree` | 若選取此選項，樹狀目錄方格將會在最上層展開。 如果您想要依預設顯示詳細資訊，則很有用 |
 
-## <a name="graphs"></a>圖形
+## <a name="graphs"></a>圖表
 
 活頁簿支援根據記錄中的資料視覺化任意圖形，以顯示監視實體之間的關聯性。
 

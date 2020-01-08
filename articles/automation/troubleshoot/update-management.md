@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: a42b05239ae1ddf8909e288486694bf57595b195
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f5346f2f11df2282a1cd2592db930f7ff829a2d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849236"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75416768"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>針對更新管理問題進行疑難排解
 
@@ -187,7 +187,7 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 ### <a name="resolution"></a>解析度
 
-適用時，請使用[動態群組](../automation-update-management-groups.md)進行更新部署。 此外︰
+適用時，請使用[動態群組](../automation-update-management-groups.md)進行更新部署。 此外：
 
 * 確認電腦仍然存在且可連線。 如果不存在，請編輯您的部署，並移除電腦。
 * 請參閱[網路規劃](../automation-update-management.md#ports)一節，以取得更新管理所需的埠和地址清單，然後確認您的電腦符合這些需求。
@@ -253,9 +253,13 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
+```error
+Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
+```
+
 ### <a name="cause"></a>原因
 
-Proxy、閘道或防火牆可能封鎖網路通訊。
+Proxy、閘道或防火牆可能封鎖網路通訊。 
 
 ### <a name="resolution"></a>解析度
 
@@ -325,9 +329,10 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 |`0x8024402C`     | 如果您使用 WSUS 伺服器，請確定 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` 登錄機碼下的 `WUServer` 和 `WUStatusServer` 登錄值指定正確的 WSUS 伺服器。        |
 |`0x80072EE2`|網路連線問題或與已設定的 WSUS 伺服器交談時發生問題。 檢查 WSUS 設定，並確定可從用戶端存取該服務。|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | 請確定 Windows Update 服務（wuauserv）正在執行且未停用。        |
+|`0x80070005`| 拒絕存取的錯誤可能是由下列任何一項所造成：<br> 受感染的電腦<br> 未正確設定 Windows Update 設定<br> %WinDir%\SoftwareDistribution 資料夾的檔案許可權錯誤<br> 系統磁片磁碟機上的磁碟空間不足（C：）。
 |任何其他一般例外狀況     | 在網際網路上執行搜尋以找出可能的解決方案，並與您當地的 IT 支援人員合作。         |
 
-查看 Windowsupdate.log 檔案也可協助您判斷可能的原因。 如需如何讀取記錄檔的詳細資訊，請參閱[如何讀取 windowsupdate.log。](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file)
+檢查%Windir%\Windowsupdate.log 檔案也可協助您判斷可能的原因。 如需如何讀取記錄檔的詳細資訊，請參閱[如何讀取 windowsupdate.log。](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file)
 
 您也可以下載並執行[Windows Update 疑難排解](https://support.microsoft.com/help/4027322/windows-update-troubleshooter)員，以檢查電腦上 Windows Update 是否有任何問題。
 

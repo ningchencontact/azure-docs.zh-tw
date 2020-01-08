@@ -11,20 +11,20 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 59f8b8b253fc914e5723a9c41475ec78bc3f376e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b95fb8d5a0c05d2d66744a91f4200d58a71470d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429343"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427371"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>使用 Azure Data Factory 從內部部署 SQL Server 將資料移至 SQL Azure
 
-本文說明如何使用 Azure Data Factory (ADF)，透過 Azure Blob 儲存體，將資料從內部部署的 SQL Server 資料庫移動至 SQL Azure 資料庫。
+本文說明如何透過 Azure Blob 儲存體使用 Azure Data Factory （ADF），將資料從內部部署 SQL Server 資料庫移至 SQL Azure 資料庫：此方法是支援的舊版方法，其具有複寫的暫存複本的優點，但[我們建議您查看我們的 microsoft.datamigration 頁面，以取得最新的選項](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1)。
 
 針對將資料移至 Azure SQL Database 的各種選項，如需摘要說明的資料表，請參閱[將資料移至 Azure Machine Learning 的 Azure SQL Database](move-sql-azure.md)。
 
-## <a name="intro"></a>簡介：什麼是 ADF，以及其應該用來移轉資料的時機？
+## <a name="intro"></a>簡介：什麼是 ADF ，以及其應該用來移轉資料的時機？
 Azure Data Factory 是完全受控的雲端架構資料整合服務，用來協調及自動化資料的移動和轉換。 ADF 模型中的重要概念是管線。 管線是活動的邏輯群組，各個群組都會定義包含在資料集中的資料上要執行的動作。 連結的服務是用來定義 Data Factory 所需的資訊，以便連接到資料資源。
 
 使用 ADF，您可將現有的資料處理服務組合成具高可用性的資料管線，並在雲端中管理。 這些資料管線可排程來內嵌、準備、轉換、分析和發佈資料，而 ADF 會管理並協調複雜的資料和處理中的相依項目。 您可以快速地在雲端中建置和部署解決方案，藉此連接逐漸增加的內部部署和雲端資料來源。
@@ -43,16 +43,16 @@ ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排�
 * 將資料從 Azure Blob 儲存體帳戶複製至 Azure SQL Database
 
 > [!NOTE]
-> 此處所示的步驟改寫自 ADF 團隊提供的詳細教學課程：[將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/)。會適時引用該主題的相關段落。
+> 此處顯示的步驟已根據 ADF 團隊所提供的更詳細教學課程進行調整：[將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/)參考，以在適當時提供該主題的相關章節。
 >
 >
 
 ## <a name="prereqs"></a>必要條件
 本教學課程假設您有：
 
-* **Azure 訂用帳戶**。 如果您沒有訂用帳戶，可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* **Azure 儲存體帳戶**。 在本教學課程中，您會使用 Azure 儲存體帳戶來儲存資料。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md) 一文。 建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。 請參閱[管理儲存體存取金鑰](../../storage/common/storage-account-manage.md#access-keys)。
-* 存取 **Azure SQL Database**。 如果您必須設定 Azure SQL Database，本主題[開始使用 Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md)提供如何佈建 Azure SQL Database 的新執行個體的相關資訊。
+* **Azure 訂用帳戶**。 如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 儲存體帳戶**。 在本教學課程中，您會使用 Azure 儲存體帳戶來儲存資料。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md) 一文。 建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。 請參閱[管理儲存體帳戶存取金鑰](../../storage/common/storage-account-keys-manage.md)。
+* 存取 **Azure SQL Database**。 如果您必須設定 Azure SQL Database，[與 Microsoft Azure SQL Database 消費者入門](../../sql-database/sql-database-get-started.md)的主題會提供如何布建 Azure SQL Database 之新實例的相關資訊。
 * 已在本機上安裝和設定 **Azure PowerShell** 。 如需指示，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 
 > [!NOTE]
@@ -71,7 +71,7 @@ ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排�
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>安裝和設定 Azure Data Factory Integration Runtime
 Integration Runtime 為 Azure Data Factory 使用的客戶受控資料整合基礎結構，可提供跨不同網路環境的資料整合功能。 此執行階段先前稱為「資料管理閘道」。
 
-若要設定，[遵循指示來建立管線](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+若要設定，請[遵循建立管線的指示](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>建立連結服務以連接至資料資源
 連結服務定義會定義 Azure Data Factory 所需的資訊，以便連接到資料資源。 此案例中的三個資源都必須使用連結服務：
@@ -94,7 +94,7 @@ Integration Runtime 為 Azure Data Factory 使用的客戶受控資料整合基�
 資料表中的 JSON 型定義使用下列名稱：
 
 * 內部部署 SQL Server 中的**資料表名稱**為 *nyctaxi_data*
-* Azure Blob 儲存體帳戶中的「容器名稱」  為 *containername*
+* Azure Blob 儲存體帳戶中的「容器名稱」 為 *containername*
 
 此 ADF 管線所需的三個資料表定義為：
 

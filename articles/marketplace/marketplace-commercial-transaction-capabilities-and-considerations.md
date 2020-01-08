@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 5219ff94b29d4fd02edb8567ae59884ced07b37e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 969f2f6b2e25d9eb804349eccbed66e17b7fbb87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791362"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427166"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>商業 marketplace 交易功能和考慮
 
@@ -163,7 +163,7 @@ Microsoft 可讓客戶訂購、授權及使用發行者軟體，叢集 Microsoft
 
 例如，如果客戶使用信用卡購買：
 
-|描述    |    日期  |
+|說明    |    日期  |
 |----------|----------|
 |訂單期間   | 2018 年 8 月 15 日 - 2018 年 8 月 30 日 |
 |期間結束 (月)   | 2018 年 8 月 30 日 |
@@ -177,7 +177,7 @@ Microsoft 可讓客戶訂購、授權及使用發行者軟體，叢集 Microsoft
 
 如果客戶使用 Enterprise 合約購買：
 
-| 描述 |    日期  |
+| 說明 |    日期  |
 |----------|----------|
 |訂單期間 | 2018 年 8 月 15 日 - 2018 年 8 月 30 日 |
 |期間結束 (季) | 2018 年 9 月 30 日 |
@@ -223,7 +223,7 @@ Microsoft 可讓客戶訂購、授權及使用發行者軟體，叢集 Microsoft
 - 無論供應專案的定價模式為何，交易發行選項都需要 Microsoft 帳戶和財務資訊。
 - 必要的財務資訊包括付款帳戶和稅務設定檔。
 
-如需有關設定這些帳戶的詳細資訊，請參閱[管理您的合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details)。
+如需有關設定這些帳戶的詳細資訊，請參閱[管理您的合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)）。
 
 
 ### <a name="requirements-for-specific-offer-types"></a>特定供應項目類型的需求

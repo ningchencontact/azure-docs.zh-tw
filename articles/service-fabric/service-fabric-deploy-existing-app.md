@@ -1,25 +1,14 @@
 ---
-title: 將現有的可執行檔部署至 Azure Service Fabric | Microsoft Docs
+title: 將現有的可執行檔部署至 Azure Service Fabric
 description: 了解如何將現有應用程式封裝為來賓可執行檔，使其可以部署至 Service Fabric 叢集。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 07/02/2017
-ms.author: atsenthi
-ms.openlocfilehash: 575303cc2ec3e880187bac64da06d05721df14e6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cdbc965d0e8ec4a8f42fbe438b8ac6ddfe05a1b3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599659"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377101"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>將現有可執行檔封裝和部署至 Service Fabric
 在封裝現有可執行檔作為[來賓可執行檔](service-fabric-guest-executables-introduction.md)時，您可以選擇使用 Visual Studio 專案範本，或是[手動建立應用程式套件](#manually)。 使用 Visual Studio 時，就可讓 [新增專案範本] 為您建立應用程式套件的結構和資訊清單檔案。
@@ -31,7 +20,7 @@ ms.locfileid: "68599659"
 ## <a name="use-visual-studio-to-package-and-deploy-an-existing-executable"></a>使用 Visual Studio 來封裝及部署現有的可執行檔
 Visual Studio 會提供 Service Fabric 服務範本，協助您將來賓可執行檔部署至 Service Fabric 叢集。
 
-1. 選擇 [檔案]  >  [新增專案]，然後建立 Service Fabric 應用程式。
+1. 選擇 [檔案] >  [新增專案]，然後建立 Service Fabric 應用程式。
 2. 選擇 [來賓執行檔] 做為服務範本。
 3. 按一下 [瀏覽] 以選取內含執行檔的資料夾，並填入其餘參數以建立服務。
    * 「Code Package Behavior」。 可設定為將資料夾的所有內容複製到 Visual Studio 專案，這在執行檔沒有變更時很有用。 如果您預期會變更可執行檔，並想要以動態方式取得新組建，則可以選擇改為連結到資料夾。 在 Visual Studio 中建立應用程式專案時，您可以使用連結的資料夾。 這會從專案內連結到來源位置，讓您可以在來源目的地更新來賓執行檔。 在組建時使這些更新會成為應用程式套件的一部分。
@@ -42,7 +31,7 @@ Visual Studio 會提供 Service Fabric 服務範本，協助您將來賓可執�
      * `CodePackage` 指定工作目錄即將設為應用程式套件中的根目錄 (先前檔案結構中所示的 `GuestService1Pkg`)。
      * `Work` 指定檔案放在名為 work 的子目錄中。
 4. 指定服務的名稱，然後按一下 [確定]。
-5. 如果服務需要用來進行通訊的端點，您現在可以將 protocol、port 和 type 新增至 ServiceManifest.xml 檔案。 例如：`<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`。
+5. 如果服務需要用來進行通訊的端點，您現在可以將 protocol、port 和 type 新增至 ServiceManifest.xml 檔案。 例如： `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />` 。
 6. 您現在可以藉由在 Visual Studio 中偵錯方案，對本機叢集執行封裝和發佈動作。 準備好時，即可將應用程式發佈至遠端叢集，或將方案簽入到原始檔控制。
 7. 請參閱[檢查您的執行中應用程式](#check-your-running-application)，以了解如何檢視 Service Fabric Explorer 中執行的來賓執行檔服務。
 
@@ -73,7 +62,7 @@ Yeoman 會建立應用程式套件，其中包含適當的應用程式和資訊�
 -->
 
 ### <a name="create-the-package-directory-structure"></a>建立套件目錄結構
-您可以從建立目錄結構開始, 如[封裝 Azure Service Fabric 應用程式](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps)中所述。
+您可以從建立目錄結構開始，如[封裝 Azure Service Fabric 應用程式](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps)中所述。
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>新增應用程式的程式碼和組態檔
 建立目錄結構之後，您可以在 code 和 config 目錄之下新增應用程式的程式碼和組態檔。 您也可以在 code 和 config 目錄之下建立其他目錄或子目錄。
@@ -143,7 +132,7 @@ CodePackage 元素指定服務程式碼的位置 (和版本)。
 
 `Name` 元素用來在包含服務程式碼的應用程式套件中指定目錄的名稱。 `CodePackage` 也有 `version` 屬性。 這可用來指定程式碼的版本，而在 Service Fabric 中利用應用程式生命週期管理基礎結構，也可能用來升級服務的程式碼。
 
-#### <a name="optional-update-setupentrypoint"></a>選用：更新 SetupEntryPoint
+#### <a name="optional-update-setupentrypoint"></a>選擇性︰更新 SetupEntrypoint
 ```xml
 <SetupEntryPoint>
    <ExeHost>
@@ -278,8 +267,8 @@ Service Fabric 服務可以各種「組態」部署。 例如，它可部署為�
 
 `New-ServiceFabricService` Cmdlet 的 `InstanceCount` 參數用來指定應在 Service Fabric 叢集中啟動多少個服務執行個體。 您可以根據要部署的應用程式類型來設定 `InstanceCount` 值。 兩個最常見的案例包括：
 
-* `InstanceCount = "1"`。 在此案例中，叢集中只部署一個服務執行個體。 Service Fabric 的排程器會決定即將部署服務的節點。
-* `InstanceCount ="-1"`。 在此案例中，Service Fabric 叢集中的每個節點上都部署一個服務執行個體。 結果，叢集中的每個節點都有一個 (且僅只一個) 服務執行個體。
+* `InstanceCount = "1"`答案中所述步驟，工作帳戶即會啟用。 在此案例中，叢集中只部署一個服務執行個體。 Service Fabric 的排程器會決定即將部署服務的節點。
+* `InstanceCount ="-1"`答案中所述步驟，工作帳戶即會啟用。 在此案例中，Service Fabric 叢集中的每個節點上都部署一個服務執行個體。 結果，叢集中的每個節點都有一個 (且僅只一個) 服務執行個體。
 
 這是前端應用程式 (例如 REST 端點) 很有用的組態，因為用戶端應用程式只需要「連線」到叢集中的任何節點，即可使用端點。 當 Service Fabric 叢集的所有節點都連線到負載平衡器時，也可使用此組態。 如此便可將用戶端流量分散於在叢集中所有節點上執行的服務。
 

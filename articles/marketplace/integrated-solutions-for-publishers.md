@@ -1,23 +1,23 @@
 ---
-title: 整合式解決方案 |Azure
+title: 整合式解決方案-Azure Marketplace
 description: Azure Marketplace 和 Microsoft AppSource 中的整合式解決方案
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/15/2019
+ms.date: 12/16/2019
 ms.author: v-qiwe
-ms.openlocfilehash: eaba5612221e712ad5b14f10876e083729970fde
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b00cc2917ac15797ed98af9793533d9bc12eeaaf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818553"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427195"
 ---
 # <a name="publish-an-integrated-solution"></a>發佈整合式解決方案
 
-在單一配套供應專案中，整合式解決方案結合軟體廠商的點解決方案技術與服務合作夥伴的部署和支援。 服務合作夥伴會以[諮詢服務](https://docs.microsoft.com/azure/marketplace/consulting-services)的形式，列出 Azure Marketplace 或 Microsoft AppSource 中的供應專案。
+在單一配套供應專案中，整合式解決方案結合軟體廠商的點解決方案技術與服務合作夥伴的部署和支援。 服務合作夥伴會以[諮詢服務](https://docs.microsoft.com/azure/marketplace/consulting-services)的形式，列出 Microsoft AppSource 或 Azure Marketplace 中的供應專案。
 
 整合式解決方案的目標是解決特定的客戶需求或案例。 提供者會從瞭解產業挑戰或痛點開始。 然後整合兩個以上的最佳技術，為客戶建立一致且可重複的部署體驗。 提供者讓客戶快速啟動並執行。 他們提供客戶的單一聯絡點，並提供相關的自訂、諮詢及解決方案支援。 結果是一個整合式解決方案，包括技術和服務。
 
@@ -30,26 +30,26 @@ ms.locfileid: "73818553"
 * 服務合作夥伴會建立預先定義的預先整合解決方案，其中包含可在更多客戶帳戶中調整、土地和擴大的最佳技術。
 * Microsoft 可以使用這些預先整合的業界對齊解決方案，更輕鬆地向客戶共同銷售。 定價和條款會預先排序。 
 
-## <a name="eligibility-criteria"></a>資格準則
+## <a name="eligibility-criteria"></a>適用性準則
 
 * 參與的合作夥伴必須擁有 MPN 識別碼。
 * 參與的服務提供者應已準備好共同銷售。
 * 參與的軟體廠商應已準備好 IP 共同銷售。 
 * 至少一個參與合作夥伴必須具有下列其中一個領域的金級專長認證：
 
-    * 影片應用程式開發
+    * 應用程式開發
     * 應用程式整合
     * 應用程式生命週期管理
     * 雲端平台
     * 資料分析
     * 資料中心
-    * 資料平台
+    * Data Platform
     * DevOps
 
 * 此解決方案必須包含至少兩個夥伴組織，將 IP 和服務結合在一起，以取得完整的客戶解決方案和體驗。
 * 合作夥伴 IP 必須建置於 Azure、Dynamics 365 或 Power 平臺上。
 * 整合式解決方案的 IP 必須有別于軟體廠商的 IP 和基本的服務提供者供應專案。
-* 所有合作夥伴的目標都是建立可重複使用的供應專案，且最後會透過 Azure Marketplace、Microsoft AppSource 或兩者來進行交易。
+* 所有合作夥伴的目標都是建立可重複使用的供應專案，且最後會透過 Microsoft AppSource、Azure Marketplace 或兩者來進行交易。
 
 ## <a name="submit-a-nomination"></a>提交提名
 
@@ -62,10 +62,10 @@ ms.locfileid: "73818553"
 1. 以研討會格式完成重要的商務和技術討論，以定義解決方案和整合方法。 
 
     您的解決方案討論應包含下列幾點：
-    * Scope
+    * 範圍
     * 目標客戶
     * 價值主張
-    * 價格
+    * 定價
     * 授權
     * 條款及條件
     * 支援方法
@@ -78,7 +78,7 @@ ms.locfileid: "73818553"
     * 方案架構
     * 驗證
     * 使用者介面
-    * 監控
+    * 監視
     * 部署機制
     * API
     * 整合資料存放庫
@@ -93,9 +93,9 @@ ms.locfileid: "73818553"
 
 1. 開發解決方案的完整技術整合。
 
-1. 決定要在 Azure Marketplace 或 Microsoft AppSource 上呈現的解決方案定價和單一價格點。
+1. 決定要在 Microsoft AppSource 或 Azure Marketplace 上呈現的解決方案定價和單一價格點。
 
-1. 完成 Azure Marketplace 或 Microsoft AppSource 清單的行銷宣傳，包括：
+1. 完成 Microsoft AppSource 或 Azure Marketplace 清單的行銷宣傳，包括：
 
     * 結合的解決方案名稱。
     * 整合式解決方案的清單描述。 遵循[供應專案清單的最佳做法](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)。
@@ -105,13 +105,13 @@ ms.locfileid: "73818553"
 
 ## <a name="publish-your-integrated-solution"></a>發佈您的整合式解決方案 
 
-完成技術整合和行銷宣傳活動之後，請參閱「發行者指南」，以[取得 Azure Marketplace 和 Microsoft AppSource 的諮詢服務](https://docs.microsoft.com/azure/marketplace/consulting-services)。 使用此資源來判斷您的解決方案是否會在 Azure Marketplace 或 Microsoft AppSource 中發佈。 也請使用指南來準備您的發佈成品，並完成發行程式。
+完成技術整合和行銷宣傳活動之後，請參閱「發行者指南」，以[取得 Microsoft AppSource 和 Azure Marketplace 的諮詢服務](https://docs.microsoft.com/azure/marketplace/consulting-services)。 使用此資源來判斷您的解決方案是否會在 Microsoft AppSource 或 Azure Marketplace 中發佈。 也請使用指南來準備您的發佈成品，並完成發行程式。
 
 雖然有五種服務類型適用于諮詢服務供應專案，但整合式解決方案必須是概念證明或完整的執行。
 
 ## <a name="go-to-market-with-your-integrated-solution"></a>透過整合式解決方案進入市場 
 
-當您的解決方案上線 Azure Marketplace 或 AppSource 時，您會想要透過行銷活動推動認知和需求。 檢查[專案計劃和時間軸](https://aka.ms/AA5qiuc)中列出的活動。 這項資源包括合作夥伴可以在自己的小組內進行驅動的活動。 然後，針對在 marketplace 中發佈的合作夥伴，存取[進入市場權益](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits)。 所有的整合式解決方案供應專案都符合試用層級權益的資格。
+當您的解決方案上線 Microsoft AppSource 或 Azure Marketplace 時，您會想要透過行銷活動推動認知和需求。 檢查[專案計劃和時間軸](https://aka.ms/AA5qiuc)中列出的活動。 這項資源包括合作夥伴可以在自己的小組內進行驅動的活動。 然後，針對在 marketplace 中發佈的合作夥伴，存取[進入市場權益](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits)。 所有的整合式解決方案供應專案都符合試用層級權益的資格。
 
 ## <a name="next-steps"></a>後續步驟
 

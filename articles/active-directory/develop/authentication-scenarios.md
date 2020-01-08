@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/15/2019
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ffe0773c943983fc098d41f56b21b898682b2a0
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: eb09228b561718819c0c48aac4fc66d8205fe384
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843983"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424605"
 ---
 # <a name="authentication-basics"></a>驗證基本概念
 
@@ -165,6 +165,7 @@ MSAL 會使用瀏覽器來取得權杖，並在 web 應用程式中將驗證委�
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱[Microsoft 身分識別平臺開發人員詞彙](developer-glossary.md)，以熟悉常見的詞彙。
-請參閱[驗證流程和應用程式案例](authentication-flows-app-scenarios.md)，以深入瞭解驗證 Microsoft 身分識別平臺所支援的使用者的其他案例。
-請參閱[MSAL 程式庫](msal-overview.md)，以瞭解可協助您開發使用 microsoft 帳戶的應用程式、Azure AD 帳戶，以及 Azure AD B2C 使用者全都在單一、簡化的程式設計模型中的 microsoft 程式庫。
+- 請參閱[Microsoft 身分識別平臺開發人員詞彙](developer-glossary.md)，以熟悉常見的詞彙。
+- 請參閱[驗證流程和應用程式案例](authentication-flows-app-scenarios.md)，以深入瞭解驗證 Microsoft 身分識別平臺所支援的使用者的其他案例。
+- 請參閱[MSAL 程式庫](msal-overview.md)，以瞭解可協助您開發使用 microsoft 帳戶的應用程式、Azure AD 帳戶，以及 Azure AD B2C 使用者全都在單一、簡化的程式設計模型中的 microsoft 程式庫。
+- 若要瞭解如何為您的 App Service 應用程式設定驗證，請參閱[整合 App Service 與 Microsfot 身分識別平臺](/azure/app-service/configure-authentication-provider-aad)。

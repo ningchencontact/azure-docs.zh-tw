@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 1e2c899e0ef98266b5afd2f1bf21443a2debd281
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 8b805f01722c58d60e994a3a6b2440bb115b1bfa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666421"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351270"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>關於 Azure 儲存體移轉的常見問題集
 
@@ -171,7 +171,7 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
 
 **我可以從哪裡取得更多關於 Azure 儲存體服務加密 (SSE) 的資訊？**  
   
-請參閱下列文章：
+查看下列文章：
 
 -  [Azure 儲存體安全性指南](storage-security-guide.md)
 
@@ -259,7 +259,7 @@ Azure 檔案共用不允許使用進階儲存體。
 
 -   請使用共用存取簽章 (SAS) 權杖來提供資源的存取權。 
 
--   將儲存體帳戶的主要或次要金鑰提供給使用者。 如需詳細資訊，請參閱[管理您的儲存體帳戶](storage-account-manage.md#access-keys)。
+-   將儲存體帳戶的主要或次要金鑰提供給使用者。 如需詳細資訊，請參閱[管理儲存體帳戶存取金鑰](storage-account-keys-manage.md)。
 
 -   變更存取原則，以允許匿名存取。 如需詳細資訊，請參閱[授與容器和 Blob 的匿名使用者權限](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs)。
 
@@ -275,7 +275,7 @@ Azure 檔案共用不允許使用進階儲存體。
 
 -   如果您使用的是區域備援儲存體或異地備援儲存體，除非您起始以該區域為目的地的容錯移轉，否則無法從次要區域存取資料。 如需容錯移轉程序的詳細資訊，請參閱 [Azure 儲存體的災害復原和儲存體帳戶容錯移轉 (預覽)](storage-disaster-recovery-guidance.md)。
 
--   如果您使用的是讀取權限異地備援儲存體，可以隨時存取次要區域中的資料。 使用下列其中一種方法：  
+-   如果您使用的是讀取權限異地備援儲存體，可以隨時存取次要區域中的資料。 請使用下列其中一個方法：  
       
     - **AzCopy**：將 **-secondary** 附加至 URL 中的儲存體帳戶名稱，即可存取次要端點。 例如：  
      

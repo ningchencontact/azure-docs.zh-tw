@@ -1,5 +1,5 @@
 ---
-title: 設定不同的識別提供者（MSAL iOS/macOS） |Azure
+title: 設定身分識別提供者（MSAL iOS/macOS） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解如何透過 MSAL for iOS 和 macOS 使用不同的授權單位（例如 B2C、主權雲端和來賓使用者）。
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f2408dc2dd80ab3f52b158a18355087fe941b48
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c2c072ccfe1ba83813ab135fa08c3ffdf5d80d4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917976"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424596"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>如何：將 MSAL 用於 iOS 和 macOS，以使用不同的身分識別提供者
 

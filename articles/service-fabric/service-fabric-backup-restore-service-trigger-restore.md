@@ -1,25 +1,16 @@
 ---
-title: 在 Azure Service Fabric 中還原備份 | Microsoft Docs
+title: 在 Azure Service Fabric 中還原備份
 description: 在 Service Fabric 中使用定期備份與還原功能，從您應用程式資料的備份還原資料。
-services: service-fabric
-documentationcenter: .net
 author: aagup
-manager: chackdan
-editor: aagup
-ms.assetid: 802F55B6-6575-4AE1-8A8E-C9B03512FF88
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: ff705eabde111b5ebac1e2d714e3ece221c36e90
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377900"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>在 Azure Service Fabric 中還原備份
 
@@ -161,7 +152,7 @@ FailureError            :
 
 您也需要選擇替代叢集中的目的地分割區，如[資料分割配置](service-fabric-concepts-partitioning.md#get-started-with-partitioning)中所述。 替代叢集備份會從原始的遺失叢集中，還原到資料分割配置中指定的分割區。
 
-如果替代叢集上的分割區識別碼為 `1c42c47f-439e-4e09-98b9-88b8f60800c6`，您可以藉由比較「定界分割 (UniformInt64Partition)」`974bd92a-b395-4631-8a7f-53bd4ae9cf22`_的高鍵值和低鍵值，將其對應至原始叢集分割區識別碼：_ 。
+如果替代叢集上的分割區識別碼為 `1c42c47f-439e-4e09-98b9-88b8f60800c6`，您可以藉由比較「定界分割 (UniformInt64Partition)」的高鍵值和低鍵值，將其對應至原始叢集分割區識別碼：`974bd92a-b395-4631-8a7f-53bd4ae9cf22`。
 
 對於「具名分割」，比較名稱值可找出替代叢集中的目標分割區。
 

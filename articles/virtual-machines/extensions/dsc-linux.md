@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: b631a370c64522c201f1208819b5a76895d83b09
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: d19b3d59c48cfc8fc91d4678c2f979b110575b1a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457517"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359148"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>適用于 Linux 的 DSC 擴充功能（Microsoft.ostcextensions.customscriptforlinux. DSCForLinux）
 
@@ -38,13 +38,13 @@ DSCForLinux 延伸模組是由 Microsoft 發行並受到支援。 此擴充功�
 
  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="operating-system"></a>作業系統
 
 DSC Linux 延伸模組可支援所有 [Azure 背書的 Linux 散發套件](/azure/virtual-machines/linux/endorsed-distros)，但下列項目除外：
 
-| 配送映像 | 版本 |
+| 通路業 | 版本 |
 |---|---|
 | Debian | 所有版本 |
 | Ubuntu| 18.04 |
@@ -281,7 +281,7 @@ $publicConfig = '{
 
 範例 Resource Manager 範本為 [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) 和 [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu)。
 
-如需 Azure Resource Manager 範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)。
+如需 Azure Resource Manager 範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本](../../azure-resource-manager/templates/template-syntax.md)。
 
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 部署
@@ -306,7 +306,7 @@ $ azure vm extension set <vm-name> DSCForLinux Microsoft.OSTCExtensions <version
 $ azure vm extension list
 ```
 
-#### <a name="resource-manager"></a>資源管理員
+#### <a name="resource-manager"></a>Resource Manager
 您可以執行下列命令，以切換至 Azure Resource Manager 模式：
 ```
 $ azure config mode arm
@@ -363,7 +363,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
   -PublicConfiguration $publicConfig | Update-AzureVM
 ```
 
-#### <a name="resource-manager"></a>資源管理員
+#### <a name="resource-manager"></a>Resource Manager
 
 您可以藉由執行下列動作，以 Azure Resource Manager 模式登入您的 Azure 帳戶：
 

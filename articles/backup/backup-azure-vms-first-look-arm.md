@@ -3,12 +3,12 @@ title: 從 VM 設定備份 Azure VM
 description: 在本文中，您將瞭解如何使用 Azure 備份服務來備份單一 Azure VM 或多個 Azure Vm。
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 02cdab727adc29be99f52b262cb94de4fc4fe8f8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1895f27370e6f928ce2183798dd892a2ff7225c3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172520"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391442"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>從 VM 設定備份 Azure VM
 
@@ -61,10 +61,6 @@ ms.locfileid: "74172520"
 10. 啟用備份之後，就會執行初始備份。 您可以立即啟動初始備份，或根據備份排程來啟動。
     - 在完成初始備份之前，[上次備份狀態] 會顯示為 [警告 (待執行初始備份)]。
     - 若要查看下一個排定的備份會在何時執行，請按一下備份原則名稱。
-
-> [!NOTE]
-> Azure 備份服務會建立個別的資源群組（而不是 VM 資源群組）來儲存快照集，其命名格式為**AzureBackupRG_geography_number** （範例： AzureBackupRG_northeurope_1）。 此資源群組中的資料將會保留在 Azure 虛擬機器備份原則的「保留立即復原快照集」一節中所指定的持續時間內。 對此資源群組套用鎖定可能會導致備份失敗。<br>
-此資源群組也應從任何名稱/標記限制中排除，因為限制原則會再次阻止建立資源點集合，進而造成備份失敗。
 
 ## <a name="run-a-backup-immediately"></a>立即執行備份
 

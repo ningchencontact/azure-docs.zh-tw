@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 47a77def43a9577e5a3506899da47db2f684b495
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a1fb3b1260beb6bd85363f4611dae23cd3d321f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429485"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427357"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>移動資料至 Azure 虛擬機器上的 SQL Server
 
@@ -28,8 +28,8 @@ ms.locfileid: "61429485"
 
 | <b>來源</b> | <b>目的地：Azure VM 上的 SQL Server</b> |
 | --- | --- |
-| <b>一般檔案</b> |1.<a href="#insert-tables-bcp">命令列大量複製公用程式 (BCP)</a><br> 2.<a href="#insert-tables-bulkquery">大量插入 SQL 查詢</a><br> 3.<a href="#sql-builtin-utilities">SQL Server 中的圖形化內建公用程式</a> |
-| <b>內部部署的 SQL Server</b> |1.<a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">將 SQL Server Database 部署到 Microsoft Azure VM 精靈</a><br> 2.<a href="#export-flat-file">匯出到一般檔案</a><br> 3.<a href="#sql-migration">SQL Database 移轉精靈</a> <br> 4.<a href="#sql-backup">資料庫備份和還原</a><br> |
+| <b>一般檔案</b> |1.<a href="#insert-tables-bcp">命令列大量複製公用程式（BCP）</a><br> 2.<a href="#insert-tables-bulkquery">大量插入 SQL 查詢</a><br> 3. <a href="#sql-builtin-utilities">SQL Server 中的圖形化內建公用程式</a> |
+| <b>內部部署的 SQL Server</b> |1. 將<a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">SQL Server 資料庫部署至 MICROSOFT AZURE VM wizard</a><br> 2.<a href="#export-flat-file">匯出至</a>一般檔案<br> 3. <a href="#sql-migration">SQL Database 遷移 Wizard</a> <br> 4.<a href="#sql-backup">資料庫備份和還原</a><br> |
 
 請注意，本文件假設 SQL 命令是從 SQL Server Management Studio 或 Visual Studio 資料庫總管中執行。
 
@@ -41,8 +41,8 @@ ms.locfileid: "61429485"
 ## <a name="prereqs"></a>必要條件
 本教學課程假設您有：
 
-* **Azure 訂用帳戶**。 如果您沒有訂用帳戶，可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* **Azure 儲存體帳戶**。 在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md) 一文。 建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。 請參閱[管理儲存體存取金鑰](../../storage/common/storage-account-manage.md#access-keys)。
+* **Azure 訂用帳戶**。 如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 儲存體帳戶**。 在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md) 一文。 建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。 請參閱[管理儲存體帳戶存取金鑰](../../storage/common/storage-account-keys-manage.md)。
 * 已佈建 **Azure VM 上的 SQL Server**。 如需指示，請參閱 [將 Azure SQL Server 虛擬機器設定為 IPython Notebook 伺服器供進階分析使用](../data-science-virtual-machine/setup-sql-server-virtual-machine.md)。
 * 已在本機上安裝和設定 **Azure PowerShell** 。 如需指示，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 

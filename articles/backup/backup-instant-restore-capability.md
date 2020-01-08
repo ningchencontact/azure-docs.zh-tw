@@ -4,12 +4,12 @@ description: Azure 立即還原功能和 VM 備份堆疊、Azure Resource Manage
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7a962ff42125b262f6ec6673f75b0afd2954de24
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 19ecd6843422f1843631278626ef8971b0791b1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806366"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391310"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>透過 Azure 備份的立即還原功能取得改良的備份和還原效能
 
@@ -52,7 +52,7 @@ ms.locfileid: "74806366"
 
 ## <a name="cost-impact"></a>成本影響
 
-增量快照集會儲存在 VM 的儲存體帳戶中，以用於立即復原。 增量快照集表示快照集所佔用的空間等於建立快照集後寫入的頁面所佔用的空間。 計費方式仍為快照集所佔用的每 GB 使用空間，而每 GB 的價格與[定價頁面](https://azure.microsoft.com/pricing/details/managed-disks/)中所提的價格相同。
+增量快照集會儲存在 VM 的儲存體帳戶中，以用於立即復原。 增量快照集表示快照集所佔用的空間等於建立快照集後寫入的頁面所佔用的空間。 針對快照集所佔用的每 GB 已使用空間計費，而且每 GB 的價格都與[定價頁面](https://azure.microsoft.com/pricing/details/managed-disks/)上所述相同。 針對使用非受控磁片的 Vm，您可以在每個磁片的 VHD 檔案的功能表中看到快照集。 針對受控磁片，快照集會儲存在所指定資源群組中的還原點集合資源中，而快照集本身則不會直接顯示。
 
 >[!NOTE]
 > 針對每週原則，快照集保留期固定為5天。

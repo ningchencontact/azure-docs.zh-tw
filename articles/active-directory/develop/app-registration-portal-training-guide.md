@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 入口網站中從應用程式註冊入口網站轉換到新的應用程式註冊體驗
+title: 新的 Azure 入口網站應用程式註冊體驗
 titleSuffix: Microsoft identity platform
 description: Azure 入口網站中的新應用程式註冊體驗簡介
 services: active-directory
@@ -14,27 +14,27 @@ ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93af32e99e725a72c20c05690b2a96c74082e2ff
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2f7ed8902da40dc7b5783ebb116a6c993bbbba5b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844511"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424645"
 ---
-# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>在 Azure 入口網站中從應用程式註冊入口網站轉換到新的應用程式註冊體驗
+# <a name="the-new-azure-portal-app-registration-experience"></a>新的 Azure 入口網站應用程式註冊體驗
 
 Azure 入口網站的新[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)體驗中有許多改進。 如果您更熟悉應用程式註冊入口網站（apps.dev.microsoft.com）體驗來註冊或管理聚合式應用程式（稱為「舊體驗」），本訓練指南會協助您開始使用新的體驗。
 
 ## <a name="whats-not-changing"></a>什麼不會改變？
 
--   您的應用程式和相關設定可以在新的體驗中找到。 您不需要再次註冊應用程式，應用程式的使用者也不需要再次登入。
+- 您的應用程式和相關設定可以在新的體驗中找到。 您不需要再次註冊應用程式，應用程式的使用者也不需要再次登入。
 
     > [!NOTE]
     > 您必須使用您用來註冊應用程式的帳戶登入，才能在 Azure 入口網站中尋找它們。 我們建議您在 Azure 入口網站中檢查已登入的使用者是否符合已登入應用程式註冊入口網站的使用者，方法是比較您的設定檔中的電子郵件地址。
     > 
     > 在某些情況下，特別是當您使用個人 Microsoft 帳戶（例如 Outlook、Live、Xbox 等等）登入 Azure AD 電子郵件地址時，我們發現當您從舊體驗中移至 Azure 入口網站時，會將您帶到不同的帳戶Azure AD 租使用者中的電子郵件。 如果您仍然認為應用程式遺失，請登出，然後使用正確的帳戶登入。
 
--   Azure 入口網站中尚不支援使用個人 Microsoft 帳戶建立的 Live SDK 應用程式，且將會在不久的未來繼續保留舊體驗。
+- Azure 入口網站中尚不支援使用個人 Microsoft 帳戶建立的 Live SDK 應用程式，且將會在不久的未來繼續保留舊體驗。
 
 ## <a name="key-changes"></a>金鑰變更
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: af1b531ac1b38921a99284aad2108e4027d97f4c
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: aa98509ba71ec0797d4b59be9e4df1dea064c933
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091708"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351468"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 最新功能
 
@@ -24,7 +24,7 @@ ms.locfileid: "74091708"
 
 ## <a name="supported-updates"></a>支援的更新
 
-針對 Site Recovery 元件，我們支援 N-4 版本，其中 N 是最新發行的版本。 下表摘要說明這些功能。
+針對 Site Recovery 元件，我們支援 N-4 版本，其中 N 是最新發行的版本。 下表將摘要說明這些報表：
 
 **更新** |  **整合設定** | **設定伺服器 ova** | **行動服務代理程式** | **Site Recovery 提供者** | **復原服務代理程式**
 --- | --- | --- | --- | --- | ---
@@ -75,7 +75,7 @@ ms.locfileid: "74091708"
 
 - 從行動服務延伸模組的版本9.30.5407.1 （適用于 Azure Vm）和行動服務代理程式（適用于 VMware/實體機器），某些電腦作業系統必須執行服務堆疊更新和 SHA-1。 下表顯示詳細資料。
 - 請根據連結的 KB 安裝 update 和 SHA-1。 2019年9月不支援 SHA-1，而且如果未啟用 SHA-1 程式碼簽署，代理程式延伸模組將不會如預期般安裝/升級。
-- 深入了解 [SHA-2 的升級與需求](https://aka.ms/SHA-2KB)。
+- 深入瞭解[SHA-2 升級和需求](https://aka.ms/SHA-2KB)。
 
 **作業系統** | **Azure VM** | **VMware VM/實體機器**
 --- | --- | ---
@@ -104,7 +104,7 @@ ms.locfileid: "74091708"
 
 **功能** | **詳細資料**
 --- | ---
-**測試容錯移轉設定** | 設定測試容錯移轉時，您現在可以設定測試容錯移轉 VM 和網路的設定，包括 IP 位址、NSG、內部負載平衡，以及每個電腦 NIC 的公用 IP 位址。 這些設定是選擇性的，而且不會變更目前的行為。 如果您未設定這些設定，您可以在測試容錯移轉時選擇 Azure VNet。 [詳細資訊](https://azure.microsoft.com/blog/customize-networking-for-dr-drills-azure-site-recovery/)。
+**測試容錯移轉設定** | 設定測試容錯移轉時，您現在可以設定測試容錯移轉 VM 和網路的設定，包括 IP 位址、NSG、內部負載平衡，以及每個電腦 NIC 的公用 IP 位址。 這些設定是選擇性的，而且不會變更目前的行為。 如果您未設定這些設定，您可以在測試容錯移轉時選擇 Azure VNet。 [深入了解](https://azure.microsoft.com/blog/customize-networking-for-dr-drills-azure-site-recovery/)。
 **復原方案** | 復原方案現在限制為100個 Vm，以確保容錯移轉的可靠性。
 
 ### <a name="vmware-to-azure-disaster-recovery"></a>VMware 至 Azure 災害復原
@@ -145,7 +145,7 @@ ms.locfileid: "74091708"
 
 **功能** | **詳細資料**
 --- | ---
-新增進程伺服器警示 | 我們已新增處理伺服器警示。 [詳細資訊](vmware-physical-azure-monitor-process-server.md)。 
+新增進程伺服器警示 | 我們已新增處理伺服器警示。 [深入了解](vmware-physical-azure-monitor-process-server.md)。 
 
 ### <a name="hyper-v-disaster-recovery"></a>Hyper-v 嚴重損壞修復
 
@@ -237,8 +237,8 @@ Site Recovery 現在支援將一般用途 v2 儲存體帳戶用於快取儲存�
 
 **功能** | **詳細資料**
 --- | ---
-**複寫新增的磁片** | 針對新增至已啟用嚴重損壞修復之 Azure VM 的資料磁片，啟用複寫。 [詳細資訊](azure-to-azure-enable-replication-added-disk.md)。
-**自動更新** | 針對在啟用損毀修復的 Azure Vm 上執行的行動服務延伸模組設定自動更新時，您現在可以選取要使用的現有自動化帳戶，而不是使用 Site Recovery 所建立的預設帳戶。 [詳細資訊](azure-to-azure-autoupdate.md)。
+**複寫新增的磁片** | 針對新增至已啟用嚴重損壞修復之 Azure VM 的資料磁片，啟用複寫。 [深入了解](azure-to-azure-enable-replication-added-disk.md)。
+**自動更新** | 針對在啟用損毀修復的 Azure Vm 上執行的行動服務延伸模組設定自動更新時，您現在可以選取要使用的現有自動化帳戶，而不是使用 Site Recovery 所建立的預設帳戶。 [深入了解](azure-to-azure-autoupdate.md)。
 
 
 ### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/實體伺服器嚴重損壞修復
@@ -247,7 +247,7 @@ Site Recovery 現在支援將一般用途 v2 儲存體帳戶用於快取儲存�
 
 **功能** | **詳細資料**
 --- | ---
-**進程伺服器監視** | 針對內部部署 VMware Vm 和實體伺服器的嚴重損壞修復，使用改良的伺服器健全狀況報告和警示來監視和疑難排解處理伺服器問題。 [詳細資訊](vmware-physical-azure-monitor-process-server.md)。 
+**進程伺服器監視** | 針對內部部署 VMware Vm 和實體伺服器的嚴重損壞修復，使用改良的伺服器健全狀況報告和警示來監視和疑難排解處理伺服器問題。 [深入了解](vmware-physical-azure-monitor-process-server.md)。 
 
 
 
@@ -322,7 +322,7 @@ Site Recovery 現在支援將一般用途 v2 儲存體帳戶用於快取儲存�
 
 加速網路可以對 VM 啟用單一根目錄 i/o 虛擬化（SR-IOV），以改善網路效能。 當您為 Azure VM 啟用複寫功能時，Site Recovery 會偵測是否已啟用加速網路。 如果是，則在容錯移轉之後，Site Recovery 將會自動對 [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) 和 [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms) 的目標複本 Azure VM 設定加速網路。
 
-[詳細資訊](azure-vm-disaster-recovery-with-accelerated-networking.md)。
+[深入了解](azure-vm-disaster-recovery-with-accelerated-networking.md)。
 
 ### <a name="update-rollup-32"></a>更新彙總套件32 
 
@@ -348,7 +348,7 @@ Site Recovery 現在支援將一般用途 v2 儲存體帳戶用於快取儲存�
  
 **功能** | **詳細資料**
 --- | ---
-**Linux 支援** | 已針對 Redhat Enterprise Linux 7.6、RedHat 工作站6/7、Oracle Linux 6.10/7.6 和適用于 Ubuntu、Debian 和 SUSE 的新核心版本新增了支援。
+**Linux 支援** | 已針對 Redhat Enterprise Linux 7.6、RedHat 工作站6/7、Oracle Linux 6.10 和 Oracle Linux 7.6，以及適用于 Ubuntu、Debian 和 SUSE 的新核心版本新增了支援。
 
 
 ### <a name="update-rollup-31"></a>更新彙總套件31 
@@ -364,7 +364,7 @@ Site Recovery 現在支援將一般用途 v2 儲存體帳戶用於快取儲存�
 此月份新增的功能摘要于表格中。
 **功能** | **詳細資料**
 --- | ---
-**Linux 支援** | 已針對 Oracle Linux 6.8 和 6.9/7.0 以及 UEK5 核心加入支援。
+**Linux 支援** |  已針對 Oracle Linux 6.8、Oracle Linux 6.9 和 Oracle Linux 7.0 與 Red Hat 相容核心以及 Unbreakable Enterprise Kernel （UEK）第5版新增支援。
 **LVM** | 已針對 LVM 和 LVM2 磁片區新增支援。<br/><br/> 現在支援磁碟分割和 LVM 磁片區上的/boot 目錄。
 **Directories** | 已針對設定為個別磁碟分割的這些目錄，或不在相同系統磁片上的檔案系統新增了支援：<br/><br/> /（root）、/boot、/usr、/usr/local、/var、/etc。
 **Windows Server 2008** | 新增動態磁碟的支援。
@@ -376,7 +376,7 @@ Site Recovery 現在支援將一般用途 v2 儲存體帳戶用於快取儲存�
 
 **功能** | **詳細資料**
 --- | ---
-**Linux 支援** | 已針對 Oracle Linux 6.8 和 6.9/7.0 新增支援;和適用于 UEK5 核心。
+**Linux 支援** | 已針對 Oracle Linux 6.8、Oracle Linux 6.9 和 Oracle Linux 7.0 與 Red Hat 相容核心以及 Unbreakable Enterprise Kernel （UEK）第5版新增支援。
 **Linux BRTFS 檔案系統** | 支援 Azure Vm。
 **可用性區域中的 Azure Vm** | 您可以針對部署于可用性區域中的 Azure Vm，啟用另一個區域的複寫。 現在，您可以為 Azure VM 啟用複寫功能，並將容錯移轉的目標設為單一 VM 執行個體、可用性設定組中的 VM，或可用性區域中的 VM。 此設定不會影響複寫。 [閱讀](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/)公告。
 **已啟用防火牆的儲存體（入口網站/PowerShell）** | 已針對[啟用防火牆的儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-network-security)新增支援。<br/><br/> 您可以在已啟用防火牆的儲存體帳戶上，將具有非受控磁片的 Azure Vm 複寫到另一個 Azure 區域，以進行嚴重損壞修復。<br/><br/> 您可以使用已啟用防火牆的儲存體帳戶作為非受控磁片的目標儲存體帳戶。<br/><br/> 在入口網站中支援並使用 PowerShell。
@@ -387,7 +387,7 @@ Site Recovery 現在支援將一般用途 v2 儲存體帳戶用於快取儲存�
 
 Site Recovery 新增了行動服務擴充功能的自動更新選項。 行動服務擴充功能會安裝在 Site Recovery 所複寫的每個 Azure VM 上。 當您啟用複寫時，您會選取是否允許 Site Recovery 管理此擴充功能的更新。
 
-更新不需要重新啟動 VM，也不會影響複寫。 [詳細資訊](azure-to-azure-autoupdate.md)。
+更新不需要重新啟動 VM，也不會影響複寫。 [深入了解](azure-to-azure-autoupdate.md)。
 
 ### <a name="pricing-calculator-for-azure-vm-disaster-recovery"></a>Azure VM 災害復原的定價計算機
 
@@ -418,7 +418,7 @@ Azure Vm 的嚴重損壞修復會產生 VM 授權成本，以及網路和儲存�
 **功能** | **詳細資料**
 --- | ---
 **區域支援** | 已為澳大利亞中部1和澳大利亞中部2新增 Site Recovery 支援。
-**支援磁片加密** | 針對使用 Azure AD 應用程式以 Azure 磁碟加密（ADE）加密的 Azure Vm 的嚴重損壞修復新增支援。 [詳細資訊](azure-to-azure-how-to-enable-replication-ade-vms.md)。
+**支援磁片加密** | 針對使用 Azure AD 應用程式以 Azure 磁碟加密（ADE）加密的 Azure Vm 的嚴重損壞修復新增支援。 [深入了解](azure-to-azure-how-to-enable-replication-ade-vms.md)。
 **磁片排除** | Azure VM 複寫期間，現在會自動排除未初始化的磁片。
 **已啟用防火牆的儲存體（PowerShell）** | 已針對[啟用防火牆的儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-network-security)新增支援。<br/><br/> 您可以在已啟用防火牆的儲存體帳戶上，將具有非受控磁片的 Azure Vm 複寫到另一個 Azure 區域，以進行嚴重損壞修復。<br/><br/> 您可以使用已啟用防火牆的儲存體帳戶作為非受控磁片的目標儲存體帳戶。<br/><br/> 僅支援使用 PowerShell。
 
@@ -451,7 +451,7 @@ Azure Vm 的嚴重損壞修復會產生 VM 授權成本，以及網路和儲存�
 --- | ---
 **Linux 支援** | 已新增支援 RedHat Enterprise Linux 6.10;CentOS 6.10。<br/><br/>
 **雲端支援** | 針對德國雲端中的 Azure Vm 支援的嚴重損壞修復。
-**跨訂用帳戶的嚴重損壞修復** | 支援在相同的 Azure Active Directory 租使用者內，將一個區域中的 Azure Vm 複寫到不同訂用帳戶中的另一個區域。 [詳細資訊](https://aka.ms/cross-sub-blog)。
+**跨訂用帳戶的嚴重損壞修復** | 支援在相同的 Azure Active Directory 租使用者內，將一個區域中的 Azure Vm 複寫到不同訂用帳戶中的另一個區域。 [深入了解](https://aka.ms/cross-sub-blog)。
 
 ### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware VM/實體伺服器嚴重損壞修復 
 此月份新增的功能摘要于表格中。

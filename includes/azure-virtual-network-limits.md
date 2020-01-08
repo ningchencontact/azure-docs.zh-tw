@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 2596351a0db921276ad74c27e30a8e2af93f2f36
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: MT
+ms.openlocfilehash: d6cc6c787e38cc72a0a3d4340d55c0248918dba6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392433"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>網路限制-Azure Resource Manager 下列限制僅適用于透過每個訂用帳戶的每個區域**Azure Resource Manager**管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
@@ -63,8 +63,7 @@ ms.locfileid: "74981160"
 | 負載平衡器 | 1,000 | 
 | 每個資源的規則，基本 | 250 |
 | 每個資源的規則，標準 | 1,500 | 
-| 每個 IP 設定的規則 | 299 |
-| 每個 NIC 的規則 | 300 |
+| 每個 NIC 的規則（在 NIC 上的所有 Ip） | 300 |
 | 前端 IP 設定，基本 | 200 |
 | 前端 IP 設定，標準 | 600 |
 | 後端集區，基本 | 100，單一可用性設定組 |

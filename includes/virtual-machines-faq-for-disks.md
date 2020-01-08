@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8eda3ed7d35c9ff94a00eacb49f2e4f3b3e6f150
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7e83aa69cb4099885fc45e719c812a6c92299b7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796141"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359900"
 ---
 此文章將回答有關 Azure 受控磁碟和 Azure 進階 SSD 磁碟的一些常見問題。
 
@@ -55,7 +55,7 @@ ms.locfileid: "74796141"
 
 受控磁碟沒有儲存體帳戶方面的限制。 然而，上限為一個訂用帳戶每一區域和每一磁碟類型 50,000 個受控磁碟。
 
-**我可以建立受控磁碟的增量快照集嗎？**
+**我是否可以建立受控磁碟的增量快照集？**
 
 不會。 目前的快照集功能會建立受控磁碟的完整複本。
 
@@ -63,11 +63,11 @@ ms.locfileid: "74796141"
 
 不會。 可用性設定組中的 VM 必須全部使用受控磁碟，或全部使用非受控磁碟。 當您建立可用性設定組時，可以選擇想要使用的磁碟類型。
 
-**受控磁碟是 Azure 入口網站中的預設選項嗎？**
+**受控磁碟是否為 Azure 入口網站中的預設選項？**
 
 可以。
 
-**我可以建立空的受控磁碟嗎？**
+**我是否可以建立空的受控磁碟？**
 
 可以。 您可以建立空的磁碟。 受控磁碟可在 VM 外獨立建立，例如，不連結至 VM。
 
@@ -91,7 +91,7 @@ ms.locfileid: "74796141"
 
 您可以產生受控磁碟的唯讀共用存取簽章 (SAS) URI，並使用它將內容複製到私人儲存體帳戶或內部部署儲存體。 您可以透過 Azure 入口網站、Azure PowerShell、Azure CLI 或 [AzCopy](../articles/storage/common/storage-use-azcopy.md) 來使用 SAS URI
 
-**您可以建立受控磁碟的複本嗎？**
+**我是否可以建立受控磁碟的複本？**
 
 客戶可以建立受控磁碟的快照集，然後使用快照集建立另一個受控磁碟。
 
@@ -103,7 +103,7 @@ ms.locfileid: "74796141"
 
 不會。
 
-**If I create a 128-GB disk and then increase the size to 130 gibibytes (GiB), will I be charged for the next disk size (256 GiB)?**
+**如果我建立 128 GB 的磁片，然後將大小增加到 130 gib （GiB），則會向我收取下一個磁片大小的費用（256 GiB）嗎？**
 
 可以。
 
@@ -169,7 +169,7 @@ Azure 磁片保留會針對特定區域和 SKU （例如美國東部2中的 P30�
 **當我的 Azure 磁片保留過期時，會發生什麼事？**
 您將會在到期前30天收到電子郵件通知，並在到期日再次出現。 保留到期後，部署的磁片將會繼續執行，且會以最新的[隨用隨付費率](https://azure.microsoft.com/pricing/details/managed-disks/)計費。
 
-## <a name="ultra-disks"></a>Ultra 磁片
+## <a name="ultra-disks"></a>Ultra 磁碟
 
 **我該如何將 ultra 磁片輸送量設定為？**
 如果您不確定要如何設定磁片輸送量，建議您先從假設 IO 大小 16 KiB 開始，並在監視應用程式時從該處調整效能。 此公式為：輸送量（MBps = IOPS） * 16/1000。
@@ -398,7 +398,7 @@ Azure 美國中西部目前支援這些新的磁片大小。
 
 **作業系統和資料磁碟支援的最大受控磁碟大小是多少？**
 
-Azure 針對作業系統磁碟所支援的磁碟分割類型是主開機記錄 (MBR)。 MBR 格式支援的磁碟大小上限為 2 TiB。 Azure 針對作業系統磁碟支援的大小上限為 2 TiB。 Azure 最多支援 32 TiB，適用于全域 Azure 中的受控資料磁片，Azure 主權雲端中的4個 TiB。
+Azure 針對作業系統磁碟所支援的磁碟分割類型是主開機記錄 (MBR)。 MBR 格式支援的磁碟大小上限為 2 TiB。 Azure 針對作業系統磁碟支援的大小上限為 2 TiB。 Azure 支援最大 32 TiB 的受控資料磁碟。
 
 **作業系統和資料磁碟支援的最大非受控磁碟大小是多少？**
 
@@ -441,7 +441,7 @@ Azure 備份和 Azure Site Recovery 服務支援的最大磁碟大小為 4 TiB�
 
 **適用于標準 SSD 和標準 HDD 磁片的最大磁片大小（> 4 TiB）建議的 VM 大小為何，以達到優化的磁片 IOPS 和頻寬？**
 
-若要達到標準 SSD 的磁片輸送量，並標準 HDD 超過 500 IOPS 和 60 MiB/s 的大型磁片大小（> 4 TiB），建議您從下列其中一個 VM 大小部署新的 VM，以優化您的效能： B 系列、DSv2 系列、Dsv3 系列、ESv3 系列、Fs 系列、Fsv2 系列、M 系列、GS 系列、NCv2 系列、NCv3 系列或 Ls 系列 Vm。 將大型磁片連結至現有的 Vm 或未使用上述建議大小的 Vm，可能會遇到較低的效能。
+若要達到標準 SSD 的磁片輸送量，並標準 HDD 超過 500 IOPS 和 60 MiB/秒的大型磁片大小（> 4 TiB），我們建議您從下列其中一種 VM 大小部署新的 VM，以優化您的效能： B 系列、DSv2 系列、Dsv3 系列、ESv3 系列、Fs 系列、Fsv2 系列、M 系列、GS 系列、NCv2 系列、NCv3 系列或 Ls 系列 Vm。 將大型磁片連結至現有的 Vm 或未使用上述建議大小的 Vm，可能會遇到較低的效能。
 
 **我要如何升級在較大的磁片大小預覽期間部署的磁片（> 4 TiB），以便在 GA 中取得更高的 IOPS & 頻寬？**
 

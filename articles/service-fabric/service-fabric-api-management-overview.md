@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 搭配 API 管理概觀 | Microsoft Docs
+title: 使用 API 管理的 Azure Service Fabric 總覽
 description: 本文是使用「Azure API 管理」作為 Service Fabric 應用程式閘道的簡介。
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 52f9584a2f793ff513100afcb7b7bd6acd2a4742
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 656bb6d400461c93540b77d871502b738c679f47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900524"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378105"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric 搭配 Azure API 管理概觀
 
@@ -85,7 +76,7 @@ Service Fabric 中的服務可以是無狀態或具狀態服務，並且可使�
  
 - `fabric:/app/users/<username>`
 
-  每個服務都具有唯一的名稱，但並無法事先得知這些名稱，因為是根據使用者或系統管理員的輸入來建立服務，所以無法以硬式編碼編寫在 APIM 原則或路由規則中。 取而代之的是，會在後端原則定義中，從 URL 要求路徑中提供的 `name` 值產生作為要求傳送目的地的服務名稱。 例如:
+  每個服務都具有唯一的名稱，但並無法事先得知這些名稱，因為是根據使用者或系統管理員的輸入來建立服務，所以無法以硬式編碼編寫在 APIM 原則或路由規則中。 取而代之的是，會在後端原則定義中，從 URL 要求路徑中提供的 `name` 值產生作為要求傳送目的地的服務名稱。 例如：
 
   - 對 `/api/users/foo` 發出的要求會路由傳送到服務執行個體 `fabric:/app/users/foo`
   - 對 `/api/users/bar` 發出的要求會路由傳送到服務執行個體 `fabric:/app/users/bar`
@@ -104,7 +95,7 @@ Service Fabric 中的服務可以是無狀態或具狀態服務，並且可使�
  
 - `fabric:/app/users/<username>`
 
-  每個服務都具有唯一的名稱，但並無法事先得知這些名稱，因為是根據使用者或系統管理員的輸入來建立服務，所以無法以硬式編碼編寫在 APIM 原則或路由規則中。 取而代之的是，會在後端原則定義中，從 URL 要求路徑中提供的 `name` 值產生作為要求傳送目的地的服務名稱。 例如:
+  每個服務都具有唯一的名稱，但並無法事先得知這些名稱，因為是根據使用者或系統管理員的輸入來建立服務，所以無法以硬式編碼編寫在 APIM 原則或路由規則中。 取而代之的是，會在後端原則定義中，從 URL 要求路徑中提供的 `name` 值產生作為要求傳送目的地的服務名稱。 例如：
 
   - 對 `/api/users/foo` 發出的要求會路由傳送到服務執行個體 `fabric:/app/users/foo`
   - 對 `/api/users/bar` 發出的要求會路由傳送到服務執行個體 `fabric:/app/users/bar`

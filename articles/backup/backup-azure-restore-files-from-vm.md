@@ -3,12 +3,12 @@ title: 從 Azure VM 備份復原檔案和資料夾
 description: 在本文中，您將瞭解如何從 Azure 虛擬機器復原點復原檔案和資料夾。
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 3fff957e542a039fcc5121f13c062f710f9292c9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4fd5de0c199bfe104b8bb4f5b33b9ed8a86924f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172852"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392554"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 
@@ -206,14 +206,14 @@ mount [RAID Disk Path] [/mountpath]
 |元件 | 版本  |
 | --------------- | ---- |
 | Bash | 4 和更新版本 |
-| Python | 2.6.6 和更新版本  |
+| python | 2.6.6 和更新版本  |
 | TLS | 應支援 1.2  |
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>從具有大型磁片的虛擬機器備份進行檔復原
 
-本節說明如何從 Azure 虛擬機器備份執行檔案復原，其磁片數目為 > 16，而每個磁片大小為 > 4 TB。
+本節說明如何從 Azure 虛擬機器備份執行檔案復原，其磁片數目為 > 16，而每個磁片大小為 > 32 TB。
 
-因為檔案復原程式會從備份附加所有磁片，所以當使用大量磁片（> 16）或大型磁片（每個 > 4 TB）時，建議採用下列動作點：
+因為檔案復原程式會從備份附加所有磁片，所以當使用大量磁片（> 16）或大型磁片（每個 > 32 TB）時，建議採用下列動作點：
 
 - 保留個別的還原伺服器（Azure VM D2v3 Vm）以進行檔復原。 您只能使用該檔案復原，並在不需要時關閉。 不建議在原始電腦上還原，因為它對 VM 本身會有顯著的影響。
 - 然後執行腳本一次，檢查檔案復原操作是否成功。
@@ -242,7 +242,7 @@ mount [RAID Disk Path] [/mountpath]
 
 如果您從虛擬機器復原檔案時遇到問題，請檢查下表中的其他資訊。
 
-| 錯誤訊息 / 案例 | 可能的原因 | 建議的動作 |
+| 錯誤訊息 / 案例 | 可能的原因 | 建議動作 |
 | ------------------------ | -------------- | ------------------ |
 | Exe 輸出︰連線到目標的例外狀況 |指令碼無法存取復原點    | 檢查電腦是否符合上述的存取需求。 |  
 | Exe 輸出︰目標已透過 iSCSI 工作階段登入。 | 指令碼已在相同電腦上執行，並已附加磁碟機 | 復原點磁碟區已連接。 它們可能未使用原始 VM 的相同磁碟機代號裝載。 在檔案總管中的檔案瀏覽所有可用的磁碟區 |
@@ -252,7 +252,7 @@ mount [RAID Disk Path] [/mountpath]
 | Linux 特定︰無法檢視所需的磁碟區 | 執行指令碼所在電腦的作業系統可能無法辨識受保護 VM 的底層檔案系統 | 檢查復原點是否損毀一致還是檔案一致。 如果檔案一致，請在作業系統可辨識受保護 VM 檔案系統的其他電腦上執行指令碼 |
 | Windows 特定︰無法檢視所需的磁碟區 | 已連接磁碟，但未設定磁碟區 | 從 [磁碟管理] 畫面上，找出與復原點相關的其他磁碟。 如果其中有任何磁片處於離線狀態，請嘗試以滑鼠右鍵按一下磁片，然後按一下 [線上]，讓它們上線|
 
-## <a name="security"></a>Security
+## <a name="security"></a>安全性
 
 本節討論從 Azure VM 備份執行檔案復原所採取的各種安全性措施，讓使用者知道該功能的安全性層面。
 

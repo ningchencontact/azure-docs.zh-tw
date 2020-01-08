@@ -1,5 +1,5 @@
 ---
-title: 從另一個群組新增或移除群組 - Azure Active Directory | Microsoft Docs
+title: 從另一個群組新增或移除群組-Azure AD
 description: 關於如何使用 Azure Active Directory 從另一個群組新增或移除群組的指示。
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896a8b2c96dc10afbc3f179aed5a8497a8948ca9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 830bf7134b3a8b0425c53673a1347dd77897a5bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561927"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423059"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>使用 Azure Active Directory 從另一個群組新增或移除群組
 本文可協助您使用 Azure Active Directory 從另一個群組新增或移除群組。
@@ -30,7 +30,7 @@ ms.locfileid: "68561927"
 您可以將現有的安全性群組新增到另一個現有安全性群組中 (也稱為巢狀群組)，如此一來會建立一個成員群組 (子群組) 和一個父群組。 成員群組會繼承父群組的屬性與內容，為您省下設定時間。
 
 >[!Important]
->我們目前不支援：<ul><li>將群組新增至與內部部署 Active Directory 同步的群組。</li><li>將安全性群組新增至 Office 365 群組。</li><li>將 Office 365 群組新增至安全性群組或其他 Office 365 群組。</li><li>將應用程式指派給巢狀群組。</li><li>將授權套用至巢狀群組。</li></ul>
+>我們目前不支援：<ul><li>將群組新增至與內部部署 Active Directory 同步的群組。</li><li>將安全性群組新增至 Office 365 群組。</li><li>將 Office 365 群組新增至安全性群組或其他 Office 365 群組。</li><li>將應用程式指派給巢狀群組。</li><li>將授權套用至巢狀群組。</li><li>在嵌套案例中新增通訊群組。</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>若要新增群組作為另一個群組的成員
 
@@ -49,15 +49,11 @@ ms.locfileid: "68561927"
 
     [MDM 原則 - 西部] 群組現在是 [MDM 原則 - 所有組織] 群組的成員，繼承了 [MDM 原則 - 所有組織] 群組的所有屬性和設定。
 
-    ![將群組新增至另一個群組中以建立群組成員資格](media/active-directory-groups-membership-azure-portal/add-group-membership.png)
+    ![將群組新增至另一個群組中以建立群組成員資格](media/active-directory-groups-membership-azure-portal/group-add-group-membership.png)
 
 5. 檢閱 [MDM 原則 - 西部 - 群組成員資格] 頁面以查看群組和成員資格。
 
-    ![[MDM 原則 - 西部 - 群組成員資格] 頁面顯示父群組](media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
-
 6. 若要更詳細檢視群組和成員關係，請選取群組名稱 ([MDM 原則 - 所有組織]) 並查看 [MDM 原則 - 西部] 頁面詳細資訊。
-
-    ![[群組成員資格] 頁面顯示成員和群組詳細資訊](media/active-directory-groups-membership-azure-portal/group-membership-review.png)
 
 ## <a name="remove-a-group-from-another-group"></a>從另一個群組中移除群組
 您可以從另一個安全性群組中移除現有的安全性群組。 不過，移除群組也會移除其使用者繼承的任何屬性和內容。
@@ -67,12 +63,9 @@ ms.locfileid: "68561927"
 
 2. 在 [MDM 原則 - 西部概觀] 頁面上，選取 [群組成員資格]。
 
-    ![[MDM 原則 - 西部概觀] 頁面](media/active-directory-groups-membership-azure-portal/group-membership-overview.png)
-
 3. 在 [MDM 原則 - 西部 - 群組成員資格] 頁面中選取 [MDM 原則 - 所有組織] 群組，然後再於 [MDM 原則 - 西部] 頁面詳細資訊中選取 [移除]。
 
     ![[群組成員資格] 頁面顯示成員和群組詳細資訊](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
-
 
 ## <a name="additional-information"></a>其他資訊
 這些文章提供有關 Azure Active Directory 的其他資訊。

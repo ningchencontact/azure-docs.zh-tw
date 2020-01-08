@@ -16,12 +16,12 @@ ms.date: 04/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 3aaa99caca461d4b8e339cf4c1f7847adef4027a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3c84277603420567485b5199cdd2fa63ee3a2654
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076853"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378376"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>診斷 Azure 中已捨棄的通知通知中樞
 
@@ -103,7 +103,7 @@ ms.locfileid: "74076853"
 
 在此情況下，錯誤註冊會從資料庫移除。 然後，我們會針對該批次中的其餘裝置，重試通知傳遞。
 
-若要取得針對註冊失敗傳遞嘗試的更多錯誤資訊，您可以使用[每個訊息遙測通知中樞 REST api：取得通知訊息遙測](https://msdn.microsoft.com/library/azure/mt608135.aspx)和[PNS 意見](https://msdn.microsoft.com/library/azure/mt705560.aspx)反應。 如需範例程式碼，請參閱[傳送 REST 範例](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/)。
+若要取得針對註冊失敗傳遞嘗試的更多錯誤資訊，您可以使用[每個訊息遙測通知中樞 REST api：取得通知訊息遙測](https://docs.microsoft.com/rest/api/notificationhubs/get-notification-message-telemetry)和[PNS 意見](https://msdn.microsoft.com/library/azure/mt705560.aspx)反應。 如需範例程式碼，請參閱[傳送 REST 範例](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/)。
 
 ## <a name="push-notification-service-issues"></a>推播通知服務問題
 
@@ -127,7 +127,7 @@ ms.locfileid: "74076853"
 
 確認個別推播通知服務開發人員入口網站 (APNs、FCM、Windows 通知服務等等) 中的認證。 如需詳細資訊，請參閱[教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平臺應用程式](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)。
 
-#### <a name="azure-portal"></a>Azure 入口網站 ####
+#### <a name="azure-portal"></a>Azure Portal ####
 
 若要檢查並比對您從推播通知服務開發人員入口網站取得的認證，請移至 Azure 入口網站中的 [**存取原則**] 索引標籤。
 
@@ -168,7 +168,7 @@ ms.locfileid: "74076853"
 
 ### <a name="verify-message-notifications"></a>驗證訊息通知
 
-#### <a name="azure-portal"></a>Azure 入口網站 ####
+#### <a name="azure-portal"></a>Azure Portal ####
 
 若要將測試通知傳送到您的用戶端，而不需要運作後端服務，請在 [支援 + 疑難排解] 下，選取 [測試傳送]。
 
@@ -196,7 +196,7 @@ ms.locfileid: "74076853"
 
 若要深入了解推播通知服務的錯誤，您可以使用 [EnableTestSend] 屬性。 當您從入口網站或 Visual Studio 用戶端傳送測試訊息時，會自動啟用該屬性。 您可以使用此屬性來查看詳細的調試資訊，以及透過 Api。 目前，您可以在 .NET SDK 中使用該屬性。 最後會將它新增至所有用戶端 Sdk。
 
-若要搭配使用 `EnableTestSend` 屬性與 REST 呼叫，請在傳送呼叫結尾附加名為 test 的查詢字串參數。 例如︰
+若要搭配使用 `EnableTestSend` 屬性與 REST 呼叫，請在傳送呼叫結尾附加名為 test 的查詢字串參數。 例如：
 
 ```text
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
@@ -214,7 +214,7 @@ Console.WriteLine(result.State);
 
 在執行的結尾處，`result.State` 只會指出`Enqueued`。 結果不會對您的推播通知發生什麼事提供深入解析。
 
-接著，您可以使用 `EnableTestSend` 布林值屬性。 初始化 `EnableTestSend` 時，請使用 `NotificationHubClient` 屬性，以取得關於傳送通知時發生的推播通知服務錯誤詳細狀態。 傳送呼叫需要額外的時間才能傳回，因為它會先需要通知中樞，才能將通知傳遞給推播通知服務。
+接著，您可以使用 `EnableTestSend` 布林值屬性。 初始化 `NotificationHubClient` 時，請使用 `EnableTestSend` 屬性，以取得關於傳送通知時發生的推播通知服務錯誤詳細狀態。 傳送呼叫需要額外的時間才能傳回，因為它會先需要通知中樞，才能將通知傳遞給推播通知服務。
 
 ```csharp
     bool enableTestSend = true;
@@ -245,7 +245,7 @@ The Token obtained from the Token Provider is wrong
 
 ### <a name="review-telemetry"></a>檢閱遙測 ###
 
-#### <a name="azure-portal"></a>Azure 入口網站 ####
+#### <a name="azure-portal"></a>Azure Portal ####
 
 在入口網站中，您可以取得通知中樞上所有活動的簡要概觀。
 

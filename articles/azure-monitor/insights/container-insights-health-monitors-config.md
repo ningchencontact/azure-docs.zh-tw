@@ -1,23 +1,14 @@
 ---
 title: 適用于容器健全狀況監視設定的 Azure 監視器 |Microsoft Docs
 description: 本文提供的內容說明容器 Azure 監視器中健全狀況監視的詳細設定。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/12/2019
-ms.author: magoedte
-ms.openlocfilehash: 7d4400b563a1d0b8bf094f946a37d7ff4a17e7cf
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.date: 12/01/2019
+ms.openlocfilehash: d2d602d767fa6a39b7f72650c426c90be210a6ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664942"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405048"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>適用于容器的 Azure 監視器健全狀況監視設定指南
 
@@ -29,16 +20,16 @@ ms.locfileid: "74664942"
 
 ## <a name="monitors"></a>監視器
 
-監視會測量受管理物件某方面的健全狀況。 監視各有兩個或三個健全狀況狀態。 監視在任何指定時間都只會處於其中一種可能的狀態。 當容器化代理程式載入監視時，它會初始化為狀況良好的狀態。 只有在偵測到另一個狀態的指定條件時，狀態才會變更。
+監視會測量受管理物件某方面的健全狀況。 監視各有兩到三種健全狀況狀態。 在任何特定時間，監視都將處於一種 (且只限一種) 可能的狀態。 當容器化代理程式載入監視時，它會初始化為狀況良好的狀態。 只有在偵測到另一個狀態的指定條件時，狀態才會變更。
 
-特定物件的整體健全狀況是由其每個監視的健全狀況所決定。 此階層會在 適用于容器的 Azure 監視器中的 健康情況階層 窗格中說明。 健全狀況的匯總原則是匯總監視設定的一部分。
+特定物件的整體健全狀況是由其各個監視的健全狀況所決定。 此階層會在 適用于容器的 Azure 監視器中的 健康情況階層 窗格中說明。 健全狀況的匯總原則是匯總監視設定的一部分。
 
 ## <a name="types-of-monitors"></a>監視類型
 
-|監視 | 描述 | 
+|監視 | 說明 | 
 |--------|-------------|
 | 單位監視 |單位監視會測量資源或應用程式的某些層面。 這可能會檢查效能計數器，以判斷資源的效能或其可用性。 |
-|匯總監視 | 匯總監視會將多個監視器分組，以提供單一健全狀況匯總健全狀況狀態。 單位監視通常設定在特定的匯總監視之下。 例如，節點匯總監視會匯總節點 CPU 使用率、記憶體使用率和節點狀態的狀態。
+|彙總監視器 | 匯總監視會將多個監視器分組，以提供單一健全狀況匯總健全狀況狀態。 單位監視通常設定在特定的匯總監視之下。 例如，節點匯總監視會匯總節點 CPU 使用率、記憶體使用率和節點狀態的狀態。
  |
 
 ### <a name="aggregate-monitor-health-rollup-policy"></a>匯總監視健全狀況匯總套件原則
@@ -63,7 +54,7 @@ ms.locfileid: "74664942"
 
 ### <a name="unit-monitors"></a>單位監視
 
-|**監視名稱** | 監視類型 | **說明** | **參數** | **值** |
+|**監視名稱** | 監視類型 | **說明** | **參數** | **ReplTest1** |
 |-----------------|--------------|-----------------|---------------|-----------|
 |節點記憶體使用率 |單位監視 |此監視會使用 cadvisor 報告的資料，每分鐘評估節點的記憶體使用量。 |ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||
 |節點 CPU 使用率 |單位監視 |此監視會使用 cadvisor 報告的資料，每分鐘檢查節點的 CPU 使用率。 | ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||

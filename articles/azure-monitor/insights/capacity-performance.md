@@ -4,15 +4,15 @@ description: 使用 監視 中的 容量與效能解決方案，協助您瞭解 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 8b130b800b53afadc40e0c9b9a2b730f24da396e
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c444991166d9c7d3f1d8ed39e19e333d3c27f982
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899067"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405750"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>使用容量與效能解決方案規劃 Hyper-v 虛擬機器容量（已淘汰）
 
@@ -40,7 +40,7 @@ ms.locfileid: "72899067"
 
 下表描述此方案支援的連接來源。
 
-| 連接的來源 | 支援 | 描述 |
+| 連接的來源 | 支援 | 說明 |
 |---|---|---|
 | [Windows 代理程式](../../azure-monitor/platform/agent-windows.md) | 是 | 解決方案會從 Windows 代理程式收集容量和效能資料的資訊。 |
 | [Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md) | 否    | 解決方案不會從直接 Linux 代理程式收集容量和效能資料的資訊。|
@@ -73,7 +73,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 當容量和效能解決方案更新時，其版本號碼也會變更。
 
-如需有關方案管理組件如何更新的詳細資訊，請參閱[將 Operations Manager 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md)。
+如需有關方案管理組件如何更新的詳細資訊，請參閱 [將 Operations Manager 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md)。
 
 ## <a name="using-the-solution"></a>使用解決方案
 
@@ -86,7 +86,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 按一下 [容量和效能] 圖格，即可開啟 [容量和效能] 儀表板。 此儀表板包含下表中的資料行。 每個資料行最多會列出十個符合該資料行中指定範圍和時間範圍之準則的項目。 您可以按一下資料行底部的 [查看全部]，或按一下資料行標頭，以執行記錄檔搜尋來傳回所有記錄。
 
-- **主機**
+- **主控件**
     - **主機 CPU 使用率** 根據所選時段以圖表顯示主機電腦的 CPU 使用率趨勢和主機清單。 將滑鼠暫留在折線圖上，可檢視特定時間點的詳細資料。 按一下折線圖可在記錄搜尋中檢視更多詳細資料。 按一下任何主機名稱可開啟記錄搜尋並檢視所裝載 VM 的 CPU 計數器詳細資料。
     - **主機記憶體使用率** 根據所選時段以圖表顯示主機電腦的記憶體使用率趨勢和主機清單。 將滑鼠暫留在折線圖上，可檢視特定時間點的詳細資料。 按一下折線圖可在記錄搜尋中檢視更多詳細資料。 按一下任何主機名稱可開啟記錄搜尋並檢視所裝載 VM 的記憶體計數器詳細資料。
 - **虛擬機器**
@@ -113,12 +113,12 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 總結來說，解決方案會從各種來源 (包括效能計數器) 收集容量和效能資料。 請使用解決方案中的各種介面所呈現的容量和效能資料，並將您的結果與[測量 Hyper-V 上的效能](https://msdn.microsoft.com/library/cc768535.aspx)文章中的結果做比較。 雖然該文章已發佈一段時間，但其計量、考量和指導方針仍然有效。 該文章包含其他有用資源的連結。
 
 
-## <a name="sample-log-searches"></a>記錄檔搜尋範例
+## <a name="sample-log-searches"></a>記錄搜尋範例
 
 下表提供此解決方案所收集和計算之容量和效能資料的記錄搜尋範例。
 
 
-| 查詢 | 描述 |
+| 查詢 | 說明 |
 |:--- |:--- |
 | 所有主機記憶體組態 | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
 | 所有 VM 記憶體組態 | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |

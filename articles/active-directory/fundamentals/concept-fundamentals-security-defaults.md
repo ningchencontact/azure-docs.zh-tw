@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d899f477612e4c738314187f61551fe5c0b17f8d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 83a839d75757bcee14d7f696d2d11d1d7d8fa4cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932407"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422848"
 ---
 # <a name="what-are-security-defaults"></a>什麼是安全性預設值？
 
@@ -73,6 +73,9 @@ Microsoft 將安全性預設值提供給所有人。 目標是要確保所有組
 
 在您的租使用者中啟用安全性預設值之後，較舊的通訊協定所發出的所有驗證要求將會遭到封鎖。 安全性預設值不會封鎖 Exchange ActiveSync。
 
+> [!WARNING]
+> 啟用安全性預設值之前，請確定您的系統管理員未使用舊版驗證通訊協定。 如需詳細資訊，請參閱[如何從舊版驗證移開](concept-fundamentals-block-legacy-authentication.md)。
+
 ### <a name="protecting-privileged-actions"></a>保護特殊許可權動作
 
 組織會使用透過 Azure Resource Manager API 管理的各種 Azure 服務，包括：
@@ -89,22 +92,30 @@ Microsoft 將安全性預設值提供給所有人。 目標是要確保所有組
 
 如果使用者未註冊多重要素驗證，使用者將需要使用 Microsoft Authenticator 應用程式進行註冊，才能繼續進行。 將不會提供14天的多重要素驗證註冊期間。
 
-## <a name="deployment-considerations"></a>部署考量
+> [!NOTE]
+> Azure AD Connect 同步處理帳戶會從安全性預設中排除，且不會提示您註冊或執行多重要素驗證。 組織不應將此帳戶用於其他用途。
+
+## <a name="deployment-considerations"></a>部署考量因素
 
 下列其他考慮與部署您租使用者的安全性預設值有關。
 
-### <a name="older-protocols"></a>較舊的通訊協定
+### <a name="authentication-methods"></a>驗證方法
 
-郵件用戶端會使用較舊的驗證通訊協定（例如 IMAP、SMTP 和 POP3）來提出驗證要求。 這些通訊協定不支援多重要素驗證。 Microsoft 所看到的大部分帳戶危害，都是針對嘗試略過多重要素驗證的舊版通訊協定進行攻擊。 
+安全性預設值只允許透過**使用通知的 Microsoft Authenticator 應用程式**來註冊和使用 Azure 多重要素驗證。 條件式存取允許使用系統管理員選擇啟用的任何驗證方法。
 
-為了確保登入系統管理帳戶時需要多重要素驗證，而且攻擊者無法略過它，安全性預設會封鎖從較舊的通訊協定對系統管理員帳戶發出的所有驗證要求。
+|   | 安全性預設值 | 條件式存取 |
+| --- | --- | --- |
+| 行動應用程式的通知 | X | X |
+| 來自行動應用程式或硬體 Token 的驗證碼 |   | X |
+| 電話簡訊 |   | X |
+| 電話通話 |   | X |
+| 應用程式密碼 |   | X * * |
 
-> [!WARNING]
-> 啟用此設定之前，請確定您的系統管理員未使用舊版驗證通訊協定。 如需詳細資訊，請參閱[如何從舊版驗證移開](concept-fundamentals-block-legacy-authentication.md)。
+\* * 只有在系統管理員啟用時，應用程式密碼才會在具有傳統驗證案例的每一使用者 MFA 中提供。
 
 ### <a name="conditional-access"></a>條件式存取
 
-您可以使用條件式存取來設定原則，以提供安全性預設值所啟用的相同行為。 如果您使用條件式存取，並在您的環境中啟用條件式存取原則，則不會提供安全性預設值。 如果您的授權提供條件式存取，但未在您的環境中啟用任何條件式存取原則，您就可以使用安全性預設值，直到您啟用條件式存取原則為止。
+您可以使用條件式存取來設定與安全性預設值類似的原則，但更多的細微性包括不會出現在安全性預設值中的使用者排除。 如果您使用條件式存取，並在您的環境中啟用條件式存取原則，則不會提供安全性預設值。 如果您的授權提供條件式存取，但未在您的環境中啟用任何條件式存取原則，您就可以使用安全性預設值，直到您啟用條件式存取原則為止。 如需 Azure AD 授權的詳細資訊，請參閱[Azure AD 定價頁面](https://azure.microsoft.com/pricing/details/active-directory/)。
 
 ![警告訊息，您可以同時擁有安全性預設值或條件式存取](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 

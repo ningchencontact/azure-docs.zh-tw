@@ -1,5 +1,5 @@
 ---
-title: 如何和為何將應用程式新增至 Azure AD
+title: 如何以及為何將應用程式新增到 Azure AD
 titleSuffix: Microsoft identity platform
 description: 對於應用程式來說，新增至 Azure AD 有何意義，以及要如何新增？
 services: active-directory
@@ -15,12 +15,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f031389dc37fbf48f8a69db8c42419eed9605373
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9f4814026de5ba92d6470c503f8d316c0ceba0da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918333"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424757"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>將應用程式加入至 Azure AD 的方式和原因
 
@@ -107,7 +107,7 @@ ms.locfileid: "74918333"
   * 屬性對應 (使用者佈建)
 * 如需服務主體與應用程式物件的詳細資訊，請參閱 Azure AD Graph REST API 參考文件：
   * [應用程式](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [服務主體](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+  * [Service Principal](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>應用程式為何要與 Azure AD 整合？
 

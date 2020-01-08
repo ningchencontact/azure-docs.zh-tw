@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4130b05be1a4abb2166514b730c3d21bd5ece97
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: dcdd89ba7741257443cf5e7567c59a6986e43c20
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803575"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424837"
 ---
 # <a name="conditional-access-risk-based-conditional-access"></a>條件式存取：以風險為基礎的條件式存取
 
@@ -38,7 +38,7 @@ ms.locfileid: "74803575"
    1. 在 [**排除**] 底下，選取 [**選取排除的使用者**]，選擇您組織的緊急存取或中斷透明帳戶，然後選取 [**選取**]。 
    1. 選取 [完成]。
 1. 將 [**強制執行原則**] 設定為 [**開啟**]。
-1. 按一下 [儲存]。
+1. 按一下 [檔案]。
 
 ## <a name="require-a-password-change-high-risk-users"></a>需要密碼變更高風險使用者
 
@@ -56,7 +56,7 @@ Microsoft 與研究人員、執法機關，Microsoft 的各個安全性小組和
 1. 在 [**控制項** > **存取**] 底下，選擇 [**允許存取**]，然後選取 [**需要變更密碼**]。
    1. 按一下 [選取]。
 1. 將 [**強制執行原則**] 設定為 [**開啟**]。
-1. 按一下 [儲存]。
+1. 按一下 [檔案]。
 
 ## <a name="require-mfa-medium-or-high-sign-in-risk-users"></a>需要 MFA medium 或高的登入風險使用者
 
@@ -74,11 +74,13 @@ Microsoft 與研究人員、執法機關，Microsoft 的各個安全性小組和
 1. 在 [**控制項** > **存取**] 底下，選擇 [**允許存取**]，然後選取 [**需要多重要素驗證**]。
    1. 按一下 [選取]。
 1. 將 [**強制執行原則**] 設定為 [**開啟**]。
-1. 按一下 [儲存]。
+1. 按一下 [檔案]。
 
 ## <a name="next-steps"></a>後續步驟
 
 [條件式存取的一般原則](concept-conditional-access-policy-common.md)
+
+[使用條件式存取僅限報告模式判斷影響](howto-conditional-access-report-only.md)
 
 [使用條件式存取 What If 工具模擬登入行為](troubleshoot-conditional-access-what-if.md)
 

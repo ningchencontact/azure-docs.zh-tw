@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 46e5af9d54cf818366bd2730de0da85dcbe6cade
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d039373d3e70076149da2b970a234b59d7aa661a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535297"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422954"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Azure Active Directory 一般操作指南參考
 
@@ -58,7 +58,7 @@ ms.locfileid: "74535297"
 
 擁有最新版本的內部部署元件可為客戶提供最新的安全性更新、效能改進，以及有助於進一步簡化環境的功能。 大部分元件都有自動升級設定，這會自動化升級程式。
 
-這些元件包括：
+這些元件包括︰
 
 - Azure AD Connect
 - Azure AD 應用程式 Proxy 連接器
@@ -107,7 +107,7 @@ ms.locfileid: "74535297"
 #### <a name="on-premises-agents-management-recommended-reading"></a>內部部署代理程式管理建議閱讀
 
 - [了解 Azure AD 應用程式 Proxy 連接器](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
-- [Azure AD 傳遞驗證-快速入門](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start#step-5-ensure-high-availability)
+- [Azure AD 傳遞驗證-快速入門](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## <a name="management-at-scale"></a>大規模管理
 
@@ -131,8 +131,8 @@ Azure AD： <o365mc@email2.microsoft.com>會使用兩個「寄件者」位址，
 
 - [Azure AD 存取評論](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 - [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
-- [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/notifications)
-- [Azure AD 特殊權限身分識別管理](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
+- [Azure AD Identity Protection](/azure/active-directory/identity-protection/howto-identity-protection-configure-notifications)
+- [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
 - [企業應用程式即將到期的憑證通知](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration)
 - 企業應用程式佈建服務通知
 
@@ -166,13 +166,13 @@ Active Directory 系統管理層模型的設計目的是要使用一組緩衝區
 
 階層[模型](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)是由三個層級所組成，而且只包含系統管理帳戶，而不是標準使用者帳戶。
 
-- **第0層** 直接控制環境中的企業身分識別。 第0層包含的帳戶、群組和其他資產，具有 Active Directory 樹系、網域或網域控制站的直接或間接系統管理控制權，以及其中的所有資產。 所有第0層資產的安全性敏感性都是相同的，因為它們全都有效地控制彼此。
-- **第1層** -控制企業伺服器和應用程式。 第1層資產包括伺服器作業系統、雲端服務和企業應用程式。 第1層系統管理員帳戶對於裝載于這些資產的大量商業價值具有管理控制權。 常見的範例角色是維護這些作業系統的伺服器管理員，並能夠影響所有的企業服務。
-- **第2層** -控制使用者工作站和裝置。 第2層系統管理員帳戶對於裝載在使用者工作站和裝置上的大量商業價值具有管理控制權。 範例包括技術支援中心和電腦支援系統管理員，因為他們可能會影響幾乎任何使用者資料的完整性。
+- **第0層** 直接控制環境中的企業身分識別。 第 0 層包括可直接或間接對 Active Directory 樹系、網域或網域控制站進行系統管理控制的帳戶、群組和其他資產及其上的所有資產。 所有第 0 層資產的安全性敏感度相當於它們全都在彼此的有效控制之下。
+- **第1層** -控制企業伺服器和應用程式。 第 1 層資產包括伺服器作業系統、雲端服務和企業應用程式。 第 1 層系統管理員帳戶對於這些資產上裝載的大量商業價值具有系統管理控制權。 常見的範例角色是伺服器系統管理員，其可利用會影響所有企業服務的能力來維護這些作業系統。
+- **第2層** -控制使用者工作站和裝置。 第 2 層系統管理員帳戶對於使用者工作站和裝上裝載的大量商業價值具有系統管理控制權。 範例包括技術支援中心及電腦支援系統管理員，因為他們會影響到幾乎所有使用者資料的完整性。
 
 鎖定內部部署身分識別元件（例如 Azure AD Connect、AD FS 和 SQL 服務）的存取方式，與網域控制站相同。
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 安全身分識別基礎結構有七個層面。 這份清單可協助您找出您應該採取的動作，以將 Azure Active Directory （Azure AD）的作業優化。
 

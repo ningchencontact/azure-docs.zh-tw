@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: b8a5a344f2f1d8280ca60169786e72a0e1dd291e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 046e61d82893bf1fcdb2d6697cfaaa9f5bde8c2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073158"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359357"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 診斷擴充功能監視計量與記錄
 
@@ -49,7 +49,7 @@ Linux 診斷擴充功能可協助使用者監視在 Microsoft Azure 上執行的
 
 可下載組態只是範例，可修改以符合您的需求。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 * **Azure Linux Agent 2.2.0 版或更新版本**。 大部分的 Azure VM Linux 資源庫映像包含版本 2.2.7 或更新版本。 執行 `/usr/sbin/waagent -version` 以確認安裝在 VM 上的版本。 如果 VM 執行的是舊版客體代理程式，請依照[這些指示](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)更新。
 * **Azure CLI**。 在您的電腦上[設定 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 環境。
@@ -131,11 +131,11 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 ---- | -----
 storageAccountName | 擴充功能寫入資料的儲存體帳戶名稱。
 storageAccountEndPoint | (選擇性) 可識別儲存體帳戶所在雲端的端點。 如果沒有此設定，LAD 會預設為 Azure 公用雲端，`https://core.windows.net`。 若要使用 Azure 德國、Azure Government 或 Azure 中國中的儲存體帳戶，請相應地設定此值。
-storageAccountSasToken | Blob 與資料表服務 ([) 的 ](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/)帳戶 SAS 權杖`ss='bt'`，適用於容器與物件 (`srt='co'`)，可授與新增、建立、列示、更新與寫入權限 (`sp='acluw'`)。 請*勿*包含前置問號 (?)。
+storageAccountSasToken | Blob 與資料表服務 (`ss='bt'`) 的 [帳戶 SAS 權杖](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/)，適用於容器與物件 (`srt='co'`)，可授與新增、建立、列示、更新與寫入權限 (`sp='acluw'`)。 請*勿*包含前置問號 (?)。
 mdsdHttpProxy | (選擇性) 啟用擴充功能以連線所指定儲存體帳戶和端點時所需的 HTTP proxy 資訊。
 sinksConfig | (選擇性) 可將計量與事件傳遞至的替代目的地詳細資料。 以下各節包含擴充功能所支援每個資料接收的特定詳細資料。
 
-若要取得 Resource Manager 範本內的 SAS 權杖，請使用**listAccountSas**函數。 如需範例範本，請參閱[List function 範例](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example)。
+若要取得 Resource Manager 範本內的 SAS 權杖，請使用**listAccountSas**函數。 如需範例範本，請參閱[List function 範例](../../azure-resource-manager/templates/template-functions-resource.md#list-example)。
 
 您可以輕鬆地透過 Azure 入口網站建構所需的 SAS 權杖。
 
@@ -167,8 +167,8 @@ sinksConfig | (選擇性) 可將計量與事件傳遞至的替代目的地詳細
 
 元素 | 值
 ------- | -----
-名稱 | 用來在擴充功能組態中的其他位置參考此接收的字串。
-類型 | 正在定義的接收類型。 決定此類型執行個體中的其他值 (若有的話)。
+NAME | 用來在擴充功能組態中的其他位置參考此接收的字串。
+type | 正在定義的接收類型。 決定此類型執行個體中的其他值 (若有的話)。
 
 3\.0 版的 Linux 診斷擴充功能支援兩種接收類型：EventHub 與 JsonBlob。
 
@@ -310,16 +310,16 @@ scheduledTransferPeriod | 系統會計算彙總計量的頻率並傳輸至 Azure
 元素 | 值
 ------- | -----
 sinks | (選擇性) 以逗號分隔的接收名稱清單，LAD 會將彙總的計量結果傳送至此清單。 系統會將所有彙總的計量發佈至每個列出的接收。 請參閱 [sinksConfig](#sinksconfig)。 範例： `"EHsink1, myjsonsink"`.
-類型 | 識別計量的實際提供者。
+type | 識別計量的實際提供者。
 class | 與 "counter" 一起使用，可識別提供者命名空間內的特定計量。
 counter | 與 "class" 一起使用，可識別提供者命名空間內的特定計量。
 counterSpecifier | 可識別 Azure 計量命名空間內的特定計量。
-condition | (選擇性) 選取會套用計量之物件的特定執行個體，或選取該物件所有執行個體的彙總。 如需詳細資訊，請參閱 `builtin` 計量定義。
+condition (條件) | (選擇性) 選取會套用計量之物件的特定執行個體，或選取該物件所有執行個體的彙總。 如需詳細資訊，請參閱 `builtin` 計量定義。
 sampleRate | IS 8601 間隔，可設定收集此計量原始樣本的速率。 如果未設定，則會由 [sampleRateInSeconds](#ladcfg) 的值設定收集間隔。 支援的最短採樣速率為 15 秒 (PT15S)。
 unit | 應為以下字串之一："Count"、"Bytes"、"Seconds"、"Percent"、"CountPerSecond"、"BytesPerSecond"、"Millisecond"。 定義計量的單位。 收集資料的取用者預期收集的資料值符合這個單位。 LAD 會忽略此欄位。
 displayName | 在 Azure 計量中要附加至此資料的標籤 (採用相關聯地區設定所指定的語言)。 LAD 會忽略此欄位。
 
-counterSpecifier 是任意的識別碼。 如 Azure 入口網站的圖表與警示功能等計量的使用者，會使用 counterSpecifier 作為識別計量或計量執行個體的「鑰匙」。 對於 `builtin` 計量，建議您使用開頭為 `/builtin/` 的 counterSpecifier 值。 如果您正在收集計量的特定執行個體，建議您將執行個體的識別碼附加至 counterSpecifier 值。 部分範例如下：
+counterSpecifier 是任意的識別碼。 如 Azure 入口網站的圖表與警示功能等計量的使用者，會使用 counterSpecifier 作為識別計量或計量執行個體的「鑰匙」。 對於 `builtin` 計量，建議您使用開頭為 `/builtin/` 的 counterSpecifier 值。 如果您正在收集計量的特定執行個體，建議您將執行個體的識別碼附加至 counterSpecifier 值。 以下是一些範例：
 
 * `/builtin/Processor/PercentIdleTime` - 所有 vCPU 的平均閒置時間
 * `/builtin/Disk/FreeSpace(/mnt)` - /mnt 檔案系統的可用空間
@@ -384,8 +384,8 @@ minSeverity | Syslog 嚴重性層級 (例如 "LOG\_ERR" 或 "LOG\_INFO")。 請�
 
 元素 | 值
 ------- | -----
-namespace | (選擇性) 應執行查詢的 OMI 命名空間。 如果未指定，則預設值為 "root/scx"，此值由[系統中心跨平台提供者](https://github.com/Microsoft/SCXcore) (英文) 實作。
-query | 欲執行的 OMI 查詢。
+命名空間 | (選擇性) 應執行查詢的 OMI 命名空間。 如果未指定，則預設值為 "root/scx"，此值由[系統中心跨平台提供者](https://github.com/Microsoft/SCXcore) (英文) 實作。
+查詢 | 欲執行的 OMI 查詢。
 資料表 | (選擇性) 所指定儲存體帳戶中的 Azure 儲存體資料表 (請參閱[受保護的設定](#protected-settings))。
 frequency | (選擇性) 執行查詢之間的秒數。 預設值為 300 秒 (5 分鐘)；最小值為 15 秒。
 sinks | (選擇性) 原始樣本計量結果應發佈至的額外接收名稱，以逗號分隔。 擴充功能或 Azure 計量不會計算這些原始樣本的彙總。
@@ -408,7 +408,7 @@ sinks | (選擇性) 原始樣本計量結果應發佈至的額外接收名稱，
 
 元素 | 值
 ------- | -----
-file | 欲監看與擷取的記錄檔完整路徑名稱。 路徑名稱必須命名單一檔案，不能命名目錄或包含萬用字元。
+檔案 | 欲監看與擷取的記錄檔完整路徑名稱。 路徑名稱必須命名單一檔案，不能命名目錄或包含萬用字元。
 資料表 | (選擇性) 所指定儲存體帳戶中的 Azure 儲存體資料表 (如受保護組態中指定)，檔案「尾端」的新行會寫入至此資料表。
 sinks | (選擇性) 將記錄行傳送至的額外接收名稱清單，以逗號分隔。
 
@@ -421,7 +421,7 @@ sinks | (選擇性) 將記錄行傳送至的額外接收名稱清單，以逗號
 * 處理器
 * 記憶體
 * 網路
-* 檔案系統
+* Filesystem
 * 磁碟
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>處理器類別的內建計量

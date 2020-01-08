@@ -1,5 +1,5 @@
 ---
-title: 在 Azure AD 權利管理-Azure Active Directory 中建立新的存取套件
+title: 在 [權利管理] 中建立新的存取套件-Azure AD
 description: 瞭解如何在 Azure Active Directory 權利管理中，建立您想要共用之資源的新存取封裝。
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71aa999809ba3d3e32d38162dfaba869d9716031
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 68d34046a16787ca1c6790880592fb30667ff2dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602711"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422686"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>在 Azure AD 權利管理中建立新的存取套件
 
@@ -83,7 +83,7 @@ ms.locfileid: "73602711"
 
     您所建立的存取套件和其中包含的任何資源都會新增至新的目錄。 您也可以稍後再新增其他目錄擁有者。
 
-1. 按一下 [下一步]。
+1. 按 [下一步]。
 
 ## <a name="resource-roles"></a>資源角色
 
@@ -105,7 +105,7 @@ ms.locfileid: "73602711"
 
     ![存取套件-資源角色選取](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. 按一下 [下一步]。
+1. 按 [下一步]。
 
 ## <a name="requests"></a>要求
 

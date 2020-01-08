@@ -3,12 +3,12 @@ title: 關於 Azure VM 備份
 description: 在本文中，您將瞭解 Azure 備份服務如何備份 Azure 虛擬機器，以及如何遵循最佳作法。
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 4bd42acbf682b51e17f60702e5695cfb29db812b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
-ms.translationtype: HT
+ms.openlocfilehash: b38c61adaf334eacb7d85292d4174189d6fddc46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806434"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391889"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 備份總覽
 
@@ -60,7 +60,7 @@ Azure 備份會根據備份排程來取得快照集。
 
 - **Windows vm：** 對於 Windows Vm，備份服務會與 VSS 協調，以取得 VM 磁片的應用程式一致快照集。
 
-  - 根據預設，Azure 備份會建立完整的 VSS 備份。 [深入了解提出技術問題。
+  - 根據預設，Azure 備份會建立完整的 VSS 備份。 [深入了解](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)。
   - 若要變更設定，讓 Azure 備份採用 VSS 複本備份，請從命令提示字元設定下列登錄機碼：
 
     **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent"/v USEVSSCOPYBACKUP/t REG_SZ/d TRUE/f**
@@ -75,7 +75,7 @@ Azure 備份會根據備份排程來取得快照集。
 
 下表說明不同類型的快照集一致性：
 
-**快照集** | **詳細資料** | **復原** | **考量**
+**快照式** | **詳細資料** | **復原** | **考量**
 --- | --- | --- | ---
 **應用程式一致** | 應用程式一致的備份會擷取記憶體內容和擱置 I/O 作業。 應用程式一致快照集會使用 VSS 寫入器（或適用于 Linux 的前置/後置腳本）來確保應用程式資料的一致性，然後才進行備份。 | 當您使用應用程式一致的快照集復原 VM 時，VM 會啟動。 沒有任何資料損毀或遺失。 應用程式會以一致的狀態開始。 | Windows：所有 VSS 寫入器都成功<br/><br/> Linux：已設定且成功的前置/後置腳本
 **檔案系統一致** | 檔案系統一致備份會同時取得所有檔案的快照集，以提供一致性。<br/><br/> | 當您使用檔案系統一致快照集復原 VM 時，VM 就會開機。 沒有任何資料損毀或遺失。 應用程式必須實作自己的「修正」機制，以確保還原的資料一致。 | Windows：部分 VSS 寫入器失敗 <br/><br/> Linux：預設值（如果未設定或失敗的前置/後置腳本）
@@ -109,7 +109,6 @@ Azure 備份會根據備份排程來取得快照集。
 - 修改在原則中設定的預設排程時間。 例如，如果原則中的預設時間是上午12:00，請將計時增加數分鐘，以便以最佳方式使用資源。
 - 如果您要從單一保存庫還原 Vm，強烈建議您使用不同[的一般用途 v2 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)，以確保目標儲存體帳戶不會受到節流。 例如，每個 VM 都必須有不同的儲存體帳戶。 例如，如果還原10個 Vm，請使用10個不同的儲存體帳戶。
 - 若要備份使用高階儲存體的 Vm，請使用立即還原，建議您配置*50%* 的可用空間（已配置的儲存空間總計，只有在第一次備份時**才**需要）。 第一次備份完成後，備份不需要50% 的可用空間
-- 從一般用途 v1 儲存層（快照集）進行的還原將會在幾分鐘內完成，因為快照集位於相同的儲存體帳戶中。 從一般用途 v2 儲存層（保存庫）進行還原可能需要數小時的時間。 在一般用途 v1 儲存體中提供資料的情況下，建議您使用「[立即還原](backup-instant-restore-capability.md)」功能進行更快速的還原。 （如果必須從保存庫還原資料，則需要更多時間。）
 - 每個儲存體帳戶的磁片數目限制相對於基礎結構即服務（IaaS） VM 上執行的應用程式所存取的磁片數量。 一般的作法是，如果單一儲存體帳戶上有5到10個磁片（或更多），請將一些磁片移至不同的儲存體帳戶來平衡負載。
 
 ## <a name="backup-costs"></a>備份成本
@@ -124,14 +123,14 @@ Azure 備份會根據備份排程來取得快照集。
 
 同樣地，備份儲存體帳單會以儲存在 Azure 備份中的資料量為基礎，這是每個復原點中實際資料的總和。
 
-例如，採用 A2 標準大小的 VM，其中有兩個額外的資料磁片，每個大小上限為 4 TB。 下表顯示每個磁片上儲存的實際資料：
+例如，採用 A2 標準大小的 VM，其中有兩個額外的資料磁片，每個大小上限為 32 TB。 下表顯示每個磁片上儲存的實際資料：
 
 **磁碟** | **大小上限** | **實際儲存的資料**
 --- | --- | ---
-作業系統磁碟 | 4095 GB | 17 GB
+作業系統磁碟 | 32 TB | 17 GB
 本機/暫存磁碟 | 135 GB | 5 GB (未包含備份)
-資料磁碟 1 | 4095 GB | 30GB
-資料磁碟 2 | 4095 GB | 0 GB
+資料磁碟 1 | 32 TB| 30GB
+資料磁碟 2 | 32 TB | 0 GB
 
 在此案例中，VM 的實際容量為 17 GB + 30 GB + 0 GB = 47 GB。 這個受保護的實例大小（47 GB）會成為每月帳單的基礎。 當 VM 中的資料量增加時，用於計費變更的受保護實例大小會符合。
 

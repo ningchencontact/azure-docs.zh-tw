@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 068747fd51779bd8a20636355a9ce2b032f6151d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8a371f902703287ed3105ed53a57d6341b9528d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255370"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415117"
 ---
 # <a name="get-help-with-your-system"></a>取得有關系統的協助
 
@@ -19,13 +19,13 @@ ms.locfileid: "72255370"
 
 * **Avere vFXT 問題** - 使用 Azure 入口網站，為 Avere vFXT 開立支援票證，如[下方](#open-a-support-ticket-for-your-avere-vfxt)所述。
 * **配額** - 如果您有與配額相關的問題，請[要求增加配額](#request-a-quota-increase)
-* **文件和範例** - 如果您發現本文件或範例中有任何問題，請捲動到存在問題的頁面底部，並使用 [意見反應] 區段搜尋現有的問題，如果需要，提出一個新問題。  
+* **文件和範例** - 如果您發現本文件或範例中有任何問題，請捲動到存在問題的頁面底部，並使用 [意見反應] 區段搜尋現有的問題，如果需要，提出一個新問題。
 
 ## <a name="open-a-support-ticket-for-your-avere-vfxt"></a>為 Avere vFXT 開立支援票證
 
-如果您在部署或使用 Avere vFXT 時遇到問題，請透過 Azure 入口網站要求協助。  
+如果您在部署或使用 Avere vFXT 時遇到問題，請透過 Azure 入口網站要求協助。
 
-請遵循下列步驟，確定您的支援票證已使用您叢集中的資源標記。 標記票證可協助我們將其發送至正確的技術資源。 
+請遵循下列步驟，確定您的支援票證已使用您叢集中的資源標記。 標記票證可協助我們將其發送至正確的技術資源。
 
 1. 從 [https://portal.azure.com](https://portal.azure.com) 選取 [資源群組]。
 
@@ -43,7 +43,7 @@ ms.locfileid: "72255370"
 
     ![Azure 入口網站中新增支援要求畫面的螢幕擷取畫面，其中的標頭為「基本」並圈出「服務」項目。 選取底部的「所有服務」，且下拉式功能表欄位的值為「Avere vFXT」](media/avere-vfxt-ticket-service.png)
 
-1. 在第二頁上，選擇最符合您問題的問題類型和類別。 新增簡短標題，以及包含問題發生時間的描述。 
+1. 在第二頁上，選擇最符合您問題的問題類型和類別。 新增簡短標題，以及包含問題發生時間的描述。
 
    ![標頭為「問題」之新增支援要求畫面的螢幕擷取畫面，其中包含必須完成的許多欄位](media/avere-vfxt-ticket-problem.png)
 

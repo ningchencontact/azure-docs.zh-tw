@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 8331d74528703df1d7c56f25af7df0f53cd1f9be
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 255c18144fe0089a3f630d90f527a57d2b4ed68b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996267"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391853"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題
 
@@ -28,6 +28,7 @@ Azure VM 代理程式可能已停止、過期、處於不一致的狀態，或�
 - **開啟 Azure 入口網站 > VM > 設定 >** [內容]**分頁，>** 確認 VM**狀態**為 [執行中] 且**代理程式狀態**為 [**就緒**]。 如果 VM 代理程式已停止或處於不一致的狀態，請重新開機代理程式<br>
   - 針對 Windows Vm，請遵循下列[步驟](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)來重新開機來賓代理程式。<br>
   - 針對 Linux Vm，請遵循下列[步驟](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)來重新開機來賓代理程式。
+- **開啟 Azure 入口網站 > VM > 設定 > 延伸**模組，> 確保所有延伸模組都處於布建**成功**狀態。 如果沒有，請遵循下列[步驟](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state)來解決問題。
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - 無法與 VM 代理程式通訊來取得快照集狀態
 
@@ -53,8 +54,8 @@ Azure VM 代理程式可能已停止、過期、處於不一致的狀態，或�
 
 當其中一個延伸模組失敗使 VM 進入「布建失敗」狀態時，就會發生此錯誤。<br>**開啟 Azure 入口網站 > VM > 設定 > > 延伸**模組的 [擴充功能] 狀態，並檢查所有延伸模組是否處於布建**成功**狀態。
 
-- 如果 VMSnapshot 延伸模組處於失敗狀態，則以滑鼠右鍵按一下失敗的延伸模組，並將它移除。 觸發臨機操作備份，這會重新安裝延伸模組並執行備份作業。  <br>
-- 如果任何其他延伸模組處於 [失敗] 狀態，則可能會干擾備份。 請確定已解決這些延伸模組問題，然後重試備份操作。  
+- 如果 VMSnapshot 延伸模組處於失敗狀態，請以滑鼠右鍵按一下失敗的延伸模組，並將它移除。 觸發隨選備份，這會重新安裝擴充功能並執行備份作業。  <br>
+- 如果任何其他延伸模組處於失敗狀態，則可能會干擾備份。 請確定已解決這些延伸模組問題，然後重試備份操作。  
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - 已達到還原點集合上限
 
@@ -147,13 +148,13 @@ Azure VM 代理程式可能已停止、過期、處於不一致的狀態，或�
 
 備份延伸模組需要連線到 Azure 公用 IP 位址，才能正確運作。 延伸模組會將命令傳送至 Azure 儲存體端點 (HTTPS URL) 來管理 VM 的快照集。 如果延伸模組無法存取公用網際網路，則備份最終會失敗。
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方案
 
 若要解決網路問題，請參閱[建立網路連線](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方案
 
 VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代理程式有助於取得最新版本。 也有助於重新開始與服務通訊。
 
@@ -169,7 +170,7 @@ VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM 中安裝的代理程式已過時 (適用於 Linux VM)
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方案
 
 針對 Linux VM，與代理程式或擴充功能相關的多數失敗是由於會影響過時 VM 代理程式的問題所造成。 若要對此問題進行疑難排解，請遵循下列一般方針：
 
@@ -207,11 +208,11 @@ VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代
 
 VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失敗，因為它無權存取儲存體帳戶，或是因為快照集工作延遲執行。
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方案
 
 下列狀況可能導致快照集工作失敗：
 
-| 原因 | 方案 |
+| 原因 | 解決方案 |
 | --- | --- |
 | 因為遠端桌面通訊協定 (RDP) 中的 VM 關機，而導致報告的 VM 狀態不正確。 | 如果您關閉 RDP 中的 VM，請檢查入口網站，以判斷 VM 狀態是否正確。 如果不正確，可使用 VM 儀表板上的 [關閉] 選項來關閉入口網站中的 VM。 |
 | VM 無法從 DHCP 取得主機或網狀架構位址。 | 必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。 如果 VM 無法從 DHCP 回應 245 取得主機或網狀架構位址，則無法下載或執行任何延伸模組。 如果您需要靜態私人 IP，則應透過**Azure 入口網站**或**PowerShell**加以設定，並確定已啟用 VM 內的 DHCP 選項。 [深入瞭解](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)如何使用 PowerShell 設定靜態 IP 位址。
@@ -220,7 +221,7 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 如果無法載入延伸模組，備份就會因為無法取得快照集而失敗。
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方案
 
 將擴充功能解除安裝，以強制重新載入 VMSnapshot 擴充功能。 下一次備份嘗試會重新載入解除安裝。
 
@@ -229,7 +230,7 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，移至發生備份失敗的 VM。
 2. 選取 [Settings] \(設定)。
 3. 選取 [擴充功能]。
-4. 選取 [Vmsnapshot 解除安裝]。
+4. 選取 [**快照集延伸**模組]。
 5. 選取 [解除安裝]。
 
 針對 Linux VM，如果 VMSnapshot 延伸模組未顯示在 Azure 入口網站中，[更新 Azure Linux 代理程式](../virtual-machines/linux/update-agent.md)，然後再執行備份。

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d071ff071c13637b15479d86a699d0b368119196
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2df52969ea79e5d1af132aa82c2ec1ceedb92b82
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742558"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422924"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>使用 Azure Active Directory 將系統管理員和非系統管理員角色指派給使用者
 如果貴組織的使用者需要管理 Azure Active Directory (Azure AD) 資源的權限，您必須根據使用者需要權限才能執行的動作，在 Azure AD 中為使用者指派適當的角色。
@@ -31,17 +31,24 @@ ms.locfileid: "73742558"
 您也可以使用 Privileged Identity Management (PIM) 來指派角色。 如需更多 PIM 使用方式的詳細資訊，請參閱 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)。
 
 ### <a name="to-assign-a-role-to-a-user"></a>若要將角色指派給使用者
-1. 使用目錄的全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com/)。
+1. 移至[Azure 入口網站](https://portal.azure.com/)，然後使用目錄的全域管理員帳戶登入。 
 
-2. 選取 [Azure Active Directory] 並選取 [使用者]，然後搜尋並選取要接受角色指派的使用者。 例如 _Alain Charon_。
+2. 搜尋並選取 [Azure Active Directory]。
+
+      ![Azure 入口網站搜尋 Azure Active Directory](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
+
+
+3. 選取 [使用者]。
+
+4. 搜尋並選取取得角色指派的使用者。 例如 _Alain Charon_。
 
       ![[所有使用者] 頁面-選取使用者](media/active-directory-users-assign-role-azure-portal/directory-role-select-user.png)
 
-3. 在 [ **Alain Charon-設定檔**] 頁面上，選取 [**指派的角色**]。
+5. 在 [ **Alain Charon-設定檔**] 頁面上，選取 [**指派的角色**]。
 
     隨即會顯示 [Alain Charon - 目錄角色] 頁面。
 
-4. 選取 [**新增指派**]，選取要指派給 Alain 的角色（例如_應用程式系統管理員_），然後選擇 [**選取**]。
+6. 選取 [**新增指派**]，選取要指派給 Alain 的角色（例如_應用程式系統管理員_），然後選擇 [**選取**]。
 
     ![[指派的角色] 頁面-顯示選取的角色](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
@@ -67,6 +74,6 @@ ms.locfileid: "73742558"
 
 - [從另一個目錄中新增來賓使用者](../b2b/what-is-b2b.md)
 
-或者您也可以執行其他使用者管理工作，例如指派委派、使用原則及共用使用者帳戶。 如需有關其他可用動作的詳細資訊，請參閱 [Azure Active Directory 使用者管理文件](../users-groups-roles/index.yml)。
+或者，您也可以執行其他使用者管理工作，例如指派委派、使用原則及共用使用者帳戶。 如需其他可用動作的詳細資訊，請參閱 [Azure Active Directory 使用者管理文件](../users-groups-roles/index.yml)。
 
 

@@ -1,7 +1,7 @@
 ---
 title: 使用 Application Insights 追蹤使用者行為
 titleSuffix: Azure AD B2C
-description: 了解如何使用自訂原則，從 Azure AD B2C 使用者旅程圖，在 Application Insights 中啟用事件記錄 (預覽)。
+description: 瞭解如何使用自訂原則，從 Azure AD B2C 使用者旅程啟用 Application Insights 中的事件記錄檔。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6643759688817811890fd022c7aa061607270b9e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8376deecb5e184c01b41495b868b57bd8fd745d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948941"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367955"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>使用 Application Insights 在 Azure Active Directory B2C 中追蹤使用者行為
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-當您使用 Azure Active Directory B2C （Azure AD B2C）搭配 Azure 應用程式 Insights 時，您可以為使用者旅程取得詳細的自訂事件記錄檔。 在本文中，您將了解：
+當您使用 Azure Active Directory B2C （Azure AD B2C）搭配 Azure 應用程式 Insights 時，您可以為使用者旅程取得詳細的自訂事件記錄檔。 在本文中，您將學會如何：
 
 * 深入了解使用者行為。
 * 在開發或實際執行時對您自己的原則進行疑難排解。
@@ -33,7 +33,7 @@ ms.locfileid: "74948941"
 
 Azure AD B2C 中的身分識別體驗架構納入了 `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0` 提供者。 它會使用提供給 Azure AD B2C 的檢測金鑰，將事件資料直接傳送到 Application Insights。
 
-技術設定檔會使用此提供者來定義 Azure AD B2C 的事件。 這個設定檔會指定事件的名稱、所記錄的宣告及檢測金鑰。 為了張貼事件，接著會在自訂的使用者旅程圖中新增技術設定檔，以作為 `orchestration step` 或 `validation technical profile`。
+技術設定檔會使用此提供者來定義 Azure AD B2C 的事件。 這個設定檔會指定事件的名稱、所記錄的宣告及檢測金鑰。 為了張貼事件，會將技術設定檔新增為自訂使用者旅程圖中的 `orchestration step`。
 
 Application Insights 可以使用相互關聯識別碼來記錄使用者工作階段，以此方式統一事件。 Application Insights 會在數秒內使事件和工作階段成為可用狀態，並提供許多視覺效果、匯出及分析工具。
 
@@ -48,11 +48,11 @@ Application Insights 可以使用相互關聯識別碼來記錄使用者工作�
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您訂用帳戶的目錄，以確定您使用的是包含 Azure 訂用帳戶的目錄。 此租用戶不是您的 Azure AD B2C 租用戶。
 3. 選擇 Azure 入口網站左上角的 [建立資源]，然後搜尋並選取 [Application Insights]。
-4. 按一下 [建立]。
+4. 按一下頁面底部的 [新增]。
 5. 輸入資源的 [名稱]。
 6. 針對 [應用程式類型]，選取 [ASP.NET Web 應用程式]。
 7. 針對 [資源群組]，選取現有的群組或輸入新群組的名稱。
-8. 按一下 [建立]。
+8. 按一下頁面底部的 [新增]。
 4. 建立 Application Insights 資源後，開啟資源、展開 [基本資訊]，並複製檢測金鑰。
 
 ![Application Insights 概觀與檢測金鑰](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-insights.png)

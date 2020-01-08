@@ -1,7 +1,7 @@
 ---
-title: Azure AD 憑證認證
+title: Microsoft 身分識別平臺憑證認證
 titleSuffix: Microsoft identity platform
-description: 本文討論如何註冊和使用憑證認證來進行應用程式驗證
+description: 本文討論如何註冊和使用憑證認證進行應用程式驗證。
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -10,29 +10,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d37b390e39d2b991ea01468feffbe39c9578af54
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7a44d89e19a1efc54e2c3c49053ec9badc91ba97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963863"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424712"
 ---
-# <a name="azure-ad-application-authentication-certificate-credentials"></a>Azure AD 應用程式驗證憑證認證
+# <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Microsoft 身分識別平臺應用程式驗證憑證認證
 
-Azure Active Directory (Azure AD) 可讓應用程式使用自己的認證進行驗證，例如，在 OAuth 2.0 用戶端認證授與流程 ([v1.0](v1-oauth2-client-creds-grant-flow.md)、[v2.0](v2-oauth2-client-creds-grant-flow.md)) 和代理者流程 ([v1.0](v1-oauth2-on-behalf-of-flow.md)、[v2.0](v2-oauth2-on-behalf-of-flow.md)) 中。
+Microsoft 身分識別平臺可讓應用程式使用自己的認證進行驗證，例如，在[OAuth 2.0 用戶端認證授與 flowv 2.0](v2-oauth2-client-creds-grant-flow.md)和代理者[流程](v2-oauth2-on-behalf-of-flow.md)中）。
 
 應用程式可用於驗證的認證形式之一，是以應用程式擁有的憑證簽署的 JSON Web 權杖 (JWT) 判斷提示。
 
 ## <a name="assertion-format"></a>判斷提示格式
+Microsoft 身分識別平臺若要計算判斷提示，您可以使用您選擇的語言中的眾多[JSON Web 權杖](https://jwt.ms/)程式庫其中之一。 權杖所承載的資訊如下︰
 
-若要計算判斷提示，您可以使用本身所選語言中的眾多 [JSON Web 權杖](https://jwt.ms/)程式庫之一。 權杖所承載的資訊如下︰
-
-### <a name="header"></a>標頭
+### <a name="header"></a>頁首
 
 | 參數 |  備註 |
 | --- | --- |
@@ -89,9 +88,9 @@ Azure Active Directory (Azure AD) 可讓應用程式使用自己的認證進行�
 Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
-## <a name="register-your-certificate-with-azure-ad"></a>使用 Azure AD 註冊您的憑證
+## <a name="register-your-certificate-with-microsoft-identity-platform"></a>向 Microsoft 身分識別平臺註冊您的憑證
 
-您可以使用以下任一種方法，透過 Azure 入口網站在 Azure AD 中建立憑證認證與用戶端應用程式之間的關聯：
+您可以使用下列任何方法，透過 Azure 入口網站，將憑證認證與 Microsoft 身分識別平臺中的用戶端應用程式建立關聯：
 
 ### <a name="uploading-the-certificate-file"></a>上傳憑證檔案
 
@@ -125,7 +124,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
        }
    ]
    ```
-3. 儲存對應用程式資訊清單所做的編輯，然後將資訊清單上傳至 Azure AD。 
+3. 將編輯儲存至應用程式資訊清單，然後將資訊清單上傳至 Microsoft 身分識別平臺。 
 
    `keyCredentials` 屬性是多重值，因此您可以上傳多個憑證以進行更豐富的金鑰管理。
    
@@ -134,4 +133,4 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 > [!NOTE]
 > 您必須使用憑證的雜湊來計算 X5T 標頭，並將其轉換為 base64 字串。 在C#中，看起來會類似下列內容： `System.Convert.ToBase64String(cert.GetCertHash());`
 
-[在精靈應用程式中使用憑證向 Azure AD 驗證](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)中的程式碼範例會說明應用程式如何使用其本身的認證進行驗證。 此外也說明如何使用 `New-SelfSignedCertificate` PowerShell 命令[建立自我簽署憑證](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate)。 您也可以利用[應用程式建立指令碼](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md)來建立憑證、計算指紋，和執行其他作業。
+在具有憑證的[daemon 應用程式中向 Microsoft 身分識別平臺進行驗證](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)的程式碼範例會顯示應用程式如何使用自己的認證進行驗證。 此外也說明如何使用 `New-SelfSignedCertificate` PowerShell 命令[建立自我簽署憑證](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate)。 您也可以利用[應用程式建立指令碼](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md)來建立憑證、計算指紋，和執行其他作業。
