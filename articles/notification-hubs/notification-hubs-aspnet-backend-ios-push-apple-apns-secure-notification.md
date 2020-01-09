@@ -1,5 +1,5 @@
 ---
-title: Azure 通知中心安全推播
+title: 適用于 iOS 的 Azure 通知中樞安全推播
 description: 了解如何從 Azure 將安全的推播通知傳送至 iOS 應用程式。 程式碼範例是以 Objective-C 及 C# 撰寫。
 documentationcenter: ios
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 4a175b14d44ef7ba019c28fbd03bac98ada7a2a3
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 96d1dd514f6fb9c11d7194714337583d6b4387cf
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212140"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530743"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure 通知中心安全推播
 
@@ -30,7 +30,7 @@ ms.locfileid: "71212140"
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 > * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，因而可大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。
 

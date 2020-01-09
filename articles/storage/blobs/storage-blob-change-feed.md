@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 19a65e688d66738db0b6e4dcca383c6e4abed262
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b26e54c7130469eee87a9237f4847f46cb3b7698
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974391"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75691051"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Azure Blob 儲存體中的變更摘要支援（預覽）
 
@@ -96,7 +96,7 @@ ms.locfileid: "74974391"
 5. 為您的儲存體帳戶啟用變更摘要。
 
    ```powershell
-   Update-AzStorageBlobServiceProperty -ResourceGroupName -StorageAccountName -EnableChangeFeed $true
+   Update-AzStorageBlobServiceProperty -EnableChangeFeed $true
    ```
 
 ### <a name="templatetabtemplate"></a>[範本](#tab/template)

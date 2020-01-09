@@ -1,25 +1,25 @@
 ---
 title: Azure HDInsight 中的範例 Apache Storm 拓撲
 description: 利用 Apache Storm on HDInsight 建立和測試的範例 Storm 拓撲清單 (包含基本 basic C# 和 Java 拓撲)，以及使用事件中樞。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.openlocfilehash: 831d3a187a4388a429c6fabb1bb0e0ec6dd584cc
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.custom: hdinsightactive
+ms.date: 12/27/2019
+ms.openlocfilehash: 302ba583f11b15be98832316b1ea05c7f9be931f
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800052"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530658"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Apache Storm on HDInsight 的範例 Apache Storm 拓撲及元件
 
 下列是 Microsoft 所建立和維護的範例清單，可搭配 [Apache Storm](https://storm.apache.org/) on HDInsight 使用。 這些範例涵蓋各種主題，從建立基本 C# 和 Java 拓撲，到使用 Azure 服務 (例如事件中樞、Cosmos DB、SQL Database、[Apache HBase](https://hbase.apache.org/) on HDInsight 和 Azure 儲存體)。 一些範例也會示範如何使用非 Azure 或甚至非 Microsoft 的技術，例如 SignalR 和 Socket.IO。
 
-| 描述 | 示範 | 語言/架構 |
+| 說明 | 示範 | 語言/架構 |
 |:--- |:--- |:--- |
 | [從 Apache Storm 寫入 Azure Data Lake Storage](apache-storm-write-data-lake-store.md) |寫入 Azure Data Lake Storage |Java |
 | [事件中樞 Spout 和 Bolt 來源](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |事件中樞 Spout 和 Bolt 的來源 |Java |
@@ -47,7 +47,6 @@ ms.locfileid: "72800052"
 * [建立和監視 Azure HDInsight 中的 Apache Storm 拓撲](./apache-storm-quickstart.md)
 * [瞭解如何在 HDInsight 上使用 Apache Storm 部署和管理 Apache Storm 拓撲][6eb0d3b8]
 
-
 [6eb0d3b8]:apache-storm-deploy-monitor-topology-linux.md "了解如何使用 Web 型 Apache Storm 儀表板和 Storm UI 或適用於 Visual Studio 的 HDInsight 工具部署和管理拓撲。"
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "了解如何使用 HDInsight Tools for Visual Studio 建立 C# Storm 拓撲。"
 [5797064f]:apache-storm-develop-java-topology.md "了解如何建立基本字數統計拓撲，以使用 Maven 在 Java 中建立 Storm 拓撲。"
@@ -56,4 +55,3 @@ ms.locfileid: "72800052"
 [d6c540e3]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/EventCountExample "示範使用 Apache Storm on HDInsight 從 Azure 事件中樞讀取並儲存至 SQL Database 時之輸送量的幾個拓樸。"
 [b4b68194]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample "了解如何讀取 Azure 事件中樞的資料、彙總與轉換資料，然後將它儲存至 HBase on HDInsight。"
 [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "此專案包含 spout、bolt 和拓撲的範本，藉此和各種 Azure 服務進行互動，例如事件中樞、Cosmos DB 和 SQL Database。"
-

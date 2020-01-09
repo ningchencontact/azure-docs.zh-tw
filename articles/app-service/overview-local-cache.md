@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: bce0620ed6be4937c95a2ce01f3d4c175c8bc18d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 87c95d8bbf199f232eca5475f4d8f0c64427a198
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687083"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680880"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 本機快取概觀
 
@@ -36,7 +36,7 @@ Azure App Service 本機快取功能可讓您以 Web 角色檢視您的內容。
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>本機快取對 App Service 的行為所造成的影響
 * _D:\home_ 會指向應用程式啟動時，在 VM 執行個體上建立的本機快取。 _D:\local_ 會繼續指向暫存 VM 的特定儲存體。
-* 本機快取中包含共用內容存放區上 _/site_ 和 _/siteextensions_ 資料夾的一次性副本，分別位在 _D:\home\site_ 和 _D:\home\siteextensions_。 檔案會在應用程式啟動時複製到本機快取。 針對每個應用程式，兩個資料夾的大小限制預設為 300 MB，但最多可以增加至 2 GB。
+* 本機快取中包含共用內容存放區上 _/site_ 和 _/siteextensions_ 資料夾的一次性副本，分別位在 _D:\home\site_ 和 _D:\home\siteextensions_。 檔案會在應用程式啟動時複製到本機快取。 針對每個應用程式，兩個資料夾的大小限制預設為 300 MB，但最多可以增加至 2 GB。 如果複製的檔案超過本機快取的大小，App Service 會以無訊息方式忽略本機快取，並從遠端檔案共用讀取。
 * 本機快取具有讀寫屬性。 不過，當應用程式移動虛擬機器或重新啟動時，將會捨棄任何修改。 因此，請勿針對會在內容存放區中儲存關鍵任務資料的應用程式使用本機快取。
 * _D:\home\LogFiles_ 和 _D:\home\Data_ 中包含記錄檔和應用程式資料。 這兩個子資料夾會儲存在本機上的 VM 執行個體中，並定期複製到共用內容存放區。 應用程式可以藉由將記錄檔和資料寫入這些資料夾來加以保存。 不過，複製到共用內容存放區已是最佳方式，記錄檔和資料還是可能會因為 VM 執行個體突然當機而遺失。
 * [記錄串流](troubleshoot-diagnostic-logs.md#stream-logs)會受到此最佳複製方式的影響。 您可能會看到串流處理的記錄中有最多一分鐘的延遲。
@@ -83,7 +83,7 @@ Azure App Service 本機快取功能可讓您以 Web 角色檢視您的內容。
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>變更本機快取中的大小設定
-根據預設，本機快取大小為**1 GB**。 此大小包括複製自內容存放區的 /site 和 /siteextensions 資料夾，以及任何在本機建立之記錄和資料的資料夾。 若要增加此限制，請使用應用程式設定 `WEBSITE_LOCAL_CACHE_SIZEINMB`。 每個應用程式的大小最多可以增加為 **2 GB** (2000 MB)。
+根據預設，本機快取大小是 **300 MB**。 此大小包括複製自內容存放區的 /site 和 /siteextensions 資料夾，以及任何在本機建立之記錄和資料的資料夾。 若要增加此限制，請使用應用程式設定 `WEBSITE_LOCAL_CACHE_SIZEINMB`。 每個應用程式的大小最多可以增加為 **2 GB** (2000 MB)。
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>使用 App Service 本機快取的最佳作法
 建議您搭配 [預備環境](../app-service/deploy-staging-slots.md) 功能使用本機快取。

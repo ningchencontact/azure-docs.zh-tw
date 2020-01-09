@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0aa2cbad75319de93c34128a09f94971e5c70216
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 00262b48b8fa2fd1292554155e8ec8e933d886e6
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790623"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690899"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>變更 Azure 中 SQL Server 虛擬機器的授權模型
 本文說明如何使用新的 SQL VM 資源提供者**microsoft.sqlvirtualmachine**，在 Azure 中變更 SQL Server 虛擬機器（VM）的授權模型。
@@ -129,7 +129,7 @@ Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -License
    - 僅適用于具有[軟體保證](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-overview)的客戶。
    - 僅支援 Standard 和 Enterprise 版本的 SQL Server。 不支援 Express、Web 和 Developer 的授權變更。 
    - 僅支援透過 Azure Resource Manager 模型部署的虛擬機器。 不支援透過傳統模型部署的虛擬機器。 
-   - 僅適用于公用雲端安裝。 
+   - 僅適用于公用或 Azure Government 雲端。 
    - 只有在具有單一網路介面（NIC）的虛擬機器上才支援。 
 
 
@@ -144,14 +144,14 @@ Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -License
 您必須向資源提供者註冊您的訂用帳戶，然後向[資源提供者註冊您的 SQL SERVER VM](virtual-machines-windows-sql-register-with-resource-provider.md)。 
 
 
-## <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>虛擬機器 '\<vmname\>' 有多個相關聯的 NIC
+### <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>虛擬機器 '\<vmname\>' 有多個相關聯的 NIC
 
 此錯誤發生在具有一個以上 NIC 的虛擬機器上。 在您變更授權模型之前，請先移除其中一個 Nic。 雖然您可以在變更授權模型之後，將 NIC 新增回 VM，但將不再支援 Azure 入口網站中的作業，例如自動備份和修補。 
 
 
 ## <a name="next-steps"></a>後續步驟
 
-如需詳細資訊，請參閱下列文章。 
+如需詳細資訊，請參閱下列文章： 
 
 * [Windows VM 上的 SQL Server 概觀](virtual-machines-windows-sql-server-iaas-overview.md)
 * [Windows VM 上的 SQL Server 常見問題](virtual-machines-windows-sql-server-iaas-faq.md)

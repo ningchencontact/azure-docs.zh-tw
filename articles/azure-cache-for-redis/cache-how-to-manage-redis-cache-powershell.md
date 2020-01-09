@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 06d1895a807b4e618be3dc1f816da2c1b3faaf3b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 6eeabb279f5bd5165ebb249651b8bc926deb92a6
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122150"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530913"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Cache for Redis
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "74122150"
 
 如需傳統部署模型的詳細資訊，請參閱 [Azure Resource Manager 與傳統部署比較：了解資源的部署模型和狀態](../azure-resource-manager/resource-manager-deployment-model.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 如果您已安裝 Azure PowerShell，其必須是 Azure PowerShell 1.0.0 或更新的版本。 您可以在 Azure PowerShell 命令提示字元下使用這個命令來檢查已安裝的 Azure PowerShell 版本。
 
     Get-Module Az | format-table version
@@ -40,7 +40,7 @@ ms.locfileid: "74122150"
 
 在 [Microsoft Azure 登入] 對話方塊中，指定 Azure 帳戶的電子郵件地址和密碼。
 
-接下來，如果您有多個 Azure 訂用帳戶，請設定 Azure 訂用帳戶。 如果想查看目前的訂閱帳戶清單，請執行這個命令。
+接下來，如果您有多個 Azure 訂用帳戶，請設定 Azure 訂用帳戶。 如果想查看目前的訂用帳戶清單，請執行這個命令。
 
     Get-AzSubscription | sort SubscriptionName | Select SubscriptionName
 
@@ -95,7 +95,7 @@ ms.locfileid: "74122150"
 * 中國東部
 * 中國北部
 
-如需 Azure 中國雲端的詳細資訊，請參閱 [由中國的世紀互聯營運的 Azure 中國雲端](http://www.windowsazure.cn/)。
+如需 Azure 中國雲端的詳細資訊，請參閱 [由中國的世紀互聯營運的 Azure 中國雲端](https://www.windowsazure.cn/)。
 
 ### <a name="to-connect-to-microsoft-azure-germany"></a>連線到 Microsoft Azure (德國)
 若要連線到 Microsoft Azure (德國)，請使用下列其中一個命令。
@@ -117,16 +117,16 @@ ms.locfileid: "74122150"
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>用於 Azure Cache for Redis PowerShell 的屬性
 下表為使用 Azure PowerShell 建立和管理 Azure Cache for Redis 執行個體時常用參數的屬性和說明。
 
-| 參數 | 描述 | 預設值 |
+| 參數 | 說明 | 預設 |
 | --- | --- | --- |
 | 名稱 |快取的名稱 | |
 | 位置 |快取的位置 | |
 | resourceGroupName |資源群組名稱，將在其中建立快取 | |
 | 大小 |快取的大小。 有效值為：P1、P2、P3、P4、C0、C1、C2、C3、C4、C5、C6、250MB、1GB、2.5GB、6GB、13GB、26GB、53GB |1GB |
 | ShardCount |在啟用叢集的情況下建立進階快取時要建立的分區數目。 有效值為：1、2、3、4、5、6、7、8、9、10 | |
-| SKU |指定快取的 SKU。 有效值為：Basic、Standard、Premium |標準 |
+| SKU |指定快取的 SKU。 有效值為：Basic、Standard、Premium |Standard |
 | RedisConfiguration |指定 Redis 組態設定。 如需每個設定的詳細資訊，請參閱以下的 [RedisConfiguration 屬性](#redisconfiguration-properties) 表格。 | |
-| EnableNonSslPort |指出是否已啟用非 SSL 連接埠。 |False |
+| EnableNonSslPort |指出是否已啟用非 SSL 連接埠。 |否 |
 | MaxMemoryPolicy |這個參數已被取代，請改用 RedisConfiguration。 | |
 | StaticIP |當快取是裝載在 VNET 中，為快取在子網路中指定唯一 IP 位址。 如果未提供，則會從子網路中為您選擇一個。 | |
 | 子網路 |當快取是裝載在 VNET 中，指定要在其中部署快取的子網路。 | |
@@ -134,7 +134,7 @@ ms.locfileid: "74122150"
 | KeyType |指定更新存取金鑰時要重新產生哪一個存取金鑰。 有效值為：Primary、Secondary | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration 屬性
-| 屬性 | 描述 | 定價層 |
+| 屬性 | 說明 | 定價層 |
 | --- | --- | --- |
 | rdb-backup-enabled |是否已啟用 [Redis 資料持續性](cache-how-to-premium-persistence.md) |僅限進階版 |
 | rdb-storage-connection-string |[Redis 資料持續性](cache-how-to-premium-persistence.md) |僅限進階版 |
@@ -147,7 +147,7 @@ ms.locfileid: "74122150"
 | set-max-intset-entries |設定小型彙總資料類型的 [記憶體最佳化](https://redis.io/topics/memory-optimization) |標準和進階 |
 | zset-max-ziplist-entries |設定小型彙總資料類型的 [記憶體最佳化](https://redis.io/topics/memory-optimization) |標準和進階 |
 | zset-max-ziplist-value |設定小型彙總資料類型的 [記憶體最佳化](https://redis.io/topics/memory-optimization) |標準和進階 |
-| 資料庫 |設定資料庫數目。 這個屬性僅可以在建立快取時設定。 |標準和進階 |
+| databases |設定資料庫數目。 這個屬性僅可以在建立快取時設定。 |標準和進階 |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>建立 Azure Cache for Redis
 建立新的「Azure Redis 快取」執行個體時，會使用 [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) Cmdlet 來建立。
@@ -322,7 +322,7 @@ ms.locfileid: "74122150"
 <a name="scale"></a>
 
 ## <a name="to-scale-an-azure-cache-for-redis"></a>調整 Azure Cache for Redis
-修改 `Set-AzRedisCache`、`Size` 或 `Sku` 屬性時，可使用 `ShardCount` 來調整 Azure Cache for Redis 執行個體。 
+修改 `Size`、`Sku` 或 `ShardCount` 屬性時，可使用 `Set-AzRedisCache` 來調整 Azure Cache for Redis 執行個體。 
 
 > [!NOTE]
 > 使用 PowerShell 調整快取，和從 Azure 入口網站調整快取有相同的限制和準則。 您可以調整具有下列限制的不同定價層。
@@ -417,7 +417,7 @@ ms.locfileid: "74122150"
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-若要傳回目前訂用帳戶中所有快取的相關資訊，請不帶任何參數執行 `Get-AzRedisCache` 。
+若要傳回目前訂用帳戶中所有快取的相關資訊，請不帶任何參數執行 `Get-AzRedisCache`。
 
     Get-AzRedisCache
 
@@ -529,7 +529,7 @@ ms.locfileid: "74122150"
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-若要重新產生快取的主要或次要金鑰，請呼叫 `New-AzRedisCacheKey` Cmdlet，並傳入名稱、資源群組，且針對 `Primary` 參數指定 `Secondary` 或 `KeyType`。 在下列範例中，會重新產生快取的次要存取金鑰。
+若要重新產生快取的主要或次要金鑰，請呼叫 `New-AzRedisCacheKey` Cmdlet，並傳入名稱、資源群組，且針對 `KeyType` 參數指定 `Primary` 或 `Secondary`。 在下列範例中，會重新產生快取的次要存取金鑰。
 
     PS C:\> New-AzRedisCacheKey -Name myCache -ResourceGroupName myGroup -KeyType Secondary
 

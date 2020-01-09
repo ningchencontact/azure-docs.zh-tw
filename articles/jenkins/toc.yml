@@ -11,7 +11,7 @@
       href: install-jenkins-solution-template.md
 - name: 教學課程
   items:
-    - name: 1. Install
+    - name: 1. 安裝
       items:
         - name: 建立 Jenkins 伺服器
           href: install-jenkins-solution-template.md
@@ -24,6 +24,10 @@
           href: jenkins-azure-vm-agents.md
     - name: 3. 實作 CI/CD
       items:
+        - name: Azure Spring Cloud
+          items:
+            - name: 使用 Azure CLI 部署至 Azure Spring Cloud
+              href: tutorial-jenkins-deploy-cli-spring-cloud-service.md
         - name: AKS
           items:
             - name: Kubernetes 中的 CI/CD
@@ -53,7 +57,7 @@
         - name: Service Fabric 服務
           href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
           maintainContext: true
-- name: 作法
+- name: 操作方式
   items:
     - name: 使用 App Service 外掛程式
       href: deploy-jenkins-app-service-plugin.md

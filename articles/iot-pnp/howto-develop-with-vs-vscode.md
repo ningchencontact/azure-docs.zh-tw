@@ -3,23 +3,23 @@ title: 使用 Visual Studio 和 Visual Studio Code 來建立 IoT 隨插即用預
 description: 使用 Visual Studio 和 Visual Studio Code 來加速撰寫 IoT 隨插即用裝置模型及執行裝置程式碼。
 author: liydu
 ms.author: liydu
-ms.date: 10/29/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 6ce5a93cdd44af7f199d59d459daa46b4adb0719
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b4325aa6f379dc0b281d06cb593c28448698c71b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748044"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531321"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>使用 Visual Studio 和 Visual Studio Code 來建立 IoT 隨插即用裝置
 
 Visual Studio Code 的 Azure IoT Tools 提供整合式環境，可撰寫裝置功能模型（DCM）和介面、發行至模型存放庫，以及產生基本架構 C 程式碼來執行裝置應用程式。
 
-本文將說明如何：
+本文示範如何：
 
 - 產生裝置程式碼和應用程式專案。
 - 在您的裝置專案中使用產生的程式碼。
@@ -99,7 +99,7 @@ Visual Studio Code 的 Azure IoT Tools 提供整合式環境，可撰寫裝置�
     sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
     ```
 
-    確認 `cmake` 的版本高於**2.8.12** ，且**GCC**的版本高於**4.4.7**。
+    確認 `cmake` 的版本高於 **2.8.12**，而且 **GCC** 的版本高於 **4.4.7**。
 
     ```bash
     cmake --version
@@ -150,13 +150,13 @@ Visual Studio Code 的 Azure IoT Tools 提供整合式環境，可撰寫裝置�
 
 ### <a name="windows"></a>Windows
 
-若要使用 Visual StudioC++ CMake 與 Windows 上的裝置 c SDK 建立裝置程式碼，請在命令列中，參閱[IoT 隨插即用快速入門](./quickstart-create-pnp-device.md)。 下列步驟示範如何在 Visual Studio 中，將裝置程式碼與裝置 C SDK Vcpkg 做為 CMake 專案一起建立。
+若要使用 Visual StudioC++ CMake 與 Windows 上的裝置 c SDK 建立裝置程式碼，請在命令列中，參閱[IoT 隨插即用快速入門](./quickstart-create-pnp-device-windows.md)。 下列步驟示範如何在 Visual Studio 中，將裝置程式碼與裝置 C SDK Vcpkg 做為 CMake 專案一起建立。
 
-1. 請依照[快速入門](https://docs.microsoft.com/azure/iot-pnp/quickstart-create-pnp-device#prepare-the-development-environment)中的步驟，透過 Vcpkg 安裝適用于 C 的 Azure IOT 裝置 SDK。
+1. 請依照[快速入門](https://docs.microsoft.com/azure/iot-pnp/quickstart-create-pnp-device-windows#prepare-the-development-environment)中的步驟，透過 Vcpkg 安裝適用于 C 的 Azure IOT 裝置 SDK。
 
 1. 安裝[Visual Studio 2019 （「社區」、「專業」或「企業」）](https://visualstudio.microsoft.com/downloads/) -請確定您包含**NuGet 套件管理員**元件和使用**C++** 工作負載的桌面開發。
 
-1. 開啟 Visual Studio，選擇 檔案 **> 開啟 > CMake** 。 若要開啟資料夾中的 `CMakeLists.txt`，包含產生的程式碼。
+1. 開啟 Visual Studio，選擇 [檔案 **> 開啟 > CMake ...** ] 以開啟資料夾中的 `CMakeLists.txt`，其中包含產生的程式碼。
 
 1. 在 [**一般** **] 工具列中，尋找**[設定] 下拉式清單。 選取 [**管理**設定] 以新增專案的 CMake 設定。
 

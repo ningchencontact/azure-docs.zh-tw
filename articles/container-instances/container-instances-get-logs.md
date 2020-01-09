@@ -1,25 +1,25 @@
 ---
 title: 取得容器實例記錄 & 事件
-description: 了解如何使用 Azure 容器執行個體針對容器記錄和事件進行偵錯
+description: 瞭解如何在 Azure 容器實例中取得容器記錄和事件，以協助針對容器問題進行疑難排解
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 12/30/2019
 ms.custom: mvc
-ms.openlocfilehash: 57d35b9423fd8c64e5a58ee4d8055aa3b238ba8c
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: fe30ab875aa6cd7f465ffe69672a771e18134e1c
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481740"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664727"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>在 Azure 容器執行個體中擷取容器記錄和事件
 
-當您有異常的容器時，請先使用[az 容器記錄][az-container-logs]來查看其記錄，然後使用[az container attach][az-container-attach]來串流其標準輸出和標準錯誤。
+當您在 Azure 容器實例中有異常的容器時，請先使用[az 容器記錄][az-container-logs]來查看其記錄，然後使用[az container attach][az-container-attach]來串流其標準輸出和標準錯誤。 您也可以在 Azure 入口網站中查看容器實例的記錄和事件，或將容器群組的記錄檔和事件資料傳送至[Azure 監視器記錄](container-instances-log-analytics.md)。
 
 ## <a name="view-logs"></a>檢視記錄
 
 若要在容器內檢視應用程式程式碼中的記錄，您可以使用 [az container logs][az-container-logs] 命令。
 
-以下記錄輸出是來自[在 ACI 中執行容器化工作](container-instances-restart-policy.md)中的工作型容器範例，這是讓容器處理無效 URL 之後的記錄輸出：
+以下是在使用命令列覆寫提供不正確 URL 之後，在[容器實例中設定命令列](container-instances-start-command.md#azure-cli-example)中，以工作為基礎的容器範例中的記錄輸出：
 
 ```console
 $ az container logs --resource-group myResourceGroup --name mycontainer
@@ -47,7 +47,7 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 [Az container attach][az-container-attach]命令會提供容器啟動期間的診斷資訊。 容器啟動之後，會將 STDOUT 和 STDERR 串流至您的本機主控台。
 
-例如，以下輸出是來自[在 ACI 中執行容器化工作](container-instances-restart-policy.md)的工作型容器，這是處理有效大型文字檔 URL 之後的輸出：
+例如，在提供要處理之大型文字檔的有效 URL 之後，在[容器實例的設定命令列](container-instances-start-command.md#azure-cli-example)中，以工作為基礎的容器輸出如下：
 
 ```console
 $ az container attach --resource-group myResourceGroup --name mycontainer
@@ -76,7 +76,7 @@ Start streaming logs:
 
 ## <a name="get-diagnostic-events"></a>取得診斷事件
 
-如果容器的部署並未成功，您就需要檢閱由 Azure Container Instances 資源提供者所提供的診斷資訊。 若要檢視容器的事件，請執行 [az container show][az-container-show] 命令：
+如果您的容器無法順利部署，請參閱 Azure 容器實例資源提供者所提供的診斷資訊。 若要查看容器的事件，請執行[az container show][az-container-show]命令：
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
@@ -145,6 +145,9 @@ az container show --resource-group myResourceGroup --name mycontainer
 ## <a name="next-steps"></a>後續步驟
 了解如何在 Azure 容器執行個體中[針對常見容器和部署問題進行疑難排解](container-instances-troubleshooting.md)。
 
+瞭解如何將容器群組的記錄檔和事件資料傳送至[Azure 監視器記錄](container-instances-log-analytics.md)。
+
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach
 [az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show

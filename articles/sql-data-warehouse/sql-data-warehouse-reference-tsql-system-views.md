@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: query
-ms.date: 06/13/2018
+ms.date: 01/06/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a8073084007d3174b92995c16785c3f8bc82b642
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 36f0738dc478d7a1144527acb29118a7a99ef5ac
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692547"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690775"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中支援的系統檢視表
 Azure SQL 資料倉儲中所支援 T-SQL 陳述式的文件連結。
@@ -41,9 +41,8 @@ Azure SQL 資料倉儲中所支援 T-SQL 陳述式的文件連結。
 * [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql)
 * [sys.pdw_table_distribution_properties](https://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](https://msdn.microsoft.com/library/mt203876.aspx)
-* [sys. resource_governor_workload_groups](/sql/relational-databases/system-catalog-views/sys-resource-governor-workload-groups-transact-sql)
-* [sys. workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql) （預覽）
-* [sys. workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql) （預覽）
+* [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql)
+* [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql)
 
 ## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>SQL 資料倉儲動態管理檢視 (DMV)
 * [sys.dm_pdw_dms_cores](https://msdn.microsoft.com/library/mt203911.aspx)
@@ -64,6 +63,7 @@ Azure SQL 資料倉儲中所支援 T-SQL 陳述式的文件連結。
 * [sys.dm_pdw_sys_info](https://msdn.microsoft.com/library/mt203900.aspx)
 * [sys.dm_pdw_wait_stats](https://msdn.microsoft.com/library/mt203909.aspx)
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
+* [sys. dm_workload_management_workload_groups_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql) （預覽）
 
 ## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>適用於 SQL 資料倉儲的 SQL Server DMV
 下列 DMV 適用於「SQL 資料倉儲」，但必須透過連接到 **master** 資料庫才能執行。
@@ -91,7 +91,7 @@ Azure SQL 資料倉儲中所支援 T-SQL 陳述式的文件連結。
 * [sys.database_files](https://msdn.microsoft.com/library/ms174397.aspx)
 * [sys.database_permissions](https://msdn.microsoft.com/library/ms188367.aspx)
 * [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx)
-* [sys. database_query_store_options](/sql/relational-databases/system-catalog-views/sys-database-query-store-options-transact-sql?view=azure-sqldw-latest)
+* [sys.database_query_store_options](/sql/relational-databases/system-catalog-views/sys-database-query-store-options-transact-sql?view=azure-sqldw-latest)
 * [sys.database_role_members](https://msdn.microsoft.com/library/ms189780.aspx)
 * [sys.databases](https://msdn.microsoft.com/library/ms178534.aspx)
 * [sys.default_constraints](https://msdn.microsoft.com/library/ms173758.aspx)
@@ -114,12 +114,12 @@ Azure SQL 資料倉儲中所支援 T-SQL 陳述式的文件連結。
 * [sys.partition_schemes](https://msdn.microsoft.com/library/ms189752.aspx)
 * [sys.partitions](https://msdn.microsoft.com/library/ms175012.aspx)
 * [sys.procedures](https://msdn.microsoft.com/library/ms188737.aspx)
-* [sys. query_coNtext_settings](/sql/relational-databases/system-catalog-views/sys-query-context-settings-transact-sql?view=azure-sqldw-latest)
-* [sys. query_store_plan](/sql/relational-databases/system-catalog-views/sys-query-store-plan-transact-sql?view=azure-sqldw-latest)
-* [sys. query_store_query](/sql/relational-databases/system-catalog-views/sys-query-store-query-transact-sql?view=azure-sqldw-latest)
-* [sys. query_store_query_text](/sql/relational-databases/system-catalog-views/sys-query-store-query-text-transact-sql?view=azure-sqldw-latest)
-* [sys. query_store_runtime_stats](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql?view=azure-sqldw-latest)
-* [sys. query_store_runtime_stats_interval](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-interval-transact-sql?view=azure-sqldw-latest)
+* [sys.query_context_settings](/sql/relational-databases/system-catalog-views/sys-query-context-settings-transact-sql?view=azure-sqldw-latest)
+* [sys.query_store_plan](/sql/relational-databases/system-catalog-views/sys-query-store-plan-transact-sql?view=azure-sqldw-latest)
+* [sys.query_store_query](/sql/relational-databases/system-catalog-views/sys-query-store-query-transact-sql?view=azure-sqldw-latest)
+* [sys.query_store_query_text](/sql/relational-databases/system-catalog-views/sys-query-store-query-text-transact-sql?view=azure-sqldw-latest)
+* [sys.query_store_runtime_stats](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql?view=azure-sqldw-latest)
+* [sys.query_store_runtime_stats_interval](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-interval-transact-sql?view=azure-sqldw-latest)
 * [sys.schemas](https://msdn.microsoft.com/library/ms176011.aspx)
 * [sys.securable_classes](https://msdn.microsoft.com/library/ms408301.aspx)
 * [sys.sql_expression_dependencies](https://msdn.microsoft.com/library/bb677315.aspx)
@@ -233,7 +233,7 @@ SQL 資料倉儲和分析平台系統的 Parallel Data Warehouse (PDW) 都使用
 
 ## <a name="sql-server-information_schema-views"></a>SQL Server INFORMATION_SCHEMA 檢視表
 * [CHECK_CONSTRAINTS](https://msdn.microsoft.com/library/ms189772.aspx)
-* [資料行](https://msdn.microsoft.com/library/ms188348.aspx)
+* [COLUMNS](https://msdn.microsoft.com/library/ms188348.aspx)
 * [PARAMETERS](https://msdn.microsoft.com/library/ms173796.aspx)
 * [ROUTINES](https://msdn.microsoft.com/library/ms188757.aspx)
 * [SCHEMATA](https://msdn.microsoft.com/library/ms182642.aspx)

@@ -100,13 +100,13 @@
           href: create-certificate.md
         - name: 監視和管理憑證建立
           href: create-certificate-scenarios.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 安全性
       items:
         - name: 建議
           href: security-recommendations.md
-    - name: Authentication
+    - name: Authenticate
       items:
         - name: 使用 App Service 受控識別
           href: managed-identity.md
@@ -140,6 +140,8 @@
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
 - name: 參考
   items:
+    - name: Key Vault REST 錯誤碼
+      href: rest-error-codes.md
     - name: Azure PowerShell
       href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
     - name: Azure CLI

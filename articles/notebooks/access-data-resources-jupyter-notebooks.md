@@ -1,14 +1,14 @@
 ---
-title: 在 Azure 上從 Jupyter Notebook 存取資料資源
-description: 如何從 Jupyter Notebook 存取檔案、REST API、資料庫和不同的 Azure 儲存體資源。
-ms.topic: article
+title: 存取 Jupyter 筆記本中的資料-Azure Notebooks 預覽
+description: 瞭解如何從 Jupyter 筆記本存取檔案、REST Api、資料庫和不同的 Azure 儲存體資源。
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 23acdf99f6cb69f100e484e236580f3b2b43ba94
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277689"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646342"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>在 Notebook 中存取雲端資料
 
@@ -17,6 +17,8 @@ ms.locfileid: "74277689"
 您可以[將資料檔案匯入專案中](work-with-project-data-files.md)，即使是在 Notebook 內使用 `curl` 之類的命令直接下載檔案，也都沒有問題。 不過，您很可能需要處理更龐雜的資料，而這些資料可能來自於非檔案的來源，例如 REST API、關聯式資料庫，以及雲端儲存體 (例如 Azure 資料表)。
 
 本文將簡要概述這些不同的選項。 由於資料存取在執行時最易於觀察，您可以在 [Azure Notebooks 範例 - 存取您的資料](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb)中找到可執行的程式碼。
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="rest-apis"></a>REST API
 

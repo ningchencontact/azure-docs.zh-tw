@@ -4,12 +4,12 @@ description: 了解如何使用 Ansible 建立、管理和刪除 Azure 路由表
 keywords: ansible, azure, devops, bash, 劇本, 網路, 路由, 路由表
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: d1e44a98405bc1009f6f3d56d90fc1fd655d77d5
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 1f08aebe7e9dcc1c5687f50ac91c7cb8cc8a62eb
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156503"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659792"
 ---
 # <a name="tutorial-configure-azure-route-tables-using-ansible"></a>教學課程：使用 Ansible 設定 Azure 路由表
 
@@ -23,14 +23,14 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 >
 > 建立路由表 建立虛擬網路和子網路 建立路由表與子網路的關聯 將路由表與子網路取消關聯 建立和刪除路由 查詢路由表 刪除路由表
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-route-table"></a>建立路由表
 
-本節中的劇本程式碼會建立路由表。 如需路由表限制的相關資訊，請參閱 [Azure 限制](/azure/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits)。 
+本節中的劇本程式碼會建立路由表。 如需路由表限制的相關資訊，請參閱 [Azure 限制](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits)。 
 
 請下列腳本儲存為 `route_table_create.yml`：
 

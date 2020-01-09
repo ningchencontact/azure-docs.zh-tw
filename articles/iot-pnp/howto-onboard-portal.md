@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 12/26/2019
 ms.author: philmea
-ms.openlocfilehash: 77559636dab00a570db416118b047200320c0308
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c73848af299f87edf60ab36713d09ad4421b18fd
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978980"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531225"
 ---
 # <a name="onboard-to-the-azure-certified-for-iot-portal"></a>在 Azure IoT 認證入口網站上線
 
@@ -23,7 +23,7 @@ ms.locfileid: "74978980"
 - 尋找 IoT 隨插即用預覽裝置功能模型。 您可以使用這些模型來快速建立 IoT 就緒裝置，並將其與解決方案整合。
 - 將裝置功能模型發佈至公用存放庫。
 
-## <a name="sign-in"></a>Sign in
+## <a name="sign-in"></a>登入
 
 使用您的 Microsoft_公司帳戶_登入[Azure IoT 認證入口](https://aka.ms/ACFI)網站。 當您登入時，入口網站會使用 Microsoft 合作夥伴中心來檢查您的成員資格：
 

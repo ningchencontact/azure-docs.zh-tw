@@ -1,20 +1,22 @@
 ---
-title: 在 Azure 上的 Jupyter Notebook 中安裝套件
-description: 如何從 Azure 上執行的 Jupyter Notebook 內安裝 Python、R 和 F# 套件。
-ms.topic: article
+title: 在 Jupyter 筆記本中安裝套件-Azure Notebooks 預覽
+description: 瞭解如何從在 Azure 上執行的 Jupyter F#筆記本中安裝 Python、R 和套件。
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 5d85c8e936ce7c8bf38ec7bc9c27d9066cc8b155
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f6359b4c010834ffaee00b6208d309997339f36e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277539"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646223"
 ---
-# <a name="install-packages-from-within-a-notebook"></a>從 Notebook 內安裝套件
+# <a name="install-packages-from-within-azure-notebooks-preview"></a>從 Azure Notebooks Preview 中安裝套件
 
 雖然您可以設定[適用於專案層級上 Notebook 的環境](configure-manage-azure-notebooks-projects.md#configure-the-project-environment)，還是建議您直接在個別 Notebook 內安裝套件。
 
 從 Notebook 安裝的套件只會套用至目前的伺服器工作階段。 一旦伺服器關閉，就不會保存套件安裝。
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="python"></a>Python
 
@@ -61,12 +63,12 @@ Paket.Package
   ]
 ```
 
-然後載入 paket 產生器：
+然後載入 Paket 產生器：
 ```fsharp
 #load "Paket.Generated.Refs.fsx"
 ```
 
-開啟程式庫：
+開啟媒體櫃：
 ```fsharp
 open MathNet.Numerics
 ```

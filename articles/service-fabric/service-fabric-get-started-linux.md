@@ -1,25 +1,14 @@
 ---
-title: 在 Linux 上設定開發環境 | Microsoft Docs
+title: 在 Linux 上設定開發環境
 description: 在 Linux 上安裝執行階段和 SDK，並建立本機開發叢集。 完成此設定之後，您就可以開始建置應用程式。
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 6471d3f58fbe0e19910f39e9527f193d00a228be
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 572b1509f45a7f5bf2c63619809f01d17c3493d1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170612"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457889"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上準備您的開發環境
 > [!div class="op_single_selector"]
@@ -36,7 +25,7 @@ ms.locfileid: "72170612"
 不支援在適用於 Linux 的 Windows 子系統上安裝 Service Fabric 執行階段。 您可以使用支援的 Azure Service Fabric 命令列介面 (CLI)，管理裝載於雲端或內部部署中其他地方的 Service Fabric 實體。 如需如何安裝 CLI 的資訊，請參閱[設定 Service Fabric CLI](./service-fabric-cli.md)。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 以下為支援開發的作業系統版本。
 
@@ -71,7 +60,7 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 ### <a name="ubuntu"></a>Ubuntu
 
 1. 開啟終端機。
-2. 將 Service Fabric 儲存機制新增至來源清單。
+2. 將 Service Fabric 存放庫新增至來源清單。
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
@@ -110,7 +99,7 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-8. 根據新增的儲存機制重新整理套件清單。
+8. 根據新增的存放庫重新整理套件清單。
 
     ```bash
     sudo apt-get update
@@ -178,8 +167,8 @@ SDK 安裝程式隨附的 Service Fabric 執行階段包含下表中的套件。
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | 內含於 npm | 最新 |
-RHEL | - | OpenJDK 1.8 | 內含於 npm | 最新 |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | 內含於 npm | latest |
+RHEL | - | OpenJDK 1.8 | 內含於 npm | latest |
 
 ## <a name="set-up-a-local-cluster"></a>設定本機叢集
 在安裝完成之後，請啟動本機叢集。
@@ -274,7 +263,7 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 
 1. 在 Eclipse 中，確定您已安裝 Eclipse Neon 或更新版本以及 Buildship 2.2.1 版或更新版本。 請選取 [說明] >  [關於 Eclipse] >  [安裝詳細資料]，檢查已安裝的元件版本。 您可以使用[Eclipse Buildship：適用于 Gradle 的 Eclipse 外掛程式][buildship-update]中的指示來更新 Buildship。
 
-2. 若要安裝 Service Fabric 外掛程式，請選取 [說明]  **[安裝新軟體]**  > 。
+2. 若要安裝 Service Fabric 外掛程式，請選取 [說明]  >  [安裝新軟體]。
 
 3. 在 [使用] 方塊中，輸入 **https://dl.microsoft.com/eclipse** 。
 
@@ -298,7 +287,7 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 sudo apt-get update
 sudo apt-get install servicefabric servicefabricsdkcommon
 ```
-若要更新 Maven 提供的 Java SDK 二進位檔，您必須在 ``build.gradle`` 檔案中更新對應二進位檔的版本詳細資料，以指向最新版本。 若想知道您需要更新版本的確切位置，請在 ``build.gradle``Service Fabric 入門範例[中參考 任何 ](https://github.com/Azure-Samples/service-fabric-java-getting-started) 檔案。
+若要更新 Maven 提供的 Java SDK 二進位檔，您必須在 ``build.gradle`` 檔案中更新對應二進位檔的版本詳細資料，以指向最新版本。 若想知道您需要更新版本的確切位置，請在 [Service Fabric 入門範例](https://github.com/Azure-Samples/service-fabric-java-getting-started)中參考 任何 ``build.gradle`` 檔案。
 
 > [!NOTE]
 > 更新套件可能會導致本機開發叢集停止執行。 請遵循本文中的指示，在升級之後重新啟動本機叢集。

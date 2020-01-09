@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 40697925d399962399da499e0469198a0e997f66
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d6e3d4d059e464795c712af1226d8202d00bfd74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038632"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461166"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>適用於 Windows Server 的 Azure Hybrid Benefit
 對於擁有軟體保證的客戶，適用於 Windows Server 的 Azure Hybrid Benefit 讓您能夠以較低的成本來使用內部部署 Windows Server 授權，以及在 Azure 上執行 Windows 虛擬機器。 您可以使用適用於 Windows Server 的 Azure Hybrid Benefit 部署具有 Windows OS 的新虛擬機器。 本文章會詳述使用適用於 Windows Server 的 Azure Hybrid Benefit 來部署新 VM 的步驟，以及您如何更新現有的執行中 VM。 如需有關適用於 Windows Server 之 Azure Hybrid Benefit 的授權和節省成本詳細資訊，請參閱[適用於 Windows Server 的 Azure Hybrid Benefit 授權頁面](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。
@@ -201,4 +201,4 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 - 深入了解[適用於 Windows Server 的 Azure Hybrid Benefit 授權詳細指導方針](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
 - 深入了解[適用於 Windows Server 的 Azure Hybrid Benefit 和 Azure Site Recovery 能使將應用程式移轉至 Azure 更符合成本效益](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/) \(英文\)
 - 深入了解[在 Azure上使用多租用戶裝載權限的 Windows 10](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) \(英文\)
-- 深入了解[如何使用 Resource Manager 範本](../../azure-resource-manager/resource-group-overview.md)
+- 深入了解[如何使用 Resource Manager 範本](../../azure-resource-manager/management/overview.md)

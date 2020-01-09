@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: a57d1c85384204c26e75f7138b9514f2b3297bef
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 41dd336bdb74fbe745ab48ebd3c168af0492ae2c
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823302"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75691009"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>搭配 Azure SQL Database 中單一、集區和執行個體資料庫使用的異動複寫
 
@@ -80,26 +80,29 @@ ms.locfileid: "73823302"
   ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>實例資料庫和內部部署系統的可支援性矩陣
   實例資料庫的複寫可支援性對照表與內部部署 SQL Server 的相同。 
   
-  | **發行者**   | **散發者** | **預訂** |
+| **發行者**   | **散發者** | **訂閱者** |
 | :------------   | :-------------- | :------------- |
-| SQL Server 2017 | SQL Server 2017 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
-| SQL Server 2016 | SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
-| SQL Server 2014 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
-| SQL Server 2012 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | 
-| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
+| SQL Server 2019 | SQL Server 2019 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/>  |
+| SQL Server 2017 | SQL Server 2019 <br/>SQL Server 2017 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
+| SQL Server 2016 | SQL Server 2019 <br/>SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2019 <br/> SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
+| SQL Server 2014 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
+| SQL Server 2012 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | 
+| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |  SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
 | &nbsp; | &nbsp; | &nbsp; |
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 
 - 連線會在複寫參與者之間使用 SQL 驗證。 
 - 與工作目錄共用且用於複寫的 Azure 儲存體帳戶。 
 - 埠445（TCP 輸出）必須在受控實例子網的安全性規則中開啟，才能存取 Azure 檔案共用。 
 - 如果發行者/散發者位於受控實例上，而且訂閱者為內部部署，則必須開啟埠1433（TCP 輸出）。
+- 所有類型的複寫參與者（發行者、散發者、提取訂閱者和發送訂閱者）都可以放在受控實例上，但發行者和散發者必須同時位於雲端或內部部署兩者。
+- 如果「發行者」、「散發者」和/或「訂閱者」存在於不同的虛擬網路中，則必須在每個實體之間建立 VPN 對等互連，使「發行者」與「散發者」之間有 VPN 對等互連，以及（或）「散發者」與「訂閱者」之間有 VPN 
 
 
 >[!NOTE]
 > - 當「散發者」為實例資料庫且「訂閱者」為內部部署時，如果輸出網路安全性群組（NSG）埠445遭到封鎖，您可能會在連接到 Azure 儲存體檔案時遇到錯誤53。 [更新 VNET NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems)以解決此問題。 
-> - 如果受控實例上的發行者和散發者資料庫使用[自動容錯移轉群組](sql-database-auto-failover-group.md)，則受管理的實例系統管理員必須[刪除舊主要複本上的所有發行集，並在發生容錯移轉之後，在新的主要複本上重新設定它們](sql-database-managed-instance-transact-sql-information.md#replication)。
+
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>比較資料同步與異動複寫
 
@@ -137,13 +140,53 @@ ms.locfileid: "73823302"
  
 在此設定中，Azure SQL Database (單一、集區和執行個體資料庫) 是訂閱者。 此設定支援從內部部署移轉至 Azure。 如果訂閱者位於單一或集區資料庫上，則它必須處於發送模式。  
 
+## <a name="with-failover-groups"></a>使用容錯移轉群組
+
+如果在[容錯移轉群組](sql-database-auto-failover-group.md)中的「**發行者**」或「散發者」實例上啟用「地理複寫」，則「受控實例管理員」必須清除舊主要複本上的所有發行集，並在容錯移轉之後于新的主**伺服器**上重新設定它們。 此案例中需要下列活動：
+
+1. 停止在資料庫上執行的所有複寫作業（如果有的話）。
+2. 在發行者資料庫上執行下列腳本，以卸載發行者的訂閱中繼資料：
+
+   ```sql
+   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
+   ```             
+ 
+1. 捨棄訂閱者的訂閱中繼資料。 在訂閱者實例上的訂閱資料庫上執行下列腳本：
+
+   ```sql
+   EXEC sp_subscription_cleanup
+      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
+      @publisher_db = N'<publisher database>', 
+      @publication = N'<name of publication>'; 
+   ```                
+
+1. 藉由在已發行的資料庫中執行下列腳本，強制卸載「發行者」中的所有複寫物件：
+
+   ```sql
+   EXEC sp_removedbreplication
+   ```
+
+1. 從原始的主要實例強制卸載舊的散發者（如果容錯回復到用來擁有「散發者」的舊主伺服器）。 在舊的散發者受控實例的 master 資料庫上執行下列腳本：
+
+   ```sql
+   EXEC sp_dropdistributor 1,1
+   ```
+
+如果在容錯移轉群組的**訂閱者**實例上啟用異地複寫，則應該將發行集設定為連接到訂閱者受控實例的容錯移轉群組接聽程式端點。 在容錯移轉時，受管理的實例系統管理員後續採取的動作取決於發生的容錯移轉類型： 
+
+- 對於不會遺失資料的容錯移轉，複寫將會在容錯移轉後繼續運作。 
+- 對於資料遺失的容錯移轉，複寫也會運作。 這會再次複寫遺失的變更。 
+- 對於資料遺失的容錯移轉，但資料遺失超出散發資料庫保留期限，受管理的實例系統管理員將需要重新初始化訂閱資料庫。 
 
 ## <a name="next-steps"></a>後續步驟
 
-1. [設定兩個受控實例間](replication-with-sql-database-managed-instance.md)的複寫。 
-1. [建立發行集](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)。
-1. [建立發送訂閱](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription)，方法是使用 Azure SQL Database 伺服器名稱作為訂閱者 (例如 `N'azuresqldbdns.database.windows.net`)，並使用 Azure SQL Database 名稱作為目的地資料庫 (例如 **AdventureWorks**)。 )
-1. 瞭解[受控實例的異動複寫限制](sql-database-managed-instance-transact-sql-information.md#replication)
+- [設定 MI 發行者與訂閱者之間的複寫](replication-with-sql-database-managed-instance.md)
+- [設定 MI 發行者、MI 散發者和 SQL Server 訂閱者之間的複寫](sql-database-managed-instance-configure-replication-tutorial.md)
+- [建立發行集](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)。
+- [建立發送訂閱](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription)，方法是使用 Azure SQL Database 伺服器名稱作為訂閱者 (例如 `N'azuresqldbdns.database.windows.net`)，並使用 Azure SQL Database 名稱作為目的地資料庫 (例如 **AdventureWorks**)。 )
+
+
+如需有關設定異動複寫的詳細資訊，請參閱下列教學課程：
 
 
 

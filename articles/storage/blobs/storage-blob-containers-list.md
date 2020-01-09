@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b7e5b0725049fa5de95f435c848502c36a3a1726
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4ac8fe2e5bf1c338fa67619a675225eb80256c3f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598129"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690999"
 ---
 # <a name="list-blob-containers-with-net"></a>使用 .NET 列出 blob 容器
 
@@ -49,7 +49,8 @@ ms.locfileid: "72598129"
 下列範例會以非同步方式列出儲存體帳戶中以指定前置詞開頭的容器。 此範例會一次以5個結果的增量來列出容器，並使用接續 token 來取得結果的下一個區段。 此範例也會傳回具有結果的容器中繼資料。
 
 ```csharp
-private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient, string prefix)
+private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient,
+                                                        string prefix)
 {
     Console.WriteLine("List all containers beginning with prefix {0}, plus container metadata:", prefix);
 
@@ -97,7 +98,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [列出容器](/rest/api/storageservices/list-containers2)
 [列舉 Blob 資源](/rest/api/storageservices/enumerating-blob-resources)

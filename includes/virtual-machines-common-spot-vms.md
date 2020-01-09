@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: b671fe9a4ecd35cbe9d70f398f8d39664203fc58
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8d28566cb10ddd1637eb81dffd102df6bd7b6e7a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782108"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663175"
 ---
 使用「點 Vm」可讓您以可觀的成本節約，利用我們未使用的容量。 Azure 基礎結構會在任何時間點回復，以找出虛擬機器的功能。 因此，針對可處理中斷的工作負載（例如批次處理作業、開發/測試環境、大型計算工作負載等），找出 Vm 很棒。
 
@@ -56,7 +56,7 @@ Vm 可以根據容量或您設定的最大價格來收回。 針對虛擬機器�
 
 找出 Vm 可以部署到任何區域，但在 Azure Government 區域中 Microsoft Azure 中國世紀和國防部（DoD）除外。
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 
 點 Vm 的定價是以區域和 SKU 為依據的變數。 如需詳細資訊，請參閱[Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)和[Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)的 VM 定價。 
 
@@ -78,7 +78,7 @@ Vm 可以根據容量或您設定的最大價格來收回。 針對虛擬機器�
 
 **問：** 如何管理適用于點 Vm 的配額？
 
-**答：** 找出 Vm 將會有個別的配額集區。 點配額會在 Vm 與擴展集實例之間共用。 如需詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](https://docs.microsoft.com/azure/azure-subscription-service-limits)。
+**答：** 找出 Vm 將會有個別的配額集區。 點配額會在 Vm 與擴展集實例之間共用。 如需詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)。
 
 
 **問：** 我可以要求額外的時間配額嗎？

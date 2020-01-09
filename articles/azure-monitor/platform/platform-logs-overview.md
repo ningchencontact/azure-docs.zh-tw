@@ -5,15 +5,15 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 480c028f11de9a7c44168b217ad3553d721d01e1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5f02368bfb0c084691376300980d4cdee0d9b3be
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894555"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530879"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Azure 平臺記錄的總覽
 平臺記錄會針對 Azure 資源和它們所依賴的 Azure 平臺，提供詳細的診斷和審核資訊。 雖然您需要將特定平臺記錄檔設定為要保留的一個或多個目的地，否則會自動產生它們。 本文提供平臺記錄的總覽，包括它們所提供的資訊，以及如何設定它們以進行收集和分析。
@@ -21,42 +21,39 @@ ms.locfileid: "74894555"
 ## <a name="types-of-platform-logs"></a>平臺記錄的類型
 下表列出可在不同 Azure 層級使用的特定平臺記錄。
 
-| 層次 | 記錄 | 描述 |
+| 記錄 | 階層 | 說明 |
 |:---|:---|:---|
-| Azure 資源 | [資源記錄](resource-logs-overview.md) | 提供在 Azure 資源（*資料平面*）內執行之作業的深入解析，例如從 Key Vault 取得秘密，或對資料庫提出要求。 資源記錄的內容會因 Azure 服務和資源類型而異。<br>*資源記錄先前稱為診斷記錄。*  |
-| Azure 訂閱 | [活動記錄檔](activity-logs-overview.md) | 除了服務健康狀態事件的更新之外，還可讓您深入瞭解訂用帳戶中的每個 Azure 資源上的作業（*管理平面*）。 每個 Azure 訂用帳戶都有單一活動記錄。   |
-| Azure 租用戶 | [Azure Active Directory 記錄](../../active-directory/reports-monitoring/overview-reports.md)  | 包含登入活動的歷程記錄，以及在特定租使用者的 Azure Active Directory 中所做變更的審核線索。   |
+| 資源記錄 | Azure 資源 | 提供在 Azure 資源（*資料平面*）內執行之作業的深入解析，例如從 Key Vault 取得秘密，或對資料庫提出要求。 資源記錄的內容會因 Azure 服務和資源類型而異。<br><br>*資源記錄先前稱為診斷記錄。*  |
+| 活動記錄 | Azure 訂用帳戶 | 除了服務健康狀態事件的更新之外，還可讓您深入瞭解訂用帳戶中的每個 Azure 資源上的作業（*管理平面*）。 使用活動記錄來_判斷對訂_用帳戶中的資源所採取的任何寫入作業（PUT、 _POST、DELETE_）的_內容_、物件和時機。 您也可以了解作業的狀態和其他相關屬性。  每個 Azure 訂用帳戶都有單一活動記錄。 |
+| Azure Active Directory 記錄 | Azure 租用戶 |  包含登入活動的歷程記錄，以及在特定租使用者的 Azure Active Directory 中所做變更的審核線索。 如需 Azure Active Directory 記錄的完整描述，請參閱[什麼是 Azure Active Directory 報表？](../../active-directory/reports-monitoring/overview-reports.md) 。   |
 
+> [!NOTE]
+> Azure 活動記錄主要是針對 Azure Resource Manager 中發生的活動。 此記錄不會追蹤使用傳統/RDFE 模型的資源。 某些傳統資源類型在 Azure Resource Manager 中有 Proxy 資源提供者 (例如，Microsoft.ClassicCompute)。 如果您透過使用這些 Proxy 資源提供者的 Azure Resource Manager 來與傳統資源類型互動，則作業會顯示在活動記錄。 如果您在 Azure Resource Manager Proxy 之外與傳統資源類型互動，您的動作將只會記錄於「作業記錄」。 可在入口網站的個別區段中，瀏覽作業記錄。
 
 ![平台記錄概觀](media/platform-logs-overview/logs-overview.png)
 
-## <a name="viewing-platform-logs"></a>查看平臺記錄
-您可以在 Azure 入口網站中查看[活動記錄](activity-log-view.md)和[Azure Active Directory 記錄](../../active-directory/reports-monitoring/overview-reports.md)。 您必須將資源記錄檔傳送至[目的地](#destinations)以進行查看。
 
+
+
+## <a name="viewing-platform-logs"></a>查看平臺記錄
+有不同的選項可讓您查看和分析不同的 Azure 平臺記錄。
+
+- 在 Azure 入口網站中查看活動記錄，並從 PowerShell 和 CLI 存取事件。 如需詳細資訊，請參閱[View and 取出 Azure 活動記錄事件](activity-log-view.md)。 
+- 在 Azure 入口網站中查看 Azure Active Directory 的安全性和活動報告。 請參閱[什麼是 Azure Active Directory 報表？](../../active-directory/reports-monitoring/overview-reports.md)  。
+- 資源記錄會由支援的 Azure 資源自動產生，但除非您將它們傳送至[目的地](#destinations)，否則無法查看它們。 
 
 ## <a name="destinations"></a>Destinations
-您可以根據您的監視需求，將平臺記錄傳送到下表中的一或多個目的地。 
+您可以根據您的監視需求，將平臺記錄傳送到下表中的一或多個目的地。 [建立診斷設定](diagnostic-settings.md)以設定平臺記錄的目的地。
 
 | 目的地 | 案例 | 參考 |
 |:---|:---|:---|:---|
-| Log Analytics 工作區 | 分析具有其他監視資料的記錄，並利用記錄查詢和警示等 Azure 監視器功能。 | [資源記錄](resource-logs-collect-storage.md)<br>[活動記錄檔](activity-log-collect.md)<br>[Azure 活動目錄記錄](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure 儲存體 | 封存記錄以進行審核、靜態分析或備份。 |[資源記錄](archive-diagnostic-logs.md)<br>[活動記錄檔](activity-log-export.md)<br>[Azure 活動目錄記錄](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| 事件中樞 | 將記錄串流至協力廠商記錄和遙測系統。  |[資源記錄](resource-logs-stream-event-hubs.md)<br>[活動記錄檔](activity-log-export.md)<br>[Azure 活動目錄記錄](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
-
-
-## <a name="diagnostic-settings-and-log-profiles"></a>診斷設定和記錄設定檔
-藉由[建立診斷設定](diagnostic-settings.md)來設定資源記錄和 Azure Active Directory 記錄的目的地。 藉由[建立記錄檔設定檔](activity-log-export.md)或將[其連接到 log Analytics 工作區](activity-log-collect.md)，來設定活動記錄的目的地。
-
-診斷設定和記錄設定檔會定義下列各項：
-
-- 一或多個目的地，以傳送選取的記錄和計量。
-- 來自資源的記錄類別和計量會傳送至目的地。
-- 如果選取的是儲存體帳戶作為目的地，則每個記錄類別應保留的時間長度。
+| Log Analytics 工作區 | 分析具有其他監視資料的記錄，並利用記錄查詢和警示等 Azure 監視器功能。 | [活動記錄和資源記錄](resource-logs-collect-workspace.md)<br>[Azure 活動目錄記錄](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
+| Azure 儲存體 | 封存記錄以進行審核、靜態分析或備份。 |[活動記錄和資源記錄](archive-diagnostic-logs.md)<br>[Azure 活動目錄記錄](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| 事件中樞 | 將記錄串流至協力廠商記錄和遙測系統。  |[活動記錄和資源記錄](resource-logs-stream-event-hubs.md)<br>[Azure 活動目錄記錄](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
 
 
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入瞭解活動記錄](activity-logs-overview.md)
-* [深入瞭解資源記錄](resource-logs-overview.md)
+* [查看不同類別的活動記錄架構](activity-log-schema.md)
 * [查看不同 Azure 服務的資源記錄架構](diagnostic-logs-schema.md)

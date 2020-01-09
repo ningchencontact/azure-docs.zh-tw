@@ -3,18 +3,18 @@ title: 詞彙詞彙-IoT 隨插即用預覽 |Microsoft Docs
 description: 概念-與 IoT 隨插即用 Preview 相關的常見詞彙詞彙。
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 10/10/2019
+ms.date: 12/23/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 22b2cb8caa815b2ce8343a060a5f12133b763b83
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b6516b07f24c40fcb95d47e05b22dd7672c10f2a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890348"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531196"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>IoT 隨插即用預覽詞彙詞彙
 
@@ -38,7 +38,7 @@ Azure CLI 是用來管理 Azure 資源的跨平臺命令列工具。 適用于 A
 - 呼叫裝置[命令](#commands)。
 - 管理[模型存放庫](#model-repository)、[介面](#interface)和[裝置功能模型](#device-capability-model)。
 
-## <a name="azure-iot-central"></a>Azure IoT 中心
+## <a name="azure-iot-central"></a>Azure IoT Central
 
 Azure IoT Central 是完全受控的軟體即服務解決方案，可讓您輕鬆地連線、監視及管理您的[IoT 隨插即用裝置](#iot-plug-and-play-device)。 您可以使用[裝置功能模型](#device-capability-model)來自動設定 IoT Central 應用程式，以監視和管理您的裝置。
 
@@ -91,7 +91,7 @@ IoT 中樞是託管於雲端中的受控服務，可做為 IoT 應用程式與�
 
 組織可以使用公司模型存放[庫](#model-repository)作為[裝置功能模型](#device-capability-model)和[介面](#interface)的私用存放區。
 
-## <a name="connection-string"></a>Connection string
+## <a name="connection-string"></a>連接字串
 
 連接字串會封裝連接到端點所需的資訊。 連接字串通常包含端點位址和安全性資訊，但連接字串的格式會因服務而不同。 IoT 中樞服務有兩種相關的連接字串︰
 
@@ -155,7 +155,7 @@ IoT 中樞查詢語言會用於多個用途。 例如，您可以使用語言來
 
 IoT 隨插即用裝置通常是小型的獨立計算裝置，可收集資料或控制其他裝置，以及執行軟體或固件來實行[裝置功能模型](#device-capability-model)。  例如，IoT 隨插即用裝置可能是環境監視裝置，或是智慧型農業灌溉系統的控制器。 您可以撰寫雲端裝載的 IoT 解決方案，從 IoT 隨插即用裝置進行命令、控制和接收資料。 [Azure IoT 認證裝置目錄](#certified-for-iot-device-catalog)會列出可用的 IoT 隨插即用裝置。 目錄中的每個 IoT 隨插即用裝置都已經過驗證，而且具有[裝置功能模型](#device-capability-model)。
 
-## <a name="microsoft-partner-center"></a>Microsoft 合作夥伴中心
+## <a name="microsoft-partner-center"></a>Microsoft 夥伴中心
 
 [Microsoft 合作夥伴中心](https://docs.microsoft.com/partner-center/)是您的組織管理其與 Microsoft 的端對端關係的地方。 您需要 Microsoft 合作夥伴中心帳戶，才能在[Azure IoT 認證入口網站](#azure-certified-for-iot-portal)中認證您的[IoT 隨插即用裝置](#iot-plug-and-play-device)。
 
@@ -171,7 +171,7 @@ IoT 隨插即用裝置通常是小型的獨立計算裝置，可收集資料或�
 
 用來管理和與模型存放庫互動的 API。 例如，您可以使用 API 來新增[裝置功能模型](#device-capability-model)，並搜尋功能模型。
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>屬性
 
 屬性是在[介面](#interface)中定義的資料欄位，代表數位對應項的某些狀態。 您可以將屬性宣告為唯讀或可寫入。 唯讀屬性（例如序號）是由[IoT 隨插即用裝置](#iot-plug-and-play-device)本身上執行的程式碼所設定。  可寫入的屬性（例如警示閾值）通常是從雲端型 IoT 解決方案進行設定。
 

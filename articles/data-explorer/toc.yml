@@ -32,7 +32,9 @@
       href: ingest-data-overview.md
     - name: 資料視覺效果概觀
       href: viz-overview.md
-- name: 使用說明指南
+    - name: 安全性概觀
+      href: security.md
+- name: 操作指南
   items:
     - name: 建立叢集和資料庫
       items:
@@ -126,7 +128,7 @@
               href: power-bi-connector.md
             - name: 已匯入查詢
               href: power-bi-imported-query.md
-            - name: SQL 查詢
+            - name: SQL 查詢 (SQL query)
               href: power-bi-sql-query.md
         - name: Excel
           items:
@@ -144,6 +146,18 @@
           href: sisense.md
         - name: Redash
           href: redash.md
+    - name: 安全
+      items:
+        - name: 管理叢集安全性
+          href: manage-cluster-security.md
+        - name: 設定受控識別
+          href: managed-identities.md
+        - name: 設定客戶管理的金鑰
+          items:
+            - name: 'C#'
+              href: customer-managed-keys-csharp.md
+            - name: Azure Resource Manager 範本
+              href: customer-managed-keys-resource-manager.md
     - name: 管理
       items:
         - name: 叢集
@@ -154,8 +168,6 @@
               href: manage-cluster-horizontal-scaling.md
             - name: 管理叢集的垂直調整
               href: manage-cluster-vertical-scaling.md
-            - name: 管理叢集安全性
-              href: manage-cluster-security.md
             - name: 檢查叢集健康情況
               href: check-cluster-health.md
         - name: 資料庫

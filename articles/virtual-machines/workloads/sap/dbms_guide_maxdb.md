@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6824eae4d5fed2eceaf85b9a674f980815afb260
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 90de49ae3137735683bae6a18b5f7c8951b021ae
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101378"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645866"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Azure VM 上的 SAP MaxDB、liveCache 與內容伺服器部署
 
@@ -77,8 +77,8 @@ ms.locfileid: "70101378"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -235,7 +235,7 @@ ms.locfileid: "70101378"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "70101378"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -338,7 +338,7 @@ SAP 目前支援 SAP MaxDB 7.9 版或更新版本，以便與 Azure 中 SAP NetW
 
 簡單地說，您必須︰
 
-* 如果您使用 Azure 儲存體帳戶，請依 **[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)** 中的指示，將存放 SAP MaxDB 資料和記錄磁碟區 (資料和記錄檔) 的 Azure 儲存體帳戶設定為 [本地備援儲存體 (LRS)]。
+* 如果您使用 Azure 儲存體帳戶，請依[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中的指示，將存放 SAP MaxDB 資料和記錄磁碟區 (資料和記錄檔) 的 Azure 儲存體帳戶設定為 [本地備援儲存體 (LRS)]。
 * 將 SAP MaxDB 資料磁碟區 (資料檔) 的 IO 路徑，與記錄磁碟區 (記錄檔) 的 IO 路徑分隔開來。 這表示 SAP MaxDB 資料磁碟區 (資料檔) 必須安裝於一個邏輯磁碟機上，而 SAP MaxDB 記錄磁碟區 (記錄檔) 則須安裝於另一個邏輯磁碟機上。
 * 請依[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中的指示，根據您是否要針對 SAP MaxDB 資料或記錄磁碟區 (資料和記錄檔) 使用磁碟，以及是使用 Azure 標準儲存體或 Azure 進階儲存體，為每個磁碟設定適當的快取類型。
 * 只要每個磁碟上目前的 IOPS 配額可滿足需求，就能夠將所有資料磁碟區儲存於單一掛接的磁碟上，而且也會將所有資料庫記錄磁碟區儲存於另一個單一掛接的磁碟上。

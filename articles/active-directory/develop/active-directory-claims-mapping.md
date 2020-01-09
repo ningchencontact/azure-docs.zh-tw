@@ -1,5 +1,5 @@
 ---
-title: 自訂 Azure AD 租使用者應用程式的宣告
+title: 自訂 Azure AD 租使用者應用程式宣告（Powershell）
 titleSuffix: Microsoft identity platform
 description: 此頁面說明 Azure Active Directory 宣告對應。
 services: active-directory
@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d15631c30566d7588b562f1bb0d6ba5280e699
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6ad2d6ec7a98a82917916bba2930149705ebfd87
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918418"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531066"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>操作說明：為租用戶中特定應用程式的權杖，自訂發出的宣告 (預覽)
 
@@ -45,7 +45,7 @@ ms.locfileid: "74918418"
 
 有些宣告集界定了自己在權杖中的使用方式和使用時機。
 
-| 宣告集 | 描述 |
+| 宣告集 | 說明 |
 |---|---|
 | 核心宣告集 | 無論原則為何，都存在於每個權杖中。 這些宣告也都將被視為受限制的宣告，無法予以修改。 |
 | 基本宣告集 | 包含會根據預設向權杖發出的宣告 (除了核心宣告集以外)。 您可以使用宣告對應原則，省略或修改基本宣告。 |
@@ -88,7 +88,7 @@ ms.locfileid: "74918418"
 | cloud_graph_host_name |
 | cloud_instance_name |
 | cnf |
-| code |
+| 代碼 |
 | controls |
 | credential_keys |
 | csr |
@@ -99,7 +99,7 @@ ms.locfileid: "74918418"
 | domain_netbios_name |
 | e_exp |
 | 電子郵件 |
-| endpoint |
+| 端點 |
 | enfpolids |
 | exp |
 | expires_on |
@@ -143,7 +143,7 @@ ms.locfileid: "74918418"
 | onprem_sam_account_name |
 | onprem_sid |
 | openid2_id |
-| password |
+| 密碼 |
 | platf |
 | polids |
 | pop_jwk |
@@ -157,13 +157,13 @@ ms.locfileid: "74918418"
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| 資源 |
-| 角色 |
+| resource |
+| 角色 (role) |
 | 角色 |
 | scope |
 | scp |
 | sid |
-| signature |
+| 簽章 |
 | signin_state |
 | src1 |
 | src2 |
@@ -285,7 +285,7 @@ ms.locfileid: "74918418"
 
 #### <a name="table-3-valid-id-values-per-source"></a>表 3：每個來源的有效識別碼值
 
-| 來源 | ID | 描述 |
+| 來源 | ID | 說明 |
 |-----|-----|-----|
 | User | surname | 姓氏 |
 | User | givenname | 名字 |
@@ -293,7 +293,7 @@ ms.locfileid: "74918418"
 | User | objectid | ObjectID |
 | User | mail | 電子郵件地址 |
 | User | userprincipalname | 使用者主體名稱 |
-| User | department|部門|
+| User | department|department|
 | User | onpremisessamaccountname | 內部部署 SAM 帳戶名稱 |
 | User | netbiosname| NetBios 名稱 |
 | User | dnsdomainname | DNS 網域名稱 |
@@ -322,7 +322,7 @@ ms.locfileid: "74918418"
 | User | othermail | 其他郵件 |
 | User | country | 國家/地區 |
 | User | city | 城市 |
-| User | state | 狀況 |
+| User | state | 狀態 |
 | User | jobtitle | 職稱 |
 | User | employeeid | 員工識別碼 |
 | User | facsimiletelephonenumber | 傳真電話號碼 |
@@ -359,9 +359,9 @@ ms.locfileid: "74918418"
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>表 4：轉換方法和預期的輸入和輸出
 
-|TransformationMethod|預期的輸入|預期的輸出|描述|
+|TransformationMethod|預期的輸入|預期的輸出|說明|
 |-----|-----|-----|-----|
-|聯結|string1、string2、分隔符號|outputClaim|可在輸入字串之間使用分隔符號來聯結這些字串。 例如：string1:"foo@bar.com" , string2:"sandbox" , separator:"." 會導致 outputClaim:"foo@bar.com.sandbox"|
+|Join|string1、string2、分隔符號|outputClaim|可在輸入字串之間使用分隔符號來聯結這些字串。 例如：string1:"foo@bar.com" , string2:"sandbox" , separator:"." 會導致 outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|擷取電子郵件地址的本機部分。 例如：mail:"foo@bar.com" 會導致 outputClaim:"foo"。 如果沒有 \@ 符號，原始輸入字串會以現狀傳回。|
 
 **InputClaims：** 使用 InputClaims 元素可從宣告結構描述項目將資料傳遞至轉換。 它有兩個屬性：**ClaimTypeReferenceId** 和 **TransformationClaimType**。
@@ -385,7 +385,7 @@ ms.locfileid: "74918418"
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>表 5：允許作為 SAML NameID 資料來源的屬性
 
-|來源|ID|描述|
+|來源|ID|說明|
 |-----|-----|-----|
 | User | mail|電子郵件地址|
 | User | userprincipalname|使用者主體名稱|
@@ -411,12 +411,18 @@ ms.locfileid: "74918418"
 
 | TransformationMethod | 限制 |
 | ----- | ----- |
-| ExtractMailPrefix | None |
-| 聯結 | 所聯結的尾碼必須是資源租用戶的已驗證網域。 |
+| ExtractMailPrefix | 無 |
+| Join | 所聯結的尾碼必須是資源租用戶的已驗證網域。 |
 
 ### <a name="custom-signing-key"></a>自訂簽署金鑰
 
-您必須對服務主體物件指派自訂簽署金鑰，宣告對應原則才會生效。 如此可確認權杖是由宣告對應原則的建立者所修改，並且可遏止惡意執行者建立的宣告對應原則，保護應用程式不受威脅。  已啟用宣告對應的應用程式必須將 `appid={client_id}` 附加至其[OpenID connect 中繼資料要求](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document)，以檢查其權杖簽署金鑰的特殊 URI。  
+您必須對服務主體物件指派自訂簽署金鑰，宣告對應原則才會生效。 如此可確認權杖是由宣告對應原則的建立者所修改，並且可遏止惡意執行者建立的宣告對應原則，保護應用程式不受威脅。 若要新增自訂簽署金鑰，您可以使用 Azure Powershell Cmdlet `new-azureadapplicationkeycredential` 來為您的應用程式物件建立對稱金鑰認證。 如需此 Azure Powershell Cmdlet 的詳細資訊，請按一下[這裡](https://docs.microsoft.com/powershell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0)。
+
+已啟用宣告對應的應用程式必須將 `appid={client_id}` 附加至其[OpenID connect 中繼資料要求](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document)，藉以驗證其權杖簽署金鑰。 以下是您應該使用的 OpenID Connect 元資料檔案格式： 
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
+```
 
 ### <a name="cross-tenant-scenarios"></a>跨租用戶案例
 

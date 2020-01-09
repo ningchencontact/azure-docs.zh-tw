@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: fdc7254b4c6e798c0f32f5fac3575474ed6ec1d0
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c093cea9f8719722cc44c9d6424c06039360e90f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077064"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690396"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 健康情況探查
 
-搭配 Azure Load Balancer 使用負載平衡規則時，您需要指定健康情況探查，以允許 Load Balancer 偵測後端端點狀態。  健康情況探查和探查回應的設定會決定哪些後端集區實例會接收新的流程。 您可以使用健康情況探查來偵測後端端點上的應用程式失敗。 您也可以對健康情況探查產生自訂回應，並運用健康情況探查來控制流量，藉此管理負載或排定的停機時間。 當健康情況探查失敗時，Load Balancer 將會停止將新流量傳送至個別狀況不良的實例。
+搭配 Azure Load Balancer 使用負載平衡規則時，您需要指定健康情況探查，以允許 Load Balancer 偵測後端端點狀態。  健康情況探查和探查回應的設定會決定哪些後端集區實例會接收新的流程。 您可以使用健康情況探查來偵測後端端點上的應用程式失敗。 您也可以對健康情況探查產生自訂回應，並運用健康情況探查來控制流量，藉此管理負載或排定的停機時間。 當健康情況探查失敗時，Load Balancer 將會停止將新流量傳送至個別狀況不良的實例。 輸出連線不會受到影響，只會影響輸入連線能力。
 
 健康情況探查支援多個通訊協定。 特定健康情況探查通訊協定的可用性會因 Load Balancer SKU 而有所不同。  此外，服務的行為會因 Load Balancer SKU 而有所不同，如下表所示：
 
@@ -49,8 +49,8 @@ ms.locfileid: "74077064"
 - 探查的埠
 - 使用 HTTP （S）探查時用於 HTTP GET 的 HTTP 路徑
 
-> [!NOTE]
-> 使用 Azure PowerShell、Azure CLI、範本或 API 時，不會強制或檢查探查定義。 只有在使用 Azure 入口網站時，才會進行探查驗證測試。
+>[!NOTE]
+>使用 Azure PowerShell、Azure CLI、範本或 API 時，不會強制或檢查探查定義。 只有在使用 Azure 入口網站時，才會進行探查驗證測試。
 
 ## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>瞭解應用程式信號、偵測信號，以及平臺的反應
 
@@ -84,7 +84,7 @@ ms.locfileid: "74077064"
 
 可用的通訊協定取決於所使用的 Load Balancer SKU：
 
-|| TCP | http | HTTPS |
+|| TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
 | 標準 SKU |    &#9989; |   &#9989; |   &#9989; |
 | 基本 SKU |   &#9989; |   &#9989; | &#10060; |
@@ -112,7 +112,7 @@ TCP 探查會利用定義的連接埠執行三向開放 TCP 交握，藉此初�
       },
 ```
 
-### <a name="httpprobe"></a> <a name="httpsprobe"></a> HTTP / HTTPS 探查
+### <a name="httpprobe"></a><a name="httpsprobe"></a> HTTP/HTTPS 探查
 
 >[!NOTE]
 >HTTPS 探查僅適用於 [Standard Load Balancer](load-balancer-standard-overview.md)。
@@ -120,6 +120,9 @@ TCP 探查會利用定義的連接埠執行三向開放 TCP 交握，藉此初�
 HTTP 和 HTTPS 探查建立在 TCP 探查的基礎上，並會發出含有指定路徑的 HTTP GET。 這兩個探查皆支援 HTTP GET 的相對路徑。 HTTPS 探查就是加入傳輸層安全性 (TLS，之前稱為 SSL) 包裝函式的 HTTP 探查。 當執行個體在逾時期限內以 HTTP 狀態 200 回應時，健康情況探查會標示為已啟動。  依預設，健康情況探查會每隔 15 秒嘗試檢查一次已設定的健康情況探查連接埠。 最小探查間隔為 5 秒。 所有間隔的總持續時間不能超過 120 秒。
 
 如果探查埠也是服務本身的接聽程式，HTTP/HTTPS 探查也很適合用來執行您自己的邏輯，以從負載平衡器輪替中移除實例。 例如，如果執行個體使用超過 90% CPU，並傳回非 200 HTTP 狀態，您可以決定移除執行個體。 
+
+> [!NOTE] 
+> HTTPS 探查需要使用以整個鏈中具有最少簽章雜湊 SHA256 的憑證為基礎。
 
 如果您使用雲端服務而且有使用 w3wp.exe 的 Web 角色，也能讓網站的監視自動化。 網站程式碼中的失敗，會將非 200 的狀態傳回給負載平衡器探查。
 
@@ -240,7 +243,7 @@ AzureLoadBalancer 服務標籤會在您的[網路安全性群組](../virtual-net
 
 請勿啟用 [TCP 時間戳記](https://tools.ietf.org/html/rfc1323)。  啟用 TCP 時間戳記可能會導致健康情況探查失敗，因為 VM 的來賓 OS TCP 堆疊會卸載 TCP 封包，這會導致 Load Balancer 將個別端點標記在一起。  TCP 時間戳記依預設會在安全性強化的虛擬機器映像上定期啟用，而必須停用。
 
-## <a name="monitoring"></a>監控
+## <a name="monitoring"></a>監視
 
 公用和內部[Standard Load Balancer](load-balancer-standard-overview.md)都會透過 Azure 監視器以多維度計量的形式，將每個端點和後端端點的健康情況探查狀態公開。 這些計量可供其他 Azure 服務或合作夥伴應用程式使用。 
 

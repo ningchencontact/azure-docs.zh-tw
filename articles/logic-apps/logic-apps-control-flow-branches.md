@@ -1,24 +1,24 @@
 ---
-title: 建立或聯結平行分支
-description: 如何在 Azure Logic Apps 中建立或加入工作流程的平行分支
+title: 針對工作流程中的動作建立或加入平行分支
+description: 瞭解如何在 Azure Logic Apps 中，建立或合併獨立工作流程動作的平行執行分支
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: bb1c615852fb2bf810abec97e3faeb5775c4a57a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
-ms.translationtype: HT
+ms.openlocfilehash: c0b1519992ba930382a1987aed185ef3c92eded4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791448"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453424"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立或加入工作流程動作的平行分支
 
 根據預設，邏輯應用程式中的動作會依序執行。 若要同時執行獨立的動作，您可以建立[平行分支](#parallel-branches)，並在之後[將這些分支加入](#join-branches)您的流程中。 
 
 > [!TIP] 
-> 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用 **SplitOn** [觸發屬性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)將該陣列「解除批次」。
+> 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用 [**SplitOn** 觸發屬性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)將該陣列「解除批次」。
 
 ## <a name="prerequisites"></a>必要條件
 

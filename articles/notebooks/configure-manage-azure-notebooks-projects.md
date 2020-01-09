@@ -1,18 +1,22 @@
 ---
-title: 設定和管理 Azure Notebook 專案
-description: 如何透過 Azure Notebooks UI 與直接終端機存取來管理專案中繼資料、專案檔、專案的環境和設定步驟。
-ms.topic: article
+title: 設定和管理 Azure Notebooks 預覽
+description: 瞭解如何透過 Azure Notebooks UI 和直接終端機存取來管理專案中繼資料、專案檔案、專案的環境和設定步驟。
+ms.topic: how-to
 ms.date: 05/13/2019
-ms.openlocfilehash: 56c265122894412e79b3d5a7b256964c49ab81a6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5c97372133315e6f0bcd3b854793b6b4746b5ba5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277649"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646257"
 ---
-# <a name="manage-and-configure-projects"></a>管理及設定專案
+# <a name="a-idmanage-and-configure-projects--manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> 在 Azure Notebooks Preview 中管理和設定專案
 
-Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Notebook 執行所在) 的組態，以及檔案資料夾和描述性中繼資料。 Azure Notebooks 的專案儀表板可讓您管理檔案，或者設定專案的特性：
+在 Azure Notebooks Preview 中的專案基本上是 Jupyter 筆記本執行所在的基礎 Linux 虛擬機器的設定，以及檔案資料夾和描述性中繼資料。 
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Azure Notebooks 的專案儀表板可讓您管理檔案，或者設定專案的特性：
 
 - 專案要在哪個計算層上執行，該層可以為免費層或 Azure 虛擬機器。
 - 專案中繼資料包括名稱、描述、共用專案時使用的識別碼，以及專案為公用或私用。
@@ -33,7 +37,7 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 
 在專案儀表板中，選取 [專案設定]，然後選取 [資訊] 索引標籤，其中包含如下表所述的專案中繼資料。 您可以隨時變更專案中繼資料。
 
-| 設定 | 描述 |
+| 設定 | 說明 |
 | --- | --- |
 | 專案名稱 | Azure Notebooks 用於顯示用途的專案易記名稱。 例如，"Hello World in Python"。 |
 | 專案識別碼 | 自訂識別碼會成為您用來共用專案 URL 的一部分。 此識別碼只能使用字母、數位和連字號、限制為30個字元，而且不能是[保留的專案識別碼](create-clone-jupyter-notebooks.md#reserved-project-ids)。 如果您不確定要使用的項目，常見的慣例是使用專案名稱的小寫版本，讓空格轉變成連字號，例如 「 my-notebook-project 」 (必要時，可截斷以符合長度限制)。 |
@@ -52,7 +56,7 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 
 [+ 新增] 命令 (鍵盤快速鍵：n) 會建立新的檔案或資料夾。 使用命令時，請先選取要建立的項目類型：
 
-| 項目類型 | 描述 | 命令行為 |
+| 項目類型 | 說明 | 命令行為 |
 | --- | --- | --- |
 | **Notebook** | Jupyter Notebook | 顯示快顯，您可以在其中指定 Notebook 的檔案名稱和語言。 |
 | **資料夾** | 子資料夾 | 在專案的檔案清單中建立及編輯欄位，在該欄位中輸入資料夾名稱。 |
@@ -69,7 +73,7 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 
 ![檔案內容功能表上的命令](media/project-file-commands.png)
 
-| 命令 | 鍵盤快速鍵 | 動作 |
+| Command | 鍵盤快速鍵 | 行動 |
 | --- | --- | --- |
 | 執行 | r (或按一下) | 執行 Notebook 檔案。 其他檔案類型開啟供檢視。  |
 | 複製連結 | y | 將檔案的連結複製到剪貼簿。 |
@@ -79,7 +83,7 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 | 下載 | d | 下載 zip 檔案，其中包含檔案或資料夾的內容。 |
 | 重新命名 | a | 提示您輸入檔案或資料夾的新名稱。 |
 | 刪除 | x | 提示您確認，然後從專案中永久移除檔案。 刪除無法復原。 |
-| 移動 | m | 將檔案移到相同專案中不同的資料夾。 |
+| 移動 | 分鐘 | 將檔案移到相同專案中不同的資料夾。 |
 
 #### <a name="preview"></a>預覽
 
@@ -87,7 +91,7 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 
 預覽頁面支援數個工具列命令，有鍵盤快速鍵：
 
-| 命令 | 鍵盤快速鍵 | 動作 |
+| Command | 鍵盤快速鍵 | 行動 |
 | --- | --- | --- |
 | 共用 | s | 顯示共用的快顯，您可以從其中取得連結、分享到社交媒體、取得內嵌的 HTML，以及傳送電子郵件。 |
 | 複製 | c  | 將 Notebook 複製到您的帳戶。 |
@@ -143,7 +147,7 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 
 若要影響特定環境，請先將目錄變更到該環境資料夾。
 
-對於 Python 環境，您可以在每個環境的 bin`pip``conda` 資料夾中找到 *和*。 您也可以使用環境的內建別名：
+對於 Python 環境，您可以在每個環境的 bin 資料夾中找到 `pip` 和 `conda`。 您也可以使用環境的內建別名：
 
 ```bash
 # Anaconda 2 5.3.0/Python 2.7: python27

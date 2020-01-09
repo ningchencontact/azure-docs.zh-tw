@@ -1,32 +1,23 @@
 ---
-title: Azure Service Fabric CLI- sfctl mesh code-package-log | Microsoft Docs
-description: 描述 Service Fabric CLI sfctl mesh code-package-log 命令。
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI-sfctl 網格程式碼-封裝-記錄檔
+description: 深入瞭解 sfctl，這是 Azure Service Fabric 命令列介面。 包含用來取得指定程式碼封裝之記錄檔的命令清單。
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: d1f0e34389a48b79c049f26e8b04c870f0f1a9a7
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 78edc9bb36b711f72300942bc9900b0fde7c51d2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901272"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646138"
 ---
 # <a name="sfctl-mesh-code-package-log"></a>sfctl mesh code-package-log
 針對指定服務複本，取得指定程式碼套件的容器記錄。
 
 ## <a name="commands"></a>命令
 
-|命令|描述|
+|Command|說明|
 | --- | --- |
 | get | 取得容器的記錄。 |
 
@@ -37,7 +28,7 @@ ms.locfileid: "72901272"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --app-name --application-name [必要] | 應用程式的名稱。 |
 | --code-package-name           [必要] | 服務程式碼套件的名稱。 |
@@ -47,13 +38,13 @@ ms.locfileid: "72901272"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 
 ## <a name="next-steps"></a>後續步驟

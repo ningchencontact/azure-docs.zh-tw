@@ -3,16 +3,16 @@ title: 開發人員指南-IoT 隨插即用預覽 |Microsoft Docs
 description: IoT 隨插即用開發人員的裝置模型描述
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/05/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6d8e0e9e675b88c69b74cdad261280f5dcaf7161
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 21001a22be6297595658ff347e9f8a7b04bb6faf
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581615"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531389"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>IoT 隨插即用預覽模型開發人員指南
 
@@ -67,9 +67,9 @@ IoT 隨插即用預覽版可讓您建立裝置，以向 Azure IoT 應用程式�
 
 透過 DTDL，您可以使用介面來描述裝置的功能。 介面會描述您的裝置中所執行的_屬性_、_遙測_和_命令_：
 
-- `Properties`。 屬性是代表裝置狀態的資料欄位。 使用屬性來表示裝置的持久狀態，例如 coolant 泵的關閉狀態。 屬性也可以代表基本裝置屬性，例如裝置的「固件」版本。 您可以將屬性宣告為唯讀或可寫入。
-- `Telemetry`。 遙測欄位代表來自感應器的測量。 每當您的裝置接受感應器測量時，它應該會傳送包含感應器資料的遙測事件。
-- `Commands`。 命令代表裝置的使用者可以在裝置上執行的方法。 例如，可切換或關閉風扇的 reset 命令或命令。
+- `Properties`答案中所述步驟，工作帳戶即會啟用。 屬性是代表裝置狀態的資料欄位。 使用屬性來表示裝置的持久狀態，例如 coolant 泵的關閉狀態。 屬性也可以代表基本裝置屬性，例如裝置的「固件」版本。 您可以將屬性宣告為唯讀或可寫入。
+- `Telemetry`答案中所述步驟，工作帳戶即會啟用。 遙測欄位代表來自感應器的測量。 每當您的裝置接受感應器測量時，它應該會傳送包含感應器資料的遙測事件。
+- `Commands`答案中所述步驟，工作帳戶即會啟用。 命令代表裝置的使用者可以在裝置上執行的方法。 例如，可切換或關閉風扇的 reset 命令或命令。
 
 下列範例顯示控溫器裝置的介面：
 

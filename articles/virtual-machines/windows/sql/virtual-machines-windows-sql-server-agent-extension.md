@@ -17,16 +17,16 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9aae386e21df6711fc4984a7abfd34f418399f76
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6ccc04ccdaf92764da8f45af1e5dda98af822587
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034189"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690846"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>使用 SQL Server IaaS 代理程式擴充功能，將 Azure 虛擬機器上的管理工作自動化
 > [!div class="op_single_selector"]
-> * [資源管理員](virtual-machines-windows-sql-server-agent-extension.md)
+> * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
 > * [傳統](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
 SQL Server IaaS 代理程式擴充功能 (SqlIaasExtension) 會在 Azure 虛擬機器上執行，以將管理工作自動化。 本文提供延伸模組支援之服務的總覽。 本文也提供安裝、狀態及移除擴充功能的指示。
@@ -39,7 +39,7 @@ SQL Server IaaS 代理程式擴充功能 (SqlIaasExtension) 會在 Azure 虛擬�
 ## <a name="supported-services"></a>支援的服務
 SQL Server IaaS 代理程式擴充功能支援下列管理工作︰
 
-| 系統管理功能 | 描述 |
+| 系統管理功能 | 說明 |
 | --- | --- |
 | **SQL Server 自動備份** |針對預設實例或虛擬機器上[已正確安裝](virtual-machines-windows-sql-server-iaas-faq.md#administration)之 SQL Server 實例的所有資料庫，自動排程備份。 如需詳細資訊，請參閱[Azure 虛擬機器中的 SQL Server 自動備份（Resource Manager）](virtual-machines-windows-sql-automated-backup.md)。 |
 | **SQL Server 自動修補** |設定維護期間 (在此期間會進行 VM 的重要 Windows 更新)，以避免在工作負載尖峰時段進行更新。 如需詳細資訊，請參閱[Azure 虛擬機器中的 SQL Server 的自動修補（Resource Manager）](virtual-machines-windows-sql-automated-patching.md)。 |
@@ -50,7 +50,7 @@ SQL Server IaaS 代理程式擴充功能支援下列管理工作︰
 * 在 Azure 入口網站中虛擬機器的 [SQL Server] 面板上，以及 Azure Marketplace 上 SQL Server 影像的 [Azure PowerShell]。
 * 透過 Azure PowerShell 來手動安裝延伸模組。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 以下是在您的 VM 上使用 SQL Server IaaS 代理程式擴充功能的需求：
 
 **作業系統**：
@@ -69,6 +69,7 @@ SQL Server IaaS 代理程式擴充功能支援下列管理工作︰
 * SQL Server 2014
 * SQL Server 2016
 * SQL Server 2017
+* SQL Server 2019
 
 **Azure PowerShell**：
 

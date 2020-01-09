@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 2d8922084dbe30c2dbe494028f2e5a1497fb3759
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a55e1453fe7fe4d135286b22dabf58d434762581
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74015001"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645101"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>建立虛擬中樞路由表以將流量引導到網路虛擬設備
 
@@ -116,7 +116,7 @@ $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 將變更認可到虛擬中樞。
 
 ```powershell
-Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
+Update-AzVirtualHub -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
 ```
 
 ## <a name="next-steps"></a>後續步驟

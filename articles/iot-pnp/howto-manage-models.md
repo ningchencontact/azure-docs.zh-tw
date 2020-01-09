@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 12/26/2019
 ms.author: philmea
-ms.openlocfilehash: 4320a975f74d000bd492d291f5e610f591536b0d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7e71c940d0c083642954114cf4fa1617b93335b9
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979099"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531254"
 ---
 # <a name="manage-models-in-the-repository"></a>管理存放庫中的模型
 
@@ -37,7 +37,7 @@ IoT 隨插即用預覽模型存放庫會儲存裝置功能模型和介面。 儲
 在[Azure IoT 認證入口網站](https://preview.catalog.azureiotsolutions.com)中，您可以完成下列工作：
 
 - [完成 IoT 裝置的認證程式](./tutorial-certification-test.md)。
-- 尋找 IoT 隨插即用裝置功能模型。 您可以使用這些模型來[快速建立 IoT 就緒裝置，並將其與解決方案整合](./quickstart-connect-pnp-device-solution.md)。
+- 尋找 IoT 隨插即用裝置功能模型。 您可以使用這些模型來[快速建立 IoT 就緒裝置，並將其與解決方案整合](./quickstart-connect-pnp-device-solution-node.md)。
 
 ## <a name="azure-cli"></a>Azure CLI
 

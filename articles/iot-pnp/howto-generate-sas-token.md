@@ -3,17 +3,17 @@ title: 產生安全性權杖以存取 IoT 隨插即用預覽存放庫 |Microsoft
 description: 當您以程式設計方式存取 IoT 隨插即用預覽模型存放庫時，產生要使用的共用存取簽章權杖。
 author: Philmea
 ms.author: philmea
-ms.date: 08/06/2019
+ms.date: 12/27/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: f6c4f5b9784eeff9d03b6e93953674736fb78c6c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2530c5b3561ad90eac0556770a8a356cfaa6a52c
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976021"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531282"
 ---
 # <a name="generate-sas-token"></a>產生 SAS Token
 

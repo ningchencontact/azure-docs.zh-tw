@@ -2,14 +2,14 @@
 title: 針對 Azure Vm 的備份錯誤進行疑難排解
 description: 在本文中，您將瞭解如何針對 Azure 虛擬機器備份和還原時遇到的錯誤進行疑難排解。
 ms.reviewer: srinathv
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: e5ee0e06d444db809ce3e168f8883048eaf45e27
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1e71f6f711bcee78538c573a8869b8fdfa2a10b0
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172455"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664633"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>針對 Azure 虛擬機器上的備份失敗進行疑難排解
 
@@ -61,7 +61,6 @@ ms.locfileid: "74172455"
 錯誤碼： UserErrorFsFreezeFailed <br/>
 錯誤訊息：無法凍結 VM 的一或多個掛接點以取得檔案系統一致的快照集。
 
-* 使用**tune2fs**命令檢查所有已載入裝置的檔案系統狀態，例如**tune2fs-l/dev/sdb1 \\** 。\| grep**檔案系統狀態**。
 * 使用**umount**命令，卸載未清除檔案系統狀態的裝置。
 * 使用**fsck**命令，在這些裝置上執行檔案系統一致性檢查。
 * 再次掛接裝置，然後重試備份操作。</ol>
@@ -184,7 +183,6 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 | 錯誤詳細資料 | 因應措施 |
 | ------ | --- |
 | **錯誤碼**：320001、ResourceNotFound <br/> **錯誤訊息**：因為 VM 已不存在，所以無法執行此作業。 <br/> <br/> **錯誤碼**：400094、BCMV2VMNotFound <br/> **錯誤訊息**：虛擬機器不存在 <br/> <br/>  找不到 Azure 虛擬機器。  |此錯誤會在已刪除主要 VM，但備份原則仍然在尋找 VM 來備份時發生。 若要修正此錯誤，請遵循下列步驟： <ol><li> 重新建立具有相同名稱和相同資源群組名稱 (**雲端服務名稱**) 的虛擬機器，<br>**or**</li><li> 停止保護虛擬機器 (不論是否刪除備份資料)。 如需詳細資訊，請參閱[停止保護虛擬機器](backup-azure-manage-vms.md#stop-protecting-a-vm)。</li></ol>|
-| **錯誤碼**： UserErrorVmProvisioningStateFailed<br/> **錯誤訊息**： VM 處於失敗的布建狀態： <br>請將 VM 重新啟動，並確定 VM 正在執行或已關機。 | 此錯誤會在因其中一個延伸模組發生失敗，而使 VM 處於失敗的佈建狀態時發生。 請移至延伸模組清單，查看是否有失敗的延伸模組並將它移除，然後嘗試重新啟動虛擬機器。 如果所有延伸模組都是處於執行中的狀態，請檢查 VM 代理程式服務是否正在執行。 若否，請重新啟動 VM 代理程式服務。 |
 |**錯誤碼**： UserErrorBCMPremiumStorageQuotaError<br/> **錯誤訊息**：因為儲存體帳戶中的可用空間不足，所以無法複製虛擬機器的快照集 | 針對 VM 備份堆疊 V1 上的進階 VM，我們會將快照集複製到儲存體帳戶。 此步驟是為了確定快照集上運作的備份管理流量不會限制可供使用進階磁碟的應用程式使用的 IOPS 數目。 <br><br>我們建議您僅配置 50% (17.5 TB) 的總儲存體帳戶空間。 然後 Azure 備份服務便可以將快照集複製到儲存體帳戶，並從儲存體帳戶中的這個複製位置將資料傳送到到保存庫。 |
 | **錯誤碼**：380008、AzureVmOffline <br/> **錯誤訊息**：無法安裝 Microsoft 復原服務延伸模組，因為虛擬機器並未執行 | VM 代理程式是 Azure 復原服務延伸模組的必要條件。 請安裝 Azure 虛擬機器代理程式並重新啟動註冊作業。 <br> <ol> <li>檢查是否已正確安裝 VM 代理程式。 <li>確定已正確設定 VM 設定上的旗標。</ol> 深入了解如何安裝 VM 代理程式，以及如何驗證 VM 代理程式安裝。 |
 | **錯誤碼**： ExtensionSnapshotBitlockerError <br/> **錯誤訊息**：快照集作業失敗，發生磁碟區陰影複製服務（VSS）作業錯誤，**此磁片磁碟機已由 BitLocker 磁碟機加密鎖定。您必須從 [控制台] 解除鎖定這個磁片磁碟機。** |對 VM 上的所有磁碟機關閉 BitLocker，並檢查是否已解決 VSS 問題。 |
@@ -193,7 +191,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 | **錯誤碼**： ExtensionSnapshotFailedNoSecureNetwork <br/> **錯誤訊息**：快照集作業失敗，因為無法建立安全的網路通道。 | <ol><li> 在提高權限的模式中執行 **regedit.exe**，來開啟登錄編輯程式。 <li> 識別系統中存在的所有 .NET Framework 版本。 它們位於登錄機碼 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft** 的階層下。 <li> 針對登錄機碼中的每個 .NET Framework，新增下列機碼︰ <br> **SchUseStrongCrypto"=dword:00000001**。 </ol>|
 | **錯誤碼**： ExtensionVCRedistInstallationFailure <br/> **錯誤訊息**：快照集作業失敗，因為無法安裝適用于C++ Visual Studio 2012 的 Visual 可轉散發套件。 | 流覽至 C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion 並安裝 vcredist2013_x64。<br/>請確定允許服務安裝的登錄機碼值設定為正確的值。 也就是將**HKEY_LOCAL_MACHINE \system\currentcontrolset\services\msiserver**中的**Start**值設定為**3** ，而不是**4**。 <br><br>如果您仍遇到安裝問題，請從提高權限的命令提示字元執行 **MSIEXEC /UNREGISTER**，再執行 **MSIEXEC /REGISTER**，以重新啟動安裝服務。  |
 
-## <a name="jobs"></a>作業
+## <a name="jobs"></a>工作
 
 | 錯誤詳細資料 | 因應措施 |
 | --- | --- |

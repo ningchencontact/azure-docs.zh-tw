@@ -6,26 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 01/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 9b9ec315954f5916339bb006cb020acc28886839
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: db0b5db98f654c140a640f10df2c22c22c85c848
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895313"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665299"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>使用 Azure CLI 以 Azure Key Vault 設定客戶管理的金鑰
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
 本文說明如何使用 Azure CLI，以客戶管理的金鑰設定 Azure Key Vault。 若要瞭解如何使用 Azure CLI 建立金鑰保存庫，請參閱[快速入門：使用 Azure CLI 從 Azure Key Vault 設定和取出秘密](../../key-vault/quick-create-cli.md)。
-
-> [!IMPORTANT]
-> 若要使用客戶管理的金鑰搭配 Azure 儲存體加密，需要在金鑰保存庫上設定兩個屬性： [虛**刪除**] 和 [**不要清除**]。 預設不會啟用這些屬性。 若要啟用這些屬性，請使用 PowerShell 或 Azure CLI。
-> 僅支援 RSA 金鑰和金鑰大小2048。
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>將身分識別指派給儲存體帳戶
 
@@ -46,7 +42,7 @@ az storage account update \
 
 ## <a name="create-a-new-key-vault"></a>建立新的金鑰保存庫
 
-您用來儲存 Azure 儲存體加密客戶管理金鑰的金鑰保存庫，必須啟用兩個金鑰保護設定： [虛**刪除**] 和 [不要**清除**]。 若要在啟用這些設定的情況下使用 PowerShell 或 Azure CLI 建立新的金鑰保存庫，請執行下列命令。 請記得以您自己的值取代括弧中的預留位置值。 
+您用來儲存 Azure 儲存體加密客戶管理金鑰的金鑰保存庫，必須啟用兩個金鑰保護設定： [虛**刪除**] 和 [不要**清除**]。 若要在啟用這些設定的情況下使用 PowerShell 或 Azure CLI 建立新的金鑰保存庫，請執行下列命令。 請記得以您自己的值取代括弧中的預留位置值。
 
 若要使用 Azure CLI 建立新的金鑰保存庫，請呼叫[az keyvault create](/cli/azure/keyvault#az-keyvault-create)。 請記得以您自己的值取代括弧中的預留位置值。
 
@@ -58,6 +54,8 @@ az keyvault create \
     --enable-soft-delete \
     --enable-purge-protection
 ```
+
+若要瞭解如何使用 Azure CLI 在現有的金鑰保存庫上啟用「虛**刪除**」和「不要**清除**」，請參閱[如何搭配使用虛刪除與 CLI](../../key-vault/key-vault-soft-delete-cli.md)中的
 
 ## <a name="configure-the-key-vault-access-policy"></a>設定 key vault 存取原則
 
@@ -92,7 +90,7 @@ az keyvault key create
 
 根據預設，Azure 儲存體加密會使用 Microsoft 管理的金鑰。 為客戶管理的金鑰設定您的 Azure 儲存體帳戶，並指定要與儲存體帳戶建立關聯的金鑰。
 
-若要更新儲存體帳戶的加密設定，請呼叫[az storage account update](/cli/azure/storage/account#az-storage-account-update)。 此範例也會查詢金鑰保存庫 URI 和最新的金鑰版本，這兩個值都需要用來將金鑰與儲存體帳戶建立關聯。 請記得以您自己的值取代括弧中的預留位置值。
+若要更新儲存體帳戶的加密設定，請呼叫[az storage account update](/cli/azure/storage/account#az-storage-account-update)，如下列範例所示。 包含 `--encryption-key-source` 參數，並將它設定為 `Microsoft.Keyvault`，以啟用儲存體帳戶的客戶管理金鑰。 此範例也會查詢金鑰保存庫 URI 和最新的金鑰版本，這兩個值都需要用來將金鑰與儲存體帳戶建立關聯。 請記得以您自己的值取代括弧中的預留位置值。
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -105,7 +103,7 @@ key_version=$(az keyvault key list-versions \
     --vault-name <key-vault> \
     --query [-1].kid \
     --output tsv | cut -d '/' -f 6)
-az storage account update 
+az storage account update
     --name <storage-account> \
     --resource-group <resource_group> \
     --encryption-key-name <key> \
@@ -117,6 +115,21 @@ az storage account update
 ## <a name="update-the-key-version"></a>更新金鑰版本
 
 當您建立新版本的金鑰時，您必須更新儲存體帳戶，才能使用新版本。 首先，藉由呼叫 az [keyvault show](/cli/azure/keyvault#az-keyvault-show)，並針對金鑰版本查詢金鑰保存庫 URI，方法是呼叫[az keyvault key list-版本](/cli/azure/keyvault/key#az-keyvault-key-list-versions)。 然後呼叫[az storage account update](/cli/azure/storage/account#az-storage-account-update)來更新儲存體帳戶的加密設定，以使用新版本的金鑰，如上一節所示。
+
+## <a name="use-a-different-key"></a>使用不同的金鑰
+
+若要變更 Azure 儲存體加密所使用的金鑰，請呼叫[az Storage account update](/cli/azure/storage/account#az-storage-account-update) ，如使用[客戶管理的金鑰設定加密](#configure-encryption-with-customer-managed-keys)中所示，並提供新的金鑰名稱和版本。 如果新的金鑰位於不同的金鑰保存庫中，請同時更新金鑰保存庫 URI。
+
+## <a name="disable-customer-managed-keys"></a>停用客戶管理的金鑰
+
+當您停用客戶管理的金鑰時，您的儲存體帳戶會使用 Microsoft 管理的金鑰進行加密。 若要停用客戶管理的金鑰，請呼叫[az storage account update](/cli/azure/storage/account#az-storage-account-update) ，並將 `--encryption-key-source parameter` 設定為 `Microsoft.Storage`，如下列範例所示。 請記得以您自己的值取代括弧中的預留位置值，並使用先前範例中所定義的變數。
+
+```powershell
+az storage account update
+    --name <storage-account> \
+    --resource-group <resource_group> \
+    --encryption-key-source Microsoft.Storage
+```
 
 ## <a name="next-steps"></a>後續步驟
 

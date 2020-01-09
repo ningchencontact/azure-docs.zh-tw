@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: a4258b51acfa603c156bc35cdb2cbc3b16f37ab0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 85b1d6b532ba11819947558226291e62af6b5119
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278405"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690946"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>以視覺化方式監視 Azure Data Factory
 
@@ -25,18 +25,18 @@ ms.locfileid: "74278405"
 
 ## <a name="monitor-pipeline-runs"></a>監視管線回合
 
-預設監視視圖是所選時段內的管線執行清單。 會顯示下列資料行：
+預設監視視圖是所選時段內的管線執行清單。 系統會顯示下列資料行：
 
-| **資料行名稱** | **描述** |
+| **資料行名稱** | **說明** |
 | --- | --- |
 | 管線名稱 | 管線的名稱 |
 | 動作 | 可讓您查看活動詳細資料、取消或重新執行管線的圖示 |
 | 回合開始 | 管線執行的開始日期和時間（MM/DD/YYYY、HH： MM： SS AM/PM） |
-| 持續時間 | 回合持續時間 (HH:MM:SS) |
+| 課程時間 | 回合持續時間 (HH:MM:SS) |
 | 觸發方式 | 啟動管線之觸發程式的名稱 |
-| Status | **失敗**、**成功**、**進行中**、**已取消或已** **排入佇列** |
+| 狀態 | **失敗**、**成功**、**進行中**、**已取消或已** **排入佇列** |
 | 註解 | 與管線相關聯的可篩選標記  |
-| parameters | 管線執行的參數（名稱/值配對） |
+| 參數 | 管線執行的參數（名稱/值配對） |
 | 錯誤 | 如果管線失敗，則執行錯誤 |
 | 回合識別碼 | 管線執行的識別碼 |
 
@@ -44,20 +44,20 @@ ms.locfileid: "74278405"
 
 您需要手動選取 [重新整理]**按鈕，以**重新整理管線和活動執行的清單。 目前不支援 Autorefresh。
 
-![重新整理按鈕](media/monitor-visually/refresh.png)
+![[重新整理] 按鈕](media/monitor-visually/refresh.png)
 
 ## <a name="monitor-activity-runs"></a>監視活動回合
 
 若要查看每個管線執行的活動執行，請選取 [**動作**] 資料行底下的 [ **view activity 執行**] 圖示。 清單視圖會顯示對應至每個管線執行的活動執行。
 
-| **資料行名稱** | **描述** |
+| **資料行名稱** | **說明** |
 | --- | --- |
 | 活動名稱 | 管線內的活動名稱 |
 | 活動類型 | 活動的類型，例如**Copy**、 **ExecuteDataFlow**或**AzureMLExecutePipeline** |
 | 動作 | 圖示，可讓您查看 JSON 輸入資訊、JSON 輸出資訊，或詳細的活動特定監視體驗 | 
 | 回合開始 | 活動執行的開始日期和時間（MM/DD/YYYY，HH： MM： SS AM/PM） |
-| 持續時間 | 回合持續時間 (HH:MM:SS) |
-| Status | **失敗**、**成功**、**進行中**或**已取消** |
+| 課程時間 | 回合持續時間 (HH:MM:SS) |
+| 狀態 | **失敗**、**成功**、**進行中**或**已取消** |
 | Integration Runtime | 活動執行的 Integration Runtime |
 | 使用者屬性 | 活動的使用者定義屬性 |
 | 錯誤 | 如果活動失敗，則執行錯誤 |
@@ -88,13 +88,13 @@ ms.locfileid: "74278405"
 
 根據執行開始時間，切換管線執行是遞減還是遞增的。 使用下列資料行篩選管線執行：
 
-| **資料行名稱** | **描述** |
+| **資料行名稱** | **說明** |
 | --- | --- |
 | 管線名稱 | 依管線的名稱篩選。 |
 | 回合開始 |  決定顯示管線執行的時間範圍。 選項包括**過去24小時**、**過去一周**和**過去30天**的快速篩選，或是選取自訂的日期和時間。 |
 | 回合狀態 | 依狀態篩選執行：**成功**、**失敗**、已**排入佇列**、**已取消**或**進行中**。 |
 | 註解 | 依套用至每個管線的標記篩選 |
-| 執行 | 篩選是否要查看不見了管線 |
+| 執行數 | 篩選是否要查看不見了管線 |
 
 ![篩選選項](media/monitor-visually/filter.png)
 
@@ -113,6 +113,12 @@ ms.locfileid: "74278405"
 ![檢視活動執行](media/monitor-visually/rerun-activities-image1.png)
 
 ![選取活動執行](media/monitor-visually/rerun-activities-image2.png)
+
+### <a name="rerun-from-failed-activity"></a>從失敗的活動重新執行
+
+如果活動失敗、超時或已取消，您可以選取 [**從失敗的活動重新**執行]，從該失敗的活動重新執行管線。
+
+![重新執行失敗的活動](media/monitor-visually/rerun-failed-activity.png)
 
 ### <a name="view-rerun-history"></a>檢視重新執行歷程記錄
 
@@ -143,7 +149,7 @@ ms.locfileid: "74278405"
 
 ![導覽](media/monitor-visually/guided-tours.png)
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>警示
 
 您可以針對 Data Factory 中支援的計量提出警示。 在 Data Factory 監視 頁面上選取 **監視** > **警示 & 計量**，即可開始使用。
 

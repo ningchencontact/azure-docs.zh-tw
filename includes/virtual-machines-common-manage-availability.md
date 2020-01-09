@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7c884d3c7102fc47f6efad86d9fe3704afd0edcf
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: edaa3f7c17ff5fb6bc79f67b7028a7ba72347367
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73590489"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466977"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>了解 VM 重新開機 - 維護與停機時間
 有三種情況可能會導致 Azure 中的虛擬機器受到影響：未規劃的硬體維護、未預期的停機時間以及規劃的維護。
@@ -83,7 +83,7 @@ Azure 區域中的可用性區域是**容錯網域**和**更新網域**的組合
 如果您打算使用 VM 搭配非受控磁碟，請針對 VM 的虛擬硬碟 (VHD) 在其中儲存為[分頁 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) 的儲存體帳戶，遵循以下的最佳做法。
 
 1. **將與 VM 相關聯的所有磁碟 (OS 和資料) 保留於相同的儲存體帳戶中**
-2. 將更多VHD 新增至儲存體帳戶之前，**請檢閱儲存體帳戶中非受控磁碟數目的[限制](../articles/storage/common/storage-scalability-targets.md)**
+2. 在將更多 Vhd 新增至儲存體帳戶之前，請先**參閱 Azure 儲存體帳戶中的非受控磁片數目[限制](../articles/storage/blobs/scalability-targets-premium-page-blobs.md)**
 3. **針對可用性設定組中的每個 VM 使用個別的儲存體帳戶。** 請勿與相同可用性設定組中的多個 VM 共用儲存體帳戶。 如果遵循上述的最佳做法，即可接受位於不同可用性設定組的 VM 共用儲存體帳戶 ![非受控磁碟 FD](./media/virtual-machines-common-manage-availability/umd-updated.png)
 
 ## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>使用排定的事件主動回應 VM 影響事件

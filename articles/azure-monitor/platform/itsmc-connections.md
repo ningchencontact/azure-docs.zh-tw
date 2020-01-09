@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: d800f20826723d3a626d9a0f5f83664927c1185c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4dbc830ea106dee7ef21a28eb3aee63c94680be2
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927603"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664860"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>將 ITSM 產品/服務與 IT Service Management Connector 連線
 本文提供如何設定 ITSM 產品/服務與 Log Analytics 中 IT Service Management Connector (ITSMC) 之間的連線，以集中管理工作項目的相關資訊。 如需 ITSMC 的詳細資訊，請參閱[概觀](../../azure-monitor/platform/itsmc-overview.md)。
@@ -62,7 +62,7 @@ ms.locfileid: "74927603"
 
 | **欄位** | **說明** |
 | --- | --- |
-| 連線名稱   | 輸入您想要與 ITSMC 連線之 System Center Service Manager 執行個體的名稱。  稍後當您設定這個執行個體的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
+| **連接名稱**   | 輸入您想要與 ITSMC 連線之 System Center Service Manager 執行個體的名稱。  稍後當您設定這個執行個體的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
 | **夥伴類型**   | 選取 **System Center Service Manager**。 |
 | **伺服器 URL**   | 輸入 Service Manager Web 應用程式的 URL。 Service Manager Web 應用程式的相關詳細資訊在[這裡](#create-and-deploy-service-manager-web-app-service)。
 | **用戶端識別碼**   | 將您所產生 (使用自動指令碼) 用來驗證 Web 應用程式的用戶端識別碼輸入。 自動化指令碼的相關詳細資訊在[這裡](../../azure-monitor/platform/itsmc-service-manager-script.md)。|
@@ -98,7 +98,7 @@ ms.locfileid: "74927603"
 
 - Azure 訂用帳戶詳細資料
 - 資源群組名稱
-- Location
+- 位置
 - Service Manager 伺服器詳細資料 (伺服器名稱、網域、使用者名稱和密碼)
 - Web 應用程式的網站名稱前置詞
 - 服務匯流排命名空間。
@@ -160,7 +160,7 @@ ms.locfileid: "74927603"
 
 3. 使用您的 Azure 認證登入，然後選取您在其中建立混合式連線的訂用帳戶。
 
-4. 按一下 [儲存]。
+4. 按一下 [檔案]。
 
 混合式連線已成功連線。
 
@@ -180,7 +180,7 @@ ms.locfileid: "74927603"
 ### <a name="prerequisites"></a>必要條件
 請確保已符合下列必要條件︰
 - 已安裝 ITSMC。 更多資訊：[新增 IT 服務管理連接器解決方案](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution)。
-- ServiceNow 支援的版本：馬德里、倫敦、Kingston、雅加達、伊斯坦布爾、赫爾辛基、Geneva。
+- ServiceNow 支援的版本：紐約、馬德里、倫敦、Kingston、雅加達、伊斯坦布爾、赫爾辛基、Geneva。
 
 **ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作**：
 - 產生 ServiceNow 產品的用戶端識別碼和用戶端密碼。 如需如何產生用戶端識別碼和祕密的相關資訊，請視需要參閱下列資訊：
@@ -195,7 +195,7 @@ ms.locfileid: "74927603"
     - [針對 Geneva 設定 OAuth](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
 
 
-- 安裝適用於 Microsoft Log Analytics 整合的使用者應用程式 (ServiceNow 應用程式)。 [深入了解提出技術問題。
+- 安裝適用於 Microsoft Log Analytics 整合的使用者應用程式 (ServiceNow 應用程式)。 [深入了解](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 )。
 - 為安裝的使用者應用程式建立整合使用者角色。 關於如何建立整合使用者角色的資訊在[這裡](#create-integration-user-role-in-servicenow-app)。
 
 ### <a name="connection-procedure"></a>**連線程序**
@@ -217,7 +217,7 @@ ms.locfileid: "74927603"
 
 | **欄位** | **說明** |
 | --- | --- |
-| 連線名稱   | 輸入您想要與 ITSMC 連線之 ServiceNow 執行個體的名稱。  稍後當您在 Log Analytics 中設定這個 ITSM 的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
+| **連接名稱**   | 輸入您想要與 ITSMC 連線之 ServiceNow 執行個體的名稱。  稍後當您在 Log Analytics 中設定這個 ITSM 的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
 | **夥伴類型**   | 選取 **ServiceNow**。 |
 | **使用者名稱**   | 輸入您在 ServiceNow 應用程式中建立的整合使用者名稱，以支援 ITSMC 的連線。 詳細資訊︰[建立 ServiceNow 應用程式使用者角色](#create-integration-user-role-in-servicenow-app)。|
 | **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **附註**︰使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 ITSMC 服務內。  |
@@ -312,7 +312,7 @@ ms.locfileid: "74927603"
 
 | **欄位** | **說明** |
 | --- | --- |
-| 連線名稱   | 輸入您想要與 ITSMC 連線之 Provance 執行個體的名稱。  稍後當您在這個 ITSM 中設定工作項目 / 檢視詳細的記錄分析時，會使用這個名稱。 |
+| **連接名稱**   | 輸入您想要與 ITSMC 連線之 Provance 執行個體的名稱。  稍後當您在這個 ITSM 中設定工作項目 / 檢視詳細的記錄分析時，會使用這個名稱。 |
 | **夥伴類型**   | 選取 [Provance]。 |
 | **使用者名稱**   | 輸入可以連線到 ITSMC 的使用者名稱。    |
 | **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **附註**︰使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 ITSMC 服務內。|
@@ -363,7 +363,7 @@ ms.locfileid: "74927603"
 
 | **欄位** | **說明** |
 | --- | --- |
-| 連線名稱   | 輸入您想要與 ITSMC 連線之 Cherwell 執行個體的名稱。  稍後當您在這個 ITSM 中設定工作項目 / 檢視詳細的記錄分析時，會使用這個名稱。 |
+| **連接名稱**   | 輸入您想要與 ITSMC 連線之 Cherwell 執行個體的名稱。  稍後當您在這個 ITSM 中設定工作項目 / 檢視詳細的記錄分析時，會使用這個名稱。 |
 | **夥伴類型**   | 選取 [Cherwell]。 |
 | **使用者名稱**   | 輸入可以連線到 ITSMC 的 Cherwell 使用者名稱。 |
 | **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **附註**︰使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 ITSMC 服務內。|

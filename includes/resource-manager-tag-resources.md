@@ -5,22 +5,22 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 01/03/2020
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: b1252c455c2dfad2963f914ee746bcb932e59aa9
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6d8f29e9272f3e05bb585c032240cce67c37d2bf
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74451689"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665152"
 ---
-1. 若要檢視資源或資源群組的標記，請在概觀中尋找現有的標記。 如果您先前尚未套用標記，清單就會是空的。
+1. 若要查看資源或資源群組的標記，請在總覽中尋找現有的標記。 如果您先前尚未套用標記，清單就會是空的。
    
      ![檢視資源或資源群組的標記](./media/resource-manager-tag-resources/view-tags.png)
 1. 若要新增標記，請選取 [按一下這裡以新增標記]。
 
-1. 提供名稱和值。 選取 [ **]+** 以新增標記。
+1. 提供名稱和值。 選取 [+] 以新增標記。
    
      ![新增標記](./media/resource-manager-tag-resources/add-tag.png)
 1. 視需要繼續新增標記。 完成時，選取 [儲存]。
@@ -46,13 +46,13 @@ ms.locfileid: "74451689"
 
      ![指派標記](./media/resource-manager-tag-resources/assign-tags.png)
 
-1. 在每個名稱和值之後，選取 [ **]+** 。 完成時，選取 [指派]。
+1. 在每個名稱和值之後，選取 [+]。 完成時，選取 [指派]。
 
      ![選取 [指派]](./media/resource-manager-tag-resources/select-assign.png)
 
 若要檢視具有標記的所有資源：
 
-1. 在 [Azure 入口網站] 功能表上，選取 [**所有服務**]。 選取 **[一般**]、[**標記**]。
+1. 在 Azure 入口網站功能表上，選取 [所有服務]。 選取 **[一般**]、[**標記**]。
 
      ![依標記尋找](./media/resource-manager-tag-resources/find-tags-general.png)
 
@@ -63,11 +63,3 @@ ms.locfileid: "74451689"
 1. 會顯示具有該標記的所有資源。
 
      ![依標記檢視資源](./media/resource-manager-tag-resources/view-resources-by-tag.png)
-
-1. 若要快速存取，請將檢視釘選到儀表板。
-
-     ![釘選到儀表板](./media/resource-manager-tag-resources/pin-to-dashboard.png)
-
-1. 可在儀表板中使用檢視。
-
-     ![儀表板](./media/resource-manager-tag-resources/dashboard-with-view.png)

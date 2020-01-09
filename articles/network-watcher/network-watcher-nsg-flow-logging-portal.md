@@ -18,12 +18,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: afa1d2ca59bacec2695aaff0cacb119a8fbf787b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f6740076600854f612cfdd6324d93325f0cd5c05
+ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766594"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75667520"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站記錄往返於虛擬機器的網路流量
 
@@ -47,11 +47,11 @@ ms.locfileid: "74766594"
     |設定|值|
     |---|---|
     |名稱|myVm|
-    |使用者名稱| 輸入您選擇的使用者名稱。|
+    |[使用者名稱]| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |訂用帳戶| 選取您的訂用帳戶。|
     |資源群組| 選取 [新建]  ，然後輸入 **myResourceGroup**。|
-    |位置| 選取 [美國東部] |
+    |Location| 選取 [美國東部] |
 
 4. 選取 VM 的大小，然後選取 [選取]  。
 5. 在 [設定]  底下，接受所有預設值，然後選取 [確定]  。
@@ -90,14 +90,10 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
     | 設定        | 值                                                        |
     | ---            | ---   |
     | 名稱           | 3-24 個字元長，只能包含小寫英文字母和數字，並且必須是所有 Azure 儲存體帳戶中唯一的名稱。                                                               |
-    | 位置       | 選取 [美國東部]                                            |
+    | Location       | 選取 [美國東部]                                            |
     | 資源群組 | 選取 [使用現有的]  ，然後選取 [myResourceGroup]  |
 
-    建立儲存體帳戶可能需要一分鐘的時間。 建好儲存體帳戶之前，請不要繼續其餘步驟。 如果您使用現有儲存體帳戶，而不是新建一個，請確定在所選儲存體帳戶的 [設定]  下方，[防火牆與虛擬網路]  的 [所有網路]  (預設值) 已選取。 在所有情況下，儲存體帳戶必須與 NSG 位在同一個區域中。 
-    
-    > [!NOTE]
-    > 雖然 Microsoft.Insight 和 Microsoft.Network 提供者目前是 [Azure 儲存體支援的受信任 Microsoft 服務](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)，但 NSG 流量記錄仍未完全上線。 若要啟用 NSG 流量記錄，必須如上所述選取 [所有網路]  。
-    
+    建立儲存體帳戶可能需要一分鐘的時間。 建好儲存體帳戶之前，請不要繼續其餘步驟。 如果您使用現有儲存體帳戶，而不是新建一個，請確定在所選儲存體帳戶的 [設定]  下方，[防火牆與虛擬網路]  的 [所有網路]  (預設值) 已選取。 在所有情況下，儲存體帳戶必須與 NSG 位在同一個區域中。     
 4. 在入口網站的左上角，選取 [所有服務]  。 在 [篩選]  方塊中，輸入*網路監看員*。 當搜尋結果中出現**網路監看員**時，請加以選取。
 5. 在 [記錄]  下，選取 [NSG 流量記錄]  ，如下列圖所示：
 
@@ -116,8 +112,6 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
    > * 儲存體帳戶已啟用[階層命名空間](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)。
 1. 在入口網站的左上角，選取 [所有服務]  。 在 [篩選]  方塊中，輸入*網路監看員*。 當搜尋結果中出現**網路監看員**時，請加以選取。
 10. 將 [保留 (天數)]  設定為 5，然後選取 [儲存]  。
-    > [!IMPORTANT]
-    > 目前有一個問題是，系統不會根據保留原則設定從 Blob 儲存體自動刪除網路監看員的[網路安全性群組 (NSG) 流量記錄](network-watcher-nsg-flow-logging-overview.md)。 如果您有現有的非零保留原則，建議您定期刪除超過其保留期間的儲存體 Blob 以避免產生任何費用。 如需如何刪除 NSG 流量記錄儲存體 Blob 的詳細資訊，請參閱[刪除 NSG 流量記錄儲存體 Blob](network-watcher-delete-nsg-flow-log-blobs.md)。
 
 ## <a name="download-flow-log"></a>下載流量記錄
 

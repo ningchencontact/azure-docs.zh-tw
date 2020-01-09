@@ -44,7 +44,7 @@
           href: devtest-lab-training-lab.md
         - name: 可認領 VM 使用案例
           href: devtest-lab-use-claim-capabilities.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 設定實驗室
       items:
@@ -72,6 +72,8 @@
           href: devtest-lab-auto-startup-vm.md
         - name: 調整您的實驗室
           href: devtest-lab-scale-lab.md
+        - name: 在啟用實驗室 VM 的受控識別
+          href: enable-managed-identities-lab-vms.md
         - name: 管理虛擬機器基底
           items:
             - name: 設定 Azure Marketplace 映像

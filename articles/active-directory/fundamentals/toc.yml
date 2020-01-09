@@ -8,12 +8,14 @@
     - name: Azure Active Directory 的新增功能
       href: whats-new.md
 - name: 快速入門
+  expanded: true
   items:
     - name: 存取入口網站並建立租用戶
       href: active-directory-access-create-new-tenant.md
     - name: 檢視已指派成員的群組
       href: active-directory-groups-view-azure-portal.md
 - name: 概念
+  expanded: true
   items:
     - name: 身分識別安全分數
       href: identity-secure-score.md
@@ -37,6 +39,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: 適用於歐盟的身分識別資料儲存體
       href: active-directory-data-storage-eu.md
+    - name: 適用於澳洲的資料儲存體
+      href: active-directory-data-storage-australia.md
     - name: Microsoft 365 Government 的最新消息
       href: whats-new-microsoft-365-government.md
     - name: Azure AD Operations 參考
@@ -51,7 +55,7 @@
           href: active-directory-ops-guide-govern.md
         - name: 作業
           href: active-directory-ops-guide-ops.md
-- name: 使用說明指南
+- name: 操作指南
   expanded: true
   items:
     - name: 組織
@@ -97,6 +101,7 @@
         - name: 還原已刪除的使用者
           href: active-directory-users-restore.md
 - name: 資源
+  expanded: true
   items:
     - name: 取得 Azure Active Directory 支援
       href: active-directory-troubleshooting-support-howto.md

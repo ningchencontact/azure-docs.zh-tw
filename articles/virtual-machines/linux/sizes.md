@@ -14,31 +14,31 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: jonbeck
-ms.openlocfilehash: 91bf935ef1a31af0bea6437bd98fa8da4ba11911
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5e10c0905237f3cc28dd0ac113dfaf844e781bac
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280626"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646654"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure 中的 Linux 虛擬機器大小
 本文說明可用於執行 Linux 應用程式與工作負載之 Azure 虛擬機器的可用大小及選項。 同時也提供當您規劃使用這些資源時所需注意的部署考量。 本文也適用於 [Windows 虛擬機器](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 
-| 在系統提示您進行確認時，輸入                     | 大小           |    描述       |
+| 類型                     | 大小           |    說明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [一般用途](sizes-general.md)          | B、Dsv3、Dv3、Dasv4、Dav4、DSv2、Dv2、Av2、DC  | CPU 與記憶體的比例平均。 適用於測試和開發、小型至中型資料庫，以及低至中流量 Web 伺服器。 |
-| [計算最佳化](sizes-compute.md)        | Fsv2           | CPU 與記憶體的比例高。 適用於中流量 Web 伺服器、網路設備、批次處理，以及應用程式伺服器。        |
-| [記憶體最佳化](sizes-memory.md)         | Esv3、Ev3、Easv4、Eav4、Mv2、M、DSv2、Dv2  | 記憶體與 CPU 的比例高。 適用於關聯式資料庫伺服器、中型至大型快取，以及記憶體內部分析。                 |
+| [一般用途](sizes-general.md)          | B、Dsv3、Dv3、Dasv4、Dav4、DSv2、Dv2、Av2、DC  | CPU/記憶體比例平均。 很適合測試與開發、小型至中型資料庫及低至中流量網頁伺服器。 |
+| [計算最佳化](sizes-compute.md)        | Fsv2           | CPU/記憶體比例高。 適用於中流量網頁伺服器、網路設備、批次處理及應用程式伺服器。        |
+| [記憶體最佳化](sizes-memory.md)         | Esv3、Ev3、Easv4、Eav4、Mv2、M、DSv2、Dv2  | 記憶體與 CPU 的比例高。 適用於關聯式資料庫伺服器、中型至大型快取及記憶體內部分析。                 |
 | [儲存體最佳化](sizes-storage.md)        | Lsv2                | 較高的磁碟輸送量和 IO 適用於巨量資料、SQL、NoSQL 資料庫、資料倉儲和大型交易資料庫。  |
 | [GPU](sizes-gpu.md)            | NC、NCv2、NCv3、ND、NDv2 （預覽）、NV、NVv3  | 特製化的虛擬機器，其目標是大量的圖形轉譯和視訊編輯，以及搭配深入學習運作的模型訓練和推斷 (ND)。 有單一或多個 GPU 可供使用。       |
-| [高效能計算](sizes-hpc.md) | HB、HC、H | 速度最快、功能最強的 CPU 虛擬機器，搭載選配的高輸送量網路介面 (RDMA)。 |
+| [高效能計算](sizes-hpc.md) | HB、HC、H | 速度最快、功能最強的 CPU 虛擬機器，搭載選配高輸送量網路介面 (RDMA)。 |
 
 <br>
 
 - 如需各式大小的定價，請參閱 [虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)。 
 - 如需了解 Azure 區域中的 VM 大小可用性，請參閱 [依區域提供的產品](https://azure.microsoft.com/regions/services/)。
-- 若要查看 Azure VM 的一般限制，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../../azure-subscription-service-limits.md)。
+- 若要查看 Azure VM 的一般限制，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../../azure-resource-manager/management/azure-subscription-service-limits.md)。
 - 深入了解 [Azure 計算單位 (ACU)](acu.md) 如何協助您比較各個 Azure SKU 的計算效能。
 
 

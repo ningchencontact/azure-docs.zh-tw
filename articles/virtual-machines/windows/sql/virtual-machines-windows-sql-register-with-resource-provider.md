@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6b2430b5135a5d3f7ad1f9ef0bd17d9149bf48ee
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b59470a187fe060bd5e9a2c1bd84e63f598770df
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793464"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690791"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>在 Azure 中使用 SQL VM 資源提供者註冊 SQL Server 虛擬機器
 
@@ -62,7 +62,7 @@ ms.locfileid: "74793464"
 若要向資源提供者註冊您的 SQL Server VM，您將需要： 
 
 - [Azure 訂用帳戶](https://azure.microsoft.com/free/)。
-- 部署至公用雲端的 Azure 資源模型[SQL SERVER VM](virtual-machines-windows-portal-sql-server-provision.md) 。 
+- Azure 資源模型 SQL Server 部署至公用或 Azure Government 雲端的[VM](virtual-machines-windows-portal-sql-server-provision.md) 。 
 - [Azure CLI](/cli/azure/install-azure-cli)或[PowerShell](/powershell/azure/new-azureps-module-az)的最新版本。 
 
 ## <a name="management-modes"></a>管理模式
@@ -286,8 +286,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
-  Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> `
-  -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
+  Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
   ```
 
 ---
@@ -349,7 +348,7 @@ Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
 
 SQL VM 資源提供者僅支援：
 - SQL Server 透過 Azure Resource Manager 部署的 Vm。 不支援透過傳統模型部署的 SQL Server Vm。 
-- SQL Server 部署至公用雲端的 Vm。 不支援對私人或政府雲端進行部署。 
+- SQL Server 部署至公用或 Azure Government 雲端的 Vm。 不支援對其他私人或政府雲端進行部署。 
 
 
 ## <a name="frequently-asked-questions"></a>常見問題集 
@@ -447,7 +446,7 @@ SQL VM 資源提供者僅支援：
 
 ## <a name="next-steps"></a>後續步驟
 
-如需詳細資訊，請參閱下列文章。 
+如需詳細資訊，請參閱下列文章： 
 
 * [Windows VM 上的 SQL Server 概觀](virtual-machines-windows-sql-server-iaas-overview.md)
 * [Windows VM 上的 SQL Server 常見問題](virtual-machines-windows-sql-server-iaas-faq.md)

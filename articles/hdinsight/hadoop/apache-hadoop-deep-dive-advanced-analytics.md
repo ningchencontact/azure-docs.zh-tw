@@ -2,18 +2,18 @@
 title: 深入探討 - 進階分析 - Azure HDInsight
 description: 瞭解 advanced analytics 如何使用演算法來處理 Azure HDInsight 中的海量資料。
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/14/2017
-ms.author: ashishth
-ms.openlocfilehash: 436825c6e5df2be524dc06ccdaf82f0156714679
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
+ms.openlocfilehash: 6fc6ea9ca0ce3bf82f027b964db94df50f07f2bd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241663"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646518"
 ---
 # <a name="deep-dive---advanced-analytics"></a>深入探討 - 進階分析
 
@@ -38,10 +38,9 @@ HDInsight 提供可從大量結構化、非結構化及快速移動之資料取�
 除了選取最適合的演算法之外，您還必須考量是否需要提供定型用的資料。 機器學習服務演算法歸類如下：
 
 * 監督式 - 演算法必須先在一組已加上標籤的資料上進行定型，才能提供結果
-* 半監督式 - 演算法可以由訓練人員透過互動式查詢以額外的目標增強，這在定型的初始階段無法使用
-* 未監督式 - 演算法不需要定型資料 
+* 半監督-演算法可以透過由訓練人員進行的互動式查詢，以額外的目標來增強，這在定型的初始階段中無法使用。
+* 不受監督-演算法不需要定型資料
 * 增強式 - 演算法使用軟體代理程式來判斷特定內容內的理想行為 (通常用於 Robotics)
-
 
 | 演算法類別| 使用 | 學習類型 | 演算法 |
 | --- | --- | --- | -- |
@@ -62,15 +61,13 @@ HDInsight 有多個適用於進階分析工作流程的機器學習服務選項�
 
 ### <a name="machine-learning-and-apache-spark"></a>機器學習服務和 Apache Spark
 
-
-[HDInsight Spark](../spark/apache-spark-overview.md) 是 Azure 代管的 [Apache Spark](https://spark.apache.org/) 供應項目，這是一個使用記憶體內處理來大幅提升巨量資料分析效能的統一、開放原始碼平行資料處理架構。 Spark 處理引擎是專為速度、易用性及精密分析打造的產品。 Spark 的記憶體內分散式計算功能，使其成為機器學習和圖表計算中所使用反覆演算法的絕佳選擇。 
-
+[HDInsight Spark](../spark/apache-spark-overview.md) 是 Azure 代管的 [Apache Spark](https://spark.apache.org/) 供應項目，這是一個使用記憶體內處理來大幅提升巨量資料分析效能的統一、開放原始碼平行資料處理架構。 Spark 處理引擎是專為速度、易用性及精密分析打造的產品。 Spark 的記憶體內分散式計算功能，使其成為機器學習和圖表計算中所使用反覆演算法的絕佳選擇。
 
 有三個可將演算法模型化功能導入此分散式環境的可調整機器學習服務程式庫：
 
 * [**MLlib**](https://spark.apache.org/docs/latest/ml-guide.html) - MLlib 包含建置在 Spark RDD 上的原始 API。
 * [**SparkML**](https://spark.apache.org/docs/1.2.2/ml-guide.html) - SparkML 是較新的套件，可提供建置在 Spark DataFrames 上的較高階 API 來建構 ML 管線。
-* [**MMLSpark**](https://github.com/Azure/mmlspark)  - 適用於 Apache Spark 的 Microsoft Machine Learning 程式庫 (MMLSpark) 是設計來提升資料科學家在 Spark 上的生產力，不僅可提高實驗率，還可在非常大型的資料集上運用最先進的機器學習服務技術，包括深度學習。 MMLSpark 程式庫簡化了在 PySpark 中建置模型的常見模型化工作。 
+* [**MMLSpark**](https://github.com/Azure/mmlspark)  - 適用於 Apache Spark 的 Microsoft Machine Learning 程式庫 (MMLSpark) 是設計來提升資料科學家在 Spark 上的生產力，不僅可提高實驗率，還可在非常大型的資料集上運用最先進的機器學習服務技術，包括深度學習。 MMLSpark 程式庫簡化了在 PySpark 中建置模型的常見模型化工作。
 
 ### <a name="r-and-ml-services"></a>R 和 ML 服務
 
@@ -82,25 +79,25 @@ ML 服務為 HDInsight 的一部分，您可以使用現成可與大量資料集
 
 ### <a name="apache-spark-and-deep-learning"></a>Apache Spark 和深度學習
 
-[深度學習](https://www.microsoft.com/research/group/dltc/)是機器學習服務的一個分支，使用以人類大腦的生物學程序為靈感來源的*深度類神經網路* (DNN)。 許多研究人員都將深度學習視為一個有前景的人工智慧方法。 深度學習的一些範例包括口語語言翻譯工具、影像辨識系統，以及機器推理。 為了協助推展自己在深度學習方面的工作，Microsoft 開發了免費、容易使用的開放原始碼 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)。 各種 Microsoft 產品、世界各地需要大規模部署深度學習的公司，以及對最新演算法和技術感興趣的學生，都廣泛使用此工具組。 
+[深度學習](https://www.microsoft.com/research/group/dltc/)是機器學習服務的一個分支，使用以人類大腦的生物學程序為靈感來源的*深度類神經網路* (DNN)。 許多研究人員都將深度學習視為一個有前景的人工智慧方法。 深度學習的一些範例包括口語語言翻譯工具、影像辨識系統，以及機器推理。 為了協助推展自己在深度學習方面的工作，Microsoft 開發了免費、容易使用的開放原始碼 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)。 各種 Microsoft 產品、世界各地需要大規模部署深度學習的公司，以及對最新演算法和技術感興趣的學生，都廣泛使用此工具組。
 
 ## <a name="scenario---score-images-to-identify-patterns-in-urban-development"></a>案例 - 進行影像評分來識別都市發展模式
 
 我們將檢閱一個使用 HDInsight 的進階分析機器學習服務管線範例。
 
-在此案例中，您將了解如何使用 HDInsight Spark 叢集上的 PySpark，將在深度學習架構 (Microsoft 的 Cognitive Toolkit (CNTK)) 中產生的 DNN 變成可操作，來為儲存在「Azure Blob 儲存體」帳戶中的大型影像集合進行評分。 此方法適用於一般 DNN 使用案例、空拍影像分類，並可用來識別最近的都市發展模式。  您將使用預先定型的影像分類模型。 此模型已在 [CIFAR-10 資料集](https://www.cs.toronto.edu/~kriz/cifar.html)上預先定型，並已套用至 10,000 個保留的影像。
+在此案例中，您將瞭解 Dnn 如何在深度學習架構中產生，Microsoft 的 Cognitive Toolkit （CNTK）可運作為使用 HDInsight Spark 叢集上的 PySpark，針對儲存在 Azure Blob 儲存體帳戶中的大型影像集合進行評分。 此方法適用於一般 DNN 使用案例、空拍影像分類，並可用來識別最近的都市發展模式。  您將使用預先定型的影像分類模型。 此模型已在 [CIFAR-10 資料集](https://www.cs.toronto.edu/~kriz/cifar.html)上預先定型，並已套用至 10,000 個保留的影像。
 
 這個進階分析案例中有三個主要工作：
 
-1. 使用 Apache Spark 2.1.0 散發套件來建立 Azure HDInsight Hadoop 叢集。 
-2. 執行自訂指令碼，以在 Azure HDInsight Spark 叢集的所有節點上安裝 Microsoft Cognitive Toolkit。 
-3. 將預先建置的 Jupyter Notebook 上傳至 HDInsight Spark 叢集，以使用 Spark Python API (PySpark) 將定型的 Microsoft Cognitive Toolkit 深度學習模型套用至「Azure Blob 儲存體帳戶」中的檔案。 
+1. 使用 Apache Spark 2.1.0 散發套件來建立 Azure HDInsight Hadoop 叢集。
+2. 執行自訂指令碼，以在 Azure HDInsight Spark 叢集的所有節點上安裝 Microsoft Cognitive Toolkit。
+3. 將預先建置的 Jupyter Notebook 上傳至 HDInsight Spark 叢集，以使用 Spark Python API (PySpark) 將定型的 Microsoft Cognitive Toolkit 深度學習模型套用至「Azure Blob 儲存體帳戶」中的檔案。
 
 此範例會使用 Alex Krizhevsky、Vinod Nair 及 Geoffrey Hinton 所編譯並散發的 CIFAR-10 影像集。 CIFAR-10 資料集包含 60,000 個分屬 10 個互斥類別的 32×32 彩色影像：
 
 ![Machine Learning 範例影像](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
 
-如需有關此資料集的詳細資料，請參閱 Alex Krizhevsky 的[從小影像學習多層特徵](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf) \(英文\)。
+如需有關資料集的詳細資訊，請參閱 Alex Krizhevsky 的[從小型影像學習多層功能](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf)。
 
 此影像集已分割成由 50,000 影像組成的定型集和由 10,000 個影像組成的測試集。 第一個集合已用來依循 Cognitive Toolkit GitHub 儲存機制中的[這個教學課程](https://github.com/Microsoft/CNTK/tree/master/Examples/Image/Classification/ResNet)，使用 Microsoft Cognitive Toolkit 將深度達 20 層的卷積剩餘網路 (ResNet) 模型定型。 剩餘的 10,000 個影像則已用來測試模型的正確性。 這正是分散式運算開始發揮作用之處：影像的前處理和評分工作是可高度平行化的工作。 有了已儲存的定型模型在手，我們使用了：
 
@@ -115,7 +112,7 @@ ML 服務為 HDInsight 的一部分，您可以使用現成可與大量資料集
 
 ### <a name="try-it-out"></a>立即試用！
 
-請依循[這個教學課程](../spark/apache-spark-microsoft-cognitive-toolkit.md)以端對端方式實作此解決方案：設定一個 HDInsight Spark 叢集、安裝 Cognitive Toolkit，然後執行可為 10,000 CIFAR 影像進行評分的 Jupyter Notebook。
+遵循[此教學](../spark/apache-spark-microsoft-cognitive-toolkit.md)課程，以端對端執行此解決方案：設定 HDInsight Spark 叢集、安裝 Cognitive Toolkit，以及執行分數 10000 cifar-10 映射的 Jupyter Notebook。
 
 ## <a name="next-steps"></a>後續步驟
 

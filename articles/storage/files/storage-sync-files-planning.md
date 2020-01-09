@@ -1,21 +1,21 @@
 ---
 title: 規劃 Azure 檔案同步部署 | Microsoft Docs
-description: 了解規劃 Azure 檔案部署時的考量事項。
+description: 了解規劃 Azure 檔案服務部署時的考量事項。
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 12/18/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bb75fd8aafdc886a8753fa2e6be30d9d7f83bb6f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c81f06d924a0ba871115e0ae0164d61449855263
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927869"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665269"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
-使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定以從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
+使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
 
 本文章說明 Azure 檔案同步部署的重要考量。 建議您另行閱讀[規劃 Azure 檔案服務部署](storage-files-planning.md)。 
 
@@ -28,14 +28,14 @@ ms.locfileid: "74927869"
 儲存體同步服務是 Azure 檔案同步最上層的 Azure 資源。儲存體同步服務資源是儲存體帳戶資源的對等，可以同樣地部署至 Azure 資源群組。 由於儲存體同步服務可以透過多個同步群組與多個儲存體帳戶建立同步關係，因此最上層資源必須與儲存體帳戶資源不同。 一個訂用帳戶可以部署多個儲存體同步服務資源。
 
 ### <a name="sync-group"></a>同步群組
-同步群組定義一組檔案的同步拓撲。 同步群組內的端點會與彼此保持同步。 例如，如果您有兩組不同的檔案需要透過 Azure 檔案同步管理，您會建立兩個同步群組，並將不同的端點個別新增至這兩個同步群組。 儲存體同步服務可以視需要裝載許多同步群組。  
+同步群組定義一組檔案的同步拓撲。 同步群組內的端點會與彼此保持同步。 例如，如果您想要使用 Azure 檔案同步來管理兩組不同的檔案，您會建立兩個同步群組，並將不同的端點新增至每個同步處理群組。 儲存體同步服務可以視需要裝載許多同步群組。  
 
 ### <a name="registered-server"></a>已註冊的伺服器
 已註冊的伺服器物件代表您的伺服器 (或叢集) 與儲存體同步服務之間的信任關係。 您可以視需要向儲存體同步服務執行個體註冊多個伺服器。 不過，一次只能向單一儲存體同步服務註冊單一伺服器 (或叢集)。
 
 ### <a name="azure-file-sync-agent"></a>Azure 檔案同步代理程式
 Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能夠和 Azure 檔案共用進行同步處理。 Azure 檔案同步代理程式有三個主要元件： 
-- **FileSyncSvc.exe**：負責監視伺服器端點上之變更，並起始同步至 Azure 之工作階段的背景 Windows 服務。
+- **FileSyncSvc**：負責監視伺服器端點上的變更，以及起始同步至 Azure 之會話的背景服務。
 - **StorageSync.sys**：負責將檔案分層處理到 Azure 檔案服務 (啟用雲端階層處理時) 的 Azure 檔案同步檔案系統篩選器。
 - **PowerShell 管理 Cmdlet**：用來與 Microsoft.StorageSync Azure 資源提供者互動的 PowerShell Cmdlet。 您可以在下列 (預設) 位置找到這些 Cmdlet：
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
@@ -63,13 +63,13 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 > Azure 檔案同步支援直接對 Azure 檔案共用進行變更。 不過，在 Azure 檔案共用上所做的任何變更，都必須先由 Azure 檔案同步變更偵測作業做出探索。 針對雲端端點的變更偵測作業，每隔 24 小時才會起始一次。 此外，透過 REST 通訊協定對 Azure 檔案共用所做的變更，將不會更新 SMB 上次修改時間，而且不會視為同步變更。如需詳細資訊，請參閱[Azure 檔案儲存體常見問題](storage-files-faq.md#afs-change-detection)。
 
 ### <a name="cloud-tiering"></a>雲端階層處理 
-雲端階層處理是 Azure 檔案同步的選擇性功能，其中經常存取的檔案會以本機方式快取到伺服器上，而其他的檔案則會依原則設定分層處理至 Azure 檔案服務。 如需詳細資訊，請參閱[了解雲端階層處理](storage-sync-cloud-tiering.md)。
+雲端階層處理是 Azure 檔案同步的一個選用功能，其中經常存取的檔案會快取到伺服器本機上，而其他的檔案會依原則設定分層處理至 Azure 檔案服務。 如需詳細資訊，請參閱[了解雲端階層處理](storage-sync-cloud-tiering.md)。
 
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure 檔案同步系統需求和互通性 
 本節涵蓋 Azure 檔案同步代理程式與 Windows Server 功能和角色以及第三方解決方案的系統需求和互通性。
 
 ### <a name="evaluation-cmdlet"></a>評估 Cmdlet
-部署 Azure 檔案同步之前，您應該先使用 Azure 檔案同步評估 Cmdlet 來評估它是否與您的系統相容。 此 Cmdlet 會檢查檔案系統和資料集的潛在問題，例如不支援的字元或不支援的作業系統版本。 請注意，此工具會檢查下列提到的大部分功能 (但不是全部)；我們建議您仔細閱讀本節的其餘部分，以確保您的部署可順利進行。 
+部署 Azure 檔案同步之前，您應該先使用 Azure 檔案同步評估 Cmdlet 來評估它是否與您的系統相容。 此 Cmdlet 會檢查檔案系統和資料集的潛在問題，例如不支援的字元或不支援的作業系統版本。 其檢查涵蓋了下列大部分但並非全部的功能;我們建議您仔細閱讀本節的其餘部分，以確保您的部署順利進行。 
 
 您可以藉由安裝 Az PowerShell module 來安裝評估 Cmdlet，此模組可依照以下指示安裝：[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 
@@ -125,11 +125,11 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 | 功能 | 支援狀態 | 注意 |
 |---------|----------------|-------|
 | 存取控制清單 (ACL) | 完全支援 | Azure 檔案同步會保留 Windows ACL，並由 Windows Server 在伺服器端點上強制執行。 如果檔案是直接在雲端中存取，則 Azure 檔案服務尚未支援 Windows ACL。 |
-| 永久連結 | Skipped | |
-| 符號連結 | Skipped | |
+| 永久連結 | 已略過 | |
+| 符號連結 | 已略過 | |
 | 掛接點 | 部分支援 | 掛接點可能是伺服器端點的根目錄，但如果伺服器端點的命名空間中包含它們，系統會予以略過。 |
-| 接合 | Skipped | 例如，分散式檔案系統 DfrsrPrivate 和 DFSRoots 資料夾。 |
-| 重新分析點 | Skipped | |
+| 接合 | 已略過 | 例如，分散式檔案系統 DfrsrPrivate 和 DFSRoots 資料夾。 |
+| 重新分析點 | 已略過 | |
 | NTFS 壓縮 | 完全支援 | |
 | 疏鬆檔案 | 完全支援 | 疏鬆檔案會同步 (不會封鎖)，但它們會以完整檔案的形式同步至雲端。 如果檔案內容在雲端中 (或另一部伺服器上) 有所變更，該檔案在變更下載之後就不再是疏鬆檔案。 |
 | 替代資料流 (ADS) | 已保留，但未同步 | 例如，不會同步「檔案分類基礎結構」所建立的分類標籤。 每個伺服器端點上檔案的現有分類標籤會原封不動。 |
@@ -141,8 +141,10 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 
 | 檔案/資料夾 | 附註 |
 |-|-|
+| pagefile.sys | 系統專用檔案 |
 | Desktop.ini | 系統專用檔案 |
-| ethumbs.db$ | 暫存檔案的縮圖 |
+| thumbs.db | 暫存檔案的縮圖 |
+| ehthumbs.db | 媒體縮圖的暫存檔案 |
 | ~$\*.\* | Office 暫存檔 |
 | \*.tmp | 暫存檔 |
 | \*.laccdb | Access DB 鎖定檔|
@@ -194,10 +196,10 @@ Azure 檔案同步支援與 DFS 命名空間 (DFS-N) 和 DFS 複寫 (DFS-R) 互�
 **DFS 複寫（DFS）** ：由於 dfs 和 Azure 檔案同步都是複寫解決方案，因此在大部分情況下，我們建議您使用 Azure 檔案同步來取代 dfs。不過，在某些情況下，您會想要同時使用 Azure 檔案同步的 DFS 和：
 
 - 您正要從 DFS-R 部署移轉至 Azure 檔案同步部署。 如需詳細資訊，請參閱[將 DFS 複寫 (DFS-R) 部署移轉至 Azure 檔案同步](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync)。
-- 並非需要檔案資料複本的每個內部部署伺服器都能直接連線到網際網路。
+- 並非每個需要檔案資料複本的內部部署伺服器都可以直接連線到網際網路。
 - 分支伺服器將資料合併到您要使用 Azure 檔案同步的單一中樞伺服器。
 
-Azure 檔案同步和 DFS-R 如需並存使用：
+若要讓 Azure 檔案同步和 DFS-R 並存工作：
 
 1. 務必在具有 DFS-R 複寫資料夾的磁碟區上停用 Azure 檔案同步雲端階層。
 2. 不應在 DFS-R 唯讀複寫資料夾上設定伺服器端點。
@@ -205,7 +207,7 @@ Azure 檔案同步和 DFS-R 如需並存使用：
 如需詳細資訊，請參閱 [DFS 複寫概觀](https://technet.microsoft.com/library/jj127250)。
 
 ### <a name="sysprep"></a>Sysprep
-不支援在已安裝 Azure 檔案同步代理程式的伺服器上使用 sysprep，而且此舉可能會導致非預期的結果。 請在部署伺服器映像和完成 sysprep 迷你設定之後，再進行代理程式安裝與伺服器註冊。
+不支援在已安裝 Azure 檔案同步代理程式的伺服器上使用 sysprep，而且可能會導致非預期的結果。 請在部署伺服器映像和完成 sysprep 迷你設定之後，再進行代理程式安裝與伺服器註冊。
 
 ### <a name="windows-search"></a>Windows 搜尋
 如果在伺服器端點上啟用雲端階層處理，則系統會略過階層式檔案，且 Windows 搜尋不會將這些檔案編製索引。 非階層式檔案則會正確編製索引。
@@ -221,13 +223,13 @@ Azure 檔案同步和 DFS-R 如需並存使用：
 ### <a name="backup-solutions"></a>備份解決方案
 備份解決方案類似防毒解決方案，可能會導致階層式檔案的重新叫用。 建議使用雲端備份解決方案來備份 Azure 檔案共用，而不要使用內部部署備份產品。
 
-如果您要使用內部部署備份解決方案，則應該在已停用雲端階層處理的同步群組中，對其中的某個伺服器執行備份。 執行還原時，請使用磁碟區層級或檔案層級的還原選項。 使用檔案層級還原選項進行還原的檔案會同步至同步群組中的所有端點，並使用從備份還原過來的版本取代現有檔案。  磁碟區層級還原將不會取代 Azure 檔案共用或其他伺服器端點中的較新檔案版本。
+如果您使用內部部署備份解決方案，則應在已停用雲端階層處理的同步群組中的伺服器上執行備份。 執行還原時，請使用磁碟區層級或檔案層級的還原選項。 使用檔案層級還原選項進行還原的檔案會同步至同步群組中的所有端點，並使用從備份還原過來的版本取代現有檔案。  磁碟區層級還原將不會取代 Azure 檔案共用或其他伺服器端點中的較新檔案版本。
 
 > [!Note]  
 > 裸機 (BMR) 還原可能會導致非預期的結果，且目前不受支援。
 
 > [!Note]  
-> 有了第9版的 Azure 檔案同步代理程式，現在已在啟用雲端階層處理的磁片區上支援 VSS 快照集（包括 [先前的版本] 索引標籤）。 不過，您必須透過 PowerShell 啟用先前的版本相容性。 [了解作法](storage-files-deployment-guide.md)。
+> 在已啟用雲端階層處理的磁片區上，現在支援第9版的 Azure 檔案同步代理程式、VSS 快照集（包括 [先前的版本] 索引標籤）。 不過，您必須透過 PowerShell 啟用先前的版本相容性。 [了解作法](storage-files-deployment-guide.md)。
 
 ### <a name="encryption-solutions"></a>加密解決方案
 加密解決方案的支援取決於其實作方式。 Azure 檔案共用已知可用於：
@@ -250,7 +252,7 @@ Azure 檔案同步僅於下列區域提供：
 | 地區 | 資料中心位置 |
 |--------|---------------------|
 | 澳大利亞東部 | 新南威爾斯 |
-| 澳大利亞東南部 | 維多利亞 |
+| 澳洲東南部 | 維多利亞 |
 | 巴西南部 | 聖保羅州 |
 | 加拿大中部 | 多倫多 |
 | 加拿大東部 | 魁北克市 |
@@ -289,7 +291,7 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 針對以星號標示的區域，您必須聯絡 Azure 支援以要求存取這些區域中的 Azure 儲存體。 [本檔概述此](https://azure.microsoft.com/global-infrastructure/geographies/)程式。
 
 ### <a name="azure-disaster-recovery"></a>Azure 災害復原
-為防範遺失 Azure 區域，Azure 檔案同步會與[異地備援儲存體備援](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) 選項整合。 GRS 儲存體的運作方式是在主要區域中您通常與其互動的儲存體，與配對的次要區域中的儲存體之間，使用非同步區塊複寫。 發生導致 Azure 區域暫時或永久離線的災害時，Microsoft 會將儲存體容錯移轉到配對的區域。 
+為防範遺失 Azure 區域，Azure 檔案同步會與[異地備援儲存體備援](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) 選項整合。 GRS 儲存體的運作方式是在主要區域中您通常與其互動的儲存體，與配對的次要區域中的儲存體之間，使用非同步區塊複寫。 萬一發生導致 Azure 區域暫時或永久離線的嚴重損壞狀況，Microsoft 會將儲存體容錯移轉到配對的區域。 
 
 > [!Warning]  
 > 若您使用 Azure 檔案共用作為 GRS 儲存體帳戶中的雲端端點，您不應該啟動儲存體帳戶的容錯移轉。 這麼做將導致同步停止運作，且可能會在新分層的檔案中產生未預期的資料遺失。 若發生 Azure 區域遺失，Microsoft 將會觸發與 Azure 檔案同步相容的儲存體帳戶容錯移轉。
@@ -298,8 +300,8 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 
 | 主要區域      | 配對的區域      |
 |---------------------|--------------------|
-| 澳大利亞東部      | 澳大利亞東南部|
-| 澳大利亞東南部 | 澳大利亞東部     |
+| 澳大利亞東部      | 澳洲東南部|
+| 澳洲東南部 | 澳大利亞東部     |
 | 巴西南部        | 美國中南部   |
 | 加拿大中部      | 加拿大東部        |
 | 加拿大東部         | 加拿大中部     |
@@ -333,6 +335,30 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="recommended-azure-file-sync-machine-configuration"></a>建議的 Azure 檔案同步電腦設定
+
+Azure 檔案同步的機器需求取決於命名空間中的物件數目和資料集的變換。 單一伺服器可以附加到多個同步處理群組，以及下表中列出的物件數目，以取得伺服器所附加的完整命名空間。 例如，具有10000000物件的伺服器端點 A + 具有10000000物件的伺服器端點 B = 20000000 物件。 針對該範例部署，建議您8CPU、16GiB 穩定狀態的記憶體，以及（如果可能的話）48GiB 記憶體以進行初始遷移。
+ 
+基於效能考慮，命名空間資料會儲存在記憶體中。 因此，較大的命名空間會需要更多記憶體來維持良好的效能，而更多變換則需要更多的 CPU 才能處理。 
+ 
+在下表中，我們提供了命名空間的大小以及一般一般用途檔案共用的容量轉換，其中平均檔案大小為512KiB。 如果您的檔案大小較小，請考慮為相同容量增加額外的記憶體。 根據命名空間的大小，以您的記憶體設定為基礎。
+
+| 命名空間大小-檔案 & 目錄（百萬）  | 一般容量（TiB）  | CPU 核心  | 建議的記憶體（GiB） |
+|---------|---------|---------|---------|
+| 3        | 1.4     | 2        | 8（初始同步處理）/2 （一般變換）      |
+| 5        | 2.3     | 2        | 16（初始同步）/4 （一般變換）    |
+| 10       | 4.7     | 4        | 32（初始同步處理）/8 （一般變換）   |
+| 30       | 14.0    | 8        | 48（初始同步處理）/16 （一般變換）   |
+| 50       | 23.3    | 16       | 64（初始同步處理）/32 （一般變換）  |
+| 100*     | 46.6    | 32       | 128（初始同步處理）/32 （一般變換）  |
+
+\*超過100000000個檔案 & 目錄目前不受支援。 這是軟性限制。
+
+> [!TIP]
+> 命名空間的初始同步處理是一項密集的作業，我們建議您在完成初始同步處理之前，配置更多記憶體。 這不是必要的，但可能會加速初始同步處理。 
+> 
+> 一般變換是每日變更的0.5% 命名空間。 如需更高的變換層級，請考慮新增更多 CPU。 
 
 ## <a name="next-steps"></a>後續步驟
 * [考量防火牆和 Proxy 設定](storage-sync-files-firewall-and-proxy.md)

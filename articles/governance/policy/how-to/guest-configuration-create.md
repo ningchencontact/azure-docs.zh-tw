@@ -1,14 +1,14 @@
 ---
 title: 如何建立來賓設定原則
 description: 瞭解如何使用 Azure PowerShell 為 Windows 或 Linux Vm 建立 Azure 原則來賓設定原則。
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: d31c03f05f3a27207eb4c184b78cb531f8bb43d6
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f2e611998e42510eccde64ff6f945f58133fc4e9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873075"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608519"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>如何建立來賓設定原則
 
@@ -24,6 +24,9 @@ ms.locfileid: "74873075"
 ## <a name="add-the-guestconfiguration-resource-module"></a>新增 GuestConfiguration 資源模組
 
 若要建立來賓設定原則，必須新增資源模組。 此資源模組可以搭配使用本機安裝的 PowerShell、 [Azure Cloud Shell](https://shell.azure.com)或[Azure PowerShell 核心 Docker 映射](https://hub.docker.com/r/azuresdk/azure-powershell-core)。
+
+> [!NOTE]
+> 雖然**GuestConfiguration**模組適用于上述環境，但編譯 DSC 設定的步驟必須在 Windows PowerShell 5.1 中完成。
 
 ### <a name="base-requirements"></a>基底需求
 
@@ -59,6 +62,12 @@ ms.locfileid: "74873075"
 ### <a name="requirements-for-guest-configuration-custom-resources"></a>來賓設定自訂資源的需求
 
 當來賓設定審核電腦時，它會先執行 `Test-TargetResource` 以判斷它是否處於正確的狀態。 函數所傳回的布林值會決定來賓指派的 Azure Resource Manager 狀態是否應該符合規範。 如果設定中的任何資源都 `$false` 布林值，則提供者會 `Get-TargetResource`執行。 如果布林值為 `$true` 則 `Get-TargetResource` 不會呼叫。
+
+#### <a name="configuration-requirements"></a>組態需求
+
+來賓設定若要使用自訂設定，唯一的需求是讓設定的名稱在使用時保持一致。  這包括內容套件的 .zip 檔案名稱、儲存在內容套件內的 mof 檔案中的設定名稱，以及 ARM 中用來做為來賓指派名稱的設定名稱。
+
+#### <a name="get-targetresource-requirements"></a>TargetResource 需求
 
 函式 `Get-TargetResource` 具有 Windows Desired State Configuration 尚未需要之來賓設定的特殊需求。
 
@@ -96,7 +105,7 @@ Linux 上的「來賓設定」 DSC 設定會使用 `ChefInSpecResource` 資源�
 
 下列範例會建立名為**基準**的設定、匯入**GuestConfiguration**資源模組，並使用 `ChefInSpecResource` 資源將 InSpec 定義的名稱設定為**linux-patch-基準**：
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration baseline
 {
@@ -120,7 +129,7 @@ baseline
 
 下列範例會建立名為**AuditBitLocker**的設定、匯入**GuestConfiguration**資源模組，並使用 `Service` 資源來審核執行中的服務：
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration AuditBitLocker
 {
@@ -298,7 +307,7 @@ New-GuestConfigurationPolicy
 
 針對 Linux 原則，請在您的設定中包含屬性**AttributesYmlContent** ，並據以覆寫這些值。 來賓設定代理程式會自動建立 InSpec 用來儲存屬性的 YaML 檔案。 請看下方範例。
 
-```azurepowershell-interactive
+```powershell
 Configuration FirewalldEnabled {
 
     Import-DscResource -ModuleName 'GuestConfiguration'
@@ -403,7 +412,7 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 
 發佈內容之後，請將名稱為 `GuestConfigPolicyCertificateValidation` 的標籤和值 `enabled` 附加至需要程式碼簽署的所有虛擬機器。 您可以使用 Azure 原則，大規模地傳遞這個標記。 請參閱[Apply 標記及其預設值](../samples/apply-tag-default-value.md)範例。 一旦此標記備妥，使用 `New-GuestConfigurationPolicy` Cmdlet 產生的原則定義就會透過來賓設定延伸模組來啟用需求。
 
-## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>預覽針對來賓設定原則指派進行疑難排解
+## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>針對來賓設定原則指派進行疑難排解（預覽）
 
 預覽中提供了一項工具，可協助 Azure 原則來賓設定指派進行疑難排解。 此工具目前為預覽狀態，並已發佈至 PowerShell 資源庫做為模組名稱[來賓設定疑難排解](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/)員。
 

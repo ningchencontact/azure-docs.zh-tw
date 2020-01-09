@@ -6,18 +6,18 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 406b77a428ec725a3d8d070bd60fcd4440a5cb92
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 90b84d936bda4e3a974e60934e82ac6c3389d85a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166462"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645764"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 快取的必要條件
 
 在使用 Azure 入口網站建立新的 Azure HPC 快取之前，請確定您的環境符合這些需求。
 
-## <a name="azure-subscription"></a>Azure 訂閱
+## <a name="azure-subscription"></a>Azure 訂用帳戶
 
 建議使用付費訂用帳戶。
 
@@ -54,7 +54,7 @@ Azure HPC 快取需要具有下列品質的專用子網：
 
 [針對 azure 虛擬網路中的資源](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)，深入瞭解 azure 虛擬網路和 DNS 伺服器設定的名稱解析。
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>使用權限
 
 開始建立快取之前，請先檢查這些許可權相關的必要條件。
 
@@ -80,7 +80,7 @@ NFS 後端存放裝置必須是相容的硬體/軟體平臺。 如需詳細資�
 
 如果您想要在快取中使用 Azure Blob 儲存體，您需要相容的儲存體帳戶，以及使用 Azure HPC 快取格式化資料填入的空白 Blob 容器或容器，如[將資料移至 Azure Blob 儲存體](hpc-cache-ingest.md)中所述。
 
-請先建立帳戶和容器，再嘗試將它新增為儲存體目標。
+請先建立帳戶，再嘗試新增儲存體目標。 當您新增目標時，可以建立新的容器。
 
 若要建立相容的儲存體帳戶，請使用下列設定：
 

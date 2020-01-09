@@ -56,6 +56,8 @@
           href: how-to-attach-detach-shared-image-gallery.md
         - name: 將使用者新增為教室實驗室的擁有者
           href: how-to-add-user-lab-owner.md
+        - name: Azure 實驗室服務的防火牆設定
+          href: how-to-configure-firewall-settings.md
     - name: 建立和設定教室實驗室 (講師)
       items:
         - name: 建立和管理教室實驗室

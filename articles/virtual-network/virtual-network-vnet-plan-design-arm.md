@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 47da2524f719e53edcbd89686a1a0b76fa6e79cd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3624c8fd8b15f6d35917f4ead676221d93a26ddc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802717"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646484"
 ---
 # <a name="plan-virtual-networks"></a>規劃虛擬網路
 
@@ -29,7 +29,7 @@ ms.locfileid: "73802717"
 
 所有 Azure 資源都有名稱。 名稱在範圍內必須是唯一的，而範圍可能會依每個資源類型而有所不同。 例如，虛擬網路的名稱在[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)內必須是唯一的，但在[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)或 Azure [區域](https://azure.microsoft.com/regions/#services)內則可以重複。 在隨時間管理數個網路資源的情況下，定義可讓您在命名資源時一致地使用的命名慣例將會很有幫助。 如需建議，請參閱[命名慣例](/azure/architecture/best-practices/resource-naming#networking)。
 
-## <a name="regions"></a>區域
+## <a name="regions"></a>地區
 
 所有的 Azure 資源都是建立於 Azure 區域和訂用帳戶中。 只有當虛擬網路位於與資源相同的區域和訂用帳戶時，才能在虛擬網路中建立資源。 不過，您可以連線存在於不同訂用帳戶和區域中的虛擬網路。 如需詳細資訊，請參閱[連線能力](#connectivity)。 決定要將資源部署在哪些區域時，請考慮資源的取用者實際位於何處：
 
@@ -37,9 +37,9 @@ ms.locfileid: "73802717"
 - 您是否有資料存留、主權、合規性或復原等需求？ 如果是，選擇能符合這些需求的區域很重要。 如需詳細資訊，請參閱 [Azure 的地理區](https://azure.microsoft.com/global-infrastructure/geographies/)。
 - 針對您部署資源的 Azure 區域，相同區域內的 Azure 可用性區域之間是否有復原需求？ 您可以將虛擬機器 (VM) 等資源部署到相同虛擬網路內的不同可用性區域。 不過，並非所有的 Azure 區域都支援可用性區域。 若要深入了解可用性區域和支援此功能的區域，請參閱[可用性區域](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
-## <a name="subscriptions"></a>訂用帳戶
+## <a name="subscriptions"></a>訂閱
 
-您可以在每個訂用帳戶內，部署[限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)之內的多個虛擬網路。 例如，有些組織針對不同部門會有不同的訂用帳戶。 如需訂用帳戶的詳細資訊和相關考量，請參閱[訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy)。
+您可以在每個訂用帳戶內，部署[限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)之內的多個虛擬網路。 例如，有些組織針對不同部門會有不同的訂用帳戶。 如需訂用帳戶的詳細資訊和相關考量，請參閱[訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy)。
 
 ## <a name="segmentation"></a>分割
 
@@ -51,14 +51,14 @@ ms.locfileid: "73802717"
 
 - 組織針對將流量隔離至不同的虛擬網路上，是否有任何安全性需求？ 您可以選擇是否要連線虛擬網路。 如果您連線虛擬網路，就可以實作網路虛擬設備 (例如防火牆) 以控制虛擬網路之間流量的流動。 如需詳細資訊，請參閱[安全性](#security)和[連線能力](#connectivity)。
 - 組織是否有任何將虛擬網路隔離到不同[訂用帳戶](#subscriptions)或[區域](#regions)的需求？
-- [網路介面](virtual-network-network-interface.md)可讓 VM 與其他資源進行通訊。 每個網路介面都會被指派一或多個私人 IP 位址。 您在虛擬網路中需要多少個網路介面和[私人 IP 位址](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses)？ 您在虛擬網路內可以擁有的網路介面和私人 IP 位址數目是有[限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)的。
+- [網路介面](virtual-network-network-interface.md)可讓 VM 與其他資源進行通訊。 每個網路介面都會被指派一或多個私人 IP 位址。 您在虛擬網路中需要多少個網路介面和[私人 IP 位址](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses)？ 您在虛擬網路內可以擁有的網路介面和私人 IP 位址數目是有[限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)的。
 - 您是否要將虛擬網路連線至另一個虛擬網路或內部部署網路？ 您可以選擇讓虛擬網路互相連線，或是連線到內部部署網路，但不能連線到其他網路。 如需詳細資訊，請參閱[連線能力](#connectivity)。 您連線到其他虛擬網路或內部部署網路的每個虛擬網路，都必須有唯一的位址空間。 每個虛擬網路都要有一或多個公用或私人位址範圍指派至其位址空間。 位址範圍是以無類別網域間路由選擇 (CIDR) 格式指定，例如 10.0.0.0/16。 深入了解虛擬網路的[位址範圍](manage-virtual-network.md#add-or-remove-an-address-range)。
 - 您針對不同虛擬網路中的資源，是否有任何組織管理需求？ 如果是，您可以將資源分散至不同的虛擬網路，以簡化對組織中個人的[權限指派](#permissions)，或對不同的虛擬網路指派不同的原則。
 - 當您將某些 Azure 服務資源部署到虛擬網路時，它們會建立自己的虛擬網路。 若要判斷 Azure 服務是否會建立自己的虛擬網路，請參閱針對每個[可部署到虛擬網路的 Azure 服務](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)的資訊。
 
 ### <a name="subnets"></a>子網路
 
-虛擬網路可根據[限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)分割成一或多個子網路。 決定要在訂用帳戶中建立一或多個子網路時，要考量的事項包括：
+虛擬網路可根據[限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)分割成一或多個子網路。 決定要在訂用帳戶中建立一或多個子網路時，要考量的事項包括：
 
 - 每個子網路於虛擬網路的位址空間內都必須具有唯一的位址範圍 (以 CIDR 格式指定)。 此位址範圍不能與虛擬網路內的其他子網路重疊。
 - 如果您打算將一些 Azure 服務資源部署到虛擬網路中，它們可能需要 (或會建立) 自己的子網路，因此必須要有足夠的未配置空間以供它們進行。 若要判斷 Azure 服務是否會建立自己的子網路，請參閱針對每個[可部署到虛擬網路的 Azure 服務](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)的資訊。 例如，如果您使用 Azure VPN 閘道將虛擬網路連線到內部部署網路，該虛擬網路針對閘道必須有專用的子網路。 深入了解[閘道子網路](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。
@@ -105,7 +105,7 @@ Azure 會針對來自子網路的輸出流量建立數個預設路由。 您可�
 
 單一虛擬網路中的資源無法使用 Azure 的[內建 DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md) 來解析對等互連虛擬網路中的資源名稱。 若要解析對等互連虛擬網路中的名稱，請[部署您自己的 DNS 伺服器](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)，或使用 Azure DNS [私人網域](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 若要解析虛擬網路和內部部署網路中資源間的名稱，也需要您部署自己的 DNS 伺服器。
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>使用權限
 
 Azure 會針對資源使用[角色型存取控制](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC)。 許可權會指派給下列階層中的[範圍](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope)：管理群組、訂用帳戶、資源群組和個別資源。 若要深入了解階層，請參閱[組織您的資源](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 若要使用 Azure 虛擬網路和其所有相關功能，例如對等互連、網路安全性群組、服務端點和路由表，您可以將組織的成員指派為內建的[擁有者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner)、[參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor)或[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，再將該角色指派到適當的範圍。 如果您想要針對一組虛擬網路功能指派特定權限，請建立[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，並針對該角色指派[虛擬網路](manage-virtual-network.md#permissions)、[子網路和服務端點](virtual-network-manage-subnet.md#permissions)、[網路介面](virtual-network-network-interface.md#permissions)、[對等互連](virtual-network-manage-peering.md#permissions)、[網路和應用程式安全性群組](manage-network-security-group.md#permissions)或[路由表](manage-route-table.md#permissions)所需的特定權限。
 

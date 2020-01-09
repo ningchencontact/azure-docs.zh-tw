@@ -84,6 +84,8 @@
       items:
         - name: 使用對應資料流程來轉換資料
           href: tutorial-data-flow.md
+        - name: 對應資料流程影片教學課程
+          href: data-flow-tutorials.md
         - name: 使用整頓資料流程來準備資料
           href: wrangling-data-flow-tutorial.md
     - name: 外部轉換

@@ -1,18 +1,14 @@
 ---
-title: Service Fabric 受控識別總覽 |Microsoft Docs
-description: 本文概述受控識別。
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
+title: Service Fabric 受控識別總覽
+description: 本文概述受控識別及其在 Azure Service Fabric 的應用程式。
 ms.topic: conceptual
-ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: e2f05ba28109a9b3c88d80eb218bf94014f0f082
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.date: 12/09/2019
+ms.openlocfilehash: dc7dafa59596537456accde66e878c06f9e5ca23
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243019"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75528142"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Service Fabric 應用程式的受控識別（預覽）
 

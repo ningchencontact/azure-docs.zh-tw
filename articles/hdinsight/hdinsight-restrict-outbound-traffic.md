@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 8f6959eb6f9d17a368e7df7b95ecc511d0396f87
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 6771cdb206920c8e3b746e28573de1742543b4c8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621443"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646688"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>使用防火牆設定 Azure HDInsight 叢集的輸出網路流量
 
 本文提供的步驟可讓您使用 Azure 防火牆來保護來自 HDInsight 叢集的輸出流量。 下列步驟假設您要為現有的叢集設定 Azure 防火牆。 如果您要部署新的叢集並在防火牆後方，請先建立您的 HDInsight 叢集和子網，然後依照本指南中的步驟進行。
 
-## <a name="background"></a>背景資訊
+## <a name="background"></a>背景
 
 Azure HDInsight 叢集通常會部署在您自己的虛擬網路中。 叢集相依于該虛擬網路外部的服務，需要網路存取權才能正常運作。
 
@@ -67,13 +67,13 @@ HDInsight 輸出流量相依性幾乎是以 Fqdn 定義，其後面沒有靜態 
 
     **FQDN 標記區段**
 
-    | 名稱 | 來源位址 | FQDN 標籤 | 注意事項 |
+    | 名稱 | 來源地址 | FQDN 標籤 | 注意 |
     | --- | --- | --- | --- |
     | Rule_1 | * | Windowsupdate.log 和 HDInsight | HDI 服務的必要 |
 
     **目標 Fqdn 區段**
 
-    | 名稱 | 來源位址 | 通訊協定：埠 | 目標 FQDN | 注意事項 |
+    | 名稱 | 來源位址 | 通訊協定：埠 | 目標 FQDN | 注意 |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | HTTPs：443 | login.windows.net | 允許 Windows 登入活動 |
     | Rule_3 | * | HTTPs：443 | login.microsoftonline.com | 允許 Windows 登入活動 |
@@ -101,7 +101,7 @@ HDInsight 輸出流量相依性幾乎是以 Fqdn 定義，其後面沒有靜態 
 
     **IP 位址區段**
 
-    | 名稱 | 通訊協定 | 來源位址 | 目的地位址 | 目的地連接埠 | 注意事項 |
+    | 名稱 | 通訊協定 | 來源位址 | 目的地位址 | 目的地連接埠 | 注意 |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | 時間服務 |
     | Rule_2 | 任意 | * | DC_IP_Address_1，DC_IP_Address_2 | * | 如果您使用企業安全性套件（ESP），請在 [IP 位址] 區段中新增網路規則，以允許 ESP 叢集與 AAD DS 通訊。 您可以在入口網站的 [AAD-DS] 區段中找到網域控制站的 IP 位址 |
@@ -110,7 +110,7 @@ HDInsight 輸出流量相依性幾乎是以 Fqdn 定義，其後面沒有靜態 
 
     **服務標記區段**
 
-    | 名稱 | 通訊協定 | 來源位址 | 服務標記 | 目的地埠 | 注意事項 |
+    | 名稱 | 通訊協定 | 來源位址 | 服務標籤 | 目的地埠 | 注意 |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | 在 SQL 的 [服務標籤] 區段中設定網路規則，讓您可以記錄和審核 SQL 流量，除非您已在 HDInsight 子網上設定 SQL Server 的服務端點，這樣會略過防火牆。 |
 
@@ -178,7 +178,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 當您不知道所有應用程式相依性時，第一次讓應用程式運作時，將 Azure 防火牆與 Azure 監視器記錄整合會很有用。 您可以從[分析 Azure 監視器中的記錄資料](../azure-monitor/log-query/log-query-overview.md)深入了解 Azure 監視器記錄
 
-若要深入瞭解 Azure 防火牆和要求增加的規模限制，請參閱[這](../azure-subscription-service-limits.md#azure-firewall-limits)份檔或參閱[常見問題](../firewall/firewall-faq.md)。
+若要深入瞭解 Azure 防火牆和要求增加的規模限制，請參閱[這](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)份檔或參閱[常見問題](../firewall/firewall-faq.md)。
 
 ## <a name="access-to-the-cluster"></a>存取叢集
 

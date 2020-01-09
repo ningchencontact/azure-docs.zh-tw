@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric 監視合作夥伴 | Microsoft Docs
-description: 了解如何使用合作夥伴監視解決方案監視 Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric 監視合作夥伴
+description: 瞭解如何使用合作夥伴監視解決方案來監視 Azure Service Fabric 應用程式、叢集和基礎結構。
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 8353c8846820aa996214e6b119a2f9027b8b6fe6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fd24d65ebdf4e458870819286024d1ea2e13d83e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232455"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645713"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Azure Service Fabric 監視合作夥伴
 
@@ -43,11 +34,11 @@ New Relic 是另一個應用程式效能管理工具，可充分整合 Service F
 
 ## <a name="elk"></a>ELK 
 
-ELK 堆疊是一系列開放原始碼技術：Elasticsearch、Logstash 和 Kibana。 您可以組合使用這些技術來收集、儲存及分析 Service Fabric 監視和診斷資料。 我們在[這裡](service-fabric-tutorial-java-elk.md)有如何使用 Service Fabric 原生 Java 應用程式執行此動作的教學課程。 
+ELK 堆疊是開放原始碼技術的集合： Elasticsearch、Logstash 和 Kibana。 藉由使用這些技術組合，您可以收集、儲存和分析 Service Fabric 的監視和診斷資料。 我們在[這裡](service-fabric-tutorial-java-elk.md)有如何使用 Service Fabric 原生 Java 應用程式執行此動作的教學課程。 
 
 ## <a name="humio"></a>Humio
 
-Humio 是一種記錄收集服務，可即時從雲端或內部部署中的 Service Fabric 收集應用程式和事件的記錄。 除了即時可檢視性之外，Humio 還提供最先進的分析和視覺效果功能，以從您的診斷中查看和收集見解。 Humio 具有符合成本效益的定價方案，並建立以進行調整，同時保持速度快速。 它會直接與 Service Fabric 平臺事件和應用程式遙測整合。 您可以在[這裡](https://github.com/humio/service-fabric-humio)閱讀更多有關 Humio 和 Service Fabric 整合的資訊。
+Humio 是一種記錄收集服務，可即時從雲端或內部部署中的 Service Fabric 收集應用程式和事件的記錄。 除了即時可檢視性之外，Humio 還提供最先進的分析和視覺效果功能，以從您的診斷中查看和收集資訊。 Humio 具有符合成本效益的定價方案，並建立以進行調整，同時保持速度快速。 它會直接與 Service Fabric 平臺事件和應用程式遙測整合。 您可以在[這裡](https://github.com/humio/service-fabric-humio)閱讀更多有關 Humio 和 Service Fabric 整合的資訊。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: 753c239f4bf4d6a8f31d4dc5ca771f312cd34578
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: dc316e5bbb88359ff8b1e8a4fc35a56541a577f6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828988"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646705"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>使用 Azure PowerShell 將 Azure 虛擬網路移至另一個區域
 
@@ -20,7 +20,7 @@ ms.locfileid: "71828988"
 您可以使用 Azure Resource Manager 範本來完成將虛擬網路移至另一個區域的工作。 若要這麼做，您可以將虛擬網路匯出至範本、修改參數以符合目的地區域，然後將範本部署到新的區域。 如需 Resource Manager 範本的詳細資訊，請參閱[將資源群組匯出至範本](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 請確定您的虛擬網路位於您想要移動的 Azure 區域中。
 
@@ -32,7 +32,7 @@ ms.locfileid: "71828988"
 
 - 確認您的 Azure 訂用帳戶可讓您在目的地區域中建立虛擬網路。 若要啟用所需的配額，請聯絡支援人員。
 
-- 請確定您的訂用帳戶有足夠的資源，可支援在此程式中新增虛擬網路。 如需詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)。
+- 請確定您的訂用帳戶有足夠的資源，可支援在此程式中新增虛擬網路。 如需詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)。
 
 
 ## <a name="prepare-for-the-move"></a>準備移動

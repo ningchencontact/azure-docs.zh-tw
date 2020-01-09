@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b912743c758f33173b568944341fab4e815300ed
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099977"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645839"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署
 
@@ -77,8 +77,8 @@ ms.locfileid: "70099977"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -235,7 +235,7 @@ ms.locfileid: "70099977"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "70099977"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -377,7 +377,7 @@ Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於
 | \oracle\<SID>\origlogaA & mirrlogB | 高階 | 無 | 不需要 |
 | \oracle\<SID>\origlogaB & mirrlogA | 高階 | 無 | 不需要 |
 | \oracle\<SID>\sapdata1...n | 高階 | 唯讀 | 可以使用 |
-| \oracle\<SID>\oraarch | 標準 | 無 | 不需要 |
+| \oracle\<SID>\oraarch | Standard | 無 | 不需要 |
 | Oracle Home、saptrace... | 作業系統磁碟 | | 不需要 |
 
 
@@ -448,7 +448,7 @@ Oracle 支援 Oracle 軟體在以 Oracle Linux 為客體 OS 的 Microsoft Azure 
 
 我們非常建議使用 [Azure 受控磁碟](../../windows/managed-disks-overview.md)。 我們也非常建議針對 Oracle Database 部署使用 [Azure 進階 SSD](../../windows/disks-types.md)。
 
-Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔案服務)。 如需詳細資訊，請參閱下列主題： 
+Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔案服務)。 如需詳細資訊，請參閱下列： 
 
 - [Microsoft Azure 檔案服務簡介](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
@@ -467,7 +467,7 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 | /oracle/\<SID >/origlogaA & mirrlogB | 高階 | 無 | 不需要 |
 | /oracle/\<SID >/origlogaB & mirrlogA | 高階 | 無 | 不需要 |
 | /oracle/\<SID >/sapdata1...位 | 高階 | 唯讀 | 可以使用 |
-| /oracle/\<SID >/oraarch | 標準 | 無 | 不需要 |
+| /oracle/\<SID >/oraarch | Standard | 無 | 不需要 |
 | Oracle Home、saptrace... | 作業系統磁碟 | | 不需要 |
 
 *移除：使用 RAID0 的 LVM stripe 或 MDADM

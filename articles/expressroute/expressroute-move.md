@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: ganesr
-ms.openlocfilehash: f232e1e8a1f7121b047a846fc2c614b48e757f76
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4fed30f7f4b723f04cd59b2a987b498e3d614a5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076649"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645900"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>將 ExpressRoute 線路從傳統部署模型移至 Resource Manager 部署模型
 本文提供將 Azure ExpressRoute 線路從傳統部署模型移至 Azure Resource Manager 部署模型的概觀。
@@ -39,7 +39,7 @@ ms.locfileid: "74076649"
 * 傳統部署模型的存取權是由 ExpressRoute 線路中的 **allowClassicOperations** 參數所控制。
 
 > [!IMPORTANT]
-> 會套用 [服務限制](../azure-subscription-service-limits.md) 頁面上記載的所有配額。 例如，標準線路最多可以有 10 個跨傳統與 Resource Manager 部署模型的虛擬網路連結/連線。
+> 會套用 [服務限制](../azure-resource-manager/management/azure-subscription-service-limits.md) 頁面上記載的所有配額。 例如，標準線路最多可以有 10 個跨傳統與 Resource Manager 部署模型的虛擬網路連結/連線。
 > 
 > 
 

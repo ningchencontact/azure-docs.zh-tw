@@ -1,14 +1,14 @@
 ---
 title: 針對 SAP Hana 資料庫備份錯誤進行疑難排解
 description: 說明如何針對使用 Azure 備份備份 SAP Hana 資料庫時可能發生的常見錯誤進行疑難排解。
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 9958b241c44d619efea2f9ad516a2bd6d4f33d6e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 04f9bafba0ca490b33a0daf3c3725e57d81bcc7e
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892595"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664593"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>針對 Azure 上 SAP Hana 資料庫的備份進行疑難排解
 
@@ -84,27 +84,27 @@ ms.locfileid: "74892595"
 
 假設已備份 SDC HANA 實例 "H21"。 [備份專案] 頁面會將備份專案名稱顯示為 **"h21 （sdc）"** 。 如果您嘗試將此資料庫還原到另一個目標 SDC （例如 H11），則必須提供下列輸入。
 
-![SDC 還原輸入](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
+![還原的 SDC 資料庫名稱](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
 請注意下列幾點：
 
-- 根據預設，還原的資料庫名稱會填入備份專案名稱，例如 h21 （sdc）
+- 根據預設，還原的資料庫名稱會填入備份專案名稱。 在此情況下，h21 （sdc）。
 - 選取目標為 H11 時，不會自動變更已還原的資料庫名稱。 **它應該會編輯為 h11 （sdc）** 。 關於 SDC，還原的資料庫名稱將會是以小寫字母括住的目標實例識別碼，而 ' SDC ' 會附加在方括弧中。
 - 由於 SDC 只能有單一資料庫，因此您也需要按一下核取方塊，以允許以復原點資料覆寫現有的資料庫資料。
-- Linux 會區分大小寫。 因此，請小心保留大小寫。
+- Linux 會區分大小寫。 因此請小心保留大小寫。
 
 ### <a name="multiple-container-database-mdc-restore"></a>多個容器資料庫（MDC）還原
 
-在 HANA 的多個容器資料庫中，標準設定為 SYSTEMDB + 1 或更多租使用者 Db。 還原整個 SAP Hana 實例表示還原 SYSTEMDB 和租使用者 Db。 其中一個還原會先 SYSTEMDB，然後再繼續進行租使用者資料庫。 系統資料庫基本上是指覆寫所選目標上的系統資訊。 這項還原也會覆寫目標實例中的 BackInt 相關資訊。 因此，在系統資料庫還原到目標實例之後，必須再次執行預先註冊腳本。 只有之後，後續的租使用者資料庫還原才會成功。
+在 HANA 的多個容器資料庫中，標準設定為 SYSTEMDB + 1 或更多租使用者 Db。 還原整個 SAP Hana 實例表示還原 SYSTEMDB 和租使用者 Db。 其中一個還原會先 SYSTEMDB，然後再繼續進行租使用者資料庫。 系統資料庫基本上是指覆寫所選目標上的系統資訊。 這項還原也會覆寫目標實例中的 BackInt 相關資訊。 因此，在系統資料庫還原到目標實例之後，再次執行預先註冊腳本。 只有之後，後續的租使用者資料庫還原才會成功。
 
 ## <a name="upgrading-from-sap-hana-10-to-20"></a>從 SAP Hana 1.0 升級至2。0
 
-如果您要保護 SAP Hana 1.0 資料庫，並想要升級至2.0，請執行下列所述的步驟：
+如果您要保護 SAP Hana 1.0 資料庫，並想要升級至2.0，請執行下列步驟：
 
 - 使用 [保留舊的 SDC 資料庫的資料] 來[停止保護](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database)。
 - 執行升級。 完成後，HANA 現在會有系統資料庫和租使用者資料庫的 MDC
 - 重新執行[預先註冊腳本](https://aka.ms/scriptforpermsonhana)，並提供正確的詳細資料（sid 和 mdc）。
-- 在 Azure 入口網站中重新註冊相同電腦的延伸模組（備份-> view 詳細資料-> 選取相關的 Azure VM-> 重新註冊）。
+- 在 Azure 入口網站中重新登錄相同電腦的延伸模組（備份 > 視圖詳細資料-> 選取相關的 Azure VM-> 重新註冊）。
 - 針對相同的 VM 按一下 [重新探索 Db]。 此動作應該會顯示步驟2中具有正確詳細資料的新資料庫（SYSTEMDB 和租使用者 DB，而非 SDC）。
 - 設定這些新資料庫的備份。
 

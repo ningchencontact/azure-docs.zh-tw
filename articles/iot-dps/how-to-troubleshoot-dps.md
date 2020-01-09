@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: ffe20ff80e26bc5564b9379ea21ca99e2890b519
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974814"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646467"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>使用 Azure IoT 中樞裝置布建服務進行疑難排解
 
@@ -32,7 +32,7 @@ IoT 裝置的連線問題可能會很難進行疑難排解，因為有許多可�
 4. 選取所需的度量。 
    <br />目前有三個 DPS 的計量：
 
-    | 度量名稱 | 描述 |
+    | 標準名稱 | 說明 |
     |-------|------------|
     | 證明嘗試數 | 嘗試使用裝置布建服務進行驗證的裝置數目|
     | 註冊嘗試數 | 成功驗證後嘗試註冊 IoT 中樞的裝置數目|
@@ -58,7 +58,7 @@ IoT 裝置的連線問題可能會很難進行疑難排解，因為有許多可�
 
 5. 啟用所需的記錄檔收集。
 
-    | 記錄檔名稱 | 描述 |
+    | 記錄檔名稱 | 說明 |
     |-------|------------|
     | DeviceOperations | 與裝置連接事件相關的記錄 |
     | ServiceOperations | 與使用服務 SDK 相關的事件記錄（例如建立或更新註冊群組）|
@@ -75,11 +75,11 @@ IoT 裝置的連線問題可能會很難進行疑難排解，因為有許多可�
 ## <a name="common-error-codes"></a>一般錯誤代碼
 使用此表格來了解和解決常見錯誤。
 
-| 錯誤碼| 描述 | HTTP 狀態碼 |
+| 錯誤碼| 說明 | HTTP 狀態碼 |
 |-------|------------|------------|
 | 400 | 要求的主體無效;例如，無法剖析，或無法驗證物件。| 400格式不正確 |
 | 401 | 無法驗證授權權杖;例如，它已過期或不適用於要求的 URI。 此錯誤碼也會在 TPM 證明流程中傳回給裝置。 | 401 未經授權|
 | 404 | 裝置布建服務實例或資源（例如註冊）不存在。 |404 - 找不到 |
 | 412 | 要求中的 ETag 與現有資源的 ETag 不相符，因為每個依據 RFC7232。 | 412前置條件失敗 |
-| 429 | 服務正在對作業進行節流。 如需特定的服務限制，請參閱[IoT 中樞裝置佈建服務限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits)。 | 429太多要求 |
+| 429 | 服務正在對作業進行節流。 如需特定的服務限制，請參閱[IoT 中樞裝置佈建服務限制](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits)。 | 429太多要求 |
 | 500 | 發生內部錯誤。 | 500 內部伺服器錯誤|

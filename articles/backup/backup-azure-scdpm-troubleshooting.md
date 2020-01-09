@@ -1,14 +1,14 @@
 ---
 title: 針對 System Center Data Protection Manager 疑難排解
 description: 在本文中，探索您在使用 System Center Data Protection Manager 時可能會遇到之問題的解決方案。
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/30/2019
-ms.openlocfilehash: 8ecd2f469c8fcaea9761a1a3033fa0c44a255ae7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bcb30fa7eb3e05099761fc751b09a9fb16134e34
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172704"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664754"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>針對 System Center Data Protection Manager 疑難排解
 

@@ -4,15 +4,15 @@ description: 使用 Log Analytics 閘道將您的裝置和 Operations Manager �
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
-ms.date: 10/30/2019
-ms.openlocfilehash: 7574f5c17c1b4598336b8db3108946164dc203f2
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+author: bwren
+ms.author: bwren
+ms.date: 12/24/2019
+ms.openlocfilehash: 1811796de96e87343544f63fcee7acdd9907693c
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847275"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530981"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>在 Azure 監視器中使用 Log Analytics 閘道將電腦連線，而不需要網際網路存取
 
@@ -45,7 +45,7 @@ Log Analytics 閘道會將資料從代理程式直接傳輸到服務。 它不�
 
 閘道可以是多重主目錄，最多可達四個工作區。 這是 Windows 代理程式支援的工作區總數。  
 
-每個代理程式都必須具有閘道的網路連線，代理程式才能自動將資料傳輸到閘道。 避免在網域控制站上安裝閘道。
+每個代理程式都必須具有閘道的網路連線，代理程式才能自動將資料傳輸到閘道。 避免在網域控制站上安裝閘道。 位於閘道伺服器後方的 Linux 電腦無法使用包裝函式[腳本安裝](agent-linux.md#install-the-agent-using-wrapper-script)方法來安裝適用于 Linux 的 Log Analytics 代理程式。 代理程式必須手動下載、複製到電腦，並手動安裝，因為閘道僅支援與先前所述的 Azure 服務進行通訊。
 
 下圖顯示透過閘道從直接代理程式流向 Azure 自動化和 Log Analytics 的資料。 代理程式 proxy 設定必須符合 Log Analytics 閘道所設定的埠。  
 
@@ -73,7 +73,7 @@ Log Analytics 閘道提供下列語言版本：
 - 中文 (繁體)
 - 捷克文
 - 荷蘭文
-- English
+- 繁體中文
 - 法文
 - 德文
 - 匈牙利文
@@ -135,31 +135,32 @@ Log Analytics 閘道僅支援傳輸層安全性（TLS）1.0、1.1 和1.2。  它
    a. 輸入閘道要使用的 TCP 埠號碼。 安裝程式會使用此埠號碼在 Windows 防火牆上設定輸入規則。  預設值為 8080。
       埠號碼的有效範圍是1到65535。 如果輸入的值不在此範圍內，就會顯示錯誤訊息。
 
-   b.這是另一個 C# 主控台應用程式。 如果閘道安裝所在的伺服器需要透過 proxy 進行通訊，請輸入閘道需要連線的 proxy 位址。 例如，輸入 `http://myorgname.corp.contoso.com:80`。  如果您將此欄位保留空白，閘道將會嘗試直接連線到網際網路。  如果您的 Proxy 伺服器需要驗證，請輸入使用者名稱與密碼。
+   b. 如果閘道安裝所在的伺服器需要透過 proxy 進行通訊，請輸入閘道需要連線的 proxy 位址。 例如，輸入 `http://myorgname.corp.contoso.com:80`。  如果您將此欄位保留空白，閘道將會嘗試直接連線到網際網路。  如果您的 Proxy 伺服器需要驗證，請輸入使用者名稱與密碼。
 
    c. 選取 [下一步]。
 
    ![閘道 proxy 設定的螢幕擷取畫面](./media/gateway/gateway-wizard02.png)
 
 1. 如果您未啟用 Microsoft Update，[Microsoft Update] 頁面隨即出現，您可以選擇啟用它。 進行選取，然後選取 **[下一步]** 。 否則，請繼續下一個步驟。
-1. 在 [**目的地資料夾**] 頁面上，保留預設資料夾 C:\Program files\oms gateway gateway，或輸入您要安裝閘道的位置。 然後，選取 [下一步]。
+1. 在 [**目的地資料夾**] 頁面上，保留預設資料夾 C:\Program files\oms gateway gateway，或輸入您要安裝閘道的位置。 然後選取 [下一步]。
 1. 在 [準備安裝] 頁面上，選取 [安裝]。 如果 [使用者帳戶控制] 要求安裝的許可權，請選取 **[是]** 。
 1. 安裝完成之後，請選取 **[完成]** 。 若要確認服務是否正在執行，請開啟 services.msc 嵌入式管理單元，並確認服務清單**中已顯示**[ **OMS 閘道**]，且其狀態為 [執行中]。
 
    ![本機服務的螢幕擷取畫面，顯示 OMS 閘道正在執行](./media/gateway/gateway-service.png)
 
 ## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>使用命令列安裝 Log Analytics 閘道
+
 閘道下載的檔案是一個支援從命令列或其他自動化方法進行無訊息安裝的 Windows Installer 套件。 如果您不熟悉 Windows Installer 的標準命令列選項，請參閱[命令列選項](https://docs.microsoft.com/windows/desktop/Msi/command-line-options)。
  
 下表將重點放在安裝程式所支援的參數。
 
-|參數| 注意事項|
+|參數| 注意|
 |----------|------| 
 |PORTNUMBER | 要接聽之閘道的 TCP 通訊埠編號 |
 |PROXY | Proxy 伺服器的 IP 位址 |
 |INSTALLDIR | 指定閘道軟體檔案安裝目錄的完整路徑 |
 |USERNAME | 用來向 proxy 伺服器進行驗證的使用者識別碼 |
-|許可權 | 要使用 proxy 進行驗證之使用者識別碼的密碼 |
+|PASSWORD | 要使用 proxy 進行驗證之使用者識別碼的密碼 |
 |LicenseAccepted | 指定**1**的值，確認您接受授權合約 |
 |HASAUTH | 指定使用者名稱/密碼參數時，請指定**1**的值 |
 |HASPROXY | 指定**PROXY**參數的 IP 位址時，請指定**1**的值 |
@@ -178,15 +179,17 @@ Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROX
 Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 HASAUTH=1 USERNAME="<username>" PASSWORD="<password>" LicenseAccepted=1 
 ```
 
-安裝之後，您可以使用下列 PowerShell Cmdlet 來確認是否已接受這些設定（exlcuding 使用者名稱和密碼）：
+安裝之後，您可以使用下列 PowerShell Cmdlet 來確認是否已接受設定（不包括使用者名稱和密碼）：
 
 - **OMSGatewayConfig** –傳回閘道設定為接聽的 TCP 埠。
 - **OMSGatewayRelayProxy** –傳回您設定要與之通訊的 PROXY 伺服器 IP 位址。
 
-## <a name="configure-network-load-balancing"></a>設定網路負載平衡 
+## <a name="configure-network-load-balancing"></a>設定網路負載平衡
+
 您可以使用 Microsoft[網路負載平衡（nlb）](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing)、 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)或硬體型負載平衡器，透過網路負載平衡（nlb）設定閘道的高可用性。 負載平衡器可藉由跨其節點將來自 Log Analytics 代理程式或 Operations Manager 管理伺服器的要求連線進行重新導向，來管理流量。 如果閘道伺服器故障，流量就會被重新導向到其他節點。
 
-### <a name="microsoft-network-load-balancing"></a>Microsoft 網路負載平衡
+### <a name="microsoft-network-load-balancing"></a>Microsoft Network Load Balancing
+
 若要了解如何設計和部署 Windows Server 2016 網路負載平衡叢集，請參閱[網路負載平衡](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing)。 下列步驟說明如何設定 Microsoft 網路負載平衡叢集。  
 
 1. 使用系統管理帳戶登入屬於 NLB 叢集成員的 Windows 伺服器。  
@@ -200,6 +203,7 @@ Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROX
     ![網路負載平衡管理員 – 新增主機到叢集：連線](./media/gateway/nlb03.png) 
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
+
 若要瞭解如何設計和部署 Azure Load Balancer，請參閱[什麼是 Azure Load Balancer？](../../load-balancer/load-balancer-overview.md)。 若要部署基本負載平衡器，請遵循本[快速入門](../../load-balancer/quickstart-create-basic-load-balancer-portal.md)中所述的步驟，但不包括**建立後端伺服器**一節中所述的步驟。   
 
 > [!NOTE]
@@ -213,18 +217,20 @@ Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROX
 >
 
 ## <a name="configure-the-log-analytics-agent-and-operations-manager-management-group"></a>設定 Log Analytics 代理程式和 Operations Manager 管理群組
+
 在本節中，您將瞭解如何設定直接連線的 Log Analytics 代理程式、Operations Manager 管理群組，或使用 Log Analytics 閘道 Azure 自動化混合式 Runbook 背景工作角色，以與 Azure 自動化或 Log Analytics 進行通訊。  
 
 ### <a name="configure-a-standalone-log-analytics-agent"></a>設定獨立的 Log Analytics 代理程式
+
 設定 Log Analytics 代理程式時，請將 proxy 伺服器值取代為 Log Analytics 閘道伺服器的 IP 位址及其通訊埠編號。 如果您已在負載平衡器後方部署多個閘道伺服器，Log Analytics 代理程式 proxy 設定就是負載平衡器的虛擬 IP 位址。  
 
 >[!NOTE]
->若要在直接連線到 Log Analytics 的閘道和 Windows 電腦上安裝 Log Analytics 代理程式，請參閱[將 Windows 電腦連線到 Azure 中的 Log analytics 服務](agent-windows.md)。 若要連接 Linux 電腦，請參閱[在混合式環境中設定適用于 Linux 電腦的 Log Analytics 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md)。 
+>若要在直接連線到 Log Analytics 的閘道和 Windows 電腦上安裝 Log Analytics 代理程式，請參閱[將 Windows 電腦連線到 Azure 中的 Log analytics 服務](agent-windows.md)。 若要連接 Linux 電腦，請參閱[將 linux 電腦連線至 Azure 監視器](agent-linux.md)。 
 >
 
 在閘道伺服器上安裝代理程式之後，請將它設定為向與閘道通訊的工作區或工作區代理程式報告。 如果閘道上未安裝 Log Analytics Windows 代理程式，則會將事件300寫入 OMS 閘道事件記錄檔，表示需要安裝代理程式。 如果代理程式已安裝，但未設定為向透過它進行通訊的代理程式報告至相同的工作區，則會將事件105寫入相同的記錄檔，表示閘道上的代理程式必須設定為與共同的代理人回報相同的工作區使用閘道 mmunicate。
 
-完成設定之後，請重新開機 OMS 閘道服務以套用變更。 否則，閘道將會拒絕嘗試與 Log Analytics 通訊的代理程式，並且會在 OMS 閘道事件記錄檔中報告事件105。 當您從閘道伺服器上的代理程式設定新增或移除工作區時，也會發生這種情況。   
+完成設定之後，請重新開機**OMS 閘道**服務以套用變更。 否則，閘道將會拒絕嘗試與 Log Analytics 通訊的代理程式，並且會在 OMS 閘道事件記錄檔中報告事件105。 當您從閘道伺服器上的代理程式設定新增或移除工作區時，也會發生這種情況。
 
 如需自動化混合式 Runbook 背景工作角色的相關資訊，請參閱[使用混合式 runbook 背景工作角色將資料中心或雲端中的資源自動化](../../automation/automation-hybrid-runbook-worker.md)。
 
@@ -249,7 +255,7 @@ Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROX
 
    a. 選取 [**開始**]，然後輸入**cmd**。  
 
-   b.這是另一個 C# 主控台應用程式。 以滑鼠右鍵按一下 [**命令提示**字元] 並選取 [以**系統管理員身分執行**]。  
+   b. 在 **\[命令提示字元\]** 上按一下滑鼠右鍵，然後選取 **\[以系統管理員身分執行\]** 。  
 
 1. 輸入下列命令：
 
@@ -300,13 +306,13 @@ Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROX
 
 如果您的電腦是自動註冊為混合式 Runbook 背景工作角色，例如，如果已針對一或多個 Vm 啟用更新管理解決方案，請遵循下列步驟：
 
-1. 將作業執行階段資料服務 URL 新增到 Log Analytics 閘道上的「允許的主機」清單。 例如：`Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. 將作業執行階段資料服務 URL 新增到 Log Analytics 閘道上的「允許的主機」清單。 例如： `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. 使用以下 PowerShell Cmdlet 重新啟動 Log Analytics 閘道服務：`Restart-Service OMSGatewayService`
 
 如果您的電腦已使用混合式 Runbook 背景工作註冊 Cmdlet 加入 Azure 自動化，請遵循下列步驟：
 
-1. 將代理程式服務註冊 URL 新增到 Log Analytics 閘道上的「允許的主機」清單。 例如：`Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-1. 將作業執行階段資料服務 URL 新增到 Log Analytics 閘道上的「允許的主機」清單。 例如：`Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. 將代理程式服務註冊 URL 新增到 Log Analytics 閘道上的「允許的主機」清單。 例如： `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
+1. 將作業執行階段資料服務 URL 新增到 Log Analytics 閘道上的「允許的主機」清單。 例如： `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. 重新啟動 Log Analytics 閘道服務。
     `Restart-Service OMSGatewayService`
 

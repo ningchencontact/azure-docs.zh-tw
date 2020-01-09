@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 289100afe825c14ce9964f39e3f583078f51da1d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 32c1ca95c01edec74f22fc051e453f2ac0dbd03f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73182189"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564787"
 ---
 ## <a name="application-performance-indicators"></a>應用程式效能指標
 
@@ -53,7 +53,7 @@ IOPS，亦即 Input/output Operations Per Second (每秒鐘輸入/輸出作業�
 - 從快照集建立受控磁片。
 - 將非受控磁片轉換為受控磁片。
 
-# <a name="performance-application-checklist-for-disks"></a>磁碟的效能應用程式檢查清單
+## <a name="performance-application-checklist-for-disks"></a>磁碟的效能應用程式檢查清單
 
 設計 Azure 進階儲存體上執行的高效能應用程式時，第一步是了解應用程式的效能需求。 已收集效能需求之後，您就可以將應用程式最佳化，以達到最佳效能。
 
@@ -92,14 +92,14 @@ IOPS，亦即 Input/output Operations Per Second (每秒鐘輸入/輸出作業�
 
 伺服器的處理器、記憶體及每個邏輯磁碟和實體磁碟，都有可用的 PerfMon 計數器。 當您使用進階儲存體磁碟和 VM 時，實體磁碟計數器適用於每個進階儲存體磁碟，邏輯磁碟計數器適用於進階儲存體上建立的每個磁碟區。 您必須為裝載應用程式工作負載的磁碟擷取這些值。 如果邏輯與實體磁碟之間有一對一對應，您可以參考實體磁碟計數器，否則請參考邏輯磁碟計數器。 在 Linux 上，iostat 命令會產生 CPU 和磁碟使用率報告。 磁碟使用率報告提供每個實體裝置或分割區的統計資料。 如果您的資料庫伺服器將其資料和記錄檔放在不同的磁片上，請為這兩個磁片收集這項資料。 下表說明磁片、處理器和記憶體的計數器：
 
-| 計數器 | 描述 | PerfMon | Iostat |
+| 計數器 | 說明 | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOPS 或每秒交易數** |每秒發出給儲存體磁碟的 I/O 要求數。 |Disk Reads/sec <br> Disk Writes/sec |tps <br> r/s <br> w/s |
 | **磁碟讀取和寫入** |磁碟上執行的讀取和寫入作業 %。 |% Disk Read Time <br> % Disk Write Time |r/s <br> w/s |
 | **輸送量** |每秒讀取或寫入磁碟的資料量。 |Disk Read Bytes/sec <br> Disk Write Bytes/sec |kB_read/s <br> kB_wrtn/s |
 | **延遲** |完成磁碟 IO 要求的總時間。 |Average Disk sec/Read <br> Average disk sec/Write |await <br> svctm |
 | **IO 大小** |發出給儲存體磁碟的 I/O 要求大小。 |Average Disk Bytes/Read <br> Average Disk Bytes/Write |avgrq-sz |
-| **佇列深度** |等候讀取或寫入儲存體磁碟的未完成 I/O 要求數。 |目前磁碟佇列長度 |avgqu-sz |
+| **佇列深度** |等候讀取或寫入儲存體磁碟的未完成 I/O 要求數。 |Current Disk Queue Length |avgqu-sz |
 | **最大記憶體** |順暢執行應用程式所需的記憶體數量 |% Committed Bytes in Use |Use vmstat |
 | **最大CPU** |順暢執行應用程式所需的 CPU 數量 |% Processor time |%util |
 
@@ -130,7 +130,7 @@ IOPS，亦即 Input/output Operations Per Second (每秒鐘輸入/輸出作業�
 | **磁碟快取** |在讀取作業繁重的進階儲存體磁碟上，啟用唯讀快取可產生較高的讀取 IOPS。 | &nbsp; |在讀取作業繁重的進階儲存體磁碟上，啟用唯讀快取可產生極低的讀取延遲。 |
 | **磁碟串接** |使用多個磁碟並串接在一起，可結合產生較高的 IOPS 和輸送量限制。 每個 VM 的合併限制應該高於附加的高階磁片的組合限制。 | &nbsp; | &nbsp; |
 | **等量大小** |在 OLTP 應用程式中，隨機小型 IO 模式使用較小的等量大小。 例如，針對 SQL Server OLTP 應用程式，請使用 64 KB 的等量大小。 |在資料倉儲應用程式中，循序大型 IO 模式使用較大的等量大小。 例如，針對 SQL Server 資料倉儲應用程式使用 256 KB 等量大小。 | &nbsp; |
-| **多執行緒處理** |使用多執行緒處理將較多要求推送至進階儲存體，將會產生較高的 IOPS 和輸送量。 例如，在 SQL Server 上設定較高的 MAXDOP 值，可配置更多 CPU 給 SQL Server。 | &nbsp; | &nbsp; |
+| **多執行緒** |使用多執行緒處理將較多要求推送至進階儲存體，將會產生較高的 IOPS 和輸送量。 例如，在 SQL Server 上設定較高的 MAXDOP 值，可配置更多 CPU 給 SQL Server。 | &nbsp; | &nbsp; |
 | **佇列深度** |較大佇列深度會產生較高的 IOPS。 |較大佇列深度會產生較高的輸送量。 |較小佇列深度會產生較低的延遲。 |
 
 ## <a name="nature-of-io-requests"></a>IO 要求的本質
@@ -170,9 +170,9 @@ IO 大小是其中一個很重要的因素。 IO 大小是指應用程式所產�
 
 ## <a name="high-scale-vm-sizes"></a>高延展性 VM 大小
 
-開始設計應用程式時，首要工作之一是選擇 VM 來裝載應用程式。 進階儲存體提供高延展性 VM 大小，可以執行需要更高計算能力和較高本機磁碟 I/O 效能的應用程式。 這些 VM 為本機磁碟提供更快的處理器、較高的記憶體與核心比率，以及固態硬碟 (SSD)。 支援進階儲存體的大規模 Vm 範例包括 DS、DSv2 和 GS 系列 Vm。
+開始設計應用程式時，首要工作之一是選擇 VM 來裝載應用程式。 進階儲存體提供高延展性 VM 大小，可以執行需要更高計算能力和較高本機磁碟 I/O 效能的應用程式。 這些 VM 為本機磁碟提供更快的處理器、較高的記憶體與核心比率，以及固態硬碟 (SSD)。 支援進階儲存體的大規模 Vm 範例包括 DS 和 GS 系列 Vm。
 
-大規模的 Vm 有不同的大小，具有不同數目的 CPU 核心、記憶體、OS 和暫存磁片大小。 每個 VM 大小也規定您可連接至 VM 的資料磁碟數目上限。 因此，選擇的 VM 大小會影響應用程式可用的處理、記憶體和儲存體容量。 也會影響計算和儲存體成本。 例如，以下為 DS 系列、DSv2 系列和 GS 系列中最大 VM 大小的規格：
+大規模的 Vm 有不同的大小，具有不同數目的 CPU 核心、記憶體、OS 和暫存磁片大小。 每個 VM 大小也規定您可連接至 VM 的資料磁碟數目上限。 因此，選擇的 VM 大小會影響應用程式可用的處理、記憶體和儲存體容量。 也會影響計算和儲存體成本。 例如，以下是 DS 系列和 GS 系列中最大 VM 大小的規格：
 
 | VM 大小 | CPU 核心數 | 記憶體 | VM 磁碟大小 | 最大 資料磁碟 | 快取大小 | IOPS | 頻寬快取 IO 限制 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -195,7 +195,7 @@ IO 大小是其中一個很重要的因素。 IO 大小是指應用程式所產�
 
 下表以標準和進階儲存體來摘要說明此案例的成本明細。
 
-| &nbsp; | **標準** | **高級** |
+| &nbsp; | **Standard** | **高級** |
 | --- | --- | --- |
 | **每月的 VM 成本** |$1,570.58 (Standard\_D14) |$1,003.66 (Standard\_DS13) |
 | **每月的磁碟成本** |$1638.40 （32 x 1-TB 磁片） |$544.34 (4 x P30 磁碟) |
@@ -252,11 +252,11 @@ Azure 進階儲存體提供各種規模，讓您可以選擇最符合您需求�
 
 | **磁碟快取設定** | **使用這項設定的建議時機** |
 | --- | --- |
-| None |針對唯寫和大量寫入的磁碟，將主機快取設定為「無」。 |
+| 無 |針對唯寫和大量寫入的磁碟，將主機快取設定為「無」。 |
 | ReadOnly |針對唯讀和讀寫的磁碟，將主機快取設定為「唯讀」。 |
 | 讀寫 |只有當應用程式在必要時可適當地將快取的資料寫入永續性磁碟時，才將主機快取設定為「讀寫」。 |
 
-*唯讀*  
+*ReadOnly*  
 您可以在進階儲存體資料磁碟上設定「唯讀」快取，讓應用程式達到較低的讀取延遲，以及非常高的讀取 IOPS 和輸送量。 這是基於兩個理由，
 
 1. 從快取執行的讀取 (在 VM 記憶體和本機 SSD 上)，速度遠快於從資料磁碟讀取 (在 Azure Blob 儲存體上)。  
@@ -272,7 +272,7 @@ Azure 進階儲存體提供各種規模，讓您可以選擇最符合您需求�
 
 1. 在裝載資料檔的進階儲存體磁碟上設定「唯讀」快取。  
    a.  從快取中快速讀取可縮短 SQL Server 查詢時間，因為從快取擷取資料頁，速度遠快於直接從資料磁碟擷取。  
-   b.這是另一個 C# 主控台應用程式。  由快取來服務讀取，表示高階資料磁碟會有額外的輸送量可用。 SQL Server 可以使用這個額外的輸送量來擷取更多資料頁和執行其他作業，例如備份/還原、批次載入和索引重建。  
+   b.  由快取來服務讀取，表示高階資料磁碟會有額外的輸送量可用。 SQL Server 可以使用這個額外的輸送量來擷取更多資料頁和執行其他作業，例如備份/還原、批次載入和索引重建。  
 1. 在裝載記錄檔的進階儲存體磁碟上設定「無」快取。  
    a.  記錄檔以大量寫入的作業為主。 因此，無法從「唯讀」快取中受惠。
 
@@ -292,29 +292,31 @@ Azure 進階儲存體提供各種規模，讓您可以選擇最符合您需求�
 
 | 通路業 | 版本 | 支援的核心 | 詳細資料 |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 或更新版本| 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
-| Ubuntu | 14.04 或更新版本| 3.13.0-44.73+  | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Ubuntu | 12.04 或更新版本| 3.2.0-75.110+ | &nbsp; |
+| Ubuntu | 14.04 或更新版本| 3.13.0-44.73+  | &nbsp; |
 | Debian | 7.x、8.x 或更新版本| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 或更新版本| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 12 或更新版本| 3.12.36-38.1+ | &nbsp; |
 | SUSE | SLES 11 SP4 或更新版本| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0 + 或更新版本| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5、6.6、6.7、7.0 或更新版本| &nbsp; | [LIS4 (必要)](https://www.microsoft.com/download/details.aspx?id=51612) <br> *請參閱下一節中的附註* |
-| CentOS | 7.1 + 或更新版本| 3.10.0-229.1.2.el7+ | [LIS4 (建議使用) ](https://www.microsoft.com/download/details.aspx?id=51612) <br> *請參閱下一節中的附註* |
+| CoreOS | 584.0.0 + 或更新版本| 3.18.4+ | &nbsp; |
+| CentOS | 6.5、6.6、6.7、7.0 或更新版本| &nbsp; | [LIS4 (必要)](https://www.microsoft.com/download/details.aspx?id=55106) <br> *請參閱下一節中的附註* |
+| CentOS | 7.1 + 或更新版本| 3.10.0-229.1.2.el7+ | [LIS4 (建議使用) ](https://www.microsoft.com/download/details.aspx?id=55106) <br> *請參閱下一節中的附註* |
 | Red Hat Enterprise Linux (RHEL) | 6.8 +、7.2 + 或更新版本 | &nbsp; | &nbsp; |
 | Oracle | 6.0 +、7.2 + 或更新版本 | &nbsp; | UEK4 或 RHCK |
-| Oracle | 7.0-7.1 或更新版本 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
-| Oracle | 6.4-6.7 或更新版本 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
+| Oracle | 7.0-7.1 或更新版本 | &nbsp; | UEK4 或 RHCK w/[lis4 ()](https://www.microsoft.com/download/details.aspx?id=55106) |
+| Oracle | 6.4-6.7 或更新版本 | &nbsp; | UEK4 或 RHCK w/[lis4 ()](https://www.microsoft.com/download/details.aspx?id=55106) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Openlogic CentOS 的 LIS 驅動程式
 
 如果您執行 OpenLogic CentOS VM，請執行下列命令以安裝最新的驅動程式：
 
 ```
-sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
 sudo yum install microsoft-hyper-v
+sudo reboot
 ```
 
-若要啟用新的驅動程式，請重新啟動 VM。
+在某些情況下，上述命令也會升級核心。 如果需要核心更新，您可能需要在重新開機之後再次執行上述命令，才能完整安裝 microsoft hyper-v 套件。
+
 
 ## <a name="disk-striping"></a>磁碟等量分割
 
@@ -382,4 +384,3 @@ Azure 已將進階儲存體平台設計為大規模平行。 因此，多執行�
 Azure 進階儲存體會根據您選擇的 VM 大小和磁碟大小，佈建指定數目的 IOPS 和輸送量。 每當應用程式嘗試推動的 IOPS 或輸送量超過 VM 或磁碟可處理的這些限制時，進階儲存體便會進行節流。 這會造成應用程式的效能降低。 這可能表示較高的延遲、較低的輸送量或較低的 IOPS。 如果進階儲存體不會節流，應用程式可能會超出其資源的能力負荷而完全失敗。 因此，為了避免因為節流而造成效能問題，一定要為應用程式佈建足夠的資源。 請考量先前在 VM 大小和磁碟大小各節已討論過的因素。 為了駕馭應用程式，效能評定是找出所需資源的最佳方式。
 
 ## <a name="next-steps"></a>後續步驟
-

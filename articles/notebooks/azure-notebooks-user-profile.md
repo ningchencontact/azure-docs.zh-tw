@@ -1,16 +1,16 @@
 ---
-title: 用於 Azure Notebooks 的使用者設定檔和識別碼
+title: 用於 Azure Notebooks 預覽的使用者設定檔和識別碼
 description: 如何使用 Azure Notebooks 建立及管理您的使用者設定檔和使用者識別碼，這會成為共用筆記本 URL 的一部分。
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 0874fe8223ae9c49ccfe4e8efedf2620117a0f8c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d90eebf1b7b463e038bc5e54f51df0eb6ca746c4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277615"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646274"
 ---
-# <a name="your-profile-and-user-id-for-azure-notebooks"></a>您 Azure Notebooks 的設定檔和使用者識別碼
+# <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Azure Notebooks 預覽的設定檔和使用者識別碼
 
 在 Azure Notebooks 功能強大的共同作業空間內，在您的使用者設定檔可將您的公共形象呈現給他人：
 
@@ -23,6 +23,8 @@ ms.locfileid: "74277615"
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>`：專案檔案。
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`：特定專案的複製。
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`：特定筆記本或檔案的 HTML 預覽。
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="your-user-id"></a>您的使用者識別碼
 

@@ -1,6 +1,6 @@
 ---
 title: 使用參數化 Url 共用自訂視圖-Azure 時間序列深入解析 |Microsoft Docs
-description: 瞭解如何在 Azure 時間序列深入解析中開發參數化 Url，以輕鬆共用自訂的視圖。
+description: 瞭解如何建立參數化 Url，輕鬆地在 Azure 時間序列深入解析中共用自訂的 explorer 視圖。
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 10/18/2019
+ms.date: 12/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 145af35f8c36d7f4659c3937209cb0d4d5b221a3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: fd6de7dfe9509e7f99adeed0e5de3e157335e6bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006382"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452785"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>使用參數化 URL 共用自訂檢視
 
@@ -44,11 +44,12 @@ ms.locfileid: "74006382"
 * `from=<integer>` 是搜尋範圍的開始時間值 (以 JavaScript 毫秒為單位)。
 * `to=<integer>` 是搜尋範圍的結束時間值 (以 JavaScript 毫秒為單位)。
 
-若要識別日期的 JavaScript 毫秒，請參閱 [Epoch 和 Unix 時間戳記轉換器](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html)。
+> [!TIP]
+> 若要輕鬆地將日期轉譯成 JavaScript 毫秒，請嘗試[Epoch & Unix 時間戳記轉換器](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html)。
 
 ### <a name="relative-time-values"></a>相對時間值
 
-對於相對時間值，使用 `relativeMillis=<value>`，其中 value 是後端最近資料中的時間值 (以 JavaScript 毫秒為單位)。
+針對相對時間值，使用 `relativeMillis=<value>`，其中*值*是從 API 收到的最近時間戳記中的 JavaScript 毫秒。
 
 例如，`&relativeMillis=3600000` 可顯示最近 60 分鐘的資料。
 
@@ -65,33 +66,41 @@ ms.locfileid: "74006382"
 
 ### <a name="optional-parameters"></a>選擇性參數
 
-`timeSeriesDefinitions=<collection of term objects>` 參數指定時間序列深入解析視圖的詞彙：
+`timeSeriesDefinitions=<collection of term objects>` 參數會指定將出現在時間序列深入解析視圖中的述詞詞彙：
 
-| 參數 | URL 專案 | 描述 |
+| 參數 | URL 專案 | 說明 |
 | --- | --- | --- |
 | **name** | `\<string>` | term 的名稱。 |
 | **splitBy** | `\<string>` | split by 的資料行名稱。 |
 | **measureName** | `\<string>` | measure 的資料行名稱。 |
 | **推斷** | `\<string>` | 用於伺服器端篩選的 where 子句。 |
-| **useSum** | `true` | 選擇性參數，指定針對量值使用 sum。 </br>  請注意，如果 `Events` 是選取的量值，則預設會選取 [計數]。  </br>  如果未選取 `Events`，預設會選取 平均。 |
+| **useSum** | `true` | 選擇性參數，指定針對量值使用 sum。 |
+
+> [!NOTE]
+> 如果 `Events` 是選取的**useSum**量值，則預設會選取 [計數]。  
+> 如果未選取 `Events`，預設會選取 平均。 |
 
 * `multiChartStack=<true/false>` 的索引鍵/值組會啟用圖表中的堆疊。
 * `multiChartSameScale=<true/false>` 的索引鍵/值組會在選擇性參數內的詞彙之間啟用相同的 Y 軸縮放比例。  
 * 此 `timeBucketUnit=<Unit>&timeBucketSize=<integer>` 可讓您調整間隔滑杆，以提供更精細或更平滑的圖表匯總視圖。  
 * `timezoneOffset=<integer>` 參數可讓您設定圖表的時區，以作為 UTC 的位移。
 
-| 配對（s） | 描述 |
+| 配對（s） | 說明 |
 | --- | --- |
 | `multiChartStack=false` | `true` 預設為啟用，因此請將 `false` 傳遞至堆疊。 |
-| `multiChartStack=false&multiChartSameScale=true` | 必須啟用堆疊，才能在不同時段使用相同的 Y 軸刻度。  預設為 `false`，因此傳遞「true」可啟用這項功能。 |
-| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | 單位 = 天、小時、分鐘、秒、毫秒。  單位一律大寫。 </br> 對 timeBucketSize 傳遞所需的整數，以定義單位數。  請注意，您最多可以平滑處理 7 天。  |
-| `timezoneOffset=-<integer>` | 整數一律以毫秒為單位。 </br> 請注意，這項功能與我們在 [時間序列深入解析 explorer] 中啟用的方式稍有不同，我們可以在這裡選擇 [本機（瀏覽器時間）] 或 [UTC]。 |
+| `multiChartStack=false&multiChartSameScale=true` | 必須啟用堆疊，才能在不同時段使用相同的 Y 軸刻度。  預設為 `false`，因此傳遞 `true` 可啟用這項功能。 |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | 單位 = `days`、`hours`、`minutes`、`seconds`、`milliseconds`。  單位一律大寫。 </br> 藉由傳遞所需的**timeBucketSize**整數來定義單位數。  |
+| `timezoneOffset=-<integer>` | 整數一律以毫秒為單位。 |
+
+> [!NOTE]
+> **timeBucketUnit**值可以平滑到7天。
+> **timezoneOffset**值不是 UTC 也不是當地時間。
 
 ### <a name="examples"></a>範例
 
 若要將時間序列定義加入至時間序列深入解析環境做為 URL 參數，請附加：
 
-```plaintext
+```URL parameter
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
 {"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
@@ -100,24 +109,28 @@ ms.locfileid: "74006382"
 
 * 環境識別碼
 * 過去60分鐘的資料
-* 組成選擇性參數的詞彙（F1PressureID、F2TempStation 和 F3VibrationPL）
+* 組成選擇性參數的詞彙（**F1PressureID**、 **F2TempStation**和**F3VibrationPL**）
 
 您可以為視圖建立下列參數化 URL：
 
-```plaintext
+```URL
 https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
+[![時間序列深入解析 explorer 參數化 URL](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
+
 > [!TIP]
-> 請參閱[使用 URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}])的即時瀏覽器。
+> [使用上述的 URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}])範例，查看 Explorer live。
 
-上述 URL 描述並建立時間序列深入解析總管 view：
+上述 URL 會描述並顯示參數化時間序列深入解析 explorer 視圖。 
 
-[![時間序列深入解析 explorer 詞彙](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
+* 參數化的述詞。
 
-完整視圖（包括圖表）：
+  [![時間序列深入解析 explorer 參數化述詞。](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
 
-[![圖表視圖](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+* 共用的完整圖表視圖。
+
+  [![共用的完整圖表視圖。](media/parameterized-url/share-parameterized-url-full-chart.png)](media/parameterized-url/share-parameterized-url-full-chart.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 

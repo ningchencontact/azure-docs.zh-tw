@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 0f6dceac3e46f8e36d2da52c15c0b0696e026a0e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 64ef052478bed627c896cd0e0b5301961a8b6f21
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977211"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562862"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>快速入門：使用適用於 Python 的 Bing Web 搜尋 SDK
 
@@ -23,7 +23,7 @@ Bing Web 搜尋 SDK 可讓您輕鬆地將 Bing Web 搜尋整合到 Python 應用
 
 要立即查看程式碼嗎？ GitHub 上提供[適用於 Python 的 Bing Web 搜尋 SDK 範例](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) (英文)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 Bing Web 搜尋 SDK 與 Python 2.7、3.3、3.4、3.5 和 3.6 相容。 建議在虛擬環境下使用此快速入門。
 
 * Python 2.7、3.3、3.4、3.5 或 3.6
@@ -63,6 +63,12 @@ python -m pip install azure-cognitiveservices-search-websearch
 
 ```console
 python -m venv mytestenv
+```
+
+啟動您的環境：
+
+```console
+mytestenv\Scripts\activate.bat
 ```
 
 安裝 Bing Web 搜尋 SDK 相依性：

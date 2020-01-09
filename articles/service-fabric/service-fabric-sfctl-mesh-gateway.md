@@ -1,32 +1,23 @@
 ---
-title: Azure Service Fabric CLI- sfctl mesh gateway | Microsoft Docs
-description: 描述 Service Fabric CLI sfctl mesh gateway 命令。
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI-sfctl 網狀閘道
+description: 深入瞭解 sfctl，這是 Azure Service Fabric 命令列介面。 包含用來取得和刪除 Service Fabric 網格閘道資源的命令清單。
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: e50dc6942163d8ea7926b468e66087e8d98775ee
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 86e63f88cf1412b54fad6f9e386a1a5052463917
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901229"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646155"
 ---
 # <a name="sfctl-mesh-gateway"></a>sfctl mesh gateway
 取得和刪除 mesh 閘道資源。
 
 ## <a name="commands"></a>命令
 
-|命令|描述|
+|Command|說明|
 | --- | --- |
 | delete | 可刪除閘道資源。 |
 | list | 可列出所有閘道資源。 |
@@ -39,19 +30,19 @@ ms.locfileid: "72901229"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --name -n [必要] | 閘道資源的名稱。 |
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-mesh-gateway-list"></a>sfctl mesh gateway list
 可列出所有閘道資源。
@@ -60,13 +51,13 @@ ms.locfileid: "72901229"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-mesh-gateway-show"></a>sfctl mesh gateway show
 可取得指定名稱的閘道資源。
@@ -75,19 +66,19 @@ ms.locfileid: "72901229"
 
 ### <a name="arguments"></a>引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
 | --name -n [必要] | 閘道資源的名稱。 |
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|描述|
+|引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 
 ## <a name="next-steps"></a>後續步驟

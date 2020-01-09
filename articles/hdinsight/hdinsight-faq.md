@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 37b8ad0fc09644d746c3528c174d1bf95d546d0f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f688f0ddfb62e988ddebada1f612aa842afa5181
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706270"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644591"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight：常見問題
 
@@ -114,7 +114,7 @@ Azure HDInsight 叢集具有不同類型的虛擬機器或節點。 每種節點
 
 ### <a name="how-do-i-change-timezone-in-ambari"></a>如何? 變更 Ambari 中的時區嗎？
 
-1. 在 https://CLUSTERNAME.azurehdinsight.net 開啟 Ambari Web UI，其中 CLUSTERNAME 是您的叢集名稱。
+1. 在 `https://CLUSTERNAME.azurehdinsight.net`開啟 Ambari Web UI，其中 CLUSTERNAME 是您的叢集名稱。
 2. 在右上角，選取 [管理] |設置。 
 
    ![Ambari 設定](media/hdinsight-faq/ambari-settings.png)
@@ -216,7 +216,7 @@ ktutil: q
 
 ### <a name="can-i-use-a-self-signed-certificate-in-an-aad-ds-secure-ldap-setup-and-provision-an-esp-cluster"></a>我可以在 AAD DS 安全 LDAP 安裝程式中使用自我簽署憑證，並布建 ESP 叢集嗎？
 
-建議使用憑證授權單位單位所發行的憑證，但 ESP 也支援使用自我簽署憑證。 如需詳細資訊，請參閱
+建議使用憑證授權單位單位所發行的憑證，但 ESP 也支援使用自我簽署憑證。 如需詳細資訊，請參閱：
 
 - [啟用 Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
 
@@ -263,7 +263,7 @@ Clamscan 是在 HDInsight 叢集上執行的防毒軟體，可供 Azure 安全�
  
 ### <a name="how-can-i-calculate-the-usage-of-storage-accounts-and-blob-containers-for-my-hdinsight-clusters"></a>如何計算 HDInsight 叢集的儲存體帳戶和 blob 容器的使用量？
 
-執行下列其中一項：
+執行下列其中一個動作：
 
 - [使用 PowerShell](../storage/scripts/storage-blobs-container-calculate-size-powershell.md)
 
@@ -293,7 +293,7 @@ done
 
 目前，blob 儲存體和 Azure Data Lake Storage Gen1 或 Gen2 不存在任何 Ranger 外掛程式。 針對 ESP 叢集，您應該使用 Azure Data Lake Storage，因為您至少可以使用 HDFS 工具，在檔案系統層級手動設定細微許可權。 此外，使用 Azure Data Lake Storage 時，ESP 叢集會使用叢集層級的 Azure Active Directory 來執行一些檔案系統存取控制。 
 
-您可以使用 Azure 儲存體總管，將資料存取原則指派給使用者的安全性群組。 如需詳細資訊，請參閱
+您可以使用 Azure 儲存體總管，將資料存取原則指派給使用者的安全性群組。 如需詳細資訊，請參閱：
 
 - [如何? 將 Azure AD 使用者的許可權設定為使用 Hive 或其他服務來查詢 Data Lake Storage Gen2 中的資料嗎？](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
 - [搭配 Azure Data Lake Storage Gen2 使用 Azure 儲存體總管設定檔案和目錄等級使用權限](/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)

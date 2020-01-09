@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 803b1e397efd4a6f9ddaa3bae1d101c8f204e728
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a0fbed1f4dd62b2d75d39f475d2fe124c55a2b97
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328302"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645798"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>適用於 SAP NetWeaver 的 SQL Server Azure 虛擬機器 DBMS 部署
 
@@ -77,8 +77,8 @@ ms.locfileid: "74328302"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide_general.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -235,7 +235,7 @@ ms.locfileid: "74328302"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "74328302"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -390,7 +390,7 @@ SQL Server 2014 及更新版本可以直接在 Azure Blob Store上儲存資料�
 針對生產環境系統提出的建議是：避免這種設定，寧願選擇將 SQL Server 資料檔和記錄檔放在 Azure 進階儲存體 VHD，也不要直接放在 Azure blob 上。
 
 
-## <a name="sql-server-2014-buffer-pool-extension"></a>SQL Server 2014 緩衝集區延伸模組
+## <a name="sql-server-2014-buffer-pool-extension"></a>SQL Server 2014 緩衝集區延伸
 SQL Server 2014 引進的新功能，稱為 [緩衝集區擴充](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension?view=sql-server-2017) \(機器翻譯\)。 此功能會擴充 SQL Server 的緩衝集區，使用第二層快取將其保留於記憶體中，此快取是透過伺服器或 VM 的本機 SSD 來支援。 緩衝集區擴充模組可以將較大的資料工作集放入「記憶體內」。 相較於存取 Azure 標準儲存體，基於許多因素，存取儲存於 Azure VM 之本機 SSD 上的緩衝集區延伸的速度更快。 比較「緩衝集區擴充」和「Azure 進階儲存體讀取快取」後，和給出的 SQL Server 資料檔建議一樣，「緩衝集區擴充」沒有顯著的優勢。 原因在於這兩個快取 (SQL Server 緩衝集區延伸和進階儲存體讀取快取) 都是使用 Azure 計算節點的本機磁碟。
 
 SQL Server 緩衝集區擴充搭配 SAP 工作負載時所得到的體驗有好有壞，而且仍然無法明確建議是否所有的情況下皆適用。 理想的情況是：SAP 應用程式所需的工作集，剛好能放入主記憶體中。 利用 Azure 再加上提供的 VM 又有高達 4 TB 的記憶體，這樣應該能將工作集放入記憶體中了。 因此緩衝集區擴充只能在某些罕見的情況下使用，而且不是主流案例。  
@@ -415,7 +415,7 @@ SQL Server 緩衝集區擴充搭配 SAP 工作負載時所得到的體驗有好�
 - 多個 (最多 64 個) Azure 區塊 blob，可以達到理論上的 12 TB 備份大小。 不過，測試客戶資料庫之後發現備份大小上限可能會小於理論上的限制。 在這種情況下，您要負責管理備份的保留和存取。
 
 
-### <a name="automated-backup-for-sql-server"></a>適用於 SQL Server 2016+ 的自動備份
+### <a name="automated-backup-for-sql-server"></a>SQL Server 的自動備份
 自動備份可為在 Azure 的 Windows VM 中執行的 SQL Server Standard 與 Enterprise 版提供自動備份服務。 此服務是由 [SQL Server IaaS 代理程式延伸模組](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)提供的，並會自動在 Azure 入口網站中安裝於 SQL Server Windows 虛擬機器映像上。 如果您部署自己的 OS 映像時，連帶安裝了 SQL Server，則必須另外再安裝 VM 延伸模組。 至於相關的步驟，請參閱這篇[文章](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)。
 
 如需進一步了解這個方法的功能，請參閱下列文章：
@@ -531,7 +531,7 @@ SQL Server Always On 是 Azure for SAP 工作負載部署中，最常使用的�
  
 將 TDE 加密的應用程式視為不只是 SAP 工作負載，您應該在您的特定設定中進行測試，以瞭解是否要將 TDE 套用至內部部署的 SAP 資料庫，或在 Azure 中執行此動作。 在 Azure 中，套用 TDE 之後，您當然有更多彈性決定是要過度佈建或縮減基礎結構。
 
-### <a name="using-azure-key-vault"></a>編輯 Azure Key Vault
+### <a name="using-azure-key-vault"></a>使用 Azure Key Vault
 Azure 提供的 [Key Vault](https://azure.microsoft.com/services/key-vault/) 服務，可以儲存加密金鑰。 另一方面，SQL Server 提供連接器，可將 Azure Key Vault 當作是 TDE 憑證的存放區。
 
 以下是 SQL Server TDE 詳細的 Azure Key Vault 用途：
@@ -552,7 +552,7 @@ Azure 提供的 [Key Vault](https://azure.microsoft.com/services/key-vault/) 服
 1. 使用最新的 DBMS 版本 (例如 SQL Server 2017) ，其在 Azure 中最具優勢。 
 2. 在 Azure 中仔細規劃您的 SAP 系統架構，以平衡資料檔案配置和 Azure 限制︰
    * 不需要有太多磁碟，但必須足以確保您可以連線到所需的 IOPS。
-   * 如果您未使用受控磁碟，請記住，IOPS 也會受到每個 Azure 儲存體帳戶的限制，而且儲存體帳戶會在每個 Azure 訂用帳戶內受到限制（[更多詳細資料][azure-subscription-service-limits]）。 
+   * 如果您未使用受控磁碟，請記住，IOPS 也會受到每個 Azure 儲存體帳戶的限制，而且儲存體帳戶會在每個 Azure 訂用帳戶內受到限制（[更多詳細資料][azure-resource-manager/management/azure-subscription-service-limits]）。 
    * 只有在您需要達到更高的輸送量時，才需在磁碟上劃分等量磁碟區。
 3. 永遠不要在 D:\ 磁碟機上安裝軟體或放置任何需要永久保留的檔案，因為它不是永久性的，此磁碟機上的一切會在 Windows 重新開機時遺失。
 4. 不要針對 Azure 標準儲存體使用磁碟快取。

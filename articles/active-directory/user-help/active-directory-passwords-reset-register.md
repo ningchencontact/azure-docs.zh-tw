@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9748c0d04f958648f7919b7ac29dc58d5a137ac
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a6dddd13f31366e5a99d6c68ab82b048de4064b2
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279060"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681356"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>註冊您的驗證方法資訊以重設您自己的密碼
 
@@ -29,7 +29,7 @@ ms.locfileid: "74279060"
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>使用 SSPR 註冊或確認驗證資料
 
-1. 開啟您裝置的 web 瀏覽器並移至[密碼重設註冊頁面](https://aka.ms/ssprsetup)。
+1. 開啟您裝置的 web 瀏覽器並移至[密碼重設註冊頁面](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup)。
 2. 輸入您的使用者名稱和您系統管理員所提供的密碼。
 3. 視您的 IT 人員如何設定而定，下列一或多個選項可供您進行設定及驗證。 如果您的系統管理員具有權限可使用您的資訊，他們可以填入一些您的資訊。
     * **辦公室電話**：只有您的系統管理員可以設定此選項。

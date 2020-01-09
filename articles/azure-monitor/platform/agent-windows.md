@@ -4,15 +4,15 @@ description: 本文說明如何將裝載于其他雲端或內部部署環境的 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 42183ca7b02ba75b241ee1a83b5a0dc936a8c1c8
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 8918c18c9356c583b9ea23138f0d0a0fb4dcd845
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420427"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689985"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>將 Windows 電腦連線至 Azure 監視器
 
@@ -38,7 +38,7 @@ ms.locfileid: "74420427"
 ## <a name="obtain-workspace-id-and-key"></a>取得工作區識別碼和金鑰
 安裝適用於 Windows 的 Log Analytics 代理程式之前，您需要 Log Analytics 工作區的工作區識別碼和金鑰。  在安裝過程中，從每個安裝方法都需要這項資訊，才能正確設定代理程式，並確保它可以與 Azure 商業和美國政府雲端中的 Azure 監視器成功通訊。 
 
-1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
+1. 在 Azure 入口網站中，搜尋並選取  **Log Analytics 工作區**。
 2. 在您的 Log Analytics 工作區清單中，選取您要設定讓代理程式向哪個工作區報告。
 3. 選取 [進階設定]。<br><br> ![Log Analytics 進階設定](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. 選取 [連接的來源]，然後選取 [Windows 伺服器]。   
@@ -93,7 +93,7 @@ ms.locfileid: "74420427"
 
 下表特別列出代理程式安裝支援的特定參數，包括使用 Automation DSC 部署時的參數。
 
-|MMA 專屬選項                   |注意事項         |
+|MMA 專屬選項                   |注意         |
 |---------------------------------------|--------------|
 | NOAPM=1                               | 選擇性參數。 安裝代理程式但不包括 .NET 應用程式效能監控。|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = 將代理程式設定為向工作區報告                |
@@ -132,7 +132,7 @@ ms.locfileid: "74420427"
 >[!NOTE]
 >此程序和指令碼範例不支援將已部署到 Windows 電腦的代理程式升級。
 
-代理程式套件的 32 位元和 64 位元版本具有不同的產品代碼，新發行的版本也都會有唯一代碼值。  產品代碼是唯一識別碼，為應用程式或產品的主要識別，在 Windows 安裝程式中以 **ProductCode** 屬性表示。  `ProductId`MMAgent.ps1**指令碼中的** 值必須符合 32 位元或 64 位元代理程式安裝程式套件的產品代碼。
+代理程式套件的 32 位元和 64 位元版本具有不同的產品代碼，新發行的版本也都會有唯一代碼值。  產品代碼是唯一識別碼，為應用程式或產品的主要識別，在 Windows 安裝程式中以 **ProductCode** 屬性表示。  **MMAgent.ps1** 指令碼中的 `ProductId` 值必須符合 32 位元或 64 位元代理程式安裝程式套件的產品代碼。
 
 若要直接從代理程式安裝套件擷取產品代碼，您可以使用[適用於 Windows Installer 開發人員的 Windows SDK 元件](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) (Windows 軟體開發套件的元件之一) 中的 Orca.exe，或依循 Microsoft Valuable Professional (MVP) 撰寫的[範例指令碼](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/)使用 PowerShell。  針對任一方法，您都必須先從 MMASetup 安裝套件擷取 **MOMagent.msi** 檔案。  這在前面[使用命令列安裝代理程式](#install-the-agent-using-the-command-line)一節底下的第一個步驟中有所敘述。  
 
@@ -188,9 +188,9 @@ ms.locfileid: "74420427"
 
 您也可以在 Azure 入口網站中執行簡單的記錄查詢。  
 
-1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中，輸入**Azure 監視器**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [ **Azure 監視器**]。  
-2. 選取功能表中的 [**記錄**]。 
-2. 在 [記錄檔] 窗格的 [查詢] 欄位中，輸入：  
+1. 在 Azure 入口網站中，搜尋並選取 **監視**。
+1. 選取功能表中的 [**記錄**]。
+1. 在 [**記錄**檔] 窗格的 [查詢] 欄位中，輸入：  
 
     ```
     Heartbeat 

@@ -1,23 +1,17 @@
 ---
-title: Azure 應用程式組態復原和災害復原 | Microsoft Docs
-description: 概述如何使用 Azure 應用程式組態實作復原和災害復原。
-services: azure-app-configuration
-documentationcenter: ''
+title: Azure 應用程式組態復原和嚴重損壞修復
+description: 瞭解如何使用 Azure 應用程式組態執行復原和嚴重損壞修復。
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
-ms.date: 05/29/2019
 ms.author: yegu
-ms.openlocfilehash: 291f6fe48d81397d293ab54a73e777831e25f6ea
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.service: azure-app-configuration
+ms.topic: conceptual
+ms.date: 05/29/2019
+ms.openlocfilehash: f2f914ec993670b8ba7a596f873234afd9ffc8e8
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185284"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665063"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>復原和災害復原
 
@@ -29,7 +23,7 @@ Azure 應用程式組態目前是一項區域性服務。 每個組態存放區�
 
 ![異地備援存放區](./media/geo-redundant-app-configuration-stores.png)
 
-您的應用程式會以平行方式同時從主要和次要存放區載入其組態。 如此將可提高成功取得組態資料的機率。 您負責讓這兩個存放區的資料保持同步。以下各節將說明如何在您的應用程式中建置異地復原能力。
+您的應用程式會以平行方式同時從主要和次要存放區載入其組態。 如此將可提高成功取得組態資料的機率。 您必須負責讓兩個存放區中的資料保持同步。下列各節說明如何在您的應用程式中建立異地復原。
 
 ## <a name="failover-between-configuration-stores"></a>組態存放區之間的容錯移轉
 
@@ -56,11 +50,11 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 在 Azure 入口網站中，您可以依照下列步驟，將變更推送至另一個組態存放區。
 
-1. 移至 [匯入/匯出]  索引標籤，然後選取 [匯出]   > [應用程式組態]   > [目標]   > [選取資源]  。
+1. 移至 [匯入/匯出] 索引標籤，然後選取 [匯出] > [應用程式組態] > [目標] > [選取資源]。
 
-2. 在開啟的新刀鋒視窗中，指定次要存放區的訂用帳戶、資源群組和資源名稱，然後選取 [套用]  。
+2. 在開啟的新刀鋒視窗中，指定次要存放區的訂用帳戶、資源群組和資源名稱，然後選取 [套用]。
 
-3. UI 會更新，供您選擇要匯出至次要存放區的組態資料。 您可以保留預設的時間值，並將 [來源標籤]  和 [目標標籤]  設為相同的值。 選取 [套用]  。
+3. UI 會更新，供您選擇要匯出至次要存放區的組態資料。 您可以保留預設的時間值，並將 [來源標籤] 和 [目標標籤] 設為相同的值。 選取 [套用]。
 
 4. 重複先前步驟以進行所有組態變更。
 

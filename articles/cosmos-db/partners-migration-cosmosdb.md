@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB NoSQL 移轉和應用程式開發合作夥伴
+title: Azure Cosmos DB 的遷移和應用程式開發夥伴
 description: 列出提供移轉解決方案，並支援 Azure Cosmos DB 的 Microsoft 合作夥伴。
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 2ba6b04efbce5b7911037fbc5f14373cc962035d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30083b4f2f5f9b69368a47ecaf5505c04ccd6df9
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257350"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530692"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL 移轉和應用程式開發合作夥伴
 
@@ -21,8 +21,8 @@ ms.locfileid: "66257350"
 
 |**合作夥伴**  |**功能和體驗**  |**支援的國家/地區**  |**連絡人**  |
 |---------|---------|---------|---------|
-|![ImanisData][1]   | 進行從 MongoDB 到 Azure Cosmos DB 的[資料移轉](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf)。 <br/> Imanis Data 讓全球的企業能夠快速又輕鬆地將其內部部署或雲端 MongoDB 資料庫移轉到 Azure Cosmos DB。 Imanis Data 提供無代理程式、不限次數的雲端移轉方法來部署 MongoDB 資料存放區，不僅簡化了移轉程序，也大幅減少停機時間。|  USA  |   [網站](http://www.imanisdata.com/)      |
-|![Striim][2]    |  從各種資料來源[將即時資料移至 Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/)。 <br/> Striim 簡化從各種內部部署來源，包括企業文件和關聯式資料庫、 感應器和記錄檔到 Azure Cosmos DB 的資料移動與即時的集合。 |   USA   |  [網站](https://www.striim.com/)       |
+|![ImanisData][1]   | 從 MongoDB 到 Azure Cosmos DB 的資料移轉。 <br/> Imanis Data 讓全球的企業能夠快速又輕鬆地將其內部部署或雲端 MongoDB 資料庫移轉到 Azure Cosmos DB。 Imanis Data 提供無代理程式、不限次數的雲端移轉方法來部署 MongoDB 資料存放區，不僅簡化了移轉程序，也大幅減少停機時間。|  USA  |   [網站](https://www.cohesity.com/products/imanis-data/)      |
+|![Striim][2]    |  從各種資料來源[將即時資料移至 Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/)。 <br/> Striim 可簡化從各種內部部署來源（包括企業檔和關係資料庫、感應器和記錄檔）到 Azure Cosmos DB 的即時收集和移動資料。 |   USA   |  [網站](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>系統整合者合作夥伴
 
@@ -37,13 +37,13 @@ ms.locfileid: "66257350"
 | ![Capgemini][14] | NoSQL 移轉；應用程式創新 (現有的應用程式)；新的應用程式開發 | 美國、法國、英國、荷蘭、芬蘭  | [網站](https://www.capgemini.com/) | 
 |![Coeo][7]     |   應用程式創新 (現有的應用程式)、 <br/> 新的應用程式開發 |    英國     |  [網站](https://www.coeo.com/)       |
 | ![Cognizant][15] | NoSQL 移轉 |美國、加拿大、英國、丹麥、荷蘭、瑞士、澳洲、日本 | [網站](https://www.cognizant.com/)|
-|![Infosys][8]     |  NoSQL 移轉       |    全域     |  [網站](https://www.infosys.com/)       |
+|![Infosys][8]     |  NoSQL 移轉       |    全球     |  [網站](https://www.infosys.com/)       |
 | ![Lagash][16] | NoSQL 移轉、 <br/> 新的應用程式開發 | 阿根廷、智利、哥倫比亞、墨西哥| [網站](https://www.lagash.com/)|
 | ![Lambda3 Informatics][17] | NoSQL 移轉、 <br/> 新的應用程式開發 | 巴西| [網站](https://www.lambda3.com.br/)|
 |![Neal Analytics][9]     |     新增發展 (新的應用程式)    |    USA     |  [網站](https://www.nealanalytics.com/)       |
 |![Pragmatic Works Software Inc][10]    |   NoSQL 移轉      |   USA      |  [網站](https://www.pragmaticworks.com/)       |
 | ![Ricoh Global][18] | NoSQL 移轉、 <br/> 應用程式創新 (現有的應用程式)| 英國  | [網站](https://www.ricoh.com/)|
-| ![SNP Technologies][19] | NoSQL 移轉| US | [網站](https://www.snp.com/)|
+| ![SNP Technologies][19] | NoSQL 移轉| 美國 | [網站](https://www.snp.com/)|
 | ![Solidsoft Reply][20] | NoSQL 移轉 | 克羅埃西亞、瑞典、丹麥、愛爾蘭、保加利亞、斯洛維尼亞、賽普勒斯、馬爾他、立陶宛、捷克共和國、冰島、瑞士和列支敦斯登| [網站](https://www.reply.com/solidsoft-reply/)|
 | ![西班牙文點技術][21] | NoSQL 移轉| 愛爾蘭| [網站](https://www.spanishpoint.ie/)|
 | ![Syone][22] | NoSQL 移轉| 葡萄牙| [網站](https://www.syone.com/)|

@@ -1,17 +1,17 @@
 ---
 title: 針對 Azure Cache for Redis 中的資料遺失進行疑難排解
-description: 瞭解如何使用 Azure Cache for Redis 解決資料遺失問題
+description: 瞭解如何解決 Azure Cache for Redis 的資料遺失問題，例如金鑰的部分遺失、金鑰到期或金鑰的完全遺失。
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.author: yegu
-ms.openlocfilehash: 77493675de0a654d3bb510f7cda22a2abbca0aa2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d54506b94f076f0a3d967f88bd4e2960a1ca6396
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121504"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530896"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>針對 Azure Cache for Redis 中的資料遺失進行疑難排解
 
@@ -27,18 +27,18 @@ Azure Cache for Redis 在儲存于記憶體後不會隨機刪除金鑰。 不過
 
 如果您發現金鑰已從快取中消失，請檢查下列可能的原因：
 
-| 原因 | 描述 |
+| 原因 | 說明 |
 |---|---|
 | [金鑰到期](#key-expiration) | 已移除索引鍵，因為它們已設定超時。 |
 | [金鑰收回](#key-eviction) | 在記憶體壓力下，會移除索引鍵。 |
 | [金鑰刪除](#key-deletion) | 金鑰會由明確的 delete 命令移除。 |
 | [非同步複寫](#async-replication) | 因為資料複寫延遲，所以複本上沒有可用的金鑰。 |
 
-### <a name="key-expiration"></a>金鑰到期
+### <a name="key-expiration"></a>金鑰到期日
 
-Azure Cache for Redis 會在金鑰已指派超時時間且已通過該期間時，自動移除金鑰。 如需 Redis 金鑰到期的詳細資訊，請參閱[過期](http://redis.io/commands/expire)命令檔。 您也可以使用[set](http://redis.io/commands/set)、 [SETEX](https://redis.io/commands/setex)、 [GETSET](https://redis.io/commands/getset)和其他 **\*存放區**命令來設定超時值。
+Azure Cache for Redis 會在金鑰已指派超時時間且已通過該期間時，自動移除金鑰。 如需 Redis 金鑰到期的詳細資訊，請參閱[過期](https://redis.io/commands/expire)命令檔。 您也可以使用[set](https://redis.io/commands/set)、 [SETEX](https://redis.io/commands/setex)、 [GETSET](https://redis.io/commands/getset)和其他 **\*存放區**命令來設定超時值。
 
-若要取得有多少金鑰已過期的統計資料，請使用[INFO](http://redis.io/commands/info)命令。 [`Stats`] 區段會顯示過期的金鑰總數。 [`Keyspace`] 區段提供具有超時和平均超時值之索引鍵數目的詳細資訊。
+若要取得有多少金鑰已過期的統計資料，請使用[INFO](https://redis.io/commands/info)命令。 [`Stats`] 區段會顯示過期的金鑰總數。 [`Keyspace`] 區段提供具有超時和平均超時值之索引鍵數目的詳細資訊。
 
 ```
 # Stats
@@ -54,9 +54,9 @@ db0:keys=3450,expires=2,avg_ttl=91861015336
 
 ### <a name="key-eviction"></a>金鑰收回
 
-Azure Cache for Redis 需要記憶體空間來儲存資料。 它會清除金鑰，以在必要時釋放可用的記憶體。 當[INFO](http://redis.io/commands/info)命令中的**used_memory**或**used_memory_rss**值接近設定的**Maxmemory**設定時，Azure Cache for Redis 會開始根據快取[原則](http://redis.io/topics/lru-cache)從記憶體收回金鑰。
+Azure Cache for Redis 需要記憶體空間來儲存資料。 它會清除金鑰，以在必要時釋放可用的記憶體。 當[INFO](https://redis.io/commands/info)命令中的**used_memory**或**used_memory_rss**值接近設定的**Maxmemory**設定時，Azure Cache for Redis 會開始根據快取[原則](https://redis.io/topics/lru-cache)從記憶體收回金鑰。
 
-您可以使用[INFO](http://redis.io/commands/info)命令來監視已收回的金鑰數目：
+您可以使用[INFO](https://redis.io/commands/info)命令來監視已收回的金鑰數目：
 
 ```
 # Stats
@@ -68,7 +68,7 @@ evicted_keys:13224
 
 ### <a name="key-deletion"></a>金鑰刪除
 
-Redis 用戶端可以發出[DEL](http://redis.io/commands/del)或[HDEL](http://redis.io/commands/hdel)命令，以明確地從 Azure Cache for Redis 移除金鑰。 您可以使用[INFO](http://redis.io/commands/info)命令來追蹤刪除作業的數目。 如果已呼叫**DEL**或**HDEL**命令，它們會列在 [`Commandstats`] 區段中。
+Redis 用戶端可以發出[DEL](https://redis.io/commands/del)或[HDEL](https://redis.io/commands/hdel)命令，以明確地從 Azure Cache for Redis 移除金鑰。 您可以使用[INFO](https://redis.io/commands/info)命令來追蹤刪除作業的數目。 如果已呼叫**DEL**或**HDEL**命令，它們會列在 [`Commandstats`] 區段中。
 
 ```
 # Commandstats
@@ -80,13 +80,13 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>非同步複寫
 
-標準層或進階層中的任何 Azure Cache for Redis 實例都設定了主要節點和至少一個複本。 資料會使用背景處理常式，以非同步方式從主伺服器複製到複本。 [Redis.io](http://redis.io/topics/replication)網站會說明 redis 資料複寫的一般運作方式。 在用戶端經常寫入 Redis 的情況下，可能會發生部分資料遺失，因為這種複寫保證是瞬間的。 例如，如果主要複本在用戶端寫入金鑰*後*關閉 *，但在*背景程式有機會將該金鑰傳送至複本，則當複本接管為新的主伺服器時，金鑰就會遺失。
+標準層或進階層中的任何 Azure Cache for Redis 實例都設定了主要節點和至少一個複本。 資料會使用背景處理常式，以非同步方式從主伺服器複製到複本。 [Redis.io](https://redis.io/topics/replication)網站會說明 redis 資料複寫的一般運作方式。 在用戶端經常寫入 Redis 的情況下，可能會發生部分資料遺失，因為這種複寫保證是瞬間的。 例如，如果主要複本在用戶端寫入金鑰*後*關閉 *，但在*背景程式有機會將該金鑰傳送至複本，則當複本接管為新的主伺服器時，金鑰就會遺失。
 
 ## <a name="major-or-complete-loss-of-keys"></a>金鑰的主要或完整遺失
 
 如果您的快取中大部分或所有金鑰都消失，請檢查下列可能的原因：
 
-| 原因 | 描述 |
+| 原因 | 說明 |
 |---|---|
 | [金鑰排清](#key-flushing) | 已手動清除金鑰。 |
 | [不正確的資料庫選取專案](#incorrect-database-selection) | Azure Cache for Redis 設定為使用非預設的資料庫。 |
@@ -94,7 +94,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="key-flushing"></a>金鑰排清
 
-用戶端可以呼叫[FLUSHDB](http://redis.io/commands/flushdb)命令來移除*單一*資料庫或[FLUSHALL](http://redis.io/commands/flushall)中的所有金鑰，以移除 Redis 快取中*所有*資料庫的所有索引鍵。 若要找出是否已清除金鑰，請使用[INFO](http://redis.io/commands/info)命令。 [`Commandstats`] 區段會顯示是否已呼叫其中一個 [**清除**] 命令：
+用戶端可以呼叫[FLUSHDB](https://redis.io/commands/flushdb)命令來移除*單一*資料庫或[FLUSHALL](https://redis.io/commands/flushall)中的所有金鑰，以移除 Redis 快取中*所有*資料庫的所有索引鍵。 若要找出是否已清除金鑰，請使用[INFO](https://redis.io/commands/info)命令。 [`Commandstats`] 區段會顯示是否已呼叫其中一個 [**清除**] 命令：
 
 ```
 # Commandstats
@@ -106,7 +106,7 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### <a name="incorrect-database-selection"></a>不正確的資料庫選取專案
 
-Azure Cache for Redis 預設會使用**db0**資料庫。 如果您切換至另一個資料庫（例如， **db1**），並嘗試從中讀取金鑰，Azure Cache for Redis 就不會在該處找到它們。 每個資料庫都是以邏輯方式分隔的單位，而且會存放不同的資料集。 使用[SELECT](http://redis.io/commands/select)命令來使用其他可用的資料庫，並在其中尋找其金鑰。
+Azure Cache for Redis 預設會使用**db0**資料庫。 如果您切換至另一個資料庫（例如， **db1**），並嘗試從中讀取金鑰，Azure Cache for Redis 就不會在該處找到它們。 每個資料庫都是以邏輯方式分隔的單位，而且會存放不同的資料集。 使用[SELECT](https://redis.io/commands/select)命令來使用其他可用的資料庫，並在其中尋找其金鑰。
 
 ### <a name="redis-instance-failure"></a>Redis 實例失敗
 
@@ -114,7 +114,7 @@ Redis 是記憶體中的資料存放區。 資料會保留在裝載 Redis 快取
 
 標準和進階層中的快取會在複寫的設定中使用兩個 Vm，以提供更高的復原能力來避免資料遺失。 當這類快取中的主要節點失敗時，複本節點會接管，以自動提供資料。 這些 Vm 位於不同的網域中，以進行錯誤和更新，以將同時無法同時變成無法使用的機會降到最低。 不過，如果發生主要的資料中心中斷，Vm 可能仍在一起。 在這些罕見的情況下，您的資料將會遺失。
 
-請考慮使用[Redis 資料持續](http://redis.io/topics/persistence)性和[異地](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication)複寫，以根據這些基礎結構失敗來改善資料的保護。
+請考慮使用[Redis 資料持續](https://redis.io/topics/persistence)性和[異地](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication)複寫，以根據這些基礎結構失敗來改善資料的保護。
 
 ## <a name="additional-information"></a>其他資訊
 

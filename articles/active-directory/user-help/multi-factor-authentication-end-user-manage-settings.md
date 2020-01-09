@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7fbc18d8141c44c2b0863547c33b5c5193e928b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7e557ca1bfc7587b6a65957177440041bf4e902f
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231914"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681322"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>變更您的雙因素驗證方法和設定
 
@@ -32,16 +32,16 @@ ms.locfileid: "74231914"
 
 ## <a name="using-the-additional-security-verification-page"></a>使用 [其他安全性驗證] 頁面
 
-如果您的組織提供如何開啟和管理雙因素驗證的特定步驟，您應該遵循這些指示。 否則，您可以從 [[其他安全性驗證](https://aka.ms/mfasetup)] 頁面取得您的安全性驗證方法設定。
+如果您的組織提供如何開啟和管理雙因素驗證的特定步驟，您應該遵循這些指示。 否則，您可以從 [[其他安全性驗證](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1)] 頁面取得您的安全性驗證方法設定。
 
 >[!Note]
 >如果您在畫面上看到的內容不符合本文所涵蓋的內容，則表示您的系統管理員已開啟安全性資訊（預覽）體驗，或您的組織有自己的自訂入口網站。 如需安全性資訊體驗的詳細資訊，請參閱[安全性資訊（預覽）總覽](user-help-security-info-overview.md)。 如需貴組織自訂入口網站的詳細資訊，您必須聯絡支援人員。
 
 ### <a name="to-get-to-the-additional-security-verification-page"></a>若要取得其他安全性驗證頁面
 
-- 移至 https://aka.ms/mfasetup。
+- 移至 [[其他安全性驗證](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1)] 頁面。
 
-    ![[其他安全性驗證] 畫面，其中包含可用的安全性驗證方法詳細資料](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
+    ![[其他安全性驗證] 頁面，其中包含可用的安全性驗證方法詳細資料](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
 
     如果按一下連結並沒有發生作用，您也可以遵循下列步驟前往 [其他安全性驗證] 頁面：
 
@@ -76,7 +76,7 @@ ms.locfileid: "74231914"
 
     - **使用來自應用程式的驗證碼。** 您將使用您的驗證器應用程式取得驗證碼，您會在公司或學校帳戶的提示中輸入。
 
-2. 選取 [ **儲存**]。
+2. 選取 [儲存]。
 
 ## <a name="add-or-change-your-phone-number"></a>新增或變更您的電話號碼
 
@@ -91,7 +91,7 @@ ms.locfileid: "74231914"
 
 2. 選取 [**備用驗證電話**] 選項旁的方塊，然後輸入次要電話號碼，如果您無法存取主要裝置，就可以在其中接收文字訊息或來電。
 
-3. 選取 [ **儲存**]。
+3. 選取 [儲存]。
 
 ## <a name="add-a-new-account-to-the-microsoft-authenticator-app"></a>將新帳戶新增至 Microsoft 驗證器應用程式
 
@@ -107,7 +107,7 @@ ms.locfileid: "74231914"
 
     系統會要求您透過 Microsoft Authenticator 應用程式核准通知，以驗證您的資訊。
 
-3. 選取 [ **儲存**]。
+3. 選取 [儲存]。
 
 ## <a name="delete-your-account-or-device-from-the-microsoft-authenticator-app"></a>從 Microsoft Authenticator 應用程式中刪除您的帳戶或裝置
 
@@ -117,7 +117,7 @@ ms.locfileid: "74231914"
 
 1. 在 [**其他安全性驗證**] 頁面的 [**您要如何回應？** ] 區段中，選取 [**設定驗證器應用程式**] 按鈕。
 
-2. 選取 [ **儲存**]。
+2. 選取 [儲存]。
 
 ### <a name="to-delete-your-account-from-the-microsoft-authenticator-app"></a>從 Microsoft Authenticator 應用程式刪除您的帳戶
 
