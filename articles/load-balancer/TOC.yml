@@ -35,7 +35,7 @@
     - name: VM 的負載平衡網際網路流量
       href: tutorial-load-balancer-standard-manage-portal.md
     - name: VM 的負載平衡內部流量
-      href: tutorial-load-balancer-basic-internal-portal.md
+      href: tutorial-load-balancer-standard-internal-portal.md
     - name: 跨越多個可用性區域為虛擬機器進行負載平衡
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: 在特定可用性區域內為虛擬機器進行負載平衡

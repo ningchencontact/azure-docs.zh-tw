@@ -50,6 +50,7 @@
 - name: 作法
   items:
     - name: 舊版元件
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
       href: legacy-components.md
       items:
         - name: 從 Azure 媒體編碼器遷移
@@ -228,7 +229,7 @@
               href: media-services-rest-get-media-processor.md
         - name: 錯誤碼
           href: media-services-encoding-error-codes.md
-        - name: 取代
+        - name: 已被取代
           items:
             - name: 靜態封裝和加密
               href: media-services-static-packaging.md
@@ -462,6 +463,9 @@
           href: ../media-services-specifications-live-timed-metadata.md
         - name: Smooth Streaming HEVC
           href: ../media-services-specifications-ms-sstr-amendment-hevc.md
+    - name: 舊版元件
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
+      href: legacy-components.md
 - name: 資源
   items:
     - name: Azure 媒體服務社群
