@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6c243839e59038d439e177847df4427d253dbe98
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 41e9ff79ad3f7abeda1b946295e8e0eb519c2554
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672058"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561748"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>教學課程：在 Azure App Service 中對使用者進行端對端驗證和授權
 
@@ -42,7 +42,7 @@ ms.locfileid: "74672058"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本教學課程：
 
@@ -185,7 +185,7 @@ return new NoContentResult();
 
 第一行會對後端 API 應用程式發出 `DELETE /api/Todo/{id}` 呼叫。
 
-儲存您所有的變更。 在本機終端機視窗中，使用下列 Git 命令，將您的變更部署至前端應用程式：
+儲存您的所有變更。 在本機終端機視窗中，使用下列 Git 命令，將您的變更部署至前端應用程式：
 
 ```bash
 git add .
@@ -312,7 +312,7 @@ public override void OnActionExecuting(ActionExecutingContext context)
 
 此程式碼會將標準 HTTP 標頭 `Authorization: Bearer <access-token>` 新增至所有遠端 API 呼叫。 在 ASP.NET Core MVC 要求執行管線中，`OnActionExecuting` 會在各自的動作方法 (例如 `GetAll()`) 之前執行，因此您的每個傳出 API 呼叫現在都會提供存取權杖。
 
-儲存您所有的變更。 在本機終端機視窗中，使用下列 Git 命令，將您的變更部署至前端應用程式：
+儲存您的所有變更。 在本機終端機視窗中，使用下列 Git 命令，將您的變更部署至前端應用程式：
 
 ```bash
 git add .
@@ -396,7 +396,7 @@ $routeProvider.when("/Home", {
 
 ### <a name="deploy-updates-and-test"></a>部署更新和測試
 
-儲存您所有的變更。 在本機終端機視窗中，使用下列 Git 命令，將您的變更部署至前端應用程式：
+儲存您的所有變更。 在本機終端機視窗中，使用下列 Git 命令，將您的變更部署至前端應用程式：
 
 ```bash
 git add .

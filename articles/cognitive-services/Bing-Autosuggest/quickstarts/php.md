@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 7c9c12cd1097ab4a2b7138efd169e4e7a7f03720
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 64874791be62ec1ed5c1c5874fb055efa4b44dc3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565805"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384709"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>快速入門：使用 Bing 自動建議 REST API 與 PHP 建議搜尋查詢
 
 使用本快速入門開始呼叫 Bing 自動建議 API，並取得 JSON 回應。 這個簡單的 PHP 應用程式會將部分搜尋查詢傳送至 API，並傳回搜尋建議。 雖然此應用程式是以 PHP 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [PHP 5.6.x](https://php.net/downloads.php) (英文) 或更新版本
 
@@ -29,10 +29,11 @@ ms.locfileid: "68565805"
 
 ## <a name="get-autosuggest-results"></a>取得自動建議的結果
 
-1. 在您愛用的 IDE 中建立新的 PHP 專案。
+1. 在您最愛的 IDE 中建立新的 PHP 專案。
 2. 新增下方提供的程式碼。
 3. 以訂用帳戶有效的存取金鑰來取代 `subscriptionKey` 值。
-4. 執行程式。
+4. 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
+5. 執行程式。
 
 ```php
 <?php
@@ -79,7 +80,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 

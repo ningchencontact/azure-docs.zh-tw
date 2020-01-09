@@ -10,12 +10,12 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c37d778fe9ad7d21943ed92452fae34b4b8771e7
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 8f937bcfb1bd03c970f21263c1cd09a1c3baba0a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560934"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429429"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>教學課程：為 Linux 裝置開發及部署 Python IoT Edge 模組
 
@@ -34,9 +34,6 @@ ms.locfileid: "74560934"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-> [!NOTE]
-> 下列指南適用於 V1 Python SDK，其已被取代。 我們目前正致力於讓這份指南 V2 相容。 請觀看此空間以取得更新。
-
 ## <a name="solution-scope"></a>解決方案範圍
 
 本教學課程示範如何使用 **Visual Studio Code** 在 **Python** 中開發模組，以及如何將它部署到 **Linux 裝置**。 IoT Edge 不支援適用於 Windows 裝置的 Python 模組。 
@@ -48,7 +45,7 @@ ms.locfileid: "74560934"
 | **Linux AMD64** | ![在 Linux AMD64 上將 VS Code 使用於 Python 模組](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![在 Linux ARM32 上將 VS Code 使用於 Python 模組](./media/tutorial-c-module/green-check.png) |  |
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 在開始本教學課程之前，您應該已經完成先前的教學課程，以針對 Linux 容器開發設定您的開發環境：[開發適用於 Linux 裝置的 IoT Edge 模組](tutorial-develop-for-linux.md)。 完成上述任一教學課程後，您應該會具備下列必要條件： 
 
@@ -56,7 +53,7 @@ ms.locfileid: "74560934"
 * [執行 Azure IoT Edge 的 Linux 裝置](quickstart-linux.md)
 * 容器登錄，像是 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)。
 * 已設定 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 的 [Visual Studio Code](https://code.visualstudio.com/)。
-* [Docker CE](https://docs.docker.com/install/) 已設定為執行 Linux 容器。
+* [Docker CE](https://docs.docker.com/install/) 設定為執行 Linux 容器。
 
 若要以 Python 開發 IoT Edge 模組，請在您的開發機器上安裝下列其他必要條件： 
 
@@ -80,7 +77,7 @@ ms.locfileid: "74560934"
 
 1. 在 [命令選擇區] 中，輸入並執行命令 **Azure:Sign in**，然後遵循指示來登入您的 Azure 帳戶。 如果您已登入，則可以略過此步驟。
 
-1. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge:新增 IoT Edge 解決方案**。 遵循提示並提供下列資訊，以建立解決方案：
+1. 在命令選擇區中，輸入並執行命令 Azure IoT Edge：**新增 IoT Edge 解決方案**。 遵循提示並提供下列資訊，以建立解決方案：
 
    | 欄位 | 值 |
    | ----- | ----- |

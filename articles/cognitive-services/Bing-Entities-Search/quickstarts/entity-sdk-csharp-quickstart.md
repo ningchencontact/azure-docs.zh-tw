@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/15/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: f9036e78934ac14017a0437583109c91732ce4b3
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 4c942040a36ae7b103f7dabac62376ea5a4e2890
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323817"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384531"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>使用適用於 C# 的 Bing 實體搜尋 SDK 來傳送搜尋要求
 
 使用本快速入門，透過適用於 C# 的 Bing 實體搜尋 SDK 開始搜尋實體。 雖然 Bing 實體搜尋具有與大部分程式設計語言相容的 REST API，但此 SDK 可提供簡單的方法，將服務整合到您的應用程式。 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch) 上找到。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Visual Studio 2017 或更新版本](https://www.visualstudio.com/downloads/)的任何版本。
 * [Json.NET](https://www.newtonsoft.com/json) 架構 (以 NuGet 套件形式提供)。
@@ -55,7 +55,7 @@ ms.locfileid: "74323817"
 1. 建立新的搜尋用戶端。 建立新的 `ApiKeyServiceClientCredentials` 以新增訂用帳戶金鑰。
 
     ```csharp
-    var client = new EntitySearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+    var client = new EntitySearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
     ```
 
 1. 使用用戶端的 `Entities.Search()` 函式來搜尋您的查詢：

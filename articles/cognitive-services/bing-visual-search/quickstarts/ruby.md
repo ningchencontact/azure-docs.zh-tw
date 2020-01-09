@@ -8,27 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
-ms.author: rosh
-ms.openlocfilehash: 55bf189195cc2d9eca0700fd703840da38c71592
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/17/2019
+ms.author: aahi
+ms.openlocfilehash: e19f582084bec6915f95cf16fd8571b8d99da6fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383124"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379635"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>快速入門：使用 Bing 圖像式搜尋 REST API 和 Ruby 來取得影像見解
 
 本快速入門使用 Ruby 程式設計語言來呼叫 Bing 圖像式搜尋並顯示結果。 POST 要求會將影像上傳到 API 端點。 結果包含類似於所上傳影像的影像 URL 和描述性資訊。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要執行本快速入門：
 
 * 安裝 [Ruby 2.4 或更新版本](https://www.ruby-lang.org/en/downloads/)
 * 取得訂用帳戶金鑰：
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="project-and-required-modules"></a>專案和所需模組
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 52695cca2fe49829705ac2283c9f083ada8ae0b0
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 07b563308e80055d699d1cefeb3b2db71ffa4cd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327093"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448606"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>快速入門：使用 Python 將搜尋要求傳送至 Bing 實體搜尋 REST API
 
@@ -23,7 +23,7 @@ ms.locfileid: "74327093"
 
 雖然此應用程式是以 Python 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python](https://www.python.org/downloads/) 2.x 或 3.x
 
@@ -31,7 +31,7 @@ ms.locfileid: "74327093"
 
 ## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
 
-1. 在您慣用的 IDE 或編輯器中建立新的 Python 專案，以及新增下列匯入項目。 針對您的訂用帳戶金鑰、端點、市場和搜尋查詢建立變數。 您可以在 Azure 儀表板中找到您的端點。
+1. 在您慣用的 IDE 或編輯器中建立新的 Python 專案，以及新增下列匯入項目。 針對您的訂用帳戶金鑰、端點、市場和搜尋查詢建立變數。 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
     ```python
     import http.client, urllib.parse

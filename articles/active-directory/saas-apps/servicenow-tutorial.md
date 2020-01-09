@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 12/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52b3b7ea34d48c37a4e07ab073e611d5a60399a9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c8a8f3895f41ac987b934b86f8d646b281c37c93
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706926"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561965"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 ServiceNow 整合
 
@@ -33,7 +32,7 @@ ms.locfileid: "74706926"
 
 若要深入了解軟體即服務 (SaaS) 應用程式與 Azure AD 的整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要開始，您需要下列項目：
 
@@ -192,7 +191,7 @@ ms.locfileid: "74706926"
 
      ![外掛程式滑鼠右鍵功能表的螢幕擷取畫面，其中已醒目提示 [啟用/升級]](./media/servicenow-tutorial/tutorial_activate.png "啟用外掛程式")
 
-    d. 選取 [ **啟用**]。
+    d. 選取 [啟用]  。
 
      ![[啟用外掛程式] 對話方塊的螢幕擷取畫面，其中已醒目提示 [啟用]](./media/servicenow-tutorial/tutorial_activate1.png "啟用外掛程式")
 

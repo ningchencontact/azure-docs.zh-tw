@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
-ms.openlocfilehash: 7db9f50b4fb1a9309737f05db13a914f414372ed
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: d4033989830323856ac14ed06eea7df74806f128
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186511"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665700"
 ---
 # <a name="threat-detection-for-the-azure-service-layer-in-azure-security-center"></a>Azure 資訊安全中心中的 Azure 服務層威脅偵測
 
@@ -25,51 +25,32 @@ ms.locfileid: "74186511"
 * [Azure 管理層（Azure Resource Manager）（預覽）](#management-layer)
 * [Azure 金鑰保存庫](#azure-keyvault)
 
->[!NOTE]
->下列分析適用于所有資源類型。 它們會使用資訊安全中心提供的遙測，方法是透過切入 Azure 內部摘要。
-
 ## Azure 網路層<a name="network-layer"></a>
 
-資訊安全中心的網路層分析是以範例[IPFIX 資料](https://en.wikipedia.org/wiki/IP_Flow_Information_Export)為基礎，這是 Azure 核心路由器所收集的封包標頭。 根據此資料摘要，資訊安全中心機器學習模型會識別並標示惡意的流量活動。 為了擴充 IP 位址，資訊安全中心利用 Microsoft 威脅情報資料庫。
+資訊安全中心的網路層分析是以範例[IPFIX 資料](https://en.wikipedia.org/wiki/IP_Flow_Information_Export)為基礎，這是 Azure 核心路由器所收集的封包標頭。 根據此資料摘要，資訊安全中心會使用機器學習模型來識別並標示惡意的流量活動。 資訊安全中心也會使用 Microsoft 威脅情報資料庫來充實 IP 位址。
 
-> [!div class="mx-tableFixed"]
+某些網路設定可能會限制資訊安全中心產生可疑網路活動的警示。 如需產生網路警示的資訊安全中心，請確定：
 
-|警示|描述|
-|---|---|
-|**可疑的連出 RDP 網路活動**|取樣網路流量分析偵測到來自您部署中資源的異常傳出遠端桌面通訊協定（RDP）通訊。 此環境的此活動被視為異常。 這可能表示您的資源已遭入侵，且現在正用來對外部 RDP 端點進行暴力密碼破解攻擊。 這種類型的活動可能會導致外部實體將您的 IP 標記為惡意。|
-|**對多個目的地的可疑連出 RDP 網路活動**|取樣的網路流量分析偵測到異常的連出 RDP 通訊，從部署中的資源到多個目的地。 此環境的此活動被視為異常。 這可能表示您的資源已遭入侵，且現在正用於暴力攻擊外部 RDP 端點。 這種類型的活動可能會導致外部實體將您的 IP 標記為惡意。|
-|**可疑的連出 SSH 網路活動**|取樣的網路流量分析偵測到異常的連出安全殼層（SSH）通訊，源自您部署中的資源。 此環境的此活動被視為異常。 這可能表示您的資源已遭入侵，且現在正用來對外部 SSH 端點進行暴力密碼破解攻擊。 這種類型的活動可能會導致外部實體將您的 IP 標記為惡意。|
-|**對多個目的地的可疑連出 SSH 網路活動**|取樣的網路流量分析偵測到異常的連出 SSH 通訊，從部署中的資源到多個目的地。 此環境的此活動被視為異常。 這可能表示您的資源已遭入侵，且現在正用於暴力攻擊外部 SSH 端點。 這種類型的活動可能會導致外部實體將您的 IP 標記為惡意。|
-|**來自多個來源的可疑連入 SSH 網路活動**|取樣的網路流量分析偵測到來自多個來源的異常連入 SSH 通訊，以及您部署中的資源。 在此環境中，連線到您的資源的各種唯一 Ip 都會被視為異常。 此活動可能表示嘗試從多部主機（殭屍網路）對 SSH 介面進行暴力密碼破解攻擊。|
-|**可疑的連入 SSH 網路活動**|取樣的網路流量分析偵測到您部署中資源的異常連入 SSH 通訊。 在此環境中，對您的資源的連入連線數量相對較高會被視為異常。 此活動可能表示嘗試對 SSH 介面進行暴力密碼破解攻擊。
-|**來自多個來源的可疑連入 RDP 網路活動**|取樣的網路流量分析偵測到來自多個來源的異常連入 RDP 通訊，以及您部署中的資源。 在此環境中，連線到您的資源的各種唯一 Ip 都會被視為異常。 此活動可能表示嘗試從多部主機（殭屍網路）對 RDP 介面進行暴力密碼破解攻擊。|
-|**可疑的連入 RDP 網路活動**|取樣的網路流量分析偵測到您部署中的資源有異常的連入 RDP 通訊。 在此環境中，對您的資源的連入連線數量相對較高會被視為異常。 此活動可能表示嘗試對 SSH 介面進行暴力密碼破解攻擊。|
-|**偵測到具有惡意位址的網路通訊**|取樣的網路流量分析偵測到來自您部署中資源的通訊，以及可能的命令和控制（C & C）伺服器。 這種類型的活動可能會導致外部實體將您的 IP 標記為惡意。|
+- 您的虛擬機器具有公用 IP 位址（或位於具有公用 IP 位址的負載平衡器上）。
 
-若要瞭解資訊安全中心可以如何使用網路相關的信號來套用威脅防護，請參閱[Azure 資訊安全中心中的啟發式 DNS](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/)偵測。
+- 外部識別碼解決方案不會封鎖您虛擬機器的網路輸出流量。
 
->[!NOTE]
->在 Azure 資訊安全中心中的 Azure 網路層威脅偵測警示只會在已指派相同 IP 位址的虛擬機器上，于發生可疑通訊的整個一小時內產生。 這適用于虛擬機器，以及在客戶的訂用帳戶中建立為受控服務之一部分的虛擬機器（例如 AKS、Databricks）。
+- 您的虛擬機器在發生可疑通訊的整個一小時，已指派相同的 IP 位址。 這也適用于在受控服務中建立的 Vm （例如 AKS、Databricks）。
+
+如需 Azure 網路層警示的清單，請參閱[警示的參考資料表](alerts-reference.md#alerts-azurenetlayer)。
+
+如需資訊安全中心如何使用網路相關信號來套用威脅防護的詳細資訊，請參閱[資訊安全中心中的啟發式 DNS](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/)偵測。
+
 
 ## Azure 管理層（Azure Resource Manager）（預覽）<a name ="management-layer"></a>
 
->[!NOTE]
->以 Azure Resource Manager 為基礎的資訊安全中心保護層目前為預覽狀態。
+以 Azure Resource Manager 為基礎的資訊安全中心保護層目前為預覽狀態。
 
 資訊安全中心藉由使用 Azure Resource Manager 事件來提供額外的保護層，這會被視為 Azure 的控制平面。 藉由分析 Azure Resource Manager 記錄，資訊安全中心在 Azure 訂用帳戶環境中偵測到不尋常或可能有害的作業。
 
-> [!div class="mx-tableFixed"]
+如需 Azure Resource Manager （預覽）警示的清單，請參閱[警示的參考資料表](alerts-reference.md#alerts-azureresourceman)。
 
-|警示|描述|
-|---|---|
-|**MicroBurst 工具組執行**|在您的環境中偵測到已知的雲端環境偵察工具組執行。 攻擊者（或滲透測試人員）可以使用工具[MicroBurst](https://github.com/NetSPI/MicroBurst)來對應您的訂用帳戶資源、識別不安全的設定，以及洩漏機密資訊。|
-|**Azurite 工具組執行**|在您的環境中偵測到已知的雲端環境偵察工具組執行。 攻擊者（或滲透測試人員）可以使用工具[Azurite](https://github.com/mwrlabs/Azurite)來對應您的訂用帳戶資源，並識別不安全的設定。|
-|**使用非作用中帳戶的可疑管理會話**|訂用帳戶活動記錄分析偵測到可疑的行為。 長時間未使用的主體，現在正在執行可保護攻擊者持續性的動作。|
-|**使用 PowerShell 的可疑管理會話**|訂用帳戶活動記錄分析偵測到可疑的行為。 不定期使用 PowerShell 來管理訂用帳戶環境的主體現在會使用 PowerShell，並執行可保護攻擊者持續性的動作。|
-|**使用先進的 Azure 持續性技術**|訂用帳戶活動記錄分析偵測到可疑的行為。 已為自訂角色提供 legitimized 身分識別實體。 這可能會導致攻擊者在 Azure 客戶環境中取得持續性。|
-|**非經常性國家/地區的活動**|組織中任何使用者最近或未曾造訪過之位置的活動。<br/>此偵測會考慮過去的活動位置，以判斷新的和非經常性的位置。 異常偵測引擎會儲存組織中使用者先前所使用位置的相關資訊。 
-|**來自匿名 IP 位址的活動**|已偵測到來自已識別為匿名 proxy IP 位址之 IP 位址的使用者活動。 <br/>這些 proxy 會由想要隱藏其裝置 IP 位址的人員使用，並可用於惡意用途。 這項偵測使用機器學習演算法來減少誤報，例如組織中使用者廣泛使用的誤標 IP 位址。|
-|**偵測到不可能的旅遊**|發生兩個使用者活動（在單一或多個會話中），源自于相距遙遠的位置。 這段期間內的時間短于使用者從第一個位置移動到第二個位置所需的時間。 這表示有不同的使用者正在使用相同的認證。 <br/>這項偵測會使用機器學習演算法，忽略導致不可能的移動狀況的明顯誤報，例如，組織中的其他使用者經常使用的 Vpn 和位置。 偵測有七天的初始學習期間，在這段期間內，它會學習新使用者的活動模式。|
+
 
 >[!NOTE]
 > 其中幾個先前的分析是由 Microsoft Cloud App Security 提供技術支援。 若要受益于這些分析，您必須啟用 Cloud App Security 授權。 如果您有 Cloud App Security 授權，則預設會啟用這些警示。 若要停用它們：
@@ -81,7 +62,7 @@ ms.locfileid: "74186511"
 >[!NOTE]
 >資訊安全中心會將安全性相關的客戶資料儲存在與其資源相同的地理位置。 如果 Microsoft 尚未在資源的地理位置部署資訊安全中心，則會將資料儲存在美國。 啟用 Cloud App Security 時，會根據 Cloud App Security 的地理位置規則來儲存這項資訊。 如需詳細資訊，請參閱[非區域服務的資料儲存體](https://azuredatacentermap.azurewebsites.net/)。
 
-## Azure Key Vault<a name="azure-keyvault"></a>
+## Azure Key Vault （預覽）<a name="azure-keyvault"></a>
 
 Azure Key Vault 是用來保護加密金鑰和祕密 (例如憑證、連接字串和密碼) 的雲端服務。 
 
@@ -92,16 +73,4 @@ Azure 資訊安全中心包含適用于 Azure Key Vault 的 Azure 原生、先�
 > [!NOTE]
 > 此服務目前無法在 Azure 政府和主權雲端區域中使用。
 
-> [!div class="mx-tableFixed"]
-
-|警示|描述|
-|---|---|
-|**從 TOR 結束節點存取 Key Vault**|Key Vault 已由使用 TOR IP 匿名系統的人存取，以隱藏其位置。 惡意執行者通常會在嘗試取得未經授權的網際網路連線資源存取權時，嘗試隱藏其位置。|
-|**Key Vault 中的可疑原則變更和秘密查詢**|已進行 Key Vault 原則變更，然後進行列出及/或取得秘密的作業。 此外，此作業模式通常不是由使用者在此保存庫上執行。 這表示 Key Vault 遭到入侵，且惡意執行者已竊取內的秘密。|
-|**Key Vault 中的可疑秘密清單和查詢**|「秘密清單」作業後面接著許多「秘密取得」操作。 此外，此作業模式通常不是由使用者在此保存庫上執行。 這表示有人可能會將儲存在 Key Vault 中的秘密傾印到可能的惡意用途。|
-|**不尋常的使用者-應用程式配對已存取 Key Vault**|Key Vault 由通常不會存取的使用者應用程式配對存取。 這可能是合法的存取嘗試（例如，遵循基礎結構或程式碼更新）。 這也可能表示您的基礎結構遭到入侵，且惡意執行者正嘗試存取您的 Key Vault。|
-|**不尋常的應用程式存取了 Key Vault**|應用程式存取的 Key Vault 通常不會存取它。 這可能是合法的存取嘗試（例如，遵循基礎結構或程式碼更新）。 這也可能表示您的基礎結構遭到入侵，且惡意執行者正嘗試存取您的 Key Vault。|
-|**不尋常的使用者存取了 Key Vault**|使用者存取了通常不會存取的 Key Vault。 這可能是合法的存取嘗試（例如，需要存取的新使用者已加入組織）。 這也可能表示您的基礎結構遭到入侵，且惡意執行者正嘗試存取您的 Key Vault。|
-|**Key Vault 中不尋常的作業模式**|相較于歷程記錄資料，已執行一組不尋常的 Key Vault 作業。 Key Vault 活動通常會隨著時間而相同。 這可能是活動的合法變更。 或者，您的基礎結構可能會遭到入侵，而且需要進一步的調查。|
-|**Key Vault 中的大量作業**|相較于歷程記錄資料，已執行更大量的 Key Vault 作業。 Key Vault 活動通常會隨著時間而相同。 這可能是活動的合法變更。 或者，您的基礎結構可能會遭到入侵，而且需要進一步的調查。|
-|**使用者已存取大量的金鑰保存庫**|與歷程記錄資料相較之下，使用者或應用程式存取的保存庫數目已變更。 Key Vault 活動通常會隨著時間而相同。 這可能是活動的合法變更。 或者，您的基礎結構可能會遭到入侵，而且需要進一步的調查。|
+如需 Azure Key Vault 警示的清單，請參閱[警示的參考資料表](alerts-reference.md#alerts-azurekv)。

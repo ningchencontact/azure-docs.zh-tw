@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 364ceabc3c9e7a577bd126b81bcd5256d947bbe3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: d9778544fd9e20dc3244a37c644117d1cd505a96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476786"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438675"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>教學課程：準備部署 Azure Data Box Edge  
 
@@ -22,13 +22,13 @@ ms.locfileid: "66476786"
 
 您需要有系統管理員權限，才能完成安裝和設定程序。 入口網站準備工作不到 10 分鐘就能完成。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立新的資源
 > * 取得啟用金鑰
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ### <a name="get-started"></a>開始使用
 
@@ -44,7 +44,7 @@ ms.locfileid: "66476786"
 
 現在您可以開始設定 Azure 入口網站。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 以下是 Data Box Edge 資源、Data Box Edge 裝置及資料中心網路的設定先決條件。
 
@@ -108,13 +108,13 @@ ms.locfileid: "66476786"
     |設定  |值  |
     |---------|---------|
     |訂用帳戶    |這會根據您稍早的選取項目自動填入。 訂用帳戶會連結到您的帳單帳戶。 |
-    |資源群組  |選取現有的群組或建立新的群組。<br>深入了解 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)。     |
+    |資源群組  |選取現有的群組或建立新的群組。<br>深入了解 [Azure 資源群組](../azure-resource-manager/management/overview.md)。     |
 
 4. 輸入或選取下列 [執行個體詳細資料]  。
 
     |設定  |值  |
     |---------|---------|
-    |Name   | 可識別資源的易記名稱。<br>此名稱介於 2 到 50 個字元之間，並且可包含字母、數字和連字號。<br> 名稱必須以字母或數字為開頭或結尾。        |
+    |名稱   | 可識別資源的易記名稱。<br>此名稱介於 2 到 50 個字元之間，並且可包含字母、數字和連字號。<br> 名稱必須以字母或數字為開頭或結尾。        |
     |區域     |此版本適用於在美國東部、東南亞和西歐等區域部署您的資源。 如果使用 Azure Government，如 [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)所示的所有政府區域都適用。<br> 請選擇與您要部署裝置的地理區域最接近的位置。|
 
     ![專案和執行個體詳細資料](media/data-box-edge-deploy-prep/data-box-edge-resource.png)

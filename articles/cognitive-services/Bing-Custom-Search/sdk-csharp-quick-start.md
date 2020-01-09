@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 C# SDK 呼叫您的 Bing 自訂搜尋端點 | Microsoft Docs
+title: 快速入門：使用 C# SDK 呼叫您的 Bing 自訂搜尋端點
 titleSuffix: Azure Cognitive Services
 description: 您可以使用本快速入門，開始使用 C# SDK 要求 Bing 自訂搜尋執行個體所產生的搜尋結果。
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: scottwhi
-ms.openlocfilehash: 21b192d29f30d66e3d5f0ce6e04317d3ca7c860e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5e932b1ff597fc0170a6bb83841bc6ca7306693a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977143"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448723"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>快速入門：使用 C# SDK 呼叫您的 Bing 自訂搜尋端點 
 
-您可以使用本快速入門，開始使用 C# SDK 要求 Bing 自訂搜尋執行個體所產生的搜尋結果。 雖然 Bing 自訂搜尋具有與大部分程式設計語言相容的 REST API，但 Bing 自訂搜尋 SDK 會提供簡單的方法，將服務整合到您的應用程式。 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch) 中找到。
+您可以使用本快速入門，開始使用 C# SDK 要求 Bing 自訂搜尋執行個體所產生的搜尋結果。 雖然 Bing 自訂搜尋具有與大部分程式設計語言相容的 REST API，但 Bing 自訂搜尋 SDK 會提供簡單的方法，將服務整合到您的應用程式。 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch) 上找到。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 「Bing 自訂搜尋」執行個體。 請參閱[快速入門：建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)，以取得詳細資訊。
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)

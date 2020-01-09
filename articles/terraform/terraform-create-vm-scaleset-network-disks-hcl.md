@@ -3,12 +3,12 @@ title: 教學課程 - 使用 Terraform 建立 Azure 虛擬機器擴展集
 description: 了解如何使用 Terraform 來設定 Azure 虛擬機器擴展集及進行其版本管理。
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: ef2ce0a3ea8c50123cd51ab60a6b98894739d859
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6dcdad21eef003fe773a2c6ea3cb8a69b9175ecb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159072"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369468"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>教學課程：使用 Terraform 建立 Azure 虛擬機器擴展集
 
@@ -26,9 +26,9 @@ ms.locfileid: "74159072"
 > [!NOTE]
 > 本文中使用的最新版本 Terraform 組態檔位於 [GitHub 上很棒的 Terraform 存放庫](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss)中。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
+- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
 - **安裝 Terraform**：請遵循 [Terraform 和設定 Azure 的存取](/azure/virtual-machines/linux/terraform-install-configure)一文中的指示
 
@@ -107,7 +107,7 @@ ms.locfileid: "74159072"
     ```
 
 1. 請將下列程式碼貼到編輯器，以公開虛擬機器的完整網域名稱 (FQDN)。
-   ：
+   所解碼的字元：
 
    ```hcl
     output "vmss_public_ip" {
@@ -424,7 +424,7 @@ SSH Jumpbox  是您在存取網路上的其他伺服器時所「跳躍」通過�
     resource_group_name          = azurerm_resource_group.vmss.name
     allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}-ssh"
-    tags                         = var.tags}
+    tags                         = var.tags
    }
 
    resource "azurerm_network_interface" "jumpbox" {

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/27/2019
 ms.author: nitinme
-ms.openlocfilehash: bf6efbdbe19be28c005e2081c99827734ef10174
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: dfbd11b97ee77d77599ead08ba58fe173b64f876
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177005"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446481"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>教學課程：搭配使用表單辨識器和 Azure Logic Apps 來分析發票
 
@@ -31,7 +31,7 @@ ms.locfileid: "73177005"
 > * 設定邏輯應用程式以使用表單辨識器資源
 > * 執行邏輯應用程式來測試工作流程
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -81,11 +81,11 @@ ms.locfileid: "73177005"
 
 1. 在 [建立邏輯應用程式]  底下，提供有關邏輯應用程式的詳細資訊，如下所示。 在完成作業後，選取 [建立]  。
 
-   | 屬性 | 值 | 說明 |
+   | 屬性 | 值 | 描述 |
    |----------|-------|-------------|
    | **名稱** | <*logic-app-name*> | 您的邏輯應用程式名稱，其中只能包含字母、數字、連字號 (`-`)、底線 (`_`)、括弧(`(`、`)`) 和句點 (`.`)。 此範例使用 "My-First-Logic-App"。 |
    | **訂用帳戶** | <*Azure-subscription-name*> | 您的 Azure 訂用帳戶名稱 |
-   | **資源群組** | <*Azure-resource-group-name*> | 用來組織相關資源之 [Azure 資源群組](./../../azure-resource-manager/resource-group-overview.md)的名稱。 此範例使用 "My-First-LA-RG"。 |
+   | **資源群組** | <*Azure-resource-group-name*> | 用來組織相關資源之 [Azure 資源群組](./../../azure-resource-manager/management/overview.md)的名稱。 此範例使用 "My-First-LA-RG"。 |
    | **位置** | <*Azure-region*> | 用來存放邏輯應用程式資訊的區域。 此範例使用「美國西部」。 |
    | **Log Analytics** | 關閉 | 保留診斷記錄的 [關閉]  設定。 |
    ||||

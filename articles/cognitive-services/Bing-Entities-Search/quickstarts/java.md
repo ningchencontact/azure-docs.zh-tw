@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 13e25ce0a237d34b98ec42140b86c4955f9058cb
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c4335e1ac0f0ffc7ee5570a8f0819827fc77dd18
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323799"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384146"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>快速入門：使用 Java 將搜尋要求傳送至 Bing 實體搜尋 REST API
 
@@ -23,7 +23,7 @@ ms.locfileid: "74323799"
 
 雖然此應用程式是以 Java 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Java 開發套件 (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 * [Gson 程式庫](https://github.com/google/gson)
@@ -50,7 +50,7 @@ ms.locfileid: "74323799"
    import com.google.gson.JsonParser;
    ```
 
-2. 在新類別中，建立 API 端點變數、您的訂用帳戶金鑰及搜尋查詢。
+2. 在新類別中，建立 API 端點變數、您的訂用帳戶金鑰及搜尋查詢。 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
    ```java
    public class EntitySearch {

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 5b9bed971ff239c0c4b0d1cb923e845bd76957da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 099ff9b8d8a55456908748bee5779e4471d4bec6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922922"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439333"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體
 在本教學課程中，您會使用 Azure Data Factory 使用者介面 (UI) 來建立資料處理站管線，以將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。 您要建立及使用自我裝載的整合執行階段，其會在內部部署與雲端資料存放區之間移動資料。
@@ -35,7 +35,7 @@ ms.locfileid: "74922922"
 > * 啟動管線執行。
 > * 監視管道執行。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>Prerequisites
 ### <a name="azure-subscription"></a>Azure 訂用帳戶
 開始之前，如果您還沒有 Azure 訂用帳戶，[請建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -107,7 +107,7 @@ ms.locfileid: "74922922"
 在此步驟中，您可以建立資料處理站，並啟動 Data Factory 使用者介面，在資料處理站中建立管線。 
 
 1. 開啟 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
-1. 在左側功能表中，選取 [建立資源]   > [分析]   > [資料處理站]  ：
+1. 在左側功能表上，選取 [建立資源]   > [分析]   > [資料處理站]  ：
    
    ![在 [新增] 窗格中選取資料處理站](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -124,7 +124,7 @@ ms.locfileid: "74922922"
 
    - 選取 [建立新的]  ，然後輸入資源群組的名稱。
         
-     若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。
+     若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。
 1. 在 [版本]  下，選取 [V2]  。
 1. 在 [位置]  下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 Data Factory 所使用的資料存放區 (例如儲存體和 SQL Database) 和計算 (例如 Azure HDInsight) 可位於其他區域。
 1. 選取 [建立]  。
@@ -157,7 +157,7 @@ ms.locfileid: "74922922"
 
 1. 在 [整合執行階段設定]  對話方塊中，選取 [自我裝載]  ，然後選取 [下一步]  。 
 
-1. 在名稱底下，輸入 **TutorialIntegrationRuntime**。 然後，選取 [下一步]  。
+1. 在名稱底下，輸入 **TutorialIntegrationRuntime**。 然後選取 [下一步]  。
 
 1. 在 [設定] 中，選取 [按一下這裡啟動此電腦的快速設定]  。此動作會在您的機器上安裝整合執行階段，並使用 Data Factory 進行註冊。 或者，您可以使用手動安裝選項來下載安裝檔案、執行它，並使用金鑰來註冊整合執行階段。 
 

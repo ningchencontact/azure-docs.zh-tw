@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 11276d532f0f978b127f48924e383b7aeb7f4ad5
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d7ddb286285de9be089c0a5176e33b7108021c77
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770096"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459945"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站設計適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
 
@@ -28,12 +28,12 @@ ms.locfileid: "74770096"
 > * 更新資料
 > * 還原資料
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="create-an-azure-database-for-postgresql"></a>建立適用於 PostgreSQL 的 Azure 資料庫
 
-「適用於 PostgreSQL 的 Azure 資料庫」伺服器是以一組已定義的[計算和儲存體資源](./concepts-compute-unit-and-storage.md)所建立。 伺服器會建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內。
+「適用於 PostgreSQL 的 Azure 資料庫」伺服器是以一組已定義的[計算和儲存體資源](./concepts-compute-unit-and-storage.md)所建立。 伺服器會建立在 [Azure 資源群組](../azure-resource-manager/management/overview.md)內。
 
 請依照下列步驟來建立「適用於 PostgreSQL 的 Azure 資料庫」伺服器：
 1. 按一下 Azure 入口網站左上角的 [建立資源]  。
@@ -48,7 +48,7 @@ ms.locfileid: "74770096"
 
     ![建立伺服器](./media/tutorial-design-database-using-azure-portal/create-basics.png)
 
-    設定|建議的值|說明
+    設定|建議的值|描述
     ---|---|---
     訂用帳戶|您的訂用帳戶名稱|您要用於伺服器的 Azure 訂用帳戶。 如果您有多個訂用帳戶，請選擇資源計費的訂用帳戶。
     資源群組|*myresourcegroup*| 新的資源群組名稱，或您訂用帳戶中現有的資源群組名稱。
@@ -56,7 +56,7 @@ ms.locfileid: "74770096"
     資料來源 | *None* | 選取 [無]  從頭建立新的伺服器。 (如果您要從現有「適用於 PostgreSQL 的 Azure 資料庫」伺服器的異地備份建立伺服器，可以選取 [備份]  )。
     系統管理員使用者名稱 |myadmin | 連線至伺服器時所要使用之自己的登入帳戶。 管理員登入名稱不能是 **azure_superuser**、**azure_pg_admin** **admin** **administrator** **root** **guest** 或 **public**。 它不能以 **pg_** 開頭。
     密碼 |您的密碼| 伺服器管理帳戶的新密碼。 其必須包含 8 到 128 個字元。 您的密碼必須包含下列類別中三種類別的字元：英文大寫字母、英文小寫字母、數字 (0 到 9) 及非英數字元 (!、$、#、% 等等)。
-    位置|最接近使用者的區域| 最靠近您使用者的位置。
+    Location|最接近使用者的區域| 最靠近您使用者的位置。
     版本|最新的主要版本| 最新 PostgreSQL 主要版本 (除非您有其他特定需求)。
     計算 + 儲存體 | **一般用途**、**Gen 5**、**2 個虛擬核心**、**5 GB**、**7 天**、**異地備援** | 新伺服器的計算、儲存體和備份組態。 選取 [設定伺服器]  。 接下來，選取 [一般用途]  索引標籤。Gen 5  、4 個虛擬核心  、100 GB  和 7 天  是 [計算世代]  、[虛擬核心]  、[儲存體]  和 [備份保留期限]  的預設值。 您可以讓這些滑桿保持原狀或加以調整。 若要啟用異地備援儲存體中的伺服器備份，請從 [備份備援選項]  中選取 [異地備援]  。 若要儲存此定價層選取項目，請選取 [確定]  。 下方螢幕擷取畫面會擷取這些選取項目。
 

@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure for Containers
 metadata:
-  document_id: null
   title: Azure for Containers - 快速入門、教學課程和 API 參考
   description: 使用容器的快速入門、教學課程和工具，開始使用 Azure 管理和部署容器應用程式。
   keywords: 'Azure, 容器, Docker, API, Kubernetes'

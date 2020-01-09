@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 481bc700f86dfd8a28c074134fd5dcc85bb748c4
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 357cc85991ac88aef4fd0958e2bc776373f56dc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448351"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>快速入門：使用 Bing 影片搜尋 REST API 和 PHP 來搜尋影片
 
@@ -24,7 +24,7 @@ ms.locfileid: "74378622"
 
 請參閱 [API 參考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)了解 API 的技術詳細資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * PHP 5.6 或更新版本
 
@@ -37,7 +37,7 @@ ms.locfileid: "74378622"
 1. 請確定 `php.ini` 中已啟用安全 HTTP 支援，如程式碼註解中所述。
 2. 在您最愛的 IDE 或編輯器中建立新的 PHP 專案。
 3. 新增下方提供的程式碼。
-4. 以訂用帳戶有效的存取金鑰來取代 `accessKey` 值。
+4. 以訂用帳戶有效的存取金鑰來取代 `$accessKey` 值。 `$endpoint` 可以是下方的全域端點，也可以是 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 5. 執行程式。
 
 ```php

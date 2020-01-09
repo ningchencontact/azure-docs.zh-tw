@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: a206b63b03bcb3bb17e201487f0e00bcb3926151
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a5625341e3dd279d93a59c57cd3325245351723e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582232"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646722"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>將資料移至 Azure Blob 儲存體
 
@@ -21,7 +21,7 @@ ms.locfileid: "73582232"
 
 請記住下列事實：
 
-* Azure HPC 快取會使用特製化的儲存體格式來組織 Blob 儲存體中的資料。 這就是為什麼 Blob 儲存體目標必須是新的空白容器，或是先前用於 Azure HPC 快取資料的 Blob 容器。 （[Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/)也會使用此雲端檔案系統）。
+* Azure HPC 快取會使用特製化的儲存體格式來組織 Blob 儲存體中的資料。 這就是為什麼 Blob 儲存體目標必須是新的空白容器，或是先前用於 Azure HPC 快取資料的 Blob 容器。 <!--([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud file system.)-->
 
 * 當您使用多個用戶端和平行作業時，透過 Azure HPC 快取將資料複製到後端儲存體目標會更有效率。 一個用戶端的簡單複製命令會慢慢移動資料。
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 09/11/2018
-ms.openlocfilehash: 4e71fc869a08192b756c37e5106568bdd36361bd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 537f57249065a6b47c2ce4d679205ac21a75fe4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926568"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439418"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>使用複製資料工具將資料從 Azure Blob 儲存體複製到 SQL 資料庫
 
@@ -36,9 +36,9 @@ ms.locfileid: "74926568"
 > * 使用複製資料工具建立管線。
 > * 監視管線和活動執行。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-* **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+* **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 * **Azure 儲存體帳戶**：使用 Blob 儲存體作為「來源」  資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)中的指示。
 * **Azure SQL Database**：使用 SQL 資料庫作為「接收」  資料存放區。 如果您沒有 SQL 資料庫，請參閱[建立 SQL 資料庫](../sql-database/sql-database-get-started-portal.md)中的指示。
 
@@ -77,7 +77,7 @@ ms.locfileid: "74926568"
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
-1. 在左側功能表中，選取 [建立資源]   > [分析]   > [資料處理站]  ：
+1. 在左側功能表上，選取 [建立資源]   > [分析]   > [資料處理站]  ：
     
     ![新資料處理站的建立](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. 在 [新增資料處理站]  頁面的 [名稱]  下，輸入 **ADFTutorialDataFactory**。
@@ -94,7 +94,7 @@ ms.locfileid: "74926568"
 
     b. 選取 [建立新的]  ，然後輸入資源群組的名稱。
     
-    若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。
+    若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。
 
 1. 在 [版本]  下，選取 [V2]  作為版本。
 1. 在 [位置]  下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (例如 Azure 儲存體和 SQL Database) 和計算 (例如 Azure HDInsight) 可位於其他地區和區域。
@@ -110,7 +110,7 @@ ms.locfileid: "74926568"
 1. 在 [現在就開始吧]  頁面上選取 [複製資料]  圖格，以啟動複製資料工具。
 
     ![複製資料工具圖格](./media/doc-common-process/get-started-page.png)
-1. 在 [屬性]  頁面的 [工作名稱]  下，輸入 **CopyFromBlobToSqlPipeline**。 然後，選取 [下一步]  。 Data Factory 使用者介面會使用指定的工作名稱建立管線。
+1. 在 [屬性]  頁面的 [工作名稱]  下，輸入 **CopyFromBlobToSqlPipeline**。 然後選取 [下一步]  。 Data Factory 使用者介面會使用指定的工作名稱建立管線。
 
 1. 在 [來源資料存放區]  頁面上，完成下列步驟：
 

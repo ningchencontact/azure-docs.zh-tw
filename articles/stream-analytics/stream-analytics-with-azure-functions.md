@@ -1,21 +1,19 @@
 ---
 title: 教學課程 - 在 Azure 串流分析作業中執行 Azure Functions
 description: 在本教學課程中，您將了解如何設定 Azure Functions 作為串流分析作業的輸出接收。
-services: stream-analytics
 author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
-ms.workload: data-services
 ms.date: 06/05/2019
 ms.author: mamccrea
-ms.reviewer: jasonh
-ms.openlocfilehash: 189f38c075c5faa91295633d1e4cbde1f7e573a2
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.reviewer: mamccrea
+ms.openlocfilehash: 84df3edcebb1ca9f14a68125ae9793f004e56c4d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369315"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>教學課程：從 Azure 串流分析作業執行 Azure Functions 
 
@@ -182,7 +180,7 @@ ms.locfileid: "74707299"
 
 1. 瀏覽至 Azure 入口網站，並找出您的 Azure Cache for Redis。 選取 [主控台]  。  
 
-2. 使用 [Azure Cache for Redis 命令](https://redis.io/commands)，確認您的資料在 Azure Cache for Redis 中。 (此命令接受 Get {key} 的格式。)例如︰
+2. 使用 [Azure Cache for Redis 命令](https://redis.io/commands)，確認您的資料在 Azure Cache for Redis 中。 (此命令接受 Get {key} 的格式。)例如：
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 

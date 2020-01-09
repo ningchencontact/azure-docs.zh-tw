@@ -1,20 +1,18 @@
 ---
 title: 教學課程 - 使用 Azure 入口網站建立和管理串流分析作業
 description: 本教學課程提供如何使用 Azure 串流分析來分析通話串流中詐騙電話的端對端實例。
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: cca9f25fae9646b4207db7aa98f4c334457fc426
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 488664b028568b3014b9b839122705d35104861e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707386"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459565"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>教學課程：使用串流分析分析通話資料並在 Power BI 儀表板中以視覺方式呈現結果
 
@@ -30,7 +28,7 @@ ms.locfileid: "74707386"
 > * 測試和啟動作業
 > * 在 Power BI 中將結果視覺化
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始之前，請執行下列動作：
 
@@ -56,7 +54,7 @@ ms.locfileid: "74707386"
    |名稱     | myEventHubsNS        |  用以識別事件中樞命名空間的唯一名稱。       |
    |訂用帳戶     |   \<您的訂用帳戶\>      |   選取您要在其中建立事件中樞的 Azure 訂用帳戶。      |
    |資源群組     |   MyASADemoRG      |  選取 [新建]  ，然後為您的帳戶輸入新的資源群組名稱。       |
-   |位置     |   美國西部 2      |    可以部署事件中樞命名空間的位置。     |
+   |Location     |   美國西部 2      |    可以部署事件中樞命名空間的位置。     |
 
 4. 對其餘的設定使用預設選項，並選取 [建立]  。
 
@@ -115,7 +113,7 @@ ms.locfileid: "74707386"
 
    幾秒之後，隨著應用程式將通話記錄傳送到事件中樞，它會開始在螢幕上顯示通話記錄。 通話資料包含下列欄位：
 
-   |**記錄**  |**定義**  |
+   |**記錄**  |**[定義]**  |
    |---------|---------|
    |CallrecTime    |  通話開始時間的時間戳記。       |
    |SwitchNum     |  用來接通電話的電話交換機。 在此範例中，交換機是代表發話國家/地區的字串 (美國、中國、英國、德國或澳大利亞)。       |
@@ -139,8 +137,8 @@ ms.locfileid: "74707386"
    |作業名稱     |  ASATutorial       |   用以識別事件中樞命名空間的唯一名稱。      |
    |訂用帳戶    |  \<您的訂用帳戶\>   |   選取您要在其中建立作業的 Azure 訂用帳戶。       |
    |資源群組   |   MyASADemoRG      |   選取 [使用現有的]  ，然後為您的帳戶輸入新的資源群組名稱。      |
-   |位置   |    美國西部 2     |      可以部署作業的位置。 建議將作業和事件中樞放在相同的區域，以達到最佳效能，在區域之間傳送資料也不需要付費。      |
-   |裝載環境    | 雲端        |     串流分析作業可以部署到雲端或邊緣裝置。 雲端部分可讓您部署到 Azure 雲端，邊緣裝置部分可讓您部署到 IoT Edge 裝置。    |
+   |Location   |    美國西部 2     |      可以部署作業的位置。 建議將作業和事件中樞放在相同的區域，以達到最佳效能，在區域之間傳送資料也不需要付費。      |
+   |裝載環境    | Cloud        |     串流分析作業可以部署到雲端或邊緣裝置。 雲端部分可讓您部署到 Azure 雲端，邊緣裝置部分可讓您部署到 IoT Edge 裝置。    |
    |串流單位     |    1       |      串流單位代表執行作業所需的計算資源。 根據預設，此值設定為 1。 若要深入了解如何調整串流單位，請參閱[了解與調整串流單位](stream-analytics-streaming-unit-consumption.md)一文。      |
 
 4. 對其餘的設定使用預設選項，選取 [建立]  並等待部署成功。

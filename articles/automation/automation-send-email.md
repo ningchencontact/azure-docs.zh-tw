@@ -2,19 +2,15 @@
 title: 從 Azure 自動化 Runbook傳送電子郵件
 description: 了解如何使用 SendGrid 從 Runbook 內傳送電子郵件。
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/15/2019
 ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: 8550635b581eb944719c39cc8c195859a2c9e868
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6acb68b7bbaa54db2e4143a42e43aede2caed35f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849610"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420696"
 ---
 # <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>教學課程：從 Azure 自動化 Runbook傳送電子郵件
 
@@ -28,7 +24,7 @@ ms.locfileid: "74849610"
 > * 將您的 SendGrid API 金鑰儲存在 KeyVault 中
 > * 建立可擷取 API 金鑰並傳送電子郵件的 Runbook
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成此教學課程，需要有下列項目：
 

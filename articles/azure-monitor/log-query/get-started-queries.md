@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 0503ebc7a585210f95eb58b0f11ae1dd0a835264
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b3b176a6027b0f03c3802867df7be1e339286df2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278615"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365320"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>開始使用 Azure 監視器中的查詢
 
@@ -105,7 +105,7 @@ SecurityEvent
 
 在撰寫篩選條件時，您可以使用下列運算式：
 
-| 運算是 | 說明 | 範例 |
+| 運算是 | 描述 | 範例 |
 |:---|:---|:---|
 | == | 檢查是否相等<br>(區分大小寫) | `Level == 8` |
 | =~ | 檢查是否相等<br>(不區分大小寫) | `EventSourceName =~ "microsoft-windows-security-auditing"` |

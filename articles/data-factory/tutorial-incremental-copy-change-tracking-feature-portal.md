@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 1b619ca7bb3b095a5707077beb3e0750dee1c2b7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4f7ad05402745f17ff60dbaab8d736acc8f92196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923487"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439396"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>使用變更追蹤資訊，以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體 
 
@@ -67,7 +67,7 @@ ms.locfileid: "74923487"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>Prerequisites
 * **Azure SQL Database**。 您需要使用資料庫作為**來源**資料存放區。 如果您沒有 Azure SQL Database，請參閱[建立 Azure SQL 資料庫](../sql-database/sql-database-get-started-portal.md)一文，按照步驟建立資料庫。
 * **Azure 儲存體帳戶**。 您需要使用 Blob 儲存體作為**接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)一文，按照步驟來建立帳戶。 建立名為 **adftutorial** 的容器。 
 
@@ -169,7 +169,7 @@ ms.locfileid: "74923487"
       - 選取 [使用現有的]  ，然後從下拉式清單選取現有的資源群組。 
       - 選取 [建立新的]  ，然後輸入資源群組的名稱。   
          
-        若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
+        若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。  
 4. 對 [版本]  選取 [V2 (預覽)]  。
 5. 選取 Data Factory 的 [位置]  。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 6. 選取 [釘選到儀表板]  。     
@@ -238,7 +238,7 @@ ms.locfileid: "74923487"
 3. 您會看到用於設定資料集的新索引標籤。 你也會在樹狀檢視中看到該資料集。 在 [屬性]  視窗中，將資料集的名稱變更為 **SourceDataset**。
 
    ![來源資料集名稱](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-name.png)    
-4. 切換至 [連線]  索引標籤，執行下列步驟： 
+4. 切換至 [連線]  索引標籤，然後執行下列步驟： 
     
     1. 選取 [AzureSqlDatabaseLinkedService]  作為 [連結服務]  。 
     2. 選取 [[dbo].[data_source_table]]  作為 [資料表]  。 
@@ -271,7 +271,7 @@ ms.locfileid: "74923487"
 1. 在樹狀檢視中，按一下 [+]  (加號)，然後按一下 [資料集]  。 
 2. 選取 [Azure SQL Database]  ，然後按一下 [下一步]  。 
 3. 您會看到用於設定資料集的新索引標籤。 你也會在樹狀檢視中看到該資料集。 在 [屬性]  視窗中，將資料集的名稱變更為 **ChangeTrackingDataset**。
-4. 切換至 [連線]  索引標籤，執行下列步驟： 
+4. 切換至 [連線]  索引標籤，然後執行下列步驟： 
     
     1. 選取 [AzureSqlDatabaseLinkedService]  作為 [連結服務]  。 
     2. 選取 [[dbo].[table_store_ChangeTracking_version]]  作為 [資料表]  。 
@@ -373,7 +373,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     ![查閱活動 - 名稱](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. 在 [屬性]  視窗中切換至 [設定]  ，執行下列步驟：
 
-   1. 在 [來源資料集]  欄位選取 [SourceDataset]  。
+   1. 為 [來源資料集]  欄位選取 [SourceDataset]  。
    2. 為 [使用查詢]  選取 [查詢]  。 
    3. 輸入下列 SQL 查詢作為 [查詢]  。 
 
@@ -385,7 +385,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 7. 在 [活動]  工具箱中展開 [資料流程]  ，並將 [複製]  活動拖放至管線設計工具介面。 將活動的名稱設定為 **IncrementalCopyActivity**。 此活動會將上次變更追蹤版本和目前變更追蹤版本之間的資料，複製到目的地資料存放區。 
 
     ![複製活動 - 名稱](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
-8. 在 [屬性]  視窗中切換至 [來源]  索引標籤，執行下列步驟：
+8. 在 [屬性]  視窗中切換至 [來源]  索引標籤，並執行下列步驟：
 
    1. 選取 [SourceDataset]  作為 [來源資料集]  。 
    2. 為 [使用查詢]  選取 [查詢]  。 
@@ -417,7 +417,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
         | 名稱 | 類型 | 值 | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
-        | TableName | 字串 | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
+        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![預存程序活動 - 參數](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **將複製活動連線至預存程序活動**。 將連結 [複製] 活動的**綠色**按鈕拖曳至 [預存程序] 活動。 

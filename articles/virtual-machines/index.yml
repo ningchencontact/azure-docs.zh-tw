@@ -2,7 +2,6 @@
 documentType: LandingData
 title: 虛擬機器文件
 metadata:
-  document_id: na
   title: Azure 虛擬機器文件 - 教學課程和 API 參考
   meta.description: 'Learn how to create, deploy, and manage Windows or Linux virtual machines. Tutorials, API references, and other documentation.'
   services: virtual-machines
@@ -111,7 +110,7 @@ sections:
         items:
           - title: 命令列
             html: <p><a href="/cli/azure/vm">Azure CLI</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
-          - title: 語言
+          - title: Languages
             html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
           - title: REST
             html: <p><a href="/rest/api/compute">REST API 參考</a></p>

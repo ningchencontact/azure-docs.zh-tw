@@ -9,19 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 8da47899e2d3d2c1d04e9cf4768a968e7893ce96
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0ca6f2a67e01e4c604c2dcc8f8eaa9ffe8bad045
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74840830"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381507"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>教學課程：從語句取得格式正確的資料
 在本教學課程中，您將建立規則運算式實體從語句中擷取格式一致的資料。
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **在本教學課程中，您將了解如何：**
 
@@ -46,7 +44,7 @@ ms.locfileid: "74840830"
 
 ## <a name="import-example-json-to-begin-app"></a>匯入範例. json 以開始執行應用程式
 
-1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json)。
+1.  下載並儲存[應用程式的 JSON 檔案](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json)。
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 

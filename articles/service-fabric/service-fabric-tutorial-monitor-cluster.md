@@ -1,32 +1,23 @@
 ---
-title: 在 Azure 中監視 Service Fabric 叢集 | Microsoft Docs
+title: 在 Azure 中監視 Service Fabric 叢集
 description: 在本教學課程中，您將了解如何藉由檢視 Service Fabric 事件、查詢 EventStore API、監視效能計數器，以及檢視健康情況報告，來監視叢集。
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 63069dcdebf19c64d7bcde298fa234622a6d9a2b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ab58d622511e0d5793eb6df312bc3fd6dd15bfd6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385270"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376625"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>教學課程：在 Azure 中監視 Service Fabric 叢集
 
 不論任何雲端環境，針對工作負載的開發、測試及部署進行監視和診斷都極為重要。 本教學課程為一個系列中的第二部分，示範如何使用事件、效能計數器和健康情況報表來監視和診斷 Service Fabric 叢集。   如需詳細資訊，請參閱關於[叢集監控](service-fabric-diagnostics-overview.md#platform-cluster-monitoring)和[基礎結構監視](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring)的概觀。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 檢視 Service Fabric 事件
@@ -45,7 +36,7 @@ ms.locfileid: "68385270"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始進行本教學課程之前：
 

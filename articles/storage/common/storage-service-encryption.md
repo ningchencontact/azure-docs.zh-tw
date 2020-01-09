@@ -4,17 +4,17 @@ description: Azure 儲存體保護您的資料，方法是在將它保存到雲�
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 12/05/2019
+ms.date: 01/03/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: a09d2c0c2a393acd4882842dc023b0f5f682e813
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 35a5bfd582c9717b062d42d86e7581029861fd0c
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895137"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665425"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>待用資料的 Azure 儲存體加密
 
@@ -47,8 +47,8 @@ Azure 儲存體中的資料會使用256位[AES 加密](https://en.wikipedia.org/
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    加密/解密作業    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
 |    支援的 Azure 儲存體服務    |    所有                                                |    Blob 儲存體，Azure 檔案儲存體                                                                                                               |    Blob 儲存體                                                                  |
-|    金鑰儲存                         |    Microsoft 金鑰存放區    |    Azure 金鑰保存庫                                                                                                                              |    Azure Key Vault 或任何其他金鑰存放區                                                                 |
-|    金鑰輪替責任         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
+|    金鑰儲存                         |    Microsoft 金鑰存放區    |    Azure Key Vault                                                                                                                              |    Azure Key Vault 或任何其他金鑰存放區                                                                 |
+|    金鑰輪替責任         |    Microsoft                                          |    客戶                                                                                                                                     |    客戶                                                                      |
 |    金鑰使用量                           |    Microsoft                                          |    Azure 入口網站，儲存體資源提供者 REST API，Azure 儲存體管理程式庫，PowerShell，CLI        |    Azure 儲存體 REST API （Blob 儲存體），Azure 儲存體用戶端程式庫    |
 |    金鑰存取                          |    僅限 Microsoft                                     |    Microsoft、客戶                                                                                                                    |    僅限客戶                                                                 |
 
@@ -62,7 +62,7 @@ Azure 儲存體中的資料會使用256位[AES 加密](https://en.wikipedia.org/
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>客戶管理的金鑰與 Azure Key Vault
 
-您可以使用自己的金鑰來管理儲存體帳戶層級的 Azure 儲存體加密。 當您在儲存體帳戶層級指定客戶管理的金鑰時，該金鑰會用來加密和解密儲存體帳戶中的所有 blob 和檔案資料。 客戶管理的金鑰提供更大的彈性來建立、輪替、停用及撤銷存取控制。 您也可以審核用來保護資料的加密金鑰。
+您可以使用自己的金鑰來管理儲存體帳戶層級的 Azure 儲存體加密。 當您在儲存體帳戶層級指定客戶管理的金鑰時，該金鑰會用來保護並控制儲存體帳戶的根加密金鑰存取權，然後用來加密和解密所有 blob 和檔案資料。 客戶管理的金鑰提供更大的彈性來建立、輪替、停用及撤銷存取控制。 您也可以審核用來保護資料的加密金鑰。
 
 您必須使用 Azure Key Vault 來儲存客戶管理的金鑰。 您可以建立自己的金鑰，並將其儲存在金鑰保存庫中，或者您可以使用 Azure Key Vault Api 來產生金鑰。 儲存體帳戶與金鑰保存庫必須位於相同區域，但可位於不同的訂用帳戶中。 如需 Azure Key Vault 的詳細資訊，請參閱[什麼是 Azure Key Vault？](../../key-vault/key-vault-overview.md)。
 
@@ -80,9 +80,11 @@ Azure 儲存體中的資料會使用256位[AES 加密](https://en.wikipedia.org/
 
 ### <a name="enable-customer-managed-keys-for-a-storage-account"></a>為儲存體帳戶啟用客戶管理的金鑰
 
-當您針對儲存體帳戶使用客戶管理的金鑰來啟用加密時，Azure 儲存體會在相關聯的金鑰保存庫中，將帳戶加密金鑰與客戶金鑰包裝在一起。 啟用客戶管理的金鑰並不會影響效能，而且帳戶會立即以新的金鑰加密，而不會有任何時間延遲。
+當您針對儲存體帳戶使用客戶管理的金鑰來啟用加密時，Azure 儲存體會在相關聯的金鑰保存庫中，將帳戶加密金鑰與客戶管理的金鑰包裝在一起。 啟用客戶管理的金鑰並不會影響效能，而且帳戶會立即以新的金鑰加密，而不會有任何時間延遲。
 
 新的儲存體帳戶一律使用 Microsoft 管理的金鑰進行加密。 建立帳戶時，不可能啟用客戶管理的金鑰。 客戶管理的金鑰會儲存在 Azure Key Vault 中，而金鑰保存庫必須布建存取原則，以將金鑰許可權授與儲存體帳戶相關聯的受控識別。 只有在建立儲存體帳戶之後，才可以使用受控識別。
+
+當您透過啟用或停用客戶管理的金鑰、更新金鑰版本或指定不同的金鑰來修改用於 Azure 儲存體加密的金鑰時，根金鑰的加密會變更，但您 Azure 儲存體帳戶中的資料不會需要重新加密。
 
 若要瞭解如何使用客戶管理的金鑰搭配 Azure Key Vault 來 Azure 儲存體加密，請參閱下列其中一篇文章：
 
@@ -96,6 +98,8 @@ Azure 儲存體中的資料會使用256位[AES 加密](https://en.wikipedia.org/
 ### <a name="store-customer-managed-keys-in-azure-key-vault"></a>將客戶管理的金鑰儲存在 Azure Key Vault
 
 若要在儲存體帳戶上啟用客戶管理的金鑰，您必須使用 Azure Key Vault 來儲存您的金鑰。 您必須同時啟用「虛**刪除**」和「不要**清除**」金鑰保存庫的屬性。
+
+Azure 儲存體加密僅支援大小為2048的 RSA 金鑰。 如需金鑰的詳細資訊，請參閱[關於 Azure Key Vault 金鑰、秘密和憑證](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)中的**Key Vault 金鑰**。
 
 金鑰保存庫必須位於與儲存體帳戶相同的訂用帳戶中。 Azure 儲存體會使用 Azure 資源的受控識別向金鑰保存庫進行驗證，以進行加密和解密作業。 受控識別目前不支援跨目錄案例。
 
@@ -137,7 +141,7 @@ Azure 儲存體不會儲存或管理用戶端與要求一起傳送的加密金�
 
 針對 REST 呼叫，用戶端可以使用下列標頭，安全地將要求的加密金鑰資訊傳遞至 Blob 儲存體：
 
-|要求標頭 | 描述 |
+|要求標頭 | 說明 |
 |---------------|-------------|
 |`x-ms-encryption-key` |寫入和讀取要求都需要。 Base64 編碼的 AES-256 加密金鑰值。 |
 |`x-ms-encryption-key-sha256`| 寫入和讀取要求都需要。 加密金鑰的 Base64 編碼 SHA256。 |

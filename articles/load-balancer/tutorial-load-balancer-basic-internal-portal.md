@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 1b9d943f540a0132abc6a70eba888aa5f8f46093
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d167a157935c6d51c025d2fbb11586343a2ef3f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225211"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453513"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>教學課程：在 Azure 入口網站中使用基本負載平衡器來平衡內部流量負載
 
 負載平衡會將傳入要求分散於多部虛擬機器 (VM)，藉此提供高可用性和範圍。 您可使用 Azure 入口網站建立基本負載平衡器，以及平衡多部虛擬機器的內部流量。 本教學課程說明如何在基本定價層建立及設定內部負載平衡器、後端伺服器及網路資源。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
 
 您可以依偏好使用 [Azure CLI](load-balancer-get-started-ilb-arm-cli.md) 或 [Azure PowerShell](load-balancer-get-started-ilb-arm-ps.md) (而非入口網站) 執行這些步驟。
 
@@ -42,7 +42,7 @@ ms.locfileid: "74225211"
    
 1. 在 [建立虛擬網路]  窗格中，輸入或選取下列值：
    
-   - **名稱**：輸入 MyVNet  。
+   - **Name**：輸入 MyVNet  。
    - **資源群組**：選取 [新建]  ，然後輸入 MyResourceGroupLB  ，然後選取 [確定]  。 
    - [子網路]   > [名稱]  ：輸入 MyBackendSubnet  。
    
@@ -94,7 +94,7 @@ ms.locfileid: "74225211"
     | 訂用帳戶               | 選取您的訂用帳戶。    |    
     | 資源群組         | 選取 [新建]  ，並在文字方塊中輸入 *MyResourceGroupLB*。|
     | 名稱                   | *myLoadBalancer*                                   |
-    | 區域         | 選取 [西歐]  。                                        |
+    | 區域         | 選取 [美國東部 2]  。                                        |
     | 類型          | 選取 [內部]  。                                        |
     | SKU           | 選取 [基本]  。                          |
     | 虛擬網路           | 選取 [MyVNet]  。                          |    
@@ -120,7 +120,7 @@ ms.locfileid: "74225211"
    
 1. 在 [新增後端集區]  頁面上，輸入或選取下列值：
    
-   - **名稱**：輸入 MyBackendPool  。
+   - **Name**：輸入 MyBackendPool  。
    - **與下列產生關聯**：下拉並選取 [可用性設定組]  。
    - **可用性設定組**：選取 [MyAvailabilitySet]  。
    
@@ -149,7 +149,7 @@ ms.locfileid: "74225211"
    
 1. 在 [新增健康情況探查]  頁面上，輸入或選取下列值：
    
-   - **名稱**：輸入 MyHealthProbe  。
+   - **Name**：輸入 MyHealthProbe  。
    - **通訊協定**：下拉並選取 [HTTP]  。 
    - **連接埠**：輸入 80  。 
    - **路徑**：接受 /  作為預設 URI。 您可以使用任何其他 URI 來取代此值。 
@@ -174,7 +174,7 @@ ms.locfileid: "74225211"
    
 1. 在 [新增負載平衡規則]  頁面上，輸入或選取下列值 (如果尚未存在)：
    
-   - **名稱**：輸入 MyLoadBalancerRule  。
+   - **Name**：輸入 MyLoadBalancerRule  。
    - **前端 IP 位址：** 輸入 LoadBalancerFrontEnd  (如果部存在)。
    - **通訊協定**：選取 [TCP]  。
    - **連接埠**：輸入 80  。

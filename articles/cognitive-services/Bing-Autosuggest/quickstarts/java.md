@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 0a0fb1e8f79587223ae1f25ca8a7e0d6dc7cc5bb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1593d4079cf7f50d5473f24ecf57351c9d7786e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565841"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384912"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>快速入門：使用 Bing 自動建議 REST API 與 Java 建議搜尋查詢
 
 
-使用本快速入門，呼叫 Bing 自動建議 API，並取得 JSON 回應。 這個簡單的 Java 應用程式會將部分搜尋查詢傳送至 API，並傳回搜尋建議。 雖然此應用程式是以 Java 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java) 上找到此範例的原始程式碼
+使用本快速入門開始呼叫 Bing 自動建議 API，並取得 JSON 回應。 這個簡單的 Java 應用程式會將部分搜尋查詢傳送至 API，並傳回搜尋建議。 雖然此應用程式是以 Java 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java) 上找到此範例的原始程式碼
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Java 開發套件 (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 * [Gson 程式庫](https://github.com/google/gson)
@@ -44,7 +44,7 @@ ms.locfileid: "68565841"
     import com.google.gson.JsonParser;
     ```
 
-2. 針對您的訂用帳戶金鑰、API 主機與路徑、[市場代碼](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)及搜尋查詢，建立變數。
+2. 針對您的訂用帳戶金鑰、API 主機與路徑、[市場代碼](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)及搜尋查詢，建立變數。 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
     
     ```java
     static String subscriptionKey = "enter key here";

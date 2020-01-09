@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/19/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 30234758761e06c65e621c7f512ed8cafa02e090
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 8cab88b9d3a861c72d382534705ea5c087fe9ecb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378653"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382645"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>快速入門：使用 Bing 影片搜尋 REST API 和 Java 來搜尋影片
 
 使用本快速入門來進行您對 Bing 影片搜尋 API 的第一次呼叫，並從 JSON 回應檢視搜尋結果。 這個簡單的 Java 應用程式會將 HTTP 影片搜尋查詢傳送給 API，並顯示回應。 雖然此應用程式是以 Java 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) 上有此範例的原始程式碼，其中還有其他錯誤處理、功能和程式碼註釋。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Java 開發套件 (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 
@@ -59,7 +59,7 @@ ms.locfileid: "74378653"
     }
     ```
 
-3. 使用您 API 端點主機和路徑、訂用帳戶金鑰及搜尋字詞的變數，建立名為 `SearchVideos()` 的新方法。 這會傳回 `SearchResults` 物件。 
+3. 使用您 API 端點主機和路徑、訂用帳戶金鑰及搜尋字詞的變數，建立名為 `SearchVideos()` 的新方法。 這會傳回 `SearchResults` 物件。 `host` 可以是下方的全域端點，也可以是 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
     ```java
     public static SearchResults SearchVideos (String searchQuery) throws Exception {

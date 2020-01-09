@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 428b42e62f44d182de109740359544135561e54b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fdb4b7c370d5edadf3e0e5bc0d1ae548da6bcaa9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441502"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438650"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>教學課程：準備部署 Azure Data Box Gateway
 
@@ -22,7 +22,7 @@ ms.locfileid: "67441502"
 
 您需要有系統管理員權限，才能完成安裝和設定程序。 入口網站準備工作不到 10 分鐘就能完成。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立新的資源
@@ -42,7 +42,7 @@ ms.locfileid: "67441502"
 
 現在您可以開始設定 Azure 入口網站。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 我們在此提供資料箱閘道資源、資料箱閘道裝置和資料中心網路的設定必要條件。
 
@@ -103,13 +103,13 @@ ms.locfileid: "67441502"
     |設定  |值  |
     |---------|---------|
     |訂用帳戶    |這會根據您稍早的選取項目自動填入。 訂用帳戶會連結到您的帳單帳戶。 |
-    |資源群組  |選取現有的群組或建立新的群組。<br>深入了解 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)。     |
+    |資源群組  |選取現有的群組或建立新的群組。<br>深入了解 [Azure 資源群組](../azure-resource-manager/management/overview.md)。     |
 
 5. 輸入或選取下列 [執行個體詳細資料]  。
 
     |設定  |值  |
     |---------|---------|
-    |Name   | 可識別資源的易記名稱。<br>此名稱介於 2 到 50 個字元之間，並且可包含字母、數字和連字號。<br> 名稱必須以字母或數字為開頭或結尾。        |   
+    |名稱   | 可識別資源的易記名稱。<br>此名稱介於 2 到 50 個字元之間，並且可包含字母、數字和連字號。<br> 名稱必須以字母或數字為開頭或結尾。        |   
     |區域     |此版本適用於在美國東部、東南亞和西歐等區域部署您的資源。 針對 Azure Government，列在 [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)中的所有政府區域都適用。 <br> 請選擇與您要部署裝置的地理區域最接近的位置。|
     
     ![建立資料箱閘道資源](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
@@ -177,7 +177,7 @@ ms.locfileid: "67441502"
 > [!div class="nextstepaction"]
 > [在 Hyper-V 中佈建資料箱閘道](./data-box-gateway-deploy-provision-hyperv.md)
 
-或
+OR
 
 > [!div class="nextstepaction"]
 > [在 VMware 中佈建資料箱閘道](./data-box-gateway-deploy-provision-vmware.md)

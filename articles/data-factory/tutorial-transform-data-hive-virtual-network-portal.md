@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
-ms.openlocfilehash: d52aed98549478898cb3bd263d52eeae2a69ccfd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dd0de5415dc001f107221add7ea223450290b3f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925560"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439273"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 虛擬網路中使用 Azure Data Factory 中的 Hive 活動轉換資料
 
@@ -32,7 +32,7 @@ ms.locfileid: "74925560"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -88,7 +88,7 @@ ms.locfileid: "74925560"
    - 選取 [使用現有的]  ，然後從下拉式清單選取現有的資源群組。 
    - 選取 [建立新的]  ，然後輸入資源群組的名稱。   
          
-     若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
+     若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。  
 4. 針對 [版本]  選取 [V2]  。
 5. 選取 Data Factory 的 [位置]  。 清單中只會顯示資料處理站建立所支援的位置。
 6. 選取 [釘選到儀表板]  。     
@@ -164,7 +164,7 @@ ms.locfileid: "74925560"
 
     1. 輸入 **AzureStorageLinkedService** 作為 [名稱]  。
     2. 在 [透過整合執行階段連線]  選取 [MySelfHostedIR]  。
-    3. 在 [儲存體帳戶名稱]  選取您的 Azure 儲存體帳戶。 
+    3. 針對 [儲存體帳戶名稱]  選取您的 Azure 儲存體帳戶。 
     4. 若要測試與儲存體帳戶的連線，按一下 [測試連線]  。
     5. 按一下 [檔案]  。
    
@@ -200,8 +200,8 @@ ms.locfileid: "74925560"
 
 請注意下列幾點：
 
-- **scriptPath** 指向您用於 MyStorageLinkedService 的 Azure 儲存體帳戶上的 Hive 指令碼路徑。 路徑區分大小寫。
-- **Output** 是 Hive 指令碼中使用的引數。 請使用 `wasbs://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 格式，以指向您的 Azure 儲存體上現有的資料夾。 路徑區分大小寫。 
+- **scriptPath** 指向您用於 MyStorageLinkedService 的 Azure 儲存體帳戶上的 Hive 指令碼路徑。 路徑會區分大小寫。
+- **Output** 是 Hive 指令碼中使用的引數。 請使用 `wasbs://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 格式，以指向您的 Azure 儲存體上現有的資料夾。 路徑會區分大小寫。 
 
 1. 在 Data Factory 使用者介面中，按一下左窗格中的 [+]  \(加號)，然後按一下 [管線]  。 
 
@@ -235,7 +235,7 @@ ms.locfileid: "74925560"
 
 ## <a name="trigger-a-pipeline-run"></a>觸發管線執行
 
-1. 首先，按一下工具列上的 [驗證]  按鈕驗證管線。 按一下[>>]  (右箭頭) 關閉 [管線驗證輸出]  視窗。 
+1. 首先，按一下工具列上的 [驗證]  按鈕驗證管線。 按一下[>>]  \(右箭頭) 關閉 [管線驗證輸出]  視窗。 
 
     ![驗證管線](./media/tutorial-transform-data-using-hive-in-vnet-portal/validate-pipeline.png) 
 2. 若要觸發管線執行，按一下工具列上的 [觸發程序]，然後按一下 [立即觸發]。 

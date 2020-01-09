@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 83644ac7144adaa664b13b6e7d7993c50da0e779
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 056c64657f42d56879928f518598206d45493f60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852498"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447775"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>教學課程：使用清單實體從語句中取得文字完全相符的資料
 
 在本教學課程中，您將了解如何取得與預先定義項目清單完全相符的資料。
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **在本教學課程中，您將了解如何：**
 
@@ -51,7 +49,7 @@ ms.locfileid: "74852498"
 
 ## <a name="import-example-json-and-add-utterances"></a>匯入範例. json 並新增語句
 
-1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json)。
+1.  下載並儲存[應用程式的 JSON 檔案](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json)。
 
     [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
@@ -195,7 +193,7 @@ ms.locfileid: "74852498"
 ## <a name="related-information"></a>相關資訊
 
 * [清單實體](luis-concept-entity-types.md#list-entity)概念資訊
-* [如何定型](luis-how-to-train.md)
+* [如何訓練](luis-how-to-train.md)
 * [發佈方法](luis-how-to-publish-app.md)
 * [如何在 LUIS 入口網站中測試](luis-interactive-test.md)
 * [概念 - 實體](luis-concept-entity-types.md)

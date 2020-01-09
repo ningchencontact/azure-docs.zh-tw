@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: cb99b747cb5de01c616c4cab0ac6c14823f7d4db
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a0205d57fa68585b1a91b99b19e008eb92e73c0d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044637"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435844"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Apache Kafka 原則 (預覽)
 
@@ -55,7 +55,7 @@ ms.locfileid: "73044637"
    |設定  |建議的值  |
    |---------|---------|
    |原則名稱  |  hdi 銷售* 原則   |
-   |話題   |  銷售* |
+   |主題   |  銷售* |
    |選取使用者  |  sales_user1 |
    |權限  | 發佈、取用、建立 |
 
@@ -75,7 +75,7 @@ ms.locfileid: "73044637"
    |設定  |建議的值  |
    |---------|---------|
    |原則名稱  |  hdi 行銷原則   |
-   |話題   |  marketingspend |
+   |主題   |  marketingspend |
    |選取使用者  |  marketing_user1 |
    |權限  | 發佈、取用、建立 |
 
@@ -93,7 +93,7 @@ ms.locfileid: "73044637"
    ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   將 `DOMAINADMIN` 取代為[叢集建立](./apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp)期間設定的叢集管理使用者，並將 `CLUSTERNAME` 取代為您的叢集名稱。 出現提示時，請輸入管理使用者帳戶的密碼。 如需搭配 HDInsight 使用 `SSH` 的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)。
+   將 `DOMAINADMIN` 取代為[叢集建立](./apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp)期間設定的叢集管理使用者，並將 `CLUSTERNAME` 取代為您的叢集名稱。 出現提示時，請輸入管理使用者帳戶的密碼。 如需搭配 HDInsight 使用 `SSH` 的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 下列命令可用來將叢集名稱儲存到變數，並安裝 JSON 剖析公用程式 `jq`。 出現提示時，請輸入 Kafka 叢集名稱。
 
@@ -131,7 +131,7 @@ ms.locfileid: "73044637"
    ssh sales_user1@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-2. 執行以下命令：
+2. 執行下列命令：
 
    ```bash
    export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf"
@@ -193,7 +193,7 @@ ms.locfileid: "73044637"
 1. 在頂端的 [搜尋]  方塊中，輸入 **HDInsight**。
 1. 在 [服務]  底下，選取 [HDInsight 叢集]  。
 1. 從出現的 HDInsight 叢集清單中，在您為本教學課程建立的叢集旁按一下 [...]  。 
-1. 按一下 [刪除]  。 按一下 [是]  。
+1. 按一下 **[刪除]** 。 按一下 [是]  。
 
 ## <a name="next-steps"></a>後續步驟
 

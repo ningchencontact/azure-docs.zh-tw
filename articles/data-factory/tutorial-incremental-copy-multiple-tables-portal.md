@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
-ms.openlocfilehash: e3ccc5a48251af181983624f0c8d0eed68c241da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2c89b53d66b93ff38a7cff07b2889faf8eda24ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926548"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439303"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL 資料庫
 
@@ -65,7 +65,7 @@ ms.locfileid: "74926548"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>Prerequisites
 * **SQL Server**。 在本教學課程中，您會使用內部部署 SQL 資料庫作為來源資料存放區。 
 * **Azure SQL Database**。 您會使用 SQL 資料庫作為接收資料存放區。 如果您沒有 SQL 資料庫，請參閱[建立 Azure SQL 資料庫](../sql-database/sql-database-get-started-portal.md)，按照步驟來建立 SQL 資料庫。 
 
@@ -231,7 +231,7 @@ END
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
 1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
-2. 在左側功能表中，選取 [建立資源]   > [分析]   > [資料處理站]  ： 
+2. 在左側功能表上，選取 [建立資源]   > [分析]   > [資料處理站]  ： 
    
    ![在 [新增] 窗格中選取資料處理站](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -246,7 +246,7 @@ END
      
     - 選取 [使用現有的]  ，然後從下拉式清單選取現有的資源群組。 
     - 選取 [建立新的]  ，然後輸入資源群組的名稱。   
-    若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
+    若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。  
 6. 針對 [版本]  選取 [V2]  。
 7. 選取 Data Factory 的 [位置]  。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 8. 按一下頁面底部的 [新增]  。      
@@ -470,7 +470,7 @@ END
         | 名稱 | 類型 | 值 | 
         | ---- | ---- | ----- |
         | LastModifiedtime | Datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | 字串 | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![預存程序活動 - 預存程序設定](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. 請選取 [全部發佈]  ，將您建立的實體發佈至 Data Factory 服務。 

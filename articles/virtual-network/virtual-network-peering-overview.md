@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 59854d7d46f533510bea97a6845554fc0ce83dbb
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 335b956701a87b6a0e5984ae50507a91d212ab67
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328363"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646739"
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
@@ -91,9 +91,9 @@ Azure 支援下列類型的對等互連：
 * 一個虛擬網路中的資源無法與全域對等互連虛擬網路中基本內部 Load Balancer （ILB）的前端 IP 位址通訊。
 * 某些使用基本負載平衡器的服務不適用於全域虛擬網路對等互連。 如需詳細資訊，請參閱與[全域 VNet 對等互連和負載平衡器相關的條件約束為何？](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)。
 
-如需詳細資訊，請參閱[需求和條件約束](virtual-network-manage-peering.md#requirements-and-constraints)。 若要深入瞭解支援的對等互連數目，請參閱[網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
+如需詳細資訊，請參閱[需求和條件約束](virtual-network-manage-peering.md#requirements-and-constraints)。 若要深入瞭解支援的對等互連數目，請參閱[網路限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>使用權限
 
 若要瞭解建立虛擬網路對等互連所需的許可權，請參閱[許可權](virtual-network-manage-peering.md#permissions)。
 

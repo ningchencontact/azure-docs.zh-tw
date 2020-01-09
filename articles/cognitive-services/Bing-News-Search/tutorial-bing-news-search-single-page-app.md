@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 424fdc9fa0f31b3de664945ff49b119939488fed
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e128daa82eca8142a636df0958ddca574e398713
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423616"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383110"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>教學課程：建立單頁 Web 應用程式
 
@@ -48,12 +48,12 @@ Bing 新聞搜尋 API 可讓您搜尋網頁，並取得與搜尋查詢相關的�
 > * CSS - 定義頁面的外觀
 > * JavaScript - 定義頁面的行為
 
-大部分的 HTML 和 CSS 是常見項目，因此本教學課程不會加以討論。 HTML 包含搜尋表單，使用者會在其中輸入查詢並選擇搜尋選項。 該表單會使用 `<form>` 標籤的 `onsubmit` 屬性，連接至實際執行搜尋的 JavaScript：
+大部分的 HTML 和 CSS 是常見項目，因此本教學課程不會加以討論。 HTML 包含搜尋表單，使用者可在其中輸入查詢並選擇搜尋選項。 該表單會使用 `<form>` 標籤的 `onsubmit` 屬性，連接至實際執行搜尋的 JavaScript：
 
 ```html
 <form name="bing" onsubmit="return newBingNewsSearch(this)">
 ```
-`onsubmit` 處理常式會傳回 `false`，這可防止將表單提交給伺服器。 JavaScript 程式碼會從表單收集所需的資訊，並執行搜尋。
+`onsubmit` 處理常式會傳回 `false`，這可防止表單提交至伺服器。 JavaScript 程式碼會從表單收集所需的資訊，並執行搜尋。
 
 HTML 也包含顯示搜尋結果的區域 (HTML `<div>` 標籤)。
 
@@ -61,7 +61,7 @@ HTML 也包含顯示搜尋結果的區域 (HTML `<div>` 標籤)。
 
 為了避免必須在程式碼中包含 Bing 搜尋 API 訂用帳戶金鑰，我們使用瀏覽器的永續性儲存體來儲存金鑰。 儲存此金鑰之前，我們會提示輸入使用者的金鑰。 若 API 稍後拒絕金鑰，我們會讓儲存的金鑰失效，以便再次提示使用者。
 
-我們會定義 `storeValue` 和 `retrieveValue` 函式，以使用 `localStorage` 物件 (並非所有瀏覽器都支援它) 或 Cookie。 `getSubscriptionKey()` 函式使用這些函式來儲存及擷取使用者的金鑰。
+我們會定義 `storeValue` 和 `retrieveValue` 函式，以使用 `localStorage` 物件 (並非所有瀏覽器都支援它) 或 Cookie。 `getSubscriptionKey()` 函式使用這些函式來儲存及擷取使用者的金鑰。 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
 ``` javascript
 // Cookie names for data we store
@@ -101,7 +101,7 @@ HTML `<form>` 標籤 `onsubmit` 會呼叫 `bingWebSearch` 函式來傳回搜尋�
 
 HTML 表單包含具有下列名稱的項目：
 
-|元素|說明|
+|元素|描述|
 |-|-|
 | `where` | 可供選取市場 (位置和語言) 以用於搜尋的下拉式功能表。 |
 | `query` | 要輸入搜尋字詞的文字欄位。 |
@@ -269,7 +269,7 @@ function handleBingResponse() {
 > [!IMPORTANT]
 > 成功的 HTTP 要求「不」  一定表示搜尋本身成功。 若搜尋作業中發生錯誤，Bing 新聞搜尋 API 會傳回非 200 HTTP 狀態碼，並在 JSON 回應中包含錯誤資訊。 此外，若要求速率受到限制，API 會傳回空白回應。
 
-上述兩個函式中大部分的程式碼都是專門用來處理錯誤的。 下列階段可能會發生錯誤：
+上述兩個函式中的大部分程式碼都是專用於錯誤處理。 下列階段可能會發生錯誤：
 
 |階段|可能的錯誤|處理者|
 |-|-|-|
@@ -313,9 +313,9 @@ function renderResults(items) {
     return html.join("\n\n");
 }
 ```
-Bing 新聞搜尋 API 最多傳回四種不同的相關結果，每個都出現在它自己的最上層物件中。 如下：
+Bing 新聞搜尋 API 最多傳回四種不同的相關結果，每個都出現在它自己的最上層物件中。 其中包括：
 
-|關聯|說明|
+|關聯|描述|
 |-|-|
 |`pivotSuggestions`|將原始搜尋中的樞紐字組取代為不同樞紐字組的查詢。 比方說，若您搜尋「紅色花卉」，樞紐字組可能是「紅色」，而樞紐建議可能是「黃色花卉」。|
 |`queryExpansions`|藉由新增多個字詞以縮小原始搜尋範圍的查詢。 比方說，若您搜尋 "Microsoft Surface"，可能是查詢擴充可能是 "Microsoft Surface Pro"。|
@@ -338,7 +338,7 @@ searchItemRenderers = {
 ```
 轉譯器函式可接受下列參數：
 
-|參數|說明|
+|參數|描述|
 |-|-|
 |`item`| JavaScript 物件，其中包含項目的屬性，例如其 URL 及其描述。|
 |`index`| 集合內結果項目的索引。|
@@ -390,7 +390,7 @@ searchItemRenderers = {
 
 首先，它可讓 Bing 搜尋引擎將過去內容套用至搜尋結果，以尋找更符合使用者的結果。 例如，若使用者之前搜尋與航行相關的字詞，稍後搜尋「節」可能會優先傳回航行中所使用節數的相關資訊。
 
-其次，Bing 可能會隨機選取使用者來體驗新功能，再廣泛提供這些功能。 在每個要求中提供相同的用戶端識別碼，可確保看到功能的使用者一律會看到該功能。 若沒有用戶端識別碼，使用者可能會在其搜尋結果中看到功能出現並消失，似乎很隨機。
+其次，Bing 可能會隨機選取使用者來體驗新功能，再廣泛提供這些功能。 在每個要求中提供相同的用戶端識別碼，可確保看到功能的使用者一律會看到該功能。 若沒有用戶端識別碼，使用者可能會在其搜尋結果中隨機看到功能出現並消失。
 
 瀏覽器安全性原則 (CORS) 可防止將 `X-MSEdge-ClientID` 標頭提供給 JavaScript 使用。 當搜尋回應的來源與要求回應的頁面不同時，就會發生這項限制。 在生產環境中，您應該裝載伺服器端指令碼，在與網頁相同的網域上執行 API 呼叫，以處理此原則。 由於指令碼的來源與網頁相同，因此 `X-MSEdge-ClientID` 標頭會接著提供給 JavaScript 使用。
 

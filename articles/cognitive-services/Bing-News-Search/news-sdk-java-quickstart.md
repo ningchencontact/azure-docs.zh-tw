@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: def964dd932f8a41a877a3d9568a8ec4825874b8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b8c2ca3bf919d70123b7b5b6d13c0301e0c1fd13
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383921"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383573"
 ---
 # <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>快速入門：使用適用於 Java 的 Bing 新聞搜尋 SDK 來搜尋新聞
 
 透過本快速入門開始使用適用於 Java 的 Bing 新聞搜尋 SDK 來搜尋新聞。 雖然 Bing 新聞搜尋具有與大部分程式設計語言相容的 REST API，但 SDK 會提供簡單的方法，將服務整合到您的應用程式。 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) 上找到。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 使用 Maven、Gradle 或另一個相依性管理系統，來安裝 Bing 新聞搜尋 SDK 相依性。 Maven POM 檔案需要下列宣告：
 
@@ -57,7 +57,7 @@ import java.io.IOException;
 
 ## <a name="create-a-search-client-and-store-credentials"></a>建立搜尋用戶端與存放區認證
 
-1. 建立呼叫 `getClient()` 的方法，以傳回新的 `NewsSearchAPIImpl` 搜尋用戶端。 將您的端點新增為新 `NewsSearchAPIImpl` 物件的第一個參數，並新增 `ServiceClientCredentials` 物件來儲存您的認證。
+1. 建立呼叫 `getClient()` 的方法，以傳回新的 `NewsSearchAPIImpl` 搜尋用戶端。 將您的端點新增為新 `NewsSearchAPIImpl` 物件的第一個參數，並新增 `ServiceClientCredentials` 物件來儲存您的認證。 
 
     ```java
     public static NewsSearchAPIImpl getClient(final String subscriptionKey) {

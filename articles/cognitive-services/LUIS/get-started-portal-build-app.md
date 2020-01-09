@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: cbfb0ddb0ee901545443fc127f80a1837c7bde9b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 55ba025b9174f727a54ce0cd63da11c8661af91c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278591"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381982"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>快速入門：在 LUIS 入口網站中建立新的應用程式
-
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 在本快速入門中，您會在 LUIS 入口網站中建立新的應用程式。 首先要建立應用程式、**意圖**和**實體**的基本部分。 然後藉由在互動式測試面板中提供範例使用者語句進行測試，以取得預測意圖。
 
@@ -37,8 +35,8 @@ ms.locfileid: "74278591"
 
    |設定名稱| 值 | 目的|
    |--|--|--|
-   |名稱|`myEnglishApp`|唯一的 LUIS 應用程式名稱<br>必要|
-   |文化特性|**英文**|使用者語句的語言 **en-us**<br>必要|
+   |名稱|`myEnglishApp`|唯一的 LUIS 應用程式名稱<br>required|
+   |文化特性|**英文**|使用者語句的語言 **en-us**<br>required|
    |說明 (選擇性)|`App made with LUIS Portal`|應用程式的描述<br>選用|
    |預測資源 (選擇性) |-  |請勿選取。 LUIS 提供入門金鑰，可免費用於製作 1000 個預測端點要求。 |
 

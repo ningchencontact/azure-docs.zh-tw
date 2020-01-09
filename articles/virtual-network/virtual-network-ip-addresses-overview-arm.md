@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 40797c1b46bc88ecdaab6e28ef64f05a73e3ba8d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c522e88b5c7a759f72704e44e041c01d8541cc7c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495905"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646807"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 位址類型及配置方法
 
@@ -30,7 +30,7 @@ ms.locfileid: "73495905"
 您也可以透過公用 IP 前置詞，建立連續範圍的靜態公用 IP 位址。 [深入瞭解功用首碼。](public-ip-address-prefix.md)
 
 > [!NOTE]
-> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。  本文涵蓋之內容包括使用 Resource Manager 部署模型，Microsoft 建議大部分的新部署使用此模型，而不是[傳統部署模型](virtual-network-ip-addresses-overview-classic.md)。
+> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。  本文涵蓋內容包括使用 Resource Manager 部署模型，Microsoft 建議大部分的新部署使用此模型，而不是[傳統部署模型](virtual-network-ip-addresses-overview-classic.md)。
 > 
 
 如果您熟悉傳統部署模型，請參閱 [傳統與 Resource Manager 之間的 IP 定址差異](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments)。
@@ -67,7 +67,7 @@ ms.locfileid: "73495905"
 - 會指派給任何可以指派公用 IP 位址的 Azure 資源，例如網路介面、VPN 閘道、應用程式閘道和網際網路對應負載平衡器。
 - 不支援可用性區域案例。  您必須將標準 SKU 公用 IP 使用於可用性區域案例。 若要了解可用性區域，請參閱[可用性區域概觀](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[標準負載平衡器和可用性區域](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
-#### <a name="standard"></a>標準
+#### <a name="standard"></a>Standard
 
 標準 SKU 的公用 IP 位址有下列特性：
 
@@ -105,7 +105,7 @@ ms.locfileid: "73495905"
 >
 
 ### <a name="dns-hostname-resolution"></a>DNS 主機名稱解析
-您可以指定公用 IP 資源的 DNS 網域名稱標籤，以建立 domainnamelabel.location.cloudapp.azure.com 與 Azure 受控 DNS 伺服器中的公用 IP 位址的對應。 比方說，如果您建立公用 IP 資源並以 **contoso** 作為*美國西部* Azure 位置中的 domainnamelabel，則完整網域名稱 (FQDN) **contoso.westus.cloudapp.azure.com** 會解析為資源的公用 IP 位址。
+您可以指定公用 IP 資源的 DNS 網域名稱標籤，以建立 domainnamelabel.location.cloudapp.azure.com 與 Azure 受控 DNS 伺服器中的公用 IP 位址的對應。 比方說，如果您建立公用 IP 資源並以 **contoso** 作為**美國西部** Azure 位置中的 domainnamelabel，則完整網域名稱 (FQDN) **contoso.westus.cloudapp.azure.com** 會解析為資源的公用 IP 位址。
 
 > [!IMPORTANT]
 > 所建立的每個網域名稱標籤必須是 Azure 位置中唯一的。  
@@ -116,11 +116,11 @@ ms.locfileid: "73495905"
 
 ### <a name="virtual-machines"></a>虛擬機器
 
-您可以藉由將公用 IP 位址指派給其[網路介面](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，以建立其與 [Windows](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 **Linux** 虛擬機器的關聯。 您可以將動態或靜態公用 IP 位址指派給虛擬機器。 深入了解如何[將 IP 位址指派給網路介面](virtual-network-network-interface-addresses.md)。
+您可以藉由將公用 IP 位址指派給其**網路介面**，以建立其與 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器的關聯。 您可以將動態或靜態公用 IP 位址指派給虛擬機器。 深入了解如何[將 IP 位址指派給網路介面](virtual-network-network-interface-addresses.md)。
 
 ### <a name="internet-facing-load-balancers"></a>網際網路對應負載平衡器
 
-您可以將使用任一 [SKU](#sku) 所建立的公用 IP 位址指派給負載平衡器[前端](../load-balancer/load-balancer-overview.md)組態，以建立其與 **Azure Load Balancer** 的關聯。 此公用 IP 位址作為負載平衡的虛擬 IP 位址 (VIP)。 您可以將動態或靜態公用 IP 位址指派給負載平衡器前端。 您也可以將多個公用 IP 位址指派給一個負載平衡器前端，以實現 [多重 VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 案例 (例如具有多個 SSL 架構網站的多租用戶環境)。 如需 Azure 負載平衡器 SKU 的詳細資訊，請參閱 [Azure 負載平衡器的標準 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+您可以將使用任一 [SKU](#sku) 所建立的公用 IP 位址指派給負載平衡器**前端**組態，以建立其與 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) 的關聯。 此公用 IP 位址作為負載平衡的虛擬 IP 位址 (VIP)。 您可以將動態或靜態公用 IP 位址指派給負載平衡器前端。 您也可以將多個公用 IP 位址指派給一個負載平衡器前端，以實現 [多重 VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 案例 (例如具有多個 SSL 架構網站的多租用戶環境)。 如需 Azure 負載平衡器 SKU 的詳細資訊，請參閱 [Azure 負載平衡器的標準 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 ### <a name="vpn-gateways"></a>VPN 閘道
 
@@ -135,10 +135,10 @@ ms.locfileid: "73495905"
 
 | 最上層資源 | IP 位址關聯 | 動態 | 靜態 |
 | --- | --- | --- | --- |
-| 虛擬機器 |網路介面 |是 |是 |
+| 虛擬機器 |Linux |是 |是 |
 | 網際網路對應負載平衡器 |前端組態 |是 |是 |
 | VPN 閘道 |閘道 IP 組態 |是 |否 |
-| 前端 |前端組態 |是 (僅限 V1) |是 (僅限 V2) |
+| 應用程式閘道 |前端組態 |是 (僅限 V1) |是 (僅限 V2) |
 
 ## <a name="private-ip-addresses"></a>私人 IP 位址
 私人 IP 位址可讓 Azure 資源透過 VPN 閘道或 ExpressRoute 電路，與 [虛擬網路](virtual-networks-overview.md) 中或內部部署網路中的其他資源進行通訊，而不必使用可網際網路連線的 IP 位址。
@@ -160,7 +160,7 @@ ms.locfileid: "73495905"
 
 ### <a name="virtual-machines"></a>虛擬機器
 
-一或多個私人 IP 位址會指派給 **Windows** 或 [Linux](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器的一或多個[網路介面](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 您可以將每個私人 IP 位址的配置方法指定為動態或靜態。
+一或多個私人 IP 位址會指派給 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器的一或多個**網路介面**。 您可以將每個私人 IP 位址的配置方法指定為動態或靜態。
 
 #### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>內部 DNS 主機名稱解析 (適用於虛擬機器)
 
@@ -172,21 +172,21 @@ ms.locfileid: "73495905"
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>內部負載平衡器 (ILB) 與應用程式閘道
 
-您可以將私人 IP 位址指派給 **Azure 內部負載平衡器** (ILB) 或 [Azure 應用程式閘道](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的[前端](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)組態。 此私人 IP 位址可作為內部端點，只能存取其虛擬網路內的資源與連線到虛擬網路的遠端網路。 您可以將動態或靜態私人 IP 位址指派給前端組態。
+您可以將私人 IP 位址指派給 [Azure 內部負載平衡器](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB) 或 [Azure 應用程式閘道](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的**前端**組態。 此私人 IP 位址可作為內部端點，只能存取其虛擬網路內的資源與連線到虛擬網路的遠端網路。 您可以將動態或靜態私人 IP 位址指派給前端組態。
 
 ### <a name="at-a-glance"></a>快速總覽
 下表顯示特定的屬性，私人 IP 位址可透過它關聯到最上層資源，以及顯示可以使用的可能配置方法 (動態或靜態)。
 
 | 最上層資源 | IP 位址關聯 | 動態 | 靜態 |
 | --- | --- | --- | --- |
-| 虛擬機器 |網路介面 |是 |是 |
+| 虛擬機器 |Linux |是 |是 |
 | 負載平衡器 |前端組態 |是 |是 |
-| 前端 |前端組態 |是 |是 |
+| 應用程式閘道 |前端組態 |是 |是 |
 
 ## <a name="limits"></a>限制
-加諸於 IP 位址上的限制，如在 Azure 中的完整 [網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) 所示。 這些限制是針對每一區域和每一訂用帳戶。 您可以 [連絡支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ，以根據您的業務需求將預設上限調升到最高上限。
+加諸於 IP 位址上的限制，如在 Azure 中的完整[網路限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)所示。 這些限制是針對每一區域和每一訂用帳戶。 您可以 [連絡支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ，以根據您的業務需求將預設上限調升到最高上限。
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 公用 IP 位址可能需要少許費用。 若要深入了解 IP 位址的價格，請參閱 [IP 位址價格](https://azure.microsoft.com/pricing/details/ip-addresses)頁面。
 
 ## <a name="next-steps"></a>後續步驟

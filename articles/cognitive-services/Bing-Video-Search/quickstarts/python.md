@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 270117430b997921e0df486b1760db317bcb1611
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: fbf20c2d54506b0f314697d6df34f9a430e7c016
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383780"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382679"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>快速入門：使用 Bing 影片搜尋 REST API 和 Python 來搜尋影片
 
@@ -26,7 +26,7 @@ ms.locfileid: "74383780"
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Python [2.x 或 3.x](https://python.org)
 
@@ -40,7 +40,7 @@ ms.locfileid: "74383780"
     import requests
     from IPython.display import HTML
     ```
-2.  建立訂用帳戶金鑰、搜尋端點和搜尋字詞的變數。
+2.  建立訂用帳戶金鑰、搜尋端點和搜尋字詞的變數。 `search_url` 可以是下方的全域端點，也可以是 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
     
     ```python
     subscription_key = None

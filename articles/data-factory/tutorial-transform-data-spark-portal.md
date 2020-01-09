@@ -10,12 +10,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 34c2a27d047888d1e763a0a99461e7eb4b9fb203
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ddc5032da415ebee9920556d3168d30bdae4a158
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925104"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439216"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動來轉換雲端中的資料
 在本教學課程中，您會使用 Azure 入口網站來建立 Azure Data Factory 管線。 此管線使用 Spark 活動和隨選 Azure HDInsight 連結服務來轉換資料。 
@@ -30,7 +30,7 @@ ms.locfileid: "74925104"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -99,7 +99,7 @@ ms.locfileid: "74925104"
    - 選取 [使用現有的]  ，然後從下拉式清單選取現有的資源群組。 
    - 選取 [建立新的]  ，然後輸入資源群組的名稱。   
          
-   本快速入門的某些步驟是假設您使用 **ADFTutorialResourceGroup** 作為資源群組名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
+   本快速入門的某些步驟是假設您使用 **ADFTutorialResourceGroup** 作為資源群組名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。  
 1. 針對 [版本]  ，選取 [V2]  。
 1. 針對 [位置]  ，選取資料處理站的位置。 
 
@@ -230,7 +230,7 @@ ms.locfileid: "74925104"
 
 ![輸出檔案的位置](./media/tutorial-transform-data-spark-portal/verity-output.png)
 
-這個檔案應該有輸入文字檔中的每個字組，以及字組在檔案中出現的次數。 例如︰ 
+這個檔案應該有輸入文字檔中的每個字組，以及字組在檔案中出現的次數。 例如： 
 
 ```
 (u'This', 1)

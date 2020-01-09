@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure SignalR 服務文件
 metadata:
-  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
   title: 文件 - Azure SignalR Service
   description: 以無伺服器或伺服器模式輕鬆地建置及調整即時 Web 應用程式。 以支援各種語言和架構的 WebSocket 為基礎。
   services: azure-signalr

@@ -2,21 +2,17 @@
 title: 針對 Azure 虛擬機器上的變更進行疑難排解 | Microsoft Docs
 description: 使用變更追蹤來針對 Azure 虛擬機器上的變更進行疑難排解。
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
 keywords: 變更, 追蹤, 自動化
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 92f25d956bc8f1f930ae6ebbf7ee48c144bf8a30
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 60ca1ef3d5c14a0f3dea5b662fc5c95184e6574d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476866"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420643"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>針對您環境中的變更進行疑難排解
 
@@ -34,7 +30,7 @@ ms.locfileid: "67476866"
 > * 檢視變更
 > * 設定警示
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本教學課程，您需要：
 
@@ -99,9 +95,9 @@ ConfigurationChange
 
 1. 在 [為變更追蹤新增 Windows 登錄]  上，輸入要追蹤的機碼資訊，然後按一下 [儲存] 
 
-|屬性  |說明  |
+|屬性  |描述  |
 |---------|---------|
-|已啟用     | 判斷是否已套用設定        |
+|啟用     | 判斷是否已套用設定        |
 |項目名稱     | 所要追蹤檔案的易記名稱        |
 |群組     | 用於將檔案以邏輯方式分組的群組名稱        |
 |Windows 登錄機碼   | 要檢查檔案的路徑。例如："HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
@@ -112,9 +108,9 @@ ConfigurationChange
 
 1. 在 [為變更追蹤新增 Windows 檔案]  上，輸入要追蹤的檔案或目錄資訊，然後按一下 [儲存] 
 
-|屬性  |說明  |
+|屬性  |描述  |
 |---------|---------|
-|已啟用     | 判斷是否已套用設定        |
+|啟用     | 判斷是否已套用設定        |
 |項目名稱     | 所要追蹤檔案的易記名稱        |
 |群組     | 用於將檔案以邏輯方式分組的群組名稱        |
 |輸入路徑     | 要檢查檔案的路徑，例如："c:\temp\\\*.txt"<br>您也可以使用環境變數，例如 "%winDir%\System32\\\*.*"         |
@@ -127,9 +123,9 @@ ConfigurationChange
 
 1. 在 [為變更追蹤新增 Linux 檔案]  上，輸入要追蹤的檔案或目錄資訊，然後按一下 [儲存] 
 
-|屬性  |說明  |
+|屬性  |描述  |
 |---------|---------|
-|已啟用     | 判斷是否已套用設定        |
+|啟用     | 判斷是否已套用設定        |
 |項目名稱     | 所要追蹤檔案的易記名稱        |
 |群組     | 用於將檔案以邏輯方式分組的群組名稱        |
 |輸入路徑     | 要檢查檔案的路徑。例如："/etc/*.conf"       |

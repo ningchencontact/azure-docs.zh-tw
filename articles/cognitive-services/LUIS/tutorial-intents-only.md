@@ -9,41 +9,36 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/20/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 4d096ee829a425af3763c212daf5049acccf9f19
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 508fa192a014501bad6488e5be8278731230913b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325891"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381557"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>教學課程：建置 LUIS 應用程式來判斷使用者意圖
 
-在本教學課程中，您會建立自訂應用程式，以根據語句 (文字) 預測使用者的用意。 
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
+在本教學課程中，您會建立自訂應用程式，以根據語句 (文字) 預測使用者的用意。
 
 **在本教學課程中，您將了解如何：**
 
 > [!div class="checklist"]
-> * 建立新的應用程式 
+> * 建立新的應用程式
 > * 建議意圖
 > * 新增範例語句
 > * 訓練應用程式
 > * 發佈應用程式
 > * 從端點取得意圖預測
 
-
-[!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
-
 ## <a name="user-intentions-as-intents"></a>使用者用意成為意圖
 
-應用程式的目的是要判斷交談式自然語言文字的用意： 
+應用程式的目的是要判斷交談式自然語言文字的用意：
 
 `I'd like to order a veggie pizza with a salad on the side.`
 
-這些用意可歸類為各種**意圖**。 
+這些用意可歸類為各種**意圖**。
 
 |Intent|目的|
 |--|--|
@@ -56,11 +51,11 @@ ms.locfileid: "74325891"
 
 [!INCLUDE [Follow these steps to create a new LUIS app](includes/create-pizza-app.md)]
 
-## <a name="create-a-new-intent"></a>建立新意圖 
+## <a name="create-a-new-intent"></a>建立新意圖
 
 1. 在入口網站中，從應用程式的 [建置]  區段中選取 [+ 建立]  。 輸入新意圖名稱 `OrderPizza`，然後選取 [完成]  。
 
-    當使用者想要訂購披薩時，系統就會預測 `OrderPizza` 意圖。 
+    當使用者想要訂購披薩時，系統就會預測 `OrderPizza` 意圖。
 
 1. 將您預期使用者會要求的數個範例語句新增至此意圖：
 
@@ -74,9 +69,9 @@ ms.locfileid: "74325891"
 
     ![新增範例語句](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    藉由提供_範例語句_，您可訓練 LUIS 應針對此意圖預測哪些種類的語句。 
+    藉由提供_範例語句_，您可訓練 LUIS 應針對此意圖預測哪些種類的語句。
 
-    [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]    
+    [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 
 ## <a name="create-remaining-intents"></a>建立其餘的意圖
 
@@ -90,7 +85,7 @@ ms.locfileid: "74325891"
     |`Start`|
     |`Begin`|
 
-1. 建立 `Confirm` 意圖，並新增下列範例語句。 此意圖用來判斷使用者是否已完成訂購並接受訂單詳細資料。 
+1. 建立 `Confirm` 意圖，並新增下列範例語句。 此意圖用來判斷使用者是否已完成訂購並接受訂單詳細資料。
 
     |`Confirm` 範例語句|
     |--|
@@ -104,13 +99,13 @@ ms.locfileid: "74325891"
 
 [!INCLUDE [Follow these steps to add the None intent to the app](includes/add-example-utterances-none-intent.md)]
 
-## <a name="train-the-app"></a>進行應用程式定型 
+## <a name="train-the-app"></a>進行應用程式定型
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## <a name="publish-the-app"></a>發佈應用程式 
+## <a name="publish-the-app"></a>發佈應用程式
 
-[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)] 
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
 ## <a name="get-intent-prediction"></a>取得意圖預測
 
@@ -118,11 +113,11 @@ ms.locfileid: "74325891"
 
 1. 移至位址中的 URL 尾端並輸入：
 
-    `get a medium vegetarian pizza for delivery` 
+    `get a medium vegetarian pizza for delivery`
 
     這與範例語句並不完全相同，因此若要查看 LUIS 是否能了解以此意圖應預測的內容，這是很好的測試。
 
-    最後一個查詢字串參數是 `query`，也就是語句**查詢**。 此語句與所有範例語句不同。 這是很好的測試，而且應傳回 `OrderPizza` 意圖作為評分最高的意圖。 
+    最後一個查詢字串參數是 `query`，也就是語句**查詢**。 此語句與所有範例語句不同。 這是很好的測試，而且應傳回 `OrderPizza` 意圖作為評分最高的意圖。
 
     ```JSON
     {
@@ -148,15 +143,15 @@ ms.locfileid: "74325891"
     }
     ```
 
-    實體陣列是空的，因為此應用程式目前沒有任何實體 (語句中要擷取的資料單位)。 
+    實體陣列是空的，因為此應用程式目前沒有任何實體 (語句中要擷取的資料單位)。
 
-    JSON 結果會將評分最高的意圖識別為 **`prediction.topIntent`** 屬性。 所有分數都介於 1 到 0，分數越好者越接近 1。 
+    JSON 結果會將評分最高的意圖識別為 **`prediction.topIntent`** 屬性。 所有分數都介於 1 到 0，分數越好者越接近 1。
 
 1. 將 URL **查詢** 參數變更為以 **問候** 意圖為目標：
 
     `Howdy`
 
-    這與範例語句並不完全相同，因此若要查看 LUIS 是否能了解以此意圖應預測的內容，這是很好的測試。 
+    這與範例語句並不完全相同，因此若要查看 LUIS 是否能了解以此意圖應預測的內容，這是很好的測試。
 
     ```json
     {
@@ -179,14 +174,14 @@ ms.locfileid: "74325891"
             },
             "entities": {}
         }
-    }    
+    }
     ```
- 
-    此預測的信賴分數佔 44%。 若要增加信賴分數，請新增 15 到 30 個範例語句。  
+
+    此預測的信賴分數佔 44%。 若要增加信賴分數，請新增 15 到 30 個範例語句。
 
 ## <a name="client-application-next-steps"></a>用戶端應用程式的後續步驟
 
-在 LUIS 傳回 JSON 回應之後，隨著此要求完成 LUIS。 LUIS 不會提供使用者語句的回答，只會在自然語言中識別所要求的是哪一類資訊。 Azure Bot 等用戶端應用程式會提供交談式後續追蹤。 
+在 LUIS 傳回 JSON 回應之後，隨著此要求完成 LUIS。 LUIS 不會提供使用者語句的回答，只會在自然語言中識別所要求的是哪一類資訊。 Azure Bot 等用戶端應用程式會提供交談式後續追蹤。
 
 
 [!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
@@ -202,7 +197,7 @@ ms.locfileid: "74325891"
 
 ## <a name="next-steps"></a>後續步驟
 
-本教學課程已在端點上建立 LUIS 應用程式、建立意圖、新增每個意圖的範例語句、將範例語句新增至 None 意圖、進行訓練、發佈及測試。 這些是建置 LUIS 模型的基本步驟。 
+本教學課程已在端點上建立 LUIS 應用程式、建立意圖、新增每個意圖的範例語句、將範例語句新增至 None 意圖、進行訓練、發佈及測試。 這些是建置 LUIS 模型的基本步驟。
 
 > [!div class="nextstepaction"]
 > [將可分解實體新增至此應用程式](tutorial-machine-learned-entity.md)

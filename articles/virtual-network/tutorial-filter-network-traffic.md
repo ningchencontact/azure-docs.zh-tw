@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: a700cc83c6bd34f5f726b9cc1c97bd7e1476963b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b5a136ae05b3cd410ca252b6d5a1df443aff6f7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73519274"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350146"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過網路安全性群組篩選網路流量
 
@@ -41,7 +41,7 @@ ms.locfileid: "73519274"
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。 
+1. 從 Azure 入口網站功能表或 **[首頁]** 頁面，選取 [建立資源]  。 
 2. 選取 [網絡]  ，然後選取 [虛擬網路]  。
 3. 輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]  ：
 
@@ -51,7 +51,7 @@ ms.locfileid: "73519274"
     | 位址空間           | 10.0.0.0/16                                        |
     | 訂用帳戶            | 選取您的訂用帳戶。                          |
     | 資源群組          | 選取 [新建]  ，然後輸入 *myResourceGroup*。 |
-    | 位置                | 選取 [美國東部]  。                                |
+    | Location                | 選取 [美國東部]  。                                |
     | 子網路 - 名稱            | mySubnet                                           |
     | 子網路 - 位址範圍  | 10.0.0.0/24                                        |
 
@@ -59,7 +59,7 @@ ms.locfileid: "73519274"
 
 應用程式安全性群組可讓您將具有類似功能 (例如 web 伺服器) 的伺服器群組在一起。
 
-1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。 
+1. 從 Azure 入口網站功能表或 **[首頁]** 頁面，選取 [建立資源]  。 
 2. 在 [搜尋 Marketplace]  方塊中，輸入「應用程式安全性群組」  。 當搜尋結果中出現 [應用程式安全性群組]  時，請加以選取，在 [所有項目]  下再次選取 [應用程式安全性群組]  ，然後選取 [建立]  。
 3. 輸入或選取下列資訊，然後選取 [建立]  ︰
 
@@ -68,7 +68,7 @@ ms.locfileid: "73519274"
     | 名稱           | myAsgWebServers                                               |
     | 訂用帳戶   | 選取您的訂用帳戶。                                     |
     | 資源群組 | 選取 [使用現有的]  ，然後選取 [myResourceGroup]  。 |
-    | 位置       | 美國東部                                                       |
+    | Location       | 美國東部                                                       |
 
 4. 再次完成步驟 3，並指定下列值：
 
@@ -77,11 +77,11 @@ ms.locfileid: "73519274"
     | 名稱           | myAsgMgmtServers                                              |
     | 訂用帳戶   | 選取您的訂用帳戶。                                     |
     | 資源群組 | 選取 [使用現有的]  ，然後選取 [myResourceGroup]  。 |
-    | 位置       | 美國東部                                                       |
+    | Location       | 美國東部                                                       |
 
 ## <a name="create-a-network-security-group"></a>建立網路安全性群組
 
-1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。 
+1. 從 Azure 入口網站功能表或 **[首頁]** 頁面，選取 [建立資源]  。 
 2. 選擇 [網路]  ，然後選取 [網路安全性群組]  。
 3. 輸入或選取下列資訊，然後選取 [建立]  ︰
 
@@ -90,7 +90,7 @@ ms.locfileid: "73519274"
     |名稱|myNsg|
     |訂用帳戶| 選取您的訂用帳戶。|
     |資源群組 | 選取 [使用現有的]  ，然後選取 [myResourceGroup]  。|
-    |位置|美國東部|
+    |Location|美國東部|
 
 ## <a name="associate-network-security-group-to-subnet"></a>將網路安全性群組關聯至子網路
 
@@ -111,7 +111,7 @@ ms.locfileid: "73519274"
 
     | 設定                 | 值                                                                                                           |
     | ---------               | ---------                                                                                                       |
-    | 目的地             | 選取 [應用程式安全性群組]  ，然後針對 [應用程式安全性群組]  選取 [myAsgWebServers]  。  |
+    | Destination             | 選取 [應用程式安全性群組]  ，然後針對 [應用程式安全性群組]  選取 [myAsgWebServers]  。  |
     | 目的地連接埠範圍 | 輸入 80,443                                                                                                    |
     | 通訊協定                | 選取 TCP                                                                                                      |
     | 名稱                    | Allow-Web-All                                                                                                   |
@@ -120,7 +120,7 @@ ms.locfileid: "73519274"
 
     | 設定                 | 值                                                                                                           |
     | ---------               | ---------                                                                                                       |
-    | 目的地             | 選取 [應用程式安全性群組]  ，然後針對 [應用程式安全性群組]  選取 [myAsgMgmtServers]  。 |
+    | Destination             | 選取 [應用程式安全性群組]  ，然後針對 [應用程式安全性群組]  選取 [myAsgMgmtServers]  。 |
     | 目的地連接埠範圍 | 輸入 3389                                                                                                      |
     | 通訊協定                | 選取 TCP                                                                                                      |
     | 優先順序                | 輸入 110                                                                                                       |
@@ -138,7 +138,7 @@ ms.locfileid: "73519274"
 
 ### <a name="create-the-first-vm"></a>建立第一個 VM
 
-1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。 
+1. 從 Azure 入口網站功能表或 **[首頁]** 頁面，選取 [建立資源]  。 
 2. 選取 [計算]  ，然後選取 [Windows Server 2016 Datacenter]  。
 3. 輸入或選取下列資訊，然後接受其餘設定的預設值：
 
@@ -147,8 +147,8 @@ ms.locfileid: "73519274"
     |訂用帳戶| 選取您的訂用帳戶。|
     |資源群組| 選取 [使用現有項目]  ，然後選取 [myResourceGroup]  。|
     |名稱|myVmWeb|
-    |位置| 選取 [美國東部]  。|
-    |使用者名稱| 輸入您選擇的使用者名稱。|
+    |Location| 選取 [美國東部]  。|
+    |[使用者名稱]| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
 
    
@@ -159,8 +159,8 @@ ms.locfileid: "73519274"
     |設定|值|
     |---|---|
     |虛擬網路 |選取 **myVirtualNetwork**。|
-    |NIC 網路安全性群組 |選取 [進階]  。|
-    |公用輸入連接埠|選取 [無]  。 |
+    |NIC 網路安全性群組 |選取 [無]  。|
+  
 
 6. 選取左下角的 [檢閱 + 建立]  ，然後選取 [建立]  以開始 VM 部署。
 

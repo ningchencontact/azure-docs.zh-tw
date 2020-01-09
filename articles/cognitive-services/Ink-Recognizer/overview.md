@@ -3,19 +3,19 @@ title: 什麼是筆跡辨識器？ - 筆跡辨識器 API
 titleSuffix: Azure Cognitive Services
 description: 將筆跡辨識器整合到您的應用程式、網站、工具與其他解決方案，以允許將筆跡筆觸資料視為輸入來辨識和使用。
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 07/24/2019
-ms.author: erhopf
-ms.openlocfilehash: c90d656539a2ed64b416dc9b8e7e11e205b98ee6
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.date: 12/17/2019
+ms.author: aahi
+ms.openlocfilehash: 2d00a489af35f5960aaeb1dda7add5337d48d57d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478390"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448158"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>什麼是筆跡辨識器 API？
 
@@ -28,7 +28,7 @@ ms.locfileid: "68478390"
 
 使用筆跡辨識器 API 可輕鬆辨識應用程式中的手寫內容。 
 
-|功能  |說明  |
+|功能  |描述  |
 |---------|---------|
 | 手寫辨識 | 可辨識 63 種核心[語言和地區設定](language-support.md)的手寫內容。 | 
 | 版面配置辨識 | 取得關於數位筆跡內容的結構化資訊。 將內容拆解成書寫區、段落、線條、文字、項目符號清單。 然後，應用程式可以使用版面配置資訊來建置額外的功能，例如自動設定清單格式和圖形對齊。 |
@@ -52,7 +52,7 @@ ms.locfileid: "68478390"
 請嘗試下列語言版本的快速入門，以便開始對筆跡辨識器 API 發出呼叫。
 * [C#](quickstarts/csharp.md)
 * [Java](quickstarts/java.md)
-* [JavaScript](quickstarts/csharp.md)
+* [JavaScript](quickstarts/javascript.md)
 
 若要了解筆跡辨識 API 在數位筆跡應用程式中的運作方式，請看位於 GitHub 上的下列應用程式範例：
 * [C# 和通用 Windows 平台 (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  

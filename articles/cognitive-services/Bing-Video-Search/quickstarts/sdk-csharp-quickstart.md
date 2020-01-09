@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: d29aef614b8308dfeba8da7925bd2880c25fe72d
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1cbb5880c38aca649dffb91f31b9340648b85f68
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383747"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382495"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing 影片搜尋 SDK 來執行影片搜尋
 
 透過本快速入門開始使用適用於 C# 的 Bing 影片搜尋 SDK 來搜尋新聞。 雖然 Bing 影片搜尋具有與大部分程式設計語言相容的 REST API，但 SDK 會提供簡單的方法，將服務整合到您的應用程式。 在 [Github](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) 上可找到此範例的完整原始程式碼，以及其他註釋和功能。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Visual Studio 2017 或更新版本](https://visualstudio.microsoft.com/downloads/)的任何版本。
 * Json.NET 架構 ([以 NuGet 套件形式](https://www.nuget.org/packages/Newtonsoft.Json/)提供)。

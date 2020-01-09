@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: d3fecd54e36c8a3dd43c88f5aa4e4233057c3f91
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9764c4bc794eb8d133270b762fa2bca30a056fea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838583"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459621"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>教學課程：使用 SSMS 在 Azure SQL Database 的單一資料庫中設計關聯式資料庫
 
@@ -35,7 +35,7 @@ Azure SQL 資料庫是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
 > [!NOTE]
 > 基於本教學課程的目的，我們是使用單一資料庫。 您也可以使用彈性集區中的集區資料庫或受控執行個體中的執行個體資料庫。 如需連線至受控執行個體，請參閱以下受控執行個體快速入門：[快速入門：設定 Azure VM 以連線到 Azure SQL Database 受控執行個體](sql-database-managed-instance-configure-vm.md)和[快速入門：設定從內部部署連線至 Azure SQL Database 受控執行個體的點對站連線](sql-database-managed-instance-configure-p2s.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本教學課程，請確定您已安裝︰
 
@@ -48,18 +48,18 @@ Azure SQL 資料庫是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
 
 ## <a name="create-a-blank-single-database"></a>建立空白的單一資料庫
 
-使用一組定義的計算和儲存體資源建立 Azure SQL Database 的單一資料庫。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內，並使用[資料庫伺服器](sql-database-servers.md)進行管理。
+使用一組定義的計算和儲存體資源建立 Azure SQL Database 的單一資料庫。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/management/overview.md)內，並使用[資料庫伺服器](sql-database-servers.md)進行管理。
 
 遵循以下步驟來建立空白單一資料庫。
 
-1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。
+1. 從 Azure 入口網站功能表或 **[首頁]** 頁面，選取 [建立資源]  。
 2. 在 [新增]  頁面上，選取 [Azure Marketplace] 區段中的 [資料庫]  ，然後按一下 [精選]  區段中的 [SQL Database]  。
 
    ![建立空白資料庫](./media/sql-database-design-first-database/create-empty-database.png)
 
 3. 使用下列資訊填寫 **SQL Database** 表單，如上圖所示︰
 
-    | 設定       | 建議的值 | 說明 |
+    | 設定       | 建議的值 | 描述 |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **資料庫名稱** | *yourDatabase* | 如需有效的資料庫名稱，請參閱[資料庫識別碼](/sql/relational-databases/databases/database-identifiers)。 |
     | **訂用帳戶** | *yourSubscription*  | 如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
@@ -68,7 +68,7 @@ Azure SQL 資料庫是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
 
 4. 按一下 [伺服器]  來使用現有的伺服器伺服器，或建立及設定新的資料庫伺服器。 選取現有的伺服器，或按一下 [建立新伺服器]  並且在 [新伺服器]  表單中填寫下列資訊︰
 
-    | 設定       | 建議的值 | 說明 |
+    | 設定       | 建議的值 | 描述 |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。 |
     | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](/sql/relational-databases/databases/database-identifiers)。 |
@@ -77,7 +77,7 @@ Azure SQL 資料庫是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
 
     ![建立資料庫伺服器](./media/sql-database-design-first-database/create-database-server.png)
 
-5. 按一下 [選取]  。
+5. 按一下 [選取]。 
 6. 按一下 [定價層]  可指定服務層、DTU 或虛擬核心的數目，以及儲存體數量。 您可以瀏覽 DTU/虛擬核心數目的選項，以及可供您每個服務層級使用的儲存體。
 
     在選取服務層、DTU 或 vCore 數目和儲存體數量之後，按一下 [套用]  。
@@ -120,22 +120,22 @@ QL Database 服務會在伺服器層級建立 IP 防火牆。 此防火牆會防
 > [!IMPORTANT]
 > 根據預設，已對所有 Azure 服務啟用透過 SQL Database IP 防火牆存取。 按一下此頁面上的 [關閉]  即可對所有 Azure 服務停用。
 
-## <a name="connect-to-the-database"></a>連線到資料庫
+## <a name="connect-to-the-database"></a>連接至資料庫
 
 使用 [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) 建立對單一資料庫的連線。
 
 1. 開啟 SQL Server Management Studio。
-2. 在 [連接到伺服器]  對話方塊中，輸入下列資訊：
+2. 在 [連線至伺服器]  對話方塊中，輸入下列資訊：
 
-   | 設定       | 建議的值 | 說明 |
+   | 設定       | 建議的值 | 描述 |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **伺服器類型** | 資料庫引擎 | 需要此值。 |
+   | **伺服器類型** | 資料庫引擎 | 這是必要的值。 |
    | **伺服器名稱** | 完整伺服器名稱 | 例如，*yourserver.database.windows.net*。 |
    | **驗證** | SQL Server 驗證 | 在本教學課程中，我們只設定了 SQL 驗證這個驗證類型。 |
-   | **登入** | 伺服器管理帳戶 | 您在建立伺服器時所指定的帳戶。 |
-   | **密碼** | 伺服器管理帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
+   | **登入** | 伺服器系統管理員帳戶 | 您在建立伺服器時所指定的帳戶。 |
+   | **密碼** | 伺服器系統管理員帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
 
-   ![連接到伺服器](./media/sql-database-design-first-database/connect.png)
+   ![連線至伺服器](./media/sql-database-design-first-database/connect.png)
 
 3. 按一下 [連接到伺服器]  對話方塊中的 [選項]  。 在 [連線到資料庫]  區段中，輸入 *yourDatabase* 以連線到這個資料庫。
 

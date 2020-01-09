@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/11/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 0a40163eddffd4e406dd0644f950f6af636a1dfa
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 43c528a1e9e46a67e895679b1a0fd04fef8900a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383882"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382953"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>快速入門：使用 Bing 拼字檢查 REST API 和 Java 進行拼字檢查
 
 使用本快速入門，第一次呼叫 Bing 拼字檢查 REST API。 這個簡單的 Java 應用程式會將要求傳送至 API，並傳回建議的更正清單。 雖然此應用程式是以 Java 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java) 上找到此應用程式的原始程式碼。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Java 開發套件 (JDK) 7 或更新版本。
 
@@ -40,7 +40,7 @@ ms.locfileid: "74383882"
     import javax.net.ssl.HttpsURLConnection;
     ```
 
-2. 為 API 端點的主機、路徑和訂用帳戶金鑰建立變數。 然後，為您的市場、您要進行拼字檢查的文字，以及拼字檢查模式的字串建立變數。
+2. 為 API 端點的主機、路徑和訂用帳戶金鑰建立變數。 然後，為您的市場、您要進行拼字檢查的文字，以及拼字檢查模式的字串建立變數。 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
     ```java
     static String host = "https://api.cognitive.microsoft.com";

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 62f929f3428ef7534d833e54b0b8f492636b8a7e
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c1afea4e6cacc1f6e9ac84ca20e638836540396e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378759"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448396"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>快速入門：使用適用於 Python 的 Bing 影片搜尋 SDK 來執行影片搜尋
 
@@ -23,7 +23,7 @@ ms.locfileid: "74378759"
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - [Python](https://www.python.org/) 2.x 或 3.x
 - 適用於 Python 的 Bing 影片搜尋 SDK

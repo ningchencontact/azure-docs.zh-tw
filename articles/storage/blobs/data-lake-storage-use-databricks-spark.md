@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: bbe936fd572a8e23fb6e7c5da4a4bffef1c8bf7e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e26ae4d384b1718b1cdb12abbda82aad22afde4d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327529"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462587"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>教學課程：Azure Data Lake Storage Gen2、Azure Databricks 和 Spark
 
@@ -28,7 +28,7 @@ ms.locfileid: "74327529"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * 建立 Azure Data Lake Storage Gen2 帳戶。
 
@@ -71,11 +71,11 @@ ms.locfileid: "74327529"
 
 2. 在 [Azure Databricks 服務]  下方提供下列值，以建立 Databricks 服務：
 
-    |屬性  |說明  |
+    |屬性  |描述  |
     |---------|---------|
     |**工作區名稱**     | 提供您 Databricks 工作區的名稱。  |
     |**訂用帳戶**     | 從下拉式清單中選取您的 Azure 訂用帳戶。        |
-    |**資源群組**     | 指定您是要建立新的資源群組，還是使用現有資源群組。 資源群組是存放 Azure 方案相關資源的容器。 如需詳細資訊，請參閱 [Azure 資源群組概觀](../../azure-resource-manager/resource-group-overview.md)。 |
+    |**資源群組**     | 指定您是要建立新的資源群組，還是使用現有資源群組。 資源群組是存放 Azure 方案相關資源的容器。 如需詳細資訊，請參閱 [Azure 資源群組概觀](../../azure-resource-manager/management/overview.md)。 |
     |**位置**     | 選取 [美國西部 2]  。 如需其他可用的區域，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/services/)。       |
     |定價層      |  選取 [標準]  。     |
 

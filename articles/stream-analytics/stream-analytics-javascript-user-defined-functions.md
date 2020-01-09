@@ -1,7 +1,6 @@
 ---
 title: Azure 串流分析 JavaScript 使用者定義函式
 description: 在此教學課程中，您將使用 JavaScript 使用者定義函式來執行進階查詢技術
-services: stream-analytics
 author: rodrigoamicrosoft
 ms.author: rodrigoa
 ms.service: stream-analytics
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: 9ddf8a2a11cb863a0016726074c5279bfde96959
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f82add78eef418e3644a5961d984708d3721a8dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990228"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426051"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>教學課程：Azure 串流分析 JavaScript 使用者定義函式
  
@@ -102,7 +101,7 @@ Azure 串流分析 JavaScript 使用者定義函式支援標準的內建 JavaScr
 
 串流分析 | JavaScript
 --- | ---
-bigint | Number (JavaScript 只能準確地表示最高到 2^53 的整數)
+BIGINT | Number (JavaScript 只能準確地表示最高到 2^53 的整數)
 Datetime | Date (JavaScript 只支援毫秒)
 double | Number
 nvarchar(MAX) | String

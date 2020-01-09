@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6a24f2dd52c3ac3c51df54bf5c01c7b31ca16147
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f026957b5f9fceab8a0df1f339e7cb459ec1078d
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985761"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562131"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>如何使用 Key Vault 虛刪除與 PowerShell
 
@@ -22,7 +22,7 @@ Azure Key Vault 的虛刪除功能可復原已刪除的保存庫和保存庫物�
 - 可復原的 Key Vault 刪除支援
 - 支援可復原的金鑰保存庫物件刪除；金鑰、密碼和憑證
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -39,9 +39,9 @@ Azure Key Vault 的虛刪除功能可復原已刪除的保存庫和保存庫物�
 
 Key Vault 作業透過角色型存取控制 (RBAC) 權限來分別管理，如下所示：
 
-| 作業 | 說明 | 使用者權限 |
+| 作業 | 描述 | 使用者權限 |
 |:--|:--|:--|
-|列出|列出已刪除的金鑰保存庫。|Microsoft.KeyVault/deletedVaults/read|
+|清單|列出已刪除的金鑰保存庫。|Microsoft.KeyVault/deletedVaults/read|
 |復原|還原已刪除的金鑰保存庫。|Microsoft.KeyVault/vaults/write|
 |清除|永久移除已刪除的金鑰保存庫和其所有內容。|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -143,7 +143,7 @@ Get-AzKeyVaultKey -VaultName ContosoVault -InRemovedState
 
 就像金鑰保存庫，已刪除的金鑰、祕密或憑證仍會維持已刪除狀態長達 90 天，除非加以復原或清除。 
 
-#### <a name="keys"></a>金鑰
+#### <a name="keys"></a>索引鍵
 
 若要復原虛刪除的金鑰：
 
@@ -160,7 +160,7 @@ Undo-AzKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey
 Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
 ```
 
-**復原**和**清除**動作在金鑰保存庫存取原則中有自己的相關聯權限。 若要讓使用者或服務主體能夠執行**復原**或**清除**動作，他們必須具有該金鑰或祕密的個別權限。 根據預設，當 'all' 捷徑用於授與所有權限時，**清除**不會新增到金鑰保存庫的存取原則。 您必須明確授與**清除**權限。 
+**復原**和**清除**動作本身的權限已在金鑰保存庫的存取原則中建立關聯。 若要讓使用者或服務主體能夠執行**復原**或**清除**動作，他們必須具有該金鑰或祕密的個別權限。 根據預設，當 'all' 捷徑用於授與所有權限時，**清除**不會新增到金鑰保存庫的存取原則。 您必須明確授與**清除**權限。 
 
 #### <a name="set-a-key-vault-access-policy"></a>設定金鑰保存庫存取原則
 
@@ -257,4 +257,4 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ## <a name="other-resources"></a>其他資源
 
 - 如需 Key Vault 的虛刪除功能概觀，請參閱 [Azure Key Vault 虛刪除概觀](key-vault-ovw-soft-delete.md)。
-- 如需 Azure Key Vault 使用方式的一般概觀，請參閱[什麼是 Azure Key Vault？](key-vault-overview.md).ate=Succeeded}
+- 如需 Azure Key Vault 使用方式的一般概觀，請參閱[什麼是 Azure Key Vault？](key-vault-overview.md)。

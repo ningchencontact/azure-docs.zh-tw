@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Python SDK 呼叫您的 Bing 自訂搜尋端點 | Microsoft Docs
+title: 快速入門：使用 Python SDK 呼叫您的 Bing 自訂搜尋端點
 titleSuffix: Azure Cognitive Services
 description: 您可以使用本快速入門，開始使用 Python SDK 要求 Bing 自訂搜尋執行個體所產生的搜尋結果。
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 98070ab8f715305fe01c940026ecf5f49f8c28f9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ca0c1174abb80452f78766c3c4f49af73c790d3e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976038"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448686"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>快速入門：使用 Python SDK 呼叫您的 Bing 自訂搜尋端點 
 
 您可以使用本快速入門，開始使用 Python SDK 要求 Bing 自訂搜尋執行個體所產生的搜尋結果。 雖然 Bing 自訂搜尋具有與大部分程式設計語言相容的 REST API，但 Bing 自訂搜尋 SDK 會提供簡單的方法，將服務整合到您的應用程式。 在 [Github](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py) 上可找到此範例的完整原始程式碼，以及其他錯誤處理和註釋。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 「Bing 自訂搜尋」執行個體。 請參閱[快速入門：建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)，以取得詳細資訊。
 - Python [2.x 或 3.x](https://www.python.org/) 

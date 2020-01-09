@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 12/16/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ad322d9418d81c516b97cd8bd4b039b1640aa9c0
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 1a3e98afacf85bde8180253078cb53eae9a03d2f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515640"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383607"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>快速入門：使用 Java 和 Bing 新聞搜尋 REST API 來執行新聞搜尋
 
@@ -26,7 +26,7 @@ ms.locfileid: "72515640"
 
 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java) 上找到此範例的原始程式碼 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Java 開發套件 (JDK) 7 或 8](https://aka.ms/azure-jdks)
 
@@ -34,8 +34,6 @@ ms.locfileid: "72515640"
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
-
-另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 ## <a name="create-and-initialize-a-project"></a>建立專案並將其初始化
 
@@ -52,7 +50,7 @@ ms.locfileid: "72515640"
     import com.google.gson.JsonParser;
     ```
 
-2. 以適用於 API 端點、您訂用帳戶金鑰及搜尋字詞的變數建立新類別。
+2. 以適用於 API 端點、您訂用帳戶金鑰及搜尋字詞的變數建立新類別。 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {

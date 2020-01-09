@@ -7,13 +7,13 @@ services: iot-pnp
 ms.topic: tutorial
 ms.author: koichih
 author: konichi3
-ms.date: 06/21/2019
-ms.openlocfilehash: 1516a132372a81d06d82de2409c48220f27b8d87
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.date: 12/27/2019
+ms.openlocfilehash: dc2c33659f3f3a3df0f11fcc6ab36a9fc993da43
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878729"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550157"
 ---
 # <a name="tutorial-certify-your-iot-plug-and-play-preview-device"></a>教學課程：認證您的 IoT 隨插即用預覽版裝置
 
@@ -28,7 +28,7 @@ ms.locfileid: "69878729"
 > * 如何檢閱 IoT 隨插即用介面和執行認證測試。
 > * 如何將已認證的 IoT 隨插即用裝置發佈至目錄。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本教學課程，您需要：
 
@@ -65,7 +65,7 @@ ms.locfileid: "69878729"
 
 1. 在產品資料行的 [產品]  頁面上，選取已建立的產品連結。 其狀態應為草稿狀態。
 1. 選取 [產品資訊]  標題旁的 [編輯]  連結。 在 [產品資訊] 頁面中輸入產品的相關資訊，並確定您已完成所有必要欄位。
-1. 選取 [ **儲存**]。 只有在完成所有必要欄位後，才會出現 [儲存]  按鈕。 如果欄位未完成，則按鈕會顯示為 [儲存並於稍後完成]  。
+1. 選取 [儲存]  。 只有在完成所有必要欄位後，才會出現 [儲存]  按鈕。 如果欄位未完成，則按鈕會顯示為 [儲存並於稍後完成]  。
 1. 檢閱您輸入的內容。 完成所有必要欄位，以將裝置發佈至裝置目錄。 您隨時都可以按一下 [產品資訊]  標題旁的 [編輯]  連結，以回過頭在產品詳細資料頁面中編輯產品資訊。
 
 ## <a name="connect-and-discover-interfaces"></a>連接及探索介面

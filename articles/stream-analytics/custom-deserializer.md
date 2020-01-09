@@ -1,19 +1,18 @@
 ---
 title: 教學課程 - Azure 串流分析雲端作業的自訂 .NET 還原序列化程式
 description: 本教學課程示範如何使用 Visual Studio 建立 Azure 串流分析雲端作業的自訂 .NET 還原序列化程式。
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: f5fa0a4398c904113dbce5d80844b42b6e775df0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702442"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443684"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>教學課程：Azure 串流分析的自訂 .NET 還原序列化程式
 
@@ -29,7 +28,7 @@ Azure 串流分析具有[三種資料格式的內建支援](stream-analytics-par
 > * 將您的串流分析作業設定為使用自訂還原序列化程式。
 > * 在本機執行串流分析作業，以測試自訂還原序列化程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 

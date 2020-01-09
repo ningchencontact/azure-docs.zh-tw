@@ -4,14 +4,14 @@ description: 如何定義儲存體目標，讓您的 Azure HPC 快取可以使�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 12/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 396ed84856604c297551c4593e0d7b82b92ac924
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 75d657fd9f3ee13c331450b324fd3b99e9cb6ca5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166660"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647203"
 ---
 # <a name="add-storage-targets"></a>新增儲存體目標
 
@@ -33,6 +33,8 @@ ms.locfileid: "74166660"
 
 新的 Blob 儲存體目標需要空的 Blob 容器或以 Azure HPC 快取雲端檔案系統格式填入資料的容器。 深入瞭解在[將資料移至 Azure blob 儲存體](hpc-cache-ingest.md)中預先載入 Blob 容器。
 
+您可以從這個頁面建立新的容器，然後再新增它。
+
 若要定義 Azure Blob 容器，請輸入此資訊。
 
 ![[新增儲存體目標] 頁面的螢幕擷取畫面，其中填入了新的 Azure Blob 儲存體目標的資訊](media/hpc-cache-add-blob.png)
@@ -41,13 +43,15 @@ ms.locfileid: "74166660"
 
 * **儲存體目標名稱**-在 Azure HPC 快取中設定用來識別此儲存體目標的名稱。
 * **目標型別**-選擇 [ **Blob**]。
-* **儲存體帳戶**-選取您要使用容器的帳戶。
+* **儲存體帳戶**-選取您要使用的帳戶。
 
   您將需要授權快取實例來存取儲存體帳戶，如[新增存取角色](#add-the-access-control-roles-to-your-account)中所述。
 
   如需您可以使用之儲存體帳戶類型的詳細資訊，請參閱[Blob 儲存體需求](hpc-cache-prereqs.md#blob-storage-requirements)。
 
-* **儲存體容器**-選取此目標的 Blob 容器。
+* **儲存體容器**-選取此目標的 Blob 容器，**或按一下 [新建]** 。
+
+  ![對話方塊的螢幕擷取畫面，用來指定新容器的名稱和存取層級（私用）](media/add-blob-new-container.png)
 
 * **虛擬命名空間路徑**-設定此儲存體目標的面向用戶端檔案路徑。 請參閱[設定匯總命名空間](hpc-cache-namespace.md)，以深入瞭解虛擬命名空間功能。
 

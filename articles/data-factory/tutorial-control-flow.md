@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 277616d9fcd15affc7ddc8ede5d9af3ff68c62f8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 31ae3483ca7cefbb65726f976244d582f1587aaf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926605"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439445"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 
@@ -42,7 +42,7 @@ ms.locfileid: "74926605"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 儲存體帳戶。 您會使用 Blob 儲存體作為來源資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。
 * Azure 儲存體總管。 若要安裝此工具，請參閱 [Azure 儲存體總管](https://storageexplorer.com/)。
@@ -342,7 +342,7 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 
 ## <a name="fail-email-workflow"></a>失敗電子郵件工作流程
 
-將 **CopySuccessEmail** 複製為名為 *CopyFailEmail* 的 Logic Apps 工作流程。 在要求觸發程序中，`Request Body JSON schema` 相同。 變更電子郵件的格式 (例如 `Subject`)，以調整為適合失敗電子郵件。 下列是一個範例：
+將 **CopySuccessEmail** 複製為名為 *CopyFailEmail* 的 Logic Apps 工作流程。 在要求觸發程序中，`Request Body JSON schema` 相同。 變更電子郵件的格式 (例如 `Subject`)，以調整為適合失敗電子郵件。 範例如下：
 
 ![邏輯應用程式設計工具 - 失敗電子郵件工作流程](media/tutorial-control-flow/fail-email-workflow.png)
 
@@ -453,9 +453,9 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 管線程式碼的第一個區段會定義參數。
 
-* `sourceBlobContainer` 。 來源 Blob 資料集會在管線中使用此參數。
-* `sinkBlobContainer` 。 接收 Blob 資料集會在管線中使用此參數。
-* `receiver` 。 管線中將成功或失敗電子郵件傳送給接收者的兩個 Web 活動都會使用此參數。
+* 第 1 課：建立 Windows Azure 儲存體物件`sourceBlobContainer`。 來源 Blob 資料集會在管線中使用此參數。
+* 第 1 課：建立 Windows Azure 儲存體物件`sinkBlobContainer`。 接收 Blob 資料集會在管線中使用此參數。
+* 第 1 課：建立 Windows Azure 儲存體物件`receiver`。 管線中將成功或失敗電子郵件傳送給接收者的兩個 Web 活動都會使用此參數。
 
 ```csharp
 Parameters = new Dictionary<string, ParameterSpecification>
@@ -608,10 +608,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": {
-      "type": "SecureString",
-      "value": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
-    }
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
   }
 }
 Creating dataset SourceStorageDataset...

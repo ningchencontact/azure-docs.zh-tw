@@ -1,7 +1,6 @@
 ---
 title: 部署具有 CI/CD 和 Azure DevOps 的 Azure 串流分析作業
 description: 本文說明如何使用 Azure DevOps Services 部署具有 CI/CD 的串流分析作業。
-services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7810cf9950d919469c4b47053a878518726f4393
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925073"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354441"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>教學課程：使用 Azure Pipelines 來部署具有 CI/CD 的 Azure 串流分析作業
 本教學課程說明如何使用 Azure Pipelines 設定 Azure 串流分析作業的持續整合和部署。 
@@ -27,7 +26,7 @@ ms.locfileid: "72925073"
 > * 在 Azure Pipelines 中建立發行管線
 > * 自動部署和升級應用程式
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 開始之前，請確定您具有下列項目：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
@@ -120,7 +119,7 @@ Azure Pipelines 發行管線描述將應用程式封裝部署到叢集的工作�
     |訂用帳戶  |  選擇您的訂用帳戶。   |
     |動作  |  建立或更新資源群組   |
     |資源群組  |  輸入資源群組名稱。   |
-    |範本  | [您的解決方案路徑]\bin\Debug\Deploy\\[您的專案名稱].JobTemplate.json   |
+    |[範本]  | [您的解決方案路徑]\bin\Debug\Deploy\\[您的專案名稱].JobTemplate.json   |
     |範本參數  | [您的解決方案路徑]\bin\Debug\Deploy\\[您的專案名稱].JobTemplate.parameters.json   |
     |覆寫範本參數  | 鍵入要在文字方塊中覆寫的範本參數。 例如，–storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre)。 這個屬性是選擇性的，但是如果不覆寫金鑰參數，則您的組建將會導致錯誤。    |
     

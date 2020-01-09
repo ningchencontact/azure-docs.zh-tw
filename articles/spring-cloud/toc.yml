@@ -35,7 +35,7 @@
     - name: 將您的應用程式繫結至 Azure MySQL
       href: spring-cloud-tutorial-bind-mysql.md
     - name: 使用 Jenkins 和 Azure CLI 將應用程式部署至 Azure Spring Cloud
-      href: /jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
 - name: 概念
   items:
     - name: 了解 Azure Spring Cloud 的配額和限制

@@ -2,14 +2,14 @@
 title: 針對 Azure 備份伺服器進行疑難排解
 description: 針對安裝、註冊「Azure 備份伺服器」以及備份和還原應用程式工作負載進行疑難排解。
 ms.reviewer: srinathv
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: eed90cd6b684891efe1996e22bbdd7c3ead2a83f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bf641c4ef27ce561c005709e6de94f40855b9a5f
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172959"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665337"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>針對 Azure 備份伺服器進行疑難排解
 
@@ -32,7 +32,7 @@ ms.locfileid: "74172959"
 
 | 作業 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
-| 註冊至保存庫 | 提供的保存庫認證無效。 檔案已損毀或沒有與復原服務關聯的最新認證。 | 建議的動作： <br> <ul><li> 從保存庫下載最新的認證檔案，然後再試一次。 <br>(或)</li> <li> 如果前述動作沒有用，請嘗試將認證下載至不同的本機目錄，或建立新的保存庫。 <br>(或)</li> <li> 如[這個部落格](https://azure.microsoft.com/blog/troubleshooting-common-configuration-issues-with-azure-backup/)所述，嘗試更新日期和時間設定。 <br>(或)</li> <li> 檢查看看 c:\windows\temp 中的檔案數是否超過 65000 個。 將過時檔案移至另一個位置，或刪除 [Temp] 資料夾中的項目。 <br>(或)</li> <li> 檢查憑證的狀態。 <br> a. 開啟 [管理電腦憑證] (在 [控制台] 中)。 <br> b.這是另一個 C# 主控台應用程式。 展開 [個人] 節點和它的子節點 [憑證]。<br> c.  移除 [Windows Azure Tools] 憑證。 <br> d. 在「Azure 備份」用戶端中重試註冊。 <br> (或) </li> <li> 檢查看看是否已有任何適當的群組原則。 </li></ul> |
+| 註冊至保存庫 | 提供的保存庫認證無效。 檔案已損毀或沒有與復原服務關聯的最新認證。 | 建議的動作： <br> <ul><li> 從保存庫下載最新的認證檔案，然後再試一次。 <br>(或)</li> <li> 如果前述動作沒有用，請嘗試將認證下載至不同的本機目錄，或建立新的保存庫。 <br>(或)</li> <li> 如[這個部落格](https://azure.microsoft.com/blog/troubleshooting-common-configuration-issues-with-azure-backup/)所述，嘗試更新日期和時間設定。 <br>(或)</li> <li> 檢查看看 c:\windows\temp 中的檔案數是否超過 65000 個。 將過時檔案移至另一個位置，或刪除 [Temp] 資料夾中的項目。 <br>(或)</li> <li> 檢查憑證的狀態。 <br> a. 開啟 [管理電腦憑證] (在 [控制台] 中)。 <br> b. 展開 [個人] 節點和它的子節點 [憑證]。<br> c.  移除 [Windows Azure Tools] 憑證。 <br> d. 在「Azure 備份」用戶端中重試註冊。 <br> (或) </li> <li> 檢查看看是否已有任何適當的群組原則。 </li></ul> |
 
 ## <a name="replica-is-inconsistent"></a>複本不一致
 
@@ -95,7 +95,7 @@ ms.locfileid: "74172959"
 | 備份 | 執行作業時發生非預期的錯誤。 裝置未就緒。 | **如果產品所示的建議動作沒有用，請執行下列步驟：** <br> <ul><li>針對保護群組中的項目，將「陰影複製儲存」空間設定為無限，然後執行一致性檢查。<br></li> (或) <li>嘗試刪除現有保護群組，並建立多個新群組。 每個新保護群組中都應該有一個個別項目。</li></ul> |
 | 備份 | 如果您只要備份系統狀態，請確認受保護的電腦上有足夠的可用空間可儲存系統狀態備份。 | <ol><li>確認受保護電腦上已安裝 Windows Server Backup。</li><li>確認受保護電腦上有足夠的空間可儲存系統狀態。 進行這項確認的最簡單方式就是移至受保護的電腦、開啟 Windows Server Backup、一路點選選項，然後選取 [BMR]。 接著，UI 會告訴您需要多少空間。 開啟 [WSB] > [本機備份] > [備份排程] > [選取備份設定] > [完整伺服器] (會顯示大小)。 使用此大小進行驗證。</li></ol>
 | 備份 | BMR 的備份失敗 | 如果 BMR 大小很大，請將一些應用程式檔案移到作業系統磁碟機後再重試。 |
-| 備份 | 在新的 Microsoft Azure 備份伺服器上重新保護 VMware VM 的選項，並不會顯示為可供新增。 | VMWare 屬性指向已停用的舊「Microsoft Azure 備份伺服器」執行個體。 若要解決此問題︰<br><ol><li>在 VCenter (SC-VMM 的對等項目) 中，移至 [摘要] 索引標籤，然後移至 [自訂屬性]。</li>  <li>從 [DPMServer] 值中刪除舊的「Microsoft Azure 備份伺服器」名稱。</li>  <li>返回新的「Microsoft Azure 備份伺服器」，然後修改 PG。  選取 [重新整理] 按鈕之後，就會顯示 VM 並含有可供新增到保護的核取方塊。</li></ol> |
+| 備份 | 在新的 Microsoft Azure 備份伺服器上重新保護 VMware VM 的選項，並不會顯示為可供新增。 | VMWare 屬性指向已停用的舊「Microsoft Azure 備份伺服器」執行個體。 若要解決此問題：<br><ol><li>在 VCenter (SC-VMM 的對等項目) 中，移至 [摘要] 索引標籤，然後移至 [自訂屬性]。</li>  <li>從 [DPMServer] 值中刪除舊的「Microsoft Azure 備份伺服器」名稱。</li>  <li>返回新的「Microsoft Azure 備份伺服器」，然後修改 PG。  選取 [重新整理] 按鈕之後，就會顯示 VM 並含有可供新增到保護的核取方塊。</li></ol> |
 | 備份 | 存取檔案/共用資料夾時發生錯誤 | 嘗試修改防毒設定，如 TechNet 文章[在 DPM 伺服器上執行防毒軟體](https://technet.microsoft.com/library/hh757911.aspx)所建議。|
 
 ## <a name="change-passphrase"></a>變更複雜密碼
@@ -117,24 +117,24 @@ ms.locfileid: "74172959"
 
 ### <a name="cbpsourcesnapshotfailedreplicamissingorinvalid"></a>CBPSourceSnapshotFailedReplicaMissingOrInvalid
 
-錯誤訊息 | 建議的動作 |
+錯誤訊息 | 建議動作 |
 -- | --
 備份失敗，因為磁碟備份複本無效或遺漏。 | 若要解決此問題，請確認下列步驟，然後重試此作業： <br/> 1. 建立磁片復原點<br/> 2. 在資料來源上執行一致性檢查 <br/> 3. 停止保護 datasource，然後重新設定此資料來源的保護
 
 ### <a name="cbpsourcesnapshotfailedreplicametadatainvalid"></a>CBPSourceSnapshotFailedReplicaMetadataInvalid
 
-錯誤訊息 | 建議的動作 |
+錯誤訊息 | 建議動作 |
 -- | --
 因為複本上的中繼資料無效，所以來源磁片區快照集失敗。 | 請建立此資料來源的磁片復原點，然後再次嘗試線上備份
 
 ### <a name="cbpsourcesnapshotfailedreplicainconsistent"></a>CBPSourceSnapshotFailedReplicaInconsistent
 
-錯誤訊息 | 建議的動作 |
+錯誤訊息 | 建議動作 |
 -- | --
 來源磁片區快照集失敗，因為資料來源複本不一致。 | 請在此資料來源上執行一致性檢查，然後再試一次
 
 ### <a name="cbpsourcesnapshotfailedreplicacloningissue"></a>CBPSourceSnapshotFailedReplicaCloningIssue
 
-錯誤訊息 | 建議的動作 |
+錯誤訊息 | 建議動作 |
 -- | --
 備份失敗，因為無法複製磁碟備份複本。| 請確定所有先前的磁片備份複本檔案（.vhdx）皆已卸載，而且在線上備份期間沒有磁片對磁片備份正在進行中

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 22fcf75ace672b1481228996d6e7efe9c73013e0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 8bbe32a202af3b8684c16cc2e56d5a111511bef5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927265"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438908"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>教學課程：使用 Data Factory 複製精靈建立具有複製活動的管線
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Azure Data Factory 的[複製精靈]  可讓您快速建立資料管線，以將
 
 本教學課程說明如何建立 Azure data factory、啟動 [複製精靈]、執行一系列的步驟，以提供有關資料擷取/移動案例的詳細資料。 當您完成精靈中的步驟時，精靈會自動建立具有複製活動的管線，以將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。 如需複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 請先完成 [教學課程概觀](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 一文中列出的必要條件，再執行本教學課程。
 
 ## <a name="create-data-factory"></a>建立資料處理站
@@ -61,7 +61,7 @@ Azure Data Factory 的[複製精靈]  可讓您快速建立資料管線，以將
       - 選取 [使用現有的]  以選取現有的資源群組。
       - 選取 [建立新的]  以輸入資源群組的名稱。
           
-        本教學課程的某些步驟會假設您使用名為**ADFTutorialResourceGroup** 的資源群組。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../../azure-resource-manager/resource-group-overview.md)。
+        本教學課程的某些步驟會假設您使用名為：**ADFTutorialResourceGroup** 的資源群組。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../../azure-resource-manager/management/overview.md)。
    4. 選取 Data Factory 的 [位置]  。
    5. 選取刀鋒視窗底部的 [釘選到儀表板]  核取方塊。  
    6. 按一下頁面底部的 [新增]  。

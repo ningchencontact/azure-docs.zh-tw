@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 207e728d25df9192f8a600b13d86330af8311700
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 7b197e1acf696c2ae6e919ee2eddacfb82ac3802
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058916"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646773"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 位址類型及配置方法 (傳統)
 您可以將 IP 位址指派給 Azure 資源，來與其他 Azure 資源、內部部署網路和網際網路進行通訊。 您可以在 Azure 中使用兩種類型的 IP 位址：公用和私人。
@@ -85,10 +85,10 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 ### <a name="application-gateways"></a>應用程式閘道
 Azure [應用程式閘道](../application-gateway/application-gateway-introduction.md) 可用於 Layer7 負載平衡，以便路由傳送以 HTTP 為基礎的網路流量。 應用程式閘道已被動態指派公用 IP 位址，該 IP 位址可做為負載平衡的 VIP。
 
-### <a name="at-a-glance"></a>速覽
+### <a name="at-a-glance"></a>概覽
 下表顯示每個資源類型與可能的配置方法 (動態/靜態)，以及指派多個公用 IP 位址的能力。
 
-| Resource | 動態 | Static | 多個 IP 位址 |
+| 資源 | 動態 | 靜態 | 多個 IP 位址 |
 | --- | --- | --- | --- |
 | 雲端服務 |是 |是 |是 |
 | IaaS VM 或 PaaS 角色執行個體 |是 |否 |否 |
@@ -135,10 +135,10 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>內部負載平衡器 (ILB) 與應用程式閘道
 您可以將私人 IP 位址指派給 [Azure 內部負載平衡器](../load-balancer/load-balancer-internal-overview.md) (ILB) 或 [Azure 應用程式閘道](../application-gateway/application-gateway-introduction.md)的**前端**組態。 此私人 IP 位址可做為內部端點，只能存取其虛擬網路 (VNet) 內的資源與連線到 VNet 的遠端網路。 您可以將動態或靜態私人 IP 位址指派給前端組態。 您也可以指派多個私人 IP 位址，以實現多重 vip 案例。
 
-### <a name="at-a-glance"></a>快速概覽
+### <a name="at-a-glance"></a>概覽
 下表顯示每個資源類型與可能的配置方法 (動態/靜態)，以及指派多個私人 IP 位址的能力。
 
-| Resource | 動態 | Static | 多個 IP 位址 |
+| 資源 | 動態 | 靜態 | 多個 IP 位址 |
 | --- | --- | --- | --- |
 | VM (位於獨立雲端服務或 VNet 中) |是 |是 |是 |
 | PaaS 角色執行個體 (位於獨立雲端服務或 VNet 中) |是 |否 |否 |
@@ -150,12 +150,12 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 
 |  | 預設限制 | 上限 |
 | --- | --- | --- |
-| 公用 IP 位址 (動態) |5 |連絡支援部門 |
+| 公用 IP 位址 (動態) |5 |連絡支援人員 |
 | 保留的公用 IP 位址 |20 |連絡支援人員 |
-| 每個部署 (雲端服務) 的公用 VIP |5 |連絡支援部門 |
+| 每個部署 (雲端服務) 的公用 VIP |5 |連絡支援人員 |
 | 每個部署 (雲端服務) 的私人 VIP (ILB) |1 |1 |
 
-請務必閱讀 Azure 中全部的[網路限制](../azure-subscription-service-limits.md#networking-limits)。
+請務必閱讀 Azure 中全部的[網路限制](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)。
 
 ## <a name="pricing"></a>定價
 在大多數情況下，公用 IP 位址是免費的。 使用額外和 (或) 靜態公用 IP 位址則會有少許費用。 請務必了解 [公用 IP 的價格結構](https://azure.microsoft.com/pricing/details/ip-addresses/)。
@@ -163,7 +163,7 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 ## <a name="differences-between-resource-manager-and-classic-deployments"></a>Resource Manager 與傳統部署之間的差異
 以下是 Resource Manager 與傳統部署模型中 IP 定址功能的比較。
 
-|  | Resource | 傳統 | Resource Manager |
+|  | 資源 | 傳統 | Resource Manager |
 | --- | --- | --- | --- |
 | **公用 IP 位址** |***VM*** |稱為 ILPIP (僅動態) |稱為公用 IP (動態或靜態) |
 |  ||指派給 IaaS VM 或 PaaS 角色執行個體 |關連到 VM 的 NIC |

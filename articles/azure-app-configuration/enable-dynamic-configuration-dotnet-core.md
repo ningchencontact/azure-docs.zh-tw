@@ -1,5 +1,6 @@
 ---
-title: 教學課程：在 .NET Core 應用程式中使用 Azure 應用程式設定的動態設定 | Microsoft Docs
+title: 教學課程：使用 .NET Core 應用程式中的動態設定
+titleSuffix: Azure App Configuration
 description: 在本教學課程，您將了解如何以動態方式更新 .NET Core 應用程式的設定資料
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: ae753758a3cd5b7dfa8794ccf98f7a8a063f5b18
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: afecc84748ae8ce85c07e3b482bd9b596bdca251
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185185"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433667"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>教學課程：使用 .NET Core 應用程式中的動態設定
 
@@ -36,7 +37,7 @@ ms.locfileid: "74185185"
 > * 設定您的 .NET Core 應用程式，使其在應用程式組態存放區發生變更時更新其組態。
 > * 在您的應用程式中使用最新的組態。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要進行本教學課程，請安裝 [.NET Core SDK](https://dotnet.microsoft.com/download)。
 

@@ -9,22 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 2d3bffd025d484ac928e21003b7cba9c63d2c514
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e1709a5e86c8fed8d7f724ad1b105bd02df9fa56
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885791"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381761"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>教學課程：在 Language Understanding (LUIS) 中使用機器學習實體從使用者語句中擷取結構化資料
 
 在本教學課程中，您將使用機器學習實體從語句中擷取結構化資料。
 
 機器學習實體可提供子元件實體及其描述項和限制式，以支援[模型分解概念](luis-concept-model.md#v3-authoring-model-decomposition)。
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **在本教學課程中，您將了解如何：**
 
@@ -66,7 +64,7 @@ ms.locfileid: "74885791"
 
 ## <a name="import-example-json-to-begin-app"></a>匯入範例. json 以開始執行應用程式
 
-1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-intents-only.json)。
+1.  下載並儲存[應用程式的 JSON 檔案](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-intents-only.json)。
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: bc433fbd6117a6aded28e19d2f8b48d594ff5ad6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: db767a8d2f0452a9bedeaf8495152ef337255111
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683042"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439030"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>教學課程：使用 Azure Resource Manager 範本建置您的第一個 Azure Data Factory
 > [!div class="op_single_selector"]
@@ -39,17 +39,17 @@ ms.locfileid: "73683042"
 > 
 > 本教學課程中的管線只有一個以下類型的活動：HDInsightHive。 一個管線中可以有多個活動。 您可以將一個活動的輸出資料集設為另一個活動的輸入資料集，藉此鏈結兩個活動 (讓一個活動接著另一個活動執行)。 如需詳細資訊，請參閱 [Data Factory 排程和執行](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * 詳讀 [教學課程概觀](data-factory-build-your-first-pipeline.md) 一文並完成 **必要** 步驟。
 * 按照 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 一文中的指示，在您的電腦上安裝最新版的 Azure PowerShell。
-* 若要了解 Azure Resource Manager 範本，請參閱 [撰寫 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md) 。 
+* 若要了解 Azure Resource Manager 範本，請參閱 [撰寫 Azure Resource Manager 範本](../../azure-resource-manager/templates/template-syntax.md) 。 
 
 ## <a name="in-this-tutorial"></a>本教學課程內容
 
-| 實體 | 說明 |
+| 單位 | 描述 |
 | --- | --- |
 | Azure 儲存體連結服務 |將您的 Azure 儲存體帳戶連結至 Data Factory。 Azure 儲存體帳戶會保留此範例中管線的輸入和輸出資料。 |
 | HDInsight 隨選連結服務 |將隨選 HDInsight 叢集連結至 Data Factory。 會自動為您建立叢集來處理資料，並在處理完成後將叢集刪除。 |
@@ -343,10 +343,10 @@ ms.locfileid: "73683042"
    ![圖表檢視](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
 5. 在 [圖表檢視] 中，按兩下 **AzureBlobOutput**資料集。 您會看到目前正在處理的配量。
    
-    ![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
+    ![資料集](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
 6. 處理完成時，您會看到配量處於 [就緒]  狀態。 建立隨選 HDInsight 叢集通常需要一些時間 (大約 20 分鐘)。 因此，管線預計需要 **大約 30 分鐘** 的時間來處理配量。
    
-    ![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    
+    ![資料集](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    
 7. 當配量處於 [就緒]  狀態時，檢查您 Blob 儲存體中 **adfgetstarted** 容器內 **partitioneddata** 資料夾的輸出資料。  
 
 如需如何使用 Azure 入口網站刀鋒視窗來監視您在本教學課程中建立的管線和資料集的指示，請參閱 [監視資料集和管線](data-factory-monitor-manage-pipelines.md) 。
@@ -619,7 +619,7 @@ New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutori
 
 ## <a name="see-also"></a>另請參閱
 
-| 話題 | 說明 |
+| 主題 | 描述 |
 |:--- |:--- |
 | [管線](data-factory-create-pipelines.md) |本文協助您了解 Azure Data Factory 中的管線和活動，以及如何使用這些來為您的案例或業務建構端對端的資料導向工作流程。 |
 | [資料集](data-factory-create-datasets.md) |本文協助您了解 Azure Data Factory 中的資料集。 |

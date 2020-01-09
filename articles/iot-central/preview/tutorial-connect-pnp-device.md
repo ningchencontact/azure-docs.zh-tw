@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 2cb07a94b2ae85cc0755e1e7069a76e1ef2a5252
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 233d8f345eceb188fcc849457c5243a3c64aaec2
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977330"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548848"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>教學課程：使用裝置功能模型建立 IoT 隨插即用裝置，並將其連線至您的 IoT Central 應用程式
 
@@ -28,7 +28,7 @@ _裝置功能模型_ (DCM) 可說明 [IoT 隨插即用](../../iot-pnp/overview-i
 > * 在 Windows 中執行裝置程式碼，並查看它是否連線至您的 IoT Central 應用程式。
 > * 檢視裝置所傳送的模擬遙測。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 完成[建立 Azure IoT Central 應用程式 (預覽功能)](./quick-deploy-iot-central.md) 快速入門，以使用**自訂應用程式 > 預覽版應用程式**範本建立 IoT Central 應用程式。
 
@@ -37,7 +37,7 @@ _裝置功能模型_ (DCM) 可說明 [IoT 隨插即用](../../iot-pnp/overview-i
 * 具有 **C++ 建置工具**和 **NuGet 套件管理員元件**工作負載的 [Visual Studio 建置工具](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16)。 或者如果您已安裝具有相同工作負載的 [Visual Studio (Community、Professional 或 Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019、2017 或 2015。
 * [Git](https://git-scm.com/download/)。
 * [CMake](https://cmake.org/download/) - 當您安裝 **CMake** 時，請選取 [將 CMake 新增至系統路徑]  選項。
-* [Visual Studio Code](https://code.visualstudio.com/)。
+* [Visual Studio Code](https://code.visualstudio.com/) \(英文\)。
 * [Node.js](https://nodejs.org/)
 * `dps-keygen` 公用程式：
 
@@ -166,10 +166,10 @@ _裝置功能模型_ (DCM) 可說明 [IoT 隨插即用](../../iot-pnp/overview-i
     cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
     ```
 
-1. 組件順利完成後，請在相同的命令提示字元中執行您的應用程式。 以您先前記下的值取代 `<scopeid>` 和 `<devicekey>`：
+1. 組件順利完成後，請在相同的命令提示字元中執行您的應用程式。 以您先前記下的值取代 `<scopeid>` 和 `<primarykey>`：
 
     ```cmd
-    .\Release\devkit_device.exe mxchip-001 <scopeid> <devicekey>
+    .\Release\devkit_device.exe mxchip-001 <scopeid> <primarykey>
     ```
 
 1. 裝置應用程式會開始將資料傳送至 IoT 中樞。 有時候，您會在第一次執行前一個命令時看到 `Error registering device for DPS` 錯誤。 如果您看到此錯誤，請重試命令。
