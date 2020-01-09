@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/06/2020
 ms.author: dapine
-ms.openlocfilehash: aecbb9bb94fc251ee0142b611c54d16304793e50
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 30fd19634f6054b8b636dabcb4ef83b118554468
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901822"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689462"
 ---
 # <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>將 Language Understanding （LUIS）容器部署至 Azure 容器實例
 
@@ -25,7 +25,20 @@ ms.locfileid: "73901822"
 
 [!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
-[!INCLUDE [Create LUIS Container instance resource](../containers/includes/create-container-instances-resource.md)]
+## <a name="create-an-azure-file-share"></a>建立 Azure 檔案共用
+
+LUIS 容器需要在執行時間提取的 `.gz` 模型檔案。 容器必須能夠透過容器實例的磁片區掛接來存取此模型檔案。 如需建立 Azure 檔案共用的相關資訊，請參閱[建立檔案共用](../../storage/files/storage-how-to-create-file-share.md)。 記下 [Azure 儲存體帳戶名稱]、[金鑰] 和 [檔案共用名稱]，因為您稍後需要用到它們。
+
+### <a name="export-and-upload-packaged-luis-app"></a>匯出和上傳已封裝的 LUIS 應用程式
+
+若要將 LUIS 模型（已封裝應用程式）上傳至 Azure 檔案共用，您必須<a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">先<span class="docon docon-navigate-external x-hidden-focus"></span>從 LUIS 入口網站匯出它</a>。 在 Azure 入口網站中，流覽至儲存體帳戶資源的 [**總覽**] 頁面，然後選取 [檔案**共用**]。 選取您最近建立的檔案共用名稱，然後選取 [**上傳**] 按鈕。
+
+> [!div class="mx-imgBorder"]
+> ![上傳至檔案共用](media/luis-how-to-deploy-to-aci/upload-file-share.png)
+
+上傳 LUIS 模型檔案。
+
+[!INCLUDE [Create LUIS Container instance resource](../containers/includes/create-container-instances-resource-from-azure-cli.md)]
 
 [!INCLUDE [API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 

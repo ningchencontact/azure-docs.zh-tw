@@ -1,24 +1,15 @@
 ---
-title: 在 Linux 上建立適用於 Apache Tomcat 伺服器的 Azure Service Fabric 容器 | Microsoft Docs
+title: 在 Linux 上建立 Apache Tomcat 的容器
 description: 建立 Linux 容器以公開在 Azure Service Fabric 上於 Apache Tomcat 伺服器上執行的應用程式。 以您的應用程式和 Apache Tomcat 伺服器建置 Docker 映像，將該映像推送到容器登錄，建置並部署 Service Fabric 容器應用程式。
-services: service-fabric
-documentationcenter: .net
-author: JimacoMS2
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/08/2018
 ms.author: pepogors
-ms.openlocfilehash: 7e14a027f17c15c83a4ce25a211ef6106f2d2eaa
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170594"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614412"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>在 Linux 上建立執行 Apache Tomcat 伺服器的 Service Fabric 容器
 Apache Tomcat 是一個熱門且開放原始碼的 Java Servlet 和 Java Server 技術實作。 此文章說明如何搭配 Apache Tomcat 和簡單的 Web 應用程式來建置容器，將該容器部署至執行 Linux 的 Service Fabric 叢集，然後連線至 Web 應用程式。  
@@ -140,11 +131,11 @@ Apache Tomcat 是一個熱門且開放原始碼的 Java Servlet 和 Java Server 
    ```
    當系統提示時，輸入下列值：
 
-   * 命名您的應用程式：ServiceFabricTomcat
-   * 應用程式服務的名稱：TomcatService
-   * 輸入映射名稱：在容器登錄中提供容器映射的 URL;例如，myregistry.azurecr.io/samples/tomcattest。
-   * 命令：將此項保留空白。 因為此映像已定義工作負載進入點，您不需要明確指定輸入命令 (命令會在容器內執行，這會讓容器在啟動後繼續執行)。
-   * 來賓容器應用程式的實例數目：1
+   * Name your application (為應用程式命名)：ServiceFabricTomcat
+   * Name of the application service (應用程式服務的名稱)：TomcatService
+   * Input the Image Name (輸入映像名稱)：提供容器映像在容器登錄中的 URL，例如 myregistry.azurecr.io/samples/tomcattest。
+   * Commands (命令)：將此保留空白。 因為此映像已定義工作負載進入點，您不需要明確指定輸入命令 (命令會在容器內執行，這會讓容器在啟動後繼續執行)。
+   * Number of instances of guest container application (客體容器應用程式的執行個體數目)：1
 
    ![容器的 Service Fabric Yeoman 產生器](./media/service-fabric-get-started-tomcat/yo-generator.png)
 

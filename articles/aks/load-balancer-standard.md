@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: ef826239bc916b4ccf25785f92397286017d00f7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 43a2c64560b145531e15a35deb9321b6553782a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171397"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430812"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service 中使用標準 SKU 負載平衡器（AKS）
 
@@ -26,7 +26,7 @@ Azure Load Balancer 有兩種 SKU -「基本」和「標準」。 根據預設�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 版2.0.74 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
+如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 版2.0.74 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -54,6 +54,10 @@ Azure Load Balancer 有兩種 SKU -「基本」和「標準」。 根據預設�
 * 只有當您建立 AKS 叢集時，才可以定義負載平衡器 SKU。 建立 AKS 叢集之後，您就無法變更負載平衡器 SKU。
 * 在單一叢集中，您只能使用一種類型的負載平衡器 SKU （基本或標準）。
 * *標準*SKU 負載平衡器只支援*標準*SKU IP 位址。
+
+## <a name="use-the-standard-sku-load-balancer"></a>使用*標準*SKU 負載平衡器
+
+當您建立 AKS 叢集時，根據預設，當您在該叢集中執行服務時，會使用*標準*SKU 負載平衡器。 例如，[使用 Azure CLI 的快速入門][aks-quickstart-cli]會部署使用*標準*SKU 負載平衡器的範例應用程式。 
 
 ## <a name="configure-the-load-balancer-to-be-internal"></a>將負載平衡器設定為內部
 
@@ -177,12 +181,34 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 
 在範例輸出中， *AllocatedOutboundPorts*是0。 *AllocatedOutboundPorts*的值表示 SNAT 埠配置會根據後端集區大小還原為自動指派。 如需詳細資訊，請參閱[在 Azure 中][azure-lb-outbound-connections] [Load Balancer 輸出規則][azure-lb-outbound-rules]和輸出連線。
 
+## <a name="restrict-access-to-specific-ip-ranges"></a>限制對特定 IP 範圍的存取
+
+根據預設，與負載平衡器的虛擬網路相關聯的網路安全性群組（NSG）具有允許所有輸入外部流量的規則。 您可以將此規則更新為只允許輸入流量的特定 IP 範圍。 下列資訊清單會使用*loadBalancerSourceRanges*來指定輸入外部流量的新 IP 範圍：
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
+  loadBalancerSourceRanges:
+  - MY_EXTERNAL_IP_RANGE
+```
+
+上述範例會將規則更新為只允許來自*MY_EXTERNAL_IP_RANGE*範圍的輸入外部流量。 如需使用此方法來限制負載平衡器服務存取權的詳細資訊，請[參閱 Kubernetes 檔][kubernetes-cloud-provider-firewall]（英文）。
+
 ## <a name="next-steps"></a>後續步驟
 
 若要深入瞭解 Kubernetes services，請[參閱 Kubernetes services 檔][kubernetes-services]。
 
 <!-- LINKS - External -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubernetes-cloud-provider-firewall]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

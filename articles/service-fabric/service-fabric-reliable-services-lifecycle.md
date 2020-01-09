@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric Reliable Services 生命週期的概觀 | Microsoft Docs
-description: 了解 Service Fabric Reliable Services中不同的生命週期事件
-services: Service-Fabric
-documentationcenter: .net
+title: Reliable Services 的生命週期總覽
+description: 瞭解適用于具狀態和無狀態服務的 Azure Service Fabric Reliable Services 應用程式中的生命週期事件。
 author: masnider
-manager: chackdan
-editor: vturecek;
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ebc7aec63b34630b606178aa17e2ae7fdd0fc87f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe338ca3f25cd606da7f95f6c9437a3cd3dc4e69
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723544"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645492"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 生命週期概觀
 > [!div class="op_single_selector"]

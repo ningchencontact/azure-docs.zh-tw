@@ -1,25 +1,16 @@
 ---
-title: 在 Azure Service Fabric 叢集中使用 EventStore API 查詢叢集事件 | Microsoft Docs
+title: 使用 EventStore Api 查詢叢集事件
 description: 了解如何使用 Azure Service Fabric EventStore API 來查詢平台事件
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: facbcd6def7451ca83bdf00fe9b7c7cac2c74945
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48350caef6bdaafda9aff7ac776d67b314aeaf8c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60392869"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614395"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>針對叢集事件查詢 EventStore API
 

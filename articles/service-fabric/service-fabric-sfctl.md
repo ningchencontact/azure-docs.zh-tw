@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric CLI- sfctl | Microsoft Docs
-description: 描述 Service Fabric CLI sfctl 命令。
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI-sfctl
+description: 深入瞭解 sfctl，這是 Azure Service Fabric 命令列介面。 包含命令和子群組的清單。
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 7e7fc7bbc65e92960d7839f6531ef1f7c1935ed3
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 518e60ee92a637533fdf5ab44053d1a1c8757bbe
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900886"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645237"
 ---
 # <a name="sfctl"></a>sfctl
 用於管理 Service Fabric 叢集和實體的命令。 這個版本與 Service Fabric 6.5 執行時間相容。
@@ -27,7 +18,7 @@ ms.locfileid: "72900886"
 命令會依循「名詞-動詞」模式。 如需詳細資訊，請參閱＜子群組＞。
 
 ## <a name="subgroups"></a>子群組
-|子群組|描述|
+|子群組|說明|
 | --- | --- |
 | [application](service-fabric-sfctl-application.md) | 建立、刪除與管理應用程式和應用程式類型。 |
 | [chaos](service-fabric-sfctl-chaos.md) | 啟動、停止及報告 chaos 測試服務。 |

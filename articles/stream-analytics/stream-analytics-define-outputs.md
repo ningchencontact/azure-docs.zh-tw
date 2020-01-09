@@ -1,19 +1,18 @@
 ---
 title: 了解來自 Azure 串流分析的輸出
 description: 本文說明 Azure 串流分析中所提供的資料輸出選項，包括適用於分析結果的 Power BI。
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: 6f04ccf216edb4e6a654c83c6220451bfccfe6ac
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5d4e8c081e4009b1115d6b56ffc7244ad41001e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488570"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638913"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 
@@ -37,15 +36,15 @@ ms.locfileid: "73488570"
 | 屬性名稱 | 說明 |
 | --- | --- |
 | 輸出別名 | 在查詢中用來將查詢輸出導向 Data Lake Store 的易記名稱。 |
-| 訂用帳戶 | 包含您 Azure Data Lake Storage 帳戶的訂閱。 |
+| 訂閱 | 包含您 Azure Data Lake Storage 帳戶的訂閱。 |
 | 帳戶名稱 | 您要傳送輸出之 Data Lake Store 帳戶的名稱。 您會看到您的訂用帳戶中可用 Data Lake Store 帳戶的下拉式清單。 |
 | 路徑前置詞模式 | 用來在指定的 Data Lake Store 帳戶中寫入檔案的檔案路徑。 您可以指定一或多個 {date} 和 {time} 變數的實例：<br /><ul><li>範例 1：folder1/logs/{date}/{time}</li><li>範例 2：folder1/logs/{date}</li></ul><br />所建立資料夾結構的時間戳記會遵循 UTC 而非當地時間。<br /><br />如果檔案路徑模式不包含尾端斜線（/），則會將檔案路徑中的最後一個模式視為檔案名前置詞。 <br /><br />系統會在下列情況下建立新檔案：<ul><li>輸出結構描述中出現變更</li><li>作業的外部或內部重新開機</li></ul> |
-| 日期格式 | 選用。 如果前置詞路徑中使用日期權杖，您可以選取組織檔案要用的日期格式。 範例：YYYY/MM/DD |
-|時間格式 | 選用。 如果前置詞路徑中使用時間權杖，請指定組織檔案要用的時間格式。 目前唯一支援的值為 HH。 |
+| 日期格式 | 選擇性。 如果前置詞路徑中使用日期權杖，您可以選取組織檔案要用的日期格式。 範例：YYYY/MM/DD |
+|時間格式 | 選擇性。 如果前置詞路徑中使用時間權杖，請指定組織檔案要用的時間格式。 目前唯一支援的值為 HH。 |
 | 事件序列化格式 | 輸出資料的序列化格式。 支援 JSON、CSV 和 Avro。|
 | 編碼 | 如果您使用 CSV 或 JSON 格式，則必須指定編碼。 UTF-8 是目前唯一支援的編碼格式。|
 | 分隔符號 | 僅適用于 CSV 序列化。 串流分析可支援多種序列化 CSV 資料常用的分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。|
-| 格式 | 僅適用于 JSON 序列化。 **分隔的行會**指定輸出的格式化方式是讓每個 JSON 物件都以新行分隔。 **陣列**指定將輸出格式化為 JSON 物件的陣列。 只有在作業停止或串流分析已移動到下一個時間範圍時，才會關閉這個陣列。 一般來說，最好使用以行分隔的 JSON，因為它不需要任何特殊處理，而輸出檔案仍會寫入。|
+| [格式] | 僅適用于 JSON 序列化。 **分隔的行會**指定輸出的格式化方式是讓每個 JSON 物件都以新行分隔。 **陣列**指定將輸出格式化為 JSON 物件的陣列。 只有在作業停止或串流分析已移動到下一個時間範圍時，才會關閉這個陣列。 一般來說，最好使用以行分隔的 JSON，因為它不需要任何特殊處理，而輸出檔案仍會寫入。|
 | 驗證模式 | 您可以使用[受控識別](stream-analytics-managed-identities-adls.md)或使用者權杖來授權 Data Lake Storage 帳戶的存取權。 授與存取權之後，您可以藉由變更使用者帳戶密碼、刪除此作業的 Data Lake Storage 輸出，或刪除串流分析作業，來撤銷存取權。 |
 
 ## <a name="sql-database"></a>SQL Database
@@ -63,7 +62,7 @@ ms.locfileid: "73488570"
 | 伺服器名稱 | SQL Database 伺服器名稱。 針對 Azure SQL Database 受控執行個體，必須指定埠3342。 例如， *sampleserver、3342、* 。 |
 | 使用者名稱 | 具有資料庫之寫入權限的使用者名稱。 串流分析僅支援 SQL 驗證。 |
 | 密碼 | 連線到資料庫的密碼。 |
-| 資料表 | 要在其中寫入輸出的資料表名稱。 資料表名稱會區分大小寫。 這個資料表的架構應該完全符合您的作業輸出所產生的欄位和其類型的數目。 |
+| 表格 | 要在其中寫入輸出的資料表名稱。 資料表名稱會區分大小寫。 這個資料表的架構應該完全符合您的作業輸出所產生的欄位和其類型的數目。 |
 |繼承資料分割配置| 繼承先前查詢步驟之資料分割配置的選項，可讓多個寫入器具有資料表的完全平行拓撲。 如需詳細資訊，請參閱 [Azure 串流分析輸出至 Azure SQL Database](stream-analytics-sql-output-perf.md)。|
 |批次計數上限| 針對每個大量插入交易傳送的記錄數目建議的上限。|
 
@@ -81,15 +80,15 @@ Azure Blob 儲存體提供符合成本效益且可調整的解決方案，讓您
 | 儲存體帳戶     | 您要傳送輸出的目標儲存體帳戶名稱。               |
 | 儲存體帳戶金鑰 | 與儲存體帳戶相關聯的密碼金鑰。                              |
 | 儲存體容器   | 儲存在 Azure Blob 服務中之 blob 的邏輯群組。 當您將 blob 上傳至 Blob 服務時，您必須指定該 blob 的容器。 |
-| 路徑模式 | 選用。 用來在指定容器中寫入 blob 的檔案路徑模式。 <br /><br /> 在路徑模式中，您可以選擇使用 date 和 time 變數的一個或多個實例來指定 blob 的寫入頻率： <br /> {date}、{time} <br /><br />您可以使用自訂 Blob 資料分割，指定事件資料中的一個自訂 {field} 名稱來分割 Blob。 欄位名稱是英數字元，可以包含空格、連字號和底線。 自訂欄位的限制包含下列各項： <ul><li>功能變數名稱不區分大小寫。 例如，服務無法區分資料行 "ID" 和資料行 "id"。</li><li>不允許使用嵌套欄位。 相反地，請使用工作查詢中的別名來「簡維」欄位。</li><li>運算式不能用來做為功能變數名稱。</li></ul> <br />這項功能允許在路徑中使用自訂日期/時間格式的指定名稱設定。 自訂日期和時間格式一次只能指定一項，兩側必須加上 {datetime:\<specifier>} 關鍵字。 \<規範的允許輸入 > 為 yyyy、MM、M、dd、d、HH、H、MM、M、ss 或 s。 {Datetime：\<規範 >} 關鍵字可以在路徑中多次使用，以形成自訂日期/時間設定。 <br /><br />範例： <ul><li>範例 1：cluster1/logs/{date}/{time}</li><li>範例 2：cluster1/logs/{date}</li><li>範例 3：cluster1/{client_id}/{date}/{time}</li><li>範例4： cluster1/{datetime： ss}/{myField}，其中查詢為： SELECT myField AS myField FROM Input;</li><li>範例 5：cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br />所建立資料夾結構的時間戳記會遵循 UTC 而非當地時間。<br /><br />檔案命名會使用下列慣例： <br /><br />{路徑前置詞模式}/schemaHashcode_Guid_Number.extension<br /><br />範例輸出檔案︰<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />如需這項功能的詳細資訊，請參閱[Azure 串流分析自訂 blob 輸出資料分割](stream-analytics-custom-path-patterns-blob-storage-output.md)。 |
-| 日期格式 | 選用。 如果前置詞路徑中使用日期權杖，您可以選取組織檔案要用的日期格式。 範例：YYYY/MM/DD |
-| 時間格式 | 選用。 如果前置詞路徑中使用時間權杖，請指定組織檔案要用的時間格式。 目前唯一支援的值為 HH。 |
+| 路徑模式 | 選擇性。 用來在指定容器中寫入 blob 的檔案路徑模式。 <br /><br /> 在路徑模式中，您可以選擇使用 date 和 time 變數的一個或多個實例來指定 blob 的寫入頻率： <br /> {date}、{time} <br /><br />您可以使用自訂 Blob 資料分割，指定事件資料中的一個自訂 {field} 名稱來分割 Blob。 欄位名稱是英數字元，可以包含空格、連字號和底線。 自訂欄位的限制包含下列各項： <ul><li>功能變數名稱不區分大小寫。 例如，服務無法區分資料行 "ID" 和資料行 "id"。</li><li>不允許使用嵌套欄位。 相反地，請使用工作查詢中的別名來「簡維」欄位。</li><li>運算式不能用來做為功能變數名稱。</li></ul> <br />這項功能允許在路徑中使用自訂日期/時間格式的指定名稱設定。 自訂日期和時間格式一次只能指定一項，兩側必須加上 {datetime:\<specifier>} 關鍵字。 \<規範的允許輸入 > 為 yyyy、MM、M、dd、d、HH、H、MM、M、ss 或 s。 {Datetime：\<規範 >} 關鍵字可以在路徑中多次使用，以形成自訂日期/時間設定。 <br /><br />範例： <ul><li>範例 1：cluster1/logs/{date}/{time}</li><li>範例 2：cluster1/logs/{date}</li><li>範例 3：cluster1/{client_id}/{date}/{time}</li><li>範例4： cluster1/{datetime： ss}/{myField}，其中查詢為： SELECT myField AS myField FROM Input;</li><li>範例 5：cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br />所建立資料夾結構的時間戳記會遵循 UTC 而非當地時間。<br /><br />檔案命名會使用下列慣例： <br /><br />{路徑前置詞模式}/schemaHashcode_Guid_Number.extension<br /><br />範例輸出檔案︰<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />如需這項功能的詳細資訊，請參閱[Azure 串流分析自訂 blob 輸出資料分割](stream-analytics-custom-path-patterns-blob-storage-output.md)。 |
+| 日期格式 | 選擇性。 如果前置詞路徑中使用日期權杖，您可以選取組織檔案要用的日期格式。 範例：YYYY/MM/DD |
+| 時間格式 | 選擇性。 如果前置詞路徑中使用時間權杖，請指定組織檔案要用的時間格式。 目前唯一支援的值為 HH。 |
 | 事件序列化格式 | 輸出資料的序列化格式。 支援 JSON、CSV、Avro 和 Parquet。 |
 |最少資料列（僅限 Parquet）|每個批次的最小資料列數目。 針對 Parquet，每個批次都會建立新的檔案。 目前的預設值為2000個數據列，而允許的上限為10000個數據列。|
 |最長時間（僅限 Parquet）|每個批次的等候時間上限。 在這段時間之後，即使不符合最小資料列需求，也會將批次寫入輸出。 目前的預設值為1分鐘，而允許的上限為2小時。 如果您的 blob 輸出具有路徑模式頻率，則等候時間不得高於分割區時間範圍。|
 | 編碼    | 如果您使用 CSV 或 JSON 格式，則必須指定編碼。 UTF-8 是目前唯一支援的編碼格式。 |
 | 分隔符號   | 僅適用于 CSV 序列化。 串流分析可支援多種序列化 CSV 資料常用的分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
-| 格式      | 僅適用于 JSON 序列化。 **分隔的行會**指定輸出的格式化方式是讓每個 JSON 物件都以新行分隔。 **陣列**指定將輸出格式化為 JSON 物件的陣列。 只有在作業停止或串流分析已移動到下一個時間範圍時，才會關閉這個陣列。 一般來說，最好使用以行分隔的 JSON，因為它不需要任何特殊處理，而輸出檔案仍會寫入。 |
+| [格式]      | 僅適用于 JSON 序列化。 **分隔的行會**指定輸出的格式化方式是讓每個 JSON 物件都以新行分隔。 **陣列**指定將輸出格式化為 JSON 物件的陣列。 只有在作業停止或串流分析已移動到下一個時間範圍時，才會關閉這個陣列。 一般來說，最好使用以行分隔的 JSON，因為它不需要任何特殊處理，而輸出檔案仍會寫入。 |
 
 當您使用 Blob 儲存體做為輸出時，在下列情況下，blob 中會建立新的檔案：
 
@@ -115,12 +114,12 @@ Azure Blob 儲存體提供符合成本效益且可調整的解決方案，讓您
 | 事件中樞名稱 | 事件中樞輸出的名稱。 |
 | 事件中樞原則名稱 | 您可以在事件中樞的 [**設定**] 索引標籤上建立的共用存取原則。每個共用存取原則都會有名稱、您設定的許可權，以及存取金鑰。 |
 | 事件中樞原則金鑰 | 用來驗證對事件中樞命名空間之存取權的共用存取金鑰。 |
-| 資料分割索引鍵資料行 | 選用。 包含事件中樞輸出之分割區索引鍵的資料行。 |
+| 分割區索引鍵資料行 | 選擇性。 包含事件中樞輸出之分割區索引鍵的資料行。 |
 | 事件序列化格式 | 輸出資料的序列化格式。 支援 JSON、CSV 和 Avro。 |
 | 編碼 | 對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式。 |
 | 分隔符號 | 僅適用于 CSV 序列化。 串流分析可支援多種以 CSV 格式序列化資料常用的分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
-| 格式 | 僅適用于 JSON 序列化。 **分隔的行會**指定輸出的格式化方式是讓每個 JSON 物件都以新行分隔。 **陣列**指定將輸出格式化為 JSON 物件的陣列。  |
-| 屬性資料行 | 選用。 以逗號分隔的資料行，必須附加為外寄訊息的使用者屬性，而不是承載。 如需此功能的詳細資訊，請[查看輸出的自訂中繼資料屬性](#custom-metadata-properties-for-output)一節。 |
+| [格式] | 僅適用于 JSON 序列化。 **分隔的行會**指定輸出的格式化方式是讓每個 JSON 物件都以新行分隔。 **陣列**指定將輸出格式化為 JSON 物件的陣列。  |
+| 屬性資料行 | 選擇性。 以逗號分隔的資料行，必須附加為外寄訊息的使用者屬性，而不是承載。 如需此功能的詳細資訊，請[查看輸出的自訂中繼資料屬性](#custom-metadata-properties-for-output)一節。 |
 
 ## <a name="power-bi"></a>Power BI
 
@@ -156,10 +155,10 @@ Power BI 使用先進先出（FIFO）保留原則。 資料將會在資料表中
 
 從串流分析 | 至 Power BI
 -----|-----
-bigint | Int64
-nvarchar(max) | 字串
-datetime | Datetime
-float | Double
+BIGINT | Int64
+nvarchar(max) | String
+Datetime | Datetime
+FLOAT | Double
 記錄陣列 | 字串類型、常數值 "IRecord" 或 "IArray"
 
 ### <a name="update-the-schema"></a>更新結構描述
@@ -168,14 +167,14 @@ float | Double
 避免 `SELECT *` 查詢，以避免跨資料列進行動態架構更新。 除了潛在的效能影響，它可能會導致結果所花費的時間不確定性。 選取需要顯示在 Power BI 儀表板上的確切欄位。 此外，資料值應該與所選的資料類型相符。
 
 
-上一個/最新 | Int64 | 字串 | Datetime | Double
+上一個/最新 | Int64 | String | Datetime | Double
 -----------------|-------|--------|----------|-------
-Int64 | Int64 | 字串 | 字串 | Double
-Double | Double | 字串 | 字串 | Double
-字串 | 字串 | 字串 | 字串 | 字串 
-Datetime | 字串 | 字串 |  Datetime | 字串
+Int64 | Int64 | String | String | Double
+Double | Double | String | String | Double
+String | String | String | String | String 
+Datetime | String | String |  Datetime | String
 
-## <a name="table-storage"></a>表格儲存體
+## <a name="table-storage"></a>資料表儲存體
 
 [Azure 資料表儲存體](../storage/common/storage-introduction.md) 提供高可用性且可大幅擴充的儲存體，可讓應用程式自動調整來滿足使用者需求。 資料表儲存體是 Microsoft 的 NoSQL 索引鍵/屬性存放區，您可以將其用於架構上具有較少條件約束的結構化資料。 使用 Azure 資料表儲存資料時，資料可長期儲存而且調閱方便。
 
@@ -191,7 +190,7 @@ Datetime | 字串 | 字串 |  Datetime | 字串
 | 列索引鍵 |包含資料列索引鍵的輸出資料行名稱。 資料列索引鍵是資料分割內實體的唯一識別碼。 它可構成實體主索引鍵的第二個部分。 資料列索引鍵是大小上限為 1 KB 的字串值。 |
 | 批次大小 |批次作業的記錄數目。 預設值 (100)通常足以應付大部分的作業。 如需修改此設定的詳細資訊，請參閱[資料表批次作業規格](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation)。 |
 
-## <a name="service-bus-queues"></a>服務匯流排佇列
+## <a name="service-bus-queues"></a>Service Bus queues
 
 [服務匯流排佇列](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)提供 FIFO 訊息傳遞給一或多個競爭取用者。 一般來說，接收者會以它們新增至佇列的時態順序來接收和處理訊息。 每則訊息只會由一個訊息取用者接收和處理。
 
@@ -207,9 +206,9 @@ Datetime | 字串 | 字串 |  Datetime | 字串
 | 事件序列化格式 |輸出資料的序列化格式。 支援 JSON、CSV 和 Avro。 |
 | 編碼 |對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式。 |
 | 分隔符號 |僅適用于 CSV 序列化。 串流分析可支援多種以 CSV 格式序列化資料常用的分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
-| 格式 |僅適用于 JSON 類型。 **分隔的行會**指定輸出的格式化方式是讓每個 JSON 物件都以新行分隔。 **陣列**指定將輸出格式化為 JSON 物件的陣列。 |
-| 屬性資料行 | 選用。 以逗號分隔的資料行，必須附加為外寄訊息的使用者屬性，而不是承載。 如需此功能的詳細資訊，請[查看輸出的自訂中繼資料屬性](#custom-metadata-properties-for-output)一節。 |
-| 系統屬性資料行 | 選用。 系統屬性的機碼值組，以及需要附加至外寄訊息而非承載的對應資料行名稱。 如需這項功能的詳細資訊，請[服務匯流排佇列和主題輸出的系統屬性](#system-properties-for-service-bus-queue-and-topic-outputs)一節。  |
+| [格式] |僅適用于 JSON 類型。 **分隔的行會**指定輸出的格式化方式是讓每個 JSON 物件都以新行分隔。 **陣列**指定將輸出格式化為 JSON 物件的陣列。 |
+| 屬性資料行 | 選擇性。 以逗號分隔的資料行，必須附加為外寄訊息的使用者屬性，而不是承載。 如需此功能的詳細資訊，請[查看輸出的自訂中繼資料屬性](#custom-metadata-properties-for-output)一節。 |
+| 系統屬性資料行 | 選擇性。 系統屬性的機碼值組，以及需要附加至外寄訊息而非承載的對應資料行名稱。 如需這項功能的詳細資訊，請[服務匯流排佇列和主題輸出的系統屬性](#system-properties-for-service-bus-queue-and-topic-outputs)一節。  |
 
 分割區數目是[根據服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分割區索引鍵是每個分割區的唯一整數值。
 
@@ -228,8 +227,8 @@ Datetime | 字串 | 字串 |  Datetime | 字串
 | 事件序列化格式 |輸出資料的序列化格式。 支援 JSON、CSV 和 Avro。 |
 | 編碼 |如果您使用 CSV 或 JSON 格式，則必須指定編碼。 UTF-8 是目前唯一支援的編碼格式。 |
 | 分隔符號 |僅適用于 CSV 序列化。 串流分析可支援多種以 CSV 格式序列化資料常用的分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
-| 屬性資料行 | 選用。 以逗號分隔的資料行，必須附加為外寄訊息的使用者屬性，而不是承載。 如需此功能的詳細資訊，請[查看輸出的自訂中繼資料屬性](#custom-metadata-properties-for-output)一節。 |
-| 系統屬性資料行 | 選用。 系統屬性的機碼值組，以及需要附加至外寄訊息而非承載的對應資料行名稱。 如需這項功能的詳細資訊，請[服務匯流排佇列和主題輸出的系統屬性](#system-properties-for-service-bus-queue-and-topic-outputs)一節。 |
+| 屬性資料行 | 選擇性。 以逗號分隔的資料行，必須附加為外寄訊息的使用者屬性，而不是承載。 如需此功能的詳細資訊，請[查看輸出的自訂中繼資料屬性](#custom-metadata-properties-for-output)一節。 |
+| 系統屬性資料行 | 選擇性。 系統屬性的機碼值組，以及需要附加至外寄訊息而非承載的對應資料行名稱。 如需這項功能的詳細資訊，請[服務匯流排佇列和主題輸出的系統屬性](#system-properties-for-service-bus-queue-and-topic-outputs)一節。 |
 
 分割區數目是[根據服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 資料分割索引鍵是每個分割區的唯一整數值。
 
@@ -253,7 +252,7 @@ Datetime | 字串 | 字串 |  Datetime | 字串
 | 帳戶金鑰 | Azure Cosmos DB 帳戶的共用存取金鑰。 |
 | 資料庫 | Azure Cosmos DB 資料庫名稱。 |
 | 容器名稱 | 要使用的容器名稱，必須存在於 Cosmos DB 中。 範例：  <br /><ul><li> _MyContainer_：名為 "MyContainer" 的容器必須存在。</li>|
-| 文件識別碼 |選用。 輸出事件中的功能變數名稱，用來指定做為插入或更新作業基礎的主要金鑰。
+| 文件識別碼 |選擇性。 輸出事件中的功能變數名稱，用來指定做為插入或更新作業基礎的主要金鑰。
 
 ## <a name="azure-functions"></a>Azure Functions
 Azure Functions 是無伺服器計算服務，您可以用來視需要執行程式碼，而不需要明確布建或管理基礎結構。 它可讓您執行由 Azure 或合作夥伴服務中發生之事件所觸發的程式碼。 Azure Functions 回應觸發程式的這項能力，會使其成為 Azure 串流分析的自然輸出。 這個輸出介面卡可讓使用者將串流分析連接到 Azure Functions，並執行腳本或程式碼來回應各種事件。
@@ -266,7 +265,7 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 Azure Fun
 | --- | --- |
 | 函式應用程式 |Azure Functions 應用程式的名稱。 |
 | 函式 |Azure Functions 應用程式中的函式名稱。 |
-| 金鑰 |如果您想要使用來自另一個訂用帳戶的 Azure 函式，您可以藉由提供金鑰來存取您的函數來執行此動作。 |
+| 索引鍵 |如果您想要使用來自另一個訂用帳戶的 Azure 函式，您可以藉由提供金鑰來存取您的函數來執行此動作。 |
 | 批次大小上限 |屬性，可讓您設定傳送至 Azure 函式的每個輸出批次大小上限。 輸入是以位元組為單位。 根據預設，此值為262144個位元組（256 KB）。 |
 | 批次計數上限  |屬性，可讓您指定每個批次中傳送至 Azure Functions 的最大事件數目。 預設值是 100。 |
 
@@ -286,7 +285,7 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 Azure Fun
 * 服務匯流排主題 
 * 事件中樞 
 
-在下列範例中，我們會將兩個欄位 `DeviceId`，並 `DeviceStatus` 新增至中繼資料。 
+在下列範例中，我們會將兩個欄位 `DeviceId` 和 `DeviceStatus` 新增至中繼資料。 
 * 查詢： `select *, DeviceId, DeviceStatus from iotHubInput`
 * 輸出設定： `DeviceId,DeviceStatus`
 
@@ -324,15 +323,15 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 Azure Fun
 | Azure Data Lake Store | 是 | 在路徑前置詞模式中使用 {date} 和 {time} 權杖。 選擇日期格式，例如 YYYY/MM/DD、DD/MM/YYYY 或 MM DD-YYYY。 HH 用於時間格式。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
 | Azure SQL Database | 是，必須啟用。 | 以查詢中的 PARTITION BY 子句為基礎。 | 啟用 [繼承資料分割] 選項時，會遵循輸入資料分割來進行[完整可並行的查詢](stream-analytics-scale-jobs.md)。 若要深入瞭解當您將資料載入 Azure SQL Database 時，如何達到更佳的寫入輸送量效能，請參閱[Azure 串流分析輸出至 Azure SQL Database](stream-analytics-sql-output-perf.md)。 |
 | Azure Blob 儲存體 | 是 | 在路徑模式中，使用來自事件欄位的 {date} 和 {time} 權杖。 選擇日期格式，例如 YYYY/MM/DD、DD/MM/YYYY 或 MM DD-YYYY。 HH 用於時間格式。 您可依照單一自訂事件屬性 {fieldname} 或 {datetime:\<specifier>} 分割 Blob 輸出。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
-| Azure 事件中心 | 是 | 是 | 根據分割區對齊方式而有所不同。<br /> 當事件中樞輸出的資料分割索引鍵與上游（上一個）查詢步驟同樣地對齊時，寫入器的數目與事件中樞輸出中的磁碟分割數目相同。 每個寫入器都會使用[EventHubSender 類別](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)，將事件傳送到特定的分割區。 <br /> 當事件中樞輸出的分割區索引鍵未與上游（上一個）查詢步驟對齊時，寫入器的數目與先前步驟中的磁碟分割數目相同。 每個寫入器都會使用**EventHubClient**中的[SendBatchAsync 類別](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet)，將事件傳送至所有輸出資料分割。 |
-| Power BI | 否 | None | 不適用。 |
+| Azure 事件中樞 | 是 | 是 | 根據分割區對齊方式而有所不同。<br /> 當事件中樞輸出的資料分割索引鍵與上游（上一個）查詢步驟同樣地對齊時，寫入器的數目與事件中樞輸出中的磁碟分割數目相同。 每個寫入器都會使用[EventHubSender 類別](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)，將事件傳送到特定的分割區。 <br /> 當事件中樞輸出的分割區索引鍵未與上游（上一個）查詢步驟對齊時，寫入器的數目與先前步驟中的磁碟分割數目相同。 每個寫入器都會使用**EventHubClient**中的[SendBatchAsync 類別](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet)，將事件傳送至所有輸出資料分割。 |
+| Power BI | 否 | 無 | 不適用。 |
 | Azure 資料表儲存體 | 是 | 任何輸出資料行。  | 遵循[完整平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
 | Azure 服務匯流排主題 | 是 | 自動選擇。 分割區數目是根據[服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 資料分割索引鍵是每個分割區的唯一整數值。| 與輸出主題中的分割區數目相同。  |
 | Azure 服務匯流排佇列 | 是 | 自動選擇。 分割區數目是根據[服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 資料分割索引鍵是每個分割區的唯一整數值。| 與輸出佇列中的分割區數目相同。 |
 | Azure Cosmos DB | 是 | 以查詢中的 PARTITION BY 子句為基礎。 | 遵循[完整平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
 | Azure Functions | 是 | 以查詢中的 PARTITION BY 子句為基礎。 | 遵循[完整平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
 
-您也可以使用查詢中的 `INTO <partition count>` （參閱[INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)）子句來控制輸出寫入器的數目，這有助於達到所需的作業拓撲。 如果您的輸出配接器尚未分割，在某個輸入分割區中缺少資料的情況下，將會導致最多為延遲傳入時間長度的延遲。 在這種情況下，輸出會合並至單一寫入器，這可能會造成管線中的瓶頸。 若要深入瞭解延遲抵達原則，請參閱[Azure 串流分析事件順序考慮](stream-analytics-out-of-order-and-late-events.md)。
+您也可以使用`INTO <partition count>`查詢中的 (請參閱[INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) 子句來控制輸出寫入器的數目, 這有助於達到所需的作業拓撲。 如果您的輸出配接器尚未分割，在某個輸入分割區中缺少資料的情況下，將會導致最多為延遲傳入時間長度的延遲。 在這種情況下，輸出會合並至單一寫入器，這可能會造成管線中的瓶頸。 若要深入瞭解延遲抵達原則，請參閱[Azure 串流分析事件順序考慮](stream-analytics-out-of-order-and-late-events.md)。
 
 ## <a name="output-batch-size"></a>輸出批次大小
 Azure 串流分析使用可變大小的批次來處理事件和寫入輸出。 串流分析引擎通常不會一次寫入一則訊息，而且會使用批次來提高效率。 當傳入和傳出事件的速率很高時，串流分析會使用較大的批次。 當輸出速率較低時，它會使用較小的批次來降低延遲。
@@ -341,15 +340,15 @@ Azure 串流分析使用可變大小的批次來處理事件和寫入輸出。 �
 
 | 輸出類型 | 訊息大小上限 | 批次大小最佳化 |
 | :--- | :--- | :--- |
-| Azure Data Lake Store | 請參閱[Data Lake Storage 限制](../azure-subscription-service-limits.md#data-lake-store-limits)。 | 每次寫入作業最多可使用 4 MB。 |
+| Azure Data Lake Store | 請參閱[Data Lake Storage 限制](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits)。 | 每次寫入作業最多可使用 4 MB。 |
 | Azure SQL Database | 可使用最大批次計數進行設定。 10000根據預設，每個單一大量插入的最大和100個數據列。<br />請參閱[AZURE SQL 限制](../sql-database/sql-database-resource-limits.md)。 |  每個批次一開始會大量插入，並具有最大的批次計數。 Batch 會根據 SQL 的可重試錯誤，以一半（直到最小批次計數）分割。 |
-| Azure Blob 儲存體 | 請參閱[Azure 儲存體限制](../azure-subscription-service-limits.md#storage-limits)。 | Blob 區塊大小上限為 4 MB。<br />Blob bock 計數上限為50000。 |
-| Azure 事件中心  | 256 KB 或每則訊息 1 MB。 <br />請參閱[事件中樞限制](../event-hubs/event-hubs-quotas.md)。 |  當輸入/輸出資料分割未對齊時，會將每個事件個別封裝在 `EventData` 中，並以最大訊息大小的批次傳送。 如果使用[自訂中繼資料屬性](#custom-metadata-properties-for-output)，也會發生這種情況。 <br /><br />  當輸入/輸出資料分割對齊時，會將多個事件封裝成單一 `EventData` 實例，最多可達訊息大小上限，並已傳送。 |
+| Azure Blob 儲存體 | 請參閱[Azure 儲存體限制](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)。 | Blob 區塊大小上限為 4 MB。<br />Blob bock 計數上限為50000。 |
+| Azure 事件中樞  | 256 KB 或每則訊息 1 MB。 <br />請參閱[事件中樞限制](../event-hubs/event-hubs-quotas.md)。 |  當輸入/輸出資料分割未對齊時，會將每個事件個別封裝在 `EventData` 中，並在最大訊息大小的批次中傳送。 如果使用[自訂中繼資料屬性](#custom-metadata-properties-for-output)，也會發生這種情況。 <br /><br />  當輸入/輸出資料分割對齊時，會將多個事件封裝到單一 `EventData` 實例中，最多可達訊息大小上限，並已傳送。 |
 | Power BI | 請參閱[Power BI REST API 限制](https://msdn.microsoft.com/library/dn950053.aspx)。 |
-| Azure 資料表儲存體 | 請參閱[Azure 儲存體限制](../azure-subscription-service-limits.md#storage-limits)。 | 預設為每個單一交易100個實體。 您可以視需要將它設定為較小的值。 |
+| Azure 資料表儲存體 | 請參閱[Azure 儲存體限制](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)。 | 預設為每個單一交易100個實體。 您可以視需要將它設定為較小的值。 |
 | Azure 服務匯流排佇列   | 標準層的每個訊息 256 KB，進階層為1MB。<br /> 請參閱[服務匯流排限制](../service-bus-messaging/service-bus-quotas.md)。 | 針對每個訊息使用單一事件。 |
 | Azure 服務匯流排主題 | 標準層的每個訊息 256 KB，進階層為1MB。<br /> 請參閱[服務匯流排限制](../service-bus-messaging/service-bus-quotas.md)。 | 針對每個訊息使用單一事件。 |
-| Azure Cosmos DB   | 請參閱[Azure Cosmos DB 限制](../azure-subscription-service-limits.md#azure-cosmos-db-limits)。 | 批次大小和寫入頻率會根據 Azure Cosmos DB 回應動態調整。 <br /> 串流分析沒有預先決定的限制。 |
+| Azure Cosmos DB   | 請參閱[Azure Cosmos DB 限制](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits)。 | 批次大小和寫入頻率會根據 Azure Cosmos DB 回應動態調整。 <br /> 串流分析沒有預先決定的限制。 |
 | Azure Functions   | | 預設批次大小為262144個位元組（256 KB）。 <br /> 每個批次的預設事件計數為100。 <br /> 批次大小可以設定，並可以在串流分析的[輸出選項](#azure-functions)中增加或減少。
 
 ## <a name="next-steps"></a>後續步驟

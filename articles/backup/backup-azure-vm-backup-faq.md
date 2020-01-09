@@ -4,12 +4,12 @@ description: 在本文中，您會找到有關使用 Azure 備份服務來備份
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 30036d6cf241e1ac840b2be67ca78fbda6c60061
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b8e259c6212e9a1e81b6b0c8825287f3025f9068
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172567"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680523"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>常見問題-備份 Azure Vm
 
@@ -23,7 +23,7 @@ ms.locfileid: "74172567"
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>VM 成本中包含備份成本嗎？
 
-號 備份成本與 VM 的成本不同。 深入瞭解[Azure 備份定價](https://azure.microsoft.com/pricing/details/backup/)。
+不會。 備份成本與 VM 的成本不同。 深入瞭解[Azure 備份定價](https://azure.microsoft.com/pricing/details/backup/)。
 
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>若要啟用 VM 的備份，需要哪些許可權？
 
@@ -43,11 +43,11 @@ ms.locfileid: "74172567"
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>隨選備份作業是否會使用與排定備份相同的保留排程？
 
-號 指定隨選備份作業的保留範圍。 根據預設，若從入口網站觸發，則會保留 30 天。
+不會。 指定隨選備份作業的保留範圍。 根據預設，若從入口網站觸發，則會保留 30 天。
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>我在最近一些 VM 上啟用了 Azure 磁碟加密。 我的備份是否會繼續運作？
 
-提供存取 Key Vault Azure 備份的許可權。 在 PowerShell 中指定權限，如 **Azure 備份 PowerShell** 文件的[啟用備份](backup-azure-vms-automation.md)一節中所述。
+提供存取 Key Vault Azure 備份的許可權。 在 PowerShell 中指定權限，如 [Azure 備份 PowerShell](backup-azure-vms-automation.md) 文件的**啟用備份**一節中所述。
 
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>我已將 VM 磁碟遷移至受控磁碟。 我的備份是否會繼續運作？
 
@@ -59,11 +59,11 @@ ms.locfileid: "74172567"
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>我的 VM 關閉了。 隨選或排程的備份工作會運作嗎？
 
-是。 備份會在機器關機時執行。 復原點會標示為「當機時保持一致」。
+可以。 備份會在機器關機時執行。 復原點會標示為「當機時保持一致」。
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>我是否可以取消進行中的備份作業？
 
-是。 您可以取消處於**正在建立快照**狀態的備份作業。 如果正在從快照集傳輸資料，則無法取消作業。
+可以。 您可以取消處於**正在建立快照**狀態的備份作業。 如果正在從快照集傳輸資料，則無法取消作業。
 
 ### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>我啟用了 Azure 備份服務所建立之資源群組的鎖定（也就是 `AzureBackupRG_<geo>_<number>`），我的備份是否會繼續正常執行？
 
@@ -111,22 +111,15 @@ Azure 虛擬機器備份原則支援最短的保留範圍，最多7天到9999天
 
 是，您可以使用在將磁碟從非受控磁碟遷移至受控磁碟之前所擷取的備份。
 
-- 根據預設，還原 VM 作業會建立非受控 VM。
-- 不過，您可以還原磁碟，並使用它們來建立受控 VM。
-
 ### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>如何將 VM 還原至將 VM 遷移至受控磁碟之前的還原點？
 
-根據預設，還原 VM 作業會使用非受控磁碟來建立 VM。 若要使用受控磁碟建立虛擬機器：
-
-1. [還原至非受控磁碟](tutorial-restore-disk.md#restore-a-vm-disk)。
-2. [將還原的磁碟轉換至受控磁碟](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)。
-3. [使用受控磁碟建立 VM](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk)。
+還原程式維持不變。 如果復原點是 VM 具有非受控磁片時的時間點，您可以將[磁片還原為未受管理](tutorial-restore-disk.md#unmanaged-disks-restore)。 如果 VM 有受控磁片，您可以將[磁片還原為受控磁片](tutorial-restore-disk.md#managed-disk-restore)。 然後您可以[從這些磁片建立 VM](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk)。
 
 [深入了解](backup-azure-vms-automation.md#restore-an-azure-vm)如何在 PowerShell 中執行此動作。
 
 ### <a name="can-i-restore-the-vm-thats-been-deleted"></a>我可以還原已刪除的 VM 嗎？
 
-是。 即使您刪除 VM，還是可以移至保存庫中對應的備份項目，然後從復原點還原。
+可以。 即使您刪除 VM，還是可以移至保存庫中對應的備份項目，然後從復原點還原。
 
 ### <a name="how-to-restore-a-vm-to-the-same-availability-sets"></a>如何將 VM 還原至相同的可用性設定組？
 

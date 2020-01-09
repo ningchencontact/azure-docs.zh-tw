@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 932540c830940ec18c439352d54f671db7387b94
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7e0339f5118d4745b6abe0268f021f8284a5f11f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379153"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689126"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>針對混合式 Azure Active Directory 已加入裝置進行疑難排解 
 
@@ -102,7 +102,8 @@ WamDefaultAuthority: organizations
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined : YES  
 
-此欄位指出裝置是否已加入 Azure AD。 如果值為 **NO**，則尚未完成加入 Azure AD。 
+此欄位指出裝置是否已加入。 如果裝置是已加入 Azure AD 的裝置或混合式 Azure AD 裝置，此值會是 **[是]** 。
+如果值為 **NO**，則尚未完成加入 Azure AD。 
 
 繼續進行後續步驟，以進行進一步的疑難排解。
 
@@ -371,13 +372,13 @@ WamDefaultAuthority: organizations
 
 ##### <a name="federated-join-server-errors"></a>聯合聯結伺服器錯誤
 
-| 伺服器錯誤碼 | 伺服器錯誤訊息 | 可能的原因 | 解決方案 |
+| 伺服器錯誤碼 | 伺服器錯誤訊息 | 可能的原因 | 解析度 |
 | --- | --- | --- | --- |
-| DirectoryError | 您的要求會暫時受到節流。 請在300秒後再試一次。 | 預期的錯誤。 可能是因為快速地連續建立多個註冊要求。 | 在 cooldown 期間之後重試聯結 |
+| DirectoryError | 您的要求暫時受到節流。 請在300秒後再試一次。 | 預期的錯誤。 可能是因為快速地連續建立多個註冊要求。 | 在 cooldown 期間之後重試聯結 |
 
 ##### <a name="sync-join-server-errors"></a>同步聯結伺服器錯誤
 
-| 伺服器錯誤碼 | 伺服器錯誤訊息 | 可能的原因 | 解決方案 |
+| 伺服器錯誤碼 | 伺服器錯誤訊息 | 可能的原因 | 解析度 |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002：找不到租使用者 <UUID>。 如果沒有作用中的租使用者訂用帳戶，可能會發生此錯誤。 請洽詢您的訂用帳戶管理員。 | SCP 物件中的租使用者識別碼不正確 | 請確定已使用正確的 Azure AD 租使用者識別碼和作用中的訂用帳戶來設定 SCP 物件，並出現在租使用者中。 |
 | DirectoryError | 找不到指定之識別碼的裝置物件。 | 同步聯結的預期錯誤。 裝置物件尚未從 AD 同步至 Azure AD | 等待 Azure AD Connect 同步完成，並在同步完成後的下一次聯結嘗試解決問題 |
@@ -385,7 +386,7 @@ WamDefaultAuthority: organizations
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>步驟5：收集記錄和連絡人 Microsoft 支援服務
 
-在此取得公用腳本： [https://1drv.ms/u/s！AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ)
+在此取得公用腳本： [https://1drv.ms/u/s ！AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ)
 
 1. 開啟系統管理命令提示字元，然後執行 `start_ngc_tracing_public.cmd`。
 2. 執行重現問題的步驟。

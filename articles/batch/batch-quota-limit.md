@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 8b089a1b32ee70479072522372c060713108957c
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: b63032baa60d18f3d9d98fc403bdc1087c6c9b6b
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350089"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660676"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服務配額和限制
 
@@ -35,17 +35,17 @@ ms.locfileid: "71350089"
 
 配額是一種信用限制，不是容量保證。 如果您有大規模的容量需求，請連絡 Azure 支援。
 
-另請注意, 配額不是保證的值。 配額會根據 Batch 服務的變更, 或變更配額值的使用者要求而有所不同。
+另請注意，配額不是保證的值。 配額會根據 Batch 服務的變更，或變更配額值的使用者要求而有所不同。
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>使用者訂用帳戶模式中的核心配額
 
-如果您建立 Batch 帳戶時所用的集區配置模式是設定為**使用者訂用帳戶**，則配額會以不同的方式套用。 在這個模式中，建立集區時，Batch VM 和其他資源會直接建立在您的訂用帳戶中。 Azure Batch 核心配額不適用於在此模式中建立的帳戶。 相反地，會套用您在地區計算核心和其他資源之訂用帳戶中的配額。 深入了解 [Azure 訂用帳戶和服務限制、配額與限制](../azure-subscription-service-limits.md)中的配額。
+如果您建立 Batch 帳戶時所用的集區配置模式是設定為**使用者訂用帳戶**，則配額會以不同的方式套用。 在這個模式中，建立集區時，Batch VM 和其他資源會直接建立在您的訂用帳戶中。 Azure Batch 核心配額不適用於在此模式中建立的帳戶。 相反地，會套用您在地區計算核心和其他資源之訂用帳戶中的配額。 深入了解 [Azure 訂用帳戶和服務限制、配額與限制](../azure-resource-manager/management/azure-subscription-service-limits.md)中的配額。
 
 ## <a name="pool-size-limits"></a>集區大小限制
 
-集區大小限制是由 Batch 服務所設定。 不同于[資源配額](#resource-quotas), 無法變更這些值。 只有節點間通訊和自訂映射的集區, 其限制與標準配額不同。
+集區大小限制是由 Batch 服務所設定。 不同于[資源配額](#resource-quotas)，無法變更這些值。 只有節點間通訊和自訂映射的集區，其限制與標準配額不同。
 
 | **Resource** | **上限** |
 | --- | --- |
@@ -60,7 +60,7 @@ ms.locfileid: "71350089"
 
 ## <a name="other-limits"></a>其他限制
 
-Batch 服務所設定的其他限制。 不同于[資源配額](#resource-quotas), 無法變更這些值。
+Batch 服務所設定的其他限制。 不同于[資源配額](#resource-quotas)，無法變更這些值。
 
 | **Resource** | **上限** |
 | --- | --- |
@@ -75,7 +75,7 @@ Batch 服務所設定的其他限制。 不同于[資源配額](#resource-quotas
 
 ## <a name="view-batch-quotas"></a>檢視 Batch 配額
 
-在[Azure 入口網站][portal]中, 查看您的 Batch 帳戶配額。
+在[Azure 入口網站][portal]中，查看您的 Batch 帳戶配額。
 
 1. 在入口網站中選取 [Batch 帳戶] ，然後選取您感興趣的 Batch 帳戶。
 1. 在 Batch 帳戶的功能表上選取 [配額]。
@@ -85,7 +85,7 @@ Batch 服務所設定的其他限制。 不同于[資源配額](#resource-quotas
 
 ## <a name="increase-a-quota"></a>增加配額
 
-請遵循下列步驟, 使用[Azure 入口網站][portal]來要求 Batch 帳戶或您的訂用帳戶的配額增加。 增加配額的類型取決於您 Batch 帳戶的集區配置模式。 若要要求增加配額, 您必須包含您想要增加配額的 VM 系列。 套用配額增加時, 它會套用至所有系列的 Vm。
+請遵循下列步驟，使用[Azure 入口網站][portal]來要求 Batch 帳戶或您的訂用帳戶的配額增加。 增加配額的類型取決於您 Batch 帳戶的集區配置模式。 若要要求增加配額，您必須包含您想要增加配額的 VM 系列。 套用配額增加時，它會套用至所有系列的 Vm。
 
 ### <a name="increase-cores-quota-in-batch"></a>在 Batch 中增加核心配額 
 
@@ -93,7 +93,7 @@ Batch 服務所設定的其他限制。 不同于[資源配額](#resource-quotas
 1. 選取 [新增支援要求] > [基本]。
 1. 在 [基本] 中：
    
-    a. **問題類型** > **服務與訂用帳戶限制 (配額)**
+    a. **問題類型** > **服務和訂用帳戶限制（配額）**
    
     b. 選取您的訂用帳戶。
    
@@ -103,19 +103,19 @@ Batch 服務所設定的其他限制。 不同于[資源配額](#resource-quotas
     
 1. 在 [詳細資料] 中：
       
-    a. 在 [**提供詳細資料**] 中, 指定 [位置]、[配額類型] 和 [Batch 帳戶]。
+    a. 在 [**提供詳細資料**] 中，指定 [位置]、[配額類型] 和 [Batch 帳戶]。
     
     ![增加批次配額][quota_increase]
 
-    配額類型包括:
+    配額類型包括：
 
     * **每一 Batch 帳戶**  
-        單一 Batch 帳戶的特定值, 包括專用和低優先順序的核心, 以及作業和集區的數目。
+        單一 Batch 帳戶的特定值，包括專用和低優先順序的核心，以及作業和集區的數目。
         
     * **每個區域**  
-        適用于區域中所有 Batch 帳戶的值, 並包含每個訂用帳戶每個區域的 Batch 帳戶數目。
+        適用于區域中所有 Batch 帳戶的值，並包含每個訂用帳戶每個區域的 Batch 帳戶數目。
 
-    低優先順序配額是跨所有 VM 系列的單一值。 如果您需要受限的 Sku, 您必須選取**低優先順序的核心**, 並包含要要求的 VM 系列。
+    低優先順序配額是跨所有 VM 系列的單一值。 如果您需要受限的 Sku，您必須選取**低優先順序的核心**，並包含要要求的 VM 系列。
 
     b. 根據您的[業務影響][support_sev]來選取**嚴重性**。
 
@@ -129,7 +129,7 @@ Batch 服務所設定的其他限制。 不同于[資源配額](#resource-quotas
    
     選取 [**建立**] 以提交支援要求。
 
-一旦您上傳支援要求，Azure 支援會與您連絡。 配額要求可能會在幾分鐘內完成, 或最多兩個工作天。
+一旦您上傳支援要求，Azure 支援會與您連絡。 配額要求可能會在幾分鐘內完成，或最多兩個工作天。
 
 ## <a name="related-quotas-for-vm-pools"></a>適用於 VM 集區的相關配額
 
@@ -139,13 +139,13 @@ Batch 服務所設定的其他限制。 不同于[資源配額](#resource-quotas
 * 一個[公用 IP 位址](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * 一個[負載平衡器](../load-balancer/load-balancer-overview.md)
 
-這些資源會配置於包含在建立 Batch 集區時所提供之虛擬網路的訂用帳戶中。 這些資源會被訂用帳戶的[資源配額](../azure-subscription-service-limits.md)所限制。 如果您計畫在虛擬網路中進行大型的集區部署，請檢查這些資源的訂用帳戶配額。 若有需要，請在 Azure 入口網站中選取 [説明 + 支援] 來要求提升配額。
+這些資源會配置於包含在建立 Batch 集區時所提供之虛擬網路的訂用帳戶中。 這些資源會被訂用帳戶的[資源配額](../azure-resource-manager/management/azure-subscription-service-limits.md)所限制。 如果您計畫在虛擬網路中進行大型的集區部署，請檢查這些資源的訂用帳戶配額。 若有需要，請在 Azure 入口網站中選取 [説明 + 支援] 來要求提升配額。
 
 
 ## <a name="related-topics"></a>相關主題
 * [使用 Azure 入口網站建立 Azure Batch 帳戶](batch-account-create-portal.md)
 * [Azure Batch 功能概觀](batch-api-basics.md)
-* [Azure 訂用帳戶和服務限制、配額與限制](../azure-subscription-service-limits.md)
+* [Azure 訂用帳戶和服務限制、配額與限制](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

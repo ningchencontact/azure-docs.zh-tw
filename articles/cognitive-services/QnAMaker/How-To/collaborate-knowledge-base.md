@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 01/03/2020
 ms.author: diberry
-ms.openlocfilehash: d9c91d54fb357807682cd57f46b04454e4e2cfec
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: b5adc7ebacde056a141ca3b361b9eb2ea7900a39
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876656"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660744"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>對知識庫進行共同作業
 
-QnA Maker 可讓多位使用者對知識庫進行共同作業。 這項功能是連同 Azure [角色型存取控制](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)一起提供。 
+QnA Maker 可讓多人共同處理相同 QnA Maker 資源中的所有知識庫。 這項功能是連同 Azure [角色型存取控制](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)一起提供。
 
 執行下列步驟，與他人共用 QnA Maker 服務：
 
-1. 登入 Azure 入口網站, 並移至您的 QnA Maker 資源。
+1. 登入 Azure 入口網站，並移至您的 QnA Maker 資源。
 
     ![QnA Maker 資源清單](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
 
@@ -39,11 +39,11 @@ QnA Maker 可讓多位使用者對知識庫進行共同作業。 這項功能是
 
     ![QnA Maker IAM 新增角色](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
 
-1. 輸入使用者的電子郵件地址, 然後按 [**儲存**]。
+1. 輸入使用者的電子郵件地址，然後按 [**儲存**]。
 
     ![QnA Maker IAM 新增電子郵件](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-email.PNG)
 
-當您將 QnA Maker 服務與共享時, 會登入[QnA Maker 入口網站](https://qnamaker.ai), 他們可以看到該服務中的所有知識庫。
+當您將 QnA Maker 服務與共享時，會登入[QnA Maker 入口網站](https://qnamaker.ai)，他們可以看到該服務中的所有知識庫。
 
 請記住，您無法共用 QnA Maker 服務中特定一個知識庫。 如果您想要更細部的存取控制，請考慮在不同的 QnA Maker 服務發佈您的知識庫。
 

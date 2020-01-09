@@ -3,12 +3,12 @@ title: 使用參數建立動態藍圖
 description: 瞭解靜態和動態參數，以及如何使用它們來建立安全且動態的藍圖。
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 31fff8fddd8e1969ef0d33047ae070f6302c9c83
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128926"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644965"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>透過參數建立動態藍圖
 
@@ -40,7 +40,7 @@ ms.locfileid: "74128926"
 如果藍圖指派使用**使用者指派的受控識別**，則受參考的 Key Vault_可能_存在於集中式訂用帳戶中。 在藍圖指派之前，必須先將 Key Vault 的適當許可權授與受控識別。
 
 > [!IMPORTANT]
-> 在這兩種情況下，Key Vault 都必須具有 [**存取原則**] 頁面上所設定**範本部署 Azure Resource Manager 的存取權**。 如需如何啟用此功能的相關指示，請參閱 [Key Vault - 啟用範本部署](../../../managed-applications/key-vault-access.md#enable-template-deployment)。
+> 在這兩種情況下，Key Vault 都必須具有 [**存取原則**] 頁面上所設定**範本部署 Azure Resource Manager 的存取權**。 如需如何啟用此功能的相關指示，請參閱 [Key Vault - 啟用範本部署](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment)。
 
 如需 Azure Key Vault 的詳細資訊，請參閱 [Azure Key Vault 概觀](../../../key-vault/key-vault-overview.md)。
 
@@ -131,7 +131,7 @@ ms.locfileid: "74128926"
   }
   ```
 
-在此範例中，**principalIds** 屬性會利用  **的值來使用**擁有者`[parameters('owners')]`藍圖層級參數。 使用藍圖層級參數在成品上設定參數，仍然是一個**靜態參數**範例。 藍圖層級參數無法在藍圖指派期間設定，而且在每個指派上都會是相同的值。
+在此範例中，**principalIds** 屬性會利用 `[parameters('owners')]` 的值來使用**擁有者**藍圖層級參數。 使用藍圖層級參數在成品上設定參數，仍然是一個**靜態參數**範例。 藍圖層級參數無法在藍圖指派期間設定，而且在每個指派上都會是相同的值。
 
 ##### <a name="artifact-level-parameter"></a>成品層級參數
 

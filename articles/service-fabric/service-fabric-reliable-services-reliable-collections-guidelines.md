@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric 中 Reliable Collection 的指導方針與建議 | Microsoft Docs
-description: 使用 Service Fabric Reliable Collection 的指導方針與建議
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak,zhol
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
+title: 可靠集合的指導方針
+description: 在 Azure Service Fabric 應用程式中使用 Service Fabric 可靠集合的指導方針和建議。
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 12/10/2017
-ms.author: atsenthi
-ms.openlocfilehash: dc7d60cb846aa16f2facd41f5b6b7ce52bcc8f41
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 37c734205877f9e0cb98ef2834462691e8e483d9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599332"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645475"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric 中 Reliable Collection 的指導方針與建議
 本節提供使用 Reliable State Manager 和 Reliable Collection 的指導方針。 目標是要協助使用者避開常見的陷阱。
@@ -32,7 +21,7 @@ ms.locfileid: "68599332"
 * 在認可、中止或處置交易之後，請勿使用該交易。
 * 請不要在其所建立的交易範圍之外使用列舉。
 * 請不要在另一個交易的 `using` 陳述式內建立交易，因為它會造成死結。
-* 請勿使用建立可靠的`IReliableStateManager.GetOrAddAsync`狀態, 並在相同的交易中使用可靠的狀態。 這會導致 InvalidOperationException。
+* 請勿使用 `IReliableStateManager.GetOrAddAsync` 建立可靠的狀態，並在相同的交易中使用可靠的狀態。 這會導致 InvalidOperationException。
 * 務必確保 `IComparable<TKey>` 實作是正確的。 系統會對 `IComparable<TKey>` 採取相依性以合併檢查點與資料列。
 * 請不要在讀取需更新的項目時使用更新鎖定，以避免發生特定類別的死結。
 * 請考慮將每個分割區可靠的集合數目保持小於 1000。 偏好具有較多項目可靠集合，勝過於具有較少項目的可靠集合。
@@ -53,7 +42,7 @@ ms.locfileid: "68599332"
 * 應用程式保存在可靠集合中的資料會有何種安全性/隱私權將由您決定，且會受到儲存體管理的保護；也就是說， 作業系統磁碟加密可用來保護待用資料。  
 
 ### <a name="next-steps"></a>後續步驟
-* [使用 Reliable Collections](service-fabric-work-with-reliable-collections.md)
+* [使用可靠的集合](service-fabric-work-with-reliable-collections.md)
 * [交易和鎖定](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * 管理資料
   * [備份與還原](service-fabric-reliable-services-backup-restore.md)

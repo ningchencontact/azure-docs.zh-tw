@@ -1,5 +1,6 @@
 ---
-title: Microsoft Azure 雲端服務之設定和管理問題的常見問題集 | Microsoft Docs
+title: 設定和管理問題常見問題
+titleSuffix: Azure Cloud Services
 description: 本文列出 Microsoft Azure 雲端服務之設定和管理的相關常見問題集。
 services: cloud-services
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 704d6d4a12550507a8e38be4777e5abc7b57fe74
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 47a75d10f6016eb49061f9e7158b00899a387f2f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161761"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660608"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之設定和管理問題：常見問題集 (FAQ)
 
@@ -110,7 +111,7 @@ CSR 只是文字檔。 不必從最終會使用憑證的電腦建立它。 雖
 
 此憑證用來加密 Azure Web 角色上的電腦金鑰。 若要深入瞭解，請參閱[此諮詢](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731)。
 
-如需詳細資訊，請參閱下列文章。
+如需詳細資訊，請參閱下列文章：
 - [如何設定和執行雲端服務的啟動工作](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [常見的雲端服務啟動工作](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
@@ -195,7 +196,7 @@ Windows 10 和 Windows Server 2016 隨附用戶端和伺服器端上的 HTTP/2 �
 5. 重新啟動您的伺服器。
 6. 移至**預設網站**，並在 [繫結] 下方 使用剛才建立的自我簽署憑證來建立新的 TLS 繫結。 
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 - [IIS 上的 HTTP/2](https://blogs.iis.net/davidso/http2)
 - [影片：Windows 10 中的 HTTP/2：瀏覽器、應用程式和 Web 伺服器](https://channel9.msdn.com/Events/Build/2015/3-88)
@@ -276,7 +277,7 @@ Microsoft 會遵循嚴格的程序，不允許內部工程師在沒有擁有者�
 請從[常見的啟動工作](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe)一文使用 IIS 啟動指令碼。
 
 ### <a name="what-is-the-quota-limit-for-my-cloud-service"></a>我的雲端服務配額限制是多少？
-請參閱[特定服務的限制](../azure-subscription-service-limits.md#subscription-limits)。
+請參閱[特定服務的限制](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits)。
 
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>為什麼我雲端服務虛擬機器上的磁碟機顯示幾乎沒有可用的磁碟空間？
 這是預期的行為，並不會對您的應用程式造成任何問題。 在 Azure PaaS 虛擬機器中會開啟 %approot% 磁碟機的日誌記錄，基本上會消耗兩倍檔案通常所佔用的空間量。 不過，要留意幾件事，基本上這就會變得沒有問題。
@@ -310,7 +311,7 @@ Azure 不會將任何內容寫入 %approot% 磁碟機。 一旦從 .cspkg 建立
     
 如[這裡](https://technet.microsoft.com/library/ee790567.aspx)所述，$sslFlags 可能是如下所示其中一個值：
 
-|Value|意義|
+|值|意義|
 ------|------
 |0|沒有 SNI|
 |1|已啟用 SNI|

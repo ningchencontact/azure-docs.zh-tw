@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: ab16fc959a332076cac1d615b86d37e8c66e2f67
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c3c94805c18b0a7a3052158871c5fafce2dd5a33
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933688"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660710"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>建立自動公式以調整 Batch 集區中的計算節點
 
@@ -34,7 +34,7 @@ Azure Batch 可以根據您定義的參數自動調整集區。 使用自動調�
 > [!IMPORTANT]
 > 當您建立 Batch 帳戶時，您可以指定[帳戶設定](batch-api-basics.md#account)，該設定會決定集區是配置在 Batch 服務訂用帳戶 (預設值)，或是您的使用者訂用帳戶。 如果您使用預設 Batch 服務設定來建立 Batch 帳戶，則您的帳戶受限為可用於處理的核心數目上限。 Batch 服務只會將計算節點調整為最多達到該核心限制。 基於這個理由，Batch 服務不會達到自動調整公式所指定的目標計算節點數目。 如需檢視和增加帳戶配額的相關資訊，請參閱 [Azure Batch 服務的配額和限制](batch-quota-limit.md) 。
 >
->如果您以使用者訂用帳戶設定建立您的帳戶，則您的帳戶會共用訂用帳戶的核心配額。 如需詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](../azure-subscription-service-limits.md)中的 [虛擬機器限制](../azure-subscription-service-limits.md#virtual-machines-limits)。
+>如果您以使用者訂用帳戶設定建立您的帳戶，則您的帳戶會共用訂用帳戶的核心配額。 如需詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](../azure-resource-manager/management/azure-subscription-service-limits.md)中的 [虛擬機器限制](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits)。
 >
 >
 
@@ -102,7 +102,7 @@ $NodeDeallocationOption = taskcompletion;
 
 您可以取得並設定這些這些服務定義的變數值，以管理集區中的計算節點：
 
-| 讀寫服務定義變數 | 描述 |
+| 讀寫服務定義變數 | 說明 |
 | --- | --- |
 | $TargetDedicatedNodes |集區之專用計算節點的目標數目。 專用節點數目被指定作為目標，因為集區不一定會達到想要的節點數目。 例如，如果在集區達到初始目標之前，自動調整評估修改目標專用節點數目，則集區可能未達到目標。 <br /><br /> 如果目標超過 Batch 帳戶節點或核心配額，以 Batch 服務設定建立之帳戶中的集區可能未達到其目標。 如果目標超過訂用帳戶的共用核心配額，以使用者訂用帳戶設定建立之帳戶中的集區可能未達到其目標。|
 | $TargetLowPriorityNodes |集區之低優先順序計算節點的目標數目。 低優先順序節點數目被指定作為目標，因為集區不一定會達到想要的節點數目。 例如，如果在集區達到初始目標之前，自動調整評估修改目標低優先順序節點數目，則集區可能未達到目標。 如果目標超過 Batch 帳戶節點或核心配額，則集區也可能未達到其目標。 <br /><br /> 如需低優先順序計算節點的詳細資訊，請參閱[使用低優先順序的 vm 搭配 Batch](batch-low-pri-vms.md)。 |
@@ -115,13 +115,13 @@ $NodeDeallocationOption = taskcompletion;
 
 您可以取得這些服務定義的變數值，以根據 Batch 服務提供的計量進行調整：
 
-| 唯讀服務定義變數 | 描述 |
+| 唯讀服務定義變數 | 說明 |
 | --- | --- |
 | $CPUPercent |CPU 使用量的平均百分比。 |
 | $WallClockSeconds |已耗用的秒數。 |
 | $MemoryBytes |已使用的平均 MB 數目。 |
 | $DiskBytes |已在本機磁碟上使用的平均 GB 數目。 |
-| $DiskReadBytes |已讀取的位元組數目。 |
+| $DiskReadBytes |讀取的位元組數。 |
 | $DiskWriteBytes |已寫入的位元組數目。 |
 | $DiskReadOps |已執行的讀取磁碟作業計數。 |
 | $DiskWriteOps |已執行的寫入磁碟作業計數。 |
@@ -146,7 +146,7 @@ $NodeDeallocationOption = taskcompletion;
 
 公式中支援以下類型：
 
-* 兩倍
+* double
 * doubleVec
 * doubleVecList
 * string
@@ -178,49 +178,49 @@ $NodeDeallocationOption = taskcompletion;
 
 | 作業 | 支援的運算子 | 結果類型 |
 | --- | --- | --- |
-| double 運算子 double |+、-、*、/ |兩倍 |
+| double 運算子 double |+、-、*、/ |double |
 | double 運算子 timeinterval |* |timeinterval |
 | doubleVec 運算子 double |+、-、*、/ |doubleVec |
 | doubleVec 運算子 doubleVec |+、-、*、/ |doubleVec |
 | timeinterval 運算子 double |*、/ |timeinterval |
-| timeinterval 運算子 timeinterval |+、- |timeinterval |
+| timeinterval 運算子 timeinterval |+、 - |timeinterval |
 | timeinterval 運算子 timestamp |+ |timestamp |
 | timestamp 運算子 timeinterval |+ |timestamp |
 | timestamp timestamp |- |timeinterval |
-| double |-、! |兩倍 |
+| double |-、! |double |
 | timeinterval |- |timeinterval |
-| double 運算子 double |<、<=、==、>=、>、!= |兩倍 |
-| string string |<、<=、==、>=、>、!= |兩倍 |
-| timestamp timestamp |<、<=、==、>=、>、!= |兩倍 |
-| timeinterval 運算子 timeinterval |<、<=、==、>=、>、!= |兩倍 |
-| double 運算子 double |&&, &#124;&#124; |兩倍 |
+| double 運算子 double |<、<=、==、>=、>、!= |double |
+| string string |<、<=、==、>=、>、!= |double |
+| timestamp timestamp |<、<=、==、>=、>、!= |double |
+| timeinterval 運算子 timeinterval |<、<=、==、>=、>、!= |double |
+| double 運算子 double |&&, &#124;&#124; |double |
 
 測試具有三元運算子的雙精準數 (`double ? statement1 : statement2`) 時，非零為 **true**，而零則為 **false**。
 
 ## <a name="functions"></a>Functions
 這些預先定義的 **函式** 可供您用來定義自動調整公式。
 
-| 函式 | 傳回類型 | 描述 |
+| 函式 | 傳回類型 | 說明 |
 | --- | --- | --- |
-| avg(doubleVecList) |兩倍 |傳回 doubleVecList 中所有值的平均值。 |
-| len(doubleVecList) |兩倍 |傳回 doubleVecList 建立的向量的長度。 |
-| lg(double) |兩倍 |傳回 double 的對數底數 2。 |
+| avg(doubleVecList) |double |傳回 doubleVecList 中所有值的平均值。 |
+| len(doubleVecList) |double |傳回 doubleVecList 建立的向量的長度。 |
+| lg(double) |double |傳回 double 的對數底數 2。 |
 | lg(doubleVecList) |doubleVec |傳回 doubleVecList 的全元件對數底數 2。 vec(double) 必須針對此參數明確傳遞。 否則會假設為 double lg(double) 版本。 |
-| ln(double) |兩倍 |傳回 double 的自然底數。 |
+| ln(double) |double |傳回 double 的自然底數。 |
 | ln(doubleVecList) |doubleVec |傳回 double 的自然底數。 |
-| log(double) |兩倍 |傳回 double 的對數底數 10。 |
+| log(double) |double |傳回 double 的對數底數 10。 |
 | log(doubleVecList) |doubleVec |傳回 doubleVecList 的全元件對數底數 10。 vec(double) 必須針對單一 double 參數明確傳遞。 否則，會假設為 double log (double) 版本。 |
-| max(doubleVecList) |兩倍 |傳回 doubleVecList 中的最大值。 |
-| min(doubleVecList) |兩倍 |傳回 doubleVecList 中的最小值。 |
-| norm(doubleVecList) |兩倍 |傳回 doubleVecList 建立的向量的 2-norm。 |
-| percentile(doubleVec v, double p) |兩倍 |傳回向量 v 的百分位數元素。 |
-| rand() |兩倍 |傳回介於 0.0 到 1.0 之間的隨機值。 |
-| range(doubleVecList) |兩倍 |傳回 doubleVecList 中最小和最大值之間的差異。 |
-| std(doubleVecList) |兩倍 |傳回 doubleVecList 中值的標準差範例。 |
+| max(doubleVecList) |double |傳回 doubleVecList 中的最大值。 |
+| min(doubleVecList) |double |傳回 doubleVecList 中的最小值。 |
+| norm(doubleVecList) |double |傳回 doubleVecList 建立的向量的 2-norm。 |
+| percentile(doubleVec v, double p) |double |傳回向量 v 的百分位數元素。 |
+| rand() |double |傳回介於 0.0 到 1.0 之間的隨機值。 |
+| range(doubleVecList) |double |傳回 doubleVecList 中最小和最大值之間的差異。 |
+| std(doubleVecList) |double |傳回 doubleVecList 中值的標準差範例。 |
 | stop() | |停止評估自動調整運算式。 |
-| sum(doubleVecList) |兩倍 |傳回 doubleVecList 所有元件的總和。 |
+| sum(doubleVecList) |double |傳回 doubleVecList 所有元件的總和。 |
 | time(string dateTime="") |timestamp |如果未傳遞參數，則傳回目前時間的時間戳記，如果有傳遞參數，則為 dateTime 字串的時間戳記。 支援的 dateTime 格式為 W3C-DTF 和 RFC 1123。 |
-| val(doubleVec v, double i) |兩倍 |傳回向量 v 中位置 i 的元素值，起始索引為零。 |
+| val(doubleVec v, double i) |double |傳回向量 v 中位置 i 的元素值，起始索引為零。 |
 
 上表中所述的某些函式可以接受清單作為引數。 逗號分隔清單是 *double* 和 *doubleVec* 的任意組合。 例如：
 
@@ -236,7 +236,7 @@ $NodeDeallocationOption = taskcompletion;
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ```
 
-| 方法 | 描述 |
+| 方法 | 說明 |
 | --- | --- |
 | GetSample() |`GetSample()` 方法會傳回資料樣本的向量。<br/><br/>一個樣本有 30 秒的度量資料。 換句話說，每隔 30 秒會取得範例。 如下所述，從收集樣本到可用於公式之間會延遲。 因此，並非一段指定時間內的所有樣本都可供公式評估。<ul><li>`doubleVec GetSample(double count)`<br/>指定要從最近收集的樣本中取得的樣本數。<br/><br/>`GetSample(1)` 會傳回最後一個可用的樣本。 不過，這不適用於 `$CPUPercent` 之類的度量，因為不可能知道「何時」收集到樣本。 此範例可能是最新的，也可能因為系統問題，是更舊的。 在此情況下，最好使用如下所示的時間間隔。<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>指定收集樣本資料的時間範圍。 它也會選擇性地指定在要求的時間範圍內必須可用的樣本數百分比。<br/><br/>如果 CPUPercent 歷程記錄中有最後 10 分鐘的所有樣本，則 `$CPUPercent.GetSample(TimeInterval_Minute * 10)` 會傳回 20 個樣本。 不過，如果最後一分鐘的歷程記錄無法使用，則只會傳回 18 個樣本。 在此案例中：<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` 會失敗，因為只有 90% 的樣本可用。<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` 會成功。<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>指定收集資料的時間範圍 (含開始時間和結束時間)。<br/><br/>如上所述，從收集樣本到可用於公式之間會延遲。 當您使用 `GetSample` 方法時，請考慮此延遲。 請參閱下文中的 `GetSamplePercent`。 |
 | GetSamplePeriod() |傳回歷史範例資料集中取得範例的期間。 |
@@ -295,7 +295,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 <table>
   <tr>
     <th>計量</th>
-    <th>描述</th>
+    <th>說明</th>
   </tr>
   <tr>
     <td><b>Resource</b></td>
@@ -394,7 +394,7 @@ $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 1. (選擇性) 設定 [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) 屬性 (預設值為 15 分鐘)。
 1. 使用 [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) 或 [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) 認可集區。
 
-下列程式碼片段在 .NET 中建立已啟用自動調整的集區。 集區的自動調整公式會將星期一的專用節點目標數目設定為 5，而將一週其他各天的節點目標數目設定為 1。 [自動調整間隔](#automatic-scaling-interval) 設定為 30 分鐘。 在這篇文章中C#的其他程式碼片段中，`myBatchClient`是適當初始化的[BatchClient][net_batchclient]類別實例。
+下列程式碼片段在 .NET 中建立已啟用自動調整的集區。 集區的自動調整公式會將星期一的專用節點目標數目設定為 5，而將一週其他各天的節點目標數目設定為 1。 [自動調整間隔](#automatic-scaling-interval) 設定為 30 分鐘。 在這篇文章中C#的其他程式碼片段中，`myBatchClient` 是適當初始化的[BatchClient][net_batchclient]類別實例。
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(

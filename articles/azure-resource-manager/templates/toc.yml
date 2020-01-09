@@ -10,10 +10,6 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: 建立範本 - VS Code
       href: quickstart-create-templates-use-visual-studio-code.md
-    - name: 建立範本 - Visual Studio
-      href: create-visual-studio-deployment-project.md
-    - name: 建立範本 - IntelliJ IDEA
-      href: create-templates-use-intellij.md
 - name: 教學課程
   items:
     - name: 初學者
@@ -101,8 +97,9 @@
   items:
     - name: 建立範本
       items:
-        - name: 使用 VS 程式碼
-          href: use-vs-code-to-create-template.md
+        - name: 範本檔案結構
+          displayName: 'parameters,variables,resources,outputs,condition'
+          href: template-syntax.md
         - name: 撰寫範本運算式
           href: template-expressions.md
         - name: 參數
@@ -134,6 +131,14 @@
           href: deploy-to-subscription.md
         - name: 管理群組層級資源
           href: deploy-to-management-group.md
+    - name: 使用撰寫工具
+      items:
+        - name: VS 程式碼
+          href: use-vs-code-to-create-template.md
+        - name: Visual Studio
+          href: create-visual-studio-deployment-project.md
+        - name: IntelliJ IDEA
+          href: create-templates-use-intellij.md
     - name: 部署範本
       items:
         - name: 部署 - 入口網站
@@ -206,9 +211,6 @@
           href: ../../virtual-machines/windows/troubleshoot-deploy-vm.md
 - name: 參考
   items:
-    - name: 範本檔案結構
-      displayName: 'parameters,variables,resources,outputs,condition'
-      href: template-syntax.md
     - name: 範本參考
       href: /azure/templates/
     - name: 範本函式

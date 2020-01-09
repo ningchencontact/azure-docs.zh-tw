@@ -1,5 +1,5 @@
 ---
-title: 驗證範圍和應用程式角色 |Azure
+title: 驗證範圍 & 應用程式角色保護的 Web API |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解如何建立受保護的 Web API，並設定應用程式的程式碼。
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a20a7a5a0df87910d2093bfee47e46c9c1a06530
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2eb9cdf68bf5103776d50db28e9e6facc89c9278
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965376"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423697"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>受保護的 Web API：確認範圍和應用程式角色
 
@@ -42,7 +42,7 @@ ms.locfileid: "74965376"
 - 控制器本身，如果您想要保護控制器的所有動作
 - 適用于您 API 的個別控制器動作
 
-```CSharp
+```csharp
     [Authorize]
     public class TodoListController : Controller
     {
@@ -59,7 +59,7 @@ ms.locfileid: "74965376"
 
 如果您的 API 是由用戶端應用程式代表使用者呼叫，它就必須要求具有 API 特定範圍的持有人權杖。 （請參閱程式[代碼設定 |持有人權杖](scenario-protected-web-api-app-configuration.md#bearer-token)）。
 
-```CSharp
+```csharp
 [Authorize]
 public class TodoListController : Controller
 {
@@ -86,7 +86,7 @@ public class TodoListController : Controller
 - 確認有名為 `http://schemas.microsoft.com/identity/claims/scope` 或 `scp`的宣告。
 - 確認宣告的值包含 API 所預期的範圍。
 
-```CSharp
+```csharp
     /// <summary>
     /// When applied to a <see cref="HttpContext"/>, verifies that the user authenticated in the 
     /// web API has any of the accepted scopes.
@@ -121,7 +121,7 @@ public class TodoListController : Controller
 如果您的 Web API 是由「背景程式」[應用程式](scenario-daemon-overview.md)所呼叫，該應用程式應該需要您 Web API 的「應用程式」許可權。 我們已看到[公開應用程式許可權（應用程式角色）](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles) ，您的 API 會公開這類許可權（例如，`access_as_application` 應用程式角色）。
 您現在必須讓 Api 驗證它所收到的權杖包含 `roles` 宣告，而且此宣告具有預期的值。 執行這項驗證的程式碼類似于驗證委派許可權的程式碼，不同的是，您的控制器動作會測試 `roles`，而不是測試 `scopes`：
 
-```CSharp
+```csharp
 [Authorize]
 public class TodoListController : ApiController
 {
@@ -134,7 +134,7 @@ public class TodoListController : ApiController
 
 `ValidateAppRole()` 的方法可能如下所示：
 
-```CSharp
+```csharp
 private void ValidateAppRole(string appRole)
 {
     //
@@ -161,7 +161,7 @@ private void ValidateAppRole(string appRole)
 
 如果您只想要允許 daemon 應用程式呼叫您的 Web API，請新增條件，當您驗證應用程式角色時，該權杖就是僅限應用程式的權杖：
 
-```CSharp
+```csharp
 string oid = ClaimsPrincipal.Current.FindFirst("oid")?.Value;
 string sub = ClaimsPrincipal.Current.FindFirst("sub")?.Value;
 bool isAppOnlyToken = oid == sub;

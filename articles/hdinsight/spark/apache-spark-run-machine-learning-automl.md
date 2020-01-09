@@ -6,23 +6,22 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/14/2019
-ms.openlocfilehash: 4e6b648ed70f6ff57a2d11cde43b8168b800fcb3
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 12/13/2019
+ms.openlocfilehash: 6fc0d4cfe29e0fb189c44b307576bd08d2da8a31
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806910"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638877"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>在 HDInsight 上的 Apache Spark 上使用自動化機器學習來執行 Azure Machine Learning 工作負載
 
 Azure Machine Learning 可簡化及加速機器學習模型的建立、定型和部署。 在自動化機器學習（AutoML）中，您從具有已定義目標功能的定型資料開始，然後逐一查看演算法和特徵選取的組合，以根據定型分數自動選取資料的最佳模型。 HDInsight 可讓客戶布建具有數百個節點的叢集。 HDInsight 叢集中的 Spark 上執行的 AutoML 可讓使用者使用這些節點的計算容量，以向外延展的方式執行定型作業，以及平行執行多個定型作業。 這可讓使用者執行 AutoML 實驗，同時與其他海量資料工作負載共用計算。
- 
 
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>在 HDInsight 叢集上安裝 Azure Machine Learning
 
-如需自動化機器學習的一般教學課程，請參閱[教學課程：使用自動化機器學習來建立您的回歸模型](../../machine-learning/service/tutorial-auto-train-models.md)。
-所有新的 HDInsight-Spark 叢集都已預先安裝在 AutoML SDK 中。 您可以使用此[範例 Jupyter 筆記本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi)來開始使用 HDInsight 上的 AutoML。 此 Jupyter Notebook 會示範如何針對簡單的分類問題，使用自動化機器學習分類器。
+如需自動化機器學習的一般教學課程，請參閱[教學課程：使用自動化機器學習來建立您的回歸模型](../../machine-learning/tutorial-auto-train-models.md)。
+所有新的 HDInsight-Spark 叢集都已預先安裝在 AutoML SDK 中。
 
 > [!Note]
 > Azure Machine Learning 套件會安裝到 Python3 Conda 環境。 已安裝的 Jupyter Notebook 應使用 PySpark3 核心來執行。
@@ -46,6 +45,7 @@ auth_sp = ServicePrincipalAuthentication(
     service_principal_password='<Azure AD Application Key>'
 )
 ```
+
 下列程式碼片段會使用 **Azure AD 使用者**來建立驗證權杖。
 
 ```python
