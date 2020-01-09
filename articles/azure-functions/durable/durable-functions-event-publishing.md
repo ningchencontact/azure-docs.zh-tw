@@ -3,12 +3,12 @@ title: 發佈至 Azure 事件方格 (預覽) 的 Durable Functions
 description: 了解如何針對 Durable Functions 設定自動 Azure 事件方格發佈。
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: f0fbb46320b896008b6a1343357f016a9f57b0fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d1960f0e8d249ac77f3c64e18b332a3d55d5180
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231438"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613120"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>發佈至 Azure 事件方格 (預覽) 的 Durable Functions
 
@@ -24,7 +24,7 @@ ms.locfileid: "74231438"
 
 [!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 在您的 Durable Functions 專案中安裝[DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 。
 * 安裝 [Azure 儲存體模擬器](../../storage/common/storage-use-emulator.md)。
@@ -73,7 +73,7 @@ az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "k
 
 在 Durable Functions 專案中，尋找 `host.json` 檔案。
 
-在 `eventGridTopicEndpoint` 屬性中新增 `eventGridKeySettingName` 和 `durableTask`。
+在 `durableTask` 屬性中新增 `eventGridTopicEndpoint` 和 `eventGridKeySettingName`。
 
 ```json
 {
@@ -86,7 +86,7 @@ az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "k
 
 可能的 Azure 事件方格設定屬性可以在[host. json 檔](../functions-host-json.md#durabletask)中找到。 設定 `host.json` 檔案之後，您的函數應用程式會將生命週期事件傳送至事件方格主題。 這適用于您在本機和 Azure 中執行函數應用程式的情況。
 
-在函式應用程式和 `local.setting.json` 中設定主題索引鍵的應用程式設定。 以下 JSON 是本機偵錯的 `local.settings.json` 範例。 以主題索引鍵取代 `<topic_key>`。  
+在函式應用程式和 `local.settings.json` 中設定主題索引鍵的應用程式設定。 以下 JSON 是本機偵錯的 `local.settings.json` 範例。 以主題索引鍵取代 `<topic_key>`。  
 
 ```json
 {
@@ -147,7 +147,7 @@ public static void Run(JObject eventGridEvent, ILogger log)
 
 ![選取事件方格觸發程序連結。](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-針對 [主題類型] `Event Grid Topics`**選取**。 選取您為事件方格主題所建立的資源群組。 然後選取事件方格主題的實例。 按 `Create`。
+針對 [主題類型] 選取 `Event Grid Topics`。 選取您為事件方格主題所建立的資源群組。 然後選取事件方格主題的實例。 按 `Create`。
 
 ![建立事件格線訂用帳戶。](./media/durable-functions-event-publishing/eventsubscription.png)
 
@@ -262,7 +262,7 @@ namespace LifeCycleEventSpike
 下列清單說明生命週期事件結構描述︰
 
 * **`id`** ：事件方格事件的唯一識別碼。
-* **`subject`** ：事件主體的路徑。 `durable/orchestrator/{orchestrationRuntimeStatus}`。 `{orchestrationRuntimeStatus}` 會是 `Running`、`Completed`、`Failed` 和 `Terminated`。  
+* **`subject`** ：事件主體的路徑。 `durable/orchestrator/{orchestrationRuntimeStatus}`答案中所述步驟，工作帳戶即會啟用。 `{orchestrationRuntimeStatus}` 會是 `Running`、`Completed`、`Failed` 和 `Terminated`。  
 * **`data`** ： Durable Functions 特定參數。
   * **`hubName`** ： [TaskHub](durable-functions-task-hubs.md)名稱。
   * **`functionName`** ：協調器函數名稱。

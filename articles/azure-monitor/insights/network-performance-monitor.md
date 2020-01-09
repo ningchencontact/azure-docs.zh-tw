@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: f7859dbef486d4afa825b289f3991464dacf702c
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 396652e3f8a0a8d9e18effb94a48a362054dde96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665639"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403153"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的網路效能監控解決方案
 
@@ -37,17 +37,25 @@ ms.locfileid: "74665639"
  
 ## <a name="supported-regions"></a>支援的區域
 NPM 可使用在下列其中一個區域裝載的工作區，監視世界各地的網路和應用程式之間的連線情形：
+* 北歐
 * 西歐
+* 法國中部
+
 * 美國中西部
 * 美國中北部
+* 美國中南部
+* 美國中部
 * 美國東部
 * 美國東部 2
+* 美國西部 2
 * 日本東部
 * 東南亞
 * 澳大利亞東南部
 * 澳洲中部
 * 澳大利亞東部
 * 英國南部
+* 東亞
+* 南韓中部
 * 印度中部
 * 美國維吉尼亞州政府
 * 中國東部 2
@@ -268,7 +276,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 通知則會依 [Azure 監視器定價頁面中的通知定價](https://azure.microsoft.com/pricing/details/monitor/)來個別計費。
 
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 
 定價資訊可在[線上](network-performance-monitor-pricing-faq.md)查詢。
 

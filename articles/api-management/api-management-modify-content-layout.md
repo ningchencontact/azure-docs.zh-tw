@@ -1,5 +1,6 @@
 ---
-title: 在 Azure API 管理中修改開發人員入口網站的頁面內容 | Microsoft Docs
+title: 在 API 管理中修改開發人員入口網站中的頁面內容
+titleSuffix: Azure API Management
 description: 了解如何在 Azure API 管理中編輯開發人員入口網站的頁面內容。
 services: api-management
 documentationcenter: ''
@@ -13,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: 0a333b1fac78889b61829b869c23efea5e312adf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ebf2cbd430339378a09d10d91ad61327d24842e4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072279"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430624"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>在 Azure API 管理中修改開發人員入口網站的頁面內容和配置
 在 Azure API 管理中自訂開發人員入口網站的基本方式有三種：
 
-* [編輯靜態頁面和頁面配置元素的內容][modify-content-layout](本指南說明)
+* [編輯靜態頁面和頁面配置元素的內容][modify-content-layout]（如本指南所述）
 * [在開發人員入口網站中更新頁面元素所使用的樣式][customize-styles]
-* [修改入口網站所產生的頁面所使用的範本][portal-templates](例如, API 檔、產品、使用者驗證等)
+* [修改入口網站所產生的頁面所使用的範本][portal-templates]（例如 API 檔、產品、使用者驗證等）
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="page-structure"> </a>開發人員入口網站頁面的結構
+## <a name="page-structure"></a>開發人員入口網站頁面的結構
 
 開發人員入口網站是以內容管理系統為基礎。 每個頁面的配置都是根據一組小型網頁元素 (也稱為 Widget) 來建置：
 
@@ -41,7 +42,7 @@ ms.locfileid: "70072279"
 
 在日常頁面中，編輯某一個頁面通常只會修改內容小工具，它將針對每個個別頁面擁有不同的內容。
 
-## <a name="modify-layout-widget"> </a>修改配置 Widget 的內容
+## <a name="modify-layout-widget"></a>修改版面配置 widget 的內容
 
 您可以從 Azure 入口網站存取開發人員入口網站。
 
@@ -54,9 +55,9 @@ ms.locfileid: "70072279"
 
 現在，您應該會在開發人員入口網站內的每個頁面上看到新的頁首。
 
-## <a name="next-steps"> </a>後續步驟
+## <a name="next-steps"></a>後續步驟
 * [在開發人員入口網站中更新頁面元素所使用的樣式][customize-styles]
-* [修改入口網站所產生的頁面所使用的範本][portal-templates](例如, API 檔、產品、使用者驗證等)
+* [修改入口網站所產生的頁面所使用的範本][portal-templates]（例如 API 檔、產品、使用者驗證等）
 
 [Structure of developer portal pages]: #page-structure
 [Modifying the contents of a layout widget]: #modify-layout-widget

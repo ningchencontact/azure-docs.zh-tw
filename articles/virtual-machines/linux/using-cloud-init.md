@@ -1,6 +1,6 @@
 ---
-title: Azure 中 Linux 虛擬機器的雲端 init 支援總覽
-description: Microsoft Azure 中的 cloud-init 功能概觀
+title: Azure 中 Linux Vm 的雲端 init 支援總覽
+description: 在 Azure 中布建階段設定 VM 的雲端 init 功能總覽。
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: danis
-ms.openlocfilehash: 6c522af44be51eb89ee9f64bae2dc4e9e7b24123
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7b3f64d0629ba5d7aaf85b854e1ee8e5a1410f94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873942"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458611"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure 中虛擬機器的 Cloud-init 支援
-本文說明在 Azure 中布建時， [cloud init](https://cloudinit.readthedocs.io)用來設定虛擬機器（VM）或虛擬機器擴展集的支援。 一旦 Azure 佈建資源之後，這些 cloud-init 指令碼就會在初次開機時執行。  
+本文說明在 Azure 中布建時， [cloud init](https://cloudinit.readthedocs.io)用來設定虛擬機器（VM）或虛擬機器擴展集的支援。 一旦 Azure 佈建資源，這些 cloud-init 指令碼就會在初次開機時執行。  
 
 ## <a name="cloud-init-overview"></a>Cloud-Init 概觀
 [Cloud-init (英文)](https://cloudinit.readthedocs.io) 是在 Linux VM 初次開機時，廣泛用來自訂它們的方法。 您可以使用 cloud-init 來安裝封裝和寫入檔案，或者設定使用者和安全性。 因為在初次開機程序期間時會呼叫 Cloud-init，因此不需要使用任何額外的步驟或必要的代理程式，就可以套用您的設定。  如需如何正確地設定 `#cloud-config` 檔案格式的詳細資訊，請參閱 [cloud-init 文件網站](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data) \(英文\)。  `#cloud-config` 檔案是以 base64 編碼的文字檔。
@@ -32,12 +32,12 @@ Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install**
 
 我們一直積極地與背書的 Linux 發行版本合作夥伴合作，以便在 Azure Marketplace 中提供支援 Cloud-init 的映像。 這些映射會讓您的雲端 init 部署和設定順暢地與 Vm 和虛擬機器擴展集搭配使用。 下表概述目前支援 cloud-init 的映像在 Azure 平台上的可用性：
 
-| 發行者 | 供應項目 | SKU | 版本 | cloud-init 就緒 |
+| 發佈者 | 供應項目 | SKU | 版本 | cloud-init 就緒 |
 |:--- |:--- |:--- |:--- |:--- |
 |Canonical |UbuntuServer |18.04-LTS |latest |是 | 
 |Canonical |UbuntuServer |16.04-LTS |latest |是 | 
 |Canonical |UbuntuServer |14.04.5-LTS |latest |是 |
-|CoreOS |CoreOS |Stable |latest |是 |
+|CoreOS |CoreOS |穩定 |latest |是 |
 |OpenLogic 7。7 |CentOS |7-CI |7.7.20190920 |預覽 |
 |Oracle 7。7 |Oracle-Linux |77-ci |7.7.01|預覽 |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |是 |
@@ -67,7 +67,7 @@ VM 的 WALA 設定有時間限制，必須在 VM 佈建時間上限內運作。 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-下一個步驟是在您目前的殼層中建立名為 *cloud-init.txt* 的檔案，並貼上下列設定。 針對此範例，請在 Cloud Shell 中 (而不是本機電腦上) 建立該檔案。 您可以使用任何您想要的編輯器。 輸入 `sensible-editor cloud-init.txt` 可建立檔案，並查看可用的編輯器清單。 建議首先選擇使用 **nano** 編輯器。 請確定已正確複製整個 cloud-init 檔案，特別是第一行：
+下一個步驟是在您目前的殼層中建立名為 *cloud-init.txt* 的檔案，並貼上下列設定。 針對此案例，在 Cloud Shell 中 (而不是本機電腦上) 建立該檔案。 您可以使用任何您想要的編輯器。 輸入 `sensible-editor cloud-init.txt` 可建立檔案，並查看可用的編輯器清單。 建議首先選擇使用 **nano** 編輯器。 請確定已正確複製整個 cloud-init 檔案，特別是第一行：
 
 ```yaml
 #cloud-config

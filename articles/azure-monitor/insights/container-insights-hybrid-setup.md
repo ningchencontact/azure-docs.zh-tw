@@ -1,18 +1,14 @@
 ---
 title: 使用適用于容器的 Azure 監視器來設定混合式 Kubernetes 叢集 |Microsoft Docs
 description: 本文說明如何設定容器的 Azure 監視器，以監視 Azure Stack 或其他環境上裝載的 Kubernetes 叢集。
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/04/2019
-ms.openlocfilehash: 0d6615d832059a8b58c0d5d52533b8c8c962640d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c791477aeb27609cccda11b901eccaa2805be581
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841569"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404831"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>使用適用于容器的 Azure 監視器來設定混合式 Kubernetes 叢集
 

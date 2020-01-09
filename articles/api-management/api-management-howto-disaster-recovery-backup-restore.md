@@ -1,5 +1,6 @@
 ---
-title: 在 Azure API 管理中使用備份和還原實作災害復原 | Microsoft Docs
+title: 在 API 管理中使用備份和還原來執行嚴重損壞修復
+titleSuffix: Azure API Management
 description: 了解如何在 Azure API 管理中使用備份和還原來執行災難復原。
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9c97723687484e8af82d63b6fb4999401a69fb2c
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: fccb9dfe88d39849fb87bdce4b81ac9ee22fada5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958538"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430704"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何在 Azure API 管理中使用服務備份和還原實作災害復原
 
@@ -66,7 +67,7 @@ ms.locfileid: "71958538"
 
 4. 輸入應用程式的名稱。
 5. 針對應用程式類型，選取 [原生]。
-6. 輸入 [重新導向 URI]`http://resources`**的預留位置 URL，例如**，因為它是必要的欄位，但稍後不會使用這個值。 按一下核取方塊以儲存應用程式。
+6. 輸入 [重新導向 URI] 的預留位置 URL，例如 `http://resources`，因為它是必要的欄位，但稍後不會使用這個值。 按一下核取方塊以儲存應用程式。
 7. 按一下頁面底部的 [新增]。
 
 ### <a name="add-an-application"></a>新增應用程式
@@ -75,7 +76,7 @@ ms.locfileid: "71958538"
 2. 按一下 [必要權限]。
 3. 按一下 [+新增]。
 4. 按 [選取 API]。
-5. 選擇 [Windows Azure 服務管理 API]。
+5. 選擇 [ **Windows** **AZURE 服務管理 API**]。
 6. 按 [選取]。
 
     ![新增權限](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
@@ -117,14 +118,14 @@ namespace GetTokenResourceManagerRequests
 
 1. 使用您所建立 Azure Active Directory 應用程式的租用戶識別碼來取代 `{tenant id}`。 您可以按一下 [應用程式註冊] -> [端點] 來存取識別碼。
 
-    ![Endpoints][api-management-endpoint]
+    ![端點][api-management-endpoint]
 
-2. 使用您瀏覽至 [設定]`{application id}`**頁面取得的值來取代**。
-3. 以來自您 Azure Active Directory 應用程式 [重新導向 URI]`{redirect uri}`**索引標籤的值取代**。
+2. 使用您瀏覽至 [設定] 頁面取得的值來取代 `{application id}`。
+3. 以來自您 Azure Active Directory 應用程式 [重新導向 URI] 索引標籤的值取代 `{redirect uri}`。
 
     指定值之後，程式碼範例應該會傳回類似以下範例的權杖：
 
-    ![權杖][api-management-arm-token]
+    ![Token][api-management-arm-token]
 
     > [!NOTE]
     > 權杖可能會在一段時間之後過期。 再次執行程式碼範例即可產生新的權杖。
@@ -139,7 +140,7 @@ REST API 是 [API 管理服務 - 備份](/rest/api/apimanagement/2019-01-01/apim
 request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 
-### <a name="step1"> </a>備份 API 管理服務
+### <a name="step1"></a>備份 API 管理服務
 
 若要備份 API 管理服務，請發出以下 HTTP 要求：
 
@@ -167,7 +168,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 將 `Content-Type` 要求標頭的值設定為 `application/json`。
 
-備份作業的執行時間較長，因此可能需要數分鐘的時間才能完成。 如果要求成功並已開始備份程序，您就會收到含有 `202 Accepted` 標頭的 `Location` 回應狀態碼。 請向 `Location` 標頭中的 URL 發出 'GET' 要求，以查明作業的狀態。 在備份進行時，您會持續收到「202 已接受」狀態碼。 回應碼 `200 OK` 代表備份作業已成功完成。
+備份作業的執行時間較長，因此可能需要數分鐘的時間才能完成。 如果要求成功並已開始備份程序，您就會收到含有 `Location` 標頭的 `202 Accepted` 回應狀態碼。 請向 `Location` 標頭中的 URL 發出 'GET' 要求，以查明作業的狀態。 在備份進行時，您會持續收到「202 已接受」狀態碼。 回應碼 `200 OK` 代表備份作業已成功完成。
 
 進行備份要求時，請注意下列條件約束：
 
@@ -180,7 +181,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   在備份作業進行時針對服務組態 (例如 API、原則及開發人員入口網站外觀) 所做的**變更** **可能會從備份中排除，因此可能會遺失**。
 -   **允許**從控制平面存取 Azure 儲存體帳戶。 客戶應該在其儲存體帳戶上開啟下列一組輸入 Ip 來進行備份。 
     > 13.84.189.17/32、13.85.22.63/32、23.96.224.175/32、23.101.166.38/32、52.162.110.80/32、104.214.19.224/32、13.64.39.16/32、40.81.47.216/32、51.145.179.78/32、52.142.95.35/32、40.90.185.46/32、20.40.125.155/32
-### <a name="step2"> </a>還原 API 管理服務
+### <a name="step2"></a>還原 API 管理服務
 
 若要從先前建立的備份還原 API 管理服務，請發出以下 HTTP 要求：
 
@@ -208,7 +209,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 將 `Content-Type` 要求標頭的值設定為 `application/json`。
 
-還原作業的執行時間較長，因此可能需要 30 分鐘以上的時間才能完成。 如果要求成功並已開始還原程序，您就會收到含有 `202 Accepted` 標頭的 `Location` 回應狀態碼。 請向 `Location` 標頭中的 URL 發出 'GET' 要求，以查明作業的狀態。 在還原進行時，您會持續收到「202 已接受」狀態碼。 回應碼 `200 OK` 代表還原作業已成功完成。
+還原作業的執行時間較長，因此可能需要 30 分鐘以上的時間才能完成。 如果要求成功並已開始還原程序，您就會收到含有 `Location` 標頭的 `202 Accepted` 回應狀態碼。 請向 `Location` 標頭中的 URL 發出 'GET' 要求，以查明作業的狀態。 在還原進行時，您會持續收到「202 已接受」狀態碼。 回應碼 `200 OK` 代表還原作業已成功完成。
 
 > [!IMPORTANT]
 > 作為還原目的地之服務的 **SKU** **必須符合**所要還原之已備份服務的 SKU。

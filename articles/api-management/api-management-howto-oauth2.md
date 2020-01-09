@@ -1,5 +1,6 @@
 ---
-title: 在 Azure API 管理中使用 OAuth 2.0 授權開發人員帳戶 | Microsoft Docs
+title: 在 API 管理中使用 OAuth 2.0 授權開發人員帳戶
+titleSuffix: Azure API Management
 description: 了解如何在 API 管理中使用 OAuth 2.0 來授權給使用者。
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 99a49aa4627dc23d5f7531ac961d63e3e75ccff9
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 90c890925378c30ce5688d2713990b4b2cdd20c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176623"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430682"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>如何在 Azure API 管理中使用 OAuth 2.0 授權開發人員帳戶
 
@@ -26,7 +27,7 @@ ms.locfileid: "73176623"
 > [!IMPORTANT]
 > 新開發人員入口網站的互動式主控台尚未提供 OAuth 2.0 授權。
 
-## <a name="prerequisites"> </a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本指南將示範如何設定 API 管理服務執行個體，以便使用開發人員帳戶適用的 OAuth 2.0 授權，但並未示範如何設定 OAuth 2.0 提供者。 儘管步驟相似，且用來在 API 管理服務執行個體中設定 OAuth 2.0 所需的資訊也相同，但每個 OAuth 2.0 提供者的組態並不相同。 本主題演示的範例將 Azure Active Directory 當做 OAuth 2.0 提供者。
 
@@ -35,7 +36,7 @@ ms.locfileid: "73176623"
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="step1"> </a>在 API 管理中設定 OAuth 2.0 授權伺服器
+## <a name="step1"></a>在 API 管理中設定 OAuth 2.0 授權伺服器
 
 > [!NOTE]
 > 若您尚未建立 API 管理服務實例，請參閱[建立 Api 管理服務實例][Create an API Management service instance]。
@@ -81,7 +82,7 @@ ms.locfileid: "73176623"
 
     完成表單後，按一下 [建立] 以儲存 API 管理 OAuth 2.0 授權伺服器組態。 儲存伺服器組態後，您便可以設定 API 以使用此組態，如下一個小節所述。
 
-## <a name="step2"> </a>設定 API 以使用 OAuth 2.0 使用者授權
+## <a name="step2"></a>設定 API 以使用 OAuth 2.0 使用者授權
 
 1. 從左側 [API 管理] 功能表按一下 [API]。
 
@@ -117,7 +118,7 @@ ms.locfileid: "73176623"
 > [!NOTE]
 > 如果已停用快顯視窗，瀏覽器會提示您加以啟用。 啟用後，請再次選取 [授權碼] ，系統就會顯示登入表單。
 
-![Sign in][api-management-oauth2-signin]
+![登入][api-management-oauth2-signin]
 
 登入後，系統會將授權要求的 `Authorization : Bearer` 標頭填入 [要求標頭]。
 

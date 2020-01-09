@@ -2,17 +2,17 @@
 title: 在 Azure 中管理私人端點連線
 description: 瞭解如何在 Azure 中管理私人端點連線
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 929dfedbbbbe58a30eaa186398c595eaaabeb0a9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 62b24b3e2f5c1b89fa7db581ac34cf58381db2a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232541"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452970"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>管理私人端點連接
 Azure 私用連結適用于核准呼叫流程模型，其中私用連結服務取用者可以要求與服務提供者的連線，以取用服務。 服務提供者接著可以決定是否允許取用者連接。 Azure 私用連結可讓服務提供者管理其資源上的私用端點連線。 本文提供如何管理私人端點連接的指示。
@@ -26,12 +26,12 @@ Azure 私用連結適用于核准呼叫流程模型，其中私用連結服務�
 下表顯示各種服務提供者動作和私人端點的產生連接狀態。  服務提供者也可以在稍後變更私人端點連線的線上狀態，而不需要取用者介入。 動作會更新取用者端上端點的狀態。 
 
 
-|服務提供者動作   |服務取用者私人端點狀態   |描述   |
+|服務提供者動作   |服務取用者私人端點狀態   |說明   |
 |---------|---------|---------|
 |無    |    Pending     |    手動建立連線，並擱置私人連結資源擁有者核准。       |
 |核准    |  已核准       |  連線已自動或手動核准，並已準備好可供使用。     |
 |拒絕     | 已拒絕        | 私人連結資源擁有者拒絕連線。        |
-|移除    |  已       | 私人連結資源擁有者已移除連線，私用端點會變成資訊性，而且應該刪除以進行清除。        |
+|移除    |  已中斷連接       | 私人連結資源擁有者已移除連線，私用端點會變成資訊性，而且應該刪除以進行清除。        |
 |   |         |         |
    
 ## <a name="manage-private-endpoint-connections-on-azure-paas-resources"></a>管理 Azure PaaS 資源上的私用端點連線

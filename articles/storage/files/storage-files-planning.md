@@ -1,18 +1,18 @@
 ---
 title: 規劃 Azure 檔案服務部署 | Microsoft Docs
-description: 了解規劃 Azure 檔案部署時的考量事項。
+description: 了解規劃 Azure 檔案服務部署時的考量事項。
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fdfa01a45c0dd35da65b2ad7ce8b0d291148af1a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: MT
+ms.openlocfilehash: a315b012cf103840eae6b141fe5177dfa709896d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931110"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463924"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -206,20 +206,25 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 |地區 |支援的冗余 |
 |-------|---------|
 |澳大利亞東部 |LRS     |
-|澳大利亞東南部|LRS |
+|澳洲東南部|LRS |
 |加拿大中部  |LRS     |
 |加拿大東部     |LRS     |
 |印度中部  |LRS     |
 |美國中部 *   |LRS     |
 |東亞      |LRS     |
-|美國東部 *        |LRS     |
+|美國東部 *        |LRS、ZRS|
 |美國東部 2 *      |LRS     |
 |法國中部 |LRS、ZRS|
 |法國南部   |LRS     |
-|美國中北部 |LRS     |
+|日本東部     |LRS     |
+|美國中北部 |LRS   |
 |北歐   |LRS     |
 |印度南部    |LRS     |
+|美國中南部 |LRS     |
 |東南亞 |LRS、ZRS|
+|阿拉伯聯合大公國中部    |LRS     |
+|英國南部   |LRS     |
+|英國西部    |LRS     |
 |美國中西部|LRS     |
 |西歐 *    |LRS、ZRS|
 |美國西部 *        |LRS     |
@@ -245,10 +250,10 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 
 * **Azure 檔案同步**：在 Azure 檔案共用 (雲端端點) 和 Windows 目錄命名空間 (伺服器端點) 之間的初次同步處理中，Azure 檔案同步會從現有檔案共用將所有資料複寫至 Azure 檔案服務。
 * **[Azure 匯入/匯出](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** ：Azure 匯入/匯出服務可讓您將硬碟寄送到 Azure 資料中心，以便將大量資料安全地傳入 Azure 檔案共用。 
-* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** ：Robocopy 是知名的複製工具，隨附於 Windows 和 Windows Server。 Robocopy 可在本機掛接檔案共用，然後將該掛接位置作為 Robocopy 命令中的目的地，以將資料傳輸到 Azure 檔案服務中。
+* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** ：Robocopy 是知名的複製工具，隨附於 Windows 和 Windows Server。 Robocopy 可在本機掛接檔案共用，然後將掛接位置作為 Robocopy 命令中的目的地使用，以將資料傳輸到 Azure 檔案服務中。
 * **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** ：AzCopy 是命令列公用程式，設計為使用最佳效能的簡單命令，將資料複製到 Azure 檔案服務與 Azure Blob 儲存體，以及從其中複製資料。
 
 ## <a name="next-steps"></a>後續步驟
 * [規劃 Azure 檔案同步部署](storage-sync-files-planning.md)
-* [部署 Azure 檔案](storage-files-deployment-guide.md)
+* [部署 Azure 檔案服務](storage-files-deployment-guide.md)
 * [部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)

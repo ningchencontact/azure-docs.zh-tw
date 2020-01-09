@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 424dfc1dac21f227869f23e7401a083b06cef1d9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: cfcea8c775b2d6a9bee3c078cf67f0a942af5984
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035560"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354039"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>使用 Azure CLI 針對 Linux VM 開啟連接埠和端點
 
@@ -92,5 +92,5 @@ az network vnet subnet update \
 ## <a name="next-steps"></a>後續步驟
 在此範例中，您建立了簡單的規則來允許 HTTP 流量。 您可以從下列文章中，找到有關建立更詳細環境的資訊︰
 
-* [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)
+* [Azure Resource Manager 概觀](../../azure-resource-manager/management/overview.md)
 * [什麼是網路安全性群組 (NSG)？](../../virtual-network/security-overview.md)

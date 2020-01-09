@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: b9b0ba85aed4d63fe6bb939c9ed3b99d3e789397
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/11/2019
+ms.openlocfilehash: 53fd02856a805f8bb5d7261cc9e6e32861b2b4fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932563"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426996"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-cognitive-search"></a>在 Azure 認知搜尋中執行搜尋流量分析
 
@@ -167,9 +167,7 @@ ms.locfileid: "74932563"
 
 ## <a name="3---analyze-in-power-bi"></a>3 - 在 Power BI 中分析
 
-在您檢測應用程式並確認您的應用程式已正確連線至 Application Insights 之後，您可以使用 Azure 認知搜尋為 Power BI desktop 所建立的預先定義範本。 
-
-Azure 認知搜尋提供監視[Power BI 內容套件](https://app.powerbi.com/getdata/services/azure-search)，讓您可以分析記錄資料。 此內容套件會新增預先定義的圖表和資料表，可用來分析為搜尋流量分析擷取的額外資料。 如需詳細資訊，請參閱[內容套件說明網頁](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/)。 
+在您檢測應用程式並確認應用程式已正確連接到 Application Insights 之後，您可以下載預先定義的報表範本來分析 Power BI desktop 中的資料。 此報表包含預先定義的圖表和資料表，適用于分析針對搜尋流量分析所捕捉的額外資料。 
 
 1. 在 [Azure 認知搜尋] 儀表板的左側流覽窗格中，按一下 [**設定**] 底下的 [**搜尋流量分析**]。
 
@@ -179,7 +177,7 @@ Azure 認知搜尋提供監視[Power BI 內容套件](https://app.powerbi.com/ge
 
 2. 在相同的頁面上，按一下 [**下載 Power BI 報表**]。
 
-3. 報表會在 Power BI Desktop 中開啟，系統會提示您連線至 Application Insights。 您可以在 Application Insights 資源的 [Azure 入口網站] 頁面中找到這項資訊。
+3. 報表會在 Power BI Desktop 中開啟，而且系統會提示您連接到 Application Insights 並提供認證。 您可以在 Application Insights 資源的 [Azure 入口網站] 頁面中找到連接資訊。 針對 [認證]，提供您用來登入入口網站的相同使用者名稱和密碼。
 
    ![連接到 Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "連線至 Application Insights")
 
@@ -189,11 +187,8 @@ Azure 認知搜尋提供監視[Power BI 內容套件](https://app.powerbi.com/ge
 
 計量包含下列項目：
 
-* 點選率 (CTR)：點選特定文件的使用者數與總搜尋數的比率。
+* 搜尋磁片區和最熱門的詞彙檔組：會導致相同檔被按下的詞彙，然後按一下即可排序。
 * 無點選搜尋︰註冊無點選的熱門查詢詞彙
-* 最多點選的文件︰過去 24 小時、7 天和 30 天內，依識別碼排序最多點選的文件。
-* 常用的詞彙文件組︰依點選排序，造成點選相同文件的詞彙。
-* 點選的時間︰自搜尋查詢起按照時間分組的點選
 
 以下螢幕擷取畫面示範用於分析搜尋流量分析的內建報表和圖表。
 

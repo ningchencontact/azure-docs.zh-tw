@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: 40b277f0b1bfb3501bb246e555d46db5e1ee9f95
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: da8c194b7911d2eeda8e0c903cb7412186aacfcb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279312"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638250"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>SQL Database 資源限制和資源管理
 
@@ -99,7 +99,9 @@ Azure SQL Database 的資源管理本質上是階層式的。 從上到下，限
 
 針對在 Azure 儲存體中使用資料檔案的基本、標準和一般用途資料庫，如果資料庫沒有足夠的資料檔案可累積提供此 IOPS 數，或如果資料未平均分散到多個檔案，或基礎 blob 的效能層級限制低於資源治理限制的 IOPS/輸送量，則 `primary_group_max_io` 值可能無法達到。 同樣地，使用經常交易認可所產生的小型記錄 Io，由於基礎 Azure 儲存體 blob 上的 IOPS 限制，工作負載可能無法達到 `primary_max_log_rate` 值。
 
-系統會以最大資源治理限制的百分比來計算資源使用率值（例如 `avg_data_io_percent` 和 `avg_log_write_percent`）。 [dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)、 [sys.databases resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)和[sys.databases elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)視圖中回報。 因此，當資源管理以外的因素限制 IOPS/輸送量時，您可以查看 IOPS/輸送量簡維，並隨著工作負載增加而增加延遲，即使回報的資源使用率低於100% 也一樣。 若要查看每個資料庫檔案的讀取和寫入 IOPS、輸送量和延遲，請使用[dm_io_virtual_file_stats （）](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)函數。 此函式會針對資料庫呈現所有 IO，包括不是 `avg_data_io_percent`的背景 IO，但會使用基礎儲存體的 IOPS 和輸送量，而且可能會影響觀察到的儲存延遲。
+系統會以最大資源治理限制的百分比來計算資源使用率值（例如 `avg_data_io_percent` 和 `avg_log_write_percent`）。 [dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)、 [sys.databases resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)和[sys.databases elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)視圖中回報。 因此，當資源管理以外的因素限制 IOPS/輸送量時，您可以查看 IOPS/輸送量簡維，並隨著工作負載增加而增加延遲，即使回報的資源使用率低於100% 也一樣。 
+
+若要查看每個資料庫檔案的讀取和寫入 IOPS、輸送量和延遲，請使用[dm_io_virtual_file_stats （）](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)函數。 此函式會針對資料庫呈現所有 IO，包括不是 `avg_data_io_percent`的背景 IO，但會使用基礎儲存體的 IOPS 和輸送量，而且可能會影響觀察到的儲存延遲。 此函式也會在 [`io_stall_queued_read_ms`] 和 [`io_stall_queued_write_ms`] 資料行中，針對讀取和寫入，分別呈現 IO 資源治理可能引進的額外延遲。
 
 ### <a name="transaction-log-rate-governance"></a>交易記錄速率治理
 
@@ -116,7 +118,7 @@ Azure SQL Database 的資源管理本質上是階層式的。 從上到下，限
 
 記錄速率管理員流量成形是透過下列等候類型（在[dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV 中公開）來呈現：
 
-| 等候類型 | 注意事項 |
+| 等候類型 | 注意 |
 | :--- | :--- |
 | LOG_RATE_GOVERNOR | 資料庫限制 |
 | POOL_LOG_RATE_GOVERNOR | 集區限制 |
@@ -132,6 +134,6 @@ Azure SQL Database 的資源管理本質上是階層式的。 從上到下，限
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
+- 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-resource-manager/management/azure-subscription-service-limits.md)。
 - 如需 DTU 與 eDTU 的相關資訊，請參閱 [DTU 與 eDTU](sql-database-purchase-models.md#dtu-based-purchasing-model)。
 - 如需 tempdb 大小限制的相關資訊，請參閱 [Azure SQL Database 中的 TempDB](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database)。

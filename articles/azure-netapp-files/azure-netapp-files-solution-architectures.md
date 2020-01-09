@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 12/30/2019
 ms.author: b-juche
-ms.openlocfilehash: c7437050683d13e39c5580b758c4198ca3690193
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d47abb24504edc1bc986f0b84f6b6b61b20a3248
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894040"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562489"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>使用 Azure NetApp Files 的方案架構
 本文提供最佳做法的參考，可協助您瞭解使用 Azure NetApp Files 的解決方案架構。  
@@ -36,11 +36,16 @@ ms.locfileid: "74894040"
 ## <a name="sap-application-solutions"></a>SAP 應用程式解決方案 
 
 * [使用 Azure NetApp Files 的 Microsoft Azure 上的 SAP 應用程式](https://www.netapp.com/us/media/tr-4746.pdf)
-* [SUSE Linux Enterprise Server 上的 Azure Vm 上的 SAP NetWeaver 高可用性與適用于 SAP 應用程式的 Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
-* [使用適用于 SAP 應用程式的 Azure NetApp Files （SMB）在 Windows 上的 Azure Vm 上進行 SAP NetWeaver 的高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)
-* [Azure 虛擬機器高可用性，適用于 Red Hat Enterprise Linux 上的 SAP NetWeaver，以及適用于 SAP 應用程式的 Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
-* [使用 SUSE Linux Enterprise Server 上的 Azure NetApp Files 在 Azure Vm 上以待命節點 SAP Hana 相應放大](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
 * [SAP Hana Azure 虛擬機器儲存體設定](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+* [SUSE Linux Enterprise Server 上的 Azure Vm 上的 SAP NetWeaver 高可用性與適用于 SAP 應用程式的 Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
+* [Red Hat Enterprise Linux 上的 Azure Vm 上的 SAP NetWeaver 高可用性與適用于 SAP 應用程式的 Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
+* [使用適用于 SAP 應用程式的 Azure NetApp Files （SMB）在 Windows 上的 Azure Vm 上進行 SAP NetWeaver 的高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)
+* [使用 SUSE Linux Enterprise Server 上的 Azure NetApp Files 在 Azure Vm 上以待命節點 SAP Hana 相應放大](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
+* [使用 RedHat Enterprise Linux 上的 Azure NetApp Files 搭配 Azure Vm 上的待命節點來 SAP Hana 相應放大](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
+* [Azure NetApp Files-SAP Hana 備份（秒）](https://blog.netapp.com/azure-netapp-files-sap-hana-backup-in-seconds/)
+* [Azure NetApp Files-從快照集備份還原 HANA 資料庫](https://blog.netapp.com/azure-netapp-files-backup-sap-hana/)
+* [使用 Azure NetApp Files 加速您的 SAP Hana 系統複製](https://blog.netapp.com/sap-hana-faster-using-azure-netapp-files/)
+* [雲端磁片區 ONTAP 和 Azure NetApp Files：輕鬆地進行 SAP Hana 系統移轉](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/)
 
 ## <a name="talon-solutions"></a>Talon 解決方案
 

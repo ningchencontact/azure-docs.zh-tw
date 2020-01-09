@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: d8dfbf3f86a2233571a99c4ad832ef7bd3c3ed48
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a24eb4608e7630d5b613751fa2120361eccd7672
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077577"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644812"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>使用 Azure PowerShell 將 Azure 外部 Load Balancer 移至另一個區域
 
@@ -32,7 +32,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
 
 - 確認您的 Azure 訂用帳戶可讓您在使用的目的地區域中建立外部負載平衡器。 請連絡支援人員啟用所需的配額。
 
-- 請確定您的訂用帳戶有足夠的資源可支援新增此程式的負載平衡器。  請參閱 [Azure 訂用帳戶和服務限制、配額與限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)
+- 請確定您的訂用帳戶有足夠的資源可支援新增此程式的負載平衡器。  請參閱 [Azure 訂用帳戶和服務限制、配額與限制](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
 
 
 ## <a name="prepare-and-move"></a>準備和移動
@@ -60,7 +60,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. 下載的檔案將會以匯出資源的來源資源群組命名。  找出從名為 **\<[資源-群組-名稱 >** ] 的命令匯出的檔案，並在您選擇的編輯器中開啟它：
+4. 下載的檔案將會以匯出資源的來源資源群組命名。  找出從名為 **\<資源群組-名稱 >** 的命令匯出的檔案，並在您選擇的編輯器中開啟它：
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
@@ -116,7 +116,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
     ```
 8. 您也可以根據您的需求，變更範本中的其他參數，而且是選擇性的：
 
-    * **Sku** -您可以藉由變更 **\<資源群組名稱**中的**sku**  > **名稱**屬性 > json 檔案，將設定中的公用 IP sku 從 standard 變更為「基本」或「基本」到「標準」：
+    * **Sku** -您可以藉由變更 **\<資源群組名稱 > json**檔案中的**sku** > **name**屬性，將設定中的公用 IP sku 從標準變更為基本或基本設定為標準。
 
          ```json
             "resources": [
@@ -133,7 +133,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
 
          如需基本和標準 sku 公用 ip 之間差異的詳細資訊，請參閱[建立、變更或刪除公用 IP 位址](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)。
 
-    * **公用 IP 配置方法**和**閒置時間**-您可以在範本中變更這兩個選項，方法是將**publicIPAllocationMethod**屬性從**動態**變更為**靜態**，或從**靜態**變更為**動態。** . 藉由將**idleTimeoutInMinutes**屬性變更為您想要的數量，可以變更閒置的超時時間。  預設值為**4**：
+    * **公用 IP 配置方法**和**閒置時間**-您可以在範本中變更這兩個選項，方法是將 [ **PublicIPAllocationMethod** ] 屬性從 [**動態**] 變更為 [**靜態**] 或 [**靜態**] 變更為 [**動態**]。 藉由將**idleTimeoutInMinutes**屬性變更為您想要的數量，可以變更閒置的超時時間。  預設值為**4**：
 
          ```json
          "resources": [
@@ -161,14 +161,14 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
         如需配置方法和閒置超時值的詳細資訊，請參閱[建立、變更或刪除公用 IP 位址](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)。
 
 
-9. 將資源**群組名稱儲存>json檔案。\<**
+9. 儲存 **\<資源群組名稱 >. json**檔案。
 
 10. 在目的地區域中建立資源群組，以使用[remove-azresourcegroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)部署目標公用 IP。
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. 使用[new-azresourcegroupdeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)，將已編輯 **\<的資源群組名稱 >. json**檔案部署到在上一個步驟中建立的資源群組：
+11. 使用[new-azresourcegroupdeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)，將已編輯的 **\<資源群組名稱 >. json**檔案部署到上一個步驟中建立的資源群組：
 
     ```azurepowershell-interactive
 
@@ -209,7 +209,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceExtLBID -IncludeParameterDefaultValue
    ```
-4. 下載的檔案將會以匯出資源的來源資源群組命名。  找出從名為 **\<[資源-群組-名稱 >** ] 的命令匯出的檔案，並在您選擇的編輯器中開啟它：
+4. 下載的檔案將會以匯出資源的來源資源群組命名。  找出從名為 **\<資源群組-名稱 >** 的命令匯出的檔案，並在您選擇的編輯器中開啟它：
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
@@ -232,7 +232,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
 
     ```
 
-6.  若要編輯上方已移動的目標公用 IP 值，您必須先取得資源識別碼，然後將它複製並貼到 **\<資源群組名稱 >. json**檔案中。  若要取得識別碼，請使用[get-azpublicipaddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)：
+6.  若要編輯上方移動的目標公用 IP 值，您必須先取得資源識別碼，然後將它複製並貼到 **\<的資源組名 >. json**檔案中。  若要取得識別碼，請使用[get-azpublicipaddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)：
 
     ```azurepowershell-interactive
     $targetPubIPID = (Get-AzPublicIPaddress -Name <target-public-ip-name> -ResourceGroupName <target-resource-group-name>).Id
@@ -244,7 +244,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
     /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupLB-Move/providers/Microsoft.Network/publicIPAddresses/myPubIP-in-move
     ```
 
-7.  在資源群組 **名稱 > json 檔案中，貼上變數中的資源識別碼，以取代公用 IP 外部識別碼的第二個參數中的 defaultValue，請務必以引號括住\<** 路徑：
+7.  在 **\<資源群組名稱 >. json**檔案中，貼上變數中的**資源識別碼**，以取代公用 IP 外部識別碼的第二個參數中的**defaultValue** ，確保您以引號括住路徑：
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -261,7 +261,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
 
     ```
 
-8.  如果您已設定負載平衡器的輸出 NAT 和輸出規則，此檔案中會有第三個專案作為輸出公用 IP 的外部識別碼。  在**目的地區域**中重複上述步驟，以取得輸出公用 iP 的識別碼，並將該專案 **\<貼入資源群組名稱 > json**檔案：
+8.  如果您已設定負載平衡器的輸出 NAT 和輸出規則，此檔案中會有第三個專案作為輸出公用 IP 的外部識別碼。  在**目的地區域**中重複上述步驟，取得輸出公用 IP 的識別碼，並將該專案貼入 **\<的資源群組名稱 > json**檔案：
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -282,7 +282,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
         },
     ```
 
-10. 若要編輯將移動外部負載平衡器設定的目的地區域，請變更 **\<資源群組名稱 > json**檔案中 [**資源**] 下的 [**位置**] 屬性：
+10. 若要編輯將移動外部負載平衡器設定的目的地區域，請變更 **\<資源群組-名稱 >. json**檔案中的 [**資源**] 底下的 [**位置**] 屬性：
 
     ```json
         "resources": [
@@ -306,7 +306,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
     ```
 12. 您也可以根據您的需求，變更範本中的其他參數，而且是選擇性的：
     
-    * **Sku** -您可以變更  >   **\<資源群組-名稱中的 sku 名稱屬性 >，將設定中的外部負載平衡器 sku 從 standard 或 basic 變更為標準。** 檔案：
+    * **Sku** -您可以藉由變更 **\<資源群組名稱 > json**檔案中的**sku** > **name**屬性，將設定中的外部負載平衡器 sku 從標準變更為基本或基本設定為標準：
 
         ```json
         "resources": [
@@ -322,7 +322,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
         ```
       如需基本和標準 sku 負載平衡器之間差異的詳細資訊，請參閱[Azure Standard Load Balancer 總覽](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 
-    * **負載平衡規則**-您可以在設定中新增或移除專案，方法是新增或移除 **\<資源群組名稱 > json**檔案的**loadBalancingRules**區段中的負載平衡規則：
+    * **負載平衡規則**-您可以在設定中新增或移除專案，方法是新增或移除 **\<資源群組-名稱 > Json**檔案的**loadBalancingRules**區段中的負載平衡規則：
 
         ```json
         "loadBalancingRules": [
@@ -354,7 +354,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
         ```
        如需負載平衡規則的詳細資訊，請參閱[什麼是 Azure Load Balancer？](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **探查**-您可以藉由新增或移除 **\<資源群組-名稱 > json**檔案的**探查**區段中的專案，在設定中新增或移除負載平衡器的探查：
+    * **探查**-您可以新增或移除設定中負載平衡器的探查，方法是新增或移除 **\<資源群組-名稱 > json**檔案的 [**探查**] 區段中的專案：
 
         ```json
         "probes": [
@@ -374,7 +374,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
         ```
        如需 Azure Load Balancer 健康狀態探查的詳細資訊，請參閱[Load Balancer 健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
 
-    * **輸入 nat 規則**-您可以新增或移除負載平衡器的輸入 nat 規則，方法是新增或移除 **\<資源群組名稱 > json**檔案的**loadbalancer.inboundnatrules**區段中的專案：
+    * **輸入 nat 規則**-您可以新增或移除負載平衡器的輸入 nat 規則，方法是新增或移除 **\<資源群組-名稱 > Json**檔案的**loadbalancer.inboundnatrules**區段：
 
         ```json
         "inboundNatRules": [
@@ -396,7 +396,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
                     }
                 ]
         ```
-        若要完成輸入 NAT 規則的新增或移除，必須在 **\<資源群組名稱 >. json**檔案的結尾，將此規則顯示或移除為**類型**屬性：
+        若要完成輸入 NAT 規則的新增或移除，必須在 **\<資源群組名稱 >. json**檔案結尾處，以**類型**屬性的形式存在或移除規則：
 
         ```json
         {
@@ -422,7 +422,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
         ```
         如需輸入 NAT 規則的詳細資訊，請參閱[什麼是 Azure Load Balancer？](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **輸出規則**-您可以藉由編輯 **\<資源群組名稱 >. json**檔案中的**outboundRules**屬性，來新增或移除設定中的輸出規則：
+    * **輸出規則**-您可以藉由編輯 **\<資源群組-名稱 >. json**檔案中的**outboundRules**屬性，來新增或移除設定中的輸出規則：
 
         ```json
         "outboundRules": [
@@ -450,14 +450,14 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
 
          如需輸出規則的詳細資訊，請參閱[Load Balancer 輸出規則](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
 
-13. 將資源**群組名稱儲存>json檔案。\<**
+13. 儲存 **\<資源群組名稱 >. json**檔案。
     
 10. 在目的地區域中，使用[remove-azresourcegroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)建立或部署目標外部負載平衡器的資源群組。 上述的現有資源群組也可以在此程式中重複使用：
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. 使用[new-azresourcegroupdeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)，將已編輯 **\<的資源群組名稱 >. json**檔案部署到在上一個步驟中建立的資源群組：
+11. 使用[new-azresourcegroupdeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)，將已編輯的 **\<資源群組名稱 >. json**檔案部署到上一個步驟中建立的資源群組：
 
     ```azurepowershell-interactive
 

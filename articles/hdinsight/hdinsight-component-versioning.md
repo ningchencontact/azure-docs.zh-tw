@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/21/2019
-ms.openlocfilehash: b5687d659103eed0fcba70319aa37030bd85165a
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 475b784f4d25e28289536e6c70200fe86dd806f5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539113"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435604"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Apache Hadoop 元件和版本有哪些？
 
@@ -48,7 +48,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 從2017年
 | Apache Livy            | 0.5           | 0.4、0.4、0。3               |
 | Apache Kafka           | 1.1.1，2。1    | 1.1、1.0 *(請參閱下方注意事項) |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
-| Apache Zeppelin        | 0.8.0         | 0.7.0                       |
+| Apache Zeppelin        | 0.8.0         | iisnode-inspector-0.7.3.dll                       |
 | Mono                   | 4.2.1         | 4.2.1                       |
 
 > [!NOTE]
@@ -107,7 +107,7 @@ Spark 2.1、2.2 & Kafka 1.0 支援將于2020年6月30日到期。
 
     在過去，您只能使用本機系統管理員使用者和本機 SSH 使用者來建立 HDInsight 叢集。 本機系統管理員使用者可以存取所有的檔案、資料夾、資料表和資料行。  您可以利用企業安全性套件來啟用角色型存取控制，方法是將 HDInsight 叢集與您自己的 Active Directory 整合，叢集中會包含 IaaS 虛擬機器上的內部部署 Active Directory、Azure Active Directory Domain Services 或 Active Directory。 叢集上的網域系統管理員可以授與使用者使用自己公司 (網域) 的使用者名稱和密碼來存取叢集。
 
-    如需詳細資訊，請參閱
+    如需詳細資訊，請參閱：
 
     - [已加入網域之 HDInsight 叢集的 Apache Hadoop 安全性簡介](./domain-joined/hdinsight-security-overview.md)
     - [規劃 HDInsight 中已加入網域的 Azure Apache Hadoop 叢集](./domain-joined/apache-domain-joined-architecture.md)
@@ -119,7 +119,7 @@ Spark 2.1、2.2 & Kafka 1.0 支援將于2020年6月30日到期。
   - 與 Apache Ranger 整合可取得 Hive、Spark SQL 和 Yarn 佇列的授權。
   - 您可以設定檔案和資料夾的存取控制。
 
-    如需詳細資訊，請參閱
+    如需詳細資訊，請參閱：
 
   - [在已加入網域的 HDInsight 中設定 Apache Hive 原則](./domain-joined/apache-domain-joined-run-hive.md)
 

@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 18ba99077592a7d03e19fda86bc61e5839b82b5e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f30211b2b5863294976420d3f903a36abe76deba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226920"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433168"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>使用 GitHub 動作進行持續傳遞
 
@@ -64,18 +64,11 @@ GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
 
 ## <a name="set-up-the-environment"></a>設定 Azure 環境 
 
-設定環境可以使用其中一個 [發行] 安裝動作來完成。
+設定環境是使用特定語言的發行設定動作來完成。
 
-|語言 | 設定動作 |
-|---------|---------|
-|**.NET**     | `actions/setup-dotnet` |
-|**Java**    | `actions/setup-java` |
-|**JavaScript**     | `actions/setup-node` |
-|**Python**   | `actions/setup-python` |
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-下列範例顯示的工作流程部分，會針對各種支援的語言設定環境：
-
-**JavaScript**
+下列範例顯示使用 `actions/setup-node` 動作來設定環境的工作流程部分：
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -88,7 +81,9 @@ GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
         node-version: '10.x'
 ```
 
-**Python**
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+下列範例顯示使用 `actions/setup-python` 動作來設定環境的工作流程部分：
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -101,7 +96,9 @@ GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
         python-version: 3.6
 ```
 
-**.NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+下列範例顯示使用 `actions/setup-dotnet` 動作來設定環境的工作流程部分：
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -114,7 +111,9 @@ GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
         dotnet-version: '2.2.300'
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+下列範例顯示使用 `actions/setup-java` 動作來設定環境的工作流程部分：
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -128,14 +127,15 @@ GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
         # Please change the Java version to match the version in pom.xml <maven.compiler.source>
         java-version: '1.8.x'
 ```
+---
 
 ## <a name="build-the-function-app"></a>建立函數應用程式
 
 這取決於 Azure Functions 支援的語言和語言，本節應該是每種語言的標準組建步驟。
 
-下列範例會以各種支援的語言，顯示建立函數應用程式的工作流程部分。：
+下列範例會顯示建立函式應用程式的工作流程部分，這是語言特定的：
 
-**JavaScript**
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Run npm'
@@ -150,7 +150,7 @@ GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
         popd
 ```
 
-**Python**
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ```yaml
     - name: 'Run pip'
@@ -164,7 +164,7 @@ GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
         popd
 ```
 
-**.NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'
@@ -177,7 +177,7 @@ GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
         popd
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```yaml
     - name: 'Run mvn'
@@ -190,6 +190,7 @@ GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
         mvn azure-functions:package
         popd
 ```
+---
 
 ## <a name="deploy-the-function-app"></a>部署函式應用程式
 

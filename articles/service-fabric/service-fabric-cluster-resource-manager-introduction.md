@@ -1,25 +1,16 @@
 ---
-title: Service Fabric 叢集 Resource Manager 簡介 | Microsoft Docs
-description: Service Fabric 叢集資源管理員簡介。
-services: service-fabric
-documentationcenter: .net
+title: Service Fabric 叢集簡介 Resource Manager
+description: 深入瞭解 Service Fabric 叢集 Resource Manager，這是一種管理應用程式服務協調流程的方式。
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e9b1cc8b66be36a0a77118f4de672c9411433ba5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da9205f5d95eaf1b4dc655ee727ab8a4fe90893d
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743647"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563321"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Service Fabric 叢集資源管理員簡介
 以傳統方式管理 IT 系統或線上服務，意味著要讓特定實體或虛擬機器專屬於這些特定的服務或系統。 服務已建構為層次。 有「Web」層和「資料」或「儲存體」層。 應用程式會有訊息層，要求在其中流入或流出，以及專用於快取的一組機器。 每個層次或工作負載類型都有專屬的特定機器︰資料庫會取得一些專屬的機器，Web 伺服器也會取得一些。 如果特定類型的工作負載造成執行它的機器太忙碌，請以該層次的相同設定新增更多機器。 不過，並非所有工作負載都可以如此輕易地相應放大 - 特別是您通常會以較大型機器來取代機器的資料層。 簡單。 如果某台電腦失敗，則在還原該電腦之前，整體應用程式中的那一個部分會以較低容量來執行。 仍然相當簡單 (但不一定有趣)。
@@ -49,12 +40,12 @@ Orchestrator (不是人類) 是當機器失敗或工作負載基於某些意外�
 
 網路平衡器或訊息路由器會嘗試確保 Web/背景工作角色層維持大致平衡。 平衡資料層的策略不相同，並且相依於資料存放庫。 平衡資料層依賴資料分區化、快取、受控檢視、預存程序，與其他存放區特定機制。
 
-雖然這其中有些策略很有趣，但 Service Fabric 叢集資源管理員並非任何像是網路負載平衡器或快取的功能。 網路負載平衡器會藉由分散前端之間的流量來平衡前端。 Service Fabric 叢集資源管理員有不同的策略。 基本上，Service Fabric 會將「服務」  移至最需要它們的地方，流量或負載會隨之轉向。 例如，可能將服務移至目前閒置的節點，因為那裡的服務未執行太多工作。 節點會閒置可能是因為原本存在的服務已刪除或移至別處。 再舉一個例子，叢集資源管理員也可能從電腦中移出服務。 可能是電腦即將升級，或因為其中執行的服務突然增加耗用量而負載過重。 或者，可能會增加服務的資源需求。 如此一來，此機器上的資源就不足以繼續執行。 
+雖然這其中有些策略很有趣，但 Service Fabric 叢集資源管理員並非任何像是網路負載平衡器或快取的功能。 網路負載平衡器會藉由分散前端之間的流量來平衡前端。 Service Fabric 叢集資源管理員有不同的策略。 基本上，Service Fabric 會將「服務」移至最需要它們的地方，流量或負載會隨之轉向。 例如，可能將服務移至目前閒置的節點，因為那裡的服務未執行太多工作。 節點會閒置可能是因為原本存在的服務已刪除或移至別處。 再舉一個例子，叢集資源管理員也可能從電腦中移出服務。 可能是電腦即將升級，或因為其中執行的服務突然增加耗用量而負載過重。 或者，可能會增加服務的資源需求。 如此一來，此機器上的資源就不足以繼續執行。 
 
 因為叢集資源管理員負責移動服務，相較於您在網路負載平衡器中發現的功能，它包含一組不同的功能。 這是因為網路負載平衡器將網路流量傳送到服務已在其中的位置，即使該位置對於執行服務本身來說並不理想。 Service Fabric 叢集資源管理員採用完全不同的策略，以確保有效率地利用叢集中的資源。
 
 ## <a name="next-steps"></a>後續步驟
-- 如需架構和資訊流程中，叢集資源管理員 」 中的資訊，請參閱[這篇文章](service-fabric-cluster-resource-manager-architecture.md)
+- 如需叢集 Resource Manager 中架構和資訊流程的相關資訊，請參閱[這篇文章](service-fabric-cluster-resource-manager-architecture.md)
 - 叢集資源管理員有許多描述叢集的選項。 若要深入了解計量，請參閱關於[描述 Service Fabric 叢集](service-fabric-cluster-resource-manager-cluster-description.md)一文
 - 如需服務設定的詳細資訊，請[深入了解設定服務](service-fabric-cluster-resource-manager-configure-services.md)
 - 度量是 Service Fabric 叢集資源管理員管理叢集中的耗用量和容量的方式。 若要深入了解計量及其設定方式，請查看[這篇文章](service-fabric-cluster-resource-manager-metrics.md)

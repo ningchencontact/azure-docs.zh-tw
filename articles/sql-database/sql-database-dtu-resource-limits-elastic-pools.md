@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 1dd0f90a9844bb3afbd15e1f8c804d3a7c6b7fff
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 1c9d3256f3898d57eb9f7fe5d758bcaffb37aca6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687684"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637570"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>使用 DTU 購買模型的彈性集區資源限制
 
@@ -120,11 +120,11 @@ ms.locfileid: "74687684"
 
 下表描述集區資料庫的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | 每資料庫的 eDTU 上限 |集區中任何資料庫可以使用的 eDTU 數目上限，是否可用則是根據集區中其他資料庫的使用量而定。 每個資料庫的 eDTU 數目上限不等於資料庫的資源保證。 這個設定是全域設定，會套用至集區中的所有資料庫。 將每個資料庫的 eDTU 設定為最上限，以處理資料庫使用率的尖峰。 某種程度的過量使用是可預期的情況，因為集區通常會假設資料庫的熱門和冷門使用模式；在這些模式中，所有資料庫不會同時處於尖峰期。 例如，假設每個資料庫的尖峰使用量是 20 個 DTU，且集區中的 100 個資料庫只有 20% 會同時暴增到尖峰。 如果每一資料庫的 eDTU 上限設為 20 個 eDTU，則以 5 倍的量過量使用集區，並將每集區 eDTU 設為 400 個是合理的作法。 |
 | 每資料庫的 eDTU 下限 |集區中單一資料庫能夠保證的最小 eDTU 數。 這個設定是全域設定，會套用至集區中的所有資料庫。 每個資料庫最小 eDTU 建議設定為 0，同時也是預設值。 此屬性會設為 0 到每一資料庫的 eDTU 使用量平均值之間的任意數。 集區中資料庫數目和每個資料庫 eDTU 數目下限的乘積不能超過每個集區的 eDTU。 例如，如果集區有 20 個資料庫，且每個資料庫的最小 eDTU 設定為 10 eDTU，則每個集區 eDTU 必須至少為 200 個 eDTU。 |
-| 每個資料庫的儲存體上限 |使用者為集區中資料庫所設定的資料庫大小上限。 不過，集區資料庫會共用配置的集區儲存體。 即使將「每個資料庫」的儲存體上限總計設定為大於「集區空間」的可用儲存體總計，但所有資料庫實際使用的總空間將不得超過可用的集區限制。 資料庫大小上限是指資料檔案的大小上限，並不包含記錄檔所使用的空間。 |
+| 每個資料庫的儲存體上限 |使用者所設定集區資料庫的資料庫大小上限。 不過，集區資料庫會共用配置的集區儲存體。 即使將「每個資料庫」的儲存體上限總計設定為大於「集區空間」的可用儲存體總計，但所有資料庫實際使用的總空間將不得超過可用的集區限制。 資料庫大小上限是指資料檔案的大小上限，並不包含記錄檔所使用的空間。 |
 |||
 
 ## <a name="next-steps"></a>後續步驟
@@ -133,5 +133,5 @@ ms.locfileid: "74687684"
 - 如需單一資料庫的 DTU 資源限制，請參閱[使用 DTU 購買模型的單一資料庫資源限制](sql-database-dtu-resource-limits-single-databases.md)
 - 如需彈性集區的 vCore 資源限制，請參閱[使用 vCore 購買模型的彈性集區資源限制](sql-database-vcore-resource-limits-elastic-pools.md)
 - 如需受控執行個體的資源限制，請參閱[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md)。
-- 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
+- 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-resource-manager/management/azure-subscription-service-limits.md)。
 - 如需資料庫伺服器資源限制的相關資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)，以了解伺服器和訂用帳戶層級的限制。

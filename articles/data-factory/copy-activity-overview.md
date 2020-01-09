@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 40bddaab6db5e7ed777ec55ca469a9e2d1c35c98
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: MT
+ms.openlocfilehash: 893ef88647824398ec106a964cbacf118bb14308
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927552"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440350"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory 中的複製活動
 
@@ -49,15 +49,13 @@ ms.locfileid: "74927552"
 
 ### <a name="supported-file-formats"></a>支援的檔案格式
 
-您可以使用複製活動，在兩個以檔案為基礎的資料存放區之間複製檔案。 在此情況下，會有效率地複製資料，而不會進行任何序列化或還原序列化。
-
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-例如，您可以執行下列複製活動：
+您可以使用「複製活動」在兩個以檔案為基礎的資料存放區之間依原樣複製檔案，在此情況下，資料會有效率地複製，而不會進行任何序列化或還原序列化。 此外，您也可以剖析或產生特定格式的檔案，例如，您可以執行下列動作：
 
-* 從內部部署 SQL Server 資料庫複製資料，並以 Parquet 格式將資料寫入 Azure Data Lake Storage Gen2。
+* 從內部部署 SQL Server 資料庫複製資料，並以 Parquet 格式寫入 Azure Data Lake Storage Gen2。
 * 從內部部署檔案系統複製文字（CSV）格式的檔案，並以 Avro 格式寫入 Azure Blob 儲存體。
-* 從內部部署檔案系統複製壓縮檔案，將它們解壓縮，並將它們寫入 Azure Data Lake Storage Gen2。
+* 從內部部署檔案系統複製壓縮檔案、將其即時解壓縮，然後將解壓縮的檔案寫入 Azure Data Lake Storage Gen2。
 * 從 Azure Blob 儲存體複製 Gzip 壓縮文字（CSV）格式的資料，並將其寫入 Azure SQL Database。
 * 許多需要序列化/還原序列化或壓縮/解壓縮的活動。
 
@@ -125,19 +123,20 @@ ms.locfileid: "74927552"
 
 #### <a name="syntax-details"></a>語法詳細資料
 
-| 屬性 | 描述 | 必要？ |
+| 屬性 | 說明 | 必要項？ |
 |:--- |:--- |:--- |
-| 類型 | 若為複製活動，請將設定為 `Copy` | 是 |
+| type | 若為複製活動，請將設定為 `Copy` | 是 |
 | 輸入 | 指定您所建立的資料集，以指向來源資料。 複製活動僅支援單一輸入。 | 是 |
 | 輸出 | 指定您所建立的資料集，以指向接收資料。 複製活動僅支援單一輸出。 | 是 |
 | typeProperties | 指定要設定複製活動的屬性。 | 是 |
-| source | 指定要用來抓取資料的複製來源類型和對應的屬性。<br/><br/>如需詳細資訊，請參閱[支援的資料存放區和格式](#supported-data-stores-and-formats)中所列連接器文章中的「複製活動屬性」一節。 | 是 |
-| 接收 | 指定複製接收類型和用於寫入資料的對應屬性。<br/><br/>如需詳細資訊，請參閱[支援的資料存放區和格式](#supported-data-stores-and-formats)中所列連接器文章中的「複製活動屬性」一節。 | 是 |
-| 轉譯程式 | 指定從來源到接收的明確資料行對應。 當預設複製行為不符合您的需求時，就會套用此屬性。<br/><br/>如需詳細資訊，請參閱[複製活動中的架構對應](copy-activity-schema-and-type-mapping.md)。 | 否 |
-| dataIntegrationUnits | 指定代表[Azure 整合運行](concepts-integration-runtime.md)時間用於資料複製之耗電量的量值。 這些單位先前稱為雲端資料移動單位（DMU）。 <br/><br/>如需詳細資訊，請參閱[資料整合單位](copy-activity-performance.md#data-integration-units)。 | 否 |
-| parallelCopies | 指定在從來源讀取資料，並將資料寫入至接收時，複製活動所要使用的平行處理原則。<br/><br/>如需詳細資訊，請參閱[平行複製](copy-activity-performance.md#parallel-copy)。 | 否 |
-| enableStaging<br/>stagingSettings | 指定是否要將暫時資料暫存在 Blob 儲存體中，而不是直接將資料從來源複製到接收。<br/><br/>如需實用案例和設定詳細資料的相關資訊，請參閱[分段複製](copy-activity-performance.md#staged-copy)。 | 否 |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 選擇當您將資料從來源複製到接收時，如何處理不相容的資料列。<br/><br/>如需詳細資訊，請參閱[容錯](copy-activity-fault-tolerance.md)。 | 否 |
+| source | 指定要用來抓取資料的複製來源類型和對應的屬性。<br/>如需詳細資訊，請參閱[支援的資料存放區和格式](#supported-data-stores-and-formats)中所列連接器文章中的「複製活動屬性」一節。 | 是 |
+| 接收 | 指定複製接收類型和用於寫入資料的對應屬性。<br/>如需詳細資訊，請參閱[支援的資料存放區和格式](#supported-data-stores-and-formats)中所列連接器文章中的「複製活動屬性」一節。 | 是 |
+| 轉譯程式 | 指定從來源到接收的明確資料行對應。 當預設複製行為不符合您的需求時，就會套用此屬性。<br/>如需詳細資訊，請參閱[複製活動中的架構對應](copy-activity-schema-and-type-mapping.md)。 | 否 |
+| dataIntegrationUnits | 指定代表[Azure 整合運行](concepts-integration-runtime.md)時間用於資料複製之耗電量的量值。 這些單位先前稱為雲端資料移動單位（DMU）。 <br/>如需詳細資訊，請參閱[資料整合單位](copy-activity-performance.md#data-integration-units)。 | 否 |
+| parallelCopies | 指定在從來源讀取資料，並將資料寫入至接收時，複製活動所要使用的平行處理原則。<br/>如需詳細資訊，請參閱[平行複製](copy-activity-performance.md#parallel-copy)。 | 否 |
+| 保留 | 指定在資料複製期間是否保留中繼資料/Acl。 <br/>如需詳細資訊，請參閱[保留中繼資料](copy-activity-preserve-metadata.md)。 |否 |
+| enableStaging<br/>stagingSettings | 指定是否要將暫時資料暫存在 Blob 儲存體中，而不是直接將資料從來源複製到接收。<br/>如需實用案例和設定詳細資料的相關資訊，請參閱[分段複製](copy-activity-performance.md#staged-copy)。 | 否 |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 選擇當您將資料從來源複製到接收時，如何處理不相容的資料列。<br/>如需詳細資訊，請參閱[容錯](copy-activity-fault-tolerance.md)。 | 否 |
 
 ## <a name="monitoring"></a>監視
 
@@ -168,7 +167,7 @@ ms.locfileid: "74927552"
 
 複製活動的執行詳細資料和效能特性也會在**複製活動**的執行結果 > **輸出**區段中傳回。 以下是可能會傳回的完整屬性清單。 您只會看到適用于您的複製案例的屬性。 如需如何監視活動執行的相關資訊，請參閱[監視管線執行](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run)。
 
-| 屬性名稱  | 描述 | 單位 |
+| 屬性名稱  | 說明 | 單位 |
 |:--- |:--- |:--- |
 | dataRead | 從來源讀取的資料量。 | Int64 值（以位元組為單位） |
 | dataWritten | 寫入接收的資料量。 | Int64 值（以位元組為單位） |
@@ -190,8 +189,8 @@ ms.locfileid: "74927552"
 | usedDataIntegrationUnits | 複製期間的有效資料整合單位。 | Int32 值 |
 | usedParallelCopies | 複製期間有效的 parallelCopies。 | Int32 值 |
 | redirectRowPath | 在您于 [`redirectIncompatibleRowSettings`] 屬性中設定的 blob 儲存體中，略過不相容資料列的記錄檔路徑。 請參閱本文稍後的[容錯](#fault-tolerance)。 | 文字 (字串) |
-| executionDetails | 複製活動所經歷之階段的詳細資料，以及對應的步驟、持續時間、設定等等。 我們不建議您剖析此區段，因為它可能會變更。<br/><br/>Data Factory 也會報告 `detailedDurations`下各種階段所花費的詳細持續時間（以秒為單位）。 這些步驟的持續時間是獨佔的。 只有適用于指定複製活動執行的持續時間才會出現：<br/>**佇列持續時間**（`queuingDuration`）：複製活動在整合執行時間上實際開始之前的時間量。 如果您使用自我裝載 IR 且此值很大，請檢查 IR 容量和使用量，並根據您的工作負載相應增加或相應放大。 <br/>**預先複製腳本持續時間**（`preCopyScriptDuration`）：複製活動開始于 IR 上的時間，以及複製活動完成執行接收資料存放區中的預先複製腳本之間所經過的時間。 適用于設定預先複製腳本時。 <br/>**時間到第一個位元組**（`timeToFirstByte`）：上一個步驟結束與紅外線從來源資料存放區接收第一個位元組之間經過的時間。 適用于非以檔案為基礎的來源。 如果這個值很大，請檢查並優化查詢或伺服器。<br/>**傳輸持續時間**（`transferDuration`）：上一個步驟結束與紅外線將所有資料從來源傳輸到接收之間的時間。 | 陣列 |
-| perfRecommendation | 複製效能微調秘訣。 如需詳細資訊，請參閱[效能和微調](#performance-and-tuning)。 | 陣列 |
+| executionDetails | 複製活動所經歷之階段的詳細資料，以及對應的步驟、持續時間、設定等等。 我們不建議您剖析此區段，因為它可能會變更。<br/><br/>Data Factory 也會報告 `detailedDurations`下各種階段所花費的詳細持續時間（以秒為單位）。 這些步驟的持續時間是獨佔的。 只有適用于指定複製活動執行的持續時間才會出現：<br/>**佇列持續時間**（`queuingDuration`）：複製活動在整合執行時間上實際開始之前的時間量。 如果您使用自我裝載 IR 且此值很大，請檢查 IR 容量和使用量，並根據您的工作負載相應增加或相應放大。 <br/>**預先複製腳本持續時間**（`preCopyScriptDuration`）：複製活動開始于 IR 上的時間，以及複製活動完成執行接收資料存放區中的預先複製腳本之間所經過的時間。 適用于設定預先複製腳本時。 <br/>**時間到第一個位元組**（`timeToFirstByte`）：上一個步驟結束與紅外線從來源資料存放區接收第一個位元組之間經過的時間。 適用于非以檔案為基礎的來源。 如果這個值很大，請檢查並優化查詢或伺服器。<br/>**傳輸持續時間**（`transferDuration`）：上一個步驟結束與紅外線將所有資料從來源傳輸到接收之間的時間。 | Array |
+| perfRecommendation | 複製效能微調秘訣。 如需詳細資訊，請參閱[效能和微調](#performance-and-tuning)。 | Array |
 
 ```json
 "output": {
@@ -238,13 +237,9 @@ ms.locfileid: "74927552"
 }
 ```
 
-## <a name="schema-and-data-type-mapping"></a>結構描述和資料類型對應
+## <a name="incremental-copy"></a>增量複製
 
-如需複製活動如何將您的來源資料對應至接收的相關資訊，請參閱[架構和資料類型對應](copy-activity-schema-and-type-mapping.md)。
-
-## <a name="fault-tolerance"></a>容錯
-
-根據預設，當來源資料列與接收資料列不相容時，複製活動會停止複製資料並傳回失敗。 若要讓複製成功，您可以將複製活動設定為略過並記錄不相容的資料列，並只複製相容的資料。 如需詳細資訊，請參閱[複製活動的容錯](copy-activity-fault-tolerance.md)。
+Data Factory 可讓您以累加方式將差異資料從來源資料存放區複製到接收資料存放區。 如需詳細資訊，請參閱[教學課程：以累加方式複製資料](tutorial-incremental-copy-overview.md)。
 
 ## <a name="performance-and-tuning"></a>效能和微調
 
@@ -258,8 +253,17 @@ ms.locfileid: "74927552"
 
 ![複製監視和效能微調祕訣](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-## <a name="incremental-copy"></a>增量複製
-Data Factory 可讓您以累加方式將差異資料從來源資料存放區複製到接收資料存放區。 如需詳細資訊，請參閱[教學課程：以累加方式複製資料](tutorial-incremental-copy-overview.md)。
+## <a name="preserve-metadata-along-with-data"></a>保留中繼資料以及資料
+
+將資料從來源複製到接收時，在類似 data lake 遷移的案例中，您也可以選擇使用複製活動來保留中繼資料和 Acl 以及資料。 如需詳細資訊，請參閱[保留中繼資料](copy-activity-preserve-metadata.md)。
+
+## <a name="schema-and-data-type-mapping"></a>結構描述和資料類型對應
+
+如需複製活動如何將您的來源資料對應至接收的相關資訊，請參閱[架構和資料類型對應](copy-activity-schema-and-type-mapping.md)。
+
+## <a name="fault-tolerance"></a>容錯
+
+根據預設，當來源資料列與接收資料列不相容時，複製活動會停止複製資料並傳回失敗。 若要讓複製成功，您可以將複製活動設定為略過並記錄不相容的資料列，並只複製相容的資料。 如需詳細資訊，請參閱[複製活動的容錯](copy-activity-fault-tolerance.md)。
 
 ## <a name="next-steps"></a>後續步驟
 請參閱下列快速入門、教學課程和範例：

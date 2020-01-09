@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 資料庫移轉服務來監視移轉活動 | Microsoft Docs
+title: 監視遷移活動-Azure 資料庫移轉服務
 description: 深入了解如何使用 Azure 資料庫移轉服務來監視移轉活動。
 services: database-migration
 author: HJToland3
@@ -8,17 +8,17 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b3ba634ddb084b5637d0a0c97c0ac4ff72193c1d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60532744"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437924"
 ---
-# <a name="monitor-migration-activity"></a>監視移轉活動
+# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>使用 Azure 資料庫移轉服務監視遷移活動
 在本文中，您會學習如何在資料庫層級與資料表層級監視移轉的進度。
 
 ## <a name="monitor-at-the-database-level"></a>在資料庫層級監視
@@ -36,7 +36,7 @@ ms.locfileid: "60532744"
     <tr>
       <th class="x-hidden-focus"><strong>欄位名稱</strong></th>
       <th><strong>欄位子狀態</strong></th>
-      <th><strong>描述</strong></th>
+      <th><strong>說明</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -46,7 +46,7 @@ ms.locfileid: "60532744"
       <td>移轉活動執行中。</td>
     </tr>
     <tr>
-      <td>Succeeded</td>
+      <td>成功</td>
       <td>移轉活動成功，沒有問題。</td>
     </tr>
     <tr>
@@ -63,11 +63,11 @@ ms.locfileid: "60532744"
       <td>DMS 管線正在執行中，並且正在執行移轉。</td>
     </tr>
     <tr>
-      <td>完成</td>
+      <td>完整</td>
       <td>移轉已完成。</td>
     </tr>
     <tr>
-      <td>Failed</td>
+      <td>失敗</td>
       <td>移轉失敗。 按一下移轉詳細資料以查看移轉錯誤。</td>
     </tr>
     <tr>
@@ -92,7 +92,7 @@ ms.locfileid: "60532744"
       <td>按一下連結以顯示錯誤詳細資料。</td>
     </tr>
     <tr>
-      <td rowspan="1" class="duration"><strong>Duration</strong></td>
+      <td rowspan="1" class="duration"><strong>有效期間</strong></td>
       <td>N/A</td>
       <td>從移轉活動初始化到移轉完成或移轉失敗的總時間。</td>
     </tr>
@@ -108,7 +108,7 @@ ms.locfileid: "60532744"
 
 下表描述了資料表層級詳細資料中所顯示的欄位。
 
-| 欄位名稱        | 描述       |
+| 欄位名稱        | 說明       |
 | ------------- | ------------- |
 | **完整載入已完成**      | 已完成完整資料載入的資料表數目。 |
 | **完整載入已排入佇列**      | 已排入佇列以進行完整載入的資料表數目。      |
@@ -129,14 +129,14 @@ ms.locfileid: "60532744"
 
 下表描述了資料表層級移轉進度中所顯示的欄位。
 
-| 欄位名稱        | 描述       |
+| 欄位名稱        | 說明       |
 | ------------- | ------------- |
 | **狀態 - 同步處理**      | 持續同步正在執行中。 |
 | **插入**      | 套用到目標的資料列中，CDC 插入的數目。      |
 | **更新** | 套用到目標的資料列中，CDC 更新的數目。      |
 | **刪除**      | 套用到目標的資料列中，CDC 刪除的數目。 |
 | **套用項目總計**      | 套用到目標的資料列中，CDC 更新、插入及刪除的總數。 |
-| **資料錯誤** | 此資料表中發生的資料錯誤數目。 這些錯誤的一些範例包括：*511：無法建立大小為 %d 的資料列，這個大小大於允許的資料列大小上限 %d。8114：將資料類型從 %ls 轉換到 %ls 時發生錯誤。*  客戶應該從 Azure 目標中的 dms_apply_exceptions 資料表查詢，以查看錯誤詳細資料。    |
+| **資料錯誤** | 此資料表中發生的資料錯誤數目。 錯誤的一些範例是「511：無法建立大小為 %d 的資料列，這個大小大於可允許的資料列大小上限 %d，8114：將資料類型 %ls 轉換為 %ls 時發生錯誤。」  客戶應該從 Azure 目標中的 dms_apply_exceptions 資料表查詢，以查看錯誤詳細資料。    |
 
 > [!NOTE]
 > 當資料庫完全移轉或重新啟動移轉時，插入、更新、刪除及套用項目總計的 CDC 值可能會減少。

@@ -1,5 +1,5 @@
 ---
-title: 取得單一頁面應用程式中的權杖-Microsoft 身分識別平臺 |Azure
+title: 取得權杖以呼叫 Web API （單一頁面應用程式）-Microsoft 身分識別平臺 |Azure
 description: 瞭解如何建立單一頁面應用程式（取得權杖以呼叫 API）
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9723e9a58704a583c7332db11bae7da6b045a5f7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 17c11b8cb4c1d7f4eef22903b81f38d93b54b41b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919829"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423685"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>單一頁面應用程式：取得權杖以呼叫 API
 
@@ -43,7 +43,7 @@ Azure AD 的無訊息 token 要求可能會因為 Azure AD 會話或密碼變更
 
 ## <a name="acquire-a-token-with-a-pop-up-window"></a>取得具有快顯視窗的權杖
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 
 下列程式碼結合了先前所述的模式與快顯體驗的方法：
 
@@ -114,7 +114,7 @@ ngOnDestroy() {
 
 ## <a name="acquire-a-token-with-a-redirect"></a>使用重新導向取得權杖
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 
 下列模式如先前所述，但使用重新導向方法來以互動方式取得權杖。 您必須註冊先前所述的重新導向回呼。
 
@@ -151,7 +151,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 若要在 `IdToken`中要求選擇性宣告，您可以將 stringified 宣告物件傳送至 `AuthenticationParameters.ts` 類別的 `claimsRequest` 欄位。
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 ```javascript
 "optionalClaims":  
    {

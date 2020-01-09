@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d4bdd554fb7c8817ada80a294f3ecb1c6c85b00
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 2b6d9a394971e59abaeb48e058b05cd52da69626
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707038"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529723"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -70,7 +70,7 @@ ms.locfileid: "74707038"
 
 ### <a name="authentication-administratorauthentication-administrator-permissions"></a>[驗證系統管理員](#authentication-administrator-permissions)
 
-具有此角色的使用者可以設定或重設非密碼認證，並且可以更新所有使用者的密碼。 驗證系統管理員可以要求使用者針對現有的非密碼認證（例如，MFA 或 FIDO）重新註冊，並撤銷**裝置上的 [記住 mfa**]，這會在下一次登入非系統管理員或僅指派下列角色的使用者登入時提示 mfa：
+驗證管理員角色目前處於公開預覽狀態。 具有此角色的使用者可以設定或重設非密碼認證，並且可以更新所有使用者的密碼。 驗證系統管理員可以要求使用者針對現有的非密碼認證（例如，MFA 或 FIDO）重新註冊，並撤銷**裝置上的 [記住 mfa**]，這會在下一次登入非系統管理員或僅指派下列角色的使用者登入時提示 mfa：
 
 * 驗證系統管理員
 * 目錄讀取器
@@ -362,10 +362,10 @@ ms.locfileid: "74707038"
 
 在 | 可以執行
 --- | ---
-[Microsoft 365 資訊安全中心](https://protection.office.com) | 監視所有 Microsoft 365 服務的安全性相關原則<br>管理安全性威脅和警示<br>檢視報告
+[Microsoft 365 資訊安全中心](https://protection.office.com) | 監視所有 Microsoft 365 服務的安全性相關原則<br>管理安全性威脅和警示<br>檢視報表
 身分識別防護中心 | 「安全性讀取者」角色的所有權限<br>此外，還能夠執行除了重設密碼以外的所有身分識別防護中心作業
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | 「安全性讀取者」角色的所有權限<br>**無法**管理 Azure AD 角色指派或設定
-[Office 365 安全性與合規性中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 管理安全性原則<br>檢視、調查及回應安全性威脅<br>檢視報告
+[Office 365 安全性與合規性中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 管理安全性原則<br>檢視、調查及回應安全性威脅<br>檢視報表
 Azure 進階威脅防護 | 監視及回應可疑的安全性活動
 Windows Defender ATP 和 EDR | 指派角色<br>管理電腦群組<br>設定端點威脅偵測和自動補救<br>檢視、調查及回應警示
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 檢視使用者、裝置、註冊、設定及應用程式資訊<br>無法對 Intune 進行變更
@@ -394,10 +394,10 @@ Windows Defender ATP 和 EDR | 「安全性讀取者」角色的所有權限<br>
 
 在 | 可以執行
 --- | ---
-[Microsoft 365 資訊安全中心](https://protection.office.com) | 檢視所有 Microsoft 365 服務的安全性相關原則<br>檢視安全性威脅和警示<br>檢視報告
+[Microsoft 365 資訊安全中心](https://protection.office.com) | 檢視所有 Microsoft 365 服務的安全性相關原則<br>檢視安全性威脅和警示<br>檢視報表
 身分識別防護中心 | 讀取安全性功能的所有安全性報告和設定資訊<br><ul><li>反垃圾郵件<li>加密<li>資料外洩防護<li>反惡意程式碼<li>進階威脅防護<li>防網路釣魚<li>郵件流程規則
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | 具有 Azure AD Privileged Identity Management 中呈現的所有資訊的唯讀存取權： Azure AD 角色指派和安全性評論的原則和報告。<br>**無法**註冊 Azure AD Privileged Identity Management 或對它進行任何變更。 在 Privileged Identity Management 入口網站或透過 PowerShell，此角色中的人員可以啟用其他角色（例如，全域管理員或特殊許可權角色管理員）（如果使用者有資格）。
-[Office 365 安全性與合規性中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 檢視安全性原則<br>檢視及調查安全性威脅<br>檢視報告
+[Office 365 安全性與合規性中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 檢視安全性原則<br>檢視及調查安全性威脅<br>檢視報表
 Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defender ATP 中開啟角色型存取控制時，具有唯讀許可權（例如 Azure AD 安全性讀取者角色）的使用者會失去存取權，直到指派給 Windows Defender ATP 角色為止。
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 檢視使用者、裝置、註冊、設定及應用程式資訊。 無法對 Intune 進行變更。
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 具有唯讀權限，並可管理警示
@@ -445,7 +445,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 ### <a name="user-administratoruser-administrator-permissions"></a>[使用者管理員](#user-administrator-permissions)
 
-具有此角色的使用者可以建立使用者，以及管理具有一些限制的使用者所有層面（如下所示），並可更新密碼到期原則。 此外，具有此角色的使用者可以建立與管理所有群組。 此角色也包含建立和管理使用者檢視、管理支援票證，以及監視服務健康情況的能力。 使用者系統管理員沒有許可權，無法管理大部分管理員角色中使用者的某些使用者屬性。 下表列出此限制的例外狀況角色。
+具有此角色的使用者可以建立使用者，以及管理具有一些限制的使用者所有層面（如下所示），並可更新密碼到期原則。 此外，具有此角色的使用者可以建立與管理所有群組。 此角色也包含建立和管理使用者檢視、管理支援票證，以及監視服務健康情況的能力。 使用者系統管理員沒有許可權，無法管理大部分管理員角色中使用者的某些使用者屬性。 具有此角色的使用者沒有可以可管理 MFA。 下表列出此限制的例外狀況角色。
 
 | | |
 | --- | --- |
@@ -687,7 +687,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 ### <a name="company-administrator-permissions"></a>公司系統管理員許可權
 
-可管理使用 Azure AD 身分識別的 Azure AD 與 Microsoft 服務的所有層面。
+可管理使用 Azure AD 身分識別的 Azure AD 與 Microsoft 服務的所有層面。 這個角色也稱為全域管理員角色。 
 
 > [!NOTE]
 > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -1525,6 +1525,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 | --- | --- |
 | microsoft 目錄/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
 | microsoft 目錄/裝置/Devices.bitlockerrecoverykeys/讀取 | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
+| microsoft 目錄/原則/Policies.conditionalaccess/基本/讀取 | 讀取 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
 | microsoft 目錄/Signinreports 所包含/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
 | microsoft.aad.identityProtection/allEntities/read | 讀取 microsoft.aad.identityProtection 中的所有資源。 |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | 讀取 microsoft.aad.privilegedIdentityManagement 中的所有資源。 |
@@ -1704,7 +1705,7 @@ B2C IEF 原則管理員 | B2C IEF 原則管理員 | 3edaf663-341e-4475-9f94-5c39
 雲端裝置管理員 | 雲端裝置管理員 | 7698a772-787b-4ac8-901f-60d6b08affd2
 公司系統管理員 | 全域管理員 | 62e90394-69f5-4237-9190-012177145e10
 規範管理員 | 規範管理員 | 17315797-102d-40b4-93e0-432062caca18
-合規性資料管理員 | 合規性資料管理員 | e6d1a23a-da11-4be4-9570-befc86d067a7
+相容性資料管理員 | 合規性資料管理員 | e6d1a23a-da11-4be4-9570-befc86d067a7
 條件式存取系統管理員 | 條件式存取系統管理員 | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
 CRM 服務管理員 | Dynamics 365 管理員 | 44367163-eba1-44c3-98af-f5787879f96a
 客戶 LockBox 存取核准者 | 客戶加密箱存取核准者 | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
@@ -1740,7 +1741,7 @@ Power 平臺系統管理員 | Power 平臺系統管理員 | 11648597-926c-4cf3-9
 搜尋系統管理員 | 搜尋系統管理員 | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
 搜尋編輯器 | 搜尋編輯器 | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 安全性系統管理員 | 安全性系統管理員 | 194ae4cb-b126-40b2-bd5b-6091b380977d
-安全性運算子 | 安全性運算子 | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
+安全性操作員 | 安全性運算子 | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 安全性讀取者 | 安全性讀取者 | 5d6b6bb7-de71-4623-b4af-96380a352509
 服務支援管理員 | 服務管理員 | f023fd81-a637-4b56-95fd-791ac0226033
 SharePoint 服務管理員 | SharePoint 管理員 | f28a1f50-f6e7-4571-818b-6a12f2af6b6c

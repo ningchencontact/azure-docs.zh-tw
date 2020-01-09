@@ -2,19 +2,15 @@
 title: 了解適用於 Azure 自動化的 PowerShell 工作流程
 description: 本文旨在做為熟悉 PowerShell 的作者的快速課程，以了解 PowerShell 和 PowerShell 工作流程的特定差異，以及適用於自動化 Runbook 的概念。
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/14/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: d656e97448bebe7019a63824b9de6e322b787a92
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6e4c8057322b6208ea3b447b264e2bde1344540c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850732"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421561"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>了解適用於自動化 Runbook 的重要 Windows PowerShell 工作流程概念
 

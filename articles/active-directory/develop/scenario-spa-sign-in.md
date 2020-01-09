@@ -1,5 +1,5 @@
 ---
-title: 單一頁面應用程式登入-Microsoft 身分識別平臺 |Azure
+title: 單一頁面應用程式登入 & 登出-Microsoft 身分識別平臺 |Azure
 description: 瞭解如何建立單一頁面應用程式（登入）
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d2494a7ad89c9e9b3a525ddd04290a08eb3af58
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b3d7afdc634649ca3baf5f43d5e2376fb5d8b05d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962418"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423636"
 ---
-# <a name="single-page-application-sign-in"></a>單一頁面應用程式：登入
+# <a name="single-page-application-sign-in-and-sign-out"></a>單一頁面應用程式：登入和登出
 
 瞭解如何將登入新增至單一頁面應用程式的程式碼。
 
@@ -48,7 +48,7 @@ ms.locfileid: "74962418"
 
 ## <a name="sign-in-with-a-pop-up-window"></a>使用快顯視窗登入
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 
 ```javascript
 const loginRequest = {
@@ -93,7 +93,7 @@ MSAL 角度包裝函式可讓您藉由將 `MsalGuard` 新增至路由定義來�
 
 ## <a name="sign-in-with-redirect"></a>使用重新導向登入
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 
 重新導向方法不會傳回承諾，因為會離開主要應用程式。 若要處理和存取傳回的權杖，您必須先註冊成功和錯誤回呼，再呼叫重新導向方法。
 
@@ -124,7 +124,7 @@ MSAL 程式庫提供 `logout` 方法，可清除瀏覽器儲存體中的快取�
 
 您可以設定 `postLogoutRedirectUri`，以在登出後將其重新導向的 URI 設定為。 此 URI 也應該在您的應用程式註冊中註冊為登出 URI。
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 
 ```javascript
 const config = {

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: wellsi
-ms.openlocfilehash: 3a74f3eb9aece3535f5505d69833a074c2dd0ed2
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 4d5d3cc6159a4601f0a398e87b89eea9b8d3aba6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091187"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446952"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>版本資訊：語音裝置 SDK
 
@@ -23,14 +23,14 @@ ms.locfileid: "74091187"
 
 ## <a name="speech-devices-sdk-170"></a>語音裝置 SDK 1.7.0：
 
-*   現在支援 Linux ARM。
-*   系統會提供 Roobov2 的初始二進位檔（Linux ARM64）。
-*   Windows 使用者可以使用 AudioConfig. fromDefaultMicrophoneInput （）或 AudioConfig. fromMicrophoneInput （deviceName）來指定要使用的麥克風。
-*   程式庫大小已經過優化。
-*   支援使用相同的語音/意圖辨識器物件進行多重回合辨識。
-*   修正停止辨識時偶爾會發生的暫止。
-*   範例應用程式現在包含範例參與者. properties 檔案，以示範檔案的格式。
-*   已將[語音 SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference)元件更新為版本1.7.0。 如需詳細資訊，請參閱其[版本資訊](https://aka.ms/csspeech/whatsnew)。
+- 現在支援 Linux ARM。
+- 系統會提供 Roobo v2 的初始二進位檔（Linux ARM64）。
+- Windows 使用者可以使用 `AudioConfig.fromDefaultMicrophoneInput()` 或 `AudioConfig.fromMicrophoneInput(deviceName)` 來指定要使用的麥克風。
+- 程式庫大小已經過優化。
+- 支援使用相同的語音/意圖辨識器物件進行多重回合辨識。
+- 修正停止辨識時偶爾會發生的暫止。
+- 範例應用程式現在包含範例參與者. properties 檔案，以示範檔案的格式。
+- 已將[語音 SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference)元件更新為版本1.7.0。 如需詳細資訊，請參閱其[版本資訊](https://aka.ms/csspeech/whatsnew)。
 
 ## <a name="speech-devices-sdk-160"></a>語音裝置 SDK 1.6.0：
 
@@ -68,8 +68,8 @@ ms.locfileid: "74091187"
 
 - [安裝關鍵字](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)已簡化，它現在已是應用程式的一部分，而且不需要在裝置上個別安裝。
 - 關鍵字識別已變更，而且支援兩個事件。
-  - RecognizingKeyword，指出語音結果包含（未經驗證）的關鍵字文字。
-  - RecognizedKeyword，表示關鍵字識別已完成辨識指定的關鍵字。
+  - `RecognizingKeyword,` 表示語音結果包含（未驗證）關鍵字文字。
+  - `RecognizedKeyword`，表示關鍵字識別已完成辨識指定的關鍵字。
 
 ## <a name="speech-devices-sdk-110-2018-nov-release"></a>語音裝置 SDK 1.1.0： 2018-11 月版本
 

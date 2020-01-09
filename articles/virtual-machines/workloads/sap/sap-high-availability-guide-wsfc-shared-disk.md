@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 848b15cef43efa62fdff6715bfcfef9819f4e100
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7fae3c08dd4b51b8c8dc9437fce5b5b5de063726
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078281"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637911"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -31,8 +31,8 @@ ms.locfileid: "70078281"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -178,7 +178,7 @@ ms.locfileid: "70078281"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -209,9 +209,9 @@ Azure Load Balancer 服務可為 Azure 提供「內部負載平衡器」。 使�
 
 在包含叢集節點的資源群組中部署內部負載平衡器。 接著，使用內部負載平衡器的探查連接埠來設定所有必要的連接埠轉送規則。 用戶端可以透過虛擬主機名稱進行連線。 DNS 伺服器會解析叢集 IP 位址，而內部負載平衡器則會處理對作用中叢集節點的轉送。
 
-![圖 1：Azure 中不含共用磁片的 Windows 容錯移轉叢集設定][sap-ha-guide-figure-1001]
+![圖 1：Azure 中不含共用磁碟的 Windows 容錯移轉叢集設定][sap-ha-guide-figure-1001]
 
-_**圖 1：** Azure 中不含共用磁碟的 Windows Server 容錯移轉叢集設定_
+_**圖 1**：Azure 中不含共用磁碟的 Windows Server 容錯移轉叢集設定_
 
 ### <a name="sap-ascsscs-ha-with-cluster-shared-disks"></a>含叢集共用磁碟的 SAP ASCS/SCS HA
 在 Windows 中，SAP ASCS/SCS 執行個體包含 SAP 中央服務、SAP 訊息伺服器、加入佇列伺服器處理序和 SAP 全域主機檔案。 SAP 全域主機檔案會儲存整個 SAP 系統的中央檔案。
@@ -219,37 +219,37 @@ _**圖 1：** Azure 中不含共用磁碟的 Windows Server 容錯移轉叢集�
 SAP ASCS/SCS 執行個體包含下列元件：
 
 * SAP 中央服務：
-    * 兩個處理常式\<、訊息和排入佇列伺服器, 以及 ASCS/SCS 虛擬主機名稱 >, 用來存取這兩個進程。
-    * 檔案結構:S:\usr\sap\\ SID\&gt;ASCS/SCS\<實例號碼&lt;\>
+    * 兩個處理常式、訊息和排入佇列的伺服器，以及 \<的 ASCS/SCS 虛擬主機名稱 >，用來存取這兩個進程。
+    * 檔案結構：S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<執行個體號碼\>
 
 
 * SAP 全域主機檔案：
-  * 檔案結構:S:\usr\sap\\ SID&lt; \SYS\...&gt;
+  * 檔案結構：S:\usr\sap\\&lt;SID&gt;\SYS\..
   * sapmnt 檔案共用，可利用下列 UNC 路徑，供存取這些全域 S:\usr\sap\\&lt;SID&gt;\SYS\... 檔案：
 
     \\\\< ASCS/SCS 虛擬主機名稱\>\sapmnt\\ &lt;SID&gt;\SYS\...
 
 
-![圖 2：SAP ASCS/SCS 實例的進程、檔案結構和全域主機 sapmnt 檔案共用][sap-ha-guide-figure-8001]
+![圖 2：SAP ASCS/SCS 執行個體的處理序、檔案結構和全域主機 sapmnt 檔案共用][sap-ha-guide-figure-8001]
 
-_**圖 2：** SAP ASCS/SCS 實例的進程、檔案結構和全域主機 sapmnt 檔案共用_
+_**圖 2：** SAP ASCS/SCS 執行個體的處理序、檔案結構和全域主機 sapmnt 檔案共用_
 
 在高可用性設定中，您要將 SAP ASCS/SCS 執行個體進行叢集處理。 我們會使用*叢集共用磁碟* (在我們的範例為 S 磁碟機) 來放置 SAP ASCS/SCS 和 SAP 全域主機檔案。
 
-![圖 3：具有共用磁片的 SAP ASCS/SCS HA 架構][sap-ha-guide-figure-8002]
+![圖 3：含共用磁碟的 SAP ASCS/SCS HA 架構][sap-ha-guide-figure-8002]
 
-_**圖 3：** 具有共用磁片的 SAP ASCS/SCS HA 架構_
+_**圖 3：** 含共用磁碟的 SAP ASCS/SCS HA 架構_
 
 > [!IMPORTANT]
 > 這兩個元件會在相同的 SAP ASCS/SCS 執行個體底下執行：
->* 相同\<的 ASCS/SCS 虛擬主機名稱 > 是用來存取 sap 訊息和排入佇列伺服器進程, 以及透過 sapmnt 檔案共用的 sap 全域主機檔案。
+>* 相同的 \<ASCS/SCS 虛擬主機名稱 > 是用來存取 SAP 訊息和排入佇列伺服器進程，以及透過 sapmnt 檔案共用的 SAP 全域主機檔案。
 >* 會在兩者間共用相同的叢集共用磁碟 S 磁碟機。
 >
 
 
-![圖 4：具有共用磁片的 SAP ASCS/SCS HA 架構][sap-ha-guide-figure-8003]
+![圖 4：含共用磁碟的 SAP ASCS/SCS HA 架構][sap-ha-guide-figure-8003]
 
-_**圖 4：** 具有共用磁片的 SAP ASCS/SCS HA 架構_
+_**圖 4：** 含共用磁碟的 SAP ASCS/SCS HA 架構_
 
 ### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>使用 SIOS DataKeeper 在 Azure 中共用磁碟
 
@@ -265,9 +265,9 @@ _**圖 4：** 具有共用磁片的 SAP ASCS/SCS HA 架構_
 
 取得 [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/)的詳細資訊。
 
-![圖 5：Azure 中使用 SIOS DataKeeper 的 Windows Server 容錯移轉叢集設定][sap-ha-guide-figure-1002]
+![圖 5：Azure 中含 SIOS DataKeeper 的 Windows Server 容錯移轉叢集組態][sap-ha-guide-figure-1002]
 
-_**圖 5：** Azure 中使用 SIOS DataKeeper 的 Windows 容錯移轉叢集設定_
+_**圖 5：** Azure 中含 SIOS DataKeeper 的 Windows 容錯移轉叢集組態_
 
 > [!NOTE]
 > 您不需要與某些 DBMS 產品 (例如 SQL Server) 共用提供高可用性的磁碟。 SQL Server AlwaysOn 會將 DBMS 資料及記錄檔，從一個叢集節點的本機磁碟複寫到另一個叢集節點的本機磁碟。 在此情況下，Windows 叢集組態不需要共用磁碟。
@@ -275,6 +275,6 @@ _**圖 5：** Azure 中使用 SIOS DataKeeper 的 Windows 容錯移轉叢集設�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 SAP ASCS/SCS 實例的 Windows 容錯移轉叢集和共用磁片, 為 SAP HA 準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [使用 SAP ASCS/SCS 實例的 Windows 容錯移轉叢集和共用磁片，為 SAP HA 準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-shared-disk]
 
 * [在 SAP ASCS/SCS 實例的 Windows 容錯移轉叢集和共用磁片上安裝 SAP NetWeaver HA][sap-high-availability-installation-wsfc-shared-disk]

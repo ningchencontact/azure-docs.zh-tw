@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b87e04c2d6380a0ee4157e73db0cd4057fadee1
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 4056ecba7ac80436952228da9e1b74dc7382448c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704916"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448958"
 ---
 # <a name="query-expression-syntax"></a>查詢運算式語法
 
@@ -28,6 +28,7 @@ ms.locfileid: "68704916"
 
 有些實體資料會儲存為複合屬性，如屬性名稱中的點 '.' 所表示。 例如，作者/服務機關資訊是以複合屬性表示。 它包含 4 個元件：AuN、AuId、AfN、AfId。 這些元件是形成單一實體屬性值的不同資料部分。
 
+注意：所有查詢運算式都必須是小寫，而且不含特殊字元。
 
 **字串屬性：單一值** (包括同義字的相符項目)  
 Ti='indexing by latent semantic analysis'  
@@ -37,7 +38,7 @@ Composite(AA.AuN='sue dumais')
 Ti=='indexing by latent semantic analysis'  
 Composite(AA.AuN=='susan t dumais')
      
-**字串屬性：前置詞值**   
+**字串屬性：首碼值**   
 Ti='indexing by latent seman'...  
 Composite(AA.AuN='sue du'...)
 
@@ -49,10 +50,10 @@ Y>2005
 Y>=2005  
 Y<2010  
 Y<=2010  
-Y=\[2010, 2012\) (includes only left boundary value:2010, 2011)  
-Y=\[2010, 2012\] (includes both boundary values:2010, 2011, 2012)
+Y=\[2010, 2012\) (includes only left boundary value: 2010, 2011)  
+Y=\[2010, 2012\] (includes both boundary values: 2010, 2011, 2012)
  
-**數值屬性：前置詞值**  
+**數值屬性：首碼值**  
 Y='19'... (any numeric value that starts with 19) 
  
 **日期屬性：單一值**  
@@ -92,7 +93,7 @@ E1: C={A=1, B=1}  C={A=1,B=2}  C={A=2,B=3}
 E2: C={A=1, B=3}  C={A=3,B=2}
 ```
 
-<br>查詢 
+<br>此查詢 
 ```
 Composite(And(C.A=1, C.B=2))
 ```

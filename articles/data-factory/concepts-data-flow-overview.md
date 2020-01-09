@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/7/2019
-ms.openlocfilehash: 397ecdb805f0be9f374c53ae7128f806bfb789d3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 210c1814325e689dd70af9caa7fad08deed933e1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928297"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444494"
 ---
 # <a name="what-are-mapping-data-flows"></a>什麼是對應資料流程？
 
@@ -60,6 +60,8 @@ ms.locfileid: "74928297"
 如果您以平行方式執行管線中的資料流程，ADF 會根據您附加至每個活動的 Azure Integration Runtime 中的設定，針對每個活動執行來啟動個別 Azure Databricks 叢集。 若要在 ADF 管線中設計平行執行，請在 UI 中新增不含優先順序條件約束的資料流程活動。
 
 在這三個選項中，此選項可能會在最短的時間內執行。 不過，每個平行資料流程都會在不同的叢集上同時執行，因此事件的順序不具決定性。
+
+如果您以平行方式在管線內執行資料流程活動，建議不要使用 TTL。 這是因為平行執行同時使用相同 Azure Integration Runtime 的資料流程，會導致您的資料處理站有多個暖集區實例。
 
 ##### <a name="overload-single-data-flow"></a>多載單一資料流程
 

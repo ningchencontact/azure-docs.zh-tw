@@ -2,19 +2,15 @@
 title: Azure 自動化中的連接資產
 description: Azure 自動化中的連接資產包含從 Runbook 或 DSC 設定連接到外部服務或應用程式所需的資訊。 這篇文章說明連接的詳細資料，以及如何以文字和圖形化編寫形式加以使用。
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/16/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 621441afaa9bef08a8ebf3b0af082c6a17c77b1b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0843277ce74bcc10865792367096aefa7591b244
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850426"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366785"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自動化中的連接資產
 
@@ -23,7 +19,7 @@ ms.locfileid: "74850426"
 建立連接時，您必須指定 *連接類型*。 連接類型是定義一組屬性的範本。 連接會定義在其連接類型中定義的每一個屬性的值。 如果整合模組包含連線類型，且已匯入您的自動化帳戶，連線類型是在整合模組中加入 Azure 自動化或使用 [Azure 自動化 API](/previous-versions/azure/reference/mt163818(v=azure.100))建立。 否則，您必須建立中繼資料檔案來指定自動化連線類型。  如需有關於此的進一步資訊，請參閱[整合模組](automation-integration-modules.md)。
 
 >[!NOTE]
->Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一金鑰儲存在 Azure 自動化中。 此金鑰會儲存在系統管理的 Key Vault 中。 在儲存安全資產之前，系統會從 Key Vault 載入金鑰，然後用來加密資產。 此程序是由 Azure 自動化所管理。
+>Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一金鑰儲存在 Azure 自動化中。 此金鑰會儲存在系統管理的 Key Vault 中。 在儲存安全資產之前，系統會從 Key Vault 載入金鑰，然後用來加密資產。 此程序由 Azure 自動化所管理。
 
 ## <a name="connection-types"></a>連線類型
 
@@ -39,7 +35,7 @@ Azure 自動化中有三種可用的內建連線：
 
 下表中的 Cmdlet 是用來使用 Windows PowerShell 建立和管理自動化連接。 它們是隨著 [Azure PowerShell 模組](/powershell/azure/overview) 的一部分推出，可供在自動化 Runbook 和 DSC 設定中使用。
 
-|Cmdlet|描述|
+|Cmdlet|說明|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|擷取連接。 包含具有連接欄位值的雜湊表。|
 |[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|建立新連接。|
@@ -50,7 +46,7 @@ Azure 自動化中有三種可用的內建連線：
 
 下表中的活動是用來存取 Runbook 或 DSC 設定中的連接。
 
-|活動|描述|
+|活動|說明|
 |---|---|
 |[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|取得要使用的連接。 傳回具有連線屬性的雜湊表。|
 
@@ -61,7 +57,7 @@ Azure 自動化中有三種可用的內建連線：
 ## <a name="python2-functions"></a>Python2 函式
 下表中的函式用於存取 Python2 Runbook 中的連線。
 
-| 函式 | 描述 |
+| 函式 | 說明 |
 |:---|:---|
 | automationassets.get_automation_connection | 擷取連接。 傳回具有連線屬性的字典。 |
 

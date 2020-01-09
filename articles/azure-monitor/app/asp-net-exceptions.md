@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Application Insights 來診斷 Web 應用程式中的失敗和例外狀況 | Microsoft Docs
+title: 使用 Azure 應用程式 Insights 來診斷失敗和例外狀況
 description: 擷取從 ASP.NET 應用程式與所要求遙測的例外狀況。
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/11/2019
-ms.openlocfilehash: 90f03baa35d0bf2b63ec480a23db30409df3845f
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f89149de9b1173a659176f686053e8dc564ab85c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677770"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432660"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>使用 Application Insights 在 Web 應用程式中診斷例外狀況
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 會回報您即時 Web 應用程式中的例外狀況。 您可以在用戶端和伺服器端讓失敗的要求與例外狀況及其他事件相互關聯，以便快速地診斷原因。

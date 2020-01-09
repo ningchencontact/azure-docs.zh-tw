@@ -3,21 +3,21 @@ title: 監視 Azure 雲端服務 | Microsoft Docs
 description: 描述監視 Azure 雲端服務所涉及的作業以及您的一些選項。
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: gwallace
-ms.openlocfilehash: ac0ea7557774f0e59cb6a6eca1fc739592ab971d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 096077550a426d7eb77ed0d71e720149dd103a55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359105"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386063"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>雲端服務監視簡介
 
-您可以監視任何雲端服務的關鍵效能計量。 每個雲端服務角色都會收集最少的資料：CPU 使用量、 網路使用量和磁碟使用率。 如果雲端服務已將 `Microsoft.Azure.Diagnostics` 延伸模組套用至角色，則該角色可以收集其他資料點。 本文介紹 Azure Diagnostics for Cloud Services。
+您可以監視任何雲端服務的關鍵效能計量。 每個雲端服務角色都會收集最少資料：CPU 使用量、網路使用量和磁碟使用狀況。 如果雲端服務已將 `Microsoft.Azure.Diagnostics` 延伸模組套用至角色，則該角色可以收集其他資料點。 本文介紹 Azure Diagnostics for Cloud Services。
 
 使用基本監視，角色執行個體的效能計數器資料會依 3 分鐘的間隔進行取樣和收集。 此基本監視資料不會儲存在儲存體帳戶中，而且沒有任何與其建立關聯的額外成本。
 
@@ -96,4 +96,7 @@ ms.locfileid: "68359105"
 
 - [深入了解含雲端服務的 Application Insights](../azure-monitor/app/cloudservices.md)
 - [設定效能計數器](diagnostics-performance-counters.md)
+
+
+
 

@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fb8aec10d58ed4f2eca462774aeaf61f2ea21dd0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1e11c5a570f899a5ac18673a71fe79db95de0f80
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973963"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461072"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>針對 Azure 認知搜尋中的常見索引子錯誤和警告進行疑難排解
 
@@ -32,10 +32,10 @@ ms.locfileid: "74973963"
 
 從 API 版本 `2019-05-06`開始，專案層級的索引子錯誤和警告是結構化的，可讓您更清楚地解決原因和後續步驟。 其中包含下列屬性：
 
-| 屬性 | 描述 | 範例 |
+| 屬性 | 說明 | 範例 |
 | --- | --- | --- |
-| key | 受錯誤或警告影響之檔的檔識別碼。 | HTTPs：\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
-| 名稱 | 描述發生錯誤或警告之位置的作業名稱。 這是由下列結構所產生： [category]。[子類別]。[resourceType]。ResourceName | DocumentExtraction azureblob. myBlobContainerName 擴充. WebApiSkill. mySkillName. SearchIndex. OutputFieldMapping。 myOutputFieldNameKnowledgeStore. Table. myTableName |
+| 索引鍵 | 受錯誤或警告影響之檔的檔識別碼。 | HTTPs：\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
+| NAME | 描述發生錯誤或警告之位置的作業名稱。 這是由下列結構所產生： [category]。[子類別]。[resourceType]。ResourceName | DocumentExtraction azureblob. myBlobContainerName 擴充. WebApiSkill. mySkillName. SearchIndex. OutputFieldMapping。 myOutputFieldNameKnowledgeStore. Table. myTableName |
 | message | 錯誤或警告的高層級描述。 | 因為 Web Api 要求失敗，所以無法執行技能。 |
 | 詳細資料 | 可能有助於診斷問題的任何其他詳細資料，例如執行自訂技能失敗時的 WebApi 回應。 | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 來源，Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` 。堆疊追蹤的其餘部分 。 |
 | documentationLink | 相關檔的連結，其中包含用來偵測及解決問題的詳細資訊。 此連結通常會指向此頁面上的下列其中一節。 | https://go.microsoft.com/fwlink/?linkid=2106475 |
@@ -54,15 +54,15 @@ ms.locfileid: "74973963"
 
 <a name="could-not-extract-document-content"/>
 
-## <a name="error-could-not-extract-document-content"></a>錯誤：無法解壓縮檔內容
-具有 Blob 資料來源的索引子無法從檔解壓縮內容（例如，PDF 檔案）。 發生這種情況的原因可能是：
+## <a name="error-could-not-extract-content-or-metadata-from-your-document"></a>錯誤：無法從您的檔解壓縮內容或中繼資料
+具有 Blob 資料來源的索引子無法從檔中解壓縮內容或中繼資料（例如，PDF 檔案）。 發生這種情況的原因可能是：
 
 | 原因 | 詳細資料/範例 | 解析度 |
 | --- | --- | --- |
 | blob 超過大小限制 | 檔是 `'150441598'` 個位元組，超過您目前服務層級的檔解壓縮 `'134217728'` 位元組大小上限。 | [blob 索引錯誤](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob 具有不支援的內容類型 | 檔具有不支援的內容類型 `'image/png'` | [blob 索引錯誤](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob 已加密 | 無法處理檔-它可能已加密或密碼保護。 | 您可以使用[blob 設定](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed)略過 blob。 |
-| 暫時性問題 | 處理 blob 時發生錯誤：要求已中止：已取消要求。 | 偶爾會發生非預期的連線問題。 請稍後再試著透過索引子執行檔。 |
+| 暫時性問題 | 「處理 blob 時發生錯誤：要求已中止：要求已取消。」 「檔在處理期間超時。」 | 偶爾會發生非預期的連線問題。 請稍後再試著透過索引子執行檔。 |
 
 <a name="could-not-parse-document"/>
 
@@ -158,7 +158,7 @@ ms.locfileid: "74973963"
 
 | 原因 | 詳細資料/範例
 | --- | ---
-| 索引子所解壓縮之欄位的資料類型與對應 [目標索引] 欄位的資料模型不相容。 | 具有索引鍵 '_data_' 之檔中的資料欄位 '_data_' 具有無效值 ' 的類型 ' Edm。字串 ' '。 預期的類型為 ' Collection （Edm. String） '。 |
+| 索引子所解壓縮之欄位的資料類型與對應 [目標索引] 欄位的資料模型不相容。 | 具有索引鍵 ' 888 ' 之檔中的資料欄位 '_data_' 具有無效值 ' 的類型 ' Edm。字串 ' '。 預期的類型為 ' Collection （Edm. String） '。 |
 | 無法從字串值解壓縮任何 JSON 實體。 | 無法將欄位 '_data_' 的類型 ' Edm. 字串 ' ' 剖析為 JSON 物件。 錯誤： ' 剖析值後發現未預期的字元： ' '。 路徑 '_path_'，第1行，位置3162。 ' |
 | 無法從字串值解壓縮 JSON 實體的集合。  | 無法將欄位 '_data_' 的類型 ' Edm. 字串 ' ' 剖析為 JSON 陣列。 錯誤： ' 剖析值後發現未預期的字元： ' '。 路徑 ' [0] '，第1行，位置 27. ' |
 | 在來源文件中發現未知的類型。 | 無法為未知的類型 '_unknown_' 編制索引 |
@@ -174,10 +174,18 @@ ms.locfileid: "74973963"
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 
-## <a name="warning-could-not-execute-skill-because-a-skill-input-was-invalid"></a>警告：因為技能輸入無效，所以無法執行技能
-索引子無法在技能集中執行技能，因為技能的輸入遺漏、錯誤的類型或其他無效。
+## <a name="warning-skill-input-was-invalid"></a>警告：技能輸入無效
+技能的輸入遺漏、錯誤的類型或其他無效。 警告訊息會指出影響：
+1) 無法執行技能
+2) 已執行技能，但可能有非預期的結果
 
-認知技能具有必要的輸入和選擇性輸入。 例如，關鍵字組的「[提取技能](cognitive-search-skill-keyphrases.md)」有兩個必要的輸入 `text`、`languageCode`和沒有選擇性的輸入。 如果任何必要的輸入無效，則會略過技能並產生警告。 略過的技能不會產生任何輸出，因此，如果其他技能使用略過的技能輸出，他們可能會產生額外的警告。
+認知技能具有必要的輸入和選擇性輸入。 例如，關鍵字組的「[提取技能](cognitive-search-skill-keyphrases.md)」有兩個必要的輸入 `text`、`languageCode`和沒有選擇性的輸入。 自訂技能輸入全都視為選擇性輸入。
+
+如果遺漏任何必要的輸入，或是任何輸入不是正確的型別，就會略過此技能並產生警告。 略過的技能不會產生任何輸出，因此，如果其他技能使用略過的技能輸出，他們可能會產生額外的警告。
+
+如果遺漏了選擇性輸入，技能仍然會執行，但可能會因為遺漏輸入而產生非預期的輸出。
+
+在這兩種情況下，可能會因為您的資料圖形而預期此警告。 例如，如果您有一份檔，其中包含 `firstName`、`middleName`和 `lastName`欄位的人員相關資訊，您可能會有一些檔沒有 `middleName`的專案。 如果您將 `middleName` 當做管線中的技能輸入傳遞，則預期此技能的輸入可能會在某些時間內遺失。 您將需要評估您的資料和案例，以判斷是否因此警告而需要任何動作。
 
 如果您想要在遺漏輸入的情況下提供預設值，您可以使用[條件式技能](cognitive-search-skill-conditional.md)來產生預設值，然後使用[條件式技能](cognitive-search-skill-conditional.md)的輸出做為技能輸入。
 
@@ -197,8 +205,8 @@ ms.locfileid: "74973963"
 
 | 原因 | 詳細資料/範例 | 解析度 |
 | --- | --- | --- |
-| 技能輸入的類型錯誤 | 所需的技能輸入 `X` 不是預期的類型 `String`。 所需的技能輸入 `X` 不是預期的格式。 | 某些技能預期特定類型的輸入，例如[情感技能](cognitive-search-skill-sentiment.md)預期 `text` 為字串。 如果輸入指定非字串值，則技能不會執行，而且不會產生任何輸出。 請確定您的資料集具有類型的輸入值一致，或使用[自訂 WEB API 技能](cognitive-search-custom-skill-web-api.md)來前置處理輸入。 如果您要在陣列上逐一查看技能，請檢查技能內容和輸入是否有 `*` 在正確的位置。 通常內容和輸入來源的結尾都應該是陣列的 `*`。 |
-| 缺少技能輸入 | 缺少必要的技能輸入 `X`。 | 如果您的所有檔都收到此警告，則輸入路徑中很可能出現錯誤，您應該仔細檢查屬性名稱的大小寫、路徑中的額外或遺失 `*`，以及來自資料來源的檔會定義所需的輸入。 |
+| 技能輸入的類型錯誤 | 「所需的技能輸入不是預期的類型 `String`。 名稱： `text`、來源： `/document/merged_content`。」  「所需的技能輸入不是預期的格式。 名稱： `text`、來源： `/document/merged_content`。」  「無法逐一查看非陣列 `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`」。  「無法選取非陣列 `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`中的 `0`」 | 某些技能預期特定類型的輸入，例如[情感技能](cognitive-search-skill-sentiment.md)預期 `text` 為字串。 如果輸入指定非字串值，則技能不會執行，而且不會產生任何輸出。 請確定您的資料集具有類型的輸入值一致，或使用[自訂 WEB API 技能](cognitive-search-custom-skill-web-api.md)來前置處理輸入。 如果您要在陣列上逐一查看技能，請檢查技能內容和輸入是否有 `*` 在正確的位置。 通常內容和輸入來源的結尾都應該是陣列的 `*`。 |
+| 缺少技能輸入 | 「缺少必要的技能輸入。 名稱： `text`，來源： `/document/merged_content`"" 缺少值 `/document/normalized_images/0/imageTags`。 "  「無法選取長度 `0`的陣列 `/document/pages` `0`。」 | 如果您的所有檔都收到此警告，表示輸入路徑中可能出現錯誤，而且您應該再次檢查路徑中的屬性名稱大小寫、額外或遺失的 `*`，並確定資料來源中的檔提供必要的輸入。 |
 | 技能語言代碼輸入無效 | 技能輸入 `languageCode` 具有下列語言代碼 `X,Y,Z`，其中至少有一個無效。 | 請參閱[下方](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid)的詳細資料 |
 
 <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"/>

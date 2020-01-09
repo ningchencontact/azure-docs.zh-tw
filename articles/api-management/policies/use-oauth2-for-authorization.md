@@ -1,5 +1,6 @@
 ---
-title: Azure API 管理原則範例 - 使用 OAuth2 在閘道與後端之間進行授權 | Microsoft Docs
+title: 範例 Azure API 管理原則-在閘道與後端之間使用 OAuth2 進行授權
+titleSuffix: Azure API Management
 description: Azure API 管理原則範例 - 示範如何在閘道與後端之間使用 OAuth2 進行授權。 此範例示範如何從 AAD 取得存取權杖並將它轉送到後端。
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: fac10b728e4b7f09ec1019c3257f7c9e5d6e7714
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 09d51759c07e7dacc25d5b5ffce9698831c37a7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071869"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442359"
 ---
 # <a name="use-oauth2-for-authorization-between-the-gateway-and-a-backend"></a>使用 OAuth2 在閘道與後端之間進行授權
 

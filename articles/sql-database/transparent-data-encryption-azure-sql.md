@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/01/2019
-ms.openlocfilehash: 19414a6f09f4bc61cd9b1b09ae98ea070e577d7f
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 9eebb181ed7aa1ac5898646c29e308f85dbe0f8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995876"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354909"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL Database 和資料倉儲的透明資料加密
 
@@ -57,7 +57,7 @@ Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰�
 - 異地還原
 - 自助式時間點還原
 - 還原已刪除的資料庫
-- 主動式異地複寫
+- 使用中的地理複寫
 - 建立資料庫複本
 - 將備份檔案還原至 Azure SQL 受控執行個體
 
@@ -79,7 +79,7 @@ Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰�
 
 您要在資料庫層級上開啟和關閉透明資料加密。 若要在資料庫上啟用透明資料加密，請前往 [Azure 入口網站](https://portal.azure.com)，並使用您的 Azure 系統管理員或參與者帳戶登入。 在您的使用者資料庫下找出透明資料加密設定。 依預設會使用服務管理的透明資料加密。 系統會自動為包含資料庫的伺服器產生透明資料加密憑證。 針對 Azure SQL 受控執行個體，使用 T-SQL 在資料庫上開啟和關閉透明資料加密。
 
-![服務管理的透明資料加密](./media/transparent-data-encryption-azure-sql/service-managed-tde.png)  
+![服務管理的透明資料加密](./media/transparent-data-encryption-azure-sql/service-managed-transparent-data-encryption.png)  
 
 您可以在伺服器層級上設定透明資料加密主要金鑰，也就是透明資料加密保護裝置。 若要使用具有「攜帶您自己的金鑰」支援的透明資料加密，並以 Key Vault 中的金鑰保護您的資料庫，請開啟伺服器下方的透明資料加密設定。
 
@@ -98,7 +98,7 @@ Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰�
 
 使用下列適用於 Azure SQL Database 和資料倉儲的 Cmdlet：
 
-| Cmdlet | 描述 |
+| Cmdlet | 說明 |
 | --- | --- |
 | [設定-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |啟用或停用資料庫的透明資料加密|
 | [AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |取得資料庫的透明資料加密狀態 |
@@ -118,7 +118,7 @@ Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰�
 
 使用在主要資料庫中作為系統管理員或 **dbmanager** 角色成員的登入，連線至資料庫。
 
-| 命令 | 描述 |
+| Command | 說明 |
 | --- | --- |
 | [ALTER DATABASE (Azure SQL Database)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) | SET ENCRYPTION ON/OFF 可加密或解密資料庫 |
 | [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |傳回資料庫及其相關資料庫加密金鑰的加密狀態相關資訊 |
@@ -133,7 +133,7 @@ Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰�
 若要透過 REST API 設定透明資料加密，您必須以 Azure 擁有者、參與者或 SQL 安全性管理員的身分連線。
 使用下列適用於 Azure SQL Database 和資料倉儲的 Cmdlet 命令集：
 
-| 命令 | 描述 |
+| Command | 說明 |
 | --- | --- |
 |[建立或更新伺服器](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|將 Azure Active Directory 身分識別新增至 SQL Server 執行個體 (用以授與 Key Vault 的存取權)|
 |[建立或更新伺服器金鑰](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|將 Key Vault 金鑰新增至 SQL Server 執行個體|

@@ -1,6 +1,6 @@
 ---
-title: 將「延伸多邊形圖層」新增至 Azure 地圖服務 |Microsoft Docs
-description: 如何將「區域」多邊形圖層新增至 Azure 地圖服務 Web SDK。
+title: 將多邊形的延伸圖層新增至 Azure 地圖服務 |Microsoft Docs
+description: 如何將多邊形的延伸圖層新增至 Azure 地圖服務 Web SDK。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2019
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: e6858359549f6a54513eda7bc692adcbc7d7e71b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a357545bedde6a4e859a671005083a0fc665340d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484333"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432846"
 ---
-# <a name="add-an-extrusion-polygon-layer-to-the-map"></a>將「延伸多邊形圖層」新增至地圖
+# <a name="add-a-polygon-extrusion-layer-to-the-map"></a>將多邊形延伸圖層新增至地圖
 
 本文說明如何使用多邊形的 [延伸圖層] 來轉譯 `Polygon` 的區域，並 `MultiPolygon` 特徵幾何繪製為地圖上的凸出形狀。 Azure 地圖服務 Web SDK 也支援建立 Circle 幾何，如[擴充 GeoJSON 架構](extend-geojson.md#circle)中所定義。 在地圖上轉譯時，這些圓形會轉換成多邊形。 如果包裝了，所有功能幾何也可以輕鬆地更新[。Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest)類別。
 
@@ -46,7 +46,7 @@ ms.locfileid: "74484333"
 
 ## <a name="add-a-circle-to-the-map"></a>將圓形新增至地圖
 
-Azure 地圖服務會使用 GeoJSON 架構的擴充版本，如[這裡](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle)所述，提供圓形的定義。 藉由使用 `Circle` 的 `subType` 屬性和編號 `Radius` 屬性（代表以量為**單位**的半徑）來建立 `point` 功能，即可在地圖上轉譯實心圓。 例如︰
+Azure 地圖服務會使用 GeoJSON 架構的擴充版本，如[這裡](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle)所述，提供圓形的定義。 藉由使用 `Circle` 的 `subType` 屬性和編號 `Radius` 屬性（代表以量為**單位**的半徑）來建立 `point` 功能，即可在地圖上轉譯實心圓。 例如：
 
 ```Javascript
 {

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 0d77a1be2a3469282dabb646b02c43e350313ce5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b675198756ff7bc0791d49fee3649717e3e4da7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596296"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367411"
 ---
-# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>為適用于 Linux C#的 IoT 型安全性代理程式部署 Azure 資訊安全中心
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>針對 Linux 部署適用於 IoT 的 Azure 資訊安全中心 (以 C# 為基礎) 安全性代理程式
 
 
 本指南說明如何在 Linux 上安裝和部署以 IoT C#為基礎之安全性代理程式的 Azure 資訊安全中心。
@@ -36,7 +36,7 @@ ms.locfileid: "68596296"
 
 ## <a name="prerequisites"></a>必要條件
 
-如需其他平臺和代理程式類別, 請參閱[選擇正確的安全性代理程式](how-to-deploy-agent.md)。
+如需其他平臺和代理程式類別，請參閱[選擇正確的安全性代理程式](how-to-deploy-agent.md)。
 
 1. 若要部署安全性代理程式，您必須在將要用來安裝代理程式的電腦上，擁有其本機系統管理員的權限。 
 
@@ -44,7 +44,7 @@ ms.locfileid: "68596296"
 
 ## <a name="installation"></a>安裝 
 
-若要部署安全性代理程式, 請使用下列步驟:
+若要部署安全性代理程式，請使用下列步驟：
 
 1. 從[GitHub](https://aka.ms/iot-security-github-cs)下載最新版本到您的電腦。
 
@@ -52,19 +52,19 @@ ms.locfileid: "68596296"
 
 1. 執行 `chmod +x InstallSecurityAgent.sh` 將執行權限新增至 **InstallSecurityAgent** 指令碼 
 
-1. 接下來，請執行： 
+1. 接下來，以**根許可權**執行下列命令： 
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
    ```
    
-   如需驗證參數的詳細資訊, 請參閱[如何設定驗證](concept-security-agent-authentication-methods.md)。
+   如需驗證參數的詳細資訊，請參閱[如何設定驗證](concept-security-agent-authentication-methods.md)。
 
 此指令碼會執行下列動作：
 
 - 安裝必要條件。
 
-- 新增服務使用者 (已停用互動式登入)。
+- 新增服務使用者（已停用互動式登入）。
 
 - 將代理程式安裝為**Daemon** -假設裝置針對傳統部署模型使用**systemd** 。
 

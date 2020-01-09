@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 7ea7b48e1fc36399a0ca173f9068faf8b88849d5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836583"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446771"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>將中樞工作區和專案移轉至自訂翻譯工具
 
@@ -27,7 +27,7 @@ ms.locfileid: "73836583"
 * 您隨時都可在模型的 TrainingDetails 頁面中找到從 Hub 訓練移轉的 BLEU 分數，其標題為「MT Hub 中的 Bleu 分數」。
 
 > [!Note] 
-> 若要成功定型，自訂翻譯需要至少10000個唯一的解壓縮句子。 自訂翻譯無法以少於[建議的最小值](sentence-alignment.md#suggested-minimum-number-of-sentences)來進行定型。
+> 若要成功定型，自訂翻譯需要至少10000個唯一的解壓縮句子。 自訂翻譯無法以少於[建議的最小值](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences)來進行定型。
 
 ## <a name="find-custom-translator-workspace-id"></a>尋找自訂翻譯工具工作區識別碼
 
@@ -82,7 +82,7 @@ ms.locfileid: "73836583"
 
     a. 僅限已部署的定型：若選取此選項，將只會移轉您已部署的系統和相關文件。
 
-    b.這是另一個 C# 主控台應用程式。 所有成功的定型：若選取此選項，將會移轉您所有成功的定型和相關文件。
+    b. 所有成功的定型：若選取此選項，將會移轉您所有成功的定型和相關文件。
 
     c. 輸入您在自訂翻譯工具中的目的地工作區識別碼。
 
@@ -134,10 +134,10 @@ ms.locfileid: "73836583"
 |:-----|:----:|:----:|
 |自訂功能狀態   | 正式運作  | 正式運作 |
 | 文字 API 版本  | V2    | V3  |
-| SMT 自訂 | yes   | 否 |
-| NMT 自訂 | 否    | yes |
-| 新的統一語音服務自訂 | 否    | yes |
-| 不追蹤 | yes | yes |
+| SMT 自訂 | 是   | 否 |
+| NMT 自訂 | 否    | 是 |
+| 新的統一語音服務自訂 | 否    | 是 |
+| 無追蹤 | 是 | 是 |
 
 ## <a name="new-languages"></a>新語言
 

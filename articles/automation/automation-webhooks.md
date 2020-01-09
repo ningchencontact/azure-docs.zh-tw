@@ -2,19 +2,15 @@
 title: 使用 Webhook 啟動 Azure 自動化 Runbook
 description: 可讓用戶端透過 HTTP 呼叫在 Azure 自動化中啟動 Runbook 的 Webhook。  本文說明如何建立 Webhook，以及如何進行呼叫以啟動 Runbook。
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/19/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: bc03425a64486e449b4df93ea187435a1e893dda
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fbf3a48d1e7cb3dd80b6c418d7c916184756b6fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849593"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418962"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 Webhook 啟動 Azure 自動化 Runbook
 
@@ -30,12 +26,12 @@ ms.locfileid: "74849593"
 
 下表描述您必須為 Webhook 設定的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
-| Name |您可以為 Webhook 提供任何想要的名稱，因為這並不會向用戶端公開。 該名稱僅供您用來識別 Azure 自動化中的 Runbook。 <br> 最佳做法是您給予 Webhook 的名稱應該與要使用它的用戶端相關。 |
+| 名稱 |您可以為 Webhook 提供任何想要的名稱，因為這並不會向用戶端公開。 該名稱僅供您用來識別 Azure 自動化中的 Runbook。 <br> 最佳做法是您給予 Webhook 的名稱應該與要使用它的用戶端相關。 |
 | URL |Webhook 的 URL 是一種唯一性的位址，即用戶端用來呼叫 HTTP POST 以啟動連結至 Webhook的 Runbook。 當您建立 Webhook 時其會自動產生。 您無法指定自訂 URL。 <br> <br> URL 包含可讓協力廠商系統不需進一步驗證即可叫用 Runbook 的安全性權杖。 基於這個原因，應該將其視為一種密碼。 基於安全性原因，您僅能於 Webhook 建立時在 Azure 入口網站中檢視 URL。 請在安全的位置記下 URL 以供日後使用。 |
 | 到期日期 |例如憑證，每個 Webhook 都會有一個到期日期，到期後便無法再使用。 此到期日可在 Webhook 建立後進行修改，只要 Webhook尚未過期即可。 |
-| 已啟用 |建立 Runbook 時 Webhook 會預設為啟用。 如果您將其設定為 [停用]，則任何用戶端皆無法使用。 當您建立 Webhook 時或在建立後的任何時候，您可以設定 [啟用] 屬性。 |
+| 啟用 |建立 Runbook 時 Webhook 會預設為啟用。 如果您將其設定為 [停用]，則任何用戶端皆無法使用。 當您建立 Webhook 時或在建立後的任何時候，您可以設定 [啟用] 屬性。 |
 
 ### <a name="parameters"></a>參數
 
@@ -47,7 +43,7 @@ Webhook 可以定義由該 Webhook 啟動 Runbook 時所使用的 Runbook 參數
 
 **$WebhookData** 物件具有下列屬性：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | WebhookName |Webhook 的名稱。 |
 | RequestHeader |雜湊表包含傳入 POST 要求的標頭。 |
@@ -113,7 +109,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 用戶端會從 POST 要求中接收下列其中一個傳回碼。
 
-| 程式碼 | 文字 | 描述 |
+| 程式碼 | 文字 | 說明 |
 |:--- |:--- |:--- |
 | 202 |已接受 |已接受要求，且 Runbook 已經成功排入佇列。 |
 | 400 |不正確的要求 |基於下列其中一個因素而不接受此要求： <ul> <li>Webhook 已過期。</li> <li>Webhook 已停用。</li> <li>URL 中的權杖無效。</li>  </ul> |

@@ -1,18 +1,14 @@
 ---
 title: 如何從容器的 Azure 監視器查詢記錄 |Microsoft Docs
 description: 適用于容器的 Azure 監視器會收集計量和記錄資料，而本文會描述記錄並包含範例查詢。
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 787e9e6d0ae86568e1af74b4d67fb716841a02df
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dcd1656673e549b583de26bca897d0055f389d0a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73477094"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404545"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>如何從容器的 Azure 監視器查詢記錄
 
@@ -22,7 +18,7 @@ ms.locfileid: "73477094"
 
 下表顯示適用於容器的 Azure 監視器所收集的記錄範例，以及記錄搜尋結果中所顯示的資料類型：
 
-| 資料類型 | 記錄檔搜尋中的資料類型 | 欄位 |
+| Data type | 記錄檔搜尋中的資料類型 | 欄位 |
 | --- | --- | --- |
 | 主機和容器的效能 | `Perf` | Computer、ObjectName、CounterName &#40;%Processor Time、Disk Reads MB、Disk Writes MB、Memory Usage MB、Network Receive Bytes、Network Send Bytes、Processor Usage sec、Network&#41;、CounterValue、TimeGenerated、CounterPath、SourceSystem |
 | 容器清查 | `ContainerInventory` | TimeGenerated、Computer、container name、ContainerHostname、Image、ImageTag、ContainerState、ExitCode、EnvironmentVar、Command、CreatedTime、StartedTime、FinishedTime、SourceSystem、ContainerID、ImageID |

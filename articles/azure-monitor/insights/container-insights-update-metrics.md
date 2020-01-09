@@ -1,18 +1,14 @@
 ---
 title: 如何更新計量容器的 Azure 監視器 |Microsoft Docs
 description: 本文說明如何更新容器的 Azure 監視器，以啟用支援對匯總計量進行探索和警示的自訂計量功能。
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/11/2019
-ms.openlocfilehash: 5a43d7e23c9d6550e8985599786ff968050f19c1
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 0a2674df4a05d856b35dd51dbb33af0f407db29f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707493"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403228"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>如何更新容器的 Azure 監視器以啟用計量
 
@@ -24,7 +20,7 @@ ms.locfileid: "74707493"
 
 下列計量會在這項功能中啟用：
 
-| 計量命名空間 | 計量 | 描述 |
+| 計量命名空間 | 計量 | 說明 |
 |------------------|--------|-------------|
 | 深入解析。容器/節點 | cpuUsageMillicores、cpuUsagePercentage、memoryRssBytes、memoryRssPercentage、memoryWorkingSetBytes、memoryWorkingSetPercentage、nodesCount | 這些是*節點*計量和包含*主機*作為維度，而且也包括<br> 節點的名稱，做為*主機*維度的值。 |
 | 深入解析。容器/pod | podCount | 這些是*pod*計量，其中包含下列維度： ControllerName、Kubernetes 命名空間、名稱、階段。 |

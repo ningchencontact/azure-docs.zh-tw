@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: b94dbb81b2ab5b7e4421357ee81d6c3ea8e8d3c0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: HT
+ms.openlocfilehash: 816009bb7481d93fd53011d067ab56cecbe8e3ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74912496"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440413"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 從 ODBC 資料存放區複製資料及將資料複製到處
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -43,7 +43,7 @@ ms.locfileid: "74912496"
 - 設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
 - 安裝適用於 Integration Runtime 電腦上資料存放區的 ODBC 驅動程式。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -53,13 +53,13 @@ ms.locfileid: "74912496"
 
 以下是針對 ODBC 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Odbc** | 是 |
-| connectionString | 不包含認證部分的連接字串。 您可以用 `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` 模式指定連接字串，或使用您在 Integration Runtime 電腦上以 `"DSN=<name of the DSN on IR machine>;"` 設定的系統 DSN (資料來源名稱) (仍需要據此指定連結的服務中的認證部分)。<br>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。| 是 |
-| authenticationType | 用來連接到 ODBC 資料存放區的驗證類型。<br/>允許的值包括：**基本**與**匿名**。 | 是 |
+| connectionString | 不包含認證部分的連接字串。 您可以用 `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` 模式指定連接字串，或使用您在 Integration Runtime 電腦上以 `"DSN=<name of the DSN on IR machine>;"` 設定的系統 DSN (資料來源名稱) (仍需要據此指定連結的服務中的認證部分)。<br>您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `password` 設定。 如需詳細資訊，請參閱 [在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)。| 是 |
+| authenticationType | 用來連接到 ODBC 資料存放區的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 | 是 |
 | userName | 如果您要使用 Basic 驗證，請指定使用者名稱。 | 否 |
-| password | 指定您為 userName 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
+| 密碼 | 指定您為 userName 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | 認證 (credential) | 以驅動程式特定「屬性-值」格式指定之連接字串的存取認證部分。 範例： `"RefreshToken=<secret refresh token>;"`. 請將此欄位標示為 SecureString。 | 否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
@@ -71,10 +71,7 @@ ms.locfileid: "74912496"
     "properties": {
         "type": "Odbc",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "<connection string>"
-            },
+            "connectionString": "<connection string>",
             "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
@@ -98,10 +95,7 @@ ms.locfileid: "74912496"
     "properties": {
         "type": "Odbc",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "<connection string>"
-            },
+            "connectionString": "<connection string>",
             "authenticationType": "Anonymous",
             "credential": {
                 "type": "SecureString",
@@ -122,9 +116,9 @@ ms.locfileid: "74912496"
 
 若要將資料從/複製到 ODBC 相容的資料存放區，則支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**OdbcTable** | 是 |
+| type | 資料集的類型屬性必須設定為： **OdbcTable** | 是 |
 | tableName | ODBC 資料存放區中資料表的名稱。 | 就來源而言為非必要 (如果已指定活動來源中的「查詢」)；<br/>就接收器而言為必要 |
 
 **範例**
@@ -150,18 +144,18 @@ ms.locfileid: "74912496"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 ODBC 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 ODBC 來源所支援的屬性清單。
 
 ### <a name="odbc-as-source"></a>ODBC 作為來源
 
 若要從 ODBC 相容的資料存放區複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**OdbcSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| type | 複製活動來源的類型屬性必須設定為： **OdbcSource** | 是 |
+| 查詢 | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
-**範例：**
+**範例︰**
 
 ```json
 "activities":[
@@ -199,7 +193,7 @@ ms.locfileid: "74912496"
 
 若要將資料複製到 ODBC 相容的資料存放區，請將複製活動中的接收器類型設定為 **OdbcSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收器的類型屬性必須設定為：**OdbcSink** | 是 |
 | writeBatchTimeout |在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例：“00:30:00” (30 分鐘)。 |否 |
@@ -209,7 +203,7 @@ ms.locfileid: "74912496"
 > [!NOTE]
 > 針對 "writeBatchSize"，如果未設定 (自動偵測)，複製活動會先偵測驅動程式是否支援批次作業，如果支援，就將它設定為 10000，如果不支援，則將它設定為 1。 如果您將此值明確設定為 0 以外的值，複製作業會採用該值，並於驅動程式不支援批次作業時，在執行階段發生失敗。
 
-**範例：**
+**範例︰**
 
 ```json
 "activities":[
@@ -261,10 +255,7 @@ ms.locfileid: "74912496"
     "properties": {
         "type": "Odbc",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015"
-            },
+            "connectionString": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015",
             "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
@@ -297,5 +288,5 @@ ms.locfileid: "74912496"
 4. 指定用來連線到資料存放區的 [連接字串]，選擇 [驗證]，然後輸入 [使用者名稱]、[密碼] 和/或 [認證]。
 5. 按一下 [測試連線] 以測試資料存放區連線。
 
-## <a name="next-steps"></a>接下來的步驟
+## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

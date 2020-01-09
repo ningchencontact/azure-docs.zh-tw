@@ -7,17 +7,17 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: f2479d9f3e278d23d62275b667f78d1fd70dd151
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.date: 01/03/2020
+ms.openlocfilehash: 094a3a838269921339dcd6c2c3b551720f394251
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889696"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660319"
 ---
-# <a name="routing-events-and-messages"></a>活動及訊息路線規劃
+# <a name="routing-iot-events-and-messages"></a>路由 IoT 事件和訊息
 
-IoT 解決方案通常會結合數個功能強大的服務，包括儲存體、分析等等。 本文說明如何將 Azure Digital Twins 應用程式連線到 Azure 分析、AI 和儲存體服務，讓這些應用程式取得更深入的見解和功能。
+物聯網解決方案通常會結合數個功能強大的服務，包括儲存體、分析等等。 本文說明如何將 Azure Digital Twins 應用程式連線到 Azure 分析、AI 和儲存體服務，讓這些應用程式取得更深入的見解和功能。
 
 ## <a name="route-types"></a>路由類型  
 

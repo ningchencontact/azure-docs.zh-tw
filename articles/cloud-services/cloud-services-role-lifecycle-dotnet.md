@@ -3,19 +3,19 @@ title: 處理雲端服務生命週期事件 | Microsoft Docs
 description: 了解如何在 .NET 中使用雲端服務角色的生命週期方法
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: fa4eebfa64a296e6830db3730de31ca9b0565678
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 0a9c32affc50a6d357d4160e00486c896d762e3f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358980"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385808"
 ---
-# <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>在 .NET 中自訂 Web 或背景工作角色的生命週期
+# <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>自訂 .NET 中 Web 或背景工作角色的生命週期
 當您建立背景工作角色時，擴充可為您提供覆寫方法並讓您回應生命週期事件的 [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) 類別。 若是 Web 角色，此類別是選擇性的，因此您必須使用它來回應生命週期事件。
 
 ## <a name="extend-the-roleentrypoint-class"></a>擴充 RoleEntryPoint 類別
@@ -76,4 +76,7 @@ public override bool OnStart()
 
 ## <a name="next-steps"></a>後續步驟
 了解如何 [建立雲端服務封裝](cloud-services-model-and-package.md)。
+
+
+
 

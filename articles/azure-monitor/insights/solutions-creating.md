@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97472a65af6eb2c5c2da93d93f38450cc021f680
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 8c08dc5091e7ab0eec5d4e6dd455e6adb3caa35f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555300"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402055"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>在 Azure 中設計和建置管理解決方案 (預覽)
 > [!NOTE]
@@ -60,7 +60,7 @@ Log Analytics 中的檢視可以視覺方式呈現 Log Analytics 儲存機制中
 
 
 ## <a name="create-solution-file"></a>建立解決方案檔
-在設定並測試要成為解決方案一部分的元件後，您可以[建立解決方案檔]( solutions-solution-file.md)。  您會將解決方案元件實作在 [Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)中，此範本所包含的[解決方案資源]( solutions-solution-file.md#solution-resource)會與檔案中的其他資源有所關聯。  
+在設定並測試要成為解決方案一部分的元件後，您可以[建立解決方案檔]( solutions-solution-file.md)。  您會將解決方案元件實作在 [Resource Manager 範本](../../azure-resource-manager/templates/template-syntax.md)中，此範本所包含的[解決方案資源]( solutions-solution-file.md#solution-resource)會與檔案中的其他資源有所關聯。  
 
 
 ## <a name="test-your-solution"></a>測試解決方案
@@ -76,5 +76,5 @@ Log Analytics 中的檢視可以視覺方式呈現 Log Analytics 儲存機制中
 
 ## <a name="next-steps"></a>後續步驟
 * 了解如何為您的管理解決方案[建立解決方案檔]( solutions-solution-file.md)。
-* 了解[編寫 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)的詳細資料。
+* 了解[編寫 Azure Resource Manager 範本](../../azure-resource-manager/templates/template-syntax.md)的詳細資料。
 * 搜尋 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates)不同 Resource Manager 範本的範例。

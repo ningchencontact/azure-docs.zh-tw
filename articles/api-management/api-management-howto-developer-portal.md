@@ -1,5 +1,6 @@
 ---
-title: Azure API 管理開發人員入口網站總覽-Azure API 管理 |Microsoft Docs
+title: Azure API 管理開發人員入口網站的總覽
+titleSuffix: Azure API Management
 description: 深入瞭解 API 管理中的開發人員入口網站。
 services: api-management
 documentationcenter: API Management
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 2b69fdd7abefca360433fc9fb090569cba23febe
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a06184cb45280d323a050085e94945a730d6c72c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454400"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442599"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API 管理開發人員入口網站總覽
 
@@ -67,7 +68,7 @@ ms.locfileid: "74454400"
 
 入口網站是以[Paperbits 架構](https://paperbits.io/)的調整分支為基礎。 原始的 Paperbits 功能已擴充，可提供 API 管理特定的 widget （例如 Api 清單、產品清單），以及用於儲存和抓取內容的 API 管理服務連接器。
 
-## <a name="faq"></a>常見問題
+## <a name="faq"></a> 常見問題集
 
 在本節中，我們會回答有關新開發人員入口網站的常見問題，這些是一般性質的問題。 如需自我裝載版本的特定問題，請參閱[GitHub 存放庫的 wiki 一節](https://github.com/Azure/api-management-developer-portal/wiki)。
 
@@ -109,7 +110,7 @@ ms.locfileid: "74454400"
 
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>入口網站是否支援 Azure Resource Manager 範本和（或）是否與 API 管理 DevOps 資源套件相容？
 
-號
+不會。
 
 ### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-new-managed-portal-dependencies"></a>我是否需要針對新的受管理的入口網站相依性啟用額外的 VNet 連線？
 
@@ -135,7 +136,7 @@ ms.locfileid: "74454400"
 
 ### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a>我在使用互動式主控台時遇到 CORS 錯誤
 
-互動式主控台會從瀏覽器提出用戶端 API 要求。 您可以藉由在您的 API 上新增[cors 原則](api-management-cross-domain-policies.md#CORS)來解決 CORS 問題。 您可以手動指定所有參數，或使用萬用字元 `*` 值。 例如︰
+互動式主控台會從瀏覽器提出用戶端 API 要求。 您可以藉由在您的 API 上新增[cors 原則](api-management-cross-domain-policies.md#CORS)來解決 CORS 問題。 您可以手動指定所有參數，或使用萬用字元 `*` 值。 例如：
 
 ```XML
 <cors>

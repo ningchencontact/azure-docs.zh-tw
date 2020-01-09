@@ -3,18 +3,18 @@ title: 雲端服務中角色的通訊 | Microsoft Docs
 description: 您可以為雲端服務中的角色執行個體定義端點 (http、https、tcp、udp)，以便與外部或在其他角色執行個體之間通訊。
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/14/2016
-ms.author: gwallace
-ms.openlocfilehash: 74ef5567becee27b4af837a6977119d7cf0f3e4b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359096"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386335"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>啟用 Azure 中角色執行個體的通訊
 雲端服務角色透過內部和外部連線通訊。 外部連接稱為**輸入端點**，而內部連接稱為**內部端點**。 本主題描述如何修改 [服務定義](cloud-services-model-and-package.md#csdef) 以建立端點。
@@ -255,7 +255,7 @@ namespace WorkerRole1
 
 根據預設，定義內部端點之後，來自任何角色的通訊都可以在沒有任何限制的情況下流向角色的內部端點。 若要限制通訊，您必須在服務定義檔中將 **NetworkTrafficRules** 元素新增至 **ServiceDefinition** 元素。
 
-### <a name="scenario-1"></a>案例 1
+### <a name="scenario-1"></a>實例 1
 只允許從 **WebRole1** 至 **WorkerRole1** 的網路流量。
 
 ```xml
@@ -367,4 +367,7 @@ namespace WorkerRole1
 
 ## <a name="next-steps"></a>後續步驟
 深入了解雲端服務 [模型](cloud-services-model-and-package.md)。
+
+
+
 

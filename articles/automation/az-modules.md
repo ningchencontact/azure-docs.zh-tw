@@ -2,19 +2,15 @@
 title: 在 Azure 自動化中使用 Az 模組
 description: 本文提供在 Azure 自動化中使用 Az 模組的資訊
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 02/08/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 23869647b5ad04d24f0b700a1433482d4ae15fd3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8c832982a5525b0296155197d89684932cebaa95
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850528"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418832"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Azure 自動化中的 Az 模組支援
 

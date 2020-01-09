@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a0dbd28dc798342a24180af430187ac69f61b8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d6001dc47d19665184bf44114ab36744f0287264
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848131"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608749"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>開始使用 Azure Multi-Factor Authentication Server
 
@@ -30,9 +30,6 @@ ms.locfileid: "74848131"
 > 從2019年7月1日起，Microsoft 將不再為新的部署提供 MFA 伺服器。 新客戶若想要從他們的使用者要求多重要素驗證，應該使用雲端式 Azure 多重要素驗證。 在7月1日前啟動 MFA Server 的現有客戶將能夠下載最新版本、未來的更新，並如往常般產生啟用認證。
 
 ## <a name="plan-your-deployment"></a>規劃您的部署
-
-> [!WARNING]
-> 自2019年3月起，MFA Server 下載僅適用于付費租使用者。 免費/試用租使用者將無法再下載或產生及使用啟用認證。
 
 下載 Azure Multi-Factor Authentication Server 之前，請考慮您的負載和高可用性需求為何。 使用此資訊來決定部署的方式和位置。
 
@@ -54,7 +51,7 @@ ms.locfileid: "74848131"
 
 請確定您用於 Azure Multi-Factor Authentication Server 的伺服器符合下列需求：
 
-| Azure Multi-Factor Authentication Server 需求 | 描述 |
+| Azure Multi-Factor Authentication Server 需求 | 說明 |
 |:--- |:--- |
 | 硬體 |<li>200 MB 的硬碟空間</li><li>具有 x32 或 x64 功能的處理器</li><li>1 GB 或更高的 RAM</li> |
 | 軟體 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008，SP1、SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003，SP1、SP2</li><li>Windows 10</li><li>Windows 8.1，所有版本</li><li>Windows 8，所有版本</li><li>Windows 7，所有版本</li><li>Windows Vista，所有版本，SP1、SP2</li><li>Microsoft .NET 4.0 Framework</li><li>如果安裝使用者入口網站或 Web 服務 SDK，則為 IIS 7.0 或更高版本</li> |
@@ -96,9 +93,6 @@ ms.locfileid: "74848131"
 
 ## <a name="download-the-mfa-server"></a>下載 MFA Server
 
-> [!WARNING]
-> 自2019年3月起，MFA Server 下載僅適用于付費租使用者。 免費/試用租使用者將無法再下載或產生及使用啟用認證。
-
 請遵循下列步驟，以從 Azure 入口網站下載 Azure Multi-Factor Authentication Server：
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
@@ -122,6 +116,9 @@ ms.locfileid: "74848131"
    ![略過使用驗證設定向導](./media/howto-mfaserver-deploy/skip2.png)
 
 5. 回到您下載伺服器的頁面，按一下 [產生啟用認證] 按鈕。 將此資訊複製到 Azure MFA Server 提供的方塊中，然後按一下 [ **啟用**]。
+
+> [!NOTE]
+> 只有全域管理員能夠在 Azure 入口網站中產生啟用認證。
 
 ## <a name="send-users-an-email"></a>傳送電子郵件給使用者
 

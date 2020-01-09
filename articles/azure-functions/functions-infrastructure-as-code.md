@@ -1,21 +1,21 @@
 ---
-title: 在 Azure Functions 中將函數應用程式的資源部署自動化
+title: 自動化將函式應用程式資源部署至 Azure
 description: 了解如何建置能部署函數應用程式的 Azure Resource Manager 範本。
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 9c222937831c0e8017a390b16ef192783e9e564a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 10efe5d09771f4c5f3a2564ef99ff9cae8cf06c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230515"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433150"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions 中函數應用程式的自動化資源部署
 
 您可以使用 Azure Resource Manager 範本來部署函數應用程式。 本文概述執行這項作業所需的資源和參數。 您可能需要部署額外的資源，視函數應用程式中的[觸發程序和繫結](functions-triggers-bindings.md)而定。
 
-如需關於建立範本的詳細資訊，請參閱 [編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)。
+如需關於建立範本的詳細資訊，請參閱 [編寫 Azure Resource Manager 範本](../azure-resource-manager/templates/template-syntax.md)。
 
 如需範例範本，請參閱：
 - [採用取用方案的函數應用程式]
@@ -27,8 +27,8 @@ Azure Functions 部署通常包含下列資源：
 
 | 資源                                                                           | 需求 | 語法和屬性參考                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| 函數應用程式                                                                     | 必要    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
-| [Azure 儲存體](../storage/index.yml)帳戶                                   | 必要    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
+| 函數應用程式                                                                     | 必要項    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
+| [Azure 儲存體](../storage/index.yml)帳戶                                   | 必要項    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
 | [Application Insights](../azure-monitor/app/app-insights-overview.md)元件 | 選用    | [Microsoft Insights/元件](/azure/templates/microsoft.insights/components)         |   |
 | [主控方案](./functions-scale.md)                                             | 選擇性<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
@@ -59,7 +59,7 @@ Azure Functions 部署通常包含下列資源：
 
 Azure Functions 執行階段會使用 `AzureWebJobsStorage` 連接字串來建立內部佇列。  在未啟用 Application Insights 的情況下，執行階段會使用 `AzureWebJobsDashboard` 連接字串來記錄至 Azure 資料表儲存體，並啟動入口網站中的 [監視] 索引標籤。
 
-這些屬性會在 `appSettings` 物件的 `siteConfig`集合中指定：
+這些屬性會在 `siteConfig` 物件的 `appSettings`集合中指定：
 
 ```json
 "appSettings": [
@@ -135,11 +135,11 @@ Azure Functions 執行階段會使用 `AzureWebJobsStorage` 連接字串來建�
 
 函數應用程式必須包含下列應用程式設定：
 
-| 設定名稱                 | 描述                                                                               | 值的範例                        |
+| 設定名稱                 | 說明                                                                               | 範例值                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | 對儲存體帳戶的連接字串，可供內部佇列的執行時間使用 | 請參閱[儲存體帳戶](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | Azure Functions 執行時間的版本                                                | `~2`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | 要用於此應用程式中函式的語言堆疊                                   | `dotnet`、`node`、`java`或 `python` |
+| FUNCTIONS_WORKER_RUNTIME     | 要用於此應用程式中函式的語言堆疊                                   | `dotnet`、`node`、`java` 或 `python` |
 | WEBSITE_NODE_DEFAULT_VERSION | 只有在使用 `node` 語言堆疊時，才需要指定要使用的版本              | `10.14.1`                             |
 
 這些屬性是在 `siteConfig` 屬性的 `appSettings` 集合中指定：
@@ -462,10 +462,10 @@ App Service 計畫上的函式應用程式必須將 `serverFarmId` 屬性設定�
 
 Linux 應用程式也應該在 `siteConfig`下包含 `linuxFxVersion` 屬性。 如果您只是部署程式碼，則此值取決於您所需的執行時間堆疊：
 
-| 協定            | 範例值                                         |
+| Stack            | 範例值                                         |
 |------------------|-------------------------------------------------------|
 | Python           | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
-| Javascript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
+| JavaScript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
 | .NET             | `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` |
 
 ```json
@@ -567,7 +567,7 @@ Linux 應用程式也應該在 `siteConfig`下包含 `linuxFxVersion` 屬性。 
 函數應用程式有許多子資源可供您用於部署，包括應用程式設定和原始檔控制選項。 您也可以選擇移除 **sourcecontrols** 子資源並改為使用不同的[部署選項](functions-continuous-deployment.md)。
 
 > [!IMPORTANT]
-> 若要使用 Azure Resource Manager 成功部署應用程式，請務必了解資源在 Azure 中部署的方式。 在下列範例中，將使用 **siteConfig** 套用高層級組態。 請務必將這些組態設定為高層級，因為它們會將資訊傳遞給 Functions 執行階段和部署引擎。 在套用子 **sourcecontrols/web** 資源之前，需要高層級資訊。 雖然也可以在子層級 **config/appSettings** 資源設定這些設定，在某些案例下，您的函數應用程式需在套用 *config/appSettings*「之前」完成部署。 例如，在搭配使用函數應用程式與 [Logic Apps](../logic-apps/index.yml) 時，您的函數為另一個資源的相依性。
+> 若要使用 Azure Resource Manager 成功部署應用程式，請務必了解資源在 Azure 中部署的方式。 在下列範例中，將使用 **siteConfig** 套用高層級組態。 請務必將這些組態設定為高層級，因為它們會將資訊傳遞給 Functions 執行階段和部署引擎。 在套用子 **sourcecontrols/web** 資源之前，需要高層級資訊。 雖然可以在子層級**config/appSettings**資源中設定這些設定，但在某些情況下，必須先部署您的函數應用程式，*才能*套用**config/appSettings** 。 例如，在搭配使用函數應用程式與 [Logic Apps](../logic-apps/index.yml) 時，您的函數為另一個資源的相依性。
 
 ```json
 {
@@ -644,7 +644,7 @@ Linux 應用程式也應該在 `siteConfig`下包含 `linuxFxVersion` 屬性。 
 
 ### <a name="deploy-to-azure-button"></a>部署至 Azure 按鈕
 
-以 GitHub 中 ```<url-encoded-path-to-azuredeploy-json>``` 檔案的原始路徑 [URL 編碼](https://www.bing.com/search?q=url+encode)版本取代 `azuredeploy.json`。
+以 GitHub 中 `azuredeploy.json` 檔案的原始路徑 [URL 編碼](https://www.bing.com/search?q=url+encode)版本取代 ```<url-encoded-path-to-azuredeploy-json>```。
 
 以下是使用 Markdown 的範例：
 

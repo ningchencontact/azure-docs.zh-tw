@@ -4,15 +4,15 @@ description: 連線資料是來自內有 Log Analytics 代理程式電腦的網�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/03/2018
-ms.openlocfilehash: 5e19c9bd47fe253f9a416b923ec0cb1748682842
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 031a09203ab2ab2bcfcdf4352e975c1374446c25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900598"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365796"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure 監視器中的 Wire Data 2.0 （預覽）解決方案
 
@@ -382,7 +382,7 @@ rpm -e dependency-agent dependency-agent-connector
 
 對於每種類型的輸入資料，系統會建立 _WireData_ 類型的記錄。 WireData 記錄具有下表所示的屬性：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |---|---|
 | 電腦 | 收集資料所在的電腦名稱 |
 | TimeGenerated | 記錄的時間 |

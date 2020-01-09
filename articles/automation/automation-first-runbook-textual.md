@@ -3,19 +3,15 @@ title: 我在 Azure 自動化中的第一個 PowerShell 工作流程 Runbook
 description: 本教學課程逐步引導您使用 PowerShell 工作流程建立、測試和發佈簡單的文字 Runbook。
 keywords: powershell 工作流程, powershell 工作流程範例, 工作流程 powershell
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/24/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: dea13d084d80ce787cb8d6cf6146325d8c556b37
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: cdaadcfa3108ca847443e100bc624c2458c34115
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850834"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365949"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>我的第一個 PowerShell 工作流程 Runbook
 
@@ -150,7 +146,7 @@ ms.locfileid: "74850834"
 1. 按一下 [測試] 窗格，您便可測試 Runbook。
 1. 按一下 [開始] 以開始測試。 測試完成時，您應該會從帳戶收到如同以下顯示基本資訊的輸出。 此動作會確認認證是否有效。
 
-   ![驗證](media/automation-first-runbook-textual/runbook-auth-output.png)
+   ![Authenticate](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>步驟 6 - 加入程式碼以啟動虛擬機器
 

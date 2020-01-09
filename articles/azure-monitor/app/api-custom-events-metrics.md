@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: afe2ac60d7b945dd1bb3b8841ae0a7605865f29f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
-ms.translationtype: HT
+ms.openlocfilehash: 2136ab9a6d0cef7ad5650c8414f9a17b78498abc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893377"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432675"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>自訂事件和度量的 Application Insights API
 
@@ -48,11 +48,11 @@ ms.locfileid: "74893377"
   * [每個網頁中的 JavaScript](../../azure-monitor/app/javascript.md) 
 * 在裝置或 Web 伺服器程式碼中，加入：
 
-    *C#:* `using Microsoft.ApplicationInsights;`
+    *C#：* `using Microsoft.ApplicationInsights;`
 
     *Visual Basic：* `Imports Microsoft.ApplicationInsights`
 
-    *Java：* `import com.microsoft.applicationinsights.TelemetryClient;`
+    *JAVA：* `import com.microsoft.applicationinsights.TelemetryClient;`
 
     *Node.js：* `var applicationInsights = require("applicationinsights");`
 
@@ -574,7 +574,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 
 記錄診斷事件，例如進入或離開某個方法。
 
- 參數 | 描述
+ 參數 | 說明
 ---|---
 `message` | 診斷資料。 可以比名稱長很多。
 `properties` | 字串與字串的對應：用來在入口網站中[篩選例外](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties)狀況的其他資料。 預設為空白。
@@ -656,7 +656,7 @@ finally {
 }
 ```
 
-*JavaScript*
+*Node.js*
 
 ```javascript
 var success = false;
@@ -1017,7 +1017,7 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 [取樣](../../azure-monitor/app/api-filtering-sampling.md)是減少從應用程式傳送至入口網站的資料量的套件方案。 它在這麼做時並不會影響顯示的度量。 而且它在這麼做時可藉由在相關項目 (如例外狀況、要求和頁面檢視) 之間瀏覽，而不會影響您診斷問題的能力。
 
-[深入了解提出技術問題。
+[深入了解](../../azure-monitor/app/api-filtering-sampling.md)。
 
 ## <a name="disabling-telemetry"></a>停用遙測
 
@@ -1168,7 +1168,7 @@ telemetry.Context.Operation.Name = "MyOperationName";
 * **工作階段**︰使用者的工作階段。 識別碼會設為產生的值，當使用者一段時間沒有作用時會變更。
 * **使用者**：使用者資訊。
 
-## <a name="limits"></a>Limits
+## <a name="limits"></a>限制
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 

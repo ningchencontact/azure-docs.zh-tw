@@ -2,20 +2,16 @@
 title: 使用 Azure 自動化追蹤變更
 description: 「變更追蹤」解決方案可協助您識別您環境中發生的軟體及 Windows 服務變更。
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
-manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fd800062c4a8362919b1818550b2fca9fa3eb88
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 7dce249a3e1e13fc9d7d2a962e7f056c803eb23e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850545"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418755"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
@@ -95,9 +91,9 @@ Azure 資訊安全中心已新增 Azure 變更追蹤上建立的檔案完整性�
 2. 在 [變更追蹤] 頁面上選取 [Linux 檔案]，然後按一下 [+ 新增]，以新增要追蹤的新檔案。
 3. 在 [為變更追蹤新增 Linux 檔案] 上，輸入要追蹤的檔案或目錄資訊，然後按一下 [儲存]。
 
-|屬性  |描述  |
+|屬性  |說明  |
 |---------|---------|
-|已啟用     | 判斷是否已套用設定。        |
+|啟用     | 判斷是否已套用設定。        |
 |項目名稱     | 要追蹤之檔案的易記名稱。        |
 |群組     | 以邏輯方式分組檔案的群組名稱。        |
 |輸入路徑     | 要檢查檔案的路徑。 例如："/etc/*.conf"       |
@@ -118,9 +114,9 @@ Azure 資訊安全中心已新增 Azure 變更追蹤上建立的檔案完整性�
 2. 在 [變更追蹤] 頁面上選取 [Windows 檔案]，然後按一下 [+ 新增]，以新增要追蹤的新檔案。
 3. 在 [為變更追蹤新增 Windows 檔案] 上，輸入要追蹤之檔案的資訊，然後按一下 [儲存]
 
-|屬性  |描述  |
+|屬性  |說明  |
 |---------|---------|
-|已啟用     | 判斷是否已套用設定。        |
+|啟用     | 判斷是否已套用設定。        |
 |項目名稱     | 要追蹤之檔案的易記名稱。        |
 |群組     | 以邏輯方式分組檔案的群組名稱。        |
 |輸入路徑     | 要檢查檔案的路徑，例如："c:\temp\\\*.txt"<br>您也可以使用環境變數，例如 "%winDir%\System32\\\*.*"       |
@@ -150,9 +146,9 @@ Azure 資訊安全中心已新增 Azure 變更追蹤上建立的檔案完整性�
 2. 在 [變更追蹤] 頁面上選取 [Windows 登錄]，然後按一下 [+ 新增]，以新增要追蹤的新登錄機碼。
 3. 在 [為變更追蹤新增 Windows 登錄] 上，輸入要追蹤之機碼的資訊，然後按一下 [儲存]。
 
-|屬性  |描述  |
+|屬性  |說明  |
 |---------|---------|
-|已啟用     | 判斷是否已套用設定。        |
+|啟用     | 判斷是否已套用設定。        |
 |項目名稱     | 要追蹤之登錄機碼的易記名稱。        |
 |群組     | 以邏輯方式分組登錄機碼的群組名稱。        |
 |Windows 登錄機碼   | 要檢查登錄機碼的路徑。 例如："HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
@@ -272,7 +268,7 @@ Windows 服務的預設收集頻率為 30 分鐘。 若要設定頻率，請移�
 
 下表提供此解決方案所收集之變更記錄的記錄搜尋範例：
 
-|查詢  |描述  |
+|查詢  |說明  |
 |---------|---------|
 |ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | 針對已設為 [自動]、但回報為 [正在停止] 的 Windows 服務顯示最新的清查記錄<br>結果會限定為該 SoftwareName 和電腦的最新記錄      |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; order by TimeGenerated desc|顯示已移除之軟體的變更記錄|
@@ -301,7 +297,7 @@ Windows 服務的預設收集頻率為 30 分鐘。 若要設定頻率，請移�
 
 雖然對變更追蹤或清查資料而言，Hosts 檔案的變更警示是一個很好的警示應用，但是有更多警示案例，包括已定義的情況及其在下一節的範例查詢。
 
-|查詢  |描述  |
+|查詢  |說明  |
 |---------|---------|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|適用於追蹤系統重要檔案的變更|
 |ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|適用於追蹤重要組態檔的修改|

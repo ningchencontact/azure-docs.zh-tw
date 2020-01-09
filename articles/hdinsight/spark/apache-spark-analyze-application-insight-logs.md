@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/09/2018
-ms.openlocfilehash: 737b049aa94ede2ffb0c1035b4cadfbed32d7dc4
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
+ms.openlocfilehash: 6fd7682f56fbe446904a4acdb39e78525f2523a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145601"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435231"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>使用 HDInsight 上的 Apache Spark 分析 Application Insights 遙測記錄
 
@@ -45,12 +45,12 @@ ms.locfileid: "71145601"
 
 Application Insights 可以設定為持續將遙測資訊匯出到 blob。 HDInsight 接著便可讀取儲存在 blob 中的資料。 不過，有一些您必須遵守的需求︰
 
-* **位置**：如果儲存體帳戶和 HDInsight 位於不同位置，可能就會增加延遲。 此外，將輸出費用套用到在區域間移動的資料時也會增加成本。
+* **位置**︰如果儲存體帳戶和 HDInsight 位於不同位置，可能就會增加延遲。 此外，將輸出費用套用到在區域間移動的資料時也會增加成本。
 
     > [!WARNING]  
     > 不支援在與 HDInsight 不同的位置使用儲存體帳戶。
 
-* **Blob 類型**：HDInsight 僅支援區塊 Blob。 Application Insights 預設為使用區塊 blob，因此應該使用預設項目來搭配 HDInsight。
+* **blob 類型**：HDInsight 僅支援區塊 blob。 Application Insights 預設為使用區塊 blob，因此應該使用預設項目來搭配 HDInsight。
 
 如需將儲存體新增至現有 叢集的資訊，請參閱[新增其他儲存體帳戶](../hdinsight-hadoop-add-storage.md)。
 
@@ -60,19 +60,17 @@ Application Insights 提供 [匯出資料模型](../../azure-monitor/app/export-
 
 ## <a name="export-telemetry-data"></a>匯出遙測資料
 
-依照 [設定連續匯出](../../azure-monitor/app/export-telemetry.md) 中的步驟設定您的 Application Insights 將遙測資訊匯出到 Azure 儲存體 blob。
+依照[設定連續匯出](../../azure-monitor/app/export-telemetry.md)中的步驟設定您的 Application Insights，將遙測資訊匯出至 Azure 儲存體 blob。
 
 ## <a name="configure-hdinsight-to-access-the-data"></a>設定 HDInsight 來存取資料
 
-如果您要建立 HDInsight 叢集，請在叢集建立期間新增儲存體帳戶。
+如果您要建立 HDInsight 叢集，請在建立叢集期間新增儲存體帳戶。
 
 若要將 Azure 儲存體帳戶新增至現有的叢集，請使用[新增其他儲存體帳戶](../hdinsight-hadoop-add-storage.md)文件中的資訊。
 
 ## <a name="analyze-the-data-pyspark"></a>分析資料︰PySpark
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中選取您 HDInsight 叢集上的 Spark。 在 [快速連結] 區段中，選取 [叢集儀表板]，然後選取 [叢集儀表板] 區段中的 [Jupyter Notebook]。
-
-    ![Azure 入口網站叢集儀表板 pyspark](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
+1. 從網頁瀏覽器流覽至 `https://CLUSTERNAME.azurehdinsight.net/jupyter`，其中 CLUSTERNAME 是您的叢集名稱。
 
 2. 在 Jupyter 頁面右上角依序選取 [新增]、[PySpark]。 隨即開啟新的瀏覽器索引標籤，其中包含以 Python 為基礎的 Jupyter Notebook。
 
@@ -93,24 +91,25 @@ Application Insights 提供 [匯出資料模型](../../azure-monitor/app/export-
 
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
-5. 新的儲存格會建立在第一個儲存格之下。 在新的儲存格中輸入下列文字。 將 `CONTAINER` 和 `STORAGEACCOUNT` 取代為 Azure 儲存體帳戶名稱和包含 Application Insights 資料的 Blob 容器名稱。
+
+5. 新的儲存格會建立在第一個儲存格之下。 在新的儲存格中輸入下列文字。 以包含 Application Insights 資料的 Azure 儲存體帳戶名稱和 blob 容器名稱取代 `CONTAINER` 和 `STORAGEACCOUNT`。
 
    ```python
    %%bash
-   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   hdfs dfs -ls wasbs://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
    ```
 
     使用 **SHIFT + ENTER** 執行程此儲存格。 您會看到類似以下文字的結果：
 
         Found 1 items
-        drwxrwxrwx   -          0 1970-01-01 00:00 wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
+        drwxrwxrwx   -          0 1970-01-01 00:00 wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
 
-    傳回的 wasb 路徑是 Application Insights 遙測資料的位置。 將儲存格中的 `hdfs dfs -ls` 這一行變更為使用傳回的 wasb 路徑，然後使用 **SHIFT + ENTER** 再執行一次儲存格。 此時，結果應該會顯示包含遙測資料的目錄。
+    傳回的 wasbs 路徑是 Application Insights 遙測資料的位置。 將資料格中的 `hdfs dfs -ls` 行變更為使用傳回的 wasbs 路徑，然後使用**SHIFT + ENTER**再次執行資料格。 此時，結果應該會顯示包含遙測資料的目錄。
 
    > [!NOTE]  
-   > 本節中步驟的其餘部分使用 `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` 目錄。 您的目錄結構可能不同。
+   > 本節中步驟的其餘部分使用 `wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` 目錄。 您的目錄結構可能不同。
 
-6. 在下一個儲存格中，輸入下列程式碼：將 `WASB_PATH` 取代為先前步驟中的路徑。
+6. 在下一個儲存格中，輸入下列程式碼︰將 `WASB_PATH` 取代為前一個步驟中的路徑。
 
    ```python
    jsonFiles = sc.textFile('WASB_PATH')
@@ -186,6 +185,7 @@ Application Insights 提供 [匯出資料模型](../../azure-monitor/app/export-
         |    |    |    |-- hashTag: string (nullable = true)
         |    |    |    |-- host: string (nullable = true)
         |    |    |    |-- protocol: string (nullable = true)
+
 8. 使用下列命令將資料框架註冊為暫存資料表，並針對資料執行查詢︰
 
    ```python
@@ -194,7 +194,7 @@ Application Insights 提供 [匯出資料模型](../../azure-monitor/app/export-
    df.show()
    ```
 
-    此查詢會傳回 context.location.city 不是 null 的前 20 筆記錄的 city 資訊。
+    此查詢會傳回前20筆記錄的城市資訊，其中的內容為 location。 city 不是 null。
 
    > [!NOTE]  
    > context 結構會出現在 Application Insights 記錄的所有遙測中。 您的記錄中可能不會填入 city 元素。 使用結構描述找出您可以查詢可能包含您的記錄資料的其他元素。
@@ -213,11 +213,10 @@ Application Insights 提供 [匯出資料模型](../../azure-monitor/app/export-
 
 ## <a name="analyze-the-data-scala"></a>分析資料︰Scala
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中選取您 HDInsight 叢集上的 Spark。 在 [快速連結] 區段中，選取 [叢集儀表板]，然後選取 [叢集儀表板] 區段中的 [Jupyter Notebook]。
-
-    ![Azure 入口網站叢集儀表板 Scala](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
+1. 從網頁瀏覽器流覽至 `https://CLUSTERNAME.azurehdinsight.net/jupyter`，其中 CLUSTERNAME 是您的叢集名稱。
 
 2. 在 Jupyter 頁面右上角依序選取 [新增]、[Scala]。 新的瀏覽器索引標籤隨即出現，其中包含以 Scala 為基礎的 Jupyter Notebook。
+
 3. 在頁面的第一個欄位 (稱為**儲存格**) 中，輸入下列文字：
 
    ```scala
@@ -235,24 +234,25 @@ Application Insights 提供 [匯出資料模型](../../azure-monitor/app/export-
 
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
-5. 新的儲存格會建立在第一個儲存格之下。 在新的儲存格中輸入下列文字。 將 `CONTAINER` 和 `STORAGEACCOUNT` 取代為 Azure 儲存體帳戶名稱和包含 Application Insights 記錄的 Blob 容器名稱。
+
+5. 新的儲存格會建立在第一個儲存格之下。 在新的儲存格中輸入下列文字。 以包含 Application Insights 記錄的 Azure 儲存體帳戶名稱和 blob 容器名稱取代 `CONTAINER` 和 `STORAGEACCOUNT`。
 
    ```scala
    %%bash
-   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   hdfs dfs -ls wasbs://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
    ```
 
     使用 **SHIFT + ENTER** 執行程此儲存格。 您會看到類似以下文字的結果：
 
         Found 1 items
-        drwxrwxrwx   -          0 1970-01-01 00:00 wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
+        drwxrwxrwx   -          0 1970-01-01 00:00 wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
 
-    傳回的 wasb 路徑是 Application Insights 遙測資料的位置。 將儲存格中的 `hdfs dfs -ls` 這一行變更為使用傳回的 wasb 路徑，然後使用 **SHIFT + ENTER** 再執行一次儲存格。 此時，結果應該會顯示包含遙測資料的目錄。
+    傳回的 wasbs 路徑是 Application Insights 遙測資料的位置。 將資料格中的 `hdfs dfs -ls` 行變更為使用傳回的 wasbs 路徑，然後使用**SHIFT + ENTER**再次執行資料格。 此時，結果應該會顯示包含遙測資料的目錄。
 
    > [!NOTE]  
-   > 本節中步驟的其餘部分使用 `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` 目錄。 這個目錄可能不存在，除非您的遙測資料是用於 Web 應用程式。
+   > 本節中步驟的其餘部分使用 `wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` 目錄。 這個目錄可能不存在，除非您的遙測資料是用於 Web 應用程式。
 
-6. 在下一個儲存格中，輸入下列程式碼：將 `WASB\_PATH` 取代為先前步驟中的路徑。
+6. 在下一個儲存格中，輸入下列程式碼︰將 `WASB\_PATH` 取代為前一個步驟中的路徑。
 
    ```scala
    var jsonFiles = sc.textFile('WASB_PATH')
@@ -335,15 +335,13 @@ Application Insights 提供 [匯出資料模型](../../azure-monitor/app/export-
 
    ```scala
    jsonData.registerTempTable("requests")
-   var city = sqlContext.sql("select context.location.city from requests where context.location.city is not null limit 10").show()
+   var city = sqlContext.sql("select context.location.city from requests where context.location.city isn't null limit 10").show()
    ```
 
-    此查詢會傳回 context.location.city 不是 null 的前 20 筆記錄的 city 資訊。
+    此查詢會傳回前20筆記錄的城市資訊，其中的內容為 location。 city 不是 null。
 
    > [!NOTE]  
    > context 結構會出現在 Application Insights 記錄的所有遙測中。 您的記錄中可能不會填入 city 元素。 使用結構描述找出您可以查詢可能包含您的記錄資料的其他元素。
-   >
-   >
 
     此查詢會傳回類似以下文字的資訊：
 
@@ -361,9 +359,9 @@ Application Insights 提供 [匯出資料模型](../../azure-monitor/app/export-
 
 如需在 Azure 中使用 Apache Spark 處理資料和服務的範例，請參閱下列文件：
 
-* [Apache Spark 搭配 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和 BI：在 HDInsight 中搭配 BI 工具使用 Spark 執行互動式資料分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，使用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 
 如需建立和執行 Spark 應用程式的詳細資訊，請參閱下列文件︰

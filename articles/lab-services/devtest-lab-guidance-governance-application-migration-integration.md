@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 25342cfbb8ac7ad5538b1f009c75f1d101bfc047
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 14641e9096fa9366334e9f7460ae55cda0e6c2e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560639"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644881"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>治理 Azure DevTest Labs 基礎結構 - 應用程式移轉和整合
 一旦建立您的開發/測試實驗室環境之後，您需要思考下列問題：
@@ -93,7 +93,7 @@ ms.locfileid: "74560639"
 ### <a name="answer"></a>答案
 如果您的 VM 需要與現有的基礎結構互動，則應該考慮在 DevTest Labs 環境內使用現有的虛擬網路。 此外，如果您使用 ExpressRoute，您可能想要將 VNet / 子網路的數量降到最低，如此就不需分割指派來在訂用帳戶中使用的 IP 位址空間。 您也應該考慮在此處使用 VNet 對等互連模式 (中樞輪輻模型)。 儘管跨區域的對等互連是 Azure 網路功能中一個即將推出的功能，但此方式還是能夠在指定的區域內跨訂用帳戶進行 VNet / 子網路通訊。
 
-否則，每個 DevTest Labs 環境都可能有它自己的虛擬網路。 不過，請注意每個訂用帳戶都有虛擬網路數目[限制](../azure-subscription-service-limits.md)。 雖然可將此限制提升到 100，但預設數目是 50。
+否則，每個 DevTest Labs 環境都可能有它自己的虛擬網路。 不過，請注意每個訂用帳戶都有虛擬網路數目[限制](../azure-resource-manager/management/azure-subscription-service-limits.md)。 雖然可將此限制提升到 100，但預設數目是 50。
 
 ## <a name="shared-public-or-private-ip"></a>共用、公用或私人 IP
 
@@ -117,7 +117,7 @@ ms.locfileid: "74560639"
 考慮每位使用者或每個實驗室的虛擬機器數目時，有三個主要考量：
 
 - 小組可在實驗室中花費於資源上的**整體成本**。 很容易就能將許多機器向上微調。 若要控制成本，有一種機制是限制每位使用者和/或每個實驗室的 VM 數目
-- 實驗室中的虛擬機器總數會受到可用的[訂用帳戶層級配額](../azure-subscription-service-limits.md)所影響。 其中一個上限是每個訂用帳戶 800 個資源群組。 DevTest Labs 目前會針對每部 VM 建立一個新的資源群組 (除非使用共用的公用 IP)。 如果訂用帳戶中有10個實驗室，實驗室可以在每個實驗室中容納大約79部虛擬機器（800上限為10個實驗室的資源群組） = 每個實驗室79個虛擬機器。
+- 實驗室中的虛擬機器總數會受到可用的[訂用帳戶層級配額](../azure-resource-manager/management/azure-subscription-service-limits.md)所影響。 其中一個上限是每個訂用帳戶 800 個資源群組。 DevTest Labs 目前會針對每部 VM 建立一個新的資源群組 (除非使用共用的公用 IP)。 如果訂用帳戶中有10個實驗室，實驗室可以在每個實驗室中容納大約79部虛擬機器（800上限為10個實驗室的資源群組） = 每個實驗室79個虛擬機器。
 - 舉例來說，如果實驗室會透過 Express Route 連線到內部部署，則會針對 VNet/子網路**定義可用的 IP 位址空間**。 若要確保實驗室中的 VM 不會建立失敗 (錯誤：無法取得 IP 位址)，實驗室擁有者可以針對每個已配置可用 IP 位址空間的實驗室指定 VM 的最大數目。
 
 ## <a name="use-resource-manager-templates"></a>使用資源管理員範本

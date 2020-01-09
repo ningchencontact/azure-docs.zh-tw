@@ -1,5 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple-CloudSimple 活動管理
+title: CloudSimple 活動管理
+titleSuffix: Azure VMware Solution by CloudSimple
 description: 描述 VMware Solution by CloudSimple 的活動概念
 author: sharaths-cs
 ms.author: dikamath
@@ -8,20 +9,20 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ad7905244ca190badf73c9a812a8f72282cbcdf3
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 985fcc0aa99723fde5e0c11babe3777c31cbd4c3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563181"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430265"
 ---
 # <a name="activity-management-overview"></a>活動管理總覽
 
-CloudSimple 會追蹤可能影響私用雲端環境運作的所有活動。 活動包括警示、事件、工作和 audit 活動。 [活動頁面](monitor-activity.md)會摘要所有目前的活動, 並可讓您向下切入以取得其他詳細資料。
+CloudSimple 會追蹤可能影響私用雲端環境運作的所有活動。 活動包括警示、事件、工作和 audit 活動。 [活動頁面](monitor-activity.md)會摘要所有目前的活動，並可讓您向下切入以取得其他詳細資料。
 
-## <a name="events"></a>Events
+## <a name="events"></a>活動
 
-事件會在 CloudSimple 入口網站上追蹤使用者和系統活動。 事件會顯示與特定資源相關聯的活動, 以及影響的嚴重性。  您可以從 CloudSimple 入口網站查看事件。
+事件會在 CloudSimple 入口網站上追蹤使用者和系統活動。 事件會顯示與特定資源相關聯的活動，以及影響的嚴重性。  您可以從 CloudSimple 入口網站查看事件。
 
 ## <a name="alerts"></a>警示
 
@@ -29,7 +30,7 @@ CloudSimple 會追蹤可能影響私用雲端環境運作的所有活動。 活�
 
 ## <a name="tasks"></a>工作
 
-工作會追蹤任何需要30秒以上才能完成的使用者作業。 您可以從 CloudSimple 入口網站監視工作的進度。  若為已完成的工作, 資訊會包含完成的總時間。
+工作會追蹤任何需要30秒以上才能完成的使用者作業。 您可以從 CloudSimple 入口網站監視工作的進度。  若為已完成的工作，資訊會包含完成的總時間。
 
 ## <a name="audit"></a>稽核
 

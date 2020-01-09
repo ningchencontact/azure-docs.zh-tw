@@ -3,13 +3,13 @@ title: Azure Functions 的 JavaScript 開發人員參考
 description: 了解如何使用 JavaScript 開發函式。
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
-ms.date: 02/24/2019
-ms.openlocfilehash: b6b7db4c5f13a264b76dcab02dba51c464297307
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/17/2019
+ms.openlocfilehash: 506f71664616686a66227af7e55fe3f4046376f2
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226714"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561910"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
 
@@ -44,7 +44,7 @@ FunctionsProject
 
 在專案根目錄中，有共用的 [host.json](functions-host-json.md) 檔案可用來設定函式應用程式。 每個函式都有本身程式碼檔案 (.js) 和繫結設定檔 (function.json) 的資料夾。 `function.json` 的父目錄名稱一律是函式的名稱。
 
-Functions 執行階段 [版本 2.x](functions-versions.md) 中所需的繫結延伸模組，是以 `extensions.csproj` 資料夾中的實際程式庫檔案在 `bin` 檔案中定義。 在本機開發時，您必須[註冊繫結擴充功能](./functions-bindings-register.md#extension-bundles)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
+在函式執行階段的[版本 2.x](functions-versions.md) 中所需的繫結擴充功能，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中所定義。 在本機開發時，您必須[註冊繫結擴充功能](./functions-bindings-register.md#extension-bundles)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
 
 ## <a name="exporting-a-function"></a>匯出函數
 
@@ -75,7 +75,7 @@ module.exports = async function (context) {
 
 在匯出非同步函式時，您也可以將輸出繫結設定為採用 `return` 值。 如果您只有一個輸出繫結，建議使用此方式。
 
-若要使用 `return` 來指派輸出，請在 `name` 中將 `$return` 屬性變更為 `function.json`。
+若要使用 `return` 來指派輸出，請在 `function.json` 中將 `name` 屬性變更為 `$return`。
 
 ```json
 {
@@ -108,7 +108,7 @@ module.exports = async function (context, req) {
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **作為 [`context.bindings`](#contextbindings-property) 物件的成員。** 每個成員都會由 `name`function.json*中定義的* 屬性命名。
+ - **作為 [`context.bindings`](#contextbindings-property) 物件的成員。** 每個成員都會由 *function.json* 中定義的 `name` 屬性命名。
  
    ```javascript
    module.exports = async function(context) { 
@@ -128,8 +128,8 @@ module.exports = async function (context, req) {
    };
    ```
 
-### <a name="outputs"></a>reference
-函式可透過數種方式寫入輸出 (`direction === "out"` 的繫結)。 在所有情況下，在 `name`function.json*中為繫結定義的* 屬性都會對應至在您的函式中寫入的物件成員名稱。 
+### <a name="outputs"></a>輸出
+函式可透過數種方式寫入輸出 (`direction === "out"` 的繫結)。 在所有情況下，在 *function.json* 中為繫結定義的 `name` 屬性都會對應至在您的函式中寫入的物件成員名稱。 
 
 您可以用下列其中一種方式將資料指派給輸出系結（請勿結合這些方法）：
 
@@ -164,7 +164,7 @@ module.exports = async function (context, req) {
 
 ### <a name="bindings-data-type"></a>繫結資料類型
 
-若要定義輸入繫結的資料類型，請使用繫結定義中的 `dataType` 屬性。 例如，若要以二進位格式讀取 HTTP 要求的內容，請使用類別 `binary`：
+若要定義輸入繫結的資料類型，請使用繫結定義中的 `dataType` 屬性。 例如，若要以二進位格式讀取 HTTP 要求的內容，請使用類型 `binary`：
 
 ```json
 {
@@ -198,7 +198,7 @@ context.bindings
 
 傳回用來讀取或指派系結資料的已命名物件。 藉由讀取 `context.bindings`上的屬性，可以存取輸入和觸發程式系結資料。 藉由將資料加入至 `context.bindings`，可以指派輸出系結資料。
 
-例如，function.json 中的下列繫結定義可讓您使用 `context.bindings.myInput` 從 `context.bindings.myOutput` 存取佇列的內容並且將輸出指派到佇列。
+例如，function.json 中的下列繫結定義可讓您使用 `context.bindings.myOutput` 從 `context.bindings.myInput` 存取佇列的內容並且將輸出指派到佇列。
 
 ```json
 {
@@ -242,7 +242,7 @@ context.done([err],[propertyBag])
 
 通知執行階段您的程式碼已完成。 如果您的函式使用 [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 宣告，您就不需要使用 `context.done()`。 隱含地呼叫 `context.done` 回呼。 非同步函式可在 Node 8 或更新版本中使用，而這需要 2.x 版的 Functions 執行階段。
 
-如果您的函式不是非同步函式，**您必須呼叫** `context.done` 來通知執行階段您的函式已完成。 如果沒有，執行將會逾時。
+如果您的函數不是非同步函式，**您必須呼叫**`context.done` 來通知執行時間您的函式已完成。 如果沒有，執行將會逾時。
 
 `context.done` 方法可讓您將使用者定義的錯誤傳回到執行階段，並傳回包含輸出繫結資料的 JSON 物件。 傳至 `context.done` 的屬性會覆寫 `context.bindings` 物件上設定的任何屬性。
 
@@ -265,7 +265,7 @@ context.log(message)
 可讓您寫入預設追蹤層級的資料流函式記錄。 `context.log` 上有其他可用的記錄方法，可讓您在其他追蹤層級寫入函式記錄︰
 
 
-| 方法                 | 描述                                |
+| 方法                 | 說明                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_message_)**   | 寫入錯誤層級或更低層級的記錄。   |
 | **warn(_message_)**    | 寫入警告層級或更低層級的記錄。 |
@@ -342,14 +342,14 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 `context.req` (要求) 物件具有下列屬性：
 
-| 屬性      | 描述                                                    |
+| 屬性      | 說明                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 包含要求本文的物件。               |
 | _headers_     | 包含要求標頭的物件。                   |
 | _method_      | 要求的 HTTP 方法。                                |
 | _originalUrl_ | 要求的 URL。                                        |
 | _params_      | 包含要求之路由傳送參數的物件。 |
-| _查詢_       | 包含查詢參數的物件。                  |
+| _query_       | 包含查詢參數的物件。                  |
 | _rawBody_     | 字串格式的訊息內文。                           |
 
 
@@ -357,18 +357,18 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 `context.res` (回應) 物件具有下列屬性：
 
-| 屬性  | 描述                                               |
+| 屬性  | 說明                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 包含回應本文的物件。         |
 | _headers_ | 包含回應標頭的物件。             |
 | _isRaw_   | 表示略過回應的格式。    |
-| _狀態_  | 回應的 HTTP 狀態碼。                     |
+| _status_  | 回應的 HTTP 狀態碼。                     |
 
 ### <a name="accessing-the-request-and-response"></a>存取要求和回應 
 
 使用 HTTP 觸發程序時，您可以使用許多方式來存取 HTTP 要求和回應物件︰
 
-+ **從 `req` 物件的 `res` 和 `context` 屬性中。** 如此一來，您可以使用傳統模式來存取內容物件中的 HTTP 資料，而不需使用完整 `context.bindings.name` 模式。 下列範例示範如何存取 `req` 上的 `res` 和 `context` 物件：
++ **從 `context` 物件的 `req` 和 `res` 屬性中。** 如此一來，您可以使用傳統模式來存取內容物件中的 HTTP 資料，而不需使用完整 `context.bindings.name` 模式。 下列範例示範如何存取 `context` 上的 `req` 和 `res` 物件：
 
     ```javascript
     // You can access your http request off the context ...
@@ -405,6 +405,16 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
     res = { status: 201, body: "Insert succeeded." };
     context.done(null, res);   
     ```  
+
+## <a name="scaling-and-concurrency"></a>調整和並行
+
+根據預設，Azure Functions 會自動監視應用程式上的負載，並視需要為 node.js 建立其他主控制項實例。 函式會針對不同的觸發程式類型使用內建（非使用者可設定）閾值，以決定何時要新增實例，例如訊息的存留期和 QueueTrigger 的佇列大小。 如需詳細資訊，請參閱[耗用量和 premium 方案的工作方式](functions-scale.md#how-the-consumption-and-premium-plans-work)。
+
+這種調整行為足以滿足許多 node.js 應用程式。 針對 CPU 系結應用程式，您可以使用多個語言工作者進程，進一步改善效能。
+
+根據預設，每個函式主控制項實例都有單一的語言工作者進程。 您可以使用 [ [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) ] 應用程式設定，增加每部主機的工作者進程數（最多10個）。 Azure Functions 接著會嘗試在這些背景工作中平均散發並行函式呼叫。 
+
+FUNCTIONS_WORKER_PROCESS_COUNT 適用于在相應放大應用程式以符合需求時所建立的每個主機。 
 
 ## <a name="node-version"></a>節點版本
 
@@ -452,7 +462,7 @@ module.exports = function(context) {
 3. 移至 `D:\home\site\wwwroot`，然後將 package.json 檔案拖曳至頁面上半部的 **wwwroot** 資料夾。  
     您也可以使用其他方法將檔案上傳至函數應用程式。 如需詳細資訊，請參閱[如何更新函式應用程式檔案](functions-reference.md#fileupdate)。 
 
-4. 上傳 package.json 檔案之後，請在 `npm install`Kudu 遠端執行主控台**中執行**  命令。  
+4. 上傳 package.json 檔案之後，請在 **Kudu 遠端執行主控台**中執行 `npm install` 命令。  
     此動作會下載 package.json 檔案中指出的套件，並重新啟動函數應用程式。
 
 ## <a name="environment-variables"></a>環境變數
@@ -495,7 +505,7 @@ FunctionApp
  | - package.json
 ```
 
-`function.json` 的 `myNodeFunction` 應該包含 `scriptFile` 屬性，這個屬性指向有匯出的函式要執行的檔案。
+`myNodeFunction` 的 `function.json` 應該包含 `scriptFile` 屬性，這個屬性指向有匯出的函式要執行的檔案。
 
 ```json
 {
@@ -510,7 +520,7 @@ FunctionApp
 
 在 `scriptFile` (或 `index.js`) 中，必須使用 `module.exports` 匯出函式，才能找到並執行該函式。 觸發時執行的函式預設是僅來自該檔案的匯出，名為 `run` 的匯出，或名為 `index` 的匯出。
 
-這可以在 `entryPoint` 中使用 `function.json` 設定，如下列範例所示：
+這可以在 `function.json` 中使用 `entryPoint` 設定，如下列範例所示：
 
 ```json
 {
@@ -627,7 +637,7 @@ func azure functionapp publish <APP_NAME>
 
 在無伺服器裝載模型中開發 Azure Functions 時，可進行冷啟動。 *冷啟動*是指函數應用程式在閒置一段時間之後進行的第一次啟動，這需要較長的時間啟動。 尤其是對於大型相依性樹狀結構的 JavaScript 函式，冷啟動可能會有很大的影響。 若要加速執行冷啟動程序，請[盡可能以套件檔案的形式執行函式](run-functions-from-deployment-package.md)。 根據預設，許多部署方法都使用從套件執行的模式，但如果在進行許多冷啟動時未以此方式執行，此變更將可達到大幅改善的效果。
 
-### <a name="connection-limits"></a>連接限制
+### <a name="connection-limits"></a>連線限制
 
 當您在 Azure Functions 應用程式中使用服務特定的用戶端時，請勿使用每個函式呼叫來建立新的用戶端。 相反地，請在全域範圍中建立單一靜態用戶端。 如需詳細資訊，請參閱[管理 Azure Functions 中的連接](manage-connections.md)。
 

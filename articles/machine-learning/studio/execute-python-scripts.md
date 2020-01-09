@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 6079f904002f00a39d3ee9d70dedd9d261e2825f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c43f3021009c0c8a5a414b18bb9f0ff7d7a4a4bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837631"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427660"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>以 Azure Machine Learning Studio 執行 Python 機器學習服務腳本（傳統）
 
@@ -47,13 +47,13 @@ Python 模組的輸入會公開為 Pandas 資料框架。 `azureml_main` 函數�
 
 ### <a name="output-return-values"></a>輸出傳回值
 
-函式必須傳回以 Python `azureml_main`序列 [（例如元組、清單或 NumPy 陣列）封裝的單一 Pandas 資料框架。](https://docs.python.org/2/c-api/sequence.html) 此順序的第一個元素會傳回至模組的第一個輸出埠。 模組的第二個輸出埠會用於[視覺效果](#visualizations)，而不需要傳回值。 此配置如下所示。
+函式必須傳回以 Python [序列 ](https://docs.python.org/2/c-api/sequence.html)（例如元組、清單或 NumPy 陣列）封裝的單一 Pandas 資料框架。`azureml_main` 此順序的第一個元素會傳回至模組的第一個輸出埠。 模組的第二個輸出埠會用於[視覺效果](#visualizations)，而不需要傳回值。 此配置如下所示。
 
 ![將輸入埠對應至參數並將值傳回輸出埠](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
 
 ## <a name="translation-of-input-and-output-data-types"></a>輸入和輸出資料類型的轉譯
 
-Studio 資料集與 Panda 資料框架不同。 因此，傳統版本 Studio 中的輸入資料集會轉換為 Pandas 資料框架，而輸出資料框架會轉換回 Studio （傳統）資料集。 在這個轉換過程中，也會執行下列翻譯：
+Studio 資料集與 Panda 資料框架不同。 因此，Studio （傳統）中的輸入資料集會轉換為 Pandas 資料框架，而輸出資料框架會轉換回 Studio （傳統）資料集。 在這個轉換過程中，也會執行下列翻譯：
 
  **Python 資料類型** | **Studio 轉譯程式** |
 | --- | --- |
@@ -67,9 +67,9 @@ Studio 資料集與 Panda 資料框架不同。 因此，傳統版本 Studio 中
 
 ## <a id="import-modules"></a>匯入現有的 Python 腳本模組
 
-用來執行 Python 的後端是以[Anaconda](https://www.anaconda.com/distribution/)為基礎，這是廣泛使用的科學 Python 散發套件。 其中包含以資料為中心的工作負載中最常見的 Python 套件200。 傳統版本的 Studio 目前不支援使用封裝管理系統（例如 Pip 或 Conda）來安裝和管理外部程式庫。  如果您發現需要併入其他程式庫，請使用下列案例做為指南。
+用來執行 Python 的後端是以[Anaconda](https://www.anaconda.com/distribution/)為基礎，這是廣泛使用的科學 Python 散發套件。 其中包含以資料為中心的工作負載中最常見的 Python 套件200。 Studio （傳統）目前不支援使用封裝管理系統（例如 Pip 或 Conda）來安裝和管理外部程式庫。  如果您發現需要併入其他程式庫，請使用下列案例做為指南。
 
-常見的使用案例是將現有的 Python 腳本納入傳統版本的 Studio 實驗中。 [執行 Python 腳本][execute-python-script]模組接受在第三個輸入埠包含 Python 模組的 zip 檔案。 該檔案會由執行架構在執行階段解壓縮，且內容會新增至 Python 解譯器的程式庫路徑。 然後 `azureml_main` 進入點函式可以直接匯入這些模組。 
+常見的使用案例是將現有的 Python 腳本納入 Studio （傳統）實驗中。 [執行 Python 腳本][execute-python-script]模組接受在第三個輸入埠包含 Python 模組的 zip 檔案。 該檔案會由執行架構在執行階段解壓縮，且內容會新增至 Python 解譯器的程式庫路徑。 然後 `azureml_main` 進入點函式可以直接匯入這些模組。 
 
 作為範例，請考量包含簡單 “Hello, World” 函式的 Hello.py 檔案。
 
@@ -79,7 +79,7 @@ Studio 資料集與 Panda 資料框架不同。 因此，傳統版本 Studio 中
 
 ![包含使用者定義 Python 程式碼的 Zip 檔案](./media/execute-python-scripts/figure5.png)
 
-將 zip 檔案當做資料集上傳至傳統版本的 Studio。 然後，藉由將您的 Python 程式碼附加至 [**執行 Python 腳本**] 模組的第三個輸入埠，來建立並執行使用該檔案的實驗，如下圖所示。
+將 zip 檔案當做資料集上傳至 Studio （傳統）。 然後，藉由將您的 Python 程式碼附加至 [**執行 Python 腳本**] 模組的第三個輸入埠，來建立並執行使用該檔案的實驗，如下圖所示。
 
 ![使用 Hello .zip 做為執行 Python 腳本模組輸入的範例實驗](./media/execute-python-scripts/figure6a.png)
 
@@ -141,11 +141,11 @@ block_blob_service = BlockBlobService(account_name='account_name', account_key='
 
 ![使用 Python 程式碼視覺化範例實驗的繪圖](./media/execute-python-scripts/figure-v2-9b.png)
 
-將多個圖形儲存成不同的影像，是可行的。 傳統版本的 Studio 執行時間會挑選所有影像，並串連它們以進行視覺效果。
+將多個圖形儲存成不同的影像，是可行的。 Studio （傳統）執行時間會挑選所有影像，並串連它們以進行視覺效果。
 
 ## <a name="advanced-examples"></a>進階範例
 
-安裝在傳統版本 Studio 中的 Anaconda 環境包含常見的套件，例如 NumPy、SciPy 和 Scikits-learn。 這些封裝可以有效地用於機器學習管線中的資料處理。
+安裝在 Studio （傳統）中的 Anaconda 環境包含常見的套件，例如 NumPy、SciPy 和 Scikits-learn。 這些封裝可以有效地用於機器學習管線中的資料處理。
 
 例如，下列實驗和腳本說明如何在 Scikits-learn 中使用集團學習工具-瞭解如何計算資料集的功能重要性分數。 分數可以用來執行受監督的功能選取，然後再送到另一個模型。
 
@@ -153,7 +153,7 @@ block_blob_service = BlockBlobService(account_name='account_name', account_key='
 
 ![以分數排列功能的函數](./media/execute-python-scripts/figure8.png)
 
-接著，下列實驗會計算並傳回傳統 Azure Machine Learning Studio 版本中 "Pima indian diabetes 印度糖尿病" 資料集的特性重要性分數：
+接著，下列實驗會計算並傳回 Azure Machine Learning Studio （傳統）中 "Pima indian diabetes 印度糖尿病" 資料集內的特性重要性分數：
 
 ![使用 Python 進行實驗以排名 Pima indian diabetes 印度糖尿病資料集的功能](./media/execute-python-scripts/figure9a.png)
 

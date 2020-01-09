@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: cf826c47c61e3714a05dd81fe3eea4e6ee0b03f4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 6fd8d6187c86306840c33b3aaf334e71086b20a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012502"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452749"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>選擇時間序列識別碼的最佳做法
 
@@ -23,23 +23,28 @@ ms.locfileid: "74012502"
 
 ## <a name="choose-a-time-series-id"></a>選擇時間序列識別碼
 
-選擇時間序列識別碼就像選擇資料庫的分割區索引鍵一樣。 您在建立時間序列深入解析預覽環境時，必須選取它。 這是*不可變*的屬性。 也就是說，在您建立具有時間序列識別碼的時間序列深入解析預覽環境之後，就無法針對該環境進行變更。 
+選取適當的時間序列識別碼是很重要的。 選擇時間序列識別碼就像選擇資料庫的分割區索引鍵一樣。 當您建立時間序列深入解析預覽環境時，這是必要的。 
 
 > [!IMPORTANT]
-> 時間序列識別碼會區分大小寫。
+> 時間序列識別碼如下：
+> * 區分*大小寫*的屬性：在搜尋、比較、更新及進行分割時，會使用字母和字元轉換。
+> * *不可變*的屬性：一旦建立之後，就無法變更。
 
-選取適當的時間序列識別碼是很重要的。 以下是一些您可以遵循的最佳作法：
+> [!TIP]
+> 如果您的事件來源是 IoT 中樞，您的時間序列識別碼可能會是 iothub-連線***裝置識別碼***。
+
+遵循的主要最佳做法包括：
 
 * 挑選具有許多相異值的分割區索引鍵（例如，上百或上千）。 在許多情況下，這可能是您的 JSON 中的裝置識別碼、感應器識別碼或標記識別項。
 * 在您[時間序列模型](./time-series-insights-update-tsm.md).的分葉節點層級，時間序列識別碼應該是唯一的。
-* 如果您的事件來源是 IoT 中樞，則您的時間序列識別碼很可能是 iothub-連線 *-裝置識別碼*。
 * 時間序列識別碼的屬性名稱字串的字元限制為128。 若為時間序列識別碼的屬性值，字元限制為1024。
 * 如果遺漏時間序列識別碼的唯一屬性值，則會將它視為 null 值，並遵循唯一性條件約束的相同規則。
 * 您也可以選取最多*三個*索引鍵屬性作為時間序列識別碼。 其組合會是代表時間序列識別碼的複合索引鍵。  
-
   > [!NOTE]
   > 您的三個索引鍵屬性必須是字串。
   > 您必須一次查詢此複合索引鍵，而不是一個屬性。
+
+## <a name="select-more-than-one-key-property"></a>選取一個以上的索引鍵屬性
 
 下列案例說明如何選取一個以上的索引鍵屬性作為時間序列識別碼。  
 
@@ -67,9 +72,11 @@ ms.locfileid: "74012502"
 }
 ```
 
-在 Azure 入口網站中，您可以輸入此複合索引鍵，如下所示： 
+在 Azure 入口網站中，您可以接著輸入複合索引鍵，如下所示： 
 
-`[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]`
+```JSON
+[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]
+```
 
 ## <a name="next-steps"></a>後續步驟
 

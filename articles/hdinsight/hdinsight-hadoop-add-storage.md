@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: e29041942157e720cce3414f7b6e6904667c1894
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 86b9230dbdca82c5599c1839fd64bd3df4725051
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665482"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435581"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>將其他儲存體帳戶新增至 HDInsight
 
@@ -24,7 +24,7 @@ ms.locfileid: "73665482"
 ## <a name="prerequisites"></a>必要條件
 
 * HDInsight 上的 Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](./hadoop/apache-hadoop-linux-tutorial-get-started.md)。
-* 儲存體帳戶名稱和金鑰。 請參閱[管理 Azure 入口網站中的儲存體帳戶設定](../storage/common/storage-account-manage.md)。
+* 儲存體帳戶名稱和金鑰。 請參閱[管理儲存體帳戶存取金鑰](../storage/common/storage-account-keys-manage.md)。
 * 叢集[名稱的大小寫正確](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name)。
 * 如果使用 PowerShell，您將需要 AZ 模組。  請參閱[Azure PowerShell 的總覽](https://docs.microsoft.com/powershell/azure/overview)。
 * 如果您尚未安裝 Azure CLI，請參閱[Azure 命令列介面（CLI）](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。
@@ -100,7 +100,7 @@ az hdinsight script-action execute ^
     --script-parameters "ACCOUNTNAME ACCOUNTKEY"
 ```
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 請參閱[將腳本動作套用至執行中的](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)叢集。
 
@@ -108,7 +108,7 @@ az hdinsight script-action execute ^
 
 ### <a name="storage-firewall"></a>儲存體防火牆
 
-如果您選擇使用**所選網路**上的**防火牆和虛擬網路**限制來保護您的儲存體帳戶，請務必啟用 [**允許信任的 Microsoft 服務**] 例外狀況，讓 HDInsight 可以存取您的儲存體帳戶.
+如果您選擇使用**所選網路**上的**防火牆和虛擬網路**限制來保護您的儲存體帳戶，請務必啟用 [**允許信任的 Microsoft 服務**] 例外狀況，讓 HDInsight 可以存取您的儲存體帳戶。
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>儲存體帳戶未顯示在 Azure 入口網站或工具中
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: b9650c3c30d95c85f505b640564ff416931676ea
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
-ms.translationtype: MT
+ms.openlocfilehash: c72357b0e60f36082a468063ecf2bca329cd70be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559216"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355294"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure 資訊安全中心疑難排解指南
 
@@ -83,7 +83,7 @@ ms.locfileid: "74559216"
 
 [監視狀態] 可定義資訊安全中心無法成功監視為了自動佈建而初始化之 VM 和電腦的原因。 下表顯示 [監視狀態] 值、描述和解決步驟。
 
-| 監視狀態 | 描述 | 解決步驟 |
+| 監視狀態 | 說明 | 解決步驟 |
 |---|---|---|
 | 擱置代理程式安裝 | Microsoft Monitoring Agent 安裝仍在執行中。  安裝作業可能需要多達數小時的時間。 | 等到自動安裝完成為止。 |
 | 電源為關閉狀態 | VM 已停止。  Microsoft Monitoring Agent 只能安裝於執行中的 VM。 | 重新啟動 VM。 |
@@ -92,7 +92,7 @@ ms.locfileid: "74559216"
 |安裝失敗 - 一般錯誤 | 已安裝 Microsoft Monitoring Agent，但因為發生錯誤而失敗。 | [手動安裝擴充功能](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)或將擴充功能解除安裝，資訊安全中心就會嘗試再次安裝。 |
 | 安裝失敗 - 已安裝本機代理程式 | Microsoft Monitoring Agent 安裝失敗。 資訊安全中心識別已安裝在 VM 上的本機代理程式（Log Analytics 或 System Center Operations Manager）。 為了避免多路連接的設定 (在此設定中，VM 會向兩個不同的工作區回報)，已停止 Microsoft Monitoring Agent 的安裝。 | 解決方式有兩種：[手動安裝擴充功能](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)並將它連線到您所需的工作區。 或者，將您所需的工作區設定為預設工作區，並啟用代理程式的自動佈建功能。  請參閱[啟用自動佈建](security-center-enable-data-collection.md)。 |
 | 代理程式無法連線到工作區 | 已安裝 Microsoft Monitoring Agent，但因為網路連線問題而失敗。  請檢查是否有網際網路存取權，或已針對代理程式設定有效的 HTTP Proxy。 | 請參閱「監視代理程式網路需求」。 |
-| 代理程式已連線到遺漏或未知的工作區 | 資訊安全中心發現安裝於 VM 上的 Microsoft Monitoring Agent 已連線到其無權存取的工作區。 | 有兩種情況會發生這種情形。 工作區已遭刪除而不復存在。 重新安裝具有正確工作區的代理程式，或將代理程式解除安裝並允許資訊安全中心完成其自動佈建安裝。 第二種情況是工作區屬於資訊安全中心無權存取的訂用帳戶。 資訊安全中心需有訂用帳戶，才可允許 Microsoft 安全性資源提供者進行存取。 若要啟用這項功能，請向 Microsoft 安全性資源提供者註冊訂用帳戶。 此作業可經由 API、PowerShell、入口網站完成，而在資訊安全中心的 [概觀] 儀表板中直接篩選訂用帳戶亦可完成。 如需詳細資訊，請參閱[資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md#azure-portal)。 |
+| 代理程式已連線到遺漏或未知的工作區 | 資訊安全中心發現安裝於 VM 上的 Microsoft Monitoring Agent 已連線到其無權存取的工作區。 | 有兩種情況會發生這種情形。 工作區已遭刪除而不復存在。 重新安裝具有正確工作區的代理程式，或將代理程式解除安裝並允許資訊安全中心完成其自動佈建安裝。 第二種情況是工作區屬於資訊安全中心無權存取的訂用帳戶。 資訊安全中心需有訂用帳戶，才可允許 Microsoft 安全性資源提供者進行存取。 若要啟用這項功能，請向 Microsoft 安全性資源提供者註冊訂用帳戶。 此作業可經由 API、PowerShell、入口網站完成，而在資訊安全中心的 [概觀] 儀表板中直接篩選訂用帳戶亦可完成。 如需詳細資訊，請參閱[資源提供者和類型](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)。 |
 | 代理程式沒有回應或缺少識別碼 | 即使已安裝代理程式，資訊安全中心仍無法從 VM 擷取已掃描的安全性資料。 | 代理程式並未回報任何資料，包括活動訊號。 代理程式可能已損毀，或有物件封鎖流量。 或者，代理程式雖回報資料，但遺漏 Azure 資源識別碼，因此無法比對資料與 Azure VM。 若要對 Linux 進行疑難排解，請參閱[適用於 Linux 的 Log Analytics 代理程式疑難排解指南](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal)。 若要對 Windows 進行疑難排解，請參閱[對 Windows 虛擬機器進行疑難排解](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines)。 |
 | 未安裝代理程式 | 資料收集已啟用。 | 在安全性原則中開啟資料收集，或手動安裝 Microsoft Monitoring Agent。 |
 

@@ -1,19 +1,19 @@
 ---
 title: 裝置連線能力和遙測輸入-Azure 數位 Twins |Microsoft Docs
-description: 瞭解如何在 Azure 數位 Twins 內連接和上架裝置。
+description: 瞭解如何從 Azure 數位 Twins 中的 IoT 裝置連接、上線及傳送遙測。
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 529baf6a3eedf1d7490e8138642e90928a209876
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 01/03/2020
+ms.openlocfilehash: f9f0a74a6ca57f90ed8bd217d0d2f57e4bc16749
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010119"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660336"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>裝置連線能力與遙測輸入
 
@@ -67,12 +67,12 @@ YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 
  **Message** 的承載內容可以是大小上限為 256 KB 的任意資料。 [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) 類型的屬性應會有幾項需求。 下表顯示系統支援的必要和選擇性屬性。
 
-| 屬性名稱 | 值 | 必要 | 描述 |
+| 屬性名稱 | 值 | 必要項 | 說明 |
 |---|---|---|---|
-| **DigitalTwins-Telemetry** | 1.0 | yes | 識別系統訊息的常數值。 |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | yes | 傳送 **Message** 之感應器的唯一識別碼。 此值必須符合物件的 **HardwareId** 屬性，才能讓系統進行處理。 例如， `00FF0643BE88-CO2`。 |
-| **CreationTimeUtc** | `string` | 否 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 格式的日期字串，用來識別承載的取樣時間。 例如， `2018-09-20T07:35:00.8587882-07:00`。 |
-| **CorrelationId** | `string` | 否 | 用來追蹤系統上各個事件的 UUID。 例如， `cec16751-ab27-405d-8fe6-c68e1412ce1f`。
+| **DigitalTwins-Telemetry** | 1.0 | 是 | 識別系統訊息的常數值。 |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | 是 | 傳送 **Message** 之感應器的唯一識別碼。 此值必須符合物件的 **HardwareId** 屬性，才能讓系統進行處理。 例如： `00FF0643BE88-CO2` 。 |
+| **CreationTimeUtc** | `string` | 否 | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) 格式的日期字串，用來識別承載的取樣時間。 例如： `2018-09-20T07:35:00.8587882-07:00` 。 |
+| **CorrelationId** | `string` | 否 | 用來追蹤系統上各個事件的 UUID。 例如： `cec16751-ab27-405d-8fe6-c68e1412ce1f` 。
 
 ### <a name="send-your-message-to-digital-twins"></a>將訊息傳送至 Digital Twins
 

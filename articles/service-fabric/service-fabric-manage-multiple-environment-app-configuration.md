@@ -1,25 +1,16 @@
 ---
-title: 在 Azure Service Fabric 中管理多個環境的應用程式 | Microsoft Docs
+title: 管理多個環境的應用程式
 description: Azure Service Fabric 應用程式可以在任意大小 (從一部機器至數千部機器) 的叢集上執行。 在某些情況下，您會想要針對各種環境以不同的方式設定應用程式。 本文說明如何定義每個環境的不同應用程式參數。
-services: service-fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: msfussell
-editor: ''
-ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: dac96ef6fce38a0557444e181fa6eccb649cfb9a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33dfc91381b23bf1ac33bef5274e1098df411f4a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719221"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609837"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>管理多個環境的應用程式
 

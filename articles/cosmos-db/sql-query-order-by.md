@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 14f61d14b59dca4bcf2e0f4b93e918f101a61833
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5cae2bdd7d1f2f26e626c81ea95d2cee3cc8ae13
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326842"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444783"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 ORDER BY 子句
 
@@ -45,11 +45,14 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   指定特定之資料行中的值，應該以遞增或遞減順序排序。 ASC 從最低值到最高值排序。 DESC 從最高值到最低值排序。 ASC 為預設排序順序。 NULL 值會被視為最低的可能值。  
+   指定指定之資料行的值應該以遞增或遞減順序排序。 ASC 從最低值到最高值進行排序。 DESC 從最高值到最低值進行排序。 ASC 是預設排序次序。 Null 值會當做最低的可能值來處理。  
   
 ## <a name="remarks"></a>備註  
   
    ORDER BY 子句要求索引編制原則必須包含要排序之欄位的索引。 Azure Cosmos DB 查詢執行時間支援針對屬性名稱進行排序，而不是針對計算的屬性。 Azure Cosmos DB 支援多個 ORDER BY 屬性。 若要以多個 ORDER BY 屬性執行查詢，您應該在要排序的欄位上定義[複合索引](index-policy.md#composite-indexes)。
+   
+> [!Note] 
+> 使用 .NET SDK 3.4.0 或更新版本時，如果某些檔的排序依據的屬性可能未定義，則您需要明確地在這些屬性上建立索引。 預設的索引編制原則將不允許抓取未定義 sort 屬性的檔。
 
 ## <a name="examples"></a>範例
 
@@ -61,7 +64,7 @@ ORDER BY <sort_specification>
     ORDER BY f.address.city
 ```
 
-結果為：
+結果如下：
 
 ```json
     [
@@ -76,7 +79,7 @@ ORDER BY <sort_specification>
     ]
 ```
 
-下列查詢會依其專案建立日期的順序，來抓取系列 `id`。 [專案 `creationDate`] 是代表*epoch 時間*的數位，或1970（以秒為單位）之後經過的時間。
+下列查詢會依其專案建立日期的順序，來抓取家族 `id`s。 專案 `creationDate` 是代表*epoch 時間*的數位，或1970（以秒為單位）之後經過的時間。
 
 ```sql
     SELECT f.id, f.creationDate
@@ -84,7 +87,7 @@ ORDER BY <sort_specification>
     ORDER BY f.creationDate DESC
 ```
 
-結果為：
+結果如下：
 
 ```json
     [
@@ -99,7 +102,7 @@ ORDER BY <sort_specification>
     ]
 ```
 
-此外，您可以依多個屬性來排序。 依多個屬性排序的查詢需要[複合索引](index-policy.md#composite-indexes)。 請考量下列查詢：
+此外，您可以依多個屬性來排序。 依多個屬性排序的查詢需要[複合索引](index-policy.md#composite-indexes)。 請考慮以下查詢：
 
 ```sql
     SELECT f.id, f.creationDate
@@ -107,10 +110,10 @@ ORDER BY <sort_specification>
     ORDER BY f.address.city ASC, f.creationDate DESC
 ```
 
-此查詢會依城市名稱的遞增順序來抓取系列 `id`。 如果多個專案具有相同的城市名稱，則查詢會依 `creationDate` 的遞減順序排序。
+此查詢會依城市名稱的遞增順序來抓取家族 `id`。 如果多個專案具有相同的城市名稱，則查詢會依 `creationDate` 的遞減順序排序。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [開始使用](sql-query-getting-started.md)
+- [快速入門](sql-query-getting-started.md)
 - [SELECT 子句](sql-query-select.md)
 - [OFFSET LIMIT 子句](sql-query-offset-limit.md)

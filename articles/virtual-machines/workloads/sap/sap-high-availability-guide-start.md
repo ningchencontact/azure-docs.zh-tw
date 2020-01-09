@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8a4e4cb8330f6b02d721f2228fee17a91cd44499
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 8db9eb81efdc367e312649948c9eb1a9eee0532f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70078365"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638029"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器高可用性
 
@@ -33,8 +33,8 @@ ms.locfileid: "70078365"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [sap-high-availability-architecture-scenarios]:sap-high-availability-architecture-scenarios.md
 [sap-high-availability-guide-wsfc-shared-disk]:sap-high-availability-guide-wsfc-shared-disk.md
@@ -170,7 +170,7 @@ ms.locfileid: "70078365"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -196,8 +196,8 @@ ms.locfileid: "70078365"
     > 強烈建議您針對 SAP 安裝使用 Azure Resource Manager 部署模型。 它提供傳統部署模型所沒有的許多好處。 深入了解 Azure [部署模型][virtual-machines-azure-resource-manager-architecture-benefits-arm]。   
     >
 * 在下列項目的 SAP 高可用性：
-  * ![Windows][Logo_Windows]  **Windows**使用 **Windows Server 容錯移轉叢集 (WSFC)**
-  * ![Linux][Logo_Linux] **Linux**使用 **Linux 叢集架構**
+  * ![Windows][Logo_Windows]**windows**，使用**Windows Server 容錯移轉叢集（WSFC）**
+  * 使用**Linux Cluster Framework** ![Linux][Logo_Linux] **linux**
 
 在這些文章中，您會了解如何協助保護單一失敗點 (SPOF) 元件，例如 SAP 中央服務 (ASCS/SCS) 和資料庫管理系統 (DBMS)。 您也會了解 Azure 中的備援元件，例如 SAP 應用程式伺服器。
 
@@ -209,7 +209,7 @@ ms.locfileid: "70078365"
 
 * [適用于 SAP NetWeaver 的 Azure 虛擬機器高可用性架構和案例][sap-high-availability-architecture-scenarios]
 
-文章涵蓋了 ![Windows][Logo_Windows] **Windows** 和 ![Linux][Logo_Linux] **Linux** 二者。
+本文涵蓋 ![Windows][Logo_Windows] **windows**和 ![Linux][Logo_Linux] **linux**。
 
 
 ## <a name="azure-infrastructure-preparation-for-sap-netweaver-high-availability-deployment"></a>SAP NetWeaver 高可用性部署的 Azure 基礎結構準備
@@ -244,7 +244,7 @@ ms.locfileid: "70078365"
 
 * ![Linux][Logo_Linux][使用適用于 SAP ASCS/SCS 實例的 SUSE Linux Enterprise Server 叢集架構搭配 Azure NetApp Files 來安裝 Sap NetWeaver 高可用性][sap-suse-ascs-ha-sap-installation-anf]
 
-* ![RHEL][Logo_Linux][在 RHEL 的高可用性設定中安裝 SAP NETWEAVER ASCS/SCS][sap-rhel-ascs-ha]
+* ![Rhel 在][Logo_Linux] [rhel 上的高可用性設定中安裝 SAP NetWeaver ASCS/SCS][sap-rhel-ascs-ha]
 
 * ![RHEL][Logo_Linux][使用 Azure NetApp Files 在 RHEL 的高可用性設定中安裝 SAP NETWEAVER ASCS/SCS][sap-rhel-ascs-ha-sap-installation-anf]
 

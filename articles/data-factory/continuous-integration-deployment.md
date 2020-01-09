@@ -11,16 +11,16 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 7c5c1e91e97087bf28b03629659e5194f67c22b3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 06c8784c235b157f5799bb727df9784dfaa2f376
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680038"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440514"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和傳遞 (CI/CD)
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 持續整合是指進行相關實作，以自動並及早測試對您的程式碼基底所做的每項變更。 持續傳遞會遵循持續整合期間所發生的測試，並將變更推送至暫存或生產系統。
 
@@ -56,11 +56,11 @@ ms.locfileid: "73680038"
 
 在您的測試和生產資料處理站中，選取 [匯**入 ARM 範本**]。 此動作會將您移至 Azure 入口網站，您可以在此處匯入先前匯出的範本。 **在編輯器中選取 [建立您自己的範本**]，以開啟 [Resource Manager 範本編輯器]。
 
-![](media/continuous-integration-deployment/continuous-integration-image3.png) 
+![自訂部署組建您自己的範本](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
 按一下 [**載入**檔案]，然後選取產生的 Resource Manager 範本。
 
-![](media/continuous-integration-deployment/continuous-integration-image4.png)
+![自訂部署編輯範本](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
 在 [設定] 窗格中，輸入 [連結服務認證] 之類的設定值。 完成後，請按一下 [**購買**] 以部署 Resource Manager 範本。
 
@@ -78,7 +78,7 @@ ms.locfileid: "73680038"
 
 ![透過 Azure Pipelines 進行持續整合的圖表](media/continuous-integration-deployment/continuous-integration-image12.png)
 
-### <a name="requirements"></a>需求
+### <a name="requirements"></a>要求
 
 -   連結至使用 [Azure Resource Manager 服務端點](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)Team Foundation Server 或 Azure Repos 的 Azure 訂用帳戶。
 
@@ -112,13 +112,13 @@ ms.locfileid: "73680038"
 
     ![](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.這是另一個 C# 主控台應用程式。  建立新工作。 搜尋 [ **Azure 資源群組部署**]，然後按一下 [**新增**]。
+    b.  建立新的工作。 搜尋 [ **Azure 資源群組部署**]，然後按一下 [**新增**]。
 
     c.  在部署工作中，選擇目標 Data Factory 的訂用帳戶、資源群組和位置，然後視需要提供認證。
 
     d.  在 [動作] 下拉式清單中，選取 [**建立或更新資源群組**]。
 
-    e.  選取 **…** (位於 [範本] 欄位中)。 在[為每個環境建立 Resource Manager 範本](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment)中，流覽透過「匯**入 ARM 範本**」步驟建立的 Azure Resource Manager 範本。 在 `<FactoryName>` 分支的 `adf_publish` 資料夾中尋找此檔案。
+    e.  選取 **…** (位於 [範本] 欄位中)。 在[為每個環境建立 Resource Manager 範本](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment)中，流覽透過「匯**入 ARM 範本**」步驟建立的 Azure Resource Manager 範本。 在 `adf_publish` 分支的 `<FactoryName>` 資料夾中尋找此檔案。
 
     f.  選取 **…** 在 [**範本參數] 欄位中。** 選擇參數檔案。 根據您是已建立複本還是使用預設檔案 *ARMTemplateParametersForFactory.json*，選擇正確的檔案。
 
@@ -424,7 +424,7 @@ else {
 #### <a name="triggers"></a>觸發程序
 
 * 在 `typeProperties`底下，會將兩個屬性參數化。 第一個是 `maxConcurrency`，其指定為具有預設值，且的類型為`string`。 它具有 `<entityName>_properties_typeProperties_maxConcurrency`的預設參數名稱。
-* `recurrence` 屬性也已參數化。 在其底下，會指定該層級的所有屬性，以預設值和參數名稱參數化為字串。 例外狀況是 `interval` 屬性，其參數化為數位類型，且參數名稱後置字元為 `<entityName>_properties_typeProperties_recurrence_triggerSuffix`。 同樣地，`freq` 屬性是字串，而且會參數化為字串。 不過，`freq` 屬性會在沒有預設值的情況下參數化。 名稱會縮短並加上尾碼。 例如， `<entityName>_freq`。
+* `recurrence` 屬性也已參數化。 在其底下，會指定該層級的所有屬性，以預設值和參數名稱參數化為字串。 例外狀況是 `interval` 屬性，其參數化為數位類型，且參數名稱後置字元為 `<entityName>_properties_typeProperties_recurrence_triggerSuffix`。 同樣地，`freq` 屬性是字串，而且會參數化為字串。 不過，`freq` 屬性會在沒有預設值的情況下參數化。 名稱會縮短並加上尾碼。 例如： `<entityName>_freq` 。
 
 #### <a name="linkedservices"></a>Linkedservices.json 和 datasets.json
 

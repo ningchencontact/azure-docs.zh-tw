@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e76e5c5d2cfcfd983f2b5cdc279f0c13fa6706e4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bf8a2cf6c50e05a0fecff387f2e125c50931b95f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832713"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608715"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>在 Azure AD 權利管理中管理外部使用者的存取權
 
@@ -105,7 +105,7 @@ Azure AD 權利管理利用[Azure AD 的企業對企業（B2B）](../b2b/what-is
 
 ### <a name="review-your-office-365-group-sharing-settings"></a>檢查您的 Office 365 群組共用設定
 
-- 如果您想要在外部使用者的存取套件中包含 Office 365 群組，請確定 [**讓使用者將新的來賓**新增到組織] 已設定為 [**開啟**]，以允許來賓存取。 如需詳細資訊，請參閱[管理對 Office 365 群組的來賓存取](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-guest-access-to-office-365-groups)。
+- 如果您想要在外部使用者的存取套件中包含 Office 365 群組，請確定 [**讓使用者將新的來賓**新增到組織] 已設定為 [**開啟**]，以允許來賓存取。 如需詳細資訊，請參閱[管理對 Office 365 群組的來賓存取](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access)。
 
 - 如果您想要讓外部使用者能夠存取 SharePoint Online 網站和與 Office 365 群組相關聯的資源，請確定您開啟的是 SharePoint Online 外部共用。 如需詳細資訊，請參閱[開啟或關閉外部共用](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)。
 
@@ -125,7 +125,7 @@ Azure AD 權利管理利用[Azure AD 的企業對企業（B2B）](../b2b/what-is
 
 1. 在左側功能表的 [**權利管理**] 區段中，按一下 [**設定**]。
 
-1. 按一下 [ **編輯**]。
+1. 按一下 **[編輯]** 。
 
     ![管理外部使用者生命週期的設定](./media/entitlement-management-external-users/settings-external-users.png)
 
@@ -143,7 +143,7 @@ Azure AD 權利管理利用[Azure AD 的企業對企業（B2B）](../b2b/what-is
 
 1. 如果您想要移除此目錄中的來賓使用者帳戶，您可以設定移除之前的天數。 如果您想要在來賓使用者帳戶失去對任何存取套件的最後一次指派時將其移除，請設定 [**從這個目錄移除外部使用者到0之前的天數**]。
 
-1. 按一下 [儲存]。
+1. 按一下 [檔案]。
 
 ## <a name="next-steps"></a>後續步驟
 

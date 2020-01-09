@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 3e72bd366cdbba1d73bc05f98d3848e2d4f0ca6c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5164e47c9c93653bfcd01093c01142b69c0bd57f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925343"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433258"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -291,13 +291,13 @@ def main(msg: func.QueueMessage):
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `QueueTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type** | n/a| 必須設為 `queueTrigger`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction**| n/a | 僅限在 *function.json* 檔案中。 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | n/a |在函式程式碼中包含佇列項目承載的變數名稱。  |
 |**queueName** | **QueueName**| 要輪詢的佇列名稱。 |
-|**連接** | **連接** |應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
+|**connection** | **[連接]** |應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -318,7 +318,7 @@ def main(msg: func.QueueMessage):
 
 佇列觸發程序提供數個[中繼資料屬性](./functions-bindings-expressions-patterns.md#trigger-metadata)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 類別的屬性。
 
-|屬性|Type|描述|
+|屬性|類型|說明|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|佇列承載 (如果為有效字串)。 如果佇列承載為字串，`QueueTrigger` 具有相同於 *function.json* 中由 `name` 屬性命名之變數的值。|
 |`DequeueCount`|`int`|此訊息已從佇列清除的次數。|
@@ -336,7 +336,18 @@ def main(msg: func.QueueMessage):
 
 ## <a name="trigger---polling-algorithm"></a>觸發程序 - 輪詢演算法
 
-佇列觸發程序會實作隨機指數型倒退演算法，以降低閒置佇列輪詢對儲存體交易成本的影響。  找到訊息時，執行階段會等待兩秒，然後檢查另一個訊息；當找不到任何訊息時，它會等候大約四秒，然後再試一次。 連續嘗試取得佇列訊息失敗後，等候時間會持續增加，直到它到達等待時間上限 (預設值為一分鐘)。 可透過 [host.json 檔案](functions-host-json.md#queues)中的 `maxPollingInterval` 屬性來設定最長等待時間。
+佇列觸發程序會實作隨機指數型倒退演算法，以降低閒置佇列輪詢對儲存體交易成本的影響。
+
+此演算法會使用下列邏輯：
+
+- 當找到訊息時，執行時間會等待兩秒，然後檢查是否有另一個訊息
+- 當找不到任何訊息時，它會等候大約四秒，然後再試一次。
+- 連續嘗試取得佇列訊息失敗後，等候時間會持續增加，直到它到達等待時間上限 (預設值為一分鐘)。
+- 可透過 [host.json 檔案](functions-host-json.md#queues)中的 `maxPollingInterval` 屬性來設定最長等待時間。
+
+針對本機開發，輪詢間隔的最大值預設為2秒。
+
+就計費而言，執行時間輪詢所花費的時間是「免費」，而且不會計入您的帳戶。
 
 ## <a name="trigger---concurrency"></a>觸發程序 - 並行
 
@@ -608,13 +619,13 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Queue` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設為 `queue`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設為 `out`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | n/a | 代表函式程式碼中佇列的變數名稱。 設為 `$return` 以參考函式傳回值。|
 |**queueName** |**QueueName** | 佇列的名稱。 |
-|**連接** | **連接** |應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
+|**connection** | **[連接]** |應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -670,7 +681,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 ```
 
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 說明 |
 |---------|---------|---------|
 |maxPollingInterval|00:00:01|佇列輪詢之間的間隔上限。 最小值為00：00：00.100 （100毫秒），而遞增至00:01:00 （1分鐘）。  在1.x 中，資料類型是毫秒，而在2.x 和更高的版本中，它是 TimeSpan。|
 |visibilityTimeout|00:00:00|處理訊息失敗時，重試之間的時間間隔。 |

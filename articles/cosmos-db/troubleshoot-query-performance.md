@@ -1,5 +1,5 @@
 ---
-title: 在使用 Azure Cosmos DB 時診斷查詢問題並進行疑難排解
+title: 使用 Azure Cosmos DB 時針對查詢問題進行疑難排解
 description: 瞭解如何識別、診斷和疑難排解 Azure Cosmos DB SQL 查詢問題。
 author: ginamr
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: fd8e80c7cd7cb71e4e0418d970cf2f328f1a3d79
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 1859fa8f71b5c4c44d6e5da1b6a36ca9d9399516
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184720"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444715"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>針對 Azure Cosmos DB 的查詢效能進行疑難排解
 本文涵蓋如何識別、診斷和疑難排解 Azure Cosmos DB SQL 查詢問題。 為了達到 Azure Cosmos DB 查詢的最佳效能，請遵循下列疑難排解步驟。 
@@ -26,7 +26,7 @@ ms.locfileid: "74184720"
 
 ## <a name="log-the-executed-sql-query"></a>記錄已執行的 SQL 查詢 
 
-您可以在儲存體帳戶或診斷記錄資料表中記錄已執行的 SQL 查詢。 [透過診斷記錄的 SQL 查詢記錄](monitor-cosmos-db.md#diagnostic-settings)可讓您在所選的儲存體帳戶中記錄模糊的查詢。 這可讓您查看記錄，並尋找使用較高 ru 的查詢。 之後，您可以使用活動識別碼來比對 QueryRuntimeStatistics 中的實際查詢。 查詢會針對安全性目的和查詢參數名稱進行模糊處理，而 where 子句中的值會與實際名稱和值不同。 您可以使用 [記錄至儲存體帳戶] 來保留所執行查詢的長期保留期。  
+您可以在儲存體帳戶或診斷記錄資料表中記錄已執行的 SQL 查詢。 [透過診斷記錄的 SQL 查詢記錄](cosmosdb-monitor-resource-logs.md)可讓您在所選的儲存體帳戶中記錄模糊的查詢。 這可讓您查看記錄，並尋找使用較高 ru 的查詢。 之後，您可以使用活動識別碼來比對 QueryRuntimeStatistics 中的實際查詢。 查詢會針對安全性目的和查詢參數名稱進行模糊處理，而 where 子句中的值會與實際名稱和值不同。 您可以使用 [記錄至儲存體帳戶] 來保留所執行查詢的長期保留期。  
 
 ## <a name="log-query-metrics"></a>記錄查詢計量
 
@@ -117,7 +117,7 @@ ms.locfileid: "74184720"
   * 可能的話，請撰寫查詢以使用分割區索引鍵的篩選條件。
   * 若要達成高效能查詢，請避免在篩選準則中呼叫 UPPER/LOWER。 相反地，在插入時將值的大小寫正規化。 針對每個值，以所需的大小寫插入值，或以所需的大小寫插入原始值和值。 
 
-    例如︰
+    例如：
     
     ```sql
 

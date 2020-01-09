@@ -1,7 +1,6 @@
 ---
 title: 對 Azure 串流分析查詢進行疑難排解
 description: 本文說明對 Azure 串流分析作業中的查詢進行疑難排解的技術。
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 586ddb237144daddf0cbfd19785fcba7658469a0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 22e542715afa8c87ffb742bec6c22f758cd16587
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621483"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354270"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>對 Azure 串流分析查詢進行疑難排解
 
@@ -22,7 +21,7 @@ ms.locfileid: "67621483"
 
 ## <a name="query-is-not-producing-expected-output"></a>查詢未產生預期的輸出 
 1.  在本機執行測試以檢查錯誤：
-    - 在 [查詢]  索引標籤上，選取 [測試]  。 使用下載的範例資料[測試查詢](stream-analytics-test-query.md)。 檢查是否有任何錯誤並嘗試修正。   
+    - 在 [查詢] 索引標籤上，選取 [測試]。 使用下載的範例資料[測試查詢](stream-analytics-test-query.md)。 檢查是否有任何錯誤並嘗試修正。   
     - 您也可以使用適用於 Visual Studio 的串流分析工具，[直接對即時輸入測試您的查詢](stream-analytics-live-data-local-testing.md)。
 
 2.  如果您使用 [**Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)，請確定事件有大於[作業開始時間](stream-analytics-out-of-order-and-late-events.md)的時間戳記。
@@ -33,7 +32,7 @@ ms.locfileid: "67621483"
     - 當您使用視窗函式時，請等候完整的視窗運作時間，以查看查詢的輸出。
     - 事件的時間戳記早於作業開始時間，因此事件遭到刪除。
 
-4.  確定事件排序原則已如預期設定。 移至 [設定]  ，然後選取[**事件排序**](stream-analytics-out-of-order-and-late-events.md)。 如果您使用 [測試]  按鈕測試查詢，則不會  套用原則。 此結果是在瀏覽器中進行測試與在生產環境中執行作業之間的一個差異。 
+4.  確定事件排序原則已如預期設定。 移至 [設定]，然後選取[**事件排序**](stream-analytics-out-of-order-and-late-events.md)。 如果您使用 [測試] 按鈕測試查詢，則不會套用原則。 此結果是在瀏覽器中進行測試與在生產環境中執行作業之間的一個差異。 
 
 5. 使用稽核和診斷記錄進行偵錯：
     - 使用[稽核記錄](../azure-resource-manager/resource-group-audit.md)，並透過篩選找出錯誤並進行偵錯。
@@ -50,7 +49,7 @@ ms.locfileid: "67621483"
 
 ![範例串流分析 SELECT INTO 查詢](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
 
-請注意，雖然作業正在執行，但不會在輸出中產生任何事件。 在 [監視]  圖格上 (如此處所示)，您可以看到輸入正在產生資料，但您無法知道哪一個**聯結**步驟會造成所有資料遭到捨棄。
+請注意，雖然作業正在執行，但不會在輸出中產生任何事件。 在 [監視]圖格上 (如此處所示)，您可以看到輸入正在產生資料，但您無法知道哪一個**聯結**步驟會造成所有資料遭到捨棄。
 
 ![串流分析監視圖格](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
  

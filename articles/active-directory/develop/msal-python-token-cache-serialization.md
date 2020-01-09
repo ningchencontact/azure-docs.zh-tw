@@ -1,5 +1,5 @@
 ---
-title: 適用于 Python 的 MSAL 中的自訂權杖快取序列化 |Azure
+title: 自訂權杖快取序列化（MSAL Python） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解如何序列化適用于 Python 的 MSAL 權杖快取
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: rayluo
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb77d05070543e35ac0addae933c5ca864e68dbc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0b5dc00f1aeb6b4fba987295ff5fc7dfd389b790
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915363"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424090"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-python"></a>適用于 Python 的 MSAL 中的自訂權杖快取序列化
 

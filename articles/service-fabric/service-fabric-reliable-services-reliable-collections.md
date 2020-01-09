@@ -1,25 +1,14 @@
 ---
-title: Azure Service Fabric 具狀態服務中的 Reliable Collection 簡介 | Microsoft Docs
+title: 可靠的集合簡介
 description: Service Fabric 具狀態服務提供可靠的集合，可讓您撰寫高度可用、可調整且低延遲的雲端應用程式。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak,zhol
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 1/3/2019
-ms.author: atsenthi
-ms.openlocfilehash: a7b30003fd02f8ab2e367311cdb3f56c80dbb4b2
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 48fa682f4c017f66911729e1f581f3aa91cdc28d
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599275"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609718"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure Service Fabric 具狀態服務中可靠的集合簡介
 
@@ -47,7 +36,7 @@ Reliable Collection 具有增強式一致性保證，可讓您更輕鬆地推論
 可靠的集合 API 是並行集合 API (位於 **System.Collections.Concurrent** 命名空間) 的一種演化：
 
 * 非同步：會傳回工作；不同於並行集合，其作業會受到複寫及保存。
-* 不要使用 out 參數：使用 `ConditionalValue<T>` 傳回 `bool` 和值，不要使用 out 參數。 `ConditionalValue<T>` 就像 `Nullable<T>`，但不需要 T 就可以成為結構。
+* 沒有 out 參數：使用 `ConditionalValue<T>` 傳回 `bool` 和值，而不是 out 參數。 `ConditionalValue<T>` 就像 `Nullable<T>`，但不需要 T 就可以成為結構。
 * 交易：使用交易物件，讓使用者可在交易中的多個可靠的集合上群組動作。
 
 現在，Microsoft.ServiceFabric.Data.Collections 包含三個集合：

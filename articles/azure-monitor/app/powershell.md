@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 75490edfd30541aa641656a2ccc17a259bfbe927
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 3f9a04d767ffeb5112e2b06ed319a3c28f3b7f57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951355"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406524"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>使用 PowerShell 管理 Application Insights 資源
 
@@ -27,7 +27,7 @@ ms.locfileid: "74951355"
 
 在您要執行指令碼的電腦上安裝 Azure Powershell 模組：
 
-1. 安裝 [Microsoft Web Platform Installer (v5 或更新版本)](https://www.microsoft.com/web/downloads/platform.aspx)。
+1. 安裝 [Microsoft Web Platform Installer (v5 或更高版本)](https://www.microsoft.com/web/downloads/platform.aspx)。
 2. 請使用它來安裝 Microsoft Azure Powershell。
 
 除了使用 Resource Manager 範本之外，還有一組豐富的[Application Insights PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)，可讓您輕鬆地以程式設計方式設定 Application Insights 資源。 Cmdlet 所啟用的功能包括：
@@ -164,7 +164,8 @@ New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource na
                 "location": "[parameters('appLocation')]",
                 "tags": {},
                 "properties": {
-                    "ApplicationId": "[parameters('appName')]"
+                    "ApplicationId": "[parameters('appName')]",
+                    "retentionInDays": "[parameters('retentionInDays')]"
                 },
                 "dependsOn": []
             },
@@ -178,7 +179,6 @@ New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource na
                 ],
                 "properties": {
                     "CurrentBillingFeatures": "[variables('pricePlan')]",
-                    "retentionInDays": "[parameters('retentionInDays')]",
                     "DataVolumeCap": {
                         "Cap": "[parameters('dailyQuota')]",
                         "WarningThreshold": "[parameters('warningThreshold')]",
@@ -394,13 +394,13 @@ Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <
     `"apiVersion": "2015-05-01",`
 
 ### <a name="parameterize-the-template"></a>參數化範本
-現在您必須以參數取代特定的名稱。 若要[參數化範本](../../azure-resource-manager/resource-group-authoring-templates.md)，您要使用[一組協助程式函式](../../azure-resource-manager/resource-group-template-functions.md)撰寫表示式。 
+現在您必須以參數取代特定的名稱。 若要[參數化範本](../../azure-resource-manager/templates/template-syntax.md)，您要使用[一組協助程式函式](../../azure-resource-manager/resource-group-template-functions.md)撰寫表示式。 
 
 您無法將參數化字串的一部分，因此請使用 `concat()` 建置字串。
 
 以下是您會想要進行的替換的範例。 每個替換各出現數次。 您的範本中可能需要其他替換。 這些範例使用我們在範本頂端定義的參數和變數。
 
-| find | 取代為 |
+| 尋找 | 取代為 |
 | --- | --- |
 | `"hidden-link:/subscriptions/.../../components/MyAppName"` |`"[concat('hidden-link:',`<br/>`resourceId('microsoft.insights/components',` <br/> `parameters('appName')))]"` |
 | `"/subscriptions/.../../alertrules/myAlertName-myAppName-subsId",` |`"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",` |

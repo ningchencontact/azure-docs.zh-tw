@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 8bfff7790fa4984241e1c3dda19a20c8b13591fb
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 819929fb157444ae53df113c0318dd18146156c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872174"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442014"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>一致性層級與 Azure Cosmos DB API
 
@@ -21,7 +21,6 @@ Azure Cosmos DB 為熱門資料庫提供與有線通訊協定相容的 Api 原�
 使用 SQL API、Gremlin API 和資料表 API 時，會使用在 Azure Cosmos 帳戶上設定的預設一致性層級。 
 
 使用 Cassandra API 或 Azure Cosmos DB 適用于 MongoDB 的 API 時，應用程式會分別取得 Apache Cassandra 和 MongoDB 提供的一組完整一致性層級，並提供更強的一致性和持久性保證。 本檔說明 Apache Cassandra 和 MongoDB 一致性層級的對應 Azure Cosmos DB 一致性層級。
-
 
 ## <a id="cassandra-mapping"></a>Apache Cassandra 與 Azure Cosmos DB 一致性層級之間的對應
 
@@ -55,7 +54,7 @@ Azure Cosmos DB 為熱門資料庫提供與有線通訊協定相容的 Api 原�
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解 Azure Cosmos DB API 與開放原始碼 API 之間的一致性層級與相容性。 請參閱下列文章：
+深入了解 Azure Cosmos DB API 與開放原始碼 API 之間的一致性層級與相容性。 查看下列文章：
 
 * [各種一致性層級的可用性和效能權衡取捨](consistency-levels-tradeoffs.md)
 * [適用於 MongoDB 的 Azure Cosmos DB API 所支援的 MongoDB 功能](mongodb-feature-support.md)

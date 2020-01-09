@@ -1,33 +1,30 @@
 ---
 title: 開發適用于 Azure 串流分析作業的 .NET Standard 功能（預覽）
 description: '瞭解如何為串流分析作業撰寫 c # 使用者定義函數。'
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0bc59ac3e55466f8ac06a3a8fa9cf08fecbb5ce3
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: f07c02df1b8e0032c9e1b4ef9a24c345fee20a40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024958"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426305"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>開發適用于 Azure 串流分析作業的 .NET Standard 使用者定義函式（預覽）
 
-Azure 串流分析提供類似 SQL 的查詢語言，以對事件資料的串流執行轉換與計算。 內建許多函式，但某些複雜的案例需要更大的彈性。 透過 .NET Standard 使用者定義的函式 (UDF)，您可以叫用任何以 .NET Standard 語言 (C#、F# 等) 撰寫的函式，以擴充串流分析查詢語言。 UDF 可讓您執行複雜的數學運算、使用 ML.NET 匯入自訂 ML 模型，及為遺漏的資料使用自訂插補邏輯。 串流分析作業的 UDF 功能目前為預覽狀態，不應該用於生產工作負載。
+Azure 串流分析提供類似 SQL 的查詢語言，以對事件資料的串流執行轉換與計算。 內建許多函式，但某些複雜的案例需要更大的彈性。 透過 .NET Standard 使用者定義的函式 (UDF)，您可以叫用任何以 .NET Standard 語言 (C#、F# 等) 撰寫的函式，以擴充串流分析查詢語言。 UDF 可讓您執行複雜的數學運算、使用 ML.NET 匯入自訂 ML 模型，及為遺漏的資料使用自訂插補邏輯。 適用於串流分析作業的 UDF 功能目前為預覽狀態，不應該用於生產環境工作負載。
 
 適用于雲端作業的 .NET 使用者定義函式可在中取得：
-* 美國中西部（可用）
-* 北歐（可用）
-* 美國東部（提供）
-* 美國西部（即將推出）
-* 美國東部2（即將推出）
-* 西歐（即將推出）
+* 美國中西部
+* 北歐
+* 美國東部
+* 美國西部
+* 美國東部 2
+* 西歐
 
 如果您想要在任何其他區域中使用這項功能，您可以[要求存取權](https://aka.ms/ccodereqregion)。
 
@@ -48,8 +45,8 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
 
 |**UDF 型別 (C#)**  |**Azure 串流分析型別**  |
 |---------|---------|
-|long  |  bigint   |
-|兩倍  |  兩倍   |
+|long  |  BIGINT   |
+|double  |  double   |
 |string  |  nvarchar(max)   |
 |dateTime  |  dateTime   |
 |struct  |  IRecord   |
@@ -126,9 +123,9 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
    |全域儲存體設定資源|選擇目前帳戶中的資料來源|
    |全域儲存體設定訂用帳戶| < 您的訂用帳戶 >|
    |全域儲存體設定儲存體帳戶| < 您的儲存體帳戶 >|
-   |自訂程式碼儲存設定資源|選擇目前帳戶中的資料來源|
-   |自訂程式碼儲存設定儲存體帳戶|< 您的儲存體帳戶 >|
-   |自訂程式碼儲存設定容器|< 您的儲存體容器 >|
+   |自訂程式碼儲存體設定資源|選擇目前帳戶中的資料來源|
+   |自訂程式碼儲存體設定儲存體帳戶|< 您的儲存體帳戶 >|
+   |自訂程式碼儲存體設定容器|< 您的儲存體容器 >|
    |自訂程式碼元件來源|來自雲端的現有元件套件|
    |自訂程式碼元件來源|UserCustomCode .zip|
 

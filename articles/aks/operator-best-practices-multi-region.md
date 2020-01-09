@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5fdb189fcab3da4dad52642571ac42e669828fe3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ff55257891ff379bea9ff44aa5136195ced44354
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971650"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613103"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>因應 Azure Kubernetes Service (AKS) 中商務持續性和災害復原的最佳做法
 
@@ -114,7 +114,7 @@ AKS 區域可用性和配對區域是共同考慮。 請將 AKS 叢集部署到�
 
 即使在 pod 刪除之後，您的應用程式也可能需要持續性儲存體。 在 Kubernetes 中，您可以使用持續性磁片區來保存資料儲存。 持續性磁片區會掛接至節點 VM，然後公開至 pod。 即使 pod 已移至相同叢集內的不同節點，持續性磁片區仍會遵循 pod。
 
-您所使用的複寫策略取決於您的儲存體解決方案。 [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/)、 [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/)、[城堡](https://rook.io/docs/rook/master/disaster-recovery.html)和[Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps)等常見的儲存體解決方案提供自己的嚴重損壞修復和複寫指引。
+您所使用的複寫策略取決於您的儲存體解決方案。 [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/)、 [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/)、[城堡](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html)和[Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps)等常見的儲存體解決方案提供自己的嚴重損壞修復和複寫指引。
 
 一般的策略是提供一般的儲存點，讓應用程式可以在其中寫入其資料。 然後，此資料會複寫到各個區域，再於本機存取。
 

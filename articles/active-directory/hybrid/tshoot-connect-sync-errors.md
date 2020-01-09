@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d824606b1b602d006e53be619d6d955ac2cfb71f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 745ddcc95bb91e61478307265aec1ac8a7ebba54
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213035"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609191"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>針對同步處理期間的錯誤進行疑難排解
 將身分識別資料從 Windows Server Active Directory (AD DS) 同步處理至 Azure Active Directory (Azure AD) 時，可能會發生錯誤。 本文提供不同類型的同步處理錯誤概觀、某些可能導致這些錯誤的案例，以及修正錯誤的可能方式。 本文包含常見的錯誤類型，不一定涵蓋所有可能的錯誤。
@@ -29,7 +29,7 @@ ms.locfileid: "74213035"
 
 使用最新版的 Azure AD Connect \(2016 年 8 月或更新版本\)，在 [Azure 入口網站](https://aka.ms/aadconnecthealth)中可取得「同步處理錯誤」報告做為 Azure AD Connect Health for Sync 的一部分。
 
-從 2016 年 9 月 1 日開始，預設會針對所有「新的」[](how-to-connect-syncservice-duplicate-attribute-resiliency.md)Azure Active Directory 租用戶啟用 *Azure Active Directory 重複屬性恢復*功能。 這項功能會針對未來幾個月內的現有租用戶自動啟用。
+從 2016 年 9 月 1 日開始，預設會針對所有「新的」Azure Active Directory 租用戶啟用 [Azure Active Directory 重複屬性恢復](how-to-connect-syncservice-duplicate-attribute-resiliency.md)功能。 這項功能會針對未來幾個月內的現有租用戶自動啟用。
 
 Azure AD Connect 會從其保持同步的目錄執行三種類型的作業︰匯入、同步處理及匯出。 錯誤可能會發生於所有作業中。 本文主要著重於在匯出至 Azure AD 期間的錯誤。
 
@@ -41,7 +41,7 @@ Azure AD Connect 會從其保持同步的目錄執行三種類型的作業︰匯
 
 ## <a name="data-mismatch-errors"></a>資料不符錯誤
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
-#### <a name="description"></a>描述
+#### <a name="description"></a>說明
 * 當 Azure AD Connect \(同步處理引擎\)指示 Azure Active Directory 新增或更新物件時，Azure AD 會比對使用 **sourceAnchor** 屬性的連入物件與 Azure AD 中物件的 **immutableId** 屬性。 此種比對稱為**完全比對**。
 * 當 Azure AD **找不到**有任何物件符合 **immutableId** 屬性與連入物件的 **sourceAnchor** 屬性時，在佈建新物件之前，它會改回使用 ProxyAddresses 和 UserPrincipalName 屬性來尋找相符項目。 此種比對稱為**大致比對**。 「大致比對」的設計用來比對 Azure AD 中已存在的物件 (也就是源自 Azure AD) 與在同步處理期間進行新增/更新的新物件 (代表內部部署上的相同實體 (使用者、群組))。
 * **InvalidSoftMatch** 發生於完全比對找不到任何相符物件，**而且**大致比對找到相符物件，但該物件具有的 immutableId 值不同於連入物件的 SourceAnchor 值時，就表示相符的物件已經與內部部署 Active Directory 上的另一個物件同步處理。
@@ -109,7 +109,7 @@ Azure AD Connect Health 進行同步處理的同步處理錯誤報告每隔 30 �
 * [重複或無效的屬性會防止 Office 365 進行目錄同步作業](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
-#### <a name="description"></a>描述
+#### <a name="description"></a>說明
 當 Azure AD 嘗試大致比對兩個物件時，兩個不同「物件類型」(例如使用者、群組、連絡人等) 的物件可能具有相同的屬性值來執行大致比對。 Azure AD 中不允許這些屬性重複，因為作業可能會導致 "ObjectTypeMismatch" 同步處理錯誤。
 
 #### <a name="example-scenarios-for-objecttypemismatch-error"></a>ObjectTypeMismatch 錯誤的示範案例
@@ -130,7 +130,7 @@ ObjectTypeMismatch 錯誤的最常見原因是兩個不同類型 (使用者、�
 
 ## <a name="duplicate-attributes"></a>重複的屬性
 ### <a name="attributevaluemustbeunique"></a>AttributeValueMustBeUnique
-#### <a name="description"></a>描述
+#### <a name="description"></a>說明
 Azure Active Directory 結構描述不允許兩個或多個物件的下列屬性具有相同的值。 也就是強制 Azure AD 中的每個物件在指定的執行個體具有這些屬性的唯一值。
 
 * ProxyAddresses
@@ -168,12 +168,12 @@ AttributeValueMustBeUnique 錯誤的最常見原因是兩個具有不同 SourceA
 
 ## <a name="data-validation-failures"></a>資料驗證失敗
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
-#### <a name="description"></a>描述
+#### <a name="description"></a>說明
 Azure Active Directory 會先對資料本身強制執行各種限制，然後才允許該資料寫入目錄中。 這些限制是為了確保使用者在使用相依於這項資料的應用程式時，能獲得最棒的體驗。
 
 #### <a name="scenarios"></a>案例
 a. UserPrincipalName 屬性值具有無效/不支援的字元。
-b.這是另一個 C# 主控台應用程式。 UserPrincipalName 屬性不符合所需的格式。
+b. UserPrincipalName 屬性不符合所需的格式。
 
 #### <a name="how-to-fix-identitydatavalidationfailed-error"></a>如何修正 IdentityDataValidationFailed 錯誤
 a. 確定 userPrincipalName 屬性具有支援的字元和所需的格式。
@@ -182,7 +182,7 @@ a. 確定 userPrincipalName 屬性具有支援的字元和所需的格式。
 * [準備透過 Office 365 目錄同步作業佈建使用者](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
-#### <a name="description"></a>描述
+#### <a name="description"></a>說明
 這種情況會在使用者的 UserPrincipalName 尾碼從一個同盟網域變更為另一個同盟網域時，導致發生 **"FederatedDomainChangeError"** 同步處理錯誤。
 
 #### <a name="scenarios"></a>案例
@@ -204,7 +204,7 @@ a. 確定 userPrincipalName 屬性具有支援的字元和所需的格式。
 * [在您將使用者帳戶的 UPN 變更為使用不同的同盟網域後，Azure Active Directory 同步作業工具未同步處理變更](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## <a name="largeobject"></a>LargeObject
-### <a name="description"></a>描述
+### <a name="description"></a>說明
 當屬性超過 Azure Active Directory 結構描述所設定的允許大小限制、長度限制或計數限制時，同步處理作業會導致 **LargeObject** 或 **ExceededAllowedLength** 同步處理錯誤。 此錯誤通常會發生於下列屬性
 
 * userCertificate
@@ -223,7 +223,7 @@ a. 確定 userPrincipalName 屬性具有支援的字元和所需的格式。
 
 ## <a name="existing-admin-role-conflict"></a>現有的系統管理員角色衝突
 
-### <a name="description"></a>描述
+### <a name="description"></a>說明
 當使用者物件符合下列條件時，使用者物件在同步處理期間就會發生**現有的系統管理員角色衝突**：
 
 - 具系統管理權限，而且
@@ -235,12 +235,12 @@ Azure AD Connect 不允許大致比對內部部署 AD 中的使用者物件與 A
 
 
 ### <a name="how-to-fix"></a>修正方式
-若要解決此問題，請執行下列其中一個動作：
+若要解決此問題，請執行下列動作：
 
- - 從所有系統管理員角色移除 Azure AD 帳戶（擁有者）。 
- - **實刪除**雲端中的隔離物件。 
- - 下一個同步處理週期會負責將內部部署使用者與雲端帳戶進行比對（因為雲端使用者現在已不再是全域 GA）。 
- - 還原擁有者的角色成員資格。 
+1. 從所有系統管理員角色移除 Azure AD 帳戶（擁有者）。 
+2. **實刪除**雲端中的隔離物件。 
+3. 下一個同步處理週期會負責將內部部署使用者與雲端帳戶進行比對（因為雲端使用者現在已不再是全域 GA）。 
+4. 還原擁有者的角色成員資格。 
 
 >[!NOTE]
 >在大致比對內部部署使用者物件與現有 Azure AD 使用者物件之後，您可以再次將管理角色指派給現有使用者物件。

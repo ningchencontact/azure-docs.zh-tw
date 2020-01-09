@@ -1,6 +1,7 @@
 ---
-title: 從于 postgresql 到適用於 PostgreSQL 的 Azure 資料庫-單一伺服器的線上遷移的已知問題/遷移限制文章Microsoft Docs
-description: 瞭解從于 postgresql 到適用於 PostgreSQL 的 Azure 資料庫的線上遷移的已知問題/遷移限制。
+title: 已知問題：從于 postgresql 到適用於 PostgreSQL 的 Azure 資料庫的線上遷移
+titleSuffix: Azure Database Migration Service
+description: 瞭解使用 Azure 資料庫移轉服務從于 postgresql 到適用於 PostgreSQL 的 Azure 資料庫單一伺服器的線上遷移的已知問題和遷移限制。
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,17 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom:
+- seo-lt-2019
+- seo-dt-2019
 ms.topic: article
 ms.date: 10/27/2019
-ms.openlocfilehash: e25e31a9ed656d625d2025d8d0086d23ecf10682
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: c5c0015c5034dd3b30b716264fd97e9881b3fe67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043195"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437862"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>從于 postgresql 至適用于于 postgresql 的 Azure DB 進行線上遷移的已知問題/遷移限制-單一伺服器
 
@@ -34,7 +37,7 @@ ms.locfileid: "73043195"
   - **wal_level** = logical
   - **max_replication_slots** = [遷移的資料庫數目上限];如果您想要遷移四個資料庫，請將值設定為4
   - **max_wal_senders** = [要並行執行之資料庫的最大數目]；建議的值為 10
-- 將 DMS 代理程式 IP 新增至來源於 postgresql pg_hba
+- 將 DMS 代理程式 IP 新增至來源於 postgresql pg_hba. 會議
   1. 完成 DMS 執行個體的佈建之後，請記下 DMS IP 位址。
   2. 將該 IP 位址新增到 pg_hba.conf 檔案，如下所示：
 
@@ -154,7 +157,7 @@ COMMIT;
 ```
 
   > [!NOTE]
-  > 在上述腳本中，"PG_User" 是指用來連接到遷移來源的使用者名稱。
+  > 在上述腳本中，"PG_User" 指的是用來連接到遷移來源的使用者名稱。
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>從 AWS RDS 于 postgresql 線上遷移時的限制
 

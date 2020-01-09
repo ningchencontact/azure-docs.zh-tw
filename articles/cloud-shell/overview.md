@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: acdf52022d8498a186ed4cff90284cd6e299d6c0
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 2edb50910614b47aca5a4d8f7f02c2e3bc69b643
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240850"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449012"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 的概觀
-Azure Cloud Shell 是可用於管理 Azure 資源的互動式、已驗證、可瀏覽器存取的 Shell。
-它可讓您彈性地選擇最適合您工作方式的 shell 體驗, 也就是 Bash 或 PowerShell。
+Azure Cloud Shell 是可經由瀏覽器存取的已驗證互動式殼層，應用在 Azure 資源管理上。
+它可讓您彈性地選擇最適合您工作方式的殼層體驗 (Bash 或 PowerShell)。
 
 按一下下列項目，從 shell.azure.com 嘗試。
 
@@ -44,7 +44,7 @@ Cloud Shell 以 Azure 管理工作為考量，提供以瀏覽器存取命令列�
 
 ![Cloud Shell 中的 Bash](media/overview/overview-bash-pic.png)
 
-![Cloud Shell 中的 PowerShell](media/overview/overview-ps-pic.png)
+![PowerShell 在 Cloud Shell 中](media/overview/overview-ps-pic.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>驗證及設定 Azure 工作站
 Cloud Shell 由 Microsoft 管理，因此隨附受歡迎的命令列工具和語言支援。 Cloud Shell 也可安全地自動驗證，讓您可透過 Azure CLI 或 Azure PowerShell Cmdlet 快速存取您的資源。
@@ -70,9 +70,12 @@ Cloud Shell 提供一種以開放原始碼 Monaco Editor 為基礎的整合式�
 * [Visual Studio Code Azure 帳戶延伸模組](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>連線 Microsoft Azure 檔案儲存體
-Cloud Shell 機是暫時性的, 但您的檔案會以兩種方式保存: 透過磁片映射, 並透過名為`clouddrive`的掛接檔案共用。  第一次啟動時, Cloud Shell 會提示您代表您建立資源群組、儲存體帳戶和 Azure 檔案儲存體共用。 這是一次性的步驟，而且會針對所有工作階段自動連接。 單一檔案共用可以進行對應，並同時供 Cloud Shell 中的 Bash 和 PowerShell 使用。
+Cloud Shell 機是暫時性的，但您的檔案會以兩種方式保存：透過磁片映射，並透過名為 `clouddrive`的已掛接檔案共用。  第一次啟動時，Cloud Shell 會提示要代替您建立資源群組、儲存體帳戶及 Azure 檔案共用。 這是一次性的步驟，而且會針對所有工作階段自動連接。 單一檔案共用可以進行對應，並同時供 Cloud Shell 中的 Bash 和 PowerShell 使用。
 
-閱讀更多以瞭解如何掛接[新的或現有的儲存體帳戶](persisting-shell-storage.md), 或瞭解[Cloud Shell 中使用的持續性機制](persisting-shell-storage.md#how-cloud-shell-storage-works)。
+閱讀更多以瞭解如何掛接[新的或現有的儲存體帳戶](persisting-shell-storage.md)，或瞭解[Cloud Shell 中使用的持續性機制](persisting-shell-storage.md#how-cloud-shell-storage-works)。
+
+> [!NOTE]
+> Cloud shell 儲存體帳戶不支援 Azure 儲存體防火牆。
 
 ## <a name="concepts"></a>概念
 * Cloud Shell 會在以每一工作階段、每位使用者為基礎所提供的暫存主機上執行

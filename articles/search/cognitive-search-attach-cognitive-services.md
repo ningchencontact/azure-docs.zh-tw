@@ -7,24 +7,33 @@ author: LuisCabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: d65b9b60ce93656c9acdc76c77291114468d345a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 12/17/2019
+ms.openlocfilehash: 7ec18cab74d683e4547843f965d22026e7ba22aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113939"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461136"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>將認知服務資源連結至 Azure 認知搜尋中的技能集 
 
-AI 演算法會在 Azure 認知搜尋中驅動用於內容轉換的[擴充管線](cognitive-search-concept-intro.md)。 這些演算法是以 Azure 認知服務資源為基礎，包括影像分析和光學字元辨識（OCR）的[電腦視覺](https://azure.microsoft.com/services/cognitive-services/computer-vision/)，以及實體辨識、關鍵字組解壓縮和其他擴充的[文字分析](https://azure.microsoft.com/services/cognitive-services/text-analytics/)。 如同 Azure 認知搜尋用於檔擴充的用途，演算法會包裝在*技能*內，放在*技能集*中，並在索引編制期間由*索引子*所參考。
+在 Azure 認知搜尋中設定擴充管線時，您可以免費擴充有限數目的檔。 針對較大型且較頻繁的工作負載，您應該附加可計費的認知服務資源。
 
-您可以免費充實有限數目的檔。 或者，您可以針對較大型且較頻繁的工作負載，將可計費的認知服務資源附加至*技能集*。 在本文中，您將瞭解如何附加可計費的認知服務資源，以在 Azure 認知搜尋[索引編制](search-what-is-an-index.md)期間擴充檔。
+在本文中，您將瞭解如何藉由將金鑰指派給定義擴充管線的技能集來連結資源。
 
-> [!NOTE]
-> 可計費事件包括在 Azure 認知搜尋的檔破解階段中，認知服務 API 和影像解壓縮的呼叫。 從檔或不會呼叫認知服務的技能，不會收取文字解壓縮的費用。
->
-> 計費技能的執行是認知服務的[隨用隨付價格](https://azure.microsoft.com/pricing/details/cognitive-services/)。 如需影像解壓縮的價格，請參閱[Azure 認知搜尋定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
+## <a name="resources-used-during-enrichment"></a>擴充期間使用的資源
+
+Azure 認知搜尋相依于認知服務，包括影像分析和光學字元辨識（OCR）的[電腦視覺](https://azure.microsoft.com/services/cognitive-services/computer-vision/)、自然語言處理的[文字分析](https://azure.microsoft.com/services/cognitive-services/text-analytics/)，以及[文字翻譯](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)之類的其他擴充。 在 Azure 認知搜尋的擴充內容中，這些 AI 演算法會包裝在*技能*中，放在*技能集*中，並在索引編制期間參考*索引子*。
+
+## <a name="how-billing-works"></a>計費的運作方式
+
++ Azure 認知搜尋會使用您在技能集上提供的認知服務資源金鑰來計費影像和文字擴充。 計費技能的執行是認知服務的[隨用隨付價格](https://azure.microsoft.com/pricing/details/cognitive-services/)。
+
++ 影像解壓縮是一種 Azure 認知搜尋作業，會在擴充之前先解開檔時進行。 影像解壓縮是可計費的。 如需影像解壓縮的價格，請參閱[Azure 認知搜尋定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
+
++ 文字解壓縮也會在檔破解片語期間發生。 這不是可計費的。
+
++ 不會呼叫認知服務的技能，包括條件式、整形者、文字合併和文字分割技能，都無法計費。
 
 ## <a name="same-region-requirement"></a>相同區域需求
 
@@ -33,7 +42,7 @@ AI 演算法會在 Azure 認知搜尋中驅動用於內容轉換的[擴充管線
 沒有任何方法可以跨區域移動服務。 如果您收到此錯誤，您應該在與 Azure 認知搜尋相同的區域中建立新的認知服務資源。
 
 > [!NOTE]
-> 某些內建技能是以非區域認知服務為基礎（例如，[文字翻譯技能](cognitive-search-skill-text-translation.md)）。 請注意，如果您將這些技能中的任何一項都新增至您的技能集，您的資料就不一定會與您的 Azure 認知搜尋或認知服務資源保持在相同的區域中。 如需詳細資訊，請參閱[服務狀態頁面](https://aka.ms/allinoneregioninfo)。
+> 某些內建技能是以非區域認知服務為基礎（例如，[文字翻譯技能](cognitive-search-skill-text-translation.md)）。 使用非區域技能表示您的要求可能會在 Azure 認知搜尋區域以外的區域中提供服務。 如需非區域服務的詳細資訊，請參閱[依區域認知服務產品](https://aka.ms/allinoneregioninfo)頁面。
 
 ## <a name="use-free-resources"></a>使用免費資源
 
@@ -160,6 +169,6 @@ Content-Type: application/json
 
 ## <a name="next-steps"></a>後續步驟
 + [Azure 認知搜尋定價頁面](https://azure.microsoft.com/pricing/details/search/)
-+ [如何定義技能集](cognitive-search-defining-skillset.md)
++ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
 + [建立技能集 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [如何對應擴充的欄位](cognitive-search-output-field-mapping.md)
++ [如何對應豐富型欄位](cognitive-search-output-field-mapping.md) (英文)

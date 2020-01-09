@@ -2,19 +2,15 @@
 title: 查詢 Azure 更新管理記錄
 description: 本文說明如何查詢記錄檔以進行更新管理
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/26/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 4797e3a348b057fa21677649e4cb7de78de0d8b9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 85b09aa32c8ddee6406469a2adc44e067c58e186
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850613"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420336"
 ---
 # <a name="query-update-records-for-update-management-in-log-analytics"></a>Log Analytics 中更新管理的查詢更新記錄
 

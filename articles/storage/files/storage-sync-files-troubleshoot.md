@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ee8d71cb913dd17bc72023326dbc2ce8a33a3776
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: MT
+ms.openlocfilehash: 861d62f40dc9d8ca2c80e295495df8538ea7cd8d
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976225"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659537"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
-使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定以從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
+使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
 
 本文旨在協助您針對使用 Azure 檔案同步部署時所發生的問題進行疑難排解，並解決這些問題。 文中也說明如果需要更深入調查問題，如何從系統收集重要的記錄。 如果您找不到問題的答案，可透過下列管道 (依先後順序) 和我們連絡：
 
@@ -117,10 +117,10 @@ Reset-StorageSyncServer
     * [角色定義] 應具有 [讀取] 和 [寫入] 權限。
 
 <a id="-2134375898"></a>**伺服器端點建立失敗，發生此錯誤： "MgmtServerJobFailed" （錯誤碼：-2134375898 或0x80c80226）**  
-如果伺服器端點路徑位於系統磁碟區上，且已啟用雲端階層處理，就會發生此錯誤。 系統磁碟區上不支援雲端階層。 若要在系統磁碟區上建立伺服器端點，請於建立伺服器端點時，停用雲端階層處理。
+如果伺服器端點路徑位於系統磁碟區上，而且已啟用雲端階層處理，就會發生此錯誤。 系統磁碟區上不支援雲端階層。 若要在系統磁碟區上建立伺服器端點，請於建立伺服器端點時，停用雲端階層處理。
 
 <a id="-2147024894"></a>**伺服器端點建立失敗，發生此錯誤： "MgmtServerJobFailed" （錯誤碼：-2147024894 或0x80070002）**  
-如果指定的伺服器端點路徑無效，就會發生這個錯誤。 確認指定的伺服器端點路徑是本機連接的 NTFS 磁片區。 請注意，Azure 檔案同步不支援將對應的磁片磁碟機當做伺服器端點路徑。
+如果指定的伺服器端點路徑無效，就會發生這個錯誤。 確認指定的伺服器端點路徑是本機連結的 NTFS 磁碟區。 請注意，Azure 檔案同步不支援將對應的磁片磁碟機當做伺服器端點路徑。
 
 <a id="-2134347507"></a>**伺服器端點建立失敗，發生此錯誤： "MgmtServerJobFailed" （錯誤碼：-2134347507 或0x80c8710d）**  
 發生此錯誤的原因是 Azure 檔案同步不支援磁碟區上的伺服器端點，因為這些磁碟區具有壓縮的「系統磁碟區資訊」資料夾。 若要解決此問題，請將「系統磁碟區資訊」資料夾解壓縮。 如果「系統磁碟區資訊」資料夾是磁碟區上唯一已壓縮的資料夾，請執行下列步驟：
@@ -132,10 +132,10 @@ Reset-StorageSyncServer
     **compact/u/s**
 
 <a id="-2134376345"></a>**伺服器端點建立失敗，發生此錯誤： "MgmtServerJobFailed" （錯誤碼：-2134376345 或0x80C80067）**  
-如果達到每個伺服器的伺服器端點限制，就會發生此錯誤。 Azure 檔案同步目前每個伺服器最多支援30個伺服器端點。 如需詳細資訊，請參閱[Azure 檔案同步調整目標](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-file-sync-scale-targets)。
+如果達到每個伺服器的伺服器端點限制，就會發生此錯誤。 Azure 檔案同步目前支援每個伺服器最多 30 個伺服器端點。 如需詳細資訊，請參閱[Azure 檔案同步調整目標](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-file-sync-scale-targets)。
 
 <a id="-2134376427"></a>**伺服器端點建立失敗，發生此錯誤： "MgmtServerJobFailed" （錯誤碼：-2134376427 或0x80c80015）**  
-如果另一個伺服器端點已經同步處理指定的伺服器端點路徑，就會發生這個錯誤。 Azure 檔案同步不支援多個伺服器端點同步相同的目錄或磁片區。
+如果另一個伺服器端點已經同步指定的伺服器端點路徑，就會發生此錯誤。 Azure 檔案同步不支援多個伺服器端點同步相同的目錄或磁碟區。
 
 <a id="-2160590967"></a>**伺服器端點建立失敗，發生此錯誤： "MgmtServerJobFailed" （錯誤碼：-2160590967 或0x80c80077）**  
 如果伺服器端點路徑包含孤立的分層檔案，就會發生此錯誤。 如果最近移除了伺服器端點，請等到孤立的分層檔案清除完成。 當孤立的階層式檔案清除開始之後，事件識別碼6662會記錄到遙測事件記錄檔中。 當孤立的階層式檔案清除完成，而且可以使用路徑重新建立伺服器端點之後，就會記錄事件識別碼6661。 如果在記錄事件識別碼6661之後，伺服器端點建立失敗，請執行在[刪除伺服器端點後無法在伺服器上存取](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)階層式檔案一節中所述的步驟，以移除孤立的階層式檔案。
@@ -204,7 +204,7 @@ Set-AzStorageSyncServerEndpoint `
 
 ![Azure 入口網站的螢幕擷取畫面](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
-# <a name="servertabserver"></a>[伺服器](#tab/server)
+# <a name="servertabserver"></a>[Server](#tab/server)
 移至伺服器的遙測記錄 (位於事件檢視器的 `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry` 上)。 事件 9102 對應於已完成的同步工作階段；如需最新同步狀態，請尋找識別碼為 9102 的最新事件。 SyncDirection 會指出此工作階段是否已上傳或下載。 HResult 為 0，表示同步工作階段成功。 非零的 HResult 表示在同步期間發生錯誤；請查看下方的常見錯誤清單。 如果 PerItemErrorCount 大於 0，表示某些檔案或資料夾未正確同步。 HResult 為 0，但 PerItemErrorCount 大於 0，是有可能的。
 
 以下是成功上傳的範例。 為了方便說明，以下僅列出每個 9102 事件所包含的部分值。 
@@ -239,7 +239,7 @@ TransferredFiles: 0, TransferredBytes: 0, FailedToTransferFiles: 0, FailedToTran
 # <a name="portaltabportal1"></a>[入口網站](#tab/portal1)
 在您的同步群組中，移至有問題的伺服器端點，並查看 [同步活動] 區段以確認目前的同步工作階段中已上傳或下載的檔案計數。 請注意，此狀態大約會延遲 5 分鐘才顯示，因此如果同步工作階段較小而可在這段期間內完成，就可能不會報告在入口網站中。 
 
-# <a name="servertabserver"></a>[伺服器](#tab/server)
+# <a name="servertabserver"></a>[Server](#tab/server)
 在伺服器的遙測記錄中查看最新的 9302 事件 (在 [事件檢視器] 中，移至 Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry)。 此事件表示目前同步工作階段的狀態。 TotalItemCount 代表要同步的檔案數目、AppliedItemCount 是目前已同步的檔案數目，而 PerItemErrorCount 則是無法同步的檔案數目 (請參閱下方的處置方式)。
 
 ```
@@ -261,7 +261,7 @@ PerItemErrorCount: 1006.
 - [同步活動] 欄位中僅顯示少許或沒有待同步的檔案。
 - 上傳和下載的 [檔案無法同步] 欄位皆為 0。
 
-# <a name="servertabserver"></a>[伺服器](#tab/server)
+# <a name="servertabserver"></a>[Server](#tab/server)
 查看已完成的同步工作階段，這在每個伺服器的遙測事件記錄中會以 9102 事件標示 (在 [事件檢視器] 中，移至 `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`)。 
 
 1. 在任何給定的伺服器上，您都會想要確定最新的上傳和下載工作階段已順利完成。 若要這樣做，請確認上傳和下載的 HResult 和 PerItemErrorCount 皆為 0 (SyncDirection 欄位會指出給定的工作階段是上傳還是下載工作階段)。 請注意，若未看到最近完成的同步工作階段，有可能是同步工作階段正在進行中，這是您剛剛新增或修改大量資料之後的正常情況。
@@ -295,10 +295,10 @@ PerItemErrorCount: 1006.
 | 0x800700B7 | -2147024713 | ERROR_ALREADY_EXISTS | 無法同步檔案或目錄的建立，因為該專案已存在於目的地中，而且同步處理並不知道該變更。 | 不需要任何動作。 在目的地上執行變更偵測並同步處理這個新專案之後，同步處理就會停止記錄這個錯誤。 |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | 無法同步檔案，因為已達 Azure 檔案共用限制。 | 若要解決此問題，請參閱疑難排解指南中的[您已達到 Azure 檔案共用儲存體限制](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810)一節。 |
 | 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | 檔案是由不支援的解決方案（例如 NTFS EFS）所加密。 | 將檔案解密，並使用支援的加密解決方案。 如需支援解決方案的清單，請參閱計劃指南中的[加密解決方案](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions)一節。 |
-| 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | 檔案位於 [DFS-R 唯讀複寫] 資料夾。 | 檔案位於 [DFS-R 唯讀複寫] 資料夾。 Azure 檔案儲存體同步處理不支援 DFS-R 唯讀複寫資料夾上的伺服器端點。 如需詳細資訊，請參閱[規劃指南](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs)。 |
+| 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | 檔案位於 [DFS-R 唯讀複寫] 資料夾。 | 檔案位於 [DFS-R 唯讀複寫] 資料夾。 Azure 檔案同步不支援 DFS-R 唯讀複寫資料夾上的伺服器端點。 如需詳細資訊，請參閱[規劃指南](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs)。 |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | 檔案具有「刪除擱置」狀態。 | 不需要任何動作。 當所有開啟的檔案控制代碼都關閉之後，檔案就會被刪除。 |
 | 0x80c86044 | -2134351804 | ECS_E_AZURE_AUTHORIZATION_FAILED | 無法同步檔案，因為已啟用儲存體帳戶上的防火牆和虛擬網路設定，而且伺服器無法存取儲存體帳戶。 | 遵循部署指南中的[設定防火牆和虛擬網路設定](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)一節所述的步驟，新增伺服器 IP 位址或虛擬網路。 |
-| 0x80c80243 | -2134375869 | ECS_E_SECURITY_DESCRIPTOR_SIZE_TOO_LARGE | 無法同步檔案，因為安全描述項大小超過 64 KiB 限制。 | 若要解決此問題，請移除檔案上的存取控制專案（ACE），以減少安全描述項大小。 |
+| 0x80c80243 | -2134375869 | ECS_E_SECURITY_DESCRIPTOR_SIZE_TOO_LARGE | 無法同步檔案，因為安全描述項大小超過 64 KiB 限制。 | 若要解決此問題，請移除檔案上的存取控制項目 (ACE)，以縮小安全描述項大小。 |
 | 0x8000ffff | -2147418113 | E_UNEXPECTED | 因為發生未預期的錯誤，所以無法同步檔案。 | 如果錯誤持續數天，請開啟支援案例。 |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | 無法同步檔案，因為它正在使用中。 檔案不再處於使用中狀態時即會同步。 | 不需要任何動作。 |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | 檔案在同步處理期間已變更，因此必須再次同步。 | 不需要任何動作。 |
@@ -349,7 +349,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_USER_REQUEST_THROTTLED |
 | **需要補救** | 否 |
 
-不需要任何動作；伺服器會再試一次。 如果此錯誤持續數小時，請建立支援要求。
+不需要任何動作；伺服器會再試一次。 如果此錯誤持續存在數小時，請建立支援要求。
 
 <a id="-2134364043"></a>**同步處理會遭到封鎖，直到變更偵測完成還原後**  
 
@@ -360,7 +360,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
 | **需要補救** | 否 |
 
-不需執行任何動作。 使用 Azure 備份還原檔案或檔案共用（雲端端點）時，同步處理會遭到封鎖，直到 Azure 檔案共用上的變更偵測完成為止。 一旦還原完成，且持續時間是以檔案共用中的檔案數目為依據，變更偵測就會立即執行。
+不需執行任何動作。 使用 Azure 備份還原檔案或檔案共用（雲端端點）時，同步處理會遭到封鎖，直到 Azure 檔案共用上的變更偵測完成為止。 變更偵測會在還原完成時立即執行，而執行時間會取決於檔案共用中的檔案數目。
 
 <a id="-2147216747"></a>**同步處理失敗，因為同步處理資料庫已卸載。**  
 
@@ -371,7 +371,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | SYNC_E_METADATA_INVALID_OPERATION |
 | **需要補救** | 否 |
 
-當備份應用程式建立 VSS 快照集且同步處理資料庫已卸載時，通常就會發生此錯誤。 如果此錯誤持續數小時，請建立支援要求。
+通常，當備份應用程式建立 VSS 快照集，並且已卸載同步資料庫時，就會發生此錯誤。 如果此錯誤持續存在數小時，請建立支援要求。
 
 <a id="-2134364065"></a>**同步作業無法存取雲端端點中指定的 Azure 檔案共用。**  
 
@@ -387,7 +387,7 @@ PerItemErrorCount: 1006.
 1. [確認儲存體帳戶確實存在。](#troubleshoot-storage-account)
 2. [確定 Azure 檔案共用確實存在。](#troubleshoot-azure-file-share)
 3. [確定 Azure 檔案同步具有儲存體帳戶的存取權。](#troubleshoot-rbac)
-4. [確認已正確設定儲存體帳戶上的防火牆和虛擬網路設定（如果已啟用）](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+4. [請確認是否已在儲存體帳戶上正確設定防火牆和虛擬網路設定 (若已啟用的話)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**無法解析使用的儲存體帳戶名稱。**  
 
@@ -404,7 +404,7 @@ PerItemErrorCount: 1006.
     Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
     ```
 2. [確認儲存體帳戶確實存在。](#troubleshoot-storage-account)
-3. [確認已正確設定儲存體帳戶上的防火牆和虛擬網路設定（如果已啟用）](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+3. [請確認是否已在儲存體帳戶上正確設定防火牆和虛擬網路設定 (若已啟用的話)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
 <a id="-2134364022"></a><a id="storage-unknown-error"></a>**存取儲存體帳戶時發生未知的錯誤。**  
 
@@ -416,7 +416,7 @@ PerItemErrorCount: 1006.
 | **需要補救** | 是 |
 
 1. [確認儲存體帳戶確實存在。](#troubleshoot-storage-account)
-2. [確認已正確設定儲存體帳戶上的防火牆和虛擬網路設定（如果已啟用）](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+2. [請確認是否已在儲存體帳戶上正確設定防火牆和虛擬網路設定 (若已啟用的話)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
 <a id="-1906441138"></a>**同步因同步資料庫發生問題而失敗。**  
 
@@ -576,9 +576,9 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_AUTH_SRV_CERT_EXPIRED |
 | **需要補救** | 是 |
 
-因為用於驗證的憑證已過期，所以會發生此錯誤。
+發生此錯誤的原因是用於驗證的憑證已過期。
 
-若要確認憑證已過期，請執行下列步驟：  
+若要確認憑證是否已過期，請執行下列步驟：  
 1. 開啟 [憑證 MMC 嵌入式管理單元]，選取 [電腦帳戶]，並瀏覽至 [憑證 (本機電腦)\個人\憑證]。
 2. 檢查用戶端驗證憑證是否已過期。
 
@@ -620,7 +620,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_AUTH_IDENTITY_NOT_FOUND |
 | **需要補救** | 是 |
 
-發生此錯誤的原因是伺服器端點刪除失敗，而且端點現在處於部分刪除的狀態。 若要解決此問題，請重試刪除伺服器端點。
+之所以發生此錯誤，是因為伺服器端點刪除失敗，而且端點現在處於部分刪除的狀態。 若要解決此問題，請再次嘗試刪除伺服器端點。
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**伺服器端點所在的磁碟區沒有足夠的磁碟空間。**  
 
@@ -647,9 +647,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_REPLICA_NOT_READY |
 | **需要補救** | 否 |
 
-之所以發生此錯誤，是因為 Azure 檔案共用有直接的變更，且變更偵測正在進行中。 變更偵測完成後，就會開始進行同步。
-
-[!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
+發生此錯誤的原因是已使用 Azure 檔案共用上現有的內容建立雲端端點。 Azure 檔案同步必須先掃描所有內容的 Azure 檔案共用，才能讓伺服器端點繼續進行初始同步處理。
 
 <a id="-2134375877"></a><a id="-2134375908"></a><a id="-2134375853"></a>**同步因許多個別檔案有問題而失敗。**  
 
@@ -706,7 +704,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_SERVICE_UNAVAILABLE |
 | **需要補救** | 否 |
 
-之所以發生此錯誤，是因為 Azure 檔案同步服務無法使用。 當 Azure 檔案同步服務再次可供使用時，將會自動解決此錯誤。
+之所以發生此錯誤，是因為 Azure 檔案同步服務無法使用。 此錯誤會在 Azure 檔案同步服務恢復運作時自動解決。
 
 <a id="-2146233088"></a>**因為發生例外狀況，所以同步失敗。**  
 
@@ -717,7 +715,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | COR_E_EXCEPTION |
 | **需要補救** | 否 |
 
-發生此錯誤的原因是因為發生例外狀況，導致同步失敗。 如果錯誤持續數小時，請建立支援要求。
+發生此錯誤的原因是例外狀況造成同步失敗。 如果錯誤持續數小時，請建立支援要求。
 
 <a id="-2134364045"></a>**因為儲存體帳戶已故障切換至另一個區域，所以同步失敗。**  
 
@@ -739,7 +737,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
 | **需要補救** | 否 |
 
-之所以發生此錯誤，是因為同步資料庫發生內部錯誤。 同步重試時，會自動解決此錯誤。 如果此錯誤持續存在一段時間，請建立支援要求，我們會與您連絡，協助您解決這個問題。
+之所以發生此錯誤，是因為同步資料庫發生內部錯誤。 此錯誤會在重試同步時自動解決。 如果此錯誤持續存在一段時間，請建立支援要求，我們會與您連絡，協助您解決這個問題。
 
 <a id="-2134364024"></a>**因為 Azure Active Directory 租使用者中的變更，所以同步失敗**  
 
@@ -750,12 +748,12 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_INVALID_AAD_TENANT |
 | **需要補救** | 是 |
 
-發生此錯誤的原因是 Azure 檔案同步目前不支援將訂用帳戶移至不同的 Azure Active Directory 租使用者。
+之所以發生此錯誤，是因為 Azure 檔案同步目前不支援將訂用帳戶移至不同的 Azure Active Directory 租用戶。
  
 若要解決此問題，請執行下列其中一個選項：
 
 - **選項1（建議）** ：將訂用帳戶移回原始的 Azure Active Directory 租使用者
-- **選項 2**：刪除並重新建立目前的同步處理群組。 如果已在伺服器端點上啟用雲端階層處理，請刪除同步群組，然後執行雲端階層處理[一節]( https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)中記載的步驟，以在重新建立同步群組之前移除孤立的階層式檔案。 
+- **選項 2**：刪除並重新建立目前的同步處理群組。 如果已在伺服器端點上啟用雲端階層處理，請刪除同步群組，然後執行＜[雲端階層處理]( https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)＞區段中所述的步驟，以在重新建立同步群組之前移除孤立的階層式檔案。 
 
 <a id="-2134364010"></a>**因為防火牆與虛擬網路例外狀況未設定，所以同步失敗**  
 
@@ -766,7 +764,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_MGMT_STORAGEACLSBYPASSNOTSET |
 | **需要補救** | 是 |
 
-如果已在儲存體帳戶上啟用防火牆和虛擬網路設定，而且未核取 [允許受信任的 Microsoft 服務存取此儲存體帳戶] 例外狀況，就會發生此錯誤。 若要解決此問題，請遵循部署指南中[設定防火牆和虛擬網路設定](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)一節中所述的步驟。
+如果已在儲存體帳戶上啟用防火牆和虛擬網路設定，而且未核取 [允許受信任的 Microsoft 服務存取此儲存體帳戶] 例外狀況，就會發生此錯誤。 若要解決此問題，請遵循部署指南中＜[設定防火牆和虛擬網路設定](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)＞一節中所述的步驟。
 
 <a id="-2147024891"></a>**同步失敗，因為系統磁碟區資訊資料夾的許可權不正確。**  
 
@@ -777,15 +775,15 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ERROR_ACCESS_DENIED |
 | **需要補救** | 是 |
 
-如果 NT AUTHORITY\SYSTEM 帳戶沒有伺服器端點所在磁片區上 [系統磁碟區資訊] 資料夾的許可權，就會發生此錯誤。 請注意，如果個別檔案無法與 ERROR_ACCESS_DENIED 同步，請執行[針對每個檔案/目錄同步處理錯誤進行疑難排解](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshooting-per-filedirectory-sync-errors)一節中記載的步驟。
+如果 NT AUTHORITY\SYSTEM 帳戶無權存取伺服器端點所在磁碟區上的 [系統磁碟區資訊] 資料夾，就會發生此錯誤。 請注意，如果個別檔案無法與 ERROR_ACCESS_DENIED 同步，請執行[針對每個檔案/目錄同步處理錯誤進行疑難排解](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshooting-per-filedirectory-sync-errors)一節中記載的步驟。
 
 若要解決此問題，請執行下列步驟：
 
-1. 下載[Psexec](https://docs.microsoft.com/sysinternals/downloads/psexec)工具。
+1. 下載 [Psexec](https://docs.microsoft.com/sysinternals/downloads/psexec) 工具。
 2. 從提高許可權的命令提示字元執行下列命令，以使用系統帳戶啟動命令提示字元： **PsExec-i-s-d cmd** 
-3. 從在系統帳戶下執行的命令提示字元中，執行下列命令以確認 NT AUTHORITY\SYSTEM 帳戶沒有系統磁碟區資訊資料夾的存取權： cacls 「**磁碟機號： \ 系統磁碟區資訊」/T/c**
-4. 如果 NT AUTHORITY\SYSTEM 帳戶沒有系統磁碟區資訊資料夾的存取權，請執行下列命令： **cacls 「磁碟機號： \ 系統磁碟區資訊」/T/E/g "NT AUTHORITY\SYSTEM： F"**
-    - 如果步驟 #4 因拒絕存取而失敗，請執行下列命令以取得系統磁碟區資訊資料夾的擁有權，然後重複步驟 #4： **takeown/A/R/f 「磁碟機號： \ 系統磁碟區資訊**」
+3. 在系統帳戶所執行的命令提示字元中，執行下列命令以確認 NT AUTHORITY\SYSTEM 帳戶沒有 [系統磁碟區資訊] 資料夾的存取權：**cacls "drive letter:\system volume information" /T /C**
+4. 如果 NT AUTHORITY\SYSTEM 帳戶沒有 [系統磁碟區資訊] 資料夾的存取權，請執行下列命令：**cacls  "drive letter:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"**
+    - 如果步驟 #4 因存取遭拒而失敗，請執行下列命令來取得 [系統磁碟區資訊] 資料夾的擁有權，然後重複步驟 #4：**takeown /A /R /F "drive letter:\System Volume Information"**
 
 <a id="-2134375810"></a>**因為已刪除並重新建立 Azure 檔案共用，所以同步失敗。**  
 
@@ -796,9 +794,9 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_SYNC_REPLICA_ROOT_CHANGED |
 | **需要補救** | 是 |
 
-發生此錯誤的原因是 Azure 檔案同步不支援在相同的同步群組中刪除和重新建立 Azure 檔案共用。 
+之所以發生此錯誤，是因為 Azure 檔案同步不支援在相同的同步群組中刪除和重新建立 Azure 檔案共用。 
 
-若要解決此問題，請執行下列步驟來刪除並重新建立同步群組：
+若要解決此問題，請執行下列步驟來刪除同步群組，然後重新建立：
 
 1. 刪除同步處理群組中的所有伺服器端點。
 2. 刪除雲端端點。 

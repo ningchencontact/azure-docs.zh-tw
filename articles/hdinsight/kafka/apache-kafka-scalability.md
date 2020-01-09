@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.openlocfilehash: ef32a5d3a1439cded6cd092f076e7b26c178cb7a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 12/09/2019
+ms.openlocfilehash: 5ce8414376862b66314f754252aba3ab6afdaf25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122099"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435304"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>在 HDInsight 上設定 Apache Kafka 的儲存體和延展性
 
@@ -27,14 +27,14 @@ HDInsight 上的 Kafka 會在 HDInsight 叢集中使用虛擬機器的本機磁�
 
 ## <a name="configure-managed-disks-azure-portal"></a>設定受控磁碟：Azure 入口網站
 
-1. 請遵循[建立 HDInsight 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)中的步驟，了解使用入口網站建立叢集的一般步驟。 請勿完成入口網站建立程序。
+1. 請遵循[建立 HDInsight 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)中的步驟，了解使用入口網站建立叢集的一般步驟。 請勿完成入口網站建立程式。
 
-2. 從 [叢集大小] 區段，使用 [每個背景工作角色節點的磁碟] 欄位來設定磁碟的數目。
+2. 從 [設定] **& [定價**] 區段中，使用 [__節點數目__] 欄位來設定磁片數目。
 
     > [!NOTE]  
     > 受控磁碟的類型可以是__標準__ (HDD) 或__進階__ (SSD)。 進階磁碟會與 DS 和 GS 系列搭配使用。 所有其他的 VM 類型是使用標準磁碟。
 
-    ![已反白顯示每個背景工作節點之磁片的 [叢集大小] 區段](./media/apache-kafka-scalability/set-managed-disks-portal.png)
+    ![已反白顯示每個背景工作節點之磁片的 [叢集大小] 區段](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka.png)
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>設定受控磁碟：Resource Manager 範本
 
@@ -54,7 +54,7 @@ HDInsight 上的 Kafka 會在 HDInsight 叢集中使用虛擬機器的本機磁�
 
 如需使用 HDInsight 上 Apache Kafka 的詳細資訊，請參閱下列文件：
 
-* [使用 MirrorMaker 建立 HDInsight 上的 Apache Kafka 複本](apache-kafka-mirroring.md)
+* [使用 MirrorMaker 在 HDInsight 上建立 Apache Kafka 複本](apache-kafka-mirroring.md)
 * [在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka](../hdinsight-apache-storm-with-kafka.md)
 * [在 HDInsight 上搭配使用 Apache Spark 與 Apache Kafka](../hdinsight-apache-spark-with-kafka.md)
 * [透過 Azure 虛擬網路連線到 Apache Kafka](apache-kafka-connect-vpn-gateway.md)

@@ -1,23 +1,18 @@
 ---
-title: Azure 應用程式設定時間點快照集 | Microsoft Docs
+title: Azure 應用程式組態時間點快照集
 description: 概略說明時間點快照集在 Azure 應用程式設定中的運作方式
 services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: balans
-editor: ''
-ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
-ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: fdbe4846700c690261dbc734063f4420478666a8
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.service: azure-app-configuration
+ms.topic: conceptual
+ms.date: 02/24/2019
+ms.openlocfilehash: 4db52ce1897aa5a2b809cb7044b9764baffd0767
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185207"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495251"
 ---
 # <a name="point-in-time-snapshot"></a>時間點快照集
 
@@ -25,10 +20,12 @@ Azure 應用程式設定會記錄新的索引鍵值組建立和後續修改的�
 
 ## <a name="key-value-retrieval"></a>擷取金鑰-值
 
-若要擷取過去的索引鍵值，請在 REST API 呼叫的 HTTP 標頭中，指定索引鍵值快照集的建立時間。 例如︰
+若要擷取過去的索引鍵值，請在 REST API 呼叫的 HTTP 標頭中，指定索引鍵值快照集的建立時間。 例如：
 
-        GET /kv HTTP/1.1
-        Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT
+```rest
+GET /kv HTTP/1.1
+Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT
+```
 
 目前，應用程式設定會保留七天的變更記錄。
 

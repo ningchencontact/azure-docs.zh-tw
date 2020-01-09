@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用最佳化建議降低 Azure 成本 | Microsoft Docs
+title: 教學課程-使用建議來降低 Azure 成本
 description: 本教學課程可在您針對最佳化建議採取行動時協助您降低 Azure 成本。
 services: cost-management
 keywords: ''
@@ -10,25 +10,25 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a9dbb121cab49024aaf0dc65bbac938764d9f8b2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6c3fc60ca623649a175fb1078efc6903ebde2811
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229841"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444592"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>教學課程：透過建議最佳化成本
 
 Azure 成本管理可搭配 Azure Advisor，提供成本最佳化建議。 Azure Advisor 可協助您透過識別閒置及使用量過低的資源來最佳化及改善效率。 本教學課程會引導您完成範例，識別使用量過低的 Azure 資源，並讓您採取動作以降低成本。
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 檢視成本最佳化建議以檢視潛在的使用效率不足
 > * 針對建議採取行動，將虛擬機器大小調整至更符合成本效益的選項
 > * 驗證動作，確保虛擬機器的大小已成功調整
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 建議適用于各種範圍和 Azure 帳戶類型。 若要檢視所支援帳戶類型的完整清單，請參閱[了解成本管理資料](understand-cost-mgt-data.md)。 您必須至少具備一或多個下列範圍的讀取存取，才能檢視成本資料。 如需有關範圍的詳細資訊，請參閱[了解並使用範圍](understand-work-scopes.md)。
 
 - 訂閱
@@ -37,7 +37,7 @@ Azure 成本管理可搭配 Azure Advisor，提供成本最佳化建議。 Azure
 您必須擁有使用中的虛擬機器，且其至少需要活動 14 天。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
-在 [https://portal.azure.com](https://portal.azure.com/) 登入 Azure 入口網站。
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com/)。
 
 ## <a name="view-cost-optimization-recommendations"></a>檢視成本最佳化建議
 

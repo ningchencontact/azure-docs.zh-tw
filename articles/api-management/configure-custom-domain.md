@@ -1,5 +1,6 @@
 ---
-title: 設定 Azure API 管理執行個體的自訂網域名稱 | Microsoft Docs
+title: 設定 Azure API 管理實例的自訂功能變數名稱
+titleSuffix: Azure API Management
 description: 本主題描述如何設定 Azure API 管理執行個體的自訂網域名稱。
 services: api-management
 documentationcenter: ''
@@ -11,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: ba2288fa4add6df6b7861b5f8a99bcd3ee8b4c12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8fe07318d33980ad3ec9fc3d6e8749c6c9aed42e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472200"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442553"
 ---
 # <a name="configure-a-custom-domain-name"></a>設定自訂網域名稱
 
@@ -59,7 +60,7 @@ ms.locfileid: "73472200"
 1. 選取您想要更新的端點。
 1. 在右側視窗中，按一下 [自訂]。
 
-    - 在 [自訂網域名稱] 中，指定您想要使用的名稱。 例如， `api.contoso.com`。
+    - 在 [自訂網域名稱] 中，指定您想要使用的名稱。 例如： `api.contoso.com` 。
     - 在 [**憑證**] 中，選取 Key Vault 的憑證。 您也可以上傳有效的。PFX 檔案，並提供**密碼**（如果使用密碼保護憑證）。
 
     > [!NOTE]

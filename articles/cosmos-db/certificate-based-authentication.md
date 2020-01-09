@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Cosmos DB Azure Active Directory 以憑證為基礎的驗證
+title: 以憑證為基礎的驗證與 Azure Cosmos DB 和 Active Directory
 description: 瞭解如何設定 Azure AD 身分識別以進行憑證型驗證，以從 Azure Cosmos DB 存取金鑰。
 author: voellm
 ms.service: cosmos-db
@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 5ce8bfb593b1973e76b90223de9261134ec71dd4
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 9e9dd529edea23b27de2e3841079244558d6689a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483241"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442109"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>以憑證為基礎的驗證，用於從 Azure Cosmos DB 帳戶存取金鑰的 Azure AD 身分識別
 
 以憑證為基礎的驗證可讓您的用戶端應用程式使用 Azure Active Directory （Azure AD）搭配用戶端憑證來進行驗證。 您可以在需要身分識別的電腦（例如 Azure 中的內部部署機器或虛擬機器）上執行以憑證為基礎的驗證。 您的應用程式可以讀取 Azure Cosmos DB 金鑰，而不需要直接在應用程式中擁有金鑰。 本文說明如何建立範例 Azure AD 應用程式、將其設定為以憑證為基礎的驗證、使用新的應用程式身分識別登入 Azure，然後從您的 Azure Cosmos 帳戶中抓取金鑰。 本文使用 Azure PowerShell 來設定身分識別，並提供C#範例應用程式來驗證和存取 Azure Cosmos 帳戶中的金鑰。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 安裝[最新版](/powershell/azure/install-az-ps)的 Azure PowerShell。
 

@@ -1,18 +1,18 @@
 ---
-title: 轉譯功能 - Azure Batch
-description: 如何使用 Azure Batch 轉譯功能
+title: 使用轉譯功能-Azure Batch
+description: 如何使用 Azure Batch 轉譯功能。 嘗試直接或從用戶端應用程式外掛程式叫用 Batch Explorer 應用程式。
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2dff44f0b5b4b02c39c4c63f23ff64d55ca9d833
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d181b9b2495ebd106bb068b78131fa90c2f6d62c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337593"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449672"
 ---
 # <a name="using-azure-batch-rendering"></a>使用 Azure Batch 轉譯
 
@@ -32,7 +32,7 @@ ms.locfileid: "60337593"
 
 試用 Azure Batch 轉譯的最佳方式，是直接使用 Batch Explorer 應用程式，或從用戶端應用程式外掛程式叫用該應用程式；這對於不是開發人員和 Azure 專家的使用者而言，也是最簡單的方式。
 
-## <a name="using-batch-explorer"></a>使用 Batch Explorer
+## <a name="using-batch-explorer"></a>使用 Batch 總管
 
 如需使用 Batch Explorer 執行轉譯的逐步教學課程，請參閱 [Blender 教學課程](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)。
 

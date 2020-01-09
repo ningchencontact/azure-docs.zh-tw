@@ -4,15 +4,15 @@ description: 在 Azure 監視器中設定並使用 DNS 分析解決方案，以�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: a4123ed4633cbb8195639766e7b23e3ea9f14e71
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6500020d9d1c7c735206efe8ebb08fd908eee10d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899098"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403255"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>收集搭配 DNS 分析預覽版解決方案使用 DNS 基礎結構的深入解析
 
@@ -77,7 +77,7 @@ DNS 分析可協助您︰
 - Microsoft DNS 資料收集器智慧套件 (Microsoft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS 分析組態 (Microsoft.IntelligencePack.Dns.Configuration)
 
-如需有關方案管理組件如何更新的詳細資訊，請參閱[將 Operations Manager 連接到 Log Analytics](../platform/om-agents.md)。
+如需有關方案管理組件如何更新的詳細資訊，請參閱 [將 Operations Manager 連接到 Log Analytics](../platform/om-agents.md)。
 
 ## <a name="use-the-dns-analytics-solution"></a>使用 DNS 分析解決方案
 
@@ -166,7 +166,7 @@ DNS 圖格包含收集到的資料所在的 DNS 伺服器之數目。 它也包�
 
     a. 若要檢視查閱查詢的記錄資料，請從左側 facet 控制項選取 **LookUpQuery** 作為 **Subtype** 篩選條件。 隨即顯示列出所選時間週期之查閱查詢事件的資料表。
 
-    b.這是另一個 C# 主控台應用程式。 若要檢視動態註冊的記錄資料，請從左側 facet 控制項選取 **DynamicRegistration** 作為 **Subtype** 篩選條件。 隨即顯示列出所選時間週期之動態註冊事件的資料表。
+    b. 若要檢視動態註冊的記錄資料，請從左側 facet 控制項選取 **DynamicRegistration** 作為 **Subtype** 篩選條件。 隨即顯示列出所選時間週期之動態註冊事件的資料表。
 
     c. 若要檢視設定變更的記錄資料，請從左側 facet 控制項選取 **ConfigurationChange** 作為 **Subtype** 篩選條件。 隨即顯示列出所選時間週期之設定變更事件的資料表。
 

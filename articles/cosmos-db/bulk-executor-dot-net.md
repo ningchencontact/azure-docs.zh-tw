@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Cosmos DB 中使用大量執行程式 .NET 程式庫來執行大量匯入和更新作業
+title: 在 Azure Cosmos DB 中使用大量執行程式 .NET 程式庫來進行大量匯入和更新作業
 description: 使用大量執行程式 .NET 程式庫來大量匯入和更新 Azure Cosmos DB 檔。
 author: tknandu
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d76426e738d78391b92b008e821672017520b7d2
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d7600267dcd196a9a5c06c29774ea21d582cd7ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218395"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442186"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>使用大量執行程式 .NET 程式庫在 Azure Cosmos DB 中執行大量作業
 
@@ -26,9 +26,9 @@ ms.locfileid: "71218395"
 
 * 如果您尚未安裝 Visual Studio 2019，您可以下載並使用[Visual Studio 2019 的社區版](https://www.visualstudio.com/downloads/)。 請確定您在 Visual Studio 設定期間啟用「Azure 開發」。
 
-* 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
+* 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
-* 您可以[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，無須 Azure 訂用帳戶，也無須任何費用和約定付款。 或者，您可以使用[Azure Cosmos DB 模擬器](https://docs.microsoft.com/azure/cosmos-db/local-emulator) `https://localhost:8081`搭配端點。 [驗證要求](local-emulator.md#authenticating-requests)中會提供主索引鍵。
+* 您可以[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，無須 Azure 訂用帳戶，也無須任何費用和約定付款。 或者，您可以使用[Azure Cosmos DB 模擬器](https://docs.microsoft.com/azure/cosmos-db/local-emulator)搭配 `https://localhost:8081` 端點。 [驗證要求](local-emulator.md#authenticating-requests)中會提供主索引鍵。
 
 * 使用 .NET 快速入門文章中＜[建立資料庫帳戶](create-sql-api-dotnet.md#create-account)＞一節所述的步驟，建立 Azure Cosmos DB SQL API 帳戶。
 
@@ -100,7 +100,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    ```
    **BulkImportAsync 方法可接受下列參數：**
    
-   |**參數**  |**描述** |
+   |**參數**  |**說明** |
    |---------|---------|
    |enableUpsert    |   在檔上啟用 upsert 作業的旗標。 如果具有指定識別碼的檔已經存在，就會更新。 預設會設定為 false。      |
    |disableAutomaticIdGeneration    |    停用自動產生識別碼的旗標。 預設會設定為 true。     |
@@ -110,20 +110,20 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
    **大量匯入回應物件定義**大量匯入 API 呼叫的結果包含下列屬性：
 
-   |**參數**  |**描述**  |
+   |**參數**  |**說明**  |
    |---------|---------|
    |NumberOfDocumentsImported (long)   |  從提供給大量匯入 API 呼叫的檔總數中成功匯入的檔總數。       |
    |TotalRequestUnitsConsumed (double)   |   大量匯入 API 呼叫取用的要求單位 (RU) 總數。      |
    |TotalTimeTaken (TimeSpan)    |   大量匯入 API 呼叫完成執行所花費的總時間。      |
-   |BadInputDocuments （列出\<物件 >）   |     格式錯誤而未成功匯入大量匯入 API 呼叫的文件清單。 修正傳回的檔，然後重試匯入。 格式錯誤的文件包含其識別碼值不是字串 (Null 或任何其他視為無效的資料類型) 的文件。    |
+   |BadInputDocuments （List\<物件 >）   |     格式錯誤而未成功匯入大量匯入 API 呼叫的文件清單。 修正傳回的檔，然後重試匯入。 格式錯誤的文件包含其識別碼值不是字串 (Null 或任何其他視為無效的資料類型) 的文件。    |
 
 ## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>大量更新 Azure Cosmos 帳戶中的資料
 
-您可以使用 BulkUpdateAsync API 來更新現有的文件。 在此範例中，您會將`Name`欄位設定為新的值，並`Description`從現有的檔中移除該欄位。 如需完整的支援更新作業集，請參閱[API 檔](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet)。
+您可以使用 BulkUpdateAsync API 來更新現有的文件。 在此範例中，您會將 `Name` 欄位設定為新的值，並從現有的檔中移除 [`Description`] 欄位。 如需完整的支援更新作業集，請參閱[API 檔](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet)。
 
 1. 瀏覽至 "BulkUpdateSample" 資料夾，然後開啟 "BulkUpdateSample.sln" 檔案。  
 
-2. 定義更新專案以及對應的欄位更新作業。 在此範例中，您將`SetUpdateOperation`使用來`Name`更新`Description`欄位， `UnsetUpdateOperation`並從所有檔中移除欄位。 您也可以執行其他作業，例如透過指定值來遞增文件欄位、將特定值推送至陣列欄位中，或是從陣列欄位中移除特定值。 若要了解大量更新 API 提供的不同方法，請參閱 [API 文件](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet)。
+2. 定義更新專案以及對應的欄位更新作業。 在此範例中，您將使用 `SetUpdateOperation` 來更新 [`Name`] 欄位，並 `UnsetUpdateOperation` 從所有檔移除 [`Description`] 欄位。 您也可以執行其他作業，例如透過指定值來遞增文件欄位、將特定值推送至陣列欄位中，或是從陣列欄位中移除特定值。 若要了解大量更新 API 提供的不同方法，請參閱 [API 文件](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet)。
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -151,7 +151,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    ```  
    **BulkUpdateAsync 方法可接受下列參數：**
 
-   |**參數**  |**描述** |
+   |**參數**  |**說明** |
    |---------|---------|
    |maxConcurrencyPerPartitionKeyRange    |   每個資料分割索引鍵範圍的最大並行程度，將此參數設定為 null 會讓程式庫使用預設值（20）。   |
    |maxInMemorySortingBatchSize    |    從傳遞至每個階段中 API 呼叫的更新專案列舉值，提取的更新專案數上限。 針對大量更新之前發生的記憶體中排序階段，將此參數設定為 null 會導致程式庫使用預設最小值（updateItems. count，1000000）。     |
@@ -159,7 +159,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
    **大量更新回應物件定義**大量更新 API 呼叫的結果包含下列屬性：
 
-   |**參數**  |**描述** |
+   |**參數**  |**說明** |
    |---------|---------|
    |NumberOfDocumentsUpdated (long)    |   已在提供給大量更新 API 呼叫的檔總數中，成功更新的檔數目。      |
    |TotalRequestUnitsConsumed (double)   |    大量更新 API 呼叫所耗用的要求單位（ru）總數。    |
@@ -171,11 +171,11 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
 * 為了達到最佳效能，請從與您 Azure Cosmos 帳戶的寫入區域位於相同區域的 Azure 虛擬機器執行您的應用程式。  
 
-* 建議您在對應至特定 Azure Cosmos `BulkExecutor`容器的單一虛擬機器中，為整個應用程式具現化單一物件。  
+* 建議您在對應至特定 Azure Cosmos 容器的單一虛擬機器中，為整個應用程式具現化單一 `BulkExecutor` 物件。  
 
-* 因為單一大量作業 API 執行會耗用大量的用戶端機器的 CPU 和網路 IO （這會發生在內部產生多個工作）。 避免在執行大量作業 API 呼叫的應用程式進程中，產生多個並行工作。 如果在單一虛擬機器上執行的單一大量作業 API 呼叫無法取用整個容器的輸送量（如果容器的輸送量 > 1000000 RU/秒），則建議您建立個別的虛擬機器以同時執行大量作業 API 呼叫。  
+* 因為單一大量作業 API 執行會耗用大量的用戶端機器的 CPU 和網路 IO （這會發生在內部產生多個工作）。 避免在執行大量作業 API 呼叫的應用程式進程中，產生多個並行工作。 如果在單一虛擬機器上執行的單一大量作業 API 呼叫無法取用整個容器的輸送量（如果容器的輸送量 > 1000000 RU/秒），則建議您建立個別的虛擬機器，以同時執行大量作業 API 呼叫。  
 
-* 請確定`InitializeAsync()`在具現化 BulkExecutor 物件之後叫用方法，以提取目標 Cosmos 容器的分割區對應。  
+* 請確定在具現化 BulkExecutor 物件之後叫用 `InitializeAsync()` 方法，以提取目標 Cosmos 容器的分割區對應。  
 
 * 在應用程式的 App.Config 中，為擁有最佳效能，請確保已啟用 **gcServer**
   ```xml  

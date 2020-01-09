@@ -2,26 +2,21 @@
 title: 頁面上的連結對 Application Proxy 應用程式沒有作用
 description: 如何為已與 Azure AD 整合之 Application Proxy 應用程式上的中斷連結問題疑難排解
 services: active-directory
-documentationcenter: ''
 author: msmimart
-manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 268775d125e783b0c640e565c5f63e416cb197fd
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: ca782b5a190704911472d70c414d12afa7e558f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996947"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430234"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>頁面上的連結對 Application Proxy 應用程式沒有作用
 
@@ -41,7 +36,7 @@ ms.locfileid: "74996947"
     如果您變更內部 URL，但不想要變更使用者的登陸頁面，請將首頁 URL 變更為先前發佈的內部 URL。 若要完成這項作業，請前往「Azure Active Directory」-&gt; 應用程式註冊-&gt; 選取應用程式&gt; 商標。 在 [商標] 區段中，您會看到 [首頁 URL] 欄位，您可以將其調整為所需的登陸頁面。 如果您仍在使用舊版應用程式註冊體驗，[屬性] 索引標籤會顯示 [首頁 URL] 詳細資料。 
     
     > [!IMPORTANT]
-    > 為了進行上述變更，您需要在 Azure AD 中修改應用程式物件的許可權。使用者必須被指派「[應用程式系統管理員](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/roles-delegate-app-roles#assign-built-in-application-admin-roles)」角色，以將 Azure AD 中的應用程式 modificaion 許可權授與使用者。 
+    > 為了進行上述變更，您需要在 Azure AD 中修改應用程式物件的許可權。使用者必須獲指派[應用程式系統管理員](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles)角色，才能將 Azure AD 中的應用程式 modificaion 許可權授與使用者。
     >
 
 2.  如果您的應用程式使用完整的網域名稱 (FQDN)，請使用[自訂網域](application-proxy-configure-custom-domain.md)發佈您的應用程式。 這項功能可讓內部與外部使用相同的 URL。

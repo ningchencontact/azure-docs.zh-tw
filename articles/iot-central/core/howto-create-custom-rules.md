@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 8c0328c1d82af5e96afca29f05a065450eab9ae4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 98b5cc707ca8b5ebd1ee88f02082fd3f10fa73dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950739"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434993"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>使用串流分析、Azure Functions 和 SendGrid 的自訂規則擴充 Azure IoT Central
 
@@ -38,19 +38,19 @@ ms.locfileid: "72950739"
 
 使用下列設定在[Azure IoT Central 應用程式管理員](https://aka.ms/iotcentral)網站上建立 IoT Central 應用程式：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ------- | ----- |
 | 付款計劃 | 隨用隨付 |
-| 應用程式範本 | Contoso 範例 |
+| 應用程式範本 | 舊版應用程式 |
 | 應用程式名稱 | 接受預設值，或選擇您自己的名稱 |
 | URL | 接受預設值，或選擇您自己唯一的 URL 前置詞 |
 | 目錄 | 您的 Azure Active Directory 租使用者 |
 | Azure 訂用帳戶 | 您的 Azure 訂用帳戶 |
-| 地區 | 美國東部 |
+| 地區 | 美國 |
 
-本文中的範例和螢幕擷取畫面會使用「**美國東部**」區域。 選擇接近您的位置的位置，並確定您在相同的區域中建立所有資源。
+本文中的範例和螢幕擷取畫面會使用**美國**地區。 選擇接近您的位置的位置，並確定您在相同的區域中建立所有資源。
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>資源群組
 
 使用 Azure 入口網站建立名為**DetectStoppedDevices**的[資源群組](https://portal.azure.com/#create/Microsoft.ResourceGroup)，以包含您所建立的其他資源。 在與 IoT Central 應用程式相同的位置中建立 Azure 資源。
 
@@ -58,25 +58,25 @@ ms.locfileid: "72950739"
 
 使用 Azure 入口網站建立具有下列設定的[事件中樞命名空間](https://portal.azure.com/#create/Microsoft.EventHub)：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ------- | ----- |
-| Name    | 選擇您的命名空間名稱 |
+| 名稱    | 選擇您的命名空間名稱 |
 | 價格層 | 基本 |
-| Subscription | 您的訂用帳戶 |
-| Resource group | DetectStoppedDevices |
-| Location | 美國東部 |
+| 訂閱 | 您的訂用帳戶 |
+| 資源群組 | DetectStoppedDevices |
+| 位置 | 美國東部 |
 | 輸送量單位 | 1 |
 
 ### <a name="stream-analytics-job"></a>串流分析作業
 
 使用[Azure 入口網站來建立](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob)具有下列設定的串流分析作業：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ------- | ----- |
-| Name    | 選擇您的作業名稱 |
-| Subscription | 您的訂用帳戶 |
-| Resource group | DetectStoppedDevices |
-| Location | 美國東部 |
+| 名稱    | 選擇您的作業名稱 |
+| 訂閱 | 您的訂用帳戶 |
+| 資源群組 | DetectStoppedDevices |
+| 位置 | 美國東部 |
 | 裝載環境 | 雲端 |
 | 串流單位數 | 3 |
 
@@ -84,14 +84,14 @@ ms.locfileid: "72950739"
 
 使用 Azure 入口網站來建立具有下列設定的[函數應用程式](https://portal.azure.com/#create/Microsoft.FunctionApp)：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ------- | ----- |
 | 應用程式名稱    | 選擇您的函數應用程式名稱 |
-| Subscription | 您的訂用帳戶 |
-| Resource group | DetectStoppedDevices |
+| 訂閱 | 您的訂用帳戶 |
+| 資源群組 | DetectStoppedDevices |
 | OS | Windows |
 | 主控方案 | 取用方案 |
-| Location | 美國東部 |
+| 位置 | 美國東部 |
 | 執行階段堆疊 | .NET |
 | 儲存體 | 新建 |
 
@@ -99,12 +99,12 @@ ms.locfileid: "72950739"
 
 使用 Azure 入口網站建立具有下列設定的[SendGrid 帳戶](https://portal.azure.com/#create/Sendgrid.sendgrid)：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ------- | ----- |
-| Name    | 選擇您的 SendGrid 帳戶名稱 |
+| 名稱    | 選擇您的 SendGrid 帳戶名稱 |
 | 密碼 | 建立密碼 |
-| Subscription | 您的訂用帳戶 |
-| Resource group | DetectStoppedDevices |
+| 訂閱 | 您的訂用帳戶 |
+| 資源群組 | DetectStoppedDevices |
 | 價格層 | F1 免費 |
 | 連絡人資訊 | 填寫必要資訊 |
 
@@ -240,20 +240,20 @@ test-device-3   2019-05-02T14:24:28.919Z
 1. 在 Azure 入口網站中，流覽至您的串流分析作業，在 [**工作拓撲**] 下選取 [**輸入**]，選擇 [ **+ 新增串流輸入**]，然後選擇 [**事件中樞**]。
 1. 使用下表中的資訊，使用您先前建立的事件中樞來設定輸入，然後選擇 [**儲存**]：
 
-    | 設定 | Value |
+    | 設定 | 值 |
     | ------- | ----- |
     | 輸入別名 | centraltelemetry |
-    | Subscription | 您的訂用帳戶 |
+    | 訂閱 | 您的訂用帳戶 |
     | 事件中樞命名空間 | 您的事件中樞命名空間 |
     | 事件中樞名稱 | 使用現有的- **centralexport** |
 
 1. 在 [**作業拓撲**] 下，選取 [**輸出**]，選擇 [ **+ 新增**]，然後選擇 [ **Azure function**]。
 1. 請使用下表中的資訊來設定輸出，然後選擇 [**儲存**]：
 
-    | 設定 | Value |
+    | 設定 | 值 |
     | ------- | ----- |
     | 輸出別名 | emailnotification |
-    | Subscription | 您的訂用帳戶 |
+    | 訂閱 | 您的訂用帳戶 |
     | 函式應用程式 | 您的函數應用程式 |
     | 函式  | HttpTrigger1 |
 
@@ -310,13 +310,13 @@ test-device-3   2019-05-02T14:24:28.919Z
 1. 流覽至 **連續資料匯出** 頁面，選取  **+ 新增**，然後**Azure 事件中樞**。
 1. 使用下列設定來設定匯出，然後選取 [**儲存**]：
 
-    | 設定 | Value |
+    | 設定 | 值 |
     | ------- | ----- |
     | 顯示名稱 | 匯出至事件中樞 |
-    | 已啟用 | 開啟 |
+    | 啟用 | 開啟 |
     | 事件中樞命名空間 | 您的事件中樞命名空間名稱 |
     | 事件中樞 | centralexport |
-    | 量測 | 開啟 |
+    | 度量 | 開啟 |
     | 裝置 | 關 |
     | 裝置範本 | 關 |
 

@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0fd50f730c604ba1359218cf5268bd20e570d3c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7afad7bdc0cd0fb957104e4963eaade96fa2d840
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962639"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423926"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>呼叫 web Api 的 Daemon 應用程式-程式碼設定
 
@@ -31,11 +31,11 @@ ms.locfileid: "74962639"
 
 支援 daemon 應用程式的 Microsoft 程式庫包括：
 
-  MSAL 程式庫 | 描述
+  MSAL 程式庫 | 說明
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 建立 daemon 應用程式的支援平臺是 .NET Framework 和 .NET Core 平臺（而不是 UWP、Xamarin 和 Xamarin，因為這些平臺是用來建立公用用戶端應用程式）
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | 進行中的開發-現已公開預覽
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | 進行中的開發-現已公開預覽
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | 支援 Python 中的 daemon 應用程式
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | 支援 JAVA 中的 daemon 應用程式
 
 ## <a name="configuration-of-the-authority"></a>設定授權單位
 
@@ -136,7 +136,7 @@ public class TestData {
 在 MSAL.NET 中，機密用戶端應用程式是由 `IConfidentialClientApplication` 介面表示。
 在原始程式碼中使用 MSAL.NET 命名空間
 
-```CSharp
+```csharp
 using Microsoft.Identity.Client;
 IConfidentialClientApplication app;
 ```
@@ -164,7 +164,7 @@ import com.microsoft.aad.msal4j.IAuthenticationResult;
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .WithClientSecret(config.ClientSecret)
            .WithAuthority(new Uri(config.Authority))
@@ -204,7 +204,7 @@ ConfidentialClientApplication app = ConfidentialClientApplication.builder(
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .WithCertificate(certificate)
@@ -271,7 +271,7 @@ MSAL.NET 有兩種方法可將已簽署的判斷提示提供給機密用戶端�
 
 當您使用 `WithClientAssertion`時，您需要提供已簽署的 JWT。 [用戶端判斷](msal-net-client-assertions.md)提示中會詳細說明這個 advanced 案例
 
-```CSharp
+```csharp
 string signedClientAssertion = ComputeAssertion();
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientAssertion(signedClientAssertion)
@@ -281,7 +281,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 當您使用 `WithClientClaims`時，MSAL.NET 會自行計算已簽署的判斷提示，其中包含 Azure AD 加上您想要傳送的其他用戶端宣告所預期的宣告。
 以下是如何執行此動作的程式碼片段：
 
-```CSharp
+```csharp
 string ipAddress = "192.168.1.2";
 var claims = new Dictionary<string, string> { { "client_ip", ipAddress } };
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);

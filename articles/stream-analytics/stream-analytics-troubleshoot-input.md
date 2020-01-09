@@ -1,7 +1,6 @@
 ---
 title: 針對 Azure 串流分析的輸入進行疑難排解
 description: 本文說明針對 Azure 串流分析作業中的輸入連線進行疑難排解的技術。
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -9,19 +8,19 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8357a53ee065812922b5df53fbdef7c14e5f0ff7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 20a161ffc82cb8f74cfcac838856434f83c4e258
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621034"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354290"
 ---
 # <a name="troubleshoot-input-connections"></a>針對輸入連線進行疑難排解
 
 本頁面說明輸入連線的常見問題，以及如何進行疑難排解。
 
 ## <a name="input-events-not-received-by-job"></a>作業未收到輸入事件 
-1.  測試連線能力。 針對各個輸入和輸出使用 [測試連線]  按鈕，驗證輸入及輸出的連線能力。
+1.  測試連線能力。 針對各個輸入和輸出使用 [測試連線] 按鈕，驗證輸入及輸出的連線能力。
 
 2.  檢查您的輸入資料。
 
@@ -34,7 +33,7 @@ ms.locfileid: "67621034"
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>格式不正確的輸入事件導致還原序列化錯誤 
 當串流分析作業的輸入資料流包含格式不正確的訊息時，就會導致還原序列化問題。 例如，格式錯誤的訊息可能是在 JSON 物件中遺漏括號或遺漏大括號所導致，或是時間欄位中不正確的時間戳記格式所導致。 
  
-當串流分析作業從輸入收到格式不正確的訊息時，會捨棄訊息並以警告通知您。 您串流分析作業的 [輸入]  圖格上會顯示警告符號。 只要作業處於執行中狀態，此警告符號就會存在：
+當串流分析作業從輸入收到格式不正確的訊息時，會捨棄訊息並以警告通知您。 您串流分析作業的 [輸入] 圖格上會顯示警告符號。 只要作業處於執行中狀態，此警告符號就會存在：
 
 ![Azure 串流分析輸入圖格](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
@@ -73,13 +72,13 @@ Could not deserialize the input event(s) from resource <blob URI> as json.
 
 2. 找到您的事件中樞。
 
-3. 選取 [實體]  標題下方的 [事件中樞]  。
+3. 選取 [實體] 標題下方的 [事件中樞]。
 
 4. 依名稱選取事件中樞。
 
-5. 在 [事件中樞執行個體]  頁面上，[實體]  標題下方，選取 [取用者群組]  。 隨即列出名為 **$Default** 的取用者群組。
+5. 在 [事件中樞執行個體] 頁面上，[實體] 標題下方，選取 [取用者群組]。 隨即列出名為 **$Default** 的取用者群組。
 
-6. 選取 [+ 取用者群組]  以新增取用者群組。 
+6. 選取 [+ 取用者群組] 以新增取用者群組。 
 
    ![在事件中樞新增取用者群組](media/stream-analytics-event-hub-consumer-groups/new-eh-consumer-group.png)
 
@@ -92,9 +91,9 @@ Could not deserialize the input event(s) from resource <blob URI> as json.
 
 讀取器數量 (每個分割區) 超過事件中樞上限 (5 個) 的情況如下：
 
-* 多個 SELECT 陳述式：如果您使用多個 SELECT 陳述式參照**相同**的事件中樞輸入，則每個 SELECT 陳述式皆會造成新的接收器建立。
-* UNION：當您使用 UNION 時，就有可能會有多個輸入參照**相同**的事件中樞和取用者群組。
-* SELF JOIN：當您使用 SELF JOIN 作業時，就可能發生參照**相同**事件中樞多次的情形。
+* 多個 SELECT 陳述式︰ 如果您使用多個 SELECT 陳述式參照**相同**的事件中樞輸入，則每個 SELECT 陳述式皆會造成新的接收器建立。
+* UNION︰當您使用 UNION 時，就有可能會有多個輸入參照**相同**的事件中樞和取用者群組。
+* SELF JOIN︰當您使用 SELF JOIN 作業時，就可能發生參照**相同**事件中樞多次的情形。
 
 以下最佳做法可減少讀取器數量 (每個分割區) 超過事件中樞上限 (5 個) 的情況。
 

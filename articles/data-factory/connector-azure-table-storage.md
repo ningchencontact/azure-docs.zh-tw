@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
-ms.openlocfilehash: e23bf7b3e111d9945ac3eaab942fa77ddba9d9ed
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b64b0f32b7e8d94115facf43646a5a030697d80f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929617"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444418"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料表儲存體或從該處複製資料
 
@@ -49,18 +49,18 @@ ms.locfileid: "74929617"
 
 ### <a name="use-an-account-key"></a>使用帳戶金鑰
 
-您可以使用帳戶金鑰來建立 Azure 儲存體連結服務。 它可將儲存體的全域存取權提供給資料處理站。 支援以下屬性。
+您可以使用帳戶金鑰來建立 Azure 儲存體連結服務。 它可將儲存體的全域存取權提供給資料處理站。 以下是支援的屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設為 **AzureTableStorage**。 |是 |
-| connectionString | 針對 connectionString 屬性指定連線到儲存體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將帳戶金鑰放在 Azure Key Vault 並從連接字串中提取 `accountKey` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 |是 |
+| type | 類型屬性必須設為 **AzureTableStorage**。 |是 |
+| connectionString | 針對 connectionString 屬性指定連線到儲存體所需的資訊。 <br/>您也可以將帳戶金鑰放在 Azure Key Vault 並從連接字串中提取 `accountKey` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 |是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
 >如果您使用 "AzureStorage" 類型連結服務，它仍會如現狀般受到支援，但建議您從現在開始使用這個新的 "AzureTableStorage" 連結服務類型。
 
-**範例：**
+**範例︰**
 
 ```json
 {
@@ -68,10 +68,7 @@ ms.locfileid: "74929617"
     "properties": {
         "type": "AzureTableStorage",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -89,10 +86,7 @@ ms.locfileid: "74929617"
     "properties": {
         "type": "AzureTableStorage",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;"
-            },
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;",
             "accountKey": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -126,16 +120,16 @@ ms.locfileid: "74929617"
 
 若要使用共用存取簽章驗證，以下是支援的屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設為 **AzureTableStorage**。 |是 |
+| type | 類型屬性必須設為 **AzureTableStorage**。 |是 |
 | sasUri | 將共用存取簽章 URI 的 SAS URI 指定至資料表。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將 SAS 權杖放在 Azure Key Vault 中，以運用自動輪替並移除權杖部分。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載 Integration Runtime (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
 >如果您使用 "AzureStorage" 類型連結服務，它仍會如現狀般受到支援，但建議您從現在開始使用這個新的 "AzureTableStorage" 連結服務類型。
 
-**範例：**
+**範例︰**
 
 ```json
 {
@@ -195,14 +189,14 @@ ms.locfileid: "74929617"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供「Azure 資料表」資料集所支援的屬性清單。
 
-若要將資料複製到「Azure 資料表」以及從該處複製資料，請將資料集的類型屬性設定為 **AzureTable**。 支援以下屬性。
+若要將資料複製到「Azure 資料表」以及從該處複製資料，請將資料集的類型屬性設定為 **AzureTable**。 以下是支援的屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的 type 屬性必須設定為 **AzureTable**。 |是 |
+| type | 資料集的 type 屬性必須設定為 **AzureTable**。 |是 |
 | tableName |資料表儲存體資料庫執行個體中連結服務所參照的資料表名稱。 |是 |
 
-**範例：**
+**範例︰**
 
 ```json
 {
@@ -235,11 +229,11 @@ ms.locfileid: "74929617"
 
 ### <a name="azure-table-as-a-source-type"></a>Azure 資料表作為來源類型
 
-若要從「Azure 資料表」複製資料，請將複製活動中的來源類型設定為 **AzureTableSource**。 複製活動的 **source** 區段支援下列屬性。
+若要從「Azure 資料表」複製資料，請將複製活動中的來源類型設定為 **AzureTableSource**。 複製活動的 [來源] 區段支援下列屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的 type 屬性必須設定為 **AzureTableSource**。 |是 |
+| type | 複製活動來源的 type 屬性必須設定為 **AzureTableSource**。 |是 |
 | AzureTableSourceQuery |使用自訂的資料表儲存體查詢來讀取資料。 請參閱下一節中的範例。 |否 |
 | azureTableSourceIgnoreTableNotFound |指出是否讓資料表例外狀況不存在。<br/>允許的值為 **True** 和 **False** (預設值)。 |否 |
 
@@ -261,11 +255,11 @@ ms.locfileid: "74929617"
 
 ### <a name="azure-table-as-a-sink-type"></a>Azure 資料表作為接收類型
 
-若要將資料複製到 Azure 資料表，將複製活動中的接收類型設定為 **AzureTableSink**。 複製活動的 **sink** 區段支援下列屬性。
+若要將資料複製到 Azure 資料表，將複製活動中的接收類型設定為 **AzureTableSink**。 複製活動的 [接收] 區段支援下列屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動接收的 type 屬性必須設定為 **AzureTableSink**。 |是 |
+| type | 複製活動接收的 type 屬性必須設定為 **AzureTableSink**。 |是 |
 | azureTableDefaultPartitionKeyValue |可供接收使用的預設資料分割索引鍵值。 |否 |
 | azureTablePartitionKeyName |指定其值用來作為分割區索引鍵的資料行名稱。 如果未指定，則會使用 "AzureTableDefaultPartitionKeyValue" 作為分割區索引鍵。 |否 |
 | azureTableRowKeyName |指定其值用來作為資料列索引鍵的資料行名稱。 如果未指定，則會針對每個資料列使用 GUID。 |否 |
@@ -273,7 +267,7 @@ ms.locfileid: "74929617"
 | writeBatchSize |在達到 WriteBatchSize 或 writeBatchTimeout 時將資料插入 Azure 資料表中。<br/>允許的值為整數 (資料列數目)。 |否 (預設值為 10000) |
 | writeBatchTimeout |在達到 WriteBatchSize 或 writeBatchTimeout 時將資料插入 Azure 資料表中。<br/>允許的值為時間範圍。 範例是 "00:20:00" (20 分鐘)。 |否 (預設值為 90 秒，儲存體用戶端的預設逾時) |
 
-**範例：**
+**範例︰**
 
 ```json
 "activities":[
@@ -339,7 +333,7 @@ ms.locfileid: "74929617"
 | Edm.Binary |byte[] |上限為 64 KB 的位元組陣列。 |
 | Edm.Boolean |bool |布林值。 |
 | Edm.DateTime |日期時間 |以國際標準時間 (UTC) 表示的 64 位元值。 支援的 DateTime 範圍從西元 1601 年 1 月 1 日午夜開始。 (C.E.), UTC. 此範圍結束於 9999 年 12 月 31 日。 |
-| Edm.Double |兩倍 |64 位元的浮點值。 |
+| Edm.Double |double |64 位元的浮點值。 |
 | Edm.Guid |GUID |128 位元的全域唯一識別碼。 |
 | Edm.Int32 |Int32 |32 位元的整數。 |
 | Edm.Int64 |Int64 |64 位元的整數。 |
@@ -350,4 +344,4 @@ ms.locfileid: "74929617"
 若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>後續步驟
-如需 Data Factory 中複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。
+如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

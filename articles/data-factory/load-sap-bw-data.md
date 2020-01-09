@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 7d9c0000964348b7c9c83ccbc2490677614c50cd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 971871c28bd1b38b134c04b0334fbe99d1d655c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931457"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440174"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Business 倉儲複製資料
 
@@ -46,7 +46,7 @@ ms.locfileid: "74931457"
 
 ## <a name="do-a-full-copy-from-sap-bw-open-hub"></a>從 SAP BW 開放式中樞執行完整複本
 
-在 Azure 入口網站中，前往您的資料處理站。 選取 [**作者 & 監視器**]，以在個別的索引標籤中開啟 Data Factory UI。
+在 Azure 入口網站，移至您的資料處理站。 選取 [**作者 & 監視器**]，以在個別的索引標籤中開啟 Data Factory UI。
 
 1. 在 [**現在就開始**吧] 頁面上，選取 [**資料複製**] 以開啟 [資料複製] 工具。
 
@@ -76,7 +76,7 @@ ms.locfileid: "74931457"
 
 6. 指定篩選準則（如果您需要的話）。 如果您的 OHD 只包含具有單一要求識別碼之單一資料傳輸程式（DTP）執行的資料，或者您確定您的 DTP 已完成，而您想要複製資料，請清除 [**排除最後一個要求**] 核取方塊。
 
-   若要深入瞭解這些設定，請參閱本文的[SAP BW 開啟中樞目的地](#sap-bw-open-hub-destination-configurations)設定一節。 選取 [**驗證**] 以再次檢查將傳回的資料。 然後，選取 [下一步]。
+   若要深入瞭解這些設定，請參閱本文的[SAP BW 開啟中樞目的地](#sap-bw-open-hub-destination-configurations)設定一節。 選取 [**驗證**] 以再次檢查將傳回的資料。 然後選取 [下一步]。
 
    ![設定 SAP BW 開啟中樞篩選器](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
@@ -87,9 +87,9 @@ ms.locfileid: "74931457"
    ![建立 ADLS Gen2 連結服務頁面](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
    1. 從 [**名稱**] 下拉式清單中選取支援 Data Lake Storage Gen2 的帳戶。
-   2. 選取 [完成] 以建立連線。 然後，選取 [下一步]。
+   2. 選取 [完成] 以建立連線。 然後選取 [下一步]。
 
-9. 在 [**選擇輸出檔案或資料夾**] 頁面上，輸入**copyfromopenhub**作為輸出檔案夾名稱。 然後，選取 [下一步]。
+9. 在 [**選擇輸出檔案或資料夾**] 頁面上，輸入**copyfromopenhub**作為輸出檔案夾名稱。 然後選取 [下一步]。
 
    ![選擇輸出檔案夾頁面](media/load-sap-bw-data/choose-output-folder.png)
 
@@ -97,11 +97,11 @@ ms.locfileid: "74931457"
 
     ![指定接收格式頁面](media/load-sap-bw-data/specify-sink-format.png)
 
-11. 在 [**設定**] 頁面上，展開 [**效能設定**]。 針對 [**複製平行**處理原則的程度] （例如5）輸入值，以平行方式從 SAP BW 載入。 然後，選取 [下一步]。
+11. 在 [**設定**] 頁面上，展開 [**效能設定**]。 針對 [**複製平行**處理原則的程度] （例如5）輸入值，以平行方式從 SAP BW 載入。 然後選取 [下一步]。
 
     ![設定複製設定](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. 在 [摘要] 頁面上檢閱設定。 然後，選取 [下一步]。
+12. 在 [摘要] 頁面上檢閱設定。 然後選取 [下一步]。
 
 13. 在 [**部署**] 頁面上，選取 [**監視**] 來監視管線。
 
@@ -156,11 +156,15 @@ ms.locfileid: "74931457"
 
    - **SAPOpenHubDestinationName**：指定要從中複製資料的開放中樞資料表名稱。
 
-   - **ADLSGen2SinkPath**：指定要將資料複製到其中的目的地 Azure Data Lake Storage Gen2 路徑。 如果路徑不存在，則 Data Factory 複製活動會在執行期間建立路徑。
+   - **Data_Destination_Container**：指定要將資料複製到其中的目的地 Azure Data Lake Storage Gen2 容器。 如果容器不存在，則 Data Factory 複製活動會在執行期間建立一個。
+  
+   - **Data_Destination_Directory**：指定要複製資料的 Azure Data Lake Storage Gen2 容器下的資料夾路徑。 如果路徑不存在，則 Data Factory 複製活動會在執行期間建立路徑。
+  
+   - **HighWatermarkBlobContainer**：指定用來儲存高水位線值的容器。
 
-   - **HighWatermarkBlobPath**：指定用來儲存高水位線值的路徑，例如 `container/path`。
+   - **HighWatermarkBlobDirectory**：指定容器下的資料夾路徑來儲存高水位線值。
 
-   - **HighWatermarkBlobName**：指定用來儲存高水位線值的 blob 名稱，例如 `requestIdCache.txt`。 在 Blob 儲存體中，移至對應的 HighWatermarkBlobPath + HighWatermarkBlobName 路徑，例如*container/path/requestIdCache。* 建立具有內容0的 blob。
+   - **HighWatermarkBlobName**：指定用來儲存高水位線值的 blob 名稱，例如 `requestIdCache.txt`。 在 Blob 儲存體中，移至 HighWatermarkBlobContainer + HighWatermarkBlobDirectory + HighWatermarkBlobName 的對應路徑，例如*container/path/requestIdCache。* 建立具有內容0的 blob。
 
       ![Blob 內容](media/load-sap-bw-data/blob.png)
 
@@ -185,11 +189,11 @@ ms.locfileid: "74931457"
          }
          ```
 
-      3. 新增 [**建立 blob** ] 動作。 針對 [**資料夾路徑**] 和 [ **Blob 名稱**]，使用您先前在**HighWatermarkBlobPath**和**HighWatermarkBlobName**中設定的相同值。
+      3. 新增 [**建立 blob** ] 動作。 針對 [**資料夾路徑**] 和 [ **Blob 名稱**]，使用您先前在*HighWatermarkBlobContainer + HighWatermarkBlobDirectory*和*HighWatermarkBlobName*中設定的相同值。
 
       4. 選取 [儲存]。 然後，複製**HTTP POST URL**的值，以在 Data Factory 管線中使用。
 
-4. 提供 Data Factory 管線參數之後，請選取 [ **Debug** **] > [完成]** ，以叫用執行來驗證設定。 或者，選取 [**全部發行**] 以發佈變更，然後選取 [**觸發**] 來執行回合。
+4. 提供 Data Factory 管線參數之後，請選取 [ **Debug** **] > [完成]** ，以叫用執行來驗證設定。 或者，選取 [**發行**] 以發行所有變更，然後選取 [**新增觸發**程式] 來執行執行。
 
 ## <a name="sap-bw-open-hub-destination-configurations"></a>SAP BW 開啟中樞目的地設定
 

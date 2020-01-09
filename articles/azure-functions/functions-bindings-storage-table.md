@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 1308463694754231aa6d770bf716fd3def219981
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: bca3c246db25e86772a7009bf85e7d302b4b17b2
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925317"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562063"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 資料表儲存體繫結
 
@@ -493,17 +493,17 @@ public int run(
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Table` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設為 `table`。 當您在 Azure 入口網站中建立繫結時，會自動設定此屬性。|
 |**direction** | n/a | 必須設為 `in`。 當您在 Azure 入口網站中建立繫結時，會自動設定此屬性。 |
 |**name** | n/a | 代表函式程式碼中的資料表或實體的變數名稱。 | 
 |**tableName** | **TableName** | 資料表的名稱。| 
-|**partitionKey** | **PartitionKey** |選用。 要讀取之資料表實體的分割區索引鍵。 若要了解如何使用該屬性，請參閱[使用方式](#input---usage)一節。| 
-|**rowKey** |**RowKey** | 選用。 要讀取之資料表實體的資料列索引鍵。 若要了解如何使用該屬性，請參閱[使用方式](#input---usage)一節。| 
-|**take** |**Take** | 選用。 要在 JavaScript 中讀取的實體數目上限。 若要了解如何使用該屬性，請參閱[使用方式](#input---usage)一節。| 
-|**filter** |**Filter** | 選用。 用於在 JavaScript 中輸入資料表的 OData 篩選運算式。 若要了解如何使用該屬性，請參閱[使用方式](#input---usage)一節。| 
-|**連接** |**連接** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
+|**partitionKey** | **PartitionKey** |選擇性。 要讀取之資料表實體的分割區索引鍵。 若要了解如何使用該屬性，請參閱[使用方式](#input---usage)一節。| 
+|**rowKey** |**RowKey** | 選擇性。 要讀取之資料表實體的資料列索引鍵。 若要了解如何使用該屬性，請參閱[使用方式](#input---usage)一節。| 
+|**take** |**Take** | 選擇性。 要在 JavaScript 中讀取的實體數目上限。 若要了解如何使用該屬性，請參閱[使用方式](#input---usage)一節。| 
+|**filter** |**Filter** | 選擇性。 用於在 JavaScript 中輸入資料表的 OData 篩選運算式。 若要了解如何使用該屬性，請參閱[使用方式](#input---usage)一節。| 
+|**connection** |**[連接]** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -531,7 +531,7 @@ public int run(
 使用 Azure 資料表儲存體輸出繫結以寫入 Azure 儲存體帳戶中的資料表。
 
 > [!NOTE]
-> 此輸出繫結不支援更新現有的實體。 [從 Azure 儲存體 SDK](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-table-dotnet#delete-an-entity) 使用 `TableOperation.Replace` 作業來更新現有的實體。   
+> 此輸出繫結不支援更新現有的實體。 使用來自[AZURE 儲存體 SDK](/azure/cosmos-db/tutorial-develop-table-dotnet#insert-or-merge-an-entity)的適當[`TableOperation`](/dotnet/api/microsoft.azure.cosmos.table.tableoperation?view=azure-dotnet) ，視需要更新現有的實體。   
 
 ## <a name="output---example"></a>輸出 - 範例
 
@@ -753,7 +753,7 @@ public static MyPoco TableOutput(
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Table` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設為 `table`。 當您在 Azure 入口網站中建立繫結時，會自動設定此屬性。|
 |**direction** | n/a | 必須設為 `out`。 當您在 Azure 入口網站中建立繫結時，會自動設定此屬性。 |
@@ -761,7 +761,7 @@ public static MyPoco TableOutput(
 |**tableName** |**TableName** | 資料表的名稱。| 
 |**partitionKey** |**PartitionKey** | 要寫入之資料表實體的分割區索引鍵。 若要了解如何使用該屬性，請參閱[使用方式](#output---usage)一節。| 
 |**rowKey** |**RowKey** | 要寫入之資料表實體的資料列索引鍵。 若要了解如何使用該屬性，請參閱[使用方式](#output---usage)一節。| 
-|**連接** |**連接** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
+|**connection** |**[連接]** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.openlocfilehash: 6bd99a200a8f9e6be6d155a334b9b06ac05eacc3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: MT
+ms.date: 12/17/2019
+ms.openlocfilehash: abb561658a189ce882bdad0a740ab5806b371bb5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972178"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453042"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的緩慢查詢記錄
 在適用於 MySQL 的 Azure 資料庫中，使用者可以使用慢速查詢記錄。 不支援存取交易記錄。 慢速查詢記錄檔可以用來找出效能瓶頸，以進行疑難排解。
@@ -41,7 +41,7 @@ ms.locfileid: "74972178"
 - **log_slow_admin_statements**：如果 ON 在寫入至 slow_query_log 的陳述式中包含 ALTER_TABLE 和 ANALYZE_TABLE 這類管理陳述式。
 - **log_queries_not_using_indexes**：決定是否將未使用索引的查詢記錄至 slow_query_log
 - **log_throttle_queries_not_using_indexes**：這個參數會限制可寫入至慢速查詢記錄的非索引查詢次數。 log_queries_not_using_indexes 設為 ON 時，這個參數會生效。
-- **log_output**：如果為 "File"，則允許將緩慢查詢記錄寫入本機伺服器儲存區，並 Azure 監視器診斷記錄。 如果為 "None"，則慢速查詢記錄檔只會寫入本機伺服器儲存體。 
+- **log_output**：如果為 "File"，則允許將緩慢查詢記錄寫入本機伺服器儲存區，並 Azure 監視器診斷記錄。 如果為 "None"，則慢速查詢記錄檔只會寫入 Azure 監視器診斷記錄。 
 
 > [!Note]
 > 對於 `sql_text`，如果記錄檔超過2048個字元，則會被截斷。

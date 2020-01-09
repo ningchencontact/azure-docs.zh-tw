@@ -1,20 +1,21 @@
 ---
-title: 使用 Azure 診斷追蹤雲端服務應用程式中的流程 | Microsoft Docs
+title: 使用 Azure 診斷追蹤雲端服務應用程式中的流程
+titleSuffix: Azure Cloud Services
 description: 將追蹤訊息加入至 Azure 應用程式來協助偵錯、測量效能、監視、流量分析等等。
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
-ms.author: gwallace
-ms.openlocfilehash: b8d195fba934ceae98af383b96a8c0d9a9b88c5f
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.author: tagore
+ms.openlocfilehash: 47a33ba27dd6d2df626d93695c421303bace6a0b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808083"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386505"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>使用 Azure 診斷追蹤雲端服務應用程式的流程
 追蹤是一種方式，可讓您在應用程式執行時加以監視。 您可以使用 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace)、[System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) 和 [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) 類別，在記錄、文字檔或其他裝置中記錄錯誤和應用程式執行的相關資訊，供稍後分析。 如需追蹤的詳細資訊，請參閱 [追蹤和檢測應用程式](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications)。
@@ -71,4 +72,7 @@ Trace、Debug 和 TraceSource，需要您設定「接聽程式」來收集和記
     ```
 3. 在您想要用來擷取應用程式狀態資訊的位置加入 Trace 陳述式。 您可以使用各種方法來格式化 Trace 陳述式的輸出。 如需詳細資訊，請參閱 [做法：加入 Trace 陳述式至應用程式程式碼](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code)。
 4. 儲存原始程式檔。
+
+
+
 

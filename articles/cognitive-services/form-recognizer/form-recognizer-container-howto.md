@@ -9,18 +9,21 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 21582a5a17a3c6f67182173bfe08d80c48765f7d
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 28d3d83acad5e609947b029bc8e585193834e346
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325845"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446532"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>安裝和執行表單辨識器容器（預覽）
 
 Azure 表單辨識器會套用機器學習技術，以識別並從表單中解壓縮索引鍵/值組和資料表。 它會將值和資料表專案與索引鍵/值配對產生關聯，然後輸出包含原始檔案中之關聯性的結構化資料。 
 
 若要降低複雜性並輕鬆地將自訂表單辨識器模型整合到您的工作流程自動化程式或其他應用程式中，您可以使用簡單的 REST API 來呼叫模型。 只需要五個表單檔（或一個空白表單和兩個填滿表單），因此您可以快速、精確地取得結果，並針對您的特定內容量身打造。 不需要大量的手動介入或廣泛的資料科學專業知識。 而且它不需要資料標記或資料批註。
+
+> [!IMPORTANT]
+> 表單辨識器容器目前使用1.0 版的表單辨識器 API。 您可以改為使用受控服務來存取 API 的最新版本。
 
 |函式|功能|
 |-|-|
@@ -129,7 +132,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 將 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令執行容器。 如需如何取得 `{COMPUTER_VISION_ENDPOINT_URI}`、`{COMPUTER_VISION_API_KEY}`、`{FORM_RECOGNIZER_ENDPOINT_URI}` 和 `{FORM_RECOGNIZER_API_KEY}` 值的詳細資訊，請參閱[收集必要參數](#gathering-required-parameters)。
 
-`docker run` 命令的[範例](form-recognizer-container-configuration.md#example-docker-run-commands)可供使用。
+命令的[範例](form-recognizer-container-configuration.md#example-docker-run-commands)可供使用。`docker run`
 
 ### <a name="form-recognizer"></a>表單辨識器
 
@@ -270,7 +273,7 @@ var config =
         "YourSubscriptionKey");
 ```
 
-#### <a name="for-python"></a>針對 Python
+#### <a name="for-python"></a>適用於 Python
 
 從使用此 Azure 雲端初始化呼叫變更：
 
@@ -319,7 +322,7 @@ formrecognizer_config =
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 在本文中，您已了解下載、安裝及執行表單辨識器容器的概念和工作流程。 摘要說明：
 

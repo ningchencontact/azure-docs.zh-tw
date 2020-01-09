@@ -3,12 +3,12 @@ title: 適用於 Azure Functions 2.x 的 host.json 參考
 description: Azure Functions host.json 檔案與 v2 執行階段的參考文件。
 ms.topic: conceptual
 ms.date: 09/08/2018
-ms.openlocfilehash: 08d772fc9b2871262b449a017f8be59a344576b2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 374d00a75423274d03320b9c1299a2c2dae080ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975443"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433180"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 和更新版本的 host. json 參考 
 
@@ -95,11 +95,15 @@ ms.locfileid: "74975443"
 
 此設定是 [logging](#logging) 的子系。
 
-控制 [Application Insights 中的取樣功能](./functions-monitoring.md#configure-sampling)。
+控制 Application Insights 的選項，包括[取樣選項](./functions-monitoring.md#configure-sampling)。
 
 ```json
 {
-    "applicationInsights": {
+    "applicationInsights": {        
+        "enableDependencyTracking": true,
+        "enablePerformanceCountersCollection": true,
+        "samplingExcludedTypes": "Trace;Exception",
+        "samplingIncludedTypes": "Request;Dependency",
         "samplingSettings": {
           "isEnabled": true,
           "maxTelemetryItemsPerSecond" : 20
@@ -111,13 +115,14 @@ ms.locfileid: "74975443"
 > [!NOTE]
 > 記錄取樣可能會造成一些執行不會顯示在 Application Insights 監視器刀鋒視窗。
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 說明 |
 |---------|---------|---------| 
-|isEnabled|true|啟用或停用取樣。| 
-|maxTelemetryItemsPerSecond|20|取樣的開始臨界值。| 
-|EnableLiveMetrics |true|啟用即時計量集合。|
-|EnableDependencyTracking|true|啟用相依性追蹤。|
-|EnablePerformanceCountersCollection|true|啟用 Kudu 效能計數器集合。|
+|enableDependencyTracking|true|啟用相依性追蹤。|
+|enablePerformanceCountersCollection|true|啟用效能計數器集合。|
+|samplingExcludedTypes|null|不要進行取樣的分號分隔類型清單。 可辨識的類型為：相依性、事件、例外狀況、頁面檢視、要求、追蹤。 會傳送所指定類型的所有執行個體；會針對未指定的類型進行取樣。| 
+|samplingIncludedTypes|null|要進行取樣的分號分隔類型清單。 可辨識的類型為：相依性、事件、例外狀況、頁面檢視、要求、追蹤。 會針對指定的類型進行取樣；將一律會傳輸其他類型的所有執行個體。|
+|samplingSettings. isEnabled|true|啟用或停用取樣。| 
+|samplingSettings.maxTelemetryItemsPerSecond|20|取樣的開始臨界值。|
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -181,9 +186,9 @@ ms.locfileid: "74975443"
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 說明 |
 |---------|---------|---------| 
-|啟用|true|指定是否已啟用此功能。 | 
+|已啟用|true|指定是否已啟用此功能。 | 
 |healthCheckInterval|10 秒|定期背景健康情況檢查之間的時間間隔。 | 
 |healthCheckWindow|2 分鐘|與 `healthCheckThreshold` 設定搭配使用的滑動時間範圍。| 
 |healthCheckThreshold|6|在主機回收起始之前，健康情況檢查可以失敗的最大次數。| 
@@ -213,7 +218,7 @@ ms.locfileid: "74975443"
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 說明 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|定義已啟用何種檔案記錄層級。  選項為 `never`、`always`、`debugOnly`。 |
 |logLevel|n/a|為應用程式中的函式定義記錄類別篩選的物件。 2\.x 版和更新版本會遵循記錄類別篩選的 ASP.NET Core 版面配置。 這可讓您篩選特定函式的記錄。 如需詳細資訊，請參閱 ASP.NET Core 文件中的[記錄篩選](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 |
@@ -236,7 +241,7 @@ ms.locfileid: "74975443"
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 說明 |
 |---------|---------|---------| 
 |isEnabled|false|啟用或停用主控台記錄。| 
 
@@ -280,7 +285,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 說明 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|取得函式層級鎖定的期間。 鎖定會自動更新。| 
 |listenerLockPeriod|00:01:00|接聽程式鎖定所需的期間。| 

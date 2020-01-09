@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Cosmos DB 中使用大量執行程式程式庫來大量匯入和更新資料
+title: Azure Cosmos DB 大量執行程式程式庫概觀
 description: 在 Azure Cosmos DB 中透過大量執行程式程式庫所提供的大量匯入和大量更新 API，來執行大量作業。
 author: tknandu
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 8d2cb30e0f18485d500344e571b3ac5f2cde008f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9d335bcf6daf0b38e7a68ca2d40894dd64c93e40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615714"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442163"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 大量執行程式程式庫概觀
  
@@ -32,7 +32,7 @@ Azure Cosmos DB 是一種快速且具有彈性的全域分散式資料庫服務�
 
 * 它以概念來簡單化撰寫應用程式邏輯的沉悶工作，有效率地在程式庫中處理要求速率限制、要求逾時和其他暫時性例外狀況。  
 
-* 它為執行大量作業的應用程式提供可相應放大的簡化機制。在 Azure VM 上執行的單一大量執行程式執行個體取用的輸送量可大於 50 萬 RU/秒，而您可以藉由在個別用戶端 VM 上新增額外的執行個體來提高輸送量。  
+* 它為執行大量作業的應用程式提供簡化的機制來進行相應放大。在 Azure VM 上執行的單一大量執行程式實例可能會耗用大於 500K RU/秒，而您可以藉由在個別用戶端 Vm 上新增額外的實例來達到較高的輸送量。  
  
 * 它可以使用相應放大架構，在一小時內大量匯入 1 TB 以上的資料。  
 
@@ -48,7 +48,7 @@ Azure Cosmos DB 是一種快速且具有彈性的全域分散式資料庫服務�
 
 ## <a name="next-steps"></a>後續步驟 
   
-* 若要深入瞭解, 請嘗試使用[.net](bulk-executor-dot-net.md)和[JAVA](bulk-executor-java.md)中的大量執行程式程式庫。  
+* 若要深入瞭解，請嘗試使用[.net](bulk-executor-dot-net.md)和[JAVA](bulk-executor-java.md)中的大量執行程式程式庫。  
 * 查看 [.NET](sql-api-sdk-bulk-executor-dot-net.md) 和 [Java](sql-api-sdk-bulk-executor-java.md) 中的大量執行程式 SDK 資訊和版本資訊。
-* 大量執行程式程式庫已整合到 Cosmos DB Spark 連接器中, 若要深入瞭解, 請參閱[Azure Cosmos DB Spark 連接器](spark-connector.md)一文。  
+* 大量執行程式程式庫已整合到 Cosmos DB Spark 連接器中，若要深入瞭解，請參閱[Azure Cosmos DB Spark 連接器](spark-connector.md)一文。  
 * 大量執行程式程式庫也已整合至新版 [Azure Cosmos DB 連接器](https://aka.ms/bulkexecutor-adf-v2)，可供 Azure Data Factory 複製資料。

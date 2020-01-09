@@ -4,15 +4,15 @@ description: 使用適用於 VM 的 Azure 監視器的預先定義和自訂參�
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: dff5027f2ff9ff244f0fa04177a04e446e98465b
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: b89e61f0c268df0ed6dd69ae1c6d97f00678fc32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200542"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365915"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>使用活頁簿建立互動式報表適用於 VM 的 Azure 監視器
 
@@ -27,7 +27,7 @@ ms.locfileid: "73200542"
 
 適用於 VM 的 Azure 監視器包含數個可協助您開始使用的活頁簿，下表將摘要說明。
 
-| 活頁簿 | 描述 | Scope |
+| 活頁簿 | 說明 | 範圍 |
 |----------|-------------|-------|
 | 效能 | 在單一活頁簿中，提供一個可自訂的版本，其中包含您已啟用的所有 Log Analytics 效能計數器。| 大規模 |
 | 效能計數器 | 橫跨一組廣泛效能計數器的前 N 個圖表視圖。 | 大規模 |
@@ -160,7 +160,7 @@ VMConnection
 
 |                  |      |
 | ---------------- |:-----|
-| **文字**    | 允許使用者編輯文字方塊，您可以選擇性地提供查詢來填入預設值。 |
+| **Text**    | 允許使用者編輯文字方塊，您可以選擇性地提供查詢來填入預設值。 |
 | **下拉式清單** | 可讓使用者從一組值中進行選擇。 |
 | **時間範圍選擇器**| 可讓使用者從一組預先定義的時間範圍值中進行選擇，或從自訂的時間範圍中挑選。|
 | **資源選擇器** | 可讓使用者從為活頁簿選取的資源中進行選擇。|

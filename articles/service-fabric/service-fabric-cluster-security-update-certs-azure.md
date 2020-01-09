@@ -1,25 +1,14 @@
 ---
-title: 管理 Azure Service Fabric 叢集中的憑證 | Microsoft Docs
+title: 管理 Azure Service Fabric 叢集中的憑證
 description: 說明如何在 Service Fabric 叢集新增新的憑證、變換憑證及移除憑證。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chakdan
-editor: ''
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/13/2018
-ms.author: atsenthi
-ms.openlocfilehash: a993c71e362a61b6861e001dfb5d6eca24873293
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: a3c92e1b39261af32085e4d9b6cb2462d5c0eb64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903278"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458361"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>新增或移除 Azure 中 Service Fabric 叢集的憑證
 建議您熟悉 Service Fabric 使用 X.509 憑證的方式，以及熟悉[叢集安全性案例](service-fabric-cluster-security.md)。 您必須瞭解什麼是叢集憑證及其用途，方可繼續進行後續作業。

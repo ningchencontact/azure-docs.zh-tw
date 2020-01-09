@@ -4,15 +4,15 @@ description: 本文旨在協助您了解如何使用這個解決方案，針對�
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/19/2017
-ms.openlocfilehash: 5a48bbff89f0d6a0be9adf2ad242dbca41eec6db
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: cbeaa3e148d6fbe20d7ddb4d04cd00d6300f9818
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555330"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402436"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Azure 監視器中的代理程式健全狀況解決方案
 Azure 中的代理程式健全狀況解決方案可協助您瞭解，所有代理程式都會直接向 Azure 監視器中的 Log Analytics 工作區報告，或是連線到 Azure 監視器的 System Center Operations Manager 管理群組（沒有回應），正在提交運算元據。  您可以也追蹤已部署的代理程式數目，其散佈地區，並執行其他查詢，以留意 Azure、其他雲端環境或內部部署中部署之代理程式的散佈情形。    
@@ -29,7 +29,7 @@ Azure 中的代理程式健全狀況解決方案可協助您瞭解，所有代�
 * Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer)。  
 
-如需有關方案管理組件如何更新的詳細資訊，請參閱[將 Operations Manager 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md)。
+如需有關方案管理組件如何更新的詳細資訊，請參閱 [將 Operations Manager 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md)。
 
 ## <a name="configuration"></a>組態
 使用[新增解決方案](solutions.md)中所述的程序，將代理程式健全狀況解決方案新增至您的 Log Analytics 工作區。 不需要進一步的組態。
@@ -39,7 +39,7 @@ Azure 中的代理程式健全狀況解決方案可協助您瞭解，所有代�
 ### <a name="supported-agents"></a>支援的代理程式
 下表描述此方案支援的連接來源。
 
-| 連接的來源 | 支援的 | 描述 |
+| 連接的來源 | 支援的 | 說明 |
 | --- | --- | --- |
 | Windows 代理程式 | 是 | 系統會從直接 Windows 代理程式收集活動訊號事件。|
 | System Center Operations Manager 管理群組 | 是 | 系統會每隔60秒向管理群組回報的代理程式收集心跳事件，然後轉送至 Azure 監視器。 不需要從 Operations Manager 代理程式直接連接到 Azure 監視器。 將事件資料從管理群組轉送至 Log Analytics 工作區。|
@@ -49,7 +49,7 @@ Azure 中的代理程式健全狀況解決方案可協助您瞭解，所有代�
 
 按一下 [代理程式健全狀況] 圖格，以開啟 [代理程式健全狀況] 儀表板。  此儀表板包含下表中的資料行。 每個資料行依計數列出前十個事件，這幾個事件符合該資料行中指定時間範圍的準則。 您可以選取每個資料行右下角的 [查看全部]，或按一下資料行標頭，以執行記錄搜尋來提供完整清單。
 
-| Column | 描述 |
+| Column | 說明 |
 |--------|-------------|
 | 不同時間的代理程式計數 | Linux 和 Windows 代理程式為期七天的代理程式計數趨勢。|
 | 沒有回應的代理程式計數 | 在過去 24 小時內尚未傳送活動訊號的代理程式清單。|
@@ -68,7 +68,7 @@ Azure 中的代理程式健全狀況解決方案可協助您瞭解，所有代�
 ### <a name="heartbeat-records"></a>活動訊號記錄
 系統會建立類型為 [活動訊號] 的記錄。  這些記錄具有下表中的屬性。  
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | `Type` | *活動訊號*|
 | `Category` | 值為 [直接代理程式]、[SCOM 代理程式] 或 [SCOM 管理伺服器]。|
@@ -86,12 +86,12 @@ Azure 中的代理程式健全狀況解決方案可協助您瞭解，所有代�
 | `RemoteIPLongitude` | 電腦的地理位置經度。|
 | `RemoteIPLatitude` | 電腦的地理位置緯度。|
 
-向 Operations Manager 管理伺服器回報的每個代理程式會傳送兩個心跳，而 SCAgentChannel 屬性的值將會包含**Direct**和**scmanagementserver (** ，視您擁有的資料來源和監視解決方案而定已在您的訂用帳戶中啟用。 如果您還記得，解決方案中的資料會從 Operations Manager 管理伺服器直接傳送到 Azure 監視器，或因為代理程式上收集的資料量而直接從代理程式傳送至 Azure 監視器。 若為具有 **SCManagementServer** 值的活動訊號事件，ComputerIP 值為管理伺服器的 IP 位址，因為資料實際上由它上傳。  若為 SCAgentChannel 設為 [Direct] 的活動訊號，此值為代理程式的公用 IP 位址。  
+向 Operations Manager 管理伺服器回報的每個代理程式會傳送兩個心跳，而 SCAgentChannel 屬性的值將會包含**Direct**和**scmanagementserver (** ，這取決於您在訂用帳戶中啟用的資料來源和監視解決方案。 如果您還記得，解決方案中的資料會從 Operations Manager 管理伺服器直接傳送到 Azure 監視器，或因為代理程式上收集的資料量而直接從代理程式傳送至 Azure 監視器。 若為具有 **SCManagementServer** 值的活動訊號事件，ComputerIP 值為管理伺服器的 IP 位址，因為資料實際上由它上傳。  若為 SCAgentChannel 設為 [Direct] 的活動訊號，此值為代理程式的公用 IP 位址。  
 
-## <a name="sample-log-searches"></a>記錄檔搜尋範例
+## <a name="sample-log-searches"></a>記錄搜尋範例
 下表提供此解決方案所收集之記錄的記錄搜尋範例。
 
-| 查詢 | 描述 |
+| 查詢 | 說明 |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |代理程式總數 |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |過去 24 小時內沒有回應的代理程式計數 |

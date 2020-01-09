@@ -2,17 +2,17 @@
 title: 使用 Azure PowerShell 建立 Azure 私用端點 |Microsoft Docs
 description: 瞭解 Azure 私人連結
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 83f1cbc3f8da61370c90744be3f0a7b230e016c3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 60032677594537f1e7791b7108eebd5d4cfad5b4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229393"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430323"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>使用 Azure PowerShell 建立私人端點
 私人端點是 Azure 中私人連結的基本要素。 其可讓 Azure 資源 (例如虛擬機器 (VM)) 與私人連結資源進行私密通訊。 
@@ -59,6 +59,9 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -PrivateEndpointNetworkPoliciesFlag "Disabled" `
   -VirtualNetwork $virtualNetwork
 ```
+
+> [!CAUTION]
+> 您可以輕鬆地將 `PrivateEndpointNetworkPoliciesFlag` 參數與另一個可用的旗標（`PrivateLinkServiceNetworkPoliciesFlag`）混淆，因為它們都是長字且具有類似的外觀。  請確定您使用的是正確的 `PrivateEndpointNetworkPoliciesFlag`。
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>將子閘道聯至虛擬網路
 
@@ -192,7 +195,7 @@ mstsc /v:<publicIpAddress>
 3. 選取 [確定]。 
 4. 您可能會收到憑證警告。 如果如此，請選取 [是] 或 [繼續]。 
 
-## <a name="access-sql-database-server-privately-from-the-vm"></a>從 VM 私下存取 SQL Database Server
+## <a name="access-sql-database-server-privately-from-the-vm"></a>從 VM 私下存取 SQL Database 伺服器
 
 1. 在 myVM 的遠端桌面中，開啟 PowerShell。
 2. 輸入 `nslookup myserver.database.windows.net`。 
@@ -224,4 +227,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>後續步驟
-- 深入瞭解[Azure 私人連結](private-link-overview.md)
+- 深入了解 [Azure Private Link](private-link-overview.md)

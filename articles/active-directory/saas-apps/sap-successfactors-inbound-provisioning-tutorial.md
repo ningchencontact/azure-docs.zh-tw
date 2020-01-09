@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
-ms.openlocfilehash: cc17b8158c847bff5f07d6088a99566dc499d1bf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 80812d1989e528a5a0f2333e92a068093d7b6b90
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914771"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75528210"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>教學課程：將 SAP SuccessFactors 設定為 Active Directory 使用者布建（預覽）
 本教學課程的目的是要示範將使用者從 SuccessFactors 員工中心布建到 Active Directory （AD）和 Azure AD 的必要步驟，並將電子郵件地址的選擇性回寫至 SuccessFactors。 這項整合處於公開預覽狀態，支援從 SuccessFactors Employee Central 抓取超過70個以上的[使用者屬性](../manage-apps/sap-successfactors-attribute-reference.md)。
@@ -117,7 +117,7 @@ Azure AD 的使用者布建服務支援的 SuccessFactors 使用者布建工作�
   >[!NOTE]
   >如需此布建應用程式所抓取之屬性的完整清單，請參閱[SuccessFactors 屬性參考](../manage-apps/sap-successfactors-attribute-reference.md)
 
-* 按一下 [完成]。 按一下 [儲存變更]。
+* 按一下 [完成]。 按一下 **[儲存變更]** 。
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>為 API 使用者建立許可權群組
 
@@ -146,7 +146,7 @@ Azure AD 的使用者布建服務支援的 SuccessFactors 使用者布建工作�
 * 檢查許可權群組的許可權角色授與。 
   > [!div class="mx-imgBorder"]
   > ![許可權角色和群組詳細資料](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* 按一下 [儲存變更]。
+* 按一下 **[儲存變更]** 。
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-active-directory"></a>設定從 SuccessFactors 到 Active Directory 的使用者布建
 
@@ -174,7 +174,7 @@ Azure AD 的使用者布建服務支援的 SuccessFactors 使用者布建工作�
 
 6. 新增應用程式並顯示應用程式詳細資料畫面之後，請選取 [佈建]
 
-7. 將 [佈建模式] 變更為 [自動]
+7. **將布**建**模式**變更為**自動**
 
 8. 按一下顯示的資訊橫幅以下載布建代理程式。 
    > [!div class="mx-imgBorder"]
@@ -261,8 +261,8 @@ Azure AD 的使用者布建服務支援的 SuccessFactors 使用者布建工作�
         > 如果並未在屬性對應中設定 *parentDistinguishedName* 屬性，此設定僅適用於使用者帳戶建立。 此設定不適用於使用者搜尋或更新作業。 整個網域的子樹狀會落在搜尋作業的範圍中。
 
    * **通知電子郵件** – 輸入您的電子郵件地址，然後勾選 [發生失敗時傳送電子郵件] 核取方塊。
-         > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+    > [!NOTE]
+    > 如果佈建作業進入[隔離](/azure/active-directory/manage-apps/application-provisioning-quarantine-status)狀態，Azure AD 佈建服務會傳送電子郵件通知。
 
    * 按一下 [測試連線] 按鈕。 如果連線測試成功，請按一下頂端的 [儲存] 按鈕。 如果失敗，請再次檢查代理程式設定上所設定的 SuccessFactors 認證和 AD 認證是否有效。
     >[!div class="mx-imgBorder"]
@@ -346,7 +346,7 @@ SuccessFactors 布建應用程式設定完成之後，您就可以在 Azure 入�
 
 1. 在 [佈建] 索引標籤中，將 [佈建狀態] 設定為 [開啟]。
 
-2. 按一下 [儲存]。
+2. 按一下 [檔案]。
 
 3. 這項作業會啟動初始同步處理，這可能會花費數小時的時間，視 SuccessFactors 租使用者中的使用者人數而定。 您可以檢查進度列以追蹤同步處理週期的進度。 
 

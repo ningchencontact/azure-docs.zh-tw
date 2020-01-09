@@ -1,5 +1,5 @@
 ---
-title: 設定呼叫 web Api 的行動應用程式 |Azure
+title: 註冊呼叫 web Api 的行動應用程式 |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解如何建立呼叫 web Api 的行動應用程式（應用程式的程式碼設定）
 services: active-directory
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c5160d88e390f9bfe905dfee0684983a7a49365
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0684b8002dad8e0cb29bb1b7afb6ac5a2bd4d685
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919880"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423785"
 ---
 # <a name="mobile-app-that-calls-web-apis---app-registration"></a>呼叫 web Api 的行動應用程式-應用程式註冊
 

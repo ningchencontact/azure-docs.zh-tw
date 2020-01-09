@@ -6,23 +6,34 @@ ms.service: site-recovery
 ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 1cc1ee82b45ecab17e4bcfb3a909fc90b33a1545
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 10b3e572ec61d1eff342f24a6a5a7bcba6276983
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954443"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495382"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>讓 VMware VM 能夠複寫至 Azure
 
 本文說明如何啟用將內部部署 VMware VM 複寫至 Azure 的作業。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="resolve-common-issues"></a>解決常見的問題
 
-本文假設您擁有：
+* 每個磁片都應該小於 4 TB。
+* OS 磁片應該是基本磁碟，而非動態磁碟。
+* 針對第2代/已啟用 UEFI 的虛擬機器，作業系統系列應為 Windows，而且開機磁片應小於 300 GB。
+
+## <a name="prerequisites"></a>必要條件
+
+本文假設您已經：
 
 - [設定您的內部部署來源環境](vmware-azure-set-up-source.md)。
 - [在 Azure 中設定您的目標環境](vmware-azure-set-up-target.md)。
+- 開始之前，[請先確認需求和必要條件](vmware-physical-azure-support-matrix.md)。 要注意的重要事項包括：
+    - 複寫電腦[支援的作業系統](vmware-physical-azure-support-matrix.md#replicated-machines)。
+    - [儲存體/磁片](vmware-physical-azure-support-matrix.md#storage)支援。
+    - 內部部署機器應該符合的[Azure 需求](vmware-physical-azure-support-matrix.md#azure-vm-requirements)。
+
 
 ## <a name="before-you-start"></a>開始之前
 當您要複寫 VMware 虛擬機器時，請記住這項資訊：
@@ -123,11 +134,7 @@ Microsoft 軟體保證客戶可以使用 Azure Hybrid Benefit 來節省遷移至
 
 深入了解 [Azure Hybrid Benefit](https://aka.ms/azure-hybrid-benefit-pricing)。
 
-## <a name="resolve-common-issues"></a>解決常見的問題
 
-* 每個磁片都應該小於 4 TB。
-* OS 磁片應該是基本磁碟，而非動態磁碟。
-* 針對第2代/已啟用 UEFI 的虛擬機器，作業系統系列應為 Windows，而且開機磁片應小於 300 GB。
 
 ## <a name="next-steps"></a>後續步驟
 

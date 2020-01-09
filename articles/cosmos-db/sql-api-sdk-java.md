@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 42dcc0e9bd07f357c17f28dd754e4ae3404e01ff
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 3e36aa268286b9127f36859a1fa4402644994a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561880"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444833"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
@@ -48,6 +48,7 @@ SQL API Java SDK 支援同步作業。 如需非同步支援，請使用 [SQL AP
 
 ### <a name="a-name244244"></a><a name="2.4.4"/>2.4。4
 * 優化資料分割索引鍵範圍快取重新整理。
+* 修正 SDK 不會從伺服器榮幸磁碟分割分割提示，並導致不正確的用戶端路由快取重新整理的案例。
 
 ### <a name="a-name242242"></a><a name="2.4.2"/>2.4。2
 * 已優化集合快取重新整理。
@@ -138,7 +139,7 @@ SQL API Java SDK 支援同步作業。 如需非同步支援，請使用 [SQL AP
 * 已利用 Strong 和 BoundedStaleness 一致性層級修正問題。
 
 ### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
-* 已新增對新一致性層級 ConsistentPrefix 的支援。
+* 已新增對名為 ConsistentPrefix 的新一致性層級的支援。
 * 已修正工作階段模式中讀取集合的錯誤。
 
 ### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0

@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 0ca7bfb276f49da720264305a92d31e81857cfd5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4cc88e7c04d10907a9a6386b1266eb8031d60926
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229307"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552673"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Azure Container Registry 與資訊安全中心整合（預覽）
 
 Azure Container Registry （ACR）是受控的私用 Docker Registry 服務，可在中央登錄中儲存及管理 Azure 部署的容器映射。 它是以開放原始碼的 Docker Registry 2.0 為基礎。
 
-若要深入瞭解您的登錄和映射弱點，Azure 資訊安全中心的標準層使用者可以啟用選用的容器登錄套件組合。 如需詳細資訊，請參閱[定價](security-center-pricing.md)。 啟用配套時，資訊安全中心會在每次將映射推送至登錄時，自動掃描您註冊中的映射。
+若要深入瞭解您的登錄和映射弱點，Azure 資訊安全中心的標準層使用者可以啟用選用的容器登錄套件組合。 使用這項功能的成本會依每個影像計費，而不是依掃描收費。 如需詳細資訊，請參閱[定價](security-center-pricing.md)。 啟用配套時，資訊安全中心會在每次將映射推送至登錄時，自動掃描您註冊中的映射。
 
 > [!NOTE]
 > 只有在啟用容器登錄套件組合並將映射推送至登錄之後，才會對登錄進行資訊安全中心的第一次掃描。

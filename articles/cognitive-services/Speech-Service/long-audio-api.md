@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: ed00a9df46660cc6bfb4ec5fd9a93c80f5d6653e
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ff8cdf78d923394caf36610534eb5dcc7de571a4
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815324"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562539"
 ---
 # <a name="long-audio-api-preview"></a>長音訊 API （預覽）
 
@@ -42,15 +42,24 @@ ms.locfileid: "74815324"
 準備您的文字檔時，請確定它：
 
 * 這是純文字（.txt）或 SSML 文字（.txt）
-  * 若為純文字，則會叫用**Enter/Return** -View[純文字輸入範例](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)來分隔每個段落
-  * 針對 SSML 文字，每個 SSML 片段都會被視為一個段落。 SSML 片段應以不同的段落（View [SSML 文字輸入範例](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)）分隔。 如需語言代碼，請參閱[語音合成標記語言（SSML）](speech-synthesis-markup.md)
 * [使用位元組順序標記（BOM）](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)編碼為 utf-8
-* 包含超過10000個字元或超過50個段落
 * 是單一檔案，而不是 zip
+* 針對 SSML 文字，包含超過400個字元的純文字或400個可[計費字元](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note)，且小於10000個段落
+  * 若為純文字，則會叫用**Enter/Return** -View[純文字輸入範例](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)來分隔每個段落
+  * 針對 SSML 文字，每個 SSML 片段都會被視為一個段落。 SSML 片段應以不同段落分隔-View [SSML 文字輸入範例](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
+> [!NOTE]
+> 若為中文（大陸）、中文（香港特別行政區）、中文（臺灣）、日文和韓文，則會將一個單字計為兩個字元。 
+
+## <a name="submit-synthesis-requests"></a>提交合成要求
+
+準備輸入內容之後，請遵循[長格式的音訊合成快速入門](https://aka.ms/long-audio-python)來提交要求。 如果您有多個輸入檔案，就必須提交多個要求。 有一些限制需要注意： 
+* 針對每個 Azure 訂用帳戶，允許用戶端每秒提交最多5個對伺服器的要求。 如果超過限制，用戶端會收到429錯誤碼（太多要求）。 請減少每秒的要求數量
+* 允許伺服器執行，並將每個 Azure 訂用帳戶的最多120個要求排入佇列。 如果超過限制，伺服器會傳回429錯誤碼（太多要求）。 請等候並避免提交新的要求，直到部分要求完成
+* 伺服器會針對每個 Azure 訂用帳戶保留最多20000個要求。 如果超過限制，請在提交新要求之前先刪除
 
 ## <a name="audio-output-formats"></a>音訊輸出格式
 
-較長的音訊 API 支援下列音訊輸出格式：
+我們支援彈性的音訊輸出格式。 您可以藉由設定 ' concatenateResult ' 參數，為每個段落產生音訊輸出，或將音訊串連成一個輸出。 較長的音訊 API 支援下列音訊輸出格式：
 
 > [!NOTE]
 > 預設的音訊格式為 riff-riff-16khz-16bit-mono-pcm-dxil 16 位-mono-pcm。

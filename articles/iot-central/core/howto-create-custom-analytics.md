@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 618216208b61051d5446f96fb5b28a451b188c35
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5c22e29e51d9f2fc58720c555b8ad3b03d791db6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954106"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435038"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>使用 Azure Databricks 以自訂分析延伸 Azure IoT Central
 
@@ -37,19 +37,19 @@ ms.locfileid: "72954106"
 
 使用下列設定在[Azure IoT Central 應用程式管理員](https://aka.ms/iotcentral)網站上建立 IoT Central 應用程式：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ------- | ----- |
 | 付款計劃 | 隨用隨付 |
-| 應用程式範本 | Contoso 範例 |
+| 應用程式範本 | 舊版應用程式 |
 | 應用程式名稱 | 接受預設值，或選擇您自己的名稱 |
 | URL | 接受預設值，或選擇您自己唯一的 URL 前置詞 |
 | 目錄 | 您的 Azure Active Directory 租使用者 |
 | Azure 訂用帳戶 | 您的 Azure 訂用帳戶 |
-| 地區 | 美國東部 |
+| 地區 | 美國 |
 
-本文中的範例和螢幕擷取畫面會使用「**美國東部**」區域。 選擇接近您的位置的位置，並確定您在相同的區域中建立所有資源。
+本文中的範例和螢幕擷取畫面會使用**美國**地區。 選擇接近您的位置的位置，並確定您在相同的區域中建立所有資源。
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>資源群組
 
 使用 Azure 入口網站建立名為**IoTCentralAnalysis**的[資源群組](https://portal.azure.com/#create/Microsoft.ResourceGroup)，以包含您所建立的其他資源。 在與 IoT Central 應用程式相同的位置中建立 Azure 資源。
 
@@ -57,25 +57,25 @@ ms.locfileid: "72954106"
 
 使用 Azure 入口網站建立具有下列設定的[事件中樞命名空間](https://portal.azure.com/#create/Microsoft.EventHub)：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ------- | ----- |
-| Name    | 選擇您的命名空間名稱 |
+| 名稱    | 選擇您的命名空間名稱 |
 | 價格層 | 基本 |
-| Subscription | 您的訂用帳戶 |
-| Resource group | IoTCentralAnalysis |
-| Location | 美國東部 |
+| 訂閱 | 您的訂用帳戶 |
+| 資源群組 | IoTCentralAnalysis |
+| 位置 | 美國東部 |
 | 輸送量單位 | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Azure Databricks 工作區
 
 使用 Azure 入口網站建立具有下列設定的[Azure Databricks 服務](https://portal.azure.com/#create/Microsoft.Databricks)：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ------- | ----- |
 | 工作區名稱    | 選擇您的工作區名稱 |
-| Subscription | 您的訂用帳戶 |
-| Resource group | IoTCentralAnalysis |
-| Location | 美國東部 |
+| 訂閱 | 您的訂用帳戶 |
+| 資源群組 | IoTCentralAnalysis |
+| 位置 | 美國東部 |
 | 價格層次 | Standard |
 
 當您建立所需的資源時， **IoTCentralAnalysis**資源群組看起來會如下列螢幕擷取畫面所示：
@@ -104,13 +104,13 @@ ms.locfileid: "72954106"
 1. 流覽至 **連續資料匯出** 頁面，選取  **+ 新增**，然後**Azure 事件中樞**。
 1. 使用下列設定來設定匯出，然後選取 [**儲存**]：
 
-    | 設定 | Value |
+    | 設定 | 值 |
     | ------- | ----- |
     | 顯示名稱 | 匯出至事件中樞 |
-    | 已啟用 | 開啟 |
+    | 啟用 | 開啟 |
     | 事件中樞命名空間 | 您的事件中樞命名空間名稱 |
     | 事件中樞 | centralexport |
-    | 量測 | 開啟 |
+    | 度量 | 開啟 |
     | 裝置 | 關 |
     | 裝置範本 | 關 |
 
@@ -128,7 +128,7 @@ ms.locfileid: "72954106"
 
 請使用下表中的資訊來建立您的叢集：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ------- | ----- |
 | 叢集名稱 | centralanalysis |
 | 叢集模式 | Standard |
@@ -136,7 +136,7 @@ ms.locfileid: "72954106"
 | Python 版本 | 3 |
 | 啟用自動調整功能 | 否 |
 | 在閒置幾分鐘後終止 | 30 |
-| 背景工作類型 | Standard_DS3_v2 |
+| 背景工作角色類型 | Standard_DS3_v2 |
 | 背景工作角色 | 1 |
 | 驅動程式類型 | 與背景工作角色相同 |
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 77fc5a53c8bdc389c24cd1e6406415eefc3f167b
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: d50c07d78c15d26a191b982d24da8a4808a31ecd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256194"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415062"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>授權非擁有者部署 Avere vFXT
 
@@ -19,11 +19,11 @@ ms.locfileid: "72256194"
 
 (部署 Avere vFXT 系統的建議方式是讓具有擁有者權限的使用者執行建立步驟，如[準備建立 Avere vFXT](avere-vfxt-prereqs.md)中所述。)  
 
-此因應措施牽涉到建立額外的存取角色，讓其使用者有足夠的權限可安裝叢集。 該角色必須由訂用帳戶擁有者建立，而且擁有者必須將它指派給適當的使用者。 
+此因應措施牽涉到建立額外的存取角色，讓其使用者有足夠的權限可安裝叢集。 該角色必須由訂用帳戶擁有者建立，而且擁有者必須將它指派給適當的使用者。
 
-訂用帳戶擁有者也必須為 Avere vFXT Marketplace [接受使用規定](avere-vfxt-prereqs.md)。 
+訂用帳戶擁有者也必須為 Avere vFXT Marketplace [接受使用規定](avere-vfxt-prereqs.md)。
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > 這些步驟全都必須由具有訂用帳戶擁有者權限的使用者 (將用於叢集) 執行。
 
 1. 複製這些行並將它們儲存在檔案中 (例如 `averecreatecluster.json`)。 在 `AssignableScopes` 陳述式中使用您的訂用帳戶識別碼。
@@ -49,7 +49,7 @@ ms.locfileid: "72256194"
            "Microsoft.Network/routeTables/routes/delete",
            "Microsoft.Network/virtualNetworks/subnets/join/action",
            "Microsoft.Network/virtualNetworks/subnets/read",
-   
+
            "Microsoft.Resources/subscriptions/resourceGroups/read",
            "Microsoft.Resources/subscriptions/resourceGroups/resources/read",
            "Microsoft.Storage/*/read",
@@ -63,6 +63,7 @@ ms.locfileid: "72256194"
    `az role definition create --role-definition <PATH_TO_FILE>`
 
     範例：
+
     ```azurecli
     az role definition create --role-definition ./averecreatecluster.json
     ```
@@ -71,7 +72,7 @@ ms.locfileid: "72256194"
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-在此程序之後，任何或指派此角色的使用者都有訂用帳戶的下列權限： 
+在此程序之後，任何或指派此角色的使用者都有訂用帳戶的下列權限：
 
 * 建立並設定網路基礎結構
 * 建立叢集控制器

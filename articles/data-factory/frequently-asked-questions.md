@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 2da12bbc760ff06ad0737ed9d48e12ea81260655
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8238f2ea8395fc53044703db619d768918cb1834
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674719"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644693"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory 常見問題集
 本文提供 Azure Data Factory 常見問題集的解答。  
@@ -72,7 +72,7 @@ Azure Data Factory 視覺效果工具可啟用反復式開發和調試。 您可
 ### <a name="sdks"></a>SDK
 如果您是一位先進的使用者，而且您正在尋找程式設計介面，Data Factory 會提供一組豐富的 Sdk，讓您可以使用您最愛的 IDE 來撰寫、管理或監視管線。 .NET、PowerShell、Python 和 REST 皆提供語言支援。
 
-### <a name="monitoring"></a>監控
+### <a name="monitoring"></a>監視
 您可以在瀏覽器使用者介面中透過 PowerShell、SDK 或視覺監視工具來監視自己的 Data Factory。 您可以有效率且有效的方式，監視和管理隨選、以觸發程式為基礎的自訂流程。 取消現有的工作，一眼就能看到失敗、向下切入以取得詳細的錯誤訊息，以及在不進行內容切換或在畫面之間來回流覽的單一窗格中，進行這些問題的分析。 
 
 ### <a name="new-features-for-ssis-in-data-factory"></a>Data Factory 中 SSIS 的新功能
@@ -82,7 +82,7 @@ Azure Data Factory 視覺效果工具可啟用反復式開發和調試。 您可
 -   具有虛擬網路服務端點的 SQL Database
 -   受控執行個體
 -   彈性集區
--   支援在傳統虛擬網路上的 Azure Resource Manager 虛擬網路于未來淘汰，這可讓您將 Azure SSIS 整合執行時間插入/加入至設定為使用虛擬網路服務 SQL Database 的虛擬網路端點/MI/內部部署資料存取。 如需詳細資訊，請參閱將[AZURE SSIS 整合執行時間加入虛擬網路](join-azure-ssis-integration-runtime-virtual-network.md)。
+-   支援在傳統虛擬網路上的 Azure Resource Manager 虛擬網路于未來淘汰，這可讓您將 Azure SSIS 整合執行時間插入/加入至設定為使用虛擬網路服務端點/MI/內部部署資料存取之 SQL Database 的虛擬網路。 如需詳細資訊，請參閱將[AZURE SSIS 整合執行時間加入虛擬網路](join-azure-ssis-integration-runtime-virtual-network.md)。
 -   支援 Azure Active Directory （Azure AD）驗證和 SQL 驗證以連線至 SSISDB，允許使用 Azure 資源的 Data Factory 受控識別進行 Azure AD 驗證
 -   支援將您自己的內部部署 SQL Server 授權，從 Azure Hybrid Benefit 選項獲得可觀的成本節約
 -   支援 Enterprise Edition 的 Azure SSIS 整合執行時間，可讓您使用 advanced/premium 功能、自訂安裝程式介面來安裝其他元件/延伸模組，以及合作夥伴生態系統。 如需詳細資訊，請參閱[Enterprise Edition、自訂安裝，以及 ADF 中 SSIS 的協力廠商](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/)擴充性。 
@@ -101,7 +101,7 @@ Azure Data Factory 視覺效果工具可啟用反復式開發和調試。 您可
 如需詳細資訊，請參閱 [Azure Data Factory 中的整合執行階段](concepts-integration-runtime.md)。
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>整合執行階段數目的限制為何？
-您在資料處理站中可擁有多少個整合執行階段個體，並無硬性限制。 不過，整合執行階段可根據訂用帳戶用於 SSIS 套件封裝的虛擬機器核心數目，將會受到限制。 如需詳細資訊，請參閱 [Data Factory 限制](../azure-subscription-service-limits.md#data-factory-limits)。
+您在資料處理站中可擁有多少個整合執行階段個體，並無硬性限制。 不過，整合執行階段可根據訂用帳戶用於 SSIS 套件封裝的虛擬機器核心數目，將會受到限制。 如需詳細資訊，請參閱 [Data Factory 限制](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits)。
 
 ## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Azure Data Factory 的最上層概念為何？
 Azure 訂用帳戶可能會有一或多個 Azure Data Factory 執行個體 (或資料處理站)。 Azure Data Factory 是由四個重要元件所組成，這些元件會一起運作，以提供平台讓您撰寫具有資料移動和轉換步驟的資料驅動工作流程。
@@ -127,7 +127,7 @@ Data Factory 中的連結服務，有兩個用途：
 - 用來代表可裝載活動執行的 *計算資源* 。 例如，HDInsight Hive 活動會在 HDInsight Hadoop 叢集上執行。 如需轉換活動和受支援計算環境的清單，請參閱 [Azure Data Factory 中的資料轉換](transform-data.md)。
 
 ### <a name="triggers"></a>觸發程序
-觸發程序代表用來決定何時需要啟動管線執行的處理單位。 針對不同類型的事件有不同類型的觸發程序。 
+觸發程序代表用來決定何時需要啟動管線執行的處理單位。 針對不同類型的事件，有不同類型的觸發程序。 
 
 ### <a name="pipeline-runs"></a>管線執行
 管線執行是管線執行的執行個體。 通常會藉由將引數傳遞給管線中定義的參數，來具現化管線執行。 您可以藉由手動方式，或是在觸發程序定義內傳遞引數。
@@ -168,13 +168,13 @@ Data Factory 中的連結服務，有兩個用途：
 是，參數是 Data Factory 中的第一級最上層概念。 您可定義管線層級的參數並傳遞引數，同時依需求或使用觸發程序來執行管線執行。  
 
 ### <a name="can-i-define-default-values-for-the-pipeline-parameters"></a>可以定義管線參數的預設值嗎？ 
-是。 您可以定義管線中參數的預設值。 
+可以。 您可以定義管線中參數的預設值。 
 
 ### <a name="can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run"></a>管線中的活動可否取用傳遞給管線執行的引數？ 
-是。 管線內的每個活動皆可使用 `@parameter` 建構，來取用傳遞給管線執行的參數值。 
+可以。 管線內的每個活動皆可使用 `@parameter` 建構，來取用傳遞給管線執行的參數值。 
 
 ### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>可以在另一個活動中取用活動輸出屬性？ 
-是。 可以使用 `@activity` 建構在後續活動中取用活動輸出。
+可以。 可以使用 `@activity` 建構在後續活動中取用活動輸出。
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>如何正常處理活動輸出中的 Null 值？ 
 您可以在運算式中使用 `@coalesce` 建構來正常處理 Null 值。 
@@ -201,7 +201,7 @@ Data Factory 中的連結服務，有兩個用途：
 
 目前在下欄區域中建立的 data factory 支援整頓資料流程：
 
-* 澳洲東部
+* 澳大利亞東部
 * 加拿大中部
 * 印度中部
 * 美國中部
@@ -247,27 +247,27 @@ Azure Data Factory （ADF）是受控資料整合服務，可讓資料工程師�
 * short
 * double
 * real
-* float
+* FLOAT
 * char
-* nchar
+* NCHAR
 * varchar
-* nvarchar
+* NVARCHAR
 * integer
 * int
 * bit
-* 布林值
-* smallint
-* tinyint
-* bigint
+* boolean
+* SMALLINT
+* TINYINT
+* BIGINT
 * long
-* 文字
-* 日期
-* datetime
+* text
+* date
+* Datetime
 * datetime2
 * smalldatetime
 * timestamp
-* uniqueidentifier
-* xml
+* UNIQUEIDENTIFIER
+* Xml
 
 未來將會支援其他資料類型。
 

@@ -1,18 +1,18 @@
 ---
-title: Azure Functions 的 Durable Functions 擴充功能中的函式類型
+title: Azure Durable Functions 中的函數類型
 description: 深入瞭解在 Azure Functions 的 Durable Functions 協調流程中，支援函式對函式通訊的函數和角色類型。
 author: cgillum
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7a485f31ed7e112745cf3b45bbfe348e6a2e0fd3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 35ef9d8731e169e890f5985ce01215fec5d6e3de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232775"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433271"
 ---
-# <a name="durable-functions-types-and-features-azure-functions"></a>Durable Functions 類型和功能（Azure Functions）
+# <a name="durable-functions-types-and-features"></a>Durable Functions 類型和功能
 
 Durable Functions 是 [Azure Functions](../functions-overview.md) 的擴充功能。 您可以使用 Durable Functions 來執行函式的具狀態協調流程。 長期函數應用程式是由不同 Azure 函式所組成的解決方案。 函數可以在長期函式協調流程中扮演不同的角色。 
 

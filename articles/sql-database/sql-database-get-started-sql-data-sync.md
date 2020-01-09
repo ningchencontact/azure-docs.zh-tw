@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 315d65b635f34847d0310e6b6adf03e20f2afd45
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 019ddbac1900856666b958d90b4395f25eb5ee84
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807534"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461589"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>教學課程：設定 Azure SQL Database 和 SQL Server 內部部署之間的 SQL 資料同步
 
@@ -33,14 +33,20 @@ ms.locfileid: "73807534"
 
 ## <a name="create-sync-group"></a>建立同步群組
 
-1. 在瀏覽器中，導覽至 Azure 入口網站。 從儀表板中找出您的 SQL 資料庫，或選取工具列上的 **SQL 資料庫**圖示，然後在 **SQL 資料庫**頁面上，選取您想作為資料同步中樞資料庫的資料庫。
+1. 請移至[Azure 入口網站](https://portal.azure.com)來尋找您的 SQL database。 搜尋並選取 [SQL 資料庫]。
+
+    ![搜尋 SQL 資料庫，Microsoft Azure 入口網站](media/sql-database-get-started-sql-data-sync/search-for-sql-databases.png)
+
+1. 選取您想要用來做為資料同步中樞資料庫的資料庫。
+
+    ![從 SQL database 清單中選取，Microsoft Azure 入口網站](media/sql-database-get-started-sql-data-sync/select-sql-database.png)
 
     > [!NOTE]
     > 中樞資料庫是同步拓撲的中央端點，其中的同步群組具有多個資料庫端點。 同步群組中具有端點的所有其他成員資料庫都會與中樞資料庫進行同步處理。
 
-1. 在所選取資料庫的 [SQL 資料庫] 頁面上，選取 [同步至其他資料庫]。
+1. 在所選取資料庫的 [ **SQL database** ] 功能表上，選取 [**同步至其他資料庫**]。
 
-    ![[同步至其他資料庫] 選項](media/sql-database-get-started-sql-data-sync/datasync-overview.png)
+    ![同步至其他資料庫、SQL database、Microsoft Azure 入口網站](media/sql-database-get-started-sql-data-sync/sync-to-other-databases.png)
 
 1. 在 [同步至其他資料庫] 頁面上，選取 [新增同步群組]。 [新增同步群組] 頁面隨即開啟並醒目提示 [建立同步群組 (步驟 1)]。
 
@@ -157,7 +163,7 @@ ms.locfileid: "73807534"
 
 1. 從清單中，選取您想要同步的資料表。預設會選取所有資料行，因此請停用您不想要同步的資料行核取方塊。請務必保留選取的 [主鍵] 資料行。
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 1. 根據預設，資料庫在排程或手動執行後才會同步。 若要執行手動同步，請在 Azure 入口網站中瀏覽至您的 SQL 資料庫，選取 [同步至其他資料庫]，然後選取同步群組。 [資料同步] 頁面隨即開啟。 選取 [同步]。
 
@@ -191,7 +197,7 @@ ms.locfileid: "73807534"
 
 **同步處理之後我的資料會聚合嗎？**
 
-不一定。 在有一個中樞和三個支點 (A、B 及 C) 的同步群組中，同步處理是以中樞對 A 點、中樞對 B 點及中樞對 C 點的方式進行。如果在中樞對 A 點同步「之後」，才變更資料庫 A，在進行下次同步工作之前，該變更不會寫入資料庫 B 或資料庫 C。
+不盡然。 在有一個中樞和三個支點 (A、B 及 C) 的同步群組中，同步處理是以中樞對 A 點、中樞對 B 點及中樞對 C 點的方式進行。如果在中樞對 A 點同步「之後」，才變更資料庫 A，在進行下次同步工作之前，該變更不會寫入資料庫 B 或資料庫 C。
 
 **如何變更同步群組中的結構描述？**
 

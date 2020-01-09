@@ -1,7 +1,6 @@
 ---
 title: Azure 串流分析自訂 Blob 輸出資料分割
 description: 本文說明 Azure 串流分析作業的 Blob 儲存體輸出所適用的自訂日期時間路徑模式與自訂欄位或屬性功能。
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789413"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426374"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure 串流分析自訂 Blob 輸出資料分割
 
@@ -26,7 +25,7 @@ Azure 串流分析支援使用自訂欄位或屬性以及自訂日期時間路�
 
 ### <a name="partition-key-options"></a>分割區索引鍵選項
 
-用於分割輸入資料的分割區索引鍵或資料行名稱可能包含帶有連字號、底線和空白字元的英數字元。 除非搭配別名使用，否則無法將巢狀欄位作為分割區索引鍵。 資料分割索引鍵必須是 nvarchar （max）。
+用於分割輸入資料的分割區索引鍵或資料行名稱可能包含帶有連字號、底線和空白字元的英數字元。 除非搭配別名使用，否則無法將巢狀欄位作為分割區索引鍵。 分割區索引鍵必須是 NVARCHAR （MAX）。
 
 ### <a name="example"></a>範例
 
@@ -41,7 +40,7 @@ Azure 串流分析支援使用自訂欄位或屬性以及自訂日期時間路�
 
 ![REST API 輸出](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
 
-作業開始執行後，用戶端  容器可能如下所示：  
+作業開始執行後，用戶端容器可能如下所示：  
 
 ![用戶端容器](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
 
@@ -72,7 +71,7 @@ Azure 串流分析支援使用自訂欄位或屬性以及自訂日期時間路�
 
 下列格式規範權杖可以單獨使用，或者合併使用以達成自訂日期時間格式：
 
-|格式規範   |描述   |範例時間 2018-01-02T10:06:08 的結果|
+|格式規範   |說明   |範例時間 2018-01-02T10:06:08 的結果|
 |----------|-----------|------------|
 |{datetime:yyyy}|四位數的年份|2018|
 |{datetime:MM}|從 01 到 12 的月份|01|

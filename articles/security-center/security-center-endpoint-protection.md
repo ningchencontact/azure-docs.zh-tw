@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2019
+ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 140361b7ba3a6a618d4c416447525f8a73690b81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 899f4cba31afed812fa1643b925a38812308042e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748422"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552928"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Azure 資訊安全中心中的 Endpoint protection 評估和建議
 
-Azure 資訊安全中心提供 Endpoint protection 解決方案[支援](https://docs.microsoft.com/azure/security-center/security-center-os-coverage)版本的健全狀況評估。 本文說明導致資訊安全中心產生下列兩個建議的案例：
+Azure 資訊安全中心提供 Endpoint protection 解決方案[支援](security-center-services.md#supported-endpoint-protection-solutions-)版本的健全狀況評估。 本文說明導致資訊安全中心產生下列兩個建議的案例：
 
 * **在您的虛擬機器上安裝端點保護解決方案**
 * **解決電腦上的 endpoint protection 健康情況問題**
@@ -55,7 +55,7 @@ Azure 資訊安全中心提供 Endpoint protection 解決方案[支援](https://
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center endpoint protection
 
-* 資訊安全中心建議您在匯入**SCEPMpModule （"$env:P Rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1"）** 並 **執行時，「在虛擬機器上安裝端點保護解決方案」MProtComputerStatus**結果（ **AMServiceEnabled = false** ）
+* 資訊安全中心建議您在匯入**SCEPMpModule （"$env:P Rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1"）** 並執行具有**AMServiceEnabled = false**的**MProtComputerStatus**結果時，「**在虛擬機器上安裝端點保護解決方案**」
 
 * 資訊安全中心在**MprotComputerStatus**執行時，建議您「**解決電腦上的 endpoint protection 健康情況問題**」，併發生下列任何一種情況：
 
@@ -79,7 +79,7 @@ Azure 資訊安全中心提供 Endpoint protection 解決方案[支援](https://
     
             **AntivirusSignatureAge**
 
-## <a name="trend-micro"></a>趨勢科技
+## <a name="trend-micro"></a>Trend Micro
 
 * 資訊安全中心建議您在不符合下列任何一項檢查時，「**在虛擬機器上安裝端點保護解決方案**」：
     * **HKLM： \ SOFTWARE\TrendMicro\Deep 安全性代理程式**已存在

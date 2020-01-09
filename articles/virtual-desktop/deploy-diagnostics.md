@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: 27231dc25604e9031f0456d787530bf2a29616f7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b6b310bf1958671583aab873ab42a70845f93f9a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167427"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452417"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>部署診斷工具
 
@@ -25,7 +25,7 @@ ms.locfileid: "74167427"
 - 將訊息傳送給特定工作階段主機上的作用中使用者。
 - 將使用者登出工作階段主機。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須先建立 Azure Active Directory 應用程式註冊和 Log Analytics 工作區，才能部署工具的 Azure Resource Manager 範本。 您或系統管理員需要這些許可權才能執行此動作：
 
@@ -156,7 +156,7 @@ ms.locfileid: "74167427"
 2. 移至您的 Log Analytics 工作區。
 3. 在左面板中的 [工作區資料來源] 底下，選取 [**虛擬機器**]。
 4. 選取您想要連接的 VM 名稱。
-5. 選取 [ **連接**]。
+5. 選取 [連接]。
 
 ## <a name="deploy-the-diagnostics-tool"></a>部署診斷工具
 
@@ -185,7 +185,7 @@ ms.locfileid: "74167427"
 4.  在左面板中的 [管理] 區段下，選取 [**驗證**]。
 5.  在 [重新**導向 uri** ] 文字方塊中輸入所需的重新導向 uri，然後選取功能表左上角的 [**儲存**]。
 6. 在 [類型] 底下的下拉式功能表中選取 [ **Web** ]。
-7. 輸入應用程式總覽頁面中的 URL，並將 **/security/signin-callback**新增至它的結尾。 例如： `https://<yourappname>.azurewebsites.net/security/signin-callback`。
+7. 輸入應用程式總覽頁面中的 URL，並將 **/security/signin-callback**新增至它的結尾。 例如： `https://<yourappname>.azurewebsites.net/security/signin-callback` 。
 
    ![[重新導向 URI] 頁面](media/redirect-uri-page.png)
 
@@ -256,3 +256,8 @@ ms.locfileid: "74167427"
 - [每個會話的使用者輸入延遲（\*）\\最大輸入延遲](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters)：
 
     - 閾值：高於2000毫秒會標示為狀況不良。
+
+## <a name="next-steps"></a>後續步驟
+
+- 瞭解如何[使用 Log Analytics 的診斷](diagnostics-log-analytics.md)來監視活動記錄。
+- 閱讀常見錯誤案例，以及如何在[識別和診斷問題](diagnostics-role-service.md)時加以修正。

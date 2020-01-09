@@ -1,25 +1,14 @@
 ---
-title: 將憑證匯入到在 Azure Service Fabric 上執行的容器 | Microsoft Docs
+title: 將憑證匯入至容器
 description: 立即了解如何將憑證檔案匯入到 Service Fabric 容器服務。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 496d47c88636b11375d97cc4bc50efd9d468d645
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: da4babd8f9d1a25a8514d0c6f1526b43a9723854
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170473"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614106"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>將憑證檔案匯入到 Service Fabric 上執行的容器
 

@@ -1,19 +1,18 @@
 ---
 title: 使用 Azure 串流分析 CI/CD NuGet 套件
 description: 本文說明如何使用 Azure 串流分析 CI/CD NuGet 封裝來設定持續整合和部署程式。
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 6f5ba06841af580cd80b3b46bec972f717ded044
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 11e68aaa7c70d4f888c0009bc28d9bb90f431f3b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934246"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354450"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>使用 Azure 串流分析 CI/CD NuGet 套件進行整合和開發 
 本文說明如何使用 Azure 串流分析 CI/CD NuGet 封裝來設定持續整合和部署程式。

@@ -1,5 +1,6 @@
 ---
-title: Azure 地圖服務中的地圖樣式功能 | Microsoft Docs
+title: 使用 Android SDK 在 Azure 地圖服務中設定地圖樣式
+titleSuffix: Azure Maps
 description: 瞭解 Android SDK 的 Azure 地圖服務樣式相關功能。
 author: walsehgal
 ms.author: v-musehg
@@ -8,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5bcc73c63e7c9d804d01df98551aa51b81d98d07
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1a898508e5c99f6cb8be46605c156106b47c08f3
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844859"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75528091"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>使用 Azure 地圖服務 Android SDK 設定地圖樣式
 
@@ -27,7 +28,7 @@ ms.locfileid: "70844859"
 
 ## <a name="set-map-style-in-the-layout"></a>設定版面配置中的地圖樣式
 
-您可以在活動類別的版面配置檔案中設定地圖樣式。 編輯**res > layout > activity_main**，使其看起來如下所示：
+您可以在活動類別的版面配置檔案中設定地圖樣式。 編輯**res > layout > activity_main .xml**，使其看起來如下所示：
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -51,15 +52,15 @@ ms.locfileid: "70844859"
 </FrameLayout>
 ```
 
-上述屬性會將地圖樣式設為**grayscale_dark。** `mapcontrol_style` 
+上述 `mapcontrol_style` 屬性會將地圖樣式設為**grayscale_dark**。 
 
 <center>
 
-![style-grayscale_dark](./media/set-android-map-styles/grayscale-dark.png)</center>
+![樣式-grayscale_dark](./media/set-android-map-styles/grayscale-dark.png)</center>
 
 ## <a name="set-map-style-in-the-activity-class"></a>設定 activity 類別中的地圖樣式
 
-地圖樣式可以在 activity 類別中設定。 將下列程式碼片段複製到您`MainActivity.java`類別的**onCreate （）** 方法中。 這會將地圖樣式設定為**satellite_road_labels**。
+地圖樣式可以在 activity 類別中設定。 將下列程式碼片段複製到 `MainActivity.java` 類別的**onCreate （）** 方法中。 這會將地圖樣式設定為**satellite_road_labels**。
 
 ```Java
 mapControl.onReady(map -> {
@@ -73,4 +74,4 @@ mapControl.onReady(map -> {
 
 <center>
 
-![style-satellite-road-labels](./media/set-android-map-styles/satellite-road-labels.png)</center>
+![樣式-衛星道路-標籤](./media/set-android-map-styles/satellite-road-labels.png)</center>

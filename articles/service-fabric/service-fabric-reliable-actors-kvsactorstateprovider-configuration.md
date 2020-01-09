@@ -1,25 +1,16 @@
 ---
-title: 變更 Azure Service Fabric 動作項目中的 KVSActorStateProvider 設定 | Microsoft Docs
+title: 變更 KVSActorStateProvider 設定
 description: 了解設定 KVSActorStateProvider 類型的 Azure Service Fabric 可設定狀態的動作項目。
-services: Service-Fabric
-documentationcenter: .net
 author: sumukhs
-manager: chackdan
-editor: ''
-ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 8b10ef18fd389179a4f5422783606c45fa2e0d32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdb115bd57cf3d5af4388f4efa03c2522feef9ca
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60728044"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609769"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>設定 Reliable Actors - KVSActorStateProvider
 您可以在指定之動作項目的 Config 資料夾下，變更 Microsoft Visual Studio 封裝根中所產生的 settings.xml，來修改 KVSActorStateProvider 的預設組態。
@@ -49,7 +40,7 @@ Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 s
 ### <a name="section-name"></a>區段名稱
 &lt;ActorName&gt;ServiceReplicatorConfig
 
-### <a name="configuration-names"></a>組態名稱
+### <a name="configuration-names"></a>設定名稱
 | 名稱 | 單位 | 預設值 | 備註 |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |秒 |0.015 |次要複寫器收到作業後，將通知傳回給主要複寫器前所等待的時間間隔。 任何要在此間隔內傳送給作業處理的其他通知，會集中以一個回應傳送。 |
@@ -66,7 +57,7 @@ Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 s
 ### <a name="section-name"></a>區段名稱
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
-### <a name="configuration-names"></a>組態名稱
+### <a name="configuration-names"></a>設定名稱
 | 名稱 | 單位 | 預設值 | 備註 |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |毫秒 |200 |設定長期本機存放區認可的批次間隔上限。 |

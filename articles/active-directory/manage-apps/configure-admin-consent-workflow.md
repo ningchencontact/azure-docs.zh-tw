@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e1af654f0e82017bab4db5eb529b7d65b44714
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 83b3f0d97daf0b4ac17f74981119b380d1776d97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786430"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430207"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>設定系統管理員同意工作流程（預覽）
 
@@ -153,8 +153,10 @@ ms.locfileid: "74786430"
 
 如需同意應用程式的詳細資訊，請參閱 [Azure Active Directory 同意架構](../develop/consent-framework.md)。
 
-[同意並將應用程式整合到 AzureAD](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+[設定終端使用者同意應用程式的方式](configure-user-consent.md)
 
-[適用於 AzureAD v2.0 交集應用程式的同意與權限](../develop/active-directory-v2-scopes.md)
+[對應用程式授與全租使用者系統管理員同意](grant-admin-consent.md)
 
-[AzureAD StackOverflow (英文)](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Microsoft 身分識別平臺中的許可權和同意](../develop/active-directory-v2-scopes.md)
+
+[StackOverflow 上的 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)

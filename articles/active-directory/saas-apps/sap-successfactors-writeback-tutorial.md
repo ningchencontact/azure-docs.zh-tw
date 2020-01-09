@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: c780ee973c1dabb15c37b2519eb8253d2371080a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 84ab5da993541012fd2199a30d03f5c69e88bf2c
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932303"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530029"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>教學課程：將屬性回寫從 Azure AD 設定為 SAP SuccessFactors （預覽）
 本教學課程的目的是要說明從 Azure AD 到 SuccessFactors Employee Central 的回寫屬性所需執行的步驟。 目前唯一支援回寫的屬性是 [電子郵件] 屬性。 
@@ -63,7 +63,7 @@ ms.locfileid: "74932303"
 * 在相同的方塊中向下滾動，然後選取 [**員工中心 API**]。 如下所示新增許可權，以閱讀使用 ODATA API 和使用 ODATA API 進行編輯。 如果您打算將相同的帳戶用於回寫至 SuccessFactors 案例，請選取 [編輯] 選項。 
   > [!div class="mx-imgBorder"]
   > ![讀取寫入權限](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
-* 按一下 [完成]。 按一下 [儲存變更]。
+* 按一下 [完成]。 按一下 **[儲存變更]** 。
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>為 API 使用者建立許可權群組
 
@@ -92,7 +92,7 @@ ms.locfileid: "74932303"
 * 檢查許可權群組的許可權角色授與。 
   > [!div class="mx-imgBorder"]
   > ![許可權角色和群組詳細資料](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* 按一下 [儲存變更]。
+* 按一下 **[儲存變更]** 。
 
 ## <a name="configuring-successfactors-writeback"></a>設定 SuccessFactors 回寫
 
@@ -118,7 +118,7 @@ ms.locfileid: "74932303"
 
 6. 新增應用程式並顯示應用程式詳細資料畫面之後，請選取 [佈建]
 
-7. 將 [佈建模式] 變更為 [自動]
+7. **將布**建**模式**變更為**自動**
 
 8. 完成 [系統管理員認證] 區段，如下所示：
 
@@ -129,8 +129,8 @@ ms.locfileid: "74932303"
    * **租使用者 URL –** 輸入 SuccessFactors OData API 服務端點的名稱。 僅輸入不含 HTTP 或 HTTPs 的伺服器主機名稱。 此值應如下所示： **api-server-name.successfactors.com**。
 
    * **通知電子郵件** – 輸入您的電子郵件地址，然後勾選 [發生失敗時傳送電子郵件] 核取方塊。
-         > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+    > [!NOTE]
+    > 如果佈建作業進入[隔離](/azure/active-directory/manage-apps/application-provisioning-quarantine-status)狀態，Azure AD 佈建服務會傳送電子郵件通知。
 
    * 按一下 [測試連線] 按鈕。 如果連線測試成功，請按一下頂端的 [儲存] 按鈕。 如果失敗，請再次檢查 SuccessFactors 認證和 URL 是否有效。
     >[!div class="mx-imgBorder"]
@@ -170,7 +170,7 @@ SuccessFactors 布建應用程式設定完成之後，您就可以在 Azure 入�
 
 1. 在 [佈建] 索引標籤中，將 [佈建狀態] 設定為 [開啟]。
 
-2. 按一下 [儲存]。
+2. 按一下 [檔案]。
 
 3. 這項作業會啟動初始同步處理，這可能會花費數小時的時間，視 SuccessFactors 租使用者中的使用者人數而定。 您可以檢查進度列以追蹤同步處理週期的進度。 
 

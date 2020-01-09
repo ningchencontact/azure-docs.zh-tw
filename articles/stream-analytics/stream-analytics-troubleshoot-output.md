@@ -1,7 +1,6 @@
 ---
 title: 對 Azure 串流分析輸出進行疑難排解
 description: 本文說明對 Azure 串流分析作業中的輸出連線進行疑難排解的技術。
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -9,21 +8,21 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a07ac40ad3adda486b5216e83d683e00ec93265d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 65d01c5c4dd852cb424c75f170ce52156f1633cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620799"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354099"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>對 Azure 串流分析輸出進行疑難排解
 
 本頁面說明輸出連線的常見問題，以及如何進行其疑難排解並加以解決。
 
 ## <a name="output-not-produced-by-job"></a>作業未產生輸出 
-1.  對各個輸出使用 [測試連線]  按鈕，驗證輸出的連線能力。
+1.  對各個輸出使用 [測試連線] 按鈕，驗證輸出的連線能力。
 
-2.  請查看 [監視]  索引標籤上的[**監視計量**](stream-analytics-monitoring.md)。因為是彙總值，計量會延遲幾分鐘顯示。
+2.  查看 [**監視**] 索引標籤上的 [[**監視計量**](stream-analytics-monitoring.md)]。因為這些值已匯總，所以計量會延遲幾分鐘的時間。
     - 若輸入事件 > 0，則作業可以讀取輸入資料。 如果輸入事件不是 > 0，然後︰
       - 若要查看資料來源是否為有效資料，請使用[服務匯流排總管](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a)進行檢查。 此項檢查適用於使用事件中樞作為輸入的作業。
       - 請檢查資料序列化格式及資料編碼是否正確。
@@ -75,7 +74,7 @@ ms.locfileid: "67620799"
 - 上游來源是否已節流
 - 查詢中的處理邏輯是否需要大量計算
 
-若要查看這些詳細資料，請在 Azure 入口網站中，選取串流作業，然後選取 [工作圖表]  。 每個輸入都有一個按照分割區區分的待辦項目事件計量。 如果待辦項目事件計量持續增加，則表示系統資源受到限制。 可能是因為有輸出接收節流，或 CPU 很高。 如需使用作業圖表的詳細資訊，請參閱[使用作業圖表進行資料導向偵錯](stream-analytics-job-diagram-with-metrics.md)。
+若要查看這些詳細資料，請在 Azure 入口網站中，選取串流作業，然後選取 [工作圖表]。 每個輸入都有一個按照分割區區分的待辦項目事件計量。 如果待辦項目事件計量持續增加，則表示系統資源受到限制。 可能是因為有輸出接收節流，或 CPU 很高。 如需使用作業圖表的詳細資訊，請參閱[使用作業圖表進行資料導向偵錯](stream-analytics-job-diagram-with-metrics.md)。
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Azure SQL Database 輸出的索引鍵違規警告
 
@@ -91,8 +90,8 @@ ms.locfileid: "67620799"
 * 您可以使用 ALTER INDEX 對唯一索引設定 IGNORE_DUP_KEY 選項，這與使用 CREATE INDEX 或 INDEX 定義建立的主索引鍵/唯一限制式不同。  
 * 因為您無法在這類索引上強制執行唯一性，所以 IGNORE_DUP_KEY 不適用於資料行存放區索引。  
 
-## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>資料行名稱是小寫 Azure Stream analytics
-當使用原始的相容性層級 (1.0)，Azure Stream Analytics 用來將資料行名稱變更為小寫。 更新版本的相容性層級中，已修正此行為。 為了保留大小寫，我們會建議客戶移至 1.1 和更新版本的相容性層級。 您可以在找到更多資訊[針對 Azure Stream Analytics 作業的相容性層級](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)。
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>Azure 串流分析的資料行名稱會以小寫的方式區分大小寫
+使用原始相容性層級（1.0）時，Azure 串流分析用來將資料行名稱變更為小寫。 此行為已在較新的相容性層級中修正。 為了保留這種情況，我們建議客戶移至相容性層級1.1 和更新版本。 您可以在[Azure 串流分析作業中找到相容性層級的](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)詳細資訊。
 
 
 ## <a name="get-help"></a>取得說明

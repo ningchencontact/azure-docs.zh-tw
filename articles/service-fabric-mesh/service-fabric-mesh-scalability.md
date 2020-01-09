@@ -1,20 +1,16 @@
 ---
-title: Azure Service Fabric Mesh 應用程式的延展性 | Microsoft Docs
+title: Azure Service Fabric 網格應用程式的擴充性
 description: 將應用程式部署到 Service Fabric 網格的優點之一，是能夠輕鬆地以手動方式或透過自動調整原則來擴充您的服務。
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 59fdf68ed1ead4665ec8944d67f2d5112d370716
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 474eda904df653d514fd2ee59fa046f1f87a66aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663004"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459007"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>調整 Service Fabric Mesh 應用程式
 

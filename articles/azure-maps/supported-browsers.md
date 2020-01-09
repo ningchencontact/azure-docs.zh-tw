@@ -7,13 +7,13 @@ ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
-ms.openlocfilehash: d867e9a1afcb495aee7e8b0e0b3b001104f48a4c
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+manager: cpendle
+ms.openlocfilehash: 6aa256f026033a8b204b3c2ab1080f9f63ef63d7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844814"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432794"
 ---
 # <a name="web-sdk-supported-browsers"></a>Web SDK 支援的瀏覽器
 
@@ -29,7 +29,7 @@ if (!atlas.isSupported()) {
 }
 ```
 
-## <a name="desktop"></a>桌面
+## <a name="desktop"></a>桌上型
 
 Azure 地圖服務 Web SDK 支援下列桌面瀏覽器：
 
@@ -40,7 +40,7 @@ Azure 地圖服務 Web SDK 支援下列桌面瀏覽器：
 
 另請參閱本文稍後的[目標舊版瀏覽器](#Target-Legacy-Browsers)。
 
-## <a name="mobile"></a>行動訊息
+## <a name="mobile"></a>行動
 
 Azure 地圖服務 Web SDK 支援下列行動瀏覽器：
 
@@ -59,11 +59,11 @@ Azure 地圖服務 Web SDK 支援下列行動瀏覽器：
 
 Node.js 中也支援下列 Web SDK 模組：
 
-- 服務模組（[檔](how-to-use-services-module.md) |  [npm 模組](https://www.npmjs.com/package/azure-maps-rest)）
+- 服務模組（[檔](how-to-use-services-module.md) | [npm 模組](https://www.npmjs.com/package/azure-maps-rest)）
 
 ## <a name="Target-Legacy-Browsers"></a>以舊版瀏覽器為目標
 
-您可能想要以不支援 WebGL 或只有有限支援的舊版瀏覽器為目標。 在這種情況下，建議您將 Azure 地圖服務服務與開放原始碼地圖控制項（例如[Leaflet](https://leafletjs.com/)）搭配使用。 以下為範例：
+您可能想要以不支援 WebGL 或只有有限支援的舊版瀏覽器為目標。 在這種情況下，建議您將 Azure 地圖服務服務與開放原始碼地圖控制項（例如[Leaflet](https://leafletjs.com/)）搭配使用。 以下是範例：
 
 <br/>
 

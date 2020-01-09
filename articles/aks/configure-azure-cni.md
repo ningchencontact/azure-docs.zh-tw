@@ -7,25 +7,24 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: ab28203a240cf360fb990ac42fdbc2d83864f68b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: c9c47506e61c665da459558735a3afc93e8b9806
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604776"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659775"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中設定 Azure CNI 網路
 
 根據預設，AKS 叢集會使用[kubenet][kubenet]，並為您建立虛擬網路和子網。 使用 *kubenet*，節點會從虛擬網路子網路取得 IP 位址。 接著會在節點上設定網路位址轉譯 (NAT)，而 Pod 會接收「隱藏」於節點 IP 後面的 IP 位址。 此方法可減少您需要在網路空間中保留，以供 Pod 使用的 IP 位址數目。
 
-使用[Azure 容器網路介面（CNI）][cni-networking]，每個 pod 都會從子網取得 IP 位址，而且可以直接存取。 這些 IP 位址在您的網路空間中必須是唯一的，且必須事先規劃。 每個節點都有一個組態參數，用於所支援的最大 Pod 數目。 然後，為該節點預先保留每個節點的相同 IP 位址數目。 此方法需要更多的規劃，並且通常會導致 IP 位址耗盡，或者隨著應用程式需求增加，需要在更大的子網路中重建叢集。
+使用[Azure 容器網路介面（CNI）][cni-networking]，每個 pod 都會從子網取得 IP 位址，而且可以直接存取。 這些 IP 位址在您的網路空間中必須是唯一的，且必須事先規劃。 每個節點都有一個組態參數，用於所支援的最大 Pod 數目。 然後，為該節點預先保留每個節點的相同 IP 位址數目。 此方法需要更多規劃，並且通常會導致 IP 位址耗盡，或者隨著應用程式需求增加，需要在更大型子網路中重建叢集。
 
 本文示範如何使用 *Azure CNI* 網路，針對 AKS 叢集建立和使用虛擬網路子網路。 如需網路選項和考慮的詳細資訊，請參閱[Kubernetes 和 AKS 的網路概念][aks-network-concepts]。
 
 ## <a name="prerequisites"></a>必要條件
 
 * 適用於 AKS 叢集的虛擬網路必須允許輸出網際網路連線.
-* 請勿在相同子網路中建立多個 AKS 叢集。
 * AKS 叢集可能不會使用 Kubernetes 服務位址範圍的 `169.254.0.0/16`、`172.30.0.0/16`、`172.31.0.0/16`或 `192.0.2.0/24`。
 * AKS 叢集所使用的服務主體在您虛擬網路內的子網路上必須至少具有[網路參與者](../role-based-access-control/built-in-roles.md#network-contributor)權限。 如果您想要定義[自訂角色](../role-based-access-control/custom-roles.md)，而不使用內建的網路參與者角色，則需要下列權限：
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
@@ -82,7 +81,7 @@ AKS 叢集中每個節點的 pod 數目上限為250。 每個節點「預設」�
 > AKS 服務會嚴格強制執行上表中的最小值。 您不能將 maxPods 值設定為低於所顯示的最小值，因為這麼做可能會導致叢集無法啟動。
 
 * **Azure CLI**：當您使用[az aks create][az-aks-create]命令部署叢集時，請指定 `--max-pods` 引數。 最大值為250。
-* **Resource Manager 範本**：當您使用 Resource Manager 範本部署叢集時，請指定 `maxPods`ManagedClusterAgentPoolProfile[ManagedClusterAgentPoolProfile] 屬性。 最大值為250。
+* **Resource Manager 範本**：當您使用 Resource Manager 範本部署叢集時，請指定 [ManagedClusterAgentPoolProfile] 物件中的 `maxPods` 屬性。 最大值為250。
 * **Azure 入口網站**：當您使用 Azure 入口網站部署叢集時，您無法變更每一節點的 Pod 數目上限。 使用 Azure 入口網站進行部署時，Azure CNI 網路叢集限制為每一節點 30 個 Pod。
 
 ### <a name="configure-maximum---existing-clusters"></a>設定最大值 - 現有叢集
@@ -93,7 +92,7 @@ AKS 叢集中每個節點的 pod 數目上限為250。 每個節點「預設」�
 
 當您建立 AKS 叢集時，可針對 Azure CNI 網路設定下列參數：
 
-**虛擬網路**：要作為 Kubernetes 叢集部署目的地的虛擬網路。 如果您要為叢集建立新的虛擬網路，請選取 [新建] 並遵循＜建立虛擬網路＞一節中的步驟。 如需有關 Azure 虛擬網路限制和配額的資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)。
+**虛擬網路**：要作為 Kubernetes 叢集部署目的地的虛擬網路。 如果您要為叢集建立新的虛擬網路，請選取 [新建] 並遵循＜建立虛擬網路＞一節中的步驟。 如需有關 Azure 虛擬網路限制和配額的資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)。
 
 **子網路**：虛擬網路內要用來部署叢集的子網路。 如果您要在虛擬網路中為叢集建立新的子網路，請選取 [新建] 並遵循＜建立子網路＞一節中的步驟。 混合式連線的位址範圍不應該與您環境中的任何其他虛擬網路重疊。
 
@@ -167,7 +166,7 @@ az aks create \
 
   在 AKS 叢集建立期間所建立的虛擬網路和子網路屬性完整清單，均可在 Azure 入口網站的標準虛擬網路組態頁面中進行設定。
 
-* *可以使用叢集虛擬網路內的不同子網路作為* **Kubernetes 服務位址範圍**嗎？
+* 我可以在叢集*虛擬網路內使用不同的子網作為* **Kubernetes 服務位址範圍**嗎？
 
   不建議，但此組態是可行的。 服務位址範圍是 Kubernetes 指派給您叢集中內部服務的一組虛擬 IP (VIP)。 Azure 網路功能無法查看 Kubernetes 叢集的服務 IP 範圍。 因為無法查看叢集的服務位址範圍，所以稍後有可能在與服務位址範圍重疊的叢集虛擬網路中建立新的子網路。 如果發生這類重疊，Kubernetes 可能會將子網路中另一項資源已經使用的 IP 指派給服務，因而造成無法預期的行為或失敗。 您可藉由確保您使用叢集虛擬網路外部的位址範圍，避免此重疊風險。
 

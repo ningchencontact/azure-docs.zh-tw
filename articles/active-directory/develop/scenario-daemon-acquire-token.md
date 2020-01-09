@@ -1,5 +1,5 @@
 ---
-title: 取得可呼叫 web Api 之 daemon 應用程式中的權杖-Microsoft 身分識別平臺 |Azure
+title: 取得權杖以呼叫 Web API （daemon 應用程式）-Microsoft 身分識別平臺 |Azure
 description: 瞭解如何建立可呼叫 web Api （取得權杖）的 daemon 應用程式
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0588e20467701512da6542da0d87fca786dcc793
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 58952bdb58619693b31ee4705b6f9f704431657d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920288"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423946"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api 的 Daemon 應用程式-取得權杖
 
@@ -33,7 +33,7 @@ ms.locfileid: "74920288"
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
@@ -70,7 +70,7 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 using Microsoft.Identity.Client;
 
 // With client credentials flows the scopes is ALWAYS of the shape "resource/.default", as the

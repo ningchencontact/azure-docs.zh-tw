@@ -3,27 +3,27 @@ title: 使用 Azure IoT Central Explorer 監視裝置連線
 description: 透過 IoT Central Explorer CLI 監視裝置訊息，並觀察裝置對應項變更。
 author: viv-liu
 ms.author: viviali
-ms.date: 09/27/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 2b1c4c64fc02df67f38e36194072efd5db3b8e38
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 90cf83f86acb647b8194619bc1b572e5147cc0cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895692"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434958"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli-preview-features"></a>使用 Azure CLI 監視裝置連線能力（預覽功能）
 
-本主題適用於建置人員和系統管理員。
+*本主題適用於建置員和系統管理員。*
 
 使用 Azure CLI IoT 擴充功能來查看您的裝置所傳送的訊息，以 IoT Central 並觀察裝置對應項中的變更。 您可以使用此工具來偵測和觀察裝置連線能力，並診斷未到達雲端的裝置訊息問題，或未回應對應項變更的裝置。
 
 [如需詳細資訊，請造訪 Azure CLI 延伸模組參考](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/central)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 + Azure CLI 已安裝，且為2.0.7 或更高版本。 執行 `az --version`，以檢查您的 Azure CLI 版本。 瞭解如何從[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)檔安裝和更新
 + Azure 中的工作或學校帳戶，在 IoT Central 應用程式中新增為使用者。

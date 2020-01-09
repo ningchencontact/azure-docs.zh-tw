@@ -9,18 +9,21 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: a0b0d0d95e1ffd50faba19f1665ea5dae737b124
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 5439ec0c0aab5b8c127b651147e4b25d27c58390
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796142"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379618"
 ---
 # <a name="configure-form-recognizer-containers"></a>設定表單辨識器容器
 
 藉由使用 Azure 表單辨識器容器，您可以建立已優化的應用程式架構，以充分利用健全的雲端功能和邊緣位置。
 
 您可以使用 `docker run` 命令引數來設定表單辨識器容器執行時間環境。 此容器有數個必要的設定和一些選擇性的設定。 如需一些範例，請參閱「 [docker 執行命令範例](#example-docker-run-commands)」一節。 容器專屬設定包括計費設定。
+
+> [!IMPORTANT]
+> 表單辨識器容器目前使用1.0 版的表單辨識器 API。 您可以改為使用受控服務來存取 API 的最新版本。
 
 ## <a name="configuration-settings"></a>組態設定
 
@@ -45,9 +48,9 @@ ms.locfileid: "73796142"
 
 您可以在 [Azure 入口網站] 的 [**表單辨識器**] 中，于 [**端點**] 底下找到這項設定。
 
-|必要| 名稱 | 資料類型 | 說明 |
+|必要項| 名稱 | Data type | 說明 |
 |--|------|-----------|-------------|
-|是| `Billing` | 字串 | 計費端點 URI。 如需取得帳單 URI 的詳細資訊，請參閱[收集必要的參數](form-recognizer-container-howto.md#gathering-required-parameters)。 如需詳細資訊和完整的區域端點清單，請參閱[認知服務的自訂子網域名稱](../cognitive-services-custom-subdomains.md)。 |
+|是| `Billing` | String | 計費端點 URI。 如需取得帳單 URI 的詳細資訊，請參閱[收集必要的參數](form-recognizer-container-howto.md#gathering-required-parameters)。 如需詳細資訊和完整的區域端點清單，請參閱[認知服務的自訂子網域名稱](../cognitive-services-custom-subdomains.md)。 |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -74,10 +77,10 @@ ms.locfileid: "73796142"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](form-recognizer-container-howto.md#the-host-computer)的裝載位置可能無法存取，因為 Docker 服務帳戶許可權與主機裝載位置許可權之間發生衝突。
 
-|選用| 名稱 | 資料類型 | 說明 |
+|選用| 名稱 | Data type | 說明 |
 |-------|------|-----------|-------------|
-|必要| `Input` | 字串 | 輸入裝載的目標。 預設值為 `/input`。    <br><br>範例：<br>`--mount type=bind,src=c:\input,target=/input`|
-|必要| `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。  <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
+|必要項| `Input` | String | 輸入裝載的目標。 預設值是 `/input`。    <br><br>範例：<br>`--mount type=bind,src=c:\input,target=/input`|
+|必要項| `Output` | String | 輸出裝載的目標。 預設值是 `/output`。  <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令
 
@@ -88,7 +91,7 @@ ms.locfileid: "73796142"
 
 以您自己的值取代下表中的 {_argument_name_}：
 
-| Placeholder | 值 |
+| 預留位置 | 值 |
 |-------------|-------|
 | **{FORM_RECOGNIZER_API_KEY}** | 用來啟動容器的索引鍵。 可在 [Azure 入口網站表單辨識器金鑰] 頁面上取得。 |
 | **{FORM_RECOGNIZER_ENDPOINT_URI}** | 計費端點 URI 值可在 Azure 入口網站表單辨識器總覽頁面上取得。|

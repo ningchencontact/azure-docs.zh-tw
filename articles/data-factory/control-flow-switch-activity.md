@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 582e0c6b9f6a51f97e8d4990634ceac61c6d9f23
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fd0e6d526f0c47304e7bf53f91d08f42b924ff23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679410"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440391"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Azure Data Factory 中的切換活動
 
@@ -65,10 +65,10 @@ Switch 活動所提供的功能與 switch 語句在程式設計語言中所提�
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 說明 | 允許的值 | 必要
+屬性 | 說明 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
-名稱 | 切換活動的名稱。 | 字串 | 是
-類型 | 必須設定為*切換** | 字串 | 是
+NAME | 切換活動的名稱。 | String | 是
+type | 必須設定為*切換** | String | 是
 expression | 必須評估為字串值的運算式 | 結果類型為 string 的運算式 | 是
 案例 | 一組案例，其中包含值，以及當值符合運算式評估時要執行的一組活動。 必須至少提供一個案例。 最大限制為25個案例。 | Case 物件的陣列 | 是
 defaultActivities | 未滿足運算式評估時所執行的一組活動。 | 活動陣列 | 是
@@ -236,10 +236,7 @@ defaultActivities | 未滿足運算式評估時所執行的一組活動。 | 活
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }
@@ -334,8 +331,8 @@ $result.Error -join "`r`n"
 
 請參閱 Data Factory 支援的其他控制流程活動： 
 
-- [If 條件活動](control-flow-if-condition-activity.md)
-- [執行管線活動](control-flow-execute-pipeline-activity.md)
+- [If Condition 活動](control-flow-if-condition-activity.md)
+- [執行管道活動](control-flow-execute-pipeline-activity.md)
 - [For Each 活動](control-flow-for-each-activity.md)
 - [取得中繼資料活動](control-flow-get-metadata-activity.md)
 - [查閱活動](control-flow-lookup-activity.md)

@@ -1,119 +1,61 @@
 ---
-title: 在對應資料流程中設定接收轉換
+title: 對應資料流程中的接收轉換
 description: 瞭解如何在對應的資料流程中設定接收轉換。
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/03/2019
-ms.openlocfilehash: 828487aba651d10e5c906050dab544c097b49762
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/12/2019
+ms.openlocfilehash: 1c65a456270cdca345504c07b927a7ef7e1f725b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930280"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440278"
 ---
-# <a name="sink-transformation-for-a-data-flow"></a>資料流程的接收轉換
+# <a name="sink-transformation-in-mapping-data-flow"></a>對應資料流程中的接收轉換
 
-在轉換資料流程之後，您可以將資料接收到目的地資料集。 在 [接收] 轉換中, 選擇目的地輸出資料的資料集定義。 當您的資料流程需要時，您可以擁有多個接收轉換。
+轉換資料之後，您可以將資料接收到目的地資料集。 每個資料流程都需要至少一個接收轉換，但是您可以視需要寫入至多個接收器來完成轉換流程。 若要寫入其他接收，請透過新的分支和條件式分割來建立新的資料流程。
 
-若要考慮架構漂移和內送資料的變更，請將輸出資料接收到沒有在輸出資料集中定義之架構的資料夾。 您也可以在來源中選取 [**允許架構漂移**], 以考慮來源中的資料行變更。 然後自動對應接收器中的所有欄位。
+每個接收轉換只會與一個 Data Factory 資料集相關聯。 資料集會定義您想要寫入之資料的形狀和位置。
 
-![[接收] 索引標籤上的選項，包括 [自動對應] 選項](media/data-flow/sink1.png "接收1")
+## <a name="supported-sink-connectors-in-mapping-data-flow"></a>對應資料流程中支援的接收連接器
 
-若要接收所有傳入的欄位, 請開啟 [**自動對應**]。 若要選擇要接收到目的地的欄位, 或變更目的地的欄位名稱, 請關閉 [**自動對應**]。 然後開啟 [**對應**] 索引標籤來對應輸出欄位。
+下列資料集目前可用於接收轉換：
+    
+* [Azure Blob 儲存體](connector-azure-blob-storage.md#mapping-data-flow-properties)（JSON、Avro、Text、Parquet）
+* [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) （JSON、Avro、Text、Parquet）
+* [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) （JSON、Avro、Text、Parquet）
+* [Azure Synapse 分析](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
+* [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties)
+* [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
 
-![[對應] 索引標籤上的選項](media/data-flow/sink2.png "接收2")
+這些連接器的特定設定位於 [**設定**] 索引標籤中。這些設定的相關資訊位於連接器檔中。 
 
-## <a name="output"></a>輸出 
-針對 Azure Blob 儲存體或 Data Lake Storage 接收類型，將已轉換的資料輸出到資料夾。 Spark 會根據接收器轉換所使用的資料分割配置，產生分割的輸出資料檔案。 
+Azure Data Factory 可以存取超過[90 的原生連接器](connector-overview.md)。 若要將資料從您的資料流程寫入其他來源，請使用複製活動，在資料流程完成後，從其中一個支援的臨時區域載入該資料。
 
-您可以從 [**優化**] 索引標籤設定資料分割配置。如果您想要 Data Factory 將您的輸出合併成單一檔案，請選取 [**單一分割**區]。 如果您想要維護或建立資料分割資料夾，請使用索引**鍵分割**，並設定您想要用於資料分割資料夾結構的索引鍵。
+## <a name="sink-settings"></a>接收設定
 
-![[優化] 索引標籤上的選項](media/data-flow/opt001.png "接收選項")
+新增接收之後，請透過 [**接收**] 索引標籤進行設定。您可以在這裡挑選或建立接收所寫入的資料集 
+
+![接收設定](media/data-flow/sink-settings.png "接收設定")
+
+**架構漂移：** [架構漂移](concepts-data-flow-schema-drift.md)是 data factory 能夠以原生方式處理您資料流程中的彈性架構，而不需要明確地定義資料行變更。 啟用 [**允許架構漂移**]，在接收資料架構中定義的內容之上寫入其他資料行。
+
+**驗證架構：** 如果已選取 [驗證架構]，則如果找不到資料集之已定義架構中的任何資料行，資料流程將會失敗。
 
 ## <a name="field-mapping"></a>欄位對應
-在接收轉換的 [**對應**] 索引標籤上, 您可以將左側的傳入資料行對應至右邊的目的地。 當您接收到檔案的資料流程時，Data Factory 一律會將新檔案寫入資料夾。 當您對應到資料庫資料集時，您會選擇要插入、更新、upsert 或刪除的資料庫資料表作業選項。
 
-![[對應] 索引標籤](media/data-flow/sink2.png "接收")
+類似于 [選取] 轉換，在接收器的 [**對應**] 索引標籤中，您可以決定要寫入的傳入資料行。 根據預設，所有輸入資料行（包括漂移資料行）都會對應。 這就是所謂的「**自動對應**」。
 
-在對應資料表中，您可以將多個資料行、取消多個資料行，或將多個資料列對應至相同的資料行名稱，以進行多重連結。
+當您關閉自動對應時，您可以加入宣告固定的資料行對應或以規則為基礎的對應。 以規則為基礎的對應可讓您撰寫具有模式比對的運算式，而固定對應則會對應邏輯和實體資料行名稱。 如需以規則為基礎之對應的詳細資訊，請參閱[對應資料流程中的資料行模式](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink)。
 
-若要一律將一組傳入的欄位對應至目標, 並完全接受彈性的架構定義, 請選取 [**允許架構漂移**]。
+## <a name="data-preview-in-sink"></a>接收中的資料預覽
 
-![[對應] 索引標籤，顯示對應至資料集中之資料行的欄位](media/data-flow/multi1.png "多個選項")
-
-若要重設您的資料行對應, 請選取 [**重新對應**]。
-
-![[接收] 索引標籤](media/data-flow/sink1.png "接收一個")
-
-如果架構變更, 請選取 [**驗證架構**] 以使接收失敗。
-
-選取 **[清除資料夾**] 以截斷接收資料夾的內容, 然後在該目的檔案夾中寫入目的地檔案。
-
-## <a name="fixed-mapping-vs-rule-based-mapping"></a>固定對應與以規則為基礎的對應
-當您關閉自動對應時，您可以加入宣告以資料行為基礎的對應（固定對應）或以規則為基礎的對應。 以規則為基礎的對應可讓您撰寫具有模式比對的運算式，而固定對應則會對應邏輯和實體資料行名稱。
-
-![以規則為基礎的對應](media/data-flow/rules4.png "以規則為基礎的對應")
-
-當您選擇以規則為基礎的對應時，您會指示 ADF 評估相符的運算式，以符合傳入模式規則並定義外寄功能變數名稱。 您可以新增欄位和以規則為基礎之對應的任意組合。 然後，ADF 會根據來源的傳入中繼資料，在執行時間產生功能變數名稱。 您可以在 debug 和使用 [資料預覽] 窗格期間, 查看所產生欄位的名稱。
-
-模式比對的詳細資訊位於資料[行模式檔](concepts-data-flow-column-pattern.md)。
-
-您也可以在使用以規則為基礎的比對時輸入正則運算式模式，方法是展開資料列，然後在 [名稱符合：] 旁輸入正則運算式。
-
-![Regex 對應](media/data-flow/scdt1g4.png "Regex 對應")
-
-如果您想要將所有傳入的欄位對應到目標中的相同名稱，就是以規則為基礎的對應與固定對應的基本常見範例。 在固定對應的情況下，您會列出資料表中的每個個別資料行。 針對以規則為基礎的對應，您會有一個規則，將使用 ```true()``` 的所有欄位對應到 ```$$```所表示的相同內送功能變數名稱。
-
-### <a name="sink-association-with-dataset"></a>與資料集的接收關聯
-
-您為接收器選取的資料集不一定會有定義于資料集定義中的架構。 如果沒有已定義的架構，則您必須允許架構漂移。 當您定義固定對應時，邏輯對機構名稱對應將會保存在接收轉換中。 如果您變更資料集的架構定義，則可能會中斷您的接收對應。 若要避免這種情況，請使用以規則為基礎的對應。 以規則為基礎的對應會一般化，這表示資料集上的架構變更不會中斷對應。
-
-## <a name="file-name-options"></a>檔案名稱選項
-
-設定檔案命名： 
-
-   * **預設值**：允許 SPARK 根據部分預設值來命名檔案。
-   * **模式**：輸入輸出檔案的模式。 例如,**貸款 [n]** 將會建立 loans1 .csv、loans2, 依此類推。
-   * **每個資料分割**：每個分割區輸入一個檔案名。
-   * 當做**資料行中的資料**：將輸出檔案設為數據行的值。
-   * **輸出至單一**檔案：使用此選項時，ADF 會將分割的輸出檔案結合成單一的命名檔案。 若要使用此選項，您的資料集應解析為資料夾名稱。 此外，請注意，此合併作業可能會根據節點大小而失敗。
-
-> [!NOTE]
-> 只有當您執行「執行資料流程」活動時，檔案作業才會啟動。 它們不會在資料流程的「資料流程」（Debug）模式中啟動。
-
-## <a name="database-options"></a>資料庫選項
-
-選擇資料庫設定：
-
-![顯示 SQL 接收選項的 [設定] 索引標籤](media/data-flow/alter-row2.png "SQL 選項")
-
-* **Update 方法**：預設為允許插入。 如果您想要停止從來源插入新的資料列, 請清除 [**允許插入**]。 若要更新、upsert 或刪除資料列，請先加入 alter-row 轉換來標記這些動作的資料列。 
-* **重新建立資料表**：在資料流程完成之前，卸載或建立目標資料表。
-* **截斷資料表**：在資料流程完成之前，從目標資料表中移除所有資料列。
-* **批次大小**：輸入用來將資料值區寫入區塊的數位。 針對大型資料載入，請使用此選項。 
-* **啟用暫存**：當您將 Azure 資料倉儲當做接收資料集載入時，請使用 PolyBase。
-* **前置和後置 SQL 腳本**：輸入將在（前置處理）和之後（後置處理）資料寫入至您的接收資料庫之前執行的多行 SQL 腳本
-
-![前置和後置 SQL 處理腳本](media/data-flow/prepost1.png "SQL 處理腳本")
-
-> [!NOTE]
-> 在 [資料流程] 中, 您可以指示 Data Factory 在目標資料庫中建立新的資料表定義。 若要建立資料表定義，請在接收轉換中設定具有新資料表名稱的資料集。 在 SQL 資料集的資料表名稱底下, 選取 [**編輯**], 然後輸入新的資料表名稱。 然後, 在 [接收] 轉換中, 開啟 [**允許架構漂移**]。 將 [匯**入架構**] 設定為 [**無**]。
-
-![SQL 資料集設定，顯示編輯資料表名稱的位置](media/data-flow/dataset2.png "SQL 架構")
-
-> [!NOTE]
-> 當您更新或刪除資料庫接收中的資料列時，必須設定索引鍵資料行。 此設定可讓 alter row 轉換判斷資料手機連結庫（DML）中的唯一資料列。
-
-### <a name="cosmosdb-specific-settings"></a>CosmosDB 特定設定
-
-當 CosmosDB 中的登陸資料時，您必須考慮下列其他選項：
-
-* 分割區索引鍵：這是必要欄位。 輸入代表集合之分割區索引鍵的字串。 範例：```/movies/title```
-* 輸送量：為每次執行此資料流程時，設定您想要套用至 CosmosDB 集合之 ru 數目的選擇性值。 最小值為400。
+在 debug 叢集上提取資料預覽時，不會有任何資料寫入至您的接收。 會傳回資料外觀的快照集，但不會將任何內容寫入目的地。 若要測試將資料寫入至您的接收，請從管線畫布執行管線偵錯工具。
 
 ## <a name="next-steps"></a>後續步驟
 既然您已建立資料流程，請將「資料流程」[活動新增至您的管線](concepts-data-flow-overview.md)。

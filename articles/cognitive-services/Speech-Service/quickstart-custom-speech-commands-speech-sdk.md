@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 3301c43aa71f041de1c53fb4083de73b6d2e4450
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 69a03ce5a8da7c8af6c17d122be3744e7b79e246
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976752"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381098"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>快速入門：使用語音 SDK 連接到自訂命令應用程式（預覽）
 
@@ -23,7 +23,7 @@ ms.locfileid: "74976752"
 
 在本文中，您將會：
 
-- 發行自訂命令應用程式，並取得應用程式識別碼（app id）
+- 發行自訂命令應用程式，並取得應用程式識別碼（App ID）
 - 使用語音 SDK 建立用戶端應用程式，以讓您與您的自訂命令應用程式交談
 
 ## <a name="prerequisites"></a>必要條件
@@ -309,7 +309,7 @@ ms.locfileid: "74976752"
    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
    const string region = "YourServiceRegion"; // The subscription service region. Note: only 'westus2' is currently supported
 
-   var speechCommandsConfig = DialogServiceConfig.FromSpeechCommandsAppId(speechCommandsApplicationId, speechSubscriptionKey, region);
+   var speechCommandsConfig = CustomCommandsConfig.FromSubscription(speechCommandsApplicationId, speechSubscriptionKey, region);
    speechCommandsConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-us");
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```

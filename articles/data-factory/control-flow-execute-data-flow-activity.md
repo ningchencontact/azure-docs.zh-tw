@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 中的資料流程活動
+title: 資料流程活動
 description: 如何從 data factory 管線內部執行資料流程。
 services: data-factory
 documentationcenter: ''
@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 10/07/2019
-ms.openlocfilehash: 47126d1cf51f4b27863bb0b11e73cfe5592b8d57
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/02/2020
+ms.openlocfilehash: d0b9c59852175b91b4bf799a366ae5124fa0ae42
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929890"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644780"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Azure Data Factory 中的資料流程活動
 
@@ -30,6 +30,10 @@ ms.locfileid: "74929890"
       "dataflow": {
          "referenceName": "MyDataFlow",
          "type": "DataFlowReference"
+      },
+      "compute": {
+         "coreCount": 8,
+         "computeType": "General"
       },
       "staging": {
           "linkedService": {
@@ -48,10 +52,12 @@ ms.locfileid: "74929890"
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 描述 | 允許的值 | 必要項
+屬性 | 說明 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
 資料流程 | 正在執行之資料流程的參考 | DataFlowReference | 是
-integrationRuntime | 資料流程執行所在的計算環境 | IntegrationRuntimeReference | 是
+integrationRuntime | 資料流程執行所在的計算環境。 如果未指定，將會使用自動解析的 Azure 整合執行時間 | IntegrationRuntimeReference | 否
+計算 coreCount | Spark 叢集中使用的核心數目。 只有在使用自動解析的 Azure 整合執行時間時，才能指定 | 8、16、32、48、80、144、272 | 否
+計算 computeType | Spark 叢集中使用的計算類型。 只有在使用自動解析的 Azure 整合執行時間時，才能指定 | "General"、"ComputeOptimized"、"MemoryOptimized" | 否
 暫存。 linkedService | 如果您使用的是 SQL DW 來源或接收，用於 PolyBase 暫存的儲存體帳戶 | LinkedServiceReference | 只有在資料流程讀取或寫入至 SQL DW 時
 暫存。 folderPath | 如果您使用的是 SQL DW 來源或接收，則為用於 PolyBase 暫存的 blob 儲存體帳戶中的資料夾路徑 | String | 只有在資料流程讀取或寫入至 SQL DW 時
 
@@ -59,7 +65,7 @@ integrationRuntime | 資料流程執行所在的計算環境 | IntegrationRuntim
 
 ### <a name="data-flow-integration-runtime"></a>資料流程整合執行時間
 
-選擇要用於資料流程活動執行的 Integration Runtime。 根據預設，Data Factory 將會使用具有四個背景工作角色核心且沒有存留時間（TTL）的「自動解析」 Azure Integration runtime。 此 IR 具有一般目的計算類型，並會在與您的處理站相同的區域中執行。 您可以建立自己的 Azure 整合執行時間，以定義您的資料流程活動執行的特定區域、計算類型、核心計數和 TTL。
+選擇要用於資料流程活動執行的 Integration Runtime。 根據預設，Data Factory 會使用自動解析的 Azure 整合執行時間與四個背景工作角色核心，而不會有存留時間（TTL）。 此 IR 具有一般目的計算類型，並會在與您的處理站相同的區域中執行。 您可以建立自己的 Azure 整合執行時間，以定義您的資料流程活動執行的特定區域、計算類型、核心計數和 TTL。
 
 就管線執行而言，叢集是一種作業叢集，需要幾分鐘的時間才能開始執行。 如果未指定 TTL，每次執行管線時都需要此啟動時間。 如果您指定 TTL，暖叢集集區會在最後一次執行後指定的時間保持作用中狀態，因而縮短啟動時間。 例如，如果您有60分鐘的 TTL，並每隔一小時執行一次資料流程，叢集集區就會保持作用中狀態。 如需詳細資訊，請參閱[Azure 整合運行](concepts-integration-runtime.md)時間。
 
@@ -85,6 +91,12 @@ integrationRuntime | 資料流程執行所在的計算環境 | IntegrationRuntim
 如果您的資料流程已參數化，請在 [**參數**] 索引標籤中設定資料流程參數的動態值。您可以使用 ADF 管線運算式語言（僅適用于字串類型）或資料流程運算式語言來指派動態或常值參數值。 如需詳細資訊，請參閱[資料流程參數](parameters-data-flow.md)。
 
 ![執行資料流程參數範例](media/data-flow/parameter-example.png "參數範例")
+
+### <a name="parameterized-compute-properties"></a>參數化計算屬性。
+
+如果您使用自動解析 Azure 整合執行時間，並指定 coreCount 和 computeType 的值，您可以參數化核心計數或計算類型。
+
+![執行資料流程參數範例](media/data-flow/parameterize-compute.png "參數範例")
 
 ## <a name="pipeline-debug-of-data-flow-activity"></a>資料流程活動的管線 debug
 

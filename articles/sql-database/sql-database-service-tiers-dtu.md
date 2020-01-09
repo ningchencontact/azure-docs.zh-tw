@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 6dee7642ac7ac0544db5b88981483bd1ea0f745e
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 2f316e57e407a0588e77f56d6e1fbe8c19ba5fee
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539317"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562114"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>以 DTU 為基礎的購買模式的服務層
 
@@ -31,7 +31,7 @@ ms.locfileid: "74539317"
 
 服務層級的選擇主要視業務持續性、儲存體和效能需求而定。
 
-||基本|Standard|高級|
+||基本|Standard|高階|
 | :-- | --: |--:| --:|
 |目標工作負載|開發與生產|開發與生產|開發與生產|
 |執行時間 SLA|99.99%|99.99%|99.99%|
@@ -54,9 +54,9 @@ ms.locfileid: "74539317"
 
 ## <a name="single-database-dtu-and-storage-limits"></a>單一資料庫 DTU 和儲存空間限制
 
-單一資料庫的計算大小會以資料庫交易單位 (DTU) 表示，而彈性集區的計算大小則會以彈性資料庫交易單位 (eDTU) 表示。 如需 DTU 和 eDTU 的詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-purchase-models.md#dtu-based-purchasing-model)。
+單一資料庫的計算大小會以資料庫交易單位 (DTU) 表示，而彈性集區的計算大小則會以彈性資料庫交易單位 (eDTU) 表示。 如需 Dtu 和 Edtu 的詳細資訊，請參閱以[dtu 為基礎的購買模型](sql-database-purchase-models.md#dtu-based-purchasing-model)。
 
-||基本|Standard|高級|
+||基本|Standard|高階|
 | :-- | --: | --: | --: |
 | 儲存體大小上限 | 2GB | 1 TB | 4 TB  |
 | DTU 上限 | 5 | 3000 | 4000 | 
@@ -67,7 +67,7 @@ ms.locfileid: "74539317"
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>彈性集區 eDTU、儲存體及集區資料庫限制
 
-| | **基本** | **標準** | **高級** |
+| | **基本** | **Standard** | **高級** |
 | :-- | --: | --: | --: |
 | 每個資料庫的儲存體大小上限  | 2GB | 1 TB | 1 TB |
 | 每個集區的儲存體大小上限 | 156 GB | 4 TB | 4 TB |
@@ -109,7 +109,7 @@ ms.locfileid: "74539317"
 
 工作負載包含九種交易類型，如下表所示。 每一筆交易都設計為反白顯示資料庫引擎和系統硬體中特定的一組系統特性，與其他交易呈現高度對比。 此方法可讓您更容易評估不同元件對整體效能的影響。 例如，「頻繁讀取」交易會從磁碟產生大量的讀取作業。
 
-| 交易類型 | 描述 |
+| 交易類型 | 說明 |
 | --- | --- |
 | 輕度讀取 |SELECT；記憶體中；唯讀 |
 | 中度讀取 |SELECT；大部分記憶體中；唯讀 |
@@ -170,7 +170,7 @@ ms.locfileid: "74539317"
 
 | 服務類別 | 輸送量測量 | 回應時間需求 |
 | --- | --- | --- |
-| 高級 |每秒交易數 |0\.5 秒時第 95 個百分位數 |
+| 高階 |每秒交易數 |0\.5 秒時第 95 個百分位數 |
 | Standard |每分鐘交易數 |1\.0 秒時第 90 個百分位數 |
 | 基本 |每小時交易數 |2\.0 秒時第 80 個百分位數 |
 

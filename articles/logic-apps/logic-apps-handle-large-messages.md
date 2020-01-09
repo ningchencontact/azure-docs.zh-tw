@@ -1,18 +1,18 @@
 ---
-title: 處理大型訊息
-description: 了解如何在 Azure Logic Apps 中利用區塊化處理大型訊息大小
+title: 使用區塊化處理大型訊息
+description: 瞭解如何使用以 Azure Logic Apps 建立的自動化工作和工作流程中的區塊化，來處理大型訊息大小
 services: logic-apps
 ms.suite: integration
 author: shae-hurst
 ms.author: shhurst
 ms.topic: article
 ms.date: 12/03/2019
-ms.openlocfilehash: 8c2e857808b0638fbba54cfe9a623ba3fd764119
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 81e7c12b04c1ebd9691c11d76f387f7d42490180
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815094"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456564"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>在 Azure Logic Apps 中利用區塊化處理大型訊息
 
@@ -113,7 +113,7 @@ GET 要求將 "Range" 標頭設定為 "bytes=0-1023"，這是位元組範圍。 
 
 1. 您的邏輯應用程式送包含空白訊息本文的起始 HTTP POST 或 PUT 要求。 要求標頭會包含此資訊，提其您邏輯應用程式想要以區塊上傳的內容：
 
-   | Logic Apps 要求標頭欄位 | Value | Type | 描述 |
+   | Logic Apps 要求標頭欄位 | 值 | 類型 | 說明 |
    |---------------------------------|-------|------|-------------|
    | **x-ms-transfer-mode** | chunked | String | 指出內容以區塊上傳 |
    | **x-ms-content-length** | <*content-length*> | 整數 | 進行區塊化前的所有內容大小 (位元組) |
@@ -121,7 +121,7 @@ GET 要求將 "Range" 標頭設定為 "bytes=0-1023"，這是位元組範圍。 
 
 2. 端點回應 "200" 成功狀態碼和此選擇性資訊：
 
-   | 端點回應標頭欄位 | Type | 必要項 | 描述 |
+   | 端點回應標頭欄位 | 類型 | 必要項 | 說明 |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | 整數 | 否 | 建議的區塊大小 (位元組) |
    | **位置** | String | 是 | 傳送 HTTP PATCH 訊息的 URL 位置 |
@@ -133,7 +133,7 @@ GET 要求將 "Range" 標頭設定為 "bytes=0-1023"，這是位元組範圍。 
 
    * 這些與內容區塊相關的標題詳細資料會在各個 PATCH 訊息中傳出：
 
-     | Logic Apps 要求標頭欄位 | Value | Type | 描述 |
+     | Logic Apps 要求標頭欄位 | 值 | 類型 | 說明 |
      |---------------------------------|-------|------|-------------|
      | **Content-Range** | <*range*> | String | 目前內容區塊的位元組範圍，包含開始值、結束值和內容大小總計，例如："bytes=0-1023/10100" |
      | **Content-Type** | <*content-type*> | String | 分塊內容的類型 |
@@ -142,7 +142,7 @@ GET 要求將 "Range" 標頭設定為 "bytes=0-1023"，這是位元組範圍。 
 
 4. 在每個修補程式要求之後，端點會回應 "200" 狀態碼和下列回應標頭，以確認每個區塊的接收：
 
-   | 端點回應標頭欄位 | Type | 必要項 | 描述 |
+   | 端點回應標頭欄位 | 類型 | 必要項 | 說明 |
    |--------------------------------|------|----------|-------------|
    | **Range** | String | 是 | 端點已接收之內容的位元組範圍，例如： "bytes = 0-1023" |   
    | **x-ms-chunk-size** | 整數 | 否 | 建議的區塊大小 (位元組) |

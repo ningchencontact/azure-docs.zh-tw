@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: e33d981429f0e79accbe47ea0edea5f3c7a2157b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ed0cd51fc686735f2d9c110ce46d5904107cafc2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430623"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>如何在 Azure API 管理中使用角色型存取控制
 
@@ -28,32 +28,32 @@ Azure API 管理需要 Azure 角色型存取控制 (RBAC)，才能針對 API 管
 
 ## <a name="built-in-roles"></a>內建角色
 
-API 管理目前提供三個內建角色，不久之後會再新增兩個角色。 這些角色可以指派到不同的範圍，包括訂用帳戶、資源群組，以及個別 API 管理執行個體。 例如，若您將「Azure API 管理服務讀者」角色指派給資源群組層級的使用者，則該使用者會具有該資源群組內所有 API 管理執行個體的讀取存取。 
+API 管理目前提供三個內建角色，不久之後會再新增兩個角色。 這些角色可以指派到不同的範圍，包括訂用帳戶、資源群組，以及個別 API 管理執行個體。 例如，如果您將「API 管理服務讀者」角色指派給資源群組層級的使用者，則使用者會擁有資源群組內所有 API 管理實例的讀取權限。 
 
 下表提供內建角色的簡短描述。 您可以使用 Azure 入口網站或其他工具 (包括 Azure [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)、[Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) 和 [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)) 指派這些角色。 如需如何指派內建角色的詳細資料，請參閱[使用角色指派來管理 Azure 訂用帳戶資源的存取權](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)。
 
-| Role          | 讀取權限<sup>[1]</sup> | 寫入權限<sup>[2]</sup> | 服務建立、刪除、調整規模、VPN 及自訂網域設定 | 存取舊版發行者入口網站 | 描述
+| 角色          | 讀取權限<sup>[1]</sup> | 寫入權限<sup>[2]</sup> | 服務建立、刪除、調整規模、VPN 及自訂網域設定 | 存取舊版發行者入口網站 | 說明
 | ------------- | ---- | ---- | ---- | ---- | ---- 
-| Azure API 管理服務參與者 | ✓ | ✓ | ✓ | ✓ | 進階使用者。 具有 API 管理服務及實體 (例如 API 和原則) 的完整 CRUD 存取。 具有舊版發行者入口網站的存取權限。 |
-| Azure API 管理服務讀者 | ✓ | | || 具有 API 管理服務及實體的唯讀權限。 |
-| Azure API 管理服務操作員 | ✓ | | ✓ | | 可以管理 API 管理服務，但無法管理實體。|
-| Azure API 管理服務編輯者<sup>*</sup> | ✓ | ✓ | |  | 可以管理 API 管理實體，但無法管理服務。|
-| Azure API 管理內容管理員<sup>*</sup> | ✓ | | | ✓ | 可以管理開發人員入口網站。 具有服務和實體的唯讀權限。|
+| API 管理服務參與者 | ✓ | ✓ | ✓ | ✓ | 進階使用者。 具有 API 管理服務及實體 (例如 API 和原則) 的完整 CRUD 存取。 具有舊版發行者入口網站的存取權限。 |
+| API 管理服務讀者 | ✓ | | || 具有 API 管理服務及實體的唯讀權限。 |
+| API 管理服務操作員 | ✓ | | ✓ | | 可以管理 API 管理服務，但無法管理實體。|
+| API 管理服務編輯器<sup>*</sup> | ✓ | ✓ | |  | 可以管理 API 管理實體，但無法管理服務。|
+| API 管理內容管理員<sup>*</sup> | ✓ | | | ✓ | 可以管理開發人員入口網站。 具有服務和實體的唯讀權限。|
 
 <sup>[1] API 管理服務及實體 (例如 API 和原則) 的讀取權限</sup>
 
 <sup>[2] API 管理服務及實體的寫入權限，下列作業除外：建立、刪除和調整執行個體；VPN 設定；以及自訂網域設定。</sup>
 
-<sup>\* 當我們將現有發行者入口網站的所有系統管理 UI 移轉至 Azure 入口網站後，將會提供「服務編輯者」角色。在發行者入口網站重構為僅包含管理開發人員入口網站的相關功能之後，將會提供「內容管理員」角色。</sup>  
+<sup>當我們將所有系統管理 UI 從現有的發行者入口網站遷移至 Azure 入口網站之後，就可以使用 [服務編輯器] 角色 \*。「內容管理員」角色將會在發行者入口網站重構後提供，只包含與管理開發人員入口網站相關的功能。</sup>  
 
 ## <a name="custom-roles"></a>自訂角色
 
 如果內建角色都無法滿足您的特定需求，您可以建立自訂角色來提供更精細的 API 管理實體存取管理。 例如，您可以建立自訂角色，使其具有 API 管理服務的唯讀權限，但只有單一特定 API 的寫入權限。 若要深入了解自訂角色，請參閱 [Azure RBAC 中的自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)。 
 
 > [!NOTE]
-> 若要能夠在 Azure 入口網站中查看 API 管理實例, 自訂角色必須包含```Microsoft.ApiManagement/service/read```動作。
+> 若要能夠在 Azure 入口網站中查看 API 管理實例，自訂角色必須包含 ```Microsoft.ApiManagement/service/read``` 動作。
 
-當您建立自訂角色時，從其中一個內建角色開始會比較輕鬆。 編輯屬性來新增 **Actions**、**NotActions** 或 **AssignableScopes**，然後將變更另存為新角色。 以下範例從「Azure API 管理服務讀者」角色開始，然後建立一個名為「計算機 API 編輯者」的自訂角色。 您可以將自訂角色指派給特定 API。 因此，這個角色只能存取該 API。 
+當您建立自訂角色時，從其中一個內建角色開始會比較輕鬆。 編輯屬性來新增 **Actions**、**NotActions** 或 **AssignableScopes**，然後將變更另存為新角色。 下列範例會從「API 管理服務讀者」角色開始，並建立名為「計算機 API 編輯器」的自訂角色。 您可以將自訂角色指派給特定 API。 因此，這個角色只能存取該 API。 
 
 ```powershell
 $role = Get-AzRoleDefinition "API Management Service Reader Role"
@@ -70,7 +70,7 @@ New-AzRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionNa
 
 [Azure Resource Manager 資源提供者作業](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)一文包含可在 API 管理層級上授與的權限清單。
 
-## <a name="video"></a>視訊
+## <a name="video"></a>影片
 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player]

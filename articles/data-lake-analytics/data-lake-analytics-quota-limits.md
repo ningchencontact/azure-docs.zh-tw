@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: d0ccfb00c4b45a2a29ccab74362a4296cdcd7cae
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c1d7c8cc4b50682a74ac88b2113f0d44ebc55199
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595692"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644710"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>調整 Azure Data Lake Analytics 中的配額和限制
 
@@ -34,7 +34,7 @@ ms.locfileid: "72595692"
 
 **每個帳戶的分析單位（au）數目上限：** 250，預設32
 
-這是可以同時在您的帳戶中執行的 AU 的最大數目。 如果您的所有作業加起來的執行中 AU 總數超過此限制，系統會自動將較新的工作排入佇列。 例如︰
+這是可以同時在您的帳戶中執行的 AU 的最大數目。 如果您的所有作業加起來的執行中 AU 總數超過此限制，系統會自動將較新的工作排入佇列。 例如：
 
 * 如果您只有一個作業使用 32 個 AU 在執行，當您提交第二個作業時，在第一個作業完成之前，第二個作業會在作業佇列中等待。
 * 如果您已經有四個執行中的作業，而每個都使用 8 AU，當您送出第五個需要 8 AU 的作業時，它會在作業佇列中等到有 8 AU 可使用。
@@ -53,12 +53,12 @@ ms.locfileid: "72595692"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 選擇現有的 ADLA 帳戶。
-3. 按一下 [內容]。
+3. 按一下 **[屬性]** 。
 4. 調整 [AU 上限]、[執行中工作上限] 和 [作業提交限制] 的值，以符合您的需求。
 
 ## <a name="increase-maximum-quota-limits"></a>增加配額限制上限
 
-您可以在 [Azure 服務特定限制文件](../azure-subscription-service-limits.md#data-lake-analytics-limits)中找到有關 Azure 限制的詳細資訊。
+您可以在 [Azure 服務特定限制文件](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-analytics-limits)中找到有關 Azure 限制的詳細資訊。
 
 1. 在 Azure 入口網站中開啟支援要求。
 
@@ -81,6 +81,6 @@ Microsoft 會檢閱您的要求，並嘗試盡速符合您的業務需求。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Microsoft Azure 資料湖分析概觀](data-lake-analytics-overview.md)
-* [使用 Azure PowerShell 管理 Azure 資料湖分析](data-lake-analytics-manage-use-powershell.md)
+* [Microsoft Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)
+* [使用 Azure PowerShell 管理 Azure Data Lake Analytics](data-lake-analytics-manage-use-powershell.md)
 * [使用 Azure 入口網站監視和疑難排解 Azure Data Lake Analytics 作業](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

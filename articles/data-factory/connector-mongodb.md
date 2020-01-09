@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: e0c5ef9cd13b7ee3ada81e28f8512f621bf96190
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a61069b7477de4c5aea4d9b06365b38775310987
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926345"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440567"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 複製資料
 
@@ -46,14 +46,14 @@ ms.locfileid: "74926345"
 
 以下是針對 MongoDB 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 |Type 屬性必須設定為： **MongoDbV2** |是 |
-| connectionString |指定 MongoDB 連接字串，例如 `mongodb://[username:password@]host[:port][/[database][?options]]`。 如需詳細資訊，請參閱 [MongoDB 手冊中關於連接字串的內容](https://docs.mongodb.com/manual/reference/connection-string/)。 <br/><br />將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 |是 |
+| type |Type 屬性必須設定為： **MongoDbV2** |是 |
+| connectionString |指定 MongoDB 連接字串，例如 `mongodb://[username:password@]host[:port][/[database][?options]]`。 如需詳細資訊，請參閱 [MongoDB 手冊中關於連接字串的內容](https://docs.mongodb.com/manual/reference/connection-string/)。 <br/><br /> 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `password` 設定。 如需詳細資訊，請參閱 [在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)。 |是 |
 | 資料庫 | 您要存取的資料庫名稱。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
-**範例：**
+**範例︰**
 
 ```json
 {
@@ -61,10 +61,7 @@ ms.locfileid: "74926345"
     "properties": {
         "type": "MongoDbV2",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "mongodb://[username:password@]host[:port][/[database][?options]]"
-            },
+            "connectionString": "mongodb://[username:password@]host[:port][/[database][?options]]",
             "database": "myDatabase"
         },
         "connectVia": {
@@ -79,12 +76,12 @@ ms.locfileid: "74926345"
 
 如需定義資料集的區段和屬性完整清單，請參閱[資料集和連結服務](concepts-datasets-linked-services.md)。 以下是針對 MongoDB 資料集支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為： **MongoDbV2Collection** | 是 |
+| type | 資料集的類型屬性必須設定為： **MongoDbV2Collection** | 是 |
 | collectionName |MongoDB 資料庫中集合的名稱。 |是 |
 
-**範例：**
+**範例︰**
 
 ```json
 {
@@ -111,9 +108,9 @@ ms.locfileid: "74926345"
 
 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為： **MongoDbV2Source** | 是 |
+| type | 複製活動來源的類型屬性必須設定為： **MongoDbV2Source** | 是 |
 | filter | 使用查詢運算子指定選取範圍篩選。 若要傳回集合中的所有文件，請省略此參數，或傳遞空白文件 ({})。 | 否 |
 | cursorMethods.project | 指定要在文件中傳回以便投影的欄位。 若要傳回比對文件中的所有欄位，請省略此參數。 | 否 |
 | cursorMethods.sort | 指定查詢傳回比對文件的順序。 請參閱 [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort)。 | 否 |
@@ -124,7 +121,7 @@ ms.locfileid: "74926345"
 >[!TIP]
 >ADF 支援在 **Strict 模式**中取用 BSON 文件。 請確定您的篩選查詢處於 Strict 模式，而非 Shell 模式。 如需詳細說明，請參閱 [MongoDB manual](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html) (MongoDB 手冊)。
 
-**範例：**
+**範例︰**
 
 ```json
 "activities":[

@@ -8,12 +8,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: c08de444b691e7bdc1a378e307637fed15b390c3
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: aaa551619b48bb385bf5b1fef2331d382e32a040
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559082"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406542"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -40,7 +40,7 @@ Application Insights 的設計，是為了取得監視 web 應用程式的可用
 
 透過 ASP.NET SDK 的調適型[取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)，資料磁片區會自動調整，以保持在預設 Application Insights 監視的指定最大傳輸速率。 如果應用程式產生較少的遙測資料（例如，在進行調試時或由於低使用量的緣故），取樣處理器就不會卸載專案，只要磁片區低於每秒設定的事件數層級即可。 針對高容量的應用程式，預設臨界值為每秒五個事件，調適型取樣會將每日事件數限制為432000。 使用一般的平均事件大小 1 KB，這會對應13.4 到每個節點每31天的遙測資料，每個月裝載您的應用程式（因為取樣是在每個節點的本機執行）。 
 
-針對不支援調適型取樣的 Sdk，您可以採用內嵌[取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling)，其中會根據要保留的資料百分比來 Application Insights 接收資料，或針對[ASP.NET、ASP.NET Core 和 JAVA 進行固定速率取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications)用來減少從 web 伺服器和網頁瀏覽器傳送流量的網站
+針對不支援調適型取樣的 Sdk，您可以使用內建[取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling)，其中會根據要保留的資料百分比來 Application Insights 接收資料，或針對[ASP.NET、ASP.NET Core 和 JAVA 網站的固定速率取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications)，減少從您的 web 伺服器和網頁瀏覽器傳送的流量
 
 ### <a name="learn-from-what-similar-customers-collect"></a>瞭解類似客戶所收集的內容
 
@@ -52,7 +52,7 @@ Application Insights 可讓您根據最近的使用模式，輕鬆了解可能�
 
 ![選擇價格](./media/pricing/pricing-001.png)
 
-答： 檢閱當月的資料量。 這包括從您的伺服器和用戶端應用程式，以及從可用性測試接收並保留的所有資料 (在任何[取樣](../../azure-monitor/app/sampling.md)之後)。  
+A. 檢閱當月的資料量。 這包括從您的伺服器和用戶端應用程式，以及從可用性測試接收並保留的所有資料 (在任何[取樣](../../azure-monitor/app/sampling.md)之後)。  
 B. 進行[多步驟 Web 測試](../../azure-monitor/app/availability-multistep.md)需另外收費。 (這不包括簡單的可用性測試，其已包含在資料量費用中。)  
 C. 檢視上個月的資料量趨勢。  
 D. 啟用資料擷取[取樣](../../azure-monitor/app/sampling.md)。   

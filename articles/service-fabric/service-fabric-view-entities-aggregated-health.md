@@ -1,25 +1,16 @@
 ---
-title: 如何檢視 Azure Service Fabric 實體的彙總健康情況 | Microsoft Docs
+title: 如何查看 Azure Service Fabric 實體的匯總健康情況
 description: 說明如何透過健康情況查詢和一般查詢，來查詢、檢視和評估 Azure Service Fabric 實體的彙總健康情況。
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: fa34c52d-3a74-4b90-b045-ad67afa43fe5
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: c4a312654fb54660a229c334071d33a5d6bc172f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d02d8f717801bf51e43c9dafa5eb9379d0737674
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496377"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464122"
 ---
 # <a name="view-service-fabric-health-reports"></a>檢視 Service Fabric 健康狀態報告
 Azure Service Fabric 導入了由健康情況實體組成的[健康情況模型](service-fabric-health-introduction.md)，系統元件和看門狗可以在其上回報所監視的本機情況。 [健康情況存放區](service-fabric-health-introduction.md#health-store) 會彙總所有健康情況資料，以判斷實體是否狀況良好。
@@ -67,7 +58,7 @@ Service Fabric 總管提供叢集的視覺化檢視。 在下圖中，您可以�
 Service Fabric 會針對每種支援的 [實體類型](service-fabric-health-introduction.md#health-entities-and-hierarchy)公開健康情況查詢。 您可透過 API (在 [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet) 上使用方法)、PowerShell Cmdlet 和 REST 來存取查詢。 這些查詢會傳回實體的完整健康情況資訊：彙總健康情況、實體健康事件、子系健康情況 (如果適用)、狀況不佳評估 (當實體狀況不佳時)，以及子系健康情況統計資料 (如果適用)。
 
 > [!NOTE]
-> 當健康狀態存放區中完全填滿一個健全狀況實體時，將會傳回此健全狀況實體。 實體必須是作用中 (未刪除)，並且具有系統報告。 階層鏈結上其父實體也必須有系統報告。 如果無法達成上述任何條件，健康情況查詢會傳回具有 [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) [ 的 ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode)FabricException`FabricHealthEntityNotFound`，以顯示為何不傳回實體。
+> 當健康狀態存放區中完全填滿一個健全狀況實體時，將會傳回此健全狀況實體。 實體必須是作用中 (未刪除)，並且具有系統報告。 階層鏈結上其父實體也必須有系統報告。 如果不符合上述任何條件，則健康情況查詢會傳回具有[FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` 的[FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) ，顯示為何不會傳回實體。
 >
 >
 

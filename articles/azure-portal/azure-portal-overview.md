@@ -1,28 +1,28 @@
 ---
 title: Azure 入口網站概觀 | Microsoft Docs
-description: 瞭解如何流覽 Azure 入口網站並使用它來管理服務
+description: Azure 入口網站是圖形化使用者介面，可讓您用來管理 Azure 服務。 瞭解如何流覽和尋找 Azure 入口網站中的資源。
 services: azure-portal
 keywords: 入口網站
-author: kfollis
-ms.author: kfollis
-ms.date: 11/01/2019
+author: mblythe
+ms.author: mblythe
+ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 90bbea1068bb237501daf5e0dfac865ca6b9a12a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 478b090cfe0bfd63bde37dc944cd9fad6e88f179
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579409"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637604"
 ---
 # <a name="azure-portal-overview"></a>Azure 入口網站概觀
 
 本文介紹 Azure 入口網站、識別入口網站頁面元素，並協助您熟悉 Azure 入口網站管理體驗。
 
-## <a name="what-is-the-azure-portal"></a>Azure 入口網站是什麼？
+## <a name="what-is-the-azure-portal"></a>什麼是 Azure入口網站？
 
-Azure 入口網站是以網頁為基礎的統一主控台，可提供命令列工具的替代方法。 使用 Azure 入口網站，您可以使用圖形化使用者介面來管理 Azure 訂用帳戶。 您可以建立、管理及監視從簡單 web 應用程式到複雜雲端部署的所有專案。 為組織的資源檢視建立自訂儀表板。 設定協助工具選項以獲得最佳體驗。
+Azure 入口網站是統一的 Web 式主控台，提供有別於命令列工具的替代方案。 使用 Azure 入口網站，您可以使用圖形化使用者介面來管理 Azure 訂用帳戶。 您可以建立、管理及監視從簡單 web 應用程式到複雜雲端部署的所有專案。 為組織的資源檢視建立自訂儀表板。 設定協助工具選項以獲得最佳體驗。
 
 Azure 入口網站是針對復原和持續可用性所設計。 它在每個 Azure 資料中心都有存在。 此設定可讓您 Azure 入口網站復原個別資料中心的失敗，並藉由接近使用者的方式避免網路變慢。 Azure 入口網站會持續更新，而且不需要停機維護活動。
 

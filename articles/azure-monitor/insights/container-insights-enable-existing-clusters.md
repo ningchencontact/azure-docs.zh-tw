@@ -1,18 +1,14 @@
 ---
 title: 監視已部署的 Azure Kubernetes Service （AKS）叢集 |Microsoft Docs
 description: 瞭解如何針對已部署在訂用帳戶中的容器，使用 Azure 監視器來啟用 Azure Kubernetes Service （AKS）叢集的監視。
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/12/2019
-ms.openlocfilehash: 5d68c343fee5807c430ce42777b988a48b9227f8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: eced371f7d44b486d671c2c22ca9fbb4c0b65fbb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478615"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405497"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>啟用已部署 Azure Kubernetes Service （AKS）叢集的監視
 
@@ -45,7 +41,7 @@ provisioningState       : Succeeded
 
 ### <a name="integrate-with-an-existing-workspace"></a>與現有的工作區整合
 
-如果您想要與現有的工作區整合，請執行下列步驟，先找出 `--workspace-resource-id` 參數所需之 Log Analytics 工作區的完整資源識別碼，然後執行命令以對執行的監視附加元件指定的工作區。  
+如果您想要與現有的工作區整合，請執行下列步驟，先找出 `--workspace-resource-id` 參數所需之 Log Analytics 工作區的完整資源識別碼，然後執行命令，針對指定的工作區啟用監視附加元件。  
 
 1. 使用下列命令，列出您有權存取的所有訂用帳戶：
 

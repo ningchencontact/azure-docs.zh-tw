@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 71edb9a32254eeee123b874305dd25b699e05cc1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 29f90508bf0bdd77f02d78cbcba8fdfe7009f0d2
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227013"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562046"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Azure Functions 診斷總覽
 
@@ -44,7 +44,7 @@ ms.locfileid: "74227013"
 
 ## <a name="find-the-problem-code"></a>找出問題代碼 
 
-針對以腳本為基礎的函式，您可以使用**函數應用程式下**的**函數執行**和錯誤，或回報錯誤，以縮小造成例外狀況或錯誤的程式程式碼。 這項功能可以用來取得根本原因，並修正特定程式程式碼的問題。 此選項不適用於先行編譯C#和 JAVA 函式。
+針對以腳本為基礎的函式，您可以使用**函數應用程式下**的**函數執行**和**錯誤**，或回報錯誤，以縮小造成例外狀況或錯誤的程式程式碼。 這項功能可以用來取得根本原因，並修正特定程式程式碼的問題。 此選項不適用於先行編譯C#和 JAVA 函式。
 
 ![功能執行錯誤的診斷報告](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 

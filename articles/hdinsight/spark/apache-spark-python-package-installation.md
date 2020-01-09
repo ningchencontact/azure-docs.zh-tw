@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: a8654f6c9c6c6d020872d2c89e0dd141db4e0451
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 109ac20d8a3d3dc87b4a83165c0e6c24808c1340
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215597"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529638"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>使用指令碼動作在 Azure HDInsight 上安全地管理 Python 環境
 
@@ -22,11 +22,11 @@ ms.locfileid: "74215597"
 
 HDInsight 在 Spark 叢集中有兩個內建的 Python 安裝，Anaconda Python 2.7 和 Python 3.5。 在某些情況下，客戶必須自訂 Python 環境，例如安裝外部 Python 套件或其他 Python 版本。 在本文中，我們會示範在 HDInsight 上安全地管理[Apache Spark](https://spark.apache.org/)叢集之 Python 環境的最佳作法。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* Azure 訂閱。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱 [在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
+* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 
    > [!NOTE]  
    > 如果您在 HDInsight Linux 上還沒有 Spark 叢集，您可以在叢集建立期間執行指令碼動作。 瀏覽有關於[如何使用自訂指令碼動作](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)的文件。
@@ -43,7 +43,7 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 > [!IMPORTANT]
 > 對隨 HDInsight 叢集提供的元件會有完整支援。 Microsoft 支援服務可協助隔離和解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 Microsoft 支援服務可能可以解決問題，也可能要求您利用可用的開放原始碼技術管道，找到該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) \(英文\)、[https://stackoverflow.com](https://stackoverflow.com) \(英文\)。 此外，Apache 專案在 [https://apache.org](https://apache.org) 上也有專案網站，例如 [Hadoop](https://hadoop.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 Microsoft 支援服務可能可以解決問題，也可能要求您利用可用的開放原始碼技術管道，找到該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) \(英文\)、[https://stackoverflow.com](https://stackoverflow.com) \(英文\)。 此外，Apache 專案在[https://apache.org](https://apache.org)上也有專案網站，例如[Hadoop](https://hadoop.apache.org/)。
 
 ## <a name="understand-default-python-installation"></a>瞭解預設的 Python 安裝
 
@@ -81,7 +81,7 @@ HDInsight 叢集取決於內建的 Python 環境，也就是 Python 2.7 和 Pyth
     sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
     ```
 
-    如果您不知道虛擬環境名稱，您可以透過 SSH 連線到叢集的標頭節點，然後執行 `/usr/bin/anaconda/bin/conda info -e` 以顯示所有虛擬環境。
+    如果您不知道虛擬環境名稱，您可以透過 SSH 連線到叢集的前端節點，然後執行 `/usr/bin/anaconda/bin/conda info -e` 以顯示所有虛擬環境。
 
 3. 變更 Spark 和 Livy 的 [進行]，並指向所建立的虛擬環境。
 
@@ -132,14 +132,14 @@ Anaconda 版本的4.7.11 和4.7.12 有已知的錯誤。 如果您看到您的�
 
 ### <a name="scenarios"></a>案例
 
-* [Apache Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 和機器學習服務：在 HDInsight 中利用 HVAC 資料使用 Spark 分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和 BI：在 HDInsight 中搭配 BI 工具使用 Spark 執行互動式資料分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，使用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>建立及執行應用程式
 
-* [使用 Scala 來建立獨立的應用程式](apache-spark-create-standalone-application.md)
+* [使用 Scala 建立獨立應用程式](apache-spark-create-standalone-application.md)
 * [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和擴充功能

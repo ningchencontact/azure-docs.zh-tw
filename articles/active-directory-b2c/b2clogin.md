@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e4ebde6295c3f3467dd615b58d2140302aa86a61
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: db222515dae51fa5e0334430a3578816b1e8813d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949978"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367649"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>將 Azure Active Directory B2C 的重新導向 URL 設定為 b2clogin.com
 
@@ -93,7 +93,7 @@ https://contosob2c.b2clogin.com/00000000-0000-0000-0000-000000000000/B2C_1_signu
 
 如果您使用的是[MSAL.NET][msal-dotnet] v2 或更早版本，請將用戶端具現化上的**ValidateAuthority**屬性設定為 `false`，以允許重新導向至*b2clogin.com*。 MSAL.NET v3 和更新版本不需要此設定。
 
-```CSharp
+```csharp
 ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
 client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
 ```

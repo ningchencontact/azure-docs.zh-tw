@@ -1,20 +1,19 @@
 ---
 title: Visual Studio 中的 Azure 串流分析 Edge 作業
 description: 本文說明如何使用適用于 Visual Studio 的串流分析工具，在 IoT Edge 作業上撰寫、調試和建立您的串流分析。
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec4a4041378ce94ae70ba7a88b3fef80f7dcd193
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 07f109b3d5539f7cd87a12fb42a36803573c2bdf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925016"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354559"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>使用 Visual Studio 工具來開發串流分析 Edge 作業
 
@@ -66,7 +65,7 @@ ms.locfileid: "72925016"
 串流分析部署在串流分析 IoT Edge 環境中的作業，都支援大部分的[串流分析查詢語言參考](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396)。 不過，串流分析 Edge 作業尚不支援下列操作： 
 
 
-|**類別**  | **命令**  |
+|**類別目錄**  | **命令**  |
 |---------|---------|
 |其他運算子 | <ul><li>PARTITION BY</li><li>TIMESTAMP BY OVER</li><li>JavaScript UDF</li><li>使用者定義匯總（UDA）</li><li>GetMetadataPropertyValue</li><li>在單一步驟中使用超過14個匯總</li></ul>   |
 

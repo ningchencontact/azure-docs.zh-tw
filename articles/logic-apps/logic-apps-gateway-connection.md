@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 0e2dcec15566749b58c439b68532829b67716754
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 29c1aaf18ea45d869d32a8817aeb03faa3b67c32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815144"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456566"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>從 Azure Logic Apps 連線到內部部署資料來源
 
@@ -78,11 +78,11 @@ Azure Logic Apps 支援透過資料閘道進行的讀取和寫入作業。 不�
 
 1. 在 [**建立連線閘道**] 底下，為您的閘道資源提供此資訊。 當您完成時，選取 [建立]。
 
-   | 屬性 | 描述 |
+   | 屬性 | 說明 |
    |----------|-------------|
    | **資源名稱** | 提供閘道資源的名稱，其中只包含字母、數位、連字號（`-`）、底線（`_`）、括弧（`(`、`)`）或句點（`.`）。 |
    | **訂用帳戶** | 為用於閘道安裝的 Azure 帳戶選取 Azure 訂用帳戶。 預設的訂用帳戶會由您用來登入的 Azure 帳戶來決定。 |
-   | **資源群組** | 您想要使用的[Azure 資源群組](../azure-resource-manager/resource-group-overview.md) |
+   | **資源群組** | 您想要使用的[Azure 資源群組](../azure-resource-manager/management/overview.md) |
    | **位置** | [閘道安裝](../logic-apps/logic-apps-gateway-install.md)期間為閘道雲端服務選取的相同區域或位置。 否則，您的閘道安裝將不會出現在 [**安裝名稱**] 清單中。 您的邏輯應用程式位置可能與閘道資源位置不同。 |
    | **安裝名稱** | 選取只有在符合下列條件時，才會出現在清單中的閘道安裝： <p><p>-閘道安裝會使用與您想要建立的閘道資源相同的區域。 <br>-閘道安裝未連結至另一個 Azure 閘道資源。 <br>-閘道安裝會連結到您用來建立閘道資源的相同 Azure 帳戶。 <br>-您的 Azure 帳戶屬於單一[Azure Active Directory （Azure AD）租使用者或目錄](../active-directory/fundamentals/active-directory-whatis.md#terminology)，而且是用來安裝閘道的相同帳戶。 <p><p>如需詳細資訊，請參閱[常見問題](#faq)一節。 |
    |||

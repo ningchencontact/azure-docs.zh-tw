@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 75611dd36196c722254d694e9753deb982e2570d
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: a4c435b4874301fe6fb804085c5b265954cd4f5a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539327"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637587"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>使用 DTU 購買模型的單一資料庫資源限制
 
@@ -104,5 +104,5 @@ ms.locfileid: "74539327"
 - 如需彈性集區的 vCore 資源限制，請參閱[使用 vCore 購買模型的彈性集區資源限制](sql-database-vcore-resource-limits-elastic-pools.md)
 - 如需彈性集區的 DTU 資源限制，請參閱[使用 dtu 購買模型的彈性集區資源限制](sql-database-dtu-resource-limits-elastic-pools.md)
 - 如需受控執行個體的資源限制，請參閱[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md)。
-- 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
+- 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-resource-manager/management/azure-subscription-service-limits.md)。
 - 如需資料庫伺服器資源限制的相關資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)，以了解伺服器和訂用帳戶層級的限制。

@@ -1,5 +1,5 @@
 ---
-title: 在 .NET 中開始使用 Azure 轉送混合式連線 HTTP 要求 | Microsoft Docs
+title: Azure 轉送混合式連接-.NET 中的 HTTP 要求
 description: 在 .NET 中為 Azure 轉送混合式連線 HTTP 要求撰寫 C# 主控台應用程式。
 services: service-bus-relay
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 37227b7d0ea1b3630a3c2ce991a61543e6a1503d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c984876c4338b4f6802ba55752c8f612c390e94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428258"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355155"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>在 .NET 中開始使用轉送混合式連線 HTTP 要求
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "66428258"
 4. 撰寫用戶端 (傳送端) 主控台應用程式來傳送訊息。
 5. 執行應用程式。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要下列必要條件：
 
@@ -67,7 +67,7 @@ ms.locfileid: "66428258"
 1. 執行用戶端應用程式。 您會在用戶端視窗中看見 `hello!`。 用戶端會傳送 HTTP 要求給伺服器，而伺服器則會以 `hello!` 來回應。 
 3. 現在，若要關閉主控台視窗，請在這兩個主控台視窗中按 **ENTER**。 
 
-恭喜，您已建立完整的混合式連線應用程式 ！
+恭喜，您已建立完整的混合式連線應用程式！
 
 ## <a name="next-steps"></a>後續步驟
 

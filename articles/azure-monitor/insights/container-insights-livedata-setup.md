@@ -1,24 +1,14 @@
 ---
 title: 容器即時資料的安裝 Azure 監視器（預覽） |Microsoft Docs
 description: 本文說明如何設定容器記錄（stdout/stderr）和事件的即時視圖，而不需使用 kubectl 與容器的 Azure 監視器。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/16/2019
-ms.author: magoedte
-ms.openlocfilehash: 596c5ad378d471c6c98616a48f44e96c365ee0bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a3d020132e3c93eab7fec46d1ffe45d00b5ed43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514364"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404708"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>如何設定即時資料（預覽）功能
 

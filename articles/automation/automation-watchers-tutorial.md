@@ -2,24 +2,21 @@
 title: 在 Azure 自動化帳戶中建立監看員工作
 description: 了解如何在 Azure 自動化帳戶中建立監看員工作，以監看在資料夾中建立的新檔案。
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: eamonoreilly
-ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 75341fa2df6972dbf05542577d56ab35315919e6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5dc6145940883ff6f4446ad67c399cdf4931d38e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989241"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75419747"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>建立 Azure 自動化監看員工作，以追蹤本機電腦上的檔案變更
 
 Azure 自動化會使用監看員工作搭配 PowerShell Runbook 來監看事件和觸發動作。 本教學課程將逐步引導您建立監看員工作，以監視目錄中何時新增了檔案。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 匯入監看員 Runbook
@@ -29,7 +26,7 @@ Azure 自動化會使用監看員工作搭配 PowerShell Runbook 來監看事件
 > * 觸發監看員
 > * 檢查輸出
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成此教學課程，需要有下列項目：
 
@@ -47,9 +44,9 @@ Azure 自動化會使用監看員工作搭配 PowerShell Runbook 來監看事件
 您可以透過[PowerShell 資源庫](https://www.powershellgallery.com)來完成此匯入程式。
 
 1. 流覽至[Watch-NewFile](https://gallery.technet.microsoft.com/scriptcenter/Watcher-runbook-that-looks-36fc82cd)的 [資源庫] 頁面。
-2. 在 [ **Azure 自動化**] 索引標籤下, 按一下 [**部署] 以 Azure 自動化**。
+2. 在 [ **Azure 自動化**] 索引標籤下，按一下 [**部署] 以 Azure 自動化**。
 
-您也可以使用下列步驟, 從入口網站將此 runbook 匯入到您的自動化帳戶。
+您也可以使用下列步驟，從入口網站將此 runbook 匯入到您的自動化帳戶。
 
 1. 開啟自動化帳戶，然後按一下 [Runbook] 頁面。
 2. 按一下 [瀏覽資源庫] 按鈕。
@@ -69,14 +66,14 @@ Azure 自動化會使用監看員工作搭配 PowerShell Runbook 來監看事件
 
 ## <a name="create-an-action-runbook"></a>建立動作 Runbook
 
-在監看員工作中，動作 Runbook 會用來處理從監看員 Runbook 傳來的資料。 監看員工作不支援 PowerShell 工作流程 Runbook，您必須使用 PowerShell Runbook。 您必須匯入預先定義的動作 runbook, 稱為**進程-NewFile**。
+在監看員工作中，動作 Runbook 會用來處理從監看員 Runbook 傳來的資料。 監看員工作不支援 PowerShell 工作流程 Runbook，您必須使用 PowerShell Runbook。 您必須匯入預先定義的動作 runbook，稱為**進程-NewFile**。
 
 您可以透過[PowerShell 資源庫](https://www.powershellgallery.com)來完成此匯入程式。
 
 1. 流覽至[Process-NewFile](https://gallery.technet.microsoft.com/scriptcenter/Watcher-action-that-b4ff7cdf)的 [資源庫] 頁面。
-2. 在 [ **Azure 自動化**] 索引標籤下, 按一下 [**部署] 以 Azure 自動化**。
+2. 在 [ **Azure 自動化**] 索引標籤下，按一下 [**部署] 以 Azure 自動化**。
 
-您也可以使用下列步驟, 從入口網站將此 runbook 匯入到您的自動化帳戶。
+您也可以使用下列步驟，從入口網站將此 runbook 匯入到您的自動化帳戶。
 
 1. 瀏覽至自動化帳戶，然後選取 [程序自動化] 分類下的 [Runbook]。
 1. 按一下 [瀏覽資源庫] 按鈕。
@@ -156,7 +153,7 @@ Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 匯入監看員 Runbook

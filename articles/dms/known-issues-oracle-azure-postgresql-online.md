@@ -1,6 +1,7 @@
 ---
-title: 從 Oracle 線上遷移到適用於 PostgreSQL 的 Azure 資料庫單一伺服器的已知問題/遷移限制的相關文章 |Microsoft Docs
-description: 瞭解從 Oracle 線上遷移到適用於 PostgreSQL 的 Azure 資料庫的已知問題/遷移限制。
+title: 已知問題：從 Oracle 遷移至適用於 PostgreSQL 的 Azure 資料庫
+titleSuffix: Azure Database Migration Service
+description: 瞭解使用 Azure 資料庫移轉服務從 Oracle 線上遷移到適用於 PostgreSQL 的 Azure 資料庫單一伺服器的已知問題和遷移限制。
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: ecd2750926fd04c84d2d6b48f5fde06363dd15df
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0a1f46698ddb966c315d08a794dd710a74295f97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606749"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437806"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>從 Oracle 線上遷移至適用于于 postgresql 的 Azure DB 的已知問題/遷移限制-單一伺服器
 
@@ -45,9 +46,9 @@ Azure 資料庫移轉服務支援遷移至適用於 PostgreSQL 的 Azure 資料�
 - UROWID
 - ANYDATA
 - SDO_GEOMETRY
-- 嵌套資料表
+- 巢狀資料表
 - 使用者定義資料類型
-- 注意事項
+- 注意
 - 虛擬資料行
 - 根據 ROWID 資料行的具體化視圖
 
@@ -61,7 +62,7 @@ Azure 資料庫移轉服務支援遷移至適用於 PostgreSQL 的 Azure 資料�
 - 在 Oracle 12 中，對 LOB 資料行所做的任何變更都不受支援（遷移）。
 - 不支援 XMLTYPE 和 LOB 資料行的更新（遷移）。
 
-## <a name="known-issues-and-limitations"></a>已知問題與限制
+## <a name="known-issues-and-limitations"></a>已知問題和限制
 
 - 客戶必須使用 SYSDBA 來連接到 Oracle。
 - 分割區/子分割區作業（ADD、DROP、EXCHANGE 和截斷）所產生的資料變更不會遷移，而且可能會造成下列錯誤：

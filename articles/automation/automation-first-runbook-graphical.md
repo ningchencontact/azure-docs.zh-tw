@@ -3,19 +3,15 @@ title: 我在 Azure 自動化中的第一個圖形化 Runbook
 description: 教學課程將逐步引導您建立、測試和發佈簡單的圖形化 Runbook。
 keywords: runbook, runbook 範本, runbook 自動化, azure runbook
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/13/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 1cdd015d9f29c3fb672d626f32a485271e2757c2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a93263cf968fc4804d7bbc59e15121d6061dd40a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850307"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366527"
 ---
 # <a name="my-first-graphical-runbook"></a>我的第一個圖形化 Runbook
 
@@ -126,9 +122,9 @@ ms.locfileid: "74850307"
 1. 將 **Connect-AzureRmAccount** 加入至畫布。
 1. 將滑鼠停留在 [取得執行身分連線]，直到圖形的底端出現圓形。 按一下圓形，並將箭頭拖曳到 **Add-AzureRmAccount**。 您剛才建立的箭號是「連結」。 Runbook 會開始使用 [取得執行身分連線]，然後執行 **Connect-AzureRmAccount**。<br> ![建立活動之間的連結](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 1. 在畫布上選取 **Connect-AzureRmAccount**，然後在 [組態] 控制項窗格的 [標籤] 文字方塊中輸入 [登入 Azure]。
-1. 按一下 [參數]，隨即會顯示 [Activity Parameter Configuration] (活動參數設定) 頁面。
+1. 按一下 [參數]，隨即會顯示 [Activity Parameter Configuration] \(活動參數設定) 頁面。
 1. **Connect-AzureRmAccount** 有多個參數集，因此您必須先選取一個參數，才可以提供參數值。 按一下 [參數集]，然後選取 [ServicePrincipalCertificate] 參數集。
-1. 選取參數集之後，參數就會顯示在 [Activity Parameter Configuration] (活動參數設定) 頁面中。 按一下 [APPLICATIONID]。<br> ![加入 Azure RM 帳戶參數](media/automation-first-runbook-graphical/Add-AzureRmAccount-params.png)
+1. 選取參數集之後，參數就會顯示在 [Activity Parameter Configuration] \(活動參數設定) 頁面中。 按一下 [APPLICATIONID]。<br> ![加入 Azure RM 帳戶參數](media/automation-first-runbook-graphical/Add-AzureRmAccount-params.png)
 1. 在 [參數值] 頁面中，針對 [資料來源] 選取 [活動輸出]，並從清單中選取 [Get Run As Connection] \(取得執行身分連線)，再於 [欄位路徑] 文字方塊中鍵入 **ApplicationId**，然後按一下 [確定]。 您會指定欄位路徑之屬性的名稱，因為活動會輸出具有多個屬性的物件。
 1. 按一下 [CERTIFICATETHUMBPRINT]，然後在 [參數值] 頁面中，針對 [資料來源] 選取 [活動輸出]。 從清單中選取 [取得執行身分連線]，在 [欄位路徑] 文字方塊中輸入 **CertificateThumbprint**，然後按一下 [確定]。
 1. 按一下 [SERVICEPRINCIPAL]，並在 [參數值] 頁面中，針對 [資料來源] 選取 [ConstantValue]，再按一下選項 [True]，然後按一下 [確定]。
@@ -136,9 +132,9 @@ ms.locfileid: "74850307"
 1. 在 [程式庫] 控制項中，於搜尋文字方塊中輸入 **Set-AzureRmContext** 。
 1. 將 [Set-AzureRmContext] 加入至畫布。
 1. 在畫布上選取 [Set-AzureRmContext]，然後在 [組態] 控制項窗格的 [標籤] 文字方塊中輸入 [指定訂用帳戶識別碼]。
-1. 按一下 [參數]，隨即會顯示 [Activity Parameter Configuration] (活動參數設定) 頁面。
+1. 按一下 [參數]，隨即會顯示 [Activity Parameter Configuration] \(活動參數設定) 頁面。
 1. **Set-AzureRmContext** 有多個參數集，因此您必須先選取一個參數，才可以提供參數值。 按一下 [參數集]，然後選取 [SubscriptionId] 參數集。
-1. 選取參數集之後，參數就會顯示在 [Activity Parameter Configuration] (活動參數設定) 頁面中。 按一下 [SubscriptionID]
+1. 選取參數集之後，參數就會顯示在 [Activity Parameter Configuration] \(活動參數設定) 頁面中。 按一下 [SubscriptionID]
 1. 在 [參數值] 頁面中，針對 [資料來源] 選取 [變數資產]，接著在清單中選取 [AzureSubscriptionId]，然後按兩次 [確定]。
 1. 將滑鼠停留在 [登入 Azure] ，直到圖形的底端出現圓形。 按一下圓形，並將箭頭拖曳到 [指定訂用帳戶識別碼]。
 
@@ -152,8 +148,8 @@ ms.locfileid: "74850307"
 2. 將 [Start-AzureRmVM] 新增至畫布，然後對它按一下並拖曳到 [指定訂用帳戶識別碼] 底下。
 1. 將滑鼠停留在 [指定訂用帳戶識別碼] ，直到圖形的底端出現圓形。 按一下圓形，並將箭頭拖曳到 [Start-AzureRmVM]。
 1. 選取 [Start-AzureRmVM]。 按一下 [參數]，然後按一下 [參數集] 以檢視 [Start-AzureRmVM] 的參數集。 選取 [ResourceGroupNameParameterSetName] 參數集。 [ResourceGroupName] 和 [名稱] 旁邊具有驚嘆號。 這表示它們是必要的參數。 也請注意這兩者應該是字串值。
-1. 選取 [名稱]。 在 [資料來源] 中選取 [PowerShell 運算式]，並輸入用雙引號括住的虛擬機器名稱，此為您要用此 Runbook 啟動的虛擬機器。 按一下 [確定]。
-1. 選取 [Start-AzureRmVM]。 針對 [資料來源] 使用 [PowerShell 運算式]，並輸入用雙引號括住的資源群組名稱。 按一下 [確定]。
+1. 選取 [Start-AzureRmVM]。 在 [資料來源] 中選取 [PowerShell 運算式]，並輸入用雙引號括住的虛擬機器名稱，此為您要用此 Runbook 啟動的虛擬機器。 按一下 [確定]。
+1. 選取 [ResourceGroupName]。 針對 [資料來源] 使用 [PowerShell 運算式]，並輸入用雙引號括住的資源群組名稱。 按一下 [確定]。
 1. 按一下 [測試] 窗格，您便可測試 Runbook。
 1. 按一下 [開始] 以開始測試。 當它完成時，請檢查虛擬機器已啟動。
 

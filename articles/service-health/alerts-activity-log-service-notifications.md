@@ -1,21 +1,17 @@
 ---
 title: 接收 Azure 服務通知的活動記錄警示
 description: 在 Azure 服務發生時透過 SMS、電子郵件或 Webhook 獲得通知。
-author: stephbaron
-ms.author: stbaron
-services: monitoring
-ms.service: service-health
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 40ffe0b377a5cbb21f07c479097958d7c15a2879
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
-ms.translationtype: MT
+ms.openlocfilehash: bc8e935b9d44cb5236c7a1ef38da24e12b877e14
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383151"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464033"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>建立服務通知的活動記錄警示
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 本文將說明如何使用 Azure 入口網站為服務健康情況通知設定活動記錄警示。  
 
@@ -64,7 +60,7 @@ ms.locfileid: "70383151"
     > [!NOTE]
     > 此訂用帳戶會用來儲存活動記錄警示。 警示資源會部署到此訂用帳戶，並從中監視活動記錄事件。
 
-1. 選擇您要警示的**事件類型**：*服務問題*、*計劃性維護*和*健康狀態諮詢* 
+1. 選擇您想要警示的**事件類型**：*服務問題*、*計劃性維護*和*健康情況諮詢* 
 
 1. 輸入**警示規則名稱**和**描述**，定義您的警示詳細資料。
 
@@ -76,7 +72,7 @@ ms.locfileid: "70383151"
 
 1. 請提供接收者的下列各項，以定義接收者的清單：
 
-    a. **Name**：輸入接收者名稱、別名或識別碼。
+    a. **名稱**：輸入接收者名稱、別名或識別碼。
 
     b. **動作類型**：選取簡訊、電子郵件、Webhook 和 Azure 應用程式等。
 

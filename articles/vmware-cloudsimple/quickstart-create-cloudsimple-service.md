@@ -1,5 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple 快速入門-建立服務
+title: 快速入門：建立 VMware CloudSimple 服務
+titleSuffix: Azure VMware Solution by CloudSimple
 description: 瞭解如何建立 CloudSimple 服務、購買節點和保留節點
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 228ca0f43322c271b1a6db55a37c852ca1f66799
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8ca8c5cacd2b1a1a7b4f70615831d2901510045e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828911"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452369"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>快速入門-建立 Azure VMware Solution by CloudSimple 服務
 
@@ -33,7 +34,7 @@ CloudSimple 服務可讓您使用 CloudSimple 的 Azure VMware 解決方案。  
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 
 ## <a name="create-the-service"></a>建立服務
 
@@ -80,7 +81,7 @@ CloudSimple 服務可讓您使用 CloudSimple 的 Azure VMware 解決方案。  
 10. 選取[節點類型](cloudsimple-node.md)。
 11. 選取要布建的節點數目。
 12. 選取 [檢閱 + 建立]。
-13. 檢查設定。 若要修改任何設定，請按一下 [**上一步**]。
+13. 檢閱設定。 若要修改任何設定，請按一下 [**上一步**]。
 14. 選取 [建立]。
 
 ## <a name="next-steps"></a>後續步驟

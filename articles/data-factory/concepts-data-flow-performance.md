@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: fb2a11850370766ab174c67dd122f33879fb432a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 3036fb44cdd636c4a7b9e690ee19aa3d5ab2f5ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928524"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444516"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>對應資料流程效能和微調指南
 
@@ -67,7 +67,7 @@ ms.locfileid: "74928524"
 * 設定查詢可以讓您篩選來源的資料列，然後才抵達資料流程以進行處理。 這可讓初始資料的取得速度更快。 如果您使用查詢，您可以為 Azure SQL DB 新增選擇性的查詢提示，例如讀取未認可。
 * 讀取未認可的會在來源轉換時提供更快速的查詢結果
 
-![來源](media/data-flow/source4.png "來源")
+![Source](media/data-flow/source4.png "來源")
 
 ### <a name="sink-batch-size"></a>接收批次大小
 
@@ -81,7 +81,7 @@ ms.locfileid: "74928524"
 
 ### <a name="disable-indexes-on-write"></a>在寫入時停用索引
 
-在您的管線中，將[預存程式活動](transform-data-using-stored-procedure.md)加入至您的資料流程活動之前，會在您的接收所寫入的目標資料表上停用索引。 在資料流程活動之後，加入另一個可啟用這些索引的預存程式活動。
+在您的管線中，將[預存程式活動](transform-data-using-stored-procedure.md)加入至您的資料流程活動之前，會在您的接收所寫入的目標資料表上停用索引。 在資料流程活動之後，加入另一個可啟用這些索引的預存程式活動。 或利用資料庫接收中的前置處理和後置處理腳本。
 
 ### <a name="increase-the-size-of-your-azure-sql-db-and-dw"></a>增加您的 Azure SQL DB 和 DW 的大小
 
@@ -114,7 +114,7 @@ ms.locfileid: "74928524"
 
 ### <a name="looping-through-file-lists"></a>迴圈流覽檔案清單
 
-當來源轉換反復處理多個檔案，而不是透過每個活動的迴圈時，對應資料流程的執行效能會更好。 我們建議在您的來源轉換中使用萬用字元或檔案清單。 資料流程處理常式會藉由允許迴圈在 Spark 叢集中發生，而執行得更快。 如需詳細資訊，請參閱[原始檔轉換中的萬用字元](data-flow-source.md#file-based-source-options)。
+當來源轉換反復處理多個檔案，而不是透過每個活動的迴圈時，對應資料流程的執行效能會更好。 我們建議在您的來源轉換中使用萬用字元或檔案清單。 資料流程處理常式會藉由允許迴圈在 Spark 叢集中發生，而執行得更快。 如需詳細資訊，請參閱[原始檔轉換中的萬用字元](connector-azure-data-lake-storage.md#mapping-data-flow-properties)。
 
 例如，如果您有2019年7月的資料檔案清單，而您想要在 Blob 儲存體的資料夾中處理該檔案，以下是您可以在來源轉換中使用的萬用字元。
 
@@ -127,8 +127,8 @@ ms.locfileid: "74928524"
 在 CosmosDB 接收上設定輸送量和批次屬性，只會在從管線資料流程活動的資料流程執行期間生效。 在您的資料流程執行之後，CosmosDB 會接受原始的集合設定。
 
 * 批次大小：計算資料的粗略資料列大小，並確認 rowSize * 批次大小小於2000000。 如果是，請增加批次大小以取得更佳的輸送量
-* 輸送量：在這裡設定較高的輸送量設定，以允許檔更快速寫入 CosmosDB。 請記住，以高輸送量設定為基礎的較高 RU 成本。
-*   寫入輸送量預算：使用小於每分鐘的 ru 總數的值。 如果您的資料流程具有大量 Spark partitiongs，設定預算輸送量會允許在這些分割區之間進行更多的平衡。
+* 輸送量：在這裡設定較高的輸送量設定，以允許檔更快速地寫入 CosmosDB。 請記住，以高輸送量設定為基礎的較高 RU 成本。
+*   寫入輸送量預算：使用小於每分鐘的 ru 總數的值。 如果您的資料流程具有大量的 Spark 分割區，則設定預算輸送量會允許在這些分割區之間進行更多的平衡。
 
 ## <a name="next-steps"></a>後續步驟
 

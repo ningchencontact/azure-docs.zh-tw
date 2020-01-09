@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 962a3cf214d202fa9f7640d74036c6700196a5ee
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fb9f9cfdba07ebe0bc5800def6d93950869e9727
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792502"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456637"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的 Liquid 範本執行進階的 JSON 轉換
 
@@ -29,14 +29,14 @@ ms.locfileid: "74792502"
 
 * 基本[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
-* [Liquid 範本語言](https://shopify.github.io/liquid/)的基本知識。
+* 關於[液體範本語言](https://shopify.github.io/liquid/)的基本知識
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>為您的企業整合帳戶建立 Liquid 範本或對應
 
 1. 在此範例中，您會建立此步驟中描述的 Liquid 範本範例。 在您的液體範本中，您可以使用會使用[DotLiquid](https://dotliquidmarkup.org/)和C#命名慣例的[液體濾波器](https://shopify.github.io/liquid/basics/introduction/#filters)。 
 
    > [!NOTE]
-   > 請確定篩選名稱在您的範本中使用*句子大小寫*。 否則，篩選準則將無法使用。
+   > 請確定篩選名稱在您的範本中使用*句子大小寫*。 否則，篩選準則將無法使用。 此外，maps 具有檔案[大小限制](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits)。
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -67,11 +67,11 @@ ms.locfileid: "74792502"
 
 4. 選擇 [新增]，並提供該對應的以下詳細資料：
 
-   | 屬性 | Value | 描述 | 
+   | 屬性 | 值 | 說明 | 
    |----------|-------|-------------|
    | **名稱** | JsonToJsonTemplate | 對應的名稱，在此範例中是 "JsonToJsonTemplate" | 
    | **對應類型** | **liquid** | 對應的類型。 對於 JSON 到 JSON 的轉換，請選取 [Liquid]。 | 
-   | **地圖** | "SimpleJsonToJsonTemplate.liquid" | 用於轉換的現有 Liquid 範本或對應檔案，在此範例中是 "SimpleJsonToJsonTemplate.liquid"。 若要尋找此檔案，您可以使用檔案選擇器。 |
+   | **地圖** | "SimpleJsonToJsonTemplate.liquid" | 用於轉換的現有 Liquid 範本或對應檔案，在此範例中是 "SimpleJsonToJsonTemplate.liquid"。 若要尋找此檔案，您可以使用檔案選擇器。 如需對應大小限制，請參閱[限制和](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits)設定。 |
    ||| 
 
    ![新增 Liquid 範本](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)

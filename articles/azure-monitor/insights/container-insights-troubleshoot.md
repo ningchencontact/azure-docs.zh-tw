@@ -1,25 +1,21 @@
 ---
 title: 如何對適用於容器的 Azure 監視器進行疑難排解 | Microsoft Docs
 description: 本文說明如何對適用於容器的 Azure 監視器問題進行疑難排解並解決問題。
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 3d6ed3b13c134d8e9c1df72ae2cb880a477a803a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 17a2817b320599b2aa2c331c354d316b9d864a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73477046"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403371"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>對適用於容器的 Azure 監視器進行疑難排解
 
 當您設定使用適用於容器的 Azure 監視器來監視 Azure Kubernetes Service (AKS) 叢集時，您可能會遇到阻止資料收集或報告狀態的問題。 本文將詳細說明一些常見問題與疑難排解步驟。
 
 ## <a name="authorization-error-during-onboarding-or-update-operation"></a>上線或更新作業期間發生授權錯誤
-啟用容器的 Azure 監視器或更新叢集以支援收集計量時，您可能會收到類似下列的錯誤-*用戶端 < 使用者的身分識別 > '，其物件識別碼為 ' < 使用者的 objectId > ' 沒有授權在範圍上執行 ' Microsoft. Authorization/roleAssignments/write ' 動作*
+啟用容器的 Azure 監視器或更新叢集以支援收集計量時，您可能會收到類似下列的錯誤-*用戶端 < 使用者的身分識別 > '，其物件識別碼為 ' < 使用者的 objectId > ' 沒有在範圍內執行 ' Microsoft. authorization/roleAssignments/write ' 動作的授權*
 
 在上架或更新程式期間，會嘗試對叢集資源授與**監視計量發行者**角色指派。 起始進程以啟用容器 Azure 監視器或更新以支援計量集合的使用者，必須能夠存取 AKS 叢集資源範圍上的**roleAssignments/write**許可權。 只有**擁有**者和**使用者存取系統管理員**內建角色的成員，才會被授與此許可權的存取權。 如果您的安全性原則需要指派細微層級的許可權，建議您查看[自訂角色](../../role-based-access-control/custom-roles.md)，並將它指派給需要它的使用者。 
 
@@ -103,7 +99,7 @@ ms.locfileid: "73477046"
 
 下表簡要說明使用適用於容器的 Azure 監視器時，可能遇到的已知錯誤。
 
-| 錯誤訊息  | 動作 |  
+| 錯誤訊息  | 行動 |  
 | ---- | --- |  
 | 錯誤訊息 `No data for selected filters`  | 為新建立的叢集打造監視資料流程可能需要點時間。 允許至少10到15分鐘的時間，讓您的叢集顯示資料。 |   
 | 錯誤訊息 `Error retrieving data` | 雖然 Azure Kubernetes Service 叢集是針對健全狀況和效能監視進行設定，但叢集與 Azure Log Analytics 工作區之間會建立連線。 Log Analytics 工作區是用來儲存叢集的所有監視資料。 當您的 Log Analytics 工作區已刪除時，可能會發生此錯誤。 檢查工作區是否已刪除，如果是，您將需要使用容器的 Azure 監視器來重新啟用叢集的監視，並指定現有的或建立新的工作區。 若要重新啟用，您將需要[停](container-insights-optout.md)用叢集的監視，並再次[啟用](container-insights-enable-new-cluster.md)容器的 Azure 監視器。 |  

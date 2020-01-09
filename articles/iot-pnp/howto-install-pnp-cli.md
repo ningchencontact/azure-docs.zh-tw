@@ -3,17 +3,17 @@ title: 使用適用于 Azure CLI 的 Azure IoT 擴充功能與 IoT 隨插即用�
 description: 安裝適用于 Azure CLI 的 Azure IoT 擴充功能，並使用它來與連線到 IoT 中樞的 IoT 隨插即用裝置進行互動。
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 09/08/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: eb4f607672c39d45b7791ccaeeb6f7cff9393cb9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: f4e255309d32026b7f2bb4de67fce7ec37c753f6
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571006"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529570"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>安裝並使用適用于 Azure CLI 的 Azure IoT 擴充功能
 
@@ -26,7 +26,7 @@ ms.locfileid: "73571006"
 - 使用裝置屬性。
 - 呼叫裝置命令。
 
-本文將說明如何：
+本文示範如何：
 
 - 安裝和設定適用于 Azure CLI 的 Azure IoT 擴充功能。
 - 使用延伸模組來與您的裝置互動並加以測試。
@@ -60,7 +60,7 @@ az login
 - Azure IoT 中樞。 有許多方法可將 IoT 中樞新增至您的 Azure 訂用帳戶，例如[使用 Azure CLI 建立 iot 中樞](../iot-hub/iot-hub-create-using-cli.md)。 您需要 IoT 中樞的連接字串，才能執行 Azure IoT 擴充功能命令。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
     > [!NOTE]
-    > 在公開預覽期間，IoT 隨插即用功能只能在「**美國中部** **」、「北歐」** 和「**日本東部**」區域中建立的 iot 中樞上使用。
+    > 在公開預覽期間，IoT 隨插即用功能只能在**美國中部**、**歐洲北部**和**日本東部**區域中建立的 IoT 中樞上使用。
 
 - 在 IoT 中樞註冊的裝置。 您可以使用下列 Azure CLI 命令來註冊裝置，請務必以您的值取代 `{YourIoTHubName}` 和 `{YourDeviceID}` 預留位置：
 

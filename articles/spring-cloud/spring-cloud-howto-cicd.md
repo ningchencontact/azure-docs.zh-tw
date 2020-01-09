@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: c19d32f0be2eb817f9f7d73e6c6eaad8d90ce350
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1fdd68bd0f817e4749c759a8f844eeac34599f02
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607790"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552792"
 ---
 # <a name="cicd-for-azure-spring-cloud"></a>適用于 Azure 春季雲端的 CI/CD
 
@@ -25,7 +25,7 @@ ms.locfileid: "73607790"
 
 ### <a name="deploy-artifacts"></a>部署構件
 
-您可以使用一系列的 `tasks` 來建立及部署專案。 此程式碼片段會先定義用來建立應用程式的 Maven 工作，接著會使用 Azure 春季 Cloud Azure CLI 擴充功能來部署 JAR 檔案的第二個工作。
+您可以使用一系列的 `tasks`來建立及部署專案。 此程式碼片段會先定義用來建立應用程式的 Maven 工作，接著會使用 Azure 春季 Cloud Azure CLI 擴充功能來部署 JAR 檔案的第二個工作。
 
 ```yaml
 steps:
@@ -37,7 +37,7 @@ steps:
     azureSubscription: <your service connection name>
     scriptLocation: inlineScript
     inlineScript: |
-      az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+      az extension add -y --name spring-cloud
       az spring-cloud app deploy --resource-group <your-resource-group> --service <your-spring-cloud-service> --name <app-name> --jar-path ./target/your-result-jar.jar
       # deploy other app
 ```
@@ -52,7 +52,7 @@ steps:
     azureSubscription: <your service connection name>
     scriptLocation: inlineScript
     inlineScript: |
-      az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+      az extension add -y --name spring-cloud
       az spring-cloud app deploy --resource-group <your-resource-group> --service <your-spring-cloud-service> --name <app-name>
 
       # or if it is a multi-module project

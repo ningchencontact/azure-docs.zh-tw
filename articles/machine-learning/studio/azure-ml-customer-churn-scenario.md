@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 8fd88c3bfad962f264efa030d0a3aea44e95dc8c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: cc7ce8a8725e3cbc5c4f0d4db8bfcc3f1b1d657b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839754"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427692"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>使用 Azure Machine Learning Studio （傳統）分析客戶流失
 ## <a name="overview"></a>概觀
@@ -25,7 +25,7 @@ ms.locfileid: "73839754"
 這項實驗是由 Serge Berger、Microsoft 的主要資料科學家及 Roger Barga （先前為 Microsoft Azure Machine Learning Studio （傳統）的產品經理）所開發和測試。 Azure 文件小組高度認可其專業知識，並感謝他們分享這份白皮書。
 
 > [!NOTE]
-> 這項實驗中使用的資料無法公開使用。 如需如何建置客戶流失分析的機器學習模型範例，請參閱︰[Azure AI 資源庫](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1)中的[售業客戶流失模型範本](https://gallery.azure.ai/)
+> 這項實驗中使用的資料無法公開使用。 如需如何建置客戶流失分析的機器學習模型範例，請參閱︰[Azure AI 資源庫](https://gallery.azure.ai/)中的[售業客戶流失模型範本](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1)
 > 
 > 
 
@@ -71,7 +71,7 @@ ms.locfileid: "73839754"
  
 
 ## <a name="implementing-the-modeling-archetype-in-machine-learning-studio-classic"></a>在 Machine Learning Studio 中執行模型原型（傳統）
-根據說明的問題，實作一套整合的模型化和評分方法的最佳方式為何？ 在本節中，我們將示範如何使用 Azure Machine Learning Studio 的傳統版本來完成這項作業。  
+根據說明的問題，實作一套整合的模型化和評分方法的最佳方式為何？ 在本節中，我們將示範如何使用 Azure Machine Learning Studio （傳統）來完成這項作業。  
 
 針對客戶流失來設計整體原型時，多重模型方法不可或缺。 即使是作法中的評分 (預測) 部分也應該為多重模型。  
 
@@ -135,7 +135,7 @@ ms.locfileid: "73839754"
 在本節中，我們根據評分資料集，提出關於模型正確性的調查結果。  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>評分的正確性和準確度
-一般來說，傳統版本 Azure Machine Learning Studio 中的實作為 SAS 背後的精確度大約是10-15% （曲線下的面積或 AUC）。  
+一般來說，Azure Machine Learning Studio （傳統）中的實作為 SAS 背後的精確度大約是10-15% （曲線下的面積或 AUC）。  
 
 不過，客戶流失中最重要的度量是分類誤判率；亦即，在分類器所預測排名前 N 位的流失客戶中，哪些實際上並 **沒有** 流失，但仍享受到特殊待遇？ 下圖比較所有模型的此項分類誤判率：  
 
@@ -178,7 +178,7 @@ AUC 用來判斷不同演算法 (或不同系統) 是否有用處，因為它可
 
 *表 1.演算法的整體表現 (正確性)*
 
-| LR | BT | AP | SVM |
+| LR | BT | 亞太地區 | SVM |
 | --- | --- | --- | --- |
 | 平均模型 |最佳模型 |表現不佳 |平均模型 |
 
@@ -200,13 +200,13 @@ Machine Learning Studio （傳統）中裝載的模型，以15-25% 為效能勝�
 
 不過，使用 Machine Learning Studio （傳統）進行自助式分析的承諾，是四種資訊分類（依部門或部門評分）成為機器學習服務的重要來源。  
 
-傳統版本的 Azure Machine Learning Studio 中另一項令人興奮的功能，就是能夠將自訂模組新增至已提供之預先定義模組的存放庫。 這項功能基本上讓人有機會針對垂直市場選取程式庫和建立範本。 這是市場上傳統 Azure Machine Learning Studio 版本的重要區別。  
+Azure Machine Learning Studio （傳統）推出的另一項令人興奮的功能，就是能夠將自訂模組新增至已提供之預先定義模組的存放庫。 這項功能基本上讓人有機會針對垂直市場選取程式庫和建立範本。 這是市場上 Azure Machine Learning Studio （傳統）的重要區別。  
 
 我們希望未來繼續探討這個主題，特別是關於巨量資料分析。
   
 
 ## <a name="conclusion"></a>結論
-本文說明一套實用的方法，採取通用的架構來處理客戶流失這個普遍的問題。 我們已考慮使用 Azure Machine Learning Studio 的傳統版本來評分模型並實作為模型的原型。 最後，我們依據 SAS 中可比較的演算法，評估原型解決方案的正確性和表現。  
+本文說明一套實用的方法，採取通用的架構來處理客戶流失這個普遍的問題。 我們已考慮使用 Azure Machine Learning Studio （傳統）來評分模型並實作為模型的原型。 最後，我們依據 SAS 中可比較的演算法，評估原型解決方案的正確性和表現。  
 
  
 
@@ -219,7 +219,7 @@ Machine Learning Studio （傳統）中裝載的模型，以15-25% 為效能勝�
 
 [4] [巨量資料行銷：更有效地吸引您的客戶和促進價值](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Azure AI 資源庫](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5)中的[電信公司客戶流失模型範本](https://gallery.azure.ai/) 
+[5] [Azure AI 資源庫](https://gallery.azure.ai/)中的[電信公司客戶流失模型範本](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) 
  
 
 ## <a name="appendix"></a>附錄

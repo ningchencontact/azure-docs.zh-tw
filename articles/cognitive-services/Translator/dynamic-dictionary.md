@@ -10,32 +10,32 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 5f007660b98a22ff9ffad072991a39cf59518b6a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 944bca8644da6127e73af04eb75d01697cd34399
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837345"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446719"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>如何使用動態字典
 
-如果已經知道想要套用至單字或片語的翻譯，則可以在要求內以標記來提供。 動態字典僅適用於專有名稱和產品名稱這類複合名詞。
+如果已經知道想要套用至單字或片語的翻譯，則可以在要求內以標記來提供。 動態字典僅適用于適當名稱和產品名稱這類複合名詞。
 
 **語法：**
 
 < s： dictionary 轉譯 = "轉譯片語" > 片語 </mstrans： dictionary >
 
-**滿足**
+**需求：**
 
-* `From` 和 `To` 語言必須不同。 
+* `From` 和 `To` 語言必須包含英文和其他支援的語言。 
 * 您必須在 API 轉譯要求中包含 `From` 參數，而不是使用自動偵測功能。 
 
 **範例：en-de:**
 
-輸入來源：The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.
+來源輸入： `The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.`
 
-目標輸出：Das Wort "wordomatic" ist ein Wörterbucheintrag.
+目標輸出： `Das Wort "wordomatic" ist ein Wörterbucheintrag.`
 
 不論有無 HTML 模式，此功能都以相同的方式運作。
 
-應該謹慎使用此功能。 自訂翻譯的適當且最適合方式是使用 Custom Translator。 Custom Translator 會完全利用內容和統計機率。 如果您已有或能夠建立定型資料，以便在上下文中顯示您的單字或片語，則會得到更好的結果。 您可以在 [https://aka.ms/CustomTranslator](https://aka.ms/CustomTranslator) \(英文\) 找到更多 Custom Translator 的詳細資訊。
+請謹慎使用此功能。 自訂翻譯的更好方法是使用自訂翻譯。 Custom Translator 會完全利用內容和統計機率。 如果您已有或能夠建立定型資料，以便在上下文中顯示您的單字或片語，則會得到更好的結果。 您可以在 [https://aka.ms/CustomTranslator](https://aka.ms/CustomTranslator) \(英文\) 找到更多 Custom Translator 的詳細資訊。

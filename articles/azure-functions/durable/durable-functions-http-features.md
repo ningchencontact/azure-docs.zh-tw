@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3fcb777969f7d29b0e8698156dbdd0724f16f0b5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1c8f56810edb39db66cbb83750e5cff02e22662a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232878"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433276"
 ---
 # <a name="http-features"></a>HTTP 功能
 
@@ -32,7 +32,8 @@ Durable Functions 延伸模組會自動將一組 HTTP Api 新增至 Azure Functi
 * [將外來事件傳送至協調流程](durable-functions-http-api.md#raise-event)
 * [清除協調流程歷程記錄](durable-functions-http-api.md#purge-single-instance-history)
 * [將作業事件傳送至實體](durable-functions-http-api.md#signal-entity)
-* [查詢實體的狀態](durable-functions-http-api.md#query-entity)
+* [取得實體的狀態](durable-functions-http-api.md#get-entity)
+* [查詢實體清單](durable-functions-http-api.md#list-entities)
 
 如需 Durable Functions 延伸模組所公開之所有內建 HTTP Api 的完整說明，請參閱[HTTP api 文章](durable-functions-http-api.md)。
 
@@ -178,7 +179,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-在上述範例中，`tokenSource` 參數設定為取得[Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)的 Azure AD 權杖。 權杖是由 `https://management.core.windows.net`的資源 URI 所識別。 此範例假設目前的函式應用程式正在本機執行，或已部署為具有受控識別的函式應用程式。 本機身分識別或受控識別會假設具有在指定的資源群組 `myRG`中管理 Vm 的許可權。
+在上述範例中，`tokenSource` 參數設定為取得[Azure Resource Manager](../../azure-resource-manager/management/overview.md)的 Azure AD 權杖。 權杖是由 `https://management.core.windows.net`的資源 URI 所識別。 此範例假設目前的函式應用程式正在本機執行，或已部署為具有受控識別的函式應用程式。 本機身分識別或受控識別會假設具有在指定的資源群組 `myRG`中管理 Vm 的許可權。
 
 在執行時間，設定的權杖來源會自動傳回 OAuth 2.0 存取權杖。 接著，來源會將權杖做為持有人權杖新增至傳出要求的授權標頭。 基於下列原因，此模型是將授權標頭手動新增至 HTTP 要求的改進：
 

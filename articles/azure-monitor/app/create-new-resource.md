@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/02/2019
-ms.openlocfilehash: 11b581649e6d7a048899394d69e574e8f9a4d22c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 1ba6d6e1774db4e9c95b107e1482a0c6ce532bb5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432622"
 ---
 # <a name="create-an-application-insights-resource"></a>建立 Application Insights 資源
 
 Azure Application Insights 會在 Microsoft Azure「資源」中顯示您應用程式的相關資料。 因此，建立新的資源是[設定 Application Insights 以監視新應用程式][start]的一部分。 建立新資源之後，您可以取得其檢測金鑰，並使用它來設定 Application Insights SDK。 檢測金鑰會將您的遙測連結至資源。
 
-## <a name="sign-in-to-microsoft-azure"></a>登入以 Microsoft Azure
+## <a name="sign-in-to-microsoft-azure"></a>登入 Microsoft Azure
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -28,7 +28,7 @@ Azure Application Insights 會在 Microsoft Azure「資源」中顯示您應用�
 
 ![按一下左上角的 [+] 符號。 依序選取 開發人員工具 和 Application Insights](./media/create-new-resource/new-app-insights.png)
 
-   | 設定        |  Value           | 描述  |
+   | 設定        |  值           | 說明  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 唯一值 | 識別您要監視之應用程式的名稱。 |
    | **資源群組**     | myResourceGroup      | 要裝載 App Insights 資料的新或現有資源群組的名稱。 |

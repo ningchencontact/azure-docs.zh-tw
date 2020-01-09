@@ -1,19 +1,18 @@
 ---
 title: 調整 Azure 串流分析中的 Machine Learning 函式
 description: 本文說明如何藉由設定資料分割和串流單位來調整使用 Machine Learning 函式的串流分析作業。
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 28734e5eaa693ca4ee31603863b69605a1d92c88
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dedffab0b17515cedc54569d5debf6d29b273644
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467867"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458742"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>使用 Azure Machine Learning Studio （傳統）功能調整您的串流分析作業
 
@@ -90,9 +89,9 @@ ms.locfileid: "73467867"
 
 讓我們使用下列每個批次大小的延遲測量來查看調整：
 
-| Latency | 批次大小 |
+| 延遲 | 批次大小 |
 | --- | --- |
-| 200毫秒 | 1000-事件批次或以下 |
+| 200 毫秒 | 1000-事件批次或以下 |
 | 250毫秒 | 5000-事件批次 |
 | 300毫秒 | 10000-事件批次 |
 | 500 毫秒 | 25000-事件批次 |
@@ -107,7 +106,7 @@ ms.locfileid: "73467867"
 | **1 SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **3 SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **6 SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
-| **12 SU** |5,000 |10,000 |40,000 |60,000 |100,000 |
+| **12 SU** |5,000 |10,000 |40,000 |60,000 |100,000 家 |
 | **18 SU** |7,500 |15,000 |60,000 |90,000 |150,000 |
 | **24 SU** |10,000 |20,000 |80,000 |120,000 |200,000 |
 | **…** |… |… |… |… |… |

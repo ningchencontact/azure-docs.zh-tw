@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 5c654610df8c00e1e80382687bd30dca0c02b69f
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 3dc7ebe224f1edb1b0fabc40441bd399fda6c133
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558962"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355578"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>資訊安全中心中的跨租使用者管理
 
@@ -43,7 +43,7 @@ ms.locfileid: "74558962"
 
   ![篩選租使用者](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
-Views 和動作基本上相同。 這裡有一些範例：
+Views 和動作基本上相同。 以下是一些範例：
 
 - **管理安全性原則**：從一個觀點來看，使用[原則](tutorial-security-policy.md)來管理許多資源的安全性狀態、對安全性建議採取動作，以及收集和管理安全性相關資料。
 - **改善安全分數和合規性**狀態：跨租使用者可見度可讓您查看所有租使用者的整體安全性狀態，以及在何處和如何最佳地改善每個租使用者的[安全分數](security-center-secure-score.md)和[合規性](security-center-compliance-dashboard.md)狀態。

@@ -1,25 +1,16 @@
 ---
-title: Service Fabric Reliable Services 程式設計模型概觀 | Microsoft Docs
+title: 可靠服務程式設計模型的總覽
 description: 深入了解 Service Fabric 可靠的服務的程式設計模型，並開始撰寫自己的服務。
-services: Service-Fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: vturecek; mani-ramaswamy
-ms.assetid: 0c88a533-73f8-4ae1-a939-67d17456ac06
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider
-ms.openlocfilehash: 1789c7489e58df09dccfde3e7ab106ef54b5c1ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88c8e4411c0bec23790b4f4c52fc4a3d1570edc6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60727007"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614242"
 ---
 # <a name="reliable-services-overview"></a>Reliable Services 概觀
 Azure Service Fabric 可簡化撰寫和管理無狀態與具狀態的 Reliable Services。 本主題涵蓋︰

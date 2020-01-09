@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e5e04716ae67df94428a678f6572738d4ad46232
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 4edf5189b54a5b1fb1b953064c5db1cd50930b84
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901467"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452853"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立時間序列深入解析資源
 
@@ -24,7 +24,7 @@ ms.locfileid: "74901467"
 
 「時間序列深入解析」支援下列資源：
 
-   | 資源 | 描述 |
+   | 資源 | 說明 |
    | --- | --- |
    | 環境 | 時間序列深入解析環境是事件的邏輯群組，會從事件代理程式讀取、儲存並供查詢之用。 如需詳細資訊，請參閱[規劃您的 Azure 時間序列深入解析環境](time-series-insights-environment-planning.md) |
    | 事件來源 | 事件來源是與事件訊息代理程式的連線，「時間序列深入解析」會從該訊息代理程式讀取事件，並將事件內嵌到環境中。 目前支援的事件來源為 IoT 中樞和事件中樞。 |
@@ -59,7 +59,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
    * 必要參數
 
-     | 參數 | 描述 |
+     | 參數 | 說明 |
      | --- | --- |
      | eventHubNamespaceName | 來源事件中樞的命名空間。 |
      | eventHubName | 來源事件中樞的名稱。 |
@@ -71,7 +71,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
    * 選擇性參數
 
-     | 參數 | 描述 |
+     | 參數 | 說明 |
      | --- | --- |
      | existingEventHubResourceId | 現有事件中樞的選擇性資源識別碼，將透過事件來源連線至「時間序列深入解析」環境。 **注意：** 部署範本的使用者必須擁有在事件中樞中執行 listkey 作業的權限。 如果沒有傳遞任何值，將會由範本建立新的事件中樞。 |
      | environmentDisplayName | 要在工具或使用者介面中顯示的選擇性易記名稱，而不是環境名稱。 |
@@ -119,7 +119,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
      }
      ```
   
-    * 如需詳細資訊，請參閱[參數](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)一文。
+    * 如需詳細資訊，請參閱[參數](../azure-resource-manager/templates/parameter-files.md)一文。
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>使用 PowerShell 在本機部署快速入門範本
 

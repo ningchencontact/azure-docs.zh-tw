@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d98fdab6dcd0abb70967d1e17d138a860a31da5f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0610b235d218c24c108e39aeb9bd3b2cf8c9c663
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039309"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463429"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>使用 Azure 入口網站將受控資料磁碟連結到 Windows VM
 
@@ -21,7 +21,7 @@ ms.locfileid: "74039309"
 
 ## <a name="add-a-data-disk"></a>新增資料磁碟
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，從左側功能表選取 [虛擬機器]。
+1. 移至 [ [Azure 入口網站](https://portal.azure.com)] 以新增資料磁片。 搜尋並選取 [**虛擬機器**]。
 2. 從清單中選取虛擬機器。
 3. 在 [虛擬機器] 窗格中，選取 [磁碟]。
 4. 在 [磁碟] 頁面上，選取 [新增資料磁碟]。

@@ -1,19 +1,14 @@
 ---
 title: 查看容器部署的 Azure 監視器（預覽） |Microsoft Docs
 description: 本文說明 Kubernetes 部署的即時觀點，而不在容器的 Azure 監視器中使用 kubectl。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.author: magoedte
-ms.openlocfilehash: c7135aec98936b5247b39ae659e21735168bd289
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7d0344851e1db8c014a1bb16b228a0c2f76444d5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514377"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404764"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>如何即時查看部署（預覽）
 

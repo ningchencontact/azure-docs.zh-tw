@@ -2,19 +2,15 @@
 title: Azure 自動化的 Runbook 和模組資源庫
 description: 來自 Microsoft 和社群的 Runbook 和模組可供您在 Azure 自動化環境中安裝及使用。  本文說明如何存取這些資源以及將您的 Runbook 貢獻至資源庫。
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 94910d0f42ad6b208cac54dd2826cbd2d917504b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 52a0ab0a31600c1548283c7d899b17e497811b5a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850715"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421493"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure 自動化的 Runbook 和模組資源庫
 
@@ -70,7 +66,7 @@ PowerShell 模組包含您可以在 Runbook 中使用的 Cmdlet，您可以安�
 4. 在 [瀏覽資源庫] 頁面上，您可以依下列欄位來搜尋：
 
    * 模組名稱
-   * Tags
+   * 標籤
    * 作者
    * Cmdlet/DSC 資源名稱
 

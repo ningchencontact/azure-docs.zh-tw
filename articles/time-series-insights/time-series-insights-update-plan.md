@@ -1,6 +1,6 @@
 ---
 title: 規劃您的預覽環境-Azure 時間序列深入解析 |Microsoft Docs
-description: 瞭解如何規劃您的 Azure 時間序列深入解析預覽環境。
+description: 設定、管理、規劃及部署 Azure 時間序列深入解析預覽環境的最佳做法。
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9fb2dcf2c05b709340f8e9ae549bab5756e6abf2
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: c305da097a4474e6a4aa91ec0e784e627533ee43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420320"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452444"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>規劃您的 Azure 時間序列深入解析預覽版環境
 
@@ -48,7 +48,7 @@ Azure 時間序列深入解析採用隨用隨付商務模型。 如需費用和�
 暖存放區上的查詢是免費的，而對冷存放區的查詢則會產生成本。 請務必瞭解您的查詢模式，並據以規劃您的暖存放區設定。 我們建議您將最新資料的互動式分析放在您的暖存放區中，而模式分析和長期趨勢則以非經常性的方式存在。
 
 > [!NOTE]
-> 我們目前最多支援具有暖存放區的1000屬性。
+> 若要深入瞭解如何查詢您的暖資料，[請參閱這裡](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters)。
 
 若要開始使用，您需要三個額外項目：
 

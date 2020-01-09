@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 9c86b69239bed1a15c754ce28232b97e8439942b
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: db23fae6bb15e851d22e54b323428c061f55b34f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819099"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406558"
 ---
 # <a name="performance-testing"></a>效能測試
 
@@ -47,7 +47,7 @@ Application Insights 可讓您產生網站的負載測試。 如同[可用性測
 
 測試完成後，您會看到看起來類似下列結果的結果：
 
-![測試結果](./media/performance-testing/test-results.png)
+![Test Results](./media/performance-testing/test-results.png)
 
 ## <a name="configure-visual-studio-web-test"></a>設定 Visual Studio web 測試
 

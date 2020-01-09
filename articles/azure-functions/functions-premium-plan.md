@@ -5,16 +5,16 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 9c1a9a9e3b9e1c12c3960a8586c25436c8d937e0
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5f6825243b7e410b49b54d04a028b5d71610ea68
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532889"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561949"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 進階方案
 
-Azure Functions Premium 方案是函數應用程式的裝載選項。 Premium 方案提供 VNet 連線能力、無冷啟動和 Premium 硬體等功能。  多個函數應用程式可以部署到相同的高階方案，而方案則可讓您設定計算實例大小、基本方案大小和最大方案大小。  如需高階計畫和其他計畫和裝載類型的比較，請參閱[函數級別和裝載選項](functions-scale.md)。
+Azure Functions Premium 方案（有時稱為彈性高階方案）是函數應用程式的裝載選項。 Premium 方案提供 VNet 連線能力、無冷啟動和 Premium 硬體等功能。  多個函數應用程式可以部署到相同的高階方案，而方案則可讓您設定計算實例大小、基本方案大小和最大方案大小。  如需高階計畫和其他計畫和裝載類型的比較，請參閱[函數級別和裝載選項](functions-scale.md)。
 
 ## <a name="create-a-premium-plan"></a>建立進階方案
 
@@ -45,7 +45,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 
 ![彈性調整規模設定](./media/functions-premium-plan/scale-out.png)
 
-您也可以使用 Azure CLI 為應用程式設定預先準備就緒的實例
+您也可以使用 Azure CLI 為應用程式設定預先準備就緒的實例。
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
@@ -76,7 +76,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 如果您的應用程式需要超過方案大小的實例，它可以繼續相應放大，直到實例數目達到最大高載限制為止。  只有在執行並出租給您的情況下，才會向您收取方案大小以外的實例費用。  我們會盡力將您的應用程式調整為其定義的最大限制，而最小方案實例則可保證您的應用程式。
 
-您可以藉由選取方案中的**Scale Out**選項或部署至該方案的函式應用程式（在 [**平臺功能**] 底下），來設定 Azure 入口網站中的計畫大小和上限。
+您可以在 Azure 入口網站中設定計劃大小和上限，方法是選取方案中的**Scale Out**選項或部署至該方案的函式應用程式（在 **平臺功能** 底下）。
 
 您也可以從 Azure CLI 增加最大的高載限制：
 
@@ -103,27 +103,28 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |澳洲中部| ✔<sup>1</sup> | |
 |澳洲中部 2| ✔<sup>1</sup> | |
 |澳大利亞東部| ✔ | |
-|澳大利亞東南部 | ✔ | ✔ |
+|澳洲東南部 | ✔ | ✔<sup>1</sup> |
 |巴西南部| ✔<sup>2</sup> |  |
 |加拿大中部| ✔ |  |
 |美國中部| ✔ |  |
 |東亞| ✔ |  |
-|美國東部 | ✔ | ✔ |
+|美國東部 | ✔ | ✔<sup>1</sup> |
 |美國東部 2| ✔ |  |
 |法國中部| ✔ |  |
-|日本東部| ✔ | ✔ |
+|德國中西部| ✔ | |
+|日本東部| ✔ | ✔<sup>1</sup> |
 |日本西部| ✔ | |
 |南韓中部| ✔ |  |
 |美國中北部| ✔ |  |
-|北歐| ✔ | ✔ |
-|美國中南部| ✔ |  |
+|北歐| ✔ | ✔<sup>1</sup> |
+|美國中南部| ✔ | ✔<sup>1</sup> |
 |印度南部 | ✔ | |
-|東南亞| ✔ | ✔ |
+|東南亞| ✔ | ✔<sup>1</sup> |
 |英國南部| ✔ | |
 |英國西部| ✔ |  |
-|西歐| ✔ | ✔ |
+|西歐| ✔ | ✔<sup>1</sup> |
 |印度西部| ✔ |  |
-|美國西部| ✔ | ✔ |
+|美國西部| ✔ | ✔<sup>1</sup> |
 |美國西部 2| ✔ |  |
 
 <sup>1</sup>最大相應放大限制為20個實例。  

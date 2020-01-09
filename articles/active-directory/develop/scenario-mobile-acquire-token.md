@@ -1,5 +1,5 @@
 ---
-title: 取得權杖以在 mobile apps 中呼叫 web Api |Azure
+title: 取得權杖以呼叫 Web API （行動應用程式） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解如何建立會呼叫 web Api 的行動應用程式（取得應用程式的權杖）
 services: active-directory
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1101a1923e094c22e9f6a82853f4dec4deb089a1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5d584dc2eef27747627133511af3defe085068ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919914"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423831"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>呼叫 web Api 的行動應用程式-取得權杖
 
@@ -45,7 +45,7 @@ let scopes = ["https://graph.microsoft.com/.default"]
 ```
 
 #### <a name="xamarin"></a>Xamarin
-```CSharp 
+```csharp 
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
@@ -200,7 +200,7 @@ MSAL for iOS 和 macOS 在以互動或無訊息方式取得權杖時，支援各
 
 下列範例顯示使用 Microsoft Graph 以互動方式取得權杖的最少程式碼，以讀取使用者的設定檔。
 
-```CSharp
+```csharp
 string[] scopes = new string[] {"user.read"};
 var app = PublicClientApplicationBuilder.Create(clientId).Build();
 var accounts = await app.GetAccountsAsync();
@@ -243,7 +243,7 @@ catch(MsalUiRequiredException)
 
 這個修飾詞用於您想要讓使用者預先同意數個資源的先進案例（而不想要使用累加式同意，這通常與 MSAL.NET/Microsoft 身分識別平臺 v2.0 搭配使用）。 如需詳細資訊，請參閱[如何：將使用者同意預先用於數個資源](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources)。
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .WithExtraScopeToConsent(scopesForVendorApi)
                      .ExecuteAsync();

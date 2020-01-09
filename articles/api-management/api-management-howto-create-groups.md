@@ -1,5 +1,6 @@
 ---
-title: 在 Azure API 管理中使用群組管理開發人員帳戶 | Microsoft Docs
+title: 在 Azure API 管理中使用群組來管理開發人員帳戶
+titleSuffix: Azure API Management
 description: 了解如何在 Azure API 管理中使用群組來管理管理開發人員帳戶。
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: f83b91933e2aca4bf77fcab4a30f2123f4eb4ed0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 182f0ea93ddfb2ab64de1c15b36958537fa5431f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073645"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430717"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>如何在 Azure API 管理中建立和使用群組來管理開發人員帳戶
 
@@ -39,11 +40,11 @@ API 管理具有下列不可變的系統群組：
 
 ## <a name="prerequisites"></a>必要條件
 
-完成本文中的工作:[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。
+完成本文中的工作：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-group"> </a>建立群組
+## <a name="create-group"></a>建立群組
 
 本節說明如何將新的群組新增至 API 管理帳戶。
 
@@ -58,7 +59,7 @@ API 管理具有下列不可變的系統群組：
 
 現在已建立群組，它可以與產品和開發人員建立關聯。
 
-## <a name="associate-group-product"> </a>將群組與產品建立關聯
+## <a name="associate-group-product"></a>將群組與產品建立關聯
 
 1. 選取左側的 [產品] 索引標籤。
 2. 按一下所需產品的名稱。
@@ -79,7 +80,7 @@ API 管理具有下列不可變的系統群組：
 > [!NOTE]
 > 若要加入 Azure Active Directory 群組，請參閱 [如何在 Azure API 管理中使用 Azure Active Directory 授權開發人員帳戶](api-management-howto-aad.md)。
 
-## <a name="associate-group-developer"> </a>將群組與開發人員建立關聯
+## <a name="associate-group-developer"></a>將群組與開發人員建立關聯
 
 本節說明如何讓群組與成員產生關聯。
 
@@ -94,7 +95,7 @@ API 管理具有下列不可變的系統群組：
 
 在開發人員與群組之間加入關聯之後，您可以在 [ **使用者** ] 索引標籤中檢視此關聯。
 
-## <a name="next-steps"> </a>後續步驟
+## <a name="next-steps"></a>後續步驟
 
 * 當開發人員加入至群組之後，他們就可以檢視和訂閱與該群組相關聯的產品。 如需詳細資訊，請參閱 [如何在 Azure API 管理中建立和發行產品][How create and publish a product in Azure API Management]。
 * 除了在發佈者入口網站中建立和管理群組，您還可以使用 API 管理 REST API [群組](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) 實體，建立和管理您的群組。

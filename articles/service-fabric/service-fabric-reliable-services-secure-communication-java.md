@@ -1,24 +1,16 @@
 ---
-title: 保護與 Azure Service Fabric 中的 Java 進行服務遠端通訊時的安全 | Microsoft Docs
+title: 使用 JAVA 保護服務遠端處理通訊
 description: 了解如何針對在 Azure Service Fabric 叢集中執行的 Java 可靠服務，保護以服務遠端為基礎的通訊。
-services: service-fabric
-documentationcenter: java
 author: PavanKunapareddyMSFT
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: b465ab602a14285f8cf40b24ce1dfa9c763fecb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adefeadf939d398268624343d82c18cbf5ec87cd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773344"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609633"
 ---
 # <a name="secure-service-remoting-communications-in-a-java-service"></a>保護 Java 服務中的服務遠端通訊
 > [!div class="op_single_selector"]

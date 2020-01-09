@@ -10,18 +10,18 @@ ms.date: 12/18/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 0d8418d846d26d4104718df6d0fc66d264ef4a54
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: acc7284eb607d20ca1d62b478d802be56048bc6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918826"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440102"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>在 Azure Data Factory 中將連結服務參數化
 
 您現在可以將連結服務參數化，並在執行階段傳遞動態值。 舉例來說，若要連線至同一部 Azure SQL Database 伺服器上的不同資料庫，您現在可以將連結服務定義中的資料庫名稱參數化。 這讓您無需為 Azure SQL 資料庫伺服器上的每個資料庫各建立一個連結服務。 您也可以將連結服務中的其他屬性參數化，例如 *User name*。
 
-您可以使用 Azure 入口網站中的 Data Factory UI 或程式設計介面將連結服務參數化。
+您可以使用 Azure 入口網站或程式設計介面中的 Data Factory UI，將已連結的服務參數化。
 
 > [!TIP]
 > 建議您不要將密碼或秘密參數化。 請改為將所有連接字串儲存在 Azure Key Vault 中，並將 *Secret Name* 參數化。
@@ -56,10 +56,7 @@ ms.locfileid: "74918826"
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "value": "Server=tcp:myserver.database.windows.net,1433;Database=@{linkedService().DBName};User ID=user;Password=fake;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
-                "type": "SecureString"
-            }
+            "connectionString": "Server=tcp:myserver.database.windows.net,1433;Database=@{linkedService().DBName};User ID=user;Password=fake;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
         },
         "connectVia": null,
         "parameters": {

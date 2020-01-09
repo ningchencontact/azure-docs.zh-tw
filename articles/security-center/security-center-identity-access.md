@@ -11,55 +11,49 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 12/19/2019
 ms.author: memildin
-ms.openlocfilehash: 8b069bedd3c36f27828e54a1110443ae6dfcdf3f
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 6b262baddd10c9d0dff4b196b733972b97d99872
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268851"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552979"
 ---
-# <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>在 Azure 資訊安全中心監視身分識別和存取 (預覽)
-這篇文章可協助您使用 Azure 資訊安全中心來監視使用者的身分識別和存取活動。
+# <a name="monitor-identity-and-access-preview"></a>監視身分識別和存取（預覽）
+當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議，以加強並保護您的資源。
+
+本文說明 Azure 資訊安全中心的 [資源安全性] 區段的 [身分**識別] 和 [存取**] 頁面。
+
+如需您可能會在此頁面上看到之建議的完整清單，請參閱身分[識別和存取建議](recommendations-reference.md#recs-identity)。
 
 > [!NOTE]
 > 監視身分識別和存取是預覽功能，只會在資訊安全中心的標準層提供使用。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。
 >
 
-身分識別應該是您的企業的控制台，保護您的身分識別應該是您的第一要務。 安全性周邊已從網路周邊發展到身分識別周邊。 安全性變得較不著重於防禦您的網路，而是較著重於防禦您的資料，以及管理您應用程式和使用者的安全性。 現今有越來越多資料和應用程式移至雲端，身分識別成為新的周邊。
+身分識別應該是您企業的控制平面，而保護身分識別應該是您的最高優先順序。 安全性周邊已從網路周邊發展到身分識別周邊。 安全性變得較不著重於防禦您的網路，而是較著重於防禦您的資料，以及管理您應用程式和使用者的安全性。 現今有越來越多資料和應用程式移至雲端，身分識別成為新的周邊。
 
 監視您的身分識別活動，您就能夠在事件發生前採取主動式動作，或採取回應式動作以停止攻擊。 「身分識別和存取」儀表板提供您如下建議：
 
 - 為您訂用帳戶中具有特殊權限的帳戶啟用 MFA
-- 移除您訂用帳戶中具有寫入權限的外部帳戶
+- 從訂用帳戶移除具有寫入權限的外部帳戶
 - 從您的訂用帳戶中移除具有特殊權限的外部帳戶
 
 > [!NOTE]
-> 如果訂用帳戶內含超過 600 個帳戶，資訊安全中心就無法針對訂用帳戶執行身分識別建議。 未執行的建議會列在「無法使用的評估」底下，後面會有相關討論。
+> 如果訂用帳戶內含超過 600 個帳戶，資訊安全中心就無法針對訂用帳戶執行身分識別建議。 未執行的建議會列在下方的 [無法使用的評量] 底下。
 資訊安全中心無法針對雲端解決方案提供者 (CSP) 合作夥伴的管理專員執行身分識別建議。
 >
 
-請參閱[建議](security-center-identity-access.md#recommendations)，以取得資訊安全中心所提供的身分識別和存取建議清單。
-
-## <a name="monitoring-security-health"></a>監視安全性健全狀況
-您可在 [資訊安全中心 – 概觀] 儀表板上監視資源的安全性狀態。 [資源] 區段是健康情況的指示器，會顯示每個資源類型的嚴重性。
-
-您可以選取 [建議] 來檢視所有問題的清單。 在 [資源] 底下，您可以檢視「計算與應用程式」、「資料安全性」、「網路」或「身分識別和存取」的特定問題清單。 如需有關如何套用建議的詳細資訊，請參閱[實作 Azure 資訊安全中心的安全性建議](security-center-recommendations.md)。
-
-如需身分識別和存取建議的完整清單，請參閱[建議](security-center-identity-access.md#recommendations)。
-
-若要繼續，請選取 [資源] 或 [資訊安全中心] 主功能表下方的 [身分識別和存取]。
-
-![資訊安全中心儀表板][1]
-
 ## <a name="monitor-identity-and-access"></a>監視身分識別和存取
+
+從 [資訊安全中心] 提要欄位（在 [**資源**] 下），或從 [總覽] 頁面選取 [身分識別] **& [存取**]，以開啟識別身分識別和存取問題的清單。 
+
 [身分識別和存取] 底下有兩個索引標籤：
 
 - **概觀**：資訊安全中心所識別的建議。
 - **訂用帳戶**：訂用帳戶的清單和各自的目前安全性狀態。
 
-![身分識別和存取][2]
+[![身分識別 & 存取](./media/security-center-identity-access/identity-dashboard.png)](./media/security-center-identity-access/identity-dashboard.png#lightbox)
 
 ### <a name="overview-section"></a>概觀區段
 [概觀] 底下有建議清單。 第一個資料行會列出建議。 第二個資料行則顯示受該項建議影響的訂用帳戶總數。 第三個資料行顯示問題的嚴重性。
@@ -70,16 +64,16 @@ ms.locfileid: "71268851"
    - 狀況不良和狀況良好的訂用帳戶清單
    - 資源清單，內含由於評估失敗而未掃描的資源，或是位於免費層中所執行訂用帳戶底下且未進行評估的資源
 
-   ![建議的視窗][3]
+    [![建議視窗](./media/security-center-identity-access/select-subscription.png)](./media/security-center-identity-access/select-subscription.png#lightbox)
 
 1. 如需其他詳細資料，請選取清單中的訂用帳戶。
 
 ### <a name="subscriptions-section"></a>訂用帳戶區段
 [訂用帳戶] 底下有訂用帳戶的清單。 第一個資料行會列出訂用帳戶。 第二個資料行會顯示每個訂用帳戶的建議總數。 第三個資料行會顯示問題的嚴重性。
 
-![[訂閱] 索引標籤][4]
+[![訂閱 索引標籤](./media/security-center-identity-access/subscriptions.png)](./media/security-center-identity-access/subscriptions.png#lightbox)
 
-1. 選取一個訂用帳戶。 摘要檢視隨即開啟，並有三個索引標籤：
+1. 選取訂用帳戶。 摘要檢視隨即開啟，並有三個索引標籤：
 
    - **建議**：根據資訊安全中心所執行的失敗評估。
    - **已通過的評估**：資訊安全中心所執行、已通過的評估清單。
@@ -87,39 +81,22 @@ ms.locfileid: "71268851"
 
    [建議] 底下有所選訂用帳戶的建議清單和每個建議的嚴重性。
 
-   ![所選訂用帳戶的建議][5]
+   [選取訂用帳戶的 ![建議](./media/security-center-identity-access/recommendations.png)](./media/security-center-identity-access/recommendations.png#lightbox)
 
 1. 選取建議，以獲得建議描述、狀況不良和狀況良好的訂用帳戶清單和未掃描的資源清單。
 
-   ![建議的描述][6]
+   [建議的 ![描述](./media/security-center-identity-access/designate.png)](./media/security-center-identity-access/designate.png#lightbox)
 
    [已通過的評估] 底下有已通過的評估清單。  這些評估的嚴重性永遠是綠色的。
 
-   ![已通過的評估][7]
+   [![通過的評量](./media/security-center-identity-access/passed-assessments.png)](./media/security-center-identity-access/passed-assessments.png#lightbox)
 
 1. 從清單中選取已通過的評估，以取得評估的描述和狀況良好訂用帳戶的清單。 狀況不良的訂用帳戶會有一個索引標籤，其中會列出所有失敗的訂用帳戶。
 
-   ![已通過的評估][8]
-
-## <a name="recommendations"></a>建議
-請使用下表作為參考，以協助您了解可用的「身分識別和存取」建議，以及如果套用建議，每一個建議所產生的作用。
-
-|資源類型|安全分數|建議|描述|
-|----|----|----|----|
-|訂閱|50|應在您訂用帳戶上具有擁有者權限的帳戶上啟用 MFA|為具有系統管理員權限的所有訂用帳戶啟用 Multi-Factor Authentication (MFA)，以避免發生帳戶或資源資料外洩。|
-|訂閱|40|必須在具有寫入權限的訂用帳戶上啟用 MFA|為具有寫入權限的所有訂用帳戶啟用 Multi-Factor Authentication (MFA)，以避免發生帳戶或資源資料外洩。|
-|訂閱|30|具有擁有者權限的外部帳戶應該從您的訂用帳戶中移除|從訂用帳戶中移除具有擁有者權限的外部帳戶，以避免出現未受監視的存取。|
-|訂閱|30|您的訂用帳戶 (具有讀取權限) 應啟用 MFA|為具有讀取權限的所有訂用帳戶啟用 Multi-Factor Authentication (MFA)，以避免發生帳戶或資源資料外洩。|
-|訂閱|25|應從訂用帳戶移除具有寫入權限的外部帳戶|從訂用帳戶中移除具有寫入權限的外部帳戶，以避免出現未受監視的存取。 |
-|訂閱|20|具有擁有者權限的已取代帳戶應該從您的訂用帳戶中移除|從訂用帳戶中移除具有擁有者權限的已取代帳戶。|
-|訂閱|5|已取代帳戶應該從您的訂用帳戶中移除|從訂用帳戶中移除不再使用的帳戶，以僅允許目前的使用者存取。 |
-|訂閱|5|應將一個以上的擁有者指派給您的訂用帳戶|指定多位訂用帳戶擁有者，以擁有系統管理員存取備援。|
-|訂閱|5|應針對您的訂用帳戶指定最多 3 位擁有者|指定少於 3 位的訂用帳戶擁有者，以降低遭入侵擁有者導致資料外洩的可能。|
-|金鑰保存庫|5|應該啟用 Key Vault 中的診斷記錄|啟用記錄並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。 |
-|訂閱|15|應從您的訂用帳戶移除具有讀取權限的外部帳戶|從訂用帳戶中移除具有讀取權限的外部帳戶，以避免出現未受監視的存取。| 
+   [![通過的評量](./media/security-center-identity-access/remove.png)](./media/security-center-identity-access/remove.png#lightbox)
 
 > [!NOTE]
-> 如果您已建立條件式存取原則來要求 MFA, 但已設定排除專案, 則資訊安全中心 MFA 建議評估會將原則視為不符合規範, 因為它可讓某些使用者登入 Azure 而不需要 MFA。
+> 如果您已建立條件式存取原則來要求 MFA，但已設定排除專案，則資訊安全中心 MFA 建議評估會將原則視為不符合規範，因為它可讓某些使用者登入 Azure 而不需要 MFA。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入瞭解適用于其他 Azure 資源類型的建議，請參閱下列文章：
@@ -127,19 +104,3 @@ ms.locfileid: "71268851"
 - [保護 Azure 資訊安全中心內的機器和應用程式](security-center-virtual-machine-protection.md)
 - [保護 Azure 資訊安全中心內的網路](security-center-network-recommendations.md)
 - [保護 Azure 資訊安全中心內的 Azure SQL 服務和資料](security-center-sql-service-recommendations.md)
-
-如要深入了解資訊安全中心，請參閱下列文章：
-* [在 Azure 資訊安全中心管理和回應安全性警示](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)。 了解如何在資訊安全中心管理警示，以及回應安全性事件。
-* [了解 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)。 了解不同類型的安全性警示。
-* [Azure 資訊安全中心常見問題集](security-center-faq.md)。 尋找有關使用資訊安全中心常見問題的答案。
-
-
-<!--Image references-->
-[1]: ./media/security-center-identity-access/overview.png
-[2]: ./media/security-center-identity-access/identity-dashboard.png
-[3]: ./media/security-center-identity-access/select-subscription.png
-[4]: ./media/security-center-identity-access/subscriptions.png
-[5]: ./media/security-center-identity-access/recommendations.png
-[6]: ./media/security-center-identity-access/designate.png
-[7]: ./media/security-center-identity-access/passed-assessments.png
-[8]: ./media/security-center-identity-access/remove.png

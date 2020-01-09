@@ -2,19 +2,15 @@
 title: 建立獨立的 Azure 自動化帳戶
 description: 本文會逐步引導您在 Azure 自動化中建立、測試和使用範例安全性主體驗證。
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/15/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 0dcfcfe5bc6e59eeb4ccb7272ed3f68edc9c4172
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 22efb5e94049b975780c6f6ea69aa94a71cc9992
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850392"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366646"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>建立獨立的 Azure 自動化帳戶
 
@@ -88,7 +84,7 @@ ms.locfileid: "74850392"
 
 順利建立自動化帳戶時，系統會自動為您建立幾項資源。 建立之後，如果您不想保留這些 Runbook，可以安全地全部刪除。 「執行身分帳戶」可以用來在 Runbook 中驗證您的帳戶，應該保留，除非您要另外建立一個或不需要它們。 下表摘要說明執行身分帳戶的資源。
 
-| 資源 | 描述 |
+| 資源 | 說明 |
 | --- | --- |
 | AzureAutomationTutorial Runbook |此為圖形化 Runbook 範例，示範如何使用執行身分帳戶進行驗證。 Runbook 會取得所有 Resource Manager 資源。 |
 | AzureAutomationTutorialScript Runbook |此為 PowerShell Runbook 範例，示範如何使用執行身分帳戶進行驗證。 Runbook 會取得所有 Resource Manager 資源。 |

@@ -8,15 +8,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, bonova
-ms.date: 11/04/2019
+ms.reviewer: sstein, carlrab, bonova, danil
+ms.date: 12/30/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: e517b6030aa1c9549e33c00425851afae90aac42
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
-ms.translationtype: HT
+ms.openlocfilehash: 7319bb680e449a27fbe6f48c831d87d9c7b5ba4f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707650"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552741"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>受控實例的 T-sql 差異、限制和已知問題
 
@@ -27,9 +27,9 @@ ms.locfileid: "74707650"
 受控執行個體引進了一些 PaaS 限制，相較于 SQL Server，還有一些行為變更。 差異分成下列類別：<a name="Differences"></a>
 
 - [可用性](#availability)包括[Always On 可用性群組](#always-on-availability-groups)和[備份](#backup)的差異。
-- [安全性](#security)包括[審核](#auditing)、[憑證](#credential)、認證[、](#certificates)[密碼編譯提供者](#cryptographic-providers)、登入[和使用者](#logins-and-users)，以及[服務金鑰和服務主要金鑰](#service-key-and-service-master-key)的差異。
-- [設定包括](#configuration)[緩衝集區延伸](#buffer-pool-extension)、定[序](#collation)、[相容性層級](#compatibility-levels)、[資料庫鏡像](#database-mirroring)、[資料庫選項](#database-options)、 [SQL Server Agent](#sql-server-agent)和[資料表選項](#tables)的差異。
-- [功能](#functionalities)包括[BULK INSERT/OPENROWSET](#bulk-insert--openrowset)、 [CLR](#clr)、 [DBCC](#dbcc)、[分散式交易](#distributed-transactions)、[擴充的事件](#extended-events)、[外部程式庫](#external-libraries)、 [filestream 和 FileTable](#filestream-and-filetable)、[全文檢索語義搜尋](#full-text-semantic-search)、[連結的伺服器](#linked-servers)、 [PolyBase](#polybase) [、複寫](#replication)、[還原](#restore-statement)、 [Service Broker](#service-broker)、[預存程式、函數和觸發](#stored-procedures-functions-and-triggers)程式。
+- [安全性](#security)包括[審核](#auditing)、[憑證](#certificates)、[認證](#credential)、[密碼編譯提供者](#cryptographic-providers)、[登入和使用者](#logins-and-users)以及[服務金鑰和服務主要金鑰](#service-key-and-service-master-key)的差異。
+- [設定](#configuration)包括[緩衝集區延伸](#buffer-pool-extension)、定[序](#collation)、[相容性層級](#compatibility-levels)、[資料庫鏡像](#database-mirroring)、[資料庫選項](#database-options)、[SQL Server Agent](#sql-server-agent) 和[資料表選項](#tables)的差異。
+- [功能](#functionalities)包括[BULK INSERT/OPENROWSET](#bulk-insert--openrowset)、[CLR](#clr)、[DBCC](#dbcc)、[分散式交易](#distributed-transactions)、[擴充事件](#extended-events)、[外部程式庫](#external-libraries)、[filestream 和 FileTable](#filestream-and-filetable)、[全文檢索語義搜尋](#full-text-semantic-search)、[連結的伺服器](#linked-servers)、[PolyBase](#polybase)、[複寫](#replication)、[還原](#restore-statement)、[Service Broker](#service-broker)、[預存程式、函數和觸發程式](#stored-procedures-functions-and-triggers)。
 - [環境設定](#Environment)，例如 vnet 和子網設定。
 
 大部分的功能都是架構條件約束，並代表服務功能。
@@ -48,7 +48,7 @@ ms.locfileid: "74707650"
 - [DROP AVAILABILITY GROUP](/sql/t-sql/statements/drop-availability-group-transact-sql)
 - [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql)語句的[SET HADR](/sql/t-sql/statements/alter-database-transact-sql-set-hadr)子句
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>備份
 
 受控實例具有自動備份，因此使用者可以建立完整的資料庫 `COPY_ONLY` 備份。 不支援差異、記錄和檔案快照集備份。
 
@@ -65,7 +65,7 @@ ms.locfileid: "74707650"
 
 - 使用受控實例，您可以將實例資料庫備份至最多32個等量的備份，如果使用備份壓縮，這就足以應付最多 4 TB 的資料庫。
 - 您無法在使用服務管理的透明資料加密（TDE）加密的資料庫上執行 `BACKUP DATABASE ... WITH COPY_ONLY`。 服務管理的 TDE 會強制使用內部 TDE 金鑰來加密備份。 無法匯出金鑰，因此您無法還原備份。 使用自動備份和時間點還原，或改為使用[客戶管理的（BYOK） TDE](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) 。 您也可以在資料庫上停用加密。
-- 在受控實例中使用 `BACKUP` 命令的備份等量大小上限為 195 GB，這是最大 blob 大小。 在備份命令中增加條帶 (Stripe) 數目，可減少個別條帶 (Stripe) 的大小並維持在此限制內。
+- 在受控實例中使用 `BACKUP` 命令的備份等量大小上限為 195 GB，這是最大 blob 大小。 在備份命令中增加等量磁碟區的數目，以減少個別的等量磁碟區大小並維持在這項限制內。
 
     > [!TIP]
     > 若要解決這項限制，當您從內部部署環境或虛擬機器中的 SQL Server 備份資料庫時，您可以：
@@ -95,7 +95,7 @@ Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的�
 - 系統會提供新的語法 `TO URL`，讓您可以用來指定放置 `.xel` 檔案之 Azure Blob 儲存體容器的 URL。
 - 不支援語法 `TO FILE`，因為受控實例無法存取 Windows 檔案共用。
 
-如需詳細資訊，請參閱 
+如需詳細資訊，請參閱： 
 
 - [CREATE SERVER AUDIT](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -191,7 +191,7 @@ WITH PRIVATE KEY (<private_key_options>)
 - 不支援[緩衝集區延伸](/sql/database-engine/configure-windows/buffer-pool-extension)模組。
 - 不支援 `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION`。 請參閱 [ALTER SERVER CONFIGURATION](/sql/t-sql/statements/alter-server-configuration-transact-sql)。
 
-### <a name="collation"></a>Collation
+### <a name="collation"></a>定序
 
 預設執行個體定序為 `SQL_Latin1_General_CP1_CI_AS`，而且可指定為建立參數。 請參閱[定序](/sql/t-sql/statements/collations)。
 
@@ -272,15 +272,15 @@ WITH PRIVATE KEY (<private_key_options>)
 
 如需詳細資訊，請參閱 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options)。
 
-### <a name="sql-server-agent"></a>SQL Server 代理程式
+### <a name="sql-server-agent"></a>SQL Server Agent
 
-- 目前不支援在受控實例中啟用和停用 SQL Server Agent。 SQL Agent 一直在執行中。
+- 目前不支援在受控實例中啟用和停用 SQL Server Agent。 SQL 代理程式一律會處於正在執行的狀態。
 - SQL Server Agent 設定是唯讀的。 受控實例中不支援此程式 `sp_set_agent_properties`。 
 - 工作
   - 支援 T-SQL 作業步驟。
   - 支援下列複寫作業：
     - 交易記錄讀取器
-    - 快照
+    - 快照集
     - 散發者
   - 支援 SSIS 作業步驟。
   - 目前不支援其他類型的作業步驟：
@@ -362,7 +362,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 資料庫內 R 和 Python 尚未支援外部程式庫。 請參閱 [SQL Server Machine Learning 服務](/sql/advanced-analytics/r/sql-server-r-services)。
 
-### <a name="filestream-and-filetable"></a>Filestream 和 FileTable
+### <a name="filestream-and-filetable"></a>Filestream 與 FileTable
 
 - 不支援 Filestream 資料。
 - 資料庫不能包含具有 `FILESTREAM` 資料的檔案群組。
@@ -406,41 +406,12 @@ Dynamics 365
 - 支援快照和雙向複寫類型。 不支援合併式複寫、點對點複寫和可更新的訂閱。
 - [異動複寫](sql-database-managed-instance-transactional-replication.md)在受控實例上可供公開預覽，但有一些條件約束：
     - 所有類型的複寫參與者（發行者、散發者、提取訂閱者和發送訂閱者）都可以放在受控實例上，但發行者和散發者必須同時位於雲端或內部部署兩者。
-    - 受控實例可以與最新版本的 SQL Server 進行通訊。 請參閱[這裡](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems)的支援版本。
+    - 受控實例可以與最新版本的 SQL Server 進行通訊。 如需詳細資訊，請參閱[支援的版本矩陣](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems)。
     - 異動複寫有一些[額外的網路需求](sql-database-managed-instance-transactional-replication.md#requirements)。
 
-如需有關設定複寫的詳細資訊，請參閱複寫[教學](replication-with-sql-database-managed-instance.md)課程。
-
-
-如果已在[容錯移轉群組](sql-database-auto-failover-group.md)中的資料庫上啟用複寫，受管理的實例系統管理員必須清除舊主要複本上的所有發行集，並在容錯移轉之後，在新的主要上重新設定它們。 此案例中需要下列活動：
-
-1. 停止在資料庫上執行的所有複寫作業（如果有的話）。
-2. 在發行者資料庫上執行下列腳本，以卸載發行者的訂閱中繼資料：
-
-   ```sql
-   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
-   ```             
- 
-1. 捨棄訂閱者的訂閱中繼資料。 在訂閱者實例的訂閱資料庫中執行下列腳本：
-
-   ```sql
-   EXEC sp_subscription_cleanup
-      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
-      @publisher_db = N'<publisher database>', 
-      @publication = N'<name of publication>'; 
-   ```                
-
-1. 藉由在已發行的資料庫中執行下列腳本，強制卸載「發行者」中的所有複寫物件：
-
-   ```sql
-   EXEC sp_removedbreplication
-   ```
-
-1. 從原始的主要實例強制卸載舊的散發者（如果容錯回復到用來擁有「散發者」的舊主伺服器）。 在舊的散發者受控實例的 master 資料庫上執行下列腳本：
-
-   ```sql
-   EXEC sp_dropdistributor 1,1
-   ```
+如需有關設定異動複寫的詳細資訊，請參閱下列教學課程：
+- [MI 發行者與訂閱者之間的複寫](replication-with-sql-database-managed-instance.md)
+- [MI 發行者、MI 散發者和 SQL Server 訂閱者之間的複寫](sql-database-managed-instance-configure-replication-tutorial.md)
 
 ### <a name="restore-statement"></a>RESTORE 陳述式 
 
@@ -483,7 +454,7 @@ Dynamics 365
  > [!IMPORTANT]
  > 相同的限制適用于內建的時間點還原作業。 例如，無法在業務關鍵實例上還原超過 4 TB 的一般目的資料庫。 具有記憶體內部 OLTP 檔案或超過280個檔案的商務關鍵資料庫，無法在一般用途實例上還原。
 
-### <a name="service-broker"></a>Service broker
+### <a name="service-broker"></a>Service Broker
 
 不支援跨執行個體的服務訊息代理程式：
 
@@ -535,11 +506,55 @@ Dynamics 365
 
 一般用途層上，`tempdb` 的檔案大小上限不能大於每個核心 24 GB。 業務關鍵層上的 `tempdb` 大小上限受限於實例儲存體大小。 一般用途層的 `Tempdb` 記錄檔大小限制為 120 GB。 如果 `tempdb` 中的每個核心需要超過 24 GB，或產生超過 120 GB 的記錄資料，則某些查詢可能會傳回錯誤。
 
+### <a name="msdb"></a>MSDB
+
+受控實例中的下列 MSDB 架構必須由其各自預先定義的角色所擁有：
+
+- 一般角色
+  - TargetServersRole
+- [固定資料庫角色](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+  - SQLAgentUserRole
+  - SQLAgentReaderRole
+  - SQLAgentOperatorRole
+- [DatabaseMail 角色](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile)：
+  - DatabaseMailUserRole
+- [Integration services 角色](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15)：
+  - db_ssisadmin
+  - db_ssisltduser
+  - db_ssisoperator
+  
+> [!IMPORTANT]
+> 變更客戶的預先定義角色名稱、架構名稱和架構擁有者，將會影響服務的正常運作。 對這些進行的任何變更都將會在偵測到，或在最新的下一個服務更新時還原回預先定義的值，以確保正常的服務作業。
+
 ### <a name="error-logs"></a>錯誤記錄
 
 受控實例會將詳細資訊放在錯誤記錄檔中。 錯誤記錄檔中有許多內部系統事件會記錄下來。 使用自訂程式來讀取篩選掉一些不相關專案的錯誤記錄檔。 如需詳細資訊，請參閱[受控實例– sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/)或適用于 Azure Data Studio 的[受控實例延伸模組（預覽）](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) 。
 
-## <a name="Issues"></a>已知問題
+## <a name="Issues"></a> 已知問題
+
+### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>SQL 代理程式角色需要非系統管理員（sysadmin）登入的明確執行許可權
+
+**日期：** 12月2019
+
+如果將非系統管理員（sysadmin）登入加入任何[SQL Agent 固定資料庫角色](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles)中，就會有一個問題，即必須授與主要預存程式的明確執行許可權，才能讓這些登入工作。 如果發生此問題，將會顯示錯誤訊息「物件 < 上的執行許可權被拒絕 object_name > （Microsoft SQL Server，錯誤：229）」。
+
+因應措施：將登入新增至其中一個 SQL Agent 固定資料庫**角色： SQLAgentUserRole**、SQLAgentReaderRole 或 SQLAgentOperatorRole，針對新增至這些角色的每個登入，執行下列 t-sql 腳本，將執行許可權明確授與所列的預存程式。
+
+```tsql
+USE [master]
+GO
+CREATE USER [login_name] FOR LOGIN [login_name]
+GO
+GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
+```
+
+### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>代理程式進程重新開機可能會中斷 SQL 代理程式作業
+
+**日期：** 12月2019
+
+SQL 代理程式會在每次作業啟動時建立新的會話，逐漸增加記憶體耗用量。 為了避免達到會封鎖執行排程工作的內部記憶體限制，Agent 進程會在其記憶體耗用量達到閾值後重新開機。 這可能會導致在重新開機時中斷執行的作業。
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>記憶體內部 OLTP 記憶體限制不適用
 
@@ -593,7 +608,7 @@ SQL Server/受控執行個體[不允許使用者捨棄不是空的](/sql/relatio
 
 **日期：** 2019年4月
 
-[Sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql)程式中的 `@query` 參數無法使用。
+[Sp_send_db_mail ](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql)`@query`程式中的參數無法使用。
 
 ### <a name="transactional-replication-must-be-reconfigured-after-geo-failover"></a>必須在異地容錯移轉之後重新設定異動複寫
 

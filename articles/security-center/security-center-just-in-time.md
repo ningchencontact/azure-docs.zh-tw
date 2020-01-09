@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 3e344afc29ae398394a1aa2aa527f2f32e24eef7
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 51b4ef06806e2a6647975a373f1bc4bd58740b7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997185"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355574"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>使用 Just-In-Time 管理虛擬機器存取
 
@@ -108,7 +108,7 @@ Just-In-Time (JIT) 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流
 
      3. 按一下 [確定]。
 
-1. 按一下 [儲存]。
+1. 按一下 [檔案]。
 
 > [!NOTE]
 >啟用 VM 的 JIT VM 存取時，Azure 資訊安全中心會在與 Azure 防火牆相關聯的網路安全性群組中，為選取的埠建立「拒絕所有輸入流量」規則。 如果已針對選取的埠建立其他規則，則現有的規則會優先于新的「拒絕所有輸入流量」規則。 如果選取的埠上沒有現有的規則，則新的「拒絕所有輸入流量」規則會優先使用網路安全性群組和 Azure 防火牆。

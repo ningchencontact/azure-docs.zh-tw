@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
-ms.openlocfilehash: aff6be1a6abf2550013b752ba4f796ffe255499f
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.date: 12/27/2019
+ms.openlocfilehash: 1c482166ffe27bde900a102c39def400728c102f
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539054"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529706"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解決方案 (預覽)
 
@@ -51,7 +51,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 此解決方案不會在[已連線的管理群組](../platform/om-agents.md)中安裝任何管理組件。
   
 
-## <a name="install-and-configure"></a>安裝及設定
+## <a name="install-and-configure"></a>安裝和設定
 
 一開始先新增 [Office 365 解決方案到您的訂用帳戶](solutions.md#install-a-monitoring-solution)。 新增之後，您必須執行本節中的設定步驟，讓解決方案存取您的 Office 365 訂用帳戶。
 
@@ -120,12 +120,12 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 
 1. 選取 [**憑證 & 密碼**]，然後選取 [**新增用戶端密碼**]。
 
-    ![金鑰](media/solution-office-365/secret.png)
+    ![索引鍵](media/solution-office-365/secret.png)
  
 1. 輸入新金鑰的 [描述] 和 [持續時間]。
 1. 按一下 [**新增**]，然後將產生的**值**儲存為用戶端密碼，以及先前收集到的其餘資訊。
 
-    ![金鑰](media/solution-office-365/keys.png)
+    ![索引鍵](media/solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>新增管理員同意
 
@@ -532,7 +532,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 此儀表板包含下表中的資料行。 每個資料行依計數列出前十個警示，這幾個警示符合該資料行中指定範圍和時間範圍的準則。 您可以按一下資料行底部的 [查看全部]，或按一下資料行標頭，以執行記錄搜尋來提供完整清單。
 
-| Column | 描述 |
+| Column | 說明 |
 |:--|:--|
 | Dynamics 365 | 提供所有受監視 Office 365 訂閱中之作用中使用者的相關資訊。 您也可以查看一段時間內發生的活動數。
 | Exchange | 顯示 Exchange Server 活動細目，例如 Add-Mailbox 權限或 Set-Mailbox。 |
@@ -550,9 +550,9 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 以下是所有 Office 365 記錄通用的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
-| Type | *OfficeActivity* |
+| 類型 | *OfficeActivity* |
 | ClientIP | 記錄活動時所使用之裝置的 IP 位址。 IP 位址會以 IPv4 或 IPv6 位址格式顯示。 |
 | OfficeWorkload | 記錄所指的 Office 365 服務。<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | 作業 | 使用者或管理員活動的名稱。  |
@@ -561,14 +561,14 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 | ResultStatus | 指出 (Operation 屬性中指定的) 動作是否成功。 可能的值為 Succeeded、PartiallySucceeded 或 Failed。 對於 Exchange 管理員活動，這個值將會是 True 或 False。 |
 | UserId | 執行動作導致記下該記錄之使用者的 UPN (使用者主體名稱)，例如 my_name@my_domain_name。 請注意，由系統帳戶 (例如 SHAREPOINT\system 或 NTAUTHORITY\SYSTEM) 所執行之活動的記錄也會包含在內。 | 
 | UserKey | UserId 屬性所識別之使用者的替代識別碼。  例如，針對由使用者在 SharePoint、商務用 OneDrive 及 Exchange 中所執行的事件，此屬性都會填入 Passport 唯一識別碼 (PUID)。 針對在其他服務中所發生的事件，以及由系統帳戶所執行的事件，此屬性也可能會將相同的值指定為 UserID 屬性|
-| UserType | 執行作業的使用者類型。<br><br>Admin<br>Application<br>DcAdmin<br>Regular<br>保留<br>ServicePrincipal<br>System |
+| UserType | 執行作業的使用者類型。<br><br>管理<br>應用程式<br>DcAdmin<br>Regular<br>保留<br>ServicePrincipal<br>系統 |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 基底
 
 以下是所有 Azure Active Directory 記錄通用的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -580,7 +580,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄會在 Active Directory 使用者嘗試登入時建立。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | `OfficeWorkload` | AzureActiveDirectory |
 | `RecordType`     | AzureActiveDirectoryAccountLogon |
@@ -594,7 +594,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄會在針對 Azure Active Directory 物件進行變更或新增時建立。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -612,7 +612,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄是從資料中心安全性稽核資料所建立。  
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | EffectiveOrganization | 提高權限/Cmdlet 的目標租用戶名稱。 |
 | ElevationApprovedTime | 核准提高權限時的時間戳記。 |
@@ -628,7 +628,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄會在對 Exchange 設定做出變更時建立。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -643,7 +643,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄會在針對 Exchange 信箱做出變更或新增時建立。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -666,11 +666,11 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄會在建立信箱稽核項目時建立。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
-| Item | 表示對之執行作業的項目 | 
+| 項目 | 表示對之執行作業的項目 | 
 | SendAsUserMailboxGuid | 存取以傳送電子郵件之信箱的 Exchange GUID。 |
 | SendAsUserSmtp | 被模擬之使用者的 SMTP 位址。 |
 | SendonBehalfOfUserMailboxGuid | 存取以代為傳送電子郵件之信箱的 Exchange GUID。 |
@@ -681,7 +681,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄會在針對 Exchange 群組做出變更或新增時建立。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
@@ -700,7 +700,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些是所有 SharePoint 記錄通用的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -717,7 +717,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄會在針對 SharePoint 做出設定變更時建立。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -730,7 +730,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄是為了回應 SharePoint 中的檔案作業而建立。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
@@ -747,11 +747,11 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 
-## <a name="sample-log-searches"></a>記錄檔搜尋範例
+## <a name="sample-log-searches"></a>記錄搜尋範例
 
 下表提供此方案所收集之更新記錄的記錄搜尋範例。
 
-| 查詢 | 描述 |
+| 查詢 | 說明 |
 | --- | --- |
 |Office 365 訂閱上所有作業的計數 |OfficeActivity &#124; summarize count() by Operation |
 |SharePoint 網站的使用情況|OfficeActivity &#124; where OfficeWorkload = ~ "sharepoint" &#124;摘要 Count （） by SiteUrl \| 排序依據計數 asc|

@@ -1,26 +1,18 @@
 ---
-title: Microsoft 威脅模型化工具 - Azure | Microsoft Docs
-description: Microsoft 威脅模型化工具的主頁面，內含開始使用工具的資訊，包括威脅模型化程序
-services: security
-documentationcenter: na
+title: Microsoft Threat Modeling Tool 總覽-Azure
+description: Microsoft Threat Modeling Tool 的總覽，其中包含開始使用工具的資訊，包括威脅模型化程式。
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
-ms.author: jegeib
-ms.openlocfilehash: 47ae7661874bec211935315679e6e2c79e6d59ef
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0d800102b6f6ff77944a2b625d3bcecef69c1ee9
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727812"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548745"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft 威脅模型化工具
 
@@ -34,9 +26,9 @@ ms.locfileid: "68727812"
 
 以下列舉部分工具功能和創新︰
 
-* **自動化：** 模型的指引和意見反應
+* **自動化︰** 繪製模型的指引和意見反應
 * **每個元素的 STRIDE：** 引導式的威脅與降低風險分析
-* **報告：** 驗證階段的安全性活動和測試
+* **報告︰** 驗證階段的安全性活動和測試
 * **獨特的方法︰** 可讓使用者更加看懂和了解威脅
 * **專為開發人員所設計並聚焦於軟體上︰** 許多方法都聚焦在資產或攻擊者上。 我們則聚焦在軟體上。 我們以所有軟體開發人員和架構設計人員都熟悉的活動為基礎來建置 -- 例如繪製其軟體架構的圖片
 * **聚焦在設計分析︰** 「威脅模型化」一詞指的可能是需求或設計分析技巧。 有時指的是這兩個情況的複雜混合。 Microsoft SDL 威脅模型化方法是聚焦在設計分析技巧
@@ -45,7 +37,7 @@ ms.locfileid: "68727812"
 
 下表包含重要的連結，可以協助您開始使用威脅模型化工具：
 
-| 步驟  | 描述                                                                                   |
+| 步驟  | 說明                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
 | **1** | [下載威脅模型化工具](https://aka.ms/threatmodelingtool)                                |
 | **2** | [參閱使用者入門指南](threat-modeling-tool-getting-started.md)    |
@@ -57,7 +49,7 @@ ms.locfileid: "68727812"
 
 以下是一些與現今威脅模型化仍然相關的較舊文章：
 
-* [有關威脅模型化重要性的文章](https://msdn.microsoft.com/magazine/dd347831.aspx)
+* [有關威脅模型化重要性的文章](https://docs.microsoft.com/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
 * [Trustworthy Computing 所發佈的訓練](https://www.microsoft.com/download/details.aspx?id=16420)
 
 查看某些威脅模型化工具專家做了些什麼︰

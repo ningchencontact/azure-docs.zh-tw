@@ -1,25 +1,14 @@
 ---
-title: 從遠端連線 Azure Service Fabric 叢集節點 | Microsoft Docs
+title: 遠端連線至 Azure Service Fabric 叢集節點
 description: 了解如何從遠端連線擴展集執行個體 (Service Fabric 叢集節點)。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 12508fd5297691f06bce46e056527672083c3a91
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599937"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458328"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>遠端連線到虛擬機器擴展集執行個體或叢集節點
 在 Azure 中執行的 Service Fabric 叢集內，您定義的每個叢集節點類型都會[設定虛擬機器的個別擴展](service-fabric-cluster-nodetypes.md)。  您可以從遠端連線特定的擴展集執行個體 (叢集節點)。  不同於單一執行個體的 VM，VM 擴展集的執行個體不會有自己的虛擬 IP 位址。 當您要尋找可用來遠端連線至特定執行個體的 IP 位址和連接埠時，可能有點困難。
@@ -28,7 +17,7 @@ ms.locfileid: "68599937"
 
 1. 取得遠端桌面通訊協定 (RDP) 的輸入 NAT 規則。
 
-    在叢集中定義的每個節點類型通常都有它自己的虛擬 IP 位址和專用負載平衡器。 根據預設, 節點類型的負載平衡器會以下列格式命名:*LB-{cluster-name}-{node-type}* ;例如, *LB-mycluster-前端*。 
+    在叢集中定義的每個節點類型通常都有它自己的虛擬 IP 位址和專用負載平衡器。 根據預設，節點類型的負載平衡器名稱採用下列格式：LB-{cluster-name}-{node-type}；例如，LB-mycluster-FrontEnd。 
     
     在 Azure 入口網站中您負載平衡器的頁面上，選取 [設定] > [輸入 NAT 規則]： 
 

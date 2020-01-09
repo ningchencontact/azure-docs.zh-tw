@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44392882a7d3e1816b952969dbadb518e2762142
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3d7148b104c723d124a954cf858ca77ff6552f94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423804"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>呼叫 web Api 的行動應用程式-程式碼設定
 
@@ -30,7 +30,7 @@ ms.locfileid: "74919948"
 
 支援行動裝置應用程式的 Microsoft 程式庫包括：
 
-  MSAL 程式庫 | 描述
+  MSAL 程式庫 | 說明
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 開發便攜應用程式。 MSAL.NET 支援的平臺來建立行動應用程式，包括 UWP、Xamarin 和 Xamarin。
   ![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | 若要使用目標-C 或 Swift 開發原生 iOS 應用程式
@@ -77,7 +77,7 @@ if let application = try? MSALPublicClientApplication(configuration: config){ /*
 
 在 Xamarin 或 UWP 中，將應用程式具現化的最簡單方式如下所示，其中 `ClientId` 是已註冊應用程式的 Guid。
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
@@ -88,7 +88,7 @@ var app = PublicClientApplicationBuilder.Create(clientId)
 
 在 Android 上，您必須先傳遞父活動，然後才進行互動式驗證。 在 iOS 上，使用訊息代理程式時，您必須傳入 ViewController。 在 UWP 上，您可能會想要傳入父視窗。 當您取得權杖時，這是可行的，但也可以在應用程式建立時指定回呼，此委派會傳回 UIParent。
 
-```CSharp
+```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)
   .ParentActivityOrWindowFunc(() => parentUi)
   .Build();
@@ -96,7 +96,7 @@ IPublicClientApplication application = PublicClientApplicationBuilder.Create(cli
 
 在 Android 上，建議您在[這裡](https://github.com/jamesmontemagno/CurrentActivityPlugin)使用 `CurrentActivityPlugin`。  接下來，您的 `PublicClientApplication` 產生器程式碼看起來像這樣：
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
@@ -175,7 +175,7 @@ var pca = PublicClientApplicationBuilder
 
 代理程式支援是以每個`PublicClientApplication` 為基礎來啟用。 此功能預設為停用。 透過 `PublicClientApplicationBuilder`建立 `PublicClientApplication` 時，您必須使用 `WithBroker()` 參數（預設設定為 true）。
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -187,7 +187,7 @@ var app = PublicClientApplicationBuilder
 
 當 MSAL.NET 呼叫 broker 時，訊息代理程式會接著透過 `AppDelegate.OpenUrl` 方法回呼您的應用程式。 由於 MSAL 會等待來自訊息代理程式的回應，因此您的應用程式需要合作以呼叫 MSAL.NET 回來。 若要這麼做，請更新 `AppDelegate.cs` 檔案以覆寫下列方法。
 
-```CSharp
+```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
                              string sourceApplication,
                              NSObject annotation)
@@ -218,17 +218,17 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
 
 **例如：**
 
-在 `App.cs`中：
-```CSharp
+在 `App.cs` 中：
+```csharp
    public static object RootViewController { get; set; }
 ```
-在 `AppDelegate.cs`中：
-```CSharp
+在 `AppDelegate.cs` 中：
+```csharp
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
 在取得權杖呼叫中：
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();

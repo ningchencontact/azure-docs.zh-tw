@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: bd158eaf22025a64d7464c632d3f0fa510a4b5a3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/17/2019
+ms.openlocfilehash: b4b6c57b08de07cae431f015c8d8f53cdf3a50a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793770"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460736"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋中為大型資料集編制索引
 
@@ -74,7 +74,7 @@ ms.locfileid: "72793770"
 + 將所有索引子排程在相同時間執行。
 
 > [!NOTE]
-> Azure 認知搜尋不支援將複本或資料分割專用於特定工作負載。 同時編製大量索引的風險，是系統負擔過重而影響到查詢效能。 如果您有測試環境，請先在該處實作平行索引以了解利弊得失。
+> 在 Azure 認知搜尋中，您無法將個別複本或資料分割指派給索引編制或查詢處理。 系統會決定資源的使用方式。 若要瞭解對查詢效能的影響，您可以在測試環境中嘗試平行編制索引，然後再將其推出至生產環境。  
 
 ### <a name="how-to-configure-parallel-indexing"></a>如何設定平行索引編製
 

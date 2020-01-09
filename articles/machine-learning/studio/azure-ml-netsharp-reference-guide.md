@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 7cef92964a4b62c9ed15ddd19778494d6c3be98a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 295cac883e7c84158fd9d2a2b7e9780dfe6c64d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839752"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427677"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio 的 Net # 類神經網路規格語言指南（傳統）
 
@@ -56,7 +56,7 @@ Net# 支援多種不同的連線套組，可讓您自訂輸入對應至隱藏層
 
 ## <a name="supported-customizations"></a>支援的自訂
 
-您在傳統 Azure Machine Learning Studio 版本中建立的類神經網路模型架構，可以使用 Net # 廣泛地進行自訂。 您可以：
+您在 Azure Machine Learning Studio （傳統）中建立的類神經網路模型架構，可以使用 Net # 廣泛地進行自訂。 您可以：
 
 + 建立隱藏層及控制每一層中的節點數目。
 + 指定各層彼此連接的方式。
@@ -213,7 +213,7 @@ hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 
     如果維度的值為 False，則在定義核心時，會使每一端排除的節點數目保持相同 (差距不會超過 1 個)。 此屬性的預設值是所有元件皆為 False 的 Tuple。
 
-+ **UpperPad** 和 **LowerPad**：(選用) 更能控制所要使用的填補量。 **重要事項：** 只有在**未**定義上述的 ***Padding*** 屬性時，才能定義這些屬性。 其值應為長度為套組 Arity 的整數值 Tuple。 在指定這些屬性時，將會在輸入層各個維度的下端和上端新增「虛擬」節點。 在每個維度中的下端和上端新增的節點數目，分別取決於 **LowerPad**[i] 和 **UpperPad**[i]。
++ **UpperPad** 和 **LowerPad**：(選用) 更能控制所要使用的填補量。 **重要事項：** 只有在***未***定義上述的 **Padding** 屬性時，才能定義這些屬性。 其值應為長度為套組 Arity 的整數值 Tuple。 在指定這些屬性時，將會在輸入層各個維度的下端和上端新增「虛擬」節點。 在每個維度中的下端和上端新增的節點數目，分別取決於 **LowerPad**[i] 和 **UpperPad**[i]。
 
     若要確定核心只會對應至「實際」節點而非「虛擬」節點，必須要符合下列條件：
   - **LowerPad** 的每個元件皆務必小於 `KernelShape[d]/2`。
@@ -458,7 +458,7 @@ output Digit [10] from Hid3 all;
     `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
 + 節點總數可使用該層的宣告維度 [50, 5, 5] 來計算，如下所示：`MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
-+ 由於只有 `Sharing[d]` 時，`d == 0` 才會是 False，因此核心數為 `MapCount * NodeCount\[0] = 10 * 5 = 50`。
++ 由於只有 `d == 0` 時，`Sharing[d]` 才會是 False，因此核心數為 `MapCount * NodeCount\[0] = 10 * 5 = 50`。
 
 ## <a name="acknowledgements"></a>通知
 

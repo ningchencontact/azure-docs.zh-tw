@@ -2,19 +2,15 @@
 title: 查看 Azure 更新管理更新評量
 description: 本文說明如何查看更新部署的更新評量。
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/17/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: d27df57e9371f16a15d3a18b7722598062377d88
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6f86c72bfc1a1d51ed509a70d786e67f11d8166
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850511"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75419892"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>查看 Azure 更新管理更新評量
 
@@ -38,7 +34,7 @@ ms.locfileid: "74850511"
 
 ### <a name="windows"></a>Windows
 
-|分類  |描述  |
+|分類  |說明  |
 |---------|---------|
 |重大更新     | 特定問題的更新，負責處理與安全性無關的重大錯誤。        |
 |安全性更新     | 特定產品的安全性相關更新。        |
@@ -51,7 +47,7 @@ ms.locfileid: "74850511"
 
 ### <a name="linux-2"></a>Linux
 
-|分類  |描述  |
+|分類  |說明  |
 |---------|---------|
 |重大更新和安全性更新     | 特定問題或特定產品的安全性相關問題的更新，         |
 |其他更新     | 本質上不重要或不是安全性更新的所有其他更新。        |

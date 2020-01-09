@@ -1,18 +1,18 @@
 ---
 title: 了解 Azure 串流分析中的時間處理
 description: 瞭解 Azure 串流分析中的時間處理運作方式，例如如何選擇最佳的開始時間、如何處理晚期和早期事件，以及時間處理計量。
-author: jasonwhowell
-ms.author: zhongc
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: ae53663f78b684d41c36607760e30db9e48a6434
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 367b7c2e1ce1c8b3c0dbc02003218b76096b409d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901430"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354655"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>了解 Azure 串流分析中的時間處理
 
@@ -128,7 +128,7 @@ ms.locfileid: "72901430"
 
 您可以透過[串流分析作業計量](stream-analytics-monitoring.md)來觀察許多事件排序時間容錯效果。 相關計量如下：
 
-|計量  | 描述  |
+|計量  | 說明  |
 |---------|---------|
 | **順序錯亂事件** | 指出已收到、但因順序錯亂而遭到捨棄或調整時間戳記的事件數目。 在 Azure 入口網站中，針對作業在 [事件順序] 頁面上設定 [順序錯亂事件] 設定，將對此計量產生直接的影響。 |
 | **延遲輸入事件** | 指出從來源延遲抵達的事件數目。 此計量包含已遭捨棄或已調整時間戳記的事件。 在 Azure 入口網站中，針對作業在 [事件順序] 頁面上設定 [延遲抵達的事件] 設定，將對此計量產生直接的影響。 |

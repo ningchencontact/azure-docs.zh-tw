@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ab24b4f3a819e2b44c68d052c355f10219eb1dc4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b4786b612dedb065239f57e0286bafb688180dff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679344"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440363"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Until 活動
 Until 活動所提供的功能，與 do-until 迴圈結構在程式設計語言中提供的功能相同。 它會以迴圈的方式執行一系列活動，直到與該活動相關聯的條件評估為 true 為止。 您可以在 Data Factory 中針對 until 活動指定逾時的值。 
@@ -51,10 +51,10 @@ Until 活動所提供的功能，與 do-until 迴圈結構在程式設計語言�
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 說明 | 允許的值 | 必要
+屬性 | 說明 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
-名稱 | `Until` 活動的名稱。 | 字串 | 是
-類型 | 必須設為 **Until**。 | 字串 | 是
+NAME | `Until` 活動的名稱。 | String | 是
+type | 必須設為 **Until**。 | String | 是
 expression | 必須評估為 true 或 false 的運算式 | 運算式。  | 是
 timeout | do-until 迴圈在經過於此指定的時間之後便會逾時。 | 字串。 `d.hh:mm:ss` (或) `hh:mm:ss`。 預設值為 7 天。 最大值為 90 天。 | 否
 活動 | 會在運算式評估為 `true` 之前持續執行的一系列活動。 | 一系列的活動。 |  是
@@ -199,10 +199,7 @@ timeout | do-until 迴圈在經過於此指定的時間之後便會逾時。 | �
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }
@@ -291,8 +288,8 @@ while ($True) {
 ## <a name="next-steps"></a>後續步驟
 請參閱 Data Factory 支援的其他控制流程活動： 
 
-- [If 條件活動](control-flow-if-condition-activity.md)
-- [執行管線活動](control-flow-execute-pipeline-activity.md)
+- [If Condition 活動](control-flow-if-condition-activity.md)
+- [執行管道活動](control-flow-execute-pipeline-activity.md)
 - [For Each 活動](control-flow-for-each-activity.md)
 - [取得中繼資料活動](control-flow-get-metadata-activity.md)
 - [查閱活動](control-flow-lookup-activity.md)

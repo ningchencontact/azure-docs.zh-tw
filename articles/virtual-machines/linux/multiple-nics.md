@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: b4ab46a59bd83bf2d1c08e3a238df3c59797f3e7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3fed0d14908dff346fa6134a91096c757c6d9fab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035599"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463819"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>如何在 Azure 中建立有多個網路介面卡的 Linux 虛擬機器
 
@@ -27,7 +27,7 @@ ms.locfileid: "74035599"
 此文章詳述如何使用 Azure CLI 建立具有多個 NIC 的 VM。
 
 ## <a name="create-supporting-resources"></a>建立支援資源
-請安裝最新的 [Azure CLI](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/reference-index) 來登入 Azure 帳戶。
+請安裝最新的 [Azure CLI](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/reference-index) 來登入 Azure 帳戶。
 
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 myResourceGroup、mystorageaccount 和 myVM。
 
@@ -87,7 +87,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nics"></a>建立 VM 並附加 NIC
 當您建立 VM 時，指定您使用 `--nics` 建立的 NIC。 當您選取 VM 大小時也需多加注意。 您可以新增至 VM 的 NIC 總數是有限制的。 深入了解 [Linux VM 大小](sizes.md)。
 
-使用 [az vm create](/cli/azure/vm) 來建立 VM。 下列範例會建立名為 myVM 的 VM：
+使用 [az vm create](/cli/azure/vm) 建立 VM。 下列範例會建立名為 myVM 的 VM。
 
 ```azurecli
 az vm create \
@@ -164,7 +164,7 @@ az vm start --resource-group myResourceGroup --name myVM
 
 
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>使用 Resource Manager 範本建立多個 NIC
-Azure Resource Manager 範本會使用宣告式 JSON 檔案來定義您的環境。 您可以閱讀 [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)。 Resource Manager 範本提供一種方式，可在部署期間建立資源的多個執行個體，例如建立多個 NIC。 您使用 *copy* 來指定要建立的執行個體數目：
+Azure Resource Manager 範本會使用宣告式 JSON 檔案來定義您的環境。 您可以閱讀 [Azure Resource Manager 概觀](../../azure-resource-manager/management/overview.md)。 Resource Manager 範本提供一種方式，可在部署期間建立資源的多個執行個體，例如建立多個 NIC。 您使用 *copy* 來指定要建立的執行個體數目：
 
 ```json
 "copy": {

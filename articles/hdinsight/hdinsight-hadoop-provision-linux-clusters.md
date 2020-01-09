@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 0b977cb9fe2df1627ad9a2e07b00ffb0e749ed39
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 39f22cc3cb026d4bed1dbe937e0e220b7bdceec7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498250"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435566"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他工具在 HDInsight 中設定叢集
 
@@ -25,7 +25,7 @@ ms.locfileid: "73498250"
 Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業。 Azure HDInsight 會處理個別節點所安裝和設定的實作細節，您只需要提供一般設定資訊即可。
 
 > [!IMPORTANT]  
-> HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。 了解如何[刪除叢集。](hdinsight-delete-cluster.md)
+> HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 每分鐘按比例計費，因此當您不再需要叢集時即可隨時刪除。 了解如何[刪除叢集。](hdinsight-delete-cluster.md)
 
 ## <a name="cluster-setup-methods"></a>叢集設定方法
 
@@ -53,11 +53,11 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 * [叢集類型和設定](#cluster-types)
 * [叢集名稱](#cluster-name)
 * [叢集登入和 SSH 使用者名稱](#cluster-login-and-ssh-username)
-* [](#location)
+* [位置](#location)
 
 ## <a name="resource-group-name"></a>資源群組名稱
 
-[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 可協助您將應用程式中的資源做為群組使用，稱為 Azure 資源群組。 您可以在單一、協調的作業中，將應用程式的所有資源進行部署、更新、監視或刪除。
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) 可協助您將應用程式中的資源做為群組使用，稱為 Azure 資源群組。 您可以在單一、協調的作業中，將應用程式的所有資源進行部署、更新、監視或刪除。
 
 ## <a name="cluster-types"></a>叢集類型和設定
 
@@ -84,10 +84,10 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 
 HDInsight 叢集名稱具有下列限制：
 
-* 允許的字元： a-z、0-9、a-z
+* 允許的字元：a-z、0-9、A-Z
 * 最大長度：59
-* 保留名稱：應用程式
-* 叢集命名範圍適用于所有訂用帳戶中的所有 Azure。 因此，叢集名稱在全球必須是唯一的。
+* 保留名稱：apps
+* 叢集命名範圍適用於所有 Azure，橫跨所有訂用帳戶。 因此，叢集名稱在全球必須是唯一的。
 * 前六個字元在 VNET 內必須是唯一的
 
 ## <a name="cluster-login-and-ssh-username"></a>叢集登入和 SSH 使用者名稱
@@ -114,7 +114,7 @@ SSH 使用者名稱具有下列限制：
 
 ## <a name="location"></a>叢集與儲存體的位置 (區域)
 
-不需明確指定叢集位置：叢集位於和預設儲存體相同的位置。 如需支援的區域清單，請按一下 **HDInsight 價格**中的 [區域][](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409) 下拉式清單。
+不需明確指定叢集位置：叢集位於和預設儲存體相同的位置。 如需支援的區域清單，請按一下 [HDInsight 價格](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)中的 [區域] 下拉式清單。
 
 ## <a name="storage-endpoints-for-clusters"></a>叢集的儲存體端點
 
@@ -185,7 +185,7 @@ HDInsight 叢集可以使用下列儲存體選項：
 
 每個叢集類型都有自己的節點數目、節點術語和預設 VM 大小。 下表中各節點類型的節點數目位於括號中。
 
-| 在系統提示您進行確認時，輸入 | 節點 | 圖表 |
+| 類型 | 節點 | 圖表 |
 | --- | --- | --- |
 | Hadoop |前端節點（2）、背景工作節點（1 +） |![HDInsight Hadoop 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |前端伺服器 (2)、區域伺服器 (1+)、主要/Zookeeper 節點 (3) |![HDInsight HBase 叢集類型設定](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |

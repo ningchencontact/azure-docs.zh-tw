@@ -1,6 +1,7 @@
 ---
-title: 線上移轉到適用於 MySQL 的 Azure 資料庫已知問題/移轉限制相關文章 | Microsoft Docs
-description: 深入了解線上移轉到適用於 MySQL 的 Azure 資料庫已知問題/移轉限制。
+title: 已知問題：線上遷移至適用於 MySQL 的 Azure 資料庫
+titleSuffix: Azure Database Migration Service
+description: 瞭解使用 Azure 資料庫移轉服務時，線上遷移至適用於 MySQL 的 Azure 資料庫的已知問題和遷移限制。
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,21 +9,24 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom:
+- seo-lt-2019
+- seo-dt-2019
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: 39c1928f1d38276418b2e1a3e766c4b9d8a0d8d2
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 905a14bd78d120e27ebc4d44ede86e9f0e3783cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73902790"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437849"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>線上移轉到適用於 MySQL 的 Azure 資料庫已知問題/移轉限制
+# <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>線上遷移會使用 Azure 資料庫移轉服務，針對適用于 MySQL 的 Azure DB & 限制問題
 
 從 MySQL 線上移轉到適用於 MySQL 的 Azure 資料庫相關聯已知問題和限制，如下所述。
 
 ## <a name="online-migration-configuration"></a>線上移轉組態
+
 
 - 來源 MySQL 伺服器版本必須是 5.6.35、5.7.18 或更新版本
 - 適用於 MySQL 的 Azure 資料庫支援：

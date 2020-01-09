@@ -1,24 +1,16 @@
 ---
-title: 在 Mac OS X 上設定開發環境以搭配 Azure Service Fabric 運作 | Microsoft Docs
-description: 安裝執行階段、SDK 和工具，並建立本機開發叢集。 完成此設定之後，您就可以開始在 Mac OS X 上建置應用程式。
-services: service-fabric
-documentationcenter: linux
+title: 在 macOS 上設定開發環境
+description: 安裝執行階段、SDK 和工具，並建立本機開發叢集。 完成此設定之後，您就可以開始在 macOS 上建立應用程式。
 author: suhuruli
-manager: chackdan
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 2ce8d944e7334b071a4a48f38f8c4fafaeff4c47
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 178b8c120bc7a886eaca94d1551e489f96ba22b2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035277"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609871"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上設定開發環境
 > [!div class="op_single_selector"]
@@ -174,7 +166,7 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
     ```
 
     > [!IMPORTANT]
-    > 目前的`brew cask install java`版本可能會安裝較新版本的 JDK。
+    > 目前的 `brew cask install java` 版本可能會安裝較新版本的 JDK。
     > 請務必安裝 JDK 8。
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>在 Mac 上從終端機部署應用程式
@@ -202,7 +194,7 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 
 Azure Service Fabric 會針對 Java IDE 提供 Eclipse Neon (或更新版本) 的外掛程式。 外掛程式可簡化建立、建置和部署 Java 服務的程序。 若要安裝或更新為最新版的 Eclipse Service Fabric 外掛程式，請遵循[這些步驟](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse)。 [Eclipse 的 Service Fabric 文件](service-fabric-get-started-eclipse.md)中的其他步驟也適用：建置應用程式、將服務新增至應用程式、解除安裝應用程式等。
 
-最後一個步驟是使用與您的主機共用的路徑將容器具現化。 外掛程式需要這種類型的具現化，才能在您的 Mac 上使用 Docker 容器。 例如:
+最後一個步驟是使用與您的主機共用的路徑將容器具現化。 外掛程式需要這種類型的具現化，才能在您的 Mac 上使用 Docker 容器。 例如：
 
 ```bash
 docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox

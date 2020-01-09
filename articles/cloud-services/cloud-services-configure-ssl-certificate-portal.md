@@ -3,21 +3,21 @@ title: 設定雲端服務的 SSL | Microsoft Docs
 description: 了解如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。 這些範例使用 Azure 入口網站。
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
-ms.author: gwallace
-ms.openlocfilehash: cc5b142558a21d1364254e555f3cf8f64bba0e58
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: tagore
+ms.openlocfilehash: 6ddb7001f770a9d8aea38d1a4698e15c167aeaa4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469011"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386760"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>在 Azure 設定應用程式的 SSL
 
-安全通訊端層 (SSL) 加密是最常用來保護在網際網路上傳送之資料的方法。 此常見工作會討論如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。
+安全通訊端層 (SSL) 加密是保護網際網路上傳送的資料最常用的方法。 此常見工作討論如何指定 Web 角色的 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式。
 
 > [!NOTE]
 > 此工作的程序適用於 Azure 雲端服務，若為應用程式服務，請參閱 [此處](../app-service/configure-ssl-bindings.md)。
@@ -176,3 +176,6 @@ ms.locfileid: "73469011"
 * 了解如何 [部署雲端服務](cloud-services-how-to-create-deploy-portal.md)。
 * 設定 [自訂網域名稱](cloud-services-custom-domain-name-portal.md)。
 * [管理您的雲端服務](cloud-services-how-to-manage-portal.md)。
+
+
+

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/13/2019
-ms.openlocfilehash: ad802521fe4202b8c5e27a82e0adf142dfa69228
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: HT
+ms.date: 12/13/2019
+ms.openlocfilehash: 7ef28933dc7d10817982690aa3c7bc866c33eb03
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929652"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440703"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 複製和轉換 Azure SQL Database 中的資料
 
@@ -58,10 +58,10 @@ ms.locfileid: "74929652"
 
 以下是支援 Azure SQL Database 已連結服務的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
 | type | **type** 屬性必須設為 **AzureSqlDatabase**。 | 是 |
-| connectionString | 針對 **connectionString** 屬性指定連線到 Azure SQL Database 執行個體所需的資訊。 <br/>將此欄位標記為**SecureString** ，將它安全地儲存在 Azure Data Factory 中。 您也可以將密碼或服務主體金鑰放在 Azure Key Vault 中。 如果是 SQL 驗證，請從連接字串中提取 `password` 設定。 如需詳細資訊，請參閱資料表後面的 JSON 範例，並[將認證儲存在 Azure Key Vault 中](store-credentials-in-key-vault.md)。 | 是 |
+| connectionString | 針對 **connectionString** 屬性指定連線到 Azure SQL Database 執行個體所需的資訊。 <br/>您也可以將密碼或服務主體金鑰放在 Azure Key Vault 中。 如果是 SQL 驗證，請從連接字串中提取 `password` 設定。 如需詳細資訊，請參閱資料表後面的 JSON 範例，並[將認證儲存在 Azure Key Vault 中](store-credentials-in-key-vault.md)。 | 是 |
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 | 是，當您搭配服務主體使用 Azure AD 驗證時 |
 | servicePrincipalKey | 指定應用程式的金鑰。 將此欄位標記為**SecureString** ，將它安全地儲存在 Azure Data Factory 中，或[參考儲存在 Azure Key Vault 中的秘密](store-credentials-in-key-vault.md)。 | 是，當您搭配服務主體使用 Azure AD 驗證時 |
 | tenant | 指定租使用者資訊，例如您的應用程式所在的功能變數名稱或租使用者識別碼。 將滑鼠游標暫留在 Azure 入口網站的右上角來取出。 | 是，當您搭配服務主體使用 Azure AD 驗證時 |
@@ -71,7 +71,7 @@ ms.locfileid: "74929652"
 
 - [SQL 驗證](#sql-authentication)
 - [Azure AD 應用程式權杖驗證：服務主體](#service-principal-authentication)
-- [Azure AD 應用程式權杖驗證：適用於 Azure 資源的受控識別](#managed-identity)
+- [Azure AD 應用程式權杖驗證：Azure 資源的受控識別](#managed-identity)
 
 >[!TIP]
 >如果您遇到錯誤碼為 "UserErrorFailedToConnectToSqlServer" 的錯誤，並出現類似「資料庫的會話限制為 XXX 且已達到」的訊息，請將 `Pooling=false` 新增至您的連接字串，然後再試一次。
@@ -86,10 +86,7 @@ ms.locfileid: "74929652"
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-            }
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -107,10 +104,7 @@ ms.locfileid: "74929652"
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-            },
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -163,10 +157,7 @@ ms.locfileid: "74929652"
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
-            },
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -212,10 +203,7 @@ ms.locfileid: "74929652"
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
-            }
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -231,7 +219,7 @@ ms.locfileid: "74929652"
 
 Azure SQL Database 資料集支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的 **type** 屬性必須設定為 **AzureSqlTable**。 | 是 |
 | 結構描述 | 結構描述的名稱。 |否 (來源)；是 (接收)  |
@@ -267,7 +255,7 @@ Azure SQL Database 資料集支援下列屬性：
 
 若要從 Azure SQL Database 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的**類型**屬性必須設定為**AzureSqlSource**。 "SqlSource" 類型仍然支援回溯相容性。 | 是 |
 | sqlReaderQuery | 此屬性使用自訂 SQL 查詢來讀取資料。 例如 `select * from MyTable`。 | 否 |
@@ -373,7 +361,7 @@ GO
 
 若要將資料複製到 Azure SQL Database，複製活動的 [**接收**] 區段中支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收器的**type**屬性必須設定為**AzureSqlSink**。 "SqlSink" 類型仍然支援回溯相容性。 | 是 |
 | writeBatchSize | 要插入 SQL 資料表中*每個批次*的資料列數目。<br/> 允許的值為**整數** (資料列數目)。 根據預設，Azure Data Factory 會依據資料列大小，以動態方式決定適當的批次大小。 | 否 |
@@ -386,7 +374,7 @@ GO
 | tableOption | 指定是否要根據來源架構，自動建立接收資料表（如果不存在）。 當 sink 指定了複製活動中所設定的預存程式或分段複製時，不支援自動建立資料表。 允許的值為： `none` （預設），`autoCreate`。 |否 |
 | disableMetricsCollection | Data Factory 會收集統計資料，例如複製效能優化和建議的 Azure SQL Database Dtu。 如果您擔心此行為，請指定 `true` 將其關閉。 | 否 (預設值為 `false`) |
 
-**範例 1：附加資料**
+**範例1：附加資料**
 
 ```json
 "activities":[
@@ -419,7 +407,7 @@ GO
 ]
 ```
 
-**範例 2：在複製期間叫用預存程式**
+**範例2：在複製期間叫用預存程式**
 
 若要了解更多詳細資料，請參閱[叫用 SQL 接收中的預存程序](#invoke-a-stored-procedure-from-a-sql-sink)。
 
@@ -466,7 +454,7 @@ GO
 - [附加](#append-data)：我的來源資料只有新的記錄。
 - [Upsert](#upsert-data)：我的來源資料同時具有插入和更新。
 - [覆寫](#overwrite-the-entire-table)：我想要每次重載整個維度資料表。
-- [以自訂邏輯撰寫](#write-data-with-custom-logic)：在最後插入目的地資料表之前，我需要額外的處理。
+- [以自訂邏輯撰寫](#write-data-with-custom-logic)：我需要在最後插入目的地資料表之前進行額外的處理。
 
 請參閱各自的章節，瞭解如何在 Azure Data Factory 和最佳作法中進行設定。
 
@@ -476,7 +464,7 @@ GO
 
 ### <a name="upsert-data"></a>更新插入資料
 
-**選項 1：** 當您有大量資料要複製時，請使用下列方法來執行 upsert： 
+**選項1：** 當您有大量資料要複製時，請使用下列方法來執行 upsert： 
 
 - 首先，使用[資料庫範圍的臨時表](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database)，使用複製活動來大量載入所有記錄。 由於不會記錄對資料庫範圍臨時表進行的作業，因此您可以在幾秒鐘內載入數百萬筆記錄。
 - 在 Azure Data Factory 中執行預存程式活動，以套用[MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current)或 INSERT/UPDATE 語句。 使用臨時表做為來源，將所有更新或插入做為單一交易來執行。 如此一來，來回行程和記錄作業的次數就會減少。 在預存程式活動結束時，可以將臨時表截斷，以準備好進行下一個 upsert 週期。
@@ -485,7 +473,7 @@ GO
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-在您的資料庫中，定義具有合併邏輯的預存程式，如下列範例所示，這是從先前的預存程式活動所指向。 假設目標是包含三個數據行的**行銷**資料表：**ProfileID**、**State** 和 **Category**。 根據**ProfileID**資料行執行 upsert。
+在您的資料庫中，定義具有合併邏輯的預存程式，如下列範例所示，這是從先前的預存程式活動所指向。 假設目標是包含三個數據行的**行銷**資料表： **ProfileID**、 **State**和**Category**。 根據**ProfileID**資料行執行 upsert。
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -504,7 +492,7 @@ BEGIN
 END
 ```
 
-**選項 2：** 您也可以選擇在[複製活動中叫用預存](#invoke-a-stored-procedure-from-a-sql-sink)程式。 這個方法會執行來源資料表中的每個資料列，而不是在複製活動中使用 bulk insert 做為預設方法，這不適用於大規模的 upsert。
+**選項2：** 您也可以選擇在[複製活動中叫用預存](#invoke-a-stored-procedure-from-a-sql-sink)程式。 這個方法會執行來源資料表中的每個資料列，而不是在複製活動中使用 bulk insert 做為預設方法，這不適用於大規模的 upsert。
 
 ### <a name="overwrite-the-entire-table"></a>覆寫整個資料表
 
@@ -526,7 +514,7 @@ END
 
 當內建的複製機制無法滿足需求時，您可以使用預存程序。 例如，當您想要在最後將來源資料插入目的地資料表之前，套用額外的處理。 一些額外的處理範例是當您想要合併資料行、查閱其他值，並插入多個資料表時。
 
-下列範例示範如何使用預存程序，對 Azure SQL Database 中的資料表執行 upsert。 假設輸入資料和接收**行銷**資料表各有三個數據行：**ProfileID**、**State** 和 **Category**。 根據**ProfileID**資料行執行 upsert，並只將它套用至名為 "ProductA" 的特定類別。
+下列範例示範如何使用預存程序，對 Azure SQL Database 中的資料表執行 upsert。 假設輸入資料和接收**行銷**資料表各有三個數據行： **ProfileID**、 **State**和**Category**。 根據**ProfileID**資料行執行 upsert，並只將它套用至名為 "ProductA" 的特定類別。
 
 1. 在您的資料庫中，使用與**sqlWriterTableType**相同的名稱來定義資料表類型。 資料表類型的結構描述會與輸入資料所傳回的結構描述相同。
 
@@ -573,7 +561,45 @@ END
 
 ## <a name="mapping-data-flow-properties"></a>對應資料流程屬性
 
-深入瞭解對應資料流程中[來源轉換](data-flow-source.md)和[接收轉換](data-flow-sink.md)的詳細資料。
+在對應資料流程中轉換資料時，您可以從 Azure SQL Database 讀取和寫入資料表。 如需詳細資訊，請參閱對應資料流程中的[來源轉換](data-flow-source.md)和[接收轉換](data-flow-sink.md)。
+
+### <a name="source-transformation"></a>來源轉換
+
+[來源] 轉換的 [**來源選項**] 索引標籤中提供 Azure SQL Database 特定的設定。 
+
+**輸入：** 選取您是要將來源指向資料表（相當於 ```Select * from <table-name>```）還是輸入自訂的 SQL 查詢。
+
+**查詢**：如果您在 [輸入] 欄位中選取 [查詢]，請輸入來源的 SQL 查詢。 此設定會覆寫您在資料集中選擇的任何資料表。 這裡不支援**Order By**子句，但您可以設定完整的 SELECT FROM 語句。 您也可以使用使用者定義資料表函數。 **select * From udfGetData （）** 是 SQL 中傳回資料表的 UDF。 此查詢會產生您可以在資料流程中使用的來源資料表。 使用查詢也是縮減資料列以進行測試或查閱的絕佳方式。 
+
+* SQL 範例： ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+
+**批次大小**：輸入批次大小以將大型資料區塊為讀取。
+
+**隔離等級**：對應資料流程中 SQL 來源的預設值為讀取未認可。 您可以在這裡將隔離等級變更為下列其中一個值：
+* 讀取認可
+* 讀取未認可
+* 可重複讀取
+* 可序列化
+* 無（忽略隔離等級）
+
+![隔離等級](media/data-flow/isolationlevel.png "隔離等級")
+
+### <a name="sink-transformation"></a>接收轉換
+
+[接收] 轉換的 [**設定**] 索引標籤中提供 Azure SQL Database 特定的設定。
+
+**更新方法：** 決定您的資料庫目的地所允許的作業。 預設值是只允許插入。 若要更新、upsert 或刪除資料列，必須使用 alter-row 轉換來標記這些動作的資料列。 對於更新、更新插入和刪除，必須設定索引鍵資料行，以決定要改變哪一個資料列。
+
+**資料表動作：** 決定在寫入之前，是否要重新建立或移除目的地資料表中的所有資料列。
+* 無：不會對資料表執行任何動作。
+* 重新建立：將會卸載並重新建立資料表。 如果要動態建立新的資料表，則為必要。
+* 截斷：目標資料表中的所有資料列都會被移除。
+
+**批次大小**：控制要在每個值區中寫入的資料列數目。 較大的批次大小會改善壓縮和記憶體優化，但會在快取資料時降低記憶體例外狀況的風險。
+
+**前置和後置 SQL 腳本**：輸入將在（前置處理）和之後（後置處理）資料寫入至您的接收資料庫之前執行的多行 SQL 腳本
+
+![前置和後置 SQL 處理腳本](media/data-flow/prepost1.png "SQL 處理腳本")
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Azure SQL Database 的資料類型對應
 
@@ -581,13 +607,13 @@ END
 
 | Azure SQL Database 資料類型 | Azure Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| Bigint |Int64 |
+| BIGINT |Int64 |
 | BINARY |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
+| date |日期時間 |
+| Datetime |日期時間 |
+| datetime2 |日期時間 |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
@@ -599,17 +625,17 @@ END
 | ntext |String, Char[] |
 | NUMERIC |Decimal |
 | NVARCHAR |String, Char[] |
-| real |Single |
+| real |單一 |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |日期時間 |
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
-| sql_variant |Object |
+| sql_variant |物件 |
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | TINYINT |Byte |
-| UNIQUEIDENTIFIER |Guid |
+| UNIQUEIDENTIFIER |GUID |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | Xml |Xml |
@@ -625,5 +651,5 @@ END
 
 若要瞭解有關屬性的詳細資料，請檢查[GetMetadata 活動](control-flow-get-metadata-activity.md) 
 
-## <a name="next-steps"></a>接下來的步驟
+## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區和格式](copy-activity-overview.md##supported-data-stores-and-formats)。

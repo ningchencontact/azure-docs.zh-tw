@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: de646c790fc21ef17bf78789e0531503f2f32052
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2d09484fcb5211003aeec0ec10bfc9892b4e6f31
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790779"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456533"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>將邏輯應用程式資源移至其他 Azure 訂用帳戶、資源群組或區域
 
 若要將邏輯應用程式或相關資源移到另一個 Azure 訂用帳戶、資源群組或區域，您可以使用各種方式來完成這些工作，例如 Azure 入口網站、Azure PowerShell、Azure CLI 和 REST API。 在移動資源之前，請先參閱下列考慮： 
 
-* 您只能在 Azure 資源群組或訂用帳戶之間移動[特定的邏輯應用程式資源類型](../azure-resource-manager/move-support-resources.md#microsoftlogic)。
+* 您只能在 Azure 資源群組或訂用帳戶之間移動[特定的邏輯應用程式資源類型](../azure-resource-manager/management/move-support-resources.md#microsoftlogic)。
 
 * 檢查您的 Azure 訂用帳戶和每個 Azure 區域中可擁有的邏輯應用程式資源數目[限制](../logic-apps/logic-apps-limits-and-config.md)。 這些限制會影響當區域在訂用帳戶或資源群組之間保持不變時，是否可以移動特定的資源類型。 例如，每個 Azure 訂用帳戶中的每個 Azure 區域只能有一個免費層整合帳戶。
 
@@ -53,7 +53,7 @@ ms.locfileid: "74790779"
 
 若要將資源（例如邏輯應用程式或整合帳戶）移至另一個 Azure 資源群組，您可以使用 [Azure 入口網站]、[Azure PowerShell]、[Azure CLI] 或 [REST API]。 這些步驟涵蓋 Azure 入口網站，您可以在資源的區域保持不變時使用。 如需其他步驟和一般準備，請參閱[將資源移至新的資源群組或訂用](../azure-resource-manager/resource-group-move-resources.md)帳戶。
 
-在實際移動群組之間的資源之前，您可以測試是否可以成功地將資源移至另一個群組。 如需詳細資訊，請參閱[驗證您的移動](../azure-resource-manager/resource-group-move-resources.md#validate-move)。
+在實際移動群組之間的資源之前，您可以測試是否可以成功地將資源移至另一個群組。 如需詳細資訊，請參閱[驗證您的移動](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move)。
 
 1. 在  [Azure 入口網站](https://portal.azure.com)中，尋找並選取您想要移動的邏輯應用程式資源。
 

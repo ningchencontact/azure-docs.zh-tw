@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: 76d1947ae6fbdf7577cc9b8db9d902dc55350b7f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
+ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105326"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435384"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight 中的大規模串流
 
@@ -37,7 +37,7 @@ Apache Storm 是一個容錯的分散式開放原始碼計算系統，此系統�
 
 ## <a name="spark-streaming"></a>Spark Streaming
 
-Spark Streamin 是 Spark 的延伸，可讓您重複使用用於執行批次處理的相同程式碼。 您可以將批次和互動式查詢結合在相同的應用程式中。 與 Storm 不同，Spark Streaming 提供具狀態、僅限一次的處理語意。 與 [Kafka Direct API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html) 搭配使用時 (可確保 Spark Streaming 針對所有 Kafka 資料都只接收一次)，可以達成端對端的僅限一次保證。 Spark Streaming 的其中一個優點就是容錯功能，可在叢集內使用多個節點的情況下，快速復原發生錯誤的節點。
+Spark Streamin 是 Spark 的延伸，可讓您重複使用用於執行批次處理的相同程式碼。 您可以將批次和互動式查詢結合在相同的應用程式中。 不同于風暴，Spark 串流提供具狀態的一次性處理語義。 搭配[Kafka 直接 API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html)使用時，可確保所有 Kafka 資料都只會由 Spark 資料流程接收一次，因此可以正好達到端對端保證。 Spark Streaming 的其中一個優點就是容錯功能，可在叢集內使用多個節點的情況下，快速復原發生錯誤的節點。
 
 如需詳細資訊，請參閱[什麼是 Apache Spark 串流？](hdinsight-spark-streaming-overview.md)。
 
@@ -45,11 +45,11 @@ Spark Streamin 是 Spark 的延伸，可讓您重複使用用於執行批次處�
 
 雖然您可以在建立叢集時指定叢集中的節點數，但您可以擴大或縮小叢集來配合工作負載。 所有 HDInsight 叢集都允許您[變更叢集中的節點數目](hdinsight-administer-use-portal-linux.md#scale-clusters)。 因為所有資料都儲存在 Azure 儲存體或 Data Lake Storage 中，所以您可以在不遺失資料的情況下卸除 Spark 叢集。
 
-脫鉤技術有一些優點。 例如，Kafka 是一項事件緩衝處理技術，因此需要非常大量的 IO，但不需要太多處理能力。 相較之下，串流處理器 (例如 Spark Streaming) 則需要大量計算，因此需要較強大的 VM。 藉由讓這些技術脫鉤，分別置於不同的叢集中，您既可以個別調整它們，同時也可以將 VM 做最佳運用。
+脫鉤技術有一些優點。 例如，Kafka 是事件緩衝處理技術，因此非常耗費 IO，而且不需要太多處理能力。 相較之下，串流處理器 (例如 Spark Streaming) 則需要大量計算，因此需要較強大的 VM。 藉由讓這些技術脫鉤，分別置於不同的叢集中，您既可以個別調整它們，同時也可以將 VM 做最佳運用。
 
 ### <a name="scale-the-stream-buffering-layer"></a>調整串流緩衝處理層規模
 
-「事件中樞」和 Kafka 這兩種串流緩衝處理技術都使用分割區，而取用者則是會從這些分割區讀取資料。 調整輸入輸送量需要上調分割區的數目，而新增分割區將可提升平行處理程度。 在「事件中樞」中，分割區計數在部署之後即無法變更，因此一開始就必須將目標規模納入考量。 使用 Kafka 時，則即使 Kafka 正在處理資料，也仍然可以[新增分割區](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion)。 Kafka 提供一個可重新指派分割區的工具 `kafka-reassign-partitions.sh`。 HDInsight 則提供一個[分割區複本重新平衡工具](https://github.com/hdinsight/hdinsight-kafka-tools) `rebalance_rackaware.py`。 這個重新平衡工具會呼叫 `kafka-reassign-partitions.sh` 工具，讓每個複本都在個別的容錯網域和更新網域中，使得 Kafka 產生機架感知並提升容錯能力。
+「事件中樞」和 Kafka 這兩種串流緩衝處理技術都使用分割區，而取用者則是會從這些分割區讀取資料。 調整輸入輸送量需要上調分割區的數目，而新增分割區將可提升平行處理程度。 在事件中樞中，資料分割計數無法在部署後變更，因此請務必先考慮目標規模。 有了 Kafka，即使 Kafka 正在處理資料，也可以[加入](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion)分割區。 Kafka 提供一個可重新指派分割區的工具 `kafka-reassign-partitions.sh`。 HDInsight 則提供一個[分割區複本重新平衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)`rebalance_rackaware.py`。 這個重新平衡工具會呼叫 `kafka-reassign-partitions.sh` 工具，讓每個複本都在個別的容錯網域和更新網域中，使得 Kafka 產生機架感知並提升容錯能力。
 
 ### <a name="scale-the-stream-processing-layer"></a>調整串流處理層規模
 

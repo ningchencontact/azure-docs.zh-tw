@@ -1,20 +1,18 @@
 ---
 title: 在 Azure 串流分析作業中相應增加和相應放大
 description: 本文說明如何透過分割輸入資料、微調查詢，及設定作業串流單元來調整串流分析作業。
-services: stream-analytics
 author: JSeb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: fe4d37563af159f566bc3fb03a3cfe136e7cb734
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 4f89fb07fbbff3beee66f80675bb5c3a32136807
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621736"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458768"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>調整 Azure 串流分析作業以增加輸送量
 本文示範如何調整串流分析查詢，以增加串流分析作業的輸送量。 您可以使用以下指南來調整作業，進而處理更高的負載及利用更多系統資源 (如更多頻寬、更多 CPU 資源、更多記憶體)。
@@ -34,7 +32,7 @@ ms.locfileid: "67621736"
 4.  假設您沒有任何讓某個分割區「過熱」的資料扭曲，一旦判斷出 6 SU 作業能達到的限制後，您可以在新增更多 SU 時利用線性方式推測作業的處理容量。
 
 > [!NOTE]
-> 請選擇正確的串流單位數目：串流分析會為每個新增的 6 SU 建立處理節點，因此節點數目最好是輸入分割區數目的除數，這樣分割區才能平均分配到各個節點。
+> 請選擇正確的串流處理單位數目：串流分析會為每個新增的 6 SU 建立處理節點，因此節點數目最好是輸入分割區數目的除數，這樣分割區才能平均分配到各個節點。
 > 例如，如果您已測量出 6 SU 作業能達成 4 MB/s 的處理速率，那麼您的輸入分割區計數便是 4。 您可以選擇使用 12 SU 來執行作業以達成約 8 MB/s 的處理速率，或使用 24 SU 來達成 16 MB/s 的處理速率。 接著，您可以決定何時要將作業的 SU 數目增加為什麼值，做為輸入速率的函式。
 
 

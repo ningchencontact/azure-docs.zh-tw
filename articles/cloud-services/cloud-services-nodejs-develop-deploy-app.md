@@ -3,18 +3,18 @@ title: Node.js 入門指南
 description: 了解如何建立簡單的 Node.js Web 應用程式，並將它部署至 Azure 雲端服務。
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
-ms.author: gwallace
-ms.openlocfilehash: 81ad3bce6c7e331fd67fba60b35de6b8a37c5da9
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359539"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386182"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>建立 Node.js 應用程式並部署到 Azure 雲端服務
 
@@ -31,7 +31,7 @@ ms.locfileid: "68359539"
 
 ![顯示 Hello World 網頁的網頁瀏覽器][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 > [!NOTE]
 > 本教學課程使用 Azure PowerShell (需要 Windows)。
 
@@ -55,7 +55,7 @@ ms.locfileid: "68359539"
 
     Cmdlet 會建立下列檔案：
 
-   * **ServiceConfiguration.Cloud.cscfg**、**ServiceConfiguration.Local.cscfg** 和 **ServiceDefinition.csdef**：發佈應用程式時所需的 Azure 特定檔案。 如需詳細資訊，請參閱 [雲端服務]。
+   * **ServiceConfiguration.Cloud.cscfg**、**ServiceConfiguration.Local.cscfg** 和 **ServiceDefinition.csdef**：是發佈應用程式時需使用的 Azure 特定檔案。 如需詳細資訊，請參閱 [雲端服務]。
    * **deploymentSettings.json**：儲存 Azure PowerShell 部署 Cmdlet 使用的本機設定。
 4. 輸入下列命令以新增 Web 角色：
 
@@ -177,3 +177,6 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+
+
+

@@ -1,6 +1,7 @@
 ---
-title: 教學課程：使用 Azure 資料庫移轉服務在線上狀態下將 MongoDB 移轉至 Azure Cosmos DB 的 Mongo 版 API | Microsoft Docs
-description: 了解如何使用 Azure 資料庫移轉服務，在線上狀態下從內部部署 MongoDB 移轉至 Azure Cosmos DB 的 Mongo 版 API。
+title: 教學課程：將 MongoDB 線上遷移至適用于 MongoDB 的 Azure Cosmos DB API
+titleSuffix: Azure Database Migration Service
+description: 瞭解如何使用 Azure 資料庫移轉服務，從內部部署的 MongoDB 遷移至適用于 MongoDB 的 Azure Cosmos DB API。
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -8,17 +9,17 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: a73f3eefbf76b2ea24f34ed496ff45c5d2467e3e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1090a7f75bd5dc2200dd619a785a0e389259040a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266362"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437642"
 ---
-# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>教學課程：使用 DMS 在線上狀態下將 MongoDB 移轉至 Azure Cosmos DB 的 MongoDB 版 API
+# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>教學課程：使用 DMS 將 MongoDB 遷移至適用于 MongoDB 的 Azure Cosmos DB API
 
 您可以使用 Azure 資料庫移轉服務，在線上狀態下 (以最短的停機時間) 將資料庫從內部部署或雲端的 MongoDB 執行個體移轉至 Azure Cosmos DB 的 Mongo 版 API。
 
@@ -60,35 +61,35 @@ ms.locfileid: "71266362"
     >
     > 此為必要設定，因為 Azure 資料庫移轉服務沒有網際網路連線。
 
-* 確定您的 VNet 網路安全性群組 (NSG) 規則不會封鎖下列通訊埠：53、443、445、9354 及 10000-20000。 如需 Azure VNet NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
+* 請確定您的 VNet 網路安全性群組（NSG）規則不會封鎖下列通訊埠：53、443、445、9354和10000-20000。 如需 Azure VNet NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
 * 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 MongoDB 伺服器 (依預設會使用 TCP 連接埠 27017)。
 * 使用來源資料庫前面的防火牆應用裝置時，您可能必須新增防火牆規則，才能讓 Azure 資料庫移轉服務存取來源資料庫，以進行移轉。
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>註冊 Microsoft.DataMigration 資源提供者
 
-1. 登入 Azure 入口網站，選取 [所有服務]  ，然後選取 [訂用帳戶]  。
+1. 登入 Azure 入口網站，選取 [所有服務]，然後選取 [訂用帳戶]。
 
    ![顯示入口網站訂用帳戶](media/tutorial-mongodb-to-cosmosdb-online/portal-select-subscription1.png)
 
-2. 選取您要在其中建立 Azure 資料庫移轉服務執行個體的訂用帳戶，然後選取 [資源提供者]  。
+2. 選取您要在其中建立 Azure 資料庫移轉服務執行個體的訂用帳戶，然後選取 [資源提供者]。
 
     ![顯示資源提供者](media/tutorial-mongodb-to-cosmosdb-online/portal-select-resource-provider.png)
 
-3. 搜尋移轉，然後在 [Microsoft.DataMigration]  的右邊，選取 [註冊]  。
+3. 搜尋移轉，然後在 [Microsoft.DataMigration] 的右邊，選取 [註冊]。
 
     ![註冊資源提供者](media/tutorial-mongodb-to-cosmosdb-online/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>建立執行個體
 
-1. 在 Azure 入口網站中，選取 [+ 建立資源]  ，搜尋「Azure 資料庫移轉服務」，然後從下拉式清單選取 [Azure 資料庫移轉服務]  。
+1. 在 Azure 入口網站中，選取 [+ 建立資源]，搜尋「Azure 資料庫移轉服務」，然後從下拉式清單選取 [Azure 資料庫移轉服務]。
 
     ![Azure Marketplace](media/tutorial-mongodb-to-cosmosdb-online/portal-marketplace.png)
 
-2. 在 [Azure 資料庫移轉服務]  畫面上，選取 [建立]  。
+2. 在 [Azure 資料庫移轉服務] 畫面上，選取 [建立]。
 
     ![建立 Azure 資料庫移轉服務執行個體](media/tutorial-mongodb-to-cosmosdb-online/dms-create1.png)
   
-3. 在 [建立移轉服務]  畫面上，指定服務的名稱、訂用帳戶，以及新的或現有的資源群組。
+3. 在 [建立移轉服務] 畫面上，指定服務的名稱、訂用帳戶，以及新的或現有的資源群組。
 
 4. 選取您要在其中建立 Azure 資料庫移轉服務執行個體的位置。
 
@@ -105,33 +106,33 @@ ms.locfileid: "71266362"
 
     ![設定 Azure 資料庫移轉服務執行個體設定](media/tutorial-mongodb-to-cosmosdb-online/dms-settings3.png)
 
-7. 選取 [建立]  以建立服務。
+7. 選取 [建立] 以建立服務。
 
 ## <a name="create-a-migration-project"></a>建立移轉專案
 
 建立服務之後，請在 Azure 入口網站中找出該服務，然後建立新的移轉專案。
 
-1. 在 Azure 入口網站中，選取 [所有服務]  ，搜尋 Azure 資料庫移轉服務，然後選取 [Azure 資料庫移轉服務]  。
+1. 在 Azure 入口網站中，選取 [所有服務]，搜尋 Azure 資料庫移轉服務，然後選取 [Azure 資料庫移轉服務]。
 
     ![找出 Azure 資料庫移轉服務的所有執行個體](media/tutorial-mongodb-to-cosmosdb-online/dms-search.png)
 
-2. 在 [Azure 資料庫移轉服務]  畫面上，搜尋您建立的 Azure 資料庫移轉服務執行個體名稱，然後選取該執行個體。
+2. 在 [Azure 資料庫移轉服務] 畫面上，搜尋您建立的 Azure 資料庫移轉服務執行個體名稱，然後選取該執行個體。
 
     或者，您可以從 Azure 入口網站中的搜尋窗格探索 Azure 資料庫移轉服務執行個體。
 
     ![使用 Azure 入口網站中的搜尋窗格](media/tutorial-mongodb-to-cosmosdb-online/dms-search-portal.png)
 
-3. 選取 [+ 新增移轉專案]  。
+3. 選取 [+ 新增移轉專案]。
 
-4. 在 [新增移轉專案]  畫面上指定專案名稱、在 [來源伺服器類型]  文字方塊中選取 [MongoDB]  、在 [目標伺服器類型]  文字方塊中選取 [CosmosDB (MongoDB API)]  ，然後針對 [選擇活動類型]  ，選取 [線上資料移轉 (預覽)]  。
+4. 在 [新增移轉專案] 畫面上指定專案名稱、在 [來源伺服器類型] 文字方塊中選取 [MongoDB]、在 [目標伺服器類型] 文字方塊中選取 [CosmosDB (MongoDB API)]，然後針對 [選擇活動類型]，選取 [線上資料移轉 (預覽)]。
 
     ![建立資料庫移轉服務專案](media/tutorial-mongodb-to-cosmosdb-online/dms-create-project1.png)
 
-5. 選取 [儲存]  ，然後選取 [建立及執行活動]  ，以建立專案並執行移轉活動。
+5. 選取 [儲存]，然後選取 [建立及執行活動]，以建立專案並執行移轉活動。
 
 ## <a name="specify-source-details"></a>指定來源詳細資料
 
-1. 在 [來源詳細資料]  畫面上，指定來源 MongoDB 伺服器的連線詳細資料。
+1. 在 [來源詳細資料] 畫面上，指定來源 MongoDB 伺服器的連線詳細資料。
 
    > [!IMPORTANT]
    > Azure 資料庫移轉服務不支援以 Azure Cosmos DB 作為來源。
@@ -139,7 +140,7 @@ ms.locfileid: "71266362"
     有三種模式可連線至來源：
    * **標準模式**，可接受完整網域名稱或 IP 位址、連接埠號碼和連線認證。
    * **連接字串模式**，可接受[連接字串 URI 格式](https://docs.mongodb.com/manual/reference/connection-string/)一文中說明的 MongoDB 連接字串。
-   * **來自 Azure 儲存體的資料**，可接受 Blob 容器 SAS URL。 如果 Blob 容器含有 MongoDB [bsondump 工具](https://docs.mongodb.com/manual/reference/program/bsondump/)所產生的 BSON 傾印，請選取 [Blob 包含 BSON 傾印]  ，如果容器包含 JSON 檔案，則將其取消選取。
+   * **來自 Azure 儲存體的資料**，可接受 Blob 容器 SAS URL。 如果 Blob 容器含有 MongoDB [bsondump 工具](https://docs.mongodb.com/manual/reference/program/bsondump/)所產生的 BSON 傾印，請選取 [Blob 包含 BSON 傾印]，如果容器包含 JSON 檔案，則將其取消選取。
 
      如果您選取此選項，請確定儲存體帳戶連接字串以下列格式顯示：
 
@@ -164,22 +165,22 @@ ms.locfileid: "71266362"
 
    ![指定來源詳細資料](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 
-2. 選取 [儲存]  。
+2. 選取 [儲存]。
 
    > [!NOTE]
    > 如果來源是複本集，則來源伺服器位址應為主要伺服器的位址；如果來源是分區化 MongoDB 叢集，則應為路由器的位址。 如果是分區化 MongoDB 叢集，則 Azure 資料庫移轉服務必須能夠連線至叢集中的個別分區，而這可能需要在更多機器上開啟防火牆。
 
 ## <a name="specify-target-details"></a>指定目標詳細資料
 
-1. 在 [移轉目標詳細資料]  畫面上，對目標 Azure Cosmos DB 帳戶指定連線詳細資料，此帳戶就是要作為 MongoDB 資料遷移目的地的預先佈建 Azure Cosmos DB Mongo 版 API 帳戶。
+1. 在 [移轉目標詳細資料] 畫面上，對目標 Azure Cosmos DB 帳戶指定連線詳細資料，此帳戶就是要作為 MongoDB 資料遷移目的地的預先佈建 Azure Cosmos DB Mongo 版 API 帳戶。
 
     ![指定目標詳細資料](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-target1.png)
 
-2. 選取 [儲存]  。
+2. 選取 [儲存]。
 
 ## <a name="map-to-target-databases"></a>對應到目標資料庫
 
-1. 在 [Map to target databases] \(對應到目標資料庫\)  畫面上，對應要進行移轉的來源資料庫和目標資料庫。
+1. 在 [Map to target databases] \(對應到目標資料庫\) 畫面上，對應要進行移轉的來源資料庫和目標資料庫。
 
    如果目標資料庫包含與來源資料庫相同的資料庫名稱，Azure 資料庫移轉服務依預設會選取目標資料庫。
 
@@ -189,9 +190,9 @@ ms.locfileid: "71266362"
 
    ![對應到目標資料庫](media/tutorial-mongodb-to-cosmosdb-online/dms-map-target-databases1.png)
 
-2. 選取 [儲存]  。
+2. 選取 [儲存]。
 
-3. 在 [集合設定]  畫面上，展開集合清單，然後檢閱要遷移的集合清單。
+3. 在 [集合設定] 畫面上，展開集合清單，然後檢閱要遷移的集合清單。
 
    Azure 資料庫移轉服務會自動選取所有存在於來源 MongoDB 執行個體上，卻不存在於目標 Azure Cosmos DB 帳戶上的集合。 如果您想要重新移轉已包含資料的集合，就必須在此畫面上明確地選取集合。
 
@@ -204,23 +205,23 @@ ms.locfileid: "71266362"
 
    ![選取集合資料表](media/tutorial-mongodb-to-cosmosdb-online/dms-collection-setting1.png)
 
-4. 選取 [儲存]  。
+4. 選取 [儲存]。
 
-5. 在 [移轉摘要]  畫面上的 [活動名稱]  文字方塊中，指定移轉活動的名稱。
+5. 在 [移轉摘要] 畫面上的 [活動名稱] 文字方塊中，指定移轉活動的名稱。
 
     ![移轉摘要](media/tutorial-mongodb-to-cosmosdb-online/dms-migration-summary1.png)
 
 ## <a name="run-the-migration"></a>執行移轉
 
-* 選取 [執行移轉]  。
+* 選取 [執行移轉]。
 
-   [移轉活動] 視窗隨即出現，並顯示活動的 [狀態]  。
+   [移轉活動] 視窗隨即出現，並顯示活動的 [狀態]。
 
    ![活動狀態](media/tutorial-mongodb-to-cosmosdb-online/dms-activity-status1.png)
 
 ## <a name="monitor-the-migration"></a>監視移轉
 
-* 在移轉活動畫面上選取 [重新整理]  以更新顯示，直到移轉的 [狀態]  顯示為 [正在重新執行]  為止。
+* 在移轉活動畫面上選取 [重新整理] 以更新顯示，直到移轉的 [狀態] 顯示為 [正在重新執行] 為止。
 
    > [!NOTE]
    > 您可以選取活動來取得資料庫層級和集合層級移轉計量的詳細資料。
@@ -236,7 +237,7 @@ ms.locfileid: "71266362"
 
 ## <a name="complete-the-migration"></a>完成移轉
 
-* 當來源中的所有文件都出現 COSMOS DB 目標上之後，請從移轉活動的操作功能表中選取 [完成]  ，以完成移轉的。
+* 當來源中的所有文件都出現 COSMOS DB 目標上之後，請從移轉活動的操作功能表中選取 [完成]，以完成移轉的。
 
     此動作會完成所有暫止變更的重新執行，並完成移轉。
 

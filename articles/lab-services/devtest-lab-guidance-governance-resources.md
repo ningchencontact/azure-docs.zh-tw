@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 9ba9be7b4761e6633ffe3063b6bdba53c56b93bd
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0be2efd3783d9a0a7992819c984c993c64000ecd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561640"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644863"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>治理 Azure DevTest Labs 基礎結構 - 資源
 此文章將說明如何在組織內調整與管理適用於 DevTest Labs 的資源。 
@@ -44,7 +44,7 @@ ms.locfileid: "74561640"
 
 此模型可為組織提供彈性，以大規模部署 Azure DevTest Labs。 組織可以使用 100 到 1000 部以平行方式執行的虛擬機器，來支援各個業務單位的數百個實驗室。 它會推動集中式企業實驗室解決方案的概念，其可共用組態管理和安全性控制項的相同準則。
 
-此模型也可確保組織不會耗盡與其 Azure 訂用帳戶相關聯的資源限制。 如需訂用帳戶與服務限制的詳細資料，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。 DevTest Labs 佈建程序可能會取用大量資源群組。 您可以透過 Azure DevTest 訂用帳戶中的支援要求來要求提高限制。 生產環境訂用帳戶內的資源不會因為使用中的開發訂用帳戶增加而受到影響。 如需調整 DevTest Labs 的詳細資訊，請參閱[在 DevTest Labs 中調整配額和限制](devtest-lab-scale-lab.md)。
+此模型也可確保組織不會耗盡與其 Azure 訂用帳戶相關聯的資源限制。 如需訂用帳戶與服務限制的詳細資料，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-resource-manager/management/azure-subscription-service-limits.md)。 DevTest Labs 佈建程序可能會取用大量資源群組。 您可以透過 Azure DevTest 訂用帳戶中的支援要求來要求提高限制。 生產環境訂用帳戶內的資源不會因為使用中的開發訂用帳戶增加而受到影響。 如需調整 DevTest Labs 的詳細資訊，請參閱[在 DevTest Labs 中調整配額和限制](devtest-lab-scale-lab.md)。
 
 需要考量的常見訂用帳戶層級限制是如何配置網路 IP 範圍指派，以同時支援生產環境和開發訂用帳戶。 這些指派應考量一段時間內的成長 (假設內部部署連線能力，或需要企業管理其網路堆疊而不是預設為 Azure 實作的另一個網路拓撲)。 建議的做法是具備少數虛擬網路，其中已指派大型 IP 位址前置詞，並已使用許多大型子網路來劃分，而不是具備多個含有小型子網路的虛擬網路。 例如，使用 10 個訂用帳戶，您可以定義 10 個虛擬網路 (針對每個訂用帳戶定義一個)。 所有不需隔離的實驗室均可在該訂用帳戶的 VNet 上共用相同的子網路。
 

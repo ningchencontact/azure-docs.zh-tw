@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 8eb8075454dc3a49e9525d566c34c64bab8be5a0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe6e581963753cac33092285fee0c8d16959bde8
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083436"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530097"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>在 Azure 上部署 IBM DB2 pureScale
 
@@ -40,33 +40,35 @@ ms.locfileid: "70083436"
 
 deploy.sh 指令碼會建立並設定此架構的 Azure 資源。 該指令碼會提示您提供目標環境中使用的 Azure 訂用帳戶與虛擬機器，然後執行下列作業：
 
--   針對安裝設定 Azure 上的資源群組、虛擬網路與子網路
+-   針對安裝設定 Azure 上的資源群組、虛擬網路與子網路。
 
--   針對環境設定網路安全性群組和 SSH
+-   為環境設定網路安全性群組和 SSH。
 
--   在 GlusterFS 與 DB2 pureScale 虛擬機器上設定 NIC
+-   在共用存放裝置和 DB2 pureScale 虛擬機器上設定多個 Nic。
 
--   建立 GlusterFS 儲存體虛擬機器
+-   建立共用存放裝置虛擬機器。 如果您使用儲存空間直接存取或另一個儲存體解決方案，請參閱[儲存空間直接存取總覽](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)。
 
--   建立 jumpbox 虛擬機器
+-   建立 jumpbox 虛擬機器。
 
--   建立 DB2 pureScale 虛擬機器
+-   建立 DB2 pureScale 虛擬機器。
 
--   建立供 DB2 pureScale 執行 ping 命令的見證虛擬機器
+-   建立 DB2 pureScale ping 的見證虛擬機器。 如果您的 Db2 pureScale 版本不需要見證，請略過部署的這個部分。
 
--   建立 Windows 虛擬機器以用於測試，但不在其上安裝任何項目
+-   建立要用於測試的 Windows 虛擬機器，但不會在其上安裝任何專案。
 
-接著，部署指令碼會針對 Azure 上的共用儲存體設定 iSCSI 虛擬存放區域網路 (vSAN)。 在此範例中，IiSCSI 會連線到 GlusterFS。 此解決方案也為您提供安裝 iSCSI 目標做為單一 Windows 節點的選項。 iSCSI 透過 TCP/IP 提供共用區塊儲存體介面，它允許 DB2 pureScale 安裝程序使用裝置介面來連線到共用儲存體。 如需 GlusterFS 基本概念，請參閱 Gluster Docs 中的[架構：磁碟區類型](https://docs.gluster.org/en/latest/Quick-Start-Guide/Architecture/)主題。
+接著，部署指令碼會針對 Azure 上的共用儲存體設定 iSCSI 虛擬存放區域網路 (vSAN)。 在此範例中，iSCSI 會連線到共用存放裝置叢集。 在原始客戶解決方案中，會使用 GlusterFS。 不過，IBM 已不再支援此方法。 若要維護 IBM 的支援，您必須使用支援的 iSCSI 相容檔案系統。 Microsoft 提供儲存空間直接存取（S2D）做為選項。
+
+此解決方案也為您提供安裝 iSCSI 目標做為單一 Windows 節點的選項。 iSCSI 透過 TCP/IP 提供共用區塊儲存體介面，它允許 DB2 pureScale 安裝程序使用裝置介面來連線到共用儲存體。
 
 部署指令碼會執行下列一般步驟：
 
-1.  使用 GlusterFS 在 Azure 上設定共用儲存體叢集。 此步驟牽涉到至少兩個 Linux 節點。 如需設定詳細資料，請參閱 Red Hat 叢集文件中的[在 Microsoft Azure 中設定 Red Hat 叢集儲存體](https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.1/html/deployment_guide_for_public_cloud/chap-documentation-deployment_guide_for_public_cloud-azure-setting_up_rhgs_azure) \(英文\)。
+1.  在 Azure 上設定共用儲存體。 此步驟牽涉到至少兩個 Linux 節點。
 
-2.  針對 GlusterFS，在目標 Linux 伺服器上設定 iSCSI Direct 介面。 如需設定詳細資料，請參閱《GlusterFS 系統管理指南》\(英文\) 中的 [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/) \(英文\)。
+2.  在目標 Linux 伺服器上設定共用存放裝置叢集的 iSCSI 直接介面。
 
-3.  在 Linux 虛擬機器上設定 iSCSI 啟動器。 啟動器會使用 iSCSI 目標來存取 GlusterFS 叢集。 如需設定詳細資料，請參閱 RootUsers 文件中的[如何在 Linux 中設定 iSCSI 目標與啟動器](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) \(英文\)。
+3.  在 Linux 虛擬機器上設定 iSCSI 啟動器。 啟動器會使用 iSCSI 目標來存取共用存放裝置叢集。 如需設定詳細資料，請參閱 RootUsers 文件中的[如何在 Linux 中設定 iSCSI 目標與啟動器](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) \(英文\)。
 
-4.  針對 iSCSI 介面，安裝 GlusterFS 做為儲存體層。
+4.  安裝 iSCSI 介面的共用儲存層。
 
 在指令碼建立 iSCSI 裝置之後，最終步驟是安裝 DB2 pureScale。 在 DB2 pureScale 安裝期間，會編譯 [IBM Spectrum Scale](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0057167.html) (先前稱為 GPFS) 並安裝在ˋ GlusterFS 叢集上。 這個叢集化檔案系統可讓 DB2 pureScale 在執行 Db2 pureScale 引擎的虛擬機器之間共用資料。 如需詳細資訊，請參閱 IBM 網站上的 [IBM Spectrum Scale](https://www.ibm.com/support/knowledgecenter/en/STXKQY_4.2.0/ibmspectrumscale42_welcome.html) 文件 \(英文\)。
 
@@ -83,7 +85,7 @@ GitHub 存放庫包括 DB2server.rsp 回應檔 (.rsp)，此檔案可讓您產生
 | 選擇產品          |                                              | DB2 版本 11.1.3.3。 具有 DB2 pureScale 的伺服器版本                                              |
 | 組態             | 目錄                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | 選取安裝類型                 | 一般                                                                                               |
-|                           | 我同意 IBM 條款                     | 已檢查                                                                                               |
+|                           | 我同意 IBM 條款                     | 已選取                                                                                               |
 | 執行個體擁有者            | 例如現有使用者、使用者名稱        | DB2sdin1                                                                                              |
 | 受限使用者               | 現有使用者、使用者名稱                     | DB2sdfe1                                                                                              |
 | 叢集檔案系統       | 共用磁碟磁碟分割裝置路徑            | /dev/dm-2                                                                                             |
@@ -141,8 +143,6 @@ GitHub 存放庫包括由作者維護的知識庫。 它會列出您可能有的
 
 ## <a name="next-steps"></a>後續步驟
 
--   [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)
-
 -   [針對 DB2 pureScale 功能安裝建立必要使用者](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 
 -   [DB2icrt - 建立執行個體命令](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
@@ -151,6 +151,6 @@ GitHub 存放庫包括由作者維護的知識庫。 它會列出您可能有的
 
 -   [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
--   [Platform Modernization Alliance：Azure 上的 IBM DB2](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
+-   [平臺現代化聯盟： Azure 上的 IBM DB2](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
 
 -   [Azure 虛擬資料中心：原形移轉指南](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)

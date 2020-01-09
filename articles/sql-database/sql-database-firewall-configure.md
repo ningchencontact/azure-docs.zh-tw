@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 5c1a146a12fd8881982826e0a87868a6eaf05cb1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9db6b5ff517a1b0d67e59591ee634dfad685527b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851807"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461461"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL Database 和 Azure SQL 資料倉儲 IP 防火牆規則
 
@@ -101,7 +101,7 @@ ms.locfileid: "74851807"
 
 ### <a name="connections-from-inside-azure"></a>從 Azure 內部連線
 
-若要允許裝載于 Azure 內的應用程式連線到您的 SQL server，必須啟用 Azure 連線。 當來自 Azure 的應用程式嘗試連線到您的資料庫伺服器時，防火牆會驗證是否允許 Azure 連線。 若防火牆設定的開始和結束 IP 位址等於*0.0.0.0* ，則表示允許 Azure 連線。 如果不允許連接，要求就不會到達 SQL Database 伺服器。
+若要允許裝載于 Azure 內的應用程式連線到您的 SQL server，必須啟用 Azure 連線。 當來自 Azure 的應用程式嘗試連線到您的資料庫伺服器時，防火牆會驗證是否允許 Azure 連線。 若防火牆設定的開始和結束 IP 位址等於*0.0.0.0* ，則表示允許 Azure 連線。 您可以藉由設定防火牆規則，以及在 [**防火牆和虛擬網路**] 設定中，將 [**允許 Azure 服務和資源存取此伺服器**] 切換至 [**開啟**]，直接從 Azure 入口網站分頁開啟此選項。 如果不允許連接，要求就不會到達 SQL Database 伺服器。
 
 > [!IMPORTANT]
 > 此選項會將防火牆設定為允許所有來自 Azure 的連線，包括來自其他客戶訂用帳戶的連線。 如果您選取此選項，請確定您的登入和使用者權限僅限制授權使用者的存取權。
@@ -147,7 +147,7 @@ ms.locfileid: "74851807"
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>使用 Transact-sql 來管理 IP 防火牆規則
 
-| 目錄檢視或預存程式 | 層級 | 描述 |
+| 目錄檢視或預存程式 | 層級 | 說明 |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |伺服器 |顯示目前的伺服器層級 IP 防火牆規則 |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |伺服器 |建立或更新伺服器層級 IP 防火牆規則 |
@@ -181,7 +181,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 > [!IMPORTANT]
 > Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有開發現在都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 和 AzureRm 模組中命令的引數本質上完全相同。
 
-| Cmdlet | 層級 | 描述 |
+| Cmdlet | 層級 | 說明 |
 | --- | --- | --- |
 | [New-azsqlserverfirewallrule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |伺服器 |返回目前的伺服器層級防火牆規則 |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |伺服器 |建立新的伺服器層級防火牆規則 |
@@ -203,7 +203,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ### <a name="use-cli-to-manage-server-level-ip-firewall-rules"></a>使用 CLI 來管理伺服器層級 IP 防火牆規則
 
-| Cmdlet | 層級 | 描述 |
+| Cmdlet | 層級 | 說明 |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|伺服器|建立伺服器 IP 防火牆規則|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|伺服器|列出伺服器上的 IP 防火牆規則|
@@ -225,7 +225,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ### <a name="use-a-rest-api-to-manage-server-level-ip-firewall-rules"></a>使用 REST API 來管理伺服器層級 IP 防火牆規則
 
-| API | 層級 | 描述 |
+| API | 層級 | 說明 |
 | --- | --- | --- |
 | [列出防火牆規則](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |伺服器 |顯示目前的伺服器層級 IP 防火牆規則 |
 | [建立或更新防火牆規則](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |伺服器 |建立或更新伺服器層級 IP 防火牆規則 |

@@ -2,19 +2,15 @@
 title: 設定 Windows Update 設定以使用 Azure 更新管理
 description: 本文說明您設定以使用 Azure 更新管理的 Windows Update 設定。
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/02/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 804f42121293e142cf77ad73c4aab36e62e3242d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f6377012a2afd0fb36486edf0af0ac3591b5d1f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850409"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366850"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>設定更新管理的 Windows Update 設定
 

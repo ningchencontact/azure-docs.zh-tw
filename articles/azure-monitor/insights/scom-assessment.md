@@ -4,15 +4,15 @@ description: 您可以使用 System Center Operations Manager 健康情況檢查
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 33aa246e21b54aebaa902304ff92d4b74bfaac4b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5ec0f181d9d22e9e1183a59a4fbd7d77e658862e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898776"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402857"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>使用 System Center Operations Manager 健康情況檢查 (預覽) 解決方案進行環境最佳化
 
@@ -34,7 +34,7 @@ ms.locfileid: "72898776"
 
 ## <a name="installing-and-configuring-the-solution"></a>安裝和設定方案
 
-此解決方案適用于 Microsoft System Center 2012 Operations Manager Service Pack 1、Microsoft System Center 2012 R2 Operations Manager、Microsoft System Center 2016 Operations Manager、Microsoft System Center 2016 Operations Manager 和 Microsoft SystemCenter Operations Manager 1807
+此解決方案適用于 Microsoft System Center 2012 Operations Manager Service Pack 1、Microsoft System Center 2012 R2 Operations Manager、Microsoft System Center 2016 Operations Manager、Microsoft System Center 2016 Operations Manager 和 Microsoft SystemCenter Operations Manager 1807。 每部管理伺服器上都必須安裝支援的 .NET Framework 4.6.2 版本。
 
 請使用下列資訊來安裝和設定方案。
 
@@ -83,7 +83,7 @@ Log Analytics 會建立工作負載的管理套件以提供加值服務。 每�
 4. 在 [一般屬性] 頁面上，於 [執行身分帳戶類型:] 清單中選取 [Windows]。
 5. 在 [顯示名稱] 文字方塊中輸入顯示名稱，在 [說明] 方塊中選擇性地輸入說明，然後按 [下一步]。
 6. 在 [散發安全性] 頁面上，選取 [較安全]。
-7. 按一下 [建立]。  
+7. 按一下頁面底部的 [新增]。  
 
 您現已建立執行身分帳戶，接下來您必須將其鎖定在管理群組中的管理伺服器，並與預先定義的執行身分設定檔相關聯，如此一來，工作流程才會使用認證來執行。  
 
@@ -269,7 +269,7 @@ System Center Operations Manager 健全狀況檢查解決方案的管理元件�
 - [設定 System Center Operations Manager 健康情況檢查規則](#configure-the-health-check-rule)
 
 
-*是否有設定檢查執行頻率的方法？* 可以。 請參閱[設定執行頻率](#configure-the-run-frequency)。
+是否有設定檢查執行頻率的方法？ 可以。 請參閱[設定執行頻率](#configure-the-run-frequency)。
 
 *如果我在新增 System Center Operations Manager 健全狀況檢查解決方案之後探索到另一部伺服器，它會被檢查嗎？* 是，在探索之後，便會從那一刻起對它進行檢查，預設是每隔 7 天一次。
 

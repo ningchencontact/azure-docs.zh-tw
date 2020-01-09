@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9ce6459dd65c75c6fcff5591d4e4667e4b0c75fa
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 56194bcfb9531def87a9918ad442a2927413c964
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928485"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432969"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>使用 Azure 地圖服務搜尋服務來尋找地址
 
@@ -26,9 +26,9 @@ ms.locfileid: "73928485"
 * 進行[反向位址搜尋](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)，以搜尋街道位址
 * 使用[搜尋位址反向交叉街道 API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)搜尋交叉街道
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-若要對地圖服務 API 進行呼叫，您需要有地圖服務帳戶和金鑰。 如需建立帳戶的相關資訊，請遵循[管理帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account)中的指示，然後依照[取得主要金鑰](./tutorial-search-location.md#getkey)中的步驟來抓取您帳戶的主要訂用帳戶金鑰。
+若要對地圖服務 API 進行呼叫，您需要有地圖服務帳戶和金鑰。 依照[建立帳戶](quick-demo-map-app.md#create-an-account-with-azure-maps)中的指示來建立 Azure 地圖服務帳戶訂用帳戶，並遵循[取得主要金鑰](quick-demo-map-app.md#get-the-primary-key-for-your-account)中的步驟來取得您帳戶的主要金鑰。 如需 Azure 地圖服務中驗證的詳細資訊，請參閱[Azure 地圖服務中的管理驗證](./how-to-manage-authentication.md)。
 
 本文使用 [Postman 應用程式](https://www.getpostman.com/apps)來建置 REST 呼叫。 您可以使用您偏好的任何 API 開發環境。
 
@@ -52,17 +52,17 @@ ms.locfileid: "73928485"
     | 要求 URL | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
     | 授權 | 無授權 |
 
-    URL 路徑中的 **Json** 屬性會判斷回應格式。 您在整篇文章中使用 json，以方便使用並提升可讀性。 您可以在**地圖服務功能性 API 參考**的＜取得搜尋模糊＞[](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)定義中找到可用的回應格式。
+    URL 路徑中的 **Json** 屬性會判斷回應格式。 您在整篇文章中使用 json，以方便使用並提升可讀性。 您可以在[地圖服務功能性 API 參考](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)的＜取得搜尋模糊＞定義中找到可用的回應格式。
 
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
 
     ![模糊搜尋](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | 金鑰 | 值 |
+    | 索引鍵 | 值 |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<您的 Azure 地圖服務金鑰\> |
-    | query | 披薩 |
+    | 查詢 | 披薩 |
 
 4. 按一下 [傳送]，然後檢視回應本文。
 
@@ -72,9 +72,9 @@ ms.locfileid: "73928485"
 
 5. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | 金鑰 | 值 |
+    | 索引鍵 | 值 |
     |------------------|-------------------------|
-    | countrySet | US |
+    | countrySet | 美國 |
   
     結果現在會依國家/地區程式碼繫結，此查詢會傳回美國境內的披薩餐廳。
   
@@ -84,7 +84,7 @@ ms.locfileid: "73928485"
 
     ![模糊搜尋](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | 金鑰 | 值 |
+    | 索引鍵 | 值 |
     |-----|------------|
     | lat | 47.620525 |
     | lon | -122.349274 |
@@ -108,11 +108,11 @@ ms.locfileid: "73928485"
   
     ![地址搜尋](./media/how-to-search-for-address/address_search_params.png)
   
-    | 金鑰 | 值 |
+    | 索引鍵 | 值 |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<您的 Azure 地圖服務金鑰\> |
-    | query | 400 Broad St, Seattle, WA 98109 |
+    | 查詢 | 400 Broad St, Seattle, WA 98109 |
   
 4. 按一下 [傳送]，然後檢視回應本文。
   
@@ -125,7 +125,7 @@ ms.locfileid: "73928485"
 
 6. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | 金鑰 | 值 |
+    | 索引鍵 | 值 |
     |-----|------------|
     | typeahead | true |
 
@@ -149,11 +149,11 @@ ms.locfileid: "73928485"
   
     ![反向位址搜尋參數](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | 金鑰 | 值 |
+    | 索引鍵 | 值 |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<您的 Azure 地圖服務金鑰\> |
-    | query | 47.591180,-122.332700 |
+    | 查詢 | 47.591180,-122.332700 |
   
 4. 按一下 [傳送]，然後檢視回應本文。
 
@@ -161,7 +161,7 @@ ms.locfileid: "73928485"
   
 5. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | 金鑰 | 值 |
+    | 索引鍵 | 值 |
     |-----|------------|
     | number | true |
 
@@ -169,7 +169,7 @@ ms.locfileid: "73928485"
   
 6. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | 金鑰 | 值 |
+    | 索引鍵 | 值 |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -177,7 +177,7 @@ ms.locfileid: "73928485"
 
 7. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | 金鑰 | 值 |
+    | 索引鍵 | 值 |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -185,7 +185,7 @@ ms.locfileid: "73928485"
 
 8. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | 金鑰 | 值 |
+    | 索引鍵 | 值 |
     |-----|------------|
     | roadUse | true |
 
@@ -207,11 +207,11 @@ ms.locfileid: "73928485"
   
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
   
-    | 金鑰 | 值 |
+    | 索引鍵 | 值 |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<您的 Azure 地圖服務金鑰\> |
-    | query | 47.591180,-122.332700 |
+    | 查詢 | 47.591180,-122.332700 |
   
 4. 按一下 [傳送]，然後檢視回應本文。
 

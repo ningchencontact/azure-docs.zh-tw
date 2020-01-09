@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 37120377f87bee53f73fe4d3dd7ced59551a491f
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: dfd9297e80836978b8a185df3fc4659676383802
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672317"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659894"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>在 Azure App Service 中相應增加應用程式
 
@@ -71,7 +71,7 @@ ms.locfileid: "74672317"
 
 如需詳細資訊，例如每個定價層的 VM 大小，請參閱 [App Service 定價詳細資料](https://azure.microsoft.com/pricing/details/app-service)。
 
-如需服務限制、配額及條件約束的表格，以及每層支援的功能，請參閱 [App Service 限制](../azure-subscription-service-limits.md#app-service-limits)。
+如需服務限制、配額及條件約束的表格，以及每層支援的功能，請參閱 [App Service 限制](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)。
 
 <a name="Next Steps"></a>
 

@@ -1,31 +1,23 @@
 ---
-title: Azure Service Fabric 安全性最佳做法 | Microsoft Docs
+title: Azure Service Fabric 安全性的最佳做法
 description: 本文提供一組 Azure Service Fabric 安全性的最佳做法。
-services: security
-documentationcenter: na
 author: unifycloud
-manager: barbkess
-editor: tomsh
-ms.assetid: ''
+ms.author: tomsh
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/16/2019
-ms.author: tomsh
-ms.openlocfilehash: dc063621e6b3e1d0d3e1a51d744ca9d9a6ef8c8d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 458a1d474e9a722a98ca068e1827cf0e1abf4b47
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934633"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548814"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 安全性最佳做法
 在 Azure 上部署應用程式很快速、輕鬆且符合成本效益。 將您的雲端應用程式部署至生產環境之前，請檢閱重要和建議最佳做法，以在應用程式中實作安全叢集。
 
-Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。 Service Fabric 也可解決開發與管理雲端應用程式時遭遇的重大挑戰。 開發人員與管理員能夠避免複雜的基礎結構問題，專注於實作關鍵且嚴格要求之可調整、可信賴且可管理的工作負載。
+Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。 Service Fabric 也可解決開發與管理雲端應用程式時遭遇的重大挑戰。 開發人員與系統管理員可以避免複雜的基礎結構問題，將全部心力集中在實作要求高並可信賴、管理及調整的任務關鍵性工作負載上。
 
 針對每個最佳做法，我們會說明︰
 
@@ -58,7 +50,7 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署�
 -   需經過驗證，人員才能存取祕密。
 
 此外，請考慮下列設定選項：
--   使用 Azure 網路安全性群組 (NSG) 來建立周邊網路 (也稱為非軍事區域、DMZ 和遮蔽式子網路)。
+-   使用 Azure 網路安全性群組 (NSG) 來建立周邊網路 (也稱為 DMZ 和遮蔽式子網路)。
 -   使用跳躍伺服器搭配遠端桌面連線來存取叢集虛擬機器 (VM) 或管理您的叢集。
 
 叢集必須受到安全保護，以防止未經授權使用者連線，特別是當叢集正在生產環境中執行時。 雖然可以建立不安全的叢集，但如果叢集向公用網際網路公開管理端點，匿名使用者就可以連線到您的叢集。
@@ -71,7 +63,7 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署�
 -   角色型存取控制 (RBAC)：這個情節會針對存取叢集的每個系統管理員和使用者用戶端角色使用不同的身分識別 (憑證、Azure AD 等等)。 當您建立叢集時，可以指定角色身分識別。
 
 >[!NOTE]
->**對於 Azure 叢集的安全性建議：** 針對節點對節點安全性使用 Azure AD 安全性來驗證用戶端和憑證。
+>**Azure 叢集的安全性建議：** 針對節點對節點安全性使用 Azure AD 安全性來驗證用戶端和憑證。
 
 若要設定獨立 Windows 叢集，請參閱[設定獨立 Windows 叢集的設定](../../service-fabric/service-fabric-cluster-manifest.md)。
 
@@ -107,7 +99,7 @@ Service Fabric 也可保護應用程式所使用的資源。 部署應用程式�
 
 -   使用 Active Directory 網域群組或使用者：以根據 Active Directory 使用者或群組帳戶的認證來執行服務。 請務必在您網域內，而非 Azure Active Directory 使用 Active Directory 內部部署。 使用網域使用者或群組，存取網域中已經被授與權限的其他資源。 例如，檔案共用等資源。
 
--   為 HTTP 和 HTTPS 端點指派安全性存取原則：當服務資訊清單使用 HTTP 宣告端點資源時，指定 **SecurityAccessPolicy** 屬性，將 **RunAs** 原則套用至服務。 配置給 HTTP 端點的通訊埠是針對執行服務的 RunAs 使用者帳戶正確存取控制的清單。 未設定原則時，http.sys 無法存取服務，而且您從用戶端呼叫時會失敗。
+-   指派 HTTP 和 HTTPS 端點的安全性存取原則：當服務資訊清單使用 HTTP 宣告端點資源時，指定 **SecurityAccessPolicy** 屬性，將 **RunAs** 原則套用至服務。 配置給 HTTP 端點的通訊埠是針對執行服務的 RunAs 使用者帳戶正確存取控制的清單。 未設定原則時，http.sys 無法存取服務，而且您從用戶端呼叫時會失敗。
 
 若要了解如何在 Service Fabric 叢集中啟用安全性原則，請參閱[設定應用程式的安全性原則](../../service-fabric/service-fabric-application-runas-security.md)。
 
@@ -152,7 +144,7 @@ HTTP 通訊協定並不安全，且會受到竊聽攻擊。 透過 HTTP 傳輸�
 若要深入了解使用 SSL 憑證的資訊，請參閱[設定 Azure 應用程式的 SSL](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md)。
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>使用網路隔離和安全性搭配 Azure Service Fabric
-使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)作為範例來設定 3 節點類型安全叢集。 使用範本和網路安全性群組來控制傳入和傳出網路流量。
+使用 [Azure Resource Manager 範本](../../azure-resource-manager/templates/template-syntax.md)作為範例來設定 3 節點類型安全叢集。 使用範本和網路安全性群組來控制傳入和傳出網路流量。
 
 此範本針對每個虛擬機器擴展集各有一個 NSG，且會用來控制進出集合的流量。 預設會設定規則，允許範本中指定的系統服務和應用程式連接埠所需的所有流量。 請檢閱這些規則並進行任何變更以符合您的需求，包括為您的應用程式新增規則。
 
@@ -177,7 +169,7 @@ Service Fabric 會使用 X.509 憑證來保護叢集，並提供應用程式的�
 若要深入了解如何設定金鑰保存庫，請參閱[什麼是 Azure Key Vault？](../../key-vault/key-vault-overview.md)。
 
 ## <a name="assign-users-to-roles"></a>將使用者指派給角色
-建立應用程式來代表您的叢集之後，請將使用者指派給 Service Fabric 所支援的角色︰唯讀和系統管理員。您可以使用 Azure 入口網站來指派這些角色。
+建立應用程式來代表您的叢集之後，請將使用者指派給 Service Fabric 所支援的角色：唯讀和系統管理員。您可以使用 Azure 入口網站來指派這些角色。
 
 >[!NOTE]
 > 如需在 Service Fabric 中使用角色的詳細資訊，請參閱[角色型存取控制 (適用於 Service Fabric 用戶端)](../../service-fabric/service-fabric-cluster-security-roles.md)。

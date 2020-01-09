@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 4c02632c44d095a6d1d1c583a1ab201acad63bf9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 73d1478ec2d6c90428f22a30ec82634df115d2f5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229006"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435261"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>從 Visual Studio R 工具提交作業
 
-[Visual Studio R 工具](https://www.visualstudio.com/vs/rtvs/) (RTVS) 是免費、開放來源的擴充功能，適用於 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 和 [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) 或更新版本的 Community (免費)、Professional 及 Enterprise 版本。 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019)無法使用 RTVS。
+[Visual Studio R 工具](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) 是免費、開放來源的擴充功能，適用於 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 和 [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) 或更新版本的 Community (免費)、Professional 及 Enterprise 版本。 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019)無法使用 RTVS。
 
 RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL)、IntelliSense (程式碼完成)、[繪圖視覺效果](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) 等工具，透過例如 ggplot2 和 ggviz、[R 程式碼偵錯](https://docs.microsoft.com/visualstudio/rtvs/debugging) 等程式庫。
 
-## <a name="set-up-your-environment"></a>設定環境
+## <a name="set-up-your-environment"></a>設定您的環境
 
 1. 安裝 [Visual Studio R 工具](/visualstudio/rtvs/installing-r-tools-for-visual-studio)。
 
@@ -52,7 +52,7 @@ RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](htt
 2. 安裝 [RTVS 擴充功能](https://docs.microsoft.com/visualstudio/rtvs/installation)。
 3. 下載[範例 zip 檔案](https://github.com/Microsoft/RTVS-docs/archive/master.zip)。
 4. 在 Visual Studio 中開啟 `examples/Examples.sln` 以啟動解決方案。
-5. 開啟 `1-Getting Started with R.R` 解決方案資料夾中的 `A first look at R` 檔案。
+5. 開啟 `A first look at R` 解決方案資料夾中的 `1-Getting Started with R.R` 檔案。
 6. 從檔案頂端開始，按下 Ctrl+Enter 一次傳送一行到 R 互動視窗。 有些行會安裝套件，所以可能需要一些時間。
     * 或者，您可以選取 R 檔案中的所有行 (Ctrl+A)，然後全部執行 (Ctrl+Enter)，或者選取工具列上的 [執行互動] 圖示。
 

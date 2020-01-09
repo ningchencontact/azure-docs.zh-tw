@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: ef2db7f13ea5192634855b69a0d355e0f1e11ecb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6d1dd8f749f6c3e991413628bd1e08baf76a02f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035087"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458684"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>使用 Azure CLI 從自訂磁碟上傳並建立 Linux VM
 
@@ -35,7 +35,7 @@ ms.locfileid: "74035087"
 
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 `myResourceGroup`、`mystorageaccount` 和 `mydisks`。
 
-首先，使用 [az group create](/cli/azure/group) 建立資源群組。 下列範例會在 `myResourceGroup` 位置建立名為 `WestUs` 的資源群組：
+首先，使用 [az group create](/cli/azure/group) 建立資源群組。 下列範例會在 `WestUs` 位置建立名為 `myResourceGroup` 的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -54,7 +54,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-使用透過 [az storage container create](/cli/azure/storage/container) 取得的儲存體金鑰在您的儲存體帳戶內建立容器。 下列範例會使用來自 `mydisks` 的儲存體金鑰值，建立名為 `key1` 的容器：
+使用透過 [az storage container create](/cli/azure/storage/container) 取得的儲存體金鑰在您的儲存體帳戶內建立容器。 下列範例會使用來自 `key1` 的儲存體金鑰值，建立名為 `mydisks` 的容器：
 
 ```azurecli
 az storage container create --account-name mystorageaccount \
@@ -69,7 +69,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-使用 `--image`az vm create[，為您的磁碟指定 URI (](/cli/azure/vm))。 下列範例會使用先前上傳的虛擬磁碟來建立名為 `myVM` 的 VM：
+使用 [az vm create](/cli/azure/vm)，為您的磁碟指定 URI (`--image`)。 下列範例會使用先前上傳的虛擬磁碟來建立名為 `myVM` 的 VM：
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
@@ -79,13 +79,13 @@ az vm create --resource-group myResourceGroup --location westus \
     --use-unmanaged-disk
 ```
 
-目的地儲存體帳戶必須與您上傳虛擬磁碟的目的地帳戶相同。 您也需要指定或依據提示回答 **az vm create** 命令所需的所有其他參數，例如虛擬網路、公用 IP 位址、使用者名稱及 SSH 金鑰。 您可以深入了解 [可用的 CLI Resource Manager 參數](../azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines)。
+目的地儲存體帳戶必須與您上傳虛擬磁碟的目的地帳戶相同。 您也需要指定或依據提示回答 **az vm create** 命令所需的所有其他參數，例如虛擬網路、公用 IP 位址、使用者名稱及 SSH 金鑰。 您可以深入了解[可用的 CLI Resource Manager 參數](../azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines)。
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 若要完成下列步驟，您需要：
 
 * **以 .vhd 檔案安裝的 Linux 作業系統** - 以 VHD 格式將 [Azure 背書的 Linux 散發套件](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (或參閱[非背書散發套件的資訊](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) 安裝到虛擬磁碟。 有多項工具可用來建立 VM 和 VHD：
-  * 安裝和設定 [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 或 [KVM](https://www.linux-kvm.org/page/RunningKVM)，並小心使用 VHD 做為您的映像格式。 如有需要，您可以使用 [ 來](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats)轉換映像`qemu-img convert`。
+  * 安裝和設定 [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 或 [KVM](https://www.linux-kvm.org/page/RunningKVM)，並小心使用 VHD 做為您的映像格式。 如有需要，您可以使用 `qemu-img convert` 來[轉換映像](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats)。
   * 您也可以在 [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) 或 [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx) 上使用 Hyper-V。
 
 > [!NOTE]
@@ -117,14 +117,14 @@ Azure 支援各種 Linux 散發套件 (請參閱 [背書的散發套件](endorse
 如需有關為 Azure 準備 Linux 映像的更多一般秘訣，另請參閱 **[Linux 安裝注意事項](create-upload-generic.md#general-linux-installation-notes)** 。
 
 > [!NOTE]
-> 只有在搭配[經 Azure 背書之 Linux 散發套件](https://azure.microsoft.com/support/legal/sla/virtual-machines/)中＜支援的版本＞下指定的組態詳細資料來使用其中一個經背書的散發套件時，[Azure 平台 SLA](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 才適用於執行 Linux 的虛擬機器。
+> 只有在搭配[經 Azure 背書之 Linux 散發套件](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)中＜支援的版本＞下指定的組態詳細資料來使用其中一個經背書的散發套件時，[Azure 平台 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 才適用於執行 Linux 的虛擬機器。
 > 
 > 
 
 ## <a name="create-a-resource-group"></a>建立資源群組
-資源群組會以邏輯方式將所有 Azure 資源 (例如虛擬網路和儲存體) 結合在一起以支援您的虛擬機器。 如需有關資源群組的詳細資訊，請參閱[資源群組概觀](../../azure-resource-manager/resource-group-overview.md)。 在上傳您的自訂磁碟並建立 VM 之前，您必須先使用 [az group create](/cli/azure/group) 建立資源群組。
+資源群組會以邏輯方式將所有 Azure 資源 (例如虛擬網路和儲存體) 結合在一起以支援您的虛擬機器。 如需有關資源群組的詳細資訊，請參閱[資源群組概觀](../../azure-resource-manager/management/overview.md)。 在上傳您的自訂磁碟並建立 VM 之前，您必須先使用 [az group create](/cli/azure/group) 建立資源群組。
 
-下列範例會在 `myResourceGroup` 位置建立名為 `westus` 的資源群組：
+下列範例會在 `westus` 位置建立名為 `myResourceGroup` 的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -142,7 +142,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 ```
 
 ## <a name="list-storage-account-keys"></a>列出儲存體帳戶金鑰
-Azure 會為每個儲存體帳戶產生兩個 512 位元的存取金鑰。 對儲存體帳戶進行驗證時 (例如為了執行寫入作業)，就會使用這些存取金鑰。 從 [這裡](../../storage/common/storage-account-manage.md#access-keys)深入了解如何管理對儲存體的存取。 您使用 [az storage account keys list](/cli/azure/storage/account/keys) 來檢視存取金鑰。
+Azure 會為每個儲存體帳戶產生兩個 512 位元的存取金鑰。 對儲存體帳戶進行驗證時 (例如為了執行寫入作業)，就會使用這些存取金鑰。 如需儲存體帳戶存取金鑰的詳細資訊，請參閱[管理儲存體帳戶存取金鑰](../../storage/common/storage-account-keys-manage.md)。 您使用 [az storage account keys list](/cli/azure/storage/account/keys) 來檢視存取金鑰。
 
 檢視您所建立儲存體帳戶的存取金鑰：
 
@@ -186,9 +186,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-the-vm"></a>建立 VM
-若要使用非受控磁碟來建立 VM，請使用 `--image`az vm create[ 指定磁碟的 URI (](/cli/azure/vm))。 下列範例會使用先前上傳的虛擬磁碟來建立名為 `myVM` 的 VM：
+若要使用非受控磁碟來建立 VM，請使用 [az vm create](/cli/azure/vm) 指定磁碟的 URI (`--image`)。 下列範例會使用先前上傳的虛擬磁碟來建立名為 `myVM` 的 VM：
 
-您需搭配 `--image`az vm create[ 指定 ](/cli/azure/vm) 參數，以指向您的自訂磁碟。 請確保 `--storage-account` 與儲存您自訂磁碟的儲存體帳戶相符。 您不需使用與自訂磁碟相同的容器來儲存您的 VM。 上傳您的自訂磁碟之前，請確定會使用與先前步驟中相同的方式來建立任何額外的容器。
+您需搭配 [az vm create](/cli/azure/vm) 指定 `--image` 參數，以指向您的自訂磁碟。 請確保 `--storage-account` 與儲存您自訂磁碟的儲存體帳戶相符。 您不需使用與自訂磁碟相同的容器來儲存您的 VM。 上傳您的自訂磁碟之前，請確定會使用與先前步驟中相同的方式來建立任何額外的容器。
 
 下列範例會從您的自訂磁碟建立名為 `myVM` 的 VM：
 
@@ -204,7 +204,7 @@ az vm create --resource-group myResourceGroup --location westus \
 
 
 ## <a name="resource-manager-template"></a>Resource Manager 範本
-Azure Resource Manager 範本是「JavaScript 物件標記法」(JSON) 檔案，定義了您想要建置的環境。 範本會細分成不同的資源提供者，例如計算或網路。 您可以使用現有的範本或自行撰寫範本。 深入了解如何 [使用 Resource Manager 和範本](../../azure-resource-manager/resource-group-overview.md)。
+Azure Resource Manager 範本是「JavaScript 物件標記法」(JSON) 檔案，定義了您想要建置的環境。 範本會細分成不同的資源提供者，例如計算或網路。 您可以使用現有的範本或自行撰寫範本。 深入了解如何 [使用 Resource Manager 和範本](../../azure-resource-manager/management/overview.md)。
 
 在範本的 `Microsoft.Compute/virtualMachines` 提供者內，您會有一個包含 VM 組態詳細資料的 `storageProfile` 節點。 兩個要編輯的主要參數為 `image` 和 `vhd` URI，分別指向您的自訂磁碟和新 VM 的虛擬磁碟。 以下顯示使用自訂磁碟的 JSON 範例：
 
@@ -224,7 +224,7 @@ Azure Resource Manager 範本是「JavaScript 物件標記法」(JSON) 檔案，
           }
 ```
 
-您可以使用[這個現有的範本以從自訂映像建立 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) 或閱讀[建立您自己的 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)。 
+您可以使用[這個現有的範本以從自訂映像建立 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) 或閱讀[建立您自己的 Azure Resource Manager 範本](../../azure-resource-manager/templates/template-syntax.md)。 
 
 設定範本之後，請使用 [az group deployment create](/cli/azure/group/deployment) 來建立您的 VM。 請使用 `--template-uri` 參數來指定您 JSON 範本的 URI︰
 
@@ -242,5 +242,5 @@ az group deployment create --resource-group myNewResourceGroup \
 
 
 ## <a name="next-steps"></a>後續步驟
-在您備妥並上傳自訂虛擬磁碟之後，您可以深入了解如何 [使用 Resource Manager 和範本](../../azure-resource-manager/resource-group-overview.md)。 您也可以 [將資料磁碟新增](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 至您的新 VM。 如果您需要存取在您的 VM 上執行的應用程式，請務必 [開啟連接埠和端點](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+在您備妥並上傳自訂虛擬磁碟之後，您可以深入了解如何 [使用 Resource Manager 和範本](../../azure-resource-manager/management/overview.md)。 您也可以 [將資料磁碟新增](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 至您的新 VM。 如果您需要存取在您的 VM 上執行的應用程式，請務必 [開啟連接埠和端點](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 

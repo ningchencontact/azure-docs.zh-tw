@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 虛擬網路服務端點保護 Azure Cosmos DB 帳戶的存取權
+title: 使用虛擬網路服務端點來保護 Azure Cosmos DB 帳戶的存取
 description: 本文件說明關於 Azure Cosmos 帳戶的虛擬網路和子網路存取控制。
 author: kanshiG
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 0023710ff3cfe180b628d1da14b8a3ea9c136026
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: af1032de9aabac45ad7a86cfe1f36ed2c04c0f71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896242"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444627"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>從虛擬網路 (VNet) 存取 Azure Cosmos DB
 

@@ -1,5 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple 快速入門-建立私人雲端
+title: 快速入門：建立私人雲端
+titleSuffix: Azure VMware Solution by CloudSimple
 description: 瞭解如何使用 Azure VMware Solution by CloudSimple 來建立及設定私人雲端
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c32045c6d68a813eaeb6e4e5de433160c2a30634
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e4890186022842179ef4b66c03db03dd9b58a3d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901463"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452381"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>快速入門-設定私人雲端環境
 
@@ -56,8 +57,8 @@ ms.locfileid: "72901463"
       > VSphere/vSAN CIDR 範圍中的 IP 位址會保留供私人雲端基礎結構使用。  請勿在任何虛擬機器上使用此範圍內的 IP 位址。
 
 11. 按 **[下一步]： [審查並建立]** 。
-12. 檢查設定。 如果您需要變更任何設定，請按一下 [**上一步**]。
-13. 按一下 [建立]。
+12. 檢閱設定。 如果您需要變更任何設定，請按一下 [**上一步**]。
+13. 按一下頁面底部的 [新增]。
 
 私用雲端布建程式隨即啟動。  布建私人雲端最多可能需要兩個小時的時間。
 
@@ -157,7 +158,7 @@ CloudSimple 為您的私用雲端提供 ExpressRoute 線路。 您可以將 Azur
 
     ![啟動 vSphere 用戶端](media/launch-vcenter-from-cloudsimple-portal.png)
 
-2. 選取您慣用的 vSphere 用戶端來存取 vCenter，並使用您的使用者名稱和密碼登入。  預設值為：
+2. 選取您慣用的 vSphere 用戶端來存取 vCenter，並使用您的使用者名稱和密碼登入。  預設值是：
     * 使用者名稱： **CloudOwner@cloudsimple.local**
     * 密碼： **CloudSimple123！**  
 

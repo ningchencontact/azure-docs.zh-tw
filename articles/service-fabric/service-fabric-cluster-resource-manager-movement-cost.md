@@ -1,28 +1,19 @@
 ---
-title: Service Fabric 叢集 Resource Manager：移動成本 | Microsoft Docs
-description: Service Fabric 服務的移動成本概觀
-services: service-fabric
-documentationcenter: .net
+title: Service Fabric 叢集 Resource Manager：移動成本
+description: 瞭解 Service Fabric 服務的移動成本，以及如何指定它以符合任何架構需求，包括動態設定。
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 80845fca8d163a4ebe9257f19825624acef3a815
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: af3e01d0d5a605c052be24eed8e14ee3449e2c79
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243006"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563338"
 ---
 # <a name="service-movement-cost"></a>服務移動成本
-「Service Fabric 叢集資源管理員」在嘗試判斷要對叢集進行哪些變更時會考量一個因素，就是這些變更的成本。 「成本」的概念是針對叢集可以改善多少來做取捨。 成本在移動服務進行平衡、重組和其他需求時納入考量因素。 目標是以最沒有干擾、最便宜的方式符合需求。 
+「Service Fabric 叢集資源管理員」在嘗試判斷要對叢集進行哪些變更時會考量一個因素，就是這些變更的成本。 「成本」的概念是針對叢集可以改善多少來做取捨。 成本在移動服務進行平衡、重組和其他需求時納入考量因素。 目標是以最沒有干擾、最便宜的方式符合需求。
 
 移動服務會花費最少的 CPU 時間和網路頻寬。 對於具狀態服務，需要複製這些服務的狀態、耗用額外記憶體和磁碟。 將 Azure Service Fabric 叢集資源管理員帶來的解決方案成本降至最低，有助於確保不會花費不必要的叢集資源。 然而，也不想忽略可大幅改善叢集中資源配置的解決方案。
 
@@ -76,7 +67,7 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>移動成本的影響
-MoveCost 有五個層級：零、低、中、高和 VeryHigh。 適用下列規則：
+MoveCost 有五個層級：零、低、中、高和 VeryHigh。 適用的規則如下：
 
 * 除了零和 VeryHigh 以外，MoveCosts 會彼此相對。 
 * 零移動成本表示移動是免費的，因此不應計入解決方案的分數。
@@ -111,7 +102,7 @@ ClusterManifest.xml：
         </Section>
 ```
 
-透過 ClusterConfig.json (適用於獨立部署) 或 Template.json (適用於 Azure 裝載的叢集)：
+獨立部署透過 ClusterConfig.json，Azure 託管叢集透過 Template.json：
 
 ```json
 "fabricSettings": [

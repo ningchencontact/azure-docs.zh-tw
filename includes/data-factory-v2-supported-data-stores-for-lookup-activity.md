@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/25/2019
+ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 527114adbe2422148605fd878723ae74fa7c3304
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fb44f217b7a940bc07a164e482b67ddb53835715
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958498"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440496"
 ---
 | 類別 | 資料存放區 |
 |:--- |:--- |
@@ -21,16 +21,16 @@ ms.locfileid: "72958498"
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |
 | &nbsp; |[Azure 資料總管](../articles/data-factory/connector-azure-data-explorer.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
-| &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |
+| &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) \(部分機器翻譯\) |
 | &nbsp; |[適用於 MariaDB 的 Azure 資料庫](../articles/data-factory/connector-azure-database-for-mariadb.md) |
 | &nbsp; |[適用於 MySQL 的 Azure 資料庫](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[適用於 PostgreSQL 的 Azure 資料庫](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Azure 檔案](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |
 | &nbsp; |[Azure SQL Database 受控執行個體](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |
-| &nbsp; |[Azure SQL 資料倉儲](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
+| &nbsp; |[Azure Synapse Analytics （先前稱為 SQL 資料倉儲）](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure 資料表儲存體](../articles/data-factory/connector-azure-table-storage.md) |
-| **資料庫** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
+| **Database** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |
 | &nbsp; |[Drill](../articles/data-factory/connector-drill.md) |
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |

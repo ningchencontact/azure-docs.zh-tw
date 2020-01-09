@@ -1,6 +1,6 @@
 ---
 title: 圖形事件-Azure 時間序列深入解析 |Microsoft Docs
-description: 瞭解如何使用 Azure 時間序列深入解析 Preview 來塑造事件。
+description: 瞭解最佳做法，以及如何在 Azure 時間深入解析預覽版中塑造事件以進行查詢。
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,20 +8,20 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd1b59ac2037669be021dfad3bf5032b794bef4a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 37846aacd9e2c5c63cdf5d29bccb42df8e02fce9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006241"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452603"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>使用 Azure 時間序列深入解析為事件塑形
 
 本文可協助您塑造 JSON 檔案以進行內嵌，並將 Azure 時間序列深入解析預覽查詢的效率發揮到極致。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 考慮如何將事件傳送至時間序列深入解析 Preview。 也就是說，您應該一律：
 
@@ -117,7 +117,7 @@ ms.locfileid: "74006241"
 
 時間序列深入解析預覽版會在查詢期間聯結資料表 (在壓平之後)。 該資料表包括額外的資料行，例如**類型**。 下列範例會示範如何[塑造](./time-series-insights-send-events.md#supported-json-shapes)您的遙測資料。
 
-| deviceId  | 在系統提示您進行確認時，輸入 | L1 | L2 | timestamp | series_Flow 速率 rate ft3/秒 | series_Engine 石油壓力 psi |
+| deviceId  | 類型 | L1 | L2 | timestamp | series_Flow 速率 rate ft3/秒 | series_Engine 石油壓力 psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | SIMULATOR | Battery System | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
 | `FXXX` | Default_Type | SIMULATOR |   Battery System |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |

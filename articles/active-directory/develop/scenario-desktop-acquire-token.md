@@ -1,5 +1,5 @@
 ---
-title: 為呼叫 web Api 的傳統型應用程式取得權杖 |Azure
+title: 取得權杖以呼叫 Web API （桌面應用程式） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解如何建立桌面應用程式來呼叫 web Api （取得應用程式的權杖 |）
 services: active-directory
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e33eed25f79d90bd513e79b23619fd4c575bc874
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 89a9426b1ed0ccd3c5f9eec576e5d78bf3d3dfc2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920221"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423881"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api 的桌面應用程式-取得權杖
 
@@ -38,7 +38,7 @@ Web API 是由其 `scopes`所定義。 無論您在應用程式中提供的體�
 
 ### <a name="in-msalnet"></a>在 MSAL.NET 中
 
-```CSharp
+```csharp
 AuthenticationResult result;
 var accounts = await app.GetAccountsAsync();
 IAccount account = ChooseAccount(accounts); // for instance accounts.FirstOrDefault
@@ -155,7 +155,7 @@ application.acquireTokenSilent(with: silentParameters) { (result, error) in
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 ### <a name="in-msalnet"></a>在 MSAL.NET 中
 
-```CSharp
+```csharp
 string[] scopes = new string[] {"user.read"};
 var app = PublicClientApplicationBuilder.Create(clientId).Build();
 var accounts = await app.GetAccountsAsync();
@@ -184,7 +184,7 @@ catch(MsalUiRequiredException)
 
 互動式，UI 很重要。 `AcquireTokenInteractive` 有一個特定的選擇性參數，可讓您針對支援它的平臺（父 UI）指定。 在桌面應用程式中使用時，根據平臺，`.WithParentActivityOrWindow` 具有不同的類型：
 
-```CSharp
+```csharp
 // net45
 WithParentActivityOrWindow(IntPtr windowPtr)
 WithParentActivityOrWindow(IWin32Window window)
@@ -202,7 +202,7 @@ WithParentActivityOrWindow(object parent).
 - 在 Windows 上，您必須從 UI 執行緒呼叫 `AcquireTokenInteractive`，讓內嵌瀏覽器取得適當的 UI 同步處理內容。  不是從 UI 執行緒呼叫，可能會導致訊息無法使用 UI 來提取正確和/或鎖死案例。 如果您不是在 UI 執行緒上，從 UI 執行緒呼叫 MSAL 的其中一種方法，就是在 WPF 上使用 `Dispatcher`。
 - 如果您使用的是 WPF，若要從 WPF 控制項取得視窗，您可以使用 `WindowInteropHelper.Handle` 類別。 然後，從 WPF 控制項（`this`）呼叫：
 
-  ```CSharp
+  ```csharp
   result = await app.AcquireTokenInteractive(scopes)
                     .WithParentActivityOrWindow(new WindowInteropHelper(this).Handle)
                     .ExecuteAsync();
@@ -226,7 +226,7 @@ WithParentActivityOrWindow(object parent).
 
 這個修飾詞用於您想要讓使用者預先同意數個資源的先進案例（而不想要使用累加式同意，這通常與 MSAL.NET/Microsoft 身分識別平臺搭配使用）。 如需詳細資訊，請參閱[如何：將使用者同意預先用於數個資源](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources)。
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .WithExtraScopeToConsent(scopesForVendorApi)
                      .ExecuteAsync();
@@ -253,7 +253,7 @@ MSAL 為大部分的平臺提供 Web UI，但仍有一些情況下，您可能�
 
 `WithCustomWebUi` 是一個擴充點，可讓您在公用用戶端應用程式中提供自己的 UI，並讓使用者通過身分識別提供者的/Authorize 端點，並讓他們登入和同意。 MSAL.NET 可以，然後兌換驗證碼並取得權杖。 這是用於 Visual Studio 中的實例，以讓 electrons 應用程式（例如 VS 意見反應）提供 web 互動，但讓它 MSAL.NET 來執行大部分的工作。 如果您想要提供使用者介面自動化，也可以使用它。 在公用用戶端應用程式中，MSAL.NET 會使用 PKCE 標準（[由 OAuth 公用用戶端交換程式碼的 RFC 7636-證明金鑰](https://tools.ietf.org/html/rfc7636)），以確保遵守安全性：只有 MSAL.NET 可以兌換程式碼。
 
-  ```CSharp
+  ```csharp
   using Microsoft.Identity.Client.Extensions;
   ```
 
@@ -264,7 +264,7 @@ MSAL 為大部分的平臺提供 Web UI，但仍有一些情況下，您可能�
   1. 執行 `ICustomWebUi` 介面（請參閱[這裡](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70)。 基本上，您必須執行一種方法 `AcquireAuthorizationCodeAsync` 接受授權碼 URL （由 MSAL.NET 計算），讓使用者能夠完成與識別提供者的互動，然後傳回識別提供者用來呼叫您的執行的 URL （包括授權碼）。 如果您有任何問題，則您的執行應該會擲回 `MsalExtensionException` 例外狀況，以便與 MSAL 完美合作。
   2. 在您的 `AcquireTokenInteractive` 呼叫中，您可以使用 `.WithCustomUI()` 修飾詞來傳遞自訂 web UI 的實例
 
-     ```CSharp
+     ```csharp
      result = await app.AcquireTokenInteractive(scopes)
                        .WithCustomWebUi(yourCustomWebUI)
                        .ExecuteAsync();
@@ -284,7 +284,7 @@ MSAL.NET 小組已重寫我們的 UI 測試，以利用這個擴充性機制。 
 
 若要使用這個結構，您可以撰寫如下所示的內容：
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 ...
 
@@ -443,7 +443,7 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 
 下列範例會呈現最新的案例，並說明您可以取得的例外狀況類型及其緩和措施
 
-```CSharp
+```csharp
 static async Task GetATokenForGraph()
 {
  string authority = "https://login.microsoftonline.com/contoso.com";
@@ -590,7 +590,7 @@ MSAL Python 尚不支援此流程。
 
 下列範例呈現簡化的案例
 
-```CSharp
+```csharp
 static async Task GetATokenForGraph()
 {
  string authority = "https://login.microsoftonline.com/contoso.com";
@@ -631,7 +631,7 @@ static async Task GetATokenForGraph()
 
 下列範例會呈現最新的案例，並說明您可以取得的例外狀況類型及其緩和措施
 
-```CSharp
+```csharp
 static async Task GetATokenForGraph()
 {
  string authority = "https://login.microsoftonline.com/contoso.com";
@@ -894,7 +894,7 @@ MSAL for macOS 不支援此流程。
 
 `IPublicClientApplication`包含名為的方法 `AcquireTokenWithDeviceCode`
 
-```CSharp
+```csharp
  AcquireTokenWithDeviceCode(IEnumerable<string> scopes,
                             Func<DeviceCodeResult, Task> deviceCodeResultCallback)
 ```
@@ -904,11 +904,11 @@ MSAL for macOS 不支援此流程。
 - 要求存取權杖的 `scopes`
 - 將接收 `DeviceCodeResult` 的回呼。
 
-  ![映像](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
+  ![image](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
 
 下列範例程式碼會提供最新的案例，並說明您可以取得的例外狀況類型及其緩和措施。
 
-```CSharp
+```csharp
 private const string ClientId = "<client_guid>";
 private const string Authority = "https://login.microsoftonline.com/contoso.com";
 private readonly string[] Scopes = new string[] { "user.read" };
@@ -1099,7 +1099,7 @@ if not result:
 - ``TokenCacheCallback`` 是傳遞至事件的回呼，以便您處理序列化。 系統會使用 ``TokenCacheNotificationArgs``類型的引數來呼叫它們。
 - ``TokenCacheNotificationArgs`` 只會提供應用程式的 ``ClientId``，以及可使用權杖之使用者的參考
 
-  ![映像](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
+  ![image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
 > [!IMPORTANT]
 > MSAL.NET 會為您建立權杖快取，並且在您呼叫應用程式的 `UserTokenCache` 和 `AppTokenCache` 屬性時提供 `IToken` 快取。 您不應該自行執行介面。 當您實作自訂權杖快取序列化時，您的責任是：
@@ -1119,7 +1119,7 @@ if not result:
 
 建立應用程式之後，您可以藉由呼叫 ``TokenCacheHelper.EnableSerialization()`` 傳遞應用程式來啟用序列化 `UserTokenCache`
 
-```CSharp
+```csharp
 app = PublicClientApplicationBuilder.Create(ClientId)
     .Build();
 TokenCacheHelper.EnableSerialization(app.UserTokenCache);
@@ -1127,7 +1127,7 @@ TokenCacheHelper.EnableSerialization(app.UserTokenCache);
 
 此 helper 類別如下列程式碼片段所示：
 
-```CSharp
+```csharp
 static class TokenCacheHelper
  {
   public static void EnableSerialization(ITokenCache tokenCache)
@@ -1184,7 +1184,7 @@ static class TokenCacheHelper
 
 如果您想要使用統一快取格式來執行權杖快取序列化（通用於 ADAL.NET 4.x 和 MSAL.NET 2.x，另一種是相同層代或更舊版本的其他 MSALs，請在相同的平臺上），您可以透過下列程式碼取得靈感:
 
-```CSharp
+```csharp
 string appLocation = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location;
 string cacheFolder = Path.GetFullPath(appLocation) + @"..\..\..\..");
 string adalV3cacheFileName = Path.Combine(cacheFolder, "cacheAdalV3.bin");
@@ -1201,7 +1201,7 @@ FilesBasedTokenCacheHelper.EnableSerialization(app.UserTokenCache,
 
 這次 helper 類別看起來會像下列程式碼：
 
-```CSharp
+```csharp
 using System;
 using System.IO;
 using System.Security.Cryptography;

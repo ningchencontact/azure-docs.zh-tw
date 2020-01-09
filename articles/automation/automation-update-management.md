@@ -2,19 +2,15 @@
 title: Azure 中的更新管理解決方案
 description: 本文說明如何使用 Azure 更新管理解決方案來管理 Windows 和 Linux 電腦的更新。
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/03/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 06d7ede1e9b91832f908c87a22cca37ec2866365
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 924f5bee94544c533f3a2548d931fce292469567
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806536"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420344"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -158,7 +154,7 @@ Windows 代理程式必須設定為與 WSUS 伺服器通訊，或必須具有 Mi
 
 下表描述本解決方案支援的連線來源：
 
-| 連線的來源 | 支援的 | 描述 |
+| 連線的來源 | 支援的 | 說明 |
 | --- | --- | --- |
 | Windows 代理程式 |是 |解決方案會從 Windows 代理程式收集系統更新的相關資訊，然後起始必要更新的安裝。 |
 | Linux 代理程式 |是 |解決方案會從 Linux 代理程式收集系統更新的相關資訊，然後在支援的發行版本上起始必要更新的安裝。 |
@@ -217,7 +213,7 @@ Windows 代理程式必須設定為與 WSUS 伺服器通訊，或必須具有 Mi
 
 ### <a name="windows"></a>Windows
 
-|分類  |描述  |
+|分類  |說明  |
 |---------|---------|
 |重大更新     | 特定問題的更新，負責處理與安全性無關的重大錯誤。        |
 |安全性更新     | 特定產品的安全性相關更新。        |
@@ -230,7 +226,7 @@ Windows 代理程式必須設定為與 WSUS 伺服器通訊，或必須具有 Mi
 
 ### <a name="linux-2"></a>Linux
 
-|分類  |描述  |
+|分類  |說明  |
 |---------|---------|
 |重大更新和安全性更新     | 特定問題或特定產品的安全性相關問題的更新，         |
 |其他更新     | 本質上不重要或不是安全性更新的所有其他更新。        |

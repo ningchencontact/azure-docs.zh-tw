@@ -3,18 +3,18 @@ title: 使用 PowerShell 在 Azure 雲端服務中啟用診斷 | Microsoft Docs
 description: 了解如何使用 PowerShell 啟用雲端服務的診斷
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: gwallace
-ms.openlocfilehash: f2b7e51971cc2e540ee7745b3b44571c58359613
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.author: tagore
+ms.openlocfilehash: 76cdffed813fd182980b36f848e0ae42f3226539
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860225"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386539"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 在 Azure 雲端服務中啟用診斷
 您可以使用 Azure 診斷延伸模組，從雲端服務收集診斷資料 (例如應用程式記錄、效能計數器等)。 本文描述如何使用 PowerShell 啟用雲端服務的 Azure 診斷延伸模組。  如需這篇文章所需要的必要條件，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 。
@@ -121,7 +121,7 @@ Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-如果您使用*set-azureservicediagnosticsextension*或不含 Role 參數的*new-azureservicediagnosticsextensionconfig*來啟用診斷延伸模組，則可以使用*來移除延伸模組移除-Set-azureservicediagnosticsextension* ，不含*Role*參數。 如果啟用延伸模組時使用了*Role*參數，則移除延伸模組時也必須使用它。
+如果您使用*set-azureservicediagnosticsextension*或不含*Role*參數的*new-azureservicediagnosticsextensionconfig*來啟用診斷延伸模組，則可以使用不含*role*參數的*set-azureservicediagnosticsextension*移除延伸模組。 如果啟用延伸模組時使用了*Role*參數，則移除延伸模組時也必須使用它。
 
 若要從每個個別的角色移除診斷延伸模組：
 
@@ -133,3 +133,6 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 * 如需使用 Azure 診斷和其他技術疑難排解問題的詳細指引，請參閱 [在 Azure 雲端服務和虛擬機器中啟用診斷](cloud-services-dotnet-diagnostics.md)。
 * [診斷組態結構描述](/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3) 說明診斷延伸模組的各種 XML 組態選項。
 * 若要了解如何啟用虛擬機器的診斷延伸模組，請參閱 [使用 Azure 資源管理員範本建立具有監控和診斷功能的 Windows 虛擬機器](../virtual-machines/windows/extensions-diagnostics-template.md)
+
+
+

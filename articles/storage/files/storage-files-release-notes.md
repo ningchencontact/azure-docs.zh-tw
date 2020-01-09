@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/6/2019
+ms.date: 12/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 8caa66801dda223681c38e966ba3d08b1b0c5921
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: MT
+ms.openlocfilehash: cc919cabab94e078b8a212feec40047639a36341
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931071"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452921"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 檔案同步代理程式的版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -25,7 +25,8 @@ Azure 檔案同步代理程式支援下列版本：
 
 | 里程碑 | 代理程式版本號碼 | 發行日期 | 狀態 |
 |----|----------------------|--------------|------------------|
-| V9 版本- [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2019年12月2日 | 支援-試驗 |
+| 2019年12月更新彙總套件- [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 2019 年 12 月 12 日 | 支援的 |
+| V9 版本- [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2019年12月2日 | 支援的 |
 | V8 版本- [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 2019 年 10 月 8 日 | 支援的 |
 | 2019年7月更新彙總套件- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 2019 年 7 月 24 日 | 支援的 |
 | 2019年7月更新彙總套件- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 2019年7月12日 | 支援的 |
@@ -43,6 +44,15 @@ Azure 檔案同步代理程式支援下列版本：
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-9100"></a>代理程式版本9.1.0。0
+下列版本資訊適用于2019年12月12日發行之 Azure 檔案同步代理程式的版本9.1.0.0。 這些注意事項是針對版本9.0.0.0 所列的版本資訊以外的資訊。
+
+此版本修正的問題：  
+- 升級至 Azure 檔案同步代理程式版本9.0 之後，同步處理失敗，發生下列其中一個錯誤：
+    - 0x8e5e044e （JET_errWriteConflict）
+    - 0x8e5e0450 （JET_errInvalidSesid）
+    - 0x8e5e0442 （JET_errInstanceUnavailable）
 
 ## <a name="agent-version-9000"></a>代理程式版本9.0.0。0
 下列版本資訊適用于 Azure 檔案同步代理程式的版本9.0.0.0 （2019年12月2日發行）。
@@ -80,7 +90,7 @@ Azure 檔案同步代理程式支援下列版本：
     - 如果伺服器端點路徑是磁片區掛接點，檔案就無法層級，或在某些情況下會意外重新叫用。
     
 ### <a name="evaluation-tool"></a>評估工具
-在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 Azure PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或不支援的 OS 版本。 關於安裝和使用方式指示，請參閱規劃指南中[評估工具](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)小節。 
+在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 Azure PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或 OS 版本。 關於安裝和使用方式指示，請參閱規劃指南中[評估工具](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)小節。 
 
 ### <a name="agent-installation-and-server-configuration"></a>代理程式安裝和伺服器設定
 如需如何使用 Windows Server 安裝及設定 Azure 檔案同步代理程式的詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)和[如何部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)。
@@ -147,7 +157,7 @@ Azure 檔案同步代理程式支援下列版本：
 - 其他效能和可靠性的改進
 
 ### <a name="evaluation-tool"></a>評估工具
-在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 Azure PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或不支援的 OS 版本。 關於安裝和使用方式指示，請參閱規劃指南中[評估工具](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)小節。 
+在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 Azure PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或 OS 版本。 關於安裝和使用方式指示，請參閱規劃指南中[評估工具](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)小節。 
 
 ### <a name="agent-installation-and-server-configuration"></a>代理程式安裝和伺服器設定
 如需如何使用 Windows Server 安裝及設定 Azure 檔案同步代理程式的詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)和[如何部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)。
@@ -240,7 +250,7 @@ Azure 檔案同步代理程式支援下列版本：
     - 此版本有數個可靠性和效能改進。 其中一些目標是要讓雲端階層處理更有效率，並在您已設定頻寬節流排程的情況下，以更好的方式 Azure 檔案同步。
 
 ### <a name="evaluation-tool"></a>評估工具
-在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 Azure PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或不支援的 OS 版本。 關於安裝和使用方式指示，請參閱規劃指南中[評估工具](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)小節。 
+在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 Azure PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或 OS 版本。 關於安裝和使用方式指示，請參閱規劃指南中[評估工具](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)小節。 
 
 ### <a name="agent-installation-and-server-configuration"></a>代理程式安裝和伺服器設定
 如需如何使用 Windows Server 安裝及設定 Azure 檔案同步代理程式的詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)和[如何部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)。
@@ -337,7 +347,7 @@ Azure 檔案同步代理程式支援下列版本：
 - 雲端階層處理和同步處理的其他可靠性改進
 
 ### <a name="evaluation-tool"></a>評估工具
-在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 Azure PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或不支援的 OS 版本。 關於安裝和使用方式指示，請參閱規劃指南中[評估工具](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)小節。 
+在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 Azure PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或 OS 版本。 關於安裝和使用方式指示，請參閱規劃指南中[評估工具](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)小節。 
 
 ### <a name="agent-installation-and-server-configuration"></a>代理程式安裝和伺服器設定
 如需如何使用 Windows Server 安裝及設定 Azure 檔案同步代理程式的詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)和[如何部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)。
@@ -434,7 +444,7 @@ Azure 檔案同步代理程式支援下列版本：
     - 當大型檔案的傳輸中斷時，同步處理將嘗試繼續資料傳輸，而不是重新傳輸 
 
 ### <a name="evaluation-tool"></a>評估工具
-在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 Azure PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或不支援的 OS 版本。 關於安裝和使用方式指示，請參閱規劃指南中[評估工具](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)小節。 
+在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 Azure PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或 OS 版本。 關於安裝和使用方式指示，請參閱規劃指南中[評估工具](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)小節。 
 
 ### <a name="agent-installation-and-server-configuration"></a>代理程式安裝和伺服器設定
 如需如何使用 Windows Server 安裝及設定 Azure 檔案同步代理程式的詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)和[如何部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)。

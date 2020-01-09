@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8db3baf9fa4c0d054e743d0b52964847b37ec281
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f42713eb579da34ad4b150eec2c89b9645315d0b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078283"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638063"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -37,8 +37,8 @@ ms.locfileid: "70078283"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -197,7 +197,7 @@ ms.locfileid: "70078283"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -234,9 +234,9 @@ Azure Load Balancer 服務可為 Azure 提供「內部負載平衡器」。 使�
 
 在包含叢集節點的資源群組中部署內部負載平衡器。 接著，使用內部負載平衡器的探查連接埠來設定所有必要的連接埠轉送規則。 用戶端可以透過虛擬主機名稱來進行連線。 DNS 伺服器會解析叢集 IP 位址。 內部負載平衡器則會處理對作用中叢集節點的連接埠轉送。
 
-![圖 1：Azure 中不含共用磁碟的 Windows Server 容錯移轉叢集設定][sap-ha-guide-figure-1001]
+![圖 1：Azure 中沒有共用磁碟的 Windows Server 容錯移轉叢集設定][sap-ha-guide-figure-1001]
 
-_**圖 1：** Azure 中不含共用磁碟的 Windows Server 容錯移轉叢集設定_
+_**圖 1**：Azure 中不含共用磁碟的 Windows Server 容錯移轉叢集設定_
 
 ## <a name="sap-ascsscs-ha-with-file-share"></a>含檔案共用的 SAP ASCS/SCS HA
 
@@ -251,7 +251,7 @@ SAP 已針對在 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 執行個體�
 * SAP 中央服務 (包含自己的檔案結構、訊息及加入佇列處理序) 與 SAP 全域主機檔案是分開的。
 * SAP 中央服務會在 SAP ASCS/SCS 執行個體之下執行。
 * SAP ASCS/SCS 執行個體已叢集處理，並且可使用 \<ASCS/SCS 虛擬主機名稱\> 虛擬主機名稱來存取。
-* SAP 全域檔案會置於 SMB 檔案共用，並可使用 \<SAP 全域主機\>主機名稱:\\\\&lt;SAP 全域主機&gt;\sapmnt\\&lt;SID&gt;\SYS\... 加以存取。
+* SAP 全域檔案會置於 SMB 檔案共用，並可使用 \<SAP 全域主機\> 主機名稱: \\\\&lt;SAP 全域主機&gt;\sapmnt\\&lt;SID&gt;\SYS\... 加以存取。
 * SAP ASCS/SCS 執行個體是安裝於這兩個叢集節點上的本機磁碟。
 * \<ASCS/SCS 虛擬主機名稱\> 網路名稱與 &lt;SAP 全域主機&gt; 不同。
 
@@ -291,10 +291,10 @@ _**圖 4：** 用來保護 SAP 全域主機檔案的向外延展檔案共用_
 
 儲存空間直接存取會當作向外延展檔案共用的共用磁碟使用。 您可以使用儲存空間直接存取搭配使用伺服器與本機儲存體來建立高度可用且可調整的儲存體。 用於向外延展檔案共用 (例如用於 SAP 全域主機檔案) 的共用儲存體不是單一失敗點。
 
-選擇儲存空間直接存取時, 請考慮下列使用案例:
+選擇儲存空間直接存取時，請考慮下列使用案例：
 
 - 用來建立儲存空間直接存取叢集的虛擬機器必須部署在 Azure 可用性設定組中。
-- 針對儲存空間直接存取叢集的嚴重損壞修復, 您可以使用[Azure Site Recovery 服務](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage)。
+- 針對儲存空間直接存取叢集的嚴重損壞修復，您可以使用[Azure Site Recovery 服務](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage)。
 - 不支援跨不同 Azure 可用性區域延展儲存空間直接存取叢集。
 
 ### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Azure 中向外延展檔案共用的 SAP 必要條件
@@ -311,19 +311,19 @@ _**圖 4：** 用來保護 SAP 全域主機檔案的向外延展檔案共用_
 * 您必須使用 Azure 進階磁碟。
 * 建議您使用 Azure 受控磁碟。
 * 建議您使用復原檔案系統 (ReFS) 格式化磁碟區。
-    * 如需詳細資訊, 請參閱[Sap 附注 1869038-ReFs 檔案系統的 sap 支援][1869038]和在儲存空間直接存取中規劃磁片區一文中的[選擇檔案系統][planning-volumes-s2d-choosing-filesystem]一章。
+    * 如需詳細資訊，請參閱[Sap 附注 1869038-ReFs 檔案系統的 sap 支援][1869038]和在儲存空間直接存取中規劃磁片區一文中的[選擇檔案系統][planning-volumes-s2d-choosing-filesystem]一章。
     * 請確定您已安裝[MICROSOFT KB4025334 累計更新][kb4025334]。
 * 您可以使用 DS 系列或 DSv2 系列 Azure VM 大小。
 * 若要讓 VM 之間具備良好的網路效能，供儲存空間直接存取磁碟同步之用，請使用至少具有「高」網路頻寬的 VM 類型。
-    如需詳細資訊, 請參閱[DSv2 系列][dv2-series]和[DS 系列][ds-series]規格。
-* 建議您在儲存體集區中保留一些未配置的容量。 在儲存體集區中保留一些未配置的容量，可在磁碟機故障時，讓磁碟區空間「就地」修復。 這可改善資料安全性和效能。  如需詳細資訊, 請參閱[選擇磁片區大小][choosing-the-size-of-volumes-s2d]。
+    如需詳細資訊，請參閱[DSv2 系列][dv2-series]和[DS 系列][ds-series]規格。
+* 建議您在儲存體集區中保留一些未配置的容量。 在儲存體集區中保留一些未配置的容量，可在磁碟機故障時，讓磁碟區空間「就地」修復。 這可改善資料安全性和效能。  如需詳細資訊，請參閱[選擇磁片區大小][choosing-the-size-of-volumes-s2d]。
 * 您不需要為向外延展檔案共用網路名稱 (例如 \<SAP 全域主機\>) 設定 Azure 內部負載平衡器。 這是針對 SAP ASCS/SCS 執行個體的 \<ASCS/SCS 虛擬主機名稱\> 或針對 DBMS 進行。 向外延展檔案共用會在所有叢集節點之間向外延展負載。 \<SAP 全域主機\> 會對所有叢集節點使用本機 IP 位址。
 
 
 > [!IMPORTANT]
 > 您無法為指向 \<SAP 全域主機\> 的 SAPMNT 檔案共用重新命名。 SAP 僅支援共用名稱 "sapmnt"。
 >
-> 如需詳細資訊, 請參閱[SAP 附注 2492395-共用名稱 sapmnt 是否可以變更？][2492395]
+> 如需詳細資訊，請參閱[SAP 附注 2492395-共用名稱 sapmnt 是否可以變更？][2492395]
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>在兩個叢集中設定 SAP ASCS/SCS 執行個體和向外延展檔案共用
 
@@ -338,7 +338,7 @@ _**圖 4：** 用來保護 SAP 全域主機檔案的向外延展檔案共用_
 _**圖 5：** 在兩個叢集中部署的 SAP ASCS/SCS 執行個體和向外延展檔案共用_
 
 > [!IMPORTANT]
-> 在 Azure 雲端中, 用於 SAP 和向外延展檔案共用的每個叢集都必須部署在自己的 Azure 可用性設定組或跨 Azure 可用性區域。 這可確保叢集 VM 在基礎 Azure 基礎結構中，以分散方式放置。 這項技術支援可用性區域部署。
+> 在 Azure 雲端中，用於 SAP 和向外延展檔案共用的每個叢集都必須部署在自己的 Azure 可用性設定組或跨 Azure 可用性區域。 這可確保叢集 VM 在基礎 Azure 基礎結構中，以分散方式放置。 這項技術支援可用性區域部署。
 >
 
 ## <a name="generic-file-share-with-sios-datakeeper-as-cluster-shared-disks"></a>將 SIOS DataKeeper 當作叢集共用磁碟的一般檔案共用
@@ -350,7 +350,7 @@ _**圖 5：** 在兩個叢集中部署的 SAP ASCS/SCS 執行個體和向外延�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 SAP ASCS/SCS 實例的 Windows 容錯移轉叢集和檔案共用, 為 SAP HA 準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-file-share]
+* [使用 SAP ASCS/SCS 實例的 Windows 容錯移轉叢集和檔案共用，為 SAP HA 準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-file-share]
 * [在 SAP ASCS/SCS 實例的 Windows 容錯移轉叢集和檔案共用上安裝 SAP NetWeaver HA][sap-high-availability-installation-wsfc-shared-disk]
 * [在 Azure 中部署 UPD 儲存體的雙節點儲存空間直接存取向外延展檔案伺服器][deploy-sofs-s2d-in-azure]
 * [Windows Server 2016 中的儲存空間直接存取][s2d-in-win-2016]

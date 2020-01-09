@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f5e0344cb1da86661ae87b5e45bd93dd181e7bb0
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325420"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659554"
 ---
-# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 詞彙：Azure 平台上的雲端術語字典
+# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 詞彙︰Azure 平台上的雲端術語字典
 
 Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請參閱：
 
-* [Microsoft Azure 與 Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -定義的 Azure 服務和及其 AWS 對應項。<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
+* [Microsoft Azure 和 Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -Azure 服務的定義及其 AWS 對應專案。<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [雲端運算詞彙](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - 一般產業雲端詞彙。
 
-## <a name="account"></a>帳戶
+## <a name="account"></a>account
 用來存取和管理 Azure 訂用帳戶的帳戶。 通常稱為 Azure 帳戶，雖然帳戶可以是以下任何一項：現有公司、學校或個人 Microsoft 帳戶，或 Office 365 使用者名稱和密碼。 當您註冊[免費試用版](https://azure.microsoft.com)時，也可以建立帳戶來管理 Azure 訂用帳戶。  
 請參閱[ Office 365 帳戶註冊 Azure 訂用帳戶](billing/billing-use-existing-office-365-account-azure-subscription.md)和[您可以用來登入的帳戶](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
 
@@ -37,7 +37,7 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 [App Service 應用程式](#app-service-app)的另一個名稱。
 
 ## <a name="app-service-app"></a>App Service 應用程式
-[Azure App Service](app-service/overview.md) 提供的計算資源，可供裝載網站或 Web 應用程式、Web API或[行動裝置應用程式後端](app-service-mobile/app-service-mobile-value-prop.md)。 App Service 應用程式也稱為「應用程式服務」  、「Web 應用程式」  、「API 應用程式」  和「行動裝置應用程式」  。
+[Azure App Service](app-service/overview.md) 提供的計算資源，可供裝載網站或 Web 應用程式、Web API或[行動裝置應用程式後端](app-service-mobile/app-service-mobile-value-prop.md)。 App Service 應用程式也稱為「應用程式服務」、「Web 應用程式」、「API 應用程式」和「行動裝置應用程式」。
 
 ## <a name="availability-set"></a>可用性設定組
 可一起管理的虛擬機器集合，以提供應用程式備援能力和可靠性。 可用性設定組的用法可確保在預定進行或未預定進行的維護事件期間，至少有一部虛擬機器可以使用。  
@@ -70,12 +70,12 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## <a name="image"></a>image
-包含作業系統和應用程式組態的檔案，可用來建立任意數目的虛擬機器。 在 Azure 中有兩種類型的映像：VM 映像和 OS 映像。 VM 映像包含作業系統和建立映像時所有連接至虛擬機器的磁碟。 作業系統映像只包含通用的作業系統且不含任何資料磁碟組態。  
+包含作業系統和應用程式組態的檔案，可用來建立任意數目的虛擬機器。 在 Azure 中有兩種類型的映像：VM 映像和作業系統映像。 VM 映像包含作業系統和建立映像時所有連接至虛擬機器的磁碟。 作業系統映像只包含通用的作業系統且不含任何資料磁碟組態。  
 請參閱[使用 PowerShell 或 CLI 在 Azure 中瀏覽並選取 Windows 虛擬機器映像](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="limits"></a>限制
 您可以建立的資源數目或可達到的效能評定。 限制通常會與訂用帳戶、服務和供應項目相關聯。  
-請參閱 [Azure 訂用帳戶和服務限制、配額與限制](azure-subscription-service-limits.md)
+請參閱 [Azure 訂用帳戶和服務限制、配額與限制](azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="load-balancer"></a>負載平衡器
 網路上電腦之間分散連入流量的資源。 在 Azure 中，負載平衡器會將流量分散到定義於內部負載平衡器集中的虛擬機器。 [負載平衡器](load-balancer/load-balancer-overview.md) 可以是面向網際網路的，也可以是內部的。  
@@ -91,7 +91,7 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 用來部署和管理 Azure 服務的安全 Web 入口網站。
 
 ## <a name="region"></a>region
-地理區域內不會跨越國界且包含一或多個資料中心的地區。 定價、區域性服務和供應項目類型是在區域層級公開。 區域通常會與另一個區域配對，兩者可多達數百英哩遠。 區域配對可用來做為災害復原及高可用性案例的機制。 也稱為「位置」  。  
+地理區域內不會跨越國界且包含一或多個資料中心的地區。 定價、區域性服務和供應項目類型是在區域層級公開。 區域通常會與另一個區域配對，兩者可多達數百英哩遠。 區域配對可用來做為災害復原及高可用性案例的機制。 也稱為「位置」。  
 請參閱 [Azure 區域](best-practices-availability-paired-regions.md)
 
 ## <a name="resource"></a>resource
@@ -110,9 +110,9 @@ Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型
 提供資源的服務，讓您可透過資源管理員進行部署及管理。 每個資源提供者都會提供作業，以便能運用所部署的資源。 資源提供者可以透過 Azure 入口網站、Azure PowerShell 和數個程式設計的 SDK 來存取。  
 請參閱 [Azure Resource Manager 概觀](azure-resource-manager/resource-group-overview.md)
 
-## <a name="role"></a>角色
+## <a name="role"></a>角色 (role)
 用於控制可指派給使用者、群組和服務的存取權的方式。 角色能夠在 Azure 資源上執行建立、管理及讀取之類的動作。  
-請參閱[RBAC:內建角色](role-based-access-control/built-in-roles.md)
+請參閱 [RBAC：內建角色](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>服務等級協定 (SLA)
 此協定會描述 Microsoft 對執行時間與連線能力的承諾。 每個 Azure 服務都有特定的 SLA。  
@@ -125,7 +125,7 @@ Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型
 可讓您存取 Azure 儲存體中 Azure Blob、佇列、資料表和檔案服務的帳戶。 儲存體帳戶名稱可定義 Azure 儲存體資料物件的唯一命名空間。  
 請參閱[關於 Azure 儲存體帳戶](storage/common/storage-create-storage-account.md)
 
-## <a name="subscription"></a>subscription
+## <a name="subscription"></a>訂用帳戶
 客戶與 Microsoft 的合約，可讓他們取得 Azure 服務。 訂用帳戶定價及相關條款是由針對訂用帳戶所選擇的供應項目來控管。
 請參閱 [Microsoft 線上訂用帳戶合約](https://azure.microsoft.com/support/legal/subscription-agreement/)和 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
@@ -147,13 +147,13 @@ Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型
 請參閱[關於虛擬機器擴充功能和功能 (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 或[關於虛擬機器擴充功能和功能 (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="vnet"></a>虛擬網路
-一種網路，可提供與所有其他 Azure 租用戶隔離之 Azure 資源間的連線能力。 [Azure VPN 閘道](vpn-gateway/vpn-gateway-about-vpngateways.md)可讓您建立虛擬網路之間及虛擬網路與內部部署網路之間的連線。 您可以完全控制虛擬網路內的 IP 位址區塊、DNS 設定、安全性原則和路由表。  
+一種網路，可提供與所有其他 Azure 租用戶隔離之 Azure 資源間的連線能力。 [Azure VPN 閘道](vpn-gateway/vpn-gateway-about-vpngateways.md)可讓您建立虛擬網路與虛擬網路與內部部署網路之間的連線。 您可以完全控制虛擬網路內的 IP 位址區塊、DNS 設定、安全性原則和路由表。  
 請參閱[虛擬網路概觀](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>Web 應用程式
 [App Service 應用程式](#app-service-app)的另一個名稱。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [開始使用 Azure](https://azure.microsoft.com/get-started/)
 * [雲端資源中心](https://azure.microsoft.com/resources/)  

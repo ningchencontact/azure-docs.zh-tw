@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: da47a471ddcf2c083ed127b79e4d3da9713d2ed4
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 09f379279a7247f87b9e0830414a5e4363f41cdb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719068"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468667"
 ---
-記憶體最佳化的虛擬機器大小的記憶體與 CPU 比例相當高，最適合關聯式資料庫伺服器、中型到大型快取，以及記憶體內部分析。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，亦會介紹此群組中各種大小之儲存體輸送量和網路頻寬。
+記憶體最佳化的虛擬機器大小的記憶體與 CPU 比例相當高，最適合關聯式資料庫伺服器、中型到大型快取，以及記憶體內部分析。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此群組中各種大小之儲存體輸送量和網路頻寬的相關資訊。
 
 * Ev3 系列在超執行緒設定中提供 Intel®的® 8171M 2.1 GHz （Skylake）或 Intel®的® E5 2673 v4 2.3 g h z （Broadwell）處理器，為大多數一般用途的工作負載提供更好的價值主張，並將 Ev3 帶入與大部分其他雲端的一般用途 Vm 一致。  除了記憶體已擴充 (從 7 GiB/vCPU 到 8 GiB/vCPU)，磁碟和網路限制也已就個別核心進行調整，以符合移轉至超執行緒的需求。  Ev3 承襲了 D/Dv2 系列的高記憶體 VM 大小。
 
@@ -25,11 +25,11 @@ ms.locfileid: "73719068"
 
 * M 系列提供高 vCPU 計數（最多128個 vcpu）和海量儲存體（最多 3.8 TiB）。 這也適用于極大的資料庫或其他受益于高 vCPU 計數和海量儲存體的應用程式。
 
-* Dv2 系列、G 系列和 DSv2/GS 適用于需要更快速的個 vcpu、更佳的暫存儲存體效能，或有更高記憶體需求的應用程式。 它們為許多企業級應用程式提供了強大的組合。
+* Dv2 系列、G 系列和 DSv2/GS 適用于需要更快速的個 vcpu、更佳的暫存儲存體效能，或有更高記憶體需求的應用程式。 這兩個系列全都提供多種企業級應用程式的超值組合。
 
 * Dv2 系列是原始 D 系列的延續，擁有更強大的 CPU。 Dv2 系列的速度比 D 系列快35%。 其執行于 Intel®® 8171M 2.1 GHz （Skylake）或 Intel®的2673® E5-v4 2.3 g h z （Broadwell）或 Intel®（r）® E5-2673 v3 2.4 GHz （Haswell）處理器，並搭配 Intel Turbo 加速技術2.0。 Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
 
-* Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制，而且為單一客戶專用。  這些虛擬機器大小最適合需要與其他客戶高度隔離，且涉及合規性和法規要求等元素的工作負載。  客戶也可以選擇使用 [Azure 的巢狀虛擬機器支援](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)，進一步細分這些隔離虛擬機器的資源。  請參閱下方的虛擬機器系列表格，了解您的隔離 VM 選項。
+* Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制，而且為單一客戶專用。  這些虛擬機器大小最適合需要與其他客戶高度隔離，且涉及合規性和法規要求等項目的工作負載。  客戶也可以選擇使用 [Azure 的巢狀虛擬機器支援](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)，進一步細分這些隔離虛擬機器的資源。  請參閱下方的虛擬機器系列表格，了解您的隔離 VM 選項。
 
 ## <a name="esv3-series"></a>Esv3 系列
 
@@ -39,7 +39,7 @@ ACU：160-190 <sup>1</sup>
 
 進階儲存體快取：支援
 
-ESv3 系列實例提供 Intel®的® 8171M 2.1 GHz （Skylake）或 Intel®的® E5-2673 v4 2.3 g h z （Broadwell）處理器的功能，並可使用 Intel Turbo 加速技術2.0 來達到 3.5 GHz，並使用 premium storage。 Ev3 系列執行個體很適合記憶體密集型的企業應用程式。
+ESv3 系列實例提供 Intel®的® 8171M 2.1 GHz （Skylake）或 Intel®的® E5-2673 v4 2.3 g h z （Broadwell）處理器的功能，並可使用 Intel Turbo 加速技術2.0 來達到 3.5 GHz，並使用 premium storage。 Ev3 系列執行個體很適合高度耗用記憶體的企業應用程式。
 
 
 | 大小             | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量︰IOPS / MBps (以 GiB 為單位的快取大小) | 最大取消快取的磁碟輸送量︰IOPS / MBps | 最大 NIC/預期的網路頻寬 (Mbps) |
@@ -93,7 +93,7 @@ ACU：160 - 190 <sup>1</sup>
 
 進階儲存體快取：不支援
 
-Ev3 系列實例提供 Intel®的® 8171M 2.1 GHz （Skylake）或 Intel®的® E5-2673 v4 2.3 g h z （Broadwell）處理器的功能，並可使用 Intel Turbo 加速技術2.0 來達到 3.5 GHz。 Ev3 系列執行個體很適合記憶體密集型的企業應用程式。
+Ev3 系列實例提供 Intel®的® 8171M 2.1 GHz （Skylake）或 Intel®的® E5-2673 v4 2.3 g h z （Broadwell）處理器的功能，並可使用 Intel Turbo 加速技術2.0 來達到 3.5 GHz。 Ev3 系列執行個體很適合高度耗用記憶體的企業應用程式。
 
 資料磁碟儲存體與虛擬機器分開計費。 若要使用進階儲存體磁碟，請使用 ESv3 大小。 ESv3 大小的定價及計費方式與 Ev3 系列相同。 
 
@@ -224,8 +224,8 @@ DSv2 系列大小執行于 Intel®的® 8171M 2.1 GHz （Skylake）或 Intel®�
 | Standard_DS14_v2&nbsp;<sup>3</sup>|16 |112 |224 |64 |64000/512 （576） |51200/768 |8 / 12000 |
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80000/640 （720） |64000/960 |8 / 25000&nbsp;<sup>4</sup>
 
-<sup>1</sup> DSv2 系列 VM 的最大磁碟輸送量 (IOPS 或 MBps)，可能會受到所連接磁碟的數量、大小和串接所限制。  如需詳細資訊，請參閱[為高效能而設計](../articles/virtual-machines/windows/premium-storage-performance.md)。  
-<sup>2</sup> 執行個體會隔離至單一客戶專用的硬體。  
+<sup>1</sup> DSv2 系列 VM 的最大磁碟輸送量 (IOPS 或 MBps)，可能會受到所連接磁碟的數量、大小和串接所限制。  如需詳細資訊，請參閱[為高效能而設計](../articles/virtual-machines/windows/premium-storage-performance.md) \(英文\)。  
+<sup>2</sup>實例會隔離至 Intel Haswell 型硬體，並專屬於單一客戶。  
 <sup>3</sup> 可用限制核心大小。  
 <sup>4</sup> 25000 Mbps (含加速網路)。 
 

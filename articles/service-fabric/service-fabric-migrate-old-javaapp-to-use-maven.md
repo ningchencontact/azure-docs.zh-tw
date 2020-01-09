@@ -1,30 +1,21 @@
 ---
-title: 從 Java SDK 移轉至 Maven - 更新舊版 Azure Service Fabric Java 應用程式以使用 Maven | Microsoft Docs
+title: 從 JAVA SDK 遷移至 Maven
 description: 更新用於使用 Service Fabric Java SDK 的舊版 Java 應用程式，以從 Maven 擷取 Service Fabric Java 相依性。 完成此設定之後，就能夠建置舊版 Java 應用程式。
-services: service-fabric
-documentationcenter: java
 author: rapatchi
-manager: chackdan
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: dbd85b3647a60ce873c1a55b851bd47ece103282
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5e126ebdf3b89470472391c59d378c7a6d39b86
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718389"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609803"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>更新先前的 Java Service Fabric 應用程式，以從 Maven 擷取 Java 程式庫
 我們最近已將 Service Fabric Java 二進位檔從 Service Fabric Java SDK 移至 Maven 主機。 您現在可以使用 **mavencentral** 擷取最新的 Service Fabric Java 相依性。 本快速入門可協助您更新要與以 Maven 為基礎的組建相容的現有 Java 應用程式，您稍早使用 Yeoman 範本或 Eclipse 建立這些應用程式，以便搭配 Service Fabric Java SDK 使用。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 1. 首先，您必須解除安裝現有的 Java SDK。
 
    ```bash
@@ -89,7 +80,7 @@ Service Fabric Java 程式庫已裝載於 Maven 中。 您可以在專案的 ``p
   ```
 
 ### <a name="others"></a>其他
-#### <a name="transport"></a>傳輸
+#### <a name="transport"></a>運輸
 
 Service Fabric Java 應用程式的傳輸層支援。 除非您在傳輸層進行程式設計，否則不需要明確地將此相依性新增至 Reliable Actor 或服務應用程式。
 
@@ -167,7 +158,7 @@ task copyDeps <<{
     }
 }
 ```
-現在，若要從 Maven 提取相依性，**已更新**的 ``build.gradle`` 會有對應的組件，如下所示 -
+現在，若要從 Maven 提取相依性，**更新後**的 ``build.gradle`` 會有對應的元件，如下所示-
 ```
 repositories {
         mavenCentral()
@@ -241,7 +232,7 @@ dependencies {
 .
 .
 ```
-現在，若要從 Maven 提取相依性，**已更新**的 ``build.gradle`` 會有對應的組件，如下所示 -
+現在，若要從 Maven 提取相依性，**更新後**的 ``build.gradle`` 會有對應的元件，如下所示-
 ```
 repositories {
     mavenCentral()
@@ -313,7 +304,7 @@ task copyDeps<< {
     }
 }
 ```
-現在，若要從 Maven 提取相依性，**已更新**的 ``build.gradle`` 會有對應的組件，如下所示 -
+現在，若要從 Maven 提取相依性，**更新後**的 ``build.gradle`` 會有對應的元件，如下所示-
 ```
 repositories {
     mavenCentral()
@@ -413,7 +404,7 @@ task copyDeps<< {
         }
 }
 ```
-現在，若要從 Maven 提取相依性，**已更新**的 ``build.gradle`` 會有對應的組件，如下所示 -
+現在，若要從 Maven 提取相依性，**更新後**的 ``build.gradle`` 會有對應的元件，如下所示-
 ```
 repositories {
     mavenCentral()

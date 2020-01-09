@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 4a1e621570f3bf5fdb78a2fd7b29ce0d1b51187f
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 679b59ac786f863c8a5f34aec71f51c5dc75a167
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951780"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608698"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight 上的機器學習服務
 
@@ -31,7 +31,7 @@ HDInsight 能以巨量資料實現機器學習服務，有能力從大量 (PB，
 
 ![使用 R 伺服器進行預測訓練](./media/hdinsight-machine-learning-overview/training-for-prediction.png)
 
-叢集的邊緣節點提供便利的地方，以便連接到叢集以及執行 R 指令碼。  您也可以使用 ScaleR 的 Hadoop Map 縮減或 Spark 計算內容，跨叢集的節點執行 R 腳本。
+叢集的邊緣節點提供便利的地方，以便連線到叢集以及執行 R 指令碼。  您也可以使用 ScaleR 的 Hadoop Map 縮減或 Spark 計算內容，跨叢集的節點執行 R 腳本。
 
 在具有 Spark 的 HDInsight 上使用 ML 服務，您可以使用 Spark 計算內容，在叢集的節點之間進行並行訓練。 您可以視需要透過並行方式使用所有可用核心，在邊緣節點上直接執行 R 指令碼。 或者，您可以從邊緣節點執行程式碼，啟動分散在叢集中所有節點上的處理作業。 具有 Spark 的 HDInsight 上的 ML 服務也可讓您從開放原始碼 R 套件平行處理函式（如有需要）。
 
@@ -64,4 +64,4 @@ Azure Machine Learning 提供可建立預測性分析模型的工具，以及完
 
 * [搭配 Azure HDInsight Spark 叢集使用 Microsoft Cognitive Toolkit 深度學習模型](spark/apache-spark-microsoft-cognitive-toolkit.md)
 * [在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習](spark/apache-spark-deep-learning-caffe.md)
-* [資料科學虛擬機器上的深度學習和 AI 架構（DSVM）](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)
+* [資料科學虛擬機器上的深度學習和 AI 架構（DSVM）](../machine-learning/data-science-virtual-machine/dsvm-tools-deep-learning-frameworks.md)

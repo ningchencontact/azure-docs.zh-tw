@@ -11,20 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67b92c32d511300a0645b707f2a263b463937d1b
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: b8dc442720a6c2876990e5012732b363b43ec0cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558584"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430187"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>在 Azure 入口網站中管理企業應用程式的使用者帳戶佈建
 
-本文說明如何使用 [Azure 入口網站](https://portal.azure.com)管理自動使用者帳戶的佈建和解除佈建，以用於支援它的應用程式。 如需深入了解自動化使用者佈建，請參閱 [自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](user-provisioning.md)。
+本文說明管理自動使用者帳戶布建和解除布建的一般步驟，以支援它的應用程式。 *使用者帳戶佈建*是指在應用程式的本機使用者設定檔儲存中建立、更新及/或停用使用者帳戶記錄的動作。 大部分的雲端和 SaaS 應用程式會將使用者角色和許可權儲存在使用者自己的本機使用者設定檔存放區中，而使用者本機存放區中的這類使用者記錄*必須*存在，才能讓單一登入和存取工作。 若要深入瞭解自動使用者帳戶布建，請參閱[使用 Azure Active Directory 自動化 SaaS 應用程式的使用者](user-provisioning.md)布建和解除布建。
+
+> [!IMPORTANT]
+> Azure Active Directory （Azure AD）有一個資源庫，其中包含數千個預先整合的應用程式，可透過 Azure AD 啟用自動布建。 您應該從在[如何整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)中找到您的應用程式專屬的布建設定教學課程開始。 您可能會發現設定應用程式和 Azure AD 來建立布建連線的逐步指引。
 
 ## <a name="finding-your-apps-in-the-portal"></a>在入口網站中尋找您的應用程式
 

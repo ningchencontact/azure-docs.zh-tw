@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ece310a248140b7913ffcc9f7146d382ee44fb5d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 455652795a13fe9755c1ed57681bedaf7a70a5d5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851293"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435163"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>從感應器合作夥伴取得感應器資料
 
@@ -18,16 +18,16 @@ Azure FarmBeats 可協助您將 IoT 裝置和感應器的串流資料帶入 Data
 
   ![FarmBeats 合作夥伴](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
 
-將裝置資料與 Azure FarmBeats 整合，可協助您從伺服器陣列中部署的 IoT 感應器，取得資料中樞的基礎資料。 資料一經提供，就可以透過 FarmBeats 加速器來視覺化。 資料可以用於資料融合，並使用 FarmBeats 來建立機器學習/人工智慧（ML/AI）模型。
+將裝置資料與 Azure FarmBeats 整合，可協助您從部署在伺服器陣列中的 IoT 感應器取得基礎資料至 datahub。 資料一經提供，就可以透過 FarmBeats 加速器來視覺化。 資料可以用於資料融合，並使用 FarmBeats 來建立機器學習/人工智慧（ML/AI）模型。
 
 若要啟動感應器資料串流，請確定下列事項：
 
 -  您已在 Azure Marketplace 中安裝 FarmBeats。
 -  您決定要在伺服器陣列上安裝的感應器和裝置。
--  如果您打算使用土裡濕度感應器，請使用 FarmBeats 的土濕度感應器放置圖來取得感應器數目的建議，以及您應該將它們放在何處。 如需詳細資訊，請參閱[產生對應](generate-maps.md)。
+-  如果您打算使用土裡濕度感應器，請使用 FarmBeats 的土濕度感應器放置圖來取得感應器數目的建議，以及您應該將它們放在何處。 如需詳細資訊，請參閱[產生對應](generate-maps-in-azure-farmbeats.md)。
 - 您可以從您的伺服器陣列上的裝置夥伴購買並部署裝置或感應器。 請確定您可以透過裝置合作夥伴的解決方案存取感應器資料。
 
-## <a name="enable-device-integration-with-farmbeats"></a>啟用裝置與 FarmBeats 的整合 
+## <a name="enable-device-integration-with-farmbeats"></a>啟用裝置與 FarmBeats 的整合
 
 開始串流處理感應器資料之後，您就可以開始將資料放入 FarmBeats 系統的程式。 將下列資訊提供給您的裝置提供者，以啟用與 FarmBeats 的整合：
 
@@ -155,4 +155,4 @@ Azure FarmBeats 可協助您將 IoT 裝置和感應器的串流資料帶入 Data
 
 ## <a name="next-steps"></a>後續步驟
 
-您現在已將感應器資料流程入您的 Azure FarmBeats 實例。 現在，請瞭解如何為您的伺服器陣列[產生對應](generate-maps.md#generate-maps)。
+您現在已將感應器資料流程入您的 Azure FarmBeats 實例。 現在，請瞭解如何為您的伺服器陣列[產生對應](generate-maps-in-azure-farmbeats.md#generate-maps)。

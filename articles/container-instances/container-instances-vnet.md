@@ -2,13 +2,14 @@
 title: 將容器群組部署至 Azure 虛擬網路
 description: 了解如何將容器群組部署至新的或現有的 Azure 虛擬網路。
 ms.topic: article
-ms.date: 07/11/2019
-ms.openlocfilehash: f211924eb74035f4bb30db2d2b848e0a2591de09
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/17/2019
+ms.author: danlep
+ms.openlocfilehash: 9c9f1d114ea3883a947fb454d5958c1479bd4a4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533275"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442232"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>將容器執行個體部署至 Azure 虛擬網路
 
@@ -45,8 +46,8 @@ ms.locfileid: "74533275"
 ### <a name="unsupported-networking-scenarios"></a>不支援的網路案例 
 
 * 不支援將 Azure Load Balancer 放在網路容器群組中的容器實例之前**Azure Load Balancer**
-* **虛擬網路對等互連**-您無法將包含委派給 Azure 容器實例之子網的虛擬網路對等互連至另一個虛擬網路
-* **路由表**-無法在委派給 Azure 容器實例的子網中設定使用者定義的路由
+* **虛擬網路對等互連**-如果對等互連 aci vnet 的網路使用公用 IP 空間，VNet 對等互連將無法用於 aci。 對等互連網路需要 RFC1918 的私人 IP 空間，才能讓對等互連正常執行。 此外，您目前只能將 VNet 對等互連至另一個 VNet
+* **虛擬網路流量路由**-無法在公用 ip 周圍設定客戶路由。 可以在部署 ACI 資源的委派子網的私人 IP 空間內設定路由 
 * **網路安全性群組**-nsg 中套用至委派給 Azure 容器實例之子網的輸出安全性規則目前不會強制執行 
 * **公用 ip 或 DNS 標籤**-部署至虛擬網路的容器群組目前不支援使用公用 IP 位址或完整功能變數名稱將容器直接公開到網際網路
 * **內部名稱解析**-不支援透過內部 Azure DNS 在虛擬網路中的 Azure 資源名稱解析

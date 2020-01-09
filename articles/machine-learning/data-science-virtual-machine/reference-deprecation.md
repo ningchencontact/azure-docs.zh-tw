@@ -7,12 +7,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 10/14/2019
 ms.topic: reference
-ms.openlocfilehash: 4968ac08b75141ed84994ca287215a34728232c4
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 252f9c66034dbadaf7a2e9e6f78665c26d414deb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333335"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456276"
 ---
 # <a name="reference-deprecation-of-dsvm-images"></a>參考：取代 DSVM 映射
 
@@ -20,7 +20,7 @@ ms.locfileid: "72333335"
 
 ## <a name="windows-2012-migrating-data-disks"></a>Windows 2012：正在遷移資料磁片
 
-我們將于2019年11月5日停止支援 Windows 2012 DSVM 映射。 若要將資料磁片從現有的 Windows 2012 DSVM 遷移至 Windows 2016 DSVM，請執行下列步驟：
+我們將于2019年12月31日停止支援 Windows 2012 DSVM 映射。 若要將資料磁片從現有的 Windows 2012 DSVM 遷移至 Windows 2016 DSVM，請執行下列步驟：
 
 1. 依照[這裡](./provision-vm.md#create-your-dsvm)所示的指示，建立新的 WINDOWS 2016 DSVM。
 1. 使用[這些指示](../../virtual-machines/windows/detach-disk.md)從 Windows 2012 映射卸離現有的資料磁片。

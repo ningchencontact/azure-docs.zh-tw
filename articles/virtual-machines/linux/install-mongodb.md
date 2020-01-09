@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 7f5fdd625eb49bfcac0bd58bca7a8415ac877517
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 643d4b918dd8677e8ed02a7def383efa77e71fce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035998"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430300"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>如何在 Linux VM 上安裝及設定 MongoDB
 
@@ -39,7 +39,7 @@ MongoDB [提供 Linux 散發版本的安裝指示](https://docs.mongodb.com/manu
 az group create --name myResourceGroup --location eastus
 ```
 
-使用 [az vm create](/cli/azure/vm) 來建立 VM。 下列範例會建立名為 *myVM* 的 VM，其中具有使用 SSH 公開金鑰驗證、名為 *azureuser* 的使用者
+使用 [az vm create](/cli/azure/vm) 建立 VM。 下列範例會建立名為 *myVM* 的 VM，其中具有使用 SSH 公開金鑰驗證、名為 *azureuser* 的使用者
 
 ```azurecli
 az vm create \
@@ -215,7 +215,7 @@ az group deployment show \
 
 這些範例會部署核心 MongoDB 環境以用於開發用途。 請為您的環境套用必要的安全性設定選項。 如需詳細資訊，請參閱 [MongoDB 安全性文件](https://docs.mongodb.com/manual/security/) \(英文\)。
 
-如需關於建立範本的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)。
+如需關於建立範本的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../azure-resource-manager/management/overview.md)。
 
 Azure Resource Manager 範本會使用自訂指令碼延伸模組，在您的 VM 上下載並執行指令碼。 如需詳細資訊，請參閱[搭配 Linux 虛擬機器使用 Azure 自訂指令碼擴充功能](extensions-customscript.md)。
 

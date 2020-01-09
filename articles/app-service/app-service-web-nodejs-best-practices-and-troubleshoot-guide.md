@@ -1,19 +1,19 @@
 ---
 title: Node.js 最佳做法和疑難排解
 description: 瞭解在 Azure App Service 中執行的 node.js 應用程式的最佳作法和疑難排解步驟。
-author: ranjithr
+author: msangapu-msft
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bwren
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 75195bd7ad228bb66dfd21d2c65997cc8c02680e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 682884d11b298a97e27056af3c10802dfd410e4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672037"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430571"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows 上節點應用程式的最佳作法和疑難排解指南
 
@@ -87,7 +87,7 @@ IIS 的預設行為是在排清之前或直到回應結束時 (取決於何者�
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
-預設值為 False。 若已啟用，節點應用程式可以連接至具名管道 (環境變數 IISNODE\_CONTROL\_PIPE) 並傳送「回收」訊息。 這會導致正常回收 w3wp。
+預設值為 false。 若已啟用，節點應用程式可以連接至具名管道 (環境變數 IISNODE\_CONTROL\_PIPE) 並傳送「回收」訊息。 這會導致正常回收 w3wp。
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
@@ -99,7 +99,7 @@ IIS 的預設行為是在排清之前或直到回應結束時 (取決於何者�
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
 
-預設值為 False。 如果設為 True，iisnode 會將 HTTP 回應標頭 `iisnode-debug` 新增至它所傳送的每個 HTTP 回應，而 `iisnode-debug` 標頭值是 URL。 查看 URL 片段即可取得個別的診斷資訊，但在瀏覽器中開啟 URL 可顯示視覺效果。
+預設值為 false。 如果設為 True，iisnode 會將 HTTP 回應標頭 `iisnode-debug` 新增至它所傳送的每個 HTTP 回應，而 `iisnode-debug` 標頭值是 URL。 查看 URL 片段即可取得個別的診斷資訊，但在瀏覽器中開啟 URL 可顯示視覺效果。
 
 ### <a name="loggingenabled"></a>loggingEnabled
 
@@ -107,7 +107,7 @@ IIS 的預設行為是在排清之前或直到回應結束時 (取決於何者�
 
 ### <a name="deverrorsenabled"></a>devErrorsEnabled
 
-預設值為 False。 若設為 True，iisnode 會在瀏覽器上顯示 HTTP 狀態碼和 Win32 錯誤碼。 在偵錯特定類型的問題時，Win32 程式碼很有幫助。
+預設值為 false。 若設為 True，iisnode 會在瀏覽器上顯示 HTTP 狀態碼和 Win32 錯誤碼。 在偵錯特定類型的問題時，Win32 程式碼很有幫助。
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (請勿在實際生產網站上啟用)
 
@@ -251,7 +251,7 @@ http.createServer(function (req, res) {
 
 ## <a name="iisnode-http-status-and-substatus"></a>IISNODE http 狀態和子狀態
 
-`cnodeconstants` [來源檔案](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h)會列出 iisnode 在發生錯誤時可傳回的所有可能狀態/子狀態組合。
+`cnodeconstants`[原始](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h)程式檔會列出 iisnode 因錯誤而傳回的所有可能狀態/子狀態組合。
 
 為您的應用程式啟用 FREB 以查看 win32 錯誤碼 (基於效能考量，務必只在非生產網站上啟用 FREB)。
 

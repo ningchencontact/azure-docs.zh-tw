@@ -1,5 +1,6 @@
 ---
-title: Azure API 管理原則範例 - 設定回應快取持續時間 | Microsoft Docs
+title: 範例 API 管理原則-設定回應快取持續時間
+titleSuffix: Azure API Management
 description: Azure API 管理原則範例 - 示範如何使用後端所傳送之 Cache-Control 標頭中的 maxAge 值來設定回應快取持續時間。
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 67d2f334e2088d96543fabd3b99cac71d95630eb
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3101c5695272e8fa6b577ad313897cbc1fa29629
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071978"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442386"
 ---
 # <a name="set-response-cache-duration"></a>設定回應快取持續時間
 

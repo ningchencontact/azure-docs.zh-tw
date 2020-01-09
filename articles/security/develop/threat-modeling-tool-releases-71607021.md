@@ -1,32 +1,24 @@
 ---
-title: Threat Modeling Tool 版本 - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool 版本 7/2/2019-Azure
 description: 記載 Threat Modeling Tool 的版本資訊
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2019
-ms.author: jegeib
-ms.openlocfilehash: 44fd84af629fadfc96d738e81f2568359ee19d66
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d26ff015156f5d050a74733ff82c811ff5f1700a
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219844"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548766"
 ---
 # <a name="threat-modeling-tool-update-release-71607021---722019"></a>Threat Modeling Tool 更新版本 7.1.60702.1-7/2/2019
 
-Microsoft Threat Modeling Tool (TMT) 的版本7.1.60702.1 已于 2 2019 年7月發行, 並包含下列變更:
+Microsoft Threat Modeling Tool （TMT）的版本7.1.60702.1 已于 2 2019 年7月發行，並包含下列變更：
 
-- 協助工具改善
+- 協助工具改進
 - 錯誤修正
 - 包含開放原始碼的社區提供的樣板集
 
@@ -34,7 +26,7 @@ Microsoft Threat Modeling Tool (TMT) 的版本7.1.60702.1 已于 2 2019 年7月�
 
 ### <a name="a-new-medical-devices-stencil-set-provided-by-the-open-source-community-is-available"></a>開放原始碼社區提供的新醫療裝置樣板集可供使用
 
-開放原始碼的社區已提供用於建立醫療裝置模型的樣板。 更新之後, 新的樣板集就會出現在 [範本選取專案] 下拉式功能表中。 如需有關將樣板或內容提供給範本的詳細資訊, 請參閱專案的[GitHub 頁面](https://github.com/Microsoft/threat-modeling-templates)上的資訊。
+開放原始碼的社區已提供用於建立醫療裝置模型的樣板。 更新之後，新的樣板集就會出現在 [範本選取專案] 下拉式功能表中。 如需有關將樣板或內容提供給範本的詳細資訊，請參閱專案的[GitHub 頁面](https://github.com/Microsoft/threat-modeling-templates)上的資訊。
 
 ![模型驗證選項](./media/threat-modeling-tool-releases-71607021/tmt-template-selection.png)
 

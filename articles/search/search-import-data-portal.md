@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: df7d0fde05c974ef4cec739236a3ac0aebd63ecc
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0ed2bd7f1e03d8d5fa11f7e76010d087605f0fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534544"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460692"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Azure 認知搜尋的匯入資料嚮導
 
@@ -61,7 +61,7 @@ ms.locfileid: "74534544"
 
 在執行 wizard 之前，您應該先建立這個單一資料表或視圖，而且它必須包含內容。 基於明顯的理由，在空的資料來源上執行「匯**入資料**」 wizard 沒有意義。
 
-|  選取項目 | 描述 |
+|  選取項目 | 說明 |
 | ---------- | ----------- |
 | **現有的資料來源** |如果您已經在搜尋服務中定義索引子，您可能會有可以重複使用的現有資料來源定義。 在 Azure 認知搜尋中，資料來源物件只會由索引子使用。 您可以用程式設計方式或透過 [匯**入資料**] wizard 來建立資料來源物件，並視需要加以重複使用。|
 | **範例**| Azure 認知搜尋提供兩個內建的範例資料來源，用於教學課程和快速入門： Cosmos DB 上的房地產 SQL database 和飯店資料庫。 如需以飯店範例為基礎的逐步解說，請參閱 Azure 入口網站快速入門[中的建立索引](search-get-started-portal.md)。 |
@@ -75,7 +75,7 @@ ms.locfileid: "74534544"
 
 在幕後，嚮導會建立、設定和叫用下列物件。 在嚮導執行之後，您可以在入口網站頁面中找到其輸出。 服務的 [總覽] 頁面包含索引、索引子、資料來源和技能集的清單。 您可以在入口網站中以完整 JSON 來查看索引定義。 針對其他定義，您可以使用[REST API](https://docs.microsoft.com/rest/api/searchservice/)來取得特定物件。
 
-| Object | 描述 | 
+| 物件 | 說明 | 
 |--------|-------------|
 | [資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 將連接資訊保存到來源資料，包括認證。 資料來源物件是以獨佔方式使用於索引子。 | 
 | [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | 用於全文檢索搜尋和其他查詢的實體資料結構。 | 
@@ -109,7 +109,7 @@ Wizard 會產生不完整的索引，其中會填入從輸入資料來源取得�
 
 1. 設定屬性，以決定該欄位在索引中的使用方式。 
 
-   請花時間執行此步驟，因為屬性會決定索引中欄位的實體運算式。 如果您稍後想要變更屬性，甚至以程式設計方式，您幾乎都需要卸載並重建索引。 可搜尋和可抓取**的核心** **屬性，對**[儲存體的影響](search-what-is-an-index.md#storage-implications)也不明顯。 啟用篩選器並使用建議工具會增加儲存需求。 
+   請花時間執行此步驟，因為屬性會決定索引中欄位的實體運算式。 如果您稍後想要變更屬性，甚至以程式設計方式，您幾乎都需要卸載並重建索引。 可搜尋和可抓取**的核心** **屬性，對**[儲存體的影響](search-what-is-an-index.md#index-size)也不明顯。 啟用篩選器並使用建議工具會增加儲存需求。 
    
    + **Searchable** 能夠進行全文檢索搜尋。 用於自由格式查詢或查詢運算式的每個欄位都必須有這個屬性。 針對您標示為 **Searchable** 的每個欄位，系統會建立反向索引。
 

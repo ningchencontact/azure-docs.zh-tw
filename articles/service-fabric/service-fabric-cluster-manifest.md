@@ -1,25 +1,16 @@
 ---
-title: 設定 Azure Service Fabric 獨立叢集 | Microsoft Docs
+title: 設定 Azure Service Fabric 獨立叢集
 description: 了解如何設定獨立或內部部署 Service Fabric 叢集。
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: ca04539049766e1f053d74b3a8536f154c3fd830
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383578"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458368"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>獨立 Windows 叢集的組態設定
 本文說明如何在 ClusterConfig.json 檔案中設定獨立 Azure Service Fabric 叢集的組態設定。 您將會使用此檔案來指定叢集節點、安全性設定，以及容錯和升級網域方面之網路拓撲的相關資訊。  變更或新增組態設定之後，您可以[建立獨立叢集](service-fabric-cluster-creation-for-windows-server.md)或[升級獨立叢集的組態](service-fabric-cluster-config-upgrade-windows-server.md)。

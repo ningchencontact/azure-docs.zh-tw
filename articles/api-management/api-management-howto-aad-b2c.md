@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure Active Directory B2C 授權開發人員帳戶 - Azure API 管理 | Microsoft Docs
+title: 使用 Azure Active Directory B2C 授權開發人員帳戶
+titleSuffix: Azure API Management
 description: 了解如何在 API 管理中使用 Azure Active Directory B2C 授權使用者。
 services: api-management
 documentationcenter: API Management
@@ -12,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: d6e7c04cbd5a7f1ed509b27cf87ac3f692c28d9f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 11dae2b6d771138503643c402ba4525df1f04a88
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454467"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430755"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>如何在 Azure API 管理中使用 Azure Active Directory B2C 授權開發人員帳戶
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式的雲端身分識別管理解決方案。 您可以使用它來管理開發人員入口網站的存取。 本指南會說明要與 Azure Active Directory B2C 整合所必須在 API 管理服務中進行的設定。 如需實現使用傳統 Azure Active Directory 來存取開發人員入口網站的相關資訊，請參閱[如何使用 Azure Active Directory 授權開發人員帳戶]。
 

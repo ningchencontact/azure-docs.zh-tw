@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 5fa8d3984c758d0bf95372864f3bffeb6f302c83
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d099d0b8f8e31bf77f5ddfad320ac792c5c01e5
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497799"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529604"
 ---
 # <a name="import-data-module"></a>匯入資料模組
 
@@ -23,22 +23,22 @@ ms.locfileid: "73497799"
 使用此模組，將資料從現有的雲端資料服務載入機器學習管線。 
 
 > [!Note]
-> 此模組所提供的所有功能都可以透過工作區登陸頁面中的**資料**存放區和**資料集**來完成。 我們建議**您使用資料**存放區和**資料集**，其中包含其他功能，例如資料監視。 若要深入瞭解，請參閱[如何存取資料](../service/how-to-access-data.md)和[如何註冊資料集](../service/how-to-create-register-datasets.md)一文。
+> 此模組所提供的所有功能都可以透過工作區登陸頁面中的**資料**存放區和**資料集**來完成。 我們建議**您使用資料**存放區和**資料集**，其中包含其他功能，例如資料監視。 若要深入瞭解，請參閱[如何存取資料](../how-to-access-data.md)和[如何註冊資料集](../how-to-create-register-datasets.md)一文。
 > 註冊資料集之後，您可以在 [設計師] 介面的 [**資料**集] -> [**我的資料集**] 類別目錄中找到它。 本課程模組已保留給 Studio （傳統）使用者使用，以獲得熟悉的體驗。 
 >
 
 首先，選擇您要從中讀取的來源，然後完成其他設定。 「匯**入資料**」模組支援從下列來源讀取資料：
 
 - 透過 HTTP 的 URL
-- 透過[**資料存放區**](../service/how-to-access-data.md)的 Azure 雲端儲存體）
+- 透過[**資料存放區**](../how-to-access-data.md)的 Azure 雲端儲存體）
     - Azure Blob 容器
     - Azure 檔案共用
-    - Azure 資料湖
+    - Azure Data Lake
     - Azure Data Lake Gen2
     - Azure SQL Database
     - Azure 于 postgresql    
 
-使用雲端存放裝置之前，您必須先在 Azure Machine Learning 工作區中註冊資料存放區。 如需詳細資訊，請參閱[如何存取資料](../service/how-to-access-data.md)。 
+使用雲端存放裝置之前，您必須先在 Azure Machine Learning 工作區中註冊資料存放區。 如需詳細資訊，請參閱[如何存取資料](../how-to-access-data.md)。 
 
 定義您想要的資料並連接到來源之後，匯 **[入資料](./import-data.md)** 會根據其包含的值來推斷每個資料行的資料類型，並將資料載入您的設計工具管線。 匯**入資料**的輸出是可以搭配任何設計工具管線使用的資料集。
 
@@ -70,7 +70,7 @@ ms.locfileid: "73497799"
 
     當 [匯入資料] 將資料載入設計工具時，它會根據其包含的值（數值或類別）來推斷每個資料行的資料類型。
 
-    如果有標頭，則會使用標頭來命名輸出資料集的資料行。
+    如果標頭存在，則使用標頭來命名輸出資料集的資料行。
 
     如果資料中沒有現有的資料行標頭，則會使用 col1 格式來產生新的資料行名稱，col2,。 , coln*.
 

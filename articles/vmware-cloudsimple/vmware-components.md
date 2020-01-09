@@ -1,5 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple-私用雲端 VMware 元件
+title: 私用雲端 VMware 元件
+titleSuffix: Azure VMware Solution by CloudSimple
 description: 說明如何在私人雲端上安裝 VMware 元件
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: bd83cff243c94ed62014ff95f6ca7c4e878f6af7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814564"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452326"
 ---
 # <a name="private-cloud-vmware-components"></a>私用雲端 VMware 元件
 
@@ -28,11 +29,11 @@ ms.locfileid: "70814564"
 
 私用雲端 VMware 堆疊是以下列軟體版本進行部署。
 
-| 元件 | Version | 授權版本 |
+| 元件 | 版本 | 授權版本 |
 |-----------|---------|------------------|
-| ESXi | 6.7 U2 | 企業加 |
-| vCenter | 6.7 U2 | vCenter 標準 |
-| vSAN | 6.7 | 企業 |
+| ESXi | 6.7 u2 | 企業加 |
+| vCenter | 6.7 u2 | vCenter 標準 |
+| vSAN | 6.7 | Enterprise |
 | NSX 資料中心 | 2.4.1 | 進階 |
 
 ## <a name="esxi"></a>ESXi
@@ -47,13 +48,13 @@ vCenter server 應用裝置（VCSA）提供 CloudSimple 的 VMware 解決方案�
 
 ### <a name="vcenter-single-sign-on"></a>vCenter 單一登入
 
-VCSA 上的內嵌平臺服務控制器與**VCenter 單一登入網域**相關聯。  功能變數名稱為**cloudsimple。**  系統會為 **CloudOwner@cloudsimple.com** 您建立預設使用者，以供您存取 vCenter。  您可以新增適用于 vCenter 的內部部署/Azure active directory 身分[識別來源](set-vcenter-identity.md)。
+VCSA 上的內嵌平臺服務控制器與**VCenter 單一登入網域**相關聯。  功能變數名稱為**cloudsimple。**  系統會為您建立預設的使用者 **CloudOwner@cloudsimple.com** ，以供您存取 vCenter。  您可以新增適用于 vCenter 的內部部署/Azure active directory 身分[識別來源](set-vcenter-identity.md)。
 
 ## <a name="vsan-storage"></a>vSAN 儲存體
 
 建立私用雲端時，會使用完整設定的全部 flash vSAN 儲存體（本機到叢集）。  建立包含 vSAN 資料存放區的 vSphere 叢集時，必須至少有三個相同 SKU 的節點。  預設會在 vSAN 資料存放區上啟用重復資料刪除和壓縮。  VSphere 叢集的每個節點上都會建立兩個磁片群組。 每個磁片群組都包含一個快取磁片和三個容量磁片。
 
-預設的 vSAN 儲存原則會建立在 vSphere 叢集上，並套用至 vSAN 資料存放區。  此原則會決定如何在資料存放區中布建和配置 VM 儲存體物件，以確保所需的服務層級。  儲存體原則會定義**可容忍的失敗（FTT）** 和**失敗容錯方法**。  您可以建立新的存放裝置原則，並將其套用至 Vm。 若要維護 SLA，必須在 vSAN 資料存放區上維護 25% 的備用容量。  
+預設的 vSAN 儲存原則會建立在 vSphere 叢集上，並套用至 vSAN 資料存放區。  此原則會決定如何在資料存放區中布建和配置 VM 儲存體物件，以確保所需的服務層級。  儲存體原則會定義**可容忍的失敗（FTT）** 和**失敗容錯方法**。  您可以建立新的存放裝置原則，並將其套用至 Vm。 若要維護 SLA，必須在 vSAN 資料存放區上維護25% 的備用容量。  
 
 ### <a name="default-vsan-storage-policy"></a>預設 vSAN 儲存原則
 
@@ -81,11 +82,11 @@ NSX 資料中心在您的私人雲端上提供網路虛擬化、微分割和網�
 
 ## <a name="vsphere-cluster"></a>vSphere 叢集
 
-ESXi 主機會設定為叢集，以確保私用雲端的高可用性。  當您建立私人雲端時，vSphere 的管理元件會部署在第一個叢集上。  系統會為管理元件建立資源集區，並將所有管理 Vm 部署在此資源集區中。 無法刪除第一個叢集來壓縮私用雲端。  vSphere 叢集會使用**VSPHERE HA**為 vm 提供高可用性。  可容忍的失敗是根據叢集中可用的節點數目。  您可以使用公式```Number of nodes = 2N+1``` ，其中```N```是要容許的失敗數目。
+ESXi 主機會設定為叢集，以確保私用雲端的高可用性。  當您建立私人雲端時，vSphere 的管理元件會部署在第一個叢集上。  系統會為管理元件建立資源集區，並將所有管理 Vm 部署在此資源集區中。 無法刪除第一個叢集來壓縮私用雲端。  vSphere 叢集會使用**VSPHERE HA**為 vm 提供高可用性。  可容忍的失敗是根據叢集中可用的節點數目。  您可以使用公式 ```Number of nodes = 2N+1```，其中 ```N``` 是要容許的失敗次數。
 
 ### <a name="vsphere-cluster-limits"></a>vSphere 叢集限制
 
-| Resource | 限制 |
+| 資源 | 限制 |
 |----------|-------|
 | 建立私人雲端的節點數目下限（第一個 vSphere 叢集） | 3 |
 | 私人雲端上 vSphere 叢集中的節點數目上限 | 16 |

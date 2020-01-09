@@ -4,73 +4,16 @@ description: 瞭解如何使用 Azure 備份服務來管理和監視 Microsoft A
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: f299bdeebab4f42721255d462101f0065a640fab
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
-ms.translationtype: HT
+ms.openlocfilehash: b7e947e7fd473ec787d49ffe82532ffd5b6a98d1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665588"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496986"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>使用 Azure 備份服務管理 Microsoft Azure 復原服務（MARS）代理程式備份
 
 本文說明如何管理使用 Microsoft Azure 復原服務代理程式備份的檔案和資料夾。
-
-## <a name="create-a-backup-policy"></a>建立備份原則
-
-備份原則會指定何時製作資料的快照集，以建立復原點，以及保留復原點的時間長度。 您可以使用 MARS 代理程式來設定備份原則。
-
-建立原則，如下所示：
-
-1. 下載並註冊 MARS 代理程式之後，請啟動代理程式主控台。 您可以透過在您的電腦中搜尋 **Microsoft Azure 備份**來找出備份。  
-2. 在 [**動作**] 中，按一下 [**排程備份**]。
-
-    ![Windows Server 備份排程](./media/backup-configure-vault/schedule-first-backup.png)
-3. 在 排程備份 中 >**開始**使用，按**下一步**。
-4. 在 [**選取要備份的專案**] 中，按一下 [**新增專案**]。
-
-    ![選取要備份的專案](./media/backup-azure-manage-mars/select-item-to-backup.png)
-
-5. 在 [**選取專案**] 中，選取您想要備份的內容，然後按一下 **[確定]** 。
-
-    ![選取要備份的專案](./media/backup-azure-manage-mars/selected-items-to-backup.png)
-
-6. 在 [**選取要備份的專案**] 頁面中，按 **[下一步]** 。
-7. 在 [**指定備份排程**] 頁面中，指定您要進行每日或每週備份的時間。 然後按一下 [確定]\(英文)。
-
-    - 執行備份時，會建立復原點。
-    - 在您的環境中建立的復原點數目取決於您的備份排程。
-
-8. 您可以排程每日備份（一天最多三次）。 例如，螢幕擷取畫面顯示兩個每日備份，一個在午夜，另一個在下午6:00。
-
-    ![每日排程](./media/backup-configure-vault/day-schedule.png)
-
-9. 您也可以執行每週備份。 例如，螢幕擷取畫面顯示每個替代星期日 & 星期三上午9:30 和 1:00 AM 進行的備份。
-
-    ![每週排程](./media/backup-configure-vault/week-schedule.png)
-
-10. 在 [**選取保留原則**] 頁面上，指定儲存資料歷程記錄複本的方式。 然後按一下 [確定]\(英文)。
-
-    - 保留設定會指定應該儲存的復原點，以及儲存的時間長度。
-    - 例如，當您設定每日保留設定時，您會指出在指定的每日保留期間，最新的復原點會保留指定的天數。 或者，另一個範例是，您可以指定每月的保留原則，表示每個月30日所建立的復原點應該儲存12個月。
-    - 每日和每週復原點保留通常會符合備份排程。 這表示當根據排程觸發備份時，備份所建立的復原點會儲存在每日或每週保留原則中指出的持續時間。
-    - 例如，在下列螢幕擷取畫面中：-午夜和下午6:00 的每日備份會保留七天。
-            -在星期六午夜和下午6:00 所進行的備份會保留四周。
-            -在每個月午夜和下午6:00 的星期六進行的備份會保留12個月。
-            -3 月最後一周的星期六所進行的備份會保留10年。
-
-    ![保留範例](./media/backup-configure-vault/retention-example.png)
-
-11. 在 **[選擇初始備份類型**] 中，決定您是否要透過網路進行初始備份，或使用離線備份（如需離線備份的詳細資訊，請參閱這[篇文章](backup-azure-backup-import-export.md)）。 若要透過網路進行初始備份，請選取 **[自動透過網路**]，然後按 **[下一步]** 。
-
-    ![初始備份類型](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
-
-12. 在 [**確認**] 中，檢查資訊，然後按一下 **[完成]** 。
-    ![確認備份類型](./media/backup-azure-manage-mars/confirm-backup-type.png)
-
-13. 當精靈建立好備份排程時，請按一下 [關閉]。
-  ![確認修改備份進程](./media/backup-azure-manage-mars/confirm-modify-backup-process.png)
-
-您必須在安裝代理程式的每部電腦上建立原則。
 
 ## <a name="modify-a-backup-policy"></a>修改備份原則
 
@@ -83,7 +26,7 @@ ms.locfileid: "74665588"
   - 重新選取這些專案，會導致第一次完整備份，而新的原則變更不會套用到舊的備份。
   - 取消取消全磁片區會保留過去的備份，而不需要任何範圍來修改保留原則。
 - **排除設定**使用此選項可排除要備份的特定專案。
-  
+
 ### <a name="add-new-items-to-existing-policy"></a>將新專案新增至現有的原則
 
 1. 在 [**動作**] 中，按一下 [**排程備份**]。
@@ -158,12 +101,17 @@ ms.locfileid: "74665588"
 ### <a name="stop-protection-and-retain-backup-data"></a>停止保護並保留備份資料
 
 1. 開啟 MARS 管理主控台，移至 [**動作] 窗格**，然後**選取 [排程備份**]。
+
     ![修改或停止排定的備份。](./media/backup-azure-manage-mars/mars-actions.png)
 1. 在 [**選取原則專案**] 頁面中，選取 [**修改檔案和資料夾的備份排程**]，然後按 **[下一步]** 。
+
     ![修改或停止排定的備份。](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
-1. 從 [**修改或停止排程備份**] 頁面，選取 [**停止使用此備份排程]，但保留儲存的備份，直到重新開機排程為止**。 然後，選取 [下一步]。  
+1. 從 [**修改或停止排程備份**] 頁面，選取 [**停止使用此備份排程]，但保留儲存的備份，直到重新開機排程為止**。 然後，選取 [下一步]。
+
     ![修改或停止排定的備份。](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. 在 [**暫停排程備份**] 中，檢查資訊並按一下 **[完成]** ![修改或停止排定的備份。](./media/backup-azure-manage-mars/pause-schedule-backup.png)
+1. 在 [**暫停排程備份**] 中，查看資訊，然後按一下 **[完成]** 。
+
+    ![修改或停止排定的備份。](./media/backup-azure-manage-mars/pause-schedule-backup.png)
 1. 在 [**修改備份**程式] 中，檢查您的排程備份暫停處於成功狀態，然後按一下 [**關閉**] 以完成。
 
 ### <a name="stop-protection-and-delete-backup-data"></a>停止保護並刪除備份資料
@@ -194,15 +142,34 @@ ms.locfileid: "74665588"
 如果您在保留資料時停止保護，並決定繼續保護，則可以使用 [修改備份原則] 重新啟用備份排程。
 
 1. 在 [**動作**] 選取 [**排程備份**]。
-1. 選取 [**重新啟用備份排程]。您也可以修改備份專案或時間**，然後按 **[下一步]** 。
+1. 選取 [**重新啟用備份排程]。您也可以修改備份專案或時間**，然後按 **[下一步]** 。<br>
+
     ![刪除備份基礎結構。](./media/backup-azure-manage-mars/re-enable-policy-next.png)
 1. 在 [**選取要備份的專案**] 中，按 **[下一步]** 。
+
     ![刪除備份基礎結構。](./media/backup-azure-manage-mars/re-enable-next.png)
 1. 在 [**指定備份排程**] 中，指定備份排程，然後按 **[下一步]** 。
 1. 在 [**選取保留原則**] 中，指定保留期間，然後按 **[下一步]** 。
 1. 最後，在 [**確認**] 畫面中，檢查原則詳細資料，然後按一下 **[完成]** 。
 
+## <a name="re-generate-passphrase"></a>重新產生複雜密碼
+
+複雜密碼是用來加密和解密資料，同時使用 MARS 代理程式在 Azure 中備份或還原內部部署或本機電腦。 如果遺失或忘記複雜密碼，您可以依照下列步驟重新產生複雜密碼（前提是您的電腦仍已向復原服務保存庫註冊，並已設定備份）：
+
+- 從 MARS 代理程式主控台，移至 **動作 窗格** > **變更屬性** >。 然後移至 [**加密]** 索引標籤。<br>
+- 選取 [**變更複雜密碼**] 核取方塊。<br>
+- 輸入新的複雜密碼，或按一下 [**產生複雜密碼**]。
+- 按一下 **[流覽]** 以儲存新的複雜密碼。
+
+    ![產生複雜密碼。](./media/backup-azure-manage-mars/passphrase.png)
+- 按一下 \[確定\] 套用變更。  如果已在復原服務保存庫的 Azure 入口網站上啟用[安全性功能](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features)，系統會提示您輸入安全性 PIN 碼。 若要接收 PIN，請遵循這[篇文章](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations)中所列的步驟。<br>
+- 從入口網站貼上安全性 PIN 碼，然後按一下 **[確定]** 套用變更。<br>
+
+    ![產生複雜密碼。](./media/backup-azure-manage-mars/passphrase2.png)
+- 確保複雜密碼安全地儲存在替代位置（來源機器以外），最好是在 Azure Key Vault 中。 如果您有多部電腦要使用 MARS 代理程式進行備份，請追蹤所有的複雜密碼。
+
+
 ## <a name="next-steps"></a>後續步驟
 
-- 如需有關支援的案例和限制的詳細資訊，請參閱[MARS 的支援矩陣](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)。
+- 如需有關支援的案例和限制的詳細資訊，請參閱[MARS 代理程式的支援矩陣](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)。
 - 深入瞭解[隨選備份原則保留行為](backup-configure-vault.md#on-demand-backup-policy-retention-behavior)。

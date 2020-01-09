@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 資料庫移轉服務的必要條件概觀 | Microsoft Docs
+title: Azure 資料庫移轉服務的必要條件
 description: 深入了解使用 Azure 資料庫移轉服務來執行資料庫移轉的必要條件概觀。
 services: database-migration
 author: HJToland3
@@ -8,19 +8,19 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 05/29/2019
-ms.openlocfilehash: 4e21014f7b4ed86846a100ed9a2b1cd4b0400974
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 6a262b75e4ab0f178e5d4bea34f5046f2292ab40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304264"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437769"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>使用 Azure 資料庫移轉服務的必要條件概觀
 
-有數個以確保 Azure 資料庫移轉服務執行順暢執行資料庫移轉時所需的必要條件。 某些必要條件會套用到服務所支援的所有案例 (來源目標組)，而有些必要條件則是特定案例獨有的。
+有幾個必要條件，以確保 Azure 資料庫移轉服務在執行資料庫移轉時順暢執行。 某些必要條件會套用到服務所支援的所有案例 (來源目標組)，而有些必要條件則是特定案例獨有的。
 
 下列各節列出與使用 Azure 的資料庫移轉服務相關聯的必要條件。
 
@@ -29,13 +29,13 @@ ms.locfileid: "66304264"
 Azure 資料庫移轉服務必要條件在所有支援的移轉案例中都是通用的，包含以下需求：
 
 * 使用 Azure Resource Manager 部署模型建立 Azure 資料庫移轉服務的 Azure 虛擬網路 (VNet)，以使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 為您的內部部署來源伺服器提供站對站連線能力。
-* 請確定您的 VNet 網路安全性群組 (NSG) 規則不會封鎖下列通訊連接埠 443、 53、 9354、 445、 12000。 如需 Azure VNet NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
+* 請確定您的 VNet 網路安全性群組（NSG）規則不會封鎖下列通訊埠443、53、9354、445、12000。 如需 Azure VNet NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
 * 使用來源資料庫前面的防火牆應用裝置時，您可能必須新增防火牆規則，才能讓 Azure 資料庫移轉服務存取來源資料庫，以進行移轉。
 * 設定[用於 Database Engine 存取的 Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
 * 啟用 TCP/IP 通訊協定，在 SQL Server Express 安裝期間預設會停用，方法是遵循[啟用或停用伺服器網路通訊協定](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure)一文中的指示。
 
     > [!IMPORTANT]
-    > 建立的 Azure 資料庫移轉服務執行個體需要通常不在相同的資源群組內的 VNet 設定的存取權。 如此一來，建立 DMS 的執行個體的使用者都需要訂用帳戶層級的權限。 若要建立必要的角色，您可以指派，如有需要請執行下列程式碼：
+    > 建立 Azure 資料庫移轉服務的實例時，需要存取通常不在相同資源群組內的 VNet 設定。 因此，建立 DMS 實例的使用者需要訂用帳戶層級的許可權。 若要建立必要的角色（您可以視需要指派），請執行下列腳本：
     >
     > ```
     >
@@ -118,9 +118,9 @@ Azure 資料庫移轉服務必要條件在所有支援的移轉案例中都是�
    > 如需使用 Azure 資料庫移轉服務執行從 SQL Server 移轉到 Azure SQL Database 所需的必要條件完整清單，請參閱本教學課程[將 SQL Server 移轉到 Azure SQL Database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql)。
    > 
 
-## <a name="prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance"></a>針對 SQL Server 移轉至 Azure SQL Database 受控執行個體的必要條件
+## <a name="prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance"></a>將 SQL Server 遷移至 Azure SQL Database 受控實例的必要條件
 
-* 建立 Azure SQL Database 受控執行個體中的發行項的詳細資料[在 Azure 入口網站中建立 Azure SQL Database 受控執行個體](https://aka.ms/sqldbmi)。
+* 遵循在[Azure 入口網站中建立 Azure SQL Database 受控執行個體一](https://aka.ms/sqldbmi)文中的詳細資料，建立 Azure SQL Database 的受控實例。
 * 開啟您的防火牆，以針對 Azure 資料庫移轉服務 IP 位址或子網路範圍，允許連接埠 445 上的 SMB 流量。
 * 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 SQL Server，其預設會通過 TCP 連接埠 1433。
 * 如果您使用動態連接埠執行多個具名 SQL Server 執行個體，也許會想要啟用 SQL Browser 服務並允許通過防火牆存取 UDP 連接埠 1434，讓 Azure 資料庫移轉服務連線來源伺服器上的具名執行個體。

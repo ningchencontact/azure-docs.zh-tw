@@ -11,12 +11,12 @@ ms.date: 11/27/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 82270c126d8a0894cd3a388dcab62017ed63c2cd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: cd1d57643f9a1eb7c50d0de06d42fbbcec085f34
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974643"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458774"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>SQL 資料倉儲工作負載群組隔離（預覽）
 
@@ -32,18 +32,18 @@ ms.locfileid: "74974643"
 
 工作負載隔離意指工作負載群組會以獨佔方式保留資源。  工作負載隔離的達成方式是在[建立工作負載群組](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)語法中，將 MIN_PERCENTAGE_RESOURCE 參數設定為大於零。  針對需要遵守嚴格 Sla 的連續執行工作負載，隔離可確保資源永遠可供工作負載群組使用。 
 
-設定工作負載隔離會隱含地定義一個保證的並行層級。  當 MIN_PERCENTAGE_RESOURCE 設為30%，且 REQUEST_MIN_RESOURCE_GRANT_PERCENT 設定為2% 時，就會保證工作負載群組具有15個並行層級。  請考慮下列用來判斷保證並行的方法：
+設定工作負載隔離會隱含地定義一個保證的並行層級。 當 MIN_PERCENTAGE_RESOURCE 設為30%，且 REQUEST_MIN_RESOURCE_GRANT_PERCENT 設定為2% 時，就會保證工作負載群組具有15個並行層級。  請考慮下列用來判斷保證並行的方法：
 
 [保證並行] = [`MIN_PERCENTAGE_RESOURCE`]/[`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE] 
-> Min_percentage_resource 有特定的服務層級最小可行值。  如需詳細資訊，請參閱[有效值](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values)以取得進一步的詳細資料。
+> Min_percentage_resource 有特定的服務層級最小可行值。  如需詳細資訊，請參閱[有效值](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values)以取得進一步的詳細資料。
 
 在沒有工作負載隔離的情況下，要求會在[共用資源集](#shared-pool-resources)區中運作。  不保證能夠存取共用集區中的資源，而且會根據[重要性](sql-data-warehouse-workload-importance.md)來指派。
 
-當工作負載群組中沒有任何使用中的要求時，您應該謹慎地設定工作負載隔離，因為資源會配置給工作負載群組。  過度設定隔離可能會導致整體系統使用率降低。
+當工作負載群組中沒有任何使用中的要求時，您應該謹慎地設定工作負載隔離，因為資源會配置給工作負載群組。 過度設定隔離可能會導致整體系統使用率降低。
 
-使用者應避免設定100% 工作負載隔離的工作負載管理解決方案：當所有工作負載群組的 min_percentage_resource 總和等於100% 時，就會達到100% 隔離。  這種類型的設定過於嚴格且固定，而不會有任何不小心被誤分類的資源要求空間。  有一項規定可允許從未設定為隔離的工作負載群組執行一個要求。  配置給此要求的資源在系統 Dmv 中會顯示為零，並從系統保留的資源借用 smallrc 層級的資源授與。
+使用者應避免設定100% 工作負載隔離的工作負載管理解決方案：當所有工作負載群組的 min_percentage_resource 總和等於100% 時，就會達到100% 隔離。  這種類型的設定過於嚴格且固定，而不會有任何不小心被誤分類的資源要求空間。 有一項規定可允許從未設定為隔離的工作負載群組執行一個要求。 配置給此要求的資源在系統 Dmv 中會顯示為零，並從系統保留的資源借用 smallrc 層級的資源授與。
 
 > [!NOTE] 
 > 為確保最佳的資源使用率，請考慮使用某種隔離的工作負載管理解決方案，以確保符合 Sla，並與根據[工作負載重要性](sql-data-warehouse-workload-importance.md)存取的共用資源混合。
@@ -57,7 +57,7 @@ ms.locfileid: "74974643"
 [最大並行] = [`CAP_PERCENTAGE_RESOURCE`]/[`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE] 
-> 建立具有大於零層級 MIN_PERCENTAGE_RESOURCE 的工作負載群組時，工作負載群組的有效 CAP_PERCENTAGE_RESOURCE 將無法達到100%。  如需有效的運行時間值，請參閱[dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) 。
+> 建立具有大於零層級 MIN_PERCENTAGE_RESOURCE 的工作負載群組時，工作負載群組的有效 CAP_PERCENTAGE_RESOURCE 將無法達到100%。  如需有效的運行時間值，請參閱[dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) 。
 
 ## <a name="resources-per-request-definition"></a>每個要求定義的資源
 
@@ -71,7 +71,7 @@ ms.locfileid: "74974643"
 將 REQUEST_MAX_RESOURCE_GRANT_PERCENT 設定為大於 REQUEST_MIN_RESOURCE_GRANT_PERCENT 的值，可讓系統為每個要求配置更多資源。  在排程要求時，系統會根據共用集區中的資源可用性和目前的負載，判斷要求的實際資源配置（在 REQUEST_MIN_RESOURCE_GRANT_PERCENT 和 REQUEST_MAX_RESOURCE_GRANT_PERCENT 之間）筆記本電腦.  排程查詢時，資源必須存在於共用的資源[集](#shared-pool-resources)區中。  
 
 > [!NOTE] 
-> REQUEST_MIN_RESOURCE_GRANT_PERCENT 和 REQUEST_MAX_RESOURCE_GRANT_PERCENT 具有相依于有效 MIN_PERCENTAGE_RESOURCE 和 CAP_PERCENTAGE_RESOURCE 值的有效值。  如需有效的運行時間值，請參閱[dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) 。
+> REQUEST_MIN_RESOURCE_GRANT_PERCENT 和 REQUEST_MAX_RESOURCE_GRANT_PERCENT 具有相依于有效 MIN_PERCENTAGE_RESOURCE 和 CAP_PERCENTAGE_RESOURCE 值的有效值。  如需有效的運行時間值，請參閱[dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) 。
 
 ## <a name="execution-rules"></a>執行規則
 

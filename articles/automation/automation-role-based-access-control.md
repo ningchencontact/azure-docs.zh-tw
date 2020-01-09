@@ -3,19 +3,15 @@ title: Azure 自動化中的角色型存取控制
 description: 角色型存取控制 (RBAC) 可以啟用對 Azure 資源的存取權管理。 本文說明如何在 Azure 自動化中設定 RBAC。
 keywords: 自動化 rbac, 角色型存取控制, azure rbac
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/17/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 0ee524768f46de965b1755f2cfffdf9e2034bec8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 122e1f69e952acc00aba3cad2d75cb87b8fd08ee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850783"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421582"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自動化中的角色型存取控制
 
@@ -47,7 +43,7 @@ ms.locfileid: "74850783"
 
 「擁有者」可以管理所有項目，包括存取權。 下表說明針對此角色授與的權限：
 
-|動作|描述|
+|動作|說明|
 |---|---|
 |Microsoft.Automation/automationAccounts/|建立和管理所有類型的資源。|
 
@@ -214,45 +210,45 @@ ms.locfileid: "74850783"
 
 ### <a name="onboarding-from-a-virtual-machine"></a>從虛擬機器上線
 
-|**Action**  |**權限**  |**最基本範圍**  |
+|**動作**  |**權限**  |**最基本範圍**  |
 |---------|---------|---------|
-|寫入新的部署      | Microsoft.Resources/deployments/*          |Subscription          |
-|寫入新的資源群組      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
-|建立新的預設「工作區」      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
-|建立新的「帳戶」      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
+|寫入新的部署      | Microsoft.Resources/deployments/*          |訂閱          |
+|寫入新的資源群組      | Microsoft.Resources/subscriptions/resourceGroups/write        | 訂閱          |
+|建立新的預設「工作區」      | Microsoft.OperationalInsights/workspaces/write         | 資源群組         |
+|建立新的「帳戶」      |  Microsoft.Automation/automationAccounts/write        |資源群組         |
 |連結工作區和帳戶      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|工作區</br>自動化帳戶
-|建立解決方案      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Resource group          |
+|建立解決方案      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |資源群組          |
 |建立 MMA 延伸模組      | Microsoft.Compute/virtualMachines/write         | 虛擬機器         |
 |建立已儲存的搜尋      | Microsoft.OperationalInsights/workspaces/write          | 工作區         |
 |建立範圍設定      | Microsoft.OperationalInsights/workspaces/write          | 工作區         |
-|將解決方案連結至範圍設定      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | 方案         |
+|將解決方案連結至範圍設定      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | 解決方案         |
 |上線狀態檢查 - 讀取工作區      | Microsoft.OperationalInsights/workspaces/read         | 工作區         |
 |上線狀態檢查 - 讀取帳戶的已連結工作區屬性     | Microsoft.Automation/automationAccounts/read      | 自動化帳戶        |
-|上線狀態檢查 - 讀取解決方案      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | 方案         |
+|上線狀態檢查 - 讀取解決方案      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | 解決方案         |
 |上線狀態檢查 - 讀取 VM      | Microsoft.Compute/virtualMachines/read         | 虛擬機器         |
 |上線狀態檢查 - 讀取帳戶      | Microsoft.Automation/automationAccounts/read  |  自動化帳戶   |
-| VM<sup>1</sup>的上架工作區檢查       | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
-| 註冊 Log Analytics 提供者 |Microsoft Insights/註冊/動作 | Subscription|
+| VM<sup>1</sup>的上架工作區檢查       | Microsoft.OperationalInsights/workspaces/read         | 訂閱         |
+| 註冊 Log Analytics 提供者 |Microsoft Insights/註冊/動作 | 訂閱|
 
 <sup>1</sup>需要有此許可權，才能透過 VM 入口網站體驗進行上架。
 
 ### <a name="onboarding-from-automation-account"></a>從自動化帳戶上線
 
-|**Action**  |**權限** |**最基本範圍**  |
+|**動作**  |**權限** |**最基本範圍**  |
 |---------|---------|---------|
-|建立新的部署     | Microsoft.Resources/deployments/*        | Subscription         |
-|建立新的資源群組     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
-|AutomationOnboarding 刀鋒視窗 - 建立新的工作區     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
+|建立新的部署     | Microsoft.Resources/deployments/*        | 訂閱         |
+|建立新的資源群組     | Microsoft.Resources/subscriptions/resourceGroups/write         | 訂閱        |
+|AutomationOnboarding 刀鋒視窗 - 建立新的工作區     |Microsoft.OperationalInsights/workspaces/write           | 資源群組        |
 |AutomationOnboarding 刀鋒視窗 - 讀取已連結的工作區     | Microsoft.Automation/automationAccounts/read        | 自動化帳戶       |
-|AutomationOnboarding 刀鋒視窗 - 讀取解決方案     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | 方案        |
+|AutomationOnboarding 刀鋒視窗 - 讀取解決方案     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | 解決方案        |
 |AutomationOnboarding 刀鋒視窗 - 讀取工作區     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | 工作區        |
 |為工作區和帳戶建立連結     | Microsoft.OperationalInsights/workspaces/write        | 工作區        |
 |寫入 Shoebox 的帳戶      | Microsoft.Automation/automationAccounts/write        | 帳戶        |
 |建立解決方案      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write        | 資源群組         |
 |建立/編輯已儲存的搜尋     | Microsoft.OperationalInsights/workspaces/write        | 工作區        |
 |建立/編輯範圍設定     | Microsoft.OperationalInsights/workspaces/write        | 工作區        |
-|將解決方案連結至範圍設定      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | 方案         |
-| 註冊 Log Analytics 提供者 |Microsoft Insights/註冊/動作 | Subscription|
+|將解決方案連結至範圍設定      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | 解決方案         |
+| 註冊 Log Analytics 提供者 |Microsoft Insights/註冊/動作 | 訂閱|
 |**步驟 2 - 讓多個 VM 上線**     |         |         |
 |VMOnboarding 刀鋒視窗 - 建立 MMA 延伸模組     | Microsoft.Compute/virtualMachines/write           | 虛擬機器        |
 |建立/編輯已儲存的搜尋     | Microsoft.OperationalInsights/workspaces/write           | 工作區        |
@@ -267,8 +263,8 @@ ms.locfileid: "74850783"
 |自動化帳戶     | Log Analytics 參與者       | 自動化帳戶        |
 |自動化帳戶    | 虛擬機器參與者        | 帳戶的「資源群組」        |
 |Log Analytics 工作區     | Log Analytics 參與者| Log Analytics 工作區        |
-|Log Analytics 工作區 |Log Analytics 讀者| Subscription|
-|方案     |Log Analytics 參與者         | 方案|
+|Log Analytics 工作區 |Log Analytics 讀者| 訂閱|
+|解決方案     |Log Analytics 參與者         | 解決方案|
 |虛擬機器     | 虛擬機器參與者        | 虛擬機器        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>為您的自動化帳戶設定 RBAC

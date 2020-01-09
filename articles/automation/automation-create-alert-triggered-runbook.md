@@ -2,19 +2,15 @@
 title: 使用警示來觸發 Azure 自動化 Runbook
 description: 了解如何在引發 Azure 警示時觸發 Runbook 執行。
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: c4afcbced2879a2a6d50112b6388cdf5c8098b1d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: df28116c588ed77f02c78a42a85feb91ca339e7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850375"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366695"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>使用警示來觸發 Azure 自動化 Runbook
 
@@ -33,7 +29,7 @@ ms.locfileid: "74850375"
 
 當警示呼叫 Runbook 時，實際的呼叫是對 Webhook 的 HTTP POST 要求。 POST 要求的本文包含 JSON 格式的物件，其中具有與警示相關的實用屬性。 下表列出每種警示類型的承載結構描述連結：
 
-|警示  |描述|承載結構描述  |
+|警示  |說明|承載結構描述  |
 |---------|---------|---------|
 |[一般警示](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|一般警示架構，可將 Azure 中警示通知的耗用量體驗標準化。|一般警示承載架構|
 |[活動記錄警示](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |當 Azure 活動記錄中的任何新事件符合特定條件時，便傳送通知。 例如，當 **myProductionResourceGroup** 中發生 `Delete VM` 作業時，或出現狀態為 [作用中] 的新「Azure 服務健康狀態」事件時。| [活動記錄警示承載結構描述](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
@@ -49,7 +45,7 @@ ms.locfileid: "74850375"
 
 此範例使用來自 VM 的警示。 它會從承載擷取 VM 資料，然後使用該資訊來停止 VM。 您必須在執行 Runbook 的「自動化」帳戶中設定連線。 使用警示來觸發 Runbook 時，請務必檢查所觸發 Runbook 中的警示狀態。 每一次警示變更狀態時，Runbook 都會觸發。 警示有多個狀態，最常見的兩個狀態為 `Activated` 和 `Resolved`。 在 Runbook 邏輯中檢查這個狀態，以確保 Runbook 不會執行多次。 本文中的範例只會示範如何尋找 `Activated` 警示。
 
-Runbook 會使用**AzureRunAsConnection** [執行身分帳戶](automation-create-runas-account.md)向 Azure 進行驗證，以針對 VM 執行管理動作。
+Runbook 會使用**AzureRunAsConnection**執行身分[帳戶](automation-create-runas-account.md)向 Azure 進行驗證，以對 VM 執行管理動作。
 
 請使用此範例來建立名為 **Stop-AzureVmInResponsetoVMAlert** 的 Runbook。 您可以修改 PowerShell 指令碼，然後將它與許多不同的資源搭配使用。
 

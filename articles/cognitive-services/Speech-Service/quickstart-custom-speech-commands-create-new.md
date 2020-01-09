@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 056dd4331d30335078ea68350f711e37a7b42070
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d8e28b88757fa7557b04ee471ede17012094bb9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976616"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446898"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>快速入門：建立自訂命令（預覽）
 
@@ -24,10 +24,15 @@ ms.locfileid: "74976616"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 語音訂用帳戶。 [免費試用語音服務](~/articles/cognitive-services/speech-service/get-started.md)。
+- 語音訂用帳戶。 
+
+如果您沒有語音訂用帳戶，您可以流覽至[語音 Studio](https://speech.microsoft.com/)並選取 [**建立語音資源**] 來建立一個。
+
+  > [!div class="mx-imgBorder"]
+  > [![建立專案](media/custom-speech-commands/create-new-subscription.png)](media/custom-speech-commands/create-new-subscription.png#lightbox)
 
   > [!NOTE]
-  > 在預覽期間，訂用帳戶金鑰僅支援 westus2 區域。
+  > 在預覽期間，僅支援 westus2 區域。
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>前往適用于自訂命令的語音 Studio
 
@@ -66,6 +71,20 @@ ms.locfileid: "74976616"
 
 您的 view 現在應該是您自訂命令應用程式的總覽。
 
+## <a name="update-luis-resources-optional"></a>更新 LUIS 資源（選擇性）
+
+您可以在 [新增專案] 視窗中更新撰寫資源集，並在執行時間設定用來辨識輸入的預測資源。 
+
+> [!NOTE]
+> 您必須先設定預測資源，應用程式才會要求預測超過撰寫資源所提供的1000要求。
+
+> [!div class="mx-imgBorder"]
+> ![設定 LUIS 資源](media/custom-speech-commands/set-luis-resources.png)
+
+1. 從左窗格中選取 [**設定**]，然後從中間窗格**LUIS [資源**]，以流覽至 [LUIS 資源] 窗格。
+1. 選取預測資源，或選取 [**建立新資源**] 來建立一個
+1. 選取 [儲存]。
+
 ## <a name="create-a-new-command"></a>建立新的命令
 
 現在您可以建立命令。 讓我們使用會採用單一語句、`turn on the tv`，並以訊息 `Ok, turning on the TV`回應的範例。
@@ -78,7 +97,7 @@ ms.locfileid: "74976616"
 
 命令是一組：
 
-| 群組            | 描述                                                                                                                 |
+| 群組            | 說明                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | 範例句子 | 使用者可以說觸發此命令的範例語句                                                                 |
 | 參數       | 完成命令所需的資訊                                                                                |
@@ -116,11 +135,10 @@ turn on the tv
 > [!div class="mx-imgBorder"]
 > ![建立完成規則](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
-
-| 設定    | 建議的值                        | 描述                                        |
-| ---------- | -------------------------------------- | -------------------------------------------------- |
-| 規則名稱  | "ConfirmationResponse"                 | 描述規則用途的名稱          |
-| 條件 | None                                   | 判斷規則何時可執行檔條件    |
+| 設定    | 建議的值                          | 說明                                        |
+| ---------- | ---------------------------------------- | -------------------------------------------------- |
+| 規則名稱  | "ConfirmationResponse"                   | 描述規則用途的名稱          |
+| 條件 | 無                                     | 判斷規則何時可執行檔條件    |
 | 動作    | SpeechResponse "-Ok，開啟電視" | 規則條件為 true 時要採取的動作 |
 
 ## <a name="try-it-out"></a>歡迎試用

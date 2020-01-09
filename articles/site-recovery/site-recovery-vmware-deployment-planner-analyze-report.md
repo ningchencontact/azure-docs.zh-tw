@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: b6ac10b47a8bbc987eb1e338991100ee17eacd61
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4dad11e8331064a9df1b1aed561e00b9a9b24017
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961386"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495867"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>分析部署規劃工具報告以進行 VMware 嚴重損壞修復至 Azure
 
@@ -178,7 +178,7 @@ ms.locfileid: "73961386"
 
 **VM 名稱**：產生報告時，使用於 VMListFile 的 VM 名稱或 IP 位址。 此資料行也會列出連結至 VM 的磁碟 (VMDK)。 為了區分具有重複名稱或 IP 位址的 vCenter VM，名稱中包含 ESXi 主機名稱。 所列的 ESXi 主機是此工具在分析期間探索到 VM 時其所在位置的主機。
 
-**VM 相容性**：值為 [是] 和 [是 **]** \*。 [是]\* 表示 VM 適用於[進階 SSD](../virtual-machines/windows/disks-types.md) 的情況。 在此情況下，剖析的高變換 / IOPS 磁碟符合 P20 或 P30 類別，但磁碟大小會導致它向下對應至 P10 或 P20。 儲存體帳戶會根據磁碟大小，決定磁碟所要對應至的進階儲存體大小類型。 例如︰
+**VM 相容性**：值為 **[是]** 和 **[是\*]** 。 [是]\* 表示 VM 適用於[進階 SSD](../virtual-machines/windows/disks-types.md) 的情況。 在此情況下，剖析的高變換 / IOPS 磁碟符合 P20 或 P30 類別，但磁碟大小會導致它向下對應至 P10 或 P20。 儲存體帳戶會根據磁碟大小，決定磁碟所要對應至的進階儲存體大小類型。 例如：
 * <128 GB 為 P10。
 * 128 GB 至 256 GB 為 P15。
 * 256 GB 至 512 GB 為 P20。
@@ -186,7 +186,7 @@ ms.locfileid: "73961386"
 * 1025 GB 至 2048 GB 為 P40。
 * 2049 GB 至 4095 GB 為 P50。
 
-比方說，如果磁碟的工作負載特性讓它放在 P20 或 P30 類別中，但大小會將它對應到較低的進階儲存體磁碟類型，此工具會將該 VM 標示為 [是]\*。 此工具也建議您變更來源磁碟大小，以符合建議的進階儲存體磁碟類型，或變更容錯移轉後的目標磁碟類型。
+比方說，如果磁碟的工作負載特性讓它放在 P20 或 P30 類別中，但大小會將它對應到較低的進階儲存體磁碟類型，此工具會將該 VM 標示為 **[是**]\*。 此工具也建議您變更來源磁碟大小，以符合建議的進階儲存體磁碟類型，或變更容錯移轉後的目標磁碟類型。
 
 **儲存體類型**：標準或進階。
 
@@ -221,10 +221,7 @@ ms.locfileid: "73961386"
 
 **VM 相容性**：指出為何指定的 VM 不適合與 Site Recovery 搭配使用。 相關原因會針對 VM 的每個不相容磁碟進行說明，且根據發佈的[儲存體限制](https://aka.ms/azure-storage-scalbility-performance)，原因可能是下列其中一項：
 
-* 磁碟大小 >4095 GB。 Azure 儲存體目前不支援大於 4095 GB 的資料磁碟大小。
-
-* OS 磁碟 >2048 GB。 Azure 儲存體目前不支援大於 2048 GB 的 OS 磁碟大小。
-
+* 錯誤的資料磁片大小或作業系統磁片大小錯誤。 請[參閱](vmware-physical-azure-support-matrix.md#azure-vm-requirements)支援限制。 
 * VM 大小總計 (複寫 + TFO) 超過支援的儲存體帳戶大小限制 (35 TB)。 當 VM 中單一磁碟的效能特性超過標準儲存體支援的最大 Azure 或 Site Recovery 限制，通常會發生此不相容情況。 這類情況會將 VM 推送到進階儲存體區域中。 不過，進階儲存體帳戶支援的大小上限為 35 TB，而單一的受保護 VM 無法跨多個儲存體帳戶受到保護。 也請注意，在受保護的 VM 上執行測試容錯移轉時，它會在正在進行複寫的相同儲存體帳戶中執行。 在此例中，設定 2 倍的磁碟大小，以便進行複寫並以平行方式繼續進行測試容錯移轉。
 
 * 來源 IOPS 超過支援的儲存體 IOPS 限制 (每個磁碟 7500)。

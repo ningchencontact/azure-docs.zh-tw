@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 6db0f6c5f65967dd42d6ed9a8a1e50364ced094d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 6a9385a49e85806464e8f9ccf11d9232fae42435
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672465"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461123"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>準備 Windows VHD 或 VHDX 以上傳至 Azure
 
@@ -78,6 +78,10 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 如果您的 Windows VM 映射是[VMDK 檔案格式](https://en.wikipedia.org/wiki/VMDK)，請使用[Microsoft 虛擬機器轉換器](https://www.microsoft.com/download/details.aspx?id=42497)將它轉換成 VHD 格式。 如需詳細資訊，請參閱[如何將 VMWARE VMDK 轉換為 HYPER-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx)。
 
 ## <a name="set-windows-configurations-for-azure"></a>設定適用於 Azure 的 Windows 設定
+
+> [!NOTE]
+> Azure 平臺會在從一般化映射建立 Windows VM 時，將 ISO 檔案掛接至 DVD-ROM。
+> 基於這個理由，您必須在通用映射的 OS 中啟用 DVD-ROM。 如果已停用，則 Windows VM 會停滯在 OOBE。
 
 在您計畫上傳至 Azure 的 VM 上，從[提升許可權的命令提示字元視窗](https://technet.microsoft.com/library/cc947813.aspx)執行下列命令：
 
@@ -148,12 +152,11 @@ Get-Service -Name TermService | Where-Object { $_.StartType -ne 'Manual' } | Set
 Get-Service -Name MpsSvc | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 ```
-
 ## <a name="update-remote-desktop-registry-settings"></a>更新遠端桌面登錄設定
 請確定已正確設定遠端存取的下列設定：
 
 >[!NOTE] 
->當您執行 `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`時，可能會收到錯誤訊息。 您可以放心地忽略此訊息。 這表示網域不會透過群組原則物件來推送該設定。
+>當您執行 `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`時，可能會收到錯誤訊息。 您可以放心忽略這個訊息。 這表示網域不會透過群組原則物件來推送該設定。
 
 1. 遠端桌面通訊協定 (RDP) 已啟用：
    
@@ -216,7 +219,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
 
 9. 如果 VM 將是網域的一部分，請檢查下列原則，以確定先前的設定不會還原。 
     
-    | 目標                                     | 原則                                                                                                                                                       | Value                                                                                    |
+    | 目標                                     | 原則                                                                                                                                                       | 值                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP 已啟用                           | 電腦設定\原則\Windows 設定\系統管理範本\元件\遠端桌面服務\遠端桌面工作階段主機\連線         | 允許使用者使用遠端桌面服務從遠端連線                                  |
     | NLA 群組原則                         | 設定\系統管理範本\元件\遠端桌面服務\遠端桌面工作階段主機\安全性                                                    | 需要使用 NLA 進行遠端存取的使用者驗證 |
@@ -250,7 +253,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
    ``` 
 5. 如果 VM 將是網域的一部分，請檢查下列 Azure AD 原則，以確定先前的設定不會還原。 
 
-    | 目標                                 | 原則                                                                                                                                                  | Value                                   |
+    | 目標                                 | 原則                                                                                                                                                  | 值                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | 啟用 Windows 防火牆設定檔 | 電腦設定\原則\Windows 設定\系統管理範本\網路\網路連線\Windows 防火牆\網域設定檔\Windows 防火牆   | 保護所有網路連線         |
     | 啟用 RDP                           | 電腦設定\原則\Windows 設定\系統管理範本\網路\網路連線\Windows 防火牆\網域設定檔\Windows 防火牆   | 允許輸入遠端桌面例外狀況 |

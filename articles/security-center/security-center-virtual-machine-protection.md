@@ -13,23 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 4a6d733b490edd892136f6febcc90c29a5a865e1
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b7e5b0286cdd15834b84e4fd3e619c6555054823
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766798"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552996"
 ---
 # <a name="protect-your-machines-and-applications"></a>保護您的機器和應用程式
-當資訊安全中心識別潛在的安全性弱點時，它會建立建議，引導您完成設定必要控制項的程式。 
+當 Azure 資訊安全中心識別潛在的安全性弱點時，它會建立建議，引導您完成設定所需控制項來強化和保護資源的程式。
 
-本文說明 Azure 資訊安全中心的資源安全性區段的 [**計算和應用程式**] 頁面。 其中也會說明您會在那裡看到的一些建議。
+本文說明資訊安全中心的資源安全性區段的 [**計算和應用程式**] 頁面。
 
-如需計算和應用程式服務建議的完整清單，請參閱[計算和應用程式建議](recommendations-compute-and-apps.md)。
+如需您可能會在此頁面上看到之建議的完整清單，請參閱[資料和儲存體建議](recommendations-reference.md#recs-computeapp)。
+
 
 ## <a name="view-the-security-of-your-compute-and-apps-resources"></a>查看您的計算和應用程式資源的安全性
 
-![資訊安全中心儀表板](./media/security-center-virtual-machine-recommendations/overview.png)
+[![資訊安全中心儀表板](./media/security-center-virtual-machine-recommendations/overview.png)](./media/security-center-virtual-machine-recommendations/overview.png#lightbox)
 
 若要查看計算和應用程式資源的狀態，請在 [資訊安全中心] 提要欄位中選取 [**資源**] 下的 [**計算 & 應用程式**]。 下列索引標籤可供使用：
 
@@ -74,7 +75,8 @@ ms.locfileid: "74766798"
 
 若要向下切入到每個 VM 的安全性建議，請按一下該 VM。
 您可在此處查看 VM 或電腦的安全性詳細資料。 在底部，您可以看到建議的動作和每個問題的嚴重性。
-![雲端服務](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
+
+[![雲端服務](./media/security-center-virtual-machine-recommendations/recommendation-list.png)](./media/security-center-virtual-machine-recommendations/recommendation-list.png#lightbox)
 
 ### <a name="cloud-services"></a>雲端服務
 針對雲端服務，若作業系統版本已過期，便會建立建議。
@@ -141,6 +143,7 @@ ms.locfileid: "74766798"
 ## <a name="next-steps"></a>後續步驟
 若要深入瞭解適用于其他 Azure 資源類型的建議，請參閱下列文章：
 
+* [Azure 資訊安全中心安全性建議的完整參考清單](recommendations-reference.md)
 * [在 Azure 資訊安全中心監視身分識別和存取](security-center-identity-access.md)
 * [保護 Azure 資訊安全中心內的網路](security-center-network-recommendations.md)
 * [保護 Azure 資訊安全中心內的 Azure SQL 服務](security-center-sql-service-recommendations.md)

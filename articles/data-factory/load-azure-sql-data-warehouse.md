@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/22/2018
-ms.openlocfilehash: 732d5d170ee647dc0dfdbf4d09a12617c8c9bcce
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 05e87258576bceee2e1bbba7ec5ef6ea5ead4924
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931519"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440245"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure SQL 資料倉儲中
 
@@ -51,11 +51,11 @@ Azure Data Factory 可針對將資料載入 Azure SQL 資料倉儲的作業提�
 
 2. 在 [新增資料處理站] 頁面中，為下圖所示的欄位提供值：
       
-   ![新增 Data Factory 網頁](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
+   ![新增資料處理站頁面](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
     * **名稱**：輸入 Azure 資料處理站的全域唯一名稱。 如果您收到「資料處理站名稱 \"LoadSQLDWDemo\" 無法使用」的錯誤，請為資料處理站輸入其他名稱。 例如，您可以使用 _**您的名稱**_ **ADFTutorialDataFactory**。 請嘗試再次建立資料處理站。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
     * **訂用帳戶**：選取用來在其中建立資料處理站的 Azure 訂用帳戶。 
-    * **資源群組**：從下拉式清單中選取現有資源群組，或選取 [新建] 選項，然後輸入資源群組的名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
+    * **資源群組**：從下拉式清單中選取現有資源群組，或選取 [新建] 選項，然後輸入資源群組的名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。  
     * **版本**：選取 [V2]。
     * **位置**：選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區可位於其他位置和區域。 這些資料存放區包含 Azure Data Lake Store、Azure 儲存體、Azure SQL Database 等等。
 
@@ -81,7 +81,7 @@ Azure Data Factory 可針對將資料載入 Azure SQL 資料倉儲的作業提�
 
     ![來源資料存放區頁面](./media/load-azure-sql-data-warehouse/new-source-linked-service.png)
 
-    b.這是另一個 C# 主控台應用程式。 從資源庫選取 [Azure SQL Database]，然後選取 [繼續]。 您可以在搜尋方塊中輸入 "SQL"，以篩選連接器。
+    b. 從資源庫選取 [Azure SQL Database]，然後選取 [繼續]。 您可以在搜尋方塊中輸入 "SQL"，以篩選連接器。
 
     ![選取 Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
@@ -103,7 +103,7 @@ Azure Data Factory 可針對將資料載入 Azure SQL 資料倉儲的作業提�
 
     ![接收資料存放區頁面](./media/load-azure-sql-data-warehouse/new-sink-linked-service.png)
 
-    b.這是另一個 C# 主控台應用程式。 從資源庫選取 [Azure SQL 資料倉儲]，然後選取 [下一步]。
+    b. 從資源庫選取 [Azure SQL 資料倉儲]，然後選取 [下一步]。
 
     ![選取 Azure SQL 資料倉儲](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
@@ -132,7 +132,7 @@ Azure Data Factory 可針對將資料載入 Azure SQL 資料倉儲的作業提�
 
     ![設定暫存](./media/load-azure-sql-data-warehouse/configure-staging.png)
 
-    b.這是另一個 C# 主控台應用程式。 在 [新增連結服務] 頁面中，選取您的儲存體帳戶，然後選取 [完成]。
+    b. 在 [新增連結服務] 頁面中，選取您的儲存體帳戶，然後選取 [完成]。
    
     ![設定 Azure 儲存體](./media/load-azure-sql-data-warehouse/configure-blob-storage.png)
 

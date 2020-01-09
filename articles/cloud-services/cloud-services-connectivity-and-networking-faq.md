@@ -1,5 +1,6 @@
 ---
-title: Microsoft Azure 雲端服務之連線能力和網路服務問題的常見問題集 | Microsoft Docs
+title: 連線和網路問題
+titleSuffix: Azure Cloud Services
 description: 本文列出 Microsoft Azure 雲端服務之連線能力和網路服務的相關常見問題集。
 services: cloud-services
 documentationcenter: ''
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: c6d470b9c14f53558d09e6876701cb25ddc15183
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: e41c2424e970c9493d612da99b64b8c2d649002f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154880"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386743"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務的連線能力和網路問題：常見問題集 (FAQ)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之連線能力和網路服務問題：常見問題集 (FAQ)
 
 本文包含 [Azure 雲端服務](https://azure.microsoft.com/services/cloud-services)之連線能力和網路服務問題的相關常見問題集。 如需有關規模大小的資訊，請參閱[雲端服務 VM 大小頁面](cloud-services-sizes-specs.md)。
 
@@ -71,7 +72,7 @@ IIS 的 URL Rewrite 模組可用來將流向雲端服務 (例如，\*.cloudapp.n
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>如何封鎖/停用我雲端服務的預設 URL 傳入流量？
 
-您可以阻止傳向您雲端服務 (例如 \*.cloudapp.net) 預設 URL/名稱的傳入流量。 在雲端服務定義（*）檔案的 [網站系結設定\.] 底下，將主機標頭設為自訂 DNS 名稱（例如，www MyCloudService.com），如下所示：
+您可以阻止傳向您雲端服務 (例如 \*.cloudapp.net) 預設 URL/名稱的傳入流量。 在雲端服務定義（*）檔案的 [網站系結設定] 底下，將主機標頭設為自訂 DNS 名稱（例如，www\.MyCloudService.com），如下所示：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

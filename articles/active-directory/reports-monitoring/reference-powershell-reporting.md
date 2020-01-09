@@ -17,17 +17,24 @@ ms.date: 07/12/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f962cd9bc8c975ccaef90f61f20eea4cf1e4935e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 2192c472e00d123780ec6bc5574e7b9fe326258b
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014328"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495317"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>適用於報表的 Azure AD PowerShell Cmdlet
 
 > [!NOTE] 
 > 這些 Powershell Cmdlet 目前僅適用于[Azure AD Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing)模組。 請注意，預覽模組不建議用於生產環境使用。 
+
+若要安裝公開預覽版本，請使用下列各項。 
+
+```powershell
+Install-module AzureADPreview
+```
+如需如何使用 powershell 連接到 Azure AD 的詳細資訊，請參閱[Azure AD powershell For Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)一文。  
 
 有了 Azure Active Directory （Azure AD）報表，您可以在方向（audit logs）和驗證資料（登入記錄）中取得有關所有寫入作業的活動詳細資料。 雖然可以使用 MS 圖形 API 來取得資訊，但現在您可以使用 Azure AD PowerShell Cmdlet 來抓取相同的資料，以進行報告。
 
@@ -65,7 +72,7 @@ ms.locfileid: "74014328"
 | :--                           | :--                |
 | 使用者顯示名稱             | AzureADAuditSignInLogs-Filter "Event.pushnotification.userdisplayname eq ' Timothy Perkins '" |
 | 建立日期時間              | AzureADAuditSignInLogs-Filter "createdDateTime gt 2019-04-18T17：30： 00.0 Z" （自5:30 年 pm 起的所有專案，于4/18） |
-| Status                        | AzureADAuditSignInLogs-Filter "status/errorCode eq 50105" |
+| 狀態                        | AzureADAuditSignInLogs-Filter "status/errorCode eq 50105" |
 | 應用程式顯示名稱      | AzureADAuditSignInLogs-Filter "appDisplayName eq ' StoreFrontStudio [wsfed enabled] '" |
 | 以上皆是              | AzureADAuditSignInLogs-Filter "Event.pushnotification.userdisplayname eq ' Timothy Perkins ' and status/errorCode ne 0 and appDisplayName eq ' StoreFrontStudio [wsfed enabled] '" |
 

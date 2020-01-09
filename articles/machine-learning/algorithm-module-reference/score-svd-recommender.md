@@ -1,7 +1,7 @@
 ---
 title: 評分 SVD 推薦：模組參考
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何在 Azure Machine Learning 服務中使用計分 SVD 推薦模組，以評分資料集的建議預測。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 中的計分 SVD 推薦模組來評分資料集的建議預測。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: be590ba04de5c8ee671e7e865d04b4ea6c638c00
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 554101ac70f01f1dd92337a8cf424f8b26ca0fc9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717229"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456328"
 ---
 # <a name="score-svd-recommender"></a>評分 SVD 推薦
 
@@ -123,4 +123,4 @@ SVD 推薦可以產生兩種不同的預測：
 
 ## <a name="next-steps"></a>後續步驟
 
-查看 Azure Machine Learning 服務[可用的模組集合](module-reference.md)。 
+請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

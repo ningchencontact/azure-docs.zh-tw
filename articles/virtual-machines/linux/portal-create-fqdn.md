@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d30f5a60bf19e9185d992b973414f58942f9954
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 256e1e60ec8f50df2faea64f31e88d00370b33c4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035301"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458712"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>在 Azure 入口網站中建立 Linux VM 的完整網域名稱
 
@@ -36,5 +36,5 @@ ms.locfileid: "74035301"
 ## <a name="next-steps"></a>後續步驟
 既然您的 VM 已經有公用 IP 和 DNS 名稱，您便可以部署通用應用程式架構或服務，例如 nginx、MongoDB、Docker 等等。
 
-您也可以進一步閱讀[使用 Resource Manager](../../azure-resource-manager/resource-group-overview.md)，以取得建置 Azure 部署的相關秘訣。
+您也可以進一步閱讀[使用 Resource Manager](../../azure-resource-manager/management/overview.md)，以取得建置 Azure 部署的相關秘訣。
 

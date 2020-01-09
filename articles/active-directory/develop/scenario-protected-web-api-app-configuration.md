@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f78fa35096b7e17d3736190bfa49619c2c81520
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 76d5aabc30d0375185130b9781caeaf4d5457455
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965393"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423727"
 ---
 # <a name="protected-web-api-code-configuration"></a>受保護的 Web API：程式碼設定
 
@@ -43,7 +43,7 @@ ms.locfileid: "74965393"
 
 以下的程式C#代碼範例會顯示用戶端在取得權杖並搭配適用于 .Net 的 Microsoft 驗證程式庫（MSAL.NET）後呼叫 API：
 
-```CSharp
+```csharp
 var scopes = new[] {$"api://.../access_as_user}";
 var result = await app.AcquireToken(scopes)
                       .ExecuteAsync();
@@ -96,19 +96,19 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 
 在 ASP.NET Core 中，這個中介軟體會在 Startup.cs 檔案中初始化：
 
-```CSharp
+```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 ```
 
 此指示會將中介軟體新增至 Web API：
 
-```CSharp
+```csharp
  services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
  目前，ASP.NET Core 範本會建立 Azure Active Directory （Azure AD） web Api，以便在您的組織或任何組織內登入使用者，而不是使用個人帳戶。 但您可以將下列程式碼新增至 Startup.cs 檔案，輕鬆地將其變更為使用 Microsoft 身分識別平臺端點：
 
-```CSharp
+```csharp
 services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
 {
     // This is a Microsoft identity platform web API.
@@ -148,7 +148,7 @@ Microsoft.aspnetcore.authentication.jwtbearer 中介軟體（例如 web 應用�
 
 此表格會說明驗證程式：
 
-| 驗證器 | 描述 |
+| 驗證器 | 說明 |
 |---------|---------|
 | `ValidateAudience` | 確保權杖適用于驗證權杖的應用程式（適用于我）。 |
 | `ValidateIssuer` | 確保權杖是由信任的 STS （來自我信任的人）所發行。 |

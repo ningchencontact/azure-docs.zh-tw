@@ -7,7 +7,7 @@ author: Yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/10/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ebdbcdda4efd7fdf9eb0e3e04cfa4d1987e03716
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ea7a62210f48b216d3f98f6359447eacf15cf821
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111801"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460809"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>將語言分析器新增至 Azure 認知搜尋索引中的字串欄位
 
@@ -48,7 +48,10 @@ Azure 認知搜尋支援 Lucene 支援的35分析器，以及由 Office 和 Bing
 
 ## <a name="configuring-analyzers"></a>設定分析器
 
-語言分析器是以現況使用。 針對索引定義中的每一個欄位，您可以將 **analyzer** 屬性設為能指定語言和語言堆疊 (Microsoft 或 Lucene) 的分析器名稱。 搜尋與編制該欄位索引時會套用相同的分析器。 例如，您可以有個別適用於英文、法文及西班牙文旅館說明的欄位，這些欄位會在相同的索引中並列存在。 或者，與其使用 **analyzer**，您可以使用 **indexAnalyzer** 和 **searchAnalyzer** 來在編製索引和查詢時間時使用不同的分析規則。 
+語言分析器是以現況使用。 針對索引定義中的每一個欄位，您可以將 **analyzer** 屬性設為能指定語言和語言堆疊 (Microsoft 或 Lucene) 的分析器名稱。 搜尋與編制該欄位索引時會套用相同的分析器。 例如，您可以有個別適用於英文、法文及西班牙文旅館說明的欄位，這些欄位會在相同的索引中並列存在。
+
+> [!NOTE]
+> 在索引時間與欄位的查詢期間，不可能使用不同的語言分析器。 這項功能會保留給[自訂分析器](index-add-custom-analyzers.md)。 基於這個理由，如果您嘗試將**searchAnalyzer**或**indexAnalyzer**屬性設定為語言分析器的名稱，REST API 將會傳回錯誤回應。 您必須改用**analyzer**屬性。
 
 使用 **searchFields** 查詢參數來指定針對查詢所要搜尋的語言特定欄位。 您可以在[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/search-documents) \(英文\) 中檢閱包含分析器屬性的查詢範例。 
 
@@ -73,7 +76,7 @@ Azure 認知搜尋支援 Lucene 支援的35分析器，以及由 Office 和 Bing
 |捷克文|cs.microsoft|cs.lucene|  
 |丹麥文|da.microsoft|da.lucene|  
 |荷蘭文|nl.microsoft|nl.lucene|  
-|English|en.microsoft|en.lucene|  
+|繁體中文|en.microsoft|en.lucene|  
 |愛沙尼亞文|et.microsoft||  
 |芬蘭文|fi.microsoft|fi.lucene|  
 |法文|fr.microsoft|fr.lucene|  
@@ -81,8 +84,8 @@ Azure 認知搜尋支援 Lucene 支援的35分析器，以及由 Office 和 Bing
 |德文|de.microsoft|de.lucene|  
 |希臘文|el.microsoft|el.lucene|  
 |古吉拉特文|gu.microsoft||  
-|希伯來文|he.microsoft||  
-|北印度文|hi.microsoft|hi.lucene|  
+|Hebrew|he.microsoft||  
+|Hindi|hi.microsoft|hi.lucene|  
 |匈牙利文|hu.microsoft|hu.lucene|  
 |冰島文|is.microsoft||  
 |印尼文 (Bahasa)|id.microsoft|id.lucene|  
@@ -120,7 +123,7 @@ Azure 認知搜尋支援 Lucene 支援的35分析器，以及由 Office 和 Bing
 
  所有名稱加上 **Lucene** 註解的分析器都是由 [Apache Lucene 的語言分析器](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ) \(英文\) 所提供。
 
-## <a name="see-also"></a>另請參閱  
+## <a name="see-also"></a>請參閱  
 
 + [建立索引&#40;Azure 認知搜尋 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
 

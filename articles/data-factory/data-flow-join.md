@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/17/2019
-ms.openlocfilehash: 09d2c1d063c542583dc11fab0805a9392661426f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/02/2020
+ms.openlocfilehash: 10149c6eb06e6d2994233aa365f237e6d9330c48
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930334"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644746"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>對應資料流程中的聯結轉換
 
@@ -25,11 +25,14 @@ ms.locfileid: "74930334"
 
 ### <a name="inner-join"></a>內部聯結
 
-內部聯結只會輸出具有相符值的兩個數據表的資料列。
+內部聯結只會輸出在兩個數據表中具有相符值的資料列。
 
 ### <a name="left-outer"></a>左方外部
 
 左方外部聯結會從左邊的資料流程傳回所有資料列，並從右邊的資料流程傳回相符的記錄。 如果左側資料流程中的資料列沒有相符項，則右邊資料流程的輸出資料行會設定為 Null。 輸出將會是內部聯結所傳回的資料列，加上來自左側資料流程的不相符資料列。
+
+> [!NOTE]
+> 資料流程所使用的 Spark 引擎有時可能會有笛卡兒產品的情況。 在這種情況下，您可以切換到自訂交叉聯結，並手動輸入您的聯結條件。 這可能會導致您的資料流程效能變慢，因為執行引擎可能需要計算關聯性兩端的所有資料列，然後篩選資料列。
 
 ### <a name="right-outer"></a>右方外部
 
@@ -39,9 +42,16 @@ ms.locfileid: "74930334"
 
 完整外部聯結會從兩端輸出具有 Null 值的所有資料行和資料列，而不符合的資料行。
 
-### <a name="cross-join"></a>交叉聯結
+### <a name="custom-cross-join"></a>自訂交叉聯結
 
-交叉聯結會根據條件來輸出兩個數據流的交叉乘積。 如果您要使用不相等的條件，請指定自訂表格達式做為交叉聯結條件。 輸出資料流程將會是符合聯結條件的所有資料列。 若要建立輸出每個資料列組合的笛卡兒產品，請指定 `true()` 做為聯結條件。
+交叉聯結會根據條件來輸出兩個數據流的交叉乘積。 如果您要使用不相等的條件，請指定自訂表格達式做為交叉聯結條件。 輸出資料流程將會是符合聯結條件的所有資料列。
+
+您可以使用這種聯結類型來進行非同等聯結和 ```OR``` 條件。
+
+如果您想要明確產生整個笛卡兒乘積，請在聯結之前的兩個獨立資料流程中使用「衍生的資料行」轉換，以建立要符合的綜合索引鍵。 例如，在名為 ```SyntheticKey``` 之每個資料流程的衍生資料行中建立新的資料行，並將它設定為等於 ```1```。 然後使用 ```a.SyntheticKey == b.SyntheticKey``` 做為自訂聯結運算式。
+
+> [!NOTE]
+> 請務必在自訂交叉聯結中包含至少一個資料行，而左邊和右邊關聯性的每一側都有一個。 執行具有靜態值的交叉聯結，而不是每一方的資料行，會導致整個資料集的完整掃描，導致資料流程執行效能不佳。
 
 ## <a name="configuration"></a>組態
 
@@ -49,7 +59,7 @@ ms.locfileid: "74930334"
 1. 選取您的**聯結類型**
 1. 選擇您想要與之聯結條件相符的索引鍵資料行。 根據預設，資料流程會在每個資料流程中的一個資料行之間尋找是否相等。 若要透過計算值進行比較，請將滑鼠停留在資料行下拉式清單中，然後選取 [**計算資料行**]
 
-![聯結轉換](media/data-flow/join.png "聯結")
+![聯結轉換](media/data-flow/join.png "Join")
 
 ## <a name="optimizing-join-performance"></a>優化聯結效能
 
@@ -84,7 +94,7 @@ ms.locfileid: "74930334"
 
 ### <a name="inner-join-example"></a>內部聯結範例
 
-下列範例是名為 `JoinMatchedData` 的聯結轉換，它會將 `TripData` 和正確的資料流程 `TripFare`。  聯結條件是運算式 `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` 如果每個資料流程中的 `hack_license`、`medallion`、`vendor_id`和 `pickup_datetime` 資料行相符，就會傳回 true。 `joinType` 為 `'inner'`。 我們只會在左邊的串流中啟用廣播，因此 `broadcast` 的值 `'left'`。
+下列範例是名為 `JoinMatchedData` 的聯結轉換，它會將 `TripData` 和正確的資料流程 `TripFare`。  聯結條件是運算式 `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` 如果每個資料流程中的 `hack_license`、`medallion`、`vendor_id`和 `pickup_datetime` 資料行相符，就會傳回 true。 在本機系統上找不到 `joinType` 為 `'inner'`。 我們只會在左邊的串流中啟用廣播，因此 `broadcast` 的值 `'left'`。
 
 在 Data Factory UX 中，這項轉換看起來如下圖所示：
 
@@ -104,9 +114,9 @@ TripData, TripFare
     )~> JoinMatchedData
 ```
 
-### <a name="cross-join-example"></a>交叉聯結範例
+### <a name="custom-cross-join-example"></a>自訂交叉聯結範例
 
-下列範例是名為 `CartesianProduct` 的聯結轉換，它會將 `TripData` 和正確的資料流程 `TripFare`。 這項轉換會接受兩個數據流，並傳回其資料列的笛卡兒乘積。 聯結條件是 `true()` 的，因為它會輸出完整的笛卡兒乘積。 `joinType` 為 `cross`。 我們只會在左邊的串流中啟用廣播，因此 `broadcast` 的值 `'left'`。
+下列範例是名為 `JoiningColumns` 的聯結轉換，它會將 `LeftStream` 和正確的資料流程 `RightStream`。 這項轉換會接受兩個數據流，並將資料行 `leftstreamcolumn` 大於 column `rightstreamcolumn`的所有資料列聯結在一起。 在本機系統上找不到 `joinType` 為 `cross`。 未啟用廣播，`broadcast` 具有值 `'none'`。
 
 在 Data Factory UX 中，這項轉換看起來如下圖所示：
 
@@ -115,12 +125,12 @@ TripData, TripFare
 此轉換的資料流程腳本位於下列程式碼片段中：
 
 ```
-TripData, TripFare
+LeftStream, RightStream
     join(
-        true(),
+        leftstreamcolumn > rightstreamcolumn,
         joinType:'cross',
-        broadcast: 'left'
-    )~> CartesianProduct
+        broadcast: 'none'
+    )~> JoiningColumns
 ```
 
 ## <a name="next-steps"></a>後續步驟

@@ -1,5 +1,5 @@
 ---
-title: Azure AD 驗證和授權錯誤代碼 |Azure
+title: Azure AD 驗證 & 授權錯誤代碼
 description: 了解從 Azure AD 安全性權杖服務 (STS) 所傳回的 AADSTS 錯誤碼。
 services: active-directory
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/30/2019
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02ed0b84a29ea0c3ce3b58db1c029798655bfb06
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8979481452b0c4e8bf862c306a7916ddcabf1307
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965801"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423975"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 驗證和授權錯誤碼
 
@@ -40,7 +40,7 @@ ms.locfileid: "74965801"
 
 ## <a name="aadsts-error-codes"></a>AADSTS 錯誤碼
 
-| Error | 描述 |
+| 錯誤 | 說明 |
 |---|---|
 | AADSTS16000 | SelectUserAccount - 這是 Azure AD 所擲回的插斷，會導致 UI 允許使用者從多個有效的 SSO 工作階段進行選取。 此錯誤很常見，如果指定 `prompt=none`，則可能會傳回給應用程式。 |
 | AADSTS16001 | UserAccountSelectionInvalid - 如果使用者按一下工作階段選取邏輯已遭拒絕的圖格，則會看到此錯誤。 若已觸發，此錯誤可讓使用者藉由從已更新的圖格/工作階段清單進行挑選，或選擇另一個帳戶來復原。 此錯誤可能因為程式碼缺失或競爭條件而發生。 |
@@ -133,6 +133,8 @@ ms.locfileid: "74965801"
 | AADSTS50178 | SessionControlNotSupportedForPassthroughUsers - 未針對傳遞使用者支援工作階段控制。 |
 | AADSTS50180 | WindowsIntegratedAuthMissing - 需要整合式 Windows 驗證。 為租用戶啟用無縫 SSO。 |
 | AADSTS50187 | DeviceInformationNotProvided - 服務無法執行裝置驗證。 |
+| AADSTS50196 | LoopDetected-偵測到用戶端迴圈。 檢查應用程式的邏輯，以確保會執行權杖快取，並正確處理錯誤狀況。  應用程式在一段時間內有太多相同的要求，表示它處於錯誤狀態，或 abusively 要求權杖。 |
+| AADSTS50199 | CmsiInterrupt-此驗證需要使用者互動。  因為這是「interaction_required」錯誤，所以用戶端應該執行互動式驗證。 之所以會發生這種情況，是因為系統的 web 工作已用來要求原生應用程式的權杖-使用者必須提示詢問，這確實是他們想要登入的應用程式。|
 | AADSTS51000 | RequiredFeatureNotEnabled - 此功能已停用。 |
 | AADSTS51001 | DomainHintMustbePresent - 網域提示必須與內部部署安全性識別碼或 內部部署 UPN 一起顯示。 |
 | AADSTS51004 | UserAccountNotInDirectory - 目錄中不存在使用者帳戶。 |

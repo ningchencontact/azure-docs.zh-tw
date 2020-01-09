@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a48cef2210721bf7116b1c4ad1169779288f47d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60561484"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644829"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>相應增加 Azure DevTest Labs 基礎結構
 在企業級規模實作 DevTest Labs 之前，有數個重要決策點。 了解這些高層的決策點可協助組織未來設計決策。 不過，這些決策點應該不會妨礙組織開始概念證明。 初始相應增加計劃的前三個領域如下：
@@ -46,14 +46,14 @@ ms.locfileid: "60561484"
 一個訂用帳戶的方法通常在大型企業中不容易管理。 不過，限制訂用帳戶的數目有下列優點：
 
 - **預測**企業的成本。  單一訂用帳戶的預算變得更容易，因為所有資源都在單一集區中。 此方法更容易決定在計費期間的任何指定時間執行成本控制措施。
-- **管理性**的 Vm、 成品、 公式、 網路設定、 權限、 原則，等會更容易因為所有的更新只需要在一個訂用帳戶，而不是跨許多訂用帳戶進行更新。
+- Vm、成品、公式、網路設定、許可權、原則等的**管理性**較容易，因為只有一個訂用帳戶需要所有更新，而不是在多個訂閱之間進行更新。
 - 對於需要內部部署連線的企業，單一訂用帳戶的**網路**工作大幅簡化。 額外的訂用帳戶需要跨訂用帳戶連接虛擬網路 (中樞-支點模型)，而這需要額外的設定、管理、IP 位址空間等。
 - 當每個人都使用相同的訂用帳戶時，**小組共同作業**更容易，例如，更容易將 VM 重新指派給同事、共用小組資源等。
 
 ### <a name="subscription-per-user"></a>每位使用者使用一個訂用帳戶
 每位使用者使用一個訂用帳戶可為替代範圍提供相等的機會。 擁有許多訂用帳戶的優點包括：
 
-- **Azure 調整配額**不會妨礙採用。 例如，撰寫本文時，Azure 允許每個訂用帳戶有 200 個儲存體帳戶。 在 Azure 中，大部分的服務都有操作配額 (許多可自訂，某些則不行)。 如果是每位使用者使用一個訂用帳戶這個模型，就不太可能達到大部分的配額。 如需有關目前 Azure 調整配額的詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與限制](../azure-subscription-service-limits.md)。
+- **Azure 調整配額**不會妨礙採用。 例如，撰寫本文時，Azure 允許每個訂用帳戶有 200 個儲存體帳戶。 在 Azure 中，大部分的服務都有操作配額 (許多可自訂，某些則不行)。 如果是每位使用者使用一個訂用帳戶這個模型，就不太可能達到大部分的配額。 如需有關目前 Azure 調整配額的詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與限制](../azure-resource-manager/management/azure-subscription-service-limits.md)。
 - **退款**給群組或個別開發人員變得更容易，因為組織能夠使用其目前的模型來計算成本。
 - DevTest Labs 環境的**擁有權和權限**很簡單。 您為開發人員提供訂用帳戶層級的存取權，他們會完全負責所有事情，包括網路設定、實驗室原則和 VM 管理。
 
@@ -62,9 +62,9 @@ ms.locfileid: "60561484"
 ## <a name="roles-and-responsibilities"></a>角色和職責
 DevTest Labs 概念證明有三個主要角色及已定義的職責，分別是訂用帳戶擁有者、DevTest Labs 擁有者、DevTest Labs 使用者和 (選用的) 參與者。
 
-- **訂用帳戶擁有者** – 訂用帳戶擁有者擁有管理 Azure 訂用帳戶的權限，包括指派使用者、管理原則、建立與管理網路拓撲、要求增加配額等等。如需詳細資訊，請參閱 [本篇文章](../role-based-access-control/rbac-and-directory-admin-roles.md)。
+- **訂**用帳戶擁有者-訂用帳戶擁有者有權管理 Azure 訂用帳戶，包括指派使用者、管理原則、建立 & 管理網路拓撲、要求增加配額等等。如需詳細資訊，請參閱[這篇文章](../role-based-access-control/rbac-and-directory-admin-roles.md)。
 - **DevTest Labs 擁有者** – DevTest Labs 擁有者對實驗室有完整的系統管理存取權。 這位人員會負責新增/移除使用者、管理成本設定、一般實驗室設定，以及其他以 VM/成品為基礎的工作。 實驗室擁有者也具備 DevTest Labs 使用者的所有權限。
 - **DevTest Labs 使用者** – DevTest Labs 使用者可以建立和使用實驗室中的虛擬機器。 這些人員對於所建立的 VM 有一些基本的系統管理功能 (啟動/停止/刪除/設定其 VM)。 這些使用者無法管理其他使用者的 VM。
 
 ## <a name="next-steps"></a>後續步驟
-請參閱本系列的下一篇文章：[協調 Azure DevTest Labs 的實作](devtest-lab-guidance-orchestrate-implementation.md)
+請參閱本系列中的下一篇文章：[協調 Azure DevTest Labs 的實作](devtest-lab-guidance-orchestrate-implementation.md)

@@ -2,20 +2,16 @@
 title: 在 Azure 自動化 Runbook 中部署 Azure Resource Manager 範本
 description: 如何從 Runbook 部署儲存在 Azure 儲存體中的 Azure Resource Manager 範本
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
 keywords: powershell, runbook, json, azure 自動化
-ms.openlocfilehash: 922a4e8d98405de9e2b8420da4abf0e157011546
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d4adbea42cda54380ad32dce40cfa0d8391ee490
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850919"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366629"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>在 Azure 自動化 PowerShell Runbook 中部署 Azure Resource Manager 範本
 
@@ -238,13 +234,13 @@ Runbook 會取得 Resource Manager 範本，並使用它來部署新的 Azure �
 Get-AzureRmStorageAccount
 ```
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 就這麼簡單！ 現在您可以使用 Azure 自動化和 Azure 儲存體，以及 Resource Manager 範本來部署您所有的 Azure 資源。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入了解 Resource Manager 範本，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)
+* 若要深入了解 Resource Manager 範本，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/management/overview.md)
 * 若要開始使用 Azure 儲存體，請參閱 [Azure 儲存體簡介](../storage/common/storage-introduction.md)。
 * 若要尋找其他實用的 Azure 自動化 Runbook，請參閱 [Azure 自動化的 Runbook 和模組資源庫](automation-runbook-gallery.md)。
 * 若要尋找其他實用的 Resource Manager 範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)

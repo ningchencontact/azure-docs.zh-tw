@@ -8,18 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/10/2019
 ms.author: wolfma
-ms.openlocfilehash: 58738c9180fcc45a6958ea61b26d898caf4f3061
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 7bd4541d135020e297bef26f234ae35d953abfce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819112"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446806"
 ---
 # <a name="about-the-speech-sdk"></a>關於語音 SDK
 
-「語音軟體開發套件」(SDK) 可讓您的應用程式存取「語音服務」的功能，使其能夠更輕鬆地開發支援語音的軟體。 目前，Sdk 提供對語音轉換**文字**、**文字到語音** **轉換、語音翻譯**、**意圖**辨識和**Bot Framework Direct Line 語音通道的**存取。 您可以在檔[輸入頁面](https://aka.ms/csspeech)上找到有關功能和支援平臺的一般總覽。
+「語音軟體開發套件」(SDK) 可讓您的應用程式存取「語音服務」的功能，使其能夠更輕鬆地開發支援語音的軟體。 目前，Sdk 提供對語音轉換**文字**、**文字到語音** **轉換、語音翻譯**、**意圖**辨識和**Bot Framework Direct Line 語音通道的**存取。
+
+您可以使用語音 SDK，輕鬆地從麥克風捕獲音訊、從串流讀取，或從儲存體存取音訊檔案。 語音 SDK 支援以 WAV/PCM 16 位元、16 kHz/8 kHz 單一通道進行語音辨識。 使用[語音轉換文字 REST 端點](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)或[批次轉譯服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)，可支援其他的音訊格式。
+
+您可以在檔[輸入頁面](https://aka.ms/csspeech)上找到有關功能和支援平臺的一般總覽。
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -31,14 +35,14 @@ ms.locfileid: "74819112"
 
 針對 Windows，我們支援下列語言：
 
-* C# (UWP 和 .NET)、C++：您可以參考並使用語音 SDK NuGet 套件的最新版本。 此套件包括 32 位元和 64 位元的用戶端程式庫，以及受控 (.NET) 程式庫。 使用 NuGet 即可在 Visual Studio 中安裝此 SDK。 請搜尋 **Microsoft.CognitiveServices.Speech**。
+* C# (UWP 和 .NET)、C++：您可以參考並使用語音 SDK NuGet 套件的最新版本。 此套件包括 32 位元和 64 位元的用戶端程式庫，以及受控 (.NET) 程式庫。 您可以使用[CognitiveServices](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech)，在 Visual Studio 中安裝 SDK。
 
-* Java：您可以參考並使用我們的最新版「語音 SDK」Maven 套件，此版本只支援 Windows x64。 在您的 Maven 專案中，新增 `https://csspeechstorage.blob.core.windows.net/maven/` 作為額外的存放庫，並參考 `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` 作為相依性。
+* Java：您可以參考並使用我們的最新版「語音 SDK」Maven 套件，此版本只支援 Windows x64。 在您的 Maven 專案中，新增 `https://csspeechstorage.blob.core.windows.net/maven/` 作為額外的存放庫，並參考 `com.microsoft.cognitiveservices.speech:client-sdk:1.8.0` 作為相依性。
 
 ### <a name="linux"></a>Linux
 
 > [!NOTE]
-> 目前，我們只支援下列目標架構上的 Ubuntu 16.04、Ubuntu 18.04 和 Debian 9：
+> 目前，我們只支援下列目標架構的 Ubuntu 16.04、Ubuntu 18.04 和 Debian 9：
 > - 適用于開發的C++ x86、X64 和 ARM64
 > - 適用于 JAVA 的 x64 和 ARM64
 > - 適用于 .NET Core 和 Python 的 x64
@@ -62,14 +66,14 @@ sudo apt-get install libssl1.0.2 libasound2
 * C#：您可以參考並使用語音 SDK NuGet 套件的最新版本。 若要參考 SDK，請在專案中新增下列套件參考：
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.7.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.8.0" />
   ```
 
 * Java：您可以參考並使用語音 SDK Maven 套件的最新版本。 在您的 Maven 專案中，新增 `https://csspeechstorage.blob.core.windows.net/maven/` 作為額外的存放庫，並參考 `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` 作為相依性。
 
 * C++：將 SDK 下載為 [.tar 套件](https://aka.ms/csspeech/linuxbinary)，然後將檔案解壓縮至您選擇的目錄。 下表顯示 SDK 資料夾結構：
 
-  |路徑|描述|
+  |Path|說明|
   |-|-|
   |`license.md`|授權|
   |`ThirdPartyNotices.md`|協力廠商通知|
@@ -103,5 +107,5 @@ Java SDK 也是[語音裝置 SDK](speech-devices-sdk.md) 的一部分。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [取得語音試用訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
+* [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
 * [了解如何以 C# 辨識語音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) (英文)

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.openlocfilehash: c948d07bed99f1286e27d645fde7b96fdc699c02
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive,seodec18
+ms.date: 12/24/2019
+ms.openlocfilehash: 3e9b23ce450e45dfedcee8b20e09b1c2b52b6e68
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311700"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495794"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>建置 Apache HBase 的 Java 應用程式
 
@@ -21,13 +21,13 @@ ms.locfileid: "72311700"
 
 此文件中的步驟使用 [Apache Maven](https://maven.apache.org/) \(英文\) 來建立及建置專案。 Maven是軟體專案管理和理解工具，可讓您建置 Java 專案的軟體、文件及報告。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * HDInsight 上的 Apache HBase 叢集。 請參閱[開始使用 Apache HBase](./apache-hbase-tutorial-get-started-linux.md)。
 
 * [JAVA 開發工具組（JDK）第8版](https://aka.ms/azure-jdks)。
 
-* 根據 Apache 正確[安裝](https://maven.apache.org/download.cgi)的 [Apache Maven](https://maven.apache.org/install.html)。  Maven 是適用於 Java 專案的專案建置系統。
+* 根據 Apache 正確[安裝](https://maven.apache.org/install.html)的 [Apache Maven](https://maven.apache.org/download.cgi)。  Maven 是適用於 Java 專案的專案建置系統。
 
 * SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -36,6 +36,7 @@ ms.locfileid: "72311700"
 * 文字編輯器。 本文使用 Microsoft 記事本。
 
 ## <a name="test-environment"></a>測試環境
+
 本文所使用的環境是執行 Windows 10 的電腦。  命令會在命令提示字元中執行，並使用 [記事本] 來編輯各種檔案。 針對您的環境進行相應的修改。
 
 從命令提示字元中，輸入下列命令以建立可運作的環境：
@@ -71,7 +72,7 @@ cd C:\HDI
 
 ## <a name="update-the-project-object-model"></a>更新專案物件模型
 
-如需 pom 檔案的完整參考，請參閱 https://maven.apache.org/pom.html。  輸入下列命令來開啟 `pom.xml`：
+如需 pom 檔案的完整參考，請參閱 https://maven.apache.org/pom.html 。  輸入下列命令來開啟 `pom.xml`：
 
 ```cmd
 notepad pom.xml
@@ -84,7 +85,7 @@ notepad pom.xml
 ```xml
 <dependency>
     <groupId>org.apache.hbase</groupId>
-    <artifactId>hbase-client</artifactId>
+    <artifactId>hbase-shaded-client</artifactId>
     <version>1.1.2</version>
 </dependency>
 <dependency>
@@ -128,7 +129,7 @@ Maven 外掛程式可讓您自訂專案的建置階段。 此區段會用來新�
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
         <configuration>
             <source>1.8</source>
             <target>1.8</target>
@@ -408,7 +409,7 @@ public class DeleteTable {
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
- 3. 若要使用 JAVA 應用程式來建立 HBase 資料表，請在開啟的 ssh 連線中使用下列命令：
+3. 若要使用 JAVA 應用程式來建立 HBase 資料表，請在開啟的 ssh 連線中使用下列命令：
 
     ```bash
     yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable

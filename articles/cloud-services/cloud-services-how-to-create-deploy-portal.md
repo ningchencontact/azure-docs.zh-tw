@@ -3,25 +3,25 @@ title: 如何建立和部署雲端服務 | Microsoft Docs
 description: 了解如何使用 Azure 入口網站建立和部署雲端服務。
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 3d5b3f291eb42edc1f7999f33cf6c0879c33bcf4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 53f53976b20359afc45abe1b25ca60325b5d6a2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359125"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386165"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何建立和部署雲端服務
-Azure 入口網站提供兩種方法讓您建立和部署雲端服務:[*快速建立*] 和 [*自訂建立*]。
+Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快速建立」和「自訂建立」。
 
 本主題說明如何使用「快速建立」方法建立新的雲端服務，然後使用 [上傳] 上傳雲端服務封裝並在 Azure 中部署。 當您使用這個方法時，Azure 入口網站會在過程中提供便利的連結，讓您完成所有要求。 如果您準備在建立雲端服務時加以部署，可以同時使用 [自訂建立] 進行這兩項作業。
 
 > [!NOTE]
-> 如果您計劃從 Azure DevOps 發佈您的雲端服務，請使用快速建立，然後從 Azure 快速入門或儀表板設定 Azure DevOps 發佈。 如需詳細資訊, 請參閱[使用 Azure DevOps 連續傳遞至 Azure][TFSTutorialForCloudService], 或參閱 [**快速入門**] 頁面的說明。
+> 如果您計劃從 Azure DevOps 發佈您的雲端服務，請使用快速建立，然後從 Azure 快速入門或儀表板設定 Azure DevOps 發佈。 如需詳細資訊，請參閱[使用 Azure DevOps 連續傳遞至 Azure][TFSTutorialForCloudService]，或參閱 [**快速入門**] 頁面的說明。
 >
 >
 
@@ -56,7 +56,7 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務:[*快速�
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下 [建立資源] > [計算]，然後向下捲動至 [雲端服務] 並按一下。
 
-    ![發行您的雲端服務](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![發佈您的雲端服務](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. 在新的 [雲端服務] 窗格中，輸入 [DNS 名稱] 的值。
 4. 建立新的 [資源群組] 或選取現有的資源群組。
 5. 選取 [位置]。
@@ -65,7 +65,7 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務:[*快速�
 8. 按一下 [確定] 以關閉 [上傳套件] 窗格。
 9. 如果您沒有任何憑證可新增，請按一下 [建立]。
 
-    ![發行您的雲端服務](media/cloud-services-how-to-create-deploy-portal/select-package.png)
+    ![發佈您的雲端服務](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
 ## <a name="upload-a-certificate"></a>上傳憑證
 如果您的部署套件 [設定為使用憑證](cloud-services-configure-ssl-certificate-portal.md#modify)，您現在可以上傳憑證。
@@ -74,7 +74,7 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務:[*快速�
 2. 按一下 [附加憑證]，然後按一下 [新增憑證] 窗格中的 [確定]。
 3. 按一下 [雲端服務] 窗格中的 [建立]。 當部署達到了 [就緒] 狀態時，您可以繼續進行接下來的步驟。
 
-    ![發行您的雲端服務](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![發佈您的雲端服務](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>確認部署是否成功完成
 1. 按一下雲端服務執行個體。
@@ -91,3 +91,6 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務:[*快速�
 * 設定 [自訂網域名稱](cloud-services-custom-domain-name-portal.md)。
 * [管理您的雲端服務](cloud-services-how-to-manage-portal.md)。
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
+
+
+

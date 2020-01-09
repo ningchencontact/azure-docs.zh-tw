@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2019
 ms.author: barclayn
-ms.openlocfilehash: fc3c7ea2f0060fc6ab20fa821c9e45d6e5173d4f
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: da8dfe61e92c4839deb1f7fbc289be0136087720
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795790"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497292"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 資料靜態加密
 
@@ -61,7 +61,7 @@ Microsoft 致力於為所有雲端服務提供靜態加密選項，並給予客�
 
 ![元件](./media/encryption-atrest/azure-security-encryption-atrest-fig1.png)
 
-### <a name="azure-key-vault"></a>Azure 金鑰保存庫
+### <a name="azure-key-vault"></a>Azure Key Vault
 
 加密金鑰的儲存位置以及這些金鑰的存取控制是靜態加密模型的核心。 金鑰必須是高度安全的，但需可由指定使用者進行管理，且可用於特定服務。 針對 Azure 服務，Azure Key Vault 是建議的金鑰儲存體解決方案，並提供常見的跨服務管理體驗。 金鑰是儲存在金鑰保存庫並加以管理，可以將存取金鑰保存庫提供給使用者或服務。 Azure Key Vault 支援客戶建立金鑰或匯入客戶金鑰，可供在客戶管理的加密金鑰情節下使用。
 
@@ -111,7 +111,7 @@ Azure 中支援的模型如先前所述區分成兩個主要群組：「用戶�
 
 用戶端加密模型是指由服務或呼叫應用程式在資源提供者或 Azure 外部執行的加密。 加密可由 Azure 中的服務應用程式或客戶資料中心內執行的應用程式執行。 在任一案例中，利用此加密模型時，Azure 資源提供者無需以任何方式解密的能力或具有加密金鑰的存取權，即可接收加密的 blob 資料。 在此模型中，金鑰管理是由呼叫服務/應用程式所完成，且對 Azure 服務不透明。
 
-![用戶端](./media/encryption-atrest/azure-security-encryption-atrest-fig2.png)
+![Client](./media/encryption-atrest/azure-security-encryption-atrest-fig2.png)
 
 ### <a name="server-side-encryption-model"></a>伺服器端加密模型
 
@@ -270,7 +270,7 @@ Azure SQL Database 目前支援針對由 Microsoft 管理之服務端和用戶�
 | Azure 串流分析           | 是                | -                  | -                  |
 | 事件中樞                       | 是                | 預覽，所有 RSA 長度。 | -                  |
 | Azure Analysis Services          | 是                | -                  | -                  |
-| Azure 資料目錄               | 是                | -                  | -                  |
+| Azure Data Catalog               | 是                | -                  | -                  |
 | Azure HDInsight 上的 Apache Kafka  | 是                | 所有 RSA 長度。   | -                  |
 | Azure 資料總管              | 是                | -                  | -                  |
 | Azure Data Factory               | 是                | 是                | -                  |
@@ -290,25 +290,25 @@ Azure SQL Database 目前支援針對由 Microsoft 管理之服務端和用戶�
 | 于 postgresql 的 Azure SQL Database | 是                | -                  | -                  |
 | Azure SQL 資料倉儲         | 是                | 是，RSA 2048 位元  | 是                |
 | SQL Server Stretch Database      | 是                | 是，RSA 2048 位元  | 是                |
-| 表格儲存體                    | 是                | -                  | 是                |
+| 資料表儲存體                    | 是                | -                  | 是                |
 | Azure Cosmos DB                  | 是                | -                  | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Azure DevOps                     | 是                | -                  | 是                |
 | Azure Repos                      | 是                | -                  | 是                |
 | **身分識別**                     |                    |                    |                    |
 | Azure Active Directory           | 是                | -                  | -                  |
-| Azure Active Directory Domain Services | 是          | 是，RSA 2048 位元  | -                  |
+| Active Directory Domain Services | 是          | 是，RSA 2048 位元  | -                  |
 | **整合**                  |                    |                    |                    |
 | 服務匯流排                      | 是                | -                  | 是                |
-| Event Grid                       | 是                | -                  | -                  |
+| 事件格線                       | 是                | -                  | -                  |
 | API 管理                   | 是                | -                  | -                  |
 | **IoT 服務**                 |                    |                    |                    |
-| IoT 中樞                          | 是                | -                  | 是                |
+| IoT Hub                          | 是                | -                  | 是                |
 | **管理與治理**    |                    |                    |                    |
-| Azure Site Recovery              | 是                | 是，RSA 2048 位元  | 是                |
-| **媒介**                        |                    |                    |                    |
+| Azure Site Recovery              | 是                | -                  | -                  |
+| **媒體**                        |                    |                    |                    |
 | 媒體服務                   | 是                | -                  | 是                |
-| **儲存體**                      |                    |                    |                    |
+| **Storage**                      |                    |                    |                    |
 | Blob 儲存體                     | 是                | 是，RSA 2048 位元  | 是                |
 | 磁碟儲存體                     | 是                | -                  | -                  |
 | 受控磁碟儲存體             | 是                | -                  | -                  |
@@ -319,7 +319,7 @@ Azure SQL Database 目前支援針對由 Microsoft 管理之服務端和用戶�
 | 封存儲存體                  | 是                | 是，RSA 2048 位元  | -                  |
 | StorSimple                       | 是                | 是，RSA 2048 位元  | 是                |
 | Azure 備份                     | 是                | -                  | 是                |
-| 資料箱                         | 是                | -                  | 是                |
+| Data Box                         | 是                | -                  | 是                |
 
 ## <a name="conclusion"></a>結論
 

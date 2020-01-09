@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 12815d3ca0136cec8af294118ff192a4f31df6a0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0c70c69f547405eb8ebdcf6dcc6ae597db151e53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227091"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433221"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>教學課程：將函式與 Azure 虛擬網路整合
 
@@ -32,7 +32,7 @@ ms.locfileid: "74227091"
 
 高階方案中執行的函式與 Azure App Service 中的 web 應用程式具有相同的裝載功能，其中包括 VNet 整合功能。 若要深入瞭解 VNet 整合，包括疑難排解和先進設定，請參閱[整合您的應用程式與 Azure 虛擬網路](../app-service/web-sites-integrate-with-vnet.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在本教學課程中，您必須瞭解 IP 位址和子網。 您可以從本文開始[，其中涵蓋定址和子網的基本概念](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics)。 您可以從線上取得更多文章和影片。
 
@@ -58,10 +58,10 @@ ms.locfileid: "74227091"
 
     ![建立 VM 的 [基本] 索引標籤](./media/functions-create-vnet/create-vm-1.png)
 
-    | 設定      | 建議的值  | 描述      |
+    | 設定      | 建議的值  | 說明      |
     | ------------ | ---------------- | ---------------- |
     | **訂用帳戶** | 您的訂用帳戶 | 用來建立資源的訂用帳戶。 | 
-    | **[資源群組](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | 選擇 `myResourceGroup`，或使用您的函數應用程式建立的資源群組。 當您完成本教學課程時，針對函數應用程式、WordPress VM 和主控方案使用相同的資源群組，可讓您更輕鬆地清除資源。 |
+    | **[資源群組](../azure-resource-manager/management/overview.md)**  | myResourceGroup | 選擇 `myResourceGroup`，或使用您的函數應用程式建立的資源群組。 當您完成本教學課程時，針對函數應用程式、WordPress VM 和主控方案使用相同的資源群組，可讓您更輕鬆地清除資源。 |
     | **虛擬機器名稱** | VNET Wordpress | VM 名稱在資源群組中必須是唯一的 |
     | **[區內](https://azure.microsoft.com/regions/)** | (歐洲) 西歐 | 選擇接近您或接近存取 VM 之函數的區域。 |
     | **大小** | B1s | 選擇 [**變更大小**]，然後選取 B1s 標準映射，其具有 1 vCPU 和 1 GB 的記憶體。 |
@@ -73,11 +73,11 @@ ms.locfileid: "74227091"
 
     ![建立 VM 的 [網路功能] 索引標籤](./media/functions-create-vnet/create-vm-2.png)
 
-    | 設定      | 建議的值  | 描述      |
+    | 設定      | 建議的值  | 說明      |
     | ------------ | ---------------- | ---------------- |
-    | **Name** | MyResourceGroup-vnet | 您可以使用為您的虛擬網路所產生的預設名稱。 |
+    | **名稱** | myResourceGroup-vnet | 您可以使用為您的虛擬網路所產生的預設名稱。 |
     | **位址範圍** | 10.10.0.0/16 | 將單一位址範圍用於虛擬網路。 |
-    | **子網路名稱** | 教學課程-Net | 子網的名稱。 |
+    | **子網路名稱** | 教學課程-Net | 子網路的名稱。 |
     | **位址範圍**（子網） | 10.10.1.0/24   | 子網大小會定義可新增至子網的介面數目。 WordPress 網站會使用此子網。  `/24` 子網提供254主機位址。 |
 
 1. 選取 **[確定]** 以建立虛擬網路。
@@ -116,11 +116,11 @@ ms.locfileid: "74227091"
 
     ![定義函數應用程式虛擬網路](./media/functions-create-vnet/networking-3.png)
 
-    | 設定      | 建議的值  | 描述      |
+    | 設定      | 建議的值  | 說明      |
     | ------------ | ---------------- | ---------------- |
     | **虛擬網路** | MyResourceGroup-vnet | 這是您稍早建立的虛擬網路。 |
     | **子網路** | 建立新的子網 | 在虛擬網路中建立子網，以供您的函數應用程式使用。 VNet 整合必須設定為使用空的子網。 您的函式使用與您的 VM 不同的子網並不重要。 虛擬網路會自動路由兩個子網之間的流量。 |
-    | **子網路名稱** | 函數-Net | 新的子網路的名稱。 |
+    | **子網路名稱** | 函數-Net | 新子網路的名稱。 |
     | **虛擬網路位址區塊** | 10.10.0.0/16 | 選擇 WordPress 網站所使用的相同位址區塊。 您應該只定義一個位址區塊。 |
     | **位址範圍** | 10.10.2.0/24   | 子網大小會限制高階方案函式應用程式可相應放大的實例總數。 這個範例會使用具有254可用主機位址的 `/24` 子網。 這個子網已過度布建，但很容易計算。 |
 
@@ -136,15 +136,15 @@ ms.locfileid: "74227091"
 
     ![定義 proxy 設定](./media/functions-create-vnet/create-proxy.png)
 
-    | 設定  | 建議的值  | 描述      |
+    | 設定  | 建議的值  | 說明      |
     | -------- | ---------------- | ---------------- |
-    | **Name** | 花草 | 名稱可以是任何值。 它是用來識別 proxy。 |
+    | **名稱** | PlAnT | 名稱可以是任何值。 它是用來識別 proxy。 |
     | **路由範本** | /plant | 對應至 VM 資源的路由。 |
     | **後端 URL** | HTTP：//< YOUR_VM_IP >/wp-content/themes/twentyseventeen/assets/images/header.jpg | 將 `<YOUR_VM_IP>` 取代為您稍早建立之 WordPress VM 的 IP 位址。 這個對應會從網站傳回單一檔案。 |
 
 1. 選取 [**建立**]，將 proxy 新增至您的函式應用程式。
 
-## <a name="try-it-out"></a>立即試用
+## <a name="try-it-out"></a>歡迎試用
 
 1. 在您的瀏覽器中，嘗試存取您用來做為**後端 url**的 url。 如預期般，要求會超時。因為您的 WordPress 網站僅連線到您的虛擬網路而不是網際網路，所以會發生超時。
 

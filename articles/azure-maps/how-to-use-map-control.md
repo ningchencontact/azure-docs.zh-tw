@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ff183261f67ff76f56fc034d8102e3aa3a4838a8
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: d70d0e1107a6ee1b53b178d8912c1b808472b142
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480524"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432902"
 ---
 # <a name="use-the-azure-maps-map-control"></a>使用 Azure 地圖服務地圖控制項
 
@@ -34,9 +34,9 @@ ms.locfileid: "74480524"
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
-    b.這是另一個 C# 主控台應用程式。 或者，使用 [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) \(英文\) NPM 套件於本機載入 Azure 地圖服務 Web SDK，並搭配您的應用程式裝載它。 此套件也包含 TypeScript 定義。
+    b. 或者，使用 [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) \(英文\) NPM 套件於本機載入 Azure 地圖服務 Web SDK，並搭配您的應用程式裝載它。 此套件也包含 TypeScript 定義。
 
-    > npm 安裝 azure-maps-control
+    > **npm 安裝 azure-maps-控制項**
 
     然後將參考新增到 Azure 地圖服務樣式表，並將指令碼來源參考新增到檔案的 `<head>` 元素：
 
@@ -66,7 +66,7 @@ ms.locfileid: "74480524"
     </style>
     ```
 
-4. 在頁面的主體中，新增 `<div>` 元素，並為它提供 `id`myMap**的**。
+4. 在頁面的主體中，新增 `<div>` 元素，並為它提供 **myMap** 的 `id`。
 
     ```HTML
     <body>
@@ -74,7 +74,7 @@ ms.locfileid: "74480524"
     </body>
     ```
 
-5. 若要初始化地圖控制項，請在 html 主體中定義新的區段，並建立指令碼。 在建立 `Map` 類別的實例時，傳入地圖 `<div>` 的 `id` 或 `HTMLElement` （例如 `document.getElementById('myMap')`）做為第一個參數。 使用您自己的 Azure 地圖服務帳戶金鑰或 Azure Active Directory (AAD) 認證來使用[驗證選項](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)驗證地圖。 如果您需要建立帳戶或尋找金鑰，請參閱[如何管理 Azure 地圖服務帳戶與金鑰](how-to-manage-account-keys.md)。 [語言] 選項會指定要用於地圖標籤和控制項的語言。 如需有關支援語言的資訊，請參閱[支援的語言](supported-languages.md)。 如果使用訂用帳戶金鑰進行驗證。
+5. 若要初始化地圖控制項，請在 html 主體中定義新的區段，並建立指令碼。 在建立 `Map` 類別的實例時，傳入地圖 `<div>` 的 `id` 或 `HTMLElement` （例如 `document.getElementById('myMap')`）做為第一個參數。 使用您自己的 Azure 地圖服務帳戶金鑰或 Azure Active Directory (AAD) 認證來使用[驗證選項](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)驗證地圖。 如果您需要建立帳戶或尋找您的金鑰，請依照[建立帳戶](quick-demo-map-app.md#create-an-account-with-azure-maps)中的指示來建立 Azure 地圖服務帳戶訂用帳戶，並遵循[取得主要金鑰](quick-demo-map-app.md#get-the-primary-key-for-your-account)中的步驟來取得您帳戶的主要金鑰。 [語言] 選項會指定要用於地圖標籤和控制項的語言。 如需有關支援語言的資訊，請參閱[支援的語言](supported-languages.md)。 如果使用訂用帳戶金鑰進行驗證。
 
     ```HTML
     <script type="text/javascript">
@@ -174,7 +174,7 @@ ms.locfileid: "74480524"
 
 8. 在網頁瀏覽器中開啟此檔案，並檢視轉譯的地圖。 看起來應該類似下列程式碼：
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="如何使用地圖控制項" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">請參閱<a href='https://codepen.io'>CodePen</a>上的 如何透過 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>）<a href='https://codepen.io/azuremaps/pen/yZpEYL/'>使用地圖控制項</a>。
+    <iframe height="700" style="width: 100%;" scrolling="no" title="如何使用地圖控制項" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">請參閱<a href='https://codepen.io'>CodePen</a>上的
     </iframe>
 
 ## <a name="localizing-the-map"></a>當地語系化對應
@@ -210,6 +210,26 @@ map = new atlas.Map('myMap', {
 ![以法文顯示標籤的地圖影像](./media/how-to-use-map-control/websdk-localization.png)
 
 支援的語言和區域觀點的完整清單記載于[此處](supported-languages.md)。
+
+## <a name="azure-government-cloud-support"></a>Azure Government 雲端支援
+
+Azure 地圖服務 Web SDK 支援 Azure Government 雲端。 所有用來存取 Azure 地圖服務 Web SDK 的 JavaScript 和 CSS Url 都會維持不變，不過必須完成下列工作，才能連接到 Azure 地圖服務平臺的 Azure Government 雲端版本。
+
+使用互動式地圖控制項時，請在建立 `Map` 類別的實例之前，加入下列程式程式碼。 
+
+```javascript
+atlas.setDomain('atlas.azure.us');
+```
+
+驗證對應和服務時，請務必使用來自 Azure Government 雲端平臺的 Azure 地圖服務驗證詳細資料。
+
+使用服務模組時，必須在建立 API URL 端點的實例時設定服務的網域。 例如，下列程式碼會建立 `SearchURL` 類別的實例，並將該網域指向 Azure Government 雲端。
+
+```javascript
+var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
+```
+
+如果直接存取 Azure 地圖服務 REST 服務，請將 URL 網域變更為 `atlas.azure.us`。 例如，如果使用搜尋 API 服務，請將 URL 網域從 `https://atlas.microsoft.com/search/` 變更為 `https://atlas.azure.us/search/`。
 
 ## <a name="next-steps"></a>後續步驟
 

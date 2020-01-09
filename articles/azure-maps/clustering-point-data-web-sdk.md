@@ -7,14 +7,14 @@ ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
+manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 4a583f77aac036028fd75d3c05af805031f08ebd
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 56d9a9a629e64430c97cf392ee4381e1ad7ca906
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480559"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433023"
 ---
 # <a name="clustering-point-data"></a>群集點資料
 
@@ -48,7 +48,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 `DataSource` 類別也具有與群集相關的下列方法：
 
-| 方法 | 傳回類型 | 描述 |
+| 方法 | 傳回類型 | 說明 |
 |--------|-------------|-------------|
 | getClusterChildren （clusterId： number） | 承諾&lt;陣列&lt;功能&lt;Geometry，任何&gt; \| Shape&gt;&gt; | 在下一個縮放層級上，抓取給定叢集的子系。 這些子系可以是圖案和 subclusters 的組合。 Subclusters 將會是屬性符合 ClusteredProperties 的功能。 |
 | getClusterExpansionZoom （clusterId： number） | 承諾&lt;數目&gt; | 計算叢集將開始擴充或中斷的縮放層級。 |
@@ -88,19 +88,19 @@ var datasource = new atlas.source.DataSource(null, {
 
 當滑鼠事件發生在包含叢集資料點的圖層上時，叢集資料點會以 GeoJSON 點功能物件的形式傳回至事件。 此點功能將具有下列屬性：
 
-| 屬性名稱 | 在系統提示您進行確認時，輸入 | 描述 |
-|---------------|------|-------------|
-| 叢集 | 布林值 | 指出功能是否代表叢集。 |
-| cluster_id | 字串 | 可搭配 DataSource `getClusterExpansionZoom`、`getClusterChildren`和 `getClusterLeaves` 方法使用之叢集的唯一識別碼。 |
-| point_count | number | 叢集包含的點數。 |
-| point_count_abbreviated | 字串 | 縮寫 `point_count` 值的字串（如果長度很長）。 （例如，4000變成4K） |
+| 屬性名稱             | 類型    | 說明   |
+|---------------------------|---------|---------------|
+| `cluster`                 | boolean | 指出功能是否代表叢集。 |
+| `cluster_id`              | string  | 可搭配 DataSource `getClusterExpansionZoom`、`getClusterChildren`和 `getClusterLeaves` 方法使用之叢集的唯一識別碼。 |
+| `point_count`             | number  | 叢集包含的點數。  |
+| `point_count_abbreviated` | string  | 縮寫 `point_count` 值的字串（如果長度很長）。 （例如，4000變成4K）  |
 
 這個範例會取得呈現叢集點的反升圖層，並加入一個在觸發、計算和縮放地圖時的 click 事件，以使用 `DataSource` 類別的 `getClusterExpansionZoom` 方法和所按下的叢集資料點的 `cluster_id` 屬性來分解叢集。 
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="叢集 getClusterExpansionZoom" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-請參閱<a href='https://codepen.io'>CodePen</a>上的 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>）的 畫筆叢集<a href='https://codepen.io/azuremaps/pen/moZWeV/'>getClusterExpansionZoom</a> 。
+請參閱<a href='https://codepen.io'>CodePen</a>上的 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>）的
 </iframe>
 
 ## <a name="display-cluster-area"></a>顯示叢集區域 
@@ -128,7 +128,7 @@ var datasource = new atlas.source.DataSource(null, {
 深入了解本文使用的類別和方法：
 
 > [!div class="nextstepaction"]
-> [DataSource 類別](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)
+> [資料來源類別](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [DataSourceOptions 物件](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-iot-typescript-latest)

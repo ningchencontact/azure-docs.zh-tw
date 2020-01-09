@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63e09bacd1ce70f05f04798f092d3eb4b3e36ab5
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: d55af7354ea7d78263e55872e257a2814ebe4130
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555252"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401810"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>將 Azure 自動化資源新增至管理解決方案 (預覽)
 > [!NOTE]
@@ -31,7 +31,7 @@ ms.locfileid: "72555252"
 
 - 如何[建立管理解決方案]( solutions-creating.md)。
 - [解決方案檔]( solutions-solution-file.md)的結構。
-- 如何[製作 Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)
+- 如何[製作 Resource Manager 範本](../../azure-resource-manager/templates/template-syntax.md)
 
 ## <a name="automation-account"></a>自動化帳戶
 Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automation/automation-security-overview.md#automation-account-overview)中。  如 [Log Analytics 工作區和自動化帳戶]( solutions.md#log-analytics-workspace-and-automation-account)所述，自動化帳戶不會包含於管理解決方案中，但在安裝解決方案前就必須存在。  如果無法使用，則解決方案會安裝失敗。
@@ -69,12 +69,12 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明 Runbook 的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | runbookType |指定 Runbook 的類型。 <br><br> Script - PowerShell 指令碼 <br>PowerShell - PowerShell 工作流程 <br> GraphPowerShell - 圖形化 PowerShell 指令碼 Runbook <br> GraphPowerShellWorkflow - 圖形化 PowerShell 工作流程 Runbook |
 | logProgress |指定是否應針對 Runbook 產生[進度記錄](../../automation/automation-runbook-output-and-messages.md)。 |
 | logVerbose |指定是否應針對 Runbook 產生[詳細資訊記錄](../../automation/automation-runbook-output-and-messages.md)。 |
-| 說明 |Runbook 的選擇性說明。 |
+| description |Runbook 的選擇性說明。 |
 | publishContentLink |指定 Runbook 的內容。 <br><br>uri - 指定 Runbook 的內容 Uri。  這會是 PowerShell 和 Script Runbook 的 .ps1 檔案，以及 Graph Runbook 的已匯出圖形化 Runbook 檔案。  <br> 版本 - 您自己追蹤的 Runbook 版本。 |
 
 
@@ -105,7 +105,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明自動化作業的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | Runbook |具有要啟動之 Runbook 名稱的單一名稱實體。 |
 | 參數 |Runbook 所需之每個參數值的實體。 |
@@ -136,7 +136,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明憑證資源的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | base64Value |憑證的 Base 64 值。 |
 | thumbprint |憑證的指紋。 |
@@ -163,10 +163,10 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明認證資源的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | userName |認證的使用者名稱。 |
-| password |認證的密碼。 |
+| 密碼 |認證的密碼。 |
 
 
 ## <a name="schedules"></a>排程
@@ -191,9 +191,9 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明排程資源的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
-| 說明 |排程的選擇性說明。 |
+| description |排程的選擇性說明。 |
 | startTime |將排程的開始時間指定為 DateTime 物件。 如果可以轉換成有效的 DateTime，即可提供字串。 |
 | isEnabled |指定是否啟用排程。 |
 | interval |排程的間隔類型。<br><br>day<br>小時 |
@@ -234,7 +234,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明作業排程的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | 排程名稱 |包含排程名稱的單一**名稱**實體。 |
 | Runbook 名稱  |包含 Runbook 名稱的單一**名稱**實體。  |
@@ -261,11 +261,11 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明變數資源的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
-| 說明 | 變數的選擇性說明。 |
+| description | 變數的選擇性說明。 |
 | isEncrypted | 指定是否應加密變數。 |
-| 類型 | 這個屬性目前沒有任何作用。  變數的資料類型將由初始值所決定。 |
+| type | 這個屬性目前沒有任何作用。  變數的資料類型將由初始值所決定。 |
 | value | 變數的值。 |
 
 > [!NOTE]
@@ -273,11 +273,11 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 如果您設定變數的初始值，則必須將它設定為正確的資料類型。  下表提供允許的不同資料類型和其語法。  請注意，JSON 中的值應該一律要用引號括住，並以括號括住任何特殊字元。  例如，以括住字串的引號指定字串值 (使用逸出字元 (\\))，並以一組引號指定數值。
 
-| Data type | 描述 | 範例 | 解析成 |
+| Data type | 說明 | 範例 | 解析成 |
 |:--|:--|:--|:--|
 | string   | 以雙引號括住值。  | "\"Hello world\"" | "Hello world" |
-| numeric  | 以單引號括住數值。| "64" | 64 |
-| 布林值  | 以引號括住 **true** 或 **false**。  請注意，此值必須是小寫。 | "true" | true |
+| NUMERIC  | 以單引號括住數值。| "64" | 64 |
+| boolean  | 以引號括住 **true** 或 **false**。  請注意，此值必須是小寫。 | "true" | true |
 | Datetime | 序列化的日期值。<br>您可以在 PowerShell 中使用 ConvertTo-Json Cmdlet，以針對特定日期產生這個值。<br>範例：get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>模組
@@ -301,7 +301,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 下表會說明模組資源的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | contentLink |指定模組的內容。 <br><br>uri - 模組內容的 Uri。  這會是 PowerShell 和 Script Runbook 的 .ps1 檔案，以及 Graph Runbook 的已匯出圖形化 Runbook 檔案。  <br> 版本 - 自有追蹤的模組版本。 |
 

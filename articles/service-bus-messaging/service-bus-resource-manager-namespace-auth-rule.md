@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Resource Manager 範本建立服務匯流排授權規則 | Microsoft Docs
+title: 使用 Azure 範本建立服務匯流排授權規則
 description: 使用 Azure Resource Manager 範本建立命名空間和佇列的服務匯流排授權規則
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 8769979fe3e5107e4ca788f65ff1e721b266776b
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: c795c61ec4891205ad9c77e96914d9b374fa88af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013068"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426905"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立命名空間和佇列的服務匯流排授權規則
 
@@ -27,7 +27,7 @@ ms.locfileid: "70013068"
 
 如需建立範本的詳細資訊，請參閱 [編寫 Azure Resource Manager 範本][Authoring Azure Resource Manager templates]。
 
-如需完整的範本, 請參閱 GitHub 上的[服務匯流排授權規則範本][Service Bus auth rule template]。
+如需完整的範本，請參閱 GitHub 上的[服務匯流排授權規則範本][Service Bus auth rule template]。
 
 > [!NOTE]
 > 下列 Azure Resource Manager 範本可供下載和部署。
@@ -37,7 +37,7 @@ ms.locfileid: "70013068"
 > * [建立服務匯流排命名空間與主題和訂用帳戶](service-bus-resource-manager-namespace-topic.md)
 > * [建立服務匯流排命名空間與主題、訂用帳戶和規則](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> 若要檢查最新的範本, 請造訪[Azure 快速入門範本][Azure Quickstart Templates]資源庫並搜尋**服務匯流排**。
+> 若要檢查最新的範本，請造訪 [Azure 快速入門範本][Azure Quickstart Templates]資源庫，並搜尋**服務匯流排**。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -173,7 +173,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 * [使用服務匯流排總管管理服務匯流排資源](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 * [服務匯流排驗證和授權](service-bus-authentication-and-authorization.md)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

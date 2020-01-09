@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 2448550cf35f92bc8d91bc6ad9d5b22cc90b5ae0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 47bcc9a4f906fa1e0cc0560cdbd2e0cebec481ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494304"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435367"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>將 Apache Spark 和 Apache Hive 與 Hive 倉儲連接器整合
 
@@ -20,19 +20,19 @@ Apache Hive 倉儲連接器（HWC）是一種程式庫，可讓您更輕鬆地�
 
 Hive 倉儲連接器可讓您利用 Hive 和 Spark 的獨特功能，來建立功能強大的大型資料應用程式。 Apache Hive 提供不可部分完成、一致、隔離且持久（ACID）的資料庫交易支援。 如需 Hive 中 ACID 和交易的詳細資訊，請參閱[Hive 交易](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions)。 Hive 也會透過 Apache Ranger 提供詳細的安全性控制，且 Apache Spark 不提供低延遲分析處理。
 
-Apache Spark，具有結構化串流 API，提供 Apache Hive 中無法使用的串流功能。 從 HDInsight 4.0 開始，Apache Spark 2.3.1 和 Apache Hive 3.1.0 有個別的中繼存放區，這可能會使互通性變得很棘手。 Hive 倉儲連接器可讓您更輕鬆地搭配使用 Spark 和 Hive。 HWC 程式庫會以平行方式將 LLAP 守護程式中的資料載入 Spark 執行程式，使其更有效率且更具擴充性，而不是使用從 Spark 到 Hive 的標準 JDBC 連接。
+Apache Spark，具有結構化串流 API，提供 Apache Hive 中無法使用的串流功能。 從 HDInsight 4.0 開始，Apache Spark 2.3.1 和 Apache Hive 3.1.0 有個別的中繼存放區，這可能會使互通性變得很棘手。 Hive Warehouse Connector 可讓您更輕鬆地搭配使用 Spark 和 Hive。 HWC 程式庫會以平行方式將 LLAP 守護程式中的資料載入 Spark 執行程式，使其更有效率且更具擴充性，而不是使用從 Spark 到 Hive 的標準 JDBC 連接。
 
 ![hive 倉儲連接器架構](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
-Hive 倉儲連接器所支援的部分作業包括：
+Hive Warehouse Connector 所支援的部分作業包括：
 
 * 描述資料表
 * 建立 ORC 格式資料的資料表
-* 選取 Hive 資料並抓取資料框架
-* 在 batch 中將資料框架寫入 Hive
-* 執行 Hive update 語句
+* 選取 Hive 資料並擷取資料架構
+* 將資料架構批次寫入至 Hive
+* 執行 Hive 更新陳述式
 * 從 Hive 讀取資料表資料、在 Spark 中轉換它，並將它寫入至新的 Hive 資料表
-* 使用 HiveStreaming 將資料框架或 Spark 串流寫入 Hive
+* 使用 HiveStreaming 將資料架構或 Spark 串流寫入至 Hive
 
 ## <a name="hive-warehouse-connector-setup"></a>Hive 倉儲連接器設定
 
@@ -46,7 +46,7 @@ Hive 倉儲連接器所支援的部分作業包括：
 
 ### <a name="modify-hosts-file"></a>修改 hosts 檔案
 
-從互動式查詢叢集 headnode0 上的 `/etc/hosts` 檔案複製節點資訊，並將資訊串連至 Spark 叢集 headnode0 上的 `/etc/hosts` 檔案。 此步驟可讓您的 Spark 叢集解析互動式查詢叢集中的節點 IP 位址。 使用 `cat /etc/hosts` 來查看已更新檔案的內容。 最後的輸出應該看起來像下面螢幕擷取畫面中所顯示的內容。
+從互動式查詢叢集 headnode0 上的 `/etc/hosts` 檔案複製節點資訊，並將資訊串連至 Spark 叢集 headnode0 上的 `/etc/hosts` 檔案。 此步驟可讓您的 Spark 叢集解析互動式查詢叢集中的節點 IP 位址。 使用 `cat /etc/hosts`來查看已更新檔案的內容。 最後的輸出應該看起來像下面螢幕擷取畫面中所顯示的內容。
 
 ![hive 倉儲連接器主控檔案](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
@@ -54,17 +54,17 @@ Hive 倉儲連接器所支援的部分作業包括：
 
 #### <a name="from-your-interactive-query-cluster"></a>從您的互動式查詢叢集中
 
-1. 使用 `https://LLAPCLUSTERNAME.azurehdinsight.net` 流覽至叢集的 Apache Ambari 首頁，其中 `LLAPCLUSTERNAME` 是互動式查詢叢集的名稱。
+1. 使用 `https://LLAPCLUSTERNAME.azurehdinsight.net` 流覽至叢集的 [Apache Ambari] 首頁，其中 `LLAPCLUSTERNAME` 是您的互動式查詢叢集的名稱。
 
-1. 流覽至**hive** > 配置 > **advanced** > **advanced hive-site** > **zookeeper** ，並記下值。 值可能類似于： `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`。
+1. 流覽至**hive** > 配置 > **advanced** > **advanced hive-site** > **zookeeper** ，並記下值。 此值可能類似于： `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`。
 
-1. 流覽至**hive** > 配置 > **Advanced** > **一般** > **中繼存放區**，並記下值。 值可能類似于： `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`。
+1. 流覽至**hive** > 配置 > **Advanced** > **一般** > **中繼存放區**，並記下值。 此值可能類似于： `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`。
 
 #### <a name="from-your-apache-spark-cluster"></a>從您的 Apache Spark 叢集
 
-1. 使用 `https://SPARKCLUSTERNAME.azurehdinsight.net` 流覽至叢集的 Apache Ambari 首頁，其中 `SPARKCLUSTERNAME` 是您 Apache Spark 叢集的名稱。
+1. 使用 `https://SPARKCLUSTERNAME.azurehdinsight.net` 流覽至叢集的 [Apache Ambari] 首頁，其中 `SPARKCLUSTERNAME` 是 Apache Spark 叢集的名稱。
 
-1. 流覽至**hive** > 配置 > **advanced** > **advanced hive-interactive-site** > **llap** ，並記下值。 值可能類似于： `@llap0`。
+1. 流覽至**hive** > 配置 > **advanced** > **advanced hive-interactive-site** > **llap** ，並記下值。 此值可能類似于： `@llap0`。
 
 ### <a name="configure-spark-cluster-settings"></a>設定 Spark 叢集設定
 
@@ -74,11 +74,11 @@ Hive 倉儲連接器所支援的部分作業包括：
 
 視需要選取 [**新增屬性**]，以新增/更新下列各項：
 
-| 金鑰 | 值 |
+| 索引鍵 | 值 |
 |----|----|
 |`spark.hadoop.hive.llap.daemon.service.hosts`|您先前從**hive. llap**取得的值。|
-|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`。 設定為 JDBC 連接字串，它會連接到互動式查詢叢集上的 Hiveserver2。 以互動式查詢叢集的名稱取代 `LLAPCLUSTERNAME`。 將 `PWD` 取代為實際密碼。|
-|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`。 將設定為適當的 HDFS 相容臨時目錄。 如果您有兩個不同的叢集，則臨時目錄應該是 LLAP 叢集之儲存體帳戶的預備目錄中的資料夾，讓 HiveServer2 有其存取權。  以叢集所使用的儲存體帳戶名稱取代 `STORAGE_ACCOUNT_NAME`，並以儲存體容器的名稱 `STORAGE_CONTAINER_NAME`。|
+|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`答案中所述步驟，工作帳戶即會啟用。 設定為 JDBC 連接字串，它會連接到互動式查詢叢集上的 Hiveserver2。 以互動式查詢叢集的名稱取代 `LLAPCLUSTERNAME`。 將 `PWD` 取代為實際密碼。|
+|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`答案中所述步驟，工作帳戶即會啟用。 將設定為適當的 HDFS 相容臨時目錄。 如果您有兩個不同的叢集，則臨時目錄應該是 LLAP 叢集之儲存體帳戶的預備目錄中的資料夾，讓 HiveServer2 有其存取權。  將 `STORAGE_ACCOUNT_NAME` 取代為叢集所使用的儲存體帳戶名稱，並以儲存體容器的名稱 `STORAGE_CONTAINER_NAME`。|
 |`spark.datasource.hive.warehouse.metastoreUri`|您先前從**hive. 中繼存放區**取得的值。|
 |`spark.security.credentials.hiveserver2.enabled`|適用于 YARN 用戶端部署模式的 `false`。|
 |`spark.hadoop.hive.zookeeper.quorum`|您先前從**hive. zookeeper**取得的值。|
@@ -93,7 +93,7 @@ Hive 倉儲連接器所支援的部分作業包括：
 
 * [spark-shell](../spark/apache-spark-shell.md)
 * PySpark
-* spark-提交
+* spark-submit
 * [Zeppelin](../spark/apache-spark-zeppelin-notebook.md)
 * [Livy](../spark/apache-spark-livy-rest-interface.md)
 
@@ -107,7 +107,7 @@ Hive 倉儲連接器所支援的部分作業包括：
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.2.1-8.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
@@ -132,7 +132,7 @@ Hive 倉儲連接器所支援的部分作業包括：
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/3.0.1.0-183/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.1.0-183.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     --conf spark.hadoop.hive.llap.daemon.service.hosts='<LLAP_APP_NAME>'
     --conf spark.sql.hive.hiveserver2.jdbc.url='jdbc:hive2://<ZOOKEEPER_QUORUM>;serviceDiscoveryMode=zookeeper;zookeeperNamespace=hiveserver2-interactive'
@@ -163,7 +163,7 @@ Spark 原本就不支援寫入 Hive 的受控 ACID 資料表。 不過，您可�
     hive.createTable("sampletable_colorado").column("clientid","string").column("querytime","string").column("market","string").column("deviceplatform","string").column("devicemake","string").column("devicemodel","string").column("state","string").column("country","string").column("querydwelltime","double").column("sessionid","bigint").column("sessionpagevieworder","bigint").create()
     ```
 
-1. 篩選資料表 `hivesampletable`，其中的資料行 `state` 等於 `Colorado`。 此 Hive 資料表的查詢會以 Spark 資料框架的形式傳回。 然後，資料框架會使用 `write` 函數，儲存在 Hive 資料表 `sampletable_colorado`。
+1. 篩選 `hivesampletable` 資料行 `state` 等於 `Colorado`的資料表。 此 Hive 資料表的查詢會以 Spark 資料框架的形式傳回。 然後，資料框架會使用 `write` 函數，儲存在 Hive 資料表 `sampletable_colorado`。
 
     ```scala
     hive.table("hivesampletable").filter("state = 'Colorado'").write.format(HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR).option("table","sampletable_colorado").save()
@@ -246,7 +246,7 @@ Spark 原本就不支援寫入 Hive 的受控 ACID 資料表。 不過，您可�
     ![套用 ranger 原則之前的示範表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
 
 1. 套用只顯示資料行最後四個字元的資料行遮罩原則。  
-    1. 移至 `https://CLUSTERNAME.azurehdinsight.net/ranger/` 的 Ranger 管理 UI。
+    1. 移至 `https://CLUSTERNAME.azurehdinsight.net/ranger/`的 Ranger 管理 UI。
     1. 按一下 [ **hive**] 底下叢集的 hive 服務。
         ![ranger service manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
     1. 按一下 [**遮罩**] 索引標籤，然後 [**新增原則**]

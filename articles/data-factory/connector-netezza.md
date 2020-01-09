@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 738c0cf8c9fea61bedb53aa5f6c9bde089bac5f7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: HT
+ms.openlocfilehash: c51469997af23be7a5e1b88677ecadb37e10ac64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930059"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440564"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Netezza 複製資料
 
@@ -53,17 +53,17 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 您不需要
 
 以下是針對 Netezza 連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
 | type | **type** 屬性必須設為 **Netezza**。 | 是 |
-| connectionString | 連線到 Netezza 的 ODBC 連接字串。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `pwd` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | 是 |
+| connectionString | 連線到 Netezza 的 ODBC 連接字串。 <br/>您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `pwd` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，則會使用預設的 Azure Integration Runtime。 |否 |
 
 一般的連接字串為 `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`。 下表描述更多您可設定的屬性：
 
-| 屬性 | 描述 | 必要 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| SecurityLevel | 驅動程式用來連線到資料存放區的安全性 (SSL/TLS) 層級。 範例： `SecurityLevel=preferredSecured`. 支援的值包括：<br/>- **僅限未受保護連線** (**onlyUnSecured**)：驅動程式不會使用 SSL。<br/>- **偏好未受保護連線 (preferredUnSecured) (預設值)** ：如果伺服器提供選擇，則驅動程式不使用 SSL。 <br/>- **偏好受保護連線 (preferredSecured)** ：如果伺服器提供選擇，則驅動程式會使用 SSL。 <br/>- **僅限受保護連線 (onlySecured)** ：除非有 SSL 連線可用，否則驅動程式不會連線。 | 否 |
+| SecurityLevel | 驅動程式用來連線到資料存放區的安全性 (SSL/TLS) 層級。 範例： `SecurityLevel=preferredSecured`. 支援的值為：<br/>- **僅限未受保護連線** (**onlyUnSecured**)：驅動程式不會使用 SSL。<br/>- **偏好未受保護連線 (preferredUnSecured) (預設值)** ：如果伺服器提供選擇，則驅動程式不使用 SSL。 <br/>- **偏好受保護連線 (preferredSecured)** ：如果伺服器提供選擇，則驅動程式會使用 SSL。 <br/>- **僅限受保護連線 (onlySecured)** ：除非有 SSL 連線，否則驅動程式不會連線。 | 否 |
 | CaCertFile | 伺服器所用 SSL 憑證的完整路徑。 範例： `CaCertFile=<cert path>;`| 是，如果已啟用 SSL |
 
 **範例**
@@ -74,10 +74,7 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 您不需要
     "properties": {
         "type": "Netezza",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
-            }
+            "connectionString": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -95,10 +92,7 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 您不需要
     "properties": {
         "type": "Netezza",
         "typeProperties": {
-            "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;"
-            },
+            "connectionString": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;",
             "pwd": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -124,12 +118,12 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 您不需要
 
 若要從 Netezza 複製資料，請將資料集的 **type** 屬性設定為 **NetezzaTable**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**NetezzaTable** | 是 |
-| 結構描述 | 結構描述的名稱。 |否 (如果已指定活動來源中的"query")  |
-| 資料表 | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
-| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載使用 `schema` 和 `table`。 | 否 (如果已指定活動來源中的"query") |
+| type | 資料集的類型屬性必須設定為： **NetezzaTable** | 是 |
+| 結構描述 | 結構描述的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
+| 資料表 | 資料表的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
+| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載使用 `schema` 和 `table`。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
 
@@ -160,17 +154,17 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 您不需要
 
 若要從 Netezza 複製資料，請將複製活動中的**來源**類型設定為 **NetezzaSource**。 複製活動的 [來源] 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 **type** 屬性必須設定為 **NetezzaSource**。 | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 範例： `"SELECT * FROM MyTable"` | 否 (如果已指定資料集中的 "tableName") |
-| partitionOptions | 指定用來從 Netezza 載入資料的資料分割選項。 <br>允許值為：**None** （預設值）、 **DataSlice**和**DynamicRange**。<br>當分割區選項已啟用（也就是不 `None`）時，從 Netezza 資料庫並行載入資料的平行處理原則程度，是由複製活動的[`parallelCopies`](copy-activity-performance.md#parallel-copy)設定所控制。 | 否 |
+| 查詢 | 使用自訂 SQL 查詢來讀取資料。 範例： `"SELECT * FROM MyTable"` | 否 (如果已指定資料集中的 "tableName") |
+| partitionOptions | 指定用來從 Netezza 載入資料的資料分割選項。 <br>允許值為： **None** （預設值）、 **DataSlice**和**DynamicRange**。<br>當分割區選項已啟用（也就是不 `None`）時，從 Netezza 資料庫並行載入資料的平行處理原則程度，是由複製活動的[`parallelCopies`](copy-activity-performance.md#parallel-copy)設定所控制。 | 否 |
 | partitionSettings | 指定資料分割的設定群組。 <br>當資料分割選項不 `None`時套用。 | 否 |
 | partitionColumnName | **以整數類型**指定來源資料行的名稱，以供範圍分割用於平行複製。 如果未指定，則會 autodetected 資料表的主鍵，並當做資料分割資料行使用。 <br>當分割區選項 `DynamicRange`時套用。 如果您使用查詢來抓取來源資料，請在 WHERE 子句中 `?AdfRangePartitionColumnName` 掛上。 請參閱[Parallel copy From Netezza](#parallel-copy-from-netezza)一節中的範例。 | 否 |
 | partitionUpperBound | 用來複製資料的分割區資料行的最大值。 <br>當分割區選項 `DynamicRange`時套用。 如果您使用 query 來抓取來源資料，請在 WHERE 子句中攔截 `?AdfRangePartitionUpbound`。 如需範例，請參閱[Parallel copy From Netezza](#parallel-copy-from-netezza)一節。 | 否 |
 | partitionLowerBound | 用來複製資料的分割區資料行的最小值。 <br>當分割區選項 `DynamicRange`時套用。 如果您使用查詢來抓取來源資料，請在 WHERE 子句中攔截 `?AdfRangePartitionLowbound`。 如需範例，請參閱[Parallel copy From Netezza](#parallel-copy-from-netezza)一節。 | 否 |
 
-**範例：**
+**範例︰**
 
 ```json
 "activities":[
@@ -212,11 +206,11 @@ Data Factory Netezza 連接器會提供內建的資料分割，以平行方式�
 
 建議您啟用具有資料分割的平行複製，特別是當您從 Netezza 資料庫載入大量資料時。 以下是適用于不同案例的建議設定。 將資料複製到以檔案為基礎的資料存放區時，會建議寫入資料夾做為多個檔案（僅指定資料夾名稱），在此情況下，效能會比寫入單一檔案更好。
 
-| 狀況                                                     | 建議的設定                                           |
+| 案例                                                     | 建議的設定                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 來自大型資料表的完整載入。                                   | 資料**分割選項**：資料配量。 <br><br/>在執行期間，Data Factory 會根據[Netezza 的內建資料](https://www.ibm.com/support/knowledgecenter/en/SSULQD_7.2.1/com.ibm.nz.adm.doc/c_sysadm_data_slices_parts_disks.html)配量，自動分割資料，並依分割區複製資料。 |
-| 使用自訂查詢載入大量資料。                 | 資料**分割選項**：資料配量。<br>**查詢**： `SELECT * FROM <TABLENAME> WHERE mod(datasliceid, ?AdfPartitionCount) = ?AdfDataSliceCondition AND <your_additional_where_clause>`。<br>在執行期間，Data Factory 會取代 `?AdfPartitionCount` （在複製活動上設定的平行複製編號）和 `?AdfDataSliceCondition` 與資料配量分割區邏輯，並傳送至 Netezza。 |
-| 使用自訂查詢載入大量資料，並具有以平均分佈值進行範圍分割的整數資料行。 | 資料**分割選項**：動態範圍分割。<br>**查詢**： `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`。<br>資料**分割資料行**：指定用來分割資料的資料行。 您可以針對具有整數資料類型的資料行進行分割。<br>**分割區上限**和**分割區下限**：如果您想要針對資料分割資料行進行篩選，以便只在範圍下限和上限之間取得資料，請指定。<br><br>在執行期間，Data Factory 會將 `?AdfRangePartitionColumnName`、`?AdfRangePartitionUpbound`和 `?AdfRangePartitionLowbound` 取代為每個資料分割的實際資料行名稱和值範圍，並傳送至 Netezza。 <br>例如，如果您將資料分割資料行 "ID" 設定為下限為1，而上限為80，且 parallel copy 設為4，則 Data Factory 會依4個分割區來抓取資料。 其識別碼分別介於 [1，20]、[21，40]、[41、60] 和 [61，80] 之間。 |
+| 來自大型資料表的完整載入。                                   | **分割區選項**：資料配量。 <br><br/>在執行期間，Data Factory 會根據[Netezza 的內建資料](https://www.ibm.com/support/knowledgecenter/en/SSULQD_7.2.1/com.ibm.nz.adm.doc/c_sysadm_data_slices_parts_disks.html)配量，自動分割資料，並依分割區複製資料。 |
+| 使用自訂查詢載入大量資料。                 | **分割區選項**：資料配量。<br>**查詢**： `SELECT * FROM <TABLENAME> WHERE mod(datasliceid, ?AdfPartitionCount) = ?AdfDataSliceCondition AND <your_additional_where_clause>`。<br>在執行期間，Data Factory 會取代 `?AdfPartitionCount` （在複製活動上設定的平行複製編號）和 `?AdfDataSliceCondition` 與資料配量分割區邏輯，並傳送至 Netezza。 |
+| 使用自訂查詢載入大量資料，並具有以平均分佈值進行範圍分割的整數資料行。 | 資料**分割選項**：動態範圍分割區。<br>**查詢**： `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`。<br>**分割**區資料行：指定用來分割資料的資料行。 您可以針對具有整數資料類型的資料行進行分割。<br>**分割區上限**和資料**分割下限**：指定您是否要針對分割區資料行進行篩選，以便只在下限和上限之間抓取資料。<br><br>在執行期間，Data Factory 會將 `?AdfRangePartitionColumnName`、`?AdfRangePartitionUpbound`和 `?AdfRangePartitionLowbound` 取代為每個資料分割的實際資料行名稱和值範圍，並傳送至 Netezza。 <br>例如，如果您將資料分割資料行 "ID" 設定為下限為1，而上限為80，且 parallel copy 設為4，則 Data Factory 會依4個分割區來抓取資料。 其識別碼分別介於 [1，20]、[21，40]、[41、60] 和 [61，80] 之間。 |
 
 **範例：使用資料配量分割區查詢**
 

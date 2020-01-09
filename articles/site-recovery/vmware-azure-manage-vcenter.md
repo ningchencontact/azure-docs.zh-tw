@@ -4,118 +4,124 @@ description: 本文說明如何新增和管理 VMware vCenter，以便使用 Azu
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 12/24/2019
 ms.author: ramamill
-ms.openlocfilehash: 8f339103f67f37d10999ef43fa57a6eb27b60f37
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ba5f31049b599cd55a4a9a4261080c1672d336b1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083965"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495341"
 ---
 # <a name="manage-vmware-vcenter-server"></a>管理 VMware vCenter 伺服器
 
-本文討論可以在 VMware vCenter 上執行的各種 Site Recovery 作業。 開始之前，請確認[必要條件](vmware-physical-azure-support-matrix.md#replicated-machines)。
+本文摘要說明[Azure Site Recovery](site-recovery-overview.md)中 VMware vCenter Server 的管理動作。 
+
+## <a name="verify-prerequisites-for-vcenter-server"></a>驗證 vCenter Server 的必要條件
+
+在 VMware Vm 至 Azure 的嚴重損壞修復期間，vCenter 伺服器和 Vm 的必要條件會列在[支援矩陣](vmware-physical-azure-support-matrix.md#replicated-machines)中。
 
 
 ## <a name="set-up-an-account-for-automatic-discovery"></a>設定帳戶以進行自動探索
 
-Site Recovery 需要存取 VMware，才能讓處理序伺服器自動探索虛擬機器，以及針對虛擬機器進行容錯移轉和容錯回復。 建立帳戶以進行存取，如下所示：
+當您設定內部部署 VMware Vm 的嚴重損壞修復時，Site Recovery 需要存取 vCenter Server/vSphere 主機，讓 Site Recovery 進程伺服器能夠自動探索 Vm，並視需要將它們故障。 根據預設，進程伺服器會在 Site Recovery 設定伺服器上執行。 新增設定伺服器的帳戶，以連線至 vCenter Server/vSphere 主機，如下所示：
 
 1. 登入設定伺服器電腦。
-2. 使用 [桌面] 捷徑開啟啟動 cspsconfigtool.exe。
-3. 按一下 [管理帳戶] 索引標籤上的 [新增帳戶]。
+2. 使用桌面快捷方式開啟設定伺服器工具（cspsconfigtool.exe .exe）。
+3. 在 [**管理帳戶**] 索引標籤上，按一下 [**新增帳戶**]。 
 
    ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
-1. 提供帳戶詳細資料，並按一下 [確定] 加以新增。  帳戶應該具有下表摘要說明的權限。 
+4. 提供帳戶詳細資料，並按一下 [確定] 加以新增。  帳戶應該具有下表摘要說明的權限。 
 
-帳戶資訊需要花費約 15 分鐘的時間以和 Site Recovery 服務進行同步處理。
+同步處理帳戶資訊與 Site Recovery 需要大約15分鐘的時間。
 
 ### <a name="account-permissions"></a>帳戶權限
 
 |**Task** | **帳戶** | **權限** | **詳細資料**|
 |--- | --- | --- | ---|
-|**自動探索/遷移 (不含容錯回復)** | 您需要至少一個唯讀使用者 | 資料中心物件 –> 傳播至子物件、role=Read-only | 在資料中心層級指派的使用者，且能夠存取資料中心內的所有物件。<br/><br/> 如果要限制存取權，請將具備 [傳播至子物件] 物件的 [沒有存取權] 角色指派給子物件 (vSphere 主機、資料存放區、虛擬機器及網路)。|
-|**複寫/容錯移轉** | 您需要至少一個唯讀使用者| 資料中心物件 –> 傳播至子物件、role=Read-only | 在資料中心層級指派的使用者，且能夠存取資料中心內的所有物件。<br/><br/> 如果要限制存取權，請將具備 [傳播至子物件] 物件的 [沒有存取權] 角色指派給子物件 (vSphere 主機、資料存放區、虛擬機器及網路)。<br/><br/> 適用於移轉用途，而不是完整複寫、容錯移轉、容錯回復。|
-|**複寫/容錯移轉/容錯回復** | 建議您建立具有必要權限的角色 (AzureSiteRecoveryRole)，然後將角色指派給 VMware 使用者或群組 | 資料中心物件 –> 傳播至子物件、role=AzureSiteRecoveryRole<br/><br/> 資料存放區 -> 配置空間、瀏覽資料存放區、底層檔案作業、移除檔案、更新虛擬機器檔案<br/><br/> 網路 -> 網路指派<br/><br/> 資源 -> 指派 VM 至資源集區、移轉已關閉電源的 VM、移轉已開啟電源的 VM<br/><br/> 工作 -> 建立工作、更新工作<br/><br/> 虛擬機器 -> 組態<br/><br/> 虛擬機器 -> 互動 -> 回答問題、裝置連線、設定 CD 媒體、設定磁碟片媒體、電源關閉、電源開啟、VMware 工具安裝<br/><br/> 虛擬機器 -> 清查 -> 建立、註冊、取消註冊<br/><br/> 虛擬機器 -> 佈建 -> 允許虛擬機器下載、允許虛擬機器檔案上傳<br/><br/> 虛擬機器 -> 快照 -> 移除快照 | 在資料中心層級指派的使用者，且能夠存取資料中心內的所有物件。<br/><br/> 如果要限制存取權，請將具備 [傳播至子物件] 物件的 [沒有存取權] 角色指派給子物件 (vSphere 主機、資料存放區、虛擬機器及網路)。|
+|**VM 探索/遷移（不含容錯回復）** | 至少是唯讀使用者帳戶。 | 資料中心物件 –> 傳播至子物件、role=Read-only | 在資料中心層級指派的使用者，且能夠存取資料中心內的所有物件。<br/><br/> 如果要限制存取權，請將具備 [傳播至子物件] 物件的 [沒有存取權] 角色指派給子物件 (vSphere 主機、資料存放區、虛擬機器及網路)。|
+|**複寫/容錯移轉** | 至少是唯讀使用者帳戶。 | 資料中心物件 –> 傳播至子物件、role=Read-only | 在資料中心層級指派的使用者，且能夠存取資料中心內的所有物件。<br/><br/> 如果要限制存取權，請將具備 [傳播至子物件] 物件的 [沒有存取權] 角色指派給子物件 (vSphere 主機、資料存放區、虛擬機器及網路)。<br/><br/> 適用於移轉用途，而不是完整複寫、容錯移轉、容錯回復。|
+|**複寫/容錯移轉/容錯回復** | 我們建議您建立具有必要許可權的角色（AzureSiteRecoveryRole），然後將角色指派給 VMware 使用者或群組。 | 資料中心物件 –> 傳播至子物件、role=AzureSiteRecoveryRole<br/><br/> 資料存放區 -> 配置空間、瀏覽資料存放區、底層檔案作業、移除檔案、更新虛擬機器檔案<br/><br/> 網路 -> 網路指派<br/><br/> 資源 -> 指派 VM 至資源集區、移轉已關閉電源的 VM、移轉已開啟電源的 VM<br/><br/> 工作 -> 建立工作、更新工作<br/><br/> 虛擬機器 -> 組態<br/><br/> 虛擬機器 -> 互動 -> 回答問題、裝置連線、設定 CD 媒體、設定磁碟片媒體、電源關閉、電源開啟、VMware 工具安裝<br/><br/> 虛擬機器 -> 清查 -> 建立、註冊、取消註冊<br/><br/> 虛擬機器 -> 佈建 -> 允許虛擬機器下載、允許虛擬機器檔案上傳<br/><br/> 虛擬機器 -> 快照 -> 移除快照 | 在資料中心層級指派的使用者，且能夠存取資料中心內的所有物件。<br/><br/> 如果要限制存取權，請將具備 [傳播至子物件] 物件的 [沒有存取權] 角色指派給子物件 (vSphere 主機、資料存放區、虛擬機器及網路)。|
 
 
 ## <a name="add-vmware-server-to-the-vault"></a>將 VMware 伺服器新增至保存庫
 
-1. 在 Azure 入口網站中，開啟您的保存庫 > [Site Recovery 基礎結構] > [設定伺服器]，然後開啟設定伺服器。
-2. 在 [詳細資料] 頁面上，按一下 [+vCenter]。
+當您設定內部部署 VMware Vm 的嚴重損壞修復時，會將您在其中探索 Vm 的 vCenter Server/vSphere 主機新增至 Site Recovery 保存庫，如下所示：
 
-[!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
+1. 在保存庫 > **Site Recovery 基礎結構** ** > 設定伺服器中，** 開啟設定伺服器。
+2. 在 [**詳細資料**] 頁面中，按一下 [ **vCenter**]。
+3. 在 [**新增 vCenter**] 中，指定 vSphere 主機或 vCenter 伺服器的易記名稱。
+4. 指定伺服器的 IP 位址或 FQDN。
+5. 保留連接埠為 443，除非您的 VMware 伺服器設定為在不同連接埠上接聽要求。
+6. 選取用來連接到 VMware vCenter 或 vSphere ESXi 伺服器的帳戶。 然後按一下 [確定]。
+
+
 
 ## <a name="modify-credentials"></a>修改認證
 
-修改用來連線至 vCenter Server 或 ESXi 主機的認證，如下所示：
+如有需要，您可以修改用來連接到 vCenter Server/vSphere 主機的認證，如下所示：
 
-1. 登入設定伺服器，並從桌面啟動 cspsconfigtool.exe。
+1. 登入設定。
+2. 使用桌面快捷方式開啟設定伺服器工具（cspsconfigtool.exe .exe）。
 2. 按一下 [管理帳戶] 索引標籤上的 [新增帳戶]。
 
    ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
-3. 提供新帳戶的詳細資料，並按一下 [確定] 加以新增。 該帳戶必須具備[上方](#account-permissions)所列的權限。
-4. 在 Azure 入口網站中，開啟保存庫 > [Site Recovery 基礎結構] > [設定伺服器]，然後開啟設定伺服器。
-5. 在 [詳細資料] 頁面上，按一下 [重新整理伺服器]。
-6. [重新整理伺服器] 作業完成後，選取 [vCenter Server] 以開啟 vCenter [摘要] 頁面。
-7. 在 [vCenter Server/vSphere 主機帳戶] 欄位中選取新增的帳戶，然後按一下 [儲存]。
+   
+3. 提供新的帳戶詳細資料，然後按一下 **[確定]** 。 帳戶需要[以上](#account-permissions)所列的許可權。
+4. 在保存庫 > **Site Recovery 基礎結構** ** > 設定伺服器 中，** 開啟設定伺服器。
+5. 在 [**詳細資料**] 中，按一下 [重新整理**伺服器**]。
+6. 在 [重新整理伺服器] 作業完成後，選取 [vCenter Server]。
+7. 在 [**摘要**] 中，選取 [ **Center server/vSphere 主機帳戶**] 中新增的帳戶，然後按一下 [**儲存**]。
 
    ![modify-account](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
 
-## <a name="delete-a-vcenter-server"></a>刪除 vCenter Server
+## <a name="delete-a-vcenter-server"></a>刪除 vCenter Server 
 
-1. 在 Azure 入口網站中，開啟您的保存庫 > [Site Recovery 基礎結構] > [設定伺服器]，然後開啟設定伺服器。
+1. 在保存庫 > **Site Recovery 基礎結構** ** > 設定伺服器 中，** 開啟設定伺服器。
 2. 在 [詳細資料] 頁面中，選取 vCenter Server。
 3. 按一下 [刪除] 按鈕。
 
    ![delete-account](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
 
-## <a name="modify-the-vcenter-ip-address-and-port"></a>修改 vCenter IP 位址和埠
+## <a name="modify-the-ip-address-and-port"></a>修改 IP 位址和埠
 
-1. 登入 Azure 入口網站。
-2. 流覽至 復原**服務保存庫**， > **Site Recovery 基礎結構** > 設定**伺服器**。
-3. 按一下已指派 vCenter 的設定伺服器。
-4. 在 [ **vcenter server** ] 區段中，按一下您想要修改的 vCenter。
-5. 在 [vCenter 摘要] 頁面上，更新個別欄位中 vCenter 的 IP 位址和埠，然後儲存您的變更。
+您可以修改 vCenter Server 的 IP 位址，或是伺服器與 Site Recovery 之間通訊所使用的埠。 根據預設，Site Recovery 會透過埠443存取 vCenter Server/vSphere 主機資訊。
+
+1. 在 保存庫 > **Site Recovery 基礎結構** > 設定**伺服器** 中，按一下要新增 vCenter Server 的 設定 伺服器。
+2. 在 [ **vCenter server**] 中，按一下您想要修改的 vCenter Server。
+5. 在 [**摘要**] 中，更新 IP 位址和埠，並儲存變更。
 
    ![add_ip_new_vcenter](media/vmware-azure-manage-vcenter/add-ip.png)
 
 6. 若要讓變更生效，請等待15分鐘，或重新整理設定[伺服器](vmware-azure-manage-configuration-server.md#refresh-configuration-server)。
 
-## <a name="migrate-all-protected-virtual-machines-to-a-new-vcenter"></a>將所有受保護的虛擬機器遷移至新的 vCenter
 
-若要將所有虛擬機器遷移至新的 vCenter，請勿新增另一個 vCenter 帳戶。 這可能會導致重複的專案。 只要更新新 vCenter 的 IP 位址：
+## <a name="migrate-all-vms-to-a-new-server"></a>將所有 Vm 遷移至新的伺服器
 
-1. 登入 Azure 入口網站。
-2. 流覽至 復原**服務保存庫**， > **Site Recovery 基礎結構** > 設定**伺服器**。
-3. 按一下 [舊 vCenter 指派的設定伺服器]。
-4. 在 [ **vCenter server** ] 區段中，按一下您打算從中進行遷移的 vCenter。
-5. 在 [vCenter 摘要] 頁面上，更新 [ **vcenter server/vSphere hostname] 或 [IP 位址**] 欄位中新 VCENTER 的 IP 位址。 儲存您的變更。
+如果您想要將所有 Vm 遷移為使用新的 vCenter Server，您只需要更新指派給 vCenter Server 的 IP 位址。 請勿新增另一個 VMware 帳戶，因為這可能會導致重複的專案。 更新位址，如下所示：
 
-一旦更新 IP 位址，Site Recovery 元件就會開始從新的 vCenter 接收虛擬機器的探索資訊。 這不會影響進行中的複寫活動。
+1. 在保存庫 > **Site Recovery 基礎結構** > 設定**伺服器**，舔在新增 vCenter Server 的設定伺服器上。
+2. 在 [ **vCenter server** ] 區段中，按一下您想要從中遷移的 vCenter Server。
+5. 在 [**摘要**] 中，更新新 VCENTER SERVER 的 IP 位址，然後儲存變更。
+6. 一旦更新 IP 位址，Site Recovery 就會開始從新的 vCenter Server 接收 VM 探索資訊。 這不會影響進行中的複寫活動。
 
-## <a name="migrate-few-protected-virtual-machines-to-a-new-vcenter"></a>將幾個受保護的虛擬機器遷移至新的 vCenter
+## <a name="migrate-a-few-vms-to-a-new-server"></a>將幾個 Vm 遷移至新的伺服器
 
-> [!NOTE]
-> 本節僅適用于將一些受保護的虛擬機器遷移至新的 vCenter 時。 如果您想要從新的 vCenter 保護一組新的虛擬機器，請[將新的 vcenter 詳細資料新增至設定伺服器](#add-vmware-server-to-the-vault)，並啟動 [ **[啟用保護](vmware-azure-tutorial.md#enable-replication)** ]。
+如果您只想要將幾個複寫 Vm 遷移到新的 vCenter 伺服器，請執行下列動作：
 
-若要將幾部虛擬機器移至新的 vCenter：
+1. [將](#add-vmware-server-to-the-vault)新的 vCenter Server 新增至設定伺服器。
+2. 針對將移至新伺服器的 Vm[停](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)用複寫。
+3. 在 VMware 中，將 Vm 遷移至新的 vCenter Server。 
+4. 再次[啟用](vmware-azure-tutorial.md#enable-replication)已遷移 vm 的複寫，然後選取新的 vCenter Server。
 
-1. [將新的 vCenter 詳細資料新增至設定伺服器](#add-vmware-server-to-the-vault)。
-2. 停用您打算遷移[之虛擬機器的](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)複寫。
-3. 完成將選取的虛擬機器遷移至新的 vCenter。
-4. 現在，[當您啟用保護時，請選取新的 vCenter](vmware-azure-tutorial.md#enable-replication)來保護已遷移的虛擬機器。
 
-> [!TIP]
-> 如果要遷移的虛擬機器數目**高於**舊 vCenter 中保留的虛擬機器數目，請使用此處提供的指示更新新 VCENTER 的 IP 位址。 針對保留在舊 vCenter 上的幾部虛擬機器，請[停](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)用複寫;[將新的 vCenter 詳細資料新增至設定伺服器](#add-vmware-server-to-the-vault)，並啟動 [ **[啟用保護](vmware-azure-tutorial.md#enable-replication)** ]。
+## <a name="migrate-most-vms-to-a-new-server"></a>將大部分的 Vm 遷移至新的伺服器
+ 如果您想要遷移至新 vCenter Server 的 Vm 數目高於將保留在原始 vCenter Server 上的 Vm 數目，請執行下列步驟：
 
-## <a name="frequently-asked-questions"></a>常見問題集
-
-1. 如果將受保護的虛擬機器從一個 ESXi 主機移到另一部，它會影響複寫嗎？
-
-    否，這不會影響進行中的複寫。 不過，請[務必以足夠的許可權部署主要目標伺服器](vmware-azure-reprotect.md#deploy-a-separate-master-target-server)
-
-2. VCenter 和其他 Site Recovery 元件之間通訊所使用的埠號碼為何？
-
-    預設通訊埠為443。 設定伺服器將透過此埠存取 vCenter/vSphere 主機資訊。 如果您想要更新此資訊，請按一下[這裡](#modify-the-vcenter-ip-address-and-port)。
+1. 將 [設定伺服器設定] 中指派給 vCenter Server 的[IP 位址更新](#modify-the-ip-address-and-port)為新 vCenter Server 的位址。
+2. [停](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)用舊伺服器上剩餘的幾個 vm 複寫。
+3. [將舊的 vCenter Server](#add-vmware-server-to-the-vault)及其 IP 位址新增到設定伺服器。
+4. 針對保留在舊伺服器上的 Vm[重新啟用複寫](vmware-azure-tutorial.md#enable-replication)。
+ 
+ ## <a name="next-steps"></a>後續步驟
+如果您遇到任何問題，請對 vCenter Server 失敗[進行疑難排解](vmware-azure-troubleshoot-vcenter-discovery-failures.md)。

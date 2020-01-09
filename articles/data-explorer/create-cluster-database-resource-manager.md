@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 4a95804bcff3653df42186907f03d0bc27a603ea
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 9a91f81c9d28f1b3c8d553a2a8a26d53ff1b2b3e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869709"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444481"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立 Azure 資料總管叢集和資料庫
 
@@ -24,9 +24,9 @@ ms.locfileid: "74869709"
 > * [Python](create-cluster-database-python.md)
 > * [Azure Resource Manager 範本](create-cluster-database-resource-manager.md)
 
-「Azure 資料總管」是一項快速又彈性極佳的資料探索服務，可用於處理記錄和遙測資料。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 
+Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 
 
-在本文中，您會使用[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)來建立 Azure 資料總管叢集和資料庫。 本文說明如何定義要部署哪些資源，以及如何定義執行部署時所指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。 如需建立範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本](/azure/azure-resource-manager/resource-group-authoring-templates)。 如需在範本中使用的 JSON 語法和屬性，請參閱[Kusto 資源類型](/azure/templates/microsoft.kusto/allversions)。
+在本文中，您會使用[Azure Resource Manager 範本](../azure-resource-manager/management/overview.md)來建立 Azure 資料總管叢集和資料庫。 本文說明如何定義要部署哪些資源，以及如何定義執行部署時所指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。 如需建立範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本](/azure/azure-resource-manager/resource-group-authoring-templates)。 如需在範本中使用的 JSON 語法和屬性，請參閱[Kusto 資源類型](/azure/templates/microsoft.kusto/allversions)。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 

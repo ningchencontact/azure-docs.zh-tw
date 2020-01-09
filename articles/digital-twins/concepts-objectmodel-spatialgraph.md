@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.openlocfilehash: 85fb67248a69a2726fef99ebe4749d61807631e4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/30/2019
+ms.openlocfilehash: cafec321e7c40e27d8de731feda1103451271507
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010094"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562590"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>了解 Digital Twins 物件模型和空間智慧圖形
 
@@ -58,7 +58,7 @@ Digital Twins 物件模型支援下列主要物件類別：
 
 空間圖形是定義於 Digital Twins 物件模型中的空間、裝置和人員的階層式圖形。 空間圖形支援繼承、篩選、周遊、延展性和擴充性。 您可透過 REST API 集合來管理空間圖形並與其互動。
 
-如果您在自己的訂用帳戶中部署 Digital Twins 服務，便會成為根節點的全域系統管理員。 接著，系統會自動授與您整個結構的完整存取權。 使用空間 API 在圖形中佈建空間。 使用感應器 API 來利用裝置 API 及感應器佈建服務。 也有可用的[開放原始碼工具](https://github.com/Azure-Samples/digital-twins-samples-csharp) \(英文\) 以供大量佈建圖形。
+如果您在自己的訂用帳戶中部署 Digital Twins 服務，便會成為根節點的全域系統管理員。 接著，系統會自動授與您整個結構的完整存取權。 使用空間 API 在圖形中佈建空間。 使用感應器 API 來利用裝置 API 及感應器佈建服務。 [開放原始碼工具](https://github.com/Azure-Samples/digital-twins-samples-csharp)也可以用來大量布建圖表。
 
 **圖形繼承**。 繼承會套用至源自父節點及其下所有節點的權限和屬性。 例如，如果為使用者指派指定節點上的角色，該使用者就會有該角色針對指定節點的權限，以及其下每個節點的權限。 針對指定節點所定義的每個屬性索引鍵和擴充類型，也會會由該節點下所有的節點繼承。
 

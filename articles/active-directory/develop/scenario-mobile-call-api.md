@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db58f94501590eb3150700d282377ec1b2378cea
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3f56d55a08c46338fb7916664834b69005419e72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962537"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423771"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>呼叫 web Api 的行動應用程式-呼叫 Web API
 
@@ -134,7 +134,7 @@ task.resume()
 
 如果您需要為相同的使用者呼叫數個 Api，一旦您取得使用者的權杖，您可以藉由後續呼叫 `AcquireTokenSilent` 來取得權杖，以避免重複要求使用者提供認證。
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 
@@ -147,7 +147,7 @@ result = await app.AcquireTokenSilent("scopeApi2")
 - 使用者同意第一個 API，但現在需要同意更多範圍（增量同意）
 - 第一個 API 不需要多重要素驗證，但下一個則是。
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 

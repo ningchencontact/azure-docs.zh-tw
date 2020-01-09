@@ -3,23 +3,23 @@ title: 安裝和使用 Azure IoT explorer |Microsoft Docs
 description: 安裝 Azure IoT explorer 工具，並使用它來與連線到 IoT 中樞的 IoT 隨插即用預覽裝置互動。
 author: miagdp
 ms.author: miag
-ms.date: 07/02/2019
+ms.date: 12/27/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 3b5e9a70f9eecbf187a6748073de009653061dc0
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: fd180404ca18b5ea84c745a543ae7e87bf16c27d
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679860"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529621"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>安裝和使用 Azure IoT explorer
 
 Azure IoT explorer 是一種圖形化工具，可與您的 IoT 隨插即用預覽裝置互動和測試。 在本機電腦上安裝此工具之後，您就可以使用它來連線到裝置。 您可以使用此工具來查看裝置正在傳送的遙測資料、使用裝置屬性，以及呼叫命令。
 
-本文將說明如何：
+本文示範如何：
 
 - 安裝和設定 Azure IoT explorer 工具。
 - 使用此工具來與您的裝置互動並加以測試。
@@ -73,7 +73,7 @@ IoT 隨插即用裝置的模型定義會儲存在公用儲存機制、公司存�
 
 - 選取 [**新增**] 以向您的中樞註冊新的裝置。 然後輸入 [裝置識別碼]。 使用預設設定來自動產生驗證金鑰，並啟用與中樞的連線。
 - 選取裝置，然後選取 [**刪除**] 以刪除裝置身分識別。 完成此動作之前，請先檢查裝置詳細資料，以確定您正在刪除正確的裝置身分識別。
-- @No__t_0 和 `interfaceID` 的查詢。 新增您的 `capabilityID` 或 `interfaceID` 做為參數，以查詢您的裝置。
+- `capabilityID` 和 `interfaceID`的查詢。 新增您的 `capabilityID` 或 `interfaceID` 做為參數，以查詢您的裝置。
 
 ## <a name="interact-with-a-device"></a>與裝置互動
 

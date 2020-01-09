@@ -1,24 +1,14 @@
 ---
 title: 使用適用于容器的 Azure 監視器來觀看即時資料（預覽） |Microsoft Docs
 description: 本文說明 Kubernetes 記錄、事件和 pod 計量的即時觀點，而不在容器的 Azure 監視器中使用 kubectl。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/15/2019
-ms.author: magoedte
-ms.openlocfilehash: 9c497c73d42e1fb8851c5293010098d843297250
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 18ae091a32d0256288d27ad1439ffc7be26db5f1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514416"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404763"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>如何即時查看 Kubernetes 記錄、事件和 pod 計量
 
@@ -67,7 +57,7 @@ ms.locfileid: "73514416"
 4. 從 [效能] 方格中選取物件，然後在右側找到的 [屬性] 窗格上，選取 [**查看即時資料（預覽）** ] 選項。 如果 AKS 叢集是使用 Azure AD 來設定單一登入，則系統會提示您在瀏覽器會話期間第一次使用時進行驗證。 選取您的帳戶，然後向 Azure 完成驗證。  
 
     >[!NOTE]
-    >當您從 Log Analytics 工作區中選取 [屬性] 窗格中的 [**在分析中查看**] 選項來觀看資料時，記錄搜尋結果可能會顯示**節點**、背景程式**集合**、**複本集**、**作業**、可能已不再存在的 Cron 作業 **、Pod 和** **容器**。 嘗試搜尋無法在 `kubectl` 中使用的容器記錄檔，這裡也會失敗。 請參閱[分析中的視圖](container-insights-log-search.md#search-logs-to-analyze-data)功能，以深入瞭解如何查看歷程記錄、事件和計量。  
+    >從您的 Log Analytics 工作區中，選取 [屬性] 窗格的 [**在分析中查看**] 選項來觀看資料時，記錄搜尋結果可能會顯示**節點**、背景程式**集合**、**複本集**、**作業**、 **Cron 作業** **、pod，以及可能**已不存在的**容器**。 嘗試搜尋無法在 `kubectl` 中使用的容器記錄檔，這裡也會失敗。 請參閱[分析中的視圖](container-insights-log-search.md#search-logs-to-analyze-data)功能，以深入瞭解如何查看歷程記錄、事件和計量。  
 
 成功驗證之後，[即時資料（預覽）] 主控台窗格會出現在 [效能資料] 方格下方，您可以在其中查看連續資料流程中的記錄資料。 如果提取狀態指示器顯示綠色核取記號（位於窗格最右邊），表示可以抓取資料，並開始串流至您的主控台。  
 
@@ -75,9 +65,9 @@ ms.locfileid: "73514416"
 
 窗格標題會顯示容器所群組的 pod 名稱。
 
-## <a name="view-events"></a>檢視事件
+## <a name="view-events"></a>檢視活動
 
-當容器、pod、node、ReplicaSet、DaemonSet、job、CronJob 或時，您可以從 [**節點**]、[**控制器**]、[**容器**] 和 [**部署（預覽）** ] 視圖的容器引擎產生即時事件資料已選取 [部署]。 若要查看事件，請執行下列步驟。
+當容器、pod、節點、ReplicaSet、DaemonSet、作業、CronJob 或部署已選取時，您可以從 [**節點**]、[**控制器**]、[**容器**] 和 [**部署（預覽）** ] 視圖的容器引擎產生即時事件資料。 若要查看事件，請執行下列步驟。
 
 1. 在 Azure 入口網站中，流覽至 AKS 叢集資源群組，然後選取您的 AKS 資源。
 
@@ -88,7 +78,7 @@ ms.locfileid: "73514416"
 4. 從 [效能] 方格中選取物件，然後在右側找到的 [屬性] 窗格上，選取 [**查看即時資料（預覽）** ] 選項。 如果 AKS 叢集是使用 Azure AD 來設定單一登入，則系統會提示您在瀏覽器會話期間第一次使用時進行驗證。 選取您的帳戶，然後向 Azure 完成驗證。  
 
     >[!NOTE]
-    >當您從 Log Analytics 工作區中選取 [屬性] 窗格中的 [**在分析中查看**] 選項來觀看資料時，記錄搜尋結果可能會顯示**節點**、背景程式**集合**、**複本集**、**作業**、可能已不再存在的 Cron 作業 **、Pod 和** **容器**。 嘗試搜尋無法在 `kubectl` 中使用的容器記錄檔，這裡也會失敗。 請參閱[分析中的視圖](container-insights-log-search.md#search-logs-to-analyze-data)功能，以深入瞭解如何查看歷程記錄、事件和計量。  
+    >從您的 Log Analytics 工作區中，選取 [屬性] 窗格的 [**在分析中查看**] 選項來觀看資料時，記錄搜尋結果可能會顯示**節點**、背景程式**集合**、**複本集**、**作業**、 **Cron 作業** **、pod，以及可能**已不存在的**容器**。 嘗試搜尋無法在 `kubectl` 中使用的容器記錄檔，這裡也會失敗。 請參閱[分析中的視圖](container-insights-log-search.md#search-logs-to-analyze-data)功能，以深入瞭解如何查看歷程記錄、事件和計量。  
 
 成功驗證之後，[即時資料（預覽）] 主控台窗格會出現在 [效能資料] 方格下方。 如果提取狀態指示器顯示綠色核取記號（位於窗格最右邊），表示可以抓取資料，並開始串流至您的主控台。 
     
@@ -115,7 +105,7 @@ ms.locfileid: "73514416"
 4. 從 [效能] 方格中選取**Pod**物件，然後在右側找到的 [屬性] 窗格中，選取 [ **View live data （預覽）** ] 選項。 如果 AKS 叢集是使用 Azure AD 來設定單一登入，則系統會提示您在瀏覽器會話期間第一次使用時進行驗證。 選取您的帳戶，然後向 Azure 完成驗證。  
 
     >[!NOTE]
-    >當您從 Log Analytics 工作區中選取 [屬性] 窗格中的 [**在分析中查看**] 選項來觀看資料時，記錄搜尋結果可能會顯示**節點**、背景程式**集合**、**複本集**、**作業**、可能已不再存在的 Cron 作業 **、Pod 和** **容器**。 嘗試搜尋無法在 `kubectl` 中使用的容器記錄檔，這裡也會失敗。 請參閱[分析中的視圖](container-insights-log-search.md#search-logs-to-analyze-data)功能，以深入瞭解如何查看歷程記錄、事件和計量。  
+    >從您的 Log Analytics 工作區中，選取 [屬性] 窗格的 [**在分析中查看**] 選項來觀看資料時，記錄搜尋結果可能會顯示**節點**、背景程式**集合**、**複本集**、**作業**、 **Cron 作業** **、pod，以及可能**已不存在的**容器**。 嘗試搜尋無法在 `kubectl` 中使用的容器記錄檔，這裡也會失敗。 請參閱[分析中的視圖](container-insights-log-search.md#search-logs-to-analyze-data)功能，以深入瞭解如何查看歷程記錄、事件和計量。  
 
 成功驗證之後，[即時資料（預覽）] 主控台窗格會出現在 [效能資料] 方格下方。 系統會抓取計量資料，並開始串流至您的主控台，以便在兩個圖表中呈現。 窗格標題會顯示容器所群組的 pod 名稱。
 

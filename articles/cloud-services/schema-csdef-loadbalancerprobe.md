@@ -1,5 +1,5 @@
 ---
-title: Azure 雲端服務定義LoadBalancerProbe 結構描述 | Microsoft Docs
+title: Azure 雲端服務 Def LoadBalancerProbe 架構 |Microsoft Docs
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -7,13 +7,13 @@ ms.service: cloud-services
 ms.topic: reference
 caps.latest.revision: 14
 author: georgewallace
-ms.author: gwallace
-ms.openlocfilehash: 6f82406772f650b4565f2c9240efe580545dcad9
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: bc2c0f5137ce78392a8df7c6c2fdd402ded5355a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360599"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449063"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure 雲端服務定義 LoadBalancerProbe 結構描述
 負載平衡器探查是客戶定義的健康情況探查，可探查 UDP 端點和角色執行個體中的端點。 `LoadBalancerProbe` 不是獨立元素；它會與服務定義檔中的 Web 角色或背景工作角色結合。 `LoadBalancerProbe` 可由多個角色使用。
@@ -54,10 +54,10 @@ Azure Load Balancer 會負責將連入流量路由至角色執行個體。 負�
 
 下表說明 `LoadBalancerProbe` 元素的屬性：
 
-|屬性|Type|描述|
+|屬性|類型|說明|
 | ------------------- | -------- | -----------------|
-| `name`              | `string` | 必要項。 負載平衡器探查的名稱。 名稱必須是唯一的。|
-| `protocol`          | `string` | 必要項。 指定端點的通訊協定。 可能的值為 `http` 或 `tcp`。 如果已指定 `tcp`，則需要接收到的 ACK，探查才會成功。 如果已指定 `http`，則需要來自指定 URI 的「200 確定」回應，探查才會成功。|
+| `name`              | `string` | 必要。 負載平衡器探查的名稱。 名稱必須是唯一的。|
+| `protocol`          | `string` | 必要。 指定端點的通訊協定。 可能的值為 `http` 或 `tcp`。 如果已指定 `tcp`，則需要接收到的 ACK，探查才會成功。 如果已指定 `http`，則需要來自指定 URI 的「200 確定」回應，探查才會成功。|
 | `path`              | `string` | 用來從 VM 要求健康情況狀態的 URI。 如果將 `protocol` 設為 `http`，則需要 `path`。 否則不允許。<br /><br /> 沒有預設值。|
 | `port`              | `integer` | 選擇性。 用來與探查通訊的連接埠。 這對於任何端點都是選擇性的，因為接著會針對探查使用相同的連接埠。 您也可以針對其探查設定不同的通訊埠。 可能的值範圍從 1 到 65535 (含)。<br /><br /> 預設值是由端點設定。|
 | `intervalInSeconds` | `integer` | 選擇性。 探查端點健康情況狀態的頻率間隔 (以秒為單位)。 一般而言，間隔略小於配置逾時期間 (以秒為單位) 的一半，可允許在執行個體退出循環之前進行兩個完整探查。<br /><br /> 預設值是 15，最小值是 5。|

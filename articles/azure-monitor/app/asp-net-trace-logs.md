@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/08/2019
-ms.openlocfilehash: 352e31e2a2f1a88a33e82134460e6df0911dbd2e
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 33dc415e06b7f49f75697abb05248750444fea7c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677637"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432634"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>探索 Application Insights 中的 .NET/.NET Core 和 Python 追蹤記錄
 
@@ -43,7 +43,7 @@ ms.locfileid: "72677637"
 或以滑鼠右鍵按一下您在方案總管中的專案，以**設定 Application Insights**。 選取 [**設定追蹤集合**] 選項。
 
 > [!NOTE]
-> 沒有 Application Insights 的功能表或記錄收集器選項嗎？ 請嘗試進行 [疑難排解](#troubleshooting)。
+> 沒有 Application Insights 的功能表或記錄收集器選項嗎？ 請嘗試進行[疑難排解](#troubleshooting)。
 
 ## <a name="manual-installation"></a>手動安裝
 如果 Application Insights 安裝程式不支援您的專案類型 (例如 Windows 傳統型專案)，請使用這個方法。
@@ -84,7 +84,7 @@ NuGet 套件會安裝必要的元件，並修改 web.config 或 app.config （�
     logger.Warn("Slow response - database01");
 
 ## <a name="use-eventsource-events"></a>使用 EventSource 事件
-您可以將 [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 設定為要傳送至 Application Insights 作為追蹤的事件。 首先，安裝 `Microsoft.ApplicationInsights.EventSourceListener` NuGet 套件。 然後編輯 `TelemetryModules`ApplicationInsights.config[ 檔案的 ](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 區段。
+您可以將 [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 設定為要傳送至 Application Insights 作為追蹤的事件。 首先，安裝 `Microsoft.ApplicationInsights.EventSourceListener` NuGet 套件。 然後編輯 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 檔案的 `TelemetryModules` 區段。
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -135,14 +135,14 @@ NuGet 套件會安裝必要的元件，並修改 web.config 或 app.config （�
 ## <a name="use-the-trace-api-directly"></a>直接使用追蹤 API
 您可以直接呼叫 Application Insights 追蹤 API。 記錄配接器會使用此 API。
 
-例如︰
+例如：
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如，您可以在該處編碼 POST 資料。
 
-您也可以將嚴重性層級新增至您的訊息。 而和其他遙測一樣，您可以加入屬性值來協助篩選或搜尋不同的追蹤集。 例如︰
+您也可以將嚴重性層級新增至您的訊息。 而和其他遙測一樣，您可以加入屬性值來協助篩選或搜尋不同的追蹤集。 例如：
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -209,7 +209,7 @@ logger.warning('Hello, World!')
 ### <a name="i-dont-see-some-log-entries-that-i-expected"></a>我看不到我預期的一些記錄檔專案
 如果您的應用程式傳送長篇大論的資料量，而且您使用適用于 ASP.NET 版本2.0.0 的 Application Insights SDK-Beta3 或更新版本，則適應性取樣功能可能會運作，並只傳送部分遙測。 [深入了解取樣。](../../azure-monitor/app/sampling.md)
 
-## <a name="add"></a>接續步驟
+## <a name="add"></a>後續步驟
 
 * [診斷 ASP.NET 中的失敗和例外狀況][exceptions]
 * [深入瞭解搜尋][diagnostic]

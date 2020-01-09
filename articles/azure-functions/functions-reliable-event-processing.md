@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: 019c44cedba166dc1ac06a0244fa2b2e7930e673
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e4f35495d8a01146068cffb9159c29c46c3c0d29
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230361"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561862"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions 可靠的事件處理
 
@@ -82,7 +82,7 @@ Azure Functions 會在迴圈執行下列步驟時取用事件中樞事件：
 
 ## <a name="stop-and-restart-execution"></a>停止並重新啟動執行
 
-雖然有幾個錯誤可能是可接受的，但如果您的應用程式遇到重大失敗，該怎麼辦？ 您可能想要停止觸發事件，直到系統達到狀況良好狀態為止。 使用斷路器模式，通常會有機會暫停處理。 斷路器模式可讓您的應用程式「中斷」事件進程的線路，並于稍後繼續。
+雖然有幾個錯誤可能是可接受的，但如果您的應用程式遇到重大失敗，該怎麼辦？ 您可能想要停止觸發事件，直到系統達到狀況良好狀態為止。 有機會暫停處理，通常是透過斷路器模式來達成。 斷路器模式可讓您的應用程式「中斷」事件進程的線路，並于稍後繼續。
 
 在事件處理常式中執行斷路器需要兩個部分：
 

@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: df8300e84309a874faa4b1c06891a4c5b549fce6
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 0e4ec63ffe715b17f55fde2a53c15d96d391cdba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014770"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452547"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>針對預覽環境進行診斷和疑難排解
 
@@ -25,7 +25,7 @@ ms.locfileid: "74014770"
 
 如果您沒有存取時間序列深入解析環境的權限，就可能會發生這個問題。 使用者需要讀取器層級存取角色，才能檢視他們的時間序列深入解析環境。 若要確認目前的存取層級並授與其他存取權，請移至[Azure 入口網站](https://portal.azure.com/)中時間序列深入解析資源的 [**資料存取原則**] 區段。
 
-  [![環境](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
+  [![驗證資料存取原則。](media/preview-troubleshoot/verify-data-access-policies.png)](media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>問題：在預覽瀏覽器中看不到任何資料
 
@@ -35,7 +35,7 @@ ms.locfileid: "74014770"
 
     請確認事件來源 (事件中樞或 IoT 中樞)，是否正從您的標籤或執行個體接收資料。 請在 Azure 入口網站中，瀏覽至您資源的概觀頁面以進行確認。
 
-    [![儀表板-深入解析](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
+    [![審查儀表板計量總覽。](media/preview-troubleshoot/verify-dashboard-metrics.png)](media/preview-troubleshoot/verify-dashboard-metrics.png#lightbox)
 
 - 事件來源資料不是 JSON 格式。
 
@@ -45,14 +45,15 @@ ms.locfileid: "74014770"
 
   * 針對 IoT 中樞，您必須提供具有「服務連接」權限的索引鍵。
 
-    [![組態](media/v2-update-diagnose-and-troubleshoot/configuration.png)](media/v2-update-diagnose-and-troubleshoot/configuration.png#lightbox)
+    [![驗證 IoT 中樞許可權。](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
 
-  * 如上圖所示，**iothubowner** 與 **service** 原則都會運作，因為兩者皆有**服務連接**權限。
+    * 原則**iothubowner**和**服務**都有作用，因為它們具有**服務連接**許可權。
+
   * 針對事件中樞，您必須提供具有「接聽」權限的索引鍵。
   
-    [![許可權](media/v2-update-diagnose-and-troubleshoot/permissions.png)](media/v2-update-diagnose-and-troubleshoot/permissions.png#lightbox)
+    [![審查事件中樞許可權。](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-  * 如上圖所示，**read**與 **manage** 原則都會運作，因為兩者皆有**接聽**權限。
+    * 「**讀取**」和「**管理**」原則都有作用，因為它們具有「**接聽**」許可權。
 
 - 您提供的取用者群組不是時間序列深入解析專用的。
 
@@ -79,7 +80,7 @@ ms.locfileid: "74014770"
 * 時間戳記屬性名稱區分大小寫。
 * 來自事件來源的時間戳記屬性值為 JSON 字串，其格式為 `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`。 此類型字串的其中一個範例為 `“2008-04-12T12:53Z”`。
 
-若要確保您已擷取時間戳記屬性名稱且正常運作，最簡單方式是使用時間序列深入解析預覽總管。 在時間序列深入解析預覽總管中，當您輸入時間戳記屬性名稱之後，使用圖表選取一段時間。 以滑鼠右鍵按一下選取範圍，然後選取 [探索事件] 選項。 第一個資料行標頭就是您的時間戳記屬性名稱。 它的字組 `($ts)` 旁邊應該有 `Timestamp`，而非：
+若要確保您已擷取時間戳記屬性名稱且正常運作，最簡單方式是使用時間序列深入解析預覽總管。 在時間序列深入解析預覽總管中，當您輸入時間戳記屬性名稱之後，使用圖表選取一段時間。 以滑鼠右鍵按一下選取範圍，然後選取 [探索事件] 選項。 第一個資料行標頭就是您的時間戳記屬性名稱。 它的字組 `Timestamp` 旁邊應該有 `($ts)`，而非：
 
 * `(abc)`，這表示時間序列深入解析將資料值讀取為字串。
 * 行事**曆**圖示，表示時間序列深入解析會將資料值讀取為 datetime。
@@ -98,7 +99,7 @@ ms.locfileid: "74014770"
 
    只有在隨用隨付環境中才支援時間序列模型。 如需如何從時間序列深入解析 Preview explorer 存取 S1 或 S2 環境的詳細資訊，請參閱[在 explorer 中將資料視覺化](./time-series-insights-update-explorer.md)。
 
-   [![存取](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
+   [不 ![環境中的任何事件。](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
 - 您可能沒有檢視及編輯模型的權限。
 
@@ -108,10 +109,12 @@ ms.locfileid: "74014770"
 
 如果您的環境未定義時間序列模型階層，就可能會發生這個問題。 如需詳細資訊，請參閱[使用時間序列模型](./time-series-insights-update-how-to-tsm.md)。
 
-  [![時間序列模型](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
+  [![無上層實例會顯示警告。](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 
 - 閱讀[使用時間序列模型](./time-series-insights-update-how-to-tsm.md)。
+
 - 瞭解[支援的 JSON 圖形](./how-to-shape-query-json.md)。
+
 - 查看 Azure 時間序列深入解析 Preview 中的[規劃和限制](./time-series-insights-update-plan.md)。

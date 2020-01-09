@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 8738d1ad54d3ab63d8d2efc939aa9daacbe91c13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 98757677eae6d21b02d6b0b2a3abade453b5dfed
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810399"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552775"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>什麼是 SQL Database 實例集區（預覽）？
 
@@ -61,7 +61,7 @@ ms.locfileid: "73810399"
 
 實例集區具有與一般受控實例（*單一實例*）類似的架構。 為了支援 [Azure 虛擬網路（vnet）內的部署](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) 並為客戶提供隔離和安全性，實例集區也會依賴 [虛擬叢集](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture)。 虛擬叢集代表一組在客戶的虛擬網路子網內部署的專屬獨立虛擬機器。
 
-這兩種部署模型的主要差異在於，實例集區允許在相同的虛擬機器節點上進行多個 SQL Server 程式部署，也就是使用[Windows 工作物件](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects)管理的資源，而單一實例則一律獨立于虛擬機器節點。
+這兩種部署模型的主要差異在於，實例集區允許相同虛擬機器節點上的多個 SQL Server 程式部署，也就是使用[Windows 工作物件](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects)管理的資源，而單一實例一律單獨在虛擬機器節點上。
 
 下圖顯示實例集區和兩個部署在相同子網中的個別實例，並說明這兩種部署模型的主要架構詳細資料：
 
@@ -108,7 +108,7 @@ ms.locfileid: "73810399"
 
 選擇性功能或需要您選擇特定值的功能（例如實例層級定序、時區、資料流量的公用端點、容錯移轉群組）是在實例層級設定，而且在集區中的每個實例都可能不同。
 
-## <a name="performance-considerations"></a>效能考量
+## <a name="performance-considerations"></a>效能注意事項
 
 雖然集區中的受控實例有專用的 vCore 和 RAM，但它們會共用本機磁片（適用于 tempdb 使用量）和網路資源。 不可能，但如果集區中有多個實例同時具有高資源耗用量，則可能會遇到*雜訊的鄰近*效果。 如果您發現此行為，請考慮將這些實例部署到較大的集區或單一實例。
 
@@ -126,7 +126,7 @@ ms.locfileid: "73810399"
 
 如果您遇到與集區中的單一實例或資料庫相關的問題，您應該為 Azure SQL Database 受控實例建立一般支援票證。
 
-若要建立較大型的受控實例部署（不論是否有實例集區），您可能需要取得較大的區域配額。 使用[標準的受控實常式序來要求較大的配額](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance)，但請注意，如果您使用的是實例集區，部署邏輯會將*集區層級的*總 vCore 耗用量與您的配額進行比較，以判斷您是否為允許建立新的資源，而不需要進一步增加您的配額。
+若要建立較大型的受控實例部署（不論是否有實例集區），您可能需要取得較大的區域配額。 使用[標準的受控實常式序來要求較大的配額](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance)，但請注意，如果您使用的是實例集區，部署邏輯會將*集區層級的*總 vCore 耗用量與您的配額進行比較，以判斷是否允許您建立新的資源，而不需要進一步增加您的配額。
 
 ## <a name="instance-pool-billing"></a>實例集區計費
 
@@ -136,7 +136,7 @@ ms.locfileid: "73810399"
 
 針對計算價格（以虛擬核心測量），有兩個可用的定價選項：
 
-  1. *包含的授權*：套用具有軟體保證的現有 SQL Server 授權。
+  1. *包含的授權*：包含 SQL 授權的價格。 這適用于選擇不套用具有軟體保證之現有 SQL Server 授權的客戶。
   2. *Azure Hybrid Benefit*：包含 SQL Server Azure Hybrid Benefit 的縮減價格。 客戶可以使用其現有的 SQL Server 授權與軟體保證來選擇此價格。 如需資格和其他詳細資料，請參閱[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)。
 
 針對集區中的個別實例，不可能設定不同的定價選項。 父集區中的所有實例都必須是包含授權的價格或 Azure Hybrid Benefit 價格。 集區的授權模型可以在建立集區之後修改。

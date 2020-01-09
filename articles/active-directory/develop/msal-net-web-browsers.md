@@ -1,5 +1,5 @@
 ---
-title: 使用網頁瀏覽器搭配 MSAL.NET |Azure
+title: 使用網頁瀏覽器（MSAL.NET） |Azure
 titleSuffix: Microsoft identity platform
 description: 瞭解搭配適用于 .NET 的 Microsoft 驗證程式庫（MSAL.NET）使用 Xamarin Android 時的特定考慮。
 services: active-directory
@@ -14,14 +14,15 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5b8c8e78c554994b71f9e246f8bacc39828b17f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 44698bc88b87aa76dd55ab5d632ad7276a49aea5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921596"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424177"
 ---
-# <a name="using-web-browsers-in-msalnet"></a>在 MSAL.NET 中使用網頁瀏覽器
+# <a name="using-web-browsers-msalnet"></a>使用網頁瀏覽器（MSAL.NET）
+
 需要 Web 瀏覽器才能進行互動式驗證。 根據預設，MSAL.NET 支援 Xamarin 和 Xamarin 上的[系統網頁瀏覽器](#system-web-browser-on-xamarinios-xamarinandroid)。 但您也可以根據您的需求（UX、需要單一登入（SSO）、安全性）在[xamarin](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios)和[xamarin](#detecting-the-presence-of-custom-tabs-on-xamarinandroid)應用程式中[啟用內嵌的網頁瀏覽器](#enable-embedded-webviews-on-ios-and-android)。 此外，您甚至可以根據 Chrome 是否存在，或在 Android 中支援 Chrome 自訂索引標籤的瀏覽器，[動態地選擇](#detecting-the-presence-of-custom-tabs-on-xamarinandroid)要使用的網頁瀏覽器。 MSAL.NET 只支援 .NET Core 桌面應用程式中的系統瀏覽器。
 
 ## <a name="web-browsers-in-msalnet"></a>MSAL.NET 中的網頁瀏覽器
@@ -45,14 +46,14 @@ MSAL.NET 是多架構程式庫，而且具有架構專屬的程式碼，可在 U
 
 ### <a name="at-a-glance"></a>概覽
 
-| Framework        | 內嵌 | System | 預設值 |
+| Framework        | 內嵌 | 系統 | 預設 |
 | ------------- |-------------| -----| ----- |
 | .NET 傳統     | 是 | 是 ^ | 內嵌 |
-| .NET Core     | 否 | 是 ^ | System |
-| .NET Standard | 否 | 是 ^ | System |
+| .NET Core     | 否 | 是 ^ | 系統 |
+| .NET Standard | 否 | 是 ^ | 系統 |
 | UWP | 是 | 否 | 內嵌 |
-| Xamarin.Android | 是 | 是  | System |
-| Xamarin.iOS | 是 | 是  | System |
+| Xamarin.Android | 是 | 是  | 系統 |
+| Xamarin.iOS | 是 | 是  | 系統 |
 | Xamarin.Mac| 是 | 否 | 內嵌 |
 
 ^ 需要 "http://localhost" 重新導向 URI

@@ -2,17 +2,17 @@
 title: 雲端服務角色組態 XPath 功能提要 | Microsoft Docs
 description: 您可以在雲端服務角色組態中用來公開設定以做為環境變數的各種 XPath 設定。
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: cd2bdc4fc4b2a135907851ca4d3034430618e0cd
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 380b0be4e4e4b19d16cb611b0b472294339f2199
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359012"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386080"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>利用 XPath 公開角色組態設定以做為環境變數
 在雲端服務背景工作角色或 Web 角色服務定義檔中，您可以公開執行階段組態值以做為環境變數。 支援下列 XPath 值 (其會對應至 API 值)。
@@ -22,7 +22,7 @@ ms.locfileid: "68359012"
 ## <a name="app-running-in-emulator"></a>在模擬器中執行的應用程式
 表示應用程式正在模擬器中執行。
 
-| Type | 範例 |
+| 類型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@emulated" |
 | 程式碼 |var x = RoleEnvironment.IsEmulated; |
@@ -30,7 +30,7 @@ ms.locfileid: "68359012"
 ## <a name="deployment-id"></a>部署 ID
 擷取執行個體的部署 ID。
 
-| Type | 範例 |
+| 類型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@id" |
 | 程式碼 |var deploymentId = RoleEnvironment.DeploymentId; |
@@ -38,7 +38,7 @@ ms.locfileid: "68359012"
 ## <a name="role-id"></a>角色 ID
 擷取執行個體目前的角色 ID。
 
-| Type | 範例 |
+| 類型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@id" |
 | 程式碼 |var id = RoleEnvironment.CurrentRoleInstance.Id; |
@@ -46,7 +46,7 @@ ms.locfileid: "68359012"
 ## <a name="update-domain"></a>更新網站
 擷取執行個體的更新網域。
 
-| Type | 範例 |
+| 類型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@updateDomain" |
 | 程式碼 |var ud = RoleEnvironment.CurrentRoleInstance.UpdateDomain; |
@@ -54,7 +54,7 @@ ms.locfileid: "68359012"
 ## <a name="fault-domain"></a>容錯網域
 擷取執行個體的容錯網域。
 
-| Type | 範例 |
+| 類型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@faultDomain" |
 | 程式碼 |var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
@@ -62,7 +62,7 @@ ms.locfileid: "68359012"
 ## <a name="role-name"></a>角色名稱
 擷取執行個體的角色名稱。
 
-| Type | 範例 |
+| 類型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@roleName" |
 | 程式碼 |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
@@ -70,7 +70,7 @@ ms.locfileid: "68359012"
 ## <a name="config-setting"></a>組態設定
 擷取指定之組態設定的值。
 
-| Type | 範例 |
+| 類型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting[@name='Setting1']/@value" |
 | 程式碼 |var setting = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
@@ -78,7 +78,7 @@ ms.locfileid: "68359012"
 ## <a name="local-storage-path"></a>本機儲存體路徑
 擷取執行個體的本機儲存體路徑。
 
-| Type | 範例 |
+| 類型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@path" |
 | 程式碼 |var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1").RootPath; |
@@ -86,7 +86,7 @@ ms.locfileid: "68359012"
 ## <a name="local-storage-size"></a>本機儲存體大小
 擷取執行個體的本機儲存體大小。
 
-| Type | 範例 |
+| 類型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@sizeInMB" |
 | 程式碼 |var localResourceSizeInMB = RoleEnvironment.GetLocalResource("LocalStore1").MaximumSizeInMegabytes; |
@@ -94,7 +94,7 @@ ms.locfileid: "68359012"
 ## <a name="endpoint-protocol"></a>端點通訊協定
 擷取執行個體的端點通訊協定。
 
-| Type | 範例 |
+| 類型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@protocol" |
 | 程式碼 |var prot = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].Protocol; |
@@ -102,7 +102,7 @@ ms.locfileid: "68359012"
 ## <a name="endpoint-ip"></a>端點 IP
 取得指定端點的 IP 位址。
 
-| Type | 範例 |
+| 類型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@address" |
 | 程式碼 |var address = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Address |
@@ -110,7 +110,7 @@ ms.locfileid: "68359012"
 ## <a name="endpoint-port"></a>端點連接埠
 擷取執行個體的端點連接埠。
 
-| Type | 範例 |
+| 類型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@port" |
 | 程式碼 |var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Port; |
@@ -161,4 +161,7 @@ ms.locfileid: "68359012"
 建立 [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) 封裝。
 
 為角色啟用 [遠端桌面](cloud-services-role-enable-remote-desktop-new-portal.md) 。
+
+
+
 

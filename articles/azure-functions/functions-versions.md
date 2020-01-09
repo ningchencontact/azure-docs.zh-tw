@@ -3,12 +3,12 @@ title: Azure Functions 執行階段版本概觀
 description: Azure Functions 支援多個執行階段版本。 了解其間的差異以及如何選擇最適合您的版本。
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 874d2e657c2c9d7cba7874ff9815c61f9bbe8ef7
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 977d0cb445369cbc51ce3b90712d58ce8b6ebdc3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74941685"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433087"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 執行階段版本概觀
 
@@ -16,7 +16,7 @@ Azure Functions 執行時間的主要版本與執行時間所依據的 .NET 版�
 
 | 執行階段版本 | 發行層級<sup>1</sup> | .NET 版本 | 
 | --------------- | ------------- | ------------ |
-| 3.x | 正式上市 | .NET Core 3。1 | 
+| 3.x | 正式上市 | .NET Core 3.1 | 
 | 2.x | 正式上市 | .NET Core 2.2 |
 | 1.x | GA<sup>2</sup> | .NET Framework 4.6<sup>3</sup> |
 
@@ -84,7 +84,7 @@ Azure Functions 版本3.x 與2.x 版之間的高度相容性。  許多應用程
 
 以下是將2.x 應用程式升級至3.x 之前，要注意的變更。
 
-#### <a name="javascript"></a>Javascript
+#### <a name="javascript"></a>JavaScript
 
 * 透過 `context.done` 或傳回值指派的輸出系結，現在的行為與 `context.bindings`中的設定相同。
 
@@ -104,7 +104,7 @@ Azure Functions 版本3.x 與2.x 版之間的高度相容性。  許多應用程
 
 [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) 應用程式設定會控制 Azure 中所發佈應用程式所使用的 Functions 執行階段版本。 支援下列主要執行階段版本值：
 
-| Value | 執行時間目標 |
+| 值 | 執行時間目標 |
 | ------ | -------- |
 | `~3` | 3.x |
 | `~2` | 2.x |
@@ -115,7 +115,7 @@ Azure Functions 版本3.x 與2.x 版之間的高度相容性。  許多應用程
 
 ### <a name="locally-developed-application-versions"></a>本機開發的應用程式版本
 
-您可以讓下列更新函式應用程式在本機變更目標版本。
+您可以對函數應用程式進行下列更新，以在本機變更目標版本。
 
 #### <a name="visual-studio-runtime-versions"></a>Visual Studio 執行階段版本
 

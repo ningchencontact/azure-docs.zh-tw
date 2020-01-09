@@ -1,30 +1,22 @@
 ---
-title: Threat Modeling Tool 版本 - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool 版本 9/12/2018-Azure
 description: 記載 Threat Modeling Tool 的版本資訊
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
-ms.author: jegeib
-ms.openlocfilehash: ce5f2b5541da3b3a3db046ba0dc768e3fbe2431e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ad489d6de222380e85a962c7b50c63a5c2122c72
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928122"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548797"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Threat Modeling Tool GA 版本 7.1.50911.2 - 9/12/2018
 
-我們很興奮地宣布，Microsoft Threat Modeling Tool 現在已是支援的正式上市 (GA) 版本，並且可供下載。 此版本包含重要的隱私權和安全性更新，以及 Bug 修正、功能更新，和穩定性方面的改進。 在開啟用戶端時，系統將提示 2017 預覽版本的現有使用者透過 ClickOnce 技術更新至最新版本。 新的工具使用者請[按一下這裡以下載用戶端](https://aka.ms/threatmodelingtool)。
+我們很興奮地宣布，Microsoft Threat Modeling Tool 現在已是支援的正式上市 (GA) 版本，並且可供下載。 此版本包含重要的隱私權和安全性更新，以及 Bug 修正、功能更新，和穩定性方面的改進。 在開啟用戶端時，系統將提示 2017 預覽版本的現有使用者透過 ClickOnce 技術更新至最新版本。 對於工具的新使用者，您可以[下載用戶端](https://aka.ms/threatmodelingtool)。
 
 此版本推出後，我們將結束對 2017 預覽版的支援，並建議所有預覽版使用者更新至 GA 版本。 我們將在 2018 年 10 月 15 日或之後，為 Threat Modeling Tool 設定符合最低需求的 ClickOnce 版本，且所有預覽版用戶端都必須升級。
 
@@ -82,7 +74,7 @@ ms.locfileid: "68928122"
 
 ### <a name="my-organization-uses-the-2016-version-of-the-tool-can-i-use-the-azure-stencil-set"></a>組織使用 2016 版的工具，我可以使用 Azure 樣板集嗎？
 
-是，您可以！ [Azure 樣板集可從 Github 取得](https://github.com/Microsoft/threat-modeling-templates/)，並且可載入 2016 版的工具中。 若要使用 Azure 樣板集建立新模型，請使用主功能表畫面上的 [新模型的範本] 對話方塊。 TMT 2016 無法轉譯 Azure 樣板集的 [可能的緩和措施] 欄位中包含的連結，因此您可能會看到顯示為 HTML 標記的連結。
+是，您可以！ [Azure 樣板集可在 GitHub 上](https://github.com/Microsoft/threat-modeling-templates/)取得，並可在2016版的工具中載入。 若要使用 Azure 樣板集建立新模型，請使用主功能表畫面上的 [新模型的範本] 對話方塊。 TMT 2016 無法轉譯 Azure 樣板集的 [可能的緩和措施] 欄位中包含的連結，因此您可能會看到顯示為 HTML 標記的連結。
 
 ![2016 用戶端中的 Azure 樣板更新](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencils-300x212.png)
 
@@ -91,7 +83,7 @@ ms.locfileid: "68928122"
 - 支援的作業系統
   - Microsoft Windows 10
 - 必要的 .NET 版本
-  - .NET 3.5.2
+  - .NET 3.5。2
 - 其他需求
   - 必須有網際網路連線可接收工具和範本的更新。
 

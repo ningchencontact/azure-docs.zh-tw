@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a826bb01a906153b4ca2a3c854623c83b6192aec
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 5975f334eae543ea0f6ddc182170ae185ac5397a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828825"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468556"
 ---
 若要使用 Azure 入口網站在 Resource Manager 部署模型中建立 VNet，請遵循下列步驟。 已提供螢幕擷取畫面做為範例。 請務必將值取代為您自己的值。 如需使用虛擬網路的詳細資訊，請參閱 [虛擬網路概觀](../articles/virtual-network/virtual-networks-overview.md)。
 
@@ -37,7 +37,7 @@ ms.locfileid: "74828825"
 5. **名稱**：輸入虛擬網路的名稱。
 6. **位址空間**：輸入位址空間。 如果您有多個要新增的位址空間，請新增您的第一個位址空間。 稍後，您可以在建立 VNet 之後新增其他位址空間。
 7. **訂用帳戶**：請確認列出的訂用帳戶是否正確。 您可以使用下拉式清單變更訂用帳戶。
-8. **資源群組**：選取現有資源群組，或輸入新資源群組的名稱以建立新的資源群組。 如果您要建立新的群組，請根據您計劃的組態值來命名資源群組。 如需資源群組的詳細資訊，請瀏覽 [Azure Resource Manager 概觀](../articles/azure-resource-manager/resource-group-overview.md#resource-groups)。
+8. **資源群組**：選取現有資源群組，或輸入新資源群組的名稱以建立新的資源群組。 如果您要建立新的群組，請根據您計劃的組態值來命名資源群組。 如需資源群組的詳細資訊，請瀏覽 [Azure Resource Manager 概觀](../articles/azure-resource-manager/management/overview.md#resource-groups)。
 9. **位置**：選取 VNet 的位置。 此位置會決定您部署到此 VNet 之資源所在的位置。
 10. **子網路**：新增子網路名稱和子網路位址範圍。 稍後，您可以在建立 VNet 之後新增其他子網路。
 11. 如果想要能夠在儀表板上輕鬆地尋找您的 VNet，請選取 [釘選到儀表板]，然後按一下 [建立]。

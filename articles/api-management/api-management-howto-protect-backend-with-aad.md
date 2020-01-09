@@ -1,5 +1,6 @@
 ---
-title: 使用 OAuth 2.0 搭配 Azure Active Directory 與 API 管理來保護 API | Microsoft Docs
+title: 使用 OAuth 2.0 搭配 AAD 和 API 管理來保護 API
+titleSuffix: Azure API Management
 description: 了解如何使用 Azure Active Directory 與 API 管理保護 Web API 後端。
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 653089042c87b3223b3de048b6f12056d04b0f3c
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 82341f29ffda03c5f047d7566ff64884c6698b07
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442505"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>使用 OAuth 2.0 搭配 Azure Active Directory 與 API 管理來保護 API
 
@@ -32,7 +33,7 @@ ms.locfileid: "70806338"
 * 正在使用 API 管理執行個體發佈的 API
 * Azure AD 租用戶
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 以下為步驟概述：
 
@@ -60,9 +61,7 @@ ms.locfileid: "70806338"
 
 1. 在應用程式 [概觀] 頁面上，尋找 [應用程式 (用戶端) 識別碼] 值並將它記下供稍後使用。
 
-應用程式建立後，請記下**應用程式識別碼**，以供後續步驟使用。 
-
-1. 選取 [**公開 API** ]，然後按一下 [**儲存並繼續**] 以建立應用程式識別碼 URI。
+1. 選取 [**公開 API** ]，並以預設值設定 [**應用程式識別碼 URI** ]。 記錄此值以供稍後查看。
 
 1. 在 [**新增範圍**] 頁面中，建立 API 支援的新範圍。 （例如，[讀取]），然後按一下 [*新增領域*] 以建立範圍。 重複此步驟，以新增 API 支援的所有範圍。
 
@@ -78,9 +77,9 @@ ms.locfileid: "70806338"
 
 1. 當 [註冊應用程式] 頁面出現時，輸入您應用程式的註冊資訊： 
     - 在 [名稱] 區段中，輸入將對應用程式使用者顯示、且有意義的應用程式名稱，例如 `client-app`。 
-    - 在 [**支援的帳戶類型**] 區段中，選取 [**任何組織目錄中的帳戶**]。 
+    - 在 [支援的帳戶類型] 區段中，選取 [任何組織目錄中的帳戶]。 
 
-1. 在 [重新**導向 URI** ] 區段`Web`中，選取並輸入 URL。`https://contoso5.portal.azure-api.net/signin`
+1. 在 重新**導向 URI**  區段中，選取 `Web` 並輸入 URL `https://contoso5.portal.azure-api.net/signin`
 
 1. 選取 [註冊] 以建立應用程式。 
 
@@ -100,13 +99,13 @@ ms.locfileid: "70806338"
 
 1. 流覽至**應用程式註冊**。 
 
-1. 選取`client-app`[]，然後在應用程式的頁面清單中，移至 [ **API 許可權**]。
+1. 選取 [`client-app`]，然後在應用程式的頁面清單中，移至 [ **API 許可權**]。
 
 1. 選取 [**新增許可權**]。
 
-1. 在 [**選取 API**] 底下，尋找`backend-app`並選取。
+1. 在 [**選取 API**] 底下，尋找並選取 [`backend-app`]。
 
-1. 在 [**委派的許可權**] 底下，選取`backend-app`適當的許可權，然後按一下 [**新增許可權**]。
+1. 在 [**委派的許可權**] 底下，選取適當的許可權以 `backend-app`，然後按一下 [**新增許可權**]。
 
 1. （選擇性）在 [ **API 許可權**] 頁面上，按一下頁面底部的 **[授與系統管理員同意] < 您的租使用者名稱 >** ，以代表此目錄中的所有使用者同意。 
 
@@ -150,9 +149,9 @@ ms.locfileid: "70806338"
 
 1. 選取 [建立]。
 
-1. 回到用戶端應用程式的 [設定] 頁面。
+1. 返回您的用戶端應用程式，然後選取 [**驗證**]。
 
-1. 選取 [回覆 URL]，並在第一行貼上 **redirect_url**。 在此範例中，您已將第一行中的 `https://localhost` 取代為此 URL。  
+1. 在 [重新**導向 uri**] 底下，選取 [ **Web**] 類型，在 [重新**導向 URI**] 底下貼上**redirect_url** ，然後按一下 [儲存]。
 
 現在您已經設定 OAuth 2.0 授權伺服器，開發人員主控台可以從 Azure AD 取得存取權杖。 
 
@@ -160,13 +159,13 @@ ms.locfileid: "70806338"
 
 1. 瀏覽至您的 API 管理執行個體，然後移至 [API]。
 
-2. 選取您要保護的 API。 例如，您可以使用`Echo API`。
+2. 選取您要保護的 API。 例如，您可以使用 `Echo API`。
 
 3. 移至 [設定]。
 
 4. 在 [安全性] 之下，選擇 [OAuth 2.0]，然後選取您先前設定的 OAuth 2.0 伺服器。 
 
-5. 選取 [ **儲存**]。
+5. 選取 [儲存]。
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>從開發人員入口網站成功呼叫 API
 
@@ -194,16 +193,16 @@ ms.locfileid: "70806338"
 
 此時，當使用者嘗試從開發人員主控台進行呼叫時，系統會提示使用者登入。 開發人員主控台會代表使用者取得存取權杖，並在對 API 提出的要求中包含權杖。
 
-不過，如果有人呼叫您的 API，但沒有權杖或權杖無效？ 例如，嘗試在沒有`Authorization`標頭的情況下呼叫 API，呼叫仍然會繼續進行。 這是因為 API 管理此時不會驗證存取權杖。 它只會將 `Authorization` 標頭傳遞至後端 API。
+不過，如果有人呼叫您的 API，但沒有權杖或權杖無效？ 例如，嘗試在沒有 `Authorization` 標頭的情況下呼叫 API，呼叫仍然會繼續進行。 這是因為 API 管理此時不會驗證存取權杖。 它只會將 `Authorization` 標頭傳遞至後端 API。
 
-您可以使用[驗證 JWT](api-management-access-restriction-policies.md#ValidateJWT) 原則，藉由驗證每個傳入要求的存取權杖來預先授權 API 管理中的要求。 如果要求沒有有效的權杖，則 API 管理會封鎖該要求。 例如，將下列原則新增至`<inbound>`的原則區段。 `Echo API` 它會檢查存取權杖中的 audience 宣告，並在權杖無效時傳回錯誤訊息。 如需如何設定原則的資訊，請參閱[設定或編輯原則](set-edit-policies.md)。
+您可以使用[驗證 JWT](api-management-access-restriction-policies.md#ValidateJWT) 原則，藉由驗證每個傳入要求的存取權杖來預先授權 API 管理中的要求。 如果要求沒有有效的權杖，則 API 管理會封鎖該要求。 例如，將下列原則新增至 `Echo API`的 `<inbound>` 原則區段。 它會檢查存取權杖中的 audience 宣告，並在權杖無效時傳回錯誤訊息。 如需如何設定原則的資訊，請參閱[設定或編輯原則](set-edit-policies.md)。
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
     <openid-config url="https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
-            <value>{Application ID of backend-app}</value>
+            <value>{Application ID URI of backend-app}</value>
         </claim>
     </required-claims>
 </validate-jwt>

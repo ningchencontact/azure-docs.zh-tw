@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 30fffa6264411238c3ff0a5e829e1567c00f4f97
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/17/2019
+ms.openlocfilehash: d2b8b2fecbf85e6590294f1fbd7ff2a4453b9e87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794202"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460757"
 ---
 # <a name="create-a-basic-index-in-azure-cognitive-search"></a>在 Azure 認知搜尋中建立基本索引
 
@@ -37,7 +37,7 @@ ms.locfileid: "72794202"
 
 3. 使用[取得索引 REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) 和 [Postman](search-get-started-postman.md) 之類的 Web 測試工具，下載索引結構描述。 對於您在入口網站中建立的索引，您現在有其 JSON 表示法。 
 
-   您會在此時切換到程式碼式方法。 入口網站不太適合用於反覆運算，因為您無法編輯已經建立的索引。 但您可以使用 Postman 和 REST 進行剩餘的工作。
+   您會在此時切換到程式碼式方法。 入口網站不適合用于反復專案，因為您無法編輯已建立的索引。 但您可以使用 Postman 和 REST 進行剩餘的工作。
 
 4. [隨著資料載入您的索引](search-what-is-data-import.md)。 Azure 認知搜尋會接受 JSON 檔。 若要以程式設計方式載入資料，您可以使用 Postman 搭配要求承載中的 JSON 文件。 如果您的資料不會輕易地表示為 JSON，此步驟將最耗費人力。
 
@@ -145,7 +145,7 @@ ms.locfileid: "72794202"
 您在定義結構描述時必須指定索引中每個欄位的名稱、類型和屬性。 欄位類型可分類該欄位中儲存的資料。 個別欄位上設定的屬性可指定使用欄位的方式。 下列幾個資料表列舉您可以指定的類型和屬性。
 
 ### <a name="data-types"></a>資料類型
-| Type | 描述 |
+| 類型 | 說明 |
 | --- | --- |
 | *Edm.String* |可選擇性予以 Token 化以供進行全文檢索搜尋 (斷字、詞幹分析等) 的文字。 |
 | *Collection(Edm.String)* |可選擇性予以 Token 化以供進行全文檢索搜尋的字串清單。 理論上，集合中的項目數沒有上限，但集合的承載大小有 16 MB 的上限。 |
@@ -166,7 +166,7 @@ ms.locfileid: "72794202"
 
 您用來建立索引的 Api 有不同的預設行為。 對於[REST api](https://docs.microsoft.com/rest/api/searchservice/Create-Index)，大部分的屬性預設為啟用（例如，字串欄位**的可搜尋和可供**搜尋 **），而且**您通常只需要設定它們（如果您想要將它們關閉）。 針對 .NET SDK，相反的為 true。 在您未明確設定的任何屬性上，除非您特別啟用，否則預設會停用對應的搜尋行為。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | `key` |字串，提供每一份文件的唯一識別碼，用於查閱文件。 每個索引必須有一個索引鍵。 只有一個欄位可以做為索引鍵，而且其類型必須設定為 Edm.String。 |
 | `retrievable` |指定搜尋結果中是否可傳回某欄位。 |
@@ -175,10 +175,9 @@ ms.locfileid: "72794202"
 | `facetable` |允許欄位用於使用者自我引導篩選的 [多面向導覽](search-faceted-navigation.md) 結構中。 通常，欄位若包含您可以用來將多份文件群組在一起的重複值 (例如，落在單一品牌或服務類別目錄下的多份文件)，最適合做為 Facet。 |
 | `searchable` |將欄位標記為可供全文檢索。 |
 
+## <a name="index-size"></a>索引大小
 
-## <a name="storage-implications"></a>儲存體影響
-
-您選取的屬性會影響儲存體。 下列螢幕擷取畫面說明各種屬性組合所產生的索引儲存模式。
+索引的大小取決於您上傳的檔案大小，加上索引設定，例如您是否包含建議工具，以及如何在個別欄位上設定屬性。 下列螢幕擷取畫面說明各種屬性組合所產生的索引儲存模式。
 
 索引是以內建的[房地產範例](search-get-started-portal.md)資料來源為基礎，您可以在入口網站中編制索引和查詢。 雖然未顯示索引結構描述，但您可以根據索引名稱推斷屬性。 例如，*realestate 可搜尋*索引僅只選取 **searchable** 屬性，*realestate 可擷取*索引僅只選取 **retrievable** 屬性。
 
@@ -186,13 +185,13 @@ ms.locfileid: "72794202"
 
 雖然這些是人工的索引變體，但我們可以參考這些變體，以便廣泛比較屬性如何影響儲存體。 設定 **retrievable** 是否會增加索引大小？ 不會。 將欄位新增至**建議工具**是否會增加索引大小？ 可以。
 
-支援篩選和排序的索引會按比例大於只支援全文檢索搜尋的索引。 原因在於篩選和排序會查詢完全相符項目，所以儲存的文件保持不變。 相較之下，支援全文檢索和模糊搜尋的可搜尋欄位會使用倒置索引，其中會填入比完整文件取用較少空間的權杖化字詞。
+支援篩選和排序的索引會按比例大於僅支援全文檢索搜尋的索引。 篩選和排序作業會掃描是否有完全相符的專案，需要有不完整的檔。 相較之下，支援全文檢索和模糊搜尋的可搜尋欄位會使用倒置索引，其中會填入比完整文件取用較少空間的權杖化字詞。 
 
 > [!Note]
 > 儲存體架構會被視為 Azure 認知搜尋的執行詳細資料，而且可能會變更，恕不另行通知。 不保證未來會保存目前的行為。
 
 ## <a name="suggesters"></a>建議工具
-建議工具是結構描述的區段，其定義索引中有哪些欄位會被用來支援搜尋中的自動完成或預先輸入查詢。 通常會在使用者輸入搜尋查詢期間將部分搜尋字串傳送到[建議 (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions)，而此 API 會傳回一組建議的片語。 
+建議工具是結構描述的區段，其定義索引中有哪些欄位會被用來支援搜尋中的自動完成或預先輸入查詢。 一般而言，部分搜尋字串會在使用者輸入搜尋查詢時傳送至[建議（REST API）](https://docs.microsoft.com/rest/api/searchservice/suggestions) ，而 API 會傳回一組建議的檔或片語。 
 
 新增至建議工具的欄位用來建置自動完成搜尋字詞。 所有的搜尋字詞都建立於編製索引期間，且分開儲存。 如需有關建立建議工具結構的詳細資訊，請參閱[新增建議工具](index-add-suggesters.md)。
 

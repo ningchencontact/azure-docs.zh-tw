@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dec950f5475a8a64cfecfac1fb25246d6a7aa29
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: bd57523dd41eadcf64ceb1e4a1c8d8ba083c17f0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561913"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608732"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>在 Azure AD 權利管理中新增已連線的組織
 
@@ -112,5 +112,5 @@ Azure AD 目錄或網域中的使用者將如何驗證，取決於驗證類型�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [管理外部使用者的存取權](entitlement-management-organization.md)
+- [管理外部使用者的存取權](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
 - [針對不在您目錄中的使用者](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

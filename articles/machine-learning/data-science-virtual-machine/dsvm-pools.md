@@ -2,7 +2,7 @@
 title: 共用集區
 titleSuffix: Azure Data Science Virtual Machine
 description: 瞭解如何建立 & 部署資料科學虛擬機器（Dsvm）的共用集區，做為小組的共用資源。
-keywords: 深度學習, AI, 資料科學工具, 資料科學虛擬機器, 地理空間分析, 小組資料科學流程
+keywords: 深度學習, 資料科學工具, 資料科學虛擬機器, 地理空間分析, 小組資料科學流程
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -10,18 +10,18 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 2a74df3aaf70270353b10f757cf3a61e8f479d74
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: c5b7f4eaac91e79dde625ea00bfb6b1ea8782b31
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052987"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530607"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>建立共用的資料科學虛擬機器集區
 
 在本文中，您將瞭解如何為小組建立資料科學虛擬機器（Dsvm）的共用集區。 使用共用集區的優點包括更好的資源使用率、更輕鬆的共用和共同作業，以及更有效率的 DSVM 資源管理。
 
-您可以使用許多方法和技術來建立 DSVM 集區。 本文著重于互動式虛擬機器（Vm）的集區。 替代的受控計算基礎結構是 Azure Machine Learning Compute。 如需詳細資訊，請參閱[設定計算目標](../service/how-to-set-up-training-targets.md#amlcompute)。
+您可以使用許多方法和技術來建立 DSVM 集區。 本文著重于互動式虛擬機器（Vm）的集區。 替代的受控計算基礎結構是 Azure Machine Learning Compute。 如需詳細資訊，請參閱[設定計算目標](../how-to-set-up-training-targets.md#amlcompute)。
 
 ## <a name="interactive-vm-pool"></a>互動式虛擬機器集區
 

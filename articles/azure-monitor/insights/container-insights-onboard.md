@@ -1,18 +1,14 @@
 ---
 title: 如何啟用容器的 Azure 監視器 |Microsoft Docs
 description: 本文說明如何啟用和設定容器的 Azure 監視器，讓您可以瞭解容器的執行方式，以及已識別出哪些效能相關問題。
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/18/2019
-ms.openlocfilehash: 43016cfb72b90a74ce1313ad2d2316228d743f5f
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: fce2699c18f0fe426b85c165656100c097e69598
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195340"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404330"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>如何啟用容器的 Azure 監視器
 
@@ -32,7 +28,7 @@ ms.locfileid: "74195340"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始之前，請確定您有下列項目：
 
@@ -73,7 +69,7 @@ ms.locfileid: "74195340"
 
 下表中的資訊列出 Azure 中國的 proxy 和防火牆設定資訊。
 
-|代理程式資源|連接埠 |描述 | 
+|代理程式資源|連接埠 |說明 | 
 |--------------|------|-------------|
 | *. ods.opinsights.azure.cn | 443 | 資料擷取 |
 | *. oms.opinsights.azure.cn | 443 | OMS 上線 |
@@ -83,7 +79,7 @@ ms.locfileid: "74195340"
 
 下表中的資訊列出 Azure 美國政府的 proxy 和防火牆設定資訊。
 
-|代理程式資源|連接埠 |描述 | 
+|代理程式資源|連接埠 |說明 | 
 |--------------|------|-------------|
 | *.ods.opinsights.azure.us | 443 | 資料擷取 |
 | *.oms.opinsights.azure.us | 443 | OMS 上線 |
@@ -99,7 +95,7 @@ ms.locfileid: "74195340"
 >有了 AKS 的 Windows Server 支援預覽版本，具有 Windows Server 節點的 AKS 叢集並不會安裝代理程式來收集資料並轉送到 Azure 監視器。 相反地，在叢集中自動部署為標準部署一部分的 Linux 節點會收集資料，並將其轉送到叢集中的所有 Windows 節點 Azure 監視器。  
 >
 
-發行代理程式的新版本時，代理程式會在您裝載於 Azure Kubernetes Service (AKS) 的受控 Kubernetes 叢集上自動升級。 若要遵循所發行的版本，請參閱[代理程式發行公告](https://github.com/microsoft/docker-provider/tree/ci_feature_prod) \(英文\)。
+發行代理程式的新版本時，代理程式會在您裝載於 Azure Kubernetes Service (AKS) 的受控 Kubernetes 叢集上自動升級。 若要遵循所發行的版本，請參閱[代理程式發行公告](https://github.com/microsoft/docker-provider/tree/ci_feature_prod) (英文)。
 
 >[!NOTE]
 >如果您已部署 AKS 叢集，則可以使用 Azure CLI 或提供的 Azure Resource Manager 範本來啟用監視，如此文章稍後所示。 您無法使用 `kubectl` 來生集、刪除、重新部署或部署此代理程式。
@@ -107,7 +103,7 @@ ms.locfileid: "74195340"
 
 您可以使用下表所述的下列其中一種方法來啟用容器的 Azure 監視器。
 
-| 部署狀態 | 方法 | 描述 |
+| 部署狀態 | 方法 | 說明 |
 |------------------|--------|-------------|
 | 新增 Kubernetes 叢集 | [使用 Azure CLI 建立 AKS 叢集](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| 您可以啟用使用 Azure CLI 建立的新 AKS 叢集的監視。 |
 | | [使用 Terraform 建立 AKS 叢集](container-insights-enable-new-cluster.md#enable-using-terraform)| 您可以使用開放原始碼工具 Terraform，啟用您所建立之新 AKS 叢集的監視。 |

@@ -2,19 +2,15 @@
 title: 我在 Azure 自動化中的第一個 Python Runbook
 description: 教學課程將逐步引導您建立、測試和發佈簡單的 Python Runbook。
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/19/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 54b008939b3d083769756b9ac3c3c9e3f7aebea5
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b17a0403a3b2a3ff8c3586ed26a4b833db54922d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850273"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365932"
 ---
 # <a name="my-first-python-runbook"></a>我的第一個 Python Runbook
 

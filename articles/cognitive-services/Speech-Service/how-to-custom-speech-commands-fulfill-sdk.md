@@ -1,7 +1,7 @@
 ---
 title: 如何使用語音 SDK 滿足用戶端上的自訂命令
 titleSuffix: Azure Cognitive Services
-description: 在本文中，使用語音 SDK 處理用戶端上的自訂命令活動
+description: 在本文中，我們會說明如何使用語音 SDK 處理用戶端上的自訂命令活動。
 services: cognitive-services
 author: donkim
 manager: yetian
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 39e0a512e42dd861c0ee2c833501c7594204cb8b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: d17ccc67f8254f05461012a9ae443d96ffd58fa5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806145"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446935"
 ---
 # <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>如何：使用語音 SDK 完成用戶端上的命令（預覽）
 
@@ -49,7 +49,7 @@ ms.locfileid: "74806145"
    > [!div class="mx-imgBorder"]
    > ![傳送活動完成規則](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
-   | 設定 | 建議的值 | 描述 |
+   | 設定 | 建議的值 | 說明 |
    | ------- | --------------- | ----------- |
    | 規則名稱 | UpdateDeviceState | 描述規則用途的名稱 |
    | 條件 | 必要參數-`OnOff` 和 `SubjectDevice` | 判斷規則何時可執行檔條件 |

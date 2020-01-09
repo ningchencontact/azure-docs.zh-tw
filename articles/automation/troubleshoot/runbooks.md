@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 84a17cb4468f60abf2463e6aa3ca331466aad247
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 340a1927f62d6a398994b457e351ad41d5e76d19
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850137"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659758"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>針對 Runbook 的錯誤進行疑難排解
 
@@ -98,7 +98,7 @@ Run Login-AzureRMAccount to login.
 The subscription named <subscription name> cannot be found.
 ```
 
-### <a name="error"></a>Error
+### <a name="error"></a>錯誤
 
 如果發生下列情況，可能就會發生此錯誤：
 
@@ -270,9 +270,9 @@ The job was tried three times but it failed
 
 可能因為下列其中一個問題而發生此錯誤：
 
-* 記憶體限制。 配置給沙箱的記憶體數量限制記載於[自動化服務限制](../../azure-subscription-service-limits.md#automation-limits)。 如果作業使用超過 400 MB 的記憶體，此作業可能失敗。
+* 記憶體限制。 配置給沙箱的記憶體數量限制記載於[自動化服務限制](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)。 如果作業使用超過 400 MB 的記憶體，此作業可能失敗。
 
-* 網路通訊端。 Azure 沙箱受限於如[自動化服務限制](../../azure-subscription-service-limits.md#automation-limits)所述的 1000 個並存網路通訊端。
+* 網路通訊端。 Azure 沙箱受限於如[自動化服務限制](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)所述的 1000 個並存網路通訊端。
 
 * 模組不相容。 如果模組相依性不正確，就可能發生此錯誤，且當相依性不正確時，您的 Runbook 通常會傳回「找不到命令」或「無法繫結參數」訊息。
 

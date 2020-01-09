@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 5badcbe2a76c41bdc1431abae617e35b7555eb88
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9544d086eb9535af779bf2febe0cc63c180f7fd3
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497896"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529587"
 ---
 # <a name="export-data-module"></a>匯出資料模組
 
@@ -26,10 +26,10 @@ ms.locfileid: "73497896"
 
 - Azure Blob 容器
 - Azure 檔案共用
-- Azure 資料湖
+- Azure Data Lake
 - Azure Data Lake Gen2
 
-在匯出資料之前，您必須先在您的 Azure Machine Learning 工作區中先註冊資料存放區。 如需詳細資訊，請參閱[如何存取資料](../service/how-to-access-data.md)。
+在匯出資料之前，您必須先在您的 Azure Machine Learning 工作區中先註冊資料存放區。 如需詳細資訊，請參閱[如何存取資料](../how-to-access-data.md)。
 
 ## <a name="how-to-configure-export-data"></a>如何設定匯出資料
 
@@ -39,7 +39,7 @@ ms.locfileid: "73497896"
 
 1. 選取 [**匯出資料**] 以開啟 [**屬性**] 窗格。
 
-1. 針對**資料**存放區，請從下拉式清單中選取現有的資料存放區。 您也可以建立新的資料存放區。 造訪如何[存取資料以](../service/how-to-access-data.md)查看如何
+1. 針對**資料**存放區，請從下拉式清單中選取現有的資料存放區。 您也可以建立新的資料存放區。 造訪如何[存取資料以](../how-to-access-data.md)查看如何
 
 1. 定義資料存放區中用來寫入資料的路徑。 
 

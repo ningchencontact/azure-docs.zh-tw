@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4ee9d651e1ec7807d191bc3393c0c280ce1e52f9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 015aa4c209a99921a930a51b15c3d0230722519a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790544"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353877"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>在 Azure 中使用 SQL VM 資源提供者大量註冊 SQL 虛擬機器
 
@@ -57,7 +57,7 @@ ms.locfileid: "74790544"
 Import-Module .\RegisterSqlVMs.psm1
 ```
 
-### <a name="connect-to-azure"></a>連接到 Azure
+### <a name="connect-to-azure"></a>連線到 Azure
 
 使用下列 PowerShell Cmdlet 連接到 Azure：
 
@@ -233,11 +233,9 @@ Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
 
-
-
 ## <a name="next-steps"></a>後續步驟
 
-如需詳細資訊，請參閱下列文章。 
+如需詳細資訊，請參閱下列文章： 
 
 * [Windows VM 上的 SQL Server 概觀](virtual-machines-windows-sql-server-iaas-overview.md)
 * [Windows VM 上的 SQL Server 常見問題](virtual-machines-windows-sql-server-iaas-faq.md)

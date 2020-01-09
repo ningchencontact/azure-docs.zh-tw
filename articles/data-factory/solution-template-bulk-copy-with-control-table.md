@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 3063767c73f4639e667d5f64b0563f1da396cfbf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3a42d7da21cfb2e3066fbdd81b27c82155d8456f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927310"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439947"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>從具有控制資料表的資料庫大量複製
 
@@ -33,12 +33,16 @@ ms.locfileid: "74927310"
 - **ForEach**會從查閱活動取得分割區清單，並將每個資料分割逐一查看複製活動。
 - [**複製**] 會將每個磁碟分割從源資料庫存放區複製到目的地存放區。
 
-範本會定義五個參數：
+範本會定義下列參數：
 - *Control_Table_Name*是您的外部控制資料表，它會儲存源資料庫的資料分割清單。
 - *Control_Table_Schema_PartitionID*是您的外部控制資料表中，儲存每個資料分割識別碼之資料行名稱的名稱。 請確定源資料庫中每個資料分割的資料分割識別碼是唯一的。
 - *Control_Table_Schema_SourceTableName*是您的外部控制資料表，會儲存源資料庫中的每個資料表名稱。
 - *Control_Table_Schema_FilterQuery*是您的外部控制資料表中，儲存篩選查詢以從源資料庫中的每個分割區取得資料之資料行的名稱。 例如，如果您依年度分割資料，則儲存在每個資料列中的查詢可能類似于 ' select * from datasource，其中 LastModifytime > = ' ' 2015-01-01 00:00:00 ' '，LastModifytime < = ' ' 2015-12-31 23：59： 59.999 ' ' '。
-- *Data_Destination_Folder_Path*是將資料複製到目的地存放區的路徑。 只有當您選擇的目的地是以檔案為基礎的存放裝置時，才會顯示此參數。 如果您選擇 SQL 資料倉儲做為目的地存放區，則不需要此參數。 但是，SQL 資料倉儲中的資料表名稱和架構必須與源資料庫中的相同。
+- *Data_Destination_Folder_Path*是將資料複製到目的地存放區的路徑（當您選擇的目的地是「檔案系統」或「Azure Data Lake Storage Gen1」）時適用。 
+- *Data_Destination_Container*是將資料複製到目的地存放區中的根資料夾路徑。 
+- *Data_Destination_Directory*是將資料複製到目的地存放區的根目錄下的目錄路徑。 
+
+最後三個參數會定義目的地存放區中的路徑，只有在您選擇的目的地是以檔案為基礎的存放裝置時，才會顯示。 如果您選擇「Azure Synapse 分析（先前稱為 SQL DW）」作為目的地存放區，則不需要這些參數。 但是，SQL 資料倉儲中的資料表名稱和架構必須與源資料庫中的相同。
 
 ## <a name="how-to-use-this-solution-template"></a>如何使用此解決方案範本
 
@@ -68,7 +72,7 @@ ms.locfileid: "74927310"
 
 3. 建立要複製資料的源資料庫的**新**連接。
 
-     ![建立與來源資料庫的新連線](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
+    ![建立與來源資料庫的新連線](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
     
 4. 建立要複製資料的目的地資料存放區的**新**連線。
 
@@ -76,8 +80,6 @@ ms.locfileid: "74927310"
 
 5. 選取 [使用此範本]。
 
-    ![使用此範本](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
-    
 6. 您會看到管線，如下列範例所示：
 
     ![檢閱管線](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
@@ -90,7 +92,7 @@ ms.locfileid: "74927310"
 
     ![檢閱結果](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. 選擇性如果您選擇 [SQL 資料倉儲] 做為資料目的地，則必須根據 SQL 資料倉儲 Polybase 的需求，輸入要進行暫存的 Azure Blob 儲存體連接。 請確定已建立 Blob 儲存體中的容器。
+9. 選擇性如果您選擇「Azure Synapse 分析（先前稱為 SQL DW）」作為資料目的地，您必須依照 SQL 資料倉儲 Polybase 的要求，輸入與 Azure Blob 儲存體的連線以進行預備。 此範本會自動為您的 Blob 儲存體產生容器路徑。 檢查在管線執行之後是否已建立容器。
     
     ![Polybase 設定](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

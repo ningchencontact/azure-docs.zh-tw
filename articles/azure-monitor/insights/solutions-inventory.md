@@ -4,15 +4,15 @@ description: Azure 監視器中的監視解決方案是邏輯、視覺效果和�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
+author: bwren
 ms.author: bwren
 ms.date: 06/26/2018
-ms.openlocfilehash: 6012a74c00b64c818434ea1744d86c6cf67dd463
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9b0140b843d7da1b892463bff7d6014a3f9584ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931339"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402014"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>在 Azure 中監視解決方案的清查和資料收集詳細資料
 [監視解決方案](solutions.md)會利用 Azure 中的服務，針對特定應用程式或服務的作業提供額外的深入解析。 監視解決方案通常會收集記錄資料，並提供查詢和檢視來分析所收集的資料。 您可以針對您使用的任何應用程式和服務，將監視解決方案新增至 Azure 監視器。 這些管理解決方案通常免費提供，但是會收集可能造成使用費用的資料。
@@ -41,7 +41,7 @@ ms.locfileid: "72931339"
 | [活動記錄分析](../platform/activity-log-collect.md) | Azure | | | | | | 與通知同時 |
 | [AD 評估](ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 天 |
 | [AD 複寫狀態](ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 天 |
-| [代理程式健全狀況](solution-agenthealth.md) | Windows 和 Linux | &#8226; | &#8226; | | | &#8226; | 1 分鐘 |
+| [代理程式健全狀況](solution-agenthealth.md) | Windows 與 Linux | &#8226; | &#8226; | | | &#8226; | 1 分鐘 |
 | [警示管理](../platform/alert-management-solution.md) (Nagios) |Linux |&#8226; | | | | |與抵達同時 |
 | [警示管理](../platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 分鐘 |
 | [警示管理](../platform/alert-management-solution.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 分鐘 |
@@ -52,18 +52,18 @@ ms.locfileid: "72931339"
 | **監視解決方案** | **平台** | **Microsoft Monitoring Agent** | **Operations Manager 代理程式** | **Azure 儲存體** | **是否需要 Operations Manager？** | **透過管理群組傳送的 Operations Manager 代理程式資料** | **收集頻率** |
 | [Azure 網路安全性群組分析 (已淘汰)](azure-networking-analytics.md) | Azure |  |  |  |  |  | 與通知同時 |
 | [Azure SQL Analytics (預覽)](azure-sql.md) | Windows | | | | | | 1 分鐘 |
-| [備份](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | 與通知同時 |
+| [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | 與通知同時 |
 | [容量與效能 (預覽)](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |與抵達同時 |
 | [變更追蹤](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[差異](../../automation/change-tracking.md#change-tracking-data-collection-details) |
 | [變更追蹤](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[差異](../../automation/change-tracking.md#change-tracking-data-collection-details) |
-| [容器](containers.md) | Windows 和 Linux | &#8226; | &#8226; |  |  |  | 3 分鐘 |
+| [容器](containers.md) | Windows 與 Linux | &#8226; | &#8226; |  |  |  | 3 分鐘 |
 | [金鑰保存庫分析](azure-key-vault.md) |Windows | | | | | |與通知同時 |
 | [惡意程式碼評估](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |每小時 |
 | [網路效能監視器](network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP 會每 5 秒交握一次，而資料會每 3 分鐘傳送一次 |
 | [Office 365 分析 (預覽)](solution-office-365.md) |Windows | | | | | |與通知同時 |
 | **監視解決方案** | **平台** | **Microsoft Monitoring Agent** | **Operations Manager 代理程式** | **Azure 儲存體** | **是否需要 Operations Manager？** | **透過管理群組傳送的 Operations Manager 代理程式資料** | **收集頻率** |
 | [Service Fabric 分析](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 分鐘 |
-| [服務對應](service-map.md) | Windows 和 Linux | &#8226; | &#8226; |  |  |  | 15 秒 |
+| [服務對應](service-map.md) | Windows 與 Linux | &#8226; | &#8226; |  |  |  | 15 秒 |
 | [SQL 評估](sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 天 |
 | [SurfaceHub](surface-hubs.md) |Windows |&#8226; | | | | |與抵達同時 |
 | [System Center Operations Manager 評定 (預覽)](scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | 7 天 |

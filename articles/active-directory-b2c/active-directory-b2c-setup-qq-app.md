@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c17b344764fd9c1d18f787952a6193f0c8b634d0
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 2bda344c32d03425c7cfec4d253e18451eb1f5a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065008"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367498"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 QQ 帳戶登入
 
@@ -47,9 +47,9 @@ ms.locfileid: "71065008"
 
 ## <a name="configure-qq-as-an-identity-provider"></a>將 QQ 設為識別提供者
 
-1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-1. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
-1. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
+1. 在入口網站工具列中選取 [**目錄 + 訂**用帳戶] 圖示，然後選取包含您 Azure AD B2C 租使用者的目錄。
+1. 在 Azure 入口網站中，搜尋並選取  **Azure AD B2C**。
 1. 選取 [**識別提供者**]，然後選取 **[QQ （預覽）** ]。
 1. 輸入 [名稱]。 例如， *QQ*。
 1. 針對 [**用戶端識別碼**]，輸入您稍早建立之 QQ 應用程式的 [應用程式識別碼]。

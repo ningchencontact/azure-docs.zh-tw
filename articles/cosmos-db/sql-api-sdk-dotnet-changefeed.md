@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB：.NET 變更摘要處理器 API、SDK 和資源
+title: Azure Cosmos DB .NET 變更摘要處理器 API、SDK 版本資訊
 description: 了解「變更摘要處理器 API 和 SDK」的所有相關資訊，包括發行日期、停用日期，以及「.NET 變更摘要處理器 SDK」每個版本之間的變更。
 author: ealsur
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: bd727e9c68a34c8e182a6726b257a6bf37178837
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 9252e3e41d0c639231a2abe20202499c6b3ee32a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306763"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444865"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 
@@ -202,6 +202,6 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。

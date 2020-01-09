@@ -6,14 +6,14 @@ services: cloud-services
 ms.service: cloud-services
 ms.topic: reference
 caps.latest.revision: 12
-author: georgewallace
-ms.author: gwallace
-ms.openlocfilehash: 481301333ada39297bf2813bbea5f096c2abd3ad
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+author: tgore03
+ms.author: tagore
+ms.openlocfilehash: 0f0e79b462726b1aa6a953a4b8c92334d6b16492
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360649"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449095"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Azure 雲端服務設定角色結構描述
 
@@ -40,16 +40,16 @@ ms.locfileid: "68360649"
 
 下表說明 `Role` 元素的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --------- | ----------- |
-| name   | 必要項。 指定角色的名稱。 名稱必須符合為服務定義檔中之角色提供的名稱。|
+| NAME   | 必要。 指定角色的名稱。 名稱必須符合為服務定義檔中之角色提供的名稱。|
 | vmName | 選擇性。 指定虛擬機器的 DNS 名稱。 名稱長度必須等於或小於 10 個字元。|
 
 下表說明 `Role` 元素的子項目。
 
-| 項目 | 描述 |
+| 元素 | 說明 |
 | ------- | ----------- |
-| 執行個體 | 必要項。 指定要為角色部署的執行個體數目。 執行個體數目是由 `count` 屬性的整數所定義。|
+| 執行個體 | 必要。 指定要為角色部署的執行個體數目。 執行個體數目是由 `count` 屬性的整數所定義。|
 | 設定   | 選擇性。 指定角色設定集合中的設定名稱和值。 設定名稱是由 `name` 屬性的字串所定義，而設定值是由 `value` 屬性的字串所定義。|
 | 憑證 | 選擇性。 指定名稱、指紋和要與角色相關聯之服務憑證的演算法。 憑證名稱是由 `name` 屬性的字串所定義。 憑證指紋是由十六進位數字的字串所定義，該字串針對 `thumbprint` 屬性不包含空格。 十六進位數字必須使用數字和大寫英文字元來表示。 憑證演算法是由 `thumbprintAlgorithm` 屬性的字串所定義。|
 

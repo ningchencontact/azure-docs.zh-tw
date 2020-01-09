@@ -12,18 +12,18 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 7a8fe0f21ea8b31fb26727e2220f7395e2d71c2c
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: bb6961d87fd08af78db495b700acf34fbf4944a1
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555364"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552544"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL Database 和 SQL 資料倉儲資料探索 & 分類
 
-資料探索 & 分類提供了內建于 Azure SQL Database 中的先進功能，可用於**探索**、**分類**、**標記** & **保護**資料庫中的敏感性資料。
+資料探索 & 分類提供 Azure SQL Database 內建的先進功能，可用於**探索**、**分類**、**標記** & **報告**您資料庫中的敏感性資料。
 
-對於最具敏感性的資料 (商業、財務、醫療保健與個人識別資料 (PII) 等) 進行探索與分類，在組織的資訊保護方面扮演著關鍵角色。 它可以作為以下的基礎結構：
+對於最具敏感性的資料 (商業、財務、醫療保健與個人識別資料 (PII) 等) 進行探索與分類，在組織的資訊保護方面扮演著關鍵角色。 它可以作為下列的基礎結構：
 
 - 協助符合資料隱私標準和法規合規性需求。
 - 各種安全性案例，例如針對敏感性資料異常存取的監視 (稽核) 及警示。
@@ -56,12 +56,12 @@ ms.locfileid: "74555364"
 
 ## <a id="subheading-2"></a>針對機密資料行進行探索、分類與設定標籤
 
-下一節描述關於探索、分類及標記資料庫中包含敏感性資料之資料行，以及檢視資料庫目前的分類狀態和匯出報告的步驟。
+下節所描述的步驟是有關探索、分類和標示包含您資料庫中敏感性資料的資料行，以及檢視資料庫的目前分類狀態，並匯出報表。
 
 分類包含兩個中繼資料屬性：
 
-- 標籤：主要分類屬性，用來定義儲存在資料行中的資料敏感度等級。  
-- 資訊類型：為儲存在資料行中的資料類型提供額外的細微性。
+- 標籤 - 主分類屬性，用來定義資料行中所儲存資料的敏感度等級。  
+- 資訊類型 - 提供資料行中所儲存資料類型的額外細微性。
 
 ## <a name="define-and-customize-your-classification-taxonomy"></a>定義及自訂您的類別分類法
 
@@ -100,25 +100,25 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 
       ![分類您的資料](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
 
-   - 檢閱建議清單：若要接受針對特定資料行的建議，請選取相關資料列左側資料行中的核取方塊。 您也可以選取建議資料表標頭中的核取方塊，將「所有建議」標記為接受。
+   - 檢閱建議清單：若要接受針對特定資料行的建議，請選取相關資料列左側資料行中的核取方塊。 您也可以核取建議資料表標頭中的核取方塊，以將「所有建議」標記為已接受。
 
        ![檢閱建議清單](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png)
 
-   - 若要套用選取的建議，請按一下藍色的 [接受選取的建議] 按鈕。
+   - 若要套用選取的建議，請按一下藍色的 [Accept selected recommendations]\(接受選取的建議) 按鈕。若要套用選取的建議，請按一下藍色的 接受選取的建議按鈕。
 
       ![套用建議](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
 
-7. 您也可以選擇將資料行「手動分類」，或同時採用手動分類和建議分類：
+7. 您也可以**手動分類**資料行作為 (以及) 建議分類的替代方法：
 
-   - 按一下視窗頂端功能表中的 [新增分類]。
+   - 按一下視窗上方功能表中的 [新增分類]。
 
       ![手動新增分類](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
-   - 在開啟的內容視窗中，選取您想分類的 [結構描述] > [資料表] > [資料行]，以及資訊類型和敏感度標籤。 然後按一下內容視窗底部的藍色 [新增分類] 按鈕。
+   - 在開啟的內容視窗中，選取結構描述 > 資料表 > 您想要分類的資料行，以及資訊類型和敏感度標籤。 然後按一下內容視窗底部的藍色 [新增分類] 按鈕。
 
       ![選取要分類的資料行](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
-8. 若要完成分類，並持續以新的分類中繼資料標記資料庫資料行，請按一下視窗頂端功能表中的 [儲存]。
+8. 若要完成您的分類，並使用新的分類中繼資料持續標示 (標記) 資料庫資料行，請按一下視窗上方功能表中的 [儲存]。
 
    ![儲存](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
 
@@ -128,7 +128,7 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 
 ![稽核記錄檔](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>權限
+## <a id="subheading-4"></a>Permissions
 
 下列內建角色可以讀取 Azure SQL database 的資料分類： `Owner`、`Reader`、`Contributor`、`SQL Security Manager` 和 `User Access Administrator`。
 
@@ -148,8 +148,8 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 - 從一或多個資料行移除分類：[DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - 檢視資料庫上的所有分類：[sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-# <a name="rest-apistabazure-rest-api"></a>[Rest Api](#tab/azure-rest-api)
-您也可以使用 REST API 以程式設計方式管理分類。 已發行的 REST API 支援下列作業：
+# <a name="rest-apistabazure-rest-api"></a>[Rest API](#tab/azure-rest-api)
+您可以使用 REST Api 以程式設計方式管理分類和建議。 已發行的 REST API 支援下列作業：
 
 - [建立或更新](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate)-建立或更新指定資料行的敏感度標籤
 - [刪除](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - 刪除指定資料行的敏感度標籤
@@ -157,13 +157,12 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 - [啟用建議](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation)-在指定的資料行上啟用敏感度建議（預設會在所有資料行上啟用建議）
 - [取得](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 取得指定資料行的敏感度標籤
 - [依資料庫列出目前的標籤](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) \(英文\) - 取得指定資料庫目前的敏感度標籤
-
 - [資料庫建議的清單](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase)-取得指定資料庫的建議敏感度標籤
 
 # <a name="powershell-cmdlettabazure-powelshell"></a>[PowerShell Cmdlet](#tab/azure-powelshell)
-您可以使用 PowerShell 來取得 Azure SQL 資料庫和受控實例中的所有建議資料行。
+您可以使用 PowerShell 來管理 Azure SQL Database 和受控執行個體的分類和建議。
 
-### <a name="powershell-cmdlet-for-azure-sql-database"></a>適用于 Azure SQL database 的 PowerShell Cmdlet
+### <a name="powershell-cmdlet-for-azure-sql-database"></a>適用于 Azure SQL Database 的 PowerShell Cmdlet
 - [AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
 - [設定-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
 - [移除-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)

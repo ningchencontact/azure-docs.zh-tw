@@ -10,16 +10,19 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: c45d0e316cf67d22095911fadfd3d84ef407e1b0
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 4e16eb2ad6c2634569f981ddcdce753ecaa43f2a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515627"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446544"
 ---
 # <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>將表單辨識器容器部署至 Azure 容器實例
 
 瞭解如何將認知服務[表單辨識器](form-recognizer-container-howto.md)容器部署至 Azure[容器實例](https://docs.microsoft.com/azure/container-instances/)。 此程式示範如何建立 Azure 表單辨識器資源。 然後，我們會討論如何提取相關聯的容器映射。 最後，我們強調了從瀏覽器執行這兩個協調流程的能力。 使用容器可以將開發人員的注意力轉移到管理基礎結構之外，改為專注于應用程式開發。
+
+> [!IMPORTANT]
+> 表單辨識器容器目前使用1.0 版的表單辨識器 API。 您可以改為使用受控服務來存取 API 的最新版本。
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 

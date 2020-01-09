@@ -1,25 +1,14 @@
 ---
-title: Service Fabric 應用程式升級 | Microsoft Docs
+title: Service Fabric 應用程式升級
 description: 本文章提供升級 Service Fabric 應用程式的簡介，其中包括選擇升級模式和執行健康狀態檢查。
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 3c50ee149f5bcdda6cbb697830945cdc7f7a15f4
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 2dc484b49c5250510e5f018cbbc2da107573d452
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167277"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426779"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric 應用程式升級
 Azure Service Fabric 應用程式是服務集合。 在升級期間，Service Fabric 會比較新的 [應用程式資訊清單](service-fabric-application-and-service-manifests.md) 與舊版本，並決定應用程式中哪些服務需要更新。 Service Fabric 會比較服務資訊清單中的版本號碼和上一版中的版本號碼。 如果服務未變更，則該服務不會升級。

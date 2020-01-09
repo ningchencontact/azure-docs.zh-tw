@@ -3,18 +3,18 @@ title: 鎖定映像
 description: 設定容器映射或存放庫的屬性，使其無法在 Azure container registry 中刪除或覆寫。
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 9e55a6688be9f51f1c1b237ae86bd57692a86592
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8eb2a549e9d9f3a7ed4a482ac6a9ea4ba61ea4f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456322"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442225"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>鎖定 Azure container registry 中的容器映射
 
 在 Azure container registry 中，您可以鎖定映射版本或存放庫，使其無法被刪除或更新。 若要鎖定映射或存放庫，請使用 Azure CLI 命令[az acr repository update][az-acr-repository-update]來更新其屬性。 
 
-本文要求您在 Azure Cloud Shell 或本機執行 Azure CLI （建議使用使用2.0.55 版或更新版本）。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
+本文要求您在 Azure Cloud Shell 或本機執行 Azure CLI （建議使用使用2.0.55 版或更新版本）。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
 
 > [!IMPORTANT]
 > 本文不適用於鎖定整個登錄，例如，使用 Azure 入口網站中的**設定 > 鎖定**，或在 Azure CLI 中 `az lock` 命令。 鎖定登錄資源並不會讓您無法建立、更新或刪除存放庫中的資料。 鎖定登錄只會影響管理作業，例如新增或刪除複寫，或刪除登錄本身。 [鎖定資源以防止非預期的變更](../azure-resource-manager/resource-group-lock-resources.md)的詳細資訊。
@@ -23,7 +23,11 @@ ms.locfileid: "74456322"
 
 根據預設，Azure Container Registry 中已標記的影像是可*變動的，* 因此您可以使用適當的許可權，重複地更新，並將具有相同標記的映射推送至登錄。 容器映射也可以視需要[刪除](container-registry-delete.md)。 當您開發映射，而且需要為登錄保留大小時，此行為相當實用。
 
-不過，當您將容器映射部署到生產環境時，您可能需要*不可變*的容器映射。 不可變的映射是指您無法意外刪除或覆寫的影像。 使用[az acr repository update][az-acr-repository-update]命令來設定存放庫屬性，讓您可以：
+不過，當您將容器映射部署到生產環境時，您可能需要*不可變*的容器映射。 不可變的映射是指您無法意外刪除或覆寫的影像。
+
+如需在登錄中標記和版本映射的策略，請參閱[標記和版本設定容器映射的建議](container-registry-image-tag-version.md)。
+
+使用[az acr repository update][az-acr-repository-update]命令來設定存放庫屬性，讓您可以：
 
 * 鎖定映射版本或整個存放庫
 
@@ -31,7 +35,7 @@ ms.locfileid: "74456322"
 
 * 防止對映射版本或整個存放庫進行讀取（提取）作業
 
-如需範例，請參閱下列各節。
+如需範例，請參閱下列各節。 
 
 ## <a name="lock-an-image-or-repository"></a>鎖定映射或存放庫 
 

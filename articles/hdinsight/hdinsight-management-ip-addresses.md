@@ -1,19 +1,19 @@
 ---
 title: Azure HDInsight 管理 IP 位址
 description: 瞭解您必須允許輸入流量的 IP 位址，以便適當地設定網路安全性群組和使用者定義的路由，以使用 Azure HDInsight 的虛擬網路。
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+author: hol82
+ms.author: hol
+ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.openlocfilehash: 9caf0a41096a22e94aeb80ccfd0e6e6f70954a3d
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.date: 12/16/2019
+ms.openlocfilehash: 598bf677b06c5ec1f431144e7e76deee55d23f33
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185660"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435473"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 管理 IP 位址
 
@@ -46,11 +46,11 @@ ms.locfileid: "74185660"
 > [!IMPORTANT]  
 > 如果未列出您使用的 Azure 區域，請使用網路安全性群組的[服務](hdinsight-service-tags.md)標籤功能。
 
-| 國家/地區 | 區域 | 允許的來源 IP 位址 | 允許的目的地 | 方向 |
+| 國家/地區 | 地區 | 允許的來源 IP 位址 | 允許的目的地 | 方向 |
 | ---- | ---- | ---- | ---- | ----- |
 | 亞洲 | 東亞 | 23.102.235.122</br>52.175.38.134 | \*：443 | 輸入 |
 | &nbsp; | 東南亞 | 13.76.245.160</br>13.76.136.249 | \*：443 | 輸入 |
-| 澳大利亞 | 澳洲東部 | 104.210.84.115</br>13.75.152.195 | \*：443 | 輸入 |
+| 澳洲 | 澳大利亞東部 | 104.210.84.115</br>13.75.152.195 | \*：443 | 輸入 |
 | &nbsp; | 澳洲東南部 | 13.77.2.56</br>13.77.2.94 | \*：443 | 輸入 |
 | 巴西 | 巴西南部 | 191.235.84.104</br>191.235.87.113 | \*：443 | 輸入 |
 | 加拿大 | 加拿大東部 | 52.229.127.96</br>52.229.123.172 | \*：443 | 輸入 |
@@ -78,6 +78,7 @@ ms.locfileid: "74185660"
 | &nbsp; | 美國中西部 | 52.161.23.15</br>52.161.10.167 | \*：443 | 輸入 |
 | &nbsp; | 美國西部 | 13.64.254.98</br>23.101.196.19 | \*：443 | 輸入 |
 | &nbsp; | 美國西部 2 | 52.175.211.210</br>52.175.222.222 | \*：443 | 輸入 |
+| &nbsp; | 阿拉伯聯合大公國北部 | 65.52.252.96</br>65.52.252.97 | \*：443 | 輸入 |
 
 如需用於 Azure Government 之 IP 位址的資訊，請參閱 [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) 文件。
 

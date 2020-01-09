@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 5a46de9fa17790cb93ce7d5a2af8008d34d4dc35
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
-ms.translationtype: MT
+ms.openlocfilehash: 0748047581945d513300d929c2d34d20099bf4d6
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888779"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529689"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>使用 Azure 監視器監視 Azure 資源
 當您的重要應用程式和商務程式依賴 Azure 資源時，您會想要監視這些資源的可用性、效能和操作。 本文說明 Azure 資源所產生的監視資料，以及您可以如何使用 Azure 監視器的功能來分析此資料併發出警示。
@@ -30,7 +30,7 @@ Azure 監視器是 Azure 中的完整堆疊監視服務，除了其他雲端和�
 
 
 ## <a name="costs-associated-with-monitoring"></a>與監視相關聯的成本
-分析預設收集的監視資料並不會產生任何費用。 其包含下列工具：
+分析預設收集的監視資料並不會產生任何費用。 這包括下列項目：
 
 - 使用計量瀏覽器收集平臺計量並加以分析。
 - 收集活動記錄，並在 Azure 入口網站中進行分析。
@@ -61,7 +61,7 @@ Azure 中的資源會產生[記錄](../platform/data-platform-logs.md)和[計量
 - [活動記錄](../platform/activity-logs-overview.md)-可讓您深入瞭解訂用帳戶（管理平面）中的每個 Azure 資源上的作業，例如建立新的資源或啟動虛擬機器。 這是您訂用帳戶中資源上所採取的任何寫入作業（PUT、POST、DELETE）的相關資訊。
 
 
-## <a name="configuration-requirements"></a>設定需求
+## <a name="configuration-requirements"></a>組態需求
 
 ### <a name="configure-monitoring"></a>設定監視
 某些監視資料會自動收集，但您可能需要根據您的需求執行一些設定。 請參閱下列資訊，以取得每種監視資料類型的特定資訊。
@@ -127,7 +127,7 @@ Azure 監視器記錄會合並來自多個服務和其他資料來源的記錄�
 
 - 如需使用用於撰寫記錄查詢之查詢語言的教學課程，請參閱[開始使用 Azure 監視器中的記錄查詢](../log-query/get-started-queries.md)。
 - 如需如何在 Azure 監視器記錄檔中收集資源記錄的資訊，以及如何在查詢中存取它們的詳細資料，請參閱[在 Azure 監視器中收集 Log Analytics 工作區中的 Azure 資源記錄](../platform/resource-logs-collect-workspace.md)。
-- 如需如何在 Azure 監視器記錄中結構化資源記錄資料的說明，請參閱[收集模式](../platform/resource-logs-collect-workspace.md#collection-mode)。
+- 如需如何在 Azure 監視器記錄中結構化資源記錄資料的說明，請參閱[收集模式](../platform/resource-logs-collect-workspace.md#resource-log-collection-mode)。
 - 請參閱每個 Azure 服務的檔，以取得其在 Azure 監視器記錄中之資料表的詳細資料。
 
 ![記錄](media/monitor-azure-resource/logs.png)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6bc754c9a4f333da85e57c5ad9780da8df93e895
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: ed16d8797e541ee474b4f52f3d4379721922a734
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309746"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432876"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>將繪圖工具工具列新增至地圖
 
@@ -38,7 +38,7 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="新增繪製工具列" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-請參閱<a href='https://codepen.io'>CodePen</a>上 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>）的 [畫筆<a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>新增繪圖] 工具列</a>。
+請參閱<a href='https://codepen.io'>CodePen</a>上的 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>）的 [畫筆<a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>新增繪圖] 工具列</a>。
 </iframe>
 
 
@@ -62,7 +62,7 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="新增多邊形繪圖工具" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-請參閱<a href='https://codepen.io'>CodePen</a>上 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>）的「畫筆<a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>新增多邊形繪製工具</a>」。
+請參閱<a href='https://codepen.io'>CodePen</a>上的 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>）來<a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>新增多邊形繪圖工具</a>。
 </iframe>
 
 
@@ -94,11 +94,22 @@ var layers = drawingManager.getLayers();
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="變更繪圖轉譯樣式" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-請參閱<a href='https://codepen.io'>CodePen</a>上 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>）的畫筆<a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>變更繪圖轉譯樣式</a>。
+請參閱<a href='https://codepen.io'>CodePen</a>上的 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>）畫筆<a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>變更繪圖轉譯樣式</a>。
 </iframe>
 
 
 ## <a name="next-steps"></a>後續步驟
+
+瞭解如何使用 [繪圖工具] 模組的其他功能：
+
+> [!div class="nextstepaction"]
+> [取得圖形資料](map-get-shape-data.md)
+
+> [!div class="nextstepaction"]
+> [對繪製事件做出反應](drawing-tools-events.md)
+
+> [!div class="nextstepaction"]
+> [互動類型和鍵盤快速鍵](drawing-tools-interactions-keyboard-shortcuts.md)
 
 深入了解本文使用的類別和方法：
 

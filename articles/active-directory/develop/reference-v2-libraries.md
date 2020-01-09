@@ -18,12 +18,12 @@ ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d40f71c5bd0696a2c277c7d5b49fb517bcf87902
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8d2b2ea9d878db8284aa44cdbdacb92c8cd4fabe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452628"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423995"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Microsoft 身分識別平臺驗證程式庫
 
@@ -56,12 +56,12 @@ Microsoft 身分識別平臺端點適用于兩種類型的程式庫：
 
 | 平台 | 程式庫 | 下載 | 原始程式碼 | 範例 | 參考 | 概念文件 | 藍圖 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ![Javascript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [單一頁面應用程式](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [參考](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/classes/_useragentapplication_.useragentapplication.html) | [概念檔](msal-overview.md)| [藍圖](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
+| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [單一頁面應用程式](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [參考](https://azuread.github.io/microsoft-authentication-library-for-js/docs/msal/) | [概念檔](msal-overview.md)| [藍圖](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 |![Angular JS](media/sample-v2-code/logo_angular.png) | MSAL Angular JS | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL 角度（預覽） | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
 | ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [傳統型應用程式](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[概念檔](msal-overview.md) | [藍圖](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
-| ![Python](media/sample-v2-code/logo_python.png) | MSAL Python （預覽） | [PyPI](https://pypi.org/project/msal) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [範例](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) | [ReadTheDocs](https://msal-python.rtfd.io/) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [藍圖](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Roadmap)
-| ![Java](media/sample-v2-code/logo_java.png) | MSAL JAVA （預覽） | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [範例](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | [參考](https://javadoc.io/doc/com.microsoft.azure/msal4j/latest/index.html) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | [藍圖](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
+| ![Python](media/sample-v2-code/logo_python.png) | MSAL Python | [PyPI](https://pypi.org/project/msal) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [範例](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) | [ReadTheDocs](https://msal-python.rtfd.io/) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [藍圖](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Roadmap)
+| ![Java](media/sample-v2-code/logo_java.png) | MSAL Java | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [範例](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | [參考](https://javadoc.io/doc/com.microsoft.azure/msal4j/latest/index.html) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | [藍圖](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
 | iOS & macOS | MSAL iOS 和 macOS | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS 應用程式](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc)， [macOS 應用程式](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) | [參考](https://azuread.github.io/microsoft-authentication-library-for-objc/index.html)  | [概念檔](msal-overview.md) | |
 |![Android/Java](media/sample-v2-code/logo_Android.png) | MSAL Android | [中央存放庫](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android App](quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.identity.client/msal) | [概念檔](msal-overview.md) |[藍圖](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Roadmap)
 
@@ -81,7 +81,7 @@ Microsoft 身分識別平臺端點適用于兩種類型的程式庫：
 
 |             | Windows    | Linux      | macOS      | iOS | Android    |
 |-------------|------------|------------|------------|------------|------------|
-| ![Javascript](media/sample-v2-code/logo_js.png)  |  MSAL.js | MSAL.js | MSAL.js | MSAL.js |  MSAL.js |
+| ![JavaScript](media/sample-v2-code/logo_js.png)  |  MSAL.js | MSAL.js | MSAL.js | MSAL.js |  MSAL.js |
 | <img alt="C#" src="../../cognitive-services/speech-service/media/index/logo_csharp.svg" width="64px" height="64px" /> | ASP.NET、ASP.NET Core、MSAL.Net （.NET FW、Core、UWP）| ASP.NET Core，MSAL.Net （.NET Core） | ASP.NET Core，MSAL.Net （MacOS）       | MSAL.Net （Xamarin. iOS） | MSAL.Net （Xamarin）|
 | Swift <br> Objective-C |            |            | [適用于 iOS 和 macOS 的 MSAL](msal-overview.md) | [適用于 iOS 和 macOS 的 MSAL](msal-overview.md) |            |
 | ![Java](media/sample-v2-code/logo_java.png) Java | msal4j | msal4j | msal4j | | MSAL Android |
@@ -94,13 +94,13 @@ Microsoft 身分識別平臺端點適用于兩種類型的程式庫：
 
 | 平台 | 程式庫名稱 | 測試的版本 | 原始程式碼 | 範例 |
 |:---:|:---:|:---:|:---:|:---:|
-|![Javascript](media/sample-v2-code/logo_js.png)|[Hello.js](https://adodson.com/hello.js/) | 版本1.13。5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
+|![JavaScript](media/sample-v2-code/logo_js.png)|[Hello.js](https://adodson.com/hello.js/) | 版本1.13。5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 | ![Java](media/sample-v2-code/logo_java.png) | [Scribe Java](https://github.com/scribejava/scribejava) | [3.2.0 版](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/) | |
 | ![Java](media/sample-v2-code/logo_java.png) | [Gluu OpenID Connect 程式庫](https://github.com/GluuFederation/oxAuth) | [版本3.0。2](https://github.com/GluuFederation/oxAuth/releases/tag/3.0.2) | [Gluu OpenID Connect 程式庫](https://github.com/GluuFederation/oxAuth) | |
 | ![Python](media/sample-v2-code/logo_python.png) | [要求-OAuthlib](https://github.com/requests/requests-oauthlib) | [版本 1.2.0](https://github.com/requests/requests-oauthlib/releases/tag/v1.2.0) | [要求-OAuthlib](https://github.com/requests/requests-oauthlib) | |
 | ![Node.js](media/sample-v2-code/logo_nodejs.png) | [openid-用戶端](https://github.com/panva/node-openid-client) | [版本2.4。5](https://github.com/panva/node-openid-client/releases/tag/v2.4.5) | [openid-用戶端](https://github.com/panva/node-openid-client) | |
 | ![PHP](media/sample-v2-code/logo_php.png) | [PHP League oauth2-client](https://github.com/thephpleague/oauth2-client) | [1.4.2 版](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/) | |
-| ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth：1.3。1<br />omniauth-oauth2：1.4。0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
+| ![拼音](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth：1.3。1<br />omniauth-oauth2：1.4。0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 | iOS、macOS、& Android  | [React Native 應用程式驗證](https://github.com/FormidableLabs/react-native-app-auth) | [版本4.2。0](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [React Native 應用程式驗證](https://github.com/FormidableLabs/react-native-app-auth) | |
 
 針對任何符合標準的程式庫，您可以使用 Microsoft 身分識別平臺端點。 請務必瞭解支援的位置：

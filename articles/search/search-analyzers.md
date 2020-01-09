@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 32ac91df042eb29c39cc54b738dbb96aff3104f3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/10/2019
+ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496513"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460709"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Azure 認知搜尋中的文字處理分析器
 
@@ -54,6 +54,9 @@ Azure 認知搜尋會使用[Apache Lucene 標準分析器（標準 Lucene）](ht
 2. 在索引的[欄位定義](https://docs.microsoft.com/rest/api/searchservice/create-index)上，將欄位的 **analyzer** 屬性設為目標分析器的名稱 (例如 `"analyzer" = "keyword"`)。 有效值包括預先定義的分析器名稱、語言分析器名稱，或者也會定義於索引結構描述中的自訂分析器名稱。 計劃在服務中建立索引之前，在索引定義階段指派分析器。
 
 3. 您可以選擇性地使用 **indexAnalyzer** 和 **searchAnalyzer`** 欄位參數，而非一個 **analyzer** 屬性，設定不同的分析器來編製索引和查詢。 如果其中一個活動需要其他活動所不需的特定轉換，您會使用不同的分析器進行資料準備和擷取。
+
+> [!NOTE]
+> 在索引時間與欄位的查詢期間，不可能使用不同的[語言分析器](index-add-language-analyzers.md)。 這項功能會保留給[自訂分析器](index-add-custom-analyzers.md)。 基於這個理由，如果您嘗試將**searchAnalyzer**或**indexAnalyzer**屬性設定為語言分析器的名稱，REST API 將會傳回錯誤回應。 您必須改用**analyzer**屬性。
 
 不允許將 **analyzer** 或 **indexAnalyzer** 指派給已實際建立的欄位。 如果上述任何一項不清楚，請檢閱下表中的明細，以了解哪些動作需要重建和原因。
  
@@ -344,7 +347,7 @@ API 包含其他的索引屬性，可針對索引和搜尋指定不同的分析�
 
 + [設定自訂分析器](index-add-custom-analyzers.md)以進行最少的處理，或是在個別欄位上進行特殊的處理。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
  [搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
