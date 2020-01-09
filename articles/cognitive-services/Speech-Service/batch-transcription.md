@@ -8,54 +8,58 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 2cccd17ce04b3954a7d0720d9ba25bbe792da3b6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 765a74ac20d6a1c79dfc31c5e11b1f214dd2aa97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806332"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446974"
 ---
-# <a name="why-use-batch-transcription"></a>為何使用 Batch 轉譯？
+# <a name="how-to-use-batch-transcription"></a>如何使用批次轉譯
 
-如果您想要轉譯儲存體 (例如 Azure Blob) 中數量龐大的音訊，則適用批次轉譯。 透過使用該專屬 REST API，您可以使用共用存取簽章 (SAS) URI 來指向音訊檔案，並以非同步方式接收轉譯。
+批次轉譯非常適合用來在儲存體中轉譯大量的音訊。 藉由使用專用的 REST API，您可以使用共用存取簽章（SAS） URI 來指向音訊檔案，並以非同步方式接收轉譯結果。
+
+此 API 提供非同步語音轉換文字轉譯及其他功能。 您可以使用 REST API 來公開方法來執行下列動作：
+
+- 建立批次處理要求
+- 查詢狀態
+- 下載轉譯結果
+- 從服務中刪除轉譯資訊
+
+詳細的 API 會以[Swagger 檔](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A)的形式在 `Custom Speech transcriptions`的標題底下提供。
+
+批次轉譯作業是以最大的方式排定。 目前不會估計作業何時會變更為「執行中」狀態。 在一般系統負載下，應該會在幾分鐘內發生。 一旦處於 [執行中] 狀態，實際轉譯的處理速度會比音訊即時長。
+
+在容易使用的 API 旁，您不需要部署自訂端點，也不會有任何要觀察的並行需求。
 
 ## <a name="prerequisites"></a>必要條件
 
 ### <a name="subscription-key"></a>訂用帳戶金鑰
 
-如同語音服務的所有功能，您可以依照我們的[快速入門指南](get-started.md)從 [Azure 入口網站](https://portal.azure.com)建立訂用帳戶金鑰。 如果您打算從我們的基準模型取得轉譯，您只要建立金鑰即可。
+如同語音服務的所有功能，您可以依照我們的[快速入門指南](get-started.md)從 [Azure 入口網站](https://portal.azure.com)建立訂用帳戶金鑰。
 
 >[!NOTE]
 > 需要「語音服務」的標準訂用帳戶（S0）才能使用批次轉譯。 免費訂用帳戶金鑰 (F0) 將無法運作。 如需詳細資訊，請參閱[定價和限制](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)。
 
 ### <a name="custom-models"></a>自訂模型
 
-如果您打算自訂原音或語言模型，請依照[自訂原音模型](how-to-customize-acoustic-models.md)和[自訂語言模型](how-to-customize-language-model.md)中的步驟進行。 若要使用批次轉譯中建立的模型，您需要其模型識別碼。 此識別碼不是您在 [端點詳細資料] 檢視上所找到的端點識別碼，這是您選取該模型的詳細資料時可擷取的模型識別碼。
+如果您打算自訂聲場或語言模型，請依照[自訂聲場模型](how-to-customize-acoustic-models.md)和[設計自訂語言模型](how-to-customize-language-model.md)中的步驟進行。 若要在批次轉譯中使用已建立的模型，您需要其模型識別碼。 您可以在檢查模型的詳細資料時，取得模型識別碼。 批次轉譯服務不需要已部署的自訂端點。
 
 ## <a name="the-batch-transcription-api"></a>Batch 轉譯 API
-
-Batch 轉譯 API 提供非同步語音轉換文字轉譯及其他功能。 此 REST API 所公開的方法可以：
-
-1. 建立批次的處理要求
-1. 查詢狀態
-1. 下載轉譯
-
-> [!NOTE]
-> Batch 轉譯 API 很適合話務中心，它們通常會累積數千小時的音訊。 這能輕鬆轉譯大量的音訊錄製。
 
 ### <a name="supported-formats"></a>支援的格式
 
 Batch 轉譯 API 支援下列格式：
 
-| 格式 | 轉碼器 | Bitrate | 採樣速率 |
+| [格式] | 轉碼器 | Bitrate | 採樣速率 |
 |--------|-------|---------|-------------|
-| WAV | PCM | 16 位元 | 8 或 16 kHz、單聲道、立體聲 |
-| MP3 | PCM | 16 位元 | 8 或 16 kHz、單聲道、立體聲 |
-| OGG | OPUS | 16 位元 | 8 或 16 kHz、單聲道、立體聲 |
+| WAV | PCM | 16 位元 | 8 kHz 或 16 kHz、單聲道或身歷聲 |
+| MP3 | PCM | 16 位元 | 8 kHz 或 16 kHz、單聲道或身歷聲 |
+| OGG | OPUS | 16 位元 | 8 kHz 或 16 kHz、單聲道或身歷聲 |
 
-針對立體聲音訊資料流，Batch 轉譯 API 會在轉譯期間分離左右聲道。 這會建立兩個 JSON 結果檔案，每個聲道各建立一個。 每個語句的時間戳記可讓開發人員建立排序的最終文字記錄。 此範例要求包含不雅內容篩選、標點符號和字組層級時間戳記的屬性。
+針對身歷聲音訊資料流程，左右聲道會在轉譯期間分割。 針對每個通道，會建立 JSON 結果檔案。 每個語句產生的時間戳記可讓開發人員建立排序的最終文字記錄。
 
 ### <a name="configuration"></a>組態
 
@@ -69,38 +73,119 @@ Batch 轉譯 API 支援下列格式：
   "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
-    "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic",
-    "AddWordLevelTimestamps" : "True",
-    "AddSentiment" : "True"
+    "ProfanityFilterMode": "None | Removed | Tags | Masked",
+    "PunctuationMode": "None | Dictated | Automatic | DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True | False",
+    "AddSentiment" : "True | False",
+    "AddDiarization" : "True | False",
+    "TranscriptionResultsContainerUrl" : "<SAS to Azure container to store results into (write permission required)>"
   }
 }
 ```
 
-> [!NOTE]
-> Batch 轉譯 API 使用 REST 服務來要求轉譯、其狀態及相關結果。 您可以使用任何語言的 API。 下一節描述 API 的使用方式。
-
-### <a name="configuration-properties"></a>組態屬性
+### <a name="configuration-properties"></a>設定屬性
 
 使用這些選擇性屬性來設定轉譯：
 
-| 參數 | 描述 |
-|-----------|-------------|
-| `ProfanityFilterMode` | 指定如何處理辨識結果中的不雅內容。 接受的值為 `None` (會停用不雅內容過濾)、`masked` (為以星號取代不雅內容)、`removed` (會移除結果中的所有不雅內容) 或 `tags` (會新增「不雅內容」標記)。 預設設定為 `masked`。 |
-| `PunctuationMode` | 指定如何處理辨識結果中的標點符號。 接受的值為`None` (會停用標點符號)、`dictated` (暗示明確的標點符號)、`automatic` (會讓解碼器處理標點符號) 或 `dictatedandautomatic` (暗示口述的標點符號或自動)。 |
- | `AddWordLevelTimestamps` | 指定是否將字組層級時間戳記新增至輸出。 接受的值為`true` 會啟用字組層級時間戳記，而 `false` (預設值) 會停用。 |
- | `AddSentiment` | 指定應該將情感新增至語句。 接受的值為 `true`，可讓每個語句的情感和 `false` （預設值）停用它。 |
- | `AddDiarization` | 指定應該在輸入上執行 diarization 分析，這應該是包含兩個語音的 mono 通道。 接受的值為 `true`，可讓 diarization 和 `false` （預設值）停用它。 它也需要 `AddWordLevelTimestamps` 設定為 true。|
+| 參數 | 說明 |
+|-----------|------------|
+|`ProfanityFilterMode`|指定如何處理辨識結果中的不雅內容
+||**`Masked`** -預設值。 以星號取代不雅內容<br>`None`-停用不雅內容篩選<br>`Removed`-從結果中移除所有不雅內容<br>`Tags`-新增不雅內容的標記
+|`PunctuationMode`|指定在辨識結果中處理標點符號
+||`Automatic`-服務插入標點符號<br>`Dictated` 聽寫的（朗讀）標點符號<br>**`DictatedAndAutomatic`** -預設值。 聽寫和自動標點符號<br>`None`-停用標點符號
+|`AddWordLevelTimestamps`|指定是否應將 word 層級時間戳記新增至輸出
+||`True`-啟用 word 層級時間戳記<br>**`False`** -預設值。 停用 word 層級時間戳記
+|`AddSentiment`|指定是否將情感分析加入至語句
+||`True`-啟用每個語句的情感<br>**`False`** -預設值。 停用情感
+|`AddDiarization`|指定是否執行 diarization 分析。如果 `true`，則輸入應為 mono 聲道音訊，其中最多可包含兩個語音。 `AddWordLevelTimestamps` 必須設定為 `true`
+||`True`-啟用 diarization<br>**`False`** -預設值。 停用 diarization
+|`TranscriptionResultsContainerUrl`|選擇性的 SAS 權杖到 Azure 中可寫入的容器。 結果會儲存在此容器中
 
 ### <a name="storage"></a>儲存體
 
 批次轉譯支援[Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)來讀取音訊，並將轉譯寫入儲存體。
 
+## <a name="the-batch-transcription-result"></a>批次轉譯結果
+
+若為 mono 輸入音訊，則會建立一個轉譯結果檔案。 若為身歷聲輸入音訊，則會建立兩個轉譯結果檔案。 每個都有此結構：
+
+```json
+{
+  "AudioFileResults":[ 
+    {
+      "AudioFileName": "Channel.0.wav | Channel.1.wav"      'maximum of 2 channels supported'
+      "AudioFileUrl": null                                  'always null'
+      "AudioLengthInSeconds": number                        'Real number. Two decimal places'
+      "CombinedResults": [
+        {
+          "ChannelNumber": null                             'always null'
+          "Lexical": string
+          "ITN": string
+          "MaskedITN": string
+          "Display": string
+        }
+      ]
+      SegmentResults:[                                     'for each individual segment'
+        {
+          "RecognitionStatus": Success | Failure
+          "ChannelNumber": null
+          "SpeakerId": null | "1 | 2"                     'null if no diarization
+                                                            or stereo input file, the
+                                                            speakerId as a string if
+                                                            diarization requested for
+                                                            mono audio file'
+          "Offset": number                                'time in milliseconds'
+          "Duration": number                              'time in milliseconds'
+          "OffsetInSeconds" : number                      'Real number. Two decimal places'
+          "DurationInSeconds" : number                    'Real number. Two decimal places'
+          "NBest": [
+            {
+              "Confidence": number                        'between 0 and 1'
+              "Lexical": string
+              "ITN": string
+              "MaskedITN": string
+              "Display": string
+              "Sentiment":
+                {                                          'this is omitted if sentiment is
+                                                            not requested'
+                  "Negative": number                        'between 0 and 1'
+                  "Neutral": number                         'between 0 and 1'
+                  "Positive": number                        'between 0 and 1'
+                }
+              "Words": [
+                {
+                  "Word": string
+                  "Offset": number                         'time in milliseconds'
+                  "Duration": number                       'time in milliseconds'
+                  "OffsetInSeconds": number                'Real number. Two decimal places'
+                  "DurationInSeconds": number              'Real number. Two decimal places'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+結果包含下列表單：
+
+|表單|內容|
+|-|-|
+|`Lexical`|已辨識的實際文字。
+|`ITN`|已辨識文字的反向文字正規化形式。 會套用縮寫（"醫生 smith" 至 "dr smith"）、電話號碼和其他轉換。
+|`MaskedITN`|套用不雅內容遮罩的 ITN 表單。
+|`Display`|已辨識文字的顯示形式。 這包括新增的標點符號和大小寫。
+
 ## <a name="speaker-separation-diarization"></a>說話者分隔（Diarization）
 
-Diarization 是在一段音訊中分隔喇叭的程式。 我們的批次管線支援 Diarization，而且能夠在 mono 通道錄製上辨識兩個喇叭。
+Diarization 是在一段音訊中分隔喇叭的程式。 我們的批次管線支援 diarization，而且能夠在 mono 通道錄製上辨識兩個喇叭。 這項功能不適用於身歷聲記錄。
 
-若要要求針對 diarization 處理您的音訊轉譯要求，您只需要在 HTTP 要求中新增相關的參數，如下所示。
+所有轉譯輸出都包含 `SpeakerId`。 如果未使用 diarization，它會在 JSON 輸出中顯示 `"SpeakerId": null`。 針對 diarization，我們支援兩種語音，因此會將喇叭識別為 `"1"` 或 `"2"`。
+
+若要要求 diarization，您只需要在 HTTP 要求中新增相關的參數，如下所示。
 
  ```json
 {
@@ -116,28 +201,19 @@ Diarization 是在一段音訊中分隔喇叭的程式。 我們的批次管線�
 }
 ```
 
-Word 層級時間戳記也必須「開啟」，因為上述要求中的參數表示。 
+字層級時間戳記也必須「開啟」，因為上述要求中的參數表示。
 
-對應的音訊將包含數位所識別的喇叭（目前只支援兩個語音，因此喇叭會被視為「喇叭1」和「喇叭2」），後面接著轉譯輸出。
+## <a name="sentiment-analysis"></a>情緒分析
 
-另請注意，Diarization 無法用於身歷聲記錄。 此外，所有 JSON 輸出都會包含喇叭標記。 如果未使用 diarization，它會在 JSON 輸出中顯示「喇叭： Null」。
+情感功能會估計以音訊表示的情感。 情感是以介於0和1之間的值表示，用於 `Negative`、`Neutral`和 `Positive` 情感。 例如，情感分析可用於撥接中心案例中：
 
-> [!NOTE]
-> Diarization 適用于所有區域和所有地區設定！
+- 取得客戶滿意度的深入解析
+- 取得代理程式效能的深入解析（接受呼叫的小組）
+- 尋找呼叫採取負面方向的確切時間點
+- 將否定的呼叫轉換為正方向時，會發生什麼狀況
+- 識別客戶喜歡什麼，以及他們對產品或服務不喜歡什麼
 
-## <a name="sentiment"></a>人氣
-
-情感是 Batch 轉譯 API 中的一項新功能，而且是撥接中心網域中的重要功能。 客戶可以將 `AddSentiment` 參數用於其要求
-
-1.  取得客戶滿意度的見解
-2.  取得代理程式效能的深入解析（接受呼叫的小組）
-3.  找出呼叫使用負方向的確切時間點
-4.  找出否定的正值呼叫時，會發生什麼狀況
-5.  識別客戶喜歡什麼，以及他們對產品或服務不喜歡什麼
-
-情感是每個音訊區段的計分，其中音訊區段定義為語句（位移）開始與位元組資料流程結尾的偵測無聲之間的時間間隔。 該區段內的整個文字會用來計算情感。 我們不會針對整個呼叫或每個通道的整個語音計算任何匯總情感值。 這些匯總會留給網域擁有者進一步套用。
-
-情感會套用在詞法形式上。
+情感是根據詞彙表單，依據每個音訊區段進行評分。 該音訊區段內的整個文字會用來計算情感。 未計算整個轉譯的匯總情感。
 
 JSON 輸出範例如下所示：
 
@@ -174,7 +250,10 @@ JSON 輸出範例如下所示：
   ]
 }
 ```
-此功能會使用情感模型，其目前為搶鮮版（Beta）。
+
+## <a name="best-practices"></a>最佳做法
+
+轉譯服務可以處理大量的已提交轉譯。 您可以透過[轉譯方法](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions)上的 `GET` 來查詢轉譯的狀態。 藉由指定 `take` 參數（數百個），讓資訊傳回合理的大小。 一旦您取得結果之後，請定期從服務[刪除轉譯](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription)。 這可確保快速回復轉譯管理呼叫。
 
 ## <a name="sample-code"></a>範例程式碼
 
@@ -201,9 +280,6 @@ JSON 輸出範例如下所示：
 
 您可以在 [GitHub 範例存放庫](https://aka.ms/csspeech/samples)中的 `samples/batch` 目錄找到範例。
 
-> [!NOTE]
-> 批次轉譯作業會盡可能排程，作業何時會變更為執行狀態則無法預估。 只要處於執行中狀態，實際轉譯的即時處理速度會比音訊快。
-
 ## <a name="next-steps"></a>後續步驟
 
-* [取得語音試用訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
+* [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)

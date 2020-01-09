@@ -1,24 +1,15 @@
 ---
-title: Azure Service Fabric 安裝反向 Proxy | Microsoft Docs
-description: 了解如何安裝及設定 Service Fabric 的反向 Proxy。
-services: service-fabric
-documentationcenter: na
-author: jimacoMS2
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
+title: Azure Service Fabric 設定反向 proxy
+description: 瞭解如何安裝和設定 Azure Service Fabric 應用程式的反向 proxy 服務。
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: a80eb1ba341a1b15da7ad59203a1d25284d03fd0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 131440036896d323cbf821d7a220328456e1db36
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933902"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645441"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>安裝及設定 Azure Service Fabric 中的反向 Proxy
 反向 Proxy 是選用的 Azure Service Fabric 服務，可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 HTTP 端點的服務通訊。 如需詳細資訊，請參閱 [Azure Service Fabric 中的反向 Proxy](service-fabric-reverseproxy.md)。 這篇文章會示範如何在叢集中安裝及設定反向 Proxy。 
@@ -50,7 +41,7 @@ Azure 入口網站提供選項，以在您建立新的 Service Fabric 叢集時�
 
 擁有 Resource Manager 範本後，您可以使用下列步驟來啟用反向 Proxy：
 
-1. 在範本的 [參數區段](../azure-resource-manager/resource-group-authoring-templates.md) 定義反向 Proxy 的連接埠。
+1. 在範本的 [參數區段](../azure-resource-manager/templates/template-syntax.md) 定義反向 Proxy 的連接埠。
 
     ```json
     "SFReverseProxyPort": {
@@ -61,7 +52,7 @@ Azure 入口網站提供選項，以在您建立新的 Service Fabric 叢集時�
         }
     },
     ```
-2. 在 [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) 的[資源類型區段](../azure-resource-manager/resource-group-authoring-templates.md)中為每個節點類型物件指定連接埠。
+2. 在 [ [**ServiceFabric/** ](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters)叢集[資源類型] 區段](../azure-resource-manager/templates/template-syntax.md)中，為每個 nodetype 物件指定埠。
 
     連接埠是以參數名稱 reverseProxyEndpointPort 識別。
 
@@ -83,7 +74,7 @@ Azure 入口網站提供選項，以在您建立新的 Service Fabric 叢集時�
         ...
     }
     ```
-3. 若要在連接埠上設定反向 Proxy 的 SSL 憑證，請將憑證新增至 **Microsoft.ServiceFabric/clusters** 的[資源類型區段](../resource-group-authoring-templates.md)中的 ***reverseProxyCertificate*** 屬性。
+3. 若要在埠上設定反向 proxy 的 SSL 憑證，請將憑證新增至**ServiceFabric/** 叢集[資源類型區段](../resource-group-authoring-templates.md)中的***reverseProxyCertificate***屬性。
 
     ```json
     {
@@ -107,7 +98,7 @@ Azure 入口網站提供選項，以在您建立新的 Service Fabric 叢集時�
     ```
 
 ### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>支援不同於叢集憑證的反向 Proxy 憑證
- 如果反向 Proxy 憑證不同於保護叢集的憑證，則先前指定的憑證應該安裝在虛擬機器上，並新增至存取控制清單 (ACL)，讓 Service Fabric 可以存取它。 這可以在 [**Microsoft.Compute/virtualMachineScaleSets**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) 的[資源類型區段](../resource-group-authoring-templates.md)來完成。 若要進行安裝，請將憑證新增至 osProfile。 範本的延伸模組可以更新 ACL 中的憑證。
+ 如果反向 Proxy 憑證不同於保護叢集的憑證，則先前指定的憑證應該安裝在虛擬機器上，並新增至存取控制清單 (ACL)，讓 Service Fabric 可以存取它。 這可以在 [ [**Microsoft. Compute/virtualMachineScaleSets**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) [資源類型] 區段](../resource-group-authoring-templates.md)中完成。 若要進行安裝，請將憑證新增至 osProfile。 範本的延伸模組可以更新 ACL 中的憑證。
 
   ```json
   {
@@ -261,7 +252,7 @@ Azure 入口網站提供選項，以在您建立新的 Service Fabric 叢集時�
 
 ### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>透過 Resource Manager 範本公開反向 Proxy
 
-下列 JSON 參考[透過 Azure Resource Manager 範本啟用反向 Proxy](#enable-reverse-proxy-via-azure-resource-manager-templates) 中使用的相同範本。 如需有關如何建立 Resource Manager 範本或匯出現有叢集之範本的詳細資訊，請參閱文件的該小節。  對 [**Microsoft.Network/loadBalancers**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) [資源類型區段](../resource-group-authoring-templates.md) 進行了變更。
+下列 JSON 參考[透過 Azure Resource Manager 範本啟用反向 Proxy](#enable-reverse-proxy-via-azure-resource-manager-templates) 中使用的相同範本。 如需有關如何建立 Resource Manager 範本或匯出現有叢集之範本的詳細資訊，請參閱文件的該小節。  對 [ [**loadBalancers**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) ][資源類型區段](../resource-group-authoring-templates.md)進行的變更。
 
     ```json
     {

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
 ms.reviewer: bensack
-ms.openlocfilehash: d76ea317271ae0e8eb0d54fcfee5dc005d836fc1
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 156999c6b6d8451516ac1c0f095e1a864420d0b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984950"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354821"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen2-by-using-power-bi"></a>使用 Power BI 分析 Azure Data Lake Storage Gen2 中的資料
 
@@ -26,8 +26,9 @@ ms.locfileid: "70984950"
 > [!div class="checklist"]
 > * Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 > * 具有階層命名空間的儲存體帳戶。 請遵循[這些](data-lake-storage-quickstart-create-account.md)指示來建立一個。
-> 本文假設您已建立名為`myadlsg2`的帳戶。
-> * 名為`Drivers.txt`的範例資料檔案位於您的儲存體帳戶中。
+> 本文假設您已建立名為 `myadlsg2`的帳戶。
+> * 系統會為您授與下列其中一個儲存體帳戶角色： **Blob 資料讀取器**、 **blob 資料參與者**或**blob 資料擁有**者。
+> * 名為 `Drivers.txt` 的範例資料檔案位於您的儲存體帳戶中。
 > 您可以從[Azure Data Lake Git 存放庫](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)下載此範例，然後將該檔案上傳至您的儲存體帳戶。
 > * **Power BI Desktop**。 您可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=45331)下載此項目。 
 
@@ -39,7 +40,7 @@ ms.locfileid: "70984950"
 
     ![[取得資料] 頁面](media/data-lake-storage-use-power-bi/get-data-page.png)
 
-4. 在 [ **Azure Data Lake Storage Gen2** ] 對話方塊中，您可以使用容器端點格式，提供您 Azure Data Lake Storage Gen2 帳戶、filesystem 或子資料夾的 URL。 Data Lake Storage Gen2 的 url 具有下列模式`https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` ，然後按一下 **[確定]** 。
+4. 在 [ **Azure Data Lake Storage Gen2** ] 對話方塊中，您可以使用容器端點格式，提供您 Azure Data Lake Storage Gen2 帳戶、filesystem 或子資料夾的 URL。 Data Lake Storage Gen2 的 Url 具有下列模式 `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` 然後按一下 **[確定]** 。
 
     ![URL](media/data-lake-storage-use-power-bi/adls-url.png)
 
@@ -71,7 +72,7 @@ ms.locfileid: "70984950"
 
 10. 在 [**查詢編輯器**] 的 [**內容**] 資料行下，按一下 [**二進位**]。 檔案將會自動偵測為 CSV，您應該會看到如下所示的輸出。 您的資料現在為可用來建立視覺效果的格式。
 
-    ![Output](media/data-lake-storage-use-power-bi/binary.png)
+    ![輸出](media/data-lake-storage-use-power-bi/binary.png)
 
 11. 從功能區的 [**首頁**] 索引標籤中，按一下 [**關閉**並套用]，然後按一下 [**關閉** **並套用** **]。**
 
