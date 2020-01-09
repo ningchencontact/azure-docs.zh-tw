@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: b96586c801acfc0419b80fa725a468dcb896f79e
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 327a7689e0297002f1ce3f48d2bd367104277680
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70197112"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769690"
 ---
 1. 在 [方案總管]  中，以滑鼠右鍵按一下專案並選取 [發佈]  。
 
@@ -21,7 +21,7 @@ ms.locfileid: "70197112"
 
     ![挑選發行目標](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
-    | 選項      | 說明                                |
+    | 選項      | 描述                                |
     | ------------ |  -------------------------------------------------- |
     | **Azure Functions 取用方案** |   當您將專案發佈至在[取用方案](../articles/azure-functions/functions-scale.md#consumption-plan)中執行的函式應用程式時，您只需支付您的函式應用程式執行費用。 其他主控方案會產生較高的成本。 若要深入了解，請參閱 [Azure Functions 規模調整和主控](../articles/azure-functions/functions-scale.md)。 | 
     | **建立新項目** | 在 Azure 中會建立具有相關資源的新函式應用程式。 當您選擇 [選取現有的]  ，Azure 中現有函式應用程式的所有檔案都會以本機專案中的檔案加以覆寫。 請在將更新重新發佈至現有函式應用程式時，才使用此選項。 |
@@ -30,11 +30,11 @@ ms.locfileid: "70197112"
 
 3. 選取 [發佈]  。 如果您尚未從 Visual Studio 登入您的 Azure 帳戶，請選取 [登入]  。 您也可以建立免費 Azure 帳戶。
 
-4. 在 [App Service:  新建] 對話方塊中，使用影像下方表格中指定的 [主控]  設定：
+4. 在 **Azure App Service 中：** 新建 對話方塊中，使用影像下方表格中指定的 主控  設定：
 
     ![建立 App Service 對話方塊](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
-    | 設定      | 建議的值  | 說明                                |
+    | 設定      | 建議的值  | 描述                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **名稱** | 全域唯一的名稱 | 用以唯一識別新函式應用程式的名稱。 有效字元是 `a-z`、`0-9` 和 `-`。 |
     | **訂用帳戶** | 選擇您的訂用帳戶 | 要使用的 Azure 訂用帳戶。 |

@@ -29,84 +29,98 @@
       href: data-flow-create.md
 - name: 教學課程
   items:
-    - name: 複製雲端中的資料
+    - name: 複製和內嵌資料
       items:
-        - name: 複製資料工具
-          href: tutorial-copy-data-tool.md
-        - name: 使用者介面 (UI)
-          href: tutorial-copy-data-portal.md
-        - name: .NET
-          href: tutorial-copy-data-dot-net.md
-    - name: 將內部部署資料複製到雲端
-      items:
-        - name: 複製資料工具
-          href: tutorial-hybrid-copy-data-tool.md
-        - name: 使用者介面 (UI)
-          href: tutorial-hybrid-copy-portal.md
-        - name: Azure PowerShell
-          href: tutorial-hybrid-copy-powershell.md
-    - name: 複製大量資料
-      items:
-        - name: 使用者介面 (UI)
-          href: tutorial-bulk-copy-portal.md
-        - name: Azure PowerShell
-          href: tutorial-bulk-copy.md
-    - name: 以累加方式複製資料
-      href: tutorial-incremental-copy-overview.md
-      items:
-        - name: 1 - 從資料表複製
-          items:
-            - name: 使用者介面 (UI)
-              href: tutorial-incremental-copy-portal.md
-            - name: Azure PowerShell
-              href: tutorial-incremental-copy-powershell.md
-        - name: 2 - 從多個資料表複製
-          items:
-            - name: 使用者介面 (UI)
-              href: tutorial-incremental-copy-multiple-tables-portal.md
-            - name: Azure PowerShell
-              href: tutorial-incremental-copy-multiple-tables-powershell.md
-        - name: 3 - 使用變更追蹤功能
-          items:
-            - name: 使用者介面 (UI)
-              href: tutorial-incremental-copy-change-tracking-feature-portal.md
-            - name: Azure PowerShell
-              href: tutorial-incremental-copy-change-tracking-feature-powershell.md
-        - name: 4 - 依 lastmodifieddate 複製新檔案
+        - name: 從 Azure Blob 儲存體到 Azure SQL Database
           items:
             - name: 複製資料工具
+              href: tutorial-copy-data-tool.md
+            - name: 使用者介面 (UI)
+              href: tutorial-copy-data-portal.md
+            - name: .NET
+              href: tutorial-copy-data-dot-net.md
+        - name: 從內部部署 SQL Server 資料庫到 Azure Blob 儲存體
+          items:
+            - name: 複製資料工具
+              href: tutorial-hybrid-copy-data-tool.md
+            - name: 使用者介面 (UI)
+              href: tutorial-hybrid-copy-portal.md
+            - name: Azure PowerShell
+              href: tutorial-hybrid-copy-powershell.md
+        - name: 從 Amazon Web Services S3 到 Azure Data Lake Storage
+          items:
+            - name: Azure Data Lake Storage Gen2
+              href: load-azure-data-lake-storage-gen2.md
+            - name: Azure Data Lake Storage Gen1
+              href: load-azure-data-lake-store.md
+        - name: 從 Azure Data Lake Storage Gen1 到 Azure Data Lake Storage Gen2
+          href: load-azure-data-lake-storage-gen2-from-gen1.md
+        - name: 從 Azure SQL Database 到 Azure Synapse Analytics
+          href: load-azure-sql-data-warehouse.md
+        - name: 從 SAP BW 到 Azure Data Lake Storage Gen2
+          href: load-sap-bw-data.md
+        - name: 從 Office 365 到 Azure Blob 儲存體
+          href: load-office-365-data.md
+        - name: 大量的多個資料表
+          items:
+            - name: 使用者介面 (UI)
+              href: tutorial-bulk-copy-portal.md
+            - name: Azure PowerShell
+              href: tutorial-bulk-copy.md
+        - name: 以累加方式載入資料
+          href: tutorial-incremental-copy-overview.md
+          items:
+            - name: 從一個 Azure SQL Database 資料表
+              items:
+                - name: 使用者介面 (UI)
+                  href: tutorial-incremental-copy-portal.md
+                - name: Azure PowerShell
+                  href: tutorial-incremental-copy-powershell.md
+            - name: 從多個內部部署 SQL Server 資料表
+              items:
+                - name: 使用者介面 (UI)
+                  href: tutorial-incremental-copy-multiple-tables-portal.md
+                - name: Azure PowerShell
+                  href: tutorial-incremental-copy-multiple-tables-powershell.md
+            - name: 在 SQL Server 中使用變更追蹤資訊
+              items:
+                - name: 使用者介面 (UI)
+                  href: tutorial-incremental-copy-change-tracking-feature-portal.md
+                - name: Azure PowerShell
+                  href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+            - name: 依上次修改日期新增檔案
               href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
-        - name: 5 - 依時間分割的檔案名稱複製新檔案
-          items:
-            - name: 複製資料工具
+            - name: 依時間分割的檔案名稱新增檔案
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-    - name: 使用資料流程轉換和準備資料
+    - name: 轉換資料
       items:
         - name: 使用對應資料流程來轉換資料
-          href: tutorial-data-flow.md
-        - name: 對應資料流程影片教學課程
-          href: data-flow-tutorials.md
+          items:
+            - name: 使用對應資料流程來轉換資料
+              href: tutorial-data-flow.md
+            - name: 對應資料流程影片教學課程
+              href: data-flow-tutorials.md
         - name: 使用整頓資料流程來準備資料
           href: wrangling-data-flow-tutorial.md
-    - name: 外部轉換
-      items:
-        - name: HDInsight Spark
+        - name: 使用外部服務
           items:
-            - name: 使用者介面 (UI)
-              href: tutorial-transform-data-spark-portal.md
-            - name: Azure PowerShell
-              href: tutorial-transform-data-spark-powershell.md
-        - name: Databricks Notebook
-          items:
-            - name: 使用者介面 (UI)
-              href: transform-data-using-databricks-notebook.md
-    - name: 虛擬網路中的 Hive 轉換
-      items:
-        - name: 使用者介面 (UI)
-          href: tutorial-transform-data-hive-virtual-network-portal.md
-        - name: Azure PowerShell
-          href: tutorial-transform-data-hive-virtual-network.md
-    - name: 新增分支和鏈結
+            - name: HDInsight Spark
+              items:
+                - name: 使用者介面 (UI)
+                  href: tutorial-transform-data-spark-portal.md
+                - name: Azure PowerShell
+                  href: tutorial-transform-data-spark-powershell.md
+            - name: Databricks Notebook
+              items:
+                - name: 使用者介面 (UI)
+                  href: transform-data-using-databricks-notebook.md
+            - name: 虛擬網路中的 Hive 轉換
+              items:
+                - name: 使用者介面 (UI)
+                  href: tutorial-transform-data-hive-virtual-network-portal.md
+                - name: Azure PowerShell
+                  href: tutorial-transform-data-hive-virtual-network.md
+    - name: 控制流程
       items:
         - name: 使用者介面 (UI)
           href: tutorial-control-flow-portal.md
@@ -118,19 +132,6 @@
           href: tutorial-deploy-ssis-packages-azure.md
         - name: Azure PowerShell
           href: tutorial-deploy-ssis-packages-azure-powershell.md
-    - name: 載入 Data Lake Storage Gen2
-      href: load-azure-data-lake-storage-gen2.md
-      items:
-        - name: 從 Data Lake Storage Gen1 複製
-          href: load-azure-data-lake-storage-gen2-from-gen1.md
-    - name: 載入 Synapse Analytics (先前稱為 SQL 資料倉儲)
-      href: load-azure-sql-data-warehouse.md
-    - name: 載入 Data Lake Storage Gen1
-      href: load-azure-data-lake-store.md
-    - name: 載入 SAP BW 資料
-      href: load-sap-bw-data.md
-    - name: 載入 Office 365 資料
-      href: load-office-365-data.md
 - name: 範例
   items:
     - name: 程式碼範例
@@ -518,12 +519,14 @@
           href: control-flow-expression-language-functions.md
         - name: 系統變數
           href: control-flow-system-variables.md
-        - name: 資料流程參數
+        - name: 將已對應的資料流參數化
           href: parameters-data-flow.md
     - name: 安全性
       items:
         - name: 資料移動安全性考量
           href: data-movement-security-considerations.md
+        - name: Azure Integration Runtime IP 位址
+          href: azure-integration-runtime-ip-addresses.md
         - name: 在 Azure Key Vault 中儲存認證
           href: store-credentials-in-key-vault.md
         - name: 在管線活動中使用 Azure Key Vault 祕密
@@ -618,18 +621,18 @@
           href: solution-template-databricks-notebook.md
     - name: 疑難排解指南
       items:
-        - name: 活動疑難排解
+        - name: 活動
           href: data-factory-troubleshoot-guide.md
-        - name: 連接器疑難排解
+        - name: 連接器
           href: connector-troubleshoot-guide.md
-        - name: 針對 Azure-SSIS IR 管理進行疑難排解
-          href: ssis-integration-runtime-management-troubleshoot.md
-        - name: 自我裝載 IR 的疑難排解
-          href: self-hosted-integration-runtime-troubleshoot-guide.md
-        - name: 針對 Azure-SSIS IR 中的封裝執行問題進行疑難排解
-          href: ssis-integration-runtime-ssis-activity-faq.md
-        - name: 針對資料流程進行疑難排解
+        - name: 資料流程
           href: data-flow-troubleshoot-guide.md
+        - name: 自我裝載整合執行階段
+          href: self-hosted-integration-runtime-troubleshoot-guide.md
+        - name: Azure-SSIS 整合執行階段
+          href: ssis-integration-runtime-management-troubleshoot.md
+        - name: Azure-SSIS IR 中的封裝執行
+          href: ssis-integration-runtime-ssis-activity-faq.md
 - name: 案例
   items:
     - name: 資料湖和 EDW 的資料移轉

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b65cf26bcea628f784eb086d1b9c88febade25f6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 0101573675d96694ee94c45288342dad8183e7fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828889"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772973"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Azure 虛擬網路閘道 (VPN 閘道) 與 Azure 虛擬 WAN VPN 閘道之間有何差異？
 
@@ -22,6 +22,9 @@ ms.locfileid: "74828889"
 ### <a name="how-is-virtual-wan-different-from-an-azure-virtual-network-gateway"></a>虛擬 WAN 與 Azure 虛擬網路閘道有何不同？
 
 虛擬網路閘道 VPN 限定為 30 個通道。 對於連線，您應將虛擬 WAN 用於大規模的 VPN。 每個區域最多可連線 1000 個分支連線 (虛擬中樞)，每個中樞有 20 Gbps 的彙總。 連線是從內部部署 VPN 裝置到虛擬中樞的主動-主動通道。 您可以在每個區域都有一個中樞，這表示您可以跨中樞連線到超過 1,000 個分支。
+
+### <a name="what-is-a-virtual-wan-gateway-scale-unit"></a>什麼是虛擬 WAN 閘道縮放單位
+縮放單位是定義來挑選虛擬中樞內閘道匯總輸送量的單位。 1 個 VPN 縮放單位等於 500 Mbps。 1 個 ExpressRoute 縮放單位等於 2 Gbps。 範例：10 個 VPN 縮放單位則可能會有 500 Mbps 乘以 10 等於 5 Gbps
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported"></a>啟動時支援哪些裝置提供者 (虛擬 WAN 合作夥伴)？
 
@@ -33,7 +36,7 @@ ms.locfileid: "74828889"
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>我是否必須使用偏好的合作夥伴裝置？
 
-沒有。 您可以使用任何支援 VPN 且符合 IKEv2/IKEv1 IPsec 支援需求的裝置。
+否。 您可以使用任何支援 VPN 且符合 IKEv2/IKEv1 IPsec 支援需求的裝置。
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>虛擬 WAN 合作夥伴如何將與 Azure 虛擬 WAN 的連線自動化？
 
@@ -41,7 +44,7 @@ ms.locfileid: "74828889"
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>我是否必須使用偏好的合作夥伴裝置？
 
-沒有。 您可以使用任何支援 VPN 且符合 IKEv2/IKEv1 IPsec 支援需求的裝置。
+否。 您可以使用任何支援 VPN 且符合 IKEv2/IKEv1 IPsec 支援需求的裝置。
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>虛擬 WAN 如何支援 SD-WAN 裝置？
 
@@ -73,7 +76,7 @@ ms.locfileid: "74828889"
 
 ### <a name="can-a-spoke-vnet-have-a-virtual-network-gateway"></a>輪幅 VNet 是否可以有虛擬網路閘道？
 
-沒有。 如果輪幅 VNet 連線到虛擬中樞，則不能有虛擬網路閘道。
+否。 如果輪幅 VNet 連線到虛擬中樞，則不能有虛擬網路閘道。
 
 ### <a name="is-there-support-for-bgp"></a>是否支援 BGP？
 
@@ -111,9 +114,11 @@ ms.locfileid: "74828889"
 
 您可以在與虛擬 WAN 不同的區域中連線 VNet。
 
-### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>連線到虛擬中樞的輪輻 VNet 之間，是否可以彼此通訊？
+### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other-v2v-transit"></a>連線到虛擬中樞的輪輻 VNet 之間，是否可以彼此通訊 (V2V 傳輸)？
 
-是。 標準虛擬 WAN 支援透過 Vnet 所連接的虛擬 WAN 中樞進行 Vnet 對 Vnet 的傳輸連線。 在虛擬 WAN 術語中，我們將這些路徑稱為「本機虛擬 WAN VNet 傳輸」(若 Vnet 連線至單一區域內的虛擬 WAN 中樞)，以及「全域虛擬 WAN VNet 傳輸」(若透過多個虛擬 WAN 中樞跨兩個或更多區域連接 Vnet)。 在公開預覽期間，VNet 傳輸最多可支援 3 Gbps 的輸送量。 在全域傳輸正式推出時，將會擴充輸送量。   
+是。 標準虛擬 WAN 支援透過 Vnet 所連接的虛擬 WAN 中樞進行 Vnet 對 Vnet 的傳輸連線。 在虛擬 WAN 術語中，我們將這些路徑稱為「本機虛擬 WAN VNet 傳輸」(若 Vnet 連線至單一區域內的虛擬 WAN 中樞)，以及「全域虛擬 WAN VNet 傳輸」(若透過多個虛擬 WAN 中樞跨兩個或更多區域連接 Vnet)。 在公開預覽期間，VNet 傳輸最多可支援 3 Gbps 的輸送量。 在全域傳輸正式推出時，將會擴充輸送量。
+
+注意：目前的 V2V 傳輸預覽需要將 VPN GW 部署在虛擬中樞，以觸發要啟動的路由元素。 此 VPN GW 不會用於 V2V 傳輸路徑。 這是已知的限制，而且會在 V2V GA 時移除。 您可以在中樞完全啟動後刪除其中的 VPN 閘道，因為 V2V 傳輸功能不需要它。 
 
 在某些情況下，除了本機或全域虛擬 WAN VNet 傳輸外，輪輻 Vnet 也可以使用[虛擬網路對等互連](../articles/virtual-network/virtual-network-peering-overview.md)直接相互對等互連。 在此情況下，Vnet 對等互連的優先順序會高於透過虛擬 WAN 中樞的傳輸連線。 
 

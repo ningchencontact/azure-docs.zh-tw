@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 17b7626f79d7d356e3e8f3440e4a6526f2df776d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: a27d44a7684b4ad3d39d7fba50ca52e08e932971
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68593815"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769758"
 ---
-Visual Studio 中的 Azure Functions 專案範本會建立可發行至 Azure 中函式應用程式的專案。 您可以使用函式應用程式將多個函式群組為邏輯單位，以便您管理、部署和共用資源。
+Visual Studio 中的 Azure Functions 專案範本會建立可發行至 Azure 中函式應用程式的專案。 您可以使用函式應用程式將多個函式群組為邏輯單位，以方便管理、部署、調整和共用資源。
 
 1. 在 Visual Studio 中，於 [檔案]  功能表上選取 [新增]   > [專案]  。
 
@@ -25,15 +25,15 @@ Visual Studio 中的 Azure Functions 專案範本會建立可發行至 Azure 中
 
 1. 在 [建立新的 Azure Functions 應用程式]  中，使用下列選項：
 
-    + **Azure Functions v2 (.NET Core)** 1
+    + **Azure Functions v2 (.NET Core)**
     + **HTTP 觸發程序**
     + **儲存體帳戶**：**儲存體模擬器**
     + **授權層級** **匿名** 
 
-    | 選項      | 建議的值  | 說明                      |
+    | 選項      | 建議的值  | 描述                      |
     | ------------ |  ------- |----------------------------------------- |
-    | Functions 執行階段 | **Azure Functions 2.x <br />(.NET Core)** | 此設定會建立使用 Azure Functions 2.x 版執行階段 (支援 .NET Core) 的函式專案。 Azure Functions 1.x 支援 .NET Framework。 如需詳細資訊，請參閱[設定 Azure Functions 執行階段目標版本](../articles/azure-functions/functions-versions.md)。   |
-    | 函式範本 | **HTTP 觸發程序** | 此設定會建立 HTTP 要求所觸發的函式。 |
+    | **Functions 執行階段** | **Azure Functions 2.x <br />(.NET Core)** | 此設定會建立使用 Azure Functions 2.x 版執行階段 (支援 .NET Core) 的函式專案。 Azure Functions 1.x 支援 .NET Framework。 如需詳細資訊，請參閱[設定 Azure Functions 執行階段目標版本](../articles/azure-functions/functions-versions.md)。   |
+    | **函式範本** | **HTTP 觸發程序** | 此設定會建立 HTTP 要求所觸發的函式。 |
     | **儲存體帳戶**  | **儲存體模擬器** | HTTP 觸發程序不會使用 Azure 儲存體帳戶連線。 其他所有觸發程序類型都需要有效的儲存體帳戶連接字串。 因為 Functions 需要儲存體帳戶，所以當您將專案發佈至 Azure 時，就會指派或建立一個。 |
     | **授權層級** | **匿名** | 建立的函式可以由任何用戶端觸發，而不需提供金鑰。 此授權設定可以讓測試新函式變得簡單。 如需金鑰和授權的詳細資訊，請參閱 [HTTP 和 Webhook 繫結](../articles/azure-functions/functions-bindings-http-webhook.md)中的[授權金鑰](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys)。 |
     

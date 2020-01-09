@@ -93,7 +93,7 @@
       href: knowledge-store-concept-intro.md
     - name: 投影
       href: knowledge-store-projection-overview.md
-    - name: 累加式索引編製
+    - name: 累加擴充
       href: cognitive-search-incremental-indexing-conceptual.md
 - name: 操作指南
   items:
@@ -237,9 +237,9 @@
               href: cognitive-search-concept-annotations-syntax.md
             - name: 對應至索引欄位
               href: cognitive-search-output-field-mapping.md
-            - name: 從映像處理及擷取資訊
+            - name: 從映像擷取資訊
               href: cognitive-search-concept-image-scenarios.md
-            - name: 設定累加式索引編製
+            - name: 快取 (累加) 擴充
               href: search-howto-incremental-index.md
         - name: 自訂技能
           items:
@@ -330,7 +330,11 @@
     - name: REST (管理)
       href: /rest/api/searchmanagement
     - name: REST (預覽)
-      href: search-api-preview.md
+      items:
+        - name: API 版本 2019-05-06-Preview
+          href: search-api-preview.md
+        - name: ResetSkills API
+          href: preview-api-resetskills.md
     - name: Resource Manager 範本
       href: /azure/templates/microsoft.search/searchservices
     - name: OData 語言參考
