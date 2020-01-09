@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 066ac1080f7ea378efe1665e7ebc70e57118191c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422951"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459099"
 ---
 # <a name="azure-relay-faqs"></a>Azure 轉送常見問題集
 
@@ -42,7 +42,7 @@ ms.locfileid: "68422951"
 本節提供轉送價格結構的一些常見問題解答。 如需一般的 Azure 定價資訊，也可以參閱 [Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。 如需轉送價格的完整資訊，請參閱 [服務匯流排價格詳細資料][Pricing overview]。
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>混合式連接和 WCF 轉送如何收費？
-如需轉送價格的完整資訊, 請參閱服務匯流排定價詳細資料頁面上的混合式連線[和 WCF][Pricing overview]轉送資料表。 除了頁面上註明的價格，您還需支付您的應用程式佈建所在資料中心外部的輸出相關資料傳輸費用。
+如需轉送價格的完整資訊，請參閱服務匯流排定價詳細資料頁面上的混合式連線[和 WCF][Pricing overview]轉送資料表。 除了頁面上註明的價格，您還需支付您的應用程式佈建所在資料中心外部的輸出相關資料傳輸費用。
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>混合式連接如何計費？
 以下是混合式連線計費案例的三個範例︰
@@ -71,7 +71,7 @@ ms.locfileid: "68422951"
 在某些情況下，單一轉送可能有多個已連線的接聽程式。 至少有一個轉送接聽程式連線到轉送時，即會被視為開放式轉送。 將接聽程式新增至開放式轉送會導致額外的轉送時數。 連線到轉送的轉送傳送者 (叫用或傳送訊息至轉送的用戶端) 數目不會影響轉送時數的計算。
 
 ### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>如何針對 WCF 轉送計算訊息計量？
-(**這只適用於 WCF 轉送。訊息並不是混合式連線的成本。** )
+（**這只適用于 WCF 轉送。訊息不是混合**式連線的成本。）
 
 一般而言，對代理實體 (佇列、主題和訂用帳戶) 使用先前所述相同方法的轉送會計算計費訊息。 但是，請注意以下幾個差異。
 
@@ -80,9 +80,9 @@ ms.locfileid: "68422951"
 使用 **netTCPRelay** WCF 繫結開啟的轉送不會將訊息視為個別的訊息，但是會視為通過系統的資料流。 當您使用此繫結時，只有傳送者和接聽程式能夠看見傳送和接收之個別訊息的框架。 對於使用 **netTCPRelay** 繫結的轉送，所有資料都會被視為資料流，以便計算計費訊息。 在此情況下，服務匯流排會以 5 分鐘為基礎，計算透過每個個別轉送傳送或接收的資料總量。 然後，它會依據 64 KB 來分割資料總量，以判斷該期間該轉送的計費訊息數目。
 
 ## <a name="quotas"></a>配額
-| 配額名稱 | `Scope` |  注意 | 值 |
+| 配額名稱 | 範圍 |  注意 | 值 |
 | --- | --- | --- | --- |
-| 轉送上的並行接聽程式 |實體 |後續對更多連線的要求將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 |25 |
+| 轉送上的並行接聽程式 |單位 |後續對更多連線的要求將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 |25 |
 | 服務命名空間中所有轉送端點的並行轉送連線 |命名空間 |- |5,000 |
 | 每個服務命名空間的轉送端點 |命名空間 |- |10,000 |
 | [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) 和 [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) 轉送的訊息大小 |命名空間 |超出這些配額的內送訊息將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 |64 KB |
@@ -92,7 +92,7 @@ ms.locfileid: "68422951"
 根據預設，對於所有雲端服務，Microsoft 會設定針對所有客戶的訂用帳戶計算的彙總每月使用量配額。 我們了解有時候您的需求可能會超過這些限制。 您可以隨時連絡客戶服務部門，讓我們知道您的需求並適當地調整這些限制。 服務匯流排的彙總使用量配額如下：
 
 * 50 億則訊息
-* 2 百萬個轉送小時
+* 2 百萬個轉送時數
 
 雖然我們有權停用超出其每月使用量配額的帳戶，但我們將提供電子郵件通知並且在採取任何動作之前多次嘗試連絡客戶。 超出這些配額的客戶仍需負責支付額外費用。
 
@@ -104,9 +104,9 @@ ms.locfileid: "68422951"
 
 若要將命名空間從某個 Azure 訂用帳戶移至另一個訂用帳戶，您可以使用 [Azure 入口網站](https://portal.azure.com)或使用 PowerShell 命令。 若要將命名空間移至另一個訂用帳戶，命名空間必須已經是作用中。 執行命令的使用者必須是來源和目標訂用帳戶的系統管理員使用者。
 
-#### <a name="azure-portal"></a>Azure 入口網站
+#### <a name="azure-portal"></a>Azure Portal
 
-若要使用 Azure 入口網站，將 Azure 轉送命名空間從某個訂用帳戶移轉到另一個訂用帳戶，請參閱[將資源移至新的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md#use-the-portal)。 
+若要使用 Azure 入口網站，將 Azure 轉送命名空間從某個訂用帳戶移轉到另一個訂用帳戶，請參閱[將資源移至新的資源群組或訂用帳戶](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal)。 
 
 #### <a name="powershell"></a>PowerShell
 
@@ -125,13 +125,13 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 
 ## <a name="troubleshooting"></a>疑難排解
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Azure 轉送 API 所產生的例外狀況有哪些，您可以採取的建議動作為何？
-如需常見例外狀況的描述, 以及您可以採取的建議動作, 請參閱[轉送例外][Relay exceptions]狀況。
+如需常見例外狀況的描述，以及您可以採取的建議動作，請參閱[轉送例外][Relay exceptions]狀況。
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>什麼是共用存取簽章，我可以使用何種語言來產生簽章？
-共用存取簽章 (SAS) 是以 SHA-256 安全雜湊或 URI 為基礎的驗證機制。 如需如何在 node.js、PHP、Python、JAVA、C 和C#中產生自己的簽章的相關資訊, 請參閱[使用共用存取簽章服務匯流排驗證][Shared Access Signatures]。
+共用存取簽章 (SAS) 是以 SHA-256 安全雜湊或 URI 為基礎的驗證機制。 如需如何在 node.js、PHP、Python、JAVA、C 和C#中產生自己的簽章的相關資訊，請參閱[使用共用存取簽章服務匯流排驗證][Shared Access Signatures]。
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>可以將轉送端點列入允許清單嗎？
-是的。 轉送用戶端會使用完整的網域名稱連線至 Azure 轉送服務。 客戶可以在防火牆上新增 `*.servicebus.windows.net` 項目以支援 DNS 允許清單。
+可以。 轉送用戶端會使用完整的網域名稱連線至 Azure 轉送服務。 客戶可以在防火牆上新增 `*.servicebus.windows.net` 項目以支援 DNS 允許清單。
 
 ## <a name="next-steps"></a>後續步驟
 * [建立命名空間](relay-create-namespace-portal.md)

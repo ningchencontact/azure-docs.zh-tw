@@ -3,16 +3,16 @@ title: 通用介面-IoT 隨插即用預覽 |Microsoft Docs
 description: IoT 隨插即用開發人員通用介面的描述
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 09/08/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2eae778230fa5fce1be095106a02b2b643ff436e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f697a0d6aba4f137b75faa2a200424c72aa78c3b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935332"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531406"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>IoT 隨插即用預覽通用介面
 
@@ -20,7 +20,7 @@ ms.locfileid: "70935332"
 
 ## <a name="summary-of-common-interfaces"></a>通用介面的摘要
 
-| Name | id | 描述 | 由 Azure IoT SDK 實行 | 必須在功能模型中宣告 |
+| 名稱 | ID | 說明 | 由 Azure IoT SDK 實行 | 必須在功能模型中宣告 |
 | -------- | -------- | -------- | -------- | -------- | -------- |
 | 模型資訊 | urn： azureiot： ModelDiscovery： ModelInformation：1 | 用於宣告功能模型識別碼和介面的裝置。 所有 IoT 隨插即用裝置都需要。 | 是 | 否 |
 | 數位對應項用戶端 SDK 資訊 | urn： azureiot： Client： SDKInformation：1 | 用來將裝置連接到 Azure 的用戶端 SDK。 [認證](tutorial-build-device-certification.md)所需 | 是 | 否 |
@@ -29,7 +29,7 @@ ms.locfileid: "70935332"
 | 數位對應項 | urn： azureiot： ModelDiscovery： DigitalTwin：1 | 供解決方案開發人員取得數位對應項的功能模型識別碼和介面識別碼。 IoT 隨插即用裝置不會宣告或執行此介面。 | 否 | 否 |
 
 - 由 Azure IoT SDK 實行-Azure IoT SDK 是否會執行介面中宣告的功能。 使用 Azure IoT SDK 的 IoT 隨插即用裝置不需要執行此介面。
-- 必須在功能模型中宣告-如果為 [是]，則必須在此 IoT 隨插即用`"implements":`裝置的裝置功能模型區段內宣告此介面。
+- 必須在功能模型中宣告-如果為 [是]，則必須在此 IoT 隨插即用裝置的裝置功能模型 `"implements":` 區段內宣告此介面。
 
 ## <a name="retrieve-interface-definitions-from-the-public-repository"></a>從公用存放庫取出介面定義
 
@@ -49,7 +49,7 @@ az iot pnp capability-model show --model {ModelID}
 
 1. 使用 **Ctrl+Shift+P** 開啟命令選擇區。
 
-1. 輸入**隨插即用**然後選取 [ **IoT 隨插即用：開啟模型存放庫]** 命令。 選擇 [**公用存放庫**]。 公用模型存放庫會在 VS Code 中開啟。
+1. 輸入**隨插即用**然後選取 [ **IoT 隨插即用：開啟模型存放庫**] 命令。 選擇 [**公用存放庫**]。 公用模型存放庫會在 VS Code 中開啟。
 
 1. 在公用模型存放庫中，于 [搜尋] 欄位中輸入介面名稱。
 

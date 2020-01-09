@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 48bac68b518706cf3a23d2283da7cda49846e0a7
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: cde505e4c95de9b9693a0e9d260d7fa84f3e905b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795838"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531474"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>認知服務和機器學習
 
@@ -26,7 +26,7 @@ ms.locfileid: "73795838"
 |--|--|
 |[決策](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|建置應用程式，以顯示有助於做出明智與高效決策的建議。|
 |[語言](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|允許您的應用程式使用預先建立的指令碼處理自然語言、評估情感，以及了解如何辨識使用者想要的內容。|
-|[Search](https://azure.microsoft.com/services/cognitive-services/directory/search/)|將 Bing 搜尋 API 新增至您的應用程式，並充分利用以單一 API 呼叫合併數十億個網頁、影像、影片和新聞的能力。|
+|[搜尋](https://azure.microsoft.com/services/cognitive-services/directory/search/)|將 Bing 搜尋 API 新增至您的應用程式，並充分利用以單一 API 呼叫合併數十億個網頁、影像、影片和新聞的能力。|
 |[語音](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|將語音轉換成文字，並將文字轉換成自然發音語音。 從一種語言翻譯成另一種語言，並啟用說話者驗證和辨識。|
 |[視覺](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|辨識、識別、仲裁您的圖片、影片和數位筆跡內容，並為其製作標題及編製索引。|
 ||||
@@ -40,7 +40,7 @@ ms.locfileid: "73795838"
 
 * 需要選擇演算法，並需要針對非常特定的資料進行定型。
 
-## <a name="what-is-machine-learning"></a>什麼是機器學習？
+## <a name="what-is-machine-learning"></a>什麼是機器學習服務？
 
 機器學習服務是一種概念，可讓您將資料和演算法結合在一起，以解決特定的需求。 一旦資料和演算法定型之後，輸出就會是您可以使用不同資料再次使用的模型。 定型的模型會根據新的資料提供見解。 
 
@@ -131,10 +131,10 @@ ms.locfileid: "73795838"
 |--|--|
 |[自訂視覺](./custom-vision-service/home.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android，CoreML for IOS11，ONNX FOR Windows ML|
 
-## <a name="learn-more"></a>詳細資訊
+## <a name="learn-more"></a>了解更多
 
 * [架構指南-Microsoft 有哪些機器學習服務產品？](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
-* [機器學習服務-深度學習與機器學習的簡介](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)
+* [機器學習服務-深度學習與機器學習的簡介](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>後續步驟
 

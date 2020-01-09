@@ -1,5 +1,5 @@
 ---
-title: 傳送使用者內容識別碼以啟用 Azure Application Insights 中的使用體驗 | Microsoft Docs
+title: 用來追蹤活動 Azure 應用程式深入解析的使用者內容識別碼
 description: 追蹤使用者如何在您的服務移動，方法是為每個使用者指派 Application Insights 中唯一的持續性識別碼字串。
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: b105e8ba79e99be02420ca1821f6a080b0862d6f
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: ee26aeff87f56ec09bced6029154c5152f26750d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887400"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432290"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>傳送使用者內容識別碼以啟用 Azure Application Insights 中的使用體驗
 
@@ -130,7 +130,7 @@ namespace MvcWebRole.Telemetry
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要啟用使用體驗，請開始傳送 [自訂事件](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) 或 [頁面檢視](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
+- 若要啟用使用體驗，請開始傳送[「自訂事件」](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) 或 [「頁面檢視」](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
 - 如果您已傳送自訂事件或頁面檢視，請探索「使用量工具」，以了解使用者如何使用您的服務。
     - [使用量概觀](usage-overview.md)
     - [使用者、工作階段和事件](usage-segmentation.md)

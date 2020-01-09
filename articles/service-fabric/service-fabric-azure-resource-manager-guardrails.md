@@ -1,25 +1,18 @@
 ---
-title: Service Fabric Azure Resource Manager 部署護欄 |Microsoft Docs
+title: Service Fabric Azure Resource Manager 部署護欄
 description: 本文概述透過 Azure Resource Manager 部署 Service Fabric 叢集時所發生的常見錯誤，以及如何避免這些問題。
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: gamonroy
-editor: ''
-ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/30/2019
 ms.author: pepogors
-ms.openlocfilehash: 3ea6f850685a695644cfc3073fc939a58901658c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: fe5ff2a5eeb4b2c73165d1577702eb6af7079b61
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828626"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426746"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric 護欄 
 部署 Service Fabric 叢集時，會將護欄置中，這將會在叢集設定無效時，使 Azure Resource Manager 部署失敗。 下列各節提供常見叢集設定問題的總覽，以及減輕這些問題所需的步驟。 
@@ -68,7 +61,7 @@ Service Fabric 節點類型的持久性值定義于 Azure Resource Manager 範�
 * 虛擬機器擴展集耐久性符合目前的 Service Fabric 耐久性層級或目標 Service Fabric 節點類型耐久性層級 
 
 
-### <a name="mitigation"></a>緩和
+### <a name="mitigation"></a>降低
 若要修正持久性不相符的問題，請使用上述任何錯誤訊息來表示：
 1. 更新 [虛擬機器擴展集延伸模組] 或 [Azure Resource Manager 範本 Service Fabric 節點類型] 區段中的持久性層級，以確保這些值相符。
 2. 使用更新的值重新部署 Azure Resource Manager 範本。

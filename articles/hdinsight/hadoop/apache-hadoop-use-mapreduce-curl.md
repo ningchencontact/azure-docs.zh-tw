@@ -2,22 +2,22 @@
 title: 搭配使用 MapReduce 和 Curl 與 HDInsight 中的 Apache Hadoop - Azure
 description: 了解如何使用 Curl 從遠端搭配執行 MapReduce 工作與 HDInsight 上的 Apache Hadoop。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
+ms.custom: hdinsightactive
 ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: e4968310459097fc6a00f7c453846fe61726c3d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 274d8dc80d9318aa3ddf4a904a5b623319ea01f4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64716134"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644999"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>使用 REST 搭配 HDInsight 上的 Apache Hadoop 執行 MapReduce 作業
 
-了解如何使用 Apache Hive WebHCat REST API 上的 Apache Hadoop，HDInsight 叢集上執行 MapReduce 工作。 Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 MapReduce 工作。
+瞭解如何使用 Apache Hive WebHCat REST API 在 HDInsight 叢集上的 Apache Hadoop 上執行 MapReduce 工作。 Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 MapReduce 工作。
 
 > [!NOTE]  
 > 如果您已熟悉 Linux 型 Hadoop 伺服器的用法，但不熟悉 HDInsight，請參閱 [Linux 型 HDInsight 上的 Apache Hadoop 須知](../hdinsight-hadoop-linux-information.md)文件。
@@ -77,7 +77,7 @@ ms.locfileid: "64716134"
    * **-u**：指出用來驗證要求的使用者名稱和密碼
    * **-G**：指出此作業是 GET 要求
 
-   URI 的開頭 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** 適用於所有要求。
+   URI `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`的開頭與所有要求相同。
 
 4. 若要提交 MapReduce 工作，請使用下列命令：
 
@@ -109,7 +109,7 @@ ms.locfileid: "64716134"
      * **user.name**：執行命令的使用者
      * **jar**：包含要執行之類別的 jar 檔案位置
      * **class**：包含 MapReduce 邏輯的類別
-     * **arg**：要傳遞給 MapReduce 作業的引數。 在此案例中，是用於輸出的輸入文字檔和目錄
+     * **arg**︰要傳遞到 MapReduce 作業的引數。 在此案例中，是用於輸出的輸入文字檔和目錄
 
    此命令應該會傳回可用來檢查工作狀態的工作識別碼：
 
@@ -142,11 +142,11 @@ ms.locfileid: "64716134"
 
 您可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 列出並下載這些檔案。 如需從 Azure CLI 使用 Blob 的詳細資訊，請參閱[搭配 Azure 儲存體使用 Azure CLI](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) 文件。
 
-## <a id="nextsteps"></a>接續步驟
+## <a id="nextsteps"></a>後續步驟
 
 如需 HDInsight 中 MapReduce 工作的一般資訊：
 
-* [搭配 HDInsight 上的 Apache Hadoop 使用 MapReduce](hdinsight-use-mapreduce.md)
+* [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
 
 如需您可以在 HDInsight 上使用 Hadoop 之其他方式的詳細資訊：
 

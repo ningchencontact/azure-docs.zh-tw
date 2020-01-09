@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e7706fba1efad1bd0ce7110e129dcf113689af9a
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: bc8efe46453f76d353842b32bd52b41838979b49
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309819"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432832"
 ---
 # <a name="get-shape-data"></a>取得圖形資料
 
@@ -36,11 +36,19 @@ function getDrawnShapes() {
 
 <br/>
 
-<iframe height="686" title="取得圖形資料" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>請參閱<a href='https://codepen.io'>CodePen</a>上的以 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>）<a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>取得圖形資料</a>的畫筆。
+<iframe height="686" title="取得圖形資料" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>請參閱<a href='https://codepen.io'>CodePen</a>上的使用畫筆<a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>取得圖形資料</a>Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>）。
 </iframe>
 
 
 ## <a name="next-steps"></a>後續步驟
+
+瞭解如何使用 [繪圖工具] 模組的其他功能：
+
+> [!div class="nextstepaction"]
+> [對繪製事件做出反應](drawing-tools-events.md)
+
+> [!div class="nextstepaction"]
+> [互動類型和鍵盤快速鍵](drawing-tools-interactions-keyboard-shortcuts.md)
 
 深入了解本文使用的類別和方法：
 

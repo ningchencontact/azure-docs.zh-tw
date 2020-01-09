@@ -1,5 +1,6 @@
 ---
-title: Azure 地圖服務中的地圖樣式功能 | Microsoft Docs
+title: 選擇 Azure 地圖服務中的地圖樣式
+titleSuffix: Azure Maps
 description: 了解與「Azure 地圖服務樣式」相關的功能。
 author: walsehgal
 ms.author: v-musehg
@@ -8,20 +9,20 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: eb667c398be0bd51e05a6b65d416d5bce54e4386
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e1d3d1b5904eded9f35c5ba628bea6426e7afaf0
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881973"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531542"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>選擇 Azure 地圖服務中的地圖樣式
 
-在 Azure 地圖服務中, 有許多[支援的地圖樣式](./supported-map-styles.md)可在 Web SDK 中取得。 本文說明如何使用與樣式相關的功能在地圖負載上設定樣式、設定新樣式，以及使用樣式選擇器控制項。
+在 Azure 地圖服務中，有許多[支援的地圖樣式](./supported-map-styles.md)可在 Web SDK 中取得。 本文說明如何使用與樣式相關的功能在地圖負載上設定樣式、設定新樣式，以及使用樣式選擇器控制項。
 
 ## <a name="set-style-on-map-load"></a>設定載入地圖時的樣式
 
-在下列程式碼中, `style`對應的選項會在初始化時`grayscale_dark`設定為。
+在下列程式碼中，對應的 `style` 選項會設定為在初始化時 `grayscale_dark`。
 
 <br/>
 
@@ -30,7 +31,7 @@ ms.locfileid: "68881973"
 
 ## <a name="update-the-style"></a>更新樣式
 
-在下列程式碼中, 載入對應實例之後, 地圖樣式會從`road`更新為`satellite`使用對應的[setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)函式。
+在下列程式碼中，載入對應實例之後，會使用對應的[setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)函式，將地圖樣式從 `road` 更新為 `satellite`。
 
 <br/>
 
@@ -39,7 +40,7 @@ ms.locfileid: "68881973"
 
 ## <a name="add-the-style-picker"></a>新增樣式選擇器
 
-下列程式碼會將[StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol)新增至地圖, 讓使用者可以輕鬆地在不同的地圖樣式之間切換。 
+下列程式碼會將[StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol)新增至地圖，讓使用者可以輕鬆地在不同的地圖樣式之間切換。 
 
 <br/>
 
@@ -47,7 +48,7 @@ ms.locfileid: "68881973"
 </iframe>
 
 > [!TIP]
-> 根據預設, 樣式選擇器控制項會列出使用 Azure 地圖服務的 S0 定價層時可用的所有樣式。 如果您想要減少此清單中的樣式數目, 請將您想要顯示在清單中的樣式陣列, 傳遞至樣式`mapStyle`選擇器的選項。 如果您使用 S1, 而且想要顯示所有可用的樣式, 請將`mapStyles`樣式選擇器的選項設定`"all"`為。
+> 根據預設，樣式選擇器控制項會列出使用 Azure 地圖服務的 S0 定價層時可用的所有樣式。 如果您想要減少此清單中的樣式數目，請將您想要顯示在清單中的樣式陣列，傳遞至樣式選擇器的 [`mapStyle`] 選項。 如果您使用 S1，而且想要顯示所有可用的樣式，請將樣式選擇器的 [`mapStyles`] 選項設定為 [`"all"`]。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -56,7 +57,7 @@ ms.locfileid: "68881973"
 > [!div class="nextstepaction"]
 > [地圖](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-將控制項新增至您的對應:
+將控制項新增至您的對應：
 
 > [!div class="nextstepaction"]
 > [新增地圖控制項](map-add-controls.md)

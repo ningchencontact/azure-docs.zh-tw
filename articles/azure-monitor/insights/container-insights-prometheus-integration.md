@@ -1,22 +1,18 @@
 ---
 title: 設定容器的 Azure 監視器 Prometheus 整合 |Microsoft Docs
 description: 本文說明如何設定容器代理程式的 Azure 監視器，以從 Prometheus 與您的 Azure Kubernetes Service 叢集抓取計量。
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 51bdf0cfedb30fbd95f9a44e8f4a0efe4e857104
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1da2142f287bde83be7cede282bd854ce822d23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403523"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>使用容器的 Azure 監視器設定 Prometheus 計量的抓取
 
-[Prometheus](https://prometheus.io/) 是熱門的開放原始碼計量監視解決方案，且屬於 [Cloud Native Computing Foundation](https://www.cncf.io/)。 適用于容器的 Azure 監視器可提供順暢的上架體驗來收集 Prometheus 計量。 一般而言，若要使用 Prometheus，您必須設定和管理具有存放區的 Prometheus 伺服器。 藉由與 Azure 監視器整合，就不需要 Prometheus 伺服器。 您只需要透過匯出工具或 pod （應用程式）公開 Prometheus 計量端點，容器的容器化代理 Azure 監視器程式就可以為您抓取計量。 
+[Prometheus](https://prometheus.io/)是受歡迎的開放原始碼計量監視解決方案，而且是[雲端原生計算基礎](https://www.cncf.io/)的一部分。 適用于容器的 Azure 監視器可提供順暢的上架體驗來收集 Prometheus 計量。 一般而言，若要使用 Prometheus，您必須設定和管理具有存放區的 Prometheus 伺服器。 藉由與 Azure 監視器整合，就不需要 Prometheus 伺服器。 您只需要透過匯出工具或 pod （應用程式）公開 Prometheus 計量端點，容器的容器化代理 Azure 監視器程式就可以為您抓取計量。 
 
 ![適用于 Prometheus 的容器監視架構](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
 
@@ -30,7 +26,7 @@ ms.locfileid: "73514338"
 * 整個叢集的 HTTP URL，並從服務的列出端點探索目標。 例如，k8s 服務，例如 kube-dns 和 kube 狀態-計量，以及應用程式特定的 pod 附注。 在此內容中收集的計量會定義于 ConfigMap 區段 *[Prometheus data_collection_settings. cluster]* 。
 * 整個節點-HTTP URL，並從服務的列出端點探索目標。 在此內容中收集的計量會定義于 ConfigMap 區段 *[Prometheus_data_collection_settings. node]* 中。
 
-| Endpoint | 範圍 | 範例 |
+| 端點 | 範圍 | 範例 |
 |----------|-------|---------|
 | Pod 注釋 | 全叢集 | 備註 <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Kubernetes 服務 | 全叢集 | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
@@ -38,20 +34,20 @@ ms.locfileid: "73514338"
 
 指定 URL 時，容器的 Azure 監視器只會抓取端點。 當指定 Kubernetes 服務時，會使用叢集 DNS 伺服器解析服務名稱以取得 IP 位址，然後剪輯解析的服務。
 
-|範圍 | 金鑰 | 資料類型 | 值 | 描述 |
+|範圍 | 索引鍵 | Data type | 值 | 說明 |
 |------|-----|-----------|-------|-------------|
 | 全叢集 | | | | 指定下列三種方法中的任何一種，以抓取度量的端點。 |
-| | `urls` | 字串 | 以逗號分隔的陣列 | HTTP 端點（IP 位址或指定的有效 URL 路徑）。 例如： `urls=[$NODE_IP/metrics]`。 （$NODE _IP 是容器參數的特定 Azure 監視器，可以用來取代節點 IP 位址。 必須全部大寫）。 |
-| | `kubernetes_services` | 字串 | 以逗號分隔的陣列 | Kubernetes 服務的陣列，可從 kube 狀態計量抓取計量。 例如，`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`。|
-| | `monitor_kubernetes_pods` | 布林值 | true 或 false | 當設定為 [全叢集] 設定中的 `true` 時，容器代理程式的 Azure 監視器會針對下列 Prometheus 注釋，在整個叢集中抓取 Kubernetes pod：<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | 布林值 | true 或 false | 啟用 pod 的抓取。 `monitor_kubernetes_pods` 必須設為 `true`。 |
-| | `prometheus.io/scheme` | 字串 | http 或 https | 預設為透過 HTTP 的 scrapping。 如有必要，請將設定為 `https`。 | 
-| | `prometheus.io/path` | 字串 | 以逗號分隔的陣列 | 從中提取計量的來源 HTTP 資源路徑。 如果未 `/metrics`度量路徑，請使用此注釋加以定義。 |
-| | `prometheus.io/port` | 字串 | 9102 | 指定要抓取的埠。 如果未設定埠，則會預設為9102。 |
-| | `monitor_kubernetes_pods_namespaces` | 字串 | 以逗號分隔的陣列 | 允許的命名空間清單，以從 Kubernetes pod 抓取計量。<br> 例如， `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| 全節點 | `urls` | 字串 | 以逗號分隔的陣列 | HTTP 端點（IP 位址或指定的有效 URL 路徑）。 例如： `urls=[$NODE_IP/metrics]`。 （$NODE _IP 是容器參數的特定 Azure 監視器，可以用來取代節點 IP 位址。 必須全部大寫）。 |
-| 全節點或全叢集 | `interval` | 字串 | 60s | 收集間隔的預設值為一分鐘（60秒）。 您可以將 *[prometheus_data_collection_settings]* 和/或 *[prometheus_data_collection_settings cluster]* 的集合修改為時間單位，例如 s、m、h。 |
-| 全節點或全叢集 | `fieldpass`<br> `fielddrop`| 字串 | 以逗號分隔的陣列 | 您可以藉由設定 [允許（`fieldpass`）] 和 [不允許] （`fielddrop`）清單，指定要收集的特定計量。 您必須先設定允許清單。 |
+| | `urls` | String | 以逗號分隔的陣列 | HTTP 端點（IP 位址或指定的有效 URL 路徑）。 例如： `urls=[$NODE_IP/metrics]` 。 （$NODE _IP 是容器參數的特定 Azure 監視器，可以用來取代節點 IP 位址。 必須全部大寫）。 |
+| | `kubernetes_services` | String | 以逗號分隔的陣列 | Kubernetes 服務的陣列，可從 kube 狀態計量抓取計量。 例如，`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`。|
+| | `monitor_kubernetes_pods` | Boolean | true 或 false | 當設定為 [全叢集] 設定中的 `true` 時，容器代理程式的 Azure 監視器會針對下列 Prometheus 注釋，在整個叢集中抓取 Kubernetes pod：<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | Boolean | true 或 false | 啟用 pod 的抓取。 `monitor_kubernetes_pods` 必須設為 `true`。 |
+| | `prometheus.io/scheme` | String | http 或 https | 預設為透過 HTTP 的 scrapping。 如有必要，請將設定為 `https`。 | 
+| | `prometheus.io/path` | String | 以逗號分隔的陣列 | 從中提取計量的來源 HTTP 資源路徑。 如果未 `/metrics`度量路徑，請使用此注釋加以定義。 |
+| | `prometheus.io/port` | String | 9102 | 指定要抓取的埠。 如果未設定埠，則會預設為9102。 |
+| | `monitor_kubernetes_pods_namespaces` | String | 以逗號分隔的陣列 | 允許的命名空間清單，以從 Kubernetes pod 抓取計量。<br> 例如， `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
+| 全節點 | `urls` | String | 以逗號分隔的陣列 | HTTP 端點（IP 位址或指定的有效 URL 路徑）。 例如： `urls=[$NODE_IP/metrics]` 。 （$NODE _IP 是容器參數的特定 Azure 監視器，可以用來取代節點 IP 位址。 必須全部大寫）。 |
+| 全節點或全叢集 | `interval` | String | 60s | 收集間隔的預設值為一分鐘（60秒）。 您可以將 *[prometheus_data_collection_settings]* 和/或 *[prometheus_data_collection_settings cluster]* 的集合修改為時間單位，例如 s、m、h。 |
+| 全節點或全叢集 | `fieldpass`<br> `fielddrop`| String | 以逗號分隔的陣列 | 您可以藉由設定 [允許（`fieldpass`）] 和 [不允許] （`fielddrop`）清單，指定要收集的特定計量。 您必須先設定允許清單。 |
 
 ConfigMaps 是全域清單，而且只能有一個 ConfigMap 套用至代理程式。 您不能有另一個 ConfigMaps overruling 集合。
 
@@ -123,7 +119,7 @@ ConfigMaps 是全域清單，而且只能有一個 ConfigMap 套用至代理程�
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          如果您想要將監視限制為具有批註之 pod 的特定命名空間，例如僅包含生產工作負載專用的 pod，請將 `monitor_kubernetes_pod` 設定為在 ConfigMap 中 `true`，然後新增命名空間篩選器 `monitor_kubernetes_pods_namespaces` 指定要從抓取的命名空間。 例如， `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          如果您想要將監視限制為具有批註之 pod 的特定命名空間，例如僅包含生產工作負載專用的 pod，請將 `monitor_kubernetes_pod` 設定為在 ConfigMap 中 `true`，然後新增命名空間篩選器 `monitor_kubernetes_pods_namespaces` 指定要抓取的命名空間。 例如， `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
 3. 執行下列 kubectl 命令來建立 ConfigMap： `kubectl apply -f <configmap_yaml_file.yaml>`。
     

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2019
-ms.openlocfilehash: a5ee03f6c42f076549856161a6ebe0b1888fe4aa
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 9281abaf7afd97573211ff20f15fa97b19724218
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894122"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365286"
 ---
 # <a name="writing-efficient-log-queries-in-azure-monitor"></a>在 Azure 監視器中撰寫有效率的記錄查詢
 本文將建議您如何在 Azure 監視器中撰寫有效率的記錄查詢。 您可以使用這些策略，確保查詢能以最低額外負荷來快速執行。

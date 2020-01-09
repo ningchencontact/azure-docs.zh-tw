@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: bb2255a9a68a499ff3e77c1fbd35081a2474cf1d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8756d8e60e7612c1610e07b0567465e3a0ea8884
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961944"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531491"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>V3 的預測端點變更
 
@@ -83,12 +83,12 @@ V3 端點 HTTP 呼叫的格式已變更。
 
 如果您想要依版本進行查詢，您必須先透過 `"directVersionPublish":true`的[API 發佈](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b)。 查詢參考版本識別碼的端點，而不是位置名稱。
 
-|預測 API 版本|方法|URL|
+|預測 API 版本|METHOD|URL|
 |--|--|--|
 |V3|GET|HTTPs://<b>{REGION}</b>。 api.cognitive.microsoft.com/luis/<b>預測</b>/<b>V3.0</b>/apps/<b>{應用程式識別碼}</b>/slots/<b>{位置名稱}</b>/predict？查詢 =<b>{query}</b>|
 |V3|POST|HTTPs://<b>{REGION}</b>。 api.cognitive.microsoft.com/luis/<b>預測</b>/<b>V3.0</b>/apps/<b>{應用程式識別碼}</b>/slots/<b>{位置名稱}</b>/predict|
 |V2|GET|HTTPs://<b>{REGION}</b>。 api.cognitive.microsoft.com/luis/<b>預測</b>/<b>V3.0</b>/apps/<b>{應用程式識別碼}</b>/versions/<b>{版本識別碼}</b>/predict？查詢 =<b>{query}</b>|
-|V2|POST|HTTPs://<b>{REGION}</b>。 api.cognitive.microsoft.com/luis/<b>預測</b><b>V3.0</b>/apps/<b>{應用程式識別碼}</b>/versions/<b>{版本識別碼}</b>/predict|
+|V2|POST|HTTPs://<b>{REGION}</b>。 api.cognitive.microsoft.com/luis/<b>預測</b>/<b>V3.0</b>/apps/<b>{應用程式識別碼}</b>/versions/<b>{版本識別碼}</b>/predict|
 
 |`SLOT-NAME` 的有效值|
 |--|
@@ -101,14 +101,14 @@ V3 端點 HTTP 呼叫的格式已變更。
 
 V3 API 有不同的查詢字串參數。
 
-|參數名稱|在系統提示您進行確認時，輸入|版本|預設值|目的|
+|參數名稱|類型|版本|預設|目的|
 |--|--|--|--|--|
-|`log`|布林值|V2 & V3|false|將查詢儲存在記錄檔中。 預設值為 false。| 
-|`query`|字串|僅限第 3 版|無預設值-GET 要求中需要它|**在 V2 中**，要預測的語句是在 `q` 參數中。 <br><br>**在 V3**中，此功能會在 `query` 參數中傳遞。|
-|`show-all-intents`|布林值|僅限第 3 版|false|傳回在**預測. 意圖**物件中具有對應分數的所有意圖。 意圖會以物件的形式傳回父 `intents` 物件中。 這可讓您以程式設計方式存取，而不需要在陣列中尋找意圖： `prediction.intents.give`。 在 V2 中，這些會在陣列中傳回。 |
-|`verbose`|布林值|V2 & V3|false|**在第2版中**，當設定為 true 時，會傳回所有預測意圖。 如果您需要所有預測的意圖，請使用 `show-all-intents`的 V3 參數。<br><br>**在 V3 中**，這個參數只提供實體預測的實體中繼資料詳細資料。  |
-|`timezoneOffset`|字串|V2|-|適用于 datetimeV2 實體的時區。|
-|`datetimeReference`|字串|V3|-|適用于 datetimeV2 實體的[時區](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)。 取代 V2 中的 `timezoneOffset`。|
+|`log`|boolean|V2 & V3|false|將查詢儲存在記錄檔中。 預設值為 false。| 
+|`query`|string|僅限第 3 版|無預設值-GET 要求中需要它|**在 V2 中**，要預測的語句是在 `q` 參數中。 <br><br>**在 V3**中，此功能會在 `query` 參數中傳遞。|
+|`show-all-intents`|boolean|僅限第 3 版|false|傳回在**預測. 意圖**物件中具有對應分數的所有意圖。 意圖會以物件的形式傳回父 `intents` 物件中。 這可讓您以程式設計方式存取，而不需要在陣列中尋找意圖： `prediction.intents.give`。 在 V2 中，這些會在陣列中傳回。 |
+|`verbose`|boolean|V2 & V3|false|**在第2版中**，當設定為 true 時，會傳回所有預測意圖。 如果您需要所有預測的意圖，請使用 `show-all-intents`的 V3 參數。<br><br>**在 V3 中**，這個參數只提供實體預測的實體中繼資料詳細資料。  |
+|`timezoneOffset`|string|V2|-|適用于 datetimeV2 實體的時區。|
+|`datetimeReference`|string|V3|-|適用于 datetimeV2 實體的[時區](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)。 取代 V2 中的 `timezoneOffset`。|
 
 
 ### <a name="v3-post-body"></a>V3 張貼內容
@@ -125,13 +125,13 @@ V3 API 有不同的查詢字串參數。
 }
 ```
 
-|屬性|在系統提示您進行確認時，輸入|版本|預設值|目的|
+|屬性|類型|版本|預設|目的|
 |--|--|--|--|--|
 |`dynamicLists`|array|僅限第 3 版|不需要。|[動態清單](#dynamic-lists-passed-in-at-prediction-time)可讓您擴充現有的已定型和已發佈清單實體（已在 LUIS 應用程式中）。|
 |`externalEntities`|array|僅限第 3 版|不需要。|[外部實體](#external-entities-passed-in-at-prediction-time)可讓您的 LUIS 應用程式在執行時間中識別實體並為其加上標籤，以做為現有實體的功能。 |
-|`options.datetimeReference`|字串|僅限第 3 版|無預設值|用來判斷[datetimeV2 位移](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)。 DatetimeReference 的格式為[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)。|
-|`options.preferExternalEntities`|布林值|僅限第 3 版|false|指定是否使用使用者的[外部實體（具有與現有實體相同的名稱）](#override-existing-model-predictions) ，或模型中的現有實體用於預測。 |
-|`query`|字串|僅限第 3 版|必要。|**在 V2 中**，要預測的語句是在 `q` 參數中。 <br><br>**在 V3**中，此功能會在 `query` 參數中傳遞。|
+|`options.datetimeReference`|string|僅限第 3 版|無預設值|用來判斷[datetimeV2 位移](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)。 DatetimeReference 的格式為[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)。|
+|`options.preferExternalEntities`|boolean|僅限第 3 版|false|指定是否使用使用者的[外部實體（具有與現有實體相同的名稱）](#override-existing-model-predictions) ，或模型中的現有實體用於預測。 |
+|`query`|string|僅限第 3 版|必要。|**在 V2 中**，要預測的語句是在 `q` 參數中。 <br><br>**在 V3**中，此功能會在 `query` 參數中傳遞。|
 
 
 
@@ -351,7 +351,7 @@ const associatedMetadata = entities.$instance.my_list_entity[item];
 
 [`preferExternalEntities` 選項] 屬性會指定如果使用者傳送的外部實體與具有相同名稱的預測實體重迭，LUIS 會選擇傳入的實體或模型中現有的實體。 
 
-例如，請考慮 `today I'm free`的查詢。 LUIS 會使用下列回應將 `today` 偵測為 datetimeV2：
+例如，請考量 `today I'm free` 查詢。 LUIS 會使用下列回應將 `today` 偵測為 datetimeV2：
 
 ```JSON
 "datetimeV2": [
@@ -408,7 +408,7 @@ const associatedMetadata = entities.$instance.my_list_entity[item];
 
 
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解析度
 
 _選擇性_的 `resolution` 屬性會在預測回應中傳回，讓您傳入與外部實體相關聯的中繼資料，然後在回應中接收它。 
 

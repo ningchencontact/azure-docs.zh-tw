@@ -1,18 +1,17 @@
 ---
-title: 使用 Azure Resource Manager 布建 Azure Cache for Redis
-description: 使用 Azure 資源管理員範本來部署 Azure Cache for Redis。
-services: app-service
+title: 使用 Azure Resource Manager 部署 Azure Cache for Redis
+description: 瞭解如何使用 Azure Resource Manager 範本來部署 Azure Cache for Redis 資源。 範本是針對常見案例所提供。
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.author: yegu
-ms.openlocfilehash: f215cb79adc02da857f7aa93d8933bd12c06818a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 787edf662aa3a34e167db61b0a89dfc5c2944219
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121793"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75412414"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>使用範本來建立 Azure Cache for Redis
 
@@ -22,7 +21,7 @@ ms.locfileid: "74121793"
 
 目前對於訂用帳戶，同一區域中所有快取的診斷設定是共用的。 更新區域中的一個快取將會影響區域中的所有其他快取。
 
-如需關於建立範本的詳細資訊，請參閱 [編寫 Azure 資源管理員範本](../azure-resource-manager/resource-group-authoring-templates.md)。 若要深入了解快取資源類型的 JSON 語法和屬性，請參閱 [Microsoft.Cache 資源類型](/azure/templates/microsoft.cache/allversions)。
+如需關於建立範本的詳細資訊，請參閱 [編寫 Azure 資源管理員範本](../azure-resource-manager/templates/template-syntax.md)。 若要深入了解快取資源類型的 JSON 語法和屬性，請參閱 [Microsoft.Cache 資源類型](/azure/templates/microsoft.cache/allversions)。
 
 如需完整的範本，請參閱 [Azure Cache for Redis 範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json) \(英文\)。
 
@@ -44,7 +43,7 @@ ms.locfileid: "74121793"
 
 [![部署至 Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>參數
 透過 Azure 資源管理員，您可以定義在部署範本時想要指定之值的參數。 此範本有一個 Parameters 區段，內含所有參數值。
 您應該為會隨著要部署的專案或要部署到的環境而變化的值定義參數。 請不要為永遠保持不變的值定義參數。 每個參數值都可在範本中用來定義所部署的資源。 
 
@@ -117,8 +116,6 @@ Azure Cache for Redis 的位置。 針對最佳效能，使用要與快取搭配
       ]
     }
 
-
-
 ## <a name="commands-to-run-deployment"></a>執行部署的命令
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
@@ -128,5 +125,3 @@ Azure Cache for Redis 的位置。 針對最佳效能，使用要與快取搭配
 
 ### <a name="azure-cli"></a>Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
-
-

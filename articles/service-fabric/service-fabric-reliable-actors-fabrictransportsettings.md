@@ -1,32 +1,23 @@
 ---
-title: 變更 Azure Service Fabric 動作項目中的 FabricTransport 設定 | Microsoft Docs
-description: 深入了解設定 Azure Service Fabric 動作項目通訊設定。
-services: Service-Fabric
-documentationcenter: .net
+title: 變更 FabricTransport 設定
+description: 瞭解如何為不同的動作專案設定設定 Azure Service Fabric 動作專案通訊設定。
 author: suchiagicha
-manager: chackdan
-editor: ''
-ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/20/2017
 ms.author: pepogors
-ms.openlocfilehash: c840280e0a9662cd0175feed04f37119443efc3c
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 182b35194a647f5de706f9ada07b8e9db51bb4c2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170575"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645577"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>設定 Reliable Actors 的 FabricTransport 設定
 
 您可以進行的設定包括︰
-- C#: [FabricTransportRemotingSettings](
+- C#：[FabricTransportRemotingSettings](
 https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
-- Java：[FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
+- Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 
 您可以下列方式修改 FabricTransport 的預設設定。
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 097429e9c761d447a7164c813a6c84d3f07f0ab6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: ddba2b70bc9d9e01518cdc0f373fc31224e9c932
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891410"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425941"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure 上的 SAP 工作負載：規劃和部署檢查清單
 
@@ -77,7 +77,7 @@ ms.locfileid: "73891410"
     - Vm 和其他基礎結構元件和（或）邏輯名稱的命名慣例。
 5.  Microsoft 頂級支援合約。 識別您的 Microsoft 技術客戶經理（TAM）。 如需 SAP 支援需求，請參閱[sap 支援附注 #2015553](https://launchpad.support.sap.com/#/notes/2015553)。
 6.  訂用帳戶的 Azure 訂用帳戶和核心配額數目。 [開啟支援要求，視需要增加 Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)訂用帳戶的配額。
-7.  將 SAP 資料移轉至 Azure 的資料縮減和資料移轉計畫。 針對 SAP NetWeaver 系統，SAP 具有如何限制大量資料量的指導方針。 請參閱這份有關 SAP ERP 系統中資料管理的[sap 指南](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF)。 部分內容也適用于一般的 NetWeaver 和 S/4HANA 系統。
+7.  將 SAP 資料移轉至 Azure 的資料縮減和資料移轉計畫。 針對 SAP NetWeaver 系統，SAP 具有如何限制大量資料量的指導方針。 請參閱這份有關 SAP ERP 系統中資料管理的[sap 指南](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2)。 部分內容也適用于一般的 NetWeaver 和 S/4HANA 系統。
 8.  自動化部署方法。 Azure 上的基礎結構部署自動化目標是以具決定性的方式進行部署，並取得具決定性的結果。 許多客戶使用 PowerShell 或 CLI 架構的腳本。 但有各種開放原始碼技術可供您用來部署適用于 SAP 的 Azure 基礎結構，甚至是安裝 SAP 軟體。 您可以在 GitHub 上找到範例：
     - [Azure Cloud 雲端中的自動化 SAP 部署](https://github.com/Azure/sap-hana) \(英文\)
     - [SAP HANA 安裝](https://github.com/AzureCAT-GSI/SAP-HANA-ARM) \(英文\)
@@ -111,7 +111,7 @@ ms.locfileid: "73891410"
         - 針對不同的 DBMS 類型，請檢查[一般 SAP 相關的 dbms 檔](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)和一般檔指向的 dbms 特定檔。
         - 如需 SAP Hana 的詳細資訊，請參閱[Azure 上的 SAP Hana 基礎結構設定和作業](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)。
         - 請絕對避免透過裝置識別碼將 Azure 資料磁碟掛接到 Azure Linux VM。 相反地，請使用全域唯一識別碼 (UUID)。 舉例來說，使用圖形工具來掛接 Azure 資料磁碟時應多加留意。 請仔細檢查/etc/fstab 中的專案，確定已使用 UUID 來掛接磁片。 您可以在[這篇文章](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk)中找到更多詳細資料。
-   3. 連.
+   3. 網路功能。
         - 測試及評估您的虛擬網路基礎結構，以及在不同的 Azure 虛擬網路中進行 SAP 應用程式的散發。
         -  評估單一 Azure 虛擬網路內的中樞和輪輻虛擬網路架構方法或 microsegmentation 方法。 評估基礎：
                1. [對等互連 Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)之間的資料交換成本。 如需成本的詳細資訊，請參閱[虛擬網路定價](https://azure.microsoft.com/pricing/details/virtual-network/)。
@@ -255,7 +255,7 @@ ms.locfileid: "73891410"
         - 每個個別磁片的磁片寫入（KBps）
         - 每個個別磁片的磁片寫入數/秒
         - 每個個別磁片的磁片寫入（微秒/讀取）
-    - 網路.
+    - 網路。
         - 每秒的網路封包數
         - 網路封包數/秒
         - 每秒的網路 KB 數

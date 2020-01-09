@@ -1,25 +1,16 @@
 ---
-title: Service Fabric 備份與還原 | Microsoft Docs
-description: Service Fabric 備份與還原的概念文件
-services: service-fabric
-documentationcenter: .net
+title: Service Fabric 備份和還原
+description: Service Fabric 備份和還原的概念檔，這項服務可用於設定可靠具狀態服務和 Reliable Actors 的備份。
 author: mcoskun
-manager: chackdan
-editor: subramar,zhol
-ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: cd40f59cfa7846911c68206c3bc1e85a770b0fcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 712069a34b6bc5d8aa4bcbab3fdbf9fc9cd8958b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723835"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645543"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>備份與還原 Reliable Services 和 Reliable Actors
 Azure Service Fabric 是高可用性平台，跨多個節點之間複寫狀態以維護這個高可用性。  因此，即使叢集中的一個節點失敗，服務可以繼續。 雖然這個由平台提供的內建備援對於一些特定情況可能已經足夠，但是服務最好能夠備份資料 (到外部存放區)。
@@ -44,7 +35,7 @@ Azure Service Fabric 是高可用性平台，跨多個節點之間複寫狀態�
 備份/還原功能可以讓在 Reliable Services API 上建置的服務建立及還原備份。 平台提供的備份 API 可以備份服務分割區狀態，而不會封鎖讀取或寫入作業。 還原 API 可以從所選的備份還原服務分割區的狀態。
 
 ## <a name="types-of-backup"></a>備份類型
-有兩個備份選項：完整和增量。
+有兩個備份選項︰完整和增量。
 完整備份是包含重新建立複本狀態所需的所有資料的備份︰檢查點和所有記錄檔記錄。
 因為它有檢查點和記錄檔，所以可以自行還原完整備份。
 
@@ -246,12 +237,12 @@ class MyCustomActorService : ActorService
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>幕後：備份與還原的詳細資料
 以下是備份與還原的詳細資料。
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>備份
 可靠的狀態管理員能夠建立一致的備份，而不會封鎖任何讀取或寫入作業。 為了達到這個目的，它會利用檢查點和記錄持續性機制。  可靠的狀態管理員會在特定時間點採用模糊 (輕量型) 檢查點，來減輕交易記錄檔的壓力和改善復原時間。  呼叫 `BackupAsync` 時，可靠的狀態管理員會指示所有可靠物件，將其最新檢查點檔案複製到本機備份資料夾。  然後，可靠的狀態管理員會從「開始指標」開始，將所有記錄檔記錄複製到備份資料夾中的最新記錄檔記錄。  因為記錄到最新記錄資料列的所有記錄資料列都會包含於備份中，而且可靠的狀態管理員會保留預寫記錄，所以，可靠的狀態管理員保證所有已認可的交易 (`CommitAsync` 已順利傳回) 都會包含於備份中。
 
 呼叫 `BackupAsync` 之後認可的任何交易，不一定會在備份中。  一旦由平台填入本機備份資料夾 (亦即執行階段完成的本機備份) 之後，即會叫用服務的備份回呼。  此回呼會負責將備份資料夾移到外部位置，例如 Azure 儲存體。
 
-### <a name="restore"></a>Restore
+### <a name="restore"></a>還原
 可靠的狀態管理員能夠利用 `RestoreAsync` API，從備份還原。  
 僅可在 `OnDataLossAsync` 方法內部呼叫 `RestoreContext` 上的 `RestoreAsync` 方法。
 `OnDataLossAsync` 傳回的 Bool 表示服務是否從外部來源還原其狀態。

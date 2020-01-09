@@ -1,25 +1,16 @@
 ---
-title: Service Fabric 服務的延展性 | Microsoft Docs
-description: 描述如何調整 Service Fabric 服務
-services: service-fabric
-documentationcenter: .net
+title: Service Fabric 服務的擴充性
+description: 瞭解如何在 Azure Service Fabric 中進行調整，以及用來調整應用程式的各種技術。
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/26/2019
 ms.author: masnider
-ms.openlocfilehash: f44a44c0923374b2f6024903213305f1defb3b94
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 17827342b67d37d9fbeb56654824e004367823ef
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035928"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610007"
 ---
 # <a name="scaling-in-service-fabric"></a>Service Fabric 中的縮放比例
 Azure Service Fabric 可管理叢集節點上的服務、分割區和複本，讓您輕鬆建置可調整的應用程式。 在相同硬體上執行許多工作負載時，會獲得最大資源使用量，還可以針對您選擇調整工作負載的方式提供彈性。 這個 Channel 9 影片說明如何建置可調整的微服務應用程式：
@@ -38,7 +29,7 @@ Service Fabric 的縮放比例會以數種不同的方式來完成：
 ## <a name="scaling-by-creating-or-removing-stateless-service-instances"></a>透過建立或移除無狀態服務執行個體進行縮放比例
 在 Service Fabric 內進行縮放的其中一種最簡單方式可適用於無狀態服務。 當您建立無狀態服務時，有機會可定義 `InstanceCount`。 `InstanceCount` 會定義服務啟動時要建立幾份該服務程式碼的執行中複本。 比方說，叢集中有 100 個節點。 另外再假設建立服務時，`InstanceCount` 為 10。 在執行階段期間，程式碼的 10 個執行中複本可能全部會變得太忙碌 (或可能不是足夠忙碌)。 調整該工作負載的其中一種方式是變更執行個體數目。 例如，監視或管理的程式碼有某些部分可以將現有的執行個體數目變更為 50 (或變更為 5)，取決於是否需要以負載作為基礎，將工作負載相應縮小或相應放大。 
 
-C#:
+C#：
 
 ```csharp
 StatelessServiceUpdateDescription updateDescription = new StatelessServiceUpdateDescription(); 
@@ -54,7 +45,7 @@ Update-ServiceFabricService -Stateless -ServiceName $serviceName -InstanceCount 
 ### <a name="using-dynamic-instance-count"></a>使用動態執行個體計數
 特別針對無狀態服務，Service Fabric 會提供變更執行個體計數的自動方式。 這可讓服務使用可用的節點數目進行動態縮放。 選擇此行為的方式，是設定執行個體計數 = -1。 InstanceCount = -1 是 Service Fabric 的指示，顯示「在每個節點上執行此無狀態服務」。 如果節點的數目有所變更，Service Fabric 就會自動變更要比對的執行個體計數，從而確保服務是在所有的有效節點上執行。 
 
-C#:
+C#：
 
 ```csharp
 StatelessServiceDescription serviceDescription = new StatelessServiceDescription();
@@ -78,7 +69,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 您會如何進行此特定的服務規模？ 服務可能是某種形式的多租用戶，且會接受呼叫並可一次開始進行相同工作流程中許多不同執行個體的所有步驟。 不過，這樣會讓程式碼更複雜，因為現在必須擔心相同工作流程的許多不同執行個體，全都是不同階段及來自不同客戶。 此外，同時處理多個工作流程並無法解決縮放問題。 這是因為在某個時間點，此服務需耗用太多資源才能符合特定的電腦。 起初未建立此模式的許多服務，也會因程式碼中的某些固有瓶頸或速度變慢而遇到困難。 這類問題還會在它所追蹤的同時工作流程數目變大時，造成服務無法運作。  
 
-解決方案是針對您需要追蹤之工作流程的每個不同執行個體，建立此服務的執行個體。這是絕佳的模式，而無論服務是無狀態或具狀態皆可運作。 若要運作此模式，通常有另一項服務可作為「工作負載管理員服務」。 這項服務的作業會接收要求，並將這些要求路由至其他服務。 管理員可以在其接收訊息時動態建立工作負載服務的執行個體，然後再將要求傳遞至這些服務。 當指定的工作流程服務完成其作業時，管理員服務可能也會收到回呼。 管理員收到這些回呼時，它可以刪除工作流程服務的執行個體，或是如果有多個呼叫，就會將它保留。 
+解決方案是針對您想要追蹤的每個不同的工作流程實例，建立此服務的實例。這是很棒的模式，而且可以處理服務是否為無狀態或具狀態。 若要運作此模式，通常有另一項服務可作為「工作負載管理員服務」。 這項服務的作業會接收要求，並將這些要求路由至其他服務。 管理員可以在其接收訊息時動態建立工作負載服務的執行個體，然後再將要求傳遞至這些服務。 當指定的工作流程服務完成其作業時，管理員服務可能也會收到回呼。 管理員收到這些回呼時，它可以刪除工作流程服務的執行個體，或是如果有多個呼叫，就會將它保留。 
 
 此類型管理員的進階版本甚至可以建立其所管理的服務集區。 集區可協助確保在新的要求進入時，不必等待服務就能加速。 反之，管理員可以只從集區或路由中隨機挑選目前非忙碌中的工作流程服務。 將服務集區保持可用能夠加速處理新的要求，因為要求比較不需要等候新服務就能加速。 建立新的服務很快速，但並非免費或可瞬間完成。 集區有助於降低要求在接受服務之前所要等待的時間。 在回應時間至關重要的情況下，您將會經常看到這個管理員和集區模式。 將要求佇列並在背景中建立服務_然後_加以傳遞，也是常用的管理員模式，如同以該服務目前已暫止的某些追蹤工作量作為基礎，將服務建立和刪除。 
 
@@ -103,15 +94,15 @@ Service Fabric 支援資料分割。 分割區會將服務分割成數個邏輯�
 
 <center>
 
-![具有三個節點的分割版面配置](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
+具有三個節點的 ![分割配置](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
 </center>
 
 如果您增加節點數目，Service Fabric 會將一些現有的複本移至那裡。 例如，假設節點的數目增加到四個，且重新發佈複本。 現在，服務有三個複本在每個節點上執行，每個都屬於不同的分割區。 這可提升資源使用率，因為新的節點並不陌生。 通常，它也會改善效能，因為每個服務都有較多資源可供其使用。
 
 <center>
 
-![具有四個節點的分割區配置](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
-</center>
+具有四個節點](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
+的 ![分割區配置 </center>
 
 ## <a name="scaling-by-using-the-service-fabric-cluster-resource-manager-and-metrics"></a>使用 Service Fabric 叢集 Resource Manager 和計量進行縮放比例
 [計量](service-fabric-cluster-resource-manager-metrics.md)是服務表示其對 Service Fabric 資源耗用量的方式。 使用計量可讓叢集 Resource Manager 有機會將叢集的配置重新組織並最佳化。 例如，在叢集中可能有充分的資源，但可能不會配置於目前正在工作的服務。 使用計量可讓叢集 Resource Manager 重新組織叢集，從而確認服務可存取可用的資源。 
@@ -124,12 +115,12 @@ Service Fabric 支援資料分割。 分割區會將服務分割成數個邏輯�
 
 ## <a name="choosing-a-platform"></a>選擇平臺
 
-由於作業系統間的執行差異, 選擇使用 Service Fabric 搭配 Windows 或 Linux, 可能是調整應用程式的重要部分。 其中一個可能的屏障是執行分段記錄的方式。 Windows 上的 Service Fabric 針對一部電腦的記錄檔使用核心驅動程式, 可在具狀態服務複本之間共用。 此記錄會在大約 8 GB 的時間進行權衡。 另一方面, Linux 會針對每個複本使用 256 MB 的暫存記錄檔, 因此不適合想要將在指定節點上執行的輕量服務複本數目最大化的應用程式。 這些暫時性儲存需求的差異可能會通知所需的平臺, 以進行 Service Fabric 叢集部署。
+由於作業系統間的執行差異，選擇使用 Service Fabric 搭配 Windows 或 Linux，可能是調整應用程式的重要部分。 其中一個可能的屏障是執行分段記錄的方式。 Windows 上的 Service Fabric 針對一部電腦的記錄檔使用核心驅動程式，可在具狀態服務複本之間共用。 此記錄會在大約 8 GB 的時間進行權衡。 另一方面，Linux 會針對每個複本使用 256 MB 的暫存記錄檔，因此不適合想要將在指定節點上執行的輕量服務複本數目最大化的應用程式。 這些暫時性儲存需求的差異可能會通知所需的平臺，以進行 Service Fabric 叢集部署。
 
 ## <a name="putting-it-all-together"></a>總整理
 讓我們根據這裡討論的所有概念來探討範例。 假設下列服務︰您嘗試建置一個服務作為通訊錄，以儲存名稱和連絡人資訊。 
 
-沒錯, 您有一堆關於規模的問題:您會有多少使用者？ 每個使用者會儲存多少連絡人？ 在第一次建立服務時，很難完全釐清這些資料。 例如，假設您要搭配單一靜態服務與特定分割區計數。 挑選錯誤的資料分割計數會導致以後調整時發生問題。 同樣地，即使您挑選適當的計數，可能還是無法取得您所需要的所有資訊。 比方說，您也必須領先決定叢集的大小，包括節點的數目和其大小等方面。 通常很難預測服務在其存留期內會耗用多少資源。 可能也很難事先了解服務實際上看到的流量模式。 比方說，或許人員只是在早上先新增和移除他們的連絡人，或它可能在過去一天內平均地發佈。 您可能需要以這個作為基礎來動態相應放大或相應縮小。 您可能要學習預測何時需要相應放大或相應縮小，但無論如何，您可能必須回應變更您的服務所耗用的資源。 這可能會涉及到變更叢集大小，以在重新組織使用現有的資源不足時能提供更多資源。 
+就在最前面位置有許多關於縮放比例的問題：您將有多少使用者？ 每個使用者會儲存多少連絡人？ 在第一次建立服務時，很難完全釐清這些資料。 例如，假設您要搭配單一靜態服務與特定分割區計數。 挑選錯誤的資料分割計數會導致以後調整時發生問題。 同樣地，即使您挑選適當的計數，可能還是無法取得您所需要的所有資訊。 比方說，您也必須領先決定叢集的大小，包括節點的數目和其大小等方面。 通常很難預測服務在其存留期內會耗用多少資源。 可能也很難事先了解服務實際上看到的流量模式。 比方說，或許人員只是在早上先新增和移除他們的連絡人，或它可能在過去一天內平均地發佈。 您可能需要以這個作為基礎來動態相應放大或相應縮小。 您可能要學習預測何時需要相應放大或相應縮小，但無論如何，您可能必須回應變更您的服務所耗用的資源。 這可能會涉及到變更叢集大小，以在重新組織使用現有的資源不足時能提供更多資源。 
 
 但為什麼要嘗試為所有使用者挑選單一資料分割配置？ 為何要將自己限制於一個服務以及一個靜態叢集？ 實際的狀況通常更為動態。 
 

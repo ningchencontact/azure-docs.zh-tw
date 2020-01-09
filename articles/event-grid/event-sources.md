@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 8c9258f099587ba4dbdfe3a7e46f72cd7a825024
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 63cd7cea65515488649507cb7d3c52877211ca04
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603829"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531440"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure 事件方格中的事件來源
 
@@ -72,7 +72,7 @@ ms.locfileid: "73603829"
 
 如需事件中樞做為處理常式的範例，請參閱[事件中樞處理常式](event-handlers.md#event-hubs)。
 
-## <a name="iot-hub"></a>IoT 中樞
+## <a name="iot-hub"></a>IoT Hub
 
 訂閱 IoT 中樞事件，以回應裝置建立、刪除、連線、中斷連接和遙測事件。
 
@@ -85,7 +85,7 @@ ms.locfileid: "73603829"
 
 ## <a name="key-vault-preview"></a>Key Vault （預覽）
 
-與 Event Grid Key Vault 的整合目前為預覽狀態。 
+Key Vault 與事件方格的整合目前為預覽狀態。 
 
 訂閱 Key Vault 事件，以在秘密即將過期、密碼到期或密碼有新版本可用時收到通知。 
 
@@ -177,7 +177,7 @@ ms.locfileid: "73603829"
 
 | Title | 說明 |
 | ----- | ----- |
-| [取用 Azure Machine Learning 事件](../machine-learning/service/concept-event-grid-integration.md) | 整合 Azure Machine Learning 與事件方格的總覽。 |
+| [取用 Azure Machine Learning 事件](../machine-learning/concept-event-grid-integration.md) | 整合 Azure Machine Learning 與事件方格的總覽。 |
 | [適用于 Azure Machine Learning 的 Azure 事件方格事件架構](event-schema-machine-learning.md) | 顯示 Azure Machine Learning 事件中的欄位。 |
 
 ## <a name="next-steps"></a>後續步驟

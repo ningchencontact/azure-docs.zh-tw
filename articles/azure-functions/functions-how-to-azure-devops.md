@@ -1,16 +1,16 @@
 ---
-title: 使用 Azure DevOps Azure Functions 持續傳遞函式程式碼更新
+title: 使用 Azure DevOps 持續更新函式應用程式程式碼
 description: 瞭解如何設定以 Azure Functions 為目標的 Azure DevOps 管線。
 author: ahmedelnably
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
-ms.openlocfilehash: e2dbcadab662caf641716272db1f860c3a6bafa5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1358ac667903e5a1a3f00e4f069a448f0cfdc8f7
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230547"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531576"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>使用 Azure DevOps 的持續傳遞
 
@@ -25,7 +25,7 @@ ms.locfileid: "74230547"
 
 若要建立以 YAML 為基礎的管線，請先建立您的應用程式，然後再部署應用程式。
 
-### <a name="build-your-app"></a>建置您的應用程式
+### <a name="build-your-app"></a>建置應用程式
 
 在 Azure Pipelines 中建立應用程式的方式，取決於您應用程式的程式設計語言。 每種語言都有建立部署成品的特定組建步驟。 部署成品是用來在 Azure 中部署函數應用程式。
 
@@ -57,10 +57,10 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 
-#### <a name="javascript"></a>Javascript
+#### <a name="javascript"></a>JavaScript
 
 您可以使用下列範例來建立 YAML 檔案，以建立 JavaScript 應用程式：
 
@@ -85,7 +85,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 
 #### <a name="python"></a>Python
@@ -119,7 +119,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 #### <a name="powershell"></a>PowerShell
 
@@ -138,7 +138,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 
 ### <a name="deploy-your-app"></a>部署您的應用程式
@@ -184,7 +184,7 @@ steps:
 
 Azure DevOps 中的範本是預先定義的工作群組，可建立或部署應用程式。
 
-### <a name="build-your-app"></a>建置您的應用程式
+### <a name="build-your-app"></a>建置應用程式
 
 在 Azure Pipelines 中建立應用程式的方式，取決於您應用程式的程式設計語言。 每種語言都有建立部署成品的特定組建步驟。 部署成品用來更新 Azure 中的函數應用程式。
 
