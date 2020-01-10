@@ -8,30 +8,37 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/28/2017
+ms.date: 01/08/2020
 ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a90d54932561ed564a23d4d2785170aa85b5c9c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 961444e15ae1c45db1fc7423a6ac3cc96cc7b3fb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422966"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768005"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>使用 Azure Active Directory 群組來管理應用程式和資源的存取權
-Azure Active Directory (Azure AD) 可協助您使用貴組織的群組來管理雲端式應用程式、內部部署應用程式以及資源。 資源既可以是目錄的一部分 (例如，透過目錄中的角色來管理物件的權限)，也可以在目錄外部 (例如，用於軟體即服務 (SaaS) 應用程式、Azure 服務、SharePoint 網站以及內部部署資源)。
+Azure Active Directory （Azure AD）可讓您使用群組來管理雲端式應用程式、內部部署應用程式和資源的存取權。 您的資源可以是 Azure AD 組織的一部分，例如透過 Azure AD 中的角色管理物件，或組織外部的許可權，例如軟體即服務（SaaS）應用程式、Azure 服務、SharePoint 網站和內部部署資源。
 
 >[!NOTE]
 >若要使用 Azure Active Directory，您需要 Azure 帳戶。 如果您沒有帳戶，您可以 [註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+>
+> 在 Azure 入口網站中，您可以看到某些群組的成員資格和群組詳細資料在入口網站中無法管理：
+>
+> - 從內部部署 Active Directory 同步處理的群組只能在內部部署 Active Directory 中進行管理。
+> - 其他群組類型（例如通訊群組清單和擁有郵件功能的安全性群組）只會在 Exchange 系統管理中心或 Microsoft 365 系統管理中心進行管理。 您必須登入 Exchange 系統管理中心或 Microsoft 365 系統管理中心，才能管理這些群組。
 
-## <a name="how-does-access-management-in-azure-ad-work"></a>存取權管理在 Azure AD 中如何運作？
+## <a name="how-access-management-in-azure-ad-works"></a>Azure AD 中的存取管理運作方式
+
 Azure AD 可協助您藉由對單一使用者或整個 Azure AD 群組提供存取權限，來提供貴組織資源的存取權。 使用群組可讓資源擁有者 (或 Azure AD 目錄的擁有者) 將一組存取權限指派給群組內的所有成員，而不必逐一提供權限。 資源或目錄的擁有者也可以將成員清單的管理權限提供給其他人 (例如，部門經理或服務台系統管理員)，讓該人員新增和移除成員。 如需如何管理群組擁有者的詳細資訊，請參閱[管理群組擁有者](active-directory-accessmanagement-managing-group-owners.md)
 
 ![Azure Active Directory 存取管理圖表](./media/active-directory-manage-groups/active-directory-access-management-works.png)
 
 ## <a name="ways-to-assign-access-rights"></a>指派存取權限的方式
+
 有四種方式可以對使用者指派資源的存取權限：
 
 - **直接指派。** 資源擁有者可直接將使用者指派給資源。

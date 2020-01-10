@@ -3,12 +3,12 @@ title: Azure Functions 的應用程式設定參考
 description: Azure Functions 應用程式設定或環境變數的參考文件。
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 1c7f5f9f8f6f198c5fe74baa613306732fa9b55b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 4de6f093e43bbb8b3e258c3dd2a71f728beb7287
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977262"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769535"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的應用程式設定參考
 
@@ -109,6 +109,19 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 |---|------------|
 |FUNCTIONS\_EXTENSION\_VERSION|~2|
 
+## <a name="functions_v2_compatibility_mode"></a>函數\_V2\_相容性\_模式
+
+此設定可讓您的函數應用程式在版本3.x 執行時間上以2.x 版相容模式執行。 只有當您在將函式[應用程式從2.x 版升級至1.x 版的運行](functions-versions.md#migrating-from-2x-to-3x)時間時遇到問題時，才使用此設定。 
+
+>[!IMPORTANT]
+> 這項設定僅作為短期的因應措施，而您可以將應用程式更新為在版本3.x 上正確執行。 只要[支援2.x 運行](functions-versions.md)時間，就支援此設定。 如果您遇到問題，導致您的應用程式無法在版本3.x 上執行，而未使用此設定，請[報告您的問題](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md)。
+
+需要將函式[\_擴充功能\_版本](functions-app-settings.md#functions_extension_version)設定為 `~3`。
+
+|索引鍵|範例值|
+|---|------------|
+|函數\_V2\_相容性\_模式|true|
+
 ## <a name="functions_worker_process_count"></a>\_工作者\_進程\_計數的函式
 
 指定語言工作者進程的最大數目，預設值為 `1`。 允許的最大值為 `10`。 函式呼叫會平均分散于語言工作者進程之間。 每隔10秒會產生一次語言工作者進程，直到函式所設定的計數\_工作者\_進程\_計數為止。 使用多個語言背景工作進程與[調整](functions-scale.md)不同。 當您的工作負載有混合的 CPU 系結和 i/o 系結調用時，請考慮使用此設定。 此設定適用于所有 non-.NET 語言。
@@ -176,17 +189,17 @@ _僅限 Windows。_
 
 根據預設，Functions Proxy 將利用捷徑來將 API 呼叫從 Proxy 直接傳送到同一個函數應用程式中的函式，而不是建立新的 HTTP 要求。 此設定可讓您停用該行為。
 
-|索引鍵|Value|描述|
+|索引鍵|值|說明|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|若呼叫使用指向本機函數應用程式中之函數的後端 URL，則不再將呼叫直接傳送到函式，而是將改為導向回到函數應用程式的 HTTP 前端|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|這是預設值。 若呼叫使用指向本機函數應用程式的後端 URL，則會將呼叫直接轉送到該函式|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|具有指向本機函數應用程式中函式之後端 URL 的呼叫將不再直接傳送至函式，而會改為導向回到函數應用程式的 HTTP 前端|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|這是預設值。 具有指向本機函數應用程式中函式之後端 URL 的呼叫將會直接轉送至該函式|
 
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
 此設定控制在將路由參數插入到後端 URL 時，是否要將其中的 %2F 解碼為斜線。 
 
-|索引鍵|Value|描述|
+|索引鍵|值|說明|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|若路由參數含有已編碼的斜線，就必須將它們解碼。 `example.com/api%2ftest` 將成為 `example.com/api/test`|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|此為預設行為。 所有路由參數都將依原樣傳遞|

@@ -12,30 +12,29 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: ef44931cc3b36bcab64a2de840d9264c1b8fdedb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2c5b0556554d280e57b2df51875e1b057b5fb4a8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058028"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749886"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>因為停用 DHCP 用戶端服務，而無法 RDP 連線至 Azure 虛擬機器
 
 本文描述在 VM 中停用 DHCP 用戶端服務之後，您無法將遠端桌面連線至 Azure Windows 虛擬機器 (VM) 的問題。
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="symptoms"></a>徵兆
+## <a name="symptoms"></a>徵狀
 由於 VM 的 DHCP 用戶端服務已停用，因此您無法 RDP 連線至 Azure 中的 VM。 當您檢查 Azure 入口網站中[開機診斷](../troubleshooting/boot-diagnostics.md)的螢幕擷取畫面時，您會在登入畫面中看到 VM 正常開機並等候認證。 您使用事件檢視器從遠端檢視 VM 中的事件記錄。 您會看到 DHCP 用戶端服務未啟動，或無法啟動。 下列為記錄範例：
 
-**記錄檔名稱**：系統 </br>
+**記錄名稱**：系統 </br>
 **來源**：服務控制管理員 </br>
-**日期**：2015 年 12 月 16 日上午 11:19:36 </br>
+**日期**：12/16/2015 11:19:36 AM </br>
 **事件識別碼**：7022 </br>
-**工作類別**：None </br>
-**層級**：Error </br>
+**工作分類**：無 </br>
+**層級**：錯誤 </br>
 **關鍵字**：傳統</br>
-**使用者**：N/A </br>
+**使用者**： N/A </br>
 **電腦**：myvm.cosotos.com</br>
 **描述**：DHCP 用戶端服務啟動時無反應。</br>
 
@@ -52,7 +51,7 @@ VM 上的 DHCP 用戶端服務並未執行。
 > [!NOTE]
 > 本文僅適用於 DHCP 用戶端服務而非 DHCP 伺服器。
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方案
 
 在遵循下列步驟之前，請擷取受影響虛擬機器作業系統磁碟的快照集作為備份。 如需詳細資訊，請參閱[擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
 
@@ -76,7 +75,7 @@ VM 上的 DHCP 用戶端服務並未執行。
     嘗試連線至 VM 並查看問題是否已解決。
 5. 如果服務未啟動，請根據您收到的錯誤訊息，使用下列適當的解決方法：
 
-    | Error  |  方案 |
+    | 錯誤  |  解決方案 |
     |---|---|
     | 5- 拒絕存取  | 請參閱 [DHCP 用戶端服務因為拒絕存取錯誤而停止](#dhcp-client-service-is-stopped-because-of-an-access-denied-error)。  |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT   | 請參閱 [DHCP 用戶端服務當機或停止回應](#dhcp-client-service-crashes-or-hangs)。  |
@@ -183,7 +182,7 @@ VM 上的 DHCP 用戶端服務並未執行。
 
 1. [將 OS 磁碟連結至復原 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 2. 啟動復原 VM 的遠端桌面連線。 確定連結的磁碟在磁碟管理主控台中標示為 [線上]。 記下指派給所連結 OS 磁碟的磁碟機代號。
-3.  開啟提升權限的命令提示字元執行個體 (**以系統管理員身分執行**)。 然後執行下列指令碼。 此指令碼假設指派給所連結 OS 磁碟的磁碟機代號為 **F**。將字母取代為 VM 中的適當值。
+3.  開啟提升權限的命令提示字元執行個體 (**以系統管理員身分執行**)。 然後執行下列指令碼。 此腳本假設指派給所連結 OS 磁片的磁碟機號是**F**。以您 VM 中的值適當地取代字母。
 
     ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM

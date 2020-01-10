@@ -8,22 +8,22 @@ ms.date: 03/03/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 04206a45a3322a1b0d28e3dfeed65225773e9038
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: efca3dad6d8bfadbc334067b0189d2bea5aef445
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844853"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750516"
 ---
 # <a name="storage-analytics"></a>儲存體分析
 
-Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料。 您可以使用此資料來追蹤要求、分析使用量趨勢，以及診斷儲存體帳戶的問題。
+「Azure 儲存體分析」會執行記錄，並為儲存體帳戶提供衡量標準資料。 您可以使用此資料來追蹤要求、分析使用趨勢，以及診斷儲存體帳戶的問題。
 
-若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。 您可以從 [ [Azure 入口網站](https://portal.azure.com)] 加以啟用。 如需詳細資訊, 請參閱[在 Azure 入口網站中監視儲存體帳戶](storage-monitor-storage-account.md)。 您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。 使用 [[設定 Blob 服務屬性](/rest/api/storageservices/set-blob-service-properties)]、[[設定佇列服務屬性](/rest/api/storageservices/set-queue-service-properties)]、[[設定資料表服務屬性](/rest/api/storageservices/set-table-service-properties)] 和 [配置[檔案服務屬性](/rest/api/storageservices/Get-File-Service-Properties)] 作業, 為每個服務啟用儲存體分析。
+若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。 您可以從 [ [Azure 入口網站](https://portal.azure.com)] 加以啟用。 如需詳細資訊，請參閱[在 Azure 入口網站中監視儲存體帳戶](storage-monitor-storage-account.md)。 您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。 使用 [[設定 Blob 服務屬性](/rest/api/storageservices/set-blob-service-properties)]、[[設定佇列服務屬性](/rest/api/storageservices/set-queue-service-properties)]、[[設定資料表服務屬性](/rest/api/storageservices/set-table-service-properties)] 和 [配置[檔案服務屬性](/rest/api/storageservices/Get-File-Service-Properties)] 作業，為每個服務啟用儲存體分析。
 
 彙總的資料會儲存於已知的 Blob (用於記錄) 和已知的資料表 (用於度量) 中，您可以使用 Blob 服務和資料表服務 API 來存取。
 
-儲存體分析在儲存的資料量上有 20 TB 的限制，但此限制與儲存體帳戶的總限制無關。 如需儲存體帳戶限制的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md)。
+儲存體分析在儲存的資料量上有 20 TB 的限制，但此限制與儲存體帳戶的總限制無關。 如需儲存體帳戶限制的詳細資訊，請參閱[標準儲存體帳戶的擴充性和效能目標](scalability-targets-standard-account.md)。
 
 如需使用儲存體分析和其他工具來識別、診斷及疑難排解 Azure 儲存體相關問題的深入指南，請參閱 [監視、診斷及疑難排解 Microsoft Azure 儲存體](storage-monitoring-diagnosing-troubleshooting.md)。
 

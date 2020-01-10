@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: f00637ff2c8cf39b683056b041fe0e991276a065
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a9c45321d12b659febfeb4913d66ea3732813918
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227232"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769518"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure Functions 系結運算式模式
 
@@ -67,7 +67,7 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-file-name"></a>觸發程式檔案名
+## <a name="trigger-file-name"></a>觸發程序檔案名稱
 
 Blob 觸發程序的 `path` 可以是可讓您參考其他繫結和函式程式碼中之觸發 Blob 名稱的模式。 此模式也可以包含篩選條件，該條件會指定哪個 Blob 可以觸發函式引動過程。
 
@@ -115,7 +115,7 @@ public static void Run(Stream image, string filename, Stream imageSmall, ILogger
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
-類別庫中的所有屬性都可以使用繫結運算式和模式。 在下列範例中，屬性建構函式參數是與上述 function.json`path`*範例相同的* 值： 
+類別庫中的所有屬性都可以使用繫結運算式和模式。 在下列範例中，屬性建構函式參數是與上述 function.json 範例相同的 `path` 值： 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -142,12 +142,12 @@ public static void Run(
 * QueueTrigger - 如果是有效字串，便觸發訊息內容
 * DequeueCount
 * ExpirationTime
-* id
+* Id
 * InsertionTime
 * NextVisibleTime
 * PopReceipt
 
-您可以在 *function.json* 檔案屬性中存取這些中繼資料值。 例如，假設您使用佇列觸發程序，且佇列訊息包含您想要讀取的 Blob 名稱。 在 *function.json* 檔案中，您可以使用 Blob `queueTrigger` 屬性中的 `path` 中繼資料屬性，如下列範例所示：
+您可以在 *function.json* 檔案屬性中存取這些中繼資料值。 例如，假設您使用佇列觸發程序，且佇列訊息包含您想要讀取的 Blob 名稱。 在 *function.json* 檔案中，您可以使用 Blob `path` 屬性中的 `queueTrigger` 中繼資料屬性，如下列範例所示：
 
 ```json
   "bindings": [
@@ -256,7 +256,7 @@ module.exports = function (context, info) {
 }
 ```
 
-您可直接以 `FileName` 的形式參考 `BlobName.FileName`。 在使用此 JSON 格式時，以下是上述範例中 `path` 屬性的樣貌：
+您可直接以 `BlobName.FileName` 的形式參考 `FileName`。 在使用此 JSON 格式時，以下是上述範例中 `path` 屬性的樣貌：
 
 ```json
 "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
@@ -285,7 +285,7 @@ public class BlobName
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{rand-guid}"
+  "path": "my-output-container/{rand-guid}.txt"
 }
 ```
 
@@ -298,7 +298,7 @@ public class BlobName
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{DateTime}"
+  "path": "my-output-container/{DateTime}.txt"
 }
 ```
 ## <a name="binding-at-runtime"></a>執行階段的繫結

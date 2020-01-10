@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 807a5ede3feee115b1a8dc51fe14966731fc7784
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 4c451c62a16a70d85d75ee00c3e08758e27425f6
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240780"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749984"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>從 Azure 活動記錄連接資料
 
 
 
-只要按一下，您就可以將記錄從[Azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)串流至 Azure Sentinel。 活動記錄是訂用客戶紀錄，可讓您深入瞭解 Azure 中發生的訂用帳戶層級事件。 所涵蓋的資料範圍從 Azure Resource Manager 作業資料到服務健康情況事件的更新。 使用活動記錄，您可以判斷訂用帳戶中資源上任何寫入作業（PUT、POST、DELETE）的「內容、物件和時間」。 您也可以了解作業的狀態和其他相關屬性。 活動記錄不包含讀取（GET）作業，或是使用傳統/"RDFE" 模型之資源的作業。 
+只要按一下，您就可以將記錄從[Azure 活動記錄](../azure-monitor/platform/platform-logs-overview.md)串流至 Azure Sentinel。 活動記錄是訂用客戶紀錄，可讓您深入瞭解 Azure 中發生的訂用帳戶層級事件。 所涵蓋的資料範圍從 Azure Resource Manager 作業資料到服務健康情況事件的更新。 使用活動記錄，您可以判斷訂用帳戶中資源上任何寫入作業（PUT、POST、DELETE）的「內容、物件和時間」。 您也可以了解作業的狀態和其他相關屬性。 活動記錄不包含讀取（GET）作業，或是使用傳統/"RDFE" 模型之資源的作業。 
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -40,7 +40,7 @@ ms.locfileid: "71240780"
 
 2. 在 [Azure 活動記錄檔] 窗格中，選取您想要串流至 Azure Sentinel 的訂用帳戶。 
 
-3. 按一下 **[連接]** 。
+3. 按一下 [ **連接**]。
 
 4. 若要在 Log Analytics 中針對 Azure 活動警示使用相關的架構，請搜尋**AzureActivity**。
 
@@ -49,5 +49,5 @@ ms.locfileid: "71240780"
 
 ## <a name="next-steps"></a>後續步驟
 在本檔中，您已瞭解如何將 Azure 活動記錄連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 深入了解如何[取得資料的可見度以及潛在威脅](quickstart-get-visibility.md)。
 - 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats-built-in.md)。

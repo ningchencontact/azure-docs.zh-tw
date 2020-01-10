@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 13392644ebe5e163e946deceeec5fcab8f5085cc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4a411603ca5c3c79da0d596396d8fde80b568af2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159729"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763074"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>預覽：建立 Azure 映射產生器範本 
 
@@ -28,7 +28,7 @@ Azure 映射產生器會使用 json 檔案，將資訊傳遞至映射產生器�
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             }
+             },
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
@@ -51,7 +51,7 @@ Azure 映射產生器會使用 json 檔案，將資訊傳遞至映射產生器�
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>Location
+## <a name="location"></a>位置
 
 位置是將建立自訂映射的區域。 針對影像產生器預覽，支援下欄區域：
 
@@ -66,7 +66,7 @@ Azure 映射產生器會使用 json 檔案，將資訊傳遞至映射產生器�
     "location": "<region>",
 ```
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>標籤
 
 這些是您可以為產生的影像指定的索引鍵/值組。
 
@@ -275,7 +275,8 @@ OS 支援： Linux
 
 ```json 
      "customize": [ 
-            "type{ ": "WindowsRestart", 
+         {
+            "type": "WindowsRestart", 
             "restartCommand": "shutdown /r /f /t 0 /c", 
             "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > buildArtifacts/azureImageBuilderRestart.txt",
             "restartTimeout": "5m"

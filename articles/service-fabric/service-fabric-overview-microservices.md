@@ -2,15 +2,16 @@
 title: Azure 上的微服務簡介
 description: 概述在現代應用程式開發中，為何使用微服務方法建置雲端應用程式很重要，以及 Azure Service Fabric 如何提供平台以達成此目標。
 ms.topic: conceptual
-ms.date: 06/18/2019
-ms.openlocfilehash: e23c571d2000b5565da018d6ddf70a6388cb9226
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.date: 01/07/2020
+ms.custom: sfrev
+ms.openlocfilehash: af18a6cb45808c0af5ec2782a3fd2100e3b7bf99
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466315"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750626"
 ---
-# <a name="why-use-a-microservices-approach-to-building-applications"></a>為何要使用微服務方法來建立應用程式？
+# <a name="why-use-a-microservices-approach-to-building-applications"></a>為何要使用微服務方法來建立應用程式
 
 對於軟體發展人員而言，將應用程式分解成元件部分並不是新的。 一般而言，會使用階層式方法，搭配後端存放區、中介層商務邏輯和前端使用者介面（UI）。 過去幾年來，這是開發人員針對雲端建立分散式應用程式*的變更。*
 
@@ -128,7 +129,8 @@ ms.locfileid: "75466315"
 
 狀況與診斷不同。 健全狀況是指微服務報告其目前狀態，以便採取適當的行動。 使用升級和部署機制來維護可用性是一個很好例子。 雖然服務目前可能因進程損毀或機器重新開機而狀況不良，但服務可能仍在運作中。 您所需的最後一件事是開始升級，讓情況更糟。 最好的方法是先進行調查，或等待微服務復原的時間。 微服務的健全狀況事件可協助我們做出明智的決策，實際上有助於建立自我修復的服務。
 
-## <a name="guidance-for-designing-microservices-on-azure"></a>在 Azure 上設計微服務的指引 
+## <a name="guidance-for-designing-microservices-on-azure"></a>在 Azure 上設計微服務的指引
+
 如需在[azure 上設計和建立微服務](https://docs.microsoft.com/azure/architecture/microservices/)的指引，請造訪 azure 架構中心。
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>Service Fabric 做為微服務平台
@@ -185,7 +187,6 @@ Service Fabric 可讓您重複使用現有的程式碼，並使用新的微服�
 可能。 在 Microsoft 中，因為有越來越多團隊基於商業理由而開始為雲端打造，所以有許多人都實現了採用類似微服務的方法的優點。 例如，Bing 已使用微服務多年。 對於其他團隊而言，微服務方法很新穎。 團隊發現在他們的核心強項之外，還有需要解決的困難問題。 這就是為什麼 Service Fabric 獲得吸引服務的技術。
 
 Service Fabric 的目標是要降低建立微服務應用程式的複雜性，讓您不需要經過太多成本重新設計時。 從小規模開始、需要時調整、淘汰服務、加入新服務，並隨客戶使用情況而演化。 我們也知道，為了讓微服務更易於為大部分開發人員所接受，還有許多其他尚待解決的問題。 容器和動作專案程式設計模型是該方向的小型步驟範例。 我們肯定會形成更多創新，讓微服務方法更容易。
-
 
 ## <a name="next-steps"></a>後續步驟
 

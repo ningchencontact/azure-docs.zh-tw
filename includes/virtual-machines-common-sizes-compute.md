@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 21b982389b186e949b21352f4b11bd6b4aa06dcb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dd94f29317e703a68ba1b4a78639f635034d4492
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279183"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75751883"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -44,6 +44,15 @@ ACU：195 - 210
 
 <sup>1</sup> Fsv2 系列 Vm 功能 Intel®超執行緒技術。
 
-<sup>2</sup>若使用超過 64 vCPU，則需要下列其中一種支援的客體作業系統： Windows Server 2016、UBUNTU 16.04 LTS、SLES 12 SP2 和 Red Hat Enterprise Linux、CentOS 7.3 或 Oracle Linux 7.3 with .lis 4.2.1。
+<sup>2</sup>若使用超過64的 vCPU，則需要下列其中一種支援的客體作業系統：
+- Windows Server 2016 或更新版本
+- Ubuntu 16.04 LTS 或更新版本，並搭配 Azure 微調核心（4.15 核心或更新版本）
+- SLES 12 SP2 或更新版本
+- RHEL 或 CentOS 6.7 到6.10，並已安裝 Microsoft 提供的 .LIS 封裝4.3.1 （或更新版本）
+- RHEL 或 CentOS 7.3 版，並已安裝 Microsoft 提供的 .LIS 封裝4.2.1 （或更新版本）
+- RHEL 或 CentOS 7.6 版或更新版本
+- 使用 UEK4 或更新版本的 Oracle Linux
+- 具有反向移植核心 Debian 10 或更新版本的 Debian 9
+- 使用4.14 核心或更新版本的 CoreOS
 
 <sup>3</sup> 執行個體會隔離至單一客戶專用的硬體。

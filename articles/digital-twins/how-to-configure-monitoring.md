@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed376a3f500f6d6af3d0eab7f98b68e856513600
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 66be29b6d16e422eebd381cddb83ce94adf9f76e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546981"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745456"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中設定監視
 
@@ -26,7 +26,7 @@ Azure Digital Twins 支援強固的記錄、監視與分析功能。 解決方�
 
 ## <a name="review-activity-logs"></a>檢閱活動記錄
 
-Azure [活動記錄](../azure-monitor/platform/activity-logs-overview.md)提供 Azure 每個服務執行個體之訂用帳戶層級事件與作業歷程記錄的快速見解。
+Azure [活動記錄](../azure-monitor/platform/platform-logs-overview.md)提供 Azure 每個服務執行個體之訂用帳戶層級事件與作業歷程記錄的快速見解。
 
 訂用帳戶層級事件包括：
 
@@ -57,7 +57,7 @@ Azure Digital Twins 的活動記錄預設會啟用，而且可以透過下列方
 
 ## <a name="enable-customer-diagnostic-logs"></a>啟用客戶診斷記錄
 
-您可以為每個 Azure 執行個體設定 Azure [診斷設定](../azure-monitor/platform/resource-logs-overview.md)以彌補活動記錄的不足。 雖然活動記錄與訂用帳戶層級事件有關， 但診斷記錄提供資源本身作業歷程記錄的見解。
+您可以為每個 Azure 執行個體設定 Azure [診斷設定](../azure-monitor/platform/platform-logs-overview.md)以彌補活動記錄的不足。 雖然活動記錄與訂用帳戶層級事件有關， 但診斷記錄提供資源本身作業歷程記錄的見解。
 
 診斷記錄的範例包括：
 
@@ -127,8 +127,8 @@ Azure Digital Twins 也支援應用程式特定記錄與安全性稽核。 如�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解 Azure [活動記錄](../azure-monitor/platform/activity-logs-overview.md)。
+- 深入了解 Azure [活動記錄](../azure-monitor/platform/platform-logs-overview.md)。
 
-- 透過閱讀[診斷記錄概觀](../azure-monitor/platform/resource-logs-overview.md)以深入了解 Azure 診斷設定。
+- 透過閱讀[診斷記錄概觀](../azure-monitor/platform/platform-logs-overview.md)以深入了解 Azure 診斷設定。
 
 - 深入瞭解[Azure 監視器記錄](../azure-monitor/log-query/get-started-portal.md)。

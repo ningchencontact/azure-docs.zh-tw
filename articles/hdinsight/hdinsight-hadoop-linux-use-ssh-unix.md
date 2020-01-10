@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 58a00d36120a4f8bbab0388f02f414c7f48b47b9
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: f4ca521e13ac51d7df4917e75fdf1c21b1e9cfa2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028753"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751102"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>使用 SSH 連線到 HDInsight (Apache Hadoop)
 
@@ -22,7 +22,7 @@ ms.locfileid: "72028753"
 
 下表包含使用 SSH 用戶端連接到 HDInsight 時所需的位址和埠資訊：
 
-| 位址 | 連接埠 | 連線到... |
+| 位址 | Port | 連線到... |
 | ----- | ----- | ----- |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | 主要前端節點 |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | 次要前端節點 |
@@ -54,7 +54,7 @@ Microsoft Windows 預設不會安裝任何 SSH 用戶端。 `ssh` 和 `scp` 用�
 
 另外還有數個圖形化的 SSH 用戶端，例如[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)和[MobaXterm](https://mobaxterm.mobatek.net/)。 雖然這些用戶端可用來連線到 HDInsight，但連線的程序與使用 `ssh` 公用程式時不同。 如需詳細資訊，請參閱您所使用之圖形化用戶端的檔。
 
-## <a id="sshkey"></a>驗證：SSH 金鑰
+## <a id="sshkey"></a>驗證︰SSH 金鑰
 
 SSH 金鑰使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key_cryptography)來驗證 SSH 會話。 SSH 金鑰比密碼更安全，並提供簡單的方式來保護 Hadoop 叢集的存取。
 
@@ -62,7 +62,7 @@ SSH 金鑰使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key_cr
 
 * 大部分用戶端均可設定為使用__預設金鑰__。 例如，`ssh` 用戶端會在 Linux 和 Unix 環境的 `~/.ssh/id_rsa` 中尋找私密金鑰。
 
-* 您可以指定__私密金鑰的路徑__。 使用 `ssh` 用戶端時，您可以使用 `-i` 參數來指定私密金鑰的路徑。 例如，`ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net`。
+* 您可以指定__私密金鑰的路徑__。 使用 `ssh` 用戶端時，您可以使用 `-i` 參數來指定私密金鑰的路徑。 例如： `ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net` 。
 
 * 如果您有__多個私密金鑰__可搭配不同的伺服器使用，請考慮使用 [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent) 之類的公用程式。 `ssh-agent` 公用程式可用來自動選取在建立 SSH 工作階段時所要使用的金鑰。
 
@@ -88,12 +88,12 @@ SSH 金鑰使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key_cr
 
 | 建立方法 | 如何使用公開金鑰 |
 | ------- | ------- |
-| Azure 入口網站 | 取消核取 [__使用 ssh__的叢集登入密碼]，然後選取 [__公開金鑰__] 作為 [ssh 驗證類型]。 最後，選取公開金鑰檔案，或將檔案的文字內容貼到 [SSH 公開金鑰] 欄位。</br>![建立 HDInsight 叢集時的 [SSH 公開金鑰] 對話方塊](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| Azure Portal | 取消核取 [__使用 ssh__的叢集登入密碼]，然後選取 [__公開金鑰__] 作為 [ssh 驗證類型]。 最後，選取公開金鑰檔案，或將檔案的文字內容貼到 [SSH 公開金鑰] 欄位。</br>![建立 HDInsight 叢集時的 [SSH 公開金鑰] 對話方塊](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
 | Azure PowerShell | 使用[new-azhdinsightcluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) Cmdlet 的 `-SshPublicKey` 參數，並以字串形式傳遞公開金鑰的內容。|
 | Azure CLI | 使用[az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)命令的 `--sshPublicKey` 參數，並以字串形式傳遞公開金鑰的內容。 |
 | Resource Manager 範本 | 如需對範本使用 SSH 金鑰的範例，請參閱[使用 SSH 金鑰在 Linux 上部署 HDInsight](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/)。 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) 檔案中的 `publicKeys` 元素可用來在建立叢集時將金鑰傳遞至 Azure。 |
 
-## <a id="sshpassword"></a>驗證：密碼
+## <a id="sshpassword"></a>驗證︰密碼
 
 您可以使用密碼來保護 SSH 帳戶。 當您使用 SSH 連線到 HDInsight 時，系統會提示您輸入密碼。
 
@@ -107,7 +107,7 @@ SSH 金鑰使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key_cr
 
 | 建立方法 | 如何指定密碼 |
 | --------------- | ---------------- |
-| Azure 入口網站 | 根據預設，SSH 使用者帳戶會具有和叢集登入帳戶相同的密碼。 若要使用不同的密碼，請取消核取 [__使用 ssh__的叢集登入密碼]，然後在 [ __ssh 密碼__] 欄位中輸入密碼。</br>![建立 HDInsight 叢集時的 [SSH 密碼] 對話方塊](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| Azure Portal | 根據預設，SSH 使用者帳戶會具有和叢集登入帳戶相同的密碼。 若要使用不同的密碼，請取消核取 [__使用 ssh__的叢集登入密碼]，然後在 [ __ssh 密碼__] 欄位中輸入密碼。</br>![建立 HDInsight 叢集時的 [SSH 密碼] 對話方塊](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
 | Azure PowerShell | 使用[new-azhdinsightcluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) Cmdlet 的 `--SshCredential` 參數，並傳遞包含 SSH 使用者帳戶名稱和密碼的 `PSCredential` 物件。 |
 | Azure CLI | 使用[az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)命令的 `--sshPassword` 參數，並提供密碼值。 |
 | Resource Manager 範本 | 如需對範本使用密碼的範例，請參閱[使用 SSH 密碼在 Linux 上部署 HDInsight](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)。 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) 檔案中的 `linuxOperatingSystemProfile` 元素可用來在建立叢集時將 SSH 帳戶名稱和密碼傳遞至 Azure。|
@@ -116,9 +116,9 @@ SSH 金鑰使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key_cr
 
 如需有關變更 SSH 使用者帳戶密碼的資訊，請參閱[管理 HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords) 文件的__變更密碼__一節。
 
-## <a id="domainjoined"></a>驗證：已加入網域的 HDInsight
+## <a id="domainjoined"></a>驗證︰已加入網域的 HDInsight
 
-如果您使用已__加入網域的 HDInsight__叢集，則在與 SSH 本機使用者連線之後，您必須使用 `kinit` 命令。 此命令會提示您輸入網域使用者和密碼，並向與叢集相關聯的 Azure Active Directory 網域驗證您的工作階段。
+如果您使用已__加入網域的 HDInsight__叢集，則在與 SSH 本機使用者連線後，必須使用 `kinit` 命令。 此命令會提示您輸入網域使用者和密碼，並向與叢集相關聯的 Azure Active Directory 網域驗證您的工作階段。
 
 您也可以在每個加入網域的節點上啟用 Kerberos 驗證（例如，前端節點、邊緣節點），以便使用網域帳戶進行 ssh。 若要進行此作業，請編輯 sshd 組態檔：
 
@@ -159,9 +159,9 @@ sudo service sshd restart
     ```
 
 > [!IMPORTANT]  
-> 先前的範例假設您使用密碼驗證，或該憑證驗證自動發生。 如果您使用 SSH 金鑰組進行驗證，但未自動使用憑證，請使用 `-i` 參數來指定私密金鑰。 例如，`ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`。
+> 先前的範例假設您使用密碼驗證，或該憑證驗證自動發生。 如果您使用 SSH 金鑰組進行驗證，但未自動使用憑證，請使用 `-i` 參數來指定私密金鑰。 例如： `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net` 。
 
-連線之後，提示會變更以指出 SSH 使用者名稱和您所連線的節點。 例如，以 `sshuser` 身分連線到主要前端節點時，提示為 `sshuser@hn0-clustername:~$`。
+連線之後，提示會變更以指出 SSH 使用者名稱和您所連線的節點。 例如，以 `sshuser` 身分連線到主要前端節點時，提示為 `sshuser@<active-headnode-name>:~$`。
 
 ### <a name="connect-to-worker-and-apache-zookeeper-nodes"></a>連線至背景工作角色和 Apache Zookeeper 節點
 
@@ -218,7 +218,7 @@ sudo service sshd restart
     /tmp/ssh-rfSUL1ldCldQ/agent.1792
     ```
 
-    如果沒有傳回任何內容，`ssh-agent` 則不會執行。 如需詳細資訊，請參閱[透過 ssh 使用 ssh-agent (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh)) 的代理程式啟動指令碼資訊，或參閱 SSH 用戶端文件。
+    如果未傳回任何內容，則 `ssh-agent` 不在執行中。 如需詳細資訊，請參閱[透過 ssh 使用 ssh-agent (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh)) 的代理程式啟動指令碼資訊，或參閱 SSH 用戶端文件。
 
 4. 一旦您確認**ssh 代理程式**正在執行，請使用下列程式將您的 ssh 私密金鑰新增至代理程式：
 

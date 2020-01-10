@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: b69abf098ba7646ebc98d126c7c0d949205d6275
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 5bf54b6975475810650aeaee4b477e60255757bf
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383983"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75530675"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>設定實驗室以使用 Python 和 Jupyter 筆記本來教授資料科學
 
@@ -26,13 +26,13 @@ ms.locfileid: "74383983"
 
 ## <a name="lab-configuration"></a>實驗室組態
 
-若要設定此實驗室，您需要 Azure 訂用帳戶和實驗室帳戶，才能開始使用。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。 取得 Azure 訂用帳戶之後，您可以在 Azure 實驗室服務中建立新的實驗室帳戶。 如需建立新實驗室帳戶的詳細資訊，請參閱[設定實驗室帳戶的教學](tutorial-setup-lab-account.md)課程。  您也可以使用現有的實驗室帳戶。
+若要設定此實驗室，您需要 Azure 訂用帳戶和實驗室帳戶，才能開始使用。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。 取得 Azure 訂用帳戶之後，您可以在 Azure 實驗室服務中建立新的實驗室帳戶。 如需建立新實驗室帳戶的詳細資訊，請參閱[設定實驗室帳戶的教學](tutorial-setup-lab-account.md)課程。  您也可以使用現有的實驗室帳戶。
 
 ### <a name="lab-account-settings"></a>實驗室帳戶設定
 
 針對實驗室帳戶啟用下表所述的設定。 如需如何啟用 marketplace 映射的詳細資訊，請參閱[指定可供實驗室建立者使用的 marketplace 映射](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators)。
 
-| 實驗室帳戶設定 | 範例的指示 |
+| 實驗室帳戶設定 | Instructions |
 | ------------------- | ------------ |
 | Marketplace 映射 | 啟用[資料科學虛擬機器-Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows)映射，以便在您的實驗室帳戶中使用。 |
 
@@ -46,13 +46,13 @@ ms.locfileid: "74383983"
 | 實驗室設定 | 值/指示 |
 | ------------ | ------------------ |
 |虛擬機器大小| 小型 GPU （計算）。 此大小最適合用於計算密集型和網路密集型應用程式，例如人工智慧和深度學習。 |
-|虛擬機器映射| Windows Server 2019 上的 SQL Server 2019 Standard|
+|虛擬機器映射| 資料科學虛擬機器 - Windows 2016|
 
 ## <a name="template-machine"></a>範本機器
 
 [資料科學虛擬機器 Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows)映射提供這類類別所需的必要深度學習架構和工具。  映射包含 Jupyter 筆記本和 Visual Studio Code。  [Jupyter 筆記本](http://jupyter-notebook.readthedocs.io)是一種 web 應用程式，可讓資料科學家採用原始資料、執行計算，並在相同的環境中查看結果。  針對我們的範本機器，web 應用程式將會在本機執行。  [Visual Studio Code](https://code.visualstudio.com/)是在撰寫和測試筆記本時提供豐富互動體驗的 IDE。  如需詳細資訊，請參閱[在 Visual Studio Code 中使用 Jupyter 筆記本](https://code.visualstudio.com/docs/python/jupyter-support)。
 
-設定類別的其餘工作是提供本機筆記本。  如需如何使用 Azure Machine Learning 範例的指示，請參閱[如何設定具有 Jupyter 筆記本的環境](../../machine-learning/service/how-to-configure-environment.md#jupyter)。  您也可以在範本機器上提供自己的筆記本。  發佈範本時，會將筆記本複製到所有學生電腦。
+設定類別的其餘工作是提供本機筆記本。  如需如何使用 Azure Machine Learning 範例的指示，請參閱[如何設定具有 Jupyter 筆記本的環境](../../machine-learning/how-to-configure-environment.md#jupyter)。  您也可以在範本機器上提供自己的筆記本。  發佈範本時，會將筆記本複製到所有學生電腦。
 
 ## <a name="cost-estimate"></a>成本預估值
 

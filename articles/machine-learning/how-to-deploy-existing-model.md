@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: d783751137510febf9fb2e31d9d44728a049d88d
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: d8f0f6c63c584cacfa5c996bd541ce4dfc4bd289
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611811"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763924"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>使用現有的模型搭配 Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "75611811"
 >
 > 如需此處所用概念和詞彙的詳細資訊，請參閱[管理、部署及監視機器學習服務模型](concept-model-management-and-deployment.md)。
 >
-> 如需部署程式的一般資訊，請參閱[使用 Azure Machine Learning 部署模型](service/how-to-deploy-and-where.md)。
+> 如需部署程式的一般資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -138,7 +138,7 @@ dependencies:
     - keras
 ```
 
-如需有關推斷設定的詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](service/how-to-deploy-and-where.md)。
+如需有關推斷設定的詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
 
 ### <a name="entry-script"></a>專案腳本
 
@@ -223,7 +223,7 @@ def predict(text, include_neutral=True):
        "elapsed_time": time.time()-start_at}  
 ```
 
-如需有關輸入腳本的詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](service/how-to-deploy-and-where.md)。
+如需有關輸入腳本的詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
 
 ## <a name="define-deployment"></a>定義部署
 
@@ -250,7 +250,7 @@ CLI 會從 YAML 檔案載入部署設定：
 }
 ```
 
-部署至不同的計算目標（例如 Azure 雲端中的 Azure Kubernetes Service）就像變更部署設定一樣簡單。 如需詳細資訊，請參閱[如何和部署模型的位置](service/how-to-deploy-and-where.md)。
+部署至不同的計算目標（例如 Azure 雲端中的 Azure Kubernetes Service）就像變更部署設定一樣簡單。 如需詳細資訊，請參閱[如何和部署模型的位置](how-to-deploy-and-where.md)。
 
 ## <a name="deploy-the-model"></a>部署模型
 
@@ -277,7 +277,7 @@ az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc de
 
 如需詳細資訊，請參閱[az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference。
 
-如需部署的詳細資訊，請參閱[部署模型的方式和位置](service/how-to-deploy-and-where.md)。
+如需部署的詳細資訊，請參閱[部署模型的方式和位置](how-to-deploy-and-where.md)。
 
 ## <a name="request-response-consumption"></a>要求-回應耗用量
 
@@ -304,5 +304,5 @@ print(response.json())
 
 * [使用 Application Insights 監視您的 Azure Machine Learning 模型](how-to-enable-app-insights.md)
 * [在生產環境中收集模型資料](how-to-enable-data-collection.md)
-* [部署模型的方式和位置](service/how-to-deploy-and-where.md)
+* [部署模型的方式和位置](how-to-deploy-and-where.md)
 * [如何建立已部署模型的用戶端](how-to-consume-web-service.md)

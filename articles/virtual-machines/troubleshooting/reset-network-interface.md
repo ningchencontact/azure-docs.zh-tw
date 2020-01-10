@@ -12,16 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: 1c49c6221e9b310a1b14a4e06a296befc7f6da4d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a809cabd2ace1b18af6c93dc54348137e9ba5750
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111716"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749915"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>如何重設 Azure Windows VM 的網路介面 
-
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 本文說明如何重設 Azure Windows VM 的網路介面，以在下列事項之後，解決無法連線到 Microsoft Azure Windows 虛擬機器 (VM) 時的問題：
 
@@ -50,7 +48,7 @@ ms.locfileid: "74111716"
 #### <a name="use-azure-powershell"></a>使用 Azure PowerShell
 
 1. 確定您已安裝[最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
-2. 開啟已提高權限的 Azure PowerShell 工作階段 (以系統管理員的身分執行)。 執行以下命令：
+2. 開啟已提高權限的 Azure PowerShell 工作階段 (以系統管理員的身分執行)。 執行下列命令：
 
     ```powershell
     #Set the variables 
@@ -84,14 +82,14 @@ ms.locfileid: "74111716"
 4.  選取 [IP 位址]。
 5.  如果 [私人 IP 指派] 不是 [靜態]，請將它變更為 [靜態]。
 6.  將 [IP 位址] 變更為子網路中可用的其他 IP 位址。
-7.  選取 [ **儲存**]。
+7.  選取 [儲存]。
 8.  虛擬機器會重新啟動，以便對系統初始化新的 NIC。
 9.  嘗試使用 RDP 連線到您的電腦。 如果成功，您可以選擇將私人 IP 位址還原回原始位址。  
 
 #### <a name="use-azure-powershell"></a>使用 Azure PowerShell
 
 1. 確定您已安裝[最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
-2. 開啟已提高權限的 Azure PowerShell 工作階段 (以系統管理員的身分執行)。 執行以下命令：
+2. 開啟已提高權限的 Azure PowerShell 工作階段 (以系統管理員的身分執行)。 執行下列命令：
 
     ```powershell
     #Set the variables 

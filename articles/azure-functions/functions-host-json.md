@@ -2,13 +2,13 @@
 title: 適用於 Azure Functions 2.x 的 host.json 參考
 description: Azure Functions host.json 檔案與 v2 執行階段的參考文件。
 ms.topic: conceptual
-ms.date: 09/08/2018
-ms.openlocfilehash: 374d00a75423274d03320b9c1299a2c2dae080ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/06/2020
+ms.openlocfilehash: d33b63e2eb733e2cea360d3c5f6096fca3521736
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433180"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769161"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 和更新版本的 host. json 參考 
 
@@ -27,7 +27,7 @@ ms.locfileid: "75433180"
 
 ## <a name="sample-hostjson-file"></a>範例 host.json 檔案
 
-下列範例 *host.json* 檔案已指定所有可能的選項。
+下列範例*主機. json*檔案已指定所有可能的選項（不包括僅供內部使用的任何選項）。
 
 ```json
 {
@@ -67,7 +67,48 @@ ms.locfileid: "75433180"
         "applicationInsights": {
             "samplingSettings": {
               "isEnabled": true,
-              "maxTelemetryItemsPerSecond" : 20
+              "maxTelemetryItemsPerSecond" : 20,
+              "evaluationInterval": "01:00:00",
+              "initialSamplingPercentage": 1.0, 
+              "samplingPercentageIncreaseTimeout" : "00:00:01",
+              "samplingPercentageDecreaseTimeout" : "00:00:01",
+              "minSamplingPercentage": 0.1,
+              "maxSamplingPercentage": 0.1,
+              "movingAverageRatio": 1.0
+            },
+            "samplingExcludedTypes" : "Dependency;Event",
+            "samplingIncludedTypes" : "PageView;Trace",
+            "enableLiveMetrics": true,
+            "enableDependencyTracking": true,
+            "enablePerformanceCountersCollection": true,            
+            "httpAutoCollectionOptions": {
+                "enableHttpTriggerExtendedInfoCollection": true,
+                "enableW3CDistributedTracing": true,
+                "enableResponseHeaderInjection": true
+            },
+            "snapshotConfiguration": {
+                "agentEndpoint": null,
+                "captureSnapshotMemoryWeight": 0.5,
+                "failedRequestLimit": 3,
+                "handleUntrackedExceptions": true,
+                "isEnabled": true,
+                "isEnabledInDeveloperMode": false,
+                "isEnabledWhenProfiling": true,
+                "isExceptionSnappointsEnabled": false,
+                "isLowPrioritySnapshotUploader": true,
+                "maximumCollectionPlanSize": 50,
+                "maximumSnapshotsRequired": 3,
+                "problemCounterResetInterval": "24:00:00",
+                "provideAnonymousTelemetry": true,
+                "reconnectInterval": "00:15:00",
+                "shadowCopyFolder": null,
+                "shareUploaderProcess": true,
+                "snapshotInLowPriorityThread": true,
+                "snapshotsPerDayLimit": 30,
+                "snapshotsPerTenMinutesLimit": 1,
+                "tempFolder": null,
+                "thresholdForSnapshotting": 1,
+                "uploaderProxy": null
             }
         }
     },
@@ -97,32 +138,73 @@ ms.locfileid: "75433180"
 
 控制 Application Insights 的選項，包括[取樣選項](./functions-monitoring.md#configure-sampling)。
 
-```json
-{
-    "applicationInsights": {        
-        "enableDependencyTracking": true,
-        "enablePerformanceCountersCollection": true,
-        "samplingExcludedTypes": "Trace;Exception",
-        "samplingIncludedTypes": "Request;Dependency",
-        "samplingSettings": {
-          "isEnabled": true,
-          "maxTelemetryItemsPerSecond" : 20
-        }
-    }
-}
-```
+如需完整的 JSON 結構，請參閱先前的[範例 host. JSON](#sample-hostjson-file)檔案。
 
 > [!NOTE]
-> 記錄取樣可能會造成一些執行不會顯示在 Application Insights 監視器刀鋒視窗。
+> 記錄取樣可能會造成一些執行不會顯示在 Application Insights 監視器刀鋒視窗。 若要避免記錄取樣，請將 `samplingExcludedTypes: "Request"` 新增至 `applicationInsights` 值。
 
-|屬性  |預設 | 說明 |
-|---------|---------|---------| 
-|enableDependencyTracking|true|啟用相依性追蹤。|
-|enablePerformanceCountersCollection|true|啟用效能計數器集合。|
-|samplingExcludedTypes|null|不要進行取樣的分號分隔類型清單。 可辨識的類型為：相依性、事件、例外狀況、頁面檢視、要求、追蹤。 會傳送所指定類型的所有執行個體；會針對未指定的類型進行取樣。| 
-|samplingIncludedTypes|null|要進行取樣的分號分隔類型清單。 可辨識的類型為：相依性、事件、例外狀況、頁面檢視、要求、追蹤。 會針對指定的類型進行取樣；將一律會傳輸其他類型的所有執行個體。|
-|samplingSettings. isEnabled|true|啟用或停用取樣。| 
-|samplingSettings.maxTelemetryItemsPerSecond|20|取樣的開始臨界值。|
+| 屬性 | 預設 | 說明 |
+| --------- | --------- | --------- | 
+| samplingSettings | n/a | 請參閱[applicationInsights. samplingSettings](#applicationinsightssamplingsettings)。 |
+| samplingExcludedTypes | null | 您不想要取樣的類型清單（以分號分隔）。 可辨識的類型為：相依性、事件、例外狀況、頁面檢視、要求、追蹤。 系統會傳送指定類型的所有實例;未指定的類型會進行取樣。 |
+| samplingIncludedTypes | null | 您想要取樣的類型清單（以分號分隔）。空白清單表示所有類型。 在這裡所列的 `samplingExcludedTypes` 覆寫類型中列出的類型。 可辨識的類型為：相依性、事件、例外狀況、頁面檢視、要求、追蹤。 系統會傳送指定類型的所有實例;未指定的類型會進行取樣。 |
+| enableLiveMetrics | true | 啟用即時計量集合。 |
+| enableDependencyTracking | true | 啟用相依性追蹤。 |
+| enablePerformanceCountersCollection | true | 啟用 Kudu 效能計數器集合。 |
+| liveMetricsInitializationDelay | 00:00:15 | 僅供內部使用。 |
+| HTTPAutoCollectionOptions | n/a | 請參閱[applicationInsights. HTTPAutoCollectionOptions](#applicationinsightshttpautocollectionoptions)。 |
+| snapshotConfiguration | n/a | 請參閱[applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration)。 |
+
+### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
+
+|屬性 | 預設 | 說明 |
+| --------- | --------- | --------- | 
+| isEnabled | true | 啟用或停用取樣。 | 
+| maxTelemetryItemsPerSecond | 20 | 每部伺服器主機上每秒記錄的遙測專案目標數目。 如果您的應用程式在多部主機上執行，請減少此值以維持在整體目標流量的速率。 | 
+| evaluationInterval | 01:00:00 | 重新評估目前遙測速率的間隔。 評估是以移動平均來執行。 如果您的遙測會突然暴增，您可能想要縮短此間隔。 |
+| initialSamplingPercentage| 1.0 | 取樣程式開始時所套用的初始取樣百分比，以動態方式改變百分比。 當您正在進行調試時，請勿降低價值。 |
+| samplingPercentageIncreaseTimeout | 00:00:01 | 當取樣百分比值變更時，這個屬性會決定允許 Application Insights 一次多久之後，再次引發取樣百分比來捕捉更多資料。 |
+| samplingPercentageDecreaseTimeout | 00:00:01 | 當取樣百分比值變更時，此屬性會決定允許 Application Insights 一次後，讓取樣百分比更低，以捕獲較少的資料。 |
+| minSamplingPercentage | 0.1 | 當取樣百分比不同時，此屬性會決定允許的取樣百分比下限。 |
+| maxSamplingPercentage | 0.1 | 當取樣百分比不同時，此屬性會決定允許的取樣百分比上限。 |
+| movingAverageRatio | 1.0 | 在計算移動平均時，指派給最新的值的權數。 使用等於或小於 1 的值。 較小的值會讓演算法不易受突然的變更影響。 |
+
+### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. HTTPAutoCollectionOptions
+
+|屬性 | 預設 | 說明 |
+| --------- | --------- | --------- | 
+| enableHttpTriggerExtendedInfoCollection | true | 啟用或停用 HTTP 觸發程式的擴充 HTTP 要求資訊：連入要求相互關聯標頭、多檢測金鑰支援、HTTP 方法、路徑和回應。 |
+| enableW3CDistributedTracing | true | 啟用或停用 W3C 分散式追蹤通訊協定的支援（並開啟舊版相互關聯架構）。 如果 `enableHttpTriggerExtendedInfoCollection` 為 true，則預設為啟用。 如果 `enableHttpTriggerExtendedInfoCollection` 為 false，則此旗標僅適用于連出要求，而不會套用到連入要求。 |
+| enableResponseHeaderInjection | true | 啟用或停用將多重元件相互關聯標頭插入回應中的功能。 啟用插入功能可讓 Application Insights 在使用數個檢測金鑰時，將應用程式對應至。 如果 `enableHttpTriggerExtendedInfoCollection` 為 true，則預設為啟用。 如果 `enableHttpTriggerExtendedInfoCollection` 為 false，則不適用此設定。 |
+
+### <a name="applicationinsightssnapshotconfiguration"></a>applicationInsights. snapshotConfiguration
+
+如需有關快照集的詳細資訊，請參閱[.net 應用程式中的例外](/azure-monitor/app/snapshot-debugger)狀況的 Debug 錯快照集和[疑難排解啟用 Application Insights 快照偵錯工具或查看快照](/azure/azure-monitor/app/snapshot-debugger-troubleshoot)集的問題。
+
+|屬性 | 預設 | 說明 |
+| --------- | --------- | --------- | 
+| agentEndpoint | null | 用來連接到 Application Insights 快照偵錯工具服務的端點。 如果是 null，則會使用預設端點。 |
+| captureSnapshotMemoryWeight | 0.5 | 檢查是否有足夠的記憶體來製作快照集時，指定給目前進程記憶體大小的權數。 預期的值為大於0的適當分數（0 < CaptureSnapshotMemoryWeight < 1）。 |
+| failedRequestLimit | 3 | 在停用遙測處理器之前，要求快照集的失敗要求數目限制。|
+| handleUntrackedExceptions | true | 啟用或停用 Application Insights 遙測不會追蹤的例外狀況追蹤。 |
+| isEnabled | true | 啟用或停用快照集集合 | 
+| isEnabledInDeveloperMode | false | 啟用或停用開發人員模式中的快照集集合。 |
+| isEnabledWhenProfiling | true | 即使 Application Insights Profiler 正在收集詳細的分析會話，也會啟用或停用快照集建立。 |
+| isExceptionSnappointsEnabled | false | 啟用或停用例外狀況的篩選。 |
+| isLowPrioritySnapshotUploader | true | 判斷是否要在一般優先順序之下執行 Snapshotuploader.exe 進程。 |
+| maximumCollectionPlanSize | 50 | 從1到9999的範圍內，可以隨時追蹤的問題數目上限。 |
+| maximumSnapshotsRequired | 3 | 針對單一問題收集的快照集數目上限，範圍從1到999。 在您的應用程式中，可能會將問題視為個別的 throw 語句。 一旦為問題收集的快照集數目達到此值，就不會再收集該問題的快照集，直到重新設定問題計數器為止（請參閱 `problemCounterResetInterval`），然後再次到達 `thresholdForSnapshotting` 限制。 |
+| problemCounterResetInterval | 24:00:00 | 從一分鐘到七天的範圍內，重設問題計數器的頻率。 當達到此間隔時，所有問題計數都會重設為零。 現有的問題已經達到執行快照集的閾值，但尚未產生 `maximumSnapshotsRequired`中的快照集數目，仍在作用中。 |
+| provideAnonymousTelemetry | true | 決定是否要將匿名使用方式和錯誤遙測傳送給 Microsoft。 如果您聯繫 Microsoft 來協助疑難排解快照偵錯工具的問題，可能會使用此遙測。 它也可用來監視使用模式。 |
+| reconnectInterval | 00:15:00 | 我們重新連線到快照偵錯工具端點的頻率。 允許的範圍是一分鐘到一天。 |
+| shadowCopyFolder | null | 指定用於陰影複製二進位檔的資料夾。 如果未設定，則會依序嘗試下列環境變數所指定的資料夾： Fabric_Folder_App_Temp、LOCALAPPDATA、APPDATA、TEMP。 |
+| shareUploaderProcess | true | 若為 true，則只有一個 Snapshotuploader.exe 實例會針對共用 InstrumentationKey 的多個應用程式收集和上傳快照集。 如果設定為 false，則每個（ProcessName，InstrumentationKey）元組的 Snapshotuploader.exe 都是唯一的。 |
+| snapshotInLowPriorityThread | true | 決定是否要處理低 IO 優先順序執行緒中的快照集。 建立快照集是快速的作業，但若要將快照集上傳至快照偵錯工具服務，則必須先將其寫入磁片做為小型傾印。 這會發生在 Snapshotuploader.exe 流程中。 將此值設定為 true 時，會使用低優先順序 IO 來寫入小型傾印，這不會與您的應用程式競爭資源。 將此值設定為 false 可加速建立小型傾印，代價是讓應用程式變慢。 |
+| snapshotsPerDayLimit | 30 | 一天內允許的快照集數目上限（24小時）。 Application Insights 服務端也會強制執行此限制。 上傳的速率限制為每個應用程式每天50（也就是每個檢測金鑰）。 這個值有助於防止建立在上傳期間最後會拒絕的其他快照集。 值為零會完全移除限制，這不是建議的做法。 |
+| snapshotsPerTenMinutesLimit | 1 | 10分鐘內允許的快照集數目上限。 雖然此值沒有上限，但請謹慎增加生產工作負載，因為它可能會影響應用程式的效能。 建立快照集的速度很快，但建立快照集的小型傾印並上傳至快照偵錯工具服務，是比較慢的作業，會與您的應用程式競爭資源（CPU 和 i/o）。 |
+| tempFolder | null | 指定要寫入小型傾印和上載者記錄檔的資料夾。 如果未設定，則會使用 *%TEMP%\Dumps* 。 |
+| thresholdForSnapshotting | 1 | Application Insights 需要多少次才能在要求快照之前看到例外狀況。 |
+| uploaderProxy | null | 覆寫快照集上載程式中所使用的 proxy 伺服器。 如果您的應用程式透過 proxy 伺服器連接到網際網路，您可能需要使用此設定。 Snapshot Collector 會在應用程式的進程中執行，並使用相同的 proxy 設定。 不過，快照集上傳程式會以個別的進程執行，您可能需要手動設定 proxy 伺服器。 如果這個值是 null，則 Snapshot Collector 會嘗試透過檢查 WebRequest DefaultWebProxy，並將值傳遞給快照集上傳程式，以自動偵測 proxy 的位址。 如果此值不是 null，則不會使用自動偵測，而在這裡指定的 proxy 伺服器將用於快照集上載中。 |
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -221,7 +303,7 @@ ms.locfileid: "75433180"
 |屬性  |預設 | 說明 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|定義已啟用何種檔案記錄層級。  選項為 `never`、`always`、`debugOnly`。 |
-|logLevel|n/a|為應用程式中的函式定義記錄類別篩選的物件。 2\.x 版和更新版本會遵循記錄類別篩選的 ASP.NET Core 版面配置。 這可讓您篩選特定函式的記錄。 如需詳細資訊，請參閱 ASP.NET Core 文件中的[記錄篩選](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 |
+|logLevel|n/a|為應用程式中的函式定義記錄類別篩選的物件。 2\.x 版和更新版本會遵循記錄類別篩選的 ASP.NET Core 版面配置。 此設定可讓您篩選特定功能的記錄。 如需詳細資訊，請參閱 ASP.NET Core 文件中的[記錄篩選](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 |
 |console|n/a| [主控台](#console)記錄設定。 |
 |applicationInsights|n/a| [applicationInsights](#applicationinsights) 設定。 |
 

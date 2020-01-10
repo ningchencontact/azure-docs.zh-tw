@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 275598aa50c252512348f4a04543e1beaf538626
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 7ffab200b50a7c4d1af60a230f237b18e8afc621
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529475"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754218"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Azure 資訊安全中心提供支援的功能
 
@@ -33,32 +33,60 @@ ms.locfileid: "72529475"
 
 ## 虛擬機器/伺服器支援的功能<a name="vm-server-features"></a>
 
-> [!div class="mx-tableFixed"]
+### <a name="windowstabfeatures-windows"></a>[Windows](#tab/features-windows)
 
-|伺服器|Windows|||Linux|||價格|
-|----|----|----|----|----|----|----|----|
-|**環境**|**Azure**||**非 Azure**|**Azure**||**非 Azure**||
-||**虛擬機器**|**虛擬機器擴展集**||**虛擬機器**|**虛擬機器擴展集**|
-|[Microsoft Defender ATP 整合](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|X|X|X|Standard|
-|[虛擬機器行為分析威脅偵測警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|建議（免費）威脅偵測（標準）|
-|[Fileless 威脅偵測警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|X|X|X|Standard|
-|[以網路為基礎的威脅偵測警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|X|✔|✔|X|Standard|
-|[即時 VM 存取](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|✔|X|X|✔|X|X|Standard|
-|[檔案完整性監視](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)|✔|✔|✔|✔|✔|✔|Standard|
-|[自動調整應用程式控制項](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)|✔|X|✔|✔|X|✔|Standard|
-|[網路地圖](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|X|✔|✔|X|Standard|
-|[彈性網路強化](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)|✔|X|X|✔|X|X|Standard|
-|自適性網路控制措施|✔|✔|X|✔|✔|X|Standard|
-|[法規合規性儀表板 & 報告](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|Standard|
-|Docker 託管 IaaS 容器上的建議和威脅偵測|X|X|X|✔|✔|✔|Standard|
-|缺少 OS 修補程式評估|✔|✔|✔|✔|✔|✔|免費|
-|安全性錯誤的評估|✔|✔|✔|✔|✔|✔|免費|
-|[Endpoint protection 評估](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|免費|
-|磁片加密評估|✔|✔|X|✔|✔|X|免費|
-|協力廠商的弱點評估|✔|X|X|✔|X|X|免費|
-|[網路安全性評量](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)|✔|✔|X|✔|✔|X|免費|
+|||||||||
+|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+||**Azure 虛擬機器**|**Azure 虛擬機器擴展集**|**非 Azure 機器**|**定價**
+|[Microsoft Defender ATP 整合](security-center-wdatp.md)|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|Standard|
+|[虛擬機器行為分析威脅偵測警示](security-center-alerts-iaas.md)|✔|✔|✔|建議（免費）威脅偵測（標準）|
+|[Fileless 威脅偵測警示](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
+|[以網路為基礎的威脅偵測警示](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[即時 VM 存取](security-center-just-in-time.md)|✔|-|-|Standard|
+|[原生弱點評估](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[檔案完整性監視](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[自動調整應用程式控制項](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[網路地圖](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
+|[彈性網路強化](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|自適性網路控制措施|✔|✔|-|Standard|
+|[法規合規性儀表板 & 報告](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|Docker 託管 IaaS 容器上的建議和威脅偵測|-|-|-|Standard|
+|缺少 OS 修補程式評估|✔|✔|✔|免費|
+|安全性錯誤的評估|✔|✔|✔|免費|
+|[Endpoint protection 評估](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|免費|
+|磁片加密評估|✔|✔|-|免費|
+|協力廠商的弱點評估|✔|-|-|免費|
+|[網路安全性評量](security-center-network-recommendations.md)|✔|✔|-|免費|
 
-### 支援的端點保護解決方案<a name="endpoint-supported"></a>
+
+### <a name="linuxtabfeatures-linux"></a>[Linux](#tab/features-linux)
+
+|||||||||
+|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+||**Azure 虛擬機器**|**Azure 虛擬機器擴展集**|**非 Azure 機器**|**定價**
+|[Microsoft Defender ATP 整合](security-center-wdatp.md)|-|-|-|Standard|
+|[虛擬機器行為分析威脅偵測警示](security-center-alerts-iaas.md)|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|建議（免費）威脅偵測（標準）|
+|[Fileless 威脅偵測警示](alerts-reference.md#alerts-windows)|-|-|-|Standard|
+|[以網路為基礎的威脅偵測警示](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[即時 VM 存取](security-center-just-in-time.md)|✔|-|-|Standard|
+|[原生弱點評估](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[檔案完整性監視](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[自動調整應用程式控制項](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[網路地圖](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
+|[彈性網路強化](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|自適性網路控制措施|✔|✔|-|Standard|
+|[法規合規性儀表板 & 報告](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|Docker 託管 IaaS 容器上的建議和威脅偵測|✔|✔|✔|Standard|
+|缺少 OS 修補程式評估|✔|✔|✔|免費|
+|安全性錯誤的評估|✔|✔|✔|免費|
+|[Endpoint protection 評估](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|免費|
+|磁片加密評估|✔|✔|-|免費|
+|協力廠商的弱點評估|✔|-|-|免費|
+|[網路安全性評量](security-center-network-recommendations.md)|✔|✔|-|免費|
+
+--- 
+
+## 支援的端點保護解決方案<a name="endpoint-supported"></a>
 
 下表提供的矩陣指出：
 
@@ -80,7 +108,6 @@ ms.locfileid: "72529475"
  **\*** 涵蓋範圍狀態和支援的資料目前僅適用于與受保護的訂用帳戶相關聯的 Log Analytics 工作區。 它不會反映在 Azure 資訊安全中心入口網站中。
 
 > [!NOTE]
->
 > - 在 Windows Server 2008 R2 虛擬機器上偵測 System Center Endpoint Protection (SCEP) 需要安裝 SCEP (PowerShell 3.0 或更高版本)。
 > - 深度安全性代理程式支援偵測趨勢微保護。  不支援 OfficeScan 代理程式。
 
@@ -89,39 +116,41 @@ ms.locfileid: "72529475"
 
 Azure 資訊安全中心支援下列 PaaS 資源：
 
-|服務|建議（免費）|威脅偵測（標準）|
-|----|----|----|
-|SQL|✔| ✔|
-|PostGreSQL*|✔| ✔|
-|MySQL*|✔| ✔|
-|CosmosDB|X| ✔|
-|Blob 儲存體|✔| ✔|
-|儲存體帳戶|✔| X|
-|App Service|✔| ✔|
-|函式|✔| X|
-|雲端服務|✔| X|
-|VNet|✔| X|
-|子網路|✔| X|
-|NIC|✔| X|
-|NSG|✔| X|
-|Subscription|✔ * *| ✔|
-|批次帳戶|✔| X|
-|Service fabric 帳戶|✔| X|
-|自動化帳戶|✔| X|
-|負載平衡器|✔| X|
-|Search|✔| X|
-|服務匯流排命名空間|✔| X|
-|串流分析|✔| X|
-|事件中樞命名空間|✔| X|
-|邏輯應用程式|✔| X|
-|Redis|✔| X|
-|Data Lake Analytics|✔| X|
-|Data Lake Store|✔| X|
-|金鑰保存庫|✔| X|
+|服務|建議（免費）|威脅偵測警示（標準）|弱點評估（標準）|
+|----|:----:|:----:|:----:|
+|SQL Database|✔|✔|✔|
+|Azure Container Registry|-|-|✔|
+|Azure Kubernetes Service|✔|✔|-|
+|適用於 PostgreSQL 的 Azure 資料庫 *|✔|✔|-|
+|適用於 MySQL 的 Azure 資料庫 *|✔|✔|-|
+|Azure CosmosDB *|-|✔|-|
+|儲存體帳戶|✔|-|-|
+|Blob 儲存體|✔|✔|-|
+|App Service|✔|✔|-|
+|函式應用程式|✔|-|-|
+|雲端服務|✔|-|-|
+|虛擬網路|✔|-|-|
+|子網路|✔|-|-|
+|NIC|✔|-|-|
+|網路安全性群組|✔|-|-|
+|訂閱|✔ * *|✔|-|
+|批次帳戶|✔|-|-|
+|Service Fabric 帳戶|✔|-|-|
+|自動化帳戶|✔|-|-|
+|Load Balancer|✔|-|-|
+|認知搜尋|✔|-|-|
+|服務匯流排命名空間|✔|-|-|
+|串流分析|✔|-|-|
+|事件中樞命名空間|✔|-|-|
+|邏輯應用程式|✔|-|-|
+|Redis 的快取|✔|-|-|
+|Data Lake Analytics|✔|-|-|
+|Azure Data Lake 儲存體|✔|-|-|
+|Key Vault|✔|✔ *|-|
 
-\* 這些功能目前以公開預覽形式支援。
+\* 預覽版目前支援這些功能。
 
-\* \* Azure Active Directory （Azure AD）建議僅適用于標準訂閱。
+\*\* Azure Active Directory （Azure AD）建議僅適用于標準訂閱。
 
 ## <a name="next-steps"></a>後續步驟
 

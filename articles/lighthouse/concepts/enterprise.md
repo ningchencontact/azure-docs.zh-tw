@@ -3,12 +3,12 @@ title: Azure Lighthouse 在企業案例中的運用
 description: Azure Lighthouse 的功能可在使用多個 Azure AD 租用戶的企業內用來簡化跨租用戶管理。
 ms.date: 09/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: ae10ef2a18ace13d7b86347674c04f972e1ab8d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 91089a6fb1a965191489e87027ef508c7ebe2aa2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456894"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749218"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse 在企業案例中的運用
 
@@ -38,7 +38,7 @@ ms.locfileid: "75456894"
 
 Azure Lighthouse 和 Azure 委派的資源管理只會提供管理租用戶與受控租用戶之間的邏輯連結，而不會實際移動資料或資源。 此外，存取一律只限單一方向：從管理租用戶到受控租用戶。  管理租用戶中的使用者和群組在對受控租用戶資源執行管理作業時，應繼續使用多重要素驗證。
 
-具有內部或外部治理和合規性防護的企業可以使用 [Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)來符合其透明度需求。 當企業租用戶已建立管理和受控租用戶關聯性時，每個租用戶中的使用者均可藉由檢視已記錄的活動，監視及看見另一個租用戶中使用者所採取的動作。
+具有內部或外部治理和合規性防護的企業可以使用 [Azure 活動記錄](../../azure-monitor/platform/platform-logs-overview.md)來符合其透明度需求。 當企業租用戶已建立管理和受控租用戶關聯性時，每個租用戶中的使用者均可藉由檢視已記錄的活動，監視及看見另一個租用戶中使用者所採取的動作。
 
 ## <a name="onboarding-process-considerations"></a>上架程序考慮
 

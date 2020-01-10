@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 581b6b4143f5924c27bac726bbea823761574c1b
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c05b29dd5909d1371c71bffb9db555c15c5d23ed
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75540720"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75764638"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>使用 Azure Machine Learning studio 建立、探索及部署自動化的機器學習實驗
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -226,4 +226,4 @@ Variance| 量值分佈在此資料行中的值是來自其平均值。
 * 嘗試[使用 Azure Machine Learning 建立您的第一個自動化 ML 實驗](tutorial-first-experiment-automated-ml.md)的端對端教學課程。 
 * [深入瞭解自動化機器學習](concept-automated-ml.md)和 Azure Machine Learning。
 * [瞭解自動化的機器學習結果](how-to-understand-automated-ml.md)。
-* [瞭解如何使用 web 服務](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service)。
+* [瞭解如何使用 web 服務](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service)。

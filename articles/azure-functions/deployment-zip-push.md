@@ -3,12 +3,12 @@ title: Azure Functions 的 ZIP 推送部署
 description: 使用 Kudu 部署服務的 .zip 檔案部署工具來發佈 Azure Functions。
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: 88455e85607c608757067cea9d54b60e30cacb50
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6bda0859ca4741fe74f572b204e40130c56c46fc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233069"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769657"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure Functions 的 ZIP 部署
 
@@ -16,7 +16,7 @@ ms.locfileid: "74233069"
 
 Azure Functions 擁有 Azure App Service 所提供的全套持續部署與整合選項。 如需詳細資訊，請參閱 [Azure Functions 的持續部署](functions-continuous-deployment.md)。
 
-為了加快開發速度，您可能會發現直接從 .zip 檔案部署函式應用程式的專案檔會比較容易。 .zip 部署 API 會取得 .zip 檔案的內容，並將內容擷取至函式應用程式的 `wwwroot` 資料夾。 此 .zip 檔案部署所使用的是支援持續整合式部署的同一個 Kudu 服務，包括：
+若要加速開發，您可能會發現直接從 .zip 檔案部署函式應用程式專案檔會比較容易。 .zip 部署 API 會取得 .zip 檔案的內容，並將內容擷取至函式應用程式的 `wwwroot` 資料夾。 此 .zip 檔案部署所使用的是支援持續整合式部署的同一個 Kudu 服務，包括：
 
 + 刪除較舊部署所留下的檔案。
 + 部署自訂，包括執行中的部署指令碼。
@@ -66,10 +66,10 @@ Azure Functions 擁有 Azure App Service 所提供的全套持續部署與整合
 
 您可以使用 Azure CLI 來觸發推送部署。 請使用 [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) 命令，將 .zip 檔案推送部署至函式應用程式。 若要使用此命令，您所使用的 Azure CLI 必須是 2.0.21 版或更新版本。 若要了解您所使用的 Azure CLI 版本，請使用 `az --version` 命令。
 
-在下列命令中，使用 .zip 檔案的位置路徑取代 `<zip_file_path>` 預留位置。 也請使用函式應用程式的唯一名稱取代 `<app_name>`。 
+在下列命令中，使用 .zip 檔案的位置路徑取代 `<zip_file_path>` 預留位置。 此外，將 `<app_name>` 取代為函式應用程式的唯一名稱，並以您的資源組名取代 `<resource_group>`。
 
 ```azurecli-interactive
-az functionapp deployment source config-zip  -g myResourceGroup -n \
+az functionapp deployment source config-zip -g <resource_group> -n \
 <app_name> --src <zip_file_path>
 ```
 

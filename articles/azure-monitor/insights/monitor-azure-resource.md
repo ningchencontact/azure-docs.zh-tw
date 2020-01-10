@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 0748047581945d513300d929c2d34d20099bf4d6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: b092b037cc10671e89f18af287b52f8ad1c0060e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529689"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747304"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>使用 Azure 監視器監視 Azure 資源
 當您的重要應用程式和商務程式依賴 Azure 資源時，您會想要監視這些資源的可用性、效能和操作。 本文說明 Azure 資源所產生的監視資料，以及您可以如何使用 Azure 監視器的功能來分析此資料併發出警示。
@@ -57,8 +57,8 @@ Azure 中的資源會產生[記錄](../platform/data-platform-logs.md)和[計量
 
 
 - [平臺計量](../platform/data-platform-metrics.md)-自動收集的數值，並在特定時間描述資源的某些層面。 
-- [資源記錄](../platform/resource-logs-overview.md)-可讓您深入瞭解在 Azure 資源（資料平面）內執行的作業，例如從 Key Vault 取得秘密或對資料庫提出要求。 資源記錄的內容和結構會因 Azure 服務和資源類型而異。
-- [活動記錄](../platform/activity-logs-overview.md)-可讓您深入瞭解訂用帳戶（管理平面）中的每個 Azure 資源上的作業，例如建立新的資源或啟動虛擬機器。 這是您訂用帳戶中資源上所採取的任何寫入作業（PUT、POST、DELETE）的相關資訊。
+- [資源記錄](../platform/platform-logs-overview.md)-可讓您深入瞭解在 Azure 資源（資料平面）內執行的作業，例如從 Key Vault 取得秘密或對資料庫提出要求。 資源記錄的內容和結構會因 Azure 服務和資源類型而異。
+- [活動記錄](../platform/platform-logs-overview.md)-可讓您深入瞭解訂用帳戶（管理平面）中的每個 Azure 資源上的作業，例如建立新的資源或啟動虛擬機器。 這是您訂用帳戶中資源上所採取的任何寫入作業（PUT、POST、DELETE）的相關資訊。
 
 
 ## <a name="configuration-requirements"></a>組態需求
@@ -67,8 +67,8 @@ Azure 中的資源會產生[記錄](../platform/data-platform-logs.md)和[計量
 某些監視資料會自動收集，但您可能需要根據您的需求執行一些設定。 請參閱下列資訊，以取得每種監視資料類型的特定資訊。
 
 - [平臺計量](../platform/data-platform-metrics.md)-平臺計量會自動收集到[Azure 監視器計量](../platform/data-platform-metrics.md)中，而不需要進行任何設定。 建立診斷設定，以將專案傳送至 Azure 監視器記錄，或將它們轉送到 Azure 外部。
-- [資源記錄](../platform/resource-logs-overview.md)-資源記錄會由 Azure 資源自動產生，但不會在沒有診斷設定的情況下收集。  建立診斷設定，以將專案傳送至 Azure 監視器記錄，或將它們轉送到 Azure 外部。
-- [活動記錄](../platform/activity-logs-overview.md)-活動記錄會自動收集，而不需要設定，而且可以在 Azure 入口網站中查看。 建立診斷設定，將它們複製到 Azure 監視器記錄，或將它們轉送到 Azure 外部。
+- [資源記錄](../platform/platform-logs-overview.md)-資源記錄會由 Azure 資源自動產生，但不會在沒有診斷設定的情況下收集。  建立診斷設定，以將專案傳送至 Azure 監視器記錄，或將它們轉送到 Azure 外部。
+- [活動記錄](../platform/platform-logs-overview.md)-活動記錄會自動收集，而不需要設定，而且可以在 Azure 入口網站中查看。 建立診斷設定，將它們複製到 Azure 監視器記錄，或將它們轉送到 Azure 外部。
 
 ### <a name="log-analytics-workspace"></a>Log Analytics 工作區
 將資料收集到 Azure 監視器記錄檔需要 Log Analytics 工作區。 您可以藉由建立新的工作區來快速開始監視您的服務，但使用從其他服務收集資料的工作區可能會有價值。 如需有關建立工作區和[設計 Azure 監視器記錄部署](../platform/design-logs-deployment.md)的詳細資訊，請參閱[Azure 入口網站中的建立 Log Analytics 工作區](../learn/quick-create-workspace.md)，以協助判斷您的需求最佳工作區設計。 如果您在組織中使用現有的工作區，則您將需要如[管理 Azure 監視器中的記錄資料和工作區存取](../platform/manage-access.md)中所述的適當許可權。 

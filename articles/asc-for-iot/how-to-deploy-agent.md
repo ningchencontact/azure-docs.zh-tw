@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 18031400155b92f243877ae8c8d7a56e1d5295a0
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d70f2f3ec87c8673013bcf7b6f70ebcbb8d06f08
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933652"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770011"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>在 IoT 裝置上選取並部署安全性代理程式
 
@@ -29,7 +29,7 @@ ms.locfileid: "70933652"
 
 代理程式是以開放原始碼專案的方式開發，而且有兩種類別： <br> [C](https://aka.ms/iot-security-github-c)、和[C#](https://aka.ms/iot-security-github-cs)。
 
-在本文中，您將了解： 
+在本文中，您將學會如何： 
 > [!div class="checklist"]
 > * 比較安全性代理程式類別
 > * 探索支援的代理程式平臺
@@ -59,9 +59,9 @@ IoT 安全性代理程式類別的每個 Azure 資訊安全中心都提供一組
 
 ## <a name="security-agent-installation-guidelines"></a>安全性代理程式安裝指導方針
 
-若是 **Windows**：安裝 SecurityAgent 腳本必須從系統管理員的 PowerShell 視窗執行。 
+針對**Windows**：必須從系統管理員的 PowerShell 視窗執行安裝 SecurityAgent 腳本。 
 
-若是 **Linux**：InstallSecurityAgent.sh 必須以超級使用者身分執行。 我們建議您在安裝命令前面加上 "sudo"。
+針對**Linux**： InstallSecurityAgent.sh 必須以超級使用者身分執行。 我們建議您在安裝命令前面加上 "sudo"。
 
 
 ## <a name="choose-an-agent-flavor"></a>選擇代理程式類別 
@@ -91,10 +91,10 @@ IoT 安全性代理程式類別的每個 Azure 資訊安全中心都提供一組
 |IoT 代理程式的 Azure 資訊安全中心 |作業系統 |架構 |
 |--------------|------------|--------------|
 |C|Ubuntu 16.04 |   x64|
-|C|Ubuntu 18.04 |   x64|
+|C|Ubuntu 18.04 |   x64、ARMv7|
 |C|Debian 9 |   x64、x86|
 |C#|Ubuntu 16.04    |x64|
-|C#|Ubuntu 18.04    |x64|
+|C#|Ubuntu 18.04    |x64、ARMv7|
 |C#|Debian 9    |x64|
 |C#|Windows Server 2016|    X64|
 |C#|Windows 10 IoT 核心版，組建17763    |x64|

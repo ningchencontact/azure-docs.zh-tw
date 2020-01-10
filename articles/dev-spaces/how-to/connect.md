@@ -5,12 +5,12 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 description: 瞭解如何使用 Azure Dev Spaces 將您的開發電腦連接到 AKS 叢集
 keywords: Azure Dev Spaces，Dev Spaces，Docker，Kubernetes，Azure，AKS，Azure Kubernetes Service，容器
-ms.openlocfilehash: c26d159d6f883e1c368b09a82bc53c621c70e281
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: cba68702155475832930c791c3a7be014375ba04
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482236"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770674"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>將您的開發電腦連線至 AKS 叢集 (預覽)
 
@@ -25,7 +25,7 @@ Azure Dev Spaces 會重新導向已連線的 AKS 叢集與開發電腦之間的�
 * 使用 Azure Dev Spaces 來重新導向您的 AKS 叢集與開發電腦上執行的程式碼之間的流量。
 
 > [!IMPORTANT]
-> 這項功能目前只能預覽。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
+> 此功能目前為預覽狀態。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -35,9 +35,9 @@ Azure Dev Spaces 會重新導向已連線的 AKS 叢集與開發電腦之間的�
 
 * 目前不支援 UDP。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
-* Azure 訂閱。 如果您沒有 Azure 訂用帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
 * [已安裝 Azure CLI][azure-cli]。
 * 已在 MacOS 或 Windows 10 上安裝並執行[Azure Dev Spaces][azds-vs-code]延伸模組的[Visual Studio Code][vs-code] 。
 * [Azure Dev Spaces 自行車分享範例應用程式](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp)或您自己在 AKS 叢集上執行的應用程式。
@@ -96,7 +96,7 @@ Azure Dev Spaces 會重新導向已連線的 AKS 叢集與開發電腦之間的�
 
 Azure Dev Spaces 會在建立 AKS 叢集的連線之後，開啟標題為*AZDS Connect-自行車*的終端機視窗。 此終端機視窗已從您的 AKS 叢集設定所有環境變數和 DNS 專案。 您在此終端機視窗中執行的任何程式碼，或使用 Visual Studio Code 偵錯工具的程式碼，都會連接到 AKS 叢集。
 
-![終端機](../media/how-to-connect/connect-terminal.png)
+![終端](../media/how-to-connect/connect-terminal.png)
 
 此外，Azure Dev Spaces 會建立標題為*Dev Spaces Connect*的視窗及其所有輸出。
 
@@ -104,7 +104,7 @@ Azure Dev Spaces 會在建立 AKS 叢集的連線之後，開啟標題為*AZDS C
 
 Azure Dev Spaces 也有顯示連接狀態的狀態列專案。
 
-![Status](../media/how-to-connect/connect-status.png)
+![狀態](../media/how-to-connect/connect-status.png)
 
 確認狀態列顯示*Dev Spaces：已連線到本機埠3000上的開發/自行車*。
 
@@ -254,6 +254,6 @@ MYAPP1_SERVICE_HOST=${services.myapp1}
 [azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [bike-sharing-github]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [gh-actions]: github-actions.md
-[supported-regions]: ../about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [team-quickstart]: ../quickstart-team-development.md
 [vs-code]: https://code.visualstudio.com/download

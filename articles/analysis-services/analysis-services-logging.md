@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b8ae2c529bebebae4ebc2d7b0b8a7e420fe9bcc7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 05ba1d97d4eba92f492289375f85425f8920510b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572781"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749759"
 ---
 # <a name="setup-diagnostic-logging"></a>設定診斷記錄
 
-在任何 Analysis Services 解決方案中，監視您伺服器的執行方式皆是一大重點功能。 透過 [Azure 資源診斷記錄](../azure-monitor/platform/resource-logs-overview.md)，您可以監視並傳送記錄至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)，將記錄串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將記錄匯出至 [Azure 監視器記錄](../azure-monitor/azure-monitor-log-hub.md)。
+在任何 Analysis Services 解決方案中，監視您伺服器的執行方式皆是一大重點功能。 透過 [Azure 資源診斷記錄](../azure-monitor/platform/platform-logs-overview.md)，您可以監視並傳送記錄至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)，將記錄串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將記錄匯出至 [Azure 監視器記錄](../azure-monitor/azure-monitor-log-hub.md)。
 
 ![針對儲存體、事件中樞或 Azure 監視器記錄的診斷記錄](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -70,7 +70,7 @@ ms.locfileid: "73572781"
 
 ## <a name="setup-diagnostics-logging"></a>設定診斷記錄
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 1. 在 [Azure 入口網站](https://portal.azure.com) > 伺服器中，在左側瀏覽區中按一下 [診斷記錄]，然後按一下 [開啟診斷]。
 
@@ -88,7 +88,7 @@ ms.locfileid: "73572781"
     * **服務**。 選取此選項可記錄服務層級事件。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
     * **計量**。 選取此選項可儲存[計量](analysis-services-monitor.md#server-metrics)中的詳細資料。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
 
-3. 按一下 [儲存]。
+3. 按一下 [檔案]。
 
     如果您收到錯誤，指出「無法更新 \<工作區名稱> 的診斷。 訂用帳戶 \<訂用帳戶識別碼> 未註冊為使用 microsoft.insights」， 請遵循[針對 Azure 診斷進行疑難排解](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)的指示註冊帳戶，然後重試此程序。
 
@@ -158,7 +158,7 @@ ms.locfileid: "73572781"
 
 ![Azure 入口網站中的記錄搜尋選項](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-在查詢產生器中，展開 [LogManagement] > [AzureDiagnostics]。 AzureDiagnostics 包括「引擎」和「服務」事件。 留意到查詢是即時建立的。 EventClass\_s 的欄位包含 xEvent 名稱，如果您曾經使用 xEvents 進行內部部署記錄，這些名稱就可能看起來似曾相似。 按一下 [EventClass**s]\_** 或其中一個事件名稱，Log Analytics 工作區將會繼續建構查詢。 請務必儲存您的查詢，以供日後重複使用。
+在查詢產生器中，展開 [LogManagement] > [AzureDiagnostics]。 AzureDiagnostics 包括「引擎」和「服務」事件。 留意到查詢是即時建立的。 EventClass\_s 的欄位包含 xEvent 名稱，如果您曾經使用 xEvents 進行內部部署記錄，這些名稱就可能看起來似曾相似。 按一下 [EventClass\_s] 或其中一個事件名稱，Log Analytics 工作區將會繼續建構查詢。 請務必儲存您的查詢，以供日後重複使用。
 
 ### <a name="example-queries"></a>查詢範例
 
@@ -326,6 +326,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解 [Azure 資源診斷記錄](../azure-monitor/platform/resource-logs-overview.md)。
+深入了解 [Azure 資源診斷記錄](../azure-monitor/platform/platform-logs-overview.md)。
 
 請參閱 PowerShell 說明中[的 set-azdiagnosticsetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) 。

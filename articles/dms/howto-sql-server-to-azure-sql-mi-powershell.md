@@ -11,15 +11,16 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 04/29/2019
-ms.openlocfilehash: 227ef72b53b7334cffcb485e23c3e4227613b344
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.date: 01/08/2020
+ms.openlocfilehash: 3b434bc8a495f47f7fb2de8429069283821cf397
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437907"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746622"
 ---
 # <a name="migrate-sql-server-to-sql-database-managed-instance-with-powershell--azure-database-migration-service"></a>使用 PowerShell & Azure 資料庫移轉服務，將 SQL Server 遷移至 SQL Database 受控實例
+
 在本文中，您會使用 Microsoft Azure PowerShell，將還原到 SQL Server 2005 或更新版本之內部部署實例的**Adventureworks2016**資料庫移轉至 Azure SQL Database 受控實例。 您可以使用 Microsoft Azure PowerShell 中的 `Az.DataMigration` 模組，將資料庫從內部部署 SQL Server 實例遷移至 Azure SQL Database 受控實例。
 
 在本文中，您將學會如何：
@@ -45,14 +46,14 @@ ms.locfileid: "75437907"
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
 * Azure SQL Database 受控實例。 您可以遵循[建立 Azure SQL Database 受控實例](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started)一文中的詳細資料，來建立 Azure SQL Database 受控實例。
 * 下載並安裝[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) 3.3 版或更新版本。
-* 使用 Azure Resource Manager 部署模型建立的 Azure 虛擬網路（VNet），可為 Azure 資料庫移轉服務提供內部部署來源伺服器的站對站連線能力，方法是使用[ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)或[VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)。
+* 使用 Azure Resource Manager 部署模型建立的 Microsoft Azure 虛擬網路，它會使用[ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)或[VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)為您的內部部署來源伺服器提供站對站連線能力的 Azure 資料庫移轉服務。
 * 如[執行 SQL Server 遷移評估](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)一文所述，使用 Data Migration Assistant 完成內部部署資料庫和架構遷移的評估。
 * 使用[install-Module PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)從 PowerShell 資源庫下載並安裝 `Az.DataMigration` 模組（0.7.2 版或更新版本）。
 * 若要確保用來連接至來源 SQL Server 實例的認證具有[CONTROL Server](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql)許可權。
 * 若要確保用來連接目標 Azure SQL Database 受控實例的認證，具有目標 Azure SQL Database 受控實例資料庫的 CONTROL DATABASE 許可權。
 
     > [!IMPORTANT]
-    > 針對線上遷移，您必須已已設定 Azure Active Directory 認證。 如需詳細資訊，請參閱[使用入口網站建立可存取資源的 Azure AD 應用程式和服務主體一](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)文。
+    > 針對線上遷移，您必須已設定您的 Azure Active Directory 認證。 如需詳細資訊，請參閱[使用入口網站建立可存取資源的 Azure AD 應用程式和服務主體一](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)文。
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>登入您的 Microsoft Azure 訂用帳戶
 

@@ -3,12 +3,12 @@ title: 原則指派結構的詳細資料
 description: 描述 Azure 原則用來將原則定義和參數關聯至資源進行評估的原則指派定義。
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5f6b097b82d31926b7b5d3099d1f3f23669e78c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436384"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747213"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure 原則指派結構
 
@@ -55,7 +55,7 @@ Azure 原則會使用原則指派來定義哪些資源已指派哪些原則或�
 
 ## <a name="enforcement-mode"></a>強制模式
 
-**EnforcementMode**屬性可讓客戶在現有資源上測試原則結果，而不需要在[Azure 活動記錄](../../../azure-monitor/platform/activity-logs-overview.md)中起始原則效果或觸發專案。 此案例通常稱為「What If」，並與安全的部署做法一致。 **enforcementMode**與[停用](./effects.md#disabled)的效果不同，因為這會導致根本無法評估資源。
+**EnforcementMode**屬性可讓客戶在現有資源上測試原則結果，而不需要在[Azure 活動記錄](../../../azure-monitor/platform/platform-logs-overview.md)中起始原則效果或觸發專案。 此案例通常稱為「What If」，並與安全的部署做法一致。 **enforcementMode**與[停用](./effects.md#disabled)的效果不同，因為這會導致根本無法評估資源。
 
 此屬性具有下列值：
 

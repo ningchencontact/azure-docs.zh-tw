@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 2b84f752467d630142f1920aac08bf5321b13acb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 433d53e09fce6d3f6b2010956da91c4b7cf91d49
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363722"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770164"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>使用事件中樞串流最忙碌路徑中的 Azure 診斷資料
 Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機器 (VM) 的度量和記錄，再將結果傳輸至 Azure 儲存體。 從 2016 年 3 月 (SDK 2.9) 的時間範圍開始，您可以使用 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，將 Azure 診斷傳送至自訂的資料來源，並立即傳輸最忙碌路徑資料。
@@ -21,8 +21,7 @@ Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機�
 
 * Windows 事件追蹤 (ETW) 事件
 * 效能計數器
-* Windows 事件記錄
-* 應用程式記錄
+* Windows 事件記錄檔，包括 Windows 事件記錄檔中的應用程式記錄檔
 * Azure 診斷基礎結構記錄
 
 本文說明如何使用事件中樞從端對端設定 Azure 診斷。 另提供以下常見案例的指引：

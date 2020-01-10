@@ -4,16 +4,16 @@ description: 了解如何安裝 Azure Functions 的 Durable Functions 擴充，�
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: azfuncdf
-ms.openlocfilehash: eaa241eff6e1c359045a0ea3d8871fde6c60a059
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0060088acb100036c094406e01d0d736a4af88eb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231473"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769637"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>使用 Azure 入口網站建立 Durable Functions
 
-NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](durable-functions-overview.md) 中提供 Azure Functions 的 [Durable Functions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 擴充。 此延伸模組必須安裝在您的函式應用程式中。 本文說明如何安裝此套件，以便您可以在 Azure 入口網站中開發長期函式。
+NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 中提供 Azure Functions 的 [Durable Functions](durable-functions-overview.md) 擴充。 此延伸模組必須安裝在您的函式應用程式中。 本文說明如何安裝此套件，以便您可以在 Azure 入口網站中開發長期函式。
 
 > [!NOTE]
 > 
@@ -22,7 +22,7 @@ NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](durable-functions-
 
 ## <a name="create-a-function-app"></a>建立函數應用程式
 
-您必須擁有函式應用程式以便主控任何函式的執行。 函式應用程式可讓您將您的多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 您可以建立 .NET 或 JavaScript 應用程式。
+您必須擁有函式應用程式以便主控任何函式的執行。 函數應用程式可讓您將函式群組為邏輯單位，以方便您管理、部署、調整和共用資源。 您可以建立 .NET 或 JavaScript 應用程式。
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
@@ -58,7 +58,7 @@ NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](durable-functions-
 
 ## <a name="create-an-orchestrator-function"></a>建立協調器函式
 
-1. 展開函式應用程式，然後按一下 [Functions] **+ 旁的 [** ] 按鈕。 如果這是函式應用程式中的第一個函式，請依序選取 [入口網站內] 和 [繼續]。 否則，請移至步驟三。
+1. 展開函式應用程式，然後按一下 [Functions] 旁的 [+] 按鈕。 如果這是函式應用程式中的第一個函式，請依序選取 [入口網站內] 和 [繼續]。 否則，請移至步驟三。
 
    ![Azure 入口網站中的 Functions 快速入門](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
 
@@ -68,7 +68,7 @@ NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](durable-functions-
 
 1. 在搜尋欄位中，輸入 `durable`，然後選擇 [Durable Functions HTTP 入門] 範本。
 
-1. 出現提示時，請選取 [安裝]，以在函式應用程式中安裝 Azure DurableTask 延伸模組的任何相依性。 您只需要為指定的函式應用程式安裝一次延伸模組。 安裝成功之後，請選取 [繼續]。
+1. 出現提示時，選取 [**安裝**] 以在函式應用程式中安裝 Azure DurableTask 擴充功能和任何相依性。 您只需要為指定的函式應用程式安裝一次延伸模組。 安裝成功之後，請選取 [繼續]。
 
     ![安裝繫結延伸模組](./media/durable-functions-create-portal/install-durabletask-extension.png)
 
@@ -76,7 +76,7 @@ NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](durable-functions-
 
 1. 在函式應用程式中建立另一個函式，這次是使用 **Durable Functions 協調器**範本。 將新的協調流程函式命名為 `HelloSequence`。
 
-1. 使用 `Hello`Durable Functions 活動**範本建立名為**  的第三個函式。
+1. 使用 **Durable Functions 活動**範本建立名為 `Hello` 的第三個函式。
 
 ## <a name="test-the-durable-function-orchestration"></a>測試長期函式的協調流程
 

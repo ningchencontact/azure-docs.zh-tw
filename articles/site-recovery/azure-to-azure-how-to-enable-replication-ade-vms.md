@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 2b6c6f2882701515d868e96ae10af85890004587
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 3a59f137240eff2a3a68fa5547be8c6c25d3e5fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954673"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772222"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>將已啟用 Azure 磁碟加密的虛擬機器複寫至另一個 Azure 區域
 
 本文說明如何將已啟用 Azure 磁碟加密（ADE）的 Azure Vm 複寫到另一個 Azure 區域。
 
 >[!NOTE]
-> Site Recovery 目前支援 ADE，而執行 Windows 的 Vm 則不含 Azure Active Directory （AAD）。  對於執行 ADE 1.1 （不含 AAD）的機器，Windows Vm 必須使用受控磁片。 不支援具有非受控磁片的 Vm。 如果您從 ADE 0.1 （含 AAD）切換到1.1，您必須在啟用1.1 之後，停用複寫並啟用 VM 的複寫。
+> Site Recovery 目前支援 ADE，而在執行 Windows 和 Linux 作業系統的 Vm 上，則不含 Azure Active Directory （AAD）。  對於執行 ADE 1.1 （不含 AAD）的機器，Vm 必須使用受控磁片。 不支援具有非受控磁片的 Vm。 如果您從 ADE 0.1 （含 AAD）切換到1.1，您必須在啟用1.1 之後，停用複寫並啟用 VM 的複寫。
 
 
 ## <a id="required-user-permissions"></a>必要的使用者權限

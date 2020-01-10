@@ -3,12 +3,12 @@ title: Azure Functions 執行階段版本概觀
 description: Azure Functions 支援多個執行階段版本。 了解其間的差異以及如何選擇最適合您的版本。
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 977d0cb445369cbc51ce3b90712d58ce8b6ebdc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1172f1cba3dfc10fe08863626db0aa8e7a4bf173
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433087"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769110"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 執行階段版本概觀
 
@@ -72,13 +72,13 @@ Azure Functions 1.x 實驗語言無法使用新模型，因此在2.x 中不支�
 
 * 預設會針對使用情況方案函式實作 HTTP 並行節流，預設值為每一執行個體 100 個並行要求。 您可以在 host.json 檔案中的 [`maxConcurrentRequests`](functions-host-json.md#http) 設定中變更此值。
 
-* 由於 [.NET Core 限制](https://github.com/Azure/azure-functions-host/issues/3414)的緣故，已移除對 F# 指令碼 (.fsx) 函式的支援。 仍然支援已編譯的 F# 函式 (.fs)。
+* 由於[.Net Core 的限制](https://github.com/Azure/azure-functions-host/issues/3414)，已移除F#對腳本（. run.fsx）功能的支援。 仍然支援已編譯的 F# 函式 (.fs)。
 
 * 「事件方格」觸發程序 Webhook 的 URL 格式已變更為 `https://{app}/runtime/webhooks/{triggerName}`。
 
 ## <a name="migrating-from-2x-to-3x"></a>從2.x 遷移至3。x
 
-Azure Functions 版本3.x 與2.x 版之間的高度相容性。  許多應用程式應該能夠安全地升級至3.x，而不需要變更任何程式碼。  雖然建議改用3.x，但請務必先執行廣泛的測試，然後再變更生產應用程式中的主要版本。
+Azure Functions 版本3.x 與2.x 版具有高度回溯相容性。  許多應用程式應該能夠安全地升級至3.x，而不需要變更任何程式碼。  雖然建議改用3.x，但請務必先執行廣泛的測試，然後再變更生產應用程式中的主要版本。
 
 ### <a name="breaking-changes-between-2x-and-3x"></a>2\.x 和3.x 之間的突破性變更
 
@@ -119,7 +119,7 @@ Azure Functions 版本3.x 與2.x 版之間的高度相容性。  許多應用程
 
 #### <a name="visual-studio-runtime-versions"></a>Visual Studio 執行階段版本
 
-在 Visual Studio 中，您會在建立專案時選取執行階段版本。 適用於 Visual Studio 的 Azure Functions 工具同時支援這兩個主要的執行階段版本。 根據專案設定進行偵錯和發佈時，會使用正確的版本。 版本設定會在 `.csproj` 檔案中的下列屬性中定義：
+在 Visual Studio 中，您會在建立專案時選取執行階段版本。 適用于 Visual Studio 的 Azure Functions 工具支援三個主要的執行階段版本。 根據專案設定進行偵錯和發佈時，會使用正確的版本。 版本設定會在 `.csproj` 檔案中的下列屬性中定義：
 
 ##### <a name="version-1x"></a>1\.x 版
 
@@ -147,10 +147,10 @@ Azure Functions 版本3.x 與2.x 版之間的高度相容性。  許多應用程
 
 ###### <a name="updating-2x-apps-to-3x-in-visual-studio"></a>將2.x 應用程式更新為 Visual Studio 中的3。x
 
-您可以開啟目標為2.x 的現有函式，然後藉由編輯 `.csproj` 檔案並更新上述值，移至3.x。  Visual Studio 會根據專案中繼資料自動為您管理執行階段版本。  不過，如果您從未建立了3.x 應用 Visual Studio 程式，而且您的電腦上還沒有適用于3.x 的範本和執行時間，則可能會發生這種情況。  這可能會出現錯誤，例如「沒有可用的函式執行時間符合專案中所指定的版本」。  若要提取最新的範本和執行時間，請完成建立新函數專案的體驗。  當您進入 [版本] 和 [範本] 選取畫面時，請等候 Visual Studio 完成提取最新的範本。  當最新的 .NET Core 3 範本可供使用並顯示時，您應該能夠執行並對版本3.x 所設定的任何專案進行偵錯工具。
+您可以開啟目標為2.x 的現有函式，然後藉由編輯 `.csproj` 檔案並更新上述值，移至3.x。  Visual Studio 會根據專案中繼資料自動為您管理執行階段版本。  不過，如果您從未建立過3.x 應用 Visual Studio 程式，但您的電腦上還沒有適用于3.x 的範本和執行時間，這是可行的。  這可能會出現錯誤，例如「沒有可用的函式執行時間符合專案中所指定的版本」。  若要提取最新的範本和執行時間，請完成建立新函數專案的體驗。  當您進入 [版本] 和 [範本] 選取畫面時，請等候 Visual Studio 完成提取最新的範本。  當最新的 .NET Core 3 範本可供使用並顯示時，您應該能夠執行並對版本3.x 所設定的任何專案進行偵錯工具。
 
 > [!IMPORTANT]
-> 只有在使用16.4 版或更新版本時，才能在 Visual Studio 中開發版本3.x 函數。
+> 只有在使用 Visual Studio 16.4 版或更新版本時，才能在 Visual Studio 中開發版本3.x 函數。
 
 #### <a name="vs-code-and-azure-functions-core-tools"></a>VS Code 與 Azure Functions Core Tools
 

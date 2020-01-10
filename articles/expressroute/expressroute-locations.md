@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 12/13/2019
+ms.date: 01/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 479a94f8a49dfdba5090e3372c378dcfc92ccd9a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
-ms.translationtype: HT
+ms.openlocfilehash: 2df22b059cbc9a388a3a3d106bb0c1af1082ebec
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561111"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749117"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -103,12 +103,13 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **FarEasTone** |支援的 |支援的 |台北|
 | **GÉANT** |支援的 |支援的 |阿姆斯特丹、法蘭克福、馬賽 |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | 支援的| 支援的 | 辰內，孟買 |
+| **Intelsat** | 支援的 | 支援的 | 華盛頓特區2 |
 | **[InterCloud](https://www.intercloud.com/)** |支援的 |支援的 |阿姆斯特丹、芝加哥、香港、倫敦、紐約、巴黎、矽谷、新加坡、華盛頓特區、蘇黎世 |
 | **[Internet2](https://www.internet2.edu/products-services/cloud-services-applications/microsoft-azure/#service-cloud-connect)** |支援的 |支援的 |芝加哥、達拉斯、矽谷、華盛頓特區 |
 | **[Internet Initiative Japan Inc. - IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |支援的 |支援的 |大阪、東京 |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |支援的 |支援的 |開普敦、約翰尼斯堡、倫敦 |
 | **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |支援的 |支援的 |阿姆斯特丹、阿姆斯特丹2、哥本哈根、都柏林、法蘭克福、倫敦、馬賽、巴黎、蘇黎世 |
-| **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|支援的 |支援的 | 阿姆斯特丹、倫敦2、矽谷、多倫多 |
+| **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|支援的 |支援的 | 阿姆斯特丹、倫敦2、矽谷、多倫多、華盛頓特區 |
 | **Jaguar 網路** |支援的 |支援的 |馬賽|
 | **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |支援的 |支援的 |倫敦 |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |支援的 |支援的 |首爾 |
@@ -118,7 +119,7 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |支援的 |支援的 |阿姆斯特丹、芝加哥、達拉斯、倫敦、新港 (威爾斯)、聖保羅、西雅圖、矽谷、新加坡、華盛頓特區 |
 | **LG CNS** |支援的 |支援的 |釜山、首爾 |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |支援的 |支援的 |開普敦、約翰尼斯堡 |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |支援的 |支援的 |阿姆斯特丹、亞特蘭大、奧克蘭、芝加哥、達拉斯、丹佛、Dubai2、都柏林、法蘭克福、香港特別行政區、內華達州、倫敦、倫敦2、洛杉磯、墨爾本、邁阿密、蒙特利爾、紐約、、魁北克市、San Antonio、西雅圖、矽谷、新加坡、新加坡2、悉尼、東京、多倫多、華盛頓特區、蘇黎世 |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |支援的 |支援的 |阿姆斯特丹、亞特蘭大、奧克蘭、芝加哥、達拉斯、丹佛、Dubai2、都柏林、法蘭克福、香港特別行政區、內華達州、倫敦、倫敦2、洛杉磯、墨爾本、邁阿密、蒙特利爾、紐約、Oslo、達拉斯、魁北克市、San Antonio、西雅圖、矽谷、新加坡、新加坡2、悉尼、東京、多倫多、華盛頓特區、蘇黎世 |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |支援的 |支援的 |倫敦 |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |支援的 |支援的 |達拉斯、洛杉磯、邁阿密、聖保羅、華盛頓特區 |
 | **[新一代資料](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |支援的 |支援的 |Newport(Wales) |
@@ -143,7 +144,7 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |支援的 |支援的 |阿姆斯特丹、聖保羅 |
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |支援的 |支援的 |倫敦、倫敦2 |
 | **Telenor** |支援的 |支援的 |阿姆斯特丹、倫敦、Oslo |
-| **[Telia Carrier](https://www.teliacarrier.com/)** | 支援的 | 支援的 |阿姆斯特丹、芝加哥、達拉斯、法蘭克福、香港特別行政區、倫敦、巴黎、矽谷、斯德哥爾摩、華盛頓特區 |
+| **[Telia Carrier](https://www.teliacarrier.com/)** | 支援的 | 支援的 |阿姆斯特丹、芝加哥、達拉斯、法蘭克福、香港、倫敦、Oslo、巴黎、矽谷、斯德哥爾摩、華盛頓特區 |
 | **Telmex Uninet**| 支援的 | 支援的 | 達拉斯 |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |支援的 |支援的 |墨爾本、新加坡、雪梨 |
 | **[Telus](https://www.telus.com)** |支援的 |支援的 |蒙特利爾、西雅圖、多倫多 |

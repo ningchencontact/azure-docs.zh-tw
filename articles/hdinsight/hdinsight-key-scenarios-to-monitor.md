@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: c6e60474f74a23add429bf13ca7744afb8e8e1a3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 72006f907a1c1641308c8ee43e7a405765410789
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74777537"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770878"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>監視 Azure HDInsight 中的叢集效能
 
@@ -27,7 +27,7 @@ ms.locfileid: "74777537"
 
 若要取得叢集節點和其載入的高階查看，請登入[Ambari WEB UI](hdinsight-hadoop-manage-ambari.md)，然後選取 [**主機**] 索引標籤。您的主機會依照其完整功能變數名稱列出。 每個主機的操作狀態是依彩色的健康情況指示器來顯示：
 
-| 色彩 | 描述 |
+| 色彩 | 說明 |
 | --- | --- |
 | 紅色 | 主機上至少有一個主要元件已關閉。 暫留以查看列出受影響元件的工具提示。 |
 | Orange | 主機上至少有一個次要元件已關閉。 暫留以查看列出受影響元件的工具提示。 |
@@ -72,7 +72,7 @@ YARN 可讓我們將資源配置給這些佇列，並顯示是否已指派所有
 
 ## <a name="storage-throttling"></a>儲存體節流
 
-叢集的效能瓶頸可能會發生在儲存層級中。 這種類型的瓶頸最常見的原因是*封鎖*輸入/輸出（IO）作業，這會在執行中的工作傳送比儲存體服務可處理的 IO 更多時發生。 此封鎖會建立 IO 要求的佇列，等候目前 IO 處理完成後才會予以處理。 區塊的原因是*儲存體節流*，這不是實體限制，而是由服務等級協定（SLA）的儲存體服務所加諸的限制。 這項限制可確保沒有任何單一用戶端或租用戶可以獨佔服務。 SLA 會限制 Azure 儲存體每秒的 IO 數 (IOPS) - 如需詳細資訊，請參閱 [Azure 儲存體的擴充和效能目標](https://docs.microsoft.com/azure/storage/storage-scalability-targets)。
+叢集的效能瓶頸可能會發生在儲存層級中。 這種類型的瓶頸最常見的原因是*封鎖*輸入/輸出（IO）作業，這會在執行中的工作傳送比儲存體服務可處理的 IO 更多時發生。 此封鎖會建立 IO 要求的佇列，等候目前 IO 處理完成後才會予以處理。 區塊的原因是*儲存體節流*，這不是實體限制，而是由服務等級協定（SLA）的儲存體服務所加諸的限制。 這項限制可確保沒有任何單一用戶端或租用戶可以獨佔服務。 SLA 會限制 Azure 儲存體的每秒 Io 數（IOPS）-如需詳細資訊，請參閱[標準儲存體帳戶的擴充性和效能目標](../storage/common/scalability-targets-standard-account.md)。
 
 如果您使用 Azure 儲存體，如需有關監視儲存體相關問題的資訊（包括節流），請參閱[監視、診斷和疑難排解 Microsoft Azure 儲存體](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting)。
 

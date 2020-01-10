@@ -5,21 +5,21 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/03/2020
 ms.author: alzam
-ms.openlocfilehash: 73c379d914f37de351165c19e3d73425e9a202b2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 6357fb2d69a9c0ded430c17b77e854f63fc8f5c6
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151860"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747367"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>建立 P2S OpenVPN 通訊協定連接的 Azure Active Directory 租使用者
 
 連線到您的 VNet 時，您可以使用以憑證為基礎的驗證或 RADIUS 驗證。 不過，當您使用 Open VPN 通訊協定時，您也可以使用 Azure Active Directory 驗證。 本文可協助您設定 P2S Open VPN 驗證的 Azure AD 租使用者。
 
 > [!NOTE]
-> Azure AD 驗證僅支援 OpenVPN®通訊協定連線。
+> Azure AD 驗證僅支援 OpenVPN® 通訊協定連線。
 >
 
 ## <a name="tenant"></a>1. 建立 Azure AD 租使用者
@@ -27,7 +27,7 @@ ms.locfileid: "74151860"
 使用[建立新的租](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)使用者文章中的步驟，建立 Azure AD 租使用者：
 
 * 組織名稱
-* 初始功能變數名稱
+* 初始網域名稱
 
 範例：
 
@@ -40,7 +40,7 @@ ms.locfileid: "74151860"
 使用[本文](../active-directory/fundamentals/add-users-azure-active-directory.md)中的步驟，為您的 Azure AD 租使用者建立至少兩個使用者。 請務必變更**目錄角色**以建立帳戶類型：
 
 * 全域管理員
-* 使用者
+* User
 
 ## <a name="enable-authentication"></a>3. 在 VPN 閘道上啟用 Azure AD 驗證
 
@@ -54,13 +54,13 @@ ms.locfileid: "74151860"
 
 4. 接下來，請授與系統管理員同意。 在瀏覽器的網址列中，複製並貼上您部署位置的相關 URL：
 
-    公開
+    公用
 
     ```
     https://login.microsoftonline.com/common/oauth2/authorize?client_id=41b23e61-6c1e-4545-b367-cd054e0ed4b4&response_type=code&redirect_uri=https://portal.azure.com&nonce=1234&prompt=admin_consent
     ````
 
-    Azure Government
+    Azure 政府機構
 
     ```
     https://login-us.microsoftonline.com/common/oauth2/authorize?client_id=51bb15d4-3a4f-4ebf-9dca-40096fe32426&response_type=code&redirect_uri=https://portal.azure.us&nonce=1234&prompt=admin_consent
@@ -89,31 +89,36 @@ ms.locfileid: "74151860"
 7. 在您的 Azure AD 下的 [**企業應用程式**] 中，您會看到列出**Azure VPN** 。
 
     ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
+    
+8. 如果您還沒有正常運作的點對站台環境，請依照指示來建立一個。 請參閱[建立點對站 VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md)，來建立及設及使用原生 Azure 憑證驗證的點對站 VPN 閘道。 
 
-8. 藉由執行下列命令，在 VPN 閘道上啟用 Azure AD 驗證，請務必修改命令以反映您自己的環境：
+    > [!IMPORTANT]
+    > OpenVPN 不支援基本 SKU。
+
+9. 藉由執行下列命令，在 VPN 閘道上啟用 Azure AD 驗證，請務必修改命令以反映您自己的環境：
 
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/"
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24 -VpnClientProtocol OpenVPN
     ```
 
-9. 執行下列命令來建立並下載設定檔。 變更-ResourcGroupName 和-Name 值，以符合您自己的值。
+10. 執行下列命令來建立並下載設定檔。 變更-ResourceGroupName 和-Name 值，以符合您自己的值。
 
     ```azurepowershell-interactive
     $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
     $PROFILE.VpnProfileSASUrl
     ```
 
-10. 執行命令之後，您會看到類似下面的結果。 將結果 URL 複製到您的瀏覽器，以下載設定檔 zip 檔案。
+11. 執行命令之後，您會看到類似下面的結果。 將結果 URL 複製到您的瀏覽器，以下載設定檔 zip 檔案。
 
     ![Azure VPN](./media/openvpn-create-azure-ad-tenant/profile.png)
 
-11. 將下載的 zip 檔案解壓縮。
+12. 將下載的 zip 檔案解壓縮。
 
-12. 流覽至解壓縮的 "AzureVPN" 資料夾。
+13. 流覽至解壓縮的 "AzureVPN" 資料夾。
 
-13. 記下 "azurevpnconfig" 檔案的位置。 Azurevpnconfig 包含 VPN 連線的設定，而且可以直接匯入至 Azure VPN 用戶端應用程式。 您也可以將此檔案散發給所有需要透過電子郵件或其他方式連接的使用者。 使用者需要有效的 Azure AD 認證，才能成功連接。
+14. 記下 "azurevpnconfig" 檔案的位置。 Azurevpnconfig 包含 VPN 連線的設定，而且可以直接匯入至 Azure VPN 用戶端應用程式。 您也可以將此檔案散發給所有需要透過電子郵件或其他方式連接的使用者。 使用者需要有效的 Azure AD 認證，才能成功連接。
 
 ## <a name="next-steps"></a>後續步驟
 

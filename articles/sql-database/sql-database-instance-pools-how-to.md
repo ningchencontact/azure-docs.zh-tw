@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 13c58ddf5f51e5b63d2dbe425b3ec795e21dabb8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5a45b9e3ba59a91f580ce0f2dc180adf5d20c87d
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810343"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754049"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Azure SQL Database 實例集區（預覽）操作指南
 
@@ -26,9 +26,9 @@ ms.locfileid: "73810343"
 
 下表顯示與實例集區相關的可用作業，以及其在 Azure 入口網站和 PowerShell 中的可用性。
 
-|命令|Azure 入口網站|PowerShell|
+|Command|Azure Portal|PowerShell|
 |:---|:---|:---|
-|建立實例集區|否|是|
+|建立執行個體集區|否|是|
 |更新實例集區（屬性數目有限）|否 |是 |
 |檢查實例集區使用方式和屬性|否|是 |
 |刪除實例集區|否|是|
@@ -92,11 +92,17 @@ ms.locfileid: "73810343"
 
 - 只有一般用途和第5代可供公開預覽。
 - 集區名稱只能包含小寫字母、數位和連字號，且開頭不得為連字號。
-- 若要取得子網識別碼，請使用 `Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork`。
 - 如果您想要使用 AHB （Azure Hybrid Benefit），它會套用至實例集區層級。 您可以在建立集區時設定授權類型，或在建立後隨時進行更新。
 
 > [!IMPORTANT]
 > 部署實例集區是長時間執行的作業，需要大約4.5 小時。
+
+若要取得網路參數：
+
+```powershell
+$virtualNetwork = Get-AzVirtualNetwork -Name "miPoolVirtualNetwork" -ResourceGroupName "myResourceGroup"
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork
+```
 
 若要建立實例集區：
 
@@ -104,7 +110,7 @@ ms.locfileid: "73810343"
 $instancePool = New-AzSqlInstancePool `
   -ResourceGroupName "myResourceGroup" `
   -Name "mi-pool-name" `
-  -SubnetId "/subscriptions/subscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/miPoolVirtualNetwork/subnets/miPoolSubnet" `
+  -SubnetId $subnet.Id `
   -LicenseType "LicenseIncluded" `
   -VCore 80 `
   -Edition "GeneralPurpose" `

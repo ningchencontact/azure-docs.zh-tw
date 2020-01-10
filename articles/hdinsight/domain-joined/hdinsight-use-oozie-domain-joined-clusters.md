@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/09/2019
-ms.openlocfilehash: ce51923dbc6f909adad1df5a8c0bcd0723371970
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 125450394a829667d45479e6e0b7844a0357f009
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435839"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750011"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>在具有企業安全性套件的 HDInsight Hadoop 叢集中執行 Apache Oozie
 
@@ -86,7 +86,7 @@ Oozie 工作流程定義是以 Apache Hadoop 流程定義語言 (hPDL) 撰寫的
           <credential name="metastore_token" type="hcat">
              <property>
                 <name>hcat.metastore.uri</name>
-                <value>thrift://hn0-<clustername>.<Domain>.com:9083</value>
+                <value>thrift://<active-headnode-name>-<clustername>.<Domain>.com:9083</value>
              </property>
              <property>
                 <name>hcat.metastore.principal</name>
@@ -214,6 +214,23 @@ Oozie 工作流程定義是以 Apache Hadoop 流程定義語言 (hPDL) 撰寫的
 
 2. 在 nano 編輯器開啟後，請使用下列 XML 做為檔案的內容：
 
+< < < < < < < HEAD
+   ```bash
+       nameNode=adl://home
+       jobTracker=headnodehost:8050
+       queueName=default
+       examplesRoot=examples
+       oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
+       hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
+       hiveScript2=${nameNode}/user/${user.name}/countrowshive2.hql
+       oozie.use.system.libpath=true
+       user.name=[domainuser]
+       jdbcPrincipal=hive/<active-headnode-name>.<Domain>.com@<Domain>.COM
+       jdbcURL=[jdbcurlvalue]
+       hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
+       hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
+   ```
+=======
     ```bash
     nameNode=adl://home
     jobTracker=headnodehost:8050
@@ -229,6 +246,7 @@ Oozie 工作流程定義是以 Apache Hadoop 流程定義語言 (hPDL) 撰寫的
     hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
     hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
     ```
+>>>>>>> 0650d78429b6d1b43cddf90fc713eb4050d71eef
 
    - 若您使用 Azure Data Lake Storage Gen1 做為您的主要叢集儲存體，請為 `nameNode` 屬性使用 `adl://home` URI。 如果您使用 Azure Blob 儲存體，請將其變更為 `wasb://home`。 如果您使用 Azure Data Lake Storage Gen2，請將其變更為 `abfs://home`。
    - 將 `domainuser` 取代為您網域的使用者名稱。  

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: fe0eb6c2305dd01d8ff3df5be7056cbeae92fff2
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 98c76b2be6a5cc801f9e7b31357cbeb158a966fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762712"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771286"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>使用 Azure Sentinel 的實用資源
 
@@ -32,7 +32,7 @@ Azure Logic Apps 連接器： <https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>稽核與報告
-Azure Sentinel 的 Audit 記錄會保留在[Azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)中。
+Azure Sentinel 的 Audit 記錄會保留在[Azure 活動記錄](../azure-monitor/platform/platform-logs-overview.md)中。
 
 下列支援的作業可以進行審核。
 
@@ -44,8 +44,6 @@ Azure Sentinel 的 Audit 記錄會保留在[Azure 活動記錄](../azure-monitor
 |刪除工作流程    |Microsoft.Logic/workflows|
 |建立已儲存的搜尋    |Microsoft.operationalinsights/workspace/savedSearches|
 |刪除已儲存的搜尋    |Microsoft.operationalinsights/workspace/savedSearches|
-|設定儀表板  |Microsoft 入口網站/儀表板|
-|刪除儀表板   |Microsoft 入口網站/儀表板|
 |更新警示規則 |SecurityInsights/alertRules|
 |刪除警示規則 |SecurityInsights/alertRules|
 |更新警示規則回應動作 |SecurityInsights/alertRules|

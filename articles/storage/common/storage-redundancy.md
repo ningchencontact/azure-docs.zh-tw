@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: cdddf284028c6fc9749082e1991e5b9dee4acf99
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
-ms.translationtype: HT
+ms.openlocfilehash: 7517c4d9b3f9b58d9cf745f5001078837e1fbfea
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75560363"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748171"
 ---
 # <a name="azure-storage-redundancy"></a>Azure 儲存體備援
 
@@ -52,7 +52,7 @@ Azure 儲存體會定期驗證使用迴圈冗余檢查（CRCs）所儲存之資�
 如需每個備援選項的定價資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。
 
 > [!NOTE]
-> Azure Premium 磁碟儲存體目前僅支援本機多餘的儲存體（LRS）。 Azure Premium 封鎖 Blob 儲存體在特定區域中支援本地備援儲存體（LRS）和區域備援儲存體（ZRS）。
+> Azure Premium 磁碟儲存體目前僅支援本機多餘的儲存體（LRS）。 Azure Premium 封鎖 Blob 儲存體支援特定區域中的本機多餘儲存體（LRS）和區域冗余儲存體（ZRS）。
 
 ## <a name="changing-replication-strategy"></a>變更複寫策略
 
@@ -76,7 +76,7 @@ Azure 儲存體會定期驗證使用迴圈冗余檢查（CRCs）所儲存之資�
 - [區域備援儲存體 (ZRS)：高可用性 Azure 儲存體應用程式](storage-redundancy-zrs.md)
 - [異地備援儲存體 (GRS)：適用於 Azure 儲存體的跨區域複寫](storage-redundancy-grs.md)
 - [異地區域-多餘儲存體（切換），以取得高可用性和最大持久性（預覽）](storage-redundancy-gzrs.md)
-- [Azure 儲存體的延展性與效能目標](storage-scalability-targets.md)
+- [標準儲存體帳戶的擴充性和效能目標](scalability-targets-standard-account.md)
 - [使用 RA-GRS 儲存體設計高可用性應用程式](../storage-designing-ha-apps-with-ragrs.md)
 - [Microsoft Azure 儲存體的重複選項和讀取權限異地多餘儲存體](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [SOSP 文件：Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

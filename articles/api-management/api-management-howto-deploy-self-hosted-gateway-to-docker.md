@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: fc7e0f7e4e0e80a030a437bc4f0f13360595f32e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b5acda30f7f4a01e1b7b6ac82652452c3c40e3bf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747701"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768498"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>將 Azure API 管理自我裝載閘道部署至 Docker
 
@@ -33,7 +33,7 @@ ms.locfileid: "73747701"
 - [在您的 API 管理實例中布建閘道資源](api-management-howto-provision-self-hosted-gateway.md)
 
 > [!NOTE]
-> 自我裝載閘道會封裝為以 Linux 為基礎的 Docker 容器。
+> 自我裝載閘道會封裝為 x86-64 以 Linux 為基礎的 Docker 容器。
 
 ## <a name="deploy-the-self-hosted-gateway-to-docker"></a>將自我裝載閘道部署到 Docker
 

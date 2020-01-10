@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a315b012cf103840eae6b141fe5177dfa709896d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: a51bb91a63f032f87da59fe95f5e3282cbaa0bea
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463924"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771610"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -24,7 +24,7 @@ ms.locfileid: "75463924"
 
 ![檔案結構](./media/storage-files-introduction/files-concepts.png)
 
-* **儲存體帳戶**：一律透過儲存體帳戶來存取 Azure 儲存體。 如需關於儲存體帳戶容量的詳細資訊，請參閱[延展性和效能目標](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
+* **儲存體帳戶**：一律透過儲存體帳戶來存取 Azure 儲存體。 如需儲存體帳戶容量的詳細資訊，請參閱[標準儲存體帳戶的擴充性和效能目標](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
 
 * **共用**：檔案儲存體共用是 Azure 中的 SMB 檔案共用。 所有的目錄和檔案必須在上層共用中建立。 帳戶可以包含不限數目的共用，而共用可以儲存無限數量的檔案，最多可達檔案共用的總容量。 Premium 和標準檔案共用的總容量為 100 TiB。
 
@@ -205,29 +205,40 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 
 |地區 |支援的冗余 |
 |-------|---------|
+|澳洲中部    |LRS     |
+|澳洲中部 2    |LRS     |
 |澳大利亞東部 |LRS     |
 |澳洲東南部|LRS |
+|巴西南部    |LRS     |
 |加拿大中部  |LRS     |
 |加拿大東部     |LRS     |
 |印度中部  |LRS     |
-|美國中部 *   |LRS     |
+|美國中部 *   |LRS、ZRS    |
 |東亞      |LRS     |
 |美國東部 *        |LRS、ZRS|
-|美國東部 2 *      |LRS     |
+|美國東部 2 *      |LRS、ZRS     |
 |法國中部 |LRS、ZRS|
 |法國南部   |LRS     |
 |日本東部     |LRS     |
+|日本西部     |LRS     |
+|南韓中部  |LRS     |
+|南韓南部    |LRS     |
 |美國中北部 |LRS   |
 |北歐   |LRS     |
 |印度南部    |LRS     |
 |美國中南部 |LRS     |
 |東南亞 |LRS、ZRS|
+|瑞士北部    |LRS     |
+|瑞士西部    |LRS     |
 |阿拉伯聯合大公國中部    |LRS     |
-|英國南部   |LRS     |
+|阿拉伯聯合大公國北部    |LRS     |
+|英國北部   |LRS、ZRS    |
+|英國南部    |LRS     |
 |英國西部    |LRS     |
 |美國中西部|LRS     |
 |西歐 *    |LRS、ZRS|
-|美國西部 *        |LRS     |
+|印度西部   |LRS     |
+|美國西部        |LRS     |
 |美國西部 2      |LRS、ZRS|
 
 \* 新帳戶支援，並非所有現有的帳戶都已完成升級程式。 您可以藉由嘗試[啟用大型檔案共用](storage-files-how-to-create-large-file-share.md)，檢查現有的儲存體帳戶是否已完成升級程式。
@@ -248,7 +259,7 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 
 有許多簡單的選項可從現有檔案共用 (例如內部部署檔案共用) 大量傳輸資料到 Azure 檔案服務。 部分常用方法包括 (非完整清單)：
 
-* **Azure 檔案同步**：在 Azure 檔案共用 (雲端端點) 和 Windows 目錄命名空間 (伺服器端點) 之間的初次同步處理中，Azure 檔案同步會從現有檔案共用將所有資料複寫至 Azure 檔案服務。
+* **[Azure 檔案同步](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)** ：在 Azure 檔案共用（「雲端端點」）和 Windows 目錄命名空間（「伺服器端點」）之間的第一次同步處理過程中，Azure 檔案同步會從現有的檔案共用將所有資料複寫至 Azure 檔案儲存體。
 * **[Azure 匯入/匯出](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** ：Azure 匯入/匯出服務可讓您將硬碟寄送到 Azure 資料中心，以便將大量資料安全地傳入 Azure 檔案共用。 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** ：Robocopy 是知名的複製工具，隨附於 Windows 和 Windows Server。 Robocopy 可在本機掛接檔案共用，然後將掛接位置作為 Robocopy 命令中的目的地使用，以將資料傳輸到 Azure 檔案服務中。
 * **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** ：AzCopy 是命令列公用程式，設計為使用最佳效能的簡單命令，將資料複製到 Azure 檔案服務與 Azure Blob 儲存體，以及從其中複製資料。

@@ -1,5 +1,5 @@
 ---
-title: 針對將更新管理、變更追蹤和清查上線時的錯誤進行疑難排解
+title: 疑難排解 Azure 自動化管理解決方案上架
 description: 了解如何針對將更新管理、變更追蹤和清查解決方案上線時的錯誤進行疑難排解
 services: automation
 author: mgoedtel
@@ -8,14 +8,14 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 0371c59ae63389bc3f7f0132260b0d98f496086c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 737b963074a2bec851882bddd78ad0b89f48d1d9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849304"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769892"
 ---
-# <a name="troubleshoot-errors-when-onboarding-solutions"></a>針對將解決方案上線時的錯誤進行疑難排解
+# <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>針對更新管理、變更追蹤和清查上架時的錯誤進行疑難排解
 
 當您將更新管理或變更追蹤和清查等解決方案上線時，可能會發生錯誤。 本文描述可能發生的各種錯誤及解決方法。
 
@@ -140,7 +140,7 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### <a name="cause"></a>原因
 
-當您的 Log Analytics 工作區中仍有作用中的解決方案，而這取決於您要連結的自動化帳戶和記錄 Analytics 工作區時，就會發生此錯誤。
+當您的 Log Analytics 工作區中仍有作用中的解決方案，而這取決於您的自動化帳戶和要連結的 Log Analytics 工作區時，會發生此錯誤。
 
 ### <a name="resolution"></a>解析度
 

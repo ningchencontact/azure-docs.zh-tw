@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: e00da689820778a8cc7c5ce95184d4d8c79c70f2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: bf83c87c71c8e05dc74d7754c82c76489de1bd85
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977704"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750890"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>監視媒體服務診斷記錄
 
@@ -49,7 +49,7 @@ ms.locfileid: "74977704"
 
    ![診斷設定區段](media/media-services-diagnostic-logs/logs02.png)
 1. 將 [保留期 (天數)] 滑桿設為 30。 此滑桿可設定監視資料在儲存體帳戶中的保留天數。 Azure 監視器會自動刪除比指定天數更舊的資料。 保留天數為 0 會無限期地儲存資料。
-1. 按一下 [儲存]。
+1. 按一下 [檔案]。
 
 來自資源的監視資料現在開始流入儲存體帳戶。
 
@@ -176,13 +176,13 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 
 ## <a name="additional-notes"></a>其他注意事項
 
-* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="see-also"></a>請參閱
 
 * [Azure 監視器計量](../../azure-monitor/platform/data-platform.md)
-* [Azure 監視器診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)
-* [如何收集並取用來自 Azure 資源的記錄資料](../../azure-monitor/platform/resource-logs-overview.md)
+* [Azure 監視器診斷記錄](../../azure-monitor/platform/platform-logs-overview.md)
+* [如何收集並取用來自 Azure 資源的記錄資料](../../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="next-steps"></a>後續步驟
 

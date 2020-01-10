@@ -3,16 +3,16 @@ title: 使用 Azure 入口網站檢視服務健康情況通知
 description: 藉由服務健康情況通知，您可以檢視由 Microsoft Azure 發佈的服務健康情況訊息。
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.openlocfilehash: c8017d23e0f7e3ab7bf48c9d7ba6b930fa80d0da
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 21416edc95d345eb183030a9b0cccb7529305d6d
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451427"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748646"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>使用 Azure 入口網站檢視服務健康情況通知
 
-Azure 基礎結構會將服務健康狀態通知發佈到[azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)中。  通知會包含您的訂用帳戶下的資源相關資訊。 由於活動記錄中可能會有大量的資訊，因此有個別的使用者介面，可讓您更輕鬆地查看及設定服務健康狀態通知的警示。 
+Azure 基礎結構會將服務健康狀態通知發佈到[azure 活動記錄](../azure-monitor/platform/platform-logs-overview.md)中。  通知會包含您的訂用帳戶下的資源相關資訊。 由於活動記錄中可能會有大量的資訊，因此有個別的使用者介面，可讓您更輕鬆地查看及設定服務健康狀態通知的警示。 
 
 根據不同類別，服務健康情況通知可以是告知性質或是可操作的性質。
 

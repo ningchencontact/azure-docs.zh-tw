@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1e11c5a570f899a5ac18673a71fe79db95de0f80
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0738e56cf6760a356b6e2b6db76f2dc3f6f157ee
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461072"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763159"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>針對 Azure 認知搜尋中的常見索引子錯誤和警告進行疑難排解
 
@@ -144,7 +144,7 @@ ms.locfileid: "75461072"
 | --- | --- | --- |
 | 欄位包含太大的詞彙 | 檔中的詞彙大於[32 KB 的限制](search-limits-quotas-capacity.md#api-request-limits) | 您可以確保欄位未設定為可篩選、facetable 或可排序，藉以避免這項限制。
 | 檔太大，無法編制索引 | 檔大於[api 要求大小上限](search-limits-quotas-capacity.md#api-request-limits) | [如何為大型資料集編制索引](search-howto-large-index.md)
-| 檔在集合中包含太多物件 | 檔中的集合超過[所有複雜集合限制的元素上限](search-limits-quotas-capacity.md#index-limits) | 我們建議您將檔中複雜集合的大小縮減為低於限制，並避免高儲存體使用率。
+| 檔在集合中包含太多物件 | 檔中的集合超過[所有複雜集合的最大專案數限制](search-limits-quotas-capacity.md#index-limits)「具有索引鍵的檔 `'1000052'` 在集合中具有 `'4303'` 物件（JSON 陣列）。 在整份檔的集合中，最多可以有 `'3000'` 的物件。 請移除集合中的物件，然後嘗試重新編制檔的索引。」 | 我們建議您將檔中複雜集合的大小縮減為低於限制，並避免高儲存體使用率。
 | 無法連接到目標索引（在重試後仍會繼續），因為服務正在進行其他負載，例如查詢或索引。 | 無法建立連接以更新索引。 搜尋服務正在負荷過重。 | [相應增加您的搜尋服務](search-capacity-planning.md)
 | 搜尋服務正在修補以進行服務更新，或處於拓撲重新設定的過程中。 | 無法建立連接以更新索引。 搜尋服務目前已關閉/搜尋服務正在進行轉換。 | 以至少3個複本設定服務，每個[SLA 檔](https://azure.microsoft.com/support/legal/sla/search/v1_0/)的可用性99.9%
 | 基礎計算/網路資源（罕見）中的失敗 | 無法建立連接以更新索引。 發生未知錯誤。 | 設定要依照[排程執行](search-howto-schedule-indexers.md)的索引子，以從失敗狀態中收取。

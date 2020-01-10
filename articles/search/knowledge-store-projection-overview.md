@@ -1,5 +1,5 @@
 ---
-title: 在知識存放區中使用投影（預覽）
+title: 知識存放區中的投影（預覽）
 titleSuffix: Azure Cognitive Search
 description: 儲存 AI 擴充索引管線中的擴充資料，並將其塑造到知識存放區，以供全文檢索搜尋以外的案例使用。 知識存放區目前為公開預覽狀態。
 manager: nitinme
@@ -7,20 +7,20 @@ author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 47c63118888bc0eaf7a025cd95e2a4c43d6a6cfb
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/08/2020
+ms.openlocfilehash: d8302b69f1e868536eb954a650a62f41e4006b82
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789998"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754536"
 ---
-# <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>在 Azure 認知搜尋中使用知識存放區中的投影
+# <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Azure 認知搜尋中知識存放區的投影
 
 > [!IMPORTANT] 
 > 知識存放區目前為公開預覽狀態。 預覽功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供預覽功能。 目前的入口網站支援有限，而且沒有 .NET SDK 支援。
 
-Azure 認知搜尋可讓您透過內建的認知技能和自訂技能來擴充內容，做為編制索引的一部分。 擴充將結構新增至您的檔，並讓搜尋更有效率。 在許多情況下，擴充的檔適用于搜尋以外的案例，例如知識發掘。
+Azure 認知搜尋可讓您透過內建的認知技能和自訂技能來擴充內容，做為編制索引的一部分。 擴充會建立先前不存在的新資訊：從影像中解壓縮資訊、偵測情感、關鍵字組，以及從文字中找出實體等等。 擴充也會將結構新增至無差異文字。 所有這些程式都會產生檔，讓全文檢索搜尋更有效率。 在許多情況下，擴充的檔適用于搜尋以外的案例，例如知識發掘。
 
 「[知識存放區](knowledge-store-concept-intro.md)」的一個元件是擴充檔的觀點，可以儲存至實體儲存體以供知識挖掘之用。 預測可讓您將資料「投射」到符合您需求的圖形，保留關聯性，讓 Power BI 之類的工具可以讀取資料，而不需要額外的工作。
 
@@ -34,7 +34,7 @@ Azure 認知搜尋可讓您透過內建的認知技能和自訂技能來擴充�
 
 + 檔案 **：當**您需要儲存從檔解壓縮的影像時，檔案投射可讓您將正規化映射儲存至 blob 儲存體。
 
-若要查看內容中定義的預測，請逐步解說[如何開始使用知識存放區](knowledge-store-howto.md)。
+若要查看在內容中定義的投影，請逐步執行[在 REST 中建立知識存放區](knowledge-store-create-rest.md)。
 
 ## <a name="projection-groups"></a>投射群組
 
@@ -114,12 +114,6 @@ Azure 認知搜尋可讓您透過內建的認知技能和自訂技能來擴充�
 
 如本範例所示，主要片語和實體會模型化為不同的資料表，而且將包含每個資料列之父系（MainTable）的參考。
 
-<!---
-The following illustration is a reference to the Case-law exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
-
-![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
---->
-
 ## <a name="object-projections"></a>物件投影
 
 物件投射是擴充樹狀結構的 JSON 標記法，可以從任何節點來源。 在許多情況下，建立資料表投射的同一個**整形**程式技能可以用來產生物件投射。 
@@ -143,10 +137,8 @@ The following illustration is a reference to the Case-law exercise in [How to ge
         {
           "objects": [
             {
-              "storageContainer": "Reviews", 
-              "format": "json", 
-              "source": "/document/Review", 
-              "key": "/document/Review/Id" 
+              "storageContainer": "hotelreviews", 
+              "source": "/document/hotel"
             }
           ]
         },
@@ -160,9 +152,8 @@ The following illustration is a reference to the Case-law exercise in [How to ge
 
 產生物件投射需要一些特定物件屬性：
 
-+ storageContainer：將儲存物件的容器
++ storageContainer：將儲存物件的 blob 容器
 + 來源：擴充樹狀結構節點的路徑，這是投射的根
-+ 索引鍵：代表要儲存之物件唯一索引鍵的路徑。 它會用來建立容器中的 blob 名稱。
 
 ## <a name="file-projection"></a>檔案投射
 
@@ -219,4 +210,4 @@ The following illustration is a reference to the Case-law exercise in [How to ge
 在下一個步驟中，請使用範例資料和指示來建立您的第一個知識存放區。
 
 > [!div class="nextstepaction"]
-> [如何建立知識存放區](knowledge-store-howto.md)。
+> [在 REST 中建立知識存放區](knowledge-store-create-rest.md)。

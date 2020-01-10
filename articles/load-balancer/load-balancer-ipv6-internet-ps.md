@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: fb697003da8c0604b2ce1e8956fcd434014b5b82
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0294efb7510d4240cfdd6386c7f8bef1d4184538
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077061"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754485"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>開始使用 PowerShell 在 Resource Manager 中建立配置有 IPv6 的網際網路面向負載平衡器
 
@@ -55,19 +55,19 @@ Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 此負載平衡
 
 若要部署負載平衡器，請建立並設定下列物件：
 
-* 前端 IP 組態 - 包含傳入網路流量的公用 IP 位址。
-* 後端位址集區 - 包含虛擬機器的網路介面 (NIC)，可從負載平衡器接收網路流量。
+* 前端 IP 設定-包含連入網路流量的公用 IP 位址。
+* 後端位址集區-包含虛擬機器的網路介面（Nic），以接收來自負載平衡器的網路流量。
 * 負載平衡規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中連接埠的規則。
 * 輸入 NAT 規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中特定虛擬機器之連接埠的規則。
 * 探查 - 包含用來檢查後端位址集區中虛擬機器執行個體可用性的健全狀態探查。
 
-如需詳細資料，請參閱 [Azure Resource Manager 的負載平衡器支援](load-balancer-arm.md)。
+如需詳細資訊，請參閱[Azure Load Balancer 元件](load-balancer-overview.md#load-balancer-components)。
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>設定 PowerShell 以使用 Resource Manager
 
 請確定您擁有適用於 PowerShell 的 Azure Resource Manager 模組最新生產版本。
 
-1. Sign into Azure
+1. 登入 Azure
 
     ```azurepowershell-interactive
     Connect-AzAccount
@@ -81,7 +81,7 @@ Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 此負載平衡
     Get-AzSubscription
     ```
 
-3. 選擇要使用哪一個 Azure 訂用帳戶。
+3. 選擇其中一個要使用的 Azure 訂用帳戶。
 
     ```azurepowershell-interactive
     Select-AzSubscription -SubscriptionId 'GUID of subscription'

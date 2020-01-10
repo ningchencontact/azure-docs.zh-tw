@@ -4,12 +4,12 @@ description: 瞭解 Azure 容器實例中的容器群組，這是共用生命週
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: ca160c62160bc5233139dccc650474811c4cd784
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 19fa50f83a2593b8914931e25fa99cb2e4896227
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442287"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770266"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances 中的容器群組
 
@@ -66,7 +66,7 @@ Azure 容器實例會藉由新增群組中實例的[資源要求][resource-reque
 
 ## <a name="networking"></a>網路
 
-容器群組可以在該 IP 位址上共用對外 IP 位址和埠命名空間。 若要讓外部用戶端能夠連線到該群組內的容器，您必須從該容器公開該 IP 位址上的連接埠。 因為群組中的容器會共用埠命名空間，所以不支援埠對應。 
+容器群組可以共用對外 IP 位址、該 IP 位址上的一或多個埠，以及具有完整功能變數名稱（FQDN）的 DNS 標籤。 若要讓外部用戶端能夠連線到該群組內的容器，您必須從該容器公開該 IP 位址上的連接埠。 因為群組中的容器會共用埠命名空間，所以不支援埠對應。 刪除容器群組時，將會釋放容器群組的 IP 位址和 FQDN。 
 
 在容器群組內，容器實例可以透過任何埠上的 localhost 彼此連線，即使這些埠並未在群組的 IP 位址或來自容器的外部公開。
 
@@ -74,7 +74,13 @@ Azure 容器實例會藉由新增群組中實例的[資源要求][resource-reque
 
 ## <a name="storage"></a>儲存體
 
-您可以指定要在容器群組內掛接的外部磁碟區。 您可以將這些磁碟區對應到群組之個別容器內的特定路徑。
+您可以指定要在容器群組內掛接的外部磁碟區。 支援的磁片區包括：
+* [Azure 檔案共用][azure-files]
+* [祕密][secret]
+* [空的目錄][empty-directory]
+* [複製的 git 存放庫][volume-gitrepo]
+
+您可以將這些磁碟區對應到群組之個別容器內的特定路徑。 
 
 ## <a name="common-scenarios"></a>一般狀況
 
@@ -110,5 +116,8 @@ Azure 容器實例會藉由新增群組中實例的[資源要求][resource-reque
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
+[secret]: container-instances-volume-secret.md
+[volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md
+[empty-directory]: container-instances-volume-emptydir.md
 [az-container-export]: /cli/azure/container#az-container-export

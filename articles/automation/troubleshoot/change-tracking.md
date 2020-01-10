@@ -1,6 +1,6 @@
 ---
 title: 針對 Azure 變更追蹤問題進行疑難排解
-description: 本文提供有關針對變更追蹤進行疑難排解的資訊
+description: 瞭解如何針對 Azure 自動化變更追蹤和清查功能進行疑難排解及解決問題。
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 482b263b7c8427276d4fdb8681372c2be1ae69ee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 51a9dbf8be6538534c05a4b8b6fcd913ef8c6ae3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849389"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769926"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>針對變更追蹤和清查進行疑難排解
 

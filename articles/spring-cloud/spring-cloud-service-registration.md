@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 72327e116e498ce0f6881a5c585a08e56c8bf8c2
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: 1a45e744db36be651e770f7b5c7cc6df530f887d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038739"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772052"
 ---
 # <a name="discover-and-register-your-spring-cloud-services"></a>探索和註冊您的春天雲端服務
 
@@ -20,24 +20,7 @@ ms.locfileid: "72038739"
 ## <a name="register-your-application-using-spring-cloud-service-registry"></a>使用春季雲端服務登錄來註冊您的應用程式
 
 在您的應用程式可以使用春季雲端服務登錄來管理服務註冊和探索之前，必須在應用程式的*pom*檔案中包含數個相依性。
-
-若要開始，請將快照集存放庫新增至*pom*的存放*庫*區段
-
-```xml
-    <repositories>
-        <repository>
-            <id>nexus-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-```
-
-## <a name="include-dependencies"></a>包含相依性
-
-接下來，我們會將*netflix-eureka-用戶端*和春季-雲端*入門*的相依性納入您的*pom。*
+將*netflix-eureka-用戶端*和春季-雲端入門的相依性納入您的*pom*的*azure-春天-雲端用戶端*
 
 ```xml
     <dependency>
@@ -47,7 +30,7 @@ ms.locfileid: "72038739"
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.0-SNAPSHOT</version>
+        <version>2.1.0</version>
     </dependency>
 ```
 

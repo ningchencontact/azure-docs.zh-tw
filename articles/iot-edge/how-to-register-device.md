@@ -4,17 +4,17 @@ description: 使用 Azure CLI 的 IoT 擴充功能來註冊新的 IoT Edge 裝�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/12/2019
+ms.date: 01/08/2020
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5ab9c778adef29a8e531158e062e9d35d4e80ae4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32121681b14989f23e29c3701826b4494988c263
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434095"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772426"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>註冊 Azure IoT Edge 裝置
 
@@ -22,9 +22,9 @@ ms.locfileid: "75434095"
 
 您可以使用下列其中一個工具來選擇註冊：
 
-* [Azure 入口網站](https://portal.azure.com)提供圖形化使用者介面來建立、查看和管理 Azure 資源。
-* [Visual Studio Code](https://code.visualstudio.com/)是原始碼編輯器。 Azure IoT 擴充功能可讓您輕鬆地從開發 IoT 解決方案所在的相同工具管理 IoT 資源。
-* [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)是用來管理 Azure 資源的命令列工具。 其可重複使用的命令有助於自動化工作。
+* 如果您偏好使用圖形化使用者介面來建立、查看和管理 Azure 資源，請[在 Azure 入口網站中註冊裝置](#register-in-the-azure-portal)。
+* 如果您想要在開發 IoT 解決方案所在的相同位置管理 Azure IoT 資源，請[使用 Visual Studio Code 註冊裝置](#register-with-visual-studio-code)。
+* 如果您偏好使用命令列工具來管理 Azure 資源，或想要將工作自動化，請向[Azure CLI 註冊裝置](#register-with-the-azure-cli)。
 
 ## <a name="register-in-the-azure-portal"></a>在 Azure 入口網站中註冊
 

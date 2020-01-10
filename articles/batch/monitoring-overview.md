@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: 3ac852b1d69c0e9fa224b449d6261eba6abaff32
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: f7155baa7b899922c9553a9a556e5bfcf3562d1b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260959"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745235"
 ---
 # <a name="monitor-batch-solutions"></a>監視 Batch 解決方案
 
@@ -25,7 +25,7 @@ Azure 與 Batch 服務提供一系列服務、工具和 API 來監視您的 Batc
 
 ## <a name="subscription-level-monitoring"></a>訂用帳戶層級監視
 
-在包含 Batch 帳戶的訂用帳戶層級上，[Azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)會收集[數種類別](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log)中的操作事件資料。
+在包含 Batch 帳戶的訂用帳戶層級上，[Azure 活動記錄](../azure-monitor/platform/platform-logs-overview.md)會收集[數種類別](../azure-monitor/platform/activity-log-view.md#categories-in-the-activity-log)中的操作事件資料。
 
 具體針對 Batch 帳戶來說，活動記錄會收集關於帳戶建立和刪除及金鑰管理的事件。
 
@@ -33,14 +33,14 @@ Azure 與 Batch 服務提供一系列服務、工具和 API 來監視您的 Batc
 
 ## <a name="batch-account-level-monitoring"></a>Batch 帳戶層級監視
 
-使用 [Azure 監視器](../azure-monitor/overview.md)的功能監視每個 Batch 帳戶。 Azure 監視器會收集 Batch 帳戶層級範圍內的資源[計量](../azure-monitor/platform/data-platform-metrics.md)和[診斷記錄 (選擇性)](../azure-monitor/platform/resource-logs-overview.md)，這些資源包括集區、作業和工作等。 以手動方式或程式設計方式收集和使用此資料，以監視您 Batch 帳戶中的活動並診斷問題。 如需詳細資料，請參閱[用於診斷評估和監視的 Batch 計量、警示和記錄](batch-diagnostics.md)。
+使用 [Azure 監視器](../azure-monitor/overview.md)的功能監視每個 Batch 帳戶。 Azure 監視器會收集 Batch 帳戶層級範圍內的資源[計量](../azure-monitor/platform/data-platform-metrics.md)和[診斷記錄 (選擇性)](../azure-monitor/platform/platform-logs-overview.md)，這些資源包括集區、作業和工作等。 以手動方式或程式設計方式收集和使用此資料，以監視您 Batch 帳戶中的活動並診斷問題。 如需詳細資料，請參閱[用於診斷評估和監視的 Batch 計量、警示和記錄](batch-diagnostics.md)。
  
 > [!NOTE]
 > 您的 Batch 帳戶中已預設可使用計量功能，無須其他設定，而且計量功能具有 30 天的累積記錄。 您必須啟用 Batch 帳戶的診斷記錄，但您可能需要為儲存或處理診斷記錄資料支付額外費用。 
 
 ## <a name="batch-resource-monitoring"></a>Batch 資源監視
 
-在 Batch 應用程式中，使用 Batch API 監視或查詢像是作業、工作、節點和集區等資源的狀態。 例如:
+在 Batch 應用程式中，使用 Batch API 監視或查詢像是作業、工作、節點和集區等資源的狀態。 例如：
 
 * [依照狀態計算工作和計算節點](batch-get-resource-counts.md)
 * [建立查詢以便有效率地列出 Batch 資源](batch-efficient-list-queries.md)

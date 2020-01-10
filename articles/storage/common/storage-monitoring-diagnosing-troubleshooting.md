@@ -8,17 +8,17 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 34aa4ff6c54b34acf865af0b57c3dfa7945a637c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 3d5f3ade3ef3b79ddb3996b5bf2d609b11aff8a5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212827"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748571"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>監視、診斷與疑難排解 Microsoft Azure 儲存體
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 與傳統環境相比，託管於雲端環境的分散式應用程式一旦發生問題，無論要為其進行診斷或疑難排解，都更加複雜。 應用程式可以部署在 PaaS 或 IaaS 基礎架構、內部部署環境、行動裝置或是這幾種環境的組合上。 一般來說，您的應用程式網路流量可能會跨越公共與私有網路，而您的應用程式有可能使用多項儲存技術，例如 Microsoft Azure 儲存體資料表、Blob、佇列或是檔案服務，以及關聯式資料庫與文件資料庫之類的其他資料存放區。
 
 若要成功管理這類應用程式，您除了需要主動監視它們之外，還需要了解如何為其各層面與相依技術進行診斷與疑難排解。 身為 Azure 儲存體服務的使用者，您應持續監視應用程式所使用的儲存體服務，以預防發生非預期的行為改變 (例如，回應速度明顯比平時慢)，並使用記錄功能來收集更多的詳細資料，同時深入分析問題的成因。 從監視與記錄手段中取得的診斷資訊，將在應用程式遭遇問題時，協助您判斷根本原因。 接著才能為問題進行疑難排解，並決定該採取哪些合宜的步驟來加以矯正。 Azure 儲存體是 Azure 的核心服務之一，更在客戶部署至 Azure 基礎結構的主要解決方案之中扮演著重要的環節。 Azure 儲存體會在您的雲端架構應用程式裡加入各項功能，從而簡化儲存體問題的監視、診斷與疑難排解程序。
@@ -403,7 +403,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 高 **AverageServerLatency** 值同時也是資料表或查詢設計不良的徵兆，這種情況可能導致掃描作業，或是因為資料表或查詢遵循結尾附加/開頭附加的反模式而引起。 如需詳細資訊，請參閱「[度量顯示 PercentThrottlingError 增加]」。
 
 > [!NOTE]
-> 您可以在這裡找到完整的檢查清單，包括效能檢查清單：[Microsoft Azure 儲存體效能與延展性檢查清單](storage-performance-checklist.md)。
+> 您可以在這裡找到完整的檢查清單，包括效能檢查清單： [Microsoft Azure 儲存體效能與延展性檢查清單](storage-performance-checklist.md)。
 >
 >
 
@@ -417,7 +417,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 * 檢查儲存體記錄中，是否有任何佇列作業在超出慣常的期間內，產生超出預期的 **E2ELatency** 與 **ServerLatency** 值。
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>度量顯示 PercentThrottlingError 增加
-當超出儲存體服務的延展性目標時，會出現節流錯誤。 儲存體服務節流是為了確保沒有任何用戶端或是租用戶可犧牲其他服務來使用這項服務。 如需儲存體帳戶之延展性目標及儲存體帳戶內資料分割之效能目標的詳細資訊，請參閱 [Azure 儲存體延展性與效能目標](storage-scalability-targets.md)。
+當超出儲存體服務的延展性目標時，會出現節流錯誤。 儲存體服務節流是為了確保沒有任何用戶端或是租用戶可犧牲其他服務來使用這項服務。 如需詳細資訊，請參閱[標準儲存體帳戶的擴充性和效能目標](scalability-targets-standard-account.md)，以取得儲存體帳戶的擴充目標和儲存體帳戶內資料分割的效能目標詳細資訊。
 
 如果 **PercentThrottlingError** 度量顯示失敗的要求百分比增加且出現節流錯誤時，您應該調查下列其中一個情況：
 
@@ -468,17 +468,17 @@ queueServicePoint.UseNagleAlgorithm = false;
 ### <a name="the-client-is-receiving-403-messages"></a>用戶端收到 HTTP 403 (禁止) 訊息
 如果您的用戶端應用程式擲回 HTTP 403 (禁止) 錯誤，則可能是因為用戶端在傳送儲存體要求時使用過期的共用存取簽章 (SAS) (但也可能是時鐘誤差、無效的金鑰與空白標頭引起)。 如果原因出在 SAS 金鑰過期，那麼您將無法在伺服器端的儲存體記錄資料中看到任何項目。 下列資料表以儲存體用戶端程式庫所產生的用戶端記錄為例，說明此問題的原因：
 
-| Source | 詳細程度 | Verbosity | 用戶端要求識別碼 | 作業內容 |
+| 來源 | 詳細程度 | 詳細程度 | 用戶端要求 ID | 作業內容 |
 | --- | --- | --- | --- | --- |
-| Microsoft.Azure.Storage |內容 |3 |85d077ab-… |從主要位置開始作業 (依據位置模式 PrimaryOnly)。 |
-| Microsoft.Azure.Storage |內容 |3 |85d077ab -… |啟動對的同步要求<https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
-| Microsoft.Azure.Storage |內容 |3 |85d077ab -… |等候回應。 |
-| Microsoft.Azure.Storage |警告 |2 |85d077ab -… |等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止。 |
-| Microsoft.Azure.Storage |內容 |3 |85d077ab -… |收到回應。 狀態碼 = 403，要求 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d，Content-MD5 =，ETag = . |
-| Microsoft.Azure.Storage |警告 |2 |85d077ab -… |作業期間擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止... |
-| Microsoft.Azure.Storage |內容 |3 |85d077ab -… |檢查是否應該重試作業。 重試計數 = 0，HTTP 狀態碼 = 403，例外狀況 = 遠端伺服器傳回錯誤：(403) 禁止... |
-| Microsoft.Azure.Storage |內容 |3 |85d077ab -… |以下位置已經設為「主要」(依據位置模式)。 |
-| Microsoft.Azure.Storage |Error |1 |85d077ab -… |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(403) 禁止。 |
+| Microsoft Azure 儲存體 |資訊 |3 |85d077ab-… |從主要位置開始作業 (依據位置模式 PrimaryOnly)。 |
+| Microsoft Azure 儲存體 |資訊 |3 |85d077ab -… |正在啟動 <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> 的同步要求 |
+| Microsoft Azure 儲存體 |資訊 |3 |85d077ab -… |等候回應。 |
+| Microsoft Azure 儲存體 |警告 |2 |85d077ab -… |等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止。 |
+| Microsoft Azure 儲存體 |資訊 |3 |85d077ab -… |收到回應。 狀態碼 = 403，要求 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d，Content-MD5 =，ETag = . |
+| Microsoft Azure 儲存體 |警告 |2 |85d077ab -… |作業期間擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止... |
+| Microsoft Azure 儲存體 |資訊 |3 |85d077ab -… |檢查是否應該重試作業。 重試計數 = 0，HTTP 狀態碼 = 403，例外狀況 = 遠端伺服器傳回錯誤：(403) 禁止. |
+| Microsoft Azure 儲存體 |資訊 |3 |85d077ab -… |以下位置已經設為「主要」(依據位置模式)。 |
+| Microsoft Azure 儲存體 |錯誤 |1 |85d077ab -… |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(403) 禁止。 |
 
 在此案例中，您應該調查 SAS 權杖為何在用戶端將權杖傳送給伺服器之前到期：
 
@@ -506,7 +506,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 
 下列由儲存體用戶端程式庫所產生的用戶端記錄，說明了當用戶端找不到 Blob 所建立的容器時的問題。 此記錄內含下列儲存體作業的詳細資料：
 
-| 要求識別碼 | 運算 |
+| 要求 ID | 作業 |
 | --- | --- |
 | 07b26a5d-... |**DeleteIfExists** 方法用於刪除 Blob 容器。 請注意，此作業包括一個用以檢查容器是否存在的 **HEAD** 要求。 |
 | e2d06d78… |**CreateIfNotExists** 方法用於建立 Blob 容器。 請注意，此作業包括一個會檢查容器是否存在的 **HEAD** 要求。 **HEAD** 傳回 404 訊息，但持續作業。 |
@@ -555,14 +555,14 @@ queueServicePoint.UseNagleAlgorithm = false;
 | de8b1c3c-... |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(404) 找不到. |
 | e2d06d78-... |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(409) 衝突. |
 
-在此範例中，記錄顯示用戶端正將來自 **UploadFromStream** 方法的要求 (de8b1c3c-...) 穿插到來自 **CreateIfNotExists** 方法 (要求 ID e2d06d78…) 的要求。這種穿插現象是因為用戶端應用程式正以非同步方式叫用這些方法所致。 請修改用戶端裡的非同步程式碼，確保該程式碼在嘗試將任何資料上傳至容器的 Blob 之前，先建立該容器。 理想的情況是，您應該事先建立所有容器。
+在此範例中，記錄檔顯示用戶端是從**CreateIfNotExists**方法（要求識別碼 e2d06d78 ... ...）與來自**UploadFromStream**方法（de8b1c3c-...）要求的交錯要求。此交錯發生的原因是用戶端應用程式會以非同步方式叫用這些方法。 請修改用戶端裡的非同步程式碼，確保該程式碼在嘗試將任何資料上傳至容器的 Blob 之前，先建立該容器。 理想的情況是，您應該事先建立所有容器。
 
 #### <a name="SAS-authorization-issue"></a>共用存取簽章 (SAS) 授權問題
 如果用戶端應用程式嘗試使用的 SAS 金鑰並未包含作業的必要權限，則儲存體服務會將 HTTP 404 (找不到) 訊息傳回給用戶端。 這時，您會在度量當中同時看到非零的 **SASAuthorizationError** 值。
 
 下列資料表顯示來自儲存體記錄檔案的伺服器端記錄訊息範例：
 
-| Name | 值 |
+| 名稱 | 值 |
 | --- | --- |
 | 要求開始時間 | 2014-05-30T06:17:48.4473697Z |
 | 作業類型     | GetBlobProperties            |
@@ -627,7 +627,7 @@ client.SetServiceProperties(sp);
 ### <a name="the-client-is-receiving-409-messages"></a>用戶端收到 HTTP 409 (衝突) 訊息
 下表顯示來自伺服器端記錄檔的兩項用戶端作業摘要：**DeleteIfExists** 隨後緊接使用相同 Blob 容器名稱的 **CreateIfNotExists**。 每個用戶端作業都會導致兩個要求傳送至伺服器，首先傳送的 **GetContainerProperties** 要求會檢查該容器是否存在，緊接著會傳送 **DeleteContainer** 或 **CreateContainer** 要求。
 
-| Timestamp | 運算 | 結果 | 容器名稱 | 用戶端要求識別碼 |
+| 時間戳記 | 作業 | 結果 | 容器名稱 | 用戶端要求 ID |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |
@@ -679,8 +679,8 @@ client.SetServiceProperties(sp);
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>安裝 Azure SDK for .NET 時發生問題
 當您嘗試安裝 SDK 時，系統在您的本機電腦上安裝儲存體模擬器時失敗。 安裝記錄內含下列其中一則訊息：
 
-* CAQuietExec：Error:無法存取 SQL 執行個體
-* CAQuietExec：Error:無法建立資料庫
+* CAQuietExec：錯誤：無法存取 SQL 執行個體
+* CAQuietExec：錯誤：無法建立資料庫
 
 此問題原因出在現有的 LocalDB 安裝。 根據預設，儲存體模擬器在模擬 Azure 儲存體服務時，使用 LocalDB 來永久儲存資料。 您可以在嘗試安裝 SDK 之前，先於命令提示字元中執行下列命令以重設您的 LocalDB 執行個體。
 
@@ -724,7 +724,7 @@ Fiddler 一經啟動後，就會開始擷取本機電腦上的 HTTP 與 HTTPS �
 * 停止與開始擷取流量。 在主要功能表上，移至 [檔案] 並按一下 [擷取流量] 以開啟及關閉擷取作業。
 * 儲存擷取的流量資料。 在主功能表上，移至 [檔案]，按一下 [儲存]，然後按一下 [所有工作階段]：這麼做可讓您將流量儲存在「工作階段封存」檔案中。 您稍後可以重新載入工作階段封存以供分析，或是因應要求傳送給 Microsoft 支援服務中心。
 
-若要限制 Fiddler 所擷取的流量數量，請使用您在 [篩選器] 索引標籤中設定的篩選器。以下螢幕擷取畫面顯示只會擷取傳送至 **contosoemaildist.table.core.windows.net** 儲存體端點的流量之篩選器：
+若要限制 Fiddler 所捕獲的流量，您可以使用您在 [**篩選器**] 索引標籤中設定的篩選器。下列螢幕擷取畫面顯示的篩選只會捕獲傳送至**contosoemaildist.table.core.windows.net**儲存體端點的流量：
 
 ![][5]
 

@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/02/2018
-ms.openlocfilehash: ec625f203e9282d070e6c1b3b3d712be7ab789cf
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c2b889d4013abb60c9ad7bb4bcdc4e6546cfa37c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810391"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745948"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>使用 Azure 入口網站建立 Azure SQL Database 和資料倉儲警示
 
@@ -48,7 +48,7 @@ ms.locfileid: "73810391"
 1. 在 [入口網站](https://portal.azure.com/)中，找到您要監視的資源並選取。
 2. 選取 [監視] 區段底下的 [警示 (傳統)]。 不同資源的文字和圖示會有些許不同。  
    
-     ![監控](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
+     ![監視](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
    - **僅限 SQL DW**：按一下 [DWU 使用量] 圖表。 選取 [檢視傳統警示]
 
@@ -74,49 +74,49 @@ ms.locfileid: "73810391"
 
 ## <a name="sql-database-alert-values"></a>SQL Database 警示值
 
-| 資源類型 | 度量名稱 | 易記名稱 | 彙總類型 | 警示時間間隔下限|
+| 資源類型 | 標準名稱 | 易記名稱 | 彙總類型 | 警示時間間隔下限|
 | --- | --- | --- | --- | --- |
-| SQL Database | cpu_percent | CPU 百分比 | 平均值 | 5 分鐘 |
-| SQL Database | physical_data_read_percent | 資料 IO 百分比 | 平均值 | 5 分鐘 |
-| SQL Database | log_write_percent | 記錄 IO 百分比 | 平均值 | 5 分鐘 |
-| SQL Database | dtu_consumption_percent | DTU 百分比 | 平均值 | 5 分鐘 |
+| SQL Database | cpu_percent | CPU 百分比 | Average | 5 分鐘 |
+| SQL Database | physical_data_read_percent | 資料 IO 百分比 | Average | 5 分鐘 |
+| SQL Database | log_write_percent | 記錄 IO 百分比 | Average | 5 分鐘 |
+| SQL Database | dtu_consumption_percent | DTU 百分比 | Average | 5 分鐘 |
 | SQL Database | 儲存體 | 資料庫大小總計 | 最大值 | 30 分鐘 |
 | SQL Database | connection_successful | 成功的連線 | 總計 | 10 分鐘 |
 | SQL Database | connection_failed | 失敗的連線 | 總計 | 10 分鐘 |
 | SQL Database | blocked_by_firewall | 遭到防火牆封鎖 | 總計 | 10 分鐘 |
-| SQL Database | 死結 | 死結 | 總計 | 10 分鐘 |
+| SQL Database | deadlock | 死結 | 總計 | 10 分鐘 |
 | SQL Database | storage_percent | 資料庫大小百分比 | 最大值 | 30 分鐘 |
-| SQL Database | xtp_storage_percent | 記憶體中 OLTP 儲存體百分比 (預覽) | 平均值 | 5 分鐘 |
-| SQL Database | workers_percent | 背景工作角色百分比 | 平均值 | 5 分鐘 |
-| SQL Database | sessions_percent | 工作階段百分比 | 平均值 | 5 分鐘 |
-| SQL Database | dtu_limit | DTU 限制 | 平均值 | 5 分鐘 |
-| SQL Database | dtu_used | 已使用 DTU | 平均值 | 5 分鐘 |
+| SQL Database | xtp_storage_percent | 記憶體中 OLTP 儲存體百分比 (預覽) | Average | 5 分鐘 |
+| SQL Database | workers_percent | 背景工作角色百分比 | Average | 5 分鐘 |
+| SQL Database | sessions_percent | 工作階段百分比 | Average | 5 分鐘 |
+| SQL Database | dtu_limit | DTU 限制 | Average | 5 分鐘 |
+| SQL Database | dtu_used | 已使用 DTU | Average | 5 分鐘 |
 ||||||
-| 彈性集區 | cpu_percent | CPU 百分比 | 平均值 | 10 分鐘 |
-| 彈性集區 | physical_data_read_percent | 資料 IO 百分比 | 平均值 | 10 分鐘 |
-| 彈性集區 | log_write_percent | 記錄 IO 百分比 | 平均值 | 10 分鐘 |
-| 彈性集區 | dtu_consumption_percent | DTU 百分比 | 平均值 | 10 分鐘 |
-| 彈性集區 | storage_percent | 儲存體百分比 | 平均值 | 10 分鐘 |
-| 彈性集區 | workers_percent | 背景工作角色百分比 | 平均值 | 10 分鐘 |
-| 彈性集區 | eDTU_limit | eDTU 限制 | 平均值 | 10 分鐘 |
-| 彈性集區 | storage_limit | 儲存體限制 | 平均值 | 10 分鐘 |
-| 彈性集區 | eDTU_used | 已使用 eDTU | 平均值 | 10 分鐘 |
-| 彈性集區 | storage_used | 已使用儲存體 | 平均值 | 10 分鐘 |
+| 彈性集區 | cpu_percent | CPU 百分比 | Average | 10 分鐘 |
+| 彈性集區 | physical_data_read_percent | 資料 IO 百分比 | Average | 10 分鐘 |
+| 彈性集區 | log_write_percent | 記錄 IO 百分比 | Average | 10 分鐘 |
+| 彈性集區 | dtu_consumption_percent | DTU 百分比 | Average | 10 分鐘 |
+| 彈性集區 | storage_percent | 儲存體百分比 | Average | 10 分鐘 |
+| 彈性集區 | workers_percent | 背景工作角色百分比 | Average | 10 分鐘 |
+| 彈性集區 | eDTU_limit | eDTU 限制 | Average | 10 分鐘 |
+| 彈性集區 | storage_limit | 儲存體限制 | Average | 10 分鐘 |
+| 彈性集區 | eDTU_used | 已使用 eDTU | Average | 10 分鐘 |
+| 彈性集區 | storage_used | 使用的儲存空間 | Average | 10 分鐘 |
 ||||||               
-| SQL 資料倉儲 | cpu_percent | CPU 百分比 | 平均值 | 10 分鐘 |
-| SQL 資料倉儲 | physical_data_read_percent | 資料 IO 百分比 | 平均值 | 10 分鐘 |
+| SQL 資料倉儲 | cpu_percent | CPU 百分比 | Average | 10 分鐘 |
+| SQL 資料倉儲 | physical_data_read_percent | 資料 IO 百分比 | Average | 10 分鐘 |
 | SQL 資料倉儲 | connection_successful | 成功的連線 | 總計 | 10 分鐘 |
 | SQL 資料倉儲 | connection_failed | 失敗的連線 | 總計 | 10 分鐘 |
 | SQL 資料倉儲 | blocked_by_firewall | 遭到防火牆封鎖 | 總計 | 10 分鐘 |
 | SQL 資料倉儲 | service_level_objective | 資料庫的服務層 | 總計 | 10 分鐘 |
 | SQL 資料倉儲 | dwu_limit | dwu 限制 | 最大值 | 10 分鐘 |
-| SQL 資料倉儲 | dwu_consumption_percent | DWU 百分比 | 平均值 | 10 分鐘 |
-| SQL 資料倉儲 | dwu_used | 已使用 DWU | 平均值 | 10 分鐘 |
+| SQL 資料倉儲 | dwu_consumption_percent | DWU 百分比 | Average | 10 分鐘 |
+| SQL 資料倉儲 | dwu_used | 已使用 DWU | Average | 10 分鐘 |
 ||||||
 
 
 ## <a name="next-steps"></a>後續步驟
 * [取得 Azure 監視的概觀](../monitoring-and-diagnostics/monitoring-overview.md) 中說明您可以收集和監視的資訊類型。
 * 深入了解 [在警示中設定 webhook](../azure-monitor/platform/alerts-webhooks.md)。
-* 依照 [診斷記錄概觀](../azure-monitor/platform/resource-logs-overview.md) 中的做法，收集您服務中詳細的高頻率計量。
+* 依照 [診斷記錄概觀](../azure-monitor/platform/platform-logs-overview.md) 中的做法，收集您服務中詳細的高頻率計量。
 * 依照 [計量集合概觀](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) 中的做法，確保您的服務可使用且有回應。

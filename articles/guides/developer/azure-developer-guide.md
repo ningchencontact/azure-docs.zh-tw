@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 92ff08d460e9bf11b49700570a156a101811a533
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0df55f4ce790d6ea38f44ce0ca6dab43085c3455
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436012"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770912"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>適用於 Azure 開發人員的使用者入門指南
 
@@ -133,7 +133,7 @@ Service Fabric 支援具有 Open Web Interface for .NET (OWIN) 和 ASP.NET Core 
   > **開始使用**[：使用 Azure 入口網站在幾分鐘內建立 SQL Database](../../sql-database/sql-database-get-started.md)。
 
 
-您可以使用 [Azure Data Factory](../../data-factory/introduction.md)，將現有內部部署資料移至 Azure。 如果您尚未準備好將資料移至雲端，則 BizTalk 服務中的[混合式連線](../../biztalk-services/integration-hybrid-connection-overview.md)可讓您將 App Service 託管應用程式裝載連線至內部部署資源。 您也可以從內部部署應用程式連接至 Azure 資料和儲存體服務。
+您可以使用 [Azure Data Factory](../../data-factory/introduction.md)，將現有內部部署資料移至 Azure。 如果您還未準備好將資料移至雲端，Azure App Service 中的[混合](../../app-service/app-service-hybrid-connections.md)式連線可讓您將 App Service 託管應用程式連線到內部部署資源。 您也可以從內部部署應用程式連接至 Azure 資料和儲存體服務。
 
 #### <a name="docker-support"></a>Docker 支援
 
@@ -147,11 +147,11 @@ Azure 提供數種方式，以在應用程式中使用容器。
   > 
   > **開始使用**：[使用 Docker VM 延伸模組在 Azure 中建立 Docker 環境](../../virtual-machines/virtual-machines-linux-dockerextension.md)。
 
-- **Azure Container Service**：可讓您建立、設定和管理虛擬機器的叢集，這些虛擬機器預先設定為執行容器化應用程式。 若要深入了解 Container Service，請參閱 [Azure Container Service 簡介](../../container-service/container-service-intro.md)。
+- **Azure Kubernetes Service**：可讓您建立、設定和管理虛擬機器的叢集，這些機器已預先設定為執行容器化應用程式。 若要深入瞭解 Azure Kubernetes Service，請參閱[Azure Kubernetes Service 簡介](../../aks/intro-kubernetes.md)。
 
   > **使用時機**：當您需要建置提供其他排程和管理工具的生產就緒、可調整環境時，或當您部署 Docker Swarm 叢集時。
   > 
-  > **開始使用**：[部署容器服務叢集](../../container-service/dcos-swarm/container-service-deployment.md)。
+  > **開始**使用：[部署 Kubernetes 服務](../../aks/tutorial-kubernetes-deploy-cluster.md)叢集。
 
 - **Docker Machine**：可讓您使用 docker-machine 命令安裝和管理虛擬主機上的 Docker 引擎。
 
@@ -185,7 +185,7 @@ Azure 提供數種方式，以在應用程式中使用容器。
 
 當您的應用程式在 Azure 中啟動並執行時，您需要監視效能、監看問題，並查看客戶如何使用您的應用程式。 Azure 提供數個監視選項。
 
--   **Visual Studio Application Insights**：Azure 託管的可延伸分析服務，可與 Visual Studio 整合以監視即時 Web 應用程式。 它會提供您所需的資料，以持續改善應用程式的效能和可用性。 無論您是否在 Azure 上裝載應用程式，都會發生這種改善。
+-   **Application Insights**： Azure 託管的可延伸分析服務，與 Visual Studio 整合，以監視您的即時 web 應用程式。 它會提供您所需的資料，以持續改善應用程式的效能和可用性。 無論您是否在 Azure 上裝載應用程式，都會發生這種改善。
 
     >**開始使用**：遵循 [Application Insights 教學課程](../../azure-monitor/app/app-insights-overview.md)。
 

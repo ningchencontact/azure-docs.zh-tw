@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6a51d764b8e42419bc331e3d4731ef5c5f511f91
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 88f864abc82ea6ba70559c8db5db2d0fe07383b1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408723"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768821"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>使用 Azure 地圖服務搜尋服務的最佳做法
 
@@ -33,7 +33,7 @@ Azure 地圖服務[搜尋服務](https://docs.microsoft.com/rest/api/maps/search
 > 若要查詢搜尋服務，您可以使用[Postman 應用程式](https://www.getpostman.com/apps)來建立 REST 呼叫，也可以使用您偏好的任何 API 開發環境。
 
 
-## <a name="best-practices-for-geocoding"></a>地理編碼的最佳作法
+## <a name="best-practices-for-geocoding-address-search"></a>地理編碼的最佳作法（網址搜尋）
 
 當您使用 Azure 地圖服務搜尋服務搜尋完整或部分位址時，它會接受您的搜尋字詞，並傳回位址的經度和緯度座標。 此程式稱為地理編碼。 在國家/地區中地理編碼的能力仰賴道路資料涵蓋範圍，以及地理編碼服務的地理編碼精確度。
 
@@ -58,10 +58,12 @@ Azure 地圖服務[搜尋服務](https://docs.microsoft.com/rest/api/maps/search
 
 
    **模糊搜尋參數**
+   
+   當您不知道使用者輸入的搜尋查詢內容時，建議使用 Azure 地圖服務[模糊搜尋 API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) 。 此 API 會將相關的點（POI）搜尋和地理編碼結合成標準的*單行搜尋*。 
 
    1. 即使查詢參數並未完全對應到所需的資訊，`minFuzzyLevel` 和 `maxFuzzyLevel`也會傳回相關的相符專案。 大部分的搜尋查詢預設為 `minFuzzyLevel=1` 和 `maxFuzzyLevel=2`，以取得效能並減少不尋常的結果。 如需搜尋詞彙 "restrant" 的範例，當 `maxFuzzyLevel` 設定為2時，它會與「餐廳」相符。 根據要求的需求，可以覆寫預設的模糊層級。 
 
-   2. 您也可以使用 `idxSet` 參數，指定要傳回的一組確切結果類型。 基於此目的，您可以提交以逗號分隔的索引清單，專案順序並不重要。 以下是支援的索引：
+   2. 您也可以使用 `idxSet` 參數，設定要傳回的一組確切結果類型的優先順序。 基於此目的，您可以提交以逗號分隔的索引清單;專案順序並不重要。 支援下列索引：
 
        * `Addr` - **位址範圍**：某些街道的位址點會從街道的開頭和結尾處插補;這些點會以位址範圍表示。
        * `Geo` - **地理**位置：地圖上的區域，代表土地的管理部門，也就是國家/地區、州/省。
@@ -317,7 +319,10 @@ url.QueryEscape(query)
 
 為了改善結果的相關性和回應中的資訊，「感興趣」（POI）搜尋回應包含可進一步用來剖析回應的品牌資訊。
 
+您也可以在要求中提交品牌名稱的逗號分隔清單。 您可以使用清單，使用 `brandSet` 參數，將結果限制為特定品牌。 專案順序並不重要。 當提供多個品牌時，只會傳回其中一個提供的清單的結果（至少）。
+
 讓我們對 Microsoft 校園附近的天然氣站（Redmond，WA）進行[POI 類別搜尋](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory)要求。 如果您觀察到回應，您可以看到每個傳回之 POI 的品牌資訊。
+
 
 **範例查詢︰**
 

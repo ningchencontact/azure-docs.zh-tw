@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 861d62f40dc9d8ca2c80e295495df8538ea7cd8d
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
-ms.translationtype: HT
+ms.openlocfilehash: f60d9714db71325bd9c67cae6e2f82d54f8e5eb3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659537"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75753919"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -122,6 +122,9 @@ Reset-StorageSyncServer
 <a id="-2147024894"></a>**伺服器端點建立失敗，發生此錯誤： "MgmtServerJobFailed" （錯誤碼：-2147024894 或0x80070002）**  
 如果指定的伺服器端點路徑無效，就會發生這個錯誤。 確認指定的伺服器端點路徑是本機連結的 NTFS 磁碟區。 請注意，Azure 檔案同步不支援將對應的磁片磁碟機當做伺服器端點路徑。
 
+<a id="-2134375640"></a>**伺服器端點建立失敗，發生此錯誤： "MgmtServerJobFailed" （錯誤碼：-2134375640 或0x80c80328）**  
+如果指定的伺服器端點路徑不是 NTFS 磁片區，就會發生此錯誤。 確認指定的伺服器端點路徑是本機連結的 NTFS 磁碟區。 請注意，Azure 檔案同步不支援將對應的磁片磁碟機當做伺服器端點路徑。
+
 <a id="-2134347507"></a>**伺服器端點建立失敗，發生此錯誤： "MgmtServerJobFailed" （錯誤碼：-2134347507 或0x80c8710d）**  
 發生此錯誤的原因是 Azure 檔案同步不支援磁碟區上的伺服器端點，因為這些磁碟區具有壓縮的「系統磁碟區資訊」資料夾。 若要解決此問題，請將「系統磁碟區資訊」資料夾解壓縮。 如果「系統磁碟區資訊」資料夾是磁碟區上唯一已壓縮的資料夾，請執行下列步驟：
 
@@ -172,6 +175,7 @@ Set-AzStorageSyncServerEndpoint `
 - 如果**GetNextJob 已完成，且狀態為：-2134347756** ，表示伺服器因為防火牆或 proxy 而無法與 Azure 檔案同步服務通訊。 
     - 如果伺服器位於防火牆後方，請確認允許連接埠 443 輸出。 如果防火牆限制僅允許對特定網域的流量，請確認您可以存取防火牆[文件](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall)中列出的網域。
     - 如果伺服器位於 Proxy 後方，請依照 Proxy [文件](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy)中的步驟設定整部電腦或應用程式專屬的 Proxy 設定。
+    - 使用 StorageSyncNetworkConnectivity Cmdlet 來檢查與服務端點的網路連線能力。 若要深入瞭解，請參閱[測試服務端點的網路連線能力](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints)。
 
 - 如果**GetNextJob 已完成，且狀態為：-2134347764** ，表示伺服器無法與 Azure 檔案同步服務通訊，因為憑證已過期或已刪除。  
     - 在伺服器上執行下列 PowerShell 命令，以重設用於驗證的憑證：

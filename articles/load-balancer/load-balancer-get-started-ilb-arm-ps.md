@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 547402fd2cca94f47a9ff0db3131d359bafd967a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b2c94e51e25fd34b7332e6653a9c2f2d5bb53139
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225396"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754245"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>使用 Azure PowerShell 模組建立內部負載平衡器
 
@@ -48,7 +48,7 @@ ms.locfileid: "74225396"
 * 探查設定：虛擬機器的健康情況狀態探查。
 * 輸入 NAT 規則：直接存取虛擬機器的連接埠規則。
 
-如需負載平衡器元件的詳細資料，請參閱 [Azure Resource Manager 的負載平衡器支援](load-balancer-arm.md)。
+如需負載平衡器元件的詳細資訊，請參閱[Azure Load Balancer 元件](load-balancer-overview.md#load-balancer-components)。
 
 下列步驟說明如何在兩部虛擬機器之間設定負載平衡器。
 
@@ -90,7 +90,7 @@ Select-AzSubscription -Subscriptionid "GUID of subscription"
 New-AzResourceGroup -Name NRP-RG -location "West US"
 ```
 
-Azure Resource Manager 需要所有的資源群組指定一個位置。 此位置會作為資源群組中之資源的預設位置。 針對與建立負載平衡器相關的所有命令，一律使用相同的資源群組。
+Azure 資源管理員需要所有的資源群組指定一個位置。 此位置會作為資源群組中之資源的預設位置。 針對與建立負載平衡器相關的所有命令，一律使用相同的資源群組。
 
 在範例中，我們已建立名為 **NRP-RG** 的資源群組，且位置為「美國西部」。
 
@@ -295,7 +295,7 @@ Set-AzNetworkInterface -NetworkInterface $nic
 
 ### <a name="step-1-assign-the-load-balancer-object-to-a-variable"></a>步驟 1：將負載平衡器物件指派給變數
 
-使用 **命令將負載平衡器物件 (來自上一個範例) 指派給**$slb`Get-AzLoadBalancer` 變數：
+使用 `Get-AzLoadBalancer` 命令將負載平衡器物件 (來自上一個範例) 指派給 **$slb** 變數：
 
 ```azurepowershell-interactive
 $slb = Get-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
@@ -319,7 +319,7 @@ $slb | Set-AzLoadBalancer
 
 ## <a name="remove-an-existing-load-balancer"></a>移除現有負載平衡器
 
-使用 **命令，刪除**NRP-RG**資源群組中的**NRP-LB`Remove-AzLoadBalancer` 負載平衡器：
+使用 `Remove-AzLoadBalancer` 命令，刪除 **NRP-RG** 資源群組中的 **NRP-LB** 負載平衡器：
 
 ```azurepowershell-interactive
 Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG

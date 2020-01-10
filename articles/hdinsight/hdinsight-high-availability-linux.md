@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 8b914b8ffe995cf31f8a22b6f80250431facc770
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 68f4eb4fbad2a571e078cb9aedcfd56c80ffe054
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682238"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747871"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight 中 Apache Hadoop 叢集的可用性和可靠性
 
@@ -33,7 +33,7 @@ Hadoop 藉由在叢集中的多個節點間複寫服務和資料，以達到高�
 
 為了確保 Hadoop 服務的高可用性，HDInsight 提供兩個前端節點。 這兩個前端節點會同時為作用中和在 HDInsight 叢集中執行。 有些服務 (例如 Apache HDFS 或 Apache Hadoop YARN) 在任何指定的時間都只能在一個前端節點上處於「作用中」。 HiveServer2 或 Hive MetaStore 等其他服務可同時在這兩個前端節點上作用。
 
-前端節點 (和 HDInsight 中的其他節點) 以數值作為節點主機名稱的一部分。 例如，`hn0-CLUSTERNAME` 或 `hn4-CLUSTERNAME`。
+若要取得叢集中不同節點類型的主機名稱，請使用[Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes)。
 
 > [!IMPORTANT]  
 > 請勿將數值與節點 (不論是主要或次要) 相關聯。 數值只是用來為每個節點提供唯一名稱。
@@ -46,7 +46,7 @@ Nimbus 節點是 Apache Storm 叢集隨附的節點。 Nimbus 節點會透過在
 
 [ZooKeeper](https://zookeeper.apache.org/) 節點用於前端節點上主要服務的前置選擇。 它們也可用來確保服務、資料（背景工作）節點和閘道知道主要服務在哪一個前端節點上為作用中狀態。 根據預設，HDInsight 會提供三個 ZooKeeper 節點。
 
-### <a name="worker-nodes"></a>背景工作節點
+### <a name="worker-nodes"></a>背景工作角色節點
 
 當作業提交至叢集時，背景工作節點會執行實際的資料分析。 如果背景工作節點失敗，它所執行的工作將會提交至另一個背景工作節點。 根據預設，HDInsight 會建立四個背景工作節點。 不過，您可以視需要在叢集建立期間和之後變更該數字。
 
@@ -88,7 +88,7 @@ curl -u admin:$password "https://$clusterName.azurehdinsight.net/api/v1/clusters
 此命令會傳回類似下列的值，其中包含要與 `oozie` 命令搭配使用的內部 URL：
 
 ```output
-"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
+"oozie.base.url": "http://<ACTIVE-HEADNODE-NAME>cx.internal.cloudapp.net:11000/oozie"
 ```
 
 如需有關使用 Ambari REST API 的詳細資訊，請參閱[使用 Apache Ambari REST API 來監視和管理 HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md)。
@@ -194,7 +194,7 @@ curl -u admin:password https://mycluster.azurehdinsight.net/api/v1/clusters/mycl
 
 ```json
 {
-    "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+    "href" : "http://mycluster.wutj3h4ic1zejluqhxzvckxq0g.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
     "ServiceInfo" : {
     "cluster_name" : "mycluster",
     "service_name" : "HDFS",
@@ -203,7 +203,7 @@ curl -u admin:password https://mycluster.azurehdinsight.net/api/v1/clusters/mycl
 }
 ```
 
-該 URL 會告訴我們服務目前正在名為 **hn0-CLUSTERNAME** 的前端節點上執行。
+此 URL 會告訴我們服務目前正在名為 mycluster 的前端節點上執行。 **wutj3h4ic1zejluqhxzvckxq0g**。
 
 該狀態會告訴我們此服務目前正在執行，或 **已啟動**。
 
@@ -241,14 +241,14 @@ curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CL
 
 您也可以使用 SSH 檔案傳輸通訊協定或安全檔案傳輸通訊協定 (SFTP)，來連線至前端節點，並直接下載記錄檔。
 
-類似於使用 SSH 用戶端，當連接到叢集時，您必須提供 SSH 的使用者帳戶名稱和叢集的 SSH 位址。 例如， `sftp username@mycluster-ssh.azurehdinsight.net`。 出現提示時，請提供帳戶密碼或使用 `-i` 參數提供公開金鑰。
+類似於使用 SSH 用戶端，當連接到叢集時，您必須提供 SSH 的使用者帳戶名稱和叢集的 SSH 位址。 例如： `sftp username@mycluster-ssh.azurehdinsight.net` 。 出現提示時，請提供帳戶密碼或使用 `-i` 參數提供公開金鑰。
 
 連接之後，您就會看到 `sftp>` 提示字元。 您可以從該提示變更目錄、上傳和下載檔案。 例如：下列命令會將目錄變更至 **/var/log/hadoop/hdfs** 目錄，然後在目錄中下載所有檔案。
 
     cd /var/log/hadoop/hdfs
     get *
 
-如需可用命令清單，請在 `help` 提示中輸入 `sftp>`。
+如需可用命令清單，請在 `sftp>` 提示中輸入 `help`。
 
 > [!NOTE]  
 > 使用 SFTP 連線時，也提供圖形化介面可讓您以視覺化方式檢視檔案系統。 例如： [MobaXTerm](https://mobaxterm.mobatek.net/) 可讓您使用類似於「Windows 檔案總管」的介面瀏覽檔案系統。

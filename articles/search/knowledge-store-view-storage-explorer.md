@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ca2df05cf20ef51b2d5ca866f22bd9450dd6acaf
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 12/30/2019
+ms.openlocfilehash: 167316eca1f85530a040d4543f98ae34a9fb93c6
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406561"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754077"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>使用儲存體總管來檢視知識存放區
 
@@ -22,9 +22,9 @@ ms.locfileid: "74406561"
 
 在本文中，您將瞭解如何使用 Azure 入口網站中的儲存體總管連接到知識存放區，並加以探索。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-+ 遵循在 Azure 入口網站中[建立知識存放區](knowledge-store-create-portal.md)中的步驟，或[使用 REST 建立 Azure 認知搜尋知識存放](knowledge-store-create-rest.md)區，以建立本逐步解說中所使用的範例知識存放區。
++ 遵循[在 Azure 入口網站中建立知識存放區](knowledge-store-create-portal.md)中的步驟，建立本逐步解說中所使用的知識存放區範例。
 
 + 您也需要用來建立知識存放區的 Azure 儲存體帳戶名稱，以及其來自 Azure 入口網站的存取金鑰。
 
@@ -36,7 +36,7 @@ ms.locfileid: "74406561"
 
 1. 展開 [資料表] 清單，以顯示當您對飯店檢閱資料範例執行 [匯入資料] 精靈時所建立的 Azure 資料表預測清單。
 
-選取任何資料表來檢視擴充的資料，包括關鍵片語的情感分數、經緯度位置資料等等。
+選取任何資料表來查看擴充的資料，包括主要片語和情感分數。
 
    ![在儲存體總管中檢視資料表](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "在儲存體總管中檢視資料表")
 
@@ -62,4 +62,4 @@ ms.locfileid: "74406561"
 
 > [!div class="nextstepaction"]
 > [與 Power BI 連接](knowledge-store-connect-power-bi.md)
-> [在 REST 中建立知識存放區](knowledge-store-howto.md)
+> [在 REST 中建立知識存放區](knowledge-store-create-rest.md)

@@ -1,6 +1,6 @@
 ---
 title: 從 Google Maps 遷移 |Microsoft Docs
-description: 如何從 Google Maps 遷移至 Azure 地圖服務的教學課程。
+description: 如何從 Google Maps 遷移至 Microsoft Azure Maps 的教學課程。 指引會引導您瞭解如何切換至 Azure 地圖服務 Api 和 Sdk。
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ea9afc413a7fb187042c9d832fa1c16802993eed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6709c42b19b18c8cae783a6b4ecc2c0721e1217d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75481226"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770300"
 ---
 # <a name="migrate-from-google-maps"></a>從 Google Maps 進行遷移
 
@@ -22,7 +22,7 @@ ms.locfileid: "75481226"
 
 ## <a name="azure-maps-platform-overview"></a>Azure 地圖服務平臺總覽
 
-Azure 地圖服務為開發人員提供了功能強大的地理空間功能，並以定期更新的地圖資料進行封裝，以提供 web 和行動應用程式的地理內容。 Azure 地圖服務具有一組適用于地圖、搜尋、路由、流量、時區、地理位置、地理柵欄、地圖資料和空間作業的 Azure One API 相容 REST Api，可讓開發工作輕鬆、彈性且可在多個平臺。
+Azure 地圖服務為開發人員提供了功能強大的地理空間功能，並以定期更新的地圖資料進行封裝，以提供 web 和行動應用程式的地理內容。 Azure 地圖服務具有一組適用于地圖、搜尋、路由、流量、時區、地理位置、地理柵欄、地圖資料、天氣、行動性及空間作業的 REST Api，並同時隨附 Web 和 Android Sdk，讓開發變得簡單、彈性，以及可在多個平臺上進行移植。
 
 ## <a name="high-level-platform-comparison"></a>高階平臺比較
 

@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: d3959b9a86ccc2d42cbf7bd188ce86bf4b7a2e63
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 14946a05f021a9b155fd9a9621f73bde980970fa
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670096"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750476"
 ---
 # <a name="deployment-best-practices"></a>部署最佳作法
 
@@ -66,3 +66,12 @@ Azure App Service 的內容儲存在 Azure 儲存體中，並且會持久顯示�
 ### <a name="high-cpu-or-memory"></a>高 CPU 或記憶體
 
 如果您的 App Service 計畫使用超過90% 的可用 CPU 或記憶體，則基礎虛擬機器在處理您的部署時可能會遇到問題。 發生這種情況時，請暫時相應增加您的實例計數，以執行部署。 部署完成之後，您可以將實例計數傳回先前的值。
+
+如需最佳做法的詳細資訊，請造訪[App Service 診斷](https://docs.microsoft.com/azure/app-service/overview-diagnostics)，以找出您的資源特有的可採取動作最佳作法。
+
+- 在[Azure 入口網站](https://portal.azure.com)中，流覽至您的 Web 應用程式。
+- 按一下左側導覽中的 **診斷並解決問題**，這會開啟 App Service 診斷。
+- 選擇 [**最佳做法**] 首頁磚。
+- 按一下 [**可用性 & 效能**] 或 [最佳設定的**最佳做法**]，以查看應用程式目前的狀態，以瞭解這些最佳作法。
+
+您也可以使用此連結直接開啟資源的 App Service 診斷： `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`。

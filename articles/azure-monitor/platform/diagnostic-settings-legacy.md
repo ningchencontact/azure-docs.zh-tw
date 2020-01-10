@@ -7,15 +7,15 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 12/20/2019
-ms.openlocfilehash: 4c910fd72805ce8cb1e7baa6b4252d6b2192fe36
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: e3a8048d8bcb8bb737c511a8b8bb6b57f9e81403
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541513"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750973"
 ---
 # <a name="collect-azure-activity-log-with-legacy-settings"></a>使用舊版設定收集 Azure 活動記錄
-[Azure 活動記錄](activity-logs-overview.md)是一個[平臺記錄](platform-logs-overview.md)，可讓您深入瞭解 Azure 中發生的訂用帳戶層級事件。 到目前為止，您已建立記錄設定檔，以將活動記錄專案傳送至[事件中樞或儲存體帳戶](activity-log-export.md)，並使用連接器將其收集到[log Analytics 工作區](activity-log-collect.md)。 本文說明方法之間的差異、如何使用現有的舊版設定，以及如何清除舊版設定以準備診斷設定。
+[Azure 活動記錄](platform-logs-overview.md)是一個[平臺記錄](platform-logs-overview.md)，可讓您深入瞭解 Azure 中發生的訂用帳戶層級事件。 到目前為止，您已建立記錄設定檔，以將活動記錄專案傳送至[事件中樞或儲存體帳戶](activity-log-export.md)，並使用連接器將其收集到[log Analytics 工作區](activity-log-collect.md)。 本文說明方法之間的差異、如何使用現有的舊版設定，以及如何清除舊版設定以準備診斷設定。
 
 
 ## <a name="differences-between-methods"></a>方法之間的差異

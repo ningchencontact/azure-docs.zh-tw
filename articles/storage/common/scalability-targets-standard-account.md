@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bcf1c9eca91b73b8efb0a67f9fb532c62a2aa194
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 817e11fdf70c8043d2eb860fe15cc0a7907c6656
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486738"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750640"
 ---
 # <a name="scalability-and-performance-targets-for-standard-storage-accounts"></a>標準儲存體帳戶的擴充性和效能目標
 
@@ -26,5 +26,5 @@ ms.locfileid: "75486738"
 
 ## <a name="see-also"></a>請參閱
 
-- [Premium 區塊 blob 儲存體帳戶的擴充性目標](../blobs/scalability-targets-premium-block-blobs.md)
 - [Azure 儲存體資源提供者的擴充性目標](../common/scalability-targets-resource-provider.md)
+- [Azure 訂用帳戶的限制和配額](../../azure-resource-manager/management/azure-subscription-service-limits.md)

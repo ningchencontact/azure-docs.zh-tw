@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48b81d508711f35a75efe1c93fe0a5556c5bb960
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c984faf22b8e4cd499a5588f45d7072610f33544
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784467"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75767920"
 ---
 # <a name="what-is-azure-ad-connect"></a>何謂 Azure AD Connect？
 
@@ -46,7 +46,7 @@ Azure Active Directory (Azure AD) Connect Health 可為您的內部部署身分�
 
 * 使用者可以使用單一身分識別來存取內部部署應用程式和雲端服務，例如 Office 365。
 * 單一工具即可提供輕鬆進行同步處理和登入的部署經驗。
-* 提供您案例的最新功能。 Azure AD Connect 會取代舊版的身分識別整合工具，如 DirSync 和 Azure AD Sync。如需詳細資訊，請參閱 [混合式身分識別目錄整合工具比較](plan-hybrid-identity-design-considerations-tools-comparison.md)。
+* 提供您案例的最新功能。 Azure AD Connect 取代舊版的身分識別整合工具，例如 DirSync 和 Azure AD 同步。如需詳細資訊，請參閱混合式身分[識別目錄整合工具比較](plan-hybrid-identity-design-considerations-tools-comparison.md)。
 
 ## <a name="why-use-azure-ad-connect-health"></a>為何使用 Azure AD Connect Health？
 搭配 Azure AD 時，使用者會更具生產力，因為會有一個可同時存取雲端和內部部署資源的通用身分識別。 確保環境可靠以便讓使用者能夠存取這些資源，已變成一項挑戰。  Azure AD Connect Health 可協助您監視及深入了解內部部署身分識別基礎結構，藉此確保此環境的可靠性。 使用方式相當簡單，您只需將代理程式安裝在各個內部部署身分識別伺服器中即可。
@@ -55,11 +55,11 @@ Azure Active Directory (Azure AD) Connect Health 可為您的內部部署身分�
 
 重要優勢和最佳做法：
 
-|主要權益|最佳做法|
+|主要權益|最佳作法|
 |-----|-----|
-|強化的安全性|[外部網路鎖定趨勢](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[失敗的登入報告](how-to-connect-health-adfs-risky-ip.md)</br>[在符合隱私權規範中](reference-connect-health-user-privacy.md)|
+|增強的安全性|[外部網路鎖定趨勢](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[失敗的登入報告](how-to-connect-health-adfs-risky-ip.md)</br>[在符合隱私權規範中](reference-connect-health-user-privacy.md)|
 |取得所有[重大 ADFS 系統問題](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)的警示|伺服器設定和可用性</br>[效能和連線能力](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>定期維護|
-|容易部署及管理|[快速代理程式安裝](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>代理程式自動升級至最新版</br>幾分鐘內就可在入口網站中取得資料|
+|輕鬆部署和管理|[快速代理程式安裝](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>代理程式自動升級至最新版</br>幾分鐘內就可在入口網站中取得資料|
 豐富的[使用計量](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|應用程式使用量排名</br>網路位置與 TCP 連線</br>每一部伺服器的權杖要求數|
 |良好的使用者體驗|來自 Azure 入口網站的儀表板方式</br>[透過電子郵件警示](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 
@@ -68,8 +68,8 @@ Azure Active Directory (Azure AD) Connect Health 可為您的內部部署身分�
 
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
-
-
+## <a name="license-requirements-for-using-azure-ad-connect-health"></a>使用 Azure AD Connect Health 的授權需求
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

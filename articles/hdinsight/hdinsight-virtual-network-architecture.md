@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 0a1139f7bf1711a5f6d980e67a8a9027bfd3af52
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b3f622b360f565ef5b16d5376cb1aa2498655017
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665330"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744742"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight 虛擬網路架構
 
@@ -32,6 +32,16 @@ Azure HDInsight 叢集具有不同類型的虛擬機器或節點。 每種節點
 | Nimbus 節點 | 若為風暴叢集類型，Nimbus 節點會提供類似于前端節點的功能。 Nimbus 節點會透過 Zookeeper 將工作指派給叢集中的其他節點，這會協調執行中的風暴拓撲。 |
 | 監督員節點 | 對於「風暴」叢集類型，監督員節點會執行 Nimbus 節點所提供的指示，以執行所需的處理。 |
 
+## <a name="resource-naming-conventions"></a>資源命名慣例
+
+當您為叢集中的節點定址時，請使用完整功能變數名稱（Fqdn）。 您可以使用[AMBARI API](hdinsight-hadoop-manage-ambari-rest-api.md)，取得叢集中各種節點類型的 fqdn。 
+
+這些 Fqdn 的形式會是 `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`。
+
+`<node-type-prefix>` 將針對前端節點、 *w)* 背景工作角色節點和*zn* （zookeeper 節點）進行*hn* 。
+
+如果您只需要主機名稱，請只使用 FQDN 的第一個部分： `<node-type-prefix><instance-number>-<abbreviated-clustername>`
+
 ## <a name="basic-virtual-network-resources"></a>基本虛擬網路資源
 
 下圖顯示 HDInsight 節點和網路資源在 Azure 中的位置。
@@ -44,18 +54,18 @@ Azure HDInsight 叢集具有不同類型的虛擬機器或節點。 每種節點
 
 | 資源類型 | 有數位 | 詳細資料 |
 | --- | --- | --- |
-|前端節點 | two |    |
-|Zookeeper 節點 | three | |
-|背景工作節點 | two | 此數目會根據叢集設定和調整而有所不同。 Apache Kafka 需要至少三個背景工作角色節點。  |
-|閘道節點 | two | 閘道節點是在 Azure 上建立的 Azure 虛擬機器，但在您的訂用帳戶中看不到。 如果您需要重新開機這些節點，請聯絡支援人員。 |
+|前端節點 | 二 |    |
+|Zookeeper 節點 | 三 | |
+|背景工作節點 | 二 | 此數目會根據叢集設定和調整而有所不同。 Apache Kafka 需要至少三個背景工作角色節點。  |
+|閘道節點 | 二 | 閘道節點是在 Azure 上建立的 Azure 虛擬機器，但在您的訂用帳戶中看不到。 如果您需要重新開機這些節點，請聯絡支援人員。 |
 
 下列網路資源會自動建立在與 HDInsight 搭配使用的虛擬網路內：
 
 | 網路資源 | 有數位 | 詳細資料 |
 | --- | --- | --- |
-|負載平衡器 | three | |
+|負載平衡器 | 三 | |
 |網路介面 | 份 | 這個值是以一般叢集為基礎，其中每個節點都有自己的網路介面。 這九個介面適用于這兩個前端節點、三個 zookeeper 節點、兩個背景工作節點，以及上表中所述的兩個閘道節點。 |
-|公用 IP 位址 | two |    |
+|公用 IP 位址 | 二 |    |
 
 ## <a name="endpoints-for-connecting-to-hdinsight"></a>連接到 HDInsight 的端點
 

@@ -8,20 +8,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: 9bc3c375c5111c144b6b137ca547875225aba58f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 283274986c753fc8ad05b9b7b0dd87aea956bcce
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824454"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762887"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>虛擬機器 Marketplace 索引標籤
 
-**新增供應項目**頁面的 **Marketplace** 索引標籤可讓您為潛在客戶提供行銷、銷售和法律資訊與合約，並管理 Marketplace 產生的潛在客戶。 這個長表單分成四個區段：**概觀**、**行銷成品**、**潛在客戶管理**和**法律聲明**。
+在 [新增供應項目] 頁面的 [Marketplace] 索引標籤上，可提供行銷、銷售和法律方面的資訊與合約給您的潛在客戶，並管理 Marketplace 產生的潛在客戶。 這個長表單分成四個區段：**概觀**、**行銷成品**、**潛在客戶管理**和**法律聲明**。
 
 
 ## <a name="overview-section"></a>概觀區段
-在本區段中，您可以輸入有關 Marketplace Offer 的一般資訊。  欄位名稱上附加星號 (*) 表示為必填欄位。
+在本區段中，可以輸入 Azure Marketplace Offer 的一般資訊。  欄位名稱上附加星號 (*) 表示為必填欄位。
 
 ![虛擬機器的 [Marketplace] 索引標籤的 [總覽] 區段](./media/publishvm_008.png)
 
@@ -29,15 +29,15 @@ ms.locfileid: "73824454"
 
 |  **欄位**                |     **說明**                                                          |
 |  ---------                |     ---------------                                                          |
-| **標題\***                 | 供應項目的標題，通常是較長的正式名稱。 這個標題會醒目顯示在 Marketplace 中。  長度上限是 50 個字元。 |
+| **標題\***                 | 供應項目的標題，通常是較長的正式名稱。 這個標題會醒目顯示在 Marketplace 中。  長度上限為 50 個字元。 |
 | **摘要\***               | 解決方案功能的簡短用途。  長度上限是 100 個字元。 |
-| **長摘要\***          | 解決方案功能的用途。  長度上限是 256 個字元。 |
+| **長摘要\***          | 解決方案功能的用途。  長度上限為 256 個字元。 |
 | **說明\***           | 解決方案說明。  長度上限是 3000 個字元，支援簡單的 HTML 格式。 |
 | **Microsoft CSP 轉銷商頻道\*** | 雲端解決方案提供者（CSP）合作夥伴頻道加入宣告現已推出。  如需透過 Microsoft CSP 合作夥伴頻道行銷供應專案的詳細資訊，請參閱[雲端解決方案提供者](../../cloud-solution-providers.md)。 |
 | **行銷識別碼\***  | 與本供應項目相關聯的唯一不重複網址，通常會包含您的組織與解決方案名稱，長度上限是 50 個字元。  例如： <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **預覽訂用帳戶識別碼\*** | 可新增 1 到 100 個預覽使用者的訂閱帳戶識別碼。 這些列入允許清單的訂閱帳戶，待供應項目一發佈，即能在供應項目上線前先行存取。 |
 | **實用連結**          | 新增文件、版本資訊、常見問題等等的 URL。 |
-| **建議的類別（最多5個）\*** | 選擇多個適合與供應項目建立關聯的企業和技術類別。  最多可選擇五個。  |
+| **建議的類別\*** | 最多可選取兩個（2）類別，包括主要和次要類別（選擇性）。 針對每個主要和/或次要類別目錄選取最多兩個（2）子類別。 如果未選取任何子類別，您仍然可以在選取的類別上找到您的供應專案。 |
 |  |  |
 
 
@@ -121,7 +121,7 @@ Cloud Partner 入口網站中所上傳的所有標誌都應該遵循指導方針
 
 |  **欄位**                    |     **說明**                                        |
 |  ---------                    |     ---------------                                        |
-| **隱私權原則 URL\***      | 張貼之隱私權原則的 URL                          |
+| **隱私權原則 URL\***      | 張貼隱私權原則的 URL                          |
 | **使用標準合約嗎？\***  |   |
 | **使用規定\***            | 純文字或簡單 HTML 原則。                       |
 |  |  |

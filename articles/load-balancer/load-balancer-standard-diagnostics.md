@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: ff42c6e9bd3c25721d2b77e49c2dd98a3eebdb43
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: f5fa39e07eba6bdf24d96e72c9229e215ff6730b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048736"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772035"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>包含計量、警示和資源健康情況的 Standard Load Balancer 診斷
 
 Azure Standard Load Balancer 會公開下列診斷功能：
 
-* **多維度計量和警示**：透過標準負載平衡器設定的[Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview)，提供新的多維度診斷功能。 您可以監視、管理和疑難排解您的標準負載平衡器資源。
+* **多維度計量和警示**：透過適用于標準負載平衡器設定的[Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview)，提供多維度診斷功能。 您可以監視、管理和疑難排解您的標準負載平衡器資源。
 
 * **資源健康狀態**： Azure 入口網站中的 Load Balancer 頁面和 資源健康狀態 頁面（在 監視器 底下）會公開 Standard Load Balancer 的資源健康狀態區段。 
 
@@ -31,18 +31,18 @@ Azure Standard Load Balancer 會公開下列診斷功能：
 
 ## <a name = "MultiDimensionalMetrics"></a>多維度計量
 
-Azure Load Balancer 透過 Azure 入口網站中的新 Azure 計量提供新的多維度計量，並協助您取得負載平衡器資源的即時診斷見解。 
+Azure Load Balancer 會透過 Azure 入口網站中的 Azure 計量提供多維度計量，並協助您取得負載平衡器資源的即時診斷見解。 
 
 各種標準 Load Balancer 組態提供下列計量：
 
-| 度量 | 資源類型 | 描述 | 建議的彙總 |
+| 計量 | 資源類型 | 說明 | 建議的彙總 |
 | --- | --- | --- | --- |
-| 資料路徑可用性（VIP 可用性）| 公用和內部負載平衡器 | 標準 Load Balancer 會在資料路徑上持續運用，從區域內到 Load Balancer 前端，再一路到支援 VM 的 SDN 堆疊。 只要狀況良好的執行個體持續存在，測量就會依循與您應用程式的負載平衡流量相同的路徑。 此外，也會驗證您客戶所使用的資料路徑。 此測量對您的應用程式來說是看不見的，也不會干擾到其他作業。| 平均值 |
-| 健康情況探查狀態（DIP 可用性） | 公用和內部負載平衡器 | 標準 Load Balancer 使用分散式健康情況探查服務，可根據您的組態設定監視應用程式端點的健康情況。 這個計量會提供負載平衡器集區中每個執行個體端點的彙總檢視，或各端點篩選過的檢視。 您可以看到 Load Balancer 藉由健康情況探查設定如何檢視應用程式的健康情況。 |  平均值 |
-| SYN (同步) 封包 | 公用和內部負載平衡器 | 標準 Load Balancer 不會終止傳輸控制通訊協定 (TCP) 連線，也不會與 TCP 或 UDP 封包流程互動。 流程及其交握一律是在來源與 VM 執行個體之間進行。 若要針對您的 TCP 通訊協定案例進行進一步疑難排解，您可使用 SYN 封包計數器來了解已進行多少次 TCP 連線嘗試。 此計量會回報已收到的 TCP SYN 封包數。| 平均值 |
-| SNAT 連線 | 公用 Load Balancer |標準 Load Balancer 會回報偽裝為公用 IP 位址前端的輸出流程數目。 來源網路位址轉譯 (SNAT) 連接埠是可耗盡的資源。 此計量可以指出應用程式有多依賴 SNAT 來處理連出的起始流程。 系統會回報成功和失敗之連出 SNAT 流程的計數器，而且可用來對連出流程的健康情況進行疑難排解及了解。| 平均值 |
-| 位元組計數器 |  公用和內部負載平衡器 | 標準 Load Balancer 會報告每個前端處理的資料。| 平均值 |
-| 封包計數器 |  公用和內部負載平衡器 | 標準 Load Balancer 會報告每個前端處理的封包。| 平均值 |
+| 資料路徑可用性（VIP 可用性）| 公用和內部負載平衡器 | 標準 Load Balancer 會在資料路徑上持續運用，從區域內到 Load Balancer 前端，再一路到支援 VM 的 SDN 堆疊。 只要狀況良好的執行個體持續存在，測量就會依循與您應用程式的負載平衡流量相同的路徑。 此外，也會驗證您客戶所使用的資料路徑。 此測量對您的應用程式來說是看不見的，也不會干擾到其他作業。| Average |
+| 健康情況探查狀態（DIP 可用性） | 公用和內部負載平衡器 | 標準 Load Balancer 使用分散式健康情況探查服務，可根據您的組態設定監視應用程式端點的健康情況。 這個計量會提供負載平衡器集區中每個執行個體端點的彙總檢視，或各端點篩選過的檢視。 您可以看到 Load Balancer 藉由健康情況探查設定如何檢視應用程式的健康情況。 |  Average |
+| SYN (同步) 封包 | 公用和內部負載平衡器 | 標準 Load Balancer 不會終止傳輸控制通訊協定 (TCP) 連線，也不會與 TCP 或 UDP 封包流程互動。 流程及其交握一律是在來源與 VM 執行個體之間進行。 若要針對您的 TCP 通訊協定案例進行進一步疑難排解，您可使用 SYN 封包計數器來了解已進行多少次 TCP 連線嘗試。 此計量會回報已收到的 TCP SYN 封包數。| Average |
+| SNAT 連線 | 公用 Load Balancer |標準 Load Balancer 會回報偽裝為公用 IP 位址前端的輸出流程數目。 來源網路位址轉譯 (SNAT) 連接埠是可耗盡的資源。 此計量可以指出應用程式有多依賴 SNAT 來處理連出的起始流程。 系統會回報成功和失敗之連出 SNAT 流程的計數器，而且可用來對連出流程的健康情況進行疑難排解及了解。| Average |
+| 位元組計數器 |  公用和內部負載平衡器 | 標準 Load Balancer 會報告每個前端處理的資料。| Average |
+| 封包計數器 |  公用和內部負載平衡器 | 標準 Load Balancer 會報告每個前端處理的封包。| Average |
 
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>在 Azure 入口網站中檢視負載平衡器計量
 
@@ -142,7 +142,7 @@ VIP 可用性會因為下列原因而失敗：
 
 若要取得位元組或封包計數統計資料：
 1. 選取 [位元組計數] 和/或 [封包計數] 計量類型，並選取 [平均] 作為彙總。 
-2. 執行下列其中一個動作：
+2. 執行下列任一步驟：
    * 對特定前端 IP、前端連接埠或後端 IP 或後端連接埠套用篩選器。
    * 取得負載平衡器資源的整體統計資料 (不使用任何篩選)。
 
@@ -193,15 +193,15 @@ VIP 可用性會因為下列原因而失敗：
  
 下表列出各種資源健康狀態及其說明： 
 
-| 資源健康情況狀態 | 描述 |
+| 資源健康情況狀態 | 說明 |
 | --- | --- |
 | 可用 | 您的標準負載平衡器資源狀況良好且可供使用。 |
 | 無法使用 | 您的標準負載平衡器資源狀況不良。 請藉由選取 [Azure 監視器] > [計量] 來診斷健康狀態。<br>（*無法使用*的狀態也可能表示資源未與您的標準負載平衡器連線）。 |
-| 不明 | 您的標準負載平衡器資源的資源健康狀態尚未更新。<br>（[*不明*] 狀態也可能表示資源未與您的標準負載平衡器連線）。  |
+| Unknown | 您的標準負載平衡器資源的資源健康狀態尚未更新。<br>（[*不明*] 狀態也可能表示資源未與您的標準負載平衡器連線）。  |
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解[標準 Load Balancer](load-balancer-standard-overview.md)。
+- 深入了解[標準負載平衡器](load-balancer-standard-overview.md)。
 - 深入了解 [Load Balancer 輸出連線能力](https://aka.ms/lboutbound)。
 - 了解 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview)。
 - 了解 [Azure 監視器 REST API](https://docs.microsoft.com/rest/api/monitor/) 和[如何透過 REST API 擷取計量](/rest/api/monitor/metrics/list)。

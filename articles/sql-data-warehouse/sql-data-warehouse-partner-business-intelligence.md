@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 882067f25030c6594526914fb8d111639b205949
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 32e7251c7c47e7ccc03e313b939c917557a31417
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685624"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772205"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL 資料倉儲商業智慧合作夥伴
 若要建立端對端資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。  本文將重點放在 Microsoft 合作夥伴公司，其中具有支援 Azure SQL 資料倉儲的官方商業智慧（BI）解決方案。
@@ -35,7 +35,7 @@ ms.locfileid: "73685624"
 | ![Microstrategy][14] |**MicroStrategy**<br>MicroStrategy 平臺提供了一組完整的商業智慧和分析功能，可讓組織從其商務資料中取得價值。 MicroStrategy 功能強大的分析引擎、全方位的工具組、各種資料連線器，以及可擴充的開放式架構，確保您擁有跨每個小組和商務功能擴充存取分析所需的一切 |[產品頁面][microstrategy_website]<br> [Azure Marketplace][microstrategy_marketplace]<br> |
 | ![Qlik][8] |**Qlik Sense Enterprise**<br>。 使用 Qlik Sense，您組織中的所有人都可以輕鬆建立彈性、互動式的視覺效果和制訂有意義的決策。 |[產品頁面][qlik_website]<br> |
 | ![SiSense][9] |**SiSense**<br>SiSense 是全方位的「商業智慧」軟體，隨附企業進行資料分析和視覺化所需的工具：高效能分析資料庫、可結合多個來源的功能、簡易資料擷取 (ETL) 及 Web 式資料視覺化。 立即使用 SiSense BI 和分析來開始分析和視覺化大型資料集。 |[產品頁面][sisense_website]<br> |
-| ![Tableau][10] |**Tableau**<br>Tableau 的自助式分析協助任何人查看和瞭解資料，從一般檔案到資料庫，資料種類包羅萬象。 Tableau 有原生、最佳化的連接器連至 Microsoft Azure SQL 資料倉儲，支援即時資料和記憶體中分析。 |[產品頁面][tableau_website]<br> [Azure Marketplace][tableau_marketplace]<br>|
+| ![Tableau][10] |**Tableau**<br>Tableau 的自助式分析協助任何人查看和瞭解資料，從一般檔案到資料庫，資料種類包羅萬象。 Tableau 有原生、最佳化的連接器連至 Microsoft Azure SQL 資料倉儲，支援即時資料和記憶體內部分析。 |[產品頁面][tableau_website]<br> [Azure Marketplace][tableau_marketplace]<br>|
 | ![Targit][11] |**Targit （決策套件）**<br>Targit Decision Suite 提供 BI 和分析平台，以單一且一致的解決方案提供即時儀表板、自助分析、方便使用的報告、令人讚嘆的行動功能和簡單的資料探索技術。 Targit 帶給企業行動的勇氣。 |[產品頁面][targit_website]<br> [Azure Marketplace][targit_marketplace]<br> |
 | ![Yellowfin][12] |**Yellowfin**<br>Yellowfin 是 BARC 的臨機操作報表和儀表板排名最高分的 Cloud BI 廠商;BI 問卷。 連接到 Azure SQL 資料倉儲，然後以得獎的共同作業 BI 和位置智慧功能來建立和共用漂亮的報告和儀表板。 |[產品頁面][yellowfin_website]<br> [Azure Marketplace][yellowfin_marketplace] |
 
@@ -87,7 +87,7 @@ ms.locfileid: "73685624"
 
 [birst_marketplace]:https://azure.microsoft.com/marketplace/partners/birst/birst/
 [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
-[looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/
+[looker_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/looker.looker-analytics-platform-6_20
 [qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/
 [tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
 [targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ 

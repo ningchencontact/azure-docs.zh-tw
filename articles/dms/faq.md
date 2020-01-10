@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 07/10/2019
-ms.openlocfilehash: 11aec9c62c388155f8d90b7a89171937f22dd9d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.date: 01/08/2020
+ms.openlocfilehash: fc0bac99aa70d7028412c68563a3024720fa49d9
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438006"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745407"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>使用 Azure 資料庫移轉服務的常見問題
 
@@ -37,7 +37,7 @@ Azure 資料庫移轉服務是完全受控的服務，其設計目的是要在�
 其他遷移案例處於預覽狀態，需要透過 DMS 預覽網站提交提名。 如需預覽中案例的完整清單，以及註冊以參與其中一項供應專案，請參閱[DMS 預覽網站](https://aka.ms/dms-preview/)。
 
 **問： Azure 資料庫移轉服務支援作為來源的 SQL Server 版本為何？**
-從 SQL Server 進行遷移時，Azure 資料庫移轉服務支援的來源是 SQL Server 2005 到 SQL Server 2017。
+從 SQL Server 進行遷移時，Azure 資料庫移轉服務支援的來源是 SQL Server 2005 到 SQL Server 2019。
 
 **問：使用 Azure 資料庫移轉服務時，離線和線上遷移有何不同？**
 您可以使用 Azure 資料庫移轉服務來執行離線和線上遷移。 使用*離線*遷移時，應用程式停機會在開始遷移時啟動。 透過*線上*遷移，停機時間僅限於在遷移結束時切換。 建議您先測試離線移轉來決定停機時間是否在容忍範圍內；如果無法容忍，則請進行線上移轉。
@@ -58,14 +58,14 @@ Azure Migrate 可協助將內部部署虛擬機器遷移至 Azure IaaS。 此服
 
 Azure 資料庫移轉服務必要條件在所有支援的移轉案例中都是通用的，包含以下需求：
 
-* 使用 Azure Resource Manager 部署模型建立 Azure 資料庫移轉服務的 VNet，以使用[ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)或[VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)為您的內部部署來源伺服器提供站對站連線能力。
-* 請確定您的 Azure 虛擬網路（VNet）網路安全性群組規則不會封鎖下列通訊埠443、53、9354、445、12000。 如需 Azure VNet NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
+* 使用 Azure Resource Manager 部署模型建立 Azure 資料庫移轉服務的 Microsoft Azure 虛擬網路，以使用[ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)或[VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)為您的內部部署來源伺服器提供站對站連線能力。
+* 請確定您的虛擬網路網路安全性群組規則不會封鎖下列通訊埠443、53、9354、445、12000。 如需虛擬網路 NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)一文。
 * 使用來源資料庫前面的防火牆應用裝置時，您可能必須新增防火牆規則，才能讓 Azure 資料庫移轉服務存取來源資料庫，以進行移轉。
 
 如需使用 Azure 資料庫移轉服務來競爭特定遷移案例的必要條件清單，請參閱 docs.microsoft.com 上的 Azure 資料庫移轉服務[檔](https://docs.microsoft.com/azure/dms/dms-overview)中的相關教學課程。
 
 **問：如何? 尋找 Azure 資料庫移轉服務的 IP 位址，讓我可以針對用來存取源資料庫以進行遷移的防火牆規則建立允許清單嗎？**
-您可能需要新增防火牆規則，以允許 Azure 資料庫移轉服務存取您的源資料庫以進行遷移。 服務的 IP 位址是動態的，但如果您使用的是 Express Route，則會由公司網路私下指派此位址。 若要識別適當的 IP 位址，最簡單的方式就是查看與您布建的 Azure 資料庫移轉服務資源相同的資源群組，以尋找相關聯的網路介面。 網路介面資源的名稱通常會以 NIC 前置詞作為開頭，後面接著獨特字元和數字序列，例如 NIC-jj6tnztnmarpsskr82rbndyp。 藉由選取此網路介面資源，您即可在 Azure 入口網站的 [資源概觀] 頁面上，看到必須包含在允許清單中的 IP 位址。
+您可能需要新增防火牆規則，以允許 Azure 資料庫移轉服務存取您的源資料庫以進行遷移。 服務的 IP 位址是動態的，但如果您使用的是 ExpressRoute，則此位址會由您的公司網路私下指派。 若要識別適當的 IP 位址，最簡單的方式就是查看與您布建的 Azure 資料庫移轉服務資源相同的資源群組，以尋找相關聯的網路介面。 網路介面資源的名稱通常會以 NIC 前置詞作為開頭，後面接著獨特字元和數字序列，例如 NIC-jj6tnztnmarpsskr82rbndyp。 藉由選取此網路介面資源，您即可在 Azure 入口網站的 [資源概觀] 頁面上，看到必須包含在允許清單中的 IP 位址。
 
 此外，您可能還需要在允許清單上包含 SQL Server 所接聽的連接埠來源。 根據預設，來源是連接埠 1433，但您也可以將來源 SQL Server 設定為接聽其他連接埠。 在此情況下，您也必須在允許清單上包含這些連接埠。 您可以使用動態管理檢視查詢來判斷 SQL Server 所接聽的連接埠：
 
@@ -85,8 +85,8 @@ Azure 資料庫移轉服務必要條件在所有支援的移轉案例中都是�
     GO
 ```
 
-**問：如何? 設定 Azure 虛擬網路嗎？**
-有多個 Microsoft 教學課程可逐步引導您完成 Azure VNET 的設定程序，至於官方文件，則會在 [Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)一文中出現。
+**問：如何? 設定 Microsoft Azure 虛擬網路嗎？**
+雖然有多個 Microsoft 教學課程可引導您完成設定虛擬網路的程式，但官方檔會出現在[Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)一文。
 
 ## <a name="usage"></a>用量
 
@@ -106,7 +106,7 @@ Azure 資料庫移轉服務必要條件在所有支援的移轉案例中都是�
 ## <a name="troubleshooting-and-optimization"></a>疑難排解和優化
 
 **問：我在 DMS 中設定了一個遷移專案，而我難以連接到我的源資料庫。我該怎麼做？**
-如果您在處理遷移時無法連接到源資料庫系統，請在您用來設定 DMS 實例的 VNet 中建立虛擬機器。 在虛擬機器中，您應該能夠執行連接測試，例如使用 UDL 檔案來測試連線，以 SQL Server 或下載 Robo 3T 來測試 MongoDB 連線。 如果連線測試成功，則連接到源資料庫時，您應該不會發生問題。 如果連線測試不成功，請洽詢您的網路系統管理員。
+如果您在處理遷移時無法連接到源資料庫系統，請在您用來設定 DMS 實例的虛擬網路中建立虛擬機器。 在虛擬機器中，您應該能夠執行連接測試，例如使用 UDL 檔案來測試連線，以 SQL Server 或下載 Robo 3T 來測試 MongoDB 連線。 如果連線測試成功，則連接到源資料庫時，您應該不會發生問題。 如果連線測試不成功，請洽詢您的網路系統管理員。
 
 **問：我的 Azure 資料庫移轉服務為何無法使用或停止？**
 如果使用者明確停止 Azure 資料庫移轉服務（DMS），或如果服務在24小時內處於非使用中狀態，服務將會處於已停止或自動暫停的狀態。 在每個情況下，服務都將無法使用並處於停止的狀態。  若要繼續使用中的移轉，請重新啟動服務。

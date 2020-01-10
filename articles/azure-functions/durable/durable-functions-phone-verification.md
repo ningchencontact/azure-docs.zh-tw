@@ -4,12 +4,12 @@ description: 了解如何處理 Azure Functions 之長期函式延伸模組中�
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9346c53ec122b3e6fac124298029c7f8e70bf622
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6a442ac0d515f9cca9201767087a9b59588edeed
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232815"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769569"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>長期函式中的人為互動 - 電話驗證範例
 
@@ -40,7 +40,7 @@ ms.locfileid: "74232815"
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-下列各節說明用於C#腳本處理和 JavaScript 的設定和程式碼。 Visual Studio 開發適用的程式碼會顯示在文章結尾。
+下列各節說明用於C#腳本處理和 JavaScript 的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
 
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS 驗證協調流程 (Visual Studio Code 和 Azure 入口網站範例程式碼)
 
@@ -150,10 +150,10 @@ Content-Length: 145
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio 範例程式碼
 
-以下是 Visual Studio 專案中單一 C# 檔案的協調流程：
+以下是 Visual Studio 專案中的單一 C# 檔案所示範的協調流程：
 
 > [!NOTE]
-> 您必須安裝 `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget 封裝來執行下列範例程式碼。
+> 您將需要安裝 `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet 套件，才能執行下列範例程式碼。
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 

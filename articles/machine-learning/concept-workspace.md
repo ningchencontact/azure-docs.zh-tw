@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 369199c70d560fc0a8be6d4f0e0595207b486bbb
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3d8a1b965724c0fcb9f07b382ed446d41fe23dac
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541643"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772562"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>什麼是 Azure Machine Learning 工作區？
 
@@ -52,7 +52,7 @@ ms.locfileid: "75541643"
     + [Azure Machine Learning 設計工具（預覽）](concept-designer.md) -僅適用于[Enterprise edition](overview-what-is-azure-ml.md#sku)工作區。
 + 在任何 Python 環境中，使用[適用于 python 的 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)。
 + 在任何 R 環境中，使用[適用于 r 的 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)。
-+ 在命令列上使用 Azure Machine Learning [CLI 擴充](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)功能
++ 在命令列上使用 Azure Machine Learning [CLI 擴充](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)功能
 
 ## <a name="machine-learning-with-a-workspace"></a>具有工作區的機器學習服務
 

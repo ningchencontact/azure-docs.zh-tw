@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/16/2019
-ms.openlocfilehash: de1366b1bf45301d3d26a4f721ef2828f79be98d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 6a84dee783240f7f662dab2f04275ead3a3dfe09
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460652"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750778"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
@@ -33,7 +33,7 @@ ms.locfileid: "75460652"
 如需進一步了解不同 Azure 服務所支援的計量和記錄類別，請參閱：
 
 - [Microsoft Azure 中的計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Azure 診斷記錄的概觀](../azure-monitor/platform/resource-logs-overview.md)
+- [Azure 診斷記錄的概觀](../azure-monitor/platform/platform-logs-overview.md)
 
 本文會指引您啟用 Azure SQL 資料庫、彈性集區和受控執行個體的診斷遙測。 也有助於您了解如何將 Azure SQL 分析設為檢視資料庫診斷遙測的監視工具。
 
@@ -736,7 +736,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 若要了解如何啟用記錄，並了解各種 Azure 服務支援的計量和記錄類別，請參閱：
 
 - [Microsoft Azure 中的計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Azure 診斷記錄的概觀](../azure-monitor/platform/resource-logs-overview.md)
+- [Azure 診斷記錄的概觀](../azure-monitor/platform/platform-logs-overview.md)
 
 若要了解事件中樞，請閱讀：
 

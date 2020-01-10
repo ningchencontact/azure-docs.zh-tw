@@ -4,12 +4,12 @@ description: 追蹤在 Service Fabric、虛擬機器、Web Apps 和雲端服務�
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: effef22bea0b4224f67737fe1c34c9758749c093
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364436"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751343"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>針對 Azure 自動調整進行疑難排解
  
@@ -97,7 +97,7 @@ Azure 監視器自動調整可協助您讓適當的資源量執行，以處理�
 
 ## <a name="autoscale-resource-logs"></a>自動調整資源記錄
 
-與任何其他 Azure 資源相同，自動調整服務會提供[資源記錄](resource-logs-overview.md)。 有兩種記錄類別。
+與任何其他 Azure 資源相同，自動調整服務會提供[資源記錄](platform-logs-overview.md)。 有兩種記錄類別。
 
 - **自動調整評估**-自動調整引擎會在每次進行檢查時，記錄每個單一條件評估的記錄專案。  此專案包含計量之觀察值的詳細資料、評估的規則，以及評估是否導致調整動作。
 

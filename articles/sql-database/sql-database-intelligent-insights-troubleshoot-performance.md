@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: b6ec1952d730b6515032572def65806a1ccbc0b2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 386c44cbf7a86e1a1dc92b918d87d0d8c1e60dd2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810358"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744714"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解
 
@@ -188,7 +188,7 @@ SQL Database 上有多種可用的閂鎖。 為了簡單起見，系統會使用
 > 如需 SQL Database 的持續效能最佳化，建議您啟用 [SQL Database 自動調整](sql-database-automatic-tuning.md)。 這個獨特的 SQL Database 內建智慧功能，能夠持續監視您的 SQL 資料庫，並自動為資料庫調整及建立索引。
 >
 
-## <a name="new-query"></a>新查詢
+## <a name="new-query"></a>新增查詢
 
 ### <a name="what-is-happening"></a>發生的情況
 
@@ -274,7 +274,7 @@ SQL 資料庫會判斷出查詢執行成本最低的查詢執行計畫。 隨著
 > 如需 SQL Database 的持續效能最佳化，建議您啟用 [SQL Database 自動調整](sql-database-automatic-tuning.md)。 這個獨特的 SQL Database 內建智慧功能，能夠持續監視您的 SQL 資料庫，並自動為資料庫調整及建立效能最佳的查詢執行計畫。
 >
 
-## <a name="database-scoped-configuration-value-change"></a>資料庫範圍組態值變更
+## <a name="database-scoped-configuration-value-change"></a>資料庫範圍設定值變更
 
 ### <a name="what-is-happening"></a>發生的情況
 
@@ -331,4 +331,4 @@ Intelligent Insights 通常需要一小時的時間來執行效能問題的根�
 - 了解 [Intelligent Insights](sql-database-intelligent-insights.md) 概念。
 - 使用 [Intelligent Insights Azure SQL Database 效能診斷記錄](sql-database-intelligent-insights-use-diagnostics-log.md)。
 - [使用 Azure SQL 分析來監視 Azure SQL Database](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)。
-- 了解如何[收集並取用來自 Azure 資源的記錄資料](../azure-monitor/platform/resource-logs-overview.md)。
+- 了解如何[收集並取用來自 Azure 資源的記錄資料](../azure-monitor/platform/platform-logs-overview.md)。

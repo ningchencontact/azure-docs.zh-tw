@@ -3,12 +3,12 @@ title: 如何使用您的管理群組-Azure 治理
 description: 了解如何檢視、維護、更新及刪除您的管理群組階層。
 ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3b5b67dbf1fad5c74570c4bf70401df1a5ed943f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 59f1b48e0a668d506a87ae1ef14de6df76b26ad7
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436547"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751241"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>利用管理群組來管理您的資源
 
@@ -320,7 +320,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ## <a name="audit-management-groups-using-activity-logs"></a>使用活動記錄稽核管理群組
 
-[Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)中支援管理群組。 您可以查詢與其他 Azure 資源位於相同中央位置的管理群組所發生的所有事件。  例如，您可以看到對特定的管理群組的所有角色指派或原則指派變更。
+[Azure 活動記錄](../../azure-monitor/platform/platform-logs-overview.md)中支援管理群組。 您可以查詢與其他 Azure 資源位於相同中央位置的管理群組所發生的所有事件。  例如，您可以看到對特定的管理群組的所有角色指派或原則指派變更。
 
 ![包含管理群組的活動記錄](media/al-mg.png)
 

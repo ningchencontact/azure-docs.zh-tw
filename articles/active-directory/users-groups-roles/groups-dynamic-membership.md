@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92dbeec706ff8c4f892632243353549295dd26b
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 8f5be34a58d8f0416a31cd575ef0fea614b3d43e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538781"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768704"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中群組的動態成員資格規則
 
@@ -48,9 +48,9 @@ Azure AD 提供規則產生器，更快速地建立及更新您的重要規則�
 > [!NOTE]
 > 「規則產生器」可能無法顯示在文字方塊中所建立的某些規則。 當規則產生器無法顯示規則時，您可能會看到一則訊息。 規則產生器不會以任何方式變更支援的語法、驗證或處理動態群組規則。
 
-如需更多逐步指示，請參閱[更新動態群組](groups-update-rule.md)。
+如需更多逐步指示，請參閱[建立或更新動態群組](groups-create-rule.md)。
 
-![新增動態群組的成員資格規則](./media/groups-update-rule/update-dynamic-group-rule.png)
+![新增動態群組的成員資格規則](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
 ### <a name="rule-syntax-for-a-single-expression"></a>單一運算式的規則語法
 
@@ -70,7 +70,7 @@ user.department -eq "Sales"
 
 - 屬性
 - 運算子
-- Value
+- 值
 
 運算式內的部分順序很重要，可避免發生語法錯誤。
 
@@ -142,9 +142,9 @@ user.department -eq "Sales"
 | Not Starts With |-notStartsWith |
 | 開頭為 |-startsWith |
 | Not Contains |-notContains |
-| Contains |-contains |
+| 包含 |-contains |
 | Not Match |-notMatch |
-| Match |-match |
+| 相符項目 |-match |
 | 在 | -in |
 | 不在 | -notIn |
 

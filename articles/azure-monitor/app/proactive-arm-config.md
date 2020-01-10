@@ -8,12 +8,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: aadf3a18d41d8dfe878439893c9d1ed25172fa2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: bc66a286bee193b377731a549129446bba431cb3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406491"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749035"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Application Insights 智慧偵測規則
 
@@ -133,9 +133,12 @@ ms.locfileid: "75406491"
 
 ```
 
-### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>失敗異常 v2 （非傳統）警示規則
+### <a name="failure-anomalies-alert-rule"></a>失敗異常警示規則
 
-此 Azure Resource Manager 範本示範如何設定嚴重性為2的失敗異常 v2 警示規則。 這個新版本的失敗異常警示規則是新的 Azure 警示平臺的一部分，並取代[傳統警示淘汰](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)程式中淘汰的傳統版本。
+此 Azure Resource Manager 範本示範如何設定嚴重性為2的失敗異常警示規則。 這個新版本的失敗異常警示規則是新的 Azure 警示平臺的一部分，並取代[傳統警示淘汰](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)程式中淘汰的傳統版本。
+
+> [!NOTE]
+> 失敗異常是全域服務，因此規則位置會在全域位置上建立。
 
 ```json
 {
@@ -166,7 +169,7 @@ ms.locfileid: "75406491"
 ```
 
 > [!NOTE]
-> 此 Azure Resource Manager 範本對失敗異常 v2 警示規則而言是唯一的，而且不同于本文中所述的其他傳統智慧偵測規則。   
+> 此 Azure Resource Manager 範本對於失敗異常警示規則而言是唯一的，而且不同于本文中所述的其他傳統智慧偵測規則。
 
 ## <a name="smart-detection-rule-names"></a>智慧偵測規則名稱
 

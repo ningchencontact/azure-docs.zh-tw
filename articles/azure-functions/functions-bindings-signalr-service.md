@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 208b5462efeb579e30550824bd7ba931db1825b2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: cbc45036497547b78514b1d175d67c6ed437ee2d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925629"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769484"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>適用於 Azure Functions 的 SignalR Service 繫結
 
@@ -20,7 +20,7 @@ ms.locfileid: "74925629"
 
 ## <a name="packages---functions-2x-and-higher"></a>封裝-函數2.x 和更新版本
 
-[Microsoft.signalrservice](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) Nuget 套件（版本 1. *）中提供了 SignalR Service 系結。 套件的原始程式碼位於 [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub 存放庫中。
+[Microsoft.signalrservice](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet 套件（版本 1. *）中提供了 SignalR Service 系結。 套件的原始程式碼位於 [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub 存放庫中。
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2-manual-portal.md)]
 
@@ -1009,7 +1009,7 @@ public SignalRGroupAction removeFromGroup(
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `SignalRConnectionInfo` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type**|| 必須設為 `signalRConnectionInfo`。|
 |**direction**|| 必須設為 `in`。|
@@ -1022,7 +1022,7 @@ public SignalRGroupAction removeFromGroup(
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `SignalR` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type**|| 必須設為 `signalR`。|
 |**direction**|| 必須設為 `out`。|

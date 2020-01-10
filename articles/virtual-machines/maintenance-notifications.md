@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: ab8ef516e5434ac5a9cde9324798d8dd1706a04e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: f39e5ee7126fe381ad4ba77ec9a876db5f0a1ef6
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807403"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747258"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>處理預定的維護通知
 
@@ -29,7 +29,7 @@ ms.locfileid: "74807403"
 
 預定進行的維護作業若需要重新開機，會排定在不同波段。 每一波段有不同的範圍 (區域)。
 
-- 波段開始時會傳送通知給客戶。 根據預設，通知會傳送給訂用帳戶擁有者和共同擁有者。 您可以使用[活動記錄警示](../azure-monitor/platform/activity-logs-overview.md)，新增更多收件者和訊息選項，例如電子郵件、SMS 和 webhook。  
+- 波段開始時會傳送通知給客戶。 根據預設，通知會傳送給訂用帳戶擁有者和共同擁有者。 您可以使用[活動記錄警示](../azure-monitor/platform/platform-logs-overview.md)，新增更多收件者和訊息選項，例如電子郵件、SMS 和 webhook。  
 - 一旦通知出現，就會提供*自助服務視窗*。 在此視窗中，您可以查詢哪些虛擬機器受到影響，並根據您自己的排程需求開始維護。 自助服務視窗通常大約是35天。
 - 在自助期間之後，「排定維護期間」隨即開始。 在此期間的某個時間點，Azure 會排定並將必要的維護套用於您的虛擬機器。 
 

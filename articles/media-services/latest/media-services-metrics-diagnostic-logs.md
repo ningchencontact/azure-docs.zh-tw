@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 38fcda40a208da3f3f5aef5b13778ca38092d8f8
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 16897ad095afcacff04d53b0956a972c36a25893
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186108"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750812"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>透過 Azure 監視器監視媒體服務計量和診斷記錄
 
 [Azure 監視器](../../azure-monitor/overview.md)可讓您監視計量和診斷記錄，以協助您瞭解應用程式的執行狀況。 Azure 監視器所收集的所有資料都符合下列兩種基本類型的其中一種：計量和記錄。 您可以監視媒體服務診斷記錄，並為所收集的計量和記錄建立警示和通知。 您可以使用[計量瀏覽器](../../azure-monitor/platform/metrics-getting-started.md)將計量資料視覺化並加以分析。 您可以將記錄傳送至[Azure 儲存體](https://azure.microsoft.com/services/storage/)、將它們串流至[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)、將其匯出至[Log Analytics](https://azure.microsoft.com/services/log-analytics/)，或使用協力廠商服務。
 
-如需詳細的總覽，請參閱[Azure 監視器計量](../../azure-monitor/platform/data-platform.md)和[Azure 監視器診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)。
+如需詳細的總覽，請參閱[Azure 監視器計量](../../azure-monitor/platform/data-platform.md)和[Azure 監視器診斷記錄](../../azure-monitor/platform/platform-logs-overview.md)。
 
 本主題討論支援的[媒體服務計量](#media-services-metrics)和[媒體服務診斷記錄](#media-services-diagnostic-logs)。
 
@@ -42,7 +42,7 @@ ms.locfileid: "74186108"
 
 您可以監視下列帳戶計量。
 
-|度量名稱|顯示名稱|描述|
+|度量名稱|顯示名稱|說明|
 |---|---|---|
 |AssetCount|資產計數|您帳戶中的資產。|
 |AssetQuota|資產配額|帳戶中的資產配額。|
@@ -60,10 +60,10 @@ ms.locfileid: "74186108"
 
 支援下列媒體服務[串流端點](https://docs.microsoft.com/rest/api/media/streamingendpoints)計量：
 
-|度量名稱|顯示名稱|描述|
+|度量名稱|顯示名稱|說明|
 |---|---|---|
 |要求|要求|提供串流端點所服務的 HTTP 要求總數。|
-|Egress|Egress|輸出位元組總數。 例如，串流端點資料流程處理的位元組。|
+|輸出|輸出|輸出位元組總數。 例如，串流端點資料流程處理的位元組。|
 |SuccessE2ELatency|成功的端對端延遲|當送出回應的最後一個位元組時，從串流端點收到要求的持續時間。|
 
 ### <a name="why-would-i-want-to-use-metrics"></a>為什麼要使用計量？
@@ -84,7 +84,7 @@ ms.locfileid: "74186108"
 
 ## <a name="media-services-diagnostic-logs"></a>媒體服務診斷記錄
 
-診斷記錄可提供有關 Azure 資源作業的豐富且經常性資料。 如需詳細資訊，請參閱[如何收集並取用來自 Azure 資源的記錄資料](../../azure-monitor/platform/resource-logs-overview.md)。
+診斷記錄可提供有關 Azure 資源作業的豐富且經常性資料。 如需詳細資訊，請參閱[如何收集並取用來自 Azure 資源的記錄資料](../../azure-monitor/platform/platform-logs-overview.md)。
 
 媒體服務支援下列診斷記錄：
 
@@ -92,7 +92,7 @@ ms.locfileid: "74186108"
 
 ### <a name="key-delivery"></a>金鑰傳遞
 
-|名稱|描述|
+|名稱|說明|
 |---|---|
 |金鑰傳遞服務要求|顯示金鑰傳遞服務要求資訊的記錄檔。 如需詳細資訊，請參閱[架構](media-services-diagnostic-logs-schema.md)。|
 
@@ -111,7 +111,7 @@ ms.locfileid: "74186108"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [如何收集並取用來自 Azure 資源的記錄資料](../../azure-monitor/platform/resource-logs-overview.md)
+* [如何收集並取用來自 Azure 資源的記錄資料](../../azure-monitor/platform/platform-logs-overview.md)
 * [使用 Azure 監視器建立、檢視及管理計量警示](../../azure-monitor/platform/alerts-metric.md)
 * [如何監視媒體服務計量](media-services-metrics-howto.md)
 * [如何監視媒體服務診斷記錄](media-services-diagnostic-logs-howto.md)

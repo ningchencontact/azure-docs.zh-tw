@@ -7,12 +7,12 @@ author: hedidin
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 99141787c5133b578c943f0e11e5ab15171a2e3d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 03ed4731e59280a3879d77ca3fb82f0158313aeb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792985"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771558"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>案例︰適用於邏輯應用程式的例外狀況處理與記錄錯誤
 
@@ -25,7 +25,7 @@ ms.locfileid: "74792985"
 
 以下為適用於此案例的使用案例： 
 
-知名的醫療保健組織找到了我們，他們想要開發 Azure 解決方案，以使用 Microsoft Dynamics CRM Online 建立病患入口網站。 他們需要在 Dynamics CRM Online 病患入口網站和 Salesforce 之間傳送預約記錄。 因此要求我們對所有病患記錄使用 [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) 標準。
+知名的醫療保健組織找到了我們，他們想要開發 Azure 解決方案，以使用 Microsoft Dynamics CRM Online 建立病患入口網站。 他們需要在 Dynamics CRM Online 病患入口網站和 Salesforce 之間傳送預約記錄。 因此要求我們對所有病患記錄使用 [HL7 FHIR](https://www.hl7.org/implement/standards/fhir/) 標準。
 
 此專案有兩大需求︰  
 
@@ -122,7 +122,7 @@ ms.locfileid: "74792985"
 
 下列邏輯應用程式的程式碼範例示範如何處理記錄。
 
-#### <a name="log-entry"></a>記錄檔項目
+#### <a name="log-entry"></a>記錄項目
 
 以下是用來插入記錄項目的邏輯應用程式原始程式碼。
 
@@ -468,7 +468,7 @@ Azure Cosmos DB 中的每個文件都必須具有唯一識別碼。 我們將會
 
 上述程式碼範例的運算式會檢查 Create_NewPatientRecord 狀態是否為 **Failed**。
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 * 您可以在邏輯應用程式中輕鬆地實作記錄和錯誤處理。
 * 您可以使用 Azure Cosmos DB 作為記錄檔和錯誤記錄 (文件) 的存放庫。

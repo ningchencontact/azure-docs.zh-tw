@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 2498711a5b7e5bce29cd0054ba40257f8f996d43
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3778ec2fac13aee29ce361402a535ca70fd56c33
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266818"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750690"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>利用診斷設定啟用記錄
 
@@ -37,7 +37,7 @@ ms.locfileid: "71266818"
 
 6. 選擇您想要監視哪些作業，並啟用這些作業的記錄。 診斷設定可以報告的作業為：
 
-   * 連接
+   * 連線
    * 裝置遙測
    * 雲端到裝置的訊息
    * 裝置身分識別作業
@@ -63,4 +63,4 @@ Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub
 Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-新的設定大約會在 10 分鐘內生效。 之後，記錄就會顯示在 [診斷設定] 刀鋒視窗上已設定的封存目標中。 如需有關設定診斷功能的詳細資訊，請參閱[收集並取用來自 Azure 資源的記錄資料](../articles/azure-monitor/platform/resource-logs-overview.md)。
+新的設定大約會在 10 分鐘內生效。 之後，記錄就會顯示在 [診斷設定] 刀鋒視窗上已設定的封存目標中。 如需有關設定診斷功能的詳細資訊，請參閱[收集並取用來自 Azure 資源的記錄資料](../articles/azure-monitor/platform/platform-logs-overview.md)。

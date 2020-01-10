@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: a6b696e16d2c946572cc213115fb440775fce3fe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 349d7d8206cc4139de020234ee063e85f9a8f9ef
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442967"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768634"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 的 Kubernetes 核心概念
 
@@ -95,24 +95,24 @@ kubectl describe node [NODE_NAME]
 |---|---|---|---|---|---|---|---|
 |Kube-reserved （millicore）|60|100|140|180|260|420|740|
 
-- **記憶體**保留的記憶體包含兩個值的總和
+- **記憶體**-AKS 使用的記憶體包含兩個值的總和。
 
-1. Kubelet daemon 會安裝在所有 Kubernetes 代理程式節點上，以管理容器的建立和終止。 根據預設，在 AKS 上，此 daemon 具有下列收回規則：記憶體。可用 < 750Mi，這表示節點隨時都必須至少有 750 Mi allocatable。  當主機低於可用記憶體的閾值時，kubelet 將會終止其中一個執行中的 pod，以釋放主機電腦上的記憶體並加以保護。
+1. Kubelet daemon 會安裝在所有 Kubernetes 代理程式節點上，以管理容器的建立和終止。 根據預設，在 AKS 上，此 daemon 具有下列收回規則：*記憶體。可用 < 750Mi*，這表示節點隨時都必須至少有 750 Mi allocatable。  當主機低於可用記憶體的閾值時，kubelet 將會終止其中一個執行中的 pod，以釋放主機電腦上的記憶體並加以保護。 當可用記憶體減少超過750Mi 臨界值時，這是一種回應動作。
 
-2. 第二個值是保留給 kubelet daemon 的記憶體漸進速率，可正常運作（kube 保留）。
+2. 第二個值是 kubelet daemon 之記憶體保留的漸進速率，可正常運作（kube 保留）。
     - 前 4 GB 記憶體的25%
     - 接下來 4 GB 記憶體的20% （最多 8 GB）
     - 下一個 8 GB 記憶體的10% （最多 16 GB）
     - 下一個 112 GB 記憶體的6% （最多 128 GB）
     - 128 GB 以上任何記憶體的2%
 
-由於這兩個已定義的規則會導致 Kubernetes 和代理程式節點狀況良好，因此 allocatable 的 CPU 和記憶體數量會比節點本身所能提供的還要少。 無法變更以上所定義的資源保留專案。
+上述的記憶體和 CPU 配置規則是用來讓代理程式節點狀況良好，某些裝載系統 pod 對叢集健康情況很重要。 這些配置規則也會導致節點回報較不 allocatable 的記憶體和 CPU，而不是 Kubernetes 叢集的一部分。 無法變更上述資源保留。
 
-例如，如果節點提供 7 GB，將會報告34% 的記憶體未 allocatable：
+例如，如果節點提供 7 GB，則會回報34% 的記憶體未 allocatable 在750Mi 硬性收回閾值的上方。
 
-`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
 
-除了 Kubernetes 的保留，基礎節點 OS 也會保留大量 CPU 和記憶體資源，以維護 OS 功能。
+除了 Kubernetes 本身的保留，基礎節點 OS 也會保留大量 CPU 和記憶體資源，以維護 OS 功能。
 
 如需相關的最佳作法，請參閱[AKS 中基本排程器功能的最佳做法][operator-best-practices-scheduler]。
 

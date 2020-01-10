@@ -3,7 +3,7 @@ title: 在 Azure 中建立及上傳 SUSE Linux VHD
 description: 了解如何建立及上傳包含 SUSE Linux 作業系統的 Azure 虛擬硬碟 (VHD)。
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -13,21 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: szark
-ms.openlocfilehash: d3241229fcf3ef99f71185c452ae615ec2cfc889
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: mimckitt
+ms.openlocfilehash: 5ff28e25bf3da33fcf85a77f850b3b8f5ac8bb6b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091216"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745823"
 ---
-# <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>準備適用於 Azure 的 SLES 或 openSUSE 虛擬機器
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
+# <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>為 Azure 準備 SLES 或 openSUSE 虛擬機器
 
-## <a name="prerequisites"></a>必要條件
+
 本文假設您已將 SUSE 或 openSUSE Linux 作業系統安裝到虛擬硬碟。 有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。 如需指示，請參閱 [安裝 Hyper-V 角色及設定虛擬機器](https://technet.microsoft.com/library/hh846766.aspx)。
 
-### <a name="sles--opensuse-installation-notes"></a>SLES / openSUSE 安裝注意事項
+## <a name="sles--opensuse-installation-notes"></a>SLES / openSUSE 安裝注意事項
 * 如需有關準備 Azure 之 Linux 的更多秘訣，另請參閱 [一般 Linux 安裝注意事項](create-upload-generic.md#general-linux-installation-notes) 。
 * Azure 不支援 VHDX 格式，只支援 **固定 VHD**。  您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。
 * 安裝 Linux 系統時，建議您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。 這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。 如果願意，您可以在資料磁碟上使用 [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -84,7 +83,10 @@ SUSE 是建置您自己的 VHD 的替代選項，其也可在 [VMDepot](https://
      DHCLIENT_SET_HOSTNAME="no"
 12. 在 "/etc/sudoers" 中，註解化或移除下列程式碼行 (如果存在的話)：
     
-     Defaults targetpw   # ask for the password of the target user i.e. root ALL    ALL=(ALL) ALL   # WARNING! 僅搭配 'Defaults targetpw'! 使用這個項目
+    ```
+     Defaults targetpw   # ask for the password of the target user i.e. root
+     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+     ```
 13. 確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。  這通常是預設值。
 14. 請勿在作業系統磁碟上建立交換空間。
     
@@ -140,8 +142,12 @@ SUSE 是建置您自己的 VHD 的替代選項，其也可在 [VMDepot](https://
    
      DHCLIENT_SET_HOSTNAME="no"
 8. **重要事項：** 在 "/etc/sudoers" 中，註解化或移除下列程式碼行 (如果存在的話)：
-   
-     Defaults targetpw   # ask for the password of the target user i.e. root ALL    ALL=(ALL) ALL   # WARNING! 僅搭配 'Defaults targetpw'! 使用這個項目
+     
+     ```
+     Defaults targetpw   # ask for the password of the target user i.e. root
+     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+     ```
+
 9. 確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。  這通常是預設值。
 10. 請勿在作業系統磁碟上建立交換空間。
     

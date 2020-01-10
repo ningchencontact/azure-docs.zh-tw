@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 35ffc7f3c97ca7ab14f94c3607560ffb6ea0b399
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a896c98040773179f9a0911162bbfdc5689b1a2e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146861"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768549"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>使用內部部署資料閘道連接到內部部署資料來源
 
-內部部署資料閘道在內部部署資料來源和雲端中的 Azure Analysis Services 伺服器之間提供安全的資料傳輸。 除了搭配相同區域中的多部 Azure Analysis Services 伺服器運作，最新版的閘道也可以搭配 Azure Logic Apps、Power BI、Power Apps 和 Microsoft Flow運作。 您可以讓相同訂用帳戶及相同區域中的多個服務與單一閘道建立關聯。 雖然您安裝的閘道在所有這些服務中都相同，但 Azure Analysis Services 和 Logic Apps 有一些額外的步驟。
+內部部署資料閘道在內部部署資料來源和雲端中的 Azure Analysis Services 伺服器之間提供安全的資料傳輸。 除了使用相同區域中的多個 Azure Analysis Services 伺服器，最新的閘道版本也適用于 Azure Logic Apps、Power BI、電源應用程式和電源自動化。 您可以讓相同訂用帳戶及相同區域中的多個服務與單一閘道建立關聯。 雖然您安裝的閘道在所有這些服務中都相同，但 Azure Analysis Services 和 Logic Apps 有一些額外的步驟。
 
 針對 Azure Analysis Services，第一次取得閘道的設定是四個部分的程式：
 
@@ -28,7 +28,7 @@ ms.locfileid: "73146861"
 
 - **將您的伺服器連線到閘道資源** - 您的訂用帳戶中一旦有閘道資源，您就可以開始將您的伺服器連線到它。 您可以連線多部伺服器及其他資源，只要它們都位於相同訂用帳戶和相同區域中即可。
 
-## <a name="how-it-works"> </a>運作方式
+## <a name="how-it-works"></a>運作方式
 您在組織的電腦上安裝的閘道會以 Windows 服務 (**內部部署資料閘道**) 的形式執行。 此本機服務已透過 Azure 服務匯流排向閘道雲端服務註冊。 接著，您會為您的 Azure 訂用帳戶建立內部部署資料閘道資源。 您的 Azure Analysis Services 伺服器接著會連線到您的 Azure 閘道資源。 當您伺服器上的模型需要連線到內部部署資料來源進行查詢或處理時，查詢和資料流程會周遊閘道資源、Azure 服務匯流排、本機內部部署資料閘道服務以及您的資料來源。 
 
 ![運作方式](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
@@ -54,7 +54,7 @@ ms.locfileid: "73146861"
 
 以下是閘道所使用的完整功能變數名稱。
 
-| 網域名稱 | 輸出連接埠 | 描述 |
+| 網域名稱 | 輸出連接埠 | 說明 |
 | --- | --- | --- |
 | *.powerbi.com |80 |用於下載安裝程式的 HTTP。 |
 | *.powerbi.com |443 |HTTPS |

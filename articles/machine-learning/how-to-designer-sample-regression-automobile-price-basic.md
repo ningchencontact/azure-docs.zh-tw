@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 758852c64ae906119ba315787a759eb5d988be6b
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 156b963fc1644d1f863d8ddd1d86c15b311e18a8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659915"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763380"
 ---
 # <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>透過 Azure Machine Learning 設計工具使用回歸來預測汽車價格
 
@@ -88,8 +88,8 @@ ms.locfileid: "75659915"
 探索適用于設計工具的其他範例：
 
 - [範例 2-回歸：比較汽車價格預測的演算法](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [範例 3-使用特徵選取進行分類：收入預測](service/how-to-designer-sample-classification-predict-income.md)
-- [範例 4-分類：預測信用風險（區分成本）](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [範例 5-分類：預測流失](service/how-to-designer-sample-classification-churn.md)
-- [範例 6-分類：預測航班延誤](service/how-to-designer-sample-classification-flight-delay.md)
+- [範例 3-使用特徵選取進行分類：收入預測](how-to-designer-sample-classification-predict-income.md)
+- [範例 4-分類：預測信用風險（區分成本）](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [範例 5-分類：預測流失](how-to-designer-sample-classification-churn.md)
+- [範例 6-分類：預測航班延誤](how-to-designer-sample-classification-flight-delay.md)
 - [範例 7-文字分類：維琪百科 SP 500 資料集](how-to-designer-sample-text-classification.md)

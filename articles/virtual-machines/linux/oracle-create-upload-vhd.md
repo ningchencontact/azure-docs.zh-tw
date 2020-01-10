@@ -3,7 +3,7 @@ title: 建立和上傳 Oracle Linux VHD
 description: 了解如何建立及上傳包含 Oracle Linux 作業系統的 Azure 虛擬硬碟 (VHD)。
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
@@ -12,47 +12,45 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 03/12/2018
-ms.author: szark
-ms.openlocfilehash: 16f3bc9e70f8fac6ab28318e1654742a2c3b76a1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.date: 12/10/2019
+ms.author: mimckitt
+ms.openlocfilehash: e0250737f1f2934548a16ee42e9ff582f2403c48
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035361"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747736"
 ---
-# <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>準備用於 Azure 的 Oracle Linux 虛擬機器
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
+# <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>為 SQL Server 準備 Oracle Linux 虛擬機器
 
-## <a name="prerequisites"></a>先決條件
 本文假設您已將 Oracle Linux 作業系統安裝到虛擬硬碟。 有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。 如需指示，請參閱 [安裝 Hyper-V 角色及設定虛擬機器](https://technet.microsoft.com/library/hh846766.aspx)。
 
-### <a name="oracle-linux-installation-notes"></a>Oracle Linux 安裝注意事項
-* 另請參閱 [一般 Linux 安裝注意事項](create-upload-generic.md#general-linux-installation-notes) ，了解為 Azure 準備 Linux 的更多秘訣。
-* Hyper-V 和 Azure 都支援 Oracle 的 Red Hat 相容核心及其 UEK3 (Unbreakable Enterprise Kernel)。 若要獲得最佳結果，請在準備執行 Oracle Linux VHD 的同時，確實更新到最新核心。
+## <a name="oracle-linux-installation-notes"></a>Oracle Linux 安裝注意事項
+* 如需有關準備 Azure 之 Linux 的更多秘訣，另請參閱 [一般 Linux 安裝注意事項](create-upload-generic.md#general-linux-installation-notes) 。
+* Hyper-v 和 Azure 支援使用 Unbreakable Enterprise Kernel （UEK）或 Red Hat 相容核心來 Oracle Linux。
 * Hyper-V 和 Azure 不支援 Oracle 的 UEK2，因為它不包含必要的驅動程式。
 * Azure 不支援 VHDX 格式，只支援 **固定 VHD**。  您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。
 * 安裝 Linux 系統時，建議您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。 這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。 如果願意，您可以在資料磁碟上使用 [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
-* 由於 2.6.37 以下的 Linux 核心版本有錯誤，因此較大的 VM 不支援 NUMA。 這個問題主要會影響使用上游 Red Hat 2.6.32 kernel 的散發套件。 手動安裝 Azure Linux 代理程式 (waagent) 將會自動停用 Linux Kernel GRUB 組態中的 NUMA。 您可以在以下步驟中找到與此有關的詳細資訊。
+* 早於 2.6.37 的 Linux 核心版本不支援具較大 VM 大小之 Hyper-V 上的 NUMA。 此問題主要會影響使用上游 Red Hat 2.6.32 核心的舊版散發，並已在 Oracle Linux 6.6 和更新版本中修正
 * 請勿在作業系統磁碟上設定交換磁碟分割。 您可以設定 Linux 代理程式在暫存資源磁碟上建立交換檔。  您可以在以下步驟中找到與此有關的詳細資訊。
 * Azure 上的所有 VHD 必須具有與 1 MB 對應的虛擬大小。 從未經處理的磁碟轉換成 VHD 時，您必須確定未經處理的磁碟大小在轉換前是 1 MB 的倍數。 如需詳細資訊，請參閱 [Linux 安裝注意事項](create-upload-generic.md#general-linux-installation-notes)。
 * 確定已啟用 `Addons` 儲存機制。 編輯檔案 `/etc/yum.repos.d/public-yum-ol6.repo`（Oracle Linux 6）或 `/etc/yum.repos.d/public-yum-ol7.repo`（Oracle Linux 7），並將此檔案中 **[`enabled=0`]** 或 **[`enabled=1`]** 底下的 [行 ol6_addons] 變更為 [ol7_addons]。
 
-## <a name="oracle-linux-64"></a>Oracle Linux 6.4+
+## <a name="oracle-linux-64-and-later"></a>Oracle Linux 6.4 和更新版本
 您必須在作業系統中完成特定組態步驟，虛擬機器才能在 Azure 中執行。
 
-1. 在 Hyper-V 管理員的中央窗格中，選取虛擬機器。
+1. 在 Hyper-V 管理員的中間窗格中，選取虛擬機器。
 2. 按一下 **[連接]** ，以開啟虛擬機器的視窗。
 3. 執行下列命令以解除安裝 NetworkManager：
    
         # sudo rpm -e --nodeps NetworkManager
    
     **注意：** 如果尚未安裝封裝，此命令將會失敗，並出現錯誤訊息。 這是預期行為。
-4. 在 **目錄中，建立名為**network`/etc/sysconfig/` 且包含下列文字的檔案：
+4. 在 `/etc/sysconfig/` 目錄中，建立名為 **network** 且包含下列文字的檔案：
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
-5. 在 **目錄中，建立名為**ifcfg-eth0`/etc/sysconfig/network-scripts/` 且包含下列文字的檔案：
+5. 在 `/etc/sysconfig/network-scripts/` 目錄中，建立名為 **ifcfg-eth0** 且包含下列文字的檔案：
    
         DEVICE=eth0
         ONBOOT=yes
@@ -61,7 +59,7 @@ ms.locfileid: "74035361"
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-6. 修改 udev 規則以防止產生乙太網路介面的靜態規則。 在 Microsoft Azure 或 Hyper-V 中複製虛擬機器時，這些規則可能會造成問題：
+6. 修改 udev 角色可防止產生乙太網路介面的靜態規則。 在 Microsoft Azure 或 Hyper-V 中複製虛擬機器時，這些規則可能會造成問題：
    
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
@@ -71,11 +69,11 @@ ms.locfileid: "74035361"
 8. 執行下列命令以安裝 python-pyasn1：
    
         # sudo yum install python-pyasn1
-9. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 作法是，在文字編輯器中開啟 "/boot/grub/menu.lst"，並確定預設核心包含以下參數：
+9. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 若要這麼做，請在文字編輯器中開啟 "/boot/grub/menu.lst"，並確定核心包含下列參數：
    
-        console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
+        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
    
-   這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。 因為 Oracle Red Hat 相容核心的一個錯誤，這將會停用 NUMA。
+   這將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。
    
    除了上述以外，我們還建議您 *移除* 下列參數：
    
@@ -99,7 +97,7 @@ ms.locfileid: "74035361"
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
-13. 執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
+13. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
     
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
@@ -107,12 +105,12 @@ ms.locfileid: "74035361"
 14. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。 您現在可以將 Linux VHD 上傳至 Azure。
 
 ---
-## <a name="oracle-linux-70"></a>Oracle Linux 7.0+
+## <a name="oracle-linux-70-and-later"></a>Oracle Linux 7.0 和更新版本
 **Oracle Linux 7 中的變更**
 
 準備適用於 Azure 的 Oracle Linux 7 虛擬機器會與 Oracle Linux 6 極為類似，不過，其中有幾個重要差異值得注意：
 
-* Azure 支援 Red Hat 相容核心和 Oracle 的 UEK3。  建議使用 UEK3 核心。
+* Azure 支援 Unbreakable Enterprise Kernel （UEK）或 Red Hat 相容核心的 Oracle Linux。 建議使用 UEK 的 Oracle Linux。
 * NetworkManager 封裝不會再與 Azure Linux 代理程式發生衝突。 依預設會安裝此封裝，建議您不要將它移除。
 * GRUB2 現已作為預設的開機載入器使用，因此我們已變更編輯核心參數的程序 (如下所示)。
 * XFS 現為預設的檔案系統。 如有需要，您仍可使用 ext4 檔案系統。
@@ -121,11 +119,11 @@ ms.locfileid: "74035361"
 
 1. 在 Hyper-V 管理員中，選取虛擬機器。
 2. 按一下 [連接] ，以開啟虛擬機器的主控台視窗。
-3. 在 **目錄中，建立名為**network`/etc/sysconfig/` 且包含下列文字的檔案：
+3. 在 `/etc/sysconfig/` 目錄中，建立名為 **network** 且包含下列文字的檔案：
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
-4. 在 **目錄中，建立名為**ifcfg-eth0`/etc/sysconfig/network-scripts/` 且包含下列文字的檔案：
+4. 在 `/etc/sysconfig/network-scripts/` 目錄中，建立名為 **ifcfg-eth0** 且包含下列文字的檔案：
    
         DEVICE=eth0
         ONBOOT=yes
@@ -134,7 +132,7 @@ ms.locfileid: "74035361"
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-5. 修改 udev 規則以防止產生乙太網路介面的靜態規則。 在 Microsoft Azure 或 Hyper-V 中複製虛擬機器時，這些規則可能會造成問題：
+5. 修改 udev 角色可防止產生乙太網路介面的靜態規則。 在 Microsoft Azure 或 Hyper-V 中複製虛擬機器時，這些規則可能會造成問題：
    
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 6. 要確保開機時會啟動網路服務，可執行以下命令：
@@ -151,7 +149,7 @@ ms.locfileid: "74035361"
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
-   這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。 也會關閉新的 OEL 7 對 NIC 的命名慣例。 除了上述以外，我們還建議您 *移除* 下列參數：
+   這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。 它也會關閉 Unbreakable Enterprise 核心 Oracle Linux 7 中 Nic 的命名慣例。 除了上述以外，我們還建議您 *移除* 下列參數：
    
        rhgb quiet crashkernel=auto
    
@@ -175,7 +173,7 @@ ms.locfileid: "74035361"
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
-14. 執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
+14. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
     
         # sudo waagent -force -deprovision
         # export HISTSIZE=0

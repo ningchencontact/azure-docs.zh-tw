@@ -9,12 +9,12 @@ ms.date: 06/27/2017
 ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: b8b3679676cf019a48c55211d81bee0523764db5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 7cb5a335af7093bc217578d57340b03b8b9c08b3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351247"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748339"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>移轉至 Azure 進階儲存體 (非受控磁碟)
 
@@ -64,7 +64,8 @@ Azure VM 大小的規格已列在 [虛擬機器的大小](../../virtual-machines
 根據您的工作負載，決定您的 VM 是否需要額外的資料磁碟。 您可以將數個持續性資料磁碟連接至您的 VM。 如有需要，您可以跨磁碟等量磁碟區以增加磁碟區的容量和效能。 （請參閱[這裡](../../virtual-machines/windows/premium-storage-performance.md#disk-striping)的磁片等量分割）。如果您使用[儲存空間][4]等量分割進階儲存體資料磁片，您應該為每個使用的磁片設定一個資料行。 否則，等量磁碟區的整體效能可能會因為磁碟之間的流量分配不平均而低於預期。 而對於 Linux VM，您可以使用 *mdadm* 公用程式來達到相同的效果。 如需詳細資訊，請參閱文章 [在 Linux 上設定軟體 RAID](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 。
 
 #### <a name="storage-account-scalability-targets"></a>儲存體帳戶延展性目標
-進階儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md)之外，還有以下延展性目標。 如果您的應用程式需求超出單一儲存體帳戶的延展性目標，請建置使用多個儲存體帳戶的應用程式，並將資料分散到那些儲存體帳戶中。
+
+進階儲存體帳戶具有下列擴充性目標。 如果您的應用程式需求超出單一儲存體帳戶的延展性目標，請建置使用多個儲存體帳戶的應用程式，並將資料分散到那些儲存體帳戶中。
 
 | 總帳戶容量 | 本地備援儲存體帳戶總頻寬 |
 |:--- |:--- |
@@ -162,7 +163,8 @@ VM 必須完全關閉，才能以全新狀態移轉。 在移轉完成之前會�
 您必須尋找您的容器路徑和儲存體帳戶金鑰，才能處理這兩個選項之一。 容器路徑和儲存體帳戶金鑰位於 **Azure 入口網站** > **儲存體**。 容器 URL 會類似 "HTTPs：\//myaccount.blob.core.windows.net/mycontainer/"。
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>選項 1︰使用 AzCopy 複製 VHD (非同步複製)
-您可以使用 AzCopy，透過網際網路輕鬆上傳 VHD。 根據 VHD 的大小，這可能需要一些時間。 使用這個選項時，請記得檢查儲存體帳戶輸入/輸出限制。 如需詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md) 。
+
+您可以使用 AzCopy，透過網際網路輕鬆上傳 VHD。 根據 VHD 的大小，這可能需要一些時間。 使用這個選項時，請記得檢查儲存體帳戶輸入/輸出限制。 如需詳細資訊，請參閱[標準儲存體帳戶的擴充性和效能目標](scalability-targets-standard-account.md)。
 
 1. 從這裡下載並安裝 AzCopy： [AzCopy 的最新版本](https://aka.ms/downloadazcopy)
 2. 開啟 Azure PowerShell，並移至安裝 AzCopy 所在的資料夾。
@@ -259,7 +261,8 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 \<Uri > 的範例可能是 **_"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"_** 。 \<FileInfo > 的範例可能是 **_"C:\path\to\upload.vhd"_** 。
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>選項 2︰使用 AzCopy 上傳 .vhd 檔案
-您可以使用 AzCopy，透過網際網路輕鬆上傳 VHD。 根據 VHD 的大小，這可能需要一些時間。 使用這個選項時，請記得檢查儲存體帳戶輸入/輸出限制。 如需詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md) 。
+
+您可以使用 AzCopy，透過網際網路輕鬆上傳 VHD。 根據 VHD 的大小，這可能需要一些時間。 使用這個選項時，請記得檢查儲存體帳戶輸入/輸出限制。 如需詳細資訊，請參閱[標準儲存體帳戶的擴充性和效能目標](scalability-targets-standard-account.md)。
 
 1. 從這裡下載並安裝 AzCopy： [AzCopy 的最新版本](https://aka.ms/downloadazcopy)
 2. 開啟 Azure PowerShell，並移至安裝 AzCopy 所在的資料夾。

@@ -3,12 +3,13 @@ title: Azure Service Fabric Linux 與 Windows 之間的差異
 description: Linux 上的 Azure Service Fabric 與 Windows 上的 Azure Service Fabric 之間的差異。
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: bcb2b4b112cf5247da8ca6a5d735ca247b3c06f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.custom: sfrev
+ms.openlocfilehash: c064291491110b17c172a561afbd1e65d6c08d06
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463019"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748538"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux 與 Windows 上的 Service Fabric 差異
 
@@ -77,9 +78,8 @@ Windows 上支援的一些功能，在 Linux 上尚未提供支援。 最終，�
 * Stop-ServiceFabricRepairTask
 * Update-ServiceFabricRepairTaskHealthPolicy
 
-
-
 ## <a name="next-steps"></a>後續步驟
+
 * [在 Linux 上準備您的開發環境](service-fabric-get-started-linux.md)
 * [在 OSX 上準備您的開發環境](service-fabric-get-started-mac.md)
 * [使用 Yeoman 在 Linux 上建立和部署第一個 Service Fabric Java 應用程式](service-fabric-create-your-first-linux-application-with-java.md)

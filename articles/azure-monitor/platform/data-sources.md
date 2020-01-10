@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: 73aa4a8a5dad0e2839c6a643f2ab58494d55458a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 8f17a3ffbbee2bc702be1c2c690a1d6c85d792cb
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450640"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751050"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure 監視器的監視資料來源
 Azure 監視器是以常見的[監視資料平臺](data-platform.md)為基礎，其中包含[記錄](data-platform-logs.md)和[計量](data-platform-metrics.md)。 將資料收集到這個平臺可讓您使用 Azure 監視器中的一組常用工具來分析多個資源的資料。 監視資料也可能會傳送到其他位置以支援特定案例，某些資源可能會在其他位置寫入至記錄或計量。
@@ -67,7 +67,7 @@ Azure 監視器是以常見的[監視資料平臺](data-platform.md)為基礎，
 ![Azure 訂用帳戶](media/data-sources/azure-subscription.png)
 
 ### <a name="azure-activity-log"></a>Azure 活動記錄 
-[Azure 活動記錄](activity-logs-overview.md)包含服務健康狀態記錄，以及對您的 Azure 訂用帳戶中的資源所做的任何設定變更記錄。 所有 Azure 資源都會有活動記錄，也代表了資源的_外部_檢視。
+[Azure 活動記錄](platform-logs-overview.md)包含服務健康狀態記錄，以及對您的 Azure 訂用帳戶中的資源所做的任何設定變更記錄。 所有 Azure 資源都會有活動記錄，也代表了資源的_外部_檢視。
 
 | 目的地 | 說明 | 參考 |
 |:---|:---|
@@ -100,7 +100,7 @@ Azure 監視器是以常見的[監視資料平臺](data-platform.md)為基礎，
 | 事件中樞 | 使用事件中樞將計量串流至其他位置。 |[將 Azure 監視資料串流至事件中樞以供外部工具取用](stream-monitoring-data-event-hubs.md) |
 
 ### <a name="resource-logs"></a>資源記錄
-[資源記錄](resource-logs-overview.md)可讓您深入瞭解 Azure 資源的_內部_作業。  資源記錄會自動建立，但您必須建立診斷設定，以指定要針對每個資源收集的目的地。
+[資源記錄](platform-logs-overview.md)可讓您深入瞭解 Azure 資源的_內部_作業。  資源記錄會自動建立，但您必須建立診斷設定，以指定要針對每個資源收集的目的地。
 
 資源記錄的設定需求和內容會因資源類型而異，但並非所有服務都已建立。 如需每個服務的詳細資訊和詳細設定程式的連結，請參閱[支援的服務、架構和 Azure 資源記錄的類別](diagnostic-logs-schema.md)。 如果這篇文章中未列出該服務，則該服務目前不會建立資源記錄。
 

@@ -3,12 +3,12 @@ title: 適用於 Azure Functions 的 Python 開發人員參考
 description: 了解如何使用 Python 開發函式
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 55eb1fe53aa4256f1b7eee44547703328816cd32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: adea5603c997380dde6731b53bc99ba7443e310b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409096"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768996"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 開發人員指南
 
@@ -171,7 +171,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-叫用此函式時，HTTP 要求會以 `req` 形式傳遞至函式。 系統會根據路由 URL 中的_識別碼_從 Azure Blob 儲存體中抓取專案，並在函式主體中以 `obj` 的形式提供。  在這裡，指定的儲存體帳戶是在中找到的連接字串，這是函數應用程式所使用的相同儲存體帳戶。
+叫用此函式時，HTTP 要求會以 `req` 形式傳遞至函式。 系統會根據路由 URL 中的_識別碼_從 Azure Blob 儲存體中抓取專案，並在函式主體中以 `obj` 的形式提供。  在這裡，指定的儲存體帳戶是在 AzureWebJobsStorage 應用程式設定中找到的連接字串，這是函數應用程式所使用的相同儲存體帳戶。
 
 
 ## <a name="outputs"></a>輸出
@@ -303,7 +303,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-不含 `async` 關鍵字的函式會在 asyncio 執行緒集區中自動執行：
+沒有 `async` 關鍵字的函式會在 asyncio 執行緒集區中自動執行：
 
 ```python
 # Runs in an asyncio thread-pool
@@ -641,7 +641,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     ...
 ```
 
-Chrome 瀏覽器會使用這個方法來協調允許的原始來源清單。 
+Web 瀏覽器會使用這個 HTTP 方法來協調允許的原始來源清單。 
 
 ## <a name="next-steps"></a>後續步驟
 

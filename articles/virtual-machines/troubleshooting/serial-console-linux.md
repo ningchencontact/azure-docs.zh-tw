@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: abee04afca45a2d6f558858b4490c8be1f37a2f8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1074c4bc561236039e6ee55ef2df4fc8bd8dbbfc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451289"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772511"
 ---
 # <a name="azure-serial-console-for-linux"></a>適用于 Linux 的 Azure 序列主控台
 
@@ -63,6 +63,7 @@ Azure 入口網站中的序列主控台可讓您存取 Linux 虛擬機器（Vm�
 :-----------|:---------------------
 Red Hat Enterprise Linux    | 預設啟用的序列主控台存取。
 CentOS      | 預設啟用的序列主控台存取。
+Debian      | 預設啟用的序列主控台存取。
 Ubuntu      | 預設啟用的序列主控台存取。
 CoreOS      | 預設啟用的序列主控台存取。
 SUSE        | Azure 上提供的較新 SLES 映像已預設啟用序列主控台存取。 如果您使用 Azure 上較舊的 SLES 版本 (10 或更舊)，請依照這篇 [KB 文章](https://www.novell.com/support/kb/doc.php?id=3456486) \(英文\) 來啟用序列主控台。

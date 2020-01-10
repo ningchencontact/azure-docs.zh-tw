@@ -8,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5dd698b28a01ed251492cf34e9da2dda4d0c2580
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 180b7c203755553c343e0f7fc65c93092b330124
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241990"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751320"
 ---
 # <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>在 Azure HDInsight 中設定 Apache Kafka 的安全通訊端層（SSL）加密和驗證
 
 本文說明如何設定 Apache Kafka 用戶端與 Apache Kafka 訊息代理程式之間的 SSL 加密。 它也會說明如何設定用戶端的驗證（有時稱為雙向 SSL）。
 
 > [!Important]
-> 有兩個用戶端可供您用來 Kafka 應用程式： JAVA 用戶端和主控台用戶端。 只有 JAVA 用戶端 `ProducerConsumer.java` 可以將 SSL 用於產生和使用。 主控台產生者用戶端 `console-producer.sh` 無法與 SSL 搭配運作。
+> 有兩個用戶端可供您用來 Kafka 應用程式： JAVA 用戶端和主控台用戶端。 只有 JAVA 用戶端 `ProducerConsumer.java` 可以使用 SSL 來產生和使用。 主控台產生者用戶端 `console-producer.sh` 無法與 SSL 搭配運作。
 
 ## <a name="apache-kafka-broker-setup"></a>Apache Kafka Broker 安裝程式
 
@@ -49,7 +49,7 @@ Broker 安裝程式的摘要如下所示：
 使用下列詳細指示來完成 broker 安裝程式：
 
 > [!Important]
-> 在下列程式碼片段中，wnX 是三個背景工作角色節點其中之一的縮寫，應以 `wn0` 取代，`wn1`，或視需要 `wn2`。 `WorkerNode0_Name` 和 `HeadNode0_Name` 應該使用個別電腦的名稱來取代，例如 `wn0-abcxyz` 或 `hn0-abcxyz`。
+> 在下列程式碼片段中，wnX 是三個背景工作角色節點其中之一的縮寫，應視需要以 `wn0`、`wn1` 或 `wn2` 來取代。 `WorkerNode0_Name` 和 `HeadNode0_Name` 應該以各自電腦的名稱來取代。
 
 1. 在前端節點0上執行初始安裝，HDInsight 將會填入憑證授權單位單位（CA）的角色。
 
@@ -157,10 +157,10 @@ Broker 安裝程式的摘要如下所示：
 
 完成下列步驟以完成用戶端設定：
 
-1. 登入用戶端電腦（hn1）。
+1. 登入用戶端電腦（待命前端節點）。
 1. 建立 java 金鑰儲存區並取得訊息代理程式的已簽署憑證。 然後將憑證複製到執行該 CA 的 VM。
-1. 切換至 CA 電腦（hn0）以簽署用戶端憑證。
-1. 移至用戶端電腦 (hn1) 並瀏覽到 `~/ssl` 資料夾。 將已簽署的憑證複製到用戶端電腦。
+1. 切換至 CA 電腦（作用中前端節點）以簽署用戶端憑證。
+1. 移至用戶端電腦（待命前端節點），然後流覽至 [`~/ssl`] 資料夾。 將已簽署的憑證複製到用戶端電腦。
 
 ```bash
 cd ssl
@@ -174,11 +174,11 @@ keytool -keystore kafka.client.keystore.jks -certreq -file client-cert-sign-requ
 # Copy the cert to the CA
 scp client-cert-sign-request3 sshuser@HeadNode0_Name:~/tmp1/client-cert-sign-request
 
-# Switch to the CA machine (hn0) to sign the client certificate.
+# Switch to the CA machine (active head node) to sign the client certificate.
 cd ssl
 openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:MyServerPassword123
 
-# Return to the client machine (hn1), navigate to ~/ssl folder and copy signed cert from the CA (hn0) to client machine
+# Return to the client machine (standby head node), navigate to ~/ssl folder and copy signed cert from the CA (active head node) to client machine
 scp -i ~/kafka-security.pem sshuser@HeadNode0_Name:/tmp1/client-cert-signed
 
 # Import CA cert to trust store

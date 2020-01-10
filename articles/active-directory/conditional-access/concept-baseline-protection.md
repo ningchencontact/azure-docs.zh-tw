@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a15b55aa3d8cc8f16a35c858d11e3d20c260bff8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 55de5a5c604273225a85e49ca682980f83a951d2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425029"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75767563"
 ---
 # <a name="what-are-baseline-policies"></a>什麼是基準原則？
 
@@ -25,7 +25,7 @@ ms.locfileid: "75425029"
 管理自訂的條件式存取原則需要 Azure AD Premium 授權。
 
 > [!IMPORTANT]
-> 正在淘汰基準原則。 如需詳細資訊，請參閱[Azure Active Directory 的新功能？](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) 。
+> 基準原則即將淘汰。 如需詳細資訊，請參閱[Azure Active Directory 的新功能？](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) 。
 
 ## <a name="baseline-policies"></a>基準原則
 

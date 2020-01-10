@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 2cde70579e61d1911008f7c8126ad7bda132eac1
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 9a6fa62384615f60da88bb41da8ad3538d34e62a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563491"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754105"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Azure 認知搜尋中的知識存放區簡介
 
@@ -30,7 +30,7 @@ ms.locfileid: "75563491"
 
 ## <a name="benefits-of-knowledge-store"></a>知識存放區的優點
 
-知識存放區提供您結構、內容和實際的以往累積所有，從非結構化和半結構化資料檔案（例如 blob、經過分析的影像檔，甚至是結構化資料），再改變為新的表單。 在[逐步](knowledge-store-howto.md)解說中，您可以看到密集 JSON 檔如何分割成子結構、重組為新的結構，並以其他方式提供給下游進程，例如機器學習服務和資料科學工作負載。
+知識存放區提供您結構、內容和實際的以往累積所有，從非結構化和半結構化資料檔案（例如 blob、經過分析的影像檔，甚至是結構化資料），再改變為新的表單。 在[逐步](knowledge-store-create-rest.md)解說中，您可以看到密集 JSON 檔如何分割成子結構、重組為新的結構，並以其他方式提供給下游進程，例如機器學習服務和資料科學工作負載。
 
 雖然查看 AI 擴充管線可以產生的功能很有用，但知識存放區的實際潛能是能夠改變數據的能力。 您可以從基本的技能集開始，然後逐一查看以便逐漸新增結構層級，然後再結合到新的結構中，就可在 Azure 認知搜尋以外的其他應用程式中取用。
 

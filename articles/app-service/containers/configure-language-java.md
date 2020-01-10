@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5ee07e5b0ac9c73a686a0f8c7d489ecc7ee96425
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 9c95772c8f10d7170a06d1d6793545a60fc8dd7c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422201"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750748"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Linux JAVA 應用程式
 
@@ -238,11 +238,9 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 
 ### <a name="using-the-java-key-store"></a>使用 JAVA 金鑰存放區
 
-根據預設，任何[上傳至 App Service Linux](../configure-ssl-certificate.md)的公用或私用憑證，都會在容器啟動時載入至 JAVA 金鑰存放區。 這表示在進行輸出 TLS 連線時，您上傳的憑證將會在線上內容中提供。 上傳您的憑證之後，您必須重新開機您的 App Service，才能將其載入至 JAVA 金鑰存放區。
+根據預設，任何[上傳至 App Service Linux](../configure-ssl-certificate.md)的公用或私用憑證，都會在容器啟動時載入個別的 JAVA 金鑰存放區中。 上傳您的憑證之後，您必須重新開機您的 App Service，才能將其載入至 JAVA 金鑰存放區。 公開憑證會載入 `$JAVA_HOME/jre/lib/security/cacerts`的金鑰存放區，而私用憑證會儲存在 `$JAVA_HOME/lib/security/client.jks`中。
 
-您可以藉由開啟與 App Service 的[SSH](app-service-linux-ssh-support.md)連線，並執行命令 `keytool`，來互動或調試 JAVA 金鑰工具。 如需命令清單，請參閱[重要工具檔](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html)。 憑證會儲存在 JAVA 的預設金鑰存放區檔案位置，`$JAVA_HOME/jre/lib/security/cacerts`。
-
-加密 JDBC 連接可能需要額外的設定。 請參閱您所選擇 JDBC 驅動程式的檔。
+您可能需要額外的設定，才能使用 JAVA 金鑰存放區中的憑證來加密 JDBC 連接。 請參閱您所選擇 JDBC 驅動程式的檔。
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
@@ -250,11 +248,27 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
-#### <a name="manually-initialize-and-load-the-key-store"></a>手動初始化和載入金鑰存放區
+#### <a name="initializing-the-java-key-store"></a>初始化 JAVA 金鑰存放區
 
-您可以初始化金鑰存放區，並手動新增憑證。 建立應用程式設定，`SKIP_JAVA_KEYSTORE_LOAD`，並將值設為 `1`，以停用 App Service 自動將憑證載入金鑰存放區。 透過 Azure 入口網站上傳至 App Service 的所有公用憑證都會儲存在 `/var/ssl/certs/`。 私人憑證會儲存在 `/var/ssl/private/`之下。
+若要初始化 `import java.security.KeyStore` 物件，請以密碼載入金鑰儲存區檔案。 這兩個金鑰存放區的預設密碼為 "changeit"。
 
-如需金鑰儲存區 API 的詳細資訊，請參閱[官方檔](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html)。
+```java
+KeyStore keyStore = KeyStore.getInstance("jks");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/cacets"),
+    "changeit".toCharArray());
+
+KeyStore keyStore = KeyStore.getInstance("pkcs12");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/client.jks"),
+    "changeit".toCharArray());
+```
+
+#### <a name="manually-load-the-key-store"></a>手動載入金鑰存放區
+
+您可以手動將憑證載入金鑰存放區。 建立應用程式設定，`SKIP_JAVA_KEYSTORE_LOAD`，並將值設為 `1`，以停用 App Service 自動將憑證載入金鑰存放區。 透過 Azure 入口網站上傳至 App Service 的所有公用憑證都會儲存在 `/var/ssl/certs/`。 私人憑證會儲存在 `/var/ssl/private/`之下。
+
+您可以藉由開啟與 App Service 的[SSH](app-service-linux-ssh-support.md)連線，並執行命令 `keytool`，來互動或調試 JAVA 金鑰工具。 如需命令清單，請參閱[重要工具檔](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html)。 如需金鑰儲存區 API 的詳細資訊，請參閱[官方檔](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html)。
 
 ## <a name="configure-apm-platforms"></a>設定 APM 平臺
 
@@ -372,7 +386,7 @@ App Service Linux 會將傳入要求路由傳送至埠80，讓您的應用程式
 apk add --update libxslt
 
 # Usage: xsltproc --output output.xml style.xsl input.xml
-xsltproc --output /usr/local/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /home/tomcat/conf/server.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
 以下提供範例 xsl 檔案。 範例 xsl 檔案會將新的連接器節點加入至 Tomcat server .xml。

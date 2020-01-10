@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: e70144bc71c182a6ec1668ee81f458a236289331
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2293618b0685fe71ae553a95797fe8bfe1fe968c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384204"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749945"
 ---
 # <a name="azure-network-security-overview"></a>Azure 網路安全性概觀
 
@@ -383,7 +383,7 @@ Azure 資訊安全中心可協助您預防、偵測和回應威脅，並加強�
 
 * [Azure 資訊安全中心簡介](../../security-center/security-center-intro.md)
 
-### <a name="virtual-network-tap"></a>虛擬網路 TAP
+### <a name="virtual-network-tap"></a>Virtual Network TAP
 
 Azure 虛擬網路 TAP (終端機存取點) 可讓您持續將虛擬機器網路流量串流到網路封包收集器或分析工具。 收集器或分析工具是由網路虛擬設備合作夥伴所提供。 您可以使用相同的虛擬網路 TAP 資源，以從相同或不同訂用帳戶中的多個網路介面彙總流量。
 
@@ -395,7 +395,7 @@ Azure 虛擬網路 TAP (終端機存取點) 可讓您持續將虛擬機器網路
 
 網路層級的記錄是任何網路安全性案例的重要功能。 在 Azure 中，您可以記錄針對 NSG 所取得的資訊，以取得網路層級的記錄資訊。 使用 NSG 記錄，您可以從下列項目取得資訊︰
 
-* [活動記錄](../../azure-monitor/platform/activity-logs-overview.md)。 使用這些記錄來檢視已提交至您 Azure 訂用帳戶的所有作業。 預設會啟用這些記錄，並且可在 Azure 入口網站內使用。 它們以前稱為稽核或作業記錄。
+* [活動記錄](../../azure-monitor/platform/platform-logs-overview.md)。 使用這些記錄來檢視已提交至您 Azure 訂用帳戶的所有作業。 預設會啟用這些記錄，並且可在 Azure 入口網站內使用。 它們以前稱為稽核或作業記錄。
 * 事件記錄。 這些記錄會提供已套用哪些 NSG 規則的相關資訊。
 * 計數器記錄。 這些記錄可讓您知道套用每個 NSG 規則以拒絕或允許流量的次數。
 

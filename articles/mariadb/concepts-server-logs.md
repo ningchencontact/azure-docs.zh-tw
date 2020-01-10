@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 20e521c36db0ab98e4b11d948516ccd04b5f5fdd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 651094f043162cdc5f6d522c90c7567ae94a4274
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432029"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746668"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫中的緩慢查詢記錄
 在適用於 MariaDB 的 Azure 資料庫中，使用者可以使用慢速查詢記錄檔。 不支援存取交易記錄。 慢速查詢記錄檔可以用來找出效能瓶頸，以進行疑難排解。
@@ -46,7 +46,7 @@ ms.locfileid: "75432029"
 如需慢速查詢記錄檔參數的完整描述，請參閱 MariaDB [慢速查詢記錄檔文件](https://mariadb.com/kb/en/library/slow-query-log-overview/)。
 
 ## <a name="diagnostic-logs"></a>診斷記錄
-適用於 MariaDB 的 Azure 資料庫已與 Azure 監視器診斷記錄整合。 在適用于 mariadb 伺服器上啟用慢速查詢記錄檔之後，您可以選擇讓它們發出 Azure 監視器記錄、事件中樞或 Azure 儲存體。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../azure-monitor/platform/resource-logs-overview.md)的操作說明一節。
+適用於 MariaDB 的 Azure 資料庫已與 Azure 監視器診斷記錄整合。 在適用于 mariadb 伺服器上啟用慢速查詢記錄檔之後，您可以選擇讓它們發出 Azure 監視器記錄、事件中樞或 Azure 儲存體。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../azure-monitor/platform/platform-logs-overview.md)的操作說明一節。
 
 > [!IMPORTANT]
 > 此診斷功能適用于伺服器記錄，僅適用于一般用途和記憶體優化[定價層](concepts-pricing-tiers.md)。

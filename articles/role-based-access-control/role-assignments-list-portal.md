@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 01/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c265e03cfea2ebe8bbe55a63ade04bffd06360e0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9582881626f58ebbbae5648fe5d4b46e14fd5850
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462275"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763314"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>使用 Azure RBAC 和 Azure 入口網站列出角色指派
 
@@ -40,6 +40,22 @@ ms.locfileid: "75462275"
     ![使用者的角色指派](./media/role-assignments-list-portal/azure-resources-user.png)    
 
 1. 若要變更訂用帳戶，請按一下 [**訂閱**] 清單。
+
+## <a name="list-owners-of-a-subscription"></a>列出訂用帳戶的擁有者
+
+已獲派訂用帳戶之「[擁有](built-in-roles.md#owner)者」角色的使用者可以管理訂用帳戶中的所有專案。 請遵循下列步驟來列出訂用帳戶的擁有者。
+
+1. 在 Azure 入口網站中，按一下 [所有服務]，然後按一下 [訂用帳戶]。
+
+1. 按一下您要列出其擁有者的訂用帳戶。
+
+1. 按一下 [存取控制 (IAM)]。
+
+1. 按一下 [角色指派] 索引標籤以檢視此訂用帳戶的所有角色指派。
+
+1. 請前往 [**擁有**者] 區段，查看所有已獲指派此訂用帳戶之擁有者角色的使用者。
+
+   ![[訂用帳戶存取控制-角色指派] 索引標籤](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
 
 ## <a name="list-role-assignments-at-a-scope"></a>列出範圍中的角色指派
 

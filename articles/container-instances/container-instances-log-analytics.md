@@ -1,21 +1,21 @@
 ---
-title: 容器群組的資源記錄
+title: 收集 & 分析資源記錄
 description: 瞭解如何從 Azure 容器實例中的容器群組，將資源記錄和事件資料傳送至 Azure 監視器記錄
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 01/08/2020
 ms.author: danlep
-ms.openlocfilehash: 02f950917f43b514f83bd7e10078c79634c6c751
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 304e98fff386911b878877d2f03d489d0eef5dd7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533725"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770538"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>具有 Azure 監視器記錄的容器群組和實例記錄
 
-Log Analytics 工作區提供集中式位置，不僅可讓您從 Azure 資源儲存及查詢記錄資料，對於內部部署資源與其他雲端中的資源，也可執行這些作業。 Azure 容器執行個體包含將記錄和事件資料傳送至 Azure 監視器記錄的內建支援。
+Log Analytics 工作區提供集中的位置，不僅可以儲存和查詢來自 Azure 資源的記錄資料，也會提供內部部署資源和其他雲端中的資源。 Azure 容器執行個體包含將記錄和事件資料傳送至 Azure 監視器記錄的內建支援。
 
-若要將容器群組記錄和事件資料傳送至 Azure 監視器記錄，您必須在建立容器群組時，指定 Log Analytics 工作區識別碼和工作區金鑰。 以下幾節將說明如何建立已啟用記錄的容器群組，以及如何查詢記錄。
+若要將容器群組記錄檔和事件資料傳送至 Azure 監視器記錄，請在建立容器群組時，指定現有的 Log Analytics 工作區識別碼和工作區金鑰。 下列各節說明如何建立已啟用記錄的容器群組，以及如何查詢記錄。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -46,7 +46,7 @@ Azure 容器執行個體必須具備將資料傳送至 Log Analytics 工作區�
 
 現在您已有記錄分析工作區識別碼和主要金鑰，接下來即可建立已啟用記錄的容器群組。
 
-下列範例示範兩種使用單一[fluentd][fluentd]容器建立容器群組的方式： Azure CLI，以及具有 YAML 範本的 Azure CLI。 Fluentd 容器在其預設組態中會產生數行輸出。 此輸出會傳送到您的 Log Analytics 工作區，因此很適合用來示範記錄的檢視和查詢。
+下列範例示範兩種建立容器群組的方式，其中包含單一[fluentd][fluentd]容器： Azure CLI，以及具有 YAML 範本的 Azure CLI。 Fluentd 容器會在其預設設定中產生數行的輸出。 此輸出會傳送到您的 Log Analytics 工作區，因此很適合用來示範記錄的檢視和查詢。
 
 ### <a name="deploy-with-azure-cli"></a>使用 Azure CLI 部署
 
@@ -130,7 +130,7 @@ Azure 監視器記錄包含涵蓋範圍廣大的[查詢語言][query_lang]，可
 
 查詢的基本結構是一個來源資料表 (在本文為 `ContainerInstanceLog_CL` 或 `ContainerEvent_CL`)，後面接著一系列由管道字元 (`|`) 隔開的運算子。 您可以鏈結數個運算子，以找出更精確的結果及執行進階函式。
 
-若要查看範例查詢結果，請將下列查詢貼到查詢文字方塊中，然後選取 [執行] 按鈕以執行查詢。 此查詢會顯示 [訊息] 欄位中包含「警告」一詞的所有記錄項目：
+若要查看範例查詢結果，請將下列查詢貼入 [查詢] 文字方塊中，然後**選取 [執行**] 按鈕以執行查詢。 此查詢會顯示 [訊息] 欄位中包含「警告」一詞的所有記錄項目：
 
 ```query
 ContainerInstanceLog_CL

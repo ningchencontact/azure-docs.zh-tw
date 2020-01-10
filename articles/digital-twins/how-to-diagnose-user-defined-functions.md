@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: d362512ac6d06577a5c46bb0c6dab461f07ae709
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: f963885f60116bf23087fceb6a92d18e71ac7f24
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457029"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745328"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>如何為 Azure Digital Twins 中的使用者定義函式偵錯
 
@@ -35,7 +35,7 @@ Azure Digital Twins 支援強固的記錄、監視與分析功能。 解決方�
 
 * 如需 Azure 數位 Twins 特有的記錄設定，請閱讀[如何設定監視和記錄](./how-to-configure-monitoring.md)。
 * 請參閱[Azure 監視器](../azure-monitor/overview.md)總覽，以瞭解透過 Azure 監視器啟用的強大記錄檔設定。
-* 請參閱[從 azure 資源收集和取用記錄資料](../azure-monitor/platform/resource-logs-overview.md)一文，以透過 Azure 入口網站、Azure CLI 或 PowerShell 設定 Azure 數位 Twins 中的診斷記錄設定。
+* 請參閱[從 azure 資源收集和取用記錄資料](../azure-monitor/platform/platform-logs-overview.md)一文，以透過 Azure 入口網站、Azure CLI 或 PowerShell 設定 Azure 數位 Twins 中的診斷記錄設定。
 
 設定好之後，您將能夠選取所有記錄類別、計量，並使用功能強大的 Azure 監視器 log analytics 工作區來支援您的偵錯工具。
 
@@ -216,4 +216,4 @@ function process(telemetry, executionContext) {
 
 - 了解如何在 Azure Digital Twins 中啟用[監視和記錄](./how-to-configure-monitoring.md)。
 
-- 如需更多 Azure 記錄選項，請參閱[Azure 活動記錄的總覽一](../azure-monitor/platform/activity-logs-overview.md)文。
+- 如需更多 Azure 記錄選項，請參閱[Azure 活動記錄的總覽一](../azure-monitor/platform/platform-logs-overview.md)文。

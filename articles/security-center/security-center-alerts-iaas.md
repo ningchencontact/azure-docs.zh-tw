@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: b101fd30ddbdbf0f8fdf6e02394cb10b9af5f4b0
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: a5ed91cef6e49fcb71c35f2262479be45a018651
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666358"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754300"
 ---
 # <a name="threat-detection-for-vms-and-servers-in-azure-security-center"></a>Azure 資訊安全中心中 Vm 和伺服器的威脅偵測
 
@@ -41,7 +41,7 @@ Azure 資訊安全中心與 Azure 服務整合，以監視及保護您的 Window
 
     不過，藉由使用記憶體分析，您可以偵測到這類攻擊。 藉由分析損毀傾印中的記憶體，資訊安全中心可以偵測到攻擊所使用的技術。 例如，攻擊可能會嘗試入侵軟體中的弱點、存取機密資料，以及暗中保存在遭入侵的電腦中。 資訊安全中心會執行這種操作，對主機的效能影響最小。
 
-    如需損毀傾印分析警示的清單，請參閱[警示的參考資料表](alerts-reference.md#alerts-crashdump)。
+    如需損毀傾印分析警示的詳細資訊，請參閱[警示的參考資料表](alerts-reference.md#alerts-windows)。
 
 * **Fileless 攻擊偵測** <a name="windows-fileless"></a> -以您的端點為目標的 Fileless 攻擊是常見的。 為了避免偵測，fileless 攻擊會將惡意承載插入記憶體中。 攻擊者承載會保存在遭入侵的進程記憶體中，並執行各式各樣的惡意活動。
 
@@ -49,7 +49,7 @@ Azure 資訊安全中心與 Azure 服務整合，以監視及保護您的 Window
 
     它會尋找入侵、程式碼插入和執行惡意承載的證據。 Fileless 攻擊偵測會產生詳細的安全性警示，以加速警示分級、相互關聯和下游回應時間。 這個方法會補充以事件為基礎的 EDR 解決方案，以提供更高的偵測涵蓋範圍。
 
-    如需 fileless 攻擊偵測警示的清單，請參閱[警示的參考資料表](alerts-reference.md#alerts-filelessattackdetect)。
+    如需 fileless 攻擊偵測警示的詳細資訊，請參閱[警示的參考資料表](alerts-reference.md#alerts-windows)。
 
 > [!NOTE]
 > 您可以下載[Azure 資訊安全中心腳本：安全性警示](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)來模擬 Windows 警示。

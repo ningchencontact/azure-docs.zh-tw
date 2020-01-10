@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7c1f3384b88de7b58457251cf72b2815267cb29
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9cde171f1c031b4b02a71fe0dac1a689e3ec0722
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541695"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772579"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps：使用 Azure Machine Learning 進行模型管理、部署和監視
 
@@ -35,9 +35,9 @@ Azure Machine Learning 提供下列 MLOps 功能：
 
 使用 Azure Machine Learning 中的 ML 管線，將您的模型定型程式所涉及的所有步驟結合在一起。
 
-ML 管線可以包含從資料準備到功能解壓縮到超參數微調到模型評估的步驟。 如需詳細資訊，請參閱[ML 管線](service/concept-ml-pipelines.md)。
+ML 管線可以包含從資料準備到功能解壓縮到超參數微調到模型評估的步驟。 如需詳細資訊，請參閱[ML 管線](concept-ml-pipelines.md)。
 
-如果您使用[設計](service/concept-designer.md)工具來建立 ML 管線，您隨時都可以按一下設計工具頁面右上方的 [ **...]** ，然後選取 [**複製**]。 複製管線可讓您反復執行管線設計，而不會遺失舊版本。  
+如果您使用[設計](concept-designer.md)工具來建立 ML 管線，您隨時都可以按一下設計工具頁面右上方的 [ **...]** ，然後選取 [**複製**]。 複製管線可讓您反復執行管線設計，而不會遺失舊版本。  
 
 ## <a name="register-package-and-deploy-models-from-anywhere"></a>從任何地方註冊、封裝和部署模型
 

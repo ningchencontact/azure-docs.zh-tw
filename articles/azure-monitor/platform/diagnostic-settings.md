@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 034ad7a074f60f1e2e9a0e6190f405972250c95d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 22932121b97c1b0fe91c46b5eea0222a022a4e61
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529874"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751077"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>建立診斷設定以收集 Azure 中的平臺記錄和計量
-Azure 中的[平臺記錄](resource-logs-overview.md)，包括 azure 活動記錄和資源記錄，可提供 azure 資源的詳細診斷和審核資訊，以及它們所依賴的 azure 平臺。 本文詳細說明如何建立及設定診斷設定，以將平臺記錄檔傳送至不同的目的地。
+Azure 中的[平臺記錄](platform-logs-overview.md)，包括 azure 活動記錄和資源記錄，可提供 azure 資源的詳細診斷和審核資訊，以及它們所依賴的 azure 平臺。 本文詳細說明如何建立及設定診斷設定，以將平臺記錄檔傳送至不同的目的地。
 
 > [!IMPORTANT]
 > 建立診斷設定以收集活動記錄檔之前，您應該先停用任何舊版設定。 如需詳細資訊，請參閱[使用舊版設定收集 Azure 活動記錄](diagnostic-settings-legacy.md)。
@@ -136,4 +136,4 @@ az monitor diagnostic-settings create  \
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入瞭解 Azure 平臺記錄](resource-logs-overview.md)
+* [深入瞭解 Azure 平臺記錄](platform-logs-overview.md)

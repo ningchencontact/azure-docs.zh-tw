@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9fd4602d661dd4223c8caa2ec02eaf56284735a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 43251783cbcd6501562913b7b9cafb4f9f7cb3f1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114546"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754559"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋的 AI 擴充管線中建立技能集 
 
@@ -27,7 +27,7 @@ AI 擴充會解壓縮和來擴充資料，使其可在 Azure 認知搜尋中進�
 須留意的重點：
 
 + 每個索引子只能有一個技能集。
-+ 技能集至少必須有一個技能。
++ 一個技能集至少必須有一個技能。
 + 您可以建立多個相同類型的技能 (例如，影像分析技能的變體)。
 
 ## <a name="begin-with-the-end-in-mind"></a>開始前請先預想結果
@@ -171,7 +171,7 @@ Content-Type: application/json
 
 * 技能會有一個名為 ```"organizations"``` 的輸出。 只有在處理期間才會有輸出。 若要將此輸出鏈結至下游技能的輸入，請將輸出作為 ```"/document/organizations"``` 來參考。
 
-* 對於特定文件，```"/document/organizations"``` 的值是從文字中擷取的組織陣列。 例如︰
+* 對於特定文件，```"/document/organizations"``` 的值是從文字中擷取的組織陣列。 例如：
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -229,13 +229,13 @@ Content-Type: application/json
 
 此定義是一種[自訂技能](cognitive-search-custom-skill-web-api.md)，會在擴充的過程中呼叫 Web API。 針對實體辨識所識別的每個組織，這項技能會呼叫 Web API 來尋找該組織的描述。 何時應呼叫 Web API 以及如何傳輸接收到的資訊等協調流程，由擴充引擎在內部處理。 不過，呼叫此自訂 API 所需的初始化，必須提供於 JSON 中 (例如 URI、httpHeaders 和預期的輸入)。 如需為擴充管線建立自訂 Web API 的指引，請參閱[如何定義自訂介面](cognitive-search-custom-skill-interface.md)。
 
-請注意，[內容] 欄位設定為附有星號的 ```"/document/organizations/*"```，這表示擴充步驟是對  *下的「每個」* ```"/document/organizations"```組織而呼叫的。 
+請注意，[內容] 欄位設定為附有星號的 ```"/document/organizations/*"```，這表示擴充步驟是對 ```"/document/organizations"``` 下的「每個」組織而呼叫的。 
 
 系統會為所識別的每個組織產生輸出 (在此案例中為公司說明)。 在下游步驟中參照說明時 (例如，在擷取關鍵片語時)，您會使用路徑 ```"/document/organizations/*/description"``` 來執行。 
 
 ## <a name="add-structure"></a>新增結構
 
-技能集會從非結構化資料產生結構化資訊。 請思考下列範例：
+技能集會從非結構化資料產生結構化資訊。 請考慮下列範例：
 
 *「在第四季，Microsoft 從 LinkedIn 的收益中記錄 $1100000000，這是去年購買的社交網路公司。取得可讓 Microsoft 將 LinkedIn 功能與 CRM 和 Office 功能結合在一起。目前為止，股東的進度非常令人興奮。」*
 
@@ -249,7 +249,7 @@ Content-Type: application/json
 
 [知識存放區](knowledge-store-concept-intro.md)是 Azure 認知搜尋中的預覽功能，可用於儲存擴充的檔。 您建立的知識存放區是由 Azure 儲存體帳戶所支援，這是您擴充的資料所在的存放庫。 
 
-知識存放區定義會加入至技能集。 如需整個程式的逐步解說，請參閱[如何開始使用知識存放區](knowledge-store-howto.md)。
+知識存放區定義會加入至技能集。 如需整個程式的逐步解說，請參閱[在 REST 中建立知識存放區](knowledge-store-create-rest.md)。
 
 ```json
 "knowledgeStore": {

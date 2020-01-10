@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: dbd6762906bc189cad74d78dcd8f28b0cfeba183
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c6ccf9dce0fc119bd666871489a42a3ef734f81
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226978"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769195"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>在 .NET Azure Functions 中使用相依性插入
 
@@ -21,7 +21,7 @@ Azure Functions 支援相依性插入（DI）軟體設計模式，這項技術�
 
 - 相依性插入的支援是以 Azure Functions 2.x 開始。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須先安裝下列 NuGet 套件，才可以使用相依性插入：
 
@@ -62,7 +62,7 @@ namespace MyNamespace
 }
 ```
 
-### <a name="caveats"></a>需要注意的事項
+### <a name="caveats"></a>警示
 
 在執行時間處理啟動類別之前和之後執行的一系列註冊步驟。 因此，請記住下列專案：
 
@@ -114,7 +114,7 @@ namespace MyNamespace
 }
 ```
 
-## <a name="service-lifetimes"></a>服務存留期
+## <a name="service-lifetimes"></a>執行個體存留期
 
 Azure Functions 應用程式提供與 ASP.NET 相依性[插入](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes)相同的服務存留期。 針對函式應用程式，不同的服務存留期的行為如下所示：
 
@@ -136,10 +136,10 @@ Azure Functions 應用程式提供與 ASP.NET 相依性[插入](https://docs.mic
 
 函數主機會註冊許多服務。 下列服務可安全地做為應用程式中的相依性：
 
-|服務類型|存留期|描述|
+|服務類型|存留期|說明|
 |--|--|--|
-|`Microsoft.Extensions.Configuration.IConfiguration`|實體|執行時間設定|
-|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|實體|負責提供主控制項實例的識別碼|
+|`Microsoft.Extensions.Configuration.IConfiguration`|單一|執行時間設定|
+|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|單一|負責提供主控制項實例的識別碼|
 
 如果您想要取得相依性的其他服務，請[在 GitHub 上建立問題並加以提議](https://github.com/azure/azure-functions-host)。
 

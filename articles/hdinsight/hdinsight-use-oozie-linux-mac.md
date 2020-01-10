@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 89364a3ee948abbe5d233052878abe92bc7663a7
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: ece6fdb743035069bc6c666d6e90c76860f63e82
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241682"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744903"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在 Linux 型 Azure HDInsight 上搭配 Apache Hadoop 使用 Apache Oozie 來定義並執行工作流程
 
@@ -61,7 +61,7 @@ ms.locfileid: "73241682"
 
 ## <a name="create-the-working-directory"></a>建立工作目錄
 
-Oozie 預計您會將作業所需的所有資源儲存在同一個目錄中。 這個範例會使用 `wasbs:///tutorials/useoozie`。 若要建立此目錄，請完成下列步驟：
+Oozie 預計您會將作業所需的所有資源儲存在同一個目錄中。 此範例會使用 `wasbs:///tutorials/useoozie`。 若要建立此目錄，請完成下列步驟：
 
 1. 編輯下方的程式碼，將 `sshuser` 取代為叢集的 SSH 使用者名稱，並將 `CLUSTERNAME` 取代為叢集的名稱。  然後輸入程式碼，以[使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)連接到 HDInsight 叢集。  
 
@@ -394,10 +394,10 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
 
     ```xml
     <name>oozie.base.url</name>
-    <value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
+    <value>http://ACTIVE-HEADNODE-NAME.UNIQUEID.cx.internal.cloudapp.net:11000/oozie</value>
     ```
 
-    `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` 部分是要搭配 Oozie 命令使用的 URL。
+    `http://ACTIVE-HEADNODE-NAME.UNIQUEID.cx.internal.cloudapp.net:11000/oozie` 部分是要搭配 Oozie 命令使用的 URL。
 
 2. 編輯程式碼，將 URL 取代為您稍早收到的 URL。 若要建立 URL 的環境變數，請使用下列命令，這樣您就不必為每個命令輸入該 URL：
 

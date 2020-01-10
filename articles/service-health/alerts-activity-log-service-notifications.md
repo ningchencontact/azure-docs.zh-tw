@@ -3,19 +3,19 @@ title: 接收 Azure 服務通知的活動記錄警示
 description: 在 Azure 服務發生時透過 SMS、電子郵件或 Webhook 獲得通知。
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: bc8e935b9d44cb5236c7a1ef38da24e12b877e14
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: d318adc76959ac24f4be9946167965a83053f632
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464033"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749314"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>建立服務通知的活動記錄警示
 ## <a name="overview"></a>概觀
 
 本文將說明如何使用 Azure 入口網站為服務健康情況通知設定活動記錄警示。  
 
-服務健康狀態通知會儲存在[Azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)檔中，因為活動記錄中可能有大量的資訊，所以有個別的使用者介面，可讓您更輕鬆地查看及設定服務健康狀態通知的警示。 
+服務健康狀態通知會儲存在[Azure 活動記錄](../azure-monitor/platform/platform-logs-overview.md)檔中，因為活動記錄中可能有大量的資訊，所以有個別的使用者介面，可讓您更輕鬆地查看及設定服務健康狀態通知的警示。 
 
 您可以在 Azure 傳送服務健康狀態通知到您的 Azure 訂用帳戶時接收警示。 您可以針對下列設定警示：
 

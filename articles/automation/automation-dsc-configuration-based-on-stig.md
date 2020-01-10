@@ -1,7 +1,7 @@
 ---
 title: 以 STIG 為基礎的設定，以用於狀態設定-Azure 自動化
 description: 根據 Azure 自動化中的狀態設定，瞭解以 STIG 為基礎的設定。
-keywords: dsc，powershell，設定，安裝程式
+keywords: dsc,powershell,設定,安裝
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 224744bd49add514be165f4955739651fcbf6b61
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6215884a5f11e92d3a6ab61d86c338c30c090ee6
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231666"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769977"
 ---
 # <a name="configuration-based-on-stig"></a>以 STIG 為基礎的設定
 
@@ -39,10 +39,10 @@ PowerSTIG 藉由提供[複合資源](https://github.com/microsoft/powerstig#powe
 一旦產生設定之後，您就可以使用 DSC 設定[腳本](/powershell/scripting/dsc/configurations/configurations)來產生 mof 檔案，並將[mof 檔案上傳到 Azure 自動化](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)。
 然後從[內部部署](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws)或[在 Azure 中](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)註冊您的伺服器，以提取設定。
 
-若要試用 PowerSTIG，請造訪[PowerShell 資源庫](http://www.powershellgallery.com)並下載解決方案，或按一下 [專案網站] 以查看[檔](https://github.com/microsoft/powerstig)。
+若要試用 PowerSTIG，請造訪[PowerShell 資源庫](https://www.powershellgallery.com)並下載解決方案，或按一下 [專案網站] 以查看[檔](https://github.com/microsoft/powerstig)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Windows PowerShell 預期狀態設定概觀](/powershell/scripting/dsc/overview/overview)
+- [Windows PowerShell Desired State Configuration 概觀](/powershell/scripting/dsc/overview/overview)
 - [DSC 資源](/powershell/scripting/dsc/resources/resources)
-- [設定本機 Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- [設定本機設定管理員](/powershell/scripting/dsc/managing-nodes/metaconfig)

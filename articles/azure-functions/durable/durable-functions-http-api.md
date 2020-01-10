@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5cf357f5f0c1d58c390cf48d636aadf059579396
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75410137"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769620"
 ---
 # <a name="http-api-reference"></a>HTTP API 參考
 
@@ -105,7 +105,7 @@ Content-Length: 83
 }
 ```
 
-Http 回應的目的是要與*輪詢取用者模式*相容。 它也包含下列值得注意的回應標頭：
+HTTP 回應的目的是要與*輪詢取用者模式*相容。 它也包含下列值得注意的回應標頭：
 
 * **位置**：狀態端點的 URL。 此 URL 包含與 [`statusQueryGetUri`] 欄位相同的值。
 * **重試**次數：輪詢作業之間等待的秒數。 預設值是 `10`。

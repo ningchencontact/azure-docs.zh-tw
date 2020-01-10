@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 5fede76fbc97b31cbbcdaec1b17f838100d35511
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 76603642b90bd4d3926e10ce1c5a3c38391362cf
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195827"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749769"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>使用 Azure Toolkit for IntelliJ 來在 HDInsight 中透過 VPN 遠端偵錯 Apache Spark 應用程式
 
@@ -27,12 +27,12 @@ ms.locfileid: "74195827"
 1. 在 IntelliJ IDEA 中建立 Scala 應用程式，然後設定它以進行遠端偵錯。
 1. 執行和偵錯應用程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Azure 訂用帳戶**。 如需詳細資訊，請參閱[取得 Azure 的免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-* **HDInsight 中的 Apache Spark 叢集**。 如需指示，請參閱 [在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
-* **Oracle JAVA Development Kit**。 您可以從 [Oracle 網站](https://aka.ms/azure-jdks)下載。
-* **IntelliJ IDEA**。 本文章使用 2017.1 版。 您可以從 [JetBrains 網站](https://www.jetbrains.com/idea/download/)下載。
+* **HDInsight 中的 Apache Spark 叢集**。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
+* **Oracle JAVA Development Kit**。 您可以從 [Oracle 網站](https://aka.ms/azure-jdks) \(英文\) 安裝它。
+* **IntelliJ IDEA**。 本文章使用 2017.1 版。 您可以從 [JetBrains 網站](https://www.jetbrains.com/idea/download/) \(英文\) 安裝它。
 * **適用於 IntelliJ 的 Azure 工具組中的 HDInsight 工具**。 適用於 IntelliJ 的 HDInsight 工具是適用於 IntelliJ 的 Azure 工具組的一部分。 如需有關如何安裝 Azure 工具組的指示，請參閱[安裝適用於 IntelliJ 的 Azure 工具組](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation)。
 * **從 IntelliJ IDEA 登入您的 Azure 訂用帳戶**。 請依照[使用 Azure Toolkit for IntelliJ 為 HDInsight 叢集建立 Apache Spark 應用程式](apache-spark-intellij-tool-plugin.md)中的指示進行。
 * **例外狀況的因應措施**。 在 Windows 電腦上執行 Spark Scala 應用程式以進行遠端偵錯時，可能會發生例外狀況。 這個例外狀況會在 [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) 中說明，並會因 Windows 中的 WinUtils.exe 檔案遺失而發生。 若要解決這個錯誤，您必須[下載可執行檔](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)，並將其放至如 **C:\WinUtils\bin** 的位置。 新增環境變數 **HADOOP_HOME**，然後將變數的值設為 **C\WinUtils**。
@@ -71,16 +71,16 @@ ms.locfileid: "74195827"
 
    a. 以提高的權限開啟 [記事本] 檔案。 從 [檔案] 功能表中，選取 [開啟]，然後尋找主機檔案的位置。 在 Windows 電腦上的位置是 **C:\Windows\System32\Drivers\etc\hosts**。
 
-   b.這是另一個 C# 主控台應用程式。 將下列資訊新增至**主機**檔案：
+   b. 將下列資訊新增至**主機**檔案：
 
     ```
     # For headnode0
-    192.xxx.xx.xx hn0-nitinp
-    192.xxx.xx.xx hn0-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
+    192.xxx.xx.xx nitinp
+    192.xxx.xx.xx nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
     
     # For headnode1
-    192.xxx.xx.xx hn1-nitinp
-    192.xxx.xx.xx hn1-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
+    192.xxx.xx.xx nitinp
+    192.xxx.xx.xx nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
     ```
 
 1. 從您連線到 HDInsight 叢集所使用之 Azure 虛擬網路的電腦，確認您可以使用 IP 位址和主機名稱來偵測兩個前端節點。
@@ -100,22 +100,22 @@ ms.locfileid: "74195827"
 
     a. 選取 [HDInsight] > [HDInsight 上的 Spark (Scala)]。
 
-    b.這是另一個 C# 主控台應用程式。 選取 [下一步]。
+    b. 選取 [下一步]。
 1. 在下一個 [新增專案] 對話方塊中，執行下列操作，然後選取 [完成]：
 
     - 輸入專案名稱和位置。
 
-    - 在 [專案 SDK] 下拉式清單中，選取 [Java 1.8] (適用於 Spark 2.x 叢集)，或選取 [Java 1.7] (適用於 Spark 1.x 叢集)。
+    - 在 [Project SDK] \(專案 SDK\) 下拉式清單中，針對 Spark 2.x 叢集，請選取 [Java 1.8]，針對 Spark 1.x 叢集，則選取 [Java 1.7]。
 
-    - 在 [Spark 版本] 下拉式清單中，Scala 專案建立精靈會為 Spark SDK 和 Scala SDK 整合正確的版本。 如果 Spark 叢集是 2.0 以前的版本，請選取 [Spark 1.x]。 否則，請選取 [Spark2.x]。 此範例使用 **Spark 2.0.2 (Scala 2.11.8)** 。
+    - 在 [Spark 版本] 下拉式清單中，Scala 專案建立精靈會為 Spark SDK 和 Scala SDK 整合正確的版本。 如果 Spark 叢集版本早於 2.0，請選取 [Spark 1.x]。 否則，請選取 [Spark 2.x]。 此範例使用 [Spark 2.0.2 (Scala 2.11.8)]。
   
    ![選取專案 SDK 和 Spark 版本](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
   
-1. Spark 專案會自動為您建立構件。 若要檢視構件，請執行下列動作：
+1. Spark 專案會自動為您建立成品。 若要檢視構件，請執行下列動作：
 
     a. 從 [檔案] 功能表，選取 [專案結構]。
 
-    b.這是另一個 C# 主控台應用程式。 在 [專案結構] 對話方塊中，選取 [構件]，以檢視建立的預設構件。 您也可以建立自己的構件，方法是選取加號 ( **+** )。
+    b. 在 [Project Structure] \(專案結構\) 對話方塊中，選取 [Artifacts] \(成品\) 以檢視所建立的預設成品。 您也可以選取加號 ( **+** ) 來建立自己的成品。
 
    ![IntelliJ 概念構件建立 jar](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-default-artifact.png)
 
@@ -123,7 +123,7 @@ ms.locfileid: "74195827"
 
     a. 以滑鼠右鍵按一下專案樹狀結構中的專案名稱，然後選取 [開啟模組設定]。
 
-    b.這是另一個 C# 主控台應用程式。 在 [專案結構] 對話方塊中，依序選取 [文件庫] **、** ([ **]+** ) 符號，然後選取 [從 Maven]。
+    b. 在 [專案結構] 對話方塊中，依序選取 [文件庫] **、** ([+]) 符號，然後選取 [從 Maven]。
 
     ![IntelliJ 構想下載程式庫](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-add-library.png)
 
@@ -141,15 +141,15 @@ ms.locfileid: "74195827"
     因為我們已新增桌上型電腦之主機檔案的叢集前端節點 IP 位址及主機名稱，因此可以下列方式使用 `scp` 命令：
 
     ```bash
-    scp sshuser@hn0-nitinp:/etc/hadoop/conf/core-site.xml .
-    scp sshuser@hn0-nitinp:/etc/hadoop/conf/yarn-site.xml .
+    scp sshuser@nitinp:/etc/hadoop/conf/core-site.xml .
+    scp sshuser@nitinp:/etc/hadoop/conf/yarn-site.xml .
     ```
 
     若要將這些檔案新增至專案，請在您專案樹狀結構的 **/src** 資料夾下複製這些檔案，例如 `<your project directory>\src`。
 
 1. 更新 `core-site.xml` 檔案以進行下列變更：
 
-   a. 取代加密的金鑰。 `core-site.xml` 檔案包含與叢集相關聯之儲存體帳戶的加密金鑰。 在您新增至專案的 `core-site.xml` 檔案中，以與預設儲存體帳戶相關聯的實際儲存體金鑰取代加密金鑰。 如需詳細資訊，請參閱[管理儲存體存取金鑰](../../storage/common/storage-account-manage.md#access-keys)。
+   a. 取代加密的金鑰。 `core-site.xml` 檔案包含與叢集相關聯之儲存體帳戶的加密金鑰。 在您新增至專案的 `core-site.xml` 檔案中，以與預設儲存體帳戶相關聯的實際儲存體金鑰取代加密金鑰。 如需詳細資訊，請參閱[管理儲存體帳戶存取金鑰](../../storage/common/storage-account-keys-manage.md)。
 
     ```xml
     <property>
@@ -158,7 +158,7 @@ ms.locfileid: "74195827"
     </property>
     ```
 
-   b.這是另一個 C# 主控台應用程式。 從 `core-site.xml` 移除下列項目：
+   b. 從 `core-site.xml` 移除下列項目：
 
     ```xml
     <property>
@@ -187,7 +187,7 @@ ms.locfileid: "74195827"
 
     ![IntelliJ 構思建立新的 Scala 類別](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
 
-1. 在 `MyClusterAppMain.scala` 檔案中，貼上下列程式碼。 此程式碼會建立 Spark 內容，並且從 `executeJob` 物件開啟 `SparkSample` 方法。
+1. 在 `MyClusterAppMain.scala` 檔案中，貼上下列程式碼。 此程式碼會建立 Spark 內容，並且從 `SparkSample` 物件開啟 `executeJob` 方法。
 
     ```scala
     import org.apache.spark.{SparkConf, SparkContext}
@@ -281,7 +281,7 @@ ms.locfileid: "74195827"
 
     ![IntelliJ 概念觀看偵錯工具索引標籤](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-debugger-tab.png)
 
-1. 若要新增監看式，請選取 ([ **]+** ) 圖示。
+1. 若要新增監看式，請選取 ([+]) 圖示。
 
     ![IntelliJ debug-新增-監看式-變數](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
 
@@ -299,7 +299,7 @@ ms.locfileid: "74195827"
 
     ![IntelliJ 構思偵錯工具主控台輸出](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete-window.png)
 
-## <a name="seealso"></a>接續步驟
+## <a name="seealso"></a>後續步驟
 
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
@@ -317,7 +317,7 @@ ms.locfileid: "74195827"
 
 ### <a name="create-and-run-applications"></a>建立及執行應用程式
 
-* [使用 Scala 來建立獨立的應用程式](../hdinsight-apache-spark-create-standalone-application.md)
+* [使用 Scala 建立獨立應用程式](../hdinsight-apache-spark-create-standalone-application.md)
 * [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和擴充功能

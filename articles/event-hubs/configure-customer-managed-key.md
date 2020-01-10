@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 3af951d120282767bd71bc569d8c0bfe39dafffe
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a5aa6a2e2578a995e4ef00489557fc02623e2d6a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705455"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744817"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal-preview"></a>使用 Azure 入口網站（預覽），設定客戶管理的金鑰來加密待用 Azure 事件中樞資料
 Azure 事件中樞使用 Azure 儲存體服務加密（Azure SSE）提供待用資料的加密。 事件中樞依賴 Azure 儲存體來儲存資料，而且根據預設，與 Azure 儲存體一起儲存的所有資料都會使用 Microsoft 管理的金鑰進行加密。 
@@ -87,7 +87,7 @@ Azure 事件中樞現在支援使用 Microsoft 管理的金鑰或客戶管理的
 > 如果您從金鑰保存庫中刪除現有的加密金鑰，並將它取代為事件中樞命名空間上的新金鑰，由於刪除金鑰仍然有效（快取）長達一小時，因此仍然可以存取舊資料（以舊金鑰加密） 使用新的資料，現在只能使用新的金鑰來存取。 此行為是在功能的預覽版本中設計的。 
 
 ## <a name="set-up-diagnostic-logs"></a>設定診斷記錄 
-設定已啟用 BYOK 之命名空間的診斷記錄，可在使用客戶管理的金鑰加密命名空間時，提供有關作業的必要資訊。 這些記錄可以啟用並于稍後串流至事件中樞，或透過 log analytics 分析，或串流至儲存體來執行自訂分析。 若要深入瞭解診斷記錄，請參閱[Azure 診斷記錄的總覽](../azure-monitor/platform/resource-logs-overview.md)。
+設定已啟用 BYOK 之命名空間的診斷記錄，可在使用客戶管理的金鑰加密命名空間時，提供有關作業的必要資訊。 這些記錄可以啟用並于稍後串流至事件中樞，或透過 log analytics 分析，或串流至儲存體來執行自訂分析。 若要深入瞭解診斷記錄，請參閱[Azure 診斷記錄的總覽](../azure-monitor/platform/platform-logs-overview.md)。
 
 ## <a name="enable-user-logs"></a>啟用使用者記錄
 請遵循下列步驟來啟用客戶管理金鑰的記錄。
@@ -107,17 +107,17 @@ Azure 事件中樞現在支援使用 Microsoft 管理的金鑰或客戶管理的
 ## <a name="log-schema"></a>記錄檔結構描述 
 所有記錄都會以「JavaScript 物件標記法」(JSON) 格式儲存。 每個專案都有使用下表所述格式的字串欄位。 
 
-| Name | 描述 |
+| 名稱 | 說明 |
 | ---- | ----------- | 
 | TaskName | 失敗工作的描述。 |
 | ActivityId | 用於追蹤的內部識別碼。 |
 | category | 定義工作的分類。 例如，如果您的金鑰保存庫中的金鑰已停用，則它會是資訊類別目錄，或者，如果無法解除包裝金鑰，可能會發生錯誤。 |
-| ResourceId | Azure Resource Manager 資源識別碼 |
+| resourceId | Azure Resource Manager 資源識別碼 |
 | keyVault | 金鑰保存庫的完整名稱。 |
-| key | 用來加密事件中樞命名空間的索引鍵名稱。 |
+| 索引鍵 | 用來加密事件中樞命名空間的索引鍵名稱。 |
 | version | 所使用的金鑰版本。 |
-| operation | 金鑰保存庫中金鑰上執行的作業。 例如，停用/啟用金鑰、換行或解除包裝 |
-| code | 與作業相關聯的程式碼。 範例：錯誤碼404表示找不到索引鍵。 |
+| operation (作業) | 金鑰保存庫中金鑰上執行的作業。 例如，停用/啟用金鑰、換行或解除包裝 |
+| 代碼 | 與作業相關聯的程式碼。 範例：錯誤碼404表示找不到索引鍵。 |
 | message | 與作業相關聯的任何錯誤訊息 |
 
 以下是客戶管理的金鑰的記錄範例：
@@ -177,7 +177,7 @@ Azure 事件中樞現在支援使用 Microsoft 管理的金鑰或客戶管理的
 
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列文章：
+查看下列文章：
 - [事件中心概觀](event-hubs-about.md)
 - [Key Vault 總覽](../key-vault/key-vault-overview.md)
 

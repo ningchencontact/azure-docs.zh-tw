@@ -7,28 +7,28 @@ ms.topic: reference
 ms.date: 10/22/2019
 author: rboucher
 ms.author: robb
-ms.openlocfilehash: af47195a336739d604f0eb40ce6c5c54e15547cb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e744cdde298054de3631adb96b56bbc808f36a38
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894074"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750948"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>適用于 Azure 資源記錄的支援服務、架構和類別
 
 > [!NOTE]
 > 資源記錄先前稱為診斷記錄。
 
-[Azure 監視器資源記錄](../../azure-monitor/platform/resource-logs-overview.md)是由 Azure 服務發出的記錄，可描述這些服務或資源的操作。 透過 Azure 監視器所提供的所有資源記錄都會共用通用的最上層架構，而且每個服務都可以彈性地為自己的事件發出唯一的屬性。
+[Azure 監視器資源記錄](../../azure-monitor/platform/platform-logs-overview.md)是由 Azure 服務發出的記錄，可描述這些服務或資源的操作。 透過 Azure 監視器所提供的所有資源記錄都會共用通用的最上層架構，而且每個服務都可以彈性地為自己的事件發出唯一的屬性。
 
 資源類型 (適用於 `resourceId` 屬性) 與 `category` 的組合可唯一識別結構描述。 本文說明資源記錄的最上層架構，以及每個服務的架構連結。
 
 ## <a name="top-level-resource-logs-schema"></a>最上層資源記錄架構
 
-| Name | 必要/選用 | 描述 |
+| 名稱 | 必要/選用 | 說明 |
 |---|---|---|
 | time | 必要項 | 事件的時間戳記 (UTC)。 |
-| ResourceId | 必要項 | 發出事件之資源的資源識別碼。 對於租用戶服務，這是 /tenants/tenant-id/providers/provider-name 的格式。 |
+| resourceId | 必要項 | 發出事件之資源的資源識別碼。 對於租用戶服務，這是 /tenants/tenant-id/providers/provider-name 的格式。 |
 | tenantId | 租用戶記錄所需的 | 此事件所繫結 Active Directory 租用戶的租用戶識別碼。 這個屬性只能用於租用戶層級記錄，並不會出現在資源層級記錄中。 |
 | operationName | 必要項 | 此事件所代表的作業名稱。 如果事件代表 RBAC 作業，則這是 RBAC 作業名稱 (例如 Microsoft.Storage/storageAccounts/BlobServices/Blobs/Read)。 通常以 Resource Manager 作業形式建模，即使它們不是實際記載的 Resource Manager 作業也是一樣 (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | 選用 | 與作業建立關聯的 api-version，如果使用 API 執行 operationName (例如 `http://myservice.windowsazure.net/object?api-version=2016-06-01`)。 如果沒有對應至此作業的 API，則版本代表該作業的版本，以防與作業建立關聯的屬性在未來變更。 |
@@ -71,13 +71,13 @@ ms.locfileid: "74894074"
 | IoT Hub | [IoT 中樞作業](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure 金鑰保存庫記錄](../../key-vault/key-vault-logging.md) |
 | Kubernetes 服務 |[Azure Kubernetes 記錄](../../aks/view-master-logs.md#log-event-schema) |
-| 負載平衡器 |[Azure 負載平衡器的 Log Analytics](../../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Azure 負載平衡器的 Log Analytics](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B 自訂追蹤結構描述](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 網路安全性群組 |[網路安全性群組 (NSG) 的記錄檔分析](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS 保護 | [管理 Azure DDoS Protection Standard](../../virtual-network/manage-ddos-protection.md) |
 | Power BI 專用 | [Azure 中的 Power BI Embedded 記錄](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | 復原服務 | [Azure 備份的資料模型](../../backup/backup-azure-reports-data-model.md)|
-| Search |[啟用和使用搜尋流量分析](../../search/search-traffic-analytics.md) |
+| 搜尋 |[啟用和使用搜尋流量分析](../../search/search-traffic-analytics.md) |
 | 服務匯流排 |[Azure 服務匯流排記錄](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database 記錄](../../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[作業記錄](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
@@ -137,9 +137,9 @@ ms.locfileid: "74894074"
 |Microsoft.DataFactory/factories|PipelineRuns|管線執行記錄|
 |Microsoft.DataFactory/factories|TriggerRuns|觸發程序執行記錄|
 |Microsoft.DataLakeAnalytics/accounts|稽核|稽核記錄|
-|Microsoft.DataLakeAnalytics/accounts|Requests|要求記錄|
+|Microsoft.DataLakeAnalytics/accounts|要求|要求記錄|
 |Microsoft.DataLakeStore/accounts|稽核|稽核記錄|
-|Microsoft.DataLakeStore/accounts|Requests|要求記錄|
+|Microsoft.DataLakeStore/accounts|要求|要求記錄|
 |DataShare/accounts|共用|共用|
 |DataShare/accounts|ShareSubscriptions|共用訂閱|
 |DataShare/accounts|SentShareSnapshots|已傳送共用快照集|
@@ -152,16 +152,16 @@ ms.locfileid: "74894074"
 |DBforPostgreSQL/serversv2|PostgreSQLLogs|PostgreSQL 伺服器記錄|
 |DBforPostgreSQL/serversv2|QueryStoreRuntimeStatistics|于 postgresql 查詢存放區執行時間統計資料|
 |DBforPostgreSQL/serversv2|QueryStoreWaitStatistics|于 postgresql 查詢存放區等候統計資料|
-|DesktopVirtualization/工作區|檢查點|檢查點|
-|DesktopVirtualization/工作區|Error|Error|
-|DesktopVirtualization/工作區|管理性|管理性|
+|DesktopVirtualization/工作區|Checkpoint|Checkpoint|
+|DesktopVirtualization/工作區|錯誤|錯誤|
+|DesktopVirtualization/工作區|管理|管理|
 |DesktopVirtualization/工作區|摘要|摘要|
-|DesktopVirtualization/applicationGroups|檢查點|檢查點|
-|DesktopVirtualization/applicationGroups|Error|Error|
-|DesktopVirtualization/applicationGroups|管理性|管理性|
-|DesktopVirtualization/hostPools|檢查點|檢查點|
-|DesktopVirtualization/hostPools|Error|Error|
-|DesktopVirtualization/hostPools|管理性|管理性|
+|DesktopVirtualization/applicationGroups|Checkpoint|Checkpoint|
+|DesktopVirtualization/applicationGroups|錯誤|錯誤|
+|DesktopVirtualization/applicationGroups|管理|管理|
+|DesktopVirtualization/hostPools|Checkpoint|Checkpoint|
+|DesktopVirtualization/hostPools|錯誤|錯誤|
+|DesktopVirtualization/hostPools|管理|管理|
 |DesktopVirtualization/hostPools|連線|連線|
 |DesktopVirtualization/hostPools|HostRegistration|HostRegistration|
 |Microsoft.Devices/IotHubs|連線|連線|
@@ -187,7 +187,7 @@ ms.locfileid: "74894074"
 |Microsoft.DocumentDB/databaseAccounts|ControlPlaneRequests|ControlPlaneRequests|
 |EnterpriseKnowledgeGraph/服務|AuditEvent|AuditEvent 記錄檔|
 |EnterpriseKnowledgeGraph/服務|DataIssue|DataIssue 記錄檔|
-|EnterpriseKnowledgeGraph/服務|Requests|設定記錄檔|
+|EnterpriseKnowledgeGraph/服務|要求|設定記錄檔|
 |Microsoft.EventHub/namespaces|ArchiveLogs|封存記錄|
 |Microsoft.EventHub/namespaces|OperationalLogs|作業記錄|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|自動調整規模記錄|
@@ -268,7 +268,7 @@ ms.locfileid: "74894074"
 |Microsoft.Sql/servers/databases|Errors|Errors|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|資料庫等候統計資料|
 |Microsoft.Sql/servers/databases|逾時|逾時|
-|Microsoft.Sql/servers/databases|Blocks|Blocks|
+|Microsoft.Sql/servers/databases|區塊|區塊|
 |Microsoft.Sql/servers/databases|死結|死結|
 |Microsoft.Sql/servers/databases|稽核|稽核記錄|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL 安全性稽核事件|
@@ -313,7 +313,7 @@ ms.locfileid: "74894074"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入瞭解資源記錄](../../azure-monitor/platform/resource-logs-overview.md)
+* [深入瞭解資源記錄](../../azure-monitor/platform/platform-logs-overview.md)
 * [將資源資源記錄串流至**事件中樞**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 * [使用 Azure 監視器 REST API 變更資源記錄診斷設定](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [使用 Log Analytics 分析來自 Azure 儲存體的記錄](../../azure-monitor/platform/collect-azure-metrics-logs.md)

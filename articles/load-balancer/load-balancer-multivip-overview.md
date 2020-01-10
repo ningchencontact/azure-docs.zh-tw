@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f6943a95cd327785d4907bb675958be99b902764
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
-ms.translationtype: HT
+ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644931"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771252"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer 的多個前端
 
@@ -98,8 +98,28 @@ Azure Load Balancer 提供在多個前端重複使用前端連接埠的彈性，
 * 前端 1︰客體 OS 內的回送介面 (此 OS 已設定了前端 1 的 IP 位址)
 * 前端 2︰客體 OS 內的回送介面 (此 OS 已設定了前端 2 的 IP 位址)
 
+針對後端集區中的每個 VM，在 Windows 命令提示字元中執行下列命令。
+
+若要取得您的 VM 上所擁有的介面名稱清單，請輸入下列命令：
+
+    netsh interface show interface 
+
+針對 [VM NIC （Azure 受控）]，輸入下列命令：
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+   （將介面名稱取代為此介面的名稱）
+
+針對您新增的每個回送介面，重複下列命令：
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+   （將介面名稱取代為此回送介面的名稱）
+     
+    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+   （將介面名稱取代為此回送介面的名稱）
+
 > [!IMPORTANT]
 > 回送介面的設定是在客體 OS 內進行。 這項設定不是由 Azure 執行或管理。 沒有此設定，規則將無法運作。 健康狀態探查定義使用 VM 的 DIP，而不是代表 DSR 前端的回送介面。 因此，您的服務必須提供 DIP 連接埠的探查回應，以反映代表 DSR 前端之回送介面上所提供服務的狀態。
+
 
 讓我們假設前一個案例的相同前端組態︰
 

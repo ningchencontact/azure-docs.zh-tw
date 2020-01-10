@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5697989696d0d375e52baeb9f7332e7013d16bf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957304"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768838"
 ---
 # <a name="manage-your-azure-maps-account"></a>管理 Azure 地圖服務帳戶
 
 您可以透過 Azure 入口網站管理 Azure 地圖服務帳戶。 在取得帳戶後，您即可在網站或行動裝置應用程式中實作 API。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="create-a-new-account"></a>建立新帳戶
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 選取 Azure 入口網站中左上角的 [建立資源]  。
+2. 選取 Azure 入口網站中左上角的 [建立資源]。
 
-3. 搜尋並選取 [地圖服務]  。 然後選取 [建立]  。
+3. 搜尋並選取 [地圖服務]。 然後選取 [建立]。
 
 4. 輸入新帳戶的資訊。
 
@@ -35,7 +35,7 @@ ms.locfileid: "65957304"
 
 ## <a name="delete-an-account"></a>刪除帳戶
 
-您可以從 Azure 入口網站刪除帳戶。 瀏覽至帳戶概觀頁面，然後選取 [刪除]  。
+您可以從 Azure 入口網站刪除帳戶。 瀏覽至帳戶概觀頁面，然後選取 [刪除]。
 
 ![在入口網站中刪除您的帳戶](./media/how-to-manage-account-keys/account-delete-portal.png)
 
@@ -43,7 +43,7 @@ ms.locfileid: "65957304"
 
 ## <a name="next-steps"></a>後續步驟
 
-安裝程式使用 Azure 地圖服務進行驗證：
+使用 Azure 地圖服務設定驗證，並瞭解如何取得 Azure 地圖服務的訂用帳戶金鑰：
 > [!div class="nextstepaction"]
 > [管理驗證](how-to-manage-authentication.md)
 

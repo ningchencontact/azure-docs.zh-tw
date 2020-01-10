@@ -4,12 +4,12 @@ description: 了解在 Azure 中開發函式所需的 Azure Functions 概念與�
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 3ccfc28dc332d2ff90ec09256a43a9143e37c03b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7dd7ef3c4833fb9ffa3781f06faba4f40cd40cfb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974218"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768991"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 開發人員指南
 在 Azure Functions 中，不論您使用何種語言或繫結，特定函式都會共用一些核心技術概念和元件。 閱讀指定語言或繫結特有的詳細資料之前，請務必詳閱這份適用於所有語言或繫結的概觀。
@@ -100,6 +100,6 @@ Azure Functions 的程式碼是開放原始碼，儲存於 GitHub 儲存機制�
 
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 * [撰寫 Azure Functions 並在本機進行測試](./functions-develop-local.md)
-* [Azure Functions 的最佳做法](functions-best-practices.md)
+* [Azure Functions 的最佳作法](functions-best-practices.md)
 * [Azure Functions C# 開發人員參考](functions-dotnet-class-library.md)
-* [Azure Functions NodeJS 開發人員參考](functions-reference-node.md)
+* [Azure Functions node.js 開發人員參考](functions-reference-node.md)

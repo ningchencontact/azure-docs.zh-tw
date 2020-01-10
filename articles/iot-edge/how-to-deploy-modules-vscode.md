@@ -4,23 +4,23 @@ description: 搭配 Azure IoT Tools 使用 Visual Studio Code，將 IoT Edge 模
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/09/2019
+ms.date: 01/8/2019
 ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d1c5897240f627d52af056767943b59d85dd2d0c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: d8c90c2a13d111d01a1e7a1bd9b63da180621ded
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434279"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772086"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>從 Visual Studio Code 部署 Azure IoT Edge 模組
 
 只要您使用商務邏輯建立 IoT Edge 模組，便需要將這些模組部署到裝置以在邊緣操作。 如果您有多個模組共同運作以收集及處理資料，您可以一次部署所有模組，並宣告這些模組的路由規則。
 
-本文說明如何建立 JSON 部署資訊清單，然後使用該檔案將部署發送到 IoT Edge 裝置。 如需根據裝置共用標籤，建立目標為多個裝置的部署資訊，請參閱[大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md) (英文)
+本文說明如何建立 JSON 部署資訊清單，然後使用該檔案將部署發送到 IoT Edge 裝置。 如需有關根據其共用標記來建立以多個裝置為目標的部署的詳細資訊，請參閱[使用 Visual Studio Code 大規模部署 IoT Edge 模組](how-to-deploy-monitor-vscode.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -87,7 +87,7 @@ ms.locfileid: "75434279"
          "properties.desired": {
            "schemaVersion": "1.0",
            "routes": {
-               "route": "FROM /* INTO $upstream"
+               "route": "FROM /messages/* INTO $upstream"
            },
            "storeAndForwardConfiguration": {
              "timeToLiveSecs": 7200
@@ -107,11 +107,11 @@ ms.locfileid: "75434279"
 
 1. 在 Visual Studio Code 中，開啟 [總管] 檢視。
 
-1. 在總管底部，展開 [Azure IoT 中樞裝置] 區段。
+1. 在 [Explorer] 底部，展開 [ **Azure IoT 中樞**] 區段。
 
-   ![展開 [Azure IoT 中樞裝置] 區段](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![展開 Azure IoT 中樞區段](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
-1. 按一下 [Azure IoT 中樞裝置] 區段標題中的 **...** 。 若未看到省略符號，請將滑鼠暫留在標題上方。
+1. 按一下 [ **Azure IoT 中樞**] 區段標頭中的 [ **...** ]。 若未看到省略符號，請將滑鼠暫留在標題上方。
 
 1. 選擇 [選取 IoT 中樞]。
 
@@ -125,7 +125,7 @@ ms.locfileid: "75434279"
 
 您可以透過套用您運用模組資訊設定的部署資訊清單，將模組部署到裝置上。
 
-1. 在 Visual Studio Code 總管檢視中，展開 [Azure IoT 中樞裝置] 區段。
+1. 在 [Visual Studio Code explorer] 視圖中，展開 [ **Azure IoT 中樞**] 區段，然後展開 [**裝置**] 節點。
 
 1. 以滑鼠右鍵按一下您想要利用部署資訊清單設定的 IoT Edge 裝置。
 
@@ -142,7 +142,7 @@ ms.locfileid: "75434279"
 
 ## <a name="view-modules-on-your-device"></a>在裝置上檢視模組
 
-您將模組部署到您的裝置後，就可以在 [Azure IoT 中樞裝置] 區段中檢視所有項目。 選取您的 IoT Edge 裝置旁的箭號可展開。 這會顯示所有目前正在執行的模組。
+將模組部署至裝置之後，您就可以在 [ **Azure IoT 中樞**] 區段中加以查看。 選取您的 IoT Edge 裝置旁的箭號可展開。 這會顯示所有目前正在執行的模組。
 
 如果您最近有在裝置上部署新模組，請將滑鼠暫留在 [Azure IoT 中樞裝置] 區段標題上方，然後選取重新整理圖示以更新檢視。
 
@@ -150,4 +150,4 @@ ms.locfileid: "75434279"
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何[大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md) (英文)
+瞭解如何[使用 Visual Studio Code 大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md)

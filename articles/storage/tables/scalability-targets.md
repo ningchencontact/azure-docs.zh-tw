@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 2e5b8647bb65659b97dc8afe78bddfa45ea8c019
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 484596b4eb4908ca84d018267d605acc41a8ccea
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477131"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749486"
 ---
 # <a name="scalability-and-performance-targets-for-table-storage"></a>資料表儲存體的擴充性和效能目標
 
@@ -29,3 +29,4 @@ ms.locfileid: "75477131"
 - [資料表儲存體的效能和擴充性檢查清單](storage-performance-checklist.md)
 - [標準儲存體帳戶的擴充性目標](../common/scalability-targets-standard-account.md)
 - [Azure 儲存體資源提供者的擴充性目標](../common/scalability-targets-resource-provider.md)
+- [Azure 訂用帳戶的限制和配額](../../azure-resource-manager/management/azure-subscription-service-limits.md)

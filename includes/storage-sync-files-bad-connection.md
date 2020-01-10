@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 07cae1cee9810646de5bf9610a29991376736373
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b2ff542d2782293e89b66e5d25cb67a9bcde6da8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391582"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772951"
 ---
 無法從伺服器存取 Azure 檔案同步服務時，可能會發生此錯誤。 您可以透過下列步驟，對此錯誤進行疑難排解：
 
@@ -31,5 +31,6 @@ ms.locfileid: "72391582"
     Import-Module "$agentPath\StorageSync.Management.ServerCmdlets.dll"
     Get-StorageSyncProxyConfiguration
     ```
-    
-4. 如需針對網路連線進行疑難排解的其他協助，請連絡網路系統管理員。
+4. 使用 StorageSyncNetworkConnectivity Cmdlet 來檢查與服務端點的網路連線能力。 若要深入瞭解，請參閱[測試服務端點的網路連線能力](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints)。    
+
+5. 如需針對網路連線進行疑難排解的其他協助，請連絡網路系統管理員。

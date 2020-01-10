@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7dfa3df078ffe8aac3e63f14624a65a47b11a56a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 9b106ea43e6a11d616ed2212636975bbbbf65631
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353595"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75751649"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>在我的點對站台組態中可以有多少個 VPN 用戶端端點？
 
@@ -35,12 +35,6 @@ ms.locfileid: "75353595"
 * iOS
 
 [!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
-
-### <a name="what-should-i-do-if-i-am-getting-a-certificate-mismatch-when-connecting"></a>如果我在連線時收到憑證不符的情況，該怎麼辦？
-
-手動建立設定檔時，取消核取 [透過**驗證憑證來驗證服務器的身分識別]** 或**新增伺服器 FQDN 和憑證**。 若要這麼做，您可以從命令提示字元執行**rasphone** ，然後從下拉式清單中選取設定檔。
-
-![點對站](./media/vpn-gateway-faq-p2s-all-include/servercert.png "伺服器憑證")
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>是否可以使用點對站台功能周遊 Proxy 和防火牆？
 

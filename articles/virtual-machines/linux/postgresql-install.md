@@ -14,19 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: f6d521c7003583228990c80a90c1454821f584d3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bbfad994de663881e3aa03292fc0d0611a0d0933
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035274"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747792"
 ---
-# <a name="install-and-configure-postgresql-on-azure"></a>安裝和設定 Azure 上的 PostgreSQL
+# <a name="install-and-configure-postgresql-on-azure"></a>在 Azure 上安裝及設定 PostgreSQL
 PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它包含企業用功能，例如完整的 ACID 的相容性、可靠的交易式程序，以及多版本的並行控制。 它也支援標準，例如 ANSI SQL 和 SQL/MED (包括 Oracle、MySQL、MongoDB 和許多其他項目的外部資料包裝函式)。 其高度可擴充性支援超過 12 種程序性語言、GIN 和 GiST 索引、空間資料支援和多個類似 NoSQL 的功能，適用於 JSON 或以索引鍵-值為基礎的應用程式。
 
 在本文中，您將學習如何在執行 Linux 的 Azure 虛擬機器上安裝和設定 PostgreSQL。
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="install-postgresql"></a>安裝 PostgreSQL
 > [!NOTE]
@@ -64,7 +63,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. 如果您想要建置所有可以建置的項目 (包括文件 (HTML 和 man 頁面) 和其他模組 (contrib))，請改為執行下列命令：
+5. 如果您想要建立可建立的所有專案，包括檔（HTML 和 man 頁面）和其他模組（`contrib`），請改為執行下列命令：
    
         # gmake install-world
    
@@ -130,7 +129,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 ## <a name="set-up-postgresql"></a>設定 PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
 
-執行以下命令：
+執行下列命令：
 
     # cd /root/postgresql-9.3.5/contrib/start-scripts
 

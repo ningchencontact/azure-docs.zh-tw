@@ -1,6 +1,6 @@
 ---
-title: 瞭解 Azure 中的 Windows 混合式 Runbook 背景工作角色健全狀況更新管理
-description: 瞭解如何在支援更新管理的 Windows 上，針對混合式 Runbook 背景工作角色的問題進行疑難排解。
+title: 診斷 Windows 混合式 Runbook 背景工作-Azure 更新管理
+description: 瞭解如何針對支援更新管理的 Windows 上的 Azure 自動化混合式 Runbook 背景工作角色進行疑難排解及解決問題。
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 284376759e9e2da1f42bd04eea6e564c9690d4a9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bfc2c4a660afa4341a676fc79ab447c8cb86d5e1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850120"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769807"
 ---
-# <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>瞭解更新管理中的 Windows 混合式 Runbook 背景工作角色健全狀況
+# <a name="understand-and-resolve-windows-hybrid-runbook-worker-health-in-update-management"></a>瞭解和解決更新管理中的 Windows 混合式 Runbook 背景工作角色健全狀況
 
 您的機器在 [更新管理] 中未顯示為 [就緒] 的原因有很多。 在更新管理中，您可以檢查混合式 Runbook 背景工作角色代理程式的健康情況，以判斷根本問題。 本文討論如何在[離線案例](#troubleshoot-offline)中，從 Azure 入口網站和非 azure 機器執行 Azure 機器的疑難排解員。
 

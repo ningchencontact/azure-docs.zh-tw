@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 72c44f47060a745c5a5266a0ca7173276eb5cb66
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 14fe8780bb7919d942da186698275d5199f4586e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658299"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770079"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>關於應用程式閘道的常見問題
 
@@ -122,7 +122,7 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 是，應用程式閘道 v2 SKU 支援自動調整規模。 如需詳細資訊，請參閱自動調整[和區域-多餘的應用程式閘道](application-gateway-autoscaling-zone-redundant.md)。
 
-### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>手動相應增加或相應減少會造成停機時間嗎？
+### <a name="does-manual-or-automatic-scale-up-or-scale-down-cause-downtime"></a>手動或自動相應增加或相應減少會造成停機時間嗎？
 
 不會。 執行個體已分散於升級網域和容錯網域。
 

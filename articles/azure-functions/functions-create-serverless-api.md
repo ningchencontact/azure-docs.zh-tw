@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 8bb30da9be5a025f87e5c6d17e0233d0793f3acb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 61b930eec1385b8c4054f9c202547a82e61e55e7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230687"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769263"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>在 Azure Functions 中自訂 HTTP 端點
 
-在本文中，您將瞭解 Azure Functions 如何讓您建立可高度擴充的 Api。 Azure Functions 隨附一組內建的 HTTP 觸發程序和繫結，可讓您以各種語言輕鬆撰寫端點，包括 Node.JS、C# 等。 在本文中，您將自訂 HTTP 觸發程式來處理 API 設計中的特定動作。 您也會準備整合 API 與 Azure Functions Proxy，並設定模擬 API，以擴充您的 API。 這一切都在 Functions 無伺服器計算環境之上完成，因此，您不必擔心調整資源 - 只需要專注於您的 API 邏輯。
+在本文中，您將瞭解 Azure Functions 如何讓您建立可高度擴充的 Api。 Azure Functions 隨附內建 HTTP 觸發程式和系結的集合，可讓您輕鬆地以各種不同的語言（包括 node.js、 C#等等）撰寫端點。 在本文中，您將自訂 HTTP 觸發程式來處理 API 設計中的特定動作。 您也會準備整合 API 與 Azure Functions Proxy，並設定模擬 API，以擴充您的 API。 這一切都在 Functions 無伺服器計算環境之上完成，因此，您不必擔心調整資源 - 只需要專注於您的 API 邏輯。
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -37,7 +37,7 @@ ms.locfileid: "74230687"
 
 1. 使用表格中指定的 HTTP 觸發程序設定。
 
-    | 欄位 | 範例值 | 描述 |
+    | 欄位 | 範例值 | 說明 |
     |---|---|---|
     | 允許的 HTTP 方法 | 選取的方法 | 決定哪些 HTTP 方法可用來叫用此函式 |
     | 選取的 HTTP 方法 | GET | 只允許使用選取的 HTTP 方法來叫用此函式 |
@@ -97,7 +97,7 @@ Proxy 可以指向任何 HTTP 資源，例如︰
     ![建立 Proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. 使用表格中指定的 Proxy 設定。 
 
-    | 欄位 | 範例值 | 描述 |
+    | 欄位 | 範例值 | 說明 |
     |---|---|---|
     | 名稱 | HelloProxy | 僅用於管理的易記名稱 |
     | 路由範本 | /api/remotehello | 決定使用什麼路由來叫用此 Proxy |

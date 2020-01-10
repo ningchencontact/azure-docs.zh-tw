@@ -9,21 +9,21 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: d5662fa3cae8ba0cec0fd76965597ccac7c83889
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 8a85dd3d3d80a8c3988c7653eb74f403fdc54cd4
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639471"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772494"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地儲存 Web 應用程式的祕密應用程式設定
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 本文說明如何安全地儲存 Azure 應用程式的秘密應用程式組態設定。
 
-過去，所有 Web 應用程式組態設定都會儲存在組態檔中，例如 Web.config。此做法會導致將祕密設定 (例如雲端認證) 簽入至公用原始檔控制系統 (例如 GitHub)。 同時，也可能會因為變更原始程式碼和重新設定開發設定所需的額外負荷，而難以遵循安全性最佳作法。
+傳統上，所有的 web 應用程式設定都是儲存在 Web.config 之類的設定檔中。這種作法會導致將密碼設定（例如雲端認證）簽入到公用原始檔控制系統（例如 GitHub）。 同時，也可能會因為變更原始程式碼和重新設定開發設定所需的額外負荷，而難以遵循安全性最佳作法。
 
-為了確保開發程式安全, 會建立工具和架構程式庫, 以最少或完全不變更原始程式碼的方式, 安全地儲存應用程式秘密設定。
+為了確保開發程式安全，會建立工具和架構程式庫，以最少或完全不變更原始程式碼的方式，安全地儲存應用程式秘密設定。
 
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET 和 .NET Core 應用程式
 
@@ -42,6 +42,7 @@ ms.locfileid: "69639471"
     ![建立 Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
 2. 為您和您的小組成員授與金鑰保存庫的存取權。 如果您的小組成員眾多，您可以建立 [Azure Active Directory 群組](../active-directory/active-directory-groups-create-azure-portal.md)，然後新增該安全性群組對金鑰保存庫的存取權。 在 [秘密權限] 下拉式清單中，核取 [秘密管理作業] 下的 [取得] 和 [清單]。
+如果您已經建立 web 應用程式，請將 web 應用程式存取權授與 Key Vault，讓它可以存取金鑰保存庫，而不需要在應用程式設定或檔案中儲存秘密設定。 依其名稱搜尋您的 web 應用程式，並以您授與使用者存取權的相同方式來加入它。
 
     ![新增金鑰保存庫存取原則](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
@@ -49,35 +50,39 @@ ms.locfileid: "69639471"
 
     ![新增金鑰保存庫密碼](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
-    > [!NOTE] 
-    > 在 Visual Studio 2017 V 15.6 版之前, 我們建議您安裝適用于 Visual Studio 的 Azure 服務驗證延伸模組。 但它現在已被取代, 因為功能已在 Visual Studio 內整合。 因此, 如果您使用舊版的 visual Studio 2017, 建議您至少更新為 VS 2017 15.6 或更新版本, 讓您能夠以原生方式使用這項功能, 並從使用 Visual Studio 登入身分識別本身存取金鑰保存庫。
+    > [!NOTE]
+    > 在 Visual Studio 2017 V 15.6 版之前，我們建議您安裝適用于 Visual Studio 的 Azure 服務驗證延伸模組。 但它現在已被取代，因為功能已在 Visual Studio 內整合。 因此，如果您使用舊版的 visual Studio 2017，建議您至少更新為 VS 2017 15.6 或更新版本，讓您能夠以原生方式使用這項功能，並從使用 Visual Studio 登入身分識別本身存取金鑰保存庫。
     >
- 
+
 4. 將下列 NuGet 封裝新增至您的專案：
 
     ```
+    Microsoft.Azure.KeyVault
     Microsoft.Azure.Services.AppAuthentication
+    Microsoft.Extensions.Configuration.AzureKeyVault
     ```
 5. 將下列程式碼新增至 Program.cs 檔案：
 
     ```csharp
-    public static IWebHost BuildWebHost(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((ctx, builder) =>
-            {
-                var keyVaultEndpoint = GetKeyVaultEndpoint();
-                if (!string.IsNullOrEmpty(keyVaultEndpoint))
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+             Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((ctx, builder) =>
                 {
-                    var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                    var keyVaultClient = new KeyVaultClient(
-                        new KeyVaultClient.AuthenticationCallback(
-                            azureServiceTokenProvider.KeyVaultTokenCallback));
-                            builder.AddAzureKeyVault(
-                            keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
-                        }
-                    })
-                    .UseStartup<Startup>()
-                    .Build();
+                    var keyVaultEndpoint = GetKeyVaultEndpoint();
+                    if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                    {
+                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                        var keyVaultClient = new KeyVaultClient(
+                            new KeyVaultClient.AuthenticationCallback(
+                                azureServiceTokenProvider.KeyVaultTokenCallback));
+                        builder.AddAzureKeyVault(
+                        keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                    }
+                })
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
@@ -145,7 +150,7 @@ ms.locfileid: "69639471"
    Microsoft.Configuration.ConfigurationBuilders.UserSecrets
    ```
 
-2. 在 Web.config 中定義金鑰保存庫組態產生器。請將以下區段放在 *appSettings* 區段前面。 如果您的金鑰保存庫是公用 Azure，請將 *vaultName* 取代為金鑰保存庫名稱；如果您使用 Sovereign 雲端，則取代為 URI。
+2. 在 web.config 中定義 Key Vault 的 configuration builder。將此區段放在*appSettings*區段前面。 如果您的金鑰保存庫是公用 Azure，請將 *vaultName* 取代為金鑰保存庫名稱；如果您使用 Sovereign 雲端，則取代為 URI。
 
     ```xml
     <configSections>

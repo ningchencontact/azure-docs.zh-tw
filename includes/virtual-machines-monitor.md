@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 09/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 93a2554b5d3cc24e1b5fc1e3d0f18ed1bfe0579c
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: fbc6889507e58c4721597a1108337fcb1f8756a2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71692025"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751645"
 ---
 隨著裝載于 Azure 中的 Vm 大幅成長，請務必找出影響應用程式和支援的基礎結構服務的效能和健康情況問題。 根據預設，基本監視會根據計量類型 [CPU 使用量]、[磁片使用量]、[記憶體使用率] 和主機程式管理器所收集的網路流量，以提供 Azure。 您可以使用[擴充](../articles/virtual-machines/windows/extensions-features.md)功能來收集其他計量和記錄檔資料，以在您的 vm 上設定來自客體作業系統的診斷。
 
@@ -41,22 +41,22 @@ ms.locfileid: "71692025"
 
 ## <a name="azure-resource-health"></a>Azure 資源健康狀態
 
-[Azure 資源健康情況](../articles/service-health/resource-health-overview.md)可協助您進行診斷，並在 Azure 問題影響您的資源時取得支援。 它會通知您資源的目前及過去的健康狀態，並協助您解決問題。 資源健康狀態會在您需要解決 Azure 服務問題時提供技術支援。
+[Azure 資源健康情況](../articles/service-health/resource-health-overview.md)可協助您進行診斷，並在 Azure 問題影響您的資源時取得支援。 它會通知您資源的目前和過去健康狀態，並協助您減少問題。 資源健康狀態可在您需要協助以解決 Azure 服務問題時提供技術支援。
 
 ## <a name="azure-activity-log"></a>Azure 活動記錄檔
 
-[Azure 活動記錄](../articles/azure-monitor/platform/activity-logs-overview.md)是訂用帳戶記錄，可讓您深入探索 Azure 中發生的訂用帳戶層級事件。 此記錄包含的資料範圍，從 Azure Resource Manager 作業資料到「服務健康情況」事件的更新。 您可以在 Azure 入口網站中按一下活動記錄，以檢視 VM 的記錄。
+[Azure 活動記錄](../articles/azure-monitor/platform/platform-logs-overview.md)是訂用帳戶記錄，可讓您深入探索 Azure 中發生的訂用帳戶層級事件。 此記錄包含的資料範圍，從 Azure Resource Manager 作業資料到「服務健康情況」事件的更新。 您可以在 Azure 入口網站中按一下活動記錄，以檢視 VM 的記錄。
 
 您可以利用活動記錄進行的事項包括：
 
-- [根據活動記錄事件建立警示](../articles/azure-monitor/platform/activity-logs-overview.md)。
+- [根據活動記錄事件建立警示](../articles/azure-monitor/platform/platform-logs-overview.md)。
 - 將[它串流至事件中樞](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md)，以供協力廠商服務或自訂分析解決方案（例如 Power BI）進行內嵌。
 - 使用[Power BI 內容套件](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)，在 Power BI 中分析它。
 - [將活動記錄儲存到儲存體帳戶](../articles/azure-monitor/platform/archive-activity-log.md)，以供封存或手動檢查。 您可以使用記錄設定檔來指定保留時間 (以天為單位)。
 
 您也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/)、[Azure CLI](https://docs.microsoft.com/cli/azure/monitor) 或[監視器 REST API](https://docs.microsoft.com/rest/api/monitor/)，存取活動記錄資料。
 
-[Azure 資源記錄](../articles/azure-monitor/platform/resource-logs-overview.md)是您的 VM 所發出的記錄，可提供有關其作業的豐富、經常性資料。 資源記錄與活動記錄的差異，在於提供在 VM 內執行之作業的深入解析。
+[Azure 資源記錄](../articles/azure-monitor/platform/platform-logs-overview.md)是您的 VM 所發出的記錄，可提供有關其作業的豐富、經常性資料。 資源記錄與活動記錄的差異，在於提供在 VM 內執行之作業的深入解析。
 
 您可以利用診斷記錄進行的事項包括：
 
@@ -66,7 +66,7 @@ ms.locfileid: "71692025"
 
 ## <a name="advanced-monitoring"></a>進階監視
 
-如需 Azure VM 和虛擬機器擴展集所支援的應用程式或服務的可見度，請識別在 VM 中執行之虛擬作業系統或工作負載的問題，以瞭解其是否會影響應用程式的可用性或效能，或是應用程式發生問題時，請同時啟用[適用於 VM 的 Azure 監視器](../articles/azure-monitor/insights/vminsights-overview.md)和[Application Insights](../articles/azure-monitor/app/app-insights-overview.md)。
+如需 Azure VM 和虛擬機器擴展集所支援的應用程式或服務的可見度，請識別 VM 中執行的虛擬作業系統或工作負載問題，以瞭解其是否會影響應用程式的可用性或效能，或是應用程式的問題，同時啟用[適用於 VM 的 Azure 監視器](../articles/azure-monitor/insights/vminsights-overview.md)和[Application Insights](../articles/azure-monitor/app/app-insights-overview.md)。
 
 適用於 VM 的 Azure 監視器藉由分析 Windows 和 Linux Vm 的效能和健康情況，以大規模監視您的 Azure 虛擬機器（VM），包括其他資源和外部進程的不同進程和相互關聯的相依性會探索. 其中包含數個趨勢效能圖表，可協助調查問題及評估 Vm 的容量。 相依性對應會顯示監視和未受監控的電腦、進程與這些電腦之間的失敗和作用中網路連線，並顯示具有標準網路連線計量的趨勢圖表。 與 Application Insights 結合，您可以監視應用程式並捕捉遙測資料，例如 HTTP 要求、例外狀況等等，讓您可以將 Vm 與應用程式之間的問題相互關聯。 設定[Azure 監視器警示](../articles/azure-monitor/platform/alerts-overview.md)，以在從適用於 VM 的 Azure 監視器所收集的監視資料中偵測到的重要條件發出警示。
 

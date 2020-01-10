@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 75fe07dc9847ae32248688bc20fac01e74c7b26a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ee929fa227cb105b73bc929c13a768aabef37ce3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821862"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771678"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 資料同步最佳做法 
 
@@ -50,7 +50,7 @@ Azure SQL Database 僅支援一組認證。 若要在此條件約束內完成這
 -   變更不同階段的認證 (例如，*credentials1* 適用於設定，*credentials2* 適用於持續)。  
 -   變更認證的權限 (也就是在設定同步處理後變更權限)。
 
-## <a name="setup"></a>設定
+## <a name="setup"></a>安裝程式
 
 ### <a name="database-considerations-and-constraints"></a> 資料庫考量與限制
 
@@ -116,7 +116,7 @@ SQL 資料同步提供基本資料庫自動佈建。
 
 請將前述指導方針套用在複雜的同步群組設定，例如混合企業到雲端和雲端到雲端等案例的設定。
 
-## <a name="sync"></a>Sync
+## <a name="sync"></a>同步
 
 ### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> 避免慢速和高成本的首次同步處理
 
@@ -200,7 +200,7 @@ SQL 資料同步提供基本資料庫自動佈建。
 3. 從本機代理程式 2 取消註冊內部部署資料庫，會移除內部部署資料庫之同步群組 A 的追蹤和中繼資料表。
 4. 同步群組 A 作業失敗，並發生下列錯誤：「目前的作業無法完成，因為資料庫未佈建以進行同步處理，或是您沒有同步設定資料表的權限。」
 
-#### <a name="solution"></a>方案
+#### <a name="solution"></a>解決方案
 
 若要避免這種情況發生，請勿向一個以上的代理程式註冊資料庫。
 
@@ -217,6 +217,14 @@ SQL 資料同步提供基本資料庫自動佈建。
 相反地，請先從同步群組移除資料庫。 然後部署變更，並等候取消佈建完成。 取消佈建完成時，您可以編輯同步群組及部署變更。
 
 如果您嘗試移除資料庫，然後編輯同步群組而不先部署其中一項變更，則其中一項作業會失敗。 入口網站介面也可能會呈現不一致的狀態。 發生這種情況時，您可以重新整理頁面以還原正確狀態。
+
+### <a name="avoid-schema-refresh-timeout"></a>避免架構重新整理超時
+
+如果您有要同步處理的複雜架構，如果同步中繼資料資料庫的 SKU 較低（例如：基本），您可能會在架構重新整理期間遇到「作業超時」。 
+
+#### <a name="solution"></a>解決方案
+
+若要減少此問題，請將您的同步中繼資料資料庫相應增加為具有較高的 SKU，例如 S3。 
 
 ## <a name="next-steps"></a>後續步驟
 如需有關 SQL 資料同步的詳細資訊，請參閱：

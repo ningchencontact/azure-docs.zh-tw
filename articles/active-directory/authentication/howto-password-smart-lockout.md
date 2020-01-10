@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30006d0dcccdd1b160289c72769340d141198d3c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bfd49a4429dc0d7f5db07a577016c21de8fc58d8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847587"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762870"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 智慧鎖定
 
@@ -68,7 +68,7 @@ ms.locfileid: "74847587"
 若要檢查或修改組織的智慧鎖定值，請使用下列步驟：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 搜尋並選取 [Azure Active Directory]。 選取 **驗證方法** > **密碼保護**。
+1. 搜尋並選取 [Azure Active Directory]。 選取 **安全性** > **驗證方法** > **密碼保護**。
 1. 根據帳戶遭到鎖定之前所允許的失敗登入次數，設定 [鎖定閾值]。 預設值為 10。
 1. 將 [鎖定持續時間 (秒)] 設為每次鎖定的秒數。 預設值為 60 秒 (一分鐘)。
 

@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 24e16942410c72640628bd4120d05a85e68de993
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 01/04/2020
+ms.openlocfilehash: ee8e11670d5b3e0f0edd57e3f87566faa60d4bc4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720018"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754411"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>Azure 認知搜尋服務 REST api-版本 2019-05-06-預覽
 
@@ -25,11 +25,11 @@ ms.locfileid: "73720018"
 
 ## <a name="new-in-2019-05-06-preview"></a>2019-05-06-Preview 的新功能
 
-+ [增量索引](cognitive-search-incremental-indexing-conceptual.md)是一種新的索引模式，可將狀態和快取加入至技能集，讓您在來源資料、索引子和技能集定義未變更時重複使用現有的輸出。 這項功能僅適用于已定義認知技能集的擴充。
++ 累加[擴充（預覽）](cognitive-search-incremental-indexing-conceptual.md)會將快取新增至擴充管線，讓您在目標修改（例如，對技能集或另一個物件的更新）不會變更內容時，重複使用現有的輸出。 快取只適用于技能集所產生的擴充檔。
 
-+ [Cosmos DB 索引子](search-howto-index-cosmosdb.md)支援 MongoDB Api、Gremlin API 和 Cassandra API。
++ [Cosmos DB 索引子](search-howto-index-cosmosdb.md)支援 MongoDB api （預覽）、Gremlin API （預覽）和 Cassandra API （預覽）。
 
-+ [Azure Data Lake Storage Gen2 索引子](search-howto-index-azure-data-lake-storage.md)可以從 Data Lake Storage Gen2 編制內容和中繼資料的索引。
++ [Azure Data Lake Storage Gen2 索引子（預覽）](search-howto-index-azure-data-lake-storage.md)可以從 Data Lake Storage Gen2 編制內容和中繼資料的索引。
 
 + 檔[解壓縮（預覽）](cognitive-search-skill-document-extraction.md)是在編制索引期間使用的認知技能，可讓您從技能集中解壓縮檔案的內容。 過去，只有在技能集執行之前才會發生檔破解。 隨著這項技能的增加，您也可以在技能集執行期間執行此作業。
 

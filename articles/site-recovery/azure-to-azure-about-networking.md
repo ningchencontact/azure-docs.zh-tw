@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 1/8/2020
 ms.author: sutalasi
-ms.openlocfilehash: 09cd814ade25be438a17b83fb73e74b89c14e22f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 9fe3b4c0b7acc9c1e980d5885043d30503c211c4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954201"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754491"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>關於 Azure VM 嚴重損壞修復中的網路功能
 
@@ -55,20 +55,21 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 位址範圍的輸出連線能力
 
-如果您使用以 IP 為基礎的防火牆 Proxy 或 NSG 規則來控制輸出連線能力，就必須允許這些 IP 範圍。
+如果您使用以 IP 為基礎的防火牆 proxy，或 NSG 控制輸出連線能力，則必須允許這些 IP 範圍。
 
 - 對應至來源區域儲存體帳戶的所有 IP 位址範圍
     - 為這個來源地區建立[儲存體服務標記](../virtual-network/security-overview.md#service-tags)型 NSG 規則。
     - 允許這些位址，方可從 VM 將該資料寫入到快取儲存體帳戶。
 - 建立 [Azure Active Directory (AAD) 服務標籤](../virtual-network/security-overview.md#service-tags)型 NSG 規則，以允許存取對應至 AAD 的所有 IP 位址
     - 如果未來將新的位址新增至 Azure Active Directory (AAD)，您必須建立新的 NSG 規則。
-- Site Recovery 服務端點 IP 位址 - 在 [XML 檔案](https://aka.ms/site-recovery-public-ips)中提供，並依據您的目標位置。 
+- 針對目的地區域建立以 EventsHub 服務標記為基礎的 NSG 規則，以允許存取 Site Recovery 監視。
+- 建立以 AzureSiteRecovery 服務標記為基礎的 NSG 規則，以允許存取任何區域中的 Site Recovery 服務。
 - 建議您在測試 NSG 上建立必要的 NSG 規則，並確認沒有問題後，再於生產 NSG 上建立規則。
 
 
-站台復原 IP 位址範圍如下：
+如果您偏好使用 Site Recovery IP 位址範圍（不建議），請參閱下表：
 
-   **目標** | **Site Recovery IP** |  **Site Recovery 監視 IP**
+   **Target** | **Site Recovery IP** |  **Site Recovery 監視 IP**
    --- | --- | ---
    東亞 | 52.175.17.132 | 13.94.47.61
    東南亞 | 52.187.58.193 | 13.76.179.223
@@ -85,7 +86,7 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
    日本東部 | 52.185.150.140 | 138.91.1.105
    日本西部 | 52.175.146.69 | 138.91.17.38
    巴西南部 | 191.234.185.172 | 23.97.97.36
-   澳洲東部 | 104.210.113.114 | 191.239.64.144
+   澳大利亞東部 | 104.210.113.114 | 191.239.64.144
    澳洲東南部 | 13.70.159.158 | 191.239.160.45
    加拿大中部 | 52.228.36.192 | 40.85.226.62
    加拿大東部 | 52.229.125.98 | 40.86.225.142
@@ -100,15 +101,15 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
    法國中部 | 52.143.138.106 | 52.143.136.55
    法國南部 | 52.136.139.227 |52.136.136.62
    澳大利亞中部| 20.36.34.70 | 20.36.46.142
-   澳大利亞中部 2| 20.36.69.62 | 20.36.74.130
+   澳洲中部 2| 20.36.69.62 | 20.36.74.130
    南非西部 | 102.133.72.51 | 102.133.26.128
    南非北部 | 102.133.160.44 | 102.133.154.128
-   美國政府維吉尼亞州 | 52.227.178.114 | 23.97.0.197
+   US Gov 維吉尼亞州 | 52.227.178.114 | 23.97.0.197
    US Gov 愛荷華州 | 13.72.184.23 | 23.97.16.186
-   美國政府亞利桑那州 | 52.244.205.45 | 52.244.48.85
-   美國政府德克薩斯州 | 52.238.119.218 | 52.238.116.60
-   美國 DoD 東部 | 52.181.164.103 | 52.181.162.129
-   美國國防部中央 | 52.182.95.237 | 52.182.90.133
+   US Gov 亞利桑那州 | 52.244.205.45 | 52.244.48.85
+   US Gov 德克薩斯州 | 52.238.119.218 | 52.238.116.60
+   US DoD 東部 | 52.181.164.103 | 52.181.162.129
+   US DoD 中部 | 52.182.95.237 | 52.182.90.133
    中國北部 | 40.125.202.254 | 42.159.4.151
    中國北部 2 | 40.73.35.193 | 40.73.33.230
    中國東部 | 42.159.205.45 | 42.159.132.40
@@ -137,11 +138,9 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
 
       ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. 針對那些對應至目標位置的站台復原 IP，建立輸出 HTTPS (443) 規則：
+3. 類似于上述安全性規則，請在對應至目標位置的 NSG 上，建立 "CentralUS" 的輸出 HTTPS （443）安全性規則。 這可讓您存取 Site Recovery 監視。
 
-   <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **Site Recovery 位址** |  **Site Recovery 監視 IP 位址**
-    --- | --- | ---
-   美國中部 | 40.69.144.231 | 52.165.34.144
+4. 為 NSG 上的 "AzureSiteRecovery" 建立輸出 HTTPS （443）安全性規則。 這可讓您存取任何區域中的 Site Recovery 服務。
 
 ### <a name="nsg-rules---central-us"></a>NSG 規則：美國中部
 
@@ -151,12 +150,9 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
 
 2. 在 NSG 上針對 "AzureActiveDirectory" 建立輸出 HTTPS (443) 安全性規則。
 
-3. 針對那些對應至來源位置的站台復原 IP 建立輸出 HTTPS (443) 規則：
+3. 類似于上述安全性規則，請在對應至來源位置的 NSG 上，建立 "EastUS" 的輸出 HTTPS （443）安全性規則。 這可讓您存取 Site Recovery 監視。
 
-   <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **Site Recovery 位址** |  **Site Recovery 監視 IP 位址**
-    --- | --- | ---
-   美國東部 | 13.82.88.226 | 104.45.147.24
-
+4. 為 NSG 上的 "AzureSiteRecovery" 建立輸出 HTTPS （443）安全性規則。 這可讓您存取任何區域中的 Site Recovery 服務。
 
 ## <a name="network-virtual-appliance-configuration"></a>網路虛擬設備設定
 
@@ -177,7 +173,7 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
 
 ### <a name="forced-tunneling"></a>強制通道
 
-您可以使用[自訂路由](../virtual-network/virtual-networks-udr-overview.md#custom-routes)來覆寫 0.0.0.0/0 位址前置詞的 Azure 預設系統路由，並將 VM 流量轉向至內部部署網路虛擬應用裝置 (NVA)，但不建議將此設定用於站台復原複寫。 如果您使用自訂路由，則應該在虛擬網路中為「儲存體」[建立虛擬網路服務端點](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage)，這樣一來，複寫流量就不會離開 Azure 界限。
+您可以使用[自訂路由](../virtual-network/virtual-networks-udr-overview.md#custom-routes)覆寫 0.0.0.0/0 位址前置詞的 Azure 預設系統路由，並將 VM 流量導向內部部署網路虛擬設備 (NVA)，但不建議將此設定用於 Site Recovery 複寫。 如果您使用自訂路由，則應該在虛擬網路中為「儲存體」[建立虛擬網路服務端點](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage)，這樣一來，複寫流量就不會離開 Azure 界限。
 
 ## <a name="next-steps"></a>後續步驟
 - [複寫 Azure 虛擬機器](site-recovery-azure-to-azure.md)來開始保護您的工作負載。

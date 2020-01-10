@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a4a4393a25bfa49a8074793b572111f69dcc17c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 34c0c52945abc6e0ab74b1cb180581c76464bee8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459649"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749966"
 ---
 # <a name="azure-operational-security"></a>Azure 作業安全性
 ## <a name="introduction"></a>簡介
@@ -195,7 +195,7 @@ Azure 監視器提供特定資源類型詳細資訊的指標。 它會針對來�
 
 例如，Windows 事件系統記錄是適用於 VM、Blob 和資料表的一個診斷記錄類別，而佇列記錄則是適用於儲存體帳戶的診斷記錄類別。
 
-診斷記錄不同於[活動記錄 (之前稱為稽核記錄或作業記錄)](../../azure-monitor/platform/activity-logs-overview.md)。 活動記錄能讓您了解訂用帳戶中的資源所執行之作業。 診斷記錄能讓您了解資源自行執行的作業。
+診斷記錄不同於[活動記錄 (之前稱為稽核記錄或作業記錄)](../../azure-monitor/platform/platform-logs-overview.md)。 活動記錄能讓您了解訂用帳戶中的資源所執行之作業。 診斷記錄能讓您了解資源自行執行的作業。
 
 ### <a name="metrics"></a>計量
 

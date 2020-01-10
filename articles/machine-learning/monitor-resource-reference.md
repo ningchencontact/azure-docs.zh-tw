@@ -10,16 +10,16 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/06/2019
-ms.openlocfilehash: adfcd79d209f98b664f18b89ceea65bdc84f36dc
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 8d2dccc1543512ead4b0ff6475ace20045bb1b8c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541487"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762768"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Azure machine learning 監視資料參考
 
-深入瞭解 Azure 監視器從 Azure Machine Learning 工作區收集的資料和資源。 如需收集和分析監視資料的詳細資訊，請參閱[監視 Azure Machine Learning](service/monitor-azure-machine-learning.md) 。
+深入瞭解 Azure 監視器從 Azure Machine Learning 工作區收集的資料和資源。 如需收集和分析監視資料的詳細資訊，請參閱[監視 Azure Machine Learning](monitor-azure-machine-learning.md) 。
 
 ## <a name="resource-logs"></a>資源記錄
 

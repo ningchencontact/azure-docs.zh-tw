@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 2d2e929335f6af2ee24a81e719d9d0d899f7b8ef
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 114f710c9d0e85ecde4ab163401c714c5e28a708
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241849"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771593"
 ---
 # <a name="nativeazurefilesystemrequestbodytoolarge-appear-in-apache-spark-streaming-app-log-in-hdinsight"></a>"NativeAzureFileSystem...RequestBodyTooLarge "會出現在 HDInsight 的 Apache Spark 串流應用程式記錄中
 
@@ -26,7 +26,7 @@ ms.locfileid: "73241849"
 
 您的 Spark 事件記錄檔可能達到 WASB 的檔案長度限制。
 
-在 Spark 2.3 中，每個 Spark 應用程式都會產生一個 Spark 事件記錄檔。 當應用程式正在執行時，Spark 串流應用程式的 Spark 事件記錄檔會繼續成長。 現在，WASB 上的檔案具有50000區塊限制，而預設區塊大小為 4 MB。 因此，在預設設定中，檔案大小上限為 195 GB。 不過，Azure 儲存體已將最大區塊大小增加到 100 MB，這可有效地將單一檔案限制設為 4.75 TB。 如需詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)。
+在 Spark 2.3 中，每個 Spark 應用程式都會產生一個 Spark 事件記錄檔。 當應用程式正在執行時，Spark 串流應用程式的 Spark 事件記錄檔會繼續成長。 現在，WASB 上的檔案具有50000區塊限制，而預設區塊大小為 4 MB。 因此，在預設設定中，檔案大小上限為 195 GB。 不過，Azure 儲存體已將最大區塊大小增加到 100 MB，這可有效地將單一檔案限制設為 4.75 TB。 如需詳細資訊，請參閱[Blob 儲存體的擴充性和效能目標](../../storage/blobs/scalability-targets.md)。
 
 ## <a name="resolution"></a>解析度
 

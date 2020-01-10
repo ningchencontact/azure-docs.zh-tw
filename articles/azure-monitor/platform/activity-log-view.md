@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 54a1d3e503ddb8b11109596decde94a2834dbf47
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 46d26aa5dccd32438b2028e21eaa94f7993944d1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529961"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749514"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>查看和取出 Azure 活動記錄事件
 
-[Azure 活動記錄](activity-logs-overview.md)可讓您深入瞭解 azure 中發生的訂用帳戶層級事件。 本文提供查看和抓取活動記錄事件之不同方法的詳細資料。
+[Azure 活動記錄](platform-logs-overview.md)可讓您深入瞭解 azure 中發生的訂用帳戶層級事件。 本文提供查看和抓取活動記錄事件之不同方法的詳細資料。
 
 ## <a name="azure-portal"></a>Azure Portal
 從 Azure 入口網站中的 **監視** 功能表，查看所有資源的活動記錄。 從該資源功能表中的 [**活動記錄**] 選項，查看特定資源的活動記錄檔。

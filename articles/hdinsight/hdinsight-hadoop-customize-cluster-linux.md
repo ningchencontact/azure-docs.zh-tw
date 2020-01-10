@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 6df7eebae0f0e7cfab790a4fca12dbb6ee5a5acf
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
-ms.translationtype: HT
+ms.openlocfilehash: df5dbfc9c86294c7ec046d3a02832192bf67b4ce
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638981"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747082"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>使用腳本動作自訂 Azure HDInsight 叢集
 
@@ -446,11 +446,11 @@ HDInsight 服務提供數種方式以使用自訂元件。 不論元件在叢集
 
     在此目錄底下，記錄會個別針對**前端節點**、**背景工作節點**及 **Zookeeper 節點**進行組織。 請參閱下列範例：
 
-    * **前端節點**：`<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+    * **前端節點**：`<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **背景工作節點**：`<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+    * **背景工作節點**：`<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Zookeeper 節點**：`<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+    * **Zookeeper 節點**：`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * 相對應主機的所有 **stdout** 和 **stderr** 都會上傳到儲存體帳戶。 每個指令碼動作都有一個 **output-\*.txt** 和 **errors-\*.txt**。 **output-*.txt** 檔案包含在主機上執行之指令碼的 URI 相關資訊。 以下文字是此資訊的範例：
 

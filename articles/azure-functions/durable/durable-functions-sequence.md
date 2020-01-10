@@ -5,16 +5,16 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e8c314b6288bc26ad48fd210e866b2b67e433e17
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: de2fd1a46d931c5d1b625094940a981509bf1488
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231330"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769552"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Durable Functions 中的函式鏈結- Hello 序列範例
 
-函式鏈結是指以特定順序執行一連串函式的模式。 一個函式的輸出通常必須套用到另一個函式的輸入。 此文章說明當您完成 Durable Functions 快速入門 ([C#](durable-functions-create-first-csharp.md) 或 [JavaScript](quickstart-js-vscode.md)) 時所建立的鏈結序列。 如需 Durable Functions 的詳細資訊，請參閱 [Durable Functions 概觀](durable-functions-overview.md)。
+函式鏈結是指以特定順序執行一連串函式的模式。 通常，一個函式的輸出必須套用至另一個函式的輸入。 此文章說明當您完成 Durable Functions 快速入門 ([C#](durable-functions-create-first-csharp.md) 或 [JavaScript](quickstart-js-vscode.md)) 時所建立的鏈結序列。 如需 Durable Functions 的詳細資訊，請參閱 [Durable Functions 概觀](durable-functions-overview.md)。
 
 [!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
@@ -27,7 +27,7 @@ ms.locfileid: "74231330"
 * `E1_HelloSequence`：此協調器函式連續呼叫 `E1_SayHello` 多次。 它會儲存 `E1_SayHello` 呼叫的輸出，並記錄結果。
 * `E1_SayHello`：此活動函式在字串前面加上 "Hello"。
 
-下列各節說明用於C#腳本處理和 JavaScript 的設定和程式碼。 Visual Studio 開發適用的程式碼會顯示在文章結尾。
+下列各節說明用於C#腳本處理和 JavaScript 的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
 
 > [!NOTE]
 > JavaScript Durable Functions 僅適用于函數2.0 執行時間。
@@ -55,7 +55,7 @@ ms.locfileid: "74231330"
 
 程式碼中以不同的參數值連續呼叫 `E1_SayHello` 三次。 每次呼叫的傳回值會新增至函式最後傳回的 `outputs` 清單。
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 
 以下是原始程式碼：
 
@@ -67,13 +67,13 @@ ms.locfileid: "74231330"
 2. 此函式會包裝在對`durable-functions`模組的`orchestrator`方法進行的呼叫中 (在此是 `df`)。
 3. 此函式必須是同步的。 「Orchestrator」方法會處理呼叫「context.done」，因為函式應該只是「return」。
 
-`context` 物件包含 `df` 物件，可讓您使用其  *方法來呼叫其他「活動」* `callActivity`函式並傳遞輸入參數。 程式碼會使用不同的參數值依序呼叫 `E1_SayHello` 三次，使用 `yield` 表示執行應等候要傳回的非同步活動函式呼叫。 每次呼叫的傳回值會新增至函式最後傳回的 `outputs` 清單。
+`context` 物件包含 `df` 物件，可讓您使用其 `callActivity` 方法來呼叫其他「活動」函式並傳遞輸入參數。 程式碼會使用不同的參數值依序呼叫 `E1_SayHello` 三次，使用 `yield` 表示執行應等候要傳回的非同步活動函式呼叫。 每次呼叫的傳回值會新增至函式最後傳回的 `outputs` 清單。
 
 ## <a name="e1_sayhello"></a>E1_SayHello
 
 ### <a name="functionjson-file"></a>function.json 檔案
 
-活動函式 *和*的 `E1_SayHello`function.json`E1_HelloSequence`檔案很類似，差別在於前者使用 `activityTrigger` 繫結型別，而不是 `orchestrationTrigger` 繫結型別。
+活動函式 `E1_SayHello` 和 `E1_HelloSequence`的 *function.json*檔案很類似，差別在於前者使用 `activityTrigger` 繫結型別，而不是 `orchestrationTrigger` 繫結型別。
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
 
@@ -88,7 +88,7 @@ ms.locfileid: "74231330"
 
 此函式具有 `DurableActivityContext`類型的參數，它會使用它來取得由協調器函式的呼叫傳遞給它的 `CallActivityAsync<T>`的輸入。
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
@@ -139,11 +139,11 @@ Content-Type: application/json; charset=utf-8
 > [!NOTE]
 > 在範例應用程式中，啟動協調器函式的 HTTP POST 端點是以名為 "HttpStart" 的 HTTP 觸發程序函式實作。 您可以對其他觸發程序類型實作類似的起始邏輯，例如 `queueTrigger`、`eventHubTrigger` 或 `timerTrigger`。
 
-查看函式執行記錄。 由於[協調流程可靠性](durable-functions-orchestrations.md#reliability)主題中所述的重新執行行為，`E1_HelloSequence` 函式已啟動並完成多次。 相反地，`E1_SayHello` 只執行三次，因為這幾次函式執行不會再來一次。
+查看函式執行記錄。 因為[協調流程可靠性](durable-functions-orchestrations.md#reliability)主題中所述的重新執行行為，所以函式已啟動並完成多次。`E1_HelloSequence` 相反地，`E1_SayHello` 只執行三次，因為這幾次函式執行不會再來一次。
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio 範例程式碼
 
-以下是 Visual Studio 專案中單一 C# 檔案的協調流程：
+以下是 Visual Studio 專案中的單一 C# 檔案所示範的協調流程：
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 

@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: f65c93ac06da6512255a3380d5484c6285798098
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 227bf490d1ac264bb54ff3d1ecf0ccc2b3ef2e0e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659968"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763539"
 ---
 # <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>建立分類器 & 使用特徵選取來預測具有 Azure Machine Learning 設計工具的收入
 
@@ -79,7 +79,7 @@ ms.locfileid: "75659968"
 
 - [範例 1-回歸：預測汽車的價格](how-to-designer-sample-regression-automobile-price-basic.md)
 - [範例 2-回歸：比較汽車價格預測的演算法](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [範例 4-分類：預測信用風險（區分成本）](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [範例 5-分類：預測流失](service/how-to-designer-sample-classification-churn.md)
-- [範例 6-分類：預測航班延誤](service/how-to-designer-sample-classification-flight-delay.md)
+- [範例 4-分類：預測信用風險（區分成本）](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [範例 5-分類：預測流失](how-to-designer-sample-classification-churn.md)
+- [範例 6-分類：預測航班延誤](how-to-designer-sample-classification-flight-delay.md)
 - [範例 7-文字分類：維琪百科 SP 500 資料集](how-to-designer-sample-text-classification.md)

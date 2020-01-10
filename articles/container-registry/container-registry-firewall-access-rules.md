@@ -1,42 +1,42 @@
 ---
 title: 防火牆存取規則
-description: 設定規則，以從防火牆後方存取 Azure container registry。
+description: 設定規則以從防火牆後方存取 Azure container registry，方法是允許存取（"允許清單"） REST API 和儲存體端點功能變數名稱或服務特定的 IP 位址範圍。
 ms.topic: article
 ms.date: 07/17/2019
-ms.openlocfilehash: 6a0a169f7e5a7e07771cb9fee474b7f4a9391a4e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 4d3c4ff4ca19d8b563c185e5c314011823081df1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455178"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745194"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>設定規則以存取防火牆後方的 Azure container registry
 
 本文說明如何在防火牆上設定規則，以允許存取 Azure container registry。 例如，位於防火牆或 proxy 伺服器後方的 Azure IoT Edge 裝置可能需要存取容器登錄來提取容器映射。 或者，在內部部署網路中鎖定的伺服器可能需要存取以推送映射。
 
-如果您想要將容器登錄上的輸入網路存取規則設定為只允許在 Azure 虛擬網路或公用 IP 位址範圍內進行存取，請參閱[限制從虛擬網路存取 azure container registry](container-registry-vnet.md)。
+如果您只想要在 Azure 虛擬網路或公用 IP 位址範圍內，設定容器登錄上的輸入網路存取規則，請參閱[限制從虛擬網路存取 Azure container registry](container-registry-vnet.md)。
 
 ## <a name="about-registry-endpoints"></a>關於登錄端點
 
 若要將映射或其他成品提取或推送至 Azure container registry，用戶端（例如 Docker daemon）必須透過 HTTPS 與兩個不同的端點進行互動。
 
-* 登錄**REST API 端點**-驗證和登錄管理作業會透過登錄的公用 REST API 端點來處理。 此端點是登錄的登入伺服器 URL，或相關聯的 IP 位址範圍。 
+* 登錄**REST API 端點**-驗證和登錄管理作業會透過登錄的公用 REST API 端點來處理。 此端點是登錄的登入伺服器名稱，或相關聯的 IP 位址範圍。 
 
-* **儲存體端點**-azure 會代表每個登錄來配置 azure 儲存體帳戶中的[blob 儲存體](container-registry-storage.md)，以管理容器映射和其他成品。 當用戶端存取 Azure container registry 中的映射層時，它會使用登錄所提供的儲存體帳戶端點來提出要求。
+* **儲存體端點**-Azure 會代表每個登錄在 Azure 儲存體帳戶中配置[blob 儲存體](container-registry-storage.md)，以管理容器映射和其他成品的資料。 當用戶端存取 Azure container registry 中的映射層時，它會使用登錄所提供的儲存體帳戶端點來提出要求。
 
 如果您的登錄是[異地](container-registry-geo-replication.md)複寫的，用戶端可能需要與特定區域或多個複寫區域中的 REST 和儲存體端點互動。
 
-## <a name="allow-access-to-rest-and-storage-urls"></a>允許存取 REST 和儲存體 Url
+## <a name="allow-access-to-rest-and-storage-domain-names"></a>允許存取 REST 和儲存體功能變數名稱
 
-* **REST 端點**-允許存取登錄伺服器 URL，例如 `myregistry.azurecr.io`
-* **儲存體端點**-允許使用萬用字元存取所有 Azure blob 儲存體帳戶 `*.blob.core.windows.net`
+* **REST 端點**-允許存取完整登錄登入伺服器名稱，例如 `myregistry.azurecr.io`
+* **儲存體（資料）端點**-允許使用萬用字元存取所有的 Azure blob 儲存體帳戶 `*.blob.core.windows.net`
 
 
 ## <a name="allow-access-by-ip-address-range"></a>允許依 IP 位址範圍存取
 
-如果您需要允許存取特定的 IP 位址，請下載[AZURE IP 範圍和服務標籤–公用雲端](https://www.microsoft.com/download/details.aspx?id=56519)。
+如果您的組織有僅允許存取特定 IP 位址或位址範圍的原則，請下載[AZURE IP 範圍和服務標籤–公用雲端](https://www.microsoft.com/download/details.aspx?id=56519)。
 
-若要尋找 ACR REST 端點 IP 範圍，請在 JSON 檔案中搜尋**AzureContainerRegistry** 。
+若要尋找您需要允許存取的 ACR REST 端點 IP 範圍，請在 JSON 檔案中搜尋**AzureContainerRegistry** 。
 
 > [!IMPORTANT]
 > Azure 服務的 IP 位址範圍可能會變更，並每週發佈更新。 定期下載 JSON 檔案，並在您的存取規則中進行必要的更新。 如果您的案例牽涉到在 Azure 虛擬網路中設定網路安全性群組規則來存取 Azure Container Registry，請改用**AzureContainerRegistry** [服務標記](#allow-access-by-service-tag)。

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 3a57fbb010f8a04352d09d4b6d57cf465e3e6988
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3dd7399b68388d92d38b0f64c6e816cb94b3f295
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279147"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768566"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service 中 Windows Server 節點集區和應用程式工作負載目前的限制（AKS）
 
@@ -65,6 +65,10 @@ AKS 中的 Windows Server 節點必須*升級*，才能取得最新的修補程�
 > [!NOTE]
 > 只有在升級節點集區之前已執行叢集升級（控制平面升級）時，才會使用更新的 Windows Server 映射
 >
+
+## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>如何? 輪替 Windows 節點集區的服務主體嗎？
+
+在預覽期間，Windows 節點集區不支援服務主體輪替做為預覽限制。 若要更新服務主體，請建立新的 Windows 節點集區，並將您的 pod 從舊的集區遷移至新的集區。 完成之後，請刪除較舊的節點集區。
 
 ## <a name="how-many-node-pools-can-i-create"></a>我可以建立多少個節點集區？
 

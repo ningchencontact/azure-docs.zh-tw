@@ -1,6 +1,6 @@
 ---
-title: 針對更新管理的相關錯誤進行疑難排解
-description: 瞭解如何針對更新管理的問題進行疑難排解。
+title: 針對 Azure 更新管理的錯誤進行疑難排解
+description: 瞭解如何在 Azure 中疑難排解和解決更新管理解決方案的問題。
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f5346f2f11df2282a1cd2592db930f7ff829a2d2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f60ec802af0c88ee8cb3809bf27feef89e11570a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75416768"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769790"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>針對更新管理問題進行疑難排解
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 區域配額增加要求 |Microsoft Docs
+title: 要求增加 Azure 區域 vCPU 配額限制 |Microsoft Docs
 description: 區域配額增加要求
 author: sowmyavenkat86
 ms.author: svenkat
@@ -7,90 +7,100 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 132cf6ccfec5af9951f5dc6d6a3c6d3c81363d81
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: e262651a6e040c40dbe240ad3437eff1914aa3e5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850001"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750840"
 ---
-# <a name="standard-quota-regional-vcpu-limit-increase"></a>標準配額：區域 vCPU 限制增加 
+# <a name="standard-quota-increase-limits-by-region"></a>標準配額：依區域增加限制 
 
-Resource Manager 針對虛擬機器支援兩種類型的 vCPU 配額。 **隨用隨付 vm**和**保留的 vm 實例**會使用標準配額。 **找出 vm**會使用點配額。 
+Azure Resource Manager 針對虛擬機器支援兩種類型的 vCPU 配額：
+* *隨用隨付 vm*和*保留的 vm 實例*受限於*標準的 vCPU 配額*。
+* *找出 vm*會受到*點 vCPU 配額*的限制。 
 
-隨用隨付和保留的 VM 實例的標準 vCPU 配額會針對每個區域中的每個訂用帳戶，在兩個層級強制執行。
+預付型方案和保留的 VM 實例的標準 vCPU 配額會針對每個區域中的每個訂用帳戶，在兩個層級強制執行：
+* 第一層是*區域個 vcpu 限制*（在所有 VM 系列中）的總計。
+* 第二層是*每個 VM 的系列個 vcpu 限制*（例如 D 系列個 vcpu）。
  
-第一層是**總區域個 vcpu 限制**（跨所有 vm 系列），而第二層是**每個 vm 系列個 vcpu 限制**（例如 D 系列個 vcpu）。 每當部署新的 VM 時，該 VM 系列新的和現有個 vcpu 使用量的總和，不得超過該特定 VM 系列所核准的 vCPU 配額。 此外，在所有 VM 系列上部署的新的和現有的 vCPU 計數，不應超過訂用帳戶所核准的區域個 vcpu 配額總計。 如果超過這些配額，將不允許 VM 部署。 您可以從 Azure 入口網站為 VM 系列要求增加個 vcpu 配額限制。 VM 系列配額的增加會自動增加相同數量的總區域個 vcpu 限制。
+每當您部署新的點 VM 時，該 VM 系列的新的和現有 vCPU 使用量總計不得超過該特定 VM 系列的已核准 vCPU 配額。 此外，在所有 VM 系列上部署的新和現有個 vcpu 的總數，不應超過訂用帳戶的核准區域 vCPU 配額總計。 如果超過上述任一配額，則不允許 VM 部署。 
 
-建立新的訂用帳戶時，預設的 [區域個 vcpu 總計] 可能不等於所有個別 VM 系列的預設 vCPU 配額總和。 這可能會導致您想要部署的每個個別 VM 系列的訂用帳戶具有足夠的配額，但不會有足夠的配額可用於所有部署的總區域個 vcpu。 在此情況下，您將需要提交要求，以明確地增加區域個 vcpu 限制的總計。 區域個 vcpu 限制總計不得超過該區域所有 VM 系列的核准配額總和。
+您可以使用 Azure 入口網站，為 VM 系列要求增加 vCPU 配額限制。 VM 系列配額的增加會自動增加相同數量的總區域 vCPU 限制。
 
-在 [[虛擬機器 vCPU 配額] 頁面](https://docs.microsoft.com/azure/virtual-machines/windows/quotas)和 [Azure 訂用帳戶[和服務限制](https://aka.ms/quotalimits)] 頁面上深入瞭解標準 vCPU 配額。
+當您建立新的訂用帳戶時，區域個 vcpu 的預設總數目可能不等於所有個別 VM 系列的預設 vCPU 配額總計。 這項差異可能會導致訂用帳戶具有足夠的配額，可供您想要部署的每個個別 VM 系列使用。 但是，可能沒有足夠的配額可容納所有部署的總區域個 vcpu。 在此情況下，您必須提交要求，以明確增加區域個 vcpu 總數的限制。 區域 vCPU 限制總計不得超過該區域所有 VM 系列的核准配額總計。
 
-[在這裡](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota)深入瞭解**增加點 VM vCPU 限制**。
+若要深入瞭解標準 vCPU 配額，請參閱[虛擬機器 vCPU 配額](https://docs.microsoft.com/azure/virtual-machines/windows/quotas)和[Azure 訂用帳戶和服務限制](https://aka.ms/quotalimits)。
 
-您可以透過入口網站中的 [說明 **+ 支援**] 分頁或 [**使用方式 + 配額**] 分頁，要求增加**標準 VM 的總區域 vCPU 限制**。
+若要深入瞭解增加點 VM vCPU 限制，請參閱[點配額：增加所有 VM 系列的限制](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota)。
 
-## <a name="request-standard-quota-regional-vcpu-limit-increase-at-subscription-level-using-the-help--support-blade"></a>使用 [說明 + 支援] 分頁來要求在訂用帳戶層級增加的標準配額區域 vCPU 限制
+您可以透過兩種方式的其中一種來要求增加 vCPU 標準配額限制，如下節所述。
 
-請依照下列指示，透過 Azure 入口網站中提供的 Azure [說明 + 支援] 分頁來建立支援要求。 
+## <a name="request-a-quota-increase-by-region-from-the-help--support-pane"></a>在 [說明 + 支援] 窗格中，依區域要求增加配額
 
-1. 從 https://portal.azure.com 選取 [說明 **+ 支援**]。
+若要依區域要求 [說明 **+ 支援**] 窗格中的 vCPU 配額增加，請執行下列動作： 
 
-![說明 + 支援](./media/resource-manager-core-quotas-request/helpsupport.png)
+1. 在[Azure 入口網站](https://portal.azure.com)的左窗格中，選取 [說明 **+ 支援**]。
+
+   ![[說明 + 支援] 連結](./media/resource-manager-core-quotas-request/helpsupport.png)
  
-2.  選取 [新增支援要求]。 
+1. 在 [說明 **+ 支援**] 窗格中，選取 [**新增支援要求**]。 
 
-![新增支援要求](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+    ![新增支援要求](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
-3. 在 [問題類型] 下拉式選單中，選擇 [**服務與訂用帳戶限制（配額）** ]。
+1. 在 [**問題類型**] 下拉式清單中，選取 [**服務和訂用帳戶限制（配額）** ]。
 
-![問題類型下拉式](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+   ![[問題類型] 下拉式清單](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
 
-4. 選取需要增加配額的訂用帳戶。
+1. 在 [**訂**用帳戶] 下拉式清單中，選取您想要增加其配額的訂用帳戶。
 
-![選取訂用帳戶 newSR](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
+   ![[訂用帳戶] 下拉式清單](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
    
-5. 在 [**配額類型**] 下拉式選單中選取 [**其他要求**]。
+1. 在 [**配額類型**] 下拉式清單中，選取 [**其他要求**]。
 
-![配額類型](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+   ![[配額類型] 下拉式清單](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
-6. 在**詳細資料**窗格中，依據下列範例提供其他資訊，以協助處理您的要求並繼續建立案例。 
-    1.  **部署模型**–指定 ' Resource Manager '
-    2.  **要求的區域**-指定您所需的區域，例如美國東部2
-    3.  **新的限制值**-指定新的區域限制。 這不應該超過此訂用帳戶的個別 SKU 系列已核准配額的總和
+1. 在 [**問題詳細資料**] 窗格的 [**描述**] 方塊中，提供下列其他資訊： 
 
-![配額詳細資料](./media/resource-manager-core-quotas-request/regional-details.png)
+    a. 針對 [**部署模型**]，指定**Resource Manager**。  
+    b. 針對 [**區域**]，指定您所需的區域（例如 [**美國東部 2**]）。  
+    c. 針對 [**新限制**]，為區域指定新的 vCPU 限制。 此值不應超過此訂用帳戶的個別 SKU 系列已核准配額的總和。
 
-## <a name="request-total-regional-vcpus-quota-increase-at-subscription-level-using-the-usages--quota-blade"></a>使用 [使用方式 **+ 配額**] 分頁來要求訂用帳戶層級的總區域個 vcpu 配額增加
+    ![[問題詳細資料] 窗格](./media/resource-manager-core-quotas-request/regional-details.png)
 
-請遵循下列指示，以使用 Azure 入口網站中提供的 Azure [使用量 + 配額] 分頁來建立支援要求。 
+1. 選取 [**儲存並繼續**] 繼續建立支援要求。
 
-1. 從 https://portal.azure.com 選取 [訂用帳戶]。
+## <a name="request-a-quota-increase-by-region-from-the-subscriptions-pane"></a>依區域從 [訂用帳戶] 窗格要求增加配額
 
-![訂閱](./media/resource-manager-core-quotas-request/subscriptions.png)
+若要依區域要求 [訂用**帳戶] 窗格中的 vCPU**配額增加，請執行下列動作： 
 
-2. 選取需要增加配額的訂用帳戶。
+1. 在[Azure 入口網站](https://portal.azure.com)的左窗格中，選取 [**訂閱**]。
 
-![選取訂用帳戶](./media/resource-manager-core-quotas-request/select-subscription.png)
+   ![[訂閱] 連結](./media/resource-manager-core-quotas-request/subscriptions.png)
 
-3. 選取 [使用量 + 配額]
+1. 選取您想要增加其配額的訂用帳戶。
 
-![選取使用量和配額](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+   ![[訂閱] 窗格](./media/resource-manager-core-quotas-request/select-subscription.png)
 
-4. 在右上角，選取 [要求增加配額]。
+1. 在 **\<訂**用帳戶名稱的左窗格中 > 頁面上，選取 **使用量 + 配額**。
 
-![要求增加配額](./media/resource-manager-core-quotas-request/request-increase.png)
+   ![[使用量 + 配額] 連結](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
 
-5. 在 [**配額類型**] 下拉式選單中選取 [**其他要求**]。
+1. 在右上方，選取 [**要求增加**]。
 
-![配額類型](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+   ![要求增加配額](./media/resource-manager-core-quotas-request/request-increase.png)
 
-6. 在**詳細資料**窗格中，依據下列範例提供其他資訊，以協助處理您的要求並繼續建立案例。 
-    1.  **部署模型**–指定 ' Resource Manager '
-    2.  **要求的區域**-指定您所需的區域，例如美國東部2
-    3.  **新的限制值**-指定新的區域限制。 這不應該超過此訂用帳戶的個別 SKU 系列已核准配額的總和
+1. 在 [**配額類型**] 下拉式清單中，選取 [**其他要求**]。
 
-![配額詳細資料](./media/resource-manager-core-quotas-request/regional-details.png)
+   ![[配額類型] 下拉式清單](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
+1. 在 [**問題詳細資料**] 窗格的 [**描述**] 方塊中，提供下列其他資訊： 
 
+    a. 針對 [**部署模型**]，指定**Resource Manager**。  
+    b. 針對 [**區域**]，指定您所需的區域（例如 [**美國東部 2**]）。  
+    c. 針對 [**新限制**]，為區域指定新的 vCPU 限制。 此值不應超過此訂用帳戶的個別 SKU 系列已核准配額的總和。
+
+    ![[問題詳細資料] 窗格](./media/resource-manager-core-quotas-request/regional-details.png)
+
+1. 選取 [**儲存並繼續**] 繼續建立支援要求。
 

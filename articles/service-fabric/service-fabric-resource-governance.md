@@ -1,25 +1,14 @@
 ---
-title: 適用於容器和服務的 Azure Service Fabric 資源控管 | Microsoft Docs
+title: 容器和服務的資源管理
 description: Azure Service Fabric 可讓您針對在容器內部或外部執行的服務指定資源限制。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/9/2017
-ms.author: atsenthi
-ms.openlocfilehash: 44abb297b9ce0eafadd3af9539d5b12751360319
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 85520876d7f0c89450b572d28dee6cb66ed2231d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242910"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772375"
 ---
 # <a name="resource-governance"></a>資源管理
 
@@ -76,7 +65,7 @@ Service Fabric 執行階段目前不提供資源的保留。 當開啟處理序�
 </Section>
 ```
 
-如果需要完全手動設定節點容量，您可以使用一般機制描述叢集中的節點。 以下是具有 4 個核心和 2 GB 記憶體的節點設定範例：
+對於大部分的客戶和案例而言，會自動偵測 CPU 和記憶體的節點容量，這是建議的設定（預設會開啟自動偵測）。 不過，如果您需要完全手動設定節點容量，您可以使用用來描述叢集中節點的機制來設定每個節點類型的。 以下範例說明如何設定具有四個核心和 2 GB 記憶體的節點類型：
 
 ```xml
     <NodeType Name="MyNodeType">
@@ -217,7 +206,7 @@ Service Fabric 執行階段目前不提供資源的保留。 當開啟處理序�
 其他備註：
 
 * 資源限制強制僅適用于 `servicefabric:/_CpuCores` 和 `servicefabric:/_MemoryInMB` 資源計量
-* 資源限制強制執行僅適用于資源計量的節點容量可供 Service Fabric （透過自動偵測機制），或透過手動指定節點容量（如啟用的叢集設定中所述）的使用者。 [資源管理](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance)一節）。 如果未設定節點容量，就無法使用資源限制強制功能，因為 Service Fabric 無法知道要為使用者服務保留多少資源。 如果 "EnforceUserServiceMetricCapacities" 為 true，但未設定節點容量，Service Fabric 將會發出健康情況警告。
+* 只有在資源計量的節點容量可供 Service Fabric （透過自動偵測機制），或透過手動指定節點容量（如[啟用資源管理](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance)的叢集設定一節中所述）的使用者，才可以強制執行資源限制。 如果未設定節點容量，就無法使用資源限制強制功能，因為 Service Fabric 無法知道要為使用者服務保留多少資源。 如果 "EnforceUserServiceMetricCapacities" 為 true，但未設定節點容量，Service Fabric 將會發出健康情況警告。
 
 ## <a name="other-resources-for-containers"></a>容器的其他資源
 

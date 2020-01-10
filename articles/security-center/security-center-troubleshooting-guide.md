@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: c72357b0e60f36082a468063ecf2bca329cd70be
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 68d37bfbc629062a788ba32793b95c6f1653ff42
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355294"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749649"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure 資訊安全中心疑難排解指南
 
@@ -44,7 +44,7 @@ ms.locfileid: "75355294"
 
 ## <a name="audit-log"></a>稽核記錄檔
 
-大多數在資訊安全中心進行的疑難排解作業會先查看失敗元件的[稽核記錄](../azure-monitor/platform/activity-logs-overview.md)。 透過稽核記錄，您可以判斷︰
+大多數在資訊安全中心進行的疑難排解作業會先查看失敗元件的[稽核記錄](../azure-monitor/platform/platform-logs-overview.md)。 透過稽核記錄，您可以判斷︰
 
 * 已發生的作業
 * 起始作業的人員

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: 288dcf828dd046ad69bc4f61b1837361ea600980
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 95ed6df3192043f33cf8d911387fc2a318153ac7
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75373346"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751167"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>建立、變更或刪除網路介面
 
@@ -90,7 +90,7 @@ ms.locfileid: "75373346"
    - **屬性︰** 顯示有關網路介面的重要設定，包括其 MAC 位址 (如果網路介面未連結至虛擬機器，則位址會空白) 以及其所在的訂用帳戶。
    - **有效安全性規則︰** 如果網路介面已連結至執行中的虛擬機器，而且 NSG 與網路介面、為它指派的子網路或兩者相關聯，則會列出安全性規則。 若要深入了解顯示的內容，請參閱[檢視有效的安全性規則](#view-effective-security-rules)。 若要深入了解 NSG，請參閱[網路安全性群組](security-overview.md)。
    - **有效路由︰** 如果網路介面已連結至執行中的虛擬機器，則會列出路由。 路由是下列各項的組合：Azure 預設路由、任何使用者定義的路由，以及為網路介面所指派子網路的任何可能 BGP 路由。 若要深入了解所顯示的內容，請參閱[檢視有效的路由](#view-effective-routes)。 若要深入了解 Azure 預設路由和使用者定義的路由，請閱讀[路由概觀](virtual-networks-udr-overview.md)。
-   - **一般 Azure Resource Manager 設定：** 若要深入了解一般 Azure Resource Manager 設定，請參閱[活動記錄](../azure-monitor/platform/activity-logs-overview.md)、[存取控制 (IAM)](../role-based-access-control/overview.md)、[標記](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[鎖定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[自動化指令碼](../azure-resource-manager/templates/export-template-portal.md)。
+   - **一般 Azure Resource Manager 設定：** 若要深入了解一般 Azure Resource Manager 設定，請參閱[活動記錄](../azure-monitor/platform/platform-logs-overview.md)、[存取控制 (IAM)](../role-based-access-control/overview.md)、[標記](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[鎖定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[自動化指令碼](../azure-resource-manager/templates/export-template-portal.md)。
 
 <a name="view-settings-commands"></a>**命令**
 

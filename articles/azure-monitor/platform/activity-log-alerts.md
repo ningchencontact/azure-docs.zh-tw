@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/17/2018
-ms.openlocfilehash: d3cb075d5ec0607453ca21f2574df7def02a4453
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c42f72800a93de714f0cc126939a28a8a6b5fce4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553717"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747535"
 ---
 # <a name="alerts-on-activity-log"></a>活動記錄警示 
 
 ## <a name="overview"></a>概觀
-活動記錄警示是當符合警示中指定之條件的新[活動記錄事件](activity-log-schema.md)發生時啟動的警示。 根據[Azure 活動記錄](activity-logs-overview.md)中記錄的事件順序和數量，將會引發警示規則。 活動記錄警示規則是 Azure 資源，因此可以使用 Azure Resource Manager 範本來建立。 也可以在 Azure 入口網站中將它們建立、更新或刪除。 本文介紹活動記錄警示背後的概念。 如需建立或使用活動記錄警示規則的詳細資訊，請參閱[建立和管理活動記錄警示](alerts-activity-log.md)。
+活動記錄警示是當符合警示中指定之條件的新[活動記錄事件](activity-log-schema.md)發生時啟動的警示。 根據[Azure 活動記錄](platform-logs-overview.md)中記錄的事件順序和數量，將會引發警示規則。 活動記錄警示規則是 Azure 資源，因此可以使用 Azure Resource Manager 範本來建立。 也可以在 Azure 入口網站中將它們建立、更新或刪除。 本文介紹活動記錄警示背後的概念。 如需建立或使用活動記錄警示規則的詳細資訊，請參閱[建立和管理活動記錄警示](alerts-activity-log.md)。
 
 > [!NOTE]
 > **無法**針對活動記錄警示類別中的事件建立警示。
@@ -31,7 +31,7 @@ ms.locfileid: "72553717"
 
 在任一情況下，活動記錄警示只會監視建立警示所在之訂用帳戶中的事件。
 
-您可以針對活動記錄事件，以 JSON 物件中任何最上層屬性作為基礎設定活動記錄警示。 如需詳細資訊，請參閱 [Azure 活動記錄概觀](./activity-logs-overview.md#categories-in-the-activity-log)。 若要深入了解服務健康情況事件，請參閱[在服務通知上接收活動記錄警示](./alerts-activity-log-service-notifications.md)。 
+您可以針對活動記錄事件，以 JSON 物件中任何最上層屬性作為基礎設定活動記錄警示。 如需詳細資訊，請參閱[活動記錄中的類別](activity-log-view.md#categories-in-the-activity-log)。 若要深入了解服務健康情況事件，請參閱[在服務通知上接收活動記錄警示](alerts-activity-log-service-notifications.md)。 
 
 活動記錄警示有幾個常見的選項：
 

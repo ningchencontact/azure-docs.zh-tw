@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3d8d7c6d3c4e752480310c122bcb7db237b3022b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0ef9609cded29c94260d027212abbf0c62f8653c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209403"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772103"
 ---
 # <a name="use-azure-files-with-linux"></a>搭配 Linux 使用 Azure 檔案
-[Azure 檔案](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 可以使用 [SMB 核心用戶端](https://wiki.samba.org/index.php/LinuxCIFS)將 Azure 檔案共用裝載在 Linux 發行版本中。 本文將說明掛接 Azure 檔案共用的兩種方式：使用 `mount` 命令的隨選掛接，以及建立項目 `/etc/fstab` 的開機掛接。
+[Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 可以使用 [SMB 核心用戶端](https://wiki.samba.org/index.php/LinuxCIFS)將 Azure 檔案共用裝載在 Linux 發行版本中。 本文將說明掛接 Azure 檔案共用的兩種方式：使用 `mount` 命令的隨選掛接，以及建立項目 `/etc/fstab` 的開機掛接。
 
 在 Linux 上掛接 Azure 檔案共用的建議方式是使用 SMB 3.0。 根據預設，Azure 檔案儲存體需要在傳輸中加密，只有 SMB 3.0 支援。 Azure 檔案儲存體也支援 SMB 2.1，這不支援傳輸中的加密，但基於安全性考慮，您可能不會從另一個 Azure 區域或內部部署的 SMB 2.1 掛接 Azure 檔案共用。 除非您的應用程式特別需要 SMB 2.1，否則使用它的原因很少，因為最熱門的最近發行的 Linux 發行版本支援 SMB 3.0：  
 
@@ -24,7 +24,7 @@ ms.locfileid: "74209403"
 | Ubuntu | 14.04+ | 16.04+ |
 | Red Hat Enterprise Linux (RHEL) | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
-| Debian | 8+ | 10 + |
+| Debian | 8+ | 10+ |
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12+ | 12 SP3+ |
 
@@ -34,7 +34,7 @@ ms.locfileid: "74209403"
 uname -r
 ```
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**確定已安裝 cifs utils 套件。**  
@@ -80,7 +80,7 @@ uname -r
         --name $storageAccountName \
         --query "primaryEndpoints.file" | tr -d '"')
     smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))
-    fileHost=$(echo $fileHost | tr -d "/")
+    fileHost=$(echo $smbPath | tr -d "/")
 
     nc -zvw3 $fileHost 445
     ```
@@ -199,21 +199,21 @@ uname -r
 
 從 Linux 核心4.18 開始，SMB 核心模組（稱為 `cifs` 的舊版原因）會公開新的模組參數（通常稱為「各種」外部檔的*parm* ），稱為 `disable_legacy_dialects`。 雖然是在 Linux 核心4.18 中引進，但部分廠商已將這項變更 backport 到其支援的舊版核心。 為了方便起見，下表詳細說明通用 Linux 散發套件上此模組參數的可用性。
 
-| 配送映像 | 可以停用 SMB 1 |
+| 通路業 | 可以停用 SMB 1 |
 |--------------|-------------------|
 | Ubuntu 14.04-16.04 | 否 |
-| Ubuntu 18.04 | yes |
-| Ubuntu 19.04 + | yes |
+| Ubuntu 18.04 | 是 |
+| Ubuntu 19.04 + | 是 |
 | Debian 8-9 | 否 |
-| Debian 10 + | yes |
-| Fedora 29 + | yes |
+| Debian 10 + | 是 |
+| Fedora 29 + | 是 |
 | CentOS 7 | 否 | 
-| CentOS 8 + | yes |
+| CentOS 8 + | 是 |
 | Red Hat Enterprise Linux 6.x-7. x | 否 |
-| Red Hat Enterprise Linux 8 + | yes |
+| Red Hat Enterprise Linux 8 + | 是 |
 | openSUSE Leap 15。0 | 否 |
-| openSUSE Leap 15.1 + | yes |
-| openSUSE Tumbleweed | yes |
+| openSUSE Leap 15.1 + | 是 |
+| openSUSE Tumbleweed | 是 |
 | SUSE Linux Enterprise 11. x-12. x | 否 |
 | SUSE Linux Enterprise 15 | 否 |
 | SUSE Linux Enterprise 15。1 | 否 |

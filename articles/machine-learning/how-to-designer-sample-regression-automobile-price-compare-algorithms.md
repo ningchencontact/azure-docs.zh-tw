@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: a4148389992bc100be66175a75b32d61acaf2f46
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: f8cf20743ee5420312ed751a26796a0859956ae7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659863"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771439"
 ---
 # <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>使用 Azure Machine Learning 設計師訓練 & 比較多個回歸模型來預測汽車價格
 
@@ -25,7 +25,7 @@ ms.locfileid: "75659863"
 
 瞭解如何使用設計工具（預覽）來建立機器學習管線，而不需要撰寫任何一行程式碼。 這個範例會訓練並比較多個回歸模型，以根據其技術功能來預測汽車的價格。 我們將提供此管線中所做選擇的基本原理，讓您可以處理自己的機器學習服務問題。
 
-如果您只是開始使用機器學習服務，請查看此管線的[基本版本](service/how-to-designer-sample-regression-automobile-price-basic.md)。
+如果您只是開始使用機器學習服務，請查看此管線的[基本版本](how-to-designer-sample-regression-automobile-price-basic.md)。
 
 以下是此管線的完成圖形：
 
@@ -92,9 +92,9 @@ ms.locfileid: "75659863"
 
 探索適用于設計工具的其他範例：
 
-- [範例 1-回歸：預測汽車的價格](service/how-to-designer-sample-regression-automobile-price-basic.md)
-- [範例 3-使用特徵選取進行分類：收入預測](service/how-to-designer-sample-classification-predict-income.md)
-- [範例 4-分類：預測信用風險（區分成本）](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [範例 5-分類：預測流失](service/how-to-designer-sample-classification-churn.md)
-- [範例 6-分類：預測航班延誤](service/how-to-designer-sample-classification-flight-delay.md)
+- [範例 1-回歸：預測汽車的價格](how-to-designer-sample-regression-automobile-price-basic.md)
+- [範例 3-使用特徵選取進行分類：收入預測](how-to-designer-sample-classification-predict-income.md)
+- [範例 4-分類：預測信用風險（區分成本）](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [範例 5-分類：預測流失](how-to-designer-sample-classification-churn.md)
+- [範例 6-分類：預測航班延誤](how-to-designer-sample-classification-flight-delay.md)
 - [範例 7-文字分類：維琪百科 SP 500 資料集](how-to-designer-sample-text-classification.md)

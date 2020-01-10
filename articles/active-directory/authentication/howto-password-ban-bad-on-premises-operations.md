@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24fa03fe12f584e9da32b547f0d8128e5ff28803
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d8602a9c5b69c47c2f663dab461394ef5e1a9bed
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847723"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762853"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Azure AD 密碼保護作業程序
 
@@ -28,7 +28,7 @@ ms.locfileid: "74847723"
 
 ## <a name="enable-password-protection"></a>啟用密碼保護
 
-1. 登入[Azure 入口網站](https://portal.azure.com)，然後流覽至 [ **Azure Active Directory**]、[**驗證方法**] 和 [**密碼保護**]。
+1. 登入[Azure 入口網站](https://portal.azure.com)，然後流覽至 [ **Azure Active Directory**]、[**安全性**]、[**驗證方法**] 和 [**密碼保護**]。
 1. 將 [啟用 Windows Server Active Directory 上的密碼保護] 設定為 [是]
 1. 如[部署指南](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy)所述，建議您一開始就將 [模式] 設定為 [稽核]
    * 對功能感到滿意後，您可以將 [模式] 切換為 [已強制]

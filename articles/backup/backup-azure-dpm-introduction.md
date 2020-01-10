@@ -3,12 +3,12 @@ title: 準備 DPM 服務器以備份工作負載
 description: 在本文中，您將瞭解如何使用 Azure 備份服務，為 Azure 的 System Center Data Protection Manager （DPM）備份做準備。
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: c7b662c07caecb7871ec9f8be89ffc76b8f7f5fb
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 2119d46ca6102286ca879777058a49938b501ad6
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173141"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75753957"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>準備使用 System Center DPM 將工作負載備份到 Azure
 
@@ -165,7 +165,7 @@ Azure 備份所備份的每部電腦都必須安裝備份代理程式，也就�
 
 7. 按一下 [註冊]，將 DPM 伺服器註冊至保存庫。
 
-伺服器成功註冊至保存庫後，您現在已準備就緒，可開始備份至 Microsoft Azure。
+伺服器成功註冊至保存庫後，您現在已準備就緒，可開始備份至 Microsoft Azure。 您將需要在 DPM 主控台中設定保護群組，以將工作負載備份至 Azure。 [瞭解如何](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019)部署保護群組。
 
 ## <a name="troubleshoot-vault-credentials"></a>對保存庫認證進行疑難排解
 

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 4a6796c0a9a64bc40255de64b39ce881e1b8855c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9298b802417f5a7162ef74bb0f7906144aae4e35
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934736"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745701"
 ---
 # <a name="azure-database-security-checklist"></a>Azure 資料庫安全性檢查清單
 
 為了協助改善安全性，Azure 資料庫包含數個內建安全性控制項，您可用來限制和控制存取。
 
-它們包括：
+這些區域包括：
 
 -   防火牆，可讓您建立依 IP 位址限制連線能力的[防火牆規則](../../sql-database/sql-database-firewall-configure.md)
 -   可從 Azure 入口網站存取的伺服器層級防火牆
@@ -44,7 +44,7 @@ ms.locfileid: "68934736"
 我們建議您先閱讀 [Azure 資料庫安全性最佳做法](database-best-practices.md)一文，再檢閱這份檢查清單。 在您了解最佳做法之後，您就能夠充分利用這份檢查清單。 您可以接著使用這份檢查清單，確保您已解決 Azure 資料庫安全性的重大問題。
 
 
-|檢查清單類別| 描述|
+|檢查清單類別| 說明|
 | ------------ | -------- |
 |**保護資料**||
 | <br> 移動/傳輸中加密| <ul><li>[傳輸層安全性](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol)，用於在資料移至網路時進行資料加密。</li><li>資料庫要求來自用戶端的安全通訊以透過 TLS (傳輸層安全性) 的 [TDS (表格式資料流)](https://msdn.microsoft.com/library/dd357628.aspx) 通訊協定為基礎。</li></ul> |
@@ -53,7 +53,7 @@ ms.locfileid: "68934736"
 |<br> 資料庫存取 | <ul><li>[驗證](../../sql-database/sql-database-control-access.md) (Azure Active Directory 驗證) AD 驗證會使用由 Azure Active Directory 管理的身分識別。</li><li>[授權](../../sql-database/sql-database-control-access.md)會授與使用者所需的最低權限。</li></ul> |
 |<br>應用程式存取| <ul><li>[資料列層級安全性](https://msdn.microsoft.com/library/dn765131) (使用安全性原則，同時根據使用者的身分識別、角色或執行內容限制資料列層級存取)。</li><li>[動態資料遮罩](../../sql-database/sql-database-dynamic-data-masking-get-started.md) (使用權限和原則，對不具權限的使用者進行遮罩處理，以限制敏感性資料的揭露)</li></ul>|
 |**主動式監視**||  
-| <br>追蹤和偵測| <ul><li>[稽核](../../sql-database/sql-database-auditing.md)可追蹤資料庫事件，並將事件寫入您 [Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)中的稽核記錄/活動記錄。</li><li>使用 [Azure 監視器活動記錄](../../azure-monitor/platform/activity-logs-overview.md)來追蹤 Azure 資料庫健康情況。</li><li>[威脅偵測](../../sql-database/sql-database-threat-detection.md)會偵測異常資料庫活動，指出資料庫有潛在的安全性威脅。 </li></ul> |
+| <br>追蹤和偵測| <ul><li>[稽核](../../sql-database/sql-database-auditing.md)可追蹤資料庫事件，並將事件寫入您 [Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)中的稽核記錄/活動記錄。</li><li>使用 [Azure 監視器活動記錄](../../azure-monitor/platform/platform-logs-overview.md)來追蹤 Azure 資料庫健康情況。</li><li>[威脅偵測](../../sql-database/sql-database-threat-detection.md)會偵測異常資料庫活動，指出資料庫有潛在的安全性威脅。 </li></ul> |
 |<br>Azure 資訊安全中心| <ul><li>[資料監視](../../security-center/security-center-enable-auditing-on-sql-databases.md) 使用 Azure 資訊安全中心作為 SQL 和其他 Azure 服務的集中式安全性監視解決方案。</li></ul>|       
 
 ## <a name="conclusion"></a>結論

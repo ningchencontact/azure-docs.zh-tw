@@ -4,16 +4,16 @@ description: 了解如何使用 Azure Functions 的 Durable Functions 擴充功�
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9c8edf5e8fb32160280a1ce9bff827c2e3fa14f8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f8a589bd4ab4de396c0688f8022515d6fbec96a2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232849"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769586"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Durable Functions 中的監視器案例 - 天氣監看員範例
 
-監視器模式指的是工作流程中的彈性「週期性」程序，例如，輪詢直到符合特定條件。 本文會說明使用 [Durable Functions](durable-functions-overview.md) 來實作監視的範例。
+監視模式是指工作流程中的彈性「週期性」程序，例如，輪詢直到符合特定條件。 本文會說明使用 [Durable Functions](durable-functions-overview.md) 來實作監視的範例。
 
 [!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
@@ -50,11 +50,11 @@ ms.locfileid: "74232849"
 
 本文說明範例應用程式中的函式如下：
 
-* `E3_Monitor`：定期呼叫 `E3_GetIsClear` 的協調器函式。 如果 `E3_SendGoodWeatherAlert` 傳回 true，此函式會呼叫 `E3_GetIsClear`。
+* `E3_Monitor`：定期呼叫 `E3_GetIsClear` 的協調器函式。 如果 `E3_GetIsClear` 傳回 true，此函式會呼叫 `E3_SendGoodWeatherAlert`。
 * `E3_GetIsClear`：會檢查某地點目前天氣狀況的活動函式。
 * `E3_SendGoodWeatherAlert`：會透過 Twilio 傳送手機簡訊的活動函式。
 
-下列各節說明用於C#腳本處理和 JavaScript 的設定和程式碼。 Visual Studio 開發適用的程式碼會顯示在文章結尾。
+下列各節說明用於C#腳本處理和 JavaScript 的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
 
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>天氣監視協調流程 (Visual Studio Code 和 Azure 入口網站程式碼範例)
 
@@ -171,10 +171,10 @@ POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio 範例程式碼
 
-以下是 Visual Studio 專案中單一 C# 檔案的協調流程：
+以下是 Visual Studio 專案中的單一 C# 檔案所示範的協調流程：
 
 > [!NOTE]
-> 您必須安裝 `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget 封裝來執行下列範例程式碼。
+> 您將需要安裝 `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet 套件，才能執行下列範例程式碼。
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 

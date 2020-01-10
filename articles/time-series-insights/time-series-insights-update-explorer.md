@@ -8,20 +8,20 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 17ba808ebfabb68765cf35bbf0799d117bc6383b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: d94daa5fbda4ee60ffc6671f7b50126662416043
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133427"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746535"
 ---
 # <a name="azure-time-series-insights-preview-explorer"></a>Azure 時間序列深入解析預覽 explorer
 
 本文說明 Azure 時間序列深入解析 Preview[示範 web 應用程式](https://insights.timeseries.azure.com/preview/demo)中可用的各種功能和選項。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要開始使用 Azure 時間序列深入解析 Preview explorer，您必須：
 
@@ -58,7 +58,7 @@ Azure 時間序列深入解析 Preview explorer 包含下列七個元素：
 
 ## <a name="2-navigation-bar"></a>2. 巡覽列
 
-  [![巡覽列](media/v2-update-explorer/navigation-bar.png)](media/v2-update-explorer/navigation-bar.png#lightbox)
+  [![巡覽列](media/v2-update-explorer/tsi-preview-navigation-bar.png)](media/v2-update-explorer/tsi-preview-navigation-bar.png#lightbox)
 
 使用巡覽列，在兩個不同的視圖之間進行選取：
 
@@ -79,9 +79,9 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. 階層樹狀結構和搜尋面板
 
-階層樹狀結構和 [搜尋] 面板可讓您輕鬆地搜尋和流覽[時間序列模型](./time-series-insights-update-tsm.md)階層，以尋找您想要在圖表上顯示的特定時間序列實例。 當您選取實例時，它們不僅會加入目前的圖表中，還會加入至資料中。 
+階層樹狀結構和 [搜尋] 面板可讓您輕鬆地搜尋及流覽[時間序列模型](./time-series-insights-update-tsm.md)階層，以尋找您想要在圖表上顯示的特定時間序列實例。 當您選取實例時，它們不僅會加入目前的圖表中，還會加入至資料中。 
 
-[![階層樹狀結構和搜尋面板](media/v2-update-explorer/hierarchy-search.png)](media/v2-update-explorer/hierarchy-search.png#lightbox)
+[![階層樹狀結構和搜尋面板](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
 [搜尋結果] 窗格也可讓您在階層視圖或清單視圖中查看結果，讓您可以輕鬆地找到想要顯示的實例。
  
@@ -89,7 +89,7 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 
 這會顯示實例欄位，以及與所選時間序列深入解析實例相關聯的其他中繼資料。 藉由選取右側的核取方塊，您可以隱藏或顯示目前圖表中的特定實例。 
 
-  [![預覽的效果](media/v2-update-explorer/preview-well.png)](media/v2-update-explorer/preview-well.png#lightbox)
+  [![預覽的效果](media/v2-update-explorer/tsi-preview-ui-explorer-well.png)](media/v2-update-explorer/tsi-preview-ui-explorer-well.png#lightbox)
 
 您可以選取專案左側的紅色 [**刪除**] （垃圾桶）控制項，從目前的資料中移除特定的資料元素。 也可以讓您控制每個元素在圖表中的顯示方式。 您可以加入宣告最小/最大陰影、資料點、將專案移入時間，並以逐步方式將實例視覺化。 
 
@@ -100,13 +100,13 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 > [!NOTE]
 > 如果您看到下列訊息，則在選取的時間範圍內，實例沒有任何資料。 若要解決此問題，請增加時間範圍，或確認實例正在推送資料。
 >
-> ![沒有資料通知](media/v2-update-explorer/no-data-warning.png)
+> ![沒有資料通知](media/v2-update-explorer/tsi-preview-no-data-warning.png)
 
 ## <a name="5-chart-panel"></a>5. 圖表面板
 
 圖表可讓您將時間序列實例顯示為線條。 您可以按一下 Web 控制項將圖表加大，以摺疊環境面板、資料模型和時間範圍控制面板。 
 
-  [![預覽圖表總覽](media/v2-update-explorer/chart-overview.png)](media/v2-update-explorer/chart-overview.png#lightbox)
+  [![預覽圖表總覽](media/v2-update-explorer/tsi-preview-chart-overview.png)](media/v2-update-explorer/tsi-preview-chart-overview.png#lightbox)
 
 1. **圖表類型**：控制哪些資料元素可供視覺效果使用。
 
@@ -122,29 +122,29 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 
 1. **標記元素**：目前選取的資料元素及其相關聯的詳細資料。
 
-您可以藉由在目前圖表上的資料點上**按一下滑鼠左鍵**，然後將選取的區域拖曳至您選擇的端點，進一步切入特定的資料配量。 以**滑鼠右鍵按一下**灰色、選取的區域，然後按一下 [**縮放**]，如下所示。 您也可以在選取的時間範圍內，查看並下載遙測事件。
+您可以藉由在目前圖表上的資料點上**按一下滑鼠左鍵**，然後將選取的區域拖曳至您選擇的端點，進一步切入特定的資料配量。 以**滑鼠右鍵按一下**藍色、選取的區域，然後按一下 [**縮放**]，如下所示。 您也可以在選取的時間範圍內，查看並下載遙測事件。
 
   [![預覽圖表縮放比例](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
 執行 [**縮放**] 動作之後，您會看到選取的資料集。 選取 [格式] 控制項以迴圈流覽時間序列深入解析資料的三個 y 軸標記法。
 
-  [![預覽圖表 y 軸](media/v2-update-explorer/standard-chart.png)](media/v2-update-explorer/standard-chart.png#lightbox)
+  [![預覽圖表 y 軸](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png)](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png#lightbox)
 
 在這裡，您可以看到重**迭圖表**的範例：
 
-  [![重迭圖表選項](media/v2-update-explorer/overlapping-chart.png)](media/v2-update-explorer/overlapping-chart.png#lightbox)
+  [![重迭圖表選項](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
-[**其他動作**] 按鈕會展開，以顯示 [**下載為 CSV** ] 和 [**匯出至 Power BI** ] 選項。
+[**更多動作**] 按鈕會展開以顯示 [**下載為 CSV** **]、[連接到 Power BI]、[將** **圖表資料顯示為數據表**] 和 [**探索原始事件**] 選項。
 
   [![其他動作 選項](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
-閱讀[時間序列深入解析 native Power BI 連接器](concepts-power-bi.md)的相關資訊。
+深入瞭解[時間序列深入解析 native Power BI 連接器](concepts-power-bi.md)中的 [**連接到 Power BI]** 選項。
 
 ## <a name="6-time-editor-panel"></a>6. 時間編輯器面板
 
 當您使用時間序列深入解析時，您會先選取時間範圍。 選取的時間範圍將會控制可用來操作時間序列深入解析更新 widget 的資料集。
 
-  [![時間選取面板](media/v2-update-explorer/timeline-element.png)](media/v2-update-explorer/timeline-element.png#lightbox)
+  [![時間選取面板](media/v2-update-explorer/tsi-preview-explorer-timeline-element.png)](media/v2-update-explorer/tsi-preview-explorer-timeline-element.png#lightbox)
 
 > [!TIP]
 > 時間軸的一部分會以琥珀色或橙色反白顯示，以指出暖存放區中可用的資料範圍。
@@ -171,15 +171,15 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 
 ### <a name="current-session-share-link-control"></a>目前工作階段共用連結控制項
 
-  [![共用圖示](media/v2-update-explorer/share-icon.png)](media/v2-update-explorer/share-icon.png#lightbox)
+  [![共用圖示](media/v2-update-explorer/tsi-preview-explorer-share-icon.png)](media/v2-update-explorer/tsi-preview-explorer-share-icon.png#lightbox)
 
 選取 [新增**共用**] 圖示，與您的小組共用 URL 連結。
 
-  [![共用您的實例 URL](media/v2-update-explorer/share-your-view.png)](media/v2-update-explorer/share-your-view.png#lightbox)
+  [![共用您的實例 URL](media/v2-update-explorer/tsi-preview-explorer-share-your-view.png)](media/v2-update-explorer/tsi-preview-explorer-share-your-view.png#lightbox)
 
 ### <a name="tenant-section"></a>租用戶區段
 
-  [![租使用者選取](media/v2-update-explorer/tenant-selection.png)](media/v2-update-explorer/tenant-selection.png#lightbox)
+  [![租使用者選取](media/v2-update-explorer/tsi-preview-explorer-tenant-selection.png)](media/v2-update-explorer/tsi-preview-explorer-tenant-selection.png#lightbox)
 
 * 顯示目前時間序列深入解析登入帳戶資訊。
 * 使用它在可用的時間序列深入解析主題之間切換。
@@ -189,7 +189,7 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 
 若要選取新的主題，請選取位於右上角的設定檔圖示。 然後，選取 [**變更主題**]。
 
-  [![主題選取範圍](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
+  [![主題選取範圍](media/v2-update-explorer/tsi-preview-theme-selection.png)](media/v2-update-explorer/tsi-preview-theme-selection.png#lightbox)
 
 > [!TIP]
 > 選取您的設定檔圖示也可以選取 [語言]。
@@ -199,7 +199,7 @@ Azure 時間序列深入解析預覽支援兩種佈景主題：
 * **淺色主題**：這份檔中顯示的預設主題。
 * **深色主題**：呈現 explorer，如下所示：
 
-  [![選取的深色主題](media/v2-update-explorer/dark-theme-selected.png)](media/v2-update-explorer/dark-theme-selected.png#lightbox)
+  [![選取的深色主題](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
 ## <a name="s1s2-environment-controls"></a>S1/S2 環境控制項
 
@@ -215,18 +215,18 @@ Azure 時間序列深入解析預覽支援兩種佈景主題：
 
 **Where**：使用 where 子句，藉由使用下表所列的運算元集合來快速篩選事件。 如果透過選取運算元進行搜尋，述詞會依據該搜尋自動更新。 支援的運算元類型包括下列各項：
 
-| 作業 | 支援的類型   | 注意事項 |
+| 作業 | 支援的類型   | 注意 |
 | --- | --- | --- |
-| `<`、`>`、`<=`、`>=` | Double、DateTime、TimeSpan | |
-| `=`、`!=`, `<>` | String、Bool、Double、DateTime、TimeSpan、NULL |
+| `<`, `>`, `<=`, `>=` | Double、DateTime、TimeSpan | |
+| `=`、`!=`、`<>` | String、Bool、Double、DateTime、TimeSpan、NULL |
 | `IN` | String、Bool、Double、DateTime、TimeSpan、NULL | 所有的運算元都應該是相同的類型或是 NULL 常數。 |
-| `HAS` | 字串 | 右側只允許常數位串常值。 不允許空字串和 Null。 |
+| `HAS` | String | 右側只允許常數位串常值。 不允許空字串和 Null。 |
 
 若要深入瞭解支援的查詢作業和資料類型，請參閱[時間序列運算式（TSX）](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)。
 
 ### <a name="examples-of-where-clauses"></a>Where 子句範例
 
-  [![Where 子句範例](media/v2-update-explorer/example-queries.png)](media/v2-update-explorer/example-queries.png#lightbox)
+  [![Where 子句範例](media/v2-update-explorer/tsi-preview-example-queries.png)](media/v2-update-explorer/tsi-preview-example-queries.png#lightbox)
 
 **量值**：顯示所有數值資料行（**雙精度**浮點數）的下拉式清單，您可以用來做為目前圖表的元素。
 

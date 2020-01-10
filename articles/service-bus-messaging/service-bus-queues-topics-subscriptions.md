@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: aschhab
-ms.openlocfilehash: bc549f9bfbb48da9263493c21ec38735b3cc0c24
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9ac8d95dda392bd3f2a438389f5f6aa434b8a2fa
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426918"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772137"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>服務匯流排佇列、主題和訂用帳戶
 
@@ -41,7 +41,7 @@ Microsoft Azure 服務匯流排支援一組以雲端為基礎、訊息導向的�
 
 ### <a name="receive-modes"></a>接收模式
 
-您可以指定兩種不同的服務匯流排訊息接收模式：*ReceiveAndDelete* 或 *PeekLock*。 在 [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) 模式中，接收是一次性作業；也就是說，當服務匯流排收到要求時，它會將此訊息標示為已取用，並將它傳回應用程式。 **ReceiveAndDelete** 模式是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。 若要了解此案例，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。 因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
+您可以指定兩種不同的服務匯流排訊息接收模式：*ReceiveAndDelete* 或 *PeekLock*。 在[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)模式中，接收作業是一次性的;也就是說，當服務匯流排從取用者收到要求時，它會將訊息標示為已取用，並將它傳回到取用者應用程式。 **ReceiveAndDelete** 模式是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。 若要了解此案例，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。 因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
 在 [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 模式中，接收作業會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。 當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。 在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可透過呼叫已接收訊息上的 [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) 來完成接收程序的第二個階段。 當服務匯流排看到 **CompleteAsync** 呼叫時，它會將訊息標示為已取用。
 

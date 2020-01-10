@@ -1,6 +1,6 @@
 ---
-title: 設計用於資料修改的 Azure 儲存體資料表 | Microsoft Docs
-description: 設計 Azure 表格儲存體中的資料修改資料表。
+title: 設計用於資料修改的 Azure 資料表儲存體 |Microsoft Docs
+description: 在 Azure 資料表儲存體中設計資料修改的資料表。
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c95be7afae5c0a84c06b691c8225f32f2aa68260
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325879"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771541"
 ---
 # <a name="design-for-data-modification"></a>資料修改的設計
 本文著重於最佳化插入、更新和刪除的設計考量。 在某些情況下，您必須在查詢最佳化的設計與資料修改最佳化的設計之間評估取捨，如同您在設計關聯式資料庫時一般 (雖然在關聯式資料庫中用來管理設計取捨的方法有所不同)。 資料表設計模式一節會說明資料表服務的一些詳細設計模式，並強調說明一些相關取捨。 在實務上，您會發現許多針對查詢實體而最佳化的設計也適用於修改實體。  

@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 654787c34c6ceae51f1e1ce500193f73189f8935
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0f2eabf0167865333131e0f8e5b0c4ccb409e40e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427085"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771235"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊
 
@@ -61,7 +61,7 @@ ms.locfileid: "75427085"
 - [Restream.io](https://restream.io/)
 
 ### <a name="file-encoding-enhancements"></a>檔案編碼增強功能
-
+- 現在提供新的內容感知編碼預設值。 它會使用內容感知編碼來產生一組對齊 GOP 的 Mp4。 針對任何輸入內容，此服務會執行輸入內容的初始輕量分析。 它會使用這些結果來判斷以彈性串流傳遞的最佳層級、適當的位元速率和解析度設定。 此預設值特別適用于低複雜度和中等複雜度的影片，其中輸出檔案是以較低的位元速率，但品質仍然可以讓檢視器獲得良好的體驗。 輸出會包含具有影片和音訊交錯的有案檔案。 如需詳細資訊，請參閱[OPEN API 規格](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json)。
 - 改善媒體編碼器標準中重新 sizer 的效能和多執行緒處理。 在特定情況下，客戶應該會看到 5-40% VOD 編碼之間的效能提升。 以多個位元速率編碼的低複雜性內容將會看到最高效能的增加。 
 - 標準編碼現在會在使用以時間為基礎的 GOP 設定時，為 VOD 編碼期間的變數畫面播放速率（VFR）內容保留一般的 GOP 節奏。  這表示客戶提交混合的畫面播放速率內容，會因 15-30 fps 而有所不同。例如，現在應該會看到輸出到彈性位元速率串流的檔案時，計算出一般的 GOP 距離。 這可改善在傳遞 HLS 或虛線時，在曲目之間順暢切換的能力。 
 -  改善可變畫面播放速率（VFR）來源內容的 AV 同步處理

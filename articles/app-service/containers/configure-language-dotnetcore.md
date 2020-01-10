@@ -4,12 +4,12 @@ description: 瞭解如何為您的應用程式設定預先建立的 ASP.NET Core
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
-ms.openlocfilehash: d26c490ad37b25785ff1347cccf1e2be21bba277
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: cab99b9d20ce8a3190eb9aa59650dab32fca324d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670458"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768413"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Linux ASP.NET Core 應用程式
 
@@ -44,7 +44,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 在 App Service 中，您可以於應用程式的程式碼外部[設定應用程式設定](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)。 然後，您可以使用標準 ASP.NET Core 相依性插入模式，在任何類別中存取這些物件：
 
 ```csharp
-include Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 
 namespace SomeNamespace 
 {
@@ -82,9 +82,9 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 在 App Service 中，[SSL 終止](https://wikipedia.org/wiki/TLS_termination_proxy)會在網路負載平衡器上發生，因此所有的 HTTPS 要求都會以未加密 HTTP 要求的形式進入您的應用程式。 如果您的應用程式邏輯需要知道使用者要求是否已加密，請在*Startup.cs*中設定轉送的標頭中介軟體：
 
-- 使用[ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions)設定中介軟體，以轉送 `Startup.ConfigureServices`中的 `X-Forwarded-For` 和 `X-Forwarded-Proto` 標頭。
+- 請使用 [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) 來設定中介軟體以轉送 `Startup.ConfigureServices` 中的 `X-Forwarded-For` 和 `X-Forwarded-Proto` 標頭。
 - 將私人 IP 位址範圍新增至已知的網路，讓中介軟體可以信任 App Service 負載平衡器。
-- 呼叫其他中介軟體之前，請先在 `Startup.Configure` 中叫用[UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders)方法。
+- 呼叫其他中介軟體之前, `Startup.Configure`請先在中叫用 [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) 方法。
 
 將這三個元素全部放在一起，您的程式碼看起來如下列範例所示：
 
@@ -113,7 +113,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-如需詳細資訊，請參閱[設定 ASP.NET Core 以使用 proxy 伺服器和負載平衡](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer)器。
+如需詳細資訊，請參閱[設定 ASP.NET Core 以處理 Proxy 伺服器和負載平衡器](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer)。
 
 ## <a name="deploy-multi-project-solutions"></a>部署多專案方案
 

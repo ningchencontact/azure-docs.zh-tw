@@ -14,17 +14,17 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: aa86d6cf22562fa1fac7d45de20b28aa0eec33aa
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 9412107759e0aa068d982828d47b97822c09ae35
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261665"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748094"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用於診斷評估和監視的 Batch 計量、警示和記錄
 
  
-本文說明如何使用 [Azure 監視器](../azure-monitor/overview.md)的功能來監視 Batch 帳戶。 Azure 監視器會收集您 Batch 帳戶中的資源[計量](../azure-monitor/platform/data-platform-metrics.md)和[診斷記錄](../azure-monitor/platform/resource-logs-overview.md)。 透過各種方式收集及使用此資料，以監視您的 Batch 帳戶和診斷問題。 您也可以設定[計量警示](../azure-monitor/platform/alerts-overview.md)，在計量達到指定值時接收通知。 
+本文說明如何使用 [Azure 監視器](../azure-monitor/overview.md)的功能來監視 Batch 帳戶。 Azure 監視器會收集您 Batch 帳戶中的資源[計量](../azure-monitor/platform/data-platform-metrics.md)和[診斷記錄](../azure-monitor/platform/platform-logs-overview.md)。 透過各種方式收集及使用此資料，以監視您的 Batch 帳戶和診斷問題。 您也可以設定[計量警示](../azure-monitor/platform/alerts-overview.md)，在計量達到指定值時接收通知。 
 
 ## <a name="batch-metrics"></a>Batch 計量
 
@@ -91,7 +91,7 @@ ms.locfileid: "71261665"
 
 * 將 Batch 診斷記錄事件串流至 [Azure 事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)。 事件中樞每秒可輸入數百萬個事件，您可以使用任何即時分析提供者來轉換和儲存。 
 
-* 將診斷記錄傳送至[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)檔, 您可以在其中分析它們, 或將它們匯出以在 Power BI 或 Excel 中進行分析。
+* 將診斷記錄傳送至[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)檔，您可以在其中分析它們，或將它們匯出以在 Power BI 或 Excel 中進行分析。
 
 > [!NOTE]
 > 使用 Azure 服務儲存或處理診斷記錄資料可能會產生額外費用。 
@@ -101,15 +101,15 @@ ms.locfileid: "71261665"
 
 1. 在入口網站中，按一下 [所有服務] > [Batch 帳戶]，然後按一下您的 Batch 帳戶名稱。
 2. 在 [監視] 下方，按一下 [診斷記錄] > [開啟診斷]。
-3. 在 [**診斷設定**] 中, 輸入設定的名稱, 然後選擇記錄目的地 (現有的儲存體帳戶、事件中樞或 Azure 監視器記錄)。 選取 **ServiceLog** 或/和 **AllMetrics**。
+3. 在 [**診斷設定**] 中，輸入設定的名稱，然後選擇記錄目的地（現有的儲存體帳戶、事件中樞或 Azure 監視器記錄）。 選取 **ServiceLog** 或/和 **AllMetrics**。
 
     當您選取儲存體帳戶時，可選擇性地設定保留原則。 如果您未指定保留天數，資料的保留期限會是儲存體帳戶的存留期間。
 
-4. 按一下 [儲存]。
+4. 按一下 [檔案]。
 
     ![Batch 診斷](media/batch-diagnostics/diagnostics-portal.png)
 
-啟用記錄收集的其他選項包括：使用入口網站中的 Azure 監視器設定診斷設定、使用 [Resource Manager 範本](../azure-monitor/platform/diagnostic-settings-template.md)或使用 Azure PowerShell 或 Azure CLI。 請參閱[收集並取用來自 Azure 資源的記錄資料](../azure-monitor/platform/resource-logs-overview.md)。
+啟用記錄收集的其他選項包括：使用入口網站中的 Azure 監視器設定診斷設定、使用 [Resource Manager 範本](../azure-monitor/platform/diagnostic-settings-template.md)或使用 Azure PowerShell 或 Azure CLI。 請參閱[收集並取用來自 Azure 資源的記錄資料](../azure-monitor/platform/platform-logs-overview.md)。
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>存取儲存體中的診斷記錄
@@ -130,15 +130,15 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-每`PT1H.json`個 blob 檔案包含 JSON 格式的事件，在 blob URL 中指定的一小時內發生（ `h=12`例如）。 在目前的一小時期間，事件會在`PT1H.json`檔案發生時附加至檔案。 分鐘值（`m=00`）一律`00`為，因為診斷記錄事件會分成每小時的個別 blob。 (所有時間都是採用 UTC 格式。)
+每個 `PT1H.json` blob 檔案都包含 JSON 格式的事件，在 blob URL 中所指定的一小時內發生（例如，`h=12`）。 在目前的一小時期間，事件會在發生時附加至 `PT1H.json` 檔案。 分鐘值（`m=00`）一律 `00`，因為診斷記錄事件會分成每小時的個別 blob。 (所有時間都是採用 UTC 格式。)
 
-以下是`PT1H.json`記錄檔中的`PoolResizeCompleteEvent`專案範例。 其中包含專用和低優先順序節點目前和目標數目的相關資訊，以及作業的開始和結束時間：
+以下是 `PT1H.json` 記錄檔中 `PoolResizeCompleteEvent` 專案的範例。 其中包含專用和低優先順序節點目前和目標數目的相關資訊，以及作業的開始和結束時間：
 
 ```
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-若要深入了解儲存體帳戶中的診斷記錄結構描述，請參閱[封存 Azure 診斷記錄](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-resource-logs-in-storage-account)。 若要以程式設計方式存取您儲存體帳戶中的記錄，請使用儲存體 API。 
+若要深入了解儲存體帳戶中的診斷記錄結構描述，請參閱[封存 Azure 診斷記錄](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account)。 若要以程式設計方式存取您儲存體帳戶中的記錄，請使用儲存體 API。 
 
 ### <a name="service-log-events"></a>服務記錄檔事件
 已收集的 Azure Batch 服務記錄中包含在個別 Batch 資源 (如集區或工作) 存留期間，由 Azure Batch 服務發出的事件。 Batch 發出的每個事件都會以 JSON 格式記錄。 例如，**集區建立事件**範例的主體為：

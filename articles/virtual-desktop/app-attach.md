@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: 8d9a6664caa7d0d84de54de232d6f8d0eab0a793
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8e8eec8af81832992a27206efcd7b7e7051a83b8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356255"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772545"
 ---
 # <a name="set-up-msix-app-attach"></a>設定 MSIX 應用程式附加
 
@@ -40,7 +40,7 @@ ms.locfileid: "75356255"
      >[!NOTE]
      >您必須是 Windows 測試人員程式的成員，才能存取 Windows 測試人員入口網站。 若要深入瞭解 Windows 測試人員程式，請參閱我們的[Windows 測試人員檔](https://docs.microsoft.com/windows-insider/at-home/)。
 
-2. 向下流覽至 [**選取版本**] 區段，然後選取 [ **Windows 10 Insider PREVIEW Enterprise （FAST）-Build XXXXX**]。
+2. 向下流覽至 [**選取版本**] 區段，然後選取 [ **Windows 10 Insider PREVIEW Enterprise （FAST）–組建 19035**或更新版本]。
 
 3. 選取 [**確認**]，然後選取您想要使用的語言，再選取 [**確認**]。
     

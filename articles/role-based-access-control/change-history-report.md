@@ -15,16 +15,16 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5758f480c9216cf71e47509682053b39f0b15bf
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 753c626fe44193b83cbd992f225fe01c2ff67f89
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172407"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744814"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>檢視活動記錄中 Azure 資源的各種 RBAC 變更
 
-有時，您會需要 Azure 資源之角色型存取控制 (RBAC) 變更的相關資訊，例如用來進行稽核或疑難排解。 每當有人對您訂用帳戶內的角色指派或角色定義進行變更時，這些變更都會記錄在 [Azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)中。 您可以檢視活動記錄來查看過去 90 天的所有 RBAC 變更。
+有時，您會需要 Azure 資源之角色型存取控制 (RBAC) 變更的相關資訊，例如用來進行稽核或疑難排解。 每當有人對您訂用帳戶內的角色指派或角色定義進行變更時，這些變更都會記錄在 [Azure 活動記錄](../azure-monitor/platform/platform-logs-overview.md)中。 您可以檢視活動記錄來查看過去 90 天的所有 RBAC 變更。
 
 ## <a name="operations-that-are-logged"></a>記錄的作業
 
@@ -35,7 +35,7 @@ ms.locfileid: "70172407"
 - 建立或更新自訂角色定義
 - 刪除自訂角色定義
 
-## <a name="azure-portal"></a>Azure 入口網站
+## <a name="azure-portal"></a>Azure Portal
 
 開始使用最簡單的方式是使用 Azure 入口網站檢視活動記錄。 下列螢幕擷取畫面顯示已篩選成顯示角色指派和角色定義作業的活動記錄範例。 它也包含將記錄下載為 CSV 檔案的連結。
 
@@ -43,10 +43,10 @@ ms.locfileid: "70172407"
 
 入口網站中的活動記錄有數個篩選條件。 以下是 RBAC 相關的篩選條件：
 
-|篩選器  |值  |
+|篩選  |值  |
 |---------|---------|
-|事件類別     | <ul><li>系統管理</li></ul>         |
-|運算     | <ul><li>建立角色指派</li> <li>刪除角色指派</li> <li>建立或更新自訂角色定義</li> <li>刪除自訂角色定義</li></ul>      |
+|事件類別目錄     | <ul><li>管理</li></ul>         |
+|作業     | <ul><li>建立角色指派</li> <li>刪除角色指派</li> <li>建立或更新自訂角色定義</li> <li>刪除自訂角色定義</li></ul>      |
 
 
 如需有關活動記錄的詳細資訊，請參閱[檢視活動記錄中的事件](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)。
@@ -110,7 +110,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)是您可以用來收集並分析所有 Azure 資源之 RBAC 變更的另一種工具。 Azure 監視器記錄具有下列優點:
+[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)是您可以用來收集並分析所有 Azure 資源之 RBAC 變更的另一種工具。 Azure 監視器記錄具有下列優點：
 
 - 撰寫複雜的查詢和邏輯
 - 整合警示、Power BI 和其他工具

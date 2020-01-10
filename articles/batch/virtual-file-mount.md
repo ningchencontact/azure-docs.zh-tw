@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
-ms.openlocfilehash: a153a8000552100d62807442d466c22cd0964e43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d687f3f9039ca39440abab218d75e1d5c5db6df9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75389837"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770113"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>在 Batch 集區上掛接虛擬檔案系統
 
@@ -85,7 +85,7 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>Azure Blob 檔案系統
 
-另一個選項是透過[blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)使用 Azure Blob 儲存體。 裝載 blob 檔案系統需要您的儲存體帳戶 `AccountKey` 或 `SasKey`。 如需取得這些金鑰的資訊，請參閱[管理儲存體帳戶存取金鑰](../storage/common/storage-account-keys-manage.md)，或[使用共用存取簽章（SAS）](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。 如需使用 blobfuse 的詳細資訊，請參閱 blobfuse[疑難排解常見問題](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)。 若要取得 blobfuse 裝載目錄的預設存取權，請以**系統管理員**身分執行工作。 Blobfuse 會在使用者空間裝載目錄，而在建立集區時，它會裝載為 root。 在 Linux 中，所有**系統管理員**工作都是 root。 熔斷器模組的所有選項都會在 [[保險絲參考] 頁面](http://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html)中說明。
+另一個選項是透過[blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)使用 Azure Blob 儲存體。 裝載 blob 檔案系統需要您的儲存體帳戶 `AccountKey` 或 `SasKey`。 如需取得這些金鑰的資訊，請參閱[管理儲存體帳戶存取金鑰](../storage/common/storage-account-keys-manage.md)，或[使用共用存取簽章（SAS）](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。 如需使用 blobfuse 的詳細資訊，請參閱 blobfuse[疑難排解常見問題](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)。 若要取得 blobfuse 裝載目錄的預設存取權，請以**系統管理員**身分執行工作。 Blobfuse 會在使用者空間裝載目錄，而在建立集區時，它會裝載為 root。 在 Linux 中，所有**系統管理員**工作都是 root。 熔斷器模組的所有選項都會在 [[保險絲參考] 頁面](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html)中說明。
 
 除了疑難排解指南以外，blobfuse 存放庫中的 GitHub 問題也是檢查目前 blobfuse 問題和解決方法的實用方式。 如需詳細資訊，請參閱[blobfuse 問題](https://github.com/Azure/azure-storage-fuse/issues)。
 

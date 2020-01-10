@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: a91035773d4427f0f3c07097eb3e02fc08c5f375
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9798cbd2b1c9dca489e843a7102f213757e4de75
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75528754"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771814"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>以互動方式在具有 VS Code 遠端的 Azure Machine Learning 計算實例上進行偵錯工具
 
@@ -23,7 +23,7 @@ ms.locfileid: "75528754"
 > [!NOTE]
 > 計算執行個體僅適用於區域為 [美國中北部] 或 [英國南部] 的工作區。
 
-+ [Azure Machine Learning 計算實例](/azure/machine-learning/service/concept-compute-instance)是一種完全受控的雲端式工作站，適用于資料科學家，並為 IT 系統管理員提供管理和企業就緒功能。 
++ [Azure Machine Learning 計算實例](concept-compute-instance.md)是一種完全受控的雲端式工作站，適用于資料科學家，並為 IT 系統管理員提供管理和企業就緒功能。 
 
 
 + [Visual Studio Code 遠端](https://code.visualstudio.com/docs/remote/remote-overview)開發可讓您使用容器、遠端電腦或適用于 Linux 的 Windows 子系統（WSL）作為功能完整的開發環境。 
@@ -117,4 +117,4 @@ Host azmlci1
 
 既然您已設定 Visual Studio Code 遠端，您就可以使用計算實例做為 Visual Studio Code 的遠端計算，以互動方式來對程式碼進行驗證。 
 
-[教學課程：將您的第一個 ML 模型定型](/azure/machine-learning/service/tutorial-1st-experiment-sdk-train)示範如何使用具有整合式筆記本的計算實例。
+[教學課程：將您的第一個 ML 模型定型](tutorial-1st-experiment-sdk-train.md)示範如何使用具有整合式筆記本的計算實例。

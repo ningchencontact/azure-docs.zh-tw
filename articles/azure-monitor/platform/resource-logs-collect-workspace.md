@@ -5,22 +5,22 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 83b91be52694076373d950e0ad785ef22671ef4f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b0b8757590876669e00e81378411c010514e3036
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894521"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750375"
 ---
-# <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>在 Azure 監視器的 Log Analytics 工作區中收集 Azure 資源記錄
-Azure 中的[資源記錄](resource-logs-overview.md)會提供有關 Azure 資源內部作業的豐富、經常性資料。 本文說明如何在 Log Analytics 工作區中收集資源記錄，讓您可以使用功能強大的記錄查詢在 Azure 監視器記錄中收集的其他監視資料進行分析，也可以利用警示和之類的其他 Azure 監視器功能項. 
+# <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>在 Azure 監視器的 Log Analytics 工作區中收集 Azure 平臺記錄
+Azure 中的[平臺記錄](platform-logs-overview.md)，包括 azure 活動記錄和資源記錄，可提供 azure 資源的詳細診斷和審核資訊，以及它們所依賴的 azure 平臺。 本文說明如何在 Log Analytics 工作區中收集資源記錄，讓您可以使用功能強大的記錄查詢在 Azure 監視器記錄中收集的其他監視資料進行分析，也可以利用警示和之類的其他 Azure 監視器功能項. 
 
 
-## <a name="what-you-can-do-with-resource-logs-in-a-workspace"></a>您可以使用工作區中的資源記錄來執行的動作
-將資源記錄收集到 Log Analytics 工作區可讓您同時分析所有 Azure 資源的記錄，並利用[Azure 監視器記錄](data-platform-logs.md)可用的所有功能，包括下列各項：
+## <a name="what-you-can-do-with-platform-logs-in-a-workspace"></a>您可以使用工作區中的平臺記錄來執行的動作
+將平臺記錄檔收集到 Log Analytics 工作區，可讓您同時分析所有 Azure 資源的記錄，並利用[Azure 監視器記錄](data-platform-logs.md)可用的所有功能，包括下列各項：
 
 * **記錄查詢**-使用強大的查詢語言來建立[記錄查詢](../log-query/log-query-overview.md)，以快速分析診斷資料並取得其深入解析，並使用 Azure 監視器中的其他來源所收集的資料進行分析。
 * **警示**-使用[Azure 監視器中的記錄警示](alerts-log.md)，取得資源記錄中所識別之重要條件和模式的主動式通知。
@@ -30,10 +30,14 @@ Azure 中的[資源記錄](resource-logs-overview.md)會提供有關 Azure 資�
 您必須[建立新的工作區](../learn/quick-create-workspace.md)（如果您還沒有的話）。 工作區不一定要與資源傳送記錄位於相同的訂用帳戶中，前提是設定此設定的使用者具有這兩個訂用帳戶的適當 RBAC 存取權。
 
 ## <a name="create-a-diagnostic-setting"></a>建立診斷設定
-預設不會收集資源記錄。 藉由建立 Azure 資源的診斷設定，在 Log Analytics 工作區和其他目的地中收集它們。 如需詳細資訊，請參閱[建立診斷設定以收集 Azure 中的記錄和計量](diagnostic-settings.md)。
+藉由建立 Azure 資源的診斷設定，將平臺記錄傳送到 Log Analytics 工作區和其他目的地。 如需詳細資訊，請參閱[建立診斷設定以收集 Azure 中的記錄和計量](diagnostic-settings.md)。
 
-## <a name="collection-mode"></a>收集模式
-在 Log Analytics 工作區中收集的資料會儲存在資料表中，如[Azure 監視器記錄的結構](../log-query/logs-structure.md)中所述。 資源記錄所使用的資料表取決於資源所使用的集合類型：
+
+## <a name="activity-log-collection"></a>活動記錄集合
+您可以將任何單一訂用帳戶的活動記錄傳送到最多五個 Log Analytics 工作區。 在 Log Analytics 工作區中收集的資源記錄資料會儲存在**AzureActivity**資料表中。 
+
+## <a name="resource-log-collection-mode"></a>資源記錄收集模式
+在 Log Analytics 工作區中收集的資源記錄資料會儲存在資料表中，如[Azure 監視器記錄的結構](../log-query/logs-structure.md)中所述。 資源記錄所使用的資料表取決於資源所使用的集合類型：
 
 - Azure 診斷-寫入的所有資料都是_AzureDiagnostics_資料表。
 - 資源特有的資料會針對資源的每個類別目錄寫入個別的資料表。
@@ -51,7 +55,7 @@ Azure 中的[資源記錄](resource-logs-overview.md)會提供有關 Azure 資�
 
 AzureDiagnostics 資料表看起來會像這樣：  
 
-| ResourceProvider    | 類別     | A  | b  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | 類別     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
 | Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
@@ -68,7 +72,7 @@ AzureDiagnostics 資料表看起來會像這樣：
  
 - 資料表*Service1AuditLogs* ，如下所示：
 
-    | 資源提供者 | 類別 | A | b | C |
+    | 資源提供者 | 類別 | A | B | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | x1 | y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |
@@ -120,5 +124,5 @@ Azure Data Factory，因為一組非常詳細的記錄，所以是一項服務�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入瞭解 Azure 資源記錄，請參閱[Azure 資源記錄的總覽](resource-logs-overview.md)。
-* 若要建立診斷設定以將資源記錄收集到 Log Analytics 工作區，請參閱[建立診斷設定以收集 Azure 中的記錄和計量](diagnostic-settings.md)。
+* [深入瞭解資源記錄](platform-logs-overview.md)。
+* [建立診斷設定以收集 Azure 中的記錄和計量](diagnostic-settings.md)。

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
-ms.openlocfilehash: ec463efb1282c311757bb90fd614e1247459c80f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 7cd0935177ad4070750a9b2a0ff129af2e13959f
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457335"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772409"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>在以 Debian 為基礎的 Linux 系統上安裝 Azure IoT Edge 執行時間
 
@@ -26,7 +26,7 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 >ARM64 裝置的支援現供[公開預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 > [!NOTE]
-> Linux 軟體存放庫中的套件受限於每個套件中的授權條款 (/usr/share/doc/package-name)。 在使用套件之前，請先閱讀授權條款。 安裝及使用封裝即表示您接受這些授權條款。 如果您不同意授權條款，請勿使用封裝。
+> Linux 軟體存放庫中的套件受限於每個套件中的授權條款 (/usr/share/doc/package-name)。 在使用套件之前，請先閱讀授權條款。 安裝及使用套件即表示接受這些授權條款。 如果您不同意授權條款，請勿使用封裝。
 
 ## <a name="install-the-latest-runtime-version"></a>安裝最新的執行階段版本
 
@@ -108,11 +108,11 @@ Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器�
    sudo apt-get install iotedge
    ```
 
-成功安裝 IoT Edge 之後，輸出將會提示您更新設定檔。 請遵循[設定 Azure IoT Edge 安全性守護](#configure-the-security-daemon)程式一節中的步驟，完成布建您的裝置。 
+成功安裝 IoT Edge 之後，輸出將會提示您更新設定檔。 遵循[設定安全性守護](#configure-the-security-daemon)程式一節中的步驟，完成布建您的裝置。 
 
 ## <a name="install-a-specific-runtime-version"></a>安裝特定的執行階段版本
 
-如果您想要安裝特定版本的 Azure IoT Edge 執行時間，可以直接從 IoT Edge GitHub 存放庫取得元件檔案的目標。 使用下列步驟，將所有 IoT Edge 元件放在您的裝置上： Moby 引擎和 CLI、libiothsm，最後是 IoT Edge 的安全性守護程式。
+如果您想要安裝特定版本的 Moby 和 Azure IoT Edge 執行時間，而不是使用最新版本，您可以直接從 IoT Edge GitHub 存放庫將元件檔案設為目標。 使用下列步驟，將所有 IoT Edge 元件放在您的裝置上： Moby 引擎和 CLI、libiothsm，最後是 IoT Edge 的安全性守護程式。 如果您不想要變更為特定的執行階段版本，請跳到下一節：[設定安全性](#configure-the-security-daemon)背景程式。
 
 1. 流覽至[Azure IoT Edge 版本](https://github.com/Azure/azure-iotedge/releases)，並尋找您要設為目標的發行版本。 
 
@@ -195,7 +195,7 @@ sudo nano /etc/iotedge/config.yaml
 
 儲存並關閉檔案。
 
-   `CTRL + X`、`Y`, `Enter`
+   `CTRL + X`、`Y`、`Enter`
 
 在組態檔中輸入佈建資訊之後，請重新啟動精靈：
 
@@ -235,7 +235,7 @@ sudo nano /etc/iotedge/config.yaml
 
 儲存並關閉檔案。
 
-   `CTRL + X`、`Y`, `Enter`
+   `CTRL + X`、`Y`、`Enter`
 
 在組態檔中輸入佈建資訊之後，請重新啟動精靈：
 
@@ -265,7 +265,9 @@ journalctl -u iotedge --no-pager --no-full
 sudo iotedge check
 ```
 
-和，列出執行中的模組：
+在您將第一個模組部署至裝置上的 IoT Edge 之前， **$edgeHub**系統模組不會部署到裝置。 因此，自動檢查會針對 `Edge Hub can bind to ports on host` 連線能力檢查傳回錯誤。 此錯誤可能會 ingored，除非在將模組部署至裝置之後發生。
+
+最後，列出執行中的模組：
 
 ```bash
 sudo iotedge list
@@ -275,7 +277,7 @@ sudo iotedge list
 
 ## <a name="tips-and-troubleshooting"></a>秘訣與疑難排解
 
-您必須要有提高的權限才能執行 `iotedge` 命令。 安裝執行階段之後，請登出您的電腦並重新登入，以自動更新您的權限。 在那之前，請在任何 **命令前面使用**sudo`iotedge`。
+您必須要有提高的權限才能執行 `iotedge` 命令。 安裝執行階段之後，請登出您的電腦並重新登入，以自動更新您的權限。 在那之前，請在任何 `iotedge` 命令前面使用 **sudo**。
 
 在資源受限的裝置上，強烈建議將 OptimizeForPerformance 環境變數設定為 false，如[疑難排解指南](troubleshoot.md)中的指示所述。
 

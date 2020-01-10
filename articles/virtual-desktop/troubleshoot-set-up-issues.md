@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/17/2019
+ms.date: 01/08/2020
 ms.author: helohr
-ms.openlocfilehash: 925894aea267e4f100f7bcdb817424b5cdfe6c25
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: b2209e2ada2d825714d08b6ac3237583df28272a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459473"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749356"
 ---
 # <a name="tenant-and-host-pool-creation"></a>建立租用戶和主機集區
 
@@ -138,8 +138,16 @@ ms.locfileid: "75459473"
 
 **原因2：** 功能變數名稱無法解析。
 
-**修正2：** 請參閱「功能變數名稱無法解析」錯誤，讓 Vm 未加入[工作階段主機 VM](troubleshoot-vm-configuration.md)設定中的網域。
+**修正2：** 請參閱錯誤：[工作階段主機 VM](troubleshoot-vm-configuration.md)設定中的[功能變數名稱無法解析](troubleshoot-vm-configuration.md#error-domain-name-doesnt-resolve)。
 
+**原因3：** 您的虛擬網路（VNET） DNS 設定設為 [**預設**]。
+
+若要修正此問題，請執行下列動作：
+
+1. 開啟 Azure 入口網站，然後移至 [**虛擬網路**] 分頁。
+2. 尋找您的 VNET，然後選取 [ **DNS 伺服器**]。
+3. [DNS 伺服器] 功能表應該會出現在畫面的右側。 在該功能表上，選取 [**自訂**]。
+4. 請確定列在 [自訂] 底下的 DNS 伺服器符合您的網域控制站或 Active Directory 網域。 如果您沒有看到您的 DNS 伺服器，您可以在 [**新增 dns 伺服器**] 欄位中輸入其值來新增它。
 
 ### <a name="error-your-deployment-failedunauthorized"></a>錯誤：您的部署失敗。 ..\Unauthorized
 
@@ -159,7 +167,7 @@ ms.locfileid: "75459473"
 
 **原因2：** 連接發生暫時性錯誤。
 
-**修正：** 使用 PowerShell 登入，確認 Windows 虛擬桌面環境狀況良好。 在[使用 PowerShell 建立主機集](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)區中手動完成 VM 註冊。
+**修正：** 使用 PowerShell 登入，確認 Windows 虛擬桌面環境狀況良好。 在[使用 PowerShell 建立主機集](create-host-pools-powershell.md)區中手動完成 VM 註冊。
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>錯誤：不允許指定的系統管理員使用者名稱
 
@@ -347,7 +355,7 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 
 **原因：** 指定的 Windows 虛擬桌面租使用者管理員需要 Azure 多重要素驗證（MFA）才能登入。
 
-**修正：** 遵循[教學課程：使用 PowerShell 建立服務主體和角色指派](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell)中的步驟，為您的 Windows 虛擬桌面租使用者建立服務主體並為其指派角色。 確認您可以使用服務主體登入 Windows 虛擬桌面之後，請根據您所使用的方法，重新執行 Azure Marketplace 供應專案或 GitHub Azure Resource Manager 範本。 請依照下列指示，為您的方法輸入正確的參數。
+**修正：** 遵循[教學課程：使用 PowerShell 建立服務主體和角色指派](create-service-principal-role-powershell.md)中的步驟，為您的 Windows 虛擬桌面租使用者建立服務主體並為其指派角色。 確認您可以使用服務主體登入 Windows 虛擬桌面之後，請根據您所使用的方法，重新執行 Azure Marketplace 供應專案或 GitHub Azure Resource Manager 範本。 請依照下列指示，為您的方法輸入正確的參數。
 
 如果您正在執行 Azure Marketplace 供應專案，請提供下列參數的值，以適當地驗證 Windows 虛擬桌面：
 

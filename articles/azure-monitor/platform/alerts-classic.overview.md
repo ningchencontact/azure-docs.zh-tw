@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/19/2018
-ms.openlocfilehash: 177c110ce9679f3d564918dfac50b3e3f66f84ce
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2d150006fb4638d3efb15111013d17e43c8b125e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893581"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747013"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>什麼是 Microsoft Azure 中的傳統警示？
 
@@ -31,7 +31,7 @@ ms.locfileid: "74893581"
  ![Azure 入口網站中的警示選擇](media/alerts-classic.overview/monitor-alert-screen2.png)
 
 新的警示使用者體驗比傳統警示體驗多了下列優點：
--   **更好的通知系統**- 所有新版警示都使用動作群組，這些是可在多個警示中重複使用的具名通知及動作群組。 警示計量警示及舊版 Log Analytics 警示並不使用動作群組。
+-   **更好的通知系統**- 所有新版警示都使用動作群組，這些是可在多個警示中重複使用的具名通知及動作群組。 傳統計量警示及舊版 Log Analytics 警示並不使用動作群組。
 -   **統一的撰寫體驗** - Azure 監視器、Log Analytics 及 Application Insights 之計量、記錄和活動記錄的所有警示建立作業都在一個地方完成。
 -   **在 Azure 入口網站中檢視引發的 Log Analytics 警示** - 您現在也能在訂用帳戶中查看引發的 Log Analytics 警示。 先前這些警示是在個別的入口網站中。
 -   **分隔引發的警示和警示規則** - 區分警示規則 (定義觸發警示的條件) 和引發的警示 (警示規則引發的執行個體)，因此將操作與設定檢視分開。
@@ -43,7 +43,7 @@ ms.locfileid: "74893581"
 -   **支援多維度計量**：您可以針對維度計量發出警示，以便監視計量中某個您感興趣的區段。
 -   **對計量條件有更多的控制**：您可以定義更豐富的警示規則。 新版警示支援監視計量的最大值、最小值、平均及總計值。
 -   **可合併監視多個計量**：您可以使用單一規則來監視多個計量 (目前最多兩個計量)。 若兩個計量在指定的期間內都超出其個別閾值，就會觸發警示。
--   **更好的通知系統**：所有新版警示都使用[動作群組](../../azure-monitor/platform/action-groups.md)，這些是可在多個警示中重複使用的具名通知及動作群組。  警示計量警示及舊版 Log Analytics 警示並不使用動作群組。 
+-   **更好的通知系統**：所有新版警示都使用[動作群組](../../azure-monitor/platform/action-groups.md)，這些是可在多個警示中重複使用的具名通知及動作群組。  傳統計量警示及舊版 Log Analytics 警示並不使用動作群組。 
 -   **來自記錄的計量** (公開預覽)：現在可將進入 Log Analytics 的記錄資料擷取並轉換成「Azure 監視器」計量，然後針對這些計量發出警示，就像任何其他計量一樣。 如需傳統警示專用的術語，請參閱[警示 (傳統)](alerts-classic.overview.md)。 
 
 
@@ -93,7 +93,7 @@ Webhook 可啟用自動化和修復，例如使用：
 * 設定[傳統的計量警示 PowerShell](alerts-classic-portal.md)
 * 設定[傳統的計量警示命令列介面 (CLI)](alerts-classic-portal.md)
 * 設定[傳統的計量警示 Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* 深入了解[活動記錄](activity-logs-overview.md)
+* 深入了解[活動記錄](platform-logs-overview.md)
 * [透過 Azure 入口網站設定活動記錄警示](activity-log-alerts.md)
 * [透過 Resource Manager 設定活動記錄警示](alerts-activity-log.md)
 * 檢閱[活動記錄警示 webhook 結構描述](activity-log-alerts-webhook.md)

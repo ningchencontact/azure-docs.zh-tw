@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: shants
-ms.openlocfilehash: 413301fd8b6b4b2a3b60501378cf6da23cc38d81
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 07580c8b8ea00039b48bd1f8765735ec5a5082ee
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018852"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746641"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>虛擬機器擴展集的計劃性維護通知
 
@@ -28,13 +28,13 @@ ms.locfileid: "70018852"
 
 - 如果維護不需要重新開機，Azure 會在主機更新時，使用就地移轉來暫停 VM。 套用不需要重新開機的維護作業時，會依容錯網域逐一套用。 如果收到任何警告健康情況訊號，就會停止進度。
 
-- 如果維護需要重新開機，您會在規劃維護時收到通知。 在這些情況下, 您會獲得一個時間範圍, 通常是35天, 您可以自行開始進行維護。
+- 如果維護需要重新開機，您會在規劃維護時收到通知。 在這些情況下，您會獲得一個時間範圍，通常是35天，您可以自行開始進行維護。
 
 
 預定進行的維護作業若需要重新開機，會排定在不同波段。 每一個波段都有不同的範圍 (區域)：
 
-- 波段開始時會傳送通知給客戶。 根據預設，通知會傳送給訂用帳戶擁有者和共同擁有者。 您可以使用 Azure [活動記錄警示](../azure-monitor/platform/activity-logs-overview.md)，對通知新增收件者和傳訊選項，例如電子郵件、SMS 和 Webhook。  
-- 隨著通知會提供一個「自助時段」。 在通常是35天的此視窗中, 您可以找到哪些 Vm 包含在 wave 中。 您可以根據自己的排程需求，主動啟動維護。
+- 波段開始時會傳送通知給客戶。 根據預設，通知會傳送給訂用帳戶擁有者和共同擁有者。 您可以使用 Azure [活動記錄警示](../azure-monitor/platform/platform-logs-overview.md)，對通知新增收件者和傳訊選項，例如電子郵件、SMS 和 Webhook。  
+- 隨著通知會提供一個「自助時段」。 在通常是35天的此視窗中，您可以找到哪些 Vm 包含在 wave 中。 您可以根據自己的排程需求，主動啟動維護。
 - 在自助期間之後，「排定維護期間」隨即開始。 在此時段的某個時間點，Azure 會為您的 VM 排定並套用必要的維護。 
 
 之所以要有兩個時段，目的是要讓您在知道 Azure 何時會自動啟動維護的同時，有足夠的時間啟動維護並重新啟動 VM。
@@ -86,7 +86,7 @@ ms.locfileid: "70018852"
 
 此時，[自助維護] 資料行就會出現在虛擬機器擴展集的清單中。 每個虛擬機器擴展集可以具備下列自助式維護資料行的其中一個值：
 
-| 值 | 描述 |
+| 值 | 說明 |
 |-------|-------------|
 | 是 | 虛擬機器擴展集中至少有一個 VM 處於自助服務時段內。 您可以在此自助服務期間隨時開始維護。 | 
 | 否 | 受影響之虛擬機器擴展集中沒有任何 VM 處於自助服務時段內。 | 
@@ -94,7 +94,7 @@ ms.locfileid: "70018852"
 
 ## <a name="notification-and-alerts-in-the-portal"></a>入口網站中的通知和警示
 
-Azure 會將電子郵件傳送至訂用帳戶擁有者和共同擁有者群組，來傳達計劃性維護排程。 您可以藉由建立活動記錄警示，為此通訊新增收件者和管道。 如需詳細資訊，請參閱[使用 Azure 活動記錄監視訂用帳戶活動](../azure-monitor/platform/activity-logs-overview.md)。
+Azure 會將電子郵件傳送至訂用帳戶擁有者和共同擁有者群組，來傳達計劃性維護排程。 您可以藉由建立活動記錄警示，為此通訊新增收件者和管道。 如需詳細資訊，請參閱[使用 Azure 活動記錄監視訂用帳戶活動](../azure-monitor/platform/platform-logs-overview.md)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在左側功能表中，選取 [監視]。 
@@ -127,7 +127,7 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 
 以下是 **MaintenanceRedeployStatus** 下傳回的屬性： 
 
-| 值 | 描述   |
+| 值 | 說明   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 指出您此時是否可以在 VM 上啟動維護。 |
 | PreMaintenanceWindowStartTime         | 您可以在 VM 上起始維護作業的維護自助時段開始時間。 |
@@ -158,7 +158,7 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 
 以下是針對每個 VM 執行個體在 **MaintenanceRedeployStatus** 下傳回的屬性： 
 
-| 值 | 描述   |
+| 值 | 說明   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 指出您此時是否可以在 VM 上啟動維護。 |
 | PreMaintenanceWindowStartTime         | 您可以在 VM 上起始維護作業的維護自助時段開始時間。 |
@@ -190,9 +190,9 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **問：我如何收到計劃性維護的相關通知？**
 
-**答：** 計畫性維護是從對一或多個 Azure 區域設定排程開始。 之後，電子郵件通知會傳送至訂用帳戶擁有者 (每個訂用帳戶一封電子郵件)。 您可以藉由使用活動記錄警示，為此通知新增管道和收件者。 如果您將 VM 部署至已排定計劃性維護的區域，則不會收到通知。 請改為檢查 VM 的維護狀態。
+**答：** 規劃的維護是從對一或多個 Azure 區域設定排程開始。 之後，電子郵件通知會傳送至訂用帳戶擁有者 (每個訂用帳戶一封電子郵件)。 您可以藉由使用活動記錄警示，為此通知新增管道和收件者。 如果您將 VM 部署至已排定計劃性維護的區域，則不會收到通知。 請改為檢查 VM 的維護狀態。
 
-**問：我在入口網站、PowerShell 或 CLI 中都看不到任何計劃性維護的指示。問題出在哪裡？**
+**問：我在入口網站、PowerShell 或 CLI 中都看不到任何已規劃維護的指示。怎麼了？**
 
 **答：** 在計劃性維護波段期間，只會針對受計劃性維護影響的 VM 提供計劃性維護相關資訊。 如果您沒有看到資料，則該維護波段可能已經結束 (或未開始)，或您的 VM 可能已經裝載在已更新的伺服器上。
 
@@ -204,16 +204,16 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **答：** 視您的 VM 大小而定，在自助維護時段期間，重新啟動最長可能需要數分鐘的時間。 在 Azure 於排程維護時段起始的重新啟動期間，重新啟動通常需要大約 25 分鐘的時間。 如果您使用雲端服務 (Web/背景工作角色)、虛擬機器擴展集或可用性設定組，則在排程維護時段期間，每個 VM 群組 (更新網域) 之間會有 30 分鐘的時間。 
 
-**問：我在我的 VM 上看不到任何維護資訊。哪裡發生錯誤？**
+**問：我在 Vm 上看不到任何維護資訊。問題出在哪裡？**
 
 **答：** 有幾個原因會導致您可能在 VM 上看不到任何維護資訊：
    - 您使用標示為「Microsoft 內部」的訂用帳戶。
    - 您的 VM 未排定進行維護。 可能是維護波段已結束、取消或修改，所以您的 VM 不再受到它的影響。
    - 您尚未將 [維護] 資料行新增至您的虛擬機器清單檢視。 雖然我們已將此資料行新增至預設檢視，但如果您將檢視設定為顯示非預設資料行，則必須手動將 [維護] 資料行新增至您的 VM 清單檢視。
 
-**問：我的 VM 第二次排程進行維護。為什麼？**
+**問：我的 VM 已排程在第二次進行維護。因此?**
 
-**答：** 在幾個情況下，會於您已經完成維護並重新部署之後將您的 VM 排程進行維護：
+**答：** 在數個使用案例中，是將您的 VM 排定成在您已經完成維護並重新部署之後進行維護：
    - 我們已取消維護，並且使用不同的裝載重新啟動它。 可能是我們已偵測到發生錯誤的承載，而只是需要部署額外承載。
    - 因為硬體故障，您的 VM 已*服務修復*到另一個節點。
    - 您已經選擇停止 (解除配置)，然後重新啟動 VM。

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: f17c588d28d0904041970eee8e9aa2201f905836
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: b576510749e691b6255c849f14275db221c54460
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151426"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745114"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights 使用 AI 來針對資料庫的效能進行監視和疑難排解
 
@@ -28,7 +28,7 @@ Intelligent Insights 使用內建的智慧功能透過人工智慧持續監視�
 
 Intelligent Insights 是 Azure 內建智慧功能的一項獨特功能，可提供下列價值：
 
-- 主動監視
+- 主動式監視
 - 量身打造的效能深入解析
 - 提早偵測到資料庫效能降低
 - 針對所偵測到問題的根本原因分析
@@ -72,10 +72,10 @@ Azure SQL Database 提供的 Intelligent Insights 選項包括：
 
 | Intelligent Insights 選項 | 單一資料庫和集區資料庫支援 | 實例資料庫支援 |
 | :----------------------------- | ----- | ----- |
-| **設定 Intelligent Insights** -為您的資料庫設定 Intelligent Insights 分析。 | yes | yes | 
-| **串流深入解析至 Azure SQL 分析**--串流深入解析，以 Azure SQL 分析監視 Azure SQL Database 的解決方案。 | yes | yes | 
-| **將見解串流至事件中樞**-串流深入解析以事件中樞，以進行進一步的自訂整合。 | yes | yes | 
-| **串流深入解析至 Azure 儲存體**串流深入解析，以 Azure 儲存體進行進一步的分析和長期封存。 | yes | yes |
+| **設定 Intelligent Insights** -為您的資料庫設定 Intelligent Insights 分析。 | 是 | 是 | 
+| **串流深入解析至 Azure SQL 分析**--串流深入解析，以 Azure SQL 分析監視 Azure SQL Database 的解決方案。 | 是 | 是 | 
+| **將見解串流至事件中樞**-串流深入解析以事件中樞，以進行進一步的自訂整合。 | 是 | 是 | 
+| **串流深入解析至 Azure 儲存體**串流深入解析，以 Azure 儲存體進行進一步的分析和長期封存。 | 是 | 是 |
 
 ## <a name="configure-intelligent-insights"></a>設定 Intelligent Insights
 
@@ -190,4 +190,4 @@ Intelligent Insights 記錄會輸出發生錯誤之要求的計數。 它會指�
 - 了解如何[使用 Intelligent Insights 針對 SQL Database 效能問題進行疑難排解](sql-database-intelligent-insights-troubleshoot-performance.md)。
 - 使用 [Intelligent Insights SQL Database 效能診斷記錄](sql-database-intelligent-insights-use-diagnostics-log.md)。
 - 了解如何[使用 SQL 分析來監視 SQL Database](../azure-monitor/insights/azure-sql.md)。
-- 了解如何[收集並取用來自 Azure 資源的記錄資料](../azure-monitor/platform/resource-logs-overview.md)。
+- 了解如何[收集並取用來自 Azure 資源的記錄資料](../azure-monitor/platform/platform-logs-overview.md)。

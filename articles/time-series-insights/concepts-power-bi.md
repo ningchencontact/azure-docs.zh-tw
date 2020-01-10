@@ -7,19 +7,27 @@ manager: cshankar
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: 8ca5dec833f3e726aed0d469525ca3d9735fc33c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 01/06/2020
+ms.openlocfilehash: e17d38f6bcb1d843b49e89a473551f8ef4aa16aa
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114964"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770317"
 ---
 # <a name="connect-time-series-insights-to-power-bi"></a>將時間序列深入解析連接到 Power BI  
- 
+
 您是否正在尋找可協助您將時間序列資料相互關聯的解決方案、建立生動的視覺效果，並在整個組織中分享見解？
 
-時間序列深入解析現在與[Power BI](https://powerbi.microsoft.com/)緊密整合，為您提供串流資料的更強大視覺效果和儀表板管理功能，並可讓您在整個組織內共用見解和結果。
+Azure 時間序列深入解析現在與[Power BI](https://powerbi.microsoft.com/)緊密整合，為您提供串流資料的更強大視覺效果和儀表板管理功能，並可讓您在整個組織內共用見解和結果。
+
+## <a name="video"></a>影片
+
+深入瞭解整合 Azure 時間序列深入解析與 Power BI。
+
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Power-BI-integration-with-TSI/player]
+
+## <a name="summary"></a>摘要
 
    [時間序列深入解析中的 ![匯出選項](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png)](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png#lightbox)
 

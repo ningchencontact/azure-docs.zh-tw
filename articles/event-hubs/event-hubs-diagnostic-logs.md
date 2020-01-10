@@ -16,19 +16,19 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ff6466ddc6b64dfe85ebfb190205859aeb39ad17
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 12a20abb4014712f26e5827bcd1d3c822e8b25a1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260829"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750721"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>為 Azure 事件中樞設定診斷記錄
 
 您可以檢視 Azure 事件中樞的兩種記錄類型：
 
-* **[活動記錄](../azure-monitor/platform/activity-logs-overview.md)** ：這些記錄包含對工作執行之操作的相關資訊。 系統一律會啟用這些記錄。
-* **[診斷記錄](../azure-monitor/platform/resource-logs-overview.md)** ：您可以設定診斷記錄，以更深入檢視與作業一起發生的所有事件。 診斷記錄涵蓋從建立工作到刪除工作期間的活動，包括工作執行時發生的更新與活動。
+* **[活動記錄](../azure-monitor/platform/platform-logs-overview.md)** ：這些記錄包含對作業執行的操作相關資訊。 系統一律會啟用這些記錄。
+* **[診斷記錄](../azure-monitor/platform/platform-logs-overview.md)** ：您可以設定診斷記錄，以深入檢視隨著作業發生的所有事件。 診斷記錄涵蓋從建立工作到刪除工作期間的活動，包括工作執行時發生的更新與活動。
 
 ## <a name="enable-diagnostic-logs"></a>啟用診斷記錄
 
@@ -54,7 +54,7 @@ ms.locfileid: "71260829"
 
 新的設定大約會在 10 分鐘內生效。 之後，記錄就會在 [診斷記錄] 窗格內的已設定封存目標中顯示。
 
-如需設定診斷的詳細資訊，請參閱 [Azure 診斷記錄概觀](../azure-monitor/platform/resource-logs-overview.md)。
+如需設定診斷的詳細資訊，請參閱 [Azure 診斷記錄概觀](../azure-monitor/platform/platform-logs-overview.md)。
 
 ## <a name="diagnostic-logs-categories"></a>診斷記錄類別
 
@@ -71,7 +71,7 @@ ms.locfileid: "71260829"
 
 封存記錄檔 JSON 字串包括下表所列的元素：
 
-Name | 描述
+名稱 | 說明
 ------- | -------
 TaskName | 失敗工作的描述。
 ActivityId | 用於追蹤的內部識別碼。
@@ -109,7 +109,7 @@ category | ArchiveLogs
 
 作業記錄 JSON 字串包括下表所列的元素：
 
-Name | 描述
+名稱 | 說明
 ------- | -------
 ActivityId | 用於追蹤目的的內部識別碼。
 EventName | 作業名稱。  
@@ -118,7 +118,7 @@ SubscriptionId | 訂用帳戶 ID。
 EventTimeString | 作業時間。
 EventProperties | 作業屬性。
 狀態 | 作業狀態。
-Caller | 作業呼叫者 (Azure 入口網站或管理用戶端)。
+呼叫者 | 作業呼叫者 (Azure 入口網站或管理用戶端)。
 category | OperationalLogs
 
 下列程式碼是作業記錄 JSON 字串的範例：

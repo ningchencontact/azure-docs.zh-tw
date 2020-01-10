@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4026de0b13a143a6bd3905e3d4fbb5071e196c21
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1bf023dc886481354306a763a0f9c56286c57e05
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384234"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749875"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>了解 Azure VM 的系統重新啟動
 
@@ -41,7 +41,7 @@ Azure 資源健康狀態是一項服務，會揭露個別 Azure 資源的健康�
 
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>可能導致 VM 重新開機的動作和事件
 
-### <a name="planned-maintenance"></a>預定的維修
+### <a name="planned-maintenance"></a>規劃的維修
 
 為提升 VM 之基礎主機基礎結構的可靠性、效能和安全性，Microsoft Azure 會全球定期執行更新。 許多這些更新 (包括記憶體保留的更新) 在執行時並不會對 VM 或雲端服務造成任何影響。
 
@@ -67,7 +67,7 @@ Azure 資源健康狀態是一項服務，會揭露個別 Azure 資源的健康�
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>使用者起始的重新開機或關機動作
 
-如果您從 Azure 入口網站、Azure PowerShell、命令列介面或 REST API 重新開機，您可以在[Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)中找到此事件。
+如果您從 Azure 入口網站、Azure PowerShell、命令列介面或 REST API 重新開機，您可以在[Azure 活動記錄](../../azure-monitor/platform/platform-logs-overview.md)中找到此事件。
 
 如果您從 VM 的作業系統執行動作，您可以在系統記錄中找到此事件。
 

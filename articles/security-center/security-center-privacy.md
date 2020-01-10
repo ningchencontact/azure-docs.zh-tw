@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 20d269c1614c82c8783d0e65149961c118c16a95
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 45b7b419277d338d70cf285838103f97d4eb5c3a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559222"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749674"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>在 Azure 資訊安全中心管理使用者資料
 本文提供有關如何在 Azure 資訊安全中心管理使用者資料的資訊。 管理使用者資料包含了存取、刪除或匯出資料的能力。
@@ -97,7 +97,7 @@ ms.locfileid: "74559222"
 [警示資料](security-center-managing-and-responding-alerts.md)會視為安全性資料，保留兩年。
 
 ## <a name="auditing-and-reporting"></a>稽核與報告
-系統會在[Azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)中維護安全性連絡人、及時和警示更新的審核記錄。
+系統會在[Azure 活動記錄](../azure-monitor/platform/platform-logs-overview.md)中維護安全性連絡人、及時和警示更新的審核記錄。
 
 ## <a name="next-steps"></a>後續步驟
 如需有關如何管理使用者資料的詳細資訊，請參閱[管理在 Azure 資訊安全中心調查中找到的使用者資料](security-center-investigation-user-data.md)。

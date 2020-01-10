@@ -1,31 +1,31 @@
 ---
 title: 重建搜尋索引
 titleSuffix: Azure Cognitive Search
-description: 加入新的專案、更新現有的專案或檔，或刪除完整重建或部分累加式索引編制中的過時檔，以重新整理 Azure 認知搜尋索引。
+description: 加入新的專案、更新現有的專案或檔，或刪除完整重建或部分索引的過時檔，以重新整理 Azure 認知搜尋索引。
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b14c153f52e0427e289afeccdfd22d6510e4ace1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 18cfa3c6fde399ea61e09c5788c72ce20e5570e8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112961"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754384"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋中重建索引
 
 本文說明如何重建 Azure 認知搜尋索引、需要重建的情況，以及減輕重建對進行中查詢要求之影響的建議。
 
-「重建」是指卸除並重新建立與索引 (包括所有欄位型反向索引) 相關聯的實體資料結構。 在 Azure 認知搜尋中，您無法卸載並重新建立個別的欄位。 若要重建索引，必須刪除所有的欄位儲存體，根據現有的或修訂過的索引結構描述來重新建立，然後填入推送至索引的資料，或從外部來源提取的資料。 在開發期間通常會重建索引，但您可能也需要重建生產層級的索引，以配合結構變更 (如新增複雜類型)，或新增欄位至建議工具。
+「重建」是指卸除並重新建立與索引 (包括所有欄位型反向索引) 相關聯的實體資料結構。 在 Azure 認知搜尋中，您無法卸載並重新建立個別的欄位。 若要重建索引，必須刪除所有的欄位儲存體，根據現有的或修訂過的索引結構描述來重新建立，然後填入推送至索引的資料，或從外部來源提取的資料。 在開發期間重建索引十分常見，但您可能也需要重建生產層級的索引以配合結構變更 (如新增複雜類型或新增欄位至建議工具等等)。
 
 相較於使索引離線時的重建，「資料重新整理」執行為背景工作。 您可以新增、移除及取代文件查詢工作負載，且對查詢工作負載的中斷最短，不過查詢通常需要較長的時間才能完成。 如需有關更新索引內容的詳細資訊，請參閱[新增、更新或刪除文件](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) \(英文\)。
 
 ## <a name="rebuild-conditions"></a>重建條件
 
-| 條件 | 描述 |
+| 條件 | 說明 |
 |-----------|-------------|
 | 變更欄位定義 | 修改欄位名稱、資料類型或特定[索引屬性](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\) (可搜尋、可篩選、可排序、可面向化) 需要完整重建。 |
 | 將分析器指派給欄位 | [分析器](search-analyzers.md)定義在索引中，之後指派給欄位。 您可以隨時將新分析器定義新增至索引，但當欄位建立後，您只能*指派*分析器。 這適用於 **analyzer** 和 **indexAnalyzer** 屬性。 **searchAnalyzer** 屬性是例外狀況 (您可以將此屬性指派給現有欄位)。 |
@@ -66,7 +66,7 @@ ms.locfileid: "74112961"
 
 進行索引更新時需要具備服務層級的讀寫權限。 
 
-您無法在入口網站中重建索引。 以程式設計的方式來說，您可以呼叫[更新索引 REST API](https://docs.microsoft.com/rest/api/searchservice/update-index) /(英文/) 或[等同的 .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexesoperations.createorupdatewithhttpmessagesasync?view=azure-dotnet) /(英文/)，以用於完整重建。 更新索引要求與[建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\) 相同，但其內容不同。
+您無法在入口網站中重建索引。 以程式設計的方式來說，您可以呼叫[更新索引 REST API](https://docs.microsoft.com/rest/api/searchservice/update-index) \(英文\) 或[等同的 .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexesoperations.createorupdatewithhttpmessagesasync?view=azure-dotnet) \(英文\)，以用於完整重建。 更新索引要求與[建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\) 相同，但其內容不同。
 
 下列工作流程雖然偏向 REST API，但同樣適用於 .NET SDK。
 
@@ -74,7 +74,7 @@ ms.locfileid: "74112961"
 
    目標是該索引的任何查詢都會立即被卸除。 刪除索引是無法復原的動作，這樣會終結欄位集合和其他建構的實體儲存體。 卸除索引之前，請務必清楚了解刪除它的意涵。 
 
-2. 使用服務端點、API 金鑰及[管理金鑰](https://docs.microsoft.com/rest/api/searchservice/update-index)編寫[更新索引](https://docs.microsoft.com/azure/search/search-security-api-keys) \(英文\) 要求。 寫入作業需要管理金鑰。
+2. 使用服務端點、API 金鑰及[管理金鑰](https://docs.microsoft.com/azure/search/search-security-api-keys)編寫[更新索引](https://docs.microsoft.com/rest/api/searchservice/update-index) \(英文\) 要求。 寫入作業需要管理金鑰。
 
 3. 在要求的內文中，提供包含已變更或已修訂欄位定義的索引結構描述。 要求本文包含索引結構描述，以及評分設定檔的建構、分析器、建議工具和 CORS 選項。 結構描述需求記錄在[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\) 中。
 
@@ -93,7 +93,7 @@ ms.locfileid: "74112961"
 
 第一個文件載入之後，您就可以開始查詢索引。 如果您知道文件的別碼，[查閱文件 REST API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) \(英文\) 可傳回特定文件。 若要進行更廣泛的測試，您應該等到索引完全載入，然後使用查詢來確認您預期會看到的內容。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [索引子概觀](search-indexer-overview.md)
 + [大規模索引大型資料集](search-howto-large-index.md)

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: f507619a1c8e80623a756b91f3fd6187283212f0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 9c72c8431907c52dab338114ce09be139608ab0a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996726"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768583"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service （AKS）中建立及管理叢集的多個節點集區
 
@@ -25,7 +25,7 @@ ms.locfileid: "74996726"
 
 ## <a name="before-you-begin"></a>開始之前
 
-您需要安裝並設定 Azure CLI 版本2.0.76 或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
+您需要安裝並設定 Azure CLI 版本2.0.76 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="limitations"></a>限制
 
@@ -35,11 +35,11 @@ ms.locfileid: "74996726"
 * 無法使用 HTTP 應用程式路由附加元件。
 * AKS 叢集必須使用標準 SKU 負載平衡器來使用多個節點集區，但基本 SKU 負載平衡器不支援此功能。
 * AKS 叢集必須使用節點的虛擬機器擴展集。
-* 您無法使用現有的 Resource Manager 範本來新增或刪除節點集區，就像大部分的作業一樣。 相反地，請[使用個別的 Resource Manager 範本](#manage-node-pools-using-a-resource-manager-template)，對 AKS 叢集中的節點集區進行變更。
 * 節點集區的名稱只可包含小寫英數位元，且必須以小寫字母開頭。 針對 Linux 節點集區，長度必須介於1到12個字元之間，而 Windows 節點集區的長度必須介於1到6個字元之間。
 * AKS 叢集最多可以有八個節點集區。
 * AKS 叢集在這八個節點集區中最多可以有800個節點。
-* 所有節點集區都必須位於相同的子網中。
+* 所有節點集區都必須位於相同的 vnet 和子網中。
+* 在叢集建立時建立多個節點集區時，節點集區所使用的所有 Kubernetes 版本都必須符合控制平面的版本。 使用每個節點集區作業布建叢集之後，即可更新此項。
 
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
 

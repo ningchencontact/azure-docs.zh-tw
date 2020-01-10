@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 4a41e5eda3ca2bd92d78a81d73c1ad4c859e25a3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: c0ce1648d7b5f7c25044ed8f66eafcca7b0009f4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764554"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747334"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫中的審核記錄-單一伺服器
 
@@ -21,9 +21,9 @@ ms.locfileid: "74764554"
 > 適用於 PostgreSQL 的 Azure 資料庫上的 pgAudit 處於預覽狀態。
 > 延伸模組只能在一般用途和記憶體優化伺服器上啟用。
 
-如果您想要 Azure 資源層級記錄以進行計算和儲存體調整之類的作業，請參閱[Azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)。
+如果您想要 Azure 資源層級記錄以進行計算和儲存體調整之類的作業，請參閱[Azure 活動記錄](../azure-monitor/platform/platform-logs-overview.md)。
 
-## <a name="usage-considerations"></a>使用考慮
+## <a name="usage-considerations"></a>使用考量
 根據預設，pgAudit 記錄陳述式會與您的一般記錄陳述式一起發出，其方法是使用 Postgres 的標準記錄功能。 在適用於 PostgreSQL 的 Azure 資料庫中，可以透過 Azure 入口網站或 CLI 下載這些 .log 檔案。 檔案集合的最大儲存空間為 1 GB，每個檔案最多可使用七天（預設值為三天）。 這項服務是短期儲存選項。
 
 或者，您可以將所有記錄設定為要發出給 Azure 監視器的診斷記錄服務。 如果您啟用 Azure 監視器診斷記錄，將會根據您的選擇，將記錄自動傳送（JSON 格式）至 Azure 儲存體、事件中樞和/或 Azure 監視器記錄。

@@ -5,12 +5,12 @@ ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9158a4094b7d2ec148c2cae85decb3ad959b7c3
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 12e16cc7e17ae217a334fe25d71672ab2cafa5a8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671927"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768430"
 ---
 # <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>設定您的 App Service 應用程式以使用 Microsoft 帳戶登入
 
@@ -18,11 +18,11 @@ ms.locfileid: "74671927"
 
 本主題說明如何設定 Azure App Service，以使用 Microsoft 帳戶作為驗證提供者。 
 
-## <a name="register-microsoft-account"> </a>使用 Microsoft 帳戶註冊應用程式
+## <a name="register-microsoft-account"></a>向 Microsoft 帳戶註冊您的應用程式
 
 1. 移至 Azure 入口網站中的[**應用程式註冊**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)。 如有需要，請使用您的 Microsoft 帳戶登入。
 1. 選取 [**新增註冊**]，然後輸入應用程式名稱。
-1. 在 [重新**導向 uri**] 中，選取 [ **Web**]，然後輸入 `https://<app-domain-name>/.auth/login/microsoftaccount/callback supply the endpoint for your application`。 以應用程式的功能變數名稱取代 *\<的應用程式功能變數名稱 >* 。  例如： `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback` 。 請務必在 URL 中使用 HTTPS 配置。
+1. 在 [重新**導向 uri**] 中，選取 [ **Web**]，然後輸入 `https://<app-domain-name>/.auth/login/microsoftaccount/callback`。 以應用程式的功能變數名稱取代 *\<的應用程式功能變數名稱 >* 。  例如： `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback` 。 請務必在 URL 中使用 HTTPS 配置。
 
 1. 選取 [註冊]。
 1. 複製**應用程式（用戶端）識別碼**。 稍後您將會用到此資訊。
@@ -30,9 +30,9 @@ ms.locfileid: "74671927"
 1. 複製 [**憑證 & 密碼**] 頁面上顯示的值。 離開頁面之後，將不會再次顯示。
 
     > [!IMPORTANT]
-    > 密碼是重要的安全性認證。 請勿與任何人共用密碼，或在用戶端應用程式內散佈密碼。
+    > 用戶端密碼值（密碼）是重要的安全性認證。 請勿與任何人共用密碼，或在用戶端應用程式內散佈密碼。
 
-## <a name="secrets"> </a>將 Microsoft 帳戶資訊新增至 App Service 應用程式
+## <a name="secrets"></a>將 Microsoft 帳戶資訊新增至您的 App Service 應用程式
 
 1. 在[Azure 入口網站]中，移至您的應用程式。
 1. 選取 [**設定**] > [**驗證/授權**]，並確定**App Service 驗證**已**開啟**。
@@ -50,7 +50,7 @@ ms.locfileid: "74671927"
 
 現在，您已可在應用程式中使用 Microsoft 帳戶進行驗證。
 
-## <a name="related-content"> </a>後續步驟
+## <a name="related-content"></a>後續步驟
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 

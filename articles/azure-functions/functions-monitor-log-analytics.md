@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: aelnably
-ms.openlocfilehash: 4ebf6ecea0b08f416bd1bd11382116dda2107ecf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4af646569edc8a9274af752e7e4f2a36585ae4d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409646"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769093"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>使用 Azure 監視器記錄監視 Azure Functions
 
@@ -25,11 +25,11 @@ Azure 監視器使用 Azure 資料總管使用的 [Kusto 查詢語言](/azure/ku
 
 ## <a name="setting-up"></a>設定
 
-從 [監視] 區段中，選取 [**診斷設定**]，然後按一下 [**新增**]。
+從 [**監視**] 區段中，選取 [**診斷設定**]，然後按一下 [**新增診斷設定**]。
 
 ![新增診斷設定](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
 
-在 [設定] 頁面中，選擇 [**傳送至 Log Analytics**]，然後在 [**記錄**] 下選擇 [ **FunctionAppLogs**]，此資料表包含所需的記錄檔。
+在 [**診斷設定**] 頁面中，選擇 [**傳送至 log analytics**]，然後選取您的 log analytics 工作區。 在 [**記錄**] 下選擇**FunctionAppLogs**，此資料表包含所需的記錄檔。
 
 ![新增診斷設定](media/functions-monitor-log-analytics/choose-table.png)
 
@@ -72,7 +72,7 @@ logging.info('My app logs here.')
 
 ## <a name="querying-the-logs"></a>查詢記錄
 
-若要查詢產生的記錄，請移至 log analytics 工作區，然後按一下 [**記錄**]。
+若要查詢產生的記錄，請移至您設定用來傳送函式記錄的 Log Analytics 工作區，然後按一下 [**記錄**]。
 
 ![LA 工作區中的查詢視窗](media/functions-monitor-log-analytics/querying.png)
 

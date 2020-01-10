@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: a836c6b47e0e1346b5e8de9ba5fbe94f88961cbd
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615041"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772613"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>針對 Linux 或 Windows 上的 Azure 虛擬機器效能進行疑難排解
 
@@ -212,11 +212,11 @@ AverageE2ELatency 代表用戶端延遲。 確認應用程式正在執行 IOPS �
 
 #### <a name="references"></a>參考
 
-* [虛擬機器磁片的擴充性目標](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
+* [Premium 分頁 blob 儲存體帳戶的擴充性和效能目標](../../storage/blobs/scalability-targets-premium-page-blobs.md)
 
 儲存體帳戶的頻寬是以儲存體帳戶計量來測量： TotalIngress 和 TotalEgress。 根據您的冗余和區欄位型別而定，您的頻寬會有不同的閾值。
 
-* [Blob、佇列、資料表和檔案的擴充性目標](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-blobs-queues-tables-and-files)
+* [標準儲存體帳戶的擴充性和效能目標](../../storage/common/scalability-targets-standard-account.md)
 
 檢查 TotalIngress 和 TotalEgress，以瞭解儲存體帳戶冗余類型和區域的輸入和輸出限制。
 

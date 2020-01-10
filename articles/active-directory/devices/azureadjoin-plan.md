@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d70e87a9a0c7fb9b28f2a025db15ce4ba666255
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 43e50f8787516b1877f7867419b6edfd819ad158
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379603"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746056"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>如何：規劃 Azure AD Join 實作
 
@@ -24,7 +24,7 @@ Azure AD Join 可讓您直接將裝置加入 Azure AD，而不需要加入內部
 
 本文將為您提供規劃 Azure AD Join 實作所需的資訊。
  
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文假設您熟悉 [Azure Active Directory 中的裝置管理簡介](../device-management-introduction.md)。
 
@@ -75,7 +75,7 @@ Azure AD Join 在受控和同盟環境中均可運作。
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
 
-如果您的識別提供者不支援這些通訊協定，則 Azure AD Join 無法原生運作。 從 Windows 10 1809 開始，您的使用者即可經由 SAML 型識別提供者透過 [Windows 10 的 Web 登入](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10)來登入已加入 Azure AD 的裝置。 目前，web 登入是一項預覽功能，不建議用於生產環境部署。
+如果您的識別提供者不支援這些通訊協定，則 Azure AD Join 無法原生運作。 
 
 >[!NOTE]
 > 目前，Azure AD join 不適用於以[外部驗證提供者設定的 AD FS 2019 做為主要驗證方法](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary)。 Azure AD join 預設為密碼驗證做為主要方法，這會導致在此案例中發生驗證失敗
@@ -141,7 +141,7 @@ Azure AD 已加入裝置的裝置管理是以 MDM 平臺（如 Intune）和 MDM 
 
 ### <a name="cloud-based-applications"></a>雲端式應用程式
 
-如果應用程式已新增至 Azure AD 應用程式資源庫，使用者將可透過已加入 Azure AD 的裝置進行 SSO。 他們不需進行其他設定。 使用者可在Microsoft Edge 和 Chrome 瀏覽器上進行 SSO。 若要使用 Chrome，您必須部署 [Windows 10 帳戶延伸模組](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)。 
+如果應用程式已新增至 Azure AD 應用程式資源庫，使用者將可透過已加入 Azure AD 的裝置進行 SSO。 不需要進行其他組態設定。 使用者可在Microsoft Edge 和 Chrome 瀏覽器上進行 SSO。 若要使用 Chrome，您必須部署 [Windows 10 帳戶延伸模組](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)。 
 
 所有 Win32 應用程式只要：
 
@@ -181,7 +181,7 @@ Azure AD 已加入裝置的裝置管理是以 MDM 平臺（如 Intune）和 MDM 
 
 **建議：** 考慮淘汰這些應用程式，並改用其最新的替代方案。
 
-### <a name="remote-desktop-services"></a>遠端桌面服務問題
+### <a name="remote-desktop-services"></a>遠端桌面服務
 
 若要從遠端桌面連線至已加入 Azure AD 的裝置，主機電腦必須已加入 Azure AD 或已加入混合式 Azure AD。 不支援從未加入或非 Windows 的裝置進行遠端桌面連線。 如需詳細資訊，請參閱[連線至已加入 Azure AD 的遠端 PC](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
 
@@ -197,11 +197,11 @@ Azure AD 已加入裝置的裝置管理是以 MDM 平臺（如 Intune）和 MDM 
  
 |   | 自助式設定 | Windows Autopilot | 大量註冊 |
 | --- | --- | --- | --- |
-| 需要使用者手動設定 | yes | yes | 否 |
-| 需要 IT 工作 | 否 | yes | yes |
+| 需要使用者手動設定 | 是 | 是 | 否 |
+| 需要 IT 工作 | 否 | 是 | 是 |
 | 適用的流程 | OOBE 和設定 | 僅限 OOBE | 僅限 OOBE |
 | 主要使用者的本機管理員權限 | 是，依照預設 | 可設定 | 否 |
-| 需要裝置 OEM 支援 | 否 | yes | 否 |
+| 需要裝置 OEM 支援 | 否 | 是 | 否 |
 | 支援的版本 | 1511+ | 1709+ | 1703+ |
  
 請檢閱上表，並檢閱下列有關於採用任一方法的考量，選擇您的一或多個部署方法：  

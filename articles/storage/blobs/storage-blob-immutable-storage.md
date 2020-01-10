@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 92bfa4f13467763fd88b9ae993554aef69355d75
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 9d0919651842a6f6f935c9f1e338c9d335b80f47
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555240"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749167"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>使用不可變的儲存體儲存業務關鍵的 blob 資料
 
@@ -42,9 +42,9 @@ Azure Blob 儲存體的固定儲存體可讓使用者以 WORM （一次寫入，
 
 - **所有 Blob 層都支援：** WORM 原則與 Azure Blob 儲存層無關，而且會套用至所有層：經常性存取層、非經常性存取層和封存存取層。 使用者可以將資料轉換到其工作負載的成本最佳化層中，同時維護資料不變性。
 
-- **容器層級組態**：使用者可以在容器層級設定以時間為基礎的保留原則和合法保存標記。 藉由使用簡單的容器層級設定，使用者可以建立及鎖定以時間為基礎的保留原則、延長保留間隔、設定和清除合法保存等。 這些原則會套用到現有和新容器中的所有 Blob。
+- **容器層級組態**：使用者可以在容器層級設定以時間為基礎的保留原則和合法保存標記。 使用簡單的容器層級設定，使用者可以建立及鎖定以時間為基礎的保留原則、延長保留間隔、設定和清除法務保存等等。 這些原則會套用到現有和新容器中的所有 Blob。
 
-- **審核記錄支援**：每個容器都包含一個原則 Audit 記錄檔。 它會針對鎖定的以時間為基礎的保留原則，最多顯示7個以時間為基礎的保留命令，並包含使用者識別碼、命令類型、時間戳記及保留間隔。 針對合法保存，此記錄包含使用者識別碼、命令類型、時間戳記及合法保存標記。 此記錄會保留在原則的存留期間，符合 SEC 17a-4 （f）法規指導方針。 [ [Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)檔] 會顯示所有控制平面活動的更完整記錄;啟用[Azure 診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)時，會保留並顯示資料平面作業。 基於法規需求或其他目的，使用者有責任持續不斷地儲存那些記錄。
+- **審核記錄支援**：每個容器都包含一個原則 Audit 記錄檔。 它會針對鎖定的以時間為基礎的保留原則，最多顯示7個以時間為基礎的保留命令，並包含使用者識別碼、命令類型、時間戳記及保留間隔。 針對合法保存，此記錄包含使用者識別碼、命令類型、時間戳記及合法保存標記。 此記錄會保留在原則的存留期間，符合 SEC 17a-4 （f）法規指導方針。 [ [Azure 活動記錄](../../azure-monitor/platform/platform-logs-overview.md)檔] 會顯示所有控制平面活動的更完整記錄;啟用[Azure 診斷記錄](../../azure-monitor/platform/platform-logs-overview.md)時，會保留並顯示資料平面作業。 基於法規需求或其他目的，使用者有責任持續不斷地儲存那些記錄。
 
 ## <a name="how-it-works"></a>運作方式
 
@@ -84,8 +84,8 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 |---------|---------|---------|
 |Blob 上的有效保留間隔尚未過期及/或已設定合法保存     |固定：防刪與防寫保護         | 放置 Blob<sup>1</sup>、放置區塊<sup>1</sup>、放置區塊清單<sup>1</sup>、刪除容器、刪除 blob、設定 Blob 中繼資料、放置分頁、設定 blob 屬性、快照集 Blob、累加複製 Blob、附加區塊         |
 |Blob 上的有效保留間隔已過期     |僅限防寫保護 (允許刪除作業)         |放置 Blob<sup>1</sup>、放置區塊<sup>1</sup>、放置區塊清單<sup>1</sup>、設定 Blob 中繼資料、放置分頁、設定 Blob 屬性、快照集 Blob、累加複製 Blob、附加區塊         |
-|所有合法保存都已清除，且容器上未設定任何以時間為基礎的保留原則     |可變動         |None         |
-|未建立任何 WORM 原則 (以時間為基礎的保留或合法保存)     |可變動         |None         |
+|所有合法保存都已清除，且容器上未設定任何以時間為基礎的保留原則     |可變動         |無         |
+|未建立任何 WORM 原則 (以時間為基礎的保留或合法保存)     |可變動         |無         |
 
 <sup>1</sup>應用程式允許這些作業一次建立新的 blob。 不允許不可變容器中現有 blob 路徑上的所有後續覆寫作業。
 
@@ -96,7 +96,7 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 - 合法保存標記的最小長度為三個英數位元。 最大長度為23個英數位元。
 - 針對容器，原則期間會保留最多10個合法保存原則的 audit 記錄。
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 
 使用這項功能不需額外付費。 固定資料的定價方式與可變數據相同。 如需 Azure Blob 儲存體的定價詳細資料，請參閱[Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 

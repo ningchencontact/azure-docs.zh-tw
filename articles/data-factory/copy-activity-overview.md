@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 01/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 893ef88647824398ec106a964cbacf118bb14308
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 0e138e954501df3cf3c3c8819d0198ad9a9288f0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440350"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754454"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory 中的複製活動
 
@@ -252,6 +252,25 @@ Data Factory 可讓您以累加方式將差異資料從來源資料存放區複�
 在此範例中，在複製執行期間，Data Factory 會追蹤接收 Azure SQL Database 中的高 DTU 使用率。 這種狀況會使寫入作業變慢。 建議在 Azure SQL Database 層增加 Dtu：
 
 ![複製監視和效能微調祕訣](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+## <a name="resume-from-last-failed-run"></a>從上一次失敗的執行繼續
+
+複製活動支援在您以檔案為基礎的存放區之間以二進位格式複製大量檔案時，從上次失敗執行繼續，並選擇保留來源到接收的資料夾/檔案階層（例如，將資料從 Amazon S3 遷移至 Azure Data Lake Storage Gen2。 它適用于下列以檔案為基礎的連接器： [Amazon S3](connector-amazon-simple-storage-service.md)、 [azure Blob](connector-azure-blob-storage.md)、 [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)、 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、 [Azure 檔案儲存體](connector-azure-file-storage.md)、[檔案系統](connector-file-system.md)、 [FTP](connector-ftp.md)、 [Google 雲端儲存體](connector-google-cloud-storage.md)、 [HDFS](connector-hdfs.md)和[SFTP](connector-sftp.md)。
+
+您可以利用下列兩種方式來使用複製活動繼續：
+
+- **活動層級重試：** 您可以在複製活動上設定重試計數。 在管線執行期間，如果此複製活動執行失敗，下一個自動重試將從上次試用的失敗點開始。
+- **從失敗的活動重新執行：** 完成管線執行之後，您也可以在 ADF UI 監視視圖或以程式設計方式，從失敗的活動觸發重新執行。 如果失敗的活動是複製活動，管線將不只會從此活動重新執行，還會從先前執行的失敗點繼續。
+
+    ![複製繼續](media/copy-activity-overview/resume-copy.png)
+
+請注意下列幾點：
+
+- 繼續發生在檔案層級。 複製檔案時，如果複製活動失敗，則在下一次執行時，將會重新複製此特定檔案。
+- 若要讓 [繼續] 正常運作，請不要變更 [重新執行] 之間的複製活動設定。
+- 當您從 Amazon S3、Azure Blob、Azure Data Lake Storage Gen2 和 Google Cloud Storage 複製資料時，複製活動可以從任意數目的複製檔案繼續。 雖然以檔案為基礎的其餘連接器做為來源，但目前的複製活動支援從有限數量的檔案繼續，通常是在數十千的範圍內，而且會根據檔案路徑的長度而有所不同;在重新執行期間，將會重新複製超過此數目的檔案。
+
+對於非二進位檔案複製的其他案例，複製活動會從開頭開始重新執行。
 
 ## <a name="preserve-metadata-along-with-data"></a>保留中繼資料以及資料
 

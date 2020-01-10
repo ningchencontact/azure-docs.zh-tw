@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 5bceb6715fc3fd2f9f23738936df2f2c549d0212
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: aaa279596532d3a1d47a974b48a45bd67101fa95
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048181"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768617"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中調整應用程式的選項
 
@@ -28,6 +28,8 @@ ms.locfileid: "74048181"
 ## <a name="manually-scale-pods-or-nodes"></a>手動調整 Pod 或節點
 
 您可以手動調整複本 (Pod) 及節點，來測試您的應用程式如何回應可用資源和狀態中的變更。 手動調整資源也可讓您定義用來維護固定成本的資源集數量，例如節點的數目。 若要手動調整，您可以定義複本或節點計數。 Kubernetes API 接著會根據該複本或節點計數，排程建立額外的 pod 或清空節點。
+
+向下調整節點時，Kubernetes API 會呼叫相關的 Azure 計算 API，並系結至您的叢集所使用的計算類型。 例如，針對以為基礎的叢集 VM 擴展集用來選取要移除哪些節點的邏輯，是由 VM 擴展集 API 所決定。 若要深入瞭解如何在相應減少時選取要移除的節點，請參閱[VMSS 常見問題](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed)。
 
 若要開始手動調整 pod 和節點，請參閱[在 AKS 中調整應用程式][aks-scale]。
 

@@ -1,5 +1,5 @@
 ---
-title: 最佳做法
+title: 最佳作法
 description: 瞭解您的應用程式在 Azure App Service 中執行的最佳做法和常見疑難排解案例。
 author: dariagrigoriu
 ms.assetid: f3359464-fa44-4f4a-9ea6-7821060e8d0d
@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 328e0c882ea2fb3860663e04b88488bd54339c75
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: ded812d5d7a0440466e7284b56c90965ea00406e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671502"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768481"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure App Service 最佳做法
 本文將摘要說明使用 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)的最佳作法。 
@@ -37,7 +37,7 @@ ms.locfileid: "74671502"
 使用的用戶端程式庫未實作為重複使用 TCP 連線是耗盡輸出 TCP 連線的常見原因，而未使用更高階的通訊協定 (例如 HTTP - Keep-Alive) 也是原因之一。 請檢閱 App Service 方案中各應用程式所參考的每個程式庫的說明文件，以確保在程式碼中設定或存取程式庫時，能夠有效率地重複使用輸出連線。 此外，請遵循程式庫文件指引，適當地建立和釋放或清除，以免連線流失。 在進行這類用戶端程式庫調查時，可相應放大至多個執行個體來緩和影響。
 
 ### <a name="nodejs-and-outgoing-http-requests"></a>Node.js 和傳出 http 要求
-使用 Node.js 和許多傳出 http 要求時，HTTP - Keep-Alive 的處理非常重要。 您可以使用 [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` 封裝，使之得以更輕鬆地在程式碼中運作。
+使用 Node.js 和許多傳出 http 要求時，HTTP - Keep-Alive 的處理非常重要。 您可以使用[agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` 套件，讓程式碼更容易。
 
 即使您在處理常式中沒有任何操作，也請一律處理 `http` 回應。 如果未正確地處理回應，應用程式最終會因為已無其他可用的通訊端而停滯。
 
@@ -65,3 +65,13 @@ pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
 ## <a name="nodejs"></a>當新的 Node.js 應用程式部署至 Azure App Service 時
 適用於 Node.js app 的 Azure App Service 預設組態是為了符合大部分應用程式的需求。 如果進行個人化調整從而改善效能或將 CPU/記憶體/網路資源的資源使用量最佳化，能夠讓您的 Node.js 應用程式組態受益，則請參閱 [Azure App Service 上 Node 應用程式的最佳做法和疑難排解指南](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)。 此文說明您可能需要對 Node.js 應用程式設定的 iisnode 設定、說明應用程式可能面臨的各種情況或問題，以及示範如何解決這些問題。
 
+
+## <a name="next-steps"></a>後續步驟
+如需最佳做法的詳細資訊，請造訪[App Service 診斷](https://docs.microsoft.com/azure/app-service/overview-diagnostics)，以找出您的資源特有的可採取動作最佳作法。
+
+- 在[Azure 入口網站](https://portal.azure.com)中，流覽至您的 Web 應用程式。
+- 按一下左側導覽中的 **診斷並解決問題**，這會開啟 App Service 診斷。
+- 選擇 [**最佳做法**] 首頁磚。
+- 按一下 [**可用性 & 效能**] 或 [最佳設定的**最佳做法**]，以查看應用程式目前的狀態，以瞭解這些最佳作法。
+
+您也可以使用此連結直接開啟資源的 App Service 診斷： `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`。

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9ba540ee0eda2be50c88a89a139032d8d99752d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 384b79037bb30656934c5e4b596dac2b776593b0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791866"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754128"
 ---
 # <a name="shaper-cognitive-skill"></a>塑形器認知技能
 
@@ -249,7 +249,7 @@ Microsoft.Skills.Util.ShaperSkill
 ## <a name="see-also"></a>請參閱
 
 + [內建技能](cognitive-search-predefined-skills.md)
-+ [如何定義技能集](cognitive-search-defining-skillset.md)
++ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
 + [如何使用複雜類型](search-howto-complex-data-types.md)
-+ [知識存放區（預覽）](knowledge-store-concept-intro.md)
-+ [如何開始使用知識存放區](knowledge-store-howto.md)
++ [知識存放區 (預覽)](knowledge-store-concept-intro.md)
++ [在 REST 中建立知識存放區](knowledge-store-create-rest.md)

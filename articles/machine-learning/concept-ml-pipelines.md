@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: 2b0343527aa97abfd1b239b4588806e79e0b820d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c93c936664f65e7846f6c4ad82d9aead973fa129
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644319"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772596"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>什麼是 Azure Machine Learning 管線？
 
@@ -59,9 +59,9 @@ Azure Machine Learning 管線是一項完整機器學習工作的獨立可執行
 
 設計管線之後，在管線的定型迴圈上通常需要更多微調。 當您重新執行管線時，回合會跳至需要重新執行的步驟，例如更新的訓練腳本。 不需要重新執行的步驟會略過。 相同的分析適用于成就步驟所使用的未變更腳本。 這種重複使用的功能有助於避免執行成本高昂且耗時的步驟，例如資料內嵌和轉換（如果基礎資料尚未變更）。
 
-使用 Azure Machine Learning，您可以針對管線中的每個步驟使用各種工具組和架構，例如 PyTorch 或 TensorFlow。 Azure 會協調您使用的各種[計算目標](service/concept-azure-machine-learning-architecture.md)，因此您的中繼資料可以與下游計算目標共用。
+使用 Azure Machine Learning，您可以針對管線中的每個步驟使用各種工具組和架構，例如 PyTorch 或 TensorFlow。 Azure 會協調您使用的各種[計算目標](concept-azure-machine-learning-architecture.md)，因此您的中繼資料可以與下游計算目標共用。
 
-您可以直接在 Azure 入口網站或您的[工作區登陸頁面（預覽）](https://ml.azure.com)中[追蹤管線實驗的計量](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments)。 發佈管線之後，您可以設定 REST 端點，讓您可以從任何平臺或堆疊重新執行管線。
+您可以直接在 Azure 入口網站或您的[工作區登陸頁面（預覽）](https://ml.azure.com)中[追蹤管線實驗的計量](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)。 發佈管線之後，您可以設定 REST 端點，讓您可以從任何平臺或堆疊重新執行管線。
 
 簡單地說，機器學習服務週期的所有複雜工作都可以透過管線協助。 其他 Azure 管線技術有自己的優點，例如用於處理資料的[Azure Data Factory 管線](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities)，以及用於持續整合和部署的[Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) 。 但是，如果您的焦點是機器學習服務，Azure Machine Learning 管線可能是您工作流程需求的最佳選擇。 
 
@@ -109,7 +109,7 @@ Azure ML 管線會以已排序的步驟順序來執行完整的邏輯工作流�
 
 在[Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)中，管線是定義于 `azureml.pipeline.core` 模組中的 Python 物件。 [管線](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py)物件包含一或多個[PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py)物件的已排序序列。 `PipelineStep` 類別是抽象的，而實際的步驟則是子類別，例如[EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py)、 [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py)或[DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py)。 [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py)類別會保存可重複使用的步驟順序，以在管線之間共用。 `Pipeline` 會當做 `Experiment`的一部分來執行。
 
-Azure ML 管線會與 Azure Machine Learning 工作區相關聯，而管線步驟會與該工作區中可用的計算目標相關聯。 如需詳細資訊，請參閱[建立和管理 Azure 入口網站中的 Azure Machine Learning 工作區](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace)或[Azure Machine Learning 中的計算目標？](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target)。
+Azure ML 管線會與 Azure Machine Learning 工作區相關聯，而管線步驟會與該工作區中可用的計算目標相關聯。 如需詳細資訊，請參閱[建立和管理 Azure 入口網站中的 Azure Machine Learning 工作區](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)或[Azure Machine Learning 中的計算目標？](https://docs.microsoft.com/azure/machine-learning/concept-compute-target)。
 
 在 Azure Machine Learning 中，計算目標是發生 ML 階段的環境。 軟體環境可能是遠端 VM、Azure Machine Learning 計算、Azure Databricks、Azure Batch 等等。 硬體環境可能也會有很大的差異，視 GPU 支援、記憶體、存放裝置等等而定。 您可以指定每個步驟的計算目標，讓您更精細地控制成本。 您可以針對專案的特定動作、資料量和效能需求，使用更多或更不強大的資源。 
 

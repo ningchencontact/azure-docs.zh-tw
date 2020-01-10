@@ -1,10 +1,10 @@
 ---
 title: 開發安全的 Azure AD Web 應用程式 |Microsoft Docs
 description: 這個簡單的範例應用程式會在您于 Azure 上開發時，實行可改善應用程式和組織安全性狀態的安全性最佳作法。
-keywords: na
+keywords: NA
 services: security
 documentationcenter: na
-author: fehase
+author: TerryLanfear
 manager: alclabo
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
-ms.author: v-fehase
-ms.openlocfilehash: 88ef0874d760fb87700eac83c0d615be5887ddee
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.author: terrylan
+ms.openlocfilehash: a936fb4a0a6eadc2840fc6d642428091a6b0fe9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159845"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771269"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>開發 Azure AD 應用程式的安全應用程式
 ## <a name="overview"></a>概觀
@@ -334,7 +334,7 @@ App Service 實例可以與虛擬網路整合。 此整合可讓您設定網路�
 
 5. 在 NSG 的 [子網] 分頁上，選取 [**關聯**]，選取部署中所建立的虛擬網路，然後選取名為**gw-subnet**的閘道子網。 NSG 會套用至子網。
 
-6. 建立另一個 NSG，如同在先前的步驟中，這次適用于 App Service 實例。 為它命名。 新增埠443的輸入規則，如同您針對應用程式閘道 NSG 所做的一樣。
+6. 建立另一個 NSG，如同在先前的步驟中，這次適用于 App Service 實例。 取個名稱。 新增埠443的輸入規則，如同您針對應用程式閘道 NSG 所做的一樣。
 
    如果您將 App Service 實例部署在 App Service 環境實例上（這不是此應用程式的情況），您可以在 App Service NSG 的輸入安全性群組上開啟埠454-455，以新增輸入規則以允許 Azure 服務健康狀態探查。 設定如下：
 
@@ -362,7 +362,7 @@ Azure 磁碟加密利用 Windows 的 BitLocker 功能來提供資料磁片的磁
 - Azure Active Directory Privileged Identity Management 可讓客戶將可存取特定資訊（例如持卡人資料）的使用者人數降至最低。 系統管理員可以使用 Azure Active Directory Privileged Identity Management 來探索、限制和監視特殊權限的識別和其對資源的存取。 如有需要，這項功能也可用來強制執行隨選 Just-In-Time 系統管理存取權。
 - Azure Active Directory Identity Protection 會偵測影響組織身分識別的潛在弱點、設定對偵測到的組織身分識別相關可疑動作的自動回應，以及調查可疑的要採取適當動作來解決問題的事件。
 ### <a name="secrets-management"></a>祕密管理
-解決方案會使用 Azure Key Vault 來管理金鑰和秘密。 Azure Key Vault 可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 下列 Azure Key Vault 功能可協助客戶保護及存取這類資料
+解決方案會使用 Azure Key Vault 來管理金鑰和秘密。 Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 下列 Azure Key Vault 功能可協助客戶保護及存取這類資料
    - 進階存取原則是視需要設定的。
    - Key Vault 存取原則是使用金鑰和祕密的最低必要權限所定義的。
    - Key Vault 中的所有金鑰和祕密都有到期日。
@@ -404,13 +404,13 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 ### <a name="application-insights"></a>Application Insights 
    [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)是可延伸的應用程式效能管理服務，適用于多個平臺上的 網頁程式開發人員。 Application Insights 會偵測效能異常，客戶可以用它來監視即時 Web 應用程式。 其中包括強大的分析工具可協助客戶診斷問題，並了解使用者實際上如何運用應用程式。 它是設計來協助客戶持續改善效能和可用性。
 
-### <a name="azure-key-vault"></a>Azure 金鑰保存庫
+### <a name="azure-key-vault"></a>Azure Key Vault
    為用來儲存金鑰的組織建立保存庫，並維護如下所述作業工作的責任
 
    - 儲存在 Key Vault 中的資料包含   
    - Application Insights 金鑰
    - 資料儲存體存取金鑰
-   - Connection string
+   - 連接字串
    - 資料表名稱
    - 使用者認證
    - 進階存取原則是視需要設定的
@@ -443,7 +443,7 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 1.  流覽回到 Azure 入口網站。 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊]。
 2.  在結果畫面中，選取 [WebApp-OpenIDConnect-DotNet-code-v2] 應用程式。
 3.  在 [重新導向 Uri] 區段的 [驗證] 索引標籤中，選取下拉式方塊中的 [Web]，然後新增下列重新導向 Uri。
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net [Advanced settings] 區段中的 https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o，將 [登出 URL] 設定為 https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
+    [https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net](https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ) https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc [Advanced settings] 區段中的 o 設定 [登出 URL] https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
 4.  在 [商標] 索引標籤中，將首頁 URL 更新為 app service 的位址，例如 https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net 。
         o 儲存設定。
 5.  如果您的應用程式呼叫 web api，請務必在專案 appsettings 上套用必要的變更，因此它會呼叫已發佈的 API URL，而不是 localhost。
@@ -452,7 +452,7 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
     2.  切換至 Visual Studio 並移至 [WebApp-OpenIDConnect-DotNet-code-v2] 專案。 以滑鼠右鍵按一下方案總管中的專案，然後選取 [發佈]。 按一下底部列上的 [匯入設定檔]，然後匯入您稍早下載的發行設定檔。
     3.  按一下 [設定]，然後在 [連線] 索引標籤中更新 [目的地 URL]，讓它在首頁 url 中是 HTTPs，例如 https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net 。 按 [下一步]。
     4.  在 [設定] 索引標籤上，請確定未選取 [啟用組織驗證]。 按一下 [儲存]。 按一下主畫面上的 [發佈]。
-    5.  Visual Studio 將發佈專案，並自動將瀏覽器開啟至專案的 URL。 如果您看到專案的預設網頁，則發行集已成功。
+    5.  Visual Studio 會發佈專案，並自動開啟瀏覽器並導向至專案的 URL。 如果您看到專案的預設網頁，表示發佈成功。
 #### <a name="implement-multi-factor-authentication-for-azure-active-directory"></a>執行 Azure Active Directory 的多重要素驗證
    系統管理員必須確保入口網站中的訂用帳戶帳戶受到保護。 此訂用帳戶容易遭受攻擊，因為它會管理您所建立的資源。 若要保護訂用帳戶，請在訂用帳戶的 [ **Azure Active Directory** ] 索引標籤上啟用多重要素驗證。
 
@@ -465,7 +465,7 @@ Azure 會建立預設原則，指定系統管理員需要雙因素驗證來登�
    1. 移至 Azure 入口網站中的 [ **Azure Active Directory** ] 索引標籤
    2. 在 [安全性] 類別底下，選取 [條件式存取]。 您會看到此畫面
 
-       ![條件式存取-原則](./media/secure-aad-app/ad-mfa-conditional-add.png)
+       ![條件式存取 - 原則](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
 如果您無法建立新的原則
 

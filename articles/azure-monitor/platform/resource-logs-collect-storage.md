@@ -5,20 +5,20 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 306f6cb0b50b7befcbf51e6164a5da887d35616e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b6a687fc7ddf5eeacdfe3480a252598c6f9e773e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74030880"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750382"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>將 Azure 資源記錄封存到儲存體帳戶
-Azure 中的[資源記錄](resource-logs-overview.md)會提供有關 Azure 資源內部作業的豐富、經常性資料。 本文說明如何將資源記錄檔收集至 Azure 儲存體帳戶，以保留資料以供封存。
+Azure 中的[平臺記錄](platform-logs-overview.md)，包括 azure 活動記錄和資源記錄，可提供 azure 資源的詳細診斷和審核資訊，以及它們所依賴的 azure 平臺。  本文說明如何將平臺記錄檔收集至 Azure 儲存體帳戶，以保留資料以供封存。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 如果您還沒有[Azure 儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)，您必須建立它。 儲存體帳戶不一定要與資源傳送記錄位於相同的訂用帳戶中，前提是設定此設定的使用者具有這兩個訂用帳戶的適當 RBAC 存取權。
 
 
@@ -26,19 +26,17 @@ Azure 中的[資源記錄](resource-logs-overview.md)會提供有關 Azure 資�
 > Azure Data Lake Storage Gen2 帳戶目前不支援做為診斷設定的目的地，即使它們在 Azure 入口網站中可能列為有效的選項。
 
 
-您不應該使用已儲存其他非監視資料的現有儲存體帳戶，讓您可以更有效地控制監視資料的存取。 不過，如果您也將[活動記錄](activity-logs-overview.md)檔封存至儲存體帳戶，您可以選擇使用相同的儲存體帳戶，將所有監視資料保留在中央位置。
+您不應該使用已儲存其他非監視資料的現有儲存體帳戶，讓您可以更有效地控制資料的存取權。 不過，如果您要同時封存活動記錄檔和資源記錄，您可以選擇使用相同的儲存體帳戶，將所有監視資料保留在中央位置。
 
 ## <a name="create-a-diagnostic-setting"></a>建立診斷設定
-預設不會收集資源記錄。 藉由建立 Azure 資源的診斷設定，在 Azure 儲存體帳戶和其他目的地中收集它們。 如需詳細資訊，請參閱[建立診斷設定以收集 Azure 中的記錄和計量](diagnostic-settings.md)。
+藉由建立 Azure 資源的診斷設定，將平臺記錄傳送到儲存體和其他目的地。 如需詳細資訊，請參閱[建立診斷設定以收集 Azure 中的記錄和計量](diagnostic-settings.md)。
 
 
-## <a name="data-retention"></a>資料保留
-保留原則會定義要保留每個記錄類別之資料的天數，以及儲存在儲存體帳戶中的計量資料。 保留原則可以是介於0到365之間的任何天數。 保留原則為零時，指定會無限期地儲存該記錄類別的事件。
-
-保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄將被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄會被刪除。 刪除程序會從 UTC 午夜開始，但是請注意，可能需要長達 24 小時的時間，記錄才會從您的儲存體帳戶中刪除。 
+## <a name="collect-data-from-compute-resources"></a>從計算資源收集資料
+診斷設定會收集 Azure 計算資源的資源記錄，就像任何其他資源一樣，而不是其客體作業系統或工作負載。 若要收集此資料，請安裝[Windows Azure 診斷代理程式](diagnostics-extension-overview.md)。 如需詳細資訊，請參閱[在 Azure 儲存體中儲存和查看診斷資料](diagnostics-extension-to-storage.md)。
 
 
-## <a name="schema-of-resource-logs-in-storage-account"></a>儲存體帳戶中的資源記錄架構
+## <a name="schema-of-platform-logs-in-storage-account"></a>儲存體帳戶中平臺記錄的架構
 
 一旦您建立了診斷設定，一旦其中一個已啟用的記錄類別中發生事件，就會在儲存體帳戶中建立儲存體容器。 容器內的 blob 會使用下列命名慣例：
 
@@ -54,7 +52,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/xxxxxxxx
 
 每個 PT1H.json blob 有一個 JSON blob，包含在 blob URL 指定時數內 (例如 h = 12) 發生的事件。 在目前這一小時，事件一發生就會附加到 PT1H.json 檔案。 分鐘值（m = 00）一定是00，因為資源記錄事件會分成每小時的個別 blob。
 
-在 PT1H json 檔案中，每個事件都是以下列格式儲存。 這會使用通用的最上層架構，但每個 Azure 服務都是唯一的，如[資源記錄架構](resource-logs-overview.md#resource-logs-schema)中所述。
+在 PT1H json 檔案中，每個事件都是以下列格式儲存。 這會使用通用的最上層架構，但每個 Azure 服務都是唯一的，如[資源記錄架構](diagnostic-logs-schema.md)和[活動記錄架構](activity-log-schema.md)中所述。
 
 ``` JSON
 {"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}
@@ -65,7 +63,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/xxxxxxxx
 
 ## <a name="next-steps"></a>後續步驟
 
+* [深入瞭解資源記錄](platform-logs-overview.md)。
+* [建立診斷設定以收集 Azure 中的記錄和計量](diagnostic-settings.md)。
 * [下載 blob 以進行分析](../../storage/blobs/storage-quickstart-blobs-dotnet.md)。
 * [使用 Azure 監視器封存 Azure Active Directory 記錄](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)。
-* [深入瞭解資源記錄](../../azure-monitor/platform/resource-logs-overview.md)。
-

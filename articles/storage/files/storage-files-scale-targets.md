@@ -1,5 +1,5 @@
 ---
-title: Azure 檔案服務延展性和效能目標 | Microsoft Docs
+title: Azure 檔案服務延展性和效能目標
 description: 了解 Azure 檔案服務的延展性和效能目標，包括容量、要求率以及輸入和輸出頻寬限制。
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 267a63eba90c74b79078a7c04c1d2d8929cf2a44
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 211dafd1ad3e30d37cfee926a7c93ba541037f62
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615767"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749499"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure 檔案服務延展性和效能目標
 
@@ -24,7 +24,7 @@ ms.locfileid: "73615767"
 
 Azure 檔案共用的父資源是 Azure 儲存體帳戶。 儲存體帳戶代表 Azure 中可供多個儲存體服務 (包括 Azure 檔案服務) 儲存資料的儲存體集區。 將資料儲存在儲存體帳戶的其他服務有 Azure Blob 儲存體、Azure 佇列儲存體和 Azure 資料表儲存體。 下列目標適用於在儲存體帳戶中儲存資料的所有儲存體服務：
 
-[!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -111,8 +111,7 @@ Azure 檔案同步的設計目標是無限制的使用方式，但無限制的�
 - 物件輸送量的消長大致上會與伺服器上的同步群組數目成正比。 在伺服器上將資料分割到多個同步群組時，會產生較佳的輸送量，但仍受限於伺服器和網路。
 - 物件輸送量與每秒 MiB 輸送量成反比。 檔案較小時，在每秒處理的物件數方面會呈現較高的輸送量，但每秒的 MiB 輸送量則會降低。 相反地，若檔案較大，每秒處理的物件數將會降低，但每秒的 MiB 輸送量則會提高。 每秒的 MiB 輸送量會受限於 Azure 檔案擴展目標。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - [規劃 Azure 檔案部署](storage-files-planning.md)
 - [規劃 Azure 檔案同步部署](storage-sync-files-planning.md)
-- [其他儲存體服務的延展性和效能目標](../common/storage-scalability-targets.md)

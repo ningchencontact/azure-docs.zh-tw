@@ -2,17 +2,17 @@
 title: 收集 & 分析資源記錄
 description: 記錄和分析資源記錄檔事件以進行 Azure Container Registry，例如驗證、影像推送和影像提取。
 ms.topic: article
-ms.date: 10/30/2019
-ms.openlocfilehash: ada8502724c1779b9bdab2e8ac7e8ea61c256e44
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/03/2020
+ms.openlocfilehash: 72d03149cd24636ba2086dfaaff0dbba16d30f1e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456420"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748011"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>用於診斷評估和審核的 Azure Container Registry 記錄
 
-本文說明如何使用[Azure 監視器](../azure-monitor/overview.md)的功能來收集 Azure container registry 的記錄資料。 Azure 監視器會針對登錄中的使用者驅動事件收集[資源記錄](../azure-monitor/platform/resource-logs-overview.md)（先前稱為*診斷記錄*）。 收集並取用此資料以符合需求，例如：
+本文說明如何使用[Azure 監視器](../azure-monitor/overview.md)的功能來收集 Azure container registry 的記錄資料。 Azure 監視器會針對登錄中的使用者驅動事件收集[資源記錄](../azure-monitor/platform/platform-logs-overview.md)（先前稱為*診斷記錄*）。 收集並取用此資料以符合需求，例如：
 
 * 審核登錄驗證事件以確保安全性與合規性 
 
@@ -26,9 +26,14 @@ ms.locfileid: "74456420"
 
 ## <a name="preview-limitations"></a>預覽限制
 
-儲存機制層級事件的記錄目前不包含 delete 或 untag 事件。 只會記錄下列存放庫事件：
-* 針對影像和其他成品**推送事件**
-* **提取**影像和其他成品的事件
+目前已記錄影像和其他成品的下列存放庫層級事件：
+
+* **推送事件**
+* **提取事件**
+* **Untag 事件**
+* **刪除事件**（包括存放庫刪除事件）
+
+目前未記錄的存放庫層級事件：清除事件。
 
 ## <a name="registry-resource-logs"></a>登錄資源記錄
 
@@ -42,7 +47,7 @@ ms.locfileid: "74456420"
   * 成功或失敗狀態
   * 開始和結束時間戳記
 
-除了資源記錄之外，Azure 還提供「[活動記錄](../azure-monitor/platform/activity-logs-overview.md)」，這是 azure 管理事件的單一訂用帳戶層級記錄，例如建立或刪除容器登錄。
+除了資源記錄之外，Azure 還提供「[活動記錄](../azure-monitor/platform/platform-logs-overview.md)」，這是 azure 管理事件的單一訂用帳戶層級記錄，例如建立或刪除容器登錄。
 
 ## <a name="enable-collection-of-resource-logs"></a>啟用資源記錄的收集
 

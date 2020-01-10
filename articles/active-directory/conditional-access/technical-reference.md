@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1023583b5527e4d565580e8f094dc2f68d38f4ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 78f148f435edee16805cc8b0ae78652a17826727
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424798"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768143"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 條件式存取設定參考
 
@@ -29,8 +29,6 @@ ms.locfileid: "75424798"
 - 雲端應用程式條件
 - 已核准的用戶端應用程式需求
 
-如果這不是您要尋找的資訊，請在本文結尾留言。
-
 ## <a name="cloud-apps-assignments"></a>雲端應用程式指派
 
 透過條件式存取原則，您可以控制使用者存取[雲端應用程式](conditions.md#cloud-apps-and-actions)的方式。 當您設定條件式存取原則時，必須選取至少一個雲端應用程式。 
@@ -41,6 +39,7 @@ ms.locfileid: "75424798"
 
 您可以將條件式存取原則指派給 Microsoft 的下列雲端應用程式：
 
+- Office 365 （預覽）
 - Azure Analysis Services
 - Azure DevOps
 - Azure SQL Database 和資料倉儲-[深入瞭解](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
@@ -73,6 +72,22 @@ ms.locfileid: "75424798"
 - 商務用 Skype Online
 - 虛擬私人網路 (VPN)
 - Windows Defender ATP
+
+### <a name="office-365-preview"></a>Office 365 （預覽）
+
+Office 365 提供以雲端為基礎的生產力和共同作業服務，例如 Exchange、SharePoint 和 Microsoft 團隊。 Office 365 雲端服務已緊密整合，以確保順暢且共同作業的體驗。 Office 365 （預覽）應用程式可讓您一次將這些服務設為目標。 我們建議使用新的 Office 365 （預覽）應用程式，而不是以個別雲端應用程式（例如 Office 365 Exchange Online 和 Office 365 SharePoint Online）為目標，以避免因原則和服務相依性不一致而可能發生的問題。
+
+Office 365 （預覽）用戶端應用程式中所包含的主要應用程式：
+
+- Office 365 Exchange Online
+- Office 365 SharePoint Online
+- Microsoft Teams
+- Office 365 Yammer
+- Office 入口網站
+- Microsoft Forms
+- Microsoft 電源自動化
+- Microsoft Planner
+- Microsoft PowerApps
 
 ### <a name="other-applications"></a>其他應用程式
 
