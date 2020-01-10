@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: memildin
-ms.openlocfilehash: 2a22039b3499f1ba0f2d7acb2e86a1991d35a380
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b2ab769fc2595af9fd1ea41f1ef492944cb5e7fa
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202131"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665763"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>管理 Azure 資訊安全中心中的安全性事件
 
@@ -55,9 +55,9 @@ ms.locfileid: "71202131"
 下列主題說明資訊安全中心如何使用它從與 Azure 基礎結構整合所收集的不同遙測資料，以針對部署在 Azure 上的資源套用額外的保護層級：
 
 * [服務層警示](security-center-alerts-service-layer.md)
-* [與 Azure 安全性產品整合](security-center-alerts-integration.md)
+* [Azure WAF 和 Azure DDoS 保護的威脅偵測](security-center-alerts-integration.md)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 在本文件中，您已了解如何使用資訊安全中心的安全性事件功能。 如要深入了解資訊安全中心，請參閱下列主題：
 
 * [Azure 資訊安全中心中的安全性警示](security-center-alerts-overview.md)。

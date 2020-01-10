@@ -1,18 +1,18 @@
 ---
 title: 連接至 Dropbox。
-description: 使用 Dropbox REST API 和 Azure Logic Apps上傳及管理檔案
+description: 使用 Azure Logic Apps 將在 Dropbox 中上傳和管理檔案的工作和工作流程自動化
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: b38f9b9626e5eec0272256aacc71f7503a006dd6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 8f54f832884b172761f62b16db29d2f0abd0dd46
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789825"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665746"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 上傳和管理 Dropbox 中的檔案
 
@@ -22,7 +22,7 @@ ms.locfileid: "74789825"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * [Dropbox 帳戶](https://www.dropbox.com/)，您可以免費註冊。 您必須有帳號憑證，才能建立邏輯應用程式與 Dropbox 帳戶之間的連線。
 
@@ -64,7 +64,7 @@ ms.locfileid: "74789825"
 
 ## <a name="connector-reference"></a>連接器參考
 
-如需如連接器的 OpenAPI （先前為 Swagger）檔案所述的技術詳細資料（例如觸發程式、動作和限制），請參閱[連接器的參考頁面](/connectors/dropbox/)。
+如需連接器的 Swagger 檔案所敘述的技術詳細資料 (例如，觸發程序、動作和限制)，請參閱[連接器的參考頁面](/connectors/dropbox/)。
 
 ## <a name="next-steps"></a>後續步驟
 

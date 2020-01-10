@@ -673,18 +673,18 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: 資源
   items:
+    - name: 白皮書
+      href: whitepapers.md
+    - name: 常見問題集
+      href: frequently-asked-questions.md
+    - name: 服務更新
+      href: 'https://azure.microsoft.com/updates/?product=data-factory'
     - name: 提出問題 - MSDN 論壇
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
     - name: 提出問題 - Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: 要求功能
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: 常見問題集
-      href: frequently-asked-questions.md
-    - name: 白皮書
-      href: whitepapers.md
-    - name: 藍圖
-      href: 'https://azure.microsoft.com/roadmap/?tag=data-factory'
     - name: 價格
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: 依區域的可用性

@@ -1,20 +1,20 @@
 ---
 title: 連接到 Office 365 影片
-description: 使用 Office 365 影片 REST API 和 Azure Logic Apps 管理影片
+description: 使用 Azure Logic Apps 自動化在 Office 365 中管理影片的作業和工作流程
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 05/18/2016
 tags: connectors
-ms.openlocfilehash: bf3c7c4faac3fcd4dd0c3f368fbe18a224ed591b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 8ac6b7b411e7f42dd076c5b16e7b500a819c617f
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789474"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665780"
 ---
-# <a name="get-started-with-the-office365-video-connector"></a>開始使用 Office 365 影片連接器
+# <a name="manage-videos-in-office365-video-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 管理 Office365 Video 中的影片
 
 連接至 Office 365 影片，以取得 Office 365 影片的相關資訊、影片清單等。 有了 Office 365 影片，您可以：
 
@@ -26,7 +26,7 @@ ms.locfileid: "74789474"
 
 您可以從建立邏輯應用程式立即開始，請參閱[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-## <a name="create-a-connection-to-office365-video-connector"></a>建立至 Office365 影片連接器的連線
+## <a name="connect-to-office365-video"></a>連接到 Office365 影片
 
 當您將這個連接器新增到邏輯應用程式時，您必須登入您的 Office 365 影片帳戶，並允許邏輯應用程式連線到您的帳戶。
 
