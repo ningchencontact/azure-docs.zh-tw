@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 1811796de96e87343544f63fcee7acdd9907693c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 8d48c889681eabc2519a0a60d0f9846b8f30bfd5
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530981"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830134"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>在 Azure 監視器中使用 Log Analytics 閘道將電腦連線，而不需要網際網路存取
 
@@ -103,7 +103,7 @@ Log Analytics 閘道僅支援傳輸層安全性（TLS）1.0、1.1 和1.2。  它
 
 ## <a name="download-the-log-analytics-gateway"></a>下載 Log Analytics 閘道
 
-從[Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=54443)或 Azure 入口網站取得 Log Analytics 閘道安裝程式檔案的最新版本。
+從 Microsoft 下載中心（[下載連結](https://go.microsoft.com/fwlink/?linkid=837444)）或 Azure 入口網站取得 Log Analytics 閘道安裝程式檔案的最新版本。
 
 若要從 Azure 入口網站取得 Log Analytics 閘道，請遵循下列步驟：
 

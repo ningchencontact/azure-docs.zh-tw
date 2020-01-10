@@ -10,16 +10,18 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/27/2019
+ms.date: 01/07/2020
 ms.author: juliako
-ms.openlocfilehash: 0583c0093d240026e3ebcdad7b14494f07986ec2
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 88effd58e807d39e5915aa41425ecf2e8ca8e3cc
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968722"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832317"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure 媒體服務影片索引子版本資訊
+
+>藉由複製並貼上此 URL，取得何時要重新流覽此頁面以進行更新的通知： `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` 至您的 RSS 摘要讀取器。
 
 為了讓您隨時掌握最新的開發訊息，本文提供下列相關資訊：
 
@@ -28,6 +30,53 @@ ms.locfileid: "72968722"
 * 錯誤修正
 * 已被取代的功能
 
+## <a name="december-2019"></a>2019 年 12 月
+
+### <a name="update-transcript-with-the-new-api"></a>使用新的 API 更新文字記錄
+
+使用[更新-影片-索引](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?&pattern=update)API 來更新文字記錄中的特定區段。
+
+### <a name="fix-account-configuration-from-the-video-indexer-portal"></a>從影片索引子入口網站修正帳戶設定
+
+您現在可以更新媒體服務連線設定，以便自行協助解決下列問題： 
+
+* 不正確的 Azure 媒體服務資源
+* 密碼變更
+* 已在訂用帳戶之間移動媒體服務資源  
+
+若要修正帳戶設定，請在影片索引子入口網站中流覽至 [設定] > [帳戶] 索引標籤（以擁有者身分）
+
+### <a name="configure-the-custom-vision-account"></a>設定自訂視覺帳戶
+
+使用影片索引子入口網站在付費帳戶上設定自訂視覺帳戶（先前只有 API 支援）。 若要這麼做，請登入影片索引子入口網站，選擇 [模型自訂 > 動畫字元 > 設定]。 
+
+### <a name="scenes-shots-and-keyframes--now-in-one-insight-pane"></a>場景、照片和主要畫面格–現在位於一個深入解析窗格
+
+場景、快照和主要畫面格現在會合並成一個深入解析，讓您更容易取用和導覽。 當您選取所需的場景時，您可以看到其中所包含的螢幕擷取畫面和主要畫面格。 
+
+### <a name="notification-about-a-long-video-name"></a>關於長影片名稱的通知
+
+當影片名稱長度超過80個字元時，影片索引子會在上傳時顯示描述性錯誤。
+
+### <a name="streaming-endpoint-is-disabled-notification"></a>串流端點已停用通知
+
+當串流端點停用時，影片索引子會在 [播放] 頁面上顯示描述性錯誤。
+
+### <a name="error-handling-improvement"></a>錯誤處理改善
+
+現在會從[重新編制索引的影片](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video? https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?)傳回狀態碼409，並[更新影片索引](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?)api （如果影片正在進行索引編制），以避免意外覆寫目前的重新索引變更。
+
+## <a name="november-2019"></a>2019 年 11 月
+ 
+* 韓文自訂語言模型支援
+
+    影片索引子現在支援 API 和入口網站中的韓文（`ko-KR`）自訂語言模型。 
+* 語音轉換文字（STT）支援的新語言
+
+    影片索引子 Api 現在支援阿拉伯文 Levantine （ar-SY）、英文英國方言（en-GB）和英文澳大利亞方言（en-us）中的 STT。
+    
+    針對影片上傳，我們將 zh-HANS 取代為 zh-CN，這兩者都受到支援，但 zh-CN 是建議且更精確的做法。
+    
 ## <a name="october-2019"></a>2019 年 10 月
  
 * 在資源庫中搜尋動畫字元
@@ -137,4 +186,4 @@ ms.locfileid: "72968722"
 
 ## <a name="next-steps"></a>後續步驟
 
-[Overview](video-indexer-overview.md)
+[概觀](video-indexer-overview.md)

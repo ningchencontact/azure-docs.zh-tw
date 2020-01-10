@@ -10,18 +10,18 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 1a82b6592782973920f4381129e9659eaebca033
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 01/09/2020
+ms.openlocfilehash: cd9cada24ba5e7d2a2001d4ef0efef2a157b0fd6
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75537184"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834717"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>在 Python 中啟動、監視和取消定型執行
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-適用于 Python 和[MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)的[Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)提供各種方法來監視、組織及管理您的執行，以進行訓練和實驗。
+[適用于 Python 的 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)、 [Machine Learning CLI](reference-azure-machine-learning-cli.md)和[Azure Machine Learning studio](https://ml.azure.com)提供各種方法來監視、組織及管理您的回合，以進行訓練和實驗。
 
 本文說明下列工作的範例：
 
@@ -105,6 +105,16 @@ notebook_run.log(name="message", value="Hello from run!")
 
     如需詳細資訊，請參閱[az ml 執行提交-腳本](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script)。
 
+### <a name="using-azure-machine-learning-studio"></a>使用 Azure Machine Learning studio
+
+若要開始在設計工具（預覽）中提交管線執行，請使用下列步驟：
+
+1. 為您的管線設定預設計算目標。
+
+1. 選取管線畫布頂端的 [**執行**]。
+
+1. 選取要分組管線執行的實驗。
+
 ## <a name="monitor-the-status-of-a-run"></a>監視執行的狀態
 
 ### <a name="using-the-sdk"></a>使用 SDK
@@ -160,6 +170,22 @@ print(notebook_run.get_status())
 
     如需詳細資訊，請參閱[az ml run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show)。
 
+
+### <a name="using-azure-machine-learning-studio"></a>使用 Azure Machine Learning studio
+
+在 studio 中，為您的實驗查看使用中的執行數目。
+
+1. 流覽至**實驗**區段。 
+
+1. 選取實驗。
+
+    在 [實驗] 頁面中，您可以看到使用中計算目標的數目，以及每次執行的持續時間。 
+
+1. 選取特定的執行編號。
+
+1. 在 [**記錄**檔] 索引標籤中，您可以找到管線執行的診斷和錯誤記錄檔。
+
+
 ## <a name="cancel-or-fail-runs"></a>取消或失敗的執行
 
 如果您注意到錯誤，或是您的執行時間太長而無法完成，您可以取消執行。
@@ -194,6 +220,17 @@ az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
 如需詳細資訊，請參閱[az ml run cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel)。
+
+### <a name="using-azure-machine-learning-studio"></a>使用 Azure Machine Learning studio
+
+若要在 studio 中取消執行，請使用下列步驟：
+
+1. 在 [**實驗**] 或 [**管線**] 區段中，移至執行中的管線。 
+
+1. 選取您想要取消的管線執行編號。
+
+1. 在工具列中，選取 [**取消**]
+
 
 ## <a name="create-child-runs"></a>建立子執行
 
@@ -331,6 +368,12 @@ az ml run list --experiment-name experiment [?properties.author=='azureml-user' 
 ```
 
 如需查詢 Azure CLI 結果的詳細資訊，請參閱[查詢 Azure CLI 命令輸出](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest)。
+
+### <a name="using-azure-machine-learning-studio"></a>使用 Azure Machine Learning studio
+
+1. 流覽至 [**管線**] 區段。
+
+1. 使用 [搜尋] 列來篩選使用標記、描述、實驗名稱和提交者名稱的管線。
 
 ## <a name="example-notebooks"></a>Notebook 範例
 

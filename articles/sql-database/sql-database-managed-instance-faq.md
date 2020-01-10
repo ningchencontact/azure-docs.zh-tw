@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: b409824c2adb544560dfa17b4871ba23760d35c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81f776428303ad5e6486ba52c1acdf70d051563e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443865"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835005"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database 受控實例的常見問題（FAQ）
 
@@ -105,7 +105,7 @@ ms.locfileid: "75443865"
 
 ## <a name="tune-performance"></a>微調效能
 
-\* * 如何? 調整受控實例的效能？ **
+**如何? 調整受控實例的效能？**
 
 一般用途受控實例會使用遠端存放，因為資料和記錄檔的大小對效能很重要。 如需詳細資訊，請參閱[一般用途的記錄檔大小影響受控執行個體效能](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e)。
 
@@ -180,8 +180,8 @@ Service Fabric 基礎結構會使用埠9000和9003。 Service Fabric 主要角�
 
 ## <a name="dns-refresh"></a>DNS 重新整理 
 
-\* * 我可以進行 DNS 重新整理嗎？ **
-  
+**我可以進行 DNS 重新整理嗎？**
+
 目前，我們並未提供重新整理受控實例之 DNS 伺服器設定的功能。
 
 DNS 設定最後會重新整理：

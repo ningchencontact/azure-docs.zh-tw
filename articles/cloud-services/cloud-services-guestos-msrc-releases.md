@@ -10,41 +10,38 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/13/2019
+ms.date: 01/08/2020
 ms.author: raiye
-ms.openlocfilehash: 742f54ffb6c77d9f84582d6a68dff936fdbbe99c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 97f4283e02dd3b67df5381f78e87c3ee5b23b74e
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75386199"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779581"
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 針對在中引進的特定[系列][family-explain]，一律會繼續進行更新。
 
 ## <a name="december-2019-guest-os"></a>2019年12月的客體作業系統
 
->[!NOTE]
->我們目前正在將 12 月客體 OS 推展到已設定要自動更新的雲端服務 VM。 推展完成時，我們會透過 Azure 入口網站和組態檔來提供此版本，以便您可以手動更新。 下列修補程式會包含在 12 月客體 OS 中。 此清單會隨時變動。
-
 | 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-12  |  [4530692]  |  Windows 安全性  | 2.93 | 2019年12月10日 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 2.93 | 2019年12月10日 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 3.80 | 2019年12月10日 |
-|  Rel 19-12  |  [4530698]  |  Windows 安全性  | 3.80 | 2019年12月10日 |
-|  Rel 19-12  |  [4530730]  |  Windows 安全性  | 4.73 | 2019年12月10日 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 4.73 | 2019年12月10日 |
-|  Rel 19-12  |  [4530689]  |  最新累計更新  | 5.38 | 2019年12月10日 |
-|  Rel 19-12  |  [4530715]  |  最新累計更新  | 6.14 | 2019年12月10日 |
-|  Rel 19-12  |  [4525235]  |  非安全性  | 2.93 | 2019年11月12日 |
-|  Rel 19-12  |  [4531786]  |  服務堆疊更新  | 2.93 | 2019年12月10日 |
-|  Rel 19-12  |  [4525246]  |  非安全性  | 3.80 | 2019年11月12日 |
-|  Rel 19-12  |  [4523208]  |  服務堆疊更新  | 3.8 | 2019年11月12日 |
-|  Rel 19-12  |  [4525243]  |  非安全性  | 4.73 | 2019年11月12日 |
-|  Rel 19-12  |  [4524445]  |  服務堆疊更新  | 4.73 | 2019年11月12日 |
-|  Rel 19-12  |  [4520724]  |  服務堆疊更新  | 5.38 | 2019年11月12日 |
-|  Rel 19-12  |  [4523204]  |  ServicingStackUpdate  | 6.14 | 2019年11月12日 |
+|  Rel 19-12  |  [4530692]  |  Windows 安全性  | [2.93] | 2019年12月10日 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [2.93] | 2019年12月10日 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [3.80] | 2019年12月10日 |
+|  Rel 19-12  |  [4530698]  |  Windows 安全性  | [3.80] | 2019年12月10日 |
+|  Rel 19-12  |  [4530730]  |  Windows 安全性  | [4.73] | 2019年12月10日 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [4.73] | 2019年12月10日 |
+|  Rel 19-12  |  [4530689]  |  最新累計更新  | [5.38] | 2019年12月10日 |
+|  Rel 19-12  |  [4530715]  |  最新累計更新  | [6.14] | 2019年12月10日 |
+|  Rel 19-12  |  [4525235]  |  非安全性  | [2.93] | 2019年11月12日 |
+|  Rel 19-12  |  [4531786]  |  服務堆疊更新  | [2.93] | 2019年12月10日 |
+|  Rel 19-12  |  [4525246]  |  非安全性  | [3.80] | 2019年11月12日 |
+|  Rel 19-12  |  [4523208]  |  服務堆疊更新  | [3.80] | 2019年11月12日 |
+|  Rel 19-12  |  [4525243]  |  非安全性  | [4.73] | 2019年11月12日 |
+|  Rel 19-12  |  [4524445]  |  服務堆疊更新  | [4.73] | 2019年11月12日 |
+|  Rel 19-12  |  [4520724]  |  服務堆疊更新  | [5.38] | 2019年11月12日 |
+|  Rel 19-12  |  [4523204]  |  ServicingStackUpdate  | [6.14] | 2019年11月12日 |
 
 [4530692]: https://support.microsoft.com/kb/4530692
 [4530677]: https://support.microsoft.com/kb/4530677
@@ -62,6 +59,12 @@ ms.locfileid: "75386199"
 [4524445]: https://support.microsoft.com/kb/4524445
 [4520724]: https://support.microsoft.com/kb/4520724
 [4523204]: https://support.microsoft.com/kb/4523204
+[6.14]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.38]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.73]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.80]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.93]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+
 
 
 ## <a name="november-2019-guest-os"></a>2019年11月的客體作業系統

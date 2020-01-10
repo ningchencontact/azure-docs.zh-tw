@@ -1,5 +1,5 @@
 ---
-title: 使用 NPS 伺服器保護 Azure VPN 閘道 RADIUS 驗證以進行多重要素驗證 | Microsoft Docs'
+title: 整合 NPS 與 MFA 的 VPN 閘道 RADIUS 驗證
 description: 描述整合 Azure 閘道 RADIUS 驗證與 NPS 伺服器以進行多重要素驗證。
 services: vpn-gateway
 documentationcenter: na
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: ab152cca1d809d92803a3e50ea83da1cbcd8243c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 941b6ac86941824351f83592998e8735e3eb8ee5
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174612"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780363"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>整合 Azure VPN 閘道 RADIUS 驗證與 NPS 伺服器以進行多重要素驗證 
 
 本文描述如何整合網路原則伺服器 (NPS) 和 Azure VPN 閘道 RADIUS 驗證，為點對站 VPN 連線提供多重要素驗證 (MFA)。 
 
-## <a name="prerequisite"></a>先決條件
+## <a name="prerequisite"></a>必要條件
 
 若要啟用 MFA，使用者必須使用 Azure Active Directory (Azure AD)，必須從內部部署或雲端環境同步。 而且，使用者必須已經完成 MFA 的自動註冊程序。  如需詳細資訊，請參閱[對我的帳戶進行雙步驟驗證設定](../active-directory/user-help/multi-factor-authentication-end-user-first-time.md)
 

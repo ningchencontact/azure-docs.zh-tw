@@ -8,13 +8,18 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 31fdd85fdcc40b38738d33e2c0c13797db7b1d42
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 207f5180db8a589ed4a68741ac18180370d21788
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390551"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833880"
 ---
+## <a name="limitations"></a>限制
+
+- 專用主機目前不支援虛擬機器擴展集。
+- 支援下列 VM 系列： DSv3 和 ESv3。 
+
 ## <a name="benefits"></a>優勢 
 
 保留整個主機可提供下列優點：
@@ -22,7 +27,6 @@ ms.locfileid: "72390551"
 -   實體伺服器層級的硬體隔離。 主機上不會放置其他 Vm。 專用主機會部署在相同的資料中心，並與其他非隔離的主機共用相同的網路和基礎儲存體基礎結構。
 -   控制 Azure 平臺所起始的維護事件。 雖然大部分的維護事件對您的虛擬機器不會有任何影響，但是有一些敏感性工作負載會影響每秒的暫停。 透過專用主機，您可以選擇維護期間，以降低對您服務的影響。
 -   透過 Azure 混合式權益，您可以將自己的 Windows 和 SQL 授權帶入 Azure。 使用混合式權益可提供您額外的權益。 如需詳細資訊，請參閱[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)。
-
 
 
 ## <a name="groups-hosts-and-vms"></a>群組、主機和 Vm  
@@ -62,7 +66,7 @@ ms.locfileid: "72390551"
 
 [這裡](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)找到的 Resource Manager 範例範本會使用區域和容錯網域來散佈主機，以取得區域中的最大復原。
 
-## <a name="maintenance-control"></a>維護控制
+## <a name="maintenance-control"></a>維修控制
 
 支援虛擬機器的基礎結構偶爾會更新，以改善可靠性、效能、安全性，以及啟動新功能。 Azure 平臺會嘗試盡可能將平臺維護的影響降至最低，但具有*維護*性工作負載的客戶甚至無法容忍短短幾秒鐘的時間，VM 必須凍結或中斷連線以進行維護。
 
@@ -85,7 +89,7 @@ ms.locfileid: "72390551"
 
 免費試用和 MSDN 訂用帳戶沒有 Azure 專用主機的配額。
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 
 無論部署多少個 Vm，都會以專用主機為使用者付費。 在您的每月語句中，您會看到新的可計費資源類型為 [主機]。 專用主機上的 Vm 仍會顯示在您的語句中，但其價格會是0。
 
@@ -103,7 +107,7 @@ SKU 是針對主機定義的，它代表 VM 大小數列和類型。 您可以�
 
 若要深入瞭解，請參閱主機[定價頁面](https://aka.ms/ADHPricing)。
 
-在預覽期間，我們將支援下列主機 SKU\types： DSv3_Type1 和 ESv3_Type1
+專用主機支援下列主機 SKU\types： DSv3_Type1 和 ESv3_Type1
 
  
 ## <a name="host-life-cycle"></a>主機生命週期
@@ -111,10 +115,10 @@ SKU 是針對主機定義的，它代表 VM 大小數列和類型。 您可以�
 
 Azure 會監視並管理您主機的健全狀況狀態。 當您查詢主機時，將會傳回下列狀態：
 
-| 健全狀況狀態   | 描述       |
+| 健全狀況狀態   | 說明       |
 |----------|----------------|
 | 主機可供使用     | 您的主機沒有已知的問題。   |
 | 調查中的主機  | 我們正在尋找的主機有一些問題。 這是 Azure 嘗試和識別所識別問題的範圍和根本原因所需的過渡狀態。 在主機上執行的虛擬機器可能會受到影響。 |
-| 主機暫止解除配置   | Azure 無法將主機還原為狀況良好的狀態，並要求您將虛擬機器從這個主機重新部署。 如果已啟用 `autoReplaceOnFailure`，則您的虛擬機器將會*修復*至狀況良好的硬體。 否則，您的虛擬機器可能正在即將失敗的主機上執行。|
+| 主機暫止解除配置   | Azure 無法將主機還原為狀況良好的狀態，並要求您將虛擬機器從這個主機重新部署。 如果已啟用 `autoReplaceOnFailure`，您的虛擬機器就會*修復*至狀況良好的硬體。 否則，您的虛擬機器可能正在即將失敗的主機上執行。|
 | 主機已解除配置  | 已從主機移除所有虛擬機器。 因為硬體已離開輪替，所以您不再需要為此主機支付費用。   |
 

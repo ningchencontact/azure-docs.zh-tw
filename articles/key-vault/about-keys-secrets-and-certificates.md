@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3024d77c02f623f8b8dc1a8956e692c208c8c9e5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6a107936d290609fec73d46a93a277c3bdcce354
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799392"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832926"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>關於金鑰、祕密與憑證
 
@@ -27,7 +27,7 @@ Azure Key Vault 可讓 Microsoft Azure 應用程式和使用者儲存及使用�
 
 如需 Key Vault 的一般詳細資訊，請參閱[什麼是 Azure Key Vault？](/azure/key-vault/key-vault-overview)
 
-## <a name="azure-key-vault"></a>Azure 金鑰保存庫
+## <a name="azure-key-vault"></a>Azure Key Vault
 
 以下各節會提供適用於 Key Vault 服務實作的一般資訊。
 
@@ -330,7 +330,7 @@ Key Vault 憑證具有下列屬性：
 > [!Note] 
 > 如果 Key Vault 憑證到期，其可定址金鑰和秘密將變得無法使用。  
 
-#### <a name="tags"></a>Tags
+#### <a name="tags"></a>標籤
 
  用戶端指定的金鑰值組字典，類似於金鑰與秘密中的標記。  
 
@@ -366,7 +366,7 @@ Key Vault 憑證具有下列屬性：
 |DataEncipherment|加密、解密| N/A |
 |DecipherOnly|解密| N/A  |
 |DigitalSignature|簽署、驗證| Key Vault 的預設是憑證建立時不包含使用規格 | 
-|EncipherOnly|加密| N/A |
+|EncipherOnly|encrypt| N/A |
 |KeyCertSign|簽署、驗證|N/A|
 |KeyEncipherment|包裝金鑰、解除包裝金鑰| Key Vault 的預設是憑證建立時不包含使用規格 | 
 |NonRepudiation|簽署、驗證| N/A |
@@ -376,7 +376,7 @@ Key Vault 憑證具有下列屬性：
 
 Key Vault 憑證物件會保存用來與所選憑證簽發者之提供者通訊的組態，以訂購 x509 憑證。  
 
--   Key Vault 與下列憑證簽發者的提供者有夥伴關係 (適用於 SSL 憑證)
+-   具有下列 TLS/SSL 憑證之憑證簽發者提供者的 Key Vault 合作夥伴
 
 |**提供者名稱**|**位置**|
 |----------|--------|
@@ -389,7 +389,7 @@ Key Vault 憑證物件會保存用來與所選憑證簽發者之提供者通訊�
 
     -   組織系統管理員必須至少使用一個 CA 提供者來讓其公司 ( 例如 Contoso) 上架。  
 
-2. 管理員會建立 Key Vault 的要求者憑證，以註冊 (和更新) SSL 憑證  
+2. 系統管理員會建立 Key Vault 的要求者認證，以註冊（及更新） TLS/SSL 憑證  
 
     -   提供組態，以用來建立金鑰保存庫中提供者的簽發者物件  
 

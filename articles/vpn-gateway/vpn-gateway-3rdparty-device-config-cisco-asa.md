@@ -1,5 +1,5 @@
 ---
-title: 將 Cisco ASA 裝置連線到 Azure VPN 閘道的範例設定 | Microsoft Docs
+title: 將 Cisco ASA 裝置連線到 Azure VPN 閘道的範例設定
 description: 本文提供將 Cisco ASA 裝置連線到 Azure VPN 閘道的範例設定。
 services: vpn-gateway
 author: yushwang
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 96e5c26ea7b5f1baa33fd8830491ee3aa1e60221
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648735"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778077"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>範例組態：Cisco ASA 裝置 (IKEv2/無 BGP)
 本文提供將 Cisco Adaptive Security Appliance (ASA) 裝置連線到 Azure VPN 閘道的範例設定。 此範例適用於執行 IKEv2 且不含邊界閘道協定 (BGP) 的 Cisco ASA 裝置。 
@@ -53,7 +53,7 @@ Azure VPN 閘道會使用標準的 IPsec/IKE 通訊協定組合來建立站對�
 ### <a name="virtual-network-and-vpn-gateway-information"></a>虛擬網路和 VPN 閘道資訊
 本節會列出適用於此範例的參數。
 
-| **參數**                | **值**                    |
+| **參數**                | **ReplTest1**                    |
 | ---                          | ---                          |
 | 虛擬網路位址首碼        | 10.11.0.0/16<br>10.12.0.0/16 |
 | Azure VPN 閘道 IP         | Azure_Gateway_Public_IP      |
@@ -70,7 +70,7 @@ Azure VPN 閘道會使用標準的 IPsec/IKE 通訊協定組合來建立站對�
 ### <a name="ipsecike-policy-and-parameters"></a>IPsec/IKE 原則與參數
 下表列出範例中所使用的 IPsec/IKE 演算法與參數。 請參閱您的 VPN 裝置規格，以確認您的 VPN 裝置型號和軔體版本支援的演算法。
 
-| **IPsec/IKEv2**  | **值**                            |
+| **IPsec/IKEv2**  | **ReplTest1**                            |
 | ---              | ---                                  |
 | IKEv2 加密 | AES256                               |
 | IKEv2 完整性  | SHA384                               |

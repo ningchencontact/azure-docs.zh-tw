@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 27333f272ca5000fd3b09b305712875c065f6bc7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2ab07e55606533390f6f3d2da3caf3ceee981e14
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924454"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75840712"
 ---
 ## <a name="trigger"></a>觸發程序
 
@@ -337,7 +337,7 @@ def main(event: func.EventHubEvent):
 
 ### <a name="trigger---java-example"></a>觸發程序 - Java 範例
 
-下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [Java 函式](../articles/azure-functions/functions-reference-java.md)。 此函式會記錄事件中樞觸發程序的訊息本文。
+下列範例顯示函式*json*檔案中的事件中樞觸發程式系結，以及使用此系結的[JAVA](../articles/azure-functions/functions-reference-java.md)函式。 此函式會記錄事件中樞觸發程序的訊息本文。
 
 ```json
 {
@@ -383,17 +383,16 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `EventHubTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設為 `eventHubTrigger`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | n/a | 代表函式程式碼中事件項目的變數名稱。 |
-|**路徑** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
-|**eventHubName** |**EventHubName** | 函數2.x 和更新版本。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
+|**path** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
+|**eventHubName** |**EventHubName** | 函數2.x 和更新版本。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 可以透過應用程式設定% eventHubName% 來參考 |
 |**consumerGroup** |**ConsumerGroup** | 選擇性屬性，可設定用來訂閱中樞內事件的[取用者群組](../articles/event-hubs/event-hubs-features.md#event-consumers)。 如果省略，則會使用 `$Default` 取用者群組。 |
-|**基數** | n/a | 適用於 JavaScript。 設定為 `many` 才能啟用批次處理。  如果省略或設訂為 `one`，會傳遞單一訊息至函數。 |
-|**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下[命名空間](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串至少必須具備讀取權限，才能啟動觸發程序。|
-|**路徑**|**EventHubName**|事件中樞的名稱。 可透過應用程式設定 `%eventHubName%` 參照|
+|**基數** | n/a | 適用於 JavaScript。 設定為 `many` 才能啟用批次處理。  如果省略或設定為 `one`，則會將單一訊息傳遞至函數。 |
+|**connection** |**[連接]** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下[命名空間](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串至少必須具備讀取權限，才能啟動觸發程序。|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -401,7 +400,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 事件中樞觸發程序提供數個[中繼資料屬性](../articles/azure-functions/./functions-bindings-expressions-patterns.md)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) 類別的屬性。
 
-|屬性|Type|描述|
+|屬性|類型|說明|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|`PartitionContext` 執行個體。|
 |`EnqueuedTimeUtc`|`DateTime`|加入佇列的時間 (UTC)。|
@@ -640,13 +639,13 @@ def main(timer: func.TimerRequest) -> str:
 
 ### <a name="output---java-example"></a>輸出 - Java 範例
 
-下列範例會示範 Java 函式如何將包含目前時間的訊息寫入事件中樞。
+下列範例顯示的 JAVA 函式會將包含目前時間的訊息寫入至事件中樞。
 
 ```java
 @FunctionName("sendTime")
 @EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
 public String sendTime(
-   @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {
+   @TimerTrigger(name = "sendTimeTrigger", schedule = "0 */5 * * * *") String timerInfo)  {
      return LocalDateTime.now().toString();
  }
 ```
@@ -674,14 +673,14 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `EventHub` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設定為 "eventHub"。 |
 |**direction** | n/a | 必須設定為 "out"。 當您在 Azure 入口網站中建立繫結時，會自動設定此參數。 |
 |**name** | n/a | 函式程式碼中所使用的變數名稱，代表事件。 |
-|**路徑** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
+|**path** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
 |**eventHubName** |**EventHubName** | 函數2.x 和更新版本。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
-|**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下*命名空間*的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串必須具有傳送權限，才能將訊息傳送至事件資料流。|
+|**connection** |**[連接]** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下*命名空間*的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串必須具有傳送權限，才能將訊息傳送至事件資料流。|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -721,7 +720,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }  
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 說明 |
 |---------|---------|---------|
 |maxBatchSize|64|每個接收迴圈接收到的事件計數上限。|
 |prefetchCount|n/a|基礎 EventProcessorHost 將使用的預設 PrefetchCount。|

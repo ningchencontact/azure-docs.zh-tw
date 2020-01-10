@@ -5,7 +5,7 @@ metadata:
   title: Windows 虛擬桌面文件 | Microsoft Docs
   description: 適用於 Azure 的 Windows 虛擬桌面是在雲端虛擬化的多使用者 Windows 10 企業版體驗。
   author: Heidilohr
-  manager: daveba
+  manager: lizross
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page

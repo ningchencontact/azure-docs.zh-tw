@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: 12ecacf1266c0d8211f5928a933cfd4acf8c49f0
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 8d75dbe5d4ab819e5bbe64e20ad84eb1c26a87a3
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551381"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777813"
 ---
 # <a name="metrics-for-application-gateway"></a>應用程式閘道的計量
 
@@ -36,7 +36,7 @@ ms.locfileid: "75551381"
 
   處理要求所花費的平均時間，以及要傳送的回應。 這是以從應用程式閘道接收 HTTP 要求的第一個位元組到回應傳送作業完成時的時間間隔平均值來計算。 請務必注意，這通常包括應用程式閘道處理時間、要求和回應封包在網路上的傳輸時間，以及後端伺服器回應的時間。
   
-如果*用戶端 RTT*比*應用程式閘道總時間*還多，則可以推算用戶端觀察到的延遲，因為用戶端與應用程式閘道之間的網路連線能力。 如果這兩個延遲都是可比較的，則高延遲可能是由下列任何一項所造成：應用程式閘道、應用程式閘道與後端應用程式之間的網路，或後端應用程式效能。
+依接聽程式篩選之後，如果*用戶端 RTT*比*應用程式閘道的總時間*還多，則可以推算用戶端觀察到的延遲，因為用戶端與應用程式閘道之間的網路連線能力。 如果這兩個延遲都是可比較的，則高延遲可能是由下列任何一項所造成：應用程式閘道、應用程式閘道與後端應用程式之間的網路，或後端應用程式效能。
 
 - **後端第一個位元組回應時間**
 

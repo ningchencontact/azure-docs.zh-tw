@@ -1,19 +1,19 @@
 ---
-title: 在 Azure 可用性區域中建立區域備援虛擬網路閘道 | Microsoft Docs
+title: 在 Azure 可用性區域中建立區域備援虛擬網路閘道
 description: 在可用性區域中部署 VPN 閘道和 ExpressRoute 閘道
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: cherylmc
-ms.openlocfilehash: 209c4deec2863de21362ab69a7f1d372921ac147
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 250ced13696d6ec34e7c434b26a2917a3c55e91d
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64575554"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834642"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>在 Azure 可用性區域中建立區域備援虛擬網路閘道
 
@@ -39,7 +39,7 @@ Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
 
 [!INCLUDE [PowerShell login](../../includes/vpn-gateway-ps-login-include.md)]
 
-## <a name="variables"></a>1.宣告變數
+## <a name="variables"></a>1. 宣告變數
 
 範例步驟所使用的值如下所示。 此外，有部分範例會在步驟中使用已宣告的變數。 如果您在自己的環境中使用這些步驟，請務必以您自己的值取代這些值。 在指定位置時，請確認您指定的區域可受到支援。 如需詳細資訊，請參閱[常見問題集](#faq)。
 
@@ -59,7 +59,7 @@ $GwIP1       = "VNet1GWIP"
 $GwIPConf1   = "gwipconf1"
 ```
 
-## <a name="configure"></a>2.建立虛擬網路
+## <a name="configure"></a>2. 建立虛擬網路
 
 建立資源群組。
 
@@ -75,7 +75,7 @@ $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPr
 $vnet = New-AzVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNet1Prefix -Subnet $fesub1,$besub1
 ```
 
-## <a name="gwsub"></a>3.新增閘道子網路
+## <a name="gwsub"></a>3. 新增閘道子網
 
 閘道子網路包含虛擬網路閘道服務所使用的保留 IP 位址。 請使用下列範例來新增和設定閘道子網路：
 
@@ -91,7 +91,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0
 ```azurepowershell-interactive
 $getvnet | Set-AzVirtualNetwork
 ```
-## <a name="publicip"></a>4.要求公用 IP 位址
+## <a name="publicip"></a>4. 要求公用 IP 位址
  
 在此步驟中，針對您要建立的閘道選擇適用的指示。 部署閘道的區域選擇取決於為公用 IP 位址指定的區域。
 
@@ -118,7 +118,7 @@ $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $Gw
 ```azurepowershell-interactive
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Basic
 ```
-## <a name="gwipconfig"></a>5.建立 IP 組態
+## <a name="gwipconfig"></a>5. 建立 IP 設定
 
 ```azurepowershell-interactive
 $getvnet = Get-AzVirtualNetwork -ResourceGroupName $RG1 -Name $VNet1
@@ -126,7 +126,7 @@ $subnet = Get-AzVirtualNetworkSubnetConfig -Name $GwSubnet1 -VirtualNetwork $get
 $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $subnet -PublicIpAddress $pip1
 ```
 
-## <a name="gwconfig"></a>6.建立閘道
+## <a name="gwconfig"></a>6. 建立閘道
 
 建立虛擬網路閘道。
 
@@ -154,7 +154,7 @@ New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>我可以在哪些區域中使用新的 SKU？
 
-請參閱[可用性區域](../availability-zones/az-overview.md#services-support-by-region)的可用區域的最新的清單。
+如需可用區域的最新清單，請參閱[可用性區域](../availability-zones/az-overview.md#services-support-by-region)。
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>我可以將現有的虛擬網路閘道變更/遷移/升級為區域備援或分區閘道嗎？
 

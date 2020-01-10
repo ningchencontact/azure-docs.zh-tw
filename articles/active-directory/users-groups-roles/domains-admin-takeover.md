@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a0697e151c50b9722fef908eeb2c7498503b8c0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 09012d93a1f9fd24427cb8b3937b3a36cf75d9e4
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027380"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834177"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
 
@@ -56,7 +56,7 @@ ms.locfileid: "74027380"
 
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>將網域名稱新增至 Azure AD 中的受控租用戶
 
-1. 開啟[Microsoft 365 系統管理中心](https://admin.microsoft.com)。
+1. 開啟 [MIcrosoft 365 系統管理中心](https://admin.microsoft.com)。
 2. 選取 [**使用者**] 索引標籤，然後使用不使用自訂功能變數名稱的名稱（例如*user\@fourthcoffeexyz.onmicrosoft.com* ）建立新的使用者帳戶。 
 3. 確定新使用者帳戶具有 Azure AD 租用戶的全域管理員權限。
 4. 在 Microsoft 365 系統管理中心中開啟 [**網域**] 索引標籤，選取功能變數名稱，然後選取 [**移除**]。 
@@ -80,8 +80,8 @@ ms.locfileid: "74027380"
 
 當您驗證網域名稱的擁有權時，Azure AD 會將網域名稱從非受控租用戶中移除，然後移至您現有的租用戶。 非受控目錄之外部管理員接管所需的 DNS TXT 驗證程序與內部管理員接管相同。 差異在於下列項目也會隨著網域名稱一起移過去：
 
-- 使用者
-- 訂用帳戶
+- 使用者人數
+- 訂閱
 - 授權指派
 
 ### <a name="support-for-external-admin-takeover"></a>對外部管理員接管的支援
@@ -113,7 +113,7 @@ ms.locfileid: "74027380"
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD 的 ForceTakeover 選項 PowerShell Cmdlet
 您可以在 [PowerShell 範例](#powershell-example)中看到使用這些 Cmdlet。
 
-Cmdlet | 使用方式
+Cmdlet | 用量
 ------- | -------
 `connect-msolservice` | 出現提示時，登入您的受控租用戶。
 `get-msoldomain` | 顯示與目前租用戶關聯的網域名稱。
@@ -130,40 +130,40 @@ Cmdlet | 使用方式
 
 1. 使用用來回應自助式供應項目的認證來連接至 Azure AD：
    ```powershell
-    Install-Module -Name MSOnline
-    $msolcred = get-credential
+   Install-Module -Name MSOnline
+   $msolcred = get-credential
     
-    connect-msolservice -credential $msolcred
+   connect-msolservice -credential $msolcred
    ```
 2. 取得網域清單：
   
    ```powershell
-    Get-MsolDomain
+   Get-MsolDomain
    ```
 3. 執行 Get-MsolDomainVerificationDns Cmdlet 以建立挑戰：
    ```powershell
-    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
-  
-    For example:
-  
-    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
+   Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
+   ```
+    例如：
+   ```
+   Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. 複製從此命令傳回的值 (挑戰)。 例如︰
+4. 複製從此命令傳回的值 (挑戰)。 例如：
    ```powershell
-    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
+   MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
 5. 在公用 DNS 命名空間中，建立 DNS txt 記錄，其中包含您在上一個步驟中複製的值。 此記錄的名稱是父系網域的名稱，因此如果您使用 Windows Server 的 DNS 角色來建立此資源記錄，請將記錄名稱留白，而只要將此值貼到文字方塊中即可。
 6. 執行 onfirm-MsolDomain Cmdlet 來驗證挑戰：
   
    ```powershell
-    Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+   Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
-   例如︰
+   例如：
   
    ```powershell
-    Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
+   Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force
    ```
 
 成功挑戰會讓您回到提示，但不會產生錯誤。

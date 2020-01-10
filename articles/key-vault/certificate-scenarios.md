@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 338619a13ec3f5fcd0d4fd62cf387f955c556a7c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: b6a44bc31e21a63b12a0d06c537cc026ed77e386
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879316"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832861"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>開始使用 Key Vault 憑證
 下列情節概述 Key Vault 憑證管理服務的數個主要用法 (包括在金鑰保存庫中建立第一個憑證所需的其他步驟)。
@@ -38,10 +38,10 @@ ms.locfileid: "70879316"
 **步驟 1** - 憑證授權單位 (CA) 提供者  
 -   以 IT 管理員、PKI 管理員或任何使用 CA 管理帳戶之人的身分上線，針對指定的公司 (例如 Contoso) 是使用 Key Vault 憑證的先決條件。  
     下列 CA 是使用 Key Vault 的目前合作提供者：  
-    -   DigiCert - Key Vault 透過 DigiCert 提供 OV SSL 憑證。  
-    -   透過 globalsign-Key Vault 使用透過 globalsign 提供 OV SSL 憑證。  
+    -   DigiCert-Key Vault 使用 DigiCert 提供 OV 的 TLS/SSL 憑證。  
+    -   透過 globalsign-Key Vault 使用透過 globalsign 提供 OV 的 TLS/SSL 憑證。  
 
-**Step 2** - CA 提供者的帳戶管理員會建立 Key Vault 用來透過 Key Vault 註冊、更新和使用 SSL 憑證的認證。
+**步驟 2** -CA 提供者的帳戶管理員會建立認證，供 Key Vault 用來透過 Key Vault 註冊、更新及使用 TLS/SSL 憑證。
 
 **步驟 3** - Contoso 管理員與擁有憑證的 Contoso 員工 (Key Vault 使用者) (根據 CA 而定) 可以向管理員取得憑證或者直接向 CD 從帳戶取得憑證。  
 
@@ -62,9 +62,9 @@ ms.locfileid: "70879316"
 
 **步驟 4** - 下列描述對應至上圖中的綠色編號步驟。  
   (1) - 在上圖中，您的應用程式即將建立憑證，內部流程始於在金鑰保存庫中建立金鑰。  
-  (2) - Key Vault 會將 SSL 憑證要求傳送給 CA。  
-  (3) - 您的應用程式會以迴圈和等待流程來輪詢 Key Vault，直到憑證完成。 Key Vault 收到 x509 憑證的 CA 回應時，憑證建立即完成。  
-  (4) - CA 會使用 X509 SSL 憑證來回應 Key Vault 的 SSL 憑證要求。  
+  （2）-Key Vault 會將 TLS/SSL 憑證要求傳送給 CA。  
+  (3) - 您的應用程式會以迴圈和等待流程來輪詢 Key Vault，直到憑證完成。 Key Vault 收到含 x509 憑證的 CA 回應時，憑證建立工作即完成。  
+  （4）-CA 會使用 X509 TLS/SSL 憑證來回應 Key Vault 的 TLS/SSL 憑證要求。  
   (5) - 您的新憑證建立是透過合併 CA 的 X509 憑證而完成。  
 
   Key Vault 使用者 – 指定原則來建立憑證
@@ -111,7 +111,7 @@ ms.locfileid: "70879316"
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>使用未與 Key Vault 合作的 CA 建立憑證  
  這種方法允許與 Key Vault 合作提供者以外的其他 CA 合作，這表示您的組織可以與它選擇的 CA 合作。  
 
-![利用您自己的憑證授權單位建立憑證](media/certificate-authority-1.png)  
+![使用您自己的憑證授權單位建立憑證](media/certificate-authority-1.png)  
 
  下列步驟描述對應至上圖中的綠色文字步驟。  
 

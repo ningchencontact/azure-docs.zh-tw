@@ -1,14 +1,14 @@
 ---
 title: 將受控服務供應項目發佈到 Azure Marketplace
 description: 了解如何發佈將客戶上線至 Azure 委派資源管理的受控服務。
-ms.date: 12/16/2019
+ms.date: 01/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: d1eb06794551be498e05e2b9c3b893013b718ce9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a1720a3bcfd0b08f8d9c8147b5e47ed42af6fda
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453526"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834098"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>將受控服務供應項目發佈到 Azure Marketplace
 
@@ -63,7 +63,7 @@ ms.locfileid: "75453526"
 |**這是否為私人方案？**     | 表明 SKU 為私人或公用。 預設值為 [否] (公用)。 如果您不變更此選項，您的方案不會限於特定客戶 (或特定數目的客戶)；發佈公用方案之後，您無法再將它變更為私人方案。 若要使此方案只有特定客戶才能取得，請選取 [是]。 當您這麼做時，必須提供訂用帳戶識別碼來識別客戶。 您可以逐一輸入 (最多 10 個訂用帳戶)，或上傳 .csv 檔案 (最多 20,000 個訂用帳戶)。 請務必在此包含您自己的訂用帳戶，以便您可以測試及驗證供應項目。 如需詳細資訊，請參閱[私人 SKU 和方案](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) \(部分機器翻譯\)。  |
 
 > [!IMPORTANT]
-> 方案發行為公開之後，您就無法將它變更為私用。 若要控制哪些客戶可以接受您的供應專案和委派資源，請使用私用方案。 有了公用方案，您就不能將可用性限制在特定客戶或甚至是特定數目的客戶（不過，如果您選擇這樣做，則可以完全停止銷售方案）。 當客戶接受供應專案之後，目前沒有任何機制可以拒絕或移除委派，雖然您可以隨時聯繫客戶，並要求他們[移除您的存取權](view-manage-service-providers.md#add-or-remove-service-provider-offers)。
+> 方案發行為公開之後，您就無法將它變更為私用。 若要控制哪些客戶可以接受您的供應專案和委派資源，請使用私用方案。 有了公用方案，您就不能將可用性限制在特定客戶或甚至是特定數目的客戶（不過，如果您選擇這樣做，則可以完全停止銷售方案）。 只有當您在發佈供應專案時，如果您已包含將**角色定義**設為 [[受控服務註冊指派刪除角色](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)] 的**授權**，您就可以在客戶接受供應專案之後，[移除對委派的存取權](onboard-customer.md#remove-access-to-a-delegation)。 您也可以與客戶聯繫，並要求他們[移除您的存取權](view-manage-service-providers.md#add-or-remove-service-provider-offers)。
 
 ### <a name="manifest-details"></a>資訊清單詳細資料
 
@@ -76,7 +76,10 @@ ms.locfileid: "75453526"
 
 接下來，輸入您的 [租用戶識別碼]。 此 GUID 與您組織的 Azure Active Directory 租用戶識別碼 (亦即您將會在其中管理客戶資源的租用戶) 相關聯。 如果您目前沒有此資訊，您可將滑鼠指標暫留在 Azure 入口網站右上角的帳戶名稱上，或選取 [切換目錄] 就能看到它。
 
-最後，將一或多個**授權**項目新增至您的方案。 授權會定義哪些實體能存取購買方案客戶才能存取的資源與訂用帳戶，並指派授與特定存取層級的角色。 如需有關所支援角色的詳細資訊，請參閱 [Azure Lighthouse 案例中的租用戶、角色和使用者](../concepts/tenants-users-roles.md)。
+最後，將一或多個**授權**項目新增至您的方案。 授權會定義哪些實體能存取購買方案客戶才能存取的資源與訂用帳戶，並指派授與特定存取層級的角色。
+
+> [!TIP]
+> 在多數情況下，建議您指派權限給 Azure AD 使用者群組或服務主體，而不是指派給一系列個別使用者帳戶。 如此一來，當您的存取需求變更時，就可以新增或移除個別使用者的存取權，而不需要更新並重新發佈方案。 如需其他建議，請參閱 [Azure Lighthouse 案例中的租用戶、角色和使用者](../concepts/tenants-users-roles.md)。
 
 您必須為每個**授權**提供下列項目。 接著，您要新增多少使用者和角色定義，就視需要選取多少次 [新增授權]。
 
@@ -86,7 +89,7 @@ ms.locfileid: "75453526"
 - 可**指派的角色**：只有在您已在此授權的**角色定義**中選取 [使用者存取系統管理員] 時，才需要執行此動作。 若是如此，您必須在此新增一或多個可指派的角色。 [Azure AD 物件識別碼] 欄位中的使用者將能夠將這些**可指派的角色**指派給[受控識別](../../active-directory/managed-identities-azure-resources/overview.md)，[部署可補救的原則](deploy-policy-remediation.md)時需要這些角色。 請注意，不會有其他一般與「使用者存取系統管理員」角色相關聯的權限套用至此使用者。 如果您未在此選取一個或多個角色，您的提交將不會通過認證。 (如果您沒有為此使用者的 [角色定義] 選取 [使用者存取系統管理員]，則此欄位無效。)
 
 > [!TIP]
-> 在多數情況下，建議您指派權限給 Azure AD 使用者群組或服務主體，而不是指派給一系列個別使用者帳戶。 如此一來，當您的存取需求變更時，就可以新增或移除個別使用者的存取權，而不需要更新並重新發佈方案。 如需其他建議，請參閱 [Azure Lighthouse 案例中的租用戶、角色和使用者](../concepts/tenants-users-roles.md)。
+> 若要確保您可以視需要[移除委派的存取權](onboard-customer.md#remove-access-to-a-delegation)，包括將**角色定義**設定為[受控服務註冊指派刪除角色](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)的**授權**。 如果未指派此角色，則只有客戶租用戶中的使用者可以移除委派的資源。
 
 當您完成這項資訊後，您可以視需要選取 [新增方案]，以建立其他方案。 當您完成時，選取 [儲存]，然後到 [Marketplace] 區段繼續設定。
 
@@ -147,7 +150,7 @@ ms.locfileid: "75453526"
 客戶新增您的供應項目之後，他們將能夠[委派一個或多個特定訂用帳戶或資源群組](view-manage-service-providers.md#delegate-resources)，然後讓這些項目上線，以進行 Azure 委派的資源管理。 如果客戶已接受供應項目，但未委派任何資源，則他們會在 Azure 入口網站中[**服務提供者**](view-manage-service-providers.md)頁面上的 [提供者供應項目] 區段頂端看到一個備註。
 
 > [!IMPORTANT]
-> 委派必須由客戶租用戶中的非來賓帳戶執行，且該租用戶對於要上線的訂用帳戶必須有[「擁有者」內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) (部分機器翻譯) (或包含要上線的資源群組)。 若要查看所有可委派訂用帳戶的使用者，客戶租使用者中的使用者可以在 Azure 入口網站中選取訂用帳戶，開啟 **存取控制（IAM）** ，[列出所有角色](../../role-based-access-control/role-definitions-list.md#list-all-roles)，然後選取 **擁有**者 以查看具有該角色的所有使用者。
+> 委派必須由客戶租用戶中的非來賓帳戶執行，且該租用戶對於要上線的訂用帳戶必須有[「擁有者」內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) (部分機器翻譯) (或包含要上線的資源群組)。 若要查看可委派訂用帳戶的所有使用者，客戶租用戶中的使用者可以在 Azure 入口網站中選取訂用帳戶並開啟 [存取控制 (IAM)]，然後[查看所有具有「擁有者」角色的使用者](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription)。
 
 客戶委派訂用帳戶 (或訂用帳戶內的一或多個資源群組) 之後，將會為該訂用帳戶註冊 **Microsoft.ManagedServices** 資源提供者，您租用戶中的使用者將能夠根據您供應項目中的授權存取委派的資源。
 

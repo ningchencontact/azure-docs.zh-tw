@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 01/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 77d2daf3fa17632d8a1c633c23815e0035e45481
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f2e70a7b900ad918cda05ce34204e2de1e6e67ef
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931267"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830185"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Azure Data Factory 中的分隔文字格式
 
@@ -26,9 +26,9 @@ ms.locfileid: "74931267"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供分隔的文字資料集所支援的屬性清單。
 
-| 屬性         | 描述                                                  | 必要項 |
+| 屬性         | 說明                                                  | 必要項 |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| 類型             | 資料集的類型屬性必須設定為**DelimitedText**。 | 是      |
+| type             | 資料集的類型屬性必須設定為**DelimitedText**。 | 是      |
 | location         | 檔案的位置設定。 每個以檔案為基礎的連接器在 `location`之下都有自己的位置類型和支援的屬性。  | 是      |
 | columnDelimiter  | 用來分隔檔案中資料行的字元。 目前，只有對應資料流程才支援多字元分隔符號，而非複製活動。 <br>預設值為**逗號 `,`** ，當資料行分隔符號定義為空字串（表示沒有分隔符號）時，就會將整條程式碼當做單一資料行。 | 否       |
 | rowDelimiter     | 單一字元或 "\r\n"，用來分隔檔案中的資料列。<br>預設值是讀取時的下列任何值 **： ["\r\n"，"\r"，"\n"]** ，而 " **\n" 或 "\r\n" 在寫入**時分別對應資料流程和複製活動。 <br>當 `rowDelimiter` 設定為 [沒有分隔符號（空字串）] 時，`columnDelimiter` 也必須設定為 [沒有分隔符號（空字串）]，這表示要將整個內容視為單一值。 | 否       |
@@ -75,35 +75,35 @@ ms.locfileid: "74931267"
 
 以下支援的屬性將複製活動中 ***\*來源\**** 一節。
 
-| 屬性       | 描述                                                  | 必要項 |
+| 屬性       | 說明                                                  | 必要項 |
 | -------------- | ------------------------------------------------------------ | -------- |
-| 類型           | 複製活動來源的類型屬性必須設定為**DelimitedTextSource**。 | 是      |
+| type           | 複製活動來源的類型屬性必須設定為**DelimitedTextSource**。 | 是      |
 | formatSettings | 屬性的群組。 請參閱下方的**分隔文字讀取設定**表格。 | 否       |
 | storeSettings  | 一組屬性，說明如何從資料存放區讀取資料。 每個以檔案為基礎的連接器在 `storeSettings`之下都有自己支援的讀取設定。 | 否       |
 
 `formatSettings`下支援的**分隔文字讀取設定**：
 
-| 屬性      | 描述                                                  | 必要項 |
+| 屬性      | 說明                                                  | 必要項 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| 類型          | FormatSettings 的類型必須設定為**DelimitedTextReadSetting**。 | 是      |
-| skipLineCount | 指出從輸入檔讀取資料時，要略過的**非空白**資料列數。 <br>如果指定 skipLineCount 和 firstRowAsHeader，則會先略過程式碼行，再從輸入檔讀取標頭資訊。 | 否       |
+| type          | FormatSettings 的類型必須設定為**DelimitedTextReadSettings**。 | 是      |
+| skipLineCount | 指出從輸入檔讀取資料時，要略過的**非空白**資料列數。 <br>如果同時指定 skipLineCount 和 firstRowAsHeader，則會先略過行，然後從輸入檔讀取標頭資訊。 | 否       |
 
 ### <a name="delimited-text-as-sink"></a>分隔的文字做為接收器
 
 以下支援的屬性將複製活動中 ***\*接收器\**** 一節。
 
-| 屬性       | 描述                                                  | 必要項 |
+| 屬性       | 說明                                                  | 必要項 |
 | -------------- | ------------------------------------------------------------ | -------- |
-| 類型           | 複製活動來源的類型屬性必須設定為**DelimitedTextSink**。 | 是      |
+| type           | 複製活動來源的類型屬性必須設定為**DelimitedTextSink**。 | 是      |
 | formatSettings | 屬性的群組。 請參閱下方的**分隔文字寫入設定**表格。 |          |
 | storeSettings  | 一組屬性，說明如何將資料寫入資料存放區。 每個以檔案為基礎的連接器在 `storeSettings`之下都有它自己的支援寫入設定。  | 否       |
 
 `formatSettings`下支援的**分隔文字寫入設定**：
 
-| 屬性      | 描述                                                  | 必要項                                              |
+| 屬性      | 說明                                                  | 必要項                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| 類型          | FormatSettings 的類型必須設定為**DelimitedTextWriteSetting**。 | 是                                                   |
-| FileExtension | 用來命名輸出檔的副檔名，例如 `.csv`、`.txt`。 當輸出 DelimitedText 資料集中未指定 `fileName` 時，就必須指定它。 | 當輸出資料集中未指定檔案名時為是 |
+| type          | FormatSettings 的類型必須設定為**DelimitedTextWriteSettings**。 | 是                                                   |
+| fileExtension | 用來命名輸出檔的副檔名，例如 `.csv`、`.txt`。 當輸出 DelimitedText 資料集中未指定 `fileName` 時，就必須指定它。 在輸出資料集中設定檔案名時，將會使用該名稱做為接收檔案名，而且將會忽略副檔名設定。  | 當輸出資料集中未指定檔案名時為是 |
 
 ## <a name="mapping-data-flow-properties"></a>對應資料流程屬性
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: 5a8e641c8a1b29d657fe8b0eabf7657ab5973516
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 45804bd3e81e7363010979b7a6e028356b3a5080
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666030"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780057"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>自動調整 Azure HDInsight 叢集規模
 
@@ -26,12 +26,14 @@ Azure HDInsight 的叢集自動調整功能會自動相應增加和減少叢集�
 
 下表描述與自動調整功能相容的叢集類型和版本。
 
-| 版本 | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
+| 版本 | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| 不含 ESP 的 HDInsight 3。6 | 是2。3| 是 | 否 | 否 | 否 | 否 | 否 |
-| 不含 ESP 的 HDInsight 4。0 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
-| 使用 ESP 的 HDInsight 3。6 | 是2。3 | 是 | 否 | 否 | 否 | 否 | 否 |
-| 使用 ESP 的 HDInsight 4。0 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
+| 不含 ESP 的 HDInsight 3。6 | 是 | 是 | 是 | 是* | 否 | 否 | 否 |
+| 不含 ESP 的 HDInsight 4。0 | 是 | 是 | 是 | 是* | 否 | 否 | 否 |
+| 使用 ESP 的 HDInsight 3。6 | 是 | 是 | 是 | 是* | 否 | 否 | 否 |
+| 使用 ESP 的 HDInsight 4。0 | 是 | 是 | 是 | 是* | 否 | 否 | 否 |
+
+\* HBase 叢集只能針對以排程為基礎的調整進行設定，而非以載入為基礎。
 
 ## <a name="how-it-works"></a>運作方式
 
@@ -249,7 +251,7 @@ Azure 入口網站中所列的叢集狀態可協助您監視自動調整活動�
 | 更新  | 正在更新叢集自動調整設定。  |
 | HDInsight 設定  | 叢集擴充或相應減少作業進行中。  |
 | 更新錯誤  | HDInsight 在自動調整設定更新期間發生問題。 客戶可以選擇重試更新或停用自動調整。  |
-| Error  | 叢集發生問題，因此無法使用。 刪除此叢集並建立一個新叢集。  |
+| 錯誤  | 叢集發生問題，因此無法使用。 刪除此叢集並建立一個新叢集。  |
 
 若要查看您叢集中目前的節點數目，請移至叢集 [**總覽**] 頁面上的 [叢集**大小**] 圖表，或按一下 [**設定**] 底下的 [叢集**大小**]。
 

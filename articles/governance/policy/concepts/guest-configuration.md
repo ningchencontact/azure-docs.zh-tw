@@ -3,12 +3,12 @@ title: 瞭解如何審核虛擬機器的內容
 description: 瞭解 Azure 原則如何使用來賓設定代理程式來審查虛擬機器內的設定。
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: f3d99b32b952470f266ed2168d5760c2c72377c4
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 205aa5a9292d0f70fed8247a8af1fe575ad3614e
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666715"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830491"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure 原則的來賓設定
 
@@ -91,12 +91,8 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 ## <a name="guest-configuration-extension-network-requirements"></a>來賓設定擴充功能網路需求
 
-若要與 Azure 中的來賓設定資源提供者通訊，機器需要在埠**443**上對 Azure 資料中心進行輸出存取。 如果您使用 Azure 中不允許輸出流量的私人虛擬網路，請使用[網路安全性群組](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)規則來設定例外狀況。 Azure 原則來賓設定目前不存在服務標籤。
-
-針對 [IP 位址清單]，您可以下載[AZURE Ip 範圍和服務](https://www.microsoft.com/download/details.aspx?id=56519)標籤。 此檔案會每週更新，並具有目前已部署的範圍及任何即將進行的 IP 範圍變更。 您只需要允許對部署 Vm 的區域中的 Ip 進行輸出存取。
-
-> [!NOTE]
-> Azure IP 範圍和服務標記 JSON 檔案會列出 Microsoft Azure 資料中心所使用的 IP 位址範圍。 此檔案包含計算、SQL 和儲存體範圍。 每週會公佈已更新的檔案。 檔案會反映目前已部署的範圍及任何即將進行的 IP 範圍變更。 出現在檔案中的新範圍至少有一週的時間不會在資料中心中使用。 最好是每週下載新的 XML 檔案。 接著，更新您的網站以便正確地識別在 Azure 中執行的服務。 Azure ExpressRoute 使用者應該注意到，在每個月的第一週，此檔案會用來更新 Azure 空間的邊界閘道協定 (BGP) 公告。
+若要與 Azure 中的來賓設定資源提供者通訊，機器需要在埠**443**上對 Azure 資料中心進行輸出存取。 如果您使用 Azure 中不允許輸出流量的私人虛擬網路，請使用[網路安全性群組](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)規則來設定例外狀況。
+[服務](../../../virtual-network/service-tags-overview.md)標籤 "GuestAndHybridManagement" 可用於參照來賓設定服務。
 
 ## <a name="guest-configuration-definition-requirements"></a>來賓設定定義需求
 

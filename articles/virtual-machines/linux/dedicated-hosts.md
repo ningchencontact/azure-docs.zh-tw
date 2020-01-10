@@ -2,34 +2,28 @@
 title: 虛擬機器的 Azure 專用主機總覽
 description: 深入瞭解如何使用 Azure 專用主機來部署虛擬機器。
 services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/25/2019
+ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: f4a5e78afdf774af056d7c9b8a108c3418c2caa4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 940f27612b26c5baace7a19d2212fa6d8899e6e5
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036383"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834903"
 ---
-# <a name="preview-azure-dedicated-hosts"></a>預覽： Azure 專用主機
+# <a name="azure-dedicated-hosts"></a>Azure 專用主機
 
 「Azure 專用主機」是一種服務，可提供實體伺服器來裝載一或多個 Azure 訂用帳戶專用的虛擬機器。 專用主機是在資料中心內使用的相同實體伺服器，以資源的形式提供。 您可以在區域、可用性區域和容錯網域中布建專用主機。 然後，您可以將 Vm 直接放入已布建的主機中，不論何種設定最符合您的需求。
 
-[!INCLUDE [virtual-machines-common-dedicated-hosts-preview](../../../includes/virtual-machines-common-dedicated-hosts-preview.md)]
+
 
 [!INCLUDE [virtual-machines-common-dedicated-hosts](../../../includes/virtual-machines-common-dedicated-hosts.md)]
 
-
-virtual-machines-common-dedicated-hosts-preview.md
 
 ## <a name="next-steps"></a>後續步驟
 

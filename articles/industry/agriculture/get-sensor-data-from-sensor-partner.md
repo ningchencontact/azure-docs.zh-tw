@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 455652795a13fe9755c1ed57681bedaf7a70a5d5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d9e20c8e5859efc8f1f8a5214e6837ad46d2980d
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435163"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777779"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>從感應器合作夥伴取得感應器資料
 
@@ -41,28 +41,36 @@ Azure FarmBeats 可協助您將 IoT 裝置和感應器的串流資料帶入 Data
 
 或者，您也可以從 Azure Cloud Shell 執行此腳本來產生認證。 請遵循下列步驟。
 
-1. 下載[zip](https://aka.ms/farmbeatspartnerscript)檔案，並將它解壓縮到您的本機磁片磁碟機。 Zip 檔案中有兩個檔案。
-2. 登入 https://portal.azure.com/ 並開啟 Cloud Shell。 此選項可在 Azure 入口網站右上角的工具列上取得。
+1. 下載[zip](https://aka.ms/farmbeatspartnerscriptv2)檔案，並將它解壓縮到您的本機磁片磁碟機。 Zip 檔案中將會有一個檔案。
+2. 登入 https://portal.azure.com/ 並移至 Azure Active Directory > 應用程式註冊
+
+3. 按一下在 FarmBeats 部署過程中建立的應用程式註冊。 它的名稱會與您的 FarmBeats Datahub 相同。
+
+4. 按一下 [公開 API]-> 按一下 [新增用戶端應用程式] 並輸入**04b07795-8ddb-461a-bbee-02f9e1bf7b46** ，然後選取 [授權範圍]。 這會授與 azure cli （Cloud shell）的存取權，以執行下列步驟。
+
+5. 開啟 Cloud Shell。 此選項可在 Azure 入口網站右上角的工具列上取得。
 
     ![Azure 入口網站工具列](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-3. 請確定環境已設定為**PowerShell**。 根據預設，它會設定為 Bash。
+6. 請確定環境已設定為**PowerShell**。 根據預設，它會設定為 Bash。
 
     ![PowerShell 工具列設定](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-4. 上傳 Cloud Shell 實例中步驟1的兩個檔案。
+7. 上傳 Cloud Shell 實例中步驟1的檔案。
 
     ![上傳工具列按鈕](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
-5. 移至上傳檔案的目錄。 根據預設，它們會上傳至使用者名稱底下的主目錄。
-6. 執行下列指令碼：
+8. 移至上傳檔案的目錄。 根據預設，檔案會上傳至使用者名稱底下的主目錄。
+
+9. 執行下列指令碼。 腳本會要求提供可從 Azure Active Directory > 總覽頁面取得的租使用者識別碼。
 
     ```azurepowershell-interactive 
 
-    ./generateCredentials.ps1   
+    ./generatePartnerCredentials.ps1   
 
     ```
-7. 依照畫面上的指示來捕獲**API 端點**、租使用者**識別碼**、**用戶端識別碼**、**用戶端密碼**和**EventHub 連接字串**的值。 在 Swagger 中，可使用 EventHub 連接字串作為 API 回應的一部分。
+
+10. 依照畫面上的指示來捕獲**API 端點**、租使用者**識別碼**、**用戶端識別碼**、**用戶端密碼**和**EventHub 連接字串**的值。
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>使用產生的認證來整合裝置資料
 

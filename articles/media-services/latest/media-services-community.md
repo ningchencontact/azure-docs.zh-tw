@@ -1,5 +1,5 @@
 ---
-title: Azure 媒體服務社群概觀 | Microsoft Docs
+title: Azure 媒體服務 v3 社區總覽 |Microsoft Docs
 description: 此 Azure 媒體服務的 [社區] 頁面會討論您可以提出問題、提供意見反應，以及取得媒體服務相關更新的不同方式。
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: f241ac3e1369e32a1f2a4b9ac80492094105ff8c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 2bfa50068c5a61e8d6807da895dd5bf932ef05ba
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598336"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780346"
 ---
-# <a name="azure-media-services-community"></a>Azure 媒體服務社群  
+# <a name="azure-media-services-v3-community"></a>Azure 媒體服務 v3 社區  
 
 此 Azure 媒體服務的 [社區] 頁面會討論您可以提出問題、提供意見反應，以及取得媒體服務相關更新的不同方式。
 

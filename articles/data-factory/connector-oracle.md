@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 01/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 5fd13531e438b8bcda8e3720758e338c964f77af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fd5843ecfd6585fb9c95168c6e55049fe0e27abb
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444245"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830304"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -69,7 +69,7 @@ Oracle 連結服務支援下列屬性：
 | 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
 | type | type 屬性必須設定為 **Oracle**。 | 是 |
-| connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 <br/>您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `password` 設定。 請參閱下列範例，並[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)，並提供更多詳細資料。 <br><br>**支援的連線類型**：您可以使用 [Oracle SID] 或 [Oracle 服務名稱] 來識別您的資料庫：<br>- 如果您使用 SID：`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 如果您使用服務名稱：`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | 是 |
+| connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 <br/>您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `password` 設定。 請參閱下列範例，並[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)，並提供更多詳細資料。 <br><br>**支援的連線類型**：您可以使用 [Oracle SID] 或 [Oracle 服務名稱] 來識別您的資料庫：<br>- 如果您使用 SID：`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 如果您使用服務名稱：`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>針對 [先進的 Oracle 原生連接選項]，您可以選擇在 Tnsnames.ora 中新增專案[。TNSNAMES.ORA](http://www.orafaq.com/wiki/Tnsnames.ora)檔案在 oracle 伺服器和 ADF oracle 連結服務中，選擇使用 [Oracle 服務名稱] 連線類型，並設定對應的服務名稱。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，則會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!TIP]

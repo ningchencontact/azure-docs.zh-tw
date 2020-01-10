@@ -1,38 +1,36 @@
 ---
-title: 累加式編制索引（預覽）
+title: 增量擴充（預覽）
 titleSuffix: Azure Cognitive Search
-description: 設定您的 AI 擴充管線，以將您的資料驅動至最終一致性，以處理任何技能、技能集、索引子或資料來源的更新。 這項功能目前為公開預覽狀態
+description: 從 Azure 儲存體中的 AI 擴充管線快取中繼內容和增量變更，以保留現有已處理檔的投資。 此功能目前為公開預覽狀態。
 manager: nitinme
 author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: c44228d7e1456bce870765935beb011cb24626d5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/09/2020
+ms.openlocfilehash: a5b12a426e52c3b80c58a30b320b2f746bbe990d
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790942"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832184"
 ---
-# <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>什麼是 Azure 認知搜尋中的增量編制索引？
+# <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Azure 認知搜尋中的增量擴充和快取簡介
 
 > [!IMPORTANT] 
-> 累加式編制索引目前為公開預覽狀態。 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有入口網站或 .NET SDK 支援。
+> 增量擴充目前為公開預覽狀態。 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有入口網站或 .NET SDK 支援。
 
-增量索引是 Azure 認知搜尋的一項新功能，可將快取和狀態新增至認知技能集中的擴充內容，讓您控制在擴充管線中處理和重新處理個別步驟。 這不僅會保留您在處理中的金錢投資，還可讓系統更有效率。 快取結構和內容時，索引子可以判斷哪些技能已變更，並只執行已修改的技能，以及任何下游相依技能。 
-
-透過累加式索引編製，目前的擴充管線版本只需執行最少量的工作，即可確保索引中所有文件的一致性。 對於您想要完整控制的案例，您可以使用更精細的控制項來覆寫預期的行為。 如需設定的詳細資訊，請參閱[設定累加式索引編制](search-howto-incremental-index.md)。
+增量擴充會將快取和 statefulness 新增至擴充管線，以保留您對現有輸出的投資，同時只變更受特定修改影響的檔。 這不僅會保留您在處理中的金錢投資（特別是 OCR 和影像處理），也可讓系統更有效率。 快取結構和內容時，索引子可以判斷哪些技能已變更，並只執行已修改的技能，以及任何下游相依技能。 
 
 ## <a name="indexer-cache"></a>索引子快取
 
-累加式索引編製會將索引子快取新增至擴充管線。 索引子會快取文件萃取的結果，以及每份文件針對每項技能的輸出。 技能集有所更新時，將只會重新執行已變更或下游的技能。 更新的結果會寫入至快取，且索引和知識存放區中的文件會隨之更新。
+增量擴充會將快取新增至擴充管線。 索引子會快取檔破解的結果，以及每個檔的每項技能輸出。 技能集有所更新時，將只會重新執行已變更或下游的技能。 更新的結果會寫入至快取，而且會在搜尋索引或知識存放區中更新檔。
 
-快取實際上是儲存體帳戶。 搜尋服務中的所有索引可共用相同的儲存體帳戶，以進行索引子快取。 系統會為每個索引子指派一個唯一且不可變的快取識別碼。
+實際上，快取會儲存在您 Azure 儲存體帳戶的 blob 容器中。 搜尋服務中的所有索引可共用相同的儲存體帳戶，以進行索引子快取。 每個索引子都會指派一個唯一且不可變的快取識別碼給它所使用的容器。
 
-### <a name="cache-configuration"></a>快取組態
+## <a name="cache-configuration"></a>快取組態
 
-您將需要在索引子上設定 `cache` 屬性，以從累加式索引編制開始受益。 下列範例說明已啟用快取的索引子。 下列各節將說明這項設定的特定部分。
+您將需要在索引子上設定 `cache` 屬性，以從累加擴充開始受益。 下列範例說明已啟用快取的索引子。 下列各節將說明這項設定的特定部分。 如需詳細資訊，請參閱[設定累加式擴充](search-howto-incremental-index.md)。
 
 ```json
 {
@@ -42,50 +40,70 @@ ms.locfileid: "74790942"
     "skillsetName": "mySkillset",
     "cache" : {
         "storageConnectionString" : "Your storage account connection string",
-        "enableReprocessing": true,
-        "id" : "Auto generated Id you do not need to set"
+        "enableReprocessing": true
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters": {}
+    "parameters": []
 }
 ```
 
-第一次在現有的索引子上設定這個屬性時，您也會需要重設它，這會導致資料來源中的所有檔再次被處理。 累加式索引編製的目標是要讓索引中的文件與您的資料來源和目前的技能集版本趨於一致。 重設索引是達成此一致性的首要步驟，因為這樣會消除舊版技能集所擴充的任何文件。 索引子必須重設，而以一致的基準開始。
+在現有的索引子上設定這個屬性，將會要求您重設並重新執行索引子，這會導致資料來源中的所有檔再次被處理。 若要排除由舊版技能集擴充的任何檔，必須執行此步驟。 
 
-### <a name="cache-lifecycle"></a>快取生命週期
+## <a name="cache-management"></a>快取管理
 
-快取的生命週期由索引子所管理。 如果索引子上的 `cache` 屬性設定為 null 或連接字串已變更，則會刪除現有的快取。 快取生命週期也與索引子生命週期有關。 如果索引子遭到刪除，相關聯的快取也會一併刪除。
+快取的生命週期由索引子所管理。 如果索引子上的 `cache` 屬性設定為 null，或連接字串已變更，則會在下一次索引子執行時刪除現有的快取。 快取生命週期也與索引子生命週期有關。 如果索引子遭到刪除，相關聯的快取也會一併刪除。
 
-### <a name="indexer-cache-mode"></a>索引子快取模式
+雖然累加式擴充的設計是要偵測並回應變更，而不需介入，但您還是可以使用參數來覆寫預設行為：
 
-索引子快取可在資料僅寫入至快取的模式下運作，或將資料寫入至快取並用來重新擴充文件的模式下運作。  您可以將快取中的 `enableReprocessing` 屬性設定為 `false`，以暫止累加式擴充，且稍後將其設定為 `true` 以繼續累加式擴充，並達成最終的一致性。 當您想要讓為新文件編製索引的優先順序高於確保文件主體間的一致性時，此控制會特別有用。
++ 暫止快取
++ 略過技能集檢查
++ 略過資料來源檢查
++ 強制技能集評估
 
-## <a name="change-detection-override"></a>變更偵測覆寫
+### <a name="suspend-caching"></a>暫止快取
 
-累加式索引編製可讓您更精確地控制擴充管線的各個層面。 此控制可讓您處理變更可能會產生非預期結果的情況。 例如，編輯技能集和更新自訂技能的 URL，會導致索引子讓該技能的快取結果失效。 如果您只是要將端點移至不同的 VM，或是要使用新的存取金鑰來重新部署您的技能，您就不需要重新處理任何現有的文件。
+您可以將快取中的 `enableReprocessing` 屬性設定為 `false`，以暫止累加式擴充，且稍後將其設定為 `true` 以繼續累加式擴充，並達成最終的一致性。 當您想要讓為新文件編製索引的優先順序高於確保文件主體間的一致性時，此控制會特別有用。
 
-若要確保索引子只會擴充您明確需要的，技能集的更新可以選擇性地將 `disableCacheReprocessingChangeDetection` querystring 參數設定為 `true`。 設定後，此參數將可確保只會認可技能集的更新，且不會評估變更對現有主體的影響。
+### <a name="bypass-skillset-evaluation"></a>略過技能集評估
 
-下列範例說明 querystring 使用方式。 它是要求的一部分，具有 & 分隔的索引鍵值組。 
+修改技能集和重新處理該技能集通常會直接處理。 不過，技能集的某些變更不會導致重新處理（例如，將自訂技能部署到新位置或使用新的存取金鑰）。 最有可能的是，對技能集本身的物質沒有真正影響的周邊修改。 
+
+如果您知道技能集的變更確實是表面，您應該將 `disableCacheReprocessingChangeDetection` 參數設定為 `true`，以覆寫技能集評估：
+
+1. 呼叫 Update 技能集並修改技能集定義。
+1. 在要求上附加 `disableCacheReprocessingChangeDetection=true` 參數。
+1. 提交變更。
+
+設定此參數可確保只會認可技能集定義的更新，而且不會針對現有主體的效果評估變更。
+
+下列範例顯示具有參數的更新技能集要求：
 
 ```http
 PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2019-05-06-Preview&disableCacheReprocessingChangeDetection=true
 ```
 
-## <a name="cache-invalidation"></a>快取失效
+### <a name="bypass-data-source-validation-checks"></a>略過資料來源驗證檢查
 
-相反的情況是，您要部署新版本的自訂技能，而擴充管線中的任何內容皆未變更，但您需要讓特定技能失效，且所有受影響的文件都需要重新處理，以反映更新模型的優點。 在這種情況下，您可以對技能集呼叫讓技能失效的作業。 重設技能 API 可接受 POST 要求，以及快取中應失效的技能輸出清單。 如需重設技能 API 的詳細資訊，請參閱[重設索引子（搜尋 REST API）](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)。
+對資料來源定義進行的大部分變更都會使快取失效。 不過，在您知道變更不應使快取不正確情況下（例如變更連接字串或在儲存體帳戶上輪替金鑰），請在資料來源更新上附加`ignoreResetRequirement` 參數。 將此參數設定為 `true` 可讓認可執行，而不觸發重設條件，這會導致所有物件從頭開始重建和填入。
 
-## <a name="bi-directional-change-detection"></a>雙向變更偵測
+```http
+PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2019-05-06-Preview&ignoreResetRequirement=true
+```
 
-索引子不只會前向處理新文件，現在也能夠回溯讓先前處理的文件達成一致性。 使用這項新功能時，請務必了解擴充管線元件的變更如何產生索引子工作。 索引子會將工作排入佇列，以在識別出因快取內容而失效或不一致的變更時進行。
+### <a name="force-skillset-evaluation"></a>強制技能集評估
 
-### <a name="invalidating-changes"></a>使變更失效
+快取的目的是要避免不必要的處理，但假設您變更了索引子無法偵測的技能或技能集（例如，自訂技能集之類的外部元件變更）。 
 
-使變更失效是很罕見的作業，但對擴充管線的狀態會有重大影響。 失效變更是指會讓整個快取都不再有效的變更。 舉例來說，讓您的資料來源進行更新的變更，即為失效變更。 在您知道變更不應使快取不正確情況下（例如，輪替儲存體帳戶上的金鑰），`ignoreResetRequirement` querystring 參數應該設定為在特定資源的更新作業上 `true`，以確保不會拒絕作業。
+在此情況下，您可以使用[重設技能](preview-api-resetskills.md)API 來強制重新處理特定技能，包括任何相依于該技能輸出的下游技能。 此 API 會接受 POST 要求，其中包含應失效並重新執行的技能清單。 重設技能之後，請執行索引子來執行作業。
 
-以下是會使快取失效的完整變更清單：
+## <a name="change-detection"></a>變更偵測
+
+一旦您啟用快取，索引子就會評估管線組合中的變更，以判斷可以重複使用的內容，以及需要重新處理的內容。 此區段會列舉會使快取立即失效的變更，後面接著會觸發累加式處理的變更。 
+
+### <a name="changes-that-invalidate-the-cache"></a>使快取失效的變更
+
+失效變更是指會讓整個快取都不再有效的變更。 舉例來說，讓您的資料來源進行更新的變更，即為失效變更。 以下是會使快取失效的完整變更清單：
 
 * 資料來源類型的變更
 * 資料來源容器的變更
@@ -103,11 +121,9 @@ PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?
     * 文件根目錄
     * 影像動作 (影像擷取方式的變更)
 
-### <a name="inconsistent-changes"></a>不一致變更
+### <a name="changes-that-trigger-incremental-processing"></a>觸發增量處理的變更
 
-舉例來說，更新修改了技能的技能集，即為不一致變更。 修改可能會使快取的某部分不一致。 索引子會識別可再次達成一致性的工作。  
-
-導致快取不一致的完整變更清單如下：
+累加式處理會評估您的技能集定義，並決定要重新執行的技能，並選擇性地更新檔樹狀結構的受影響部分。 以下是導致累加擴充的完整變更清單：
 
 * 技能集中的技能具有不同的類型。 技能的 oData 類型已更新
 * 技能的特定參數已更新，例如 URL、預設值或其他參數
@@ -118,43 +134,39 @@ PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?
 * 變更知識存放區投射，導致文件重新投射
 * 索引子的輸出欄位對應已變更，導致文件重新投射至索引
 
-## <a name="rest-api-reference-for-incremental-indexing"></a>增量索引的 REST API 參考
+## <a name="api-reference-content-for-incremental-enrichment"></a>累加式擴充的 API 參考內容
 
-REST `api-version=2019-05-06-Preview` 提供用於增量編制索引的 Api，以及索引子、技能集和資料來源的新增專案。 參考檔目前並未包含這些新增專案。 下一節將說明 API 的變更。
+REST `api-version=2019-05-06-Preview` 提供適用于累加擴充的 Api，以及索引子、技能集和資料來源的新增專案。 [官方參考檔](https://docs.microsoft.com/rest/api/searchservice/)適用于正式運作的 api，並不涵蓋預覽功能。 下一節提供受影響 Api 的參考內容。
+
+如需用法資訊和範例，請參閱設定快取[以進行累加式擴充](search-howto-incremental-index.md)。
 
 ### <a name="indexers"></a>索引工具
 
 [建立索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)和[更新索引子](https://docs.microsoft.com/rest/api/searchservice/update-indexer)現在會公開與快取相關的新屬性：
 
-* `StorageAccountConnectionString`：將用來快取中繼結果之儲存體帳戶的連接字串。
++ `StorageAccountConnectionString`：將用來快取中繼結果之儲存體帳戶的連接字串。
 
-* `CacheId`： `cacheId` 是 `annotationCache` 儲存體帳戶內的容器識別碼，將用來做為此索引子的快取。 此快取對此索引子而言將是唯一的，而且，如果刪除索引子並使用相同的名稱加以重新建立，則會重新產生 `cacheId`。 `cacheId` 無法設定，它一律會由服務產生。
++ `EnableReprocessing`：設定為 [`false`] 時，預設為 [`true`]，檔會繼續寫入快取，但不會根據快取資料重新處理任何現有的檔。
 
-* `EnableReprocessing`：設定為 [`false`] 時，預設為 [`true`]，檔會繼續寫入快取，但不會根據快取資料重新處理任何現有的檔。
-
-某些索引子（經由[資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)）會透過查詢抓取資料。 若為抓取資料的查詢，索引子也會支援新的查詢字串參數：當您的更新動作不應使快取無效時，`ignoreResetRequirement` 應該設定為 `true`。
++ `ID` （唯讀）： `ID` 是 `annotationCache` 儲存體帳戶內的容器識別碼，將作為此索引子的快取使用。 此快取對此索引子而言將是唯一的，而且，如果刪除索引子並使用相同的名稱加以重新建立，則會重新產生 `ID`。 `ID` 無法設定，它一律會由服務產生。
 
 ### <a name="skillsets"></a>技能集
 
-技能集將不支援任何新的作業，但會支援新的 querystring 參數：當您不想根據目前的動作來更新任何現有的文件時，`disableCacheReprocessingChangeDetection` 應設定為 `true`。
++ [Update 技能集](https://docs.microsoft.com/rest/api/searchservice/update-skillset)支援要求上的新參數： `disableCacheReprocessingChangeDetection`，當您不想要根據目前的動作來更新現有的檔時，應該設定為 [`true`]。
+
++ [重設技能](preview-api-resetskills.md)是用來使技能集失效的新作業。
 
 ### <a name="datasources"></a>資料來源
 
-資料來源將不支援任何新的作業，但會支援新的 querystring 參數：當您的更新動作不應使快取失效時，`ignoreResetRequirement` 應設定為 `true`。
-
-## <a name="best-practices"></a>最佳做法
-
-使用累加式索引編製的建議方法是，藉由在新的索引子上設定快取屬性，來設定累加式索引編製，或重設現有的索引子並設定快取屬性。
++ 某些索引子會透過查詢抓取資料。 若為抓取資料的查詢，[更新資料來源](https://docs.microsoft.com/rest/api/searchservice/update-datasource)支援要求 `ignoreResetRequirement`的新參數，當您的更新動作不應使快取無效時，應該將其設定為 `true`。
 
 請謹慎使用 `ignoreResetRequirement`，因為它可能會導致不容易偵測到的資料中發生非預期的不一致。
 
-## <a name="takeaways"></a>重要摘要
-
-累加式索引是一項功能強大的功能，可將資料來源的變更追蹤延伸至擴充管線的所有層面，包括資料來源、技能集的目前版本，以及索引子。 當您的技能、技能集或擴充改變時，擴充管線可確實完成最少量的工作，同時仍能讓您的文件達到最終的一致性。
-
 ## <a name="next-steps"></a>後續步驟
 
-將快取新增至現有的索引子，或在定義新的索引子時新增快取，以開始進行累加式索引編製。
+累加式擴充是一項強大的功能，可將變更追蹤延伸至技能集和 AI 擴充。 隨著技能集的演變，增量擴充可確保最少的工作完成，同時仍能讓您的檔達到最終一致性。
+
+開始使用，方法是在定義新的索引子時，將快取新增至現有的索引子或是新增快取。
 
 > [!div class="nextstepaction"]
-> [設定累加式編制索引](search-howto-incremental-index.md)
+> [設定增量擴充的快取](search-howto-incremental-index.md)

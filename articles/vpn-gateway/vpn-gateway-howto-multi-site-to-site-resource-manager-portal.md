@@ -1,19 +1,20 @@
 ---
-title: 將多個 VPN 閘道站對站連線新增至 VNet：Azure 入口網站：Resource Manager |Microsoft Docs
+title: 將多個 VPN 閘道站對站連線新增至 VNet： Azure 入口網站
 description: 將多個 S2S 連線新增至具有現有連線的 VPN 閘道
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: d2c32fd35bbc6de1f010013c40a06af69052d3f5
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 7b438f2b966dc43d41b91a138b39193d230d5546
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244612"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779683"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>將站台對站台連線新增至使用現有 VPN 閘道連線的 VNet
 
@@ -49,24 +50,24 @@ ms.locfileid: "72244612"
 2. 按一下 [所有資源]，在資源清單中找到您的 [虛擬網路閘道]，並按一下它。
 3. 在 [虛擬網路閘道] 頁面上，按一下 [連線]。
    
-    ![連線頁面](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "連線頁面")<br>
+    ![連接頁面](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "連接頁面")<br>
 4. 在 [連線] 頁面上，按一下 [+新增]。
    
-    ![新增連線按鈕](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "新增連線按鈕")<br>
+    ![[加入連接] 按鈕](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "新增連線按鈕")<br>
 5. 在 [新增連線] 頁面上，填寫下列欄位︰
    
-   * **名稱：** 為您要建立連線的網站提供名稱。
+   * **名稱︰** 為您要建立連線的網站提供名稱。
    * **連線類型：** 選取 [站對站 (IPSec)]。
      
-     ![新增連線頁面](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "新增連線頁面")<br>
+     ![[新增連接] 頁面](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "[新增連接] 頁面")<br>
 
 ## <a name="part2"></a>第 2 部分 - 新增區域網路閘道
-1. 按一下 [區域網路閘道] > [選擇區域網路閘道]。 這會開啟 [選擇區域網路閘道] 頁面。
+1. 按一下 [**局域網路閘道**] ***[選擇局域網路閘道***]。 這會開啟 [選擇區域網路閘道] 頁面。
    
     ![選擇區域網路閘道](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "選擇區域網路閘道")<br>
 2. 按一下 [建立新的] 以開啟 [建立區域網路閘道] 頁面。
    
-    ![建立區域網路閘道頁面](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "建立區域網路閘道")<br>
+    ![建立局域網路閘道頁面](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "建立局域網路閘道")<br>
 3. 在 [建立區域網路閘道] 頁面上，填寫下列欄位︰
    
    * **名稱：** 您要給區域網路閘道資源的名稱。

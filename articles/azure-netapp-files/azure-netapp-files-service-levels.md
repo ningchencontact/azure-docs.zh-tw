@@ -12,50 +12,51 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 01/09/2019
 ms.author: b-juche
-ms.openlocfilehash: 1f9c427045c9d42f6a11cc4bcc798cfc47a4428c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0398cc6a5336141f51dde26ed7cf4cce8c2c0bb4
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523113"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832588"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Azure NetApp Files 的服務等級
-服務層級為容量集區的屬性。 服務層級定義和以磁碟區指派給磁碟區的配額為基礎的容量集區中允許的最大輸送量來區分。
+服務層級是容量集區的屬性。 服務層級是根據指派給磁片區的配額，以容量集區中的磁片區所允許的最大輸送量來定義和區分。
 
-## <a name="supported-service-levels"></a>支援的服務層級
+## <a name="supported-service-levels"></a>支援的服務等級
 
-Azure 的 NetApp 檔案服務支援三種服務層級：*強力*， *Premium*，以及*標準*。 
+Azure NetApp Files 支援三種服務層級： *Ultra*、 *Premium*和*Standard*。 
 
-* <a name="Ultra"></a>強力的儲存體
+* <a name="Ultra"></a>Ultra 儲存體
 
-    強力的儲存層提供最多 128 MiB/秒的輸送量每 1 TiB 的磁碟區指派的配額。 
+    Ultra 儲存層可為每1個指派的磁片區配額 TiB 提供最多 128 MiB/秒的輸送量。 
 
 * <a name="Premium"></a>進階儲存體
 
-    進階儲存層提供最多 64 MiB/秒的輸送量每 1 TiB 的磁碟區指派的配額。 
+    Premium 儲存層提供每1個指派的磁片區配額 TiB，最高可達 64 MiB/秒的輸送量。 
 
 * <a name="Standard"></a>標準儲存體
 
-    標準儲存層提供最多 16 MiB/秒的輸送量每 1 TiB 的磁碟區指派的配額。
+    標準儲存層提供最多 16 MiB/秒的輸送量，每 1 TiB 指派的磁片區配額。
 
 ## <a name="throughput-limits"></a>輸送量限制
 
-磁碟區的輸送量限制取決於下列因素的組合：
-* 磁碟區所屬的容量集區服務層級
-* 指派給磁碟區的配額  
+磁片區的輸送量限制取決於下列因素的組合：
+* 磁片區所屬之容量集區的服務層級
+* 指派給磁片區的配額  
 
-下圖說明這個概念：
+下圖說明此概念：
 
-![服務層級圖](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
+![服務等級圖例](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
 
-在上述範例 1，從已指派的配額 2 TiB 進階儲存層的容量集區的磁碟區會指派的輸送量限制為 128 MiB/秒 (2 TiB * 64 MiB/秒)。 此案例適用於無論容量集區的大小或實際的磁碟區耗用量。
+在上述的範例1中，容量集區中的磁片區與指派了2個配額 TiB 的 Premium 儲存層會被指派輸送量限制為 128 MiB/秒（2 TiB * 64 MiB/秒）。 無論容量集區大小或實際磁片區耗用量為何，都適用此案例。
 
-在上面的範例 2，從已指派的配額 100 GiB 的進階儲存層的容量集區的磁碟區會指派 6.25 MiB/秒的輸送量限制 (0.09765625 TiB * 64 MiB/秒)。 此案例適用於無論容量集區的大小或實際的磁碟區耗用量。
+在上述的範例2中，容量集區中的磁片區（具有指派 100 GiB 配額的 Premium 儲存層）將獲指派 6.25 MiB/秒（0.09765625 TiB * 64 MiB/s）的輸送量限制。 無論容量集區大小或實際磁片區耗用量為何，都適用此案例。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 如需不同服務層級的價格，請參閱 [Azure NetApp Files 定價頁面](https://azure.microsoft.com/pricing/details/storage/netapp/)
-- 請參閱[適用於 Azure NetApp 檔案的成本模型](azure-netapp-files-cost-model.md)容量集區中的容量耗用量的計算 
+- 如需容量集區中容量耗用量的計算，請參閱[Azure NetApp Files 的成本模型](azure-netapp-files-cost-model.md) 
 - [設定容量集區](azure-netapp-files-set-up-capacity-pool.md)
+- 請參閱[適用于 Azure NetApp Files 的服務等級協定（SLA）](https://azure.microsoft.com/support/legal/sla/netapp/)

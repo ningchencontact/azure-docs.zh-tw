@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: e77bf5226a216c04beae86a23f1c08303d56db94
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f10de425bf83720b06f3ea7772343edfefc8d952
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536547"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834833"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>使用 Azure Machine Learning 中的資料集進行定型
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -188,11 +188,12 @@ y_test = load_data(y_test, True).reshape(-1)
 
 ## <a name="notebook-examples"></a>筆記本範例
 
-[資料集筆記本](https://aka.ms/dataset-tutorial)會在本文中的概念上進行示範和擴充。 
+[資料集筆記本](https://aka.ms/dataset-tutorial)會在本文中的概念上進行示範和擴充。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 使用 TabularDatasets[自動訓練機器學習模型](how-to-auto-train-remote.md)。
+* 使用 TabularDatasets[自動訓練機器學習模型](how-to-auto-train-remote.md)
 
-* 使用 FileDatasets 將[影像分類模型定型](https://aka.ms/filedataset-samplenotebook)。
+* 使用 FileDatasets 將[影像分類模型定型](https://aka.ms/filedataset-samplenotebook)
 
+* [建立和管理用於定型和部署的環境](how-to-use-environments.md)

@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: d6370509b49ae464b53525e7320676b04912bd12
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1c06c1d0403e526e1ed58a193cfe9b57bb9fe561
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113717"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780229"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>從封存層解除凍結 blob 資料
 
@@ -47,6 +47,68 @@ ms.locfileid: "74113717"
 
 > [!NOTE]
 > 如需有關區塊 blob 和資料解除凍結定價的詳細資訊，請參閱[Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/blobs/)。 如需輸出資料傳輸費用的詳細資訊，請參閱[資料傳輸定價詳細資料](https://azure.microsoft.com/pricing/details/data-transfers/)。
+
+## <a name="quickstart-scenarios"></a>快速入門案例
+
+### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>將封存 blob 解除凍結到線上層
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+
+1. 在 Azure 入口網站中，搜尋並選取 **所有資源**。
+
+1. 選取您的儲存體帳戶。
+
+1. 選取您的容器，然後選取您的 blob。
+
+1. 在 [ **Blob 屬性**] 中，選取 [**變更層**]。
+
+1. 選取 [**經常性**存取 **]** 或 [非經常性存取] 層。 
+
+1. 選取 [**標準**] 或 [**高**] 的解除凍結優先權。
+
+1. 選取底部的 [**儲存**]。
+
+![變更儲存體帳戶層](media/storage-tiers/blob-access-tier.png)
+
+# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+下列 PowerShell 腳本可以用來變更封存 blob 的 blob 層。 `$rgName` 變數必須使用您的資源組名進行初始化。 `$accountName` 變數必須使用您的儲存體帳戶名稱進行初始化。 `$containerName` 變數必須使用您的容器名稱進行初始化。 `$blobName` 變數必須使用您的 blob 名稱進行初始化。 
+```powershell
+#Initialize the following with your resource group, storage account, container, and blob names
+$rgName = ""
+$accountName = ""
+$containerName = ""
+$blobName == ""
+
+#Select the storage account and get the context
+$storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+#Select the blob from a container
+$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+
+#Change the blob’s access tier to Hot using Standard priority rehydrate
+$blob.ICloudBlob.SetStandardBlobTier("Hot", “Standard”)
+```
+---
+
+### <a name="copy-an-archive-blob-to-a-new-blob-with-an-online-tier"></a>使用線上層將封存 blob 複製到新的 blob
+下列 PowerShell 腳本可以用來將封存 blob 複製到相同儲存體帳戶內的新 blob。 `$rgName` 變數必須使用您的資源組名進行初始化。 `$accountName` 變數必須使用您的儲存體帳戶名稱進行初始化。 `$srcContainerName` 和 `$destContainerName` 變數必須使用您的容器名稱進行初始化。 `$srcBlobName` 和 `$destBlobName` 變數必須使用您的 blob 名稱進行初始化。 
+```powershell
+#Initialize the following with your resource group, storage account, container, and blob names
+$rgName = ""
+$accountName = ""
+$srcContainerName = ""
+$destContainerName = ""
+$srcBlobName == ""
+$destBlobName == ""
+
+#Select the storage account and get the context
+$storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+#Copy source blob to a new destination blob with access tier hot using standard rehydrate priority
+Start-AzStorageBlobCopy -SrcContainer $srcContainerName -SrcBlob $srcBlobName -DestContainer $destContainerName -DestBlob $destBlobName -StandardBlobTier Hot -RehydratePriority Standard -Context $ctx
+```
 
 ## <a name="next-steps"></a>後續步驟
 

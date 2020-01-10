@@ -3,12 +3,12 @@ title: Azure VM 備份的支援矩陣
 description: 摘要說明使用 Azure 備份服務來備份 Azure VM 時的支援設定和限制。
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: fa4e01def8db4e5fef32b644d198bad1e9beab27
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 36fbc4813cdc9849b77e8309c97a2d42511a31d0
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996165"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829539"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 
@@ -24,7 +24,7 @@ ms.locfileid: "74996165"
 
 以下說明如何使用 Azure 備份服務來備份和還原 Azure VM。
 
-**案例** | **備份** | **代理程式** |**Restore**
+**案例** | **Backup** | **代理程式** |**Restore**
 --- | --- | --- | ---
 直接備份 Azure VM  | 備份整個 VM。  | Azure VM 上不需要代理程式。 Azure 備份會安裝並使用在 VM 上執行的[AZURE vm 代理](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)程式的擴充功能。 | 以下列方式進行還原：<br/><br/> - **建立基本 VM**。 如果 VM 沒有任何特殊設定（例如多個 IP 位址），這會很有用。<br/><br/> - **還原 VM 磁碟**。 還原磁碟。 然後將它連結至現有的 VM，或使用 PowerShell 從磁片建立新的 VM。<br/><br/> - **取代 VM 磁碟**。 如果有 VM 存在，且該 VM 使用受控磁碟 (未加密)，您可以還原某個磁碟，並用它來取代 VM 上現有的磁碟。<br/><br/> - **還原特定檔案/資料夾**。 您可以從 VM （而不是從整個 VM）還原檔案/資料夾。
 直接備份 Azure Vm （僅限 Windows）  | 備份特定檔案/資料夾/磁片區。 | 安裝[Azure 復原服務代理程式](backup-azure-file-folder-backup-faq.md)。<br/><br/> 您可以將 MARS 代理程式與 Azure VM 代理程式的備份擴充功能一起執行，以在檔案/資料夾層級備份 VM。 | 還原特定資料夾/檔案。
@@ -34,7 +34,7 @@ ms.locfileid: "74996165"
 
 ## <a name="supported-backup-actions"></a>支援的備份動作
 
-**Action** | **支援**
+**動作** | **支援**
 --- | ---
 建立 Windows Azure VM 時啟用備份 | 支援： <br/><br/> -Windows Server 2019 （Datacenter/Datacenter Core/Standard） <br/><br/> -Windows Server 2016 （Datacenter/Datacenter Core/Standard） <br/><br/> -Windows Server 2012 R2 （Datacenter/Standard） <br/><br/> -Windows Server 2008 R2 （RTM 和 SP1 標準）
 建立 Linux VM 時啟用備份 | 支援：<br/><br/> -Ubuntu Server：18.04、17.10、17.04、16.04 （LTS）、14.04 （LTS）<br/><br/> -Red Hat： RHEL 6.7、6.8、6.9、7.2、7.3、7。4<br/><br/> -SUSE Linux Enterprise Server： 11 SP4、12 SP2、12 SP3、15 <br/><br/> -Debian：8、9<br/><br/> -CentOS：6.9、7。3<br/><br/> -Oracle Linux：6.7、6.8、6.9、7.2、7。3
@@ -68,7 +68,7 @@ Azure 備份不支援 32 位元作業系統。
 
 以下是您備份 Linux 機器時所支援的項目。
 
-**Action** | **支援**
+**動作** | **支援**
 --- | ---
 使用 Linux Azure VM 代理程式備份 Linux Azure VM | 檔案一致備份。<br/><br/> 使用[自訂指令碼](backup-azure-linux-app-consistent.md)進行應用程式一致備份。<br/><br/> 在還原期間，您可以建立新的 VM、復原磁碟並使用它來建立 VM，或復原磁碟並使用它來取代現有 VM 上的磁片。 您也可以還原個別檔案和資料夾。
 使用 MARS 代理程式備份 Linux Azure VM | 不支援。<br/><br/> MARS 代理程式只能安裝在 Windows 機器上。
@@ -154,16 +154,16 @@ Gen2 Vm | 支援的 <br> Azure 備份支援[Gen2 vm](https://azure.microsoft.com
 
 **元件** | **支援**
 --- | ---
-Azure VM 資料磁碟 | 備份具有 16 個或較少資料磁碟的 VM。
+Azure VM 資料磁碟 | 備份具有16個或更少資料磁片的 VM。<BR> 若要註冊具有16個以上磁片（最多32個磁片）之 Vm 的私人預覽，請在 AskAzureBackupTeam@microsoft.com 寫入我們
 資料磁碟大小 | 針對 VM 中的所有磁片，個別磁片大小最高可達 32 TB，最大為 256 TB。
 儲存體類型 | 標準 HDD、標準 SSD 進階 SSD。
 受控磁碟 | 支援。
-加密磁碟 | 支援（最多 4 TB）。<br/><br/> 您可以備份使用 Azure 磁碟加密啟用的 Azure Vm （不論是否有 Azure AD 應用程式）。<br/><br/> 加密的 VM 無法在檔案/資料夾層級復原。 您必須復原整個 VM。<br/><br/> 您可以對已受到 Azure 備份保護的 VM 啟用加密。
+加密磁碟 | 支援。<br/><br/> 您可以備份使用 Azure 磁碟加密啟用的 Azure Vm （不論是否有 Azure AD 應用程式）。<br/><br/> 加密的 VM 無法在檔案/資料夾層級復原。 您必須復原整個 VM。<br/><br/> 您可以對已受到 Azure 備份保護的 VM 啟用加密。
 已啟用寫入加速器的磁碟 | 不支援。<br/><br/> Azure 備份會在備份期間自動排除已啟用寫入加速器的磁片。 因為它們不會備份，所以您將無法從 VM 的復原點還原這些磁片。
-備份 & 還原重復資料刪除的 Vm/磁片 | Azure 備份不支援重復資料刪除。 如需詳細資訊，請參閱這[篇文章](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  -Azure 備份不會跨復原服務保存庫中的 Vm 刪除重複 <br/> <br/>  -如果還原期間有 Vm 處於重復資料刪除狀態，則無法還原檔案，因為保存庫不了解格式
+備份 & 還原重復資料刪除的 Vm/磁片 | Azure 備份不支援重復資料刪除。 如需詳細資訊，請參閱這[篇文章](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  -Azure 備份不會跨復原服務保存庫中的 Vm 刪除重複 <br/> <br/>  -如果還原期間有 Vm 處於重復資料刪除狀態，則無法還原檔案，因為保存庫不了解格式。 不過，您將能夠成功執行完整的 VM 還原。
 將磁碟新增至受保護的 VM | 支援。
 在受保護的 VM 上調整磁碟大小 | 支援。
-共用存放裝置| 不建議使用叢集共用磁碟區（CSV）或向外延展檔案伺服器來備份 Vm。 CSV 寫入器可能會在備份期間失敗。 還原時，包含 CSV 磁片區的磁片可能無法啟動。
+共用存放裝置| 不支援使用叢集共用磁碟區（CSV）或向外延展檔案伺服器備份 Vm。 CSV 寫入器可能會在備份期間失敗。 還原時，包含 CSV 磁片區的磁片可能無法啟動。
 
 ## <a name="vm-network-support"></a>VM 網路支援
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 29f90508bf0bdd77f02d78cbcba8fdfe7009f0d2
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 41acc5703f6b6e5cdeedf2afd0dc61b23bc579c6
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562046"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834040"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Azure Functions 診斷總覽
 
@@ -42,9 +42,9 @@ ms.locfileid: "75562046"
 
 選擇主題之後，您可以查看函式應用程式特定的診斷報告。 診斷報表會使用狀態圖示來指出您的應用程式是否有任何特定的問題。 您會看到問題的詳細描述、建議的動作、相關的計量，以及實用的檔。自訂的診斷報告是從函式應用程式上執行的一系列檢查所產生。 診斷報告可以用來在函數應用程式中查明問題，並引導您解決問題。
 
-## <a name="find-the-problem-code"></a>找出問題代碼 
+## <a name="find-the-problem-code"></a>找出問題代碼
 
-針對以腳本為基礎的函式，您可以使用**函數應用程式下**的**函數執行**和**錯誤**，或回報錯誤，以縮小造成例外狀況或錯誤的程式程式碼。 這項功能可以用來取得根本原因，並修正特定程式程式碼的問題。 此選項不適用於先行編譯C#和 JAVA 函式。
+針對以腳本為基礎的函式，您可以使用**函數應用程式下**的**函數執行和錯誤**，或回報錯誤，以縮小造成例外狀況或錯誤的程式程式碼。 這項功能可以用來取得根本原因，並修正特定程式程式碼的問題。 此選項不適用於先行編譯C#和 JAVA 函式。
 
 ![功能執行錯誤的診斷報告](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 099dc723db44ba71fc4672c382d24ac93ffe742f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 951d707c898ad0efa1f21480c12f0c733f5218ee
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689136"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834952"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知問題
 
@@ -66,7 +66,7 @@ Blob Api 和 Data Lake Storage Gen2 Api 可以在相同的資料上運作。
 |--------|-----------|
 | **帳戶容錯移轉** |尚不支援|
 | **AzCopy** | 版本特定支援 <br><br>只使用最新版本的 AzCopy （[AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)）。 不支援舊版的 AzCopy （例如 AzCopy 8.1）。|
-| **Azure Blob 儲存體生命週期管理原則** | 支援生命週期管理原則（預覽）。  支援所有存取層。 封存存取層目前為預覽狀態。 尚不支援刪除 blob 快照集。 <br><br> 目前有一些 bug 會影響生命週期管理原則和封存存取層。  在[這裡](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u)註冊生命週期管理原則和封存存取層的預覽。   |
+| **Azure Blob 儲存體生命週期管理原則** | 支援生命週期管理原則（預覽）。  在[這裡](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u)註冊生命週期管理原則和封存存取層的預覽。   <br><br>支援所有存取層。 封存存取層目前為預覽狀態。 尚不支援刪除 blob 快照集。  目前有一些 bug 會影響生命週期管理原則和封存存取層。  |
 | **Azure 內容傳遞網路 (CDN)** | 尚不支援|
 | **Azure 搜尋服務** |支援（預覽）|
 | **Azure 儲存體總管** | 版本特定的支援。 <br><br>僅使用 `1.6.0` 或更高版本。 <br> 目前有一個會影響版本 `1.11.0` 的儲存體 bug，在某些情況下可能會導致驗證錯誤。 即將推出儲存體錯誤的修正程式，但作為因應措施，建議您使用[免費下載](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes)的 `1.10.x` 版本。 `1.10.x` 不會受到儲存體錯誤的影響。|
@@ -74,7 +74,7 @@ Blob Api 和 Data Lake Storage Gen2 Api 可以在相同的資料上運作。
 | **Blobfuse** |尚不支援|
 | **自訂網域** |尚不支援|
 | **Azure 入口網站中的儲存體總管** | 有限支援。 尚不支援 Acl。 |
-| **診斷記錄** |支援診斷記錄（預覽）。<br><br>目前不支援在 Azure 入口網站中啟用記錄。 以下範例說明如何使用 PowerShell 來啟用記錄。 <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`答案中所述步驟，工作帳戶即會啟用。 <br><br>請務必將 `Blob` 指定為 `-ServiceType` 參數的值，如下列範例所示。 <br><br>目前，Azure 儲存體總管無法用於查看診斷記錄。 若要查看記錄，請使用 AzCopy 或 Sdk。
+| **診斷記錄** |支援診斷記錄（預覽）。 <br><br>Azure 儲存體總管 1.10. x 無法用於查看診斷記錄。 若要查看記錄，請使用 AzCopy 或 Sdk。
 | **不可變的儲存體** |尚不支援 <br><br>不可變的儲存體可讓您將資料儲存在[WORM （一次寫入，多次讀取）](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)狀態。|
 | **物件層級層** |支援非經常性存取和封存層。 封存層處於預覽狀態。 尚不支援其他所有存取層。 <br><br> 目前有一些 bug 會影響封存存取層。  在[這裡](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u)註冊封存存取層的預覽。|
 | **靜態網站** |尚不支援 <br><br>具體來說，就是將檔案提供給[靜態網站](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)的能力。|

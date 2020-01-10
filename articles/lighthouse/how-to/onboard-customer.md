@@ -1,14 +1,14 @@
 ---
 title: 讓客戶在 Azure 委派的資源管理中上線
 description: 了解如何讓客戶在 Azure 委派的資源管理中上線，讓其資源可透過您自己的租用戶來管理。
-ms.date: 12/17/2019
+ms.date: 01/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 16d1b4d9d51c377c4aa09b5e35b02790d8a1b8dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 09e42a65891494370250fbab9b22cdf37a6fd318
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453545"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834136"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>讓客戶在 Azure 委派的資源管理中上線
 
@@ -32,9 +32,12 @@ ms.locfileid: "75453545"
 
 - 服務提供者租用戶的租用戶識別碼 (您將在其中管理客戶的資源)
 - 客戶租用戶的租用戶識別碼 (其中包含受服務提供者管理的資源)
-- 客戶租用戶中將由服務提供者管理之每個特定訂用帳戶 (或所含資源群組將會由服務提供者管理之訂用帳戶) 的訂用帳戶識別碼
+- 客戶租使用者中每個特定訂用帳戶的訂用帳戶識別碼，將由服務提供者管理（或包含將由服務提供者管理的資源群組）。
 
-如果您還沒有此資訊，您可以使用下列其中一種方式來擷取此資訊。 請確定並在您的部署中使用這些確切值。
+> [!NOTE]
+> 即使您只想要將訂用帳戶中的一個或多個資源群組上架，部署也必須在訂用帳戶層級完成，因此您將需要訂用帳戶識別碼。
+
+如果您還沒有這些識別碼值，可以使用下列其中一種方式來抓取它們。 請確定並在您的部署中使用這些確切值。
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -113,9 +116,9 @@ az role definition list --name "<roleName>" | grep name
 |欄位  |定義  |
 |---------|---------|
 |**mspOfferName**     |說明此定義的名稱。 此值會以供應項目標題的形式向客戶顯示。         |
-|**mspOfferDescription**     |您供應專案的簡短描述（例如，「Contoso VM 管理供應專案」）、      |
+|**mspOfferDescription**     |供應專案的簡短描述（例如，「Contoso VM 管理供應專案」）。      |
 |**managedByTenantId**     |您的租用戶識別碼。          |
-|**authorizations**     |租使用者中的使用者/群組/Spn 的**principalId**值，每個都有一個**principalIdDisplayName**可協助您的客戶瞭解授權的用途，並對應至內建的**roleDefinitionId**值來指定存取層級。         |
+|**authorizations**     |租使用者中的使用者/群組/Spn 的**principalId**值，每個都有一個**principalIdDisplayName**可協助您的客戶瞭解授權的用途，並對應至內建的**roleDefinitionId**值來指定存取層級。      |
 
 > [!TIP]
 > 請確定您的**managedByTenantID**、 **principalIdDisplayName**和**roleDefinitionId**專案與 Azure 所使用的值相同。 請勿在這些值中使用任何大寫字母。
@@ -132,7 +135,7 @@ az role definition list --name "<roleName>" | grep name
 |訂用帳戶 (使用發佈至 Azure Marketplace 的供應項目時)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> 這裡所述的程式需要上架每個訂用帳戶的個別部署，即使它們位於相同的客戶租使用者中也一樣。 如果您要將相同客戶租使用者中不同訂用帳戶內的多個資源群組上線，則也需要個別部署。 不過，將單一訂用帳戶中的多個資源群組上線，是可在一次部署中完成的。
+> 這裡所述的程式需要個別的訂用帳戶層級部署，才能上架每個訂用帳戶，即使您是在相同的客戶租使用者中上架訂閱也一樣。 如果您要將相同客戶租使用者中不同訂用帳戶內的多個資源群組上線，則也需要個別部署。 不過，在單一訂用帳戶中上線多個資源群組，可以在一個訂用帳戶層級部署中完成。
 >
 > 將多個供應項目套用至相同的訂用帳戶 (或訂用帳戶內的資源群組) 時，也需要個別部署。 所套用的每個供應專案必須使用不同的 **mspOfferName**。
 
@@ -198,7 +201,7 @@ az role definition list --name "<roleName>" | grep name
 這是訂用帳戶層級部署，因此無法在 Azure 入口網站中起始。 您可以使用 PowerShell 或 Azure CLI 完成部署，如下所示。
 
 > [!IMPORTANT]
-> 此部署必須由客戶租使用者中的非來賓帳戶完成，其擁有[內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)供上架訂閱（或包含正在上架的資源群組）。 若要查看所有可委派訂用帳戶的使用者，客戶租使用者中的使用者可以在 Azure 入口網站中選取訂用帳戶，開啟 **存取控制（IAM）** ，[列出所有角色](../../role-based-access-control/role-definitions-list.md#list-all-roles)，然後選取 **擁有**者 以查看具有該角色的所有使用者。
+> 此訂用帳戶層級的部署必須由客戶租使用者中的非來賓帳戶完成，其擁有[內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)可供上架訂閱（或包含正在上架的資源群組）。 若要查看可委派訂用帳戶的所有使用者，客戶租用戶中的使用者可以在 Azure 入口網站中選取訂用帳戶並開啟 [存取控制 (IAM)]，然後[查看所有具有「擁有者」角色的使用者](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription)。
 
 ### <a name="powershell"></a>PowerShell
 

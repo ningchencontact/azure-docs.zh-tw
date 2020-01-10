@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 70c1e22fc7f1fb1cda3fd4af1c2d3aa2cd257201
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 39a1e224173dc021cf49b535957eb4b49f4c91ee
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442626"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834327"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>如何在 Azure API 管理中使用用戶端憑證驗證來保護後端服務
 
@@ -30,9 +30,12 @@ API 管理可讓您使用用戶端憑證來保護對 API 後端服務的存取�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-本指南將示範如何設定 API 管理服務執行個體，以使用用戶端憑證驗證來存取 API 的後端服務。 在遵循本文中的步驟之前，您應該先設定後端服務以進行用戶端憑證驗證（[若要在 Azure 網站中設定憑證驗證，請參閱這篇文章][to configure certificate authentication in Azure WebSites refer to this article]）。 您必須存取憑證和密碼以將它上傳至 API 管理服務。
+本指南將示範如何設定 API 管理服務執行個體，以使用用戶端憑證驗證來存取 API 的後端服務。 在遵循本文中的步驟之前，您應該先設定後端服務以進行用戶端憑證驗證（[若要在 Azure App Service 中設定憑證驗證，請參閱這篇文章][to configure certificate authentication in Azure WebSites refer to this article]）。 您必須存取憑證和密碼以將它上傳至 API 管理服務。
 
 ## <a name="step1"></a>上傳憑證
+
+> [!NOTE]
+> 您可以使用儲存在[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)服務中的憑證，而不是上傳的憑證，如下列[範例](https://github.com/galiniliev/api-management-policy-snippets/blob/galin/AkvCert/examples/Look%20up%20Key%20Vault%20certificate%20using%20Managed%20Service%20Identity%20and%20call%20backend.policy.xml)所示。
 
 ![新增用戶端憑證](media/api-management-howto-mutual-certificates/apim-client-cert-new.png)
 
@@ -40,9 +43,9 @@ API 管理可讓您使用用戶端憑證來保護對 API 後端服務的存取�
 
 1. 在 Azure 入口網站中瀏覽至您的 Azure API 管理服務執行個體。
 2. 從功能表中選取 [**憑證**]。
-3. 按一下 [+新增] 按鈕。  
-    ![新增用戶端憑證](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)  
-4. 瀏覽憑證，並提供其識別碼和密碼。  
+3. 按一下 [+新增] 按鈕。
+    ![新增用戶端憑證](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
+4. 瀏覽憑證，並提供其識別碼和密碼。
 5. 按一下頁面底部的 [新增]。
 
 > [!NOTE]
@@ -65,14 +68,14 @@ API 管理可讓您使用用戶端憑證來保護對 API 後端服務的存取�
 
 ## <a name="step2"></a>設定 API 以使用用戶端憑證來驗證閘道
 
-1. 從左側的 [API 管理] 功能表按一下 [API]，然後瀏覽至 API。  
+1. 從左側的 [API 管理] 功能表按一下 [API]，然後瀏覽至 API。
     ![啟用用戶端憑證](media/api-management-howto-mutual-certificates/apim-client-cert-enable.png)
 
-2. 在 [設計] 索引標籤中，按一下 [後端] 區段的鉛筆圖示。 
-3. 將 [閘道認證] 變更為 [用戶端憑證]，並從下拉式清單中選取您的憑證。  
+2. 在 [設計] 索引標籤中，按一下 [後端] 區段的鉛筆圖示。
+3. 將 [閘道認證] 變更為 [用戶端憑證]，並從下拉式清單中選取您的憑證。
     ![啟用用戶端憑證](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-4. 按一下 [檔案]。 
+4. 按一下 [檔案]。
 
 > [!WARNING]
 > 此變更將立即生效，且該 API 之作業的呼叫將使用憑證以在後端伺服器上進行驗證。

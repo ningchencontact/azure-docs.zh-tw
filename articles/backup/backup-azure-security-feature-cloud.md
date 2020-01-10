@@ -3,12 +3,12 @@ title: 協助保護雲端工作負載的安全性功能
 description: 瞭解如何使用 Azure 備份中的安全性功能，讓備份更加安全。
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 9a3c13856d3c130f2396488fed09313578dda79c
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: e3da4778a82cd5eb50fbb82c7f9f00cf6c6f1a85
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75496918"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829624"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>協助保護使用 Azure 備份之雲端工作負載的安全性功能
 
@@ -26,7 +26,7 @@ ms.locfileid: "75496918"
 
 ### <a name="soft-delete-for-vms-using-azure-portal"></a>使用 Azure 入口網站的 Vm 虛刪除
 
-1. 為了刪除 VM 的備份資料，必須停止備份。 在 Azure 入口網站中，移至您的復原服務保存庫，以滑鼠右鍵按一下備份專案，然後選擇 [**停止備份**]。
+1. 若要刪除 VM 的備份資料，必須停止備份。 在 Azure 入口網站中，移至您的復原服務保存庫，以滑鼠右鍵按一下備份專案，然後選擇 [**停止備份**]。
 
    ![Azure 入口網站備份專案的螢幕擷取畫面](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
@@ -89,7 +89,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 #### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>使用 Azure Powershell 復原刪除作業
 
-首先，提取處於虛刪除狀態的相關備份專案，亦即即將刪除
+首先，提取處於虛刪除狀態（也就是即將刪除）的相關備份專案。
 
 ```powershell
 
@@ -164,7 +164,7 @@ SoftDeleteFeatureState : Disabled
 請遵循下列步驟：
 
 1. 請遵循下列步驟來停用虛[刪除](#disabling-soft-delete)。
-2. 在 Azure 入口網站中，移至您的保存庫，移至 [**備份專案**]，然後選擇虛刪除的 VM
+2. 在 Azure 入口網站中，移至您的保存庫，移至 [**備份專案**]，然後選擇虛刪除的 VM。
 
 ![選擇虛刪除的 VM](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
@@ -232,19 +232,32 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 2. 然後使用[此處](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)所述的步驟，透過 REST API 停用虛刪除功能。
 3. 然後使用 REST API 來刪除備份，如[這裡](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data)所述。
 
-## <a name="other-security-features"></a>其他安全性功能
+## <a name="encryption"></a>加密
 
-### <a name="storage-side-encryption"></a>儲存端加密
+### <a name="encryption-of-backup-data-using-microsoft-managed-keys"></a>使用 Microsoft 管理的金鑰來加密備份資料
 
-Azure 儲存體會在將資料保存到雲端時，自動將其加密。 加密可保護您的資料，並協助您符合組織的安全性和合規性承諾。 Azure 儲存體中的資料會使用256位 AES 加密（可用的最強區塊密碼之一），以透明的方式進行加密和解密，且符合 FIPS 140-2 標準。 Azure 儲存體加密類似于 Windows 上的 BitLocker 加密。 Azure 備份會在儲存前自動加密資料。 Azure 儲存體會在擷取資料前進行解密。  
+備份資料會使用 Azure 儲存體加密來自動加密。 加密可保護您的資料，並協助您符合組織的安全性和合規性承諾。 資料會使用256位 AES 加密（可用的最強區塊密碼之一），以透明的方式加密和解密，且符合 FIPS 140-2 規範。 Azure 儲存體加密類似于 Windows 上的 BitLocker 加密。
 
 在 Azure 中，Azure 儲存體與保存庫之間傳輸中的資料會受到 HTTPS 保護。 此資料會保持在 Azure 中樞網路上。
 
-如需詳細資訊，請參閱待用[資料的 Azure 儲存體加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)。  請參閱[AZURE 備份常見問題](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption)，以回答您可能有關于加密的任何問題。
+如需詳細資訊，請參閱待用[資料的加密 Azure 儲存體](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)。 請參閱[AZURE 備份常見問題](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption)，以回答您可能會有關于加密的任何問題。
 
-### <a name="vm-encryption"></a>VM 加密
+### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>使用客戶管理的金鑰來加密備份資料
+
+備份 Azure 虛擬機器時，您也可以選擇使用儲存在 Azure Key Vault 中的加密金鑰，來加密復原服務保存庫中的備份資料。
+
+>[!NOTE]
+>這項功能目前正在早期使用。 如果您想要使用客戶管理的金鑰來加密備份資料，請填寫[這份問卷](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u)。 請注意，使用這項功能的功能可能會受到 Azure 備份服務的核准。
+
+### <a name="backup-of-managed-disk-vm-encrypted-using-customer-managed-keys"></a>使用客戶管理的金鑰進行加密的受控磁片 VM 備份
+
+Azure 備份可讓您備份 Azure 虛擬機器，其中包含使用客戶管理的金鑰加密的磁片。 如需詳細資訊，請參閱[使用客戶管理的金鑰來加密受控磁片](https://docs.microsoft.com//azure/virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview)。
+
+### <a name="backup-of-encrypted-vms"></a>備份已加密的 Vm
 
 您可以使用 Azure 備份服務，備份及還原具有加密磁片的 Windows 或 Linux Azure 虛擬機器（Vm）。 如需指示，請參閱[使用 Azure 備份備份和還原已加密的虛擬機器](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)。
+
+## <a name="other-security-features"></a>其他安全性功能
 
 ### <a name="protection-of-azure-backup-recovery-points"></a>保護 Azure 備份復原點
 
@@ -258,7 +271,7 @@ Azure 儲存體會在將資料保存到雲端時，自動將其加密。 加密�
 
 #### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>我是否需要在每個保存庫上啟用虛刪除功能？
 
-否，預設會針對所有復原服務保存庫建立並啟用它。
+否，預設會針對所有復原服務保存庫建立並啟用。
 
 #### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>我可以設定在刪除作業完成後，我的資料會保留在虛刪除狀態的天數嗎？
 
@@ -282,11 +295,11 @@ Azure 儲存體會在將資料保存到雲端時，自動將其加密。 加密�
 
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>如果保存庫中有虛刪除的專案，是否可以刪除我的保存庫？
 
-如果保存庫中有已虛刪除狀態的備份專案，就無法刪除復原服務保存庫。 刪除作業之後的14天會永久刪除虛刪除的專案。 如果您無法等待14天，則請[停](#disabling-soft-delete)用虛刪除、取消刪除虛刪除的專案，然後再將它們刪除，以永久刪除。 確定沒有受保護的專案，而且沒有虛刪除的專案之後，就可以刪除保存庫。  
+如果保存庫中有已虛刪除狀態的備份專案，就無法刪除復原服務保存庫。 刪除作業之後的14天會永久刪除虛刪除的專案。 如果您無法等待14天，則請[停](#disabling-soft-delete)用虛刪除、取消刪除虛刪除的專案，然後再將它們刪除，以永久刪除。 確保沒有受保護的專案，而且沒有虛刪除的專案之後，即可刪除保存庫。  
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>刪除之後，我可以刪除14天之前的資料嗎？
 
-不會。 您不能強制刪除虛刪除的專案，它們會在14天之後自動刪除。 這項安全性功能可防止意外或惡意刪除已備份的資料。  在 VM 上執行任何其他動作之前，您應該先等待14天。  虛刪除的專案將不會收費。  如果您需要在14天內重新保護標示為要虛刪除的 Vm 至新的保存庫，請洽詢 Microsoft 支援服務。
+不會。 您不能強制刪除虛刪除的專案，它們會在14天之後自動刪除。 這項安全性功能可防止意外或惡意刪除已備份的資料。  在 VM 上執行任何其他動作之前，您應該先等待14天。  虛刪除的專案將不會收費。  如果您需要將14天內標記為要虛刪除的 Vm 重新保護至新的保存庫，請洽詢 Microsoft 支援服務。
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>可以在 PowerShell 或 CLI 中執行虛刪除作業嗎？
 

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: f8f5e65115acddd71808a169039d0b98b2470147
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e7a6e819676752aac679a36221eb60f9ad767071
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932068"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830151"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Azure Data Factory 中的 JSON 格式
 
@@ -26,9 +26,9 @@ ms.locfileid: "74932068"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 JSON 資料集所支援的屬性清單。
 
-| 屬性         | 描述                                                  | 必要項 |
+| 屬性         | 說明                                                  | 必要項 |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| 類型             | 資料集的類型屬性必須設定為**Json**。 | 是      |
+| type             | 資料集的類型屬性必須設定為**Json**。 | 是      |
 | location         | 檔案的位置設定。 每個以檔案為基礎的連接器在 `location`之下都有自己的位置類型和支援的屬性。 **請參閱連接器文章-> 資料集屬性一節中的詳細資訊**。 | 是      |
 | encodingName     | 用來讀取/寫入測試檔案的編碼類型。 <br>允許的值如下： "UTF-8"、"UTF-16"、"UTF-UTF-16BE"、"UTF-32"、"32BE"、"US-ASCII"，"UTF-7"，"BIG5"，"EUC-JP"，"EUC-KR"，"GB2312"，"GB18030"，"JOHAB"，"SHIFT-JIS"，"CP875"，"CP866"，"IBM00858"，"IBM037"，"IBM273"，"IBM437"，"IBM500"，"IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149"，"ISO-2022-JP"，"ISO-2022-KR"，"ISO-8859-1"，"ISO-8859-2"，"ISO-8859-3"，"ISO-8859-4"，"ISO-8859-5"，"ISO-8859-6"，"ISO-8859-7"，"ISO-8859-8"，"ISO-8859-9"，"ISO-8859-13"，"ISO-8859-15"，"WINDOWS-874"，"WINDOWS-1250"，"WINDOWS-1251"，"WINDOWS-1252 "，" WINDOWS-1253 "，" WINDOWS-1254 "，" WINDOWS-1255 "，" WINDOWS-1256 "，" WINDOWS-1257 "，" WINDOWS-1258 "。| 否       |
 | compressionCodec | 用來讀取/寫入文字檔的壓縮編解碼器。 <br>允許的值為**bzip2**、 **gzip**、 **deflate**、 **ZipDeflate**、 **snappy**或**lz4**。 表示在儲存檔案時使用。 <br>注意：目前的複製活動不支援 "snappy" & "lz4"。<br>請注意，使用複製活動來解壓縮 ZipDeflate 檔案並寫入檔案型接收資料存放區時，檔案將會解壓縮到資料夾： `<path specified in dataset>/<folder named as source zip file>/`。 | 否       |
@@ -67,26 +67,26 @@ ms.locfileid: "74932068"
 
 以下支援的屬性將複製活動中 ***\*來源\**** 一節。
 
-| 屬性      | 描述                                                  | 必要項 |
+| 屬性      | 說明                                                  | 必要項 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| 類型          | 複製活動來源的類型屬性必須設定為**JSONSource**。 | 是      |
+| type          | 複製活動來源的類型屬性必須設定為**JSONSource**。 | 是      |
 | storeSettings | 一組屬性，說明如何從資料存放區讀取資料。 每個以檔案為基礎的連接器在 `storeSettings`之下都有自己支援的讀取設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |
 
 ### <a name="json-as-sink"></a>JSON 做為接收
 
 以下支援的屬性將複製活動中 ***\*接收器\**** 一節。
 
-| 屬性      | 描述                                                  | 必要項 |
+| 屬性      | 說明                                                  | 必要項 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| 類型          | 複製活動來源的類型屬性必須設定為**JSONSink**。 | 是      |
+| type          | 複製活動來源的類型屬性必須設定為**JSONSink**。 | 是      |
 | formatSettings | 屬性的群組。 請參閱下面的**JSON 寫入設定**表格。 | 否       |
 | storeSettings | 一組屬性，說明如何將資料寫入資料存放區。 每個以檔案為基礎的連接器在 `storeSettings`之下都有它自己的支援寫入設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |
 
 `formatSettings`下支援的**JSON 寫入設定**：
 
-| 屬性      | 描述                                                  | 必要項                                              |
+| 屬性      | 說明                                                  | 必要項                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| 類型          | FormatSettings 的類型必須設定為**JsonWriteSetting**。 | 是                                                   |
+| type          | FormatSettings 的類型必須設定為**JsonWriteSettings**。 | 是                                                   |
 | filePattern |表示每個 JSON 檔案中儲存的資料模式。 允許的值為︰**setOfObjects** 和 **arrayOfObjects**。 **預設值**為 **setOfObjects**。 關於這些模式的詳細資訊，請參閱 [JSON 檔案模式](#json-file-patterns)一節。 |否 |
 
 ### <a name="json-file-patterns"></a>JSON 檔案模式

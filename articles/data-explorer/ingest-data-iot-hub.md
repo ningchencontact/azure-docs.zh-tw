@@ -1,18 +1,18 @@
 ---
 title: 將資料從 IoT 中樞內嵌到 Azure 資料總管
 description: 在本文中，您將瞭解如何從 IoT 中樞將資料內嵌（載入）至 Azure 資料總管。
-author: oflipman
-ms.author: oflipman
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: cbad0e5409dfaa25eda040e3c7409b49728a4169
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.date: 01/08/2020
+ms.openlocfilehash: 1052ef799949550ddaf492b8aa5b77ab9526d092
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667415"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780278"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>將資料從 IoT 中樞內嵌到 Azure 資料總管（預覽）
 
@@ -22,7 +22,7 @@ ms.locfileid: "74667415"
 > * [Python](data-connection-iot-hub-python.md)
 > * [Azure Resource Manager 範本](data-connection-iot-hub-resource-manager.md)
 
-「Azure 資料總管」是一項快速又彈性極佳的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供來自 IoT 中樞的內嵌（資料載入），這是一種龐大的資料串流平臺和 IoT 內嵌服務。
+Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供來自 IoT 中樞的內嵌（資料載入），這是一種龐大的資料串流平臺和 IoT 內嵌服務。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -103,6 +103,8 @@ ms.locfileid: "74667415"
     > [!NOTE]
     > * 選取 [我的資料包含路由資訊] 來使用動態路由，其中您的資料會包含必要的路由資訊，如[範例應用程式](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)註解中所示。 如果靜態和動態屬性都已設定，則動態屬性會覆寫靜態屬性。 
     > * 只有在建立資料連線之後排入佇列的事件才會內嵌。
+
+[!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
 
 ## <a name="generate-sample-data-for-testing"></a>產生測試用的範例資料
 

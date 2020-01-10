@@ -1,5 +1,5 @@
 ---
-title: 設定 Postman 以進行 Azure 媒體服務 REST API 呼叫
+title: 設定 Azure 媒體服務 v3 REST API 呼叫的 Postman
 description: 本文說明如何設定 Postman，讓它可以用來呼叫 Azure 媒體服務（AMS） REST Api。
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: eee46bd8642f5ad4a8d036b9f6bf9a464c0d09f3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888099"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779632"
 ---
-# <a name="configure-postman-for-media-services-rest-api-calls"></a>設定 Postman 以進行媒體服務 REST API 呼叫
+# <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>設定媒體服務 v3 REST API 呼叫的 Postman
 
 本文說明如何設定 **Postman**，以便用來呼叫 Azure 媒體服務 (AMS) REST API。 本文說明如何將環境和集合檔案匯入 **Postman**。 集合包含呼叫 Azure 媒體服務 (AMS) REST API 之 HTTP 要求的分組定義。 環境檔案包含集合所使用的變數。
 

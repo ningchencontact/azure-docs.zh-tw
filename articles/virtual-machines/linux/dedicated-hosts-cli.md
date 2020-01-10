@@ -2,38 +2,32 @@
 title: 使用 CLI 部署 Azure 專用主機
 description: 使用 Azure CLI 將 Vm 部署到專用主機。
 services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/29/2019
+ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: ece9967321cfca44b102d78722f0df3d8f980bdb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b301012425e0a2590fa5ac22985abe9c96fbd419
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036411"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834932"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>預覽：使用 Azure CLI 將 Vm 部署至專用主機
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>使用 Azure CLI 將 Vm 部署到專用主機
  
 
 本文會引導您瞭解如何建立 Azure[專用主機](dedicated-hosts.md)來裝載您的虛擬機器（vm）。 
 
 請確定您已安裝 Azure CLI 2.0.70 或更新版本，並已使用 `az login`登入 Azure 帳戶。 
 
-> [!IMPORTANT]
-> Azure 專用主機目前為公開預覽版。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
->
-> **已知的預覽限制**
-> - 專用主機目前不支援虛擬機器擴展集。
-> - 預覽初始版本支援下列 VM 系列： DSv3 和 ESv3。 
+
+## <a name="limitations"></a>限制
+
+- 專用主機目前不支援虛擬機器擴展集。
+- 初始版本支援下列 VM 系列： DSv3 和 ESv3。 
  
 
 ## <a name="create-resource-group"></a>建立資源群組 
@@ -86,8 +80,7 @@ az vm host group create \
  
 ## <a name="create-a-host"></a>建立主機 
 
-現在讓我們在主機群組中建立專用主機。 除了主機的名稱之外，您還必須提供主機的 SKU。 主機 SKU 會捕捉支援的 VM 系列，以及專用主機的硬體世代。  在預覽期間，我們將支援下列主機 SKU 值： DSv3_Type1 和 ESv3_Type1。
-
+現在讓我們在主機群組中建立專用主機。 除了主機的名稱之外，您還必須提供主機的 SKU。 主機 SKU 會捕捉支援的 VM 系列，以及專用主機的硬體世代。  支援下列 SKU 值： DSv3_Type1 和 ESv3_Type1。
 
 如需主機 Sku 和定價的詳細資訊，請參閱[Azure 專用主機定價](https://aka.ms/ADHPricing)。
 

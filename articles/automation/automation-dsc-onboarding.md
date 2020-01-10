@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 9ebe38b54c042a0c945200bc3d88076b16c2e6f9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c5876dd293a97414ff4f48dbb8645e64226a6ba8
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75366374"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834114"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>將機器上架交由 Azure Automation State Configuration 管理
 
@@ -31,8 +31,7 @@ Azure Automation State Configuration 可以用來管理各種不同的機器：
 
 - Azure 虛擬機器
 - Azure 虛擬機器 (傳統)
-- Amazon Web Services (AWS) EC2 執行個體
-- 位於內部部署或 Azure/AWS 以外之雲端中的實體/虛擬 Windows 電腦
+- 內部部署或 Azure 以外的雲端中的實體/虛擬 Windows 機器（包括 AWS EC2 實例）
 - 位於內部部署、Azure 或 Azure 以外之雲端中的實體/虛擬 Linux 機器
 
 此外，如果您不準備從雲端管理機器組態，Azure Automation State Configuration 也可用來當作報告專用端點。
@@ -82,11 +81,7 @@ Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 
 [Azure Resource Manager 範本 Desired State Configuration 擴充](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template)功能中提供範例。
 若要在範本中尋找用來作為參數的註冊金鑰和註冊 URL，請參閱下列[**安全註冊**](#secure-registration)一節。
 
-## <a name="amazon-web-services-aws-virtual-machines"></a>Amazon Web Services (AWS) 虛擬機器
-
-您可以使用 AWS DSC Toolkit 輕鬆地將 Amazon Web Services 虛擬機器上架，以便 Azure Automation State Configuration 管理組態。 您可以在 [這裡](https://blogs.msdn.microsoft.com/powershell/2016/04/20/aws-dsc-toolkit/)深入了解工具組。
-
-## <a name="physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws"></a>位於內部部署或 Azure/AWS 以外之雲端中的實體/虛擬 Windows 電腦
+## <a name="physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances"></a>內部部署或 Azure 以外的雲端中的實體/虛擬 Windows 機器（包括 AWS EC2 實例）
 
 在內部部署或其他雲端環境中執行的 Windows 伺服器，也可以上架至 Azure 自動化狀態設定，只要它們具有[Azure 的輸出存取權](automation-dsc-overview.md#network-planning)：
 

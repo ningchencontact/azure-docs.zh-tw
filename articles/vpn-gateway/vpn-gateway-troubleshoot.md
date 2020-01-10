@@ -1,26 +1,18 @@
 ---
-title: 針對 VPN 閘道設定和連線進行疑難排解 | Microsoft Docs
+title: Azure VPN 閘道：針對設定和連線進行疑難排解
 description: 本文可協助您連結至針對 VPN 閘道設定和連線進行疑難排解及驗證輸送量的文章。
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: cherylmc
-ms.openlocfilehash: 263c1010ec6cf5f6140c4dc9323dd9bd149b2368
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d73bc8e9c39c14a254e8f7bae1d7b1a96a6c3225
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727292"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780159"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>針對 VPN 閘道進行疑難排解
 

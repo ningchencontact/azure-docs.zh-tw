@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: ''
-ms.date: 12/11/2019
-ms.openlocfilehash: 4455181ddf69613ba07bcaeedb26273a4bb5a74d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.reviewer: carlrab
+ms.date: 01/09/2020
+ms.openlocfilehash: 27868f062cd628347e38b5fdb9f243347dea3e23
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647844"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834974"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>使用 vCore 購買模型的單一資料庫資源限制
 
@@ -322,9 +322,10 @@ ms.locfileid: "75647844"
 |TempDB 最大資料大小（GB）|333|
 |儲存體類型|遠端 SSD|
 |IO 延遲 (大約)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|
-|最大資料 IOPS *|23040|
+|最大資料 IOPS *|12,800|
 |最大記錄速率（MBps）|30|
 |並行背景工作 (要求) 數上限|3600|
+|並行登入數上限|3600|
 |並行工作階段數上限|30,000|
 |複本數目|1|
 |多重 AZ|N/A|
@@ -448,21 +449,22 @@ ms.locfileid: "75647844"
 
 ### <a name="m-series-compute-generation-preview"></a>M 系列計算產生（預覽）
 
-|計算大小|GP_M_128|
+|計算大小|BC_M_128|
 |:--- | --: |
 |計算世代|M 系列|
 |虛擬核心|128|
-|記憶體 (GB)|3767|
+|記憶體 (GB)|3767.1|
 |資料行存放區支援|是|
-|OLTP 記憶體內部儲存體 (GB)|481|
+|OLTP 記憶體內部儲存體 (GB)|1768|
 |資料大小上限 (GB)|4096|
 |記錄大小上限 (GB)|2048|
 |TempDB 最大資料大小（GB）|4096|
 |儲存體類型|本機 SSD|
 |IO 延遲 (大約)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|
-|最大資料 IOPS *|204800|
-|最大記錄速率（MBps）|192|
-|並行背景工作 (要求) 數上限|12800|
+|最大資料 IOPS *|160,000|
+|最大記錄速率（MBps）|264|
+|並行背景工作 (要求) 數上限|12,800|
+|並行登入數上限|12,800|
 |並行工作階段數上限|30000|
 |複本數目|4|
 |多重 AZ|是|

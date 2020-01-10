@@ -11,12 +11,12 @@ ms.date: 08/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8aedb57f6fee68c4d11a123033d34bb58314eb8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 355bd75f865e821fa19fba0715cf5eca90a9a2d3
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75367615"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829556"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中利用 OpenID Connect 的 Web 登入
 
@@ -24,7 +24,7 @@ OpenID Connect 是建置在 OAuth 2.0 之上的驗證通訊協定，可用來將
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) 擴充 OAuth 2.0 的*授權*通訊協定來做為*驗證*通訊協定。 此驗證通訊協定可讓您執行單一登入。 它引進了*識別碼權杖*的概念，可讓用戶端驗證使用者的身分識別，並取得有關使用者的基本設定檔資訊。
 
-因為它會擴充 OAuth 2.0，所以也可讓應用程式安全地取得*存取權杖*。 您可以使用存取權杖，來存取受到[授權伺服器](active-directory-b2c-reference-protocols.md)保護的資源。 如果您要建立裝載于伺服器上且透過瀏覽器存取的 web 應用程式，建議使用 OpenID Connect。 如果您想要使用 Azure AD B2C 在行動或桌面應用程式中新增身分識別管理，您應該使用[OAuth 2.0](active-directory-b2c-reference-oauth-code.md) ，而不是 OpenID connect。 如需有關權杖的詳細資訊，請參閱[中的權杖總覽 Azure Active Directory B2C](active-directory-b2c-reference-tokens.md)
+因為它會擴充 OAuth 2.0，所以也可讓應用程式安全地取得*存取權杖*。 您可以使用存取權杖，來存取受到[授權伺服器](active-directory-b2c-reference-protocols.md)保護的資源。 如果您要建立裝載于伺服器上且透過瀏覽器存取的 web 應用程式，建議使用 OpenID Connect。 如需有關權杖的詳細資訊，請參閱[中的權杖總覽 Azure Active Directory B2C](active-directory-b2c-reference-tokens.md)
 
 Azure AD B2C 擴充標準的 OpenID Connect 通訊協定，功能更強大，而不僅止於簡單的驗證和授權。 它引進[使用者流程參數](active-directory-b2c-reference-policies.md)，可讓您使用 OpenID connect 將使用者體驗新增至您的應用程式，例如註冊、登入和設定檔管理。
 

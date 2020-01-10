@@ -1,5 +1,5 @@
 ---
-title: 從 Azure VPN 閘道設定診斷記錄事件的警示
+title: Azure VPN 閘道：設定診斷記錄事件的警示
 description: 在 VPN 閘道診斷記錄事件上設定警示的步驟
 services: vpn-gateway
 author: anzaman
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: d914c020553bace7ea5ab8898ac4093fea30e6c9
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: e2d0227f7481f75c1b0a4e3fe9d0fa3134a7261c
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306997"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778595"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>從 VPN 閘道設定診斷記錄事件的警示
 
@@ -20,7 +20,7 @@ ms.locfileid: "70306997"
 
 Azure 中提供下列記錄：
 
-|***名稱*** | ***描述*** |
+|***名稱*** | ***說明*** |
 |---        | ---               |
 |GatewayDiagnosticLog | 包含閘道設定事件、主要變更和維護事件的診斷記錄 |
 |TunnelDiagnosticLog | 包含通道狀態變更事件。 通道連接/中斷線上活動具有狀態變更的摘要原因（如果適用） |
@@ -35,7 +35,7 @@ Azure 中提供下列記錄：
 
 1. 在 Azure 入口網站中，搜尋 [**所有服務**] 底下的 [ **log analytics** ]，然後選取 [ **log analytics 工作區**]。
 
-   ![前往 Log Analytics 工作區的選取專案](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "建立")
+   ![前往 Log Analytics 工作區的選取專案](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Create")
 
 2. 在 [ **Log Analytics** ] 頁面上選取 [**建立**]。
 
@@ -45,7 +45,7 @@ Azure 中提供下列記錄：
 
    ![建立 Log Analytics 工作區的詳細資料](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "選取")
 
-4. 在 [**監視** > **診斷設定**] 分頁上尋找您的 VPN 閘道。
+4. 在 [**監視**] > [**診斷設定**] 分頁上尋找您的 VPN 閘道。
 
    ![在診斷設定中尋找 VPN 閘道的選項](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "選取")
 

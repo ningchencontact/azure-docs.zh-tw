@@ -1,6 +1,7 @@
 ---
-title: 下載可供進行 S2S VPN 連線的 VPN 裝置設定指令碼：Azure Resource Manager | Microsoft Docs
+title: 下載可供進行 S2S VPN 連線的 VPN 裝置設定指令碼
 description: 本文將逐步引導您使用 Azure Resource Manager 來下載 VPN 裝置設定指令碼，以便利用 Azure VPN 閘道進行 S2S VPN 連線。
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: yushwang
 manager: rossort
@@ -8,12 +9,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: f7ee53c10c6597dbf98f8f85fc31fe789137471e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bce6a05938af9b8726b1b52ccb65d22d7492cfe
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157562"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778442"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>下載可供進行 S2S VPN 連線的 VPN 裝置設定指令碼
 

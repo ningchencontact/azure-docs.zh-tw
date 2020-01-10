@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 97fcd3241be6dac81adfa8e17999d92d84abaa19
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 0eea6700b8b248a87666071ee02572d356110cd0
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647283"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830168"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>關於 Azure 網路監看員的常見問題（FAQ）
 [Azure 網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)服務提供一套工具，可用來監視、診斷、查看計量，以及啟用或停用 Azure 虛擬網路中的資源記錄。 本文會回答有關此服務的常見問題。
@@ -71,47 +71,17 @@ ms.locfileid: "75647283"
 ### <a name="what-does-nsg-flow-logs-do"></a>NSG 流量記錄有哪些功能？
 您可以透過[網路安全性群組（nsg）](https://docs.microsoft.com/azure/virtual-network/security-overview)結合和管理 Azure 網路資源。 NSG 流量記錄可讓您透過 Nsg 記錄所有流量的5個元組流量資訊。 未經處理的流量記錄會寫入 Azure 儲存體帳戶，讓您可以視需要進一步進行處理、分析、查詢或匯出。
 
-### <a name="are-there-any-caveats-to-using-nsg-flow-logs"></a>使用 NSG 流量記錄是否有任何警告？
-使用 NSG 流量記錄沒有任何必要條件。 不過，有兩個限制
-- **服務端點不得存在於您的 VNET 上**： NSG 流量記錄是從 vm 上的代理程式發出至儲存體帳戶。 不過，目前您只能將記錄直接發出至儲存體帳戶，而且無法使用新增至 VNET 的服務端點。
+### <a name="how-do-i-use-nsg-flow-logs-on-a-storage-account-with-a-firewall-or-through-a-service-endpoints"></a>如何? 在具有防火牆或透過服務端點的儲存體帳戶上使用 NSG 流量記錄嗎？
 
-- **儲存體帳戶不得防火牆**：由於內部限制，必須可以透過公用網際網路存取儲存體帳戶，NSG 流量記錄才能使用它們。 流量仍會在內部透過 Azure 路由傳送，而且您不會面臨額外的輸出費用。
-
-如需有關如何解決這些問題的指示，請參閱接下來的兩個問題。 這兩項限制都預期會在2020年1月之前解決。
-
-### <a name="how-do-i-use-nsg-flow-logs-with-service-endpoints"></a>如何? 使用服務端點的 NSG 流量記錄嗎？
-
-*選項1：重新設定 NSG 流量記錄，以發出至沒有 VNET 端點的 Azure 儲存體帳戶*
-
-* 尋找具有端點的子網路：
-
-    - 在 Azure 入口網站上，於頂端的全域搜尋中搜尋**資源群組**
-    - 瀏覽至所使用 NSG 所在的資源群組
-    - 使用第二個下拉式清單依類型篩選並選取 [**虛擬網路**]
-    - 按一下服務端點所在的虛擬網路
-    - 從左窗格的 [設定] 下選取 [服務端點]
-    - 記下已啟用 **Microsoft.Storage** 的子網路
-
-* 停用服務端點：
-
-    - 延續前面的操作，從左窗格的 [設定] 下選取 [子網路]
-    * 按一下服務端點所在的子網路
-    - 在 [服務端點] 區段的 [服務] 下，取消核取 [Microsoft.Storage]。
-
-您可以在幾分鐘後檢查儲存體記錄，屆時應該就會看到已更新的時間戳記或新建立的 JSON 檔案。
-
-*選項2：停用 NSG 流量記錄*
-
-如果 Microsoft.Storage 服務端點是必須項目，您就必須停用 NSG 流量記錄。
-
-### <a name="how-do-i-disable-the--firewall-on-my-storage-account"></a>如何? 在我的儲存體帳戶上停用防火牆？
-
-藉由啟用「所有網路」來存取儲存體帳戶，即可解決此問題：
+若要使用具有防火牆的儲存體帳戶或透過服務端點，您必須允許受信任的 Microsoft 服務存取您的儲存體帳戶：
 
 * 尋找儲存體帳戶的名稱，方法是在 [[NSG 流量記錄] 概觀頁面](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs)上找到 NSG。
 * 在入口網站的全域搜尋中輸入儲存體帳戶的名稱，以瀏覽至儲存體帳戶
 * 在 [設定] 區段下，選取 [防火牆和虛擬網路]
-* 選取 [所有網路] 並加以儲存。 如果早已選取，則不需要再變更。  
+* 在 [允許存取來源] 中，選取 [**選取的網路**]。 然後在 [**例外**狀況] 底下，勾選 [**允許受信任的 Microsoft 服務存取此儲存體帳戶**] 旁的方塊 
+* 如果早已選取，則不需要再變更。  
+
+您可以在幾分鐘後檢查儲存體記錄，屆時應該就會看到已更新的時間戳記或新建立的 JSON 檔案。
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>流量記錄版本 1 & 2 之間的差異為何？
 流量記錄第2版引進了*流程狀態*的概念，& 儲存傳輸位元組和封包的相關資訊。 [閱讀更多](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)。

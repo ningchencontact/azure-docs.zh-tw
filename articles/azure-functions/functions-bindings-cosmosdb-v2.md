@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 0ad569977194441b026c2c987ecad544ce40cfa1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2e08c1c0fbd0962adee44af949be280701915a1e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227368"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834060"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 Azure Cosmos DB 繫結
 
@@ -51,7 +51,7 @@ Azure Cosmos DB 觸發程序會使用 [Azure Cosmos DB 變更摘要](../cosmos-d
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-略過觸發程序範例
+[略過觸發程序範例](#trigger---c-attributes)
 
 ### <a name="trigger---c-example"></a>觸發程序 - C# 範例
 
@@ -87,11 +87,11 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-略過觸發程序範例
+[略過觸發程序範例](#trigger---c-attributes)
 
 ### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
 
-下列範例示範 function.json 檔案中的 Cosmos DB 觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 修改 Cosmos DB 記錄時，函式會寫入記錄訊息。
+下列範例示範 function.json 檔案中的 Cosmos DB 觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 新增或修改 Cosmos DB 記錄時，函數會寫入記錄訊息。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -125,11 +125,11 @@ namespace CosmosDBSamplesV2
     }
 ```
 
-略過觸發程序範例
+[略過觸發程序範例](#trigger---c-attributes)
 
 ### <a name="trigger---javascript-example"></a>觸發程序 - JavaScript 範例
 
-下列範例示範的是使用繫結之 function.json 檔案，以及 [JavaScript 函式](functions-reference-node.md)中的 Cosmos DB 觸發程序繫結。 修改 Cosmos DB 記錄時，函式會寫入記錄訊息。
+下列範例示範的是使用繫結之 function.json 檔案，以及 [JavaScript 函式](functions-reference-node.md)中的 Cosmos DB 觸發程序繫結。 新增或修改 Cosmos DB 記錄時，函數會寫入記錄訊息。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -156,9 +156,11 @@ namespace CosmosDBSamplesV2
     }
 ```
 
+[略過觸發程序範例](#trigger---c-attributes)
+
 ### <a name="trigger---java-example"></a>觸發程序 - Java 範例
 
-下列範例示範的是使用繫結的 function.json 檔案，以及 [Java 函式](functions-reference-java.md)中的 Cosmos DB 觸發程序繫結。 當指定的資料庫和集合中有插入或更新時，就會涉及此函式。
+下列範例示範的是使用繫結的 function.json 檔案，以及 [Java 函式](functions-reference-java.md)中的 Cosmos DB 觸發程序繫結。 當指定的資料庫和集合中有插入或更新時，就會叫用函數。
 
 ```json
 {
@@ -193,11 +195,12 @@ namespace CosmosDBSamplesV2
 在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自 Cosmos DB 的參數使用 `@CosmosDBTrigger` 註釋。  此注釋可以搭配原生 JAVA 類型、Pojo 或可為 null 的值使用（選擇性）\<T >。
 
 
-略過觸發程序範例
+[略過觸發程序範例](#trigger---c-attributes)
+
 
 ### <a name="trigger---python-example"></a>觸發程序 - Python 範例
 
-下列範例示範 function.json 檔案中的 Cosmos DB 觸發程序繫結，以及使用此繫結的 [Python 指令碼函式](functions-reference-python.md)。 修改 Cosmos DB 記錄時，函式會寫入記錄訊息。
+下列範例示範 function.json 檔案中的 Cosmos DB 觸發程序繫結，以及使用此繫結的 [Python 指令碼函式](functions-reference-python.md)。 新增或修改 Cosmos DB 記錄時，函數會寫入記錄訊息。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -250,7 +253,7 @@ namespace CosmosDBSamplesV2
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `CosmosDBTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type** || 必須設為 `cosmosDBTrigger`。 |
 |**direction** || 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此參數。 |
@@ -258,10 +261,10 @@ namespace CosmosDBSamplesV2
 |**connectionStringSetting**|**ConnectionStringSetting** | 應用程式設定的名稱，包含用來連接到要監視之 Azure Cosmos DB 帳戶的連接字串。 |
 |**databaseName**|**DatabaseName**  | 含有要監視之集合的 Azure Cosmos DB 資料庫名稱。 |
 |**collectionName** |**CollectionName** | 要監視的集合名稱。 |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (選擇性) 應用程式設定的名稱，包含連至保存租用集合之服務的連接字串。 如果未設定，會使用 `connectionStringSetting` 值。 在入口網站中建立繫結時，會自動設定此參數。 租用集合的連接字串必須具有寫入權限。|
+|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | 選擇性應用程式設定的名稱，其中包含保留租用集合的 Azure Cosmos DB 帳戶的連接字串。 如果未設定，會使用 `connectionStringSetting` 值。 在入口網站中建立繫結時，會自動設定此參數。 租用集合的連接字串必須具有寫入權限。|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (選擇性) 保存用來儲存租用之集合的資料庫名稱。 如果未設定，會使用 `databaseName` 設定的值。 在入口網站中建立繫結時，會自動設定此參數。 |
 |**leaseCollectionName** | **LeaseCollectionName** | (選擇性) 用來儲存租用的集合名稱。 如果未設定，會使用 `leases` 值。 |
-|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (選擇性) 設為 `true` 時，如果租用集合尚未存在，即會自動加以建立。 預設值為 `false`。 |
+|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (選擇性) 設為 `true` 時，如果租用集合尚未存在，即會自動加以建立。 預設值是 `false`。 |
 |**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (選擇性) 定義要在建立租用集合時指派的要求單位數。 只有在將 `createLeaseCollectionIfNotExists` 設為 `true` 時才會使用此設定。 使用入口網站建立繫結時，會自動設定此參數。
 |**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (選擇性) 如果設定，將會為此函式對建立於租用集合中的租用加上前置詞，而有效地讓兩個不同的 Azure Functions 藉由使用不同的前置詞來共用相同的租用。
 |**feedPollDelay**| **FeedPollDelay**| (選擇性) 如果設定，將會以毫秒為單位定義在目前所有的變更都清空後，每次輪詢分割區以了解摘要上是否有新變更時所要延遲的時間。 預設值為 5000 (5 秒)。
@@ -333,7 +336,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="queue-trigger-look-up-id-from-json-c"></a>佇列觸發程序，從 JSON 中查閱識別碼 (C#)
 
-下列範例示範會顯示擷取單一文件的 [C# 函式](functions-dotnet-class-library.md)。 函式會由包含 JSON 物件的佇列訊息觸發。 佇列觸發程式會將 JSON 剖析成名為 `ToDoItemLookup`的物件，其中包含要查詢的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
+下列範例示範會顯示擷取單一文件的 [C# 函式](functions-dotnet-class-library.md)。 函式會由包含 JSON 物件的佇列訊息觸發。 佇列觸發程式會將 JSON 剖析為 `ToDoItemLookup`類型的物件，其中包含要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -1115,7 +1118,7 @@ module.exports = function (context, req, toDoItem) {
 
 #### <a name="http-trigger-look-up-id-from-route-data-javascript"></a>HTTP 觸發程序，從路由資料中查閱識別碼 (JavaScript)
 
-下列範例會顯示擷取單一文件的 [JavaScript 函式](functions-reference-node.md)。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
+下列範例會顯示擷取單一文件的 [JavaScript 函式](functions-reference-node.md)。 此函式是由 HTTP 要求所觸發，其使用路由資料來指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
 以下是 *function.json* 檔案：
 
@@ -1328,7 +1331,7 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 #### <a name="http-trigger-look-up-id-from-route-data-python"></a>HTTP 觸發程序，從路由資料中查閱識別碼 (Python)
 
-下列範例示範會擷取單一文件的 [Python 函式](functions-reference-python.md)。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
+下列範例示範會擷取單一文件的 [Python 函式](functions-reference-python.md)。 此函式是由 HTTP 要求所觸發，其使用路由資料來指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
 以下是 *function.json* 檔案：
 
@@ -1451,7 +1454,7 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList):
     inputDocument?text <- "This has changed."
 ```
 
-此範例需要一個指定 `project.json` 和 `FSharp.Interop.Dynamic` NuGet 相依性的 `Dynamitey` 檔案︰
+此範例需要一個指定 `FSharp.Interop.Dynamic` 和 `Dynamitey` NuGet 相依性的 `project.json` 檔案︰
 
 ```json
 {
@@ -1682,7 +1685,7 @@ public class DocByIdFromRouteSqlQuery {
 
 #### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>HTTP 觸發程序，使用 SqlQuery 從路由資料中取得多份文件 (Java)
 
-下列範例示範會取得多份文件的 Java 函式。 此函式會由 HTTP 要求所觸發，該 HTTP 要求會使用路由參數 ```desc``` 來指定要在 ```description``` 欄位中搜尋的字串。 搜尋字詞會用來從指定的資料庫和集合中擷取文件集合，並將結果集轉換為 ```ToDoItem[]```，然後將其當成引數傳遞到函式。
+下列範例顯示可抓取多個檔的 JAVA 函式。 此函式會由 HTTP 要求所觸發，該 HTTP 要求會使用路由參數 ```desc``` 來指定要在 ```description``` 欄位中搜尋的字串。 搜尋字詞會用來從指定的資料庫和集合中擷取文件集合，並將結果集轉換為 ```ToDoItem[]```，然後將其當成引數傳遞到函式。
 
 ```java
 public class DocsFromRouteSqlQuery {
@@ -1732,7 +1735,7 @@ public class DocsFromRouteSqlQuery {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `CosmosDB` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type**     || 必須設為 `cosmosDB`。        |
 |**direction**     || 必須設為 `in`。         |
@@ -1767,7 +1770,7 @@ Azure Cosmos DB 輸出繫結可讓您使用 SQL API，將新的文件寫入 Azur
 * [JavaScript](#output---javascript-examples)
 * [Python](#output---python-examples)
 
-另請參閱使用 [ 的](#input---c-examples)輸入範例`DocumentClient`。
+另請參閱使用 `DocumentClient` 的[輸入範例](#input---c-examples)。
 
 [跳過輸出範例](#output---attributes)
 
@@ -2100,14 +2103,6 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
     open FSharp.Interop.Dynamic
     open Newtonsoft.Json
     open Microsoft.Extensions.Logging
-
-    type Employee = {
-      id: string
-      name: string
-      employeeId: string
-      address: string
-    }
-
     let Run(myQueueItem: string, employeeDocument: byref<obj>, log: ILogger) =
       log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
       let employee = JObject.Parse(myQueueItem)
@@ -2118,7 +2113,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
           address = employee?address }
 ```
 
-此範例需要一個指定 `project.json` 和 `FSharp.Interop.Dynamic` NuGet 相依性的 `Dynamitey` 檔案︰
+此範例需要一個指定 `FSharp.Interop.Dynamic` 和 `Dynamitey` NuGet 相依性的 `project.json` 檔案︰
 
 ```json
 {
@@ -2202,7 +2197,7 @@ public String cosmosDbQueryById(
 
 #### <a name="http-trigger-save-one-document-to-database-via-outputbinding-java"></a>HTTP 觸發程序，透過 OutputBinding 將一份文件儲存至資料庫 (Java)
 
-下列範例所示範的 Java 函式，會透過 ```OutputBinding<T>``` 輸出參數將一份文件寫入至 CosmosDB。 請注意，在此設定中，它是必須以 ```outputItem``` 標註的 ```@CosmosDBOutput``` 參數，而非函式簽章。 使用 ```OutputBinding<T>``` 可讓您的函式利用繫結來將文件寫入至 CosmosDB，同時又能將不同的值傳回給函式呼叫端，例如 JSON 或 XML 文件。
+下列範例所示範的 Java 函式，會透過 ```OutputBinding<T>``` 輸出參數將一份文件寫入至 CosmosDB。 請注意，在此設定中，它是必須以 ```@CosmosDBOutput``` 標註的 ```outputItem``` 參數，而非函式簽章。 使用 ```OutputBinding<T>``` 可讓您的函式利用繫結來將文件寫入至 CosmosDB，同時又能將不同的值傳回給函式呼叫端，例如 JSON 或 XML 文件。
 
 ```java
     @FunctionName("WriteOneDocOutputBinding")
@@ -2246,7 +2241,7 @@ public String cosmosDbQueryById(
 
 #### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding-java"></a>HTTP 觸發程序，透過 OutputBinding 將多份文件儲存至資料庫 (Java)
 
-下列範例所示範的 Java 函式，會透過 ```OutputBinding<T>``` 輸出參數將多份文件寫入至 CosmosDB。 請注意，在此設定中，它是必須以 ```outputItem``` 標註的 ```@CosmosDBOutput``` 參數，而非函式簽章。 輸出參數 ```outputItem``` 有一份 ```ToDoItem``` 物件清單作為其範本參數類型。 使用 ```OutputBinding<T>``` 可讓您的函式利用繫結來將多份文件寫入至 CosmosDB，同時又能將不同的值傳回給函式呼叫端，例如 JSON 或 XML 文件。
+下列範例所示範的 Java 函式，會透過 ```OutputBinding<T>``` 輸出參數將多份文件寫入至 CosmosDB。 請注意，在此設定中，它是必須以 ```@CosmosDBOutput``` 標註的 ```outputItem``` 參數，而非函式簽章。 輸出參數 ```outputItem``` 有一份 ```ToDoItem``` 物件清單作為其範本參數類型。 使用 ```OutputBinding<T>``` 可讓您的函式利用繫結來將多份文件寫入至 CosmosDB，同時又能將不同的值傳回給函式呼叫端，例如 JSON 或 XML 文件。
 
 ```java
     @FunctionName("WriteMultipleDocsOutputBinding")
@@ -2369,14 +2364,14 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `CosmosDB` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**type**     || 必須設為 `cosmosDB`。        |
 |**direction**     || 必須設為 `out`。         |
 |**name**     || 代表函式中之文件的繫結參數名稱。  |
 |**databaseName** | **DatabaseName**|包含其中將建立文件之集合的資料庫。     |
 |**collectionName** |**CollectionName**  | 包含其中將建立文件之集合的名稱。 |
-|**createIfNotExists**  |**CreateIfNotExists**    | 一個布林值，用來指出當集合不存在時，是否要建立集合。 預設是 false，因為會使用保留的輸送量來建立新集合，可能會涉及成本。 如需詳細資訊，請參閱 [價格頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。  |
+|**createIfNotExists**  |**CreateIfNotExists**    | 一個布林值，用來指出當集合不存在時，是否要建立集合。 預設是 false，因為會使用保留的輸送量來建立新集合，可能會涉及成本。 如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。  |
 |**partitionKey**|**PartitionKey** |當 `CreateIfNotExists` 為 true 時，定義所建立集合的分割區索引鍵路徑。|
 |**collectionThroughput**|**CollectionThroughput**| 當 `CreateIfNotExists` 為 true 時，定義所建立集合的[輸送量](../cosmos-db/set-throughput.md)。|
 |**connectionStringSetting**    |**ConnectionStringSetting** |包含 Azure Cosmos DB 連接字串的應用程式設定名稱。        |
@@ -2417,9 +2412,9 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 說明 |
 |---------|---------|---------|
-|GatewayMode|閘道器|連線到 Azure Cosmos DB 服務時函式所使用的連線模式。 選項為 `Direct` 和 `Gateway`|
+|GatewayMode|閘道|連線到 Azure Cosmos DB 服務時函式所使用的連線模式。 選項為 `Direct` 和 `Gateway`|
 |通訊協定|Https|連線到 Azure Cosmos DB 服務時函式所使用的連線通訊協定。  請參閱[此處以了解這兩種模式](../cosmos-db/performance-tips.md#networking)|
 |leasePrefix|n/a|要在應用程式的所有函式上使用的租用前置詞。|
 

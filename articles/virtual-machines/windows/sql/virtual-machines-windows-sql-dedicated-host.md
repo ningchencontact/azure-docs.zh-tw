@@ -14,23 +14,24 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8b29bbce1511b022def522d46c74b99967a76ea3
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: edb2d3fa670475d9b08fe05494035949181a9240
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204519"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834358"
 ---
 # <a name="sql-server-vm-on-an-azure-dedicated-host"></a>在 Azure 專用主機上 SQL Server VM 
 
 本文詳細說明搭配使用 SQL Server VM 與[Azure 專用主機](/azure/virtual-machines/windows/dedicated-hosts)的細節。 如需 azure 專用主機的其他資訊，請參閱[Azure 專用主機簡介](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/)中的 blog 文章。 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 「 [Azure 專用主機](/azure/virtual-machines/windows/dedicated-hosts)」是一種服務，可提供實體伺服器來裝載一或多個 Azure 訂用帳戶專用的虛擬機器。 專用主機是 Microsoft 資料中心內所使用的相同實體伺服器，以資源的形式提供。 您可以在區域、可用性區域和容錯網域中布建專用主機。 然後，您可以將 Vm 直接放入已布建的主機中，不論何種設定最符合您的需求。
 
+## <a name="limitations"></a>限制
 
-[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-common-dedicated-hosts-preview.md)]
-
+- 專用主機目前不支援虛擬機器擴展集。
+- 支援下列 VM 系列： DSv3 和 ESv3。 
 
 ## <a name="licensing"></a>授權
 
@@ -66,9 +67,9 @@ ms.locfileid: "71204519"
 
 ## <a name="faq"></a>常見問題集
 
-**問：Azure Hybrid Benefit 在 Azure 專用主機上的 Windows Server/SQL Server 授權如何運作？**
+**問： Azure Hybrid Benefit 如何在 Azure 專用主機上適用于 Windows Server/SQL Server 授權？**
 
-答：客戶可以使用其現有 Windows Server 的價值，並 SQL Server 具有軟體保證的授權，或合格的訂用帳戶授權，使用 Azure Hybrid Benefit 在 Azure 專用主機上支付較低的費率。 Windows Server Datacenter 和 SQL Server Enterprise Edition 客戶在授權整個主機時，會取得無限制的虛擬化（根據基礎伺服器的實體容量，在主機上盡可能部署最多的 Windows Server 虛擬機器）和會使用 Azure Hybrid Benefit。  Azure 專用主機中的所有 Windows Server 和 SQL Server 工作負載也適用于 Windows Server 和 SQL Server 2008/R2 的擴充安全性更新，並不需要額外付費。 
+答：客戶可以使用其現有 Windows Server 的值，並 SQL Server 具有軟體保證的授權，或合格的訂用帳戶授權，使用 Azure Hybrid Benefit 在 Azure 專用主機上支付較低的費率。 Windows Server Datacenter 和 SQL Server Enterprise Edition 客戶在授權整個主機時，會取得無限制的虛擬化（根據基礎伺服器的實體容量，在主機上盡可能部署最多的 Windows Server 虛擬機器）和會使用 Azure Hybrid Benefit。  Azure 專用主機中的所有 Windows Server 和 SQL Server 工作負載也適用于 Windows Server 和 SQL Server 2008/R2 的擴充安全性更新，並不需要額外付費。 
 
 ## <a name="next-steps"></a>後續步驟
 

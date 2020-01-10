@@ -113,6 +113,8 @@
       items:
         - name: 安全性概觀
           href: search-security-overview.md
+        - name: 建立私人端點
+          href: service-create-private-endpoint.md
         - name: 服務金鑰管理
           href: search-security-api-keys.md
         - name: 角色型管理存取

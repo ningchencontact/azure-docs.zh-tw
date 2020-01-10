@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f9861faeaf4ab4049de7404a9e6f8b59a9445fe5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9aea157d03f344e07a81f0588d3e0127f17ca75d
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452192"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834434"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Service Fabric 服務的放置原則
 放置原則是在一些較罕見的特定情況下可用來掌管服務放置的額外規則。 這些情況的一些例子如下︰

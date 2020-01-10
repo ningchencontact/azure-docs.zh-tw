@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b041d8777f81f1796a2e2f7926f324e3b601bd93
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7c5022533cf0db57779bc36bd74cfb38932f10d6
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916497"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777831"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>使用 MSAL 初始化用戶端應用程式
 本文說明如何將 Microsoft Authentication Library for JavaScript （MSAL）與使用者代理程式應用程式的實例進行初始化。 使用者代理程式應用程式是一種公用用戶端應用程式，其中用戶端程式代碼會在使用者代理程式（例如網頁瀏覽器）中執行。 這些用戶端不會儲存秘密，因為瀏覽器內容可公開存取。 若要深入瞭解用戶端應用程式類型和應用程式設定選項，請參閱[總覽](msal-client-applications.md)。
@@ -59,7 +59,7 @@ myMSALObj.handleRedirectCallback(authCallback);
 
 MSAL 的設計目的，是要有單一實例和設定 `UserAgentApplication` 來代表單一驗證內容。 不建議使用多個實例，因為它們會在瀏覽器中造成衝突的快取專案和行為。
 
-## <a name="configuration-options"></a>組態選項
+## <a name="configuration-options"></a>設定選項
 
 MSAL 具有如下所示的設定物件，可提供可供建立 `UserAgentApplication`實例的可設定選項群組。
 
@@ -116,7 +116,7 @@ export type Configuration = {
         * `https://login.microsoftonline.com/common`-用來登入具有公司和學校帳戶或 Microsoft 個人帳戶的使用者。
         * `https://login.microsoftonline.com/organizations/`-用來以公司和學校帳戶登入使用者。
         * `https://login.microsoftonline.com/consumers/`-用來登入僅具有個人 Microsoft 帳戶（live）的使用者。
-    * 在 Azure AD B2C 中，其格式為 `https://<instance>/tfp/<tenant>/<policyName>/`，其中 instance 是 Azure AD B2C 網域，租使用者是 Azure AD B2C 租使用者的名稱，policyName 是要套用的 B2C 原則名稱。
+    * 在 Azure AD B2C 中，其格式為 `https://<instance>/tfp/<tenant>/<policyName>/`，其中 instance 是 Azure AD B2C 網域，也就是 {您的租使用者名稱}. .b2clogin.com .com，tenant 是 Azure AD B2C 租使用者的名稱，也就是 {您的 tenant-name}. onmicrosoft .com，policyName 是要套用的 B2C 原則名稱。
 
 
 - **validateAuthority**：選擇性。  驗證權杖的簽發者。 預設值為 `true`。 針對 B2C 應用程式，由於授權值是已知的，而且每個原則可能有所不同，因此授權單位驗證將無法使用，且必須設定為 `false`。

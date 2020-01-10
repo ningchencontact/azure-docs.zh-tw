@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: b1df328f151a4085ec0aadd1b880048f81483a51
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
-ms.translationtype: MT
+ms.date: 01/07/2020
+ms.openlocfilehash: 0ce2884a2382c7dff2bdb90bd92934609675f314
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901332"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834380"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure 認知搜尋的新功能
 
@@ -29,13 +29,19 @@ API 版本、Nuget 套件、命名空間和端點都不會變更。 您現有的
 
 ## <a name="feature-announcements"></a>功能公告
 
-### <a name="december-2019"></a>2019年12月
+### <a name="january-2020"></a>2020年1月
+
++ [客戶管理的加密金鑰](search-security-manage-encryption-keys.md)現在已正式推出。 如果您使用 REST，您可以使用 `api-version=2019-05-06`來存取此功能。 對於 managed 程式碼，即使功能不在預覽中，正確的封裝仍然是[.NET SDK 版本 8.0-preview](search-dotnet-sdk-migration-version-9.md) 。 
+
++ 搜尋服務端點上的*受限制 IP 存取和私人端點（預覽）* 現在已可在**api 版本 = 2019-10-01.txt-preview**中取得。 您可以在[建立或更新](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate)管理 REST API 中，使用新的**IpRule**和**NetworkRuleSet**屬性來設定安全的端點。 如需 API 版本和區域可用性的詳細資訊，請參閱[如何使用管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)。
+
+### <a name="december-2019"></a>2019 年 12 月
 
 + [建立應用程式（預覽）](search-create-app-portal.md)是入口網站中的新 wizard，可產生可下載的 HTML 檔案。 檔案隨附的內嵌腳本會轉譯作業 "localhost" 樣式的 web 應用程式，並系結至搜尋服務上的索引。 頁面可在 wizard 中設定，而且可以包含搜尋列、結果區域、提要欄位導覽和自動提示查詢支援。 您可以離線修改 HTML，以擴充或自訂工作流程或外觀。
 
 ### <a name="november-2019---ignite-conference"></a>2019年11月-Ignite 會議
 
-+ 累加[式索引編制（預覽）](cognitive-search-incremental-indexing-conceptual.md)可讓您在對擴充管線進行修改時，選擇要重新處理的步驟。 如果您有先前分析的影像內容，累加式編制索引會很有用。 成本高昂分析的輸出會儲存起來，然後用來做為額外索引或擴充的基礎。
++ [增量擴充（預覽）](cognitive-search-incremental-indexing-conceptual.md)會將快取和 statefullness 新增至擴充管線，讓您可以處理特定的步驟或階段，而不會遺失已處理的內容。 先前，對擴充管線進行的任何變更都需要完整重建。 使用累加擴充時，會保留昂貴分析的輸出，特別是影像分析。
 
 <!-- 
 + Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms. -->

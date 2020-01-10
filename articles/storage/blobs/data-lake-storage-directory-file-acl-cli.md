@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 596f8334b647daf6fe3a15521f7caeecb0c0e303
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e833ca92004c678808ec5e294de2df7c90121be7
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462598"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835118"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>使用 Azure CLI 管理 Azure Data Lake Storage Gen2 中的目錄、檔案和 Acl （預覽）
 
@@ -201,6 +201,9 @@ az storage blob delete -c my-file-system -b my-file.txt --account-name mystorage
 ## <a name="manage-permissions"></a>管理權限
 
 您可以取得、設定及更新目錄和檔案的存取權限。
+
+> [!NOTE]
+> 如果您使用 Azure Active Directory （Azure AD）來授權命令，請確定已將[儲存體 Blob 資料擁有者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)指派給您的安全性主體。 若要深入瞭解如何套用 ACL 許可權，以及變更它們的影響，請參閱[Azure Data Lake Storage Gen2 中的存取控制](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
 
 ### <a name="get-directory-and-file-permissions"></a>取得目錄和檔案許可權
 

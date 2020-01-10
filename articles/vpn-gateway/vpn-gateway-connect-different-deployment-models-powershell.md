@@ -1,18 +1,19 @@
 ---
-title: 將傳統虛擬網路連線到 Azure Resource Manager VNet：PowerShell | Microsoft Docs
+title: 將傳統虛擬網路連線至 Azure Resource Manager Vnet： PowerShell
 description: 使用 VPN 閘道和 PowerShell 在傳統 VNet 和 Resource Manager VNet 之間建立 VPN 連線。
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2263996b84b17f7de9826c07eb28e4b7668cd915
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c11539460f1ef65f8cea3d36f1a017661133355
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62095571"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833952"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>使用 PowerShell 從不同的部署模型連接虛擬網路
 
@@ -66,7 +67,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
 閘道 IP 位址組態 = gwipconfig
 
 ## <a name="createsmgw"></a>區段 1 - 設定傳統 VNet
-### <a name="1-download-your-network-configuration-file"></a>1.下載您的網路組態檔
+### <a name="1-download-your-network-configuration-file"></a>1. 下載您的網路設定檔
 1. 在 PowerShell 主控台中以提高的權限登入您的 Azure 帳戶。 下列 Cmdlet 會提示您輸入 Azure 帳戶的登入認證。 登入之後，它會下載您的帳戶設定以供 Azure PowerShell 使用。 本節中會使用傳統服務管理 (SM) Azure PowerShell Cmdlet。
 
    ```azurepowershell
@@ -91,12 +92,12 @@ GatewaySubnet = 192.168.0.0/26 <br>
    ```
 3. 開啟您下載的 .xml 檔案加以編輯。 如需網路組態檔的範例，請參閱 [網路組態結構描述](https://msdn.microsoft.com/library/jj157100.aspx)。
 
-### <a name="2-verify-the-gateway-subnet"></a>2.驗證閘道子網路
+### <a name="2-verify-the-gateway-subnet"></a>2. 驗證閘道子網
 在 **VirtualNetworkSites** 元素中，將閘道子網路 (若已建立) 加入至您的 VNet。 使用網路組態檔時，閘道子網路必須命名為 "GatewaySubnet"，否則 Azure 無法辨識並將它當作閘道子網路。
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-**範例:**
+**範例︰**
 
     <VirtualNetworkSites>
       <VirtualNetworkSite name="ClassicVNet" Location="West US">
@@ -114,7 +115,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
       </VirtualNetworkSite>
     </VirtualNetworkSites>
 
-### <a name="3-add-the-local-network-site"></a>3.新增區域網路站台
+### <a name="3-add-the-local-network-site"></a>3. 新增區域網路網站
 您新增的區域網路站台代表您要連接的 RM VNet。 將 **LocalNetworkSites** 元素 (如果尚未存在) 加入至檔案。 此時在組態中，VPNGatewayAddress 可以是任何有效的公用 IP 位址，因為我們尚未建立 Resource Manager VNet 的閘道。 一旦建立閘道，我們會以指派給 RM 閘道的正確公用 IP 位址取代此預留位置 IP 位址。
 
     <LocalNetworkSites>
@@ -126,7 +127,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
       </LocalNetworkSite>
     </LocalNetworkSites>
 
-### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4.建立 VNet 與區域網路站台的關聯
+### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4. 建立 VNet 與區域網路網站的關聯
 在此區段中，我們會指定您要 VNet 連接的區域網路站台。 在此例中，這是您稍早參考的 Resource Manager VNet。 確定名稱相符。 此步驟不會建立閘道。 它會指定閘道將要連接的區域網路。
 
         <Gateway>
@@ -137,7 +138,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-### <a name="5-save-the-file-and-upload"></a>5.儲存檔案並上傳
+### <a name="5-save-the-file-and-upload"></a>5. 儲存檔案並上傳
 儲存檔案，然後執行下列命令，將它匯入至 Azure。 確定您會視需要變更環境的檔案路徑。
 
 ```azurepowershell
@@ -150,7 +151,7 @@ Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
         --------------------        -----------                      ---------------                                                
         Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
 
-### <a name="6-create-the-gateway"></a>6.建立閘道
+### <a name="6-create-the-gateway"></a>6. 建立閘道
 
 執行此範例之前，請參閱您針對 Azure 預期看到的確切名稱所下載的網路組態檔。 網路組態檔包含傳統虛擬網路的值。 因為部署模型中的差異，當在 Azure 入口網站中建立傳統 VNet 設定時，有時候傳統 VNet 的名稱會變更。 例如，如果您使用 Azure 入口網站在名稱為 'ClassicRG' 的資源群組中，建立一個名稱為 'Classic VNet' 的傳統 VNet，網路組態檔中所包含的名稱會轉換為 'Group ClassicRG Classic VNet'。 當指定包含空格的 VNet 名稱時，請使用引號括住值。
 
@@ -208,11 +209,11 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
    -AllocationMethod Dynamic
    ```
 
-4. 確認您的虛擬網路有閘道子網路。 如果閘道器子網路不存在，請新增一個。 確定閘道子網路命名為 GatewaySubnet  。
+4. 確認您的虛擬網路有閘道子網路。 如果閘道器子網路不存在，請新增一個。 確定閘道子網路命名為 GatewaySubnet。
 5. 擷取用於閘道的子網路。 在此步驟中，我們也會設定要用於下一個步驟中的變數。
    
    **-Name** 是 Resource Manager VNet 的名稱。<br>
-   **-ResourceGroupName** 是與 VNet 相關聯的資源群組。 此閘道子網路必須已為此 VNet 存在且命名為 GatewaySubnet  ，才能正常運作。<br>
+   **-ResourceGroupName** 是與 VNet 相關聯的資源群組。 此閘道子網路必須已為此 VNet 存在且命名為 GatewaySubnet ，才能正常運作。<br>
 
    ```azurepowershell-interactive
    $subnet = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet `
@@ -236,7 +237,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
    -IpConfigurations $gwipconfig `
    -EnableBgp $false -VpnType RouteBased
    ```
-8. 一旦 VPN 閘道建立好後，複製公用 IP 位址 。 您會在進行傳統 VNet 的區域網路設定時用到它。 您可以使用下列 Cmdlet 來擷取公用 IP 位址。 公用 IP 位址會在傳回資料中列為 IpAddress  。
+8. 一旦 VPN 閘道建立好後，複製公用 IP 位址 。 您會在進行傳統 VNet 的區域網路設定時用到它。 您可以使用下列 Cmdlet 來擷取公用 IP 位址。 公用 IP 位址會在傳回資料中列為 IpAddress。
 
    ```azurepowershell-interactive
    Get-AzPublicIpAddress -Name gwpip -ResourceGroupName RG1
@@ -265,7 +266,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 ## <a name="connect"></a>第 4 節 - 在閘道之間建立連線
 在閘道之間建立連線需要 PowerShell。 您可能需要新增 Azure 帳戶，才能使用傳統版 PowerShell Cmdlet。 若要這麼做，請使用 **Add-azureaccount**。
 
-1. 在 PowerShell 主控台中，設定您的共用金鑰。 執行 Cmdlet 之前，請參閱您針對 Azure 預期看到的確切名稱所下載的網路組態檔。 當指定包含空格的 VNet 名稱時，請使用單引號括住值。<br><br>在下列範例中， **-VNetName** 是傳統 VNet 的名稱， **-LocalNetworkSiteName** 是您為區域網路網站指定的名稱。 **-SharedKey** 是您產生和指定的值。 在範例中，我們使用的是 'abc123'，但是您可以產生並使用更為複雜的值。 重要的是，您在此指定的值必須與您在下一個步驟中建立連線時指定的值相同。 傳回應顯示 [狀態:  成功]。
+1. 在 PowerShell 主控台中，設定您的共用金鑰。 執行 Cmdlet 之前，請參閱您針對 Azure 預期看到的確切名稱所下載的網路組態檔。 當指定包含空格的 VNet 名稱時，請使用單引號括住值。<br><br>在下列範例中， **-VNetName** 是傳統 VNet 的名稱， **-LocalNetworkSiteName** 是您為區域網路網站指定的名稱。 **-SharedKey** 是您產生和指定的值。 在範例中，我們使用的是 'abc123'，但是您可以產生並使用更為複雜的值。 重要的是，您在此指定的值必須與您在下一個步驟中建立連線時指定的值相同。 傳回應顯示 [狀態: 成功]。
 
    ```azurepowershell
    Set-AzureVNetGatewayKey -VNetName ClassicVNet `
@@ -297,7 +298,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-classic](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
-#### <a name="azure-portal"></a>Azure 入口網站
+#### <a name="azure-portal"></a>Azure Portal
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
@@ -308,7 +309,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 
 [!INCLUDE [vpn-gateway-verify-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-#### <a name="azure-portal"></a>Azure 入口網站
+#### <a name="azure-portal"></a>Azure Portal
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

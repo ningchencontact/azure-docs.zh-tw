@@ -10,12 +10,12 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: d5843937233309e1b37f0127d364066a8a747e21
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 59002d0f17fc7213d8db0fad01b1f984542adbd5
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75538237"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834813"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>開始使用適用於 Visual Studio Code 的 Azure Machine Learning
 
@@ -332,5 +332,7 @@ ms.locfileid: "75538237"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需如何使用 Visual Studio Code 外的 Azure Machine Learning 進行定型的逐步解說，請參閱[教學課程：使用 Azure Machine Learning 來定型模型](tutorial-train-models-with-aml.md)。
-* 如需如何在本機編輯、執行及偵錯工具代碼的逐步解說，請參閱[Python hello world 教學](https://code.visualstudio.com/docs/Python/Python-tutorial)課程。
+* 如需如何使用 Visual Studio Code 外的 Azure Machine Learning 進行定型的逐步解說，請參閱[教學課程：使用 Azure Machine Learning 定型模型](tutorial-train-models-with-aml.md)
+* 如需如何在本機編輯、執行及偵錯工具代碼的逐步解說，請參閱[Python hello world 教學](https://code.visualstudio.com/docs/Python/Python-tutorial)課程
+* 如需自訂 Python 環境的詳細資訊，請參閱[建立和管理用於定型和部署的環境](how-to-use-environments.md)
+

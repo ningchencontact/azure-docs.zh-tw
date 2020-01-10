@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3205f853088245461e854562999164f9813f3bd5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f8f7d16c9fa5141add5c661c0e05cc93da436614
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536625"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834891"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>藉由估算器使用 Azure Machine Learning 將模型定型
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -158,3 +158,4 @@ model = run.register_model(model_name='sklearn-sample')
 * [將 TensorFlow 模型定型](how-to-train-tensorflow.md)
 * [調整超參數](how-to-tune-hyperparameters.md)
 * [部署定型的模型](how-to-deploy-and-where.md)
+* [建立和管理用於定型和部署的環境](how-to-use-environments.md)

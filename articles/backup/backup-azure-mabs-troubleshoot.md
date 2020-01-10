@@ -4,12 +4,12 @@ description: 針對安裝、註冊「Azure 備份伺服器」以及備份和還�
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: bf641c4ef27ce561c005709e6de94f40855b9a5f
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 7fc27a2624fc38883135bdb6d2767625ab02a5a5
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665337"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830202"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>針對 Azure 備份伺服器進行疑難排解
 
@@ -46,11 +46,11 @@ ms.locfileid: "75665337"
 | --- | --- | --- |
 | 備份 | 線上復原點建立失敗 | **錯誤訊息**： Windows Azure 備份 Agent 無法建立所選磁片區的快照集。 <br> 因應**措施：請**嘗試增加複本和復原點磁片區中的空間。<br> <br> **錯誤訊息**： Windows Azure 備份代理程式無法連接到 OBEngine 服務 <br> **因應措施**：請確認電腦上正在執行的服務清單中是否存在 OBEngine。 如果 OBEngine 服務並未執行，請使用 "net start OBEngine" 命令來啟動 OBEngine 服務。 <br> <br> **錯誤訊息**：未設定此伺服器的加密複雜密碼。 請設定加密複雜密碼。 <br> 因應**措施：嘗試**設定加密複雜密碼。 如果失敗，請執行下列步驟： <br> <ol><li>確認臨時位置存在。 也就是登錄 **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config** 中所提到名稱為 **ScratchLocation** 的位置應該要存在。</li><li> 如果臨時位置存在，請嘗試使用舊的複雜密碼來重新註冊。 「每次您設定加密複雜密碼時，請都將它儲存在安全的位置。」</li><ol>|
 
-## <a name="the-vault-credentials-provided-are-different-from-the-vault-the-server-is-registered"></a>提供的保存庫認證與登錄此伺服器的保存庫不同
+## <a name="the-original-and-external-dpm-servers-must-be-registered-to-the-same-vault"></a>原始和外部 DPM 服務器必須註冊到相同的保存庫
 
 | 作業 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
-| 還原 | **錯誤碼**： CBPServerRegisteredVaultDontMatchWithCurrent/Vault 認證錯誤：100110 <br/> <br/>**錯誤訊息**：提供的保存庫認證與伺服器註冊的保存庫不同 | **原因**：當您嘗試使用外部 DPM 復原選項，從源伺服器將檔案還原至替代伺服器時，如果要復原的伺服器和備份資料的源伺服器沒有與相同的復原服務保存庫相關聯，就會發生此問題。<br/> <br/>因應措施若要解決此問題，請確定原始和替代的伺服器都已註冊到相同的保存庫。|
+| 還原 | **錯誤碼**： CBPServerRegisteredVaultDontMatchWithCurrent/Vault 認證錯誤：100110 <br/> <br/>**錯誤訊息**：原始和外部 DPM 服務器必須註冊到相同的保存庫 | **原因**：當您嘗試使用外部 DPM 復原選項，從源伺服器將檔案還原至替代伺服器時，如果要復原的伺服器和備份資料的源伺服器沒有與相同的復原服務保存庫相關聯，就會發生此問題。<br/> <br/>因應措施若要解決此問題，請確定原始和替代的伺服器都已註冊到相同的保存庫。|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>VMware VM 的線上復原點建立作業失敗
 

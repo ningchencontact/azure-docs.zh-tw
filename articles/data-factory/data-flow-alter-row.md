@@ -1,57 +1,85 @@
 ---
-title: 對應資料流程改變數據列轉換
-description: 如何使用 Azure Data Factory 對應的資料流程改變數據列轉換來更新資料庫目標
+title: 對應資料流程中的 Alter row 轉換
+description: 如何使用對應資料流程中的 alter row 轉換來更新資料庫目標
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/12/2019
-ms.openlocfilehash: 1301b89ef1a6fb02356c6dcd4e568401eb5e9cd2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/08/2020
+ms.openlocfilehash: 0798a3f9ab45ce68086681e7aea96deeb9639f94
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930484"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834530"
 ---
-# <a name="azure-data-factory-alter-row-transformation"></a>Azure Data Factory Alter Row 轉換
+# <a name="alter-row-transformation-in-mapping-data-flow"></a>對應資料流程中的 Alter row 轉換
 
 使用 Alter Row 轉換來設定資料列的 insert、delete、update 和 upsert 原則。 您可以新增一到多個條件做為運算式。 這些條件應依照優先順序來指定，因為每個資料列會以對應至第一個相符運算式的原則來標示。 每一個條件都會導致插入、更新、刪除或 upserted 資料列（或資料列）。 Alter Row 可以針對您的資料庫產生 DDL & DML 動作。
 
-
-
 ![改變數據列設定](media/data-flow/alter-row1.png "改變數據列設定")
 
-> [!NOTE]
-> Alter Row 轉換只會在資料流程中的資料庫或 CosmosDB 接收上運作。 您指派給資料列（insert、update、delete、upsert）的動作不會在 debug 會話期間發生。 您必須將「執行資料流程」工作加入至管線，並使用管線 debug 或觸發程式來制定資料庫資料表的 alter row 原則。
+Alter Row 轉換只會在資料流程中的資料庫或 CosmosDB 接收上運作。 您指派給資料列的動作（insert、update、delete、upsert）不會在 debug 會話期間發生。 在管線中執行「執行資料流程」活動，以制定資料庫資料表的 alter row 原則。
 
-## <a name="indicate-a-default-row-policy"></a>指出預設的資料列原則
+## <a name="specify-a-default-row-policy"></a>指定預設資料列原則
 
-建立 Alter Row 轉換，並指定條件為 `true()`的資料列原則。 不符合任何先前定義之運算式的每個資料列都會標示為指定的資料列原則。 根據預設，不符合任何條件運算式的每個資料列都會標示為 `Insert`。
+建立 Alter Row 轉換，並指定條件為 `true()`的資料列原則。 不符合任何先前定義之運算式的每個資料列都會標示為指定的資料列原則。 根據預設，每個不符合任何條件運算式的資料列都會標示為 `Insert`。
 
-![改變數據列一個原則](media/data-flow/alter-row4.png "改變數據列一個原則")
+![改變數據列原則](media/data-flow/alter-row4.png "改變數據列原則")
 
 > [!NOTE]
 > 若要使用一個原則標記所有資料列，您可以建立該原則的條件，並將條件指定為 `true()`。
 
-## <a name="view-policies"></a>檢視原則
+## <a name="view-policies-in-data-preview"></a>在資料預覽中查看原則
 
-在 [資料預覽] 窗格中開啟 [資料流程] 偵錯工具，以查看您的 alter row 原則結果。 在資料流程的「資料流程」（Debug）模式中執行 alter row 不會針對您的目標產生 DDL 或 DML 動作。 若要執行這些動作，請在管線內執行「資料流程」活動內的資料流程。
+在 [資料預覽] 窗格中，使用 [檢查[模式](concepts-data-flow-debug-mode.md)] 來查看 alter row 原則的結果。 Alter row 轉換的資料預覽不會針對您的目標產生 DDL 或 DML 動作。
 
 ![改變數據列原則](media/data-flow/alter-row3.png "改變數據列原則")
 
-這可讓您根據條件來驗證和查看每個資料列的狀態。 您的資料流程中會有每個插入、更新、刪除和 upsert 動作的圖示代表，這表示當您在管線內執行資料流程時，將會發生哪一個動作。
+每個改變數據列原則都是以表示插入、更新、upsert 或刪除動作是否會發生的圖示來表示。 頂端標頭會顯示預覽中每個原則所影響的資料列數目。
 
-## <a name="sink-settings"></a>接收設定
+## <a name="allow-alter-row-policies-in-sink"></a>允許變更接收中的資料列原則
 
-您必須有資料庫接收類型，Alter Row 才能正常執行。 在 [接收設定] 中，您應該將每個對應于您 Alter Row 條件的動作設定為 [允許]。
+若要讓 alter row 原則能夠正常執行，資料流程必須寫入資料庫或 Cosmos 接收。 在接收的 [**設定**] 索引標籤中，啟用該接收允許的 alter row 原則。
 
 ![改變數據列接收](media/data-flow/alter-row2.png "改變數據列接收")
 
-ADF 資料流程中具有資料庫接收的預設行為是插入資料列。 如果您也想要允許更新、更新插入和刪除，您也必須在接收中檢查這些方塊以允許動作。
+ 預設行為是只允許插入。 若要允許更新、更新插入或刪除，請核取對應于該條件之接收器中的方塊。 如果已啟用更新、更新插入或、刪除，您必須指定要比對之接收中的索引鍵資料行。
 
 > [!NOTE]
-> 如果您的插入、更新或更新插入修改了接收中目標資料表的架構，資料流程將會失敗。 若要修改資料庫中的目標架構，您必須選擇接收中的 [重新建立資料表] 選項。 這會卸載並重新建立您的資料表，並使用新的架構定義。
+> 如果您的插入、更新或更新插入修改了接收中目標資料表的架構，資料流程將會失敗。 若要修改資料庫中的目標架構，請選擇 [**重新建立資料表**] 做為資料表動作。 這會卸載並重新建立您的資料表，並使用新的架構定義。
+
+## <a name="data-flow-script"></a>資料流程指令碼
+
+### <a name="syntax"></a>語法
+
+```
+<incomingStream>
+    alterRow(
+           insertIf(<condition>?),
+           updateIf(<condition>?),
+           deleteIf(<condition>?),
+           upsertIf(<condition>?),
+        ) ~> <alterRowTransformationName>
+```
+
+### <a name="example"></a>範例
+
+下列範例是名為 `CleanData` 的 alter row 轉換，它會接受傳入資料流程 `SpecifyUpsertConditions` 並建立三個 alter row 條件。 在先前的轉換中，會計算名為 `alterRowCondition` 的資料行，以決定是否要在資料庫中插入、更新或刪除資料列。 如果資料行的值具有符合 alter row 規則的字串值，則會將該原則指派給該原則。
+
+在 Data Factory UX 中，這項轉換看起來如下圖所示：
+
+![Alter row 範例](media/data-flow/alter-row4.png "Alter row 範例")
+
+此轉換的資料流程腳本位於下列程式碼片段中：
+
+```
+SpecifyUpsertConditions alterRow(insertIf(alterRowCondition == 'insert'),
+    updateIf(alterRowCondition == 'update'),
+    deleteIf(alterRowCondition == 'delete')) ~> AlterRow
+```
 
 ## <a name="next-steps"></a>後續步驟
 

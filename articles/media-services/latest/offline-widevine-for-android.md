@@ -1,5 +1,5 @@
 ---
-title: 設定帳戶以離線串流受 Widevine 保護的內容 - Azure
+title: 適用于 Android 與 Azure 媒體服務 v3 的離線 Widevine 串流
 description: 本主題說明如何設定 Azure 媒體服務帳戶，以離線串流受 Widevine 保護的內容。
 services: media-services
 keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android, Widevine 離線模式
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 1c1142f995376a8a640f33402294e20c925bbfbb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 17416fce887f5f5b952232e284873e539fd68337
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974150"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779904"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>適用於 Android 的離線 Widevine 串流
 
@@ -147,7 +147,7 @@ Android 5.0 Lollipop 或更新版本不會發生此問題，因為 Android 5.0 �
 
 上述的開放原始碼 PWA 應用程式是以 Node.js 撰寫。 如果您想在 Ubuntu 伺服器上裝載自己的版本，請留意下列會阻礙播放的常見問題：
 
-1. CORS 問題： 範例應用程式中的範例視訊是裝載於 https://storage.googleapis.com/biograf-video-files/videos/ 。 Google 已為所有裝載於 Google Cloud Storage 貯體中的測試範例設定 CORS。 它們也會搭配 CORS 標頭提供，明確指定出 CORS 項目 https://biograf-155113.appspot.com (Google 用來裝載其範例的網域)，防止由其他網站存取。 如果您試圖存取，將會看到下列 HTTP 錯誤：無法載入 https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: 要求的資源上沒有 'Access-Control-Allow-Origin' 標頭。 因此不允許來源 ' HTTPs：\//13.85.80.81： 8080 ' 存取。 如果不透明回應適合您的需求，請將要求的模式設定為 'no-cors' 以在停用 CORS 之下擷取資源。
+1. CORS 問題：範例應用程式中的範例視訊是裝載於 https://storage.googleapis.com/biograf-video-files/videos/ 。 Google 已為所有裝載於 Google Cloud Storage 貯體中的測試範例設定 CORS。 它們也會搭配 CORS 標頭提供，明確指定出 CORS 項目 https://biograf-155113.appspot.com (Google 用來裝載其範例的網域)，防止由其他網站存取。 如果您試圖存取，將會看到下列 HTTP 錯誤：無法載入 https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: 要求的資源上沒有 'Access-Control-Allow-Origin' 標頭。 因此不允許來源 ' HTTPs：\//13.85.80.81： 8080 ' 存取。 如果不透明回應適合您的需求，請將要求的模式設定為 'no-cors' 以在停用 CORS 之下擷取資源。
 2. 憑證問題：從 Chrome v 58 開始，針對 Widevine 的 EME 將要求使用 HTTPS。 因此，您必須搭配 X509 憑證透過 HTTPS 裝載範例應用程式。 由於下列需求使得一般測試憑證沒有作用：您必須先取得符合以下最低需求的憑證：
     - Chrome 和 Firefox 都需要憑證中存在 SAN (主體別名) 設定
     - 憑證必須要有信任的 CA，自我簽署的開發憑證將不會有作用
@@ -211,8 +211,8 @@ Google 的 [Widevine DRM 架構概觀](https://storage.googleapis.com/wvdocs/Wid
 
 ## <a name="additional-notes"></a>其他注意事項
 
-* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google Inc. 的服務條款和隱私權原則所約束。
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 本文已討論如何針對 Android 裝置上受 Widevine 保護的 DASH 內容實作離線模式播放。  文中也回答一些和離線串流受 Widevine 保護的內容相關的常見問題。

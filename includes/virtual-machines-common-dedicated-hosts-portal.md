@@ -5,24 +5,20 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/25/2019
+ms.date: 01/09/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 262880997c6b065dc5293a18d9a07c52ac836f37
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 77eb54f5d7194f3006ce463fc5f905165bdfc659
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73590527"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833944"
 ---
-> [!IMPORTANT]
-> Azure 專用主機目前為公開預覽版。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
->
-> **已知的預覽限制**
-> - 專用主機目前不支援虛擬機器擴展集。
-> - 預覽初始版本支援下列 VM 系列： DSv3 和 ESv3。 
+## <a name="limitations"></a>限制
 
+- 專用主機目前不支援虛擬機器擴展集。
+- 初始版本支援下列 VM 系列： DSv3 和 ESv3。 
 
 ## <a name="create-a-host-group"></a>建立主機群組
 
@@ -39,10 +35,10 @@ ms.locfileid: "73590527"
 
 1. 開啟 Azure[入口網站](https://portal.azure.com)。
 1. 選取左上角的 [**建立資源**]。
-1. 搜尋 [**主機群組**]，然後從結果中選取 [**主機群組（預覽）** ]。
+1. 搜尋 [**主機群組**]，然後從結果中選取 [**主機群組**]。
 
     ![主機群組搜尋結果。](./media/virtual-machines-common-dedicated-hosts-portal/host-group.png)
-1. 在 [**主機群組（預覽）** ] 頁面中，選取 [**建立**]。
+1. 在 [**主機群組**] 頁面中，選取 [**建立**]。
 1. 選取您想要使用的訂用帳戶，然後選取 **[新建] 以建立**新的資源群組。
 1. 輸入*myDedicatedHostsRG*作為**名稱**，然後選取 **[確定]** 。
 1. 針對 [**主機組名**]，輸入*myHostGroup*。
@@ -58,24 +54,24 @@ ms.locfileid: "73590527"
 
 ## <a name="create-a-dedicated-host"></a>建立專用主機
 
-現在，在主機群組中建立專用主機。 除了主機的名稱之外，您還必須提供主機的 SKU。 主機 SKU 會捕捉支援的 VM 系列，以及專用主機的硬體世代。  在預覽期間，我們將支援下列主機 SKU 值： DSv3_Type1 和 ESv3_Type1。
+現在，在主機群組中建立專用主機。 除了主機的名稱之外，您還必須提供主機的 SKU。 主機 SKU 會捕捉支援的 VM 系列，以及專用主機的硬體世代。 支援下列主機 SKU 值： DSv3_Type1 和 ESv3_Type1。
 
 如需主機 Sku 和定價的詳細資訊，請參閱[Azure 專用主機定價](https://aka.ms/ADHPricing)。
 
 如果您為主機群組設定容錯網域計數，系統會要求您指定主機的容錯網域。  
 
 1. 選取左上角的 [**建立資源**]。
-1. 搜尋 [**專用主機**]，然後從結果中選取 [**專用主機（預覽）** ]。
+1. 搜尋 [**專用主機**]，然後從結果中選取 [**專用主機**]。
 
     ![主機群組搜尋結果。](./media/virtual-machines-common-dedicated-hosts-portal/host.png)
-1. 在 [**專用主機（預覽）** ] 頁面中，選取 [**建立**]。
-1. 選取您想要使用的訂用帳戶。
+1. 在 [**專用主機**] 頁面上，選取 [**建立**]。
+1. 選取您要使用的訂用帳戶識別碼。
 1. 選取 [ *myDedicatedHostsRG* ] 作為 [**資源群組**]。
 1. 在 [**實例詳細資料**] 中，輸入*Myhost 代表*作為 [**名稱**]，然後選取 [*美國東部*] 作為位置。
 1. 在 [**硬體設定檔**] 中，選取 [*標準以及 es3 系列]-* 在 [**大小] 系列**中輸入1，針對 [**主機] 群組**選取 [ *myHostGrup* ]，然後針對 [**容錯網域**] 選取*1* 。 保留其餘欄位的預設值。
 1. 當您完成時，選取 [審核] [ **+ 建立**] 並等候驗證。
 
-    ![主機設定](./media/virtual-machines-common-dedicated-hosts-portal/host-settings.png)
+    ![主控件設定](./media/virtual-machines-common-dedicated-hosts-portal/host-settings.png)
 1. 一旦您看到 [**通過驗證**] 訊息，請選取 [**建立**] 以建立主機。
 
 

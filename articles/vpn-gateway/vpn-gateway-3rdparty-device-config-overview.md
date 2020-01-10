@@ -1,26 +1,18 @@
 ---
-title: 連線到 Azure VPN 閘道的合作夥伴 VPN 裝置設定 | Microsoft Docs
+title: 用來連線到 Azure VPN 閘道的合作夥伴 VPN 裝置設定
 description: 本文提供連線到 Azure VPN 閘道之合作夥伴 VPN 裝置設定的概觀。
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 7d3a32b5f2b2742a36716bac9747f20c47c98858
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 733add5aa86ebd7faaaab78bb301ba9469433fdd
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150188"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778017"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>合作夥伴 VPN 裝置設定的概觀
 本文提供設定連線到 Azure VPN 閘道之內部部署 VPN 裝置的概觀。 範例 Azure 虛擬網路和 VPN 閘道安裝程式是用來以相同參數連線到不同的內部部署 VPN 裝置設定。
@@ -40,7 +32,7 @@ Azure VPN 閘道會針對站對站 (S2S) VPN 通道使用標準的 IPsec/IKE 通
 ### <a name="connection-parameters"></a>連線參數
 本節列出先前章節所述之範例的參數。
 
-| **參數**                | **值**                    |
+| **參數**                | **ReplTest1**                    |
 | ---                          | ---                          |
 | 虛擬網路位址首碼        | 10.11.0.0/16<br>10.12.0.0/16 |
 | Azure VPN 閘道 IP         | Azure VPN 閘道 IP         |

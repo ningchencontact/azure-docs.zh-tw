@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 7532db883b6267c402e380d865c917d16a7052da
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6305a6e68f435c009fdfdea371e88f4a73c3d92
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440624"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830389"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 HTTP 端點複製資料 | Microsoft Docs
 
@@ -222,7 +222,7 @@ ms.locfileid: "75440624"
 
 | 屬性                 | 說明                                                  | 必要項 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | `storeSettings` 下的 type 屬性必須設定為**HttpReadSetting**。 | 是      |
+| type                     | `storeSettings` 下的 type 屬性必須設定為**HttpReadSettings**。 | 是      |
 | requestMethod            | HTTP 方法。 <br>允許的值為 **Get** (預設值) 和 **Post**。 | 否       |
 | addtionalHeaders         | 其他 HTTP 要求標頭。                             | 否       |
 | requestBody              | HTTP 要求的主體。                               | 否       |
@@ -252,11 +252,11 @@ ms.locfileid: "75440624"
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "HttpReadSetting",
+                    "type": "HttpReadSettings",
                     "requestMethod": "Post",
                     "additionalHeaders": "<header key: header value>\n<header key: header value>\n",
                     "requestBody": "<body for POST HTTP request>"

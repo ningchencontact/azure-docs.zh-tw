@@ -1,5 +1,5 @@
 ---
-title: 使用離線 Apple FairPlay 保護 HLS 內容 - Azure | Microsoft Docs
+title: 使用 Azure 媒體服務 v3 進行 iOS 的離線 FairPlay 串流
 description: 本主題提供概觀，並示範如何使用 Azure 媒體服務，利用離線模式的 Apple FairPlay 動態加密您的 HTTP 即時串流 (HLS) 內容。
 services: media-services
 keywords: HLS, DRM, FairPlay Streaming (FPS), Offline, iOS 10, FairPlay 串流 (FPS), 離線
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 83fa8c9c6d98728d48ff4ed8993963cdbd522724
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c0d87de25cae44f17789dfaf7b1ec805138c351c
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974116"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779921"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>適用於 iOS 的離線 FairPlay 串流 
 
@@ -29,7 +29,7 @@ ms.locfileid: "74974116"
 - Microsoft PlayReady (英文)
 - Google Widevine
     
-    Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
+    Widevine 是 Google Inc. 所提供的服務，並受到 Google Inc. 的服務條款和隱私權原則所約束。
 - Apple FairPlay
 - AES-128 加密
 

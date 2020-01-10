@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 450f40c8ba49028d99143d7cf2b2995eb354f8fd
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 70cbc761c7e334ed9b13e3cd7d915102917ff149
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551619"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780193"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -241,6 +241,8 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
     您可以使用 PowerShell 設定不同動作和動作群組類型的稽核，如[使用 Azure PowerShell 管理 SQL 資料庫稽核](#subheading-7)一節中所述。
 
 - 使用 AAD 驗證時，失敗的登入記錄「不會」顯示在 SQL 稽核記錄中。 若要檢視失敗的登入稽核記錄，您需要瀏覽 [Azure Active Directory 入口網站]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)，其中會記錄這些事件的詳細資料。
+
+- Azure SQL Database 的審核已針對可用性 & 效能進行優化。 在非常高的活動期間，Azure SQL Database 允許作業繼續執行，而不會記錄某些已審核的事件。
 
 
 ## <a id="subheading-7"></a>使用 Azure PowerShell 管理 Azure SQL Server 和資料庫審核

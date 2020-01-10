@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: 2edb50910614b47aca5a4d8f7f02c2e3bc69b643
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 513c3da8031774f5f111ee357b5a3c43e1d09d95
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449012"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832481"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 的概觀
 Azure Cloud Shell 是可經由瀏覽器存取的已驗證互動式殼層，應用在 Azure 資源管理上。
@@ -40,11 +40,14 @@ Cloud Shell 以 Azure 管理工作為考量，提供以瀏覽器存取命令列�
 使用 Cloud Shell 可以只有雲端才能提供的方式離開本機電腦工作。
 
 ### <a name="choice-of-preferred-shell-experience"></a>選擇慣用的殼層體驗
-使用者可以在殼層下拉式清單中，選擇 Bash 或 PowerShell。
+使用者可以選擇 Bash 或 PowerShell。
+1. 選取 [ **Cloud Shell**]。
 
-![Cloud Shell 中的 Bash](media/overview/overview-bash-pic.png)
+    ![Cloud Shell 圖示](media/overview/overview-cloudshell-icon.png)
 
-![PowerShell 在 Cloud Shell 中](media/overview/overview-ps-pic.png)
+2. 選取 [ **Bash** ] 或 [ **PowerShell**]。
+
+    ![選擇 [Bash] 或 [PowerShell]](media/overview/overview-choices.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>驗證及設定 Azure 工作站
 Cloud Shell 由 Microsoft 管理，因此隨附受歡迎的命令列工具和語言支援。 Cloud Shell 也可安全地自動驗證，讓您可透過 Azure CLI 或 Azure PowerShell Cmdlet 快速存取您的資源。

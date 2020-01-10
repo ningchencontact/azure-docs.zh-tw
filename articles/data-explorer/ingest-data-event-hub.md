@@ -3,16 +3,16 @@ title: 將資料從事件中樞內嵌至 Azure 資料總管
 description: 在本文中，您將瞭解如何將資料從事件中樞內嵌（載入）至 Azure 資料總管。
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/17/2019
-ms.openlocfilehash: 13c0bf8d0829debaa4ae41c724aafdaf5891ce4d
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.date: 01/08/2020
+ms.openlocfilehash: a65f0918d04f77bc3076449347bb20046f73e92a
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667427"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779941"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>將資料從事件中樞內嵌至 Azure 資料總管
 
@@ -22,7 +22,7 @@ ms.locfileid: "74667427"
 > * [Python](data-connection-event-hub-python.md)
 > * [Azure Resource Manager 範本](data-connection-event-hub-resource-manager.md)
 
-「Azure 資料總管」是一項快速又彈性極佳的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管可從事件中樞、巨量資料串流平台及事件內嵌服務進行內嵌 (載入資料)。 [事件中樞](/azure/event-hubs/event-hubs-about)可以近乎即時地每秒鐘處理數百萬個事件。 在本文中，您會建立事件中樞、從 Azure 資料總管連線到它，並查看整個系統的資料流程。
+Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管可從事件中樞、巨量資料串流平台及事件內嵌服務進行內嵌 (載入資料)。 [事件中樞](/azure/event-hubs/event-hubs-about)可以近乎即時地每秒鐘處理數百萬個事件。 在本文中，您會建立事件中樞、從 Azure 資料總管連線到它，並查看整個系統的資料流程。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -59,9 +59,9 @@ ms.locfileid: "74667427"
 
     **設定** | **建議的值** | **欄位描述**
     |---|---|---|
-    | Subscription | 您的訂用帳戶 | 選取您要用於事件中樞的 Azure 訂用帳戶。|
-    | Resource group | *test-hub-rg* | 建立新的資源群組。 |
-    | Location | 美國西部 | 為本文選取 [*美國西部*]。 至於生產系統，請選取最符合您需求的區域。 將事件中樞命名空間建立在與 Kusto 相同的 [位置] 可獲得最佳效能 (對於高輸送量的事件中樞命名空間格外重要)。
+    | 訂閱 | 您的訂用帳戶 | 選取您要用於事件中樞的 Azure 訂用帳戶。|
+    | 資源群組 | *test-hub-rg* | 建立新的資源群組。 |
+    | 位置 | 美國西部 | 為本文選取 [*美國西部*]。 至於生產系統，請選取最符合您需求的區域。 將事件中樞命名空間建立在與 Kusto 相同的 [位置] 可獲得最佳效能 (對於高輸送量的事件中樞命名空間格外重要)。
     | 命名空間名稱 | 唯一命名空間名稱 | 選擇可識別您命名空間的唯一名稱。 例如，*mytestnamespace*。 網域名稱 *servicebus.windows.net* 已附加至您提供的名稱。 名稱只能包含字母、數字和連字號。 名稱必須以字母開頭，且必須以字母或數字結尾。 此值長度必須介於 6 至 50 個字元之間。
     | 事件中樞名稱 | *test-hub* | 事件中樞位於命名空間之下，其會提供專屬的唯一範圍容器。 事件中樞名稱在命名空間內不可重複。 |
     | 取用者群組名稱 | *test-group* | 取用者群組能讓多個取用應用程式各自擁有獨立的事件串流檢視。 |
@@ -109,7 +109,7 @@ ms.locfileid: "74667427"
 
     ![事件中樞連線](media/ingest-data-event-hub/event-hub-connection.png)
 
-    資料來源：
+    **資料來源：**
 
     **設定** | **建議的值** | **欄位描述**
     |---|---|---|
@@ -120,7 +120,7 @@ ms.locfileid: "74667427"
     | 事件系統屬性 | 選取相關的屬性 | [事件中樞系統屬性](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations)。 如果每個事件訊息有多個記錄，系統屬性將會新增至第一個。 加入系統屬性時，[建立](/azure/kusto/management/tables#create-table)或[更新](/azure/kusto/management/tables#alter-table-and-alter-merge-table)資料表架構和[對應](/azure/kusto/management/mappings)以包含選取的屬性。 |
     | | |
 
-    目標資料表：
+    **目標資料表：**
 
     路由內嵌資料有兩個選項：靜態和動態。 
     在本文中，您將使用靜態路由，您會指定資料表名稱、資料格式和對應。 因此，將 [我的資料包含路由資訊] 保留為未選取。
@@ -138,6 +138,8 @@ ms.locfileid: "74667427"
     > * 藉由[在 Azure 入口網站中開啟支援要求](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)，啟用靜態路由的 GZip 壓縮。 啟用適用于動態路由的 GZip 壓縮，如[範例應用程式](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)中所示。 
     > * 壓縮裝載不支援 Avro 格式和事件系統屬性。
 
+[!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
+
 ## <a name="copy-the-connection-string"></a>複製連接字串
 
 當您執行「必要條件」中所列的[範例應用程式](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)時，您需要事件中樞命名空間的連接字串。
@@ -148,7 +150,7 @@ ms.locfileid: "74667427"
 
 1. 複製 [連接字串 - 主索引鍵]。 您在下一節中貼上這項資料。
 
-    ![Connection string](media/ingest-data-event-hub/connection-string.png)
+    ![連接字串](media/ingest-data-event-hub/connection-string.png)
 
 ## <a name="generate-sample-data"></a>產生範例資料
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mlearned
-ms.openlocfilehash: 8af0f998df2a92e51078a2e23806cca07ff08ca3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6152becb8debd0700ddab6190284514c6d6cf69d
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480082"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830049"
 ---
 # <a name="public-preview---private-azure-kubernetes-service-cluster"></a>公開預覽-私人 Azure Kubernetes Service 叢集
 
@@ -81,16 +81,16 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 #### <a name="advanced-networking"></a>Advanced 網路  
 
 ```azurecli-interactive
-az aks create \ 
-    --resource-group <private-cluster-resource-group>\ 
-    --name <private-cluster-name> \ 
-    --load-balancer-sku standard
-    --enable-private-cluster 
-    --network-plugin azure \ 
-    --vnet-subnet-id <subnet-id> \ 
-    --docker-bridge-address 172.17.0.1/16 \ 
-    --dns-service-ip 10.2.0.10 \ 
-    --service-cidr 10.2.0.0/24 \ 
+az aks create \
+    --resource-group <private-cluster-resource-group> \
+    --name <private-cluster-name> \
+    --load-balancer-sku standard \
+    --enable-private-cluster \
+    --network-plugin azure \
+    --vnet-subnet-id <subnet-id> \
+    --docker-bridge-address 172.17.0.1/16 \
+    --dns-service-ip 10.2.0.10 \
+    --service-cidr 10.2.0.0/24 
 ```
 位置--啟用-私人-叢集是私人叢集的強制旗標 
 
@@ -108,6 +108,11 @@ API 伺服器端點沒有公用 IP 位址。 因此，使用者將需要在虛�
     * 按一下私人 DNS 區域 
     * 在左窗格中選取 [虛擬網路] 連結
     * 建立新連結以將 VM 的 VNET 新增至私人 DNS 區域 *（需要幾分鐘的時間，DNS 區域連結才會變成可用）*
+    * 回到入口網站中的 MC_ * 資源群組
+    * 在右窗格中選取 [虛擬網路]。 虛擬網路名稱的格式會是 aks-vnet-*。
+    * 在左窗格中選取 [對等互連]
+    * 按一下 [新增] 並新增 VM 的虛擬網路，並建立對等互連。
+    * 移至您擁有 VM 的 Vnet，然後按一下 [對等互連] 並選取 [AKS] 虛擬網路，並建立對等互連。 如果 AKS 虛擬網路上的位址範圍和 VM 的虛擬網路衝突，則對等互連將會失敗。 如需虛擬網路對等互連的詳細資訊，請參閱這[份檔][virtual-network-peering]。
 * 透過 SSH 連線到 VM
 * 安裝 Kubectl 工具並執行 Kubectl 命令
 
@@ -132,3 +137,5 @@ API 伺服器端點沒有公用 IP 位址。 因此，使用者將需要在虛�
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: https://docs.microsoft.com/azure/private-link/private-link-service-overview
+[virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
+

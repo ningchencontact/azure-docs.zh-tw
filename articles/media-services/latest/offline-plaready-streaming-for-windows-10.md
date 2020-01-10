@@ -1,5 +1,5 @@
 ---
-title: 設定帳戶以離線串流受 PlayReady 保護的內容 - Azure
+title: 使用媒體服務 v3 進行離線 PlayReady 串流-Azure
 description: 本文說明如何設定 Azure 媒體服務帳戶，以離線串流適用於 Windows 10 的 PlayReady。
 services: media-services
 keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android, Widevine 離線模式
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 0798cffdca8d5876373c35f3f5fd657551586d43
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 15a3e2f7fee6d130b1913ec4f74069a09d5aec53
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974048"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779782"
 ---
-# <a name="offline-playready-streaming-for-windows-10"></a>適用於 Windows 10 的離線 PlayReady 串流
+# <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>適用于 Windows 10 的離線 PlayReady 串流（含媒體服務 v3）
 
 Azure 媒體服務支援在具備 DRM 保護的情況下離線下載/播放。 本文涵蓋適用於 Windows 10/PlayRead 用戶端的 Azure 媒體服務離線支援。 您可以在以下文章中閱讀和適用於 iOS/FairPlay 與 Android/Widevine 裝置的離線模式支援相關資訊：
 
@@ -124,7 +124,7 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 
 ## <a name="additional-notes"></a>其他注意事項
 
-* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="next-steps"></a>後續步驟
 

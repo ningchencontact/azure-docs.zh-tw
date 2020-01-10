@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: a63202fd5f29c3c2eee4ecaaae9a940078c15edc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f61fdedcd3c910ef5d09685fea00473a83b321f1
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421884"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834289"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>讓更新管理、變更追蹤和清查解決方案上線
 
@@ -59,7 +59,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 當電腦新增至「更新管理」或「變更追蹤」和「清查」解決方案時，它們會被新增至工作區中兩個已儲存搜尋的其中一個。 這些已儲存的搜尋都是查詢，其中包含這些解決方案的目標電腦。
 
-瀏覽至您的自動化帳戶，然後選取 [一般] 下的 [已儲存搜尋]。 下表顯示這些解決方案所使用的兩個已儲存搜尋：
+流覽至 Log Analytics 工作區，然後選取 **[一般**] 底下的 [**已儲存的搜尋**]。 下表顯示這些解決方案所使用的兩個已儲存搜尋：
 
 |名稱     |類別  |Alias  |
 |---------|---------|---------|

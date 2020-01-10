@@ -7,13 +7,13 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: b3aefb22f5b58d673d099e6b2b609b89b88c35c7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/31/2019
+ms.openlocfilehash: 354bd8520977ee7533f7902255a7c8ecbab11e19
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825623"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779989"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>為客戶參與 & PowerApps 供應專案建立新的 Dynamics 365
 
@@ -48,11 +48,11 @@ ms.locfileid: "73825623"
 
 #### <a name="get-it-now-free"></a>立即取得（免費）
 
-提供可存取您應用程式的有效 URL （從*HTTP*或*HTTPs*開始），免費向客戶列出您的供應專案。  例如：`https://contoso.com/my-app`
+提供可存取您應用程式的有效 URL （從*HTTP*或*HTTPs*開始），免費向客戶列出您的供應專案。  例如： `https://contoso.com/my-app`
 
 #### <a name="free-trial-listing"></a>免費試用（清單）
 
-藉由提供有效的 URL （從*HTTP*或*HTTPs*開始），向客戶列出您的供應專案，以取得試用版的連結。  例如： `https://contoso.com/trial/my-app`。 供應專案列出免費試用版是由您的服務所建立、管理及設定，而且沒有由 Microsoft 管理的訂用帳戶。
+藉由提供有效的 URL （從*HTTP*或*HTTPs*開始），向客戶列出您的供應專案，以取得試用版的連結。  例如： `https://contoso.com/trial/my-app` 。 供應專案列出免費試用版是由您的服務所建立、管理及設定，而且沒有由 Microsoft 管理的訂用帳戶。
 
 > [!NOTE]
 > 您的應用程式將透過試用連結接收的權杖，只能透過 Azure Active Directory （Azure AD）取得使用者資訊，以在您的應用程式中自動建立帳戶。 Microsoft 帳戶不支援使用此權杖進行驗證。
@@ -69,7 +69,7 @@ ms.locfileid: "73825623"
 
 #### <a name="type-of-test-drive"></a>試用產品的類型
 
-從下列選項中選取：
+然後選取下列選項：
 
 - **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** ：部署範本，其中包含構成解決方案的所有 Azure 資源。 符合此案例的產品只會使用 Azure 資源。
 - **[Dynamics 365 For Business central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** ： Microsoft 主控並維護 business central 企業資源規劃系統（財務、營運、供應鏈、CRM 等）的試用產品服務（包括布建和部署）。  
@@ -100,7 +100,7 @@ ms.locfileid: "73825623"
 
 選取最少1個，最多三個類別。 這些會用來將您的供應專案放入適當的 marketplace 搜尋區域。 請務必在供應專案描述中，呼叫您的供應專案如何支援這些類別。 
 
-### <a name="industry"></a>業界
+### <a name="industry"></a>產業
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
@@ -139,7 +139,7 @@ ms.locfileid: "73825623"
 
 您在此處輸入的名稱會向客戶顯示，做為供應專案清單的標題。 當您建立供應專案時，此欄位會預先填入您在**供應專案別名**中輸入的文字，但您可以變更此值。 此名稱可能是商標（您可以包含商標或著作權符號）。 名稱不能超過50個字元，而且不能包含任何 emoji。
 
-### <a name="short-description"></a>簡短說明
+### <a name="short-description"></a>簡短描述
 
 提供供應專案的簡短描述（最多100個字元）。 這可用於 marketplace 搜尋結果。
 
@@ -192,7 +192,7 @@ ms.locfileid: "73825623"
 
 在本節中，您可以提供向客戶顯示供應專案時所要使用的標誌和影像。 所有影像都必須是 .png 格式。
 
-#### <a name="store-logos"></a>儲存標誌
+#### <a name="store-logos"></a>Microsoft Store標誌。
 
 您可以提供下列三種大小的供應專案標誌：**小型（48 x 48）** 、**大型（216 x 216）** 和**寬（255 x 115）** 。 需要小型和大型大小。
 
@@ -300,9 +300,9 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 - **試用產品持續時間**（必要）：藉由定義時數來輸入試用產品保持作用中狀態的時間長度。 過了數小時之後，會話就會結束，而且不再使用您的其中一個授權。 我們建議的值為2-24 小時，視您的供應專案複雜度而定。 此持續時間可能只會由整數小時數來設定（例如 "2" 小時，"1.5" 無效）。  使用者可以要求新的會話（如果工作時間已用盡），並想要再次存取試用產品。
 
-- **實例 url** （必要）：客戶將開始其試用產品的 URL。 一般來說，您的 Dynamics 365 實例 URL 會在安裝範例資料的情況下執行應用程式（例如 https://testdrive.crm.dynamics.com)。
+- **實例 url** （必要）：客戶將開始其試用產品的 URL。 通常是您的 Dynamics 365 實例 URL，其會執行您的應用程式並安裝範例資料（例如 https://testdrive.crm.dynamics.com) 。
 
-- **實例 WEB API url** （必要）：藉由登入您的 Microsoft 365 帳戶並流覽至 **設定** \&Gt，抓取 Dynamics 365 實例的 Web API url。**自訂**\&gt;**開發人員資源**\&gt;**實例 WEB API （服務根 URL）** ，複製此處找到的 URL （例如 https://testdrive.crm.dynamics.com/api/data/v9.0)。
+- **實例 WEB API url** （必要）：藉由登入您的 Microsoft 365 帳戶並流覽至 **設定** \&Gt，抓取 Dynamics 365 實例的 Web API url。**自訂**\&gt;**開發人員資源**\&gt;**實例 WEB API （服務根 URL）** ，複製此處找到的 URL （例如 https://testdrive.crm.dynamics.com/api/data/v9.0) 。
 
 - **角色名稱**（必要）：提供您在自訂 Dynamics 365 試用產品中定義的安全性角色名稱。 這會在其試用產品（例如，測試磁片磁碟機-角色）期間指派給使用者。
 
@@ -350,7 +350,7 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 - **使用者手冊**（必要）：您的試用產品體驗的深入逐步解說。 使用者手冊應涵蓋您想要讓客戶從試用產品中取得的確切內容，並做為參考，以取得他們可能會遇到的任何問題。 檔案必須是 PDF 格式，並在上傳後命名為（最多255個字元）。
 
-- 影片 **：新增**影片（選擇性）：您可以將影片上傳到 YouTube 或 Vimeo，並在這裡參考連結和縮圖影像（533 x 324 圖元），讓客戶可以查看資訊的逐步解說，以協助他們更瞭解試用產品，包括如何成功使用供應專案的功能，並瞭解強調其優點的案例。
+- 影片 **：新增**影片（選擇性）：您可以將影片上傳到 YouTube 或 Vimeo，並在這裡參考連結和縮圖影像（533 x 324 圖元），讓客戶可以查看資訊的逐步解說，以協助他們深入瞭解試用產品，包括如何成功使用供應專案的功能，並瞭解強調其優點的案例。
   - **名稱**（必要）
   - **URL （僅限 YouTube 或 Vimeo）** （必要）
   - **縮圖（533 x 324px）** ：影像檔案必須是 PNG 格式。
@@ -380,4 +380,4 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [更新商用 Marketplace 中的現有供應專案](./update-existing-offer.md)
+- [更新商業市集中的現有供應項目](./update-existing-offer.md)

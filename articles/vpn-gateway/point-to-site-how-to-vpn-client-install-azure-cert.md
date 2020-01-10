@@ -1,19 +1,18 @@
 ---
-title: 安裝點對站用戶端憑證：Azure | Microsoft Docs
+title: Azure VPN 閘道：安裝點對站用戶端憑證
 description: 安裝用於 P2S 憑證驗證的用戶端憑證 - Windows、Mac 或 Linux。
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: c278c1c85961fbeb0779cad98f8ac16d4961ba75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f6399f52229916c9ab3e55ec55ace092d0b73dba
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60679934"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778272"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>安裝用於 P2S 憑證驗證連線的用戶端憑證
 

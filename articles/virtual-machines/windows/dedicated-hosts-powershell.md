@@ -12,39 +12,23 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 92dca6f4f41ff426aebcb8e580653afaa71afff8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ae7c6f2d5f05b3d4ed3744be57112a62606cf622
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033360"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833844"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>預覽：使用 Azure PowerShell 將 Vm 部署至專用主機
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>使用 Azure PowerShell 將 Vm 部署到專用主機
 
 本文會引導您瞭解如何建立 Azure[專用主機](dedicated-hosts.md)來裝載您的虛擬機器（vm）。 
 
-請確定您已安裝 Azure PowerShell 2.4.2 或更新版本，且已使用 `Connect-AzAccount`登入 Azure 帳戶。 若要安裝版本2.4.2，請開啟 PowerShell 提示字元，然後輸入：
+請確定您已安裝 Azure PowerShell 2.8.0 或更新版本，且已使用 `Connect-AzAccount`登入 Azure 帳戶。 
 
-```powershell
-Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrerelease
-```
+## <a name="limitations"></a>限制
 
-您至少需要 PowerShellGet 模組的版本1.6.0，才能在 PowerShell 中啟用預覽模組功能。 最新版的 PowerShell Core 會自動內建此功能，但針對舊版的 PowerShell，您可以執行下列命令來更新至最新版本：
-
-```powershell
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
-
-
-> [!IMPORTANT]
-> Azure 專用主機目前為公開預覽版。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
->
-> **已知的預覽限制**
-> - 專用主機目前不支援虛擬機器擴展集。
-> - 預覽初始版本支援下列 VM 系列： DSv3 和 ESv3。 
-
-
+- 專用主機目前不支援虛擬機器擴展集。
+- 支援下列 VM 系列： DSv3 和 ESv3。 
 
 ## <a name="create-a-host-group"></a>建立主機群組
 

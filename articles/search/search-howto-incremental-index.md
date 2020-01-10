@@ -1,129 +1,185 @@
 ---
-title: 新增累加式索引編制（預覽）
+title: 設定快取和增量擴充（預覽）
 titleSuffix: Azure Cognitive Search
-description: 啟用變更追蹤，並保留擴充內容的狀態，以在認知技能集中進行控制處理。 此功能目前為公開預覽狀態。
+description: 啟用快取並保留擴充內容的狀態，以供認知技能集中的控管處理之用。 此功能目前為公開預覽狀態。
 author: vkurpad
 manager: eladz
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 92da697c95f2b9ea544bb1f9bfa689c13bd0d2ae
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 01/06/2020
+ms.openlocfilehash: 1eaf4e7b2d769217ceace3ece339adff727c7835
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806757"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832054"
 ---
-# <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋中設定擴充檔的增量編制索引
+# <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>如何在 Azure 認知搜尋中設定增量擴充的快取
 
 > [!IMPORTANT] 
-> 累加式編制索引目前為公開預覽狀態。 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有入口網站或 .NET SDK 支援。
+> 增量擴充目前為公開預覽狀態。 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有入口網站或 .NET SDK 支援。
 
-本文說明如何將狀態和快取新增至透過 Azure 認知搜尋擴充管線移動的擴充檔，讓您可以從任何支援的資料來源以累加方式編制檔的索引。 根據預設，技能集是無狀態的，而且變更其組合的任何部分，都需要完整重新執行索引子。 使用累加式編制索引時，索引子可以判斷管線的哪些部分已變更、重複使用現有的擴充做為未變更的部分，以及修改擴充，以瞭解進行變更的步驟。 快取的內容會放在 Azure 儲存體中。
+本文說明如何將快取新增至擴充管線，讓您可以累加地修改步驟，而不需要每次重建。 根據預設，技能集是無狀態的，而且變更其組合的任何部分，都需要完整重新執行索引子。 使用累加擴充時，索引子可以根據在技能集或索引子定義中偵測到的變更，決定檔樹狀結構的哪些部分需要重新整理。 現有處理的輸出會保留下來，並在可能的情況下重複使用。 
 
-如果您不熟悉如何設定索引子，請從[索引子總覽](search-indexer-overview.md)開始，然後繼續[技能集](cognitive-search-working-with-skillsets.md)以瞭解擴充管線。 如需重要概念的詳細背景，請參閱累加[式索引編制](cognitive-search-incremental-indexing-conceptual.md)。
+快取的內容會使用您提供的帳戶資訊，放在 Azure 儲存體中。 當您執行索引子時，會建立名為 `ms-az-search-indexercache-<alpha-numerc-string>`的容器。 它應該被視為您的搜尋服務所管理的內部元件，不得修改。
 
-## <a name="modify-an-existing-indexer"></a>修改現有的索引子
+如果您不熟悉如何設定索引子，請從[索引子總覽](search-indexer-overview.md)開始，然後繼續[技能集](cognitive-search-working-with-skillsets.md)以瞭解擴充管線。 如需重要概念的詳細背景，請參閱累加[擴充](cognitive-search-incremental-indexing-conceptual.md)。
 
-如果您有現有的索引子，請遵循下列步驟來啟用累加式索引編制。
+## <a name="enable-caching-on-an-existing-indexer"></a>在現有的索引子上啟用快取
 
-### <a name="step-1-get-the-indexer"></a>步驟1：取得索引子
+如果您有現有的索引子，而且已經有技能集，請遵循本節中的步驟來新增快取。 您必須在單次作業中重設並重新執行索引子，增量處理才會生效。
 
-請從已定義必要資料來源和索引的有效現有索引子開始。 您的索引子應該是可執行檔。 使用 API 用戶端，建立[get 要求](https://docs.microsoft.com/rest/api/searchservice/get-indexer)以取得索引子的目前設定，而您想要在其中新增累加式索引。
+> [!TIP]
+> 作為概念證明，您可以執行此[入口網站快速入門](cognitive-search-quickstart-blob.md)來建立必要的物件，然後使用 Postman 或入口網站來進行更新。 您可能想要附加可計費的認知服務資源。 執行索引子多次會耗盡免費的每日配置，您才能完成所有步驟。
+
+### <a name="step-1-get-the-indexer-definition"></a>步驟1：取得索引子定義
+
+從具有下列元件的有效現有索引子開始：資料來源、技能集、索引。 您的索引子應該是可執行檔。 使用 API 用戶端，建立[取得索引子要求](https://docs.microsoft.com/rest/api/searchservice/get-indexer)以取得索引子的目前設定。
 
 ```http
-GET https://[service name].search.windows.net/indexers/[your indexer name]?api-version=2019-05-06-Preview
+GET https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2019-05-06-Preview
 Content-Type: application/json
-api-key: [admin key]
+api-key: [YOUR-ADMIN-KEY]
 ```
 
-### <a name="step-2-add-the-cache-property"></a>步驟2：新增快取屬性
+複製回應中的索引子定義。
 
-編輯 GET 要求的回應，將 `cache` 屬性加入至索引子。 快取物件只需要單一屬性，`storageConnectionString` 這是儲存體帳戶的連接字串。 
+### <a name="step-2-modify-the-cache-property-in-the-indexer-definition"></a>步驟2：修改索引子定義中的 cache 屬性
+
+根據預設，`cache` 屬性為 null。 使用 API 用戶端來新增快取設定（入口網站不支援此 particulate 更新）。 
+
+修改快取物件，以包含下列必要和選擇性屬性： 
+
++ `storageConnectionString` 是必要的，而且必須設定為 Azure 儲存體連接字串。 
++ `enableReprocessing` 的布林值屬性是選擇性的（預設為`true`），表示已啟用累加擴充。 您可以將它設定為 `false` 來暫停增量處理，而其他需要大量資源的作業（例如編制新檔的索引）正在進行中，然後再回復至 `true`。
 
 ```json
 {
-    "name": "myIndexerName",
-    "targetIndexName": "myIndex",
-    "dataSourceName": "myDatasource",
-    "skillsetName": "mySkillset",
+    "name": "<YOUR-INDEXER-NAME>",
+    "targetIndexName": "<YOUR-INDEX-NAME>",
+    "dataSourceName": "<YOUR-DATASOURCE-NAME>",
+    "skillsetName": "<YOUR-SKILLSET-NAME>",
     "cache" : {
-        "storageConnectionString" : "Your storage account connection string",
-        "enableReprocessing": true,
-        "id" : "Auto generated Id you do not need to set"
+        "storageConnectionString" : "<YOUR-STORAGE-ACCOUNT-CONNECTION-STRING>",
+        "enableReprocessing": true
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters": {
-        "configuration": {
-            "enableAnnotationCache": true
-        }
-    }
+    "parameters": []
 }
 ```
-#### <a name="enable-reporocessing"></a>啟用 reporocessing
-
-您可以選擇性地在快取中設定 `enableReprocessing` 的布林值屬性，預設會將設定為 true。 `enableReprocessing` 旗標可讓您控制索引子的行為。 在您想要讓索引子排定將新檔新增至索引的情況下，您可以將旗標設定為 false。 一旦您的索引子與新檔攔截之後，將旗標翻轉為 true，然後讓索引子開始驅動現有的檔，使其成為最終一致性。 在 `enableReprocessing` 旗標設定為 false 的期間，索引子只會寫入快取，但不會根據已識別的擴充管線變更來處理任何現有的檔。
 
 ### <a name="step-3-reset-the-indexer"></a>步驟3：重設索引子
 
-> [!NOTE]
-> 重設索引子將導致資料來源中的所有檔都被重新處理，以便快取內容。 所有的認知擴充都會在所有檔上重新執行。
->
-
-設定現有索引子的累加索引編制時，需要重設索引子，以確保所有檔都處於一致的狀態。 使用[REST API](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)重設索引子。
+設定現有索引子的累加擴充時，需要重設索引子，以確保所有檔都處於一致的狀態。 您可以使用入口網站或 API 用戶端，以及這項工作的 [[重設索引子] REST API](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) 。
 
 ```http
-POST https://[service name].search.windows.net/indexers/[your indexer name]/reset?api-version=2019-05-06-Preview
+POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/reset?api-version=2019-05-06-Preview
 Content-Type: application/json
-api-key: [admin key]
+api-key: [YOUR-ADMIN-KEY]
 ```
 
 ### <a name="step-4-save-the-updated-definition"></a>步驟4：儲存已更新的定義
 
-使用 PUT 要求更新索引子定義，要求的主體應該包含更新的索引子定義。
+使用 PUT 要求更新索引子定義，要求的主體應該包含已更新的索引子定義，其中包含 cache 屬性。 如果您收到400，請檢查索引子定義，確定符合所有需求（資料來源、技能集、索引）。
 
 ```http
-PUT https://[service name].search.windows.net/indexers/[your indexer name]/reset?api-version=2019-05-06-Preview
+PUT https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2019-05-06-Preview
 Content-Type: application/json
-api-key: [admin key]
+api-key: [YOUR-ADMIN-KEY]
 {
-    "name" : "your indexer name",
+    "name" : "<YOUR-INDEXER-NAME>",
     ...
     "cache": {
-        "storageConnectionString": "[your storage connection string]",
+        "storageConnectionString": "<YOUR-STORAGE-ACCOUNT-CONNECTION-STRING>",
         "enableReprocessing": true
     }
 }
 ```
 
-如果您現在在索引子上發出另一個 GET 要求，服務的回應將會在 cache 物件中包含 `cacheId` 屬性。 `cacheId` 是容器的名稱，其中將包含此索引子所處理之每份檔的所有快取結果和中繼狀態。
+如果您現在在索引子上發出另一個 GET 要求，服務的回應將會在 cache 物件中包含 `ID` 屬性。 英數位元字串會附加至容器的名稱，其中包含此索引子所處理之每份檔的所有快取結果和中繼狀態。 此識別碼將用來以唯一的方式命名 Blob 儲存體中的快取。
 
-## <a name="enable-incremental-indexing-on-new-indexers"></a>在新的索引子上啟用累加式編制索引
+    "cache": {
+        "ID": "<ALPHA-NUMERIC STRING>",
+        "enableReprocessing": true,
+        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
+    }
 
-若要為新的索引子設定增量索引，請在索引子定義裝載中包含 `cache` 屬性。 請確定您使用的是 `2019-05-06-Preview` 版本的 API。
+### <a name="step-5-run-the-indexer"></a>步驟5：執行索引子
 
-## <a name="overriding-incremental-indexing"></a>覆寫增量索引
+若要執行索引子，您也可以使用入口網站。 從 [索引子] 清單中，選取索引子，然後按一下 [**執行**]。 使用入口網站的優點之一，是您可以監視索引子狀態、記下作業的持續時間，以及處理的檔數目。 入口網站頁面每隔幾分鐘就會重新整理一次。
 
-當設定時，累加式編制索引會追蹤您索引管線的變更，並驅動檔，使其在您的索引和預測之間具有最終一致性。 在某些情況下，您必須覆寫此行為，以確保索引子不會因更新索引管線而執行額外的工作。 例如，更新資料來源連接字串時，將需要在資料來源變更時，重設索引子並重新編制所有檔的索引。 但是，如果您只是使用新的金鑰來更新連接字串，您不會想要變更導致現有檔的任何更新。 相反地，您可能會想要讓索引子使快取失效並擴充檔，即使沒有對索引管線進行任何變更也是如此。 比方說，如果您要以新的模型重新部署自訂技能，而且希望技能在您所有的檔上執行，您可能會想要讓索引子失效。
+或者，您可以使用 REST 來執行索引子：
 
-### <a name="override-reset-requirement"></a>覆寫重設需求
+```http
+POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/run?api-version=2019-05-06-Preview
+Content-Type: application/json
+api-key: [YOUR-ADMIN-KEY]
+```
 
-對索引管線進行變更時，導致快取失效的任何變更都需要重新建立索引子。 如果您要對索引子管線進行變更，而不想讓變更追蹤使快取失效，您必須將 `ignoreResetRequirement` querystring 參數設定為 `true`，以在索引子或資料來源上進行作業。
+執行索引子之後，您可以在 Azure blob 儲存體中找到快取。 容器名稱的格式如下： `ms-az-search-indexercache-<YOUR-CACHE-ID>`
 
-### <a name="override-change-detection"></a>覆寫變更偵測
+> [!NOTE]
+> 重設並重新執行索引子會產生完整重建，以便快取內容。 所有的認知擴充都會在所有檔上重新執行。
+>
 
-當您更新會導致檔標記為不一致的技能集時（例如，在重新部署技能時更新自訂技能 URL）時，請將 `disableCacheReprocessingChangeDetection` 查詢字串參數設定為 `true` 的技能集更新。
+### <a name="step-6-modify-a-skillset-and-confirm-incremental-enrichment"></a>步驟6：修改技能集並確認增量擴充
 
-### <a name="force-change-detection"></a>強制變更偵測
+若要修改技能集，您可以使用入口網站來編輯 JSON 定義。 例如，如果您使用文字轉譯，從 `en` 到 `es` 或其他語言的簡單內嵌變更，就足以進行累加擴充的概念證明測試。
 
-具現化：當您想要讓索引管線辨識外部實體的變更（例如部署新版本的自訂技能）時，您必須編輯技能定義來更新技能集和「觸控」特定技能，特別是要強制執行的 URL。變更偵測並使該技能的快取失效。
+再次執行索引子。 只有擴充檔樹狀結構的部分會更新。 如果您使用[入口網站快速入門](cognitive-search-quickstart-blob.md)做為概念證明，將文字翻譯技能修改為「es」，您會發現只有8份檔會更新，而不是原始的14個。 轉譯程式不影響的影像檔案會從快取重複使用。
+
+## <a name="enable-caching-on-new-indexers"></a>在新索引子上啟用快取
+
+若要設定新索引子的累加擴充，您只需要在呼叫[Create 索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)時，將 `cache` 屬性包含在索引子定義裝載中。 建立具有此屬性的索引子時，請記得指定 API 的 `2019-05-06-Preview` 版本。 
+
+
+```json
+{
+    "name": "<YOUR-INDEXER-NAME>",
+    "targetIndexName": "<YOUR-INDEX-NAME>",
+    "dataSourceName": "<YOUR-DATASOURCE-NAME>",
+    "skillsetName": "<YOUR-SKILLSET-NAME>",
+    "cache" : {
+        "storageConnectionString" : "<YOUR-STORAGE-ACCOUNT-CONNECTION-STRING>",
+        "enableReprocessing": true
+    },
+    "fieldMappings" : [],
+    "outputFieldMappings": [],
+    "parameters": []
+    }
+}
+```
+
+## <a name="checking-for-cached-output"></a>檢查快取的輸出
+
+快取是由索引子所建立、使用及管理，而且其內容不會以人類可讀取的格式表示。 判斷是否使用快取的最佳方式是執行索引子，並比較執行時間和檔計數的之前和之後的計量。 
+
+例如，假設技能集是以影像分析和掃描檔的光學字元辨識（OCR）為開頭，接著是所產生文字的下游分析。 如果您修改下游文字技能，索引子可以從快取中取出先前處理過的所有影像和 OCR 內容，只更新和處理您的編輯所指出的文字相關變更。 您可以預期在檔計數中看到較少的檔（例如8/8，而不是原始回合中的14/14）、較短的執行時間，以及帳單上較少的費用。
+
+## <a name="working-with-the-cache"></a>使用快取
+
+一旦快取可運作，每次呼叫[執行索引子](https://docs.microsoft.com/rest/api/searchservice/run-indexer)時，索引子就會檢查快取，以查看可以使用現有輸出的哪些部分。 
+
+下表摘要說明各種不同的 Api 與快取之間的關聯：
+
+| API           | 快取影響     |
+|---------------|------------------|
+| [建立索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer) | 在第一次使用時建立並執行索引子，包括在索引子定義指定快取時建立快取。 |
+| [執行索引子](https://docs.microsoft.com/rest/api/searchservice/run-indexer) | 視需要執行擴充管線。 此 API 會讀取快取（如果有的話），如果您已將快取新增至更新的索引子定義，則會建立快取。 當您執行已啟用快取的索引子時，如果可以使用快取的輸出，則索引子會省略步驟。 |
+| [重設索引子](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)| 清除任何增量索引編制資訊的索引子。 下一個索引子執行（視需要或排程）會從頭開始完整重新處理，包括重新執行所有技能和重建快取。 在功能上相當於刪除索引子並重新建立它。 |
+| [重設技能](preview-api-resetskills.md) | 指定在下一個索引子執行時要重新執行的技能，即使您未修改任何技能也一樣。 快取會隨之更新。 系統會根據快取中的可重複使用資料，以及每項更新技能的新內容，來重新整理輸出，例如知識存放區或搜尋索引。 |
+
+如需控制快取發生狀況的詳細資訊，請參閱快取[管理](cognitive-search-incremental-indexing-conceptual.md#cache-management)。
 
 ## <a name="next-steps"></a>後續步驟
 
-本文涵蓋包含技能集之索引子的增量索引編制。 若要進一步細分您的知識，請參閱一般重新編制索引的相關文章，適用于 Azure 認知搜尋中的所有索引編制案例。
+增量擴充適用于包含技能集的索引子。 在下一個步驟中，請造訪技能集檔，以瞭解概念和組合。 
 
-+ [如何重建 Azure 認知搜尋索引](search-howto-reindex.md)。 
-+ [如何在 Azure 認知搜尋中為大型資料集編制索引](search-howto-large-index.md)。 
+此外，一旦您啟用快取，您會想要知道納入快取的參數和 Api，包括如何覆寫或強制執行特定行為。 如需詳細資訊，請參閱下列連結。
+
++ [技能集概念與撰寫](cognitive-search-working-with-skillsets.md)
++ [如何建立技能集](cognitive-search-defining-skillset.md)
++ [增量擴充和快取簡介](cognitive-search-incremental-indexing-conceptual.md)

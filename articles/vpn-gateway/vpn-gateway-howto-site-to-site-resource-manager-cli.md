@@ -1,18 +1,19 @@
 ---
-title: 將內部部署網路連線到 Azure 虛擬網路：站對站 VPN：CLI | Microsoft Docs
+title: 將內部部署網路連線至虛擬網路：站對站 VPN： CLI
 description: 透過公用網際網路建立從內部部署網路至 Azure 虛擬網路之 IPsec 連線的步驟。 這些步驟可協助您使用 CLI 建立跨單位的站對站 VPN 閘道連線。
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6cf427ee1dbd47d3b762035abc2236bda65db116
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d28a5a37be2947ea6cc7019d2b3cc73932c60d6
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161553"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779088"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>使用 CLI 建立具有站對站 VPN 連線的虛擬網路
 
@@ -67,13 +68,13 @@ GatewayType             = Vpn 
 ConnectionName          = VNet1toSite2
 ```
 
-## <a name="Login"></a>1.連線至您的訂用帳戶
+## <a name="Login"></a>1. 連接到您的訂用帳戶
 
 如果您選擇在本機執行 CLI，請連線到您的訂用帳戶。 如果您在瀏覽器中使用 Azure Cloud Shell，則無須連線到您的訂用帳戶。 您會在 Azure Cloud Shell 中自動連線。 不過，連線後，您可能會想要確認所使用的訂用帳戶是否正確。
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
-## <a name="rg"></a>2.建立資源群組
+## <a name="rg"></a>2. 建立資源群組
 
 下列範例會在「eastus」位置建立名為「TestRG1」的資源群組。 如果您在該區域中已有想要用來建立 VNet 的資源群組，您可以改為使用該資源群組。
 
@@ -81,7 +82,7 @@ ConnectionName          = VNet1toSite2
 az group create --name TestRG1 --location eastus
 ```
 
-## <a name="VNet"></a>3.建立虛擬網路
+## <a name="VNet"></a>3. 建立虛擬網路
 
 如果您還沒有虛擬網路，請使用 [az network vnet create](/cli/azure/network/vnet) 命令建立一個。 在建立虛擬網路時，請確定您指定的位址空間沒有與您在內部部署網路上所擁有的任何位址空間重疊。
 
@@ -96,7 +97,7 @@ az group create --name TestRG1 --location eastus
 az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.11.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.11.0.0/24
 ```
 
-## 4.<a name="gwsub"></a>建立閘道子網路
+## 4. <a name="gwsub"></a>建立閘道子網
 
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
@@ -109,11 +110,11 @@ az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubn
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="localnet"></a>5.建立區域網路閘道
+## <a name="localnet"></a>5. 建立局域網路閘道
 
 區域網路閘道通常是指您的內部部署位置。 請賦予網站可供 Azure 參考的名稱，然後指定您想要與其建立連線之內部部署 VPN 裝置的 IP 位址。 也請指定 IP 位址首碼，以供系統透過 VPN 閘道路由至 VPN 裝置。 您指定的位址首碼是位於內部部署網路上的首碼。 如果您的內部部署網路有所變更，您可以輕鬆地更新首碼。
 
-使用下列值：
+輸入下列值：
 
 * --gateway-ip-address 是內部部署 VPN 裝置的 IP 位址。
 * --local-address-prefixes 是內部部署位址空間。
@@ -124,7 +125,7 @@ az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubn
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --resource-group TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
-## <a name="PublicIP"></a>6.要求公用 IP 位址
+## <a name="PublicIP"></a>6. 要求公用 IP 位址
 
 VPN 閘道必須具有公用 IP 位址。 您會先要求 IP 位址資源，然後在建立虛擬網路閘道時參考它。 建立 VPN 閘道時，系統會將 IP 位址動態指派給此資源。 VPN 閘道目前僅支援*動態*公用 IP 位址配置。 您無法要求靜態公用 IP 位址指派。 不過，這不表示 IP 位址變更之後已被指派至您的 VPN 閘道。 公用 IP 位址只會在刪除或重新建立閘道時變更。 它不會因為重新調整、重設或 VPN 閘道的其他內部維護/升級而變更。
 
@@ -134,11 +135,11 @@ VPN 閘道必須具有公用 IP 位址。 您會先要求 IP 位址資源，然�
 az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
 ```
 
-## <a name="CreateGateway"></a>7.建立 VPN 閘道
+## <a name="CreateGateway"></a>7. 建立 VPN 閘道
 
 建立虛擬網路 VPN 閘道。 建立 VPN 閘道可能需要 45 分鐘以上的時間才能完成。
 
-使用下列值：
+輸入下列值：
 
 * 網站間組態的 --gateway-type 是 Vpn。 閘道器類型永遠是您實作的組態的特定類型。 如需詳細資訊，請參閱[閘道類型](vpn-gateway-about-vpn-gateway-settings.md#gwtype)。
 * --vpn-type 可以是 RouteBased (在某些文件中稱為動態閘道器)，或 PolicyBased (在某些文件中稱為靜態閘道器)。 這是您所連線裝置之需求的特有設定。 如需 VPN 閘道類型的詳細資訊，請參閱[關於 VPN 閘道組態設定](vpn-gateway-about-vpn-gateway-settings.md#vpntype)。
@@ -150,7 +151,7 @@ az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocati
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
 ```
 
-## <a name="VPNDevice"></a>8.設定 VPN 裝置
+## <a name="VPNDevice"></a>8. 設定 VPN 裝置
 
 內部部署網路的站對站連線需要 VPN 裝置。 在此步驟中，設定 VPN 裝置。 在設定 VPN 裝置時，您需要下列項目：
 
@@ -165,7 +166,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --re
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 
-## <a name="CreateConnection"></a>9.建立 VPN 連線
+## <a name="CreateConnection"></a>9. 建立 VPN 連線
 
 您會在虛擬網路閘道與內部部署 VPN 裝置之間建立站對站 VPN 連線。 請特別注意共用金鑰值，此值必須符合您的 VPN 裝置所設定的共用金鑰值。
 
@@ -177,7 +178,7 @@ az network vpn-connection create --name VNet1toSite2 --resource-group TestRG1 --
 
 過一會兒，連接將會建立。
 
-## <a name="toverify"></a>10.驗證 VPN 連線
+## <a name="toverify"></a>10. 驗證 VPN 連線
 
 [!INCLUDE [verify connection](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 

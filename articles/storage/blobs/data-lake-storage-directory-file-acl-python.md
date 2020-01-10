@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: e07bb6aa9d1fe22baaebb7bc7239ce03a728c6b9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dbfee5d897d54d68ea6471f0001793a905c95e62
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431802"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835062"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>使用 Python 來管理 Azure Data Lake Storage Gen2 中的目錄、檔案和 Acl （預覽）
 
@@ -140,6 +140,9 @@ def delete_directory():
 
 藉由呼叫**Get_access_control DataLakeDirectoryClient**方法來取得目錄的存取控制清單（ACL），並藉由呼叫**set_access_control DataLakeDirectoryClient**方法來設定 ACL。
 
+> [!NOTE]
+> 如果您的應用程式使用 Azure Active Directory （Azure AD）來授權存取，請確定您的應用程式用來授權存取的安全性主體已獲指派[儲存體 Blob 資料擁有者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)。 若要深入瞭解如何套用 ACL 許可權，以及變更它們的影響，請參閱[Azure Data Lake Storage Gen2 中的存取控制](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
+
 這個範例會取得並設定名為 `my-directory`之目錄的 ACL。 `rwxr-xrw-` 的字串會授與擁有使用者讀取、寫入和執行許可權、授與擁有群組 [讀取] 和 [執行] 許可權，並提供所有其他讀取和寫入權限。
 
 ```python
@@ -195,6 +198,9 @@ def upload_file_to_directory():
 ## <a name="manage-file-permissions"></a>管理檔案許可權
 
 藉由呼叫**Get_access_control DataLakeFileClient**方法來取得檔案的存取控制清單（ACL），並藉由呼叫**set_access_control DataLakeFileClient**方法來設定 ACL。
+
+> [!NOTE]
+> 如果您的應用程式使用 Azure Active Directory （Azure AD）來授權存取，請確定您的應用程式用來授權存取的安全性主體已獲指派[儲存體 Blob 資料擁有者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)。 若要深入瞭解如何套用 ACL 許可權，以及變更它們的影響，請參閱[Azure Data Lake Storage Gen2 中的存取控制](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
 
 這個範例會取得並設定名為 `my-file.txt`之檔案的 ACL。 `rwxr-xrw-` 的字串會授與擁有使用者讀取、寫入和執行許可權、授與擁有群組 [讀取] 和 [執行] 許可權，並提供所有其他讀取和寫入權限。
 

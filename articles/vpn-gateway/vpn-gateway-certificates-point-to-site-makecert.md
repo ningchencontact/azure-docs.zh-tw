@@ -1,19 +1,18 @@
 ---
-title: 產生並匯出點對站的憑證：MakeCert:Azure | Microsoft Docs
+title: Azure VPN 閘道：為 P2S 產生 & 匯出憑證： MakeCert
 description: 建立自我簽署的根憑證、匯出公開金鑰，以及使用 MakeCert 產生用戶端憑證。
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 973c0aa3bd187e963f15adbe34955d6bc9fa612d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad2ab31e6771efc54238d5747863fa2a9bb2f356
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60768101"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833980"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>使用 MakeCert 來產生並匯出點對站連線的憑證
 
@@ -28,12 +27,12 @@ ms.locfileid: "60768101"
 下列步驟說明如何使用 MakeCert 來建立自我簽署憑證。 這些並非部署模型特定的步驟。 它們同樣適用於資源管理員和傳統部署模型。
 
 1. 下載並安裝 [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx)。
-2. 安裝完成後，您通常可以找到 makecert.exe 公用程式，此路徑下：'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. 雖然，它有可能已安裝到另一個位置。 以系統管理員身分開啟命令提示字元，然後瀏覽至 MakeCert 公用程式的位置。 您可以使用下列範例，並針對適當的位置進行調整：
+2. 安裝之後，您通常可以在下列路徑中找到 makecert.exe 公用程式：'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'。 雖然，它有可能已安裝到另一個位置。 以系統管理員身分開啟命令提示字元，然後瀏覽至 MakeCert 公用程式的位置。 您可以使用下列範例，並針對適當的位置進行調整：
 
    ```cmd
    cd C:\Program Files (x86)\Windows Kits\10\bin\x64
    ```
-3. 在您電腦上的 [個人] 憑證存放區中建立並安裝憑證。 下列範例會建立對應的 .cer  檔案，您在設定 P2S 時會將此檔案上傳至 Azure。 將 'P2SRootCert' 和 'P2SRootCert.cer' 取代為您想使用的憑證名稱。 憑證位於您的 '[憑證 - 目前的使用者]\[個人]\[憑證]' 中。
+3. 在您電腦上的 [個人] 憑證存放區中建立並安裝憑證。 下列範例會建立對應的 .cer 檔案，您在設定 P2S 時會將此檔案上傳至 Azure。 將 'P2SRootCert' 和 'P2SRootCert.cer' 取代為您想使用的憑證名稱。 憑證位於您的 '[憑證 - 目前的使用者]\[個人]\[憑證]' 中。
 
    ```cmd
    makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My

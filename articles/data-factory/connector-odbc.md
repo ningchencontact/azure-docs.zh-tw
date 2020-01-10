@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 01/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 816009bb7481d93fd53011d067ab56cecbe8e3ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a5489b22ade2c661b2fae23c70440a29489e39f7
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440413"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830355"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 從 ODBC 資料存放區複製資料及將資料複製到處
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -34,14 +34,14 @@ ms.locfileid: "75440413"
 
 您可以將資料從 ODBC 來源複製到任何支援的接收資料存放區，或從任何支援的來源資料存放區複製到 ODBC 接收器。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
-具體而言，這個 ODBC 連接器支援使用 **Basic** (基本) 或 **Anonymous** (匿名) 驗證，從**任何 ODBC 相容的資料存放區**複製資料或將資料複製到該處。
+具體而言，這個 ODBC 連接器支援使用 **Basic** (基本) 或 **Anonymous** (匿名) 驗證，從**任何 ODBC 相容的資料存放區**複製資料或將資料複製到該處。 需要**64 位的 ODBC 驅動程式**。
 
 ## <a name="prerequisites"></a>必要條件
 
 若要使用這個 ODBC 連接器，您必須：
 
 - 設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
-- 安裝適用於 Integration Runtime 電腦上資料存放區的 ODBC 驅動程式。
+- 在 Integration Runtime 機上安裝資料存放區的64位 ODBC 驅動程式。
 
 ## <a name="getting-started"></a>開始使用
 

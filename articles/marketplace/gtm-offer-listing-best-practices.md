@@ -8,24 +8,28 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 439617c07b8059860c6d412cc60d56d4ac8c36a5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 39dea152545d210c48e21853c3c03c63843a4d81
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818655"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779097"
 ---
 # <a name="offer-listing-best-practices"></a>陳列供應項目的最佳做法
 
 本節中的表格會提供建立和設定 Marketplace 供應項目的建議。 若要撰寫和設定您的行銷資料，請移至 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#insights)。 
 
 ## <a name="storefront-offer-details"></a>店面供應項目詳細資料
+
 | 店面設定 | 最佳做法 |
 |:--- |:--- |  
-| 供應項目名稱 | 提供有力標題：<br> <ul> <li> 您的應用程式名稱應向客戶傳達核心價值。 </li> <li> 在您的應用程式標題中包含搜尋關鍵字，才能在搜尋引擎結果中得到高排名。 </li> </ul> 針對諮詢服務清單依照已設定的標題格式：<br>[供應專案名稱： [持續時間] [供應專案類型] （例如*Contoso：2周的執行*） <br><br> 遵守品牌指導方針：<br>提及 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 [Microsoft 商標和品牌指導方針](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)以及其他相關的特定產品指導方針。 |
+| 優惠名稱 | 提供有力標題：<br> <ul> <li> 您的應用程式名稱應向客戶傳達核心價值。 </li> <li> 在您的應用程式標題中包含搜尋關鍵字，才能在搜尋引擎結果中得到高排名。 </li> </ul> 針對諮詢服務清單依照已設定的標題格式：<br>[供應專案名稱： [持續時間] [供應專案類型] （例如*Contoso：2周的執行*） <br><br> 遵守品牌指導方針：<br>提及 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 [Microsoft 商標和品牌指導方針](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)以及其他相關的特定產品指導方針。 |
 | 供應項目描述 | 提供清楚的供應項目描述：<br> <ul> <li> 在您的描述中的前幾個句子清楚描述您供應項目的價值主張。 </li> <li> 請記住，前幾個句子可能會顯示在搜尋引擎結果中。 </li> <li> 請勿依賴特色與功能來銷售您的產品。 反之，要鎖定在您所提供的價值。 </li> <li> 請盡可能使用業界特定詞彙或凸顯優點的字眼。</li> <li> 此外，諮詢服務清單必須清楚表明您提供的專業服務。 </li></ul> 您的價值主張核心部分應該包含下列資訊：<ul><li>產品的描述。</li><li>可從產品獲益的使用者類型。</li><li>產品可解決的客戶需求或問題。</li></ul> |
 
+本節中的表格會提供建立和設定 Marketplace 供應項目的建議。 若要撰寫和設定您的行銷資料，請移至 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#insights)。 
+
 ## <a name="storefront-listing-details"></a>店面清單詳細資料
+
 | 店面設定 | 最佳做法 |
 |:--- |:--- |  
 | 產業：僅 AppSource 應用程式與諮詢服務 | 如果您的供應項目可解決特定產業需求，請選取產業： <ul><li> 在您的供應項目描述中凸顯這些特定產業需求。</li> </ul> **注意**：選項數目上限會隨供應專案類型而有所不同，並會在[Cloud Partner 入口網站](https://cloudpartner.azure.com/#insights)中指出。 |
@@ -43,10 +47,10 @@ Azure Marketplace 和 Microsoft AppSource 是店面，可提供不同且獨特�
 | :------------------- | :-------------------|
 | \* 汽車     | \* 汽車 |
 | 農業     | \* 其他-Unsegmented |
-| 配送映像    | \* 批發 <br> \* 包裹 & 套件運送 |
+| 通路業    | \* 批發 <br> \* 包裹 & 套件運送 |
 | 教育訓練     | \* 高等教育 <br> \* 主要 & 次要教育/K-12 <br> \* & 博物館的程式庫 |
 | 金融服務     | \* 銀行業 & 資本市場 <br> \* 保險 |
-| 政府    | \* 防禦 & 情報（用來稱之為國家/地區和公共安全性） <br> \* 公開安全 & 司法 <br> \* 文職政府 |
+| 政府機關    | \* 防禦 & 情報（用來稱之為國家和公共安全性） <br> \* 公開安全 & 司法 <br> \* 文職政府 |
 | 醫療保健（用來稱為「健康情況」）   | \* 健全狀況醫療給付 <br> \* 健全狀況提供者 <br> \* 製藥 |
 | 製造 & 資源（用來呼叫製造）   | \* 化學 & Agrochemical <br> \* 離散製造 <br> \* 能源 |
 | 零售 & 消費商品（用來稱為零售）  | \* 消費性商品 <br> \* 零售商 |
@@ -56,6 +60,18 @@ Azure Marketplace 和 Microsoft AppSource 是店面，可提供不同且獨特�
 | \* 出差 & 旅遊  | \* 飯店 & 休閒 <br> \* 旅遊 & 運輸 <br> \* 餐廳 & 食物服務 |
 | \* 其他公用部門產業  | \* 林業 & 釣魚 <br> \* 非營利組織 |
 | \* 房地產  | \* 其他-Unsegmented |
+
+### <a name="industries"></a>產業
+
+產業選擇僅適用于發佈至 Azure Marketplace 中發佈之 AppSource 和諮詢服務的供應專案。 如果您的供應專案滿足業界特定的需求，請在您的供應專案描述中呼叫業界特有的功能，以選取產業及/或縱向。 您最多可以選取兩個（2）個產業和兩個（2）每個產業選取的縱向。
+
+### <a name="applicable-products"></a>適用的產品
+
+選取應用程式適用的適用產品，供應專案會顯示在 [AppSource] 的 [選取的產品] 底下。
+
+### <a name="search-keywords"></a>搜尋關鍵字
+
+關鍵字可協助客戶在搜尋時找到您的供應專案。 識別您供應專案的前幾個搜尋關鍵字，並將它們併入您的供應專案摘要和描述，以及供應專案清單詳細資料區段的關鍵字區段中。
 
 ## <a name="storefront-marketing-details"></a>店面行銷詳細資料
 | 店面設定 | 最佳做法 |

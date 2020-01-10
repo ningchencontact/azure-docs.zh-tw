@@ -1,34 +1,34 @@
 ---
-title: 使用客戶管理的金鑰進行待用加密（預覽）
+title: 使用客戶管理的金鑰進行待用加密
 titleSuffix: Azure Cognitive Search
-description: 在您于 Azure Key Vault 中建立及管理的金鑰，透過 Azure 認知搜尋中的索引和同義字對應來補充伺服器端加密。 此功能目前為公開預覽狀態。
+description: 使用您在 Azure Key Vault 中建立和管理的金鑰，在 Azure 認知搜尋中補充索引和同義字對應的伺服器端加密。
 manager: nitinme
 author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 4f78b4b7b38c6e67aa8aebf04e3a8ef0fdbd000f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 01/08/2020
+ms.openlocfilehash: 2663e6c37819acf7cb781779107673b8ee3aec53
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112931"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832249"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>在 Azure Key Vault 中使用客戶管理的金鑰，在 Azure 認知搜尋中進行內容的待用加密
 
-> [!IMPORTANT] 
-> 待用加密的支援目前處於公開預覽狀態。 預覽功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-preview](search-api-preview.md)和[.net SDK 版本 8.0-preview](search-dotnet-sdk-migration-version-9.md)提供這項功能。 目前沒有入口網站支援。
-
-根據預設，Azure 認知搜尋會使用[服務管理的金鑰](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models)來加密靜止的使用者內容。 您可以使用您在 Azure Key Vault 中建立和管理的金鑰，以額外的加密層補充預設加密。 本文會逐步引導您完成這些步驟。
+根據預設，Azure 認知搜尋會使用[服務管理的金鑰](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models)來加密靜止的索引內容。 您可以使用您在 Azure Key Vault 中建立和管理的金鑰，以額外的加密層補充預設加密。 本文會逐步引導您完成這些步驟。
 
 透過與[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)的整合來支援伺服器端加密。 您可以建立自己的加密金鑰，然後將其儲存在金鑰保存庫中，或是使用 Azure Key Vault 的 API 來產生加密金鑰。 您也可以使用 Azure Key Vault 來審核金鑰使用方式。 
 
 使用客戶管理的金鑰進行加密時，會在建立這些物件時，于索引或同義字對應層級設定，而不是搜尋服務層級。 您無法加密已經存在的內容。 
 
-您可以使用不同金鑰保存庫中的不同金鑰。 這表示單一搜尋服務可以裝載多個已加密的 indexes\synonym 對應，每個都有可能使用不同的客戶管理金鑰，以及未使用客戶管理的金鑰加密的 indexes\synonym 對應。 
+金鑰不一定要位於相同的 Key Vault。 單一搜尋服務可以裝載多個加密的索引或同義字對應，每個都是以自己的客戶管理的加密金鑰進行加密，並儲存在不同的金鑰保存庫中。  您也可以在使用客戶管理的金鑰未加密的相同服務中擁有索引和同義字對應。 
 
-## <a name="prerequisites"></a>先決條件
+> [!IMPORTANT] 
+> 這項功能適用于[REST API 版本 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/)和[.net SDK 版本 8.0-preview](search-dotnet-sdk-migration-version-9.md)。 目前不支援在 Azure 入口網站中設定客戶管理的加密金鑰。
+
+## <a name="prerequisites"></a>必要條件
 
 此範例會使用下列服務。 
 
@@ -38,11 +38,14 @@ ms.locfileid: "74112931"
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)或[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)用於設定工作。
 
-+ 您可以使用[Postman](search-get-started-postman.md)、 [Azure PowerShell](search-create-index-rest-api.md)和[Azure 認知搜尋 SDK](https://aka.ms/search-sdk-preview)來呼叫預覽 REST API。 目前不支援客戶管理的加密的入口網站或 .NET SDK。
++ 您可以使用[Postman](search-get-started-postman.md)、 [Azure PowerShell](search-create-index-rest-api.md)和[Azure 認知搜尋 SDK](https://aka.ms/search-sdk-preview)來呼叫 REST API。 目前不支援客戶管理的加密的入口網站。
+
+>[!Note]
+> 由於加密與客戶管理的金鑰功能的本質，如果您的 Azure 金鑰保存庫金鑰已刪除，Azure 認知搜尋將無法取得您的資料。 若要防止 Key Vault 意外刪除金鑰所造成的資料遺失，您**必須**先啟用 Key Vault 中的虛刪除和清除保護，才能使用它。 如需詳細資訊，請參閱[Azure Key Vault 虛刪除](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)。   
 
 ## <a name="1---enable-key-recovery"></a>1-啟用金鑰修復
 
-此步驟是選擇性的，但強烈建議使用。 建立 Azure Key Vault 資源之後，請執行下列 PowerShell 或 Azure CLI 命令，以啟用所選金鑰保存庫中的虛**刪除**和**清除保護**：   
+建立 Azure Key Vault 資源之後，請執行下列 PowerShell 或 Azure CLI 命令，以啟用所選金鑰保存庫中的虛**刪除**和**清除保護**：   
 
 ```powershell
 $resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "<vault_name>").ResourceId
@@ -57,9 +60,6 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```azurecli-interactive
 az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
 ```
-
->[!Note]
-> 由於加密與客戶管理的金鑰功能非常本質，因此如果您的 Azure 金鑰保存庫金鑰已刪除，Azure 認知搜尋將無法取得您的資料。 為防止意外刪除 Key Vault 金鑰而造成資料遺失，強烈建議您在選取的金鑰保存庫上啟用虛刪除和清除保護。 如需詳細資訊，請參閱[Azure Key Vault 虛刪除](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)。   
 
 ## <a name="2---create-a-new-key"></a>2-建立新的金鑰
 
@@ -85,7 +85,7 @@ az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --en
 
 Azure 認知搜尋支援兩種指派身分識別的方式：受控識別或外部管理的 Azure Active Directory 應用程式。 
 
-可能的話，請使用受控識別。 這是將身分識別指派給您的搜尋服務最簡單的方式，而且應該在大部分的情況下使用。 如果您針對索引和同義字對應使用多個金鑰，或如果您的解決方案位於 disqualifies 以身分識別為基礎之驗證的分散式架構中，請使用結尾所述的「先進的[外部管理 Azure Active Directory 方法](#aad-app)這篇文章。
+可能的話，請使用受控識別。 這是將身分識別指派給您的搜尋服務最簡單的方式，而且應該在大部分的情況下使用。 如果您針對索引和同義字對應使用多個金鑰，或如果您的解決方案位於 disqualifies 以身分識別為基礎之驗證的分散式架構中，請使用本文結尾所述的「先進的[外部管理 Azure Active Directory 方法](#aad-app)。
 
  一般而言，受控識別可讓您的搜尋服務向 Azure Key Vault 進行驗證，而不需要在程式碼中儲存認證。 這種受控識別類型的生命週期會系結至搜尋服務的生命週期，其只能有一個受控識別。 [深入瞭解受控](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)識別。
 
@@ -228,7 +228,7 @@ Azure 認知搜尋支援兩種指派身分識別的方式：受控識別或外�
 
 >[!Important]
 > 決定使用 AAD 應用程式進行驗證而非受控身分識別時，請考慮 Azure 認知搜尋未授權代表您管理 AAD 應用程式，並由您負責管理您的 AAD 應用程式，例如定期應用程式驗證金鑰的輪替。
-> 變更 AAD 應用程式或其驗證金鑰時，任何使用該應用程式的 Azure 認知搜尋索引或同義字對應，都必須先更新為使用新的應用程式 ID\key，**然後再**刪除先前的應用程式或其授權金鑰，然後撤銷您的 Key Vault 存取權。
+> 變更 AAD 應用程式或其驗證金鑰時，任何使用該應用程式的 Azure 認知搜尋索引或同義字對應，都必須先更新為使用新的應用**程式 ID\key，然後再刪除**先前的應用程式或其授權金鑰，然後再撤銷您的 Key Vault 存取權。
 > 若未這麼做，將會導致索引或同義字地圖無法使用，因為一旦失去金鑰存取權，就無法解密內容。   
 
 ## <a name="next-steps"></a>後續步驟

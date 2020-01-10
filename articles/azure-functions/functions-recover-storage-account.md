@@ -5,18 +5,18 @@ author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 358f26af8d990d29f226978387fdf8093d2b8644
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 40037252ddf8e505ae7fe734813d598e7de96336
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612967"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834224"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>如何針對「無法連線至函式執行階段」的情形進行疑難排解
 
 
 ## <a name="error-text"></a>錯誤文字
-本文件的目的是要針對 Functions 入口網站中所顯示的下列錯誤進行疑難排解。
+本文的目的是要在函式入口網站中顯示下列錯誤時進行疑難排解。
 
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
@@ -40,13 +40,13 @@ ms.locfileid: "75612967"
 
 ### <a name="how-to-find-your-storage-account"></a>如何尋找儲存體帳戶
 
-藉由在應用程式設定中查閱儲存體帳戶名稱來開始。 `AzureWebJobsStorage` 或 `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 會包含包裝在連接字串中的儲存體帳戶名稱。 若要了解更多細節，請參閱[這裡的應用程式設定參考](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
+藉由在應用程式設定中查閱儲存體帳戶名稱來開始。 `AzureWebJobsStorage` 或 `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 會包含包裝在連接字串中的儲存體帳戶名稱。 如需詳細資訊，請參閱[這裡的應用程式設定參考](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)。
 
 在 Azure 入口網站中搜尋儲存體帳戶，以了解其是否仍存在。 如果已遭刪除，您就必須重新建立儲存體帳戶，並取代儲存體連接字串。 函式程式碼將會遺失，所以您必須重新部署一次。
 
 ## <a name="storage-account-application-settings-deleted"></a>儲存體帳戶的應用程式設定已刪除
 
-在上一個步驟中，如果您沒有儲存體帳戶連接字串，則表示其可能已遭到刪除或覆寫。 使用部署位置或 Azure Resource Manager 指令碼來設定應用程式設定時，最常會刪除應用程式設定。
+在上一個步驟中，如果您沒有儲存體帳戶連接字串，可能會遭到刪除或覆寫。 使用部署位置或 Azure Resource Manager 指令碼來設定應用程式設定時，最常會刪除應用程式設定。
 
 ### <a name="required-application-settings"></a>必要的應用程式設定
 
@@ -56,7 +56,7 @@ ms.locfileid: "75612967"
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
     * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-[在此了解這些應用程式設定](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
+請[在這裡閱讀這些應用程式設定的相關資訊](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)。
 
 ### <a name="guidance"></a>指導方針
 
@@ -66,7 +66,7 @@ ms.locfileid: "75612967"
 
 ## <a name="storage-account-credentials-invalid"></a>儲存體帳戶的認證無效
 
-如果您重新產生儲存體金鑰，則必須更新上述儲存體帳戶連接字串。 [在此深入了解儲存體金鑰管理](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
+如果您重新產生儲存體金鑰，則必須更新上述儲存體帳戶連接字串。 [在這裡閱讀更多關於儲存體金鑰管理的資訊](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)。
 
 ## <a name="storage-account-inaccessible"></a>無法存取儲存體帳戶
 
@@ -79,7 +79,7 @@ ms.locfileid: "75612967"
 
 如果您已設定每日執行配額，則會暫時停用您的函數應用程式，且許多入口網站控制項將變成無法使用。 
 
-* 若要驗證，請在入口網站中檢查開啟的 [平台功能] > [函數應用程式設定]。 如果您已超過配額，就會看到下列訊息
+* 若要確認，請在入口網站中開啟 平臺功能 > 函數應用程式設定。 如果您超過配額，則會看到下列訊息：
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
 * 請移除配額，然後重新啟動應用程式來解決此問題。
 

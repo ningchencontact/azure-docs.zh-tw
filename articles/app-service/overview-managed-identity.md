@@ -6,19 +6,19 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: f341f5bbf7221664301ca53eea1edd6af7544950
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e2a76e40206e1562d565571dbe22e5d9d0e930e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422024"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834156"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用 App Service 和 Azure Functions 的受控身分識別
 
 > [!Important] 
 > 如果您跨越訂用帳戶/租用戶移轉應用程式，App Service 和 Azure Functions 的受控身分識別將無法正常運作。 應用程式將必須取得新的身分識別，這可透過停用並重新啟用功能來實現。 請參閱下方的[移除身分識別](#remove)。 下游資源也必須更新存取原則，才能使用新的身分識別。
 
-此主題示範如何為 App Service 和 Azure Functions 應用程式建立受控應用程式身分識別，以及如何使用它來存取其他資源。 Azure Active Directory 的受控識別可讓應用程式輕鬆存取其他受到 AAD 保護的資源 (例如 Azure Key Vault)。 身分識別由 Azure 平台負責管理，因此您不需要佈建或輪替任何密碼。 如需有關 ADD 中受控身分識別的詳細資訊，請參閱 [Azure 資源的受控身分識別](../active-directory/managed-identities-azure-resources/overview.md)。
+此主題示範如何為 App Service 和 Azure Functions 應用程式建立受控應用程式身分識別，以及如何使用它來存取其他資源。 Azure Active Directory （AAD）的受控識別可讓您的應用程式輕鬆存取其他受 AAD 保護的資源，例如 Azure Key Vault。 身分識別由 Azure 平台負責管理，因此您不需要佈建或輪替任何密碼。 如需有關 ADD 中受控身分識別的詳細資訊，請參閱 [Azure 資源的受控身分識別](../active-directory/managed-identities-azure-resources/overview.md)。
 
 您的應用程式可以授與兩種類型的身分識別： 
 - **系統指派的身分識別**會繫結至您的應用程式，如果您的應用程式已刪除，則會被刪除。 應用程式只能有一個系統指派的身分識別。
@@ -77,7 +77,7 @@ ms.locfileid: "75422024"
 
 下列步驟將逐步引導您建立 Web 應用程式，並使用 Azure PowerShell 指派身分識別給它：
 
-1. 您可以視需要使用 [Azure PowerShell 指南](/powershell/azure/overview) \(英文\) 中的指示來安裝 Azure PowerShell，然後執行 `Login-AzAccount` 來建立與 Azure 的連線。
+1. 如有需要，請使用[Azure PowerShell 指南](/powershell/azure/overview)中找到的指示來安裝 Azure PowerShell，然後執行 `Login-AzAccount` 以建立與 Azure 的連線。
 
 2. 使用 Azure PowerShell 建立 Web 應用程式。 如需更多如何使用 Azure PowerShell 搭配 App Service 的相關範例，請參閱 [App Service PowerShell 範例](../app-service/samples-powershell.md)：
 
@@ -235,12 +235,12 @@ ms.locfileid: "75422024"
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>取得 Azure 資源的權杖
 
-應用程式可以使用自己的身分識別來取得權杖，存取其他受 AAD 保護的資源 (如 Azure Key Vault)。 這些權杖代表存取資源的應用程式，而不是任何特定的應用程式使用者。 
+應用程式可以使用其受控識別來取得權杖，以存取 AAD 所保護的其他資源，例如 Azure Key Vault。 這些權杖代表存取資源的應用程式，而不是任何特定的應用程式使用者。 
 
 > [!IMPORTANT]
-> 您可能需要設定目標資源，讓應用程式得以存取。 例如，如果您要求 Key Vault 的權杖，便需要確認是否已新增含有應用程式身分識別的存取原則。 否則即使呼叫含有權杖，依然會遭到拒絕。 若要深入了解哪些資源支援 Azure Active Directory 權杖，請參閱[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)。
+> 您可能需要設定目標資源，讓應用程式得以存取。 例如，如果您要求權杖來存取 Key Vault，您必須確定您已新增包含應用程式身分識別的存取原則。 否則即使呼叫含有權杖，依然會遭到拒絕。 若要深入了解哪些資源支援 Azure Active Directory 權杖，請參閱[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)。
 
-有一個簡單的 REST 通訊協定可用來在 App Service 和 Azure Functions 中取得權杖。 這可用於所有應用程式和語言。 針對某些 .NET 和 JAVA，Azure SDK 提供此通訊協定的抽象概念，並協助本機開發體驗。
+有一個簡單的 REST 通訊協定可用來在 App Service 和 Azure Functions 中取得權杖。 這可用於所有應用程式和語言。 針對 .NET 和 JAVA，Azure SDK 提供此通訊協定的抽象概念，並協助本機開發體驗。
 
 ### <a name="using-the-rest-protocol"></a>使用 REST 通訊協定
 

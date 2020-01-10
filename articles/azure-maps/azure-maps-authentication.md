@@ -1,20 +1,20 @@
 ---
 title: 向 Azure 地圖服務驗證 | Microsoft Docs
-description: 進行驗證以使用 Azure 地圖服務。
+description: 使用 Microsoft Azure 對應服務的 Azure Active Directory （Azure AD）或共用金鑰驗證。 瞭解如何取得 Azure 地圖服務訂用帳戶金鑰。
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/24/2019
+ms.date: 12/30/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 84af496a92bd3c7b30062e965335782f7661aa4a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a58436063009b732a15e74c8a3fc3f95b8df29cf
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575662"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834189"
 ---
 # <a name="authentication-with-azure-maps"></a>向 Azure 地圖服務驗證
 
@@ -22,12 +22,14 @@ Azure 地圖服務支援兩種驗證要求的方式：共用金鑰和 Azure Acti
 
 ## <a name="shared-key-authentication"></a>共用金鑰驗證
 
-共用金鑰驗證會將 Azure 地圖服務帳戶所產生的金鑰連同每個要求，傳遞至 Azure 地圖服務。  建立 Azure 地圖服務帳戶時，會產生兩個金鑰。 對於 Azure 地圖服務的每個要求，都需要將訂用帳戶金鑰新增為 URL 的參數。
+共用金鑰驗證會將 Azure 地圖服務帳戶所產生的金鑰連同每個要求傳送給 Azure 地圖服務。 對於 Azure 地圖服務服務的每個要求，必須將訂用帳戶*金鑰*新增為 URL 的參數。 建立 Azure 地圖服務帳戶之後，會產生主要和次要金鑰。 當您使用共用金鑰驗證呼叫 Azure 地圖服務時，建議您使用主要金鑰做為訂用帳戶金鑰。 次要金鑰可用於輪流金鑰變更之類的案例中。  
+
+如需在 Azure 入口網站中查看金鑰的詳細資訊，請參閱[管理驗證](https://aka.ms/amauthdetails)。
 
 > [!Tip]
 > 建議您定期重新產生金鑰。 您會收到兩個金鑰，以便使用一個金鑰維持連線，同時重新產生另一個金鑰。 在重新產生金鑰時，必須對所有存取此帳戶的應用程式進行更新，使其使用新的金鑰。
 
-如需檢視金鑰的相關資訊，請參閱[檢視驗證詳細資料](https://aka.ms/amauthdetails)。
+
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>使用 Azure Active Directory 進行驗證 (預覽)
 
@@ -46,7 +48,7 @@ Azure 地圖服務會為每個 Azure 地圖服務帳戶產生「唯一識別碼 
 | Azure 環境   | Azure AD token 端點 |
 | --------------------|-------------------------|
 | Azure 公用        | https://login.microsoftonline.com |
-| Azure Government    | https://login.microsoftonline.us |
+| Azure 政府機構    | https://login.microsoftonline.us |
 
 
 如需如何為 Azure 地圖服務設定 Azure AD 和要求權杖的詳細資訊，請參閱[管理 Azure 地圖服務中的驗證](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)。
