@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9338f0e26595c1ab25ab51578880daf8c0c5bbc4
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: a9b942c4726c770f1ea0d35c924395cdff40e1c7
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672443"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732013"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>快速入門：使用草稿在 Azure Kubernetes Service （AKS）上進行開發
 
@@ -26,7 +26,7 @@ Draft 是一個開放原始碼工具，可協助在 Kubernetes 叢集中封裝�
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
 * [已安裝 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。
 * 已安裝並設定 Docker。 Docker 提供可在 [Mac][docker-for-mac]、[Windows][docker-for-windows] 或 [Linux][docker-for-linux] 系統上設定 Docker 的套件。
-* [已安裝 Helm](https://github.com/helm/helm#install)。
+* [已安裝 Helm v2][helm-install]。
 * [草稿已安裝][draft-documentation]。
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>建立 Azure Kubernetes Service 叢集
@@ -298,7 +298,7 @@ Inspect the logs with `draft logs 01CMZC9RF0TZT7XPWGFCJE15X4`
 
 若要查看更新的應用程式，請再次流覽至負載平衡器的 IP 位址，並確認您的變更已出現。
 
-## <a name="delete-the-cluster"></a>刪除叢集
+## <a name="delete-the-cluster"></a>選取叢集
 
 當不再需要叢集時，請使用[az group delete][az-group-delete]命令來移除資源群組、AKS 叢集、容器登錄、儲存在該處的容器映射，以及所有相關資源。
 
@@ -332,6 +332,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 [example-java-hello-l7]: https://github.com/Azure/draft/blob/master/examples/example-java/src/main/java/helloworld/Hello.java#L7
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
-[helm-init]: https://docs.helm.sh/helm/#helm-init
+[helm-init]: https://v2.helm.sh/docs/helm/#helm-init
+[helm-install]: https://v2.helm.sh/docs/using_helm/#installing-helm
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
-[tiller-rbac]: https://docs.helm.sh/using_helm/#tiller-namespaces-and-rbac
+[tiller-rbac]: https://v2.helm.sh/docs/using_helm/#tiller-namespaces-and-rbac

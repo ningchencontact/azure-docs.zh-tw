@@ -4,22 +4,35 @@ description: 瞭解如何分析 Azure 春季雲端中的診斷資料
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/06/2019
+ms.date: 01/06/2020
 ms.author: jeconnoc
-ms.openlocfilehash: ebe438bd2dc5b4921ce733001f3c9df19bc592fe
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 347867bc59206a24d32ca01f15bbff35fb73e1d0
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607868"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75730037"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>使用診斷設定來分析記錄和計量
 
-藉由使用 Azure 春季雲端的診斷功能，您可以使用下列任何服務來分析記錄和計量：
+使用 Azure 春季雲端的診斷功能，您可以使用下列任何一項服務來分析記錄和計量：
 
-* 使用 Azure Log Analytics，其中資料會立即寫入，而不需要先寫入至儲存體。
-* 將它們儲存到儲存體帳戶，以進行審核或手動檢查。 您可以指定保留時間（以天為單位）。
-* 將它們串流至您的事件中樞，以供協力廠商服務或自訂分析解決方案進行內嵌。
+* 使用 Azure Log Analytics，其中資料會寫入 Azure 儲存體。 將記錄匯出至 Log Analytics 時，會有延遲。
+* 將記錄儲存至儲存體帳戶以進行審核或手動檢查。 您可以指定保留時間（以天為單位）。
+* 將記錄串流至事件中樞，以供協力廠商服務或自訂分析解決方案進行內嵌。
+
+選擇您想要監視的記錄類別和度量類別。
+
+## <a name="logs"></a>記錄
+
+|記錄 | 說明 |
+|----|----|
+| **ApplicationConsole** | 所有客戶應用程式的主控台記錄。 | 
+| **SystemLogs** | 目前，只有此類別中的[春季 Cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server)記錄。 |
+
+## <a name="metrics"></a>計量
+
+如需計量的完整清單，請參閱[春季雲端計量](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
 
 若要開始使用，請啟用其中一項服務以接收資料。 若要瞭解如何設定 Log Analytics，請參閱[Azure 監視器中的 Log analytics 入門](../azure-monitor/log-query/get-started-portal.md)。 
 
@@ -33,22 +46,49 @@ ms.locfileid: "73607868"
     * **傳送至 Log Analytics**
 
 1. 選擇您想要監視的記錄類別和計量類別，然後指定保留時間（以天為單位）。 保留時間僅適用于儲存體帳戶。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 > [!NOTE]
 > 當記錄或計量發出時，以及它們出現在您的儲存體帳戶、事件中樞或 Log Analytics 時，可能會有最多15分鐘的間隔。
 
-## <a name="view-the-logs"></a>查看記錄
+## <a name="view-the-logs-and-metrics"></a>查看記錄和計量
+有各種方法可查看記錄和計量，如下列標題底下所述。
+
+### <a name="use-logs-blade"></a>使用記錄檔分頁
+
+1. 在 Azure 入口網站中，移至您的 Azure 春季雲端實例。
+1. 若要開啟 [**記錄搜尋**] 窗格，請選取 [**記錄**]。
+1. 在 [**記錄**搜尋] 方塊中
+   * 若要查看記錄，請輸入簡單的查詢，例如：
+
+    ```sql
+    AppPlatformLogsforSpring
+    | limit 50
+    ```
+   * 若要查看計量，請輸入簡單的查詢，例如：
+
+    ```sql
+    AzureMetrics
+    | limit 50
+    ```
+1. 若要查看搜尋結果，請選取 [**執行**]。
 
 ### <a name="use-log-analytics"></a>使用 Log Analytics
 
 1. 在 Azure 入口網站的左窗格中，選取  **Log Analytics**。
 1. 選取您在新增診斷設定時所選擇的 Log Analytics 工作區。
 1. 若要開啟 [**記錄搜尋**] 窗格，請選取 [**記錄**]。
-1. 在 [**記錄**搜尋] 方塊中，輸入簡單的查詢，例如：
+1. 在 [**記錄**搜尋] 方塊中，
+   * 若要查看記錄，請輸入簡單的查詢，例如：
 
     ```sql
     AppPlatformLogsforSpring
+    | limit 50
+    ```
+    * 若要查看計量，請輸入簡單的查詢，例如：
+
+    ```sql
+    AzureMetrics
     | limit 50
     ```
 
@@ -60,6 +100,8 @@ ms.locfileid: "73607868"
     | where ServiceName == "YourServiceName" and AppName == "YourAppName" and InstanceName == "YourInstanceName"
     | limit 50
     ```
+> [!NOTE]  
+> `==` 區分大小寫，但 `=~` 不是。
 
 若要深入瞭解 Log Analytics 中使用的查詢語言，請參閱[Azure 監視器記錄查詢](../azure-monitor/log-query/query-language.md)。
 
@@ -87,9 +129,9 @@ ms.locfileid: "73607868"
 
 ## <a name="analyze-the-logs"></a>分析記錄
 
-Azure Log Analytics 提供 Kusto，讓您可以查詢記錄以進行分析。 如需使用 Kusto 查詢記錄的快速簡介，請參閱[Log Analytics 教學](../azure-monitor/log-query/get-started-portal.md)課程。
+Azure Log Analytics 是以 Kusto 引擎執行，因此您可以查詢記錄以進行分析。 如需使用 Kusto 查詢記錄的快速簡介，請參閱[Log Analytics 教學](../azure-monitor/log-query/get-started-portal.md)課程。
 
-應用程式記錄可提供有關應用程式健康情況、效能等的重要資訊。 在接下來的幾節中，有一些簡單的查詢可協助您瞭解應用程式目前和過去的狀態。
+應用程式記錄會提供有關您應用程式健康情況、效能等的重要資訊和詳細記錄。 在接下來的幾節中，有一些簡單的查詢可協助您瞭解應用程式目前和過去的狀態。
 
 ### <a name="show-application-logs-from-azure-spring-cloud"></a>顯示 Azure 春季雲端的應用程式記錄
 

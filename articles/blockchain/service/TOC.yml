@@ -49,6 +49,8 @@
       href: manage-consortium-powershell.md
     - name: 使用 Logic Apps
       href: ethereum-logic-app.md
+    - name: 監視 Azure 區塊鏈服務
+      href: monitor-azure-blockchain-service.md
 - name: 區塊鏈資料管理員
   items:
     - name: 資料管理員概觀

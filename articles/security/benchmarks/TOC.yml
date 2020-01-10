@@ -4,7 +4,7 @@
   href: introduction.md
 - name: 安全性控制
   items:
-    - name: 概觀
+    - name: Azure 資訊安全中心控管概觀
       href: overview.md
     - name: 網路安全性
       href: security-control-network-security.md

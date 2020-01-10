@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdf4e5dfc48fdeee86526257d6d8c47a464ce113
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b1e8128066794932abaca4290a5c896354522544
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786413"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732445"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>規劃自動使用者佈建部署
 
@@ -72,7 +72,7 @@ Azure AD 使用 [應用程式庫] 功能表中提供的範本，提供任何應�
 | 隨選網路研討會| [使用 Azure AD 管理您的企業應用程式](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>瞭解 Azure AD 如何協助您達成企業 SaaS 應用程式的 SSO，以及控制存取的最佳做法。 |
 | 影片| [Azure Active Directory 中的使用者布建是什麼？](https://youtu.be/_ZjARPpI6NI) <br> [如何在 Active Directory 中部署使用者布建？](https://youtu.be/pKzyts6kfrw) <br> [整合 Salesforce 與 Azure AD：如何自動化使用者布建](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | 線上課程| 線上 SkillUp：[管理](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about)身分識別 <br> 瞭解如何整合 Azure AD 與許多 SaaS 應用程式，以及保護使用者存取這些應用程式的安全。 |
-| 通訊錄| [使用 Web 應用程式 Azure Active Directory 的新式驗證（開發人員參考）第1版](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0)。  <br> 這是建立這些新環境 Active Directory 驗證解決方案的權威深入指南。 |
+| 書籍| [使用 Web 應用程式 Azure Active Directory 的新式驗證（開發人員參考）第1版](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0)。  <br> 這是建立這些新環境 Active Directory 驗證解決方案的權威深入指南。 |
 | 教學課程| 請參閱[教學課程清單，以瞭解如何整合 SaaS 應用程式與 Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)。 |
 | 常見問題集| 自動化使用者布[建的常見問題](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) |
 
@@ -138,7 +138,7 @@ Azure AD 布建服務會藉由連接到每個應用程式廠商所提供的使�
 
 ### <a name="plan-a-pilot"></a>規劃試驗
 
-我們建議您在測試環境中使用自動使用者布建的初始設定，然後再將其調整為生產中的所有使用者。
+我們建議您在測試環境中使用自動使用者布建的初始設定，然後再將其調整為生產中的所有使用者。 請參閱執行試驗的[最佳做法](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans#best-practices-for-a-pilot)。
 
 #### <a name="best-practices-for-a-pilot"></a>試驗的最佳做法  
 

@@ -83,7 +83,9 @@
       href: tutorial-connectivity.md
 - name: 概念
   items:
-    - name: TLS 1.2 強制執行
+    - name: TLS 支援
+      href: iot-hub-tls.md
+    - name: TLS 1.0 和 1.1 淘汰
       href: tls-1.2-everywhere.md
     - name: 訊息擴充 概觀
       href: iot-hub-message-enrichments-overview.md

@@ -333,7 +333,7 @@
       items:
         - name: API 版本 2019-05-06-Preview
           href: search-api-preview.md
-        - name: ResetSkills API
+        - name: 重設技能 API
           href: preview-api-resetskills.md
     - name: Resource Manager 範本
       href: /azure/templates/microsoft.search/searchservices

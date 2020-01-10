@@ -504,6 +504,8 @@
           href: sql-database-security-tutorial.md
         - name: 搭配串流分析來串流資料
           href: sql-database-stream-analytics.md
+        - name: 將 SQLite 資料庫遷移至無伺服器的 Azure SQL Database
+          href: tutorial-sqlite-db-to-azure-sql-serverless-offline.md
     - name: 概念
       items:
         - name: 單一資料庫資源

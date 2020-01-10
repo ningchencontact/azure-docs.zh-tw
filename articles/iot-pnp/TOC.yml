@@ -71,14 +71,18 @@
       href: howto-develop-solution.md
 - name: 參考
   items:
-    - name: 數位分身
-      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin'
-    - name: 數位分身服務
-      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/service'
-    - name: 數位分身模型存放庫
-      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel'
-    - name: 產生 REST 安全性權杖
-      href: howto-generate-sas-token.md
+    - name: 程式庫和 SDK
+      href: libraries-sdks.md
+    - name: REST API
+      items:
+        - name: 數位分身
+          href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin'
+        - name: 數位分身服務
+          href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/service'
+        - name: 數位分身模型存放庫
+          href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel'
+        - name: 產生 REST 安全性權杖
+          href: howto-generate-sas-token.md
 - name: 相關參考
   items:
     - name: 方案

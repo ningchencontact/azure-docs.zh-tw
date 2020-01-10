@@ -11,16 +11,16 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: 86a3fd7c67dc2e544a1510dc910951452c32245d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b560cee23855d1c0e8a7b3c2cb9d82c184a1ebf6
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811357"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732394"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>高可用性和 Azure SQL Database
 
-Azure SQL Database 中高可用性架構的目標是確保您的資料庫在99.99% 的時間內啟動並執行，而不需擔心維護作業和中斷的影響。 Azure 會自動處理重要的服務工作，例如修補、備份、Windows 和 SQL 升級，以及未計畫的事件，例如基礎硬體、軟體或網路失敗。  當基礎 SQL 實例修補或故障時，如果您在應用程式中[採用重試邏輯](sql-database-develop-overview.md#resiliency)，停機時間就不明顯。 即使在最關鍵的情況下，Azure SQL Database 也可以快速復原，確保您的資料隨時可用。
+Azure SQL Database 中高可用性架構的目標，是要保證您的資料庫已啟動並執行最短99.99% 的時間（如需有關不同階層之特定 SLA 的詳細資訊，請參閱[Azure SQL Database 的 sla](https://azure.microsoft.com/support/legal/sla/sql-database/)），而不需擔心維護作業和中斷的影響。 Azure 會自動處理重要的服務工作，例如修補、備份、Windows 和 SQL 升級，以及未計畫的事件，例如基礎硬體、軟體或網路失敗。  當基礎 SQL 實例修補或故障時，如果您在應用程式中[採用重試邏輯](sql-database-develop-overview.md#resiliency)，停機時間就不明顯。 即使在最關鍵的情況下，Azure SQL Database 也可以快速復原，確保您的資料隨時可用。
 
 高可用性解決方案的設計，是為了確保認可的資料永遠不會因為失敗而遺失，維護作業不會影響您的工作負載，而且資料庫不會是您軟體架構中的單一失敗點。 在升級或維護資料庫時，不會有維護視窗或停機時間要求您停止工作負載。 
 

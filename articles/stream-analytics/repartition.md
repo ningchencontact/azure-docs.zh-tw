@@ -7,25 +7,25 @@ ms.author: mamccrea
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: bbea71464e8a1f4e93e510106d372257f155b0c6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c70cfb6c1626908a2ba4e707a890f6dc7481c51a
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935055"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732377"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>使用 Azure 串流分析進行重新分割以優化處理
 
-本文說明如何使用重新分割來調整您的 Azure 串流分析查詢，以找出[無法完全平行](stream-analytics-scale-jobs.md)處理的案例。
+本文說明如何使用重新分割來調整您的 Azure 串流分析查詢, 以找出無法完全[平行](stream-analytics-scale-jobs.md)處理的案例。
 
-[在下列情況中](stream-analytics-parallelization.md)，您可能無法使用平行化：
+在下列情況中, 您可能無法使用[平行化](stream-analytics-parallelization.md):
 
 * 您不會控制輸入資料流程的分割區索引鍵。
-* 您在稍後需要合併多個分割區的來源「噴濺」輸入。 
-
-## <a name="how-to-repartition"></a>如何重新分割
+* 您在稍後需要合併多個分割區的來源「噴濺」輸入。
 
 當您處理不是根據自然輸入配置分區化的資料流程（例如事件中樞的**PartitionId** ）時，需要重新分割或重新輪換。 當您重新分割時，每個分區都可以獨立處理，這可讓您以線性方式相應放大您的串流管線。
+
+## <a name="how-to-repartition"></a>如何重新分割
 
 若要重新分割，請在查詢中的**PARTITION BY**語句後面**使用關鍵字。** 下列範例會以**DeviceID**將資料分割為10的分割區計數。 **DeviceID**的雜湊用來判斷哪個分割區應接受哪些子串流。 資料會針對每個分割的資料流程個別排清，假設輸出支援分割的寫入，而且有10個磁碟分割。
 

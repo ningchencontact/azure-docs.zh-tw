@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 7221619c8d9388a9f6d46ec1dfbb11e467db861a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/08/2020
+ms.openlocfilehash: c597bc4430e4390f0e29e4fe8ae4014521e1ae74
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793300"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732202"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>在 Azure Logic Apps 中將成品新增至您的整合服務環境（ISE）
 
-在您建立[整合服務環境（ISE）](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)之後，請新增邏輯應用程式、整合帳戶和連接器等成品，使其可以存取您 Azure 虛擬網路中的資源。
+在您建立[整合服務環境（ISE）](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)之後，請新增邏輯應用程式、整合帳戶和連接器等成品，使其可以存取您 Azure 虛擬網路中的資源。 例如，您在建立 ISE 之後變成可用的受控 ISE 連接器，並不會自動出現在邏輯應用程式設計工具中。 在您可以使用這些 ISE 連接器之前，您必須手動[新增這些連接器，並將它們部署到 ISE](#add-ise-connectors-environment) ，使其出現在邏輯應用程式設計工具中。
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 您建立用來執行邏輯應用程式的 ISE。 如果您沒有 ISE，請[先建立 ise](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)。
 
@@ -84,17 +84,17 @@ ms.locfileid: "74793300"
 
 ## <a name="add-ise-connectors"></a>新增 ISE 連接器
 
-您可以新增可在 ISE 中使用但不會部署在 ISE 中的 Microsoft 管理的連接器。
+當您建立 ISE 之後，Microsoft 管理的連接器不會自動顯示在邏輯應用程式設計工具的連接器選擇器中。 在您可以使用這些 ISE 連接器之前，您必須手動新增這些連接器，並將其部署至 ISE，使其出現在邏輯應用程式設計工具中。
 
 1. 在您的 ISE 功能表的 [**設定**] 底下，選取 [**受控連接器**]。 在工具列上，選取 [新增]。
 
    ![查看受管理的連接器](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. 在 [新增**受管理的連接器**] 窗格中，開啟 [**尋找連接器**] 清單。 如果您想要的連接器可供使用，請選取該連接器，然後選取 [**建立**]。
+1. 在 [新增**受管理的連接器**] 窗格中，開啟 [**尋找連接器**] 清單。 選取您想要使用但尚未部署在 ISE 中的 ISE 連接器。 選取 [建立]。
 
-   此清單只會顯示符合資格但未部署在 ISE 中的連接器。 您的 ISE 中已部署的連接器似乎無法選取。
+   ![選取您想要在 ISE 中部署的 ISE 連接器](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
-   ![選取合格連接器](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
+   只有符合資格但尚未部署到 ISE 的 ISE 連接器才會顯示供您選取。 您的 ISE 中已部署的連接器似乎無法選取。
 
 <a name="create-custom-connectors-environment"></a>
 

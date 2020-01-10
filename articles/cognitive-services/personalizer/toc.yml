@@ -66,6 +66,8 @@
     - name: 建立和設定個人化工具
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
+    - name: 管理學習原則
+      href: how-to-learning-policy.md
     - name: 分析
       items:
         - name: 離線評估

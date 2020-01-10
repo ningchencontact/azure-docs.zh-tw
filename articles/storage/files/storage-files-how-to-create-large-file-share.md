@@ -7,116 +7,110 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 34b8af56a8f2f108b96ca07fa73f90bb9eb5bf13
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a9b545d71f21138c0374cf199ce10dc2dc246afb
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422739"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732139"
 ---
-# <a name="how-to-enable-and-create-large-file-shares"></a>如何啟用和建立大型檔案共用
+# <a name="enable-and-create-large-file-shares"></a>啟用並建立大型檔案共用
 
-一開始，標準檔案共用最多隻能相應增加至5個 TiB，現在，使用大型檔案共用時，可以相應增加至 100 TiB。 Premium 檔案共用預設會相應增加至 100 TiB。 
+原本，標準檔案共用最多隻能相應增加至5個 TiB。 現在，使用大型檔案共用時，可以相應增加至 100 TiB。 您可以針對現有的檔案共用，在現有的儲存體帳戶上啟用此調整。 Premium 檔案共用預設會相應增加至 100 TiB。
 
-若要使用標準檔案共用相應增加至 100 TiB，您必須啟用儲存體帳戶以使用大型檔案共用。 您可以啟用現有的帳戶，或建立新的帳戶以使用大型檔案共用。
+## <a name="prerequisites"></a>必要條件
 
-## <a name="prerequisites"></a>先決條件
-
-- 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
-- 如果您想要使用 Azure CLI，請確定您已[安裝最新版本](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
-- 如果您想要使用 Azure PowerShell，請確定您已[安裝最新版本](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)。
+- 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+- 如果您想要使用 Azure CLI，請[安裝最新版本](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
+- 如果您想要使用 Azure PowerShell，請[安裝最新版本](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)。
 
 ## <a name="restrictions"></a>限制
 
-已啟用大型檔案共用的帳戶支援 LRS 或 ZRS。 目前，已啟用大型檔案共用的帳戶不支援切換、GRS 或 RA-GRS。 在帳戶上啟用大型檔案共用是無法復原的程式，一旦啟用，您的帳戶就無法轉換成切換、GRS 或 RA-GRS。
+目前，您只能在已啟用大型檔案共用的帳戶上使用 LRS 或 ZRS。 您不能使用切換、GRS 或 RA-GRS。
+在帳戶上啟用大型檔案共用是無法復原的程式。 啟用之後，您將無法將帳戶轉換成切換、GRS 或 RA-GRS。
 
 ## <a name="create-a-new-storage-account"></a>建立新的儲存體帳戶
 
 ### <a name="portal"></a>入口網站
 
-登入 [Azure 入口網站](https://portal.azure.com)。
-
-1. 在 Azure 入口網站中，選取 [所有服務]。 在資源清單中，輸入**儲存體帳戶**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [儲存體帳戶]。
-1. 在出現的 [儲存體帳戶] 視窗上，選擇 [新增]。
-1. 選取要在其中建立儲存體帳戶的訂用帳戶。
-1. 在 [資源群組] 欄位下方，選取 [新建]。 輸入新資源群組的名稱，如下圖所示。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 在 Azure 入口網站中，選取 [所有服務]。 
+1. 在資源清單中，輸入**儲存體帳戶**。 當您輸入時，清單會根據您輸入的文字進行篩選。 選取 [儲存體帳戶]。
+1. 在出現的 [**儲存體帳戶**] 視窗中，選取 [**新增**]。
+1. 選取您將用來建立儲存體帳戶的訂用帳戶。
+1. 在 [資源群組] 欄位下方，選取 [新建]。 為新的資源群組輸入名稱。
 
     ![示範如何在入口網站中建立資源群組的螢幕擷取畫面](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
-1. 接下來，輸入儲存體帳戶的名稱。 您所選擇的名稱在整個 Azure 中必須是唯一的。 名稱的長度必須介於 3 到 24 個字元之間，且只能包含數字和小寫字母。
-1. 選取儲存體帳戶的 [位置]，並確定它是[支援 LFS 的其中一個區域](storage-files-planning.md#regional-availability)。
+1. 接下來，輸入儲存體帳戶的名稱。 此名稱在整個 Azure 中必須是唯一的。 名稱的長度也必須是3到24個字元，而且只能包含數位和小寫字母。
+1. 選取儲存體帳戶的 [位置]，並確定它是[大型檔案共用支援的其中一個區域](storage-files-planning.md#regional-availability)。
 1. 將複寫設定為**本機多餘的儲存體**或**區域多餘的儲存體**。
-1. 讓這些欄位設定為其預設值：
+1. 將這些欄位保留為預設值：
 
    |欄位  |值  |
    |---------|---------|
-   |部署模型     |資源管理員         |
-   |效能     |標準         |
+   |部署模型     |Resource Manager         |
+   |效能     |Standard         |
    |帳戶類型     |StorageV2 (一般用途 v2)         |
    |存取層     |經常性存取         |
 
-1. 選取 [ **Advanced** ]，然後針對**大型檔案共用**選取 [**已啟用**]。
+1. 選取 [ **Advanced**]，然後選取 [**大型檔案共用**] 右邊的 [**已啟用**] 選項按鈕。
 1. 選取 [檢閱 + 建立]，以檢閱您的儲存體帳戶設定並建立帳戶。
 
-    ![large-file-shares-advanced-enable .png](media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png)
+    ![在 Azure 入口網站的新儲存體帳戶上具有 [已啟用] 選項按鈕的螢幕擷取畫面](media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png)
 
 1. 選取 [建立]。
 
-
 ### <a name="cli"></a>CLI
 
-首先，請確定您[安裝的是最新版本](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)，如此才能啟用此功能。
+首先，[安裝最新版本的 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ，讓您可以啟用大型檔案共用。
 
-若要建立已啟用大型檔案共用的儲存體帳戶，請以您的值取代 `<yourStorageAccountName>`、`<yourResourceGroup>`和 `<yourDesiredRegion>`，然後使用下列命令：
+若要建立已啟用大型檔案共用的儲存體帳戶，請使用下列命令。 以您的資訊取代 `<yourStorageAccountName>`、`<yourResourceGroup>`和 `<yourDesiredRegion>`。
 
 ```azurecli-interactive
-## This command creates a large file share enabled account, it will not support GZRS, GRS, or RA-GRS
-az storage account create –name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> –sku Standard_LRS --kind StorageV2 –enable-large-file-share
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+az storage account create --name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> --sku Standard_LRS --kind StorageV2 --enable-large-file-share
 ```
 
 ### <a name="powershell"></a>PowerShell
 
-首先，請確定您[安裝的是最新版本](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)，如此才能啟用此功能。
+首先，[安裝最新版的 PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) ，讓您可以啟用大型檔案共用。
 
-若要建立已啟用大型檔案共用的儲存體帳戶，請以您的值取代 `<yourStorageAccountName>`、`<yourResourceGroup>`和 `<yourDesiredRegion>`，然後使用下列命令：
+若要建立已啟用大型檔案共用的儲存體帳戶，請使用下列命令。 以您的資訊取代 `<yourStorageAccountName>`、`<yourResourceGroup>`和 `<yourDesiredRegion>`。
 
 ```PowerShell
-## This command creates a large file share enabled account, it will not support GZRS, GRS, or RA-GRS
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
 
-## <a name="enable-on-existing-account"></a>在現有帳戶上啟用
+## <a name="enable-large-files-shares-on-an-existing-account"></a>在現有的帳戶上啟用大型檔案共用
+
+您也可以在現有的帳戶上啟用大型檔案共用。 如果您啟用大型檔案共用，您將無法轉換成切換、GRS 或 RA-GRS。 在此儲存體帳戶上啟用大型檔案共用無法復原。
 
 ### <a name="portal"></a>入口網站
 
-您也可以在現有的帳戶上啟用大型檔案共用。 如果您這樣做，帳戶將無法再轉換成切換、GRS 或 RA-GRS。 此帳戶的此選擇無法復原。
-
-1. 開啟[Azure 入口網站](https://portal.azure.com)，然後流覽至您想要在其上啟用大型檔案共用的儲存體帳戶。
+1. 開啟 [ [Azure 入口網站](https://portal.azure.com)]，然後移至您要啟用大型檔案共用的儲存體帳戶。
 1. 開啟儲存體帳戶，**然後選取 [** 設定]。
-1. 選取 [在**大型檔案共用**上**啟用**]，然後選取 [儲存]。
+1. 選取 [在**大型檔案共用**上**啟用**]，然後選取 [**儲存**]。
 1. 選取 **[總覽**]，然後選取 [重新整理 **]。**
 
-![enable-large-file-shares-on-existing .png](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)
+![在 Azure 入口網站的現有儲存體帳戶上選取 [已啟用] 選項按鈕](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)
 
-您現在已在儲存體帳戶上啟用大型檔案共用。
+您現在已在儲存體帳戶上啟用大型檔案共用。 接下來，您必須更新現有共用的配額，以利用增加的容量和規模。
 
-如果您收到下列錯誤：「帳戶尚無法使用大型檔案共用」。 您可以稍候一段時間，因為您的區域可能在完成其推出時，或者如果您有緊急需求，請與支援人員聯繫。
+如果您收到錯誤訊息「帳戶尚無法使用大型檔案共用」，表示您的區域可能正在完成其首度發行。 如果您有大型檔案共用的緊急需求，請聯絡支援人員。
 
 ### <a name="cli"></a>CLI
 
-您可以在現有的帳戶上啟用大型檔案共用。 如果您這樣做，帳戶將無法再轉換成切換、GRS 或 RA-GRS。 此帳戶的此選擇無法復原。
-
-取代下列命令中的 `<yourStorageAccountName>` 和 `<yourResourceGroup>`，然後使用它來啟用現有帳戶上的大型檔案共用：
+若要在現有的帳戶上啟用大型檔案共用，請使用下列命令。 以您的資訊取代 `<yourStorageAccountName>` 和 `<yourResourceGroup>`。
 
 ```azurecli-interactive
-az storage account update –name <yourStorageAccountName> -g <yourResourceGroup> –enable-large-file-share
+az storage account update --name <yourStorageAccountName> -g <yourResourceGroup> --enable-large-file-share
 ```
 
 ### <a name="powershell"></a>PowerShell
 
-您可以在現有的帳戶上啟用大型檔案共用。 如果您這樣做，帳戶將無法再轉換成切換、GRS 或 RA-GRS。 此帳戶的此選擇無法復原。
-
-取代下列命令中的 `<yourStorageAccountName>` 和 `<yourResourceGroup>`，然後使用它來啟用現有帳戶上的大型檔案共用：
+若要在現有的帳戶上啟用大型檔案共用，請使用下列命令。 以您的資訊取代 `<yourStorageAccountName>` 和 `<yourResourceGroup>`。
 
 ```PowerShell
 Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -EnableLargeFileShare
@@ -124,19 +118,21 @@ Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 
 ## <a name="create-a-large-file-share"></a>建立大型檔案共用
 
+在您的儲存體帳戶上啟用大型檔案共用之後，您可以在具有較高配額的帳戶中建立檔案共用。 
+
 ### <a name="portal"></a>入口網站
 
 建立大型檔案共用幾乎等同于建立標準檔案共用。 主要差異在於您可以將配額設定為最多 100 TiB。
 
 1. 從您的儲存體帳戶中，選取 [檔案**共用**]。
 1. 選取 [+ 檔案共用]。
-1. 輸入檔案共用的名稱，以及（選擇性）您想要的配額大小（最多 100 TiB），然後選取 [**建立**]。 
+1. 輸入檔案共用的名稱。 您也可以設定您想要的配額大小，最高可達 100 TiB。 然後選取 [建立]。 
 
-![large-file-shares-create-share .png](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
+![顯示 [名稱] 和 [配額] 方塊的 [Azure 入口網站] UI](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 
 ### <a name="cli"></a>CLI
 
-在您的儲存體帳戶上啟用大型檔案共用之後，您就可以在該帳戶中建立具有較高配額的檔案共用。 以您的值取代下列命令中的 `<yourStorageAccountName>`、`<yourStorageAccountKey>`和 `<yourFileShareName>`，然後您就可以用它來建立大型檔案共用：
+若要建立大型檔案共用，請使用下列命令。 以您的資訊取代 `<yourStorageAccountName>`、`<yourStorageAccountKey>`和 `<yourFileShareName>`。
 
 ```azurecli-interactive
 az storage share create --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName>
@@ -144,7 +140,7 @@ az storage share create --account-name <yourStorageAccountName> --account-key <y
 
 ### <a name="powershell"></a>PowerShell
 
-在您的儲存體帳戶上啟用大型檔案共用之後，您就可以在該帳戶中建立具有較高配額的檔案共用。 以您的值取代下列命令中的 `<YourStorageAccountName>`、`<YourStorageAccountKey>`和 `<YourStorageAccountFileShareName>`，然後您就可以用它來建立大型檔案共用：
+若要建立大型檔案共用，請使用下列命令。 以您的資訊取代 `<YourStorageAccountName>`、`<YourStorageAccountKey>`和 `<YourStorageAccountFileShareName>`。
 
 ```PowerShell
 ##Config
@@ -157,19 +153,19 @@ New-AzStorageShare -Name $shareName -Context $ctx
 
 ## <a name="expand-existing-file-shares"></a>展開現有的檔案共用
 
-### <a name="portal"></a>入口網站
+在您的儲存體帳戶上啟用大型檔案共用之後，您也可以將該帳戶中的現有檔案共用擴充為較高的配額。 
 
-在您的儲存體帳戶上啟用大型檔案共用之後，您可以將現有的共用擴充為較高的配額。
+### <a name="portal"></a>入口網站
 
 1. 從您的儲存體帳戶中，選取 [檔案**共用**]。
 1. 以滑鼠右鍵按一下您的檔案共用，然後選取 [**配額**]。
 1. 輸入您想要的新大小，然後選取 **[確定]** 。
 
-![update-large-file-share-quota .png](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
+![具有現有檔案共用配額的 Azure 入口網站 UI](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
 
 ### <a name="cli"></a>CLI
 
-在您的儲存體帳戶上啟用大型檔案共用之後，您可以將該帳戶中的現有檔案共用擴充為較高的配額。 以您的值取代下列命令中的 `<yourStorageAccountName>`、`<yourStorageAccountKey>`和 `<yourFileShareName>`，然後您就可以使用它來將配額設定為大小上限：
+若要將配額設定為大小上限，請使用下列命令。 以您的資訊取代 `<yourStorageAccountName>`、`<yourStorageAccountKey>`和 `<yourFileShareName>`。
 
 ```azurecli-interactive
 az storage share update --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName> --quota 102400
@@ -177,7 +173,7 @@ az storage share update --account-name <yourStorageAccountName> --account-key <y
 
 ### <a name="powershell"></a>PowerShell
 
-在您的儲存體帳戶上啟用大型檔案共用之後，您可以將該帳戶中的現有檔案共用擴充為較高的配額。 以您的值取代下列命令中的 `<YourStorageAccountName>`、`<YourStorageAccountKey>`和 `<YourStorageAccountFileShareName>`，然後您就可以使用它來將配額設定為大小上限：
+若要將配額設定為大小上限，請使用下列命令。 以您的資訊取代 `<YourStorageAccountName>`、`<YourStorageAccountKey>`和 `<YourStorageAccountFileShareName>`。
 
 ```PowerShell
 ##Config
@@ -191,6 +187,6 @@ Set-AzStorageShareQuota -ShareName $shareName -Context $ctx -Quota 102400
 
 ## <a name="next-steps"></a>後續步驟
 
-* [連線並掛接檔案共用 - Windows](storage-how-to-use-files-windows.md)
-* [連線並掛接檔案共用 - Linux](../storage-how-to-use-files-linux.md)
-* [連線並掛接檔案共用 - macOS](storage-how-to-use-files-mac.md)
+* [連線並在 Windows 上掛接檔案共用](storage-how-to-use-files-windows.md)
+* [連線並在 Linux 上掛接檔案共用](storage-how-to-use-files-linux.md)
+* [連線並在 macOS 上掛接檔案共用](storage-how-to-use-files-mac.md)

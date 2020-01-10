@@ -1,18 +1,14 @@
 ---
 title: 適用於容器的 Azure 監視器概觀 | Microsoft Docs
 description: 本文說明適用於容器的 Azure 監視器，其會監視 AKS 容器深入解析解決方案，以及它藉由監視您 AKS 叢集和 Azure 中容器執行個體的健康情況來提供的值。
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 11/18/2019
-ms.openlocfilehash: 8267f8148269f8b1a0717435e57614f09c229de1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.date: 01/07/2020
+ms.openlocfilehash: 341dd28f6c1523e4b4c06da30a0a8ffc61b1c6f4
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841399"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75730731"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>適用於容器的 Azure 監視器概觀
 
@@ -23,6 +19,8 @@ ms.locfileid: "74841399"
 - 裝載于 Azure Stack 或內部部署環境的自我管理 Kubernetes 叢集
 - Azure Red Hat OpenShift
 
+適用于容器的 Azure 監視器支援執行 Linux 和 Windows Server 2019 作業系統的叢集。 
+
 監視容器很重要，尤其在您使用多個應用程式大規模執行生產環境叢集時。
 
 適用於容器的 Azure 監視器可藉由透過計量 API 從 Kubernetes 中取得的控制器、節點與容器來收集記憶體與處理器計量，為您提供效能可見度。 容器記錄也會一併收集。  當您從 Kubernetes 叢集啟用監視之後，系統會透過適用于 Linux 的 Log Analytics 代理程式容器化版本自動收集計量和記錄。 計量會寫入計量存放區，並將記錄資料寫入與您的[Log Analytics](../log-query/log-query-overview.md)工作區相關聯的記錄存放區。 
@@ -31,7 +29,7 @@ ms.locfileid: "74841399"
  
 ## <a name="what-does-azure-monitor-for-containers-provide"></a>適用於容器的 Azure 監視器提供哪些功能？
 
-適用于容器的 Azure 監視器可使用 Azure 監視器的不同功能提供完整的監視體驗，讓您瞭解 Kubernetes 叢集和容器工作負載的效能和健康情況。 使用適用于容器的 Azure 監視器，您可以：
+適用于容器的 Azure 監視器可使用 Azure 監視器的不同功能來提供完整的監視體驗。 這些功能可讓您瞭解執行 Linux 和 Windows Server 2019 作業系統的 Kubernetes 叢集的效能和健康情況，以及容器工作負載。 使用適用于容器的 Azure 監視器，您可以：
 
 * 識別正在節點上執行的 AKS 容器，以及其平均的處理器與記憶體使用率。 此知識可協助您識別資源瓶頸。
 * 識別容器群組及其裝載於 Azure Container Instances 之容器的處理器和記憶體使用率。  
@@ -40,17 +38,21 @@ ms.locfileid: "74841399"
 * 了解叢集在平均負載和最高負載之下的行為。 此知識可協助您識別所需的容量，並判斷叢集可承受的負載上限。 
 * 設定警示，以主動通知您，或在節點或容器上的 CPU 和記憶體使用率超過閾值時，或在基礎結構或節點健全狀況匯總套件中發生健全狀況狀態變更時加以記錄。
 * 與[Prometheus](https://prometheus.io/docs/introduction/overview/)整合，以查看它從節點和 Kubernetes 收集的應用程式和工作負載計量使用[查詢](container-insights-log-search.md)來建立自訂警示、儀表板，以及詳細的執行詳細分析。
-
-    >[!NOTE]
-    >目前的 Prometheus 支援是公開預覽中的一項功能。
-    >
-
 * 監視[部署至 AKS 引擎](https://github.com/microsoft/OMS-docker/tree/aks-engine)內部部署的容器工作負載，以及 Azure Stack 上的[AKS 引擎](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)。
 * 監視[部署至 Azure Red Hat OpenShift](../../openshift/intro-openshift.md)的容器工作負載。
 
     >[!NOTE]
     >Azure Red Hat OpenShift 的支援目前是公開預覽中的一項功能。
     >
+
+與 Linux 叢集相較之下，監視 Windows Server 叢集的主要差異如下：
+
+- 記憶體 RSS 計量不適用於 Windows 節點和容器。
+- 磁片儲存體容量資訊不適用於 Windows 節點。
+- 容器記錄不適用於在 Windows 節點中執行的容器。
+- 「即時資料」（預覽）功能支援適用于 Windows 容器記錄的例外狀況。
+- 只有 pod 環境會受到監視，而不是 Docker 環境。
+- 在預覽版本中，最多可支援30個 Windows Server 容器。 這項限制不適用於 Linux 容器。 
 
 查看下列提供中繼層級深入探討的影片，以協助您瞭解如何使用容器的 Azure 監視器監視 AKS 叢集。
 

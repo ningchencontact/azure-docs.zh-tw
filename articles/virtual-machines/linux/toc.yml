@@ -41,11 +41,11 @@
       href: tutorial-monitor.md
     - name: 13 - 管理 VM 安全性
       href: tutorial-azure-security.md
-    - name: 14 - 部署 Jenkins
+    - name: 14a - 使用 Jenkins 建置
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 15a - 使用 Azure Pipelines 部署
+    - name: 14b - 使用 Azure Pipelines 部署 (傳統)
       href: tutorial-build-deploy-jenkins.md
-    - name: 15b - 採用 Azure Pipelines 的 CI/CD
+    - name: 15 - 搭配 Azure Pipelines 的 CI/CD (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a - 建立 LAMP 堆疊
       href: tutorial-lamp-stack.md

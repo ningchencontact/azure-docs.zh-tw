@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 68515c51862ada0b1aa794c09b3a6730504a57ee
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: a8df220be211c3c8d8cdeab8a8aebfd35e77ebf8
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873245"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732581"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的位移限制子句
 
@@ -37,7 +37,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## <a name="remarks"></a>備註
   
-  Offset 限制子句中需要有位移計數和限制計數。 如果使用選擇性的 `ORDER BY` 子句，則會藉由跳過已排序的值來產生結果集。 否則，查詢會傳回固定的值順序。 此子句目前僅支援單一分割區內的查詢，跨分割區查詢尚不支援。
+  Offset 限制子句中需要有位移計數和限制計數。 如果使用選擇性的 `ORDER BY` 子句，則會藉由跳過已排序的值來產生結果集。 否則，查詢會傳回固定的值順序。 此子句現在支援單一分割區中的查詢，以及跨分割區查詢。
 
 ## <a name="examples"></a>範例
 
@@ -50,7 +50,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
     OFFSET 1 LIMIT 1
 ```
 
-結果為：
+結果如下：
 
 ```json
     [
@@ -69,7 +69,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
     OFFSET 1 LIMIT 1
 ```
 
-結果為：
+結果如下：
 
 ```json
     [
@@ -82,6 +82,6 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## <a name="next-steps"></a>後續步驟
 
-- [開始使用](sql-query-getting-started.md)
+- [快速入門](sql-query-getting-started.md)
 - [SELECT 子句](sql-query-select.md)
 - [ORDER BY 子句](sql-query-order-by.md)
