@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: f688f0ddfb62e988ddebada1f612aa842afa5181
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d9daefaec33c435ae9f8eceec370c83de4535f8b
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644591"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830372"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight：常見問題
 
@@ -84,23 +84,9 @@ Azure HDInsight 叢集具有不同類型的虛擬機器或節點。 每種節點
 
 - 在建立期間或之後的腳本。 腳本是透過[腳本動作](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)叫用，這是您可以從 Azure 入口網站、Hdinsight Windows PowerShell Cmdlet 或 HDINSIGHT .net SDK 使用的設定選項。 此設定選項可以從 Azure 入口網站、HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 使用。
 
-- 在布建叢集之後，`sudo` 或其他方法。
-  
 - [HDInsight 應用程式平臺](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)，用於安裝生態系統應用程式。
 
-不過，Microsoft 支援服務小組只能在下列情況下提供支援：
-
-- 載入腳本時所發生的問題或錯誤。 在執行自訂指令碼期間所發生的任何錯誤，則不在支援票證的處理範圍內。
-
-- 屬於叢集建立程式的其他應用程式。 
-
 如需支援的元件清單，請參閱[HDInsight 有哪些 Apache Hadoop 元件和版本？](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
-
-個別元件的支援也可能因叢集類型而異。 例如，Kafka 叢集上不支援 Spark，反之亦然。
-
-針對叢集建立程式以外的應用程式和服務，請洽詢廠商或服務提供者以取得支援。 您也可以使用許多「社區支援」網站。 範例是 HDInsight 和[Stack Overflow](https://stackoverflow.com/)的[MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)。 此外，Apache 專案在 [Apache 網站](https://apache.org/)上也有專案網站。 例如 [Hadoop](https://hadoop.apache.org/)。 
-
-如需 Azure 支援的詳細資訊，請參閱[Azure 支援常見問題](https://azure.microsoft.com/support/faq/)。
 
 ### <a name="can-i-upgrade-the-individual-components-that-are-pre-installed-on-the-cluster"></a>我可以升級叢集上預先安裝的個別元件嗎？
 

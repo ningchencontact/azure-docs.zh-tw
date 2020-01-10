@@ -1,5 +1,5 @@
 ---
-title: 使用 REST 將檔案上傳至 Azure 媒體服務帳戶 | Microsoft Docs
+title: 使用 REST 將檔案上傳到 Azure 媒體服務 v3 帳戶 |Microsoft Docs
 description: 了解如何建立並上傳資產，以將媒體內容移至媒體服務中。
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 78c07330558241c889f284bcaf7302ce1327b5b8
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: a9fd38b857f513ff67ae2fbe4ccd0c6c9540967e
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389809"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779156"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 將檔案上傳至媒體服務帳戶
 
@@ -63,4 +63,4 @@ ms.locfileid: "70389809"
 
 ## <a name="next-steps"></a>後續步驟
 
-[教學課程：編碼以 URL 為基礎的遠端檔案及串流處理影片 - REST](stream-files-tutorial-with-rest.md)
+[教學課程：根據 URL 編碼遠端檔案和串流影片-REST](stream-files-tutorial-with-rest.md)
