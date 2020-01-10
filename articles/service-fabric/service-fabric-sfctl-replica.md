@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric CLI - sfctl replica | Microsoft Docs
-description: 描述 Service Fabric CLI sfctl replica 命令。
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI-sfctl 複本
+description: 深入瞭解 sfctl，這是 Azure Service Fabric 命令列介面。 包含用來管理複本的命令清單。
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 34e53311e5338e540c1d987896112de39890de3b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: a0588d84a79407b5df5033f0a32851fc708d598b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901041"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646036"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 管理屬於服務分割區的複本。
@@ -30,10 +21,10 @@ ms.locfileid: "72901041"
 | --- | --- |
 | deployed | 取得在 Service Fabric 節點上部署的複本詳細資料。 |
 | deployed-list | 取得在 Service Fabric 節點上部署的複本清單。 |
-| 醫療 | 取得 Service Fabric 具狀態服務複本或無狀態服務執行個體的健康情況。 |
-| info | 取得 Service Fabric 分割區複本的相關資訊。 |
+| health | 取得 Service Fabric 具狀態服務複本或無狀態服務執行個體的健康情況。 |
+| 資訊 | 取得 Service Fabric 分割區複本的相關資訊。 |
 | list | 取得 Service Fabric 服務分割區複本的相關資訊。 |
-| remove | 移除在節點上執行的服務複本。 |
+| 移除 | 移除在節點上執行的服務複本。 |
 | report-health | 傳送 Service Fabric 複本的健康情況報告。 |
 | restart | 重新啟動節點上執行之持續性服務的服務複本。 |
 
@@ -55,11 +46,11 @@ ms.locfileid: "72901041"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-replica-deployed-list"></a>sfctl replica deployed-list
 取得在 Service Fabric 節點上部署的複本清單。
@@ -80,11 +71,11 @@ ms.locfileid: "72901041"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-replica-health"></a>sfctl replica health
 取得 Service Fabric 具狀態服務複本或無狀態服務執行個體的健康情況。
@@ -104,11 +95,11 @@ ms.locfileid: "72901041"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
 取得 Service Fabric 分割區複本的相關資訊。
@@ -127,11 +118,11 @@ ms.locfileid: "72901041"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-replica-list"></a>sfctl replica list
 取得 Service Fabric 服務分割區複本的相關資訊。
@@ -150,11 +141,11 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-replica-remove"></a>sfctl replica remove
 移除在節點上執行的服務複本。
@@ -175,11 +166,11 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-replica-report-health"></a>sfctl replica report-health
 傳送 Service Fabric 複本的健康情況報告。
@@ -207,11 +198,11 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-replica-restart"></a>sfctl replica restart
 重新啟動節點上執行之持續性服務的服務複本。
@@ -231,11 +222,11 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 
 ## <a name="next-steps"></a>後續步驟

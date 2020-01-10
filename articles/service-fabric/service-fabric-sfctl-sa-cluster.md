@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric CLI- sfctl sa-cluster | Microsoft Docs
-description: 描述 Service Fabric CLI sfctl 獨立叢集命令。
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI-sfctl sa-叢集
+description: 深入瞭解 sfctl，這是 Azure Service Fabric 命令列介面。 包含用來管理獨立叢集的命令清單。
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: ecdd288d7cb320b91ab4c69697d334f8d9459e62
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 765d7d76cb13758417bb3927ff9620026ca763b1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901021"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646019"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 管理獨立 Service Fabric 叢集。
@@ -48,11 +39,11 @@ ms.locfileid: "72901021"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-sa-cluster-config-upgrade"></a>sfctl sa-cluster config-upgrade
 開始升級 Service Fabric 獨立叢集的設定。
@@ -80,11 +71,11 @@ ms.locfileid: "72901021"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ### <a name="examples"></a>範例
 
@@ -109,11 +100,11 @@ policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 
 ## <a name="next-steps"></a>後續步驟

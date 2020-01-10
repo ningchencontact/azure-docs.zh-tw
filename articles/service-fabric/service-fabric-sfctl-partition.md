@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric CLI - sfctl partition | Microsoft Docs
-description: 描述 Service Fabric CLI sfctl partition 命令。
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI-sfctl 分割區
+description: 深入瞭解 sfctl，這是 Azure Service Fabric 命令列介面。 包含用來管理服務之分割區的命令清單。
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 2c2ebb7cb08cb6b6b2130290c81fa9e07766b5e2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c50fcb348dad7960be81f80ecb7c455dbffaadb3
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901089"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646053"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 查詢和管理任何服務的資料分割。
@@ -30,10 +21,10 @@ ms.locfileid: "72901089"
 | --- | --- |
 | data-loss | 此 API 會引發所指定分割區的資料遺失。 |
 | data-loss-status | 針對使用 StartDataLoss API 啟動的分割區資料遺失作業，取得作業的進度。 |
-| 醫療 | 取得指定 Service Fabric 分割區的健康情況。 |
-| info | 取得 Service Fabric 分割區的相關資訊。 |
+| health | 取得指定 Service Fabric 分割區的健康情況。 |
+| 資訊 | 取得 Service Fabric 分割區的相關資訊。 |
 | list | 取得 Service Fabric 服務的分割區清單。 |
-| load | 取得所指定 Service Fabric 分割區的負載資訊。 |
+| 載入 | 取得所指定 Service Fabric 分割區的負載資訊。 |
 | load-reset | 重設 Service Fabric 分割區目前的負載。 |
 | quorum-loss | 導致指定具狀態服務分割區的仲裁遺失。 |
 | quorum-loss-status | 針對在分割區上使用 StartQuorumLoss API 啟動的仲裁遺失作業，取得作業的進度。 |
@@ -65,11 +56,11 @@ ms.locfileid: "72901089"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-data-loss-status"></a>sfctl partition data-loss-status
 針對使用 StartDataLoss API 啟動的分割區資料遺失作業，取得作業的進度。
@@ -89,11 +80,11 @@ ms.locfileid: "72901089"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-health"></a>sfctl partition health
 取得指定 Service Fabric 分割區的健康情況。
@@ -114,11 +105,11 @@ ms.locfileid: "72901089"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-info"></a>sfctl partition info
 取得 Service Fabric 分割區的相關資訊。
@@ -136,11 +127,11 @@ ms.locfileid: "72901089"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-list"></a>sfctl partition list
 取得 Service Fabric 服務的分割區清單。
@@ -159,11 +150,11 @@ ms.locfileid: "72901089"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-load"></a>sfctl partition load
 取得所指定 Service Fabric 分割區的負載資訊。
@@ -181,11 +172,11 @@ ms.locfileid: "72901089"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-load-reset"></a>sfctl partition load-reset
 重設 Service Fabric 分割區目前的負載。
@@ -203,11 +194,11 @@ ms.locfileid: "72901089"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-quorum-loss"></a>sfctl partition quorum-loss
 導致指定具狀態服務分割區的仲裁遺失。
@@ -229,11 +220,11 @@ ms.locfileid: "72901089"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-quorum-loss-status"></a>sfctl partition quorum-loss-status
 針對在分割區上使用 StartQuorumLoss API 啟動的仲裁遺失作業，取得作業的進度。
@@ -253,11 +244,11 @@ ms.locfileid: "72901089"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-recover"></a>sfctl partition recover
 表示 Service Fabric 叢集應該嘗試復原目前停留在仲裁遺失的特定分割區。
@@ -275,11 +266,11 @@ ms.locfileid: "72901089"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-recover-all"></a>sfctl partition recover-all
 指示 Service Fabric 叢集應該嘗試復原目前停留在仲裁遺失狀態的所有服務 (包括系統服務)。
@@ -296,11 +287,11 @@ ms.locfileid: "72901089"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-report-health"></a>sfctl partition report-health
 傳送 Service Fabric 分割區的健康情況報告。
@@ -326,11 +317,11 @@ ms.locfileid: "72901089"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-restart"></a>sfctl partition restart
 此 API 會重新啟動所指定分割區的部分或全部複本或執行個體。
@@ -351,11 +342,11 @@ ms.locfileid: "72901089"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-restart-status"></a>sfctl partition restart-status
 針對使用 StartPartitionRestart 啟動的 PartitionRestart 作業，取得作業的進度。
@@ -375,11 +366,11 @@ ms.locfileid: "72901089"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-svc-name"></a>sfctl partition svc-name
 取得分割區的 Service Fabric 服務名稱。
@@ -397,11 +388,11 @@ ms.locfileid: "72901089"
 
 |引數|描述|
 | --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --debug | 增加記錄詳細資訊，以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
+| --verbose | 增加記錄詳細資訊。 使用 --debug 來取得完整偵錯記錄。 |
 
 
 ## <a name="next-steps"></a>後續步驟

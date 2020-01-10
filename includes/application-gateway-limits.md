@@ -4,14 +4,14 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 3b692ed697d69deca4c50a0595cc54251bac4990
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 0ba21fe3789fba03cd4814d19fb103c3a2559c13
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74174928"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75662931"
 ---
-| 資源 | 預設/最大限制 | 注意 |
+| 資源 | 預設/最大限制 | 附註 |
 | --- | --- | --- |
 | Azure 應用程式閘道 |每個訂用帳戶1000 | |
 | 前端 IP 設定 |2 |公用 1 個和私用 1 個 |
@@ -36,7 +36,7 @@ ms.locfileid: "74174928"
 | URL 長度上限|32KB| |
 | HTTP/2 的標頭大小上限 |4KB| |
 | 檔案上傳大小上限，標準 |2 GB | |
-| WAF 檔案上傳大小上限 |中型 WAF 閘道，100 MB<br>大型 WAF 閘道，500 MB| |
+| WAF 檔案上傳大小上限 |v1 中型 WAF 閘道，100 MB<br>v1 大型 WAF 閘道，500 MB<br>v2 WAF，750 MB| |
 | WAF 的主體大小限制，不含檔案|128 KB||
 | 最大 WAF 自訂規則|100||
 | 最大 WAF 排除專案|100||

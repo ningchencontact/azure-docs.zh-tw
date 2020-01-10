@@ -2,17 +2,17 @@
 title: 將雲端服務連接到自訂網域控制站 | Microsoft Docs
 description: 了解如何使用 PowerShell 和 AD 網域延伸將 Web/背景工作角色連接到自訂 AD 網域
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 97a24720e65539a68745a5a1bb3f13ce1cafb9be
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: d40e392984d2675c748bda00c61cdaeb1c0932da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359180"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387015"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>將 Azure 雲端服務角色連接到裝載於 Azure 中的自訂 AD 網域控制站
 我們會先在 Azure 中設定虛擬網路 (VNet)。 接著再將 Active Directory 網域控制站 (裝載於 Azure 虛擬機器上) 加入 VNet。 下一步是將現有雲端服務角色加入預先建立的 VNet，然後將它們連接到網域控制站。
@@ -149,3 +149,6 @@ Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-na
 help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
+
+
+
