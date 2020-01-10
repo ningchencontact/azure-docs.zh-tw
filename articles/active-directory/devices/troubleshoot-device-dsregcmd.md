@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ef3edace53cf7367716027811cf3061b617a9a6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: fb7fed7cf5f38f9f7677126aff92492ccacd6e12
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379209"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707939"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>使用 dsregcmd.exe 命令針對裝置進行疑難排解
 
@@ -28,10 +28,10 @@ Dsregcmd.exe/status 公用程式必須以網域使用者帳戶的身分執行。
 
 | AzureAdJoined | EnterpriseJoined | Enterpriseregistration.windows.net domainjoined | 裝置狀態 |
 | ---   | ---   | ---   | ---   |
-| 是 | 否 | 否 | Azure AD 聯結 |
-| 否 | 否 | 是 | 已加入網域 |
-| 是 | 否 | 是 | 已加入混合式 AD |
-| 否 | 是 | 是 | 已聯結內部部署 DRS |
+| YES | 否 | 否 | Azure AD 聯結 |
+| 否 | 否 | YES | 透過網域加入 |
+| YES | 否 | YES | 已加入混合式 AD |
+| 否 | YES | YES | 已聯結內部部署 DRS |
 
 > [!NOTE]
 > Workplace Join （Azure AD 已註冊）狀態會顯示在 [使用者狀態] 區段中
@@ -81,7 +81,7 @@ Dsregcmd.exe/status 公用程式必須以網域使用者帳戶的身分執行。
 +----------------------------------------------------------------------+
 ```
 
-## <a name="tenant-details"></a>租使用者詳細資料
+## <a name="tenant-details"></a>租用戶詳細資料
 
 只有在裝置已加入 Azure AD 或混合式 Azure AD （未 Azure AD 註冊）時，才會顯示。 此區段會列出裝置加入 Azure AD 時的一般租使用者詳細資料。
 
@@ -136,7 +136,7 @@ Dsregcmd.exe/status 公用程式必須以網域使用者帳戶的身分執行。
 - **WorkplaceJoined：** 如果已在目前的 ntuser.dat 內容中，將 Azure AD 已註冊的帳戶新增至裝置，請設定為 [是]。
 - **WamDefaultSet：** 如果已針對登入的使用者建立 WAM 預設 WebAccount，則設定為 [是]。 如果在管理內容中執行 dsreg/status，此欄位可能會顯示錯誤。 
 - **WamDefaultAuthority：** 設定為 Azure AD 的 [組織]。
-- **WamDefaultId：** -一律為 Azure AD 的「 https://login.microsoft.com」。
+- Azure AD 的**WamDefaultId:** - “https://login.microsoft.com”Always ""。
 - **WamDefaultGUID：** -預設 WAM WEBACCOUNT 的 WAM 提供者（Azure AD/MICROSOFT 帳戶） GUID。 
 
 ### <a name="sample-user-state-output"></a>範例使用者狀態輸出
@@ -297,10 +297,22 @@ Azure AD 註冊的裝置可以忽略此區段。
 
 ## <a name="ngc-prerequisite-check"></a>NGC 先決條件檢查
 
-本節會執行必要條件檢查，以進行 NGC 金鑰的布建。 
+本節會執行 Windows Hello 企業版（WHFB）布建的必要條件檢查。 
 
 > [!NOTE]
-> 如果使用者已成功設定了 NGC 認證，您可能不會在 dsregcmd.exe/status 中看到 [NGC 必要條件檢查詳細資料]。
+> 如果使用者已成功設定 WHFB，您可能不會在 dsregcmd.exe/status 中看到 [NGC 必要條件檢查詳細資料]。
+
+- **IsDeviceJoined：** 如果裝置已加入 Azure AD，則設定為 [是]。
+- **IsUserAzureAD：** 如果登入的使用者存在於 Azure AD 中，則設定為 [是]。
+- **PolicyEnabled：** 如果裝置上已啟用 WHFB 原則，則設定為 [是]。
+- **PostLogonEnabled：** 如果平臺原本就觸發 WHFB 註冊，則設定為 "YES"。 如果設定為 [否]，則表示 Windows Hello 企業版註冊是由自訂機制所觸發
+- **DeviceEligible：** 如果裝置符合向 WHFB 註冊的硬體需求，則設定為 [是]。
+- **SessionIsNotRemote：** 如果目前的使用者是直接登入裝置，而不是從遠端登入，則設定為 [是]。
+- **CertEnrollment：** 特定于 WHFB 憑證信任部署，表示 WHFB 的憑證註冊授權單位。 如果來源為 MDM，則設定為「註冊授權」，如果 WHFB 原則的來源為群組原則，則為「行動裝置管理」。 否則為 "none"
+- **AdfsRefreshToken：** 特定于 WHFB 憑證信任部署。 只有在 CertEnrollment 為「註冊授權單位」時才會出現。 指出裝置是否有使用者的企業 PRT。
+- **AdfsRaIsReady：** 特定于 WHFB 憑證信任部署。  只有在 CertEnrollment 為「註冊授權單位」時才會出現。 如果 ADFS 在支援 WHFB 的探索中繼資料中指出，而且登入憑證範本可供使用 *，* 請將設定為 [是]。
+- **LogonCertTemplateReady：** 特定于 WHFB 憑證信任部署。 只有在 CertEnrollment 為「註冊授權單位」時才會出現。 如果登入憑證範本的狀態有效，請將設定為 [是]，並協助針對 ADFS RA 進行疑難排解。
+- **PreReqResult：** -提供所有 WHFB 先決條件評估的結果。 如果 WHFB 註冊會在使用者下次登入時以登入後工作的形式啟動，則設定為 [將布建]。
 
 ### <a name="sample-ngc-prerequisite-check-output"></a>範例 NGC 先決條件檢查輸出
 

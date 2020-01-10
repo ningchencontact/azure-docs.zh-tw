@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 1f2c79b47df4cf44b6fa3981bac4a5a3bf61c4df
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 74863823f3e8ef32565e01981d3a742d696a8165
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456400"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708303"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>關於 Azure Container Registry 的常見問題集
 
@@ -28,11 +28,11 @@ ms.locfileid: "74456400"
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>我可以使用 Resource Manager 範本建立 Azure Container Registry 嗎？
 
-是。 以下是您可以用來建立登錄的[範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry)。
+可以。 以下是您可以用來建立登錄的[範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry)。
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>ACR 中的映射是否有安全性弱點掃描？
 
-是。 請參閱[Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/)和[淺綠色](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)的檔。
+可以。 請參閱[Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)、 [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/)和[淺綠色](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)的檔。
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>如何? 使用 Azure Container Registry 設定 Kubernetes 嗎？
 
@@ -101,14 +101,14 @@ az role assignment create --role "Reader" --assignee user@contoso.com --scope /s
 - [為何在刪除映射之後，登錄配額使用量不會降低？](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
 - [如何? 驗證儲存體配額變更嗎？](#how-do-i-validate-storage-quota-changes)
 - [在容器中執行 CLI 時，如何? 向我的登錄進行驗證嗎？](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
-- [Azure Container Registry 是否只提供 TLS v 1.2 的設定，以及如何啟用 TLS 1.2 版？](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
+- [如何啟用 TLS 1.2？](#how-to-enable-tls-12)
 - [Azure Container Registry 支援內容信任嗎？](#does-azure-container-registry-support-content-trust)
 - [如何? 授與提取或推送映射的存取權，但沒有管理登錄資源的許可權？](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [如何? 啟用登錄的自動映射隔離](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>如何? 存取 Docker Registry HTTP API V2？
 
-ACR 支援 Docker Registry HTTP API V2。 您可以在 `https://<your registry login server>/v2/`存取 Api。 範例︰ `https://mycontainerregistry.azurecr.io/v2/`
+ACR 支援 Docker Registry HTTP API V2。 您可以在 `https://<your registry login server>/v2/`存取 Api。 範例： `https://mycontainerregistry.azurecr.io/v2/`
 
 ### <a name="how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository"></a>如何? 刪除存放庫中的任何標記未參考的所有資訊清單嗎？
 
@@ -181,9 +181,12 @@ apk --update add docker
 az acr login -n MyRegistry
 ```
 
-### <a name="does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12"></a>Azure Container Registry 是否只提供 TLS v 1.2 的設定，以及如何啟用 TLS 1.2 版？
+### <a name="how-to-enable-tls-12"></a>如何啟用 TLS 1.2？
 
-是。 使用任何最近的 docker 用戶端（18.03.0 版和更新版本）來啟用 TLS。 
+使用任何最近的 docker 用戶端（18.03.0 版和更新版本）來啟用 TLS 1.2。 
+
+> [!IMPORTANT]
+> 從2020年1月13日開始，Azure Container Registry 將需要伺服器和應用程式的所有安全連線，才能使用 TLS 1.2。 TLS 1.0 和1.1 的支援將會淘汰。
 
 ### <a name="does-azure-container-registry-support-content-trust"></a>Azure Container Registry 是否支援內容信任？
 
@@ -305,7 +308,7 @@ unauthorized: authentication required
 ```
 
 若要解決此錯誤：
-1. 將選項 `--signature-verification=false` 新增至 Docker daemon 設定檔 `/etc/sysconfig/docker`。 例如︰
+1. 將選項 `--signature-verification=false` 新增至 Docker daemon 設定檔 `/etc/sysconfig/docker`。 例如：
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
@@ -357,10 +360,10 @@ sudo service docker restart
 
 ### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>新的使用者權限在更新之後可能不會立即生效
 
-當您將新的許可權（新角色）授與服務主體時，變更可能不會立即生效。 有兩個可能的原因：
+當您將新的許可權（新角色）授與服務主體時，變更可能不會立即生效。 可能有二個原因：
 
 * Azure Active Directory 角色指派延遲。 一般來說，速度很快，但可能需要幾分鐘的時間，因為傳播延遲。
-* ACR token 伺服器上的許可權延遲。 這可能需要10分鐘的時間。 若要減輕問題，您可以 `docker logout`，然後在1分鐘後再使用相同的使用者進行驗證：
+* ACR token 伺服器上的許可權延遲。 這最多可能需要花費 10 分鐘。 若要減輕問題，您可以 `docker logout`，然後在1分鐘後再使用相同的使用者進行驗證：
 
   ```bash
   docker logout myregistry.azurecr.io
@@ -421,20 +424,20 @@ curl $redirect_url
 * 缺少網路連線能力
 * 防火牆
 * Ad 封鎖器
-* DNS 錯誤
+* 定義磁碟區是否經過叢集處理
 
 請洽詢您的網路系統管理員，或檢查您的網路設定和連線能力。 請嘗試使用您的 Azure CLI 執行 `az acr check-health -n yourRegistry`，以檢查您的環境是否能夠連線至容器登錄。 此外，您也可以在瀏覽器中嘗試 incognito 或私用會話，以避免任何過時的瀏覽器快取或 cookie。
 
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>為什麼我的提取或推送要求失敗，但不允許作業？
 
-以下是一些可能不允許作業的案例下載：
-* 不再支援傳統登錄。 請使用[az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update)或 azure 入口網站升級至支援的[sku](https://aka.ms/acr/skus) 。
+以下是一些可能不允許作業的案例：
+* 不再支援傳統登錄。 請使用[az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update)或 Azure 入口網站升級至支援的[sku](https://aka.ms/acr/skus) 。
 * 映射或存放庫可能已鎖定，所以無法刪除或更新。 您可以使用[az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock)命令來查看目前的屬性。
 * 如果映射處於隔離中，則不允許某些作業。 深入瞭解[隔離](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)。
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>如何? 在 Windows 上收集 HTTP 追蹤？
 
-#### <a name="prerequisites"></a>先決條件
+#### <a name="prerequisites"></a>必要條件
 
 - 在 fiddler 中啟用解密 HTTPs： <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - 啟用 Docker 以透過 Docker ui 使用 proxy： <https://docs.docker.com/docker-for-windows/#proxies>
@@ -488,10 +491,10 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 | Git 服務 | 來源內容 | 手動組建 | 透過認可觸發程式自動建立 |
 |---|---|---|---|
-| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | yes | yes |
-| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | yes | yes |
-| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | yes | 否 |
-| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | yes | 否 |
+| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | 是 | 是 |
+| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | 是 | 是 |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | 是 | 否 |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | 是 | 否 |
 
 ## <a name="run-error-message-troubleshooting"></a>執行錯誤訊息的疑難排解
 

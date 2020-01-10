@@ -10,17 +10,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 01/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c259371ccdb55eff01eb7f0605315b17c33cdd3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8239b25f5ebf94d7368190f3169d0637d9943df1
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842692"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720275"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>教學課程︰設定 G Suite 來自動佈建使用者
 
@@ -65,24 +64,24 @@ Azure Active Directory 使用稱為「指派」的概念，來判斷哪些使用
 
     ![選取安全性。][10]
 
-2. 在 [安全性] 頁面上，選取 [API 參考]。
+1. 在 [安全性] 頁面上，選取 [API 參考]。
 
     ![選取 API 參考。][15]
 
-3. 選取 [啟用 API 存取]。
+1. 選取 [啟用 API 存取]。
 
     ![選取 API 參考。][16]
 
    > [!IMPORTANT]
    > 對於您想要布建至 G Suite 的每位使用者，他們在 Azure AD 中的使用者名稱**必須**系結至自訂網域。 例如，G Suite 不會接受類似 bob@contoso.onmicrosoft.com 的使用者名稱。 另一方面，則接受 bob@contoso.com。 您可以遵循[這裡](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)的指示來變更現有使用者的網域。
 
-4.  當您使用 Azure AD 新增並驗證所需的自訂網域之後，您必須使用 G Suite 再次進行驗證。 若要驗證 G Suite 中的網域，請參閱下列步驟：
+1. 當您使用 Azure AD 新增並驗證所需的自訂網域之後，您必須使用 G Suite 再次進行驗證。 若要驗證 G Suite 中的網域，請參閱下列步驟：
 
     a. 在 [ [G Suite] 管理主控台](https://admin.google.com/)中，選取 [**網域**]。
 
     ![選取網域][20]
 
-    b.這是另一個 C# 主控台應用程式。 選取 [新增網域或網域別名]。
+    b. 選取 [新增網域或網域別名]。
 
     ![新增網域][21]
 
@@ -94,11 +93,11 @@ Azure Active Directory 使用稱為「指派」的概念，來判斷哪些使用
 
     e. 針對您想要新增至 G Suite 的任何其他網域重複上述步驟。
 
-5. 接下來，判斷您想要使用哪一個系統管理員帳戶來管理 G Suite 中的使用者布建。 流覽至 [**管理員角色**]。
+1. 接下來，判斷您想要使用哪一個系統管理員帳戶來管理 G Suite 中的使用者布建。 流覽至 [**管理員角色**]。
 
     ![選取 Google Apps][26]
-    
-6. 針對該帳戶的系統**管理員角色**，編輯該角色的**許可權**。 務必啟用所有 [管理 API 權限]，以便讓此帳戶可以用來佈建。
+
+1. 針對該帳戶的系統**管理員角色**，編輯該角色的**許可權**。 務必啟用所有 [管理 API 權限]，以便讓此帳戶可以用來佈建。
 
     ![選取 Google Apps][27]
 
@@ -110,15 +109,15 @@ Azure Active Directory 使用稱為「指派」的概念，來判斷哪些使用
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 移至 [企業應用程式]，然後選取 [所有應用程式]。
+1. 移至 [企業應用程式]，然後選取 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請選取窗格頂端的 [**新增應用程式**] 按鈕。
+1. 若要新增新的應用程式，請選取窗格頂端的 [**新增應用程式**] 按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入**G suite**，在結果面板中選取 [ **g suite** ]，然後按一下 [**新增**] 按鈕以新增應用程式。
+1. 在搜尋方塊中，輸入**G suite**，在結果面板中選取 [ **g suite** ]，然後按一下 [**新增**] 按鈕以新增應用程式。
 
     ![結果清單中的 G Suite](common/search-new-app.png)
 
@@ -127,7 +126,7 @@ Azure Active Directory 使用稱為「指派」的概念，來判斷哪些使用
 本節將引導您逐步設定 Azure AD 布建服務，以根據 Azure AD 中的使用者和/或群組指派，在 G Suite 中建立、更新和停用使用者和/或群組。
 
 > [!TIP]
-> 您也可以選擇啟用 G Suite 的 SAML 型單一登入，請遵循[g Suite 單一登入教學](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial)課程中提供的指示。 雖然自動使用者佈建和單一登入這兩個功能彼此補充，您可以分開設定它們。
+> 您也可以選擇啟用 G Suite 的 SAML 型單一登入，請遵循[g Suite 單一登入教學](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial)課程中提供的指示。 雖然自動使用者佈建和單一登入這兩個功能互相補充，您還是可以將它們分開設定。
 
 > [!NOTE]
 > 若要深入瞭解 G Suite 的目錄 API 端點，請參閱[目錄 api](https://developers.google.com/admin-sdk/directory)。
@@ -138,65 +137,68 @@ Azure Active Directory 使用稱為「指派」的概念，來判斷哪些使用
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [G Suite]。
+1. 在應用程式清單中，選取 [G Suite]。
 
     ![應用程式清單中的 G Suite 連結](common/all-applications.png)
 
-3. 選取 [佈建] 索引標籤。
+1. 選取 [佈建] 索引標籤。
 
     ![布建索引標籤](common/provisioning.png)
 
-4. 將 [佈建模式] 設定為 [自動]。
+1. 將 [佈建模式] 設定為 [自動]。
 
     ![布建索引標籤](common/provisioning-automatic.png)
 
-5. 在 [系統管理員認證] 區段下，選取 [授權]。 這會在新的瀏覽器視窗中開啟 Google 授權對話方塊。
+1. 在 [系統管理員認證] 區段下，選取 [授權]。 這會在新的瀏覽器視窗中開啟 Google 授權對話方塊。
 
     ![G Suite 授權](media/google-apps-provisioning-tutorial/authorize.png)
 
-6. 確認您想要授與 Azure AD 許可權，以便對您的 G Suite 租使用者進行變更。 選取 [接受]。
+1. 確認您想要授與 Azure AD 許可權，以便對您的 G Suite 租使用者進行變更。 選取 [接受]。
 
     ![確認權限。][28]
 
-7. 在 Azure 入口網站中，選取 [測試連線] 以確保 Azure AD 可以連線至您的應用程式。 如果連線失敗，請確定您的 G Suite 帳戶具有小組系統管理員權限。 然後再試一次**授權**步驟。
+1. 在 Azure 入口網站中，選取 [測試連線] 以確保 Azure AD 可以連線至您的應用程式。 如果連線失敗，請確定您的 G Suite 帳戶具有小組系統管理員權限。 然後再試一次**授權**步驟。
 
-8. 在 [通知電子郵件] 欄位中，輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選 [發生失敗時傳送電子郵件通知] 核取方塊。
+1. 在 [通知電子郵件] 欄位中，輸入應該收到佈建錯誤通知的個人或群組電子郵件地址，然後選取 [發生失敗時傳送電子郵件通知] 核取方塊。
 
     ![通知電子郵件](common/provisioning-notification-email.png)
 
-8. 按一下 [儲存]。
+1. 按一下 [檔案]。
 
-9. **在 [對應**] 區段下，選取 [**同步處理 Azure Active Directory 使用者到 G Suite**]。
+1. **在 [對應**] 區段下，選取 [**同步處理 Azure Active Directory 使用者到 G Suite**]。
 
     ![G Suite 使用者對應](media/google-apps-provisioning-tutorial/usermappings.png)
 
-10. 在 [**屬性對應**] 區段中，檢查從 Azure AD 同步至 G Suite 的使用者屬性。 選取為 [比對] 屬性**的屬性會**用來比對 G Suite 中的使用者帳戶，以進行更新作業。 選取 [儲存] 按鈕以認可所有變更。
+1. 在 [**屬性對應**] 區段中，檢查從 Azure AD 同步至 G Suite 的使用者屬性。 選取為 [比對] 屬性**的屬性會**用來比對 G Suite 中的使用者帳戶，以進行更新作業。 選取 [儲存] 按鈕以認可所有變更。
 
     ![G Suite 使用者屬性](media/google-apps-provisioning-tutorial/userattributes.png)
 
-11. **在 [對應**] 區段下，選取 [**同步處理 Azure Active Directory 群組至 G Suite**]。
+1. **在 [對應**] 區段下，選取 [**同步處理 Azure Active Directory 群組至 G Suite**]。
 
     ![G Suite 群組對應](media/google-apps-provisioning-tutorial/groupmappings.png)
 
-12. 在 [**屬性對應**] 區段中，檢查從 Azure AD 同步至 G Suite 的群組屬性。 選取為 [比對] 屬性**的屬性會**用來比對 G Suite 中的群組以進行更新作業。 選取 [儲存] 按鈕以認可所有變更。 UI 會顯示 Azure AD 與 G Suite 之間的一組預設屬性對應。 您可以按一下 [新增對應]，選擇新增其他屬性，例如組織單位。 
+1. 在 [**屬性對應**] 區段中，檢查從 Azure AD 同步至 G Suite 的群組屬性。 選取為 [比對] 屬性**的屬性會**用來比對 G Suite 中的群組以進行更新作業。 選取 [儲存] 按鈕以認可所有變更。 UI 會顯示 Azure AD 與 G Suite 之間的一組預設屬性對應。 您可以按一下 [新增對應]，選擇新增其他屬性，例如組織單位。
 
     ![G Suite 群組屬性](media/google-apps-provisioning-tutorial/groupattributes.png)
 
-13. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的下列指示。
+1. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的下列指示。
 
-14. 若要啟用 G Suite 的 Azure AD 布建服務，請在 [**設定**] 區段中，將 [布建**狀態**] 變更為 [**開啟**]。
+1. 若要啟用 G Suite 的 Azure AD 布建服務，請在 [**設定**] 區段中，將 [布建**狀態**] 變更為 [**開啟**]。
 
     ![佈建狀態已切換為開啟](common/provisioning-toggle-on.png)
 
-15. 在 [**設定**] 區段的 [**範圍**] 中選擇所需的值，以定義您想要布建至 G Suite 的使用者和/或群組。
+1. 在 [**設定**] 區段的 [**範圍**] 中選擇所需的值，以定義您想要布建至 G Suite 的使用者和/或群組。
 
     ![佈建範圍](common/provisioning-scope.png)
 
-16. 當您準備好要佈建時，按一下 [儲存]。
+1. 當您準備好要佈建時，按一下 [儲存]。
 
     ![儲存雲端佈建設定](common/provisioning-configuration-save.png)
 
 此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [**同步處理詳細資料**] 區段來監視進度，並遵循連結來布建活動報告，其中描述 G Suite 上的 Azure AD 布建服務所執行的所有動作。
+
+> [!NOTE]
+> 如果使用者已經有使用 Azure AD 使用者之電子郵件地址的現有個人/消費者帳戶，則可能會在執行目錄同步作業之前，使用 Google Transfer Tool 來解決一些問題。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 
@@ -211,7 +213,6 @@ Azure Active Directory 使用稱為「指派」的概念，來判斷哪些使用
 ## <a name="next-steps"></a>後續步驟
 
 * [瞭解如何針對佈建活動檢閱記錄和取得報告](../manage-apps/check-status-user-account-provisioning.md)
-
 
 <!--Image references-->
 

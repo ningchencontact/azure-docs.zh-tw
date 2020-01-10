@@ -14,22 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 17469d3602935715d570a496e12b6680269ff465
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3f16d84f66f2da6094054d161f286070fc86a73b
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622887"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720118"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>在 Azure DevTest Labs 的金鑰保存庫中儲存秘密
 您在使用 Azure DevTest Labs 時可能需要輸入複雜的祕密：Windows VM 的密碼、Linux VM 的公用 SSH 金鑰，或透過成品複製 Git 存放庫所需的個人存取權杖。 祕密通常很長，且包含隨機字元。 因此，在輸入時可能需要技巧且不便，特別是在您多次使用相同的祕密時。
 
 為了解決此問題，並將您的秘密保存在安全之處，DevTest Labs 支援在 [Azure Key Vault](../key-vault/key-vault-overview.md) 中儲存祕密。 當使用者第一次儲存祕密時，DevTest Labs 服務會在包含實驗室的相同資源群組中自動建立金鑰保存庫，並將秘密儲存在金鑰保存庫中。 DevTest Labs 會為每個使用者建立個別的金鑰保存庫。 
 
+請注意，實驗室使用者必須先建立實驗室虛擬機器，才能在金鑰保存庫中建立秘密。 這是因為 DevTest 實驗室服務必須先將實驗室使用者與有效的使用者檔建立關聯，然後才能在其金鑰保存庫中建立及儲存秘密。 
+
+
 ## <a name="save-a-secret-in-azure-key-vault"></a>在 Azure Key Vault 中儲存秘密
 若要在 Azure Key Vault 中儲存您的秘密，請執行下列步驟：
 
-1. 選取左側功能表上的 [我的祕密]  。
+1. 選取左側功能表上的 [我的祕密]。
 2. 輸入祕密的**名稱**。 在建立 VM、公式或環境時，您會在下拉式清單中看到此名稱。 
 3. 輸入祕密作為**值**。
 
@@ -38,8 +41,8 @@ ms.locfileid: "60622887"
 ## <a name="use-a-secret-from-azure-key-vault"></a>使用 Azure Key Vault 中的祕密
 當您需要輸入祕密以建立 VM、公式或環境時，您可以手動輸入祕密，或從金鑰保存庫中選取已儲存的祕密。 若要使用儲存在金鑰保存庫中的祕密，請執行下列動作：
 
-1. 選取 [使用已儲存的祕密]  。 
-2. 從 [選擇祕密]  的下拉式清單中選取您的祕密。 
+1. 選取 [使用已儲存的祕密]。 
+2. 從 [選擇祕密] 的下拉式清單中選取您的祕密。 
 
     ![在 VM 中使用祕密](media/devtest-lab-store-secrets-in-key-vault/secret-store-pick-a-secret.png)
 

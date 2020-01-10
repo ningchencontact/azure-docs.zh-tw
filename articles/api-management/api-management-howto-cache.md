@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 76a87d539e19acc30944a6a896cb0e01f431fa37
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073569"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708350"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>新增快取以改善 Azure API 管理的效能
 
@@ -46,11 +46,11 @@ ms.locfileid: "70073569"
 + [建立 Azure API 管理執行個體](get-started-create-service-instance.md)
 + [匯入及發佈 API 產品](import-and-publish.md)
 
-## <a name="caching-policies"> </a>新增快取原則
+## <a name="caching-policies"></a>新增快取原則
 
 根據此範例中顯示的快取原則，對 **GetSpeakers** 作業的第一個要求會從後端服務傳回回應。 此回應會被快取，並依指定的標頭和查詢字串參數來識別。 後續使用相符的參數呼叫此操作時，將傳回快取的回應，直到快取期間間隔到期為止。
 
-1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+1. 登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 2. 瀏覽至您的 APIM 執行個體。
 3. 選取 [API] 索引標籤。
 4. 按一下 API 清單中的 [示範會議 API]。
@@ -70,14 +70,14 @@ ms.locfileid: "70073569"
 
 9. 在 **outbound** 元素中，新增下列原則：
 
-        <cache-store caching-mode="cache-on" duration="20" />
+        <cache-store duration="20" />
 
     [持續期間] 指定快取回應的到期間隔。 在本範例中，間隔為 **20** 秒。
 
 > [!TIP]
 > 如果您使用外部快取 (如[在 Azure API 管理中使用外部 Azure Redis 快取](api-management-howto-cache-external.md)所述)，則可以指定快取原則的 `caching-type` 屬性。 如需詳細資訊，請參閱 [API 管理快取原則](api-management-caching-policies.md)。
 
-## <a name="test-operation"> </a>呼叫作業和測試快取
+## <a name="test-operation"></a>呼叫作業並測試快取
 若要瞭解快取的運作方式，請從開發人員入口網站呼叫此作業。
 
 1. 在 Azure 入口網站中，瀏覽至您的 APIM 執行個體。
@@ -87,7 +87,7 @@ ms.locfileid: "70073569"
 5. 按一下右上方功能表中的 [測試] 索引標籤。
 6. 按 [傳送]。
 
-## <a name="next-steps"> </a>後續步驟
+## <a name="next-steps"></a>後續步驟
 * 如需快取原則的詳細資訊，請參閱 [API 管理原則參考文件][API Management policy reference]中的[快取原則][Caching policies]。
 * 如需使用原則運算式依索引鍵快取項目的詳細資訊，請參閱 [在 Azure API 管理中自訂快取](api-management-sample-cache-by-key.md)。
 * 如需有關使用外部「Azure Redis 快取」的詳細資訊，請參閱[在 Azure API 管理中使用外部 Azure Redis 快取](api-management-howto-cache-external.md)。

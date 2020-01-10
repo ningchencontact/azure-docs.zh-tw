@@ -4,19 +4,19 @@ description: 本文提供「Azure 應用程式閘道」多站台支援的概觀�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 1/17/2019
+ms.date: 1/7/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 61184fc7415de3c142b460710cceefed61a25af3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0192d27ebfa696376ce79f90a6ceeb816dfb1e46
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835349"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75719948"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>應用程式閘道多站台裝載
 
-多站台裝載可讓您在相同的應用程式閘道執行個體上設定多個 Web 應用程式。 此功能可讓您將最多 100 個網站新增到一個應用程式閘道，為您的部署設定更有效率的拓撲。 每個網站都可以導向到自己的後端集區。 在下列範例中，應用程式閘道會從兩個後端伺服器集區 (名為 ContosoServerPool 和 FabrikamServerPool) 為 contoso.com 和 fabrikam.com 的流量提供服務。
+多網站裝載可讓您在應用程式閘道的相同埠上設定多個 web 應用程式。 此功能可讓您將最多 100 個網站新增到一個應用程式閘道，為您的部署設定更有效率的拓撲。 每個網站都可以導向到自己的後端集區。 在下列範例中，應用程式閘道會從兩個後端伺服器集區 (名為 ContosoServerPool 和 FabrikamServerPool) 為 contoso.com 和 fabrikam.com 的流量提供服務。
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 

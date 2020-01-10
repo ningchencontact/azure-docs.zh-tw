@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
-ms.openlocfilehash: b874c0dcc1f394866e74b45e6bc335a25ce24499
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 42c637839172dab09a8721a93a67785a748afd2f
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930023"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708897"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory 中複製活動的容錯
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -37,7 +37,7 @@ Azure Data Factory 中的複製活動可在來源和接收資料存放區之間�
 
 - **來源與接收之間的資料行數目不相符**。
 
-    例如：使用包含六個資料行的結構描述定義，從 Blob 儲存體中的 CSV 檔案將資料複製到 SQL 資料庫。 包含六個資料行的 CSV 檔案資料列會成功複製到接收存放區。 包含多於或少於六個資料行的 CSV 檔案資料列會偵測為不相容，並加以跳過。
+    例如：使用包含六個資料行的結構描述定義，從 Blob 儲存體中的 CSV 檔案將資料複製到 SQL 資料庫。 包含六個資料行的 CSV 檔案資料列會成功複製到接收存放區。 包含超過六個數據行的 CSV 檔案資料列會偵測為不相容，並且會略過。
 
 - **寫入 SQL Server/Azure SQL Database/Azure Cosmos DB**　時發生主索引鍵違規。
 
@@ -70,7 +70,7 @@ Azure Data Factory 中的複製活動可在來源和接收資料存放區之間�
 }
 ```
 
-屬性 | 描述 | 允許的值 | 必要項
+屬性 | 說明 | 允許的值 | 必要項
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | 指定是否要在複製期間略過不相容的資料列。 | 是<br/>FALSE (預設值) | 否
 redirectIncompatibleRowSettings | 當您想要記錄不相容的資料列時，可指定的一組屬性。 | &nbsp; | 否

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: dbc17cff2347cd86db3296f4aa2de76ef0f75460
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 41289110049a7f907b76c8f9a8b2d9dc850f201c
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468068"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707198"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全性技術功能
 本文提供 Azure 中的安全性服務簡介，協助您保護雲端中的資料、資源和應用程式，並滿足企業的安全性需求。
@@ -73,7 +73,7 @@ Azure Active Directory (Azure AD) 的安全性優點包括下列功能：
 
 - 單一登入
 
-- Multi-Factor Authentication
+- 多因素驗證
 
 - 安全性監視、警示以及機器學習服務型報告
 
@@ -81,7 +81,7 @@ Azure Active Directory (Azure AD) 的安全性優點包括下列功能：
 
 - 裝置註冊
 
-- Privileged Identity Management
+- 特殊權限身分識別管理
 
 - 身分識別保護
 
@@ -95,7 +95,7 @@ Azure Active Directory (Azure AD) 的安全性優點包括下列功能：
 
 不只使用者不需要管理多組使用者名稱和密碼，還可根據組織群組，以及其身為員工的狀態，自動佈建或解除佈建其應用程式的存取權。 [Azure AD 引進了安全性和存取管理控制](../../active-directory/active-directory-enterprise-apps-manage-sso.md)，可讓您集中管理所有 SaaS 應用程式的使用者存取權。
 
-#### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+#### <a name="multi-factor-authentication"></a>多因素驗證
 
 [Azure 多重要素驗證（MFA）](../../active-directory/authentication/multi-factor-authentication.md)是一種驗證方法，需要使用多種驗證方法，並在使用者登入和交易中新增重要的第二層安全性。 [MFA 有助於保護](../../active-directory/authentication/concept-mfa-howitworks.md)對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。 它可以透過一些驗證選項 (例如電話、文字訊息，或行動應用程式通知或驗證代碼，以及第三方 OAuth 權杖) 來提供強大的驗證功能。
 
@@ -129,7 +129,7 @@ Azure Active Directory (Azure AD) 的安全性優點包括下列功能：
 
 與 Intune 這類的[行動裝置管理 (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) 解決方案結合時，將會以裝置的其他相關資訊更新 Azure Active Directory 中的裝置屬性。 這可讓您建立條件式存取規則，以強制從裝置存取，以符合您的安全性和合規性標準。
 
-#### <a name="privileged-identity-management"></a>Privileged Identity Management
+#### <a name="privileged-identity-management"></a>特殊權限身分識別管理
 
 [Azure Active Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) 可讓您管理、控制和監視特殊權限身分識別，以及存取 Azure AD 和 Office 365 或 Microsoft Intune 等其他 Microsoft Online 服務的資源。
 
@@ -344,7 +344,7 @@ Microsoft Azure 包括強大網路基礎結構以支援您的應用程式和服�
 
 Azure 網路支援自訂您 Azure 虛擬網路上網路流量之路由行為的能力。 做法是在 Azure 中設定 [使用者定義的路由](../../virtual-network/virtual-networks-udr-overview.md) 。
 
-[強制通道](https://www.petri.com/azure-forced-tunneling) 是一種機制，可用來確保不允許您的服務起始與網際網路上裝置的連線。
+[強制通道處理](https://www.petri.com/azure-forced-tunneling)這個機制可用來確保不允許您的服務起始與網際網路上裝置的連線。
 
 Azure 支援內部部署網路的專用 WAN 連結連線以及採用 [ExpressRoute](../../expressroute/expressroute-introduction.md)的 Azure 虛擬網路。 Azure 與網站之間的連結會使用不經由公用網際網路的專用連線。 如果 Azure 應用程式正在多個資料中心內執行，您可使用 [Azure 流量管理員](../../traffic-manager/traffic-manager-overview.md)，以智慧方式將使用者的要求路由傳送到應用程式的各執行個體。 您也可以將流量路由傳送到不在 Azure 中執行的服務，只要可以從網際網路存取這些服務即可。
 
@@ -392,7 +392,7 @@ Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能
 
 [Azure 監視器](../../azure-monitor/index.yml)是適用于混合式雲端的 IT 管理解決方案。 僅用於或擴充現有的 System Center 部署，Azure 監視器記錄可為您基礎結構的雲端式管理提供最大的彈性和控制。
 
-![Azure 監視器](./media/technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Azure Monitor](./media/technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
 有了 Azure 監視器，您就可以管理任何雲端中的任何實例，包括內部部署、Azure、AWS、Windows Server、Linux、VMware 和 OpenStack，其成本比競爭解決方案低。 Azure 監視器為雲端優先的世界打造了新的方法來管理您的企業，這是一種最快速且符合成本效益的方式，可滿足新的商務挑戰，並配合新的工作負載、應用程式和雲端環境。
 
@@ -410,7 +410,7 @@ Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能
 
 資訊安全中心會分析 Azure 資源的安全性狀態，以識別潛在的安全性弱點。 建議清單會引導您完成設定所需控制項的程序。
 
-範例包括：
+例如：
 
 - 佈建反惡意程式碼，以協助識別及移除惡意軟體
 
@@ -468,7 +468,7 @@ Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能
 
 - **使用者和工作階段計數**。
 
-- Windows 或 Linux 伺服器電腦中的**效能計數器**，例如 CPU、記憶體和網路使用量。
+- 你的Windows 或 Linux 伺服器中的**效能計數器**，例如 CPU、記憶體和網路使用量。
 
 - 來自 Docker 或 Azure 的**主機診斷**。
 
@@ -476,23 +476,23 @@ Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能
 
 - 您在用戶端或伺服器程式碼中自行撰寫的**自訂事件和計量**，可追蹤商業事件，例如售出的項目或獲勝的遊戲。
 
-應用程式的基礎結構通常由許多元件所組成 – 例如虛擬機器、儲存體帳戶和虛擬網路，或者是 web 應用程式、資料庫、資料庫伺服器和第三方廠商服務。 您看不到這些元件作為個別的實體，而是看到它們作為單一實體相關且彼此相依的組件。 您會想要將其當成群組來部署、管理和監視。 [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) 可讓您將方案中的資源做為群組使用。
+應用程式的基礎結構通常由許多元件所組成 – 或許是虛擬機器、儲存體帳戶和虛擬網路，或者 web 應用程式、資料庫、資料庫伺服器和第三方服務。 您看不到這些元件作為個別的實體，而是看到它們作為單一實體相關且彼此相依的組件。 您會想要將其當成群組來部署、管理和監視。 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 可讓您將方案中的資源做為群組使用。
 
-您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理資源。
+您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。
 
 **使用 Resource Manager 的優點**
 
 Resource Manager 會提供數個優點：
 
-- 您可以以群組形式部署、管理及監視方案的所有資源，而不是個別處理這些資源。
+- 您可以以群組形式部署、管理及監視解决方案的所有資源，而不是個別處理這些資源。
 
-- 您可以在整個方案週期重複部署方案，並確信您的資源會部署在一致的狀態中。
+- 您可以在整個發展週期中重複部署你的解決方案，並確信您的資源會部署在一致的狀態中。
 
 - 您可以透過宣告式範本而非指令碼來管理基礎結構。
 
 - 您可以定義之間的相依性，使得以正確的順序部署資源。
 
-- 因為角色型存取控制 (RBAC) 會原生整合至管理平台，您可以將存取控制套用至資源群組中的所有服務。
+- 因為角色型存取控制 (RBAC) 會自然地整合至管理平台，您可以將存取控制套用至資源群組中的所有服務。
 
 - 您可以將標籤套用至資源，以便以邏輯方式組織訂用帳戶中的所有資源。
 
@@ -513,7 +513,7 @@ Resource Manager 會提供數個優點：
 
 - [加密](https://www.microsoft.com/en-us/trustcenter/security/encryption)
 
-- [身分識別和存取管理](https://www.microsoft.com/en-us/trustcenter/security/identity)
+- [身分識別與存取管理](https://www.microsoft.com/en-us/trustcenter/security/identity)
 
 - [網路安全性](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
 

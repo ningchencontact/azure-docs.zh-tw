@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 磁碟儲存體 (受控磁碟) 上對您的應用程式進行效能評定
+title: 在 Azure 磁碟儲存體上對應用程式進行基準測試
 description: 了解在 Azure 上對您的應用程式進行效能評定的程序。
 author: roygara
 ms.author: rogarana
@@ -7,12 +7,12 @@ ms.date: 01/11/2019
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 600b456cd77d866f1365b7dadfa9ea2473db0fa4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 77e542e9bff399e58b433286385864478bcb5076
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698766"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75719540"
 ---
 # <a name="benchmarking-a-disk"></a>對磁碟進行效能評定
 
@@ -26,7 +26,6 @@ ms.locfileid: "68698766"
 
 ## <a name="next-steps"></a>後續步驟
 
-繼續進行我們的《為高效能而設計》一文。 您會按照文章為原型建立一份類似於現有應用程式的檢查清單。 您可以使用效能評定工具，在原型應用程式上模擬工作負載並測量效能。 這樣做可讓您判斷哪一個磁碟供應項目可符合或超越您的應用程式效能需求。 然後，您可以對實際執行的應用程式運用相同的指導方針。
+請繼續閱讀我們[針對高效能設計的](premium-storage-performance.md)文章。
 
-> [!div class="nextstepaction"]
-> 從參閱[為高效能而設計](premium-storage-performance.md)一文開始。
+在該文章中，您會建立類似于原型之現有應用程式的檢查清單。 您可以使用效能評定工具，在原型應用程式上模擬工作負載並測量效能。 這樣做可讓您判斷哪一個磁碟供應項目可符合或超越您的應用程式效能需求。 然後，您可以對實際執行的應用程式運用相同的指導方針。

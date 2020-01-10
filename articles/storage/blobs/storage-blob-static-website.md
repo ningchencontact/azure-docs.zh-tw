@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 8de36ea9f7bb77443b22e038172ee69bb8435b29
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 8dc5599e681d9aee84f884cd4990163a2481d386
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311212"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708157"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure 儲存體中的靜態網站代管
 
@@ -50,19 +50,22 @@ ms.locfileid: "72311212"
 
 使用者可以使用網站的公用 URL，從瀏覽器中查看網站內容。 您可以使用 Azure 入口網站、Azure CLI 或 PowerShell 來尋找 URL。 請使用下表作為指南。
 
-|工具| 指引 |
+|工具| 指導方針 |
 |----|----|
 |**Azure 入口網站** | [使用 Azure 入口網站來尋找網站 URL](storage-blob-static-website-how-to.md#portal-find-url) |
 |**Azure CLI** | [使用 Azure CLI 來尋找網站 URL](storage-blob-static-website-how-to.md#cli-find-url) |
 |**Azure PowerShell 模組** | [使用 PowerShell 尋找網站 URL](storage-blob-static-website-how-to.md#powershell-find-url) |
 
-網站的 URL 包含地區代碼。 例如，URL `https://contosoblobaccount.z22.web.core.windows.net/` 包含地區代碼 `z22`。
+網站的 URL 包含地區代碼。 例如，URL `https://contosoblobaccount.z22.web.core.windows.net/` 包含區域程式碼 `z22`。
 
 雖然該程式碼必須留在 URL 中，但僅供內部使用，而且您不需要以任何其他方式使用該程式碼。
 
 當您啟用靜態網站裝載時所指定的索引檔，會在使用者開啟網站但未指定特定檔案（例如： `https://contosoblobaccount.z22.web.core.windows.net`）時出現。  
 
 如果伺服器傳回404錯誤，而且您在啟用網站時未指定錯誤檔，則會將預設的404頁面傳回給使用者。
+
+> [!NOTE]
+> 靜態網站不支援[CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 。
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>設定 web 容器的公用存取層級的影響
 
@@ -74,9 +77,9 @@ ms.locfileid: "72311212"
 
 雖然主要靜態網站端點不受影響，但對公用存取層級的變更會影響主要 blob 服務端點。
 
-例如，如果您將 **$web**容器的公用存取層級從 [**私人（沒有匿名存取）** ] 變更為 [ **blob （僅限 blob 的匿名讀取權限）** ]，則主要靜態網站端點的公用存取層級 `https://contosoblobaccount.z22.web.core.windows.net/index.html`不會變更。
+例如，如果您將 **$web**容器的公用存取層級從 [**私人（沒有匿名存取）** ] 變更為 [ **blob （僅限 blob 的匿名讀取權限）** ]，則主要靜態網站端點的公用存取層級 `https://contosoblobaccount.z22.web.core.windows.net/index.html` 不會變更。
 
-不過，主要 blob 服務端點 `https://contosoblobaccount.blob.core.windows.net/$web/index.html` 的公用存取權會從私用變更為公用。 現在使用者可以使用這兩個端點的其中一個來開啟該檔案。
+不過，主要 blob 服務端點 `https://contosoblobaccount.blob.core.windows.net/$web/index.html` 的公用存取權會從 [私用] 變更為 [公用]。 現在使用者可以使用這兩個端點的其中一個來開啟該檔案。
 
 ## <a name="content-delivery-network-cdn-and-secure-socket-layer-ssl-support"></a>內容傳遞網路（CDN）和安全通訊端層（SSL）支援
 
@@ -113,4 +116,4 @@ ms.locfileid: "72311212"
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
 * [建置您的第一個無伺服器 Web 應用程式](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [教學課程：在 Azure DNS 上託管您的網域](../../dns/dns-delegate-domain-azure-dns.md)
+* [教學課程：在 Azure DNS 中裝載您的網域](../../dns/dns-delegate-domain-azure-dns.md)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 01/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37091b2551d68e241c7179949c3eb1db9a381de6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4ffa08f7ebf013d42d6da0589ce0f1ccc97289de
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382166"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707000"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>如何：設定及啟用風險原則
 
@@ -31,7 +31,7 @@ ms.locfileid: "74382166"
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 
 如果您的組織想要允許使用者在偵測到風險時進行自我補救，則必須註冊自助式密碼重設和 Azure 多重要素驗證的使用者。 我們建議您[啟用結合的安全性資訊註冊體驗](../authentication/howto-registration-mfa-sspr-combined.md)，以獲得最佳體驗。 允許使用者進行自我補救，讓他們更快速地回到生產力狀態，而不需要系統管理員介入。 系統管理員仍然可以看到這些事件，並在事實之後進行調查。 
 
@@ -46,6 +46,8 @@ Microsoft 的建議是將使用者風險原則閾值設為 [**高**]，並將 [�
 ## <a name="exclusions"></a>排除
 
 所有的原則都允許排除使用者，例如您的[緊急存取或半透明的系統管理員帳戶](../users-groups-roles/directory-emergency-access.md)。 組織可能會根據帳戶的使用方式，判斷他們需要從特定原則排除其他帳戶。 所有的排除專案都應該定期檢查，以查看它們是否仍適用。
+
+在某些風險偵測中，Identity Protection 會使用設定的受信任[網路位置](../conditional-access/location-condition.md)來減少誤報。
 
 ## <a name="enable-policies"></a>啟用原則
 

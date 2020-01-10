@@ -6,18 +6,26 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 74fcce412b2673a3ec9e4809cef018f1afbc3530
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 2f6203deb5e06ba69a3b4d06297d5e702992c79d
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74812833"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708051"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>移除與 Azure Cache for Redis 搭配使用的 TLS 1.0 和1。1
 
 針對傳輸層安全性（TLS）1.2 版或更新版本的專屬使用，有業界廣泛的推播。 TLS 版本1.0 和1.1 已知容易遭受攻擊，例如 BEAST 和貴賓，並具有其他常見的弱點和暴露（CVE）弱點。 它們也不支援支付卡產業（PCI）合規性標準所建議的新式加密方法和加密套件。 此[TLS 安全性 blog](https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/)會更詳細地說明其中一些弱點。
 
-雖然這些考慮都不會造成立即的問題，但我們建議您儘快停止使用 TLS 1.0 和1.1。 Azure Cache for Redis 會在2020年3月31日停止支援這些 TLS 版本。 在該日期之後，您的應用程式就必須使用 TLS 1.2 或更新版本來與您的快取通訊。
+作為這項工作的一部分，我們將對 Azure Cache for Redis 進行下列變更：
+
+* 從2020年1月13日開始，我們會針對新建立的快取實例，將預設的最低 TLS 版本設定為1.2。  此時不會更新現有的快取實例。  如有需要，您可以將[最小的 TLS 版本變更](cache-configure.md#access-ports)回1.0 或1.1 以提供回溯相容性。  這種變更可以透過 Azure 入口網站或其他管理 Api 來完成。
+* 自2020年3月31日起，我們將停止支援 TLS 版本1.0 和1.1。 在這種變更之後，您的應用程式必須使用 TLS 1.2 或更新版本來與您的快取通訊。
+
+此外，做為這項變更的一部分，我們將會移除對舊版、不安全的 cypher 套件的支援。  當快取設定為最低的 TLS 版本1.2 時，我們支援的 cypher 套件將受限於下列各項。
+
+* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
 
 本文提供有關如何偵測這些舊版 TLS 版本的相依性，並將其從您的應用程式中移除的一般指引。
 
@@ -42,15 +50,15 @@ Redis .NET Core 用戶端預設會使用最新的 TLS 版本。
 
 ### <a name="java"></a>Java
 
-Redis JAVA 用戶端在 JAVA 第6版或更早版本上使用 TLS 1.0。 如果快取上已停用 TLS 1.0，Jedis、萵苣和 Radisson 將無法連線至 Azure Cache for Redis。 目前沒有任何已知的因應措施。
+Redis JAVA 用戶端在 JAVA 第6版或更早版本上使用 TLS 1.0。 如果快取上已停用 TLS 1.0，Jedis、萵苣和 Redisson 將無法連線至 Azure Cache for Redis。 升級您的 JAVA framework 以使用新的 TLS 版本。
 
-在 JAVA 7 或更新版本中，Redis 用戶端預設不會使用 TLS 1.2，但可以加以設定。 萵苣和 Radisson 目前不支援這種設定。 如果快取只接受 TLS 1.2 連線，它們就會中斷。 Jedis 可讓您使用下列程式碼片段來指定基礎 TLS 設定：
+針對 JAVA 7，Redis 用戶端預設不會使用 TLS 1.2，但可以加以設定。 Jedis 可讓您使用下列程式碼片段來指定基礎 TLS 設定：
 
 ``` Java
 SSLSocketFactory sslSocketFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
 SSLParameters sslParameters = new SSLParameters();
 sslParameters.setEndpointIdentificationAlgorithm("HTTPS");
-sslParameters.setProtocols(new String[]{"TLSv1", "TLSv1.1", "TLSv1.2"});
+sslParameters.setProtocols(new String[]{"TLSv1.2"});
  
 URI uri = URI.create("rediss://host:port");
 JedisShardInfo shardInfo = new JedisShardInfo(uri, sslSocketFactory, sslParameters, null);
@@ -59,6 +67,10 @@ shardInfo.setPassword("cachePassword");
  
 Jedis jedis = new Jedis(shardInfo);
 ```
+
+萵苣和 Redisson 用戶端尚不支援指定 TLS 版本，因此如果快取只接受 TLS 1.2 連線，它們就會中斷。 這些用戶端的修正正在進行審核，因此請使用這項支援來檢查是否有更新版本的套件。
+
+在 JAVA 8 中，預設會使用 TLS 1.2，而且在大部分情況下都不需要更新您的用戶端設定。 為安全起見，請測試您的應用程式。
 
 ### <a name="nodejs"></a>Node.js
 

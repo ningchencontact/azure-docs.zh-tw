@@ -4,15 +4,15 @@ description: 本檔討論針對 Azure Cosmos DB 的 MongoDB API 中遇到的常�
 author: roaror
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 06/05/2019
 ms.author: roaror
-ms.openlocfilehash: ece975fa37e500b1c160210684a0cb46e719c48b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 41d667f4e90114052a17c5707989634bbb5fc421
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754961"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75719829"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>針對 Azure Cosmos DB 的 MongoDB API 中常見的問題進行疑難排解
 
@@ -22,12 +22,12 @@ Azure Cosmos DB 會實作為通用 NoSQL 資料庫（包括 MongoDB）的有線�
 
 ## <a name="common-errors-and-solutions"></a>常見的錯誤和解決方案
 
-| Error               | 程式碼  | 描述  | 方案  |
+| 錯誤               | 程式碼  | 說明  | 解決方案  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | 取用的要求單位總數已超過針對集合佈建的要求單位率並已進行節流。 | 請考慮從 Azure 入口網站調整指派給容器或一組容器的輸送量，或重試作業。 |
-| ExceededMemoryLimit | 16501 | 做為多租用戶服務，作業已超出用戶端的記憶體配額。 | 透過更嚴格的查詢準則來縮小作業的範圍，或經由 [Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)連絡支援人員。 範例：`db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
+| ExceededMemoryLimit | 16501 | 做為多租用戶服務，作業已超出用戶端的記憶體配額。 | 透過更嚴格的查詢準則來縮小作業的範圍，或經由 [Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)連絡支援人員。 範例： `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
 | 已排除對應于指定之 order by 專案的索引路徑/order by 查詢沒有可從中提供服務的對應複合索引。 | 2 | 查詢會針對未編制索引的欄位要求排序。 | 為嘗試的排序查詢建立相符的索引（或複合索引）。 |
-| MongoDB 網路版本問題 | - | 較舊版本的 MongoDB 驅動程式無法在連接字串中偵測 Azure Cosmos 帳戶的名稱。 | 在 Cosmos DB 適用于 MongoDB 的 API 連接字串結尾附加*appName = @**accountName** @* ，其中***accountName***是您的 Cosmos DB 帳戶名稱。 |
+| MongoDB 網路版本問題 | - | 較舊版本的 MongoDB 驅動程式無法在連接字串中偵測 Azure Cosmos 帳戶的名稱。 | 在 Cosmos DB 適用于 MongoDB 的 API 連接字串結尾附加*appName = @**accountName**@* ，其中***accountName***是您的 Cosmos DB 帳戶名稱。 |
 
 
 ## <a name="next-steps"></a>後續步驟
