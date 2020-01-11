@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: jingwang
-ms.openlocfilehash: fd5843ecfd6585fb9c95168c6e55049fe0e27abb
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 736cf03b58ec09b291c91857177a32c7dad89c6a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830304"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892049"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -379,4 +379,4 @@ Data Factory Oracle 連接器會提供內建的資料分割，以平行方式從
 若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>後續步驟
-如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。
+如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

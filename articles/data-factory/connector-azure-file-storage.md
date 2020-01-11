@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/10/2019
-ms.openlocfilehash: 5f45ce8e48c294fa81f3e02cfdee63088dc4949a
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 5a4202859ea50543784df1733fc34b1feb71f17f
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830083"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893051"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure File Storage 複製資料，或將資料複製到 Azure File Storage
 
@@ -399,4 +399,4 @@ ms.locfileid: "75830083"
 ```
 
 ## <a name="next-steps"></a>後續步驟
-如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。
+如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

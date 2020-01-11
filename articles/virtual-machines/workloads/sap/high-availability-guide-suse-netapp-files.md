@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/07/2019
+ms.date: 01/10/2020
 ms.author: radeltch
-ms.openlocfilehash: e8205497262c2c7a500769f32a473d628974220c
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: c2d6e3e42c581c255f207af4a5008e2d09c50a7d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151791"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887116"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SUSE Linux Enterprise Server 上的 Azure Vm 上的 SAP NetWeaver 高可用性與適用于 SAP 應用程式的 Azure NetApp Files
 
@@ -86,7 +86,7 @@ ms.locfileid: "74151791"
 * [SUSE 高可用性擴充功能 12 SP3 版本資訊][suse-ha-12sp3-relnotes]
 * [使用 Azure NetApp Files 在 Microsoft Azure 的 NetApp SAP 應用程式][anf-sap-applications-azure]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 SAP Netweaver 中央服務的高可用性（HA）需要共用儲存體。
 若要在 SUSE Linux 上達到此目的，您必須建立個別的高可用性 NFS 叢集。 
@@ -178,6 +178,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
 - 選取的虛擬網路必須有委派給 Azure NetApp Files 的子網。
 - Azure NetApp Files 提供[匯出原則](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)：您可以控制允許的用戶端、存取類型（讀取 & 寫入、唯讀等等）。 
 - Azure NetApp Files 功能尚無法感知區域。 Azure NetApp Files 功能目前不會部署在 Azure 區域中的所有可用性區域。 請留意某些 Azure 區域中可能的延遲含意。 
+- Azure NetApp Files 磁片區可以部署為 NFSv3 或 NFSv 4.1 磁片區。 SAP 應用層（ASCS/ERS、SAP 應用程式伺服器）支援這兩種通訊協定。 
 
 ## <a name="deploy-linux-vms-manually-via-azure-portal"></a>透過 Azure 入口網站手動部署 Linux Vm
 
@@ -201,6 +202,42 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
 1. 建立虛擬機器4  
    使用至少使用 SLES4SAP 12 SP3，在此範例中會使用使用 SLES4SAP 12 SP3 映射  
    選取稍早針對 PAS/.AAS 所建立的可用性設定組  
+
+## <a name="disable-id-mapping-if-using-nfsv41"></a>停用識別碼對應（如果使用 NFSv 4.1）
+
+本節中的指示僅適用于搭配使用 Azure NetApp Files 磁片區與 NFSv 4.1 通訊協定的情況。 在所有 Vm 上執行設定，其中會裝載 Azure NetApp Files NFSv 4.1 磁片區。  
+
+1. 確認 NFS 網域設定。 請確定已將網域設定為預設的 Azure NetApp Files 網域，也就是 **`defaultv4iddomain.com`** ，而且對應已設為 [沒有**人**]。  
+
+    > [!IMPORTANT]
+    > 請務必將 VM 上 `/etc/idmapd.conf` 中的 NFS 網域設定為符合 Azure NetApp Files 上的預設網域設定： **`defaultv4iddomain.com`** 。 如果 NFS 用戶端上的網域設定（也就是 VM）和 NFS 伺服器（也就是 Azure NetApp configuration）不相符，則在 Vm 上掛接的 Azure NetApp 磁片區上的檔案許可權將會顯示為 `nobody`。  
+
+    <pre><code>
+    sudo cat /etc/idmapd.conf
+    # Example
+    [General]
+    Verbosity = 0
+    Pipefs-Directory = /var/lib/nfs/rpc_pipefs
+    Domain = <b>defaultv4iddomain.com</b>
+    [Mapping]
+    Nobody-User = <b>nobody</b>
+    Nobody-Group = <b>nobody</b>
+    </code></pre>
+
+4. **[A]** 確認 `nfs4_disable_idmapping`。 它應該設定為**Y**。若要建立 `nfs4_disable_idmapping` 所在的目錄結構，請執行掛接命令。 您將無法在/sys/modules 下手動建立目錄，因為已為核心/驅動程式保留存取權。  
+
+    <pre><code>
+    # Check nfs4_disable_idmapping 
+    cat /sys/module/nfs/parameters/nfs4_disable_idmapping
+    # If you need to set nfs4_disable_idmapping to Y
+    mkdir /mnt/tmp
+    mount 10.1.0.4:/sapmnt/<b>qas</b> /mnt/tmp
+    umount  /mnt/tmp
+    echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
+    # Make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
+    </code></pre>
+
 
 ## <a name="setting-up-ascs"></a>設定 (A)SCS
 
@@ -284,11 +321,11 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
       1. ASCS ERS 的其他連接埠
          * 針對 ASCS ERS 的埠 33**01**、5**01**13、5**01**14、5**01 16 和**TCP 的 "d" 底下重複上述步驟
 
-> [!Note]
-> 當沒有公用 IP 位址的 Vm 放在內部（沒有公用 IP 位址）標準 Azure 負載平衡器的後端集區中時，除非執行額外設定以允許路由傳送至公用端點，否則將不會有輸出網際網路連線能力。 如需如何達到輸出連線能力的詳細資訊，請參閱[在 SAP 高可用性案例中使用 Azure Standard Load Balancer 虛擬機器的公用端點連線能力](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)。  
+      > [!Note]
+      > 當沒有公用 IP 位址的 Vm 放在內部（沒有公用 IP 位址）標準 Azure 負載平衡器的後端集區中時，除非執行額外設定以允許路由傳送至公用端點，否則將不會有輸出網際網路連線能力。 如需如何達到輸出連線能力的詳細資訊，請參閱[在 SAP 高可用性案例中使用 Azure Standard Load Balancer 虛擬機器的公用端點連線能力](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)。  
 
-> [!IMPORTANT]
-> 請勿在位於 Azure Load Balancer 後方的 Azure Vm 上啟用 TCP 時間戳記。 啟用 TCP 時間戳記會導致健康情況探查失敗。 將參數**net.tcp. tcp_timestamps**設定為**0**。 如需詳細資訊，請參閱[Load Balancer 健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)。
+      > [!IMPORTANT]
+      > 請勿在位於 Azure Load Balancer 後方的 Azure Vm 上啟用 TCP 時間戳記。 啟用 TCP 時間戳記會導致健康情況探查失敗。 將參數**net.tcp. tcp_timestamps**設定為**0**。 如需詳細資訊，請參閱[Load Balancer 健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)。
 
 ### <a name="create-pacemaker-cluster"></a>建立 Pacemaker 叢集
 
@@ -310,19 +347,19 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
 
    <pre><code>sudo zypper info sap-suse-cluster-connector
    
-      Information for package sap-suse-cluster-connector:
-   ---------------------------------------------------
-   Repository     : SLE-12-SP3-SAP-Updates
-   Name           : sap-suse-cluster-connector
-   Version        : 3.1.0-8.1
-   Arch           : noarch
-   Vendor         : SUSE LLC &lt;https://www.suse.com/&gt;
-   Support Level  : Level 3
-   Installed Size : 45.6 KiB
-   Installed      : Yes
-   Status         : up-to-date
-   Source package : sap-suse-cluster-connector-3.1.0-8.1.src
-   Summary        : SUSE High Availability Setup for SAP Products
+    # Information for package sap-suse-cluster-connector:
+    # ---------------------------------------------------
+    # Repository     : SLE-12-SP3-SAP-Updates
+    # Name           : sap-suse-cluster-connector
+    # Version        : 3.1.0-8.1
+    # Arch           : noarch
+    # Vendor         : SUSE LLC &lt;https://www.suse.com/&gt;
+    # Support Level  : Level 3
+    # Installed Size : 45.6 KiB
+    # Installed      : Yes
+    # Status         : up-to-date
+    # Source package : sap-suse-cluster-connector-3.1.0-8.1.src
+    # Summary        : SUSE High Availability Setup for SAP Products
    </code></pre>
 
 2. **[A]** 更新 SAP 資源代理程式  
@@ -383,7 +420,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    sudo chattr +i /usr/sap/<b>QAS</b>/ERS<b>01</b>
    </code></pre>
 
-2. **[A]** 設定 autofs
+2. **[A]** 設定 `autofs`
 
    <pre><code>
    sudo vi /etc/auto.master
@@ -391,7 +428,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    /- /etc/auto.direct
    </code></pre>
 
-   使用下列命令建立檔案
+   如果使用 NFSv3，請建立具有下列內容的檔案：
 
    <pre><code>
    sudo vi /etc/auto.direct
@@ -401,8 +438,18 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    /usr/sap/<b>QAS</b>/SYS -nfsvers=3,nobind,sync 10.1.0.5:/usrsap<b>qas</b>sys
    </code></pre>
    
+   如果使用 NFSv 4.1，請使用下列方式建立檔案：
+
+   <pre><code>
+   sudo vi /etc/auto.direct
+   # Add the following lines to the file, save and exit
+   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sync,sec=sys 10.1.0.4:/sapmnt<b>qas</b>
+   /usr/sap/trans -nfsvers=4.1,nobind,sync,sec=sys 10.1.0.4:/trans
+   /usr/sap/<b>QAS</b>/SYS -nfsvers=4.1,nobind,sync,sec=sys 10.1.0.5:/usrsap<b>qas</b>sys
+   </code></pre>
+   
    > [!NOTE]
-   > 裝載磁片區時，請務必符合 Azure NetApp Files 磁片區的 NFS 通訊協定版本。 在此範例中，Azure NetApp Files 磁片區已建立為 NFSv3 磁片區。  
+   > 裝載磁片區時，請務必符合 Azure NetApp Files 磁片區的 NFS 通訊協定版本。 如果 Azure NetApp Files 磁片區是建立為 NFSv3 磁片區，請使用對應的 NFSv3 設定。 如果 Azure NetApp Files 磁片區是建立為 NFSv 4.1 磁片區，請遵循指示來停用識別碼對應，並務必使用對應的 NFSv 4.1 設定。 在此範例中，Azure NetApp Files 磁片區已建立為 NFSv3 磁片區。  
    
    重新開機 `autofs` 以掛接新的共用
     <pre><code>
@@ -429,7 +476,6 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    <pre><code>sudo service waagent restart
    </code></pre>
 
-
 ### <a name="installing-sap-netweaver-ascsers"></a>安裝 SAP NetWeaver ASCS/ERS
 
 1. **[1]** 為 ASCS 執行個體建立虛擬 IP 資源和健康情況探查
@@ -439,8 +485,14 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    > 針對現有的 Pacemaker 叢集，我們建議以 socat 取代 netcat，並遵循[Azure 負載平衡器偵測強化](https://www.suse.com/support/kb/doc/?id=7024128)中的指示。 請注意，變更將需要短暫的停機時間。  
 
    <pre><code>sudo crm node standby <b>anftstsapcl2</b>
-   
+   # If using NFSv3
    sudo crm configure primitive fs_<b>QAS</b>_ASCS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>' directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' \
+     op start timeout=60s interval=0 \
+     op stop timeout=60s interval=0 \
+     op monitor interval=20s timeout=40s
+   
+   # If using NFSv4.1
+   sudo crm configure primitive fs_<b>QAS</b>_ASCS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>' directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' options='sec=sys,vers=4.1' \
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s
@@ -494,8 +546,14 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    <pre><code>
    sudo crm node online <b>anftstsapcl2</b>
    sudo crm node standby <b>anftstsapcl1</b>
-   
+   # If using NFSv3
    sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' \
+     op start timeout=60s interval=0 \
+     op stop timeout=60s interval=0 \
+     op monitor interval=20s timeout=40s
+   
+   # If using NFSv4.1
+   sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' options='sec=sys,vers=4.1'\
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s
@@ -608,7 +666,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    sudo usermod -aG haclient <b>qas</b>adm
    </code></pre>
 
-8. **[1]** 在 sapservice 檔案中新增 ASCS 和 ERS SAP 服務
+8. **[1]** 將 ASCS 和 ERS SAP 服務新增至 `sapservice` 檔案
 
    在第二個節點中新增 ASCS 服務項目，並將 ERS 服務項目複製到第一個節點。
 
@@ -759,7 +817,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    sudo chattr +i /usr/sap/<b>QAS</b>/D<b>03</b>
    </code></pre>
 
-1. **[P]** 在 PAS 上設定 autofs
+1. **[P]** 在 PAS 上設定 `autofs`
 
    <pre><code>sudo vi /etc/auto.master
    
@@ -767,7 +825,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    /- /etc/auto.direct
    </code></pre>
 
-   使用下列命令建立新檔案
+   如果使用 NFSv3，請使用下列方式建立新的檔案：
 
    <pre><code>
    sudo vi /etc/auto.direct
@@ -777,6 +835,16 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.5</b>:/usrsap<b>qas</b>pas
    </code></pre>
 
+   如果使用 NFSv 4.1，請使用下列方式建立新的檔案：
+
+   <pre><code>
+   sudo vi /etc/auto.direct
+   # Add the following lines to the file, save and exit
+   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/sapmnt<b>qas</b>
+   /usr/sap/trans -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/trans
+   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.5</b>:/usrsap<b>qas</b>pas
+   </code></pre>
+
    重新開機 `autofs` 以掛接新的共用
 
    <pre><code>
@@ -784,7 +852,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    sudo service autofs restart
    </code></pre>
 
-1. **[P]** 在 .Aas 上設定 autofs
+1. **[P]** 在 .Aas 上設定 `autofs`
 
    <pre><code>sudo vi /etc/auto.master
    
@@ -792,7 +860,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    /- /etc/auto.direct
    </code></pre>
 
-   使用下列命令建立新檔案
+   如果使用 NFSv3，請使用下列方式建立新的檔案：
 
    <pre><code>
    sudo vi /etc/auto.direct
@@ -800,6 +868,16 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    /sapmnt/<b>QAS</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/sapmnt<b>qas</b>
    /usr/sap/trans -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/trans
    /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/usrsap<b>qas</b>aas
+   </code></pre>
+
+   如果使用 NFSv 4.1，請使用下列方式建立新的檔案：
+
+   <pre><code>
+   sudo vi /etc/auto.direct
+   # Add the following lines to the file, save and exit
+   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/sapmnt<b>qas</b>
+   /usr/sap/trans -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/trans
+   /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/usrsap<b>qas</b>aas
    </code></pre>
 
    重新開機 `autofs` 以掛接新的共用
@@ -1184,7 +1262,7 @@ Azure NetApp files 在數個[azure 區域](https://azure.microsoft.com/global-in
    <pre><code>anftstsapcl2:~ # pgrep ms.sapQAS | xargs kill -9
    </code></pre>
 
-   如果您只終止訊息伺服器一次，sapstart 會將伺服器重新啟動。 如果您終止伺服器的次數足夠，則 Pacemaker 最終會將 ASCS 執行個體移到另一個節點。 以 root 身份執行下列命令，以在測試之後清除 ASCS 和 ERS 執行個體的資源狀態。
+   如果您只終止訊息伺服器一次，則會 `sapstart`重新開機它。 如果您終止伺服器的次數足夠，則 Pacemaker 最終會將 ASCS 執行個體移到另一個節點。 以 root 身份執行下列命令，以在測試之後清除 ASCS 和 ERS 執行個體的資源狀態。
 
    <pre><code>
    anftstsapcl2:~ # crm resource cleanup rsc_sap_QAS_ASCS00

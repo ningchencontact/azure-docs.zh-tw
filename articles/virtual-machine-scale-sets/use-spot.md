@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: d2c8e599e44e48517920862e1fcf83e1a5e24910
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b57c13d4a5c671595a3e82ac7858c027456107f2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647623"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894082"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>預覽：適用于虛擬機器擴展集的 Azure 位置 Vm 
 
@@ -156,7 +156,7 @@ $vmssConfig = New-AzVmssConfig `
 
 **問：** 我可以要求額外的時間配額嗎？
 
-**答：** 是，您可以提交要求以增加您的配額，以透過[標準配額要求](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests)程式來找出您的 vm。
+**答：** 是，您可以提交要求以增加您的配額，以透過[標準配額要求](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)程式來找出您的 vm。
 
 
 **問：** 我可以將現有的擴展集轉換成點擴展集嗎？

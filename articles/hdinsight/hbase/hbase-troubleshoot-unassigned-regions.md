@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
-ms.openlocfilehash: 377a75d098ab4238fadc16b218bc69235f2e732a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 85aeafb2c4461b50d399e40d9abff2ac04b677c0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091540"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887133"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Azure HDInsight 中區域伺服器的問題
 
@@ -22,7 +22,7 @@ ms.locfileid: "71091540"
 
 ### <a name="issue"></a>問題
 
-`hbase hbck`執行命令時，您會看到類似下列的錯誤訊息：
+執行 `hbase hbck` 命令時，您會看到類似以下的錯誤訊息：
 
 ```
 multiple regions being unassigned or holes in the chain of regions
@@ -40,19 +40,19 @@ multiple regions being unassigned or holes in the chain of regions
 
 1. 使用 SSH 登入 HDInsight HBase 叢集。
 
-1. 執行`hbase zkcli`命令以使用 ZooKeeper shell 進行連接。
+1. 執行 `hbase zkcli` 命令，以使用 ZooKeeper shell 進行連接。
 
-1. 執行`rmr /hbase/regions-in-transition` 或`rmr /hbase-unsecure/regions-in-transition`命令。
+1. 執行 `rmr /hbase/regions-in-transition` 或 `rmr /hbase-unsecure/regions-in-transition` 命令。
 
-1. 使用`exit`命令結束 zookeeper shell。
+1. 使用 `exit` 命令結束 zookeeper shell。
 
 1. 開啟 Apache Ambari UI，然後重新啟動 Active HBase Master 服務。
 
-1. 再次`hbase hbck`執行命令（不含任何進一步的選項）。 檢查輸出，並確定已指派所有區域。
+1. 再次執行 `hbase hbck` 命令（不含任何進一步的選項）。 檢查輸出，並確定已指派所有區域。
 
 ---
 
-## <a name="scenario-dead-region-servers"></a>案例：失效的區域伺服器
+## <a name="scenario-dead-region-servers"></a>案例：無作用的區域伺服器
 
 ### <a name="issue"></a>問題
 
@@ -64,17 +64,17 @@ multiple regions being unassigned or holes in the chain of regions
 
 1. 取得目前 Wal 的清單： `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`。
 
-1. `wals.out`檢查檔案。 如果有太多分割目錄（從 *-分割開始），區域伺服器可能會因為這些目錄而失敗。
+1. 檢查 `wals.out` 檔案。 如果有太多分割目錄（從 *-分割開始），區域伺服器可能會因為這些目錄而失敗。
 
 ### <a name="resolution"></a>解析度
 
 1. 從 Ambari 入口網站停止 HBase。
 
-1. 執行`hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`以取得最新的 wal 清單。
+1. 執行 `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out` 以取得最新的 Wal 清單。
 
-1. 將 *-分割目錄移至暫存資料夾， `splitWAL`並刪除 * 分割目錄。
+1. 將 *-分割目錄移至暫存資料夾，`splitWAL`，然後刪除 * 分割目錄。
 
-1. 執行`hbase zkcli`命令以使用 zookeeper shell 進行連接。
+1. 執行 `hbase zkcli` 命令，以使用 zookeeper shell 進行連接。
 
 1. 執行 `rmr /hbase-unsecure/splitWAL`。
 
@@ -86,6 +86,6 @@ multiple regions being unassigned or holes in the chain of regions
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
+* 與[@AzureSupport](https://twitter.com/azuresupport)進行連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

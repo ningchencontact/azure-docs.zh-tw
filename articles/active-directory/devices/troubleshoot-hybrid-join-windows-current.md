@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e0339f5118d4745b6abe0268f021f8284a5f11f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: fd53b95472c72d70721612d8684779c206aad74e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689126"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888788"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>針對混合式 Azure Active Directory 已加入裝置進行疑難排解 
 
@@ -245,7 +245,7 @@ WamDefaultAuthority: organizations
 失敗的原因：
 
 - 無法以無訊息方式取得 DRS 資源的存取權杖。
-   - Windows 10 裝置會使用整合式 Windows 驗證，從同盟服務取得驗證權杖到作用中的 WS-TRUST 端點。 詳細資料：[同盟服務](hybrid-azuread-join-manual.md##set-up-issuance-of-claims)設定
+   - Windows 10 裝置會使用整合式 Windows 驗證，從同盟服務取得驗證權杖到作用中的 WS-TRUST 端點。 詳細資料：[同盟服務](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)設定
 
 **一般錯誤代碼：**
 

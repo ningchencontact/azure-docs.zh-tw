@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: a6ede13ea258048857e06e1c158a297219ff0df6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6e000d31ffbacd7cb716bd59dde4f935638b0810
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494275"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895201"
 ---
 # <a name="scenario-apache-hive-fails-to-establish-a-connection-to-apache-zookeeper-in-azure-hdinsight"></a>案例： Apache Hive 無法在中建立與 Apache Zookeeper 的連線 Azure HDInsight
 
@@ -30,7 +30,7 @@ ERROR [Curator-Framework-0]: curator.ConnectionState (ConnectionState.java:check
 
 Hive 可能無法建立與 Zookeeper 的連接，這可防止 Hive 視圖啟動。
 
-## <a name="resolution"></a>解決方案
+## <a name="resolution"></a>解析度
 
 1. 檢查 Zookeeper 服務是否狀況良好。
 
@@ -51,4 +51,4 @@ Hive 可能無法建立與 Zookeeper 的連接，這可防止 Hive 視圖啟動�
 
 * 連接[@AzureSupport](https://twitter.com/azuresupport) -官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源，來改善客戶體驗：解答、支援和專家。
 
-* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 Microsoft Azure 訂用帳戶包括訂用帳戶管理及帳務支援的存取權，而技術支援由其中一項 [Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

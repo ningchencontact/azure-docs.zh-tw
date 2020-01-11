@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 09/11/2019
-ms.openlocfilehash: 9f7d3fb5363a5eb2d79287bc9a9398bfdcbc4aec
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ae5cfcfcd394aab644b35ac66aafa213dc49dd42
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087831"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895390"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Azure HDInsight 中的 Apache Ambari 的心跳問題
 
@@ -57,7 +57,7 @@ Ambari 代理程式的 CPU 使用率很高，會導致 Ambari UI 的警示，而
 
 ---
 
-## <a name="scenario-ambari-agent-not-started"></a>案例：Ambari 代理程式未啟動
+## <a name="scenario-ambari-agent-not-started"></a>案例： Ambari 代理程式未啟動
 
 ### <a name="issue"></a>問題
 
@@ -81,7 +81,7 @@ Ambari 代理程式尚未啟動，這會導致 Ambari UI 的警示，而這些�
     ps -ef | grep failover
     ```
 
-    如果容錯移轉控制器服務未執行，可能是因為發生問題而導致 hdinsight 代理程式無法啟動容錯移轉控制器。 檢查 hdinsight-代理程式記錄`/var/log/hdinsight-agent/hdinsight-agent.out`檔。
+    如果容錯移轉控制器服務未執行，可能是因為發生問題而導致 hdinsight 代理程式無法啟動容錯移轉控制器。 檢查 `/var/log/hdinsight-agent/hdinsight-agent.out` 檔案中的 hdinsight 代理程式記錄檔。
 
 ---
 
@@ -91,6 +91,6 @@ Ambari 代理程式尚未啟動，這會導致 Ambari UI 的警示，而這些�
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源來改善客戶體驗：解答、支援及專家。
+* 連接[@AzureSupport](https://twitter.com/azuresupport) -官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源，來改善客戶體驗：解答、支援和專家。
 
-* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

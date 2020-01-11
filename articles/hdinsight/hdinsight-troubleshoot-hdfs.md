@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1c5d9f665c9b3e7a439a09f4259f304f8f8b1a0a
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 6b0a81a2f3af10a1e5ad60c6c33357a6e906ee47
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718337"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895255"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>使用 Azure HDInsight 針對 Apache Hadoop HDFS 問題進行疑難排解
 
@@ -76,8 +76,8 @@ ms.locfileid: "71718337"
 
 [-Du](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du)命令會顯示指定目錄中包含的檔案和目錄大小，或檔案的長度（如果檔案只是檔案）。
 
-@No__t-0 選項會產生所顯示檔案長度的匯總摘要。  
-@No__t-0 選項會格式化檔案大小。
+`-s` 選項會產生所顯示檔案長度的匯總摘要。  
+[`-h`] 選項會格式化檔案大小。
 
 範例：
 
@@ -102,6 +102,6 @@ hdfs dfs -rm hdfs://mycluster/tmp/testfile
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
+* 與[@AzureSupport](https://twitter.com/azuresupport)進行連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

@@ -98,6 +98,8 @@
               href: concepts-data-access-and-security-threat-protection.md
             - name: Azure AD 驗證
               href: concepts-aad-authentication.md
+            - name: 私人連結
+              href: concepts-data-access-and-security-private-link.md
         - name: 業務持續性
           items:
             - name: 業務持續性簡介
@@ -125,7 +127,7 @@
               href: concepts-query-performance-insight.md
             - name: 效能建議
               href: concepts-performance-recommendations.md
-        - name: 開發
+        - name: 部署
           items:
             - name: 連線程式庫
               href: concepts-connection-libraries.md
@@ -169,9 +171,9 @@
           href: concepts-hyperscale-high-availability.md
         - name: 資源
           items:
-            - name: 組態選項
+            - name: 設定選項
               href: concepts-hyperscale-configuration-options.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 單一伺服器
       items:
@@ -179,7 +181,7 @@
           items:
             - name: Azure 入口網站
               href: howto-create-manage-server-portal.md
-        - name: Authentication
+        - name: 驗證
           items:
             - name: 建立使用者
               href: howto-create-users.md
@@ -251,6 +253,12 @@
               href: howto-manage-vnet-using-portal.md
             - name: Azure CLI
               href: howto-manage-vnet-using-cli.md
+        - name: 私人連結
+          items:
+            - name: Azure 入口網站
+              href: howto-configure-privatelink-portal.md
+            - name: Azure CLI
+              href: howto-configure-privatelink-cli.md
         - name: 重新啟動伺服器
           items:
             - name: Azure 入口網站

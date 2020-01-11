@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 39f22cc3cb026d4bed1dbe937e0e220b7bdceec7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e386aee68696a3b56036ec2dacc19fd9c138b88c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435566"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887252"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他工具在 HDInsight 中設定叢集
 
@@ -208,7 +208,7 @@ HDInsight 叢集的成本是由節點數和節點的虛擬機器大小來決定�
 如果您只是想要試用 HDInsight，建議您使用一個背景工作節點。 如需關於 HDInsight 定價的詳細資訊，請參閱 [HDInsight 定價](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)。
 
 > [!NOTE]  
-> 叢集大小限制會隨著 Azure 訂用帳戶而有所不同。 若要提高限制，請與 [Azure 帳務支援人員](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)連絡。
+> 叢集大小限制會隨著 Azure 訂用帳戶而有所不同。 若要提高限制，請與 [Azure 帳務支援人員](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)連絡。
 
 當您使用 Azure 入口網站設定叢集時，可以透過 [設定 **+ 定價**] 索引標籤取得節點大小。在入口網站中，您也可以查看與不同節點大小相關聯的成本。
 

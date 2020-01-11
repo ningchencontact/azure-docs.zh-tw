@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
-ms.openlocfilehash: 0e6631d36f8b8153c34f787f8941b45b7522aceb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b59f933fedd5f1d3ed3f7972b1a1fe653df31be2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083915"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893902"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>對 Microsoft Azure Site Recovery Provider 升級失敗進行疑難排解
 
@@ -27,7 +27,7 @@ ms.locfileid: "74083915"
 若要升級，請使用下列步驟：
 
 1. 下載 Microsoft Azure Site Recovery 整合安裝：
-   1. 在 [Azure Site Recovery 中的服務更新](service-updates-how-to.md##links-to-currently-supported-update-rollups)一文的＜目前支援的更新彙總套件連結＞小節中，選取您要升級的提供者。
+   1. 在 [Azure Site Recovery 中的服務更新](service-updates-how-to.md#links-to-currently-supported-update-rollups)一文的＜目前支援的更新彙總套件連結＞小節中，選取您要升級的提供者。
    2. 在 [彙總] 頁面上，找出 [更新資訊] 區段，並下載適用於 Microsoft Azure Site Recovery 整合安裝更新彙總套件。
 
 2. 開啟命令提示字元並瀏覽至您下載整合安裝檔案的資料夾。 使用下列命令將安裝檔從下載項目中解壓縮：MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;已解壓縮檔案的資料夾路徑&gt;。
@@ -51,7 +51,7 @@ ms.locfileid: "74083915"
 1. 啟動登錄編輯程式 (regedit.exe)，並開啟 HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10 分支。
 1. 檢查 `Build_Version` 機碼值。 如果機碼是設定為最新版本，請減少版本號碼。 例如，如果最新版本為 9.22.\*，且 `Build_Version` 機碼設定為該值，則將它減少為 9.21.\*。
 1. 下載最新的 Microsoft Azure Site Recovery 整合安裝：
-   1. 在 [Azure Site Recovery 中的服務更新](service-updates-how-to.md##links-to-currently-supported-update-rollups)一文的＜目前支援的更新彙總套件連結＞小節中，選取您要升級的提供者。
+   1. 在 [Azure Site Recovery 中的服務更新](service-updates-how-to.md#links-to-currently-supported-update-rollups)一文的＜目前支援的更新彙總套件連結＞小節中，選取您要升級的提供者。
    2. 在 [彙總] 頁面上，找出 [更新資訊] 區段，並下載適用於 Microsoft Azure Site Recovery 整合安裝更新彙總套件。
 1. 開啟命令提示字元並瀏覽至您下載整合安裝檔案的資料夾，並使用下列命令將安裝檔從下載項目中解壓縮：MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;已解壓縮檔案的資料夾路徑&gt;。
 
