@@ -3,13 +3,14 @@ title: Azure Site Recovery 中 VMware/實體嚴重損壞修復的支援矩陣
 description: 摘要說明使用 Azure Site Recovery 對 VMware Vm 和實體伺服器至 Azure 的嚴重損壞修復支援。
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/23/2019
-ms.openlocfilehash: 752f2276f23aa22feac870493e1ea5c1fdc4ca98
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 1/10/2020
+ms.author: raynew
+ms.openlocfilehash: 1d6f5df59a318388a7a5fea75d1fd17e18cb7745
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645934"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864327"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -226,7 +227,7 @@ ReFS | 行動服務9.23 版或更高版本支援復原檔案系統
 經常性存取儲存體| 否
 區塊 Blob | 否
 待用加密（SSE）| 是
-待用加密（CMK）| 否
+待用加密（CMK）| 是（透過 Powershell Az 3.3.0 module 開始）
 進階儲存體 | 是
 匯入/匯出服務 | 否
 適用于 Vnet 的 Azure 儲存體防火牆 | 可以。<br/> 設定于目標儲存體/快取儲存體帳戶（用來儲存複寫資料）。

@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 66be29b6d16e422eebd381cddb83ce94adf9f76e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 38f5af3cb2006e4b029f8979a213c0af10f1ed8a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745456"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863575"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中設定監視
 
@@ -97,7 +97,7 @@ Azure 監視器包含功能強大的 log analytics 服務，可讓您在一個�
 完整記錄查詢是透過[Azure 監視器記錄](../azure-monitor/log-query/log-query-overview.md)來提供。 設定這些強大的功能：
 
 1. 在 Azure 入口網站中搜尋 **Log Analytics**。
-1. 您會看到可用的**Log Analytics 工作區**實例。 選擇一個並選取 [記錄] 以查詢：
+1. 將會顯示您可用的**Log Analytics 工作區**實例。 選擇一個並選取 [記錄] 以查詢：
 
     [![Log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
@@ -123,7 +123,7 @@ Azure 監視器記錄也提供強大的錯誤和警示通知服務，可以藉�
 
 ## <a name="other-options"></a>其他選項
 
-Azure Digital Twins 也支援應用程式特定記錄與安全性稽核。 如需可供您的 Azure Digital Twins 執行個體使用之所有 Azure 記錄選項的全面資訊，請參閱 [Azure 記錄稽核](../security/fundamentals/log-audit.md)一文。
+Azure Digital Twins 也支援應用程式特定記錄與安全性稽核。 如需深入瞭解 Azure 數位 Twins 實例可用的所有 Azure 記錄選項，請閱讀[azure 記錄檔 audit](../security/fundamentals/log-audit.md)文章。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -4,18 +4,30 @@ description: 如何編輯 Azure HPC Cache 儲存體目標
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 1/08/2020
 ms.author: rohogue
-ms.openlocfilehash: 115e75c0149a35104d9c3696710bf8231a98743d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5635bfc6ea5faea41b125037c76c0b8635e0f528
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168510"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866993"
 ---
 # <a name="edit-storage-targets"></a>編輯儲存體目標
 
-您可以編輯儲存體目標，以修改其部分屬性。 針對不同類型的儲存體，可以編輯不同的屬性：
+您可以從快取的 [**儲存體目標**] 頁面中移除或修改儲存體目標。
+
+## <a name="remove-a-storage-target"></a>移除儲存體目標
+
+若要移除儲存體目標，請在清單中選取它，然後按一下 [**刪除**] 按鈕。
+
+此動作會移除與此 Azure HPC 快取系統的儲存體目標關聯，但不會變更後端儲存體系統。 例如，如果您使用了 Azure Blob 儲存體容器，則在您從快取中刪除容器和其內容時，它仍會存在。 您可以將容器新增至不同的 Azure HPC 快取、將其重新加入至此快取，或使用 Azure 入口網站加以刪除。
+
+儲存在快取中的任何檔案變更，會在儲存體目標移除之前寫入後端儲存體系統。 如果快取中有大量變更的資料，此程式可能需要一小時以上的時間。
+
+## <a name="update-storage-targets"></a>更新儲存體目標
+
+您可以編輯儲存體目標，以修改其部分屬性。 不同類型的儲存體可編輯不同的屬性：
 
 * 針對 Blob 儲存體目標，您可以變更命名空間路徑。
 

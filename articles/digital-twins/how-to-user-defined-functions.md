@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 824fe611867216233e223e505f5321b23b7406fb
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7334d4292db710a32b888d9a3ad4e78872d15227
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383319"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863507"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中建立使用者定義函式
 
@@ -193,11 +193,11 @@ function process(telemetry, executionContext) {
 }
 ```
 
-如需更複雜的使用者定義函式程式碼範例，請參閱[佔用量快速入門](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)。
+如需更複雜的使用者定義函式程式碼範例，請閱讀[佔用量快速入門](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)。
 
 ## <a name="create-a-role-assignment"></a>建立角色指派
 
-建立角色指派，讓使用者定義函式可在其下執行。 如果為使用者定義的函式沒有角色指派存在，則不會擁有適當的權限可與管理 API 互動，或者不會擁有可對圖表物件執行動作的存取權。 使用者定義函式可執行的動作是透過 Azure Digital Twins 管理 API 內的角色型存取控制所指定與定義的。 例如，您可以藉由指定特定角色或特定存取控制路徑來限制使用者定義函式的範圍。 如需詳細資訊，請參閱[角色型存取控制](./security-role-based-access-control.md)文件。
+建立角色指派，讓使用者定義函式可在其下執行。 如果為使用者定義的函式沒有角色指派存在，則不會擁有適當的權限可與管理 API 互動，或者不會擁有可對圖表物件執行動作的存取權。 使用者定義函式可執行的動作是透過 Azure Digital Twins 管理 API 內的角色型存取控制所指定與定義的。 例如，您可以藉由指定特定角色或特定存取控制路徑來限制使用者定義函式的範圍。 如需詳細資訊，請參閱以[角色為基礎的存取控制](./security-role-based-access-control.md)檔。
 
 1. 針對所有角色[查詢系統 API](./security-create-manage-role-assignments.md#retrieve-all-roles)，以取得您想要指派給使用者定義函式的角色識別碼。 提出已驗證的 HTTP GET 要求來達成此目的：
 
@@ -207,7 +207,7 @@ function process(telemetry, executionContext) {
    保留所需的角色識別碼。 它將會以下方的 JSON 主體屬性 **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) 來傳遞。
 
 1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) 將會是稍早建立的使用者定義函式識別碼。
-1. 藉由使用 **查詢您的空間來尋找**path`YOUR_ACCESS_CONTROL_PATH` (`fullpath`) 的值。
+1. 藉由使用 `fullpath` 查詢您的空間來尋找 **path** (`YOUR_ACCESS_CONTROL_PATH`) 的值。
 1. 複製傳回的 `spacePaths` 值。 您將會在下方用到該值。 提出已驗證的 HTTP GET 要求：
 
     ```URL

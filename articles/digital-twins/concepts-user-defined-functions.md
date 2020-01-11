@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 5b1c3e6dcd106e16ab07f707729f31ee1e269461
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660302"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861093"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>資料處理與各項使用者定義功能
 
@@ -104,7 +104,7 @@ Azure Digital Twins 中的資料處理由三個物件的定義所組成：*比�
 - 建立傳入的感應器讀數符合特定條件時所發出的通知。
 - 在傳送通知之前將圖形中繼資料附加至感應器讀數。
 
-如需詳細資訊，請參閱[如何使用使用者定義的函式](./how-to-user-defined-functions.md)。
+如需詳細資訊，請參閱[如何使用使用者定義的函數](./how-to-user-defined-functions.md)。
 
 #### <a name="examples"></a>範例
 

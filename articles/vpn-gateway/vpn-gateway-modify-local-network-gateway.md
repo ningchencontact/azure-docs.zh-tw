@@ -1,26 +1,19 @@
 ---
-title: VPN 閘道：修改閘道 IP 位址設定： Azure PowerShell
+title: 修改閘道 IP 位址設定： PowerShell
 description: 本文逐步解說如何使用 PowerShell 來變更區域網路閘道的 IP 位址首碼
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 8c7db48f-d09a-44e7-836f-1fb6930389df
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6aae2c87615ae0e250d7f9460bde483e3448c46e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: dbaef6e0c81a9230b24aa1e85e7fdc421444047d
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014894"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863990"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>使用 PowerShell 修改區域網路閘道設定
 
@@ -35,7 +28,7 @@ ms.locfileid: "74014894"
 
 ## <a name="before"></a>開始之前
 
-安裝最新版的 Azure Resource Manager PowerShell Cmdlet。 如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azureps-cmdlets-docs) 。
+安裝最新版的 Azure Resource Manager PowerShell Cmdlet。 如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azureps-cmdlets-docs)。
 
 ## <a name="ipaddprefix"></a>修改 IP 位址首碼
 

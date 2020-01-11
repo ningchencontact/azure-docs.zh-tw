@@ -4,16 +4,16 @@ description: 了解如何使用 Azure 入口網站來監視 Azure 中的儲存�
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 143574ff02960fcd0fd33ccaed5a80a9bb4f3147
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: e9ef700e45acc55f476d72883107b0c5c958fa7f
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211864"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862827"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>在 Azure 入口網站中監視儲存體帳戶
 
@@ -53,7 +53,7 @@ ms.locfileid: "71211864"
 您可以將 [狀態] 設定為 [關閉] 來停用計量收集和記錄。
 
 > [!NOTE]
-> Azure 儲存體使用[表格儲存體](storage-introduction.md#table-storage)來儲存儲存體帳戶的計量，並且會將計量以資料表形式儲存在帳戶中。 如需詳細資訊，請參閱： [度量的儲存方式](storage-analytics-metrics.md#how-metrics-are-stored)。
+> Azure 儲存體使用[表格儲存體](storage-introduction.md#table-storage)來儲存儲存體帳戶的計量，並且會將計量以資料表形式儲存在帳戶中。 如需詳細資訊，請參閱。 [度量的儲存方式](storage-analytics-metrics.md#how-metrics-are-stored)。
 >
 
 ## <a name="customize-metrics-charts"></a>自訂計量圖表
@@ -129,14 +129,14 @@ ms.locfileid: "71211864"
 >
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [儲存體帳戶]，然後選取儲存體帳戶名稱以開啟 [儲存體帳戶] 刀鋒視窗。
-1. 在功能表刀鋒視窗的 [監視] 區段中選取 [診斷]。
+1. 在功能表分頁的 [**監視（傳統）** ] 區段中，選取 [**診斷設定（傳統）** ]。
 
     ![Azure 入口網站中 [監視] 底下的 [診斷] 功能表項目。](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 
 1. 確定 [狀態] 已設為 [開啟]，然後選取要為其啟用記錄的 [服務]。
 
     ![在 Azure 入口網站中設定記錄。](./media/storage-monitor-storage-account/enable-diagnostics.png)
-1. 按一下 [儲存]。
+1. 按一下 [檔案]。
 
 診斷記錄會儲存在儲存體帳戶中名為 *$logs* 的 Blob 容器內。 若要檢視記錄資料，您可以使用 [Microsoft 儲存體總管](https://storageexplorer.com)之類的儲存體總管，或使用儲存體用戶端程式庫或 PowerShell 以程式設計方式進行檢視。
 

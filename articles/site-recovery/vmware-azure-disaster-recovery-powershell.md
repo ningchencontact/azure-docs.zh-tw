@@ -4,15 +4,15 @@ description: 了解如何在 Azure Site Recovery 中使用 PowerShell 設定針�
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.date: 06/30/2019
+ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 9546ae590918cdf6f3a6a95b9a68e9208054dcee
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953938"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861263"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>使用 PowerShell 設定 VMware VM 至 Azure 的災害復原
 
@@ -31,7 +31,7 @@ ms.locfileid: "73953938"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始之前：
 
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 使用 Set-ASRVaultContext Cmdlet 設定保存庫內容。 設定後，會在所選保存庫的內容中執行 PowerShell 工作階段中的後續 Azure Site Recovery 作業。
 
 > [!TIP]
-> Azure Site Recovery PowerShell 模組（Az. Azurerm.recoveryservices 模組）為大部分的 Cmdlet 提供容易使用的別名。 模組中的 Cmdlet 會採用\<作業的形式， *>**AzRecoveryServicesAsr**\<物件 >* ，並具有對等的別名，其採用\<作業 > *-**ASR**\<物件 >* 的格式。 您可以取代 Cmdlet 別名以方便使用。
+> Azure Site Recovery PowerShell 模組（Az. Azurerm.recoveryservices 模組）為大部分的 Cmdlet 提供容易使用的別名。 模組中的 Cmdlet 會採用\<作業的形式， ***AzRecoveryServicesAsr**\<物件 >* ，並具有對等的別名，其採用\<作業 > *-**ASR**\<物件 >* 的格式。 您可以取代 Cmdlet 別名以方便使用。
 
 在下列範例中，來自 $vault 變數的保存庫詳細資料用於指定 PowerShell 工作階段的保存庫內容。
 
@@ -118,7 +118,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-除了 ASRVaultCoNtext 指令程式以外，您也可以使用 AzRecoveryServicesAsrVaultSettingsFile Cmdlet 來設定保存庫內容。 指定保存庫註冊金鑰檔案所在的路徑，做為 AzRecoveryServicesAsrVaultSettingsFile Cmdlet 的-path 參數。 例如︰
+除了 ASRVaultCoNtext 指令程式以外，您也可以使用 AzRecoveryServicesAsrVaultSettingsFile Cmdlet 來設定保存庫內容。 指定保存庫註冊金鑰檔案所在的路徑，做為 AzRecoveryServicesAsrVaultSettingsFile Cmdlet 的-path 參數。 例如：
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
@@ -342,7 +342,7 @@ $ReplicationStdStorageAccount= New-AzStorageAccount -ResourceGroupName "VMwareDR
 * 將複寫的可保護項目。
 * 要複寫虛擬機器的儲存體帳戶（僅限複寫至儲存體帳戶時）。 
 * 需要記錄儲存體，才能保護虛擬機器對 premium 儲存體帳戶或受控磁片。
-* 將用於複寫的處理序伺服器。 已擷取可用處理序伺服器的清單，並儲存於 ***$ProcessServers[0]***  *(ScaleOut-ProcessServer)* 和 ***$ProcessServers[1]*** *(ConfigurationServer)* 變數中。
+* 將用於複寫的處理序伺服器。 已取得可用進程伺服器的清單，並將其儲存在 ***$ProcessServers [0]***  *（向外延展-scaleout-processserver）* 和 ***$ProcessServers [1]*** *（ConfigurationServer）* 變數中。
 * 用於將行動服務軟體推入安裝於機器的帳戶。 已擷取可用帳戶清單，並儲存於 ***$AccountHandles*** 變數中。
 * 對於複寫所用的複寫原則使用的保護容器對應。
 * 必須在容錯移轉時建立虛擬機器的資源群組。
@@ -372,9 +372,13 @@ $PolicyMap  = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionCon
 #Get the protectable item corresponding to the virtual machine CentOSVM1
 $VM1 = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "CentOSVM1"
 
-# Enable replication for virtual machine CentOSVM1 using the Az.RecoveryServices module 2.0.0
+# Enable replication for virtual machine CentOSVM1 using the Az.RecoveryServices module 2.0.0 onwards to replicate to managed disks
 # The name specified for the replicated item needs to be unique within the protection container. Using a random GUID to ensure uniqueness
 $Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -logStorageAccountId $LogStorageAccount.Id -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
+
+# Alternatively, if the virtual machine CentOSVM1 has CMK enabled disks, enable replication using Az module 3.3.0 onwards as below
+# $diskID is the Disk Encryption Set ID to be used for all replica managed disks and target managed disks in the target region
+$Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -logStorageAccountId -DiskEncryptionSetId $diskId $LogStorageAccount.Id -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
 
 #Get the protectable item corresponding to the virtual machine Win2K12VM1
 $VM2 = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "Win2K12VM1"

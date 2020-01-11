@@ -4,16 +4,16 @@ description: 評估 Azure VPN 閘道的安全性控制清單
 services: sql-database
 author: msmbaldwin
 manager: rkarlin
-ms.service: load-balancer
+ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1babb892063da6d460ea2bc4c567da954731956f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 2c32f46ca85007608b5e17f2bf77b0a8f0fb8397
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886626"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862742"
 ---
 # <a name="security-controls-for-azure-vpn-gateway"></a>Azure VPN 閘道的安全性控制
 
@@ -34,7 +34,7 @@ ms.locfileid: "70886626"
 
 | 安全性控制 | 是/否 | 注意|
 |---|---|--|
-| Azure 監視支援 (Log analytics、App insights 等)| 是 | 請參閱[Azure 監視器診斷記錄/警示](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) &  [Azure 監視器計量/警示](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md)。  |
+| Azure 監視支援（Log analytics、App insights 等）| 是 | 請參閱[Azure 監視器診斷記錄/警示](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Azure 監視器計量/警示](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md)。  |
 | 控制和管理平面記錄和審核| 是 | Azure Resource Manager 活動記錄。 |
 | 資料平面記錄和審核 | 是 | Azure 監視器 VPN 連線記錄和審核的[診斷記錄](../azure-resource-manager/resource-group-audit.md)。 |
 
@@ -43,23 +43,23 @@ ms.locfileid: "70886626"
 | 安全性控制 | 是/否 | 注意|
 |---|---|--|
 | 驗證| 是 | 用於管理服務和設定 Azure VPN 閘道的[Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 。 |
-| Authorization| 是 | 透過[RBAC](../role-based-access-control/overview.md)支援授權。 |
+| 授權| 是 | 透過[RBAC](../role-based-access-control/overview.md)支援授權。 |
 
 ## <a name="data-protection"></a>資料保護
 
 | 安全性控制 | 是/否 | 注意 |
 |---|---|--|
-| 待用的伺服器端加密：Microsoft 管理的金鑰 | N/A | VPN 閘道傳輸客戶資料, 不會儲存客戶資料 |
-| 傳輸中的加密 (例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密)| 是 | VPN 閘道會加密 Azure VPN 閘道與客戶內部部署 VPN 裝置 (S2S) 或 VPN 用戶端 (P2S) 之間的客戶封包。 VPN 閘道也支援 VNet 對 VNet 加密。 |
+| 待用的伺服器端加密： Microsoft 管理的金鑰 | N/A | VPN 閘道傳輸客戶資料，不會儲存客戶資料 |
+| 傳輸中的加密（例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密）| 是 | VPN 閘道會加密 Azure VPN 閘道與客戶內部部署 VPN 裝置（S2S）或 VPN 用戶端（P2S）之間的客戶封包。 VPN 閘道也支援 VNet 對 VNet 加密。 |
 | 待用的伺服器端加密：客戶管理的金鑰（BYOK） | 否 | 客戶指定的預先共用金鑰會在待用時加密;但尚未與 CMK 整合。 |
-| 資料行層級加密 (Azure 資料服務)| N/A | |
+| 資料行層級加密（Azure 資料服務）| N/A | |
 | API 呼叫加密| 是 | 透過[Azure Resource Manager](../azure-resource-manager/index.yml)和 HTTPS  |
 
 ## <a name="configuration-management"></a>設定管理
 
 | 安全性控制 | 是/否 | 注意|
 |---|---|--|
-| 設定管理支援 (設定的版本設定等)| 是 | 針對管理作業, Azure VPN 閘道設定的狀態可以匯出為 Azure Resource Manager 範本, 並在一段時間後進行版本設定。 | 
+| 設定管理支援（設定的版本設定等）| 是 | 針對管理作業，Azure VPN 閘道設定的狀態可以匯出為 Azure Resource Manager 範本，並在一段時間後進行版本設定。 | 
 
 ## <a name="next-steps"></a>後續步驟
 

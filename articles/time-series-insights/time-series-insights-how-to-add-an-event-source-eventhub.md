@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd57231901c157ffc0d5a3d4219d827629b401f3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: c8f123871f1e87a18dadfa82ad6bb27d1c145dc4
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764141"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863337"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>新增事件中樞事件來源到您的時間序列深入解析環境
 
@@ -28,9 +28,9 @@ ms.locfileid: "74764141"
 ## <a name="prerequisites"></a>必要條件
 
 - 建立時間序列深入解析環境，如[建立 Azure 時間序列深入解析環境](./time-series-insights-update-create-environment.md)中所述。
-- 建立事件中樞。 請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。
+- 建立事件中樞。 閱讀[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。
 - 事件中樞必須要有傳入的作用中訊息事件。 瞭解如何[使用 .NET Framework 將事件傳送至 Azure 事件中樞](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md)。
-- 在事件中樞建立專用取用者群組，讓時間序列深入解析環境從中取用。 每個時間序列深入解析事件來源都必須有自身專屬的取用者群組，且不可與任何其他取用者共用。 如果多個讀取器從同一個取用者群組取用事件，則所有讀取器都可能會看到錯誤。 另外也限制每一個事件中樞最多有 20 個取用者群組。 如需詳細資訊，請參閱 [事件中樞程式設計指南](../event-hubs/event-hubs-programming-guide.md)。
+- 在事件中樞建立專用取用者群組，讓時間序列深入解析環境從中取用。 每個時間序列深入解析事件來源都必須有自身專屬的取用者群組，且不可與任何其他取用者共用。 如果多個讀取器取用來自相同取用者群組的事件，所有讀取器都可能會出現失敗。 另外也限制每一個事件中樞最多有 20 個取用者群組。 如需詳細資訊，請參閱[事件中樞程式設計指南](../event-hubs/event-hubs-programming-guide.md)。
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>將取用者群組新增至事件中樞
 
@@ -76,9 +76,9 @@ ms.locfileid: "74764141"
 
        [![訂用帳戶和事件中樞詳細資料](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
-       | 屬性 | 描述 |
+       | 屬性 | 說明 |
        | --- | --- |
-       | Subscription | 所需事件中樞實例和命名空間所屬的訂用帳戶。 |
+       | 訂閱 | 所需事件中樞實例和命名空間所屬的訂用帳戶。 |
        | 事件中樞命名空間 | 所需事件中樞實例所屬的事件中樞命名空間。 |
        | 事件中樞名稱 | 所需事件中樞實例的名稱。 |
        | 事件中樞原則值 | 選取所需的共用存取原則。 您可以在 [事件中樞**設定**] 索引標籤上建立共用存取原則。每個共用存取原則都會有名稱、您設定的許可權，以及存取金鑰。 事件來源的共用存取原則必須有**讀取**權限。 |
@@ -88,10 +88,10 @@ ms.locfileid: "74764141"
 
        下表說明 [手動提供事件中樞設定] 選項的必要屬性：
  
-       | 屬性 | 描述 |
+       | 屬性 | 說明 |
        | --- | --- |
        | 訂用帳戶 ID | 所需事件中樞實例和命名空間所屬的訂用帳戶。 |
-       | Resource group | 所需事件中樞實例和命名空間所屬的資源群組。 |
+       | 資源群組 | 所需事件中樞實例和命名空間所屬的資源群組。 |
        | 事件中樞命名空間 | 所需事件中樞實例所屬的事件中樞命名空間。 |
        | 事件中樞名稱 | 所需事件中樞實例的名稱。 |
        | 事件中樞原則值 | 選取所需的共用存取原則。 您可以在 [事件中樞**設定**] 索引標籤上建立共用存取原則。每個共用存取原則都會有名稱、您設定的許可權，以及存取金鑰。 事件來源的共用存取原則必須有**讀取**權限。 |
@@ -99,7 +99,7 @@ ms.locfileid: "74764141"
 
     * 這兩個選項都共用下列設定選項：
 
-       | 屬性 | 描述 |
+       | 屬性 | 說明 |
        | --- | --- |
        | 事件中樞取用者群組 | 從事件中樞讀取事件的取用者群組。 強烈建議您使用專屬於您事件來源的取用者群組。 |
        | 事件序列化格式 | 目前，JSON 是目前唯一可用的序列化格式。 事件訊息必須是這種格式，否則無法讀取資料。 |
@@ -115,6 +115,6 @@ ms.locfileid: "74764141"
 
 * [定義資料存取原則](time-series-insights-data-access.md)來保護資料。
 
-* [傳送事件](time-series-insights-send-events.md)到事件來源。
+* [將事件傳送](time-series-insights-send-events.md)到事件來源。
 
 * 在[時間序列深入解析總管](https://insights.timeseries.azure.com)中存取您的環境。

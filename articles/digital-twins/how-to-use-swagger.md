@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d4470a89455fd4b49fb7bb5ae26375f9cf9884c
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a14f3f6c17423dd9a86cbafe477fb8148932d43c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456936"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863524"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 參考文件
 
@@ -36,7 +36,7 @@ Swagger 是一個很便利的工具，可協助您開發和測試對 Azure Digit
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
-## <a name="reference-material"></a>參考資料
+## <a name="reference-material"></a>參考文件
 
 自動產生的 Swagger 參考資料提供重要概念的快速概觀、可用的管理 API 端點，以及每個物件模型的說明，以協助執行開發和測試工作。
 
@@ -50,9 +50,9 @@ Swagger 是一個很便利的工具，可協助您開發和測試對 Azure Digit
 
 您可以選取每個列出的物件模型，以取得更詳細的主要屬性摘要。
 
-[擴充以查看模型內容的 ![Swagger 模型](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
+[擴充以讀取模型內容的 ![Swagger 模型](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
 
-使用產生的 Swagger 物件模型來查看所有可用的 Azure Digital Twins [物件和 API](./concepts-objectmodel-spatialgraph.md) 相當方便。 開發人員可在於 Azure Digital Twins 上建置解決方案時使用此資源。
+產生的 Swagger 物件模型可方便讀取所有可用的 Azure 數位 Twins[物件和 api](./concepts-objectmodel-spatialgraph.md)。 開發人員可在於 Azure Digital Twins 上建置解決方案時使用此資源。
 
 ## <a name="endpoint-summary"></a>端點摘要
 
@@ -66,13 +66,13 @@ Swagger 也提供管理 API 中所有端點的整體概觀。
 
 [![swagger UI 中顯示的 Swagger 端點](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
 
-若要查看更詳細的概觀，請選取每個資源。
+選取每個資源以顯示其其他內容，以取得更詳細的總覽。
 
 ## <a name="use-swagger-to-test-endpoints"></a>使用 Swagger 來測試端點
 
 Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端點。
 
-在您選取特定端點之後，就會看到**歡迎試用**。
+選取特定端點之後，將會顯示 [立即**試用**] 按鈕。
 
 [![Swagger 立即試用 按鈕](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
@@ -84,7 +84,7 @@ Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端
 
 ## <a name="swagger-response-data"></a>Swagger 回應資料
 
-每個列出的端點也會包含回應主體資料，可用來驗證您的開發和測試。 這些範例包含您想要看到適用於成功 HTTP 要求的狀態碼和 JSON。
+每個列出的端點也會包含回應主體資料，可用來驗證您的開發和測試。 這些範例包括成功的 HTTP 要求的狀態碼和 JSON。
 
 [![Swagger JSON 回應範例](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 
@@ -124,7 +124,7 @@ Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端
 
     [![Swagger 重新導向模式](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 
-若要深入了解如何以互動方式測試由 OAuth 2.0 所保護的要求，請參閱[官方文件](https://swagger.io/docs/specification/authentication/oauth2/)。
+若要深入瞭解以互動方式測試受 OAuth 2.0 保護的要求，請參閱[官方檔](https://swagger.io/docs/specification/authentication/oauth2/)。
 
 ## <a name="next-steps"></a>後續步驟
 

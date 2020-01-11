@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 426ec57b3dbce884e55ef7a11ccca32ed295d70d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 12e642e59a1341926a0c4d66533465cecfc21709
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111901"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863133"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>設定從 Azure 認知搜尋索引子到 Azure VM 上 SQL Server 的連線
 
@@ -27,7 +27,7 @@ ms.locfileid: "74111901"
 ## <a name="enable-encrypted-connections"></a>啟用加密的連線
 Azure 認知搜尋需要透過公用網際網路連線的所有索引子要求的加密通道。 本節列出執行這項工作的步驟。
 
-1. 檢查憑證的屬性，以驗證主體名稱為 Azure VM 的完整網域名稱 (FQDN)。 您可以使用 CertUtils 之類的工具或憑證嵌入式管理單元來檢視屬性。 您可以在 **Azure 入口網站**的 [公用 IP 位址/DNS 名稱標籤][](https://portal.azure.com/) 欄位中，從 VM 服務刀鋒視窗的 [程式集] 區段中取得 FQDN。
+1. 檢查憑證的屬性，以驗證主體名稱為 Azure VM 的完整網域名稱 (FQDN)。 您可以使用 CertUtils 之類的工具或憑證嵌入式管理單元來檢視屬性。 您可以在 [Azure 入口網站](https://portal.azure.com/)的 [公用 IP 位址/DNS 名稱標籤] 欄位中，從 VM 服務刀鋒視窗的 [程式集] 區段中取得 FQDN。
    
    * 對於使用較新的 **Resource Manager** 範本建立的 VM，FQDN 的格式為 `<your-VM-name>.<region>.cloudapp.azure.com`
    * 對於建立為**傳統** VM 的較舊 VM，FQDN 的格式為 `<your-cloud-service-name.cloudapp.net>`。
@@ -72,8 +72,12 @@ Azure 認知搜尋需要透過公用網際網路連線的所有索引子要求�
 
 IP 位址可能會造成一些挑戰，如果您知道問題和可能的因應措施則可輕易克服。 其餘各節提供與 ACL 中的 IP 位址相關的問題處理建議。
 
-#### <a name="restrict-access-to-the-search-service-ip-address"></a>限制對搜尋服務 IP 位址的存取
-強烈建議您在 ACL 中限制對搜尋服務 IP 位址的存取，而不是讓 SQL Azure VM 對任何連接要求來者不拒。 您可以 Ping 搜尋服務的 FQDN (例如， `<your-search-service-name>.search.windows.net`)，輕鬆地找出 IP 位址。
+#### <a name="restrict-access-to-the-azure-cognitive-search"></a>限制對 Azure 認知搜尋的存取
+強烈建議您限制對搜尋服務的 IP 位址，以及 ACL 中 `AzureCognitiveSearch`[服務](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags)標籤的 ip 位址範圍的存取，而不是讓您的 SQL Azure vm 開放給所有連線要求。
+
+您可以藉由 ping 搜尋服務的 FQDN （例如，`<your-search-service-name>.search.windows.net`）來找出 IP 位址。
+
+您可以使用[可下載的 JSON](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)檔案或透過服務標籤[探索 API](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview)，找出您的 Azure 認知搜尋服務所在特定區域的 `AzureCognitiveSearch`[服務](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags)標籤的 IP 位址範圍。 每週會更新 IP 位址範圍。
 
 #### <a name="managing-ip-address-fluctuations"></a>管理 IP 位址的變動
 如果您的搜尋服務只有一個搜尋單位 (也就是有一個複本和一個分割區)，在例行服務重新啟動期間，IP 位址會變更，使用您搜尋服務的 IP 位址讓現有的 ACL 失效。

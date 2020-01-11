@@ -1,67 +1,64 @@
 ---
-title: 在 Linux 上附加自訂儲存體容器
+title: 提供從 Azure 儲存體到 Linux 容器的內容
 description: 瞭解如何在 Azure App Service 中將自訂網路共用連結至您的 Linux 容器。 在應用程式之間共用檔案、遠端系統管理靜態內容和本機存取等等。
 author: msangapu-msft
 ms.topic: article
-ms.date: 2/04/2019
+ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 00c60edeefa5fd8d1304aa5fc301a3b0304f5ca3
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 0a1e811787a43be76f94b13a6ec9886510c47d1d
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671795"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866965"
 ---
-# <a name="attach-azure-storage-containers-to-linux-containers"></a>將 Azure 儲存體容器附加至 Linux 容器
+# <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>從 Azure 儲存體在 Linux 上的 App Service 中提供內容
 
-本指南說明如何使用[Azure 儲存體](/azure/storage/common/storage-introduction)將網路共用附加至 Linux 上的 App Service。 優點包括安全內容、內容可攜性、持續儲存、存取多個應用程式，以及多個傳輸方法。
+本指南說明如何將 Azure 儲存體附加至 Linux 上的 App Service。 優點包括安全內容、內容可攜性、持續儲存、存取多個應用程式，以及多個傳輸方法。
+
+
+> [!IMPORTANT]
+> Linux 上的 App Service 中的 Azure 儲存體是**預覽**功能。 **生產案例不支援**這項功能。
+>
 
 ## <a name="prerequisites"></a>必要條件
 
-- 現有的 Web 應用程式 (Linux 上的 App Service 或適用於容器的 Web 應用程式)。
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 或更新版本)。
+- 現有的[Linux 上的 App Service 應用程式](https://docs.microsoft.com/azure/app-service/containers/)。
+- [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
+- [Azure 檔案共用和目錄](https://docs.microsoft.com/azure/storage/common/storage-azure-cli#create-and-manage-file-shares)。
 
-## <a name="create-azure-storage"></a>建立 Azure 儲存體
 
-> [!NOTE]
-> Azure 儲存體為非預設儲存體，並且會分開計費，不包含在 Web 應用程式中。
+## <a name="limitations-of-azure-storage-with-app-service"></a>使用 App Service Azure 儲存體的限制
+
+- 具有 App Service 的 Azure 儲存體**在**Linux 上的 App Service 和用於容器的 Web App 的預覽狀態。 **不支援**用於**生產案例**。
+- 具有 App Service 的 Azure 儲存體支援裝載**Azure 檔案儲存體容器**（讀取/寫入）和**Azure Blob 容器**（唯讀）
+- App Service 的 Azure 儲存體**不支援**使用**儲存體防火牆**設定，因為基礎結構的限制。
+- App Service 的 Azure 儲存體可讓您為每個應用程式指定**最多五個**掛接點。
+- Azure 儲存體**不會包含**在您的 web 應用程式中，而且會分開計費。 深入瞭解[Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage)。
+
+> [!WARNING]
+> 使用 Azure Blob 儲存體的 App Service 設定將在2020年2月變成隻讀。 [深入了解](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/mounting_azure_blob.md)
 >
-> 由於基礎結構的限制，因此攜帶您自己的儲存體不支援使用存放裝置防火牆設定。
->
 
-建立 [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)。
+## <a name="configure-your-app-with-azure-storage"></a>使用 Azure 儲存體設定您的應用程式
 
-```azurecli
-#Create Storage Account
-az storage account create --name <storage_account_name> --resource-group myResourceGroup
+建立[Azure 儲存體帳戶、檔案共用和目錄](#prerequisites)之後，您現在可以使用 Azure 儲存體來設定您的應用程式。
 
-#Create Storage Container
-az storage container create --name <storage_container_name> --account-name <storage_account_name>
-```
+若要將儲存體帳戶掛接至您 App Service 應用程式中的目錄，可以使用 [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) 命令。 儲存體類型可以是 AzureBlob 或 AzureFiles。 在此範例中會使用 AzureFiles。
 
-## <a name="upload-files-to-azure-storage"></a>將檔案上傳至 Azure 儲存體
-
-若要將本機目錄上傳至儲存體帳戶，可以使用 [`az storage blob upload-batch`](https://docs.microsoft.com/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload-batch) 命令，如以下範例所示：
-
-```azurecli
-az storage blob upload-batch -d <full_path_to_local_directory> --account-name <storage_account_name> --account-key "<access_key>" -s <source_location_name>
-```
-
-## <a name="link-storage-to-your-web-app-preview"></a>將儲存體連結到您的 Web 應用程式 (預覽)
 
 > [!CAUTION]
-> 將 Web 應用程式中的現有目錄連結至儲存體帳戶將會刪除目錄內容。 如果您是移轉現有應用程式的檔案，請先備份您的應用程式和其內容再開始移轉。
+> 在您的 web 應用程式中指定為掛接路徑的目錄應該是空的。 新增外部掛接時，將會刪除儲存在此目錄中的任何內容。 如果您是移轉現有應用程式的檔案，請先備份您的應用程式和其內容再開始移轉。
 >
 
-若要將儲存體帳戶掛接至您 App Service 應用程式中的目錄，可以使用 [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) 命令。 儲存體類型可以是 AzureBlob 或 AzureFiles。 您可以針對此容器使用 AzureBlob。
-
 ```azurecli
-az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureBlob --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
+az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureFiles --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
 ```
 
 您應該對想要連結到儲存體帳戶的任何其他目錄執行此作業。
 
-## <a name="verify"></a>Verify
+## <a name="verify-azure-storage-link-to-the-web-app"></a>確認 web 應用程式 Azure 儲存體連結
 
 一旦儲存體容器連結至 Web 應用程式，您就可以執行以下命令來確認：
 
@@ -69,7 +66,7 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 az webapp config storage-account list --resource-group <resource_group> --name <app_name>
 ```
 
-## <a name="use-custom-storage-in-docker-compose"></a>在 Docker Compose 中使用自訂存放裝置
+## <a name="use-azure-storage-in-docker-compose"></a>在 Docker Compose 中使用 Azure 儲存體
 
 Azure 儲存體可以透過使用自訂識別碼的多容器應用程式來裝載。若要查看自訂識別碼名稱，請執行[`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list)。
 
@@ -85,3 +82,4 @@ wordpress:
 ## <a name="next-steps"></a>後續步驟
 
 - [在 Azure App Service 中設定 Web 應用程式](../configure-common.md)。
+

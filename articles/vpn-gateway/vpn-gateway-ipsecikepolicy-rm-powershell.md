@@ -3,25 +3,17 @@ title: 適用于 S2S VPN & VNet 對 VNet 連線的 IPsec/IKE 原則
 titleSuffix: Azure VPN Gateway
 description: 使用 Azure Resource Manager 和 PowerShell，設定與 Azure VPN 閘道之 S2S 或 VNet 對 VNet 連線的 IPsec/IKE 原則。
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: b0dabf0ee3370abab3d0f9d6f1bf26dd622862cf
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ed7b12b24e6129d6cf609f4345203abc783e9f62
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151774"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864055"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>設定 S2S VPN 或 VNet 對 VNet 連線的 IPsec/IKE 原則
 
@@ -30,7 +22,7 @@ ms.locfileid: "74151774"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="about"></a>關於 Azure VPN 閘道的 IPsec 和 IKE 原則參數
-IPsec 和 IKE 通訊協定標準支援多種不同密碼編譯演算法的各種組合。 請參閱[關於密碼編譯需求和 Azure VPN 閘道](vpn-gateway-about-compliance-crypto.md)，以查看這如何協助確保跨單位和 VNet 對 VNet 連線滿足合規性或安全性需求。
+IPsec 和 IKE 通訊協定標準支援各種不同的密碼編譯演算法的各種組合。 請參閱[關於密碼編譯需求和 Azure VPN 閘道](vpn-gateway-about-compliance-crypto.md)，以查看這如何協助確保跨單位和 VNet 對 VNet 連線滿足合規性或安全性需求。
 
 本文提供指示來建立和設定 IPsec/IKE 原則並套用至新的或現有連線：
 
@@ -161,7 +153,7 @@ $LNGIP6        = "131.107.72.22"
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. 連接到您的訂用帳戶，並建立新的資源群組
 
-請確定您切換為 PowerShell 模式以使用 Resource Manager Cmdlet。 如需詳細資訊，請參閱 [搭配使用 Windows PowerShell 與 Resource Manager](../powershell-azure-resource-manager.md)。
+請確定您切換為 PowerShell 模式以使用資源管理員 Cmdlet。 如需詳細資訊，請參閱 [搭配使用 Windows PowerShell 與 Resource Manager](../powershell-azure-resource-manager.md)。
 
 開啟 PowerShell 主控台並連接到您的帳戶。 使用下列範例來協助您連接：
 

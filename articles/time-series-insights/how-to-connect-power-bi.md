@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 1f6b753052b882b75884503f8c05f34b8cead821
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 22053bdc3a9836b76aa92303234a095cac6448ef
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749374"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863837"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>從 Power BI 中的時間序列深入解析將資料視覺化
 
@@ -51,7 +51,7 @@ Azure 時間序列深入解析是在雲端中儲存、管理、查詢和視覺�
 若要開始進行：
 
 1. 開啟時間序列深入解析 Preview Explorer，並策展您的資料。
-1. 一旦您建立了您滿意的視圖，請流覽至 [**其他動作**] 下拉式功能表，然後按一下 [**連接到 Power BI]** 。
+1. 一旦您建立了您滿意的視圖，請流覽至 [**其他動作**] 下拉式功能表，然後選取 **[連接到 Power BI]** 。
 
     [![時間序列深入解析 Preview Explorer 匯出](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
@@ -118,7 +118,7 @@ Azure 時間序列深入解析是在雲端中儲存、管理、查詢和視覺�
 
     [![建立折線圖](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
 
-1.  若要將另一個圖表加入畫布中，請按一下折線圖外畫布上的任何位置，然後重複此程式。
+1.  若要將另一個圖表新增至畫布，請選取折線圖外畫布上的任何位置，然後重複此程式。
 
     [![建立其他要共用的圖表](media/how-to-connect-power-bi/power-bi-additional-charts.png)](media/how-to-connect-power-bi/power-bi-additional-charts.png#lightbox)
 
@@ -138,7 +138,7 @@ Azure 時間序列深入解析是在雲端中儲存、管理、查詢和視覺�
 1. 視需要修改 JSON 承載。
 1. 選取 [**完成**]，然後**關閉 &** 在 [ **Power Query 編輯器] 視窗**內套用。
 
-您應該會看到所需的變更已套用。  
+介面現在會反映您所套用的所需變更。  
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -146,4 +146,4 @@ Azure 時間序列深入解析是在雲端中儲存、管理、查詢和視覺�
 
 * 深入瞭解[Power BI desktop](https://docs.microsoft.com/power-bi/desktop-query-overview)。
 
-* 請參閱[時間序列深入解析 GA explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart)和[時間序列深入解析預覽瀏覽器](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart)。
+* 閱讀[時間序列深入解析 GA explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart)和[時間序列深入解析預覽瀏覽器](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart)。

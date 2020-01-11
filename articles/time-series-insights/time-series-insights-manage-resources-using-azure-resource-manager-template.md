@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4edf5189b54a5b1fb1b953064c5db1cd50930b84
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c4902ff5194c1648a8353b2a21ea559d15d574b3
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452853"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861841"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立時間序列深入解析資源
 
@@ -86,7 +86,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
    * 例如，以下參數檔案會用來建立環境和從現有事件中樞讀取事件的事件來源。 它也會建立兩個存取原則，將環境存取權授與參與者。
 
-     ```json
+     ```JSON
      {
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
          "contentVersion": "1.0.0.0",
@@ -119,7 +119,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
      }
      ```
   
-    * 如需詳細資訊，請參閱[參數](../azure-resource-manager/templates/parameter-files.md)一文。
+    * 如需詳細資訊，請參閱[參數](../azure-resource-manager/templates/parameter-files.md)文章。
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>使用 PowerShell 在本機部署快速入門範本
 
@@ -174,7 +174,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
 1. 建立部署
 
-    * 若要建立新的部署，請執行 `New-AzResourceGroupDeployment` Cmdlet，並於提示出現時提供必要的參數。 參數會包含部署的名稱、資源群組的名稱，以及範本檔案的路徑或 URL。 如未指定 **Mode** 參數，即會使用預設值 **Incremental**。 如需詳細資訊，請參閱[累加部署與完整部署](../azure-resource-manager/deployment-modes.md)。
+    * 若要建立新的部署，請執行 `New-AzResourceGroupDeployment` Cmdlet，並於提示出現時提供必要的參數。 參數會包含部署的名稱、資源群組的名稱，以及範本檔案的路徑或 URL。 如未指定 **Mode** 參數，即會使用預設值 **Incremental**。 如需詳細資訊，請參閱[增量和完整部署](../azure-resource-manager/deployment-modes.md)。
 
     * 以下命令會提示您在 PowerShell 視窗中輸入五個必要參數︰
 
@@ -252,4 +252,4 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需使用 REST API 以程式設計方式管理「時間序列深入解析」資源的相關資訊，請參閱[時間序列深入解析管理](https://docs.microsoft.com/rest/api/time-series-insights-management/) \(英文\)。
+- 如需使用 REST Api 以程式設計方式管理時間序列深入解析資源的相關資訊，請參閱[時間序列深入解析管理](https://docs.microsoft.com/rest/api/time-series-insights-management/)。

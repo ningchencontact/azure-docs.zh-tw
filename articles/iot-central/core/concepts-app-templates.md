@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 85d882cff968c9b68ece104e850a7f16c33947b2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 12c624c6798ca48cad9312cafaf3425091a82a71
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435095"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867448"
 ---
 # <a name="what-are-application-templates"></a>什麼是應用程式範本？
 
@@ -42,6 +42,7 @@ Azure IoT Central 中的應用程式範本是一項工具，可協助解決方�
 - 零售 > 數位散發中心
 - 零售 > 內商店分析–條件監視
 - 零售 > 內商店分析–結帳
+- 零售 > 微履行中心
 - 零售 > 智慧清查管理
 - 能源 > 智慧計量監控
 - 能源 > 日光面板監視

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: f3ecb3bedb8e0f55590aca1aa1c0e0c185f9acc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2146b1bd782aba5d98729a2d37d956744e469ba1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369247"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860243"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>選擇 Azure 上的即時分析和串流處理技術
 
@@ -41,10 +41,6 @@ Azure 串流分析有豐富的現成體驗。 您可以立即利用下列功能�
 * 從抵達事件中樞的輸入到 100-ms 端對端延遲，到事件中樞的輸出登陸，包括從和到事件中樞的網路延遲，持續高輸送量
 
 ## <a name="when-to-use-other-technologies"></a>使用其他技術的時機
-
-### <a name="you-need-to-input-from-or-output-to-kafka"></a>您需要輸入或輸出至 Kafka
-
-Azure 串流分析沒有 Apache Kafka 輸入或輸出介面卡。 如果您有事件登陸或需要傳送至 Kafka，而您不需要執行自己的 Kafka 叢集，您可以使用事件中樞 Kafka API 將事件傳送至事件中樞，繼續使用串流分析，而不需要變更事件傳送者。 如果您需要執行自己的 Kafka 叢集，您可以使用 Spark 結構化串流，這在[Azure Databricks](../azure-databricks/index.yml)上受到完整支援，或在[Azure HDInsight](../hdinsight/storm/apache-storm-overview.md)上是「風暴」。
 
 ### <a name="you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c"></a>您想要以 JavaScript 以外的語言撰寫 Udf、Uda 和自訂還原序列化程式，或C#
 

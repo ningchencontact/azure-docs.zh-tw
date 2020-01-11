@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ba64dcdadc5fa670c4502a7d8d92cb35e3b0cacd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 951c81b2d65fe17f6e79dbdd699051ba43b86c49
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924858"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867384"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>瞭解 IoT Edge 裝置、模組及子裝置的擴充離線功能
 
@@ -20,21 +20,21 @@ Azure IoT Edge 支援 IoT Edge 裝置上的延伸離線作業，並在非 IoT Ed
 
 ## <a name="how-it-works"></a>運作方式
 
-當 IoT Edge 裝置進入離線模式時，IoT Edge 中樞便會擔任三個角色。 首先，它會儲存任何可能前往上游的訊息，並會持續儲存到裝置重新連線為止。 其次，它會代替 IoT 中樞驗證模組及子裝置，使其能繼續執行。 第三，它可在子裝置之間進行平常需要透過 IoT 中樞進行的通訊。 
+當 IoT Edge 裝置進入離線模式時，IoT Edge 中樞便會擔任三個角色。 首先，它會儲存任何可能前往上游的訊息，並會持續儲存到裝置重新連線為止。 其次，它會代替 IoT 中樞驗證模組及子裝置，使其能繼續執行。 第三，它可在子裝置之間進行平常需要透過 IoT 中樞進行的通訊。
 
 下列範例示範 IoT Edge 案例於離線模式執行的方式：
 
 1. **設定裝置**
 
-   IoT Edge 裝置會自動啟用離線功能。 若要將該功能延伸至其他 IoT 裝置，您需要宣告 IoT 中樞內裝置間的父子關聯。 然後，您可以將子裝置設定為信任其指派的父裝置，並透過父系將裝置到雲端通訊路由傳送為閘道。 
+   IoT Edge 裝置會自動啟用離線功能。 若要將該功能延伸至其他 IoT 裝置，您需要宣告 IoT 中樞內裝置間的父子關聯。 然後，您可以將子裝置設定為信任其指派的父裝置，並透過父系將裝置到雲端通訊路由傳送為閘道。
 
 2. **與 IoT 中樞同步**
 
-   在安裝完 IoT Edge 執行階段之後，IoT Edge 裝置至少需要處於線上狀態一次，以和 IoT 中樞進行同步處理。 在此同步中，IoT Edge 裝置會取得指派給它的任何子裝置詳細資料。 IoT Edge 裝置也會安全地更新其本機快取，允取離線作業，並會擷取遙測訊息本機存放區的設定。 
+   在安裝完 IoT Edge 執行階段之後，IoT Edge 裝置至少需要處於線上狀態一次，以和 IoT 中樞進行同步處理。 在此同步中，IoT Edge 裝置會取得指派給它的任何子裝置詳細資料。 IoT Edge 裝置也會安全地更新其本機快取，允取離線作業，並會擷取遙測訊息本機存放區的設定。
 
 3. **離線**
 
-   從 IoT 中樞中斷連線時，IoT Edge 裝置、其部署的模組，以及任何子 IoT 裝置都能無限期的繼續執行。 模組及子裝置可在離線狀態時，透過向 IoT Edge 中樞進行驗證來啟動或重新啟動。 至 IoT 中樞的遙測繫結上游會儲存在本機。 模組或子 IoT 裝置之間的通訊則會透過直接方法或訊息維持。 
+   從 IoT 中樞中斷連線時，IoT Edge 裝置、其部署的模組，以及任何子 IoT 裝置都能無限期的繼續執行。 模組及子裝置可在離線狀態時，透過向 IoT Edge 中樞進行驗證來啟動或重新啟動。 至 IoT 中樞的遙測繫結上游會儲存在本機。 模組或子 IoT 裝置之間的通訊則會透過直接方法或訊息維持。
 
 4. **重新連線並與 IoT 中樞同步處理**
 
@@ -44,13 +44,11 @@ Azure IoT Edge 支援 IoT Edge 裝置上的延伸離線作業，並在非 IoT Ed
 
 ## <a name="restrictions-and-limits"></a>限制
 
-這篇文章中所述的延伸離線功能適用于[IoT Edge 版本1.0.7 或更高版本](https://github.com/Azure/azure-iotedge/releases)。 先前版本具備一部分的離線功能。 不具備延伸離線功能的現有 IoT Edge 裝置無法透過變更執行階段版本來進行升級，而必須使用新的 IoT Edge 裝置識別重新設定，才能獲得這些功能。 
+這篇文章中所述的延伸離線功能適用于[IoT Edge 版本1.0.7 或更高版本](https://github.com/Azure/azure-iotedge/releases)。 先前版本具備一部分的離線功能。 不具備延伸離線功能的現有 IoT Edge 裝置無法透過變更執行階段版本來進行升級，而必須使用新的 IoT Edge 裝置識別重新設定，才能獲得這些功能。
 
-延伸離線支援適用於所有可使用 IoT 中樞的區域 (美國東部**除外**)。
+只有非 IoT Edge 的裝置可以新增為子裝置。
 
-只有非 IoT Edge 的裝置可以新增為子裝置。 
-
-IoT Edge 裝置及其指派的子裝置在初次同步處理一次之後，可以無限期地離線運作。不過，訊息的儲存取決於存留時間（TTL）設定和可用的磁碟空間來儲存訊息。 
+IoT Edge 裝置及其指派的子裝置在初次同步處理一次之後，可以無限期地離線運作。不過，訊息的儲存取決於存留時間（TTL）設定和可用的磁碟空間來儲存訊息。
 
 ## <a name="set-up-parent-and-child-devices"></a>設定父系和子裝置
 
@@ -104,7 +102,8 @@ az iot hub device-identity add-children \
 
 您可以將父代/子系關聯性視為透明閘道，其中子裝置在 IoT 中樞中有自己的身分識別，但透過雲端的父系進行通訊。 若要進行安全通訊，子裝置必須能夠驗證父裝置是否來自信任的來源。 否則，協力廠商可以設定惡意裝置來模擬家長並攔截通訊。 
 
-下列文章將詳細說明建立此信任關係的其中一種方式： 
+下列文章將詳細說明建立此信任關係的其中一種方式：
+
 * [設定 IoT Edge 裝置作為透明閘道](how-to-create-transparent-gateway.md)
 * [將下游（子系）裝置連線到 Azure IoT Edge 閘道](how-to-connect-downstream-device.md)
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/19/2019
+ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 89816e3640c0afad6290e77faa3904c691df4318
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 602be49ef0c60274f1cd016c4f8e870cf033ec7b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892392"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866902"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>使用 Azure 入口網站來存取 blob 或佇列資料
 
@@ -57,8 +57,10 @@ ms.locfileid: "74892392"
     
 自訂角色可支援內建角色所提供之相同許可權的不同組合。 如需建立自訂 RBAC 角色的詳細資訊，請參閱[適用于 azure 資源的自訂角色](../../role-based-access-control/custom-roles.md)和[瞭解 azure 資源的角色定義](../../role-based-access-control/role-definitions.md)。
 
-> [!NOTE]
-> 不支援列出具有傳統訂用帳戶管理員角色的佇列。 若要列出佇列，使用者必須已指派給他們 Azure Resource Manager 的**讀者**角色、**儲存體佇列資料讀取**者角色或**儲存體佇列資料參與者**角色。
+不支援列出具有傳統訂用帳戶管理員角色的佇列。 若要列出佇列，使用者必須已指派給他們 Azure Resource Manager 的**讀者**角色、**儲存體佇列資料讀取**者角色或**儲存體佇列資料參與者**角色。
+
+> [!IMPORTANT]
+> Azure 入口網站中儲存體總管的預覽版本不支援使用 Azure AD 認證來查看和修改 blob 或佇列資料。 Azure 入口網站中的儲存體總管一律會使用帳戶金鑰來存取資料。 若要使用 Azure 入口網站中的儲存體總管，您必須獲指派包含**Microsoft storageAccounts/listkeys/action**的角色。
 
 ## <a name="navigate-to-blobs-or-queues-in-the-portal"></a>流覽至入口網站中的 blob 或佇列
 

@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 01/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 73f5f64a64ab28cdb4b57d0904911f62c2020cf0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 548fa8181c4841d8f57de485c0a4e714b5e9321a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082685"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863905"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>針對 Hyper-V VM，使用 PowerShell 和 Azure Resource Manager 設定至 Azure 的災害復原
 
@@ -188,7 +188,13 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
 
         Succeeded
 
-
+> [!NOTE]
+> 如果您想要複寫至 Azure 中已啟用 CMK 的受控磁片，請使用 Az PowerShell 3.3.0 to do 執行下列步驟：
+>
+> 1. 藉由更新 VM 屬性來啟用容錯移轉至受控磁片
+> 2. 使用 AsrReplicationProtectedItem 指令程式來提取受保護專案之每個磁片的磁片識別碼
+> 3. 使用新物件的 "System.web. Dictionary ' ' 2 [System.string]" Cmdlet 建立字典物件，以包含磁片識別碼與磁片加密集的對應。 這些磁片加密集是由您在目的地區域中預先建立的。
+> 4. 藉由傳遞 dictionary 物件 in-DiskIdToDiskEncryptionSetMap 參數，使用 AsrReplicationProtectedItem Cmdlet 來更新 VM 屬性。
 
 ## <a name="step-8-run-a-test-failover"></a>步驟 8：執行測試容錯移轉
 1. 執行測試容錯移轉，如下所示：

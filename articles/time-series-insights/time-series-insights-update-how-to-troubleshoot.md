@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0e4ec63ffe715b17f55fde2a53c15d96d391cdba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1fc3aa6caa6266d2cd42e4783e8e39d5cc92c220
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452547"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861569"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>針對預覽環境進行診斷和疑難排解
 
@@ -29,7 +29,7 @@ ms.locfileid: "75452547"
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>問題：在預覽瀏覽器中看不到任何資料
 
-有幾個常見原因會造成您無法在 [Azure 時間序列深入解析預覽總管](https://insights.timeseries.azure.com/preview) 中看到資料。
+您的資料可能不會出現在[Azure 時間序列深入解析的預覽瀏覽器](https://insights.timeseries.azure.com/preview)中有幾個常見的原因。
 
 - 事件來源可能沒有接收資料。
 
@@ -39,7 +39,7 @@ ms.locfileid: "75452547"
 
 - 事件來源資料不是 JSON 格式。
 
-    時間序列深入解析僅支援 JSON 資料。 如需 JSON 範例，請參閱[支援的 JSON 樣貌](./how-to-shape-query-json.md)。
+    時間序列深入解析僅支援 JSON 資料。 如需 JSON 範例，請閱讀[支援的 json 圖形](./how-to-shape-query-json.md)。
 
 - 事件來源索引鍵遺漏必要的權限。
 
@@ -67,7 +67,7 @@ ms.locfileid: "75452547"
 
 您可能傳送了沒有時間序列識別碼的資料。
 
-- 在酬載中傳送沒有時間序列識別碼欄位的事件時，就可能會發生這個問題。 如需詳細資訊，請參閱[支援的 JSON 樣貌](./how-to-shape-query-json.md)。
+- 在酬載中傳送沒有時間序列識別碼欄位的事件時，就可能會發生這個問題。 如需詳細資訊，請參閱[支援的 JSON 圖形](./how-to-shape-query-json.md)。
 - 發生這個問題的原因可能是因為您的環境正在進行節流。
 
     > [!NOTE]
@@ -97,7 +97,7 @@ ms.locfileid: "75452547"
 
 - 您可能存取了時間序列深入解析 S1 或 S2 環境。
 
-   只有在隨用隨付環境中才支援時間序列模型。 如需如何從時間序列深入解析 Preview explorer 存取 S1 或 S2 環境的詳細資訊，請參閱[在 explorer 中將資料視覺化](./time-series-insights-update-explorer.md)。
+   只有在隨用隨付環境中才支援時間序列模型。 如需如何從時間序列深入解析 Preview explorer 存取 S1 或 S2 環境的詳細資訊，請參閱在[explorer 中將資料視覺化](./time-series-insights-update-explorer.md)。
 
    [不 ![環境中的任何事件。](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
@@ -107,7 +107,7 @@ ms.locfileid: "75452547"
 
 ## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>問題：預覽 explorer 中的所有我的實例都缺少父系
 
-如果您的環境未定義時間序列模型階層，就可能會發生這個問題。 如需詳細資訊，請參閱[使用時間序列模型](./time-series-insights-update-how-to-tsm.md)。
+如果您的環境未定義時間序列模型階層，就可能會發生這個問題。 如需詳細資訊，請參閱使用[時間序列模型](./time-series-insights-update-how-to-tsm.md)。
 
   [![無上層實例會顯示警告。](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 

@@ -12,18 +12,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: f6fafb2d4d363ee0d01d5bd9f18a1294ae8110b7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 738f2fe028439601835f18a16a5d98cc2d6dc243
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327786"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863354"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure 時間序列深入解析總管
 
 本文說明 Azure 時間序列深入解析[explorer web 應用程式](https://insights.timeseries.azure.com/)正式運作的功能和選項。 時間序列深入解析 explorer 會示範服務所提供的功能強大的資料視覺化功能，並可在您自己的環境中進行存取。
 
-Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效果服務，讓您可輕易同時探索及分析數十億筆的 IoT 事件。 它可為您提供資料的全域檢視，從而讓您快速驗證 IoT 解決方案，並避免關鍵任務裝置成本高昂的停機時間。 您可以幾近即時地探索隱藏趨勢、找出異常狀況，並進行根本原因分析。 時間序列深入解析總管目前處於公開預覽狀態。
+Azure Time Series Insights 是完全受控分析、儲存體及視覺效果服務，讓您可輕易同時探索及分析數十億筆的 IoT 事件。 它可為您提供資料的全域檢視，從而讓您快速驗證 IoT 解決方案，並避免關鍵任務裝置成本高昂的停機時間。 您可以幾近即時地探索隱藏趨勢、找出異常狀況，並進行根本原因分析。 時間序列深入解析總管目前處於公開預覽狀態。
 
 > [!TIP]
 > 如需示範環境的引導式導覽，請閱讀[Azure 時間序列深入解析快速入門](time-series-quickstart.md)。
@@ -35,9 +35,9 @@ Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效�
 > [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 >[!NOTE]
->請參閱先前的影片「<a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">使用 Azure IoT 解決方案加速器開始使用時間序列深入解析」。</a>
+>播放先前的影片「<a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">使用 Azure IoT 解決方案加速器開始使用時間序列深入解析」。</a>
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在使用時間序列深入解析總管之前，您必須先：
 
@@ -51,7 +51,7 @@ Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效�
 
 1. 若要開始，請在網頁瀏覽器中開啟 [[時間序列深入解析 explorer](https://insights.timeseries.azure.com/) ]。 在視窗左側，選取 [環境]。 您可以存取的所有環境都會依字母順序列出。
 
-1. 選取環境之後，請使用頂端的 [**從**] 和 [**到**] 設定，或按一下並拖曳您想要的 timespan。 選取右上角的放大鏡，或以滑鼠右鍵按一下選取的 timespan，然後選取 [**搜尋**]。
+1. 選取環境之後，請使用頂端的 [**從**] 和 [**到**] 設定，或選取並拖曳您想要的 timespan。 選取右上角的放大鏡，或以滑鼠右鍵按一下選取的 timespan，然後選取 [**搜尋**]。
 
 1. 您也可以選取 [**自動開啟**] 按鈕，每分鐘自動重新整理可用性。 [**自動開啟**] 按鈕僅適用于 [可用性] 圖表，而不是主要視覺效果的內容。
 
@@ -59,7 +59,7 @@ Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效�
 
    [![時間序列深入解析環境選擇](media/time-series-insights-explorer/tsi-ga-explorer-environments.png)](media/time-series-insights-explorer/tsi-ga-explorer-environments.png#lightbox)
 
-1. 接下來，您會看到一個圖表，顯示所選時間範圍期間所有事件的計數。 這裡您有許多控制項：
+1. 接下來，會顯示在選取的 timespan 期間顯示所有事件計數的圖表。 這裡您有許多控制項：
 
     - **詞彙編輯器面板**：字詞空間是您查詢環境的地方。 它位於畫面的左側：
       - **量值**：這個下拉式清單會顯示所有數值資料行（**雙精度**浮點數）。
@@ -71,7 +71,7 @@ Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效�
 
       - 述**詞：使用**述詞，使用下表所列的一組運算元來快速篩選事件。 如果您選取或按一下來進行搜尋，述詞會根據該搜尋自動進行更新。 支援的運算元類型包括：
 
-         |作業  |支援的類型  |注意事項  |
+         |作業  |支援的類型  |注意  |
          |---------|---------|---------|
          |**<** 、 **>** 、 **<=** 、 **>=**    |  **Double**、 **DateTime**、 **TimeSpan**       |         |
          |**=** 、 **！ =** 、 **<>**     | **String**、 **Bool**、 **Double**、 **DateTime**、 **TimeSpan**、 **Null**        |         |
@@ -82,11 +82,11 @@ Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效�
 
          [![GA 查詢範例](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 
-1. 您可以使用 [**間隔大小**] 滑杆工具來放大和縮小相同 timespan 的間隔。 滑杆可讓您更精確地控制在大型時間配量之間的移動，這種方式會將平滑的趨勢向下顯示為小到毫秒，讓您能夠查看細微、高解析度的資料剪。 滑杆的預設起始點會設定為從您的選取範圍最理想的觀點，以平衡解析度、查詢速度和資料細微性。
+1. 您可以使用 [**間隔大小**] 滑杆工具來放大和縮小相同 timespan 的間隔。 滑杆可讓您更精確地控制在大型時間配量之間的移動，以將平滑的趨勢向下顯示為與毫秒小的配量，讓您能夠顯示及分析資料的細微、高解析度的剪切。 滑杆的預設起始點會設定為從您的選取範圍最理想的觀點，以平衡解析度、查詢速度和資料細微性。
 
 1. **時間筆刷**工具可讓您輕鬆地從一個 timespan 流覽至另一個時間範圍。
 
-1. 選取**儲存**圖示以儲存您目前的查詢，並與環境的其他使用者共用。 當您選取 [**開啟**] 圖示時，您可以在您擁有存取權的環境中，看到所有已儲存的查詢和其他使用者的任何共用查詢。
+1. 選取**儲存**圖示以儲存您目前的查詢，並與環境的其他使用者共用。 當您選取 [**開啟**] 圖示時，可以在您可以存取的環境中，檢查所有已儲存的查詢和其他使用者的任何共用查詢。
 
    [![查詢](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png)](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png#lightbox)
 
@@ -101,7 +101,7 @@ Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效�
     - **選取**或**按一下**特定的 timespan 或單一資料數列。
     - 在 timespan 選取範圍內，您可以縮放或流覽事件。
     - 在資料序列內，您可以由另一個資料行分割序列、將序列新增為新的字詞、只顯示選取的序列、排除選取的序列、釘選該序列或從選取的序列探索事件。
-    - 在圖表左邊的 [篩選] 區域中，您可以看到所有顯示的資料序列，並依值或名稱重新排序。 您也可以查看所有資料數列或任何已釘選或取消固定的數列。 您可以選取單一資料序列，並依另一個資料行分割序列、將數列新增為新的字詞、只顯示選取的數列、排除選取的序列、釘選該數列，或從選取的數列探索事件。
+    - 在圖表左邊的 [篩選] 區域中，您可以查看所有顯示的資料序列，並依值或名稱重新排序。 您也可以查看所有資料數列或任何已釘選或取消固定的數列。 您可以選取單一資料序列，並依另一個資料行分割序列、將數列新增為新的字詞、只顯示選取的數列、排除選取的序列、釘選該數列，或從選取的數列探索事件。
     - 當您同時查看多個詞彙時，可以堆疊、取消、查看有關資料數列的其他資料，並在所有詞彙上使用相同的 y 軸。 使用圖表右上角的按鈕。
 
     [![圖表工具右上角選項設定](media/time-series-insights-explorer/tsi-ga-example-chart-options.png)](media/time-series-insights-explorer/tsi-ga-example-chart-options.png#lightbox)
@@ -110,7 +110,7 @@ Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效�
 
     [![GA explorer 熱度圖圖表](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
-1. 當您選取或以滑鼠右鍵按一下來流覽事件時，[**事件**] 面板就會成為可用。 在這裡，您可以看到所有未經處理的事件，並將您的事件匯出為 JSON 或 CSV 檔案。 時間序列深入解析儲存所有原始資料。
+1. 當您選取或以滑鼠右鍵按一下來流覽事件時，[**事件**] 面板就會成為可用。 在這裡，您可以查看您所有的原始事件，並將事件匯出為 JSON 或 CSV 檔案。 時間序列深入解析儲存所有原始資料。
 
     [![事件](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
 
@@ -121,7 +121,7 @@ Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效�
 
       [![統計資料行圖表和選項](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
 
-現在您已瞭解時間序列深入解析 explorer web 應用程式中可用的各種功能和選項。
+現在您已瞭解時間序列深入解析 explorer web 應用程式中可用的主要功能、設定和顯示選項。
 
 ## <a name="next-steps"></a>後續步驟
 

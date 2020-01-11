@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: dada1a8ed8b1725905ee2ad159e385d1bee62fc6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 1deca696ba576849701eb8719de7fbaa7895a26a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615102"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861399"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽中的資料儲存體和輸入
 
@@ -116,9 +116,9 @@ ms.locfileid: "75615102"
 
 您可以透過三種一般方式存取資料：
 
-* 透過時間序列深入解析預覽總管。 您可以從 [explorer] 將資料匯出成 CSV 檔案。 如需詳細資訊，請參閱 [Azure 時間序列深入解析預覽總管](./time-series-insights-update-explorer.md)。
-* 從時間序列深入解析預覽 API。 您可以在 `/getRecorded`連接 API 端點。 若要深入了解此 API，請參閱[時間序列查詢](./time-series-insights-update-tsq.md)。
-* 直接從 Azure 儲存體帳戶。 您需要您用來存取時間序列深入解析預覽資料的任何帳戶的讀取存取權。 如需詳細資訊，請參閱[管理儲存體帳戶資源的存取](../storage/blobs/storage-manage-access-to-resources.md)。
+* 透過時間序列深入解析預覽總管。 您可以從 [explorer] 將資料匯出成 CSV 檔案。 如需詳細資訊，請參閱[時間序列深入解析 Preview explorer](./time-series-insights-update-explorer.md)。
+* 從時間序列深入解析預覽 API。 您可以在 `/getRecorded`連接 API 端點。 若要深入瞭解此 API，請參閱[時間序列查詢](./time-series-insights-update-tsq.md)。
+* 直接從 Azure 儲存體帳戶。 您需要您用來存取時間序列深入解析預覽資料的任何帳戶的讀取存取權。 如需詳細資訊，請參閱[管理儲存體帳戶資源的存取權](../storage/blobs/storage-manage-access-to-resources.md)。
 
 ### <a name="data-deletion"></a>刪除資料
 

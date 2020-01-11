@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d611806d31719899d249b29ed4b0ea499280252
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3b8c25c09b87dc8e9874870881173944fea1ee73
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894920"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864344"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>塑造 JSON 以最大化查詢效能 
 
@@ -50,7 +50,7 @@ ms.locfileid: "74894920"
 
 ## <a name="example-overview"></a>範例總覽
 
-下列兩個範例示範如何傳送事件以反白顯示先前的建議。 在每個範例之後，您可以看到建議的套用方式。
+下列兩個範例示範如何傳送事件以反白顯示先前的建議。 在每個範例之後，您可以檢查建議的套用方式。
 
 這些範例是根據多部裝置傳送度量或訊號的案例而來。 測量或信號可以是流動率、引擎石油壓力、溫度和濕度。 在第一個範例中，有幾個度量會跨所有裝置。 第二個範例有許多裝置，而每個裝置都會傳送許多獨特的測量。
 
@@ -165,7 +165,7 @@ ms.locfileid: "74894920"
 
 * 具有索引鍵屬性**deviceId**和**tagId**的參考資料表：
 
-   | deviceId | series.tagId | messageId | deviceLocation | 類型 | unit |
+   | deviceId | series.tagId | messageId | deviceLocation | type | unit |
    | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | 歐盟 | 流動率 | ft3/s |
    | FXXX | oilPressure | LINE\_DATA | 歐盟 | 引擎機油壓力 | psi |
@@ -174,7 +174,7 @@ ms.locfileid: "74894920"
 
 * 在簡維之後時間序列深入解析事件資料表：
 
-   | deviceId | series.tagId | messageId | deviceLocation | 類型 | unit | timestamp | series.value |
+   | deviceId | series.tagId | messageId | deviceLocation | type | unit | timestamp | series.value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | 歐盟 | 流動率 | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
    | FXXX | oilPressure | LINE\_DATA | 歐盟 | 引擎機油壓力 | psi | 2018-01-17T01:17:00Z | 34.7 |

@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: a4b0debc712504e8cb3c6d61372bd3a82c7932bb
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: b068eeeada842f2439f6135bfa8567a6c9709d12
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497028"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862810"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>將 Azure-SSIS 整合執行階段加入虛擬網路
 
@@ -30,10 +30,20 @@ ms.locfileid: "75497028"
 
 - 您想要從 Azure SSIS IR 上執行的 SSIS 套件，連接到使用 IP 防火牆規則設定的資料存放區/資源。
 
-Data Factory 可讓您將 Azure SSIS IR 加入透過傳統部署模型或 Azure Resource Manager 部署模型所建立的虛擬網路。 
+Data Factory 可讓您將 Azure SSIS IR 加入透過傳統部署模型或 Azure Resource Manager 部署模型所建立的虛擬網路。
 
 > [!IMPORTANT]
 > 傳統虛擬網路即將淘汰，因此請改用 Azure Resource Manager 的虛擬網路。  如果您已經使用傳統虛擬網路，請儘快切換到 Azure Resource Manager 的虛擬網路。
+
+設定[Azure SQL Server Integration Services （SSIS）整合執行時間（IR）以加入虛擬網路](tutorial-deploy-ssis-virtual-network.md)教學課程會顯示透過 Azure 入口網站的最小步驟。 本文會針對教學課程進行擴充，並說明所有的選擇性工作：
+
+- 如果您使用的是虛擬網路（傳統）。
+- 如果您為 Azure SSIS IR 帶入自己的公用 IP 位址。
+- 如果您使用自己的網域名稱系統（DNS）伺服器。
+- 如果您在子網上使用網路安全性群組（NSG）。
+- 如果您使用 Azure ExpressRoute 或使用者定義的路由（UDR）。
+- 如果您使用自訂的 Azure SSIS IR。
+- 如果您使用 Azure Powershell 布建。
 
 ## <a name="access-to-on-premises-data-stores"></a>存取內部部署資料存放區
 
@@ -319,7 +329,7 @@ Azure-SSIS IR 需要在與虛擬網路相同的資源群組下，建立特定的
 
    ![資料處理站清單](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-1. 在清單中選取具有 Azure SSIS IR 的 data factory。 您會看到資料處理站的首頁。 選取 [編寫與部署] 圖格。 您會在個別的索引標籤上看到 Data Factory UI。 
+1. 在清單中選取具有 Azure SSIS IR 的 data factory。 您會看到資料處理站的首頁。 選取 [**作者 & 監視器**] 圖格。 您會在個別的索引標籤上看到 Data Factory UI。 
 
    ![Data Factory 首頁](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 

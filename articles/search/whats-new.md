@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 0ce2884a2382c7dff2bdb90bd92934609675f314
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
-ms.translationtype: HT
+ms.openlocfilehash: 2627e4be20d80251e3753e46624c58a0c6244aba
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834380"
+ms.locfileid: "75863082"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure 認知搜尋的新功能
 
@@ -38,6 +38,8 @@ API 版本、Nuget 套件、命名空間和端點都不會變更。 您現有的
 ### <a name="december-2019"></a>2019 年 12 月
 
 + [建立應用程式（預覽）](search-create-app-portal.md)是入口網站中的新 wizard，可產生可下載的 HTML 檔案。 檔案隨附的內嵌腳本會轉譯作業 "localhost" 樣式的 web 應用程式，並系結至搜尋服務上的索引。 頁面可在 wizard 中設定，而且可以包含搜尋列、結果區域、提要欄位導覽和自動提示查詢支援。 您可以離線修改 HTML，以擴充或自訂工作流程或外觀。
+
++ [建立安全連線的私人端點（預覽）](service-create-private-endpoint.md)說明如何設定私人連結，以安全地連線至您的搜尋服務。 此預覽功能適用于要求，並使用[Azure 私用連結](../private-link/private-link-overview.md)和[azure 虛擬網路](../virtual-network/virtual-networks-overview.md)作為解決方案的一部分。
 
 ### <a name="november-2019---ignite-conference"></a>2019年11月-Ignite 會議
 

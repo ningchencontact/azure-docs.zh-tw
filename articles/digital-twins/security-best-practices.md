@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: f5c0f6d9f6f7f35722f3df5f35dc1da945f21b9a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d2fe5a00d131af54862551991cf984d8576b57e
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229047"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860940"
 ---
 # <a name="azure-digital-twins-security-best-practices"></a>Azure Digital Twins 安全性最佳做法
 
@@ -29,7 +29,7 @@ Azure Digital Twins 也會使用 Azure IoT 中的其他安全性功能，包括 
 > [!TIP]
 > 使用[適用于 iot 的 Azure 資訊安全中心](https://docs.microsoft.com/azure/asc-for-iot/)來協助偵測 iot 安全性威脅和弱點。
 
-## <a name="iot-security-best-practices"></a>IoT 安全性最佳做法
+## <a name="iot-security-best-practices"></a>IoT 安全性的最佳做法
 
 可以安全地保護 IoT 裝置的一些主要做法包括：
 
@@ -46,7 +46,7 @@ Azure Digital Twins 也會使用 Azure IoT 中的其他安全性功能，包括 
 > [!div class="checklist"]
 > * 加密已儲存或永續性的資料。
 > * 需要定期變更或重新整理密碼或金鑰。
-> * 謹慎地依角色來限制存取權和權限。 請參閱後續的[角色型存取控制最佳做法](#role-based-access-control-best-practices)一節。
+> * 謹慎地依角色來限制存取權和權限。 請閱讀下面的[角色型存取控制最佳做法](#role-based-access-control-best-practices)一節。
 > * 請考慮使用分割的網路拓撲，讓每個網路上的裝置與其他網路隔離。
 > * 使用功能強大的加密。 需要長密碼、使用安全通訊協定和[多重要素驗證](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)。
 
@@ -56,7 +56,7 @@ Azure Digital Twins 也會使用 Azure IoT 中的其他安全性功能，包括 
 > 閱讀 Azure [iot 安全性最佳做法](../iot-fundamentals/iot-security-best-practices.md)，以開始全方位的 IoT 安全性策略。
 
 > [!NOTE]
-> 如需事件處理和監視的詳細資訊，請參閱[使用 Azure Digital Twins 路由傳送事件和訊息](./concepts-events-routing.md)。
+> 如需事件處理和監視的詳細資訊，請參閱[使用 Azure 數位 Twins 路由事件和訊息](./concepts-events-routing.md)。
 
 ## <a name="azure-active-directory-best-practices"></a>Azure Active Directory 最佳做法
 

@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18176d8e99a07e05812b5cb789dc258e675b4f9e
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d5f76bc0a48099ffebc3bc398ce62c74769ed52c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75537080"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867123"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>建立和管理 Azure 入口網站中的 Azure Machine Learning 工作區
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -109,6 +109,12 @@ ms.locfileid: "75537080"
 ## <a name="clean-up-resources"></a>清除資源
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+
+## <a name="troubleshooting"></a>疑難排解
+
+### <a name="resource-provider-errors"></a>資源提供者錯誤
+
+[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

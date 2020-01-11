@@ -2,13 +2,14 @@
 title: 關於 Azure Site Recovery 服務的一般問題
 description: 本文討論有關 Azure Site Recovery 的熱門一般問題。
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: f64b885e82d2f790d7d146e16bb6ccb44e207465
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 1/10/2020
+ms.author: raynew
+ms.openlocfilehash: 44abe9eafa9aef9e027778470d3f0483f99b0d32
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497544"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863558"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>關於 Azure Site Recovery 的一般問題
 
@@ -101,7 +102,8 @@ Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正�
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery 會將複寫加密嗎？
 就虛擬機器和實體伺服器而言，在內部部署站台之間進行複寫時，支援傳輸中加密。 在將虛擬機器和實體伺服器複寫至 Azure 時，則同時支援傳輸中加密和[靜態加密 (在 Azure 中)](https://docs.microsoft.com/azure/storage/storage-service-encryption)。
 
-
+### <a name="how-can-i-enforce-tls-12-on-all-on-premises-azure-site-recovery-components"></a>如何在所有內部部署 Azure Site Recovery 元件上強制執行 TLS 1.2？
+安裝在複寫專案上的行動代理程式只會在 TLS 1.2 上與進程伺服器通訊。 不過，從設定伺服器到 Azure，以及從進程伺服器到 Azure 的通訊都可以在 TLS 1.1 或1.0 上。 請遵循[指導](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi)方針，在所有設定伺服器和進程伺服器上強制執行 TLS 1.2。
 
 
 ## <a name="disaster-recovery"></a>災害復原

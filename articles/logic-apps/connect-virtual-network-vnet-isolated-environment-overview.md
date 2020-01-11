@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 12/16/2019
-ms.openlocfilehash: d6bb57c8163f7653f4b10142d7ec2b34f50456f1
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d8d57c15fffaa6a9d18ad3c83716f99247512c15
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75527853"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860739"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>透過整合服務環境 (ISE) 從 Azure Logic Apps 存取 Azure 虛擬網路資源
 
@@ -23,7 +23,7 @@ ms.locfileid: "75527853"
 
 ![選取整合服務環境](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-您的邏輯應用程式現在可以使用下列任何專案，直接存取您的虛擬網路內或連線的系統：
+您的邏輯應用程式現在可以使用下列任何專案（在與邏輯應用程式相同的 ISE 中執行），直接存取您的虛擬網路內部或連線的系統：
 
 * 適用于該系統的**ISE**標示連接器
 * **核心**標示的內建觸發程式或動作，例如 HTTP 觸發程式或動作
@@ -43,23 +43,21 @@ ms.locfileid: "75527853"
 
 當您在 Azure 中建立整合服務環境（ISE）時，您可以選取要在其中*插入*ISE 的 Azure 虛擬網路。 接著，Azure 會將 Logic Apps 服務的私用實例插入或部署至您的虛擬網路。 這個動作會建立一個隔離式環境，您可以在其中建立邏輯應用程式並在專用資源上執行。 當您建立邏輯應用程式時，請選取您的 ISE 作為應用程式的位置，讓邏輯應用程式可直接存取您的虛擬網路和該網路中的資源。
 
-ISE 中的 Logic Apps 提供與全域 Logic Apps 服務相同的使用者體驗及相似功能。 您不僅可以從全域 Logic Apps 服務使用相同的內建觸發程式、內建動作和連接器，還可以使用 ISE 特定的連接器。 例如，以下是一些標準連接器，可提供在 ISE 中執行的版本：
+ISE 中的邏輯應用程式提供與公用全域 Logic Apps 服務相同的使用者體驗和類似的功能。 您可以使用全域 Logic Apps 服務中可用的所有相同內建觸發程式、動作和受控連接器。 某些受管理的連接器會提供額外的 ISE 版本。 兩者的執行位置，以及當您在 ISE 中工作時，其顯示在邏輯應用程式設計工具中的標籤會有差異。
 
-* Azure Blob 儲存體、檔案儲存體及表格儲存體
-* Azure 佇列、Azure 服務匯流排、Azure 事件中樞和 IBM MQ
-* FTP 和 SFTP-SSH
-* SQL Server、Azure SQL 資料倉儲、Azure Cosmos DB
-* AS2、X12 及 EDIFACT
+![ISE 中具有和不含標籤的連接器](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-built-in-actions-triggers-managed-connectors.png)
 
-ISE 與非 ISE 連接器的差異是觸發與動作執行的位置：
+* 內建的觸發程式和動作會顯示 [**核心**] 標籤，而且一律會在與邏輯應用程式相同的 ISE 中執行。 顯示**ise**標籤的受控連接器也會在與邏輯應用程式相同的 ISE 中執行。
 
-* 在您的 ISE 中，內建的觸發程式和動作（例如 HTTP）一律會在與邏輯應用程式相同的 ISE 中執行，並顯示**核心**標籤。
+  例如，以下是一些提供 ISE 版本的連接器：
 
-  ![選取 [核心] 內建觸發程式和動作](./media/connect-virtual-network-vnet-isolated-environment-overview/select-core-built-in-actions-triggers.png)
+  * Azure Blob 儲存體、檔案儲存體及表格儲存體
+  * Azure 佇列、Azure 服務匯流排、Azure 事件中樞和 IBM MQ
+  * FTP 和 SFTP-SSH
+  * SQL Server、Azure SQL 資料倉儲、Azure Cosmos DB
+  * AS2、X12 及 EDIFACT
 
-* 在 ISE 中執行的連接器具有公開裝載的版本，可在全域 Logic Apps 服務中使用。 針對提供兩個版本的連接器，具有**ISE**標籤的連接器一律會在與邏輯應用程式相同的 ISE 中執行。 不具備 **ISE** 標籤的連接器則會在全域 Logic Apps 服務中執行。
-
-  ![選取 ISE 連接器](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
+* 未顯示任何額外標籤的受控連接器一律會在公用全域 Logic Apps 服務中執行，但您仍然可以在 ISE 架構的邏輯應用程式中使用這些連接器。
 
 ISE 也會針對執行持續時間、儲存體保留、輸送量、HTTP 要求和回應超時、訊息大小和自訂連接器要求提供更多的限制。 如需詳細資訊，請參閱[Azure Logic Apps 的限制和](logic-apps-limits-and-config.md)設定。
 

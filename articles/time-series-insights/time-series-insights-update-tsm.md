@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d588e11525e5087f8667da4602797e5299c76f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1f560a7aa746ce7c6262dcaddf74c9d573332fa6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75374682"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861382"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽中的時間序列模型
 
@@ -129,7 +129,7 @@ ms.locfileid: "75374682"
 ```
 
 > [!TIP]
-> 如需時間序列深入解析實例 API 和建立、讀取、更新和刪除（CRUD）支援，請參閱[資料查詢](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis)文章和[實例 API REST 檔](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api)。
+> 如需時間序列深入解析實例 API 和建立、讀取、更新和刪除（CRUD）支援，請閱讀[資料查詢](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis)文章和[實例 API REST 檔](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api)。
 
 ## <a name="time-series-model-hierarchies"></a>時間序列模型階層
 
@@ -186,7 +186,7 @@ ms.locfileid: "75374682"
 * `ManufactureDate` 會定義具有父系 `year` 和子 `month`的階層。 每個 `ManufactureDate` 都可以有多個 `years`，而這可以有多個 `months`。
 
 > [!TIP]
-> 如需時間序列深入解析實例 API 和 CRUD 支援，請參閱[資料查詢](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis)文章和階層[API REST 檔](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api)。
+> 如需時間序列深入解析實例 API 和 CRUD 支援，請閱讀[資料查詢](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis)文章和階層[API REST 檔](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api)。
 
 ### <a name="hierarchy-example"></a>階層範例
 
@@ -231,7 +231,7 @@ ms.locfileid: "75374682"
 [![時間序列模型類型範例](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> 如需時間序列深入解析實例 API 和 CRUD 支援，請參閱[資料查詢](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis)文章和[類型 API REST 檔](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api)。
+> 如需時間序列深入解析實例 API 和 CRUD 支援，請閱讀[資料查詢](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis)文章和[類型 API REST 檔](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api)。
 
 ### <a name="type-properties"></a>類型屬性
 
@@ -391,7 +391,7 @@ ms.locfileid: "75374682"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱 [Azure 時間序列深入解析預覽版儲存體和輸入](./time-series-insights-update-storage-ingress.md)。
+- 閱讀[Azure 時間序列深入解析預覽儲存體和](./time-series-insights-update-storage-ingress.md)輸入。
 
 - 瞭解[Azure 時間序列深入解析 Preview 中資料模型](./time-series-insights-update-how-to-tsm.md)化的一般時間序列模型作業
 

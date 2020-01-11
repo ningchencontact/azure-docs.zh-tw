@@ -5,14 +5,14 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 673b74515ba03bc71e60a68b21b9330f9e62d424
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 38f424287788537cc5711bab8da60b5798a84b3a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647385"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867680"
 ---
 # <a name="what-is-azure-private-endpoint"></a>什麼是 Azure 私用端點？
 
@@ -58,6 +58,9 @@ Azure 私人端點是一種網路介面，可讓您以私人且安全地方式�
 |**Azure 儲存體**  | Microsoft.Storage/storageAccounts    |  Blob （blob、blob_secondary）<BR> 資料表（資料表、table_secondary）<BR> 佇列（佇列、queue_secondary）<BR> File （file，file_secondary）<BR> Web （web、web_secondary）        |
 |**Azure Data Lake Storage Gen2** \(部分機器翻譯\)  | Microsoft.Storage/storageAccounts    |  Blob （blob、blob_secondary）       |
 |**Azure Cosmos DB** | AzureCosmosDB/databaseAccounts | Sql、MongoDB、Cassandra、Gremlin、Table|
+|**適用於 PostgreSQL 的 Azure 資料庫-單一伺服器** | Microsoft.DBforPostgreSQL/servers   | postgresqlServer |
+|**適用於 MySQL 的 Azure 資料庫** | Microsoft.DBforMySQL/servers    | mysqlServer |
+|**適用於 MariaDB 的 Azure 資料庫** | Microsoft.DBforMariaDB/servers    | mariadbServer |
  
 ## <a name="network-security-of-private-endpoints"></a>私人端點的網路安全性 
 使用 Azure 服務的私人端點時，流量會受到特定私人連結資源的保護。 平臺會執行存取控制，以驗證僅到達指定私人連結資源的網路連接。 若要存取相同 Azure 服務中的其他資源，則需要額外的私用端點。 
@@ -112,6 +115,9 @@ Azure 私人端點是一種網路介面，可讓您以私人且安全地方式�
 |Azure Cosmos DB （AzureCosmosDB/databaseAccounts）|Cassandra|privatelink.cassandra.cosmos.azure.com|
 |Azure Cosmos DB （AzureCosmosDB/databaseAccounts）|Gremlin |privatelink.gremlin.cosmos.azure.com|
 |Azure Cosmos DB （AzureCosmosDB/databaseAccounts）|表格|privatelink.table.cosmos.azure.com|
+|適用於 PostgreSQL 的 Azure 資料庫-單一伺服器（DBforPostgreSQL/servers）|postgresqlServer|privatelink.postgres.database.azure.com|
+|適用於 MySQL 的 Azure 資料庫（Microsoft.dbformysql/servers）|mysqlServer|privatelink.mysql.database.azure.com|
+|適用於 MariaDB 的 Azure 資料庫（DBforMariaDB/servers）|mariadbServer|privatelink.mariadb.database.azure.com|
  
 Azure 會在公用 DNS 上建立正式名稱 DNS 記錄（CNAME），以將解析重新導向至建議的功能變數名稱。 您將能夠使用私人端點的私人 IP 位址來覆寫解析。 
  
@@ -136,3 +142,9 @@ Azure 會在公用 DNS 上建立正式名稱 DNS 記錄（CNAME），以將解�
 - [使用入口網站建立適用於儲存體帳戶的私人端點](create-private-endpoint-storage-portal.md)
 - [使用入口網站建立適用於 Azure Cosmos 帳戶的私人端點](../cosmos-db/how-to-configure-private-endpoints.md)
 - [使用 Azure PowerShell 建立您自己的 Private Link 服務](create-private-link-service-powershell.md)
+- [使用入口網站為適用於 PostgreSQL 的 Azure 資料庫單一伺服器建立您自己的私人連結](../postgresql/howto-configure-privatelink-portal.md)
+- [使用 CLI 為適用於 PostgreSQL 的 Azure 資料庫單一伺服器建立您自己的私人連結](../postgresql/howto-configure-privatelink-cli.md)
+- [使用入口網站為適用於 MySQL 的 Azure 資料庫建立您自己的私人連結](../mysql/howto-configure-privatelink-portal.md)
+- [使用 CLI 為適用於 MySQL 的 Azure 資料庫建立您自己的私用連結](../mysql/howto-configure-privatelink-cli.md)
+- [使用入口網站為適用於 MariaDB 的 Azure 資料庫建立您自己的私人連結](../mariadb/howto-configure-privatelink-portal.md)
+- [使用 CLI 為適用於 MariaDB 的 Azure 資料庫建立您自己的私用連結](../mariadb/howto-configure-privatelink-cli.md)

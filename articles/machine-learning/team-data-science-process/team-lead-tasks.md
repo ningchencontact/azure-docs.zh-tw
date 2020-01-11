@@ -2,26 +2,26 @@
 title: 小組負責人在 Team Data Science Process Team 中的工作
 description: 小組負責人在 Team 資料科學程式小組工作的詳細逐步解說
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9c6d0fcc20afc613094f10e9f3fb7c917ec6fa73
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327240"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864276"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Team 資料科學程式小組的小組負責人工作
 
 本文說明*小組負責人*為其資料科學小組完成的工作。 小組負責人的目標是要建立共同作業的小組環境，以便在[Team 資料科學](overview.md)程式（TDSP）上標準化。 TDSP 的設計是為了協助改善共同作業和小組學習。 
 
-TDSP 是一種敏捷式反復資料科學方法，可有效率地提供預測性分析解決方案和智慧型應用程式。 此程式是 Microsoft 和產業的最佳作法和結構公司，這是成功實行資料科學計畫，以協助公司完全瞭解其分析程式的優點所需。 如需在 TDSP 上標準化之資料科學小組的人員角色和相關工作的大綱，請參閱[Team 資料科學程式角色和](roles-tasks.md)工作。
+TDSP 是一種敏捷式反復資料科學方法，可有效率地提供預測性分析解決方案和智慧型應用程式。 此程式會抽取 Microsoft 和產業的最佳作法和結構。  目標是成功實行資料科學計畫，並完全實現其分析程式的優點。 如需在 TDSP 上標準化之資料科學小組的人員角色和相關工作的大綱，請參閱[Team 資料科學程式角色和](roles-tasks.md)工作。
 
 小組負責人負責管理由企業資料科學單位中的數個數據科學家組成的小組。 視資料科學單位的大小和結構而定，[群組管理員](group-manager-tasks.md)和小組負責人可能是同一人，也可以將他們的工作委派給代理。 但是，工作本身不會變更。 
 
@@ -49,7 +49,7 @@ TDSP 是一種敏捷式反復資料科學方法，可有效率地提供預測性
 > [!NOTE] 
 > 本文使用 Azure DevOps 和 DSVM 來設定 TDSP 小組環境，因為這是在 Microsoft 執行 TDSP 的方式。 如果您的小組使用其他程式碼裝載或開發平臺，小組負責人工作會相同，但完成這些工作的方式可能會不同。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程假設您的[群組管理員](group-manager-tasks.md)已設定下列資源和許可權：
 
@@ -59,7 +59,7 @@ TDSP 是一種敏捷式反復資料科學方法，可有效率地提供預測性
 
 若要能夠複製存放庫，並在本機電腦或 DSVM 上修改其內容，或設定 Azure 檔案儲存體並將其掛接至您的 DSVM，您需要下列各項：
 
-- Azure 訂閱。
+- Azure 訂用帳戶。
 - 已在您的電腦上安裝 Git。 如果您使用 DSVM，則會預先安裝 Git。 否則，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)。
 - 如果您想要使用 DSVM，則會在 Azure 中建立並設定 Windows 或 Linux DSVM。 如需詳細資訊和指示，請參閱[資料科學虛擬機器檔](/azure/machine-learning/data-science-virtual-machine/)。
 - 針對安裝在您電腦上的 Windows DSVM， [Git 認證管理員（GCM）](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) 。 在*README.md*檔案中，向下卷到 [**下載並安裝**] 區段，然後選取**最新的安裝程式**。 從安裝程式頁面下載 *.exe*安裝程式，並加以執行。 

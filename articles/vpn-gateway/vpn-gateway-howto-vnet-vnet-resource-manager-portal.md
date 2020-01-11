@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 入口網站設定 VNet 對 VNet 的 VPN 閘道連線 | Microsoft Docs
+title: 設定 VNet 對 VNet VPN 閘道連線： Azure 入口網站
 description: 使用 Resource Manager 和 Azure 入口網站建立 VNet 間的 VPN 閘道連接。
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7ad83327d5b85784f523a5931f277cd00009e0ed
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: c8ed01af9574ce10c95fb4af61f1da1c72c858ad
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266454"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860498"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>使用 Azure 入口網站設定 VNet 對 VNet 的 VPN 閘道連線
 
@@ -46,7 +46,7 @@ ms.locfileid: "71266454"
 
 如果您使用複雜的網路組態，您可能偏好使用[站對站連線](vpn-gateway-howto-site-to-site-resource-manager-portal.md)來連線 VNet。 當您遵循站對站 IPsec 步驟時，您會以手動方式建立及設定區域網路閘道。 每個 VNet 的區域網路閘道都會將其他 VNet 視為本機網站。 這些步驟可讓您為區域網路閘道指定其他位址空間，以便路由傳送流量。 如果 VNet 的位址空間變更，您必須手動更新對應的區域網路閘道。
 
-### <a name="vnet-peering"></a>VNet 對等
+### <a name="vnet-peering"></a>VNet 對等互連
 
 您也可以使用 VNet 對等互連來連線 VNet。 VNet 對等互連不會使用 VPN 閘道，且具有不同的條件約束。 此外，[VNet 對等互連價格](https://azure.microsoft.com/pricing/details/virtual-network)與 [VNet 對 VNet VPN 閘道價格](https://azure.microsoft.com/pricing/details/vpn-gateway)的計算方式不同。 如需詳細資訊，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)。
 
@@ -65,7 +65,7 @@ ms.locfileid: "71266454"
 
 您可以將 VNet 對 VNet 通訊與多站台組態結合。 這些組態可讓您建立使用內部虛擬網路連線結合跨單位連線的網路拓撲，如下圖所示：
 
-![關於連接](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "關於連接")
+![關於連接](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "關於連線")
 
 本文說明如何使用 VNet 對 VNet 連線類型來連線 VNet。 練習這些步驟時，您可以使用下列範例設定值。 在範例中，虛擬網路位於相同的訂用帳戶，但在不同的資源群組。 如果您的 Vnet 位於不同的訂用帳戶中，就無法在入口網站中建立連線。 改用 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) 或 [CLI](vpn-gateway-howto-vnet-vnet-cli.md)。 如需 VNet 對 VNet 連線的詳細資訊，請參閱 [VNet 對 VNet 常見問題集](#vnet-to-vnet-faq)。
 
@@ -74,52 +74,52 @@ ms.locfileid: "71266454"
 **TestVNet1 的值︰**
 
 - **虛擬網路設定**
-    - **名稱**：輸入 TestVNet1。
-    - **位址空間**：輸入 10.11.0.0/16。
-    - 訂用帳戶：選取您要使用的訂用帳戶。
-    - **資源群組**：輸入 TestRG1。
+    - **名稱**：輸入*TestVNet1*。
+    - **位址空間**：輸入*10.11.0.0/16*。
+    - **訂**用帳戶：選取您要使用的訂用帳戶。
+    - **資源群組**：輸入*TestRG1*。
     - **位置**：選取 [美國東部]。
     - **子網路**
-        - **名稱**：輸入 FrontEnd。
-        - **位址範圍**：輸入 10.11.0.0/24。
-    - **閘道器子網路**：
-        - **名稱**：自動填入 GatewaySubnet。
-        - **位址範圍**：輸入 10.11.255.0/27。
+        - **名稱**：輸入*前端*。
+        - **位址範圍**：輸入*10.11.0.0/24*。
+    - **閘道子網路**：
+        - **名稱**： *GatewaySubnet*是自動填入。
+        - **位址範圍**：輸入*10.11.255.0/27*。
 
 - **虛擬網路閘道設定** 
-    - **名稱**：輸入 TestVNet1GW。
-    - **閘道類型**：選取 [VPN]。
-    - **VPN 類型**：選取 [依路由]。
+    - **名稱**：輸入*TestVNet1GW*。
+    - 閘道類型︰選取 [VPN]。
+    - **VPN 類型**：選取 [路由型]。
     - **SKU**：選取您想要使用的閘道 SKU。
-    - **公用 IP 位址名稱**：輸入 TestVNet1GWIP。
-    - **連接** 
-       - **名稱**：輸入 TestVNet1toTestVNet4。
-       - **共用金鑰**：輸入 abc123。 您可以自行建立共用金鑰。 當您建立 VNet 之間的連線時，值必須相符。
+    - **公用 IP 位址名稱**：輸入*TestVNet1GWIP*
+    - **[連接]** 
+       - **名稱**：輸入*TestVNet1toTestVNet4*。
+       - **共用金鑰**：輸入*abc123*。 您可以自行建立共用金鑰。 當您建立 VNet 之間的連線時，值必須相符。
 
 **TestVNet4 的值︰**
 
 - **虛擬網路設定**
-   - **名稱**：輸入 TestVNet4。
-   - **位址空間**：輸入 10.41.0.0/16。
-   - 訂用帳戶：選取您要使用的訂用帳戶。
-   - **資源群組**：輸入 TestRG4。
+   - **名稱**：輸入*TestVNet4*。
+   - **位址空間**：輸入*10.41.0.0/16*。
+   - **訂**用帳戶：選取您要使用的訂用帳戶。
+   - **資源群組**：輸入*TestRG4*。
    - **位置**：選取 [美國西部]。
    - **子網路** 
-      - **名稱**：輸入 FrontEnd。
-      - **位址範圍**：輸入 10.41.0.0/24。
+      - **名稱**：輸入*前端*。
+      - **位址範圍**：輸入*10.41.0.0/24*。
    - **GatewaySubnet** 
-      - **名稱**：自動填入 GatewaySubnet。
-      - **位址範圍**：輸入 10.41.255.0/27。
+      - **名稱**： *GatewaySubnet*是自動填入。
+      - **位址範圍**：輸入*10.41.255.0/27*。
 
 - **虛擬網路閘道設定** 
-    - **名稱**：輸入 TestVNet4GW。
-    - **閘道類型**：選取 [VPN]。
-    - **VPN 類型**：選取 [依路由]。
+    - **名稱**：輸入*TestVNet4GW*。
+    - 閘道類型︰選取 [VPN]。
+    - **VPN 類型**：選取 [路由型]。
     - **SKU**：選取您想要使用的閘道 SKU。
-    - **公用 IP 位址名稱**：輸入 TestVNet4GW。
-    - **連接** 
-       - **名稱**：輸入 TestVNet4toTestVNet1。
-       - **共用金鑰**：輸入 abc123。 您可以自行建立共用金鑰。 當您建立 VNet 之間的連線時，值必須相符。
+    - **公用 IP 位址名稱**：輸入*TestVNet4GWIP*。
+    - **[連接]** 
+       - **名稱**：輸入 *..testvnet4totestvnet1*。
+       - **共用金鑰**：輸入*abc123*。 您可以自行建立共用金鑰。 當您建立 VNet 之間的連線時，值必須相符。
 
 ## <a name="create-and-configure-testvnet1"></a>建立及設定 TestVNet1
 如果您已經有 VNet，請驗證設定是否與您的 VPN 閘道設計相容。 請特別注意任何可能與其他網路重疊的子網路。 如果有重疊的子網路，您的連線便無法正常運作。
@@ -150,25 +150,25 @@ ms.locfileid: "71266454"
 
 1. 在 Azure 入口網站中，選取 [所有資源]，在搜尋方塊中輸入「虛擬網路閘道」，然後瀏覽至您 VNet 的虛擬網路閘道。 例如，**TestVNet1GW**。 選取它來開啟 [虛擬網路閘道] 頁面。
 
-   ![連線頁面](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "連線頁面")
+   ![連接頁面](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "連接頁面")
 2. 在 [設定] 之下，選取 [連線]，然後選取 [新增] 以開啟 [新增連線] 頁面。
 
-   ![新增連接](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "新增連接")
+   ![加入連接](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "加入連接")
 3. 在 [新增連線] 頁面上，填入您的連線值：
 
-   - **名稱**：輸入您的連線名稱。 例如，*TestVNet1toTestVNet4*。
+   - **名稱**：輸入連接的名稱。 例如，*TestVNet1toTestVNet4*。
 
-   - **連線類型**：從下拉式清單中選取 [VNet 對 VNet]。
+   - **連線類型**：從下拉式選單選取 [ **vnet 對 vnet** ]。
 
-   - **第一個虛擬網路閘道**：因為您是從指定的虛擬網路閘道建立此連線，所以會自動填入這個欄位值。
+   - **第一個虛擬網路閘道**：此域值會自動填入，因為您是從指定的虛擬網路閘道建立此連線。
 
-   - **第二個虛擬網路閘道**：這個欄位是您想要建立連線的 VNet 的虛擬網路閘道。 選取 [選擇另一個虛擬網路閘道]，以開啟 [選擇虛擬網路閘道] 頁面。
+   - **第二個虛擬網路閘道**：此欄位是您想要建立連接之 VNet 的虛擬網路閘道。 選取 [選擇另一個虛擬網路閘道]，以開啟 [選擇虛擬網路閘道] 頁面。
 
      - 檢視此頁面上列出的虛擬網路閘道。 請注意，只會列出您的訂用帳戶中的虛擬網路閘道。 如果想要連線的虛擬網路閘道不在您的訂用帳戶中，請使用 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)。
 
      - 選取您想要連線的虛擬網路閘道。
 
-     - **共用金鑰 (PSK)** ：在此欄位中，輸入您連線的共用金鑰。 您可以產生此金鑰，或自行建立此金鑰。 在站對站連線中，您用於內部部署裝置與虛擬網路閘道連線的金鑰完全相同。 此處的概念類似，差別在於是連線到另一個虛擬網路閘道，而不是連線到 VPN 裝置。
+     - **共用金鑰（PSK）** ：在此欄位中，輸入連接的共用金鑰。 您可以產生此金鑰，或自行建立此金鑰。 在站對站連線中，您用於內部部署裝置與虛擬網路閘道連線的金鑰完全相同。 此處的概念類似，差別在於是連線到另一個虛擬網路閘道，而不是連線到 VPN 裝置。
     
 4. 選取 [ **確定** ] 以儲存變更。
 
@@ -179,11 +179,11 @@ ms.locfileid: "71266454"
 
 在 Azure 入口網站中找出虛擬網路閘道。 在 [虛擬網路閘道] 頁面上，選取 [連線]，以檢視虛擬網路閘道的 [連線] 頁面。 建立連線後，您會看到 [狀態] 值變更為 [成功] 和 [已連線]。 選取連線來開啟 [基本資訊] 頁面，並檢視的詳細資訊。
 
-![已成功](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "已成功")
+![已成功](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "成功")
 
 當資料開始流動時，您會看到 [資料輸入] 和 [資料輸出] 的值。
 
-![程式集](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "程式集")
+![](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
 ## <a name="add-additional-connections"></a>新增其他連線
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 13bff4abcb308e4d5ea55f360d979e3e67d313c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 39665e0361747e0f75fa6c92f244317b995ce6a8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452872"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863371"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>規劃您的 Azure 時間序列深入解析 GA 環境
 
@@ -32,7 +32,7 @@ ms.locfileid: "75452872"
 
 若要開始使用 Azure 時間序列深入解析，最好是知道您預期每分鐘推送的資料量，以及儲存資料所需的時間。  
 
-如需這兩個時間序列深入解析 SKU 的容量和保留之詳細資訊，請參閱[時間序列深入解析定價](https://azure.microsoft.com/pricing/details/time-series-insights/)。
+如需時間序列深入解析 Sku 的容量和保留的詳細資訊，請參閱[時間序列深入解析定價](https://azure.microsoft.com/pricing/details/time-series-insights/)。
 
 若要為您的時間序列深入解析環境進行長期成功的規劃，請考慮下列屬性：
 
@@ -103,7 +103,7 @@ Azure 時間序列深入解析有兩種模式：
 
 ### <a name="mitigate-throttling-and-latency"></a>減少節流和延遲
 
-如需關於如何避免節流和延遲的資訊，請參閱[減少節流和延遲](time-series-insights-environment-mitigate-latency.md)。
+如需如何避免節流和延遲的相關資訊，請參閱[減輕延遲和節流](time-series-insights-environment-mitigate-latency.md)。
 
 ## <a name="shape-your-events"></a>塑形您的事件
 
@@ -119,7 +119,7 @@ Azure 時間序列深入解析有兩種模式：
 > [!NOTE]
 > 參考資料未聯結追溯。 只有在設定並上傳之後，才會比對目前和未來的輸入資料並聯結至參考資料集。 如果您打算將大量歷程記錄資料傳送至時間序列深入解析，而不要在時間序列深入解析中第一次上傳或建立參考資料，您可能必須重做工作（提示：不有趣）。  
 
-若要深入瞭解如何在時間序列深入解析中建立、上傳及管理參考資料，請參閱我們的[參考資料集檔](time-series-insights-add-reference-data-set.md)。
+若要深入瞭解如何在時間序列深入解析中建立、上傳及管理參考資料，請閱讀我們的[參考資料集檔](time-series-insights-add-reference-data-set.md)。
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

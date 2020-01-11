@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dfd9a8d2723136ef68d983eb99bf2391fb87879
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 159f79e61b43761db5a65c101928d4e6ac5b4d29
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894825"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861773"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>使用事件中樞將事件傳送至時間序列深入解析環境
 
@@ -24,7 +24,7 @@ ms.locfileid: "74894825"
 
 ## <a name="configure-an-event-hub"></a>設定事件中樞
 
-1. 若要了解如何建立事件中樞，請參閱[事件中樞文件](https://docs.microsoft.com/azure/event-hubs/)。
+1. 若要瞭解如何建立事件中樞，請閱讀[事件中樞檔](https://docs.microsoft.com/azure/event-hubs/)。
 1. 在搜尋方塊中搜尋**事件中樞**。 在傳回的清單中選取 [事件中樞]。
 1. 選取事件中樞。
 1. 當您建立事件中樞時，您正在建立事件中樞命名空間。 如果您尚未在命名空間內建立事件中樞，請在功能表的 [**實體**] 底下，建立事件中樞。  
@@ -61,7 +61,7 @@ ms.locfileid: "74894825"
 
 1. 如果您尚未建立事件來源，請完成這些步驟以[建立事件來源](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub)。
 
-1. 設定 `timeSeriesId` 的值。 若要深入了解**時間序列識別碼**，請參閱[時間序列模型](./time-series-insights-update-tsm.md)。
+1. 設定 `timeSeriesId` 的值。 若要深入瞭解**時間序列識別碼**，請參閱[時間序列模型](./time-series-insights-update-tsm.md)。
 
 ### <a name="push-events-to-windmills-sample"></a>將事件推送至風車範例
 
@@ -80,7 +80,7 @@ ms.locfileid: "74894825"
 
 1. 選取 [按一下即可啟動]。 模擬器會產生您可以直接使用的執行個體 JSON。
 
-1. 回到 Azure 入口網站中的事件中樞。 在 [**總覽**] 頁面上，您會看到事件中樞所接收的新事件。
+1. 回到 Azure 入口網站中的事件中樞。 在 [**總覽**] 頁面上，會顯示事件中樞所接收的新事件。
 
     [![事件中樞的 [總覽] 頁面，其中顯示事件中樞的計量](media/send-events/review-windmill-telemetry.png)](media/send-events/review-windmill-telemetry.png#lightbox)
 

@@ -5,12 +5,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 12/06/2019
-ms.openlocfilehash: 8d0c1edd2766d5fa46603d241c4f769fe5777cd1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dec7f022a73c5eb47c99b2d2d38e1a3258bcf14e
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980479"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861452"
 ---
 ## <a name="business-disaster-recovery"></a>業務災害復原
 
@@ -71,5 +71,5 @@ ms.locfileid: "74980479"
 > * 可能也會發生延遲。
 > * 當作業被重新路由時，可能會發生訊息處理的瞬間尖峰。
 > 
-> 如需詳細資訊，請參閱[在時間序列深入解析中減少延遲](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency)。
+> 如需詳細資訊，請參閱[減緩時間序列深入解析中的延遲](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency)。
 

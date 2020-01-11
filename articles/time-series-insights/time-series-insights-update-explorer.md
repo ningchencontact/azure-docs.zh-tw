@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: d94daa5fbda4ee60ffc6671f7b50126662416043
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c117510749abcf997e414371faa6dea1dc79ea7a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746535"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861756"
 ---
 # <a name="azure-time-series-insights-preview-explorer"></a>Azure 時間序列深入解析預覽 explorer
 
@@ -48,7 +48,7 @@ Azure 時間序列深入解析 Preview explorer 包含下列七個元素：
 
 ## <a name="1-environment-panel"></a>1. 環境面板
 
-環境面板可顯示您擁有存取權的所有時間序列深入解析環境。 此清單包含「隨用隨付」（預覽）環境以及 S1/S2 環境（一般可用性）。 只要按一下您要用來立即執行的時間序列深入解析環境即可。
+環境面板可顯示您擁有存取權的所有時間序列深入解析環境。 此清單包含「隨用隨付」（預覽）環境以及 S1/S2 環境（一般可用性）。 只要選取您想要用來立即執行的時間序列深入解析環境即可。
 
 1. 選取顯示的環境旁邊的下拉箭號。
 
@@ -75,7 +75,7 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 * **時間序列模型**階層：階層是您的資料的系統化組織。 階層會描述時間序列深入解析資料中不同實體之間的關係。
 * **時間序列模型實例**：實例是時間序列本身。 在大部分情況下，它們是**DeviceID**或**AssetID**，也就是環境中資產的唯一識別碼。
 
-若要深入了解時間序列模型，請參閱[時間序列模型](./time-series-insights-update-tsm.md)。
+若要深入瞭解時間序列模型，請參閱[時間序列](./time-series-insights-update-tsm.md)模型。
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. 階層樹狀結構和搜尋面板
 
@@ -98,7 +98,7 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
   [![良好的版面配置選項](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 
 > [!NOTE]
-> 如果您看到下列訊息，則在選取的時間範圍內，實例沒有任何資料。 若要解決此問題，請增加時間範圍，或確認實例正在推送資料。
+> 如果出現下列訊息，在選取的時間範圍內，實例就不會有任何資料。 若要解決此問題，請增加時間範圍，或確認實例正在推送資料。
 >
 > ![沒有資料通知](media/v2-update-explorer/tsi-preview-no-data-warning.png)
 
@@ -110,9 +110,9 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 
 1. **圖表類型**：控制哪些資料元素可供視覺效果使用。
 
-1. **間隔大小**：間隔大小滑杆工具可讓您在相同的時間範圍內放大和縮小間隔。 這可在大型配量時間 (會顯示向下配量最小至毫秒的平滑趨勢) 之間提供更精確的移動控制，從而讓您查看資料的細微、高解析度的剪輯。 滑桿的預設起始點會從您所選取項目中設定為資料的最佳檢視；平衡解析度、查詢速度與細微性。
+1. **間隔大小**：間隔大小滑杆工具可讓您在相同的時間範圍內放大和縮小間隔。 這可讓您更精確地控制在大型時間配量之間的移動，以將平滑的趨勢向下顯示為小至毫秒的磁區，讓您能夠查看細微、高解析度的資料剪切。 滑桿的預設起始點會從您所選取項目中設定為資料的最佳檢視；平衡解析度、查詢速度與細微性。
 
-1. **Zoom 和平移**：按一下此控制項可縮放和移動圖表。
+1. **縮放和平移**：選取此控制項可縮放和移動圖表。
 
 1. **Y 軸控制項**：迴圈顯示可用的 Y 軸視圖選項：
 
@@ -122,15 +122,15 @@ Azure 時間序列深入解析 Preview 支援在您的時間序列模型上進�
 
 1. **標記元素**：目前選取的資料元素及其相關聯的詳細資料。
 
-您可以藉由在目前圖表上的資料點上**按一下滑鼠左鍵**，然後將選取的區域拖曳至您選擇的端點，進一步切入特定的資料配量。 以**滑鼠右鍵按一下**藍色、選取的區域，然後按一下 [**縮放**]，如下所示。 您也可以在選取的時間範圍內，查看並下載遙測事件。
+您可以藉由在目前圖表上的資料點上**按一下滑鼠左鍵**，然後將選取的區域拖曳至您選擇的端點，進一步切入特定的資料配量。 以**滑鼠右鍵按一下**藍色、選取的區域，然後選取 [**縮放**]，如下所示。 您也可以在選取的時間範圍內，查看並下載遙測事件。
 
   [![預覽圖表縮放比例](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
-執行 [**縮放**] 動作之後，您會看到選取的資料集。 選取 [格式] 控制項以迴圈流覽時間序列深入解析資料的三個 y 軸標記法。
+執行 [**縮放**] 動作之後，將會顯示您選取的資料集。 選取 [格式] 控制項以迴圈流覽時間序列深入解析資料的三個 y 軸標記法。
 
   [![預覽圖表 y 軸](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png)](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png#lightbox)
 
-在這裡，您可以看到重**迭圖表**的範例：
+這裡提供重**迭圖表**的範例：
 
   [![重迭圖表選項](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
@@ -207,7 +207,7 @@ Azure 時間序列深入解析預覽支援兩種佈景主題：
 
 此區段僅適用於嘗試在更新後的 UI 中使用總管的現有 S1/S2 環境。 您可能想要使用正式推出的產品和預覽組合。 我們已透過現有的 UI 對更新後的總管新增了一些功能，但您可以在現有的時間序列深入解析總管中，體驗 S1/S2 環境的完整 UI。 
 
-您會看到 [時間序列深入解析詞彙] 面板，而不是階層，您可以在環境中定義查詢。 使用它根據述詞來篩選資料。
+而不是階層，會顯示 [時間序列深入解析詞彙] 面板。 [詞彙] 面板可讓您定義環境中的查詢。 您也可以使用它來根據述詞來篩選資料。
 
   [![查詢面板](media/v2-update-explorer/s1-s2-preview-query.png)](media/v2-update-explorer/s1-s2-preview-query.png#lightbox)
 

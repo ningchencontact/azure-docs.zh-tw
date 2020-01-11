@@ -2,24 +2,24 @@
 title: 追蹤 Team Data 科學流程專案的進度
 description: 資料科學群組管理員、小組負責人和專案負責人可以如何追蹤資料科學專案的進度。
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 28bd3e558294c000ba65a1c60fe227bbae7e82dd
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 8cf1e5a4d97b882e7a8d0c81041bbcde709760d1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244074"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864191"
 ---
 # <a name="track-the-progress-of-data-science-projects"></a>追蹤資料科學專案的進度
 
-資料科學群組管理員、小組負責人和專案負責人可以追蹤其專案的進度，例如已完成的工作、工作的人員，以及剩餘的工作。 
+資料科學群組管理員、小組負責人和專案負責人可以追蹤其專案的進度。  管理員想要知道哪些工作已完成、誰執行了工作，以及剩餘的工作。   管理期望是成功的重要元素。
 
 ## <a name="azure-devops-dashboards"></a>Azure DevOps 儀表板
 
@@ -50,4 +50,4 @@ ms.locfileid: "72244074"
 
 ## <a name="next-steps"></a>後續步驟
 
-[執行小組資料科學](walkthroughs.md)程式的逐步解說會列出示範特定案例之程式中所有步驟的逐步解說，其中包含連結和縮圖描述。 連結的案例說明如何將雲端和內部部署工具和服務組合成工作流程或管線，以建立智慧型應用程式。 
+[執行小組資料科學](walkthroughs.md)程式的逐步解說會列出示範所有進程步驟的逐步解說。 連結的案例說明如何將雲端和內部部署資源管理成智慧型應用程式。 

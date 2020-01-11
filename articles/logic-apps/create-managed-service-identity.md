@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
-ms.openlocfilehash: 49c925cfe61084d8fedfdf953d469db4bd2c10b1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 714faa43f34de965055ceba80de08972dd4192ac
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792667"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861195"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的受控識別來驗證對 Azure 資源的存取
 
@@ -42,8 +42,6 @@ ms.locfileid: "74792667"
 
 * [Azure 入口網站](#azure-portal-system-logic-app)
 * [Azure 資源管理員範本](#template-system-logic-app)
-* [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
-* [Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)
 
 <a name="azure-portal-system-logic-app"></a>
 
@@ -59,7 +57,7 @@ ms.locfileid: "74792667"
 
    ![系統指派之身分識別的物件識別碼](./media/create-managed-service-identity/object-id.png)
 
-   | 屬性 | Value | 描述 |
+   | 屬性 | 值 | 說明 |
    |----------|-------|-------------|
    | **物件識別碼** | <*identity-resource-ID*> | 全域唯一識別碼（GUID），代表您的 Azure AD 租使用者中邏輯應用程式的系統指派身分識別 |
    ||||
@@ -105,7 +103,7 @@ ms.locfileid: "74792667"
 }
 ```
 
-| 屬性（JSON） | Value | 描述 |
+| Property (JSON) | 值 | 說明 |
 |-----------------|-------|-------------|
 | `principalId` | <*principal-ID*> | 受控識別之服務主體物件的全域唯一識別碼（GUID），代表 Azure AD 租使用者中的邏輯應用程式。 此 GUID 有時候會顯示為「物件識別碼」或 `objectID`。 |
 | `tenantId` | <*Azure-AD-tenant-ID*> | 全域唯一識別碼（GUID），代表邏輯應用程式現在是成員的 Azure AD 租使用者。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 |
@@ -115,7 +113,17 @@ ms.locfileid: "74792667"
 
 ## <a name="give-identity-access-to-resources"></a>授與資源的身分識別存取權
 
-設定邏輯應用程式的受控識別之後，您可以將該身分[識別存取權授與其他 Azure 資源](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md)。 接著，您可以使用該身分識別進行驗證。
+在您可以使用邏輯應用程式的系統指派受控識別進行驗證之前，請將該身分識別存取權授與您打算使用該身分識別的 Azure 資源。 若要完成這項工作，請在目標 Azure 資源上將適當的角色指派給該身分識別。 以下是您可以使用的選項：
+
+* [Azure 入口網站](#azure-portal-assign-access)
+* [Azure Resource Manager 範本](../role-based-access-control/role-assignments-template.md)
+* Azure PowerShell （[new-azroleassignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)）-如需詳細資訊，請參閱[使用 Azure RBAC 和 Azure PowerShell 新增角色指派](../role-based-access-control/role-assignments-powershell.md)。
+* Azure CLI （[az role 指派 create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)）-如需詳細資訊，請參閱[使用 Azure RBAC 和 Azure CLI 新增角色指派](../role-based-access-control/role-assignments-cli.md)。
+* [Azure REST API](../role-based-access-control/role-assignments-rest.md)
+
+<a name="azure-portal-assign-access"></a>
+
+### <a name="assign-access-in-the-azure-portal"></a>在 Azure 入口網站中指派存取權
 
 1. 在  [Azure 入口網站](https://portal.azure.com)中，移至您想要讓受控識別擁有存取權的 Azure 資源。
 
@@ -165,7 +173,7 @@ ms.locfileid: "74792667"
 
    例如，HTTP 觸發程式或動作可以使用您為邏輯應用程式啟用的系統指派身分識別。 一般來說，HTTP 觸發程式或動作會使用這些屬性來指定您想要存取的資源或實體：
 
-   | 屬性 | 必要項 | 描述 |
+   | 屬性 | 必要項 | 說明 |
    |----------|----------|-------------|
    | **方法** | 是 | 您想要執行之作業所使用的 HTTP 方法 |
    | **URI** | 是 | 用於存取目標 Azure 資源或實體的端點 URL。 URI 語法通常包含 Azure 資源或服務的[資源識別碼](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)。 |
@@ -181,7 +189,7 @@ ms.locfileid: "74792667"
 
    若要執行[快照集 Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob)作業，HTTP 動作會指定下列屬性：
 
-   | 屬性 | 必要項 | 範例值 | 描述 |
+   | 屬性 | 必要項 | 範例值 | 說明 |
    |----------|----------|---------------|-------------|
    | **方法** | 是 | `PUT`| 快照集 Blob 操作所使用的 HTTP 方法 |
    | **URI** | 是 | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | Azure 全域（公用）環境中 Azure Blob 儲存體檔案的資源識別碼，其使用此語法 |

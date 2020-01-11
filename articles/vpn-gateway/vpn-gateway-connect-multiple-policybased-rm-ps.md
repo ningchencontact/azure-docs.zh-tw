@@ -2,18 +2,17 @@
 title: Azure VPN 閘道：將閘道連接到多個內部部署以原則為基礎的 VPN 裝置
 description: 使用 Azure Resource Manager 和 PowerShell，將以 Azure 路由為基礎的 VPN 閘道設定為多個以原則為基礎的 VPN 裝置。
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: f307e37debe47d2d352b1a375259fe7a0d6dd3cd
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 029b7ce31e7e3f1c71d9fbe806b2d76d8a98d24b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74146710"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863735"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>使用 PowerShell 將 Azure VPN 閘道連線至多個內部部署以原則為基礎的 VPN 裝置
 
@@ -69,7 +68,7 @@ Azure 目前支援兩種 VPN 閘道模式：以路由為基礎的 VPN 閘道和�
 1. 建立跨單位連線的虛擬網路、VPN 閘道和區域網路閘道
 2. 建立 IPsec/IKE 原則
 3. 如果您建立 S2S 或 VNet 對 VNet 連線，並在連線上**啟用以原則為基礎的流量選取器**，請套用原則。
-4. 如果已經建立連線，您可以將原則套用至現有連線或將其更新。
+4. 如果已經建立連線，您可以套用原則，或將其更新為現有連線。
 
 ## <a name="before-you-begin"></a>開始之前
 

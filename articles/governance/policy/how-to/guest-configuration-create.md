@@ -3,12 +3,12 @@ title: 如何建立來賓設定原則
 description: 瞭解如何使用 Azure PowerShell 為 Windows 或 Linux Vm 建立 Azure 原則來賓設定原則。
 ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: f2e611998e42510eccde64ff6f945f58133fc4e9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: dbdb4288812b8d1016c3ccc879582f76222d17cd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608519"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867329"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>如何建立來賓設定原則
 
@@ -65,7 +65,7 @@ ms.locfileid: "75608519"
 
 #### <a name="configuration-requirements"></a>組態需求
 
-來賓設定若要使用自訂設定，唯一的需求是讓設定的名稱在使用時保持一致。  這包括內容套件的 .zip 檔案名稱、儲存在內容套件內的 mof 檔案中的設定名稱，以及 ARM 中用來做為來賓指派名稱的設定名稱。
+來賓設定若要使用自訂設定，唯一的需求是讓設定的名稱在使用時保持一致。 此名稱需求包括內容套件的 .zip 檔案名稱、儲存在內容套件內之 MOF 檔案中的設定名稱，以及 Resource Manager 範本中用來做為來賓指派名稱的設定名稱。
 
 #### <a name="get-targetresource-requirements"></a>TargetResource 需求
 
@@ -181,7 +181,7 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 
 在 Azure 原則來賓設定中，管理在執行時間使用之秘密的最佳方式是將它們儲存在 Azure Key Vault 中。 這種設計會在自訂 DSC 資源內執行。
 
-1. 首先，在 Azure 中建立使用者指派的受控識別。
+1. 在 Azure 中建立使用者指派的受控識別。
 
    電腦會使用此身分識別來存取儲存在 Key Vault 中的秘密。 如需詳細步驟，請參閱[使用 Azure PowerShell 建立、列出或刪除使用者指派的受控識別](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)。
 
@@ -193,9 +193,9 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 1. 將使用者指派的身分識別指派給您的電腦。
 
    如需詳細步驟，請參閱[使用 PowerShell 在 AZURE VM 上設定 azure 資源的受控](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity)識別。
-   請大規模使用 Azure Resource Manager 透過 Azure 原則指派此身分識別。 如需詳細步驟，請參閱[使用範本在 AZURE VM 上設定 azure 資源的受控](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm)識別。
+   透過大規模的 Azure 原則，使用 Azure Resource Manager 指派此身分識別。 如需詳細步驟，請參閱[使用範本在 AZURE VM 上設定 azure 資源的受控](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm)識別。
 
-1. 最後，在您的自訂資源內使用上述產生的用戶端識別碼，以使用機器提供的權杖來存取 Key Vault。
+1. 使用在您的自訂資源內產生的用戶端識別碼，以使用機器提供的權杖來存取 Key Vault。
 
    Key Vault 實例的 `client_id` 和 url 可以當做[屬性](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema)傳遞至資源，因此，不需要更新多個環境的資源，或是否需要變更這些值。
 
@@ -305,7 +305,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-針對 Linux 原則，請在您的設定中包含屬性**AttributesYmlContent** ，並據以覆寫這些值。 來賓設定代理程式會自動建立 InSpec 用來儲存屬性的 YaML 檔案。 請看下方範例。
+針對 Linux 原則，請在您的設定中包含屬性**AttributesYmlContent** ，並視需要覆寫這些值。 來賓設定代理程式會自動建立 InSpec 用來儲存屬性的 YAML 檔案。 請看下方範例。
 
 ```powershell
 Configuration FirewalldEnabled {

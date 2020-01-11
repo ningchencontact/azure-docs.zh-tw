@@ -3,20 +3,20 @@ title: 在 Azure HDInsight Hadoop 上使用 Hive 的分析 - Team Data Science P
 description: 以 Team Data Science Process 為例，逐步解說如何在 Azure HDInsight Hadoop 上使用 Hive 來執行預測性分析。
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d3c3278a058162632a6ba7ea9731e5f233190700
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f72ea6ed5f0eec076d181ef56c99c4f1308a7741
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804667"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864157"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>在 Azure 上使用 Hive 的 HDInsight Hadoop 資料科學逐步解說 
 
@@ -36,7 +36,7 @@ ms.locfileid: "60804667"
 
 ## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>使用 Hive 搭配 HDInsight Hadoop 來預測廣告點擊數
 
-[在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集](hive-criteo-walkthrough.md)逐步解說會使用公開使用的 [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) 點擊資料集，來預測是否給予小費及預期的金額範圍。 此案例是透過 Hive 搭配 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)來實作，以對資料進行儲存、探索、特性工程設計及縮減取樣。 它使用 Azure Machine Learning 來建立、定型二元分類模型並對其進行評分，以預測使用者是否點擊廣告。 此逐步解說最後會示範如何將其中一個模型發佈為 Web 服務。
+在[1 TB 資料集上使用 Azure HDInsight Hadoop](hive-criteo-walkthrough.md)叢集逐步解說會使用可公開取得的[Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/)按一下資料集來預測提示是否已付費，以及預期的金額。 此案例是透過 Hive 搭配 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)來實作，以對資料進行儲存、探索、特性工程設計及縮減取樣。 它使用 Azure Machine Learning 來建立、定型二元分類模型並對其進行評分，以預測使用者是否點擊廣告。 此逐步解說最後會示範如何將其中一個模型發佈為 Web 服務。
 
 
 ## <a name="next-steps"></a>後續步驟

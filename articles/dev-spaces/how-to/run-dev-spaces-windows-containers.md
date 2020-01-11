@@ -5,12 +5,12 @@ ms.date: 07/25/2019
 ms.topic: conceptual
 description: 瞭解如何在具有 Windows 容器的現有叢集上執行 Azure Dev Spaces
 keywords: Azure Dev Spaces，Dev Spaces，Docker，Kubernetes，Azure，AKS，Azure Kubernetes Service，容器，Windows 容器
-ms.openlocfilehash: 7410c0e38b84979f0977973b2d6ccf588e2b1230
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 855b877653d4cf60c8165af3094fe0e68ca5e6dd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484001"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867300"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>使用 Azure Dev Spaces 與 Windows 容器互動
 
@@ -26,7 +26,7 @@ ms.locfileid: "74484001"
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-若要驗證叢集的連線，請使用 [kubectl get][kubectl-get] 命令來傳回叢集節點的清單。
+若要驗證針對您叢集的連線，請使用 [kubectl get][kubectl-get] 命令來傳回叢集節點的清單。
 
 ```azurecli-interactive
 kubectl get nodes
@@ -146,7 +146,12 @@ azds prep --public
 azds up
 ```
 
-`azds prep --public` 命令會為您的應用程式產生 Helm 圖表和 Dockerfile。 `azds up` 命令會在命名空間中執行您的服務。
+`azds prep --public` 命令會為您的應用程式產生 Helm 圖表和 Dockerfile。
+
+> [!TIP]
+> Azure Dev Spaces 會使用專案的[Dockerfile 和 Helm 圖表](../how-dev-spaces-works.md#prepare-your-code)來建立和執行您的程式碼，但如果您想要變更專案的建立和執行方式，可以修改這些檔案。
+
+`azds up` 命令會在命名空間中執行您的服務。
 
 ```console
 $ azds up

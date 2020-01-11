@@ -1,5 +1,5 @@
 ---
-title: 使用 VNet 對 VNet 連線將 Azure 虛擬網路連線至另一個 VNet︰PowerShell | Microsoft Docs
+title: 使用 Azure VPN 閘道 VNet 對 VNet 連線將 VNet 連線到另一個 VNet： PowerShell
 description: 使用 VNet 對 VNet 連線和 PowerShell，將虛擬網路連在一起。
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: dbf59740af64bf8d403b6596a17646304c0f1eb0
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: eebe66ca038b31f23ca864b107816b8cf761b29c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385783"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860515"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>使用 PowerShell 設定 VNet 對 VNet 的 VPN 閘道連線
 
@@ -40,7 +40,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 如果您使用複雜的網路組態，您可能偏好使用[站對站](vpn-gateway-create-site-to-site-rm-powershell.md)步驟 (而不是 VNet 對 VNet 步驟) 來連線 VNet。 當您使用站對站步驟時，您會以手動方式建立及設定區域網路閘道。 每個 VNet 的區域網路閘道都會將其他 VNet 視為本機網站。 這可讓您指定區域網路閘道的其他位址空間，以便路由傳送流量。 如果 VNet 的位址空間變更，您需要更新對應的區域網路閘道，才會反映變更。 它並不會自動更新。
 
-### <a name="vnet-peering"></a>VNet 對等
+### <a name="vnet-peering"></a>VNet 對等互連
 
 建議您使用 VNet 對等互連來進行 VNet 連線。 VNet 對等互連不會使用 VPN 閘道，且具有不同的條件約束。 此外，[VNet 對等互連價格](https://azure.microsoft.com/pricing/details/virtual-network)與 [VNet 對 VNet VPN 閘道價格](https://azure.microsoft.com/pricing/details/vpn-gateway)的計算方式不同。 如需詳細資訊，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)。
 
@@ -65,11 +65,11 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 在此練習中，您可以合併組態，或只選擇您需要使用的一個組態。 所有組態都會使用 VNet 對 VNet 連線類型。 網路流量會在彼此直接連線的 VNet 之間流動。 在此練習中，來自 TestVNet4 的流量不會路由傳送至 TestVNet5。
 
-* [位於相同訂用帳戶中的 VNet](#samesub)：此組態的步驟是使用 TestVNet1 和 TestVNet4。
+* [位於相同訂用帳戶中的 VNet：](#samesub)此組態的步驟會使用 TestVNet1 和 TestVNet4。
 
   ![v2v 圖表](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-* [位於不同訂用帳戶中的 VNet](#difsub)：此組態的步驟使用 TestVNet1 和 TestVNet5。
+* [位於不同訂用帳戶中的 VNet：](#difsub)此組態的步驟會使用 TestVNet1 和 TestVNet5。
 
   ![v2v 圖表](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
@@ -91,33 +91,33 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 **TestVNet1 的值︰**
 
-* VNet 名稱：TestVNet1
-* 資源群組:TestRG1
-* 位置:East US
+* VNet 名稱︰TestVNet1
+* 資源群組︰TestRG1
+* 位置：美國東部
 * TestVNet1：10.11.0.0/16 和 10.12.0.0/16
 * FrontEnd：10.11.0.0/24
 * BackEnd：10.12.0.0/24
 * GatewaySubnet：10.12.255.0/27
 * GatewayName：VNet1GW
-* 公用 IP：VNet1GWIP
+* 公用 IP: VNet1GWIP
 * VPNType：RouteBased
 * Connection(1to4)：VNet1toVNet4
-* Connection(1to5)：VNet1toVNet5 (適用於不同訂用帳戶中的 VNet)
+* Connection(1to5)：VNet1toVNet5 (適用於不同訂用帳戶中的 Vnet)
 * ConnectionType：VNet2VNet
 
 **TestVNet4 的值︰**
 
-* VNet 名稱：TestVNet4
+* VNet 名稱︰TestVNet4
 * TestVNet2：10.41.0.0/16 和 10.42.0.0/16
 * FrontEnd：10.41.0.0/24
 * BackEnd：10.42.0.0/24
 * GatewaySubnet：10.42.255.0/27
-* 資源群組:TestRG4
-* 位置:美國西部
+* 資源群組：TestRG4
+* 位置：美國西部
 * GatewayName：VNet4GW
 * 公用 IP：VNet4GWIP
 * VPNType：RouteBased
-* 連線：VNet4toVNet1
+* 連線︰VNet4toVNet1
 * ConnectionType：VNet2VNet
 
 
@@ -166,7 +166,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG1 -Location $Location1
    ```
-4. 建立 TestVNet1 的子網路設定。 此範例會建立一個名為 TestVNet1 的虛擬網路和三個子網路：一個名為 GatewaySubnet、一個名為 FrontEnd，另一個名為 Backend。 替代值時，務必一律將您的閘道子網路特定命名為 GatewaySubnet。 如果您將其命名為其他名稱，閘道建立會失敗。 基於這個理由, 它不會透過下列變數來指派。
+4. 建立 TestVNet1 的子網路設定。 此範例會建立一個名為 TestVNet1 的虛擬網路和三個子網路：一個名為 GatewaySubnet、一個名為 FrontEnd，另一個名為 Backend。 替代值時，務必一律將您的閘道子網路特定命名為 GatewaySubnet。 如果您將其命名為其他名稱，閘道建立會失敗。 基於這個理由，它不會透過下列變數來指派。
 
    下列範例會使用您先前設定的變數。 在此範例中，閘道子網路使用 /27。 雖然您可以建立小至 /29 的閘道子網路，我們建議您選取至少 /28 或 /27，建立包含更多位址的較大子網路。 這將允許足夠的位址，以容納您未來可能需要的其他組態。
 
@@ -310,9 +310,9 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 **TestVNet5 的值︰**
 
-* VNet 名稱：TestVNet5
-* 資源群組:TestRG5
-* 位置:日本東部
+* VNet 名稱︰TestVNet5
+* 資源群組：TestRG5
+* 位置：日本東部
 * TestVNet5：10.51.0.0/16 和 10.52.0.0/16
 * FrontEnd：10.51.0.0/24
 * BackEnd：10.52.0.0/24
@@ -320,7 +320,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 * GatewayName：VNet5GW
 * 公用 IP：VNet5GWIP
 * VPNType：RouteBased
-* 連線：VNet5toVNet1
+* 連線︰VNet5toVNet1
 * ConnectionType：VNet2VNet
 
 ### <a name="step-7---create-and-configure-testvnet5"></a>步驟 7 - 建立及設定 TestVNet5

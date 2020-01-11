@@ -1,22 +1,171 @@
 ---
 title: 查詢 Azure 更新管理記錄
-description: 本文說明如何查詢記錄檔以進行更新管理
+description: 本文說明如何在 Log Analytics 工作區中查詢更新管理的記錄。
 services: automation
 ms.subservice: update-management
-ms.date: 09/26/2019
+ms.date: 01/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 85b09aa32c8ddee6406469a2adc44e067c58e186
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5a1979b0e714f35694999c04e1f890b710d54ac9
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420336"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867057"
 ---
-# <a name="query-update-records-for-update-management-in-log-analytics"></a>Log Analytics 中更新管理的查詢更新記錄
+# <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Azure 監視器記錄中更新管理的查詢更新記錄
 
-除了 Azure 入口網站中提供的詳細資料以外，您也可以對記錄執行搜尋。 在解決方案頁面上，選取 [Log Analytics]。 [記錄搜尋] 窗格隨即開啟。
+除了更新管理解決方案中所提供的詳細資料之外，您還可以搜尋儲存在 Log Analytics 工作區中的記錄。 從 [方案] 頁面中，選取左側窗格中的 [**記錄**]。 [**記錄搜尋**] 頁面隨即開啟。
 
 您也可以造訪： [Log Analytics 搜尋 API 檔](https://dev.loganalytics.io/)，以瞭解如何自訂查詢或從不同的用戶端使用它們。
+
+## <a name="update-records"></a>更新記錄
+
+更新管理針對 Windows 和 Linux Vm 所收集的記錄，以及顯示在記錄搜尋結果中的資料類型。 下列各節將說明這些記錄。
+
+### <a name="required-updates"></a>必要的更新
+
+建立類型為 `RequiredUpdate` 的記錄，代表電腦所需的更新。 這些記錄具有下表中的屬性：
+
+| 屬性 | 說明 | 
+|----------|-------------|
+| 電腦 | 報告機器的完整功能變數名稱。 |
+| KBID | Windows update 的知識庫文章識別碼。 |
+| ManagementGroupName | Operations Manager 管理群組或 Log Analytics 工作區的名稱。 | 
+| 產品 | 更新適用的產品。 | 
+| PublishDate | 已準備好從 Windows Update 下載並安裝更新的日期。 |
+| 伺服器 | | 
+| SourceHealthServiceId | 代表 Log Analytics Windows 代理程式識別碼的唯一識別碼。 |
+| SourceSystem | *OperationsManager* | 
+| TenantId | 代表 Azure Active Directory 的組織實例的唯一識別碼。 | 
+| TimeGenerated | 記錄的建立日期和時間。 | 
+| 類型 | *更新* | 
+| UpdateClassification | 表示可以套用的更新類型。 若為 Windows：<br> *重大更新*<br> *安全性更新*<br> *更新彙總套件*<br> *功能套件*<br> *Service pack*<br> *定義更新*<br> *工具*<br> *更新*。 若為 Linux：<br> *重大和安全性更新*<br> *其他* |
+| UpdateSeverity | 弱點的嚴重性等級。 值為：<br> *嚴重*<br> *重要*<br> *中*<br> *低* |
+| UpdateTitle | 更新的標題。|
+
+### <a name="update"></a>更新
+
+系統會建立類型為 `Update` 的記錄，代表可用的更新以及電腦的安裝狀態。 這些記錄具有下表中的屬性：
+
+| 屬性 | 說明 | 
+|----------|-------------|
+| ApprovalSource | 僅適用于 Windows 作業系統。 值為*Microsoft Update*。 |
+| 已核准 | *True*或*False* |
+| 分類 | *更新* |
+| 電腦 | 報告機器的完整功能變數名稱。 |
+| ComputerEnvironment | *Azure*或*非 azure*。 |
+| MSRCBulletinID | 資訊安全佈告欄識別碼 | 
+| MSRCSeverity | 弱點的嚴重性等級。 值為：<br> *嚴重*<br> *重要*<br> *中*<br> *低* |  
+| KBID | Windows update 的知識庫文章識別碼。 |
+| ManagementGroupName | Operations Manager 管理群組或 Log Analytics 工作區的名稱。 |
+| UpdateID | 軟體更新的唯一識別碼。 |
+| RevisionNumber | 更新之特定修訂的修訂編號。 |
+| 選用 | *True*或*False* | 
+| RebootBehavior | 安裝/卸載更新之後的重新開機行為。 |
+| _ResourceId | 與記錄相關聯之資源的唯一識別碼。 |
+| 類型 | *更新* |
+| VMUUID | 虛擬機器的唯一識別碼。 |
+| MG | 管理群組或 Log Analytics 工作區的唯一識別碼。 | 
+| TenantId | 代表 Azure Active Directory 的組織實例的唯一識別碼。 | 
+| SourceSystem | *OperationsManager* | 
+| TimeGenerated | 記錄的建立日期和時間。 | 
+| SourceComputerId | 代表來源電腦的唯一識別碼。 | 
+| Title | 更新的標題。 |
+| 加入 publisheddate （UTC） | 已準備好從 Windows Update 下載並安裝更新的日期。  |
+| UpdateState | 更新的目前狀態。 | 
+| 產品 | 更新適用的產品。 |
+| SubscriptionId | Azure 訂用帳戶的唯一識別碼。 | 
+| ResourceGroup | 資源所屬資源群組的名稱。 | 
+| ResourceProvider | 指定資源提供者。 | 
+| 資源 | 資源名稱。 | 
+| ResourceType | 資源類型名稱。 | 
+
+### <a name="update-agent"></a>更新代理程式
+
+建立類型為 `UpdateAgent` 的記錄，以提供電腦上更新代理程式的詳細資料。 這些記錄具有下表中的屬性：
+
+| 屬性 | 說明 | 
+|----------|-------------|
+| AgeofOldestMissingRequiredUpdate | | 
+| AutomaticUpdateEnabled | | 
+| 電腦 | 報告機器的完整功能變數名稱。 |
+| DaySinceLastUpdateBucket | | 
+| ManagementGroupName | Operations Manager 管理群組或 Log Analytics 工作區的名稱。 |
+| OSVersion | 作業系統的版本。 |
+| 伺服器 | |
+| SourceHealthServiceId | 代表 Log Analytics Windows 代理程式識別碼的唯一識別碼。 |
+| SourceSystem | *OperationsManager* | 
+| TenantId | 代表 Azure Active Directory 的組織實例的唯一識別碼。 |
+| TimeGenerated | 記錄的建立日期和時間。 |
+| 類型 | *更新* | 
+| WindowsUpdateAgentVersion | Windows Update 代理程式的版本。 |
+| WSUSServer | 如果 Windows Update 代理程式有問題可協助進行疑難排解，則會顯示錯誤。 |
+
+### <a name="update-deployment-status"></a>更新部署狀態 
+
+建立類型為 `UpdateRunProgress` 的記錄，提供電腦排程部署的更新部署狀態。 這些記錄具有下表中的屬性：
+
+| 屬性 | 說明 | 
+|----------|-------------|
+| 電腦 | 報告機器的完整功能變數名稱。 |
+| ComputerEnvironment | *Azure*或*非 azure*。 | 
+| CorrelationId | 針對更新執行之 runbook 作業的唯一識別碼。 |
+| EndTime | 同步處理常式結束的時間。 | 
+| ErrorResult | 如果無法安裝更新，Windows Update 產生的錯誤碼。 | 
+| InstallationStatus | 用戶端電腦上更新的可能安裝狀態為 [*進行中*]、[*成功*]、[*部分失敗*]。 |
+| KBID | Windows update 的知識庫文章識別碼。 | 
+| ManagementGroupName | Operations Manager 管理群組或 Log Analytics 工作區的名稱。 |
+| OSType | 指定作業系統（ *Windows*或*Linux*）的類型。 | 
+| 產品 | 更新適用的產品。 |
+| 資源 | 資源名稱。 | 
+| ResourceId | 與記錄相關聯之資源的唯一識別碼。 |
+| ResourceProvider | 指定資源提供者。 | 
+| ResourceType | 資源類型名稱。 | 
+| SourceComputerId | 代表來源電腦的唯一識別碼。 | 
+| SourceSystem | *OperationsManager* |
+| StartTime | 排程更新的安裝時間。 |
+| SubscriptionId | Azure 訂用帳戶的唯一識別碼。 | 
+| SucceededOnRetry | 顯示第一次嘗試更新失敗的時間，而目前的作業是重試嘗試。 |
+| TimeGenerated | 記錄的建立日期和時間。 |
+| Title | 更新的標題。 |
+| 類型 | *UpdateRunProgress* |
+| UpdateId | 軟體更新的唯一識別碼。 |
+| VMUUID | 虛擬機器的唯一識別碼。 |
+| _ResourceId | 與記錄相關聯之資源的唯一識別碼。 |
+
+### <a name="update-summary"></a>更新摘要 
+
+建立類型為 `UpdateSummary` 的記錄，由機器提供更新摘要。 這些記錄具有下表中的屬性：
+
+| 屬性 | 說明 | 
+|----------|-------------|
+| 電腦 | 報告機器的完整功能變數名稱。 |
+| ComputerEnvironment | *Azure*或*非 azure*。 | 
+| CriticalUpdatesMissing | 遺失的重大更新數目。 | 
+| ManagementGroupName | Operations Manager 管理群組或 Log Analytics 工作區的名稱。 |
+| NETRuntimeVersion | Windows 電腦上安裝的 .NET Framework 版本。 |
+| OldestMissingSecurityUpdateBucket | | 
+| OldestMissingSecurityUpdateInDays | |
+| OsVersion | 作業系統的版本。 |
+| OtherUpdatesMissing | 已偵測到的更新計數遺失。 |
+| 資源 |  資源名稱。 | 
+| ResourceGroup | 資源所屬資源群組的名稱。 |
+| ResourceId | 與記錄相關聯之資源的唯一識別碼。 |
+| ResourceProvider | 指定資源提供者。 |
+| ResourceType | 資源類型名稱。 |
+| RestartPending | *True* 或 *False*。 |
+| SecurityUpdatesMissing | 適用的遺漏安全性更新計數。| 
+| SourceComputerId | 虛擬機器的唯一識別碼。 |
+| SourceSystem | *OpsManager* | 
+| SubscriptionId | Azure 訂用帳戶的唯一識別碼。 |
+| TimeGenerated | 記錄的建立日期和時間。 |
+| TotalUpdatesMissing | 適用的遺漏更新總數。 | 
+| 類型 | *UpdateSummary* |
+| VMUUID | 虛擬機器的唯一識別碼。 |
+| WindowsUpdateAgentVersion | Windows Update 代理程式的版本。 |
+| WindowsUpdateSetting | 顯示 Windows Update 代理程式的狀態。 可能的值包括：<br> *排定的安裝*<br> *安裝前通知*<br> 狀況不良的 WUA 代理程式傳回錯誤。 | 
+| WSUSServer | 如果 Windows Update 代理程式有問題可協助進行疑難排解，則會顯示錯誤。 |
+| _ResourceId | 與記錄相關聯之資源的唯一識別碼。 |
 
 ## <a name="sample-queries"></a>範例查詢
 

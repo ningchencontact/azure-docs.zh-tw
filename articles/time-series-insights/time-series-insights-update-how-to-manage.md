@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f75e7112a8fc90c6c49ede7cd0ac726401fc1a9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b70604c62ae21f9c433b3cd7d9e59f4ccebb61bd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452730"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861722"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>佈建及管理 Azure 時間序列深入解析預覽版
 
@@ -86,7 +86,7 @@ Azure 時間序列深入解析的預覽環境是*隨用隨付*（PAYG）環境�
 
 ## <a name="manage-the-environment"></a>管理環境
 
-您可以使用 Azure 入口網站管理 Azure 時間序列深入解析預覽版環境。 當您透過 Azure 入口網站進行管理時，您會看到 PAYG Azure 時間序列深入解析預覽環境與正式運作的 S1 或 S2 環境之間的一些主要差異：
+您可以使用 Azure 入口網站管理 Azure 時間序列深入解析預覽版環境。 當您透過 Azure 入口網站管理您的環境時，PAYG Azure 時間序列深入解析預覽環境與正式運作的 S1 或 S2 環境之間有幾個主要差異：
 
 * [Azure 入口網站預覽**總覽**] 分頁包含下列變更：
 

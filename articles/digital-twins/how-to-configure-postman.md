@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 784e31b823c65c0b908dc07582805e7a69d19563
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: d87112697bfa3aa7bb6b4c8f14420598ccd914cb
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304811"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864310"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>如何針對 Azure Digital Twins 設定 Postman
 
@@ -37,7 +37,7 @@ ms.locfileid: "74304811"
 
 1. 開啟應用程式註冊的 [API 權限] 窗格。 選取 [新增權限] 按鈕。 在 [要求 API 權限] 窗格中，選取 [我的組織使用的 API] 索引標籤，然後搜尋：
     
-    1. `Azure Digital Twins`。 選取 **Azure Digital Twins** API。
+    1. `Azure Digital Twins`答案中所述步驟，工作帳戶即會啟用。 選取 **Azure Digital Twins** API。
 
         [![搜尋 API 或 Azure Digital Twins](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
@@ -62,11 +62,11 @@ ms.locfileid: "74304811"
 
     [![設定新的 Postman 重新導向 URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
-1. 若要確定[應用程式已註冊為**公用用戶端**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)，請開啟應用程式註冊的 [**驗證**] 窗格，然後在該窗格中向下移動。 在 [**預設用戶端類型**] 區段中，針對 [將**應用程式視為公用用戶端**] 選擇 [**是]** ，然後點擊 [**儲存**]。
+1. 若要確定[應用程式註冊為**公用應用程式**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)，請開啟應用程式註冊的 [驗證] 窗格，並在該窗格中向下捲動。 在 [預設用戶端類型] 區段中，針對 [將應用程式視為公用用戶端] 選擇 [是]，然後點擊 [儲存]。
 
-    檢查**存取權杖**，以啟用您的資訊清單中的**oauth2AllowImplicitFlow**設定。
+    檢查**存取權杖**，以在您的 Manifest.json 中啟用 **oauth2AllowImplicitFlow** 設定。
 
-    [![的公用用戶端設定](../../includes/media/digital-twins-permissions/aad-public-client.png)](../../includes/media/digital-twins-permissions/aad-public-client.png#lightbox)
+    [![公用用戶端組態設定](../../includes/media/digital-twins-permissions/aad-public-client.png)](../../includes/media/digital-twins-permissions/aad-public-client.png#lightbox)
 
 1. 複製並保存 Azure Active Directory 應用程式的**應用程式識別碼**。 用於後續的步驟中。
 
@@ -99,7 +99,7 @@ ms.locfileid: "74304811"
     | 驗證 URL | 使用**步驟 2**中的**授權 URL** |
     | 用戶端識別碼 | 使用在上一節中建立或重複使用之 Azure Active Directory 應用**程式的應用程式識別碼** |
     | 範圍 | 保留空白 |
-    | State | 保留空白 |
+    | 狀態 | 保留空白 |
     | 用戶端驗證 | `Send as Basic Auth header` |
 
 1. 用戶端現在應該如下所示：
@@ -130,7 +130,7 @@ ms.locfileid: "74304811"
    > * 您不需要為每個部分指定這些標頭。
    > * 您必須針對整個要求選取 `multipart/mixed` 或其他適當的 **Content-type**。
 
-1. 最後，選取 [**傳送**] 以提交多部分 HTTP POST 要求。 `200` 或 `201` 的狀態碼表示成功的要求。 您也會看到適當的回應訊息。
+1. 最後，選取 [**傳送**] 以提交多部分 HTTP POST 要求。 `200` 或 `201` 的狀態碼表示成功的要求。 適當的回應訊息會出現在用戶端介面中。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: b59600ffa6a83d00a83d642ab337df2e71cbee06
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
-ms.translationtype: HT
+ms.openlocfilehash: 1df30b25d2029ba31525eaea232d258bbb134366
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75777898"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863800"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應專案
 
@@ -374,7 +374,8 @@ Microsoft 提供標準合約範本。
 
 - **Azure AD 應用程式識別碼**（必要）：您也需要[應用程式識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)和驗證金鑰。 若要取得這些值，請移至您的 Azure Active Directory 並選取 [**應用程式註冊**]，然後尋找所列的**應用程式識別碼**編號（例如50c464d3-4930-494c-963c-1e951d15360e）。 若要尋找驗證金鑰，請移至 [**設定**]，然後選取 [**金鑰**]。 您必須提供 [描述] 和 [持續時間]，然後才會提供數值。
 
- 請注意，Azure 應用程式識別碼會與您的發行者識別碼相關聯，因此請確定您的所有供應專案都使用相同的應用程式識別碼。
+>[!Note]
+>Azure 應用程式識別碼會與您的發行者識別碼相關聯，因此請確定您的所有供應專案都使用相同的應用程式識別碼。
 
 ## <a name="plan-overview"></a>計畫總覽
 

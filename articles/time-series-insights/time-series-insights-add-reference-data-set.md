@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: a810076c8836acccf83733df02fbd0a29a8eba9b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b5950c3769431420c199711190a02ad0be1e177
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460313"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863490"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>使用 Azure 入口網站建立時間序列深入解析環境的參考資料集
 
@@ -72,7 +72,7 @@ ms.locfileid: "75460313"
 
    [![審查參考資料](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
-1. 檢閱每個資料行以查看假設的資料類型，並視需要變更資料類型。  選取資料行標題中的資料類型符號： **#** 為 double (數值資料)、**T|F** 為布林值，或 **Abc** 為字串。
+1. 請檢查每個資料行，以瞭解假設的資料類型，並視需要變更資料類型。  選取資料行標題中的資料類型符號： **#** 為 double (數值資料)、**T|F** 為布林值，或 **Abc** 為字串。
 
    [![選擇欄位標題上的資料類型。](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
@@ -116,4 +116,4 @@ ms.locfileid: "75460313"
 
 * 以程式設計的方式[管理參考資料](time-series-insights-manage-reference-data-csharp.md)。
 
-* 如需完整的 API 參考，請參閱[參考資料 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) 文件。
+* 如需完整的 API 參考，請參閱[參考資料 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)檔。

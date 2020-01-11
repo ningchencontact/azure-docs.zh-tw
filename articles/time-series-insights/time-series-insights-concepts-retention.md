@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2c68c64202efec6d7dab745b6e1bdc029fa3976f
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: f479433ef486c12a00f74b220d46f84f5f979e7c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561283"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863456"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>瞭解 Azure 時間序列深入解析中的資料保留
 
@@ -44,7 +44,7 @@ ms.locfileid: "74561283"
 ## <a name="purge-old-data"></a>清除舊資料
 
 - [**清除舊資料**] 是 Azure 時間序列深入解析環境的預設設定。  
-- 當使用者想要在其時間序列深入解析環境中一律看到*最新的資料*時，建議您**清除舊資料**。
+- 當使用者想要在其時間序列深入解析環境中一律擁有*最新的資料*時，建議您**清除舊資料**。
 - 一旦達到環境的限制（保留時間、大小或計數（以先發生者為准）時，[**清除舊資料**] 設定就會*清除*資料。 保留期預設值為 30 天。
 - 最舊的內嵌資料會先清除（「先進先出」方法）。
 

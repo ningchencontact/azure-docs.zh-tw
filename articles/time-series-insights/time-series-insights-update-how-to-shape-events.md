@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 37846aacd9e2c5c63cdf5d29bccb42df8e02fce9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 567770c00c645aeb79e1efb0e9119b9ac829f3fe
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452603"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861654"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>使用 Azure 時間序列深入解析為事件塑形
 
@@ -156,5 +156,5 @@ ms.locfileid: "75452603"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要實作這些指導方針，請參閱 [Azure 時間序列深入解析預覽版查詢語法](./time-series-insights-query-data-csharp.md)。 您將深入瞭解適用于資料存取時間序列深入解析預覽 REST API 的查詢語法。
-- 若要了解支援的 JSON 塑形，請參閱[支援的 JSON 塑形](./time-series-insights-send-events.md#supported-json-shapes)。
+- 若要將這些指導方針納入實務，請閱讀[Azure 時間序列深入解析預覽查詢語法](./time-series-insights-query-data-csharp.md)。 您將深入瞭解適用于資料存取時間序列深入解析預覽 REST API 的查詢語法。
+- 若要瞭解支援的 JSON 圖形，請閱讀[支援的 json 圖形](./time-series-insights-send-events.md#supported-json-shapes)。

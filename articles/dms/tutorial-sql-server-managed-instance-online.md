@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: 88bc90a50fb9579e29b8b31b4be23052275b2b28
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/10/2020
+ms.openlocfilehash: e9a24daeeab906419416a3a10fda901c91d9fb33
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746846"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863218"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>教學課程：使用 DMS 在線上將 SQL Server 遷移至 Azure SQL Database 受控實例
 
@@ -44,7 +44,7 @@ ms.locfileid: "75746846"
 > 為了獲得最佳的移轉體驗，Microsoft 建議在目標資料庫所在的同一個 Azure 區域中，建立 Azure 資料庫移轉服務的執行個體。 跨區域或地理位置移動資料可能使移轉程序變慢，並產生錯誤。
 
 > [!IMPORTANT]
-> 請務必盡可能縮短線上遷移程式的持續時間，以將實例重新設定或預定維護所造成的中斷風險降到最低。 如果發生這類事件，則會從頭開始進行遷移。 在進行規劃的維護時，會有36小時的寬限期，再重新開機遷移程式。
+> 盡可能縮短線上遷移程式的持續時間，以將實例重新設定或預定維護所造成的中斷風險降到最低。 如果發生這類事件，則會從頭開始進行遷移。 在進行規劃的維護時，會有36小時的寬限期，再重新開機遷移程式。
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
@@ -70,7 +70,7 @@ ms.locfileid: "75746846"
     > [!IMPORTANT]
     > 關於移轉過程中使用的儲存體帳戶，您必須執行下列其中一個動作：
     > * 選擇允許所有網路存取儲存體帳戶。
-    > * 設定虛擬網路的 Acl。 如需詳細資訊，請參閱[設定 Azure 儲存體防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security)一文。
+    > * 開啟 MI 子網上的[子網委派](https://docs.microsoft.com/azure/virtual-network/manage-subnet-delegation)，並更新儲存體帳戶防火牆規則以允許此子網。
 
 * 請確定您的虛擬網路網路安全性群組規則不會對 Azure 資料庫移轉服務封鎖下列輸入通訊埠：443、53、9354、445、12000。 如需虛擬網路 NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)一文。
 * 設定[用於來源資料庫引擎存取的 Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
@@ -208,7 +208,7 @@ ms.locfileid: "75746846"
 
     | | |
     |--------|---------|
-    |**SMB 網路位置共用** | 本機 SMB 網路共用或 Azure 檔案共用包含完整資料庫備份檔案及交易記錄備份檔案，Azure 資料庫移轉服務可使用這些檔案來進行移轉。 執行來源 SQL Server 執行個體的服務帳戶在此網路共用上必須具有讀取\寫入權限。 在網路共用中提供伺服器的 FQDN 或 IP 位址，例如，'\\\servername.domainname.com\backupfolder' 或 '\\\IP address\backupfolder'。|
+    |**SMB 網路位置共用** | 本機 SMB 網路共用或 Azure 檔案共用包含完整資料庫備份檔案及交易記錄備份檔案，Azure 資料庫移轉服務可使用這些檔案來進行移轉。 執行來源 SQL Server 執行個體的服務帳戶在此網路共用上必須具有讀取\寫入權限。 在網路共用中提供伺服器的 FQDN 或 IP 位址，例如，'\\\servername.domainname.com\backupfolder' 或 '\\\IP address\backupfolder'。 為了改善效能，建議您針對要遷移的每個資料庫使用不同的資料夾。 您可以使用 [ **Advanced Settings** ] （設定）選項來提供資料庫層級的檔案共用路徑。 |
     |**使用者名稱** | 請確定 Windows 使用者對於您先前提供的網路共用具有完整控制權限。 Azure 資料庫移轉服務會模擬使用者認證，將備份檔案上傳到 Azure 儲存體容器以進行還原作業。 如果使用 Azure 檔案共用，請使用在前面加上 AZURE\ 的儲存體帳戶名稱，作為使用者名稱。 |
     |**密碼** | 使用者的密碼。 如果使用 Azure 檔案共用，請使用儲存體帳戶金鑰作為密碼。 |
     |**Azure 儲存體帳戶的訂用帳戶** | 選取包含 Azure 儲存體帳戶的訂用帳戶。 |
@@ -216,10 +216,11 @@ ms.locfileid: "75746846"
 
     ![設定移轉設定](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
+    > [!NOTE]
+    > 如果 Azure 資料庫移轉服務顯示「系統錯誤53」或「系統錯誤57」錯誤，可能是因為 Azure 資料庫移轉服務無法存取 Azure 檔案共用所導致。 如果發生上述其中一個錯誤，請使用[這裡](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)的指示，授與虛擬網路對儲存體帳戶的存取權。
 
-> [!NOTE]
-  > 如果 Azure 資料庫移轉服務顯示「系統錯誤 53」或「系統錯誤 57」錯誤，其原因可能是 Azure 資料庫移轉服務無法存取 Azure 檔案共用。 如果發生上述其中一個錯誤，請使用[這裡](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)的指示，授與虛擬網路對儲存體帳戶的存取權。
-
+    > [!IMPORTANT]
+    > 如果已啟用回送檢查功能，而且來源 SQL Server 和檔案共用位於相同的電腦上，則來源將無法存取使用 FQDN 共用 h 的檔案。 若要修正此問題，請使用[這裡](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd)的指示來停用回送檢查功能。
 
 2. 選取 [儲存]。
 

@@ -2,13 +2,14 @@
 title: 使用 Azure Site Recovery 進行 Azure VM 嚴重損壞修復的支援矩陣
 description: 摘要說明使用 Azure Site Recovery 對次要區域進行 Azure Vm 嚴重損壞修復的支援。
 ms.topic: article
-ms.date: 12/23/2019
-ms.openlocfilehash: b8809682f4d2bed72eec1d64b2ac40b664237632
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.date: 01/10/2020
+ms.author: raynew
+ms.openlocfilehash: 1e30170f521fa21cb69fb1879ea4335025d8d959
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551585"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863922"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 區域之間的 Azure VM 嚴重損壞修復支援矩陣
 
@@ -202,7 +203,7 @@ OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援 VM 磁碟
 儲存空間 | 支援的 |
 待用加密 (SSE) | 支援的 | SSE 是儲存體帳戶上的預設設定。   
-待用加密（CMK） | 不支援 |   
+待用加密（CMK） | 支援的 | 受控磁片支援軟體和 HSM 金鑰    
 適用於 Windows OS 的 Azure 磁碟加密 (ADE) | 支援具有受控磁片的 Vm。 不支援使用非受控磁片的 Vm |
 適用於 Linux OS 的 Azure 磁碟加密 (ADE) | 支援的 |
 熱新增 | 支援的 | 針對使用受控磁片的 Vm，支援為您新增至複寫 Azure VM 的資料磁片啟用複寫。

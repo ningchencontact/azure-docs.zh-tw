@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff723f490a3f6d34f652e0b21e5f6e0b16f0a841
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 3e73afa89ee61243784c5952eeda26a79d508dee
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900286"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863405"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>在時間序列深入解析環境中診斷與解決問題
 
@@ -34,7 +34,7 @@ ms.locfileid: "74900286"
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>原因：事件來源資料不是 JSON 格式
 
-Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請參閱[支援的 JSON 樣貌](./how-to-shape-query-json.md)。
+Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請閱讀[支援的 json 圖形](./how-to-shape-query-json.md)。
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>原因 B：事件來源索引鍵遺漏必要的許可權
 
@@ -69,7 +69,7 @@ Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請�
 - 變更您事件來源的保留期限制，以協助移除您不想要顯示在時間序列深入解析的舊事件。
 - 佈建較大的環境大小 (單位數)，以增加舊事件的輸送量。 使用上述範例，如果您將相同的 S1 環境增加到一天五個單位，該環境應該會在一天內趕上。 如果您的穩定狀態事件生產是每天 1 百萬個事件或更少，則您可以在趕上之後，將事件的容量減少到一個單位。
 
-節流限制會根據環境 SKU 類型和容量來強制執行。 環境中所有的事件來源皆共用此容量。 如果IoT 中樞或事件中樞的事件來源推送超過強制限制的資料，您就會看到節流和延遲情形。
+節流限制會根據環境 SKU 類型和容量來強制執行。 環境中所有的事件來源皆共用此容量。 如果 IoT 中樞或事件中樞的事件來源推送超過強制限制的資料，您將會遇到節流和延遲。
 
 下圖顯示有 S1 SKU 且容量為 3 的時間序列深入解析環境。 該環境可以每日輸入 3 百萬個事件。
 
@@ -82,11 +82,11 @@ Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請�
 
 容量為 3 的 S1 SKU 環境每分鐘只能輸入 2,100 個事件 (每天 1 百萬個事件 = 每三單位每分鐘 700 個事件 = 每分鐘 2,100 個事件)。 
 
-若要概略了解壓平合併邏輯的運作方式，請參閱[支援的 JSON 樣貌](./how-to-shape-query-json.md)。
+如需有關簡維邏輯運作方式的高階瞭解，請閱讀[支援的 JSON 圖形](./how-to-shape-query-json.md)。
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>過度節流的建議解決方法
 
-若要修正延遲情形，請增加您環境的 SKU 容量。 如需詳細資訊，請參閱[調整您的時間序列深入解析環境規模](time-series-insights-how-to-scale-your-environment.md)。
+若要修正延遲情形，請增加您環境的 SKU 容量。 如需詳細資訊，請參閱[調整您的時間序列深入解析環境](time-series-insights-how-to-scale-your-environment.md)。
 
 ### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>原因 B：歷程記錄資料的初始內嵌變慢輸入
 
@@ -109,9 +109,9 @@ Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請�
 
 若要確保系統已擷取時間戳記屬性名稱且正常運作，最簡單方式是使用時間序列深入解析總管。 在時間序列深入解析總管中，使用圖表，當您輸入時間戳記屬性名稱之後，選取一段時間。 以滑鼠右鍵按一下選取範圍，然後選取 [探索事件] 選項。
 
-第一個資料行標頭應該是您的時間戳記屬性名稱。 在文字 **Timestamp** 旁邊，您應該會看到 **($ts)** 。
+第一個資料行標頭應該是您的時間戳記屬性名稱。 會在 [**時間戳記**]、 **（$ts）** 旁邊顯示。
 
-您應該不會看到下列值：
+將不會顯示下列值：
 
 - *（abc）* ：表示時間序列深入解析以字串的形式讀取資料值。
 - 行事*曆圖示*：表示時間序列深入解析正在將資料值讀取為*datetime*。

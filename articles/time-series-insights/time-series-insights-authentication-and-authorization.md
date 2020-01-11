@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: b54034dc8828fb8a96f488197e517ef07ed55ab5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 960eb9b48a158358a076202db0d435feb918a6c8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460412"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863473"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API 的驗證和授權
 
@@ -87,7 +87,7 @@ Azure Active Directory 應用程式註冊流程牽涉到三個主要步驟。
 
    1. 使用 [Azure Active Directory 應用程式註冊] 區段中的 [**應用程式識別碼**] 和 [**用戶端密碼**] （應用程式金鑰），代表應用程式取得權杖。
 
-   1. 在C#中，下列程式碼可以代表應用程式取得權杖。 如需完整範例，請參閱[使用 C# 查詢資料](time-series-insights-query-data-csharp.md)。
+   1. 在C#中，下列程式碼可以代表應用程式取得權杖。 如需完整範例，請參閱[使用C#來讀取查詢資料](time-series-insights-query-data-csharp.md)。
 
         [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
 
@@ -107,7 +107,7 @@ Azure Active Directory 應用程式註冊流程牽涉到三個主要步驟。
 若要對[時間序列深入解析 REST api](https://docs.microsoft.com/rest/api/time-series-insights/)執行已驗證的查詢，必須使用您選擇的 REST 用戶端（Postman、JavaScript、 C#），在[授權標頭](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate)中傳遞有效的 OAuth 2.0 持有人權杖。 
 
 > [!TIP]
-> 請參閱託管的 Azure 時間序列深入解析[用戶端 sdk 範例視覺效果](https://tsiclientsample.azurewebsites.net/)，以瞭解如何使用[JAVASCRIPT 用戶端 sdk](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)搭配圖表和圖形，以程式設計方式驗證時間序列深入解析 api。
+> 閱讀裝載的 Azure 時間序列深入解析[用戶端 sdk 範例視覺效果](https://tsiclientsample.azurewebsites.net/)，以瞭解如何使用[JAVASCRIPT 用戶端 SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)搭配圖表和圖形，以程式設計方式驗證時間序列深入解析 api。
 
 ### <a name="http-headers"></a>HTTP 標頭
 
@@ -161,9 +161,9 @@ Azure Active Directory 應用程式註冊流程牽涉到三個主要步驟。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需呼叫 GA 時間序列深入解析 API 的範例程式碼，請參閱[使用C#查詢資料](./time-series-insights-query-data-csharp.md)。
+- 如需呼叫 GA 時間序列深入解析 API 的範例程式碼，請參閱[使用C#來讀取查詢資料](./time-series-insights-query-data-csharp.md)。
 
-- 如需預覽時間序列深入解析 API 程式碼範例，請參閱[使用C#查詢預覽資料](./time-series-insights-update-query-data-csharp.md)。
+- 如需預覽時間序列深入解析 API 程式碼範例，請參閱[使用C#來讀取查詢預覽資料](./time-series-insights-update-query-data-csharp.md)。
 
 - 如需 API 參考資訊，請參閱[查詢 api 參考](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api)檔。
 

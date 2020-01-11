@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 094a3a838269921339dcd6c2c3b551720f394251
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 65b760eaf28d907fab3654ed92f960be7556b0d6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660319"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862351"
 ---
 # <a name="routing-iot-events-and-messages"></a>路由 IoT 事件和訊息
 
@@ -53,7 +53,7 @@ Azure Digital Twins 目前支援將下列 **EventTypes** 傳送至所選的端�
 
 > [!IMPORTANT]  
 > 並非所有 **EndpointTypes** 都支援所有 **EventTypes**。
-> 請參閱下表，了解每個 **EndpointType** 允許的 **EventTypes**。
+> 請參閱下表，以取得每個**EndpointType**允許的**EventTypes** 。
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
@@ -62,10 +62,10 @@ Azure Digital Twins 目前支援將下列 **EventTypes** 傳送至所選的端�
 | EventGrid|               |         X         |     X       |      X       |   X       |
 
 >[!NOTE]  
->如需如何建立端點的詳細資訊，以及事件的結構描述範例，請參閱[輸出和端點](how-to-egress-endpoints.md)。
+>如需如何建立端點的詳細資訊，以及事件架構、讀取輸出[和端點](how-to-egress-endpoints.md)的範例。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要了解 Azure Digital Twins 預覽版限制，請參閱[公開預覽版服務限制](concepts-service-limits.md)。
+- 若要瞭解 Azure 數位 Twins 預覽限制，請閱讀[公開預覽服務限制](concepts-service-limits.md)。
 
-- 若要試用 Azure Digital Twins 的範例，請參閱[尋找可用會議室的快速入門](quickstart-view-occupancy-dotnet.md)。
+- 若要試用 Azure 數位 Twins 範例，請閱讀[快速入門以尋找可用的會議室](quickstart-view-occupancy-dotnet.md)。

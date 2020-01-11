@@ -4,14 +4,14 @@ description: 如何使用 Azure 入口網站來管理及更新 Azure HPC 快取
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 1/08/2020
 ms.author: rohogue
-ms.openlocfilehash: 9cd5ad151c977838fea30f52c7d4a93b4663c8ff
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a166a904b2e63419efd5803fd54be1d1b59836fb
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166761"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867089"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>從 Azure 入口網站管理您的快取
 
@@ -23,7 +23,7 @@ Azure 入口網站中的 快取總覽 頁面會顯示您快取的專案詳細資
 
 頁面頂端的按鈕可協助您管理快取：
 
-* [**Flush**](#flush-cached-data) -將所有快取的資料寫入儲存體目標
+* [**Flush**](#flush-cached-data) -將變更的資料寫入儲存體目標
 * [**升級**](#upgrade-cache-software)-更新快取軟體
 * 重新**整理-重載**[總覽] 頁面
 * [**刪除**](#delete-the-cache)-永久終結快取
@@ -63,9 +63,18 @@ Azure 入口網站中的 快取總覽 頁面會顯示您快取的專案詳細資
 
 [**刪除**] 按鈕會損毀快取。 當您刪除快取時，其所有資源都會被終結，而不會再產生帳戶費用。
 
-當您刪除快取時，儲存體目標不會受到影響。 您可以稍後再將它們新增至未來的快取，或分別將它們解除委任。
+當您刪除快取時，用來做為儲存體目標的後端存放磁片區不會受到影響。 您可以稍後再將它們新增至未來的快取，或分別將它們解除委任。
 
-快取會在其最終關機過程中，自動將任何未儲存的資料排清到儲存體目標。
+> [!NOTE]
+> 在刪除快取之前，Azure HPC 快取不會自動將已變更的資料從快取寫入後端儲存體系統。
+>
+> 若要確保快取中的所有資料都已寫入長期儲存體，請遵循此程式：
+>
+> 1. 使用 [儲存體目標] 頁面上的 [刪除] 按鈕，從 Azure HPC 快[取中移除](hpc-cache-edit-storage.md#remove-a-storage-target)每個儲存體目標。 系統會在移除目標之前，自動將任何已變更的資料從快取寫入後端儲存體系統。
+> 1. 等待儲存體目標完全移除。 如果要從快取寫入大量資料，此程式可能需要一小時或更久的時間。 完成時，入口網站通知會指出刪除作業已成功，且儲存體目標會從清單中消失。
+> 1. 刪除所有受影響的儲存體目標之後，即可放心地刪除快取。
+>
+> 或者，您可以使用 [[清除](#flush-cached-data)] 選項來儲存快取的資料，但如果用戶端在排清完成之後，但在終結快取實例之前，將變更寫入快取，則會有一個小風險。
 
 ## <a name="cache-metrics-and-monitoring"></a>快取計量和監視
 

@@ -1,26 +1,19 @@
 ---
-title: 適用於 Azure VPN 閘道的社群建議協力廠商 VPN 或防火牆裝置設定 | Microsoft Docs
+title: 適用于 Azure VPN 閘道的社區建議協力廠商 VPN 或防火牆裝置設定
 description: 了解適用於 Azure VPN 閘道的社群建議協力廠商 VPN 或防火牆裝置設定。
 services: vpn-gateway
-documentationcenter: ''
 author: chadmath
 manager: dcscontentpm
-editor: ''
-tags: azure-vpn-gateway
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: aa4650897abcd38fec4d45f57969d4bf30b9d773
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: b87340fbb3f94eee106fc5d0d72117d30e331035
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058851"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862708"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>適用於 Azure VPN 閘道的社群建議協力廠商 VPN 或防火牆裝置設定
 
@@ -33,7 +26,7 @@ ms.locfileid: "71058851"
 
 下表列出數個常見裝置和相關說明：
 
-|產品    |參考資料                                                |
+|產品    |參考                                                |
 |-----------|-----------------------------------------------------------|
 |Cisco ASA  |[適用於 Azure VPN 上 Cisco ASA 的社群建議解決方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco) \(英文\)   |
 |Cisco ISR  |[適用於 Azure VPN 上 Cisco ISR 的社群建議解決方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco) \(英文\)   |

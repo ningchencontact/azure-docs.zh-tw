@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b79ca1d93baf1941d5de8db0c314f9cd21e51056
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c7a70d8209c5c349fc082d939a24deac23fa954d
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328116"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863422"
 ---
 # <a name="grant-data-access-to-an-environment"></a>授與環境的資料存取權
 
@@ -28,7 +28,7 @@ ms.locfileid: "74328116"
 ## <a name="sign-in-to-time-series-insights"></a>登入以時間序列深入解析
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-1. 找到您的時間序列深入解析環境。 在 [搜尋]`Time Series`**方塊中，輸入**。 選取搜尋結果中的 [時間序列環境]。
+1. 找到您的時間序列深入解析環境。 在 [搜尋] 方塊中，輸入 `Time Series`。 選取搜尋結果中的 [時間序列環境]。
 1. 從清單中選取 Time Series Insights 環境。
 
 ## <a name="grant-data-access"></a>授與資料存取
@@ -113,7 +113,7 @@ ms.locfileid: "74328116"
 
 1. 來賓現在可以使用系統管理員所提供的環境 URL 來存取共用環境。 他們可以在網頁瀏覽器中輸入該 URL，以供立即存取。
 
-1. 來賓使用者會在時間序列瀏覽器的右上角選取其設定檔圖示，以查看系統管理員的租使用者。
+1. 系統管理員的租使用者在 [時間序列瀏覽器] 右上角選取其設定檔圖示後，會向來賓使用者顯示。
 
     [insights.azure.com 上的 ![頭像選擇](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
 

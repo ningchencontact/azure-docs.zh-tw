@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 6c2b0ec5165652e77c92426bb62a30468eef04c2
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 0aed84dc4d78f8e83f568ff3e73d1300aaedbcaa
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456906"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860957"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>連接至 Api 並進行驗證
 
@@ -24,7 +24,7 @@ Azure Digital Twins 會使用 Azure Active Directory (Azure AD) 來驗證使用�
 > [!TIP]
 > 依照[教學](tutorial-facilities-setup.md)課程來設定和執行 Azure 數位 Twins 範例應用程式。
 
-若要整合應用程式或服務與 Azure AD，開發人員必須先向 Azure AD 註冊應用程式。 如需詳細的指示和螢幕擷取畫面，請參閱[此快速入門](../active-directory/develop/quickstart-register-app.md)。
+若要整合應用程式或服務與 Azure AD，開發人員必須先向 Azure AD 註冊應用程式。 如需詳細的指示和螢幕擷取畫面，請閱讀[本快速入門](../active-directory/develop/quickstart-register-app.md)。
 
 Azure AD 支援[五個主要應用程式案例](../active-directory/develop/v2-app-types.md)：
 
@@ -49,7 +49,7 @@ Azure AD 支援[五個主要應用程式案例](../active-directory/develop/v2-a
 
 1. 所取得的權杖接著用於進行驗證，或使用代理者流程呼叫更下游的 API
 
-如需如何協調代理者流程的相關指示，請參閱 [OAuth 2.0 代理者流程](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)。 您也可以在[呼叫下游 Web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof) 中檢視程式碼範例。
+如需如何協調代理者流程的相關指示，請參閱[OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)代理者流程。 您也可以在[呼叫下游 Web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof) 中檢視程式碼範例。
 
 ## <a name="next-steps"></a>後續步驟
 

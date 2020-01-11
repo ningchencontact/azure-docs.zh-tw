@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: 5a4240065039bd6e0633a19c8aad00604970c216
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
-ms.translationtype: HT
+ms.openlocfilehash: 68f95c893646d76a80a4edfeb557064660ff9f1c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834665"
+ms.locfileid: "75864259"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure Standard Load Balancer 概觀
 
@@ -38,20 +38,6 @@ Load Balancer 資源的運作方式，一律以前端、規則、健康情況探
 資源的虛擬網路範圍，是重要層面之一。  基本 Load Balancer 存在於可用性設定組的範圍內，而標準 Load Balancer 則與虛擬網路範圍完全整合，並且適用所有的虛擬網路概念。
 
 Load Balancer 資源是一種物件，而您可以在其中表示 Azure 應如何對其多租用戶基礎結構進行設計程式，以達到您想要建立的案例。  Load Balancer 資源與實際的基礎結構之間沒有直接關聯性；建立 Load Balancer 並不會建立執行個體，容量一直都在，且無須考量啟動或調整延遲的問題。 
-
-## <a name="why-use-standard-load-balancer"></a>為何要使用標準 Load Balancer？
-
-Standard Load Balancer 可讓您將小規模部署的應用程式調整為大型且複雜的多重區域架構，並建立高可用性。
-
-請檢閱下表，大致了解標準 Load Balancer 與基本 Load Balancer 之間的差異：
-
->[!NOTE]
-> 新的設計應該使用 Standard Load Balancer。 
-
-[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
-
-請檢閱 [Load Balancer 的服務限制](https://aka.ms/lblimits)、[定價](https://aka.ms/lbpricing)和 [SLA](https://aka.ms/lbsla)。
-
 
 ### <a name="backend"></a>後端集區
 
@@ -184,12 +170,6 @@ SKU 是不可變動的。 請依照本節中的步驟從一個資源 SKU 移到�
 4. 將所有 VM 執行個體附加至新的 Standard SKU 資源。
 
 >[!IMPORTANT]
->
->在 Basic 和 Standard SKU 的使用上有一些限制。
->
->只有在 Standard SKU 中才有提供「HA 連接埠」和 Standard SKU 的「診斷」。 您無法既從 Standard SKU 移轉到 Basic SKU 又同時保留這些功能。
->
->如本文所述，基本和標準 SKU 之間有許多差異。  請確實加以了解，並做好相關準備。
 >
 >Load Balancer 和 Public IP 資源必須使用相符的 SKU。 您無法將 Basic SKU 資源與 Standard SKU 資源混用。 您無法將獨立虛擬機器、可用性設定組資源中的虛擬機器或虛擬機器擴展集資源同時連結到這兩個 SKU。
 

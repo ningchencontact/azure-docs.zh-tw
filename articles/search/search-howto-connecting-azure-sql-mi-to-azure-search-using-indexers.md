@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 16daf4a79252134703715ccd88f0b10dda7f4fa6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 0f91775e0175b4b4af9b57fa96e389c3a2a22564
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792161"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863116"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>設定從 Azure 認知搜尋索引子到 SQL 受控執行個體的連線
 
@@ -33,6 +33,13 @@ ms.locfileid: "72792161"
 檢查網路安全性群組是否具有正確的**輸入安全性規則**，以允許來自 Azure 服務的連線。
 
    ![NSG 輸入安全性規則](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/nsg-rule.png "NSG 輸入安全性規則")
+
+> [!NOTE]
+> 您可以將目前的規則（`public_endpoint_inbound`）取代為2個規則，以選擇更嚴格的受控 SQL 實例輸入存取權：
+>
+> * 允許來自 `AzureCognitiveSearch`[服務](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags)標籤的輸入存取（"SOURCE" = `AzureCognitiveSearch`）
+>
+> * 允許從搜尋服務的 IP 位址進行輸入存取，可以藉由 ping 其完整功能變數名稱（例如 `<your-search-service-name>.search.windows.net`）來取得。 （"SOURCE" = `IP address`）
 
 ## <a name="get-public-endpoint-connection-string"></a>取得公用端點連接字串
 請確定您使用的是**公用端點**的連接字串（埠3342，而不是埠1433）。

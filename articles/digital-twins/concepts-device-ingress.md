@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: f9f0a74a6ca57f90ed8bd217d0d2f57e4bc16749
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 5c2c519ece9806b92c3e455d5f550bc2abfc9f3b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660336"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862470"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>裝置連線能力與遙測輸入
 
@@ -21,7 +21,7 @@ ms.locfileid: "75660336"
 
 若要開始使用，請在空間圖形的根位置建立 Azure IoT 中樞資源。 IoT 中樞資源會允許根空間下的所有裝置傳送訊息。 建立 IoT 中樞後，請向 Digital Twins 執行個體內的感應器註冊裝置。 裝置可透過 [Azure IoT 裝置 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) 將資料傳送到 Digital Twins 服務。
 
-如需將裝置上架的逐步指南，請參閱[部署和設定 Digital Twins 的教學課程](tutorial-facilities-setup.md)。 快速瀏覽後，步驟如下：
+如需如何讓裝置上線的逐步指南，請閱讀[部署和設定數位 Twins 的教學](tutorial-facilities-setup.md)課程。 快速瀏覽後，步驟如下：
 
 - 從 [Azure 入口網站](https://portal.azure.com)部署 Digital Twins 執行個體。
 - 在圖表中建立空間。

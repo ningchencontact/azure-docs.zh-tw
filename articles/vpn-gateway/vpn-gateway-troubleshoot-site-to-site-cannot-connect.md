@@ -1,25 +1,18 @@
 ---
-title: 針對 Azure 站對站 VPN 連線無法連線進行疑難排解| Microsoft Docs
+title: 針對無法連線至 titleSuffix 的 Azure 站對站 VPN 連線進行疑難排解： Azure VPN 閘道
 description: 了解如何針對突然停止運作且無法重新連線的站對站 VPN 連線進行疑難排解。
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: e196c4b512de3fac97347e4c252b697ed6818227
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 4e827c5f6eedc819bc3635cb09a28f65df51312c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058863"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862572"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>疑難排解：Azure 站對站 VPN 連線無法連線並停止運作
 
@@ -41,13 +34,13 @@ ms.locfileid: "71058863"
     
     ![閘道概觀](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/gatewayoverview.png)
 
-### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>步驟 1. 檢查內部部署 VPN 裝置是否經過驗證
+### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>步驟 1： 檢查內部部署 VPN 裝置是否經過驗證
 
 1. 檢查您是否使用[經過驗證的 VPN 裝置和作業系統版本](vpn-gateway-about-vpn-devices.md#devicetable)。 如果裝置不是經過驗證的 VPN 裝置，您可能需要連絡裝置製造商，以了解是否有任何相容性問題。
 
 2. 確定已正確設定 VPN 裝置。 如需詳細資訊，請參閱[編輯裝置組態範例](vpn-gateway-about-vpn-devices.md#editing)。
 
-### <a name="step-2-verify-the-shared-key"></a>步驟 2. 確認共用金鑰
+### <a name="step-2-verify-the-shared-key"></a>步驟 2： 確認共用金鑰
 
 比較內部部署 VPN 裝置和 Azure 虛擬網路 VPN 的共用金鑰，以確認金鑰相符合。 
 
@@ -73,12 +66,12 @@ ms.locfileid: "71058863"
 
     Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 
-### <a name="step-3-verify-the-vpn-peer-ips"></a>步驟 3. 確認 VPN 對等互連 IP
+### <a name="step-3-verify-the-vpn-peer-ips"></a>步驟 3： 確認 VPN 對等互連 IP
 
 -   Azure 中「區域網路閘道」物件內的 IP 定義應與內部部署裝置 IP 相符合。
 -   內部部署裝置上設定的 Azure 閘道 IP 定義應與 Azure 閘道 IP 相符合。
 
-### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>步驟 4. 檢查閘道子網路上的 UDR 和 NSG
+### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>步驟 4： 檢查閘道子網路上的 UDR 和 NSG
 
 檢查並移除閘道子網路上的使用者定義路由 (UDR) 或網路安全性群組 (NSG)，然後測試結果。 如果問題已解決，請驗證 UDR 或 NSG 套用的設定。
 
@@ -93,7 +86,7 @@ ms.locfileid: "71058863"
 -   確認 Azure 虛擬網路和內部部署定義的子網路位址空間完全相符。
 -   確認子網路在**區域網路閘道**和內部部署網路的內部部署定義之間完全相符合。
 
-### <a name="step-7-verify-the-azure-gateway-health-probe"></a>步驟 7. 確認 Azure 閘道健康狀態探查
+### <a name="step-7-verify-the-azure-gateway-health-probe"></a>步驟 7： 確認 Azure 閘道健康狀態探查
 
 1. 瀏覽至下列 URL 來開啟健康狀態探查：
 

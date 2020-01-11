@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: ded3fc97c4cdf041fdf50d7b4aa9a9b2fbdf1c84
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1b0d3dec3925518922c5f668560889edd6f5de0b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913497"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867175"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>服務主體與 Azure Kubernetes Service (AKS)
 
@@ -95,7 +95,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 如果您使用 Azure Container Registry （ACR）做為容器映射存放區，則必須將許可權授與 AKS 叢集的服務主體，才能讀取和提取映射。 目前，建議的設定是使用[az aks create][az-aks-create]或[az aks update][az-aks-update]命令來與登錄整合，並為服務主體指派適當的角色。 如需詳細步驟，請參閱[使用來自 Azure Kubernetes Service 的 Azure Container Registry 進行驗證][aks-to-acr]。
 
-### <a name="networking"></a>網路功能
+### <a name="networking"></a>網路
 
 您可以使用進階網路功能，其中虛擬網路和子網路或公用 IP 位址都在另一個資源群組中。 指派下列一組角色權限：
 
@@ -131,6 +131,8 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 - 當您指定服務主體**用戶端識別碼**時，請使用 `appId` 的值。
 - 在 Kubernetes 叢集中的代理程式節點 Vm 上，服務主體認證會儲存在檔案中 `/etc/kubernetes/azure.json`
 - 當您使用[az aks create][az-aks-create]命令自動產生服務主體時，服務主體認證會寫入至用來執行命令之電腦上的檔案 `~/.azure/aksServicePrincipal.json`。
+- 如果您未在其他 AKS CLI 命令中明確地傳遞服務主體，則會使用位於 `~/.azure/aksServicePrincipal.json` 的預設服務主體。  
+- 您也可以選擇性地移除 aksServicePrincipal 檔案，AKS 將會建立新的服務主體。
 - 當您刪除[az AKS create][az-aks-create]所建立的 AKS 叢集時，不會刪除自動建立的服務主體。
     - 若要刪除服務主體，請查詢您的叢集*servicePrincipalProfile* ，然後使用[az ad app delete][az-ad-app-delete]進行刪除。 請將下列資源群組和叢集名稱更換為您自己的值：
 
