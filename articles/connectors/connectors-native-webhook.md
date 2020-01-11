@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: 7ff411ae082acfe2d465ab9d3371982b0693c226
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 14daa37a414e814ed6de036bbb625933ce2532e0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787041"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888119"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用 HTTP webhook，建立並執行自動化事件型工作流程
 
@@ -46,7 +46,7 @@ HTTP webhook 動作也是以事件為基礎，並且會藉由向該服務或端�
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 已部署的端點或 API 的 URL，可支援[邏輯應用程式中](../logic-apps/logic-apps-create-api-app.md#webhook-triggers)的 webhook 的 webhook 訂閱和取消訂閱模式，或[邏輯應用程式](../logic-apps/logic-apps-create-api-app.md#webhook-actions)中適當的 webhook 動作
 
@@ -100,7 +100,7 @@ HTTP webhook 動作也是以事件為基礎，並且會藉由向該服務或端�
 
    這個範例會將動作重新命名為「HTTP Webhook 動作」，讓步驟有更具描述性的名稱。
 
-1. 提供 HTTP Webhook 動作參數的值，類似于您想要用於訂閱和取消訂閱呼叫的[Http webhook 觸發程式參數](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger)，例如：
+1. 提供 HTTP Webhook 動作參數的值，類似于您想要用於訂閱和取消訂閱呼叫的[Http webhook 觸發程式參數](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)，例如：
 
    ![輸入 HTTP Webhook 動作參數](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
@@ -114,20 +114,20 @@ HTTP webhook 動作也是以事件為基礎，並且會藉由向該服務或端�
 
 ## <a name="connector-reference"></a>連接器參考
 
-如需觸發程式和動作參數的詳細資訊（類似于彼此），請參閱[HTTP Webhook 參數](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger)。
+如需觸發程式和動作參數的詳細資訊（類似于彼此），請參閱[HTTP Webhook 參數](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)。
 
 ### <a name="output-details"></a>輸出詳細資料
 
 以下是 HTTP Webhook 觸發程式或動作的輸出的詳細資訊，其會傳回下列資訊：
 
-| 屬性名稱 | Type | 描述 |
+| 屬性名稱 | 類型 | 說明 |
 |---------------|------|-------------|
-| 標頭 | object | 要求的標頭 |
+| headers | object | 要求的標頭 |
 | body | object | JSON 物件 | 具有來自要求之本文內容的物件 |
 | 狀態碼 | int | 來自要求的狀態碼 |
 |||
 
-| 狀態碼 | 描述 |
+| 狀態碼 | 說明 |
 |-------------|-------------|
 | 200 | 確定 |
 | 202 | 已接受 |

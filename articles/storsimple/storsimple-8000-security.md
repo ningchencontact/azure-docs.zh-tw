@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 31c432b884ce92c508dd7f893c12ba13acff28e8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 4598f71f9b611e68f8eb00676138784833c39f32
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963521"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891506"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 安全性和資料保護
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 安全性是任何人在採用新技術時的主要考量，尤其是當技術用於機密或專屬資料時。 評估不同的技術時，您必須考慮因為資料保護所增加的風險和成本。 Microsoft Azure StorSimple 提供資料保護的安全性和隱私權解決方案，以協助確保：
 
@@ -57,7 +57,7 @@ StorSimple 裝置是包含固態硬碟 (SSD) 和硬碟 (HDD) 的內部部署混�
 
 ![服務註冊金鑰](./media/storsimple-security/ServiceRegistrationKey.png)
 
-若要了解如何取得服務註冊金鑰，請移至[步驟 2：取得服務註冊金鑰](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key)。
+若要了解如何取得服務註冊金鑰，請移至 [步驟 2：取得服務註冊金鑰](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key)。
 
 服務註冊金鑰是包含 100 個以上字元的長金鑰。 您可以複製金鑰並將它以文字檔方式儲存在安全的位置中，如有必要，您可以使用此金鑰來授權其他裝置。 如果您在註冊完第一個裝置之後遺失服務註冊金鑰，可以透過 StorSimple 裝置管理員服務產生新的金鑰。 這不會對現有裝置的作業有任何影響。
 
@@ -185,7 +185,7 @@ StorSimple 裝置會根據使用頻率，將資料儲存在本機階層和雲端
 
 ## <a name="protect-data-via-storage-accounts"></a>透過儲存體帳戶保護資料安全
 
-每個 Microsoft Azure 訂閱可以建立一或多個儲存體帳戶。 (儲存體帳戶會提供唯一的命名空間，以供儲存在 Azure 雲端中的資料使用)。儲存體帳戶的存取權受到與該儲存體帳戶相關聯的訂用帳戶和存取金鑰控制。
+每個 Microsoft Azure 訂閱可以建立一或多個儲存體帳戶。 （儲存體帳戶提供唯一命名空間來處理儲存在 Azure 雲端中的資料）。儲存體帳戶的存取權是由與該儲存體帳戶相關聯的訂用帳戶和存取金鑰所控制。
 
 建立儲存體帳戶時，Microsoft Azure 會產生兩個 512 位元儲存體存取金鑰，當 StorSimple 裝置存取儲存體帳戶時，可以使用其中一個進行驗證。 請注意，這些金鑰中只有一個會是使用中狀態。 其他金鑰會被保留，讓您可以定期輪替金鑰。 若要輪替金鑰，您必須將次要金鑰的狀態設定為使用中，然後刪除主要金鑰。 然後，您可以建立要在下一個輪替期間使用的新金鑰。 (基於安全性理由，許多資料中心需要金鑰輪替)。
 
@@ -234,15 +234,15 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 
 **答：** 當您最初建立 StorSimple 裝置管理員服務時已建立此金鑰。 使用 StorSimple 裝置管理員服務連線至裝置時，您可以透過快速啟動頁面來檢視或重新產生服務註冊金鑰。 產生新的服務註冊金鑰不會影響現有的已註冊裝置。 如需相關指示，請移至：
 
-* [檢視或重新產生服務註冊金鑰](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
+* [檢視或重新產生服務註冊金鑰](storsimple-8000-manage-service.md#regenerate-the-service-registration-key)
 
-**問：** 我遺失服務資料加密金鑰。 該怎麼辦？
+**問：** 我遺失服務資料加密金鑰。 我該怎麼做？
 
-**答：** 請連絡 Microsoft 支援。 他們可以登入您裝置上的支援工作階段，協助您擷取金鑰 (假設至少一部裝置在線)。 您取得服務資料加密金鑰之後，請立即變更，以確保只有您自己知道新的金鑰。 如需相關指示，請移至：
+**答：** 請連絡「Microsoft 支援服務」。 他們可以登入您裝置上的支援工作階段，協助您擷取金鑰 (假設至少一部裝置在線)。 您取得服務資料加密金鑰之後，請立即變更，以確保只有您自己知道新的金鑰。 如需相關指示，請移至：
 
 * [變更服務資料加密金鑰](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
-**問：** 我已授權裝置進行服務資料加密金鑰變更，但未啟動金鑰變更程序。 我該怎麼辦？
+**問：** 我已授權裝置進行服務資料加密金鑰變更，但未啟動金鑰變更程序。 我該怎麼做？
 
 **答：** 如果逾時期間已到期，您將需要重新授權裝置進行服務資料加密金鑰變更，然後重新啟動此程序。
 
@@ -250,7 +250,7 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 
 **答：** 這 4 小時的期限僅針對起始變更。 在已經授權的 StorSimple 裝置上啟動更新程序之後，在所有裝置更新之前此授權都是有效的。
 
-**問：** 我們的 StorSimple 系統管理員已離職。 我該怎麼辦？
+**問：** 我們的 StorSimple 系統管理員已離職。 我該怎麼做？
 
 **答：** 變更並重設 StorSimple 裝置的存取密碼，並且變更服務資料加密金鑰，以確保未經授權的人員不知道新的資訊。 如需相關指示，請移至：
 
@@ -258,14 +258,14 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 * [變更服務資料加密金鑰](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [為 StorSimple 裝置設定 CHAP](storsimple-8000-configure-chap.md)
 
-**問：** 我想要提供 StorSimple Snapshot Manager 密碼給連接至 StorSimple 裝置的主機，但無法取得密碼。 我能做什麼?
+**問：** 我想要提供 StorSimple Snapshot Manager 密碼給連接至 StorSimple 裝置的主機，但無法取得密碼。 我該怎麼辦？
 
 **答：** 如果忘記密碼，您應該建立新密碼。 然後，請務必通知所有現有的使用者密碼已變更，並要求他們更新其用戶端以使用新密碼。 如需相關指示，請移至：
 
 * [變更 StorSimple Snapshot Manager 密碼](storsimple-8000-change-passwords.md#set-the-storsimple-snapshot-manager-password)
 * [驗證裝置](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
-**問：** 裝置上用於遠端存取適用於 StorSimple 的 Windows PowerShell 的憑證已變更。 如何更新遠端存取用戶端？
+**問：** 裝置上用於遠端存取 Windows PowerShell for StorSimple 的憑證已變更。 如何更新遠端存取用戶端？
 
 **答：** 您可以從 StorSimple 裝置管理員服務下載新的憑證，然後將它安裝在遠端存取用戶端的憑證存放區。 如需相關指示，請移至：
 

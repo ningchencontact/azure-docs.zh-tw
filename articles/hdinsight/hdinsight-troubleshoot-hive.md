@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 9169bd9a63666238e9d6b97d86bf1e9e10312c1b
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076515"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895223"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>使用 Azure HDInsight 對 Apache Hive 進行疑難排解
 
@@ -39,7 +39,7 @@ ms.locfileid: "71076515"
     hive -f alltables.sql
     ```
 
-解決步驟中的程式碼會假設新叢集上的資料路徑與舊叢集上的資料路徑相同。 如果資料路徑不同，您可以手動編輯產生`alltables.sql`的檔案，以反映任何變更。
+解決步驟中的程式碼會假設新叢集上的資料路徑與舊叢集上的資料路徑相同。 如果資料路徑不同，您可以手動編輯產生的 `alltables.sql` 檔案，以反映任何變更。
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
@@ -123,11 +123,11 @@ ms.locfileid: "71076515"
     - **ContainerReuseAnalyzer**：列印 DAG 中的容器重複使用詳細資料
     - **CriticalPath**：尋找 DAG 的關鍵路徑
     - **LocalityAnalyzer**：列印 DAG 中的位置詳細資料
-    - **ShuffleTimeAnalyzer**：分析 DAG 中的隨機顯示時間詳細資料
+    - **ShuffleTimeAnalyzer**：分析 DAG 中的隨機播放時間詳細資料
     - **SkewAnalyzer**：分析 DAG 中的扭曲詳細資料
     - **SlowNodeAnalyzer**：列印 DAG 中的節點詳細資料
     - **SlowTaskIdentifier**：列印 DAG 中的低速工作詳細資料
-    - **SlowestVertexAnalyzer**：列印 DAG 中的最慢頂點詳細資料
+    - **SlowestVertexAnalyzer**：列印 DAG 中最慢頂點詳細資料
     - **SpillAnalyzer**：列印 DAG 中的溢出詳細資料
     - **TaskConcurrencyAnalyzer**：列印 DAG 中的工作並行詳細資料
     - **VertexLevelCriticalPathAnalyzer**：在 DAG 的頂點層級中尋找關鍵路徑
@@ -167,6 +167,6 @@ ms.locfileid: "71076515"
 
 - 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-- [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
+- 與[@AzureSupport](https://twitter.com/azuresupport)進行連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-- 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+- 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

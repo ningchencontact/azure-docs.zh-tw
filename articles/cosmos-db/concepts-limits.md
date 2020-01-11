@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 8d2873dd2fd36ed1193aed457a04baae94a043a2
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: d6b66c4a4924f8455b58b930621d6a7b93901a2a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951814"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887609"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 服務配額
 
@@ -23,8 +23,8 @@ ms.locfileid: "74951814"
 
 | 資源 | 預設限制 |
 | --- | --- |
-| 每個容器的最大 ru 數（[專用輸送量布建模式](databases-containers-items.md#azure-cosmos-containers)） | 預設為1000000。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它 |
-| 每個資料庫最多 ru （已布[建的共用輸送量模式](databases-containers-items.md#azure-cosmos-containers)） | 預設為1000000。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它 |
+| 每個容器的最大 ru 數（[專用輸送量布建模式](databases-containers-items.md#azure-cosmos-containers)） | 預設為1000000。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)來增加它 |
+| 每個資料庫最多 ru （已布[建的共用輸送量模式](databases-containers-items.md#azure-cosmos-containers)） | 預設為1000000。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)來增加它 |
 | 每個（邏輯）分割區索引鍵的最大 ru | 10,000 |
 | 每個（邏輯）分割區索引鍵的所有專案儲存體上限| 10 GB |
 | 相異（邏輯）分割區索引鍵的最大數目 | 無限制 |
@@ -64,8 +64,8 @@ Cosmos DB 可透過 Sdk 或入口網站，為每個容器或資料庫支援彈�
 
 | 資源 | 預設限制 |
 | --- | --- |
-| 每個訂閱的資料庫帳戶數目上限 | 預設為50。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它|
-| 區域容錯移轉的最大數目 | 預設為 1/小時。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它|
+| 每個訂閱的資料庫帳戶數目上限 | 預設為50。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)來增加它|
+| 區域容錯移轉的最大數目 | 預設為 1/小時。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)來增加它|
 
 > [!NOTE]
 > 區域容錯移轉只適用于單一區域寫入帳戶。 多重區域寫入帳戶不需要或有變更寫入區域的任何限制。
@@ -132,7 +132,7 @@ Cosmos DB 使用 HMAC 進行授權。 您可以使用主要金鑰或[資源權�
 | --- | --- |
 | 主要權杖到期時間上限 | 15 分鐘  |
 | 資源權杖到期時間下限 | 10 分鐘  |
-| 資源權杖到期時間上限 | 預設為24小時。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它|
+| 資源權杖到期時間上限 | 預設為24小時。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)來增加它|
 | 權杖授權的最大時鐘誤差| 15 分鐘 |
 
 Cosmos DB 支援在寫入期間執行觸發程式。 服務最多支援一個預先觸發程式，以及一個每個寫入作業的後續觸發程式。 

@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: allensu
-ms.openlocfilehash: af327f751a0af67b6d17330dbaeb717df8660bfd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c33c1efd735a9c606ebe4625eb704005fff64a9e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225277"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896071"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>使用 Azure CLI 來進行跨所有可用性區域的 VM 負載平衡
 
-本文會逐步說明如何在不倚賴多個 DNS 記錄的情況下，建立具有區域備援前端的公用 [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) 來達到區域備援的目的。 單一前端 IP 位址會自動具備區域備援。  針對您的負載平衡器使用區域備援前端時，只需單一 IP 位址，您現在即可連線至跨所有「可用性區域」之某個區域內某個區域網路中的任何 VM。 萬一整個資料中心失敗或遺失，使用可用性區域可保護您的應用程式和資料免於受害。
+本文會逐步說明如何在不倚賴多個 DNS 記錄的情況下，建立具有區域備援前端的公用 [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) 來達到區域備援的目的。 單一前端 IP 位址會自動具備區域備援。  現在為負載平衡器使用區域備援前端時，只需使用單一 IP 位址即可在單一地區內橫跨所有可用性區域，並連線至該地區內某虛擬網路中的任何 VM。 萬一整個資料中心失敗或遺失，使用可用性區域可保護您的應用程式和資料免於受害。
 
-如需有關搭配標準 Load Balancer 使用可用性區域的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
+如需關於搭配使用可用性區域和標準 Load Balancer 的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
 如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.17 版或更新版本。  若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 > [!NOTE]
-> 針對精選的 Azure 資源和區域及 VM 大小系列有提供「可用性區域」支援。 如需如何開始使用，以及有哪些 Azure 資源、區域和 VM 大小系列可供用來試用可用性區域，請參閱[可用性區域概觀](https://docs.microsoft.com/azure/availability-zones/az-overview)。 如需支援，您可以透過 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) 與我們聯繫或[開啟 Azure 支援票證](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。  
+> 針對精選的 Azure 資源和區域及 VM 大小系列有提供「可用性區域」支援。 如需如何開始使用，以及有哪些 Azure 資源、區域和 VM 大小系列可供用來試用可用性區域，請參閱[可用性區域概觀](https://docs.microsoft.com/azure/availability-zones/az-overview)。 如需支援，您可以透過 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) 與我們聯繫或[開啟 Azure 支援票證](../azure-portal/supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。  
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -94,7 +94,7 @@ az network lb probe create \
 ```
 
 ## <a name="create-load-balancer-rule-for-port-80"></a>建立用於連接埠 80 的負載平衡器規則
-負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端 IP 集區，以及所需的來源和目的地連接埠。 使用 *az network lb rule create* 建立負載平衡器規則 myLoadBalancerRuleWeb[](/cli/azure/network/lb/rule#az-network-lb-rule-create)，用來接聽前端集區 myFrontEndPool 中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 myBackEndPool (也是使用連接埠 80)。
+負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端 IP 集區，以及所需的來源和目的地連接埠。 使用 [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) 建立負載平衡器規則 *myLoadBalancerRuleWeb*，用來接聽前端集區 *myFrontEndPool* 中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 *myBackEndPool* (也是使用連接埠 80)。
 
 ```azurecli-interactive
 az network lb rule create \
@@ -114,7 +114,7 @@ az network lb rule create \
 
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
 
-使用 *az network vnet create*，在 myResourceGroup 中建立名為 *myVnet*且子網路名為 [mySubnet](/cli/azure/network/vnet#az-network-vnet-create) 的虛擬網路。
+使用 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)，在 myResourceGroup 中建立名為 *myVnet*且子網路名為 *mySubnet* 的虛擬網路。
 
 
 ```azurecli-interactive
@@ -127,7 +127,7 @@ az network vnet create \
 
 ### <a name="create-a-network-security-group"></a>建立網路安全性群組
 
-使用 *az network nsg create*.來建立名為 [myNetworkSecurityGroup](/cli/azure/network/nsg#az-network-nsg-create) 的網路安全性群組，以定義對您虛擬網路的輸入連線。
+使用 [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).來建立名為 *myNetworkSecurityGroup* 的網路安全性群組，以定義對您虛擬網路的輸入連線。
 
 ```azurecli-interactive
 az network nsg create \
@@ -135,7 +135,7 @@ az network nsg create \
 --name myNetworkSecurityGroup
 ```
 
-使用 *az network nsg rule create* 來針對連接埠 80 建立名為 [myNetworkSecurityGroupRule](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) 的安全性群組規則。
+使用 [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) 來針對連接埠 80 建立名為 *myNetworkSecurityGroupRule* 的安全性群組規則。
 
 ```azurecli-interactive
 az network nsg rule create \

@@ -3,12 +3,12 @@ title: 移動錯誤的疑難排解
 description: 使用 Azure Resource Manager 將資源移到新的資源群組或訂用帳戶。
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 422ecb92e264d7e728282bbe8ee491a642cf013f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5a65f7daa0f5e3b1c8c6ddfdbecc0ff7d53e5afd
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75478340"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891267"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>針對將 Azure 資源移至新的資源群組或訂用帳戶進行疑難排解
 
@@ -21,7 +21,7 @@ ms.locfileid: "75478340"
 * 若要將免費試用升級，請參閱[將免費試用或 Microsoft Imagine Azure 訂用帳戶升級至隨用隨付](../../billing/billing-upgrade-azure-subscription.md)。
 * 若要變更隨用隨付帳戶，請參閱[將您的 Azure 隨用隨付訂閱變更為其他供應項目](../../billing/billing-how-to-switch-azure-offer.md)。
 
-如果您無法轉換訂用帳戶，請[建立 Azure 支援要求](../../azure-supportability/how-to-create-azure-support-request.md)。 針對問題類型選取 [訂用帳戶管理]。
+如果您無法轉換訂用帳戶，請[建立 Azure 支援要求](../../azure-portal/supportability/how-to-create-azure-support-request.md)。 針對問題類型選取 [訂用帳戶管理]。
 
 ## <a name="service-limitations"></a>服務限制
 
@@ -44,7 +44,7 @@ ms.locfileid: "75478340"
 
 如果來源或目標資源群組包含虛擬網路，則會在移動期間檢查虛擬網路的所有相依資源的狀態。 此檢查包含直接且間接相依于虛擬網路的這些資源。 如果其中任何一項資源處於失敗狀態，則會封鎖移動。 例如，如果使用虛擬網路的虛擬機器失敗，則移動會遭到封鎖。 即使虛擬機器不是其中一項要移動的資源，而且不在移動的其中一個資源群組中，移動也會遭到封鎖。
 
-當您收到此錯誤時，您有兩個選項。 請將您的資源移至沒有虛擬網路的資源群組，或[聯絡支援](../../azure-supportability/how-to-create-azure-support-request.md)人員。
+當您收到此錯誤時，您有兩個選項。 請將您的資源移至沒有虛擬網路的資源群組，或[聯絡支援](../../azure-portal/supportability/how-to-create-azure-support-request.md)人員。
 
 ## <a name="next-steps"></a>後續步驟
 

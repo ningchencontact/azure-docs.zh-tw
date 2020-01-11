@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 01/10/2020
 ms.author: radeltch
-ms.openlocfilehash: 49e7fd49e000a3d4475c60a0c58cf6a2c7455fa5
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 243bbd431b7332d06a4e14581aa5c02bae2b7cba
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531402"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896285"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>使用 azure NetApp Files on SUSE Linux Enterprise Server 在 Azure Vm 上部署具有待命節點的 SAP Hana 相應放大系統 
 
@@ -229,7 +229,7 @@ Azure NetApp Files 磁片區的輸送量是磁片區大小和服務層級的功�
 
    a. 使用 Azure 資源庫中支援 SAP Hana 的使用 SLES4SAP 映射。 在此範例中，我們使用了使用 SLES4SAP 12 SP4 映射。  
 
-   b.這是另一個 C# 主控台應用程式。 選取您稍早為 SAP Hana 建立的可用性設定組。  
+   b. 選取您稍早為 SAP Hana 建立的可用性設定組。  
 
    c. 選取用戶端 Azure 虛擬網路子網。 選取 [[加速網路](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)]。  
 
@@ -243,7 +243,7 @@ Azure NetApp Files 磁片區的輸送量是磁片區大小和服務層級的功�
 
     a. 移至[Azure 入口網站](https://portal.azure.com/#home)中的虛擬機器。  
 
-    b.這是另一個 C# 主控台應用程式。 在左窗格中，選取 [**虛擬機器**]。 篩選虛擬機器名稱（例如， **hanadb1**），然後選取虛擬機器。  
+    b. 在左窗格中，選取 [**虛擬機器**]。 篩選虛擬機器名稱（例如， **hanadb1**），然後選取虛擬機器。  
 
     c. 在 [**總覽**] 窗格中，選取 [**停止**] 以解除配置虛擬機器。  
 
@@ -259,7 +259,7 @@ Azure NetApp Files 磁片區的輸送量是磁片區大小和服務層級的功�
 
     a. 在[Azure 入口網站](https://portal.azure.com/#home)中開啟[Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) 。  
 
-    b.這是另一個 C# 主控台應用程式。 執行下列命令，為附加至 `storage` 和 `hana` 子網的其他網路介面啟用加速網路。  
+    b. 執行下列命令，為附加至 `storage` 和 `hana` 子網的其他網路介面啟用加速網路。  
 
     <pre><code>
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-storage</b> --accelerated-networking true
@@ -276,7 +276,7 @@ Azure NetApp Files 磁片區的輸送量是磁片區大小和服務層級的功�
 
     a. 在左窗格中，選取 [**虛擬機器**]。 篩選虛擬機器名稱（例如， **hanadb1**），然後選取它。  
 
-    b.這是另一個 C# 主控台應用程式。 在 [**總覽**] 窗格中，選取 [**啟動**]。  
+    b. 在 [**總覽**] 窗格中，選取 [**啟動**]。  
 
 ## <a name="operating-system-configuration-and-preparation"></a>作業系統設定和準備
 
@@ -429,7 +429,9 @@ Azure NetApp Files 磁片區的輸送量是磁片區大小和服務層級的功�
     mount 10.23.1.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-    </code></pre>`
+    # Make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
+    </code></pre>
 
 5. **[A]** 手動建立 SAP Hana 群組和使用者。 群組 sapsys 和使用者**hn1**Adm 的識別碼必須設定為相同的識別碼，在上架期間提供。 （在此範例中，識別碼會設定為**1001**。）如果未正確設定識別碼，您將無法存取磁片區。 群組 sapsys 和使用者帳戶的識別碼**hn1**adm 和 sapadm 在所有虛擬機器上必須相同。  
 
@@ -547,7 +549,7 @@ Azure NetApp Files 磁片區的輸送量是磁片區大小和服務層級的功�
     ./hdblcm --internal_network=10.23.3.0/24
     </code></pre>
 
-   b.這是另一個 C# 主控台應用程式。 在提示字元中，輸入下列值：
+   b. 在提示字元中，輸入下列值：
 
      * 針對 **[選擇動作**]：輸入**1** （適用于安裝）
      * 如需**安裝的其他元件**：輸入**2、3**
@@ -675,7 +677,7 @@ Azure NetApp Files 磁片區的輸送量是磁片區大小和服務層級的功�
     hanadb3, 3, 50313, 50314, 0.3, HDB|HDB_STANDBY, GREEN
    </code></pre>
 
-   b.這是另一個 C# 主控台應用程式。 若要模擬節點損毀，請在背景工作節點上以 root 身分執行下列命令，在此案例中為**hanadb2** ：  
+   b. 若要模擬節點損毀，請在背景工作節點上以 root 身分執行下列命令，在此案例中為**hanadb2** ：  
    
    <pre><code>
     echo b > /proc/sysrq-trigger
@@ -730,7 +732,7 @@ Azure NetApp Files 磁片區的輸送量是磁片區大小和服務層級的功�
     hanadb3, 3, 50313, 50314, 0.3, HDB|HDB_STANDBY, GRAY
    </code></pre>
 
-   b.這是另一個 C# 主控台應用程式。 在使用中的主要節點上，以**hn1**adm 的形式執行下列命令，在此案例中為**hanadb1** ：  
+   b. 在使用中的主要節點上，以**hn1**adm 的形式執行下列命令，在此案例中為**hanadb1** ：  
 
     <pre><code>
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill

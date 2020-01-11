@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 22bf4dcd472cf2d7804b571e09093535f30b053f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: be991b63784a2c72a51bfbdc8506f3b4695ed6c7
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647419"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895323"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>針對 HDInsight 叢集上的緩慢或失敗作業進行疑難排解
 
@@ -91,7 +91,7 @@ HDInsight 倚賴數個 Azure 服務。 它會在 Azure HDInsight 上執行虛擬
 #### <a name="check-azure-service-usage-limits"></a>檢查 Azure 服務使用限制
 
 如果您要啟動一個大型叢集，或是已同時啟動許多叢集，則在超出 Azure 服務限制時，叢集就可能發生失敗。 服務限制會依您的 Azure 訂用帳戶而有所不同。 如需詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)。
-您可以透過 [Resource Manager 核心配額增加要求](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)，要求 Microsoft 增加可用的 HDInsight 資源 (例如 VM 核心和 VM 執行個體) 數目。
+您可以透過 [Resource Manager 核心配額增加要求](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)，要求 Microsoft 增加可用的 HDInsight 資源 (例如 VM 核心和 VM 執行個體) 數目。
 
 #### <a name="check-the-release-version"></a>檢查發行版本
 

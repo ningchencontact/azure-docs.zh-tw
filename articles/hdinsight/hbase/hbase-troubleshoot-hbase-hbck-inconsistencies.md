@@ -7,24 +7,24 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
-ms.openlocfilehash: 5fc338e83c172e26d621ef89dcfb047d01d510fa
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: fa02ac0dfe229f3e82d1c1c62d83ca06a81efca6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091676"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887320"
 ---
-# <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>案例： `hbase hbck`命令在 Azure HDInsight 中傳回不一致的情況
+# <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>案例： `hbase hbck` 命令在 Azure HDInsight 中傳回不一致的情況
 
 本文說明與 Azure HDInsight 叢集互動時，問題的疑難排解步驟和可能的解決方法。
 
-## <a name="issue-region-is-not-in-hbasemeta"></a>問題：區域不在`hbase:meta`
+## <a name="issue-region-is-not-in-hbasemeta"></a>問題：區域不在 `hbase:meta`
 
-HDFS 上的 Region xxx，但未列`hbase:meta`于或部署于任何區域伺服器上。
+HDFS 上的 Region xxx，但未列于 `hbase:meta` 或部署在任何區域伺服器上。
 
 ### <a name="cause"></a>原因
 
-差異.
+變動。
 
 ### <a name="resolution"></a>解析度
 
@@ -43,11 +43,11 @@ HDFS 上的 Region xxx，但未列`hbase:meta`于或部署于任何區域伺服�
 
 ## <a name="issue-region-is-offline"></a>問題：區域已離線
 
-未在任何 RegionServer 上部署 Region xxx。 這表示區域在中`hbase:meta`，但離線。
+未在任何 RegionServer 上部署 Region xxx。 這表示該區域 `hbase:meta`，但離線。
 
 ### <a name="cause"></a>原因
 
-差異.
+變動。
 
 ### <a name="resolution"></a>解析度
 
@@ -63,11 +63,11 @@ hbase hbck -ignorePreCheckPermission –fixAssignment
 
 ### <a name="cause"></a>原因
 
-差異.
+變動。
 
 ### <a name="resolution"></a>解析度
 
-手動合併那些重迭的區域。 移至 [HBase HMaster Web UI 資料表] 區段中，選取具有問題的 [資料表] 連結。 您會看到屬於該資料表的每個區域的「開始」索引鍵/結束金鑰。 然後合併這些重迭的區域。 在 HBase shell 中， `merge_region 'xxxxxxxx','yyyyyyy', true`執行。 例如:
+手動合併那些重迭的區域。 移至 [HBase HMaster Web UI 資料表] 區段中，選取具有問題的 [資料表] 連結。 您會看到屬於該資料表的每個區域的「開始」索引鍵/結束金鑰。 然後合併這些重迭的區域。 在 HBase shell 中，執行 `merge_region 'xxxxxxxx','yyyyyyy', true`。 例如：
 
 ```
 RegionA, startkey:001, endkey:010,
@@ -81,9 +81,9 @@ RegionC, startkey:010, endkey:080.
 
 ---
 
-## <a name="issue-cant-load-regioninfo"></a>問題：無法載入`.regioninfo`
+## <a name="issue-cant-load-regioninfo"></a>問題：無法載入 `.regioninfo`
 
-無法為`.regioninfo`區域`/hbase/data/default/tablex/regiony`載入。
+無法載入區域 `/hbase/data/default/tablex/regiony`的 `.regioninfo`。
 
 ### <a name="cause"></a>原因
 
@@ -93,11 +93,11 @@ RegionC, startkey:010, endkey:080.
 
 手動清除這些剩餘的檔案和資料夾：
 
-1. 執行`hdfs dfs -ls /hbase/data/default/tablex/regiony`以檢查仍在其下的資料夾/檔案。
+1. 執行 `hdfs dfs -ls /hbase/data/default/tablex/regiony` 以檢查仍在其下的資料夾/檔案。
 
-1. 執行`hdfs dfs -rmr /hbase/data/default/tablex/regiony/filez`以刪除所有的子檔案/資料夾
+1. 執行 `hdfs dfs -rmr /hbase/data/default/tablex/regiony/filez` 以刪除所有的子檔案/資料夾
 
-1. 執行`hdfs dfs -rmr /hbase/data/default/tablex/regiony`以刪除區域資料夾。
+1. 執行 `hdfs dfs -rmr /hbase/data/default/tablex/regiony` 以刪除區域資料夾。
 
 ---
 
@@ -107,6 +107,6 @@ RegionC, startkey:010, endkey:080.
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
+* 與[@AzureSupport](https://twitter.com/azuresupport)進行連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

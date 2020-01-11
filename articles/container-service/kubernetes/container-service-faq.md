@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 9b17548bf840ff0e2f94ed6933e5abdcc04110c8
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: f031f55bbff534181459bb1bf7469f315aee27cb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286507"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887779"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(已被取代) Container Service 常見問題集
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-## <a name="orchestrators"></a>Orchestrator
+## <a name="orchestrators"></a>協調器
 
 ### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Azure Container Service 上支援哪些容器 Orchestrator？ 
 
@@ -64,7 +64,7 @@ Azure Container Service 是具有 SLA 保證的 Azure 服務，其功能可在 A
 您可以建立含有 1、3 或 5 個主要節點的叢集。 您最多可以選擇 100 個代理程式節點。
 
 > [!IMPORTANT]
-> 如需較大的叢集且視您針對節點選擇的 VM 大小而定，您可能需要增加訂用帳戶的核心配額。 若要要求增加配額，可免費[開啟線上客戶支援要求](../../azure-supportability/how-to-create-azure-support-request.md)。 如果您使用 [Azure 免費帳戶](https://azure.microsoft.com/free/)，您只能使用有限數目的 Azure 計算核心。
+> 如需較大的叢集且視您針對節點選擇的 VM 大小而定，您可能需要增加訂用帳戶的核心配額。 若要要求增加配額，可免費[開啟線上客戶支援要求](../../azure-portal/supportability/how-to-create-azure-support-request.md)。 如果您使用 [Azure 免費帳戶](https://azure.microsoft.com/free/)，您只能使用有限數目的 Azure 計算核心。
 > 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>如何在建立叢集後增加主要主機的數目？ 
@@ -104,7 +104,7 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 4. 在 [摘要] 頁面的 [輸出] 底下，提供了一些叢集連結。 **SSHMaster0** 會提供容器服務叢集中第一個主要主機的 SSH 連接字串。 
 
-如先前所述，您也可以使用 Azure 工具來尋找主要主機的 FQDN。 請使用建立叢集時所指定的主要主機 FQDN 和使用者名稱，透過 SSH 連線到主要主機。 例如︰
+如先前所述，您也可以使用 Azure 工具來尋找主要主機的 FQDN。 請使用建立叢集時所指定的主要主機 FQDN 和使用者名稱，透過 SSH 連線到主要主機。 例如：
 
 ```bash
 ssh userName@masterFQDN –A –p 22 
@@ -112,7 +112,7 @@ ssh userName@masterFQDN –A –p 22 
 
 如需詳細資訊，請參閱[連接到 Azure Container Service 叢集](../../container-service/kubernetes/container-service-connect.md)。
 
-### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>我的 DNS 名稱解析在 Windows 中沒有作用。 我該怎麼辦？
+### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>我的 DNS 名稱解析在 Windows 中沒有作用。 我該怎麼做？
 
 Windows 上有一些已知的 DNS 問題，其修正程式仍在進行中。請確定您使用的是最新的 acs 引擎和 Windows 版本（已安裝[KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588)和[KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) ），以便您的環境可以受益。 否則，請參閱下表中的風險降低步驟：
 

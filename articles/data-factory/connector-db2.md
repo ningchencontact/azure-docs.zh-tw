@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 304d0615a12871fb4a9610058bc1be0ad6dff806
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6dd0734d39237545b7a9bc2553fcd9dea75b8ee0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929538"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892809"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 DB2 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -57,7 +57,7 @@ ms.locfileid: "74929538"
 
 「整合執行階段」提供內建的 DB2 驅動程式，因此從 DB2 複製資料時，您不需要手動安裝任何驅動程式。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -67,19 +67,19 @@ ms.locfileid: "74929538"
 
 以下是針對 DB2 連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Db2** | 是 |
+| type | 類型屬性必須設為：**DB2** | 是 |
 | 伺服器 |DB2 伺服器的名稱。 您可以指定在伺服器名稱後面加上以冒號隔開的連接埠號碼，例如 `server:port`。 |是 |
-| [資料庫] |DB2 資料庫的名稱。 |是 |
-| authenticationType |用來連接到 DB2 資料庫的驗證類型。<br/>允許的值為：**基本**。 |是 |
+| 資料庫 |DB2 資料庫的名稱。 |是 |
+| authenticationType |用來連接到 DB2 資料庫的驗證類型。<br/>允許的值為**基本**。 |是 |
 | username |指定要連線到 DB2 資料庫的使用者名稱。 |是 |
-| password |指定您為使用者名稱所指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
+| 密碼 |指定您為使用者名稱所指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | packageCollection | 指定在查詢資料庫時，ADF 自動建立所需套件的位置 | 否 |
 | certificateCommonName | 當您使用安全通訊端層（SSL）或傳輸層安全性（TLS）加密時，您必須輸入 [憑證一般名稱] 的值。 | 否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
-**範例：**
+**範例︰**
 
 ```json
 {
@@ -110,12 +110,12 @@ ms.locfileid: "74929538"
 
 若要從 DB2 複製資料，支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**Db2Table** | 是 |
-| 結構描述 | 結構描述的名稱。 |否 (如果已指定活動來源中的"query")  |
-| 資料表 | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
-| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載使用 `schema` 和 `table`。 | 否 (如果已指定活動來源中的"query") |
+| type | 資料集的類型屬性必須設定為： **Db2Table** | 是 |
+| 結構描述 | 結構描述的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
+| 資料表 | 資料表的名稱。 |否 (如果已指定活動來源中的「查詢」)  |
+| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載使用 `schema` 和 `table`。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
 
@@ -139,18 +139,18 @@ ms.locfileid: "74929538"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 DB2 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 DB2 來源所支援的屬性清單。
 
 ### <a name="db2-as-source"></a>DB2 作為來源
 
 若要從 DB2 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**Db2Source** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""` 。 | 否 (如果已指定資料集中的 "tableName") |
+| type | 複製活動來源的類型屬性必須設定為： **Db2Source** | 是 |
+| 查詢 | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""` 。 | 否 (如果已指定資料集中的 "tableName") |
 
-**範例：**
+**範例︰**
 
 ```json
 "activities":[
@@ -195,7 +195,7 @@ ms.locfileid: "74929538"
 | Blob |Byte[] |
 | Char |String |
 | Clob |String |
-| Date |Datetime |
+| 日期 |Datetime |
 | DB2DynArray |String |
 | DbClob |String |
 | Decimal |Decimal |
@@ -208,10 +208,10 @@ ms.locfileid: "74929538"
 | LongVarChar |String |
 | LongVarGraphic |String |
 | 數值 |Decimal |
-| Real |Single |
+| Real |單一 |
 | SmallInt |Int16 |
-| Time |TimeSpan |
-| Timestamp |DateTime |
+| 時間 |TimeSpan |
+| 時間戳記 |日期時間 |
 | VarBinary |Byte[] |
 | VarChar |String |
 | VarGraphic |String |
@@ -221,5 +221,5 @@ ms.locfileid: "74929538"
 
 若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
-## <a name="next-steps"></a>接下來的步驟
-如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。
+## <a name="next-steps"></a>後續步驟
+如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

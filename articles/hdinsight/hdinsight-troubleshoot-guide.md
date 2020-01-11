@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
-ms.openlocfilehash: c92fca3baff8e0ae6a6f6f46944b3ecc1f38e716
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 4460c24bb742bff72af47954363b1051f5d9b43d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122540"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895281"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>使用 Azure HDInsight 進行疑難排解
 
 | Apache 工作負載 | 最常見問題 |
 |---|---|
-|![hdinsight apache HBase 圖示圖示](./media/hdinsight-troubleshoot-guide/hdinsight-apache-hbase.png)<br>[Apache HBase 疑難排解](hbase/apache-troubleshoot-hbase.md)|<br>[未指派的區域](hbase/hbase-troubleshoot-unassigned-regions.md#scenario-unassigned-regions)<br><br>[在 Azure HDInsight 中使用 ' hbase hbck ' 命令的超時](hbase/hbase-troubleshoot-timeouts-hbase-hbck.md)<br><br>[Azure HDInsight 中 Apache Phoenix 連線問題](hbase/hbase-troubleshoot-phoenix-connectivity.md)<br><br>[什麼情況導致主要伺服器無法啟動？](hbase/hbase-troubleshoot-start-fails.md)<br><br>[BindException-位址已在使用中](hbase/hbase-troubleshoot-bindexception-address-use.md)|
+|![hdinsight apache HBase 圖示圖示](./media/hdinsight-troubleshoot-guide/hdinsight-apache-hbase.png)<br>[Apache HBase 疑難排解](hbase/apache-troubleshoot-hbase.md)|<br>[未指派的區域](hbase/hbase-troubleshoot-unassigned-regions.md#scenario-unassigned-regions)<br><br>[Azure HDInsight 中的 'hbase hbck' 命令逾時](hbase/hbase-troubleshoot-timeouts-hbase-hbck.md)<br><br>[Azure HDInsight 中 Apache Phoenix 連線問題](hbase/hbase-troubleshoot-phoenix-connectivity.md)<br><br>[什麼情況導致主要伺服器無法啟動？](hbase/hbase-troubleshoot-start-fails.md)<br><br>[BindException-位址已在使用中](hbase/hbase-troubleshoot-bindexception-address-use.md)|
 |![hdinsight apache hdfs 圖示圖示](./media/hdinsight-troubleshoot-guide/hdinsight-apache-hdfs.png)<br>[Apache Hadoop HDFS 疑難排解](hdinsight-troubleshoot-hdfs.md)|<br>[如何從叢集內部存取本機 HDFS？](hdinsight-troubleshoot-hdfs.md#how-do-i-access-local-hdfs-from-inside-a-cluster)<br><br>[本機 HDFS 在 Azure HDInsight 叢集上卡在安全模式](hadoop/hdinsight-hdfs-troubleshoot-safe-mode.md)|
 |![hdinsight apache Hive 圖示圖示](./media/hdinsight-troubleshoot-guide/hdinsight-apache-hive.png)<br>[疑難排解 Apache Hive](hdinsight-troubleshoot-hive.md)|<br>[如何匯出 Hive 中繼存放區並匯入另一個叢集？](hdinsight-troubleshoot-hive.md#how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster)<br><br>[如何在叢集上尋找 Apache Hive 記錄？](hdinsight-troubleshoot-hive.md#how-do-i-locate-hive-logs-on-a-cluster)<br><br>[如何在叢集上以特定設定啟動 Apache Hive Shell？](hdinsight-troubleshoot-hive.md#how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster)<br><br>[如何分析叢集關鍵路徑上的 Apache Tez DAG 資料？](hdinsight-troubleshoot-hive.md#how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path)<br><br>[如何從叢集下載 Apache Tez DAG 資料？](hdinsight-troubleshoot-hive.md#how-do-i-download-tez-dag-data-from-a-cluster)|
 |![hdinsight apache Spark 圖示圖示](./media/hdinsight-troubleshoot-guide/hdinsight-apache-spark.png)<br>[Apache Spark 疑難排解](hdinsight-troubleshoot-SPARK.md)|<br>[如何使用 Apache Ambari 在叢集上設定 Apache Spark 應用程式？](spark/apache-troubleshoot-spark.md#how-do-i-configure-an-apache-spark-application-by-using-apache-ambari-on-clusters)<br><br>[如何使用 Jupyter Notebook 在叢集上設定 Apache Spark 應用程式？](spark/apache-troubleshoot-spark.md#how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters)<br><br>[如何使用 Apache Livy 在叢集上設定 Apache Spark 應用程式？](spark/apache-troubleshoot-spark.md#how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters)<br><br>[如何使用 spark-submit 在叢集上設定 Apache Spark 應用程式？](spark/apache-troubleshoot-spark.md#how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters)<br><br>[如何使用 IntelliJ 來設定 Apache Spark 應用程式？](spark/apache-spark-intellij-tool-plugin.md)<br><br>[如何使用 Eclipse 來設定 Apache Spark 應用程式？](spark/apache-spark-eclipse-tool-plugin.md)<br><br>[如何使用 VSCode 來設定 Apache Spark 應用程式？](hdinsight-for-vscode.md)<br><br>[Apache Spark 的 OutOfMemoryError 例外狀況](spark/apache-spark-troubleshoot-outofmemory.md#scenario-outofmemoryerror-exception-for-apache-spark)|
@@ -27,7 +27,7 @@ ms.locfileid: "71122540"
 
 ## <a name="hdinsight-troubleshooting-resources"></a>HDInsight 疑難排解資源
 
-| 如需詳細資訊 | 請參閱以下文章 |
+| 如需下列資訊 | 請參閱以下文章 |
 | --- | --- |
 | Linux 上的 HDInsight 與最佳化 | - [在 Linux 上使用 HDInsight 的相關資訊](hdinsight-hadoop-linux-information.md)<br>- [Apache Hadoop 記憶體和效能疑難排解](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Apache Hive 查詢效能](https://web.archive.org/web/20190217214250/https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
 | 記錄和傾印 | - [存取 Linux 上的 Apache Hadoop YARN 應用程式記錄](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [為 Linux 上的 Apache Hadoop 服務啟用堆積傾印](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [分析 HDInsight 記錄](hdinsight-debug-jobs.md)|
@@ -40,6 +40,6 @@ ms.locfileid: "71122540"
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
+* 與[@AzureSupport](https://twitter.com/azuresupport)進行連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

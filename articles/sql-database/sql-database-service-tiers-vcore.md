@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: d57f1e87c503a86a522fdb3004b021fbcb5c6ff1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c01e5c508644214c078dfc42ae8c77964933a277
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351414"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896000"
 ---
 # <a name="vcore-model-overview"></a>虛擬核心模型概觀
 
@@ -32,8 +32,8 @@ VCore 模型中的服務層選項包括一般用途、業務關鍵和超大規�
 ||**一般用途**|**業務關鍵**|**超大規模資料庫**|
 |---|---|---|---|
 |最適合|大部分的商業工作負載。 提供以預算為導向、平衡且可調整的計算和儲存體選項。 |使用數個隔離複本，為商務應用程式提供失敗的最高復原能力，並提供每個資料庫複本最高的 i/o 效能。|具有可高度擴充性的儲存體和讀取規模需求的大多數商務工作負載。  允許設定一個以上的隔離資料庫複本，以提供更高的失敗復原能力。 |
-|儲存體|使用遠端存放。<br/>**單一資料庫和彈性集區布建計算**：<br/>5 GB – 4 TB<br/>**無伺服器計算**：<br/>5 GB-3 TB<br/>**受控實例**： 32 GB-8 TB |使用本機 SSD 儲存體。<br/>**單一資料庫和彈性集區布建計算**：<br/>5 GB – 4 TB<br/>**受控實例**：<br/>32 GB - 4 TB |視需要彈性自動成長儲存體。 最多可支援 100 TB 的儲存體。 會針對本機緩衝集區快取和本機資料儲存體使用本機 SSD 儲存體。 使用 Azure 遠端儲存體作為最終長期資料存放區。 |
-|I/o 輸送量（近似）|**單一資料庫和彈性集**區：每個 VCORE 500 iops，最高可達 40000 iops。<br/>**受控實例**：視檔案[大小而](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)定。|5000 IOPS （每個 vCore 最多 320000 IOPS）|超大規模資料庫是多層式架構，在多個層級進行快取。 有效的 IOPs 將視工作負載而定。|
+|儲存體|使用遠端存放。<br/>**單一資料庫和彈性**集區已布建計算：<br/>5 GB – 4 TB<br/>**無伺服器計算**：<br/>5 GB-3 TB<br/>**受控執行個體**： 32 GB-8 TB |使用本機 SSD 儲存體。<br/>**單一資料庫和彈性**集區已布建計算：<br/>5 GB – 4 TB<br/>**受控執行個體**：<br/>32 GB - 4 TB |視需要彈性自動成長儲存體。 最多可支援 100 TB 的儲存體。 會針對本機緩衝集區快取和本機資料儲存體使用本機 SSD 儲存體。 使用 Azure 遠端儲存體作為最終長期資料存放區。 |
+|IOPS 和輸送量（大約）|**單一資料庫和彈性**集區：請參閱[單一資料庫](../sql-database/sql-database-vcore-resource-limits-single-databases.md)和[彈性](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md)集區的資源限制。<br/>**受控執行個體**：請參閱[Azure SQL Database 受控實例資源限制的總覽](../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics)。|請參閱[單一資料庫](../sql-database/sql-database-vcore-resource-limits-single-databases.md)和[彈性](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md)集區的資源限制。|超大規模資料庫是多層式架構，在多個層級進行快取。 有效的 IOPS 和輸送量將視工作負載而定。|
 |可用性|1個複本、無讀取規模複本|3 個複本、1 個[讀取規模複本](sql-database-read-scale-out.md)、<br/>區域冗余高可用性（HA）|1個讀寫複本，加上 0-4[個讀取規模複本](sql-database-read-scale-out.md)|
 |備份|[讀取權限異地多餘儲存體（RA-GRS）](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（預設為7天）|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|Azure 遠端儲存體中以快照集為基礎的備份。 還原時可使用這些快照集進行快速復原。 備份是即時的，不會影響計算 i/o 效能。 還原速度很快，而且不是資料大小的作業（需要幾分鐘，而不是小時或數天）。|
 |記憶體內|不支援|支援的|不支援|

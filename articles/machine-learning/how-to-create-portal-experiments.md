@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: c05b29dd5909d1371c71bffb9db555c15c5d23ed
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 00a316f69cfa77d705a789d40868105e9a098def
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75764638"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894028"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>使用 Azure Machine Learning studio 建立、探索及部署自動化的機器學習實驗
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -150,11 +150,12 @@ Variance| 量值分佈在此資料行中的值是來自其平均值。
 偏度| 測量此資料行的資料與一般散發的不同之處。
 峰度| 測量此資料行的資料與一般散發的比較程度。
 
+
 <a name="preprocess"></a>
 
 ## <a name="advanced-preprocessing-options"></a>Advanced 前置處理選項
 
-在設定您的實驗時，您可以 `Preprocess`啟用 [advanced] 設定。 這麼做表示會自動執行下列資料前置處理和特徵化步驟。
+在設定您的實驗時，您可以 `Preprocess`啟用 [advanced] 設定。 這麼做表示在前置處理中，會自動執行下列資料護欄和特徵化步驟。
 
 |前置處理&nbsp;步驟| 說明 |
 | ------------- | ------------- |
@@ -167,6 +168,20 @@ Variance| 量值分佈在此資料行中的值是來自其平均值。
 |文字目標編碼|若為文字輸入，則會使用具有文字包裝的堆疊線性模型來產生每個類別的機率。|
 |辨識項的權數（WoE）|將 WoE 計算為分類資料行與目標資料行相互關聯的量值。 其計算方式是以類別與外類別機率的比率為記錄。 此步驟會輸出每個類別的一個數值特徵資料行，而不需要明確插補遺漏值和極端值處理。|
 |叢集距離|在所有數值資料行上訓練 k 表示叢集模型。  輸出 k 個新功能，每個叢集一個新的數值功能，其中包含每個樣本與每個叢集距心的距離。|
+
+### <a name="data-guardrails"></a>資料護欄
+
+自動化機器學習服務提供資料護欄，可協助您識別資料的潛在問題（例如遺漏值、類別不平衡），並協助採取更正動作來改善結果。 有許多最佳做法可供使用，而且可以套用以達成可靠的結果。 
+
+下表說明目前支援的資料護欄，以及使用者在提交實驗時可能會遇到的相關狀態。
+
+Guardrail|狀態|&nbsp;觸發程式的條件&nbsp;
+---|---|---
+遺漏&nbsp;值&nbsp;插補 |**成功** <br> <br> **固定**|    任何輸入&nbsp;資料行中沒有遺漏值 <br> <br> 有些資料行有遺漏值
+交叉驗證|**即可**|如果未提供明確的驗證集
+高&nbsp;基數&nbsp;功能&nbsp;偵測|  **成功** <br> <br>**即可**|   未偵測到高基數功能 <br><br> 偵測到高基數輸入資料行
+類別餘額偵測 |**成功** <br><br><br>**警示** |類別會在定型資料中進行平衡;如果資料集內的每個類別都有良好的標記法，則會將資料集視為對稱，如樣本的數目和比率所測量 <br> <br> 定型資料中的類別是不平衡
+時間序列資料一致性|**成功** <br><br><br><br> **固定** |<br> 已分析選取的 {地平線、延遲、滾動視窗} 值，且未偵測到任何可能的記憶體不足問題。 <br> <br>已分析選取的 {水準、延遲、滾動視窗} 值，而且可能會導致您的實驗用盡記憶體。 已關閉 lag 或滾動視窗。
 
 ## <a name="run-experiment-and-view-results"></a>執行實驗並查看結果
 

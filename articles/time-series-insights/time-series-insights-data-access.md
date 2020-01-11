@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 01/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: c7a70d8209c5c349fc082d939a24deac23fa954d
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 1c8f14bb1bca082a9d887e5d6d88aec213448c3e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863422"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894813"
 ---
 # <a name="grant-data-access-to-an-environment"></a>授與環境的資料存取權
 

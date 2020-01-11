@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 16de1d9fcf86459b6bcadd9d8c372e436aad0915
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 44fcaa0a4292ac86c7371c27f29faf0e7246e9d5
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802931"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894783"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Azure SQL Database 和資料倉儲網路存取控制
 
@@ -47,24 +47,53 @@ ms.locfileid: "73802931"
 
 當 azure SQL Server**上**的設定為時，允許從 Azure 界限內的所有資源進行通訊，這不一定屬於您的訂用帳戶。
 
-在許多情況下，[**開啟**] 設定比大多數客戶所需的更寬鬆。他們可能會想要將此設定設為 [**關閉**]，並將其取代為更嚴格的 IP 防火牆規則或虛擬網路防火牆規則。 這麼做會影響下列功能：
+在許多情況下，[**開啟**] 設定比大多數客戶所需的更寬鬆。他們可能會想要將此設定設為 [**關閉**]，並將其取代為更嚴格的 IP 防火牆規則或虛擬網路防火牆規則。 這麼做會影響在 Azure 中不屬於 VNet 的 Vm 上執行的下列功能，因此會透過 Azure IP 位址連接到 Sql Database。
 
 ### <a name="import-export-service"></a>匯入匯出服務
+[匯入匯出服務] 無法使用 [**允許 Azure 服務存取伺服器**] 設定為 [關閉]。 不過，您可以[從 AZURE VM 手動執行 sqlpackage，或](https://docs.microsoft.com/azure/sql-database/import-export-from-vm)使用 DACFx API 直接在程式碼中執行匯出，以解決此問題。
 
-Azure SQL Database 匯入匯出服務會在 Azure 中的 VM 上執行。 這些 VM 不在您的 VNet 中，因此連線到您的資料庫時會得到一組 Azure IP。 若移除 [允許 Azure 服務存取伺服器]，這些 VM 將無法存取您的資料庫。
-您可以使用 DACFx API，直接在程式碼中執行 BACPAC 匯入或匯出，以解決此問題。
+### <a name="data-sync"></a>資料同步
+若要使用資料同步功能搭配 [**允許 Azure 服務存取伺服器**] 設定為 [關閉]，您必須建立個別的防火牆規則專案，以便從裝載**中樞**資料庫之區域的**Sql 服務**標籤中[新增 IP 位址](sql-database-server-level-firewall-rule.md)。
+將這些伺服器層級防火牆規則新增至裝載**中樞**和**成員**資料庫的邏輯伺服器（可能位於不同的區域）
 
-### <a name="sql-database-query-editor"></a>SQL Database 查詢編輯器
+使用下列 PowerShell 腳本來產生對應至「美國西部」區域之 Sql 服務標籤的 IP 位址
+```powershell
+PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
+PS C:\>  $sql = $serviceTags.Values | Where-Object { $_.Name -eq "Sql.WestUS" }
+PS C:\> $sql.Properties.AddressPrefixes.Count
+70
+PS C:\> $sql.Properties.AddressPrefixes
+13.86.216.0/25
+13.86.216.128/26
+13.86.216.192/27
+13.86.217.0/25
+13.86.217.128/26
+13.86.217.192/27
+```
 
-Azure SQL Database 的查詢編輯器會部署在 Azure 中的 VM 上。 這些 VM 不在您的 VNet 中。 因此，連線到您的資料庫時，VM 會得到一組 Azure IP。 若移除 [允許 Azure 服務存取伺服器]，這些 VM 將無法存取您的資料庫。
+> [!TIP]
+> AzNetworkServiceTag 會傳回 Sql 服務標記的全域範圍，但不包括指定 Location 參數。 請務必將它篩選為裝載您的同步處理群組所使用之中樞資料庫的區域
 
-### <a name="table-auditing"></a>資料表稽核
+請注意，PowerShell 腳本的輸出是無類別網域間路由（CIDR）標記法，而且必須使用 Get-IPrangeStartEnd 將這項轉換成開始和結束 IP 位址的格式，如下所示[。](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9)
+```powershell
+PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26                                                                   
+start        end
+-----        ---
+52.229.17.64 52.229.17.127
+```
 
-目前有兩種方式可在您的 SQL Database 上啟用審核。 當您在您的 Azure SQL Server 上啟用服務端點之後，資料表稽核會失敗。 這裡的解決之道是改用 Blob 稽核。
+執行下列額外步驟，將所有 IP 位址從 CIDR 轉換成開始和結束 IP 位址格式。
 
-### <a name="impact-on-data-sync"></a>資料同步的影響
+```powershell
+PS C:\>foreach( $i in $sql.Properties.AddressPrefixes) {$ip,$cidr= $i.split('/') ; Get-IPrangeStartEnd -ip $ip -cidr $cidr;}                                                                                                                
+start          end
+-----          ---
+13.86.216.0    13.86.216.127
+13.86.216.128  13.86.216.191
+13.86.216.192  13.86.216.223
+```
+您現在可以將它們新增為不同的防火牆規則，然後將 [**允許 Azure 服務存取伺服器**] 設定為 [關閉]。
 
-Azure SQL Database 擁有使用 Azure IP 連線到資料庫的資料同步功能。 使用服務端點時，您會關閉 [**允許 Azure 服務存取**您的 SQL Database 伺服器的伺服器存取]，並將會中斷資料同步功能。
 
 ## <a name="ip-firewall-rules"></a>IP 防火牆規則
 Ip 型防火牆是 Azure SQL Server 的一項功能，可防止所有對您資料庫伺服器的存取，直到您明確新增用戶端電腦的[IP 位址](sql-database-server-level-firewall-rule.md)為止。
@@ -108,7 +137,7 @@ Azure SQL Server 防火牆可讓您指定接受通訊的 IP 位址範圍，以 S
 
 - 如需從開放原始碼或協力廠商應用程式連線到 Azure SQL 資料庫的說明，請參閱[SQL Database 的用戶端快速入門程式碼範例](https://msdn.microsoft.com/library/azure/ee336282.aspx)。
 
-- 如需詳細資訊，請參閱**針對 ADO.NET 4.5 及 SQL Database 的 1433 以外的連接埠**的〈[SQL Database：外部與內部](sql-database-develop-direct-route-ports-adonet-v12.md)〉一節
+- 如需詳細資訊，請參閱[針對 ADO.NET 4.5 及 SQL Database 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)的〈**SQL Database：外部與內部**〉一節
 
 - 如需 Azure SQL Database 連線的總覽，請參閱[AZURE SQL 連線架構](sql-database-connectivity-architecture.md)
 

@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e2cc9dd81a0bbefa5cf37facb6067bda07117eaf
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903729"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896010"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Apache Storm 進行疑難排解
 
-了解在 [Apache Ambari](https://storm.apache.org/) 中使用 [Apache Storm](https://ambari.apache.org/) 承載時最常發生的問題及其解決方法。
+了解在 [Apache Ambari](https://ambari.apache.org/) 中使用 [Apache Storm](https://storm.apache.org/) 承載時最常發生的問題及其解決方法。
 
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>如何在叢集上存取 Storm UI？
 
@@ -36,7 +36,7 @@ ms.locfileid: "73903729"
 
 `https://<cluster DNS name>/stormui`
 
-範例︰ `https://stormcluster.azurehdinsight.net/stormui`
+範例： `https://stormcluster.azurehdinsight.net/stormui`
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>如何將 Storm 事件中樞 Spout 檢查點資訊從一個拓撲傳輸到另一個拓撲？
 
@@ -104,7 +104,7 @@ lib 資料夾的 .jar 檔案包含匯出/匯入作業的實作。 bash 資料夾
 * 閘道節點
 * 前端節點
 * ZooKeeper 節點
-* 背景工作節點
+* 背景工作角色節點
 
 ### <a name="gateway-nodes"></a>閘道節點
 
@@ -124,7 +124,7 @@ HDInsight 隨附一個三節點的 ZooKeeper 仲裁。 仲裁大小是固定的�
 
 叢集中的 Storm 服務已設定為自動使用 ZooKeeper 仲裁。
 
-### <a name="worker-nodes"></a>背景工作節點
+### <a name="worker-nodes"></a>背景工作角色節點
 
 Storm 背景工作節點執行下列服務：
 * 監督員
@@ -186,4 +186,4 @@ Nimbus Log4J 設定是從 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`讀�
 
 - 與[@AzureSupport](https://twitter.com/azuresupport)進行連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-- 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 Microsoft Azure 訂用帳戶包括訂用帳戶管理及帳務支援的存取權，而技術支援由其中一項 [Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+- 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

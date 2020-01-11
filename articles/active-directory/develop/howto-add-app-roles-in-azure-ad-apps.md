@@ -15,12 +15,12 @@ ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 805f984ebdb5e95a9f3a46fab010cecf5c811547
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c042cf22334a0163cd5b89e556210db0cd5c15f4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424486"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888763"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>如何：在您的應用程式中新增應用程式角色，並且在權杖中接收這些角色
 
@@ -37,9 +37,9 @@ ms.locfileid: "75424486"
 ### <a name="declare-app-roles-using-azure-portal"></a>使用 Azure 入口網站宣告應用程式角色
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 在頂端列上，選取您的帳戶，然後 [切換目錄]。
-1. [目錄 + 訂用帳戶] 窗格開啟後，從 [我的最愛] 或 [所有目錄] 清單中，選擇您要註冊應用程式的 Active Directory 租用戶。
-1. 選取左側導覽區中的 [所有服務]，然後選擇 [Azure Active Directory]。
+1. 在入口網站工具列中選取 [**目錄 + 訂**用帳戶] 圖示。
+1. 在 [我的最愛] 或 [**所有目錄** **]** 清單中，選擇您要註冊應用程式的 Active Directory 租使用者。
+1. 在 Azure 入口網站中，搜尋並選取 [Azure Active Directory]。
 1. 在 [Azure Active Directory] 窗格中，選取 [應用程式註冊] 以檢視所有應用程式的清單。
 1. 選取您要在其中定義應用程式角色的應用程式。 然後選取 [**資訊清單**]。
 1. 找出 `appRoles` 設定並新增所有的應用程式角色，以編輯應用程式資訊清單。

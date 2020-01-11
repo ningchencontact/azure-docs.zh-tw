@@ -2,25 +2,17 @@
 title: 使用點對站將電腦連線至 Azure 虛擬網路︰Azure 入口網站傳統 | Microsoft Docs
 description: 使用 Azure 入口網站建立傳統的點對站 VPN 閘道連線。
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-service-management
-ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2d9461ee64c692e22e7840f2edae8f1637ead49b
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 5d80cb2f2ed844126d1e9311151e6c53fcb11840
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863769"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894878"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>使用憑證驗證設定點對站連線 (傳統)
 

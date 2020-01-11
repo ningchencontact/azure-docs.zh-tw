@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: c3da9c6a49fd79946d62b0319bead1bd721f3aa6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ce85c45d80a776af84a0987cfbc3f496c2bbb72b
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536703"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893948"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>設定 Azure Machine Learning 資源和工作流程的驗證
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -170,7 +170,8 @@ ws.get_details()
 
 在上述步驟中建立的服務主體也可以用來向 Azure Machine Learning [REST API](https://docs.microsoft.com/rest/api/azureml/)進行驗證。 您會使用 Azure Active Directory 的[用戶端認證授與流程](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)，允許服務對服務呼叫在自動化工作流程中進行無周邊驗證。 範例是以 Python 和 node.js 中的[ADAL 程式庫](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)來執行，但是您也可以使用任何支援 OpenID connect 1.0 的開放原始碼程式庫。 
 
-> !下MSAL 是比 ADAL 更新的程式庫，但您無法使用 MSAL 的用戶端認證來進行服務對服務驗證，因為它主要是適用于與特定使用者系結互動/UI 驗證的用戶端程式庫。 我們建議使用如下所示的 ADAL，以 REST API 建立自動化工作流程。
+> [!NOTE]
+> MSAL 是比 ADAL 更新的程式庫，但您無法使用 MSAL 的用戶端認證來進行服務對服務驗證，因為它主要是適用于與特定使用者系結互動/UI 驗證的用戶端程式庫。 我們建議使用如下所示的 ADAL，以 REST API 建立自動化工作流程。
 
 ### <a name="nodejs"></a>Node.js
 
@@ -268,15 +269,19 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores = 1,
                                                 auth_enable=True)
 ```
 
-接著，您可以使用父 `WebService` 類別，在部署中使用自訂 ACI 設定。
+然後，您可以使用 `Model` 類別，在部署中使用自訂 ACI 設定。
 
 ```python
-from azureml.core.webservice import Webservice
+from azureml.core.model import Model, InferenceConfig
 
-aci_service = Webservice.deploy_from_image(deployment_config=aci_config,
-                                           image=image,
-                                           name="aci_service_sample",
-                                           workspace=ws)
+
+inference_config = InferenceConfig(entry_script="score.py",
+                                   environment=myenv)
+aci_service = Model.deploy(workspace=ws,
+                       name="aci_service_sample",
+                       models=[model],
+                       inference_config=inference_config,
+                       deployment_config=aci_config)
 aci_service.wait_for_deployment(True)
 ```
 

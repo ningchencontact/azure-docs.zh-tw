@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/09/2019
-ms.openlocfilehash: 9a7b28dd48be7bbd0c789749ee4a1fa01a17d85f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ec5a0d6e8c0a5236ae3929560e81033d983d4dfb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091349"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895120"
 ---
-# <a name="scenario-apache-tez-application-hangs-in-azure-hdinsight"></a>案例：Apache Tez 應用程式在 Azure HDInsight 中停止回應
+# <a name="scenario-apache-tez-application-hangs-in-azure-hdinsight"></a>案例： Apache Tez 應用程式在 Azure HDInsight 中停止回應
 
 本文說明與 Azure HDInsight 叢集互動時，問題的疑難排解步驟和可能的解決方法。
 
@@ -30,7 +30,7 @@ ms.locfileid: "71091349"
 
 相應增加叢集，或只是等到 Yarn 的佇列清空為止。
 
-根據預設`yarn.scheduler.capacity.maximum-applications` ，會控制正在執行或擱置中的應用程式數目上限，並預設`10000`為。
+根據預設，`yarn.scheduler.capacity.maximum-applications` 會控制正在執行或擱置中的應用程式數目上限，而且預設為 `10000`。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -38,6 +38,6 @@ ms.locfileid: "71091349"
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
+* 與[@AzureSupport](https://twitter.com/azuresupport)進行連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

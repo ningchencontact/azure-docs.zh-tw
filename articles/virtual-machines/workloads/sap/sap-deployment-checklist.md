@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddba2b70bc9d9e01518cdc0f373fc31224e9c932
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b3a424c142fbfcbfe5e4c1802f3ba61da655f77f
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425941"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896022"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure 上的 SAP 工作負載：規劃和部署檢查清單
 
@@ -76,7 +76,7 @@ ms.locfileid: "75425941"
     - [標記策略](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing)。
     - Vm 和其他基礎結構元件和（或）邏輯名稱的命名慣例。
 5.  Microsoft 頂級支援合約。 識別您的 Microsoft 技術客戶經理（TAM）。 如需 SAP 支援需求，請參閱[sap 支援附注 #2015553](https://launchpad.support.sap.com/#/notes/2015553)。
-6.  訂用帳戶的 Azure 訂用帳戶和核心配額數目。 [開啟支援要求，視需要增加 Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)訂用帳戶的配額。
+6.  訂用帳戶的 Azure 訂用帳戶和核心配額數目。 [開啟支援要求，視需要增加 Azure](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)訂用帳戶的配額。
 7.  將 SAP 資料移轉至 Azure 的資料縮減和資料移轉計畫。 針對 SAP NetWeaver 系統，SAP 具有如何限制大量資料量的指導方針。 請參閱這份有關 SAP ERP 系統中資料管理的[sap 指南](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2)。 部分內容也適用于一般的 NetWeaver 和 S/4HANA 系統。
 8.  自動化部署方法。 Azure 上的基礎結構部署自動化目標是以具決定性的方式進行部署，並取得具決定性的結果。 許多客戶使用 PowerShell 或 CLI 架構的腳本。 但有各種開放原始碼技術可供您用來部署適用于 SAP 的 Azure 基礎結構，甚至是安裝 SAP 軟體。 您可以在 GitHub 上找到範例：
     - [Azure Cloud 雲端中的自動化 SAP 部署](https://github.com/Azure/sap-hana) \(英文\)

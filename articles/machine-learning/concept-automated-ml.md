@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: c4177e4310be3e03b64c260d88239de71f70c17a
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 778b369e08ff6b0c6e4075c5a8d3d2a234bde70e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720135"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894890"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -95,7 +95,7 @@ ms.locfileid: "75720135"
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Advanced 前置處理：選擇性特徵化
 
-也可以使用其他的先進前置處理和特徵化，例如遺漏值插補、編碼和轉換。 [深入瞭解包含的特徵化](how-to-create-portal-experiments.md#preprocess)。 啟用此設定的方式：
+另外還提供額外的先進前置處理和特徵化，例如資料護欄、編碼和轉換。 [深入瞭解包含的特徵化](how-to-create-portal-experiments.md#preprocess)。 啟用此設定的方式：
 
 + Azure Machine Learning studio：在 [設定**執行**] 區段中選取 [ **View 特徵化] 設定** [，其中包含下列步驟](how-to-create-portal-experiments.md)。
 
@@ -161,7 +161,7 @@ ms.locfileid: "75720135"
 
 * 假日偵測和特徵化
 * 時間序列和 DNN 學習工具（自動 ARIMA、Prophet、ForecastTCN）
-* 透過群組的許多模型支援
+* 許多模型都支援透過群組
 * 復原原始的交叉驗證
 * 可設定延遲
 * 滾動視窗匯總功能

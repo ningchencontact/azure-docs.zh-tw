@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 28ab1eaa860c0d684182f5f1660daed2751a9c6e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b9a5e388ce6749023cff223de2376d1360ca7574
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465077"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895688"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 
@@ -379,6 +379,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您根據所使�
 | Azure 事件中樞         | Microsoft.EventHub         | 使用事件中樞擷取封存資料。 [深入了解](/azure/event-hubs/event-hubs-capture-overview)。 |
 | Azure 檔案同步          | Microsoft.StorageSync      | 可讓您將內部內部部署檔案伺服器轉換為 Azure 檔案共用的快取。 允許多網站同步處理、快速的嚴重損壞修復，以及雲端端備份。 [深入了解](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | 為新的 HDInsight 叢集布建預設檔案系統的初始內容。 [深入了解](/azure/hdinsight/hdinsight-hadoop-use-blob-storage)。 |
+| Azure 匯入匯出      | Microsoft.ImportExport     | 可讓您使用匯入/匯出服務將資料匯入 Azure，以及從 Azure 匯出資料。 [深入了解](/azure/storage/common/storage-import-export-service)。  |
 | Azure Monitor            | Microsoft.Insights         | 允許將監視資料寫入受保護的儲存體帳戶 [深入了解](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security)。 |
 | Azure 網路         | Microsoft.Network          | 儲存及分析網路流量記錄。 [深入了解](/azure/network-watcher/network-watcher-packet-capture-overview)。 |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | 當使用已啟用防火牆的快取、來源或目標儲存體帳戶時，啟用複寫以進行 Azure IaaS 虛擬機器的嚴重損壞修復。  [深入了解](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)。 |

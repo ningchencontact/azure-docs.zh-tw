@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: 404aa1d345bb1e30a0fe55d033d49d7dd8ba5a1b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b7dd11c3a71c46bbc06b205c6b4300337683305a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893402"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889001"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>快速入門：在您自己的虛擬網路中建立 Azure Databricks 工作區
 
@@ -29,7 +29,7 @@ Azure Databricks 的預設部署會建立由 Databricks 管理的新虛擬網路
 
 > [!Note]
 > 本教學課程不適用 **Azure 免費試用版的訂用帳戶**。
-> 如果您有免費帳戶，請移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。 然後，為您所在區域的 vCPU [移除消費限制](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)並[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。 當您建立 Azure Databricks 工作區時，您可以選取 [試用版 (進階 - 14 天的免費 DBU)] 定價層，讓工作區可免費存取進階 Azure Databricks DBU 14 天。
+> 如果您有免費帳戶，請移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。 然後，為您所在區域的 vCPU [移除消費限制](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)並[要求增加配額](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)。 當您建立 Azure Databricks 工作區時，您可以選取 [試用版 (進階 - 14 天的免費 DBU)] 定價層，讓工作區可免費存取進階 Azure Databricks DBU 14 天。
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
@@ -39,14 +39,14 @@ Azure Databricks 的預設部署會建立由 Databricks 管理的新虛擬網路
 
 2. 在 [**建立虛擬網路**] 下，套用下列設定： 
 
-    |設定|建議的值|描述|
+    |設定|建議的值|說明|
     |-------|---------------|-----------|
-    |Name|databricks-快速入門|選取虛擬網路的 [名稱]。|
+    |名稱|databricks-快速入門|選取虛擬網路的 [名稱]。|
     |位址空間|10.1.0.0/16|CIDR 標記法中的虛擬網路位址範圍。 CIDR 範圍必須介於/16 和/24 之間|
-    |Subscription|\<您的訂用帳戶\>|選取您要使用的 Azure 訂用帳戶。|
-    |Resource group|databricks-快速入門|選取 **[新建]** ，然後為您的帳戶輸入新的資源組名。|
-    |Location|\<選取最接近使用者的區域\>|選取您可以裝載虛擬網路的地理位置。 使用最靠近您的使用者的位置。|
-    |子網路名稱|預設值|選取虛擬網路中預設子網的 [名稱]。|
+    |訂閱|\<您的訂用帳戶\>|選取您要使用的 Azure 訂用帳戶。|
+    |資源群組|databricks-快速入門|選取 **[新建]** ，然後為您的帳戶輸入新的資源組名。|
+    |位置|\<選取最接近使用者的區域\>|選取您可以裝載虛擬網路的地理位置。 使用最靠近您的使用者的位置。|
+    |子網路名稱|預設|選取虛擬網路中預設子網的 [名稱]。|
     |子網路位址範圍|10.1.0.0/24|採用 CIDR 標記法的子網路位址範圍。 它必須包含在虛擬網路的位址空間內。 無法編輯使用中的子網位址範圍。|
 
     ![在 Azure 入口網站上建立虛擬網路](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
@@ -63,12 +63,12 @@ Azure Databricks 的預設部署會建立由 Databricks 管理的新虛擬網路
 
 2. 在 [ **Azure Databricks 服務**] 底下，套用下列設定：
 
-    |設定|建議的值|描述|
+    |設定|建議的值|說明|
     |-------|---------------|-----------|
     |工作區名稱|databricks-快速入門|選取您 Azure Databricks 工作區的 [名稱]。|
-    |Subscription|\<您的訂用帳戶\>|選取您要使用的 Azure 訂用帳戶。|
-    |Resource group|databricks-快速入門|選取您用於虛擬網路的相同資源群組。|
-    |Location|\<選取最接近使用者的區域\>|選擇與您的虛擬網路相同的位置。|
+    |訂閱|\<您的訂用帳戶\>|選取您要使用的 Azure 訂用帳戶。|
+    |資源群組|databricks-快速入門|選取您用於虛擬網路的相同資源群組。|
+    |位置|\<選取最接近使用者的區域\>|選擇與您的虛擬網路相同的位置。|
     |價格層次|選擇 [Standard] 或 [Premium]。|如需定價層的詳細資訊，請參閱[Databricks 定價頁面](https://azure.microsoft.com/pricing/details/databricks/)。|
     |在您的虛擬網路（VNet）中部署 Azure Databricks 工作區|是|此設定可讓您在虛擬網路中部署 Azure Databricks 工作區。|
     |虛擬網路|databricks-快速入門|選取您在上一節中建立的虛擬網路。|

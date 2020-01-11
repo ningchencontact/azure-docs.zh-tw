@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: asgang
-ms.openlocfilehash: b3c459c0eaac98a1cb704b4346153f77ec974188
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: asgangal
+ms.openlocfilehash: efa05f5769bcd174992a7a91a522c5f30ce6e448
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084914"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895017"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>針對 Azure 至 Azure VM 複寫錯誤進行疑難排解
 
@@ -34,7 +34,7 @@ ms.locfileid: "74084914"
 
 ### <a name="fix-the-problem"></a>修正問題
 
-請聯絡[Azure 計費支援](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)，讓您的訂用帳戶在目標位置中建立所需大小的 vm。 然後，重試失敗的操作。
+請聯絡[Azure 計費支援](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)，讓您的訂用帳戶在目標位置中建立所需大小的 vm。 然後，重試失敗的操作。
 
 如果目標位置具有容量條件約束，請停用對它的複寫。 然後，啟用複寫至您的訂用帳戶具有足夠配額的不同位置，以建立所需大小的 Vm。
 
@@ -80,7 +80,7 @@ ms.locfileid: "74084914"
 
 1. 如果找不到 Symantec 根 CA 憑證，請執行下列命令來下載檔案。 檢查是否有任何錯誤，並遵循建議的網路失敗動作。
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem-O VeriSign_Class_3_Public_Primary_Certification_Authority_G5 pem**
+    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5 pem**
 
 1. 檢查巴爾的摩根 CA 憑證是否存在：
 
@@ -88,7 +88,7 @@ ms.locfileid: "74084914"
 
 1. 如果找不到巴爾的摩根 CA 憑證，請執行下列命令來下載憑證：
 
-    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem-O Baltimore_CyberTrust_Root pem**
+    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root pem**
 
 1. 檢查 DigiCert_Global_Root_CA 憑證是否存在：
 
@@ -466,7 +466,7 @@ Linux GRUB 設定檔（/boot/grub/menu.lst "、/boot/grub/grub.cfg、/boot/grub2
 
 將每個裝置名稱取代為對應的 UUID：
 
-1. 執行命令**blkid** ***device name***來尋找裝置的 UUID。 例如︰
+1. 執行命令**blkid** ***device name***來尋找裝置的 UUID。 例如：
 
     ```
     blkid /dev/sda1

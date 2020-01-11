@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3c9e10df9f2be2a07bc7b7af0e01905d5b278d35
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924875"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894218"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Redshift 移動資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -25,7 +25,7 @@ ms.locfileid: "74924875"
 > * [第 2 版 (目前的版本)](../connector-amazon-redshift.md)
 
 > [!NOTE]
-> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 Amazon Redshift 連接器](../connector-amazon-redshift.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 Amazon Redshift 連接器](../connector-amazon-redshift.md)。
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，從 Amazon Redshift 移動資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。
 
@@ -59,10 +59,10 @@ Data Factory 目前僅支援資料從 Amazon Redshift 移至[支援的接收資�
 
 下表提供 Amazon Redshift 服務連結服務專屬之 JSON 元素的描述。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 | --- | --- | --- |
 | **type** |屬性必須設為 **AmazonRedshift**。 |是 |
-| **server** |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
+| **伺服器** |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
 | **port** |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否 (預設值為 5439) |
 | **database** |Amazon Redshift 資料庫的名稱。 |是 |
 | **username** |可存取資料庫之使用者的名稱。 |是 |
@@ -74,7 +74,7 @@ Data Factory 目前僅支援資料從 Amazon Redshift 移至[支援的接收資�
 
 每個類型之資料集的 **typeProperties** 區段都不同，可提供存放區中資料位置的相關資訊。 **RelationalTable** 資料集類型的 **typeProperties** 區段 (包含 Amazon Redshift 資料集) 具有下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 | --- | --- | --- |
 | **tableName** |Amazon Redshift 資料庫中連結服務所參照的資料表名稱。 |否 (如果指定 **RelationalSource** 類型複製活動的**查詢**屬性) |
 
@@ -84,7 +84,7 @@ Data Factory 目前僅支援資料從 Amazon Redshift 移至[支援的接收資�
 
 對於複製活動，當來源類型為 **AmazonRedshiftSource** 時，**typeProperties** 區段中可使用下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 | --- | --- | --- |
 | **query** | 使用自訂查詢來讀取資料。 |否 (如果已指定資料集的 **tableName** 屬性) |
 | **redshiftUnloadSettings** | 在使用 Redshift **UNLOAD** 命令時包含屬性群組。 | 否 |
@@ -93,7 +93,7 @@ Data Factory 目前僅支援資料從 Amazon Redshift 移至[支援的接收資�
 
 您也可以將 **RelationalSource** 類型 (包括 Amazon Redshift) 與下列 **typeProperties** 區段中的屬性搭配使用。 請注意，此來源類型不支援 Redshift **UNLOAD** 命令。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 | --- | --- | --- |
 | **query** |使用自訂查詢來讀取資料。 | 否 (如果已指定資料集的 **tableName** 屬性) |
 
@@ -146,7 +146,7 @@ Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UN
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)類型的連結服務。
 * [RelationalTable](#dataset-properties) 類型的輸入[資料集](data-factory-create-datasets.md)
 * [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 類型的輸出[資料集](data-factory-create-datasets.md)
-* 具有使用 [RelationalSource](#copy-activity-properties) 和 [BlobSink](data-factory-azure-blob-connector.md##copy-activity-properties) 屬性之複製活動的[管線](data-factory-create-pipelines.md)
+* 具有使用 [RelationalSource](#copy-activity-properties) 和 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) 屬性之複製活動的[管線](data-factory-create-pipelines.md)
 
 此範例會每個小時將資料從 Amazon Redshift 中的查詢結果複製到 Blob。 實體定義後面的各節會說明範例中使用的 JSON 屬性。
 
@@ -207,7 +207,7 @@ Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UN
 
 **Azure Blob 輸出資料集**
 
-藉由將 **frequency** 屬性設定 "Hour"，並將 **interval** 屬性設定為 1，資料會每小時寫入到新的 Blob。 Blob 的 **folderPath** 屬性是以動態的方式評估。 屬性值是以正在處理之配量的開始時間為基礎。 此資料夾路徑會使用開始時間的年、月、日和小時部分。
+藉由將 **frequency** 屬性設定 "Hour"，並將 **interval** 屬性設定為 1，資料會每小時寫入到新的 Blob。 Blob 的 **folderPath** 屬性是以動態的方式評估。 屬性值是以正在處理之配量的開始時間為基礎。 資料夾路徑會使用開始時間的年、月、日和小時部分。
 
 ```json
 {
@@ -331,15 +331,15 @@ Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UN
 | --- | --- |
 | SMALLINT |Int16 |
 | INTEGER |Int32 |
-| BIGINT |Int64 |
+| bigint |Int64 |
 | DECIMAL |Decimal |
-| REAL |Single |
-| DOUBLE PRECISION |DOUBLE |
+| real |單一 |
+| DOUBLE PRECISION |Double |
 | BOOLEAN |String |
 | CHAR |String |
 | VARCHAR |String |
 | 日期 |日期時間 |
-| 時間戳記 |日期時間 |
+| timestamp |日期時間 |
 | TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行

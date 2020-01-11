@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 42bd6037bcc94a83e649433e9ea0425fbdf11cd2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ecbb4399e038355a328055590da1c34170f3852
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353311"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894612"
 ---
 # <a name="supported-platforms"></a>支援的平台 
 
@@ -48,7 +48,7 @@ ms.locfileid: "75353311"
 |Windows Server 2012 R2|✔|✔|
 |Windows Server 2008 R2|✔|✔|
 
-若要深入瞭解上述 Windows 作業系統支援的功能，請參閱[虛擬機器/伺服器支援的功能](security-center-services.md##vm-server-features)。
+若要深入瞭解上述 Windows 作業系統支援的功能，請參閱[虛擬機器/伺服器支援的功能](security-center-services.md#vm-server-features)。
 
 ### Linux 作業系統<a name="os-linux"></a>
 
@@ -72,7 +72,7 @@ ms.locfileid: "75353311"
 > [!NOTE]
 > 由於支援的 Linux 作業系統清單經常變更，如果您想要的話，請按一下[這裡](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems)，以查看最新的支援版本清單，以防上次發行此主題之後已經發生變更。
 
-若要深入瞭解 Linux 作業系統支援的功能，請參閱[虛擬機器/伺服器支援的功能](security-center-services.md##vm-server-features)。
+若要深入瞭解 Linux 作業系統支援的功能，請參閱[虛擬機器/伺服器支援的功能](security-center-services.md#vm-server-features)。
 
 ### 受管理的虛擬機器服務<a name="virtual-machine"></a>
 

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 0518b13ea228b4834a095a9bf126b131e70a5f45
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a5352b371c5754672e668e53eb5e4211de9c46cc
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851548"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891483"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Azure 春季雲端的配額和服務方案
 
@@ -36,4 +36,4 @@ Azure Spring Cloud 服務執行個體 (每個訂用帳戶在每個區域) | 10
 
 ## <a name="next-steps"></a>後續步驟
 
-某些預設限制和配額可以增加。 如果您的資源需要增加，請[建立支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。
+某些預設限制和配額可以增加。 如果您的資源需要增加，請[建立支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。

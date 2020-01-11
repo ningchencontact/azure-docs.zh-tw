@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/01/2019
-ms.openlocfilehash: 845307f24495090891812b4e945e202cdad47e71
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 16c994029e91d743f1c2a7e2eab51eb86fc378e8
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468327"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887303"
 ---
 # <a name="scenario-pegged-cpu-on-region-server-in-apache-hbase-cluster-in-azure-hdinsight"></a>案例：在 Azure HDInsight 中的 Apache HBase 叢集中的區域伺服器上限定 CPU
 
@@ -26,7 +26,7 @@ Apache HBase 區域伺服器進程會開始佔用接近200% 的 CPU，導致 HBa
 
 如果您執行 HBase cluster v4.0，可能是因為將 jdk 升級至版本 1.7.0 _151 所造成的潛在錯誤。 我們看到的徵兆是，區域伺服器進程開始佔用接近200% 的 CPU （以確認這會執行 `top` 命令; 如果有接近 200% CPU 的進程，請取得其 pid，並藉由執行 `ps -aux | grep`）確認其為區域伺服器進程。
 
-## <a name="resolution"></a>解決方案
+## <a name="resolution"></a>解析度
 
 1. 在叢集中的所有節點上安裝 jdk 1.8，如下所示：
 
@@ -58,4 +58,4 @@ ps -aux | grep regionserver, and verify the version like '''/usr/lib/jvm/java-8-
 
 * 連接[@AzureSupport](https://twitter.com/azuresupport) -官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源，來改善客戶體驗：解答、支援和專家。
 
-* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 Microsoft Azure 訂用帳戶包括訂用帳戶管理及帳務支援的存取權，而技術支援由其中一項 [Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: 90b871c2b75f7ed40c290231ef822258c6b4e6d4
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 28111e45d365069f80f10b88c38618dbb2b4651d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606878"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896210"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>在 Windows 虛擬桌面上部署 Windows 7 虛擬機器
 
@@ -35,20 +35,21 @@ ms.locfileid: "73606878"
 5. 移至 VM 上的 Windows Update。
 6. 安裝 [重要] 分類中的所有 Windows 更新。
 7. 安裝選用類別（不含語言套件）中的所有 Windows 更新。 這會安裝完成這些指示所需的遠端桌面通訊協定8.0 更新（[KB2592687](https://www.microsoft.com/download/details.aspx?id=35393)）。
-8. 開啟本機群組原則編輯器，然後流覽至 [**電腦**設定] > **系統管理範本** > **Windows 元件** ** > 遠端桌面服務 > ** **遠端桌面工作階段主機** > **遠端會話環境**。
+8. 開啟本機群組原則編輯器，然後流覽至 **電腦**設定 > **系統管理範本** > **Windows 元件** ** > 遠端桌面服務 > 遠端桌面工作階段主機** ** > ** **遠端會話環境**。
 9. 啟用遠端桌面通訊協定8.0 原則。
-10. 執行下列命令來重新開機虛擬機器：
+10. 將此 VM 加入您的 Active Directory 網域。
+11. 執行下列命令來重新開機虛擬機器：
     
      ```cmd
      shutdown /r /t 0
      ```
     
-11. 依照[這裡](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo)的指示來取得註冊權杖。
-12. [下載適用于 Windows 7 的 Windows 虛擬桌面代理程式](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm)。
-13. [下載適用于 Windows 7 的 Windows 虛擬桌面代理程式管理員](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3)。
-14. 開啟 Windows 虛擬桌面 Agent 安裝程式，並遵循指示進行。 出現提示時，提供您在步驟11中建立的註冊金鑰。
-15. 開啟 Windows 虛擬桌面安裝程式，並遵循指示進行。
-16. （選擇性）封鎖 TCP/3389 埠，以移除對 VM 的直接遠端桌面通訊協定存取。
+12. 依照[這裡](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo)的指示來取得註冊權杖。
+13. [下載適用于 Windows 7 的 Windows 虛擬桌面代理程式](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm)。
+14. [下載適用于 Windows 7 的 Windows 虛擬桌面代理程式管理員](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3)。
+15. 開啟 Windows 虛擬桌面 Agent 安裝程式，並遵循指示進行。 出現提示時，提供您在步驟12中建立的註冊金鑰。
+16. 開啟 Windows 虛擬桌面安裝程式，並遵循指示進行。
+17. （選擇性）封鎖 TCP/3389 埠，以移除對 VM 的直接遠端桌面通訊協定存取。
 
 ## <a name="next-steps"></a>後續步驟
 

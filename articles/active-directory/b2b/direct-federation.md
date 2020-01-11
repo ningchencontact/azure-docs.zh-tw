@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5b6e99c803fb703f18b61200c28cbdac3282750
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 036c8361af3f6631b6151782fa18495542d2e3f6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272746"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888898"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>來賓使用者的直接同盟與 AD FS 和協力廠商提供者（預覽）
 |     |
@@ -31,7 +31,7 @@ ms.locfileid: "74272746"
 > 直接同盟來賓使用者必須使用包含租使用者內容的連結（例如，`https://myapps.microsoft.com/?tenantid=<tenant id>` 或 `https://portal.azure.com/<tenant id>`，或在已驗證網域的案例中，`https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`）來登入。 應用程式和資源的直接連結只要包含租用戶內容，也可有同樣作用。 直接同盟使用者目前無法使用沒有租使用者內容的通用端點進行登入。 例如，使用 `https://myapps.microsoft.com`、`https://portal.azure.com`或 `https://teams.microsoft.com` 將會導致錯誤。
  
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>來賓使用者何時使用直接同盟進行驗證？
-在您設定與組織的直接同盟之後，您邀請的任何新來賓使用者都會使用直接同盟進行驗證。 請務必注意，設定直接同盟並不會變更已經兌換邀請之來賓使用者的驗證方法。 這裡有一些範例：
+在您設定與組織的直接同盟之後，您邀請的任何新來賓使用者都會使用直接同盟進行驗證。 請務必注意，設定直接同盟並不會變更已經兌換邀請之來賓使用者的驗證方法。 以下是一些範例：
  - 如果來賓使用者已經兌換您的邀請，而您接著設定與組織的直接同盟，則這些來賓使用者在設定直接同盟之前，會繼續使用他們所使用的相同驗證方法。
  - 如果您設定與夥伴組織的直接同盟，並邀請來賓使用者，然後合作夥伴組織之後移至 Azure AD，則已兌換邀請的來賓使用者將繼續使用直接同盟，只要直接您租使用者中的同盟原則存在。
  - 如果您刪除合作夥伴組織的直接同盟，任何目前使用直接同盟的來賓使用者將無法登入。
@@ -66,7 +66,7 @@ ms.locfileid: "74272746"
 目前支援最多1000個同盟關聯性。 這項限制包括[內部](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)同盟和直接同盟。
 ## <a name="frequently-asked-questions"></a>常見問題集
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>我是否可以使用未受管理（電子郵件驗證）租使用者的網域來設定直接同盟？ 
-是。 如果網域尚未經過驗證，而且租使用者尚未進行系統[管理員接管](../users-groups-roles/domains-admin-takeover.md)，您可以設定與該網域的直接同盟。 當使用者贖回 B2B 邀請或使用目前不存在的網域執行自助式註冊 Azure AD 時，會建立非受控或電子郵件驗證的租使用者。 您可以設定這些網域的直接同盟。 如果您嘗試在 Azure 入口網站或透過 PowerShell 設定與 DNS 驗證網域的直接同盟，您會看到錯誤。
+可以。 如果網域尚未經過驗證，而且租使用者尚未進行系統[管理員接管](../users-groups-roles/domains-admin-takeover.md)，您可以設定與該網域的直接同盟。 當使用者贖回 B2B 邀請或使用目前不存在的網域執行自助式註冊 Azure AD 時，會建立非受控或電子郵件驗證的租使用者。 您可以設定這些網域的直接同盟。 如果您嘗試在 Azure 入口網站或透過 PowerShell 設定與 DNS 驗證網域的直接同盟，您會看到錯誤。
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>如果同時啟用「直接同盟」和「電子郵件單次密碼驗證」，則會優先使用哪種方法？
 與夥伴組織建立直接同盟時，其優先順序高於該組織的新來賓使用者的電子郵件單次密碼驗證。 如果來賓使用者在設定直接同盟之前，使用單次密碼驗證兌換邀請，它們會繼續使用單次密碼驗證。 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>是否因為部分同步的租用而導致直接同盟位址登入問題？
@@ -83,7 +83,7 @@ ms.locfileid: "74272746"
 Azure AD B2B 可以設定為與使用 SAML 通訊協定與下列特定需求的身分識別提供者同盟。 如需有關在您的 SAML 識別提供者與 Azure AD 之間設定信任的詳細資訊，請參閱[使用 saml 2.0 身分識別提供者（IdP）進行單一登入](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp)。  
 
 > [!NOTE]
-> 請注意，直接同盟的目標網域在 Azure AD 上不得以 DNS 驗證。 驗證 URL 網域必須符合目標網域，或必須是允許的識別提供者的網域。 如需詳細資訊，請參閱[限制](#limitations)一節。 
+> 直接同盟的目標網域不得在 Azure AD 上進行 DNS 驗證。 驗證 URL 網域必須符合目標網域，或必須是允許的識別提供者的網域。 如需詳細資訊，請參閱[限制](#limitations)一節。 
 
 #### <a name="required-saml-20-attributes-and-claims"></a>必要的 SAML 2.0 屬性和宣告
 下表顯示必須在協力廠商識別提供者上設定之特定屬性和宣告的需求。 若要設定直接同盟，必須在識別提供者的 SAML 2.0 回應中收到下列屬性。 這些屬性可以藉由連結至線上 Security Token Service XML 檔案或手動輸入來設定。
@@ -93,8 +93,8 @@ Azure AD B2B 可以設定為與使用 SAML 通訊協定與下列特定需求的�
 |屬性  |值  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
-|Audience     |`urn:federation:MicrosoftOnline`         |
-|Issuer     |合作夥伴 IdP 的簽發者 URI，例如 `http://www.example.com/exk10l6w90DHM0yi...`         |
+|觀眾     |`urn:federation:MicrosoftOnline`         |
+|簽發者     |合作夥伴 IdP 的簽發者 URI，例如 `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
 IdP 所簽發的 SAML 2.0 權杖所需的宣告：
@@ -119,8 +119,8 @@ Azure AD B2B 可以設定為與使用 WS-ADDRESSING 通訊協定的身分識別�
 |屬性  |值  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
-|Audience     |`urn:federation:MicrosoftOnline`         |
-|Issuer     |合作夥伴 IdP 的簽發者 URI，例如 `http://www.example.com/exk10l6w90DHM0yi...`         |
+|觀眾     |`urn:federation:MicrosoftOnline`         |
+|簽發者     |合作夥伴 IdP 的簽發者 URI，例如 `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 IdP 所簽發的 WS-送出權杖所需的宣告：
 
@@ -156,12 +156,12 @@ IdP 所簽發的 WS-送出權杖所需的宣告：
    > [!NOTE]
    > 中繼資料 URL 是選擇性的，但我們強烈建議您這麼做。 如果您提供中繼資料 URL，Azure AD 可以在簽署憑證到期時自動更新。 如果憑證因任何原因而在到期時間之前旋轉，或您未提供中繼資料 URL，Azure AD 將無法加以更新。 在此情況下，您必須手動更新簽署憑證。
 
-7. 選取 [ **儲存**]。 
+7. 選取 [儲存]。 
 
 ### <a name="to-configure-direct-federation-in-azure-ad-using-powershell"></a>使用 PowerShell 在 Azure AD 中設定直接同盟
 
 1. 安裝最新版的 Azure AD PowerShell for Graph 模組 ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview))。 （如需詳細步驟，新增來賓使用者的快速入門包含[安裝最新的 AzureADPreview 模組](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module)一節）。 
-2. 執行下列命令： 
+2. 執行以下命令： 
    ```powershell
    Connect-AzureAD
    ```
@@ -190,7 +190,7 @@ IdP 所簽發的 WS-送出權杖所需的宣告：
 3. 選取身分**識別提供者**
 4. 在 [ **SAML/WS-送出識別提供者**] 底下，選取提供者。
 5. 在 [識別提供者詳細資料] 窗格中，更新值。
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]。
 
 
 ## <a name="how-do-i-remove-direct-federation"></a>如何? 移除直接同盟？
@@ -204,7 +204,7 @@ IdP 所簽發的 WS-送出權杖所需的宣告：
 
 若要使用 PowerShell 移除與身分識別提供者的直接同盟：
 1. 安裝最新版的 Azure AD PowerShell for Graph 模組 ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview))。
-2. 執行下列命令： 
+2. 執行以下命令： 
    ```powershell
    Connect-AzureAD
    ```

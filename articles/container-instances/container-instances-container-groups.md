@@ -4,12 +4,12 @@ description: 瞭解 Azure 容器實例中的容器群組，這是共用生命週
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 19fa50f83a2593b8914931e25fa99cb2e4896227
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 73781418321c3932bf3e0190b646dcd3bb178195
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770266"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888051"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances 中的容器群組
 
@@ -32,7 +32,7 @@ ms.locfileid: "75770266"
 * 包含兩個 Azure 檔案共用作為磁碟區掛接，且每個容器會在本機掛接其中一個共用。
 
 > [!NOTE]
-> 多容器群組目前僅支援 Linux 容器。 針對 Windows 容器，Azure 容器實例僅支援部署單一實例。 雖然我們正致力於將所有功能帶入 Windows 容器，但是您可以在服務[總覽](container-instances-overview.md#linux-and-windows-containers)中找到目前的平臺差異。
+> 多容器群組目前僅支援 Linux 容器。 針對 Windows 容器，Azure 容器實例僅支援部署單一容器實例。 雖然我們正致力於將所有功能帶入 Windows 容器，但是您可以在服務[總覽](container-instances-overview.md#linux-and-windows-containers)中找到目前的平臺差異。
 
 ## <a name="deployment"></a>部署
 
@@ -44,19 +44,19 @@ ms.locfileid: "75770266"
 
 ## <a name="resource-allocation"></a>資源配置
 
-Azure 容器實例會藉由新增群組中實例的[資源要求][resource-requests]，將 cpu、記憶體和選擇性[gpu][gpus] （預覽）之類的資源配置到多個容器群組。 以 CPU 資源為例，如果您建立具有兩個實例的容器群組，每個都要求1個 CPU，則容器群組會配置2個 cpu。
+Azure 容器實例會藉由新增群組中實例的[資源要求][resource-requests]，將 cpu、記憶體和選擇性[gpu][gpus] （預覽）之類的資源配置到多個容器群組。 以 CPU 資源為例，如果您建立具有兩個容器實例的容器群組，每個都要求1個 CPU，則容器群組會配置2個 cpu。
 
-### <a name="resource-usage-by-instances"></a>依實例的資源使用量
+### <a name="resource-usage-by-container-instances"></a>容器實例的資源使用量
 
-群組中的每個容器實例都會配置其資源要求中指定的資源。 不過，如果您設定其選擇性的[資源限制][resource-limits]屬性，群組中的實例所使用的資源上限可能會不同。 實例的資源限制必須大於或等於必要的[資源要求][resource-requests]屬性。
+群組中的每個容器實例都會配置其資源要求中指定的資源。 不過，如果您設定其選擇性的[資源限制][resource-limits]屬性，群組中的容器實例所使用的資源上限可能會不同。 容器實例的資源限制必須大於或等於必要的[資源要求][resource-requests]屬性。
 
-* 如果您未指定資源限制，實例的最大資源使用量就會與資源要求相同。
+* 如果您未指定資源限制，容器實例的最大資源使用量就會與資源要求相同。
 
-* 如果您指定實例的限制，實例的最大使用量可能會大於要求，最多可達您設定的限制。 同樣地，群組中的其他實例所使用的資源可能會減少。 您可以為實例設定的最大資源限制是配置給群組的總資源。
+* 如果您指定容器實例的限制，實例的最大使用量可能會大於要求，最多可達您設定的限制。 同樣地，群組中的其他容器實例可能會減少資源使用量。 您可以為容器實例設定的最大資源限制是配置給群組的總資源。
     
-例如，在有兩個實例的群組中，每個都要求1個 CPU，其中一個容器可能會執行需要比另一個更多 Cpu 執行的工作負載。
+例如，在每個容器實例都要求1個 CPU 的群組中，其中一個容器可能會執行需要比另一個更多 Cpu 執行的工作負載。
 
-在此案例中，您可以為實例設定2個 Cpu 的資源限制。 此設定可讓容器最多使用完整的2個 Cpu （如果有的話）。
+在此案例中，您可以為容器實例設定2個 Cpu 的資源限制。 此設定可讓容器實例最多使用完整的2個 Cpu （如果有的話）。
 
 ### <a name="minimum-and-maximum-allocation"></a>配置的最小和最大值
 
@@ -70,7 +70,7 @@ Azure 容器實例會藉由新增群組中實例的[資源要求][resource-reque
 
 在容器群組內，容器實例可以透過任何埠上的 localhost 彼此連線，即使這些埠並未在群組的 IP 位址或來自容器的外部公開。
 
-選擇性地將容器群組部署至[Azure 虛擬網路][virtual-network]（預覽），讓容器能夠安全地與虛擬網路中的其他資源進行通訊。
+選擇性地將容器群組部署至[Azure 虛擬網路][virtual-network]，以允許容器與虛擬網路中的其他資源安全地通訊。
 
 ## <a name="storage"></a>儲存體
 

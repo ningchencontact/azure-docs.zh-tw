@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: b068eeeada842f2439f6135bfa8567a6c9709d12
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 58bfc35776e83df7754379a12ad4b7afca73e32c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862810"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892334"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>將 Azure-SSIS 整合執行階段加入虛擬網路
 
@@ -57,7 +57,7 @@ Data Factory 可讓您將 Azure SSIS IR 加入透過傳統部署模型或 Azure 
 
 - 如果傳統虛擬網路已從您的 Azure SSIS IR 在不同位置連線到您的內部部署網路，您可以建立[Azure Resource Manager 虛擬網路](../virtual-network/quick-create-portal.md#create-a-virtual-network)，讓您的 AZURE ssis ir 加入。 然後，設定[傳統對 Azure Resource Manager 虛擬網路](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)連線。 
  
-- 如果 Azure Resource Manager 的虛擬網路已從您的 Azure SSIS IR 連線到不同位置的內部部署網路，您可以先建立[Azure Resource Manager 的虛擬網路](../virtual-network/quick-create-portal.md##create-a-virtual-network)，讓您的 AZURE ssis ir 能夠加入。 然後設定 Azure Resource Manager 對 Azure Resource Manager 的虛擬網路連線。 
+- 如果 Azure Resource Manager 的虛擬網路已從您的 Azure SSIS IR 連線到不同位置的內部部署網路，您可以先建立[Azure Resource Manager 的虛擬網路](../virtual-network/quick-create-portal.md#create-a-virtual-network)，讓您的 AZURE ssis ir 能夠加入。 然後設定 Azure Resource Manager 對 Azure Resource Manager 的虛擬網路連線。 
 
 ## <a name="hosting-the-ssis-catalog-in-sql-database"></a>在 SQL Database 中裝載 SSIS 目錄
 

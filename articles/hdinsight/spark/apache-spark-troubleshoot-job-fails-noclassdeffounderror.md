@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 7ccd908c96e68190f09da37a83e0a34a09f5e697
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4659274110add96613ca88560edfb459b20a99cb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087141"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894355"
 ---
 # <a name="apache-spark-streaming-job-that-reads-apache-kafka-data-fails-with-noclassdeffounderror-in-hdinsight"></a>在 HDInsight 中使用 JAVA.lang.noclassdeffounderror 讀取 Apache Kafka 資料的 Apache Spark 串流作業失敗
 
@@ -32,7 +32,7 @@ Stack trace: ExitCodeException exitCode=50:
 
 ## <a name="cause"></a>原因
 
-此錯誤的原因可能是指定的`spark-streaming-kafka` jar 檔案版本與您執行的 Kafka 叢集版本不同。
+此錯誤可能是因為指定的 `spark-streaming-kafka` jar 檔案版本與您正在執行的 Kafka 叢集版本不同所造成。
 
 例如，如果您執行的是 Kafka 叢集版本0.10.1，下列命令將會導致錯誤：
 
@@ -46,7 +46,7 @@ spark-submit \
 
 ## <a name="resolution"></a>解析度
 
-使用 spark-submit 命令`–packages`搭配選項，並確保 Spark 串流 kafka jar 檔案的版本與您正在執行的 kafka 叢集版本相同。」
+使用 [Spark-提交] 命令與 [`–packages`] 選項，並確定 Spark 串流 kafka jar 檔案的版本與您正在執行的 Kafka 叢集版本相同。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -54,6 +54,6 @@ spark-submit \
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源來改善客戶體驗：解答、支援及專家。
+* 連接[@AzureSupport](https://twitter.com/azuresupport) -官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源，來改善客戶體驗：解答、支援和專家。
 
-* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

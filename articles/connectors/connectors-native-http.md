@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 971d7432c841c4ef984c7bbd7899fce733512303
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 232b17852e89ebdfa6f81b5aadcdbcd9c83d4055
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787177"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888136"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 將撥出電話傳送至 HTTP 或 HTTPS 端點
 
@@ -28,7 +28,7 @@ ms.locfileid: "74787177"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 您想要呼叫的目標端點 URL
 
@@ -48,7 +48,7 @@ ms.locfileid: "74787177"
 
    這個範例會將觸發程式重新命名為「HTTP 觸發程式」，讓步驟有更具描述性的名稱。 此外，此範例稍後會新增 HTTP 動作，而且這兩個名稱都必須是唯一的。
 
-1. 提供您想要包含在目標端點呼叫中的[HTTP 觸發程式參數](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)值。 針對您想要讓觸發程式檢查目標端點的頻率，設定週期。
+1. 提供您想要包含在目標端點呼叫中的[HTTP 觸發程式參數](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)值。 針對您想要讓觸發程式檢查目標端點的頻率，設定週期。
 
    如果您選取 [**無**] 以外的驗證類型，驗證設定會根據您的選擇而有所不同。 如需詳細資訊，請參閱[將驗證新增至輸出呼叫](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)。
 
@@ -78,7 +78,7 @@ ms.locfileid: "74787177"
 
    這個範例會將動作重新命名為「HTTP 動作」，讓步驟有更具描述性的名稱。
 
-1. 提供您想要包含在目標端點呼叫中的[HTTP 動作參數](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)值。
+1. 提供您想要包含在目標端點呼叫中的[HTTP 動作參數](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)值。
 
    如果您選取 [**無**] 以外的驗證類型，驗證設定會根據您的選擇而有所不同。 如需詳細資訊，請參閱[將驗證新增至輸出呼叫](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)。
 
@@ -138,21 +138,21 @@ ms.locfileid: "74787177"
 
 如需觸發程式和動作參數的詳細資訊，請參閱下列各節：
 
-* [HTTP 觸發程式參數](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
-* [HTTP 動作參數](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
+* [HTTP 觸發程式參數](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
+* [HTTP 動作參數](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
 ### <a name="output-details"></a>輸出詳細資料
 
 以下是 HTTP 觸發程式或動作輸出的詳細資訊，會傳回下列資訊：
 
-| 屬性名稱 | Type | 描述 |
+| 屬性名稱 | 類型 | 說明 |
 |---------------|------|-------------|
-| 標頭 | object | 要求的標頭 |
+| headers | object | 要求的標頭 |
 | body | object | JSON 物件 | 具有來自要求之本文內容的物件 |
 | 狀態碼 | int | 來自要求的狀態碼 |
 |||
 
-| 狀態碼 | 描述 |
+| 狀態碼 | 說明 |
 |-------------|-------------|
 | 200 | 確定 |
 | 202 | 已接受 |

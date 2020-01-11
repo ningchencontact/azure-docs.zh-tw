@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/12/2019
-ms.openlocfilehash: d4bb9e090b238eacec77f4c19bbf9afb3e09a912
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: e9a81d458d1bab68bf94e9e9d0ebd87fac4580c8
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091053"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896141"
 ---
 # <a name="scenario-unable-to-sign-in-to-apache-zeppelin-in-azure-hdinsight"></a>案例：無法登入 Azure HDInsight 中的 Apache Zeppelin
 
@@ -24,15 +24,15 @@ ms.locfileid: "71091053"
 
 ## <a name="cause"></a>原因
 
-檔案中`activeDirectoryRealm.systemUsername` `shiro_ini`提及的使用者已變更 active directory 密碼。
+`shiro_ini` 檔案的 `activeDirectoryRealm.systemUsername` 中提及的使用者已變更 active directory 密碼。
 
 ## <a name="resolution"></a>解析度
 
-1. 藉由在 Ambari 的 Zeppelin `activeDirectoryRealm.systemPassword = <new password>` `shiro_ini`設定中包含，確認變更的密碼是根本原因。 `activeDirectoryRealm.hadoopSecurityCredentialPath`移除設定。 以下是的`shiro ini`位置。
+1. 藉由在 Ambari 的 Zeppelin `shiro_ini` config 中包含 `activeDirectoryRealm.systemPassword = <new password>`，確認變更的密碼是根本原因。 移除 `activeDirectoryRealm.hadoopSecurityCredentialPath` 設定。 以下是 `shiro ini`的位置。
 
     ![Shiro](./media/domain-joined-zeppelin-signin/shiro.png)
 
-1. 如果使用者現在可以在步驟1之後登入 Zeppelin，請使用新`jceks`的密碼建立新的檔案，並`activeDirectoryRealm.hadoopSecurityCredentialPath`以新的檔案取代。
+1. 如果使用者現在可以在步驟1之後登入 Zeppelin，請使用新的密碼建立新的 `jceks` 檔案，並以新的檔案取代 `activeDirectoryRealm.hadoopSecurityCredentialPath`。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -40,6 +40,6 @@ ms.locfileid: "71091053"
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
+* 與[@AzureSupport](https://twitter.com/azuresupport)進行連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

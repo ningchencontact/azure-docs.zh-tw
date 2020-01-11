@@ -3,12 +3,12 @@ title: 估計 Azure Functions 中的耗用量方案成本
 description: 瞭解如何在 Azure 中的取用方案中執行函數應用程式時，更清楚地預估可能產生的成本。
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 38a3435ddbc6e7cce5d18c99e227d405fdc2e7dd
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 6a68069ab9af54c1c8cfaf6c20727181e48ba1ec
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613053"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890326"
 ---
 # <a name="estimating-consumption-plan-costs"></a>估計耗用量方案成本
 
@@ -22,7 +22,7 @@ ms.locfileid: "75613053"
 
 您選擇最能支援函數效能和成本需求的方案。 若要深入了解，請參閱 [Azure Functions 規模調整和主控](functions-scale.md)。
 
-本文只會處理取用方案，因為此計畫會產生可變成本。 
+本文只會處理取用方案，因為此計畫會產生可變成本。 這篇文章取代了取用[方案成本計費常見問題](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ)文章。
 
 Durable Functions 也可以在取用量方案中執行。 若要深入瞭解使用 Durable Functions 時的成本考慮，請參閱[Durable Functions 計費](./durable/durable-functions-billing.md)。
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: c72b85bc978191744c55afb73973caa6d3b45db6
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 9ecea0576f7cec4e70d6e223b5412a8d8057b2ab
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150955"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894731"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>關於 VPN 閘道組態設定
 
@@ -39,7 +39,7 @@ VPN 閘道連線依賴多個資源的設定，每一個都包含可設定的設�
 * Vpn
 * ExpressRoute
 
-VPN 閘道需要 `-GatewayType` *Vpn*。
+VPN 閘道需要 `-GatewayType` *vpn*。
 
 範例：
 
@@ -55,7 +55,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>設定閘道 SKU
 
-#### <a name="azure-portal"></a>Azure 入口網站
+#### <a name="azure-portal"></a>Azure Portal
 
 如果您使用 Azure 入口網站來建立 Resource Manager 虛擬網路閘道，可以使用下拉式清單選取閘道 SKU。 您看到的選項對應於您選取的閘道類型和 VPN 類型。
 
@@ -169,7 +169,7 @@ New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 使用 REST API、PowerShell Cmdlet 或 Azure CLI 來設定 VPN 閘道組態時，如需其他技術資源和特定語法需求，請參閱下列頁面：
 
-| **傳統** | **資源管理員** |
+| **傳統** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |

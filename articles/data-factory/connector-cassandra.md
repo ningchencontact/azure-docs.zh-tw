@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 41547787a3b7add1baa05a41d6785d1cd926165d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9339fff820c0a0d915258ce3a0bc5371242ad50d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929598"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892838"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>使用 Azure Data Factory 從 Cassandra 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -58,20 +58,20 @@ ms.locfileid: "74929598"
 
 以下是針對 Cassandra 連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 |類型屬性必須設定為：**Cassandra** |是 |
-| host |一或多個 Cassandra 伺服器 IP 位址或主機名稱。<br/>指定以逗號分隔的 IP 位址或主機名稱清單，以同時連線到所有伺服器。 |是 |
+| type |類型屬性必須設定為：**Cassandra** |是 |
+| 主機 |一或多個 Cassandra 伺服器 IP 位址或主機名稱。<br/>指定以逗號分隔的 IP 位址或主機名稱清單，以同時連線到所有伺服器。 |是 |
 | 連接埠 |Cassandra 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否 (預設值為 9042) |
 | authenticationType | 用來連接到 Cassandra 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 |是 |
 | username |指定使用者帳戶的使用者名稱。 |是，如果 authenticationType 設定為 [基本]。 |
-| password |指定使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是，如果 authenticationType 設定為 [基本]。 |
+| 密碼 |指定使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是，如果 authenticationType 設定為 [基本]。 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
 >目前不支援使用 SSL 與 Cassandra 連線。
 
-**範例：**
+**範例︰**
 
 ```json
 {
@@ -101,13 +101,13 @@ ms.locfileid: "74929598"
 
 若要從 Cassandra 複製資料，請將資料集的類型屬性設定為 **CassandraTable**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**CassandraTable** | 是 |
+| type | 資料集的類型屬性必須設定為：**CassandraTable** | 是 |
 | keyspace |Cassandra 資料庫中的 Keyspace 或結構描述名稱。 |否 (如果已指定「CassandraSource」的「查詢」) |
 | tableName |Cassandra 資料庫中資料表的名稱。 |否 (如果已指定「CassandraSource」的「查詢」) |
 
-**範例：**
+**範例︰**
 
 ```json
 {
@@ -136,13 +136,13 @@ ms.locfileid: "74929598"
 
 若要從 Cassandra 複製資料，請將複製活動中的來源類型設定為 **CassandraSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**CassandraSource** | 是 |
-| query |使用自訂查詢來讀取資料。 SQL-92 查詢或 CQL 查詢。 請參閱 [CQL 參考資料](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)。 <br/><br/>在使用 SQL 查詢時，指定 **keyspace name.table 名稱** 來代表您想要查詢的資料表。 |否 (如果已指定資料集中的「tableName」和「keyspace」)。 |
+| type | 複製活動來源的類型屬性必須設定為：**CassandraSource** | 是 |
+| 查詢 |使用自訂查詢來讀取資料。 SQL-92 查詢或 CQL 查詢。 請參閱 [CQL 參考資料](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)。 <br/><br/>在使用 SQL 查詢時，指定 **keyspace name.table 名稱** 來代表您想要查詢的資料表。 |否 (如果已指定資料集中的「tableName」和「keyspace」)。 |
 | consistencyLevel |一致性層級可指定必須先有多少複本回應讀取要求，才會將資料傳回用戶端應用程式。 Cassandra 會檢查要讓資料滿足讀取要求的指定複本數目。 如需詳細資訊，請參閱 [設定資料一致性](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 。<br/><br/>允許的值為：**ONE**、**TWO**、**THREE**、**QUORUM**、**ALL**、**LOCAL_QUORUM**、**EACH_QUORUM** 和 **LOCAL_ONE**。 |否 (預設值為 `ONE`) |
 
-**範例：**
+**範例︰**
 
 ```json
 "activities":[
@@ -181,16 +181,16 @@ ms.locfileid: "74929598"
 | Cassandra 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
 | ASCII |String |
-| BIGINT |Int64 |
+| bigint |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |Boolean |
 | DECIMAL |Decimal |
-| DOUBLE |DOUBLE |
-| FLOAT |Single |
+| DOUBLE |Double |
+| FLOAT |單一 |
 | INET |String |
 | INT |Int32 |
 | TEXT |String |
-| 時間戳記 |日期時間 |
+| timestamp |日期時間 |
 | TIMEUUID |GUID |
 | UUID |GUID |
 | VARCHAR |String |
@@ -217,7 +217,7 @@ Azure Data Factory 會使用內建的 ODBC 驅動程式來連線到 Cassandra �
 
 例如，以下的「ExampleTable」就是 Cassandra 資料庫資料表，其中包含名為「pk_int」的整數主索引鍵資料行、名為「值」的文字資料行、「清單」資料行、「對應」資料行和「集」資料行 (名為「StringSet」)。
 
-| pk_int | Value | List | 對應 | StringSet |
+| pk_int | 值 | List | 對應 | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"sample value 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"sample value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
@@ -226,7 +226,7 @@ Azure Data Factory 會使用內建的 ODBC 驅動程式來連線到 Cassandra �
 
 第一個虛擬資料表是名為「ExampleTable」的基底資料表，如下表所示： 
 
-| pk_int | Value |
+| pk_int | 值 |
 | --- | --- |
 | 1 |"sample value 1" |
 | 3 |"sample value 3" |
@@ -260,7 +260,7 @@ Azure Data Factory 會使用內建的 ODBC 驅動程式來連線到 Cassandra �
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |A |
-| 1 |b |
+| 1 |B |
 | 1 |C |
 | 3 |A |
 | 3 |E |
@@ -270,4 +270,4 @@ Azure Data Factory 會使用內建的 ODBC 驅動程式來連線到 Cassandra �
 若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>後續步驟
-如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。
+如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

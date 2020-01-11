@@ -18,12 +18,12 @@ ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d2b2ea9d878db8284aa44cdbdacb92c8cd4fabe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e7ff9e2015b4621c89b6a831cf7000aa32db5ea6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423995"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888934"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Microsoft 身分識別平臺驗證程式庫
 
@@ -108,7 +108,7 @@ Microsoft 身分識別平臺端點適用于兩種類型的程式庫：
 * 如需程式庫程式碼中的問題和新功能要求，請連絡程式庫擁有者。
 * 如需服務端通訊協定實作中的問題和新功能要求，請連絡 Microsoft。
 * 針對您想要在通訊協定中看到的其他功能，[提出功能要求](https://feedback.azure.com/forums/169401-azure-active-directory)。
-* 如果您發現 Microsoft 身分識別平臺端點不符合 OAuth 2.0 或 OpenID Connect 1.0 的問題，請[建立支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。
+* 如果您發現 Microsoft 身分識別平臺端點不符合 OAuth 2.0 或 OpenID Connect 1.0 的問題，請[建立支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。
 
 ## <a name="related-content"></a>相關內容
 

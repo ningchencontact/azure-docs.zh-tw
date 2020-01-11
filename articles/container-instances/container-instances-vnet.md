@@ -2,14 +2,14 @@
 title: 將容器群組部署至 Azure 虛擬網路
 description: 了解如何將容器群組部署至新的或現有的 Azure 虛擬網路。
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 9c9f1d114ea3883a947fb454d5958c1479bd4a4e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 12260dcb43a675414d38cb5067b230832dd2d16b
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442232"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887951"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>將容器執行個體部署至 Azure 虛擬網路
 
@@ -24,7 +24,7 @@ ms.locfileid: "75442232"
 * 容器可透過 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)或 [ExpressRoute](../expressroute/expressroute-introduction.md) 與內部部署資源通訊
 
 > [!IMPORTANT]
-> 此功能目前在預覽階段，但[有某些限制](#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
+> 虛擬網路的容器群組部署，通常僅適用于下欄區域中的生產工作負載：**美國東部、美國中南部和美國西部 2**。 在可使用此功能的其他區域中，虛擬網路部署目前為預覽狀態，並在不久的未來規劃一般可用性。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 
 
 
 ## <a name="virtual-network-deployment-limitations"></a>虛擬網路部署限制
@@ -33,11 +33,7 @@ ms.locfileid: "75442232"
 
 * 若要將容器群組部署至子網路，該子網路不能包含任何其他資源類型。 在將容器群組部署至子網路之前，請先將所有現有資源從現有的子網路移除，或是建立新的子網路。
 * 您無法在已部署至虛擬網路的容器群組中使用[受控識別](container-instances-managed-identity.md)。
-* 由於涉及其他網路資源，將容器群組部署至虛擬網路的速度通常會比部署標準容器執行個體要慢一些。
-
-## <a name="preview-limitations"></a>預覽限制
-
-雖然這項功能處於預覽狀態，但在將容器群組部署至虛擬網路時，適用下列限制。 
+* 由於牽涉到額外的網路資源，將容器群組部署至虛擬網路的速度通常會比部署標準容器實例慢。
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
@@ -46,8 +42,10 @@ ms.locfileid: "75442232"
 ### <a name="unsupported-networking-scenarios"></a>不支援的網路案例 
 
 * 不支援將 Azure Load Balancer 放在網路容器群組中的容器實例之前**Azure Load Balancer**
-* **虛擬網路對等互連**-如果對等互連 aci vnet 的網路使用公用 IP 空間，VNet 對等互連將無法用於 aci。 對等互連網路需要 RFC1918 的私人 IP 空間，才能讓對等互連正常執行。 此外，您目前只能將 VNet 對等互連至另一個 VNet
-* **虛擬網路流量路由**-無法在公用 ip 周圍設定客戶路由。 可以在部署 ACI 資源的委派子網的私人 IP 空間內設定路由 
+* **虛擬網路對等互連**
+  * 如果 ACI VNet 對等互連的網路使用公用 IP 空間，則 VNet 對等互連將無法用於 ACI。 對等互連網路需要 RFC 1918 私人 IP 空間，才能讓 VNet 對等互連正常執行。 
+  * 您只能將 VNet 對等互連至另一個 VNet
+* **虛擬網路流量路由**-無法在公用 ip 周圍設定自訂路由。 可以在部署 ACI 資源的委派子網的私人 IP 空間內設定路由 
 * **網路安全性群組**-nsg 中套用至委派給 Azure 容器實例之子網的輸出安全性規則目前不會強制執行 
 * **公用 ip 或 DNS 標籤**-部署至虛擬網路的容器群組目前不支援使用公用 IP 位址或完整功能變數名稱將容器直接公開到網際網路
 * **內部名稱解析**-不支援透過內部 Azure DNS 在虛擬網路中的 Azure 資源名稱解析
@@ -99,7 +97,7 @@ ms.locfileid: "75442232"
 
 將容器群組部署至現有的虛擬網路：
 
-1. 在現有的虛擬網路中建立子網路，或是將「所有」其他資源的子網路清空
+1. 在現有的虛擬網路內建立子網、使用已部署容器群組的現有子網，或使用現有的子網清空*所有*其他資源
 1. 使用[az container create][az-container-create]部署容器群組，並指定下列其中一項：
    * 虛擬網路名稱及子網路名稱
    * 虛擬網路資源識別碼與子網路資源識別碼，其允許使用不同資源群組中的虛擬網路
@@ -115,7 +113,7 @@ ms.locfileid: "75442232"
 
 首先，部署容器群組，並為新的虛擬網路及子網路指定參數。 當您指定這些參數時，Azure 會建立虛擬網路及子網路，將子網路委派至 Azure 容器執行個體，以及建立網路設定檔。 當您建立這些資源後，您的容器群組就會部署至子網路。
 
-執行下列[az container create][az-container-create]命令，以指定新的虛擬網路和子網的設定。 您必須提供在以下區域中建立的資源群組名稱：[支援](#preview-limitations)虛擬網路中的容器群組。 此命令會部署公用 Microsoft [aci-helloworld][aci-helloworld]容器，其會執行小型 node.js web 伺服器以提供靜態網頁。 在下一節中，您會對同一個子網路部署第二個容器群組，並測試兩個容器執行個體之間的通訊。
+執行下列[az container create][az-container-create]命令，以指定新的虛擬網路和子網的設定。 您必須提供在虛擬網路中的容器群組部署[可供使用](#virtual-network-deployment-limitations)的區域中所建立的資源組名。 此命令會部署公用 Microsoft [aci-helloworld][aci-helloworld]容器，其會執行小型 node.js web 伺服器以提供靜態網頁。 在下一節中，您會對同一個子網路部署第二個容器群組，並測試兩個容器執行個體之間的通訊。
 
 ```azurecli
 az container create \
@@ -180,7 +178,7 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 ### <a name="deploy-to-existing-virtual-network---yaml"></a>部署至現有的虛擬網路 - YAML
 
-您也可以使用 YAML 檔案將容器群組部署至現有的虛擬網路。 若要部署至虛擬網路中的子網路，您要在 YAML 中額外指定幾項屬性：
+您也可以使用 YAML 檔案、Resource Manager 範本或其他程式設計方法（例如 Python SDK），將容器群組部署至現有的虛擬網路。 若要部署至虛擬網路中的子網路，您要在 YAML 中額外指定幾項屬性：
 
 * `ipAddress`：容器群組的 IP 位址設定。
   * `ports`：要開啟的連接埠 (如果有)。
@@ -225,7 +223,7 @@ properties:
     - protocol: tcp
       port: '80'
   networkProfile:
-    id: /subscriptions/<Subscription ID>/resourceGroups/container/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
+    id: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
   osType: Linux
   restartPolicy: Always
 tags: null
@@ -263,9 +261,9 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 
 > [!NOTE]
-> 如果您在嘗試移除網路設定檔時收到錯誤，請允許2-3 天讓平臺自動減輕問題，然後再次嘗試刪除。 如果您在移除網路設定檔時仍有問題，請[開啟 [支援] reqest。](https://azure.microsoft.com/support/create-ticket/)
+> 如果您在嘗試移除網路設定檔時收到錯誤，請允許2-3 天讓平臺自動減輕問題，然後再次嘗試刪除。 如果您在移除網路設定檔時仍然遇到問題，請[開啟支援要求](https://azure.microsoft.com/support/create-ticket/)。
 
-此功能的初始預覽需要額外使用幾項命令來刪除您先前建立的網路資源。 如果您使用了本文前幾節的範例命令來建立虛擬網路及子網路，您可以使用下列指令碼來刪除這些網路資源。
+這項功能目前需要數個額外的命令來刪除您稍早建立的網路資源。 如果您使用了本文前幾節的範例命令來建立虛擬網路及子網路，您可以使用下列指令碼來刪除這些網路資源。
 
 在執行指令碼之前，請將變數 `RES_GROUP` 設定為包含應刪除虛擬網路及子網路的資源群組名稱。 如果您未使用稍早建議的 `aci-vnet` 名稱，請更新虛擬網路的名稱。 此指令碼會針對 Bash 殼層加以格式化。 如果您慣用其他殼層，例如 PowerShell 或是命令提示字元，您需要相應調整變數指派及存取子。
 

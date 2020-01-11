@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 80eadcadad58cc126a9213c9e5bc5c65c1eb5c6c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 1c21a84bd9aaa259d0459b4e16c7a62aabaa615d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793443"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896391"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps 的定價模式
 
@@ -29,7 +29,7 @@ ms.locfileid: "74793443"
 
 * 觸發程式，這是特殊動作。 所有邏輯應用程式都需要觸發程式做為第一個步驟。
 * 「[內建」或原生動作](../connectors/apis-list.md#built-in)（例如 HTTP）、AZURE FUNCTIONS 和 API 管理的呼叫等等
-* 呼叫[受管理的連接器](../connectors/apis-list.md##managed-connectors)，例如 Outlook 365、Dropbox 等
+* 呼叫[受管理的連接器](../connectors/apis-list.md#managed-connectors)，例如 Outlook 365、Dropbox 等
 * 控制流程步驟，例如迴圈、條件陳述式等等
 
 [標準](../connectors/apis-list.md#managed-connectors)連接器會以[標準連接器價格](https://azure.microsoft.com/pricing/details/logic-apps)收費。 正式運作的[企業連接器](../connectors/apis-list.md#managed-connectors)會以[Enterprise connector 價格](https://azure.microsoft.com/pricing/details/logic-apps)計費，而公開預覽企業連接器則會以[標準連接器價格](https://azure.microsoft.com/pricing/details/logic-apps)收費。

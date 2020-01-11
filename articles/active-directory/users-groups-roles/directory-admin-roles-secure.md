@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87cdd5ff303cbb001e482137df1d4241487fc6d2
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 12391df7e3b8540b775d8c56b5d5c4e648722faf
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900791"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889612"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 
@@ -375,7 +375,7 @@ Cloud App Security SIEM 代理程式可整合 Cloud App Security 與您的 SIEM 
 
 3. 存取您的「急用」帳戶使用者名稱/密碼組合，以登入 Azure AD。 
 
-4. [提出 Azure 支援要求](../../azure-supportability/how-to-create-azure-support-request.md)以取得 Microsoft 的協助。
+4. [提出 Azure 支援要求](../../azure-portal/supportability/how-to-create-azure-support-request.md)以取得 Microsoft 的協助。
 
 5. 查看 [Azure AD 登入報告](../reports-monitoring/overview-reports.md)。 事件在發生後可能需要一段延遲時間才會包含在報告中。
 

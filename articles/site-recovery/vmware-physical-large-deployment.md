@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: e08c7d5f794611a92688e931f35da7482c04407f
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082230"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895784"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>針對 VMware Vm/實體伺服器設定大規模的嚴重損壞修復
 
@@ -26,7 +26,7 @@ ms.locfileid: "74082230"
 - 當您針對 VMware Vm 規劃大規模的嚴重損壞修復，並找出所需的 Azure 資源時，您可以指定將用於容量計算的 RTO 值。
 
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 大規模嚴重損壞修復的一些一般最佳作法。 這些最佳作法會在檔的下一節中更詳細地討論。
 
@@ -83,9 +83,9 @@ ms.locfileid: "74082230"
 
 我們想要確保目標訂用帳戶中的可用配額足以處理容錯移轉。
 
-**Task** | **詳細資料** | **Action**
+**Task** | **詳細資料** | **動作**
 --- | --- | ---
-**檢查核心** | 如果可用配額中的核心不等於或超過容錯移轉時的總目標數，容錯移轉將會失敗。 | 若為 VMware Vm，請檢查目標訂用帳戶中有足夠的核心，以符合部署規劃工具核心建議。<br/><br/> 針對實體伺服器，請檢查 Azure 核心是否符合您的手動估計。<br/><br/> 若要檢查配額，請在 Azure 入口網站 >**訂**用帳戶中，按一下 **使用量 + 配額**。<br/><br/> [深入瞭解](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)增加配額。
+**檢查核心** | 如果可用配額中的核心不等於或超過容錯移轉時的總目標數，容錯移轉將會失敗。 | 若為 VMware Vm，請檢查目標訂用帳戶中有足夠的核心，以符合部署規劃工具核心建議。<br/><br/> 針對實體伺服器，請檢查 Azure 核心是否符合您的手動估計。<br/><br/> 若要檢查配額，請在 Azure 入口網站 >**訂**用帳戶中，按一下 **使用量 + 配額**。<br/><br/> [深入瞭解](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)增加配額。
 **檢查容錯移轉限制** | 容錯移轉不得數目超過 Site Recovery 的容錯移轉限制。 |  如果容錯移轉超過限制，您可以新增訂閱、容錯移轉至多個訂用帳戶，或增加訂用帳戶的配額。 
 
 
@@ -95,12 +95,12 @@ ms.locfileid: "74082230"
 
 什麼是相符的意思？ 若要啟動 Azure VM，Azure 需要某些驅動程式處於開機啟動狀態，而 DHCP 等服務會設定為自動啟動。
 - 符合規範的電腦就已準備好這些設定。
-- 對於執行 Windows 的機器，您可以主動檢查合規性，並視需要使其符合規範。 [詳細資訊](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010)。
+- 對於執行 Windows 的機器，您可以主動檢查合規性，並視需要使其符合規範。 [深入了解](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010)。
 - Linux 機器只會在容錯移轉時進入合規性狀態。
 
 **機器符合 Azure 的規定嗎？** | **Azure VM 限制（受控磁片容錯移轉）**
 --- | --- 
-yes | 2000
+是 | 2000
 否 | 1000
 
 - 限制會假設訂用帳戶的目的地區域中有最少的其他作業正在進行中。
@@ -155,7 +155,7 @@ yes | 2000
 
 **CPU** | **記憶體** | **快取磁碟** | **變換率**
  --- | --- | --- | --- 
-12 個 vCPU<br> 2個通訊端 * 6 核心 @ 2.5 Ghz | 24 GB | 1 GB | 一天最多 2 TB
+12 個 vCPU<br> 2個通訊端 * 6 核心 @ 2.5 Ghz | 24 GB | 1GB | 一天最多 2 TB
 
 設定進程伺服器，如下所示：
 

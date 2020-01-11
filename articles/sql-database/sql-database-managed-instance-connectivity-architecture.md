@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 7cb3b4d6b490d09d14046465e0fc58526be5b045
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b5a48a686a238d724680e806daaed431107ec72
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433837"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894830"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database 中受控實例的連線架構
 
@@ -66,7 +66,7 @@ Microsoft 管理和部署服務會在虛擬網路外部執行。 受控實例和
 
 ![虛擬叢集的連線架構](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-用戶端會使用格式為 `<mi_name>.<dns_zone>.database.windows.net`的主機名稱來連線到受控實例。 此主機名稱會解析為私人 IP 位址，雖然它是在公用網域名稱系統（DNS）區域中註冊，而且可公開解析。 當您建立叢集時，就會自動產生 `zone-id`。 如果新建立的叢集裝載次要受控實例，它會與主要叢集共用其區域識別碼。 如需詳細資訊，請參閱[使用自動容錯移轉群組來啟用多個資料庫的透明和協調容錯移轉](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)。
+用戶端會使用格式為 `<mi_name>.<dns_zone>.database.windows.net`的主機名稱來連線到受控實例。 此主機名稱會解析為私人 IP 位址，雖然它是在公用網域名稱系統（DNS）區域中註冊，而且可公開解析。 當您建立叢集時，就會自動產生 `zone-id`。 如果新建立的叢集裝載次要受控實例，它會與主要叢集共用其區域識別碼。 如需詳細資訊，請參閱[使用自動容錯移轉群組來啟用多個資料庫的透明和協調容錯移轉](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets)。
 
 此私人 IP 位址屬於受控實例的內部負載平衡器。 負載平衡器會將流量導向至受控實例的閘道。 因為多個受控實例可以在相同的叢集中執行，所以閘道會使用受控實例的主機名稱，將流量重新導向至正確的 SQL 引擎服務。
 

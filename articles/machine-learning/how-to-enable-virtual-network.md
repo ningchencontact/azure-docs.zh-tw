@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/13/2019
-ms.openlocfilehash: 548b74dbaf36fa0a0b5f999d1de61a0c05241c61
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.date: 01/03/2020
+ms.openlocfilehash: 333d7faacfb5965e74eae69f07ff974a8fff8f25
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690825"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894000"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>在 Azure 虛擬網路中保護 Azure ML 實驗和推斷作業
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,7 +44,7 @@ Azure Machine Learning 依賴其他 Azure 服務來計算資源。 計算資源�
 
 ## <a name="use-a-storage-account-for-your-workspace"></a>針對您的工作區使用儲存體帳戶
 
-若要在虛擬網路中使用 Azure 儲存體帳戶作為工作區，請執行下列動作：
+若要在虛擬網路中使用 Azure 儲存體帳戶作為工作區，請使用下列步驟：
 
 1. 建立虛擬網路後方的計算資源（例如，Machine Learning 計算實例或叢集），或將計算資源附加至工作區（例如，HDInsight 叢集、虛擬機器或 Azure Kubernetes Service 叢集）。 計算資源可以用於實驗或模型部署。
 
@@ -88,7 +88,8 @@ Azure Machine Learning 會使用與工作區相關聯的金鑰保存庫實例來
 * Azure 容器存放庫實例的密碼
 * 資料存放區的連接字串
 
-若要在虛擬網路背後的 Azure Key Vault 使用 Azure Machine Learning 測試功能，請執行下列動作：
+若要搭配虛擬網路背後的 Azure Key Vault 使用 Azure Machine Learning 試驗功能，請使用下列步驟：
+
 1. 移至與工作區相關聯的金鑰保存庫。
 
    [![與 Azure Machine Learning 工作區相關聯的金鑰保存庫](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
@@ -158,11 +159,11 @@ Machine Learning Compute 目前使用 Azure Batch 服務將 VM 佈建在指定�
 
 ### <a id="limiting-outbound-from-vnet"></a>限制來自虛擬網路的輸出連線能力
 
-如果您不想要使用預設輸出規則，而您想要限制虛擬網路的輸出存取，請執行下列動作：
+如果您不想要使用預設輸出規則，而您想要限制虛擬網路的輸出存取，請使用下列步驟：
 
 - 使用 NSG 規則拒絕連出網際網路連線。
 
-- 將輸出流量限制為下列各項：
+- 將輸出流量限制為下列專案：
    - Azure 儲存體，方法是使用儲存體的__服務標記__ __。 Region_Name__ （例如 EastUS）
    - Azure Container Registry，方法是使用__AzureContainerRegistry. Region_Name__的__服務標記__（例如，AzureContainerRegistry. EastUS）
    - Azure Machine Learning，方法是使用__AzureMachineLearning__的__服務標記__
@@ -223,7 +224,7 @@ Machine Learning Compute 目前使用 Azure Batch 服務將 VM 佈建在指定�
 
 ### <a name="create-a-compute-cluster-in-a-virtual-network"></a>在虛擬網路中建立計算叢集
 
-若要建立 Machine Learning Compute 叢集，請執行下列動作：
+若要建立 Machine Learning Compute 叢集，請使用下列步驟：
 
 1. 在  [Azure 入口網站](https://portal.azure.com)中，選取您的 Azure Machine Learning 工作區。
 
@@ -297,7 +298,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure Machine Learning 僅支援執行 Ubuntu 的虛擬機器。
 
-若要在虛擬網路中使用虛擬機器或 Azure HDInsight 叢集與您的工作區，請執行下列動作：
+若要在虛擬網路中使用虛擬機器或 Azure HDInsight 叢集與您的工作區，請使用下列步驟：
 
 1. 使用 Azure 入口網站或 Azure CLI 建立 VM 或 HDInsight 叢集，並將叢集放在 Azure 虛擬網路中。 如需詳細資訊，請參閱下列文章：
     * [建立和管理適用於 Linux VM 的 Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
@@ -332,7 +333,7 @@ except ComputeTargetException:
 
 ## <a name="use-azure-kubernetes-service-aks"></a>使用 Azure Kubernetes Service (AKS)
 
-若要將虛擬網路中的 AKS 新增至您的工作區，請執行下列動作：
+若要將虛擬網路中的 AKS 新增至您的工作區，請使用下列步驟：
 
 > [!IMPORTANT]
 > 開始下列程式之前，請遵循在[Azure Kubernetes Service 中設定 advanced 網路中的必要條件（AKS）](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites)作法和規劃叢集的 IP 位址。
@@ -393,6 +394,82 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 當建立程式完成時，您可以在虛擬網路背後的 AKS 叢集上執行推斷或模型評分。 如需詳細資訊，請參閱[部署至 AKS 的方式](how-to-deploy-and-where.md)。
 
+### <a name="use-private-ips-with-azure-kubernetes-service"></a>搭配 Azure Kubernetes Service 使用私人 Ip
+
+根據預設，公用 IP 位址會指派給 AKS 部署。 在虛擬網路內使用 AKS 時，您可以改為使用私人 IP 位址。 只能從虛擬網路或聯結的網路內部存取私人 IP 位址。
+
+藉由將 AKS 設定為使用_內部負載平衡器_，可啟用私人 IP 位址。 
+
+> [!IMPORTANT]
+> 建立 Azure Kubernetes Service 叢集時，您無法啟用私人 IP。 您必須將它啟用為現有叢集的更新。
+
+下列程式碼片段示範如何**建立新的 AKS**叢集，然後將其更新為使用私人 IP/內部負載平衡器：
+
+```python
+import azureml.core
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute import AksCompute, ComputeTarget
+
+# Verify that cluster does not exist already
+try:
+    aks_target = AksCompute(workspace=ws, name=aks_cluster_name)
+    print("Found existing aks cluster")
+
+except:
+    print("Creating new aks cluster")
+
+    # Create AKS configuration
+    prov_config = AksCompute.provisioning_configuration(location = "eastus2")
+    # Set info for existing virtual network to create the cluster in
+    prov_config.vnet_resourcegroup_name = "myvnetresourcegroup"
+    prov_config.vnet_name = "myvnetname"
+    prov_config.service_cidr = "10.0.0.0/16"
+    prov_config.dns_service_ip = "10.0.0.10"
+    prov_config.subnet_name = "default"
+    prov_config.docker_bridge_cidr = "172.17.0.1/16"
+
+    # Create compute target
+    aks_target = ComputeTarget.create(workspace = ws, name = “myaks”, provisioning_configuration = prov_config)
+    # Wait for the operation to complete
+    aks_target.wait_for_completion(show_output = True)
+    
+    # Update AKS configuration to use an internal load balancer
+    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", "default")
+    aks_target.update(update_config)
+    # Wait for the operation to complete
+    aks_target.wait_for_completion(show_output = True)
+```
+
+__Azure CLI__
+
+```azurecli-interactive
+az rest --method put --uri https://management.azure.com"/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>?api-version=2018-11-19 --body @body.json
+```
+
+命令所參考之 `body.json` 檔案的內容，與下列 JSON 檔類似：
+
+```json
+{ 
+    "location": “<region>”, 
+    "properties": { 
+        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>", 
+        "computeType": "AKS", 
+        "provisioningState": "Succeeded", 
+        "properties": { 
+            "loadBalancerType": "InternalLoadBalancer", 
+            "agentCount": <agent-count>, 
+            "agentVmSize": "vm-size", 
+            "clusterFqdn": "<cluster-fqdn>" 
+        } 
+    } 
+} 
+```
+
+> [!NOTE]
+> 目前，您無法在現有叢集上執行__附加__作業時設定負載平衡器。 您必須先連接叢集，然後執行更新作業來變更負載平衡器。
+
+如需搭配 AKS 使用內部負載平衡器的詳細資訊，請參閱[使用內部負載平衡器搭配 Azure Kubernetes Service](/azure/aks/internal-lb)。
+
 ## <a name="use-azure-firewall"></a>使用 Azure 防火牆
 
 使用 Azure 防火牆時，您必須設定網路規則，以允許進出下列位址的流量：
@@ -414,4 +491,3 @@ aks_target = ComputeTarget.create(workspace=ws,
 * [設定定型環境](how-to-set-up-training-targets.md)
 * [部署模型的位置](how-to-deploy-and-where.md)
 * [使用 SSL 安全地部署模型](how-to-secure-web-service.md)
-

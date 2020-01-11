@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 0466b08e551a5fa9da37afe2e5ad175ef28c804e
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529560"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887150"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>針對 Azure HDInsight 上的 Apache HBase 效能問題進行疑難排解
 
@@ -57,7 +57,7 @@ ms.locfileid: "72529560"
 
 ## <a name="migration-issues"></a>遷移問題
 
-如果您要遷移至 Azure HDInsight，請確定您的遷移是以有系統的方式正確地完成，最好是透過自動化進行。 避免手動遷移。 請確定：
+如果您要遷移至 Azure HDInsight，請確定您的遷移是以有系統的方式正確地完成，最好是透過自動化進行。 避免手動遷移。 請確認：
 
 - 資料表屬性會正確遷移。 屬性可以包含做為壓縮、bloom 篩選等。
 
@@ -104,7 +104,7 @@ ms.locfileid: "72529560"
 - RPC 超時： **3 分鐘**
 
    - RPC 超時包括 HBase RPC timeout、HBase 用戶端掃描器超時和 Phoenix 查詢超時。 
-   - 請確定伺服器端和用戶端上的 `hbase.client.scanner.caching` 參數都設定為相同的值。 如果兩者不相同，則此設定會導致與 `OutOfOrderScannerException` 相關的用戶端錯誤。 這種設定應該設定為較低的值來進行大型掃描。 我們會將此值設定為**100**。
+   - 請確定伺服器端和用戶端上的 `hbase.client.scanner.caching` 參數都設定為相同的值。 如果兩者不相同，則此設定會導致與 `OutOfOrderScannerException`相關的用戶端錯誤。 這種設定應該設定為較低的值來進行大型掃描。 我們會將此值設定為**100**。
 
 ## <a name="other-considerations"></a>其他考量
 
@@ -124,4 +124,4 @@ ms.locfileid: "72529560"
 
 - 連接[@AzureSupport](https://twitter.com/azuresupport)。 這是用來改善客戶體驗的官方 Microsoft Azure 帳戶。 它會將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-- 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+- 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

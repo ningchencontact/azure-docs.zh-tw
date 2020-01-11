@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/02/2019
-ms.openlocfilehash: eebf9a7c3df2e5956d7926cbdf93f473897dbf44
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5340b1c7a6510595376789bc5777e6fb6f07dd4a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087865"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895644"
 ---
-# <a name="scenario-apache-ambari-ui-shows-down-hosts-and-services-in-azure-hdinsight"></a>案例：Apache Ambari UI 會在 Azure HDInsight 中顯示主機和服務
+# <a name="scenario-apache-ambari-ui-shows-down-hosts-and-services-in-azure-hdinsight"></a>案例： Apache Ambari UI 會在 Azure HDInsight 中顯示主機和服務
 
 本文說明與 Azure HDInsight 叢集互動時，問題的疑難排解步驟和可能的解決方法。
 
@@ -26,7 +26,7 @@ Apache Ambari UI 可供存取，但 UI 會顯示幾乎所有的服務都已關�
 
 在大部分情況下，這是在使用中前端節點上未執行 Ambari 伺服器的問題。 請檢查哪個前端節點是作用中的前端節點，並確定您的 ambari 伺服器會在正確的節點上執行。 不要手動啟動 ambari-伺服器，讓容錯移轉控制器服務負責啟動右側前端節點上的 ambari 伺服器。 重新開機作用中的前端節點，以強制進行容錯移轉。
 
-網路問題也可能會造成此問題。 從每個叢集節點，查看是否可以 ping `headnodehost`。 在少數情況下，沒有任何叢集節點可以連接到`headnodehost`：
+網路問題也可能會造成此問題。 從每個叢集節點，查看是否可以 ping `headnodehost`。 在少數情況下，沒有任何叢集節點可以連接到 `headnodehost`：
 
 ```
 $>telnet headnodehost 8440
@@ -43,6 +43,6 @@ $>telnet headnodehost 8440
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源來改善客戶體驗：解答、支援及專家。
+* 連接[@AzureSupport](https://twitter.com/azuresupport) -官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源，來改善客戶體驗：解答、支援和專家。
 
-* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

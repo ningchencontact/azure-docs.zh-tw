@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: fb1e22b0ca1da00bf2665d863b40f19fa1621771
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 0e409ffdedbac822aedf48833f2dd85f8e04afa2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721291"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894968"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>刪除 Site Recovery 復原服務保存庫
 
@@ -44,7 +44,7 @@ ms.locfileid: "73721291"
 
 1. 請遵循[下列步驟](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario)來刪除 SYSTEM Center VMM 所管理的 hyper-v vm。
 2. 解除關聯並刪除所有複寫原則。 在您的保存庫中執行此動作 **，> System CENTER VMM** > **複寫原則**的**Site Recovery 基礎結構** > 。
-3. 請遵循[下列步驟](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server)來取消註冊已連線的 VMM 伺服器。
+3. 請遵循[下列步驟](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server)來取消註冊已連線的 VMM 伺服器。
 4. 然後，刪除保存庫。
 
 ## <a name="delete-a-vault-hyper-v-vm-to-azure"></a>刪除保存庫-Hyper-v VM 至 Azure

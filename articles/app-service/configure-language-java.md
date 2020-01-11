@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: dec5d1c7c7664bf72d92e5aca4333ba64db26d02
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 9ee989a079366a470d086a8b931685a6c1dbc757
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671900"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889344"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Windows JAVA 應用程式
 
@@ -194,7 +194,7 @@ public int getServerPort()
 ### <a name="configure-appdynamics"></a>設定 AppDynamics
 
 1. 在 [AppDynamics.com](https://www.appdynamics.com/community/register/) 建立 AppDynamics 帳戶
-2. 從 AppDynamics 網站下載 JAVA 代理程式，檔案名會類似*AppServerAgent-x*的名稱。 *
+2. 從 AppDynamics 網站下載 JAVA 代理程式，檔案名會類似*AppServerAgent-x*的名稱。
 3. 使用[Kudu 主控台](https://github.com/projectkudu/kudu/wiki/Kudu-console)來建立新的目錄 */home/site/wwwroot/apm*。
 4. 將 JAVA 代理程式檔案上傳至 */home/site/wwwroot/apm*底下的目錄。 您的代理程式檔案應位於 */home/site/wwwroot/apm/appdynamics*中。
 5. 在 Azure 入口網站中，瀏覽至您在 App Service 中的應用程式，並建立新的應用程式設定。
@@ -226,7 +226,7 @@ public int getServerPort()
 </appSettings>
 ```
 
-或者，在 Azure 入口網站的 [設定 ** > ** **應用程式設定**] 頁面中設定環境變數。
+或者，在 Azure 入口網站的 [**設定** > **應用程式設定**] 頁面中設定環境變數。
 
 接著，決定資料來源應僅供在 Tomcat Servlet 上執行的一個應用程式還是所有應用程式使用。
 
@@ -234,7 +234,7 @@ public int getServerPort()
 
 1. 在您專案的*中繼 INF/* 目錄中，建立一個*內容 .xml*檔案。 建立*中繼 INF/* 目錄（如果不存在）。
 
-2. 在*內容 .xml*中，新增 `Context` 專案，以將資料來源連結至 JNDI 位址。 以上表中您驅動程式的類別名稱取代 `driverClassName` 預留位置。
+2. 在*內容 .xml*中，新增 `Context` 元素，以將資料來源連結至 JNDI 位址。 以上表中您驅動程式的類別名稱取代 `driverClassName` 預留位置。
 
     ```xml
     <Context>
@@ -315,7 +315,7 @@ Azure 支援的 Java Development Kit (JDK) 是透過 [Azul Systems](https://www.
 
 ### <a name="runtime-support"></a>執行階段支援
 
-開發人員如果具有[合格的支援方案](https://azure.microsoft.com/support/plans/)，便可透過 Azure 支援服務，針對 Azul Zulu JDK [開立問題](/azure/azure-supportability/how-to-create-azure-support-request)。
+開發人員如果具有[合格的支援方案](https://azure.microsoft.com/support/plans/)，便可透過 Azure 支援服務，針對 Azul Zulu JDK [開立問題](/azure/azure-portal/supportability/how-to-create-azure-support-request)。
 
 ## <a name="next-steps"></a>後續步驟
 

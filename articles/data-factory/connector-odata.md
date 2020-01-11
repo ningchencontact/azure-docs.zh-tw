@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: e70cd6d7745b2754bdda6992c587c5c72643869b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0cc9328fa08f7e9125ecb41576c67f95382bc1bf
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74912514"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892385"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 OData 來源複製資料
 
@@ -38,7 +38,7 @@ ms.locfileid: "74912514"
 具體而言，這個 OData 連接器支援：
 
 - OData 3.0 和 4.0 版。
-- 使用下列其中一種驗證來複製資料︰**匿名**、**基本**、**Windows**、**AAD 服務主體**及**適用於 Azure 資源的受控識別**。
+- 使用下列其中一種驗證來複製資料：**匿名**、**基本**、 **Windows**、 **AAD 服務主體**，以及**適用于 Azure 資源的受控**識別。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -54,13 +54,13 @@ ms.locfileid: "74912514"
 
 以下是針對 OData 連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
 | type | **type** 屬性必須設為 **OData**。 |是 |
-| URL | OData 服務的根 URL。 |是 |
+| url | OData 服務的根 URL。 |是 |
 | authenticationType | 用來連線到 OData 來源的驗證類型。 允許的值為 **Anonymous**、**Basic**、**Windows**、**AadServicePrincipal** 及 **ManagedServiceIdentity**。 不支援以使用者為基礎的 OAuth。 | 是 |
 | userName | 如果使用基本或 Windows 驗證，請指定 **userName**。 | 否 |
-| password | 針對您指定 **userName** 的使用者帳戶指定 **password**。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | 否 |
+| 密碼 | 針對您指定 **userName** 的使用者帳戶指定 **password**。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | 否 |
 | servicePrincipalId | 指定 Azure Active Directory 應用程式的用戶端識別碼。 | 否 |
 | aadServicePrincipalCredentialType | 指定要用於服務主體驗證的認證類型。 允許的值包為：`ServicePrincipalKey` 或 `ServicePrincipalCert`。 | 否 |
 | servicePrincipalKey | 指定 Azure Active Directory 應用程式的金鑰。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
@@ -137,7 +137,7 @@ ms.locfileid: "74912514"
 }
 ```
 
-**範例 4︰使用服務主體金鑰驗證**
+**範例4：使用服務主體金鑰驗證**
 
 ```json
 {
@@ -164,7 +164,7 @@ ms.locfileid: "74912514"
 }
 ```
 
-**範例 5：使用服務主體憑證驗證**
+**範例5：使用服務主體憑證驗證**
 
 ```json
 {
@@ -203,7 +203,7 @@ ms.locfileid: "74912514"
 
 若要從 OData 複製資料，請將資料集的 **type** 屬性設定為 **ODataResource**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的 **type** 屬性必須設定為 **ODataResource**。 | 是 |
 | path | OData 資源的路徑。 | 是 |
@@ -239,10 +239,10 @@ ms.locfileid: "74912514"
 
 若要從 OData 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的**類型**屬性必須設定為**ODataSource**。 | 是 |
-| query | 用來篩選資料的 OData 查詢選項。 範例： `"$select=Name,Description&$top=5"`.<br/><br/>**注意**：OData 連接器會從以下的組合 URL 複製資料：`[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`。 如需詳細資訊，請參閱 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |
+| 查詢 | 用來篩選資料的 OData 查詢選項。 範例： `"$select=Name,Description&$top=5"`.<br/><br/>**注意**：OData 連接器會從以下的組合 URL 複製資料：`[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`。 如需詳細資訊，請參閱 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |
 
 **範例**
 
@@ -287,11 +287,11 @@ ms.locfileid: "74912514"
 | Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | DateTime |
+| Edm.DateTime | 日期時間 |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
-| Edm.Single | Single |
-| Edm.Guid | Guid |
+| Edm.Single | 單一 |
+| Edm.Guid | GUID |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
@@ -310,4 +310,4 @@ ms.locfileid: "74912514"
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 Azure Data Factory 中複製活動作為來源和接收端支援的資料存放區清單，請參閱[支援的資料存放區和格式](copy-activity-overview.md##supported-data-stores-and-formats)。
+如需 Azure Data Factory 中複製活動作為來源和接收端支援的資料存放區清單，請參閱[支援的資料存放區和格式](copy-activity-overview.md#supported-data-stores-and-formats)。

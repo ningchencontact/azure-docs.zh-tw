@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: 5652c5035c2e4cd35ac6943ef90c8bcc02b95dba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de3a3d9e5523341c2f549ff2a90c9c40a4e3cb50
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442881"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889454"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑難排解
 
@@ -25,7 +25,7 @@ ms.locfileid: "75442881"
 
 ## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>我在建立或升級期間收到「已超出配額」錯誤。 我該怎麼做？ 
 
-您需要[要求核心](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。
+您需要[要求核心](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)。
 
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>對於 AKS，每個節點的最大 Pod 數設定為何？
 
@@ -78,7 +78,7 @@ ms.locfileid: "75442881"
 當叢集因多種原因而進入失敗狀態時，就會發生此錯誤。 在重試先前失敗的作業之前，請遵循下列步驟來解決叢集失敗狀態：
 
 1. 在叢集 `failed` 狀態之前，`upgrade` 和 `scale` 作業將會失敗。 常見的根本問題和解決方式包括：
-    * 使用**不足的計算（CRP）配額**進行調整。 若要解決此問題，請先將叢集調整回配額內的穩定目標狀態。 然後，請遵循下列[步驟來要求增加計算配額](../azure-supportability/resource-manager-core-quotas-request.md)，然後再嘗試重新擴充超過初始配額限制。
+    * 使用**不足的計算（CRP）配額**進行調整。 若要解決此問題，請先將叢集調整回配額內的穩定目標狀態。 然後，請遵循下列[步驟來要求增加計算配額](../azure-portal/supportability/resource-manager-core-quotas-request.md)，然後再嘗試重新擴充超過初始配額限制。
     * 使用 advanced 網路和**不足的子網（網路）資源**來調整叢集。 若要解決此問題，請先將叢集調整回配額內的穩定目標狀態。 然後[，遵循下列步驟來要求增加資源配額，](../azure-resource-manager/templates/error-resource-quota.md#solution)再嘗試重新相應增加超過初始配額限制。
 2. 解決升級失敗的根本原因之後，您的叢集應該會處於成功狀態。 一旦驗證成功狀態之後，請重試原始操作。
 

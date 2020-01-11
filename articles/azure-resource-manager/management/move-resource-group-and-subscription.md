@@ -3,12 +3,12 @@ title: 將資源移到新的訂用帳戶或資源群組
 description: 使用 Azure Resource Manager 將資源移到新的資源群組或訂用帳戶。
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 60c2046b1bbdc92c9b63c748c7d758659abfbe46
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: c91081ee25a3b98fa25b8b9b9047da186b22181b
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659428"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891362"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>將資源移到新的資源群組或訂用帳戶
 
@@ -33,7 +33,7 @@ ms.locfileid: "75659428"
    * [復原服務移動指引](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [虛擬機器移動指引](./move-limitations/virtual-machines-move-limitations.md)
 
-1. 來源和目的地訂用帳戶必須為作用中。 如果您在啟用已停用的帳戶時遇到問題，請[建立 Azure 支援要求](../../azure-supportability/how-to-create-azure-support-request.md)。 針對問題類型選取 [訂用帳戶管理]。
+1. 來源和目的地訂用帳戶必須為作用中。 如果您在啟用已停用的帳戶時遇到問題，請[建立 Azure 支援要求](../../azure-portal/supportability/how-to-create-azure-support-request.md)。 針對問題類型選取 [訂用帳戶管理]。
 
 1. 來源和目的地的訂用帳戶必須存在於相同的 [Azure Active Directory 租用戶](../../active-directory/develop/quickstart-create-new-tenant.md)內。 若要檢查這兩個訂用帳戶都有相同的租用戶識別碼，請使用 Azure PowerShell 或 Azure CLI。
 

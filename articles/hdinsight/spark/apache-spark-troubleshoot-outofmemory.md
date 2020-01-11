@@ -7,18 +7,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
-ms.openlocfilehash: f3f89de07e2e17a4dda47ce3650391af38663004
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087193"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894320"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Azure HDInsight 中 Apache Spark 的 OutOfMemoryError 例外狀況
 
 本文說明在 Azure HDInsight 叢集中使用 Apache Spark 元件時，疑難排解步驟和問題的可能解決方法。
 
-## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>案例：Apache Spark 的 OutOfMemoryError 例外狀況
+## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>案例： Apache Spark 的 OutOfMemoryError 例外狀況
 
 ### <a name="issue"></a>問題
 
@@ -60,11 +60,11 @@ java.lang.OutOfMemoryError
 
 1. 決定 Spark 應用程式將處理的資料大小上限。 根據輸入資料大小的最大值、轉換輸入資料所產生的中繼資料，以及進一步轉換中繼資料所產生的輸出資料，來預估大小。 如果初始估計值不足，請稍微增加大小，然後反復執行直到記憶體錯誤減少為止。
 
-1. 請確定要使用的 HDInsight 叢集具有足夠的記憶體資源及核心，才能採用 Spark 應用程式。 這可以藉由在叢集的 YARN UI 的 [叢集計量] 區段中，查看**使用的記憶體**值與已使用的**記憶體總計**和**虛擬核心**與**VCore 總計**的值。
+1. 請確定要使用的 HDInsight 叢集具有足夠的記憶體資源及核心，才能採用 Spark 應用程式。 這可以藉由在叢集的 YARN UI 的 [叢集計量] 區段中，查看已使用的**記憶體**值和 [**記憶體總計**] 和 [已**使用的虛擬核心**] 與 [**虛擬核心總計**]。
 
     ![yarn 核心記憶體視圖](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
 
-1. 將下列 Spark 設定設為適當的值。 平衡應用程式需求與叢集中可用的資源。 這些值不應超過 YARN 所查看的可用記憶體和核心 90%，而且也應該符合 Spark 應用程式的最小記憶體需求：
+1. 將下列 Spark 設定設為適當的值。 平衡應用程式需求與叢集中可用的資源。 這些值不應超過 YARN 所查看的可用記憶體和核心90%，而且也應該符合 Spark 應用程式的最小記憶體需求：
 
     ```
     spark.executor.instances (Example: 8 for 8 executor count)
@@ -116,13 +116,13 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 
 ### <a name="resolution"></a>解析度
 
-您可以藉由編輯 spark 設定中的`SPARK_DAEMON_MEMORY`屬性並重新啟動所有服務，來增加 spark 歷程記錄伺服器記憶體。
+您可以藉由編輯 Spark 設定中的 [`SPARK_DAEMON_MEMORY`] 屬性，然後重新開機所有服務，來增加 Spark 歷程記錄伺服器記憶體。
 
 您可以在 Ambari 瀏覽器 UI 中選取 Spark2/Config/Advanced Spark2-env 區段來執行此動作。
 
 ![Advanced spark2-env 區段](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
 
-新增下列屬性，以將 Spark 歷程記錄伺服器記憶體從1g 變更為 4g `SPARK_DAEMON_MEMORY=4g`：。
+新增下列屬性，以將 Spark 歷程記錄伺服器記憶體從1g 變更為4g： `SPARK_DAEMON_MEMORY=4g`。
 
 ![Spark 屬性](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
 
@@ -130,7 +130,7 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 
 ---
 
-## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>案例：Apache Spark 叢集上的 Livy 伺服器無法啟動
+## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>案例： Apache Spark 叢集上的 Livy 伺服器無法啟動
 
 ### <a name="issue"></a>問題
 
@@ -194,7 +194,7 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 ### <a name="cause"></a>原因
 
-`java.lang.OutOfMemoryError: unable to create new native thread`反白顯示 OS 無法將更多原生執行緒指派給 Jvm。 確認此例外狀況是因為違反每個進程的執行緒計數限制所造成。
+`java.lang.OutOfMemoryError: unable to create new native thread` 重點事項 OS 無法指派更多原生執行緒給 Jvm。 確認此例外狀況是因為違反每個進程的執行緒計數限制所造成。
 
 當 Livy 伺服器意外終止時，Spark 叢集的所有連接也會終止，這表示所有作業和相關資料都會遺失。 在 HDP 2.6 中引進了會話復原機制，Livy 會將會話詳細資料儲存在 Zookeeper 中，以在 Livy 伺服器回復後復原。
 
@@ -239,7 +239,7 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 1. 等候上述命令完成，並傳回游標以傳回提示，然後從 Ambari 重新開機 Livy 服務，這應該會成功。
 
 > [!NOTE]
-> `DELETE`完成執行時，livy 會話。 Spark 應用程式完成後，就不會自動刪除 Livy 批次會話，這是設計的。 Livy 會話是針對 Livy Rest 伺服器的 POST 要求所建立的實體。 需要`DELETE`呼叫才能刪除該實體。 或者，我們應該等待 GC 開始。
+> 在 livy 會話完成執行後，將其 `DELETE`。 Spark 應用程式完成後，就不會自動刪除 Livy 批次會話，這是設計的。 Livy 會話是針對 Livy Rest 伺服器的 POST 要求所建立的實體。 需要 `DELETE` 呼叫，才能刪除該實體。 或者，我們應該等待 GC 開始。
 
 ---
 
@@ -253,6 +253,6 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
+* 與[@AzureSupport](https://twitter.com/azuresupport)進行連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

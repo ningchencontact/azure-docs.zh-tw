@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 63b778379dda39a795cccdcfa0c1443870d50365
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 653e57a69e1c7ff8dbeadb14cda6e415ff3a9ee9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440985"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887558"
 ---
 # <a name="understand-and-work-with-scopes"></a>了解並使用範圍
 
@@ -110,7 +110,7 @@ Azure 訂用帳戶會在 [註冊帳戶] 底下加以內嵌。 計費使用者可
 
 個別的 Azure 訂用帳戶管理員可以從[Azure 帳戶中心](https://account.azure.com/subscriptions)查看和管理帳單資料，例如發票和付款。 不過，他們無法在 Azure 入口網站中查看成本資料或管理資源。 若要授與帳戶管理員的存取權，請使用先前所述的成本管理角色。
 
-不同于 EA，個別的 Azure 訂用帳戶管理員可以在 Azure 入口網站中看到其發票。 請記住，成本管理讀者和成本管理參與者角色不會提供發票的存取權。 如需詳細資訊，請參閱[如何授與發票的存取權](../billing/billing-manage-access.md##give-read-only-access-to-billing)。
+不同于 EA，個別的 Azure 訂用帳戶管理員可以在 Azure 入口網站中看到其發票。 請記住，成本管理讀者和成本管理參與者角色不會提供發票的存取權。 如需詳細資訊，請參閱[如何授與發票的存取權](../billing/billing-manage-access.md#give-read-only-access-to-billing)。
 
 ## <a name="microsoft-customer-agreement-scopes"></a>Microsoft 客戶合約範圍
 
