@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn;joelpell
 ms.custom: include file
-ms.openlocfilehash: 5d652eb3bad72bded8e85a6ac841aae7a9c82a40
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: e66314e06aa87a01dcd2a3ff0a51ae86082173e3
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75663043"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75904435"
 ---
 一般用途的虛擬機器大小可讓 CPU 與記憶體比例達到平均。 很適合測試與開發、小型至中型資料庫及低至中流量網頁伺服器。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此群組中各種大小之儲存體輸送量的相關資訊。
 
@@ -29,7 +29,7 @@ ms.locfileid: "75663043"
 
   D 系列使用案例的範例包括企業級應用程式、關係資料庫、記憶體內部快取及分析。
 
-- Dav4 系列和 Dasv4 系列是利用 AMD 的2.35 版 Ghz EPYC<sup>TM</sup> 7452 處理器的新大小，在多執行緒設定中，最多可256將 8 gb 的 l3 快取專門提供給每8個核心，而增加客戶選項以執行其一般用途的工作負載。 Dav4 系列和 Dasv4 系列具有與 D & Dsv3 系列相同的記憶體和磁片設定。
+- Dav4 系列和 Dasv4 系列是在多執行緒設定中使用 AMD 的2.35 版 Ghz EPYC<sup>TM</sup> 7452 處理器的新大小，最多256可將 8 GB 的 l3 快取專用於每8個核心，而增加客戶選擇來執行其一般用途的工作負載。 Dav4 系列和 Dasv4 系列具有與 D & Dsv3 系列相同的記憶體和磁片設定。
   
 ## <a name="b-series"></a>B 系列
 

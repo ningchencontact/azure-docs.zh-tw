@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8d28566cb10ddd1637eb81dffd102df6bd7b6e7a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a6c333da0e88af25e3907af23f792a210002477f
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75663175"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901574"
 ---
 使用「點 Vm」可讓您以可觀的成本節約，利用我們未使用的容量。 Azure 基礎結構會在任何時間點回復，以找出虛擬機器的功能。 因此，針對可處理中斷的工作負載（例如批次處理作業、開發/測試環境、大型計算工作負載等），找出 Vm 很棒。
 
@@ -83,7 +83,7 @@ Vm 可以根據容量或您設定的最大價格來收回。 針對虛擬機器�
 
 **問：** 我可以要求額外的時間配額嗎？
 
-**答：** 是，您可以提交要求以增加您的配額，以透過[標準配額要求](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests)程式來找出您的 vm。
+**答：** 是，您可以提交要求以增加您的配額，以透過[標準配額要求](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)程式來找出您的 vm。
 
 
 **問：** 哪些通道支援找出 Vm 的位置？

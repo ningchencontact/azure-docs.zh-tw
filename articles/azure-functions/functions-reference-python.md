@@ -3,12 +3,12 @@ title: 適用於 Azure Functions 的 Python 開發人員參考
 description: 了解如何使用 Python 開發函式
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: adea5603c997380dde6731b53bc99ba7443e310b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 374770c50300b9ca37253b3323a02c3371bfa521
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768996"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903243"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 開發人員指南
 
@@ -382,7 +382,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ## <a name="python-version"></a>Python 版本 
 
-目前，Azure Functions 支援 Python 3.6. x 和 3.7. x （官方 CPython 散發套件）。 在本機執行時，執行時間會使用可用的 Python 版本。 若要在 Azure 中建立函數應用程式時要求特定的 Python 版本，請使用[`az functionapp create`](/cli/azure/functionapp#az-functionapp-create)命令的 `--runtime-version` 選項。  
+目前，Azure Functions 支援 Python 3.6. x 和 3.7. x （官方 CPython 散發套件）。 在本機執行時，執行時間會使用可用的 Python 版本。 若要在 Azure 中建立函數應用程式時要求特定的 Python 版本，請使用[`az functionapp create`](/cli/azure/functionapp#az-functionapp-create)命令的 `--runtime-version` 選項。 只有在函數應用程式建立時，才允許版本變更。  
 
 ## <a name="package-management"></a>套件管理
 

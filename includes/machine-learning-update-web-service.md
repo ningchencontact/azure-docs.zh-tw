@@ -2,19 +2,21 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 11/06/2019
+ms.date: 01/10/2019
 ms.author: larryfr
-ms.openlocfilehash: 04e8f1f212eb4fa7cf4d8e19132107f2ddb53729
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 469d87a828df19ca30260cada9dcea43859be9e0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926935"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901602"
 ---
 若要更新 web 服務，請使用 `update` 方法。 您可以更新 web 服務，以使用新的模型、新的輸入腳本，或可在推斷設定中指定的新相依性。 如需詳細資訊，請參閱[Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-)的檔。
 
 > [!IMPORTANT]
 > 當您建立模型的新版本時，您必須手動更新您想要使用的每個服務。
+>
+> 您不能使用 SDK 來更新從 Azure Machine Learning 設計工具發佈的 web 服務。
 
 **使用 SDK**
 

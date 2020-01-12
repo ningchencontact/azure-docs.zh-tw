@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 60d9c7fb57e079fde54d60df9b90266ccb94acdc
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 83a1f3921272f5ec15ae4d1f4220652f56679c96
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895821"
+ms.locfileid: "75903206"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>處理預定的維護通知
 
@@ -29,7 +29,7 @@ ms.locfileid: "75895821"
 
 預定進行的維護作業若需要重新開機，會排定在不同波段。 每一波段有不同的範圍 (區域)。
 
-- 波段開始時會傳送通知給客戶。 根據預設，通知會傳送給訂用帳戶擁有者和共同擁有者。 您可以使用[活動記錄警示](../service-health/alerts-activity-log-service-notifications.md)，新增更多收件者和訊息選項，例如電子郵件、SMS 和 webhook。  
+- 波段開始時會傳送通知給客戶。 根據預設，通知會傳送給服務系統管理員身分和共同管理員。 您可以使用[活動記錄警示](../service-health/alerts-activity-log-service-notifications.md)，新增更多收件者和訊息選項，例如電子郵件、SMS 和 webhook。  
 - 一旦通知出現，就會提供*自助服務視窗*。 在此視窗中，您可以查詢哪些虛擬機器受到影響，並根據您自己的排程需求開始維護。 自助服務視窗通常大約是35天。
 - 在自助期間之後，「排定維護期間」隨即開始。 在此期間的某個時間點，Azure 會排定並將必要的維護套用於您的虛擬機器。 
 
@@ -84,7 +84,7 @@ ms.locfileid: "75895821"
 
 **問：我如何取得規劃維護的通知？**
 
-**答：** 規劃的維護是從對一或多個 Azure 區域設定排程開始。 之後，電子郵件通知會傳送至訂用帳戶擁有者 (每個訂用帳戶一封電子郵件)。 可以使用「活動記錄警示」來設定此通知的其他通道和收件者。 如果您將虛擬機器部署到已排程規劃的維護之區域，您不會收到通知，但是需要檢查 VM 的維護狀態。
+**答：** 規劃的維護是從對一或多個 Azure 區域設定排程開始。 不久之後，電子郵件通知會傳送給訂用帳戶管理員（每個訂用帳戶一封電子郵件）。 可以使用「活動記錄警示」來設定此通知的其他通道和收件者。 如果您將虛擬機器部署到已排程規劃的維護之區域，您不會收到通知，但是需要檢查 VM 的維護狀態。
 
 **問：我在入口網站、Powershell 或 CLI 中都看不到任何已規劃維護的指示。怎麼了？**
 

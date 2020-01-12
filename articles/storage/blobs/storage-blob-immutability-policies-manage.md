@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 79d7454722900eb1d9d6280e35313ef2f4a5cd54
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 68b144a838f0c6e65f3e399f610644315d109fde
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555674"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903488"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>設定和管理 Blob 儲存體的不可變性原則
 
@@ -57,7 +57,7 @@ Azure Blob 儲存體的固定儲存體可讓使用者以 WORM （一次寫入，
 
     ![原則類型之下的 [標記名稱] 方塊](media/storage-blob-immutability-policies-manage/portal-image-set-legal-hold-tags.png)
 
-9. 若要清除合法保存，只要移除套用的合法保存識別碼標記即可。
+9. 若要清除合法保存，請移除套用的合法保存識別碼標記。
 
 ### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -73,7 +73,7 @@ Az. Storage 模組支援不可變的儲存體。  若要啟用此功能，請依
 2. 移除任何先前安裝的 Azure PowerShell。
 3. 安裝 Azure PowerShell：`Install-Module Az –Repository PSGallery –AllowClobber`。
 
-以下 PowerShell 範例指令碼僅供參考。 此指令碼會建立新的儲存體帳戶和容器。 然後，示範如何設定及清除合法保存、建立及鎖定以時間為基礎的保留原則 (也稱為固定原則)，以及延長保留間隔。
+以下 PowerShell 範例指令碼僅供參考。 此指令碼會建立新的儲存體帳戶和容器。 接著會示範如何設定和清除合法保存、建立及鎖定以時間為基礎的保留原則（也稱為「非永久性原則」），並延長保留間隔。
 
 首先，建立 Azure 儲存體帳戶：
 
@@ -165,6 +165,20 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 ```
 
 ---
+
+## <a name="enabling-allow-protected-append-blobs-writes"></a>啟用允許受保護的附加 blob 寫入
+
+目前，您只能透過此特定[入口網站連結](https://aka.ms/immutableappendblobs)來存取以時間為基礎的保留原則的 `allowProtectedAppendWrites` 設定。 
+
+> [!IMPORTANT] 
+>  [以時間為基礎的保留] 下的 [允許受保護的附加 blob 寫入] 設定目前可供使用，只有下欄區域才會顯示：
+> - 美國東部
+> - 美國中南部
+> - 美國西部 2
+>
+> 如需詳細資訊，請參閱[允許受保護的附加 Blob 寫入](storage-blob-immutable-storage.md#allow-protected-append-blobs-writes)。
+
+![允許其他附加寫入](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
 
 ## <a name="next-steps"></a>後續步驟
 

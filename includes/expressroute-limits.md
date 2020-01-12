@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 45d34297bf37a6e46bc57e95ff49def49051e32e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1fc63dc53d61a8b2e26f97cc09a359b3f2c7665c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67622087"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901668"
 ---
-| Resource | 預設/最大限制 |
+| 資源 | 預設/最大限制 |
 | --- | --- |
 | 每個訂用帳戶的 ExpressRoute 電路 |10 |
 | 每個訂用帳戶每個區域的 ExpressRoute 線路，Azure Resource Manager |10 |
@@ -42,4 +42,7 @@ ms.locfileid: "67622087"
 | 40 Gbps * |10 |100 |
 | 100 Gbps * |10 |100 |
 
-**僅限 100 Gbps ExpressRoute Direct*
+*僅 *100 Gbps ExpressRoute Direct*
+
+> [!NOTE]
+> 全球觸達連線計數會與每個 ExpressRoute 線路的虛擬網路連線限制有關。 例如，10 Gbps 高階線路可允許5個全球連線和95連線至 ExpressRoute 閘道或 95 Global 連線，以及連線至 ExpressRoute 閘道或任何其他組合的5個連線，最多可達100個連線的限制用於電路。

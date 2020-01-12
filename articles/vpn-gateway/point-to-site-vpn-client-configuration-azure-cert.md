@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: ad6e912f976095ae7d8fd5276b0f1365566c181a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 4df22108591fe3f80078bce050081c4953443847
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74143789"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903004"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔
 
@@ -104,7 +104,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
    ![驗證設定](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
 6. 按一下 [選取...] 以選擇您要用於驗證的用戶端憑證。 這是您在步驟 2 安裝的憑證。
 
-   ![憑證](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
+   ![憑證 (certificate)](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. [選擇身分識別] 會顯示一份憑證清單供您選擇。 選取適當憑證，然後按一下 [繼續]。
 
    ![身分識別](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
@@ -164,7 +164,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 
 [!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
-### <a name="install-and-configure"></a>安裝及設定
+### <a name="install-and-configure"></a>安裝和設定
 
 1. 從 Azure 入口網站下載 VPNClient 套件。
 2. 將檔案解壓縮。
@@ -193,7 +193,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
    : P12 client.p12 'password' # key filename inside /etc/ipsec.d/private directory
    ```
 
-7. 執行以下命令：
+7. 執行下列命令：
 
    ```
    # ipsec restart
@@ -202,7 +202,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 
 ## <a name="next-steps"></a>後續步驟
 
-返回文章以[完成 P2S 組態](vpn-gateway-howto-point-to-site-rm-ps.md)。
+回到本文以[完成 P2S 設定](vpn-gateway-howto-point-to-site-rm-ps.md)。
 
 若要對 P2S 連線進行疑難排解，請參閱下列文章：
 

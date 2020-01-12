@@ -1,18 +1,18 @@
 ---
 title: 針對 Azure Site Recovery 中的 Azure VM 複寫進行疑難排解
 description: 針對損毀修復複寫 Azure 虛擬機器時的錯誤進行疑難排解。
-author: asgang
+author: rochakm
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: asgangal
-ms.openlocfilehash: efa05f5769bcd174992a7a91a522c5f30ce6e448
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.author: rochakm
+ms.openlocfilehash: 3f97975f09d846cd3277bb8a53a4ad922f1b5b69
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895017"
+ms.locfileid: "75902562"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>針對 Azure 至 Azure VM 複寫錯誤進行疑難排解
 
@@ -66,7 +66,7 @@ ms.locfileid: "75895017"
 
 請遵循 Linux 作業系統版本的散發者所提供的指導方針，以取得最新的受信任根憑證以及 VM 上最新的憑證撤銷清單。
 
-因為 SuSE Linux 使用符號連結（或*符號連結*）來維護憑證清單，請遵循下列步驟：
+因為 SUSE Linux 使用符號連結（或*符號連結*）來維護憑證清單，請遵循下列步驟：
 
 1. 以根使用者身分登入。
 
