@@ -20,8 +20,6 @@
           href: tutorial-windows-vm-access-datalake.md
         - name: 存取 Azure 儲存體
           href: tutorial-vm-windows-access-storage.md
-        - name: 使用存取金鑰存取 Azure 儲存體
-          href: tutorial-windows-vm-access-storage.md
         - name: 存取 Azure SQL
           href: tutorial-windows-vm-access-sql.md
         - name: 存取 Azure Key Vault
