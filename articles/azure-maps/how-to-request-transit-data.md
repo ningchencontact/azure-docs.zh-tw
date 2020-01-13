@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b28788ac7b3ce4e1997b71c683f8e0445406a391
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
-ms.translationtype: MT
+ms.openlocfilehash: 47952421c50979a014507c81ef5bc3217df7d860
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432940"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>使用 Azure 地圖服務行動服務來要求公開傳輸資料 
 
@@ -30,14 +30,15 @@ ms.locfileid: "70915622"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要對 Azure 地圖服務公用傳輸 Api 進行任何呼叫，您需要地圖服務帳戶和金鑰。 如需建立帳戶的相關資訊，請遵循[管理帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account)中的指示，然後依照[取得主要金鑰](./tutorial-search-location.md#getkey)中的步驟來抓取您帳戶的主要訂用帳戶金鑰。
+若要對 Azure 地圖服務公用傳輸 Api 進行任何呼叫，您需要地圖服務帳戶和金鑰。 如需建立帳戶及取得金鑰的詳細資訊，請依照[建立帳戶](quick-demo-map-app.md#create-an-account-with-azure-maps)中的指示來建立 Azure 地圖服務帳戶訂用帳戶，並遵循[取得主要金鑰](quick-demo-map-app.md#get-the-primary-key-for-your-account)中的步驟來取得您帳戶的主要金鑰。 如需 Azure 地圖服務中驗證的詳細資訊，請參閱[Azure 地圖服務中的管理驗證](./how-to-manage-authentication.md)。
+
 
 本文使用 [Postman 應用程式](https://www.getpostman.com/apps)來建置 REST 呼叫。 您可以使用您偏好的任何 API 開發環境。
 
 
 ## <a name="get-a-metro-area-id"></a>取得 metro 區域識別碼
 
-為了要求特定大都市區域的傳輸資訊，您需要的是`metroId`您想要要求傳輸資料的區域。 [取得 Metro 區域 API](https://aka.ms/AzureMapsMobilityMetro)可讓您要求可使用 Azure 地圖服務行動服務的 metro 區域。 回應包含詳細資料（ `metroId`例如`metroName` ），以及 GeoJSON 格式的 metro 區域幾何標記法。
+若要要求特定大都市區域的傳輸資訊，您需要 `metroId` 您要要求其傳輸資料的區域。 [取得 Metro 區域 API](https://aka.ms/AzureMapsMobilityMetro)可讓您要求可使用 Azure 地圖服務行動服務的 metro 區域。 回應包含詳細資料，例如 `metroId`、`metroName`，以及 GeoJSON 格式的 metro 區域幾何標記法。
 
 讓我們提出要求，以取得西雅圖 Tacoma metro 區域識別碼的 Metro 區域。 若要要求 metro 區域的識別碼，請完成下列步驟：
 
@@ -110,15 +111,15 @@ ms.locfileid: "70915622"
     }
     ```
 
-5. `metroId`複製，以供稍後使用。
+5. 複製 `metroId`，以供稍後使用。
 
 ## <a name="request-nearby-transit-stops"></a>要求附近的傳輸停止
 
-Azure 地圖服務[取得附近的傳輸](https://aka.ms/AzureMapsMobilityNearbyTransit)服務可讓您搜尋運輸物件，例如，公用交通會停止，而指定位置周圍的共用自行車則會傳回傳輸物件詳細資料。 接下來，我們會向服務提出要求，以搜尋鄰近的公用交通會在指定位置周圍的 300-計量半徑內停止。 在要求中，我們必須包含稍早`metroId`在中抓取的。
+Azure 地圖服務[取得附近的傳輸](https://aka.ms/AzureMapsMobilityNearbyTransit)服務可讓您搜尋運輸物件，例如，公用交通會停止，而指定位置周圍的共用自行車則會傳回傳輸物件詳細資料。 接下來，我們會向服務提出要求，以搜尋鄰近的公用交通會在指定位置周圍的 300-計量半徑內停止。 在要求中，我們必須包含先前在中抓取的 `metroId`。
 
 若要對「[取得附近的傳輸](https://aka.ms/AzureMapsMobilityNearbyTransit)」提出要求，請遵循下列步驟：
 
-1. 在 Postman 中，按一下 [**新增要求** | ] [**取得要求**]，並將其命名為 [**鄰近] 停止**
+1. 在 [Postman] 中，按一下 [**新增要求**] | **get 要求**，並將其命名為「**鄰近」停止**。
 
 2. 在 [建立器] 索引標籤上，選取 [**取得**HTTP 方法]，輸入下列 API 端點的要求 URL，然後按一下 [**傳送**]。
 
@@ -213,9 +214,9 @@ Azure 地圖服務[取得附近的傳輸](https://aka.ms/AzureMapsMobilityNearby
     }   
     ```
 
-如果您仔細觀察回應結構，您可以看到它包含每個傳輸物件的參數，例如`id`、 `type`、 `stopName`、 `mainTransitType` `mainAgencyName`和物件的位置（座標）。
+如果您仔細觀察回應結構，您可以看到它包含每個傳輸物件的參數，例如 `id`、`type`、`stopName`、`mainTransitType`、`mainAgencyName` 和物件的位置（座標）。
 
-為了瞭解，我們將在下一節中`id`使用其中一個匯流排停止作為路由的來源。  
+為了瞭解，我們將在下一節中使用其中一個匯流排停止做為路由來源的 `id`。  
 
 
 ## <a name="request-a-transit-route"></a>要求傳輸路由
@@ -228,7 +229,7 @@ Azure 地圖服務[取得傳輸路由 API](https://aka.ms/AzureMapsMobilityTrans
 
 若要對模糊搜尋服務提出要求，請遵循下列步驟：
 
-1. 在 Postman 中，按一下 [**新增要求** | ] [**取得要求**]，並將其命名為**取得位置座標**。
+1. 在 Postman 中，按一下 **新增要求** | **取得要求**，並將其命名為 **取得位置座標**。
 
 2.  在 [建立器] 索引標籤上，選取 [**取得**HTTP 方法]，輸入下列要求 URL，然後按一下 [**傳送**]。
  
@@ -236,7 +237,7 @@ Azure 地圖服務[取得傳輸路由 API](https://aka.ms/AzureMapsMobilityTrans
     https://atlas.microsoft.com/search/fuzzy/json?subscription-key={subscription-key}&api-version=1.0&query=space needle
     ```
     
-3. 如果您仔細查看回應，它會在空間指標的結果中包含多個位置，而且也會在 [**位置**] 下包含每一個的位置座標資訊。 複製第`lat`一個`lon`結果的和 from 位置。
+3. 如果您仔細查看回應，它會在空間指標的結果中包含多個位置，而且也會在 [**位置**] 下包含每一個的位置座標資訊。 複製第一個結果的 [`lat`] 和 [`lon` 來源位置]。
     
    ```JSON
    {
@@ -336,11 +337,11 @@ Azure 地圖服務[取得傳輸路由 API](https://aka.ms/AzureMapsMobilityTrans
 
 若要建立路由要求，請完成下列步驟：
 
-1. 在 Postman 中，按一下 [**新增要求** | ] [**取得要求**]，並將其命名為**取得路由資訊**。
+1. 在 Postman 中，按一下 **新增要求** | **取得要求**，並將其命名為**取得路由資訊**。
 
 2. 在 [建立器] 索引標籤上，選取 [**取得**HTTP 方法]，輸入下列 API 端點的要求 URL，然後按一下 [**傳送**]。
 
-    我們會藉由指定`modeType`和參數， `transitType`來要求匯流排的公用傳輸路由。 要求 URL 包含上一節中所抓取的位置。 因為`originType`我們現在`destionationType`有**stopId** ，而且有**位置**。
+    我們會藉由指定 `modeType` 和 `transitType` 參數，來要求匯流排的公用傳輸路由。 要求 URL 包含上一節中所抓取的位置。 `originType` 我們現在有**stopId** ，`destionationType` 我們有**位置**。
 
     請參閱您可以在對[取得傳輸路由 API](https://aka.ms/AzureMapsMobilityTransitRoute)的要求中使用的[URI 參數清單](https://aka.ms/AzureMapsMobilityTransitRoute#uri-parameters)。 
   
@@ -493,17 +494,17 @@ Azure 地圖服務[取得傳輸路由 API](https://aka.ms/AzureMapsMobilityTrans
     }
     ```
 
-4. 如果您仔細觀察，回應中會有多個**匯流排**路由。 每個路由都有唯一的**路線識別碼**，以及描述每個路線的摘要。 接下來，我們將使用回應中的`itineraryId`最快路由要求詳細資料。
+4. 如果您仔細觀察，回應中會有多個**匯流排**路由。 每個路由都有唯一的**路線識別碼**，以及描述每個路線的摘要。 接下來，我們將使用回應中的 `itineraryId`，要求最快路由的詳細資料。
 
 ## <a name="request-fastest-route-itinerary"></a>要求最快的路由路線
 
 Azure 地圖服務[取得傳輸路線](https://aka.ms/AzureMapsMobilityTransitItinerary)服務可讓您使用「[取得傳輸路由 API](https://aka.ms/AzureMapsMobilityTransitRoute) 」服務所傳回的路由路線**識別碼**來要求特定路由的資料。 若要提出要求，請完成下列步驟：
 
-1. 在 Postman 中，按一下 [**新增要求** | ] [**取得要求**]，並將其命名為**取得傳輸資訊**。
+1. 在 Postman 中，按一下 **新增要求** | **取得要求**，並將其命名為**取得傳輸資訊**。
 
 2. 在 [建立器] 索引標籤上，選取 [**取得**HTTP 方法]，輸入下列 API 端點的要求 URL，然後按一下 [**傳送**]。
 
-    我們會將`detailType`參數設定為**geometry** ，讓回應包含公用傳輸的停止訊息，以及路線的導覽和自行車腿的輪流流覽。
+    我們會將 `detailType` 參數設定為**geometry** ，讓回應包含公用傳輸的停止訊息，以及路線的導覽和自行車腿的輪流流覽。
 
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/itinerary/json?api-version=1.0&subscription-key={subscription-key}&query={itineraryId}&detailType=geometry

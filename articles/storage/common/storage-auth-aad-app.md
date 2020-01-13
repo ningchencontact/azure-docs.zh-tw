@@ -1,21 +1,22 @@
 ---
-title: 使用來自用戶端應用程式的 Azure Active Directory，授權存取 blob 和佇列-Azure 儲存體
+title: 從 Azure AD 取得權杖，以從用戶端應用程式授權要求
+titleSuffix: Azure Storage
 description: 使用 Azure Active Directory 從用戶端應用程式內進行驗證、取得 OAuth 2.0 權杖，以及授權 Azure Blob 儲存體和佇列儲存體的要求。
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/18/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ca6b055b5d3702cea4ca1986ad1c81b59f76cee3
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: e05557b0391a1d698dad000aa9df54424588afe0
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299632"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892255"
 ---
-# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>使用來自用戶端應用程式的 Azure Active Directory，授權存取 blob 和佇列
+# <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>從 Azure AD 取得權杖，以從用戶端應用程式授權要求
 
 使用 Azure Active Directory （Azure AD）搭配 Azure Blob 儲存體或佇列儲存體的主要優點，就是您的認證不再需要儲存在您的程式碼中。 相反地，您可以從 Microsoft 身分識別平臺（先前稱為 Azure AD）要求 OAuth 2.0 存取權杖。 Azure AD 會驗證執行應用程式的安全性主體（使用者、群組或服務主體）。 如果驗證成功，Azure AD 會將存取權杖傳回給應用程式，然後應用程式就可以使用存取權杖來授權對 Azure Blob 儲存體或佇列儲存體的要求。
 
@@ -31,7 +32,7 @@ ms.locfileid: "72299632"
 
 使用 Azure AD 來授與儲存體資源存取權的第一個步驟，是向[Azure 入口網站](https://portal.azure.com)向 Azure AD 租使用者註冊您的用戶端應用程式。 當您註冊用戶端應用程式時，您會提供應用程式的相關資訊以 Azure AD。 Azure AD 接著會提供您在執行階段用來將應用程式與 Azure AD 產生關聯的用戶端識別碼 (也稱為「應用程式識別碼」)。 若要深入了解用戶端識別碼，請參閱 [Azure Active Directory 中的應用程式和服務主體物件](../../active-directory/develop/app-objects-and-service-principals.md)。
 
-若要註冊您的 Azure 儲存體應用程式，請遵循 [Quickstart 中顯示的步驟：使用 Microsoft 身分識別平臺 @ no__t-0 註冊應用程式。 下圖顯示註冊 web 應用程式的一般設定：
+若要註冊您的 Azure 儲存體應用程式，請遵循[快速入門：使用 Microsoft 身分識別平臺註冊應用程式](../../active-directory/develop/quickstart-configure-app-access-web-apis.md)中所示的步驟。 下圖顯示註冊 web 應用程式的一般設定：
 
 ![顯示如何向 Azure AD 註冊儲存體應用程式的螢幕擷取畫面](./media/storage-auth-aad-app/app-registration.png)
 
@@ -51,7 +52,7 @@ ms.locfileid: "72299632"
 1. 在您已註冊應用程式的 [**總覽**] 頁面上，選取 [ **View API 許可權**]。
 1. 在 [ **API 許可權**] 區段中，選取 [**新增許可權**]，然後選擇 [ **Microsoft api**]。
 1. 從結果清單中選取 [ **Azure 儲存體**]，以顯示 [**要求 API 許可權**] 窗格。
-1. 在 [**您的應用程式需要何種類型的許可權？** ] 底下，觀察可用的許可權類型是否為**委派的許可權**。 預設會為您選取此選項。
+1. 在 [**您的應用程式需要何種類型的許可權？**] 底下，觀察可用的許可權類型是否為**委派的許可權**。 預設會為您選取此選項。
 1. 在 [**要求 API 許可權**] 窗格的 [**選取許可權**] 區段中，選取 [ **user_impersonation**] 旁的核取方塊，然後按一下 [**新增許可權**]。
 
     ![顯示儲存體許可權的螢幕擷取畫面](media/storage-auth-aad-app/registered-app-permissions-1.png)
@@ -177,7 +178,7 @@ Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 
 接下來，新增方法，以向 Azure AD 代表使用者要求權杖。 這個方法會定義要授與許可權的範圍。 如需有關許可權和範圍的詳細資訊，請參閱[Microsoft 身分識別平臺端點中的許可權和同意](../../active-directory/develop/v2-permissions-and-consent.md)。
 
-使用資源識別碼來建立要取得權杖的範圍。 此範例會使用資源識別碼搭配內建的 @no__t 0 範圍來建立範圍，這表示會代表使用者要求權杖。
+使用資源識別碼來建立要取得權杖的範圍。 此範例會使用資源識別碼搭配內建的 `user_impersonation` 範圍來建立範圍，這表示會代表使用者要求權杖。
 
 請記住，您可能需要向使用者呈現介面，讓使用者同意代表其要求權杖。 當需要同意時，此範例會攔截**MsalUiRequiredException**並呼叫另一個方法，以協助要求同意：
 
@@ -201,7 +202,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-同意是使用者授權應用程式代表使用者存取受保護的資源所用的程序。 Microsoft 身分識別平臺2.0 支援累加式同意，這表示安全性主體一開始可以要求一組最小許可權，並視需要新增許可權一段時間。 當您的程式碼要求存取權杖時，請在 `scope` 參數中指定您的應用程式在任何指定時間所需的許可權範圍。 如需有關增量同意的詳細資訊，請參閱 <<c1>為何要更新 Microsoft 身分識別平臺（v2.0）中的「**增量和動態同意**」一節。
+同意是使用者授權應用程式代表使用者存取受保護的資源所用的程序。 Microsoft 身分識別平臺2.0 支援累加式同意，這表示安全性主體一開始可以要求一組最小許可權，並視需要新增許可權一段時間。 當您的程式碼要求存取權杖時，請在 `scope` 參數中指定您的應用程式在任何指定時間所需的許可權範圍。 如需有關增量同意的詳細資訊，請參閱 為何要更新 Microsoft 身分識別平臺（v2.0）中的「增量和動態同意」一節。
 
 下列方法會針對要求增量同意來建立驗證屬性：
 
