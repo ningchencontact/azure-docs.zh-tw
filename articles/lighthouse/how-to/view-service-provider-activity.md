@@ -1,44 +1,43 @@
 ---
-title: 查看服務提供者活動
+title: 檢視服務提供者活動
 description: 客戶可以查看已記錄的活動，以查看服務提供者透過 Azure 委派的資源管理所執行的動作。
 ms.date: 12/6/2019
 ms.topic: conceptual
-ms.openlocfilehash: 69517e942aa9f82be16fa3d0e7d6f9252de44d4c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: HT
+ms.openlocfilehash: 31a9e7ff80623cc59b0a2db5951dff95d3088b05
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932680"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749169"
 ---
-# <a name="view-service-provider-activity"></a>查看服務提供者活動
+# <a name="view-service-provider-activity"></a>檢視服務提供者活動
 
-對於 Azure 委派資源管理具有委派訂用帳戶的客戶，可以[查看 Azure 活動記錄](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview)資料，以查看所採取的所有動作。 這可讓客戶完整看到服務提供者透過 Azure 委派資源管理執行的作業，以及由客戶自己的 Azure Active Directory （Azure AD）租使用者中的使用者所做的工作。
+對於 Azure 委派資源管理具有委派訂用帳戶的客戶，可以[查看 Azure 活動記錄](../../azure-monitor/platform/platform-logs-overview.md)資料，以查看所採取的所有動作。 這可讓客戶完整看到服務提供者透過 Azure 委派資源管理執行的作業，以及由客戶自己的 Azure Active Directory （Azure AD）租使用者中的使用者所做的工作。
 
 ## <a name="view-activity-log-data"></a>查看活動記錄資料
 
-您可以從 Azure 入口網站中的 [**監視**] 功能表[查看活動記錄](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview#view-the-activity-log)。
- 若要將結果限制為特定的訂用帳戶，您可以使用篩選準則來選取特定的訂用帳戶。 您也可以透過程式設計方式來[查看和取出活動記錄事件](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)。
+您可以從 [Azure 入口網站中的 [**監視**] 功能表[查看活動記錄](../../azure-monitor/platform/activity-log-view.md)。 若要將結果限制為特定的訂用帳戶，您可以使用篩選準則來選取特定的訂用帳戶。 您也可以透過程式設計方式來[查看和取出活動記錄事件](../../azure-monitor/platform/activity-log-view.md)。
 
 > [!NOTE]
-> 如果客戶租使用者中的委派訂用帳戶已被授與[讀取](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)者角色（或另一個內建角色，其中包含讀取器存取權），而該訂用帳戶是針對 Azure 委派的資源管理所上架時，則服務提供者租使用者中的使用者可以查看該帳戶的活動記錄結果。
+> 如果客戶租使用者中的委派訂用帳戶已被授與[讀取](../../role-based-access-control/built-in-roles.md#reader)者角色（或另一個內建角色，其中包含讀取器存取權），而該訂用帳戶是針對 Azure 委派的資源管理所上架時，則服務提供者租使用者中的使用者可以查看該帳戶的活動記錄結果。
 
 在 [活動記錄檔] 中，您會看到作業的名稱和其狀態，以及執行的日期和時間。 [**由**下列時間起始的事件] 會顯示哪些使用者執行了作業，不論是在服務提供者的租使用者中，是透過 Azure 委派的資源管理，還是客戶自己的租使用者中的使用者。 請注意，會顯示使用者的名稱，而不是租使用者或已指派給該訂用帳戶的角色。
 
-記錄的活動可在過去90天的 Azure 入口網站中使用。 若要瞭解如何儲存此資料超過90天，請參閱[在 Azure 監視器的 Log Analytics 工作區中收集和分析 Azure 活動記錄](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect)。
+記錄的活動可在過去90天的 Azure 入口網站中使用。 若要瞭解如何儲存此資料超過90天，請參閱[在 Azure 監視器的 Log Analytics 工作區中收集和分析 Azure 活動記錄](../../azure-monitor/platform/activity-log-collect.md)。
 
 ## <a name="set-alerts-for-critical-operations"></a>設定重大作業的警示
 
-若要留意服務提供者（或您自己的租使用者中的使用者）執行的重要作業，我們建議您建立[活動記錄警示](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts)。 例如，您可能想要追蹤訂用帳戶的所有系統管理動作，或在特定資源群組中的任何虛擬機器遭到刪除時收到通知。 當您建立警示時，他們會包含使用者在客戶自己的租使用者中以及任何管理的租使用者中所採取的動作。
+若要留意服務提供者（或您自己的租使用者中的使用者）執行的重要作業，我們建議您建立[活動記錄警示](../../azure-monitor/platform/activity-log-alerts.md)。 例如，您可能想要追蹤訂用帳戶的所有系統管理動作，或在特定資源群組中的任何虛擬機器遭到刪除時收到通知。 當您建立警示時，他們會包含使用者在客戶自己的租使用者中以及任何管理的租使用者中所採取的動作。
 
-如需詳細資訊，請參閱[建立和管理活動記錄警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)。
+如需詳細資訊，請參閱[建立和管理活動記錄警示](../../azure-monitor/platform/alerts-activity-log.md)。
 
 ## <a name="create-log-queries"></a>建立記錄查詢
 
 您可以建立查詢來分析您的已記錄活動，或將焦點放在特定專案。 例如，可能會有 audit 要求您報告在訂用帳戶上執行的所有系統管理層級動作。 您可以建立查詢，只篩選這些動作，並依使用者、日期或其他值來排序結果。
 
-如需詳細資訊，請參閱[Azure 監視器中記錄查詢的總覽](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)。
+如需詳細資訊，請參閱[Azure 監視器中記錄查詢的總覽](../../azure-monitor/log-query/log-query-overview.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/)。
+- 深入了解 [Azure 監視器](../../azure-monitor/index.yml)。
 - 瞭解如何在 Azure 入口網站中[查看及管理服務提供者供應](view-manage-service-providers.md)專案。

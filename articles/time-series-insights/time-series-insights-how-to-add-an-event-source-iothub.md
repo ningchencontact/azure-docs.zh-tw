@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: fa3bcb0ba16c976706c70bbc76daeb8b418a74ea
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9aace01e2f3d514ee5f4b406f4067e104151e5d6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764017"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863320"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>新增 IoT 中樞事件來源到您的時間序列深入解析環境
 
@@ -30,7 +30,7 @@ ms.locfileid: "74764017"
 * 建立 [Azure 時間序列深入解析環境](time-series-insights-update-create-environment.md)。
 * [使用 Azure 入口網站建立 IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
 * IoT 中樞必須要有傳入的作用中訊息事件。
-* 在 IoT 中樞建立專用取用者群組，讓時間序列深入解析環境從中取用。 每個時間序列深入解析事件來源都必須有自身專屬的取用者群組，且不可與任何其他取用者共用。 如果多個讀取器從同一個取用者群組取用事件，則所有讀取器都可能會看到錯誤。 如需詳細資料，請參閱 [Azure IoT 中樞開發人員指南](../iot-hub/iot-hub-devguide.md)。
+* 在 IoT 中樞建立專用取用者群組，讓時間序列深入解析環境從中取用。 每個時間序列深入解析事件來源都必須有自身專屬的取用者群組，且不可與任何其他取用者共用。 如果多個讀取器取用來自相同取用者群組的事件，所有讀取器都可能會出現失敗。 如需詳細資訊，請參閱[Azure IoT 中樞開發人員指南](../iot-hub/iot-hub-devguide.md)。
 
 ### <a name="add-a-consumer-group-to-your-iot-hub"></a>將取用者群組新增至 IoT 中樞
 
@@ -70,11 +70,11 @@ ms.locfileid: "74764017"
 
     * 下表說明 [從可用的訂用帳戶使用 Iot 中樞] 選項的必要屬性：
 
-       [![新的事件來源] 窗格-[從可用的訂用帳戶 IoT 中樞] 選項中設定的屬性](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png)(media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png#lightbox)
+       [![新的事件來源] 窗格-[從可用的訂用帳戶 IoT 中樞] 選項中設定的屬性](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png#lightbox)
 
-       | 屬性 | 描述 |
+       | 屬性 | 說明 |
        | --- | --- |
-       | Subscription | 所需的 iot 中樞所屬的訂用帳戶。 |
+       | 訂閱 | 所需的 iot 中樞所屬的訂用帳戶。 |
        | IoT 中樞名稱 | 所選取 iot 中樞的名稱。 |
        | IoT 中樞原則名稱 | 選取共用存取原則。 您可以在 [IoT 中樞設定] 索引標籤上找到共用存取原則。每個共用存取原則都會有名稱、您設定的許可權，以及存取金鑰。 事件來源的共用存取原則必須有**服務連線**權限。 |
        | IoT 中樞原則金鑰 | 索引鍵已預先填入。 |
@@ -83,17 +83,17 @@ ms.locfileid: "74764017"
 
       下表說明 [手動提供 Iot 中樞設定] 的必要屬性：
 
-       | 屬性 | 描述 |
+       | 屬性 | 說明 |
        | --- | --- |
        | 訂用帳戶 ID | 所需的 iot 中樞所屬的訂用帳戶。 |
-       | Resource group | 建立 IoT 中樞所在的資源群組名稱。 |
+       | 資源群組 | 建立 IoT 中樞所在的資源群組名稱。 |
        | IoT 中樞名稱 | 您 IoT 中樞的名稱。 當您建立 IoT 中樞時，也會輸入 IoT 中樞的名稱。 |
        | IoT 中樞原則名稱 | 共用存取原則。 您可以在 [IoT 中樞設定] 索引標籤上建立共用存取原則。每個共用存取原則都會有名稱、您設定的許可權，以及存取金鑰。 事件來源的共用存取原則必須有**服務連線**權限。 |
        | IoT 中樞原則金鑰 | 用來驗證 Azure 服務匯流排命名空間存取權的共用存取金鑰。 在這裡輸入主要金鑰或次要金鑰。 |
 
     * 這兩個選項都共用下列設定選項：
 
-       | 屬性 | 描述 |
+       | 屬性 | 說明 |
        | --- | --- |
        | IoT 中樞取用者群組 | 從 IoT 中樞讀取事件的取用者群組。 強烈建議您使用專屬於您事件來源的取用者群組。 |
        | 事件序列化格式 | 目前，JSON 是目前唯一可用的序列化格式。 事件訊息必須是這種格式，否則無法讀取任何資料。 |
@@ -110,6 +110,6 @@ ms.locfileid: "74764017"
 
 * [定義資料存取原則](time-series-insights-data-access.md)來保護資料。
 
-* [傳送事件](time-series-insights-send-events.md)到事件來源。
+* [將事件傳送](time-series-insights-send-events.md)到事件來源。
 
 * 在[時間序列深入解析總管](https://insights.timeseries.azure.com)中存取您的環境。

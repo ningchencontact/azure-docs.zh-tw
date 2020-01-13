@@ -2,18 +2,16 @@
 title: 在 Azure 入口網站中建立和管理動作群組
 description: 了解如何在 Azure 入口網站中建立和管理動作群組。
 author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 6b3d1ff76d4f7611da8e08dd4ce42293c805978e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a954898a334ead15d8ffdf6dab6e6a309bd57089
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423861"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659826"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 入口網站中建立和管理動作群組
 動作群組是 Azure 訂用帳戶擁有者定義的通知喜好設定集合。 Azure 監視器和服務健康狀態警示使用動作群組來通知使用者警示已被觸發。 根據使用者的需求而定，不同的警示可能使用相同的動作群組或不同的動作群組。 一個訂用帳戶中最多可設定 2,000 個動作群組。
@@ -72,10 +70,10 @@ ms.locfileid: "74423861"
 ## <a name="action-specific-information"></a>動作特定資訊
 
 > [!NOTE]
-> 請參閱以下各專案的[監視訂用帳戶服務限制，以監控](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits)數值限制。  
+> 請參閱以下各專案的[監視訂用帳戶服務限制，以監控](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits)數值限制。  
 
 ### <a name="automation-runbook"></a>自動化 Runbook
-如需 Runbook 承載的限制，請參閱[Azure 訂用帳戶服務限制](../../azure-subscription-service-limits.md)。
+如需 Runbook 承載的限制，請參閱[Azure 訂用帳戶服務限制](../../azure-resource-manager/management/azure-subscription-service-limits.md)。
 
 您在動作群組中可能會有有限數目的 Runbook 動作。 
 
@@ -90,12 +88,12 @@ ms.locfileid: "74423861"
 
 動作群組中的電子郵件動作數目可能有限。 請參閱[速率限制資訊](./../../azure-monitor/platform/alerts-rate-limiting.md)一文。
 
-### <a name="email-azure-resource-manager-role"></a>Azure Resource Manager 角色的電子郵件
+### <a name="email-azure-resource-manager-role"></a>寄送電子郵件給 Azure Resource Manager 角色
 傳送電子郵件給訂用帳戶角色的成員。
 
 動作群組中的電子郵件動作數目可能有限。 請參閱[速率限制資訊](./../../azure-monitor/platform/alerts-rate-limiting.md)一文。
 
-### <a name="function"></a>函數
+### <a name="function"></a>函式
 設定為動作的函式應用程式的函式金鑰會透過函式 API 進行讀取，這目前需要 v2 函式應用程式，以將應用程式設定 "AzureWebJobsSecretStorageType" 設為 "files"。 如需詳細資訊，請參閱[函數 V2 中的金鑰管理變更]( https://aka.ms/funcsecrets)。
 
 動作群組中的函式動作數目可能有限。
@@ -105,7 +103,7 @@ ITSM 動作需要 ITSM 連線。 了解如何建立 [ITSM 連線](../../azure-mo
 
 您在動作群組中可能會有有限數目的 ITSM 動作。 
 
-### <a name="logic-app"></a>邏輯應用程式
+### <a name="logic-app"></a>Logic 應用程式
 動作群組中的邏輯應用程式動作數目可能有限。
 
 ### <a name="secure-webhook"></a>安全 Webhook
@@ -113,7 +111,7 @@ ITSM 動作需要 ITSM 連線。 了解如何建立 [ITSM 連線](../../azure-mo
 
 [動作群組] [Webhook] 動作可讓您利用 Azure Active Directory 來保護您的動作群組與受保護 Web API （Webhook 端點）之間的連線。 下面將說明利用這項功能的整體工作流程。 如需 Azure AD 應用程式和服務主體的總覽，請參閱[Microsoft 身分識別平臺（v2.0）總覽](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)。
 
-1. 為受保護的 Web API 建立 Azure AD 應用程式。 請參閱 https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview。
+1. 為受保護的 Web API 建立 Azure AD 應用程式。 請參閱 https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview 。
     - 將受保護的 API 設定為可由背景程式應用程式呼叫。
     
 1. 啟用 [動作群組] 以使用您的 Azure AD 應用程式。
@@ -199,7 +197,7 @@ Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
 
-### <a name="sms"></a>sms
+### <a name="sms"></a>簡訊
 如需其他重要資訊，請參閱[速率限制資訊](./../../azure-monitor/platform/alerts-rate-limiting.md)和[SMS 警示行為](../../azure-monitor/platform/alerts-sms-behavior.md)。
 
 動作群組中的 SMS 動作數目可能有限。  

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 91d5827a08a600c19c24ac0a96a5f4e3e98e22f2
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 2ae8b71a7d48949cd82765112752192aba54521f
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671770"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680948"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>本機 Git 部署至 Azure App Service
 
@@ -97,7 +97,9 @@ az webapp deployment list-publishing-credentials --name <app-name> --resource-gr
 
 若要使用 Azure Pipelines （預覽）為您的應用程式啟用本機 Git 部署：
 
-1. 流覽至 [ [Azure 入口網站](https://portal.azure.com)中的 Azure App Service 應用程式] 頁面，然後選取左側功能表中的 [**部署中心**]。
+1. 在  [Azure 入口網站](https://portal.azure.com)中，搜尋並選取 **應用程式服務**]。 
+
+1. 選取您的 Azure App Service 應用程式，然後選取左側功能表中的 [**部署中心**]。
    
 1. 在 [**部署中心**] 頁面上，選取 [**本機 Git**]，然後選取 [**繼續**]。 
    

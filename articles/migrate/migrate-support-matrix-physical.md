@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: b5b5da6282b1df6c70fd58dcf8c417250de81b73
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9e749297d831aeae7d785a9a9a29bea1f8c6d5e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196343"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454626"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>實體伺服器評量和移轉的支援矩陣
 
@@ -40,9 +40,9 @@ ms.locfileid: "74196343"
 
   **地理位置** | **中繼資料儲存位置**
   --- | ---
-  Azure Government | 美國政府維吉尼亞州
+  Azure 政府機構 | US Gov 維吉尼亞州
   亞太地區 | 東亞或東南亞
-  澳大利亞 | 澳大利亞東部或澳大利亞東南部
+  澳洲 | 澳大利亞東部或澳大利亞東南部
   巴西 | 巴西南部
   加拿大 | 加拿大中部或加拿大東部
   歐洲 | 北歐或西歐
@@ -73,9 +73,9 @@ ms.locfileid: "74196343"
 
 | **支援**                | **詳細資料**               
 | :-------------------       | :------------------- |
-| **設備部署**   |  您可以在實體伺服器或虛擬機器上部署設備。<br/>  主機電腦必須執行 Windows Server 2012 R2 或更新版本。<br/> 主機需要足夠的空間來配置 16 GB RAM、8個 vcpu、大約 80 GB 的儲存空間，以及適用于設備 VM 的外部交換器。<br/> 設備需要靜態或動態 IP 位址，以及網際網路存取。
+| **設備部署**   |  您可以從入口網站下載設備安裝程式腳本（在壓縮的資料夾中）。 <br/> 您可以將資料夾解壓縮，並在專用的實體伺服器或虛擬機器上執行 PowerShell 腳本（AzureMigrateInstaller），以設定設備。<br/>  選擇要安裝設備的電腦必須執行 Windows Server 2016。<br/> 機器需要足夠的空間來配置 16 GB RAM、8個 vcpu，大約 80 GB 的儲存空間，以及適用于設備 VM 的外部交換器。<br/> 設備需要靜態或動態 IP 位址，以及網際網路存取。
 | **Azure Migrate 專案**  |  應用裝置可以與單一專案相關聯。<br/> 任何數目的設備都可以與單一專案相關聯。<br/> 您可以在專案中評估最多35000部機器。
-| **探索**              | 單一設備可以探索最多250部伺服器。
+| **探索              | 單一設備可以探索最多250部伺服器。
 | **評量群組**       | 您最多可以在單一群組中新增35000部電腦。
 | **評量**             | 您可以在單一評估中評估多達35000部機器。
 
@@ -92,7 +92,7 @@ ms.locfileid: "74196343"
 **URL** | **詳細資料**  
 --- | ---
 *.portal.azure.com | 導覽至 Azure 入口網站
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | 登入您的 Azure 訂用帳戶：
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com  | 登入您的 Azure 訂用帳戶
 *.microsoftonline.com <br/> *.microsoftonline-p.com | 建立設備對服務通訊的 Azure Active Directory 應用程式。
 management.azure.com | 建立設備對服務通訊的 Azure Active Directory 應用程式。
 dc.services.visualstudio.com | 記錄和監視
@@ -106,10 +106,10 @@ https://download.microsoft.com/download/* | 允許從 Microsoft 下載網站下�
 
 下表摘要說明評量的通訊埠需求。
 
-**裝置** | **連接**
+**裝置** | **[連接]**
 --- | ---
 **台** | TCP 通訊埠3389上的輸入連線，以允許應用裝置的遠端桌面連線。<br/> 埠44368上的輸入連線，可使用 URL 從遠端存取應用裝置管理應用程式： ``` https://<appliance-ip-or-name>:44368 ```<br/> 埠443、5671和5672上的輸出連線，以將探索和效能中繼資料傳送至 Azure Migrate。
-**實體伺服器** | **Windows：** 埠443、5989上的輸入連線，可從 Windows 伺服器提取設定和效能中繼資料。 <br/> **Linux：** 埠22（UDP）上的輸入連線，可從 Linux 伺服器提取設定和效能中繼資料。 |
+**實體伺服器** | **Windows：** 埠443上的輸入連線、WinRM 埠5985（HTTP）和5986（HTTPS），以從 Windows 伺服器提取設定和效能中繼資料。 <br/> **Linux：** 埠22（UDP）上的輸入連線，可從 Linux 伺服器提取設定和效能中繼資料。 |
 
 
 ## <a name="next-steps"></a>後續步驟

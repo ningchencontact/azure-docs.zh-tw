@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: d19640d19c3b7fa611f5bfe0e4fd0868924650c5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ceafee2d3356d37e74039789c8243ace41c141b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066929"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435783"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大規模擷取、轉換和載入 (ETL)
 
@@ -51,11 +51,11 @@ Azure Data Factory 以平台即服務的形式提供協調流程功能。 這是
 
 ## <a name="ingest-file-storage-and-result-storage"></a>擷取檔案儲存體和結果儲存體
 
-來源資料檔通常會載入至 Azure 儲存體或 Azure Data Lake Storage 中的位置。 檔案可以是任何格式，但通常會是像 CSV 的一般檔案。 
+來源資料檔通常會載入至 Azure 儲存體或 Azure Data Lake Storage 中的位置。 檔案可以是任何格式，但通常會是像 CSV 的一般檔案。
 
-### <a name="azure-storage"></a>Azure 儲存體 
+### <a name="azure-storage"></a>Azure 儲存體
 
-[Azure 儲存體](https://azure.microsoft.com/services/storage/blobs/)具有[特定的延展性目標](../../storage/common/storage-scalability-targets.md)。  對大多數分析節點來說，當處理許多較小的檔案時，Azure 儲存體的延展性最佳。  Azure 儲存體可保證不論有多少檔案或檔案有多大 (只要是在您的限制範圍內) 都能提供相同的效能。  這意謂著您可以儲存數 TB 的資料而仍獲得一致的效能，不論您使用的是一部份資料還是全部資料。
+[Azure 儲存體](https://azure.microsoft.com/services/storage/blobs/)具有特定的擴充性目標。 如需詳細資訊，請參閱[Blob 儲存體的擴充性和效能目標](../../storage/blobs/scalability-targets.md)。 對大多數分析節點來說，當處理許多較小的檔案時，Azure 儲存體的延展性最佳。  Azure 儲存體可保證不論有多少檔案或檔案有多大 (只要是在您的限制範圍內) 都能提供相同的效能。  這意謂著您可以儲存數 TB 的資料而仍獲得一致的效能，不論您使用的是一部份資料還是全部資料。
 
 Azure 儲存體有數種不同類型的 Blob。  「附加 Blob」是儲存 Web 記錄或感應器資料的絕佳選項。  
 
@@ -65,9 +65,9 @@ Azure 儲存體也有一個用於 Blob 儲存體的 WebHDFS API 層。  HDInsigh
 
 通常會使用 PowerShell、Azure 儲存體 SDK 或 AZCopy 將資料擷取至 Azure 儲存體。
 
-### <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
+### <a name="azure-data-lake-storage"></a>Azure Data Lake 儲存體
 
-Azure Data Lake Storage (ADLS) 是一個受管理的超大規模存放庫，適用於與 HDFS 相容的分析資料。  ADLS 使用一種類似於 HDFS 的設計典範，並在總容量及個別檔案大小方面提供無限的延展性。 ADLS 非常適合與大型檔案搭配運作，因為大型檔案可以跨多個節點儲存。  分割 ADLS 中的資料是在幕後執行的。  您會獲得大規模輸送量，而可以使用數千個並行執行程式來執行分析作業，有效率地讀取和寫入數百 TB 的資料。
+Azure Data Lake Storage (ADLS) 是一個受管理的超大規模存放庫，適用於與 HDFS 相容的分析資料。  ADLS 使用一種類似於 HDFS 的設計典範，並在總容量及個別檔案大小方面提供無限的延展性。 ADLS 非常適合與大型檔案搭配運作，因為大型檔案可以跨多個節點儲存。  分割 ADLS 中的資料是在幕後執行的。  您可以取得大規模輸送量，以使用數千個並行執行程式來執行分析作業，有效率地讀取和寫入上百 TB 規模的資料。
 
 通常會使用 Azure Data Factory、ADLS SDK、AdlCopy 服務、Apache DistCp 或 Apache Sqoop 將資料擷取至 ADLS。  要使用這當中的哪些服務大部分取決於資料的所在位置。  如果資料目前在現有的 Hadoop 叢集中，您可以使用 Apache DistCp、AdlCopy 服務或 Azure Data Factory。  如果資料在「Azure Blob 儲存體」中，則您可以使用 Azure Data Lake Storage .NET SDK、Azure PowerShell 或 Azure Data Factory。
 
@@ -87,7 +87,7 @@ Azure SQL DW 是一個儲存已清理且備妥之資料以供日後分析的絕�
 
 「Azure SQL 資料倉儲」(SQL DW) 是一個已針對分析工作負載最佳化的關聯式資料庫。  Azure SQL DW 會根據分割資料表調整規模。  資料表可以跨多個節點進行分割。  在建立 Azure SQL DW 節點時便會選取節點。  您可以在事後調整節點規模，但這是一個可能需要移動資料的作用中程序。 如需詳細資訊，請參閱 [SQL 資料倉儲 - 管理計算](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)。
 
-### <a name="apache-hbase"></a>Apache HBase (英文)
+### <a name="apache-hbase"></a>Apache HBase
 
 Apache HBase 是 Azure HDInsight 中提供的索引鍵/值存放區。  Apache HBase 是開放原始碼的 NoSQL 資料庫，其建置於 Hadoop 上並模仿 Google BigTable。 HBase 可針對無結構描述資料庫中依資料行系列組織的大量非結構化及半結構化資料，提供效能隨機存取功能和極高的一致性。
 
@@ -129,7 +129,7 @@ Apache Flume 是一個分散式、可靠且可用的服務，可有效率地收�
 
 Apache Flume 無法與 Azure HDInsight 搭配使用。  內部部署 Hadoop 安裝可以使用 Flume，將資料傳送至 Azure 儲存體 Blob 或 Azure Data Lake Storage。  如需詳細資訊，請參閱[搭配 HDInsight 使用 Apache Flume](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) \(英文\)。
 
-## <a name="transform"></a>轉換
+## <a name="transform"></a>轉型
 
 在資料存在於所選擇的位置中之後，您必須加以清理、結合或準備，才能用於特定使用模式。  Hive、Pig 及 Spark SQL 都是適用於該類工作的絕佳選擇。  HDInsight 支援所有這些產品。 
 

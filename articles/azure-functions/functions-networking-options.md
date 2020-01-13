@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: a3df48115dde27478446614c0446d64709adbc6f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1a9c058e590e5df9ab9ec82d900e22f7154d00a0
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226807"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561927"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 網路功能選項
 
@@ -30,11 +30,11 @@ ms.locfileid: "74226807"
 
 |                |[耗用量方案](functions-scale.md#consumption-plan)|[Premium 方案](functions-scale.md#premium-plan)|[App Service 計劃](functions-scale.md#app-service-plan)|[App Service 環境](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[私人網站存取 & 的輸入 IP 限制](#inbound-ip-restrictions)|✅是|✅是|✅是|✅是|
-|[虛擬網路整合](#virtual-network-integration)|❌否|✅是（地區）|✅是（區域和閘道）|✅是|
-|[虛擬網路觸發程式（非 HTTP）](#virtual-network-triggers-non-http)|❌否| ❌否|✅是|✅是|
-|[混合式連線](#hybrid-connections)|❌否|✅是|✅是|✅是|
-|[輸出 IP 限制](#outbound-ip-restrictions)|❌否| ❌否|❌否|✅是|
+|[私人網站存取 & 的輸入 IP 限制](#inbound-ip-restrictions)|✅有|✅有|✅有|✅有|
+|[虛擬網路整合](#virtual-network-integration)|❌沒有|✅是（地區）|✅是（區域和閘道）|✅有|
+|[虛擬網路觸發程式（非 HTTP）](#virtual-network-triggers-non-http)|❌沒有| ✅有 |✅有|✅有|
+|[混合式連接](#hybrid-connections)（僅限 Windows）|❌沒有|✅有|✅有|✅有|
+|[輸出 IP 限制](#outbound-ip-restrictions)|❌沒有| ❌沒有|❌沒有|✅有|
 
 ## <a name="inbound-ip-restrictions"></a>輸入 IP 限制
 
@@ -123,19 +123,51 @@ Key Vault 參考可讓您在 Azure Functions 應用程式中使用來自 Azure K
 
 ## <a name="virtual-network-triggers-non-http"></a>虛擬網路觸發程式（非 HTTP）
 
-目前，若要從虛擬網路內使用 HTTP 以外的函式觸發程式，您必須在 App Service 計畫或 App Service 環境中執行函數應用程式。
+目前，您可以使用下列兩種方式之一，在虛擬網路內使用非 HTTP 觸發程式函式： 
++ 在 Premium 方案中執行函數應用程式，並啟用虛擬網路觸發程式支援。
++ 在 App Service 方案或 App Service 環境中執行函數應用程式。
 
-例如，假設您想要將 Azure Cosmos DB 設定為只接受來自虛擬網路的流量。 您必須在 app service 方案中部署函式應用程式，以提供與該虛擬網路的虛擬網路整合，以便從該資源設定 Azure Cosmos DB 的觸發程式。 在預覽期間，設定虛擬網路整合並不允許 Premium 方案觸發該 Azure Cosmos DB 資源。
+### <a name="premium-plan-with-virtual-network-triggers"></a>具有虛擬網路觸發程式的 Premium 方案
 
-請參閱[這份清單，以取得所有非 HTTP 觸發](./functions-triggers-bindings.md#supported-bindings)程式，以再次檢查支援的內容。
+在高階計畫中執行時，您可以將非 HTTP 觸發程式函式連接到在虛擬網路中執行的服務。 若要這樣做，您必須啟用函數應用程式的虛擬網路觸發程式支援。 在 [**函數應用程式設定**] 下的 [ [Azure 入口網站](https://portal.azure.com)中，可找到**虛擬網路觸發程式支援**設定。
 
-## <a name="hybrid-connections"></a>混合式連線
+![VNETToggle](media/functions-networking-options/virtual-network-trigger-toggle.png)
 
-「[混合](../service-bus-relay/relay-hybrid-connections-protocol.md)式連線」是 Azure 轉送的一項功能，可讓您用來存取其他網路中的應用程式資源。 它可讓您從應用程式存取應用程式端點。 您無法使用它來存取您的應用程式。 混合式連接可供在所有取用方案中執行的函式使用。
+您也可以使用下列 Azure CLI 命令來啟用虛擬網路觸發程式：
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <premium_plan_name> --set properties.functionsRuntimeScaleMonitoringEnabled=1
+```
+
+函數執行時間的2.x 版和更新版本支援虛擬網路觸發程式。 支援下列非 HTTP 觸發程式類型。
+
+| 尾碼 | 最低版本 |
+|-----------|---------| 
+|[Microsoft Azure Webjob。儲存空間](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 或更高版本 |
+|[EventHubs （副檔名為）](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 或更高版本|
+|[Microsoft Azure Webjob。](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 或更高版本|
+|[CosmosDB （副檔名為）](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 或更高版本|
+|[DurableTask （副檔名為）](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 或更高版本|
+
+> [!IMPORTANT]
+> 啟用虛擬網路觸發程式支援時，只有上述的觸發程式類型會隨著您的應用程式動態調整。 您仍然可以使用上述未列出的觸發程式，但它們不會調整到超過其預先準備就緒的實例計數。 如需完整的觸發程式清單，請參閱[觸發程式和](./functions-triggers-bindings.md#supported-bindings)系結。
+
+### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>使用虛擬網路觸發程式 App Service 計畫和 App Service 環境
+
+當您的函數應用程式在 App Service 計畫或 App Service 環境中執行時，您可以使用非 HTTP 觸發程式函式。 為了讓您的函式正確地觸發，您必須連接到可存取觸發程式連接中所定義資源的虛擬網路。 
+
+例如，假設您想要將 Azure Cosmos DB 設定為只接受來自虛擬網路的流量。 在此情況下，您必須在提供虛擬網路與該虛擬網路整合的 App Service 計畫中部署函數應用程式。 這可讓該 Azure Cosmos DB 資源觸發函式。 
+
+## <a name="hybrid-connections"></a>混合式連接
+
+「[混合](../service-bus-relay/relay-hybrid-connections-protocol.md)式連線」是 Azure 轉送的一項功能，可讓您用來存取其他網路中的應用程式資源。 它可讓您從應用程式存取應用程式端點。 您無法使用它來存取您的應用程式。 混合式連接可用於在 Windows 上執行的函式，除了取用方案以外。
 
 在 Azure Functions 中使用時，每個混合式連線都會與單一 TCP 主機和埠組合相互關聯。 這表示，只要您要存取 TCP 接聽埠，混合式連線的端點就可以在任何作業系統和任何應用程式上。 「混合式連線」功能不知道或在意應用程式通訊協定或您要存取的內容。 它只會提供網路存取。
 
 若要深入瞭解，請參閱[混合式連接的 App Service 檔](../app-service/app-service-hybrid-connections.md)。 這些相同的設定步驟支援 Azure Functions。
+
+>[!IMPORTANT]
+> 只有在 Windows 方案上才支援混合式連接。 不支援 Linux
 
 ## <a name="outbound-ip-restrictions"></a>輸出 IP 限制
 

@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: a59b62e19ac1e470dcdaaf0281dde9904a70b583
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0e8c93ea6d5c2b525ccbea2af900f100afcc3d93
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230677"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769212"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions 部署位置
 
-Azure Functions 部署位置可讓您的函數應用程式執行稱為「位置」的不同實例。 位置是透過公開可用的端點公開的不同環境。 一個應用程式實例一律會對應至生產位置，而您可以視需要交換指派給某個插槽的實例。 在 App Service 方案下執行的函式應用程式可能會有多個位置，而在耗用量下只允許一個位置。
+Azure Functions 部署位置可讓您的函數應用程式執行稱為「位置」的不同實例。 位置是透過公開可用的端點公開的不同環境。 一個應用程式實例一律會對應至生產位置，而您可以視需要交換指派給某個插槽的實例。 在 App Service 方案下執行的函式應用程式可能會有多個位置，而在取用量方案中，只允許一個位置。
 
 以下會反映函數如何受到交換位置的影響：
 
@@ -72,7 +72,7 @@ Azure Functions 部署位置可讓您的函數應用程式執行稱為「位置�
 - 在 *[平臺功能 > 一般設定*] 下 ，按一下 [設定]
 - 按一下您想要與目前位置保持在一起的設定名稱
 - 按一下 [**部署位置設定**] 核取方塊
-- 按一下 [虛擬機器]
+- 按一下 [檔案] &gt; [新增] &gt; [專案]
 - 設定 blade 消失後，按一下 [**儲存**] 以保留變更
 
 ![部署位置設定](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
@@ -81,7 +81,7 @@ Azure Functions 部署位置可讓您的函數應用程式執行稱為「位置�
 
 當您建立插槽時，位置是空的。 您可以使用任何支援的[部署技術](./functions-deployment-technologies.md)，將您的應用程式部署到某個位置。
 
-## <a name="scaling"></a>調整大小
+## <a name="scaling"></a>調整
 
 所有位置都會調整為與生產位置相同的背景工作數目。
 
@@ -132,17 +132,17 @@ Azure Functions 部署位置可讓您的函數應用程式執行稱為「位置�
 - [create](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
 - [delete](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
 - list[](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [調換](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
+- [swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
 - [自動交換](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
 
-## <a name="change-app-service-plan"></a>變更 app service 方案
+## <a name="change-app-service-plan"></a>變更 App Service 方案
 
-使用在 App Service 方案下執行的函式應用程式，您可以選擇變更位置的基礎 app Service 方案。
+使用在 App Service 計畫下執行的函式應用程式，您可以選擇變更位置的基礎 App Service 計畫。
 
 > [!NOTE]
 > 您無法在取用量方案下變更位置的 App Service 方案。
 
-使用下列步驟來變更位置的 app service 方案：
+使用下列步驟來變更位置的 App Service 方案：
 
 1. 流覽至位置
 
@@ -154,7 +154,7 @@ Azure Functions 部署位置可讓您的函數應用程式執行稱為「位置�
 
 1. 選取新的 App Service 方案，或建立新的方案
 
-1. 按一下 [虛擬機器]
+1. 按一下 [檔案] &gt; [新增] &gt; [專案]
 
     ![變更 app service 方案](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
 

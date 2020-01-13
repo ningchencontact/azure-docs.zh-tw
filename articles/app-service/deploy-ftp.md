@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: bccf4fa0b17f261d41c0a80d9f75fe391f591bfb
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 7bc637b5719da3c5f5e5607436aa7da0721f5a9e
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671712"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680903"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 將您的應用程式部署至 Azure App Service
 
@@ -21,15 +21,21 @@ ms.locfileid: "74671712"
 
 ## <a name="open-ftp-dashboard"></a>開啟 FTP 儀表板
 
-在 [Azure 入口網站](https://portal.azure.com)中，開啟應用程式的[資源頁面](../azure-resource-manager/manage-resources-portal.md#manage-resources)。
+1. 在  [Azure 入口網站](https://portal.azure.com)中，搜尋並選取 **應用程式服務**]。
 
-若要開啟 FTP 儀表板，請按一下 [部署中心] > [FTP] > [儀表板]。
+    ![搜尋 [應用程式服務]。](media/app-service-continuous-deployment/search-for-app-services.png)
 
-![開啟 FTP 儀表板](./media/app-service-deploy-ftp/open-dashboard.png)
+2. 選取您想要部署的 web 應用程式。
+
+    ![選取您的應用程式。](media/app-service-continuous-deployment/select-your-app.png)
+
+3. 選取 **部署中心** > **FTP** > **儀表板**。
+
+    ![開啟 FTP 儀表板](./media/app-service-deploy-ftp/open-dashboard.png)
 
 ## <a name="get-ftp-connection-information"></a>取得 FTP 連線資訊
 
-在 FTP 儀表板中，按一下 [複製] 複製 FTPS 端點和應用程式認證。
+在 FTP 儀表板中，選取 [**複製**] 以複製 FTPS 端點和應用程式認證。
 
 ![複製 FTP 資訊](./media/app-service-deploy-ftp/ftp-dashboard.png)
 

@@ -2,14 +2,14 @@
 title: 針對 Azure 備份代理程式進行疑難排解
 description: 在本文中，您將瞭解如何針對 Azure 備份代理程式的安裝和註冊進行疑難排解。
 ms.reviewer: saurse
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 4f1d93a6ba36821832c945db2e5cc19bf7e9d232
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 06c741547e0206059195f481ed29dc8e69aa4dd3
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172943"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665305"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>針對 Microsoft Azure 復原服務（MARS）代理程式進行疑難排解
 
@@ -42,7 +42,7 @@ ms.locfileid: "74172943"
 | 原因 | 建議動作 |
 | ---     | ---    |
 | **保存庫認證無效** <br/> <br/> 保存庫認證檔案可能已損毀或可能已過期。 （例如，在註冊時間之前，可能已下載超過48小時）。| 從 Azure 入口網站上的復原服務保存庫下載新的認證。 （請參閱[下載 MARS 代理程式](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent)一節中的步驟6）。然後適當地採取下列步驟： <ul><li> 如果您已經安裝並註冊 MARS，請開啟 Microsoft Azure 備份代理程式 MMC 主控台，然後選取 [**動作**] 窗格中的 [**註冊伺服器**]，以新的認證完成註冊。 <br/> <li> 如果新安裝失敗，請嘗試使用新的認證重新安裝。</ul> **注意**：如果已下載多個保存庫認證檔案，則在接下來的48小時內只有最新的檔案有效。 我們建議您下載新的保存庫認證檔。
-| **Proxy 伺服器/防火牆封鎖註冊** <br/>或 <br/>**沒有網際網路連線能力** <br/><br/> 如果您的電腦或 proxy 伺服器具有有限的網際網路連線能力，而且您不確定存取所需的 Url 時，註冊將會失敗。| 請採取下列步驟：<br/> <ul><li> 與您的 IT 小組合作，以確保系統具有網際網路連線能力。<li> 如果您沒有 proxy 伺服器，請確定您在註冊代理程式時未選取 [proxy] 選項。 [檢查您的 proxy 設定](#verifying-proxy-settings-for-windows)。<li> 如果您有防火牆/proxy 伺服器，請與您的網路小組合作，以確保這些 Url 和 IP 位址有存取權：<br/> <br> **URL**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> . microsoftonline.com <br> . windows.net <br>**IP 位址**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>完成上述的疑難排解步驟之後，請嘗試再次註冊。
+| **Proxy 伺服器/防火牆封鎖註冊** <br/>或 <br/>**沒有網際網路連線能力** <br/><br/> 如果您的電腦或 proxy 伺服器具有有限的網際網路連線能力，而且您不確定存取所需的 Url 時，註冊將會失敗。| 請執行下列步驟：<br/> <ul><li> 與您的 IT 小組合作，以確保系統具有網際網路連線能力。<li> 如果您沒有 proxy 伺服器，請確定您在註冊代理程式時未選取 [proxy] 選項。 [檢查您的 proxy 設定](#verifying-proxy-settings-for-windows)。<li> 如果您有防火牆/proxy 伺服器，請與您的網路小組合作，以確保這些 Url 和 IP 位址有存取權：<br/> <br> **URL**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP 位址**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>完成上述的疑難排解步驟之後，請嘗試再次註冊。
 | **防毒軟體正在封鎖註冊** | 如果您已在伺服器上安裝防毒軟體，請在下列檔案和資料夾的防毒程式掃描中新增必要的排除規則： <br/><ul> <li> CBengine.exe <li> CSC .exe<li> 暫存檔案夾。 其預設位置為 C:\Program Files\Microsoft Azure Recovery Services Agent\scratch。 <li> C:\Program Files\Microsoft Azure Recovery Services Agent\Bin. 的 bin 資料夾
 
 ### <a name="additional-recommendations"></a>其他建議
@@ -73,7 +73,7 @@ ms.locfileid: "74172943"
 
 | 錯誤  | 可能的原因 | 建議動作 |
 | ---     | ---     | ---    |
-| <br /><ul><li>Microsoft Azure 復原服務代理程式無法連接到 Microsoft Azure 備份。 （識別碼：100050）檢查您的網路設定，並確定您能夠連線到網際網路。<li>（407）需要 Proxy 驗證。 |Proxy 正在封鎖連接。 |  <ul><li>在 Internet Explorer 中，移至 **工具**  > **網際網路選項**  > **安全性** > **網際網路**。 選取 [**自訂層級**]，並向下卷到 [檔案**下載**] 區段。 選取 [啟用]。<p>您也可能需要在 Internet Explorer 中將[url 和 IP 位址](backup-configure-vault.md#verify-internet-access)新增至信任的網站。<li>變更設定以使用 Proxy 伺服器。 接著提供 Proxy 伺服器詳細資料。<li> 如果您的電腦具有有限的網際網路存取權，請確定電腦或 proxy 上的防火牆設定允許這些[url 和 IP 位址](backup-configure-vault.md#verify-internet-access)。 <li>如果您已在伺服器上安裝防毒軟體，請將這些檔案從防毒軟體掃描中排除： <ul><li>CBEngine.exe (而不是 dpmra.exe)。<li>CSC.exe (與 .NET Framework 相關)。 伺服器上安裝的每個 .NET Framework 版本都有一個 CSC .exe。 在受影響的伺服器上排除所有 .NET Framework 版本的 CSC .exe 檔案。 <li>暫存檔案夾或快取位置。 <br>暫存檔案夾或快取路徑的預設位置是 C:\Program Files\Microsoft Azure Recovery Services Agent\scratch。<li>C:\Program Files\Microsoft Azure Recovery Services Agent\Bin. 的 bin 資料夾
+| <br /><ul><li>Microsoft Azure 復原服務代理程式無法連接到 Microsoft Azure 備份。 （識別碼：100050）檢查您的網路設定，並確定您能夠連線到網際網路。<li>(407) 需要 Proxy 驗證。 |Proxy 正在封鎖連接。 |  <ul><li>在 Internet Explorer 中，移至 **工具**  > **網際網路選項**  > **安全性** > **網際網路**。 選取 [**自訂層級**]，並向下卷到 [檔案**下載**] 區段。 選取 [啟用]。<p>您也可能需要在 Internet Explorer 中將[url 和 IP 位址](backup-configure-vault.md#verify-internet-access)新增至信任的網站。<li>變更設定以使用 Proxy 伺服器。 接著提供 Proxy 伺服器詳細資料。<li> 如果您的電腦具有有限的網際網路存取權，請確定電腦或 proxy 上的防火牆設定允許這些[url 和 IP 位址](backup-configure-vault.md#verify-internet-access)。 <li>如果您已在伺服器上安裝防毒軟體，請將這些檔案從防毒軟體掃描中排除： <ul><li>CBEngine.exe (而不是 dpmra.exe)。<li>CSC.exe (與 .NET Framework 相關)。 伺服器上安裝的每個 .NET Framework 版本都有一個 CSC .exe。 在受影響的伺服器上排除所有 .NET Framework 版本的 CSC .exe 檔案。 <li>暫存檔案夾或快取位置。 <br>暫存檔案夾或快取路徑的預設位置是 C:\Program Files\Microsoft Azure Recovery Services Agent\scratch。<li>C:\Program Files\Microsoft Azure Recovery Services Agent\Bin. 的 bin 資料夾
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>無法設定安全備份的加密金鑰
 
@@ -165,7 +165,7 @@ Azure 備份可能未成功掛接復原磁碟區，即使數分鐘後仍未成�
 
 如果快取資料夾（也稱為「暫存檔案夾」）的設定不正確、缺少必要條件或限制存取，則備份作業可能會失敗。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 若要讓 MARS 代理程式作業成功，快取資料夾必須符合下列需求：
 
@@ -199,25 +199,25 @@ Azure 備份可能未成功掛接復原磁碟區，即使數分鐘後仍未成�
 
 ### <a name="salchecksumstoreinitializationfailed"></a>SalChecksumStoreInitializationFailed
 
-錯誤訊息 | 建議的動作 |
+錯誤訊息 | 建議動作 |
 -- | --
 Microsoft Azure 復原服務代理程式無法存取臨時位置中所儲存的備份總和檢查碼 | 若要解決此問題，請執行下列，然後重新開機伺服器。 <br/> - [檢查是否有防毒軟體或其他進程鎖定臨時位置](#another-process-or-antivirus-software-blocking-access-to-cache-folder)檔案<br/> - [檢查臨時位置是否有效，以及是否可供 mars 代理程式存取。](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
-錯誤訊息 | 建議的動作 |
+錯誤訊息 | 建議動作 |
 -- | --
 Microsoft Azure 復原服務代理程式無法存取臨時位置以初始化 VHD | 若要解決此問題，請執行下列，然後重新開機伺服器。 <br/> - [檢查是否有防毒軟體或其他進程鎖定臨時位置](#another-process-or-antivirus-software-blocking-access-to-cache-folder)檔案<br/> - [檢查臨時位置是否有效，以及是否可供 mars 代理程式存取。](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 
-錯誤訊息 | 建議的動作 |
+錯誤訊息 | 建議動作 |
 -- | --
 備份失敗，因為暫存資料夾所在的磁片區中的儲存空間不足 | 若要解決此問題，請確認下列步驟，然後重試此作業：<br/>- [確保 MARS 代理程式是最新的](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [確認並解決影響備份臨時空間的儲存體問題](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
-錯誤訊息 | 建議的動作 |
+錯誤訊息 | 建議動作 |
 -- | --
 找不到檔案中的變更。 這可能是由各種原因所造成。 請重試該作業 | 若要解決此問題，請確認下列步驟，然後重試此作業：<br/> - [確保 MARS 代理程式是最新的](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [確認並解決影響備份臨時空間的儲存體問題](#prerequisites)
 

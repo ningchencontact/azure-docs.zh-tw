@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d628031515a9b0fdf3aa7b7ec88ee1b6b7f41f51
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 68cabbd00dd0b738590109cc39d8df82f5b7362d
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672200"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681158"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>在 Azure 建立管理 App Service 方案
 
@@ -24,11 +24,15 @@ ms.locfileid: "74672200"
 
 您可建立空白的 App Service 方案，或是在應用程式建立期間建立方案。
 
-1. 在  [Azure 入口網站](https://portal.azure.com)中，選取 **新增** > **Web 應用程式** 或其他類型的 App Service 應用程式。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源]。
 
-   ![在 Azure 入口網站中建立應用程式。][createWebApp]
+   ![在 Azure 入口網站中建立資源。][createResource] 
 
-2. 請先設定 [**實例詳細資料**] 區段，再設定 App Service 計畫。 **發佈**和**作業系統**等設定可以變更 App Service 方案的可用定價層。 **區域**決定您的 App Service 方案的建立位置。
+1. 選取 [**新增** > **Web 應用程式**] 或其他類型的 app service 應用程式。
+
+   ![在 Azure 入口網站中建立應用程式。][createWebApp] 
+
+2. 請先設定 [**實例詳細資料**] 區段，再設定 App Service 計畫。 **發佈**和**作業系統**等設定可以變更 App Service 方案的可用定價層。 **區域**決定您的 App Service 方案的建立位置。 
    
 3. 在 [ **App Service 計畫**] 區段中，選取現有的方案，或選取 **[新建]** 來建立方案。
 
@@ -48,7 +52,7 @@ ms.locfileid: "74672200"
 > 您無法在建立方案時指定您想要的網路空間，但這可確保方案建立於與現有方案相同的網路空間中。 簡單地說，所有使用相同資源群組和區域組合建立的方案都會部署到相同的網路空間中。 比方說，如果您在資源群組 A 和區域 B 中建立方案，則您後續在資源群組 A 和區域 B 中建立的方案都會部署到相同網路空間中。 請注意，方案建立之後便不能移動網路空間，所以您無法藉由將方案移至另一個資源群組，將其移到與另一個方案「相同的網路空間」中。
 > 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您要移動的應用程式。
+1. 在  [Azure 入口網站](https://portal.azure.com)中，搜尋並選取 **應用程式服務**]，然後選取您想要移動的應用程式。
 
 2. 從左側功能表中，選取 [**變更 App Service 方案**]。
 
@@ -97,3 +101,4 @@ ms.locfileid: "74672200"
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
+[createResource]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-a-resource.png

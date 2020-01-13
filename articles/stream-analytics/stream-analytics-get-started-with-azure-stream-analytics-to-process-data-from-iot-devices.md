@@ -1,19 +1,18 @@
 ---
 title: 使用 Azure 串流分析處理即時 IoT 資料流程
 description: IoT 感應器標記和具有串流分析的資料串流與即時資料處理
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/26/2019
-ms.openlocfilehash: 1cc9c6dbb700664e732a67245563e9a211456767
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0755131f7d8071e37eadc1339ebc5e122725fa71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559788"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426252"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>使用 Azure 串流分析處理即時 IoT 資料流程
 
@@ -43,7 +42,7 @@ Contoso 是一家工業自動化空間的公司，他們已完全自動化其製
 
 為了方便使用，本入門指南會提供擷取自實際感應器標籤裝置的範例資料檔。 您可以對範例資料執行查詢，然後查看結果。 在後續教學課程中，您將了解如何將您的作業連接至輸入和輸出，並將它們部署到 Azure 服務。
 
-## <a name="create-a-stream-analytics-job"></a>建立串流分析工作
+## <a name="create-a-stream-analytics-job"></a>建立串流分析作業
 
 1. 在  [Azure 入口網站](https://portal.azure.com)中，從左側導覽功能表中選取  **+ 建立資源**]。 然後，從 [**分析**] 選取 [**串流分析作業**]。
    

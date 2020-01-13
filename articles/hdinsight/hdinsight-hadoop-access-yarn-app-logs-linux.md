@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
-ms.openlocfilehash: 883e1007b35991c1f5d8f0c6e949efcb48c27a1d
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 437a0c95ea4b48baa74bf6a577dc06429833bc31
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327215"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644574"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>在以 Linux 為基礎的 HDInsight 上存取 Apache Hadoop YARN 應用程式記錄
 
-了解如何在 Azure HDInsight 中的 [Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) 叢集上存取 [Apache Hadoop YARN](https://hadoop.apache.org/) (Yet Another Resource Negotiator) 應用程式記錄。
+了解如何在 Azure HDInsight 中的 [Apache Hadoop](https://hadoop.apache.org/) 叢集上存取 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) (Yet Another Resource Negotiator) 應用程式記錄。
 
 ## <a name="what-is-apache-yarn"></a>什麼是 Apache YARN？
 
@@ -67,7 +67,7 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 
 YARN ResourceManager UI 是在叢集前端節點上執行。 它是透過 Ambari web UI 來存取。 請使用下列步驟來檢視 YARN 記錄：
 
-1. 在您的網頁瀏覽器中，瀏覽至 https://CLUSTERNAME.azurehdinsight.net。 將 CLUSTERNAME 取代為 HDInsight 叢集的名稱。
+1. 在您的網頁瀏覽器中，瀏覽至 `https://CLUSTERNAME.azurehdinsight.net`。 將 CLUSTERNAME 取代為 HDInsight 叢集的名稱。
 2. 從左邊的服務清單中選取 [YARN]。
 
     ![已選取 Apache Ambari Yarn 服務](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)

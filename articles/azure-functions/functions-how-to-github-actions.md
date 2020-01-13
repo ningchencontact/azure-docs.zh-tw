@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: f30211b2b5863294976420d3f903a36abe76deba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c34847577b7e83228fafad431f541497be9a21ae
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433168"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769144"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>使用 GitHub 動作進行持續傳遞
 
@@ -46,7 +46,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 ## <a name="download-the-publishing-profile"></a>下載發行設定檔
 
-您可以前往應用程式的 [**總覽**] 頁面，然後按一下 [**取得發行設定檔**]，以下載 functionapp 的發行設定檔。
+您可以前往應用程式的 [**總覽**] 頁面，然後按一下 [**取得發行設定檔**]，以下載函數應用程式的發行設定檔。
 
    ![Download publish profile](media/functions-how-to-github-actions/get-publish-profile.png)
 
@@ -54,11 +54,14 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 ## <a name="configure-the-github-secret"></a>設定 GitHub 秘密
 
-1. 在[GitHub](https://github.com)中，流覽您的存放庫、選取 [**設定**] > [**密碼**] > 新增**新的密碼**。
+1. 在[GitHub](https://github.com)中，流覽至您的存放庫，選取 [**設定**] [ > **秘密**] > 新增**密碼**]。
 
    ![新增秘密](media/functions-how-to-github-actions/add-secret.png)
 
-1. 如果您接著選取 [**新增密碼**]，請使用 [**名稱**] 的 `AZURE_CREDENTIALS` 和複製的 [**值**] 命令輸出。 如果您使用發行設定檔，請使用 [**名稱**] 和 [檔案內容] 的 `SCM_CREDENTIALS` 做為 [**值**]。
+1. 加入新的秘密。
+
+   * 如果您使用的是使用 Azure CLI 所建立的服務主體，請使用 `AZURE_CREDENTIALS` 作為**名稱**。 然後貼上已複製的 JSON 物件輸出**值**，然後選取 [**新增密碼**]。
+   * 如果您使用的是發行設定檔，請使用 `SCM_CREDENTIALS` 作為 [**名稱**]。 然後，使用發行設定檔的檔案內容作為 [**值**]，然後選取 [**新增密碼**]。
 
 GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
 

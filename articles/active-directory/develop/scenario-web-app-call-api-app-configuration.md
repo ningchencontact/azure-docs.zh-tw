@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83523fd12700789fb5c34230d529e06c0b284147
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e551159ad2d41af37b1f400e91680c49117498d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964980"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423604"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>呼叫 web Api 的 web 應用程式-程式碼設定
 
@@ -35,11 +35,11 @@ ms.locfileid: "74964980"
 
 支援 web 應用程式之授權碼流程的程式庫如下：
 
-| MSAL 程式庫 | 描述 |
+| MSAL 程式庫 | 說明 |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 支援的平臺為 .NET Framework 和 .NET Core 平臺（而不是 UWP、Xamarin 和 Xamarin，因為這些平臺是用來建立公用用戶端應用程式） |
-| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | 進行中的開發-現已公開預覽 |
-| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | 進行中的開發-現已公開預覽 |
+| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Python web 應用程式的支援 |
+| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | JAVA web 應用程式的支援 |
 
 選取對應至您感興趣之平臺的索引標籤：
 
@@ -92,7 +92,7 @@ ms.locfileid: "74964980"
 
 以下是[L40 的 L42 程式](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Startup.cs#L40-L42)代碼，其 `AddMicrosoftIdentityPlatformAuthentication` 方法的呼叫會將驗證新增至 web 應用程式，並 `AddMsal` 新增呼叫 web api 的功能。 `AddInMemoryTokenCaches` 的呼叫是關於在可能的情況下選擇權杖快取實作為：
 
-```CSharp
+```csharp
 public class Startup
 {
   // Code not show here
@@ -112,7 +112,7 @@ public class Startup
 
 `Constants.ScopeUserRead` 是在常數中定義[。 cs # L5](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Infrastructure/Constants.cs#L5)
 
-```CSharp
+```csharp
 public static class Constants
 {
     public const string ScopeUserRead = "User.Read";
@@ -125,7 +125,7 @@ public static class Constants
 
 `AddMsal` 的程式碼位於 WebAppServiceCollectionExtensions 中，則位於[L108-L159](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L108-L159)。
 
-```CSharp
+```csharp
 
 /// <summary>
 /// Extensions for IServiceCollection for startup initialization.
@@ -253,7 +253,7 @@ public class TokenAcquisition : ITokenAcquisition
 
 `GetOrBuildConfidentialClientApplication()` 方法的程式碼位於 TokenAcquisition 中。 [L333 # L290-](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L290-L333)。 它會使用由相依性插入所插入的成員（以 TokenAcquisition 中的函式在[L47](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L47-L59)中傳遞）。
 
-```CSharp
+```csharp
 public class TokenAcquisition : ITokenAcquisition
 {
   // Code omitted here for clarity
@@ -314,7 +314,7 @@ public class TokenAcquisition : ITokenAcquisition
 
 ```
 
-### <a name="summary"></a>總結
+### <a name="summary"></a>摘要
 
 為了加總，`AcquireTokenByAuthorizationCode` 確實贖回了 ASP.NET 所要求的授權碼，並取得新增至 MSAL.NET 使用者權杖快取的權杖。 然後在 ASP.NET Core 控制器中使用它們。
 
@@ -322,7 +322,7 @@ public class TokenAcquisition : ITokenAcquisition
 
 ASP.NET 處理專案的方式與 ASP.NET Core 相似，不同之處在于 OpenIdConnect 的設定和 `OnAuthorizationCodeReceived` 事件的訂用帳戶會在[App_Start \startup.auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs)檔案中發生。 您可以在 ASP.NET Core 中找到類似的概念，但在 ASP.NET 中，您必須在 web.config [# L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15)中指定 RedirectUri。 相較于 ASP.NET Core 中的設定，此設定比在中執行的設定來得低，因為您必須在部署應用程式時加以變更。
 
-```CSharp
+```csharp
 public partial class Startup
 {
   public void ConfigureAuth(IAppBuilder app)

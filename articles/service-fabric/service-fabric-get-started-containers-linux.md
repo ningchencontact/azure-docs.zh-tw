@@ -1,25 +1,14 @@
 ---
-title: 在 Linux 上建立 Azure Service Fabric 容器應用程式 | Microsoft Docs
+title: 在 Linux 上建立 Azure Service Fabric 容器應用程式
 description: 在 Azure Service Fabric 上建立第一個 Linux 容器應用程式。 使用您的應用程式建置 Docker 映像、將映像推送到容器登錄，建置和部署 Service Fabric 容器應用程式。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 1/4/2019
-ms.author: atsenthi
-ms.openlocfilehash: 2bb9a5e8e42901f22d9f68d691684614c7161620
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: f2f8c7884323667f843382b02c73a570e58617f1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650660"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457967"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>在 Linux 建立第一個 Service Fabric 容器應用程式
 > [!div class="op_single_selector"]
@@ -96,7 +85,7 @@ if __name__ == "__main__":
 ```
 
 ## <a name="build-the-image"></a>建立映像
-執行 `docker build` 命令來建立可執行 Web 應用程式的映像。 開啟 PowerShell 視窗並瀏覽至 *c:\temp\helloworldapp*。 執行下列命令：
+執行 `docker build` 命令來建立可執行 Web 應用程式的映像。 開啟 PowerShell 視窗並瀏覽至 *c:\temp\helloworldapp*。 執行以下命令：
 
 ```bash
 docker build -t helloworldapp .
@@ -124,9 +113,9 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 name - 提供執行中容器的名稱 (而不是容器識別碼)。
 
-連線到執行中的容器。 開啟網頁瀏覽器, 指向埠4000上傳回的 IP 位址, 例如 "HTTP:\//localhost: 4000"。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
+連線到執行中的容器。 開啟網頁瀏覽器，指向埠4000上傳回的 IP 位址，例如 "HTTP：\//localhost： 4000"。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
-![Hello World!][hello-world]
+![Hello World！][hello-world]
 
 若要停止您的容器，請執行︰
 
@@ -143,9 +132,9 @@ docker rm my-web-site
 ## <a name="push-the-image-to-the-container-registry"></a>將映像推送至容器登錄
 確認應用程式在 Docker 中執行後，將映像推送至 Azure Container Registry 中您的登錄。
 
-執行`docker login` , 以使用您的登錄[認證](../container-registry/container-registry-authentication.md)登入您的 container registry。
+執行 `docker login`，使用您的登錄[認證](../container-registry/container-registry-authentication.md)來登入您的 container registry。
 
-下列範例會傳遞 Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md) 的識別碼和密碼。 例如，您可能基於自動化案例已指派服務主體到您的登錄庫。 或者, 您可以使用登錄使用者名稱和密碼來登入。
+下列範例會傳遞 Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md) 的識別碼和密碼。 例如，您可能基於自動化案例已指派服務主體到您的登錄庫。 或者，您可以使用登錄使用者名稱和密碼來登入。
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -182,10 +171,10 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="configure-container-repository-authentication"></a>設定容器存放庫驗證
 
-請參閱[容器存放庫驗證](configure-container-repository-credentials.md), 以瞭解如何為容器映射下載設定不同類型的驗證。
+請參閱[容器存放庫驗證](configure-container-repository-credentials.md)，以瞭解如何為容器映射下載設定不同類型的驗證。
 
 ## <a name="configure-isolation-mode"></a>設定隔離模式
-在6.3 執行時間版本中, Linux 容器支援 VM 隔離, 因而支援兩種容器隔離模式: 進程和 Hyper-v。 使用 Hyper-v 隔離模式時, 會在每個容器和容器主機之間隔離核心。 Hyper-v 隔離是使用[清除容器](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker)來執行。 隔離模式是在應用程式資訊清單檔的 `ServicePackageContainerPolicy` 元素中針對 Linux 叢集所指定的。 可以指定的隔離模式有 `process`、`hyperv` 和 `default`。 預設值為處理序隔離模式。 下列程式碼片段顯示如何在應用程式資訊清單檔中指定隔離模式。
+在6.3 執行時間版本中，Linux 容器支援 VM 隔離，因而支援兩種容器隔離模式：進程和 Hyper-v。 使用 Hyper-v 隔離模式時，會在每個容器和容器主機之間隔離核心。 Hyper-v 隔離是使用[清除容器](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker)來執行。 隔離模式是在應用程式資訊清單檔的 `ServicePackageContainerPolicy` 元素中針對 Linux 叢集所指定的。 可以指定的隔離模式有 `process`、`hyperv` 和 `default`。 預設值為處理序隔離模式。 下列程式碼片段顯示如何在應用程式資訊清單檔中指定隔離模式。
 
 ```xml
 <ServiceManifestImport>
@@ -200,7 +189,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 
 
 ## <a name="configure-resource-governance"></a>設定資源控管
-[資源控管](service-fabric-resource-governance.md)可限制容器在主機上可使用的資源。 應用程式資訊清單中指定的 `ResourceGovernancePolicy` 元素是用於宣告服務程式碼封裝的資源限制。 可為以下資源設定限制：記憶體、MemorySwap、CpuShares (CPU 相對權數)、MemoryReservationInMB、BlkioWeight (BlockIO 相對權數)。 在此範例中，service package Guest1Pkg 會在其所在的叢集節點上獲得一個核心。 記憶體限制是絕對的，因此程式碼封裝會限制為 1024MB 的記憶體 (並具有同樣的彈性保證保留)。 程式碼套件 (容器或處理序) 無法配置超過此限制的記憶體，如果嘗試這麼做，將會導致發生記憶體不足的例外狀況。 若要讓資源限制強制能夠運作，應該為服務套件內的所有程式碼套件都指定記憶體限制。
+[資源控管](service-fabric-resource-governance.md)可限制容器在主機上可使用的資源。 應用程式資訊清單中指定的 `ResourceGovernancePolicy` 元素是用於宣告服務程式碼封裝的資源限制。 下列資源可設定資源限制：記憶體、MemorySwap、CpuShares (CPU relative weight)、MemoryReservationInMB、BlkioWeight (BlockIO 相對權數)。 在此範例中，service package Guest1Pkg 會在其所在的叢集節點上獲得一個核心。 記憶體限制是絕對的，因此程式碼封裝會限制為 1024MB 的記憶體 (並具有同樣的彈性保證保留)。 程式碼套件 (容器或處理序) 無法配置超過此限制的記憶體，如果嘗試這麼做，將會導致發生記憶體不足的例外狀況。 若要讓資源限制強制能夠運作，應該為服務套件內的所有程式碼套件都指定記憶體限制。
 
 ```xml
 <ServiceManifestImport>
@@ -219,7 +208,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 
 從 6.1 版開始，Service Fabric 會自動將 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 事件整合至其系統健康情況報告。 這表示，如果您的容器已啟用 **HEALTHCHECK**，每當 Docker 報告容器的健康情況狀態發生變更時，Service Fabric 就會報告健康情況。 如果 health_status 為「狀況良好」，則 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 中的健康情況報告會顯示 **OK (正常)** ，如果 health_status 為「狀況不良」，則顯示 **WARNING (警告)** 。 
 
-從6.4 版的最新重新整理版本開始, 您可以選擇指定 docker HEALTHCHECK 評估應回報為錯誤。 如果啟用此選項, 當*health_status*狀況*良好*時, 即會出現 **[確定]** 健康情況報告, 而當*health_status*狀況*不良*時, 將會出現**錯誤**。
+從6.4 版的最新重新整理版本開始，您可以選擇指定 docker HEALTHCHECK 評估應回報為錯誤。 若已啟用此選項，當*health_status*狀況*良好*時，將會出現 **[確定]** 健康情況報告，而當*health_status* *狀況不良*時，將會出現**錯誤**。
 
 **HEALTHCHECK** 指令會指向針對監視容器健康情況而執行的實際檢查，該指令必須存在產生容器映像時使用的 Dockerfile 中。
 
@@ -243,11 +232,11 @@ docker push myregistry.azurecr.io/samples/helloworldapp
     </Policies>
 </ServiceManifestImport>
 ```
-根據預設, *IncludeDockerHealthStatusInSystemHealthReport*會設定**為 true**, *RestartContainerOnUnhealthyDockerHealthStatus*會設定為**false**, 而*TreatContainerUnhealthyStatusAsError*會設定為**false**. 
+根據預設， *IncludeDockerHealthStatusInSystemHealthReport*會設定為**true**， *RestartContainerOnUnhealthyDockerHealthStatus*會設定為**false**，而*TreatContainerUnhealthyStatusAsError*會設定為**false**。 
 
 如果 *RestartContainerOnUnhealthyDockerHealthStatus* 設為 **true**，則報告中重複出現狀況不良的容器就會重新啟動 (可能在其他節點上重新啟動)。
 
-如果*TreatContainerUnhealthyStatusAsError*設定為**true**, 當容器的*health_status*狀況*不良*時, 將會出現**錯誤**健康情況報告。
+如果*TreatContainerUnhealthyStatusAsError*設定為**true**，當容器的*health_status* *狀況不良*時，將會出現**錯誤**健康情況報告。
 
 如果您需要停用整個 Service Fabric 叢集的 **HEALTHCHECK** 整合，就必須將 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) 設為 **false**。
 
@@ -267,11 +256,11 @@ sfctl cluster select --endpoint http://localhost:19080
 ./install.sh
 ```
 
-開啟瀏覽器並流覽至 Service Fabric Explorer, 網址為\/HTTP:/localhost: 19080/Explorer (如果在 Mac OS X 上使用 Vagrant, 請以 VM 的私人 IP 取代 localhost)。 展開 [應用程式] 節點，請注意，您的應用程式類型現在有一個項目，而另一個則是該類型的第一個執行個體。
+開啟瀏覽器並流覽至 HTTP：\//localhost： 19080/Explorer 的 Service Fabric Explorer （如果在 Mac OS X 上使用 Vagrant，請以 VM 的私人 IP 取代 localhost）。 展開 [應用程式] 節點，請注意，您的應用程式類型現在有一個項目，而另一個則是該類型的第一個執行個體。
 
-連線到執行中的容器。 開啟網頁瀏覽器, 指向埠4000上傳回的 IP 位址, 例如 "HTTP:\//localhost: 4000"。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
+連線到執行中的容器。 開啟網頁瀏覽器，指向埠4000上傳回的 IP 位址，例如 "HTTP：\//localhost： 4000"。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
-![Hello World!][hello-world]
+![Hello World！][hello-world]
 
 
 ## <a name="clean-up"></a>清除
@@ -381,7 +370,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 若要將其他容器服務新增至已使用 yeoman 建立的應用程式，請執行下列步驟︰
 
 1. 將目錄變更為現有應用程式的根目錄。 例如，如果 `MyApplication` 是 Yeoman 所建立的應用程式，則為 `cd ~/YeomanSamples/MyApplication`。
-2. 執行 `yo azuresfcontainer:AddService`
+2. `yo azuresfcontainer:AddService`執行 
 
 <a id="manually"></a>
 

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 8d7d4c8d7e01c6a4bfa644b84f03f8a2ea5bfd06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5263af2708ee30566e90cdf59ef69f52f76a9d32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928860"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440327"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>如何按照排程來啟動和停止 Azure-SSIS Integration Runtime
 本文說明如何使用 Azure Data Factory (ADF) 來排程 Azure-SSIS Integration Runtime (IR) 的啟動和停止。 Azure-SSIS IR 是專門用來執行 SQL Server Integration Services (SSIS) 套件的 ADF 計算資源。 執行 Azure-SSIS IR 會有相關聯的成本。 因此，您通常只應在需要於 Azure 中執行 SSIS 套件時才執行 IR，不再需要時即應停止 IR。 您可以使用 ADF 使用者介面 (UI)/應用程式或 Azure PowerShell，[以手動方式啟動或停止 IR](manage-azure-ssis-integration-runtime.md)。
@@ -52,7 +52,7 @@ ms.locfileid: "74928860"
    
 3. 在 [新增資料處理站] 頁面中，輸入 **MyAzureSsisDataFactory** 作為 [名稱]。 
       
-   ![新增 Data Factory 網頁](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
+   ![新增資料處理站頁面](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
  
    ADF 的名稱必須是全域唯一的。 如果您收到下列錯誤，請變更 ADF 的名稱 (例如 yournameMyAzureSsisDataFactory)，然後試著重新建立 ADF。 請參閱 [Data Factory - 命名規則](naming-rules.md)一文，以了解 ADF 成品的命名規則。
   
@@ -64,12 +64,12 @@ ms.locfileid: "74928860"
    - 選取 [使用現有的]，然後從下拉式清單選取現有的資源群組。 
    - 選取 [建立新的]，然後輸入新資源群組的名稱。   
          
-   若要了解資源群組，請參閱[使用資源群組來管理 Azure 資源](../azure-resource-manager/resource-group-overview.md)一文。
+   若要了解資源群組，請參閱[使用資源群組來管理 Azure 資源](../azure-resource-manager/management/overview.md)一文。
    
 6. 針對 [版本]，選取 [V2]。
 7. 針對 [位置]，從下拉式清單中選取其中一個支援用來建立 ADF 的位置。
 8. 選取 [釘選到儀表板]。     
-9. 按一下 [建立]。
+9. 按一下頁面底部的 [新增]。
 10. 在 Azure 儀表板上，您會看到狀態如下的下列圖格：**部署 Data Factory**。 
 
     ![部署資料處理站圖格](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
@@ -114,7 +114,7 @@ ms.locfileid: "74928860"
     1. 針對 [角色]，選取 [參與者]。 
     2. 在 [存取權指派對象為] 中，選取 [Azure AD 使用者、群組或服務主體]。 
     3. 在 [選取] 中，搜尋您的 ADF 名稱並加以選取。 
-    4. 按一下 [儲存]。
+    4. 按一下 [檔案]。
     
    ![ADF 受控識別角色指派](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 
@@ -133,7 +133,7 @@ ms.locfileid: "74928860"
     1. 在 [伺服器名稱] 中，輸入 **&lt;您的 Azure SQL Database 伺服器名稱&gt;.database.windows.net**。
     2. 選取 [選項 >>]。
     3. 針對 [連線到資料庫]，選取 [SSISDB]。
-    4. 選取 [ **連接**]。 
+    4. 選取 [連接]。 
     5. 展開 [Integration Services 目錄] -> [SSISDB] -> [您的資料夾]-> [專案] -> [您的 SSIS 專案]-> [套件]。 
     6. 以滑鼠右鍵按一下要執行的指定 SSIS 套件，然後選取 [報告] -> [標準報告] -> [所有執行]。 
     7. 確認其已執行。 
@@ -245,7 +245,7 @@ ms.locfileid: "74928860"
 
    ![驗證必要的模組](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-2.  如果您沒有**DataFactory**，請移至  [DataFactory] 模組(https://www.powershellgallery.com/packages/Az.DataFactory/)的 PowerShell 資源庫，選取 **部署至 Azure 自動化**，選取您的 Azure 自動化帳戶，然後選取 **[確定]** 。 回到左側功能表的 [**共用資源**] 區段，然後等到您看到**DataFactory** **模組的** **狀態**變更為 [**可用**] 為止。
+2.  如果您沒有**DataFactory**，請移至  [DataFactory] 模組](https://www.powershellgallery.com/packages/Az.DataFactory/)的 PowerShell 資源庫，選取 **部署至 Azure 自動化**]，選取您的 Azure 自動化帳戶，然後選取 **[確定]** 。 回到左側功能表的 [**共用資源**] 區段，然後等到您看到**DataFactory** **模組的** **狀態**變更為 [**可用**] 為止。
 
     ![驗證 Data Factory 模組](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
@@ -386,7 +386,7 @@ ms.locfileid: "74928860"
 
 請參閱 SSIS 文件中的下列文章： 
 
-- [在 Azure 上部署、執行和監視 SSIS 套件](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)   
+- [部署、執行和監視 Azure 上的 SSIS 套件](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)   
 - [連線到 Azure 上的 SSIS 目錄](/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)
 - [在 Azure 上排程套件執行](/sql/integration-services/lift-shift/ssis-azure-schedule-packages)
 - [透過 Windows 驗證連線至內部部署資料來源](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth)

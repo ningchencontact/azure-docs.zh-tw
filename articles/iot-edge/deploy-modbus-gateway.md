@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: kgremban
-ms.openlocfilehash: 8a9f0008f1a1ea1a57f3c0e7e17b8cf3ae5e959c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d4d9d2ff899a169ee81544761fe87fed3cca06c4
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434550"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912317"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>透過 IoT Edge 裝置閘道連線 Modbus TCP 裝置
 
@@ -26,7 +26,7 @@ ms.locfileid: "75434550"
 本文假設您使用 Modbus TCP 通訊協定。 如需有關如何設定此模組以支援 Modbus RTU 的詳細資訊，請參閱 GitHub 上的 [Azure IoT Edge Modbus 模組](https://github.com/Azure/iot-edge-modbus)專案。
 
 ## <a name="prerequisites"></a>必要條件
-* Azure IoT Edge 裝置。 如需如何設定一個的逐步解說，[請參閱](quickstart-linux.md)[在 Windows 或 Linux 上部署 Azure IoT Edge](quickstart.md) 。
+* Azure IoT Edge 裝置。 如需如何設定一個的逐步解說，請參閱[在 Windows 或 Linux 上部署 Azure IoT Edge](quickstart.md) 。 [](quickstart-linux.md)
 * IoT Edge 裝置的主索引鍵連接字串。
 * 支援 Modbus TCP 的實體或模擬 Modbus 裝置。 您將需要知道它的 IPv4 位址。
 
@@ -71,7 +71,7 @@ ms.locfileid: "75434550"
 iotedge logs modbus
 ```
 
-您也可以使用[適用於 Visual Studio Code 的 Azure IoT 中樞工具組延伸模組](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (先前稱為「Azure IoT 工具組」延伸模組)，來檢視裝置所傳送的遙測資料。
+您也可以使用[Visual Studio Code 的 Azure IoT 中樞延伸](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)模組（先前稱為「Azure IoT 工具組」延伸模組），來查看裝置正在傳送的遙測。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: dcohen
-ms.openlocfilehash: b42314d1c8c1bd734181f02c36ae3f43507e9b79
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 0c26f94d0a51b7912d3f964e3cc96ec392fec69b
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815216"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495169"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>教學課程：使用語音 SDK 為您的 bot 啟用語音
 
@@ -72,7 +72,7 @@ ms.locfileid: "74815216"
    * 輸入**資源群組**的名稱。 我們建議**SpeechEchoBotTutorial-ResourceGroup**。
    * 從 [**區域**] 下拉式選單中，選取 [**美國西部**]。
 1. 按一下 [檢閱及建立]。 您應該會看到已通過讀取**驗證**的橫幅。
-1. 按一下 [建立]。 可能需要幾分鐘的時間來建立資源群組。
+1. 按一下頁面底部的 [新增]。 可能需要幾分鐘的時間來建立資源群組。
 1. 就像您稍後在本教學課程中所建立的資源一樣，將此資源群組釘選到儀表板以方便存取，是個不錯的主意。 如果您想要釘選此資源群組，請按一下儀表板右上方的釘選圖示。
 
 ### <a name="choosing-an-azure-region"></a>選擇 Azure 區域
@@ -93,7 +93,7 @@ ms.locfileid: "74815216"
 
 請依照下列指示來建立語音資源：
 
-1. 移至  [Azure 入口網站](https://portal.azure.com)，然後從左側導覽中選取 **建立資源**。
+1. 移至  [Azure 入口網站](https://portal.azure.com)，然後從左側導覽中選取 **建立資源**]。
 2. 在搜尋列中，輸入**語音**。
 3. 選取 [語音]，然後按一下 [建立]。
 4. 系統會提示您提供一些資訊：
@@ -107,7 +107,7 @@ ms.locfileid: "74815216"
 
 此時，請檢查您的資源群組（**SpeechEchoBotTutorial-ResourceGroup**）是否有語音資源：
 
-| 名稱 | 類型  | LOCATION |
+| NAME | 類型  | LOCATION |
 |------|-------|----------|
 | SpeechEchoBotTutorial-語音 | 辨識服務 | 美國西部 |
 
@@ -115,9 +115,9 @@ ms.locfileid: "74815216"
 
 下一個步驟是建立 App Service 計畫。 App Service 方案會針對要執行的 Web 應用程式定義一組計算資源。
 
-1. 移至  [Azure 入口網站](https://portal.azure.com)，然後從左側導覽中選取 **建立資源**。
+1. 移至  [Azure 入口網站](https://portal.azure.com)，然後從左側導覽中選取 **建立資源**]。
 2. 在搜尋列中，輸入**App Service 方案**。 接下來，從搜尋結果中找出並選取 [ **App Service 計畫**] 卡片。
-3. 按一下 [建立]。
+3. 按一下頁面底部的 [新增]。
 4. 系統會提示您提供一些資訊：
    * 將**訂**用帳戶設定為**免費試用**（您也可以使用現有的訂用帳戶）。
    * 針對 [**資源群組**]，選取 [ **SpeechEchoBotTutorial-ResourceGroup**]。
@@ -126,11 +126,11 @@ ms.locfileid: "74815216"
    * 針對 [**地區**]，選取 [**美國西部**]。
    * 針對 [**定價層**]，請確定已選取 [**標準 S1** ]。 這應該是預設值。 如果不是，請確定您已將**作業系統**設定為**Windows** ，如上所述。
 5. 按一下 [檢閱及建立]。 您應該會看到已通過讀取**驗證**的橫幅。
-6. 按一下 [建立]。 可能需要幾分鐘的時間來建立資源群組。
+6. 按一下頁面底部的 [新增]。 可能需要幾分鐘的時間來建立資源群組。
 
 此時，請檢查您的資源群組（**SpeechEchoBotTutorial-ResourceGroup**）有兩個資源：
 
-| 名稱 | 類型  | LOCATION |
+| NAME | 類型  | LOCATION |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | App Service 方案 | 美國西部 |
 | SpeechEchoBotTutorial-語音 | 辨識服務 | 美國西部 |
@@ -187,7 +187,7 @@ ms.locfileid: "74815216"
    samples\csharp_dotnetcore\02.echo-bot\EchoBot.sln
    ```
 
-1. 在 **方案總管**中，以滑鼠右鍵按一下**EchoBot**方案，然後選取 **發佈 ...** 。
+1. 在 **方案總管**中，以滑鼠右鍵按一下**EchoBot**專案，然後選取 **發佈 ...** 。
 1. 標題為 [**挑選發行目標**] 的新視窗隨即開啟。
 1. 從左側導覽中選取 [ **App Service** ]，選取 **[新建]，然後**按一下 [**發佈**]。
 1. 當 [**建立 App Service** ] 視窗出現時：
@@ -207,9 +207,9 @@ ms.locfileid: "74815216"
 1. 您的預設瀏覽器應該會開啟並顯示一頁：「您的 bot 已就緒！」。
 1. 此時，請檢查 Azure 入口網站中的資源群組**SpeechEchoBotTutorial-ResourceGroup** ，並確認有三個資源：
 
-| 名稱 | 類型  | LOCATION |
+| NAME | 類型  | LOCATION |
 |------|-------|----------|
-| EchoBot20190805125647 | App Service 方案 | 美國西部 |
+| EchoBot20190805125647 | App Service | 美國西部 |
 | SpeechEchoBotTutorial-AppServicePlan | App Service 方案 | 美國西部 |
 | SpeechEchoBotTutorial-語音 | 辨識服務 | 美國西部 |
 
@@ -221,7 +221,7 @@ ms.locfileid: "74815216"
 2. 在左側導覽的 [設定] 底下，**按一下 [** **設定**]。
 3. 選取 [**一般設定**] 索引標籤。
 4. 找出**Web 通訊端**的切換，並將其設定為 [**開啟**]。
-5. 按一下 [儲存]。
+5. 按一下 [檔案]。
 
 > [!TIP]
 > 您可以使用 Azure App Service 頁面頂端的控制項來停止或重新開機服務。 進行疑難排解時，這可能會很有用。
@@ -235,9 +235,9 @@ ms.locfileid: "74815216"
 
 1. 第一個步驟是建立註冊的新資源。 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [建立資源]。
 2. 在搜尋列中輸入**bot**，在結果出現之後，選取 [ **bot 通道註冊**]。
-3. 按一下 [建立]。
+3. 按一下頁面底部的 [新增]。
 4. 系統會提示您提供一些資訊：
-   * 針對 [ **Bot 名稱**]，輸入**SpeechEchoBotTutorial-BotRegistration**。
+   * 針對 [ **Bot 控制碼**]，輸入**SpeechEchoBotTutorial-BotRegistration**。
    * 針對 [**訂**用帳戶]，選取 [**免費試用**]。
    * 針對 [**資源群組**]，選取 [ **SpeechEchoBotTutorial-ResourceGroup**]。
    * 針對 [**位置**]，選取 [**美國西部**]。
@@ -245,13 +245,13 @@ ms.locfileid: "74815216"
      * 針對 [**訊息端點**]，輸入 web 應用程式的 URL，並在結尾附加 `/api/messages` 路徑。 例如：如果您的全域唯一應用程式名稱是**EchoBot20190805125647**，則您的訊息端點會是： `https://EchoBot20190805125647.azurewebsites.net/api/messages/`。
      * 針對**application insights**，您可以將此設為**Off**。 如需詳細資訊，請參閱[Bot analytics](https://docs.microsoft.com/azure/bot-service/bot-service-manage-analytics?view=azure-bot-service-4.0)。
      * 忽略**自動建立應用程式識別碼和密碼**。
-5. 流覽回**Bot 通道註冊**，然後按一下 [**建立**]。
+5. 在 [ **Bot 通道註冊**] 分頁底部，按一下 [**建立**]。
 
 此時，請檢查 Azure 入口網站中的資源群組**SpeechEchoBotTutorial-ResourceGroup** 。 它現在應該會顯示四個資源：
 
-| 名稱 | 類型  | LOCATION |
+| NAME | 類型  | LOCATION |
 |------|-------|----------|
-| EchoBot20190805125647 | App Service 方案 | 美國西部 |
+| EchoBot20190805125647 | App Service | 美國西部 |
 | SpeechEchoBotTutorial-AppServicePlan | App Service 方案 | 美國西部 |
 | SpeechEchoBotTutorial-BotRegistration | Bot 通道註冊 | 全球 |
 | SpeechEchoBotTutorial-語音 | 辨識服務 | 美國西部 |
@@ -268,11 +268,11 @@ ms.locfileid: "74815216"
    * 尋找**更多頻道**，找出並按一下 [ **Direct Line 語音**]。
    * 檢查標題為 [**設定 Direct Line Speech**] 頁面上的文字，然後展開標示為 [認知服務帳戶] 的下拉式功能表。
    * 從功能表中選取您稍早建立的語音資源（例如， **SpeechEchoBotTutorial-speech**），以將您的 bot 與您的語音訂用帳戶金鑰建立關聯。
-   * 按一下 [儲存]。
+   * 按一下 [檔案]。
 
 1. 在左側導覽中，按一下 [**設定**]。
    * 選取標示為 [**啟用串流端點**] 的方塊。 這是為了讓您的 bot 與 Direct Line Speech 通道之間的 web 通訊端建立通訊協定所需。
-   * 按一下 [儲存]。
+   * 按一下 [檔案]。
 
 > [!TIP]
 > 如果您想要深入瞭解，請參閱[將 bot 連線至 Direct Line 語音](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0)。 此頁面包含其他資訊和已知問題。
@@ -295,7 +295,7 @@ Direct Line 語音用戶端有一個簡單的 UI，可讓您設定與 bot 的連
 
 如果您在主要應用程式視窗中收到錯誤訊息，請使用此資料表來識別錯誤並進行疑難排解：
 
-| Error | 您應該做什麼？ |
+| 錯誤 | 您應該做什麼？ |
 |-------|----------------------|
 |錯誤 AuthenticationFailure： WebSocket 升級失敗，發生驗證錯誤（401）。 檢查是否有正確的訂用帳戶金鑰（或授權權杖）和區功能變數名稱稱| 在應用程式的 [設定] 頁面中，請確定您已正確輸入語音訂用帳戶金鑰和其區域。<br>請確定已正確輸入您的語音金鑰和金鑰區域。 |
 |錯誤 ConnectionFailure：遠端主機已關閉連接。 錯誤碼：1011。 錯誤詳細資料：我們無法在傳送訊息之前連線到 bot | 請確定您[已核取 [啟用串流端點]](#register-the-direct-line-speech-channel)方塊及/或已將[ **Web 通訊端**切換](#enable-web-sockets)為 [開啟]。<br>請確定您的 Azure App Service 正在執行。 如果是，請嘗試重新開機您的 App Service。|
@@ -383,29 +383,50 @@ Direct Line 語音用戶端會使用[CognitiveServices](https://www.nuget.org/pa
 1. [`DLSpeechClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/Models.cs)包含語音 SDK 方法[`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-)的呼叫，其可用來從磁片上的本機檔案具現化模型。
 1. [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs)包含對語音 SDK 方法[`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync)的呼叫，它會啟動連續關鍵字偵測。
 
-## <a name="optional-change-the-language-and-redeploy-your-bot"></a>選擇性變更語言並重新部署您的 bot
+## <a name="optional-change-the-language-and-bot-voice"></a>選擇性變更語言和 bot 的聲音
 
-您所建立的 bot 將會接聽並以英文回應。 不過，您不一定要使用英文版。 在本節中，您將瞭解如何變更 bot 將接聽並回應的語言，並重新部署 bot。
+您所建立的 bot 會以英文來接聽和回應，並使用預設的美國英文文字轉換語音語音。 不過，您不限於使用英文或預設語音。 在本節中，您將瞭解如何變更 bot 將接聽並回應的語言。 您也將瞭解如何為該語言選取不同的語音。
 
 ### <a name="change-the-language"></a>變更語言
 
-1. 讓我們從開啟 `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs`開始。
-2. 接下來，找出 SSML。 很容易找到，因為它包含在 `<speak></speak>` 標記中。
-3. 在 SSML 字串中，找出 `<voice name>` 標記，將它取代為 `<voice name='de-DE-Stefan-Apollo'>`，然後儲存。 這個格式化的字串會告訴文字轉換語音服務使用語音 `de-DE-Stefan-Apollo`傳回合成的語音回應，這是針對德文而優化的。
+您可以選擇[語音轉換文字](language-support.md#speech-to-text)資料表中所述的任何一種語言。 在下列範例中，我們會將語言變更為德文。
 
->[!NOTE]
-> 您不受限於德文，而且可以從[語音服務](language-support.md#text-to-speech)的可用語音清單中選擇。
+1. 開啟 [Direct Line 語音用戶端應用程式]，按一下 [設定] 按鈕（右上角的齒輪圖示），然後在 [語言] 欄位中輸入 `de-de` （這是[語音轉換文字](language-support.md#speech-to-text)資料表中所述的地區設定值）。 這會設定要辨識的語音語言，並覆寫預設的 `en-us`。 這也會指示 Direct Line 語音通道使用 Bot 回復的預設德文語音。
+2. 關閉 [設定] 頁面，然後按一下 [重新連接] 按鈕，以建立與您 echo bot 的新連線。
+3. 按一下 [麥克風] 按鈕，然後在德文中說出一個片語。 您會看到已辨識的文字，而 echo bot 會以預設的德文語音回復。
+
+
+### <a name="change-the-default-bot-voice"></a>變更預設的 bot 語音
+
+如果 Bot 以[語音合成標記語言](speech-synthesis-markup.md)（SSML）的形式指定回復，而不是簡單文字，則選取文字轉換語音的語音和控制發音可以完成。 Echo bot 不會使用 SSML，但我們可以輕鬆地修改程式碼來執行此動作。 在下列範例中，我們會將 SSML 新增至 echo bot 回復，這樣就會使用德文 voice Stefan Apollo （男性語音），而不是預設的女性聲音。 請參閱您的語言支援的[標準語音](language-support.md#standard-voices)和類[神經語音](language-support.md#neural-voices)清單。
+
+1. 讓我們從開啟 `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs`開始。
+2. 找出這兩行：
+    ```csharp
+    var replyText = $"Echo: {turnContext.Activity.Text}";
+    await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
+    ```
+3. 取代為：
+    ```csharp
+    var replyText = $"Echo: {turnContext.Activity.Text}";
+    var replySpeak = @"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='de-DE'>
+                    <voice name='Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)'>" +
+                    $"{replyText}" + "</voice></speak>";
+    await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replySpeak), cancellationToken);
+    ```
+4. 在 Visual Studio 中建立您的解決方案，並修正任何組建錯誤。
+
+方法 ' MessageFactory ' 中的第二個引數會設定 bot 回復中的[活動說話欄位](https://github.com/Microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak)。 在上述變更中，已將其從簡單的文字取代為 SSML，以指定非預設的德文語音。
 
 ### <a name="redeploy-your-bot"></a>重新部署您的 bot
 
 既然您已對 bot 進行必要的變更，下一步就是將它重新發佈至您的 Azure App Service 並試試看：
 
-1. 在 Visual Studio 中建立您的解決方案，並修正任何組建錯誤。
-2. 在 [方案總管] 視窗中，以滑鼠右鍵按一下**EchoBot**專案，然後選取 [**發佈**]。
-3. 先前的部署設定已載入為預設值。 只要按一下 [ **EchoBot20190805125647-Web Deploy**] 旁的 [**發佈**] 即可。
-4. [**發佈成功**] 訊息會出現在 [Visual Studio 輸出] 視窗中，而網頁會啟動並顯示「您的 bot 已就緒！」訊息。
-5. 開啟 [Direct Line 語音用戶端應用程式]，按一下 [設定] 按鈕（右上方的齒輪圖示），然後在 [語言] 欄位中輸入 `de-de`。 這會設定要辨識的語音語言，並覆寫預設的 `en-us`。
-6. 依照[建立 Direct Line 語音用戶端](#build-the-direct-line-speech-client)中的指示，與您新部署的 bot 重新連線，以新的語言說話，並以新的語音收聽 bot 的回復。
+1. 在 [方案總管] 視窗中，以滑鼠右鍵按一下**EchoBot**專案，然後選取 [**發佈**]。
+2. 先前的部署設定已載入為預設值。 只要按一下 [ **EchoBot20190805125647-Web Deploy**] 旁的 [**發佈**] 即可。
+3. [**發佈成功**] 訊息會出現在 [Visual Studio 輸出] 視窗中，而網頁會啟動並顯示「您的 bot 已就緒！」訊息。
+4. 開啟 [Direct Line 語音用戶端應用程式]，按一下 [設定] 按鈕（右上方的齒輪圖示），並確定 [語言] 欄位中仍然有 `de-de`。
+5. 依照[建立 Direct Line 語音用戶端](#build-the-direct-line-speech-client)中的指示，與您新部署的 bot 重新連線，以新的語言說話，並以新的語音收聽 bot 的回復。
 
 ## <a name="clean-up-resources"></a>清除資源
 

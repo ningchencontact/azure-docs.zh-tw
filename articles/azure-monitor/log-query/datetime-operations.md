@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 6ff095d674a11d95ed4fd2d008c3e664dd595fef
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d659be5b817317e7cec5726718f154825674349e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894224"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365337"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>在 Azure 監視器記錄查詢中處理日期時間值
 
@@ -33,8 +33,8 @@ Kusto 查詢語言有兩個與日期和時間關聯的主要資料類型：「�
 |:---|:---|
 |d           | day          |
 |小時           | 小時         |
-|分鐘           | 分鐘       |
-|s           | 秒       |
+|分鐘           | minute       |
+|s           | second       |
 |ms          | 毫秒  |
 |微秒 | 微秒  |
 |tick        | 奈秒   |
@@ -151,9 +151,9 @@ Event
 |:---|:---|
 | 轉換資料類型 | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
 | 將值四捨五入為間隔大小 | [bin](/azure/kusto/query/binfunction) |
-| 取得特定日期或時間 | [ago](/azure/kusto/query/agofunction) [now](/azure/kusto/query/nowfunction)   |
+| 取得特定日期或時間 | [前一天](/azure/kusto/query/agofunction) [](/azure/kusto/query/nowfunction)   |
 | 取得值的某部分 | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
-| 取得相對日期值  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
+| 取得相對日期值  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek startofmonth](/azure/kusto/query/startofweekfunction) [](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>後續步驟
 若要了解如何搭配 Azure 監視器記錄資料使用 [Kusto 查詢語言](/azure/kusto/query/)，請參閱其他課程：

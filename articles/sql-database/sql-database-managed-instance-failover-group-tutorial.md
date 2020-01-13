@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: 939606412c55ddad29801776c2385b406dc93a33
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: b7c406c1d7f55b364d72b2b5626b3c17a34d8338
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286765"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552758"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>教學課程：將 SQL Database 受控實例新增至容錯移轉群組
 
@@ -31,20 +31,21 @@ ms.locfileid: "74286765"
   > [!NOTE]
   > - 進行本教學課程時，請確定您是使用[為受控實例設定容錯移轉群組的必要條件來設定](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets)您的資源。 
   > - 建立受控實例可能需要很長的時間。 因此，本教學課程可能需要數小時才能完成。 如需布建時間的詳細資訊，請參閱[受控實例管理作業](sql-database-managed-instance.md#managed-instance-management-operations)。 
+  > - 參與容錯移轉群組的受控實例需要[ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)或兩個連線的 VPN 閘道。 本教學課程提供建立和連接 VPN 閘道的步驟。 如果您已設定 ExpressRoute，請略過這些步驟。 
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 若要完成本教學課程，請確定您具有下列項目︰ 
 
-- Azure 訂閱。 如果您還沒有帳戶，請[建立一個免費帳戶](https://azure.microsoft.com/free/)。
+- Azure 訂用帳戶。 如果您還沒有帳戶，請[建立一個免費帳戶](https://azure.microsoft.com/free/)。
 
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 若要完成本教學課程，請確定您有下列專案：
 
-- Azure 訂閱。 如果您還沒有帳戶，請[建立一個免費帳戶](https://azure.microsoft.com/free/)。
+- Azure 訂用帳戶。 如果您還沒有帳戶，請[建立一個免費帳戶](https://azure.microsoft.com/free/)。
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 ---
@@ -381,7 +382,7 @@ ms.locfileid: "74286765"
 
 本教學課程的這個部分會使用下列 PowerShell Cmdlet：
 
-| 命令 | 注意事項 |
+| Command | 注意 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 建立 Azure 資源群組。  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 建立虛擬網路。  |
@@ -422,7 +423,7 @@ ms.locfileid: "74286765"
 
     | **欄位** | 值 |
     | --- | --- |
-    | **Name** |  次要受控實例所要使用之虛擬網路的名稱，例如 `vnet-sql-mi-secondary`。 |
+    | **名稱** |  次要受控實例所要使用之虛擬網路的名稱，例如 `vnet-sql-mi-secondary`。 |
     | **位址空間** | 虛擬網路的位址空間，例如 `10.128.0.0/16`。 | 
     | **訂用帳戶** | 主要受控實例和資源群組所在的訂用帳戶。 |
     | **區域** | 您將部署次要受控實例的位置。 |
@@ -707,7 +708,7 @@ ms.locfileid: "74286765"
 
 本教學課程的這個部分會使用下列 PowerShell Cmdlet：
 
-| 命令 | 注意事項 |
+| Command | 注意 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 建立 Azure 資源群組。  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 建立虛擬網路。  |
@@ -728,7 +729,9 @@ ms.locfileid: "74286765"
 ---
 
 ## <a name="4---create-primary-gateway"></a>4-建立主要閘道 
-若要讓兩個受控實例參與容錯移轉群組，必須在兩個受控實例的虛擬網路之間設定閘道，以允許網路通訊。 您可以使用 Azure 入口網站建立主要受控實例的閘道。 
+若要讓兩個受控實例參與容錯移轉群組，必須在兩個受控實例的虛擬網路之間設定 ExpressRoute 或閘道，以允許網路通訊。 如果您選擇設定[ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ，而不是連接兩個 VPN 閘道，請直接跳至[步驟 7](#7---create-a-failover-group)。  
+
+本文提供建立兩個 VPN 閘道並加以連線的步驟，但如果您已設定 ExpressRoute，可以直接跳到建立容錯移轉群組。 
 
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
@@ -752,12 +755,12 @@ ms.locfileid: "74286765"
     | **欄位** | 值 |
     | --- | --- |
     | **訂用帳戶** |  您的主要受控實例所在的訂用帳戶。 |
-    | **Name** | 虛擬網路閘道的名稱，例如 `primary-mi-gateway`。 | 
+    | **名稱** | 虛擬網路閘道的名稱，例如 `primary-mi-gateway`。 | 
     | **區域** | 次要受控實例所在的區域。 |
     | **閘道類型** | 選取 [VPN]。 |
     | **VPN 類型** | 選取以**路由為基礎的** |
     | **SKU**| 保留預設值 [`VpnGw1`]。 |
-    | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept>| 您的主要受控實例和主要虛擬網路所在的位置。   |
+    | **位置**| 您的主要受控實例和主要虛擬網路所在的位置。   |
     | **虛擬網路**| 選取在第2節中建立的虛擬網路，例如 `vnet-sql-mi-primary`。 |
     | **公用 IP 位址**| 選取 [建立新的]。 |
     | **公用 IP 位址名稱**| 輸入 IP 位址的 [名稱]，例如 `primary-gateway-IP`。 |
@@ -807,7 +810,7 @@ ms.locfileid: "74286765"
 
 本教學課程的這個部分會使用下列 PowerShell Cmdlet：
 
-| 命令 | 注意事項 |
+| Command | 注意 |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | 取得資源群組中的虛擬網路。 |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 對虛擬網路新增子網路組態。 | 
@@ -834,12 +837,12 @@ ms.locfileid: "74286765"
    | **欄位** | 值 |
    | --- | --- |
    | **訂用帳戶** |  次要受控實例所在的訂用帳戶。 |
-   | **Name** | 虛擬網路閘道的名稱，例如 `secondary-mi-gateway`。 | 
+   | **名稱** | 虛擬網路閘道的名稱，例如 `secondary-mi-gateway`。 | 
    | **區域** | 次要受控實例所在的區域。 |
    | **閘道類型** | 選取 [VPN]。 |
    | **VPN 類型** | 選取以**路由為基礎的** |
    | **SKU**| 保留預設值 [`VpnGw1`]。 |
-   | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept>| 次要受控實例和次要虛擬網路所在的位置。   |
+   | **位置**| 次要受控實例和次要虛擬網路所在的位置。   |
    | **虛擬網路**| 選取在第2節中建立的虛擬網路，例如 `vnet-sql-mi-secondary`。 |
    | **公用 IP 位址**| 選取 [建立新的]。 |
    | **公用 IP 位址名稱**| 輸入 IP 位址的 [名稱]，例如 `secondary-gateway-IP`。 |
@@ -888,7 +891,7 @@ ms.locfileid: "74286765"
 
 本教學課程的這個部分會使用下列 PowerShell Cmdlet：
 
-| 命令 | 注意事項 |
+| Command | 注意 |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | 取得資源群組中的虛擬網路。 |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 對虛擬網路新增子網路組態。 | 
@@ -953,7 +956,7 @@ ms.locfileid: "74286765"
 
 本教學課程的這個部分會使用下列 PowerShell Cmdlet：
 
-| 命令 | 注意事項 |
+| Command | 注意 |
 |---|---|
 | [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | 建立兩個虛擬網路閘道之間的連線。   |
 
@@ -968,7 +971,7 @@ ms.locfileid: "74286765"
 使用 Azure 入口網站建立容錯移轉群組。 
 
 
-1. 在 **Azure 入口網站**的左側功能表中，選取 [Azure SQL][](https://portal.azure.com)。 如果**AZURE SQL**不在清單中，請選取 [**所有服務**]，然後在搜尋方塊中輸入 azure sql。 (選用) 選取 **Azure SQL** 旁的星號將其設為最愛，並新增為左側導覽中的項目。 
+1. 在 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [Azure SQL]。 如果**AZURE SQL**不在清單中，請選取 [**所有服務**]，然後在搜尋方塊中輸入 azure sql。 (選用) 選取 **Azure SQL** 旁的星號將其設為最愛，並新增為左側導覽中的項目。 
 1. 選取您在第一節中建立的主要受控實例，例如 `sql-mi-primary`。 
 1. 在 [**設定**] 下，流覽至 [**實例容錯移轉群組**]，然後選擇 [**新增群組**] 以開啟 [**實例容錯移轉群組**] 頁面。 
 
@@ -995,7 +998,7 @@ ms.locfileid: "74286765"
 
 本教學課程的這個部分會使用下列 PowerShell Cmdlet：
 
-| 命令 | 注意事項 |
+| Command | 注意 |
 |---|---|
 | [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| 建立新的 Azure SQL Database 受控執行個體容錯移轉群組。  |
 
@@ -1061,7 +1064,7 @@ ms.locfileid: "74286765"
 
 本教學課程的這個部分會使用下列 PowerShell Cmdlet：
 
-| 命令 | 注意事項 |
+| Command | 注意 |
 |---|---|
 | [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | 取得或列出受控執行個體容錯移轉群組。| 
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | 執行受控執行個體容錯移轉群組的容錯移轉。 | 
@@ -1075,7 +1078,7 @@ ms.locfileid: "74286765"
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 1. 在[Azure 入口網站](https://portal.azure.com)中，流覽至您的資源群組。 
-1. 選取 [受控實例]，然後選取 [**刪除**]。 在文字方塊中輸入 `yes`，確認您想要刪除資源，然後選取 [**刪除**]。 此程式可能需要一些時間才能在背景中完成，而在完成之前，您將無法刪除*虛擬叢集*或任何其他相依資源。 監視 [活動] 索引標籤中的 [刪除]，確認已刪除您的受控實例。 
+1. 選取 [受控實例]，然後選取 [**刪除**]。 在文字方塊中輸入 `yes`，確認您想要刪除資源，然後選取 [**刪除**]。 此程式可能需要一些時間才能在背景中完成，而且在完成之前，您將無法刪除*虛擬叢集*或任何其他相依資源。 監視 [活動] 索引標籤中的 [刪除]，確認已刪除您的受控實例。 
 1. 刪除受控實例之後，請在您的資源群組中選取*虛擬*叢集，然後選擇 [**刪除**]，將它刪除。 在文字方塊中輸入 `yes`，確認您想要刪除資源，然後選取 [**刪除**]。 
 1. 刪除任何剩餘的資源。 在文字方塊中輸入 `yes`，確認您想要刪除資源，然後選取 [**刪除**]。 
 1. 若要刪除資源群組，請選取 [**刪除資源群組**]，輸入資源群組的名稱，`myResourceGroup`，然後選取 [**刪除**]。 
@@ -1093,7 +1096,7 @@ Write-host "Removing residual resources and resouce group..."
 
 本教學課程的這個部分會使用下列 PowerShell Cmdlet：
 
-| 命令 | 注意事項 |
+| Command | 注意 |
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 移除資源群組。 |
 
@@ -1106,7 +1109,7 @@ Write-host "Removing residual resources and resouce group..."
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意事項 |
+| Command | 注意 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 建立 Azure 資源群組。  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 建立虛擬網路。  |

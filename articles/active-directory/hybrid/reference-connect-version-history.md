@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3414bc21afb88d2683261ea1ce1398a0b1bfeece
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3b03833a3e1dd5ee9a3268e19166891243df1b98
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922298"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422350"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 
 此表格為相關主題的清單：
 
-話題 |  詳細資料
+主題 |  詳細資料
 --------- | --------- |
 從 Azure AD Connect 升級的步驟 | [從舊版升級到最新版本](how-to-upgrade-previous-version.md) Azure AD Connect 的多種方法。
 所需的權限 | 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](reference-connect-accounts-permissions.md#upgrade)。
@@ -38,9 +38,20 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 當我們進行此程式時，版本號碼會以 "X" 顯示在次要版本號碼位置中，如 "1.3. X. 0"-這表示本檔中的版本資訊對開頭為 "1.3" 的所有版本都是有效的。 一旦完成發行程式，發行版本號碼就會更新為最近發行的版本，而發行狀態將更新為「已發行，可供下載及自動升級」。
 並非所有版本的 Azure AD Connect 都可自動升級。 發行狀態會指出版本是否可自動升級或僅供下載。 如果您的 Azure AD Connect 伺服器上已啟用自動升級，則該伺服器將會自動升級為可自動升級的最新版 Azure AD Connect。 請注意，並非所有 Azure AD Connect 組態都符合自動升級的資格。 請遵循下列連結來深入了解[自動升級](how-to-connect-install-automatic-upgrade.md)
 
+>[!IMPORTANT]
+> 自2020年11月1日起，我們將開始執行淘汰程式，而在超過18個月前發行的 Azure AD Connect 版本將會被取代。 此時，我們將開始進行此程式，方法是淘汰版本1.1.751.0 （發行于4/12/2018）和較舊版本的所有 Azure AD Connect 版本，我們將會繼續評估舊版的 Azure AD Connect 是否已淘汰，每次有新版本發行。
+>
+> 您必須確定您正在執行最新版本的 Azure AD Connect，才能獲得最佳的支援體驗。 
+>
+>如果您執行的是已淘汰版本的 Azure AD Connect 您可能沒有最新的安全性修正、效能改進、疑難排解和診斷工具和服務增強功能，而且如果您需要支援，我們可能無法提供您的層級您的組織所需的服務。
+>
+>如果您已啟用同步 Azure AD Connect，您很快就會開始收到健康情況通知，在您執行其中一個較舊版本時警告您即將進行的棄用功能。
+>
+>請參閱[這篇文章](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version)，以深入瞭解如何將 Azure AD Connect 升級至最新版本。
+
 ## <a name="14380"></a>1.4.38.0
 ### <a name="release-status"></a>發行狀態
-12/6/2019：發行以供下載。 無法透過自動升級來使用。
+12/9/2019：發行以供下載。 無法透過自動升級來使用。
 ### <a name="new-features-and-improvements"></a>新功能和改進
 - 我們已更新 Azure AD Domain Services 的密碼雜湊同步處理，以適當地在 Kerberos 雜湊中考慮填補。  這會在從 AAD 到 Azure AD Domain Services 的密碼同步處理期間，提供效能改進。
 - 我們已新增驗證代理程式與服務匯流排之間可靠會話的支援。
@@ -49,7 +60,7 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 - 我們新增了以雲端為目標的特定代理程式的功能，以測試代理程式連線能力。
 
 ### <a name="fixed-issues"></a>已修正的問題
-- Release 1.4.18.0 有一個 bug，其中適用于 DSSO 的 PowerShell Cmdlet 使用登入 windows 認證，而不是執行 ps 時提供的 admin credentialss。 因此，無法透過 AADConnect 使用者介面在多個樹系中啟用 DSSO。 
+- Release 1.4.18.0 有一個 bug，其中適用于 DSSO 的 PowerShell Cmdlet 使用登入 windows 認證，而不是執行 ps 時提供的系統管理員認證。 因此，無法透過 AADConnect 使用者介面在多個樹系中啟用 DSSO。 
 - 已修正透過 AADConnect 使用者介面在所有樹系中同時啟用 DSSO
 
 ## <a name="14320"></a>1.4.32.0
@@ -129,8 +140,8 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 > 若要解決此問題，您必須匯入**AdSync**模組，然後在 Azure AD Connect 伺服器上執行`Set-ADSyncDirSyncConfiguration` powershell Cmdlet。  您可以使用下列步驟：
 >
 >1. 在系統管理員身分模式中開啟 Powershell
->2. 執行 `Import-Module "ADSync"`
->3. 執行 `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
+>2. `Import-Module "ADSync"`執行 
+>3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`執行 
  
 ### <a name="release-status"></a>發行狀態 
 
@@ -483,7 +494,7 @@ Azure AD Connect 1.1.654.0 版 (和更新版本) 已新增改進，以確保 Azu
 *   將特定物件上所有的 ACE 移除，除了 SELF 特有的 ACE 之外。 關於 SELF，我們需要將預設權限維持不變。
 *   指派這些特定權限：
 
-Type     | Name                          | Access               | 套用至
+類型     | 名稱                          | 存取               | 套用至
 ---------|-------------------------------|----------------------|--------------|
 允許    | 系統                        | 完全控制         | 此物件  |
 允許    | 企業系統管理員             | 完全控制         | 此物件  |
@@ -844,7 +855,7 @@ CBool(
     * 群組：DnsDomainName
     * 使用者：OnPremisesDistinguishedName
 
-* ADSyncDomainJoinedComputerSync Cmdlet 現在有一個名為 AzureEnvironment 的新選擇性參數。 此參數可用來指定裝載對應 Azure Active Directory 租用戶的區域。 有效值包含：
+* ADSyncDomainJoinedComputerSync Cmdlet 現在有一個名為 AzureEnvironment 的新選擇性參數。 此參數可用來指定裝載對應 Azure Active Directory 租用戶的區域。 有效值包括：
   * AzureCloud (預設值)
   * AzureChinaCloud
   * AzureGermanyCloud
@@ -925,7 +936,7 @@ Azure AD Connect 同步處理
 ## <a name="114840"></a>1.1.484.0
 發行日期︰2017 年 4 月
 
-**已知問題︰**
+**已知問題**
 
 * 如果下列條件都成立，此 Azure AD Connect 版本將無法成功安裝：
    1. 您執行 DirSync 就地升級或全新的 Azure AD Connect 安裝。
@@ -1036,7 +1047,7 @@ AD FS 管理
 ## <a name="113700"></a>1.1.370.0
 發行日期︰2016 年 12 月
 
-**已知問題︰**
+**已知問題**
 
 * 此組建中遺漏 ADFS 的 issuerid 宣告規則。 如果您要讓多個網域與 Azure AD 同盟，就必須要有此 issuerid 宣告規則。 如果您使用 Azure AD Connect 來管理您的內部部署 ADFS 部署，則升級至此組建將會從 ADFS 組態中移除現有的 issuerid 宣告規則。 您可以在安裝/升級之後新增 issuerid 宣告規則來解決此問題。 如需有關新增 issuerid 宣告規則的詳細資料，請參閱[與 Azure AD 同盟的多網域支援](how-to-connect-install-multiple-domains.md)上的此文章。
 * 連接埠 9090 必須開啟輸出以完成安裝。
@@ -1255,7 +1266,7 @@ AD FS 管理
 * [使用者回寫](how-to-connect-preview.md#user-writeback)
 * [群組回寫](how-to-connect-preview.md#group-writeback)
 * [裝置回寫](how-to-connect-device-writeback.md)
-* [目錄延伸模組](how-to-connect-preview.md)
+* [目錄擴充](how-to-connect-preview.md)
 
 ## <a name="104940501"></a>1.0.494.0501
 發行日期：2015 年 5 月

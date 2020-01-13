@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
-ms.openlocfilehash: 549fd8f4cb770d472eefd1c504e42837fa8230dd
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e7a61cc64ae72adfcbeb347ddd076065ccc3a321
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066859"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645832"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>適用於 SAP NetWeaver 的 Azure 虛擬機器部署
 
@@ -77,8 +77,8 @@ ms.locfileid: "71066859"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md (適用於 SAP 的 Azure 虛擬機器 DBMS 部署)
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (VM 和 VHD 的快取)
@@ -234,7 +234,7 @@ ms.locfileid: "71066859"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (儲存體：Microsoft Azure 儲存體和資料磁碟)
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/network-overview.md
 [sap-pam]: https://support.sap.com/pam (SAP 產品可用性對照表)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -253,7 +253,7 @@ ms.locfileid: "71066859"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -315,7 +315,7 @@ ms.locfileid: "71066859"
 
 在本文中，我們將討論在 Azure 中的虛擬機器 (VM) 上部署 SAP 應用程式的步驟，包括替代部署選項和疑難排解。 本文是以[適用于 SAP NetWeaver 的 Azure 虛擬機器規劃和執行][planning-guide]中的資訊為基礎。 本文也可補充 SAP 安裝文件和 SAP Note 的不足，而這些是安裝及部署 SAP 軟體的主要資源。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -427,16 +427,16 @@ ms.locfileid: "71066859"
    * **訂用帳戶**：選取您想要用來佈建新虛擬機器的訂用帳戶。
    * **資源群組**：VM 的資源群組名稱。 您可以輸入新資源群組的名稱，或現有資源群組的名稱。
    * **位置**︰部署新虛擬機器的位置。 如果您想要將虛擬機器連線到內部部署網路，請務必選取將 Azure 連線到內部部署網路的虛擬網路位置。 如需詳細資訊，請參閱[適用于 SAP NetWeaver 的 Azure 虛擬機器規劃與部署中的][planning-guide] [Microsoft Azure 網路][planning-guide-microsoft-azure-networking]功能。
-1. ：
+1. **Size**：
 
      如需支援的 VM 類型清單，請參閱 SAP Note [1928533]。 如果您想要使用進階儲存體，請務必選取正確的 VM 類型。 並非所有 VM 類型都支援進階儲存體。 如需詳細資訊，請參閱[儲存體： Microsoft Azure 儲存體和資料磁片][planning-guide-storage-microsoft-azure-storage-and-data-disks]，以及 azure 中的[azure 進階儲存體][planning-guide-azure-premium-storage][虛擬機器規劃和實作為 SAP NetWeaver][planning-guide]。
 
 1. **設定**：
-   * **儲存體**
+   * **Storage**
      * **磁碟類型**：選取作業系統磁碟的磁碟類型。 如果您想要使用進階儲存體作為您的資料磁碟，建議您作業系統磁碟也使用進階儲存體。
      * **使用受控磁碟**：如果您想要使用受控磁碟，請選取 [是]。 如需受控磁碟的詳細資訊，請參閱規劃指南中的章節[受控磁碟][planning-guide-managed-disks]。
      * **儲存體帳戶**：選取現有的儲存體帳戶或建立新的儲存體帳戶。 並非所有的儲存體類型都適用於執行 SAP 應用程式。 如需儲存體類型的詳細資訊，請參閱 [RDBMS 部署的 VM 儲存體結構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)。
-   * **網路**
+   * **Network**
      * **虛擬網路**和**子網路**：若要整合虛擬機器與內部網路，請選取連線到內部部署網路的虛擬網路。
      * **公用 IP 位址**︰選取您想要使用的公用 IP 位址，或輸入參數來建立新的公用 IP 位址。 您可以使用公用 IP 位址，透過網際網路存取您的虛擬機器。 請務必也建立網路安全性群組，以便對您的虛擬機器進行安全的存取。
      * **網路安全性群組**：如需詳細資訊，請參閱[使用網路安全性群組控制網路流量流程][virtual-networks-nsg]。
@@ -567,15 +567,15 @@ ms.locfileid: "71066859"
    * **訂用帳戶**：選取您想要用來佈建新虛擬機器的訂用帳戶。
    * **資源群組**：VM 的資源群組名稱。 您可以輸入新資源群組的名稱，或現有資源群組的名稱。
    * **位置**︰部署新虛擬機器的位置。 如果您想要將虛擬機器連線到內部部署網路，請務必選取將 Azure 連線到內部部署網路的虛擬網路位置。 如需詳細資訊，請參閱[適用于 SAP NetWeaver 的 Azure 虛擬機器規劃與部署中的][planning-guide] [Microsoft Azure 網路][planning-guide-microsoft-azure-networking]功能。
-1. ：
+1. **Size**：
 
      如需支援的 VM 類型清單，請參閱 SAP Note [1928533]。 如果您想要使用進階儲存體，請務必選取正確的 VM 類型。 並非所有 VM 類型都支援進階儲存體。 如需詳細資訊，請參閱[儲存體： Microsoft Azure 儲存體和資料磁片][planning-guide-storage-microsoft-azure-storage-and-data-disks]，以及 azure 中的[azure 進階儲存體][planning-guide-azure-premium-storage][虛擬機器規劃和實作為 SAP NetWeaver][planning-guide]。
 
 1. **設定**：
-   * **儲存體**
+   * **Storage**
      * **磁碟類型**：選取作業系統磁碟的磁碟類型。 如果您想要使用進階儲存體作為您的資料磁碟，建議您作業系統磁碟也使用進階儲存體。
      * **使用受控磁碟**：如果您想要使用受控磁碟，請選取 [是]。 如需受控磁碟的詳細資訊，請參閱規劃指南中的章節[受控磁碟][planning-guide-managed-disks]。
-   * **網路**
+   * **Network**
      * **虛擬網路**和**子網路**：若要整合虛擬機器與內部網路，請選取連線到內部部署網路的虛擬網路。
      * **公用 IP 位址**︰選取您想要使用的公用 IP 位址，或輸入參數來建立新的公用 IP 位址。 您可以使用公用 IP 位址，透過網際網路存取您的虛擬機器。 請務必也建立網路安全性群組，以便對您的虛擬機器進行安全的存取。
      * **網路安全性群組**：如需詳細資訊，請參閱[使用網路安全性群組控制網路流量流程][virtual-networks-nsg]。
@@ -1081,15 +1081,15 @@ Azperflib.exe 輸出會顯示適用於 SAP 的所有已填入 Azure 效能計數
 
 1. 檢查 Azure Extension for SAP 的輸出。
 
-   a.  執行 `more /var/lib/AzureEnhancedMonitor/PerfCounters`
+   a.  `more /var/lib/AzureEnhancedMonitor/PerfCounters`執行 
 
    **預期的結果**：傳回效能計數器的清單。 此檔案不得是空的。
 
-   b.這是另一個 C# 主控台應用程式。 執行 `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
+   b. `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`執行 
 
    **預期的結果**：傳回**無**錯誤的一行，例如 **3;config;Error;;0;0;none;0;1456416792;tst-servercs;**
 
-   c. 執行 `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
+   c. `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`執行 
 
    **預期的結果**：傳回為空白或不存在。
 
@@ -1097,29 +1097,29 @@ Azperflib.exe 輸出會顯示適用於 SAP 的所有已填入 Azure 效能計數
 
 1. 確定已安裝並啟用 waagent。
 
-   a.  執行 `sudo ls -al /var/lib/waagent/`
+   a.  `sudo ls -al /var/lib/waagent/`執行 
 
      **預期的結果**：列出 waagent 目錄的內容。
 
-   b.這是另一個 C# 主控台應用程式。  執行 `ps -ax | grep waagent`
+   b.  `ps -ax | grep waagent`執行 
 
    **預期的結果**：顯示類似下列一個項目：`python /usr/sbin/waagent -daemon`
 
 1. 請確定適用于 SAP 的 Azure 擴充功能已安裝且正在執行。
 
-   a.  執行 `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
+   a.  `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`執行 
 
    **預期的結果**：列出 Azure EXTENSION for SAP 目錄的內容。
 
-   b.這是另一個 C# 主控台應用程式。 執行 `ps -ax | grep AzureEnhanced`
+   b. `ps -ax | grep AzureEnhanced`執行 
 
    **預期的結果**：顯示類似下列一個項目：`python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
 
 1. 安裝 SAP Host Agent (如 SAP Note [1031096] 所述) 並檢查 `saposcol` 的輸出。
 
-   a.  執行 `/usr/sap/hostctrl/exe/saposcol -d`
+   a.  `/usr/sap/hostctrl/exe/saposcol -d`執行 
 
-   b.這是另一個 C# 主控台應用程式。  執行 `dump ccm`
+   b.  `dump ccm`執行 
 
    c.  檢查 **Virtualization_Configuration\Enhanced Monitoring Access** 計量是否為 **true**。
 

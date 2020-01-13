@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/23/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 692b07c82c329a93d79ad3a87beec5dbe1c595d3
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: d58eb333c930d2ffac4eb57340ea776338325181
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669988"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680967"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>持續部署至 Azure App Service
 
@@ -27,7 +27,13 @@ ms.locfileid: "74669988"
 
 針對 Bitbucket 或 GitHub，授權 Azure App Service 連接到您的存放庫。 您只需要對原始檔控制服務授權一次。 
 
-1. 在[Azure 入口網站](https://portal.azure.com)左側導覽中選取 [**應用程式服務**]，然後選取您想要部署的 web 應用程式。 
+1. 在  [Azure 入口網站](https://portal.azure.com)中，搜尋並選取 **應用程式服務**]。 
+
+   ![搜尋 [應用程式服務]。](media/app-service-continuous-deployment/search-for-app-services.png)
+
+1. 選取您想要部署的 web 應用程式。
+
+   ![選取您的應用程式。](media/app-service-continuous-deployment/select-your-app.png)
    
 1. 在 [應用程式] 頁面上，選取左側功能表中的 [**部署中心**]。
    
@@ -45,7 +51,7 @@ ms.locfileid: "74669988"
 
 您可以使用內建的 Kudu App Service 組建伺服器，從 GitHub、Bitbucket 或 Azure Repos 持續部署。 
 
-1. 在[Azure 入口網站](https://portal.azure.com)左側導覽中選取 [**應用程式服務**]，然後選取您想要部署的 web 應用程式。 
+1. 在  [Azure 入口網站](https://portal.azure.com)中，搜尋並選取 **應用程式服務**]，然後選取您想要部署的 web 應用程式。 
    
 1. 在 [應用程式] 頁面上，選取左側功能表中的 [**部署中心**]。
    
@@ -63,7 +69,7 @@ ms.locfileid: "74669988"
    - 針對 [GitHub]，下拉並選取您想要持續部署的**組織**、存放**庫**和**分支**。
      
      > [!NOTE]
-     > 如果您沒有看到任何存放庫，您可能需要在 GitHub 中授權 Azure App Service。 流覽至您的 GitHub 存放庫，並移至 [**設定**] > **應用程式** > **授權的 OAuth 應用**程式。 選取 [ **Azure App Service**]，然後選取 **[授**與]。
+     > 如果您沒有看到任何存放庫，您可能需要在 GitHub 中授權 Azure App Service。 流覽至您的 GitHub 存放庫，並移至 [**設定**] > **應用程式** > **授權的 OAuth 應用**程式。 選取 [ **Azure App Service**]，然後選取 **[授**與]。 針對組織存放庫，您必須是組織的擁有者，才能授與許可權。
      
    - 針對 [Bitbucket]，選取您想要持續部署的 Bitbucket**小組**、存放**庫**和**分支**。
      
@@ -96,7 +102,7 @@ ms.locfileid: "74669988"
 
 若要設定 Azure Pipelines （預覽）：
 
-1. 在[Azure 入口網站](https://portal.azure.com)左側導覽中選取 [**應用程式服務**]，然後選取您想要部署的 web 應用程式。 
+1. 在  [Azure 入口網站](https://portal.azure.com)中，搜尋並選取 **應用程式服務**]，然後選取您想要部署的 web 應用程式。 
    
 1. 在 [應用程式] 頁面上，選取左側功能表中的 [**部署中心**]。
    
@@ -107,7 +113,7 @@ ms.locfileid: "74669988"
    - 針對 [GitHub]，下拉並選取您想要持續部署的**組織**、存放**庫**和**分支**。
      
      > [!NOTE]
-     > 如果您沒有看到任何存放庫，您可能需要在 GitHub 中授權 Azure App Service。 流覽至您的 GitHub 存放庫，並移至 [**設定**] > **應用程式** > **授權的 OAuth 應用**程式。 選取 [ **Azure App Service**]，然後選取 **[授**與]。
+     > 如果您沒有看到任何存放庫，您可能需要在 GitHub 中授權 Azure App Service。 流覽至您的 GitHub 存放庫，並移至 [**設定**] > **應用程式** > **授權的 OAuth 應用**程式。 選取 [ **Azure App Service**]，然後選取 **[授**與]。 針對組織存放庫，您必須是組織的擁有者，才能授與許可權。
      
    - 針對 Azure Repos，請選取您想要持續部署的**Azure DevOps 組織**、**專案**、存放**庫**和**分支**，或設定新的 Azure DevOps 組織。
      
@@ -141,7 +147,7 @@ ms.locfileid: "74669988"
 
 ## <a name="use-unsupported-repos"></a>使用不支援的存放庫
 
-針對 Windows 應用程式，您可以從入口網站不直接支援的雲端 Git 或 Mecurial 存放庫手動設定持續部署，例如[GitLab](https://gitlab.com/)。 您可以選擇 [**部署中心**] 頁面中的 [外部] 方塊來執行此動作。 如需詳細資訊，請參閱[使用手動步驟設定連續部署](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)。
+針對 Windows 應用程式，您可以從入口網站不直接支援的雲端 Git 或 Mercurial 存放庫手動設定持續部署，例如[GitLab](https://gitlab.com/)。 您可以選擇 [**部署中心**] 頁面中的 [外部] 方塊來執行此動作。 如需詳細資訊，請參閱[使用手動步驟設定連續部署](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)。
 
 ## <a name="additional-resources"></a>其他資源
 

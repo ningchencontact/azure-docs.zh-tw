@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/17/2019
-ms.openlocfilehash: 4b2f9e7f12b468f12fcfbe1b0af5c2918aa6c6ad
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4a8a548e6a073c38dbc1f5600d721a7cdb97f120
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541162"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762819"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning 的企業安全性
 
@@ -134,7 +134,7 @@ Azure Machine Learning 會在與 Azure Machine Learning 所管理之 Microsoft �
 
 您可以使用 SSL 來保護 Azure Machine Learning 微服務之間的內部通訊，以及保護對評分端點的外部呼叫。 所有的 Azure 儲存體存取也會透過安全通道進行。
 
-如需詳細資訊，請參閱[使用 SSL 透過 Azure Machine Learning 保護 web 服務](https://docs.microsoft.com/azure/machine-learning/service/how-to-secure-web-service)。
+如需詳細資訊，請參閱[使用 SSL 透過 Azure Machine Learning 保護 web 服務](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service)。
 
 ### <a name="using-azure-key-vault"></a>使用 Azure Key Vault
 
@@ -152,7 +152,7 @@ SSH 密碼和計算目標（例如 Azure HDInsight 和 Vm）的金鑰會儲存�
 
 ### <a name="metrics"></a>計量
 
-您可以使用 Azure 監視器計量來查看和監視 Azure Machine Learning 工作區的計量。 在  [Azure 入口網站](https://portal.azure.com)中，選取您的工作區，然後選取 **計量**：
+您可以使用 Azure 監視器計量來查看和監視 Azure Machine Learning 工作區的計量。 在  [Azure 入口網站](https://portal.azure.com)中，選取您的工作區，然後選取 **計量**]：
 
 [![螢幕擷取畫面，其中顯示工作區的範例計量](media/concept-enterprise-security/workspace-metrics.png)](media/concept-enterprise-security/workspace-metrics-expanded.png#lightbox)
 

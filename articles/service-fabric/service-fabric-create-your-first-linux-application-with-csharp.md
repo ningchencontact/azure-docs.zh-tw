@@ -1,27 +1,16 @@
 ---
-title: 在 Linux 上使用 C# 建立您的第一個 Azure Service Fabric 應用程式 | Microsoft Docs
+title: 使用在 Linux 上建立您的第一個 Azure Service Fabric 應用程式C#
 description: 了解如何使用 C# 和 .NET Core 2.0 建立和部署 Service Fabric 應用程式。
-services: service-fabric
-documentationcenter: csharp
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
-ms.service: service-fabric
-ms.devlang: csharp
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/11/2018
-ms.author: atsenthi
-ms.openlocfilehash: 8c34f50e8eb9d9793c146c38aca47691b04049c0
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 202dde933b41a98c1c119f422d47cbdbb0be84ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167292"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458132"
 ---
-# <a name="create-your-first-azure-service-fabric-application"></a>建立第一個 Azure Service Fabric 應用程式
+# <a name="create-your-first-azure-service-fabric-application"></a>建立您的第一個 Azure Service Fabric 應用程式
 > [!div class="op_single_selector"]
 > * [Java - Linux (預覽)](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux (預覽)](service-fabric-create-your-first-linux-application-with-csharp.md)
@@ -129,7 +118,7 @@ Service Fabric Yeoman 範本包含建置指令碼，可用來從終端機建置�
 
 若要將其他服務新增至已使用 `yo` 建立的應用程式，請執行下列步驟︰
 1. 將目錄變更為現有應用程式的根目錄。  例如，如果 `MyApplication` 是 Yeoman 所建立的應用程式，則為 `cd ~/YeomanSamples/MyApplication`。
-2. 執行 `yo azuresfcsharp:AddService`
+2. `yo azuresfcsharp:AddService`執行 
 
 ## <a name="next-steps"></a>後續步驟
 

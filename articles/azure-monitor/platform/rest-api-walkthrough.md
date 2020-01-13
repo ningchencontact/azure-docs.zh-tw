@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/19/2018
-ms.openlocfilehash: 68c90f6c763fe7cd634aee886c5c8c6b8153253e
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 4ce1272c38bcb066f9e88ca739561ccd7696c989
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551819"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363501"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 監視 REST API 逐步解說
 
@@ -97,7 +97,7 @@ $authHeader = @{
 
 **方法**：GET
 
-**要求 URI**： HTTPs：\/\/Management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /Providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{CoNtext.resourcename}* /providers/microsoft.insights/metricdefinitions api-version？ api-Version = *{apiVersion}*
+**要求 URI**： HTTPs：\/\/Management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /Providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{coNtext.resourcename}* /providers/microsoft.insights/metricdefinitions api-version？ api 版本 = *{apiVersion}*
 
 例如，若要取出 Azure 儲存體帳戶的計量定義，則要求看起來如下所示：
 
@@ -241,7 +241,7 @@ Invoke-RestMethod -Uri $request `
 
 **方法**：GET
 
-**要求 URI**： HTTPs\://management.azure.com/subscriptions/ *{訂用帳戶識別碼}* /resourceGroups/ *{資源-群組名稱}* /providers/ *{資源提供者-命名空間}* / *{資源類型}* / *{資源名稱}* /providers/microsoft.insights/metrics？ metricnames = *{公制}* & timespan = *{starttime/endtime}* & $Filter = *{filter}* & resultType = metadata & api 版本 = *{apiVersion}*
+**要求 URI**： HTTPs\://management.azure.com/subscriptions/ *{訂用帳戶識別碼}* /resourceGroups/ *{資源群組-名稱}* /providers/ *{資源提供者-命名空間}* / *{資源類型}* / *{資源名稱}* /providers/microsoft.insights/metrics？ metricnames = *{公制}* & Timespan = *{starttime/endtime}* & $filter = *{filter}* & resultType = 中繼資料 & api 版本 = *{apiVersion}*
 
 例如，若要擷取 'Transactions' 計量之 'API Name dimension' 中發出的維度值清單，其中指定時間範圍內的 GeoType 維度 = 'Primary'，要求將如下所示：
 
@@ -393,7 +393,7 @@ Invoke-RestMethod -Uri $request `
 
 **方法**：GET
 
-**要求 URI**： HTTPs：\/\/Management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /Providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{CoNtext.resourcename}* /providers/microsoft.insights/metricdefinitions api-version？ api-Version = *{apiVersion}*
+**要求 URI**： HTTPs：\/\/Management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /Providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{coNtext.resourcename}* /providers/microsoft.insights/metricdefinitions api-version？ api 版本 = *{apiVersion}*
 
 例如，若要取出 Azure Logic App 的計量定義，則要求看起來如下所示：
 
@@ -600,7 +600,7 @@ armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups
 
 上述程式碼中，要使用的資源識別碼是所需 Azure 資源的完整路徑。 例如，若要查詢 Azure Web 應用程式，資源識別碼為︰
 
-*/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/*
+<bpt id="p1">*</bpt>/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/<ept id="p1">*</ept>
 
 下列範例清單包含各種 Azure 資源的資源識別碼格式︰
 
@@ -620,7 +620,7 @@ armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups
 
 ![替代「Azure 資源總管」](./media/rest-api-walkthrough/azure_resource_explorer.png)
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 也可以從 Azure 入口網站取得資源識別碼。 若要這樣做，請瀏覽至所需的資源，然後選取 [內容]。 「資源識別碼」會顯示在 [屬性] 區段中，如下列螢幕擷取畫面所示︰
 

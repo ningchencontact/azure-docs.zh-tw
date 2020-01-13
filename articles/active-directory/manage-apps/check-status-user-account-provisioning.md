@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1eea9cc738897c6de86c2fd73a0967e39b8afd4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e6a6714a1a9e7a2724d07584dd7b548ada2f201b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275053"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430217"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>教學課程︰關於使用者帳戶自動佈建的報告
 
@@ -28,7 +28,7 @@ Azure Active Directory （Azure AD）包含[使用者帳戶](user-provisioning.m
 
 本文會說明如何在佈建作業設定好之後檢查其狀態，以及如何針對個別使用者和群組的佈建進行疑難排解。
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 我們會使用 [Azure 入口網站](https://portal.azure.com)，依照針對支援之應用程式[所提供的文件](../saas-apps/tutorial-list.md)來設定佈建連接器。 在設定好並開始執行之後，您就可以使用下列兩種方法的其中一種來獲得佈建作業的報告：
 
@@ -55,8 +55,8 @@ Azure Active Directory （Azure AD）包含[使用者帳戶](user-provisioning.m
 布建[進度](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar)列會顯示在指定應用程式的 [布**建] 索引**標籤中。 它位於 [**設定**] 底下的 [**目前狀態**] 區段中，並顯示目前初始或累加迴圈的狀態。 本節也會顯示：
 
 * 已同步處理且目前正在來源系統與目標系統之間的佈建範圍內的使用者和群組總數。
-* 上次執行同步處理的時間。 [初始迴圈](user-provisioning.md#what-happens-during-provisioning)完成後，通常每隔20-40 分鐘就會進行同步處理。
-* 是否已完成[初始迴圈](user-provisioning.md#what-happens-during-provisioning)。
+* 上次執行同步處理的時間。 [初始迴圈](how-provisioning-works.md#provisioning-cycles-initial-and-incremental)完成後，通常每隔20-40 分鐘就會進行同步處理。
+* 是否已完成[初始迴圈](how-provisioning-works.md#provisioning-cycles-initial-and-incremental)。
 * 佈建程序是否已進入隔離狀態，以及造成隔離狀態的原因為何 (例如，因管理員認證無效而無法與目標系統進行通訊)。
 
 **目前的狀態**應該是系統管理員要查看布建作業的操作健全狀況的第一個位置。

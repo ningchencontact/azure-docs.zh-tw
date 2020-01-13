@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: fb9ee2378679c420a7675856ec95e60f6ae1d14f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 05b099eebcbb7b8f77357c9dcf3a4d567d3886d6
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827144"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553064"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>設定 Azure SQL Database 的容錯移轉群組
 
@@ -25,7 +25,7 @@ ms.locfileid: "73827144"
 ## <a name="single-database"></a>單一資料庫
 使用 Azure 入口網站或 PowerShell，建立容錯移轉群組，並在其中新增單一資料庫。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 請考慮下列必要條件：
 
@@ -36,7 +36,8 @@ ms.locfileid: "73827144"
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 建立您的容錯移轉群組，並使用 Azure 入口網站將您的單一資料庫新增至其中。
 
-1. 在 **Azure 入口網站**的左側功能表中，選取 [Azure SQL][](https://portal.azure.com)。 如果**AZURE SQL**不在清單中，請選取 [**所有服務**]，然後在搜尋方塊中輸入 azure sql。 (選用) 選取 **Azure SQL** 旁的星號將其設為最愛，並新增為左側導覽中的項目。 
+
+1. 在 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [Azure SQL]。 如果**AZURE SQL**不在清單中，請選取 [**所有服務**]，然後在搜尋方塊中輸入 azure sql。 (選用) 選取 **Azure SQL** 旁的星號將其設為最愛，並新增為左側導覽中的項目。 
 1. 選取您想要新增到容錯移轉群組的單一資料庫。 
 1. 在 [**伺服器名稱**] 底下選取伺服器的名稱，以開啟伺服器的設定。
 
@@ -110,7 +111,7 @@ ms.locfileid: "73827144"
 
 使用 Azure 入口網站測試容錯移轉群組的容錯移轉。 
 
-1. 在 **Azure 入口網站**的左側功能表中，選取 [Azure SQL][](https://portal.azure.com)。 如果**AZURE SQL**不在清單中，請選取 [**所有服務**]，然後在搜尋方塊中輸入 azure sql。 (選用) 選取 **Azure SQL** 旁的星號將其設為最愛，並新增為左側導覽中的項目。 
+1. 在 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [Azure SQL]。 如果**AZURE SQL**不在清單中，請選取 [**所有服務**]，然後在搜尋方塊中輸入 azure sql。 (選用) 選取 **Azure SQL** 旁的星號將其設為最愛，並新增為左側導覽中的項目。 
 1. 選取您想要新增到容錯移轉群組的單一資料庫。 
 
    ![單一 db 的開啟伺服器](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
@@ -183,10 +184,13 @@ ms.locfileid: "73827144"
 
 ---
 
+> [!IMPORTANT]
+> 如果您需要刪除次要資料庫，請將它從容錯移轉群組中移除，然後再刪除它。 將次要資料庫從容錯移轉群組中移除之前先將它刪除，可能會導致無法預期的行為。 
+
 ## <a name="elastic-pool"></a>彈性集區
 使用 Azure 入口網站或 PowerShell，建立容錯移轉群組，並將彈性集區新增至其中。  
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 請考慮下列必要條件：
 
@@ -199,7 +203,7 @@ ms.locfileid: "73827144"
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 建立您的容錯移轉群組，並使用 Azure 入口網站將彈性集區新增至其中。
 
-1. 在 **Azure 入口網站**的左側功能表中，選取 [Azure SQL][](https://portal.azure.com)。 如果**AZURE SQL**不在清單中，請選取 [**所有服務**]，然後在搜尋方塊中輸入 azure sql。 (選用) 選取 **Azure SQL** 旁的星號將其設為最愛，並新增為左側導覽中的項目。 
+1. 在 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [Azure SQL]。 如果**AZURE SQL**不在清單中，請選取 [**所有服務**]，然後在搜尋方塊中輸入 azure sql。 (選用) 選取 **Azure SQL** 旁的星號將其設為最愛，並新增為左側導覽中的項目。 
 1. 選取您想要新增到容錯移轉群組的彈性集區。 
 1. 在 [**總覽**] 窗格中，選取 [**伺服器名稱**] 下的伺服器名稱，以開啟伺服器的設定。
   
@@ -271,7 +275,7 @@ ms.locfileid: "73827144"
 
 將容錯移轉群組容錯移轉到次要伺服器，然後使用 Azure 入口網站進行容錯回復。 
 
-1. 在 **Azure 入口網站**的左側功能表中，選取 [Azure SQL][](https://portal.azure.com)。 如果**AZURE SQL**不在清單中，請選取 [**所有服務**]，然後在搜尋方塊中輸入 azure sql。 (選用) 選取 **Azure SQL** 旁的星號將其設為最愛，並新增為左側導覽中的項目。 
+1. 在 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [Azure SQL]。 如果**AZURE SQL**不在清單中，請選取 [**所有服務**]，然後在搜尋方塊中輸入 azure sql。 (選用) 選取 **Azure SQL** 旁的星號將其設為最愛，並新增為左側導覽中的項目。 
 1. 選取您想要新增到容錯移轉群組的彈性集區。 
 1. 在 [**總覽**] 窗格中，選取 [**伺服器名稱**] 下的伺服器名稱，以開啟伺服器的設定。
   
@@ -328,13 +332,16 @@ ms.locfileid: "73827144"
 
 ---
 
+> [!IMPORTANT]
+> 如果您需要刪除次要資料庫，請將它從容錯移轉群組中移除，然後再刪除它。 將次要資料庫從容錯移轉群組中移除之前先將它刪除，可能會導致無法預期的行為。 
+
 ## <a name="managed-instance"></a>受控執行個體
 
 使用 Azure 入口網站或 PowerShell，在兩個受控實例之間建立容錯移轉群組。 
 
-您將需要為每個受控實例的虛擬網路建立閘道、連接兩個閘道，然後建立容錯移轉群組。
+您將需要設定[ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ，或為每個受控實例的虛擬網路建立閘道、連接兩個閘道，然後建立容錯移轉群組。 
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 請考慮下列必要條件：
 
 - 次要受控實例必須是空的。
@@ -344,7 +351,7 @@ ms.locfileid: "73827144"
 
 ### <a name="create-primary-virtual-network-gateway"></a>建立主要虛擬網路閘道 
 
-使用 Azure 入口網站或 PowerShell 建立主要虛擬網路閘道。 
+如果您尚未設定[ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)，您可以使用 Azure 入口網站或 PowerShell 來建立主要虛擬網路閘道。 
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 
@@ -371,7 +378,7 @@ ms.locfileid: "73827144"
     | **閘道類型** | 選取 [VPN]。 |
     | **VPN 類型** | 選取以**路由為基礎的** |
     | **SKU**| 保留預設值 [`VpnGw1`]。 |
-    | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept>| 次要受控實例和次要虛擬網路所在的位置。   |
+    | **位置**| 次要受控實例和次要虛擬網路所在的位置。   |
     | **虛擬網路**| 選取次要受控實例的虛擬網路。 |
     | **公用 IP 位址**| 選取 [建立新的]。 |
     | **公用 IP 位址名稱**| 輸入 IP 位址的 [名稱]。 |
@@ -432,7 +439,7 @@ ms.locfileid: "73827144"
    | **閘道類型** | 選取 [VPN]。 |
    | **VPN 類型** | 選取以**路由為基礎的** |
    | **SKU**| 保留預設值 [`VpnGw1`]。 |
-   | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept>| 次要受控實例和次要虛擬網路所在的位置。   |
+   | **位置**| 次要受控實例和次要虛擬網路所在的位置。   |
    | **虛擬網路**| 選取在第2節中建立的虛擬網路，例如 `vnet-sql-mi-secondary`。 |
    | **公用 IP 位址**| 選取 [建立新的]。 |
    | **公用 IP 位址名稱**| 輸入 IP 位址的 [名稱]，例如 `secondary-gateway-IP`。 |
@@ -543,7 +550,7 @@ ms.locfileid: "73827144"
 
 使用 Azure 入口網站，為您的受控實例建立容錯移轉群組。 
 
-1. 在 **Azure 入口網站**的左側功能表中，選取 [Azure SQL][](https://portal.azure.com)。 如果**AZURE SQL**不在清單中，請選取 [**所有服務**]，然後在搜尋方塊中輸入 azure sql。 (選用) 選取 **Azure SQL** 旁的星號將其設為最愛，並新增為左側導覽中的項目。 
+1. 在 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [Azure SQL]。 如果**AZURE SQL**不在清單中，請選取 [**所有服務**]，然後在搜尋方塊中輸入 azure sql。 (選用) 選取 **Azure SQL** 旁的星號將其設為最愛，並新增為左側導覽中的項目。 
 1. 選取您想要新增到容錯移轉群組的主要受控實例。  
 1. 在 [**設定**] 下，流覽至 [**實例容錯移轉群組**]，然後選擇 [**新增群組**] 以開啟 [**實例容錯移轉群組**] 頁面。 
 
