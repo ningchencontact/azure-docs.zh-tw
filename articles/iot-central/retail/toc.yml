@@ -36,11 +36,13 @@
       href: architecture-smart-inventory-management-pnp.md
     - name: 商店分析架構
       href: store-analytics-architecture.md
+    - name: 微型物流中心應用程式範本架構
+      href: architecture-micro-fulfillment-center-pnp.md
     - name: 連線能力
       href: ../preview/overview-iot-central-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: 什麼是應用程式範本？
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 連線裝置
       items:

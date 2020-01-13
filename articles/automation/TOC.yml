@@ -15,6 +15,8 @@
       displayName: certificate renewal
     - name: 透過 AWS 設定驗證
       href: automation-config-aws-account.md
+    - name: Azure 自動化中的安全資產加密
+      href: automation-secure-asset-encryption.md
     - name: 管理角色型存取控制
       href: automation-role-based-access-control.md
       displayName: RBAC
@@ -306,7 +308,7 @@
   items:
     - name: 憑證
       href: automation-certificates.md
-    - name: 連線
+    - name: 連接
       href: automation-connections.md
     - name: 認證
       href: automation-credentials.md
@@ -351,7 +353,7 @@
       href: automation-manage-send-joblogs-log-analytics.md
     - name: Log Analytics 工作區對應的支援區域
       href: how-to/region-mappings.md
-- name: 移轉
+- name: 遷移
   items:
     - name: 從 Orchestrator 移轉
       href: automation-orchestrator-migration.md

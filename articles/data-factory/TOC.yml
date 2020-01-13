@@ -617,6 +617,8 @@
           href: solution-template-copy-new-files-lastmodifieddate.md
         - name: 從資料庫進行大量複製
           href: solution-template-bulk-copy-with-control-table.md
+        - name: 從檔案大量複製到資料庫
+          href: solution-template-bulk-copy-from-files-to-database.md
         - name: 從資料庫進行差異複製
           href: solution-template-delta-copy-with-control-table.md
         - name: 將資料從 Amazon S3 遷移到 Azure 儲存體

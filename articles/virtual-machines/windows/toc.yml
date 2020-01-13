@@ -184,7 +184,7 @@
           items:
             - name: GPU 最佳化
               href: sizes-gpu.md
-            - name: 設定 GPU 驅動程式
+            - name: 設定 NVIDIA GPU 驅動程式
               href: n-series-driver-setup.md
             - name: 設定 AMD GPU 驅動程式
               href: n-series-amd-driver-setup.md

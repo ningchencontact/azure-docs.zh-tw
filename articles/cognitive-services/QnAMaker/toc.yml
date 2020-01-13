@@ -147,6 +147,8 @@
       href: troubleshooting.md
     - name: 檔案格式
       items:
+        - name: Markdown 參考
+          href: reference-markdown-format.md
         - name: 批次測試 TSV
           href: reference-tsv-format-batch-testing.md
     - name: REST API 參考

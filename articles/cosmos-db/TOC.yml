@@ -82,6 +82,8 @@
       href: resource-manager-samples.md
 - name: 概念
   items:
+    - name: NoSQL 與關聯式資料庫
+      href: relational-nosql.md
     - name: 全球發佈
       items:
         - name: 概觀
@@ -976,6 +978,8 @@
           href: certificate-based-authentication.md
         - name: 限制使用者只能存取資料作業
           href: how-to-restrict-user-data.md
+        - name: 設定客戶管理的金鑰
+          href: how-to-setup-cmk.md
     - name: 企業整備
       items:
         - name: 從備份還原資料
@@ -1058,6 +1062,8 @@
           href: cassandra-migrate-cosmos-db-blitzz.md
         - name: 將數百 TB 的資料遷移至 Azure Cosmos DB
           href: migrate-cosmosdb-data.md
+        - name: 遷移一對多關聯式資料
+          href: migrate-relational-to-cosmos-db-sql-api.md
     - name: 大量執行程式文件庫
       items:
         - name: 關於大量執行程式程式庫

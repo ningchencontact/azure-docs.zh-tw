@@ -61,6 +61,8 @@
           href: how-dev-spaces-works.md
         - name: VS Code 如可與 Dev Spaces 搭配使用
           href: how-vs-code-works-with-dev-spaces.md
+        - name: 不同網路拓撲中的網路設定
+          href: configure-networking.md
     - name: 如何
       items:
         - name: 安裝 Azure Dev Spaces

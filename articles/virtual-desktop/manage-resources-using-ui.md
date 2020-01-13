@@ -1,25 +1,22 @@
 ---
-title: 部署管理工具 - Azure
-description: 如何安裝使用者介面工具以管理 Windows 虛擬桌面資源。
+title: 使用 Azure Resource Manager 範本部署管理工具 - Azure
+description: 如何透過 Azure Resource Manager 範本安裝使用者介面工具以管理 Windows 虛擬桌面資源。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: tutorial
-ms.date: 11/09/2019
+ms.topic: conceptual
+ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: ad0c67cea6a5a9b487cd47aa7c10d10da1438050
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
-ms.translationtype: HT
+ms.openlocfilehash: 187c92f8e5b0148577f204f68077c58ea9ab9a3d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384290"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887354"
 ---
-# <a name="tutorial-deploy-a-management-tool"></a>教學課程：部署管理工具
+# <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>透過 Azure Resource Manager 範本部署管理工具
 
-管理工具提供使用者介面 (UI) 讓您管理 Microsoft 虛擬桌面資源。 在此教學課程中，您將學到如何部署及連線到管理工具。
-
->[!NOTE]
->這些指示適用於可搭配您組織現有程序使用的 Windows 虛擬桌面特定設定。
+依照本文中的指示，使用 Azure Resource Manager 範本部署 UI。
 
 ## <a name="important-considerations"></a>重要考量︰
 
@@ -33,18 +30,17 @@ ms.locfileid: "74384290"
 - Mozilla Firefox 52.0 或更高版本
 - Safari 10 或更高版本 (僅限 macOS)
 
-## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>執行 Azure Resource Manager 範本需要什麼
+## <a name="what-you-need-to-deploy-the-management-tool"></a>部署管理工具需要具備的條件
 
-部署 Azure Resource Manager 範本之前，您將需要 Azure Active Directory 使用者以部署管理 UI。 此使用者必須：
+部署管理工具之前，您需要 Azure Active Directory (Azure AD) 使用者建立應用程式註冊，並部署管理 UI。 此使用者必須：
 
 - 停用 Azure Multi-Factor Authentication (MFA)
 - 擁有在您的 Azure 訂用帳戶中建立資源的權限
-- 擁有建立 Azure AD 應用程式的權限。 依照這些步驟來檢查使用者是否有[必要權限](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) \(部分機器翻譯\)。
+- 擁有建立 Azure AD 應用程式的權限。 遵循[必要權限](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)中的指示，依下列步驟檢查您的使用者是否具有必要的權限。
 
-部署 Azure Resource Manager 範本之後，您將必須啟動管理 UI 以進行驗證。 此使用者必須：
-- 獲指派角色可檢視或編輯您的 Windows 虛擬桌面租用戶
+部署及設定管理工具之後，建議您要求使用者啟動管理 UI，以確保可正常運作。 啟動管理 UI 的使用者必須具備角色指派，才能檢視或編輯 Windows 虛擬桌面租用戶。
 
-## <a name="run-the-azure-resource-manager-template-to-provision-the-management-ui"></a>執行 Azure Resource Manager 範本以佈建管理 UI
+## <a name="deploy-the-management-tool"></a>部署管理工具
 
 在您開始之前，請確定您已透過瀏覽 Azure Active Directory (AAD) 呈現之 [Windows 虛擬桌面同意頁面](https://rdweb.wvd.microsoft.com) 來同意伺服器與用戶端應用程式。
 
@@ -52,26 +48,24 @@ ms.locfileid: "74384290"
 
 1. 移至 [GitHub Azure RDS 範本頁面](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy) \(英文\)。
 2. 將範本部署到 Azure。
-    - 若您是在「企業」訂用帳戶中部署，請向下捲動並選取 [部署至 Azure]  。 請參閱[範本參數的指導方針](#guidance-for-template-parameters)。
+    - 若您是在「企業」訂用帳戶中部署，請向下捲動並選取 [部署至 Azure]  。 
     - 若您是在「雲端解決方案提供者」訂用帳戶中部署，請依照下列指示部署到 Azure：
         1. 向下捲動並以滑鼠右鍵按一下 [部署至 Azure]  ，然後選取 [複製連結位置]  。
         2. 開啟文字編輯器 (例如 [記事本])，並在該處貼上連結。
         3. 在 <https://portal.azure.com/> 後方、主題標籤 (#) 前面，輸入 at 符號 (@)，後面接著租用戶網域名稱。 格式範例如下：<https://portal.azure.com/@Contoso.onmicrosoft.com#create/>。
         4. 以具有「雲端解決方案提供者」訂用帳戶系統管理員/參與者權限的使用者身分登入 Azure 入口網站。
         5. 將您之前複製到文字編輯器的連結貼到網址列。
-
-### <a name="guidance-for-template-parameters"></a>範本參數的指導方針
-以下說明如何輸入參數來設定工具：
-
-- 針對 **isServicePrincipal** 參數，請選取 [false]  。
-- 針對認證，請輸入已停用多重要素驗證的 Azure Active Directory 認證。 這些認證將是您用來登入 Azure 並建立 Azure AD 應用程式和 Azure Web 應用程式資源的認證。 若要深入了解，請參閱[執行 Azure Resource Manager 範本需要什麼](#what-you-need-to-run-the-azure-resource-manager-template)。
-- 針對 **applicationName**，請使用將在您 Azure Active Directory 中註冊的唯一名稱。 此名稱也會用於 Web 應用程式 URL。 例如，您可以使用類似 "Apr3UX" 的名稱。
+3. 輸入參數時，執行下列步驟：
+    - 針對 **isServicePrincipal** 參數，請選取 [false]  。
+    - 對於認證，請輸入已停用多重要素驗證的 Azure AD 認證。 這些認證會用來建立 Azure AD 應用程式和 Azure 資源。 若要深入了解，請參閱[部署管理工具需要的條件](#what-you-need-to-deploy-the-management-tool)。
+    - 針對 **applicationName**，請使用將在您 Azure Active Directory 中註冊的唯一名稱。 此名稱也會用於 Web 應用程式 URL。 例如，您可以使用類似 "Apr3UX" 的名稱。
+4. 提供參數之後，接受條款及條件，然後選取 [購買]  。
 
 ## <a name="provide-consent-for-the-management-tool"></a>為管理工具提供同意
 
 在 GitHub Azure Resource Manager 範本完成之後，您將會發現資源群組包含兩個應用程式服務與一個應用程式服務方案 (在 Azure 入口網站中)。
 
-在您登入並使用管理工具之前，您將必須為與管理工具關聯的新 Azure Active Directory 應用程式提供同意。 一旦提供同意，即表示您允許管理工具代表已登入入口網站的使用者發出 Windows 虛擬桌面管理呼叫。
+在您登入並使用管理工具之前，必須同意與管理工具關聯的新 Azure Active Directory 應用程式。 同意即表示管理工具可代表目前已登入入口網站的使用者發出 Windows 虛擬桌面管理呼叫。
 
 ![顯示當您同意 UI 管理工具時提供之權限的螢幕擷取畫面。](media/management-ui-delegated-permissions.png)
 
@@ -83,7 +77,7 @@ ms.locfileid: "74384290"
 - 若該值設定為 [否]  ，您必須使用 Azure Active Directory 中的「全域管理員」登入並針對該目錄中的所有使用者提供管理員同意。 不會有任何其他使用者看到同意提示。
 
 
-一旦您決定要用來提供同意的使用者請依照下列指示提供同意給工具：
+決定要同意的使用者後，請依照下列指示同意使用工具：
 
 1. 移至您的 Azure 資源、選取具有您在範本中提供之名稱 (例如 Apr3UX) 的 Azure App Services 資源並瀏覽到與它關聯的 URL，例如 <https://rdmimgmtweb-210520190304.azurewebsites.net>。
 2. 使用適當的 Azure Active Directory 使用者帳戶登入。
@@ -102,18 +96,15 @@ ms.locfileid: "74384290"
 1. 選取具有您在範本中提供之名稱 (例如 Apr3UX) 的 Azure App Services 資源並瀏覽到與它關聯的 URL，例如 <https://rdmimgmtweb-210520190304.azurewebsites.net>。
 2. 使用您的 Windows 虛擬桌面認證登入。
 3. 當系統提示您選擇租用戶群組時，請從下拉式清單選取 [預設租用戶群組]  。
-4. 當您選取 [預設租用戶群組] 時，視窗的右側應該會出現一個功能表。 在此功能表上，尋找租用戶群組的名稱，並加以選取。
-
-> [!NOTE]
-> 若您有自訂租用戶群組，請手動輸入名稱，而不要從下拉式清單選擇。
+4. 選取 [預設租用戶群組]  時，視窗的左側應該會出現一個功能表。 在此功能表上，尋找租用戶群組的名稱並選取。
+  
+  > [!NOTE]
+  > 若您有自訂租用戶群組，請手動輸入名稱，不要從下拉式清單選擇。
 
 ## <a name="report-issues"></a>報告問題
 
-如果您的管理工具或其他 Windows 虛擬桌面工具中發生任何問題，請依照[遠端桌面服務的 ARM 範本](https://github.com/Azure/RDS-Templates/blob/master/README.md)中的指示，在 GitHub 上報告問題。
+如果管理工具或其他 Windows 虛擬桌面工具發生任何問題，請依照[遠端桌面服務的 Azure Resource Manager 範本](https://github.com/Azure/RDS-Templates/blob/master/README.md)中的指示，在 GitHub 上回報問題。
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已學到如何部署並連線到管理工具，您可以學習如何使用 Azure 服務健康狀態來監視服務問題與健康情況諮詢。
-
-> [!div class="nextstepaction"]
-> [設定服務警示教學課程](./set-up-service-alerts.md)
+既然您已學到如何部署並連線到管理工具，您可以學習如何使用 Azure 服務來監視服務問題與健康情況諮詢。 若要深入了解，請參閱我們的[設定服務警示教學課程](./set-up-service-alerts.md)。

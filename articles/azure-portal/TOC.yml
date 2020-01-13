@@ -32,6 +32,30 @@
       href: azure-portal-export-delete-settings.md
     - name: Azure 入口網站操作說明影片系列
       href: azure-portal-video-series.md
+    - name: 建立及管理支援要求
+      items:
+        - name: 建立 Azure 支援要求
+          href: supportability/how-to-create-azure-support-request.md
+        - name: 針對支援要求上傳檔案
+          href: supportability/how-to-use-file-uploader.md
+        - name: 要求增加配額
+          items:
+            - name: 增加計算 vCPU 限制
+              items:
+                - name: 資源管理員部署模型。
+                  items:
+                    - name: 增加 VM 系列 vCPU 限制
+                      href: supportability/per-vm-quota-requests.md
+                    - name: 增加區域總 vCPU 限制
+                      href: supportability/regional-quota-requests.md
+                    - name: 增加位置配額限制
+                      href: supportability/low-priority-quota.md
+                - name: 傳統部署模型
+                  href: supportability/classic-deployment-model-quota-increase-requests.md
+            - name: 增加網路限制
+              href: supportability/networking-quota-requests.md
+        - name: 區域或 SKU 訂用帳戶問題疑難排解
+          href: supportability/sku-series-unavailable.md
 - name: 參考
   items:
     - name: 鍵盤快速鍵

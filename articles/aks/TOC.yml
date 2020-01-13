@@ -229,6 +229,8 @@
           href: certificate-rotation.md
         - name: 建立私人叢集
           href: private-clusters.md
+        - name: 適用於磁碟的 BYOK
+          href: azure-disk-customer-managed-keys.md
     - name: 監視和記錄
       items:
         - name: 適用於容器的 Azure 監視器
