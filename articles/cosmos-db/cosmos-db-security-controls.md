@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: sngun
-ms.openlocfilehash: 5ab4281f1ad591befda5a439906604331a1ab323
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 1ac4d12f58977497642cdb0706ab7e85e9a4db64
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872140"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913084"
 ---
 # <a name="security-controls-for-azure-cosmos-db"></a>Azure Cosmos DB 的安全性控制項
 
@@ -41,18 +41,18 @@ ms.locfileid: "74872140"
 
 | 安全性控制 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | 是，在資料庫帳戶層級;在資料平面層級，Cosmos DB 會使用資源權杖和金鑰存取。 |
-| Authorization| 是 | 在具有主要金鑰（主要和次要）和資源權杖的 Azure Cosmos 帳戶上受到支援。 您可以使用主要金鑰來取得資料的讀取/寫入或唯讀存取權。 資源權杖允許限時存取檔和容器之類的資源。 |
+| 驗證| 是 | 是，在資料庫帳戶層級;在資料平面層級，Cosmos DB 會使用資源權杖和金鑰存取。 |
+| 授權| 是 | 在具有主要金鑰（主要和次要）和資源權杖的 Azure Cosmos 帳戶上受到支援。 您可以使用主要金鑰來取得資料的讀取/寫入或唯讀存取權。 資源權杖允許限時存取檔和容器之類的資源。 |
 
 ## <a name="data-protection"></a>資料保護
 
 | 安全性控制 | 是/否 | 注意 |
 |---|---|--|
-| 待用的伺服器端加密： Microsoft 管理的金鑰 | 是 | 預設會加密所有 Azure Cosmos 資料庫和備份;請參閱[Azure Cosmos DB 中的資料加密](database-encryption-at-rest.md)。 不支援使用客戶管理的金鑰進行伺服器端加密。 |
-| 待用的伺服器端加密：客戶管理的金鑰（BYOK） | 否 |  |
+| 待用的伺服器端加密： Microsoft 管理的金鑰 | 是 | 預設會加密所有 Azure Cosmos 資料庫和備份;請參閱[Azure Cosmos DB 中的資料加密](database-encryption-at-rest.md)。 |
+| 待用的伺服器端加密：客戶管理的金鑰（BYOK） | 是 | 請參閱[為您的 Azure Cosmos DB 帳戶設定客戶管理的金鑰](how-to-setup-cmk.md)  |
 | 資料行層級加密（Azure 資料服務）| 是 | 僅適用于資料表 API Premium。 並非所有 Api 都支援這項功能。 請參閱[Azure Cosmos DB 簡介：資料表 API](table-introduction.md)。 |
 | 傳輸中的加密（例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密）| 是 | 所有 Azure Cosmos DB 資料都會在傳輸時加密。 |
-| API 呼叫加密| 是 | Azure Cosmos DB 的所有連接都支援 HTTPS。 Azure Cosmos DB 也支援 TLS 1.2 連線，但尚未強制執行。 如果客戶在其端關閉了較低層級的 TLS，則可以確保連線到 Cosmos DB。  |
+| API 呼叫加密| 是 | Azure Cosmos DB 的所有連接都支援 HTTPS。 Azure Cosmos DB 也支援 TLS 1.2。<br>您可以強制執行最低的 TLS 版本伺服器端。 若要這麼做，請洽詢[cosmosdbpm@microsoft.com](maito:cosmosdbpm@microsoft.com])。 |
 
 ## <a name="configuration-management"></a>設定管理
 

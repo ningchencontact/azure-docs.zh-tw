@@ -3,12 +3,12 @@ title: 建立 Azure 資源健康狀態警示-Resource Manager 範本
 description: 以程式設計方式建立警示，在您的 Azure 資源變成無法使用時通知您。
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: 34367c89666fd486f233136ce7968c7f3bf61912
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c14e3c327d83e75b08f3b52b59970557ec87f5b5
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551710"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912822"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>使用 Resource Manager 範本設定資源健康狀態警示
 
@@ -16,8 +16,6 @@ ms.locfileid: "75551710"
 
 Azure 資源健康狀態會隨時通知您 Azure 資源目前和過去的健康狀態。 Azure 資源健康狀態警示會在這些資源的健康狀態變更時，以近乎即時的方式通知您。 以程式設計方式建立資源健康狀態警示，讓使用者能夠建立並自訂大量警示。
 
-> [!NOTE]
-> 資源健康狀態警示目前為預覽狀態。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

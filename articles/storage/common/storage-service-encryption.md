@@ -4,17 +4,17 @@ description: Azure 儲存體保護您的資料，方法是在將它保存到雲�
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 01/03/2020
+ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 35a5bfd582c9717b062d42d86e7581029861fd0c
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: b74943ce3e3e67855a07fa32f15612bbb2351170
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665425"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913101"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>待用資料的 Azure 儲存體加密
 
@@ -38,7 +38,7 @@ Azure 儲存體中的資料會使用256位[AES 加密](https://en.wikipedia.org/
 
 您可以依賴 Microsoft 管理的金鑰來加密您的儲存體帳戶，也可以使用您自己的金鑰來管理加密。 如果您選擇使用自己的金鑰來管理加密，您有兩個選項：
 
-- 您可以使用 Azure Key Vault 來指定*客戶管理的金鑰*，以用來加密和解密 Blob 儲存體和 Azure 檔案儲存體中的資料。
+- 您可以使用 Azure Key Vault 來指定*客戶管理的金鑰*，以用來加密和解密 Blob 儲存體和 Azure 檔案儲存體中的資料。<sup>1、2</sup>
 - 您可以在 Blob 儲存體作業上指定*客戶提供的金鑰*。 對 Blob 儲存體發出讀取或寫入要求的用戶端可以在要求中包含加密金鑰，以便更精確地控制 blob 資料的加密和解密方式。
 
 下表比較 Azure 儲存體加密的金鑰管理選項。
@@ -46,11 +46,14 @@ Azure 儲存體中的資料會使用256位[AES 加密](https://en.wikipedia.org/
 |                                        |    Microsoft 管理的金鑰                             |    客戶管理的金鑰                                                                                                                        |    客戶提供的金鑰                                                          |
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    加密/解密作業    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    支援的 Azure 儲存體服務    |    所有                                                |    Blob 儲存體，Azure 檔案儲存體                                                                                                               |    Blob 儲存體                                                                  |
+|    支援的 Azure 儲存體服務    |    所有                                                |    Blob 儲存體，Azure 檔案儲存體<sup>1，2</sup>                                                                                                               |    Blob 儲存體                                                                  |
 |    金鑰儲存                         |    Microsoft 金鑰存放區    |    Azure Key Vault                                                                                                                              |    Azure Key Vault 或任何其他金鑰存放區                                                                 |
 |    金鑰輪替責任         |    Microsoft                                          |    客戶                                                                                                                                     |    客戶                                                                      |
 |    金鑰使用量                           |    Microsoft                                          |    Azure 入口網站，儲存體資源提供者 REST API，Azure 儲存體管理程式庫，PowerShell，CLI        |    Azure 儲存體 REST API （Blob 儲存體），Azure 儲存體用戶端程式庫    |
 |    金鑰存取                          |    僅限 Microsoft                                     |    Microsoft、客戶                                                                                                                    |    僅限客戶                                                                 |
+
+<sup>1</sup>如需有關建立支援使用客戶管理的金鑰搭配佇列儲存體的帳戶的詳細資訊，請參閱[建立支援佇列客戶管理金鑰的帳戶](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)。<br />
+<sup>2</sup>如需建立支援使用客戶管理的金鑰搭配資料表儲存體之帳戶的相關資訊，請參閱[建立支援資料表之客戶管理金鑰的帳戶](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)。
 
 下列各節會更詳細地說明金鑰管理的每個選項。
 

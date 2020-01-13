@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 1eebb41c83071f34cf367826a21c4bfbf0189394
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c556f726cd63971abe1e9b6d8b87117bb3e378db
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748949"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912845"
 ---
 # <a name="smart-detection---failure-anomalies"></a>智慧型偵測 - 失敗異常
 如果您的 web 應用程式在失敗要求的速率中發生異常上升， [Application Insights](../../azure-monitor/app/app-insights-overview.md)會以近乎即時的方式自動發出警示。 它偵測到回報為失敗的 HTTP 要求率異常提高或相依性呼叫。 對於要求，失敗的要求通常會有400或更高的回應碼。 為了協助您分級和診斷問題，警示詳細資料中會提供失敗和相關應用程式資料的特性分析。 其中也有 Application Insights 入口網站的連結，以供進一步診斷。 不需要設定該功能，因為它是使用機器學習演算法來預測一般失敗率。
@@ -48,13 +48,11 @@ ms.locfileid: "75748949"
 
 在上述範例中，分析已發現大部分失敗是關於特定結果碼、要求名稱、伺服器 URL 主機和角色執行個體。 
 
-相反地，分析發現，用戶端作業系統屬性分散在多個值，因此未列出。
-
 當您使用這些呼叫來檢測您的服務時，分析器會尋找與已識別之叢集中的要求相關聯的例外狀況和相依性失敗，以及與這些要求相關聯之任何追蹤記錄的範例。
 
 產生的分析報告會以警示寄送給您，除非您已設定不接收該報告。
 
-如同[您手動設定的警示](../../azure-monitor/app/alerts.md)，您可以檢查警示的狀態，並在 Application Insights 資源的 [警示] 頁面中設定。 但與其他警示不同，您並不需要設定「智慧型偵測」。 若有需要，您可以將它停用或變更其目標電子郵件地址。
+如同[您手動設定的警示](../../azure-monitor/app/alerts.md)，您可以檢查引發之警示的狀態，如果問題已修正，就可以解決這種情況。 在 Application Insights 資源的 [警示] 頁面中設定警示規則。 但與其他警示不同，您並不需要設定「智慧型偵測」。 若有需要，您可以將它停用或變更其目標電子郵件地址。
 
 ### <a name="alert-logic-details"></a>警示邏輯詳細資料
 
@@ -63,6 +61,7 @@ ms.locfileid: "75748949"
 * 分析要求/相依性在 20 分鐘累積時間範圍內的失敗百分比。
 * 比較過去 20 分鐘的失敗百分比與過去 40 分鐘和過去七天的比率，以及尋找超過標準差 X 倍的重大偏差。
 * 針對最小失敗百分比使用自動調整限制，此限制會依據要求/相依性的應用程式磁碟區而有所不同。
+* 如果不再偵測到8-24 小時的問題，可以自動解決引發的警示監視條件的邏輯。
 
 ## <a name="configure-alerts"></a>設定警示
 
@@ -83,7 +82,7 @@ ms.locfileid: "75748949"
 
 [![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
 
-請注意，您可以停用「智慧型偵測」，但無法將它刪除 (或建立另一個「智慧型偵測」)。
+請注意，您可以停用或刪除失敗異常警示規則，但無法在相同的 Application Insights 資源上建立另一個。
 
 ## <a name="example-of-failure-anomalies-alert-webhook-payload"></a>失敗異常警示 webhook 承載的範例
 
