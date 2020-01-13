@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 65fa8502be43076e06cea18b2499ceed9d7d770e
-ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
+ms.openlocfilehash: feaecbf3b9a39d77f6a60593c8e5f57f14c24ad7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75667522"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768974"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -26,8 +26,8 @@ Azure Functions Core Tools 可讓您從命令提示字元或終端機，在本�
 > * [註冊觸發程式和系結延伸模組。](#register-extensions)
 > * [定義儲存體和其他連接。](#local-settings-file)
 > * [從觸發程式和語言特定的範本建立函式。](#create-func)
-> * [在本機執行函式](#start)
-> * [將專案發佈至 Azure](#publish)
+> * [在本機執行函數。](#start)
+> * [將專案發佈至 Azure。](#publish)
 
 ## <a name="core-tools-versions"></a>Core Tools 版本
 
@@ -56,7 +56,7 @@ Azure Functions Core Tools 有三個版本。 您使用的版本取決於您的�
 
 1. 安裝 [Node.js] (內含 npm)。
     - 針對 2.x 版的工具，只支援 Node.js 8.5 和更新版本。
-    - 針對2.x 版的工具，只支援 Node 10 和更新版本。
+    - 針對2.x 版的工具，只支援 node.js 10 和更新版本。
 
 1. 安裝 Core Tools 套件：
 
@@ -234,7 +234,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
   選取您的儲存體帳戶，選取 [**設定**] 中的 [**存取金鑰**]，然後複製其中一個**連接字串**值。
   ![從 Azure 入口網站複製連接字串](./media/functions-run-local/copy-storage-connection-portal.png)
 
-- 使用 [Azure 儲存體總管](https://storageexplorer.com/)以連接至您的 Azure 帳戶。 在**總管**中展開您的訂閱，選取您的儲存體帳戶，並複製主要或次要連接字串。
+- 使用 [Azure 儲存體總管](https://storageexplorer.com/)以連接至您的 Azure 帳戶。 在**Explorer**中，展開您的訂用帳戶，展開 [**儲存體帳戶**]，選取您的儲存體帳戶，然後複製主要或次要連接字串。
 
   ![透過儲存體總管複製連接字串](./media/functions-run-local/storage-explorer.png)
 
@@ -351,8 +351,8 @@ func host start
 | **`--cert`** | 包含私密金鑰的 .pfx 檔案路徑。 僅能與 `--useHttps` 搭配使用。 僅限 2.x 版。 |
 | **`--cors-credentials`** | 允許跨來源的已驗證要求 (也就是 cookie 及驗證標頭) 僅限 2.x 版。 |
 | **`--cors`** | 以逗號分隔的 CORS 來源清單，不含空格。 |
-| **`--language-worker`** | 用來設定語言背景工作角色的引數。 例如，您可以藉由提供[debug 埠和其他必要的引數](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers)，啟用語言背景工作的偵錯工具。 僅限 2.x 版。 |
-| **`--nodeDebugPort -n`** | 要使用的節點偵錯工具連接埠。 預設值：Launch.json 中的值或 5858。 僅限 1.x 版。 |
+| **`--language-worker`** | 用於設定語言背景工作的引數。 例如，您可以藉由提供[debug 埠和其他必要的引數](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers)，啟用語言背景工作的偵錯工具。 僅限 2.x 版。 |
+| **`--nodeDebugPort -n`** | 要使用之 node.js 偵錯工具的埠。 預設值：Launch.json 中的值或 5858。 僅限 1.x 版。 |
 | **`--password`** | 密碼或包含 .pfx 檔案密碼的檔案。 僅能與 `--cert` 搭配使用。 僅限 2.x 版。 |
 | **`--port -p`** | 要接聽的本機連接埠。 預設值：7071。 |
 | **`--pause-on-error`** | 暫停以在結束處理程序之前取得其他輸入。 這僅適用於從整合式開發環境 (IDE) 啟動 Core Tools 時。|
@@ -371,7 +371,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
 >[!IMPORTANT]
->在本機執行時，不會對 HTTP 端點強制執行驗證。 這表示所有的本機 HTTP 要求會作為 `authLevel = "anonymous"` 處理。 如需詳細資訊，請參閱 [HTTP 繫結文章](functions-bindings-http-webhook.md#authorization-keys)。
+>在本機執行時，不會對 HTTP 端點強制執行授權。 這表示所有的本機 HTTP 要求會作為 `authLevel = "anonymous"` 處理。 如需詳細資訊，請參閱 [HTTP 繫結文章](functions-bindings-http-webhook.md#authorization-keys)。
 
 ### <a name="passing-test-data-to-a-function"></a>將測試資料傳遞至函式
 
@@ -484,7 +484,7 @@ func azure functionapp publish <FunctionAppName>
 |**`--list-ignored-files`** | 顯示在發佈期間忽略的檔案清單，以 .funcignore 檔案為準。 |
 | **`--list-included-files`** | 顯示要發佈的檔案清單，以 .funcignore 檔案為準。 |
 | **`--nozip`** | 關閉預設 `Run-From-Package` 模式。 |
-| **`--build-native-deps`** | 發行 python 函式應用程式時，略過產生 .wheels 資料夾。 |
+| **`--build-native-deps`** | 發行 Python 函式應用程式時，略過產生車輪資料夾。 |
 | **`--build`**<br/>**`-b`** | 部署至 Linux 函式應用程式時執行組建動作。 接受： `remote` 和 `local`。 |
 | **`--additional-packages`** | 建置原生相依性時將安裝的套件清單。 例如： `python3-dev libevent-dev` 。 |
 | **`--force`** | 在設定情況下忽略發佈前驗證。 |

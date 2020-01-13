@@ -7,12 +7,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: spelluru
-ms.openlocfilehash: d0118f815a2ceb149c62363fa334c16d28c6d615
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: af119ef026b70fcb4a56b4f823d20c0e9eddddc8
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894395"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903255"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Azure 服務匯流排訊息的安全性控制
 
@@ -41,15 +41,15 @@ ms.locfileid: "74894395"
 
 | 安全性控制 | 是/否 | 注意| 文件 |
 |---|---|--|--|
-| Authentication| 是 | 透過[Azure Active Directory 受控服務識別](service-bus-managed-service-identity.md)進行管理。| [服務匯流排驗證和授權](service-bus-authentication-and-authorization.md)。 |
-| Authorization| 是 | 支援透過[RBAC](authenticate-application.md)和 SAS 權杖進行授權。 | [服務匯流排驗證和授權](service-bus-authentication-and-authorization.md)。 |
+| 驗證| 是 | 透過[Azure Active Directory 受控服務識別](service-bus-managed-service-identity.md)進行管理。| [服務匯流排驗證和授權](service-bus-authentication-and-authorization.md)。 |
+| 授權| 是 | 支援透過[RBAC](authenticate-application.md)和 SAS 權杖進行授權。 | [服務匯流排驗證和授權](service-bus-authentication-and-authorization.md)。 |
 
 ## <a name="data-protection"></a>資料保護
 
 | 安全性控制 | 是/否 | 注意 | 文件 |
 |---|---|--|--|
 | 待用的伺服器端加密： Microsoft 管理的金鑰 |  [是] 表示預設會使用伺服器端靜態加密。 |  |  |
-| 待用的伺服器端加密：客戶管理的金鑰（BYOK） | 可以。 目前為預覽狀態 | Azure KeyVault 中的客戶管理金鑰可用來加密待用服務匯流排命名空間上的資料。 | [使用 Azure 入口網站（預覽），設定客戶管理的金鑰來加密待用 Azure 服務匯流排資料](configure-customer-managed-key.md)  |
+| 待用的伺服器端加密：客戶管理的金鑰（BYOK） | 可以。 | Azure KeyVault 中的客戶管理金鑰可用來加密待用服務匯流排命名空間上的資料。 | [使用 Azure 入口網站，設定客戶管理的金鑰來加密待用 Azure 服務匯流排資料](configure-customer-managed-key.md)  |
 | 資料行層級加密（Azure 資料服務）| N/A | |   |
 | 傳輸中的加密（例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密）| 是 | 支援標準 HTTPS/TLS 機制。 |   |
 | API 呼叫加密| 是 | API 呼叫是透過[Azure Resource Manager](../azure-resource-manager/index.yml)和 HTTPS 進行。 |   |

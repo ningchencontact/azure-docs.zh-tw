@@ -1,25 +1,24 @@
 ---
-title: 使用適用于 Azure 串流分析作業的 .NET 還原序列化程式
+title: 使用 Azure 串流分析中的 .NET 自訂還原序列化程式來讀取任何格式的輸入
 description: 本文說明序列化格式，以及定義適用于 Azure 串流分析雲端和邊緣作業之自訂 .NET 還原序列化程式的介面。
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 6c7d94761e4c5d5087dc8ac4e10854989a18f0fc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
-ms.translationtype: HT
+ms.date: 12/30/2019
+ms.openlocfilehash: a64912921e5ce8c0dc76fbf2ae0be8fb34bacf1a
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992102"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553013"
 ---
-# <a name="use-net-deserializers-for-azure-stream-analytics-jobs"></a>使用適用于 Azure 串流分析作業的 .NET 還原序列化程式
+# <a name="read-input-in-any-format-using-net-custom-deserializers"></a>使用 .NET 自訂還原序列化程式來讀取任何格式的輸入
 
-自訂 .NET 還原序列化程式可讓您的 Azure 串流分析作業從三種內[建資料格式](stream-analytics-parsing-json.md)以外的格式讀取資料。 本文說明序列化格式，以及定義適用于 Azure 串流分析雲端和邊緣作業之自訂 .NET 還原序列化程式的介面。 另外還有通訊協定緩衝區和 CSV 格式的範例還原序列化程式。
+.NET 自訂還原序列化程式可讓您的 Azure 串流分析作業從三種內[建資料格式](stream-analytics-parsing-json.md)以外的格式讀取資料。 本文說明序列化格式，以及定義適用于 Azure 串流分析雲端和邊緣作業之 .NET 自訂還原序列化程式的介面。 另外還有通訊協定緩衝區和 CSV 格式的範例還原序列化程式。
 
-## <a name="custom-net-deserializer"></a>自訂 .NET 還原序列化
+## <a name="net-custom-deserializer"></a>.NET 自訂還原序列化
 
 下列程式碼範例是定義自訂還原序列化和執行 `StreamDeserializer<T>`的介面。
 
@@ -40,7 +39,7 @@ Skippable 錯誤應使用透過 `UserDefinedOperator`的 Initialize 方法傳遞
 
 1. T 是類別或結構。
 1. T 中的所有公用欄位都是
-    1. 其中一個 [long、DateTime、string、double] 或其可為 null 的對應專案。
+    1. 其中一個 [sbyte、byte、short、ushort、int、uint、long、DateTime、string、float、double] 或其可為 null 的對應專案。
     1. 遵循相同規則的另一個結構或類別。
     1. 遵循相同規則之 `T2` 類型的陣列。
     1. IList`T2`，其中 T2 遵循相同的規則。
@@ -226,12 +225,12 @@ namespace ExampleCustomCode.Serialization
 
 這項功能會在下欄區域內上市：
 
-* 西歐
-* 美國東部
+* 美國中西部
 * 北歐
+* 美國東部
 * 美國西部
 * 美國東部 2
-* 美國中西部
+* 西歐
 
 您可以[要求](https://aka.ms/ccodereqregion)其他區域的支援。
 
@@ -239,15 +238,11 @@ namespace ExampleCustomCode.Serialization
 
 ### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>這項功能何時會在所有 Azure 區域中提供？
 
-這項功能可在6個區域（#region 支援）中取得。 如果您有興趣在另一個區域中使用這項功能，您可以[提交要求](https://aka.ms/ccodereqregion)。 所有 Azure 區域的支援都在藍圖中。
+這項功能可在[6 個區域](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support)中使用。 如果您有興趣在另一個區域中使用這項功能，您可以[提交要求](https://aka.ms/ccodereqregion)。 所有 Azure 區域的支援都在藍圖中。
 
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>我可以從類似 GetMetadataPropertyValue 函數的輸入存取 MetadataPropertyValue 嗎？
 
-不支援這種功能。 如果您需要這項功能，您可以在[UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese)上為此要求投票。
-
-### <a name="streamdeserializer-deserializes-a-stream-into-object-of-type-t-can-the-public-fields-in-t-be-any-supported-type-in-net"></a>StreamDeserializer 會將資料流程還原序列化為 T 類型的物件。在 .NET 中的公用欄位是否可以是任何支援的型別？
-
-在藍圖中，支援 .NET 中所有支援的類型。
+但是，目前已不支援這項功能。 如果您需要這項功能，您可以在[UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese)上為此要求投票。
 
 ### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>我可以與該社區分享我的還原序列化程式，讓其他人可以受益嗎？
 
@@ -255,4 +250,4 @@ namespace ExampleCustomCode.Serialization
 
 ## <a name="next-steps"></a>後續步驟
 
-* [適用于 Azure 串流分析雲端作業的自訂 .NET 還原序列化程式](custom-deserializer.md)
+* [適用于 Azure 串流分析雲端作業的 .NET 自訂還原序列化程式](custom-deserializer.md)

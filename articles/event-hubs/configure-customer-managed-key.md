@@ -8,18 +8,15 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: a5aa6a2e2578a995e4ef00489557fc02623e2d6a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 50d12a0aba9018b1ecb30c018249e8f94ebe6d95
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75744817"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903293"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal-preview"></a>使用 Azure 入口網站（預覽），設定客戶管理的金鑰來加密待用 Azure 事件中樞資料
+# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>使用 Azure 入口網站，設定客戶管理的金鑰來加密待用 Azure 事件中樞資料
 Azure 事件中樞使用 Azure 儲存體服務加密（Azure SSE）提供待用資料的加密。 事件中樞依賴 Azure 儲存體來儲存資料，而且根據預設，與 Azure 儲存體一起儲存的所有資料都會使用 Microsoft 管理的金鑰進行加密。 
-
->[!NOTE]
-> 此功能目前為預覽狀態。 我們建議您不要在生產環境中使用 in。
 
 ## <a name="overview"></a>概觀
 Azure 事件中樞現在支援使用 Microsoft 管理的金鑰或客戶管理的金鑰（攜帶您自己的金鑰– BYOK）來加密待用資料的選項。 這項功能可讓您建立、輪替、停用及撤銷用來加密待用資料 Azure 事件中樞的客戶管理金鑰的存取權。
@@ -41,7 +38,7 @@ Azure 事件中樞現在支援使用 Microsoft 管理的金鑰或客戶管理的
 
 1. 流覽至您的事件中樞專用叢集。
 1. 選取您要啟用 BYOK 的命名空間。
-1. 在事件中樞命名空間的 [**設定**] 頁面上，選取 [**加密（預覽）** ]。 
+1. 在事件中樞命名空間的 [**設定**] 頁面上，選取 [**加密**]。 
 1. 選取 [待用**客戶管理的金鑰加密**]，如下圖所示。 
 
     ![啟用客戶管理的金鑰](./media/configure-customer-managed-key/enable-customer-managed-key.png)
@@ -72,8 +69,6 @@ Azure 事件中樞現在支援使用 Microsoft 管理的金鑰或客戶管理的
         ![從 key vault 選取金鑰](./media/configure-customer-managed-key/select-key-from-key-vault.png)
     1. 填入金鑰的詳細資料，然後按一下 [**選取**]。 這可讓您使用客戶管理的金鑰，對命名空間中的待用資料進行加密。 
 
-        > [!NOTE]
-        > 針對預覽，您只能選取單一金鑰。 
 
 ## <a name="rotate-your-encryption-keys"></a>輪替加密金鑰
 您可以使用 Azure 金鑰保存庫迴圈機制來輪替金鑰保存庫中的金鑰。 如需詳細資訊，請參閱[設定金鑰輪替和審核](../key-vault/key-vault-key-rotation-log-monitoring.md)。 啟用和到期日期也可以設定為自動執行金鑰輪替。 事件中樞服務會偵測新的金鑰版本，並開始自動使用它們。
@@ -82,9 +77,6 @@ Azure 事件中樞現在支援使用 Microsoft 管理的金鑰或客戶管理的
 撤銷加密金鑰的存取權並不會從事件中樞清除資料。 不過，資料無法從事件中樞命名空間存取。 您可以透過存取原則或藉由刪除金鑰來撤銷加密金鑰。 深入瞭解存取原則和保護您的金鑰保存庫，[以安全地存取金鑰保存庫](../key-vault/key-vault-secure-your-key-vault.md)。
 
 撤銷加密金鑰之後，加密命名空間上的事件中樞服務就會變成無法運作。 如果已啟用金鑰的存取權，或還原刪除金鑰，事件中樞服務會挑選金鑰，讓您可以從加密的事件中樞命名空間存取資料。
-
-> [!NOTE]
-> 如果您從金鑰保存庫中刪除現有的加密金鑰，並將它取代為事件中樞命名空間上的新金鑰，由於刪除金鑰仍然有效（快取）長達一小時，因此仍然可以存取舊資料（以舊金鑰加密） 使用新的資料，現在只能使用新的金鑰來存取。 此行為是在功能的預覽版本中設計的。 
 
 ## <a name="set-up-diagnostic-logs"></a>設定診斷記錄 
 設定已啟用 BYOK 之命名空間的診斷記錄，可在使用客戶管理的金鑰加密命名空間時，提供有關作業的必要資訊。 這些記錄可以啟用並于稍後串流至事件中樞，或透過 log analytics 分析，或串流至儲存體來執行自訂分析。 若要深入瞭解診斷記錄，請參閱[Azure 診斷記錄的總覽](../azure-monitor/platform/platform-logs-overview.md)。
@@ -171,10 +163,6 @@ Azure 事件中樞現在支援使用 Microsoft 管理的金鑰或客戶管理的
 
 > [!IMPORTANT]
 > 若要在使用 BYOK 加密的命名空間上啟用異地 DR，配對的次要命名空間必須在專用叢集中，而且必須在其上啟用系統指派的受控識別。 若要深入瞭解，請參閱[適用于 Azure 資源的受控](../active-directory/managed-identities-azure-resources/overview.md)識別。
-
-> [!NOTE]
-> 如果您事件中樞命名空間的 Azure Key Vault 上設定虛擬網路（VNet）服務端點，將不會支援 BYOK。 
-
 
 ## <a name="next-steps"></a>後續步驟
 查看下列文章：

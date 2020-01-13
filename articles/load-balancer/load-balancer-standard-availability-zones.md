@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: e7ddb548d8dad5bdcc3021941877903377af9318
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9e585f7d13e1686f125055056fd1e2d88e2bf8ff
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771473"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903341"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>標準 Load Balancer 和可用性區域
 
@@ -209,10 +209,6 @@ Load Balancer 可簡化以單一 IP 作為區域備援前端的作業。 區域�
 區域性可以為區域提供明確的保證，並明確地與區域的健康情況共用 fate。 如果您的連結資源是相同區域中的區域性虛擬機器，則建立具有區域 IP 位址前端或區域性內部 Load Balancer 前端的 Load Balancer 規則可能是理想的做法。  或者，您的應用程式可能需要事先知道資源的所在區域，而您想要明確瞭解個別區域中的可用性。  您可以選擇將端對端服務的多個區域性前端分散公開於各區域間 (也就是，每個區域各有多個區域性虛擬機器擴展集的區域性前端)。  如果您的區域性前端是公用 IP 位址，您可以透過 [Traffic Manager](../traffic-manager/traffic-manager-overview.md) 使用這幾個區域性前端來公開您的服務。  或者，您可以使用多個區域性前端透過第三方監視解決方案取得個別區域的健康情況和效能深入資訊，並使用區域備援前端公開整體的服務。 您僅應為區域性資源提供與相同區域對應的區域性前端，並避免將可能有害的跨區域案例用於區域性資源。  只有存在可用性區域的區域中才會有區域性資源。
 
 在未了解服務架構的情況下，並沒有通則可說明哪個選擇較為理想。  請參閱[Azure 雲端設計模式](https://docs.microsoft.com/azure/architecture/patterns/)，以改善應用程式對失敗案例的復原能力。
-
-## <a name="limitations"></a>限制
-
-- 雖然資料平面具有完整的區域備援能力 (除非已指定區域性保證)，但控制平面作業並沒有完整的區域備援能力。
 
 ## <a name="next-steps"></a>後續步驟
 - 深入了解[可用性區域](../availability-zones/az-overview.md)

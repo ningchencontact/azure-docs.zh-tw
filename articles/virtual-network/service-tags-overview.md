@@ -13,19 +13,21 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: b1219153b2b2a0246110d2d9a7a84d16cc2a25f0
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 95d0e1dfc977d77f7cd9853945dabefee3bb7bbd
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75707554"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903412"
 ---
 # <a name="virtual-network-service-tags"></a>虛擬網路服務標籤 
 <a name="network-service-tags"></a>
 
-服務標記代表來自指定 Azure 服務的一組 IP 位址首碼。 它有助於將經常更新網路安全性規則的複雜度降到最低。 您可以使用服務標記來定義[網路安全性群組](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)或[Azure 防火牆](https://docs.microsoft.com/azure/firewall/service-tags)上的網路存取控制。 
+服務標記代表來自指定 Azure 服務的一組 IP 位址首碼。 Microsoft 會管理服務標籤所包含的位址前置詞，並隨著位址變更自動更新服務標籤，將經常更新網路 securitiy 規則的複雜性降到最低。 
 
-當您建立安全性規則時，可以使用服務標記來取代特定的 IP 位址。 藉由在規則的適當 [*來源*] 或 [*目的地*] 欄位中指定服務標籤名稱（例如， **ApiManagement**），您可以允許或拒絕對應服務的流量。 Microsoft 會管理服務標籤所包含的位址前置詞，並隨著位址變更自動更新服務標記。
+您可以使用服務標籤，在 或 [Azure 防火牆](https://docs.microsoft.com/azure/firewall/service-tags)的 [網路安全性群組](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)上定義網路存取控制。 當您建立安全性規則時，請使用服務標記來取代特定的 IP 位址。 藉由在適當的 *來源* 或規則的 [ *目的地* ] 欄位中指定服務標籤名稱（例如， **ApiManagement**），您可以允許或拒絕對應服務的流量。 
+
+您可以使用服務標籤來達到網路隔離，並在存取具有公用端點的 Azure 服務時，從一般網際網路保護您的 Azure 資源。 建立輸入/輸出網路安全性群組規則，以拒絕進出**網際網路**的流量，並允許進出**AzureCloud**的流量，或特定 Azure 服務的其他[可用服務]()標籤。 
 
 ## <a name="available-service-tags"></a>可用的服務標記
 下表包含可以在[網路安全性群組](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)規則中使用的所有服務標籤。

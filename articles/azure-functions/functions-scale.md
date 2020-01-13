@@ -5,24 +5,24 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b8f5708aa14b4cc7cffa62da055f92f8d99dee5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2eba0c7ae546b5f5ab7525cc8c84e6b6de431085
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409112"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768909"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
-當您在 Azure 中建立函數應用程式時，您必須為應用程式選擇主控方案。 有三個適用于 Azure Functions 的主控方案：取用[方案](#consumption-plan)、 [Premium 方案](#premium-plan)和[App Service 方案](#app-service-plan)。
+當您在 Azure 中建立函數應用程式時，您必須為應用程式選擇主控方案。 有三個適用于 Azure Functions 的主控方案：取用[方案](#consumption-plan)、 [Premium 方案](#premium-plan)和[專用（App Service）方案](#app-service-plan)。
 
 您選擇的主控方案會指示下列行為：
 
 * 如何調整您的函式應用程式。
 * 每個函數應用程式實例可用的資源。
-* 支援先進的功能，例如 VNET 連線能力。
+* 支援先進的功能，例如 Azure 虛擬網路連線能力。
 
-當您的程式碼執行時，耗用量和 Premium 方案都會自動增加計算能力。 您的應用程式會在需要時相應放大來處理負載，並在程式碼停止執行時向下縮放。 針對取用方案，您也不需要支付閒置 Vm 的費用，或預先保留容量。  
+當您的程式碼執行時，耗用量和 Premium 方案都會自動增加計算能力。 您的應用程式會在需要時相應放大來處理負載，並在程式碼停止執行時進行調整。 針對取用方案，您也不需要支付閒置 Vm 的費用，或預先保留容量。  
 
 Premium 方案提供額外的功能，例如高階計算實例、可無限期地保留實例，以及 VNet 連線能力。
 
@@ -33,7 +33,7 @@ App Service 方案可讓您利用您所管理的專用基礎結構。 您的函�
 功能支援分為下列兩種類別：
 
 * _正式運作（GA）_ ：完全支援並已核准可供生產環境使用。
-* _預覽_：尚未完全支援並已核准可供生產環境使用。
+* _預覽_：尚未完全支援或已核准生產環境使用。
 
 下表指出在 Windows 或 Linux 上執行時，三個主控方案目前的支援層級：
 
@@ -78,7 +78,7 @@ App Service 方案可讓您利用您所管理的專用基礎結構。 您的函�
 * 您有很多的小型執行，而且在取用方案中具有高用量計費但低 GB 的第二個帳單。
 * 您需要的 CPU 或記憶體選項比取用方案所提供的更多。
 * 您的程式碼所需的執行時間超過取用方案允許的運行[時間上限](#timeout)。
-* 您需要的功能僅適用于高階方案，例如 VNET/VPN 連線能力。
+* 您需要的功能僅適用于高階方案，例如虛擬網路連線能力。
 
 在高階計畫上執行 JavaScript 函數時，您應該選擇個 vcpu 較少的實例。 如需詳細資訊，請參閱[選擇單一核心 Premium 方案](functions-reference-node.md#considerations-for-javascript-functions)。  
 

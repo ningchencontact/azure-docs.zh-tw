@@ -8,14 +8,14 @@ author: axisc
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 356f825524192c3b6cf7df7f0460975f23ea4f7c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6d20d4031f0ed4d1be4dddf9e33946251d6dd523
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852285"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903328"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal-preview"></a>使用 Azure 入口網站（預覽），設定客戶管理的金鑰來加密待用 Azure 服務匯流排資料
+# <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>使用 Azure 入口網站，設定客戶管理的金鑰來加密待用 Azure 服務匯流排資料
 Azure 服務匯流排 Premium 使用 Azure 儲存體服務加密（Azure SSE）提供待用資料的加密。 服務匯流排 Premium 依賴 Azure 儲存體來儲存資料，而且根據預設，所有以 Azure 儲存體儲存的資料都會使用 Microsoft 管理的金鑰進行加密。 
 
 ## <a name="overview"></a>概觀
@@ -27,7 +27,6 @@ Azure 服務匯流排現在支援使用 Microsoft 管理的金鑰或客戶管理
 > 針對服務端加密，客戶管理的金鑰會有一些注意事項。 
 >   * [Azure 服務匯流排](service-bus-premium-messaging.md)進階層支援這項功能。 無法為標準層服務匯流排命名空間啟用此功能。
 >   * 只能為新的或空的命名空間啟用加密。 如果命名空間包含資料，加密作業將會失敗。
->   * 如果您服務匯流排命名空間的 Azure Key Vault 上設定[虛擬網路（VNet）服務端點](service-bus-service-endpoints.md)，將不會支援 BYOK。 
 
 您可以使用 Azure Key Vault 來管理金鑰，並審核金鑰使用方式。 您可以建立自己的金鑰，並將其儲存在金鑰保存庫中，或者您可以使用 Azure Key Vault Api 來產生金鑰。 如需 Azure 金鑰保存庫的詳細資訊，請參閱 [什麼是 Azure 金鑰保存庫？](../key-vault/key-vault-overview.md)
 
@@ -40,7 +39,7 @@ Azure 服務匯流排現在支援使用 Microsoft 管理的金鑰或客戶管理
 若要在 Azure 入口網站中啟用客戶管理的金鑰，請遵循下列步驟：
 
 1. 流覽至您的服務匯流排 Premium 命名空間。
-2. 在服務匯流排命名空間的 [**設定**] 頁面上，選取 [**加密（預覽）** ]。
+2. 在服務匯流排命名空間的 [**設定**] 頁面上，選取 [**加密**]。
 3. 選取 [待用**客戶管理的金鑰加密**]，如下圖所示。
 
     ![啟用客戶管理的金鑰](./media/configure-customer-managed-key/enable-customer-managed-key.png)
@@ -107,11 +106,8 @@ Azure 服務匯流排現在支援使用 Microsoft 管理的金鑰或客戶管理
 
 撤銷加密金鑰之後，加密命名空間上的服務匯流排服務就會變成無法運作。 如果已啟用金鑰的存取權，或還原已刪除的金鑰，服務匯流排服務會挑選金鑰，讓您可以從加密的服務匯流排命名空間存取資料。
 
-> [!NOTE]
-> 如果您從金鑰保存庫中刪除現有的加密金鑰，並將它取代為服務匯流排命名空間上的新金鑰，由於刪除金鑰仍然有效（因為它已快取）長達一小時，您仍然可以存取 alon 的舊資料（以舊金鑰加密）以新的資料為 g，現在只能使用新的金鑰來存取。 此行為是在功能的預覽版本中設計的。 
-
 ## <a name="next-steps"></a>後續步驟
-請參閱下列文章：
+查看下列文章：
 - [服務匯流排概觀](service-bus-messaging-overview.md)
 - [Key Vault 總覽](../key-vault/key-vault-overview.md)
 
