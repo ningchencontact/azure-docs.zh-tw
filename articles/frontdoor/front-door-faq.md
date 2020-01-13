@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 39051014e5e474264a44983fb366bc08f02c31e0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dd315277e6e8f29a103760d605a7da4603190c20
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639849"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75908861"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Azure Front 開門服務的常見問題
 
@@ -99,7 +99,7 @@ Azure Front 門板服務是全域散發的多租使用者服務。 因此，Fron
     > 前端的後端 IP 空間可能會在稍後變更，不過我們會在這之前，確保我們已整合[AZURE IP 範圍和服務](https://www.microsoft.com/download/details.aspx?id=56519)標籤。 我們建議您訂閱[AZURE IP 範圍和服務](https://www.microsoft.com/download/details.aspx?id=56519)標籤，以進行任何變更或更新。
 
 -   篩選前門所傳送的連入標頭 '**X-轉送-主機**' 的值。 標頭唯一允許的值應該是所有前端主機，如 Front 門板設定中所定義。事實上，只有您想要接受流量的主機名稱（在您的這個特定後端）。
-    - 範例-假設您的 Front 門板設定具有下列前端主機 _`contoso.azurefd.net`_ （A）、 _`www.contoso.com`_ （B）、_ （C）和 _`notifications.contoso.com`_ （D）。 假設您有兩個後端 X 和 Y。 
+    - 範例-假設您的 Front 門板設定具有下列前端主機 _`contoso.azurefd.net`_ （A）、 _`www.contoso.com`_ （B）、 _`api.contoso.com`_ （C）和 _`notifications.contoso.com`_ （D）。 假設您有兩個後端 X 和 Y。 
     - 後端 X 應該只接受主機名稱 A 和 B 的流量。後端 Y 可以接受 A、C 和 D 的流量。
     - 因此，在後端 X 上，您應該只接受將標頭 '**X-轉送主機**' 設為 _`contoso.azurefd.net`_ 或 _`www.contoso.com`_ 的流量。 針對其他所有專案，後端 X 應拒絕流量。
     - 同樣地，在後端 Y 上，您應該只接受標頭為「**X 轉送-主機**」的流量設定為 [ _`contoso.azurefd.net`_ ]、[ _`api.contoso.com`_ ] 或 [ _`notifications.contoso.com`_ ]。 針對其他所有專案，後端 Y 應該會拒絕流量。

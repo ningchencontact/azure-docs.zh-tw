@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: d3737be5a3186774f230aef9d932464a27a764f4
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: cee548aff49cd5e4a57eed994b8ade2d157c6313
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75775637"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912174"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>使用入口網站將對等 ASN 與 Azure 訂用帳戶建立關聯
 
@@ -25,6 +25,34 @@ ms.locfileid: "75775637"
 
 ### <a name="sign-in-to-the-portal"></a>登入入口網站
 [!INCLUDE [Account](./includes/account-portal.md)]
+
+### <a name="register-for-peering-resource-provider"></a>註冊對等互連資源提供者
+遵循下列步驟，在您的訂用帳戶中註冊對等互連資源提供者。 如果您未執行此動作，則無法存取設定對等互連所需的 Azure 資源。
+
+1. 按一下入口網站左上角的 [訂用帳戶]。 如果您沒有看到它，請按一下 [**更多服務**] 並搜尋它。
+
+    > [!div class="mx-imgBorder"]
+    > ![開啟訂閱](./media/rp-subscriptions-open.png)
+
+1. 按一下您要用於對等互連的訂用帳戶。
+
+    > [!div class="mx-imgBorder"]
+    > ![啟動訂閱](./media/rp-subscriptions-launch.png)
+
+1. 訂用帳戶開啟後，在左側按一下 [**資源提供者**]。 然後在右窗格中，搜尋搜尋視窗中的 [對*等互連*]，或使用捲軸來尋找 [Microsoft] 對**等互連**，並查看**狀態**。 如果狀態為 [***已註冊***]，請略過下列步驟，並繼續進行 [**建立 PeerAsn**] 一節。 如果狀態為***NotRegistered***，請選取 [ **Microsoft 對等互連**]，然後按一下 [**註冊**]。
+
+    > [!div class="mx-imgBorder"]
+    > ![註冊開始](./media/rp-register-start.png)
+
+1. 觀察狀態會變更為 [***註冊***]。
+
+    > [!div class="mx-imgBorder"]
+    > ![註冊進行中](./media/rp-register-progress.png)
+
+1. 等待最小或完成註冊。 然後按一下 [重新整理] **，並確認**狀態為 [***已註冊***]。
+
+    > [!div class="mx-imgBorder"]
+    > 已完成 ![註冊](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>建立 PeerAsn
 您可以建立新的 PeerAsn 資源，將自發系統編號（ASN）與 Azure 訂用帳戶產生關聯。 您可以為需要關聯的每個 ASN 建立**PeerAsn** ，藉此建立多個 asn 與訂用帳戶的關聯。

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 地圖服務處理事件 |Microsoft Docs
-description: 如何建立互動式 Web SDK 地圖與地圖事件
+title: 處理對應事件 |Microsoft Azure 對應
+description: 在本文中，您將瞭解如何使用 Microsoft Azure Maps Web SDK，建立互動式 Web SDK 與地圖事件的對應。
 author: jingjing-z
 ms.author: jinzh
 ms.date: 09/10/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 99ef5aa0ee8fa542b0aa807cc536ebfbee369e10
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 742cb76f491e76db6dc9ec415c6718066b46f137
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484281"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911086"
 ---
 # <a name="interact-with-the-map"></a>與地圖互動
 
@@ -49,7 +49,7 @@ ms.locfileid: "74484281"
 
 下表列出所有支援的對應類別事件。
 
-| 事件               | 描述 |
+| 活動               | 說明 |
 |---------------------|-------------|
 | `boxzoomend`        | 當「框縮放」互動結束時引發。|
 | `boxzoomstart`      | 在「方塊縮放」互動開始時引發。|

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 78b73688306fb51278afba7283a1ea82af603349
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7705ea3b60d8c8e2b189ad555d1b53fa395aa1fb
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459148"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912511"
 ---
 Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制，而且為單一客戶專用。  這些虛擬機器大小最適合需要與其他客戶高度隔離，且涉及合規性和法規要求等項目的工作負載。  客戶也可以選擇使用 [Azure 的巢狀虛擬機器支援](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)，進一步細分這些隔離虛擬機器的資源。
 
@@ -30,9 +30,9 @@ Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制�
 您可以在[這裡](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)深入瞭解每個可用的隔離大小。
 
 ## <a name="retiring-d15_v2ds15_v2-isolation-on-february-15-2020"></a>在2020年2月15日淘汰 D15_v2/DS15_v2 隔離
-Azure 專用主機現已正式推出，可讓您在單一租使用者實體伺服器上執行貴組織的 Linux 和 Windows 虛擬機器。 我們計畫將隔離的 Azure Vm 完全取代為 Azure 專用主機。 **2020 年2月15日**之後，D15_v2/DS15_v2 Azure vm 可能不再是硬體隔離。
+Azure 專用主機現已正式推出，可讓您在單一租使用者實體伺服器上執行貴組織的 Linux 和 Windows 虛擬機器。 我們計畫將隔離的 Azure Vm 完全取代為 Azure 專用主機。 **2020 年2月15日**之後，D15_v2/DS15_v2 Azure vm 將不再與硬體隔離。
 
-## <a name="how-does-this-affect-me"></a>此變更會對我造成什麼影響？
+## <a name="how-does-this-affect-me"></a>此變更對我造成什麼影響？
 2020年2月15日之後，我們將不再針對您的 D15_v2/DS15_v2 Azure 虛擬機器提供隔離保證。 
 
 ## <a name="what-actions-should-i-take"></a>我應該採取哪些動作？

@@ -1,6 +1,6 @@
 ---
-title: Azure 地圖中的轉譯涵蓋範圍 | Microsoft Docs
-description: 了解 Azure 地圖中的轉譯涵蓋範圍
+title: 轉譯涵蓋範圍 |Microsoft Azure 對應
+description: 在本文中，您將瞭解具有 Microsoft Azure Maps 轉譯涵蓋範圍的區域，以及其呈現的詳細資料層級。
 author: jingjing-z
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5affc9952cfe13ebfeede126051f2236499d1343
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 84d5d7fc6490420857032ead964f5bccea8f397a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934284"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910677"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure 地圖轉譯涵蓋範圍
 
 Azure 地圖會同時使用點陣圖格和向量圖格來建立地圖。 在其最低解析度下，整個世界會剛好放進單一圖格裡。 在其最高解析度下，單一圖格代表 38 平方公尺。 因此，當您放大地圖時，將可更詳細地查看大陸、區域、城市和個別街道。 如需詳細資訊，請參閱[縮放層級和圖格格線](zoom-levels-and-tile-grid.md)。
 
-不過，地圖並未對所有區域提供相同層級的資訊和精確度。 下表提供各個區域預期應有之轉譯詳細程度的相關資訊。
+不過，地圖服務並未對所有區域提供相同層級的資訊和精確度。 下表提供各個區域預期應有之轉譯詳細程度的相關資訊。
 
 ## <a name="legend"></a>圖例
 
@@ -75,7 +75,7 @@ Azure 地圖會同時使用點陣圖格和向量圖格來建立地圖。 在其�
 | 留尼旺                          | ✓ | ✓ |
 | 盧安達                           | ✓ | ✓ |
 | 聖赫勒拿、亞森欣、特里斯坦達庫尼亞群島 | ✓ | Ø |
-| 聖多美及普林西比島            | ✓ | Ø |
+| 聖多美普林西比            | ✓ | Ø |
 | 塞內加爾                          | ✓ | ✓ |
 | 獅子山                     | ✓ | ✓ |
 | 索馬利亞                          | ✓ | ✓ |
@@ -267,7 +267,7 @@ Azure 地圖會同時使用點陣圖格和向量圖格來建立地圖。 在其�
 | 愛爾蘭                   | ✓ | ✓ |
 | 曼島               | ✓ | ✓ |
 | 義大利                     | ✓ | ✓ |
-| 央棉                 | ✓ | ✓ |
+| 尖棉                 | ✓ | ✓ |
 | 澤西島                    | ✓ | ✓ |
 | 拉脫維亞                    | ✓ | ✓ |
 | 列支敦斯登             | ✓ | ✓ |
@@ -290,7 +290,7 @@ Azure 地圖會同時使用點陣圖格和向量圖格來建立地圖。 在其�
 | 斯洛維尼亞                  | ✓ | ✓ |
 | 南千島群島           | ✓ | ✓ |
 | 西班牙                     | ✓ | ✓ |
-| 冷岸                  | ✓ | ✓ |
+| 挪威屬斯瓦巴                  | ✓ | ✓ |
 | 瑞典                    | ✓ | ✓ |
 | 瑞士               | ✓ | ✓ |
 | 土耳其                    | ✓ | ✓ |

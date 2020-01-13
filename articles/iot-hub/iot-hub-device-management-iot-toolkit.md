@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 03997bb6999af9ebaad36cc95f7834e3b9ed4569
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 9d4d82472664900c96b77b31740573d0463465b8
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953201"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911925"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>使用適用於 Visual Studio Code 的 Azure IoT Tools 來管理 Azure IoT 中樞裝置
 
@@ -22,7 +22,7 @@ ms.locfileid: "73953201"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| 管理選項          | 工作                    |
+| 管理選項          | Task                    |
 |----------------------------|--------------------------------|
 | 直接方法             | 使裝置執行動作，例如啟動或停止傳送訊息，或是將裝置重新開機。                                        |
 | 讀取裝置對應項           | 取得裝置的報告狀態。 例如，裝置會回報 LED 現在正閃爍不停。                                    |
@@ -50,7 +50,7 @@ ms.locfileid: "73953201"
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [VS Code 的 Azure IoT Tools，](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)或[在 Visual Studio Code 中開啟此連結](vscode:extension/vsciot-vscode.azure-iot-tools)。
 
-## <a name="sign-in-to-access-your-iot-hub"></a>登入以存取您的 IoT 中樞
+## <a name="sign-in-to-access-your-iot-hub"></a>登入以存取 IoT 中樞
 
 1. 在 VS Code 的 [總管] 檢視中，展開左下角的 [Azure IoT Hub Devices] \(Azure IoT 中樞裝置\) 部分。
 
@@ -71,7 +71,7 @@ ms.locfileid: "73953201"
 
 2. 在輸入方塊中輸入方法名稱和承載。
 
-3. 結果會顯示在 [輸出] > [Azure IoT Hub Toolkit] \(Azure IoT 中樞工具組\) 檢視中。
+3. 結果會顯示在 [**輸出** > **Azure IoT 中樞**] 視圖中。
 
 ## <a name="read-device-twin"></a>讀取裝置對應項
 
@@ -95,7 +95,7 @@ ms.locfileid: "73953201"
 
 2. 在輸入方塊中輸入訊息。
 
-3. 結果會顯示在 [輸出] > [Azure IoT Hub Toolkit] \(Azure IoT 中樞工具組\) 檢視中。
+3. 結果會顯示在 [**輸出** > **Azure IoT 中樞**] 視圖中。
 
 ## <a name="next-steps"></a>後續步驟
 

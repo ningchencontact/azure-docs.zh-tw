@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 3d748e1625f27be27b7f403fbab3e213b16c4dd6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c5de7b7bf30726dbfbf165799280ad892eca628a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890167"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912004"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>將 Azure 排程器作業移轉至 Azure Logic Apps
 
@@ -33,9 +33,9 @@ ms.locfileid: "73890167"
 
 若要深入瞭解，請參閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)或嘗試在本快速入門中建立您的第一個邏輯應用程式：[建立您的第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* Azure 訂閱。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 若要藉由傳送 HTTP 要求來觸發邏輯應用程式，請使用 [Postman 桌面應用程式](https://www.getpostman.com/apps) \(英文\) 之類的工具。
 
@@ -106,7 +106,7 @@ ms.locfileid: "73890167"
 
 例如，您可以使用 Postman 應用程式，利用與此範例類似的設定來建立 POST 要求，然後選取 [**傳送**] 來提出要求。
 
-| 要求方法 | URL | 內文 | headers |
+| 要求方法 | URL | body | headers |
 |----------------|-----|------|---------|
 | **POST** | <*endpoint-URL*> | **未經處理** <p>**JSON(application/json)** <p>在 [**原始**] 方塊中，輸入您想要在要求中傳送的承載。 <p>**附註**：此設定會自動設定 **Headers** \(標頭\) 值。 | **索引鍵**：Content-Type <br>**值**：application/json |
 |||||
@@ -121,13 +121,13 @@ ms.locfileid: "73890167"
 >
 > 如果您想要稍後取消作業，請選取 [**標頭**] 索引標籤。在回應中尋找並複製 [ **x-ms-工作流程-** ----------id] 值。 
 >
-> ![Response](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
+> ![回應](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
 
 ## <a name="cancel-a-one-time-job"></a>取消單次作業
 
 在 Logic Apps 中，每個單次作業都會當成單一邏輯應用程式回合執行個體來執行。 若要取消單次作業，您可以在邏輯應用程式 REST API 中使用[工作流程回合 - 取消](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) \(英文\)。 當您將呼叫傳送給觸發程序時，請提供[工作流程回合識別碼](#workflow-run-id)。
 
-## <a name="schedule-recurring-jobs"></a>排程週期性作業
+## <a name="schedule-recurring-jobs"></a>排程週期性工作
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，於邏輯應用程式設計工具中建立空白的邏輯應用程式。 
 
@@ -191,7 +191,7 @@ ms.locfileid: "73890167"
 
 1. 完成之後，選取 [完成]。
 
-若要深入了解例外狀況處理，請參閱[處理錯誤和例外狀況 - RunAfter 屬性](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property)。
+若要深入了解例外狀況處理，請參閱[處理錯誤和例外狀況 - RunAfter 屬性](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior)。
 
 ## <a name="faq"></a>常見問題集
 

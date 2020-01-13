@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 785c6f2b36396558cc21ce6c025be59c456ff32d
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 0b081229dcb382786fea03dff358b5cc47d77ee7
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083263"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912006"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用適用於 Visual Studio Code 的 Azure IoT Tools 來傳送和接收裝置與 IoT 中樞之間的訊息
 
@@ -23,7 +23,7 @@ ms.locfileid: "74083263"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="what-you-will-learn"></a>學習目標
+## <a name="what-you-will-learn"></a>學習內容
 
 您將了解如何使用適用於 Visual Studio Code 的 Azure IoT Tools 來監視 Azure IoT 中樞的裝置到雲端訊息，以及傳送雲端到裝置訊息。 裝置到雲端的訊息可能是您的裝置所收集，然後傳送到 IoT 中樞的感應器資料。 雲端到裝置的訊息可能是 IoT 中樞傳送到裝置以使連接到裝置的 LED 閃爍的命令。
 
@@ -43,7 +43,7 @@ ms.locfileid: "74083263"
 
 * [VS Code 的 Azure IoT Tools，](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)或[在 Visual Studio Code 中開啟此連結](vscode:extension/vsciot-vscode.azure-iot-tools)。
 
-## <a name="sign-in-to-access-your-iot-hub"></a>登入以存取您的 IoT 中樞
+## <a name="sign-in-to-access-your-iot-hub"></a>登入以存取 IoT 中樞
 
 1. 在 VS Code 的 [總管] 檢視中，展開左下角的 [Azure IoT Hub Devices] \(Azure IoT 中樞裝置\) 部分。
 
@@ -64,7 +64,7 @@ ms.locfileid: "74083263"
 
 1. 以滑鼠右鍵按一下您的裝置，然後選取 [**開始監視內建事件端點**]。
 
-2. 受監視的訊息會顯示在 [OUTPUT] \(輸出\) > [Azure IoT Hub Toolkit] \(Azure IoT 中樞工具組\) 檢視中。
+2. 受監視的訊息會顯示在 [**輸出** > **Azure IoT 中樞**] 視圖中。
 
 3. 若要停止監視，請以滑鼠右鍵按一下**輸出**視圖，然後選取 [**停止監視內建事件端點**]。
 
@@ -76,7 +76,7 @@ ms.locfileid: "74083263"
 
 2. 在輸入方塊中輸入訊息。
 
-3. 結果會顯示在 [輸出] > [Azure IoT Hub Toolkit] \(Azure IoT 中樞工具組\) 檢視中。
+3. 結果會顯示在 [**輸出** > **Azure IoT 中樞**] 視圖中。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,6 +1,6 @@
 ---
-title: Azure 地圖服務中的搜尋類別 | Microsoft Docs
-description: 了解 Azure 地圖服務中的搜尋類別
+title: 搜尋類別 |Microsoft Azure 對應
+description: 在本文中，您將瞭解 Microsoft Azure 對應中支援的搜尋類別。
 author: sataneja
 ms.author: sataneja
 ms.date: 05/14/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 4d854aef62af1004faacf73c11bb417cf508a727
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de44d07b5ebc6a898e3c098f16e553e9d4a46150
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727155"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910420"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure 地圖服務支援的類別
 
@@ -45,7 +45,7 @@ ms.locfileid: "64727155"
 | COLLEGE\_UNIVERSITY | 專科學校/社區大學、學院/大學、學院、大學先修班、大學 |
 | COMMERCIAL\_BUILDING | 辦公大樓、公園管理處、商業建築 |
 | COMMUNITY\_CENTER | 社區中心 |
-| COMPANY | 稅務電子業、 製造業、 電腦資料服務、 公共衛生技術、 多樣化的財務、 動物的保護、 航空公司、 設備預約租車、 服務、 郵件/封裝/freight 傳遞、 匯流排線條、 家用設備修復、 清除服務，oem服務、 菜籽天然氣、 法律服務、 建構、 電信、 傳輸、 汽車的製造、 化學藥品、 千年服務太平間，橋接器通道作業、 汽車、 機械工程、 服務、 投資顧問，連結廣告/行銷，移動儲存體、 節省機構、 保險、 電腦軟體 pharmaceuticals，根據婚禮服務、 農業技術、 不動產、 計程車、 禮車接駁車服務匯流排規章出租採礦、 發行技術、 纜線電話、 匯入/匯出散發、 公司、 asylum、 煤力 mine(s)、 estate(s)、 brewery、 gold mine(s) |
+| COMPANY | 電子產品，製造，電腦資料服務，公用健全狀況技術，多樣化財務，動物收容所，航空公司，設備出租，服務，郵件/包裹/貨運傳遞，匯流排線路，家庭設備修復，清潔服務，oem，稅務服務，石油天然天然氣，法律服務，建築，電訊，運輸，汽車製造業，化學用品，殯儀服務太平間，橋樑通道營運，汽車，機械工程，服務，投資顧問，廣告/行銷，移動存放裝置，節約機構，保險，電腦軟體，製藥，餐，婚禮服務，農業技術，房地產，計程車，禮車的往復服務，匯流排章程出租，一、發佈技術，纜線、匯入/匯出散發、公司、asylum、煤力地雷（s）、brewery、金級地雷 |
 | COURTHOUSE | 法院大樓 |
 | CULTURAL\_CENTER | 文化中心 |
 | DENTIST | 牙醫 |
@@ -105,12 +105,12 @@ ms.locfileid: "64727155"
 | REPAIR\_FACILITY | 車身車間、輪胎服務、修車廠、汽車玻璃更換商店、一般汽車維修服務、汽車配件銷售安裝、摩托車維修、卡車維修服務、維修設施 |
 | RESEARCH\_FACILITY | 研究設施 |
 | RESIDENTIAL\_ACCOMMODATION | 退休社區、多棟聯建住宅社區、公寓/公寓型社區、連棟公寓、住宅地產、居所 |
-| RESTAURANT | 德文，克利奧爾文印地安、 荷蘭文，宴會室，土、 以色列、 斯洛伐克文、 牙買加、 蔬菜、 seafood，越南文、 馬爾他文、 Sichuan，威爾斯文、 中文、 日文、 阿爾及利亞、 Californian，fusion Shandong，薩伏依沙拉區列，西班牙文、 衣、 台語，doughnuts、 伊朗、 加拿大、 American、 挪威文、 法文、 Hunan、 Polynesian、 afghan、 roadside、 亞洲、 瑞士、 erotic、 crêperie，Surinamese、 埃及、 匈牙利文、 尼泊爾、 烤肉、 經常性存取層 pot、 漢堡，地中海、 拉丁美洲、 tapas，英國，墨西哥、 廣東、 亞洲 （其他）、 buffet，壽司，蒙古文，國際電話 mussels、 泰文、 委內瑞拉、 Rumanian、 chicken soup kosher steak 房子、 yogurt/汁列義大利文、 韓文、 Cypriot、 波士尼亞文、 玻利維亞、 多明尼加、 比利時、 突尼西亞、 蘇格蘭，英文、 巴基斯坦、 捷克文、 夏威夷、 Maghrib、 藏文、 阿拉伯，中間美國東部、 智利、 上海，unicode 資料採用 polish、 菲律賓文、 蘇丹文、 亞美尼亞文、 緬甸文、 巴西、 北歐、 保加利亞文、 靈魂食物、 哥倫比亞、 猶太，披薩 Sicilian、 有機、 希臘文、 巴斯克文，烏拉圭，call-to-action，芬蘭文、 非、 科西嘉文、 敘利亞、 加勒比海、 Dongbei，俄文燒烤，會消失，速食，澳洲，愛爾蘭，pub 食物，fondue、 黎巴嫩、 印尼文、 丹麥文、 Provençal、 teppanyaki、 印度、 模里西斯、 西歐本土魯、 柬埔寨、 點心、 瑞典文、 macrobiotic，冰淇淋 parlor，斯拉夫文、 土耳其文、 阿根廷、 奧地利、 外來、 葡萄牙文、 盧森堡、 摩洛哥、 三明治，古巴，餐廳 |
+| RESTAURANT | 德文、克裡奧爾文-Cajun、荷蘭文、宴會室、bistro、以色列、斯洛伐克文、牙買加、蔬菜、海鮮、越南文、馬爾他文、Sichuan、威爾士文中文、日文、阿爾及利亞、Californian、融合、Shandong、沙拉 bar、Savoy a、西班牙文、Ethiopian、繁體中文、doughnuts、伊朗、加拿大、美國、挪威、法文、Hunan、Polynesian、阿富汗、踏、亞洲、瑞士、erotic、crêperie、Surinamese、埃及、匈牙利文、尼泊爾、烤肉、、漢堡、地中海、拉丁美洲、tapas、英屬、墨西哥，廣東核電集團，亞洲（other），buffet，壽司，蒙古文，國際，mussels，泰文，Venezuelan，Rumanian，雞，湯品，kosher，牛排館房屋，yogurt/juice bar、義大利文、韓文、Cypriot、波士尼亞文、Bolivian、多明尼加、比利時、Tunisian、蘇格蘭、英文、巴基斯坦、捷克文、夏威夷文、Maghrib、藏語、阿拉伯、東、智利文、上海、波蘭文、捷克文、蘇丹、亞美尼亞文、緬甸文、巴西、斯堪的納維亞文、波蘭文、靈魂、希臘文、烏拉圭、cafeterias、芬蘭文、非洲、Corsican-100、敘利亞，加勒比海，Dongbei，俄文，燒烤，take，快速食物，澳大利亞，愛爾蘭，出版物食物，fondue，黎巴嫩，印尼，丹麥文，Provençal，teppanyaki，印度，模裡西斯，西歐，秘魯，Cambodian，點心，瑞典文，macrobiotic，霜淇淋，店，斯拉夫，土耳其文，Argentinean，奧地利，外來，葡萄牙文，Luxembourgian，摩洛哥，南德 |
 | RESTAURANT\_AREA | 餐廳區 |
 | REST\_AREA | 休息區、野餐場所 |
 | SCENIC\_PANORAMIC\_VIEW | 風景/全景、觀測點 |
 | SCHOOL | 烹飪學校、小學、藝術學校、高中、駕訓班、語言學校、體育學校、學前班、高中、中學、職業培訓、特殊學校、托兒所、學校、技術學校、軍校、農業學校 |
-| SHOP | 工廠直銷店、安全產品、聖誕節/假日商店、眼鏡商、家庭花園：照明、彩券行、、樂器、美甲沙龍、家庭花園；繪畫裝飾、業餘愛好/空閒時間、報刊煙草店、服裝配件：特產、乾洗店、行李皮件、寵物用品、服裝配件：兒童、建築材料、設備、珠寶、鐘錶、服裝配件：鞋類修理、家庭花園：窗簾/紡織品、電器、辦公用品、消費類電子、電器、辦公室 IT：相機攝影、CD、DVD影片、洗衣店、服裝配件：男裝、花店、當舖、書店、海上電子設備、食品飲料：食品市場、家庭花園：地毯/地板覆蓋物、複印、划船設備配件、手機店、玩具遊戲、特色食品、服裝配件：一般、食品飲料：麵包師、裁縫店、禮品、卡片、新奇紀念品、動物服務、運動設備、郵票店、電器、電氣、辦公室 IT：辦公室設備、照片實驗室/沖洗、批發俱樂部、家庭花園：家具配件、當地特產、食品飲料：肉店、雜貨店、食品飲料：食品店、食品飲料：葡萄酒、藥妝店、家具/家居用品、電器、辦公室 IT：電腦用品、CD/影片出租、醫療用品設備、農業用品、美容院、家庭花園：花園中心服務、食品飲料：魚販、美容用品、服裝配件：女裝、旅行社、零售店、回收店、家庭花園：玻璃窗、五金、房地產仲介、玻璃器皿/陶瓷、熟食店、家庭花園：廚房浴室、投注站、美髮師理髮店、食品飲料：雜貨店、食品飲料：綠色雜貨店、便利商店、免下車飲料商店、家庭花園：DIY 中心、古董店/藝品店、商店、店家 |
+| SHOP | 原廠插座，安全性產品，聖誕/假日商店，opticians，房屋花園：光源、樂透店、音樂儀器、美甲髮廊、房屋花園：繪製裝飾、業餘愛好/免費時間、報紙 tobacconists、服裝配件：專業、幹清除者、袋 leatherwear、寵物用品、服裝配件：兒童、建築材料設備、珠寶、時鐘監看式、服裝配件：鞋品鞋維修、房屋花園：風幕機/textiles、電氣、office it：電子公司、電力、辦公室 it：&#39;攝影機的攝影、&#39;cd、DVD 影片、總服裝配件：男、florists、卒店面、書籍、航海電子設備、食品飲料：食物市場、房屋花園：地毯/樓層 coverings、影印、划船設備配件、行動電話店面、玩具遊戲、專長食物、服裝配件：一般、食物： bakers、自訂商店、禮物、卡片、novelties 紀念品、動物服務、運動設備服裝、戳記店面、電力設備、電力、辦公室 it：辦公室設備、相片實驗室/開發、批發俱樂部、房屋花園：傢俱管牌、當地專業、食品飲料： butchers、各種商店、食品飲料：食物店、食物：葡萄酒烈酒、藥品店、傢俱/家庭傢俱、電力、辦公室 it：電腦供應、cd/影片出租、醫療供應設備、農業供應、美的髮廊、室內花園：花園中心服務、食品飲料：魚販、美店、服裝配件：女性、旅遊代理商、零售業、回收店、房屋花園：半透明 windows、硬體、房地產代理程式、glassware/ceramic、delicatessen、房屋花園：廚房 bathrooms、打賭站、美髮 barbers、食物： grocers、食物：綠色 grocers、便利性店、透過瓶店面、房屋花園：您自己的中心、古典/藝術、商店、商店 |
 | SHOPPING\_CENTER | 大賣場、購物中心 |
 | SPORTS\_CENTER | 適體能、壁球場、健身中心、運動中心 |
 | STADIUM | 無擋板籃球、足球、棒球、跑馬場、多用途、機動車運動、板球場、橄欖球場、冰上曲棍球、運動、賽馬、籃球、足球、體育場、運動場、跑馬場 |

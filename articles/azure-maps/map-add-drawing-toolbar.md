@@ -1,5 +1,5 @@
 ---
-title: 將繪圖工具欄加入至 Azure 地圖服務 |Microsoft Docs
+title: 將繪圖工具欄新增至地圖 |Microsoft Azure 對應
 description: 如何使用 Azure 地圖服務 Web SDK 將繪製工具列新增至地圖
 author: walsehgal
 ms.author: v-musehg
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ed16d8797e541ee474b4f52f3d4379721922a734
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 553dffd14182c93a52ed076e742830c68130551b
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432876"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911224"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>將繪圖工具工具列新增至地圖
 

@@ -1,6 +1,6 @@
 ---
-title: 將線條圖層新增至 Azure 地圖服務 |Microsoft Docs
-description: 如何將線條圖層新增至 Azure 地圖服務 Web SDK。
+title: 將線條圖層新增至地圖 |Microsoft Azure 對應
+description: 在本文中，您將瞭解如何使用 Microsoft Azure Maps Web SDK，將線條圖層新增至地圖。
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,21 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f07e36d82c9044a212cda8173df9fe0a9544393a
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 5b59bdc06d455c7bd0ec9cf889f5cfa382948467
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977322"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911177"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>將線條圖層新增至地圖
 
-線條圖層可用來呈現`LineString`和`MultiLineString`特徵做為地圖上的路徑或路線。 線條圖層也可以用來呈現`Polygon`和`MultiPolygon`功能的外框。 資料來源會連接到線條圖層, 以提供要呈現的資料。 
+線條圖層可用來將 `LineString` 和 `MultiLineString` 功能轉譯為地圖上的路徑或路由。 線條圖層也可以用來呈現 `Polygon` 和 `MultiPolygon` 功能的大綱。 資料來源會連接到線條圖層，以提供要呈現的資料。 
 
 > [!TIP]
-> 根據預設, 線條圖層會轉譯多邊形和資料來源中線條的座標。 若要限制圖層, 使其只呈現 LineString 功能, `filter`請將圖層的`['==', ['geometry-type'], 'LineString']`屬性`['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]`設為, 或者, 如果您也想要包含 MultiLineString 功能。
+> 根據預設，線條圖層會轉譯多邊形和資料來源中線條的座標。 若要限制圖層，使其只呈現 LineString 功能，請將圖層的 `filter` 屬性設定為 `['==', ['geometry-type'], 'LineString']` 或 `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` （如果您也想要包含 MultiLineString 功能）。
 
-下列程式碼會示範如何建立一行、將它加入至資料來源, 並使用[LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest)類別以線條圖層呈現。
+下列程式碼會示範如何建立一行、將它加入至資料來源，並使用[LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest)類別以線條圖層呈現。
 
 ```javascript
 //Create a data source and add it to the map.
@@ -47,31 +47,31 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 <iframe height='500' scrolling='no' title='在地圖中新增線條' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看畫筆 <a href='https://codepen.io/azuremaps/pen/qomaKv/'>在地圖中新增線條</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
 </iframe>
 
-線條圖層可以使用[LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)來樣式化, 並[使用資料驅動樣式表達式](data-driven-style-expressions-web-sdk.md)。
+線條圖層可以使用[LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)來樣式化，並[使用資料驅動樣式表達式](data-driven-style-expressions-web-sdk.md)。
 
 ## <a name="add-symbols-along-a-line"></a>沿著一行新增符號
 
-這個範例會示範如何在地圖上沿著線條加入箭號圖示。 使用符號圖層時, 將「放置」選項設定為「行」, 這會沿著線條轉譯符號並旋轉圖示 (0 度 = 右方)。
+這個範例會示範如何在地圖上沿著線條加入箭號圖示。 使用符號圖層時，將「放置」選項設定為「行」，這會沿著線條轉譯符號並旋轉圖示（0度 = 右方）。
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="沿著線條顯示箭號" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-請參閱<a href='https://codepen.io'>CodePen</a>上的 [依 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>),<a href='https://codepen.io/azuremaps/pen/drBJwX/'>沿著行顯示</a>畫筆] 箭號。
+請參閱<a href='https://codepen.io'>CodePen</a>上的 [依 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>）] 行的 [畫筆<a href='https://codepen.io/azuremaps/pen/drBJwX/'>顯示] 箭</a>號。
 </iframe>
 
 > [!TIP]
-> Azure 地圖服務 web SDK 提供數個可自訂的影像範本, 您可以搭配符號層使用。 如需詳細資訊, 請參閱[如何使用影像範本](how-to-use-image-templates-web-sdk.md)檔。
+> Azure 地圖服務 web SDK 提供數個可自訂的影像範本，您可以搭配符號層使用。 如需詳細資訊，請參閱[如何使用影像範本](how-to-use-image-templates-web-sdk.md)檔。
 
 <a name="line-stroke-gradient"></a>
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>將筆觸漸層新增至線條
 
-除了能夠將單一筆劃色彩套用至線條外, 您也可以用色彩漸層填滿一行, 以顯示從一個線段到下一個線段的轉換。 例如, 您可以使用線條漸層來代表經過一段時間和距離的變更, 或在連接的物件線上有不同的溫度。 若要將這項功能套用至一行, 資料來源必須`lineMetrics`將選項設定為 true, 然後將色彩漸層運算式傳遞至行的`strokeColor`選項。 筆劃漸層運算式必須參考`['line-progress']`向運算式公開計算結果行度量的日期運算式。
+除了能夠將單一筆劃色彩套用至線條外，您也可以用色彩漸層填滿一行，以顯示從一個線段到下一個線段的轉換。 例如，您可以使用線條漸層來代表經過一段時間和距離的變更，或在連接的物件線上有不同的溫度。 若要將這項功能套用至一行，資料來源必須將 `lineMetrics` 選項設為 true，然後將色彩漸層運算式傳遞至該行的 `strokeColor` 選項。 筆劃漸層運算式必須參考向運算式公開計算結果行度量的 `['line-progress']` 日期運算式。
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="具有筆觸漸層的線條" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-請參閱<a href='https://codepen.io'>CodePen</a>上的<a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>使用筆觸</a>漸層的<a href='https://codepen.io/azuremaps'>@azuremaps</a>畫筆線, Azure 地圖服務 ()。
+請參閱<a href='https://codepen.io'>CodePen</a>上的 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>），<a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>以筆觸</a>漸層進行的畫筆線。
 </iframe>
 
 ## <a name="customize-a-line-layer"></a>自訂線條圖層

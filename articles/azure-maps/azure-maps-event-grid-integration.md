@@ -1,6 +1,6 @@
 ---
-title: 使用事件格線回應 Azure 地圖服務事件 | Microsoft Docs
-description: 了解如何使用事件格線回應 Azure 地圖服務事件。
+title: 使用事件方格來回應對應事件 |Microsoft Azure 對應
+description: 在本文中，您將瞭解如何使用事件方格來回應 Microsoft Azure 對應事件。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a70011b934398ac4e7f74bb67013e93bb5e86e4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a946d189706c9c789ab884670d13b0b3e7fcb0c
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60799170"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911802"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>使用事件格線回應 Azure 地圖服務事件 
 
@@ -30,7 +30,7 @@ Azure 事件方格是一個完全受控的事件路由服務，它使用發佈-�
 
 Event Grid 使用[事件訂閱](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions)將事件訊息路由至訂閱者。 Azure 地圖服務帳戶會發出下列事件類型： 
 
-| 事件類型 | 描述 |
+| 事件類型 | 說明 |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | 會在接收到的座標已從指定的地理柵欄外移至柵欄內時引發 |
 | Microsoft.Maps.GeofenceExited | 會在接收到的座標已從指定的地理柵欄內移至柵欄外時引發 |

@@ -1,6 +1,6 @@
 ---
-title: Azure 地圖服務中的 web 地圖控制項使用者入門 |Microsoft Docs
-description: 瞭解如何使用 Azure 地圖服務的地圖控制項用戶端 JAVAscript 程式庫。
+title: 開始使用 web 地圖控制項 |Microsoft Azure 對應
+description: 瞭解如何使用 Microsoft Azure 地圖的地圖控制項用戶端 JAVAscript 程式庫，將地圖和內嵌的 Azure 地圖服務功能轉譯成您的 web 或行動應用程式。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d70d0e1107a6ee1b53b178d8912c1b808472b142
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d50b97ad47f4b09ae4fec363e7d0a2c7f6b841df
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432902"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911346"
 ---
 # <a name="use-the-azure-maps-map-control"></a>使用 Azure 地圖服務地圖控制項
 

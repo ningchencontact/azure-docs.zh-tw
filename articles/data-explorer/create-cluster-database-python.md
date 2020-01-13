@@ -1,18 +1,18 @@
 ---
 title: 使用 Python 建立 Azure 資料總管叢集與資料庫
 description: 了解如何使用 Python 建立 Azure 資料總管叢集與資料庫。
-author: oflipman
-ms.author: oflipman
+author: lucygoldbergmicrosoft
+ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: b3329ccb3edb3077a45e3bbf9ba7b48d7e3a93a2
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 5a3a7d79e43a4e0b4a160837be4d7f3cc33f4a91
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996224"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911945"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>使用 Python 建立 Azure 資料總管叢集與資料庫
 
@@ -24,9 +24,9 @@ ms.locfileid: "71996224"
 > * [Python](create-cluster-database-python.md)
 > * [ARM 範本](create-cluster-database-resource-manager.md)
 
-Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本文中，您會使用 Python 建立叢集和資料庫。
+Azure Data Explorer 是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本文中，您會使用 Python 建立叢集和資料庫。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -82,8 +82,8 @@ pip install azure-mgmt-kusto
    |---|---|---|
    | cluster_name | *mykustocluster* | 所需的叢集名稱。|
    | sku_name | *Standard_D13_v2* | 將用於叢集的 SKU。 |
-   | 層 | *標準* | SKU 層。 |
-   | 存儲 | *number* | 叢集的實例數目。 |
+   | tier | *Standard* | SKU 層。 |
+   | 處理能力 | *number* | 叢集的實例數目。 |
    | resource_group_name | *testrg* | 將在其中建立叢集的資源群組名稱。 |
 
     > [!NOTE]
@@ -95,7 +95,7 @@ pip install azure-mgmt-kusto
     cluster_operations.get(resource_group_name = resource_group_name, cluster_name= clusterName, custom_headers=None, raw=False)
     ```
 
-如果結果中包含有 `provisioningState` 值的 `Succeeded`，表示已成功建立叢集。
+如果結果中包含有 `Succeeded` 值的 `provisioningState`，表示已成功建立叢集。
 
 ## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>在 Azure 資料總管叢集中建立資料庫
 

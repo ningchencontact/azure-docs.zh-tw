@@ -1,6 +1,6 @@
 ---
-title: 將控制項新增至 Azure 地圖服務 |Microsoft Docs
-description: 如何將縮放控制項、傾斜角度控制項、旋轉控制項和樣式選擇器新增至 Azure 地圖服務中的地圖。
+title: 將控制項新增至地圖 |Microsoft Azure 對應
+description: 如何將縮放控制項、音調控制項、旋轉控制項和樣式選擇器新增至 Microsoft Azure 對應中的地圖。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7267f77ed3d296ac586dcfd0f525b94d5e6eb7a0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 6652ca30d9f38eb6184fce5f1ff5428d29c271a6
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976230"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911261"
 ---
 # <a name="add-controls-to-a-map"></a>將控制項新增至對應
 
@@ -21,7 +21,7 @@ ms.locfileid: "68976230"
 
 ## <a name="add-zoom-control"></a>新增縮放控制項
 
-縮放控制項會加入按鈕, 以放大和縮小地圖。下列程式碼範例會建立[ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol)類別的實例, 並將其新增至地圖的右下角。
+縮放控制項會加入按鈕，以放大和縮小地圖。下列程式碼範例會建立[ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol)類別的實例，並將其新增至地圖的右下角。
 
 ```javascript
 //Construct a zoom control and add it to the map.
@@ -39,7 +39,7 @@ map.controls.add(new atlas.control.ZoomControl(), {
 
 ## <a name="add-pitch-control"></a>新增傾斜角度控制項
 
-[音調] 控制項會新增按鈕, 以傾斜相對於水準地圖的間距。 下列程式碼範例會建立[PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol)類別的實例, 並將其新增至地圖的右上角。
+[音調] 控制項會新增按鈕，以傾斜相對於水準地圖的間距。 下列程式碼範例會建立[PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol)類別的實例，並將其新增至地圖的右上角。
 
 ```javascript
 //Construct a pitch control and add it to the map.
@@ -57,7 +57,7 @@ map.controls.add(new atlas.control.PitchControl(), {
 
 ## <a name="add-compass-control"></a>新增指南針控制項
 
-羅盤控制項會加入按鈕來旋轉地圖。 下列程式碼範例會建立[羅盤控制項](/javascript/api/azure-maps-control/atlas.control.compasscontrol)類別的實例, 並將其新增到地圖的左下角。
+羅盤控制項會加入按鈕來旋轉地圖。 下列程式碼範例會建立[羅盤控制項](/javascript/api/azure-maps-control/atlas.control.compasscontrol)類別的實例，並將其新增到地圖的左下角。
 
 ```javascript
 //Construct a compass control and add it to the map.
@@ -82,7 +82,7 @@ map.controls.add(new atlas.control.Compass(), {
 <iframe height='500' scrolling='no' title='具有所有控制項的地圖' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>請在 <a href='https://codepen.io'>CodePen</a> 上，參閱 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 建立的 Pen：<a href='https://codepen.io/azuremaps/pen/qyjbOM/'>具有所有控制項的地圖</a>。
 </iframe>
 
-樣式選擇器控制項是由[StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol)類別所定義。 如需使用樣式選擇器控制項的詳細資訊, 請參閱[選擇地圖樣式](choose-map-style.md)。
+樣式選擇器控制項是由[StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol)類別所定義。 如需使用樣式選擇器控制項的詳細資訊，請參閱[選擇地圖樣式](choose-map-style.md)。
 
 ## <a name="customize-controls"></a>自訂控制項
 
@@ -91,10 +91,10 @@ map.controls.add(new atlas.control.Compass(), {
 <br/>
 
 <iframe height="700" style="width: 100%;" scrolling="no" title="導覽控制選項" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-請參閱<a href='https://codepen.io'>CodePen</a>上 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 的畫筆<a href='https://codepen.io/azuremaps/pen/LwBZMx/'>導覽控制選項</a>。
+請參閱<a href='https://codepen.io'>CodePen</a>上的 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>），以查看畫筆<a href='https://codepen.io/azuremaps/pen/LwBZMx/'>導覽控制選項</a>。
 </iframe>
 
-如果您想要建立自訂的導覽控制項, 請建立從`atlas.Control`類別擴充的類別, 或建立 HTML 專案, 並將其放在地圖 div 上方。 讓這個 UI 控制項呼叫 maps `setCamera`函式來移動地圖。 
+如果您想要建立自訂的導覽控制項，請建立從 `atlas.Control` 類別擴充的類別，或建立 HTML 專案，並將其放在地圖 div 上方。 讓這個 UI 控制項呼叫對應 `setCamera` 函式來移動地圖。 
 
 ## <a name="next-steps"></a>後續步驟
 

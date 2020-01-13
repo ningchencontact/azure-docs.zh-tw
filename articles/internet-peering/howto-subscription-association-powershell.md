@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e7239fdedafedc96a382de6c3c2f90b5da4df00c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 77cc4732e017d95cbae19578cf26b1111b08fdde
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75774246"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75908995"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>使用 PowerShell 將對等 ASN 與 Azure 訂用帳戶產生關聯
 
@@ -29,7 +29,24 @@ ms.locfileid: "75774246"
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>登入您的 Azure 帳戶並且選取您的訂用帳戶
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
+### <a name="register-for-peering-resource-provider"></a>註冊對等互連資源提供者
+使用下列命令，在您的訂用帳戶中註冊對等互連資源提供者。 如果您未執行此動作，則無法存取設定對等互連所需的 Azure 資源。
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
+```
+
+您可以使用下列命令來檢查註冊狀態：
+```powershell
+Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
+```
+
+> [!IMPORTANT]
+> 等到*RegistrationState*變成「已註冊」，再繼續進行。 執行命令可能需要5到30分鐘的時間。
+
 ### <a name="update-the-peer-information-associated-with-this-subscription"></a>更新與此訂用帳戶相關聯的對等資訊
+
+以下是更新對等資訊的範例。
 
 ```powershell
 New-AzPeerAsn `

@@ -1,6 +1,6 @@
 ---
-title: Azure 地圖服務中的耗用模型 | Microsoft Docs
-description: 深入了解 Azure 地圖服務中的耗用模型
+title: 路由的車輛耗用量模型 |Microsoft Azure 對應
+description: 在本文中，您將瞭解 Microsoft Azure 對應中路由的車輛耗用量模型。
 author: subbarayudukamma
 ms.author: skamma
 ms.date: 05/08/2018
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5f75f656312c11a4668ca9ef9fe7b2a61a7d13e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a8a0778ce279846b0d7a66b1729b6898e80a4b5
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60797911"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911703"
 ---
 # <a name="consumption-model"></a>耗用模型
 
 連線路由會提供一組參數，以詳細說明載具特定的耗用模型。
-視 **vehicleEngineType** 的值而定，系統支援兩種主要的耗用模型：_Combustion_ 和 _Electric_。 在同一要求中指定屬於不同模型的參數，會發生錯誤。
+視 **vehicleEngineType** 的值而定，支援兩種主要的耗用模型：_燃燒_和_電子_。 在同一要求中指定屬於不同模型的參數，會發生錯誤。
 耗用模型不能搭配 **travelMode** 值 _bicycle_ 和 _pedestrian_。
 
 ## <a name="parameter-constraints-for-consumption-model"></a>耗用模型的參數限制式

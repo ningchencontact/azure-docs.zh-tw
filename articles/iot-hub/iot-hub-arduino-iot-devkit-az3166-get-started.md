@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 3cdeecd5b7698274b899832d7a66a5572a114e4b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 139d1a470c67d5dab310c4fa2a9171f433df2061
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954508"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912369"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>將 IoT DevKit AZ3166 連線至 Azure IoT 中樞
 
@@ -174,7 +174,7 @@ DevKit 會連線至 IoT 中樞上的裝置特定端點，並傳送溫度和濕�
     > [安裝 Azure IoT Tools 擴充功能套件](vscode:extension/vsciot-vscode.azure-iot-tools)
 
     > [!NOTE]
-    > Azure IoT Tools 延伸模組套件包含[Azure Iot 裝置工作臺](https://aka.ms/iot-workbench)，用來在各種 IoT devkit 裝置上進行開發和調試。 Azure IoT Tools 延伸模組套件中也隨附的[Azure IoT 中樞工具](https://aka.ms/iot-toolkit)組，可用來管理 Azure IoT 中樞並與之互動。
+    > Azure IoT Tools 延伸模組套件包含[Azure Iot 裝置工作臺](https://aka.ms/iot-workbench)，用來在各種 IoT devkit 裝置上進行開發和調試。 Azure IoT Tools 延伸模組套件中也隨附[Azure IoT 中樞擴充](https://aka.ms/iot-toolkit)功能，可用來管理 Azure IoT 中樞並與之互動。
 
 5. 為 VS Code 設定 Arduino 設定。
 
@@ -296,7 +296,7 @@ IoT DevKit 包含豐富的範例資源庫，您可以用來瞭解如何將 DevKi
 
 1. 在 DevKit 上，按住**按鈕 a**，然後按下並放開 [**重設**] 按鈕，然後放開**按鈕 A**。您的 DevKit 會進入設定模式並儲存連接字串。
 
-    ![Connection string](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)
+    ![連接字串](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)
 
 1. 再次按一下 [`F1`]，輸入並選取 **[Azure IoT 裝置工作臺：上傳裝置程式碼**]。 此時會開始編譯程式碼，並上傳到 DevKit。
 
@@ -328,7 +328,7 @@ DevKit 會重新開機，然後開始執行程式碼。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)，尋找您所建立的 IoT 中樞。
 
-    ![Azure 入口網站](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
+    ![Azure Portal](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
 
 1. 在 [共用存取原則] 窗格中，按一下 [iothubowner] 原則，然後記下您 IoT 中樞的連接字串。
 

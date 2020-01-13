@@ -1,6 +1,6 @@
 ---
-title: 將泡泡圖層新增至 Azure 地圖服務 | Microsoft Docs
-description: 如何將反升圖層新增至 Azure 地圖服務 Web SDK。
+title: 將反升圖層新增至地圖 |Microsoft Azure 對應
+description: 在本文中，您將瞭解如何使用 Microsoft Azure Maps Web SDK，將反升圖層新增至地圖。
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5cc5dbdc89f629c09d47ef683b7ff7fff61d2f49
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 0088cced84da08828d02d3a0f83846babf286b71
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976582"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911275"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>將泡泡圖層新增至地圖
 
 本文說明如何將資料來源中的點資料轉譯為地圖上的氣泡圖層。 泡泡圖層會將點轉譯為地圖上像素半徑固定的圓圈。 
 
 > [!TIP]
-> 根據預設，泡泡圖層會轉譯資料來源中所有幾何圖形的座標。 若要限制圖層, 使其只轉譯點幾何特徵, `filter`請將圖層的`['==', ['geometry-type'], 'Point']`屬性`['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`設為, 或者, 如果您也想要包含 MultiPoint 功能, 則設定為。
+> 根據預設，泡泡圖層會轉譯資料來源中所有幾何圖形的座標。 若要限制圖層，使其只轉譯點幾何特徵，請將圖層的 [`filter`] 屬性設為 [`['==', ['geometry-type'], 'Point']`] 或 [`['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`] （如果您也想要包含 MultiPoint 功能）。
 
 ## <a name="add-a-bubble-layer"></a>新增泡泡圖層
 
-下列程式碼會將點陣列載入至資料來源, 並將它連接到反升[圖層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)。 反升層會提供選項, 以五個圖元呈現每個氣泡的半徑、白色的填滿色彩、藍色的筆觸色彩, 以及六個圖元的筆觸寬度。 
+下列程式碼會將點陣列載入至資料來源，並將它連接到反升[圖層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)。 反升層會提供選項，以五個圖元呈現每個氣泡的半徑、白色的填滿色彩、藍色的筆觸色彩，以及六個圖元的筆觸寬度。 
 
 ```javascript
 //Add point locations.
@@ -62,7 +62,7 @@ map.layers.add(new atlas.layer.BubbleLayer(dataSource, null, {
 
 ## <a name="show-labels-with-a-bubble-layer"></a>顯示標籤與泡泡圖層
 
-下列程式碼會示範如何使用反升層來轉譯地圖上的點, 以及用來呈現標籤的符號圖層。 若要隱藏符號圖層的圖示, 請將`image`圖示選項的屬性設為`'none'`。
+下列程式碼會示範如何使用反升層來轉譯地圖上的點，以及用來呈現標籤的符號圖層。 若要隱藏符號圖層的圖示，請將圖示選項的 [`image`] 屬性設定為 [`'none'`]。
 
 <br/>
 

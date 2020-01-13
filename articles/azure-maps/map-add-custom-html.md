@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 地圖服務中新增 HTML 標記 | Microsoft Docs
-description: 如何將 HTML 標籤新增至 Azure 地圖服務 Web SDK。
+title: 將 HTML 標籤新增至地圖 |Microsoft Azure 對應
+description: 在本文中，您將瞭解如何使用 Microsoft Azure Maps Web SDK，將 HTML 標籤新增至地圖。
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ff18b8646a3845d029e9826c0895b9d3eb16bdde
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 5a15b3b9e51772d8c7e5312968fecb180069e2a7
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976209"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911255"
 ---
 # <a name="add-html-markers-to-the-map"></a>在地圖中新增 HTML 標記
 
@@ -28,9 +28,9 @@ ms.locfileid: "68976209"
 
 ## <a name="add-an-html-marker"></a>新增 HTML 標記
 
-[HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)類別具有預設樣式。 若要自訂標記，請設定標記的色彩和文字選項。 HTML 標籤類別的預設樣式是具有`{color}`和`{text}`預留位置的 SVG 範本。 設定 HTML 標籤選項中快速自訂的 color 和 text 屬性。 
+[HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)類別具有預設樣式。 若要自訂標記，請設定標記的色彩和文字選項。 HTML 標籤類別的預設樣式是 SVG 範本，其具有 `{color}` 和 `{text}` 預留位置。 設定 HTML 標籤選項中快速自訂的 color 和 text 屬性。 
 
-下列程式碼會建立 HTML 標籤, 並將 color 屬性設為 "DodgerBlue", 並將 text 屬性設定為 "10"。 快顯視窗會附加至標記, 並`click`使用事件來切換快顯視窗的可見度。
+下列程式碼會建立 HTML 標籤，並將 color 屬性設為 "DodgerBlue"，並將 text 屬性設定為 "10"。 快顯視窗會附加至標記，並使用 `click` 事件來切換快顯視窗的可見度。
 
 ```javascript
 //Create a HTML marker and add it to the map.
@@ -69,7 +69,7 @@ HTML 標記的預設 `htmlContent` 是內含預留位置 `{color}` 和 `{text}` 
 </iframe>
 
 > [!TIP]
-> Azure 地圖服務 web SDK 提供數個 SVG 影像範本, 可用於 HTML 標籤。 如需詳細資訊, 請參閱[如何使用影像範本](how-to-use-image-templates-web-sdk.md)檔。
+> Azure 地圖服務 web SDK 提供數個 SVG 影像範本，可用於 HTML 標籤。 如需詳細資訊，請參閱[如何使用影像範本](how-to-use-image-templates-web-sdk.md)檔。
 
 ## <a name="add-a-css-styled-html-marker"></a>新增 CSS 樣式的 HTML 標記
 
@@ -82,7 +82,7 @@ HTML 標記的好處之一是您可以使用 CSS 來實現許多完美的自訂�
 
 ## <a name="draggable-html-markers"></a>可拖曳的 HTML 標記
 
-此範例說明如何建立可拖曳的 HTML 標記。 HTML 標籤支援`drag`、 `dragstart`和`dragend`事件。
+此範例說明如何建立可拖曳的 HTML 標記。 HTML 標籤支援 `drag`、`dragstart`和 `dragend` 事件。
 
 <br/>
 

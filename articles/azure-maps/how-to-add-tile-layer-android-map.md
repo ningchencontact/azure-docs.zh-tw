@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 地圖服務中將磚圖層新增至 Android 地圖 |Microsoft Docs
-description: 如何使用 Azure 地圖服務 Android SDK 將磚圖層新增至地圖
+title: 將圖格圖層新增至 Android 地圖 |Microsoft Azure 對應
+description: 在本文中，您將瞭解如何使用 Microsoft Azure Maps Android SDK，在地圖上轉譯磚圖層。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5d5f50a38db95f6e62bdd8c51aefd5957041e682
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e54eeaa6dafd60e5fc481f2f4b45929edda77c44
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886607"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911519"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>使用 Azure 地圖服務 Android SDK 將磚圖層新增至地圖
 
-本文說明如何使用 Azure 地圖服務 Android SDK, 在地圖上轉譯磚圖層。 圖格圖層可讓您在 Azure 地圖服務的地圖底圖上覆蓋影像。 您可以在[縮放層級和圖格格線](zoom-levels-and-tile-grid.md)文件中找到有關 Azure 地圖服務圖格顯示系統的詳細資訊。
+本文說明如何使用 Azure 地圖服務 Android SDK，在地圖上轉譯磚圖層。 圖格圖層可讓您在 Azure 地圖服務的地圖底圖上覆蓋影像。 您可以在[縮放層級和圖格格線](zoom-levels-and-tile-grid.md)文件中找到有關 Azure 地圖服務圖格顯示系統的詳細資訊。
 
 磚圖層會從伺服器載入磚。 這些影像可以像伺服器上其他影像一樣，使用圖格圖層了解的命名慣例來預先轉譯及儲存，或是作為可動態產生影像的動態服務。 Azure 地圖服務 TileLayer 類別支援三種不同的磚服務命名慣例; 
 
@@ -39,16 +39,16 @@ ms.locfileid: "68886607"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本文中的程式, 您必須安裝[Azure 地圖服務 Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library)以載入對應。
+若要完成本文中的程式，您必須安裝[Azure 地圖服務 Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library)以載入對應。
 
 
 ## <a name="add-a-tile-layer-to-the-map"></a>將圖格圖層新增至地圖
 
  此範例示範如何建立圖格圖層，而此圖格圖層會指向一組使用 x、y、縮放圖格系統的圖格。 此圖格圖層的來源是天氣雷達覆疊圖，資料來源：[愛荷華州立大學的愛荷華州環境氣象網 (Iowa Environmental Mesonet of Iowa State University)](https://mesonet.agron.iastate.edu/ogc/)。 
 
-您可以遵循下列步驟, 將圖格圖層新增至地圖。
+您可以遵循下列步驟，將圖格圖層新增至地圖。
 
-1. 編輯**res > layout > activity_main** , 使其看起來如下所示:
+1. 編輯**res > layout > activity_main .xml** ，使其看起來如下所示：
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -71,7 +71,7 @@ ms.locfileid: "68886607"
     </FrameLayout>
     ```
 
-2. 將下列程式碼片段複製到您`MainActivity.java`類別的**onCreate ()** 方法中。
+2. 將下列程式碼片段複製到 `MainActivity.java` 類別的**onCreate （）** 方法中。
 
     ```Java
     mapControl.onReady(map -> {
@@ -84,9 +84,9 @@ ms.locfileid: "68886607"
     });
     ```
     
-    上述程式碼片段會先使用**onReady ()** 回呼方法來取得 Azure 地圖服務的地圖控制項實例。 接著, 它會`TileLayer`建立物件, 並將格式化的**xyz** `tileUrl`磚 URL 傳遞到選項中。 圖層的不透明度設定為`0.8` , 因為所使用之磚服務的磚是256圖元磚, 所以這項資訊會傳遞`tileSize`到選項中。 圖格圖層接著會傳遞至 maps 圖層管理員。
+    上述程式碼片段會先使用**onReady （）** 回呼方法來取得 Azure 地圖服務的地圖控制項實例。 然後，它會建立一個 `TileLayer` 物件，並將格式化的**xyz**磚 URL 傳遞至 `tileUrl` 選項。 圖層的不透明度設定為 `0.8`，而且因為所使用之磚服務的磚是256圖元磚，這項資訊會傳遞至 [`tileSize`] 選項。 圖格圖層接著會傳遞至 maps 圖層管理員。
 
-    新增上述程式碼片段之後, 您`MainActivity.java`的看起來應該如下所示:
+    新增上述程式碼片段之後，您的 `MainActivity.java` 看起來應該如下所示：
     
     ```Java
     package com.example.myapplication;
@@ -168,15 +168,15 @@ ms.locfileid: "68886607"
     }
     ```
 
-如果您現在執行應用程式, 您應該會在地圖上看到一行, 如下所示:
+如果您現在執行應用程式，您應該會在地圖上看到一行，如下所示：
 
 <center>
 
-![Android 地圖線條](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
+![Android 地圖線](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱下列文章, 以深入瞭解設定地圖樣式的方式
+請參閱下列文章，以深入瞭解設定地圖樣式的方式
 
 > [!div class="nextstepaction"]
 > [變更 Android 地圖中的地圖樣式](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)

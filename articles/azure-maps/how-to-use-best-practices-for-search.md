@@ -1,6 +1,6 @@
 ---
-title: 如何使用 Azure 地圖服務搜尋服務有效率地搜尋 |Microsoft Docs
-description: 瞭解如何使用 Azure 地圖服務搜尋服務來進行搜尋的最佳做法
+title: 使用 Azure 地圖服務搜尋服務有效率地搜尋 |Microsoft Azure 對應
+description: 瞭解如何使用 Microsoft Azure 對應來進行搜尋的最佳做法搜尋服務
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/08/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 88f864abc82ea6ba70559c8db5db2d0fe07383b1
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: aa3c7b58b3a391de40940636a67a4a224c44fe10
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768821"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911373"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>使用 Azure 地圖服務搜尋服務的最佳做法
 

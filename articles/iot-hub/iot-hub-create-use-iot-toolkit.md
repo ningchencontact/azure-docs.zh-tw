@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 3fe4dfae2e86d549056805e87c0fd3927697fe24
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 668087ae596688e86b7b84a16bc5c0fd0f9fcef6
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890558"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912229"
 ---
 # <a name="create-an-iot-hub-using-the-azure-iot-tools-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure IoT Tools 建立 IoT 中樞
 
@@ -24,7 +24,7 @@ ms.locfileid: "73890558"
 
 若要完成本文，您需要下列項目：
 
-- Azure 訂閱。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -38,7 +38,7 @@ ms.locfileid: "73890558"
 
    ![展開 Azure IoT 中樞裝置](./media/iot-hub-create-use-iot-toolkit/azure-iot-hub-devices.png)
 
-3. 按一下 [Azure IoT 中樞裝置] 區段標頭中的 [...]。 如果您沒有看到省略符號，將滑鼠停留在標頭上方。 
+3. 按一下 [Azure IoT 中樞裝置] 區段標題中的 **...** 。 若未看到省略符號，請將滑鼠暫留在標題上方。 
 
 4. 選擇 [建立 IoT 中樞]。
 
@@ -64,4 +64,4 @@ ms.locfileid: "73890558"
 
 * [使用適用於 Visual Studio Code 的 Azure IoT Tools 來管理 Azure IoT 中樞裝置](iot-hub-device-management-iot-toolkit.md)
 
-* [請參閱 Azure IoT 中樞工具組 Wiki 頁面](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki)。
+* [請參閱 VS Code wiki 的 Azure IoT 中樞頁面](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki)。

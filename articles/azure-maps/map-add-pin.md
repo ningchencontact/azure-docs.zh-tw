@@ -1,6 +1,6 @@
 ---
-title: 將符號圖層新增至 Azure 地圖服務 | Microsoft Docs
-description: 如何將符號新增至 Azure 地圖服務 Web SDK。
+title: 將符號圖層新增至地圖 |Microsoft Azure 對應
+description: 在本文中，您將瞭解如何使用符號圖層，在地圖上使用 Microsoft Azure Maps Web SDK 來自訂和新增符號。
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fff73801d20333a6df5e7952d02ed664c17fe40b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 744d5ecd3aab02071f7c3aaff7dd760fc14a2a62
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480615"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911170"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>將符號圖層新增至地圖
 
@@ -61,7 +61,7 @@ dataSource.add(new atlas.data.Point([0, 0]));
 
 <br/>
 
-<iframe height='500' scrolling='no' title='切換釘選位置' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>請參閱 <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>CodePen</a> 上由 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 建立的 Pen <a href='https://codepen.io'>切換釘選位置</a>。
+<iframe height='500' scrolling='no' title='切換釘選位置' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>請參閱 <a href='https://codepen.io'>CodePen</a> 上由 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 建立的 Pen <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>切換釘選位置</a>。
 </iframe>
 
 > [!TIP]

@@ -1,6 +1,6 @@
 ---
-title: 管理 Azure 地圖服務帳戶的定價層 | Microsoft Docs
-description: 您可以使用 Azure 入口網站來管理 Azure 地圖服務帳戶及其定價層。
+title: 管理您 Azure 地圖服務帳戶的定價層 |Microsoft Azure 對應
+description: 您可以使用 Azure 入口網站來管理您的 Microsoft Azure Maps 帳戶和其定價層。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/12/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 43f5c6ea42464a83d070775fae8c5befe35bf60d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cba1e56b96f24764af00f04f399d0cdbe54be24
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794210"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911493"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>管理 Azure 地圖服務帳戶的定價層
 
@@ -23,13 +23,13 @@ ms.locfileid: "60794210"
 
 ## <a name="view-your-pricing-tier"></a>檢視定價層
 
-若要檢視所選定價層，請瀏覽至 [設定] 功能表中的 [定價層]  選項。
+若要檢視所選定價層，請瀏覽至 [設定] 功能表中的 [定價層] 選項。
 
 ![檢視所選定價層](./media/how-to-manage-pricing-tier/view-pricing-tier.png)
 
 ## <a name="change-a-pricing-tier"></a>變更定價層
 
-在建立了 Azure 地圖服務帳戶後，您可以升級或降級 Azure 地圖服務帳戶的定價層。 若要升級或降級，請瀏覽至 [設定] 功能表中的 [定價層]  選項。 選取未醒目提示的定價層。 選取 [儲存]  按鈕以儲存您選擇的定價層選項。
+在建立了 Azure 地圖服務帳戶後，您可以升級或降級 Azure 地圖服務帳戶的定價層。 若要升級或降級，請瀏覽至 [設定] 功能表中的 [定價層] 選項。 選取未醒目提示的定價層。 選取 [儲存] 按鈕以儲存您選擇的定價層選項。
 
 ![變更定價層](./media/how-to-manage-pricing-tier/change-pricing-tier.png)
 

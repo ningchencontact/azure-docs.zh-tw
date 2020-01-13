@@ -1,6 +1,6 @@
 ---
-title: 使用服務模組-Azure 地圖服務 |Microsoft Docs
-description: 瞭解如何使用 Azure 地圖服務 services 模組。
+title: 使用 Azure 地圖服務 Services 模組 |Microsoft Azure 對應
+description: 在本文中，您將瞭解如何使用 Azure 地圖服務 services 模組來利用 Microsoft Azure 地圖 REST 服務。
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 24777c0b14bc6bb16a5f9c5c8213a9f3d524833e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6bfbbb38d164dcb179541084de3ffeb89f44668d
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408659"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911323"
 ---
 # <a name="use-the-azure-maps-services-module"></a>使用 Azure 地圖服務 services 模組
 

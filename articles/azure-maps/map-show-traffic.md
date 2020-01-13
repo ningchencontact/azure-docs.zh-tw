@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 地圖服務顯示路況 | Microsoft Docs
-description: 如何顯示 Azure 地圖服務 Web SDK 上的流量資料。
+title: 顯示地圖上的流量 |Microsoft Azure 對應
+description: 在本文中，您將瞭解如何使用 Microsoft Azure Maps Web SDK，在地圖上顯示流量資料。
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,21 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b765f6f35cecfdd3183b4432954fcfb2548de046
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8370b71bfa980dbd099ade59a3a19633dfd5dc72
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874870"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910883"
 ---
 # <a name="show-traffic-on-the-map"></a>在地圖上顯示路況
 
-Azure 地圖服務可用的流量資料類型有兩種:
+Azure 地圖服務可用的流量資料類型有兩種：
 
-- 事件資料-包含以點和行為基礎的資料, 用於結構、後端和事故等事物。
-- 流量資料-提供有關道路流量的計量。 流量資料通常是用來根據相對於速度限制或某個其他計量的流量, 使流量變慢的程度來為道路上色。 Azure 地圖服務中的流量資料有三種不同的度量計量:
-    - `relative`-相對於道路的自由流量速度。
-    - `absolute`-是道路上所有車輛的絕對速度。
+- 事件資料-包含以點和行為基礎的資料，用於結構、後端和事故等事物。
+- 流量資料-提供有關道路流量的計量。 流量資料通常是用來根據相對於速度限制或某個其他計量的流量，使流量變慢的程度來為道路上色。 Azure 地圖服務中的流量資料有三種不同的度量計量：
+    - `relative`-相對於道路的免費流程速度。
+    - `absolute`-是途中所有車輛的絕對速度。
     - `relative-delay`-顯示比平均預期延遲慢的區域。
 
 下列程式碼顯示如何在地圖上顯示流量資料。
@@ -45,12 +45,12 @@ map.setTraffic({
 
 ## <a name="traffic-overlay-options"></a>流量重迭選項
 
-下列工具可讓您在不同的流量重迭設定之間切換, 以查看呈現如何變更。 
+下列工具可讓您在不同的流量重迭設定之間切換，以查看呈現如何變更。 
 
 <br/>
 
 <iframe height="700" style="width: 100%;" scrolling="no" title="流量重迭選項" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-請參閱<a href='https://codepen.io'>CodePen</a>上 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 的「畫筆流量重迭」<a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>選項</a>。
+請參閱<a href='https://codepen.io'>CodePen</a>上的 Azure 地圖服務（<a href='https://codepen.io/azuremaps'>@azuremaps</a>）的「畫筆流量重迭」<a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>選項</a>。
 </iframe>
 
 ## <a name="next-steps"></a>後續步驟

@@ -1,6 +1,6 @@
 ---
-title: 將多邊形的延伸圖層新增至 Azure 地圖服務 |Microsoft Docs
-description: 如何將多邊形的延伸圖層新增至 Azure 地圖服務 Web SDK。
+title: 將多邊形延伸圖層新增至地圖 |Microsoft Azure 對應
+description: 如何將多邊形的延伸圖層新增至 Microsoft Azure Maps Web SDK。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: a357545bedde6a4e859a671005083a0fc665340d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 36914240caf3c1321dfa0102bd87cb29173f8b1d
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432846"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911060"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>將多邊形延伸圖層新增至地圖
 

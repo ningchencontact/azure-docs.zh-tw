@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 279b09250aaa3a87e066ade81fc63719adaf07b5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8022304af0f429024a796e02e64f6e23b938bd57
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429396"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912277"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
 
@@ -167,7 +167,7 @@ ms.locfileid: "75429396"
 
 儲存檔案並重新啟動 IoT Edge 安全性管理員。
 
-您也可以檢查在 IoT 中樞與 IoT Edge 裝置之間傳送的訊息。 請使用適用於 Visual Studio Code 的 [Azure IoT 中樞工具組](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)延伸模組 (先前稱為「Azure IoT 工作組」延伸模組) 來檢視這些訊息。 如需詳細資訊，請參閱[使用 Azure IoT 進行開發時的便利工具](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)。
+您也可以檢查在 IoT 中樞與 IoT Edge 裝置之間傳送的訊息。 使用[Visual Studio Code 的 Azure IoT 中樞延伸](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)模組來查看這些訊息。 如需詳細資訊，請參閱[使用 Azure IoT 進行開發時的便利工具](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)。
 
 ### <a name="restart-containers"></a>重新啟動容器
 

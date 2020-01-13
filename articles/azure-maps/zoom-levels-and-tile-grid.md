@@ -1,6 +1,6 @@
 ---
-title: Azure 地圖服務中的縮放層級和圖格格線 | Microsoft Docs
-description: 了解 Azure 地圖服務中的縮放層級和圖格格線
+title: 縮放層級和磚方格 |Microsoft Azure 對應
+description: 在本文中，您將瞭解 Microsoft Azure 地圖中的縮放層級和圖格格線。
 author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 68fbb9b8cd65e24d0fea0c571e5cf01b53560ba7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 09d6e357b87b59e8010e38693806da5f26f5b679
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407575"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910765"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>縮放層級和圖格格線
 
@@ -26,7 +26,7 @@ Azure 地圖服務使用麥卡托圓球投影座標系統 (EPSG：3857)。 投�
 
 <center>
 
-![World 磚](./media/zoom-levels-and-tile-grid/world0.png)</center>
+![世界地圖磚](./media/zoom-levels-and-tile-grid/world0.png)</center>
 
 縮放層級 1 使用四個圖格來呈現世界：2 x 2 個正方形
 

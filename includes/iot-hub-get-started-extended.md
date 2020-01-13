@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 8da233088389797271541b1aae55ec2e842f252d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: bd08812f83413a997ce655d68d866b145b20dcef
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174089"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912484"
 ---
 ## <a name="extended-iot-scenarios"></a>擴充的 IoT 案例
 
@@ -21,9 +21,9 @@ ms.locfileid: "67174089"
 
 | 案例                                                   | Azure 服務或工具              |
 |----------------------------------------------------------- |------------------------------------|
-| [管理 IoT 中樞訊息](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)                  | VS Code 的 Azure IoT 中樞工具組擴充功能|
+| [管理 IoT 中樞訊息](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)                  | VS Code Azure IoT 中樞延伸模組|
 | [管理 IoT 裝置](../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md)                        | Azure CLI 和 IoT 擴充功能    |
-| [管理 IoT 裝置](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | VS Code 的 Azure IoT 中樞工具組擴充功能|
+| [管理 IoT 裝置](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | VS Code Azure IoT 中樞延伸模組|
 | [將 IoT 中樞訊息儲存至 Azure 儲存體](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)  | Azure 表格儲存體                |
 | [將感應器資料視覺化](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)                      | Microsoft Power BI                 |
 | [將感應器資料視覺化](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | Azure Web Apps                     |

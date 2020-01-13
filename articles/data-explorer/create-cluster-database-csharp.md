@@ -1,18 +1,18 @@
 ---
 title: 使用 C# 建立 Azure 資料總管叢集與資料庫
 description: 了解如何使用 C# 建立 Azure 資料總管叢集與資料庫
-author: oflipman
-ms.author: oflipman
+author: lucygoldbergmicrosoft
+ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 1260b7754f80a3d008084f632d299c684162628e
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 7dc032d52a8cb3c5c54cf57c7ae7bf697796b5cc
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667883"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910608"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>使用 C# 建立 Azure 資料總管叢集與資料庫
 
@@ -28,7 +28,7 @@ Azure Data Explorer 是快速、完全受控的資料分析服務，可即時分
 
 ## <a name="prerequisites"></a>必要條件
 
-* 如果尚未安裝 Visual Studio 2019，您可以下載並使用**免費的** [Visual Studio 2019 Community 版本](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 **Azure 開發**。
+* 如果您尚未安裝 Visual Studio 2019，您可以下載並使用**免費**的[Visual Studio 2019 的社區版本](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 **Azure 開發**。
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="install-c-nuget"></a>安裝C# Nuget
@@ -36,7 +36,7 @@ Azure Data Explorer 是快速、完全受控的資料分析服務，可即時分
 * 安裝 [Azure 資料總管 (Kusto) NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)。
 * 安裝用來驗證的 [Microsoft.IdentityModel.Clients.ActiveDirectory NuGet 套件](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 若要執行本文中的範例，我們需要 Azure AD 應用程式和服務主體，才能存取資源。 核取 [[建立 Azure AD 應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)] 以建立免費的 Azure AD 應用程式，並在訂用帳戶範圍中新增角色指派。 它也會說明如何取得 `Directory (tenant) ID`、`Application ID`和 `Client Secret`。
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>建立 Azure 資料總管叢集
@@ -74,8 +74,8 @@ Azure Data Explorer 是快速、完全受控的資料分析服務，可即時分
    |---|---|---|
    | clusterName | *mykustocluster* | 所需的叢集名稱。|
    | skuName | *Standard_D13_v2* | 將用於叢集的 SKU。 |
-   | tier | *標準* | SKU 層。 |
-   | 存儲 | *number* | 叢集的實例數目。 |
+   | tier | *Standard* | SKU 層。 |
+   | 處理能力 | *number* | 叢集的實例數目。 |
    | resourceGroupName | *testrg* | 將在其中建立叢集的資源群組名稱。 |
 
     > [!NOTE]

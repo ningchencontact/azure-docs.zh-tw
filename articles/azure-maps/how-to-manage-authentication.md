@@ -1,6 +1,6 @@
 ---
-title: 管理 Azure 地圖服務中的驗證 | Microsoft Docs
-description: 您可以使用 Azure 入口網站來管理 Azure 地圖服務中的驗證。
+title: 管理驗證 |Microsoft Azure 對應
+description: 您可以使用 Azure 入口網站來管理 Microsoft Azure 對應中的驗證。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/24/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: b44b48b504fc080971a2797b89026e14be5cdd17
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1a38c970f3c9fa5b90032f5816f8e541b305531c
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433000"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911556"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>管理 Azure 地圖服務中的驗證
 

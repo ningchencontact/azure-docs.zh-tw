@@ -91,6 +91,8 @@
       items:
         - name: 記錄資料
           href: platform/data-security.md
+        - name: 客戶管理的金鑰
+          href: platform/customer-managed-keys.md
         - name: 個人記錄檔資料處理
           href: platform/personal-data-mgmt.md
         - name: 應用程式資料收集、保留和儲存

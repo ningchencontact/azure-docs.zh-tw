@@ -1,6 +1,6 @@
 ---
-title: 選擇 Azure 地圖服務的正確定價層 | Microsoft Docs
-description: 深入了解 Azure 地圖服務提供的定價層
+title: 選擇正確的定價層 |Microsoft Azure 對應
+description: 在本文中，您將瞭解 Microsoft Azure Maps 所提供的定價層。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 01/02/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 1bf60014b20f4cec29d661db4deb029fea4ab1d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ff774f9848db948058075a98504e6c13db5467a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60796303"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911757"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>在 Azure 地圖服務中選擇正確的定價層
 
@@ -29,10 +29,10 @@ S0 和 S1 定價層會處理不同的資料輸送量。 選擇 Azure 地圖服�
 
 | 功能                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
-| 搜尋 （在 快轉/反轉地理編碼，感興趣的點）  |        ✓           |     ✓    |
+| 搜尋（fwd/rev 地理編碼，相關點）  |        ✓           |     ✓    |
 | 批次地理編碼 (預覽)              |                   |     ✓    |
 | 透過搜尋繪製多邊形          |                   |     ✓    |
-| 路由                                 |        ✓           |     ✓    |
+| 路線規劃                                 |        ✓           |     ✓    |
 | 路線範圍                    |                   |     ✓    |
 | 批次路線規劃 (預覽)                |                   |     ✓    |
 | 矩陣路線規劃 (預覽)               |                   |     ✓    |
@@ -55,7 +55,7 @@ S0 和 S1 定價層會處理不同的資料輸送量。 選擇 Azure 地圖服�
 
 ### <a name="pricing-tier-targeted-customers"></a>定價層的目標客戶
 
-| 定價層  |     目標客戶                                                                |
+| 價格層  |     目標客戶                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
 | S0            |    <p>S0 定價層適用於中小型企業的客戶。 如果您預期不會有大量的並行使用者，則此為適合您的定價層。 如果上表中所顯示的核心地理空間 API 符合您的地理需求，則這也適合您。 此層級已正式推出， 而且適用於所有生產階段中的應用程式，從概念證明開發和測試早期階段到應用程式的生產和部署皆適用。<p>|
 | S1            |    <p>S1 定價層適用於需要大型企業、任務關鍵性應用程式支援，或並行使用者人數眾多， 也適用於需要進階地理空間服務的客戶。</p>|

@@ -1,6 +1,6 @@
 ---
-title: 如何在 Azure 地圖服務中的點陣地圖上轉譯自訂資料 |Microsoft Docs
-description: 在本文中，您將瞭解如何使用 Azure 地圖服務靜態影像服務，在點陣地圖上轉譯自訂資料。
+title: 在點陣地圖上轉譯自訂資料 |Microsoft Azure 對應
+description: 在本文中，您將瞭解如何使用 Microsoft Azure 地圖靜態影像服務，在點陣地圖上轉譯自訂資料。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b77cb73f08852768d10de8c76cde5e299f0776c2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c052ae1f7bab902dcd22b3cc081907468874b35c
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408907"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911461"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>在點陣地圖上轉譯自訂資料
 

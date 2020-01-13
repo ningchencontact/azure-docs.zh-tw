@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 地圖服務中的 [繪圖工具] 模組 |Microsoft Docs
-description: 如何使用 Azure 地圖服務 Web SDK 來設定繪圖選項資料
+title: 繪圖工具模組 |Microsoft Azure 對應
+description: 在本文中，您將瞭解如何使用 Microsoft Azure Maps Web SDK 來設定繪圖選項資料
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/04/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0ac9bc775798a14e6431718bc602d8ff41288c10
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2f23d4d7962fc4a01ac2f9d20dc834bcd2f08be5
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408158"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910592"
 ---
 # <a name="use-the-drawing-tools-module"></a>使用繪圖工具模組
 

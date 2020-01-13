@@ -1,6 +1,6 @@
 ---
-title: Azure 地圖服務中的交通涵蓋範圍 | Microsoft Docs
-description: 了解 Azure 地圖服務中的交通涵蓋範圍
+title: 流量涵蓋範圍 |Microsoft Azure 對應
+description: 在本文中，您將瞭解 Microsoft Azure 對應中的流量涵蓋範圍。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/22/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cb7ebe5d9519f1a3967a29f4c883c420a892817f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 544cae7f33bfb1077bfdf7f215fb313974334216
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958009"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910391"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure 地圖服務交通涵蓋範圍
 
@@ -23,7 +23,7 @@ Azure 地圖服務會以交通**流量**和**事件**的形式提供豐富的交
 
 ## <a name="americas"></a>美洲
 
-|國家/區域  |事故  |Flow  |
+|國家/地區  |事故  |流程  |
 |---------|:---------:|:---------:|
 |阿根廷      |✓         |✓         |
 |巴西     |✓         |✓         |
@@ -31,7 +31,7 @@ Azure 地圖服務會以交通**流量**和**事件**的形式提供豐富的交
 |智利     |✓         |✓         |
 |哥倫比亞      |✓         |✓         |
 |墨西哥     |✓         |✓         |
-|祕魯       |✓         |✓         | 
+|秘魯       |✓         |✓         | 
 |美國     |✓         |✓        |
 |+波多黎各     |✓         |✓         |
 |烏拉圭 |✓         |✓         |
@@ -39,9 +39,9 @@ Azure 地圖服務會以交通**流量**和**事件**的形式提供豐富的交
 
 ## <a name="asia-pacific"></a>亞太地區
 
-|國家/區域   |事故  |Flow  |
+|國家/地區   |事故  |流程  |
 |---------|:---------:|:---------:|
-|澳大利亞     |✓         |✓        |
+|澳洲     |✓         |✓        |
 |汶萊   |✓         |✓        |
 |香港特別行政區     |✓         |✓         |
 |印度   |✓         |✓         |
@@ -58,7 +58,7 @@ Azure 地圖服務會以交通**流量**和**事件**的形式提供豐富的交
 
 ## <a name="europe"></a>歐洲
 
-|國家/區域   |事故  |Flow  |
+|國家/地區   |事故  |流程  |
 |---------|:---------:|:---------:|
 |安道爾   |✓         |✓         |
 |奧地利     |✓         |✓         |
@@ -116,7 +116,7 @@ Azure 地圖服務會以交通**流量**和**事件**的形式提供豐富的交
 
 ## <a name="middle-east-and-africa"></a>中東與非洲
 
-|國家/區域 |事故  |Flow  |
+|國家/地區 |事故  |流程  |
 |---------|:---------:|:---------:|
 |巴林     |✓         |✓         |
 |埃及     |✓         |✓         |

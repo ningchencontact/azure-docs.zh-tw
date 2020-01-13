@@ -1,6 +1,6 @@
 ---
-title: Azure 地圖服務中的 Android 地圖控制項使用者入門 |Microsoft Docs
-description: Azure 地圖服務中的 Android 地圖控制項。
+title: Android 地圖控制項使用者入門 |Microsoft Azure 對應
+description: 在本文中，您將瞭解如何使用 Microsoft Azure Maps Android SDK 開始使用 Android 地圖控制項。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cb79b24a37758307657c1245622fa980123cc5c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb9dc16eabbd6065e05d26258c1421aa7a46dbd7
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432926"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911403"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure 地圖服務 Android SDK 入門
 
@@ -43,7 +43,7 @@ Azure 地圖服務 Android SDK 是適用于 Android 的向量地圖程式庫。 
 
 如需安裝 Android Studio 和建立新專案的詳細說明，請參閱[Android Studio 檔](https://developer.android.com/studio/intro/)。
 
-![建立專案](./media/how-to-use-android-map-control-library/form-factor-android.png)
+![在 Android studio 中建立專案 ](./media/how-to-use-android-map-control-library/form-factor-android.png)
 
 ## <a name="set-up-a-virtual-device"></a>設定虛擬裝置
 
@@ -217,7 +217,7 @@ Android Studio 需要幾秒鐘的時間來建立應用程式。 組建完成之�
 
 <center>
 
-![Android 地圖](./media/how-to-use-android-map-control-library/android-map.png)</center>
+Android 應用程式中的 ![Azure 地圖服務](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
 ## <a name="localizing-the-map"></a>當地語系化對應
 
@@ -263,8 +263,8 @@ mapControl.onReady(map -> {
 
 <center>
 
-以法文](./media/how-to-use-android-map-control-library/android-localization.png)
-顯示標籤的 ![地圖影像 </center>
+![Azure 地圖服務，以法文](./media/how-to-use-android-map-control-library/android-localization.png)
+顯示標籤的地圖影像 </center>
 
 支援的語言和區域觀點的完整清單記載于[此處](supported-languages.md)。
 

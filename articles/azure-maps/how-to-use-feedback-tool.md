@@ -1,6 +1,6 @@
 ---
-title: 如何提供資料意見反應給 Azure 地圖服務 |Microsoft Docs
-description: 使用 Azure 地圖服務意見反應工具提供資料意見反應。
+title: 提供 Azure 地圖服務的資料意見反應 |Microsoft Azure 對應
+description: 使用 Microsoft Azure Maps 意見反應工具來提供資料意見反應。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/19/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 28c463204080296e431edb3c30b4fdd66f07a189
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 59670742586f596a817ad52383160a38358a6786
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776587"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911391"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>提供資料意見反應給 Azure 地圖服務
 
@@ -50,11 +50,11 @@ Azure 地圖服務自2018年5月起正式推出，提供最新的地圖資料、
 
   ![移動釘選位置](./media/how-to-use-feedback-tool/move-pin.png)
 
-## <a name="add-a-comment"></a>新增批註 
+## <a name="add-a-comment"></a>加入註解 
 
 除了可讓您搜尋位置之外，意見反應工具也可讓您新增自由格式文字批註，以取得與位置相關的詳細資料。 若要新增位置的批註搜尋，或按一下位置，然後按一下 [新增批註]，書寫批註，然後按一下 [提交]。 
 
-  ![新增批註](./media/how-to-use-feedback-tool/add-comment.png)
+  ![加入註解](./media/how-to-use-feedback-tool/add-comment.png)
 
 ## <a name="track-status"></a>追蹤狀態 
 
