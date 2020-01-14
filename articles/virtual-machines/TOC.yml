@@ -7,7 +7,17 @@
 - name: VM 延伸模組文件
   href: ./extensions/overview.md
 - name: 工作負載
-  href: ./workloads/workloads.md
+  items:
+    - name: Red Hat
+      href: /redhat/redhat-overview.md
+    - name: 高效能運算
+      href: /hpc/overview.md
+    - name: SAP
+      href: /sap/get-started.md
+    - name: Oracle
+      href: /oracle/oracle-considerations.md
+    - name: 大型主機重新裝載
+      href: /mainframe-rehosting/overview.md
 - name: 傳統部署
   items:
     - name: 使用傳統部署的 Linux VM
