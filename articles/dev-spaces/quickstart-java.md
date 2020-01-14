@@ -3,15 +3,15 @@ title: 在 Kubernetes 上偵錯和逐一查看：Visual Studio Code 和 Java
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: 在 Azure 上使用容器、微服務和 Java 快速進行 Kubernetes 開發
+description: 本快速入門說明如何使用 Azure Dev Spaces 和 Visual Studio Code 對 Azure Kubernetes Service 上的 Java 應用程式進行偵錯和快速反覆運算
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Java, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 5f0f9991ae8718b60221c3f291b6169f677b59c5
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8050e7793146456894ce86ab89e1563c6282b8df
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325620"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438279"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>快速入門：使用 Visual Studio Code 和 Java 在 Kubernetes 上偵錯和逐一查看 - Azure Dev Spaces
 
@@ -26,7 +26,7 @@ Azure Dev Spaces 也可讓您使用下列工具進行偵錯和逐一查看：
 - [.NET Core 和 Visual Studio Code](quickstart-netcore.md)
 - [.NET Core 和 Visual Studio](quickstart-netcore-visualstudio.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 訂用帳戶。 如果您沒有帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
 - [已安裝 Visual Studio Code](https://code.visualstudio.com/download)。
@@ -115,7 +115,7 @@ git clone https://github.com/Azure/dev-spaces
 
 ## <a name="update-code"></a>更新程式碼
 
-若要部署更新過的服務版本，您可以在專案中更新任何檔案，然後重新執行「啟動 Java 程式 (AZDS)」  。 例如︰
+若要部署更新過的服務版本，您可以在專案中更新任何檔案，然後重新執行「啟動 Java 程式 (AZDS)」  。 例如：
 
 1. 如果您的應用程式仍在執行中，請按一下 [偵錯]  ，然後按遺下 [停止偵錯]  來停止它。
 1. 將 [`src/main/java/com/ms/sample/webfrontend/Application.java` 中的第 19 行](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) \(英文\) 更新為：
@@ -143,7 +143,7 @@ git clone https://github.com/Azure/dev-spaces
 
 ## <a name="update-code-from-visual-studio-code"></a>從 Visual Studio Code 更新程式碼
 
-在服務以偵錯模式執行時，更新 `src/main/java/com/ms/sample/webfrontend/Application.java` 中的第 19 行。 例如︰
+在服務以偵錯模式執行時，更新 `src/main/java/com/ms/sample/webfrontend/Application.java` 中的第 19 行。 例如：
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 12311fa476d069d2c866fac82ed2bac25ce88ef4
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: a48fb82402cd4719cb210ec2dab55b3a0f7883ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72758347"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441627"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>適用於 MongoDB (3.6 版) 的 Azure Cosmos DB API：支援的功能和語法
 
@@ -35,7 +35,7 @@ Azure Cosmos DB 適用於 MongoDB 的 API 支援下列資料庫命令：
 ### <a name="query-and-write-operation-commands"></a>查詢和寫入作業命令
 
 - delete
-- find
+- 尋找
 - findAndModify
 - getLastError
 - getMore
@@ -54,7 +54,7 @@ Azure Cosmos DB 適用於 MongoDB 的 API 支援下列資料庫命令：
 - listDatabases
 - listCollections
 - drop
-- create
+- 建立
 - filemd5
 - createIndexes
 - listIndexes
@@ -78,7 +78,7 @@ Azure Cosmos DB 適用於 MongoDB 的 API 支援下列資料庫命令：
 
 ### <a name="aggregation-commands"></a>彙總命令
 
-- aggregate
+- 彙總 (aggregate)
 - count
 - distinct
 
@@ -200,7 +200,7 @@ Cosmos DB 支援所有 MongoDB 3.6 累加器，但不包含：
 - $stdDevPop
 - $stdDevSamp
 
-## <a name="operators"></a>運算子
+## <a name="operators"></a>操作員
 
 下列運算子可透過其相對應用法範例支援使用。 請將下列查詢中使用的此範例文件列入考量：
 
@@ -295,7 +295,7 @@ $maxDistance | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxD
 $center | ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }``` | 是 |
 $centerSphere | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | 是 |
 $box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | 是 |
-$polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | yes |
+$polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 是 |
 
 ## <a name="sort-operations"></a>排序作業
 
@@ -355,6 +355,7 @@ Azure Cosmos DB 尚不支援伺服器端的工作階段命令。
 
 ## <a name="next-steps"></a>後續步驟
 
+- 如需詳細資訊，請參閱 [Mongo 3.6 版功能](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)
 - 了解如何[使用 Studio 3T](mongodb-mongochef.md) 搭配 Azure Cosmos DB 適用於 MongoDB 的 API。
 - 了解如何[使用 Robo 3T](mongodb-robomongo.md) 搭配 Azure Cosmos DB 適用於 MongoDB 的 API。
 - 使用 Azure Cosmos DB 適用於 MongoDB 的 API 瀏覽 Cosmos DB [範例](mongodb-samples.md)。

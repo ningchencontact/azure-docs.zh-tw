@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 62005546c653796773083eaf625820ab532a8a2c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 2998c67bf00c74422baa19af0b389118600ba1c7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107107"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407839"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>教學課程：使用 Azure 地圖服務設定地理柵欄
 
-本教學課程會引導您完成使用 Azure 地圖服務來設定地理柵欄的基本步驟。 我們在本教學課程中所講解的，是協助建築工地主任監視是否有潛在的危險設備移到指定建築區域外的案例。 建築工地會有昂貴的設備，且有嚴格的規範。 一般都會要求設備必須留置於建築工地內，未經許可不得移出。
+本教學課程會逐步引導您完成使用「Azure 地圖服務」來設定地理柵欄的基本步驟。 我們在本教學課程中所講解的，是協助建築工地主任監視是否有潛在的危險設備移到指定建築區域外的案例。 建築工地會有昂貴的設備，且有嚴格的規範。 一般都會要求設備必須留置於建築工地內，未經許可不得移出。
 
 我們將使用 Azure 地圖服務的 Data Upload API 儲存地理柵欄，並使用 Azure 地圖服務的地理柵欄 API 來檢查設備與地理柵欄的相對位置。 我們將使用 Azure 事件方格來串流地理柵欄結果，並設定以地理柵欄結果為基礎的通知。
 若要深入了解事件方格，請參閱 [Azure 事件方格](https://docs.microsoft.com/azure/event-grid/overview)。
@@ -32,11 +32,11 @@ ms.locfileid: "74107107"
 > *   使用 Azure 地圖服務的地理柵欄服務 API 來追蹤某項建構資產是否位於建築工地內。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="create-an-azure-maps-account"></a>建立 Azure 地圖服務帳戶 
 
-若要完成此教學課程中的步驟，請遵循[管理帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) \(部分機器翻譯\) 中的指示，建立使用 S1 定價層的 Azure 地圖服務帳戶訂用帳戶，並遵循[取得主要金鑰](./tutorial-search-location.md#getkey)中的步驟來取得適用於您帳戶的主要訂用帳戶金鑰。
+若要完成此教學課程中的步驟，請遵循[建立帳戶](quick-demo-map-app.md#create-an-account-with-azure-maps)中的指示，建立使用 S1 定價層的 Azure 地圖服務帳戶訂用帳戶，並遵循[取得主要金鑰](quick-demo-map-app.md#get-the-primary-key-for-your-account)中的步驟來取得適用於您帳戶的主要金鑰。 如需 Azure 地圖服務中驗證的詳細資訊，請參閱[管理 Azure 地圖服務中的驗證](./how-to-manage-authentication.md)。
 
 ## <a name="upload-geofences"></a>上傳地理柵欄
 
@@ -56,7 +56,7 @@ ms.locfileid: "74107107"
     
     URL 路徑中的 GEOJSON 參數代表上傳資料的資料格式。
 
-3. 按一下 [Params]  (參數)，然後輸入下列金鑰/值組用於 POST 要求 URL。 將 subscription-key 值取代為您的 Azure 地圖服務主要訂用帳戶金鑰。
+3. 按一下 [Params]  (參數)，然後輸入下列金鑰/值組用於 POST 要求 URL。 將 subscription-key 值取代為您的 Azure 地圖服務金鑰。
    
     ![金鑰-值參數 Postman](./media/tutorial-geofence/postman-key-vals.png)
 

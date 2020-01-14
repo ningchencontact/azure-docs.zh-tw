@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 指令碼範例 - 在 Batch 中加入應用程式 | Microsoft Docs
-description: Azure CLI 指令碼範例 - 在 Batch 中加入應用程式
+title: Azure CLI 指令碼範例 - 在 Batch 中加入應用程式
+description: 此範例指令碼示範如何新增應用程式，以搭配 Azure Batch 集區或工作使用。
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
-ms.openlocfilehash: ba7f64910e033751df7d158a6fddf36371f2933f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 9c580fa7ed4834ca516d373b3c7bb47f4cfd1b38
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322251"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390455"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI 範例：將應用程式新增到 Azure Batch 帳戶
 
@@ -46,7 +46,7 @@ az group delete --name myResourceGroup
 此指令碼會使用下列命令。
 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 建立儲存體帳戶。 |

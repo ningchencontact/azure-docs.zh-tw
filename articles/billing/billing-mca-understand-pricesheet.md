@@ -1,5 +1,5 @@
 ---
-title: 了解您 Microsoft 客戶合約價位表中的詞彙 - Azure
+title: 您 Microsoft 客戶合約價位表中的詞彙 - Azure
 description: 學習如何閱讀並了解 Microsoft 客戶合約的使用量和帳單。
 author: bandersmsft
 manager: jureid
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: banders
-ms.openlocfilehash: 1e7e698bede44ddb3fe701c50f69164b03fe13d8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f4285b8185b2df2694f399f6bcb6751c1e9c6650
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223777"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449343"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>您 Microsoft 客戶合約價位表中的詞彙
 
-本文適用於 Microsoft 客戶合約的 Azure 計費帳戶。 [請確認您是否有 Microsoft 客戶合約的存取權](#check-access-to-a-microsoft-customer-agreement)。
+本文適用於 Microsoft 客戶合約的 Azure 計費帳戶。 請[確認您是否有 Microsoft 客戶合約的存取權](#check-access-to-a-microsoft-customer-agreement)。
 
 如果您是帳單設定檔的擁有者、參與者、讀者或發票管理員，則可以從 Azure 入口網站下載組織的價位表。 請參閱[檢視及下載組織的定價](billing-ea-pricing.md)。
 
@@ -54,7 +54,7 @@ ms.locfileid: "74223777"
 | serviceFamily  | Azure 服務的類型。例如：計算、分析、安全性 |
 | tierMinimumUnits  | 定義已定義價格之階層範圍的下限。 例如，如果範圍是 0 到 100，則 tierMinimumUnits 會是 0。  |
 | unitOfMeasure  | 識別服務的計費測量單位。 例如，計算服務會依小時計費。 |
-| unitPrice  | 計費時與計量和產品訂單名稱相關的每單位價格 (不是有效混合價格)。  注意：如果服務在各層之間的價格有所差異，則單位價格與使用量詳細資料下載中的有效價格會不相同。  如果服務採用多層式定價，則有效價格會是各層間的混合費率，而不會顯示特定層的單位價格。 混合價格或有效價格是跨多層之取用數量的淨價格 (每一層都有特定的單位價格)。 |
+| unitPrice  | 計費時與計量和產品訂單名稱相關的每單位價格 (不是有效混合價格)。  注意:如果服務在各層之間的價格有所差異，則單位價格與使用量詳細資料下載中的有效價格會不相同。  如果服務採用多層式定價，則有效價格會是各層間的混合費率，而不會顯示特定層的單位價格。 混合價格或有效價格是跨多層之取用數量的淨價格 (每一層都有特定的單位價格)。 |
 
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查 Microsoft 客戶合約的存取

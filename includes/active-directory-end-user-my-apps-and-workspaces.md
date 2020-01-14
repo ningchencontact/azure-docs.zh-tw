@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/10/2019
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: 70b886286980c065379678ba21ab21e02d0e2bbb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f2e76229673033ab001c5499739090a7c435ef8a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180741"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467930"
 ---
 | |
 |--|
-|如果您在畫面上看到的內容，不符合本文所說明的內容，表示您的系統管理員尚未開啟這項**我的應用程式** (預覽) 新體驗。 若要使用舊版體驗，您必須依照[我的應用程式入口網站](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-overview)一節中的指示和資訊進行。|
-| |
+|如果系統管理員已為組織開啟新的**我的應用程式**預覽版體驗，您現在會在 [我的應用程式]  頁面頂端看到一個橫幅，其內容指出**有已更新的我的應用程式體驗可供使用**。 如果您選取 [試用]  ，則會立即前往新的 URL (myapplications.microsoft.com) 和已更新的體驗。 之後，每當您返回 [我的應用程式]  頁面時，就會自動前往新的體驗。<br><br>若要停止使用新的體驗，您可以從新的 [我的應用程式]  頁面頂端的 [離開新體驗]  橫幅選取 [是]  。 您會立即回到舊的 URL (myapps.microsoft.com) 和體驗。 之後，每當您返回 [我的應用程式]  頁面時，就會自動前往舊的體驗。|
+|

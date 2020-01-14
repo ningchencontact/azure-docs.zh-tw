@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: a8cc368b2949d9a65034ee4f989b8603dfa01027
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/30/2019
+ms.openlocfilehash: cffd94459e3a18567f2ff2f6b8fca35598cb5eed
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533948"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563444"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Azure 認知搜尋知識存放區
 
@@ -22,9 +22,9 @@ ms.locfileid: "74533948"
 
 知識存放區是 Azure 認知搜尋的一項功能，可保存認知技能管線的輸出，以進行後續的分析或其他下游處理。 
 
-管線會接受影像和非結構化文字作為原始內容、透過認知服務 (例如影像和自然語言處理) 套用 AI，並建立擴充的內容 (新的結構和資訊) 作為輸出。 管線所建立的其中一個實體成品是[知識存放區](knowledge-store-concept-intro.md)，您可以透過工具存取加以存取，以分析和探索內容。
+管線會接受非結構化文字和影像作為原始內容、透過認知服務 (例如 OCR、影像分析和自然語言處理) 來套用 AI、擷取資訊，並輸出新的結構和資訊。 管線所建立的其中一個實體成品是[知識存放區](knowledge-store-concept-intro.md)，您可以透過工具存取加以存取，以分析和探索內容。
 
-在本快速入門中，您將結合 Azure 雲端中的服務和資料以建立知識存放區。 一切都備妥之後，您即可在入口網站中執行**匯入資料**精靈，以將其全部提取。 最終結果是原始內容和 AI 產生的內容，而您可以在入口網站 ([儲存體總管](knowledge-store-view-storage-explorer.md)) 中加以檢視。
+在本快速入門中，您將結合 Azure 雲端中的服務和資料以建立知識存放區。 一切都備妥之後，您即可在入口網站中執行**匯入資料**精靈，以將其全部提取。 最終結果是原始文字內容和 AI 產生的內容，而您可以在入口網站 ([儲存體總管](knowledge-store-view-storage-explorer.md)) 中加以檢視。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -38,13 +38,9 @@ ms.locfileid: "74533948"
 
 1. [建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)，或在您目前的訂用帳戶下方[尋找現有帳戶](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/)。 您會將 Azure 儲存體同時用於要匯入的原始內容，以及作為最終結果的知識存放區。
 
-   此帳戶有兩個需求：
+   選擇 **StorageV2 (一般用途 V2)** 帳戶類型。
 
-   + 選擇與 Azure 認知搜尋相同的區域。 
-   
-   + 選擇 StorageV2 (一般用途 V2) 帳戶類型。 
-
-1. 開啟 Blob 服務頁面，並建立容器。  
+1. 開啟 Blob 服務頁面，並建立名為 *hotel-reviews* 的容器。
 
 1. 按一下 [上傳]  。
 
@@ -54,9 +50,9 @@ ms.locfileid: "74533948"
 
     ![建立 Azure Blob 容器](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "建立 Azure Blob 容器")
 
-<!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. Get a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
+1. 這項資源的作業即將完成，但在離開這些頁面之前，請使用左側導覽窗格上的連結開啟 [存取金鑰]  頁面。 取得連接字串以從 Blob 儲存體中擷取資料。 連接字串會如下列範例所示：`DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
-1. [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
+1. 同樣在入口網站中，切換至 [Azure 認知搜尋]。 [建立新的服務](search-create-service-portal.md)或[尋找現有的服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
 
 現在您已準備就緒，可移至「匯入資料」精靈。
 
@@ -66,22 +62,23 @@ ms.locfileid: "74533948"
 
   ![匯入資料命令](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
-### <a name="step-1-create-a-data-source"></a>步驟 1：建立資料來源
+### <a name="step-1-create-a-data-source"></a>步驟 1:建立資料來源
 
 1. 在 [連線到您的資料]  中，選擇 [Azure Blob 儲存體]  ，選取您建立的帳戶和容器。 
 1. 針對 [名稱]  輸入 `hotel-reviews-ds`。
 1. 針對 [剖析模式]  ，選取 [分隔的文字]  ，然後選取 [第一行包含標頭]  核取方塊。 請確定 [分隔符號字元]  是逗號 (,)。
-1. 輸入您在上一個步驟中儲存的儲存體服務**連接字串**。
-1. 針對 [容器名稱]  輸入 `hotel-reviews`。
-1. 按一下 **下一步新增 AI 擴充 (選擇性)** 。
+1. 在 [連接字串]  中，貼上您從 Azure 儲存體中的 [存取金鑰]  頁面複製的連接字串。
+1. 在 [容器]  中，輸入保存資料的 Blob 容器名稱。
 
-      ![建立資料來源物件](media/knowledge-store-create-portal/hotel-reviews-ds.png "建立資料來源物件")
+    您的頁面應該會看起來如下列螢幕擷取畫面所示。
+
+    ![建立資料來源物件](media/knowledge-store-create-portal/hotel-reviews-ds.png "建立資料來源物件")
 
 1. 繼續進行下一頁。
 
-### <a name="step-2-add-cognitive-skills"></a>步驟 2：新增認知技能
+### <a name="step-2-add-cognitive-skills"></a>步驟 2:新增認知技能
 
-在此精靈步驟中，您將建立具有認知技能擴充的技能集。 我們在此範例中使用的技能會擷取關鍵片語，並偵測語言和情感。 在後續步驟中，這些擴充將「投射」到知識存放區中作為 Azure 資料表。
+在此精靈步驟中，您將建立具有認知技能擴充的技能集。 來源資料是由數種語言的客戶評論所組成。 與此資料集相關的技能包括關鍵片語擷取、情感偵測和文字翻譯。 在後續步驟中，這些擴充將「投射」到知識存放區中作為 Azure 資料表。
 
 1. 展開 [連結認知服務]  。 預設會選取 [免費 (有限的擴充)]  。 您可以使用此資源，因為 HotelReviews-Free.csv 中的記錄筆數是 19，而此免費資源一天最多允許 20 筆交易。
 1. 展開 [新增認知技能]  。
@@ -90,7 +87,7 @@ ms.locfileid: "74533948"
 1. 針對 [擴充細微性層級]  ，選取 [頁面 (5000 個字元區塊)]  。
 1. 選取這些認知技能：
     + **擷取關鍵片語**
-    + **偵測語言**
+    + **翻譯文字**
     + **偵測情感**
 
       ![建立技能集](media/knowledge-store-create-portal/hotel-reviews-ss.png "建立技能集")
@@ -104,6 +101,8 @@ ms.locfileid: "74533948"
 
     ![設定知識存放區](media/knowledge-store-create-portal/hotel-reviews-ks.png "設定知識存放區")
 
+1. (選擇性) 下載 Power BI 範本。 當您從精靈存取範本時，本機 .pbit 檔案會進行調整以反映您的資料圖形。
+
 1. 繼續進行下一頁。
 
 ### <a name="step-3-configure-the-index"></a>步驟 3：設定索引
@@ -111,10 +110,7 @@ ms.locfileid: "74533948"
 在此精靈步驟中，您會設定用於選擇性全文檢索搜尋查詢的索引。 此精靈會取樣您的資料來源，以推斷欄位和資料類型。 您只需要選取所需行為的屬性。 例如，[可擷取]  屬性會允許搜尋服務傳回欄位值，而 [可搜尋]  會啟用欄位的全文檢索搜尋。
 
 1. 針對 [索引名稱]  輸入 `hotel-reviews-idx`。
-1. 針對屬性，請進行下列選擇：
-    + 針對所有欄位選取 [可取得]  。
-    + 針對這些欄位選取 [可篩選]  和 [可 Facet]  ：情感  、語言  、關鍵片語 
-    + 針對下列欄位選取 [可搜尋] ***：city*** 、name  、reviews_text  、language  、Keyphrases 
+1. 接受屬性的預設選取項目：[可擷取]  和 [可搜尋]  適用於管線所建立的新欄位。
 
     您的索引應該會看起來如下圖。 因為此清單很長，所以並非所有欄位都會顯示在影像中。
 

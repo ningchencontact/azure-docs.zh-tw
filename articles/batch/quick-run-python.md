@@ -1,6 +1,6 @@
 ---
 title: 快速入門：執行 Azure Batch 作業 - Python API
-description: 使用 Batch Python 用戶端程式庫快速執行 Batch 作業和工作。
+description: 使用 Batch Python 用戶端程式庫快速執行 Azure Batch 範例作業和工作。 了解 Batch 服務的重要概念。
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -12,12 +12,12 @@ ms.author: lahugh
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: 6c9690a74e8dff9978fa4e07883738d062238121
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ab628ebe81592e7d5b2e6c79de5a62b368ee772d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72437391"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390227"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>快速入門：使用 Python API 執行您的第一個 Batch 作業
 
@@ -29,7 +29,7 @@ ms.locfileid: "72437391"
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python 2.7 或 3.3 版或更新版本](https://www.python.org/downloads/)
 
@@ -39,7 +39,7 @@ ms.locfileid: "72437391"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
@@ -59,7 +59,7 @@ git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 pip install -r requirements.txt
 ```
 
-開啟檔案 `config.py`。 使用您為帳戶取得的值來更新 Batch 和儲存體帳戶認證字串。 例如︰
+開啟檔案 `config.py`。 使用您為帳戶取得的值來更新 Batch 和儲存體帳戶認證字串。 例如：
 
 ```Python
 _BATCH_ACCOUNT_NAME = 'mybatchaccount'

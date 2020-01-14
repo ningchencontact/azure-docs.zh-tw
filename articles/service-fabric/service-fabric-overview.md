@@ -1,26 +1,15 @@
 ---
-title: Azure 上的 Service Fabric 概觀 | Microsoft Docs
+title: Azure 上的 Service Fabric 概觀
 description: 組成多個微服務以提供調整和恢復功能的 Service Fabric 概觀。 Service Fabric 是一種分散式系統平台，用來建置可調整、可靠且輕鬆管理的雲端應用程式。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider
-ms.assetid: bbcc652a-a790-4bc4-926b-e8cd966587c0
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: overview
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 0226c9f1b90495cdfd47a5c5c7a415a36761753d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: a9b8c2051322a7d99af7359c31cb6c77f53d4b1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901601"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466296"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric 概觀
 Azure Service Fabric 是一個分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務與容器。 Service Fabric 也解決了開發及管理雲端原生應用程式時所面臨的重大挑戰。 開發人員與管理員能夠避免複雜的基礎結構問題，專注於實作關鍵且嚴格要求之可調整、可信賴且可管理的工作負載。 Service Fabric 代表新一代的平台，可用於建置及管理這些在容器中執行的企業級、第一層雲端級別應用程式。
@@ -32,13 +21,13 @@ Azure Service Fabric 是一個分散式系統平台，可讓您輕鬆封裝、�
 Azure Service Fabric 資源提供者可在所有 Azure 區域中使用，並且會符合 Azure 所具有的所有合規性憑證，這包括下列項目：SOC、ISO、PCI DSS、HIPAA 及 GDPR。 請檢閱下列內容以取得合規性憑證的完整清單：[合規性供應項目](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>由微服務組成的應用程式 
-Service Fabric 可讓您建置及管理由微服務組成的應用程式，這類應用程式可調整且可靠，並以高密度方式在共用的機器集區 (稱為叢集) 上執行。 它提供精密、輕量的執行階段，可建置在容器中執行之分散式、可調整的無狀態和具狀態微服務。 此外，還提供完整的應用程式管理功能，可佈建、部署、監視、升級/修補及刪除已部署的應用程式，包括容器化服務。
+Service Fabric 可讓您建置和管理由各種微服務所組成、可調整且可靠的應用程式。 這些分散式微服務會在電腦共用集區 (稱為叢集) 上以高密度方式執行。 Service Fabric 提供精密、輕量的執行階段，可支援無狀態和具狀態的微服務。 還提供完整的應用程式管理功能，以佈建、部署、監視、升級/修補及刪除已部署的應用程式。
+
+Service Fabric 是針對建立雲端原生服務量身打造而成，此類服務可視需要以小規模開始，接著擴充為包含成千上萬個機器的大規模服務。 現今的網際網路級別服務是使用微服務建立。 微服務範例包括通訊協定閘道器、使用者設定檔、購物車、清查處理、佇列和快取。
 
 Service Fabric 提供技術支援給現今許多 Microsoft 服務，包括 Azure SQL Database、Azure Cosmos DB、Cortana、Microsoft Power BI、Microsoft Intune、「Azure 事件中樞」、「Azure IoT 中樞」、Dynamics 365、「商務用 Skype」以及許多核心 Azure 服務。
 
-Service Fabric 是針對建立雲端原生服務量身打造而成，此類服務可視需要以小規模開始，接著擴充為包含成千上萬個機器的大規模服務。 現今的網際網路級別服務是使用微服務建立。 微服務範例包括通訊協定閘道器、使用者設定檔、購物車、清查處理、佇列和快取。 
-
-Service Fabric 為由微服務組成的應用程式，提供完整的執行階段與生命週期管理功能。 其將微服務裝載在容器中，這些容器部署在整個 Service Fabric 叢集之中並已啟動。 從虛擬機器改成用容器，可讓密度極為大幅地增加。 同樣地，當您從容器移至這些容器中的微服務時，也可讓密度再提升一個量級。 例如，單一 Azure SQL Database 叢集是由數百個機器所組成，這些機器執行數萬個容器，而容器總共裝載了數十萬個資料庫。 每個資料庫都是 Service Fabric 的可設定狀態微服務。 
+Service Fabric 會將微服務裝載在容器中，這些容器部署在整個 Service Fabric 叢集之中並已啟動。 從虛擬機器改成用容器，可讓密度極為大幅地增加。 同樣地，當您從容器移至這些容器中的微服務時，也可讓密度再提升一個量級。 例如，單一 Azure SQL Database 叢集是由數百個機器所組成，這些機器執行數萬個容器，而容器總共裝載了數十萬個資料庫。 每個資料庫都是 Service Fabric 的可設定狀態微服務。
 
 如需有關微服務方法的詳細資訊，請閱讀 [為何要用微服務方式建置應用程式？](service-fabric-overview-microservices.md)
 

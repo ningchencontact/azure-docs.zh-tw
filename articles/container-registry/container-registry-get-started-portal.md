@@ -4,12 +4,12 @@ description: 快速了解如何使用 Azure 入口網站在 Azure Container Regi
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c5e6de0fdb7d0e46fa9be28483fd894289baf1a3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 319fd670c8e82120ef63e94395f4d6809eeb2601
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455215"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611231"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立私人容器登錄
 
@@ -43,7 +43,7 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 
 ## <a name="log-in-to-registry"></a>登入登錄
 
-發送和提取容器映像之前，您必須登入 ACR 執行個體。 在您的作業系統中開啟命令殼層，並在 Azure CLI 中使用 [az acr login][az-acr-login] 命令。
+發送和提取容器映像之前，您必須登入 ACR 執行個體。 在您的作業系統中開啟命令殼層，並在 Azure CLI 中使用 [az acr login][az-acr-login] 命令。(請指定容器名稱即可。 不要包含 'azurecr.io')
 
 ```azurecli
 az acr login --name <acrName>

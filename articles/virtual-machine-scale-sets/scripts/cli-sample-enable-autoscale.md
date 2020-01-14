@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 範例 - 啟用主機型自動調整 | Microsoft Docs
-description: Azure CLI 範例
+title: Azure CLI 範例 - 啟用主機型自動調整
+description: 此指令碼會建立執行 Ubuntu 的虛擬機器擴展集，並在 CPU 負載變更時，使用主機型計量來進行自動調整。
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c843bed96ebd69f0fe96f8dab292d50ef025e750
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 42dd70a355d63d0fa3062a8e3439be857124a6c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657343"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351025"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>如何使用 Azure CLI 自動調整虛擬機器擴展集
 此指令碼會建立執行 Ubuntu 的虛擬機器擴展集，並在 CPU 負載變更時，使用主機型計量來進行自動調整。
@@ -43,7 +43,7 @@ az group delete --name myResourceGroup
 ## <a name="script-explanation"></a>指令碼說明
 此指令碼使用下列命令來建立資源群組、虛擬機器擴展集和所有相關資源。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az group create](/cli/azure/ad/group) | 建立用來存放所有資源的資源群組。 |
 | [az vmss create](/cli/azure/vmss) | 建立虛擬機器擴展集，並將它連線到虛擬網路、子網路及網路安全性群組。 若要將流量散發到多個虛擬機器執行個體，也會建立負載平衡器。 此命令也會指定要使用的 VM 映像和管理認證。  |

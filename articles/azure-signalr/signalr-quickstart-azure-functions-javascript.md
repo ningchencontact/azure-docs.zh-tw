@@ -5,30 +5,28 @@ author: sffamily
 ms.service: signalr
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 12/14/2019
 ms.author: zhshang
-ms.openlocfilehash: fd935ffda7d16988781d5debce9333ccf2adb16f
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: eadeb0f0203868c2a1a37190fdd46e47bf26e8f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709761"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450270"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>快速入門：使用 JavaScript 搭配 Azure Functions 與 SignalR 服務來建立聊天室
 
 Azure SignalR 服務可讓您輕鬆地新增即時功能到您的應用程式。 Azure Functions 是無伺服器平台，可讓您在不需要管理任何基礎結構的情況下執行您的程式碼。 在此快速入門中，了解如何使用 SignalR 服務與 Functions 來建置無伺服器的即時聊天應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 此快速入門可以在 macOS、Windows 或 Linux 上執行。
 
 請確定您已安裝程式碼編輯器，如 [Visual Studio Code](https://code.visualstudio.com/) \(英文\)。
 
-安裝 [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing) 以在本機執行 Azure Function 應用程式。
+安裝 [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (第 2 版或更新版本)，以在本機執行 Azure Function 應用程式。
 
-Azure Functions 需要 [Node.js](https://nodejs.org/en/download/) 8 或 10 版。
-
-為了安裝延伸模組，Azure Functions Core Tools 目前需要安裝 [.NET Core SDK](https://www.microsoft.com/net/download)。 不過，建置 JavaScript Azure Function 應用程式不需要 .NET 知識。
+本快速入門使用 [Node.js](https://nodejs.org/en/download/) 10.x，但應該可與其他版本搭配運作。 如需支援的 Node.js 版本詳細資訊，請參閱 [Azure Functions 執行階段版本文件](../azure-functions/functions-versions.md#languages)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -63,13 +61,7 @@ Azure Functions 需要 [Node.js](https://nodejs.org/en/download/) 8 或 10 版�
     - **negotiate** - 使用 *SignalRConnectionInfo* 輸入繫結來產生並傳回有效的連線資訊。
     - **messages** - 在要求主體中接收聊天訊息，並使用 *SignalR* 輸出繫結來將訊息廣播給所有已連線的用戶端應用程式。
 
-1. 在終端機中，確定您處於 *src/chat/javascript* 資料夾中。 使用 Azure Functions Core Tools 安裝執行應用程式所需的擴充功能。
-
-    ```bash
-    func extensions install
-    ```
-
-1. 執行函式應用程式。
+1. 在終端機中，確定您處於 *src/chat/javascript* 資料夾中。 執行函式應用程式。
 
     ```bash
     func start

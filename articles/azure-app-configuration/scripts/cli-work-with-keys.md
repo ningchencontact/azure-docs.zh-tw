@@ -1,5 +1,6 @@
 ---
-title: Azure CLI 指令碼範例 - 在 Azure 應用程式設定存放區中使用索引鍵/值 | Microsoft Docs
+title: Azure CLI 指令碼範例 - 在應用程式組態存放區中使用索引鍵/值
+titleSuffix: Azure App Configuration
 description: 提供在 Azure 應用程式設定存放區中搭配使用索引鍵/值的資訊
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 11/08/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 51697aa426a638ad536390c4114df5faa18a41ef
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 366485c8c735af5689e1b2c2e63eb192218f5ce0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184877"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433567"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>在 Azure 應用程式設定存放區中搭配使用索引鍵/值
 
@@ -86,7 +87,7 @@ az appconfig kv list --name $appConfigName
 
 此指令碼會使用下列命令，在應用程式設定存放區中的索引鍵/值上進行作業。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az appconfig kv set](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-set) | 建立或更新索引鍵/值。 |
 | [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | 列出應用程式設定存放區中的索引鍵/值。 |

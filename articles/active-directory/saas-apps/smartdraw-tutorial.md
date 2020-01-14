@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 01/02/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7d4a400681113736c52046fb6aa5c04098ddda
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: fe08f1523b4b61653d89a9b3472355dd3eeaf69f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893224"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640086"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartdraw"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 SmartDraw 整合
 
@@ -33,7 +32,7 @@ ms.locfileid: "74893224"
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要開始，您需要下列項目：
 
@@ -44,13 +43,8 @@ ms.locfileid: "74893224"
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
-
-
 * SmartDraw 支援由 **SP 和 IDP** 起始的 SSO
 * SmartDraw 支援 **Just In Time** 使用者佈建
-
-> [!NOTE]
-> 此應用程式的識別碼是固定的字串值，因此一個租用戶中只能設定一個執行個體。
 
 ## <a name="adding-smartdraw-from-the-gallery"></a>從資源庫新增 SmartDraw
 
@@ -63,7 +57,6 @@ ms.locfileid: "74893224"
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **SmartDraw**。
 1. 從結果面板選取 [SmartDraw]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-smartdraw"></a>設定及測試 SmartDraw 的 Azure AD 單一登入
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 SmartDraw 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 SmartDraw 中相關使用者之間的連結關聯性。
@@ -71,10 +64,10 @@ ms.locfileid: "74893224"
 若要設定及測試與 SmartDraw 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
-    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
-    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+    * **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    * **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
 1. **[設定 SmartDraw SSO](#configure-smartdraw-sso)** - 在應用程式端設定單一登入設定。
-    1. **[建立 SmartDraw 測試使用者](#create-smartdraw-test-user)** - 在 SmartDraw 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 B.Simon 對應項目。
+    * **[建立 SmartDraw 測試使用者](#create-smartdraw-test-user)** - 在 SmartDraw 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 B.Simon 對應項目。
 1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
 ## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
@@ -87,7 +80,7 @@ ms.locfileid: "74893224"
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [ **基本 SAML 組態**]  區段上，已預先以  **IDP**  起始的模式設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [ **儲存**]  按鈕，才能儲存組態。
+1. 在 [基本 SAML 組態]  區段中，使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
 
 1. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 
@@ -96,9 +89,11 @@ ms.locfileid: "74893224"
     > [!NOTE]
     > [登入 URL] 的值不是真正的值。 您將會使用實際的登入 URL 來更新「登入 URL」值，稍後會在本教學課程中說明。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
+1. 按一下 [檔案]  。
+
 1. SmartDraw 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。
 
-    ![image](common/edit-attribute.png)
+    ![image](common/default-attributes.png)
 
 1. 除了上述屬性外，SmartDraw 應用程式還需要在 SAML 回應中多傳回幾個屬性，如下所示。 這些屬性也會預先填入，但您可以根據您的需求來檢閱這些屬性。
 
@@ -116,7 +111,6 @@ ms.locfileid: "74893224"
 1. 在 [安裝 SmartDraw]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
-
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -150,20 +144,28 @@ ms.locfileid: "74893224"
 
 ## <a name="configure-smartdraw-sso"></a>設定 SmartDraw SSO
 
-1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入 SmartDraw。
+1. 若要自動執行 SmartDraw 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
 
-2. 按一下 [Manage your SmartDraw License] \(管理您的 SmartDraw 授權\) 底下的 [Single Sign-On] \(單一登入\)  。
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+1. 將擴充功能新增至瀏覽器之後，按一下 [設定 SmartDraw]  便會將您導向到 SmartDraw 應用程式。 請從該處提供用以登入 SmartDraw 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 5。
+
+    ![設定組態](common/setup-sso.png)
+
+1. 如果您想要手動設定 SmartDraw，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 SmartDraw 公司網站，然後執行下列步驟：
+
+1. 按一下 [Manage your SmartDraw License] \(管理您的 SmartDraw 授權\) 底下的 [Single Sign-On] \(單一登入\)  。
 
     ![SmartDraw 設定](./media/smartdraw-tutorial/configure01.png)
 
-3. 在 [Configuration] \(設定\) 頁面上，執行下列步驟：
+1. 在 [Configuration] \(設定\) 頁面上，執行下列步驟：
 
     ![SmartDraw 設定](./media/smartdraw-tutorial/configure02.png)
 
     a. 在 [Your Domain (like acme.com)] \(您的網域 (例如 acme.com)\)  文字方塊中，輸入您的網域。
 
     b. 複製您執行個體的 [Your SP Initiated Login Url will be] \(您 SP 起始的登入 URL 將是\)  ，然後將它貼到 Azure 入口網站上 [基本 SAML 設定]  的 [登入 URL] 文字方塊中。
-    
+
     c. 在 [Security Groups to Allow SmartDraw Access] \(要允許 SmartDraw 存取權的安全性群組\)  文字方塊中，輸入 **Everyone**。
 
     d. 在 [Your SAML Issuer Url] \(您的 SAML 簽發者 URL\)  文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
@@ -174,9 +176,9 @@ ms.locfileid: "74893224"
 
 ### <a name="create-smartdraw-test-user"></a>建立 SmartDraw 測試使用者
 
-本節會在 SmartDraw 中建立名為 Britta Simon 的使用者。 SmartDraw 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 SmartDraw 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 SmartDraw 中建立名為 B.Simon 的使用者。 SmartDraw 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 SmartDraw 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
-## <a name="test-sso"></a>測試 SSO 
+## <a name="test-sso"></a>測試 SSO
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
@@ -191,4 +193,3 @@ ms.locfileid: "74893224"
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [嘗試搭配 Azure AD 使用 SmartDraw](https://aad.portal.azure.com/)
-

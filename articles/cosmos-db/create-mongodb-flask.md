@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Cosmos DB 適用於 MongoDB 的 API 和 Python SDK 建置 Flask Web 應用程式
+title: 使用適用於 MongoDB 的 Azure Cosmos DB API 建置 Python Flask Web 應用程式
 description: 呈現 Python Flask 程式碼範例，您可使用 Azure Cosmos DB 適用於 MongoDB 的 API 進行連線及查詢。
 author: markjbrown
 ms.author: mjbrown
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 2bd8fa81d0825e604c42c54c0f789b7939206804
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 8e58d0bdaaa5e4fb4564a68b46de7887ec28336d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756945"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445483"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入門：使用 Azure Cosmos DB 適用於 MongoDB 的 API 建置 Python 應用程式
 
@@ -30,7 +30,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 此快速入門指南會使用下列 [Flask 範例](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample)，並示範如何使用 [Azure Cosmos DB 模擬器](local-emulator.md)和 Azure Cosmos DB 適用於 MongoDB 的 API 來建置簡單的待辦事項 Flask 應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 下載 [Azure Cosmos DB 模擬器](local-emulator.md)。 目前只有 Windows 支援此模擬器。 此範例示範如何搭配來自 Azure 的生產金鑰使用範例，這可以在任何平台上進行。
 

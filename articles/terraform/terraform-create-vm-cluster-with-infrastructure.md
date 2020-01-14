@@ -3,12 +3,12 @@ title: 教學課程 - 使用 Terraform 和 HCL 建立 Azure VM 叢集
 description: 使用 Terraform 和 HCL，在 Azure 中建立具有負載平衡器的 Linux 虛擬機器叢集
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: f28cbbf13015d07c9d789ed258a9e2b0582ba1da
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 1ff13f05a5be463ed7477b4bbbc3e1f977a04a75
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159261"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665362"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>教學課程：使用 Terraform 和 HCL 建立 Azure VM 叢集
 
@@ -208,7 +208,7 @@ ms.locfileid: "74159261"
       disable_password_authentication = false
     }
 
-    tags {
+    tags = {
       environment = "staging"
     }
    }
@@ -260,10 +260,10 @@ ms.locfileid: "74159261"
 - 名為 `terraform.tfvars` 的檔案
 - 使用下列模式命名的檔案：`*.auto.tfvars`
 
-不過，您的變數檔案不需要遵循上述兩項慣例中的任一個。 在此情況下，請使用 `-var-file` 參數來指定變數檔案名稱。 下列範例會說明這一點：
+不過，您的變數檔案不需要遵循上述兩項慣例中的任一個。 在此情況下，請使用 `-var-file` 參數來指定變數檔案名稱；其中的變數檔案名稱不含副檔名。 下列範例會說明這一點：
 
 ```hcl
-terraform plan -var-file <my-variables-file.tf>
+terraform plan -var-file <my-variables-file>
 ```
 
 Terraform 會判斷要達成設定檔中指定的狀態所需的動作。

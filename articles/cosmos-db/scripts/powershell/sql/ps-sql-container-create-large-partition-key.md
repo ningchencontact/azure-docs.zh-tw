@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 指令碼 - 在 Azure Cosmos 帳戶中建立具有大型分割區索引鍵的容器
+title: 此 PowerShell 指令碼用以使用大型分割索引鍵來建立 Azure Cosmos 容器
 description: Azure PowerShell 指令碼範例 - 在 Azure Cosmos 帳戶中建立具有大型分割區索引鍵的容器
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8c4d117a77afe140ba2bc803f0ac146d4c6a8182
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: ecc5e7c13d898f89bbd6b542faf69834de26e0e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178860"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444972"
 ---
 # <a name="create-a-container-with-a-large-partition-key-in-an-azure-cosmos-account-using-powershell"></a>在 Azure Cosmos 帳戶中使用 PowerShell 建立具有大型分割區索引鍵的容器
 
@@ -36,7 +36,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 |**Azure 資源**| |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 建立資源。 |

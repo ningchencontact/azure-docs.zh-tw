@@ -4,12 +4,12 @@ description: 了解如何還原磁碟，並在 Azure 中使用備份與復原服
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 9b2048d8683ba2dde00a874445eb936cfb775cf1
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f0300930d4dbfb7745f0837eb5fa9605a2e766d7
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171747"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680543"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>在 Azure 中還原磁碟並建立已復原的 VM
 
@@ -27,7 +27,7 @@ Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當�
 
 如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.18 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 本教學課程需要已使用 Azure 備份保護的 Linux VM。 若要模擬意外刪除 VM 和復原程序，您可以在復原點從磁碟建立 VM。 如果您需要已使用 Azure 備份保護的 Linux VM，請參閱[使用 CLI 在 Azure 中備份虛擬機器](quick-backup-vm-cli.md)。
 
@@ -57,7 +57,43 @@ az backup recoverypoint list \
 
 ## <a name="restore-a-vm-disk"></a>還原 VM 磁碟
 
-若要從復原點還原您的磁碟，您可以先建立 Azure 儲存體帳戶。 此儲存體帳戶用來儲存已還原的磁碟。 在其他步驟中，已還原的磁碟用來建立 VM。
+> [!IMPORTANT]
+> 強烈建議使用 Az CLI 2.0.74 版或更新版本，以取得快速還原的所有優點，包括受控磁碟還原。 使用者最好能一律使用最新版本。
+
+### <a name="managed-disk-restore"></a>受控磁碟還原
+
+如果備份的 VM 具有受控磁碟，且其目的是要從復原點還原受控磁碟，您必須先提供 Azure 儲存體帳戶。 此儲存體帳戶會用來儲存 VM 組態和部署範本，以便後續用來從還原的磁碟部署 VM。 然後，您也可以為要還原的受控磁碟提供目標資源群組。
+
+1. 若要建立儲存體帳戶，請使用 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)。 儲存體帳戶名稱必須全部小寫，並且是全域唯一的。 以自己的唯一名稱取代 *mystorageaccount*：
+
+    ```azurecli-interactive
+    az storage account create \
+        --resource-group myResourceGroup \
+        --name mystorageaccount \
+        --sku Standard_LRS
+    ```
+
+2. 使用 [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks) 從您的復原點還原磁碟。 以您在上一個命令中建立的儲存體帳戶名稱取代 *mystorageaccount*。 以您在先前 [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) 命令的輸出中取得的復原點名稱取代 *myRecoveryPointName*。 ***也請提供要將受控磁碟還原到其中的目標資源群組***。
+
+    ```azurecli-interactive
+    az backup restore restore-disks \
+        --resource-group myResourceGroup \
+        --vault-name myRecoveryServicesVault \
+        --container-name myVM \
+        --item-name myVM \
+        --storage-account mystorageaccount \
+        --rp-name myRecoveryPointName
+        --target-resource-group targetRG
+    ```
+
+> [!WARNING]
+> 若未提供目標資源群組，則受控磁碟將會以非受控磁碟的形式還原至指定的儲存體帳戶。 這對還原時間會有明顯的影響，因為還原磁碟所花費的時間完全取決於指定的儲存體帳戶。
+
+### <a name="unmanaged-disks-restore"></a>非受控磁碟還原
+
+如果備份的 VM 具有非受控磁碟，且其目的是要從復原點還原磁碟，您必須先提供 Azure 儲存體帳戶。 此儲存體帳戶會用來儲存 VM 組態和部署範本，以便後續用來從還原的磁碟部署 VM。 根據預設，非受控磁碟會還原至其原始儲存體帳戶。 如果使用者想要將所有非受控磁碟還原至單一位置，則也可以使用指定的儲存體帳戶作為這些磁碟的暫存位置。
+
+在其他步驟中，已還原的磁碟用來建立 VM。
 
 1. 若要建立儲存體帳戶，請使用 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)。 儲存體帳戶名稱必須全部小寫，並且是全域唯一的。 以自己的唯一名稱取代 *mystorageaccount*：
 
@@ -80,9 +116,22 @@ az backup recoverypoint list \
         --rp-name myRecoveryPointName
     ```
 
-## <a name="monitor-the-restore-job"></a>監視還原作業
+如前所述，非受控磁碟會還原至其原始儲存體帳戶。 這樣可以提供最理想的還原效能。 但若所有非受控磁碟都必須還原至指定的儲存體帳戶，請使用相關的旗標，如下所示。
 
-若要監視還原作業的狀態，請使用 [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list)：
+```azurecli-interactive
+    az backup restore restore-disks \
+        --resource-group myResourceGroup \
+        --vault-name myRecoveryServicesVault \
+        --container-name myVM \
+        --item-name myVM \
+        --storage-account mystorageaccount \
+        --rp-name myRecoveryPointName
+        --restore-to-staging-storage-account
+    ```
+
+## Monitor the restore job
+
+To monitor the status of restore job, use [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
 
 ```azurecli-interactive
 az backup job list \
@@ -101,65 +150,105 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-當還原作業的 [狀態]  回報 [已完成]  時，磁碟便已還原到儲存體帳戶。
-
-## <a name="convert-the-restored-disk-to-a-managed-disk"></a>將還原的磁碟轉換成受控磁碟
-
-還原作業會建立非受控磁碟。 若要從磁碟建立 VM，它必須先轉換成受控磁碟。
-
-1. 使用 [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string) 取得儲存體帳戶的連接字串。 以您的儲存體帳戶名稱取代 *mystorageaccount*，如下所示：
-
-    ```azurecli-interactive
-    export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
-        --resource-group myResourceGroup \
-        --output tsv \
-        --name mystorageaccount )
-    ```
-
-2. 您的非受控磁碟會在儲存體帳戶中保護。 下列命令可取得非受控磁碟的相關資訊，並建立名為 *uri* 的變數，當您建立受控磁碟時，該變數使用於下一個步驟。
-
-    ```azurecli-interactive
-    container=$(az storage container list --query [0].name -o tsv)
-    blob=$(az storage blob list --container-name $container --query [0].name -o tsv)
-    uri=$(az storage blob url --container-name $container --name $blob -o tsv)
-    ```
-
-3. 您現在可以使用 [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-create)，從已復原的磁碟建立受控磁碟。 上一個步驟中的 *Uri* 變數會作為受控磁碟的來源。
-
-    ```azurecli-interactive
-    az disk create \
-        --resource-group myResourceGroup \
-        --name myRestoredDisk \
-        --source $uri
-    ```
-
-4. 由於您現在有來自已還原磁碟的受控磁碟，請使用 [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-delete) 清除非受控磁碟和儲存體帳戶。 以您的儲存體帳戶名稱取代 *mystorageaccount*，如下所示：
-
-    ```azurecli-interactive
-    az storage account delete \
-        --resource-group myResourceGroup \
-        --name mystorageaccount
-    ```
+當還原作業的 [狀態]  報告 [已完成]  時，表示所需的資訊 (VM 組態和部署範本) 已還原至儲存體帳戶。
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>從還原的磁碟建立 VM
 
-最後一個步驟是從受控磁碟建立 VM。
+最後一個步驟是從還原的磁碟建立 VM。 您可以使用下載到指定儲存體帳戶的部署範本來建立 VM。
 
-1. 使用 [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create) 從受控磁碟建立 VM，如下所示：
+### <a name="fetch-the-job-details"></a>提取作業詳細資料
 
-    ```azurecli-interactive
-    az vm create \
-        --resource-group myResourceGroup \
-        --name myRestoredVM \
-        --attach-os-disk myRestoredDisk \
-        --os-type linux
-    ```
+結果工作詳細資料提供可查詢和部署的範本 URI。 使用 job show 命令，可針對觸發的還原作業取得更多詳細資料。
 
-2. 若要確認已從復原的磁碟建立 VM，請使用 [az vm list](/cli/azure/vm?view=azure-cli-latest#az-vm-list) 列出資源群組中的 VM，如下所示：
+```azurecli-interactive
+az backup job show \
+    -v myRecoveryServicesVault \
+    -g myResourceGroup \
+    -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414
+```
 
-    ```azurecli-interactive
-    az vm list --resource-group myResourceGroup --output table
-    ```
+此查詢的輸出會提供所有詳細資料，但我們只對儲存體帳戶內容感興趣。 我們可以使用 Azure CLI 的[查詢功能](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest)來提取相關的詳細資料
+
+```azurecli-interactive
+az backup job show \
+    -v myRecoveryServicesVault \
+    -g myResourceGroup \
+    -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414 \
+    --query properties.extendedInfo.propertyBag
+
+{
+  "Config Blob Container Name": "myVM-daa1931199fd4a22ae601f46d8812276",
+  "Config Blob Name": "config-myVM-1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414.json",
+  "Config Blob Uri": "https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/config-appvm8-1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json",
+  "Job Type": "Recover disks",
+  "Recovery point time ": "12/25/2019 10:07:11 PM",
+  "Target Storage Account Name": "mystorageaccount",
+  "Target resource group": "mystorageaccountRG",
+  "Template Blob Uri": "https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json"
+}
+```
+
+### <a name="fetch-the-deployment-template"></a>提取部署範本
+
+此範本位於客戶的儲存體帳戶和指定的容器下，因此無法直接存取。 我們需要完整的 URL (以及暫時的 SAS 權杖)，才能存取此範本。
+
+首先，請從作業詳細資料中擷取範本 Blob URI
+
+```azurecli-interactive
+az backup job show \
+    -v myRecoveryServicesVault \
+    -g myResourceGroup \
+    -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414 \
+    --query properties.extendedInfo.propertyBag."""Template Blob Uri"""
+
+"https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json"
+```
+
+範本 Blob URI 會採用此格式，並擷取範本名稱
+
+```https
+https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName>
+```
+
+因此，上述範例中的範本名稱將是 ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json```，而容器名稱為 ```myVM-daa1931199fd4a22ae601f46d8812276```
+
+現在，取得此容器和範本的 SAS 權杖，詳細說明請見[此處](https://docs.microsoft.com/azure/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-cli#provide-sas-token-during-deployment)
+
+```azurecli-interactive
+expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
+connection=$(az storage account show-connection-string \
+    --resource-group mystorageaccountRG \
+    --name mystorageaccount \
+    --query connectionString)
+token=$(az storage blob generate-sas \
+    --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
+    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
+    --expiry $expiretime \
+    --permissions r \
+    --output tsv \
+    --connection-string $connection)
+url=$(az storage blob url \
+   --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
+    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
+    --output tsv \
+    --connection-string $connection)
+```
+
+### <a name="deploy-the-template-to-create-the-vm"></a>部署範本以建立 VM
+
+現在，請部署範本以建立 VM，如[此處](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli)所說明。
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group ExampleGroup \
+  --template-uri $url?$token
+```
+
+若要確認已從復原的磁碟建立 VM，請使用 [az vm list](/cli/azure/vm?view=azure-cli-latest#az-vm-list) 列出資源群組中的 VM，如下所示：
+
+```azurecli-interactive
+az vm list --resource-group myResourceGroup --output table
+```
 
 ## <a name="next-steps"></a>後續步驟
 

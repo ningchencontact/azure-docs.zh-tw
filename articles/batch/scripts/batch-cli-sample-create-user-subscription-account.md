@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 指令碼範例 - 建立 Batch 帳戶 - 使用者訂用帳戶 | Microsoft Docs
-description: Azure CLI 指令碼範例 - 在使用者訂用帳戶模式中建立 Batch 帳戶
+title: Azure CLI 指令碼範例 - 建立 Batch 帳戶 - 使用者訂用帳戶
+description: 此指令碼會在使用者訂用帳戶模式中建立 Azure Batch 帳戶。 此帳戶會將計算節點配置到您的訂用帳戶。
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
-ms.openlocfilehash: a22bd7a2ab4e3a9c0d56aa9f4a2137881b6216af
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 55429e0aafe978cfa6861d73b132ebcee26de493
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322209"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449700"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>CLI 範例：在使用者訂用帳戶模式中建立 Batch 帳戶
 
@@ -45,7 +45,7 @@ az group delete --name myResourceGroup
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az role assignment create](/cli/azure/role) | 為使用者、群組或服務主體建立新的角色指派。 |
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |

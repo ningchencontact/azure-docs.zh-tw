@@ -1,5 +1,5 @@
 ---
-title: 將 Azure 訂用帳戶的帳單擁有權轉移給另一個帳戶 | Microsoft Docs
+title: 轉移 Azure 訂用帳戶的帳單擁有權
 description: 說明如何將 Azure 訂用帳戶的帳單擁有權轉移給另一位帳戶，以及一些關於此程序的常見問題集 (FAQ)
 keywords: 轉移 azure 訂用帳戶,azure 轉移訂用帳戶,將 azure 訂用帳戶移到另一個帳戶,azure 變更訂用帳戶擁有者,將 azure 訂用帳戶轉移給另一個帳戶, azure 轉移計費
 author: bandersmsft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a858ef9918135bfb660c059d80f4c7c49e1e3364
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 721c8a1381ad90a68cfeb628ad00e39aadbb1db7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223574"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388936"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>將 Azure 訂用帳戶的帳單擁有權轉移給另一個帳戶
 
@@ -117,7 +117,7 @@ Azure 入口網站中的訂用帳戶轉移適用於以下所列的訂用帳戶�
 - [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)
 - [Microsoft Azure 方案](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 
-\* [透過 EA 入口網站](#EA)。
+\*[透過 EA 入口網站](#EA)。
 
 \*\* 僅對在 Azure 網站註冊期間建立的帳戶提供支援。
 

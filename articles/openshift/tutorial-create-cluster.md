@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a09a0fe4aa1f04e665aeb71ebece17a8b368090
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: b8ab4362945b84b4337859a1dad03906cc289c99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582379"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378240"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>教學課程：建立 Azure Red Hat OpenShift 叢集
 
@@ -30,7 +30,7 @@ ms.locfileid: "73582379"
 > * [調整 Azure Red Hat OpenShift 叢集](tutorial-scale-cluster.md)
 > * [刪除 Azure Red Hat OpenShift 叢集](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 > [!IMPORTANT]
 > 本教學課程需要 Azure CLI 2.0.65 版。
@@ -44,7 +44,7 @@ ms.locfileid: "73582379"
 - 建立安全性群組
 - 建立用來登入叢集的 Active Directory 使用者。
 
-## <a name="step-1-sign-in-to-azure"></a>步驟 1：登入 Azure
+## <a name="step-1-sign-in-to-azure"></a>步驟 1:登入 Azure
 
 如果您在本機執行 Azure CLI，請開啟 Bash 命令殼層並執行 `az login` 來登入 Azure。
 
@@ -52,9 +52,9 @@ ms.locfileid: "73582379"
 az login
 ```
 
- 如果您可存取多個訂用帳戶，請執行 `az account set -s {subscription ID}` 並以您想使用的訂用帳戶取代 `{subscription ID}`。
+ 如果您可存取多個訂用帳戶，請執行 `az account set -s {subscription ID}` 並以您要使用的訂用帳戶取代 `{subscription ID}`。
 
-## <a name="step-2-create-an-azure-red-hat-openshift-cluster"></a>步驟 2：建立 Azure Red Hat OpenShift 叢集
+## <a name="step-2-create-an-azure-red-hat-openshift-cluster"></a>步驟 2:建立 Azure Red Hat OpenShift 叢集
 
 在 Bash 命令視窗中，設定下列變數：
 
@@ -71,7 +71,7 @@ CLUSTER_NAME=<cluster name in lowercase>
 LOCATION=<location>
 ```
 
-將 `APPID` 設定為您在[建立 Azure AD 應用程式註冊](howto-aad-app-configuration.md#create-an-azure-ad-app-registration)的步驟 5 中儲存的值。  
+將 `APPID` 設定為您在[建立 Azure AD 應用程式註冊](howto-aad-app-configuration.md#create-an-azure-ad-app-registration)的步驟 5 中儲存的值。
 
 ```bash
 APPID=<app ID value>
@@ -83,13 +83,13 @@ APPID=<app ID value>
 GROUPID=<group ID value>
 ```
 
-將 `SECRET` 設定為您在[建立用戶端密碼](howto-aad-app-configuration.md#create-a-client-secret)的步驟 8 中儲存的值。  
+將 `SECRET` 設定為您在[建立用戶端密碼](howto-aad-app-configuration.md#create-a-client-secret)的步驟 8 中儲存的值。
 
 ```bash
 SECRET=<secret value>
 ```
 
-將 `TENANT` 設定為您在[建立新的租用戶](howto-create-tenant.md#create-a-new-azure-ad-tenant)步驟 7 中儲存的租用戶識別碼值。  
+將 `TENANT` 設定為您在[建立新的租用戶](howto-create-tenant.md#create-a-new-azure-ad-tenant)步驟 7 中儲存的租用戶識別碼值。
 
 ```bash
 TENANT=<tenant ID>
@@ -101,11 +101,11 @@ TENANT=<tenant ID>
 az group create --name $CLUSTER_NAME --location $LOCATION
 ```
 
-### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>選用：將叢集的虛擬網路連線到現有的虛擬網路
+### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>選擇性：將叢集的虛擬網路連線到現有的虛擬網路
 
 如果您不需透過對等互連將所建立叢集的虛擬網路 (VNET) 連線到現有的 VNET，請略過此步驟。
 
-如果對等互連至預設訂用帳戶外部的網路，則您也需要在該訂用帳戶中，註冊提供者 Microsoft.ContainerService。 若要完成這個操作，請在該訂用帳戶中執行以下命令。 或者，如果您對等互連的 VNET 位於相同訂用帳戶中，可以略過註冊步驟。 
+如果對等互連至預設訂用帳戶外部的網路，則您也需要在該訂用帳戶中，註冊提供者 Microsoft.ContainerService。 若要完成這個操作，請在該訂用帳戶中執行以下命令。 或者，如果您對等互連的 VNET 位於相同訂用帳戶中，可以略過註冊步驟。
 
 `az provider register -n Microsoft.ContainerService --wait`
 
@@ -119,7 +119,23 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 VNET_ID=$(az network vnet show -n {VNET name} -g {VNET resource group} --query id -o tsv)
 ```
 
-例如：`VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGroup --query id -o tsv`
+例如： `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGroup --query id -o tsv`
+
+### <a name="optional-connect-the-cluster-to-azure-monitoring"></a>選擇性：將叢集連線至 Azure 監視
+
+首先，取得**現有**記錄分析工作區的識別碼。 識別碼的格式會是：
+
+第 1 課：建立 Windows Azure 儲存體物件`/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace-id}`。
+
+如果您不知道現有記錄分析工作區所屬的記錄分析工作區名稱或資源群組，請移至[記錄分析工作區](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces)，然後按一下您的記錄分析工作區。 記錄分析工作區頁面隨即出現，其中會列出工作區名稱及其所屬的資源群組。
+
+_若要建立記錄分析工作區，請參閱[建立記錄分析工作區](../azure-monitor/learn/quick-create-workspace-cli.md)_
+
+在 BASH 殼層中使用下列 CLI 命令定義 WORKSPACE_ID 變數：
+
+```bash
+WORKSPACE_ID=$(az monitor log-analytics workspace show -g {RESOURCE_GROUP} -n {NAME} --query id -o tsv)
+```
 
 ### <a name="create-the-cluster"></a>建立叢集
 
@@ -128,20 +144,29 @@ VNET_ID=$(az network vnet show -n {VNET name} -g {VNET resource group} --query i
 > [!IMPORTANT]
 > 在建立叢集之前，請確定您已正確地為 Azure AD 應用程式新增適當的權限，如同[此處所述](howto-aad-app-configuration.md#add-api-permissions)
 
-如果您的叢集**未**與虛擬網路對等互連，請使用下列命令：
+如果您的叢集**未**與虛擬網路對等互連，或您**不**想要使用 Azure 監視，請使用下列命令：
 
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
 如果您的叢集與虛擬網路**對等互連**，請使用下列加上 `--vnet-peer` 旗標的命令：
- 
+
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID
 ```
 
+如果您**想要**將 Azure 監視用於您的叢集，請使用下列命令來新增 `--workspace-id` 旗標：
+
+```bash
+az openshift create --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --workspace-id $WORKSPACE_ID
+```
+
 > [!NOTE]
 > 如果您收到的錯誤表示主機名稱不可用，則可能是因為您的叢集名稱並非唯一。 嘗試刪除原始應用程式註冊，並使用不同的叢集名稱重新執行 [建立新的應用程式註冊](howto-aad-app-configuration.md#create-an-azure-ad-app-registration) 中的步驟 (省略建立新的使用者和安全性群組的步驟)。
+
+
+
 
 `az openshift create` 將在幾分鐘之後完成。
 
@@ -164,7 +189,7 @@ az openshift show -n $CLUSTER_NAME -g $CLUSTER_NAME
 1. 開啟 [應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) 刀鋒視窗。
 2. 按一下您的應用程式註冊物件。
 3. 按一下 [新增重新導向 URI]  。
-4. 確定 [類型]  為 [Web]  ，並使用下列模式設定 [重新導向 URI]  ：`https://<public host name>/oauth2callback/Azure%20AD`。 例如：`https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io/oauth2callback/Azure%20AD`
+4. 確定 [類型]  為 [Web]  ，並使用下列模式設定 [重新導向 URI]  ：`https://<public host name>/oauth2callback/Azure%20AD`。 例如： `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io/oauth2callback/Azure%20AD`
 5. 按一下 [儲存] 
 
 ## <a name="step-4-sign-in-to-the-openshift-console"></a>步驟 4：登入 OpenShift 主控台

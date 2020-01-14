@@ -1,6 +1,6 @@
 ---
-title: 快速入門：使用適用於 MongoDB 的 API 和 Java SDK 建置 Web 應用程式 - Azure Cosmos DB
-description: 呈現 Java 程式碼範例，您可使用 Azure Cosmos DB 適用於 MongoDB 的 API 進行連線及查詢。
+title: 快速入門：使用適用於 MongoDB 的 Azure Cosmos DB API 和 Java SDK 建置 Web 應用程式
+description: 了解如何建置 Java 程式碼範例，您可使用適用於 MongoDB 的 Azure Cosmos DB API 進行其連線及查詢。
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: bfded407790d01d65feec0b6e069c23739064e97
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 05a796e5bf197bf9ea4f8f47adfbf30851b300ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756928"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445496"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>快速入門：在 Azure Cosmos DB 中使用 Java 和 MongoDB API 建立主控台應用程式
 
@@ -31,7 +31,7 @@ ms.locfileid: "72756928"
 
 本快速入門示範如何使用 [Azure Cosmos DB 適用於 MongoDB 的 API](mongodb-introduction.md) 來建立 Cosmos 帳戶。 您會接著使用 [MongoDB Java 驅動程式](https://docs.mongodb.com/ecosystem/drivers/java/)建置和部署主控台應用程式。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 您必須具備下列必要條件，才能執行此範例：
 * [安裝 JDK for Azure 和 Azure Stack JDK 8 版](https://aka.ms/azure-jdks)

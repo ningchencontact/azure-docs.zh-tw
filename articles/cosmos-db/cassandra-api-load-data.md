@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 Java 應用程式將範例資料載入至 Azure Cosmos DB 中的 Cassandra API 資料表
+title: 教學課程：此 Java 應用程式用以將範例資料載入至 Azure Cosmos DB 中的 Cassandra API 資料表
 description: 本教學課程說明如何使用 Java 應用程式，將範例使用者資料載入至 Azure Cosmos DB 中的 Cassandra API 資料表。
 author: kanshiG
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.date: 05/20/2019
 ms.author: govindk
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Java application to load data to a Cassandra API table in Azure Cosmos DB so that customers can store and manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: e9fc96b9f26344045aa7e45fe7bdbe389e329377
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 66c292bcb02e3b2b215cabe4968fa30a45422cef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472689"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445655"
 ---
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>教學課程：將範例資料載入至 Azure Cosmos DB 中的 Cassandra API 資料表
 
@@ -28,7 +28,7 @@ ms.locfileid: "66472689"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * 本文為多部分教學課程的一部分。 開始本文件之前，請務必先[建立 Cassandra API 帳戶、Keyspace 及資料表](create-cassandra-api-account-java.md)。   
 

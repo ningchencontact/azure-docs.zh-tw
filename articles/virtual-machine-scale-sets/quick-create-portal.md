@@ -1,7 +1,7 @@
 ---
-title: 快速入門 - 在 Azure 入口網站中建立虛擬機器擴展集 | Microsoft Docs
-description: 了解如何在 Azure 入口網站快速建立虛擬機器擴展
-services: virtual-machine-scale-sets
+title: 快速入門 - 在 Azure 入口網站中建立虛擬機器擴展集
+description: 了解如何使用 Azure 入口網站快速建立虛擬機器擴展集，以開始使用您的部署。
+services: virtual-machine-scale-sets.
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 1bbbef6d8037b819c557e1c7fc3fff6248507986
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a44aad7471c29a387337a5ee988e66287fca3ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466366"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351149"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>快速入門：在 Azure 入口網站建立虛擬機器擴展集
 

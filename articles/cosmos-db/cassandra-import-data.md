@@ -1,5 +1,5 @@
 ---
-title: 教學課程：將您的資料遷移至 Azure Cosmos DB 中的 Cassandra API 帳戶
+title: 將您的資料遷移至 Azure Cosmos DB 中的 Cassandra API 帳戶 - 教學課程
 description: 在此教學課程中，您將了解如何使用 CQL Copy 命令和 Spark，將資料從 Apache Cassandra 複製到 Azure Cosmos DB 中的 Cassandra API 帳戶。
 author: kanshiG
 ms.author: govindk
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: cc312a707f5ab74967b9d3bc050fec7bfcad9dbc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c754740369da6d0a8084b9b60ef178fb28e32f1b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851077"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445676"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>教學課程：將您的資料遷移至 Azure Cosmos DB 中的 Cassandra API 帳戶
 
@@ -24,14 +24,14 @@ ms.locfileid: "58851077"
 本教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
-> * 為移轉做規劃
-> * 移轉的必要條件
+> * 規劃移轉
+> * 進行移轉的必要條件
 > * 使用 cqlsh COPY 命令來移轉資料
 > * 使用 Spark 來移轉資料
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites-for-migration"></a>移轉的必要條件
+## <a name="prerequisites-for-migration"></a>進行移轉的必要條件
 
 * **估計輸送量需求：** 將資料遷移至 Azure Cosmos DB 中的 Cassandra API 帳戶之前，您應該預估工作負載的輸送量需求。 一般而言，建議您從 CRUD 作業所需的平均輸送量開始著手，然後再納入「擷取、轉換、載入」(ETL) 或棘手作業所需的額外輸送量。 您需要有下列詳細資料，才能為移轉進行規劃： 
 
@@ -84,7 +84,7 @@ ms.locfileid: "58851077"
 
    * 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至您的 Azure Cosmos 帳戶。
 
-   * 開啟 [連接字串] 窗格，其中包含從 cqlsh 連線至 Cassandra API 帳戶所需的一切資訊。
+   * 開啟 [連接字串]  窗格，其中包含從 cqlsh 連線至 Cassandra API 帳戶所需的一切資訊。
 
 2. 使用入口網站中的連線資訊來登入 cqlsh。
 
@@ -106,7 +106,7 @@ ms.locfileid: "58851077"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若不再需要資源，您可以刪除資源群組、Azure Cosmos 帳戶和所有相關資源。 請選取虛擬機器的資源群組，選取 [刪除]，然後確認要刪除的資源群組名稱，即可刪除資源。
+若不再需要資源，您可以刪除資源群組、Azure Cosmos 帳戶和所有相關資源。 請選取虛擬機器的資源群組，選取 [刪除]  ，然後確認要刪除的資源群組名稱，即可刪除資源。
 
 ## <a name="next-steps"></a>後續步驟
 

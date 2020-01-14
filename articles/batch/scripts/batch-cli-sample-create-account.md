@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 指令碼範例 - 建立 Batch 帳戶 - Batch 服務 | Microsoft Docs
-description: Azure CLI 指令碼範例 - 在 Batch 服務模式中建立 Batch 帳戶
+title: Azure CLI 指令碼範例 - 建立 Batch 帳戶 - Batch 服務
+description: 此指令碼會在 Batch 服務模式中建立 Azure Batch 帳戶，並顯示如何查詢或更新帳戶的各種屬性。
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
-ms.openlocfilehash: 038cea1aa8d72d46d028873fb4be19887b83d787
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: ee733b492e1d89c58336003bcb4be72f79b9e403
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322237"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449743"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI 範例：在 Batch 服務模式中建立 Batch 帳戶
 
@@ -45,7 +45,7 @@ az group delete --name myResourceGroup
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | 建立 Batch 帳戶。 |

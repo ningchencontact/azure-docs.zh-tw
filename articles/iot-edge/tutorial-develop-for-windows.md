@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4a56a79798acf4948739b26062ab770fcbb47f7b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 55ae542ed0490248d501cd7c4f50c0a7ba32091a
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707078"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665187"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 IoT Edge 模組
 
@@ -51,7 +51,7 @@ ms.locfileid: "74707078"
 | **語言** | C# (不支援偵錯) | C <br> C# |
 | **詳細資訊** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開發機器：
 
@@ -158,7 +158,7 @@ IoT Edge 執行階段需要登錄認證才能將容器映像提取到 IoT Edge �
 
 1. 開啟模組解決方案中的 **deployment.template.json** 檔案。
 
-1. 在 $edgeAgent 所需的屬性中尋找 **registryCredentials** 屬性，並確定其中包含正確的資訊。
+1. 在 $edgeAgent 所需的屬性中尋找 **registryCredentials** 屬性。 其中應該會從您在建立專案時提供的資訊自動填入您的登錄位址，而使用者名稱和密碼欄位應該會包含變數名稱。 例如： 
 
    ```json
    "registryCredentials": {

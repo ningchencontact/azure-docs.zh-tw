@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 30e7b4c39c24f4271c53f7a9f8940e4fb3c2e298
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: a1aa2f12f62a95ac14750c821079df2bac46e8ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048664"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434961"
 ---
 <!---
 Purpose of an Overview article: 
@@ -99,7 +99,7 @@ Azure IoT 中心應用程式完全由 Microsoft 裝載，可降低管理您的�
 
 既然您已大致了解 Azure IoT 中心，以下是建議的後續步驟：
 
-- 了解 [Azure IoT 中心和 Azure IoT 解決方案加速器](overview-iot-options.md)之間的差異。
+- 了解可用於[建立 IoT 解決方案的 Azure 技術和服務](../../iot-fundamentals/iot-services-and-technologies.md)。
 - 熟悉 [Azure IoT 中心 UI](overview-iot-central-tour.md)。
 - 從[建立 Azure IoT 中心應用程式](quick-deploy-iot-central.md)著手。
 - 請依照下列一系列的教學課程操作，這些教學課程會告訴您如何：

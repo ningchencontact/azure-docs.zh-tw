@@ -1,5 +1,5 @@
 ---
-title: Microsoft 身分識別平台 JavaScript 單頁應用程式指南 | Azure
+title: JavaScript 單頁應用程式教學課程 - Microsoft 身分識別平台 | Azure
 description: JavaScript SPA 應用程式如何呼叫需要來自 Azure Active Directory v2.0 端點存取權杖的 API
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3576c015fcca7eb9c390f38c6527d76353efe06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 995210e720040448927b2aaac2c2eb590e3de981
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919387"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423364"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>登入使用者並從 JavaScript 單頁應用程式 (SPA) 呼叫 Microsoft 圖形 API
 
@@ -46,7 +46,7 @@ ms.locfileid: "74919387"
 
 本指南使用下列程式庫：
 
-|程式庫|說明|
+|程式庫|描述|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library for JavaScript 預覽|
 
@@ -58,7 +58,7 @@ ms.locfileid: "74919387"
 
 ## <a name="set-up-your-web-server-or-project"></a>設定您的網頁伺服器或專案
 
-> 想要改為下載此範例的專案嗎？ 執行下列其中一個動作：
+> 想要改為下載此範例的專案嗎？ 執行下列任一步驟：
 > 
 > - 若要使用本機網頁伺服器 (例如 Node.js) 來執行專案，請[下載專案檔](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)。
 >
@@ -66,7 +66,7 @@ ms.locfileid: "74919387"
 >
 > 若要在您執行之前設定程式碼範例，請跳至[設定步驟](#register-your-application)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * 若要執行本教學課程，您需要本機網頁伺服器，例如 [Node.js](https://nodejs.org/en/download/)、[.NET Core](https://www.microsoft.com/net/core) 或與 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 的 IIS Express 整合。
 

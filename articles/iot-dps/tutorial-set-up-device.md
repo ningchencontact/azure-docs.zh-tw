@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 337ac2f60809370e6a07b2b0403d21ef7230b034
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6ff732888e416fcd51216070b3b30ed37b79e92c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976701"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434572"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>教學課程：將裝置設定為使用 Azure IoT 中樞裝置佈建服務進行佈建
 
@@ -34,12 +34,13 @@ ms.locfileid: "74976701"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 或更新版本，並啟用[使用 C++ 的桌面開發](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載。
+下列必要條件適用於 Windows 開發環境。 針對 Linux 或 macOS，請參閱 SDK 文件中[準備您的開發環境](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)中的適當章節。
+
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 並啟用[使用 C++ 的桌面開發](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads)工作負載。 也會支援 Visual Studio 2015 和 Visual Studio 2017。
+
 * 已安裝最新版的 [Git](https://git-scm.com/download/)。
-
-
 
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>建置 SDK 的平台特定版本
 
@@ -47,25 +48,28 @@ ms.locfileid: "74976701"
 
 1. 下載 [CMake 建置系統](https://cmake.org/download/)。
 
-    在開始安裝 `CMake` **之前**，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
+    在開始安裝 `CMake`**之前**，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
 
-1. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
-    
+2. 尋找[最新版本](https://github.com/Azure/azure-iot-sdk-c/releases/latest) SDK 的標籤名稱。
+
+3. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製最新版的 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫。 使用您在上一個步驟中找到的標籤作為 `-b` 參數的值：
+
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
+
     預期此作業需要幾分鐘的時間才能完成。
 
-
-1. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。 
+4. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。 從 `azure-iot-sdk-c` 目錄執行下列命令：
 
     ```cmd/sh
-    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-1. 根據您所將使用的證明機制，建置開發平台的 SDK。 請使用下列其中一個命令 (也請注意應在每個命令結尾處加上兩個句點字元)。 完成時，CMake 會建置出含有您裝置特有內容的 `/cmake` 子目錄：
+5. 根據您所將使用的證明機制，建置開發平台的 SDK。 請使用下列其中一個命令 (也請注意應在每個命令結尾處加上兩個句點字元)。 完成時，CMake 會建置出含有您裝置特有內容的 `/cmake` 子目錄：
  
     - 對於使用 TPM 模擬器進行證明的裝置：
 
@@ -96,8 +100,9 @@ ms.locfileid: "74976701"
 
 - 針對 X.509 裝置，您必須取得核發給裝置的憑證。 佈建服務會公開兩種類型的註冊項目，用來對使用 X.509 證明機制的裝置進行存取控制。 所需的憑證取決於您要使用的註冊類型。
 
-    1. 個別註冊：特定單一裝置的註冊。 此類型的註冊項目需要[終端實體「分葉」憑證](concepts-security.md#end-entity-leaf-certificate)。
-    1. 註冊群組：此類型的註冊項目需要中繼或根憑證。 如需詳細資訊，請參閱[使用 X.509 憑證控制對於佈建服務的裝置存取](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)。
+    - 個別註冊：特定單一裝置的註冊。 此類型的註冊項目需要[終端實體「分葉」憑證](concepts-security.md#end-entity-leaf-certificate)。
+    
+    - 註冊群組：此類型的註冊項目需要中繼或根憑證。 如需詳細資訊，請參閱[使用 X.509 憑證控制對於佈建服務的裝置存取](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)。
 
 ### <a name="simulated-devices"></a>模擬的裝置
 

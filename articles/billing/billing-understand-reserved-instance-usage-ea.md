@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 06/30/2019
 ms.author: banders
-ms.openlocfilehash: 07f8d897d55868923ecca03797cf18a5346d667c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 20eacdb1ab8f7ebdf118646cd548d7b60b2d2ebc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225799"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644340"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>取得 Enterprise 合約保留成本和使用量
 
@@ -65,9 +65,9 @@ Azure 使用量資料中的其他可用資訊已變更：
 
 您可以呼叫[使用量詳細資料 API](/rest/api/consumption/usagedetails/list)來取得新資料。 如需術語的詳細資訊，請參閱[使用量詞彙](billing-understand-your-usage.md)。 呼叫端應該是使用 [EA 入口網站](https://ea.azure.com)之 Enterprise 合約的企業系統管理員。 唯讀企業系統管理員也可以取得資料。
 
-在[適用於 Enterprise 客戶的報告 API - 使用量詳細資料](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)中無法取得此資料。
+請注意，在[適用於 Enterprise 客戶的報告 API - 使用量詳細資料](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)中無法取得此資料。
 
-以下是對 API 的呼叫範例：
+以下是對使用量詳細資料 API 的呼叫範例：
 
 ```
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
@@ -89,7 +89,7 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enroll
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>下載含有新資料的使用量 CSV 檔案
 
-如果您是 EA 管理員，您可以從 Azure 入口網站下載包含新使用量資料的 CSV 檔案。 此資料無法從 [EA 入口網站](https://ea.azure.com) 取得。
+如果您是 EA 管理員，您可以從 Azure 入口網站下載包含新使用量資料的 CSV 檔案。 這項資料無法從 EA 入口網站 (ea.azure.com) 取得，您必須從 Azure 入口網站 (portal.azure.com) 下載使用量檔案，才能看到新的資料。
 
 在 Azure 入口網站中，瀏覽至[成本管理 + 帳單](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts)。
 
@@ -111,7 +111,7 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enroll
 
 ### <a name="get-underutilized-reservation-quantity-and-costs"></a>取得未充分利用的保留數量和成本
 
-取得分攤成本並針對 _ChargeType_ _= UnusedReservation_ 篩選。 您可取得每日未使用的保留數量和成本。 您可以分別使用 _ReservationId_ 和 _ProductOrderId_ 欄位來篩選保留或保留訂單的資料。 如果保留已 100% 利用，則記錄的數量為 0。
+取得分攤成本資料，並對 _ChargeType_ _= UnusedReservation_ 進行篩選。 您可取得每日未使用的保留數量和成本。 您可以分別使用 _ReservationId_ 和 _ProductOrderId_ 欄位來篩選保留或保留訂單的資料。 如果保留已 100% 利用，則記錄的數量為 0。
 
 ### <a name="amortize-reservation-costs"></a>攤銷保留成本
 

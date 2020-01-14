@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 11/19/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: 5ae6c30c595c2e3c4c7ce90d6ab208e50722bfc2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: dd5167af5f45ebae0529e16f224065627085e9b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227707"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75348814"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>什麼是 Windows 虛擬桌面？ 
 
@@ -64,7 +64,7 @@ Windows 虛擬桌面是可以在雲端執行的桌面與應用程式虛擬化服
 
 我們計畫為下列作業系統新增支援，因此，針對您打算部署的桌面和應用程式，請確定您的使用者有[適當的授權](https://azure.microsoft.com/pricing/details/virtual-desktop/)：
 
-|作業系統|必要授權|
+|OS|必要授權|
 |---|---|
 |Windows 10 企業版的多重工作階段或 Windows 10 企業版|Microsoft 365 E3、E5、A3、A5、F1、Business<br>Windows E3、E5、A3、A5|
 |Windows 7 企業版 |Microsoft 365 E3、E5、A3、A5、F1、Business<br>Windows E3、E5、A3、A5|
@@ -110,8 +110,11 @@ Windows 虛擬桌面包含您交付給使用者的 Windows 桌面與應用程式
 
 下列遠端桌面用戶端支援 Windows 虛擬桌面：
 
-* [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
-* [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
+* [Windows](connect-windows-7-and-10.md)
+* [Web](connect-web.md)
+* [Mac](connect-macos.md)
+* [iOS](connect-ios.md)
+* [Android (預覽)](connect-android.md)
 
 ## <a name="supported-virtual-machine-os-images"></a>支援的虛擬機器 OS 映像
 

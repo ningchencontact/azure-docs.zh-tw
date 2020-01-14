@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: aahi
-ms.openlocfilehash: fd3d53dce398c445d309a19f1f58a8d298080c45
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ea526648b1b37919eb41953937d3afa72f7f39e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750195"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446195"
 ---
 <a name="HOLTop"></a>
 
@@ -18,10 +18,10 @@ ms.locfileid: "73750195"
 > [!NOTE]
 > 為了簡單起見，本文中程式碼會使用文字分析 .NET SDK 的同步方法。 針對生產案例，建議您使用批次非同步方法來取得效能和擴充性。 例如，呼叫 [SentimentBatchAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentimentbatchasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet-preview)，而不是 [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
-* 最新版的 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)。
+* [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
 
 ## <a name="setting-up"></a>設定
 
@@ -31,49 +31,26 @@ ms.locfileid: "73750195"
 
 ### <a name="create-a-new-net-core-application"></a>建立新的 .NET Core 應用程式
 
-在主控台視窗中 (例如 cmd、PowerShell 或 Bash)，使用 `dotnet new` 命令建立名為 `text-analytics quickstart` 的新主控台應用程式。 此命令會建立簡單的 "Hello World" 專案，內含單一 C# 原始程式檔：program.cs  。 
+使用 Visual Studio IDE，建立新的 .NET Core 主控台應用程式。 這會建立簡單的 "Hello World" 專案，內含單一 C# 原始程式檔：program.cs  。
 
-```console
-dotnet new console -n text-analytics-quickstart
-```
+以滑鼠右鍵按一下 [方案總管]  中的解決方案，然後選取 [管理 NuGet 套件]  ，以安裝用戶端程式庫。 在開啟的封裝管理員中，選取 [瀏覽]  並搜尋 `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`。 在其上按一下，然後按一下 [安裝]  。 您也可以使用[套件管理員主控台](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)。
 
-將目錄變更為新建立的應用程式資料夾。 您可以使用下列命令來建置應用程式：
-
-```console
-dotnet build
-```
-
-建置輸出應該不會有警告或錯誤。 
-
-```console
-...
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-...
-```
-
-從專案目錄中中開啟 program.cs  檔案，並新增下列 `using` 指示詞：
+開啟 *program.cs* 檔案並新增下列 `using` 指示詞：
 
 [!code-csharp[Import directives](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=imports)]
 
-在應用程式的 `Program` 類別中，針對稍早所建環境變數中的資源金鑰和端點建立變數。 如果您在開始編輯應用程式後才建立這些環境變數，則必須先關閉您使用的編輯器、IDE 或殼層，再重新加以開啟，才能存取該變數。
+在應用程式的 `Program` 類別中，為資源的金鑰和端點建立變數。 
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-[!code-csharp[initial variables](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=vars)]
+```csharp
+private static readonly string key = "<replace-with-your-text-analytics-key-here>";
+private static readonly string endpoint = "<replace-with-your-text-analytics-endpoint-here>";
+```
 
 取代應用程式的 `Main` 方法。 稍後，您將會定義此處所呼叫的方法。
 
 [!code-csharp[main method](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=main)]
-
-### <a name="install-the-client-library"></a>安裝用戶端程式庫
-
-在應用程式目錄中，使用下列命令安裝適用於 .NET 的文字分析用戶端程式庫：
-
-```console
-dotnet add package Microsoft.Azure.CognitiveServices.Language.TextAnalytics --version 4.0.0
-```
 
 ## <a name="object-model"></a>物件模型
 

@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: 43972bc8e64e0bf88aae00126735d3e0c8751254
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d1665ef3e845491f116174cf1914c38e7cf5c691
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499355"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660795"
 ---
 # <a name="what-is-azure-data-share"></a>什麼是 Azure Data Share？
 
@@ -47,7 +47,7 @@ Azure Data Share 目前提供以快照集為基礎的共用和就地共用 (在�
 
 資料取用者接受資料共用時，才可以在所選資料儲存區中接收資料。 例如，如果資料提供者使用 Azure Blob 儲存體共用資料，則資料取用者可以在 Azure Data Lake Store 中接收這項資料。 同樣地，如果資料提供者共用 Azure SQL 資料倉儲的資料，資料取用者可以選擇要將資料接收到 Azure Data Lake Store、Azure SQL Database 還是 Azure SQL 資料倉儲。 在從 SQL 型來源共用的情況下，資料取用者也可以選擇是否要在 parquet 或 csv 中接收資料。 
 
-適用於 Azure 資料總管的就地共用目前處於有限預覽狀態。 資料提供者能夠在資料所在位置進行共用，不用透過符號連結移動資料。 在[這裡](https://aka.ms/azuredatasharepreviewsignup)註冊 Azure 資料總管的就地共用有限預覽。 
+適用於 Azure 資料總管的就地共用目前處於有限預覽狀態。 資料提供者能夠在資料所在位置進行共用，不用透過符號連結移動資料。 在[這裡](https://aka.ms/azuredatasharepreviewsignup)註冊 Azure 資料總管就地共用的有限預覽。 
 
 ## <a name="key-capabilities"></a>主要功能
 

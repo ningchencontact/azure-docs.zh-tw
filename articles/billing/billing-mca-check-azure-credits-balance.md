@@ -11,48 +11,63 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: bbd456f82e333ab8e096e5695a55be43c2084c6d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 48f7e0b3d1289d8e9c620f931f9bc85570b90042
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223798"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449559"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>追蹤 Microsoft 客戶合約的 Azure 點數餘額
 
-您可以在 Azure 入口網站中針對 Microsoft 客戶合約查看您計費帳戶的 Azure 點數餘額。 
+您可以在 Azure 入口網站中或透過 REST API，針對 Microsoft 客戶合約查看您計費帳戶的 Azure 點數餘額。
 
-您可以使用點數來支付有資格使用點數的費用。 若您使用的產品沒有資格使用點數，或您的使用量超過點數餘額，您就必須支付費用。 如需詳細資訊，請參閱 [Azure 點數未涵蓋的產品](#products-that-arent-covered-by-azure-credits)。
-
-在 Microsoft 客戶合約的計費帳戶中，點數會指派給帳單設定檔。 每個帳單設定檔都有自己的點數。 您必須擁有帳單設定檔的擁有者、參與者、讀者或發票管理員角色，或計費帳戶的擁有者、參與者或讀者角色，才能檢視帳單設定檔的 Azure 點數餘額。 若要深入了解角色，請參閱[了解 Azure 中的 Microsoft 客戶合約管理角色](billing-understand-mca-roles.md)。
+在 Microsoft 客戶合約的計費帳戶中，點數會指派給帳單設定檔。 每個帳單設定檔都有自己的點數，並自動套用至其發票上的費用。 您必須擁有帳單設定檔的擁有者、參與者、讀者或發票管理員角色，或計費帳戶的擁有者、參與者或讀者角色，才能檢視帳單設定檔的 Azure 點數餘額。 若要深入了解角色，請參閱[了解 Azure 中的 Microsoft 客戶合約管理角色](billing-understand-mca-roles.md)。
 
 本文適用於 Microsoft 客戶合約的計費帳戶。 請[確認您是否有 Microsoft 客戶合約的存取權](#check-access-to-a-microsoft-customer-agreement)。
 
-## <a name="check-your-credit-balance-in-the-azure-portal"></a>在 Azure 入口網站中檢查您的點數餘額
+## <a name="check-your-credit-balance"></a>查看您的點數餘額
 
-1. 登入 [Azure 入口網站]( https://portal.azure.com)。
+### <a name="azure-portaltabportal"></a>[Azure 入口網站](#tab/portal)
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 搜尋 [成本管理 + 帳單]  。
 
     ![顯示在入口網站中搜尋 [成本管理 + 帳單] 的螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3.  從左側選取 [Azure 點數]  。 視存取權之不同，您可能必須選取計費帳戶或帳單設定檔，然後選取 [Azure 點數]  。
+3. 在 [計費範圍] 頁面中，選取您要追蹤其點數餘額的計費帳戶。 計費帳戶的類型應該是 **Microsoft 客戶合約**。
 
-4. [Azure 點數] 頁面會顯示下列資訊：
+    ![顯示在入口網站中搜尋 [成本管理 + 帳單] 的螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/list-of-scopes.png)
 
-   ![帳單設定檔的點數餘額和交易的螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
+    > [!NOTE]
+    >
+    > Azure 入口網站會記住您所存取的最後一個計費範圍，並在您下一次進入 [成本管理 + 帳單] 頁面時顯示該範圍。 如果您先前已造訪過 [成本管理 + 帳單]，就不會看到 [計費範圍] 頁面。 若是如此，請確認您已位於[正確的範圍](#check-access-to-a-microsoft-customer-agreement)。 如果沒有，請[切換範圍](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal)以選取 Microsoft 客戶合約的計費帳戶。
+
+3. 從左側選取 [付款方式]  ，然後選取 [Azure 點數]  。
+
+   ![帳單設定檔點數餘額的螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/mca-payment-methods.png)
+
+4. [Azure 點數] 頁面會有下列區段：
+    
+   #### <a name="balance"></a>餘額
+   
+   [餘額] 區段會顯示 Azure 點數餘額的摘要。
+
+   ![帳單設定檔點數餘額的螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/mca-credit-balance.png)
 
    | 詞彙               | 定義                           |
    |--------------------|--------------------------------------------------------|
    | 估計餘額  | 您在考量所有計費交易和擱置交易後所擁有的估計點數金額 |
    | 目前餘額    | 截至最後一張發票為止的點數金額。 其中不包含任何擱置交易 |
-   | 交易       | 對 Azure 點數餘額造成影響的帳單交易 |
 
    當您的估計餘額降到 0 時，您所有的使用量都必須付費，包括有資格使用點數的產品。
 
-6. 選取 [點數清單]  ，以檢視帳單設定檔的點數清單。 點數清單會提供下列資訊：
+   #### <a name="credits-list"></a>點數清單
+   
+   [點數清單] 區段會顯示 Azure 點數的清單。
 
-   ![帳單設定檔點數清單的螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
+   ![帳單設定檔點數清單的螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/mca-credits-list.png)
 
    | 詞彙 | 定義 |
    |---|---|
@@ -63,7 +78,28 @@ ms.locfileid: "74223798"
    | 原始金額 | 原始點數金額 |
    | 狀態 | 點數的目前狀態。 狀態可以是有效、已使用、已過期或即將到期 |
 
-## <a name="check-your-credit-balance-programmatically"></a>以程式設計方式檢查您的點數餘額
+   #### <a name="transactions"></a>交易
+
+   [交易] 區段會顯示所有影響了點數餘額的交易。
+
+   ![帳單設定檔的點數交易螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/mca-credits-transactions.png)
+    
+   | 詞彙 | 定義 |
+   |---|---|
+   | 交易日期 | 交易的發生日期 |
+   | 描述 | 交易的描述 |
+   | Amount| 交易的金額 |
+   | 餘額 | 交易後的餘額 |
+
+    > [!NOTE]
+    >
+    > 如果您在 [付款方式] 頁面中沒有看到 Azure 點數，原因可能是您沒有點數，或是尚未選取正確的範圍。 請選取有點數的計費帳戶或其帳單設定檔的其中一個。 若要了解如何變更範圍，請參閱[在 Azure 入口網站中切換計費範圍](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal)。
+
+5. 如果您正在計費帳戶範圍檢視 Azure 點數，而計費帳戶有多個帳單設定檔，則 [Azure 點數] 頁面將會顯示一個資料表，其中包含每個帳單設定檔的 Azure 點數摘要。 從清單中選取帳單設定檔，然後選取 [付款方式] 和 [Azure 點數] 以檢視帳單設定檔的詳細資料。
+
+    ![計費帳戶的點數清單螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/mca-account-credit-list.png)
+
+### <a name="rest-apitabrest"></a>[REST API](#tab/rest)
 
 您可以使用 [Azure 計費](https://docs.microsoft.com/rest/api/billing/)和[使用量](https://docs.microsoft.com/rest/api/consumption/) API，以程式設計方式取得計費帳戶的點數餘額。
 
@@ -122,7 +158,7 @@ API 回應會傳回計費帳戶及其帳單設定檔的清單。
 
 ### <a name="get-azure-credit-balance"></a>取得 Azure 點數餘額 
 
-提出下列要求，並以從第一個步驟複製的 `id` 取代 `<billingProfileId>` (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```)。 
+提出下列要求，並以在第一個步驟複製的 `id` 取代 `<billingProfileId>` (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```)。 
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/credits/balanceSummary?api-version=2019-10-01
@@ -163,7 +199,7 @@ API 回應會傳回帳單設定檔的預估和目前餘額。
 }
 ```
 
-| 元素名稱  | 說明                                                                           |
+| 元素名稱  | 描述                                                                           |
 |---------------|---------------------------------------------------------------------------------------|
 | `estimatedBalance` | 您在考量所有計費交易和擱置交易後所擁有的估計點數金額。 |
 | `currentBalance`   | 截至最後一張發票為止的點數金額。 其中不包含任何擱置交易。    |
@@ -173,7 +209,7 @@ API 回應會傳回帳單設定檔的預估和目前餘額。
 
 ### <a name="get-list-of-credits"></a>取得點數清單
 
-提出下列要求，並以從第一個步驟複製的 `id` 取代 `<billingProfileId>` (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```)。 
+提出下列要求，並以在第一個步驟複製的 `id` 取代 `<billingProfileId>` (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```)。 
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/lots?api-version=2019-10-01
@@ -226,7 +262,7 @@ API 回應會傳回帳單設定檔的 Azure 點數清單。
   ]
 }
 ```
-| 元素名稱  | 說明                                                                                               |
+| 元素名稱  | 描述                                                                                               |
 |---------------|-----------------------------------------------------------------------------------------------------------|
 | `originalAmount` | 原始點數金額。 |
 | `closedBalance`   | 截至最後一張發票為止的餘額。    |
@@ -237,7 +273,7 @@ API 回應會傳回帳單設定檔的 Azure 點數清單。
 
 ### <a name="get-transactions-that-affected-credit-balance"></a>取得對點數餘額造成影響的交易
 
-提出下列要求，並以從第一個步驟複製的 `id` 取代 `<billingProfileId>` (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```)。 您需要傳遞 **startDate** 和 **endDate**，以取得所需持續時間的交易。
+提出下列要求，並以在第一個步驟複製的 `id` 取代 `<billingProfileId>` (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```)。 您需要傳遞 **startDate** 和 **endDate**，以取得所需持續時間的交易。
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/events?api-version=2019-10-01&startDate=2018-10-01T00:00:00.000Z&endDate=2019-10-11T12:00:00.000Z?api-version=2019-10-01
@@ -314,7 +350,7 @@ API 回應會傳回所有影響帳單設定檔之點數餘額的交易。
   ]
 }
 ```
-| 元素名稱  | 說明                                                                                               |
+| 元素名稱  | 描述                                                                                               |
 |---------------|-----------------------------------------------------------------------------------------------------------|
 | `transactionDate` | 交易發生的日期。 |
 | `description` | 交易的描述。 |
@@ -324,6 +360,8 @@ API 回應會傳回所有影響帳單設定檔之點數餘額的交易。
 | `closedBalance`  | 交易後的餘額。   |
 | `eventType`  | 交易的類型。   |
 | `invoiceNumber`  | 交易計費發票的發票號碼。 暫止交易的的發票號碼會是空的。   |
+
+---
 
 ## <a name="how-credits-are-used"></a>點數的使用方式
 
@@ -349,7 +387,7 @@ API 回應會傳回所有影響帳單設定檔之點數餘額的交易。
 - Azure Marketplace 產品
 - Azure 支援方案
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查對 Microsoft 客戶合約的存取權
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查 Microsoft 客戶合約的存取
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。

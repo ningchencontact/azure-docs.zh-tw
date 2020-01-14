@@ -1,5 +1,5 @@
 ---
-title: 將登入新增至 Azure AD ASP.NET Web 應用程式
+title: 將登入新增至 Microsoft 身分識別平台 ASP.NET Web 應用程式
 titleSuffix: Microsoft identity platform
 description: 使用傳統網頁瀏覽器型應用程式和 OpenID Connect 標準在 ASP.NET 方案上實作 Microsoft 登入
 services: active-directory
@@ -17,18 +17,18 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff89d3c11ca88db14d2efd772be44aef7165a8a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: cf1abc42fd3639bf76f752e5fe6a8f62c7d9e66d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964730"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423478"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>將「登入到 Microsoft」新增至 ASP.NET Web 應用程式
 
 本指南示範如何透過傳統網頁瀏覽器型應用程式和 OpenID Connect 使用 ASP.NET MVC 方案實作「登入到 Microsoft」。
 
-當您完成此指南時，您的應用程式就能夠接受來自 outlook.com 和 live.com 等個人帳戶的登入。 此外，與 Azure Active Directory (Azure AD) 整合的任何公司或組織中的公司和學校帳戶也可以登入您的應用程式。
+當您完成此指南時，您的應用程式就能夠接受來自 outlook.com 和 live.com 等個人帳戶的登入。 此外，與 Microsoft 身分識別平台整合的任何公司或組織中的公司和學校帳戶也可以登入您的應用程式。
 
 > 此指南需要 Microsoft Visual Studio 2019。  沒有嗎？  [免費下載 Visual Studio 2019](https://www.visualstudio.com/downloads/)。
 
@@ -42,7 +42,7 @@ ms.locfileid: "74964730"
 
 本指南使用下列程式庫：
 
-|程式庫|說明|
+|程式庫|描述|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|可讓應用程式使用 OpenIdConnect 進行驗證的中介軟體|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|可讓應用程式使用 Cookie 維持使用者工作階段的中介軟體|
@@ -106,7 +106,7 @@ ms.locfileid: "74964730"
     ```csharp
     public class Startup
     {
-        // The Client ID is used by the application to uniquely identify itself to Azure AD.
+        // The Client ID is used by the application to uniquely identify itself to Microsoft identity platform.
         string clientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
 
         // RedirectUri is the URL where the user will be redirected to after they sign in.
@@ -115,7 +115,7 @@ ms.locfileid: "74964730"
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Azure Active Directory v2.0 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed by Microsoft identity platform endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -175,7 +175,7 @@ ms.locfileid: "74964730"
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>詳細資訊
-> 您在 *OpenIDConnectAuthenticationOptions* 中提供的參數會作為供應用程式與 Azure AD 進行通訊的座標。 因為 OpenID Connect 中介軟體會在背景中使用 Cookie，所以您也必須設定在上述程式碼顯示時進行 Cookie 驗證。 ValidateIssuer  值會告知 OpenIdConnect 不要針對某一特定組織限制存取。
+> 您在 *OpenIDConnectAuthenticationOptions* 中提供的參數會作為應用程式與 Microsoft 身分識別平台進行通訊的座標。 因為 OpenID Connect 中介軟體會在背景中使用 Cookie，所以您也必須設定在上述程式碼顯示時進行 Cookie 驗證。 ValidateIssuer  值會告知 OpenIdConnect 不要針對某一特定組織限制存取。
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>新增控制器以處理登入和登出要求
@@ -270,7 +270,7 @@ ms.locfileid: "74964730"
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>詳細資訊
-> 此頁面會以 SVG 格式新增一個具有黑色背景的登入按鈕：<br/>![使用 Microsoft 登入](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> 如需了解更多登入按鈕，請前往[商標指導方針](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "B商標指導方針)。
+> 此頁面會以 SVG 格式新增一個具有黑色背景的登入按鈕：<br/>![使用 Microsoft 登入](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> 如需了解更多登入按鈕，請前往[商標指導方針](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "商標方針")。
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>新增控制器來顯示使用者的宣告
@@ -407,7 +407,7 @@ ms.locfileid: "74964730"
 
 <!--start-collapse-->
 > ###  <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft 身分識別平台端點中的權限和同意
->  與 Microsoft 身分識別平台整合的應用程式，會遵循可讓使用者和系統管理員控制資料存取方式的授權模型。 使用者向 Azure AD 進行驗證以存取此應用程式之後，系統會提示他們同意應用程式所要求的權限 (「檢視您的基本設定檔」和「持續存取您允許存取的資料」)。 接受這些權限之後，使用者會繼續處理應用程式的結果。 不過，如果發生下列其中一種情況，使用者可能會看到**需要管理員同意**的頁面：
+>  與 Microsoft 身分識別平台整合的應用程式，會遵循可讓使用者和系統管理員控制資料存取方式的授權模型。 使用者向 Microsoft 身分識別平台進行驗證以存取此應用程式之後，系統會提示他們同意應用程式所要求的權限 (「檢視您的基本設定檔」和「持續存取您允許存取的資料」)。 接受這些權限之後，使用者會繼續處理應用程式的結果。 不過，如果發生下列其中一種情況，使用者可能會看到**需要管理員同意**的頁面：
 >  > - 應用程式開發人員新增任何其他需要**管理員同意**的權限。
 >  > - 或租用戶經過設定 (在 [企業應用程式] -> [使用者設定]  中)，使得使用者無法自行同意應用程式存取公司資料。
 >
@@ -426,14 +426,14 @@ ms.locfileid: "74964730"
 
 瀏覽至控制器檢視之後，您應該就會看到一個資料表，包含使用者的基本屬性：
 
-|屬性 |值 |說明 |
+|屬性 |值 |描述 |
 |---|---|---|
 |**名稱** |使用者的全名 | 使用者的名字和姓氏
 |**使用者名稱** |user<span>@domain.com</span> | 用來識別使用者的使用者名稱|
 |**主旨** |主體 |用來跨網站唯一識別使用者的字串|
 |**租用戶識別碼** |Guid | 唯一代表使用者 Azure AD 組織的 **guid**|
 
-此外，您應該會看到驗證要求中所有宣告的資料表。 如需詳細資訊，請參閱 [Azure AD 識別碼權杖中的宣告清單](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)。
+此外，您應該會看到驗證要求中所有宣告的資料表。 如需詳細資訊，請參閱[識別碼權杖中的宣告清單](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)。
 
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>對具有 Authorize 屬性 (選用) 的方法進行存取測試
 
@@ -459,7 +459,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>限制誰可以登入您的應用程式
 
-根據預設，當您建置依照本指南建立的應用程式時，將能夠接受使用個人帳戶 (包括 outlook.com、live.com 和其他帳戶)，以及已整合 Azure AD 的公司或組織中的公司與學校帳戶登入。 這是 SaaS 應用程式的建議選項。
+根據預設，當您建置依照本指南建立的應用程式時，將能夠接受使用個人帳戶 (包括 outlook.com、live.com 和其他帳戶)，以及與 Microsoft 身分識別平台整合的公司或組織中的公司與學校帳戶登入。 這是 SaaS 應用程式的建議選項。
 
 若要限制使用者登入應用程式的存取權限，可使用多個選項。
 

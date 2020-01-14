@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 從 Azure 入口網站建立 Azure Cosmos 資料庫
+title: 快速入門 - 從 Azure 入口網站建立 Azure Cosmos DB 資源
 description: 本快速入門說明如何使用 Azure 入口網站建立 Azure Cosmos 資料庫、容器和項目。
 author: SnehaGunda
 ms.author: sngun
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/02/2019
-ms.openlocfilehash: 9b563f7546710b0cb07573d32b2f3939d8e64085
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 58fa891503342ac0ec9d41e9c458a71d18e58161
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872191"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445610"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>快速入門：從 Azure 入口網站建立 Azure Cosmos 帳戶、資料庫、容器和項目
 
@@ -30,7 +30,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 本快速入門示範如何使用 Azure 入口網站來建立 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帳戶、建立文件資料庫和容器，以及在容器中新增資料。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 Azure 訂用帳戶或免費的 Azure Cosmos DB 試用帳戶
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -55,7 +55,7 @@ Azure 訂用帳戶或免費的 Azure Cosmos DB 試用帳戶
     
 1.  在 [新增容器]  窗格上，輸入新容器的設定。
     
-    |設定|建議的值|說明
+    |設定|建議的值|描述
     |---|---|---|
     |**資料庫識別碼**|ToDoList|輸入 *ToDoList* 作為新資料庫的名稱。 資料庫名稱必須包含從 1 到 255 個字元，且不能包含 `/, \\, #, ?` 或尾端空格。 核取 [佈建資料庫輸送量]  選項，它可讓您在資料庫中的所有容器內共用佈建到資料庫的輸送量。 此選項也有助於節省成本。 |
     |**輸送量**|400|讓輸送量保持在每秒 400 個要求單位 (RU/秒)。 如果您想要降低延遲，稍後可以相應增加輸送量。| 

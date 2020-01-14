@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4b21d6aa95a38df402cf7a2640467c7a060a7f49
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3c6fd3de43f80c4cbe8f1f822faebad861c64d64
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496389"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610602"
 ---
 # <a name="connect-data-sources"></a>連線資料來源
 
@@ -43,7 +43,8 @@ ms.locfileid: "73496389"
 
 Azure Sentinel 支援下列資料連線方法：
 
-- **Microsoft 服務**：<br> Microsoft 服務會以原生方式連線，並運用 Azure 基礎進行立即整合，只需按幾下就可以與下列解決方案連線：
+- **服務對服務整合**：<br> 某些服務會以原生方式連線 (例如 AWS 和 Microsoft 服務)，這些服務會運用 Azure 基礎進行立即整合，只需按幾下就可以與下列解決方案連線：
+    - [Amazon Web Services - CloudTrail](connect-aws.md)
     - [Office 365](connect-office-365.md)
     - [Azure AD 稽核記錄和登入](connect-azure-active-directory.md)
     - [Azure 活動](connect-azure-activity.md)
@@ -93,7 +94,7 @@ Azure Sentinel 支援下列資料連線方法：
 ## <a name="map-data-types-with-azure-sentinel-connection-options"></a>使用 Azure Sentinel 連線選項對應資料類型
 
 
-| **資料類型** | **如何連線** | **資料連接器？** | **註解** |
+| **Data type** | **如何連線** | **資料連接器？** | **註解** |
 |------|---------|-------------|------|
 | AWSCloudTrail | [連線 AWS](connect-aws.md) | V | |
 | AzureActivity | [連線 Azure 活動](connect-azure-activity.md)和[活動記錄概觀](../azure-monitor/platform/activity-logs-overview.md)| V | |

@@ -8,16 +8,23 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 32199623c6b3198f37854986745872aafa6747eb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e2b2f13c3570683b575d13b5aadb3e03ec549cab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969613"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434586"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>快速入門：使用 Azure 入口網站設定 IoT 中樞裝置佈建服務
 
-這些步驟顯示如何在入口網站中設定 Azure 雲端資源，以便佈建裝置。 本文包含以下作業的步驟：建立 IoT 中樞、建立新的 IoT 中樞裝置佈建服務，以及將兩項服務連結在一起。 
+IoT 中樞裝置佈建服務可以搭配 IoT 中樞使用，無須人為介入，即可對所需的 IoT 中樞進行 Just-In-Time 自動佈建，讓客戶能以安全又可調整的方式佈建數百萬個 IoT 裝置。 Azure IoT 中樞裝置佈建服務支援採用 TPM、對稱金鑰和 x.509 憑證驗證的 IoT 裝置。 如需詳細資訊，請參閱 [IoT 中樞裝置佈建服務概觀](./about-iot-dps.md)
+
+在本快速入門中，您將了解如何在 Azure 入口網站中設定 IoT 中樞裝置佈建服務，以使用下列步驟來佈建您的裝置：
+> [!div class="checklist"]
+> * 使用 Azure 入口網站建立 IoT 中樞
+> * 使用 Azure 入口網站建立 IoT 中樞裝置佈建服務並取得識別碼範圍
+> * 將 IoT 中樞連結至裝置佈建服務
+
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -27,7 +34,7 @@ ms.locfileid: "74969613"
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 
-## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>建立 IoT 中樞裝置佈建服務的新執行個體
+## <a name="create-a-new-iot-hub-device-provisioning-service"></a>建立新的 IoT 中樞裝置佈建服務
 
 1. 再次選取 [+ 建立資源]  按鈕。
 
@@ -77,4 +84,4 @@ ms.locfileid: "74969613"
 在本快速入門中，您已部署 IoT 中樞和裝置佈建服務執行個體，並已連結這兩個資源。 若要深入了解如何使用這項設定來佈建模擬裝置，請繼續進行建立模擬裝置的快速入門。
 
 > [!div class="nextstepaction"]
-> [建立模擬裝置的快速入門](./quick-create-simulated-device.md)
+> [建立模擬裝置的快速入門](./quick-create-simulated-device-symm-key.md)

@@ -1,7 +1,7 @@
 ---
 title: 快速入門：適用於 Java 的 Content Moderator 用戶端程式庫
 titleSuffix: Azure Cognitive Services
-description: 了解如何開始使用適用於 Java 的 Azure 認知服務 Content Moderator 用戶端程式庫。
+description: 在本快速入門中，了解如何開始使用適用於 Java 的 Azure 認知服務 Content Moderator 用戶端程式庫。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: edc51be93ba209a1c60970e6fa1b47fca75048c6
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 53ac5c10672c433cb16d9ad326d936affe82a8c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744448"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381931"
 ---
 # <a name="quickstart-content-moderator-client-library-for-java"></a>快速入門：適用於 Java 的 Content Moderator 用戶端程式庫
 
@@ -27,7 +27,7 @@ ms.locfileid: "73744448"
 
 [參考文件](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [成品 (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [範例](https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 * 最新版的 [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -95,7 +95,7 @@ mkdir -p src/main/java
 
 下列類別會處理 Content Moderator Java SDK 的一些主要功能。
 
-|名稱|說明|
+|名稱|描述|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable)|所有 Content Moderator 功能都需要此類別。 您可以使用訂用帳戶資訊來具現化此類別，並用其來產生其他類別的執行個體。|
 |[ImageModeration](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.imagemoderations?view=azure-java-stable)|此類別提供對成人內容、個人資訊或人臉的影像進行分析的功能。|

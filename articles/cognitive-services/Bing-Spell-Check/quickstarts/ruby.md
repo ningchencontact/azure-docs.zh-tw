@@ -1,27 +1,27 @@
 ---
 title: 快速入門：使用 REST API 和 Ruby 檢查拼字 - Bing 拼字檢查
 titleSuffix: Azure Cognitive Services
-description: 開始使用 Bing 拼字檢查 REST API 來檢查拼字和文法。
+description: 透過本快速入門開始使用 Bing 拼字檢查 REST API 來檢查拼字和文法。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: e80a7bd3b56ccfd13a20c11f845d076271448b76
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 89a2a345e2a4e3ca1be31297e614e86f800e6316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383847"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448424"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>快速入門：使用 Bing 拼字檢查 REST API 和 Ruby 進行檢查拼字
 
 使用本快速入門，透過 Ruby 第一次呼叫 Bing 拼字檢查 REST API。 此簡單應用程式會將要求傳送至 API 並傳回無法辨識的字組清單，後面接著建議的修正。 雖然此應用程式是以 Ruby 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb) 上找到此應用程式的原始程式碼
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Ruby 2.4 或更新版本](https://www.ruby-lang.org/en/downloads/) (英文)。
 
@@ -32,13 +32,13 @@ ms.locfileid: "74383847"
 
 1. 在您最愛的編輯器或 IDE 中建立新的 Ruby 檔案，然後新增下列需求。 
 
-    ```javascript
+    ```ruby
     require 'net/http'
     require 'uri'
     require 'json'
     ```
 
-2. 針對您的訂用帳戶金鑰、端點 URI 和路徑建立變數。 將 `mkt=` 參數附加至您的市場，以及將 `&mode` 附加至 `proof` 證明模式，以建立您的要求參數。
+2. 針對您的訂用帳戶金鑰、端點 URI 和路徑建立變數。 將 `mkt=` 參數附加至您的市場，以及將 `&mode` 附加至 `proof` 證明模式，以建立您的要求參數。 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -81,6 +81,16 @@ ms.locfileid: "74383847"
     result = JSON.pretty_generate(JSON.parse(response.body))
     puts result
     ```
+
+## <a name="run-the-application"></a>執行應用程式
+
+建置並執行專案。
+
+如果您使用命令列，請使用下列命令來執行應用程式。
+
+```bash
+ruby <FILE_NAME>.rb
+```
 
 ## <a name="example-json-response"></a>範例 JSON 回應
 

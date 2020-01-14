@@ -1,18 +1,20 @@
 ---
-title: 登入 Azure Notebooks
-description: 快速登入 Azure Notebooks 並設定使用者識別碼，如此可讓您存取己儲存的專案並與他人供用 Notebooks。
+title: 登入 Azure Notebooks 預覽
+description: 快速登入 Azure Notebooks 預覽並設定使用者識別碼，如此可讓您存取己儲存的專案並與他人共用 Notebook。
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.openlocfilehash: 234703da9662380a59c7673ca3b34a1b01b7dbef
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b6572a7c0b965b2b72916db577b47eff4f1921c0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277444"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647011"
 ---
-# <a name="quickstart-sign-in-and-set-a-user-id"></a>快速入門：登入並設定使用者識別碼
+# <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>快速入門：登入 Azure Notebooks 預覽並設定使用者識別碼
 
 雖然您不用登入就可以檢視 Azure Notebooks，但是您必須登入以執行 Notebook、存取已儲存的專案和 Notebook，以及與其他人共用您的 Notebook。
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="sign-in"></a>登入
 

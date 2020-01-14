@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB 教學課程：在 Apache TinkerPops Gremlin 主控台中建立、查詢和周遊
+title: 使用 TinkerPop Gremlin 主控台查詢 Azure Cosmos DB Gremlin API：教學課程
 description: Azure Cosmos DB 快速入門，說明如何使用 Azure Cosmos DB Gremlin API 建立頂點、邊緣和查詢。
 author: luisbosquez
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: 3f25bbbbc8b3f34bdb89ba8797b042826a88ca8d
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: b873cdc65ed483836dc4c3cf9904a8fab1d2f09f
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815959"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665169"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>快速入門：使用 Gremlin 主控台建立、查詢和周遊 Azure Cosmos DB 圖形資料庫
 
@@ -33,13 +33,13 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 Gremlin 主控台是以 Groovy/Java 為基礎並且在 Linux、Mac 和 Windows 上執行。 您可以從 [Apache TinkerPop 網站](https://tinkerpop.apache.org/downloads.html)進行下載。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 您必須擁有 Azure 訂用帳戶，才能針對本快速入門建立 Azure Cosmos DB 帳戶。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-您也需要安裝 [Gremlin 主控台](https://tinkerpop.apache.org/)。 使用 3.2.5 版或更高版本。 (若要在 Windows 上使用 Gremlin 主控台，必須先安裝 [Java 執行階段](https://www.oracle.com/technetwork/java/javase/overview/index.html)。)
+您也需要安裝 [Gremlin 主控台](https://tinkerpop.apache.org/downloads.html)。 **建議的版本為 v3.4.3** 或更早版本。 (若要在 Windows 上使用 Gremlin 主控台，必須先安裝 [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html))。
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
 
@@ -53,12 +53,12 @@ Gremlin 主控台是以 Groovy/Java 為基礎並且在 Linux、Mac 和 Windows �
 1. 啟動 Gremlin 主控台之前，請建立或修改 `apache-tinkerpop-gremlin-console-3.2.5/conf` 目錄中的 remote-secure.yaml 組態檔。
 2. 填入如下表中定義的 host  、port  、username  、password  、connectionPool  和 serializer  組態︰
 
-    設定|建議的值|說明
+    設定|建議的值|描述
     ---|---|---
-    主機|[*account-name*.**gremlin**.cosmos.azure.com]|請參閱下列螢幕擷取畫面。 這是 Azure 入口網站的 [概觀] 頁面上的 **Gremlin URI** 值，此值以方括號括住，並已移除尾端的 :443/。 注意：請務必使用 Gremlin 值，而**不要**使用以 [*account-name*.documents.azure.com] 結尾的 URI，因為這樣可能會導致後續在嘗試執行 Gremlin 查詢時發生「主機未及時回應」的例外狀況。 
+    主機|[*account-name*.**gremlin**.cosmos.azure.com]|請參閱下列螢幕擷取畫面。 這是 Azure 入口網站的 [概觀] 頁面上的 **Gremlin URI** 值，此值以方括號括住，並已移除尾端的 :443/。 注意:請務必使用 Gremlin 值，而**不要**使用以 [*account-name*.documents.azure.com] 結尾的 URI，因為這樣可能會導致後續在嘗試執行 Gremlin 查詢時發生「主機未及時回應」的例外狀況。 
     連接埠|443|設為 443。
     username|您的使用者名稱 |`/dbs/<db>/colls/<coll>` 表單的資源，其中 `<db>` 是您的資料庫名稱，而 `<coll>` 是您的集合名稱。
-    password|您的主要金鑰 | 請看下方的第二個螢幕擷取畫面。 這是您的主要金鑰，可以從 Azure 入口網站 [金鑰] 頁面的 [主鑰金鑰] 方塊中擷取。 使用方塊左側的 [複製] 按鈕來複製此值。
+    密碼|您的主要金鑰 | 請看下方的第二個螢幕擷取畫面。 這是您的主要金鑰，可以從 Azure 入口網站 [金鑰] 頁面的 [主鑰金鑰] 方塊中擷取。 使用方塊左側的 [複製] 按鈕來複製此值。
     connectionPool|{enableSsl: true}|SSL 的連線集區設定。
     序列化程式|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|設定此值，並在貼入此值時刪除任何 `\n` 分行符號。
 

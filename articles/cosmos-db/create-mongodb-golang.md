@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Cosmos DB 適用於 MongoDB 的 API 和 Golang SDK 建置主控台應用程式
+title: 使用適用於 MongoDB 的 Azure Cosmos DB API 和 Golang SDK 的主控台應用程式
 description: 呈現 Golang 程式碼範例，您可使用 Azure Cosmos DB 適用於 MongoDB 的 API 進行連線及查詢。
 author: markjbrown
 ms.author: mjbrown
@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: e16b9b7e591fcc089d74794c98ddfc951cbdced9
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c717a8d5baa57ce780fbbc0d25e67c2509ca86fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755122"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441955"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>快速入門：使用 Azure Cosmos DB 適用於 MongoDB 的 API 和 Golang SDK 建置主控台應用程式
 
@@ -31,7 +31,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 換句話說，您的 Golang 應用程式只知道它使用 MongoDB 用戶端進行連線。 對於資料儲存在 Cosmos 資料庫中的應用程式而言是透明的。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free) 。 
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 8f641640ff6cf4174e2e1374404d47fc0760f79f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 809c188dc37aba64de27e89e38acd8692c7de032
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979574"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613562"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>教學課程：使用 Azure Notebooks (Python) 來聯結感應器資料與氣象預報資料
 
@@ -31,12 +31,15 @@ ms.locfileid: "74979574"
 > * 在圖表中繪製預報資料。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本教學課程，您需要先：
 
-1. 在 S0 定價層中建立 Azure 地圖服務帳戶訂用帳戶，方法是遵循[管理 Azure 地圖服務帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) \(部分機器翻譯\) 中的指示。
-2. 取得您帳戶的主要訂用帳戶金鑰，方法是遵循[取得帳戶的主要金鑰](./tutorial-search-location.md#getkey)中的指示。
+1. 依照[建立帳戶](quick-demo-map-app.md#create-an-account-with-azure-maps)中的指示，在 S0 定價層中建立 Azure 地圖服務帳戶訂用帳戶。
+2. 依照[取得主要金鑰](quick-demo-map-app.md#get-the-primary-key-for-your-account)中的指示，取得帳戶的主要訂用帳戶金鑰。
+
+
+如需 Azure 地圖服務中驗證的詳細資訊，請參閱[管理 Azure 地圖服務中的驗證](./how-to-manage-authentication.md)。
 
 若要熟悉 Azure Notebooks 以及了解如何開始使用，請遵循[建立 Azure Notebook](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebook) 中的指示。
 
@@ -68,7 +71,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 
 ```python
-subscription_key = "Your Azure Maps primary subscription key"
+subscription_key = "Your Azure Maps key"
 
 # Get a lists of unique station IDs and their coordinates 
 station_ids = pd.unique(df[['StationID']].values.ravel())
@@ -172,7 +175,7 @@ windsPlot.set_xlabel("Date")
 windsPlot.set_ylabel("Wind direction")
 ```
 
-下圖會以視覺方式呈現預報資料，以顯示當日起往後 15 天的風速 (左圖) 和風向 (右圖) 變化。
+下圖會以視覺方式呈現預報資料，以顯示要求資料當日起往後 15 天的風速 (左圖) 和風向 (右圖) 變化。
 
 <center>
 
@@ -190,6 +193,6 @@ windsPlot.set_ylabel("Wind direction")
 * [每日預報](https://aka.ms/AzureMapsWeatherDailyForecast)
 * [轉譯 - 取得地圖影像](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 
-如需 Azure 地圖服務 REST API 的完整清單，請參閱 [Azure 地圖服務 REST API](https://docs.microsoft.com/azure/azure-maps/#reference) \(部分機器翻譯\)。
+如需 Azure 地圖服務 REST API 的完整清單，請參閱 [Azure 地圖服務 REST API](https://docs.microsoft.com/azure/azure-maps/consumption-model) \(部分機器翻譯\)。
 
 若要深入了解 Azure Notebooks，請參閱 [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) \(部分機器翻譯\)。

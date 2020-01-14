@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cc1eb4c4fce1398365145b2f3d63db984635d667
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 34bc62a9cb7e5d1358322500a8929b6f8b36d422
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196245"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454560"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>準備 VMware VM 以進行評量並移轉至 Azure
 
@@ -51,7 +51,7 @@ ms.locfileid: "74196245"
 2. 在 [檢查存取權]  中，尋找相關的帳戶，然後按一下以查看權限。
 3. 您應該會具有「參與者」  或「擁有者」  權限。
     - 如果您剛建立免費的 Azure 帳戶，您就是訂用帳戶的擁有者。
-    - 如果您不是訂用帳戶擁有者，請與擁有者合作來指派角色。
+    - 如果您不是訂用帳戶擁有者，請與擁有者合作以指派角色。
 
 ### <a name="assign-permissions-to-register-the-appliance"></a>指派權限以註冊設備
 

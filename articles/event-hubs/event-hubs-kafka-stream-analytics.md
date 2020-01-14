@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用串流分析處理 Apache Kafka 事件 - Azure 事件中樞
+title: Azure 事件中樞 - 處理 Apache Kafka 事件
 description: 教學課程：本文說明如何使用 Azure 串流分析，處理透過事件中樞擷取的 Kafka 事件。
 services: event-hubs
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 7801b3252ab13df1f92e7aa5e0eba071195cb76c
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dd429c7e8478bb0576605bcffe3c72bde35ae41e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720624"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437259"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>教學課程：使用串流分析處理適用於事件中樞的 Apache Kafka 
 本文說明如何將資料串流至啟用的 Kafka 事件中樞，以及使用 Azure 串流分析處理該資料。 本文將逐步引導您完成下列步驟： 
@@ -30,7 +30,7 @@ ms.locfileid: "73720624"
 當您使用事件中樞所公開的 Kafka 端點時，您不需要變更您的通訊協定用戶端或執行自己的叢集。 Azure 事件中樞支援 [Apache Kafka 1.0 版](https://kafka.apache.org/10/documentation.html)。 和更新版本。 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本快速入門，請確定您具備下列必要條件︰
 
@@ -178,7 +178,7 @@ ms.locfileid: "73720624"
 1. 選取左側功能表上的 [概觀]  。 
 2. 選取 [開始]  。 
 
-    ![[開始] 功能表](./media/event-hubs-kafka-stream-analytics/start-menu.png)
+    ![開始功能表](./media/event-hubs-kafka-stream-analytics/start-menu.png)
 1. 在 [啟動作業]  頁面中，選取 [啟動]  。 
 
     ![啟動作業頁面](./media/event-hubs-kafka-stream-analytics/start-job-page.png)

@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 指令碼 - Azure Cosmos DB 更新資料表 API 的 RU/秒
+title: 此 PowerShell 指令碼用以更新 Azure Cosmos DB 資料表 API 的 RU/秒
 description: 了解如何使用 PowerShell 指令碼來更新 Azure Cosmos DB 資料表 API 帳戶中的資料庫或容器輸送量
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8188089f216fa33ba958cf670bb321816387f5c9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 37e7ab82a42b8bcd633e0c083e1a3f51505a95cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871868"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444913"
 ---
 # <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>更新 Azure Cosmos DB 資料表的 RU/秒 - 資料表 API
 
@@ -36,7 +36,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 |**Azure 資源**| |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 建立資源。 |

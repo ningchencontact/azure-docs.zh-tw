@@ -1,27 +1,17 @@
 ---
-title: 封裝和部署容器作為 Azure 中的 Service Fabric 應用程式 | Microsoft Docs
+title: 封裝和部署容器
 description: 在本教學課程中，您會了解如何使用 Yeoman 來產生 Azure Service Fabric 應用程式定義以及封裝應用程式。
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker、容器、微服務、Service Fabric、Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b4931b62aaf04db2ee4ff6f4a5e2b96274b8af88
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 554590a065214c17de0acdea3207876f113b3caf
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385049"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614021"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>教學課程：使用 Yeoman 封裝和部署容器作為 Service Fabric 應用程式
 
@@ -35,7 +25,7 @@ ms.locfileid: "68385049"
 > * 部署和執行應用程式
 > * 清除應用程式
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * 使用推送到在本教學課程系列的[第 1 部分](service-fabric-tutorial-create-container-images.md)中建立之 Azure Container Registry 的容器映像。
 * 已[設定](service-fabric-tutorial-create-container-images.md) Linux 開發環境。
@@ -93,7 +83,7 @@ Service Fabric 提供 Scaffolding 工具，可協助您使用 Yeoman 範本產�
 若要將其他容器服務新增至已使用 Yeoman 建立的應用程式，請執行下列步驟︰
 
 1. 將目錄變更一個層級至 **TestContainer** 目錄，例如 *./TestContainer*
-2. 執行 `yo azuresfcontainer:AddService`
+2. `yo azuresfcontainer:AddService`執行
 3. 將服務命名為 'azurevoteback'
 4. 為 Redis 提供容器映像路徑 - 'alpine:redis'
 5. 按 Enter 鍵，讓 Commands 區段保留空白

@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 在 Azure AD 權利管理中建立您的第一個存取套件 - Azure Active Directory
+title: 教學課程 - 建立存取套件 - Azure AD 權利管理
 description: 在 Azure Active Directory 權利管理中建立第一個存取套件的逐步教學課程。
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/22/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de4d4a1825149a512d7abdb192d8fb9d49e85a20
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174868"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422663"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>教學課程：在 Azure AD 權利管理中建立您的第一個存取套件
 
@@ -42,7 +42,7 @@ ms.locfileid: "73174868"
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要使用 Azure AD 權利管理，您必須具有下列其中一個授權：
 
@@ -51,7 +51,7 @@ ms.locfileid: "73174868"
 
 如需詳細資訊，請參閱[授權需求](entitlement-management-overview.md#license-requirements)。
 
-## <a name="step-1-set-up-users-and-group"></a>步驟 1：設定使用者和群組
+## <a name="step-1-set-up-users-and-group"></a>步驟 1:設定使用者和群組
 
 資源目錄會有一或多個共用的資源。 在此步驟中，您會在 Woodgrove Bank 目錄中建立名為**行銷資源**的群組，作為權利管理的目標資源。 您也會設定內部要求者。
 
@@ -68,13 +68,13 @@ ms.locfileid: "73174868"
     | 名稱 | 目錄角色 |
     | --- | --- |
     | **Admin1** | 全域管理員<br/>-或-<br/>使用者管理員 |
-    | **Requestor1** | 使用者 |
+    | **Requestor1** | User |
 
 1. 建立名為**行銷資源**、成員資格類型為**已指派**的 Azure AD 安全性群組。
 
     此群組將是權利管理的目標資源。 此群組一開始應不含任何成員。
 
-## <a name="step-2-create-an-access-package"></a>步驟 2：建立存取套件
+## <a name="step-2-create-an-access-package"></a>步驟 2:建立存取套件
 
 *存取套件*是小組或專案所需且受原則管理的資源組合。 存取套件會定義在名為*目錄*的容器中。 在此步驟中，您會在**一般**目錄中建立 **行銷資源存取套件**。
 
@@ -130,7 +130,7 @@ ms.locfileid: "73174868"
 
     ![新增存取套件 - [要求] 索引標籤 - 選取使用者和群組](./media/entitlement-management-access-package-first/requests-select-users-groups.png)
 
-1. 按一下 [選取]  。
+1. 按一下 [選取]。 
 
 1. 向下捲動至 [核准]  和 [啟用要求]  區段。
 

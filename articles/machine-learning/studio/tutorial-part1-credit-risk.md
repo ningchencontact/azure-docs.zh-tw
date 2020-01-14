@@ -1,7 +1,7 @@
 ---
 title: 教學課程 1：預測信用風險
 titleSuffix: ML Studio (classic) - Azure
-description: 一個詳盡的教學課程，說明如何在傳統版本的 Azure Machine Learning Studio 中建立適用於信用風險評估的預測性分析解決方案。 本教學課程是三部分教學課程系列的第一部分。  其中說明如何建立工作區、上傳資料及建立實驗。
+description: 一個詳盡的教學課程，說明如何在 Azure Machine Learning (傳統) 中建立適用於信用風險評估的預測性分析解決方案。 本教學課程是三部分教學課程系列的第一部分。  其中說明如何建立工作區、上傳資料及建立實驗。
 keywords: 信用風險, 預測性分析解決方案, 風險評估
 author: sdgilley
 ms.author: sgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: e8c1eea097fc3ea2704acfae198eb493943b6ccf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 07621bd2d0593ea3896aba0deb65e0b856e5987b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838859"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432249"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>教學課程 1：預測信用風險 - Azure Machine Learning Studio (傳統)
 
@@ -25,7 +25,7 @@ ms.locfileid: "73838859"
 
 假設您必須根據某個人在信用申請書上提供的資訊預測其信用風險。  
 
-信用風險評估是一個複雜的問題，但本教學課程將稍微加以簡化。 您將使用它作為範例，以說明如何使用 Microsoft Azure Machine Learning Studio (傳統) 建立預測性分析解決方案。 針對此解決方案，您將使用傳統版本的 Azure Machine Learning Studio 和 Machine Learning Web 服務。  
+信用風險評估是一個複雜的問題，但本教學課程將稍微加以簡化。 您將使用它作為範例，以說明如何使用 Microsoft Azure Machine Learning Studio (傳統) 建立預測性分析解決方案。 針對此解決方案，您將使用 Azure Machine Learning Studio (傳統) 和 Machine Learning Web 服務。  
 
 在此三部分的教學課程中，您將從可公開取得的信用風險資料開始著手。  接著，您將開發並訓練預測模型。  最後，您會將模型部署為 Web 服務。
 
@@ -38,7 +38,7 @@ ms.locfileid: "73838859"
 
 您隨後可使用此實驗[在第 2 部分中訓練模型](tutorial-part2-credit-risk-train.md)，然後[在第 3 部分中加以部署](tutorial-part3-credit-risk-deploy.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 本教學課程假設您之前已至少使用過一次 Machine Learning Studio (傳統)，且對機器學習概念有一些了解。 但不會假設您對上述任一方面有所專精。
 
@@ -95,7 +95,7 @@ UCI 網站上的資料集描述提及，個人信用風險若分類錯誤，將�
 
 ### <a name="convert-the-dataset-format"></a>轉換資料集格式
 
-原始資料集使用以空格分隔的格式。 傳統版本的 Machine Learning Studio 在使用逗號分隔值 (CSV) 檔案時更能適當運作，因此您將以逗號取代空格，進行資料集轉換。  
+原始資料集使用以空格分隔的格式。 Machine Learning Studio (傳統) 在使用逗號分隔值 (CSV) 檔案時更能適當運作，因此您將以逗號取代空格，進行資料集轉換。  
 
 有許多方法可以轉換此資料。 其中一種是使用下列的 Windows PowerShell 命令：   
 
@@ -109,7 +109,7 @@ UCI 網站上的資料集描述提及，個人信用風險若分類錯誤，將�
 
 ### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>將資料集上傳至 Machine Learning Studio (傳統)
 
-在資料轉換為 CSV 格式後，您必須將其上傳至傳統版本的 Machine Learning Studio 中。 
+在資料轉換為 CSV 格式後，您必須將其上傳至 Machine Learning Studio (傳統) 中。 
 
 1. 開啟 Machine Learning Studio (傳統) 首頁 ([https://studio.azureml.net](https://studio.azureml.net))。 
 
@@ -145,7 +145,7 @@ UCI 網站上的資料集描述提及，個人信用風險若分類錯誤，將�
 
 ## <a name="create-an-experiment"></a>建立實驗
 
-本教學課程的下一個步驟，是在傳統版本的 Machine Learning Studio 中建立實驗，並在實驗中使用您上傳的資料集。  
+本教學課程的下一個步驟，是在 Machine Learning Studio (傳統) 中建立實驗，並在實驗中使用您上傳的資料集。  
 
 1. 在 Studio (傳統) 中，按一下視窗底部的 [+新增]  。
 1. 選取 [實驗]  ，然後選取 [空白實驗]。 
@@ -173,7 +173,7 @@ UCI 網站上的資料集描述提及，個人信用風險若分類錯誤，將�
 
 您可以檢視前 100 列資料和整個資料集的部分統計資訊：按一下資料集的輸出連接埠 (底部的小圓圈)，然後選取 [視覺化]  。  
 
-因為資料檔案並未隨附資料行標題，所以傳統版本的 Studio 已提供一般標題 (Col1、Col2 等等  )。 建立模型並不一定要有良好的標題，但良好的標題可讓您更容易使用實驗中的資料。 此外，當您最終在 Web 服務中發佈此模型時，標題有助於服務的使用者識別資料行。  
+因為資料檔案並未隨附資料行標題，所以 Studio (傳統) 已提供一般標題 (Col1、Col2 等等  )。 建立模型並不一定要有良好的標題，但良好的標題可讓您更容易使用實驗中的資料。 此外，當您最終在 Web 服務中發佈此模型時，標題有助於服務的使用者識別資料行。  
 
 您可以使用[編輯中繼資料][edit-metadata]模組來新增資料行標題。
 

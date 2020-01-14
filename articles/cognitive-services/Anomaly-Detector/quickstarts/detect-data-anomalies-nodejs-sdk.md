@@ -1,7 +1,7 @@
 ---
 title: 快速入門：使用適用於 Python 的 Anomaly Detector 用戶端程式庫偵測資料異常
 titleSuffix: Azure Cognitive Services
-description: 使用 Anomaly Detector API 來偵測資料序列中的異常狀況 (以批次或串流資料為單位)。
+description: 透過本快速入門，使用 Anomaly Detector API 來偵測資料序列中的異常狀況 (以批次或串流資料的方式)。
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 084ef1b81f7db5bd4a2d371e0c322211c0f0e142
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b8cbf69aa0788b3b8e0130396f192cb5bc045f3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483500"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448879"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>快速入門：適用於 Node.js 的 Anomaly Detector 用戶端程式庫
 
@@ -28,7 +28,7 @@ ms.locfileid: "74483500"
 
 [參考文件](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [套件 (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [在 GitHub 上尋找程式碼](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 * 最新版的 [Node.js](https://nodejs.org/)

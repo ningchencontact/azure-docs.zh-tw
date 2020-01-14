@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 指令碼 - Azure Cosmos DB 列出及取得資料表 API 的作業
+title: 此 PowerShell 指令碼用以列出並取得 Azure Cosmos DB 資料表 API 作業
 description: Azure PowerShell 指令碼 - Azure Cosmos DB 列出及取得資料表 API 的作業
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: d4d299f9cec7170256e66ec161eff3976c5211ca
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 9e904bdb635111b3fb0c3120be08f26e2e097236
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178713"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444950"
 ---
 # <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>列出及取得 Azure Cosmos DB 資料表 - 資料表 API
 
@@ -36,7 +36,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 |**Azure 資源**| |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 建立資源。 |

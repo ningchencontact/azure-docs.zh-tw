@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 指令碼 - Azure Cosmos DB 取得 MongoDB API 的輸送量 (RU/秒)
+title: 此 PowerShell 指令碼用以取得適用於 MongoDB 的 Azure Cosmos DB API 的輸送量 (RU/秒)
 description: Azure PowerShell 指令碼 - Azure Cosmos DB 取得 MongoDB API 的輸送量 (RU/秒)
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0df75831bb54ebb9f648a8ca9207c2572fd4d2e9
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: d7cd068722a1dcc99b909020fa5bae34ae4a4768
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178876"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441393"
 ---
 # <a name="get-throughput-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>取得 Azure Cosmos DB 資料庫或集合的輸送量 (RU/秒) - MongoDB API
 
@@ -36,7 +36,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 |**Azure 資源**| |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 建立資源。 |

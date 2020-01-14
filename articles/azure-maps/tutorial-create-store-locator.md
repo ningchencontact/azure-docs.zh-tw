@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 52deb1cf872176b69975d550dd89d870b34d9bf0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b5ce78e95d139cf16b6193fedffc563513b39719
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107080"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408032"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>教學課程：使用 Azure 地圖服務建立商店定位器
 
@@ -33,22 +33,20 @@ ms.locfileid: "74107080"
 
 往前跳至[虛擬體驗商店定位器範例](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator)或[原始程式碼](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-若要完成此教學課程中的步驟，您必須先[建立 Azure 地圖服務帳戶](./tutorial-search-location.md#createaccount)，並遵循[取得主要金鑰](./tutorial-search-location.md#getkey)中的步驟取得帳戶的主要訂用帳戶金鑰。
+若要完成本教學課程中的步驟，您必須先建立 Azure 地圖服務帳戶，並取得主要金鑰 (訂用帳戶金鑰)。 請遵循[建立帳戶](quick-demo-map-app.md#create-an-account-with-azure-maps)中的指示，建立使用 S1 定價層的 Azure 地圖服務帳戶訂用帳戶，並遵循[取得主要金鑰](quick-demo-map-app.md#get-the-primary-key-for-your-account)中的步驟來取得適用於您帳戶的主要金鑰。 如需 Azure 地圖服務中驗證的詳細資訊，請參閱[管理 Azure 地圖服務中的驗證](how-to-manage-authentication.md)。
 
 ## <a name="design"></a>設計
 
 在跳到程式碼之前，先進行設計是個不錯的做法。 商店定位器可依據您的需要調整複雜或簡單程度。 在本教學課程中，我們會建立簡單的商店定位器。 我們在過程中提供了一些秘訣，可協助您依個人需求擴充某些功能。 我們會為名為 Contoso Coffee 的虛構公司建立商店定位器。 下圖顯示我們在本教學課程中建置的商店定位器所採用的一般配置框線：
 
-<br/>
 <center>
 
 ![Contoso Coffee 咖啡廳所在位置的商店定位器框線](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 為了充分發揮此商店定位器的實用性，我們加入了回應式配置，可在使用者的螢幕寬度小於 700 個像素時進行調整。 回應式配置可方便您在小型螢幕上使用商店定位器，例如行動裝置。 以下是小型螢幕配置的框線：  
 
-<br/>
 <center>
 
 ![Contoso Coffee 商店定位器在行動裝置上的框線](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
@@ -73,7 +71,6 @@ ms.locfileid: "74107080"
 
 在開發商店定位器應用程式之前，我們必須先為要顯示在地圖上的商店建立資料集。 在本教學課程中，我們將使用虛構咖啡廳 Contoso Coffee 的資料集。 我們以 Excel 活頁簿來管理此簡單商店定位器的資料集。 資料集中包含 10,213 個遍布於九個國家/地區的 Contoso Coffee 咖啡廳所在位置：美國、加拿大、英國、法國、德國、義大利、荷蘭、丹麥和西班牙。 其資料如下列螢幕擷取畫面所示：
 
-<br/>
 <center>
 
 ![Excel 活頁簿中商店定位器資料的螢幕擷取畫面](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
@@ -95,14 +92,12 @@ ms.locfileid: "74107080"
 
 若要將活頁簿轉換成一般文字檔案，請將活頁簿儲存為 Tab 鍵分隔檔案。 每個資料行都會以 Tab 字元分隔，以便在我們的程式碼中剖析資料行。 您可以使用逗號分隔值 (CSV) 格式，但該選項需要較多剖析邏輯。 周圍有逗號的任何欄位都會在兩側加上引號。 若要將此資料匯出為 Excel 中的 Tab 鍵分隔檔案，請選取 [另存新檔]  。 在 [存檔類型]  下拉式清單中，選取 [文字 (Tab 鍵分隔) (*.txt)]  。 將檔案命名為 *ContosoCoffee.txt*。 
 
-<br/>
 <center>
 
 ![[存檔類型] 對話方塊的螢幕擷取畫面](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 如果您在「記事本」中開啟文字檔，檔案會如下圖所示：
 
-<br/>
 <center>
 
 ![顯示 Tab 字元分隔資料集的記事本檔案螢幕擷取畫面](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
@@ -112,7 +107,6 @@ ms.locfileid: "74107080"
 
 若要建立專案，您可以使用 [Visual Studio](https://visualstudio.microsoft.com) 或您選擇的程式碼編輯器。 請在您的專案資料夾中建立三個檔案：*index.html*、*index.css* 和 *index.js*。 這些檔案會定義應用程式的版面配置、樣式和邏輯。 建立名為 *data* 的資料夾，並將 *ContosoCoffee.txt* 新增至該資料夾。 建立名為 *images* 的另一個資料夾。 我們在此應用程式中使用十個影像來表示地圖上的圖示、按鈕和標記。 您可以[下載這些影像](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data)。 您的專案資料夾此時會如下圖所示︰
 
-<br/>
 <center>
 
 ![簡單商店定位器專案資料夾的螢幕擷取畫面](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
@@ -930,21 +924,18 @@ ms.locfileid: "74107080"
 
 在使用者第一次選取 [我的位置] 按鈕時，瀏覽器會顯示安全性警告，要求提供存取使用者所在位置的權限。 如果使用者同意共用其位置，地圖就會放大使用者的位置，並顯示附近的咖啡廳。 
 
-<br/>
 <center>
 
 ![瀏覽器要求存取使用者所在位置的螢幕擷取畫面](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
 當您將咖啡廳所在位置的區域放大足夠的程度時，叢集就會分成個別的位置。 選取地圖上的其中一個圖示，或選取側邊面板中的項目，就會顯示一個快顯視窗，內含該位置的相關資訊。
 
-<br/>
 <center>
 
 ![已完成之商店定位器的螢幕擷取畫面](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 如果您將瀏覽器視窗的大小調整為少於 700 個像素的寬度，或是在行動裝置上開啟應用程式，版面配置將會變更為適用於較小螢幕的設定。 
 
-<br/>
 <center>
 
 ![小型螢幕版商店定位器的螢幕擷取畫面](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>

@@ -1,26 +1,17 @@
 ---
-title: 教學課程：清除 Service Fabric 獨立叢集 - Azure Service Fabric | Microsoft Docs
-description: 在本教學課程中，您將了解如何清除獨立叢集
-services: service-fabric
-documentationcenter: .net
+title: 清除獨立叢集
+description: 在本教學課程中，您將了解如何在獨立 Service Fabric 叢集中清除 AWS 或 Azure 資源。
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bebe3a2dc83b651e713ee80d7b11068b13096e04
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bfb23ca5f5eb9540491fbd05efdfd6997db15e6b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385154"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639015"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>教學課程：清除獨立叢集
 

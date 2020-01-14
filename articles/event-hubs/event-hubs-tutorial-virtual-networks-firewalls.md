@@ -1,20 +1,20 @@
 ---
-title: 教學課程 - 在事件中樞上啟用虛擬網路整合和防火牆 | Microsoft Docs
+title: Azure 事件中樞 - 啟用虛擬網路整合和防火牆
 description: 在本教學課程中，您會了解如何整合事件中樞與虛擬網路和防火牆，以便啟用安全存取。
 services: event-hubs
 author: axisc
 manager: darosa
 ms.author: aschhab
-ms.date: 11/28/2018
+ms.date: 12/20/2019
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
-ms.openlocfilehash: 0f7c7e348c154aab1deb10273346a5395599b745
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: f911a1513c6f89180ea51cc0de96dc8a475c7fc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605849"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437112"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>教學課程：在事件中樞命名空間中啟用虛擬網路整合和防火牆
 
@@ -47,7 +47,7 @@ ms.locfileid: "67605849"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立免費帳戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 我們會利用現有的事件中樞命名空間，因此請確定您有可用的事件中樞命名空間。 如果您手上沒有，請參閱[此教學課程](./event-hubs-create.md)
 

@@ -1,7 +1,7 @@
 ---
-title: 快速入門：適用於 .NET 的 Content Moderator 用戶端程式庫 | Microsoft Docs
+title: 快速入門：適用於 .NET 的 Content Moderator 用戶端程式庫
 titleSuffix: Azure Cognitive Services
-description: 開始使用適用於 .NET 的 Content Moderator 用戶端程式庫。
+description: 透過本快速入門開始使用適用於 .NET 的 Content Moderator 用戶端程式庫。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: cb812a0432e5fdb2828054751ef35f3de82226e7
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 52f00b1c35daab142e4131c60110aa0ed686a6bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539039"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382050"
 ---
 # <a name="quickstart-content-moderator-client-library-for-net"></a>快速入門：適用於 .NET 的 Content Moderator 用戶端程式庫
 
@@ -29,7 +29,7 @@ ms.locfileid: "74539039"
 
 [參考文件](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [套件 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [範例](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 * 最新版 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)。
@@ -96,7 +96,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator --version 
 
 下列類別會處理 Content Moderator .NET SDK 的一些主要功能。
 
-|名稱|說明|
+|名稱|描述|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|所有 Content Moderator 功能都需要此類別。 您可以使用訂用帳戶資訊來具現化此類別，並用其來產生其他類別的執行個體。|
 |[ImageModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|此類別提供對成人內容、個人資訊或人臉的影像進行分析的功能。|

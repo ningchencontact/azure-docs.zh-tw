@@ -1,5 +1,5 @@
 ---
-title: 教學課程：即時事件中的資料異常視覺化 - Azure 事件中樞
+title: Azure 事件中樞 - 即時事件中的資料異常視覺化
 description: 教學課程：在傳送至 Microsoft Azure 事件中樞的即時事件中視覺化資料異常
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -8,13 +8,13 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 11/05/2019
-ms.openlocfilehash: 3e228fb9d4223ad1d6d906b44ab63c35600faa56
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.date: 12/20/2019
+ms.openlocfilehash: 1fc791519fd32b35bdbe3a69caec3c64e3ce3178
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307342"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437154"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>教學課程：將傳送給 Azure 事件中樞之即時事件中的資料異常視覺化
 
@@ -22,7 +22,7 @@ ms.locfileid: "74307342"
 
 在本教學課程中，您將模擬此範例。 您將執行應用程式來建立信用卡交易，並將其傳送到事件中樞。 然後，您會使用 Azure 串流分析來讀取即時資料流，串流分析會分隔有效交易和無效交易，並使用 Power BI 以視覺方式識別標記為無效的交易。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 > * 建立事件中樞命名空間
 > * 建立事件中樞
@@ -32,7 +32,7 @@ ms.locfileid: "74307342"
 
 若要完成此教學課程，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶][]。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -47,7 +47,7 @@ ms.locfileid: "74307342"
 
 下列各節會說明如何執行這些必要步驟。 請依照 CLI 或  PowerShell 指示來執行下列步驟：
 
-1. 建立[資源群組](../azure-resource-manager/resource-group-overview.md)。 
+1. 建立[資源群組](../azure-resource-manager/management/overview.md)。 
 
 2. 建立事件中樞命名空間。 
 

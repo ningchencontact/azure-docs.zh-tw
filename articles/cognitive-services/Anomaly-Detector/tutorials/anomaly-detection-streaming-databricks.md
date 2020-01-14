@@ -1,7 +1,7 @@
 ---
 title: 教學課程：使用 Azure Databricks 對串流資料進行異常情況偵測
 titleSuffix: Azure Cognitive Services
-description: 使用 Anomaly Detector API 和 Azure Databricks 來監視資料中的異常狀況。
+description: 了解如何使用 Anomaly Detector API 和 Azure Databricks 來監視資料中的異常狀況。
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 75c2c8bf8b3baee1f9f89282840622e1e29d2a18
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 93ee5df4327aa396573665cd0c2cbd8222015cce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71837761"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448908"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>教學課程：使用 Azure Databricks 對串流資料進行異常情況偵測
 
@@ -24,7 +24,7 @@ ms.locfileid: "71837761"
 
 下圖顯示此應用程式流程：
 
-![Azure Databricks 與事件中樞和認知服務](../media/tutorials/databricks-cognitive-services-tutorial.png "Azure Databricks 與事件中樞和認知服務")
+![搭配事件中樞和認知服務的 Azure Databricks](../media/tutorials/databricks-cognitive-services-tutorial.png "搭配事件中樞和認知服務的 Azure Databricks")
 
 本教學課程涵蓋下列工作：
 
@@ -47,13 +47,13 @@ ms.locfileid: "71837761"
 > [!Note]
 > 使用免費的 Anomaly Detector API 試用版金鑰，便無法完成本教學課程。 若要使用免費帳戶建立 Azure Databricks 叢集，在建立叢集之前，請先移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - [Azure 事件中樞命名空間](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)和事件中樞。
 
 - 用來存取事件中樞命名空間的[連接字串](../../../event-hubs/event-hubs-get-connection-string.md)。 連接字串的格式應類似於：
 
-    `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>` 。 
+    第 1 課：建立 Windows Azure 儲存體物件`Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`。 
 
 - 事件中樞的共用存取原則名稱和原則金鑰。
 
@@ -70,11 +70,11 @@ ms.locfileid: "71837761"
 3. 在 [Azure Databricks 服務]  下方提供下列值，以建立 Databricks 工作區：
 
 
-    |屬性  |說明  |
+    |屬性  |描述  |
     |---------|---------|
     |**工作區名稱**     | 提供您 Databricks 工作區的名稱        |
     |**訂用帳戶**     | 從下拉式清單中選取您的 Azure 訂用帳戶。        |
-    |**資源群組**     | 指定您是要建立新的資源群組，還是使用現有資源群組。 資源群組是存放 Azure 方案相關資源的容器。 如需詳細資訊，請參閱 [Azure 資源群組概觀](../../../azure-resource-manager/resource-group-overview.md)。 |
+    |**資源群組**     | 指定您是要建立新的資源群組，還是使用現有資源群組。 資源群組是存放 Azure 方案相關資源的容器。 如需詳細資訊，請參閱 [Azure 資源群組概觀](../../../azure-resource-manager/management/overview.md)。 |
     |**位置**     | 選取 [美國東部 2]  或其中一個任何其他可用的區域。 如需可用的區域，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/services/)。        |
     |定價層      |  選擇 [標準]  或 [進階]  。 請勿選擇 [試用版]  。 如需這些定價層的詳細資訊，請參閱 [Databricks 定價頁面](https://azure.microsoft.com/pricing/details/databricks/)。       |
 
@@ -145,7 +145,7 @@ ms.locfileid: "71837761"
 5. 如果程式庫頁面中沒有叢集，請選取 [叢集]  並執行您所建立的叢集。 等到狀態顯示 [執行中]，然後移回程式庫頁面。
 在程式庫頁面上，選取要在其中使用程式庫的叢集，然後選取 [安裝]  。 在程式庫成功地與叢集產生關聯後，狀態會立即變更為 [已安裝]  。
 
-    ![將程式庫安裝至叢集](../media/tutorials/databricks-library-attached.png "將程式庫安裝至叢集")
+    ![將程式庫安裝到叢集](../media/tutorials/databricks-library-attached.png "將程式庫安裝到叢集")
 
 6. 對 Twitter 套件 `twitter4j-core:4.0.7` 重複執行這些步驟。
 
@@ -163,11 +163,11 @@ ms.locfileid: "71837761"
 
 4. 在 [建立]  對話方塊中提供下列值：
 
-    |值 |說明  |
+    |值 |描述  |
     |---------|---------|
     |名稱     | Anomaly Detector 資源的名稱。        |
     |訂用帳戶     | 將與資源相關聯的 Azure 訂用帳戶。        |
-    |位置     | Azure 位置。        |
+    |Location     | Azure 位置。        |
     |定價層     | 服務的定價層。 如需 Anomaly Detector 定價的詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/)。        |
     |資源群組     | 指定您是要建立新的資源群組，還是選取現有資源群組。        |
 
@@ -191,11 +191,11 @@ ms.locfileid: "71837761"
 
 1. 在 Azure Databricks 工作區中，從左窗格選取 [工作區]  。 從 [工作區]  下拉式清單選取 [建立]  ，然後選取 [Notebook]  。
 
-    ![在 Databricks 中建立 Notebook](../media/tutorials/databricks-create-notebook.png "在 Databricks 中建立 Notebook")
+    ![在 Databricks 中建立筆記本](../media/tutorials/databricks-create-notebook.png "在 Databricks 中建立筆記本")
 
 2. 在 [建立 Notebook]  對話方塊中，輸入 **SendTweetsToEventHub** 作為名稱，選取 [Scala]  作為語言，然後選取您先前建立的 Spark 叢集。
 
-    ![在 Databricks 中建立 Notebook](../media/tutorials/databricks-notebook-details.png "在 Databricks 中建立 Notebook")
+    ![在 Databricks 中建立筆記本](../media/tutorials/databricks-notebook-details.png "在 Databricks 中建立筆記本")
 
     選取 [建立]  。
 

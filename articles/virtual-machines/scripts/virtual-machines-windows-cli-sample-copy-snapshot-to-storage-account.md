@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 範例 - 將快照集複製到另一個區域中的儲存體帳戶
+title: 將快照集複製到另一個區域中的儲存體帳戶 - CLI 範例
 description: Azure CLI 指令碼範例 - 將快照集匯出/複製成相同或不同區域中儲存體帳戶的 VHD。
 services: virtual-machines-windows
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 1e9ba52357703238c35d31823462d9ff3bd04c87
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 05868682708ee2f064addf698508b5e178424963
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040051"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375851"
 ---
 # <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>使用 CLI 將快照集匯出/複製到不同區域中的儲存體帳戶
 
@@ -39,7 +39,7 @@ ms.locfileid: "74040051"
 
 此指令碼會使用下列命令來產生受控快照集的 SAS URI，並使用 SAS URI 將快照集複製到儲存體帳戶。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot) | 產生唯讀 SAS，用來將基礎 VHD 檔案複製到儲存體帳戶，或將它下載到內部部署。  |
 | [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | 以非同步方式在儲存體帳戶間複製 blob |

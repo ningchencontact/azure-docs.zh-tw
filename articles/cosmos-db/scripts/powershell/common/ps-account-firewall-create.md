@@ -1,17 +1,17 @@
 ---
-title: Azure PowerShell 指令碼 - 建立具有 IP 防火牆的 Azure Cosmos 帳戶
+title: 此 PowerShell 指令碼用以建立具有 IP 防火牆的 Azure Cosmos 帳戶
 description: Azure PowerShell 指令碼範例 - 建立具有 IP 防火牆的 Azure Cosmos 帳戶
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: c0e7d2b4fe1e63b468a4ef8c88310c5d7e115ebe
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 6f018815bb8afd50bd9f21f8c088fd688ace1174
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156513"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445077"
 ---
 # <a name="create-an-azure-cosmos-account-with-ip-firewall"></a>建立具有 IP 防火牆的 Azure Cosmos 帳戶
 
@@ -38,7 +38,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 |**Azure 資源**| |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 建立資源。 |

@@ -1,18 +1,18 @@
 ---
-title: 說明如何使用 Azure Redis 快取來建立會使用另行快取模式之 Web 應用程式的教學課程
-description: 了解如何使用「Azure Redis 快取」來建立會使用「另行快取」模式的 Web 應用程式
+title: 教學課程：建立 Web 應用程式 (另行快取) - Azure Cache for Redis
+description: 了解如何透過 Azure Cache for Redis 建立會使用另行快取模式的 Web 應用程式。
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.author: yegu
-ms.openlocfilehash: dbd8250da46e640aaa9403430ae0fbfaa9b181c8
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121506"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411947"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>教學課程：在 ASP.NET 上建立另行快取排行榜
 
@@ -28,12 +28,12 @@ ms.locfileid: "74121506"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本教學課程，您必須具備下列先決條件：
 
 * 本教學課程會從 [Azure Redis 快取的 ASP.NET 快速入門](cache-web-app-howto.md)的中斷處接續下去。 如果您尚未進行，請先依照該快速入門進行。
-* 使用下列工作負載[安裝 Visual Studio 2019](https://www.visualstudio.com/downloads/)：
+* 使用下列工作負載安裝 [Visual Studio 2019](https://www.visualstudio.com/downloads/)：
     * ASP.NET 和 Web 開發
     * Azure 開發
     * 使用 SQL Server Express LocalDB 或 [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express) 的 .NET 桌面開發。
@@ -226,7 +226,7 @@ ms.locfileid: "74121506"
     <title>@ViewBag.Title - Contoso Team Stats</title>
     ```
 
-1. 在 `body` 區段中，於「Azure Redis 快取測試」  的連結正下方，新增下列新的 *Contoso Team Stats* `Html.ActionLink` 陳述式。
+1. 在 `body` 區段中，於「Azure Redis 快取測試」  的連結正下方，新增下列新的 *Contoso Team Stats*`Html.ActionLink` 陳述式。
 
     ```csharp
     @Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
@@ -652,7 +652,7 @@ ms.locfileid: "74121506"
 
 1. 針對新的 SQL Database 使用下列設定：
 
-   | 設定       | 建議的值 | 說明 |
+   | 設定       | 建議的值 | 描述 |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **資料庫名稱** | ContosoTeamsDatabase  | 如需有效的資料庫名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。 |
    | **訂用帳戶** | *您的訂用帳戶*  | 選取您在建立快取和裝載 App Service 時所使用的相同訂用帳戶。 |
@@ -661,7 +661,7 @@ ms.locfileid: "74121506"
 
 1. 在 [伺服器]  底下，按一下 [進行必要設定]   > [建立新的伺服器]  並提供下列資訊，然後按一下 [選取]  按鈕：
 
-   | 設定       | 建議的值 | 說明 |
+   | 設定       | 建議的值 | 描述 |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](/azure/architecture/best-practices/resource-naming)。 |
    | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。 |
@@ -678,7 +678,7 @@ ms.locfileid: "74121506"
 
 1. 新增名為 TeamContext  的連接字串以符合 Entity Framework 資料庫內容類別。 貼上新資料庫的連接字串作為值。 請務必取代連接字串中的下列預留位置，然後按一下 [儲存]  ：
 
-    | Placeholder | 建議的值 |
+    | 預留位置 | 建議的值 |
     | --- | --- |
     | {your_username}  | 針對您剛才建立的資料庫伺服器使用**伺服器系統管理員登入**。 |
     | {your_password}  | 針對您剛才建立的資料庫伺服器使用密碼。 |
@@ -701,7 +701,7 @@ ms.locfileid: "74121506"
 
     下表說明範例應用程式中的每個動作連結：
 
-    | 動作 | 說明 |
+    | 動作 | 描述 |
     | --- | --- |
     | 建立新的 |建立新的隊伍。 |
     | 遊戲賽季 |玩一個賽季的遊戲、更新隊伍統計資料，並清除快取中任何已過時的隊伍資料。 |

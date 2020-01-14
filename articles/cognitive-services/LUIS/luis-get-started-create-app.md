@@ -1,7 +1,7 @@
 ---
 title: 快速入門：建立應用程式 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 建立 LUIS 應用程式，該應用程式會使用預先建置網域 `HomeAutomation` 來開啟或關閉燈光和應用程式。 這個預先建置網域可為您提供意圖、實體和範例語句。 完成之後，您會擁有一個在雲端中執行的 LUIS 端點。
+description: 本快速入門說明如何建立 LUIS 應用程式，該應用程式會使用預先建置網域 `HomeAutomation` 來開啟或關閉燈光和應用程式。 這個預先建置網域可為您提供意圖、實體和範例語句。 完成之後，您會擁有一個在雲端中執行的 LUIS 端點。
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -9,42 +9,36 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 22a37dbd0b76710a14183aec1795639614207d16
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 302321a36a6ce7526ad5e3144f87b88edbfaaec7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73613666"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448107"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>快速入門：使用預先建置的家庭自動化應用程式
 
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
-
 在本快速入門中，建立 LUIS 應用程式，該應用程式會使用預先建置網域 `HomeAutomation` 來開啟或關閉燈光和應用程式。 這個預先建置網域可為您提供意圖、實體和範例語句。 完成之後，您會擁有一個在雲端中執行的 LUIS 端點。
-
-## <a name="prerequisites"></a>必要條件
-
-在本文中，您需要免費 LUIS 帳戶，在位於 [https://www.luis.ai](https://www.luis.ai) (英文) 的 LUIS 入口網站上建立。 
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 [!INCLUDE [Select authoring resource](./includes/select-authoring-resource.md)]
 
 ## <a name="create-a-new-app"></a>建立新的應用程式
-您可以在 [我的應用程式]  上建立和管理應用程式。 
+您可以在 [我的應用程式]  上建立和管理應用程式。
 
 1. 在 LUIS 入口網站的 [我的應用程式] 清單中，選取 [+ 建立]  。
 
     ![在 LUIS 入口網站的 [我的應用程式] 清單中，選取 [+ 建立]。](./media/create-app-in-portal.png)
 
-1. 在對話方塊中，將您的應用程式命名為 `Home Automation`，然後選取 [完成]  。 LUIS 會建立應用程式。 說明是選擇性的，而且不會用於撰寫或預測。 建立 LUIS 應用程式時，預測資源也是選擇性的。 當您將應用程式發佈至生產環境時，您應該指派預測資源，讓您的應用程式可以處理許多要求。  
+1. 在對話方塊中，將您的應用程式命名為 `Home Automation`，然後選取 [完成]  。 LUIS 會建立應用程式。 說明是選擇性的，而且不會用於撰寫或預測。 建立 LUIS 應用程式時，預測資源也是選擇性的。 當您將應用程式發佈至生產環境時，您應該指派預測資源，讓您的應用程式可以處理許多要求。
 
     ![在對話方塊中，將您的應用程式命名為 `Home Automation`。](./media/create-new-app-details.png)
 
     >[!NOTE]
-    >建立應用程式之後便無法變更文化特性 (Culture)。 
+    >建立應用程式之後便無法變更文化特性 (Culture)。
 
 ## <a name="add-prebuilt-domain"></a>新增預建網域
 
@@ -61,7 +55,7 @@ ms.locfileid: "73613666"
 ![HomeAutomation 意圖清單的螢幕擷取畫面](media/luis-quickstart-new-app/home-automation-intents.png "HomeAutomation 意圖清單的螢幕擷取畫面")
 
 > [!NOTE]
-> 「無」  是所有 LUIS 應用程式都會提供的意圖。 您可以使用它來處理未對應至應用程式所提供功能的語句。 
+> 「無」  是所有 LUIS 應用程式都會提供的意圖。 您可以使用它來處理未對應至應用程式所提供功能的語句。
 
 選取 **HomeAutomation.TurnOff** 意圖。 您可以看到意圖包含以實體標示的語句清單。
 
@@ -72,7 +66,7 @@ ms.locfileid: "73613666"
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="test-your-app"></a>測試應用程式
-一旦您定型您的應用程式，就可以進行測試。 選取 [測試]  。 將測試語句 (例如 `Turn off the lights`) 輸入到 [互動測試] 窗格中，然後按下 Enter 鍵。 
+一旦您定型您的應用程式，就可以進行測試。 選取 [測試]  。 將測試語句 (例如 `Turn off the lights`) 輸入到 [互動測試] 窗格中，然後按下 Enter 鍵。
 
 ```
 Turn off the lights
@@ -88,7 +82,7 @@ Turn off the lights
 
 ![具有檢查資訊的測試面板螢幕擷取畫面](media/luis-quickstart-new-app/test.png)
 
-再次選取 [測試]  以摺疊測試窗格。 
+再次選取 [測試]  以摺疊測試窗格。
 
 <a name="publish-your-app"></a>
 
@@ -100,7 +94,7 @@ Turn off the lights
 
 ## <a name="query-the-v3-api-prediction-endpoint"></a>查詢 V3 API 預測端點
 
-[!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)] 
+[!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)]
 
 1. 在瀏覽器網址列中，請確定查詢字串的 URL 中有下列名稱和值列。 如果查詢字串中沒有這些項目，請將其加入：
 
@@ -201,7 +195,7 @@ Turn off the lights
     ```
 
     深入了解 [V3 預測端點](luis-migration-api-v3.md)。
-    
+
 
 ## <a name="clean-up-resources"></a>清除資源
 

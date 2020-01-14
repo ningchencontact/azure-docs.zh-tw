@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 05e4dc5bc96ef654006a98f27ff4a12e924250b4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 50dd97107296c70ba9dde162b723f49a658a3994
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828873"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355900"
 ---
 ## <a name="benefits-of-managed-disks"></a>受控磁碟的好處
 
@@ -37,7 +37,7 @@ ms.locfileid: "74828873"
 
 ### <a name="azure-backup-support"></a>Azure 備份支援
 
-為了防止發生區域災難，可使用 [Azure 備份](../articles/backup/backup-overview.md)透過時間型備份和備份保留原則，來建立備份作業。 如此即可隨心所欲地執行簡易虛擬機器還原。 Azure 備份支援受控磁碟的備份和還原。 [深入了解](../articles/backup/backup-support-matrix-iaas.md) Azure VM 備份支援。
+為了防止發生區域災難，可使用 [Azure 備份](../articles/backup/backup-overview.md)透過時間型備份和備份保留原則，來建立備份作業。 如此即可隨心所欲地執行簡易虛擬機器還原。 目前 Azure 備份支援的磁碟大小上限為四個 TiB 磁碟。  Azure 備份支援受控磁碟的備份和還原。 [深入了解](../articles/backup/backup-support-matrix-iaas.md) Azure VM 備份支援。
 
 ### <a name="granular-access-control"></a>細微的存取控制
 
@@ -92,7 +92,7 @@ Azure 中有三個主要磁碟角色：資料磁碟、OS 磁碟和暫存磁碟�
 * [在 Windows 中建立受控磁碟的快照集](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
 * [在 Linux 中建立受控磁碟的快照集](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-### <a name="images"></a>映像
+### <a name="images"></a>影像
 
 受控磁碟也支援建立受管理的自訂映像。 您可以從儲存體帳戶中的自訂 VHD 或直接從一般化 (系統預備的) 虛擬機器建立映像。 此程序會擷取單一映像。 此映像包含與虛擬機器相關聯的所有受控磁碟，包括作業系統和資料磁碟。 這個受控自訂映像可讓您使用自訂映像建立數百部虛擬機器，而不需要複製或管理任何儲存體帳戶。
 
@@ -126,5 +126,7 @@ Azure 會針對磁碟流量使用依優先順序的網路通道，其優先順�
 請參閱我們的[高效能設計](../articles/virtual-machines/windows/premium-storage-performance.md)一文，以了解最佳化 VM 和磁碟組態的最佳作法，以便您達到所需的效能
 
 ## <a name="next-steps"></a>後續步驟
+
+如果您想要詳細說明受控磁碟的影片，請參閱：[使用受控磁碟提升 Azure VM 復原能力](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency)。
 
 請參閱磁碟類型的相關文章，深入了解 Azure 提供的各種磁碟類型，找出何種類型最符合您的需求，以及了解其效能目標。

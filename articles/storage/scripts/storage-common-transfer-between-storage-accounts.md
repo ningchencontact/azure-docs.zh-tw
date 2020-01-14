@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 指令碼範例 - 在 Windows 上使用 AzCopy 在儲存體帳戶間移轉 blob | Microsoft Docs
-description: 使用 AzCopy，將一個 Azure 儲存體帳戶的 Blob 內容複製到另一個。
+title: 在 Windows 上使用 AzCopy 在儲存體帳戶間移轉 Blob
+description: Azure PowerShell 指令碼範例 - 使用 AzCopy，將一個 Azure 儲存體帳戶的 Blob 內容複製到另一個。
 services: storage
 documentationcenter: na
 author: normesta
@@ -12,12 +12,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
 ms.author: normesta
-ms.openlocfilehash: 0af945177289760ca0d2a97133a300d9978ce702
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 559b8b2875b789034ae07901f668f241505073b1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260631"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465054"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>在 Windows 上使用 AzCopy 在儲存體帳戶間移轉 blob
 
@@ -65,7 +65,7 @@ AzCopyPath: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe
 
 此指令碼會使用下列命令，將資料從一個儲存體帳戶複製到另一個。 下表中的每個項目都會連結至特定命令的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | 傳回與儲存體帳戶關聯的容器。 |
 | [New-AzStorageContext](/powershell/module/az.storage/New-AzStorageContext) | 建立 Azure 儲存體內容。 |

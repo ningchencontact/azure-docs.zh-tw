@@ -1,17 +1,17 @@
 ---
-title: Azure PowerShell 指令碼 - Azure Cosmos 帳戶的帳戶金鑰和連接字串作業
+title: 此 PowerShell 指令碼用以取得 Azure Cosmos 帳戶的金鑰和連接字串作業
 description: Azure PowerShell 指令碼範例 - Azure Cosmos 帳戶的帳戶金鑰和連接字串作業
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1eb9cc4c35584b94d3d16654b1bec253e21a91ff
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 96be5f09cddf5eefec6b471d30cf87d0f687485d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154752"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441525"
 ---
 # <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>使用 PowerShell 的 Azure Cosmos 帳戶的連接字串和帳戶金鑰作業
 
@@ -38,7 +38,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 |**Azure 資源**| |
 | [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | 對資源叫用動作。 |

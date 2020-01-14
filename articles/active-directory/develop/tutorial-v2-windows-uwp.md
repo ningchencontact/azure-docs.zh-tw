@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2019
+ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0cafc439a24c10c4c5a678219a0e0dce84476ff
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e2a243b11c2789afe0b2eb7ffd8de032dc10d8d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290843"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423342"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>自通用 Windows 平台應用程式 (XAML) 呼叫 Microsoft Graph API
 
@@ -44,7 +44,7 @@ ms.locfileid: "71290843"
 
 本指南會使用以下 NuGet 套件：
 
-|程式庫|說明|
+|程式庫|描述|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft 驗證程式庫|
 
@@ -55,7 +55,7 @@ ms.locfileid: "71290843"
 本指南所建立的應用程式會顯示一個可查詢圖形 API 的按鈕，以及一個用來登出的按鈕。它也會顯示包含呼叫結果的文字方塊。
 
 > [!NOTE]
-> 您想要下載此範例的 Visual Studio 專案而非加以建立嗎？ [下載專案](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)並跳到[應用程式註冊](#register-your-application "a應用程式註冊")步驟，以在執行之前先設定程式碼範例。
+> 您想要下載此範例的 Visual Studio 專案而非加以建立嗎？ [下載專案](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)並跳到[應用程式註冊](#register-your-application "應用程式註冊步驟")步驟，以在執行之前先設定程式碼範例。
 
 ### <a name="create-your-application"></a>建立您的應用程式
 
@@ -353,7 +353,7 @@ Visual Studio 會在專案範本中建立 *MainPage.xaml*。 開啟此檔案，�
 設定應用程式的驗證：
 
 1. 回到 [Azure 入口網站](https://portal.azure.com)，在 [管理]  之下選取 [驗證]  。
-1. 在 [重新導向 URI]  清單中，針對 [類型]  選取 [公開用戶端 (行動和傳統型)]  ，然後針對 [重新導向 URI]  輸入 `urn:ietf:wg:oauth:2.0:oob`。
+1. 在 [重新導向 URI]   | [公用用戶端 (行動、傳統型) 的建議重新導向 URI]  區段，然後核取 **https://login.microsoftonline.com/common/oauth2/nativeclient** 。
 1. 選取 [儲存]  。
 
 設定應用程式的 API 權限：
@@ -400,7 +400,7 @@ Visual Studio 會在專案範本中建立 *MainPage.xaml*。 開啟此檔案，�
 
 您也會在 [權杖資訊]  方塊中，看到透過 `AcquireTokenInteractive` 或 `AcquireTokenSilent` 取得之權杖的相關基本資訊：
 
-|屬性  |格式  |說明 |
+|屬性  |[格式]  |描述 |
 |---------|---------|---------|
 |`Username` |`user@domain.com` |識別使用者的使用者名稱。|
 |`Token Expires` |`DateTime` |權杖的到期時間。 MSAL 會視需要更新權杖來延展到期日。|

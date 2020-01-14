@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aea9fbb14d3892419af104c44c8bfd5528eef421
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6da6bffbc54bfa6e9c39ddace665eb7cfec58614
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021918"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638658"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>適用於 Privileged Identity Management 的 Microsoft Graph API (預覽)
 
@@ -29,6 +29,8 @@ ms.locfileid: "74021918"
 
 > [!IMPORTANT]
 > Microsoft Graph 中 /beta 版本底下的 API 皆處於預覽階段，可能會有所變更。 不支援在生產應用程式中使用這些 API。
+>
+> 雖然所有 PIM 作業都可透過圖形 API 命令來支援，但我們仍使用不同的系統來核准啟用要求。 核准的圖形 API 目前正在開發，將在未來的幾個月內發行。
 
 ## <a name="required-permissions"></a>所需的權限
 

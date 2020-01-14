@@ -1,5 +1,5 @@
 ---
-title: 存取和建立新租用戶的快速入門 - Azure Active Directory | Microsoft Docs
+title: 快速入門 - 存取及建立新的租用戶 - Azure AD
 description: 關於如何尋找 Azure Active Directory 以及如何為組織建立新租用戶的指示。
 services: active-directory
 author: msaburnley
@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8310b6fc33f1d03e1ccc9ccddfcd7b9e6c35d37
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6ef577f5d086b22779392cd6d8b5d43a340f7329
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473349"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423107"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>快速入門：在 Azure Active Directory 中建立新的租用戶
 您可以使用 Azure Active Directory (Azure AD) 入口網站執行所有的系統管理工作，包括為您的組織建立新的租用戶。 

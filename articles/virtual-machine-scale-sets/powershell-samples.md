@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 範例 | Microsoft Docs
-description: Azure PowerShell 範例
+title: Azure PowerShell 範例
+description: 此資料表包含使用 Azure PowerShell 建立的範例 bash 指令碼的連結，例如建立和管理擴展集。
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3727d2db375847c8df0a96d5721ea3135584eeec
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a0a5939d1b64d93d4dbcc40b2639e3f3ac1a33be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976243"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369128"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>虛擬機器擴展集的 Azure PowerShell 範例。
 
@@ -43,4 +43,4 @@ ms.locfileid: "55976243"
 | | |
 
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]    
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]    

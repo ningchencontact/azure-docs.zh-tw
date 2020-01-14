@@ -2,30 +2,23 @@
 title: Azure 應用程式設定搭配 Azure Functions 的快速入門 | Microsoft Docs
 description: 搭配使用 Azure 應用程式設定與 Azure Functions 的快速入門。
 services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: balans
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: Azure Functions
-ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 12/17/2019
 ms.author: yegu
-ms.openlocfilehash: 6329cf0e74bbcf57164afeab5b04e2af4ee43943
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3c8dc27b9d7781a8420fa76e5aeac9637b87c569
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74187211"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413771"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式組態建立 Azure Functions 應用程式
 
 在本快速入門中，您會將 Azure 應用程式組態服務納入 Azure Functions 應用程式中，以集中儲存和管理您所有的應用程式設定 (與您的程式碼分開)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 - 包含 **Azure 開發**工作負載的 [Visual Studio 2019](https://visualstudio.microsoft.com/vs)。
@@ -61,7 +54,7 @@ ms.locfileid: "74187211"
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
-3. 新增 `static` 屬性 `Configuration`，以建立 `IConfiguration` 的單一實例。 然後，藉由呼叫 `AddAzureAppConfiguration()` 來新增 `static` 建構函式，以連線至應用程式組態。 這會在應用程式啟動時載入組態一次。 稍後將會使用相同的組態執行個體進行所有 Functions 呼叫。
+3. 新增名為 `Configuration`的 `static` 屬性，以建立 `IConfiguration` 的單一執行個體。 然後，藉由呼叫 `AddAzureAppConfiguration()` 來新增 `static` 建構函式，以連線至應用程式組態。 這會在應用程式啟動時載入組態一次。 稍後將會使用相同的組態執行個體進行所有 Functions 呼叫。
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
@@ -94,17 +87,19 @@ ms.locfileid: "74187211"
 
 1. 設定名為 **ConnectionString** 的環境變數，並將其設定為應用程式組態存放區的存取金鑰。 如果您使用 Windows 命令提示字元，請執行下列命令，然後重新啟動命令提示字元以讓變更生效：
 
+    ```CLI
         setx ConnectionString "connection-string-of-your-app-configuration-store"
-
+    ```
     如果您使用 Windows PowerShell，請執行下列命令：
 
+    ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-
+    ```
     如果您使用 macOS 或 Linux，請執行下列命令：
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. 若要測試您的函式，請按 F5。 如果出現提示，請接受 Visual Studio 所發出要下載及安裝 **Azure Functions Core (CLI)** 工具的要求。 您可能也需要啟用防火牆例外狀況，工具才能處理 HTTP 要求。
+2. 按 F5 測試您的函式。 如果出現提示，請接受 Visual Studio 所發出要下載及安裝 **Azure Functions Core (CLI)** 工具的要求。 您可能也需要啟用防火牆例外狀況，工具才能處理 HTTP 要求。
 
 3. 從 Azure Functions 執行階段輸出複製函式的 URL。
 

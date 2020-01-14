@@ -1,7 +1,7 @@
 ---
-title: 快速入門：適用於 Go 的電腦視覺用戶端程式庫 | Microsoft Docs
+title: 快速入門：適用於 Go 的電腦視覺用戶端程式庫
 titleSuffix: Azure Cognitive Services
-description: 開始使用適用於 Go 的電腦視覺用戶端程式庫。
+description: 透過本快速入門開始使用適用於 Go 的電腦視覺用戶端程式庫。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 10/22/2019
 ms.author: pafarley
-ms.openlocfilehash: f05ef80d34d1c0635bdcdca244aacba6185565fb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d9d68f018b34c13f6570bf83c408bd436f0cc8c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72943138"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382304"
 ---
 # <a name="quickstart-computer-vision-client-library-for-go"></a>快速入門：適用於 Go 的電腦視覺用戶端程式庫
 
@@ -28,7 +28,7 @@ ms.locfileid: "72943138"
 
 [參考文件](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [套件](https://github.com/Azure/azure-sdk-for-go)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 * 最新版的 [Go](https://golang.org/dl/)
@@ -99,7 +99,7 @@ touch sample-app.go
 
 下列類別和介面會處理電腦視覺 Go SDK 的一些主要功能。
 
-|名稱|說明|
+|名稱|描述|
 |---|---|
 | [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) | 所有電腦視覺功能都需要此類別，例如影像分析和文字閱讀。 您可以使用訂用帳戶資訊來具現化此類別，並使用它來進行大部分的影像作業。|
 |[ImageAnalysis](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ImageAnalysis)| 此類型包含 **AnalyzeImage** 函式呼叫的結果。 每個類別特有的函式都會有類似的類型。|

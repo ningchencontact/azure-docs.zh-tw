@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 指令碼範例 - 在負載平衡器中開啟應用程式連接埠 | Microsoft Docs
+title: 使用 Powershell 在負載平衡器中開啟應用程式連接埠
 description: Azure PowerShell 指令碼範例 - 在 Azure Load Balancer 中開啟 Service Fabric 應用程式的連接埠。
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 05/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 8e6a0b7f273df96cff5cc9ce1081ddc59eb49382
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3e5e1df77b8bc701bf330d98f264db26a01ea748
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035535"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614752"
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>在 Azure Load Balancer 中開啟應用程式連接埠
 
@@ -37,7 +37,7 @@ ms.locfileid: "69035535"
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | 取得 Azure 資源。  |
 | [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) | 取得 Azure Load Balancer。 |

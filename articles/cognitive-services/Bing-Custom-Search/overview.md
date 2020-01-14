@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: overview
-ms.date: 06/27/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 4b0b0d91af15912e1c64761351ba33acfd3e2725
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 12c255f0e4ed11ce8acbd762530604218f8bc12b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405150"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448729"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>什麼是 Bing 自訂搜尋 API？
 
@@ -23,7 +23,7 @@ Bing 自訂搜尋 API 可讓您針對感興趣的主題，建立量身訂做且�
 
 ## <a name="features"></a>特性
 
-|功能  |說明  |
+|功能  |描述  |
 |---------|---------|
 |[自訂即時搜尋建議](define-custom-suggestions.md)     | 提供使用者輸入時可顯示為下拉式清單的搜尋建議。       | 
 |[自訂影像搜尋體驗](get-images-from-instance.md)     | 可讓使用者從自訂搜尋執行個體中指定的網域和網站搜尋影像。        |        
@@ -46,6 +46,8 @@ Bing 自訂搜尋 API 可讓您針對感興趣的主題，建立量身訂做且�
 如需有關自訂搜尋執行個體的詳細資，請參閱[定義自訂搜尋執行個體](define-your-custom-view.md)。
 
 請務必先閱讀 [Bing 使用和顯示需求](./use-and-display-requirements.md)，以便在服務和應用程式中使用搜尋結果。
+
+請瀏覽 [Bing 搜尋 API 中樞頁面](../bing-web-search/search-the-web.md)以探索其他可用的 API。
 
 讓自己熟悉每個自訂搜尋端點的內容。 此參考包含端點、標頭，以及您用來要求搜尋結果的查詢參數。 它也包含回應物件的定義。
 

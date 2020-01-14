@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 3b909f1cb65ae2b355451def53410c32ae482167
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 75c61452e73c50cbdaed03a27481d920e4c2ad86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872956"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406233"
 ---
 # <a name="start-monitoring-your-website"></a>開始監視您的網站
 
@@ -21,7 +21,7 @@ Azure Monitor Application Insights 可讓您輕鬆監視網站的可用性、效
 
 本快速入門將引導您新增 [open source Application Insights JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)，讓您了解您網站訪客的用戶端/瀏覽器端體驗。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本快速入門：
 
@@ -44,10 +44,10 @@ Application Insights 可以從任何連上網際網路的應用程式 (不論是
 
    設定方塊隨即出現，請使用下表來填寫輸入欄位。
 
-    | 設定        | 值           | 說明  |
+    | 設定        | 值           | 描述  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 通用唯一值 | 此名稱可識別您要監視的應用程式 |
-   | **資源群組**     | myResourceGroup      | 用於裝載 App Insights 資料之新資源群組的名稱 |
+   | **資源群組**     | myResourceGroup      | 用於裝載 App Insights 資料之新資源群組的名稱。 您可以建立新的資源群組，或使用現有的資源群組。 |
    | **位置** | 美國東部 | 選擇您附近或接近應用程式裝載位置的地點 |
 
 2. 按一下頁面底部的 [新增]  。
@@ -96,7 +96,7 @@ Application Insights 可以從任何連上網際網路的應用程式 (不論是
 
 1. 現在，您可以在 Azure 入口網站中重新開啟 Application Insights [概觀]  頁面 (您先前在此擷取檢測金鑰)，以檢視目前執行中應用程式的詳細資料。 概觀頁面上的四個預設圖表都只限於伺服器端應用程式資料。 因為我們會檢測用戶端/瀏覽器端與 JavaScript SDK 的互動，所以此特定檢視就不適用，除非我們也安裝了用戶端 SDK。
 
-2. 按一下 ![應用程式對應圖示](media/website-monitoring/006.png) **Analytics**。  這會開啟 **Analytics**，它可提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。 若要檢視用戶端瀏覽器要求相關資料，請執行下列查詢：
+2. 按一下 ![應用程式對應圖示](media/website-monitoring/006.png) [Analytics]  。  這會開啟 **Analytics**，它可提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。 若要檢視用戶端瀏覽器要求相關資料，請執行下列查詢：
 
     ```kusto
     // average pageView duration by name
@@ -132,6 +132,9 @@ Application Insights 可以從任何連上網際網路的應用程式 (不論是
 ## <a name="clean-up-resources"></a>清除資源
 
 如果您打算繼續進行後續的快速入門或教學課程，請勿清除在此快速入門中建立的資源。 否則，如果您不打算繼續，請使用下列步驟，在 Azure 入口網站中刪除本快速入門所建立的所有資源。
+
+> [!NOTE]
+> 如果您使用了現有的資源群組，下列指示將沒有作用，而且您只需要刪除個別的 Application Insights 資源。 請記住，每當您刪除資源群組時，將會刪除屬於該群組的所有基礎資源。
 
 1. 從 Azure 入口網站的左側功能表中，依序按一下 [資源群組]  和 [myResourceGroup]  。
 2. 在資源群組頁面上，按一下 [刪除]  ，在文字方塊中輸入 **myResourceGroup**，然後按一下 [刪除]  。

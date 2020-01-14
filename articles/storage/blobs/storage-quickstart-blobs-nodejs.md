@@ -7,16 +7,16 @@ ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 0a6d7ce8f1f6b81c3dbae3d41842345be5d2e551
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 089cda74740d3934c76a3b0ca8803a30654feccf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422043"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465111"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>快速入門：適用於 JavaScript 的 Azure Blob 儲存體用戶端程式庫 v12
 
-開始使用適用於 JavaScript 的 Azure Blob 儲存體用戶端程式庫 v12。 Azure Blob 儲存體是 Microsoft 針對雲端推出的物件儲存體解決方案。 請依照下列步驟來安裝套件，並試用基本工作的範例程式碼。 Blob 儲存體已針對儲存大量非結構化資料最佳化。
+開始使用適用於 JavaScript 的 Azure Blob 儲存體用戶端程式庫 v12。 Azure Blob 儲存體是 Microsoft 針對雲端推出的物件儲存體解決方案。 請依照下列步驟來安裝套件，並試用基本工作的範例程式碼。 Blob 儲存體經過最佳化，已能妥善儲存大量的非結構化資料。
 
 > [!NOTE]
 > 若要開始使用舊版 SDK，請參閱[快速入門：適用於 JavaScript 的 Azure Blob 儲存體用戶端程式庫](storage-quickstart-blobs-nodejs-v10.md)。
@@ -29,11 +29,11 @@ ms.locfileid: "74422043"
 * 將 Blob 下載到本機電腦
 * 刪除容器
 
-[API 參考文件](/javascript/api/@azure/storage-blob) | [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [套件 (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob/v/12.0.0) | [範例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
+[API 參考文件](/javascript/api/@azure/storage-blob) | [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [套件 (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob) | [範例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 * Azure 儲存體帳戶 - [建立儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -114,11 +114,11 @@ npm install
 
 1. 將新檔案以 *blob-quickstart-v12.js* 儲存在 *blob-quickstart-v12* 目錄中。
 
-[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-credentials-include.md)]
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## <a name="object-model"></a>物件模型
 
-Azure Blob 儲存體已針對儲存大量非結構化資料最佳化。 非結構化資料是指不遵守特定資料模型或定義的資料，例如文字或二進位資料。 Blob 儲存體提供三種類型資源：
+Azure Blob 儲存體經過最佳化，已能妥善儲存大量的非結構化資料。 非結構化資料是指不遵守特定資料模型或定義的資料，例如文字或二進位資料。 Blob 儲存體提供三種類型資源：
 
 * 儲存體帳戶
 * 儲存體帳戶中的容器
@@ -154,11 +154,11 @@ Azure Blob 儲存體已針對儲存大量非結構化資料最佳化。 非結�
 ```javascript
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
-// running the application called CONNECT_STR. If the environment variable is
-// created after the application is launched in a console or with Visual Studio,
-// the shell or application needs to be closed and reloaded to take the
-// environment variable into account.
-const CONNECT_STR = process.env.CONNECT_STR;
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the
+// environment variable is created after the application is launched in a
+// console or with Visual Studio, the shell or application needs to be closed
+// and reloaded to take the environment variable into account.
+const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
 ```
 
 ### <a name="create-a-container"></a>建立容器
@@ -174,7 +174,7 @@ const CONNECT_STR = process.env.CONNECT_STR;
 
 ```javascript
 // Create the BlobServiceClient object which will be used to create a container client
-const blobServiceClient = await BlobServiceClient.fromConnectionString(CONNECT_STR);
+const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING);
 
 // Create a unique name for the container
 const containerName = 'quickstart' + uuidv1();
@@ -308,16 +308,16 @@ Deleting container...
 Done
 ```
 
-使用偵錯工具逐步執行程式碼，並在整個過程中檢查您的 Azure 入口網站。 請檢查是否正在建立容器。 您可以在容器內開啟 Blob，並查看內容。
+使用偵錯工具逐步執行程式碼，並在整個過程中檢查您的 [Azure 入口網站](https://portal.azure.com)。 請檢查是否正在建立容器。 您可以在容器內開啟 Blob，並查看內容。
 
 ## <a name="next-steps"></a>後續步驟
 
 在本快速入門中，您已了解如何使用 JavaScript 上傳、下載及列出 Blob。
 
-若要查看 Blob 儲存體範例應用程式，請繼續查看：
+如需教學課程、範例、快速入門及其他文件，請瀏覽：
 
 > [!div class="nextstepaction"]
-> [Azure Blob 儲存體 SDK v12 JavaScript 範例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
+> [Azure for JavaScript 文件](/azure/javascript/)
 
-* 若要深入了解，請參閱[適用於 JavaScript 的 Azure SDK](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/README.md) \(英文\)。
-* 如需教學課程、範例、快速入門及其他文件，請瀏覽 [Azure SDK for JavaScript 文件](/azure/javascript/)。
+* 若要深入了解，請參閱[適用於 JavaScript 的 Azure Blob 儲存體用戶端程式庫](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob)。
+* 若要查看 Blob 儲存體範例應用程式，請繼續執行 [Azure Blob 儲存體用戶端程式庫 v12 JavaScript 範例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)。

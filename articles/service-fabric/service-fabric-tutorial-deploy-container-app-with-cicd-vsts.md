@@ -1,26 +1,15 @@
 ---
-title: 將具有 CI/CD 的容器應用程式部署到 Service Fabric 叢集
+title: 使用 CI/CD 部署容器應用程式
 description: 在本教學課程中，您會了解如何使用 Visual Studio Azure DevOps 設定 Azure Service Fabric 容器應用程式的持續整合和部署。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/29/2018
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: a2dc6aeb7dc2a62c543a58c322c23c9661c6940a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9cf619eddd07bbe55cd7aea5f27051a7d0415c24
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832733"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614123"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>教學課程：將具有 CI/CD 的容器應用程式部署到 Service Fabric 叢集
 
@@ -34,7 +23,7 @@ ms.locfileid: "73832733"
 > * 在 Visual Studio Team Explorer 中建立發行定義
 > * 自動部署和升級應用程式
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始進行本教學課程之前：
 

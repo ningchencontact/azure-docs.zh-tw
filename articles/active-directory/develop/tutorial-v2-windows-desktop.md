@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f816091e3e8682069a950ff6f6eb839e285bb2f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c29a06496bb1303849250f049e4e7444a5a5ddf3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512425"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423348"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>從 Windows 傳統型應用程式呼叫 Microsoft 圖形 API
 
@@ -50,7 +50,7 @@ MSAL 會為您管理快取和重新整理存取權杖，因此您的應用程式
 
 本指南會使用以下 NuGet 套件：
 
-|程式庫|說明|
+|程式庫|描述|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library (MSAL.NET)|
 
@@ -106,9 +106,9 @@ MSAL 會為您管理快取和重新整理存取權杖，因此您的應用程式
    - 選取 [註冊]  以建立應用程式。
 1. 在應用程式頁面清單中，選取 [驗證]  。
    1. 在「重新導向 URI」清單的 [重新導向 URI]  區段中：
-   1. 在 [型別]  欄中，選取 [公開用戶端 (行動裝置及桌上型電腦)]  。
-   1. 在 [重新導向 URI]  資料行中輸入 `urn:ietf:wg:oauth:2.0:oob`。
-1. 選取 [ **儲存**]。
+   1. 在 [型別]  欄中，選取 [公開用戶端/原生 (行動和傳統型)]  。
+   1. 在 [重新導向 URI]  資料行中輸入 `https://login.microsoftonline.com/common/oauth2/nativeclient`。
+1. 選取 [註冊]  。
 1. 移至 Visual Studio，開啟 App.xaml.cs  檔案，然後將下列程式碼片段中的 `Enter_the_Application_Id_here` 取代為您剛剛註冊及複製的應用程式 ID。
 
     ```csharp

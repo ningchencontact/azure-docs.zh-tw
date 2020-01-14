@@ -1,11 +1,11 @@
 ---
-title: 教學課程：Azure Active Directory 與 monday.com 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 monday.com 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 monday.com 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: celested
+ms.reviewer: barbkess
 ms.assetid: 9e8ad807-0664-4e31-91de-731097c768e2
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 12/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 771b7a07416458fd8523223ca57d3575ae2c85ff
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: c7126b6e40c7d76244ec5cd62566c4bad6dc0529
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033650"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430896"
 ---
-# <a name="tutorial-integrate-mondaycom-with-azure-active-directory"></a>教學課程：整合 monday.com 與 Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mondaycom"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 monday.com 整合
 
 在本教學課程中，您將了解如何整合 monday.com 與 Azure Active Directory (Azure AD)。 在整合 monday.com 與 Azure AD 時，您可以︰
 
@@ -33,7 +33,7 @@ ms.locfileid: "69033650"
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要開始，您需要下列項目：
 
@@ -42,7 +42,10 @@ ms.locfileid: "69033650"
 
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。 monday.com 支援 **SP 和 IDP** 起始的 SSO，並且支援 **Just In Time** 使用者佈建。
+在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
+
+* monday.com 支援由 **SP 和 IDP** 起始的 SSO
+* monday.com 支援 **Just In Time** 使用者佈建
 
 ## <a name="adding-mondaycom-from-the-gallery"></a>從資源庫新增 monday.com
 
@@ -55,107 +58,75 @@ ms.locfileid: "69033650"
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **monday.com**。
 1. 從結果面板選取 [monday.com]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+
+## <a name="configure-and-test-azure-ad-single-sign-on-for-mondaycom"></a>設定及測試 monday.com 的 Azure AD 單一登入
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 monday.com 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 monday.com 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 monday.com 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
-1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** ，讓您的使用者能夠使用此功能。
-2. **[設定 monday.com](#configure-mondaycom)** 以在應用程式端設定 SSO 設定。
-3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** ，使用 B.Simon 測試 Azure AD 單一登入。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** ，讓 B.Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 monday.com 測試使用者](#create-mondaycom-test-user)** - 使monday.com 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
-6. **[測試 SSO](#test-sso)** ，以驗證組態是否能運作。
+1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
+    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+1. **[設定 monday.com SSO](#configure-mondaycom-sso)** - 在應用程式端設定單一登入設定。
+    1. **[建立 monday.com 測試使用者](#create-mondaycom-test-user)** - 使monday.com 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
-### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [monday.com]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
-1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
+1. 在 [**選取單一登入方法**] 頁面上，選取 [**SAML**]。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [基本 SAML 組態]  窗格中，如果您有服務提供者中繼資料檔案並想要設定「IDP 起始的模式」  ，請執行下列步驟：
+1. 在 [基本 SAML 設定]  區段上，如果您有**服務提供者中繼資料檔案**，而想要以 **IDP** 起始模式進行設定，請執行下列步驟：
 
-    1. 選取 [上傳中繼資料檔案]  。
+    a. 按一下 [上傳中繼資料檔案]  。
 
-    1. 若要選取中繼資料檔案，請選取資料夾圖示，然後選取 [上傳]  。
+    ![上傳中繼資料檔案](common/upload-metadata.png)
 
-    1. 成功上傳中繼資料檔案後，就會在 [基本 SAML 組態]  窗格中自動填入 [識別碼]  和 [回覆 URL]  值：
+    b. 按一下**資料夾圖示**以選取中繼資料檔案，然後按一下 [上傳]  。
 
-       > [!Note]
-       > 如果 [識別碼]  和 [回覆 URL]  值未自動填入，則請手動填入這些值。 [識別碼]  和 [回覆 URL]  相同，其值模式如下：`https://<your-domain>.monday.com/saml/saml_callback`
+    ![選擇中繼資料檔案](common/browse-upload-metadata.png)
+
+    c. 成功上傳中繼資料檔案後，就會在 [基本 SAML 組態] 區段中自動填入 [識別碼]  和 [回覆 URL]  值。
+
+    ![image](common/idp-intiated.png)
+
+    > [!Note]
+    > 如果 [識別碼]  和 [回覆 URL]  值未自動填入，則請手動填入這些值。 [識別碼]  和 [回覆 URL]  相同，其值模式如下：`https://<your-domain>.monday.com/saml/saml_callback`
 
 1. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 
-    在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://<your-domain>.monday.com`
+    ![image](common/metadata-upload-additional-signon.png)
+
+    在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://<YOUR_DOMAIN>.monday.com`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 請連絡 [monday.com 用戶端支援小組](mailto:dev@food.ee)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-1. monday.com 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以開啟 [使用者屬性] 對話方塊。
+1. monday.com 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。
 
-    ![[使用者屬性] 窗格](common/edit-attribute.png)
+    ![image](common/default-attributes.png)
 
-1. 除了以上屬性外，monday.com 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
+1. 除了上述屬性外，monday.com 應用程式還需要在 SAML 回應中多傳回幾個屬性，如下所示。 這些屬性也會預先填入，但您可以根據您的需求來檢閱這些屬性。
 
-    | Name | 來源屬性|
+    | 名稱 | 來源屬性|
     | ---------------| --------------- |
     | 電子郵件 | user.mail |
     | 名字 | user.givenname |
     | 姓氏 | user.surname |
 
-    a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
-
-    b. 在 [名稱]  文字方塊中，輸入該資料列所顯示的屬性名稱。
-
-    c. 移除**命名空間**。
-
-    d. 選取 [來源] 作為 [屬性]  。
-
-    e. 在 [來源屬性]  清單中，輸入該資料列所顯示的屬性值。
-
-    f. 按一下 [確定]  。
-
-    g. 按一下 [檔案]  。
-
 1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
-   ![憑證下載連結](common/certificatebase64.png)
+    ![憑證下載連結](common/certificatebase64.png)
 
 1. 在 [設定 monday.com]  區段上，依據您的需求複製適當的 URL。
 
-   ![複製組態 URL](common/copy-configuration-urls.png)
-
-### <a name="configure-mondaycom"></a>設定 monday.com
-
-1. 若要自動執行 monday.com 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
-
-    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
-
-1. 將擴充功能新增至瀏覽器之後，按一下 [安裝 monday.com]  便會將您導向至 monday.com 應用程式。 請從該處提供用以登入 monday.com 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 6。
-
-    ![設定組態](common/setup-sso.png)
-
-1. 如果您想要手動設定 monday.com，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 monday.com，然後執行下列步驟：
-
-1. 移至頁面右上角的 [設定檔]  ，然後按一下 [管理員]  。
-
-    ![monday.com 組態](./media/mondaycom-tutorial/configuration01.png)
-
-1. 選取 [安全性]  並且確定按一下 SAML 旁邊的 [開啟]  。
-
-    ![monday.com 組態](./media/mondaycom-tutorial/configuration02.png)
-
-1. 從您的 IDP 填寫以下詳細資料。
-
-    ![monday.com 組態](./media/mondaycom-tutorial/configuration03.png)
-
-    >[!NOTE]
-    >如需詳細資料，請參閱[這篇](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642)文章
+    ![複製組態 URL](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -187,13 +158,42 @@ ms.locfileid: "69033650"
 1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
 1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
+## <a name="configure-mondaycom-sso"></a>設定 monday.com SSO
+
+1. 若要自動執行 monday.com 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
+
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+1. 將擴充功能新增至瀏覽器之後，按一下 [安裝 monday.com]  便會將您導向至 monday.com 應用程式。 請從該處提供用以登入 monday.com 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 6。
+
+    ![設定組態](common/setup-sso.png)
+
+1. 如果您想要手動設定 monday.com，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 monday.com，然後執行下列步驟：
+
+1. 移至頁面右上角的 [設定檔]  ，然後按一下 [管理員]  。
+
+    ![monday.com 組態](./media/mondaycom-tutorial/configuration01.png)
+
+1. 選取 [安全性]  並且確定按一下 SAML 旁邊的 [開啟]  。
+
+    ![monday.com 組態](./media/mondaycom-tutorial/configuration02.png)
+
+1. 從您的 IDP 填寫以下詳細資料。
+
+    ![monday.com 組態](./media/mondaycom-tutorial/configuration03.png)
+
+    >[!NOTE]
+    >如需詳細資料，請參閱[這篇](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642)文章
+
 ### <a name="create-mondaycom-test-user"></a>建立 monday.com 測試使用者
 
 本節會在 monday.com 中建立名為 B.Simon 的使用者。 monday.com 支援預設會啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 如果 monday.com 中還沒有使用者存在，在您嘗試存取 monday.com 時就會建立新的使用者。
 
-### <a name="test-sso"></a>測試 SSO
+## <a name="test-sso"></a>測試 SSO
 
-當您在存取面板中選取 [monday.com] 圖格時，應該會自動登入您設定 SSO 的 monday.com。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
+
+當您在存取面板中按一下 [monday.com] 圖格時，應該會自動登入您設定 SSO 的 monday.com。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -202,3 +202,5 @@ ms.locfileid: "69033650"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [嘗試搭配 Azure AD 使用 monday.com](https://aad.portal.azure.com/)

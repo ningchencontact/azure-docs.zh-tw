@@ -13,20 +13,28 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2019
+ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d130a962c14415c417eedecd6ae26af1131b2e86
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: d884987ed5fb00d4078a38aa37d463a81630ca7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997015"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423384"
 ---
-# <a name="build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>建置會使用 Microsoft 身分識別平台端點的多租用戶精靈
+# <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>教學課程：建置會使用 Microsoft 身分識別平台端點的多租用戶精靈
 
 在本教學課程中，您將了解如何使用 Microsoft 身分識別平台，在長時間執行的非互動式程序中存取 Microsoft 企業客戶的資料。 精靈範例會使用 [OAuth2 用戶端認證授與](v2-oauth2-client-creds-grant-flow.md)來取得存取權杖。 然後，此精靈會使用權杖來呼叫 [Microsoft Graph](https://graph.microsoft.io) 並存取組織資料。
+
+> [!div class="checklist"]
+> * 整合精靈應用程式與 Microsoft 身分識別平台
+> * 由系統管理員將應用程式權限直接授予應用程式
+> * 取得存取權杖以呼叫 Microsoft Graph API
+> * 呼叫 Microsoft Graph API。
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 此應用程式會建置為 ASP.NET MVC 應用程式。 其使用 OWIN OpenID Connect 中介軟體來讓使用者登入。  
 
@@ -34,7 +42,7 @@ ms.locfileid: "74997015"
 
 對於較簡單的主控台精靈應用程式，請參閱 [.NET Core 精靈快速入門](quickstart-v2-netcore-daemon.md)。
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 
 由於此應用程式是供 Microsoft 企業客戶使用的多租用戶應用程式，因此必須提供方法讓客戶可以「註冊」應用程式或將應用程式「連線」至其公司資料。 在連線過程中，公司管理員會先將「應用程式權限」  直接授與應用程式，讓它能夠在沒有登入使用者的情況下，以非互動方式存取公司資料。 此範例中的邏輯主要將說明如何使用身分識別平台的[管理員同意](v2-permissions-and-consent.md#using-the-admin-consent-endpoint)端點來完成此連線流程。
 
@@ -42,7 +50,7 @@ ms.locfileid: "74997015"
 
 若要進一步了解此範例中使用的概念，請閱讀[適用於身分識別平台端點的用戶端認證通訊協定文件](v2-oauth2-client-creds-grant-flow.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要執行本快速入門中的範例，您將需要：
 
@@ -60,11 +68,11 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 或者，[下載 ZIP 檔案中的範例](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/archive/master.zip)。
 
-## <a name="register-the-sample-application-with-your-azure-ad-tenant"></a>向您的 Azure AD 租用戶註冊範例應用程式
+## <a name="register-your-application"></a>註冊您的應用程式
 
-此範例有一個專案。 若要加以註冊，您可以：
+此範例有一個專案。 若要向您的 Azure AD 租用戶註冊應用程式，您可以：
 
-- 遵循[向 Azure Active Directory 租用戶註冊範例](#register-the-sample-application-with-your-azure-ad-tenant)和[設定範例以使用 Azure AD 租用戶](#choose-the-azure-ad-tenant)中的步驟。
+- 遵循[向 Azure Active Directory 租用戶註冊範例](#register-your-application)和[設定範例以使用 Azure AD 租用戶](#choose-the-azure-ad-tenant)中的步驟。
 - 使用 PowerShell 指令碼來：
   - 「自動」  為您建立 Azure AD 應用程式和相關物件 (密碼、權限、相依性)。
   - 修改 Visual Studio 專案的組態檔。
@@ -237,7 +245,10 @@ Visual Studio 會發佈專案，並自動開啟瀏覽器並導向至專案的 UR
 1. 儲存組態。
 1. 在 [驗證]   > [重新導向 URI]  功能表的值清單中，新增相同的 URL。 如果您有多個重新導向 URL，請確定在使用應用程式服務的 URI 作為每個重新導向 URL 時，都有新的輸入項目。
 
-## <a name="community-help-and-support"></a>社群協助與支援
+## <a name="clean-up-resources"></a>清除資源
+如果不再需要，請刪除您在[註冊應用程式](#register-your-application)步驟中所建立的應用程式物件。  若要移除應用程式，請遵循[移除您或貴組織所編寫的應用程式](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization)中的指示。
+
+## <a name="get-help"></a>取得說明
 
 使用 [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) 取得來自社群的支援。
 請先在 Stack Overflow 上詢問您的問題，並瀏覽現有的問題，以查看先前是否有人已提出您的問題。

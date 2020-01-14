@@ -1,21 +1,21 @@
 ---
 title: 快速入門：使用 Python 來呼叫文字分析 API
 titleSuffix: Azure Cognitive Services
-description: 取得資訊和程式碼範例，協助您在 Azure 認知服務中快速開始使用文字分析 API。
+description: 此快速入門示範如何取得資訊和程式碼範例，協助您在 Azure 認知服務中快速開始使用文字分析 API。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 15f0cf7725dec99884497be79b63c21ef16f88b1
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 7f2a4ff98345aa43dd6a99eafd60ff2d05ee1bee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284978"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378546"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 Python REST API 呼叫文字分析認知服務 
 <a name="HOLTop"></a>
@@ -24,7 +24,7 @@ ms.locfileid: "74284978"
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python 3.x](https://python.org)
 
@@ -49,20 +49,13 @@ import requests
 from pprint import pprint
 ```
 
-為資源的 Azure 端點和訂用帳戶金鑰建立變數。 從環境變數 TEXT_ANALYTICS_SUBSCRIPTION_KEY 和 TEXT_ANALYTICS_ENDPOINT 取得這些值。 如果您在開始編輯應用程式後才建立這些環境變數，則必須先關閉您使用的編輯器、IDE 或殼層，再重新加以開啟，才能存取該變數。
+為資源的 Azure 端點和訂用帳戶金鑰建立變數。
     
 ```python
 import os
 
-key_var_name = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY'
-if not key_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
-subscription_key = os.environ[key_var_name]
-
-endpoint_var_name = 'TEXT_ANALYTICS_ENDPOINT'
-if not endpoint_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
-endpoint = os.environ[endpoint_var_name]
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 ```
 
 下列各節說明如何呼叫 API 的各項功能。
@@ -71,7 +64,7 @@ endpoint = os.environ[endpoint_var_name]
 
 ## <a name="detect-languages"></a>偵測語言
 
-將 `/text/analytics/v2.1/languages` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`
+將 `/text/analytics/v2.1/languages` 附加至文字分析基底端點，以形成語言偵測 URL。 例如： `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`
     
 ```python
 language_api_url = endpoint + "/text/analytics/v2.1/languages"
@@ -140,7 +133,7 @@ pprint(languages)
 
 ## <a name="analyze-sentiment"></a>分析情感
 
-若要偵測一組文件的情感 (範圍介於正或負之間)，請將 `/text/analytics/v2.1/sentiment` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
+若要偵測一組文件的情感 (範圍介於正或負之間)，請將 `/text/analytics/v2.1/sentiment` 附加至文字分析基底端點，以形成語言偵測 URL。 例如： `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
     
 ```python
 sentiment_url = endpoint + "/text/analytics/v2.1/sentiment"
@@ -202,7 +195,7 @@ pprint(sentiments)
 
 ## <a name="extract-key-phrases"></a>擷取關鍵片語
  
-若要從一組文件中擷取關鍵片語，請將 `/text/analytics/v2.1/keyPhrases` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`
+若要從一組文件中擷取關鍵片語，請將 `/text/analytics/v2.1/keyPhrases` 附加至文字分析基底端點，以形成語言偵測 URL。 例如： `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`
     
 ```python
 keyphrase_url = endpoint + "/text/analytics/v2.1/keyphrases"
@@ -278,7 +271,7 @@ pprint(key_phrases)
 
 ## <a name="identify-entities"></a>識別實體
 
-若要識別文字文件中清楚的實體 (人員、地點和事物)，請將`/text/analytics/v2.1/entities` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
+若要識別文字文件中清楚的實體 (人員、地點和事物)，請將`/text/analytics/v2.1/entities` 附加至文字分析基底端點，以形成語言偵測 URL。 例如： `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
     
 ```python
 entities_url = endpoint + "/text/analytics/v2.1/entities"

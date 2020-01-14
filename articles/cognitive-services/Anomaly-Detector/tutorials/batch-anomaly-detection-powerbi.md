@@ -1,21 +1,21 @@
 ---
-title: 使用批次偵測與 Power BI 將異常狀況視覺化
+title: 教學課程：使用批次偵測與 Power BI 將異常狀況視覺化
 titleSuffix: Azure Cognitive Services
-description: 使用 Anomaly Detector API 與 Power BI 將整個時間序列資料的異常狀況視覺化。
+description: 了解如何使用 Anomaly Detector API 與 Power BI 將整個時間序列資料的異常狀況視覺化。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: fa78e737cd863d19e294c5001dfd27b07760521f
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 1d1f71ed56138f2c799c7410508c0bc4899e7887
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840874"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448858"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>教學課程：使用批次偵測與 Power BI 將異常狀況視覺化
 
@@ -28,7 +28,7 @@ ms.locfileid: "71840874"
 > * 整合 Power BI Desktop 與 Anomaly Detector API 以便進行批次異常偵測
 > * 將您資料中的異常狀況視覺化，包括預期和所見的值，以及異常偵測界限。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/)(免費提供)。
 * 包含時間序列資料點的 Excel 檔案 (.xlsx)。 此快速入門的範例資料可以在 [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962) 上找到。

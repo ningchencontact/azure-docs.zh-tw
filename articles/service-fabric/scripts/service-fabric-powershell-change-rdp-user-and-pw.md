@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 指令碼範例 - 更新 RDP 使用者名稱和密碼 | Microsoft Docs
+title: 在 PowerShell 中更新 RDP 使用者名稱和密碼
 description: Azure PowerShell 指令碼範例 - 針對特定節點類型的所有 Service Fabric 叢集節點，更新 RDP 使用者名稱和密碼。
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 03/19/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 2618d9100c81cdb35b4a3a82436e94068a9f9bf0
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0cf9f8362d3fa683084aef840cf35cd9a843608a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035519"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614803"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>為叢集中的 VM 更新管理員使用者名稱和密碼
 
@@ -37,7 +37,7 @@ Service Fabric 叢集中的每個[節點類型](../service-fabric-cluster-nodety
 
 此指令碼會使用下列命令：下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | 取得叢集節點類型 (虛擬機器擴展集) 的屬性。   |
 | [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)| 在虛擬機器擴展集內新增擴充功能。|

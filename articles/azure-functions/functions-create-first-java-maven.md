@@ -5,12 +5,12 @@ author: rloutlaw
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: cb43f558a5c983a8a4cc3823b278b75cb8cde78d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ef81ff1d3d42e3c9e2ba5d4187f5b5805d35d900
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230736"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562029"
 ---
 # <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>快速入門：使用 Java 和 Maven 建立函式並將其發佈至 Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "74230736"
 > You can also create a Kotlin-based Azure Functions project by using the azure-functions-kotlin-archetype instead. Visit the [GitHub repository](https://github.com/microsoft/azure-maven-archetypes/tree/develop/azure-functions-kotlin-archetype) for more information.
 -->
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要使用 Java 開發函式，您必須安裝下列項目：
 
@@ -68,7 +68,7 @@ mvn archetype:generate ^
 
 Maven 會要求您提供在部署時完成產生專案所需的值。 當系統提示時，提供下列值：
 
-| 值 | 說明 |
+| 值 | 描述 |
 | ----- | ----------- |
 | **groupId** | 此值可在所有專案中唯一識別您的專案，並遵循適用於 Java 的[套件命名規則](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7)。 本快速入門中的範例會使用 `com.fabrikam.functions`。 |
 | **artifactId** | 此值是 jar 的名稱 (不含版本號碼)。 本快速入門中的範例會使用 `fabrikam-functions`。 |
@@ -76,13 +76,16 @@ Maven 會要求您提供在部署時完成產生專案所需的值。 當系統�
 | **套件** | 此值是所產生函式程式碼的 Java 套件。 使用預設值。 本快速入門中的範例會使用 `com.fabrikam.functions`。 |
 | **appName** | 可在 Azure 中識別您的新函式應用程式的全域唯一名稱。 使用預設值，也就是附加隨機數字的 _artifactId_。 請記下此值，您稍後需要用到它。 |
 | **appRegion** | 選擇與您接近的[區域](https://azure.microsoft.com/regions/)，或選擇與函式將會存取之其他服務接近的區域。 預設值為 `westus`。 執行此 [Azure CLI] 命令以取得所有區域的清單：<br/>`az account list-locations --query '[].{Name:name}' -o tsv` |
-| **resourceGroup** | 要在其中建立函式應用程式的新[資源群組](../azure-resource-manager/resource-group-overview.md)名稱。 使用本快速入門中範例所使用的 `myResourceGroup`。 資源群組必須是您的 Azure 訂用帳戶中唯一的。|
+| **resourceGroup** | 要在其中建立函式應用程式的新[資源群組](../azure-resource-manager/management/overview.md)名稱。 使用本快速入門中範例所使用的 `myResourceGroup`。 資源群組必須是您的 Azure 訂用帳戶中唯一的。|
 
 輸入 `Y` 或按 Enter 進行確認。
 
 Maven 會以 _artifactId_ 名稱在新資料夾中建立專案檔案，在此例中為 `fabrikam-functions`。 
 
 在文字編輯器中，從 *src/main/java* 路徑開啟新的 Function.java 檔案，並檢閱所產生的程式碼。 此程式碼是一個 [HTTP 觸發](functions-bindings-http-webhook.md)函式，可回應要求的本文。 
+
+> [!div class="nextstepaction"]
+> [我遇到問題](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=generate-project)
 
 ## <a name="run-the-function-locally"></a>在本機執行函式
 
@@ -119,6 +122,9 @@ Hello AzureFunctions!
 ```
 在本機執行時不需要[函式金鑰](functions-bindings-http-webhook.md#authorization-keys)。 在終端機中使用 `Ctrl+C` 可停止函式程式碼。
 
+> [!div class="nextstepaction"]
+> [我遇到問題](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=local-run)
+
 ## <a name="deploy-the-function-to-azure"></a>將函式部署到 Azure
 
 當您第一次部署函式應用程式時，會在 Azure 中建立函式應用程式和相關資源。 請先使用 [az login](/cli/azure/authenticate-azure-cli) Azure CLI 命令登入您的 Azure 訂用帳戶，才可部署。 
@@ -146,6 +152,9 @@ mvn azure-functions:deploy
 部署也會封裝專案檔案，並使用 [zip deployment](functions-deployment-technologies.md#zip-deploy) 將其部署至新的函式應用程式，並已啟用從套件執行模式。
 
 部署完成時，您會看到可用來存取函式應用程式端點的 URL。 因為我們發佈的 HTTP 觸發程式會使用 `authLevel = AuthorizationLevel.FUNCTION`，所以您必須取得函式金鑰，才能透過 HTTP 呼叫函式端點。 [Azure 入口網站]是取得函式金鑰的最簡單方式。
+
+> [!div class="nextstepaction"]
+> [我遇到問題](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=deploy)
 
 ## <a name="get-the-http-trigger-url"></a>取得 HTTP 觸發程序 URL
 
@@ -176,6 +185,9 @@ curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/
 ```Output
 Hello AzureFunctions!
 ```
+
+> [!div class="nextstepaction"]
+> [我遇到問題](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=verify-deployment)
 
 ## <a name="next-steps"></a>後續步驟
 

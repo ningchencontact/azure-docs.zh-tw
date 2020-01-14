@@ -1,5 +1,5 @@
 ---
-title: 了解 Microsoft 客戶合約發票上的費用 - Azure
+title: Microsoft 客戶合約發票費用 - Azure
 description: 學習如何閱讀並了解發票上的費用。
 author: jureid
 manager: jureid
@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e9c74fd18bf80dfb8fa406912795fb53e655bd88
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b5dfffecbd2908e987b76f29b14937f0e50ce64f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388987"
 ---
 # <a name="understand-charges-on-your-microsoft-customer-agreement-invoice"></a>了解 Microsoft 客戶合約發票上的費用
 
 您可以藉由分析個別交易來了解發票上的費用。 在 Microsoft 客戶合約的計費帳戶中，每個帳單設定檔都會按月產生發票。 發票中包含上個月的所有費用。 您可以在 Azure 入口網站中檢視您的發票。 如需詳細資訊，請參閱[下載 Microsoft 客戶合約的發票](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement)。
 
-本文適用於 Microsoft 客戶合約的計費帳戶。 [請確認您是否有 Microsoft 客戶合約的存取權](#check-access-to-a-microsoft-customer-agreement)。
+本文適用於 Microsoft 客戶合約的計費帳戶。 請[確認您是否有 Microsoft 客戶合約的存取權](#check-access-to-a-microsoft-customer-agreement)。
 
 ## <a name="view-transactions-for-an-invoice-in-the-azure-portal"></a>在 Azure 入口網站中檢視發票的交易
 
@@ -38,7 +38,7 @@ ms.locfileid: "74226160"
 
     ![顯示計費交易清單的螢幕擷取畫面](./media/billing-understand-your-bill-mca/mca-billed-transactions-list.png)
 
-    |欄  |定義  |
+    |資料行  |定義  |
     |---------|---------|
     |Date     | 交易日期  |
     |發票識別碼     | 交易計費所在發票的識別碼。 如果您提交支援要求，請將識別碼提供給 Azure 支援，以加速支援要求的處理 |
@@ -166,7 +166,7 @@ ms.locfileid: "74226160"
 
 如果您已支付帳單，可以在 Azure 入口網站的 [發票] 頁面上查看付款的狀態。
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查對 Microsoft 客戶合約的存取權
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查 Microsoft 客戶合約的存取
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。

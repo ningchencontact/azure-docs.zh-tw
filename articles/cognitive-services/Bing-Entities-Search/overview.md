@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: overview
-ms.date: 02/01/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8f43401296a154ee40e7c214ad63da878129244a
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 2f374e29f4dc5406956cd56d1bb0bd1466e65773
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424023"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384514"
 ---
 # <a name="what-is-bing-entity-search-api"></a>什麼是 Bing 實體搜尋 API？
 
 Bing 實體搜尋 API 會將搜尋查詢傳送至 Bing，並取得包含實體和地點的結果。 地點結果包含餐廳、旅館或其他本地商家。 若查詢指定本地商家名稱或要求商務類型 (例如我附近的餐廳)，Bing 會傳回地點。 若查詢指定已知人物、地點 (旅遊景點、縣/市、國家/地區等) 或事項，Bing 會傳回實體。
 
-|功能  |說明  |
+|功能  |描述  |
 |---------|---------|
 |[即時搜尋建議](concepts/search-for-entities.md#suggest-search-terms-with-the-bing-autosuggest-api)     | 提供使用者輸入時可顯示為下拉式清單的搜尋建議。       | 
 | [實體去除混淆](concepts/search-for-entities.md#the-bing-entity-search-api-response)  | 針對具有多個可能意義的查詢取得多個實體。 |
@@ -41,3 +41,4 @@ Bing 實體搜尋 API 是一種 RESTful Web 服務，可讓您輕鬆地從任何
 * 若要快速開始使用您的第一個要求，請嘗試使用[快速入門](quickstarts/csharp.md)。
 * [Bing 實體搜尋 API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) 參考小節。
 * [Bing 使用和顯示需求](./use-display-requirements.md)指定了透過 Bing 搜尋 API 取得的內容和資訊可行的用法。
+* 請瀏覽 [Bing 搜尋 API 中樞頁面](../bing-web-search/search-the-web.md)以探索其他可用的 API。

@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/13/2019
 ms.custom: mvc
-ms.openlocfilehash: cd1a483cd50051ade5d7d4f45c8eb7e5d8351787
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f9074a004683393df18d621a679fbb7378dc6704
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900451"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398627"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>使用 Azure Application Insights 尋找並診斷效能問題
 
@@ -26,7 +26,7 @@ Azure Application Insights 會從您的應用程式收集遙測，以協助分�
 > * 使用查詢語言分析頁面檢視的詳細資料
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本教學課程：
 
@@ -72,7 +72,7 @@ Application Insights 會收集您應用程式中不同作業的效能詳細資�
 
     ![效能提示](media/tutorial-performance/6-perf-tip.png)
 
-8.  如需進一步的分析，您可以按一下 [下載追蹤]  ，將追蹤下載至 Visual Studio。
+8.   如需進一步分析，您可按一下 [下載追蹤]  來下載追蹤。 您可以使用 [PerfView](https://github.com/Microsoft/perfview#perfview-overview)來檢視此資料。
 
 ## <a name="use-logs-data-for-server"></a>使用伺服器的記錄資料
  提供豐富的查詢語言，可讓您分析 Application Insights 收集的所有資料。 您可以使用這項功能來深入分析要求和效能資料。
@@ -98,7 +98,7 @@ Application Insights 會收集您應用程式中不同作業的效能詳細資�
 ## <a name="use-logs-data-for-client"></a>使用用戶端的記錄資料
 就像針對伺服器效能所收集的資料一樣，Application Insights 讓所有用戶端資料可供使用記錄進行深入分析。
 
-1. 返回瀏覽器摘要，然後按一下![記錄圖示](media/tutorial-performance/app-viewinlogs-icon.png) **[記錄中的檢視 (分析)]**
+1. 返回瀏覽器摘要，然後按一下![記錄圖示](media/tutorial-performance/app-viewinlogs-icon.png) [記錄中的檢視 (分析)] 
 
 2. 記錄隨即開啟，面板中每個檢視各有一個查詢。 第一個查詢顯示不同的頁面檢視過去的持續時間。
 

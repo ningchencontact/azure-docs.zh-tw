@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2018
-ms.openlocfilehash: e0e6ffc45d55dc76abdbdf839958479b2ac5d40b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c44f1b39ae700fbd11b7c0866e7150d1edec8c4f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926688"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439528"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>使用 Azure Data Factory 大量複製多個資料表
 
@@ -47,7 +47,7 @@ ms.locfileid: "74926688"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 * **Azure 儲存體帳戶**。 Azure 儲存體帳戶會在大量複製作業中用做暫存 Blob 儲存體。 
 * **Azure SQL Database**。 此資料庫包含來源資料。 
 * **Azure SQL 資料倉儲**。 此資料倉儲保存從 SQL Database 複製的資料。 
@@ -72,7 +72,7 @@ ms.locfileid: "74926688"
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
-1. 在左側功能表上，選取 [建立資源]  >[分析]  >[資料處理站]  ：![在 [新增] 窗格中選取資料處理站](./media/doc-common-process/new-azure-data-factory-menu.png)
+1. 在左側功能表上，選取 [建立資源]  > [分析]  > [資料處理站]  ：![在 [新增] 窗格中選取資料處理站](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 1. 在 [新增資料處理站]  頁面中，輸入 **ADFTutorialBulkCopyDF** 作為 [名稱]  。 
  
@@ -85,7 +85,7 @@ ms.locfileid: "74926688"
    - 選取 [使用現有的]  ，然後從下拉式清單選取現有的資源群組。 
    - 選取 [建立新的]  ，然後輸入資源群組的名稱。   
          
-     若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
+     若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/overview.md)。  
 1. 針對 [版本]  選取 [V2]  。
 1. 選取 Data Factory 的 [位置]  。 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析]  以找出 [Data Factory]  ：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 1. 按一下頁面底部的 [新增]  。
@@ -122,7 +122,7 @@ ms.locfileid: "74926688"
 
     f. 若要使用指定資訊測試與 Azure SQL 資料庫的連線，按一下 [測試連線]  。
   
-    g. 按一下 [繼續]  。
+    g. 按一下 **[繼續]** 。
 
 
 ### <a name="create-the-sink-azure-sql-data-warehouse-linked-service"></a>建立接收 Azure SQL 資料倉儲連結服務
@@ -143,7 +143,7 @@ ms.locfileid: "74926688"
      
     f. 若要使用指定資訊測試與 Azure SQL 資料庫的連線，按一下 [測試連線]  。
      
-    g. 按一下 [繼續]  。
+    g. 按一下 **[繼續]** 。
 
 ### <a name="create-the-staging-azure-storage-linked-service"></a>建立暫存 Azure 儲存體連結服務
 在本教學課程中，您會使用 Azure Blob 儲存體作為暫時的暫存區域，讓 PolyBase 獲得更好的複製效能。
@@ -156,7 +156,7 @@ ms.locfileid: "74926688"
     
     b. 在 [儲存體帳戶名稱]  選取您的 **Azure 儲存體帳戶**。
     
-    c. 按一下 [繼續]  。
+    c. 按一下 **[繼續]** 。
 
 
 ## <a name="create-datasets"></a>建立資料集

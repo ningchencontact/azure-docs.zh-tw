@@ -1,10 +1,10 @@
 ---
-title: 教學課程：Azure Active Directory 與 Deskradar 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 Deskradar 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Deskradar 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5ff3e014-b79f-4a6c-bb0b-38462bea5d10
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 10/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd5e3d6f8763af8c14d189321c6129876f48ab85
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3ccb0f63476db733749c2b9bd9c297e29fe6fba6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158321"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608511"
 ---
-# <a name="tutorial-integrate-deskradar-with-azure-active-directory"></a>教學課程：整合 Deskradar 與 Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-deskradar"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Deskradar 整合
 
 在本教學課程中，您將了解如何整合 Deskradar 與 Azure Active Directory (Azure AD)。 在整合 Deskradar 與 Azure AD 時，您可以︰
 
@@ -33,16 +33,22 @@ ms.locfileid: "73158321"
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要開始，您需要下列項目：
 
-* Azure AD 訂用帳戶。 如果沒有訂用帳戶，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的免費試用。
+* Azure AD 訂用帳戶。 如果沒有訂用帳戶，您可以取得[免費帳戶](https://azure.microsoft.com/free/)。
 * 已啟用 Deskradar 單一登入 (SSO) 的訂用帳戶。
 
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。 Deskradar 支援由 **SP 和 IDP** 起始的 SSO。
+在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
+
+
+
+* Deskradar 支援由 **SP 和 IDP** 起始的 SSO
+
+
 
 ## <a name="adding-deskradar-from-the-gallery"></a>從資源庫新增 Deskradar
 
@@ -55,47 +61,48 @@ ms.locfileid: "73158321"
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **Deskradar**。
 1. 從結果面板選取 [Deskradar]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+
+## <a name="configure-and-test-azure-ad-single-sign-on-for-deskradar"></a>設定及測試 Deskradar 的 Azure AD 單一登入
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 Deskradar 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 Deskradar 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Deskradar 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
-2. **[設定 Deskradar SSO](#configure-deskradar-sso)** - 在應用程式端設定單一登入設定。
-3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Deskradar 測試使用者](#create-deskradar-test-user)** - 使 Deskradar 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-6. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
+    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+1. **[設定 Deskradar SSO](#configure-deskradar-sso)** - 在應用程式端設定單一登入設定。
+    1. **[建立 Deskradar 測試使用者](#create-deskradar-test-user)** - 使 Deskradar 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
-### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Deskradar]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
-1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
+1. 在 [**選取單一登入方法**] 頁面上，選取 [**SAML**]。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [基本 SAML 組態]  區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
+1. 在 [基本 SAML 設定]  區段上，如果您想要以 **IDP** 起始模式設定應用程式，請輸入下列欄位的值：
 
-    a. 在 [識別碼]  文字方塊中，使用下列模式來輸入 URL：`https://YOURDOMAIN.deskradar.cloud`
+    a. 在 [識別碼]  文字方塊中，使用下列模式來輸入 URL：`https://<YOURDOMAIN>.deskradar.cloud`
 
-    b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/consume`
+    b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://<YOURDOMAIN>.deskradar.cloud/auth/sso/saml/consume`
 
 1. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 
-    在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/login`
+    在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://<YOURDOMAIN>.deskradar.cloud/auth/sso/saml/login`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。 請將 **YOURDOMAIN** 取代為您的 Deskradar 執行個體網域。 請連絡 [Deskradar 用戶端支援小組](mailto:support@deskradar.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-1. Deskradar 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性]  區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  按鈕以開啟 [使用者屬性]  對話方塊。
+1. Deskradar 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
-1. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+1. 除了上述屬性外，Deskradar 應用程式還需要在 SAML 回應中多傳回幾個屬性，如下所示。 這些屬性也會預先填入，但您可以根據您的需求來檢閱這些屬性。
 
     | 名稱 | 來源屬性|
     | ---------------| --------- |
@@ -104,57 +111,13 @@ ms.locfileid: "73158321"
     | 電子郵件 | user.userprincipalname |
     | | |
 
-    a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
-
-    b. 在 [名稱]  文字方塊中，輸入該資料列所顯示的屬性名稱。
-
-    c. 讓 [命名空間]  保持空白。
-
-    d. 選取 [來源] 作為 [屬性]  。
-
-    e. 在 [來源屬性]  清單中，輸入該資料列所顯示的屬性值。
-
-    f. 按一下 [確定]  。
-
-    g. 按一下 [檔案]  。
-
 1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
-   ![憑證下載連結](common/certificatebase64.png)
+    ![憑證下載連結](common/certificatebase64.png)
 
 1. 在 [設定 Deskradar]  區段上，依據您的需求複製適當的 URL。
 
-   ![複製組態 URL](common/copy-configuration-urls.png)
-
-### <a name="configure-deskradar-sso"></a>設定 Deskradar SSO
-
-1. 若要自動執行 Deskradar 內的設定，您必須按一下 [安裝延伸模組]  來安裝「我的應用程式安全登入瀏覽器延伸模組」  。
-
-    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
-
-1. 將延伸模組新增至瀏覽器之後，按一下 [設定 Deskradar]  便會將您導向到 Deskradar 應用程式。 請從該處提供用以登入 Deskradar 的管理員認證。 瀏覽器延伸模組將會自動為您設定應用程式，並自動執行步驟 3 到 7。
-
-    ![設定組態](common/setup-sso.png)
-
-1. 如果您想要手動設定 Deskradar，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Deskradar 公司網站，然後執行下列步驟：
-
-1. 按一下資訊看板中的圖示，以開啟 [小組]  面板。
-
-1. 切換至 [驗證]  索引標籤。
-
-1. 在 [SAML 2.0]  索引標籤上，執行下列步驟：
-
-    ![Deskradar 組態](./media/deskradar-tutorial/14-paste-urls.jpg)
-
-    a. 啟用 **SAML** 驗證方法。
-
-    b. 在 [SAML SSO URL]  文字方塊中，輸入您從 Azure 入口網站複製的 [登入 URL]  值。
-
-    c. 在 [識別提供者簽發者]  文字方塊中，輸入您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
-
-1. 使用文字編輯器開啟已下載的**憑證 (Base64)** 檔案，並將其內容複製並貼到 Deskradar 的 [公開憑證]  欄位中。
-
-    ![Deskradar 組態](./media/deskradar-tutorial/15-paste-certificate.jpg)
+    ![複製組態 URL](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -186,13 +149,45 @@ ms.locfileid: "73158321"
 1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
 1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
+### <a name="configure-deskradar-sso"></a>設定 Deskradar SSO
+
+1. 若要自動執行 Deskradar 內的設定，您必須按一下 [安裝延伸模組]  來安裝「我的應用程式安全登入瀏覽器延伸模組」  。
+
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+1. 將延伸模組新增至瀏覽器之後，按一下 [設定 Deskradar]  便會將您導向到 Deskradar 應用程式。 請從該處提供用以登入 Deskradar 的管理員認證。 瀏覽器延伸模組將會自動為您設定應用程式，並自動執行步驟 3 到 7。
+
+    ![設定組態](common/setup-sso.png)
+
+1. 如果您想要手動設定 Deskradar，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Deskradar 公司網站，然後執行下列步驟：
+
+1. 按一下資訊看板中的圖示，以開啟 [小組]  面板。
+
+1. 切換至 [驗證]  索引標籤。
+
+1. 在 [SAML 2.0]  索引標籤上，執行下列步驟：
+
+    ![Deskradar 組態](./media/deskradar-tutorial/14-paste-urls.jpg)
+
+    a. 啟用 **SAML** 驗證方法。
+
+    b. 在 [SAML SSO URL]  文字方塊中，輸入您從 Azure 入口網站複製的 [登入 URL]  值。
+
+    c. 在 [識別提供者簽發者]  文字方塊中，輸入您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
+
+1. 使用文字編輯器開啟已下載的**憑證 (Base64)** 檔案，並將其內容複製並貼到 Deskradar 的 [公開憑證]  欄位中。
+
+    ![Deskradar 組態](./media/deskradar-tutorial/15-paste-certificate.jpg)
+
 ### <a name="create-deskradar-test-user"></a>建立 Deskradar 測試使用者
 
-在本節中，您會在 Deskradar 中建立名為 Britta Simon 的使用者。 請與  [Deskradar 客戶支援小組](mailto:support@deskradar.com) 合作，在 Deskradar 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Deskradar 中建立名為 B.Simon 的使用者。 請與 [Deskradar 客戶支援小組](mailto:support@deskradar.com)合作，在 Deskradar 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
-### <a name="test-sso"></a>測試 SSO
+## <a name="test-sso"></a>測試 SSO 
 
-當您在存取面板中選取 [Deskradar] 圖格時，應該會自動登入您已設定 SSO 的 Deskradar。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
+
+當您在存取面板中按一下 [Deskradar] 圖格時，應該會自動登入您已設定 SSO 的 Deskradar。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -201,3 +196,6 @@ ms.locfileid: "73158321"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [嘗試搭配 Azure AD 使用 Deskradar](https://aad.portal.azure.com/)
+

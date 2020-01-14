@@ -1,17 +1,17 @@
 ---
-title: Azure PowerShell 指令碼 - 更新 Azure Cosmos 帳戶
+title: 此 PowerShell 指令碼用以更新 Azure Cosmos 帳戶
 description: Azure PowerShell 指令碼範例 - 更新 Azure Cosmos 帳戶或修改區域
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: ec160f03fa5a8b9415dc33885fca512d4289f37b
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 075c33b0818aa3ec8b16158f538ae302446ff5f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969700"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445032"
 ---
 # <a name="update-an-azure-cosmos-account-or-modify-regions-using-powershell"></a>使用 PowerShell 更新 Azure Cosmos 帳戶或修改區域
 
@@ -40,7 +40,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 |**Azure 資源**| |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 建立資源。 |

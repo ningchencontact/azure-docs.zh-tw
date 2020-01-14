@@ -1,37 +1,36 @@
 ---
 title: 快速入門：辨識語音、意圖和實體，C# - 語音服務
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 01/02/2020
+ms.topic: include
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c7e63008e6c54d517c0d4c0e1661a9836f9f38c3
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 58cdf3ba369c4377f123f4e3dfe34414c5491f38
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816063"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660454"
 ---
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-開始之前，請務必：
+開始之前：
 
-> [!div class="checklist"]
->
-> * [建立 Azure 語音資源](../../../../get-started.md)
-> * [建立 Language Understanding (LUIS) 應用程式並取得端點金鑰](../../../../quickstarts/create-luis.md)
-> * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [建立空的範例專案](../../../../quickstarts/create-project.md?tabs=dotnet)
+* 如果這是您的第一個 C# 專案，請使用本指南<a href="../quickstarts/create-project.md?tabs=dotnet" target="_blank">建立空的範例專案</a>。
+* <a href="../quickstarts/setup-platform.md?tabs=dotnet" target="_blank">為您的開發環境安裝語音 SDK</a>。
+
+## <a name="create-a-luis-app-for-intent-recognition"></a>建立意圖辨識的 LUIS 應用程式
+
+[!INCLUDE [Create a LUIS app for intent recognition](../luis-sign-up.md)]
 
 ## <a name="open-your-project-in-visual-studio"></a>在 Visual Studio 中開啟您的專案
 
-第一個步驟是確定您已在 Visual Studio 中開啟專案。
+然後，在 Visual Studio 中開啟專案。
 
 1. 啟動 Visual Studio 2019。
 2. 載入您的專案，並開啟 `Program.cs`。
@@ -43,42 +42,62 @@ ms.locfileid: "74816063"
 
 ## <a name="create-a-speech-configuration"></a>建立語音設定
 
-您必須先建立使用 LUIS 端點金鑰和區域的設定，才能夠初始化 `IntentRecognizer` 物件。 在 `RecognizeIntentAsync()` 方法中插入此程式碼。
+您必須先建立使用 LUIS 預測資源金鑰和位置的組態，才能夠初始化 `IntentRecognizer` 物件。 
 
-此範例會使用 `FromSubscription()` 方法來建置 `SpeechConfig`。 如需可用方法的完整清單，請參閱 [SpeechConfig 類別](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) \(英文\)。
-語音 SDK 會預設為使用 en-us 來辨識語言，如需選擇來源語言的詳細資訊，請參閱[指定語音轉換文字的來源語言](../../../../how-to-specify-source-language.md)。
+> [!IMPORTANT]
+> 您的入門金鑰和撰寫金鑰將無法使用。 您必須使用您先前建立的預測金鑰和位置。 如需詳細資訊，請參閱[建立意圖辨識的 LUIS 應用程式](#create-a-luis-app-for-intent-recognition)。 
 
-> [!NOTE]
-> 請務必使用 LUIS 端點金鑰，而不是 Starter 或 Authoring 金鑰，因為只有端點金鑰才適用於辨識語音到意圖的轉換。 如需如何取得正確金鑰的指示，請參閱[建立 LUIS 應用程式並取得端點金鑰](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md)。
+在 `RecognizeIntentAsync()` 方法中插入此程式碼。 請務必更新這些值： 
+
+* 將 `"YourLanguageUnderstandingSubscriptionKey"` 取代為您的 LUIS 預測金鑰。 
+* 將 `"YourLanguageUnderstandingServiceRegion"` 取代為您的 LUIS 位置。 
+
+>[!TIP]
+> 如果您在尋找這些值時需要協助，請參閱[建立意圖辨識的 LUIS 應用程式](#create-a-luis-app-for-intent-recognition)。
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
 
+此範例會使用 `FromSubscription()` 方法來建置 `SpeechConfig`。 如需可用方法的完整清單，請參閱 [SpeechConfig 類別](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) \(英文\)。
+
+語音 SDK 會預設為使用 en-us 來辨識語言，如需選擇來源語言的詳細資訊，請參閱[指定語音轉換文字的來源語言](../../../../how-to-specify-source-language.md)。
+
 ## <a name="initialize-an-intentrecognizer"></a>初始化 IntentRecognizer
 
-現在，我們將建立一個 `IntentRecognizer`。 這個物件是在 using 陳述式內建立的，可確保適當釋放未受控資源。 將此程式碼插入您的語音設定下方的 `RecognizeIntentAsync()` 方法中。
+現在，我們將建立一個 `IntentRecognizer`。 這個物件是在 using 陳述式內建立的，可確保能夠適當釋放非受控資源。 將此程式碼插入您的語音設定下方的 `RecognizeIntentAsync()` 方法中。
+
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=28-30,76)]
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>新增 LanguageUnderstandingModel 和意圖
 
-現在，您必須將 `LanguageUnderstandingModel` 與意圖辨識器建立關聯，並新增您想要辨識的意圖。
+您必須將 `LanguageUnderstandingModel` 與意圖辨識器建立關聯，並新增您要辨識的意圖。 我們將使用預先建置之網域中的意圖來進行家庭自動化。 在上一節的 using 陳述式中插入此程式碼。 請務必將 `"YourLanguageUnderstandingAppId"` 取代為您的 LUIS 應用程式識別碼。 
+
+>[!TIP]
+> 如果您在尋找此值時需要協助，請參閱[建立意圖辨識的 LUIS 應用程式](#create-a-luis-app-for-intent-recognition)。
+
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=31-35)]
 
 ## <a name="recognize-an-intent"></a>辨識意圖
 
 從 `IntentRecognizer` 物件，您將呼叫 `RecognizeOnceAsync()` 方法。 此方法可讓語音服務知道您要傳送單一片語以進行辨識，且一旦識別出該片語即停止辨識語音。
 
-在 using 陳述式中，新增下列程式碼：[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=46)]
+在 using 陳述式中，將下列程式碼新增至您的模型下方：[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=46)]
 
-## <a name="display-the-recognition-results-or-errors"></a>顯示辨識結果 (或錯誤)
+## <a name="display-recognition-results-or-errors"></a>顯示辨識結果 (或錯誤)
 
 當語音服務傳回辨識結果時，建議您對其執行一些動作。 為了簡單起見，我們將結果列印到主控台。
 
-在 using 陳述式中的 `RecognizeOnceAsync()` 下方，新增此程式碼：[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=48-75)]
+在 using 陳述式中的 `RecognizeOnceAsync()` 下方，新增此程式碼：
+
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=48-75)]
 
 ## <a name="check-your-code"></a>檢查您的程式碼
 
 此時，您的程式碼應會如下所示：  
-(我們已在此版本中新增一些註解) [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=5-86)]
+
+> [!NOTE]
+> 我們已在此版本中新增一些註解。
+
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=5-86)]
 
 ## <a name="build-and-run-your-app"></a>建置並執行您的應用程式
 

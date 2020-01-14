@@ -1,26 +1,17 @@
 ---
-title: 教學課程 - 部署 Service Fabric Mesh 應用程式 | Microsoft Docs
+title: 教學課程 - 部署 Service Fabric Mesh 應用程式
 description: 了解如何使用 Visual Studio 發佈有 ASP.NET Core 網站可與後端 Web 服務進行通訊的 Azure Service Fabric Mesh 應用程式。
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eef4cfaff38a96597794354cc991f5d3eeae9404
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: d2bb37252bc93c982dbc090a0c3f20aef842325f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351852"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>教學課程：部署 Service Fabric Mesh 應用程式
 
@@ -42,7 +33,7 @@ ms.locfileid: "56806609"
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始進行本教學課程之前：
 
@@ -62,19 +53,19 @@ git clone https://github.com/azure-samples/service-fabric-mesh
 
 ## <a name="publish-to-azure"></a>發佈至 Azure
 
-若要將您的 Service Fabric Mesh 專案發佈至 Azure，請在 Visual Studio 中以滑鼠右鍵按一下 **todolistapp**，然後選取 [發佈...]。
+若要將您的 Service Fabric Mesh 專案發佈至 Azure，請在 Visual Studio 中以滑鼠右鍵按一下 **todolistapp**，然後選取 [發佈...]  。
 
-接著，您將會看見 [發佈 Service Fabric 應用程式] 對話方塊。
+接著，您將會看見 [發佈 Service Fabric 應用程式]  對話方塊。
 
-![Visual Studio 的 Service Fabric Mesh 發佈對話方塊](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
+![Visual Studio 的 Service Fabric Mesh 發行對話方塊](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-選取您的 Azure 帳戶和訂用帳戶。 選擇 [位置] 。 本文使用**美國東部**。
+選取您的 Azure 帳戶和訂用帳戶。 選擇 [位置]  。 本文使用**美國東部**。
 
-在 [資源群組] 下方，選取 [\<建立新的資源群組...>]。 對話方塊隨即出現，而您將在其中建立新的資源群組。 本文使用**美國東部**的位置，並將群組命名為 **sfmeshTutorial1RG** (如果您的組織有多位人員使用同一個訂用帳戶，請選擇唯一的群組名稱)。  按 [建立] 以建立資源群組並返回發佈對話方塊。
+在 [資源群組]  下方，選取 [\<建立新的資源群組...>]  。 對話方塊隨即出現，而您將在其中建立新的資源群組。 本文使用**美國東部**的位置，並將群組命名為 **sfmeshTutorial1RG** (如果您的組織有多位人員使用同一個訂用帳戶，請選擇唯一的群組名稱)。  按 [建立]  以建立資源群組並返回發佈對話方塊。
 
 ![Visual Studio 的 Service Fabric Mesh 新增資源群組對話方塊](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-返回 [發佈 Service Fabric 應用程式] 對話方塊，在 [Azure Container Registry] 下方，選取 [\<建立新的容器登錄...>]。 在 [建立容器登錄] 對話方塊中，針對**容器登錄名稱**使用唯一的名稱。 指定**位置** (本教學課程使用**美國東部**)。 從下拉式清單中選取您在上一個步驟中建立的**資源群組**，例如 **sfmeshTutorial1RG**。 將 **SKU** 設定為**基本**，然後按 [建立]，以建立私人 Azure 容器登錄，並回到 [發佈] 對話方塊。
+返回 [發佈 Service Fabric 應用程式]  對話方塊，在 [Azure Container Registry]  下方，選取 [\<建立新的容器登錄...>]  。 在 [建立容器登錄]  對話方塊中，請針對**容器登錄名稱**使用唯一的名稱。 指定**位置** (本教學課程使用**美國東部**)。 從下拉式清單中選取您在上一個步驟中建立的**資源群組**，例如 **sfmeshTutorial1RG**。 將 **SKU** 設定為**基本**，然後按 [建立]  ，以建立私人 Azure 容器登錄，並回到 [發佈] 對話方塊。
 
 ![Visual Studio 的 Service Fabric Mesh 新增容器登錄對話方塊](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 
@@ -84,16 +75,16 @@ git clone https://github.com/azure-samples/service-fabric-mesh
 Get-AzureRmResourceProvider -ListAvailable
 ```
 
-如果容器登錄提供者 (`Microsoft.ContainerRegistry`) 可供使用，請從 Powershell 加以註冊：
+如果容器登錄提供者 (`Microsoft.ContainerRegistry`) 可供使用，請從 PowerShell 來加以註冊：
 
 ```Powershell
 Connect-AzureRmAccount
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
 ```
 
-在發佈對話方塊中按 [發佈] 按鈕，將您的 Service Fabric 應用程式部署至 Azure。
+在發佈對話方塊中按 [發佈]  按鈕，將您的 Service Fabric 應用程式部署至 Azure。
 
-當您首次發佈到 Azure 時，會將 Dcker 映像推送到 Azure Container Registry (ACR)，所需時間取決於映像大小。 後續發佈相同專案的速度將會加快。 您可以在 Visual Studio 的 [輸出] 視窗中選取 [Service Fabric 工具]，藉以監視部署的進度。 在部署完成後，**Service Fabric 工具**輸出將會以 URL 形式顯示應用程式的 IP 位址和連接埠。
+當您首次發行到 Azure 時，會將 Dcker 映像推送到 Azure Container Registry (ACR)，所需時間取決於映像大小。 後續發行相同專案的速度將會加快。 您可以在 Visual Studio 的 [輸出]  視窗中選取 [Service Fabric 工具]  ，藉以監視部署的進度。 一旦部署完成之後，**Service Fabric 工具**輸出將會以 URL 形式來顯示應用程式的 IP 位址和連接埠。
 
 ```
 Packaging Application...

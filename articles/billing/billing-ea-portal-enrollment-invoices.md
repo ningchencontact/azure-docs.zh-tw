@@ -4,16 +4,16 @@ description: 本文將說明如何管理 Azure 企業發票，並採取相關行
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 15c2e84742ff0f552c688ccf1ba795f742e288ca
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d6faf56554d666ce29b68ba90bb920b4e6c56c30
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849882"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644557"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 企業註冊發票
 
@@ -22,8 +22,6 @@ ms.locfileid: "74849882"
 ## <a name="change-a-po-number-for-an-overage-invoice"></a>變更超額發票的 PO 編號
 
 如果 EA 系統管理員未在發票日期之前設定編號，則 Azure EA 入口網站會自動產生預設的採購單 (PO) 號碼。 EA 管理員可以在收到自動發票通知電子郵件後的七天內更新 PO 號碼。
-
-此外也可以輸入特定帳戶或訂用帳戶的採購單號碼。 報表會預設為在階層中設定的最低層級採購單號碼，這表示，若未輸入訂用帳戶採購單號碼，則會使用帳戶採購單號碼，且若未輸入帳戶採購單，則會使用部門採購單。
 
 ### <a name="to-update-the-azure-services-purchase-order-number"></a>若要更新 Azure 服務採購單號碼：
 
@@ -150,7 +148,7 @@ ms.locfileid: "74849882"
 
 針對間接註冊，您的合作夥伴必須啟用標記功能，才能看到任何成本相關資訊。
 
-## <a name="reports"></a>報告
+## <a name="reports"></a>報表
 
 企業系統管理員可以在企業版入口網站中檢視其使用量資料的摘要、已使用的承諾用量金額，以及與其他使用量相關聯的費用。 費用會顯示在所有帳戶和訂用帳戶的摘要層級上。
 
@@ -184,7 +182,7 @@ ms.locfileid: "74849882"
 ### <a name="to-view-the-report"></a>若要檢視報表：
 
 1. 登入企業版入口網站。
-1. 在左側導覽區中按一下 [報表]  。
+1. 在左側導覽列中按一下 [報告]  。
 1. 按一下 [使用量摘要]  索引標籤。
 1. 按一下所需的日期範圍。
 1. 選擇要檢視的帳戶或訂用帳戶。
@@ -294,7 +292,7 @@ Marketplace 費用有兩種類型：
 ### <a name="to-enable-access"></a>若要啟用存取權：
 
  1. 以企業系統管理員身分登入。
- 1. 按一下左側導覽區上的 [管理]  。
+ 1. 按一下左側導覽列上的 [管理]  。
  1. 按一下 [註冊]  索引標籤。
  1. 在 [註冊詳細資料] 區段底下，選取下列項目旁的鉛筆圖示：
     - DA 檢視費用
@@ -305,7 +303,7 @@ Marketplace 費用有兩種類型：
 ### <a name="to-view-reports"></a>若要檢視報表：
 
 1. 以部門系統管理員或帳戶擁有者的身分登入 Azure EA 入口網站。
-1. 在左側導覽區中按一下 [報表]  。
+1. 在左側導覽列中按一下 [報告]  。
 1. 按一下 [使用量摘要]  索引標籤，以視覺化方式檢視帳戶和訂用帳戶的資訊。
 1. 按一下 [使用量下載]  以檢視 .csv 報表。
 
@@ -366,7 +364,7 @@ Microsoft 可能會在註冊期間內，就個別的 Azure 服務調降目前的
 
 以下資訊供您參考：在使用 Excel 為企業版入口網站內使用的進位和轉換規則建立模型時，應使用 MROUND 公式，如下所示。
 
-| 案例 | 銀行家邏輯公式 |
+| 狀況 | 銀行家邏輯公式 |
 | --- | --- |
 | 進位用法 | =MROUND({_source_}, 0.0002) |
 | 進位定價 (2 個小數位數) | =MROUND({_source_}, 0.02) |
@@ -554,7 +552,7 @@ EA 客戶將根據其 EA 價格等級支付遠端應用程式的費用，且沒�
 
 請參閱下列額外資訊來源，以取得詳細資訊。 這些檔案會在每個月的 6 日和 20 日進行更新。 每個檔案的詳細資料顯示如下：
 
-| 附錄標題 | 說明 | URL 命名慣例 |
+| 附錄標題 | 描述 | URL 命名慣例 |
 | --- | --- | --- |
 | [**易記服務名稱**](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | 列出所有作用中的服務，以及服務類別、易記服務名稱、承諾用量名稱和部分編號、取用名稱和部分編號、測量單位，以及報告的使用量與顯示的企業版入口網站使用量之間的轉換因子。 | Friendly\_Service\_Names.xlsx |
 | [**服務下載欄位**](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | 此試算表會列出「使用量下載報表」中的服務相關欄位所有的可能組合。 | Service\_Download\_Fields.xlsx |
@@ -614,7 +612,7 @@ Power BI 報告適用於能夠檢視帳單資訊的 EA 直接、合作夥伴和�
 
 **直接註冊** 如果您是帳戶擁有者或部門系統管理員，請洽詢 EA 系統管理員以啟用定價功能：
 
-1. 按一下左側導覽區上的 [管理]  。
+1. 按一下左側導覽列上的 [管理]  。
 1. 按一下 DA (部門系統管理員) 檢視費用旁的藍色鉛筆。
 1. 選取 [啟用]  並儲存。
 1. 按一下 AO (帳戶擁有者) 檢視費用旁的藍色鉛筆。

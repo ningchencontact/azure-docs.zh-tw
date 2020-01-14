@@ -3,21 +3,17 @@ title: 檢視及下載 Azure 使用量和費用
 description: 說明如何下載或檢視您的 Azure 每日使用量和費用資訊。
 keywords: 計費使用量, 使用量費用, 使用量下載, 檢視使用量, azure 發票, azure 使用量
 author: bandersmsft
-manager: jureid
+ms.author: banders
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
-ms.author: banders
-ms.openlocfilehash: dcf4e3b9d85909c8f1d149c9d1940a6755b431a1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 01/03/2020
+ms.openlocfilehash: dbb7956bf58d6b997f782d8f88e1eeaf19d6ade8
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224018"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665089"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>檢視及下載您的 Azure 使用量和費用
 
@@ -28,22 +24,22 @@ ms.locfileid: "74224018"
 ## <a name="download-usage-from-the-azure-portal-csv"></a>從 Azure 入口網站下載使用量 (.csv)
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 針對 [成本管理 + 帳單]  進行搜尋。
+1. 搜尋 [成本管理 + 帳單]  。
 
     ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-download-azure-usage/portal-cm-billing-search.png)
 
 1. 視存取權之不同，您可能必須選取計費帳戶或帳單設定檔。
 1. 在左側功能表中，選取 [計費]  之下的 [發票]  。
 1. 在發票方格中，尋找對應至所要下載使用量的計費週期資料列。
-1. 按一下下載圖示或右側的省略符號 (`...`)。
-1. 從 [下載] 功能表中選取 [下載 Azure 使用量和費用]  。
+1. 選取**下載圖示**或右側的省略符號 (`...`)。
+1. [下載] 窗格會在右側開啟。 從 [使用量詳細資料]  區段中，選取 [下載]  。
 
 ## <a name="download-usage-for-ea-customers"></a>下載 EA 客戶的使用量
 
 若要檢視及下載 EA 客戶的使用量資料，您必須是企業系統管理員、帳戶擁有者或部門系統管理員，並且已啟用檢視費用原則。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 針對 [成本管理 + 帳單]  進行搜尋。
+1. 搜尋 [成本管理 + 帳單]  。
 
     ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-download-azure-usage/portal-cm-billing-search.png)
 

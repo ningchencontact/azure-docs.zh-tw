@@ -1,7 +1,7 @@
 ---
 title: 教學課程：仲裁電子商務產品影像 - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: 設定應用程式分析產品影像，並使用指定的標籤加以分類 (使用 Azure 電腦視覺和自訂視覺)。 標記令人反感的影像以供進一步地審核 (使用 Azure Content Moderator)。
+description: 本教學課程說明如何設定應用程式分析產品影像，並使用指定的標籤加以分類 (使用 Azure 電腦視覺和自訂視覺)。 標記令人反感的影像以供進一步地審核 (使用 Azure Content Moderator)。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: e3c4f1c641865fa8aa1d01d370063c03bbc0680c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5ee96cd0cf8ca33cae785bc15eb824332dcb3c9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72936040"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382152"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>教學課程：使用 Azure Content Moderator 仲裁電子商務產品影像
 
@@ -34,7 +34,7 @@ GitHub 上的[範例電子商務目錄仲裁](https://github.com/MicrosoftConten
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Content Moderator 訂用帳戶金鑰。 請依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示，訂閱 Content Moderator 服務並取得金鑰。
 - 電腦視覺訂用帳戶金鑰 (與上述相同的指示)。
@@ -89,7 +89,7 @@ GitHub 上的[範例電子商務目錄仲裁](https://github.com/MicrosoftConten
 
 ## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags 方法
 
-接下來，請參閱 **EvaluateCustomVisionTags** 方法，將實際的產品分類，&mdash;在此案例中為國旗、玩具和筆。 請依照[如何建置分類器](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)指南中的指示，建置您自己的自訂影像分類器，並偵測影像中是否有國旗、玩具和筆 (或您選擇作為自訂標記的任何標記)。 您可以使用 [GitHub 存放庫](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) **sample-images** 資料夾中的映像，以便快速訓練此範例中的一些類別。
+接下來，請參閱 **EvaluateCustomVisionTags** 方法，將實際的產品分類，&mdash;在此案例中為國旗、玩具和筆。 請依照[如何建置分類器](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)指南中的指示，建置您自己的自訂影像分類器，並偵測影像中是否有國旗、玩具和筆 (或您選擇作為自訂標記的任何標記)。 您可以使用 [GitHub 存放庫](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)**sample-images** 資料夾中的映像，以便快速訓練此範例中的一些類別。
 
 ![自訂視覺網頁，其中包含筆、玩具和國旗的定型影像](images/tutorial-ecommerce-custom-vision.PNG)
 

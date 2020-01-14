@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights 快速入門 | Microsoft Docs
-description: 提供指示說明如何快速設定行動應用程式，以透過 Application Insights 和 App Center 來監視
+title: 使用 Azure 監視器 Application Insights 監視行動應用程式
+description: 提供指示說明如何快速設定行動應用程式，以透過 Azure 監視器 Application Insights 和 App Center 進行監視
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -9,18 +9,18 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: fe514e7a05701901759ab5453e1c1d02870da91d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 07e162dc74a514c9e7e6c82c38b51460a2f797fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900543"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398894"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>開始使用 App Center 和 Application Insights 分析您的行動應用程式
 
 本快速入門會引導您將應用程式的 App Center 執行個體連線到 Application Insights。 Application Insights 提供查詢、分割、篩選及分析遙測資料的強大工具，遠勝於 App Center 的 [Analytics](https://docs.microsoft.com/mobile-center/analytics/) \(英文\) 服務。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本快速入門，您需要：
 
@@ -76,7 +76,7 @@ Analytics.trackEvent("Video clicked")
 
     隨後將會出現設定方塊。 根據下表來填寫輸入欄位。
 
-    | 設定        |  值           | 說明  |
+    | 設定        |  值           | 描述  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 某些全域唯一的值，例如 "myApp-iOS" | 此名稱可識別您要監視的應用程式 |
      | **資源群組**     | 新的資源群組或功能表中現有的資源群組 | 要在其中建立新 Application Insights 資源的資源群組 |

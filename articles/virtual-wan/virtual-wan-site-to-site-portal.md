@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e17205af1ede845ea77b04f6f2b4c6babf3bc450
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 10b9dba2f54a2d20b0cb405285772f8c3d74b3a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482142"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450848"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>教學課程：使用 Azure 虛擬 WAN 來建立站對站連線
 
@@ -75,7 +75,7 @@ ms.locfileid: "74482142"
 
 ## <a name="site"></a>建立網站
 
-您現在已準備好建立對應到實體位置的網站。 建立需要的網站數目，這會與您的實體位置相對應。 例如，如果您在紐約 (NY)、倫敦和洛杉磯 (LA) 各有分公司，就會建立三個不同網站。 這些網站包含您內部部署的 VPN 裝置端點。 在虛擬 WAN 中，您可以為每個虛擬中樞建立最多 1000 個網站。 如果您有多個中樞，您可以為其中每一個中樞建立 1000 個網站。 如果您有虛擬 WAN 合作夥伴 (連結插入) CPE 裝置，請向他們確認並了解其對 Azure 有何自動化項目。 一般來說，自動化體驗意指簡單按一下即可將大規模分支資訊匯出至 Azure，以及設定從 CPE 到 Azure 虛擬 WAN VPN 閘道的連線 (以下是從 Azure 到 CPE 合作夥伴的自動化指引連結)。
+您現在已準備好建立對應到實體位置的網站。 建立需要的網站數目，這會與您的實體位置相對應。 例如，如果您在紐約 (NY)、倫敦和洛杉磯 (LA) 各有分公司，就會建立三個不同網站。 這些網站包含您內部部署的 VPN 裝置端點。 在虛擬 WAN 中，您可以為每個虛擬中樞建立最多 1000 個網站。 如果您有多個中樞，您可以為其中每一個中樞建立 1000 個網站。 如果您有虛擬 WAN 合作夥伴 (連結插入) CPE 裝置，請向他們確認並了解其對 Azure 有何自動化項目。 一般來說，自動化體驗意指簡單按一下即可將大規模分支資訊匯出至 Azure，以及設定從 CPE 到 Azure 虛擬 WAN VPN 閘道的連線。 如需詳細資訊，請參閱[從 Azure 到 CPE 合作夥伴的自動化指引](virtual-wan-configure-automation-providers.md)。
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
@@ -110,7 +110,7 @@ ms.locfileid: "74482142"
 
 ### <a name="understanding-the-vpn-device-configuration-file"></a>了解 VPN 裝置組態檔
 
-裝置組態檔包含設定內部部署 VPN 裝置時要使用的設定。 當您檢視此檔案時，請注意下列資訊：
+裝置設定檔包含了設定內部部署 VPN 裝置時所要使用的設定。 當您檢視此檔案時，請注意下列資訊：
 
 * **vpnSiteConfiguration -** 此區段表示網站連線至虛擬 WAN 時設定的裝置詳細資料。 其中包含分支裝置的名稱和公用 IP 位址。
 * **vpnSiteConnections -** 此區段提供與下列設定有關的資訊：
@@ -133,7 +133,7 @@ ms.locfileid: "74482142"
         ```
     * **Vpngateway 連線設定詳細資料**，例如 BGP、預先共用金鑰等等。PSK 是自動為您產生的預先共用金鑰。 您隨時都可以在自訂 PSK 的 [概觀] 頁面中編輯連線。
   
-### <a name="example-device-configuration-file"></a>範例裝置組態檔
+### <a name="example-device-configuration-file"></a>範例裝置設定檔
 
   ```
   { 

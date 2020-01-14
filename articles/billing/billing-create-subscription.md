@@ -1,5 +1,5 @@
 ---
-title: 建立額外的 Azure 訂用帳戶 | Microsoft Docs
+title: 建立額外的 Azure 訂用帳戶
 description: 了解如何在 Azure 入口網站中新增 Azure 訂用帳戶。
 services: billing
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: bd561f616c9e120a38f1c6b125e349684f82942e
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 0f4df548313e02a9e8eb857bf2c1d798d5ccdcc3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665605"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449621"
 ---
 # <a name="create-an-additional-azure-subscription"></a>建立額外的 Azure 訂用帳戶
 
@@ -66,14 +66,14 @@ ms.locfileid: "74665605"
 |---------|---------|
 |帳單設定檔     | 訂用帳戶的費用將會計入您所選的帳單設定檔。 如果您只能存取一個帳單設定檔，選取項目將會呈現為灰色。     |
 |發票區段     | 訂用帳戶的費用將會顯示在帳單設定檔發票的這個發票區段。 如果您只能存取一個發票區段，選取項目將會呈現為灰色。  |
-|規劃     | 如果您打算將此訂用帳戶用於開發或測試工作負載，請選取 [適用於 DevTest 的 Microsoft Azure 方案]，否則請使用 [Microsoft Azure 方案]。 如果帳單設定檔只啟用一個方案，則選取項目會呈現為灰色。  |
+|計畫     | 如果您打算將此訂用帳戶用於開發或測試工作負載，請選取 [適用於 DevTest 的 Microsoft Azure 方案]，否則請使用 [Microsoft Azure 方案]。 如果帳單設定檔只啟用一個方案，則選取項目會呈現為灰色。  |
 |名稱     | 可協助您輕鬆識別 Azure 入口網站中訂用帳戶的顯示名稱。  |
 
 **Microsoft 合作夥伴合約**
 
 |欄位  |定義  |
 |---------|---------|
-|Customer    | 系統會為您選取的客戶建立訂用帳戶。 如果您只有一個客戶，則選取項目會呈現為灰色。  |
+|客戶    | 系統會為您選取的客戶建立訂用帳戶。 如果您只有一個客戶，則選取項目會呈現為灰色。  |
 |Reseller    | 將提供服務給客戶的轉銷商。 這是選擇性欄位，僅適用於 CSP 兩層式模型中的間接提供者。 |
 |名稱     | 可協助您輕鬆識別 Azure 入口網站中訂用帳戶的顯示名稱。  |
 
@@ -90,4 +90,4 @@ ms.locfileid: "74665605"
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。

@@ -1,17 +1,17 @@
 ---
-title: 在 Azure Functions 中使用 Python 和 TensorFlow 來進行機器學習推斷
+title: 在 Azure 中使用 Python 和 TensorFlow 進行機器學習
 description: 本教學課程示範如何在 Azure Functions 中套用 TensorFlow 機器學習模型
 author: anthonychu
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: e7c4e1bbd23d43d5e11ab8b26c3d4e1215b4946b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f8122a828f19c3daf6c23a866a99a214ee2c4427
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230512"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409763"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>教學課程：在 Azure Functions 中使用 Python 和 TensorFlow 來套用機器學習模型
 
@@ -29,7 +29,7 @@ ms.locfileid: "74230512"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>Prerequisites 
 
 若要在 Python 中建立 Azure Functions，您必須安裝一些工具。
 
@@ -67,7 +67,7 @@ python3.6 -m venv .venv
 source .venv/bin/activate
 ```
 
-#### <a name="windows"></a>Windows:
+#### <a name="windows"></a>Windows：
 
 ```powershell
 cd start
@@ -144,7 +144,7 @@ http://localhost:7071/api/classify?name=Azure
 cp ../resources/model/* classify
 ```
 
-#### <a name="windows"></a>Windows:
+#### <a name="windows"></a>Windows：
 
 ```powershell
 copy ..\resources\model\* classify
@@ -162,7 +162,7 @@ resources  資料夾內名為 predict.py  的檔案中有一些協助程式函�
 cp ../resources/predict.py classify
 ```
 
-#### <a name="windows"></a>Windows:
+#### <a name="windows"></a>Windows：
 
 ```powershell
 copy ..\resources\predict.py classify
@@ -255,7 +255,7 @@ cd <FRONT_END_FOLDER>
 python3.6 -m http.server
 ```
 
-#### <a name="windows"></a>Windows:
+#### <a name="windows"></a>Windows：
 
 ```powershell
 cd <FRONT_END_FOLDER>

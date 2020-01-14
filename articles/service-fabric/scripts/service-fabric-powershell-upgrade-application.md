@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 指令碼範例 - 升級 Service Fabric 應用程式 | Microsoft Docs
-description: Azure PowerShell 指令碼範例 - 升級 Service Fabric 應用程式。
+title: 在 PowerShell 中升級 Service Fabric 應用程式
+description: Azure PowerShell 指令碼範例 - 使用 PowerShell 升級和監視 Azure Service Fabric 應用程式。
 services: service-fabric
 documentationcenter: ''
 author: athinanthny
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 45186f497371b533451ff374e68b38f9a7eebe51
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3a4ef9fad8567eb145d51c6fef61773cc3a00b11
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035484"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614735"
 ---
 # <a name="upgrade-a-service-fabric-application"></a>升級 Service Fabric 應用程式
 
@@ -35,7 +35,7 @@ ms.locfileid: "69035484"
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) | 取得 Service Fabric 叢集或特定應用程式中的所有應用程式。  |
 | [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) | 取得 Service Fabric 應用程式升級的狀態。 |

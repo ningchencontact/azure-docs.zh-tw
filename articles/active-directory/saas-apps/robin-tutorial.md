@@ -1,5 +1,5 @@
 ---
-title: 教學課程：Azure Active Directory 與 Robin 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 Robin 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Robin 之間的單一登入。
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 01/02/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f8278f9c0b478d940a629d3308fd73ea474a4aa
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 964ba7ba9ebac84e2895e5a50f3fa31f1dbdd874
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081653"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659690"
 ---
-# <a name="tutorial-integrate-robin-with-azure-active-directory"></a>教學課程：整合 Robin 與 Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-robin"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Robin 整合
 
 在本教學課程中，您會了解如何將 Robin 與 Azure Active Directory (Azure AD) 進行整合。 在整合 Robin 與 Azure AD 時，您可以︰
 
@@ -33,7 +32,7 @@ ms.locfileid: "74081653"
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要開始，您需要下列項目：
 
@@ -47,6 +46,9 @@ ms.locfileid: "74081653"
 * Robin 支援由 **SP 和 IDP** 起始的 SSO
 * Robin 支援 **Just In Time** 使用者佈建
 
+> [!NOTE]
+> 此應用程式的識別碼是固定的字串值，因此一個租用戶中只能設定一個執行個體。
+
 ## <a name="adding-robin-from-the-gallery"></a>從資源庫新增 Robin
 
 若要設定將 Robin 整合到 Azure AD 中，您需要從資源庫將 Robin 新增到受控 SaaS 應用程式清單。
@@ -58,32 +60,30 @@ ms.locfileid: "74081653"
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **Robin**。
 1. 從結果面板選取 [Robin]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on-for-robin"></a>設定及測試 Robin 的 Azure AD 單一登入
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 Robin 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 Robin 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Robin 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
-    * **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
-    * **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
 1. **[設定 Robin SSO](#configure-robin-sso)** - 在應用程式端設定單一登入設定。
-    * **[建立 Robin 測試使用者](#create-robin-test-user)** 使 Robin 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+    1. **[建立 Robin 測試使用者](#create-robin-test-user)** 使 Robin 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
 1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
-### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Robin]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
-1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
+1. 在 [**選取單一登入方法**] 頁面上，選取 [**SAML**]。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [基本 SAML 組態]  區段中，已預先以 **IDP** 起始的模式設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存]  按鈕，才能儲存設定。
-
-    ![Robin 網域與 URL 單一登入資訊](common/preintegrated.png)
+1. 在 [ **基本 SAML 組態**]  區段上，已預先以  **IDP**  起始的模式設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [ **儲存**]  按鈕，才能儲存組態。
 
 1. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 
@@ -96,11 +96,10 @@ ms.locfileid: "74081653"
 1. 除了上述屬性外，Robin 應用程式還需要在 SAML 回應中多傳回幾個屬性，如下所示。 這些屬性也會預先填入，但您可以根據您的需求來檢閱這些屬性。
 
     | 名稱 | 來源屬性|
-    | ---------------|  --------- |
-    | 電子郵件 | user.userprincipalname |
-    | 名字 |  user.givenname |
-    | 姓氏 |  user.surname |
-
+    | ---------------| --------- |
+    | 名字 | user.givenname |
+    | 姓氏 | user.surname |
+    | 電子郵件 | user.mail |
 
 1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (原始)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
@@ -146,9 +145,9 @@ ms.locfileid: "74081653"
 
 ### <a name="create-robin-test-user"></a>建立 Robin 測試使用者
 
-本節會在 Robin 中建立名為 B.Simon 的使用者。 Robin 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Robin 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Robin 中建立名為 Britta Simon 的使用者。 Robin 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Robin 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
-### <a name="test-sso"></a>測試 SSO 
+## <a name="test-sso"></a>測試 SSO 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
@@ -163,3 +162,4 @@ ms.locfileid: "74081653"
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [嘗試搭配 Azure AD 使用 Robin](https://aad.portal.azure.com/)
+

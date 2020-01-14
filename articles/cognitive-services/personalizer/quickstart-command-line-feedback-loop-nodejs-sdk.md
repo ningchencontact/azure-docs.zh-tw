@@ -1,7 +1,7 @@
 ---
-title: 快速入門：適用於 Node.js 的個人化工具用戶端程式庫 | Microsoft Docs
+title: 快速入門：適用於 Node.js 的個人化工具用戶端程式庫
 titleSuffix: Azure Cognitive Services
-description: 使用學習迴圈來開始使用適用於 Node.js 的個人化工具用戶端程式庫。
+description: 此快速入門示範如何使用學習迴圈，開始使用適用於 Node.js 的個人化工具用戶端程式庫。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: f7667ce99ceaa713332ad9419ffab9d57aa0f075
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 91aee7f4a110490495a3cf840e6b3ef3282c91c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494447"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446377"
 ---
 # <a name="quickstart-personalizer-client-library-for-nodejs"></a>快速入門：適用於 Node.js 的個人化工具用戶端程式庫
 
@@ -28,7 +28,7 @@ ms.locfileid: "73494447"
 
 [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [套件 (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [範例](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 * 最新版的 [Node.js](https://nodejs.org) 和 NPM。

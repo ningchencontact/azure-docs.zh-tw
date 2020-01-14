@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: ba131002df64f972aa921a0f002a6d26c58f21ff
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: cb9968d3bcc30fe8e0f0023bcf7101cde5e4a196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453902"
 ---
 # <a name="create-an-azure-iot-central-application"></a>建立 Azure IoT Central 應用程式
 
@@ -36,13 +36,11 @@ ms.locfileid: "74280609"
 
 1. Azure IoT Central 會根據您所選取的應用程式範本自動建議應用程式名稱。 您可以接受此名稱，或自行輸入易記的應用程式名稱，例如 **Contoso IoT**。 Azure IoT Central 也會根據應用程式名稱，為您產生唯一的 URL。 您可以依個人需求，將其變更為更好記的 URL 前置詞。
 
-1. 選取不使用預覽功能的應用程式範本。 應用程式範本可包含預先定義的項目 (例如裝置範本和儀表板)，協助您開始使用。
+1. 選取不會使用預覽功能的**繼承應用程式**範本。
 
-    | 應用程式範本 | 說明 |
+    | 應用程式範本 | 描述 |
     | -------------------- | ----------- |
-    | Contoso 範例       | 建立一個應用程式，其中包含已為冷飲自動販賣機建立的裝置範本。 使用此範本來開始探索 Azure IoT 中心。 |
-    | Devkits 範例       | 使用您可使用的裝置範本來建立應用程式，以連線 MXChip 或 Raspberry Pi 裝置。 如果您是以其中任一裝置進行試驗的裝置開發人員，請使用此範本。 |
-    | 自訂應用程式   | 為您建立空的應用程式，以填入您自己的裝置範本和裝置。 |
+    | 繼承應用程式   | 為您建立空的應用程式，以填入您自己的裝置範本和裝置。 |
 
 1. 選擇付款方案：
    - **7 天免費試用版**應用程式可以免費試用七天。 此類應用程式可在到期前隨時轉換成**隨用隨付**。 如果您建立**試用版**應用程式，則必須輸入連絡資訊，並選擇是否要收到來自 Microsoft 的資訊和提示。

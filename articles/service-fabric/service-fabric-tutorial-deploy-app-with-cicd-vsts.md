@@ -1,26 +1,15 @@
 ---
-title: 在 Azure 中使用持續整合和 Azure Pipelines 來部署 Service Fabric 應用程式 | Microsoft Docs
+title: 使用 CI 和 Azure Pipelines 部署應用程式
 description: 在本教學課程中，您會了解如何使用 Azure Pipelines 來設定 Service Fabric 應用程式的持續整合和部署。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 13411e813e96a1548b912c024f75404dd856fee1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 11485d22abcf0b8e1eb13d8123ff21c7fe0079f8
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838960"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614135"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>教學課程：將搭配 CI/CD 的應用程式部署到 Service Fabric 叢集
 
@@ -42,7 +31,7 @@ ms.locfileid: "73838960"
 > * 使用 Azure Pipelines 設定 CI/CD
 > * [設定應用程式的監視和診斷](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始進行本教學課程之前：
 

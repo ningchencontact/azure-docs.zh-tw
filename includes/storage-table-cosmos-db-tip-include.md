@@ -4,13 +4,13 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: a8f5fbaf7dbc566490e30fd99dcb078e671a6056
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3f04c763f807acbf038e2bfa3ccbd3a2a5ef91b5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173725"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351168"
 ---
 > [!TIP]
-> 本文中的內容適用於原始的 Azure 資料表儲存體。 不過，目前有資料表儲存體的進階供應項目，Azure Cosmos DB 資料表 API 可提供輸送量最佳化的資料表、全域發佈，以及自動次要索引。 [Azure Cosmos DB 資料表 API 與 Azure 資料表儲存體之間有一些功能上的差異](../articles/cosmos-db/faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)，若要深入了解及試用進階體驗，請參閱 [Azure Cosmos DB 資料表 API](https://aka.ms/premiumtables)。 
+> 本文中的內容適用於原始的 Azure 資料表儲存體。 不過，現在有一個適用於資料表儲存體的進階供應項目：Azure Cosmos DB 資料表 API。 此 API 會提供輸送量最佳化的資料表、全域散發，以及自動次要索引。 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的功能有一些差異](../articles/cosmos-db/faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。 若要深入了解並試用進階體驗，請參閱 [Azure Cosmos DB 資料表 API](https://aka.ms/premiumtables)。 
 >

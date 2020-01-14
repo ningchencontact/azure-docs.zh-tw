@@ -6,17 +6,17 @@ ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: afc026ccb602538b0749fa294cee763efa3d27d0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/31/2019
+ms.openlocfilehash: f498c2cd6906d1966ab5dfd1f7547686163fe2ce
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73483225"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611912"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>快速入門：設定適用於 Windows 的資料科學虛擬機器
 
-啟動並執行 Windows 資料科學虛擬機器。
+啟動並執行 Windows Server 2019 資料科學虛擬機器。
 
 ## <a name="prerequisite"></a>必要條件
 
@@ -28,16 +28,11 @@ ms.locfileid: "73483225"
 若要建立 DSVM 執行個體：
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。如果您尚未登入 Azure 帳戶，系統可能會提示您登入。
-1. 在 [資料科學虛擬機器] 中輸入並選取 [資料科學虛擬機器 - Windows 2016]，以尋找虛擬機器清單。
-
-    ![Windows VM 清單](./media/provision-vm/search-windows.png)
+1. 輸入「資料科學虛擬機器」並選取 [資料科學虛擬機器 - Win 2019 (預覽)]，以尋找虛擬機器清單。
 
 1. 選取底部的 [建立]  按鈕。
 
-    [![](media/provision-vm/create-windows.png "Button to create a Windows machine")](media/provision-vm/create-windows-expanded.png#lightbox)
-
 1. 您應會重新導向至 [建立虛擬機器] 刀鋒視窗。
-   ![對應至 Windows 虛擬機器的 [基本] 索引標籤](./media/provision-vm/review-create-windows.png)
 
 1. 填寫 [基本]  索引標籤：
       * 訂用帳戶  ：如果您有多個訂用帳戶，請選取要在其中建立機器及計費的訂用帳戶。 您必須有此訂用帳戶的資源建立權限。
@@ -45,7 +40,7 @@ ms.locfileid: "73483225"
       * **虛擬機器名稱**：輸入虛擬機器的名稱。 這就是它在 Azure 入口網站中的顯示方式。
       * **位置**：選取最適合的資料中心。 如需最快速的網路存取，請選取擁有您大部分資料或是最接近您實際位置的資訊中心。 深入了解 [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)。
       * **映像**：保留預設值。
-      * **大小**：這應會自動填入適合一般工作負載的大小。 深入了解 [Azure 中的 Windows VM 大小](../../virtual-machines/windows/sizes.md)。
+      * **Size**：這應會自動填入適合一般工作負載的大小。 深入了解 [Azure 中的 Windows VM 大小](../../virtual-machines/windows/sizes.md)。
       * **使用者名稱**：輸入系統管理員的使用者名稱。 這是您將用來登入虛擬機器的使用者名稱，不需要與您的 Azure 使用者名稱相同。
       * **密碼**：輸入您將用來登入虛擬機器的密碼。    
 1. 選取 [檢閱 + 建立]  。
@@ -72,9 +67,7 @@ ms.locfileid: "73483225"
 ## <a name="next-steps"></a>後續步驟
 
 * 開啟 [開始]  功能表，探索 DSVM 上的工具。
-* 閱讀[什麼是 Azure Machine Learning？](../service/overview-what-is-azure-ml.md)並試用[教學課程](../index.yml)，以了解 Azure Machine Learning。
-* 在檔案總管中，瀏覽至 C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts，以取得在 R 中使用 RevoScaleR 程式庫的範例，其支援企業規模的資料分析。 
+* 閱讀[什麼是 Azure Machine Learning？](../overview-what-is-azure-ml.md)並試用[教學課程](../index.yml)，以了解 Azure Machine Learning。
 * 閱讀文章：[您可以在資料科學虛擬機器上做的十件事](https://aka.ms/dsvmtenthings)。
-* 了解如何使用 [Team Data Science Process](../team-data-science-process/index.yml)，以系統化方式建置端對端分析方案。
 * 瀏覽 [Azure AI 資源庫](https://gallery.cortanaintelligence.com)，可取得在 Azure 上使用 Azure Machine Learning 和相關資料服務的機器學習和資料分析範例。 我們也已在虛擬機器的 [開始]  功能表和桌面上提供此資源庫的圖示。
 

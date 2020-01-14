@@ -1,6 +1,6 @@
 ---
-title: 開始使用 iOS 與 macOS - Microsoft 身分識別平台 | Azure
-description: iOS 和 macOS (Swift) 應用程式如何使用 Microsoft身分識別平台呼叫需要存取權杖的 API
+title: MSAL for iOS 和 macOS 教學課程 - Microsoft 身分識別平台 | Azure
+description: 了解 iOS 和 macOS (Swift) 應用程式如何使用 Microsoft 身分識別平台呼叫需要存取權杖的 API
 services: active-directory
 documentationcenter: dev-center-name
 author: tylermsft
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f161d94d622ae76932e88be52df6f068bfc945
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a0aa97f2cb54295d9403ec332eb9c0ada684df12
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964663"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423410"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>從 iOS 或 macOS 應用程式登入使用者並呼叫 Microsoft Graph
 
@@ -45,7 +45,7 @@ ms.locfileid: "74964663"
 
 本教學課程適用於 iOS 和 macOS 應用程式。 請注意，這兩個平台間有一些的不同步驟。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 您需要 XCode 10.x 版或更高版本，才能在本指南中建置應用程式。 您可以從 [iTunes 網站](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode 下載 URL") 下載 XCode。
 - Microsoft 驗證程式庫 ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc))。 您可以使用相依性管理員或以手動方式新增程式庫。 以下指示會示範作法。
@@ -500,7 +500,7 @@ func acquireTokenInteractively() {
 
 | 標頭索引鍵    | value                 |
 | ------------- | --------------------- |
-| Authorization | 持有人 \<access-token> |
+| 授權 | 持有人 \<access-token> |
 
 將下列程式碼新增至 `ViewController` 類別：
 

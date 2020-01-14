@@ -3,18 +3,18 @@ title: 什麼是 Azure IoT 中心 | Microsoft Docs
 description: Azure IoT Central 是一個 IoT 應用程式平台，能簡化 IoT 解決方案的建立，有助於降低 IoT 管理、作業與開發的負擔及費用。 本文提供 Azure IoT 中心的功能概觀。
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/12/2019
+ms.date: 12/10/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8cfcbddfc8d50855860af655847f997fb2a01711
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 52504fb8333b286407b3f2df8f962da59b80ac53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479710"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434840"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>什麼是 IoT Central (預覽功能)？
 
@@ -41,15 +41,11 @@ Web UI 可讓您監視裝置狀況、建立規則，以及在數百萬個裝置�
 > [!Note]
 > 這些已知問題只會出現在 IoT Central 預覽版應用程式中。
 
-- 規則不支援所有動作 (僅限電子郵件)。
-- 針對複雜類型 - 規則、分析和裝置群組不受支援。
 - 連續資料匯出不支援 Avro 格式 (不相容)。
-- 模擬裝置不支援所有複雜類型。
 - 目前不支援 GeoJSON。
 - 目前不支援地圖底圖。
 - 作業不支援複雜類型。
 - 不支援陣列結構描述類型。
-- 不支援應用程式範本匯出和應用程式複製。
 - 僅支援 C 裝置 SDK 和 Node.js 裝置與服務 SDK。
 - 僅適用於美國與歐洲。
 - 裝置功能模型必須具有在相同檔案中以內嵌方式定義的所有介面。
@@ -149,7 +145,7 @@ IoT Central 應用程式完全由 Microsoft 裝載，可降低管理您的應用
 
 既然您已大致了解 IoT Central，以下是建議的後續步驟：
 
-- 了解 [IoT Central 和 Azure IoT 解決方案加速器](../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)之間的差異。
+- 了解可用於[建立 IoT 解決方案的 Azure 技術和服務](../../iot-fundamentals/iot-services-and-technologies.md)。
 - 熟悉 [Azure IoT 中心 UI](overview-iot-central-tour.md)。
 - 從[建立 Azure IoT 中心應用程式](quick-deploy-iot-central.md)著手。
 - 深入了解 [IoT 隨插即用](../../iot-pnp/overview-iot-plug-and-play.md)

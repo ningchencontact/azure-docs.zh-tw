@@ -1,25 +1,25 @@
 ---
-title: 了解如何搭配使用 Azure Cache for Redis 與 .NET Core 應用程式的快速入門
+title: 快速入門：使用 Azure Cache for Redis 搭配 .NET Core 應用程式
 description: 在本快速入門中，了解如何在 .NET Core 應用程式中存取 Azure Cache for Redis
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.devlang: dotnet
+ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/18/2018
-ms.author: yegu
-ms.custom: mvc
-ms.openlocfilehash: ce50ecac9a7b676386ce893a19391a63ffeed108
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d723ffc4e94dcdcb63d74d65c55288015931adad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122445"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413046"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>快速入門：搭配使用 Azure Cache for Redis 與 .NET Core 應用程式
 
 在本快速入門中，您會將 Azure Cache for Redis 納入 .NET Core 應用程式中，以便存取可從 Azure 內的任何應用程式存取的安全專用快取。 您會在 .NET Core 主控台應用程式中明確地搭配使用 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 用戶端與 C# 程式碼。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)

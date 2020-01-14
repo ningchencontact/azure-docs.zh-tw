@@ -1,5 +1,5 @@
 ---
-title: 透過 .NET Standard SDK 開始使用 Azure Cosmos DB 資料表 API
+title: 使用 .NET Standard SDK 的 Azure Cosmos DB 資料表 API
 description: 了解如何在 Azure Cosmos DB 資料表 API 帳戶中儲存及查詢結構化資料
 author: wmengmsft
 ms.author: wmeng
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
-ms.openlocfilehash: 0a1ba00d2d24664590f76438a90f651e0826d419
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7341d86e68986a2e502f714a4dcf1f882200d384
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870542"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441072"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>透過 .NET SDK 開始使用 Azure Cosmos DB 資料表 API 和 Azure 資料表儲存體
 
@@ -25,7 +25,7 @@ ms.locfileid: "74870542"
 
 本教學課程所述的範例將說明如何將[適用於 .NET 的 Microsoft Azure Cosmos DB 資料表程式庫](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)用於 Azure Cosmos DB 資料表 API 和 Azure 資料表儲存體案例。 您必須使用 Azure 服務特定的連線。 這些案例均會使用 C# 範例來探索，說明如何建立資料表、插入/更新資料、查詢資料，以及刪除資料表。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 您需要下列項目才能成功完成此範例︰
 
@@ -43,7 +43,7 @@ ms.locfileid: "74870542"
 
 在 Visual Studio 中，建立新的 .NET 主控台應用程式。 下列步驟說明如何在 Visual Studio 2019 中建立主控台應用程式。 您可以在任何類型的 .NET 應用程式 (包括 Azure 雲端服務或 Web 應用程式，以及桌面與行動應用程式) 中使用 Azure CosmosDB 資料表程式庫。 在本指南中，為求簡化，我們會使用主控台應用程式。
 
-1. 選取 [檔案]   > [新增]   > [專案]  。
+1. 選取 [File] \(檔案\)   >  [New] \(新增\)   >  [Project] \(專案\)  。
 
 1. 選擇 [主控台應用程式 (.NET Core)]  ，然後選取 [下一步]  。
 

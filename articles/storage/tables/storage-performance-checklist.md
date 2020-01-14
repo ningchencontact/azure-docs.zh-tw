@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: b36ed2cac7e5009a0581091252b36dcd5af81bd7
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 588f9595dbe04b98cb8d70a33beb5740d812bd7c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389980"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457626"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>表格儲存體的效能和延展性檢查清單
 
@@ -29,6 +29,7 @@ Azure 儲存體具有容量、交易速率和頻寬的延展性和效能目標�
 | --- | --- | --- |
 | &nbsp; |延展性目標 |[您是否可以將應用程式設計成使用的儲存體帳戶數目不超過上限？](#maximum-number-of-storage-accounts) |
 | &nbsp; |延展性目標 |[您是否要避免接近容量和交易限制？](#capacity-and-transaction-targets) |
+| &nbsp; |延展性目標 |[您的每秒實體數是否逐漸達到延展性目標？](#targets-for-data-operations) |
 | &nbsp; |網路功能 |[用戶端裝置是否有足夠高的頻寬和足夠低的延遲，以達到所需的效能？](#throughput) |
 | &nbsp; |網路功能 |[用戶端裝置是否有高品質網路連結？](#link-quality) |
 | &nbsp; |網路功能 |[用戶端應用程式是否位於與儲存體帳戶相同的區域中？](#location) |
@@ -41,7 +42,6 @@ Azure 儲存體具有容量、交易速率和頻寬的延展性和效能目標�
 | &nbsp; |工具 |[您是否使用 Microsoft 所提供的最新用戶端程式庫和工具版本？](#client-libraries-and-tools) |
 | &nbsp; |重試 |[您是否針對節流錯誤和逾時使用重試原則搭配指數輪詢？](#timeout-and-server-busy-errors) |
 | &nbsp; |重試 |[您的應用程式是否避免重試不能再嘗試的錯誤？](#non-retryable-errors) |
-| &nbsp; |延展性目標 |[您的每秒實體數是否逐漸達到延展性目標？](#table-specific-scalability-targets) |
 | &nbsp; |組態 |[您是否使用 JSON 來處理資料表要求？](#use-json) |
 | &nbsp; |組態 |[您是否已關閉 Nagle 演算法以提高小型要求的效能？](#disable-nagle) |
 | &nbsp; |資料表和資料分割 |[您是否已正確分割您的資料？](#schema) |
@@ -61,7 +61,7 @@ Azure 儲存體具有容量、交易速率和頻寬的延展性和效能目標�
 
 如果您的應用程式達到或超過任何延展性目標，它可能會遇到增加的交易延遲或節流。 當 Azure 儲存體對您的應用程式進行節流時，該服務會開始傳回 503 (伺服器忙碌) 或 500 (作業逾時) 錯誤碼。 保持在延展性目標的限制範圍內以避免這些錯誤，對於提升應用程式效能很重要。
 
-如需深入了解表格服務的延展性目標，請參閱[適用於儲存體帳戶的 Azure 儲存體延展性和效能目標](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2ftables%2ftoc.json#azure-table-storage-scale-targets)。
+如需深入了解表格服務的延展性目標，請參閱[適用於表格儲存體的延展性和效能目標](scalability-targets.md)。
 
 ### <a name="maximum-number-of-storage-accounts"></a>儲存體帳戶的數目上限
 
@@ -77,9 +77,17 @@ Azure 儲存體具有容量、交易速率和頻寬的延展性和效能目標�
     雖然壓縮資料可節省頻寬並改善網路效能，但也可能對效能造成負面影響。 針對用戶端上資料壓縮和解壓縮，評估額外處理需求所造成的效能影響。 請記住，儲存壓縮的資料可能會使疑難排解變得更困難，因為使用標準工具來檢視資料可能更具挑戰性。
 - 如果您的應用程式很接近延展性目標，則務必使用指數輪詢進行重試。 最好是藉由實作本文所述的建議，嘗試避免達到延展性目標。 不過，使用指數輪詢進行重試會讓您的應用程式無法快速重試，這可能會使節流變差。 如需詳細資訊，請參閱[逾時和伺服器忙碌錯誤](#timeout-and-server-busy-errors)一節。
 
-## <a name="table-specific-scalability-targets"></a>資料表特定的延展性目標
+### <a name="targets-for-data-operations"></a>資料作業的目標
 
-除了整個儲存體帳戶的頻寬限制外，資料表還有下列特定的延展性限制。 系統會在您的流量增加時進行負載平衡，但是如果您的流量突然暴增，可能無法立即獲得此輸送量。 如果您的模式暴增，當儲存體服務自動負載平衡資料表時，您應預期會在暴增期間看到節流和/或逾時。 緩慢增加通常會有較好的結果，因為它讓系統有時間適當地負載平衡。
+當進入儲存體帳戶的流量增加時，Azure 儲存體會進行負載平衡，但如果流量突然激增的話，您可能無法立即取得這麼大量的輸送量。 您要有心裡準備，知道會在高載期間看到節流和 (或) 逾時的情形，原因是 Azure 儲存體會自動為資料表進行負載平衡。 緩慢增加通常會提供較好的結果，原因是系統會有時間適當地進行負載平衡。
+
+#### <a name="entities-per-second-storage-account"></a>每秒的實體數 (儲存體帳戶)
+
+存取資料表的延展性限制為一個帳戶每秒最高 20,000 個實體 (每個 1 KB)。 一般來說，已插入、更新、刪除或掃描的每個實體都會算在這個目標內。 因此包含 100 個實體的批次插入會算為 100 個實體。 掃描 1,000 個實體並傳回 5 的查詢會算為 1,000 個實體。
+
+#### <a name="entities-per-second-partition"></a>每秒的實體數 (資料分割)
+
+在單一資料分割內，存取資料表的延展性目標為每秒 2,000 個實體 (每個 1 KB)，使用上一節所述的相同計算方法。
 
 ## <a name="networking"></a>網路功能
 
@@ -97,7 +105,7 @@ Azure 儲存體具有容量、交易速率和頻寬的延展性和效能目標�
 
 與任何網路使用方式一樣，請記住導致錯誤和封包遺失的網路狀況將會減慢有效的輸送量。  使用 WireShark 或 NetMon 可能有助於診斷此問題。  
 
-### <a name="location"></a>位置
+### <a name="location"></a>Location
 
 在任何分散式環境中，將用戶端放置於伺服器附近可提供最佳的效能。 若要以最低的延遲時間存取 Azure 儲存體，對用戶端而言的最佳位置是在同一個 Azure 區域內。 例如，如果您擁有使用 Azure 儲存體的 Azure Web 應用程式，則將這兩者置於單一區域內 (例如，美國西部或東南亞)。 共置資源可降低延遲和成本，因為單一區域內的頻寬使用量是免費的。  
 

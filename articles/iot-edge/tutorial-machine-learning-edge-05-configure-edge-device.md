@@ -8,17 +8,17 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5be7b66a51113121ed755d8ad9cea3518577f2e7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 16920a46e64306daa331957df24babba8ac4b731
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706961"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612865"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>教學課程：設定 IoT Edge 裝置
 
 > [!NOTE]
-> 此文章是關於在 IoT Edge 上使用 Azure Machine Learning 的系列文章之一。 如果您是被直接引導至此文章，我們建議您先從此系列的[第一篇文章](tutorial-machine-learning-edge-01-intro.md)開始，以取得最佳成效。
+> 此文章是關於在 IoT Edge 上使用 Azure Machine Learning 的系列文章之一。 如果您是被直接引導至此文章，我們建議您先從本系列的[第一篇文章](tutorial-machine-learning-edge-01-intro.md)開始，以取得最佳成效。
 
 在此文章中，我們將執行 Linux 的 Azure 虛擬機器設定為作為透明閘道的 Azure IoT Edge 裝置。 透明閘道設定可讓裝置在不知道閘道存在的情況下，透過閘道連線到 Azure IoT 中樞。 同時，與 IoT 中樞中的裝置互動的使用者，不會察覺中繼閘道裝置。 最後，我們會使用透明閘道，藉由向閘道新增 IoT Edge 模組來為我們的系統新增邊緣分析。
 
@@ -28,7 +28,7 @@ ms.locfileid: "74706961"
 
 針對要當作閘道運作的裝置，它必須能夠安全地連線到下游裝置。 Azure IoT Edge 可讓您使用公開金鑰基礎結構 (PKI)，設定這些裝置之間的安全連線。 在此案例中，我們將允許下游裝置連線至作為透明閘道的 IoT Edge 裝置。 為了維持合理的安全性，下游裝置應該確認 IoT Edge 裝置的身分識別。 如需 IoT Edge 裝置如何使用憑證的詳細資訊，請參閱 [Azure IoT Edge 憑證使用方式詳細資料](iot-edge-certs.md)。
 
-在此節中，我們會使用 Docker 映像建立自我簽署憑證，然後建置並執行它們。 我們選擇使用 Docker 映像來完成此步驟，因為它能大幅降低在 Windows 開發電腦上建立憑證所需的步驟數目。 如需有關如何在不使用容器的情況下產生憑證的詳細資訊，請參閱[使用 Windows 產生憑證](how-to-create-transparent-gateway.md#generate-certificates-with-windows)。 [使用 Linux 產生憑證](how-to-create-transparent-gateway.md#generate-certificates-with-linux)具有一組我們使用 Docker 映像自動執行的指令。
+在此節中，我們會使用 Docker 映像建立自我簽署憑證，然後建置並執行它們。 我們選擇使用 Docker 映像來完成此步驟，因為它能大幅降低在 Windows 開發電腦上建立憑證所需的步驟數目。 請參閱[建立示範憑證以測試 IoT Edge 裝置功能](how-to-create-test-certificates.md)，以了解我們使用 Docker 映像自動化的項目。
 
 1. 登入您的開發虛擬機器。
 

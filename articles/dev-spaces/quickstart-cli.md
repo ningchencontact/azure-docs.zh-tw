@@ -3,15 +3,15 @@ title: 在 Kubernetes 上開發應用程式
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: 使用 Azure Dev Spaces 在 AKS 上部署微服務
+description: 本快速入門說明如何使用 Azure Dev Spaces 和命令列，在 Azure Kubernetes Service 上開發應用程式
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 932b25e277936a2efe6a3e037458fabd67b024c2
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: b4902930b04e880bbbdfbe7418d5e0ec86f89470
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325649"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438265"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>快速入門：在 Kubernetes 上開發應用程式 - Azure Dev Spaces
 在本指南中，您將了解如何：
@@ -19,7 +19,7 @@ ms.locfileid: "74325649"
 - 使用 Azure 中受管理的 Kubernetes 叢集，設定 Azure Dev Spaces。
 - 使用命令列在容器中開發和執行程式碼。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
 - [已安裝 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。
@@ -116,7 +116,7 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 
 ## <a name="update-code"></a>更新程式碼
 
-若要部署更新過的服務版本，您可以在專案中更新任何檔案，然後重新執行 `azds up` 命令。 例如︰
+若要部署更新過的服務版本，您可以在專案中更新任何檔案，然後重新執行 `azds up` 命令。 例如：
 
 1. 如果 `azds up` 仍在執行，請按 Ctrl+c  。
 1. 將 [`server.js` 中的第 13 行](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) \(英文\) 更新為：

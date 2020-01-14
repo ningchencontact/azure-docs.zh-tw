@@ -1,5 +1,5 @@
 ---
-title: Azure 快速入門 - 在 Windows VM 上建立和使用 Azure 檔案共用並 | Microsoft Docs
+title: 在 Windows VM 上建立及使用 Azure 檔案共用
 description: 在本快速入門中，您會在 Azure 入口網站中設定 Azure 檔案共用，並將其連線至 Windows 虛擬機器。 您會連線至檔案共用，並將檔案上傳至檔案共用。 然後，您會建立檔案共用的快照集、修改檔案共用中的檔案，並還原檔案共用先前的快照集。
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 22c2f3b91b650bcdbf8eb7368023e068a397323f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305818"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463903"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>快速入門：使用 Windows 虛擬機器建立和管理 Azure 檔案共用
 

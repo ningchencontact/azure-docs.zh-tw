@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 指令碼範例 - 將應用程式部署到叢集 | Microsoft Docs
+title: 在 PowerShell 中將應用程式部署至叢集
 description: Azure PowerShell 指令碼範例 - 將應用程式部署到 Service Fabric 叢集。
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: d03eec5101f932caff43bf876a41219e3f1fa75d
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 207f2a4e8173aa1e5009435665532973045d9198
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035550"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610296"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>將應用程式部署到 Service Fabric 叢集
 
@@ -39,7 +39,7 @@ ms.locfileid: "69035550"
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 |[Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)| 建立連接 Service Fabric 叢集的連線。 |
 |[Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | 將應用程式封裝複製到叢集映像存放區。  |

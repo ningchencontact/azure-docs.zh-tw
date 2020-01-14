@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 指令碼範例 - 從叢集移除應用程式 | Microsoft Docs
+title: 使用 PowerShell 從叢集中移除應用程式
 description: Azure PowerShell 指令碼範例 - 從 Service Fabric 叢集移除應用程式。
 services: service-fabric
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: f572996b4e460480335dbe32c4599bde206251d4
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 9ac4c23468c74b5a2c6874de2cb6b8d0e6b9e7dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035514"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610279"
 ---
-# <a name="remove-an-application-from-a-service-fabric-cluster"></a>從 Service Fabric 叢集移除應用程式
+# <a name="remove-an-application-from-a-service-fabric-cluster-using-powershell"></a>使用 PowerShell 從 Service Fabric 叢集中移除應用程式
 
 這個範例指令碼會刪除一個執行中的 Service Fabric 應用程式執行個體，並將叢集中的一個應用程式類型和版本取消註冊。  刪除應用程式執行個體也會刪除應用程式相關聯的所有執行中服務執行個體。 視需要自訂參數。 
 
@@ -35,7 +35,7 @@ ms.locfileid: "69035514"
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) | 從叢集移除執行中的 Service Fabric 應用程式執行個體。  |
 | [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) | 從叢集取消註冊 Service Fabric 應用程式類型和版本。 |

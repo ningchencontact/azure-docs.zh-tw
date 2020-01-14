@@ -1,19 +1,19 @@
 ---
-title: Azure CLI 指令碼範例 - 建立具有叢集的進階 Azure Cache for Redis
-description: Azure CLI 指令碼範例 - 建立具有叢集的 Premium 層 Azure Cache for Redis
+title: 建立具有叢集的進階 Azure Cache for Redis - Azure CLI
+description: 此 Azure CLI 程式碼範例示範如何建立啟用叢集且具有兩分區的 6 GB 進階層 Azure Cache for Redis。
 author: yegu-ms
+ms.author: yegu
 tags: azure-service-management
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
-ms.author: yegu
-ms.openlocfilehash: 1813bf7112969436012627147b94f656537029d5
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 68203fe2e054f32ce5764fe4f1b07013b0806104
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122499"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411154"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>建立具有叢集的進階 Azure Cache for Redis
 
@@ -31,7 +31,7 @@ ms.locfileid: "74122499"
 
 此指令碼使用下列命令來建立資源群組和啟用叢集的進階層 Azure Cache for Redis。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | 建立用來存放所有資源的資源群組。 |
 | [az redis create](https://docs.microsoft.com/cli/azure/redis) | 建立 Azure Cache for Redis 執行個體。 |

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fea3bca40d8a5783448e68ea89c3b238a0104d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 758b14a53927e00a5546147f8d67e556b45acc3c
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074025"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689765"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Amazon Web Services (AWS) 整合
 
@@ -35,7 +35,7 @@ ms.locfileid: "74074025"
 
 ![Azure AD 和 AWS 關聯性的圖表](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
-您可以為多個執行個體設定多個識別碼。 例如︰
+您可以為多個執行個體設定多個識別碼。 例如：
 
 * `https://signin.aws.amazon.com/saml#1`
 
@@ -54,7 +54,7 @@ ms.locfileid: "74074025"
 > [!Note]
 > 請確定您只使用資源庫應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要開始，您需要下列項目：
 
@@ -74,10 +74,10 @@ ms.locfileid: "74074025"
 
 若要設定 Amazon Web Services (AWS) 與 Azure AD 整合，您需要從資源庫將 Amazon Web Services (AWS) 新增到受控 SaaS App 清單。
 
-1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
-1. 在左方瀏覽窗格上，選取 [Azure Active Directory]  服務。
-1. 巡覽至 [企業應用程式]  ，然後選取 [所有應用程式]  。
-1. 若要新增應用程式，請選取 [新增應用程式]  。
+1. 使用公司帳戶、學校帳戶或個人 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
+1. 在 Azure 入口網站中，搜尋並選取 [Azure Active Directory]  。
+1. 在 Azure Active Directory 概觀功能表中，選擇 [企業應用程式]   > [所有應用程式]  。
+1. 選取 [新增應用程式]  以新增應用程式。
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **Amazon Web Services (AWS)** 。
 1. 從結果面板選取 [Amazon Web Services (AWS)]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
@@ -123,7 +123,8 @@ ms.locfileid: "74074025"
 
 在本節中，您將在 Azure 入口網站中建立名為 B.Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
+1. 在 Azure 入口網站中，搜尋並選取 [Azure Active Directory]  。
+1. 在 Azure Active Directory 概觀功能表中，選擇 [使用者]   > [所有使用者]  。
 1. 在畫面頂端選取 [新增使用者]  。
 1. 在 [使用者]  屬性中，執行下列步驟：
    1. 在 [名稱]  欄位中，輸入 `B.Simon`。  
@@ -135,7 +136,8 @@ ms.locfileid: "74074025"
 
 在本節中，您會將 Amazon Web Services (AWS) 的存取權授與 B.Simon，讓其能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，選取 [企業應用程式]  ，然後選取 [所有應用程式]  。
+1. 在 Azure 入口網站中，搜尋並選取 [Azure Active Directory]  。
+1. 在 Azure Active Directory 概觀功能表中，選擇 [企業應用程式]   > [所有應用程式]  。
 1. 在應用程式清單中，選取 [Amazon Web Services (AWS)]  。
 1. 在應用程式的概觀頁面中尋找 [管理]  區段，然後選取 [使用者和群組]  。
 

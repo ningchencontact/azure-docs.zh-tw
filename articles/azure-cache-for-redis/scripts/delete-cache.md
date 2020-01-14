@@ -1,19 +1,19 @@
 ---
-title: Azure CLI 指令碼範例 - 刪除 Azure Cache for Redis
-description: Azure CLI 指令碼範例 - 刪除 Azure Cache for Redis
+title: 刪除 Azure Cache for Redis - Azure CLI
+description: 此 Azure CLI 程式碼範例示範如何使用 az redis delete 命令來刪除 Azure Cache for Redis 執行個體。
 author: yegu-ms
+ms.author: yegu
 tags: azure-service-management
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
-ms.author: yegu
-ms.openlocfilehash: a2884fd326b6091680b8d81a905f3ee3320a2740
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: e5178ab4069cc5ffa8607c5feea6ffac86284a5b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121214"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411086"
 ---
 # <a name="delete-an-azure-cache-for-redis"></a>刪除 Azure Cache for Redis
 
@@ -31,7 +31,7 @@ ms.locfileid: "74121214"
 
 此指令碼會使用下列命令，刪除 Azure Cache for Redis 執行個體。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az redis 刪除](https://docs.microsoft.com/cli/azure/redis) | 刪除 Azure Cache for Redis 執行個體。 |
 

@@ -3,14 +3,14 @@ title: 持久性實體 - Azure Functions
 description: 了解什麼是持久性實體，以及如何在 Azure Functions 的 Durable Functions 擴充功能中使用這些實體。
 author: cgillum
 ms.topic: overview
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: aa4d1c4bfab349659c42a34ca5a73f676a2ea2b8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8aaa19a9d5bd5d7b2764320d5d91c8a6c010b3c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232917"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433311"
 ---
 # <a name="entity-functions"></a>實體函式
 
@@ -41,6 +41,7 @@ ms.locfileid: "74232917"
 * 目標實體的**實體識別碼**。
 * **作業名稱**，這是指定要執行之作業的字串。 例如，`Counter` 實體可支援 `add`、`get` 或 `reset` 作業。
 * **作業輸入**，這是作業的選擇性輸入參數。 例如，新增作業可接受整數數量作為輸入。
+* **排定的時間*，這是指定作業傳遞時間的選擇性參數。 例如，可以將作業可靠地排定在未來幾天執行。
 
 作業可以傳回結果值或錯誤結果，例如 JavaScript 錯誤或 .NET 例外狀況。 呼叫作業的協調流程可以觀察到此結果或錯誤。
 
@@ -165,7 +166,7 @@ module.exports = df.entity(function(context) {
 
 ### <a name="example-client-signals-an-entity"></a>範例：用戶端傳送訊號給實體
 
-若要從一般 Azure 函式 (也稱為用戶端函式) 存取實體，請使用[實體用戶端輸出繫結](durable-functions-bindings.md#entity-client)。 下列範例會說明由佇列觸發的函式，該函式會使用此繫結對實體傳送訊號。
+若要從一般 Azure 函式 (也稱為用戶端函式) 存取實體，請使用[實體用戶端繫結](durable-functions-bindings.md#entity-client)。 下列範例會說明由佇列觸發的函式，該函式會使用此繫結對實體傳送訊號。
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -186,7 +187,7 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    await context.df.signalEntity(entityId, "add", 1);
+    await client.signalEntity(entityId, "add", 1);
 };
 ```
 
@@ -203,8 +204,8 @@ public static async Task<HttpResponseMessage> Run(
     [DurableClient] IDurableEntityClient client)
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
-    JObject state = await client.ReadEntityStateAsync<JObject>(entityId);
-    return req.CreateResponse(HttpStatusCode.OK, state);
+    EntityStateResponse<JObject> stateResponse = await client.ReadEntityStateAsync<JObject>(entityId);
+    return req.CreateResponse(HttpStatusCode.OK, stateResponse.EntityState);
 }
 ```
 
@@ -214,7 +215,8 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    return context.df.readEntityState(entityId);
+    const stateResponse = await context.df.readEntityState(entityId);
+    return stateResponse.entityState;
 };
 ```
 
@@ -249,12 +251,11 @@ module.exports = df.orchestrator(function*(context){
 
     // Two-way call to the entity which returns a value - awaits the response
     currentValue = yield context.df.callEntity(entityId, "get");
-    if (currentValue < 10) {
-        // One-way signal to the entity which updates the value - does not await a response
-        yield context.df.signalEntity(entityId, "add", 1);
-    }
 });
 ```
+
+> [!NOTE]
+> JavaScript 目前不支援從協調器對實體發出訊號。 請改用 `callEntity`。
 
 只有協調流程能夠呼叫實體並取得回應，而此回應可能是傳回值或例外狀況。 使用[用戶端繫結](durable-functions-bindings.md#entity-client)的用戶端函式只能對實體傳送訊號。
 
@@ -375,7 +376,7 @@ public static async Task<bool> TransferFundsAsync(
 
 ## <a name="comparison-with-virtual-actors"></a>與虛擬執行者的比較
 
-許多持久性實體的功能都受到[執行者模型](https://en.wikipedia.org/wiki/Actor_model)的啟發。 如果您已熟悉執行者，或許就能理解本文所述的許多概念。 持久性實體特別類似於 [Orleans 專案](http://dotnet.github.io/orleans/)所推廣的[虛擬執行者](https://research.microsoft.com/projects/orleans/)或「粒紋」。 例如︰
+許多持久性實體的功能都受到[執行者模型](https://en.wikipedia.org/wiki/Actor_model)的啟發。 如果您已熟悉執行者，或許就能理解本文所述的許多概念。 持久性實體特別類似於 [Orleans 專案](http://dotnet.github.io/orleans/)所推廣的[虛擬執行者](https://research.microsoft.com/projects/orleans/)或「粒紋」。 例如：
 
 * 持久性實體可透過實體識別碼來定址。
 * 持久性實體的作業會以序列方式一次執行一個，以免產生競爭條件。

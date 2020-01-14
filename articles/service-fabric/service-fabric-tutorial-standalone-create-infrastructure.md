@@ -1,26 +1,17 @@
 ---
-title: 教學課程：在 AWS 上建立 Service Fabric 叢集的基礎結構 - Azure Service Fabric |Microsoft Docs
+title: 在 AWS 上建立叢集的基礎結構
 description: 在本教學課程中，您將了解如何設定用來執行 Service Fabric 叢集的 AWS 基礎結構。
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 69508628356a5f33073311e4d062d66875509192
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "73177836"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613970"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>教學課程：建立用來裝載 Service Fabric 叢集的 AWS 基礎結構
 
@@ -36,7 +27,7 @@ Service Fabric 獨立叢集讓您能夠選擇自己的環境，並且在 Service
 > * 登入其中一個執行個體
 > * 準備 Service Fabric 的執行個體
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成此教學課程，您需要 AWS 帳戶。  如果您還沒有帳戶，請移至 [AWS 主控台](https://aws.amazon.com/)建立一個。
 

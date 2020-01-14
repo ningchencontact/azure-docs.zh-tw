@@ -1,6 +1,6 @@
 ---
-title: 快速入門：適用於 Node.js 的電腦視覺用戶端程式庫 | Microsoft Docs
-description: 開始使用適用於 Node.js 的電腦視覺用戶端程式庫...
+title: 快速入門：適用於 Node.js 的電腦視覺用戶端程式庫
+description: 透過本快速入門開始使用適用於 Node.js 的電腦視覺用戶端程式庫
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 199ead07e499575de21c6878cd348e648f604171
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 05bc30fb8401597695848290a3d4f6c0d10ce836
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972654"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382237"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>快速入門：適用於 Node.js 的電腦視覺用戶端程式庫
 
@@ -27,7 +27,7 @@ ms.locfileid: "74972654"
 
 [參考文件](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [套件 (npm)](https://www.npmjs.com/package/azure-cognitiveservices-computervision) | [範例](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 * 最新版的 [Node.js](https://nodejs.org/)
@@ -83,7 +83,7 @@ npm install azure-cognitiveservices-computervision ms-rest-azure
 
 下列類別和介面會處理電腦視覺 Node.js SDK 的一些主要功能。
 
-|名稱|說明|
+|名稱|描述|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) | 所有電腦視覺功能都需要此類別。 您可以使用訂用帳戶資訊來具現化此類別，並使用它來進行大部分的影像作業。|
 |[VisualFeatureTypes](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest)| 此列舉會定義可在標準分析作業中完成的不同影像分析類型。 視您的需求而定，您可以指定一組 **VisualFeatureTypes** 值。 |

@@ -1,26 +1,15 @@
 ---
-title: 教學課程：在 Azure VM 上建立 Service Fabric 叢集的基礎結構 - Azure Service Fabric |Microsoft Docs
+title: 在 Azure VM 上建立叢集的基礎結構
 description: 在本教學課程中，您將了解如何設定用來執行 Service Fabric 叢集的 Azure VM 基礎結構。
-services: service-fabric
-documentationcenter: .net
-author: jpconnock
-manager: jpconnock
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: jeconnoc
 ms.custom: mvc
-ms.openlocfilehash: b24b4d95827dbd398c0eba43dcbad9fbfeb51469
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166270"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614004"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>教學課程：建立用來裝載 Service Fabric 叢集的 Azure VM 基礎結構
 
@@ -36,7 +25,7 @@ Service Fabric 獨立叢集讓您能夠選擇自己的環境，並且在 Service
 > * 登入其中一個執行個體
 > * 準備 Service Fabric 的執行個體
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成此教學課程，您需要 Azure 訂用帳戶。  如果您還沒有帳戶，請移至 [Azure 入口網站](https://portal.azure.com)建立一個。
 

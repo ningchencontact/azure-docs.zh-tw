@@ -1,21 +1,21 @@
 ---
 title: 教學課程：使用 Visual Studio 中的連線服務連線至文字分析服務
 titleSuffix: Azure Cognitive Services
-description: 本文及其附屬文章提供使用適用於文字分析服務之 Visual Studio 已連線的服務功能的詳細資料。
+description: 了解如何使用文字分析服務的 Visual Studio 連線服務功能。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: b094a6917892dfff58c49435de4dc42551be19df
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 317a5f4ae642dc2306ae84c42a042206b9059ba7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837196"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446149"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>教學課程：使用 Visual Studio 中的連線服務連線至文字分析服務
 
@@ -23,7 +23,7 @@ ms.locfileid: "73837196"
 
 本文及其附屬文章提供使用適用於文字分析服務之 Visual Studio 已連線的服務功能的詳細資料。 此功能適用於已安裝認知服務擴充功能的 Visual Studio 2019 或更新版本。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 - 已安裝網頁程式開發工作負載的 Visual Studio 2019。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。

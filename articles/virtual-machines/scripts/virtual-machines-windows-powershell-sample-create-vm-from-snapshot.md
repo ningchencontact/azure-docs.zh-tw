@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 指令碼範例 - 從快照集建立 VM
+title: 從快照集建立 VM - PowerShell 範例
 description: Azure PowerShell 指令碼範例 - 從快照集建立 VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: ee332e391e3cbd9c5e76263145e6a8efda34625b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fb10f6c2d8109d240840faf5fa864176c89f24e1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038996"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368312"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>使用 PowerShell 從快照集建立虛擬機器
 
@@ -46,7 +46,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 此指令碼會使用下列命令來取得快照集屬性、從快照集建立受控磁碟，以及建立 VM。 下表中的每個項目都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/get-azsnapshot) | 使用快照集名稱來取得快照集。 |
 | [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) | 建立磁碟組態。 此組態可使用於磁碟建立程序。 |

@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 指令碼範例 - 從快照集建立受控磁碟
+title: 從快照集建立受控磁碟 - CLI 範例
 description: Azure CLI 指令碼範例 - 從快照集建立受控磁碟
 services: virtual-machines-linux
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 8a219b24c4d4b82363094ccba74db22e3b4018c4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: cd50d14ef004007b2c13d295dcb9911b318dd448
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023323"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458474"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>使用 CLI 從快照集建立受控磁碟
 
@@ -41,14 +41,14 @@ ms.locfileid: "74023323"
 
 此指令碼使用下列命令從快照集建立受控磁碟。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | 使用快照集的名稱和資源群組屬性，取得快照集的所有屬性。 使用 Id 屬性建立受控磁碟。  |
 | [az disk create](https://docs.microsoft.com/cli/azure/disk) | 使用受管理快照集的快照集識別碼建立受控磁碟 |
 
 ## <a name="next-steps"></a>後續步驟
 
-[將受控磁碟連結為作業系統磁碟以建立虛擬機器](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
+[將受控磁碟連結為 OS 磁碟以建立虛擬機器](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure)。
 

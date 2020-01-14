@@ -1,22 +1,22 @@
 ---
 title: 快速入門：使用 Node.js 呼叫文字分析 REST API
 titleSuffix: Azure Cognitive Services
-description: 取得資訊和程式碼範例，協助您在 Azure 認知服務中快速開始使用文字分析 API。
+description: 此快速入門示範如何取得資訊和程式碼範例，協助您在 Azure 認知服務中快速開始使用文字分析 API。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: fe07290eaa68965e2ebe1f9220fc963c915f48f1
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: c111937dbbea5e588e82bc9753a71d1d597ca767
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284963"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378784"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 Node.js 來呼叫文字分析認知服務  
 <a name="HOLTop"></a>
@@ -25,7 +25,7 @@ ms.locfileid: "74284963"
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -35,27 +35,17 @@ ms.locfileid: "74284963"
 
 語言偵測 API 會使用[偵測語言方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) \(英文\) 來偵測文字文件的語言。
 
-1. 為資源的 Azure 端點和訂用帳戶金鑰建立變數 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 和 `TEXT_ANALYTICS_ENDPOINT`。 如果您在開始編輯應用程式後才建立這些環境變數，則必須先關閉您使用的編輯器、IDE 或殼層，再重新加以開啟，才能存取該變數。
 1. 在您最愛的 IDE (或您桌面上的資料夾) 中建立新的 Node.JS 專案。
 1. 將下方提供的程式碼新增至新的 `.js` 檔案。
+1. 將您的金鑰和端點複製到程式碼中。 
 1. 從您的 IDE 或命令列來執行程式，例如 `npm start` 或 `node detect.js`。
 
 ```javascript
 'use strict';
 
 let https = require ('https');
-
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/languages';
 
@@ -154,9 +144,9 @@ get_language(documents);
 
 情感分析 API 會使用 [Sentiment 方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)，偵測一組文字記錄中的情緒態度。 藉由分析原始文字而獲得有關於正面或負面情感的線索，情感分析可用來了解客戶對您的品牌或主題有何看法。 下列範例會為兩份文件提供評分，一份是英文，另一份則是西班牙文。
 
-1. 為資源的 Azure 端點和訂用帳戶金鑰建立變數 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 和 `TEXT_ANALYTICS_ENDPOINT`。 如果您在開始編輯應用程式後才建立這些環境變數，則必須先關閉您使用的編輯器、IDE 或殼層，再重新加以開啟，才能存取該變數。
 1. 在您最愛的 IDE (或您桌面上的資料夾) 中建立新的 Node.JS 專案。
 1. 將下方提供的程式碼新增至新的 `.js` 檔案。
+1. 將您的文字分析金鑰和端點複製到程式碼中。 
 1. 從您的 IDE 或命令列來執行程式，例如 `npm start` 或 `node sentiment.js`。
 
 ```javascript
@@ -164,17 +154,8 @@ get_language(documents);
 
 let https = require ('https');
 
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/sentiment';
 
@@ -247,9 +228,9 @@ get_sentiments(documents);
 
 關鍵片語擷取 API 會使用[關鍵片語方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)從文字文件擷取關鍵片語。 關鍵片語擷取可用來快速識別文件或文字的重點。 以下範例會擷取英文和西班牙文文件的關鍵片語。
 
-1. 為資源的 Azure 端點和訂用帳戶金鑰建立變數 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 和 `TEXT_ANALYTICS_ENDPOINT`。 如果您在開始編輯應用程式後才建立這些環境變數，則必須先關閉您使用的編輯器、IDE 或殼層，再重新加以開啟，才能存取該變數。
 1. 在您最愛的 IDE (或您桌面上的資料夾) 中建立新的 Node.JS 專案。
 1. 將下方提供的程式碼新增至新的 `.js` 檔案。
+1. 將您的文字分析金鑰和端點複製到程式碼中。 
 1. 從您的 IDE 或命令列來執行程式，例如 `npm start` 或 `node key-phrases.js`。
 
 ```javascript
@@ -257,17 +238,8 @@ get_sentiments(documents);
 
 let https = require ('https');
 
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/keyPhrases';
 
@@ -316,7 +288,7 @@ get_key_phrases(documents);
 
 **關鍵片語擷取回應**
 
-會以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -360,9 +332,9 @@ get_key_phrases(documents);
 
 實體 API 會使用[實體方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634)來識別文字文件中的已知實體。 [實體](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)可從像是「北美洲」的文字擷取字組，再提供此字組的類型和/或維基百科連結給您。 「北美洲」的類型為 `location`，而維基百科的連結為 `https://en.wikipedia.org/wiki/United_States`。  以下範例會識別英文文件的實體。
 
-1. 為資源的 Azure 端點和訂用帳戶金鑰建立變數 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 和 `TEXT_ANALYTICS_ENDPOINT`。 如果您在開始編輯應用程式後才建立這些環境變數，則必須先關閉您使用的編輯器、IDE 或殼層，再重新加以開啟，才能存取該變數。
 1. 在您最愛的 IDE (或您桌面上的資料夾) 中建立新的 Node.JS 專案。
 1. 將下方提供的程式碼新增至新的 `.js` 檔案。
+1. 將您的文字分析金鑰和端點複製到程式碼中
 1. 從您的 IDE 或命令列來執行程式，例如 `npm start` 或 `node entities.js`。
 
 ```javascript
@@ -370,17 +342,8 @@ get_key_phrases(documents);
 
 let https = require ('https');
 
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/entities';
 

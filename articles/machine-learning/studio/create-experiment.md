@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: c6b52585200db07ebc2e15f509b1def55dff5caf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dd6eec34a1f1bd59aed397111e31048196e1e9c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839952"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427728"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>快速入門：在 Azure Machine Learning Studio (傳統) 中建立您的第一個資料科學實驗
 
@@ -45,7 +45,7 @@ ms.locfileid: "73839952"
 ## <a name="get-the-data"></a>取得資料
 
 要執行機器學習，首先您必須要有資料。
-傳統的 Studio 版本隨附數個範例資料集可供您使用，或者，您可以從許多來源匯入資料。 在此範例中，我們將使用您的工作區內含的範例資料集**汽車價格資料 (原始)** 。
+Studio (傳統) 附有多個範例資料集供您使用，或者，您可以從許多來源匯入資料。 在此範例中，我們將使用您的工作區內含的範例資料集**汽車價格資料 (原始)** 。
 此資料集將包含許多個別汽車的項目，包括製造、模型、技術規格和價格等資訊。
 
 > [!TIP]

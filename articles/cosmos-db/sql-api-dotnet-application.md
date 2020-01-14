@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB 的 ASP.NET Core MVC 教學課程：Web 應用程式開發
+title: 使用 Azure Cosmos DB 的 ASP.NET Core MVC Web 應用程式教學課程
 description: 使用 Azure Cosmos DB 建立 MVC Web 應用程式的 ASP.NET Core MVC 教學課程。 您將在託管於 Azure App Service 的待辦事項應用程式儲存 JSON 和存取資料 - ASP NET Core MVC 教學課程逐步解說。
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 1cfb7718c55920d817e1f87407fa1af590e9f006
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b0da9f2f2d14c0487e61c1927b5456d09052cff3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720904"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444920"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>教學課程：使用 .NET SDK，透過 Azure Cosmos DB 開發 ASP NET Core MVC Web 應用程式
 

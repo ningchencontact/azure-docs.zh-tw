@@ -1,26 +1,16 @@
 ---
-title: 在 Azure 中的 Service Fabric 上建立 Linux 容器應用程式 | Microsoft Docs
+title: 在 Azure 中的 Service Fabric 上建立 Linux 容器應用程式
 description: 在此快速入門中，您將使用您的應用程式建置 Docker 映像、將映像推送到容器登錄，然後將您的容器部署至 Service Fabric 叢集。
-services: service-fabric
-documentationcenter: linux
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: python
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0f6e24d2790f78ab0ec7292640fda3ab30e03a03
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599411"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372681"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>快速入門：將 Linux 容器部署至 Service Fabric
 
@@ -30,7 +20,7 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 
 ![投票應用程式網頁][quickstartpic]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本快速入門：
 
@@ -90,7 +80,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location --
 > Web 前端服務設定為在連接埠 80 上接聽傳入流量。 根據預設，連接埠 80 在您的叢集 VM 和 Azure 負載平衡器上是開啟的。
 >
 
-## <a name="configure-your-environment"></a>設定您的環境
+## <a name="configure-your-environment"></a>設定環境
 
 Service Fabric 提供了數項可用來管理叢集及其應用程式的工具：
 
@@ -188,7 +178,7 @@ ResourceGroupName="containertestcluster"
 az group delete --name $ResourceGroupName
 ```
 
-如果您已完成叢集的處理，可以從憑證存放區中移除憑證。 例如︰
+如果您已完成叢集的處理，可以從憑證存放區中移除憑證。 例如：
 - 在 Windows 上：使用[憑證 MMC 嵌入式管理單元](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)。 在新增嵌入式管理單元時，請務必選取 [我的使用者帳戶]  。 瀏覽至 `Certificates - Current User\Personal\Certificates` 並移除憑證。
 - 在 Mac 上：使用 Keychain 應用程式。
 - 在 Ubuntu 上：依照您用來檢視憑證的步驟，將憑證移除。

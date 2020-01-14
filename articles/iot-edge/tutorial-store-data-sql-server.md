@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: dc8e3e92a9b843291643fe3a43092a6ac9b9c7cb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c16fca06950ea06b80f2e27d6fb845f5d0d282c0
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701903"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665119"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>教學課程：使用 SQL Server 資料庫在邊緣儲存資料
 
@@ -24,7 +24,7 @@ ms.locfileid: "74701903"
 
 本文提供如何將 SQL Server 資料庫部署到 IoT Edge 裝置的指示。 在 IoT Edge 裝置上執行的 Azure Functions 會將傳入的資料結構化，然後傳送到資料庫。 本文中的步驟也可套用到會在 MySQL 或 PostgreSQL 等容器中工作的其他資料庫。
 
-在本教學課程中，您了解如何： 
+在本教學課程中，您會了解如何： 
 
 > [!div class="checklist"]
 > * 使用 Visual Studio Code 來建立 Azure Function
@@ -34,15 +34,16 @@ ms.locfileid: "74701903"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 在開始本教學課程之前，您應該已經完成先前的教學課程，以針對 Linux 容器開發設定您的開發環境：[開發適用於 Linux 裝置的 IoT Edge 模組](tutorial-develop-for-linux.md)。 完成該教學課程之後，您應該會具備下列必要條件： 
 
 * Azure 中的免費或標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
-* [執行 Azure IoT Edge 的 Linux 裝置](quickstart-linux.md)
+* [執行 Azure IoT Edge 的 AMD64 Linux 裝置](quickstart-linux.md)。
+  * ARM 裝置 (例如 Raspberry Pi) 無法執行 SQL Server。 如果您想要在 ARM 裝置上使用 SQL，您可以註冊試用 [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/) 預覽版。 
 * 容器登錄，像是 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)。
 * 已設定 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 的 [Visual Studio Code](https://code.visualstudio.com/)。
-* [Docker CE](https://docs.docker.com/install/) 已設定為執行 Linux 容器。
+* [Docker CE](https://docs.docker.com/install/) 設定為執行 Linux 容器。
 
 本教學課程會使用 Azure Functions 模組，將資料傳送至 SQL Server。 若要以 Azure Functions 開發 IoT Edge 模組，請在您的開發機器上安裝下列其他必要條件： 
 
@@ -61,7 +62,7 @@ ms.locfileid: "74701903"
 
 2. 選取 [檢視]   > [命令選擇區]  ，以開啟 VS Code 命令選擇區。
 
-3. 在命令選擇區中，輸入並執行命令 Azure IoT Edge:  新增 IoT Edge 解決方案。 在命令選擇區中提供下列資訊，以建立解決方案： 
+3. 在命令選擇區中，輸入並執行命令 Azure IoT Edge:**新增 IoT Edge 解決方案**。 在命令選擇區中提供下列資訊，以建立解決方案： 
 
    | 欄位 | 值 |
    | ----- | ----- |

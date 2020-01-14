@@ -1,26 +1,17 @@
 ---
-title: 教學課程：在獨立 Service Fabric 叢集上安裝應用程式 - Azure Service Fabric | Microsoft Docs
+title: 在獨立叢集上安裝應用程式
 description: 在本教學課程中，您將了解如何將應用程式安裝到獨立 Service Fabric 叢集中。
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 5e5260a2001d9cb0a38f4182e923a5416f76712b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 124fc6035c1d0ad504a34b7db227f0f4675f24f7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384988"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613953"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>教學課程：將應用程式部署在 Service Fabric 獨立叢集上
 
@@ -34,7 +25,7 @@ Service Fabric 獨立叢集讓您能夠選擇自己的環境，並且在 Service
 > * 下載範例應用程式
 > * 部署至叢集
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始進行本教學課程之前：
 

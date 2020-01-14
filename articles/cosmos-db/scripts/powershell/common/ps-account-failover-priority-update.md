@@ -1,17 +1,17 @@
 ---
-title: Azure PowerShell 指令碼 - 針對 Azure Cosmos 帳戶變更容錯移轉優先順序或觸發容錯移轉
+title: 此 PowerShell 指令碼用以變更 Azure Cosmos 帳戶的容錯移轉優先順序
 description: Azure PowerShell 指令碼範例 - 針對 Azure Cosmos 帳戶變更容錯移轉優先順序或觸發容錯移轉
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: e4406124a7ea4eac213d830d0e5960e76fb6d364
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 6a742486918e5134a73256ef6c7490a823f14335
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155396"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441513"
 ---
 # <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-using-powershell"></a>使用 PowerShell 對 Azure Cosmos 帳戶變更容錯移轉優先順序或觸發容錯移轉
 
@@ -40,7 +40,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 |**Azure 資源**| |
 | [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | 對資源叫用動作。 |

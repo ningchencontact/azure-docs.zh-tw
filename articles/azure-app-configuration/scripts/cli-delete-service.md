@@ -1,5 +1,6 @@
 ---
-title: Azure CLI 指令碼範例 - 刪除 Azure 應用程式設定存放區 | Microsoft Docs
+title: Azure CLI 指令碼範例 - 刪除 Azure 應用程式組態存放區
+titleSuffix: Azure App Configuration
 description: Azure CLI 指令碼範例 - 刪除 Azure 應用程式設定存放區
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 0983e7d68e7ad01683d588ef89827eaf79754d07
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: d5a80288fcd5b0216a9bf3ca322203f672f381d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184920"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413369"
 ---
 # <a name="delete-an-azure-app-configuration-store"></a>刪除 Azure 應用程式設定存放區
 
@@ -50,7 +51,7 @@ az appconfig delete --name myTestAppConfigStore --resource-group myResourceGroup
 
 此指令碼會使用下列命令來刪除應用程式組態存放區。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az appconfig delete](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-delete) | 刪除應用程式組態存放區資源。 |
 

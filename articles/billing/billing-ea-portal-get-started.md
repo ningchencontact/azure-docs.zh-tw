@@ -4,16 +4,16 @@ description: 本文將說明 Azure EA 客戶可以如何使用 Azure EA 入口�
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 2f7c4f0d4d8bd7e5209f666dbfca34eaffc8ebc7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 92581cfcace6ec566428c9cb54d205f108399b1f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841365"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660659"
 ---
 # <a name="get-started-with-the-azure-ea-portal"></a>開始使用 Azure EA 入口網站
 
@@ -48,12 +48,13 @@ Azure EA 入口網站階層包含：
 
 ## <a name="enterprise-user-roles"></a>企業使用者角色
 
-若要管理您註冊中的 Azure 服務，有 4 個不同的企業系統管理使用者角色可使用：
+若要管理您註冊中的 Azure 服務，有五個不同的企業系統管理使用者角色可供使用：
 
 - 企業系統管理員
 - 部門系統管理員
 - 帳戶擁有者
 - 服務管理員
+- 通知連絡人
 
 角色會用來在兩個不同的 Microsoft Azure 入口網站中完成工作。 Azure EA 入口網站 (https://ea.azure.com) 用來協助您管理帳單和成本。 Azure 入口網站 (https://portal.azure.com) 用來管理 Azure 服務。
 
@@ -101,9 +102,15 @@ Azure EA 入口網站階層包含：
 
 服務管理員有權管理 Azure 入口網站中的服務，並可將使用者指派給共同管理員角色。
 
+### <a name="notification-contact"></a>通知連絡人
+
+通知連絡人可接收與註冊相關的使用量通知。
+
 ## <a name="activate-your-enrollment"></a>啟動您的註冊
 
 若要啟動您的服務，最初的企業系統管理員需從邀請電子郵件中開啟 [https://ea.azure.com](https://ea.azure.com) 上的 Azure EA 入口網站，並使用電子郵件地址登入。
+
+如果您已設定為 EA 系統管理員，則可直接登入 Azure EA 入口網站，而不需等到啟用電子郵件寄達。 您可以前往 [https://ea.azure.com](https://ea.azure.com)，並使用您的電子郵件地址 (公司、學校或 Live ID) 和密碼登入。
 
 如果您有多個註冊，請選擇一個進行啟用。 預設只會顯示作用中的註冊。 若要檢視註冊記錄，請清除 Azure EA 入口網站右上方的 [作用中]  選項。
 
@@ -310,7 +317,7 @@ Azure EA 入口網站階層包含：
 1. 登入與您所提供 Microsoft 帳戶或公司或學校帳戶相關聯的電子郵件帳戶。
 1. 開啟標題為「邀請經由 Microsoft 大量授權在 Microsoft Azure 服務上啟用您的帳戶」  的電子郵件通知。
 1. 按一下邀請中的 [登入 Microsoft Azure 企業版入口網站]  連結。
-1. 按一下 [ **登入**]。
+1. 按一下 **[登入]** 。
 1. 輸入您的 Microsoft 帳戶或公司或學校帳戶和密碼，以登入並確認帳戶擁有權。
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
@@ -369,7 +376,7 @@ MSDN 訂用帳戶會自動轉換成 MSDN 開發/測試，而 EA 供應項目將�
 
 ### <a name="download-csv-reports"></a>下載 CSV 報表
 
-企業系統管理員可以使用每月報表下載頁面，將數個報表下載為 CSV 檔案。 這些包括：
+企業系統管理員可以使用每月報表下載頁面，將數個報表下載為 CSV 檔案。 其中包括：
 
 - 餘額和費用
 - 使用量詳細資料
@@ -395,7 +402,7 @@ MSDN 訂用帳戶會自動轉換成 MSDN 開發/測試，而 EA 供應項目將�
 
 >[!VIDEO https://www.youtube.com/embed/eY797htT1qg]
 
-### <a name="advanced-report-download"></a>進階報告下載
+### <a name="advanced-report-download"></a>進階報表下載
 
 如需報告特定的日期範圍或帳戶，可以使用進階報表下載。 自 2016 年 8 月 30 日起，輸出檔案的格式已從 .xlsx 變更為 .csv，以容納較大的記錄集。
 
@@ -404,7 +411,7 @@ MSDN 訂用帳戶會自動轉換成 MSDN 開發/測試，而 EA 供應項目將�
 1. 選取 [適當帳戶]  。
 1. 選取 [要求使用量資料]  。
 1. 選取 [重新整理]  按鈕，直到報告狀態更新為 [下載]  為止。
-1. 下載報告。
+1. 下載報表。
 
 ## <a name="ea-term-glossary"></a>EA 字詞詞彙
 
@@ -445,7 +452,7 @@ MSDN 訂用帳戶會自動轉換成 MSDN 開發/測試，而 EA 供應項目將�
 
 在以 EA 帳戶擁有者身分進行驗證之後，若要復原個別的 Visual Studio 訂用帳戶 Azure 權益，則在使用 EA 的相同登入作為您的 Visual Studio 訂用帳戶之後，您必須執行下列其中一個動作：
 1. 在刪除或移動所擁有的任何 Azure 訂用帳戶之後，請從 EA 入口網站刪除此帳戶擁有者，並且讓他們重新註冊其個別的 Visual Studio Azure 權益。
- 或
+ OR
 1. 從 VLSC 中的管理網站刪除 Visual Studio 訂閱者，並重新指派訂用帳戶，讓他們這次使用不同的登入，然後他們就可以重新註冊其個別的 Visual Studio Azure 權益。
 
 ### <a name="what-type-of-subscription-should-i-create"></a>我應該建立哪種類型的訂用帳戶？

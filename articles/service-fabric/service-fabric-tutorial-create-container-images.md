@@ -1,27 +1,17 @@
 ---
-title: 在 Azure 中的 Service Fabric 上建立容器映像 | Microsoft Docs
+title: 在 Azure 中的 Service Fabric 上建立容器映像
 description: 在本教學課程中，了解如何建立多容器 Service Fabric 應用程式的容器映像。
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker、容器、微服務、Service Fabric、Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b5dba1f7e71149c37edc909d2bb43d708192bdbb
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: fa7f7a57e16b6ba70535d3f07ebd69abf0784171
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465429"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>教學課程：在 Linux Service Fabric 叢集上建立容器映像
 
@@ -41,7 +31,7 @@ ms.locfileid: "68385220"
 > * [建置與執行含容器的 Service Fabric 應用程式](service-fabric-tutorial-package-containers.md)
 > * [如何在 Service Fabric 中處理容錯移轉和調整](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * 已針對 Service Fabric 設定的 Linux 開發環境。 請依照[這裡](service-fabric-get-started-linux.md)的指示來設定 Linux 環境。
 * 本教學課程需要您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。

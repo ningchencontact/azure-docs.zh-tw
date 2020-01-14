@@ -1,5 +1,5 @@
 ---
-title: 開始使用您的 Microsoft 客戶合約計費帳戶 - Azure
+title: 開始使用 Microsoft 客戶合約計費 - Azure
 description: 了解您的 Microsoft 客戶合約計費帳戶
 author: bandersmsft
 manager: amberbhargava
@@ -10,18 +10,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: banders
-ms.openlocfilehash: e27d2116cf58c64fca7fb0273c852d6223f00c6e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 46918810648deb15ce0ae0dd13824702dcfb7073
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226126"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389225"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>開始使用您的 Microsoft 客戶合約計費帳戶
 
 當您註冊使用 Azure 時，就會建立計費帳戶。 您可使用計費帳戶來管理發票、付款及追蹤成本。 您可擁有多個計費帳戶的存取權。 例如，您可能已針對您的個人專案註冊 Azure。 但也可以透過組織的 Enterprise 合約或 Microsoft 客戶合約獲得 Azure 的存取權。 針對上述每個案例，您會有不同的計費帳戶。
 
-本文適用於 Microsoft 客戶合約的計費帳戶。 [請確認您是否有 Microsoft 客戶合約的存取權](#check-access-to-a-microsoft-customer-agreement)。
+本文適用於 Microsoft 客戶合約的計費帳戶。 請[確認您是否有 Microsoft 客戶合約的存取權](#check-access-to-a-microsoft-customer-agreement)。
 
 ## <a name="your-billing-account"></a>您的計費帳戶
 
@@ -65,7 +65,7 @@ Microsoft 客戶合約的計費帳戶包含一或多個帳單設定檔，可讓�
 
 Azure 方案會決定 Azure 訂用帳戶的定價和服務等級協定。 當您建立帳單設定檔時，將會自動啟用這些方案。 所有與帳單設定檔相關聯的發票區段，都可以使用這些方案。 具有發票區段存取權的使用者，可使用這些方案來建立 Azure 訂用帳戶。 Microsoft 客戶合約的計費帳戶支援下列 Azure 方案：
 
-| 規劃             | 定義  |
+| 計畫             | 定義  |
 |------------------|-------------|
 |Microsoft Azure 方案   | 可讓使用者建立可執行任何工作負載的訂用帳戶。  |
 |用於開發/測試的 Microsoft Azure 方案 | 可讓 Visual Studio 訂閱者建立限用於開發或測試工作負載的定用帳戶。 這些訂用帳戶可享有較低費率，並獲得在 Azure 入口網站中存取專屬虛擬機器映像的權益。 |
@@ -78,7 +78,7 @@ Azure 方案會決定 Azure 訂用帳戶的定價和服務等級協定。 當您
 
 發票區段上的角色有權控制哪些人可建立 Azure 訂用帳戶。 請將這些角色指派給負責為組織中的小組設定 Azure 環境的使用者，例如工程部門負責人和技術架構設計人員。 如需詳細資訊，請參閱[發票區段角色和工作](billing-understand-mca-roles.md#invoice-section-roles-and-tasks)。
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查對 Microsoft 客戶合約的存取權
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查 Microsoft 客戶合約的存取
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。

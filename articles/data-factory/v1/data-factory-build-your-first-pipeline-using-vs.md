@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: 49b3b5890fe38f6c635e7ba420a1adf5d778de0f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: eb9c21bf1972304da688586da9ccabe5063fa112
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703925"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438980"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>教學課程：使用 Visual Studio 建立資料處理站
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -56,7 +56,7 @@ ms.locfileid: "74703925"
 4. 建立名為 **DataFactoryUsingVS** 的資料處理站。 部署 Data Factory 和所有 Data Factory 實體 (連結的服務、資料表和管線)。
 5. 發佈之後，您可使用 Azure 入口網站刀鋒視窗和「監視及管理應用程式」來監視管線。 
   
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -76,7 +76,7 @@ ms.locfileid: "74703925"
     ![[新增專案] 對話方塊](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 3. 輸入專案的**名稱**、**位置**和**方案**的名稱，然後按一下 [確定]  。
 
-    ![Controllers\HomeController.cs](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
+    ![方案總管](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
 ### <a name="create-linked-services"></a>建立連結的服務
 在此步驟中，您會建立兩個連結服務：**Azure 儲存體**和**隨選 HDInsight**。 
@@ -92,7 +92,7 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 1. 以滑鼠右鍵按一下 [方案總管] 中的 [連結服務]  ，指向 [新增]  ，然後按一下 [新增項目]  。      
 2. 在 [新增新項目]  對話方塊中，從清單選取 [Azure 儲存體連結服務]  ，然後按一下 [新增]  。
     ![Azure 儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
-3. 使用 Azure 儲存體帳戶的名稱及其金鑰來取代 `<accountname>` 和 `<accountkey>`。 若要了解如何取得您的儲存體存取金鑰，請參閱[管理儲存體帳戶](../../storage/common/storage-account-manage.md#access-keys)中說明如何檢視、複製和重新產生儲存體存取金鑰的資訊。
+3. 使用 Azure 儲存體帳戶的名稱及其金鑰來取代 `<accountname>` 和 `<accountkey>`。 若要了解如何取得儲存體存取金鑰，請參閱[管理儲存體帳戶存取金鑰](../../storage/common/storage-account-keys-manage.md)。
     ![Azure 儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. 儲存 **AzureStorageLinkedService1.json** 檔案。
 
@@ -119,7 +119,7 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 
     下表提供程式碼片段中所使用之 JSON 屬性的描述：
 
-    屬性 | 說明
+    屬性 | 描述
     -------- | ----------- 
     clusterSize | 指定 HDInsight Hadoop 叢集的大小。
     timeToLive | 指定 HDInsight 叢集在被刪除之前的閒置時間。
@@ -168,7 +168,7 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 
     下表提供程式碼片段中所使用之 JSON 屬性的描述：
 
-    屬性 | 說明 |
+    屬性 | 描述 |
     -------- | ----------- |
     type |類型屬性會設為 **AzureBlob**，因為資料位於 Azure Blob 儲存體。
     linkedServiceName | 表示您稍早建立的 AzureStorageLinkedService1。
@@ -303,7 +303,7 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
     ![發佈 - 新增資料處理站設定](media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png)
 
    1. 選取 [建立新的 Data Factory]  選項。
-   2. 輸入 Data Factory 的唯一**名稱**。 例如︰**DataFactoryUsingVS09152016**。 此名稱必須是全域唯一的。
+   2. 輸入 Data Factory 的唯一**名稱**。 例如：**DataFactoryUsingVS09152016**。 此名稱必須是全域唯一的。
    3. 針對 [訂用帳戶]  欄位選取適當的訂用帳戶。 
         > [!IMPORTANT]
         > 如果看不到任何訂用帳戶，請確定您是使用訂用帳戶的管理員或共同管理員的帳戶進行登入。
@@ -368,13 +368,13 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 7. 按一下 **X** 關閉 **AzureBlobInput** 刀鋒視窗。
 8. 在 [圖表檢視]  中，按兩下 **AzureBlobOutput** 資料集。 您會看到目前正在處理的配量。
 
-   ![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
+   ![資料集](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. 處理完成時，您會看到配量處於 [就緒]  狀態。
 
    > [!IMPORTANT]
    > 建立隨選 HDInsight 叢集通常需要一些時間 (大約 20 分鐘)。 因此，管線預計需要 **大約 30 分鐘** 的時間來處理配量。  
    
-    ![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
+    ![資料集](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
 10. 當配量處於**就緒**狀態時，檢查您 blob 儲存體中 `adfgetstarted` 容器內 `partitioneddata` 資料夾的輸出資料。  
 
     ![輸出資料](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
@@ -545,7 +545,7 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 ## <a name="use-azure-key-vault"></a>使用 Azure 金鑰保存庫
 不建議認可機密資料 (例如將字串連線至程式碼存放庫)，且通常會違反安全性原則。 請參閱 GitHub 上的 [ADF 安全發佈](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFSecurePublish)範例，了解在 Azure Key Vault 中儲存機密資訊和在發行 Data Factory 實體時使用它。 Visual Studio 的安全發佈擴充功能可在 Key Vault 中儲存機密資料，且僅在連結服務 / 部署組態中指定時才予以參考。 當您將 Data Factory 實體發佈至 Azure 時，會解析這些參考。 接著這些檔案可以認可至來源存放庫而不公開任何機密資訊。
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 在本教學課程中，您會在 HDInsight hadoop 叢集上執行 Hive 指令碼，以建立 Azure Data Factory 來處理資料。 您會在使用 Azure 入口網站中使用 Data Factory 編輯器來執行下列步驟︰  
 
 1. 建立 Azure **Data Factory**。
@@ -563,7 +563,7 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 
 ## <a name="see-also"></a>另請參閱
 
-| 話題 | 說明 |
+| 主題 | 描述 |
 |:--- |:--- |
 | [管線](data-factory-create-pipelines.md) |本文協助您了解 Azure Data Factory 中的管線和活動，以及如何使用這些來為您的案例或業務建構資料導向工作流程。 |
 | [資料集](data-factory-create-datasets.md) |本文協助您了解 Azure Data Factory 中的資料集。 |

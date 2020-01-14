@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 1408faf09ef8950fb0d86f8a036269da2963e3d4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b6a8b0664cb205a7c3cbdb72f41433b145b02d00
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072831"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448759"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>教學課程：取得網頁上的搜尋建議
 
@@ -27,7 +27,7 @@ ms.locfileid: "74072831"
 > - 對 Bing 自動建議 API 進行簡單查詢
 > - 顯示查詢結果
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要依照本教學課程，您需要 Bing 自動建議 API 的訂用帳戶金鑰。 如果您沒有金鑰，請[註冊免費試用](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api)。
 
@@ -184,7 +184,7 @@ function renderErrorMessage(message, code) {
 function bingAutosuggest(query, key) {
 ```
 
-指定 Bing 自動建議 API 端點，並宣告 XMLHttpRequest 物件，我們要用來將要求傳送至端點。
+指定 Bing 自動建議 API 端點，並宣告 XMLHttpRequest 物件以供用來傳送要求。 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
 ```html
     var endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/Suggestions";

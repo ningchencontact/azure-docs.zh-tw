@@ -1,26 +1,16 @@
 ---
-title: 在 Azure 中的 Service Fabric 上建立 Windows 容器應用程式 | Microsoft Docs
+title: 在 Azure 中的 Service Fabric 上建立 Windows 容器應用程式
 description: 在本教學課程中，您會在 Azure Service Fabric 上建立第一個 Windows 容器應用程式。
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: jpconnock
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 096a398b8fc4f7f42dcc42feb7fe00b182d7649b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 477d47fabc59c5718c449418f225d6a38838b270
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599380"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466277"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>快速入門：將 Windows 容器部署至 Service Fabric
 
@@ -40,7 +30,7 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶 (您可以建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))。
 * 執行下列項目的開發電腦︰
@@ -51,7 +41,7 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 
 Service Fabric SDK 和工具會提供一個服務範本，協助您將容器部署到 Service Fabric 叢集。
 
-以「系統管理員」身分啟動 Visual Studio。  選取 [檔案]   > [新增]   > [專案]  。
+以「系統管理員」身分啟動 Visual Studio。  選取 [File] \(檔案\)   >  [New] \(新增\)   >  [Project] \(專案\)  。
 
 選取 [Service Fabric 應用程式]  、將它命名為 "MyFirstContainer"，然後按一下 [建立]  。
 
@@ -106,7 +96,7 @@ Microsoft 針對建置於不同 Windows Server 版本的 IIS 版本，發行了�
 
 針對這些變數提供您的值，按 **F5** 來執行指令碼。
 
-執行指令碼並建立叢集之後，在輸出中尋找 `ClusterEndpoint`。 例如︰
+執行指令碼並建立叢集之後，在輸出中尋找 `ClusterEndpoint`。 例如：
 
 ```powershell
 ...

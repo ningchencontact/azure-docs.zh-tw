@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bcc4af837cc28a18345e49cd39ddf88d24e44dd8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488934"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450849"
 ---
 1. 選取 [連線到 VPN 網站]  ，以開啟 [連線網站]  頁面。
 
-    ![連接](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "連線")
+    ![connect](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "連線")
 
    完成以下欄位：
 
    * 輸入預先共用金鑰。 如果您未輸入金鑰，Azure 會為您會自動產生一個金鑰。
-   * 選取 [通訊協定] 和 [IPsec 設定]。 請參閱預設/自訂 IPSec 詳細資料 (將連結放在頁面上)
+   * 選取 [通訊協定] 和 [IPsec 設定]。 請參閱 [預設/自訂 IPSec 詳細資料] (https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
    * 為 [傳播預設路由]  選取適當選項。 [啟用]  選項允許虛擬中樞將學習預設路由傳播至此連線。 此旗標只會在虛擬 WAN 中樞已經學習預設路由時，將預設路由傳播到連線，因為在中樞中部署防火牆或其他連線的網站已啟用強制通道。 預設路由不是來自虛擬 WAN 中樞。
 
-2. 選取 [ **連接**]。
+2. 選取 [連接]  。
 3. 幾分鐘後，網站將會顯示連線和連線狀態。
 
    ![status](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")

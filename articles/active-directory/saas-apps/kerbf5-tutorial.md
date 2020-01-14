@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1ec0dd844dea8cf98621130d6a19b415bda1cf0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a1f06b0b5aa59328d2fe39d501cfdf3ad7524427
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786481"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431464"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 F5 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "74786481"
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要開始，您需要下列項目：
 
@@ -273,7 +273,7 @@ ms.locfileid: "74786481"
 
     ![F5 (Kerberos) 設定](./media/kerbf5-tutorial/configure13.png)
 
-## <a name="advanced-configuration"></a>進階組態
+## <a name="advanced-configuration"></a>進階設定
 
 >[!NOTE]
 >如需參考，請按一下[這裡](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
@@ -370,7 +370,7 @@ ms.locfileid: "74786481"
     >[!Note]
     > 您將需要建立和指定 Kerberos 委派帳戶。 請參閱 KCD 一節 (參閱「變數參考」的附錄)
 
-    * **使用者名稱來源**：session.saml.last.attr.name。 http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+    * **使用者名稱來源**：session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
 
     * **使用者領域來源**：session.logon.last.domain
 
@@ -381,7 +381,7 @@ ms.locfileid: "74786481"
     * 名稱：KerbApp200
     * 設定檔類型：全部
     * 設定檔範圍：設定檔
-    * 語言：English
+    * 語言：英文
 
         ![F5 (Kerberos) 設定](./media/kerbf5-tutorial/configure30.png)
 
@@ -422,7 +422,7 @@ ms.locfileid: "74786481"
 1. 若要新增節點，請瀏覽至 [本機流量] > [節點] > [節點清單]，按一下 [建立]  ，並在完成下列資訊後按一下 [完成]  。
 
     * 名稱：KerbApp200
-    * Description:KerbApp200
+    * 描述：KerbApp200
     * 位址：192.168.20.200
 
         ![F5 (Kerberos) 設定](./media/kerbf5-tutorial/configure39.png)
@@ -430,7 +430,7 @@ ms.locfileid: "74786481"
 1. 若要建立新的集區，請瀏覽至 [本機流量] > [集區] > [集區清單]，按一下 [建立]  ，並在完成下列資訊後按一下 [完成]  。
 
     * 名稱：KerbApp200-Pool
-    * Description:KerbApp200-Pool
+    * 描述：KerbApp200-Pool
     * 健全狀況監視：http
     * 位址：192.168.20.200
     * 服務連接埠：81
@@ -456,7 +456,7 @@ ms.locfileid: "74786481"
 
 *  **步驟 1：** 建立委派帳戶
 
-    **範例：**
+    **範例︰**
     * 網域名稱：**superdemo.live**
 
     * SAM 帳戶名稱：**big-ipuser**
@@ -465,7 +465,7 @@ ms.locfileid: "74786481"
 
 * **步驟 2：** 設定 SPN (在 APM 委派帳戶上)
 
-    **範例：**
+    **範例︰**
     * setspn – **host/big-ipuser.superdemo.live** big-ipuser
 
 * **步驟 3：** SPN 委派 (針對 App Service 帳戶) 為 F5 委派帳戶設定適當的委派。

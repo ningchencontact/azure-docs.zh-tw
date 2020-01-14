@@ -1,7 +1,7 @@
 ---
-title: 快速入門：適用於 Python 的個人化工具用戶端程式庫 | Microsoft Docs
+title: 快速入門：適用於 Python 的個人化工具用戶端程式庫
 titleSuffix: Azure Cognitive Services
-description: 使用學習迴圈開始使用適用於 Python 的個人化工具用戶端程式庫。
+description: 此快速入門示範如何使用學習迴圈，開始使用適用於 Python 的個人化工具用戶端程式庫。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 02c4e0142ed7b3719cc07306f089769c532d6653
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f999a54c7841437e169205fed2edea1630aa81a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494430"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378937"
 ---
 # <a name="quickstart-personalizer-client-library-for-python"></a>快速入門：適用於 Python 的個人化工具用戶端程式庫
 
@@ -28,7 +28,7 @@ ms.locfileid: "73494430"
 
 [套件 (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [範例](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)

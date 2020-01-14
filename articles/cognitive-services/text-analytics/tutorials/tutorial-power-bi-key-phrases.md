@@ -1,21 +1,21 @@
 ---
 title: 教學課程：將 Power BI 與文字分析認知服務整合
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用文字分析，以從儲存在 Power BI 的文字中擷取關鍵片語。
+description: 了解如何使用文字分析 API，從儲存在 Power BI 的文字中擷取關鍵片語。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 97245a10602f763c3269218d87c6b1a5ba309817
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241019"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378529"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>教學課程：將 Power BI 與文字分析認知服務整合
 
@@ -30,7 +30,7 @@ Microsoft Power BI Desktop 是免費的應用程式，可讓您將您的資料�
 > * 使用文字分析關鍵片語 API 從客戶意見反應擷取最重要的片語
 > * 從客戶意見反應建立文字雲
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop。 [免費下載](https://powerbi.microsoft.com/get-started/)。

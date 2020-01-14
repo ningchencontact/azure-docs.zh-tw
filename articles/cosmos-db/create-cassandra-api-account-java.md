@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 Java 應用程式建立 Cassandra API 帳戶 - Azure Cosmos DB
+title: 教學課程：建置 Java 應用程式來建立 Azure Cosmos DB Cassandra API 帳戶
 description: 本教學課程說明如何使用 Java 應用程式建立 Cassandra API 帳戶、新增資料庫 (也稱為 Keyspace)，以及將資料表新增至該帳戶。
 author: kanshiG
 ms.author: govindk
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: d2d4d568f53c426b063f3285cc8d3d510c3db440
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: b0103f7b827de77c522f78000c8d28683ac85f4b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034611"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441907"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>教學課程：使用 Java 應用程式在 Azure Cosmos DB 中建立 Cassandra API 帳戶，用以儲存索引鍵/值資料
 
@@ -30,13 +30,13 @@ ms.locfileid: "70034611"
 > * 新增資料庫和資料表
 > * 執行應用程式
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>Prerequisites 
 
-* 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。 
+* 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。 
 
 * 取得最新版本的 [Java Development Kit (JDK)](https://aka.ms/azure-jdks)。 
 
-* [下載](https://maven.apache.org/download.cgi)並[安裝](https://maven.apache.org/install.html) [Maven](https://maven.apache.org/) 二進位封存檔。 
+* [下載](https://maven.apache.org/download.cgi)並[安裝](https://maven.apache.org/install.html)[Maven](https://maven.apache.org/) 二進位封存檔。 
   - 在 Ubuntu 上，您可以執行 `apt-get install maven` 來安裝 Maven。 
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶 
@@ -47,11 +47,11 @@ ms.locfileid: "70034611"
 
 3. 在 [新增帳戶]  窗格中，輸入新 Azure Cosmos 帳戶的設定。 
 
-   |設定   |建議的值  |說明  |
+   |設定   |建議的值  |描述  |
    |---------|---------|---------|
    |ID   |   輸入唯一名稱    | 輸入唯一名稱來識別此 Azure Cosmos 帳戶。 <br/><br/>因為 cassandra.cosmosdb.azure.com 會附加到您所提供的識別碼以建立接觸點，所以請使用可供辨識的唯一識別碼。         |
    |API    |  Cassandra   |  API 會決定要建立的帳戶類型。 <br/> 選取 [Cassandra]  ，因為在本文中您將建立可以使用 Cassandra 查詢語言 (CQL) 語法來查詢的寬欄資料庫。  |
-   |Subscription    |  您的訂用帳戶        |  選取您要用於此 Azure Cosmos 帳戶的 Azure 訂用帳戶。        |
+   |訂用帳戶    |  您的訂用帳戶        |  選取您要用於此 Azure Cosmos 帳戶的 Azure 訂用帳戶。        |
    |資源群組   | 輸入名稱    |  選取 [新建]  ，然後為您的帳戶輸入新的資源群組名稱。 為求簡化，您可以使用和識別碼相同的名稱。    |
    |Location    |  選取最接近使用者的區域    |  選取用來裝載 Azure Cosmos 帳戶的地理位置。 使用最接近使用者的位置，讓他們能以最快速度存取資料。    |
 

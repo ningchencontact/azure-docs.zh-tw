@@ -6,103 +6,103 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 9c049ecbea3c630e0f7d08e4a42bd441ba3f5cfa
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 7241287e0438d6da5efb517a89b984bff72848c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708762"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461489"
 ---
-# <a name="tutorial-using-distributed-tracing-with-azure-spring-cloud"></a>教學課程：搭配 Azure Spring Cloud 使用分散式追蹤
+# <a name="use-distributed-tracing-with-azure-spring-cloud"></a>搭配使用分散式追蹤與 Azure Spring Cloud
 
-Spring Cloud 的分散式追蹤工具可讓您輕鬆地對複雜問題進行偵錯及監視。 Azure Spring Cloud 能將 [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) \(英文\) 與 Azure 的 [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) 整合，以從 Azure 入口網站提供強大的分散式追蹤功能。
+透過 Azure Spring Cloud 中的分散式追蹤工具，您可以輕鬆地針對複雜問題進行偵錯和監視。 Azure Spring Cloud 會整合 [Azure Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) 與 Azure [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)。 這項整合可讓您從 Azure 入口網站獲得強大的分散式追蹤功能。
 
 在本文中，您將了解如何：
 
 > [!div class="checklist"]
-> * 在 Azure 入口網站中啟用分散式追蹤
-> * 將 Spring Cloud Sleuth 新增至您的應用程式
-> * 檢視微服務應用程式的相依性對應
-> * 搭配不同的篩選搜尋追蹤資料
+> * 在 Azure 入口網站中啟用分散式追蹤。
+> * 將 Azure Spring Cloud Sleuth 新增至您的應用程式。
+> * 檢視微服務應用程式的相依性對應。
+> * 搭配不同的篩選搜尋追蹤資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-若要完成本教學課程：
-
-* 已佈建且正在執行的 Azure Spring Cloud 服務。  完成[此快速入門](spring-cloud-quickstart-launch-app-cli.md)以佈建並啟動 Azure Spring Cloud 服務。
+若要完成本教學課程，您需要已佈建好且正在執行的 Azure Spring Cloud 服務。 請完成[關於如何透過 Azure CLI 來部署應用程式的快速入門](spring-cloud-quickstart-launch-app-cli.md)，以佈建和執行 Azure Spring Cloud 服務。
     
 ## <a name="add-dependencies"></a>新增相依性
 
-將下列行新增至 application.properties 檔案，來讓 zipkin sender 能傳送至網路：
+1. 將下面這行新增至 application.properties 檔案：
 
-```xml
-spring.zipkin.sender.type = web
-```
+   ```xml
+   spring.zipkin.sender.type = web
+   ```
 
-如果您已遵循我們[針對準備 Azure Spring Cloud 應用程式的指南](spring-cloud-tutorial-prepare-app-deployment.md)，則可以略過下一個步驟。 否則，請移至您的本機開發環境，並編輯您的 `pom.xml` 檔案以包含 Spring Cloud Sleuth 相依性：
+   完成此變更後，Zipkin 傳送者便能傳送至 Web。
 
-```xml
-<dependencyManagement>
+1. 如果您已遵循我們[針對準備 Azure Spring Cloud 應用程式的指南](spring-cloud-tutorial-prepare-app-deployment.md)，則請略過此步驟。 否則，請移至您的本機開發環境，並編輯您的 pom.xml 檔案以包含下列 Azure Spring Cloud Sleuth 相依性：
+
+    ```xml
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-sleuth</artifactId>
+                <version>${spring-cloud-sleuth.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-sleuth</artifactId>
-            <version>${spring-cloud-sleuth.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
     </dependencies>
-</dependencyManagement>
-<dependencies>
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-sleuth</artifactId>
-    </dependency>
-</dependencies>
-```
+    ```
 
-* 再次針對您的 Azure Spring Cloud 服務進行建置及部署以反映這些變更。 
+1. 再次針對您的 Azure Spring Cloud 服務進行建置及部署以反映這些變更。
 
 ## <a name="modify-the-sample-rate"></a>修改採樣速率
-您可以修改採樣速率來變更收集遙測的速率。 例如，如果您想要將採樣速率降低一半，請移至您的 `application.properties` 檔案，然後變更下列行：
+
+您可以修改採樣速率來變更收集遙測的速率。 例如，如果您想要和往常一樣取樣一半，請開啟 application.properties 檔案，然後變更下面這行：
 
 ```xml
 spring.sleuth.sampler.probability=0.5
 ```
 
-如果您已經建置並部署應用程式，則可以在 Azure CLI 或入口網站中將上述行新增為環境變數來修改採樣速率。 
+如果您已建置並部署應用程式，則可以修改採樣速率。 若要這麼做，請在 Azure CLI 或 Azure 入口網站中將前面這行新增為環境變數。
 
 ## <a name="enable-application-insights"></a>啟用 Application Insights
 
 1. 在 Azure 入口網站中，移至您的 Azure Spring Cloud 服務頁面。
-1. 在 [監視] 區段中，選取 [分散式追蹤]  。
+1. 在 [監視]  頁面上，選取 [分散式追蹤]  。
 1. 選取 [編輯設定]  以編輯或新增新的設定。
-1. 建立新的 Application Insights 查詢，或是選取現有查詢。
+1. 建立新的 Application Insights 查詢或選取現有查詢。
 1. 選擇您想要監視的記錄類別，並指定保留期間 (以天為單位)。
 1. 選取 [套用]  來套用新的追蹤。
 
-## <a name="view-application-map"></a>檢視應用程式對應
+## <a name="view-the-application-map"></a>檢視應用程式對應
 
-返回 [分散式追蹤] 頁面，並選取 [檢視應用程式對應]  。 檢閱您應用程式及監視設定的視覺效果呈現。 若要了解如何使用應用程式對應，請參閱[這篇文章](https://docs.microsoft.com/azure/azure-monitor/app/app-map) \(部分機器翻譯\)。
+返回 [分散式追蹤]  頁面，並選取 [檢視應用程式對應]  。 檢閱您應用程式及監視設定的視覺效果呈現。 若要了解如何使用應用程式對應，請參閱[應用程式對應：將分散式應用程式分級](https://docs.microsoft.com/azure/azure-monitor/app/app-map)。
 
-## <a name="search"></a>搜尋
+## <a name="use-search"></a>使用搜尋
 
-使用搜尋功能來查詢其他特定的遙測項目。 在 [分散式追蹤]  頁面上，選取 [搜尋]  。 如需如何使用搜尋功能的詳細資訊，請參閱[這篇文章](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search) \(部分機器翻譯\)。
+使用搜尋功能來查詢其他特定的遙測項目。 在 [分散式追蹤]  頁面上，選取 [搜尋]  。 如需如何使用搜尋功能的詳細資訊，請參閱 [在 Application Insights 中使用搜尋](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search)。
 
-## <a name="application-insights-page"></a>Application Insights 頁面
+## <a name="use-application-insights"></a>使用 Application Insights
 
-除了應用程式對應和搜尋之外，Application Insights 也提供監視功能。 在 Azure 入口網站中搜尋您應用程式的名稱，然後啟動 Application Insights 頁面以尋找更多內容。 如需如何使用這些工具的詳細指引，請[參閱相關文件](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language) \(部分機器翻譯\)。
-
+除了應用程式對應和搜尋功能之外，Application Insights 也提供監視功能。 在 Azure 入口網站中搜尋您應用程式的名稱，然後開啟 Application Insights 頁面以尋找監視資訊。 如需如何使用這些工具的詳細指引，請參閱 [Azure 監視器記錄查詢](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language)。
 
 ## <a name="disable-application-insights"></a>停用 Application Insights
 
 1. 在 Azure 入口網站中，移至您的 Azure Spring Cloud 服務頁面。
-1. 在 [監視] 區段中，按一下 [分散式追蹤]  。
-1. 按一下 [停用]  以停用 Application Insights
+1. 在 [監視]  上，選取 [分散式追蹤]  。
+1. 選取 [停用]  以停用 Application Insights。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何在 Azure Spring Cloud 中啟用及理解分散式追蹤。 若要了解如何將應用程式繫結至 Azure CosmosDB，請繼續進行下一個教學課程。
+在本教學課程中，您已了解如何在 Azure Spring Cloud 中啟用及理解分散式追蹤。 若要了解如何將應用程式繫結至 Azure Cosmos DB 資料庫，請繼續進行下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [了解如何將您的應用程式繫結至 Azure CosmosDB](spring-cloud-tutorial-bind-cosmos.md)。
+> [了解如何繫結至 Azure Cosmos DB 資料庫](spring-cloud-tutorial-bind-cosmos.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 指令碼範例 - Batch 中的 Linux 集區 | Microsoft Docs
-description: Azure CLI 指令碼範例 - 在 Batch 中建立和管理 Linux 集區
+title: Azure CLI 指令碼範例 - Batch 中的 Linux 集區
+description: 此指令碼示範 Azure CLI 中一些可用的命令，用於建立和管理 Azure Batch 中的 Linux 計算節點集區。
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
-ms.openlocfilehash: a0e78ec35ff001b6a4ee59794a002cb3a74e90cb
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 33f66da1911bdefee298f3de949937bbc52d8fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698482"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390225"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>CLI 範例：在 Azure Batch 中建立和管理 Linux 集區
 
-這些指令碼示範 Azure CLI 中一些可用的命令，用於建立和管理 Azure Batch 中的 Linux 計算節點集區。
+此指令碼示範 Azure CLI 中一些可用的命令，用於建立和管理 Azure Batch 中的 Linux 計算節點集區。
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -45,7 +45,7 @@ az group delete --name myResourceGroup
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | 建立 Batch 帳戶。 |

@@ -1,7 +1,7 @@
 ---
 title: 教學課程：建立自訂搜尋網頁 - Bing 自訂搜尋
 titleSuffix: Azure Cognitive Services
-description: 了解如何設定自訂 Bing 搜尋執行個體，並將其整合到網頁。
+description: 了解如何使用本教學課程來設定自訂的 Bing 搜尋執行個體，並將其整合到網頁。
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 5a4d797fecca8e040a6e22bf59a5776b1ffff80f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c3d571f494d5f08c7c9e3c551eba88fb86e1ec23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977194"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448777"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>教學課程：建置自訂搜尋網頁
 
@@ -32,7 +32,7 @@ Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋
 > - 加入已釘選的項目
 > - 將自訂搜尋整合到網頁
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 若要依照本教學課程，您需要 Bing 自訂搜尋 API 的訂用帳戶金鑰。  若要取得金鑰，請參閱[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)。
 - 如果尚未安裝 Visual Studio 2017 或更新版本，您可以下載並使用**免費的** [Visual Studio 2019 Community 版本](https://www.visualstudio.com/downloads/)。
@@ -103,7 +103,7 @@ Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋
   
    ![[託管的 UI] 選取色彩佈景主題的螢幕擷取畫面](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-   若需要微調色彩佈景主題以便與您的 Web 應用程式完美整合，請按一下 [自訂佈景主題]  。 並非所有色彩設定都會套用到所有版面配置佈景主題。 若要變更色彩，請在對應的文字方塊中輸入色彩的 RGB HEX 值 (例如 #366eb8)。 或者，按一下色彩按鈕並按一下適合您的陰影。 選取色彩時務必考慮可存取性。
+   若需要微調色彩佈景主題來與您的 Web 應用程式完美整合，請按一下 [自訂佈景主題]  。 並非所有色彩設定都會套用到所有版面配置佈景主題。 若要變更色彩，請在對應的文字方塊中輸入色彩的 RGB HEX 值 (例如 #366eb8)。 或者，按一下色彩按鈕並按一下適合您的陰影。 選取色彩時務必考慮可存取性。
   
    ![[託管的 UI] 自訂色彩佈景主題的螢幕擷取畫面](./media/custom-search-hosted-ui-customize-color-theme.png)  
 

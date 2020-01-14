@@ -1,26 +1,17 @@
 ---
-title: 將 Service Fabric 應用程式部署到 Azure 中的叢集 | Microsoft Docs
-description: 了解如何從 Visual Studio 將應用程式部署到叢集。
-services: service-fabric
-documentationcenter: .net
+title: 將 Service Fabric 應用程式部署至 Azure 中的叢集
+description: 了解如何從 Visual Studio 將現有的應用程式部署至新建立的 Azure Service Fabric 叢集。
 author: athinanthny
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 37c27ae71eddcb5a35b9baeae250bee232c7acb7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9951610732cbb1c5884a7b7e830033f427db0ab1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213208"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646002"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>教學課程：將 Service Fabric 應用程式部署至 Azure 中的叢集
 
@@ -39,7 +30,7 @@ ms.locfileid: "74213208"
 > * [使用 Azure Pipelines 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)。
 > * [設定應用程式的監視和診斷](service-fabric-tutorial-monitoring-aspnet.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始進行本教學課程之前：
 
@@ -93,7 +84,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ![建立叢集](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 
-在 [VM 詳細資料]  索引標籤中，輸入叢集管理員帳戶的 [使用者名稱]  和 [密碼]  。  選取叢集節點的 [虛擬機器映像]  和每個叢集節點的 [虛擬機器大小]  。  按一下 [Advanced (進階)]  索引標籤。
+在 [VM 詳細資料]  索引標籤中，輸入叢集管理員帳戶的 [使用者名稱]  和 [密碼]  。  選取叢集節點的 [虛擬機器映像]  和每個叢集節點的 [虛擬機器大小]  。  按一下 [進階]  索引標籤。
 
 ![建立叢集](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
 

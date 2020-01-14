@@ -1,5 +1,5 @@
 ---
-title: Azure 快速入門 - 使用 Azure 入口網站建立事件中樞專用叢集
+title: 使用 Azure 入口網站建立事件中樞專用叢集
 description: 在本快速入門中，您將了解如何使用 Azure 入口網站建立 Azure 事件中樞叢集。
 services: event-hubs
 documentationcenter: ''
@@ -8,14 +8,14 @@ manager: ''
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: xurui
-ms.openlocfilehash: bde6844962561232e4af51f2b4e803d49bf5398e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dbe34b95652d972a9e75f4ab8f2c208061359ae9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720636"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437217"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>快速入門：使用 Azure 入口網站建立專用的事件中樞叢集 
 事件中樞叢集可為有極嚴苛串流需求的客戶提供單一租用戶部署。 此供應項目可保證 99.99 % 的 SLA，且僅適用於專用定價層。 [事件中樞叢集](event-hubs-dedicated-overview.md)可在保證容量與提供亞秒延遲的情況下，每秒輸入數百萬個事件。 叢集內所建立的命名空間和事件中樞會包含標準供應項目以上的所有功能，但沒有任何輸入限制。 專案供應項目也包含熱門的[事件中樞擷取](event-hubs-capture-overview.md)功能，此功能完全免費，可讓您自動地對資料流進行批次處理並記錄至 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)或 [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)。
@@ -26,7 +26,7 @@ ms.locfileid: "73720636"
 > 此自助式體驗目前在 [Azure 入口網站](https://aka.ms/eventhubsclusterquickstart)上提供預覽版。 如果您有任何關於專用供應項目的疑問，請連絡[事件中樞小組](mailto:askeventhubs@microsoft.com)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 若要完成本快速入門，請確定您具備︰
 
 - 一個 Azure 帳戶。 如果您沒有 Azure 帳戶，請先在開始前[購買帳戶](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)。 免費的 Azure 帳戶不支援此功能。 
@@ -67,7 +67,7 @@ ms.locfileid: "73720636"
     2. 命名空間會繼承下列屬性：
         1. 訂用帳戶識別碼
         2. 資源群組
-        3. 位置
+        3. Location
         4. 叢集名稱
     3. 選取 [建立]  來建立命名空間。 現在，您可以管理叢集了。  
 

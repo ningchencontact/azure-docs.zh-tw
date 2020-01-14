@@ -1,7 +1,7 @@
 ---
 title: 快速入門：使用異常偵測器 REST API 與 Python 偵測批次異常行為
 titleSuffix: Azure Cognitive Services
-description: 使用 Anomaly Detector API 來偵測資料序列中的異常狀況 (以批次或串流資料為單位)。
+description: 在本快速入門中，使用 Anomaly Detector API 來偵測資料序列中的異常狀況 (以批次或串流資料的方式)。
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: e24436cef11cc07571adb55bca63add5bda783c4
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7cef1c8c1b05c859f9435b06c3096bb983965656
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483405"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448873"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>快速入門：使用異常偵測器 REST API 與 Python 偵測時間序列資料中的異常行為
 
-使用本快速入門以開始使用異常偵測器 API 的兩個偵測模式，來偵測時間序列資料中的異常行為。 此 Python 應用程式會傳送包含 JSON 格式時間序列資料的兩個 API 要求，並取得回應。
+使用本快速入門以開始使用 Anomaly Detector API 的兩個偵測模式，來偵測時間序列資料中的異常狀況。 此 Python 應用程式會傳送包含 JSON 格式時間序列資料的兩個 API 要求，並取得回應。
 
 | API 要求                                        | 應用程式輸出                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -28,7 +28,7 @@ ms.locfileid: "74483405"
 
  雖然此應用程式是以 Python 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。 您可以在 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/python-detect-anomalies.py) 上找到此快速入門的原始程式碼。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - [Python 2.x 或 3.x](https://www.python.org/downloads/)
 - Anomaly Detector 金鑰和端點
@@ -70,7 +70,7 @@ ms.locfileid: "74483405"
 
     [!code-python[request method](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=request)]
 
-## <a name="detect-anomalies-as-a-batch"></a>偵測批次異常行為
+## <a name="detect-anomalies-as-a-batch"></a>以批次方式偵測異常狀況
 
 1. 建立名為 `detect_batch()` 的方法，以批次方式偵測整個資料的異常狀況。 使用端點、URL、訂用帳戶金鑰和 json 資料呼叫上方建立的 `send_request()` 方法。
 

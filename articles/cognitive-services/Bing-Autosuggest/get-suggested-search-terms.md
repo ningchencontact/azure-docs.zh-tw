@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 5b1e4cc8dfc89d6dcc5d29a368e089402b284352
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a90fa0a66fb32b2a885599f09458964188353880
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072880"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448839"
 ---
 # <a name="what-is-bing-autosuggest"></a>什麼是 Bing 自動建議？
 
@@ -23,7 +23,7 @@ ms.locfileid: "74072880"
 
 ## <a name="bing-autosuggest-api-features"></a>Bing 自動建議 API 功能
 
-| 功能                                                                                                                                                                                 | 說明                                                                                                                                                            |
+| 功能                                                                                                                                                                                 | 描述                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [即時建議搜尋字詞](concepts/get-suggestions.md) | 使用自動建議 API 隨著使用者的輸入顯示建議的搜尋字詞，以改善您的應用程式體驗。 |
 
@@ -49,6 +49,9 @@ Bing 自動建議 API 是一種 RESTful Web 服務，可輕易地從任何可發
 
 請熟悉 [Bing 自動建議 API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) 參考。 此參考包含端點、標頭、您用來要求建議查詢字詞的查詢參數，以及回應物件定義的清單。
 
-了解如何使用 [Bing Web 搜尋 API](../bing-web-search/search-the-web.md) 來搜尋 Web。
+請瀏覽 [Bing 搜尋 API 中樞頁面](../bing-web-search/search-the-web.md)以探索其他可用的 API。
+
+
+了解如何使用 [Bing Web 搜尋 API](../bing-web-search/search-the-web.md) 來搜尋 Web，以及如何探索其他 [Bing 搜尋 API](../bing-web-search/index.yml)。
 
 務必閱讀 [Bing 使用和顯示需求](./useanddisplayrequirements.md)，您才不會違反任何有關使用搜尋結果的規則。

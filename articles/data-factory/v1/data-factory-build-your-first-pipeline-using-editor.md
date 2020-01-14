@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 012b13c440b8d0873e387c7d185803dc07852bf7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 340017a121d12c95c7c04bbfe67b336638209e9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683027"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439002"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站建置您的第一個資料處理站
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.locfileid: "73683027"
 > 
 > 一個管線中可以有多個活動。 您可以將一個活動的輸出資料集設為另一個活動的輸入資料集，藉此鏈結兩個活動 (讓一個活動接著另一個活動執行)。 如需詳細資訊，請參閱 [Data Factory 排程和執行](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 請參閱[教學課程概觀](data-factory-build-your-first-pipeline.md)，並遵循＜先決條件＞一節的步驟。
 
 本文不提供 Data Factory 服務的概念性概觀。 如需有關服務的詳細資訊，請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)。  
@@ -110,7 +110,7 @@ ms.locfileid: "73683027"
 
    ![儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. 將**帳戶名稱**取代成您儲存體帳戶的名稱。 將**帳戶金鑰**取代成儲存體帳戶的存取金鑰。 若要了解如何取得您的儲存體存取金鑰，請參閱[管理儲存體帳戶](../../storage/common/storage-account-manage.md#access-keys)，以了解如何檢視、複製及重新產生儲存體存取金鑰。
+1. 將**帳戶名稱**取代成您儲存體帳戶的名稱。 將**帳戶金鑰**取代成儲存體帳戶的存取金鑰。 若要了解如何取得儲存體存取金鑰，請參閱[管理儲存體帳戶存取金鑰](../../storage/common/storage-account-keys-manage.md)。
 
 1. 選取命令列上的 [部署]  以部署連結服務。
 
@@ -147,7 +147,7 @@ ms.locfileid: "73683027"
 
     下表提供程式碼片段中所使用之 JSON 屬性的描述。
 
-   | 屬性 | 說明 |
+   | 屬性 | 描述 |
    |:--- |:--- |
    | clusterSize |指定 HDInsight 叢集的大小。 |
    | timeToLive | 指定刪除 HDInsight 叢集前的閒置時間。 |
@@ -208,7 +208,7 @@ ms.locfileid: "73683027"
     ```
     下表提供程式碼片段中所使用之 JSON 屬性的描述。
 
-   | 屬性 | 所在巢狀結構 | 說明 |
+   | 屬性 | 所在巢狀結構 | 描述 |
    |:--- |:--- |:--- |
    | type | properties |類型屬性會設為 **AzureBlob**，因為資料位於 Blob 儲存體。 |
    | linkedServiceName | format |表示您先前建立的 AzureStorageLinkedService。 |
@@ -421,7 +421,7 @@ ms.locfileid: "73683027"
 
     ![活動時段清單](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 在本教學課程中，您已在 HDInsight Hadoop 叢集上執行 Hive 指令碼，建立了資料處理站來處理資料。 您已使用 Azure 入口網站中使用 Data Factory 編輯器來執行下列步驟︰  
 
 * 建立資料處理站。
@@ -435,7 +435,7 @@ ms.locfileid: "73683027"
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，且含有轉換活動 (HDInsight 活動) 的管線。 若要查看如何使用複製活動將資料從 Blob 儲存體複製到 SQL 資料庫，請參閱[教學課程：將資料從 Blob 儲存體複製到 SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 ## <a name="see-also"></a>另請參閱
-| 話題 | 說明 |
+| 主題 | 描述 |
 |:--- |:--- |
 | [管線](data-factory-create-pipelines.md) |本文協助您了解 Data Factory 中的管線和活動，以及如何使用這些來為您的案例或業務建構端對端的資料導向工作流程。 |
 | [資料集](data-factory-create-datasets.md) |本文協助您了解 Data Factory 中的資料集。 |

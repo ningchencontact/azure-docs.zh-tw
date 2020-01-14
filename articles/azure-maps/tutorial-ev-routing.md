@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 0f5964472b738bd3868bbf361b85fa4ad1f13b5c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 7039cd73263388f206075a53d7898e0d15da6b03
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109614"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613681"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>教學課程：使用 Azure Notebooks (Python) 規劃電動車的路線
 
@@ -35,13 +35,15 @@ Azure 地圖服務是以原生方式整合到 Azure 的地理空間服務 API �
 > * 根據行車時間尋找前往最近電動車充電站的路線，並將該路線視覺化。
 
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>Prerequisites 
 
 若要完成此教學課程，您必須先建立 Azure 地圖服務帳戶，並取得主要金鑰 (訂用帳戶金鑰)。 
 
-若要在 S1 定價層中建立 Azure 地圖服務帳戶訂用帳戶，請遵循[管理 Azure 地圖服務帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) \(部分機器翻譯\) 中的指示。 
+若要在 S1 定價層中建立 Azure 地圖服務帳戶訂用帳戶，請依照[建立帳戶](quick-demo-map-app.md#create-an-account-with-azure-maps)中的指示，建立使用 S1 定價層的 Azure 地圖服務帳戶訂用帳戶。 
 
-若要取得帳戶的主要訂用帳戶金鑰，請依照[建立帳戶並取得您的金鑰](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key)中的指示進行。
+若要取得帳戶的主要訂用帳戶金鑰，請依照[取得主要金鑰](quick-demo-map-app.md#get-the-primary-key-for-your-account)中的指示操作。
+
+如需 Azure 地圖服務中驗證的詳細資訊，請參閱[管理 Azure 地圖服務中的驗證](./how-to-manage-authentication.md)。
 
 ## <a name="create-an-azure-notebook"></a>建立 Azure 筆記本
 
@@ -111,7 +113,7 @@ from IPython.display import Image, display
 若要判斷電動車可抵達的範圍界限，請執行下列資料格中的指令碼：
 
 ```python
-subscriptionKey = "Your Azure Maps primary subscription key"
+subscriptionKey = "Your Azure Maps key"
 currentLocation = [34.028115,-118.5184279]
 session = aiohttp.ClientSession()
 
@@ -398,6 +400,6 @@ display(Image(staticMapImage))
 * [Post 路線矩陣](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [取得路線指示](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
-如需 Azure 地圖服務 REST API 的完整清單，請參閱 [Azure 地圖服務 REST API](https://docs.microsoft.com/azure/azure-maps/#reference) \(部分機器翻譯\)。
+如需 Azure 地圖服務 REST API 的完整清單，請參閱 [Azure 地圖服務 REST API](https://docs.microsoft.com/azure/azure-maps/consumption-model) \(部分機器翻譯\)。
 
 若要深入了解 Azure Notebooks，請參閱 [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) \(部分機器翻譯\)。

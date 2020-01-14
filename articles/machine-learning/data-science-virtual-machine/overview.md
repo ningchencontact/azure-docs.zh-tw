@@ -8,21 +8,24 @@ ms.subservice: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
-ms.date: 02/22/2019
-ms.openlocfilehash: 8359a8407e93a2b31466342b82539cef04b0fe01
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 12/31/2019
+ms.openlocfilehash: a63087620d50336c67472348da3b7f37fb380635
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802202"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611963"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Azure 資料科學虛擬機器是什麼？
 
 資料科學虛擬機器 (DSVM) 是 Azure 雲端平台上的自訂 VM 映像，專為進行資料科學建置。 它已預先安裝和預先設定許多常用的資料科學工具，以開始建置智慧應用程式進行進階分析。 
 
 下列項目有提供 DSVM：
++ **Windows Server 2019 (預覽)**
++ **Ubuntu 18.04 LTS (預覽)**
 + Windows Server 2016
 + Ubuntu 16.04 LTS 和 CentOS 7.4
+
 
 > [!NOTE]
 > 所有適用於深度學習的 VM 工具都已併入資料科學虛擬機器中。 
@@ -63,7 +66,7 @@ Windows Server 2016 版的 DSVM 預先安裝了 GPU 驅動程式、架構和 GPU
 
 您可以將 Ubuntu、CentOS 或 Windows-2016 版 DSVM 部署到非 GPU 型的 Azure 虛擬機器。 在此情況下，所有深度學習架構都會回復為 CPU 模式。
  
-[深入了解可用的深度學習和 AI 架構](dsvm-deep-learning-ai-frameworks.md)。
+[深入了解可用的深度學習和 AI 架構](dsvm-tools-deep-learning-frameworks.md)。
 
 <a name="included"></a>
 
@@ -75,7 +78,7 @@ Windows Server 2016 版的 DSVM 預先安裝了 GPU 驅動程式、架構和 GPU
 
 請透過下列文章來深入了解：
 
-+ Windows:
++ Windows：
   + [設定 Windows DSVM](provision-vm.md)
   + [您可以在 Windows DSVM 上進行的十件事](vm-do-ten-things.md)
 

@@ -3,12 +3,12 @@ title: 教學課程 - 使用 Azure Kubernetes Service (AKS) 和 Terraform 建立
 description: 教學課程說明如何以 Azure Kubernetes Service 和 Terraform 建立 Kubernetes 叢集
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 792c075cfb40eb4904a30b63e9902a59ceda9bc1
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: cea9d93ed418a4f2e90fa3f2dfd3441f4b296316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159294"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374959"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>教學課程：使用 Azure Kubernetes Service 和 Terraform 建立 Kubernetes 叢集
 
@@ -21,9 +21,9 @@ ms.locfileid: "74159294"
 > * 使用 Terraform 和 AKS 建立 Kubernetes 叢集
 > * 使用 kubectl 工具測試 Kubernetes 叢集的可用性
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
+- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
 - **設定 Terraform**：請遵循 [Terraform 和設定 Azure 的存取](/azure/virtual-machines/linux/terraform-install-configure)一文中的指示
 
@@ -138,7 +138,7 @@ ms.locfileid: "74159294"
             }
         }
 
-        agent_pool_profile {
+        default_node_pool {
             name            = "agentpool"
             count           = var.agent_count
             vm_size         = "Standard_DS1_v2"
@@ -168,7 +168,7 @@ ms.locfileid: "74159294"
 
     `linux_profile` 記錄可讓您設定使用 SSH 登入背景工作角色節點的設定。
 
-    透過 AKS，您只需要為背景工作角色節點付費。 `agent_pool_profile` 記錄可設定這些背景工作角色節點的詳細資料。 `agent_pool_profile record` 涵蓋要建立的背景工作角色節點數量，以及背景工作角色節點的類型。 若您日後需要相應增加或相應減少叢集，可修改此記錄中的 `count` 值。
+    透過 AKS，您只需要為背景工作角色節點付費。 `default_node_pool` 記錄可設定這些背景工作角色節點的詳細資料。 `default_node_pool record` 涵蓋要建立的背景工作角色節點數量，以及背景工作角色節點的類型。 若您日後需要相應增加或相應減少叢集，可修改此記錄中的 `count` 值。
 
 1. 儲存檔案 ( **&lt;Ctrl>S**) 並結束編輯器 ( **&lt;Ctrl>Q**)。
 

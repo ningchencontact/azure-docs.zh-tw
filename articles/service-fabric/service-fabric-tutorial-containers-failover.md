@@ -1,27 +1,17 @@
 ---
-title: 在 Azure 中的 Service Fabric 上容錯移轉及調整容器應用程式 | Microsoft Docs
+title: 容器應用程式的容錯移轉和調整
 description: 在本教學課程中，您會了解如何在 Azure Service Fabric 容器應用程式中處理容錯移轉。  亦了解如何調整在叢集中執行的容器與服務。
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker、容器、微服務、Service Fabric、Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a13ce98eeebf60a6b61ee9aff01107c61fa94641
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bef1c42712c881296c5ab7b8096deb50fe94ee55
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385117"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614089"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>教學課程：示範透過 Service Fabric 容錯移轉與調整容器服務
 
@@ -31,7 +21,7 @@ ms.locfileid: "68385117"
 > * 了解 Service Fabric 叢集中的容器容錯移轉
 > * 在應用程式中調整 Web 前端容器
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 [第 2 部分](service-fabric-tutorial-package-containers.md)的應用程式正在使用中的 Service Fabric 叢集中執行。
 

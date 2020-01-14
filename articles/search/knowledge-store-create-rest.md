@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 107dcfa9ea312774e679c301ea934255c7b836c0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 12/30/2019
+ms.openlocfilehash: 4d9810b9075bc3049758e03ba8376621661b79ba
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720076"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563219"
 ---
 # <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>使用 REST 建立 Azure 認知搜尋知識存放區
 
@@ -26,35 +26,36 @@ Azure 認知搜尋中的知識存放區功能可保存 AI 擴充管線的輸出�
 
 建立知識存放區之後，您可以了解如何使用 [儲存體總管](knowledge-store-view-storage-explorer.md) 或 [Power BI](knowledge-store-connect-power-bi.md) 來存取知識存放區。
 
-## <a name="create-services"></a>建立服務
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-建立下列服務：
+> [!TIP]
+> 建議您在本文中使用 [Postman 桌面應用程式](https://www.getpostman.com/)。 本文的[原始程式碼](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store)包含 Postman 集合，內含所有的要求。 
 
-- [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶中[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
+## <a name="create-services-and-load-data"></a>建立服務並載入資料
 
-- 建立 [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)以儲存範例資料和知識存放區。 您的儲存體帳戶必須針對您的 Azure 認知搜尋服務使用相同的位置 (例如美國西部)。 [帳戶類型]  的值必須是 [StorageV2 (一般用途 V2)]  (預設值) 或 [儲存體 (一般用途 V1)]  。
+本快速入門會使用 Azure 認知搜尋、Azure Blob 儲存體和 [Azure 認知服務](https://azure.microsoft.com/services/cognitive-services/)進行 AI 處理。 
 
-- 建議使用：取得 [Postman 傳統型應用程式](https://www.getpostman.com/)以將要求傳送至 Azure 認知搜尋。 您可以使用 REST API 搭配任何能夠處理 HTTP 要求和回應的工具。 Postman 是探索 REST API 的絕佳選擇。 在此文章中，我們將使用 Postman。 此外，此文章的[原始程式碼](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store)包含 Postman 要求集合。 
+由於工作負載很小，因此，從 Azure 認知搜尋叫用時，認知服務會在幕後連線以提供免費處理，每天最多 20 筆交易。 如果使用我們提供的範例資料，就可以略過建立或連結認知服務資源的步驟。
 
-## <a name="store-the-data"></a>儲存資料
+1. [下載 HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D)。 這項資料是儲存在 CSV 檔案中的飯店評論資料 (源自於 Kaggle.com)，其中包含 19 個關於單一飯店的客戶意見反應。 
 
-將旅館評論 CSV 檔案載入 Azure Blob 儲存體中，以便 Azure 認知搜尋索引子存取該檔案，並透過 AI 擴充管線進行饋送。
+1. [建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)，或在您目前的訂用帳戶下方[尋找現有帳戶](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/)。 您會將 Azure 儲存體同時用於要匯入的原始內容，以及作為最終結果的知識存放區。
 
-### <a name="create-a-blob-container-by-using-the-data"></a>使用資料建立 Blob 容器
+   選擇 **StorageV2 (一般用途 V2)** 帳戶類型。
 
-1. 下載儲存在 CSV 檔案 (HotelReviews_Free.csv) 中的[旅館評論資料](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D)。 此資料源自 Kaggle.com 並包含客戶對於旅館的意見反應。
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後移至您的 Azure 儲存體帳戶。
-1. 建立 [Blob 容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)。 若要建立容器，請在儲存體帳戶的左側功能表中，選取 [Blob]  ，然後選取 [容器]  。
-1. 針對新的容器 [名稱]  輸入 **hotel-reviews**。
-1. 針對 [公用存取層級]  ，選取任何值。 我們使用預設值。
-1. 選取 [確定]  以建立 Blob 容器。
-1. 開啟新的 **hotels-review** 容器、選取 [上傳]  ，然後選取您在第一個步驟中下載的 HotelReviews-Free.csv 檔案。
+1. 開啟 Blob 服務頁面，並建立名為 *hotel-reviews* 的容器。
+
+1. 按一下 [上傳]  。
 
     ![上傳資料](media/knowledge-store-create-portal/upload-command-bar.png "上傳飯店評論")
 
-1. 選取 [上傳]  ，將 CSV 檔案匯入 Azure Blob 儲存體中。 新的容器隨即顯示：
+1. 選取您在第一個步驟中下載的 **HotelReviews-Free.csv** 檔案。
 
-    ![建立 Blob 容器](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "建立 Blob 容器")
+    ![建立 Azure Blob 容器](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "建立 Azure Blob 容器")
+
+1. 這項資源的作業即將完成，但在離開這些頁面之前，請使用左側導覽窗格上的連結開啟 [存取金鑰]  頁面。 取得連接字串以從 Blob 儲存體中擷取資料。 連接字串會如下列範例所示：`DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+
+1. 同樣在入口網站中，切換至 [Azure 認知搜尋]。 [建立新的服務](search-create-service-portal.md)或[尋找現有的服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 在此練習中，您可以使用免費服務。
 
 ## <a name="configure-postman"></a>設定 Postman
 
@@ -72,7 +73,7 @@ Azure 認知搜尋中的知識存放區功能可保存 AI 擴充管線的輸出�
 
 在 [變數]  索引標籤上，您可以在每次遇到雙括弧內的特定變數時，新增 Postman 交換的值。 例如，Postman 會將符號 `{{admin-key}}` 取代為您針對 `admin-key` 所設定的目前值。 Postman 會在 URL、標頭、要求本文等項目中進行這項替代。 
 
-若要取得 `admin-key` 的值，請移至 Azure 認知搜尋服務，然後選取 [金鑰]  索引標籤。將 `search-service-name` 和 `storage-account-name` 變更為您在 [建立服務](#create-services) 中選擇的值。 使用儲存體帳戶的 [存取金鑰]  索引標籤上的值設定 `storage-connection-string`。您可以將其他值保留為預設值。
+若要取得 `admin-key` 的值，請移至 Azure 認知搜尋服務，然後選取 [金鑰]  索引標籤。將 `search-service-name` 和 `storage-account-name` 變更為您在 [建立服務](#create-services-and-load-data) 中選擇的值。 使用儲存體帳戶的 [存取金鑰]  索引標籤上的值設定 `storage-connection-string`。您可以將其他值保留為預設值。
 
 ![Postman 應用程式變數索引標籤](media/knowledge-store-create-rest/postman-variables-window.png "Postman 的變數視窗")
 
@@ -152,7 +153,7 @@ Azure 認知搜尋中的知識存放區功能可保存 AI 擴充管線的輸出�
 
 ## <a name="create-the-datasource"></a>建立資料來源
 
-接下來，將 Azure 認知搜尋連線至您在 [儲存資料](#store-the-data) 中儲存的旅館資料。 若要建立資料來源，請將 POST 要求傳送至 `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`。 如先前所述，您必須設定 `api-key` 和 `Content-Type` 標頭。 
+接下來，將 Azure 認知搜尋連線至您在 Blob 儲存體中儲存的旅館資料。 若要建立資料來源，請將 POST 要求傳送至 `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`。 如先前所述，您必須設定 `api-key` 和 `Content-Type` 標頭。 
 
 在 Postman 中，移至 [建立資料來源]  要求，然後前往 [本文]  窗格。 您應該會看見下列程式碼：
 

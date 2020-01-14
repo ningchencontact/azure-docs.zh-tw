@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 使用 Azure 範本建立 Linux 虛擬機器擴展集 | Microsoft Docs
+title: 快速入門 - 使用 Azure 範本建立 Linux 虛擬機器擴展集
 description: 了解如何使用 Azure Resource Manager 範本快速建立 Linux 虛擬機器縮放，可部署範例應用程式及設定自動縮放規則
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,17 +16,17 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: aa1aca6a1c47e486e0630e779c975b699a193d41
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 34cc269bc9355fa6744c7d31fff7e986baf1e049
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375956"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351100"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>快速入門：使用 Azure 範本建立 Linux 虛擬機器擴展集
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目，或定義規則以根據 CPU、記憶體需求或網路流量等資源使用量進行自動調整。 其後，Azure 負載平衡器會將流量分配到擴展集中的多個 VM 執行個體。 在此快速入門中，您會使用 Resource Manager 範本建立虛擬機器擴展集，並部署範例應用程式。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -43,7 +43,7 @@ Azure Resource Manager 範本可讓您部署相關資源的群組。 範本是�
 | 屬性                     | 屬性描述                                  | 範例範本值                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | type                         | 要建立的 Azure 資源類型                            | Microsoft.Compute/virtualMachineScaleSets |
-| name                         | 擴展集名稱                                       | myScaleSet                                |
+| NAME                         | 擴展集名稱                                       | myScaleSet                                |
 | location                     | 要建立擴展集的位置                     | 美國東部                                   |
 | sku.name                     | 每個擴展集執行個體的 VM 大小                  | Standard_A1                               |
 | sku.capacity                 | 最初要建立的 VM 執行個體數目           | 2                                         |

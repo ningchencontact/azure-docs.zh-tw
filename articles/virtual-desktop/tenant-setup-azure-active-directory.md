@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: a7511b8026cb3f53a23eed0f0c057632314320c4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 70cabc75ebdeb7ed6d7ffd000419295fce6303de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466665"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459514"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>教學課程：在 Windows 虛擬桌面中建立租用戶
 
@@ -25,7 +25,9 @@ ms.locfileid: "73466665"
 > * 將 TenantCreator 應用程式角色指派給 Azure Active Directory 租用戶中的使用者。
 > * 建立 Windows 虛擬桌面租用戶。
 
-您需要以下各項才能設定 Windows 虛擬桌面租用戶：
+## <a name="what-you-need-to-set-up-a-tenant"></a>要設定租用戶所需具備的項目
+
+在開始設定 Windows 虛擬桌面租用戶之前，請確定您有下列項目：
 
 * Windows 虛擬桌面使用者的 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 租用戶識別碼。
 * Azure Active Directory 租用戶中的全域管理員帳戶。
@@ -33,6 +35,8 @@ ms.locfileid: "73466665"
    * 系統管理員帳戶必須來自要在其中建立 Windows 虛擬桌面租用戶的 Azure Active Directory 租用戶。 此程序不支援 Azure Active Directory B2B (來賓) 帳戶。
    * 系統管理員帳戶必須是公司或學校帳戶。
 * Azure 訂用帳戶。
+
+您必須已備妥租用戶識別碼、全域管理員帳戶和 Azure 訂用帳戶，才能讓教學課程所述的程序正常運作。
 
 ## <a name="grant-permissions-to-windows-virtual-desktop"></a>授與權限給 Windows 虛擬桌面
 
@@ -135,6 +139,12 @@ New-RdsTenant -Name <TenantName> -AadTenantId <DirectoryID> -AzureSubscriptionId
 
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
+```
+
+您最好將系統管理存取權指派給第二名使用者，以免您遭到鎖定而無法進入自己的帳戶，或因為休假而需要讓某人在您不在時擔任租用戶的管理員。 若要指派管理員存取權給第二名使用者，請使用 `<TenantName>` 和 `<Upn>` (請將這兩項取代為您的租用戶名稱和第二名使用者的 UPN) 來執行下列 Cmdlet。
+
+```powershell
+New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinitionName "RDS Owner"
 ```
 
 ## <a name="next-steps"></a>後續步驟

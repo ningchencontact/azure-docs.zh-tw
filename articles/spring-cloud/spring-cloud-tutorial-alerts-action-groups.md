@@ -5,13 +5,13 @@ author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date: 11/18/2019
-ms.openlocfilehash: 2be21b20c394ae8505ad18f2c411db7aab06215f
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.date: 12/29/2019
+ms.openlocfilehash: 49fea7d568e356169f8bbf0dfd1f4ce5c80a7223
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689563"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690333"
 ---
 # <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>教學課程：使用警示和動作群組監視 Spring 雲端資源
 
@@ -21,12 +21,12 @@ Azure Spring Cloud 警示支援根據可用的儲存體、要求率或資料使�
 1. 設定動作群組，其中包含觸發警示時所要採取的動作，例如電子郵件、SMS、Runbook 或 Webhook。 動作群組可在不同的警示之間重複使用。
 2. 設定警示規則。 規則會根據目標資源、計量、條件、時間彙總來繫結計量模式與動作群組。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 除了 Azure Spring 需求以外，本教學課程也需使用下列資源。
 
 * 已部署的 Azure Spring Cloud 執行個體。  請遵循我們的[快速入門](spring-cloud-quickstart-launch-app-cli.md)以開始使用。
 
-* 要監視的 Azure 資源，例如，在本文中實作的資料庫：[如何搭配使用 Spring Data Apache Cassandra API 和 Azure Cosmos DB](https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+* 要監視的 Azure 資源。 此範例會監視 Spring Cloud 執行個體。
  
 下列程序會同時初始化從 Spring Cloud 執行個體左側導覽窗格中的 [警示]  選項啟動的 [動作群組]  和 [警示]  。 (此程序也可以從 Azure 入口網站的 [監視器概觀]  頁面啟動。) 
 
@@ -70,21 +70,46 @@ Azure Spring Cloud 警示支援根據可用的儲存體、要求率或資料使�
 
 1. 按一下 [+ 新增警示規則]  。
 
-  ![入口網站新增警示規則的螢幕擷取畫面](media/alerts-action-groups/alerts-3.png)
+   ![入口網站新增警示規則的螢幕擷取畫面](media/alerts-action-groups/alerts-3.png)
 
-1. 在 [建立規則]  頁面上，指定 [資源]  、[條件]  和 [動作]  。  從 [動作]  窗格中選取先前定義的 [動作群組]  。
+1. 在 [建立規則]  頁面上，指定 [資源]  。
 
-1. 在 [警示詳細資料]  底下，為警示規則命名。
+1. [條件]  設定提供了許多用來監視 **Spring Cloud** 資源的選項。  按一下 [新增]  以開啟 [設定訊號邏輯]  窗格。
+
+1. 選取條件。 此範例會使用 [系統 CPU 使用量百分比]  。
+
+   ![入口網站新增警示規則的螢幕擷取畫面](media/alerts-action-groups/alerts-3-1.png)
+
+1. 向下捲動 [設定訊號邏輯]  窗格，以設定要監視的 [閾值]  。
+
+   ![入口網站新增警示規則的螢幕擷取畫面](media/alerts-action-groups/alerts-3-2.png)
+
+1. 按一下 [完成]  。
+
+若要進一步了解可用於監視的條件，請參閱[使用者入口網站計量選項](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)。
+
+ 在 [動作]  下方，按一下 [選取動作群組]  。 從 [動作]  窗格中選取先前定義的 [動作群組]  。
+
+   ![入口網站新增警示規則的螢幕擷取畫面](media/alerts-action-groups/alerts-3-3.png) 
+
+1. 向下捲動，並在 [警示詳細資料]  下方為警示規則命名。
+
+1. 設定 [嚴重性]  。
 
 1. 按一下 [建立警示規則]  。
 
-  ![入口網站新增警示規則的螢幕擷取畫面](media/alerts-action-groups/alerts-4.png)
+   ![入口網站新增警示規則的螢幕擷取畫面](media/alerts-action-groups/alerts-3-4.png)
 
 確認新的警示規則已啟用。
 
-  ![入口網站新增警示規則的螢幕擷取畫面](media/alerts-action-groups/alerts-5.png)
+   ![入口網站新增警示規則的螢幕擷取畫面](media/alerts-action-groups/alerts-4.png)
+
+您也可以使用 [計量]  頁面來建立規則：
+
+   ![入口網站新增警示規則的螢幕擷取畫面](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>後續步驟
+* [使用者入口網站計量選項](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
 * [在 Azure 入口網站中建立和管理動作群組](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
 * [動作群組中的 SMS 警示行為](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
 * [教學課程：搭配 Azure Spring Cloud 使用分散式追蹤](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)

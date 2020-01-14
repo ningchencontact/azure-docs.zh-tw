@@ -6,40 +6,34 @@ ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: 951191422e80ef6224cd140beed782de31cb3822
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.date: 12/31/2019
+ms.openlocfilehash: 263c12b344e8634c639167aa3e455032f0817e2f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677853"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612082"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>快速入門：設定適用於 Linux (Ubuntu) 的資料科學虛擬機器
 
-啟動並執行 Ubuntu 資料科學虛擬機器。
+啟動並執行 Ubuntu 18.04 資料科學虛擬機器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-若要建立 Windows 資料科學虛擬機器，您必須具有 Azrue 訂用帳戶。 [免費試用 Azure](https://azure.com/free)。
+若要建立 Ubuntu 18.04 資料科學虛擬機器，您必須具有 Azrue 訂用帳戶。 [免費試用 Azure](https://azure.com/free)。
 請注意，Azure 免費帳戶不支援已啟用 GPU 的虛擬機器 SKU。
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>建立 Linux 適用的資料科學虛擬機器
 
-建立 Linux 適用的資料科學虛擬機器執行個體的步驟如下：
+建立資料科學虛擬機器 Ubuntu 18.04 執行個體的步驟如下：
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。如果您尚未登入 Azure 帳戶，系統可能會提示您登入。
-1. 在 [資料科學虛擬機器] 中輸入並選取 [適用於 Linux (Ubuntu) 的資料科學虛擬機器]，以尋找虛擬機器清單。
-    
-    ![Ubuntu VM 清單](./media/dsvm-ubuntu-intro/search-ubuntu.png)
+1. 輸入「資料科學虛擬機器」並選取 [資料科學虛擬機器 - Ubuntu 18.04 預覽]，以尋找虛擬機器清單。
 
 1. 在後續視窗上選取 [建立]  。
 
-   [![](media/dsvm-ubuntu-intro/create-linux.png "用於建立 Ubuntu 電腦的按鈕")](media/dsvm-ubuntu-intro/create-linux-expanded.png#lightbox)
-
 1. 您應會重新導向至 [建立虛擬機器] 刀鋒視窗。
    
-   ![對應至 Ubuntu 虛擬機器的 [基本] 索引標籤](./media/dsvm-ubuntu-intro/review-create-ubuntu.png)
-
 1. 輸入下列資訊以設定精靈的每個步驟：
 
     1. **基本**：
@@ -49,7 +43,7 @@ ms.locfileid: "71677853"
        * **虛擬機器名稱**：輸入虛擬機器的名稱。 這就是它在 Azure 入口網站中的顯示方式。
        * **區域**：選取最適合的資料中心。 如需最快速的網路存取，請選取擁有您大部分資料或是最接近您實際位置的資訊中心。 深入了解 [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)。
        * **映像**：保留預設值。
-       * **大小**：這應會自動填入適合一般工作負載的大小。 深入了解 [Azure 中的 Linux VM 大小](../../virtual-machines/linux/sizes.md)。
+       * **Size**：這應會自動填入適合一般工作負載的大小。 深入了解 [Azure 中的 Linux VM 大小](../../virtual-machines/linux/sizes.md)。
        * **驗證類型**：如需更快速的設定，請選取 [密碼]。 
          
          > [!NOTE]

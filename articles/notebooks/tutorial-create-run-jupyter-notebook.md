@@ -1,20 +1,31 @@
 ---
-title: 教學：在 Azure 上建立和執行 Jupyter Notebook
-description: 如何在 Azure Notebooks 中建立和執行 Jupyter Notebook，以示範資料科學的線性迴歸流程。
+title: 教學課程 - 建立並執行 Jupyter Notebook - Azure Notebooks 預覽
+description: 了解如何在 Azure Notebooks 預覽中建立和執行 Jupyter Notebook，以示範資料科學的線性迴歸流程。
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.openlocfilehash: 2c151cb0de2855856e92d9de07ad7dabfda2f55b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8a1c13f41ef1588b040b3540b852d83764c6ce79
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277419"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660812"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>教學：使用 Python 建立和執行 Jupyter Notebook
 
 本教學將逐步引導您使用 Azure Notebooks 來建立完整的 Jupyter 筆記本，以示範簡單的線性迴歸。 在本教學中，您將熟悉 Jupyter Notebook UI，其中包括建立不同的資料格、執行資料格，以及透過放映投影片的方式呈現 Notebook。
 
 您可在 [GitHub - Azure Notebooks 範例](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)中找到已完成的 Notebook。 不過，本教學會從新的專案和空白的 Notebook 開始，讓您體驗逐步建立的過程的過程。
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+在本教學課程中，您會了解如何：
+
+> [!div class="checklist"]
+> * 建立包含一些範例資料的專案 Notebook
+> * 使用 Notebook 介面來建立各種類型的資料格
+> * 執行 Notebook
+> * 儲存 Notebook
+> * 在 Visual Studio Code 中對 Notebook 進行偵錯
 
 ## <a name="create-the-project"></a>建立專案
 
@@ -30,10 +41,10 @@ ms.locfileid: "74277419"
 
 1. 在顯示的 [建立新專案]  快顯視窗中，輸入或設定下列詳細資料，然後選取 [建立]  ：
 
-    - **專案名稱**：線性迴歸範例 - Cricket Chirps
-    - **專案ID**：linear-regression-example
-    - **公用專案**：(已清除)
-    - **建立 README.md**：(已清除)
+   - **專案名稱**：線性迴歸範例 - Cricket Chirps
+   - **專案ID**：linear-regression-example
+   - **公用專案**：(已清除)
+   - **建立 README.md**：(已清除)
 
 1. 稍後，Azure Notebooks 會帶您至新的專案。
 
@@ -140,7 +151,7 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [協助]   >  [使用
 
 功能表命令如下所示：
 
-| 功能表 | 說明 |
+| 功能表 | 描述 |
 | --- | --- |
 | 檔案 | 用以管理筆記本檔案的命令，命令包括建立和複製筆記本、顯示列印預覽，以及使用各種格式下載筆記本。 |
 | 編輯 | 用以剪下、複製和貼上資料格、尋找和取代值、管理資料格附件，以及插入圖片的一般命令。  |
@@ -228,7 +239,7 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [協助]   >  [使用
 
     ![筆記本核心的忙碌指標](media/tutorial/tutorial-kernel-busy.png)
 
-1. 所有 `pip install` 命令都需要花一些時間執行，而因為您已在專案環境中安裝這些套件 (且這些套件也預設包含在 Azure Notebook 中)，所以您會看到許多訊息表示「需求已滿足」。 這麽多輸出可能擾亂視覺，因此請選取該資料格 (滑鼠按一下)，然後使用 [Cell]   > [Cell Outputs]   > [Toggle]  來隱藏輸出。 您也可以使用同一個子功能表上的 [清除]  命令，移除所有輸出。
+1. 所有 `pip install` 命令都需要花一些時間執行，而因為您已在專案環境中安裝這些套件 (且這些套件也預設包含在 Azure Notebook 中)，所以您會看到許多訊息表示「需求已滿足」。 這麽多輸出可能擾亂視覺，因此請選取該資料格 (按一下滑鼠)，然後使用 [資料格]   > [資料格輸出]   > [切換]  來隱藏輸出。 您也可以使用同一個子功能表上的 [清除]  命令，移除所有輸出。
 
     [Toggle]  命令只會隱藏來自資料格的最新輸出；如果您再次執行資料格，輸出就會重新出現。
 

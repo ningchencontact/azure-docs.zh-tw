@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: d1e836e0f463d1d2ce2b71d689ed590239cfb607
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 11/26/2019
+ms.openlocfilehash: dec792dfd3a2640fa08ebccd9077c081ba9737bb
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406596"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563287"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>使用 Power BI 連線到知識存放區
 
@@ -28,13 +28,14 @@ ms.locfileid: "74406596"
 
 ## <a name="sample-power-bi-template---azure-portal-only"></a>範例 Power BI 範本 - 僅限 Azure 入口網站
 
-如果您[使用 Azure 入口網站建立知識存放區](knowledge-store-create-portal.md)，您可以使用 [Azure 認知搜尋 Power BI 範本範例](https://github.com/Azure-Samples/cognitive-search-templates)來檢視和實驗 Power BI 視覺效果。 當您逐步執行 [匯入資料]  精靈時，此範本也可供下載。
+[使用 Azure 入口網站建立知識存放區](knowledge-store-create-portal.md)時，您可以在[匯入資料](https://github.com/Azure-Samples/cognitive-search-templates)精靈的第二個頁面選擇下載 **Power BI 範本**。 此範本提供了數個適用於文字型內容的視覺效果，例如 WordCloud 和 Network Navigator。 
 
-範例範本會自動執行本文其餘部分所述的設定步驟。 不過，如果您使用 REST API 建立知識存放區，請略過此範本並使用本文中的其餘章節，將知識存放區連線到 Power BI。 從[與 Power BI 連線](#connect-with-power-bi)開始著手。
-
-範例範本包含數個視覺效果，例如 WordCloud 和 Network Navigator。 範本中的某些視覺效果 (例如位置對應和實體圖表檢視器) 不會顯示[在 Azure 入口網站中建立知識存放區](knowledge-store-create-portal.md)中所建立範例知識存放區的資料。 這是因為已使用 [匯入資料]  精靈中僅提供的 AI 擴充子集。
+按一下 [新增認知技能]  頁面上的 [取得 Power BI 範本]  ，可從其公用 GitHub 位置擷取並下載範本。 此精靈會修改範本以容納您的資料圖形，如同精靈中指定的知識存放區投影所擷取的。 因此，您每次執行精靈時所下載的範本都會有所不同，並採用不同的資料輸入和技能選取項目。
 
 ![範例 Azure 認知搜尋 Power BI 範本](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "範例 Power BI 範本")
+
+> [!NOTE]
+> 雖然範本會在精靈進行時下載，但您必須等到知識存放區實際建立於 Azure 資料表儲存體後，才能使用範本。
 
 ## <a name="connect-with-power-bi"></a>使用 Power BI 進行連接
 
@@ -48,7 +49,11 @@ ms.locfileid: "74406596"
 
 1. 如果出現提示，請輸入儲存體帳戶金鑰。
 
-1. 選取 hotelReviewsSsDocument  、hotelReviewsSsKeyPhrases  和 hotelReviewsSsPages  表格。 這些資料表是旅館評論資料的 Azure 資料表預測，包含建立知識存放區時所選取的 AI 擴充。
+1. 選取先前的逐步解說所建立的旅館評論資料所屬的資料表。 
+
+   + 入口網站逐步解說的資料表名稱為 *hotelReviewsSsDocument*、*hotelReviewsSsEntities*、*hotelReviewsSsKeyPhrases* 和 *hotelReviewsSsPages*。 
+   
+   + REST 逐步解說的資料表名稱為 *hotelReviewsDocument*、*hotelReviewsPages*、*hotelReviewsKeyPhrases* 和 *hotelReviewsSentiment*。
 
 1. 按一下 [載入]  。
 
@@ -57,7 +62,6 @@ ms.locfileid: "74406596"
    ![開啟 Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "開啟 Power Query")
 
 1. 選取 hotelReviewsSsDocument  ，然後移除 PartitionKey  、RowKey  和 Timestamp  資料行。 
-
    ![編輯資料表](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "編輯資料表")
 
 1. 按一下資料表右上方具有反向箭號的圖示，以展開 [內容]  。 當資料行清單出現時，選取所有資料行，然後取消選取以 'metadata ' 開頭的資料行。 按一下 [確定]  以顯示選取的資料行。
@@ -82,6 +86,8 @@ ms.locfileid: "74406596"
    ![驗證關聯性](media/knowledge-store-connect-power-bi/powerbi-relationships.png "驗證關聯性")
 
 1. 按兩下每個關聯性，並確定 [交叉篩選方向]  設定為 [兩者]  。  這可讓您的視覺效果在套用篩選條件後重新整理。
+
+1. 按一下左側瀏覽窗格中的 [報表] 磚，以透過視覺效果瀏覽資料。 對於文字欄位，資料表和卡片是有用的視覺效果。 您可以選擇三個不同資料表中的欄位，以填入資料表或卡片。 
 
 <!-- ## Try with larger data sets
 
@@ -114,8 +120,3 @@ In the enrichment step of the wizard, attach a billable [Cognitive Services](htt
 
 > [!div class="nextstepaction"]
 > [使用儲存體總管檢視](knowledge-store-view-storage-explorer.md)
-
-若要了解如何使用 REST API 和 Postman 建立知識存放區，請參閱下列文章。  
-
-> [!div class="nextstepaction"]
-> [在 REST 中建立知識存放區](knowledge-store-howto.md)

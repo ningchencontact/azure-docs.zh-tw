@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 684c067f393b1f6037e67d3b49a861341f3353c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 24738e4d6a9f18bccdbc775fa20cccec222a85fb
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706130"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561621"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions 是什麼？
 
@@ -48,7 +48,7 @@ Durable Functions 主要用來簡化無伺服器應用程式中複雜的具狀�
 
 您可以使用 Durable Functions 簡潔地實作如下列範例所示的函式鏈結模式。
 
-在此範例中，`F1`、`F2`、`F3` 和 `F4`值是函式應用程式中其他函式的名稱。 您可以使用一般命令式編碼建構來實作控制流程。 程式碼會由上而下地執行。 程式碼可包含現有語言的控制流程語意，例如條件和迴圈。 您可以在 `try`/ `catch`/`finally` 區塊中包含錯誤處理邏輯。
+在此範例中，`F1`、`F2`、`F3` 和 `F4` 值是相同函式應用程式中其他函式的名稱。 您可以使用一般命令式編碼建構來實作控制流程。 程式碼會由上而下地執行。 程式碼可包含現有語言的控制流程語意，例如條件和迴圈。 您可以在 `try`/`catch`/`finally` 區塊中包含錯誤處理邏輯。
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -353,7 +353,7 @@ module.exports = df.orchestrator(function*(context) {
 curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
 ```
 
-此外也可從另一個函式使用長期協調流程用戶端來引發事件：
+此外也可從相同函式應用程式中的另一個函式使用長期協調流程用戶端來引發事件：
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 

@@ -1,5 +1,5 @@
 ---
-title: 在您的發票上建立區段以彙整成本 - Azure
+title: 建立發票區段來彙整成本 - Azure
 description: 了解如何使用發票區段來彙整成本。
 author: amberbhargava
 manager: amberb
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: d70460f5a492c9699a6110d5ba164283934c584b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ff8b2da353d623cd9f05c8d0b0317587d7093ce3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226140"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389259"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>在您的發票上建立區段以彙整成本
 
 您可以在發票上建立區段，以依據部門、開發環境或組織的需求來彙整成本。 接著，為其他人授與適當權限，使其能夠建立將費用計入該區段的 Azure 訂用帳戶。 訂用帳戶的任何使用量費用和購買隨後都會計入該區段。 您可以在 Azure 入口網站中檢視該發票區段的總費用，或在 Azure 成本分析中加以檢閱。 如需詳細資訊，請參閱[依發票區段檢視交易](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections)。
 
-本文適用於 Microsoft 客戶合約的計費帳戶。 [請確認您是否有 Microsoft 客戶合約的存取權](#check-access-to-a-microsoft-customer-agreement)。
+本文適用於 Microsoft 客戶合約的計費帳戶。 請[確認您是否有 Microsoft 客戶合約的存取權](#check-access-to-a-microsoft-customer-agreement)。
 
 ## <a name="create-an-invoice-section-in-the-azure-portal"></a>在 Azure 入口網站中建立發票區段
 
@@ -29,7 +29,7 @@ ms.locfileid: "74226140"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單]  進行搜尋。
+2. 搜尋 [成本管理 + 帳單]  。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
 
@@ -39,13 +39,13 @@ ms.locfileid: "74226140"
 
 4. 從頁面頂端選取 [新增]  。
 
-5. 輸入發票區段的名稱，然後選取帳單設定檔。 您會看到此帳單設定檔的發票區段反映出每個訂用帳戶的使用量，和您指派給該區段的購買。 
+5. 輸入發票區段的名稱，然後選取帳單設定檔。 您會看到此帳單設定檔的發票區段反映出每個訂用帳戶的使用量，和您指派給該區段的購買。
 
    ![顯示發票區段建立頁面的螢幕擷取畫面](./media/billing-mca-section-invoice/mca-create-invoice-section.png)
 
 6. 選取 [建立]  。
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查對 Microsoft 客戶合約的存取權
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查 Microsoft 客戶合約的存取
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員

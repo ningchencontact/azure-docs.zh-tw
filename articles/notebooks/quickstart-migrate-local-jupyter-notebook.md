@@ -1,20 +1,22 @@
 ---
-title: 將本機 Jupyter Notebook 移轉至 Azure Notebooks
-description: 快速地從本機電腦或 Web URL，將 Jupyter Notebook 移轉至 Azure Notebooks，並共用 Notebook 以進行共同作業。
+title: 將本機 Jupyter Notebook 遷移至 Azure Notebooks 預覽
+description: 從本機電腦或 Web URL 將 Jupyter Notebook 快速遷移至 Azure Notebooks 預覽，並共用 Notebook 以進行共同作業。
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 3b7d5aab05923fb4356e0d45aaf21a77076a870a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9e5270c59a64f9510f9108bbe4d00b922178888c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277475"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647045"
 ---
-# <a name="quickstart-migrate-a-local-jupyter-notebook"></a>快速入門：遷移本機 Jupyter 筆記本
+# <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>快速入門：在 Azure Notebooks 預覽中遷移本機 Jupyter Notebook
 
 您在個人電腦本機建立的 Jupyter Notebook，只有您自己可以存取。 您可以透過各種方式共用您的檔案，但其後接收者將會有其本身的本機 Notebook 複本，而您將難以併入他們所做的任何變更。 您也可以將 Notebook 儲存在共用的線上存放庫 (例如 GitHub) 中，但若要這麼做，每個共同作業者仍需在本機安裝其本身的 Jupyter，且必須使用與您相同的組態。
 
 藉由將您的本機或以存放庫為基礎的 Notebook 移轉至 Azure Notebooks，您即可將其儲存在能夠立即與共同作業者共用的雲端位置。 這些共同作業者只需瀏覽器即可檢視和執行您的 Notebook，且在[登入](quickstart-sign-in-azure-notebooks.md) Azure Notebooks 後也將能夠進行變更。
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 本快速入門示範從您的本機電腦或另一個可存取的檔案 URL 移轉 Notebook 的程序。 若要從 GitHub 存放庫移轉 Notebook，請參閱[快速入門：複製 Notebook](quickstart-clone-jupyter-notebook.md)。
 
@@ -52,7 +54,7 @@ ms.locfileid: "74277475"
 
 1. 若要共用已上傳 Notebook 的連結，請以滑鼠右鍵按一下專案中的檔案，並選取 [複製連結]  (鍵盤快速鍵：y)，然後將該連結貼到適當的訊息中。 或者，您可以使用專案頁面上的 [共用]  控制項共用整個專案。
 
-1. 若要編輯 Notebook 以外的檔案，請以滑鼠右鍵按一下專案中的檔案，然後選取 [編輯檔案]  (鍵盤快速鍵：i)。 預設動作 **執行** (鍵盤快速鍵：r) 只會顯示檔案內容，而且不允許編輯。
+1. 若要編輯筆記本以外的檔案，以滑鼠右鍵按一下專案中的檔案，然後選取 **編輯檔案** (鍵盤快速鍵：i)。 預設動作 **執行** (鍵盤快速鍵：r) 只會顯示檔案內容，而且不允許編輯。
 
 ## <a name="next-steps"></a>後續步驟
 

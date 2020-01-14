@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2976104c72179fede3b39816663ac8196d7539ec
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 94906d645ec38a24d54536ee8aa93e7418c8dc35
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277016"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465187"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>快速入門：使用 Azure Spatial Anchors 建立 Xamarin Android 應用程式
 
@@ -28,16 +28,18 @@ ms.locfileid: "74277016"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本快速入門，請確定您具備︰
 - Windows 或 macOS 電腦：
   - 如果使用 Windows：
     - 最新版的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019 16.2+</a>。
-    - <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>
+    - <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>。
+    - <a href="https://git-lfs.github.com/">Git LFS</a>。
   - 如果使用 macOS：
     - 最新版的 <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio for Mac 8.1+</a>。
-    - <a href="https://git-scm.com/download/mac" target="_blank">Git for macOS</a>
+    - <a href="https://git-scm.com/download/mac" target="_blank">Git for macOS</a>。
+    - <a href="https://git-lfs.github.com/">Git LFS</a>。
 - 已在您選擇的平台上安裝並執行的最新版 Xamarin.Android。 如需安裝 Xamarin.Android 的指南，請參閱 [Xamarin.Android 安裝](https://docs.microsoft.com/xamarin/android/get-started/installation/index)指南。
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">由開發人員啟用</a>且<a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">具備 ARCore 功能</a>的 Android 裝置。
   - 您的電腦可能需要其他設備磁碟機，才能與您的 Android 裝置通訊。 如需詳細資訊，請參閱[這裡](https://developer.android.com/studio/run/device.html)。
@@ -53,7 +55,7 @@ ms.locfileid: "74277016"
 
 ## <a name="configure-account-identifier-and-key"></a>設定帳戶識別碼和金鑰
 
-下一個步驟是將應用程式設定為使用您的帳戶識別碼和帳戶金鑰。 在[設定空間錨點資源](#create-a-spatial-anchors-resource)時，將它們複製到文字編輯器中。
+下一個步驟是將應用程式設定為使用您的帳戶識別碼和帳戶金鑰。 [設定空間錨點資源](#create-a-spatial-anchors-resource)時，將它們複製到文字編輯器中。
 
 開啟 `Xamarin/SampleXamarin.Common/AccountDetails.cs`。
 

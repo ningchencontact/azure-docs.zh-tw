@@ -1,7 +1,7 @@
 ---
 title: 教學課程 2：訓練信用風險模型
 titleSuffix: ML Studio (classic) - Azure
-description: 一個詳盡的教學課程，說明如何在傳統版本的 Azure Machine Learning Studio 中建立適用於信用風險評估的預測性分析解決方案。 本教學課程是三部分教學課程系列的第二部分。 其內容會說明如何訓練和評估模型。
+description: 一個詳盡的教學課程，說明如何在 Azure Machine Learning (傳統) 中建立適用於信用風險評估的預測性分析解決方案。 本教學課程是三部分教學課程系列的第二部分。 其內容會說明如何訓練和評估模型。
 keywords: 信用風險, 預測性分析解決方案, 風險評估
 author: sdgilley
 ms.author: sgilley
@@ -10,20 +10,20 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: b3f0ebe2cad68759e7feeb7a7cc3dadbbd03ee7e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9aeaed6565e69409bc55a71985296b2393226ba4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838663"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427494"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>教學課程 2：訓練信用風險模型 - Azure Machine Learning Studio (傳統)
 
-在本教學課程中，您將進一步了解開發預測性分析解決方案的程序。 您將在傳統版本的 Machine Learning Studio 中建立簡單的模型。  接著，您會將該模型部署為 Azure Machine Learning Web 服務。  這個已部署的模型可使用新資料進行預測。 本教學課程是**三部分教學課程系列的第二部分**。
+在本教學課程中，您將進一步了解開發預測性分析解決方案的程序。 您將在 Machine Learning Studio (傳統) 中建立簡單的模型。  接著，您會將該模型部署為 Azure Machine Learning Web 服務。  這個已部署的模型可使用新資料進行預測。 本教學課程是**三部分教學課程系列的第二部分**。
 
 假設您必須根據某個人在信用申請書上提供的資訊預測其信用風險。  
 
-信用風險評估是一個複雜的問題，但本教學課程將稍微加以簡化。 您將使用它作為範例，以說明如何使用 Microsoft Azure Machine Learning Studio (傳統) 建立預測性分析解決方案。 針對此解決方案，您將使用傳統版本的 Azure Machine Learning Studio 和 Machine Learning Web 服務。  
+信用風險評估是一個複雜的問題，但本教學課程將稍微加以簡化。 您將使用它作為範例，以說明如何使用 Microsoft Azure Machine Learning Studio (傳統) 建立預測性分析解決方案。 針對此解決方案，您將使用 Azure Machine Learning Studio (傳統) 和 Machine Learning Web 服務。  
 
 在此三部分的教學課程中，您將從可公開取得的信用風險資料開始著手。  接著，您將開發並訓練預測模型。  最後，您會將模型部署為 Web 服務。
 
@@ -38,13 +38,13 @@ ms.locfileid: "73838663"
 
 在[本教學課程的第三部分](tutorial-part3-credit-risk-deploy.md)，您會將模型部署為 Web 服務。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 完成[本教學課程的第一部分](tutorial-part1-credit-risk.md)。
 
 ## <a name="train"></a>訓練多個模型
 
-使用傳統版本的 Azure Machine Learning Studio 來建立機器學習服務模型的優點之一，是能夠在單一實驗中一次嘗試多個模型類型，並比較結果。 這類實驗可協助您針對問題找到最佳解決方案。
+使用 Azure Machine Learning Studio (傳統) 來建立機器學習服務模型的優點之一，是能夠在單一實驗中一次嘗試多個模型類型，並比較結果。 這類實驗可協助您針對問題找到最佳解決方案。
 
 在我們於這個教學課程中開發的實驗內，您將會建立兩種不同的模型，然後比較其計分結果，以決定要用於最終實驗的演算法。  
 
@@ -86,7 +86,7 @@ ms.locfileid: "73838663"
 
     ![為訓練模型模組選取信用風險資料行](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 
-1. 按一下 [確定]  \(打勾記號)。
+1. 按一下 **[確定]** \(打勾記號)。
 
 ### <a name="two-class-support-vector-machine"></a>二元支援向量機器
 

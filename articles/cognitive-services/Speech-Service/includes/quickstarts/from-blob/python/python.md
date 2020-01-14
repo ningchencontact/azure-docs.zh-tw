@@ -7,18 +7,18 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9223fa484d45b927059c73e23e0607526e70fae4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 2f06d0015bd80b37407df28045d4ced4a128e47e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74829144"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467812"
 ---
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始之前，請務必：
 
@@ -43,7 +43,7 @@ ms.locfileid: "74829144"
 1. 使用 pip 將解壓縮的 python-client 模組安裝在 Python 環境中：`pip install path/to/package/python-client`。
 1. 安裝的套件名為 `swagger_client`。 您可以使用命令 `python -c "import swagger_client"` 來檢查安裝是否正常運作。
 
-> **附註：** 由於 [Swagger 自動產生的已知錯誤](https://github.com/swagger-api/swagger-codegen/issues/7541) /(英文/)，您可能會在匯入 `swagger_client` 套件時發生錯誤。
+> **注意：** 由於 [Swagger 自動產生的已知錯誤](https://github.com/swagger-api/swagger-codegen/issues/7541) /(英文/)，您可能會在匯入 `swagger_client` 套件時發生錯誤。
 > 修正方法是將含有該內容的行
 > ```py
 > from swagger_client.models.model import Model  # noqa: F401,E501

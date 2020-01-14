@@ -1,5 +1,5 @@
 ---
-title: 個別訂用帳戶 (採用隨用隨付費率) 的 Azure 保留使用量
+title: 個別訂用帳戶的 Azure 保留使用量
 description: 學習如何看懂使用量，以了解個別訂用帳戶 (採用隨用隨付費率) 的 Azure 保留套用情形。
 author: bandersmsft
 manager: yashr
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 0b578436a118539517d2d515717f2bdd97612d6e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 991afd5a91ef5f5586acd624c03babc38b5c1960
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225779"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449137"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>了解個別訂用帳戶 (採用隨用隨付費率) 的 Azure 保留使用量
 

@@ -1,14 +1,14 @@
 ---
 title: 教學課程：建立原則來強制執行合規性
 description: 在本教學課程中，您會使用原則來強制執行標準、控制成本、維護安全性，以及強加全企業的設計原則。
-ms.date: 11/25/2019
+ms.date: 12/20/2019
 ms.topic: tutorial
-ms.openlocfilehash: 75a1d892a88f2b5bbdbec2a1b8d525245bb1e86f
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a4e4190e5ff6a87098c349cde99572df2dba4331
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482322"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436320"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>教學課程：建立和管理原則來強制執行相容性
 
@@ -22,7 +22,7 @@ ms.locfileid: "74482322"
 
 如果您想要指派原則以識別現有資源的目前合規性狀態，快速入門文章會說明如何執行這項操作。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -42,7 +42,8 @@ ms.locfileid: "74482322"
 
    ![從 [指派] 頁面指派原則定義](../media/create-and-manage/select-assign-policy.png)
 
-1. 在 [指派原則]  頁面上，選取省略符號並選取管理群組或訂用帳戶來選取 [範圍]  。 選擇性地選取資源群組。 範圍會決定在哪些資源或資源群組上強制執行原則指派。 然後，選取位於 [範圍]  分頁底部的 [選取]  。
+1. 在 [指派原則]  頁面和 [基本資料]  上，選取省略符號並選取管理群組或訂用帳戶來選取 [範圍]  。 選擇性地選取資源群組。 範圍會決定在哪些資源或資源群組上強制執行原則指派。
+   然後，選取位於 [範圍]  分頁底部的 [選取]  。
 
    這個範例會使用 **Contoso** 訂用帳戶。 您的訂用帳戶不同。
 
@@ -50,16 +51,29 @@ ms.locfileid: "74482322"
 
 1. 選取 [原則定義]  省略符號以開啟可用定義的清單。 您可以將原則定義 [類型]  篩選為 [內建]  ，以檢視所有項目並閱讀其描述。
 
-1. 選取 [需要 SQL Server 12.0 版]  。 如果您無法立即找到它，請在搜尋方塊中輸入 [需要 SQL Server]  ，然後按 ENTER 鍵或選取 [搜尋] 方塊外面。 一旦您找到並選取原則定義後，請選取 [可用的定義]  分頁底部的 [選取]  。
+1. 選取 [新增或置換資源上的標籤]  。 如果您無法立即找到它，請在搜尋方塊中鍵入 [新增或置換]  ，然後按 ENTER 鍵或搜尋方塊外面。 一旦您找到並選取原則定義後，請選取 [可用的定義]  分頁底部的 [選取]  。
 
    ![使用搜尋篩選條件來找出原則](../media/create-and-manage/select-available-definition.png)
 
-1. [指派名稱]  會自動填入您選取的原則名稱，但您可加以變更。 在此範例中，請保留「需要 SQL Server 12.0 版」  。 您也可以新增選擇性的 [描述]  。 描述會提供有關此原則指派的詳細資料。
-   系統會根據登入者自動填入 [指派者]  。 這是選擇性欄位，因此可以輸入自訂值。
+1. [指派名稱]  會自動填入您選取的原則名稱，但您可加以變更。 在此範例中，保留 [新增或置換資源上的標籤]  。 您也可以新增選擇性的 [描述]  。 描述會提供有關此原則指派的詳細資料。
 
-1. 讓 [建立受控識別]  保持未選取狀態。 但是，當要指派的原則或方案包含具有 [deployIfNotExists](../concepts/effects.md#deployifnotexists) 效果的原則時，「必須」  勾選此方塊。 因為本教學課程中所用的原則並沒有包含該效果，所以保留空白。 如需詳細資訊，請參閱[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)和[補救安全性的運作方式](../how-to/remediate-resources.md#how-remediation-security-works)。
+1. 將 [原則強制執行]  保留為 [已啟用]  。 若 [已停用]  ，此設定可讓您測試原則的結果，而不會觸發效果。 如需詳細資訊，請參閱[強制模式](../concepts/assignment-structure.md#enforcement-mode)。
 
-1. 選取 [指派]  。
+1. 系統會根據登入者自動填入 [指派者]  。 這是選擇性欄位，因此可以輸入自訂值。
+
+1. 選取精靈頂端的 [參數]  索引標籤。
+
+1. 針對 [標籤名稱]  輸入 _Environment_，針對 [標籤值]  輸入 _Dev_。
+
+1. 選取精靈頂端的 [補救]  索引標籤。
+
+1. 使用 [建立補救工作]  保留未核取狀態。 除了新的或更新的資源之外，此方塊可讓您建立工作來改變現有的資源。 如需詳細資訊，請參閱[補救資源](../how-to/remediate-resources.md)。
+
+1. **建立受控識別** 會自動核取，因為此原則定義會使用 [modify](../concepts/effects.md#modify) 效果。 [權限]  會根據原則定義自動設定為 [參與者]  。 如需詳細資訊，請參閱[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)和[補救安全性的運作方式](../how-to/remediate-resources.md#how-remediation-security-works)。
+
+1. 選取精靈頂端的 [檢閱並建立]  索引標籤。
+
+1. 檢閱您的選取項目，然後選取頁面底部的 [建立]  。
 
 ## <a name="implement-a-new-custom-policy"></a>實作新的自訂原則
 
@@ -78,7 +92,7 @@ ms.locfileid: "74482322"
      > [!NOTE]
      > 如果您計劃要將此原則定義套用至多個訂用帳戶，則作為位置的管理群組必須包含您要對其指派原則的訂用帳戶。 計畫定義也是如此。
 
-   - 原則定義的名稱 - 需要小於 G 系列的 VM SKU 
+   - 原則定義的名稱 - _*需要小於 G 系列的 VM SKU 
    - 原則定義目的的描述 – 此原則定義會強制讓此範圍中建立的所有 VM，具有比 G 系列小的 SKU，以降低成本。 
    - 從現有選項 (例如_計算_) 進行選擇，或為此原則定義建立新類別。
    - 複製下列 JSON 程式碼，然後針對您的需求進行更新：
@@ -109,7 +123,7 @@ ms.locfileid: "74482322"
    }
    ```
 
-   原則規則中的 field  屬性必須是下列其中一項：Name、Type、Location、Tags 或別名。 可能的別名範例為 `"Microsoft.Compute/VirtualMachines/Size"`。
+   原則規則中的 field  屬性必須是支援的值。 在[原則定義結構欄位](../concepts/definition-structure.md#fields)上可找到完整的值清單。 可能的別名範例為 `"Microsoft.Compute/VirtualMachines/Size"`。
 
    若要檢視更多的 Azure 原則範例，請參閱 [Azure 原則範例](../samples/index.md)。
 
@@ -263,7 +277,7 @@ PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962
 
 ## <a name="create-a-policy-definition-with-azure-cli"></a>使用 Azure CLI 來建立原則定義
 
-您可以使用 Azure CLI 搭配原則定義命令來建立原則定義。 若要建立具有內嵌規則的原則定義，請使用下列範例：
+您可以使用 Azure CLI 搭配 `az policy definition` 命令來建立原則定義。 若要建立具有內嵌規則的原則定義，請使用下列範例：
 
 ```azurecli-interactive
 az policy definition create --name 'denyCoolTiering' --description 'Deny cool access tiering for storage' --rules '{
@@ -333,7 +347,7 @@ az policy definition list
 
    ![檢閱 [計畫定義] 頁面](../media/create-and-manage/initiative-definition.png)
 
-1. 使用 [定義位置]  省略符號，選取要儲存定義的管理群組或訂用帳戶。 如果在上一頁中，已將範圍設為單一管理群組或訂用帳戶，則 [定義位置]  會自動填入。
+1. 使用 [定義位置]  省略符號，選取要儲存定義的管理群組或訂用帳戶。 如果在上一頁中，已將範圍設為單一管理群組或訂用帳戶，則 [定義位置]  會自動填入。 一旦選取，就會填入 [可用的定義]  。
 
 1. 輸入計畫的 [名稱]  和 [說明]  。
 
@@ -343,24 +357,67 @@ az policy definition list
 
 1. 瀏覽 [可用定義]  ([計畫定義]  分頁的右半部) 的清單，並選取您想要新增至此計畫的原則定義。 針對 [保障安全]  計畫，選取原則定義資訊旁的 [+]  ，或選取原則定義資料列，然後選取詳細資料頁面中的 [+ 新增]  選項，以新增下列內建原則定義：
 
-   - 需要 SQL Server 12.0 版
-   - [Preview]: Monitor unprotected web applications in Security Center.
-   - [Preview]: Monitor permissive network across in Security Center.
-   - [Preview]: Monitor possible app Whitelisting in Security Center.
-   - [Preview]: Monitor unencrypted VM Disks in Security Center.
+   - 允許的位置
+   - 在 Azure 資訊安全中心中監視缺少的 Endpoint Protection
+   - 應強化與虛擬機器互動的網際網路網路安全性群組規則
+   - 應該為虛擬機器啟用 Azure 備份
+   - 應在虛擬機器上套用磁碟加密
 
-   從清單中選取原則定義之後，系統會將該定義新增到 [原則和參數]  底下。
+   從清單中選取原則定義之後，每個項目都會新增在 [類別]  下方。
 
    ![檢閱計畫定義參數](../media/create-and-manage/initiative-definition-2.png)
 
-1. 要新增至計畫的原則定義如果有參數，則會顯示在 [原則和參數]  區域的原則名稱下方。 「值」  可以設定為 [設定值] (將此計畫的所有指派硬式編碼) 或 [使用計畫參數] (在每個計畫指派期間設定)。 如果選取 [設定值]，則 [值]  右側的下拉式清單會允許輸入或選取值。 如果選取 [使用計畫參數]，則會顯示新的 [計畫參數]  區段，讓您定義將在計畫指派期間設定的參數。 此計畫參數的允許值可進一步限制可在計畫指派期間設定的項目。
+1. 如果要新增至計畫的原則定義有參數，則會顯示在 [類別]  區域中的原則名稱下方。 「值」  可以設定為 [設定值] (將此計畫的所有指派硬式編碼) 或 [使用計畫參數] (在每個計畫指派期間設定)。 如果選取 [設定值]，則 [值]  右側的下拉式清單會允許輸入或選取值。 如果選取 [使用計畫參數]，則會顯示新的 [計畫參數]  區段，讓您定義將在計畫指派期間設定的參數。 此計畫參數的允許值可進一步限制可在計畫指派期間設定的項目。
 
    ![從允許的值變更計畫定義參數](../media/create-and-manage/initiative-definition-3.png)
 
    > [!NOTE]
    > 就某些 `strongType` 參數而言，值清單是無法自動決定的。 在這些情況下，參數資料列的右側會出現省略符號。 選取省略符號以開啟 [參數範圍 (&lt;參數名稱&gt;)] 分頁。 在此頁面上，請選取要用來提供值選項的訂用帳戶。 此參數範圍只會在建立計畫定義期間使用，且對於原則評估或指派的計畫範圍均無影響。
 
+   將 [允許的位置] 參數設定為 [美國東部 2]，並將其他項目保留為預設 [AuditifNotExists]。
+
 1. 選取 [儲存]  。
+
+#### <a name="create-a-policy-initiative-definition-with-azure-cli"></a>使用 Azure CLI 來建立原則計畫定義
+
+您可以使用 Azure CLI 搭配 `az policy set-definition` 命令來建立原則計畫定義。 若要建立具有現有原則定義的原則計畫定義，請使用下列範例：
+
+```azurecli-interactive
+az policy set-definition create -n readOnlyStorage --definitions '[
+        {
+            "policyDefinitionId": "/subscriptions/mySubId/providers/Microsoft.Authorization/policyDefinitions/storagePolicy",
+            "parameters": { "storageSku": { "value": "[parameters(\"requiredSku\")]" } }
+        }
+    ]' \
+    --params '{ "requiredSku": { "type": "String" } }'
+```
+
+#### <a name="create-a-policy-initiative-definition-with-azure-powershell"></a>使用 Azure PowerShell 建立原則計畫定義
+
+您可以使用 Azure PowerShell 搭配 `New-AzPolicySetDefinition` Cmdlet 來建立原則計畫定義。 若要建立具有現有原則定義的原則計畫定義，請使用下列原則計畫定義檔案作為 `VMPolicySet.json`：
+
+```json
+[
+    {
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+        "parameters": {
+            "tagName": {
+                "value": "Business Unit"
+            },
+            "tagValue": {
+                "value": "Finance"
+            }
+        }
+    },
+    {
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/464dbb85-3d5f-4a1d-bb09-95a9b5dd19cf"
+    }
+]
+```
+
+```azurepowershell-interactive
+New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"Virtual Machine"}' -PolicyDefinition C:\VMPolicySet.json
+```
 
 ### <a name="assign-an-initiative-definition"></a>指派計畫定義
 
@@ -380,12 +437,17 @@ az policy definition list
      您可以變更範圍，將計畫指派給儲存位置內的訂用帳戶或資源群組。
    - 排除項目：設定範圍內的任何資源，以防止計畫指派套用至這些資源。
    - 計畫定義和指派名稱：保障安全 (預先填入作為所指派計畫的名稱)。
-   - Description:此計畫指派適合強制執行此原則定義群組。
+   - 描述：此計畫指派適合強制執行此原則定義群組。
+   - 原則強制執行：保留預設的 [已啟用]  。
    - 指派者：系統會自動填入登入者。 這是選擇性欄位，因此可以輸入自訂值。
 
-1. 讓 [建立受控識別]  保持未選取狀態。 但是，當要指派的原則或方案包含具有 [deployIfNotExists](../concepts/effects.md#deployifnotexists) 效果的原則時，「必須」  勾選此方塊。 因為本教學課程中所用的原則並沒有包含該效果，所以保留空白。 如需詳細資訊，請參閱[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)和[補救安全性的運作方式](../how-to/remediate-resources.md#how-remediation-security-works)。
+1. 選取精靈頂端的 [參數]  索引標籤。 如果您已在先前的步驟中設定計畫參數，請在這裡設定一個值。
 
-1. 選取 [指派]  。
+1. 選取精靈頂端的 [補救]  索引標籤。 讓 [建立受控識別]  保持未選取狀態。 但是，當要指派的原則或計畫包含具有 [deployIfNotExists](../concepts/effects.md#deployifnotexists) 或 [modify](../concepts/effects.md#modify)效果的原則時，「必須」  勾選此方塊。 因為本教學課程中所用的原則並沒有包含該效果，所以保留空白。 如需詳細資訊，請參閱[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)和[補救安全性的運作方式](../how-to/remediate-resources.md#how-remediation-security-works)。
+
+1. 選取精靈頂端的 [檢閱並建立]  索引標籤。
+
+1. 檢閱您的選取項目，然後選取頁面底部的 [建立]  。
 
 ## <a name="check-initial-compliance"></a>檢查初始合規性
 
@@ -400,46 +462,42 @@ az policy definition list
 
    ![[計畫合規性] 頁面 - 資源符合規範](../media/create-and-manage/compliance-status-compliant.png)
 
-1. 選取計畫合規性分頁上的任何原則，即可開啟該原則的合規性詳細資料頁面。 此分頁提供資源層級上的合規性詳細資料。
+1. 選取計畫合規性頁面上的任何原則，即可開啟該原則的合規性詳細資料頁面。 此分頁提供資源層級上的合規性詳細資料。
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>使用排除來免除不相容或拒絕的資源
 
-遵循上述範例，在指派原則定義需要 SQL Server 12.0 版之後，使用 12.0 以外版本建立的 SQL Server 就會遭到拒絕。 在本節中，您可藉由在單一資源群組中建立排除項目，以逐步解決建立 SQL Server 的被拒絕要求。 排除項目會防止對該資源強制執行原則 (或計畫)。
-在下列範例中，單一資源群組中允許任何 SQL 伺服器版本。 排除可以套用至訂用帳戶或資源群組，或者您可將排除範圍縮小為個別的資源。
+指派原則計畫來要求特定位置之後，就會拒絕在不同位置中建立的任何資源。 在本節中，您可藉由在單一資源群組上建立排除項目，以逐步解決建立資源的被拒絕要求。 排除項目會防止對該資源群組強制執行原則 (或計畫)。 在下列範例中，已排除資源群組中允許任何位置。 排除可以套用至訂用帳戶、資源群組，或個別的資源。
 
-由於指派的原則或計畫可在兩個位置中檢視，因此無法部署：
+在部署的目標資源群組上，可以檢視指派的原則或計畫所防止的部署：選取頁面左側的 [部署]  ，然後選取失敗部署的 [部署名稱]  。 遭拒的資源將會以 [禁止]  狀態列出。 若要確認拒絕資源的原則或計畫和指派，請在 [部署概觀] 頁面上選取 [失敗。  如需詳細資訊，請按一下這裡 ->]。 視窗會在分頁右側開啟，並附上錯誤資訊。 [錯誤詳細資料]  之下會有相關原則物件的 GUID。
 
-- 在作為部署目標的資源群組上：選取頁面左側的 [部署]  ，然後選取失敗部署的 [部署名稱]  。 遭拒的資源將會以 [禁止]  狀態列出。 若要確認拒絕資源的原則或計畫和指派，請在 [部署概觀] 頁面上選取 [失敗。  如需詳細資訊，請按一下這裡 ->]。
-  視窗會在分頁右側開啟，並附上錯誤資訊。 [錯誤詳細資料]  之下會有相關原則物件的 GUID。
+![部署遭原則指派拒絕](../media/create-and-manage/rg-deployment-denied.png)
 
-  ![部署遭原則指派拒絕](../media/create-and-manage/rg-deployment-denied.png)
+在 Azure 原則頁面上：選取頁面左側的 [合規性]  ，並選取 [保障安全]  原則計畫。 在此頁面上，已封鎖資源的 [拒絕]  計數會增加。 [事件]  索引標籤之下是關於嘗試建立或部署原則定義所拒絕資源的詳細資料。
 
-- 在 Azure 原則頁面上：選取頁面左側的 [合規性]  ，並選取 [需要 SQL Server 12.0 版]  原則。 在開啟的頁面上，您會看到 [拒絕]  計數增加。 在 [事件]  索引標籤下，您也會看到哪些人員所嘗試的部署遭到原則拒絕。
+![指派原則的合規性概觀](../media/create-and-manage/compliance-overview.png)
 
-  ![指派原則的合規性概觀](../media/create-and-manage/compliance-overview.png)
-
-在此範例中，Trent Baker 是 Contoso 的其中一名資深虛擬化專家，他正在執行必要的工作。 我們必須授與 Trent 例外狀況，但我們在任何資源群組中不需要非 12.0 版 SQL 伺服器。 我們建立了新的資源群組 **SQLServers_Excluded**，且現在將授與此群組對此原則指派的例外狀況。
+在此範例中，Trent Baker 是 Contoso 的其中一名資深虛擬化專家，他正在執行必要的工作。 我們需要針對例外狀況授與 Trent 一個空間。 我們建立了新的資源群組 **SQLServers_Excluded**，接著會授與此群組對此原則指派的例外狀況。
 
 ### <a name="update-assignment-with-exclusion"></a>使用排除項目更新指派
 
 1. 選取 Azure 原則分頁左側 [製作]  下的 [指派]  。
 
-1. 瀏覽所有原則指派，並開啟 [需要 SQL Server 12.0 版]  指派。
+1. 瀏覽所有原則指派並開啟 [保障安全]  指派。
 
-1. 選取省略符號並選取要排除的資源群組 (在此範例中為 SQLServers_Excluded  ) 以設定 [排除]  。
+1. 選取省略符號並選取要排除的資源群組 (在此範例中為 LocationsExcluded  )，以設定 [排除]  。 選取 [新增至所選範圍]  ，然後選取 [儲存]  。
 
    ![將排除的資源群組新增至原則指派中](../media/create-and-manage/request-exclusion.png)
 
    > [!NOTE]
-   > 根據原則及其效果，也可將排除授與給指派範圍內資源群組中的特定資源。 由於此教學課程中使用 [拒絕]  效果，因此對已經存在的特定資源設定排除將沒有意義。
+   > 根據原則定義及其效果，也可將排除授與給指派範圍內資源群組中的特定資源。 由於此教學課程中使用 [拒絕]  效果，因此對已經存在的特定資源設定排除將沒有意義。
 
-1. 選取 [選取]  ，然後選取 [儲存]  。
+1. 選取 [檢閱並儲存]  ，然後選取 [儲存]  。
 
 在本節中，您已在單一資源群組中建立排除項目，藉此解決了被拒絕的要求。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您已完成使用本教學課程中的資源，請使用下列步驟來刪除前面建立的任何指派或定義：
+如果您已處理完成本教學課程中的資源，請使用下列步驟來刪除以上建立的任何原則指派或定義：
 
 1. 選取 Azure 原則頁面左側 [製作]  下的 [定義]  (如果您嘗試刪除指派，則選取 [指派]  )。
 
@@ -447,7 +505,7 @@ az policy definition list
 
 1. 以滑鼠右鍵按一下資料列，或選取定義 (或指派) 結尾的省略符號，然後選取 [刪除定義]  (或 [刪除指派]  )。
 
-## <a name="review"></a>審核
+## <a name="review"></a>檢閱
 
 在本教學課程中，您已成功完成下列工作：
 

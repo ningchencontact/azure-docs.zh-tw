@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 0dde7bd9bd3372f0f5eddbbd56727eca3ae4a9dd
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 78678474430792eb7fe419ef4f15828d461c1fec
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950455"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647402"
 ---
 # <a name="what-is-azure-iot-hub"></a>何謂 Azure IoT 中心？
 
@@ -111,7 +111,7 @@ IoT 中樞和裝置 SDK 支援下列連線裝置的通訊協定：
 
 每個 Azure 訂用帳戶都有預設的配額限制，以避免濫用服務。而這些限制會對 IoT 解決方案的範圍造成影響。 依訂用帳戶而定的目前限制是每一訂用帳戶 50 個 IoT 中樞。 您可以連絡支援人員，以要求增加此配額。 如需詳細資訊，請參閱 [IoT 中樞配額和節流](iot-hub-devguide-quotas-throttling.md)。 如需有關配額限制的詳細資訊，請參閱下列其中一篇文章：
 
-* [Azure 訂用帳戶服務限制](../azure-subscription-service-limits.md)
+* [Azure 訂用帳戶服務限制](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [IoT 中樞節流與您](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/) \(英文\)
 
@@ -120,3 +120,7 @@ IoT 中樞和裝置 SDK 支援下列連線裝置的通訊協定：
 若要嘗試完整的 IoT 解決方案，請參閱 IoT 中樞快速入門：
 
 * [快速入門：將遙測資料從裝置傳送到 IoT 中樞](quickstart-send-telemetry-node.md)
+
+若要深入了解使用 Azure IoT 來建立及部署 IoT 解決方案的方式，請造訪：
+
+* [基本概念：Azure IoT 技術和解決方案](../iot-fundamentals/iot-services-and-technologies.md)。

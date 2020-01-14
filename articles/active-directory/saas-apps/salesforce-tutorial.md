@@ -4,24 +4,23 @@ description: 了解如何設定 Azure Active Directory 與 Salesforce 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 12/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d137a96a967e017c67da7dfabf25502de32ba7a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 71521348c5510696add4399d3046833d3b42193c
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969984"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561879"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Salesforce 整合
 
@@ -33,7 +32,7 @@ ms.locfileid: "74969984"
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要開始，您需要下列項目：
 
@@ -70,27 +69,23 @@ ms.locfileid: "74969984"
 若要設定及測試與 Salesforce 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
-    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
-    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
-2. **[設定 Salesforce SSO](#configure-salesforce-sso)** - 在應用程式端設定單一登入設定。
-    1. **[建立 Salesforce 測試使用者](#create-salesforce-test-user)** - 使 Salesforce 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
-3. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
+    * **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    * **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+1. **[設定 Salesforce SSO](#configure-salesforce-sso)** - 在應用程式端設定單一登入設定。
+    * **[建立 Salesforce 測試使用者](#create-salesforce-test-user)** - 使 Salesforce 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
 ## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
-
-在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
-
-若要設定與 Salesforce 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Salesforce]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
-1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
+1. 在 [**選取單一登入方法**] 頁面上，選取 [**SAML**]。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [基本 SAML 組態]  區段上，執行下列步驟：
+1. 在 [基本 SAML 組態]  區段上，輸入下列欄位的值：
 
     a. 在 [登入 URL]  文字方塊中，以下列模式輸入值：
 
@@ -107,11 +102,11 @@ ms.locfileid: "74969984"
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Salesforce 用戶端支援小組](https://help.salesforce.com/support)以取得這些值。
 
-1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-1. 在 [設定 Salesforce]  區段上，依據您的需求複製適當的 URL。
+1. 在 [設定 Salesforce]  區段上，根據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -126,9 +121,6 @@ ms.locfileid: "74969984"
    1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `B.Simon@contoso.com` 。
    1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
    1. 按一下頁面底部的 [新增]  。
-   
-    > [!NOTE]
-    > Salesforce 使用者屬性會基於 SAML 驗證用途區分大小寫。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -150,48 +142,56 @@ ms.locfileid: "74969984"
 
 ## <a name="configure-salesforce-sso"></a>設定 Salesforce SSO
 
-1. 在瀏覽器中開啟新索引標籤，登入您的 Salesforce 系統管理員帳戶。
+1. 若要自動執行 Salesforce 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
 
-2. 按一下分頁右上角**設定圖示**底下的 [設定]  。
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+1. 將擴充功能新增至瀏覽器之後，按一下 [設定 Salesforce]  便會將您導向至 Salesforce 單一登入應用程式。 請從該處提供用以登入 Salesforce 單一登入的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 13。
+
+    ![設定組態](common/setup-sso.png)
+
+1. 如果您想要手動設定 Salesforce，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Salesforce 公司網站，然後執行下列步驟：
+
+1. 按一下分頁右上角**設定圖示**底下的 [設定]  。
 
     ![設定單一登入](./media/salesforce-tutorial/configure1.png)
 
-3. 在瀏覽窗格中向下捲動至 [設定]  ，按一下 [識別]  以展開相關的區段。 然後按一下 [單一登入設定]  。
+1. 在瀏覽窗格中向下捲動至 [設定]  ，按一下 [識別]  以展開相關的區段。 然後按一下 [單一登入設定]  。
 
     ![設定單一登入](./media/salesforce-tutorial/sf-admin-sso.png)
 
-4. 在 [單一登入設定]  頁面上，按一下 [編輯]  按鈕。
+1. 在 [單一登入設定]  頁面上，按一下 [編輯]  按鈕。
 
     ![設定單一登入](./media/salesforce-tutorial/sf-admin-sso-edit.png)
 
     > [!NOTE]
     > 如果您的 Salesforce 帳戶無法啟用單一登入設定，您可能需要連絡 [Salesforce 用戶端支援小組](https://help.salesforce.com/support)。
 
-5. 選取 [啟用 SAML]  ，然後按一下 [儲存]  。
+1. 選取 [啟用 SAML]  ，然後按一下 [儲存]  。
 
-      ![設定單一登入](./media/salesforce-tutorial/sf-enable-saml.png)
+    ![設定單一登入](./media/salesforce-tutorial/sf-enable-saml.png)
 
-6. 若要設定 SAML 單一登入設定，請按一下 [從中繼資料檔案新增]  。
+1. 若要設定 SAML 單一登入設定，請按一下 [從中繼資料檔案新增]  。
 
     ![設定單一登入](./media/salesforce-tutorial/sf-admin-sso-new.png)
 
-7. 按一下 [**選擇檔案**] 以上傳您從 Azure 入口網站下載的中繼資料 XML 檔案，然後按一下 [**建立**]。
+1. 按一下 [**選擇檔案**] 以上傳您從 Azure 入口網站下載的中繼資料 XML 檔案，然後按一下 [**建立**]。
 
     ![設定單一登入](./media/salesforce-tutorial/xmlchoose.png)
 
-8. 在 [SAML 單一登入設定]  頁面上，欄位會自動填入，然後按一下 [儲存]。
+1. 在 [SAML 單一登入設定]  頁面上，欄位會自動填入，然後按一下 [儲存]。
 
     ![設定單一登入](./media/salesforce-tutorial/salesforcexml.png)
 
-9. 在 Salesforce 的左方導覽窗格中，按一下 [公司設定]  以展開相關的區段，然後按一下 [我的網域]  。
+1. 在 Salesforce 的左方導覽窗格中，按一下 [公司設定]  以展開相關的區段，然後按一下 [我的網域]  。
 
     ![設定單一登入](./media/salesforce-tutorial/sf-my-domain.png)
 
-10. 向下捲動至 [驗證組態]  區段，然後按一下 [編輯]  按鈕。
+1. 向下捲動至 [驗證組態]  區段，然後按一下 [編輯]  按鈕。
 
     ![設定單一登入](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-11. 在 [驗證組態]  區段中，核取 [AzureSSO]  作為 SAML SSO 設定的 [驗證服務]  ，然後按一下 [儲存]  。
+1. 在 [驗證組態]  區段中，核取 [AzureSSO]  作為 SAML SSO 設定的 [驗證服務]  ，然後按一下 [儲存]  。
 
     ![設定單一登入](./media/salesforce-tutorial/sf-auth-config.png)
 
@@ -228,7 +228,7 @@ ms.locfileid: "74969984"
 
 1. 最後，成功登入之後，應用程式首頁會隨即顯示。
 
-    ![Salesforce 行動應用程式](media/salesforce-tutorial/mobile-app5.png)![salesforce 行動應用程式](media/salesforce-tutorial/mobile-app6.png)
+    ![Salesforce 行動應用程式](media/salesforce-tutorial/mobile-app5.png) ![Salesforce 行動應用程式](media/salesforce-tutorial/mobile-app6.png)
 
 ## <a name="additional-resources"></a>其他資源
 

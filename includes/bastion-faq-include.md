@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 10/15/2019
+ms.date: 12/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d31e30991056cc891e63347a2c88e7fc4caeab28
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c085ce4aba6760b09dcc3eaf2f6232c5cc904706
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875402"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469735"
 ---
 ### <a name="regions"></a>哪些區域可用？
 
@@ -22,6 +22,10 @@ ms.locfileid: "74875402"
 ### <a name="publicip"></a>我的虛擬機器需要使用公用 IP 嗎？
 
 您不需要在與 Azure Bastion 服務連線的 Azure 虛擬機器上使用 公用 IP。 Bastion 服務將會透過虛擬網路中的虛擬機器私人 IP，開啟 RDP/SSH 工作階段/連線至您的虛擬機器。
+
+### <a name="is-ipv6-supported"></a>是否支援 IPV6？
+
+目前不支援 IPv6。 Azure Bastion 僅支援 IPv4。
 
 ### <a name="rdpssh"></a>我需要 RDP 或 SSH 用戶端嗎？
 
@@ -57,7 +61,7 @@ Azure Bastion 目前在 VM 內支援 en-us-qwerty 鍵盤配置。  鍵盤配置�
 
 ### <a name="udr"></a>Azure Bastion 子網路是否支援使用者定義的路由 (UDR)？
 
-沒有。 Azure Bastion 子網路不支援 UDR。
+否。 Azure Bastion 子網路不支援 UDR。
 若是相同的虛擬網路中同時包含 Azure Bastion 和 Azure 防火牆/網路虛擬設備 (NVA)，您無需強制將 Azure Bastion 子網路的流量導向 Azure 防火牆，因為 Azure Bastion 和您的 VM 間採用私人通訊。 如需詳細資訊，請參閱[透過 Bastion 從 Azure 防火牆後方存取 VM](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/)。
 
 ### <a name="filetransfer"></a>Azure Bastion RDP 工作階段是否支援檔案傳輸？

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b56319579bc8766bbd8467296daf41e25fc31862
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 73104cc1bcd9266cbb9e5b1985dac4a4566f0a74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420500"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423110"
 ---
 # <a name="what-is-a-device-identity"></a>什麼是裝置身分識別？
 
@@ -58,7 +58,10 @@ Azure AD 中的裝置可使用 Microsoft Intune、System Center Configuration Ma
 
 ## <a name="resource-access"></a>資源存取
 
-註冊和加入可讓您的使用者對雲端資源進行無縫登入 (SSO)，並且讓系統管理員能夠將條件式存取原則套用至這些資源。 
+註冊裝置並將其加入 Azure AD，可讓您的使用者無縫登入 (SSO) 雲端資源。 此程序也可讓系統管理員能夠根據其用於存取的裝置，將條件式存取原則套用到資源。 
+
+> [!NOTE]
+> 裝置型條件式存取原則需要已加入混合式 Azure AD 的裝置或符合規範且已加入 Azure AD 或已註冊 Azure AD 的裝置。
 
 已加入 Azure AD 或混合式 Azure AD 的裝置，可以對您組織的內部部署資源和雲端資源進行 SSO。 如需詳細資訊，請參閱[內部部署資源的 SSO 如何在加入 Azure AD 的裝置上運作](azuread-join-sso.md)一文。
 
@@ -77,7 +80,7 @@ Azure AD 中的裝置可使用 Microsoft Intune、System Center Configuration Ma
 
 將裝置放入 Azure AD 中的作業可用自助方式完成，或以系統管理員所控制的佈建程序完成。
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 使用 Azure AD 中的裝置身分識別管理，您可以：
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 12/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f43d965e2c1d706097c9cc2c432ca77e16f162c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b4c8e254b2ceb040b487de1cfaac6e4d8670d8b5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74187262"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430954"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-airtable"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Airtable 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "74187262"
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要開始，您需要下列項目：
 
@@ -134,7 +134,7 @@ ms.locfileid: "74187262"
 
 ## <a name="configure-airtable-sso"></a>設定 Airtable SSO
 
-若要設定 **Airtable** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)]  和複製的適當 URL 傳送給 [Airtable 支援小組](mailto:azure-ad-marketplace@airtable.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+遵循[連結](https://support.airtable.com/hc/articles/360037475234)中提供的指示，在 **Airtable** 端設定單一登入。
 
 ### <a name="create-airtable-test-user"></a>建立 Airtable 測試使用者
 

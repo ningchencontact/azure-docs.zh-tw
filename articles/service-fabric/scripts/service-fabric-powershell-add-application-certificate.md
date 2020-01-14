@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 指令碼範例 - 將應用程式憑證新增到叢集 | Microsoft Docs
+title: 在 PowerShell 中將應用程式憑證新增至叢集
 description: Azure PowerShell 指令碼範例 - 將應用程式憑證新增到 Service Fabric 叢集。
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 1ef48f5dd7fabd724dee2c2910e44f47979258b5
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 069ad55136101c0b57c9faee95578f816b5efef4
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547464"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614871"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>將應用程式憑證新增到 Service Fabric 叢集
 
@@ -95,7 +95,7 @@ Update-AzVmss -ResourceGroupName $ResourceGroupName -VirtualMachineScaleSet $VMS
 
 此指令碼會使用下列命令：下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [New-AzKeyVaultCertificatePolicy](/powershell/module/az.keyvault/New-AzKeyVaultCertificatePolicy) | 建立代表憑證的記憶體內部原則 |
 | [Add-AzKeyVaultCertificate](/powershell/module/az.keyvault/Add-AzKeyVaultCertificate)| 將原則部署至 Key Vault |

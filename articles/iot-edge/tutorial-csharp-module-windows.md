@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 041efc62b32e8d8c0c477d9d5715882fd7899cd9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8ed622ff928fa612e6d33ba0647ce258bf4c1c21
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701950"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665215"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 C# IoT Edge 模組
 
@@ -43,7 +43,7 @@ ms.locfileid: "74701950"
 | **Windows AMD64 開發** | ![在 VS Code 中開發適用於 WinAMD64 的 C# 模組](./media/tutorial-c-module/green-check.png) | ![在 Visual Studio 中開發適用於 WinAMD64 的 C# 模組](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64 偵錯** |   | ![在 Visual Studio 中對適用於 WinAMD64 的 C# 模組進行偵錯](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 在開始本教學課程之前，您應該已經完成先前的教學課程 ([開發適用於 Windows 裝置的 IoT Edge 模組](tutorial-develop-for-windows.md)) 來設定您的開發環境。 完成該教學課程之後，您已經具備下列必要條件： 
 
@@ -92,29 +92,30 @@ Azure IoT Edge Tools 會針對 Visual Studio 中所有支援的 IoT Edge 模組�
 
 1. 在 Visual Studio 方案總管中，開啟 **deployment.template.json** 檔案。 
 
-2. 在 $edgeAgent 所需的屬性中尋找 **registryCredentials** 屬性。 
-
-3. 使用您的認證更新此屬性，並遵循以下格式： 
+2. 在 $edgeAgent 所需的屬性中尋找 **registryCredentials** 屬性。 其中應該會從您在建立專案時提供的資訊自動填入您的登錄位址，而使用者名稱和密碼欄位應該會包含變數名稱。 例如： 
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
-   ```
 
-4. 儲存 deployment.template.json 檔案。 
+3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
 
-### <a name="update-the-module-with-custom-code"></a>使用自訂程式碼來更新模組
+4. Add the **Username** and **Password** values from your Azure container registry. 
 
-預設模組程式碼會透過輸入佇列接收訊息，並透過輸出佇列傳遞這些訊息。 讓我們新增一些額外的程式碼，讓模組在邊緣處理訊息，然後再將它們轉送到 IoT 中樞。 更新模組，以分析每則訊息中的溫度資料，而且只有在溫度超過特定閾值時，才會將訊息傳送到 IoT 中樞。 
+5. Save your changes to the .env file.
 
-1. 在 Visual Studio 中，開啟 **CSharpModule** > **Program.cs**。
+### Update the module with custom code
 
-2. 在 **CSharpModule** 命名空間頂端，為稍後會用到的類型新增三個 **using** 陳述式：
+The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+
+1. In Visual Studio, open **CSharpModule** > **Program.cs**.
+
+2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>
@@ -291,7 +292,7 @@ Azure IoT Edge Tools 會針對 Visual Studio 中所有支援的 IoT Edge 模組�
 
 在上一節中，您已建立 IoT Edge 解決方案，並將程式碼新增至 **CSharpModule**，以篩選掉報告的機器溫度低於可接受閾值的訊息。 現在，您需要建置容器映像形式的解決方案，並將它推送到容器登錄。 
 
-1. 在您的開發機器上使用下列命令登入 Docker。 使用您的 Azure 容器登錄中的使用者名稱、密碼和登入伺服器。 您可以在 Azure 入口網站中，從登錄的 [存取金鑰]  區段擷取這些資料。
+1. 在您的開發機器上使用下列命令登入 Docker。 使用您的 Azure 容器登錄中的使用者名稱、密碼和登入伺服器。 您可以在 Azure 入口網站中，從登錄的 [存取金鑰]  區段擷取這些值。
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>

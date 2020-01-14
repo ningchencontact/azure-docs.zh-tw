@@ -1,5 +1,5 @@
 ---
-title: 檢視群組和成員的快速入門 - Azure Active Directory | Microsoft Docs
+title: 快速入門 - 檢視群組和成員 - Azure AD
 description: 關於如何搜尋和檢視貴組織群組及其指派成員的指示。
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b4f2f6e86ce076e7c0464609252b027499a8307
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: d52c90db5414c39c4e916bbab19c43739d9ea904
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942875"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423023"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -27,9 +27,9 @@ ms.locfileid: "68942875"
 
 在本快速入門中，您將檢視貴組織的所有現有群組並檢視指派的成員。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立[免費帳戶](https://azure.microsoft.com/free/) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 在開始之前，您必須：
 
 - 建立 Azure Active Directory 租用戶。 如需詳細資訊，請參閱[存取 Azure Active Directory 入口網站並建立新的租用戶](active-directory-access-create-new-tenant.md)。

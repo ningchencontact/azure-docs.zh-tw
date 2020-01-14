@@ -1,18 +1,24 @@
 ---
-title: 在 Azure 上建立和共用 Jupyter Notebook
-description: 在 Azure Notebooks 上快速建立和執行 Jupyter Notebook，並與他人共用。
+title: 在 Azure Notebooks 預覽上建立和共用 Jupyter Notebook
+description: 在 Azure Notebooks 預覽上快速建立和執行 Jupyter Notebook，並與他人共用該 Notebook。
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 71220fa5aa0367d1cb1694582b4f96459a3016e7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7b983d927bfd789cddb8d00675294cefc9f55e08
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277509"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647079"
 ---
-# <a name="quickstart-create-and-share-a-notebook"></a>快速入門：建立及共用筆記本
+# <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>快速入門：在 Azure Notebooks 預覽中建立和共用 Notebook
 
-1. 前往 [Azure Notebooks](https://notebooks.azure.com) 並登入。 (如需詳細資訊，請參閱[快速入門 - 登入 Azure Notebooks](quickstart-sign-in-azure-notebooks.md))。
+在本快速入門中，您將了解如何在 Azure Notebooks 上快速建立和執行 Jupyter Notebook，並與他人共用該 Notebook。
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+## <a name="create-a-new-project-and-notebook"></a>建立新的專案和 Notebook
+
+1. 移至 [Azure Notebooks 網站 (https://notebooks.azure.com)](https://notebooks.azure.com) 並登入。 (如需詳細資訊，請參閱[快速入門 - 登入 Azure Notebooks](quickstart-sign-in-azure-notebooks.md))。
 
 1. 從您的公用設定檔頁面中，選取頁面頂端的 [我的專案]  ：
 
@@ -31,7 +37,7 @@ ms.locfileid: "74277509"
 
      ![已填入詳細資料的新增專案快顯視窗](media/quickstarts/new-project-popup.png)
 
-1. 幾分鐘後，Azure Notebooks 會帶您瀏覽至新的專案。 選取 [+ 新增]  下拉式清單 (可能只顯示為 **+** )，然後選取 [Notebook]  ，將 Notebook 新增至專案：
+1. 稍後，Azure Notebooks 會帶您至新的專案。 選取 [+ 新增]  下拉式清單 (可能只顯示為 **+** )，然後選取 [Notebook]  ，將 Notebook 新增至專案：
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 

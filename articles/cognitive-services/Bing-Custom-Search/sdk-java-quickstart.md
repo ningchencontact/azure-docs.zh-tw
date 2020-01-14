@@ -1,6 +1,6 @@
 ---
-title: 快速入門：適用於 Java 的 Bing 自訂搜尋用戶端程式庫 | Microsoft Docs
-description: 向您的 Bing 自訂搜尋執行個體要求搜尋結果，以便開始使用適用於 Java 的 Bing 自訂搜尋用戶端程式庫。
+title: 快速入門：適用於 Java 的 Bing 自訂搜尋用戶端程式庫
+description: 在本快速入門中向您的 Bing 自訂搜尋執行個體要求搜尋結果，以便開始使用適用於 Java 的 Bing 自訂搜尋用戶端程式庫。
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: f0a3008dace4e9382bbb6b6d9465ce1c9b4ddc6c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1060cceb9241d9c1c490f7e7f12490c734b0a78d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976055"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384548"
 ---
 # <a name="quickstart-bing-custom-search-client-library-for-java"></a>快速入門：適用於 Java 的 Bing 自訂搜尋用戶端程式庫
 
@@ -26,7 +26,7 @@ ms.locfileid: "74976055"
 
 [參考文件](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable) | [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch) | [成品 (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/) | [範例](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)。
 * 最新版的 [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)。

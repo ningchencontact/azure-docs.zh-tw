@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 .NET Framework 傳送和接收事件 - Azure 事件中樞
+title: Azure 事件中樞 - 使用 .NET Framework 傳送/接收事件
 description: 快速入門：本文會逐步解說如何建立 .NET Framework 應用程式，以將事件傳送至 Azure 事件中樞。
 services: event-hubs
 documentationcenter: ''
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: shvija
-ms.openlocfilehash: 89419e9a3ef364d4095800a617a84ff2f63c09a0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 385430d993afe8b7a0ad57991d3c93eebd46ddcb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720658"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437273"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>快速入門：使用 .NET Framework 將事件傳送至 Azure 事件中樞或從中接收事件
 Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可接收和處理數百萬個事件。 事件中樞可以處理及儲存分散式軟體和裝置所產生的事件、資料或遙測。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 如需事件中樞的詳細概觀，請參閱[事件中樞概觀](event-hubs-about.md)和[事件中樞功能](event-hubs-features.md)。
 
 本教學課程說明如何以 C# 建立 .NET Framework 主控台應用程式，以將事件傳送至事件中樞或從中接收事件。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 若要完成本教學課程，您需要下列必要條件：
 
 - [Microsoft Visual Studio 2019](https://visualstudio.com)。
