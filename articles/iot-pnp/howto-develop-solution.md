@@ -3,24 +3,24 @@ title: 從 Azure IoT 解決方案與 IoT 隨插即用預覽版裝置互動 | Mic
 description: 身為解決方案開發人員，請了解如何使用服務 SDK 與 IoT 隨插即用裝置互動。
 author: Philmea
 ms.author: philmea
-ms.date: 07/24/2019
+ms.date: 12/26/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 543f332087aef4147c9274ca980cb56543a68112
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 485b17ff236de32eab5388629c1bb6044ba19197
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977585"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531338"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>連線至 IoT 隨插即用預覽版裝置並與其互動
 
 本操作指南說明如何使用 Node 服務 SDK 中的範例，了解 IoT 解決方案如何與 IoT 隨插即用預覽版裝置互動。
 
-如果您尚未完成[將 IoT 隨插即用裝置連線至您的解決方案](quickstart-connect-pnp-device-solution.md)快速入門，請於此時完成。 本快速入門說明如何下載和安裝 SDK，並執行一些範例。
+如果您尚未完成[將 IoT 隨插即用裝置連線至您的解決方案](quickstart-connect-pnp-device-solution-node.md)快速入門，請於此時完成。 本快速入門說明如何下載和安裝 SDK，並執行一些範例。
 
 執行服務範例之前，請先開啟新的終端機，移至您複製之存放庫的根資料夾，瀏覽至 **digitaltwins/quickstarts/service** 資料夾，然後執行下列命令以安裝相依性：
 

@@ -7,16 +7,19 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 9d6e441adeb7025e09b8d73764d2defab439dd90
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 043a21aec5753dd16f558ad29d2300ada7a35d72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350912"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431764"
 ---
 # <a name="azure-storage-samples-using-net"></a>使用 .NET 的 Azure 儲存體範例
 
 下表提供我們的範例儲存機制和每個範例所涵蓋案例的概觀。 按一下連結即可檢視 GitHub 中對應的範例程式碼。
+
+> [!NOTE]
+> 這些範例會使用 Azure 儲存體 .NET v11 程式庫。 如需 v12 程式碼，請參閱 GitHub 存放庫中的[範例](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)。
 
 ## <a name="blob-samples"></a>Blob 範例
 
@@ -80,7 +83,7 @@ ms.locfileid: "71350912"
 
 ## <a name="azure-code-samples-library"></a>Azure 程式碼範例程式庫
 
-若要檢視完整的範例程式庫，請移至 [Azure 程式碼範例](https://azure.microsoft.com/resources/samples/?service=storage)程式庫，其中包含您可以下載並在本機執行的「Azure 儲存體」範例。 程式碼範例程式庫會提供 .zip 格式的範例程式碼。 或者，您可以瀏覽並複製每個範例的 GitHub 儲存機制。
+若要檢視完整的範例程式庫，請移至 [Azure 程式碼範例](https://azure.microsoft.com/resources/samples/?service=storage)程式庫，其中包含您可以下載並在本機執行的「Azure 儲存體」範例。 程式碼範例程式庫會提供 .zip 格式的範例程式碼。 或者，您可以瀏覽並複製每個範例的 GitHub 存放庫。
 
 [!INCLUDE [storage-dotnet-samples-include](../../../includes/storage-dotnet-samples-include.md)]
 

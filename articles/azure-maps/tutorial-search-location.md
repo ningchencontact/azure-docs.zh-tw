@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 86ba98bfb4003a723cfaaf2d1c51301314ca47cf
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ae2d7b3d855f1c06397d4eb0f977dd04aa841942
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109506"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432764"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>教學課程：使用 Azure 地圖服務來搜尋附近景點
 
@@ -55,13 +55,15 @@ ms.locfileid: "74109506"
 
 ## <a name="get-the-primary-key-for-your-account"></a>取得帳戶的主要金鑰
 
-成功建立地圖服務帳戶後，擷取金鑰以便能查詢地圖服務 API。
+成功建立地圖服務帳戶後，擷取金鑰以便能查詢地圖服務 API。 我們建議在呼叫 Azure 地圖服務時，使用您帳戶的主要金鑰作為訂用帳戶金鑰。
 
 1. 在入口網站中開啟地圖服務帳戶。
 2. 在 [設定] 區段上，選取 [驗證]  。
 3. 將 [主索引鍵]  複製到剪貼簿。 將其儲存在本機，以供本教學課程稍後使用。
 
 ![在入口網站中取得主索引鍵](./media/tutorial-search-location/get-key.png)
+
+如需 Azure 地圖服務中驗證的詳細資訊，請參閱[管理 Azure 地圖服務中的驗證](how-to-manage-authentication.md)。
 
 <a id="createmap"></a>
 

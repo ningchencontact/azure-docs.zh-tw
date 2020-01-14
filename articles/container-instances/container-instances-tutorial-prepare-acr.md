@@ -2,23 +2,23 @@
 title: 教學課程 - 準備容器登錄以部署映像
 description: Azure 容器執行個體教學課程第 2 部分 (共 3 部分) - 準備 Azure Container Registry 並推送映像
 ms.topic: tutorial
-ms.date: 03/21/2018
+ms.date: 12/18/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d8a14acb196b257d96792444fe41e7e9f6b73592
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 131ea39b382735423a1edff72774313c4096ea2b
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533330"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552408"
 ---
-# <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>教學課程：部署 Azure Container Registry 並推送容器映像
+# <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>教學課程：建立 Azure Container Registry 並推送容器映像
 
 這是三段式教學課程的第二段。 本教學課程的[第一部分](container-instances-tutorial-prepare-app.md)已建立 Node.js Web 應用程式的 Docker 容器映像。 在本教學課程中，您會將此映像推送至 Azure Container Registry。 如果您尚未建立容器映像，請回到[教學課程 1 – 建立容器映像](container-instances-tutorial-prepare-app.md)。
 
-Azure Container Registry 是 Azure 中的私人 Docker 登錄。 在本教學課程中，您會在訂用帳戶中建立 Azure Container Registry 執行個體，然後將先前建立的容器映像推送至該執行個體。 在本文 (本系列的第二部分) 中，您將：
+Azure Container Registry 是 Azure 中的私人 Docker 登錄。 在本教學課程 (系列的第二部分) 中，您會：
 
 > [!div class="checklist"]
-> * 建立 Azure Container Registry 執行個體
+> * 使用 Azure CLI 建立 Azure Container Registry 執行個體
 > * 標記 Azure Container Registry 的容器映像
 > * 將映像上傳至您的登錄
 
@@ -41,16 +41,15 @@ az group create --name myResourceGroup --location eastus
 建立資源群組後，請使用 [az acr create][az-acr-create] 命令建立 Azure Container Registry。 容器登錄名稱在 Azure 內必須是唯一的，且必須包含 5-50 個英數字元。 以登錄的唯一名稱取代 `<acrName>`：
 
 ```azurecli
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
 以下是名為 mycontainerregistry082  之新 Azure Container Registry 之輸出 (此處顯示的內容遭到截斷)：
 
 ```console
-$ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
+$ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic
 ...
 {
-  "adminUserEnabled": true,
   "creationDate": "2018-03-16T21:54:47.297875+00:00",
   "id": "/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/mycontainerregistry082",
   "location": "eastus",
@@ -119,7 +118,7 @@ REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
 aci-tutorial-app    latest    5c745774dfa9    39 minutes ago    68.1 MB
 ```
 
-以您容器登錄的 loginServer 標記 *aci-tutorial-app*映像。 此外，將 `:v1` 標記新增至映像名稱尾端以表示映像版本號碼。 以您稍早執行 [az acr show][az-acr-show] 命令的結果取代 `<acrLoginServer>`。
+以您容器登錄的登入伺服器標記 *aci-tutorial-app*映像。 此外，將 `:v1` 標記新增至映像名稱尾端以表示映像版本號碼。 以您稍早執行 [az acr show][az-acr-show] 命令的結果取代 `<acrLoginServer>`。
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -136,7 +135,7 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app    v1        5c745774dfa9    
 
 ## <a name="push-image-to-azure-container-registry"></a>將映像推送至 Azure Container Registry
 
-您已使用私人登錄的完整登入伺服器名稱標記 aci-tutorial-app  映像，接下來您可以使用 [docker push][docker-push] 將它推送至登錄。 以您在稍早步驟中取得的完整登入伺服器名稱取代 `<acrLoginServer>`。
+您已使用私人登錄的完整登入伺服器名稱標記 aci-tutorial-app  映像，接下來您可以使用 [docker push][docker-push] 命令將映像推送至登錄。 以您在稍早步驟中取得的完整登入伺服器名稱取代 `<acrLoginServer>`。
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
@@ -164,7 +163,7 @@ v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05
 az acr repository list --name <acrName> --output table
 ```
 
-例如︰
+例如：
 
 ```console
 $ az acr repository list --name mycontainerregistry082 --output table
@@ -179,7 +178,7 @@ aci-tutorial-app
 az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
-您應該會看到如下所示的輸出：
+您應該會看到類似以下的輸出：
 
 ```console
 $ az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table
@@ -193,7 +192,7 @@ v1
 在本教學課程中，您準備了 Azure Container Registry 與 Azure Container Instances 搭配使用，並已將容器映像推送至登錄。 已完成下列步驟：
 
 > [!div class="checklist"]
-> * 已部署 Azure Container Registry 執行個體
+> * 使用 Azure CLI 建立 Azure Container Registry 執行個體
 > * 標記 Azure Container Registry 的容器映像
 > * 將映像上傳至 Azure Container Registry
 

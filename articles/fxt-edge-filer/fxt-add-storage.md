@@ -1,17 +1,17 @@
 ---
-title: 將後端儲存體新增至 Microsoft Azure FXT Edge Filer 叢集
+title: 教學課程：將儲存體新增至 Azure FXT Edge Filer 叢集
 description: 如何針對 Azure FXT Edge Filer 設定後端儲存體和面向用戶端的虛擬命名空間
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: ecc246368cae74440ada782940931b3588193975
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 3f736942627d088e3a639f89bef5438714c2608b
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256075"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551959"
 ---
 # <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>教學課程：新增後端儲存體並設定虛擬命名空間 
 

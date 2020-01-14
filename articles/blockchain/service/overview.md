@@ -4,12 +4,12 @@ description: Azure 區塊鏈服務的概觀
 ms.date: 11/21/2019
 ms.topic: overview
 ms.reviewer: janders
-ms.openlocfilehash: 02cc955822987e3be6f5a2184fc49e5510b29626
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 55e1be191b21c7c66b013f70d83fe6c046488e05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455895"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387372"
 ---
 # <a name="what-is-azure-blockchain-service"></a>什麼是 Azure 區塊鏈服務？
 
@@ -19,7 +19,7 @@ Azure 區塊鏈服務是完全受控的總帳服務，讓使用者能夠在 Azur
 * 內建的聯盟管理
 * 使用熟悉的開發工具來開發智慧型合約
 
-Azure 區塊鏈服務旨在支援多個總帳通訊協定。 目前使用 [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) \(英文\) 共識機制來提供對 Ethereum [Quorum](https://www.jpmorgan.com/Quorum) \(英文\) 總帳的支援。
+Azure 區塊鏈服務旨在支援多個總帳通訊協定。 目前使用 [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) \(英文\) 共識機制來提供對 Ethereum [Quorum](https://www.goquorum.com/) \(英文\) 總帳的支援。
 
 這些功能幾乎不需要管理，而且免費提供。 您可以專注於應用程式開發和商務邏輯，而非分配時間和資源來管理虛擬機器和基礎結構。 此外，您可以繼續使用所選擇的開放原始碼工具及平台，來開發應用程式以傳遞您的解決方案，而不需學習新技能。
 
@@ -67,10 +67,17 @@ Azure 區塊鏈服務的區塊鏈資料管理員會將 Azure 區塊鏈服務交�
 
 ## <a name="support-and-feedback"></a>支援與意見反應
 
-需要協助或提供意見反應嗎？
+如需 Azure 區塊鏈服務消息，請瀏覽 [Azure 區塊鏈服務部落格](https://azure.microsoft.com/blog/topics/blockchain/)，即時掌握 Azure 區塊鏈服務工程小組提供的區塊鏈服務供應項目和最新資訊。
 
-* 瀏覽 [Azure 區塊鏈部落格](https://azure.microsoft.com/blog/topics/blockchain/) \(英文\)、[Microsoft 技術社群](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain) \(英文\) 及 [Azure 區塊鏈論壇](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)。
-* 若要提供意見反應或要求新功能，請透過 [UserVoice](https://feedback.azure.com/forums/921130-azure-blockchain-service) 建立項目。
+若要提供產品意見反應或要求新功能，請透過 [Azure 區塊鏈服務的意見反應論壇](https://aka.ms/blockchainuservoice)，張貼票選想法。
+
+### <a name="community-support"></a>社群支援
+
+洽詢 Microsoft 工程師和 Azure 區塊鏈服務社群專家。
+
+* [Azure 區塊鏈服務 MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Microsoft 技術社群](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
 
 ## <a name="next-steps"></a>後續步驟
 

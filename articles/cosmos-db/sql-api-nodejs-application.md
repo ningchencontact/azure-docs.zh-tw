@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 JavaScript SDK 建置 Node.js Web 應用程式來管理 Azure Cosmos DB SQL API 資料
+title: 教學課程：使用 Azure Cosmos DB JavaScript SDK 建置 Node.js Web 應用程式來管理 SQL API 資料
 description: 這個 Node.js 教學課程會探索如何使用 Microsoft Azure Cosmos DB，從 Node.js Express Web 應用程式 (裝載在 Microsoft Azure App Service 的 Web Apps 功能中) 儲存和存取資料。
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: a67870cc2494321aa739d6f59f18651013b7403b
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 7a01c436f31a8ce5b8071db3eda4cf5562c421c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995944"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441269"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>教學課程：使用 JavaScript SDK 建置 Node.js Web 應用程式來管理 Azure Cosmos DB 中的 SQL API 帳戶 
 
@@ -478,7 +478,7 @@ ms.locfileid: "74995944"
 
 若不再需要這些資源，您可以刪除資源群組、Azure Cosmos DB 帳戶和所有相關資源。 請選取用於 Azure Cosmos DB 帳戶的資源群組，選取 [刪除]  ，然後確認要刪除的資源群組名稱，即可刪除資源。
 
-## <a name="_Toc395637775"></a>接續步驟
+## <a name="_Toc395637775"></a>後續步驟
 
 > [!div class="nextstepaction"]
 > [使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式](mobile-apps-with-xamarin.md)

@@ -1,5 +1,5 @@
 ---
-title: Microsoft 客戶合約的 Azure 使用量和費用檔案術語
+title: Microsoft 客戶合約 Azure 使用量和費用檔案術語
 description: 了解如何閱讀並看懂帳單設定檔的 Azure 使用量和費用 CSV 區段。
 author: bandersmsft
 manager: jureid
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b46c635b28d693cb0d6ab9e643a8a1ee9e55fc64
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f619d11c3df29a629b8b4da7b440376d6e9aedbd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226093"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388885"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Microsoft 客戶合約的 Azure 使用量和費用檔案術語
 
-本文適用於 Microsoft 客戶合約的計費帳戶。 [請確認您是否有 Microsoft 客戶合約的存取權](#check-access-to-a-microsoft-customer-agreement)。
+本文適用於 Microsoft 客戶合約的計費帳戶。 請[確認您是否有 Microsoft 客戶合約的存取權](#check-access-to-a-microsoft-customer-agreement)。
 
 Azure 使用量和費用 CSV 檔案會包含目前計費週期的每日及計量層級使用量費用。
 
@@ -35,8 +35,8 @@ Azure 使用量和費用 CSV 檔案會包含目前計費週期的每日及計量
 | Azure EA 使用量 CSV | Microsoft 客戶合約 Azure 使用量和費用 CSV |
 | --- | --- |
 | Date | date |
-| 月| date |
-| 天 | date |
+| Month| date |
+| Day | date |
 | Year | date |
 | Products | product |
 | 計量識別碼 | meterID |
@@ -65,7 +65,7 @@ Azure 使用量和費用 CSV 檔案會包含目前計費週期的每日及計量
 
 下列術語會顯示在 Azure 使用量和費用檔案中。
 
-詞彙 | 說明
+詞彙 | 描述
 --- | ---
 invoiceId | 發票 PDF 中所列出的唯一文件識別碼
 previousInvoiceId | 如果此明細項目為退款，則為原始發票的參考
@@ -128,4 +128,4 @@ tags | 您指派給資源的標記
 ## <a name="next-steps"></a>後續步驟
 
 - [檢視及下載您的 Microsoft Azure 發票](billing-download-azure-invoice.md)
-- [檢視及下載您 Microsoft Azure 使用量和費用](billing-download-azure-daily-usage.md)
+- [檢視及下載您的 Microsoft Azure 使用量和費用](billing-download-azure-daily-usage.md)

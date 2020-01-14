@@ -1,5 +1,6 @@
 ---
-title: 設定 Azure 應用程式組態以將事件傳送至 Web 端點的教學課程 | Microsoft Docs
+title: 教學課程：使用 Azure 應用程式組態將事件傳送至 Web 端點
+titleSuffix: Azure App Configuration
 description: 在本教學課程中，您將了解如何設定 Azure 應用程式組態事件訂用帳戶，以將索引鍵/值修改事件傳送至 Web 端點。
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,18 +14,18 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 32a3131c8ff6a01a35fbe42750384dd303a23140
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4943a64f72191981fc1b655c431cab00f180e503
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185182"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433695"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>快速入門：使用 Azure CLI 將 Azure 應用程式組態事件路由傳送至 Web 端點
 
 在本快速入門中，您將了解如何設定 Azure 應用程式組態事件訂用帳戶，以將索引鍵/值修改事件傳送至 Web 端點。 Azure 應用程式組態使用者可以訂閱修改索引鍵/值時所發出的事件。 這些事件可以觸發 Webhook、Azure Functions、Azure 儲存體佇列，或 Azure 事件方格所支援的任何其他事件處理常式。 通常，您會將事件傳送至可處理事件資料及採取行動的端點。 不過，若要簡化這篇文章，您可將事件傳送至可收集及顯示訊息的 Web 應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)。 您可以選擇性地使用 Azure Cloud Shell。
 

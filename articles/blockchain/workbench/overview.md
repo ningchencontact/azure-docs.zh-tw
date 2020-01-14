@@ -4,12 +4,12 @@ description: Azure Blockchain Workbench 預覽及其功能的概觀。
 ms.date: 09/05/2019
 ms.topic: overview
 ms.reviewer: brendal
-ms.openlocfilehash: 9c40f95aa1490362b9232ec8d87a199d7a41c731
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 88c162539e5d0480d7f938c674b96c2f396774e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74324553"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387066"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>什麼是 Azure Blockchain Workbench？
 
@@ -44,6 +44,20 @@ Azure Blockchain Workbench 會使用 Azure Resource Manager 解決方案範本�
 ## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>將鏈結上的資料同步處理至鏈結外的儲存體
 
 Azure Blockchain Workbench 能透過將區塊鏈上的資料自動同步處理至鏈結外的儲存體，來使分析區塊鏈事件和資料變得更加容易。 與其直接從區塊鏈擷取資料，您可以查詢鏈結外的資料庫系統，例如 SQL Server。 進行資料分析工作的使用者並不需要具備區塊鏈專業知識。
+
+## <a name="support-and-feedback"></a>支援與意見反應
+
+如需 Azure 區塊鏈服務消息，請瀏覽 [Azure 區塊鏈服務部落格](https://azure.microsoft.com/blog/topics/blockchain/)，即時掌握 Azure 區塊鏈服務工程小組提供的區塊鏈服務供應項目和最新資訊。
+
+若要提供產品意見反應或要求新功能，請透過 [Azure 區塊鏈服務的意見反應論壇](https://aka.ms/blockchainuservoice)，張貼票選想法。
+
+### <a name="community-support"></a>社群支援
+
+洽詢 Microsoft 工程師和 Azure 區塊鏈服務社群專家。
+
+* [Azure 區塊鏈服務 MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Microsoft 技術社群](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7e7a01b7fdc1a508fa19397900f8fd4f52d49c53
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: be4a47d26bcfc407734956a3d9bf8778c5afcfb4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164013"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350283"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站以路由表路由傳送網路流量
 
@@ -57,8 +57,8 @@ ms.locfileid: "73164013"
     | 名稱 | 輸入 *myRouteTablePublic*。 |
     | 訂用帳戶 | 選取您的訂用帳戶。 |
     | 資源群組 | 選取 [新建]  ，輸入 *myResourceGroup*，然後選取 [確定]  。 |
-    | 位置 | 保留預設值 [美國東部]  。
-    | BCP 路由傳播 | 保留預設值 [啟用]  。 |
+    | Location | 保留預設值 [美國東部]  。
+    | 虛擬網路閘道路由傳播 | 保留預設值 [啟用]  。 |
 
 1. 選取 [建立]  。
 
@@ -99,7 +99,7 @@ ms.locfileid: "73164013"
     | 位址空間 | 輸入 *10.0.0.0/16*。 |
     | 訂用帳戶 | 選取您的訂用帳戶。 |
     | 資源群組 | 選取 [選取現有的] > [myResourceGroup]  。 |
-    | 位置 | 保留預設值 [美國東部]  。 |
+    | Location | 保留預設值 [美國東部]  。 |
     | 子網路 - 名稱 | 輸入*公用*。 |
     | 子網路 - 位址範圍 | 輸入 *10.0.0.0/24*。 |
 
@@ -160,7 +160,7 @@ NVA 是可協助您最佳化路由和防火牆等網路功能的 VM。 如果您
     | 虛擬機器名稱 | 輸入 *myVmNva*。 |
     | 區域 | 選取 [美國東部]  。 |
     | 可用性選項 | 保留預設值 [不需要基礎結構備援]  。 |
-    | 映像 | 保留預設值 [Windows Server 2016 Datacenter]  。 |
+    | 影像 | 保留預設值 [Windows Server 2016 Datacenter]  。 |
     | 大小 | 保留預設值 [標準 DS1 v2]  。 |
     | **系統管理員帳戶** |  |
     | 使用者名稱 | 輸入您選擇的使用者名稱。 |
@@ -171,11 +171,11 @@ NVA 是可協助您最佳化路由和防火牆等網路功能的 VM。 如果您
     | **節省費用** |  |
     | 已經有 Windows 授權？ | 保留預設值 [否]  。 |
 
-1. 選取 [下一步：**磁碟]** 。
+1. 選取 [下一步：  磁碟]。
 
 1. 在 [建立虛擬機器 - 磁碟]  中，選取最適合您個人需求的設定。
 
-1. 選取 [下一步：**網路]** 。
+1. 選取 [下一步：  網路]。
 
 1. 在 [建立虛擬機器 - 網路]  中，選取這項資訊：
 
@@ -185,7 +185,7 @@ NVA 是可協助您最佳化路由和防火牆等網路功能的 VM。 如果您
     | 子網路 | 選取 [DMZ (10.0.2.0/24)]  。 |
     | 公用 IP | 選取 [無]  。 您不需要公用 IP 位址。 VM 不會透過網際網路連線。|
 
-1. 保留其餘的預設值，然後選取 [下一步：**管理]** 。
+1. 保留其餘的預設值，然後選取 [下一步：  管理]。
 
 1. 在 [建立虛擬機器 - 管理]  中，針對 [診斷儲存體帳戶]  ，選取 [新建]  。
 

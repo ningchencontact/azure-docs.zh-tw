@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 指令碼 - 在 Azure Cosmos 帳戶中建立已關閉索引編製功能的容器
+title: 此 PowerShell 指令碼用以在 Azure Cosmos 帳戶中建立沒有索引的容器
 description: Azure PowerShell 指令碼範例 - 在 Azure Cosmos 帳戶中建立已關閉索引編製功能的容器
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: d216aa7eaa25ee18c7b5e962309e2a08f11df284
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 13bec89b0c6f713a4b8c66f7bab6cda3d6513ef9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178833"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441377"
 ---
 # <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>在 Azure Cosmos 帳戶中使用 PowerShell 建立已關閉索引編製功能的容器
 
@@ -36,7 +36,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 |**Azure 資源**| |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 建立資源。 |

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 37ff89f6b837aaf0de5c195a89bb827464534d11
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a8028cf4ece79fc31969532a358cca993c7ab948
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703704"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549443"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>教學課程：為 Azure Active Directory Domain Services 受控網域設定安全 LDAP
 
@@ -30,9 +30,9 @@ ms.locfileid: "74703704"
 > * 設定安全 LDAP 以透過公開的網際網路使用
 > * 為 Azure AD DS 受控網域繫結及測試安全 LDAP
 
-如果您沒有 Azure 訂用帳戶，請先建立[帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)再開始。
+如果您沒有 Azure 訂用帳戶，請先[建立帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)再開始。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成此教學課程，您需要下列資源和權限：
 
@@ -63,7 +63,7 @@ ms.locfileid: "74703704"
 
 * **信任的簽發者** - 憑證必須由使用安全 LDAP 連線到網域的電腦，所信任的授權單位加以發行。 此授權單位可能是受這些電腦信任的公用 CA 或企業 CA。
 * **存留期** - 憑證必須至少在接下來的 3 至 6 個月內都要保持有效。 當憑證過期時，受控網域的安全 LDAP 存取會中斷。
-* **主體名稱** - 憑證的主體名稱必須是您受控網域。 例如，如果您的網域名稱為 aadds.contoso.com  ，則憑證的主體名稱必須是 *aadds.contoso.com  。
+* **主體名稱** - 憑證的主體名稱必須是您受控網域。 例如，如果您的網域名稱為 aadds.contoso.com  ，則憑證的主體名稱必須是 *.aadds.contoso.com  。
     * 憑證的 DNS 名稱或主體替代名稱必須是萬用字元憑證，才能確保安全 LDAP 可以順利地與 Azure AD Domain Services 搭配運作。 網域控制站會使用隨機名稱，而且可以加以移除或新增，以確保服務可供使用。
 * **金鑰使用方法** - 必須將憑證設定為「數位簽章」  與「金鑰編密」  。
 * **憑證目的** - 憑證必須有效可進行 SSL 伺服器驗證。
@@ -216,10 +216,10 @@ CER  憑證檔案現在可以散發到用戶端電腦，因為這些電腦必須
     | 來源                            | IP 位址 |
     | 來源 IP 位址 / CIDR 範圍 | 適用於您環境的有效 IP 位址或範圍 |
     | 來源連接埠範圍                | *            |
-    | 目的地                       | 任意          |
+    | Destination                       | 任意          |
     | 目的地連接埠範圍           | 636          |
     | 通訊協定                          | TCP          |
-    | 動作                            | 允許        |
+    | 動作                            | Allow        |
     | 優先順序                          | 401          |
     | 名稱                              | AllowLDAPS   |
 

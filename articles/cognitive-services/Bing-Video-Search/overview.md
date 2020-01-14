@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-ms.date: 06/26/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 4f3a52590a9a0c50bdc87f87792027333fc5269f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 8377f0f5d586212c94bb763598b6e7a9e391073c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500156"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382713"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>什麼是 Bing 影片搜尋 API？
 
@@ -23,7 +23,7 @@ Bing 影片搜尋 API 可讓您輕鬆地將影片搜尋功能新增至服務和�
 
 ## <a name="bing-video-search-api-features"></a>Bing 影片搜尋 API 功能
 
-| 功能                                                                                                                                                                                 | 說明                                                                                                                                                            |
+| 功能                                                                                                                                                                                 | 描述                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [即時建議搜尋字詞](concepts/sending-requests.md#suggest-search-terms-with-the-bing-autosuggest-api) | 使用 [Bing 自動建議 API](../bing-autosuggest/get-suggested-search-terms.md) 隨著使用者的輸入顯示建議的搜尋字詞，以改善您的應用程式體驗。 |
 | [篩選及限制影片結果](concepts/get-videos.md#filtering-videos)                      | 藉由編輯查詢參數來篩選傳回的影片。                                                                                                       |
@@ -53,3 +53,5 @@ Bing 影片搜尋 API 的[互動式示範](https://azure.microsoft.com/services/
 * [Bing 影片搜尋 API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) 參考頁面包含端點、標頭，以及用來要求搜尋結果的查詢參數清單。
 
 * [Bing 使用和顯示需求](./useanddisplayrequirements.md)指定了透過 Bing 搜尋 API 取得的內容和資訊可行的用法。
+
+* 請瀏覽 [Bing 搜尋 API 中樞頁面](../bing-web-search/search-the-web.md)以探索其他可用的 API。

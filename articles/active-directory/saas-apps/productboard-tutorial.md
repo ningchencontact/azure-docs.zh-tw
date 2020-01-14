@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 529c2a453bade8745a596b5cd2e374907a66f613
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1c308243e3dfebb3622ebbe346771fe781b97cc5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893717"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443314"
 ---
 # <a name="tutorial-integrate-productboard-with-azure-active-directory"></a>教學課程：整合 productboard 與 Azure Active Directory
 
@@ -33,7 +33,7 @@ ms.locfileid: "74893717"
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要開始，您需要下列項目：
 
@@ -68,7 +68,7 @@ ms.locfileid: "74893717"
     * **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
     * **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
 1. **[設定 productboard SSO](#configure-productboard-sso)** - 在應用程式端設定單一登入設定。
-    * **[建立 productboard 測試使用者](#create-productboard-test-user)** ，使 EZOfficeInventory 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+    * **[建立 productboard 測試使用者](#create-productboard-test-user)** - 使 productboard 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
 1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO

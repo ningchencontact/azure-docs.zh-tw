@@ -1,5 +1,5 @@
 ---
-title: 了解 Microsoft 客戶合約的計費管理角色 - Azure
+title: Microsoft 客戶合約的計費角色 - Azure
 description: 了解 Azure 中可對 Microsoft 客戶合約的計費帳戶進行處理的計費角色。
 author: amberbhargava
 manager: amberbhargava
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: f143297ce3a3e41174cbd6cf59ca3df29f8ebc63
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3949d2a70d29f2bfa33596ef2c47f45e1c87c2d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223519"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388143"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>了解 Azure 中的 Microsoft 客戶合約管理角色
 
@@ -27,7 +27,7 @@ ms.locfileid: "74223519"
 
 下表說明您用來管理計費帳戶、帳單設定檔和發票區段的計費角色。
 
-|角色|說明|
+|角色|描述|
 |---|---|
 |計費帳戶擁有者|管理計費帳戶的所有項目|
 |計費帳戶參與者|管理計費帳戶上除了權限以外的所有項目|
@@ -182,7 +182,7 @@ ms.locfileid: "74223519"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單]  進行搜尋。
+2. 搜尋 [成本管理 + 帳單]  。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-understand-mca-roles/billing-search-cost-management-billing.png)
 
@@ -200,7 +200,7 @@ ms.locfileid: "74223519"
 
    ![顯示從計費帳戶中移除管理員的螢幕擷取畫面](./media/billing-understand-mca-roles/billing-remove-admin.png)
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查對 Microsoft 客戶合約的存取權
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查 Microsoft 客戶合約的存取
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員

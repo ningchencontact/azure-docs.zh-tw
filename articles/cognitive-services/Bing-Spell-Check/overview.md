@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 996db9690d19cc40c3963922d4edb3b59469752b
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 5586704e098fc568c714e779c2eed44aa3d1df9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514804"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382994"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>什麼是 Bing 拼字檢查 API？
 
@@ -44,3 +44,5 @@ Bing 拼字檢查 API 可輕易地從任何可發出 HTTP 要求及剖析 JSON �
 首先，請嘗試 Bing 拼字檢查搜尋 API 的[互動式示範](https://azure.microsoft.com/services/cognitive-services/spell-check/)，以了解如何快速地檢查各種不同的文字。
 
 當您準備好要呼叫 API 時，請建立[認知服務 API 帳戶](../../cognitive-services/cognitive-services-apis-create-account.md)。 如果您沒有 Azure 訂用帳戶，可以[建立免費帳戶](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)。
+
+您也可以瀏覽 [Bing 搜尋 API 中樞頁面](../bing-web-search/search-the-web.md)來探索其他可用的 API。

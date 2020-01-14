@@ -4,21 +4,21 @@ description: 在本快速入門中，了解如何建立 IoT Edge 裝置，然後
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/16/2019
+ms.date: 11/06/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6d84c2eed6e68987af3ce932785068191405b942
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ab3805e39112d4d37635571d8aa43030a1896951
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452561"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552367"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至虛擬 Windows 裝置
 
-藉由將容器化程式碼部署至虛擬 IoT Edge 裝置，在本快速入門中測試 Azure IoT Edge。 IoT Edge 可讓您從遠端管理裝置上的程式碼，以便可以將更多的工作負載傳送到邊緣。 在本快速入門中，建議您對 IoT Edge 裝置使用 Azure 虛擬機器，以便您可以快速建立測試機器、安裝必要條件，然後在完成時將它刪除。 
+藉由將容器化程式碼部署至虛擬 IoT Edge 裝置，在本快速入門中測試 Azure IoT Edge。 IoT Edge 可讓您從遠端管理裝置上的程式碼，以便可以將更多的工作負載傳送到邊緣。 在本快速入門中，建議您對 IoT Edge 裝置使用 Azure 虛擬機器，以便您可以快速建立測試機器、安裝必要條件，然後在完成時將它刪除。
 
 在此快速入門中，您將了解如何：
 
@@ -35,7 +35,7 @@ ms.locfileid: "74452561"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-您可以使用 Azure CLI 來完成本快速入門中的許多步驟，而且 Azure IoT 有擴充功能可供啟用其他功能。
+您可以使用 Azure CLI 來完成本快速入門中的許多步驟。 Azure IoT 具有啟用額外功能的擴充功能。
 
 將 Azure IoT 擴充功能新增至 Cloud Shell 執行個體。
 
@@ -43,19 +43,19 @@ ms.locfileid: "74452561"
    az extension add --name azure-cli-iot-ext
    ```
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 雲端資源：
 
 * 一個資源群組，用以管理本快速入門中使用的所有資源。
 
    ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus2
+   az group create --name IoTEdgeResources --location westus2 
    ```
 
 IoT Edge 裝置：
 
-* 一部 Windows 虛擬機器，可當作您的 IoT Edge 裝置。 您可以建立使用下列命令，並將 *{password}* 取代為安全密碼，來建立此虛擬機器：
+* 一部 Windows 虛擬機器，可當作您的 IoT Edge 裝置。 您可以使用下列命令，並將 `{password}` 取代為安全密碼，來建立此虛擬機器：
 
   ```azurecli-interactive
   az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
@@ -64,11 +64,10 @@ IoT Edge 裝置：
   建立和啟動新的虛擬機器可能需要幾分鐘的時間。 然後，在連接到您的虛擬機器時，您可以下載 RDP 檔案以便使用：
 
   1. 巡覽至您在 Azure 入口網站中的第一個 Windows 虛擬機器。
-  1. 選取 [ **連接**]。
+  1. 選取 [連接]  。
   1. 在 [RDP]  索引標籤上，選取 [下載 RDP 檔案]  。
 
   使用您以 `az vm create`命令指定的系統管理員名稱和密碼，用遠端桌面連線連線到您的 Windows 虛擬機器，以開啟此檔案。
-
 
 > [!NOTE]
 > 為了簡單起見，本快速入門使用的是 Windows 桌面虛擬機器。 如需正式生產情境下一般何種 Windows 作業系統可供使用的資訊，請參閱 [Azure IoT Edge 支援系統](support.md)。
@@ -83,10 +82,10 @@ IoT Edge 裝置：
 
 此快速入門適用於 IoT 中樞的免費層級。 如果您在過去已使用過 IoT 中樞，並已建立可用的中樞，您可以使用該 IoT 中樞。 每個訂用帳戶只能有一個免費的 IoT 中樞。
 
-下列程式碼會在資源群組 **IoTEdgeResources** 中建立免費的 **F1** 中樞。 請以 IoT 中樞的唯一名稱取代 {hub_name}  。
+下列程式碼會在資源群組 `IoTEdgeResources` 中建立免費的 **F1** 中樞。 以 IoT 中樞的唯一名稱取代 `{hub_name}`。
 
    ```azurecli-interactive
-   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1
+   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
    如果因您的訂用帳戶中已有免費中樞而發生錯誤，請將 SKU 變更為 **S1**。 如果您收到無法使用 IoT 中樞名稱的錯誤，則表示其他人已經有該名稱的中樞。 請嘗試新的名稱。
@@ -155,7 +154,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
    Deploy-IoTEdge -ContainerOs Windows
    ```
 
-4. 您的電腦可能會自動重新啟動。 如果 Deploy-IoTEdge 提示您重新啟動，請立即重新啟動。 
+4. 您的電腦可能會自動重新啟動。 如果 Deploy-IoTEdge 提示您重新啟動，請立即重新啟動。
 
 5. 再次以系統管理員身分執行 PowerShell。
 
@@ -186,9 +185,9 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 
 3. 檢視在 IoT Edge 裝置上執行的所有模組。 由於服務只有第一次會啟動，您應該只會看到 **edgeAgent** 模組正在執行。 EdgeAgent 模組預設會執行，且有助於安裝及啟動您部署至裝置的任何其他模組。
 
-   ```powershell
-   iotedge list
-   ```
+    ```powershell
+    iotedge list
+    ```
 
    ![檢視裝置上的一個模組](./media/quickstart/iotedge-list-1.png)
 
@@ -246,7 +245,7 @@ az group delete --name IoTEdgeResources
 
 在本快速入門中，您已建立 IoT Edge 裝置，並使用 Azure IoT Edge 雲端介面將程式碼部署至裝置上。 現在，您已有測試裝置，可產生其環境的相關原始資料。
 
-下一個步驟是設定您的本機開發環境，以便您可以開始建立 IoT Edge 模組執行您的商務邏輯。 
+下一個步驟是設定您的本機開發環境，以便您可以開始建立執行您商務邏輯的 IoT Edge 模組。 
 
 > [!div class="nextstepaction"]
 > [開始開發 Windows 裝置適用的 IoT Edge 模組](tutorial-develop-for-windows.md)

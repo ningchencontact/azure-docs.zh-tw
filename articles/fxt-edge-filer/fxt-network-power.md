@@ -1,17 +1,17 @@
 ---
-title: Microsoft Azure FXT Edge Filer 網路連線和電源供應器
+title: 教學課程：將纜線連接至 Azure FXT Edge Filer
 description: 如何為 Azure FXT Edge Filer 硬體進行網路連接埠佈線並連接電源
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: rohogue
-ms.openlocfilehash: 474172284383bc9ba0e5b5c11c66e1b990010184
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 1e3c60fd955bd899955c46b7670acd3f088d0f86
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254868"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550939"
 ---
 # <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>教學課程：建立網路連線並為 Azure FXT Edge Filer 節點供電
 
@@ -25,7 +25,7 @@ ms.locfileid: "72254868"
 > * 如何透過纜線整理支架 (CMA) 配置纜線
 > * 如何將電源連接到機架裝置並將其開機
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 在開始此教學課程之前，Azure FXT Edge Filer 應該安裝在標準配備機架上。 CMA 應安裝在 Filer 節點上。 
 

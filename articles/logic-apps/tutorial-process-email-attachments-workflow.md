@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 6486427753543e0f4fe9a197b6825a555ef2fc70
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ef0445727c100b7262ebffc69be5e00a7956520a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793477"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428781"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>教學課程：使用 Azure Logic Apps、Azure Functions 和 Azure 儲存體，將工作自動化以處理電子郵件
 
@@ -34,7 +34,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 ![完成的邏輯應用程式概觀](./media/tutorial-process-email-attachments-workflow/overview.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -54,10 +54,10 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 1. 請先在 Azure 入口網站中的 [基本資料]  索引標籤上使用這些設定[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)，然後才能建立儲存體容器：
 
-   | 設定 | 值 | 說明 |
+   | 設定 | 值 | 描述 |
    |---------|-------|-------------|
    | **訂用帳戶** | <*Azure-subscription-name*> | Azure 訂用帳戶的名稱 |  
-   | **資源群組** | <*Azure-resource-group*> | 用來組織及管理相關資源的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 此範例使用 "LA-Tutorial-RG"。 <p>**附註：** 資源群組會存在於某個特定區域內。 雖然此教學課程中提及的項目可能並非適用於所有區域，但請盡可能使用相同的區域。 |
+   | **資源群組** | <*Azure-resource-group*> | 用來組織及管理相關資源的 [Azure 資源群組](../azure-resource-manager/management/overview.md)的名稱。 此範例使用 "LA-Tutorial-RG"。 <p>**注意：** 資源群組會存在於某個特定區域內。 雖然此教學課程中提及的項目可能並非適用於所有區域，但請盡可能使用相同的區域。 |
    | **儲存體帳戶名稱** | <*Azure-storage-account-name*> | 您的儲存體帳戶名稱，必須有 3-24 個字元，且只能包含小寫字母和數字。 此範例使用 "attachmentstorageacct"。 |
    | **位置** | <*Azure-region*> | 用來儲存您儲存體帳戶相關資訊的區域。 此範例使用「美國西部」。 |
    | **效能** | 標準 | 此設定會指定支援的資料類型和用來儲存資料的媒體。 請參閱[儲存體帳戶類型](../storage/common/storage-introduction.md#types-of-storage-accounts)。 |
@@ -68,7 +68,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    在 [進階]  索引標籤上，選取此設定：
 
-   | 設定 | 值 | 說明 |
+   | 設定 | 值 | 描述 |
    |---------|-------|-------------|
    | **需要安全傳輸** | 已停用 | 此設定會指定連線要求所需的安全性。 請參閱[需要安全傳輸](../storage/common/storage-require-secure-transfer.md)。 |
    ||||
@@ -138,7 +138,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 1. 您必須先透過下列設定[建立函式應用程式](../azure-functions/functions-create-function-app-portal.md)，才能建立函式：
 
-   | 設定 | 值 | 說明 |
+   | 設定 | 值 | 描述 |
    | ------- | ----- | ----------- |
    | **應用程式名稱** | <*function-app-name*> | 在整個 Azure 中，您的函數應用程式名稱必須是全域唯一的。 此範例已使用「CleanTextFunctionApp」，因此請提供不同的名稱，例如 "MyCleanTextFunctionApp-<*您的名稱*>" |
    | **訂用帳戶** | <your-Azure-subscription-name  > | 您先前使用的相同 Azure 訂用帳戶 |
@@ -147,7 +147,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
    | **主控方案** | 取用方案 | 此設定會決定如何配置和調整執行函式應用程式所需的資源，例如運算能力。 請參閱[主控方案比較](../azure-functions/functions-scale.md)。 |
    | **位置** | 美國西部 | 您先前使用的相同區域 |
    | **執行階段堆疊** | 慣用語言 | 選取支援您慣用函式程式設計語言的執行階段。 針對 C# 和 F# 函式選取 **.NET**。 |
-   | **儲存體** | cleantextfunctionstorageacct | 為您的函式應用程式建立儲存體帳戶。 請一律使用小寫字母和數字。 <p>**附註：** 此儲存體帳戶包含您的函數應用程式，且不同於您先前為電子郵件附件建立的儲存體帳戶。 |
+   | **Storage** | cleantextfunctionstorageacct | 為您的函式應用程式建立儲存體帳戶。 請一律使用小寫字母和數字。 <p>**注意：** 此儲存體帳戶包含您的函數應用程式，且不同於您先前為電子郵件附件建立的儲存體帳戶。 |
    | **Application Insights** | 停用 | 可開啟 [Application Insights](../azure-monitor/app/app-insights-overview.md) 的應用程式監視功能，但在此教學課程中，請選取 [停用]   > [套用]  。 |
    ||||
 
@@ -177,7 +177,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 1. 編輯器開啟之後，請將範本程式碼取代為此範例程式碼，以移除 HTML 並將結果傳回至呼叫端：
 
-   ```CSharp
+   ```csharp
    #r "Newtonsoft.Json"
 
    using System.Net;
@@ -235,7 +235,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    ![提供邏輯應用程式資訊](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
-   | 設定 | 值 | 說明 |
+   | 設定 | 值 | 描述 |
    | ------- | ----- | ----------- |
    | **名稱** | LA-ProcessAttachment | 邏輯應用程式的名稱 |
    | **訂用帳戶** | <your-Azure-subscription-name  > | 您先前使用的相同 Azure 訂用帳戶 |
@@ -258,7 +258,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 1. 在設計工具的搜尋方塊中，輸入 `when new email arrives` 做為篩選條件。 為電子郵件提供者選取此觸發程序：**新的電子郵件送達時 - <*your-email-provider*>**
 
-   例如︰
+   例如：
 
    ![為電子郵件提供者選取此觸發程序：「新的電子郵件送達時」](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
@@ -274,20 +274,20 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
       ![指定檢查郵件的資料夾、間隔和頻率](./media/tutorial-process-email-attachments-workflow/set-up-email-trigger.png)
 
-      | 設定 | 值 | 說明 |
+      | 設定 | 值 | 描述 |
       | ------- | ----- | ----------- |
       | **資料夾** | Inbox | 要檢查的電子郵件資料夾 |
-      | **具有附件** | yes | 僅取得含附件的電子郵件。 <p>**附註：** 觸發程序並不會從您的帳戶移除任何電子郵件，而只會檢查新的訊息及處理符合主旨篩選條件的電子郵件。 |
-      | **包含附件** | yes | 取得附件並作為工作流程的輸入，而非只是檢查是否有附件。 |
+      | **具有附件** | 是 | 僅取得含附件的電子郵件。 <p>**注意：** 觸發程序並不會從您的帳戶移除任何電子郵件，而只會檢查新的訊息及處理符合主旨篩選條件的電子郵件。 |
+      | **包含附件** | 是 | 取得附件並作為工作流程的輸入，而非只是檢查是否有附件。 |
       | **間隔** | 1 | 在檢查之間所要等待的間隔數目 |
-      | **頻率** | 分鐘 | 在檢查之間每個間隔的時間單位 |
+      | **頻率** | Minute | 在檢查之間每個間隔的時間單位 |
       ||||
   
    1. 從 [新增參數]  清單中，選取 [主旨篩選]  。
 
    1. 在動作中出現 [主旨篩選]  方塊後，請指定如下所列的主體：
 
-      | 設定 | 值 | 說明 |
+      | 設定 | 值 | 描述 |
       | ------- | ----- | ----------- |
       | **主旨篩選** | `Business Analyst 2 #423501` | 要在電子郵件主旨中尋找的文字 |
       ||||
@@ -435,9 +435,9 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    ![建立儲存體帳戶的連線](./media/tutorial-process-email-attachments-workflow/create-storage-account-connection-first.png)
 
-   | 設定 | 值 | 說明 |
+   | 設定 | 值 | 描述 |
    | ------- | ----- | ----------- |
-   | 連線名稱  | AttachmentStorageConnection | 連線的描述性名稱 |
+   | **連接名稱** | AttachmentStorageConnection | 連線的描述性名稱 |
    | **儲存體帳戶** | attachmentstorageacct | 您先前建立用來儲存附件之儲存體帳戶的名稱 |
    ||||
 
@@ -447,7 +447,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    ![提供電子郵件內文的 Blob 資訊](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body.png)
 
-   | 設定 | 值 | 說明 |
+   | 設定 | 值 | 描述 |
    | ------- | ----- | ----------- |
    | **資料夾路徑** | /attachments | 您先前建立之容器的路徑和名稱。 在此範例中，請按一下資料夾圖示，然後選取 "/attachments" 容器。 |
    | **Blob 名稱** | **寄件者**欄位 | 此範例中，請使用寄件者的名稱作為 Blob 的名稱。 按一下此方塊內部讓動態內容清單顯示，然後在 [新的電子郵件送達時]  動作下方選取 [寄件者]  欄位。 |
@@ -532,7 +532,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    ![提供 Blob 資訊](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png)
 
-   | 設定 | 值 | 說明 |
+   | 設定 | 值 | 描述 |
    | ------- | ----- | ----------- |
    | **資料夾路徑** | /attachments | 您先前建立之容器的路徑和名稱。 在此範例中，請按一下資料夾圖示，然後選取 "/attachments" 容器。 |
    | **Blob 名稱** | **名稱**欄位 | 此範例中，請使用附件的名稱作為 Blob 的名稱。 按一下此方塊內部讓動態內容清單顯示，然後在 [新的電子郵件送達時]  動作下方選取 [名稱]  欄位。 |
@@ -599,9 +599,9 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    | 設定 | 值 | 注意 |
    | ------- | ----- | ----- |
-   | **To** | <*recipient-email-address*> | 為了測試用途，您可以使用自己的電子郵件地址。 |
+   | **若要** | <*recipient-email-address*> | 為了測試用途，您可以使用自己的電子郵件地址。 |
    | **主旨**  | ```ASAP - Review applicant for position:``` **主旨** | 您要包含的電子郵件主旨。 按一下此方塊內部，輸入範例文字，然後選取 [新的電子郵件送達時]  下方的 [主旨]  欄位。 |
-   | **內文** | ```Please review new applicant:``` <p>```Applicant name:``` **寄件者** <p>```Application file location:``` **路徑** <p>```Application email content:``` **內文** | 電子郵件內文內容。 按一下此方塊內部，輸入範例文字，然後從動態內容清單中選取下列欄位： <p>- [新的電子郵件送達時]  下的 [寄件者]  欄位 </br>- [為電子郵件內文建立 Blob]  下的 [路徑]  欄位 </br>- [呼叫 RemoveHTMLFunction 以清除電子郵件內文]  下的 [內文]  欄位 |
+   | **本文** | ```Please review new applicant:``` <p>```Applicant name:``` **寄件者** <p>```Application file location:``` **路徑** <p>```Application email content:``` **內文** | 電子郵件內文內容。 按一下此方塊內部，輸入範例文字，然後從動態內容清單中選取下列欄位： <p>- [新的電子郵件送達時]  下的 [寄件者]  欄位 </br>- [為電子郵件內文建立 Blob]  下的 [路徑]  欄位 </br>- [呼叫 RemoveHTMLFunction 以清除電子郵件內文]  下的 [內文]  欄位 |
    ||||
 
    > [!NOTE]

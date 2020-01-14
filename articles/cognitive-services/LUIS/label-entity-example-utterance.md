@@ -8,33 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 58e813d30273db4e011039aa43cd59c61507895e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: f7d6e98205afad2ed2c4aea30e635254f79acaa1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74383712"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448079"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>在範例語句中標記機器學習實體
 
-在範例語句中標記實體，會提供 LUIS 一個實體內容的範例，以及實體可在語句中出現的位置。 
+在範例語句中標記實體，會提供 LUIS 一個實體內容的範例，以及實體可在語句中出現的位置。
 
 ## <a name="labeling-machine-learned-entity"></a>標記機器學習實體
 
-請考量片語 `hi, please I want a cheese pizza in 20 minutes`。 
+請考量片語 `hi, please I want a cheese pizza in 20 minutes`。
 
 1. 選取最左邊的文字，然後選取實體的最右邊文字，然後挑選您想要標記的實體，在此案例中為「完成順序」。 _完成順序_會在下圖中標示。
 
     > [!div class="mx-imgBorder"]
     > ![標記完整機器學習實體](media/label-utterances/example-1-label-machine-learned-entity-complete-order.png)
 
-1. 從快顯視窗中選取實體。 標記的完整披薩訂單實體包含標示的所有單字 (由左到右的英文)。 
+1. 從快顯視窗中選取實體。 標記的完整披薩訂單實體包含標示的所有單字 (由左到右的英文)。
 
 ## <a name="review-labeled-text"></a>檢閱標記文字
 
-標記之後，請參閱範例語句，並確定選取的文字範圍已加上所選實體的底線。 實線表示文字已標記。 
+標記之後，請參閱範例語句，並確定選取的文字範圍已加上所選實體的底線。 實線表示文字已標記。
 
 > [!div class="mx-imgBorder"]
 > ![標記完整機器學習實體](media/label-utterances/example-1-label-machine-learned-entity-complete-order-labeled.png)
@@ -55,12 +55,12 @@ ms.locfileid: "74383712"
 
 實體調色盤會提供先前標記體驗的替代方案。 這可讓您對文字使用筆刷，以立即使用實體來為其加上標籤。
 
-1. 選取語句資料表右上方的螢光筆圖示，即可開啟實體調色盤。 
+1. 選取語句資料表右上方的螢光筆圖示，即可開啟實體調色盤。
 
     > [!div class="mx-imgBorder"]
     > ![機器學習實體的實體調色盤](media/label-utterances/example-1-label-machine-learned-entity-palette.png)
 
-2. 選取實體元件。 此動作會以視覺化方式顯示新的資料指標。 當您在入口網站中移動時，資料指標會跟隨滑鼠。 
+2. 選取實體元件。 此動作會以視覺化方式顯示新的資料指標。 當您在入口網站中移動時，資料指標會跟隨滑鼠。
 
     > [!div class="mx-imgBorder"]
     > ![機器學習實體的實體調色盤](media/label-utterances/example-1-label-machine-learned-entity-palette-menu.png)
@@ -77,17 +77,26 @@ ms.locfileid: "74383712"
 > [!div class="mx-imgBorder"]
 > ![機器學習實體的實體調色盤](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
 
-只有在其父代項目也加上標籤時，才可以標記子元件。 
+只有在其父代項目也加上標籤時，才可以標記子元件。
+
+## <a name="labeling-entity-roles"></a>標記實體角色
+
+實體角色會使用實體選擇區來標記。
+
+1. 在 [意圖詳細資料] 頁面中，從操作工具列中選取 [實體選擇區]  。
+1. 開啟實體選擇區之後，請從實體清單中選取實體。
+1. 移至 [實體偵測器]  ，然後選取現有的角色或建立新的角色。
+1. 在範例語句文字中，以實體角色標記文字。 
 
 ## <a name="unlabel-entities"></a>將實體取消標記
 
-若要將實體取消標記，請選取文字底下的實體名稱，然後選取 [取消標記]  。 如果您嘗試取消標記的實體具有已標記的子元件，則子元件必須是先取消標記。 
+若要將實體取消標記，請選取文字底下的實體名稱，然後選取 [取消標記]  。 如果您嘗試取消標記的實體具有已標記的子元件，則子元件必須是先取消標記。
 
 ## <a name="editing-labels-using-the-entity-palette"></a>使用實體調色盤編輯標籤
 
 如果您在標記時犯了錯誤，則實體調色盤就是可讓您快速編輯的簡單工具。 例如，如果實體標籤不小心跨越到額外的字組，而且其具有已標記的子元件，則您可以使用實體調色盤，在所需的較短字組範圍上使用筆刷。
 
-例如︰
+例如：
 
 1. 「披薩類型 (Pizza Type)」子元件的範圍是 "cheese pizza with"，其中包含額外的錯誤字組 -- "with"
 
@@ -98,7 +107,6 @@ ms.locfileid: "74383712"
 
     > [!div class="mx-imgBorder"]
     > ![機器學習實體的實體調色盤](media/label-utterances/edit-label-with-palette-2.png)
-
 
 ## <a name="labels-for-matching-text-entities"></a>用於相符文字實體的標籤
 

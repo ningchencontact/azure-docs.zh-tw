@@ -11,50 +11,50 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: 325278ee0222070ce7c02c1d72961f0431284677
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c0dcd8f8f5ecd2d333e610c96ea89a44f8f4c547
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73670537"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75528346"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>什麼是 Machine Learning Studio (傳統)？
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-Microsoft Azure Machine Learning Studio (傳統) 是一種共同作業的拖放工具，讓您可用來依據資料建置、測試及部署預測性分析解決方案。  傳統的 Machine Learning Studio 版本會以 Web 服務形式發佈模型，讓自訂應用程式或 BI 工具 (例如 Excel) 能夠輕易使用。
+Microsoft Azure Machine Learning Studio (傳統) 是一種共同作業的拖放工具，讓您可用來依據資料建置、測試及部署預測性分析解決方案。 Azure Machine Learning Studio (傳統) 會以 Web 服務方式發佈模型，讓自訂應用程式或 BI 工具 (例如 Excel) 都能夠很容易地使用。
 
 Machine Learning Studio (傳統) 讓資料科學、預測性分析、雲端資源和您的資料能夠齊聚一堂。
 
 ## <a name="the-machine-learning-studio-classic--interactive-workspace"></a>Machine Learning Studio (傳統) 互動式工作區
 若要開發預測分析模型，您通常會使用一或多個來源的資料，透過各種資料操作和統計函數來轉換和分析該資料，然後產生一組結果。 開發此類模型是一種反覆式過程。 隨著您修改各種函數及其參數，結果會不斷收斂，直到您對已訓練的有效模型感到滿意為止。
 
-傳統的 Azure Machine Learning Studio 版本提供互動式視覺化工作區，讓您能夠輕鬆建置、測試及反覆運算預測性分析模型。 您可以將「資料集」和分析「模組」拖放到互動式畫布，將它們連接在一起以構成「實驗」，然後在 Machine Learning Studio (傳統) 中執行。 若要反覆調整模型設計，請編輯實驗，儲存複本 (若需要)，然後重新提交。 當您準備好時，可以將您的「訓練實驗」轉換成「預測實驗」，然後發佈為「Web 服務」，讓其他人可以存取您的模型。
+Azure Machine Learning Studio (傳統) 提供互動式的視覺化工作區，讓您輕鬆建置、測試和反覆運算預測分析模型。 您可以將「資料集」和分析「模組」拖放到互動式畫布，將它們連接在一起以構成「實驗」，然後在 Machine Learning Studio (傳統) 中執行。 若要反覆調整模型設計，請編輯實驗，儲存複本 (若需要)，然後重新提交。 當您準備好時，可以將您的「訓練實驗」轉換成「預測實驗」，然後發佈為「Web 服務」，讓其他人可以存取您的模型。
 
 不需要設計程式，就能以視覺化方式連接資料集和模組來建構預測性分析模型。
 
-![Azure Machine Learning Studio 圖表：建立實驗、讀取許多來源的資料、寫入評分的資料及寫入模型。](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
+![Azure Machine Learning Studio (傳統) 圖表：建立實驗、讀取許多來源的資料、寫入評分的資料及寫入模型。](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 <a name="compare"></a>
 ## <a name="how-does-machine-learning-studio-classic-differ-from-azure-machine-learning"></a>Machine Learning Studio (傳統) 與 Azure Machine Learning 有何不同？
 
-[Azure Machine Learning](../service/overview-what-is-azure-ml.md) 同時提供 SDK **與** Azure Machine Learning 設計工具 (預覽)，可快速準備資料、定型及部署機器學習模型。 此設計工具會對 Studio (傳統) 提供類似的拖放體驗。 不過，不同於 Studio (傳統) 專屬的計算平台，此設計工具會使用您自己的計算資源，並與 Azure Machine Learning 完全整合。
+[Azure Machine Learning](../overview-what-is-azure-ml.md) 同時提供 SDK **與** Azure Machine Learning 設計工具 (預覽)，可快速準備資料、定型及部署機器學習模型。 此設計工具會對 Studio (傳統) 提供類似的拖放體驗。 不過，不同於 Studio (傳統) 專屬的計算平台，此設計工具會使用您自己的計算資源，並與 Azure Machine Learning 完全整合。
 
 以下將進行快速比較：
 
 || Machine Learning Studio (傳統) | Azure Machine Learning |
 |---| --- | --- |
-| 拖放介面 | yes | 是，[Azure Machine Learning 設計工具 (預覽)](../service/concept-designer.md) |
+| 拖放介面 | 是 | 是，[Azure Machine Learning 設計工具 (預覽)](../concept-designer.md) |
 | 實驗 | 可調整規模 (有 10 GB 的定型資料限制) | 使用計算目標進行調整 |
 | 適用於拖放介面的模組 | 多種 | 初始的熱門[模組](../algorithm-module-reference/module-reference.md)集合|
-|定型計算目標| 專屬計算目標，僅限 CPU 支援| 支援 Azure Machine Learning 計算 (GPU 或 CPU) 與 Notebook VM。<br/>([SDK 中支援其他計算](../service/concept-compute-target.md#train))|
-|推斷計算目標| 專屬 Web 服務格式 (不可自訂) |  Azure Kubernetes Service 和 AML Compute <br/>([SDK 中支援其他計算](../service/how-to-deploy-and-where.md)) |
-| ML 管線 | 不支援 | 支援[管線](../service/concept-ml-pipelines.md) |
+|定型計算目標| 專屬計算目標，僅限 CPU 支援| 支援 Azure Machine Learning 計算 (GPU 或 CPU) 與 Notebook VM。<br/>([SDK 中支援其他計算](../concept-compute-target.md#train))|
+|推斷計算目標| 專屬 Web 服務格式 (不可自訂) |  Azure Kubernetes Service 和 AML Compute <br/>([SDK 中支援其他計算](../how-to-deploy-and-where.md)) |
+| ML 管線 | 不支援 | 支援[管線](../concept-ml-pipelines.md) |
 | MLOps | 基本模型管理和部署 | 可設定的部署：模型和管線版本設定與追蹤 |
-| 模型格式 | 專屬格式，僅限 Studio | 取決於定型作業類型的標準格式 |
-|自動化模型定型和超參數調整 | 否 | 設計工具中尚未提供 <br/> ([SDK 和工作區登陸頁面中提供支援](../service/concept-automated-ml.md)) | 
+| 模型格式 | 專屬格式，僅限 Studio (傳統) | 取決於定型作業類型的標準格式 |
+|自動化模型定型和超參數調整 | 否 | 設計工具中尚未提供 <br/> ([SDK 和工作區登陸頁面中提供支援](../concept-automated-ml.md)) | 
 
-利用[教學課程：使用設計工具預測汽車價格](../service/tutorial-designer-automobile-price-train-score.md)來試用設計工具
+利用[教學課程：使用設計工具預測汽車價格](../tutorial-designer-automobile-price-train-score.md)來試用設計工具
 
 > [!NOTE]
 > 在 Studio (傳統) 中建立的模型無法透過 Azure Machine Learning 進行部署或管理。 不過，可以透過 Azure Machine Learning 工作區來管理在設計工具中建立和部署的模型。
@@ -93,7 +93,7 @@ Machine Learning Studio (傳統) 讓資料科學、預測性分析、雲端資�
 如需 Machine Learning Studio (傳統) 隨附的範例資料集清單，請參閱[在 Azure Machine Learning Studio (傳統) 中使用範例資料集](use-sample-datasets.md)。
 
 ### <a name="modules"></a>模組
-模組是指您在資料上可執行的演算法。  傳統版本的 Machine Learning Studio 具有許多模組，範圍可從資料輸入功能到訓練、評分及驗證程序。 以下是隨附模組的一些例子：
+模組是指您在資料上可執行的演算法。 Azure Machine Learning Studio (傳統) 有許多模組，從資料輸入函數到訓練、評分和驗證程序都有。 以下是隨附模組的一些例子：
 
 * [轉換成 ARFF][convert-to-arff] - 將 .NET 序列化資料集轉換為屬性關聯性檔案格式 (ARFF)。
 * [計算基本統計資料][elementary-statistics] - 計算基本統計資料，例如平均值、標準差等。

@@ -1,5 +1,5 @@
 ---
-title: 從主控台應用程式 (v1.0) 取得權杖並呼叫 Microsoft Graph API | Azure
+title: 取得權杖並呼叫 Microsoft Graph (.NET Core 主控台) (v1.0) | Azure
 description: 建置與 Azure AD 整合的 .NET 精靈應用程式，並使用 OAuth 2.0 呼叫受 Azure AD 保護的 API
 services: active-directory
 author: rwike77
@@ -14,14 +14,14 @@ ms.author: jmprieur
 ms.reviewer: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2858a0b14863195ee0f56c89fe2c55c9e63873de
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d44dfe3eb03ff086d3785311c34ab1a6a5b3982a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965920"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424059"
 ---
-# <a name="quickstart-acquire-token-and-call-microsoft-graph-api-with-console-apps-identity-v10"></a>快速入門：取得權杖並使用主控台應用程式的身分識別 (v1.0) 呼叫 Microsoft Graph API 
+# <a name="quickstart-acquire-token-and-call-microsoft-graph-using-console-apps-identity-v10"></a>快速入門：取得權杖並使用主控台應用程式的身分識別 (v1.0) 呼叫 Microsoft Graph
 
 [Microsoft 身分識別平台](v2-overview.md)是 Azure Active Directory (Azure AD) 開發人員平台的演化。 它可讓開發人員建置應用程式以登入所有 Microsoft 身分識別，並取得權杖以呼叫 Microsoft Graph 等 Microsoft API，或開發人員所建置的 API。
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 06/20/2019
-ms.openlocfilehash: eb73551c4226df8bc20428558720c0ebbfff96d9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e14ee617aca20fc18226651acfadab6ab2bdd939
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873585"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445299"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos 模擬器 - 版本資訊和下載資訊
 
@@ -25,6 +25,10 @@ ms.locfileid: "74873585"
 |**開始使用**|[使用 Azure Cosmos 模擬器在本機開發](local-emulator.md)|
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="272"></a>2.7.2
+
+- 此版本會將 MongoDB 3.6 版伺服器支援新增至 Cosmos 模擬器。 若要啟動以 3.6 版為目標的 MongoDB 端點，請從系統管理員命令列利用 "/EnableMongoDBEndpoint=3.6" 選項啟動模擬器。
 
 ### <a name="270"></a>2.7.0
 

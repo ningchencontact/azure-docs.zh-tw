@@ -1,5 +1,6 @@
 ---
-title: Azure CLI 指令碼範例 - 建立 Azure 應用程式設定存放區 | Microsoft Docs
+title: Azure CLI 指令碼範例 - 建立 Azure 應用程式組態存放區
+titleSuffix: Azure App Configuration
 description: Azure CLI 指令碼範例 - 建立 Azure 應用程式設定存放區
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cd150368898b3f02b4366debbe775ece76b23043
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: d57de8219cb73864ed722c6906a1bd75fec51a50
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184895"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433597"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>建立 Azure 應用程式設定存放區
 
@@ -73,7 +74,7 @@ echo "$connstring"
 
 此指令碼使用下列命令來建立新的資源群組與應用程式組態存放區。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
 | [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | 建立應用程式組態存放區資源。 |

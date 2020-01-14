@@ -1,17 +1,17 @@
 ---
-title: Microsoft Azure FXT Edge Filer 叢集建立
+title: 教學課程：建立 Azure FXT Edge Filer 快取叢集
 description: 如何使用 Azure FXT Edge Filer 建立混合式儲存體快取叢集
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: rohogue
-ms.openlocfilehash: 54d70f60d4b7290b60c864817c756648fef1f481
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: bfe1d1aeeac55039acf0c7eb295001277be9cd2e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256079"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551262"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>教學課程：建立 Azure FXT Edge Filer 叢集
 
@@ -30,7 +30,7 @@ ms.locfileid: "72256079"
 
 此程序需要 15 至 45 分鐘的時間，根據您識別 IP 位址和網路資源所需的研究時間長短而定。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始進行此教學課程之前，請完成下列先決條件：
 

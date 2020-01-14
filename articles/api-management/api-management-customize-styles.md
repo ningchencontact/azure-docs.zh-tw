@@ -1,5 +1,6 @@
 ---
-title: 在 Azure API 管理開發人員舊版入口網站上自訂網頁樣式 | Microsoft Docs
+title: 在 API 管理舊版開發人員入口網站上自訂網頁樣式
+titleSuffix: Azure API Management
 description: 若要在 Azure API 管理開發人員入口網站上自訂元素樣式，請遵循此快速入門中的步驟。
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 779d1228393cdc88f88820d8a335cb2e32424c14
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176854"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430741"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>自訂開發人員入口網站頁面的風格
 
@@ -36,7 +37,7 @@ ms.locfileid: "73176854"
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 + 了解 [Azure API 管理術語](api-management-terminology.md)。
 + 完成下列快速入門：[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。

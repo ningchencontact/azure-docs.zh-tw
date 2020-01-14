@@ -1,5 +1,5 @@
 ---
-title: 保留折扣如何套用至 Azure App Service 隔離式方案戳記
+title: Azure App Service 的保留折扣
 description: 了解保留折扣如何套用至 Azure App Service 隔離式方案戳記。
 services: billing
 author: yashesvi
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 2e9f2fd4541621e98bc1d46f23559993eeabe311
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e31c7b0932684b75b9934dbb4a2bcbc56370d98e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225992"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388562"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>保留折扣如何套用至 Azure App Service 隔離式方案戳記
 

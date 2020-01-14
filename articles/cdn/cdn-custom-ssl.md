@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: bacd26cdba24e7ad503a3ae58d5c77d5a3311537
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: f1af388d1f8b9542d196a53cc6c143f9b48e6d5a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177753"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361651"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>教學課程：在 Azure CDN 自訂網域上設定 HTTPS
 
@@ -44,13 +44,13 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 > - 驗證網域
 > - 在您的自訂網域上停用 HTTPS 通訊協定。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
 您必須先建立 CDN 設定檔和至少一個 CDN 端點，才能完成本教學課程中的步驟。 如需詳細資訊，請參閱[快速入門：建立 Azure CDN 設定檔和端點](cdn-create-new-endpoint.md)。
 
-此外，您必須在您的 CDN 端點上讓 Azure CDN 自訂網域產生關聯。 如需詳細資訊，請參閱[教學課程：將自訂網域新增至 Azure CDN 端點](cdn-map-content-to-custom-domain.md) 
+此外，您必須在您的 CDN 端點上讓 Azure CDN 自訂網域產生關聯。 如需詳細資訊，請參閱[教學課程：將自訂網域新增至 Azure CDN 端點](cdn-map-content-to-custom-domain.md)。
 
 > [!IMPORTANT]
 > CDN 受控憑證不適用於根或頂點網域。 如果您的 Azure CDN 自訂網域是根或頂點網域，則您必須使用「使用您自己的憑證」功能。 
@@ -68,27 +68,29 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
 依照下列步驟啟用自訂網域的 HTTPS︰
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至**來自 Microsoft 的標準 Azure CDN**、**來自 Akamai 的標準 Azure CDN**、**來自 Verizon 的標準 Azure CDN** 或**來自 Verizon 的進階 Azure CDN** 設定檔。
+1. 請移至 [Azure 入口網站](https://portal.azure.com)，尋找您的 Azure CDN 所管理的憑證。 搜尋並選取 [CDN 設定檔]  。 
 
-2. 在 CDN 端點清單中，選取包含自訂網域的端點。
+2. 選擇**來自 Microsoft 的標準 Azure CDN**、**來自 Akamai 的標準 Azure CDN**、**來自 Verizon 的標準 Azure CDN** 或**來自 Verizon 的進階 Azure CDN** 設定檔。
+
+3. 在 CDN 端點清單中，選取包含自訂網域的端點。
 
     ![端點清單](./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png)
 
     [端點]  頁面隨即出現。
 
-3. 在自訂網域清單中，選取您要啟用 HTTPS 的自訂網域。
+4. 在自訂網域清單中，選取您要啟用 HTTPS 的自訂網域。
 
     ![自訂網域清單](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
     [自訂網域]  頁面隨即出現。
 
-4. 在憑證管理類型底下，選取 [CDN 管理]  。
+5. 在憑證管理類型底下，選取 [CDN 管理]  。
 
-5. 選取 [開啟]  以啟用 HTTPS。
+6. 選取 [開啟]  以啟用 HTTPS。
 
     ![自訂網域 HTTPS 狀態](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
-6. 繼續[驗證網域](#validate-the-domain)。
+7. 繼續[驗證網域](#validate-the-domain)。
 
 
 # <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[選項 2：使用您自己的憑證啟用 HTTPS](#tab/option-2-enable-https-with-your-own-certificate)
@@ -126,7 +128,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
     ![建立新的存取原則](./media/cdn-custom-ssl/cdn-new-access-policy.png)
 
-2. 在 [選取主體]  中，搜尋 **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**，然後選擇 [Microsoft.Azure.Cdn]  。 按一下 [選取]  。
+2. 在 [選取主體]  中，搜尋 **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**，然後選擇 [Microsoft.Azure.Cdn]  。 按一下 [選取]。 
 
     ![存取原則設定](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
@@ -260,15 +262,17 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ### <a name="disable-the-https-feature"></a>停用 HTTPS 功能 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至**來自 Microsoft 的標準 Azure CDN**、**來自 Verizon 的標準 Azure CDN**或**來自 Verizon 的進階 Azure CDN** 設定檔。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，搜尋並選取 [CDN 設定檔]  。 
 
-2. 在端點清單中，按一下包含自訂網域的端點。
+2. 選擇**來自 Microsoft 的標準 Azure CDN**、**來自 Verizon 的標準 Azure CDN** 或**來自 Verizon 的進階 Azure CDN** 設定檔。
 
-3. 按一下您要停用 HTTPS 的自訂網域。
+3. 在端點清單中，挑選包含自訂網域的端點。
+
+4. 選擇您要停用 HTTPS 的自訂網域。
 
     ![自訂網域清單](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
 
-4. 按一下 [關閉]  以停用 HTTPS，然後按一下 [套用]  。
+5. 選擇 [關閉]  以停用 HTTPS，然後選取 [套用]  。
 
     ![自訂 HTTPS 對話方塊](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
 

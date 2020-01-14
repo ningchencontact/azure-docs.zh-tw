@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 11/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fe63ba810724216b1b356896b621f1e5b021bbf
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d2bf769169b579cb0a06a48b3a5998efb89eb8fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69891971"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443320"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Workday 整合
 
@@ -29,11 +29,11 @@ ms.locfileid: "69891971"
 
 * 在 Azure AD 中控制可存取 Workday 的人員。
 * 讓使用者使用其 Azure AD 帳戶自動登入 Workday。
-* 在 Azure 入口網站中集中管理您的帳戶。
+* 在 Azure 入口網站集中管理您的帳戶。
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要開始，您需要下列項目：
 
@@ -51,7 +51,7 @@ ms.locfileid: "69891971"
 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 1. 在左方瀏覽窗格上，選取 [Azure Active Directory]  服務。
 1. 巡覽至 [企業應用程式]  ，然後選取 [所有應用程式]  。
-1. 若要新增新的應用程式，請選取 [新增應用程式]  。
+1. 若要新增應用程式，請選取 [新增應用程式]  。
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **Workday**。
 1. 從結果面板選取 [Workday]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
@@ -97,7 +97,7 @@ ms.locfileid: "69891971"
     > [!NOTE]
     > 依預設，這裡已使名稱識別碼和 UPN (user.userprincipalname) 相對應。 您必須將名稱識別碼對應至 Workday 帳戶中的實際使用者識別碼 (您的電子郵件或 UPN 等)，才能讓 SSO 順利運作。
 
-1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  以下載憑證並將其儲存在電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
    ![憑證下載連結](common/certificatebase64.png)
 
@@ -133,7 +133,7 @@ ms.locfileid: "69891971"
 
 1. 在 Azure 入口網站中，選取 [企業應用程式]  ，然後選取 [所有應用程式]  。
 1. 在應用程式清單中，選取 [Workday]  。
-1. 在應用程式的概觀頁面，尋找 [管理]  區段，然後選取 [使用者和群組]  。
+1. 在應用程式的概觀頁面中尋找 [管理]  區段，然後選取 [使用者和群組]  。
 
    ![[使用者和群組] 連結](common/users-groups-blade.png)
 
@@ -167,7 +167,7 @@ ms.locfileid: "69891971"
 
    > [!NOTE]
    > [環境] 屬性的值會繫結至租用戶 URL 的值：  
-   > -如果 Workday 租用戶 URL 的網域名稱開頭為 impl (例如：*https:\//impl.workday.com/\<tenant\>/login-saml2.flex*)，則 [Environment] \(環境\)  屬性必須設定為 [Implementation] \(實作\)。  
+   > -如果 Workday 租用戶 URL 的網域名稱開頭為 impl (例如： *https://www.myworkday.com/"tenant"/login-saml2.htmld*)，則 **Environment** 屬性必須設為 Implementation。  
    > -如果網域名稱的開頭是其他字元，您需要連絡 [Workday 客戶支援小組](https://www.workday.com/en-us/partners-services/services/support.html)以取得相符的 [環境]  值。
 
 4. 在 [SAML 設定]  區段中，執行下列步驟：
@@ -233,11 +233,11 @@ ms.locfileid: "69891971"
 
     c. 選取 **SHA256** 做為 [驗證要求簽章方法]  。
 
-    ![驗證要求簽章方法](./media/workday-tutorial/WorkdaySSOConfiguration.png "驗證要求簽章方法") 
+    ![驗證要求簽章方法](./media/workday-tutorial/WorkdaySSOConfiguration.png "驗證要求簽章方法")
 
     d. 按一下 [確定]  。
 
-    ![確定](./media/workday-tutorial/IC782933.png "OK")
+    ![確定](./media/workday-tutorial/IC782933.png "[確定]")
 
     > [!NOTE]
     > 請確定您已正確設定單一登入。 如果您以不正確的設定啟用單一登入，您可能無法使用認證進入應用程式，並且會遭到鎖定。在此情況下，Workday 提供備份的登入 URL，使用者可以透過此格式：[Your Workday URL]/login.flex?redirect=n，使用他們的一般使用者名稱和密碼來登入

@@ -9,22 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 29e43692c1eb543768934a961a2bb8ae5a023b1d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: cd646ef061a0be06a9b1a56b72a4f35d9796aa63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894613"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447929"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>教學課程：從語句擷取內容相關的資料
 
 在本教學課程中，根據內容尋找相關的資料片段。 例如，從某個城市前往另一個城市的出發地和目的地位置。 可能會需要這兩個資料片段，且這兩者彼此相關。
 
 角色可以與任何預先建置或自訂實體型別一起使用，並在範例表達和模式中使用。
-
-[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **在本教學課程中，您將了解如何：**
 
@@ -51,7 +49,11 @@ ms.locfileid: "74894613"
 
 ## <a name="create-a-new-app"></a>建立新的應用程式
 
-[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+1. 使用 [https://preview.luis.ai](https://preview.luis.ai) 的 URL 登入預覽 LUIS 入口網站。
+
+1. 選取 [建立新的應用程式]  ，輸入名稱 `HumanResources`，並保留預設文化特性 [英文]  。 讓描述保留空白。
+
+1. 選取 [完成]  。
 
 ## <a name="create-an-intent-to-move-employees-between-cities"></a>建議意圖來在城市之間移動員工
 
@@ -61,7 +63,8 @@ ms.locfileid: "74894613"
 
 1. 在快顯對話方塊方塊中輸入 `MoveEmployeeToCity`，然後選取 [完成]  。
 
-    ![建立新意圖對話方塊的螢幕擷取畫面](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
+    > [!div class="mx-imgBorder"]
+    > ![建立新意圖對話方塊的螢幕擷取畫面](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
 1. 將語句範例新增至意圖。
 
@@ -77,7 +80,8 @@ ms.locfileid: "74894613"
     |Transfer Steve Standish from San Diego toward Bellevue |
     |lift Tanner Thompson from Kansas city and shift to Chicago|
 
-    [![MoveEmployee 意圖中有新語句的 LUIS 螢幕擷取畫面](./media/tutorial-entity-roles/hr-enter-utterances.png)](./media/tutorial-entity-roles/hr-enter-utterances.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > ![MoveEmployee 意圖中有新語句的 LUIS 螢幕擷取畫面](./media/tutorial-entity-roles/hr-enter-utterances.png)
 
 ## <a name="add-prebuilt-entity-geographyv2"></a>新增預先建置的實體 geographyV2
 
@@ -87,16 +91,30 @@ ms.locfileid: "74894613"
 
 1. 選取 [加入預先建置的實體]  ，然後在搜尋列中選取 `geo` 以篩選預先建置的實體。
 
-    ![將 geographyV2 預先建置的實體新增至應用程式](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
+    > [!div class="mx-imgBorder"]
+    > ![將 geographyV2 預先建置的實體新增至應用程式](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
+
 1. 選取此核取方塊，然後選取 [完成]  。
 1. 在 [實體]  清單中，選取 [geographyV2]  開啟新的實體。
 1. 新增兩個角色，`Origin` 和 `Destination`。
 
-    ![將角色新增至預先建置的實體](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
-1. 從左側導覽中選取 [意圖]  ，然後選取 [MoveEmployeeToCity]  意圖。 請注意，縣/市名稱會加上預先建置的實體 **geographyV2**。
-1. 在清單的第一個表達中，選取出發地位置。 此時會出現下拉式選單。 在清單中選取 **geographyV2**，然後依照功能表選取 [出發地]  。
-1. 使用上一步中的方法標記所有表達中所有位置的角色。
+    > [!div class="mx-imgBorder"]
+    > ![將角色新增至預先建置的實體](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 
+1. 從左側導覽中選取 [意圖]  ，然後選取 [MoveEmployeeToCity]  意圖。 請注意，縣/市名稱會加上預先建置的實體 **geographyV2**。
+1. 在操作工具列中，選取 [實體選擇區]  。
+
+    > [!div class="mx-imgBorder"]
+    > ![從內容工具列中選取實體選擇區](media/tutorial-entity-roles/intent-detail-context-toolbar-select-entity-palette.png)
+
+1. 選取預先建立的實體 (**geographyV2**)，然後選取 [實體偵測器]  。
+1. 在 [實體偵測器]  中，選取一個角色，即 [目的地]  。 這會變更滑鼠指標。 使用滑鼠指標來標記所有語句中作為目的地位置的文字。
+
+    > [!div class="mx-imgBorder"]
+    > ![在實體選擇區中選取角色](media/tutorial-entity-roles/entity-palette-select-entity-role.png)
+
+
+1. 返回 [實體偵測器]  ，將角色變更為 [原點]  。 使用滑鼠指標來標記所有語句中作為原點位置的文字。
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>將範例語句新增至 None 意圖
 

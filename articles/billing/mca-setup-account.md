@@ -1,5 +1,5 @@
 ---
-title: 設定 Microsoft 客戶合約的計費帳戶 - Azure
+title: 設定 Microsoft 客戶合約的計費 - Azure
 description: 了解如何設定 Microsoft 客戶合約的計費帳戶。
 author: amberbhargava
 manager: amberb
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 5d01fa5f4bb7367bdd1939d77dc1f80bd4436765
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8855552ef4bc5e8135d1df62cca384b5ee14a02d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225568"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388341"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>設定 Microsoft 客戶合約的計費帳戶
 
@@ -187,7 +187,7 @@ ms.locfileid: "74225568"
     - 新的計費帳戶中會建立與您的 Enterprise 合約階層相對應的計費階層。 如需詳細資訊，請參閱[了解您計費階層的變更](#understand-changes-to-your-billing-hierarchy)。
     - Enterprise 合約註冊中的系統管理員會獲得新計費帳戶的存取權，而能夠繼續管理組織的帳單。
     - Azure 訂用帳戶的帳單會轉換至新的帳戶。 **在此轉換期間，您的 Azure 服務將不受任何影響。它們會繼續執行，而不會發生任何中斷**。
-    - 如果您有 Azure 保留，這些保留會移至新的計費帳戶，其權益或期限不變。 
+    - 如果您有 Azure 保留，這些保留會移至新的計費帳戶，其權益或期限不變。
 
 4. 您可以在 [轉換狀態]  頁面上監視轉換的狀態。
 
@@ -201,7 +201,7 @@ ms.locfileid: "74225568"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單]  進行搜尋。
+2. 搜尋 [成本管理 + 帳單]  。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/mca-setup-account/search-cmb.png)
 
@@ -221,7 +221,7 @@ ms.locfileid: "74225568"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單]  進行搜尋。
+2. 搜尋 [成本管理 + 帳單]  。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/mca-setup-account/search-cmb.png)
 
@@ -237,7 +237,7 @@ ms.locfileid: "74225568"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單]  進行搜尋。
+2. 搜尋 [成本管理 + 帳單]  。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/mca-setup-account/search-cmb.png)
 
@@ -253,9 +253,9 @@ ms.locfileid: "74225568"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單]  進行搜尋。
+2. 搜尋 [成本管理 + 帳單]  。
 
-   ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/mca-setup-account/search-cmb.png)上也提供本文中使用的原始碼。
+   ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/mca-setup-account/search-cmb.png)。
 
 3. 選取發票區段。 發票區段會與其在 Enterprise 合約註冊中各自的部門同名。 您可能需要根據存取權來選取帳單帳戶。 從計費帳戶中選取 [帳單設定檔]  ，然後選取 [發票區段]  。 從發票區段清單中，選取一個發票區段。
 

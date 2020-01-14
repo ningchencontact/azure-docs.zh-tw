@@ -1,7 +1,7 @@
 ---
 title: 快速入門：適用於 Python 的 Language Understanding (LUIS) 撰寫用戶端程式庫
 titleSuffix: Azure Cognitive Services
-description: 開始使用適用於 Python 的 LUIS 用戶端程式庫。 請遵循下列步驟來安裝套件，並試用基本工作的程式碼範例。
+description: 透過本快速入門，開始使用適用於 Python 的 LUIS 用戶端程式庫。 請遵循下列步驟來安裝套件，並試用基本工作的程式碼範例。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 97bb86dc702802fd071015364cf205c4f1bb11d5
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 398220306fad4dc3459446fa5f77371ac669dd7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422722"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381489"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>快速入門：適用於 Python 的 Language Understanding (LUIS) 撰寫用戶端程式庫
 
@@ -30,7 +30,7 @@ ms.locfileid: "74422722"
 
 [參考文件](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [撰寫套件 (Pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [範例](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Language Understanding (LUIS) 入口網站帳戶：[建立免費帳戶](https://www.luis.ai)。
 * [Python 3.x](https://www.python.org/)
@@ -46,7 +46,7 @@ ms.locfileid: "74422722"
 使用金鑰和金鑰區域，建立兩個環境變數以進行驗證：
 
 * `LUIS_AUTHORING_KEY` - 用於驗證您要求的資源金鑰。
-* `LUIS_REGION` - 與您的金鑰相關聯的區域。 例如 `westus` 。
+* `LUIS_REGION` - 與您金鑰相關聯的區域。 例如 `westus` 。
 
 請使用適合您作業系統的指示。
 
@@ -205,6 +205,6 @@ python quickstart-file.py
 >[建置 LUIS 應用程式來判斷使用者意圖](luis-quickstart-intents-only.md)
 
 * [什麼是 Language Understanding (LUIS) API？](what-is-luis.md)
-* [有哪些新功能？](whats-new.md)
+* [新功能](whats-new.md)
 * [意圖](luis-concept-intent.md)、[實體](luis-concept-entity-types.md)、[範例語句](luis-concept-utterance.md)和[預建實體](luis-reference-prebuilt-entities.md)
 * 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py) 上找到。

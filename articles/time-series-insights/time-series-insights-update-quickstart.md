@@ -1,6 +1,6 @@
 ---
 title: 快速入門：探索預覽版示範環境 - Azure 時間序列深入解析 | Microsoft Docs
-description: 透過快速入門範例，了解 Azure 時間序列深入解析預覽版的示範環境。
+description: 探索 Azure 時間序列深入解析預覽版示範環境的主要功能。
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,13 +9,13 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 10/24/2019
-ms.openlocfilehash: 61d13831ff0d8810cfdce35f86a0402cb1679ad1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/20/2019
+ms.openlocfilehash: b97c8c51bc63fb0c1ff0070714e7393d11ea0dbf
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014763"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497384"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>快速入門：探索 Azure 時間序列深入解析預覽版示範環境
 
@@ -43,33 +43,33 @@ ms.locfileid: "74014763"
    1. 將檢視範圍變更為 **1/1/17 20:00:00.00 至 3/10/17 20:00:00.00 (UTC)** 。
    1. 若要選取感應器，選取 [Contoso Plant 1]   > [W7]   > [發電機系統]   > [GeneratorSpeed]  。 接著，檢閱所顯示的值。
 
-      [![Contoso Plant 1 中的 W7](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
+      [![Contoso Plant 1 中的 W7](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
 1. 近期，Contoso 發現風力發電機 **W7** 曾經起火。 對於起火原因的相關意見不同。 在時間序列深入解析中，我們可以看到在火災期間啟動了火災警報器。
 
    1. 將檢視範圍變更為 **3/9/17 20:00:00.00 至 3/10/17 20:00:00.00 (UTC)** 。
    1. 選取 [安全系統]   > [FireAlert]  。
 
-      [![Contoso 發現風力渦輪機 W7 曾經起火](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
+      [![Contoso 發現風力渦輪機 W7 曾經起火](media/v2-update-quickstart/quick-start-fire-alert.png)](media/v2-update-quickstart/quick-start-fire-alert.png#lightbox)
 
 1. 檢閱起火時間點前後的其他事件，以了解發生了哪些狀況。 油壓和作用中警告在起火之前都急遽升高。
 
    1. 選取 [變槳系統]   > [HydraulicOilPressure]  。
    1. 選取 [變槳系統]   > [ActiveWarning]  。
 
-      [![檢閱同一時間點前後的其他事件](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
+      [![檢閱同一時間點前後的其他事件](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 
 1. 油壓和作用中警告感應器在起火之前都急遽升高。 展開顯示的時間序列，以查看其他起火前的徵兆。 兩個感應器都持續波動了一段時間。 波動表示持續而有安全疑慮的模式。
 
     * 將檢視範圍變更為 **2/24/17 20:00:00.00 至 3/10/17 20:00:00.00 (UTC)** 。
 
-      [![油壓和作用中警告感應器也急遽升高](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
+      [![油壓和作用中警告感應器也急遽升高](media/v2-update-quickstart/quick-start-view-range.png)](media/v2-update-quickstart/quick-start-view-range.png#lightbox)
 
 1. 查看兩年的歷史資料時，會發現有另一個起火事件具有相同的感應器波動。
 
     * 將檢視範圍變更為 **1/1/16 至 12/31/17** (所有資料)。
 
-      [![尋找歷史模式](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
+      [![尋找歷史模式](media/v2-update-quickstart/quick-start-expand-view-range.png)](media/v2-update-quickstart/quick-start-expand-view-range.png#lightbox)
 
 使用時間序列深入解析和感應器遙測，我們發現歷史資料中隱藏了長期的趨勢。 透過這些新的深入解析，我們可以：
 
@@ -84,7 +84,7 @@ ms.locfileid: "74014763"
     1. 將檢視範圍變更為 **6/1/17 20:00:00.00 至 7/1/17 20:00:00.00 (UTC)** 。
     1. 選取 [Contoso Plant 1]   > [W6]   > [安全系統]   > [VoltageActuatorSwitchWarning]  。
 
-       [![變更檢視範圍並選取 W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
+       [![變更檢視範圍並選取 W6](media/v2-update-quickstart/quick-start-voltage-switch-warning.png)](media/v2-update-quickstart/quick-start-voltage-switch-warning.png#lightbox)
 
 1. 警告指出發電機的電壓有問題。 以目前的時間間隔來看，發電機的整體電力輸出均在正常參數內。 藉由增加時間間隔，將會看到形成另一種模式。 下降很明顯。
 
@@ -92,20 +92,20 @@ ms.locfileid: "74014763"
     1. 選取 [發電機系統]   > [ActivePower]  。
     1. 將間隔變更為 [3d]  。
 
-       [![將間隔變更為 3d](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
+       [![將間隔變更為 3d](media/v2-update-quickstart/quick-start-interval-change.png)](media/v2-update-quickstart/quick-start-interval-change.png#lightbox)
 
 1. 藉由擴大時間範圍，我們可以判斷問題是否已停止或還持續。
 
     * 將時間範圍延伸至 60 天。
 
-      [![將時間範圍延伸至 60 天](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
+      [![將時間範圍延伸至 60 天](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
 1. 我們可以新增其他感應器資料點，以提供更詳盡的內容。 我們檢視的感應器愈多，就愈能充分了解問題的本質。 我們將置放標記，以查看實際的值。 
 
     1. 選取 [發電機系統]  ，然後選取三個感應器：**GridVoltagePhase1**、**GridVoltagePhase2** 和 **GridVoltagePhase3**。
     1. 在可見區域的最後一個資料點上置放標記。
 
-       [![置放標記](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+       [![置放標記](media/v2-update-quickstart/quick-start-drop-marker.png)](media/v2-update-quickstart/quick-start-drop-marker.png#lightbox)
 
     有兩個電壓感應器同等地在正常參數內運作。 看來問題出在 **GridVoltagePhase3** 感應器上。
 
@@ -113,7 +113,7 @@ ms.locfileid: "74014763"
 
     * 變更顯示畫面，使所有**發電機系統**感應器以相同的圖表比例重疊。
 
-      [![變更顯示畫面以包含所有項目](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+      [![變更顯示畫面以包含所有項目](media/v2-update-quickstart/quick-start-generator-system.png)](media/v2-update-quickstart/quick-start-generator-system.png#lightbox)
 
 ## <a name="clean-up-resources"></a>清除資源
 

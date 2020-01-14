@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 04/26/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 82c1159aca51bc30839f5380a414bd2b3b488bb8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 07ecac46ab13058d308c17c5747701ee5ed577fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383643"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446677"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>快速入門：使用 Bing 圖像式搜尋 REST API 和 C# 來取得影像見解
 
 本快速入門示範如何將影像上傳給 Bing 圖像式搜尋 API，以及如何檢視其所傳回的見解。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * 任何版本的 [Visual Studio 2019](https://www.visualstudio.com/downloads/)。
 * [Json.NET 架構](https://www.newtonsoft.com/json) (以 NuGet 套件形式提供)。
@@ -41,7 +41,7 @@ ms.locfileid: "74383643"
     using System.Collections.Generic;
     ```
 
-2. 為訂用帳戶金鑰、端點和所要上傳影像的路徑新增變數：
+2. 為訂用帳戶金鑰、端點和所要上傳影像的路徑新增變數。 `uriBase` 可以是下方的全域端點，也可以是 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點：
 
     ```csharp
         const string accessKey = "<my_subscription_key>";

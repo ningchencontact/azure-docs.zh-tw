@@ -3,15 +3,15 @@ title: 在 Kubernetes 上偵錯和逐一查看：Visual Studio Code 和 Node.js
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: 在 Azure 上使用容器、微服務和 Node.js 快速進行 Kubernetes 開發
+description: 本快速入門說明如何使用 Azure Dev Spaces 和 Visual Studio Code 對 Azure Kubernetes Service 上的 Node.js 應用程式進行偵錯和快速反覆運算
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 8f3ffb6a539937b6d4a03b8fdc808c033c371697
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 1b2101c5e7a59105b2c1da876e9a66294ce3a021
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325571"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438193"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>快速入門：使用 Visual Studio Code 和 Node.js 在 Kubernetes 上偵錯和逐一查看 - Azure Dev Spaces
 
@@ -26,7 +26,7 @@ Azure Dev Spaces 也可讓您使用下列工具進行偵錯和逐一查看：
 - [.NET Core 和 Visual Studio Code](quickstart-netcore.md)
 - [.NET Core 和 Visual Studio](quickstart-netcore-visualstudio.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
 - [已安裝 Visual Studio Code](https://code.visualstudio.com/download)。
@@ -110,7 +110,7 @@ git clone https://github.com/Azure/dev-spaces
 
 ## <a name="update-code"></a>更新程式碼
 
-若要部署更新過的服務版本，您可以在專案中更新任何檔案，然後重新執行「啟動伺服器」  。 例如︰
+若要部署更新過的服務版本，您可以在專案中更新任何檔案，然後重新執行「啟動伺服器」  。 例如：
 
 1. 如果您的應用程式仍在執行中，請按一下 [偵錯]  ，然後按遺下 [停止偵錯]  來停止它。
 1. 將 [`server.js` 中的第 13 行](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) \(英文\) 更新為：
@@ -148,7 +148,7 @@ git clone https://github.com/Azure/dev-spaces
 
 在服務啟動後，使用瀏覽器瀏覽至該服務，並與其互動。
 
-在服務執行時，返回 VS Code 並更新 `server.js` 中的第 13 行。 例如︰
+在服務執行時，返回 VS Code 並更新 `server.js` 中的第 13 行。 例如：
 ```javascript
     res.send('Hello from webfrontend in Azure while debugging!');
 ```

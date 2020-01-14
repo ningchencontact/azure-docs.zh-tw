@@ -1,7 +1,7 @@
 ---
-title: 快速入門：適用於 .NET 的個人化工具用戶端程式庫 | Microsoft Docs
+title: 快速入門：適用於 .NET 的個人化工具用戶端程式庫
 titleSuffix: Azure Cognitive Services
-description: 使用學習迴圈來開始使用適用於 .NET 的個人化工具用戶端程式庫。
+description: 此快速入門示範如何使用學習迴圈，開始使用適用於 .NET 的個人化工具用戶端程式庫。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: 411bd82ade2ca7b904b36a3a4408c1a00852fc2c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c17bf54d89e3a98ca667eeba40f2d2b166550833
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927830"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446381"
 ---
 # <a name="quickstart-personalizer-client-library-for-net"></a>快速入門：適用於 .NET 的個人化工具用戶端程式庫
 
@@ -28,7 +28,7 @@ ms.locfileid: "74927830"
 
 [參考文件](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [套件 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [範例](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 * 最新版 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)。
@@ -213,4 +213,3 @@ dotnet run
 * [什麼是個人化工具？](what-is-personalizer.md)
 * [個人化工具可以應用在何處？](where-can-you-use-personalizer.md)
 * [疑難排解](troubleshooting.md)
-

@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 在 Azure 中使用 Cloudyn 將保留執行個體成本最佳化 | Microsoft Docs
+title: 教學課程 - 使用 Cloudyn 將保留執行個體成本最佳化 - Azure
 description: 在本教學課程中，您將了解如何將 Azure 和 Amazon Web Services (AWS) 的保留執行個體成本最佳化。
 services: cost-management
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: ade3b63116337ae7b4678b459b1a0c388092f409
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c1afad7cb36916777b2f6cefa40b9bd1ddc465a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229852"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444576"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -38,7 +38,7 @@ ms.locfileid: "74229852"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 您必須具有 Azure 帳號。
 - 您必須具有 Cloudyn 的試用版註冊或付費訂用帳戶。

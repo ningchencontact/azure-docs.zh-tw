@@ -4,12 +4,12 @@ description: Azure Blockchain Tokens 是一項可用於權杖發行和管理的�
 ms.date: 11/04/2019
 ms.topic: overview
 ms.reviewer: brendal
-ms.openlocfilehash: c1c18298ba82775c9b10bb79c420704bd462e2b4
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e7c106ffee8ea06c7c0ce738aa8be0aba96a38ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326093"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387168"
 ---
 # <a name="what-is-azure-blockchain-tokens"></a>什麼是 Azure 區塊鏈服務權杖？
 
@@ -40,6 +40,14 @@ Azure Blockchain Tokens 提供 Azure 入口網站管理和 API，以便可在已
 ## <a name="token-taxonomy-framework"></a>Token Taxonomy Framework
 
 Azure Blockchain Tokens 建置於名為 Token Taxonomy Framework (TTF) 的標準本位基礎之上。 TTF 是從 [Token Taxonomy Initiative](https://entethalliance.org/participate/token-taxonomy-initiative/) (TTI) 權杖工作群組建立的一組交付項目。 TTI 工作群組會定義權杖的商務分類法，以及可套用於所有主要總帳 (包括 Ethereum、 Quorum、Corda 和 Hyperledger Fabric) 的行為。 此工作群組的目標是要建立一個架構，以便從商務觀點將權杖的使用標準化，進而簡化和推廣權杖型開發。 讓產業定義這些權杖及其在商務層級的行為，就會從操作權杖的商務邏輯中抽離權杖的詳細實作。
+
+## <a name="support-and-feedback"></a>支援與意見反應
+
+如需 Azure 區塊鏈服務消息，請瀏覽 [Azure 區塊鏈服務部落格](https://azure.microsoft.com/blog/topics/blockchain/)，即時掌握 Azure 區塊鏈服務工程小組提供的區塊鏈服務供應項目和最新資訊。
+
+若要取得 Azure Blockchain Tokens 預覽版的存取權，請[聯絡 Azure Blockchain Tokens 小組](https://aka.ms/PreviewForm)。
+
+若要提供產品意見反應或要求新功能，請透過 [Azure 區塊鏈服務的意見反應論壇](https://aka.ms/blockchainuservoice)，張貼票選想法。
 
 ## <a name="next-steps"></a>後續步驟
 

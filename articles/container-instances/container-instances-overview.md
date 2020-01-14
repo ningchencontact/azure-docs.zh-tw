@@ -4,12 +4,12 @@ description: Azure Container Instances 服務提供最簡單快速的方法，�
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c8f243bc2bda83a467688ac5828219cd015c8326
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 040f246fa687dfe3ca56877c11c140ddb40247a4
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533536"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552316"
 ---
 # <a name="what-is-azure-container-instances"></a>什麼是 Azure Container Instances？
 
@@ -21,13 +21,19 @@ ms.locfileid: "74533536"
 
 容器提供比虛擬機器 (VM) 更多的啟動優點。 Azure Container Instances 可在幾秒內啟動 Azure 中的容器，而不需要佈建和管理 VM。
 
-## <a name="public-ip-connectivity-and-dns-name"></a>公用 IP 連線能力和 DNS 名稱
+## <a name="container-access"></a>容器存取
 
-Azure Container Instances 可讓您利用 IP 位址和完整網域名稱 (FQDN)，直接向網際網路公開您的容器。 當您建立容器執行個體時，您可以指定自訂的 DNS 名稱標籤，讓系統可以在 *customlabel*.*azureregion*.azurecontainer.io 找到您的應用程式。
+Azure Container Instances 可讓您利用 IP 位址和完整網域名稱 (FQDN)，直接向網際網路公開您的容器群組。 當您建立容器執行個體時，您可以指定自訂的 DNS 名稱標籤，讓系統可以在 *customlabel*.*azureregion*.azurecontainer.io 找到您的應用程式。
+
+Azure Container Instances 也會提供互動式殼層，讓您可以在執行中的容器內執行命令，進而協助應用程式的開發和疑難排解。 存取會透過 HTTPS 進行，並使用 TLS 來保護用戶端連線。
+
+> [!IMPORTANT]
+> 從 2020 年 1 月 13 日開始，Azure Container Instances 將要求所有來自伺服器和應用程式的安全連線都使用 TLS 1.2。 TLS 1.0 和 1.1 的支援將會淘汰。
 
 ## <a name="hypervisor-level-security"></a>Hypervisor 等級安全性
 
 在過去，雖然容器提供應用程式相依性隔離和資源控管，但並沒有足夠的能力防範惡意的多租用戶使用方式。 Azure Container Instances 保證會將您的應用程式隔離在容器中，就像在 VM 中一樣。
+
 
 ## <a name="custom-sizes"></a>自訂大小
 
@@ -37,7 +43,7 @@ Azure Container Instances 可讓您利用 IP 位址和完整網域名稱 (FQDN)�
 
 ## <a name="persistent-storage"></a>永續性儲存體
 
-為了擷取和保存 Azure Container Instances 的狀態，我們支援直接[裝載 Azure 檔案共用](container-instances-mounting-azure-files-volume.md)。
+為了擷取和保存 Azure Container Instances 的狀態，我們支援直接[裝載 Azure 檔案儲存體共用](container-instances-mounting-azure-files-volume.md) (由 Azure 儲存體提供支援)。
 
 ## <a name="linux-and-windows-containers"></a>Linux 和 Windows 容器
 

@@ -1,6 +1,6 @@
 ---
-title: 呼叫受 Azure AD 保護的 ASP.NET Web API - Microsoft 身分識別平台
-description: 在本快速入門中，了解如何從 Windows 桌面 (WPF) 應用程式，呼叫受 Azure Active Directory 保護的 ASP.NET Web API。 WPF 用戶端會驗證使用者、要求存取權杖，以及呼叫 Web API。
+title: 呼叫受 Azure 身分識別平台保護的 ASP.NET Web API
+description: 在本快速入門中，了解如何從 Windows 桌面 (WPF) 應用程式，呼叫受 Azure 身分識別平台保護的 ASP.NET Web API。 WPF 用戶端會驗證使用者、要求存取權杖，以及呼叫 Web API。
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -8,24 +8,24 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe3301c3c91343277997be1ee554ced76884274a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1c6c51b0a7ae7255391fd35d234b5ee47b7a9525
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963302"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424027"
 ---
-# <a name="quickstart-call-an-aspnet-web-api-protected-by-azure-ad"></a>快速入門：呼叫受 Azure AD 保護的 ASP.NET Web API
+# <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>快速入門：呼叫受 Azure 身分識別平台保護的 ASP.NET Web API
 
-在本快速入門中，您會公開並保護 Web API，讓只有經過驗證的使用者可以存取該 Web API。 這個範例會說明如何公開 ASP.NET Web API，使其可以接受個人帳戶 (包括 outlook.com、live.com 和其他帳戶) 所簽發的權杖，以及已與 Azure Active Directory 整合的公司或組織，其公司和學校帳戶所簽發的權杖。
+在本快速入門中，您會公開並保護 Web API，讓只有經過驗證的使用者可以存取該 Web API。 這個範例會說明如何公開 ASP.NET Web API，使其可以接受個人帳戶 (包括 outlook.com、live.com 和其他帳戶) 所簽發的權杖，以及已與 Azure 身分識別平台整合的公司或組織中公司和學校帳戶所簽發的權杖。
 
 此範例也包含 Windows 傳統型應用程式 (WPF) 用戶端，其會示範如何要求存取權杖以存取 Web API。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要執行這個範例，您將需要下列各項：
 
@@ -76,7 +76,7 @@ ms.locfileid: "74963302"
      - 讓 [狀態]  保持為 [啟用] 
      - 選取 [新增範圍] 
 
-### <a name="configure-the-service-and-client-projects-to-match-the-registered-web-api"></a>設定服務和用戶端專案來使其符合已註冊的 Web API 
+### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>設定服務專案來符合已註冊的 Web API 
 
 1. 在 Visual Studio 中開啟解決方案，然後開啟 **TodoListService** 專案根目錄下的 **Web.config** 檔案。
 1. 以剛才在應用程式註冊入口網站中所註冊應用程式的**用戶端識別碼 (應用程式識別碼)** 取代 `ida:ClientId` 參數的值。
@@ -85,7 +85,7 @@ ms.locfileid: "74963302"
 
 1. 開啟位於 **TodoListClient** 專案根資料夾中的 **app.config** 檔案，然後貼上剛才在 `TodoListServiceScope` 參數下針對 *TodoListService* 所註冊應用程式的**應用程式識別碼**，並取代字串 `{Enter the Application ID of your TodoListService from the app registration portal}`。
 
-   > 注意：請確定其使用下列格式：
+   > 注意:請確定其使用下列格式：
    >
    > `api://{TodoListService-Application-ID}/access_as_user` 
    >
@@ -104,7 +104,7 @@ ms.locfileid: "74963302"
    - 將 [支援的帳戶類型]  變更為 [任何組織目錄中的帳戶]  。
    - 選取 [註冊]  以建立應用程式。
 1. 從應用程式的 [概觀] 頁面，選取 [驗證]  區段。
-   - 在 [重新導向 URL]   | [建議的公用用戶端 (行動裝置、桌面) 重新導向 URL]  區段，然後選取 [urn:ietf:wg:oauth:2.0:oob] 
+   - 在 [重新導向 URI]   | [公用用戶端 (行動、傳統型) 的建議重新導向 URI]  區段，然後核取 **https://login.microsoftonline.com/common/oauth2/nativeclient**
    - 選取 [儲存]  。
 1. 選取 [API 權限]  區段
    - 按一下 [新增權限]  按鈕，然後
@@ -140,7 +140,7 @@ ms.locfileid: "74963302"
 1. 按 `<F5>` 來執行專案。 *TodoListClient* 應該會開啟。
 1. 選取右上方的 [登入]  (或 [清除快取/登入])，然後使用個人 Microsoft 帳戶 (live.com 或 hotmail.com) 來登入或使用公司或學校帳戶來登入。
 
-## <a name="optional-restrict-sign-in-access-to-your-application"></a>選用：限制對您應用程式的登入存取
+## <a name="optional-restrict-sign-in-access-to-your-application"></a>選擇性：限制對您應用程式的登入存取
 
 根據預設，當您下載此程式碼範例，並遵循上述步驟將應用程式設定為使用 Azure Active Directory v2 端點時，個人帳戶 (例如 outlook.com、live.com 等等) 以及來自任何組織 (已與 Azure AD 整合) 的公司或學校帳戶，都可以要求權杖並存取 Web API。 
 

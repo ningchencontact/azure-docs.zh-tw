@@ -3,7 +3,7 @@ title: 快速入門：使用 Azure 監視器從混合式 Linux 電腦收集資�
 description: 在本快速入門中，您將了解如何針對在 Azure 外部執行的 Linux 電腦上部署 Log Analytics 代理程式，並使用 Azure 監視器記錄來啟用資料收集。
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 08/22/2019
-ms.author: magoedte
+ms.date: 12/24/2019
+ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 959f36107ab9f79d4e66cc23b0744f1dbb8b2690
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f494702166fc3c018aba9b1356a6806384ae4673
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677955"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530012"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>快速入門：使用 Azure 監視器從混合式環境中的 Linux 電腦收集資料
 
@@ -55,7 +55,7 @@ ms.locfileid: "72677955"
 
 ## <a name="obtain-workspace-id-and-key"></a>取得工作區識別碼和金鑰
 
-安裝適用於 Linux 的 Log Analytics 代理程式之前，您需要 Log Analytics 工作區的工作區識別碼和金鑰。  代理程式的包裝函式指令碼需要這項資訊，才能正確設定代理程式，並確定它能與 Azure 監視器順利進行通訊。
+安裝適用於 Linux 的 Log Analytics 代理程式之前，您需要 Log Analytics 工作區的工作區識別碼和金鑰。 代理程式的包裝函式指令碼需要這項資訊，才能正確設定代理程式，並確定它能與 Azure 監視器順利進行通訊。
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -80,7 +80,7 @@ ms.locfileid: "72677955"
 
 如果您的 Linux 電腦需要透過 Proxy 伺服器與 Log Analytics 通訊，您可以在命令列中加上 `-p [protocol://][user:password@]proxyhost[:port]` 藉以指定 Proxy 組態。  *proxyhost* 屬性接受 Proxy 伺服器的完整網域名稱或 IP 位址。 
 
-例如：`https://user01:password@proxy01.contoso.com:30443`
+例如： `https://user01:password@proxy01.contoso.com:30443`
 
 1. 若要設定 Linux 電腦以連線到 Log Analytics 工作區，請執行下列命令，提供稍早複製的工作區識別碼和主索引鍵。 下列命令會下載代理程式、驗證其總和檢查碼，並加以安裝。 
     
@@ -88,7 +88,7 @@ ms.locfileid: "72677955"
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    下列命令會加上 `-p` Proxy 參數和範例語法。
+    當您的 Proxy 伺服器需要驗證時，下列命令會包含 `-p` Proxy 參數和範例語法：
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -100,12 +100,13 @@ ms.locfileid: "72677955"
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    下列命令會加上 `-p` Proxy 參數和範例語法。
+    當您的 Proxy 伺服器需要驗證時，下列命令會包含 `-p` Proxy 參數和範例語法：
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ```
-2. 執行下列命令來重新啟動代理程式： 
+
+3. 執行下列命令來重新啟動代理程式： 
 
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]

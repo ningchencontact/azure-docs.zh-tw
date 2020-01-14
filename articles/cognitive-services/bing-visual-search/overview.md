@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 08/30/2019
+ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 22a8bb2609439a82a825bf7f542709d46771ad92
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 52e3e65fb4f42530373decca547674a28a60f759
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195212"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446664"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>什麼是 Bing 圖像式搜尋 API？
 
@@ -30,7 +30,7 @@ Bing 圖像式搜尋 API 會傳回影像的見解。 您可以上傳影像，也
 
 您可以使用 Bing 圖像式搜尋來探索下列見解：
 
-| 見解                              | 說明 |
+| 見解                              | 描述 |
 |--------------------------------------|-------------|
 | 在視覺效果上類似的影像              | 外觀上類似於輸入影像的影像清單。 |
 | 在視覺效果上類似的產品            | 外觀上類似於所示產品的產品。            |
@@ -64,3 +64,5 @@ Bing 圖像式搜尋 API 是一種 RESTful Web 服務，因此可輕易地從任
 * [影像 - 圖像式搜尋](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)參考會說明您在要求以影像為基礎的搜尋結果時所能使用端點、要求標頭、回應和查詢參數的定義和資訊。
 
 * [Bing 搜尋 API 使用和顯示需求](../bing-web-search/use-display-requirements.md)指定了透過 Bing 搜尋 API 取得的內容和資訊可行的用法。
+
+* 請瀏覽 [Bing 搜尋 API 中樞頁面](../bing-web-search/search-the-web.md)以探索其他可用的 API。

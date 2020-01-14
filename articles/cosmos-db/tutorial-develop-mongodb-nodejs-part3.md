@@ -1,6 +1,5 @@
 ---
-title: 使用 Azure Cosmos DB 適用於 MongoDB 的 API 建立 Angular 應用程式 - 使用 Angular 建置 UI
-titleSuffix: Azure Cosmos DB
+title: 使用適用於 MongoDB 的 Azure Cosmos DB API 建立 Angular 應用程式 UI (第 3 部分)
 description: 本教學課程系列的第 3 部分，有關使用您用於 MongoDB 的完全相同 API，以 Azure Cosmos DB 上的 Angular 和 Node 建立 MongoDB 應用程式。
 author: johnpapa
 ms.service: cosmos-db
@@ -11,16 +10,16 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 286ccfe84f511ffccdc8919b2e717cd21f124c2b
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: c9467aef1dd7d28b41c2e05b5f157a158d7377ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158698"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444732"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>使用 Azure Cosmos DB 適用於 MongoDB 的 API 建立 Angular 應用程式 - 使用 Angular 建置 UI
 
-此多部分的教學課程示範如何使用 Express 和 Angular，建立以 Node.js 撰寫的新應用程式，然後將它連線至[使用 Cosmos DB 適用於 MongoDB 的 API 設定的 Cosmos 帳戶](mongodb-introduction.md)。
+這個多部分的教學課程示範如何使用 Express 和 Angular 來建立以 Node.js 撰寫的新應用程式，然後將它連線至[使用適用於 MongoDB 的 Cosmos DB API 設定的 Cosmos 帳戶](mongodb-introduction.md)。
 
 本教學課程的第 3 部分是以[第 2 部分](tutorial-develop-mongodb-nodejs-part2.md)為基礎並涵蓋下列工作：
 
@@ -33,7 +32,7 @@ ms.locfileid: "54158698"
 
 > [!VIDEO https://www.youtube.com/embed/MnxHuqcJVoM]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始本教學課程的這個部分之前，請確定您已完成本教學課程[第 2 部分](tutorial-develop-mongodb-nodejs-part2.md)中的步驟。
 
@@ -56,10 +55,10 @@ ms.locfileid: "54158698"
 
     讓我們查看已建立和更新的檔案。 
 
-3. 在 Visual Studio Code 的 [總管] 窗格中，瀏覽至新的 **src\app** 資料夾，然後開啟 app 資料夾內所產生的新 **heroes.component.ts** 檔案。 前一個命令會建立這個 TypeScript 元件檔案。
+3. 在 Visual Studio Code 的 [總管]  窗格中，瀏覽至新的 **src\app** 資料夾，然後開啟 app 資料夾內所產生的新 **heroes.component.ts** 檔案。 前一個命令會建立這個 TypeScript 元件檔案。
 
     > [!TIP]
-    > 如果應用程式資料夾未顯示在 Visual Studio Code 中，在 Mac 上輸入 CMD + SHIFT P 或在 Windows 上輸入 Ctrl + Shift + P 以開啟 [命令選擇區]，然後進入 [重新載入視窗] 以挑選系統變更。
+    > 如果應用程式資料夾未顯示在 Visual Studio Code 中，在 Mac 上輸入 CMD + SHIFT P 或在 Windows 上輸入 Ctrl + Shift + P 以開啟 [命令選擇區]，然後進入 [重新載入視窗]  以挑選系統變更。
 
 4. 在相同的資料夾中，開啟 **app.module.ts** 檔案，並請注意它已將 `HeroesComponent` 新增至第 5 行上的宣告，並且也在第 10 行上匯入它。
 
@@ -172,7 +171,7 @@ ms.locfileid: "54158698"
     }
     ```
 
-8. 在 [總管] 中，開啟 **app/app.module.ts** 檔案，並更新 import 區段，以針對 `FormsModule` 新增 import。 import 區段現在應該如下所示︰
+8. 在 [總管]  中，開啟 **app/app.module.ts** 檔案，並更新 import 區段，以針對 `FormsModule` 新增 import。 import 區段現在應該如下所示︰
 
     ```
     imports: [
@@ -397,7 +396,7 @@ ms.locfileid: "54158698"
 
     ![Visual Studio Code 中的燈泡](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
 
-6. 按一下燈泡，然後按一下 [從 "app/hero" 匯入 Hero]。 或 [從 "./hero" 匯入 Hero]。 (此訊息會根據您的設定而變更)
+6. 按一下燈泡，然後按一下 [從 "app/hero" 匯入 Hero]  。 或 [從 "./hero" 匯入 Hero]  。 (此訊息會根據您的設定而變更)
 
     第 2 行上會出現一行新程式碼。 如果第 2 行參照 /app/hero，請加以修改，讓它從本機資料夾 (./hero) 參照 Hero 檔案。 第 2 行看起來應該如下所示：
 
@@ -415,7 +414,7 @@ ms.locfileid: "54158698"
     ng g s hero -m app.module
     ```
 
-2. 在 Visual Studio Code 中，回到 **heroes.components.ts**。 請注意 `constructor(private heroService: HeroService) {}` 行 (第 13 行) 上的 `HeroService` 底下有紅線。 按一下 `HeroService`，您將會在程式碼區塊的左側取得燈泡。 按一下燈泡，然後按一下 [從 "./hero.service 匯入 HeroService]。 或 [從 "app/hero.service" 匯入 HeroService]。
+2. 在 Visual Studio Code 中，回到 **heroes.components.ts**。 請注意 `constructor(private heroService: HeroService) {}` 行 (第 13 行) 上的 `HeroService` 底下有紅線。 按一下 `HeroService`，您將會在程式碼區塊的左側取得燈泡。 按一下燈泡，然後按一下 [從 "./hero.service 匯入 HeroService]  。 或 [從 "app/hero.service" 匯入 HeroService]  。
 
     按一下燈泡會在第 2 行上插入一行新程式碼。 如果第 2 行參考 /app/hero.service 資料夾，請加以修改，讓它從本機資料夾 (./hero.service) 參考 Hero 檔案。 第 2 行看起來應該如下所示：
     
@@ -487,7 +486,7 @@ ms.locfileid: "54158698"
 
     現在可以執行應用程式。
 
-2. 在 Visual Studio Code 中，按一下左側的 [偵錯] 按鈕![Visual Studio Code 中的偵錯圖示](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png)，然後按一下 [開始偵錯] 按鈕![Visual Studio Code 中的偵錯圖示](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png)。
+2. 在 Visual Studio Code 中，按一下左側的 [偵錯]  按鈕![Visual Studio Code 中的偵錯圖示](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png)，然後按一下 [開始偵錯]  按鈕![Visual Studio Code 中的偵錯圖示](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png)。
 
 3. 現在開啟網際網路瀏覽器並瀏覽至 **localhost:3000**，以查看在本機執行的應用程式。
 

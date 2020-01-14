@@ -8,15 +8,15 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 089b37761c11c02e34c35eb378c64862bc4fbc98
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: ba5879543d7640993ac834811ec6a82965557755
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064142"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432695"
 ---
 # <a name="what-is-application-insights"></a>什麼是 Application Insights？
-Application Insights (一項 [Azure 監視器](../overview.md)功能) 是多個平台上的 Web 開發人員所適用的可延伸「應用程式效能管理」(APM) 服務。 您可以使用它來監視即時 Web 應用程式。 它將會自動偵測效能異常。 其中包括強大的分析工具可協助您診斷問題，並了解使用者實際如何運用您的應用程式。  它是設計來協助您持續改善效能和可用性。 它適用於各種不同平台上的應用程式，包括裝載在內部部署、混合式或任何公用雲端的 .NET、Node.js 和 Java EE。 它可與您的 DevOps 程序整合，並有各種開發工具的連接點。 透過與 Visual Studio App Center 整合，還可以從行動應用程式監視並分析遙測資料。
+Application Insights (一項 [Azure 監視器](../overview.md)功能) 是開發人員和 DevOps 專業人員所適用的可延伸「應用程式效能管理」(APM) 服務。 您可以使用它來監視即時應用程式。 其會自動偵測效能異常，其中包括強大的分析工具可協助診斷問題，並了解使用者實際上如何運用您的應用程式。  它是設計來協助您持續改善效能和可用性。 它適用於各種不同平台上的應用程式，包括裝載在內部部署、混合式或任何公用雲端的 .NET、Node.js 和 Java EE。 它可與您的 DevOps 程序整合，並有各種開發工具的連接點。 透過與 Visual Studio App Center 整合，還可以從行動應用程式監視並分析遙測資料。
 
 ## <a name="how-does-application-insights-work"></a>Application Insights 的運作方式
 您會在應用程式中安裝小型檢測套件，並且在 Microsoft Azure 入口網站中設定 Application Insights 資源。 此檢測套件會監視您的應用程式，並將遙測資料傳送至 Azure 監視器。 (應用程式可以在任何地方執行 - 不一定要裝載於 Azure 中。)
@@ -53,8 +53,8 @@ Application Insights 是以開發小組為目標，以協助您了解您的應�
 
 |  |  |
 | --- | --- |
-| [**智慧型偵測和手動警示**](../../azure-monitor/app/proactive-diagnostics.md)<br/>如果發生常見模式之外的一些狀況，則自動警示會適應您的應用程式在遙測和觸發下的正常模式。 您也可以在自訂或標準計量的特定層級上[設定警示](../../azure-monitor/app/alerts.md)。 |![警示範例](./media/app-insights-overview/alerts-tn.png) |
-| [**應用程式對應**](../../azure-monitor/app/app-map.md)<br/>應用程式的元件，包含重要計量和警示。 |![應用程式對應](./media/app-insights-overview/appmap-tn.png)  |
+| [**智慧型偵測和手動警示**](../../azure-monitor/app/proactive-diagnostics.md)<br/>如果發生常見模式之外的一些狀況，自動警示會適應您的應用程式在遙測和觸發下的正常模式。 您也可以在自訂或標準計量的特定層級上[設定警示](../../azure-monitor/app/alerts.md)。 |![警示範例](./media/app-insights-overview/alerts-tn.png) |
+| [**應用程式對應**](../../azure-monitor/app/app-map.md)<br/>探索應用程式的元件，包含重要計量和警示。 |![應用程式對應](./media/app-insights-overview/appmap-tn.png)  |
 | [**分析工具**](../../azure-monitor/app/profiler.md)<br/>檢查取樣要求的執行設定檔。 |![分析工具](./media/app-insights-overview/profiler.png) |
 | [**使用量分析**](../../azure-monitor/app/usage-overview.md)<br/>分析使用者區隔和保留期。|![保留期工具](./media/app-insights-overview/retention.png) |
 | [**執行個體資料的診斷搜尋**](../../azure-monitor/app/diagnostic-search.md)<br/>搜尋和篩選事件，例如要求、例外狀況、相依性呼叫、記錄追蹤，以及頁面檢視。  |![搜尋遙測](./media/app-insights-overview/search-tn.png) |

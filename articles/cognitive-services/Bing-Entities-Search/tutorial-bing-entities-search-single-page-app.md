@@ -1,21 +1,21 @@
 ---
 title: 教學課程：Bing 實體搜尋單頁 Web 應用程式
 titleSuffix: Azure Cognitive Services
-description: 示範如何在單頁 Web 應用程式中使用 Bing 實體搜尋 API。
+description: 本教學課程說明如何在單頁 Web 應用程式中使用 Bing 實體搜尋 API。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 07/15/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 5a8276f06207eb69ffec0e21c6d92794973f3b83
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 875a83501b00f0b23aa13317493ab6d341e4e283
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423982"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448597"
 ---
 # <a name="tutorial-single-page-web-app"></a>教學課程：單一頁面 Web 應用程式
 
@@ -37,7 +37,7 @@ Bing 實體搜尋 API 可讓您搜尋網路上的「實體」  和「地點」  
 -->
 
 > [!NOTE]
-> 按下時，頁面底部的 JSON 和 HTTP 標題會顯示 JSON 回應和 HTTP 要求資訊。 這些詳細資料有助於探索服務。
+> 點按時，頁面底部的 JSON 和 HTTP 標題會顯示 JSON 回應和 HTTP 要求資訊。 這些詳細資料有助於探索服務。
 
 本教學課程應用程式說明如何：
 
@@ -49,9 +49,9 @@ Bing 實體搜尋 API 可讓您搜尋網路上的「實體」  和「地點」  
 > * 處理 Bing 用戶端識別碼和 API 訂用帳戶金鑰
 > * 解決可能出現的任何錯誤
 
-本教學課程頁完全獨立，不會使用任何外部架構、樣式表或甚至影像檔。 其中僅使用廣受支援的 JavaScript 語言功能，並且與所有主要網頁瀏覽器的目前版本搭配使用。
+本教學課程頁面完全獨立，不會使用任何外部架構、樣式表甚或影像檔案。 它使用唯一且廣泛支援的 JavaScript 語言功能，適用於所有主要網頁瀏覽器的目前版本。
 
-在本教學課程中，我們只會討論原始程式碼的特定部分。 完整的原始程式碼位於[另一個頁面上](tutorial-bing-entities-search-single-page-app-source.md)。 請將此程式碼複製並貼到文字編輯器中，然後另存為 `bing.html`。
+在本教學課程中，我們只會討論原始程式碼的特定部分。 完整的原始程式碼位於[另一個頁面上](tutorial-bing-entities-search-single-page-app-source.md)。 將此程式碼複製並貼到文字編輯器，並儲存為 `bing.html`。
 
 > [!NOTE]
 > 本教學課程與[單頁 Bing Web 搜尋應用程式教學課程](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md)非常類似，但只會處理實體搜尋結果。
@@ -73,7 +73,7 @@ HTML 包含搜尋表單，使用者可在其中輸入查詢並選擇搜尋選項
 <form name="bing" onsubmit="return newBingEntitySearch(this)">
 ```
 
-`onsubmit` 處理常式會傳回 `false`，這可防止表單提交至伺服器。 JavaScript 程式碼實際上會從表單收集所需的資訊，並執行搜尋。
+`onsubmit` 處理常式會傳回 `false`，這可防止表單提交至伺服器。 JavaScript 程式碼會實際從表單收集所需的資訊，並執行搜尋。
 
 搜尋會分兩個階段完成。 首先，若使用者已輸入位置限制，則會執行 Bing 地圖服務將它轉換成座標。 此查詢的回呼會接著開始執行 Bing 實體搜尋查詢。
 
@@ -86,7 +86,7 @@ HTML 也包含顯示搜尋結果的區域 (HTML `<div>` 標籤)。
 
 為了避免必須在程式碼中包含 Bing 搜尋和 Bing 地圖服務 API 訂用帳戶金鑰，我們使用瀏覽器的永續性儲存體來儲存這些金鑰。 若尚未儲存任何一個金鑰，則會出現提示要求儲存以供稍後使用。 若 API 稍後拒絕金鑰，我們會讓儲存的金鑰失效，以便在使用者下次搜尋時，要求使用者提供金鑰。
 
-我們會定義 `storeValue` 和 `retrieveValue` 函式，以使用 `localStorage` 物件 (若瀏覽器支援的話) 或 Cookie。 我們的 `getSubscriptionKey()` 函式使用這些函式來儲存及擷取使用者的金鑰。
+我們會定義 `storeValue` 和 `retrieveValue` 函式，以使用 `localStorage` 物件 (若瀏覽器支援的話) 或 Cookie。 我們的 `getSubscriptionKey()` 函式會使用這些函式來儲存及擷取使用者的金鑰。 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
 ```javascript
 // cookie names for data we store
@@ -308,7 +308,7 @@ function bingEntitySearch(query, latlong, options, key) {
 }
 ```
 
-HTTP 要求成功完成時，JavaScript 會呼叫我們的 `load` 事件處理常式 `handleBingResponse()` 函式，來處理成功傳遞至 API 的 HTTP GET 要求。 
+HTTP 要求成功完成時，JavaScript 會呼叫我們的 `load` 事件處理常式 (`handleBingResponse()` 函式)，來處理成功傳遞至 API 的 HTTP GET 要求。 
 
 ```javascript
 // handle Bing search request results
@@ -378,7 +378,7 @@ function handleBingResponse() {
 > [!IMPORTANT]
 > 成功的 HTTP 要求「不」  一定表示搜尋本身成功。 若搜尋作業中發生錯誤，Bing 實體搜尋 API 會傳回非 200 HTTP 狀態碼，並在 JSON 回應中包含錯誤資訊。 此外，若要求速率受到限制，API 會傳回空白回應。
 
-上述兩個函式中大部分的程式碼都是專門用來處理錯誤的。 下列階段可能會發生錯誤：
+上述兩個函式中的大部分程式碼都是專用於錯誤處理。 下列階段可能會發生錯誤：
 
 |階段|可能的錯誤|處理者|
 |-|-|-|
@@ -394,11 +394,11 @@ Bing 實體搜尋 API [要求您依指定順序顯示結果](use-display-require
 
 相反地，我們會在搜尋結果中使用 `rankingResponse` 集合，以排序要顯示的結果。 此物件是指 `Entitiess` 及/或 `Places` 集合中的項目。
 
-`rankingResponse` 最多可能包含三個搜尋結果集合，並已指定 `pole`、`mainline` 和 `sidebar`。 
+`rankingResponse` 最多可包含三個搜尋結果集合，並已指定 `pole`、`mainline` 和 `sidebar`。 
 
 `pole` (若存在) 是最相關的搜尋結果，應該優先顯示。 `mainline` 會參照大量搜尋結果。 Mainline 結果應該在 `pole` 之後立即顯示 (若 `pole` 不存在，則優先顯示)。 
 
-最後， `sidebar` 是指輔助搜尋結果。 它們可能會在實際 sidebar 中顯示，或直接在 mainline 結果之後顯示。 我們已為教學課程應用程式選擇後者。
+最後， `sidebar` 會參照輔助搜尋結果。 它們可能會在實際 sidebar 中顯示，或直接在 mainline 結果之後顯示。 我們已為教學課程應用程式選擇後者。
 
 `rankingResponse` 集合中的每個項目是指兩個不同但方式相同的實際搜尋結果項目。
 
@@ -432,7 +432,7 @@ function renderSearchResults(results) {
 
 ## <a name="rendering-result-items"></a>轉譯結果項目
 
-在我們的 JavaScript 程式碼中有一個物件 `searchItemRenderers`，其中包含 *renderers:* 函式，可為每種搜尋結果產生 HTML。
+我們的 JavaScript 程式碼中有一個物件 `searchItemRenderers`，其中包含 *renderers:* 函式，可為每種搜尋結果產生 HTML。
 
 ```javascript
 searchItemRenderers = { 
@@ -451,7 +451,7 @@ searchItemRenderers = {
 
 `index` 和 `count` 參數可用來編號結果、為集合開頭或結尾產生特殊 HTML、在特定數量的項目之後插入分行符號等。 若轉譯器不需要此功能，則不需要接受這兩個參數。 事實上，我們不會將其用於教學課程應用程式的轉譯器中。
 
-讓我們仔細看看 `entities` 轉譯器：
+以下我們將深入觀察 `entities` 轉譯器：
 
 ```javascript
     entities: function(item) {

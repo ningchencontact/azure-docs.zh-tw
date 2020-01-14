@@ -4,15 +4,15 @@ description: 設定適用於整個 Azure App Service 環境的設定。 了解�
 author: stefsch
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 12/19/2019
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 36208b4662242b37c135eaffc745a819c11fa015
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 42a06724274288955b11c3daf9cbf33d72ddf75d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687333"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430495"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>App Service 環境的自訂組態設定
 ## <a name="overview"></a>概觀
@@ -56,6 +56,19 @@ ms.locfileid: "74687333"
 
 不過，送出變更後，約需 30 分鐘乘以 App Service 環境中前端數量的時間，變更才會生效。
 例如，如果 App Service 環境有四個前端，大約需要兩個小時才能完成組態更新。 實行組態變更時，App Service 環境上就不會進行其他調整作業或組態變更作業。
+
+## <a name="enable-internal-encryption"></a>啟用內部加密
+
+App Service 環境會以黑箱系統的方式運作，您看不到內部元件或系統內的通訊。 若要達到更高的輸送量，內部元件之間預設不會啟用加密。 系統是安全的，因為流量完全無法存取，而無法進行監視或存取。 如果您有需要從端對端完整加密資料路徑的合規性需求，可以透過 clusterSetting 達成此需求。  
+
+        "clusterSettings": [
+            {
+                "name": "InternalEncryption",
+                "value": "1"
+            }
+        ],
+ 
+啟用 InternalEncryption clusterSetting 之後，可能會對系統效能造成影響。 當您進行變更以啟用 InternalEncryption 時，您的 ASE 將會處於不穩定的狀態，直到變更完全傳播為止。 視您的 ASE 中有多少執行個體而定，變更的完整傳播可能需要幾小時才能完成。 強烈建議您不要在使用中的 ASE 上啟用此功能。 如果您需要在主動使用的 ASE 上啟用此功能，強烈建議您將流量轉向備份環境，直到作業完成為止。 
 
 ## <a name="disable-tls-10-and-tls-11"></a>停用 TLS 1.0 和 TLS 1.1
 

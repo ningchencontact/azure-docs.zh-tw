@@ -1,7 +1,7 @@
 ---
 title: 快速入門 - 傳送查詢至以 Python 撰寫的 API - Bing 當地企業搜尋
 titleSuffix: Azure Cognitive Services
-description: 使用本文開始使用以 Python 撰寫的 Bing 當地商家搜尋 API。
+description: 使用本快速入門來開始使用以 Python 撰寫的 Bing 當地商家搜尋 API。
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 11/29/2019
 ms.author: aahi
-ms.openlocfilehash: a73851a4c88998a377a5123d411948946173fa89
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: c7e7ef7f052fccfea18b246f41109d5fa7528b4b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664925"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379738"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>快速入門：傳送查詢至以 Python 撰寫的 Bing 當地商家搜尋 API
 
@@ -23,7 +23,7 @@ ms.locfileid: "74664925"
 
 此範例應用程式會從 API 取得搜尋查詢 `hotel in Bellevue` 的當地回應資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python](https://www.python.org/) 2.x 或 3.x
  

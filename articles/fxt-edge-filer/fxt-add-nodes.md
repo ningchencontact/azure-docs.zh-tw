@@ -1,19 +1,19 @@
 ---
-title: Microsoft Azure FXT Edge Filer 叢集設定 - 新增節點
+title: 教學課程：將節點新增至 Azure FXT Edge Filer 叢集
 description: 如何將節點新增至 Azure FXT Edge Filer 儲存體快取
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: 85ab9aaa3e184af7aa71a31eb3d8de1a20639c2a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 6251fe8f88b7db25e3c09898540e07754d72fb0d
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254936"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551942"
 ---
-# <a name="tutorial-add-cluster-nodes"></a>教學課程：新增叢集節點 
+# <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>教學課程：將叢集節點新增至 Azure FXT Edge Filer 叢集
 
 建立新的 Azure FXT Edge Filer 叢集只需要一個節點。 進行其他設定之前，您應該新增至少兩個其他節點，並啟用高可用性。 
 

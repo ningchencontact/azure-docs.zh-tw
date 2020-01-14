@@ -1,5 +1,6 @@
 ---
-title: Azure CLI 指令碼範例 - 從 Azure 應用程式設定存放區匯出 | Microsoft Docs
+title: Azure CLI 指令碼範例 - 從 Azure 應用程式組態存放區匯出
+titleSuffix: Azure App Configuration
 description: 提供從 Azure 應用程式設定存放區匯出的相關資訊和範例指令碼
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7969300e9865c943c0f3759277bd26529c0c5464
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 28066fcea50180189cff7f9af790908c52a4a261
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184893"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433607"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>從 Azure 應用程式設定存放區匯出
 
@@ -50,7 +51,7 @@ az appconfig kv export --name myTestAppConfigStore --file ~/Export.json
 
 此指令碼會使用下列命令從應用程式組態存放區匯出。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az appconfig kv export](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-export) | 從應用程式組態存放區資源匯出。 |
 

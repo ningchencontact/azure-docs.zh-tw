@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1b9d8c98391e7e2bac3492dcf696f098f5c6cf57
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 7553499dc9aba8d20bee126204b6d19f2386d295
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903171"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408443"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>快速入門：使用 Azure 地圖服務建立互動式地圖搜尋
 
@@ -26,24 +26,38 @@ ms.locfileid: "73903171"
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
-登入 [Azure 入口網站](https://portal.azure.com/)。
+登入 [Azure 入口網站](https://portal.azure.com)。
 
-## <a name="create-an-account-and-get-your-key"></a>建立帳戶並取得金鑰
+<a id="createaccount"></a>
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的左上角，選取 [建立資源]  。
+## <a name="create-an-account-with-azure-maps"></a>使用 Azure 地圖服務建立帳戶
+
+使用下列步驟建立新的地圖服務帳戶：
+
+1. 按一下 [Azure 入口網站](https://portal.azure.com)左上角的 [建立資源]  。
 2. 在 [搜尋 Marketplace]  方塊中，輸入 **Maps**。
-3. 從 [結果]  中，選取 [地圖服務]  。 選取地圖下方顯示的 [建立]  按鈕。
-4. 在 [建立 Azure 地圖服務帳戶]  頁面上輸入下列值：
-   - 新帳戶的 [名稱]  。
-   - 您想要使用於此帳戶的 [訂用帳戶]  。
-   - 此帳戶的 [資源群組]  。 您可以選擇 [建立新的]  或 [使用現有的]  資源群組。
-   - 選取您所選的 [定價層]  。
-   - 閱讀**授權**和**隱私權聲明**。 選取核取方塊以接受條款。
-   - 最後，選取 [建立]  按鈕。
+3. 從 [結果]  中，選取 [地圖服務]  。 按一下地圖下方顯示的 [建立]  按鈕。
+4. 在 [建立地圖服務帳戶]  頁面上輸入下列值：
+    * 您想要使用於此帳戶的 [訂用帳戶]  。
+    * 此帳戶的 [資源群組]  名稱。 您可以選擇 [建立新的]  或 [使用現有的]  資源群組。
+    * 新帳戶的 [名稱]  。
+    * 此帳戶的 [定價層]  。
+    * 閱讀 [授權]  和 [隱私權聲明]  ，然後選取核取方塊以接受條款。
+    * 按一下 [ **建立** ] 按鈕。
 
-     ![在入口網站中建立 Azure 地圖服務帳戶](./media/quick-demo-map-app/create-account.png)
+![在入口網站中建立地圖服務帳戶](./media/quick-demo-map-app/create-account.png)
 
-5. 成功建立您的帳戶之後，請將它開啟並尋找帳戶功能表的設定區段。 選取 [驗證]  以檢視 Azure 地圖服務帳戶的主要和次要金鑰。 將 [主要金鑰]  值複製到本機剪貼簿，下一節將使用此值。
+<a id="getkey"></a>
+
+## <a name="get-the-primary-key-for-your-account"></a>取得帳戶的主要金鑰
+
+成功建立地圖服務帳戶後，擷取金鑰以便能查詢地圖服務 API。 我們建議在呼叫 Azure 地圖服務時，使用您帳戶的主要金鑰作為訂用帳戶金鑰。
+
+1. 在入口網站中開啟地圖服務帳戶。
+2. 在 [設定] 區段上，選取 [驗證]  。
+3. 將 [主索引鍵]  複製到剪貼簿。 將其儲存在本機，以供本教學課程稍後使用。
+
+![在入口網站中取得主索引鍵](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>下載應用程式
 

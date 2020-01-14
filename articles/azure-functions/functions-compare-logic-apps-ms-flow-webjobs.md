@@ -1,19 +1,20 @@
 ---
-title: 什麼是 Microsoft Flow、Logic Apps、Azure Functions 和 WebJobs？ - Azure
+title: Azure 中的整合和自動化平台選項
 description: 比較已針對整合工作最佳化的 Microsoft 雲端服務：Microsoft Flow、Logic Apps、Azure Functions 和 WebJobs。
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: a20729e7c47e6bf2ad77e47fa228495d8b482aab
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 822726a7a9336df724d6361e40ce5e1da27b94a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278636"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409846"
 ---
-# <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>什麼是 Microsoft Flow、Logic Apps、Azure Functions 和 WebJobs？
+# <a name="choose-the-right-integration-and-automation-services-in-azure"></a>在 Azure 中選擇正確的整合和自動化服務
 
-本文會比較下列 Microsoft 雲端 
+本文會比較下列 Microsoft 雲端服務：
+
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
@@ -52,7 +53,7 @@ Functions 和 Logic Apps 都是可啟用無伺服器工作負載的 Azure 服務
 
 |  | 長期函式 | Logic Apps |
 | --- | --- | --- |
-| 開發 | Code First (命令式) | Designer First (宣告式) |
+| 部署 | Code First (命令式) | Designer First (宣告式) |
 | 連線能力 | [約有十幾個內建繫結類型](functions-triggers-bindings.md#supported-bindings)、撰寫自訂繫結的程式碼 | [連接器的大型集合](../connectors/apis-list.md)、[適用於 B2B 的企業整合套件案例](../logic-apps/logic-apps-enterprise-integration-overview.md)、[建置自訂連接器](../logic-apps/custom-connector-overview.md) |
 | 動作 | 每個活動都是 Azure 函式；撰寫活動函式的程式碼 |[現成動作的大型集合](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | 監視 | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure 入口網站](../logic-apps/quickstart-create-first-logic-app-workflow.md)、[Azure 監視器記錄](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
@@ -82,14 +83,14 @@ Azure Functions 是以 WebJobs SDK 為基礎，因此其共用許多相同的事
 |[按使用次數付費的定價方式](functions-scale.md#consumption-plan)|✔||
 |[與 Logic Apps 整合](functions-twitter-email.md)|✔||
 | 觸發程序事件 |[計時器](functions-bindings-timer.md)<br>[Azure 儲存體佇列和 Blob](functions-bindings-storage-blob.md)<br>[Azure 服務匯流排佇列和主題](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure 事件中樞](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub、Slack)](functions-bindings-http-webhook.md)<br>[事件格線](functions-bindings-event-grid.md)|[計時器](functions-bindings-timer.md)<br>[Azure 儲存體佇列和 Blob](functions-bindings-storage-blob.md)<br>[Azure 服務匯流排佇列和主題](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure 事件中樞](functions-bindings-event-hubs.md)<br>[檔案系統](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| 支援的語言  |C#<br>F#<br>JavaScript<br>Java<br>Python |C#<sup>1</sup>|
+| 支援的語言  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
 |套件管理員|NPM 和 NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> WebJobs (沒有 WebJobs SDK) 支援 C#、Java、JavaScript、Bash、.cmd、.bat、PowerShell、PHP、TypeScript、Python 等其他項目。 這並非完整清單。 WebJob 可執行 App Service 沙箱中執行的任何程式或指令碼。
 
 <sup>2</sup> WebJobs (沒有 WebJobs SDK) 支援 NPM 和 NuGet。
 
-### <a name="summary"></a>總結
+### <a name="summary"></a>摘要
 
 Azure Functions 能提供比 Azure App Service WebJobs 還高的生產力。 其也可提供更多的程式設計語言、開發環境、Azure 服務整合和定價選項。 大部分的情況下，這是最佳選擇。
 

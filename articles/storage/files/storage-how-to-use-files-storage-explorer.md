@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 儲存體總管來管理 Azure 檔案共用的快速入門
+title: 使用 Azure 儲存體總管來管理 Azure 檔案共用
 description: 使用此快速入門了解如何使用 Azure 儲存體總管來管理 Azure 檔案服務。
 author: roygara
 ms.service: storage
@@ -7,21 +7,21 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b034b3e7aa5fcb61cf83565f3e4c3b1c83f3610c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 0bf66baba1b665c92a11d7bda91dcaa3e355dd96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699445"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431829"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>快速入門：使用 Azure 儲存體總管來建立及管理 Azure 檔案共用
 本指南會逐步說明透過 [Azure 儲存體總管](storage-files-introduction.md)來使用 Azure 檔案共用的基本概念。 Azure 檔案共用與其他檔案共用類似，但它儲存在雲端中，並且由 Azure 平台支援。 Azure 檔案共用支援業界標準 SMB 通訊協定，並可在多個機器、應用程式及執行個體上啟用檔案共用。 
 
 Azure 儲存體總管是適用於 Windows、macOS 和 Linux 的熱門用戶端工具。 您可以使用儲存體總管來管理 Azure 檔案共用和其他儲存體資源。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 本快速入門需要安裝儲存體總管。 若要下載並安裝儲存體總管，請前往 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)。
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶

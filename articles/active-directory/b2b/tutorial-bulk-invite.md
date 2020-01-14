@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ffcdad43195ce49ef3cd8b695f9ad5009af82fb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 493c60e8148b666ba1f514d303229b7a11c2e43e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272362"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425034"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>教學課程：大量邀請 Azure AD B2B 共同作業使用者 (預覽)
 
@@ -25,6 +25,8 @@ ms.locfileid: "74272362"
 | 本文將說明 Azure Active Directory 的一項公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。|
 |     |
 
+> [!NOTE]
+> 從 2019 年 12 月 22 日起，已暫時停用大量邀請使用者 (預覽) 功能。
 
 如果您使用 Azure Active Directory (Azure AD) B2B 共同作業來與外部合作夥伴合作，您便可以同時邀請多位來賓使用者存取您的組織資源。 在此教學課程中，您會了解如何使用 Azure 入口網站對外部使用者傳送大量邀請。 具體而言，您會執行下列操作：
 
@@ -35,7 +37,7 @@ ms.locfileid: "74272362"
 
 如果您沒有 Azure Active Directory，請在開始之前[建立免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 您需要有兩個以上可接收邀請的測試電子郵件帳戶。 這些帳戶必須來自您的組織外部。 您可以使用任何類型的帳戶，包括社交帳戶，例如 gmail.com 或 outlook.com 地址。
 
@@ -100,7 +102,7 @@ ms.locfileid: "74272362"
  Remove-AzureADUser -ObjectId "<UPN>"
 ```
 
-例如：`Remove-AzureADUser -ObjectId "lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
+例如： `Remove-AzureADUser -ObjectId "lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
 
 ## <a name="next-steps"></a>後續步驟
 

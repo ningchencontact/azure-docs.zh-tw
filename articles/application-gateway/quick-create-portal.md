@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4f5a20f80ea8eafa73cbef394dcfdde75087326b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a9719ec7db4dead94478225cc47130b289a539c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074569"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442346"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure 入口網站
 
@@ -31,7 +31,7 @@ ms.locfileid: "74074569"
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
-1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。 [新增]  視窗隨即出現。
+1. 從 Azure 入口網站功能表或 **[首頁]** 頁面，選取 [建立資源]  。 [新增]  視窗隨即出現。
 
 2. 在 [精選]  清單中選取 [網路]  ，然後選取 [應用程式閘道]  。
 
@@ -48,7 +48,7 @@ ms.locfileid: "74074569"
 
     在 [設定虛擬網路]  底下，選取 [新建]  以建立新的虛擬網路。 在隨即開啟的 [建立虛擬網路]  視窗中，輸入下列值以建立虛擬網路和兩個子網路：
 
-    - **名稱**：輸入 myVNet  作為虛擬網路的名稱。
+    - **Name**：輸入 myVNet  作為虛擬網路的名稱。
 
     - **子網路名稱** (應用程式閘道子網路)：[子網路]  方格將會顯示名為 *Default* 的子網路。 將此子網路的名稱變更為 *myAGSubnet*。<br>應用程式閘道子網路只能包含應用程式閘道。 不允許任何其他資源。
 
@@ -66,7 +66,7 @@ ms.locfileid: "74074569"
 
 1. 在 [前端]  索引標籤上，確認 [前端 IP 位址類型]  已被設為 [公用]  。 <br>您可以根據自己的使用案例，設定為公用或私人前端 IP。 在此範例中，您會選擇公用前端 IP。
    > [!NOTE]
-   > 對於應用程式閘道 v2 SKU，您只能選擇 [公用]  前端 IP 組態。 目前僅未針對此 v2 SKU 啟用私人前端 IP 設定。 您可以同時擁有公用和私人前端 IP 設定。
+   > 對於應用程式閘道 v2 SKU，您只能選擇 [公用]  前端 IP 組態。 目前僅未針對此 v2 SKU 啟用私人前端 IP 設定 (僅限 ILB 模式)。 您可以同時擁有公用和私人前端 IP 設定。
 
 2. 針對 [公用 IP 位址]  選擇 [新建]  ，然後針對公用 IP 位址名稱輸入 *myAGPublicIPAddress*，然後選取 [確定]  。 
 
@@ -82,7 +82,7 @@ ms.locfileid: "74074569"
 
 2. 在隨即開啟的 [新增後端集區]  視窗中，輸入下列值以建立空的後端集區：
 
-    - **名稱**：輸入 *myBackendPool* 作為後端集區的名稱。
+    - **Name**：輸入 *myBackendPool* 作為後端集區的名稱。
     - **新增不含目標的後端集區**：選取 [是]  以建立不含目標的後端集區。 您將會在建立應用程式閘道之後再新增後端目標。
 
 3. 在 [新增後端集區]  視窗中，選取 [新增]  以儲存後端集區設定，並返回 [後端]  索引標籤。
@@ -136,7 +136,7 @@ ms.locfileid: "74074569"
 
 ### <a name="create-a-virtual-machine"></a>建立虛擬機器
 
-1. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。 [新增]  視窗隨即出現。
+1. 從 Azure 入口網站功能表或 **[首頁]** 頁面，選取 [建立資源]  。 [新增]  視窗隨即出現。
 2. 選取 [計算]  ，然後選取 [熱門]  清單中的 [Windows Server 2016 Datacenter]  。 [建立虛擬機器]  頁面隨即出現。<br>應用程式閘道可將流量路由至其後端集區中所用任何類型的虛擬機器。 在此範例中，您會使用 Windows Server 2016 Datacenter。
 3. 在 [基本]  索引標籤中，為下列虛擬機器設定輸入這些值：
 

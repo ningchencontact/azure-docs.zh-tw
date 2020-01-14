@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 10/03/2017
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 28a2732965ee0a19f69dcd0fc2cd7705cb5f94a1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7208825581a0bf16f6ee3a3947387b01abfd16d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230442"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433062"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 簡介  
 Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解決方案。 您可以只撰寫處理手邊問題所需的程式碼，而不需擔心要執行它的整個應用程式或基礎結構。 Functions 可讓開發更有生產力，而且您可以使用您選擇的開發語言，例如 C#、Java、JavaScript、PowerShell 和 Python。 只需對您的程式碼執行的時間付費，並信任 Azure 視需要調整。 Azure Functions 可讓您在 Microsoft Azure 上開發 [無伺服器](https://azure.microsoft.com/solutions/serverless/)應用程式。
@@ -61,7 +61,8 @@ Azure Functions 可以與各種 Azure 和協力廠商服務整合。 這些服�
 ## <a name="pricing"></a>Functions 的計費方式
 Azure Functions 有兩種定價方案。 請選擇最符合您需求的方案： 
 
-* **使用情況方案**：當您的函式執行時，Azure 會提供所有必要的運算資源。 您不必擔心資源管理，您只需為您的程式碼執行時間支付費用。 
+* **使用情況方案**：當您的函式執行時，Azure 會提供所有必要的運算資源。 您不必擔心資源管理，您只需為您的程式碼執行時間支付費用。
+* **進階方案** - 您可指定一些預先準備的執行個體，而這些執行個體一律會上線並準備好立即回應。 當您的函式執行時，Azure 會提供所需的任何額外計算資源。 您會針對持續執行的預先準備執行個體，以及在 Azure 相應放大和縮小您應用程式時使用的任何其他執行個體付費。
 * **App Service 方案** - 執行函式就像執行 Web 應用程式。 當您已準備對其他應用程式使用 App Service 時，您可以在相同方案上執行您的函數，不會產生額外的費用。 
 
 如需主控方案的詳細資訊，請參閱 [Azure Functions 主控方案比較](functions-scale.md)。 在 [Functions 價格](https://azure.microsoft.com/pricing/details/functions/)頁面上可取得完整的價格詳細資料。

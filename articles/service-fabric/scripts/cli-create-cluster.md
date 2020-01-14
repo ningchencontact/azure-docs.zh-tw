@@ -1,6 +1,6 @@
 ---
 title: Azure CLI 指令碼部署範例
-description: 使用 Azure CLI 在 Azure 中建立安全的 Service Fabric Linux 叢集。
+description: 如何使用 Azure 命令列介面 (CLI) 在 Azure 中建立安全的 Service Fabric Linux 叢集。
 services: service-fabric
 documentationcenter: ''
 author: athinanthny
@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 1386be8093cac4f5271886ff736b24acd483d64e
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 2b9b98b3ade46abd670283d0e68dc62fda9d8d0a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032826"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526612"
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>在 Azure 中建立安全的 Service Fabric Linux 叢集
 
@@ -43,7 +43,7 @@ az group delete --name $ResourceGroupName
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az sf cluster create](https://docs.microsoft.com/cli/azure/sf/cluster?view=azure-cli-latest) | 建立新的 Service Fabric 叢集。  |
 

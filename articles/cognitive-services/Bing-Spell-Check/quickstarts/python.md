@@ -1,27 +1,27 @@
 ---
 title: 快速入門：使用 REST API 和 Python 進行拼字檢查 - Bing 拼字檢查
 titleSuffix: Azure Cognitive Services
-description: 開始使用 Bing 拼字檢查 REST API 來檢查拼字和文法。
+description: 透過本快速入門開始使用 Bing 拼字檢查 REST API 來檢查拼字和文法。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 9a75148ab1ca1dae0acb5af8128fe1220fbbe8b3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 6b0977628f7c3d971804d8597f42425608028081
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378803"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448461"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>快速入門：使用 Bing 拼字檢查 REST API 和 Python 進行拼字檢查
 
 使用本快速入門，第一次呼叫 Bing 拼字檢查 REST API。 這個簡單的 Python 應用程式會將要求傳送至 API，並傳回建議的更正清單。 雖然此應用程式是以 Python 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py) 上找到此應用程式的原始程式碼
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Python [3.x](https://www.python.org)
 
@@ -36,7 +36,7 @@ ms.locfileid: "74378803"
    import json
    ```
 
-2. 為您要進行拼字檢查的文字、您的訂用帳戶金鑰和 Bing 拼字檢查端點建立變數。
+2. 為您要進行拼字檢查的文字、您的訂用帳戶金鑰和 Bing 拼字檢查端點建立變數。 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
     ```python
     api_key = "<ENTER-KEY-HERE>"
@@ -84,6 +84,15 @@ ms.locfileid: "74378803"
     json_response = response.json()
     print(json.dumps(json_response, indent=4))
     ```
+
+
+## <a name="run-the-application"></a>執行應用程式
+
+如果您使用命令列，請使用下列命令來執行應用程式。
+
+```bash
+python <FILE_NAME>.py
+```
 
 ## <a name="example-json-response"></a>範例 JSON 回應
 

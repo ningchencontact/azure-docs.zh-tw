@@ -1,18 +1,17 @@
 ---
-title: 安裝 Azure FXT Edge Filer 實體裝置的教學課程 | Microsoft Docs
+title: 教學課程：安裝 Azure FXT Edge Filer 實體裝置
 description: 如何打開包裝、裝設機架並連接 Microsoft Azure FXT Edge Filer hy 混合式儲存體快取實體裝置元件的纜線
-services: ''
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: rohogue
-ms.openlocfilehash: 0f3c7b01ee9d4a62ec0d563af55f2086894081be
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 7c77e25d0dcabc49f2e6672645c6bc41e8662ec8
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256058"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551024"
 ---
 # <a name="tutorial-install-azure-fxt-edge-filer"></a>教學課程：安裝 Azure FXT Edge Filer 
 

@@ -2,14 +2,14 @@
 title: 使用管理群組來組織資源 - Azure Governance
 description: 了解管理群組及權限如何運作，以及如何使用。
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
-ms.date: 04/22/2019
+ms.date: 12/18/2019
 ms.topic: overview
-ms.openlocfilehash: 7e121ed256e04332ca7fd33c9fc48cd2bc7bae03
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 72e37c3ef96f8068d9d9958910a6d75bbebd37fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960188"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436492"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理群組來組織資源
 
@@ -23,7 +23,7 @@ ms.locfileid: "73960188"
 
 ![管理群組階層樹狀結構範例](./media/tree.png)
 
-您可以建立套用原則的階層，例如將名為「生產」群組中的 VM 位置限制為美國西部區域。 此原則將會同時繼承至管理群組底下的兩個 "EA Subscription" (EA 訂用帳戶)，並會套用至那些訂用帳戶底下的所有 VM。 此安全性原則無法由資源或訂用帳戶擁有者改變，並能進一步提升治理能力。
+您可以建立套用原則的階層，例如將名為「生產」群組中的 VM 位置限制為美國西部區域。 此原則將會繼承管理群組底下的所有 EA 訂用帳戶，並套用至那些訂用帳戶底下的所有 VM。 此安全性原則無法由資源或訂用帳戶擁有者改變，並能進一步提升治理能力。
 
 另一個案例是使用管理群組來向使用者提供多個訂用帳戶的存取權。 將多個訂用帳戶移至該管理群組底下，讓您能在管理群組上建立[角色型存取控制](../../role-based-access-control/overview.md) (RBAC) 指派；如此一來，所有訂用帳戶均能繼承該存取權。
 只需要單獨對管理群組進行指派，使用者便能存取其所需要的所有內容，無需透過指令碼將 RBAC 指派給多個訂用帳戶。
@@ -45,7 +45,7 @@ ms.locfileid: "73960188"
 ### <a name="important-facts-about-the-root-management-group"></a>關於根管理群組的重要事實
 
 - 依預設，根管理群組的顯示名稱為**租用戶根群組**。 識別碼則是 Azure Active Directory 識別碼。
-- 若要變更顯示名稱，必須在根管理群組中指派帳戶擁有者或參與者角色。 如需變更名稱的步驟，請參閱[變更管理群組名稱](manage.md#change-the-name-of-a-management-group)。
+- 若要變更顯示名稱，必須在根管理群組中指派帳戶擁有者或參與者角色。 請參閱[變更管理群組的名稱](manage.md#change-the-name-of-a-management-group)，以更新管理群組的名稱。
 - 根管理群組不同於其他管理群組，無法移動或刪除。  
 - 所有的訂用帳戶和管理群組可摺疊到目錄內的一個根管理群組中。
   - 目錄中的所有資源可摺疊到根管理群組，以便進行全域管理。
@@ -82,7 +82,7 @@ ms.locfileid: "73960188"
 ## <a name="management-group-access"></a>管理群組存取
 
 Azure 管理群組支援對所有的資源存取和角色定義使用 [Azure 角色型存取控制 (RBAC)](../../role-based-access-control/overview.md)。
-這些權限會被存在於階層中的子資源繼承。 可以將任何內建的 RBAC 角色指派至繼承階層直到資源的管理群組。
+這些權限會被存在於階層中的子資源繼承。 可以將任何 RBAC 角色指派至繼承階層直到資源的管理群組。
 例如，可以將 RBAC 角色 VM 參與者指派至管理群組。 此角色對管理群組沒有任何作用，但會繼承該管理群組下的所有 VM。
 
 下圖顯示了角色清單與管理群組上支援的動作。
@@ -100,9 +100,86 @@ Azure 管理群組支援對所有的資源存取和角色定義使用 [Azure 角
 *：MG 參與者和 MG 讀取者僅允許使用者執行管理群組範圍的動作。  
 **：在根管理群組上的角色指派不需要將訂用帳戶或管理群組來回移動。  如需在階層中移動項目的詳細資訊，請參閱[使用管理群組管理您的資源](manage.md)。
 
-### <a name="custom-rbac-role-definition-and-assignment"></a>自訂的 RBAC 角色定義和指派
+## <a name="custom-rbac-role-definition-and-assignment"></a>自訂 RBAC 角色定義和指派
 
-管理群組目前不支援自訂的 RBAC 角色。 若要檢視這個項目的狀態，請參閱[管理群組意見反應論壇](https://aka.ms/mgfeedback)。
+目前支援管理群組的自訂 RBAC 角色支援，但有一些 [限制](#limitations)。  您可以在角色定義的可指派範圍中定義管理群組範圍。  接著，該自訂 RBAC 角色即可在該管理群組，以及任何管理群組、訂用帳戶、資源群組或其下的資源上指派。 這個自訂角色會繼承階層，就像任何內建角色一樣。    
+
+### <a name="example-definition"></a>範例定義
+[定義和建立自訂角色](../../role-based-access-control/custom-roles.md)並不會隨著管理群組的納入而變更。 使用完整路徑來定義管理群組 **/providers/Microsoft.Management/managementgroups/{groupId}** 。 
+
+使用管理群組的識別碼，而不是管理群組的顯示名稱。 這個常見錯誤的發生原因是，在建立管理群組時兩者都是自訂定義的欄位。 
+
+```json
+...
+{
+  "Name": "MG Test Custom Role",
+  "Id": "id", 
+  "IsCustom": true,
+  "Description": "This role provides members understand custom roles.",
+  "Actions": [
+    "Microsoft.Management/managementgroups/delete",
+    "Microsoft.Management/managementgroups/read",
+    "Microsoft.Management/managementgroup/write",
+    "Microsoft.Management/managementgroup/subscriptions/delete",
+    "Microsoft.Management/managementgroup/subscriptions/write",
+    "Microsoft.resources/subscriptions/read",
+    "Microsoft.Authorization/policyAssignments/*",
+    "Microsoft.Authorization/policyDefinitions/*",
+    "Microsoft.Authorization/policySetDefinitions/*",
+    "Microsoft.PolicyInsights/*",
+    "Microsoft.Authorization/roleAssignments/*",
+    "Microsoft.Authorization/roledefinitions/*"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+        "/providers/microsoft.management/managementGroups/ContosoCorporate"
+  ]
+}
+...
+```
+
+### <a name="issues-with-breaking-the-role-definition-and-assignment-hierarchy-path"></a>中斷角色定義和指派階層路徑時發生的問題
+角色定義是管理群組階層內的可指派範圍。 角色定義可定義於父管理群組上，而實際的角色指派存在於子訂用帳戶上。 因為這兩個項目之間有關聯性，所以當您嘗試分隔指派與其定義時，將會收到錯誤。 
+
+例如：讓我們查看一小部分的視覺效果階層。 
+
+![子樹狀結構](./media/subtree.png)
+
+假設行銷管理群組上有定義的自訂角色。 接著，該自訂角色會在兩個免費試用訂用帳戶上指派。  
+
+如果我們嘗試將其中一個訂用帳戶移至生產管理群組的子系，此動會將中斷從訂用帳戶角色指派到行銷管理群組角色定義的路徑。 在此種情況中，您會收到錯誤，指出因為移動會中斷此關聯性而不允許移動。  
+
+有幾個不同的選項可修正這種情況：
+- 將訂用帳戶移至新的父系 MG 之前，請先從訂用帳戶中移除角色指派。
+- 將訂用帳戶新增至角色定義的可指派範圍。
+- 變更角色定義內的可指派範圍。 在上述範例中，您可以將可指派的範圍從 [行銷] 更新為 [根管理群組]，讓階層的兩個分支都可以觸達該定義。   
+- 建立將在另一個分支中定義的其他自訂角色。  這個新角色會要求您也要在訂用帳戶上變更角色指派。  
+
+### <a name="limitations"></a>限制  
+在管理群組上使用自訂角色時，有一些限制存在。 
+
+ - 您只能在新角色的可指派範圍中定義一個管理群組。  這項限制是為了減少角色定義和角色指派中斷連線的情況。  當具有角色指派的訂用帳戶或管理群組移至沒有角色定義的不同父系時，就會發生這種情況。   
+ - 不允許在管理群組自訂角色中定義 RBAC 資料平面動作。  有這項限制是因為 RBAC 動作更新資料平面資源提供者時會發生延遲問題。 此延遲問題正在處理中，而且將從角色定義停用這些動作，以降低任何風險。
+ - Azure Resource Manager 不會驗證角色定義的可指派範圍中是否存在管理群組。  如果有錯字或列出了不正確的管理群組識別碼，則仍會建立角色定義。   
+
+## <a name="moving-management-groups-and-subscriptions"></a>移動管理群組和訂用帳戶 
+
+若要將管理群組或訂用帳戶作為另一個管理群組的子系，則有三個規則必須評估為 true。
+
+如果您要執行移動動作，您需要： 
+
+-  子訂用帳戶或管理群組上的管理群組寫入和角色指派寫入權限。
+   - 內建角色範例**擁有者**
+- 目標父管理群組上的管理群組寫入權限。
+   - 內建角色範例：**擁有者**、**參與者**、**管理群組參與者**
+- 現有父管理群組上的管理群組寫入權限。
+   - 內建角色範例：**擁有者**、**參與者**、**管理群組參與者**
+
+**例外狀況**：如果目標或現有父管理群組是根管理群組，則不適用權限需求。 因為根管理群組是所有新管理群組和訂用帳戶的預設登陸點，所以您不需要其權限即可移動項目。
+
+如果訂用帳戶上的擁有者角色繼承自目前的管理群組，則您的移動目標會受到限制。 您只能將訂用帳戶移至具有擁有者角色的另一個管理群組。 因為您會失去訂用帳戶的擁有權，所以無法將其移至您是參與者的管理群組。 如果直接將您指派給訂用帳戶的擁有者角色 (而不是繼承自管理群組)，您可以將其移至您是參與者的任何管理群組。 
 
 ## <a name="audit-management-groups-using-activity-logs"></a>使用活動記錄稽核管理群組
 

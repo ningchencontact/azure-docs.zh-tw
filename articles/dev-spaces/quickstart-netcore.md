@@ -3,15 +3,15 @@ title: 在 Kubernetes 上偵錯和逐一查看：Visual Studio Code 和 .NET Cor
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s
+description: 本快速入門說明如何使用 Azure Dev Spaces 和 Visual Studio Code 對 Azure Kubernetes Service 上的 .NET Core 應用程式進行偵錯和快速反覆運算
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 278ec0683a7ddb3c41f724e06e8ca291d18e3bad
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a9a750e239dd47ce85b6075c65c644258134ba52
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325592"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438230"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>快速入門：在 Kubernetes 上偵錯和逐一查看：Visual Studio Code 和 .NET Core - Azure Dev Spaces
 
@@ -26,7 +26,7 @@ Azure Dev Spaces 也可讓您使用下列工具進行偵錯和逐一查看：
 - [Node.js 和 Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core 和 Visual Studio](quickstart-netcore-visualstudio.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 訂用帳戶。 如果您沒有帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
 - [已安裝 Visual Studio Code](https://code.visualstudio.com/download)。
@@ -110,7 +110,7 @@ git clone https://github.com/Azure/dev-spaces
 
 ## <a name="update-code"></a>更新程式碼
 
-若要部署更新過的服務版本，您可以在專案中更新任何檔案，然後重新執行 .NET Core Launch (AZDS)  。 例如︰
+若要部署更新過的服務版本，您可以在專案中更新任何檔案，然後重新執行 .NET Core Launch (AZDS)  。 例如：
 
 1. 如果您的應用程式仍在執行中，請按一下 [偵錯]  ，然後按遺下 [停止偵錯]  來停止它。
 1. 將 [`Controllers/HomeController.cs` 中的第 22 行](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L22) \(英文\) 更新為：
@@ -139,7 +139,7 @@ git clone https://github.com/Azure/dev-spaces
 
 ## <a name="update-code-from-visual-studio-code"></a>從 Visual Studio Code 更新程式碼
 
-在服務以偵錯模式執行時，更新 `Controllers/HomeController.cs` 中的第 22 行。 例如︰
+在服務以偵錯模式執行時，更新 `Controllers/HomeController.cs` 中的第 22 行。 例如：
 
 ```csharp
 ViewData["Message"] = "Your application description page in Azure while debugging!";

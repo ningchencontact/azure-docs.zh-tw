@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 12/05/2019
-ms.openlocfilehash: 108d251ec6aadb4881f500edfa3483f137a09a68
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: e8625b1d81db5b3ec90a177f426d05bd84bd10dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900443"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426965"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>快速入門：使 Azure Sentinel 上線
 
@@ -41,12 +41,14 @@ ms.locfileid: "74900443"
  
 ## 啟用 Azure Sentinel<a name="enable"></a>
 
-1. 移至 Azure 入口網站。
-2. 請確定已選取 Azure Sentinel 建立所在的訂用帳戶。 
-3. 搜尋 Azure Sentinel。 
-   ![search](./media/quickstart-onboard/search-product.png)
+1. 登入 Azure 入口網站。 請確定已選取 Azure Sentinel 建立所在的訂用帳戶。
 
-1. 按一下 [+新增]  。
+1. 搜尋並選取 [Azure Sentinel]  。
+
+   ![搜尋](./media/quickstart-onboard/search-product.png)
+
+1. 選取 [新增]  。
+
 1. 選取您想要使用的工作區，或建立一個新的工作區。 您可以在一個以上的工作區上執行 Azure Sentinel，但資料會隔離到單一工作區。
 
    ![搜尋](./media/quickstart-onboard/choose-workspace.png)
@@ -55,7 +57,7 @@ ms.locfileid: "74900443"
    > - Azure 資訊安全中心所建立的預設工作區不會出現在清單中；您無法在其上安裝 Azure Sentinel。
    > - Azure Sentinel 可以在任何 [Log Analytics 的 GA 區域](https://azure.microsoft.com/global-infrastructure/services/?products=monitor)的工作區上執行，中國、德國和 Azure Government 區域除外。 Azure Sentinel 所產生的資料 (例如事件、書籤和警示規則，其中可能包含來自這些工作區的一些客戶資料) 會儲存在西歐 (適用於位於歐洲的工作區) 或美國東部 (適用於所有美國的工作區，以及歐洲以外的任何其他區域)。
 
-6. 按一下 [新增 Azure Sentinel]  。
+1. 選取 [新增 Azure Sentinel]  。
   
 
 ## <a name="connect-data-sources"></a>連線資料來源

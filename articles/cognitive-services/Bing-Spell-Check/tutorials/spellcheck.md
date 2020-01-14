@@ -1,21 +1,21 @@
 ---
 title: 教學課程：使用 Bing 拼字檢查 API 取得拼字檢查結果
 titleSuffix: Azure Cognitive Services
-description: 在本教學課程中，我們將建置一個網頁，讓使用者查詢 Bing 拼字檢查 API 和顯示結果。
+description: 使用本教學課程來建置一個網頁，以將查詢傳送至 Bing 拼字檢查 API 和顯示結果。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 12/20/2019
 ms.author: aahi
-ms.openlocfilehash: 4ef45d0d67d44ee1bcf0f06f41425ca5366ce46d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 038716f43c18432b1b8e7c86c3ffbcab46f1db8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111444"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382791"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>教學課程：建置網頁拼字檢查用戶端
 
@@ -27,7 +27,7 @@ ms.locfileid: "74111444"
 > - 對 Bing 拼字檢查 API 進行簡單查詢
 > - 顯示查詢結果
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要依照本教學課程，您需要 Bing 拼字檢查 API 的訂用帳戶金鑰。 如果您沒有金鑰，請[註冊免費試用](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)。
 
@@ -266,7 +266,7 @@ function bingSpellCheck(query, key) {
 </form>
 ```
 
-加入我們用來顯示結果的 HTML **div** 標籤。 我們先前定義的 JavaScript 會參考這個 **div** 標籤。
+新增我們用來顯示結果的 HTML **div** 標籤。 我們先前定義的 JavaScript 會參考這個 **div** 標籤。
 
 ```html
 <h2>Results</h2>

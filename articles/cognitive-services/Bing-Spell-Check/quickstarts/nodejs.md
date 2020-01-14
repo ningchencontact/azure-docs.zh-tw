@@ -1,27 +1,27 @@
 ---
 title: 快速入門：使用 REST API 和 Node.js 進行拼字檢查 - Bing 拼字檢查
 titleSuffix: Azure Cognitive Services
-description: 開始使用 Bing 拼字檢查 REST API 來檢查拼字和文法。
+description: 透過本快速入門開始使用 Bing 拼字檢查 REST API 來檢查拼字和文法。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/02/2019
-ms.author: aahill
-ms.openlocfilehash: ab8f1d52b5a0b9f5f2539de0acc4728277f9f7b2
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/16/2019
+ms.author: aahi
+ms.openlocfilehash: 69c391e6c3f93a998ade7c5721a528d895f8df76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378829"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382844"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>快速入門：使用 Bing 拼字檢查 REST API 和 Node.js 進行拼字檢查
 
 使用本快速入門，第一次呼叫 Bing 拼字檢查 REST API。 此簡單 Node 應用程式會將要求傳送至 API 並傳回無法辨識的字組清單，後面接著建議的修正。 雖然此應用程式是以 Node.js 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js) 上找到此應用程式的原始程式碼。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Node.js 6](https://nodejs.org/en/download/) 或更新版本。
 
@@ -30,7 +30,7 @@ ms.locfileid: "74378829"
 
 ## <a name="create-and-initialize-a-project"></a>建立專案並將其初始化
 
-1. 在您最愛的 IDE 或編輯器中建立新的 JavaScript 檔案。 請設定嚴謹度，並要求使用 `https`。 然後，為您 API 端點的主機、路徑和訂用帳戶金鑰建立變數。
+1. 在您最愛的 IDE 或編輯器中建立新的 JavaScript 檔案。 請設定嚴謹度，並要求使用 `https`。 然後，為您 API 端點的主機、路徑和訂用帳戶金鑰建立變數。 您可以使用下方的全域端點，也可以使用 Azure 入口網站中針對您的資源所顯示的[自訂子網域](../../../cognitive-services/cognitive-services-custom-subdomains.md)端點。
 
     ```javascript
     'use strict';
@@ -96,6 +96,18 @@ let req = https.request (request_params, response_handler);
 req.write ("text=" + text);
 req.end ();
 ```
+
+
+## <a name="run-the-application"></a>執行應用程式
+
+建置並執行專案。
+
+如果您使用命令列，請使用下列命令建置並執行該應用程式。
+
+```bash
+node <FILE_NAME>.js
+```
+
 
 ## <a name="example-json-response"></a>範例 JSON 回應
 

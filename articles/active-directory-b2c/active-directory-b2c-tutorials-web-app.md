@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b4305e9b3cfdb5e05ce76ee1811dc0d2dcc265b7
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 6fa0379f2f8194356ed122e86b5a225f72adfe7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950189"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367598"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 在 Web 應用程式中啟用驗證
 
@@ -31,7 +31,7 @@ ms.locfileid: "74950189"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [建立使用者流程](tutorial-create-user-flows.md)以在您的應用程式中達成使用者體驗。
 * 安裝包含 **ASP.NET 和 Web 開發**工作負載的 [Visual Studio 2019](https://www.visualstudio.com/downloads/)。
@@ -94,7 +94,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 1. 在 **TaskWebApp** 專案中，開啟 **Web.config** 檔案。
     1. 將 `ida:Tenant` 和 `ida:AadInstance` 的值更新為您所建立的 Azure AD B2C 租用戶名稱。 例如，以 `contoso` 取代 `fabrikamb2c`。
     1. 將 `ida:ClientId` 的值取代為您所記錄下來的應用程式識別碼。
-    1. 將 `ida:ClientSecret` 的值更換為您所記錄下來的金鑰。 您必須先對用戶端秘密進行 XML 編碼，再將它新增至您的 Web.config。
+    1. 將 `ida:ClientSecret` 的值更換為您所記錄下來的金鑰。 如果用戶端密碼包含任何預先定義的 XML 實體，例如小於 (`<`)、大於 (`>`)、連字號 (`&`) 或雙引號 (`"`)，您必須在將用戶端密碼新增至 web.config 之前，以 XML 將其編碼來逸出這些字元。
     1. 將 `ida:SignUpSignInPolicyId` 的值取代為 `b2c_1_signupsignin1`。
     1. 將 `ida:EditProfilePolicyId` 的值取代為 `b2c_1_profileediting1`。
     1. 將 `ida:ResetPasswordPolicyId` 的值取代為 `b2c_1_passwordreset1`。

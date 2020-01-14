@@ -1,6 +1,7 @@
 ---
-title: 快速入門：使用 Azure 入口網站建立 Azure 資料庫移轉服務執行個體 | Microsoft Docs
-description: 使用 Azure 入口網站來建立 Azure 資料庫移轉服務的執行個體
+title: 快速入門：使用 Azure 入口網站建立執行個體
+titleSuffix: Azure Database Migration Service
+description: 使用 Azure 入口網站來建立 Azure 資料庫移轉服務的執行個體。
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 11/05/2019
-ms.openlocfilehash: 6427de61ebf30a5e4a62070becd1cc1f750f6c1b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 71308b7f17d6009e8650cafbb02afd577fd73cf4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571625"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437720"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立 Azure 資料庫移轉服務的執行個體
 
@@ -72,7 +73,7 @@ ms.locfileid: "73571625"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-您可以刪除 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)，清除您在快速入門中建立的資源。 若要刪除資源群組，請瀏覽至您建立的 Azure 資料庫移轉服務執行個體。 選取**資源群組**名稱，然後選取 [刪除資源群組]  。 這個動作會刪除資源群組中的所有資產，以及群組本身。
+您可以刪除 [Azure 資源群組](../azure-resource-manager/management/overview.md)，清除您在快速入門中建立的資源。 若要刪除資源群組，請瀏覽至您建立的 Azure 資料庫移轉服務執行個體。 選取**資源群組**名稱，然後選取 [刪除資源群組]  。 這個動作會刪除資源群組中的所有資產，以及群組本身。
 
 ## <a name="next-steps"></a>後續步驟
 

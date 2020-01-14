@@ -1,21 +1,21 @@
 ---
 title: 快速入門：建立、訓練及發佈知識庫 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 您可以從自己的內容 (例如常見問題集或產品手冊) 建立 QnA Maker 知識庫 (KB)。 此範例中的 QnA Maker 知識庫是從簡單的常見問題集網頁建立而來，以回答 BitLocker 金鑰復原問題。
+description: 本快速入門說明如何從自己的內容 (例如常見問題集或產品手冊) 建立 QnA Maker 知識庫 (KB)。 此範例中的 QnA Maker 知識庫是從簡單的常見問題集網頁建立而來，以回答 BitLocker 金鑰復原問題。
 author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/14/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: bc64196969b23f0aad77ff4d4495e4bb3e569c32
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8ec3e399459adfbb7cef9e3eafbaa024fec1589f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888248"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447610"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>快速入門：建立、訓練及發佈您的 QnA Maker 知識庫
 
@@ -36,21 +36,22 @@ ms.locfileid: "73888248"
 
 1. 在 QnA Maker 入口網站上，選取 [建立知識庫]  。
 
-1. 在 [建立]  頁面上，選取 [建立 QnA 服務]  。 系統會將您導向 [Azure 入口網站](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)，以在您的訂用帳戶中設定 QnA Maker 服務。 
+1. 在 [建立]  頁面上，選取 [建立 QnA 服務]  。 系統會將您導向 [Azure 入口網站](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)，以在您的訂用帳戶中設定 QnA Maker 服務。
 
-1. 在 QnA Maker 入口網站中，從下拉式清單選取您的 QnA Maker 服務。 如果您已建立新的 QnA Maker 服務，請務必重新整理頁面。
+1. 在 Azure 入口網站中，建立資源。 請記住您在建立資源時選取的 Azure Active Directory 識別碼、訂用帳戶、QnA 資源名稱。
+1. 返回 QnA Maker 入口網站，重新整理入口網站中的網頁，以繼續建立您的知識庫。
 
    ![選取 QnA Maker 服務知識庫的螢幕擷取畫面](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
 1. 將您的知識庫命名為**我的範例 QnA KB**。
 
-1. 新增範例 Word 作為 URL： 
+1. 新增範例 Word 作為 URL：
 
     `https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`
 
 1. 選取 `+ Add URL`。
 
-1. 將「專業」  **閒聊**新增至您的 KB。 
+1. 將「專業」  **閒聊**新增至您的 KB。
 
 1. 選取 [建立您的 KB]  。
 
@@ -60,8 +61,8 @@ ms.locfileid: "73888248"
 
 ## <a name="add-a-new-question-and-answer-set"></a>新增問答集
 
-1. 在 QnA Maker 入口網站的 [編輯]  頁面上，選取 [新增 QnA 組]  。
-1. 新增下列問題： 
+1. 在 QnA Maker 入口網站的 [編輯]  頁面上，從操作工具列中選取 [+新增 QnA 配對]  。
+1. 新增下列問題：
 
     `How many Azure services are used by a knowledge base?`
 
@@ -71,9 +72,9 @@ ms.locfileid: "73888248"
 
     ![ 以文字型式新增問題與使用 markdown 設定格式的答案。](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
 
-    markdown 符號 `*` 用於表示項目符號。 `\n` 用於表示新行。  
+    markdown 符號 `*` 用於表示項目符號。 `\n` 用於表示新行。
 
-    [編輯]  頁面會顯示 markdown。 當您稍後使用 [測試]  面板時，您將會看到 markdown 正確顯示。 
+    [編輯]  頁面會顯示 markdown。 當您稍後使用 [測試]  面板時，您將會看到 markdown 正確顯示。
 
 ## <a name="save-and-train"></a>儲存並定型
 
@@ -81,10 +82,10 @@ ms.locfileid: "73888248"
 
 ## <a name="test-the-knowledge-base"></a>測試知識庫
 
-1. 在 QnA Maker 入口網站的右上方，選取 [測試]  來測試您所做的變更是否已生效。 
-1. 在文字方塊中輸入範例使用者查詢。 
+1. 在 QnA Maker 入口網站的右上方，選取 [測試]  來測試您所做的變更是否已生效。
+1. 在文字方塊中輸入範例使用者查詢。
 
-    `How many Azure services are used by a knowledge base?`  
+    `How many Azure services are used by a knowledge base?`
 
     ![ 在文字方塊中輸入範例使用者查詢。 ](../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png)
 
@@ -106,10 +107,10 @@ ms.locfileid: "73888248"
 
 ## <a name="create-a-bot"></a>建立 Bot
 
-發佈之後，您可以從 [發佈]  頁面建立 Bot： 
+發佈之後，您可以從 [發佈]  頁面建立 Bot：
 
-* 您可以快速建立數個 Bot，讓全部 Bot 指向相同知識庫中個別 Bot 適用的不同區域或定價方案。 
-* 如果您想讓知識庫只有一個 Bot，可使用**在 Azure 入口網站中檢視 Bot** 連結，來檢視您目前的 Bot 清單。 
+* 您可以快速建立數個 Bot，讓全部 Bot 指向相同知識庫中個別 Bot 適用的不同區域或定價方案。
+* 如果您想讓知識庫只有一個 Bot，可使用**在 Azure 入口網站中檢視 Bot** 連結，來檢視您目前的 Bot 清單。
 
 當您變更知識庫並重新發佈時，不需要對 Bot 採取進一步的動作。 其已設定為與知識庫搭配使用，而且會與知識庫未來的所有變更搭配運作。 每次發佈知識庫後，與之連線的所有 Bot 就會自動更新。
 
@@ -117,26 +118,38 @@ ms.locfileid: "73888248"
 
     ![建立 Bot 的螢幕擷取畫面](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
 
-1. Azure 入口網站會在新的瀏覽器索引標籤中開啟，其中會包含 Azure Bot 服務的建立頁面。 設定 Azure Bot 服務。 
-    
-    * 建立 Bot 時，請勿在 Azure 入口網站中變更下列設定。 這些是為您現有知識庫預先填入的內容： 
-        * QnA 驗證金鑰
-        * App Service 方案和位置
-    * Bot 與 QnA Maker 可共用 Web 應用程式服務方案，但不能共用 Web 應用程式。 這表示 Bot 的**應用程式名稱**必須與 QnA Maker 服務的應用程式名稱不同。 
+1. Azure 入口網站會在新的瀏覽器索引標籤中開啟，其中會包含 Azure Bot 服務的建立頁面。 設定 Azure Bot 服務。 Bot 與 QnA Maker 可共用 Web 應用程式服務方案，但不能共用 Web 應用程式。 這表示 Bot 的**應用程式名稱**必須與 QnA Maker 服務的應用程式名稱不同。
 
-1. 建立 Bot 之後，請開啟 [Bot 服務]  資源。 
+    * **建議事項**
+        * 變更 Bot 控制代碼 - 如果不是唯一的。
+        * 選取 SDK 語言。 建立 Bot 後，您可以將程式碼下載至您的本機開發環境，並繼續進行開發程序。
+    * **避免事項**
+        * 建立 Bot 時，請勿在 Azure 入口網站中變更下列設定。 這些是為您現有知識庫預先填入的內容：
+           * QnA 驗證金鑰
+           * App Service 方案和位置
+
+
+1. 建立 Bot 之後，請開啟 [Bot 服務]  資源。
 1. 在 [Bot 管理]  下，選取 [在網路聊天中測試]  。
 1. 在 [輸入您的訊息]  聊天提示中，輸入：
 
     `Azure services?`
 
-    聊天 Bot 會使用來自您知識庫的答案來回應。 
+    聊天 Bot 會使用來自您知識庫的答案來回應。
 
     ![在測試網頁聊天中輸入使用者查詢。](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
 
+## <a name="what-did-you-accomplish"></a>您完成了哪些工作？
+
+您已建立新的知識庫、將公用 URL 新增至知識庫、新增自己的 QnA 集、定型、測試及發佈知識庫。
+
+在發佈知識庫之後，您已建立 Bot 並測試 Bot。
+
+這一切都是在幾分鐘內完成，而不需要撰寫任何程式碼和清除內容。
+
 ## <a name="clean-up-resources"></a>清除資源
 
-在 Azure 入口網站中清除 QnA Maker 與 Bot 架構資源。 
+在 Azure 入口網站中清除 QnA Maker 與 Bot 架構資源。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -144,9 +157,8 @@ ms.locfileid: "73888248"
 
 * [ Markdown 格式](../concepts/data-sources-supported.md)
 * [測試您的 markdown](../concepts/data-sources-supported.md#testing-your-markdown)
-* QnA Maker [資料來源](../Concepts/data-sources-supported.md)。 
+* QnA Maker [資料來源](../Concepts/data-sources-supported.md)。
 * [Bot 資源組態設定](../tutorials/create-qna-bot.md)。
 
 > [!div class="nextstepaction"]
 > [新增具有中繼資料的問題](add-question-metadata-portal.md)
-

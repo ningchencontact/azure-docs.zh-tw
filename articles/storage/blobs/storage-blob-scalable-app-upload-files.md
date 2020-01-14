@@ -1,5 +1,5 @@
 ---
-title: 將大量隨機資料平行上傳至 Azure 儲存體 | Microsoft Docs
+title: 將大量隨機資料平行上傳至 Azure 儲存體
 description: 了解如何使用 Azure 儲存體用戶端程式庫將大量隨機資料平行上傳至 Azure 儲存體帳戶
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 5b20686399db9537e5db8622a433b5e506939d19
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302991"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371933"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>將大量隨機資料平行上傳至 Azure 儲存體
 
@@ -26,11 +26,11 @@ ms.locfileid: "72302991"
 > * 執行應用程式
 > * 驗證連線數目
 
-Azure Blob 儲存體會提供可擴充的服務來儲存您的資料。 若要確保您的應用程式能發揮最好的效能，建議您了解 Blob 儲存體的運作方式。 關於 Azure Blob 限制的知識十分重要，若要深入了解這些限制，請造訪：[Blob 儲存體的延展性目標](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)。
+Azure Blob 儲存體會提供可擴充的服務來儲存您的資料。 若要確保您的應用程式能發揮最好的效能，建議您了解 Blob 儲存體的運作方式。 關於 Azure Blob 限制的知識十分重要，若要深入了解這些限制，請造訪：[Blob 儲存體的延展性和效能目標](../blobs/scalability-targets.md)。
 
 使用 Blob 設計高效能的應用程式時，[分割區命名](../blobs/storage-performance-checklist.md#partitioning)是另一個可能很重要的要素。 對於大於或等於 4 MiB 的區塊大小，則會使用[高輸送量的區塊 Blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)，且分割區命名並不會影響效能。 對於小於 4 MiB 的區塊大小，Azure 儲存體使用範圍型的資料分割配置來進行縮放和負載平衡。 此設定表示具有相似命名慣例或前置詞的檔案會進入相同分割區。 此邏輯也包含將對其上傳檔案的容器名稱。 在本教學課程中，您會使用以 GUID 命名的檔案和隨機產生的內容。 然後這些項目會上傳至五個具有隨機名稱的不同容器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要進行本教學課程，您必須已完成先前的儲存體教學課程︰[為可擴充的應用程式建立虛擬機器和儲存體帳戶][previous-tutorial]。
 
@@ -66,12 +66,12 @@ dotnet run
 
 除了設定執行緒和連線限制設定，[UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) 的 [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) 方法也會設定為使用平行處理原則，並停用 MD5 雜湊驗證。 檔案會以 100 MB 的區塊上傳，這項設定可提供更佳的效能，但如果使用效能差的網路則可能提高成本，因為整個 100 MB 的區塊可能會因為失敗而需要重試。
 
-|屬性|值|說明|
+|屬性|值|描述|
 |---|---|---|
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| 上傳時，此設定會將 Blob 分成區塊。 為達到最高效能，此值應為核心數目的 8 倍。 |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| 此屬性可停用檢查上傳內容的 MD5 雜湊。 停用 MD5 驗證可獲得較快的傳輸速度。 但不會確認所傳輸檔案的有效性和完整性。   |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| 此屬性可判斷是否已計算及儲存檔案的 MD5 雜湊。   |
-| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| 具有 2 秒的輪詢，最多重試 10 次 |決定要求的重試原則。 連線失敗時進行重試，在此範例中，[ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) 原則設定為具有 2 秒的輪詢，以及最多重試 10 次。 當您的應用程式快達到 [Blob 儲存體的延展性目標](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)時，此設定就十分重要。  |
+| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| 具有 2 秒的輪詢，最多重試 10 次 |決定要求的重試原則。 連線失敗時進行重試，在此範例中，[ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) 原則設定為具有 2 秒的輪詢，以及最多重試 10 次。 當您的應用程式快達到 Blob 儲存體的延展性目標時，此設定就十分重要。 如需詳細資訊，請參閱 [Blob 儲存體的延展性和效能目標](../blobs/scalability-targets.md)。  |
 
 `UploadFilesAsync` 工作如下列範例所示：
 

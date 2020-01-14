@@ -1,26 +1,17 @@
 ---
-title: 教學課程 - 將應用程式部署到 Azure Service Fabric Mesh | Microsoft Docs
+title: 教學課程 - 將應用程式部署到 Azure Service Fabric Mesh
 description: 在本教學課程中，您會了解如何使用範本將應用程式部署到 Service Fabric Mesh。
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ce063d8a256cbf2507e19d459aafe13150eccce7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306939"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494932"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>教學課程：使用範本將應用程式部署到 Service Fabric Mesh
 
@@ -43,7 +34,7 @@ ms.locfileid: "66306939"
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始進行本教學課程之前：
 
@@ -264,7 +255,7 @@ Service Fabric Mesh 應用程式是一種 Azure 資源，您可以使用 Azure R
                   "endpoints": [
                     {
                       "name": "ServiceAListener",
-                      "port": 20001
+                      "port": 80
                     }
                   ],
                   "resources": {
@@ -351,8 +342,8 @@ Service Fabric Mesh 應用程式是一種 Azure 資源，您可以使用 Azure R
 |registryPassword|您之前在[擷取登錄的認證](#retrieve-credentials-for-the-registry)所取得的密碼。 此參數在範本中是安全字串，而且將不會顯示在部屬狀態或 `az mesh service show` 命令中。|
 |registryUserName|您之前在[擷取登錄的認證](#retrieve-credentials-for-the-registry)中取得的使用者名稱。|
 |registryServer|您之前在[擷取登錄的認證](#retrieve-credentials-for-the-registry)中取得的登錄伺服器名稱。|
-|frontEndImage|前端服務的容器映像。  例如： `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`。|
-|serviceImage|後端服務的容器映像。  例如： `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`。|
+|frontEndImage|前端服務的容器映像。  例如： `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709` 。|
+|serviceImage|後端服務的容器映像。  例如： `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709` 。|
 
 若要部署應用程式，請執行下列動作：
 

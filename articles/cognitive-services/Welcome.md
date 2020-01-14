@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 081951e2e77c7fdd077dc92fe0368423db85f641
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: e6f074dd6748f58a86a6ac8166ca0ee858926975
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606963"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379788"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure 認知服務是什麼？
 
@@ -41,6 +41,10 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 |[Bing 語音](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing 語音") \(即將淘汰\)|Bing 語音 API 可讓您輕鬆在應用程式中建立語音開啟功能。|
 |[翻譯工具語音](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech") \(即將淘汰\)|翻譯工具語音是機器翻譯服務。|
 
+> [!NOTE]
+> 尋找 [Azure 認知搜尋](https://docs.microsoft.com/azure/search/)？ 雖然其使用認知服務進行某些工作，但是可支援其他案例的不同搜尋技術。
+
+
 ## <a name="language-apis"></a>語言 API
 
 |服務名稱|服務描述|
@@ -49,7 +53,7 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker 可讓您從半結構化內容建置問題與解答服務。|
 |[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "文字分析")|文字分析可針對原始文字進行自然語言處理，進行情感分析、關鍵片語擷取和語言偵測。|
 |[翻譯工具文字](https://docs.microsoft.com/azure/cognitive-services/translator/ "翻譯文字")|翻譯工具文字提供幾乎即時的機器式文字翻譯。|
-|[影片索引子](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "影片索引子")|影片索引器可讓您從影片中擷取深入解析。|
+
 
 ## <a name="search-apis"></a>搜尋 API
 
@@ -84,7 +88,7 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 
 ## <a name="upgrade-to-unlock-limits"></a>升級以解除鎖定限制
 
-所有 API 都有免費試用方案，其中有使用量和輸送量的限制。  若要增加這些限制數量，當您在 Azure 入口網站中部署服務時，您可以使用付費供應項目並選取適當的定價層選項。 [深入了解供應項目和價格](https://azure.microsoft.com/pricing/details/cognitive-services/ "o供應項目和價格)。 您必須設定含有信用卡和電話號碼的 Azure 訂閱者帳戶。 如果您有特殊需求，或者只想與銷售人員交談，請按一下[定價] 頁面頂端的 [與我們連絡] 按鈕。
+所有 API 都有免費試用方案，其中有使用量和輸送量的限制。  若要增加這些限制數量，當您在 Azure 入口網站中部署服務時，您可以使用付費供應項目並選取適當的定價層選項。 [深入了解供應項目和價格](https://azure.microsoft.com/pricing/details/cognitive-services/ "供應項目和定價")。 您必須設定含有信用卡和電話號碼的 Azure 訂閱者帳戶。 如果您有特殊需求，或者只想與銷售人員交談，請按一下[定價] 頁面頂端的 [與我們連絡] 按鈕。
 
 ## <a name="regional-availability"></a>區域可用性
 
@@ -95,6 +99,10 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 ## <a name="supported-cultural-languages"></a>支援的文化特性語言
 
  認知服務以服務層支援各種不同的文化特性語言。 您可以在[支援的語言清單](language-support.md)中找到每個 API 的語言可用性。
+
+## <a name="securing-resources"></a>保護資源
+
+Azure 認知服務提供多層式安全性模型，包括透過 Azure Active Directory 認證、有效的資源金鑰及 [Azure 虛擬網路](cognitive-services-virtual-networks.md)的[驗證](authentication.md)。
 
 ## <a name="container-support"></a>容器支援
 
@@ -110,8 +118,7 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 
 ## <a name="support"></a>支援
 
-* 針對支援和技術問題，請張貼於 [Stack Overflow](https://stackoverflow.com/questions/tagged/microsoft-cognitive) \(英文\) 上
-* 針對意見反應及功能要求，請瀏覽 [UserVoice](https://cognitive.uservoice.com/) \(英文\)
+認知服務提供數個[支援選項](cognitive-services-support-options.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b876b27d0eb24a9eabcffe0d131ea0ef5bb79bad
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 6c35b52149e3c0117c727771d38d0f010180fc63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107050"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432801"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>教學課程：使用 Azure 地圖服務執行 IoT 空間分析
 
@@ -77,7 +77,7 @@ ms.locfileid: "74107050"
   ![地理柵欄路線](./media/tutorial-iot-hub-maps/geofence-route.png)
 
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>Prerequisites 
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
@@ -104,7 +104,8 @@ ms.locfileid: "74107050"
 
 ### <a name="create-an-azure-maps-account"></a>建立 Azure 地圖服務帳戶 
 
-為了根據 Azure 地圖服務空間分析來實作商務邏輯，我們必須在已建立的資源群組中建立 Azure 地圖服務帳戶。 請遵循[管理帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) \(部分機器翻譯\) 中的指示，建立使用 S1 定價層的 Azure 地圖服務帳戶訂用帳戶，並遵循[取得主要金鑰](./tutorial-search-location.md#getkey)中的步驟來取得適用於您帳戶的主要訂用帳戶金鑰。
+為了根據 Azure 地圖服務空間分析來實作商務邏輯，我們必須在已建立的資源群組中建立 Azure 地圖服務帳戶。 請遵循[建立帳戶](quick-demo-map-app.md#create-an-account-with-azure-maps)中的指示，建立使用 S1 定價層的 Azure 地圖服務帳戶訂用帳戶，並遵循[取得主要金鑰](quick-demo-map-app.md#get-the-primary-key-for-your-account)中的步驟來取得適用於您帳戶的主要金鑰。 如需 Azure 地圖服務中驗證的詳細資訊，請參閱[管理 Azure 地圖服務中的驗證](how-to-manage-authentication.md)。
+
 
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
@@ -167,7 +168,7 @@ IoT 中樞是雲端中的受控服務，可作為 IoT 應用程式及其管理�
     
     URL 路徑中，`dataFormat` 參數的 "geojson" 值代表上傳資料的格式。
 
-3. 按一下 [Params]  (參數)，然後輸入下列金鑰/值組用於 POST 要求 URL。 將 subscription-key 值取代為您的 Azure 地圖服務主要訂用帳戶金鑰。
+3. 按一下 [Params]  (參數)，然後輸入下列金鑰/值組用於 POST 要求 URL。 將 subscription-key 值取代為您的 Azure 地圖服務金鑰。
    
     ![金鑰-值參數 Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 

@@ -1,19 +1,19 @@
 ---
-title: 調整 Microsoft Azure FXT Edge Filer 叢集的網路設定
+title: 教學課程：在 Azure FXT Edge Filer 叢集中設定網路
 description: 如何在建立 Azure FXT Edge Filer 叢集之後自訂網路設定
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: d250e566d884760244ee25e4c43d30fbe5323a7c
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: a40ff50dcb0934cbf1ea5222675bd75948ac1d03
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254888"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551058"
 ---
-# <a name="tutorial-configure-the-clusters-network-settings"></a>教學課程：設定叢集的網路設定 
+# <a name="tutorial-configure-the-clusters-network-settings"></a>教學課程：設定叢集的網路設定
 
 在使用新建立的 Azure FXT Edge Filer 叢集之前，請先檢查和自訂工作流程的幾個網路設定。 
 

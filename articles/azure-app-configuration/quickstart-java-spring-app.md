@@ -1,31 +1,23 @@
 ---
-title: 了解如何使用 Azure 應用程式設定的快速入門 | Microsoft Docs
+title: 了解如何使用 Azure 應用程式設定的快速入門
 description: 搭配使用 Azure 應用程式設定與 Java Spring 應用程式的快速入門。
-services: azure-app-configuration
-documentationcenter: ''
 author: yidon
-manager: jeffya
-editor: ''
-ms.assetid: ''
-ms.service: azure-app-configuration
-ms.devlang: java
-ms.topic: quickstart
-ms.tgt_pltfrm: Spring
-ms.workload: tbd
-ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: e8f6f9ca610c515deca6ed1bdbee54f40cacf427
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.service: azure-app-configuration
+ms.topic: quickstart
+ms.date: 12/17/2019
+ms.openlocfilehash: c4fee6c61ba58a8a1629b5c98d7eebdadfdf1a89
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184944"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495216"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式組態建立 Java Spring 應用程式
 
 在本快速入門中，您會將 Azure 應用程式組態納入 Java Spring 應用程式中，以集中儲存和管理應用程式設定 (與您的程式碼分開)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 - 受支援的 [Java 開發套件 (JDK)](https://docs.microsoft.com/java/azure/jdk) 第 8 版。
@@ -41,11 +33,11 @@ ms.locfileid: "74184944"
     |---|---|
     | /application/config.message | 您好 |
 
-    目前會先讓 [標籤]  和 [內容類型]  保持空白。
+    目前先讓 [標籤]  和 [內容類型]  保持空白。
 
 ## <a name="create-a-spring-boot-app"></a>建立 Spring Boot 應用程式
 
-您會使用 [Spring Initializr](https://start.spring.io/) 來建立新的 Spring Boot 專案。
+使用 [Spring Initializr](https://start.spring.io/) 來建立新的 Spring Boot 專案。
 
 1. 瀏覽至 <https://start.spring.io/>。
 
@@ -121,7 +113,7 @@ ms.locfileid: "74184944"
 
 6. 在應用程式的資源目錄下建立名為 `bootstrap.properties` 的新檔案，然後將下列幾行新增至該檔案。 將範例值取代為應用程式組態存放區的適當屬性。
 
-    ```properties
+    ```CLI
     spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
     ```
 
@@ -129,13 +121,13 @@ ms.locfileid: "74184944"
 
 1. 使用 Maven 建置 Spring Boot 應用程式並加以執行；例如：
 
-    ```shell
+    ```CLI
     mvn clean package
     mvn spring-boot:run
     ```
 2. 在您的應用程式執行之後，使用 *curl* 來測試您的應用程式；例如：
 
-      ```shell
+      ```CLI
       curl -X GET http://localhost:8080/
       ```
     您會看到您在應用程式組態存放區中輸入的訊息。

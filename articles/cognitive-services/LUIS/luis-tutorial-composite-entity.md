@@ -1,7 +1,7 @@
 ---
 title: 教學課程：複合實體教學課程 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
+description: 在本教學課程中，新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 0e72563f366330f841d1a61ed67956b6314c769a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f2b2c3f52610cd9fae0845b15aebf032a088000b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893175"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447954"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>教學課程：擷取將相關的資料組成群組並加以擷取
 在本教學課程中，新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
@@ -28,8 +28,6 @@ ms.locfileid: "74893175"
 * 彼此相關。
 * 使用各種實體類型。
 * 需要由用戶端應用程式當作一個資訊單位進行分組和處理。
-
-[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **在本教學課程中，您將了解如何：**
 
@@ -46,9 +44,10 @@ ms.locfileid: "74893175"
 
 ## <a name="import-example-app"></a>匯入範例應用程式
 
-1.  從清單實體教學課程下載並儲存[應用程式 JSON 檔案](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json)。
+1.  從清單實體教學課程下載並儲存[應用程式 JSON 檔案](
+https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json?raw=true)。
 
-2. 將 JSON 匯入新的應用程式中。
+2. 使用 [LUIS 入口網站](https://www.luis.ai)，將 JSON 匯入新的應用程式中。
 
 3. 從 [管理]  區段的 [版本]  索引標籤上，複製版本並將它命名為 `composite`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
 

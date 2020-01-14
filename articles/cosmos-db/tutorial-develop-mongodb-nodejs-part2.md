@@ -1,6 +1,5 @@
 ---
-title: 使用適用於 MongoDB 的 Azure Cosmos DB API 建立 Angular 應用程式 - 建立 Node.js Express 應用程式
-titleSuffix: Azure Cosmos DB
+title: 使用適用於 MongoDB 的 Azure Cosmos DB API 建立 Node.js Express 應用程式 (第 2 部分)
 description: 本教學課程系列的第 2 部分，有關使用您用於 MongoDB 的完全相同 API，以 Azure Cosmos DB 上的 Angular 和 Node 建立 MongoDB 應用程式。
 author: johnpapa
 ms.service: cosmos-db
@@ -11,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 8dd725bed6364979a9388d5741bf17f667bda0b7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 693222f4c1abd9bda128d18dc4dd67703a245bc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435264"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441137"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>使用適用於 MongoDB 的 Azure Cosmos DB API 建立 Angular 應用程式 - 建立 Node.js Express 應用程式
 
@@ -34,7 +33,7 @@ ms.locfileid: "57435264"
 
 > [!VIDEO https://www.youtube.com/embed/lIwJIYcGSUg]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始本教學課程的這個部分之前，請確定您已觀看[簡介影片](tutorial-develop-mongodb-nodejs.md)。
 
@@ -82,9 +81,9 @@ ms.locfileid: "57435264"
 
 ## <a name="build-the-app-using-the-express-framework"></a>使用 Express 架構建置應用程式
 
-1. 在 Visual Studio Code 的 [總管] 窗格中，以滑鼠右鍵按一下 **src** 資料夾，按一下 [新增資料夾]，並將新資料夾命名為 server。
+1. 在 Visual Studio Code 的 [總管]  窗格中，以滑鼠右鍵按一下 **src** 資料夾，按一下 [新增資料夾]  ，並將新資料夾命名為 server  。
 
-2. 在 [總管] 窗格中，以滑鼠右鍵按一下 **server** 資料夾中，按一下 [新增檔案]，並將新檔案命名為 index.js。
+2. 在 [總管]  窗格中，以滑鼠右鍵按一下 **server** 資料夾中，按一下 [新增檔案]  ，並將新檔案命名為 index.js  。
 
 3. 回到命令提示字元，使用下列命令來安裝本文剖析器。 這可協助我們的應用程式剖析透過 API 傳入的 JSON 資料。
 
@@ -126,7 +125,7 @@ ms.locfileid: "57435264"
    app.listen(port, () => console.log(`API running on localhost:${port}`));
    ```
 
-5. 在 Visual Studio Code 的 [總管] 窗格中，以滑鼠右鍵按一下 **server** 資料夾，然後按一下 [新增檔案]。 將新檔案命名為 *routes.js*。 
+5. 在 Visual Studio Code 的 [總管]  窗格中，以滑鼠右鍵按一下 **server** 資料夾，然後按一下 [新增檔案]  。 將新檔案命名為 *routes.js*。 
 
 6. 將以下程式碼複製到 **routes.js** 中。 此程式碼：
    * 參考 Express 路由器
@@ -148,11 +147,11 @@ ms.locfileid: "57435264"
 
 7. 儲存所有已修改的檔案。 
 
-8. 在 Visual Studio Code 中，按一下 [偵錯] 按鈕![Visual Studio Code 中的偵錯圖示](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png)，按一下齒輪按鈕![Visual Studio Code 中的齒輪按鈕](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png)。 新的 launch.json 檔案隨即在 Visual Studio Code 中開啟。
+8. 在 Visual Studio Code 中，按一下 [偵錯]  按鈕![Visual Studio Code 中的偵錯圖示](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png)，按一下齒輪按鈕![Visual Studio Code 中的齒輪按鈕](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png)。 新的 launch.json 檔案隨即在 Visual Studio Code 中開啟。
 
 8. 在 launch.json 檔案的第 11 行，將 `"${workspaceFolder}\\server"` 變更為 `"program": "${workspaceRoot}/src/server/index.js"` 並儲存檔案。
 
-9. 按一下 [開始偵錯] 按鈕![Visual Studio 程式碼中的偵錯圖示](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png)以執行應用程式。
+9. 按一下 [開始偵錯]  按鈕![Visual Studio 程式碼中的偵錯圖示](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png)以執行應用程式。
 
     應用程式應會執行且沒有任何錯誤。
 
@@ -160,7 +159,7 @@ ms.locfileid: "57435264"
 
 1. 現在開啟 Postman 並在 GET 方塊中放入 `http://localhost:3000/api/heroes`。 
 
-2. 按一下 [傳送] 按鈕，並從應用程式取得 json 回應。 
+2. 按一下 [傳送]  按鈕，並從應用程式取得 json 回應。 
 
     此回應會顯示應用程式已啟動並在本機執行中。 
 

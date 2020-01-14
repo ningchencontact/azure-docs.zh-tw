@@ -3,15 +3,15 @@ title: 在 Kubernetes 上進行小組開發
 services: azure-dev-spaces
 ms.date: 04/25/2019
 ms.topic: quickstart
-description: 在 Azure 上使用容器和微服務進行小組 Kubernetes 開發
+description: 本快速入門說明如何使用 Azure Dev Spaces 對容器和微服務進行 Kubernetes 小組開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 2f3ed0f2a9635488aea509e7816fbe84e1589d14
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 396358be63f93fde2ba5ec5f00545708dbfa19d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484039"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438203"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>快速入門：在 Kubernetes 上進行小組開發 - Azure Dev Spaces
 
@@ -23,7 +23,7 @@ ms.locfileid: "74484039"
 
 ![Azure Dev Spaces 小組開發](media/azure-dev-spaces/collaborate-graphic.gif)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
 - [已安裝 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。

@@ -1,5 +1,6 @@
 ---
-title: 在 Azure API 管理中匯入 Azure 函式應用程式作為 API | Microsoft Docs
+title: 在 API 管理中匯入 Azure 函式應用程式作為 API
+titleSuffix: Azure API Management
 description: 本教學課程說明如何將 Azure 函式應用程式匯入至 Azure API 管理作為 API。
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 0c4a95669eea1b98baea5f9a866598e000c0923c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 97e4863294a32e7c11cd0c4bfa987b4e5764c0d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107856"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442572"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>在 Azure API 管理中匯入 Azure 函式應用程式作為 API
 
@@ -34,7 +35,7 @@ Azure API 管理支援將 Azure 函式應用程式匯入為新的 API，或將�
 > * 在 Azure 入口網站中測試 API
 > * 在開發人員入口網站中測試 API
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * 完成[建立 Azure API 管理執行個體](get-started-create-service-instance.md)快速入門。
 * 確定您的訂用帳戶中有 Azure Functions 應用程式。 如需詳細資訊，請參閱[建立 Azure 函式應用程式](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)。 其中必須包含具有 HTTP 觸發程序的函式，且授權層級設定必須設為 [匿名]  或 [函式]  。
@@ -117,7 +118,7 @@ Azure API 管理支援將 Azure 函式應用程式匯入為新的 API，或將�
 * 位於函式應用程式內、名為 apim-{*您的 Azure API 管理服務執行個體名稱*} 的主機金鑰、
 * 位於 Azure API 管理執行個體內、名稱為 {*您的 Azure 函式應用程式執行個體名稱*}-key 的具名值，其中包含建立的主機金鑰。
 
-對於在 2019 年 4 月 4 日之後建立的 API，主機金鑰會從 API 管理隨著 HTTP 要求傳至標頭中的函式應用程式。 舊版的 API 會以[查詢參數](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization)的形式傳遞主機金鑰。 此行為可透過與函式應用程式相關聯的*後端*實體上的 `PATCH Backend` [REST API 呼叫](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract)來變更。
+對於在 2019 年 4 月 4 日之後建立的 API，主機金鑰會從 API 管理隨著 HTTP 要求傳至標頭中的函式應用程式。 舊版的 API 會以[查詢參數](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization)的形式傳遞主機金鑰。 此行為可透過與函式應用程式相關聯的*後端*實體上的 `PATCH Backend`[REST API 呼叫](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract)來變更。
 
 > [!WARNING]
 > 移除或變更 Azure 函式應用程式主機金鑰的值或 Azure API 管理具名值，將會中斷服務之間的通訊。 這些值不會自動同步。

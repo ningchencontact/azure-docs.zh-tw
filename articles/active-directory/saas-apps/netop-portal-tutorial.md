@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 715e9b4f3baace39cfe8bebe011ae284fc4c6b2b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c2e456114d186e548cede656da8e8d227efa09aa
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893256"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550089"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netop-portal"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Netop Portal 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "74893256"
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要開始，您需要下列項目：
 
@@ -84,7 +84,7 @@ ms.locfileid: "74893256"
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [ **基本 SAML 組態**]  區段上，已預先以  **IDP**  起始的模式設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [ **儲存**]  按鈕，才能儲存組態。
+1. 在 [基本 SAML 組態]  區段中，已預先以 **IDP** 起始的模式設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存]  按鈕，才能儲存設定。
 
 1. Netop Portal 應用程式需要特定格式的 SAML 判斷提示，要求您加入自訂屬性對應到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。
 
@@ -146,7 +146,7 @@ ms.locfileid: "74893256"
 
 ### <a name="create-netop-portal-test-user"></a>建立 Netop Portal 測試使用者
 
-在本節中，您會在 Netop Portal 中建立名為 Britta Simon 的使用者。 與 [Netop Portal 支援小組](mailto:casemanager@netop.com)合作，以將使用者加入 Netop Portal 平台。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Netop Portal 中建立名為 Britta Simon 的使用者。 請與 [Netop Portal 支援小組](mailto:casemanager@netop.com)合作，以將使用者加入 Netop Portal 平台。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ## <a name="test-sso"></a>測試 SSO 
 

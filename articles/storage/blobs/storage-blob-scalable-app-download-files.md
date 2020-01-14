@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 8d270485cef9fb6859de056bc364a36c054c0121
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b3fe9c7481e79b8eeda9f18e9a036fa8c72e658d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699023"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372086"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>從 Azure 儲存體下載大量隨機資料
 
@@ -25,7 +25,7 @@ ms.locfileid: "68699023"
 > * 執行應用程式
 > * 驗證連線數目
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要進行本教學課程，您必須已完成先前的儲存體教學課程︰[將大量隨機資料平行上傳至 Azure 儲存體][previous-tutorial]。
 
@@ -98,7 +98,7 @@ dotnet run
 應用程式會讀取 **storageconnectionstring**中指定之儲存體帳戶內的容器。 它會使用容器中的 [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) 方法逐一查看 Blob 10，並使用 [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) 方法將它們下載到本機電腦。
 下表顯示下載每個 Blob 時所定義的 [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions)。
 
-|屬性|值|說明|
+|屬性|值|描述|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| 此屬性可停用檢查上傳內容的 MD5 雜湊。 停用 MD5 驗證可獲得較快的傳輸速度。 但不會確認所傳輸檔案的有效性和完整性。 |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| 此屬性可判斷是否已計算及儲存 MD5 雜湊。   |

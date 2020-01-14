@@ -1,5 +1,5 @@
 ---
-title: 如何從 Node.js 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API
+title: 從 Node.js 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API
 description: 使用 Azure 資料表儲存體或 Azure Cosmos DB 資料表 API 將結構化資料儲存在雲端。
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 7611af5f4d5b79ddb2abb7546f2e3ea6c0d4c4c5
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a5246ed4018fd4d5bc38649d6a476bc82bcbbf7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308402"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441196"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>如何從 Node.js 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -68,7 +68,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>新增 Azure Cosmos DB 連線
-若要新增 Azure Cosmos DB 連線，請建立 **TableService** 物件，然後指定您的帳戶名稱、主要索引鍵及端點。 您可以在 Azure 入口網站中，從您 Cosmos DB 的 [設定]   > [連接字串]  中複製這些值。 例如︰
+若要新增 Azure Cosmos DB 連線，請建立 **TableService** 物件，然後指定您的帳戶名稱、主要索引鍵及端點。 您可以在 Azure 入口網站中，從您 Cosmos DB 的 [設定]   > [連接字串]  中複製這些值。 例如：
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -115,7 +115,7 @@ var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
 
-## <a name="add-an-entity-to-a-table"></a>將實體加入至資料表
+## <a name="add-an-entity-to-a-table"></a>將實體新增至資料表
 若要新增實體，請先建立一個定義實體屬性的物件。 所有實體必須包含 **PartitionKey** 和 **RowKey**，這些是實體的唯一識別碼。
 
 * **PartitionKey** - 可決定儲存實體的分割區。
@@ -198,7 +198,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 依預設，更新實體並不會檢查正在更新的資料先前是否被另一個程序修改過。 若要支援並行更新：
 >
 > 1. 取得正在更新之物件的 ETag。 系統會針對實體相關的作業將 ETag 包含在 `response` 中傳回，且可透過 `response['.metadata'].etag` 擷取 ETag。
-> 2. 對實體執行更新操作時，請將先前擷取的 ETag 資訊新增至新的實體。 例如︰
+> 2. 對實體執行更新操作時，請將先前擷取的 ETag 資訊新增至新的實體。 例如：
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. 執行更新操作。 如果在您擷取 ETag 值之後，實體已發生修改 (例如另一個應用程式執行個體)，系統就會傳回 `error`，指出不符合要求中指定的更新條件。
