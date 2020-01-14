@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 4ef9256404b0d0d4d6379e4f5a76c0d41a38c7cd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8749f7dee2ceeb09e37cc97d4e5bfe76c52e2da6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499306"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438746"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>教學課程：使用 Azure Data Share 共用資料  
 
@@ -25,7 +25,7 @@ ms.locfileid: "73499306"
 > * 為 Data Share 啟用同步處理排程。 
 > * 將收件者新增至 Data Share。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 * 您收件者的 Azure 登入電子郵件地址 (不能使用其電子郵件別名)。
@@ -38,7 +38,7 @@ ms.locfileid: "73499306"
 ### <a name="share-from-a-sql-based-source"></a>從 SQL 型來源共用：
 
 * Azure SQL Database 或 Azure SQL 資料倉儲，具有您想要共用的資料表和檢視。
-* 存取資料倉儲的資料共用權限。 這可以透過下列步驟來完成： 
+* 存取資料倉儲的資料共用權限。 這可以透過下列步驟完成： 
     1. 將自己設定為伺服器的 Azure Active Directory 系統管理員。
     1. 使用 Azure Active Directory 連線到 Azure SQL Database/資料倉儲。
     1. 使用查詢編輯器 (預覽) 來執行下列指令碼，將 Data Share MSI 新增為 db_owner。 您必須使用 Active Directory 連線，而不是使用 SQL Server 驗證。 
@@ -47,9 +47,11 @@ ms.locfileid: "73499306"
     create user <share_acct_name> from external provider;     
     exec sp_addrolemember db_owner, <share_acct_name>; 
 ```                   
-請注意，<share_acc_name>  是您 Data Share 帳戶的名稱。 如果您尚未建立 Data Share 帳戶，您可以稍後再回到此必要條件。  
+請注意， *<share_acc_name>* 是您 Data Share 帳戶的名稱。 如果您尚未建立 Data Share 帳戶，您可以稍後再回到此先決條件。  
 
-* 用戶端 IP SQL Server 防火牆存取：這可以透過下列步驟來完成：1. 瀏覽至 [防火牆和虛擬網路 1]  。 按一下 [開啟]  ，切換為允許存取 Azure 服務。 
+* 具有 [`db_owner` 存取權](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)的 Azure SQL Database 使用者，可瀏覽並選取您想共用的資料表和/或檢視。 
+
+* 用戶端 IP SQL Server 防火牆存取：這可以透過下列步驟完成：1. 瀏覽至 [防火牆與虛擬網路]  。 按一下 [開啟]  切換開關，以允許存取 Azure 服務。 
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -72,7 +74,7 @@ ms.locfileid: "73499306"
     | 名稱 | datashareacount  | 指定資料共用帳戶的名稱。 |
     | 訂用帳戶 | 您的訂用帳戶 | 選取您要用於資料共用帳戶的 Azure 訂用帳戶。|
     | 資源群組 | *test-resource-group* | 使用現有資源群組，或建立新的資源群組。 |
-    | 位置 | 美國東部 2  | 選取資料共用帳戶的區域。
+    | Location | 美國東部 2  | 選取資料共用帳戶的區域。
     | | |
 
 1. 選取 [建立]  來佈建資料共用帳戶。 佈建新的資料共用帳戶一般需要大約不到 2 分鐘的時間。 
@@ -99,7 +101,7 @@ ms.locfileid: "73499306"
 
     ![資料集](./media/datasets.png "資料集")
 
-1. 選取您想要新增的資料集類型。 
+1. 選取您想要新增的資料集類型。 如果從 Azure SQL Database 或 Azure SQL 資料倉儲共用，系統會提示您提供一些 SQL 認證。 使用您建立為必要條件的使用者進行驗證。
 
     ![AddDatasets](./media/add-datasets.png "新增資料集")    
 
