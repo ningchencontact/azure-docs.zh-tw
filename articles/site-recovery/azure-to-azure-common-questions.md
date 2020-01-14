@@ -1,18 +1,18 @@
 ---
 title: 有關使用 Azure Site Recovery 的 Azure VM 嚴重損壞修復的常見問題
 description: 本文將使用 Azure Site Recovery，回答有關 Azure Vm 至另一個 Azure 區域的嚴重損壞修復常見問題
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 5ed501a9f11e790bcc2196d57c6479beb54f1a17
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: 2e1689a4f6d3a2271da868350263bef098562127
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621077"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929908"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>常見問題： Azure 到 Azure 的嚴重損壞修復
 
@@ -23,10 +23,10 @@ ms.locfileid: "73621077"
 
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery 是如何定價的？
 請檢閱[Azure Site Recovery 定價](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/)詳細資料。
-### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Azure Site Recovery 的免費層如何運作？
-每個受 Azure Site Recovery 保護的執行個體，在受保護的前 31 天皆為免費。 自第 32 天起，就會依上述費率，針對為該執行個體提供的保護進行收費。
-### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>在這前 31 天，我是否須負擔任何其他 Azure 費用？
-是，即使受保護的執行個體前 31 天的 Azure Site Recovery 免費，您仍有可能需要負擔 Azure 儲存體、儲存體交易與資料傳輸的費用。 復原的虛擬機器也可能會產生 Azure 計算費用。 在[這裡](https://azure.microsoft.com/pricing/details/site-recovery)取得有關定價的完整詳細資料
+### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Azure Site Recovery 的免費層次如何運作？
+每個受 Azure Site Recovery 保護的執行個體在受保護的前 31 天皆為免費。 自第 32 天起，就會依上述費率，針對為該執行個體提供的保護進行收費。
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>在這前 31 天，我是否須負擔任何其他費用？
+是的，即使 Azure Site Recovery 在受保護執行個體的前 31 天免費，您仍可能須負擔 Azure 儲存體、儲存體交易和資料傳輸的費用。 復原的虛擬機器也可能會產生 Azure 計算費用。 在[這裡](https://azure.microsoft.com/pricing/details/site-recovery)取得有關定價的完整詳細資料
 
 ### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>哪裡可以找到 Azure VM 嚴重損壞修復的最佳做法？ 
 1. [了解 Azure 至 Azure 架構](azure-to-azure-architecture.md)
@@ -45,7 +45,7 @@ Site Recovery 小組會與 Azure 容量管理小組合作，以規劃足夠的�
 是，Site Recovery 支援已啟用 Azure 磁片加密（ADE）的 Vm 的嚴重損壞修復。 當您啟用複寫時，所有必要的磁片加密金鑰和秘密都會從來源區域複製到使用者內容中的目的地區域。 如果您沒有適當的許可權，就可以將立即可用的腳本遞交給安全性系統管理員，以複製金鑰和密碼。
 
 - Site Recovery 支援執行 Windows 之 Azure Vm 的 ADE。
-- Site recovery 支援使用具有 Azure Active Directory （AAD）的架構和版本1.1 （不含 AAD）的 ADE 0.1 版。 [詳細資訊](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata)。
+- Site recovery 支援使用具有 Azure Active Directory （AAD）的架構和版本1.1 （不含 AAD）的 ADE 0.1 版。 [深入了解](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata)。
 - ADE 版本1.1，Windows Vm 必須使用受控磁片。
 - [深入瞭解](azure-to-azure-how-to-enable-replication-ade-vms.md)如何針對加密的 vm 啟用複寫。
 
@@ -97,7 +97,7 @@ Site Recovery 不支援從複寫的 VM 對磁片進行「熱移除」。 如果�
 * 復原點的保留歷程記錄為 24 小時。
 * 應用程式一致快照集的頻率為 60 分鐘。
 
-[詳細資訊](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings)。
+[深入了解](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings)。
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>什麼是當機時保持一致復原點？
 當機時保持一致復原點會呈現就像建立快照集時 VM 發生當機或從伺服器拔掉電源線時一樣的磁碟上資料。 這不包含擷取快照時記憶體內的任何資料。
@@ -143,7 +143,7 @@ Site Recovery 會每 5 分鐘建立一次當機時保持一致復原點。 使�
 所產生的第一個復原點會具有完整複本。 所有後續復原點則具有差異變更。
 
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>增長復原點的保留週期是否會增加儲存體成本？
-是。 如果您將保留週期從 24 小時增加到 72 小時，Site Recovery 將把復原點再多儲存 48 小時。 增加的時間將產生儲存體費用。 例如，如果單一復原點有 10 GB 的差異變更，而每 GB 的成本為每個月 $0.16 美元，則每個月就會有 $1.6 * 48 美元的額外費用。
+可以。 如果您將保留週期從 24 小時增加到 72 小時，Site Recovery 將把復原點再多儲存 48 小時。 增加的時間將產生儲存體費用。 例如，如果單一復原點有 10 GB 的差異變更，而每 GB 的成本為每個月 $0.16 美元，則每個月就會有 $1.6 * 48 美元的額外費用。
 
 ## <a name="multi-vm-consistency"></a>多 VM 一致性
 
@@ -192,7 +192,7 @@ Site Recovery 會在容錯移轉時嘗試提供 IP 位址。 如果另一部虛�
 [最新 (最低 RPO)] 選項會先處理已傳送到 Site Recovery 服務的所有資料來為每部 VM 建立復原點，然後才進行容錯移轉。 此選項會提供最低的復原點目標 (RPO)，因為在容錯移轉後建立的 VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
 
 ### <a name="do-latest-lowest-rpo-recovery-points-have-an-impact-on-failover-rto"></a>**最新 (最低 RPO)** 復原點對容錯移轉 RTO 是否有影響？
-是。 Site Recovery 會在容錯移轉前處理所有待處理的資料，因此與其他選項相比，此選項具有較高的復原時間目標 (RTO)。
+可以。 Site Recovery 會在容錯移轉前處理所有待處理的資料，因此與其他選項相比，此選項具有較高的復原時間目標 (RTO)。
 
 ### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>復原點中的**最新處理**選項是什麼意思？
 [最近處理]選項會將方案中的所有 VM 容錯移轉至 Site Recovery 所處理的最新復原點。 若要查看特定 VM 的最新復原點，請檢查 VM 設定中的 [最新復原點]。 此選項提供低 RTO，因為不會花費任何時間來處理未處理的資料。
@@ -225,7 +225,7 @@ Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助�
 ![Site Recovery 作業清單](./media/azure-to-azure-troubleshoot-errors/recoveryplanrto.PNG)
 
 ### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>我是否可以將自動化 Runbook 新增至復原方案？
-是的，您可以將「Azure 自動化」Runbook 整合至您的復原方案。 [詳細資訊](site-recovery-runbook-automation.md)。
+是的，您可以將「Azure 自動化」Runbook 整合至您的復原方案。 [深入了解](site-recovery-runbook-automation.md)。
 
 ## <a name="reprotection-and-failback"></a>重新保護和容錯回復
 

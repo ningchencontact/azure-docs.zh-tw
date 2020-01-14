@@ -5,21 +5,20 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 0a1e811787a43be76f94b13a6ec9886510c47d1d
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 752c9dfd1ae67397713cdffce9ba530ad6a2c159
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866965"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930018"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>從 Azure 儲存體在 Linux 上的 App Service 中提供內容
 
-本指南說明如何將 Azure 儲存體附加至 Linux 上的 App Service。 優點包括安全內容、內容可攜性、持續儲存、存取多個應用程式，以及多個傳輸方法。
-
-
-> [!IMPORTANT]
-> Linux 上的 App Service 中的 Azure 儲存體是**預覽**功能。 **生產案例不支援**這項功能。
+> [!NOTE]
+> 本文適用于 Linux 容器。 若要部署至自訂 Windows 容器，請參閱[在 App Service 上的 Windows 容器中設定 Azure 檔案儲存體](../configure-connect-to-azure-storage.md)。 Linux 上的 App Service 中的 Azure 儲存體是**預覽**功能。 **生產案例不支援**這項功能。
 >
+
+本指南說明如何將 Azure 儲存體附加至 Linux 上的 App Service。 優點包括安全內容、內容可攜性、持續儲存、存取多個應用程式，以及多個傳輸方法。
 
 ## <a name="prerequisites"></a>必要條件
 

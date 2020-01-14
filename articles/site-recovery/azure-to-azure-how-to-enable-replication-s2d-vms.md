@@ -2,18 +2,18 @@
 title: 使用 Azure Site Recovery 複寫執行儲存空間直接存取的 Azure Vm
 description: 本文說明如何使用 Azure Site Recovery 複寫執行儲存空間直接存取的 Azure Vm。
 services: site-recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: asgang
-ms.openlocfilehash: 25ac7fa577aa33eda036c0f8544cc5ab03b12cd7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.author: carmonm
+ms.openlocfilehash: 49a4f59e68a409696480f89ee4b606fbed2b77ed
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954455"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929848"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>將執行儲存空間直接存取的 Azure Vm 複寫至另一個區域
 
@@ -59,8 +59,8 @@ ms.locfileid: "73954455"
 
    ![storagespacesdirect 保護](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
 
-## <a name="creating-a-recovery-plan"></a>建立復原方案
-復原計畫支援在容錯移轉期間對多層式應用程式中的各層進行排序。 排序有助於維持應用程式的一致性。 當您為多層式 Web 應用程式建立復原計畫時，請完成[使用 Site Recovery 建立復原計畫](site-recovery-create-recovery-plans.md)中所述的步驟。
+## <a name="creating-a-recovery-plan"></a>建立復原計劃
+復原方案支援在容錯移轉期間對多層式應用程式中的各層進行排序。 排序有助於維持應用程式的一致性。 當您為多層式 Web 應用程式建立復原方案時，請完成[使用 Site Recovery 建立復原方案](site-recovery-create-recovery-plans.md)中所述的步驟。
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>將虛擬機器新增至容錯移轉群組
 

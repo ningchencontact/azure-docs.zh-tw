@@ -1,18 +1,18 @@
 ---
 title: VPN 閘道：用於 P2S VPN 連線的 Azure AD 租使用者： Azure AD 驗證
 description: 您可以使用 P2S VPN，使用 Azure AD authentication 來連線到您的 VNet
-services: vpn-gateway
+services: virtual-wan
 author: anzaman
-ms.service: vpn-gateway
+ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.author: alzam
-ms.openlocfilehash: 56226bf0310e51e62fa814b838f157a4e16a9d10
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 1f7cf97e38bf201679593819cce814249f9625b0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530709"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930426"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>建立 P2S OpenVPN 通訊協定連接的 Azure Active Directory 租使用者
 

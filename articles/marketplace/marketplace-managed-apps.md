@@ -2,19 +2,19 @@
 title: Azure 應用程式受控應用程式供應項目發佈指南
 description: 本文說明在 Marketplace 中發佈受控應用程式的需求
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/14/2018
-ms.author: v-qiwe
-ms.openlocfilehash: bdb2a54748c734d7b44dfa0b1f106d37e817f80e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: evansma
+ms.openlocfilehash: 764212ac148b336b07d29c29a72314c5d889d47c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822923"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934659"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure 應用程式：受控應用程式供應項目發佈指南
 
@@ -31,7 +31,7 @@ ms.locfileid: "73822923"
 
 ## <a name="managed-application-offer"></a>受控應用程式供應項目
 
-|需求 |詳細資料  |
+|要求 |詳細資料  |
 |---------|---------|
 |已部署至客戶的 Azure 訂用帳戶 | 受管理的應用程式必須部署在客戶的訂用帳戶中，而且可以由協力廠商管理。 | 
 |計費和計量    |  系統會在客戶的 Azure 訂用帳戶中布建資源。 隨用隨付（PAYGO）虛擬機器將透過 Microsoft 與客戶交易，並透過客戶的 Azure 訂用帳戶（PAYGO）計費。 <br> 在自備授權的情況下，雖然 Microsoft 會向客戶訂用帳戶中產生的基礎結構成本收費，但您會直接向客戶收取軟體授權費用。        |

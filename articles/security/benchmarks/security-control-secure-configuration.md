@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 08458777d8a8c5c74ac20a63245135ffaf0a5c04
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 03564effeee36ddb3316d48329ccab8ccfce75b9
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564110"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934303"
 ---
 # <a name="security-control-secure-configuration"></a>安全性控制：安全設定
 
@@ -27,7 +27,9 @@ ms.locfileid: "75564110"
 
 使用 Azure 原則或 Azure 資訊安全中心來維護所有 Azure 資源的安全性設定。
 
-如何設定和管理 Azure 原則： https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+如何設定和管理 Azure 原則：
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ## <a name="72-establish-secure-operating-system-configurations"></a>7.2：建立安全的作業系統設定
 
@@ -85,7 +87,7 @@ https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview
 |--|--|--|
 | 7.5 | 5.3 | 客戶 |
 
-如果使用自訂的 Azure 原則定義，請使用 Azure Azure DevOps 或 Azure Repos 來安全地儲存和管理您的程式碼。
+如果使用自訂的 Azure 原則定義，請使用 Azure DevOps 或 Azure Repos 來安全地儲存和管理您的程式碼。
 
 如何將程式碼儲存在 Azure DevOps：
 
@@ -171,11 +173,17 @@ https://docs.microsoft.com/azure/security-center/security-center-container-recom
 
 搭配 Azure Key Vault 使用受控服務識別，以簡化及保護雲端應用程式的秘密管理。
 
-如何與 Azure 受控識別整合： https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+如何與 Azure 受控識別整合：
 
-如何建立 Key Vault： https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-如何使用受控識別提供 Key Vault 驗證： https://docs.microsoft.com/azure/key-vault/managed-identity
+如何建立 Key Vault：
+
+https://docs.microsoft.com/azure/key-vault/quick-create-portal
+
+如何使用受控識別提供 Key Vault 驗證：
+
+https://docs.microsoft.com/azure/key-vault/managed-identity
 
 ## <a name="712-manage-identities-securely-and-automatically"></a>7.12：安全且自動地管理身分識別
 
@@ -185,7 +193,9 @@ https://docs.microsoft.com/azure/security-center/security-center-container-recom
 
 在 Azure AD 中使用受控識別，以自動管理的身分識別提供 Azure 服務。 受控識別可讓您向任何支援 Azure AD 驗證的服務進行驗證，包括 Key Vault，而您的程式碼中沒有任何認證。
 
-如何設定受控識別： https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+如何設定受控識別：
+
+https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
 ## <a name="713-eliminate-unintended-credential-exposure"></a>7.13：消除非預期的認證暴露
 
@@ -195,7 +205,9 @@ https://docs.microsoft.com/azure/security-center/security-center-container-recom
 
 執行認證掃描器來識別程式碼中的認證。 認證掃描器也鼓勵將探索到的認證移至更安全的位置，例如 Azure Key Vault。 
 
-如何設定認證掃描器： https://secdevtools.azurewebsites.net/helpcredscan.html
+如何設定認證掃描器：
+
+https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## <a name="next-steps"></a>後續步驟
 

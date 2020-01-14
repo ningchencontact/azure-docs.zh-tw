@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 9389466b6291542563c068706479bf981c5880da
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: c2846759a8daa04fc5c1d3b7f69e2c061bacb272
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75692754"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933473"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>內容感知編碼的實驗性預設值
 
@@ -29,7 +29,9 @@ ms.locfileid: "75692754"
 
 在2017年初，Microsoft 發行了彈性[資料流程](autogen-bitrate-ladder.md)預設值，以解決來源影片的品質和解析度變化的問題。 我們的客戶有不同的內容混合，有些是1080p，有些則是720p，而有些則是 SD 和較低的解析度。 此外，並非所有的來源內容都是來自電影或電視工作室的高品質 mezzanines。 彈性資料流程預設會藉由確保位元速率階梯永不超過輸入夾層的解析度或平均位元速率，來解決這些問題。
 
-實驗性內容感知編碼預設會擴充該機制，藉由併入自訂邏輯，讓編碼器針對指定的解析度尋找最佳位元速率值，但不需要大量的計算分析。 最終結果是這個新的預設值會產生比彈性資料流程預設值低位元速率的輸出，但品質較高。 請參閱下列範例圖形，其中顯示使用品質標準（例如[PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio)和[VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion)）的比較。 來源是藉由串連電影和電視節目的較短剪輯來建立，其目的是要強調編碼器。 根據定義，此預設會產生不同于內容的結果，這也表示對於某些內容，可能不會大幅降低位元速率或改善品質。
+新的內容感知編碼預設會藉由併入自訂邏輯來擴充該機制，讓編碼器能夠搜尋指定解決方案的最佳位元速率值，但不需要大量的計算分析。 這個預設值會產生一組對齊 GOP 的 Mp4。 針對任何輸入內容，此服務會執行輸入內容的初始輕量分析，並使用結果來判斷最理想的圖層數目、適當的位元速率和解析度設定，以供彈性串流傳遞。 此預設值特別適用于低和中度複雜度的影片，其中輸出檔案的位元速率會比彈性串流預設值低，但品質仍然會提供良好的檢視器體驗。 輸出會包含具有影片和音訊交錯的有案檔案
+
+請參閱下列範例圖形，其中顯示使用品質標準（例如[PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio)和[VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion)）的比較。 來源是藉由串連電影和電視節目的較短剪輯來建立，其目的是要強調編碼器。 根據定義，此預設會產生不同于內容的結果，這也表示對於某些內容，可能不會大幅降低位元速率或改善品質。
 
 ![使用 PSNR 的速率扭曲（RD）曲線](media/cae-experimental/msrv1.png)
 
@@ -39,7 +41,7 @@ ms.locfileid: "75692754"
 
 **圖2：對高複雜度來源使用 VMAF 度量的速率扭曲（RD）曲線**
 
-預設值目前已針對高複雜性、高品質來源影片（電影、電視節目）進行調整。 工作正在進行中，以適應低複雜度的內容（例如 PowerPoint 簡報），以及品質較差的影片。 此預設值也會使用與彈性資料流程預設值相同的解析度集合。 Microsoft 正致力於根據內容來選取最少解決方案集的方法。 如下所示，另一個來源內容分類的結果，其中的編碼器能夠判斷輸入的品質不佳（許多壓縮成品是因為低位元速率）。 請注意，在實驗性的預設情況下，編碼器決定只產生一個輸出層–以較低的位元速率，讓大部分的用戶端能夠在不停止的情況下播放串流。
+以下是來源內容另一個類別的結果，其中的編碼器能夠判斷輸入的品質不佳（許多壓縮成品，因為低位元速率）。 請注意，使用內容感知預設值時，編碼器決定只產生一個輸出層–以較低的位元速率，讓大部分的用戶端能夠在不停止的情況下播放串流。
 
 ![使用 PSNR 的 RD 曲線](media/cae-experimental/msrv3.png)
 
@@ -62,16 +64,16 @@ TransformOutput[] output = new TransformOutput[]
       // You can customize the encoding settings by changing this to use "StandardEncoderPreset" class.
       Preset = new BuiltInStandardEncoderPreset()
       {
-         // This sample uses the new experimental preset for content-aware encoding
-         PresetName = EncoderNamedPreset.ContentAwareEncodingExperimental
+         // This sample uses the new preset for content-aware encoding
+         PresetName = EncoderNamedPreset.ContentAwareEncoding
       }
    }
 };
 ```
 
 > [!NOTE]
-> 這裡會使用前置詞「實驗性」來表示基礎演算法仍在發展中。 有可能會隨著時間而改變，以用於產生位元速率 ladders，其目標是將整合至健全的演算法，並適應各種不同的輸入條件。 使用此預設值的編碼作業仍會根據輸出分鐘數計費，而輸出資產可從我們的串流端點以破折號和 HLS 等通訊協定傳遞。
+> 基礎演算法會受到進一步的改進。 有可能會隨著時間而改變，以用於產生位元速率 ladders，其目標是提供健全的演算法，並適應各種不同的輸入條件。 使用此預設值的編碼作業仍會根據輸出分鐘數計費，而輸出資產可從我們的串流端點以破折號和 HLS 等通訊協定傳遞。
 
 ## <a name="next-steps"></a>後續步驟
 
-現在您已瞭解將影片優化的這個新選項，我們邀請您試試看。您可以使用本文結尾的連結傳送意見反應給我們，或直接在 <amsved@microsoft.com>與我們合作。
+現在您已瞭解將影片優化的這個新選項，我們邀請您試試看。您可以使用本文結尾的連結傳送意見反應給我們。

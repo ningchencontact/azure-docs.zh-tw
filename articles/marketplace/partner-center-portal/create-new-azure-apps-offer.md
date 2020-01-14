@@ -1,19 +1,19 @@
 ---
 title: 在商業 Marketplace 中建立新的 Azure 應用程式供應專案
 description: 如何使用 Microsoft 合作夥伴中心的商業 Marketplace 入口網站，建立新的 Azure 應用程式供應專案，以便在 Azure Marketplace、AppSource 或透過雲端解決方案提供者（CSP）方案中進行列出或銷售。
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: d7e05f12c04136c8394dbcb27b7a950fc5ce85d9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 60a3392474d11c306d28b9d95668a1e783cdfbb0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74281268"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930701"
 ---
 # <a name="create-an-azure-application-offer"></a>建立 Azure 應用程式供應項目
 
@@ -148,7 +148,7 @@ Azure 應用程式方案有兩種：受控應用程式和解決方案範本。
 
 繼續進行下一節之前，請記得先**儲存**！
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>屬性
 
 [**屬性**] 頁面可讓您定義用來在 marketplace 上分組供應專案的類別和產業、應用程式版本，以及支援供應專案的法律合約。 完成此頁面後，選取 [**儲存**]。
 
@@ -183,7 +183,7 @@ Azure 應用程式方案有兩種：受控應用程式和解決方案範本。
 
 您在此處輸入的名稱會向客戶顯示，做為供應專案清單的標題。 當您建立供應專案時，此欄位會預先填入您在**供應專案別名**中輸入的文字，但您可以變更此值。 此名稱可能是商標（您可以包含商標或著作權符號）。 名稱不能超過50個字元，而且不能包含任何 emoji。
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>摘要
 
 提供供應專案的簡短描述（最多100個字元），這可用於 marketplace 搜尋結果。
 
@@ -191,7 +191,7 @@ Azure 應用程式方案有兩種：受控應用程式和解決方案範本。
 
 提供供應專案的較長描述（最多256個字元）。 此描述可用於 marketplace 搜尋結果。
 
-### <a name="description"></a>描述
+### <a name="description"></a>說明
 
 提供供應專案的較長描述（最多3000個字元）。 在 marketplace 清單總覽中，客戶會看到這項描述。 包含您供應專案的價值主張、主要優點、類別及/或產業關聯、應用程式內購買機會，以及任何必要的公開。 
 
@@ -232,7 +232,7 @@ Azure 應用程式方案有兩種：受控應用程式和解決方案範本。
 
 在本節中，您可以提供向客戶顯示供應專案時所要使用的標誌和影像。 所有影像都必須是 .png 格式。
 
-#### <a name="store-logos"></a>儲存標誌
+#### <a name="store-logos"></a>Microsoft Store標誌。
 
 提供三種大小的供應專案標誌：**小型（48 x 48）** 、**中型（90 x 90）** 和**大型（216 x 216）** 。
 
@@ -323,11 +323,11 @@ Azure Government 服務會處理受特定政府法規和需求的資料，例如
 
 已根據您在建立方案時指派的名稱預先填入。  此名稱會顯示為 [軟體方案] 的標題，顯示在 marketplace 中。  最多可包含100個字元。
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>摘要
 
 提供軟體方案的簡短摘要。  最多可包含100個字元。
 
-### <a name="description"></a>描述
+### <a name="description"></a>說明
 
 此描述可讓您瞭解此軟體方案的獨特之處，以及與您的供應專案內其他軟體方案有何差異。 最多可包含2000個字元。
 
@@ -501,14 +501,14 @@ Azure 應用程式原本就使用 Azure Resource Manager 的試用產品類型�
 
 - **使用者手冊**（必要）：您的試用產品體驗的深入逐步解說。 使用者手冊應涵蓋您想要讓客戶從試用產品中取得的確切內容，並做為參考，以取得他們可能會遇到的任何問題。 檔案必須是 PDF 格式，並在上傳後命名為（最多255個字元）。
 
-- 影片 **：新增**影片（選擇性）：您可以將影片上傳到 YouTube 或 Vimeo，並在這裡參考連結和縮圖影像（533 x 324 圖元），讓客戶可以查看資訊的逐步解說，以協助他們更瞭解試用產品，包括如何成功使用供應專案的功能，並瞭解強調其優點的案例。
+- 影片 **：新增**影片（選擇性）：您可以將影片上傳到 YouTube 或 Vimeo，並在這裡參考連結和縮圖影像（533 x 324 圖元），讓客戶可以查看資訊的逐步解說，以協助他們深入瞭解試用產品，包括如何成功使用供應專案的功能，並瞭解強調其優點的案例。
   - **名稱**（必要）
   - **URL （僅限 YouTube 或 Vimeo）** （必要）
   - **縮圖（533 x 324 px）** ：影像檔案必須是 PNG 格式。
 
 完成這些欄位之後，請選取 [**儲存**]。
 
-## <a name="publish"></a>Publish
+## <a name="publish"></a>發佈
 
 ### <a name="submit-offer-to-preview"></a>提交供應專案以供預覽
 

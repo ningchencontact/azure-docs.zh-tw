@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: a947ff11fbbe418af84ff49033cba3857bb8447f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 108294e3f125da9fb009eb0a85585dab026c8d01
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925189"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933325"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions 準備觸發程式
 
@@ -30,11 +30,11 @@ ms.locfileid: "74925189"
 
 ## <a name="trigger"></a>觸發程序
 
-準備觸發程式可讓您定義將在實例上執行的函式，並將其新增至執行中的應用程式。 您可以使用準備函式來開啟連線、載入相依性，或執行其他任何自訂邏輯，然後您的應用程式才會開始接收流量。 
+準備觸發程式可讓您定義函式，該函式會在新的實例新增至執行中的應用程式時執行。 您可以使用準備函式來開啟連線、載入相依性，或執行其他任何自訂邏輯，然後您的應用程式才會開始接收流量。 
 
 準備觸發程式是用來建立應用程式中其他函式將使用的共用相依性。 [請參閱這裡的共用](./manage-connections.md#client-code-examples)相依性範例。
 
-請注意，只有在相應增加作業期間才會呼叫準備觸發程式，而不是在重新開機或其他非規模的新創公司。 您必須確保邏輯可以載入所有必要的相依性，而不需使用準備觸發程式。 消極式載入是達成此目標的良好模式。
+請注意，只有在向外延展作業期間才會呼叫準備觸發程式，而不是在重新開機或其他非規模的新創公司。 您必須確保邏輯可以載入所有必要的相依性，而不需使用準備觸發程式。 消極式載入是達成此目標的良好模式。
 
 ## <a name="trigger---example"></a>觸發程序 - 範例
 
@@ -243,7 +243,7 @@ JAVA 中不支援準備觸發程式做為屬性。
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `WarmupTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 | **type** | n/a| 必要項目 - 必須設定為 `warmupTrigger`。 |
 | **direction** | n/a| 必要項目 - 必須設定為 `in`。 |

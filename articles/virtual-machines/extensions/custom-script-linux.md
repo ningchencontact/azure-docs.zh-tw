@@ -3,7 +3,7 @@ title: 在 Azure 中的 Linux Vm 上執行自訂腳本
 description: 使用自訂指令碼延伸模組 v2，將 Linux VM 設定工作自動化
 services: virtual-machines-linux
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
-ms.author: akjosh
-ms.openlocfilehash: 87826b5bec4294ce45355ab0cfc4df373895563b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.author: mimckitt
+ms.openlocfilehash: da7ade4b4724f8d155deb1c109587a311d03375c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073236"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931023"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>搭配 Linux 虛擬機器使用 Azure 自訂指令碼擴充功能第 1 版
 自訂指令碼擴充功能第 2 版會在 Azure 虛擬機器上下載並執行指令碼。 此擴充功能適用於部署後設定、軟體安裝或其他任何設定/管理工作。 您可以從 Azure 儲存體或其他可存取的網際網路位置下載指令碼，或是將指令碼提供給擴充功能執行階段。 
@@ -61,7 +61,7 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 * 當指令碼正在執行時，只能從 Azure 入口網站或 CLI 看到「正在轉換」擴充功能狀態。 如果您需要執行中指令碼更頻繁的狀態更新，便必須建立自己的解決方案。
 * 自訂指令碼擴充功能未原生支援 Proxy 伺服器，但是您可以在指令碼中使用支援 Proxy 伺服器的檔案傳輸工具，例如 *Curl*。 
 * 請留意指令碼或命令所依賴的非預設目錄位置是否具備處理此情形的邏輯。
-
+*  將自訂腳本部署至生產 VMSS 實例時，建議透過 json 範本進行部署，並儲存您的腳本儲存體帳戶，您可以在其中控制 SAS 權杖。 
 
 
 ## <a name="extension-schema"></a>擴充功能結構描述
@@ -70,7 +70,7 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 
 您可將敏感性資料儲存在受保護的組態中，此組態會經過加密，並且只會在虛擬機器內解密。 當執行命令包含機密資料 (例如密碼) 時，受保護的組態會相當有用。
 
-這些項目應被視為敏感性資料，並在擴充功能保護的設定組態中指定。 Azure VM 擴充功能的受保護設定資料會經過加密，而只有在目標虛擬機器上才會解密。
+這些項目應被視為敏感性資料，並在擴充功能保護的設定組態中指定。 Azure VM 擴充功能保護的設定資料會經過加密，只會在目標虛擬機器上解密。
 
 ```json
 {
@@ -108,19 +108,20 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 
 | 名稱 | 值 / 範例 | 資料類型 | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | 日期 |
-| publisher | Microsoft.Compute.Extensions | 字串 |
-| 類型 | CustomScript | 字串 |
+| apiVersion | 2019-03-01 | date |
+| publisher | Microsoft.Compute.Extensions | string |
+| type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (例如) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (例如) | python MyPythonScript.py \<my-param1 > | 字串 |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | 字串 |
-| skipDos2Unix (範例) | false | 布林值 |
+| commandToExecute (例如) | python MyPythonScript.py \<my-param1 > | string |
+| 指令碼 (script) | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| skipDos2Unix (範例) | false | boolean |
 | timestamp (範例) | 123456789 | 32 位元整數 |
-| storageAccountName (例如) | examplestorageacct | 字串 |
-| storageAccountKey (例如) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 字串 |
+| storageAccountName (例如) | examplestorageacct | string |
+| storageAccountKey (例如) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>屬性值詳細資料
+* `apiVersion`：您可以使用[資源總管](https://resources.azure.com/)或從 Azure CLI 使用下列命令，找到最新的 apiVersion `az provider list -o json`
 * `skipDos2Unix`：(選擇性，布林值) 略過指令碼型檔案 URL 或指令碼的 dos2unix 轉換。
 * `timestamp` (選擇性，32 位元整數) 只有在透過變更此欄位的值來觸發指令碼的重新執行時，才需使用此欄位。  任何整數值都是可接受的；只要與先前的值不同即可。
   * `commandToExecute`：(若未設定指令碼則為**必要**，字串) 要執行的進入點指令碼。 如果您的命令包含機密資料 (例如密碼)，請改用此欄位。

@@ -1,14 +1,14 @@
 ---
 title: 使用適用于容器的 Azure 監視器來設定 Azure Red Hat OpenShift 叢集 |Microsoft Docs
-description: 本文說明如何設定容器的 Azure 監視器，以監視 Azure Red Hat OpenShift 上託管的 Kubernetes 叢集。
+description: 本文說明如何使用裝載于 Azure Red Hat OpenShift 的 Azure 監視器來設定監視 Kubernetes 叢集。
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: 6922cb7b143989ba329df972a06825629c4c5020
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.openlocfilehash: cb68d08f86efa395f9d4567a00e74632a293ea3f
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405582"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930367"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>使用適用于容器的 Azure 監視器來設定 Azure Red Hat OpenShift 叢集
 
@@ -27,10 +27,8 @@ ms.locfileid: "75405582"
 
 容器的 Azure 監視器支援如[總覽](container-insights-overview.md)文章中所述監視 Azure Red Hat OpenShift，但下列功能除外：
 
-- 即時資料
-- Prometheus 計量抓取
+- 即時資料（預覽）
 - 從叢集節點和 pod[收集計量](container-insights-update-metrics.md)，並將其儲存在 Azure 監視器計量資料庫中
-- 健全狀況功能
 
 ## <a name="prerequisites"></a>必要條件
 

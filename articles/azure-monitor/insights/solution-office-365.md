@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/08/2019
-ms.openlocfilehash: c3251cb26f5ab6dc211c61bc0a6d02b283de6ae5
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: aaa083ef52dcf18fade3315f598b5f57e791cbe0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770334"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932965"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解決方案 (預覽)
 
@@ -30,7 +30,7 @@ ms.locfileid: "75770334"
 > Azure AD 記錄的集合會受到 Azure 監視器定價。  如需詳細資訊，請參閱[Azure 監視器定價](https://azure.microsoft.com/pricing/details/monitor/)。
 >
 > 若要使用 Azure Sentinel Office 365 解決方案：
-> 1. 使用此連接器會影響您的工作區定價。 如需詳細資訊，請參閱[Azure Sentinel 定價](https://azure.microsoft.com/pricing/details/azure-sentinel/)。
+> 1. 在 Azure Sentinel 中使用 Office 365 連接器會影響您工作區的定價。 如需詳細資訊，請參閱[Azure Sentinel 定價](https://azure.microsoft.com/pricing/details/azure-sentinel/)。
 > 2. 如果您已經在使用 Azure 監視器 Office 365 解決方案，則必須先使用[卸載一節](#uninstall)中的腳本將它卸載。
 > 3. 在您的工作區上[啟用 Azure Sentinel 解決方案](../../sentinel/quickstart-onboard.md)。
 > 4. 移至 Azure Sentinel 中的 [**資料連線器**] 頁面，並啟用**Office 365**連接器。

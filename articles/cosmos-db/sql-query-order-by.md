@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5cae2bdd7d1f2f26e626c81ea95d2cee3cc8ae13
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc5c875f4ae54ed334318efc5a1d5610b89bdda5
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444783"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929590"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 ORDER BY 子句
 
@@ -52,7 +52,7 @@ ORDER BY <sort_specification>
    ORDER BY 子句要求索引編制原則必須包含要排序之欄位的索引。 Azure Cosmos DB 查詢執行時間支援針對屬性名稱進行排序，而不是針對計算的屬性。 Azure Cosmos DB 支援多個 ORDER BY 屬性。 若要以多個 ORDER BY 屬性執行查詢，您應該在要排序的欄位上定義[複合索引](index-policy.md#composite-indexes)。
    
 > [!Note] 
-> 使用 .NET SDK 3.4.0 或更新版本時，如果某些檔的排序依據的屬性可能未定義，則您需要明確地在這些屬性上建立索引。 預設的索引編制原則將不允許抓取未定義 sort 屬性的檔。
+> 如果針對某些檔進行排序的屬性可能未定義，而您想要在 ORDER BY 查詢中抓取它們，您必須明確地在這些屬性上建立索引。 預設的索引編制原則不允許抓取未定義 sort 屬性的檔。
 
 ## <a name="examples"></a>範例
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: trbye
 author: trevorbye
 ms.date: 01/06/2020
-ms.openlocfilehash: ad520c7e6503f28de0bd5538662c223575a078fa
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 3216248943ccc0dba788816cdba38732f9e43e14
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75692728"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930756"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Azure Machine Learning 環境是什麼？
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,6 +44,7 @@ ms.locfileid: "75692728"
 * 使用策劃環境或定義您自己的相依性，以定義新的 `Environment` 物件
 * 從您的工作區使用現有的 `Environment` 物件。 這可讓您使用相依性進行一致性和重現性
 * 從現有的 Anaconda 環境定義匯入。
+* 使用 Azure Machine Learning CLI
 
 如需特定程式碼範例，請參閱操作[說明](how-to-use-environments.md#create-an-environment)。 環境也可以透過您的工作區輕鬆管理，並包含下列功能：
 

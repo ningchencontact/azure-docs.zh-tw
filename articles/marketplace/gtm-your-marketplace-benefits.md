@@ -2,18 +2,18 @@
 title: 進入市場服務-您的商業 marketplace 權益 |Azure
 description: Go-To-Market 服務 - 本節描述了發行者可以使用的 Microsoft 資源。
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
-author: qianw211
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
-ms.author: v-qiwe
-ms.openlocfilehash: 7b563cd90ec3e46dfd2d4420b728cd6f69df40eb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: evansma
+ms.openlocfilehash: b8c1034b047e0c72db41bbbbff06feb0bdf06517
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818637"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933914"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>您的商業 marketplace 權益
 
@@ -45,7 +45,7 @@ Marketplace 報酬的設計是為了在您的特定成長階段支援您，從�
 2. 小組會針對每個 marketplace 供應專案，到達「擁有者」或「主要連絡人」。 最佳做法是輸入您定期檢查的個人或別名：傳送至別名的訊息（例如 info@company.com 通常會遺失）。
 
 >[!Note]
->如果您的供應專案已上線超過四周，而且您未收到訊息，請查看 Cloud Partner 入口網站或在合作夥伴中心，檢查您的組織中是否有問題的擁有者。 他們應該具有通訊和後續步驟。 <br> <br> 如果您無法判斷擁有者，或擁有者已離開您的公司，您可以在 https://aka.ms/marketplacepublishersupport提出支援票證。
+>如果您的供應專案已上線超過四周，而且您未收到訊息，請查看 Cloud Partner 入口網站或在合作夥伴中心，檢查您的組織中是否有問題的擁有者。 他們應該具有通訊和後續步驟。 <br> <br> 如果您無法判斷擁有者，或擁有者已離開您的公司，您可以在 https://aka.ms/marketplacepublishersupport 提出支援票證。
 
 隨著您在市集中增加供應項目，您可以使用的活動範圍也會擴展。 所有清單都會收到基本層級的優化建議和升級，做為資源和最佳作法的自助電子郵件的一部分。
 

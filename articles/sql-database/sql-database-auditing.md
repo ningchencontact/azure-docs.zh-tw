@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 0266c08052cd3db7d9081d6b617da94703b9ab77
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: aeca4499a41adf37ba78452f1cf76047dd8c6592
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896311"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931936"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -88,7 +88,7 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 5. **新增** - 您現在有多個選項可設定要寫入稽核記錄的位置。 您可以將記錄寫入至 Azure 儲存體帳戶、Log Analytics 工作區，以透過 Azure 監視器記錄來取用，或使用事件中樞來取用事件中樞以供取用。 您可以設定這些選項的任何組合，並將稽核記錄寫入至每個組合。
   
   > [!NOTE]
-   >若客戶想要為其伺服器或資料庫層級的 audit 事件設定不可變的記錄存放區，應遵循 [Azure 儲存體所提供的指示] （ https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)
+   >若客戶想要為其伺服器或資料庫層級的 audit 事件設定不可變的記錄存放區，則應遵循[Azure 儲存體所提供的指示](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)。
   
   > [!WARNING]
    > 啟用 Log Analytics 的審核會根據內嵌速率產生成本。 請留意使用此[選項](https://azure.microsoft.com/pricing/details/monitor/)的相關成本，或考慮將 audit 記錄儲存在 Azure 儲存體帳戶中。

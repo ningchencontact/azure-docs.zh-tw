@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/5/2019
+ms.date: 1/13/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 7b2751957bf341b37527697f92931bacfb425c09
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f8ed6be825470504b5e7b45a15c4faa9cf5ccfc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397347"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932889"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 範本建立計量警示
 
@@ -555,7 +555,12 @@ az group deployment create \
 
 新版計量警示支援多維度計量警示以及支援多項準則。 您可以使用下列範本，針對維度計量建立更先進的度量警示規則，並指定多個準則。
 
-請注意，當警示規則包含多個條件時，在每個準則中的每個維度使用維度限制為一個值。
+在包含多個準則的警示規則中使用維度時，請注意下列條件約束：
+- 在每個條件中，您只能為每個維度選取一個值。
+- 您不能使用 "\*" 做為維度值。
+- 當不同使用準則來中設定的計量支援相同的維度時，您必須以相同的方式，針對所有這些計量（在相關的使用準則來中）明確設定已設定的維度值。
+    - 在下列範例中，因為**交易**和**SuccessE2ELatency**計量都有**api 名稱**維度，而*Criterion1*指定**api 名稱**維度的 *"GetBlob"* 值，則*criterion2*也必須設定**api 名稱**維度的 *"GetBlob"* 值。
+
 
 根據本逐步解說的目的，請將以下的 JSON 儲存為 advancedstaticmetricalert.json。
 
@@ -784,9 +789,6 @@ az group deployment create \
     --parameters @advancedstaticmetricalert.parameters.json
 ```
 
->[!NOTE]
->
-> 當警示規則包含多個條件時，在每個準則中的每個維度使用維度限制為一個值。
 
 ## <a name="template-for-a-static-metric-alert-that-monitors-multiple-dimensions"></a>監視多個維度之靜態計量警示的範本
 

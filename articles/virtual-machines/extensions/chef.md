@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: 2b69a17c7f9de62187d9dc99f7c1d5c5b74c25ad
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8a5b54131210d243015b37bf234408fd9d2b4c12
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073193"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933615"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Chef VM Extension
 
 Chef 軟體是適用於 Linux 和 Windows 的 DevOps 自動化平台，而 Windows 同時啟用實體和虛擬伺服器組態的管理。 Chef VM Extension 是可以在虛擬機器上啟用 Chef 的擴充功能。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="operating-system"></a>作業系統
 
@@ -36,7 +36,7 @@ Chef VM Extension 需要目標虛擬機器連線至網際網路，才能夠從�
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
-下列 JSON 會顯示 Chef VM Extension 的結構描述。 擴充功能至少需要 Chef Server URL、驗證用戶端名稱和 Chef Server 的驗證金鑰；您可以在 starter-kit.zip (安裝 `knife.rb`Chef Automate[ 時下載的檔案) 中的 ](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) 檔案或獨立 [Chef Server](https://downloads.chef.io/chef-server) 中找到這些值。 因為驗證金鑰應該視為機密資料，所以應該在 **protectedSettings** 元素底下設定驗證金鑰，這表示它只能在目標虛擬機器上解密。
+下列 JSON 會顯示 Chef VM Extension 的結構描述。 擴充功能至少需要 Chef Server URL、驗證用戶端名稱和 Chef Server 的驗證金鑰；您可以在 starter-kit.zip (安裝 [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) 時下載的檔案) 中的 `knife.rb` 檔案或獨立 [Chef Server](https://downloads.chef.io/chef-server) 中找到這些值。 因為驗證金鑰應該視為機密資料，所以應該在 **protectedSettings** 元素底下設定驗證金鑰，這表示它只能在目標虛擬機器上解密。
 
 ```json
 {
@@ -70,23 +70,23 @@ Chef VM Extension 需要目標虛擬機器連線至網際網路，才能夠從�
 | 名稱 | 值 / 範例 | 資料類型
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | 字串 (日期) |
-| publisher | `Chef.Bootstrap.WindowsAzure` | 字串 |
-| 類型 | `LinuxChefClient` (Linux)，`ChefClient` (Windows) | 字串 |
+| publisher | `Chef.Bootstrap.WindowsAzure` | string |
+| type | `LinuxChefClient` (Linux)，`ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.12` | 字串 (雙精確度) |
 
 ### <a name="settings"></a>設定
 
-| 名稱 | 值 / 範例 | 資料類型 | 必要？
+| 名稱 | 值 / 範例 | 資料類型 | 必要項？
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | 字串 (url) | Y |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | 字串 | Y |
-| settings/runlist | `recipe[mycookbook::default]` | 字串 | Y |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
+| settings/runlist | `recipe[mycookbook::default]` | string | Y |
 
 ### <a name="protected-settings"></a>受保護的設定
 
-| 名稱 | 範例 | 資料類型 | 必要？
+| 名稱 | 範例 | 資料類型 | 必要項？
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | 字串 | Y |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | Y |
 
 <!--
 ### Linux-specific settings
@@ -110,7 +110,7 @@ Chef VM Extension 需要目標虛擬機器連線至網際網路，才能夠從�
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 部署
 
-Azure CLI 可以用來將 Chef VM Extension 部署到現有的 VM。 使用您驗證金鑰的內容 (此檔案的副檔名是 **) 來取代** validation_key`.pem`。  使用入門套件中 **檔案的值，來取代**validation_client_name **、** chef_server_url**和**run_list`knife.rb`。
+Azure CLI 可以用來將 Chef VM Extension 部署到現有的 VM。 使用您驗證金鑰的內容 (此檔案的副檔名是 `.pem`) 來取代 **validation_key**。  使用入門套件中 `knife.rb` 檔案的值，來取代 **validation_client_name**、**chef_server_url** 和 **run_list**。
 
 ```azurecli
 az vm extension set \
@@ -122,7 +122,7 @@ az vm extension set \
   --settings '{ "bootstrap_options": { "chef_server_url": "<chef_server_url>", "validation_client_name": "<validation_client_name>" }, "runlist": "<run_list>" }'
 ```
 
-## <a name="troubleshooting-and-support"></a>疑難排解和支援
+## <a name="troubleshooting-and-support"></a>疑難排解及支援
 
 使用 Azure CLI，就可以從 Azure 入口網站擷取有關擴充功能部署狀態的資料。 若要查看指定 VM 的擴充功能部署狀態，請使用 Azure CLI 執行下列命令。
 
@@ -151,6 +151,9 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 | 51 | VM 的作業系統上不支援此擴充功能 | |
 
 其他疑難排解資訊可以在 [Chef VM Extension 讀我檔案](https://github.com/chef-partners/azure-chef-extension)中找到。
+
+> [!NOTE]
+> 如需與 Chef 直接相關的任何其他專案，請聯絡[Chef 支援](https://www.chef.io/support/)。
 
 ## <a name="next-steps"></a>後續步驟
 

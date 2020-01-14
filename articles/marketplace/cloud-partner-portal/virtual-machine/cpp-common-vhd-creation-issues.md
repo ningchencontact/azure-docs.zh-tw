@@ -2,19 +2,19 @@
 title: Azure Marketplace VHD 建立期間的常見問題（FAQ）
 description: 建立 VHD 的常見問題與相關問題。
 services: Azure Marketplace
-author: HannibalSII
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/02/2018
-ms.author: hascipio
+ms.author: evansma
 ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: 1d4224d8f1f735ecef3d4551e3032b916e81dc3c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 152a2f6fda081b2612197cc4848207b336adf8dc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826622"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934268"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>VHD 建立過程中的常見問題 (常見問題集)
 
@@ -75,7 +75,7 @@ Azure Marketplace 目前不支援從位於受控儲存體或 Azure 進階儲存�
 
 一般而言不行。  適用於 Azure 虛擬機器的支援作業系統和標準服務，皆為 64 位元。  不過就技術觀點而言，大部分的 64 位元作業系統皆支援執行 32 位元版本應用程式，以達到回溯相容性。  不過，將 32 位元應用程式做為虛擬機器解決方案一部分的使用方式並不支援，因此*強烈建議避免如此*。  請改為將應用程式重新編譯為 64 位元專案。
 
-如需詳細資訊，請參閱下列文章。
+如需詳細資訊，請參閱下列文章：
 - [執行 32 位元應用程式](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications) (英文)
 - [在 Azure 的虛擬機器中的 32 位元作業系統的支援](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
 - [適用於 Microsoft Azure 虛擬機器的 Microsoft 伺服器軟體支援](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)

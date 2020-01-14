@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: 0fd299ea6ceb9631ff473ec2ac9f37be2f6be215
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 3ec50acc693452fe73d929effcea98b12fc5ff8b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495728"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933942"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>從 Windows 電腦在 HDInsight 上的 Apache Hadoop 生態系統中作業
 
@@ -58,7 +58,7 @@ Azure PowerShell 是一種指令碼環境，可讓您從 Windows 在 HDInsight �
 您可以使用 Visual Studio 搭配 .NET SDK 來管理叢集和開發巨量資料應用程式。 您可以將其他 IDE 用於下列工作，但範例顯示在 Visual Studio 中。
 
 您可以在 Visual Studio 中使用 .NET SDK 執行的工作範例︰
-* [從 .NET Framework 應用程式在 HDInsight 中建立和使用叢集](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)。
+* [適用于 .net 的 AZURE HDINSIGHT SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)。
 * [使用 .NET SDK 執行 Apache Hive 查詢](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)。
 * [在 Apache Hadoop 上搭配使用 C# 使用者定義函式與 Apache Hive 和 Apache Pig 串流處理](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)。
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 844b62f9575249c7b99672e9e67c94cea7ec9f99
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 32897994e4ef22845b1d19d6e0eb3e6b2c968c01
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931446"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930718"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Azure Active Directory B2C 的計費模型
 
@@ -134,7 +134,7 @@ Azure AD B2C 支援 Azure 雲端解決方案提供者 (CSP) 訂用帳戶。 針�
 
 如果來源和目的地訂用帳戶存在於相同的 Azure Active Directory 租使用者中，則可以將 Azure AD B2C 的租使用者移至另一個訂用帳戶。
 
-若要瞭解如何將 Azure 資源（例如 Azure AD B2C 租使用者）移至其他訂用帳戶，請參閱[將資源移至新的資源群組或訂](../azure-resource-manager/resource-group-move-resources.md)用帳戶。
+若要瞭解如何將 Azure 資源（例如 Azure AD B2C 租使用者）移至其他訂用帳戶，請參閱[將資源移至新的資源群組或訂](../azure-resource-manager/management/move-resource-group-and-subscription.md)用帳戶。
 
 開始移動之前，請務必閱讀整篇文章，以充分瞭解這類移動的限制和需求。 除了移動資源的指示之外，它還包含重要的資訊，像是前置移動檢查清單，以及如何驗證移動作業。
 

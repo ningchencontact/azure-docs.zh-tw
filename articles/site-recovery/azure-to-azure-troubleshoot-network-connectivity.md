@@ -2,18 +2,18 @@
 title: 使用 Azure Site Recovery 針對 Azure 到 Azure 嚴重損壞修復的連線進行疑難排解
 description: 針對損毀修復複寫 Azure 虛擬機器時的錯誤和問題進行疑難排解
 services: site-recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 08/05/2019
-ms.author: asgang
-ms.openlocfilehash: 4995a4086c471a06fe859febfd2d1af7fbb22a76
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: 41b5203c328243c9ef7cc74e6b9771c677a54c7c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622441"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933415"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>針對 Azure 至 Azure VM 網路連線問題進行疑難排解
 
@@ -110,7 +110,7 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` (在 ***Windows*** 上)
   3. ProxyInfo.conf 應該要有下列 INI 格式的 Proxy 設定。</br>
                 [proxy]</br>
-                Address= *http://1.2.3.4*</br>
+                Address=http://1.2.3.4</br>
                 Port=567</br>
   4. Azure Site Recovery 行動服務代理程式僅支援***未經驗證的***proxy。
 

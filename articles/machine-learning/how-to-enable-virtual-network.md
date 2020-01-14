@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 01/03/2020
-ms.openlocfilehash: 333d7faacfb5965e74eae69f07ff974a8fff8f25
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/13/2020
+ms.openlocfilehash: f1cedd9851e425de1e4b6392d42a11dbf9f92644
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894000"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934402"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>在 Azure 虛擬網路中保護 Azure ML 實驗和推斷作業
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -167,7 +167,7 @@ Machine Learning Compute 目前使用 Azure Batch 服務將 VM 佈建在指定�
    - Azure 儲存體，方法是使用儲存體的__服務標記__ __。 Region_Name__ （例如 EastUS）
    - Azure Container Registry，方法是使用__AzureContainerRegistry. Region_Name__的__服務標記__（例如，AzureContainerRegistry. EastUS）
    - Azure Machine Learning，方法是使用__AzureMachineLearning__的__服務標記__
-   - 若為計算實例，則為 Azure 雲端，方法是使用 AzureCloud 的__服務__標籤 __。 Region_Name__ （例如 AzureCloud. NorthCentralUS）
+   - 在計算實例 Azure 雲端的情況下，使用__AzureResourceManager__的__服務標記__
 
 下圖顯示 Azure 入口網站中的 NSG 規則設定：
 

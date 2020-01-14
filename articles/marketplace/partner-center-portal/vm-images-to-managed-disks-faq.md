@@ -1,19 +1,19 @@
 ---
 title: 我們正將虛擬機器（VM）映射移至 Azure Marketplace 中的受控磁片儲存體
 description: 為了提供更快、更可靠的儲存空間，並支援新的 marketplace 功能，我們會將 marketplace VM 映射移至受控磁片儲存體。
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 81503b08c5c45a671ac7996905f0772dccaf2f5a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 5eeb223601a3990ef899d7eea96378a8b2a28eee
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456689"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933523"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>我們正在將 Azure Marketplace 的虛擬機器（VM）映射移至受控磁片儲存體
 
@@ -39,11 +39,11 @@ VM 映射的使用者將不會遇到中斷的情況。
 
 ### <a name="do-i-need-to-take-any-action"></a>我需要採取任何動作嗎？
 
-號 發行者或取用者不需要採取任何動作。
+不會。 發行者或取用者不需要採取任何動作。
 
 ### <a name="do-i-have-to-update-my-system-to-call-the-cloud-portal-apis-in-a-different-way-after-they-are-moved-to-managed-disk-storage"></a>我是否必須在將系統移至受控磁片儲存體之後，以不同的方式來更新我的系統以呼叫雲端入口網站 Api？
 
-號 您現有的 API 呼叫將會繼續作用。
+不會。 您現有的 API 呼叫將會繼續作用。
 
 ### <a name="would-all-my-vm-images-be-moved-to-managed-disk-at-the-same-time"></a>我的所有 VM 映射會同時移至受控磁片嗎？
 

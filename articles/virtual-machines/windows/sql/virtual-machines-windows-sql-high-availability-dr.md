@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: ac62ec49803bf55bbe61e08e60b648dd6c268510
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f58bb534728660b85f7d16910dde7a37914fd571
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357959"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933948"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中 SQL Server 的高可用性和災害復原
 
@@ -77,7 +77,7 @@ ms.locfileid: "75357959"
 
 ## <a name="free-dr-replica-in-azure"></a>Azure 中的免費 DR 複本
 
-如果您有[軟體保證](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3)，您可以使用 Always On 可用性群組或容錯移轉叢集實例的 SQL Server 來執行混合式嚴重損壞修復（DR）計畫，而不會針對被動 DR 實例產生額外的授權成本。
+如果您有[軟體保證](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3)，您可以使用 SQL Server 來執行混合式嚴重損壞修復（DR）計畫，而不會針對被動 DR 實例產生額外的授權成本。
 
 在下圖中，安裝程式會使用在 Azure 虛擬機器上執行的 SQL Server，利用12個核心作為內部部署 SQL Server 部署的嚴重損壞修復複本，並使用12個核心。 在過去，您需要為內部部署和 Azure 虛擬機器部署授權12個 SQL Server 核心。 新的權益會提供在 Azure 虛擬機器上執行的被動複本權益。 現在，只要符合 Azure 虛擬機器上被動複本的嚴重損壞修復準則，您就只需要授權執行內部部署 SQL Server 的12個核心。
 

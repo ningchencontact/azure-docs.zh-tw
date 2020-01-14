@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 1354bd2895a8fe6e8aa1f12cd92295c77ca2d4b2
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: ceb82bf729470f9996bc9ecc766329a0d1242ec4
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564162"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930021"
 ---
 # <a name="security-control-logging-and-monitoring"></a>安全性控制：記錄和監視
 
@@ -79,9 +79,13 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
 如果計算資源是由 Microsoft 所擁有，則 Microsoft 會負責監視它。 如果計算資源由您的組織所擁有，則您必須負責監視它。 您可以使用 Azure 資訊安全中心來監視 OS。 資訊安全中心從作業系統收集的資料包括作業系統類型和版本、OS （Windows 事件記錄）、執行中的進程、電腦名稱稱、IP 位址，以及登入的使用者。 Log Analytics 代理程式也會收集損毀傾印檔案。
 
-如何使用 Azure 監視器： https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm 收集 Azure 虛擬機器內部主機記錄
+如何使用 Azure 監視器收集 Azure 虛擬機器內部主機記錄檔：
 
-瞭解 Azure 資訊安全中心資料收集： https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
+https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm
+
+瞭解 Azure 資訊安全中心資料收集：
+
+https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
 
 ## <a name="25-configure-security-log-storage-retention"></a>2.5：設定安全性記錄儲存體保留
 
@@ -91,7 +95,9 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
 在 Azure 監視器中，根據貴組織的合規性法規來設定您的 Log Analytics 工作區保留期間。 針對長期/封存儲存體使用 Azure 儲存體帳戶。
 
-如何設定 Log Analytics 工作區的記錄檔保留參數： https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+如何設定 Log Analytics 工作區的記錄檔保留參數：
+
+https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
 ## <a name="26-monitor-and-review-logs"></a>2.6：監視和審核記錄
 

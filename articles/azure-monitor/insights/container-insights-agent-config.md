@@ -2,19 +2,23 @@
 title: 設定容器代理程式資料集合的 Azure 監視器 |Microsoft Docs
 description: 本文說明如何設定容器代理程式的 Azure 監視器，以控制 stdout/stderr 和環境變數記錄檔收集。
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: 0bde696f39af22f864500e0c79b5e03ca66cc7f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.openlocfilehash: 28b93190298ae61732ff7d2e297899af4ba0e5f2
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405671"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933012"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>為容器的 Azure 監視器設定代理程式資料收集
 
-Azure 監視器容器會從容器化的代理程式，收集從部署至裝載于 Azure Kubernetes Service （AKS）之受控 Kubernetes 叢集的 stdout、stderr 和環境變數。 您可以藉由建立自訂的 Kubernetes ConfigMaps 來控制此體驗，以設定代理程式資料收集設定。 
+容器的 Azure 監視器會從容器化的代理程式中，收集部署至受控 Kubernetes 叢集的 stdout、stderr 和環境變數。 您可以藉由建立自訂的 Kubernetes ConfigMaps 來控制此體驗，以設定代理程式資料收集設定。 
 
 本文示範如何根據您的需求建立 ConfigMap 和設定資料收集。
+
+>[!NOTE]
+>針對 Azure Red Hat OpenShift，會在*OpenShift-Azure 記錄*命名空間中建立範本 ConfigMap 檔案。 
+>
 
 ## <a name="configmap-file-settings-overview"></a>ConfigMap 檔案設定總覽
 
@@ -44,9 +48,12 @@ ConfigMaps 是全域清單，而且只能有一個 ConfigMap 套用至代理程�
 
 請執行下列步驟來設定您的 ConfigMap 設定檔，並將其部署到您的叢集。
 
-1. [下載](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml)範本 ConfigMap yaml 檔，並將它儲存為 azm-ms-agentconfig. yaml。  
+1. [下載](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml)範本 ConfigMap yaml 檔，並將它儲存為 azm-ms-agentconfig. yaml。 
 
-2. 編輯 ConfigMap yaml 檔與您的自訂專案，以收集 stdout、stderr 和/或環境變數。
+   >[!NOTE]
+   >使用 Azure Red Hat OpenShift 時，不需要執行此步驟，因為 ConfigMap 範本已存在於叢集上。
+
+2. 編輯 ConfigMap yaml 檔與您的自訂專案，以收集 stdout、stderr 和/或環境變數。 如果您要編輯 Azure Red Hat OpenShift 的 ConfigMap yaml 檔，請先執行命令 `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging`，以在文字編輯器中開啟檔案。
 
     - 若要排除 stdout 記錄檔收集的特定命名空間，您可以使用下列範例來設定索引鍵/值： `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`。
     
@@ -54,15 +61,17 @@ ConfigMaps 是全域清單，而且只能有一個 ConfigMap 套用至代理程�
     
     - 若要停用 stderr 記錄收集整個叢集，請使用下列範例來設定索引鍵/值： `[log_collection_settings.stderr] enabled = false`。
 
-3. 執行下列 kubectl 命令來建立 ConfigMap： `kubectl apply -f <configmap_yaml_file.yaml>`。
+3. 針對 Azure Red Hat OpenShift 以外的叢集，請執行下列 kubectl 命令來建立 ConfigMap： `kubectl apply -f <configmap_yaml_file.yaml>` 在 Azure Red Hat OpenShift 以外的叢集上。 
     
     範例： `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
-    
-    設定變更可能需要幾分鐘的時間才會生效，且叢集中的所有 omsagent pod 都會重新開機。 重新開機是所有 omsagent pod 的輪流重新開機，不會同時全部重新開機。 當重新開機完成時，會顯示與下列類似的訊息，並包含結果： `configmap "container-azm-ms-agentconfig" created`。
 
-## <a name="verify-configuration"></a>驗證組態 
+    針對 Azure Red Hat OpenShift，請將您的變更儲存在編輯器中。
 
-若要確認已成功套用設定，請使用下列命令來檢查代理程式 pod 中的記錄： `kubectl logs omsagent-fdf58 -n=kube-system`。 如果 omsagent pod 有設定錯誤，輸出將會顯示類似下列的錯誤：
+設定變更可能需要幾分鐘的時間才會生效，且叢集中的所有 omsagent pod 都會重新開機。 重新開機是所有 omsagent pod 的輪流重新開機，不會同時全部重新開機。 當重新開機完成時，會顯示與下列類似的訊息，並包含結果： `configmap "container-azm-ms-agentconfig" created`。
+
+## <a name="verify-configuration"></a>驗證組態
+
+若要確認設定已成功套用至 Azure Red Hat OpenShift 以外的叢集，請使用下列命令來檢查代理程式 pod 中的記錄： `kubectl logs omsagent-fdf58 -n=kube-system`。 如果 omsagent pod 有設定錯誤，輸出將會顯示類似下列的錯誤：
 
 ``` 
 ***************Start Config Processing******************** 
@@ -73,6 +82,10 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 
 - 從代理程式 pod 使用相同的 `kubectl logs` 命令來記錄。 
 
+    >[!NOTE]
+    >此命令不適用於 Azure Red Hat OpenShift 叢集。
+    > 
+
 - 從即時記錄。 即時記錄會顯示類似下列的錯誤：
 
     ```
@@ -81,11 +94,21 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 
 - 從 Log Analytics 工作區中的**KubeMonAgentEvents**資料表。 資料會每小時傳送一次，並出現設定錯誤的*錯誤*嚴重性。 如果沒有任何錯誤，則資料表中的專案將會有具有嚴重性*資訊*的資料，而這不會報告任何錯誤。 **Tags**屬性包含發生錯誤之 pod 和容器識別碼的詳細資訊，以及最後一次出現、最後一次發生和計數的時間。
 
-錯誤會使 omsagent 無法剖析檔案，因而導致它重新開機並使用預設設定。 更正 ConfigMap 中的錯誤之後，請執行下列命令來儲存 yaml 檔案並套用更新的 ConfigMaps： `kubectl apply -f <configmap_yaml_file.yaml`。
+- 使用 Azure Red Hat OpenShift，藉由搜尋**ContainerLog**資料表來檢查 omsagent 記錄，以確認是否已啟用記錄收集 OpenShift-Azure 記錄。
+
+在 Azure Red Hat OpenShift 以外的叢集上更正 ConfigMap 中的錯誤之後，請儲存 yaml 檔案，並執行下列命令來套用更新的 ConfigMaps： `kubectl apply -f <configmap_yaml_file.yaml`。 針對 Azure Red Hat OpenShift，請執行下列命令來編輯並儲存更新的 ConfigMaps：
+
+``` bash
+oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
+```
 
 ## <a name="applying-updated-configmap"></a>套用更新的 ConfigMap
 
-如果您已將 ConfigMap 部署至叢集，而且想要使用較新的設定來更新它，您可以編輯先前使用的 ConfigMap 檔案，然後使用與之前相同的命令來套用，`kubectl apply -f <configmap_yaml_file.yaml`。
+如果您已在 Azure Red Hat OpenShift 以外的叢集上部署 ConfigMap，而您想要使用較新的設定來更新它，您可以編輯先前使用的 ConfigMap 檔案，然後使用與之前相同的命令來套用，`kubectl apply -f <configmap_yaml_file.yaml`。 針對 Azure Red Hat OpenShift，請執行下列命令來編輯並儲存更新的 ConfigMaps：
+
+``` bash
+oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
+```
 
 設定變更可能需要幾分鐘的時間才會生效，且叢集中的所有 omsagent pod 都會重新開機。 重新開機是所有 omsagent pod 的輪流重新開機，不會同時全部重新開機。 當重新開機完成時，會顯示與下列類似的訊息，並包含結果： `configmap "container-azm-ms-agentconfig" updated`。
 

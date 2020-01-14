@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: 8c358b727a436f1951337005883b5d577119fac1
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/10/2020
+ms.openlocfilehash: 3d0220f23c8098222b93473dc6c7aa7a4f2dd791
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895629"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933450"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>如何針對 Azure Digital Twins 設定 Postman
 
@@ -131,6 +131,12 @@ ms.locfileid: "75895629"
    > * 您必須針對整個要求選取 `multipart/mixed` 或其他適當的 **Content-type**。
 
 1. 最後，選取 [**傳送**] 以提交多部分 HTTP POST 要求。 `200` 或 `201` 的狀態碼表示成功的要求。 適當的回應訊息會出現在用戶端介面中。
+
+1. 藉由呼叫 API 端點來驗證您的 HTTP POST 要求資料： 
+
+   ```URL
+   YOUR_MANAGEMENT_API_URL/spaces/blobs?includes=description
+   ```
 
 ## <a name="next-steps"></a>後續步驟
 

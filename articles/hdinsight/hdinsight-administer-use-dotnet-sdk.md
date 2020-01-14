@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: abfbac552cc5cb4449a75c45d0c1ffdbcf6b770c
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 432b8855ffb9542a1e052c8c97b52bcddeb5c824
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508099"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934745"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Apache Hadoop 叢集
 
@@ -108,9 +108,6 @@ namespace HDInsightManagement
 
 當您執行此程式時，應該會看到提示。  如果您不想要看到提示，請參閱 [建立非互動式驗證 .NET HDInsight 應用程式](hdinsight-create-non-interactive-authentication-dotnet-applications.md)。
 
-## <a name="create-clusters"></a>建立叢集
-
-請參閱 [使用 .NET SDK 在 HDInsight 中建立 Linux 型叢集](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
 ## <a name="list-clusters"></a>列出叢集
 
@@ -135,7 +132,7 @@ _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
 _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
 ```
 
-## <a name="scale-clusters"></a>調整叢集
+## <a name="scale-clusters"></a>擴充叢集
 
 叢集調整功能可讓您變更在 Azure HDInsight 中執行的叢集所用的背景工作節點數目，而不需要重新建立叢集。
 
@@ -149,7 +146,7 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
     您可以順暢地增加正在執行的 Hadoop 叢集中背景工作節點數目，而不會影響任何擱置或執行中的工作。 您也可以在作業進行當中提交新工作。 系統會順暢處理失敗的調整作業，讓叢集永保正常運作狀態。
   
     減少資料節點數目以縮減 Hadoop 叢集時，系統會重新啟動叢集中的部分服務。 這會導致所有執行中和擱置的工作在調整作業完成時失敗。 但您可以在作業完成後重新提交這些工作。
-* Apache HBase (英文)
+* Apache HBase
   
     您可以順暢地在 HBase 叢集運作時對其新增或移除資料節點。 區域伺服器會在完成調整作業的數分鐘之內自動取得平衡。 但是，您也可以手動平衡區域伺服器，方法是登入叢集的前端節點，然後從命令提示字元視窗執行下列命令：
   
@@ -229,7 +226,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 > [!NOTE]  
 > 透過授與/撤銷存取權，您將重設叢的使用者名稱和密碼。
 
-這也可以透過入口網站完成。 請參閱[使用 Azure 入口網站在 HDInsight 中管理 Apache Hadoop 叢集](hdinsight-administer-use-portal-linux.md)。
+這也可以透過入口網站完成。 請參閱[使用 Azure 入口網站來管理 HDInsight 中的 Apache Hadoop](hdinsight-administer-use-portal-linux.md)叢集。
 
 ## <a name="update-http-user-credentials"></a>更新 HTTP 使用者認證
 
@@ -267,13 +264,13 @@ foreach (var key in results.Configuration.Keys)
 
 ## <a name="upload-data-to-azure-blob-storage"></a>將資料上傳至 Azure Blob 儲存體
 
-請參閱[資料上傳至 HDInsight][hdinsight-upload-data]。
+請參閱[將資料上傳至 HDInsight][hdinsight-upload-data]。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 
 * [HDInsight .NET SDK 參考文件](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集](hdinsight-administer-use-portal-linux.md)
-* [管理 HDInsight 使用命令列介面][hdinsight-admin-cli]
+* [使用命令列介面管理 HDInsight][hdinsight-admin-cli]
 * [建立 HDInsight 叢集][hdinsight-provision]
 * [將資料上傳至 HDInsight][hdinsight-upload-data]
 * [開始使用 Azure HDInsight][hdinsight-get-started]

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/24/2019
+ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a99b9089e568351cf736310e778ba477441407
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1d1faf501aff8960a4b1961b34164be07b1d685d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422581"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932484"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>什麼是 Azure AD 權利管理？
 
@@ -134,17 +134,32 @@ Azure AD 權利管理有助於解決這些挑戰。  若要深入瞭解客戶如
 
 特製化雲端（例如 Azure Government、Azure 德國和 Azure 中國世紀）目前無法供使用。
 
-### <a name="which-users-must-have-licenses"></a>哪些使用者必須有授權？
+### <a name="how-many-licenses-must-you-have"></a>您必須擁有多少個授權？
 
-您的租使用者至少必須有多個 Azure AD Premium P2 授權，因為您在權利管理中有作用中的成員使用者。 權利管理中的有效成員使用者包括：
+請確定您的目錄至少有多個 Azure AD Premium P2 授權，因為您擁有將執行下列工作的員工：
 
-- 起始或核准存取封裝要求的使用者。
-- 已獲指派存取套件的使用者。
-- 管理存取套件的使用者。
+- **可以**要求存取封裝的成員使用者。
+- 要求存取封裝的成員和來賓使用者。
+- 核准存取封裝要求的成員和來賓使用者。
 
-在成員使用者的授權中，您也可以允許許多來賓使用者與權利管理互動。 如需如何計算可包含的來賓使用者數目的詳細資訊，請參閱[AZURE ACTIVE DIRECTORY B2B 共同作業授權指引](../b2b/licensing-guidance.md)。
+下列工作**不**需要 Azure AD Premium P2 授權：
 
-如需如何將授權指派給使用者的詳細資訊，請參閱[使用 Azure Active Directory 入口網站指派或移除授權](../fundamentals/license-users-groups.md)。 請注意，[權利管理] 目前不會對使用者強制執行授權指派。
+- 具有設定初始目錄、存取封裝和原則之全域管理員角色的使用者，並不需要任何授權，而是會將系統管理工作委派給其他使用者。
+- 已委派系統管理工作的使用者（例如目錄建立者、目錄擁有者和存取封裝管理員）不需要任何授權。
+- **可以**要求存取套件**但不要求**存取套件的來賓，不需要任何授權。
+
+針對您為成員使用者（員工）購買的每個付費 Azure AD Premium P2 授權，您可以使用 Azure AD B2B 邀請最多5位來賓使用者。 這些來賓使用者也可以使用 Azure AD Premium P2 功能。 如需詳細資訊，請參閱[AZURE AD B2B 共同作業授權指引](../b2b/licensing-guidance.md)。
+
+如需有關授權的詳細資訊，請參閱[使用 Azure Active Directory 入口網站指派或移除授權](../fundamentals/license-users-groups.md)。
+
+### <a name="example-license-scenarios"></a>範例授權案例
+
+以下是一些範例授權案例，可協助您判斷您必須擁有的授權數目。
+
+| 案例 | 計算 | 授權數目 |
+| --- | --- | --- |
+| Woodgrove Bank 的全域管理員會建立初始目錄，並將系統管理工作委派給其他6個使用者。 其中一個原則會指定**所有員工**（2000員工）可以要求一組特定的存取封裝。 150員工會要求存取封裝。 | **可**要求存取套件的2000員工 | 2,000 |
+| Woodgrove Bank 的全域管理員會建立初始目錄，並將系統管理工作委派給其他6個使用者。 其中一個原則會指定**所有員工**（2000員工）可以要求一組特定的存取封裝。 另一個原則指定來自**合作夥伴 Contoso** （來賓）之使用者的某些使用者，可以要求相同的存取權套件進行核准。 Contoso 有30000個使用者。 150員工向 Contoso 要求存取套件和10500位使用者。 | 2000員工 + 500 來自 Contoso 的來賓使用者超過1:5 的比率（10500-（2000 * 5）） | 2,500 |
 
 ## <a name="next-steps"></a>後續步驟
 

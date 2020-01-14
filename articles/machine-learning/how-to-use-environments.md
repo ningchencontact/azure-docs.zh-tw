@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: af6848e85db5d2a557835b063a499e3439557eb6
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 93a70bf0d9189368135b8007e95627fc64064c51
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690438"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932191"
 ---
 # <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>重複使用環境，以 Azure Machine Learning 訓練 & 部署。
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -344,6 +344,34 @@ service = Model.deploy(
 ## <a name="example-notebooks"></a>Notebook 範例
 
 這個[範例筆記本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments)會在本文中示範的概念和方法上展開。
+
+## <a name="create-and-manage-environments-with-the-cli"></a>使用 CLI 建立和管理環境
+
+[AZURE MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)會反映 Python SDK 的大部分功能，並可用於建立和管理環境。 下列命令示範基本功能。
+
+下列命令會在指定的目錄中 scaffold 預設環境定義的檔案。 這些檔案是與 SDK 中對應的類別類似的 JSON 檔案，可以用來建立具有自訂設定的新環境。 
+
+```azurecli-interactive
+az ml environment scaffold -n myenv -d myenvdir
+```
+
+執行下列命令，以從指定的目錄註冊環境。
+
+```azurecli-interactive
+az ml environment register -d myenvdir
+```
+
+執行下列命令將會列出所有已註冊的環境。
+
+```azurecli-interactive
+az ml environment list
+```
+
+使用下列命令下載已註冊的環境。
+
+```azurecli-interactive
+az ml environment download -n myenv -d downloaddir
+```
 
 ## <a name="next-steps"></a>後續步驟
 

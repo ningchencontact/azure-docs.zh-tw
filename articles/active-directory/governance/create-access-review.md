@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 583eb62e6eeaaa799d2ea75261ee511fb8ddb7ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e65eb08873da71c7683fe3347484831dfff58793
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422677"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932631"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>在 Azure AD 存取評論中建立群組和應用程式的存取權審查
 
@@ -33,7 +33,7 @@ ms.locfileid: "75422677"
 - Azure AD Premium P2
 - 全域管理員或使用者管理員
 
-如需詳細資訊，請參閱[哪些使用者必須擁有授權？](access-reviews-overview.md#which-users-must-have-licenses)。
+如需詳細資訊，請參閱[授權需求](access-reviews-overview.md#license-requirements)。
 
 ## <a name="create-one-or-more-access-reviews"></a>建立一或多個存取評論
 

@@ -1,18 +1,18 @@
 ---
 title: 商業 marketplace 支出摘要 |Azure Marketplace
 description: '[付款摘要] 會顯示您在供應專案中所獲得之金錢的詳細資料。 也可以讓您了解何時會收到付款與付款金額。'
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 3836e815d296456ff95f87f0592e3277503420fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 38717ae103ac72d35042ced9bf662d295ed8a29b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427151"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931810"
 ---
 # <a name="payout-reporting"></a>支付報告
 
@@ -74,11 +74,11 @@ ms.locfileid: "75427151"
 |期間結束 (月)   | 2019年8月30日 | | |
 |計費日期 | 2019年9月1日 | | |
 |客戶付款日期 | 2019年9月1日 | | |
-|委付期間 (僅信用卡，30 天) | 2019年9月1日-2019 年9月30日 | | **相互關聯屬性訂單：** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li> 客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 尚未 |
+|委付期間 (僅信用卡，30 天) | 2019年9月1日-2019 年9月30日 | | **相互關聯屬性訂單：** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li> 客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 尚未 |
 |收帳期間開始 | 2019年9月1日 | | |
 |收帳期間結束 (最大值，30 天) | 2019年9月30日 | | |
-|付款計算日期 (每月第 15 日) | 2019年10月1日 | | **相互關聯屬性** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li>客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 提交 |
-|付款日期 | 2019年10月15日 | | **相互關聯屬性** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li> 客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 已傳送付款 |
+|付款計算日期 (每月第 15 日) | 2019年10月1日 | | **相互關聯屬性** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li>客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 提交 |
+|付款日期 | 2019年10月15日 | | **相互關聯屬性** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li> 客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 已傳送付款 |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Enterprise 合約（每季/每月客戶）
 
@@ -93,7 +93,7 @@ ms.locfileid: "75427151"
 |收帳期間結束 (最大值，90 天) | 2020年1月15日 | | |
 |客戶付款日期 | 2019年12月30日 | | |
 |支出計算 | 2020年1月15日 | | |
-|付款日期 | 2020年2月15日 | | **以季為基礎的客戶** <br> <br> **訂單報表** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li> 客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 已傳送 |
+|付款日期 | 2020年2月15日 | | **以季為基礎的客戶** <br> <br> **訂單報表** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li> 客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 已傳送 |
 
 ## <a name="transaction-history-download-export"></a>交易記錄下載匯出
 

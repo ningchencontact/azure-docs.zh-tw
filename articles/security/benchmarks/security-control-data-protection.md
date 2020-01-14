@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 914d1af9793107031af9797cb965420443e80c4a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 5482495f87e87e5d05d8adca6b053810a62dcb4e
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564331"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934508"
 ---
 # <a name="security-control-data-protection"></a>安全性控制：資料保護
 
@@ -85,7 +85,7 @@ https://docs.microsoft.com/azure/firewall/threat-intel
 
 遵循 Azure 資訊安全中心的待用加密建議和傳輸中的加密（如果適用）。
 
-瞭解使用 Azure 傳輸加密的情況：
+瞭解使用 Azure 傳輸的加密：
 
 https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit
 
@@ -164,4 +164,3 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 ## <a name="next-steps"></a>後續步驟
 
 請參閱下一個安全性控制：[弱點管理](security-control-vulnerability-management.md)
-

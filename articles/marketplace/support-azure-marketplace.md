@@ -2,19 +2,19 @@
 title: 支援 Azure Marketplace 和 AppSource | Azure
 description: Azure Marketplace 和 AppSource 的支援資訊和連結
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 7/25/2019
-ms.author: v-qiwe
-ms.openlocfilehash: b036f7f7455d265849db3c0b82a21471ed1a902c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: evansma
+ms.openlocfilehash: 40d466bd4e5959453f8c3042c4b14f6c3ef605bf
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822627"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933464"
 ---
 # <a name="support-for-the-marketplace"></a>Marketplace 的支援  
 以下是 Marketplace 的支援選項清單。  
@@ -48,6 +48,6 @@ ms.locfileid: "73822627"
 
 
 ## <a name="next-steps"></a>後續步驟
-請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)頁面。  
+請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)網頁。  
  
 ---

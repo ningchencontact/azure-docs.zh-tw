@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 9081f74aee7ff503c7fe29cef6ca76e6d6b46a4f
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 543573610c2ea3ab0bcd89e1b8f4ee5f5a34dbc0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564266"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934438"
 ---
 # <a name="security-control-identity-and-access-control"></a>安全性控制：身分識別和存取控制
 
@@ -63,9 +63,11 @@ Azure AD 沒有預設密碼的概念。 需要密碼的其他 Azure 資源會強
 
 可能的話，請使用 Azure Active Directory SSO，而不是針對每個服務設定個別的獨立認證。 使用 Azure 資訊安全中心身分識別和存取管理建議。
 
-瞭解具有 Azure AD 的 SSO： https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+瞭解具有 Azure AD 的 SSO：
 
-## <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5：針對所有以 Azure Active Directory 為基礎的存取，請使用多重要素驗證。
+https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+
+## <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5：針對所有以 Azure Active Directory 為基礎的存取使用多重要素驗證
 
 | Azure 識別碼 | CIS 識別碼 | 責任 |
 |--|--|--|
@@ -89,9 +91,13 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 使用已設定 MFA 的 Paw （特殊許可權存取工作站）來登入和設定 Azure 資源。
 
-瞭解特殊許可權存取工作站： https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+瞭解特殊許可權存取工作站：
 
-如何在 Azure 中啟用 MFA： https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+
+如何在 Azure 中啟用 MFA：
+
+https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 
 ## <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7：從系統管理客戶紀錄和警示可疑活動
@@ -130,19 +136,25 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-
 
 使用 Azure Active Directory （AAD）做為中央驗證和授權系統。 AAD 會針對待用和傳輸中的資料使用強式加密來保護資料。 AAD 也會 salts、雜湊並安全地儲存使用者認證。
 
-如何建立和設定 AAD 實例： https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
+如何建立和設定 AAD 實例：
+
+https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
 ## <a name="310-regularly-review-and-reconcile-user-access"></a>3.10：定期審查並協調使用者存取
 
 | Azure 識別碼 | CIS 識別碼 | 責任 |
 |--|--|--|
-| 3.1 | 16.9、16.10 | 客戶 |
+| 3.10 | 16.9、16.10 | 客戶 |
 
 Azure AD 提供記錄檔，以協助探索過時的帳戶。 此外，您可以使用 Azure 身分識別存取審查來有效率地管理群組成員資格、企業應用程式的存取權，以及角色指派。 您可以定期檢查使用者存取權，以確保只有適當的使用者可以繼續進行存取。 
 
-Azure AD 報告 https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+Azure AD 報告：
 
-如何使用 Azure 身分識別存取權審查： https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+
+如何使用 Azure 身分識別存取權審查：
+
+https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
 ## <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11：監視嘗試存取停用的帳戶
 

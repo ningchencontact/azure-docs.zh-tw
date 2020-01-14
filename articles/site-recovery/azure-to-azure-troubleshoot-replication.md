@@ -2,18 +2,18 @@
 title: 使用 Azure Site Recovery 針對進行中的 Azrue Vm 進行進行中的複寫進行疑難排解
 description: 對於複寫 Azure 虛擬機器進行災害復原時發生的錯誤和問題進行疑難排解
 services: site-recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.author: asgang
-ms.openlocfilehash: 7b9da202704b20e5770343f857c044ea19ae696a
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: b738ffc36334fc540582ba29e803eb2790e2119e
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620890"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930749"
 ---
 # <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>針對 Azure 至 Azure VM 複寫的持續性問題疑進行難排解
 
@@ -51,7 +51,7 @@ Azure Site Recovery 會以一致方式將資料從來源區域複寫到災害復
 進階 P20、P30、P40 或 P50 磁碟 | 8 KB    | 5 MB/秒 | 每個磁碟 421 GB
 進階 P20、P30、P40 或 P50 磁碟 | 16 KB 或更大 |10 MB/秒 | 每個磁碟 842 GB
 
-### <a name="solution"></a>方案
+### <a name="solution"></a>解決方案
 Azure Site Recovery 的資料變更率限制是以磁碟類型為基礎。 若要知道此問題為重複發生或暫時發生，請尋找受影響虛擬機器的資料變更率。 移至來源虛擬機器，在 [監視] 底下尋找計量，並新增如此螢幕擷取畫面所示的計量：
 
 ![尋找資料變更率的三步驟程序](./media/site-recovery-azure-to-azure-troubleshoot/churn.png)
@@ -122,7 +122,7 @@ Site Recovery 會將複寫的資料傳送到快取儲存體帳戶。 如果將�
 
 - 如果停用 VSS，
     - 確認 VSS 提供者服務的 [啟動類型] 設定為 [**自動**]。
-    - 重新開機下列服務：
+    - 重新啟動下列服務：
         - VSS 服務
         - Azure Site Recovery VSS 提供者
         - VDS 服務
@@ -136,7 +136,7 @@ Site Recovery 會將複寫的資料傳送到快取儲存體帳戶。 如果將�
 - 重新安裝： C:\Program Files （x86） \Microsoft Azure Site Recovery\agent\ InMageVSSProvider_Install .cmd
  
 確認 VSS 提供者服務的 [啟動類型] 設定為 [**自動**]。
-    - 重新開機下列服務：
+    - 重新啟動下列服務：
         - VSS 服務
         - Azure Site Recovery VSS 提供者
         - VDS 服務

@@ -1,19 +1,19 @@
 ---
 title: Marketplace 計量服務 Api |Azure Marketplace
 description: Azure Marketplace 中 SaaS 供應專案的使用事件。
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 36ca95191e0e6422bd93360b98243393acad8147
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dea950ff72eff2372fc10f989d4ce77fa746c4bf
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825483"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933579"
 ---
 # <a name="marketplace-metering-service-apis"></a>Marketplace 計量服務 API
 
@@ -52,7 +52,7 @@ ms.locfileid: "73825483"
 ### <a name="responses"></a>回應
 
 代碼：200<br>
-OK 
+確定 
 
 ```json
 {
@@ -161,7 +161,7 @@ Batch 使用量事件 API 可讓您一次發出一個以上已購買實體的使
 ### <a name="responses"></a>回應
 
 代碼：200<br>
-OK
+確定
 
 ```json
 {

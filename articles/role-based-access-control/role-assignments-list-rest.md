@@ -12,19 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e20edcb5e2406c216711a2e0f696ef06e19fe21e
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8a9841e2a8a8ec0aede94f849b7818c86f9862df
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74710395"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934089"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-rest-api"></a>使用 Azure RBAC 和 REST API 列出角色指派
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] 本文說明如何使用 REST API 列出角色指派。
+
+> [!NOTE]
+> 如果您的組織具有外包管理功能給使用[Azure 委派資源管理](../lighthouse/concepts/azure-delegated-resource-management.md)的服務提供者，該服務提供者所授權的角色指派將不會顯示在這裡。
 
 ## <a name="list-role-assignments"></a>列出角色指派
 
@@ -38,18 +41,18 @@ ms.locfileid: "74710395"
 
 1. 在 URI 中，將 *{scope}* 取代為要列出角色指派的範圍。
 
-    | Scope | Type |
+    | 範圍 | 類型 |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | 管理群組 |
-    | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}` | 訂閱 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 資源群組 |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
 
     在上述範例中，microsoft web 是參考 App Service 實例的資源提供者。 同樣地，您可以使用任何其他資源提供者並指定範圍。 如需詳細資訊，請參閱[Azure 資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)和支援的[Azure Resource Manager 資源提供者作業](resource-provider-operations.md)。  
      
 1. 將 *{filter}* 取代為您要針對角色指派清單篩選套用的條件。
 
-    | 篩選 | 描述 |
+    | 篩選 | 說明 |
     | --- | --- |
     | `$filter=atScope()` | 只會列出指定範圍的角色指派，不包括指派的角色指派。 |
     | `$filter=principalId%20eq%20'{objectId}'` | 列出指定之使用者、群組或服務主體的角色指派。 |

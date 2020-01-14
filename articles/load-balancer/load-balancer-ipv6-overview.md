@@ -13,17 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 4f4baea1c293a1707d87780044a21ff675cb7f98
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 6bc7f45d84d525156a3d25bdceef4d1012844afa
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666200"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931976"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer 的 IPv6 概觀
 
 
 >[!NOTE] 
+>[Azure VNet 的 IPv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)已取代此內容。 Azure 建議新的 IPv6 部署使用適用于 Azure 虛擬網路的新 IPv6 功能。
+
+>[!NOTE]
 >Azure Load Balancer 支援兩種不同類型：基本和標準。 本文討論基本 Load Balancer。 如需標準 Load Balancer 的詳細資訊，請參閱[標準 Load Balancer 概觀](load-balancer-standard-overview.md)。
 
 基本 SKU 網際網路面向的負載平衡器可以使用 IPv6 位址進行部署。 除了 IPv4 連線功能，這還具有下列功能︰

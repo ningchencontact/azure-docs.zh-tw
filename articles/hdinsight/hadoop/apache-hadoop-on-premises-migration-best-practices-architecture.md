@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 9f532e7bbf9e24e431341344b3172c988f69bfc3
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 2d0d5bb871612bc5e16a26eb49808c39661ffb50
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951525"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934679"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 架構最佳作法
 
@@ -30,7 +30,7 @@ Azure HDInsight 叢集專為特定的計算使用類型而設計。 因為儲存
 |批次處理 (ETL / ELT)|Hadoop、Spark|
 |資料倉儲|Hadoop、Spark、互動式查詢|
 |IoT / 串流|Kafka、Storm、Spark|
-|NoSQL 交易處理|hbase|
+|NoSQL 交易處理|HBase|
 |使用記憶體內快取執行互動式及更快速的查詢|互動式查詢|
 |資料科學|ML 服務、Spark|
 
@@ -43,7 +43,7 @@ Azure HDInsight 叢集專為特定的計算使用類型而設計。 因為儲存
 |[Azure CLI (1.0 版)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
-|[.NET SDK](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)||||X|
+|[.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)||||X|
 |[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
 |[Java SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
 |[Azure 資源管理員範本](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||

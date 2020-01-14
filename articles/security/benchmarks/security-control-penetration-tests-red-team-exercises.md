@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 25d0adecb51811cae4b3670010588e68bcc7433c
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 952103d517e03230cdfa4e7531e27bb2d5f53a07
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564123"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934311"
 ---
 # <a name="security-control-penetration-tests-and-red-team-exercises"></a>安全性控制：滲透測試和 Red Team 練習
 
@@ -29,7 +29,7 @@ ms.locfileid: "75564123"
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-您可以在這裡找到有關 Microsoft 管理之雲端基礎結構、服務和應用程式的 Microsoft 策略與執行的 Red 小組和即時網站滲透測試的詳細資訊： 
+您可以在這裡找到有關 Microsoft 管理之雲端基礎結構、服務和應用程式的 Microsoft 策略與執行的 Red 小組和即時網站滲透測試的詳細資訊：
 
 https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 

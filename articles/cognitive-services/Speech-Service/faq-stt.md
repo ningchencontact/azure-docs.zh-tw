@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: a96a3de7c8ad309986417e21a13d5e18f56cbd24
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814850"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934117"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>語音轉換文字常見問題集
 
@@ -77,9 +77,9 @@ ms.locfileid: "74814850"
 
 **答**：REST API 限制每 5 秒 25 個要求。 詳情請參閱我們的[語音轉換文字](speech-to-text.md)頁面。
 
-**問：如何支付雙聲道音訊的費用？**
+**問：雙聲道音訊的收費方式為何？**
 
-**答**：如果您分別提交每個通道（每個通道都在自己的檔案中），則會依檔案的持續時間向您收費。 如果您提交單一檔案，並將每個通道一起多工處理，則會向您收取單一檔案持續時間的費用。
+**答**：如果您分別提交每個通道（每個通道都在自己的檔案中），則會向您收取每個檔案的持續時間。 如果您提交單一檔案，並將每個通道一起多工處理，則會向您收取單一檔案持續時間的費用。 如需定價的詳細資訊，請參閱[Azure 認知服務定價頁面](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)。
 
 > [!IMPORTANT]
 > 如果您有其他隱私權考量禁止您使用自訂語音服務，請連絡其中一個支援通道。

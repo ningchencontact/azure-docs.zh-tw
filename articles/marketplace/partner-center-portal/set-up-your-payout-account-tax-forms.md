@@ -3,18 +3,18 @@ Description: 若要從商業 marketplace 中的供應專案銷售額獲得費用
 title: 設定您的付款帳戶和稅務表單 |Azure Marketplace
 ms.date: 12/10/2019
 ms.topic: article
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
-ms.openlocfilehash: 73ee800a837e7cd201025c93c7e88ad46f7fe256
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a6ef9711d6047a75ca5058f12e95d72a79628e30
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980214"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934162"
 ---
-# <a name="set-up-your-payout-account-and-tax-forms"></a>設定您的支出及納稅申報表
+# <a name="set-up-your-payout-account-and-tax-forms"></a>設定支出帳戶和稅賦形式
 
 若要從商業 marketplace 中的供應專案銷售額獲得費用，您必須設定您的付款帳戶，並填寫[合作夥伴中心](https://partner.microsoft.com/dashboard)所需的稅務表單。
 

@@ -1,19 +1,19 @@
 ---
 title: 在商業 Marketplace 中將 Azure 應用程式的 API 上架
 description: 在 Microsoft 合作夥伴中心的商業 marketplace 中，Azure 應用程式的 API 必要條件。
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: e0904169924aed7aeb1df5297a3a20f14cf7c6ae
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c14d8c6f27e4b0f4a4a75fa14b83455ff30ee35a
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480602"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933672"
 ---
 # <a name="api-for-onboarding-azure-apps-in-partner-center"></a>在合作夥伴中心將 Azure 應用程式上架的 API
 

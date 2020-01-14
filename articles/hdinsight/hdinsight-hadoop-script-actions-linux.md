@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: 23d2c771c8918099c0db2b68c290e7d90077932a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ad9b4b69b0be34c89d03b677c1889e486aae0379
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687732"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931686"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 開發指令碼動作
 
@@ -235,7 +235,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 下列協助程式可用於您的指令碼：
 
-| 協助程式使用方式 | 描述 |
+| 協助程式使用方式 | 說明 |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |從來源 URI 將檔案下載到指定的檔案路徑中。 根據預設，它不會覆寫現有的檔案。 |
 | `untar_file TARFILE DESTDIR` |將 tar 檔案解壓縮 (使用 `-xf`) 至目的地目錄。 |
@@ -322,10 +322,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 ## <a name="sampleScripts"></a>自訂指令碼範例
 
-Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。 請參閱下列連結以取得更多的範例指令碼動作。
-
-* [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)
-* [在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
+Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。 如需範例腳本動作，請參閱[在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)。
 
 ## <a name="troubleshooting"></a>疑難排解
 
@@ -342,7 +339,7 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。 請�
 > [!NOTE]  
 > 下列命令大致相當於將 CRLF 行尾結束符號變更為 LF。 根據您的系統上可用的公用程式，選取其中一個。
 
-| 命令 | 注意 |
+| Command | 注意 |
 | --- | --- |
 | `unix2dos -b INFILE` |原始檔案會以 .BAK 副檔名進行備份 |
 | `tr -d '\r' < INFILE > OUTFILE` |OUTFILE 會包含只有 LF 行尾結束符號的版本 |

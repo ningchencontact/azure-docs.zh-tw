@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 1cd3e39fd504b5095a83192a4a6314c71d3ca980
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: c585ebd903d4070f6247456e06efffbc6ec45270
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564292"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934499"
 ---
 # <a name="security-control-data-recovery"></a>安全性控制：資料復原
 
@@ -27,7 +27,9 @@ ms.locfileid: "75564292"
 
 啟用 Azure 備份並設定備份來源（Azure Vm、SQL Server 或檔案共用），以及所需的頻率和保留期限。
 
-如何啟用 Azure 備份： https://docs.microsoft.com/azure/backup/
+如何啟用 Azure 備份：
+
+https://docs.microsoft.com/azure/backup/
 
 ## <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2：執行完整的系統備份，並備份任何客戶管理的金鑰
 
@@ -37,9 +39,13 @@ ms.locfileid: "75564292"
 
 啟用 Azure 備份和目標 VM，以及所需的頻率和保留週期。 在 Azure Key Vault 內備份客戶管理的金鑰。
 
-如何啟用 Azure 備份： https://docs.microsoft.com/azure/backup/
+如何啟用 Azure 備份：
 
-如何在 Azure 中備份金鑰保存庫金鑰： https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/azure/backup/
+
+如何在 Azure 中備份金鑰保存庫金鑰：
+
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
 ## <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3：驗證所有備份，包括客戶管理的金鑰
 

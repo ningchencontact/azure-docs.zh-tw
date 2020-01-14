@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: f763ad9afd2238ebe63bf878882011eb3745df5c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 08b21ccd7f7958f00546583f680ecb8cde4a20c8
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517107"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932605"
 ---
 # <a name="policy-settings-for-web-application-firewall-on-azure-front-door"></a>Azure Front 上 Web 應用程式防火牆的原則設定
 
@@ -26,11 +26,11 @@ Front 門的 WAF 原則可以是下列兩種狀態的其中一種：
 
 ## <a name="waf-mode"></a>WAF 模式
 
-WAF 原則可以設定為在下列兩種模式中執行：
+WAF 原則可以設定為在下列兩種模式中執行︰
 
 - **偵測模式**在偵測模式中執行時，WAF 不會接受 monitor 以外的任何動作，並將要求和其相符的 WAF 規則記錄到 WAF 記錄。 開啟前門的記錄診斷（使用入口網站時，可以前往 Azure 入口網站中的 [**診斷**] 區段達成此目的）。
 
-- **預防模式**當設定為在防止模式中執行時，如果要求符合規則，WAF 會採取指定的動作。 任何相符的要求也會記錄在 WAF 記錄中。
+- **預防模式**當設定為在防止模式中執行時，如果要求符合規則，WAF 會採取指定的動作。 所有相符的要求也會記錄在 WAF 記錄中。
 
 ## <a name="waf-response-for-blocked-requests"></a>已封鎖要求的 WAF 回應
 

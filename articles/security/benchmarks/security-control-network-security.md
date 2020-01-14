@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: d052226470042d374544de0b7e1ced4ca0f48a14
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 376d7c1a9d2fe2ebce857362fd216e2047eb1f7b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564149"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934322"
 ---
 # <a name="security-control-network-security"></a>安全性控制：網路安全性
 
@@ -29,7 +29,9 @@ ms.locfileid: "75564149"
 
 或者，如果您有特定的使用案例，就可以藉由執行 Azure 防火牆來滿足需求。
 
-私人連結的一般資訊： https://docs.microsoft.com/azure/private-link/private-link-overview
+私人連結的一般資訊：
+
+https://docs.microsoft.com/azure/private-link/private-link-overview
 
 如何建立虛擬網路：
 
@@ -97,11 +99,11 @@ https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
 https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-瞭解 Azure 資訊安全中心的彈性網路強化
+瞭解 Azure 資訊安全中心的彈性網路強化：
 
 https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening
 
-瞭解 Azure 資訊安全中心及時網路存取控制
+瞭解 Azure 資訊安全中心即時網路存取控制：
 
 https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
@@ -113,9 +115,13 @@ https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
 記錄 NSG 流程記錄到儲存體帳戶以產生流量記錄。 如果需要調查異常活動，請啟用網路監看員封包捕捉。
 
-如何啟用 NSG 流量記錄： https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+如何啟用 NSG 流量記錄：
 
-如何啟用網路監看員： https://docs.microsoft.com/azure/network-watcher/network-watcher-create
+https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+
+如何啟用網路監看員：
+
+https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 ## <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6：部署以網路為基礎的入侵偵測/入侵預防系統（IDS/IPS）
 
@@ -137,11 +143,17 @@ https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
 針對受信任憑證啟用 HTTPS/SSL 的 web 應用程式，部署 Azure 應用程式閘道。
 
-如何部署應用程式閘道： https://docs.microsoft.com/azure/application-gateway/quick-create-portal
+如何部署應用程式閘道：
 
-如何設定應用程式閘道使用 HTTPS： https://docs.microsoft.com/azure/application-gateway/create-ssl-portal
+https://docs.microsoft.com/azure/application-gateway/quick-create-portal
 
-瞭解 Azure web 應用程式閘道的第7層負載平衡： https://docs.microsoft.com/azure/application-gateway/overview
+如何設定應用程式閘道使用 HTTPS：
+
+https://docs.microsoft.com/azure/application-gateway/create-ssl-portal
+
+瞭解 Azure web 應用程式閘道的第7層負載平衡：
+
+https://docs.microsoft.com/azure/application-gateway/overview
 
 ## <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8：將網路安全性規則的複雜性和系統管理負擔降至最低
 
@@ -149,9 +161,11 @@ https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 |--|--|--|
 | 1.8 | 1.5 | 客戶 |
 
-使用虛擬網路服務標籤 &nbsp;來定義網路安全性群組或 Azure 防火牆上的網路存取控制。 建立安全性規則時，您可以使用服務標籤取代特定的 IP 位址。 藉由在規則的適當 [來源] 或 [目的地] 欄位中指定服務標籤名稱（例如，ApiManagement），您可以允許或拒絕對應服務的流量。 Microsoft 會管理服務標籤所包含的位址前置詞，並隨著位址變更自動更新服務標記。
+使用虛擬網路服務標籤來定義網路安全性群組或 Azure 防火牆上的網路存取控制。 建立安全性規則時，您可以使用服務標籤取代特定的 IP 位址。 藉由在規則的適當 [來源] 或 [目的地] 欄位中指定服務標籤名稱（例如，ApiManagement），您可以允許或拒絕對應服務的流量。 Microsoft 會管理服務標籤所包含的位址前置詞，並隨著位址變更自動更新服務標記。
 
-瞭解和使用服務標記： https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+瞭解及使用服務標記：
+
+https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ## <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9：維護網路裝置的標準安全性設定
 
@@ -161,7 +175,7 @@ https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
 使用 Azure 原則定義和執行網路資源的標準安全性設定。
 
-您也可以使用 Azure 藍圖，藉由在單一藍圖定義中封裝金鑰環境成品（例如 Azure Resource Manager 範本、RBAC 控制項和原則），以簡化大規模的 Azure 部署。 您可以將藍圖套用至新的訂用帳戶和環境，並透過版本控制來微調控制和管理。
+您也可以使用 Azure 藍圖，藉由在單一藍圖定義中封裝金鑰環境成品（例如 Azure Resource Manager 範本、RBAC 控制項和原則），以簡化大規模的 Azure 部署。 您可以將藍圖套用至新的訂用帳戶，並透過版本控制來微調控制和管理。
 
 如何設定和管理 Azure 原則：
 

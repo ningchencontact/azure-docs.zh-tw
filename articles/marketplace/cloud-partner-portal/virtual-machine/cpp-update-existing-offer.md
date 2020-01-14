@@ -2,18 +2,18 @@
 title: 更新 Azure Marketplace 中的現有 VM 供應專案
 description: 說明如何更新 Azure Marketplace 中的現有虛擬機器供應項目。
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/27/2018
-ms.author: ansud
-ms.openlocfilehash: 5cbee909b4bd6353ad8fbe9fcbc126dc4a245012
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: evansma
+ms.openlocfilehash: 1ba2abb3fbeb1d08ed780669fb94a2ef83cbfb1b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823975"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934236"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>更新 Azure Marketplace 中的現有虛擬機器供應項目
 
@@ -57,7 +57,7 @@ ms.locfileid: "73823975"
 
 3.  在 [SKU] 索引標籤中，按一下與 VM 映像關聯的 SKU，即可執行更新。
 
-4.  在 [磁碟版本] 下，按一下 [+新增磁碟版本] 以新增 VM 映像。
+4.  在 [磁碟版本] 下方，按一下 [+新增磁碟版本]，即可新增 VM 映像。
 
 5.  提供新的 VM 映像**磁碟版本**。 磁碟版本必須遵循[語意版本](https://semver.org/)格式。 版本格式應該是 X.Y.Z，其中 X、Y 和 Z 是整數。 請確認您提供的新版本是否大於所有先前的版本，否則在重新發佈新版本後，不會顯示於入口網站或 Azure Marketplace。
 
@@ -127,27 +127,27 @@ ms.locfileid: "73823975"
 
 3.  按一下您要降低價格的 SKU。
 
-4.  若您已在 1x1 GUI 中設定定價，您可以直接在 UI 中變更定價。 如果您是以匯入/匯出試算表的方式設定價格，則只能以匯入/匯出功能來降低價格。
+4.  如果您已在 1x1 GUI 中設定價格，則可直接在 UI 中變更價格。 如果您是以匯入/匯出試算表的方式設定價格，則只能以匯入/匯出功能來降低價格。
 
-3.  按一下 [儲存]。
+3.  按一下 [檔案]。
 
 4.  按一下 [發佈] 啟動工作流程，以發佈您的變更。
 
 降價後的新價格在網站上線後，新客戶即可看見。  新價格對新客戶有下列影響：
 
 - 會以此新費率向客戶收費。 
-- 針對現有的客戶，降低後的價格可追溯到降價開始生效時的帳單週期開始時間。
+- 至於現有的客戶，降低後的價格可追溯到降價開始生效時的帳單週期開始時間。
 如果客戶在降價時已遭收取費用，則會在下一個帳單週期收到退款單，以補償降價後的價格。
 
 
 <!-- TD: This has been implemented, need to change the SKU Tab topic to reflect and move this section there. -->
-### <a name="simplified-currency-pricing"></a>簡化的貨幣定價
+### <a name="simplified-currency-pricing"></a>簡化的貨幣價格
 
-從 2018 年 9 月 1 日開始，入口網站會新增一個 [Simplified Currency Pricing]\(簡化的貨幣價格\) 新區段。 Microsoft 正在透過啟用更可預測的定價與從您的全球客戶收集的意見來改善 Azure Marketplace 商業流程。 在這個簡化過程中，會減少向您的客戶開立發票時所用的貨幣種類。
+從 2018 年 9 月 1 日開始，入口網站會新增一個 [Simplified Currency Pricing]\(簡化的貨幣價格\) 新區段。 Microsoft 目前正在讓價格更好預測，並從您的全球客戶收集意見，藉此精簡 Azure Marketplace 業務流程。 在這個簡化過程中，會減少向您的客戶開立發票時所用的貨幣種類。
 
 新的區段會以新貨幣來顯示價格。 所有客戶都已遷移至這些新的結算貨幣之後，原始定價區段將會淘汰，而且只會保留簡化的貨幣定價區段。
 
-您必須在 2018 年 11 月 1 日之前設定區域的新價格，設定之後結算貨幣會變更。 未變更結算貨幣的區域無法提高價格。
+請在 2018 年 11 月 1 日之前設定區域的新價格，設定之後結算貨幣即會變更。 未變更結算貨幣的區域無法提高價格。
 
 > [!NOTE] 
 > 若是使用 API 來發佈供應項目，則您會在 Offer JSON 中看到新區段。 此會標註為 `virtualMachinePricingV2` 或 `monthlyPricingV2`，視供應項目類型而定。 
@@ -167,8 +167,8 @@ ms.locfileid: "73823975"
 2.  並排檢視行銷資產與中繼資料。
 
 
-## <a name="history-of-publishing-actions"></a>發行動作的歷程記錄
+## <a name="history-of-publishing-actions"></a>發佈動作的記錄
 
-若要檢視發佈活動記錄，請在 Cloud Partner 入口網站左邊導覽功能表列中，按一下的 [記錄] 項目。 您可以在該處檢視在您的 Azure Marketplace 供應項目生命週期期間發生的動作 (含時間戳記)。  
+若要檢視發佈活動記錄，請在 Cloud Partner 入口網站左邊導覽功能表列中，按一下的 [記錄] 項目。 可在該處檢視您 Azure Marketplace 供應項目生命週期中發生的動作 (含時間戳記)。  
 <!-- TD: Add after section authored: For more information, see [History page](../portal-tour/cpp-history-page.md). -->
 

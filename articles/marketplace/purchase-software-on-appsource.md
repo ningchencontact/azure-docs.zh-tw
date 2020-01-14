@@ -1,29 +1,29 @@
 ---
 title: 如何在 AppSource 上購買軟體 |Azure Marketplace
 description: 在 AppSource 上購買軟體的步驟 |Azure Marketplace。
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2019
-ms.openlocfilehash: 3ca07f060aebcea82895f0463cac693c66f0c629
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 70e51d7c05e93e7d5f4451fa383023605a02af99
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827739"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933503"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>如何在 Microsoft AppSource 上購買軟體
 
 Microsoft [AppSource](https://appsource.microsoft.com/)現在可讓客戶訂閱 microsoft 合作夥伴所提供的 SaaS 應用程式。 客戶可以在商店找到認證的 web 應用程式，並使用 Microsoft 的系統管理中心來管理單一位置的費用、升級、降級和取消。 本文說明如何從商店購買應用程式。
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 
 若要購買 SaaS 供應專案，您需要：
 
-- 工作或學校帳戶。
+- 公司或學校帳戶。
 
     > [!Note]
     > 如果您沒有工作或學校帳戶，您需要建立可新增工作或學校帳戶的 Azure Active Directory 租使用者。 若要深入瞭解，請參閱[快速入門：在 Azure Active Directory 中建立新的租](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)使用者。
@@ -41,7 +41,7 @@ Microsoft [AppSource](https://appsource.microsoft.com/)現在可讓客戶訂閱 
     > [!Note]
     > AppSource 提供您選擇的應用程式供您選擇，包括免費、試用和付費訂閱。 本文說明如何透過 AppSource 來購買付費訂閱。
 
-1. 選取 [**立即取得**]。
+1. 選取 [立即取得]。
 1. 選擇方案：
 
     1. 設定基座數目
@@ -63,7 +63,7 @@ Microsoft [AppSource](https://appsource.microsoft.com/)現在可讓客戶訂閱 
     > [!Note]
     > 此步驟是必要的，而且可以隨時完成。
 
-## <a name="contact-support"></a>請連絡支援人員
+## <a name="contact-support"></a>連絡客戶支援
 
 其中一個可以透過 Microsoft 365 系統管理中心[提交支援票證](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage)。
 
