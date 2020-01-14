@@ -6,22 +6,25 @@ manager: nitinme
 description: 兩個數據表代表所有認知服務供應專案的容器登錄、存放庫和映射名稱。
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/15/2019
+ms.date: 01/10/2020
 ms.author: dapine
-ms.openlocfilehash: 2058dd6e52ddb417e24368b27384df9a222c378e
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 7c229ea306d89f85fb37a68fc84e3e4f6770e5ad
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74142186"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866958"
 ---
 ### <a name="container-repositories-and-images"></a>容器存放庫和映射
 
-下表列出 Azure 認知服務所提供的可用容器映射。 如需所有可用容器映射名稱及其可用標記的完整清單，請參閱[認知服務容器映射](../container-image-tags.md)標籤。
+下表列出 Azure 認知服務所提供的可用容器映射。 如需所有可用容器映射名稱及其可用標記的完整清單，請參閱[認知服務容器映射](../container-image-tags.md)標籤。 目前沒有任何認知服務的容器正式推出（GA）。 就時間而言，在進行進一步的公告之前，容器可以是*公用 Ungated*或*公開閘道預覽*。
+
+ - *公用 Ungated*：容器可公開使用，而不需要控制機制。
+ - *公用網關預覽*：容器可公開使用，但首先需要存取容器登錄的正式要求。
 
 #### <a name="public-ungated-container-registry-mcrmicrosoftcom"></a>公用 "Ungated" （container registry： `mcr.microsoft.com`）
 
-Microsoft Container Registry （MCR）會 syndicates 所有公開可用的 "ungated" 容器以進行認知服務。 它們也可以直接從[Docker hub](https://hub.docker.com/_/microsoft-azure-cognitive-services)取得。
+Microsoft Container Registry （MCR）會 syndicates 所有公開可用的 "ungated" 容器以進行認知服務。 您也可以直接從[Docker hub](https://hub.docker.com/_/microsoft-azure-cognitive-services)取得容器。
 
 | 服務 | 容器 | Container Registry/存放庫/映射名稱 |
 |--|--|--|
@@ -32,7 +35,7 @@ Microsoft Container Registry （MCR）會 syndicates 所有公開可用的 "unga
 
 #### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>公用「閘道」預覽（container registry： `containerpreview.azurecr.io`）
 
-容器預覽登錄會裝載認知服務的所有公開可用「閘道」容器。 這些容器需要正式的存取要求，才能使用它們。
+容器預覽登錄會裝載認知服務的所有公開可用「閘道」容器。 這些容器需要正式要求，才能透過其容器登錄來存取它們。
 
 | 服務 | 容器 | Container Registry/存放庫/映射名稱 |
 |--|--|--|

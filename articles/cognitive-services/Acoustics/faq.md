@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0484fc9fc2af5514ba0f5b61277146a51757057
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: fa4b6499260219b0eb8ea4df4b4ccfd5263b57bb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855037"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770198"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>聲場專案常見問題
 
 ## <a name="what-is-project-acoustics"></a>何謂 Project Acoustics？
 
-外掛程式的聲場專案套件是聲場系統, 會在執行時間之前計算音效行為, 類似于靜態光源。 雲端可執行繁重的波動物理學計算，因此執行階段 CPU 成本很低。  
+外掛程式的聲場專案套件是聲場系統，會在執行時間之前計算音效行為，類似于靜態光源。 雲端可執行繁重的波動物理學計算，因此執行階段 CPU 成本很低。  
 
 ## <a name="where-can-i-download-the-plugin"></a>我可以從哪裡下載外掛程式？
 
 您可以下載[聲場專案 Unity 外掛程式](https://www.microsoft.com/download/details.aspx?id=57346)或[聲場專案 Unreal 外掛程式](https://www.microsoft.com/download/details.aspx?id=58090)。
 
-## <a name="does-project-acoustics-support-ltxgt-platform"></a>聲場專案支援&lt;x&gt;平臺嗎？
+## <a name="does-project-acoustics-support-ltxgt-platform"></a>聲場專案是否支援 &lt;x&gt; 平臺？
 
-聲場專案平臺支援是根據客戶需求而演變的。 請洽詢[聲場專案問題論壇](https://github.com/microsoft/ProjectAcoustics/issues), 詢問其他平臺的支援。
+聲場專案平臺支援是根據客戶需求而演變的。 請洽詢[聲場專案問題論壇](https://github.com/microsoft/ProjectAcoustics/issues)，詢問其他平臺的支援。
 
 ## <a name="is-azure-used-at-runtime"></a>在執行階段是否會使用 Azure？
 
@@ -46,23 +46,23 @@ ms.locfileid: "68855037"
  
 ## <a name="do-i-need-to-simplify-the-level-geometry-control-triangle-count-make-meshes-watertight"></a>我是否需要簡化關卡幾何？ 控制三角面計數？ 讓網格防水？
 
-資料分割 此系統會直接內嵌詳細的關卡幾何。 系統會將其體素化來進行內部處理。
+不會。 此系統會直接內嵌詳細的關卡幾何。 系統會將其體素化來進行內部處理。
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>什麼是執行階段查閱資料表？
 
-ACE 檔案包含多個來源和接聽程式位置配對之間的聲場參數資料表, 以及用於參數插補的體素化場景 geometry。
+ACE 檔案包含多個來源和接聽程式位置配對之間的聲場參數資料表，以及用於參數插補的體素化場景 geometry。
  
 ## <a name="can-project-acoustics-handle-moving-sources"></a>聲場專案可以處理移動的來源嗎？
 
-是, 聲場專案查閱查閱資料表, 並更新每個刻度上的音訊 DSP, 讓它可以處理移動的來源和接聽程式。
+是，聲場專案查閱查閱資料表，並更新每個刻度上的音訊 DSP，讓它可以處理移動的來源和接聽程式。
  
 ## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>聲場專案可以處理動態幾何嗎？ 關閉中的門？ 被吹走的牆面？
 
-資料分割 聲場參數是根據遊戲關卡的靜態狀態預先計算的。 我們建議您將門幾何離開聲場, 然後使用已建立的技術, 根據易損壞和可移動遊戲物件的狀態來套用額外的遮蔽。
+不會。 聲場參數是根據遊戲關卡的靜態狀態預先計算的。 我們建議您將門幾何離開聲場，然後使用已建立的技術，根據易損壞和可移動遊戲物件的狀態來套用額外的遮蔽。
  
 ## <a name="does-project-acoustics-use-acoustic-materials"></a>聲場專案使用聲場材質嗎？
 
-是的。 它會從您關卡中的實體材質名稱挑選材質來決定吸收性。
+可以。 它會從您關卡中的實體材質名稱挑選材質來決定吸收性。
  
 ## <a name="what-do-the-probes-represent"></a>「探查」代表什麼？
 
@@ -70,11 +70,15 @@ ACE 檔案包含多個來源和接聽程式位置配對之間的聲場參數資�
  
 ## <a name="why-spend-so-much-compute-in-the-cloud-what-does-it-buy-me"></a>為什麼要在雲端進行那麼多的計算？ 它能為我提供什麼？
 
-Project Acoustics 會將每個架構層面納入考量，即使針對極複雜的虛擬環境，也能提供既準確又可靠的聲場參數。 它提供平滑的遮蔽和障礙物, 以及動態的回音變化, 而不需要手動繪製磁片區的工作。 所有這些都可在執行階段減輕 CPU 的負擔。
+Project Acoustics 會將每個架構層面納入考量，即使針對極複雜的虛擬環境，也能提供既準確又可靠的聲場參數。 它提供平滑的遮蔽和障礙物，以及動態的回音變化，而不需要手動繪製磁片區的工作。 所有這些都可在執行階段減輕 CPU 的負擔。
 
 ## <a name="what-exactly-happens-during-baking"></a>進行「製作」時，實際會發生什麼事？
 
-製作包含以立體模擬區域的聲場模擬, 以每個接聽程式探查為中心。
+製作包含以立體模擬區域的聲場模擬，以每個接聽程式探查為中心。
+
+## <a name="is-my-source-content-secure"></a>我的來源內容是否安全？
+
+聲場專案不會將來源場景幾何上傳至雲端。 相反地，模擬會在您場景的體素化上運作，其結合了探查位置資料並以專屬的格式儲存。     
 
 ## <a name="next-steps"></a>後續步驟
 * 嘗試[聲場專案 Unity 範例內容](unity-quickstart.md)或[Unreal 範例內容](unreal-quickstart.md)

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: dapine
-ms.openlocfilehash: c15602163ee1916047b9cb35a516a049f951b302
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 308a474970db54022e5351fdf349d9572fbafb0d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195960"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888561"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安裝和執行 LUIS Docker 容器
  
@@ -84,7 +84,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 
 1. 從 LUIS 入口網站或 LUIS API 為容器[匯出套件](#export-packaged-app-from-luis)。
 1. 將套件檔案移至[主機電腦](#the-host-computer)上所需的**輸入**目錄中。 請勿重新命名、改變、覆寫或解壓縮 LUIS 套件檔案。
-1. 使用所需的_輸入掛接_和計費設定[執行容器](##run-the-container-with-docker-run)。 `docker run` 命令有相關[範例](luis-container-configuration.md#example-docker-run-commands)可供參考。 
+1. 使用所需的_輸入掛接_和計費設定[執行容器](#run-the-container-with-docker-run)。 `docker run` 命令有相關[範例](luis-container-configuration.md#example-docker-run-commands)可供參考。 
 1. [查詢容器的預測端點](#query-the-containers-prediction-endpoint)。 
 1. 容器使用完畢後，請從 LUIS 入口網站中的輸出掛接[匯入端點記錄](#import-the-endpoint-logs-for-active-learning)，並[停止](#stop-the-container)容器。
 1. 從 LUIS 入口網站使用 [檢閱端點語句] 頁面上的[主動式學習](luis-how-to-review-endpoint-utterances.md)，來改善應用程式。
@@ -166,7 +166,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Value |
+| 預留位置 | 值 |
 |-------------|-------|
 | **{APP_ID}** | 已發佈 LUIS 應用程式的應用程式識別碼。 |
 | **{SLOT_NAME}** | 已發佈 LUIS 應用程式的環境。 請使用下列其中一個值：<br/>`PRODUCTION`<br/>`STAGING` |
@@ -185,7 +185,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Value |
+| 預留位置 | 值 |
 |-------------|-------|
 | **{APP_ID}** | 定型 LUIS 應用程式的應用程式識別碼。 |
 | **{APP_VERSION}** | 已定型之 LUIS 應用程式的應用程式版本。 |
@@ -198,7 +198,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 
 將 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令執行容器。 如需如何取得 `{ENDPOINT_URI}` 和 `{API_KEY}` 值的詳細資訊，請參閱[收集必要的參數](#gathering-required-parameters)。
 
-`docker run` 命令的[範例](luis-container-configuration.md#example-docker-run-commands)可供使用。
+命令的[範例](luis-container-configuration.md#example-docker-run-commands)可供使用。`docker run`
 
 ```console
 docker run --rm -it -p 5000:5000 ^
@@ -252,12 +252,12 @@ ApiKey={API_KEY}
 
 查詢參數會設定傳回查詢回應的方式和內容：
 
-|查詢參數|Type|目的|
+|查詢參數|類型|目的|
 |--|--|--|
 |`query`|string|使用者的語句。|
-|`verbose`|布林值|布林值，指出是否傳回預測模型的所有中繼資料。 預設值為 false。|
-|`log`|布林值|記錄查詢，可供後續的[主動式學習](luis-how-to-review-endpoint-utterances.md)使用。 預設值為 false。|
-|`show-all-intents`|布林值|布林值，指出是否只傳回所有意圖或最高評分意圖。 預設值為 false。|
+|`verbose`|boolean|布林值，指出是否傳回預測模型的所有中繼資料。 預設值為 false。|
+|`log`|boolean|記錄查詢，可供後續的[主動式學習](luis-how-to-review-endpoint-utterances.md)使用。 預設值為 false。|
+|`show-all-intents`|boolean|布林值，指出是否只傳回所有意圖或最高評分意圖。 預設值為 false。|
 
 # <a name="v2-prediction-endpointtabv2"></a>[V2 預測端點](#tab/v2)
 
@@ -268,13 +268,13 @@ ApiKey={API_KEY}
 
 查詢參數會設定傳回查詢回應的方式和內容：
 
-|查詢參數|Type|目的|
+|查詢參數|類型|目的|
 |--|--|--|
 |`q`|string|使用者的語句。|
 |`timezoneOffset`|number|TimezoneOffset 可讓您[變更時區](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) (預先建置的實體 datetimeV2 所使用的時區)。|
-|`verbose`|布林值|設為 true 時，會傳回所有意圖及其分數。 預設值為 false，只會傳回最高分意圖。|
-|`staging`|布林值|設為 true 時，會從預備環境的結果中傳回查詢。 |
-|`log`|布林值|記錄查詢，可供後續的[主動式學習](luis-how-to-review-endpoint-utterances.md)使用。 預設值為 true。|
+|`verbose`|boolean|設為 true 時，會傳回所有意圖及其分數。 預設值為 false，只會傳回最高分意圖。|
+|`staging`|boolean|設為 true 時，會從預備環境的結果中傳回查詢。 |
+|`log`|boolean|記錄查詢，可供後續的[主動式學習](luis-how-to-review-endpoint-utterances.md)使用。 預設值為 true。|
 
 ***
 
@@ -372,7 +372,7 @@ LUIS 容器會使用您 Azure 帳戶上的_認知服務_資源，將帳單資訊
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 在本文中，您已了解下載、安裝及執行 Language Understanding (LUIS) 容器的概念和工作流程。 摘要說明：
 

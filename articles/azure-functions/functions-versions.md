@@ -3,12 +3,12 @@ title: Azure Functions 執行階段版本概觀
 description: Azure Functions 支援多個執行階段版本。 了解其間的差異以及如何選擇最適合您的版本。
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 1172f1cba3dfc10fe08863626db0aa8e7a4bf173
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 88c151149d1d960746ff449819d31e8b32d98120
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769110"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921860"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 執行階段版本概觀
 
@@ -70,7 +70,7 @@ Azure Functions 1.x 實驗語言無法使用新模型，因此在2.x 中不支�
 
 * App Service 方案中函式的預設逾時已變更為 30 分鐘。 您可以藉由在 host.json 中使用 [functionTimeout](functions-host-json.md#functiontimeout) 設定，將逾時手動變更回無限制。
 
-* 預設會針對使用情況方案函式實作 HTTP 並行節流，預設值為每一執行個體 100 個並行要求。 您可以在 host.json 檔案中的 [`maxConcurrentRequests`](functions-host-json.md#http) 設定中變更此值。
+* 預設會針對取用方案函式執行 HTTP 並行節流，預設值為每個實例100個並行要求。 您可以在 host.json 檔案中的 [`maxConcurrentRequests`](functions-host-json.md#http) 設定中變更此值。
 
 * 由於[.Net Core 的限制](https://github.com/Azure/azure-functions-host/issues/3414)，已移除F#對腳本（. run.fsx）功能的支援。 仍然支援已編譯的 F# 函式 (.fs)。
 

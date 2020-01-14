@@ -4,12 +4,12 @@ description: 了解如何使用 JavaScript 開發函式。
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: 30d69476c96017319842a424c26de29350ec1ef6
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a34efe20e796570358771ec53fbfb797daa15b93
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769042"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922006"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
 
@@ -408,7 +408,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 ## <a name="scaling-and-concurrency"></a>調整和並行
 
-根據預設，Azure Functions 會自動監視應用程式上的負載，並視需要為 node.js 建立其他主控制項實例。 函式會針對不同的觸發程式類型使用內建（非使用者可設定）閾值，以決定何時要新增實例，例如訊息的存留期和 QueueTrigger 的佇列大小。 如需詳細資訊，請參閱[耗用量和 premium 方案的工作方式](functions-scale.md#how-the-consumption-and-premium-plans-work)。
+根據預設，Azure Functions 會自動監視應用程式上的負載，並視需要為 node.js 建立其他主控制項實例。 函式會針對不同的觸發程式類型使用內建（非使用者可設定）閾值，以決定何時要新增實例，例如訊息的存留期和 QueueTrigger 的佇列大小。 如需詳細資訊，請參閱[耗用量和 Premium 方案的工作方式](functions-scale.md#how-the-consumption-and-premium-plans-work)。
 
 這種調整行為足以滿足許多 node.js 應用程式。 針對 CPU 系結應用程式，您可以使用多個語言工作者進程，進一步改善效能。
 

@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: fa8ea40d827807565e71d1e790c8c52986b85ec8
-ms.sourcegitcommit: d48afd9a09f850b230709826d4a5cd46e57d19fa
+ms.openlocfilehash: e645be5ddd51a4fe7e7610e7f639407d5638f746
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75904950"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920919"
 ---
 # <a name="secure-assets-in-azure-automation"></a>保護 Azure 自動化中的資產
 
@@ -22,13 +22,13 @@ Azure 自動化中的安全資產包括認證、憑證、連接和加密的變�
 -   使用 Microsoft 管理的金鑰
 -   使用客戶管理的金鑰
 
-### <a name="microsoft-managed-keys"></a>Microsoft 管理的金鑰
+## <a name="microsoft-managed-keys"></a>Microsoft 管理的金鑰
 
 根據預設，您的 Azure 自動化帳戶會使用 Microsoft 管理的金鑰。
 
 每個安全資產都會使用為每個自動化帳戶產生的唯一金鑰（資料加密金鑰）來加密並儲存在 Azure 自動化中。 這些金鑰本身會加密並儲存在 Azure 自動化中，但會使用針對每個稱為帳戶加密金鑰（AEK）的帳戶所產生的另一個唯一金鑰。 這些帳戶加密金鑰會使用 Microsoft 管理的金鑰，加密並儲存在 Azure 自動化中。 
 
-### <a name="customer-managed-keys-with-key-vault-preview"></a>Key Vault 的客戶管理金鑰（預覽）
+## <a name="customer-managed-keys-with-key-vault-preview"></a>Key Vault 的客戶管理金鑰（預覽）
 
 您可以使用自己的金鑰，以自動化帳戶層級管理 Azure 自動化中的安全資產加密。 當您在自動化帳戶層級指定客戶管理的金鑰時，會使用該金鑰來保護及控制自動化帳戶的帳戶加密金鑰存取權，而這會用來加密和解密所有安全資產。 客戶管理的金鑰提供更大的彈性來建立、輪替、停用及撤銷存取控制。 您也可以審核用來保護安全資產的加密金鑰。 
 
@@ -40,12 +40,12 @@ Azure 自動化中的安全資產包括認證、憑證、連接和加密的變�
 
 新的自動化帳戶一律使用 Microsoft 管理的金鑰進行加密。 建立帳戶時，不可能啟用客戶管理的金鑰。 客戶管理的金鑰會儲存在 Azure Key Vault 中，而金鑰保存庫必須布建存取原則，以將金鑰許可權授與與自動化帳戶相關聯的受控識別。 只有在建立儲存體帳戶之後，才可以使用受控識別。
 
-當您透過啟用或停用客戶管理的金鑰、更新金鑰版本或指定不同的金鑰來修改用於 Azure 自動化安全資產加密的金鑰時，就會變更根金鑰，但 Azure 中的安全資產自動化帳戶不需要重新加密。
+當您透過啟用或停用客戶管理的金鑰、更新金鑰版本或指定不同的金鑰來修改用於 Azure 自動化安全資產加密的金鑰時，帳戶加密金鑰的加密會變更，但安全資產在中，您的 Azure 自動化帳戶不需要重新加密。
 
 下列三節說明為自動化帳戶啟用客戶管理的金鑰的機制。 
 
 > [!NOTE] 
-> 若要啟用客戶管理的金鑰，您目前必須使用 api 版本 2020-01-13-preview 來製作 Azure 自動化 REST Api
+> 若要啟用客戶管理的金鑰，您目前必須使用 API 版本 2020-01-13-preview 進行 Azure 自動化 REST API 呼叫
 
 ### <a name="pre-requisites-for-using-customer-managed-keys-in-azure-automation"></a>在 Azure 自動化中使用客戶管理金鑰的必要條件
 
@@ -126,7 +126,7 @@ Request body
 ```
 
 > [!NOTE] 
-> 必須提供 tenantId 和 objectId 欄位的值，以及來自自動化帳戶的受控識別回應中的 principalId 和 identity。
+> **Tenantid**和**objectId**欄位必須分別提供身分**識別**的值和**principalId** ，以及來自自動化帳戶的受控識別回應。
 
 ### <a name="change-the-configuration-of-automation-account-to-use-customer-managed-key"></a>將自動化帳戶的設定變更為使用客戶管理的金鑰
 
@@ -179,11 +179,11 @@ Request body
 
 您可以根據您的相容性原則，在 Azure Key Vault 中旋轉客戶管理的金鑰。 輪替金鑰時，您必須更新自動化帳戶以使用新的金鑰 URI。 
 
-輪替金鑰並不會觸發儲存體帳戶中的資料重新加密。 使用者不需要採取進一步的動作。
+輪替金鑰並不會在自動化帳戶中觸發安全資產的重新加密。 使用者不需要採取進一步的動作。
 
-## <a name="revoke-access-to-customer-managed-keys"></a>撤銷對客戶管理的金鑰的存取權
+### <a name="revoke-access-to-customer-managed-keys"></a>撤銷對客戶管理的金鑰的存取權
 
-若要撤銷對客戶管理的金鑰的存取權，請使用 PowerShell 或 Azure CLI。 如需詳細資訊，請參閱[Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/)或[Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)。 撤銷存取權可有效封鎖對儲存體帳戶中所有資料的存取，因為 Azure 儲存體無法存取加密金鑰。
+若要撤銷對客戶管理的金鑰的存取權，請使用 PowerShell 或 Azure CLI。 如需詳細資訊，請參閱[Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/)或[Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)。 撤銷存取權可有效封鎖對自動化帳戶中所有安全資產的存取，因為 Azure 自動化無法存取加密金鑰。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -6,21 +6,20 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/10/2020
-ms.openlocfilehash: 10af869a631b620c2c75aa69722dc03df15f8539
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 01c64a6880d671289d02dd36f9e4a9dda2f91131
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903843"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922816"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-server-using-azure-portal"></a>使用 Azure 入口網站適用於 MySQL 的 Azure 資料庫伺服器的資料加密
 
 在本文中，您將瞭解如何設定和管理，以使用 Azure 入口網站來設定適用於 MySQL 的 Azure 資料庫的資料加密。
 
-## <a name="prerequisites-for-powershell"></a>PowerShell 的必要條件
+## <a name="prerequisites-for-cli"></a>CLI 的必要條件
 
 * 您必須具有 Azure 訂用帳戶，並且是該訂用帳戶的系統管理員。
-* 您必須已安裝且正在執行 Azure PowerShell。
 * 建立要用於客戶管理金鑰的 Azure Key Vault 和金鑰。
 * Key Vault 必須具有下列屬性，才能做為客戶管理的金鑰使用
     * [虛刪除](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
@@ -45,7 +44,7 @@ ms.locfileid: "75903843"
 
    ![存取原則總覽](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
-2. 選取**金鑰許可權**選取 [**取得**]、[**換行**]、[解除包裝] 和 [**主體** **]，這**是 MySQL 伺服器的名稱。
+2. 選取**金鑰許可權**選取 [**取得**]、[包裝]、[解除**封裝** **] 和 [** **主體**]，這是 MySQL 伺服器的名稱。 如果在現有主體的清單中找不到您的伺服器主體，您將需要嘗試第一次設定資料加密（這會失敗）來註冊它。
 
    ![存取原則總覽](media/concepts-data-access-and-security-data-encryption/access-policy-warp-unwrap.png)
 
@@ -63,7 +62,7 @@ ms.locfileid: "75903843"
 
 3. **儲存**設定。
 
-4. 若要確保所有檔案（包括暫存檔案）都已完整加密，則需要重新開機伺服器。
+4. 若要確保所有檔案（包括**暫存檔案**）都已完整加密，則**需要** **重新開機**伺服器。
 
 ## <a name="restoring-or-creating-replica-of-the-server-which-has-data-encryption-enabled"></a>還原或建立已啟用資料加密之伺服器的複本
 
@@ -81,16 +80,18 @@ ms.locfileid: "75903843"
 
    ![標記伺服器無法存取](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
-3. 若要修正無法存取的狀態，您必須重新驗證還原之伺服器上的金鑰。
+3. 若要修正無法存取的狀態，您必須重新驗證還原之伺服器上的金鑰。 按一下 [**資料加密**] 分頁，然後按 [重新**驗證金鑰**] 按鈕。
+
+   > [!NOTE]
+   > 第一次重新驗證的嘗試將會失敗，因為新伺服器的服務主體必須獲得金鑰保存庫的存取權。 若要產生服務主體，請按一下 [重新**驗證金鑰**]，這將會產生錯誤，但會產生服務主體。 之後，請參閱上述第[2 節中的](https://docs.microsoft.com/azure/mysql/howto-data-encryption-portal#setting-the-right-permissions-for-key-operations)步驟。
 
    ![重新驗證服務器](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
 
    您必須將新伺服器的存取權授與 Key Vault。 
 
-4. 一旦您重新驗證金鑰，伺服器就會繼續正常運作。
+4. 註冊服務主體之後，您必須再次重新驗證金鑰，伺服器才會繼續正常運作。
 
    ![一般伺服器已還原](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
-
 
 ## <a name="next-steps"></a>後續步驟
 

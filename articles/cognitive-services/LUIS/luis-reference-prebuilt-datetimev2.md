@@ -9,23 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 01/07/2020
 ms.author: diberry
-ms.openlocfilehash: 75d1f2b6facd438e329555d8595fe159565dbb74
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8c29ebd675bb6af66203c13824dacbe9ea2421a2
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837358"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732790"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 DatetimeV2 預先建置實體
 
-**datetimeV2** 預先建置的實體會擷取日期和時間值。 這些值會以標準化格式解析，以供用戶端程式取用。 當語句中有不完整的日期或時間時，LUIS 會在端點回應中包括「過去與未來值」。 因為此實體已經定型，所以您不需要將包含 datetimeV2 的範例語句加入應用程式意圖。 
+**datetimeV2** 預先建置的實體會擷取日期和時間值。 這些值會以標準化格式解析，以供用戶端程式取用。 當語句中有不完整的日期或時間時，LUIS 會在端點回應中包括「過去與未來值」。 因為此實體已經定型，所以您不需要將包含 datetimeV2 的範例語句加入應用程式意圖。
 
 ## <a name="types-of-datetimev2"></a>datetimeV2 類型
 DatetimeV2 是從辨識器[文字](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml)的 GitHub 存放庫進行管理。
 
-## <a name="example-json"></a>範例 JSON 
+## <a name="example-json"></a>範例 JSON
 
 下列語句及其部分 JSON 回應如下所示。
 
@@ -115,14 +115,14 @@ DatetimeV2 是從辨識器[文字](https://github.com/Microsoft/Recognizers-Text
 
 |屬性名稱 |屬性類型和描述|
 |---|---|
-|實體|**string** - 以日期、時間、日期範圍或時間範圍的類型從語句中擷取的文字。|
-|類型|**string** - 其中一個 [datetimeV2 子類型](#subtypes-of-datetimev2)
+|單位|**string** - 以日期、時間、日期範圍或時間範圍的類型從語句中擷取的文字。|
+|type|**string** - 其中一個 [datetimeV2 子類型](#subtypes-of-datetimev2)
 |startIndex|**int** - 實體開始的語句中的索引。|
 |endIndex|**int** - 實體結束的語句中的索引。|
-|resolution|有一、二或四個`values`解析值[的 ](#values-of-resolution) 陣列。|
+|resolution|有一、二或四個[解析值](#values-of-resolution)的 `values` 陣列。|
 |end|時間或日期範圍的結束值，使用的格式和 `value` 相同。 只有當 `type` 為 `daterange`、`timerange` 或 `datetimerange` 時才能使用|
 
-* * * 
+* * *
 
 ## <a name="subtypes-of-datetimev2"></a>datetimeV2 子類型
 
@@ -141,35 +141,36 @@ DatetimeV2 是從辨識器[文字](https://github.com/Microsoft/Recognizers-Text
   * 日期或日期範圍的年份語意模糊
   * 時間或時間範圍的上午或下午 語意模糊。 例如，4 月 3 日 3:00。
 
-`values` 陣列的每個元素可能都有下列欄位： 
+`values` 陣列的每個元素可能都有下列欄位：
 
 |屬性名稱|屬性描述|
 |--|--|
 |timex|以遵循 [ISO 8601 標準](https://en.wikipedia.org/wiki/ISO_8601)的 TIMEX 格式表示的時間、日期或日期範圍，並對註解的 TIMEX3 屬性使用 TimeML 語言。 此註解會在 [TIMEX 指導方針](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf) \(英文\) 中說明。|
-|類型|子類型，可以是下列其中一個專案： `datetime`、`date`、`time`、`daterange`、`timerange`、`datetimerange`、`duration`、`set`。|
-|值|**選用。** Datetime 物件，格式為 yyyy-mm-dd （日期）、HH： MM： ss （time） yyyy-mm-dd HH： MM： ss （datetime）。 如果 `type` 是 `duration`，則值會是秒數 (duration) <br/> 只有當 `type` 是 `datetime` 或 `date`、`time` 或 `duration 時才能使用。|
+|mod|用來描述如何使用值的詞彙，例如 `before`、`after`。|
+|type|子類型，可以是下列其中一個專案： `datetime`、`date`、`time`、`daterange`、`timerange`、`datetimerange`、`duration`、`set`。|
+|value|**選擇性。** Datetime 物件，格式為 yyyy-mm-dd （日期）、HH： MM： ss （time） yyyy-mm-dd HH： MM： ss （datetime）。 如果 `type` 是 `duration`，則值會是秒數 (duration) <br/> 只有當 `type` 是 `datetime` 或 `date`、`time` 或 `duration 時才能使用。|
 
 ## <a name="valid-date-values"></a>有效的日期值
 
 **datetimeV2** 支援的日期範圍如下：
 
-| Min | max |
+| 最小值 | 最大值 |
 |----------|-------------|
 | 1900 年 1 月 1 日   | 2099 年 12 月 31 日 |
 
 ## <a name="ambiguous-dates"></a>語意模糊的日期
 
-如果可以是過去或未來的日期，LUIS 會兩個值都提供。 例如，語句包含月份與日期，但不含年份。  
+如果可以是過去或未來的日期，LUIS 會兩個值都提供。 例如，語句包含月份與日期，但不含年份。
 
 例如，假設有下列語句：
 
 `May 2nd`
 
-* 如果今天的日期為 2017 年 5 月 3 日，LUIS 會提供 "2017-05-02" 與 "2018-05-02" 這兩個值。 
+* 如果今天的日期為 2017 年 5 月 3 日，LUIS 會提供 "2017-05-02" 與 "2018-05-02" 這兩個值。
 * 當今天的日期為 2017 年 5 月 1 日時，LUIS 會提供 "2016-05-02" 與 "2017-05-02" 這兩個值。
 
 下列範例顯示「5 月 2 日」實體的解析。 此解析假設今天的日期介於 2017 年 5 月 2 日到 2018 年 5 月 1 日之間。
-`X` 欄位中包含 `timex` 的欄位，是語句中未明確指定的日期部分。
+`timex` 欄位中包含 `X` 的欄位，是語句中未明確指定的日期部分。
 
 ## <a name="date-resolution-example"></a>日期解析範例
 
@@ -269,7 +270,7 @@ DatetimeV2 是從辨識器[文字](https://github.com/Microsoft/Recognizers-Text
     }
   ]
 ```
-* * * 
+* * *
 
 ## <a name="date-range-resolution-examples-for-numeric-date"></a>數值日期的日期範圍解析範例
 
@@ -373,7 +374,7 @@ DatetimeV2 是從辨識器[文字](https://github.com/Microsoft/Recognizers-Text
     }
   ]
 ```
-* * * 
+* * *
 
 ## <a name="date-range-resolution-examples-for-day-of-week"></a>星期幾的日期範圍解析範例
 
@@ -474,7 +475,7 @@ DatetimeV2 是從辨識器[文字](https://github.com/Microsoft/Recognizers-Text
     }
   ]
 ```
-* * * 
+* * *
 
 ## <a name="ambiguous-time"></a>語意模糊的時間
 如果時間或時間範圍的語意模糊，值陣列會有兩個時間元素。 有語意模糊的時間時，就會有上午 與下午 兩個時間值。
@@ -484,7 +485,7 @@ DatetimeV2 是從辨識器[文字](https://github.com/Microsoft/Recognizers-Text
 API V3 中的 DatetimeV2 JSON 回應已經變更。 下列範例示範 LUIS 如何使用 **datetimeV2** 解析有時間範圍的語句。
 
 API V2 的變更：
-* 不再傳回 `datetimeV2.timex.type` 屬性，因為它是在父層級傳回，`datetimev2.type`。 
+* 不再傳回 `datetimeV2.timex.type` 屬性，因為它是在父層級傳回，`datetimev2.type`。
 * `datetimeV2.value` 屬性已重新命名為 `datetimeV2.timex`。
 
 下列語句及其部分 JSON 回應如下所示。
@@ -579,7 +580,7 @@ API V2 的變更：
   ]
 ```
 
-* * * 
+* * *
 
 ## <a name="time-resolution-example"></a>時間解析範例
 
@@ -666,15 +667,15 @@ API V2 的變更：
 ]
 ```
 
-* * * 
+* * *
 
 ## <a name="deprecated-prebuilt-datetime"></a>已被取代的預先建置 datetime
 
-`datetime` 預先建置的實體已過時 ，並由 **datetimeV2** 取代。 
+`datetime` 預先建置的實體已過時 ，並由 **datetimeV2** 取代。
 
-若要在 LUIS 應用程式中以 `datetime` 取代 `datetimeV2`，請完成下列步驟：
+若要在 LUIS 應用程式中以 `datetimeV2` 取代 `datetime`，請完成下列步驟：
 
-1. 開啟 LUIS 網頁介面的 [實體] 窗格。 
+1. 開啟 LUIS 網頁介面的 [實體] 窗格。
 2. 刪除 **datetime** 預先建置的實體。
 3. 按一下 [新增預先建置的實體]
 4. 選取 [datetimeV2]，然後按一下 [儲存]。
@@ -683,5 +684,5 @@ API V2 的變更：
 
 深入了解 [V3 預測端點](luis-migration-api-v3.md)。
 
-了解 [dimension](luis-reference-prebuilt-dimension.md)、[email](luis-reference-prebuilt-email.md) 實體與 [number](luis-reference-prebuilt-number.md) 的相關資訊。 
+了解 [dimension](luis-reference-prebuilt-dimension.md)、[email](luis-reference-prebuilt-email.md) 實體與 [number](luis-reference-prebuilt-number.md) 的相關資訊。
 

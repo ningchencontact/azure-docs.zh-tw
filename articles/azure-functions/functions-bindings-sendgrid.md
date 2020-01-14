@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: a0731a66af32b45215145c1d4f4404eb008cf897
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d70b05842fc7f251af6aefd743f064c037f63b7b
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75410034"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922363"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 繫結
 
@@ -27,9 +27,6 @@ ms.locfileid: "75410034"
 ## <a name="packages---functions-2x-and-higher"></a>封裝-函數2.x 和更新版本
 
 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet 套件版本 3.x 中提供了 SendGrid 繫結。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub 存放庫中。
-
-> [!NOTE]
-> 2\.x 版和更新版本不會建立在 `ServiceBusTrigger` 實例中設定的主題或訂用帳戶。 這些版本是以不會處理佇列管理的[Azure](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)為基礎。
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -351,9 +348,9 @@ Python 不支援屬性。
 
 | *function. json*屬性 | 屬性/注釋屬性 | 說明 | 選用 |
 |--------------------------|-------------------------------|-------------|----------|
-| type || 必須設為 `sendGrid`。| 否 |
-| direction || 必須設為 `out`。| 否 |
-| NAME || 函數程式碼中用於要求或要求主體的變數名稱。 當只有一個傳回值時，此值為 `$return`。 | 否 |
+| type |n/a| 必須設為 `sendGrid`。| 否 |
+| direction |n/a| 必須設為 `out`。| 否 |
+| NAME |n/a| 函數程式碼中用於要求或要求主體的變數名稱。 當只有一個傳回值時，此值為 `$return`。 | 否 |
 | apiKey | ApiKey | 包含您 API 金鑰的應用程式設定名稱。 如果未設定，預設的應用程式設定名稱是*AzureWebJobsSendGridApiKey*。| 否 |
 | to| 到 | 收件者的電子郵件地址。 | 是 |
 | 從| 從 | 寄件者的電子郵件地址。 |  是 |

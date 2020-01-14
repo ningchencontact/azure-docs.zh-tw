@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 473f1d12188a8686748d19c8c35d4421f9477ae9
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: a8c19a8e88ec7fe2002a327c7e4a57874a753b9f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912804"
+ms.locfileid: "75921226"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>使用不可變的儲存體儲存業務關鍵的 blob 資料
 
@@ -76,7 +76,7 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 
 附加 blob 是由資料區塊所組成，並已針對審核和記錄案例所需的資料附加作業優化。 根據設計，附加 blob 只允許將新區塊新增至 blob 結尾。 不論是否有任何不受的改變，都不允許在附加 blob 中修改或刪除現有區塊。 若要深入瞭解附加 blob，請參閱[關於附加 blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs)。
 
-只有以時間為基礎的保留原則具有 `allowProtectedAppendWrites` 設定，可讓您將新的區塊寫入至附加 blob，同時維持不安全的保護和合規性。 啟用時，您可以直接在受原則保護的容器中建立附加 blob，並繼續使用*AppendBlock* API，將新的資料區塊新增至現有附加 blob 的結尾。 只能新增新的區塊，而且無法修改或刪除任何現有的區塊。 時間保留不存在的保護仍然適用，防止刪除附加 blob，直到經過有效的保留期限為止。  
+只有以時間為基礎的保留原則具有 `allowProtectedAppendWrites` 設定，可讓您將新的區塊寫入至附加 blob，同時維持不安全的保護和合規性。 啟用時，您可以直接在受原則保護的容器中建立附加 blob，並繼續使用*AppendBlock* API，將新的資料區塊新增至現有附加 blob 的結尾。 只能新增新的區塊，而且無法修改或刪除任何現有的區塊。 時間保留不存在的保護仍然適用，防止刪除附加 blob，直到經過有效的保留期限為止。 啟用這項設定並不會影響區塊 blob 或分頁 blob 的永久性行為。
 
 由於此設定是以時間為基礎的保留原則的一部分，因此附加 blob 在*有效*保留期間的持續時間內仍會保持不變狀態。 由於新的資料可以附加在初始建立附加 blob 之外，因此決定保留週期的方式會有些許差異。 [有效保留] 是 [附加 blob 的**上次修改時間**] 和 [使用者指定的保留間隔] 之間的差異。 同樣地，當保留間隔擴充時，固定儲存體會使用使用者指定的保留間隔的最新值來計算有效的保留期限。
 

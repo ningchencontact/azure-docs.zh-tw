@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: c65ed214747fd6a3729c2e9acff5489f5fa1b9d7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 51c60c8cd13c8ad7cef123f2001fcd0ec61f38ba
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323617"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770793"
 ---
 # <a name="install-and-run-read-containers-preview"></a>安裝和執行讀取容器（預覽）
 
 容器可讓您在自己的環境中執行電腦視覺 Api。 容器非常適合用於特定的安全性和資料控管需求。 在本文中，您將瞭解如何下載、安裝及執行電腦視覺容器。
 
-單一 Docker 容器 [*讀取*] 可供電腦視覺。 *讀取*容器可讓您從具有不同表面和背景的各種物件影像中偵測及解壓縮*印刷文字*，例如收據、海報和名片。 此外，*讀取*容器會偵測影像中的*手寫文字*，並提供 PDF、TIFF 和多分頁檔案支援。 如需詳細資訊，請參閱[讀取 API](concept-recognizing-text.md#read-api)檔。
+單一 Docker 容器 [*讀取*] 可供電腦視覺。 *讀取*容器可讓您從具有不同表面和背景的各種物件影像中偵測及解壓縮*印刷文字*，例如收據、海報和名片。 此外，*讀取*容器會偵測影像中的*手寫文字*，並提供 PDF、TIFF 和多分頁檔案支援。 如需詳細資訊，請參閱[讀取](concept-recognizing-text.md#read-api)API 檔。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -79,7 +79,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
 
 將 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令執行容器。 如需如何取得 `{ENDPOINT_URI}` 和 `{API_KEY}` 值的詳細資訊，請參閱[收集必要的參數](#gathering-required-parameters)。
 
-`docker run` 命令的[範例](computer-vision-resource-container-config.md#example-docker-run-commands)可供使用。
+命令的[範例](computer-vision-resource-container-config.md#example-docker-run-commands)可供使用。`docker run`
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
@@ -300,7 +300,7 @@ export interface Word {
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 在本文中，您已了解下載、安裝及執行電腦視覺容器的概念和工作流程。 摘要說明：
 

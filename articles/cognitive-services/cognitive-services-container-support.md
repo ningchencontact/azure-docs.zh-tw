@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 01/10/2020
 ms.author: dapine
-ms.openlocfilehash: a35ceed4cefa47b903ceec915388b4831cd9e69b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: d75962b98543991a065f6b165279215614175925
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173767"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866927"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure 認知服務中的容器支援
 
@@ -32,7 +32,7 @@ Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的�
 
 > [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
-容器化是散發軟體的方法，它會將應用程式或服務 (包括其相依性及設定) 一起封裝成容器映像。 在只需要小幅修改或不修改的情況下，便可將容器映像部署在容器主機上。 容器之間彼此隔離，也與基礎作業系統隔離，且磁碟使用量比虛擬機器更小。 容器可以從容器將映像具現化以進行短期工作，並於不再需要時移除。
+容器化是散發軟體的方法，它會將應用程式或服務 (包括其相依性及設定) 一起封裝成容器映像。 在只需要小幅修改或不修改的情況下，便可將容器映像部署在容器主機上。 容器之間彼此隔離，也與基礎作業系統隔離，且磁碟使用量比虛擬機器更小。 容器可以從容器映像具現化以進行短期工作，並於不再需要時移除。
 
 [Microsoft Azure](https://azure.microsoft.com)上提供認知服務資源。 請登入 [Azure 入口網站](https://portal.azure.com/)以建立並探索適用於這些服務的 Azure 資源。
 
@@ -49,7 +49,7 @@ Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的�
 
 Azure 認知服務容器能提供下列 Docker 容器集合，每個容器都包含 Azure 認知服務中服務之功能的子集：
 
-| 服務 | 支援的定價層 | 容器 | 描述 |
+| 服務 | 支援的定價層 | 容器 | 說明 |
 |---------|----------|----------|-------------|
 |[異常偵測器][ad-containers] |F0，S0|**異常-偵測器** |Anomaly Detector API 可讓您透過機器學習，監視和偵測時間序列資料中的異常狀況。<br>[要求存取](https://aka.ms/adcontainer)|
 |[電腦視覺][cv-containers] |F0，S1|**讀取** |從具不同表面和背景之各種物件 (例如收據、海報和名片) 的影像擷取印刷文字。 讀取容器也會偵測影像中的*手寫文字*，並提供 PDF/TIFF/多頁支援。<br/><br/>**重要事項：** 讀取容器目前僅適用于英文。|

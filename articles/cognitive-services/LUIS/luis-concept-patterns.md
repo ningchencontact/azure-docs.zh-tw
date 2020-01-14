@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 32b9b42ee0962353405616e501de95b19e40ea1a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6c1b548de25369c162b4a08dfa20fce62c17f99f
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280863"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890277"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>模式可改善預測精確度
 模式設計用來改善數個語句非常類似時的精確度。  模式可讓您取得更精確的意圖，而不需提供更多表達。 
@@ -73,7 +73,7 @@ ms.locfileid: "74280863"
 深入瞭解模式：
 
 * [如何新增模式](luis-how-to-model-intent-pattern.md)
-* [如何新增模式。任何實體](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [如何新增模式。任何實體](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [模式語法](reference-pattern-syntax.md)
 
 > [!div class="nextstepaction"]

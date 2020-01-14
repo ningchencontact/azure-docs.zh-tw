@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 2627e4be20d80251e3753e46624c58a0c6244aba
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/13/2020
+ms.openlocfilehash: e115316daf3673d9ad854e7ccd6d5256d729b5af
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863082"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921018"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure 認知搜尋的新功能
 
@@ -33,7 +33,11 @@ API 版本、Nuget 套件、命名空間和端點都不會變更。 您現有的
 
 + [客戶管理的加密金鑰](search-security-manage-encryption-keys.md)現在已正式推出。 如果您使用 REST，您可以使用 `api-version=2019-05-06`來存取此功能。 對於 managed 程式碼，即使功能不在預覽中，正確的封裝仍然是[.NET SDK 版本 8.0-preview](search-dotnet-sdk-migration-version-9.md) 。 
 
-+ 搜尋服務端點上的*受限制 IP 存取和私人端點（預覽）* 現在已可在**api 版本 = 2019-10-01.txt-preview**中取得。 您可以在[建立或更新](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate)管理 REST API 中，使用新的**IpRule**和**NetworkRuleSet**屬性來設定安全的端點。 如需 API 版本和區域可用性的詳細資訊，請參閱[如何使用管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)。
++ 搜尋服務的私用存取可透過兩種機制取得：
+
+  + 您可以使用管理 REST API `api-version=2019-10-01-Preview` 來建立服務，以限制對特定 IP 位址的存取。 預覽 API 在[CREATEORUPDATE api](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate)中有新的**IpRule**和**NetworkRuleSet**屬性。 此預覽功能適用于選取的區域。 如需詳細資訊，請參閱[如何使用管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)。
+
+  + 目前透過有限存取預覽提供，您可以針對來自相同虛擬網路上用戶端的連線，布建支援 Azure 私人端點的 Azure 搜尋服務服務。 如需詳細資訊，請參閱[建立安全連線的私用端點](service-create-private-endpoint.md)。
 
 ### <a name="december-2019"></a>2019 年 12 月
 

@@ -6,12 +6,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: jehollan
-ms.openlocfilehash: db072d90c39b3856127925306cb1407c5837a0bb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bdeff0194bda620250481a215c145b1ec3b2207e
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226964"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920784"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>Azure Functions 異地嚴重損壞修復
 
@@ -34,7 +34,7 @@ Azure Functions 在特定區域中執行。  若要取得更高的可用性，�
 
 ## <a name="activeactive-for-non-https-functions"></a>非 HTTPS 函式的主動/主動
 
-您仍然可以達到非 HTTPS 功能的主動/主動部署。  不過，您需要考慮兩個區域之間的互動或協調方式。  如果您將相同的函式應用程式部署到兩個區域中，每個都在相同的服務匯流排佇列上觸發，則會在將佇列的取消佇列中作為競爭取用者。  這表示每個訊息只會由其中一個實例處理，這也表示單一服務匯流排上仍有單一失敗點。  如果您部署兩個服務匯流排佇列（一個在主要區域中，一個在次要區域中），而兩個函式應用程式指向其區域佇列，則挑戰現在就是在兩個區域之間散發佇列訊息的方式。  通常這表示每個發行者都會嘗試將訊息發佈到*這兩個*區域，而每個訊息都是由兩個作用中函數應用程式所處理。  雖然這會建立主動/主動模式，但它會針對計算的重複程度以及資料合併的時間或方式建立其他挑戰。  基於這些理由，建議非 HTTPS 觸發程式使用主動/被動模式。
+您仍然可以達到非 HTTPS 功能的主動/主動部署。  不過，您需要考慮兩個區域之間的互動或協調方式。  如果您將相同的函式應用程式部署到兩個區域中，每個都在相同的服務匯流排佇列上觸發，則會在將佇列的取消佇列中作為競爭取用者。  雖然這表示每個訊息只會由其中一個實例處理，但這也表示單一服務匯流排上仍有單一失敗點。  如果您部署兩個服務匯流排的佇列（一個在主要區域中，一個在次要區域中），而這兩個函式應用程式指向其區域佇列，則挑戰現在會出現在這兩個區域之間如何散佈佇列訊息。  通常這表示每個發行者都會嘗試將訊息發佈到*這兩個*區域，而每個訊息都是由兩個作用中函數應用程式所處理。  雖然這會建立主動/主動模式，但它會針對計算的重複程度以及資料合併的時間或方式建立其他挑戰。  基於這些理由，建議非 HTTPS 觸發程式使用主動/被動模式。
 
 ## <a name="activepassive-for-non-https-functions"></a>非 HTTPS 函式的主動/被動
 
@@ -52,7 +52,7 @@ Azure Functions 在特定區域中執行。  若要取得更高的可用性，�
 
 在容錯移轉之前，傳送至共用別名的發行者會路由至主要事件中樞。  主要的函式應用程式只會以獨佔方式接聽主要事件中樞。  次要函式應用程式將會是被動和閒置。  一旦起始容錯移轉，傳送至共用別名的發行者現在會路由至次要事件中樞。  次要函式應用程式現在會變成作用中狀態，並自動開始觸發。  對次要區域的有效容錯移轉可以完全從事件中樞驅動，只有在個別事件中樞為作用中時，函式才會變成使用中狀態。
 
-深入瞭解容錯移轉與[服務匯流排](../service-bus-messaging/service-bus-geo-dr.md)和[事件中樞](../event-hubs/event-hubs-geo-dr.md)的相關資訊和考慮。
+深入瞭解使用[服務匯流排](../service-bus-messaging/service-bus-geo-dr.md)和[事件中樞](../event-hubs/event-hubs-geo-dr.md)進行容錯移轉的相關資訊和考慮。
 
 ## <a name="next-steps"></a>後續步驟
 

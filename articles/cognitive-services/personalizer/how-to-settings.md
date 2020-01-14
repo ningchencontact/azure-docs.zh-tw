@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 4ab1dcf4f3554c941107ec653f717b3680543da2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d20f81bf7db2e098f2bca674c5540bc067577f30
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490728"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833916"
 ---
 # <a name="configure-personalizer"></a>設定個人化工具
 
@@ -23,9 +23,9 @@ ms.locfileid: "73490728"
 
 ## <a name="create-personalizer-resource"></a>建立個人化工具資源
 
-請針對每個意見反應迴圈建立一個個人化工具資源。 
+請針對每個意見反應迴圈建立一個個人化工具資源。
 
-1. 登入 [Azure 入口網站](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)。 先前的連結會帶您前往個人化工具服務的 [建立] 頁面。 
+1. 登入 [Azure 入口網站](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)。 先前的連結會帶您前往個人化工具服務的 [建立] 頁面。
 1. 輸入服務名稱、選擇訂用帳戶、位置、定價層及資源群組。
 1. 選擇確認及 [建立]。
 
@@ -34,7 +34,7 @@ ms.locfileid: "73490728"
 ## <a name="configure-service-in-the-azure-portal"></a>在 Azure 入口網站中設定服務
 
 1. 登入 [Azure 入口網站](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)。
-1. 尋找個人化工具資源。 
+1. 尋找個人化工具資源。
 1. 在 [**資源管理**] 區段中 **，選取 [** 設定]。
 
     離開 Azure 入口網站之前，從**金鑰**頁面中複製其中一個資源金鑰。 您需要此金鑰方可使用[個人化工具 SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer)。
@@ -55,9 +55,9 @@ ms.locfileid: "73490728"
 
 變更這些值之後，請務必選取 [**儲存**]。
 
-### <a name="configure-exploration"></a>設定探索 
+### <a name="configure-exploration"></a>設定探索
 
-個人化能夠探索新的模式，並藉由探索替代方案來適應隨著時間變化的使用者行為。 [**探索**] 值會決定要使用探索來回答的排名呼叫百分比。 
+個人化能夠探索新的模式，並藉由探索替代方案來適應隨著時間變化的使用者行為。 [**探索**] 值會決定要使用探索來回答的排名呼叫百分比。
 
 對此值所做的變更將會重設目前的個人化工具模型，並以過去2天的資料重新定型。
 
@@ -67,7 +67,7 @@ ms.locfileid: "73490728"
 
 ### <a name="model-update-frequency"></a>模型更新頻率
 
-個人化工具排名呼叫不會自動使用最新的模型 (已從每個作用中事件的獎勵 API 呼叫中進行定型)。 **模型更新頻率**會設定排名呼叫所用模型的更新頻率。 
+個人化工具排名呼叫不會自動使用最新的模型 (已從每個作用中事件的獎勵 API 呼叫中進行定型)。 **模型更新頻率**會設定排名呼叫所用模型的更新頻率。
 
 若您想要密切追蹤使用者行為的變更，可使用較高的模型更新頻率。 例如播放即時新聞、熱門內容或即時產品競標的網站。 在這些案例中，您可以使用 15 分鐘的頻率。 針對大多數使用案例，較低的更新頻率會比較有效。 一分鐘的更新頻率即適用於使用個人化工具對應用程式的程式碼進行偵錯、示範，或以互動方式測試機器學習服務的面向。
 
@@ -83,14 +83,9 @@ ms.locfileid: "73490728"
 
 ## <a name="export-the-personalizer-model"></a>匯出個人化工具模型
 
-從 [**模型和學習設定**] 的 [資源管理] 區段中，查看 [模型建立] 和 [上次更新日期]，然後匯出目前的模型。 您可以使用 Azure 入口網站或個人化工具 API 來匯出要加以封存的模型檔案。 
+從 [**模型和學習設定**] 的 [資源管理] 區段中，查看 [模型建立] 和 [上次更新日期]，然後匯出目前的模型。 您可以使用 Azure 入口網站或個人化工具 API 來匯出要加以封存的模型檔案。
 
 ![匯出目前的個人化工具模型](media/settings/export-current-personalizer-model.png)
-
-## <a name="import-and-export-learning-policy"></a>匯入和匯出學習原則
-
-從 [**模型和學習設定**] 的 [資源管理] 區段中，匯入新的學習原則，或匯出目前的學習原則。
-您可以從先前的匯出取得學習原則檔案，或下載在離線評估期間探索到的優化原則。 對這些檔案進行手動變更將會影響機器學習服務的效能和離線評估的正確性，而且 Microsoft 無法擔保機器學習和評估的正確性，或手動編輯的原則所產生的服務例外狀況。
 
 ## <a name="clear-data-for-your-learning-loop"></a>清除學習迴圈的資料
 
@@ -105,9 +100,8 @@ ms.locfileid: "73490728"
     |重設個人化工具模型。|此模型會在每次重新定型時變更。 此定型頻率**會在 [設定] 頁面上**的 **[上傳模型頻率**] 中指定。 |
     |將 [學習原則] 設定為 [預設]。|如果您已將學習原則變更為離線評估的一部分，則會重設為原始學習原則。|
 
-1. 選取 [**清除選取的資料**] 以開始清除進程。 狀態會在 Azure 通知的右上方導覽中回報。 
+1. 選取 [**清除選取的資料**] 以開始清除進程。 狀態會在 Azure 通知的右上方導覽中回報。
 
 ## <a name="next-steps"></a>後續步驟
 
-
-[了解區域可用性](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+[瞭解如何管理學習原則](how-to-learning-policy.md)

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 77915409e3c44a01e26c35c0facb2d577c331fd8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ef65904b19c5f42548c7b98cb37f6609124e0541
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914925"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922415"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Microsoft Graph 繫結
 
@@ -30,7 +30,7 @@ Microsoft Graph 擴充功能會提供下列繫結：
 > [!Note]
 > Azure Functions 2.x 版和更新版本的 Microsoft Graph 系結目前處於預覽狀態。 Functions 1.x 版不加以支援。
 
-## <a name="packages"></a>封裝
+## <a name="packages"></a>Packages
 
 [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/) NuGet 套件中提供驗證權杖輸入繫結。 [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) 套件中提供其他 Microsoft Graph 繫結。 套件的原始程式碼位於 [azure-functions-microsoftgraph-extension](https://github.com/Azure/azure-functions-microsoftgraph-extension/) GitHub 存放庫中。
 
@@ -53,7 +53,7 @@ Microsoft Graph 繫結可透過 _繫結擴充功能_ 提供。 繫結擴充功�
 在這兩種情況下，會出現警告，指定要安裝的擴充功能。 按一下 [安裝] 取得擴充功能。 每個擴充功能只需要針對每個函式應用程式安裝一次。 
 
 > [!Note] 
-> 入口網站安裝程序在取用方案上可能需要 10 分鐘。
+> 入口網站內安裝程式最多可能需要10分鐘的耗用量方案。
 
 如果您使用 Visual Studio，可以安裝[本文先前所列的 NuGet 套件](#packages)來取得擴充功能。
 
@@ -77,8 +77,8 @@ Microsoft Graph 繫結可透過 _繫結擴充功能_ 提供。 繫結擴充功�
 
 * [範例](#auth-token---example)
 * [屬性](#auth-token---attributes)
-* [組態](#auth-token---configuration)
-* [用法](#auth-token---usage)
+* [Configuration](#auth-token---configuration)
+* [使用量](#auth-token---usage)
 
 ### <a name="auth-token---example"></a>驗證權杖 - 範例
 
@@ -205,7 +205,7 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Token` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於驗證權杖的變數名稱。 請參閱[從程式碼使用驗證權杖輸入繫結](#token-input-code)。|
 |**type**||必要項目 - 必須設定為 `token`。|
@@ -235,8 +235,8 @@ Excel 資料表輸入繫結會讀取儲存在 OneDrive 中 Excel 資料表的內
 
 * [範例](#excel-input---example)
 * [屬性](#excel-input---attributes)
-* [組態](#excel-input---configuration)
-* [用法](#excel-input---usage)
+* [Configuration](#excel-input---configuration)
+* [使用量](#excel-input---usage)
 
 ### <a name="excel-input---example"></a>Excel 輸入 - 範例
 
@@ -340,7 +340,7 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Excel` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於 Excel 資料表的變數名稱。 請參閱[從程式碼使用 Excel 資料表輸入繫結](#excel-input-code)。|
 |**type**||必要項目 - 必須設定為 `excel`。|
@@ -348,7 +348,7 @@ module.exports = function (context, req) {
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
 |**userId**|UserId  |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
 |**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
-|**路徑**|**路徑**|必要項目 - OneDrive 中的 Excel 活頁簿路徑。|
+|**path**|**路徑**|必要項目 - OneDrive 中的 Excel 活頁簿路徑。|
 |**worksheetName**|**WorksheetName**|資料表所在的工作表。|
 |**tableName**|**TableName**|資料表的名稱。 如果未指定，就會使用工作表的內容。|
 
@@ -384,8 +384,8 @@ Excel 輸出繫結會修改儲存在 OneDrive 中 Excel 資料表的內容。
 
 * [範例](#excel-output---example)
 * [屬性](#excel-output---attributes)
-* [組態](#excel-output---configuration)
-* [用法](#excel-output---usage)
+* [Configuration](#excel-output---configuration)
+* [使用量](#excel-output---usage)
 
 ### <a name="excel-output---example"></a>Excel 輸出 - 範例
 
@@ -502,7 +502,7 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Excel` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於驗證權杖的變數名稱。 請參閱[從程式碼使用 Excel 資料表輸出繫結](#excel-output-code)。|
 |**type**||必要項目 - 必須設定為 `excel`。|
@@ -510,7 +510,7 @@ module.exports = function (context, req) {
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
 |UserId |**userId** |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
 |**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
-|**路徑**|**路徑**|必要項目 - OneDrive 中的 Excel 活頁簿路徑。|
+|**path**|**路徑**|必要項目 - OneDrive 中的 Excel 活頁簿路徑。|
 |**worksheetName**|**WorksheetName**|資料表所在的工作表。|
 |**tableName**|**TableName**|資料表的名稱。 如果未指定，就會使用工作表的內容。|
 |**updateType**|**UpdateType**|必要項目 - 要對資料表進行變更的類型。 可以是下列其中一個值：<ul><li><code>update</code> - 取代 OneDrive 中的資料表內容。</li><li><code>append</code> - 藉由建立新的資料列，在 OneDrive 中將承載新增至資料表結尾。</li></ul>|
@@ -543,8 +543,8 @@ OneDrive 檔案輸入繫結會讀取儲存在 OneDrive 中的檔案內容。
 
 * [範例](#file-input---example)
 * [屬性](#file-input---attributes)
-* [組態](#file-input---configuration)
-* [用法](#file-input---usage)
+* [Configuration](#file-input---configuration)
+* [使用量](#file-input---usage)
 
 ### <a name="file-input---example"></a>檔案輸入 - 範例
 
@@ -648,7 +648,7 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `OneDrive` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於檔案的變數名稱。 請參閱[從程式碼使用 OneDrive 檔案輸入繫結](#onedrive-input-code)。|
 |**type**||必要項目 - 必須設定為 `onedrive`。|
@@ -656,7 +656,7 @@ module.exports = function (context, req) {
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
 |**userId**|UserId  |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
 |**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
-|**路徑**|**路徑**|必要項目 - OneDrive 中的檔案路徑。|
+|**path**|**路徑**|必要項目 - OneDrive 中的檔案路徑。|
 
 <a name="onedrive-input-code"></a>
 ### <a name="file-input---usage"></a>檔案輸入 - 使用方式
@@ -687,8 +687,8 @@ OneDrive 檔案輸出繫結會修改儲存在 OneDrive 中的檔案內容。
 
 * [範例](#file-output---example)
 * [屬性](#file-output---attributes)
-* [組態](#file-output---configuration)
-* [用法](#file-output---usage)
+* [Configuration](#file-output---configuration)
+* [使用量](#file-output---usage)
 
 ### <a name="file-output---example"></a>檔案輸出 - 範例
 
@@ -796,7 +796,7 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `OneDrive` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於檔案的變數名稱。 請參閱[從程式碼使用 OneDrive 檔案輸出繫結](#onedrive-output-code)。|
 |**type**||必要項目 - 必須設定為 `onedrive`。|
@@ -804,7 +804,7 @@ module.exports = function (context, req) {
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
 |UserId |**userId** |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
 |**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
-|**路徑**|**路徑**|必要項目 - OneDrive 中的檔案路徑。|
+|**path**|**路徑**|必要項目 - OneDrive 中的檔案路徑。|
 
 <a name="onedrive-output-code"></a>
 #### <a name="file-output---usage"></a>檔案輸出 - 使用方式
@@ -834,8 +834,8 @@ Outlook 訊息輸出繫結會透過 Outlook 傳送電子郵件訊息。
 
 * [範例](#outlook-output---example)
 * [屬性](#outlook-output---attributes)
-* [組態](#outlook-output---configuration)
-* [用法](#outlook-output---usage)
+* [Configuration](#outlook-output---configuration)
+* [使用量](#outlook-output---usage)
 
 ### <a name="outlook-output---example"></a>Outlook 輸出 - 範例
 
@@ -947,7 +947,7 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Outlook` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
 |**type**||必要項目 - 必須設定為 `outlook`。|
@@ -999,8 +999,8 @@ Microsoft Graph Webhook 觸發程序可讓函式回應從 Microsoft Graph 傳入
 
 * [範例](#webhook-trigger---example)
 * [屬性](#webhook-trigger---attributes)
-* [組態](#webhook-trigger---configuration)
-* [用法](#webhook-trigger---usage)
+* [Configuration](#webhook-trigger---configuration)
+* [使用量](#webhook-trigger---usage)
 
 ### <a name="webhook-trigger---example"></a>Webhook 觸發程序 - 範例
 
@@ -1090,7 +1090,7 @@ module.exports = function (context) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `GraphWebhookTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
 |**type**||必要項目 - 必須設定為 `graphWebhook`。|
@@ -1118,8 +1118,8 @@ Microsoft Graph Webhook 輸入繫結可讓您擷取由此函式應用程式管�
 
 * [範例](#webhook-input---example)
 * [屬性](#webhook-input---attributes)
-* [組態](#webhook-input---configuration)
-* [用法](#webhook-input---usage)
+* [Configuration](#webhook-input---configuration)
+* [使用量](#webhook-input---usage)
 
 ### <a name="webhook-input---example"></a>Webhook 輸入 - 範例
 
@@ -1242,7 +1242,7 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `GraphWebhookSubscription` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
 |**type**||必要項目 - 必須設定為 `graphWebhookSubscription`。|
@@ -1269,8 +1269,8 @@ Webhook 訂用帳戶輸出繫結可讓您建立、刪除和重新整理 Microsof
 
 * [範例](#webhook-output---example)
 * [屬性](#webhook-output---attributes)
-* [組態](#webhook-output---configuration)
-* [用法](#webhook-output---usage)
+* [Configuration](#webhook-output---configuration)
+* [使用量](#webhook-output---usage)
 
 ### <a name="webhook-output---example"></a>Webhook 輸出 - 範例
 
@@ -1383,7 +1383,7 @@ module.exports = function (context, req) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `GraphWebhookSubscription` 屬性。
 
-|function.json 屬性 | 屬性內容 |描述|
+|function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
 |**name**||必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
 |**type**||必要項目 - 必須設定為 `graphWebhookSubscription`。|
@@ -1391,7 +1391,7 @@ module.exports = function (context, req) {
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
 |**userId**|UserId  |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
 |**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
-|**action**|**Action**|必要項目 - 指定繫結應該要執行的動作。 可以是下列其中一個值：<ul><li><code>create</code> - 註冊新的訂用帳戶。</li><li><code>delete</code> - 刪除指定的訂用帳戶。</li><li><code>refresh</code> - 重新整理指定的訂用帳戶以避免過期。</li></ul>|
+|**action**|**動作**|必要項目 - 指定繫結應該要執行的動作。 可以是下列其中一個值：<ul><li><code>create</code> - 註冊新的訂用帳戶。</li><li><code>delete</code> - 刪除指定的訂用帳戶。</li><li><code>refresh</code> - 重新整理指定的訂用帳戶以避免過期。</li></ul>|
 |**subscriptionResource**|**SubscriptionResource**|只有當 _action_ 設為 `create` 時才需要。 指定要監視以進行變更的 Microsoft Graph 資源。 請參閱[在 Microsoft Graph 中使用 webhook]。 |
 |**changeType**|**ChangeType**|只有當 _action_ 設為 `create` 時才需要。 指出會引發通知之訂閱資源中的變更類型。 支援的值為：`created`、`updated`、`deleted`。 可以使用逗號分隔清單來組合多個值。|
 
@@ -1422,7 +1422,7 @@ module.exports = function (context, req) {
 請參閱特定語言的範例：
 
 * [C# 指令碼 (.csx)](#app-identity-refresh---c-script-example)
-* Javascript
+* JavaScript
 
 ### <a name="app-identity-refresh---c-script-example"></a>應用程式身分識別重新整理 - C# 指令碼範例
 

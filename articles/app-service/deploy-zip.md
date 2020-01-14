@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 3569c6a066b09daa0c24975b9de840a844b6ba2c
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 28bd45b0e9bdaf87c29b0118c47595db9179edc5
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670233"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921162"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>使用 ZIP 或 WAR 檔案將您的應用程式部署至 Azure App Service
 
@@ -88,6 +88,8 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 ## <a name="deploy-war-file"></a>部署 WAR 檔案
 
 若要將 WAR 檔案部署到 App Service，請將 POST 要求傳送至 `https://<app_name>.scm.azurewebsites.net/api/wardeploy`。 POST 要求必須在訊息本文中包含 .war 檔案。 系統會使用 HTTP 基本驗證，在要求中提供應用程式的部署認證。
+
+部署 WAR 檔案時，請一律使用 `/api/wardeploy`。 此 API 會擴充您的 WAR 檔案，並將它放在共用的檔磁片磁碟機上。 使用其他部署 Api 可能會導致不一致的行為。 
 
 針對 HTTP 基本驗證，您需要 App Service 部署的認證。 若要了解如何設定部署認證，請參閱[設定及重設使用者層級的認證](deploy-configure-credentials.md#userscope)。
 

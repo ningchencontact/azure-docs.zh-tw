@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2eba0c7ae546b5f5ab7525cc8c84e6b6de431085
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 6a07d019893e69308b35b4a941fe50d2736efe01
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768909"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921906"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
@@ -68,11 +68,11 @@ App Service 方案可讓您利用您所管理的專用基礎結構。 您的函�
 * 更可預測的定價
 * 針對具有多個函數應用程式的方案進行高密度應用程式佈建
 
-如需如何設定這些選項的資訊，請參閱[Azure Functions premium 方案檔](functions-premium-plan.md)。
+如需如何設定這些選項的資訊，請參閱[Azure Functions Premium 方案檔](functions-premium-plan.md)。
 
 高階方案的計費是根據所需和預先準備就緒的實例所使用的核心秒數和記憶體，而不是每次執行計費和耗用記憶體。 在每個計畫中，至少有一個實例必須為暖。 這表示每個使用中的計畫每月最低成本，不論執行次數為何。 請記住，Premium 方案中的所有函式應用程式會共用預先準備就緒和作用中的實例。
 
-在下列情況下，請考慮 Azure Functions premium 方案：
+在下列情況下，請考慮 Azure Functions Premium 方案：
 
 * 您的函式應用程式會連續執行或接近連續執行。
 * 您有很多的小型執行，而且在取用方案中具有高用量計費但低 GB 的第二個帳單。
@@ -136,7 +136,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 ## <a name="how-the-consumption-and-premium-plans-work"></a>耗用量和 premium 方案的工作方式
 
-在「耗用量」和「高階」方案中，Azure Functions 基礎結構會根據其函數觸發所在的事件數目，新增函式主機的其他實例，以調整 CPU 和記憶體資源。 耗用量方案中的每個函式實例都限制為 1.5 GB 的記憶體和一個 CPU。  主機的實例是整個函式應用程式，這表示函數應用程式內的所有函式會共用實例內的資源，並同時進行調整。 共用相同取用方案的函數應用程式會獨立調整。  在 premium 方案中，您的方案大小會決定該實例上該方案中所有應用程式的可用記憶體和 CPU。  
+在「耗用量」和「高階」方案中，Azure Functions 基礎結構會根據其函數觸發所在的事件數目，新增函式主機的其他實例，以調整 CPU 和記憶體資源。 耗用量方案中的每個函式實例都限制為 1.5 GB 的記憶體和一個 CPU。  主機的實例是整個函式應用程式，這表示函數應用程式內的所有函式會共用實例內的資源，並同時進行調整。 共用相同取用方案的函數應用程式會個別進行調整。  在 Premium 方案中，您的方案大小會決定該實例上該方案中所有應用程式的可用記憶體和 CPU。  
 
 函式程式碼檔案會儲存在函式主要儲存體帳戶的 Azure 檔案儲存體共用上。 當您刪除函式應用程式的主要儲存體帳戶時，函式程式碼檔案會被刪除，且無法復原。
 

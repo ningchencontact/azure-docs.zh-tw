@@ -10,12 +10,12 @@ ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c501dda60b65f78bb82649bed6bca4b031ad8a6b
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 39568d65978592b360512db2e556cfa6b59760b6
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913156"
+ms.locfileid: "75921212"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>建立支援資料表和佇列之客戶管理金鑰的帳戶
 
@@ -75,7 +75,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 您必須設定新的儲存體帳戶，以便在建立儲存體帳戶時，針對佇列和資料表使用帳戶加密金鑰。 建立帳戶之後，就無法變更加密金鑰的範圍。
 
-儲存體帳戶必須是一般用途 v2 類型，而且必須針對本機多餘儲存體（LRS）進行設定。 您可以建立儲存體帳戶，並將它設定為依賴帳戶加密金鑰，方法是使用 Azure CLI 或 Azure Resource Manager 範本。
+儲存體帳戶的類型必須是一般用途 v2。 您可以建立儲存體帳戶，並將它設定為依賴帳戶加密金鑰，方法是使用 Azure CLI 或 Azure Resource Manager 範本。
 
 > [!NOTE]
 > 只有在建立儲存體帳戶時，才可以選擇性地將佇列和資料表儲存體設定為使用帳戶加密金鑰來加密資料。 Blob 儲存體和 Azure 檔案儲存體一律使用帳戶加密金鑰來加密資料。

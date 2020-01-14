@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: diberry
-ms.openlocfilehash: a5fcccc18a453101bd1166f2c85b0c3cdc747c3a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 254fec23ef34b936405439e0334e24e594a24dc4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464958"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890240"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>在您 LUIS 模型中，每個文化特性的實體
 
 Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程式中包含預先建置的實體時，LUIS 就會在端點回應中包含對應的實體預測。 所有範例語句也都會標示該實體。 預先建置實體的行為**無法**修改。 除非另有註明，否則預先建置的實體在所有 LUIS 應用程式地區設定 (文化特性) 中均適用。 下表列出支援各種文化特性的預先建置實體。
 
-|文化特性|次文化特性|注意事項|
+|文化特性|次文化特性|注意|
 |--|--|--|
 |中文|[zh-CN](#chinese-entity-support)||
 |荷蘭文|[nl-NL](#dutch-entity-support)||
-|English|[en-US (美式)](#english-american-entity-support)||
+|繁體中文|[en-US (美式)](#english-american-entity-support)||
 |法文|[fr-CA (加拿大)](#french-canadian-entity-support), [fr-FR (法國)](#french-france-entity-support), ||
 |德文|[de-DE](#german-entity-support)||
 |義大利文|[it-IT](#italian-entity-support)||
@@ -44,11 +44,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 
 支援下列實體：
 
-|預先建置的實體|```zh-CN``` |
+|預建實體|```zh-CN``` |
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    V2、V3   |
-[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    V2、V3   | 
+[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    V2、V3   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    V2、V3   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    V2、V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -66,11 +66,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 
 支援下列實體：
 
-|預先建置的實體|```nl-NL``` |
+|預建實體|```nl-NL``` |
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    V2、V3   |
-[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
-[從中](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    V2、V3   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    V2、V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -88,11 +88,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 
 支援下列實體：
 
-|預先建置的實體|```en-US``` |
+|預建實體|```en-US``` |
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    V2、V3   |
-[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    V2、V3   | 
+[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    V2、V3   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    V2、V3   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    V2、V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    V2、V3   | 
@@ -110,11 +110,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 
 支援下列實體：
 
-|預先建置的實體|```fr-FR``` |
+|預建實體|```fr-FR``` |
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    V2、V3   |
-[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    V2、V3   | 
+[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    V2、V3   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    V2、V3   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    V2、V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -132,11 +132,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 
 支援下列實體：
 
-|預先建置的實體|```fr-CA``` |
+|預建實體|```fr-CA``` |
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    V2、V3   |
-[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    V2、V3   | 
+[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    V2、V3   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    V2、V3   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    V2、V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -154,11 +154,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 
 支援下列實體：
 
-|預先建置的實體|```de-DE``` |
+|預建實體|```de-DE``` |
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    V2、V3   |
-[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    V2、V3   | 
+[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    V2、V3   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    V2、V3   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    V2、V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -178,11 +178,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 
 支援下列實體：
 
-|預先建置的實體|```it-IT``` |
+|預建實體|```it-IT``` |
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    V2、V3   |
-[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
-[從中](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    V2、V3   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    V2、V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -200,11 +200,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 
 支援下列實體：
 
-|預先建置的實體|```ja-JP``` |
+|預建實體|```ja-JP``` |
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    V2、-   |
-[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣<br>小數單位 (例如：貨幣單位)  |    V2、-   |
-[從中](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    V2、-   |
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    V2、-   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    V2、V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -222,11 +222,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 
 支援下列實體：
 
-|預先建置的實體|```ko-KR``` |
+|預建實體|```ko-KR``` |
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    -   |
-[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣<br>小數單位 (例如：貨幣單位)  |    -   |
-[從中](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    -   |
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    -   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    V2、V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -244,11 +244,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 
 支援下列實體：
 
-|預先建置的實體|```pt-BR``` |
+|預建實體|```pt-BR``` |
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    V2、V3   |
-[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    V2、V3   | 
+[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    V2、V3   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    V2、V3   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    V2、V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -266,11 +266,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 
 支援下列實體：
 
-|預先建置的實體|```es-ES``` |
+|預建實體|```es-ES``` |
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    V2、V3   |
-[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    V2、V3   | 
+[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    V2、V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    V2、V3   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    V2、V3   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    V2、V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -288,11 +288,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 
 支援下列實體：
 
-|預先建置的實體|```es-MX``` |
+|預建實體|```es-MX``` |
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    -   |
-[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣<br>小數單位 (例如：貨幣單位)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    -   | 
+[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    -   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    -   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    V2、V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -342,7 +342,7 @@ KeyPhrase is not available.
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>參與預先建置的實體文化特性
 預先建置的實體是在 Recognizers-Text 開放原始碼專案中開發的。 [參與](https://github.com/Microsoft/Recognizers-Text)此專案。 此專案包含每個文化特性的貨幣適用的範例。 
 
-GeographyV2 和 PersonName 不包含在 Recognizers-Text 專案中。 對於這些預先建置實體的問題，請開啟[支援要求](../../azure-supportability/how-to-create-azure-support-request.md)。 
+GeographyV2 和 PersonName 不包含在 Recognizers-Text 專案中。 對於這些預先建置實體的問題，請開啟[支援要求](../../azure-portal/supportability/how-to-create-azure-support-request.md)。 
 
 ## <a name="next-steps"></a>後續步驟
 

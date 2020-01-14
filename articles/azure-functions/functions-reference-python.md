@@ -3,12 +3,12 @@ title: 適用於 Azure Functions 的 Python 開發人員參考
 description: 了解如何使用 Python 開發函式
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 374770c50300b9ca37253b3323a02c3371bfa521
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: cfac28c4a759cee66c932c7b8cfea053c9c4f505
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903243"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921787"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 開發人員指南
 
@@ -282,7 +282,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ## <a name="scaling-and-concurrency"></a>調整和並行
 
-根據預設，Azure Functions 會自動監視應用程式上的負載，並視需要建立適用于 Python 的其他主機實例。 函式會針對不同的觸發程式類型使用內建（非使用者可設定）閾值，以決定何時要新增實例，例如訊息的存留期和 QueueTrigger 的佇列大小。 如需詳細資訊，請參閱[耗用量和 premium 方案的工作方式](functions-scale.md#how-the-consumption-and-premium-plans-work)。
+根據預設，Azure Functions 會自動監視應用程式上的負載，並視需要建立適用于 Python 的其他主機實例。 函式會針對不同的觸發程式類型使用內建（非使用者可設定）閾值，以決定何時要新增實例，例如訊息的存留期和 QueueTrigger 的佇列大小。 如需詳細資訊，請參閱[耗用量和 Premium 方案的工作方式](functions-scale.md#how-the-consumption-and-premium-plans-work)。
 
 這種調整行為足以滿足許多應用程式的需求。 不過，具有下列任何特性的應用程式可能無法有效地進行調整：
 

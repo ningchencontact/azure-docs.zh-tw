@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: b7f8b98e8241b4502c86cce8c893beb315767d55
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 7874a6b274939c233dd1c4e6d146df2a9a409e65
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816504"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833997"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>使用語音服務容器搭配 Kubernetes 和 Helm
 
@@ -48,20 +48,20 @@ ms.locfileid: "74816504"
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>與 Kubernetes 叢集共用 Docker 認證
 
-若要允許 Kubernetes 叢集從 `mcr.microsoft.com` 容器登錄中 `docker pull` 設定的映射，您需要將 docker 認證傳輸到叢集。 執行下列[`kubectl create`][kubectl-create]命令，根據容器登錄存取必要條件中提供的認證建立*docker 登錄密碼*。
+若要允許 Kubernetes 叢集從 `containerpreview.azurecr.io` 容器登錄中 `docker pull` 設定的映射，您需要將 docker 認證傳輸到叢集。 執行下列[`kubectl create`][kubectl-create]命令，根據容器登錄存取必要條件中提供的認證建立*docker 登錄密碼*。
 
 從您選擇的命令列介面，執行下列命令。 請務必將 `<username>`、`<password>`和 `<email-address>` 取代為 container registry 認證。
 
 ```console
 kubectl create secret docker-registry mcr \
-    --docker-server=mcr.microsoft.com \
+    --docker-server=containerpreview.azurecr.io \
     --docker-username=<username> \
     --docker-password=<password> \
     --docker-email=<email-address>
 ```
 
 > [!NOTE]
-> 如果您已經有 `mcr.microsoft.com` 容器登錄的存取權，您可以改為使用一般旗標來建立 Kubernetes 秘密。 請考慮下列會針對您的 Docker 設定 JSON 執行的命令。
+> 如果您已經有 `containerpreview.azurecr.io` 容器登錄的存取權，您可以改為使用一般旗標來建立 Kubernetes 秘密。 請考慮下列會針對您的 Docker 設定 JSON 執行的命令。
 > ```console
 >  kubectl create secret generic mcr \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
@@ -106,8 +106,8 @@ speechToText:
   numberOfConcurrentRequest: 3
   optimizeForAudioFile: true
   image:
-    registry: mcr.microsoft.com
-    repository: azure-cognitive-services/speech-to-text
+    registry: containerpreview.azurecr.io
+    repository: microsoft/cognitive-services-speech-to-text
     tag: latest
     pullSecrets:
       - mcr # Or an existing secret
@@ -122,8 +122,8 @@ textToSpeech:
   numberOfConcurrentRequest: 3
   optimizeForTurboMode: true
   image:
-    registry: mcr.microsoft.com
-    repository: azure-cognitive-services/text-to-speech
+    registry: containerpreview.azurecr.io
+    repository: microsoft/cognitive-services-text-to-speech
     tag: latest
     pullSecrets:
       - mcr # Or an existing secret
@@ -138,21 +138,20 @@ textToSpeech:
 
 ### <a name="the-kubernetes-package-helm-chart"></a>Kubernetes 套件（Helm 圖）
 
-*Helm 圖表*包含要從 `mcr.microsoft.com` 容器登錄中提取之 docker 映射的設定。
+*Helm 圖表*包含要從 `containerpreview.azurecr.io` 容器登錄中提取之 docker 映射的設定。
 
 > [Helm 圖][helm-charts]是描述一組相關 Kubernetes 資源的檔案集合。 單一圖表可能用來部署一些簡單的東西，像是 memcached pod 或複雜的東西，像是具有 HTTP 伺服器、資料庫、快取等的完整 web 應用程式堆疊。
 
-提供的*Helm 圖表*會從 `mcr.microsoft.com` 容器登錄中，提取語音服務的 docker 映射，包括文字轉換語音和語音轉換文字服務。
+提供的*Helm 圖表*會從 `containerpreview.azurecr.io` 容器登錄中，提取語音服務的 docker 映射，包括文字轉換語音和語音轉換文字服務。
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>在 Kubernetes 叢集上安裝 Helm 圖表
 
 若要安裝*helm 圖*，我們必須執行[`helm install`][helm-install-cmd]命令，以適當的路徑和檔案名引數取代 `<config-values.yaml>`。 以下所參考的 `microsoft/cognitive-services-speech-onpremise` Helm 圖可在[這裡的 Microsoft Helm Hub][ms-helm-hub-speech-chart]取得。
 
 ```console
-helm install microsoft/cognitive-services-speech-onpremise \
+helm install onprem-speech microsoft/cognitive-services-speech-onpremise \
     --version 0.1.1 \
-    --values <config-values.yaml> \
-    --name onprem-speech
+    --values <config-values.yaml> 
 ```
 
 以下是您可能預期會從成功的安裝執行中看到的範例輸出：

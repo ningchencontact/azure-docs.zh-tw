@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2e509535473fa50fd3150965e1513e056ead18a6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1949aca26f68f12dfb133da8ef45662294140c25
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794341"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922553"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Azure 認知搜尋中的安全性和資料隱私權
 
@@ -39,11 +39,11 @@ Azure 認知搜尋已通過下列標準認證，如[2018 年6月所公告](https
 
 加密會延伸整個索引管線：從連接、透過傳輸，到 Azure 認知搜尋中儲存的索引資料。
 
-| 安全性階層 | 描述 |
+| 安全性階層 | 說明 |
 |----------------|-------------|
 | 傳輸中加密 <br>(HTTPS/SSL/TLS) | Azure 認知搜尋會接聽 HTTPS 埠443。 在整個平台上，連至 Azure 服務的連線都會受到加密。 <br/><br/>所有用戶端對服務的 Azure 認知搜尋互動都支援 SSL/TLS 1.2。  請務必對服務的 SSL 連線使用 TLSv1.2。|
 | 待用加密 <br>Microsoft 管理的金鑰 | 加密會完全在索引編製程序內進行，對索引編製完成時間或索引大小沒有任何重大的影響。 它會自動針對所有索引編製程序進行，包括針對未完全加密 (建立時間在 2018 年 1 月以前) 之索引的增量更新進行。<br><br>就內部而言，加密會根據 [Azure 儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) \(機器翻譯\)，使用的是 256 位元的 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) \(英文\)。<br><br> 加密是 Azure 認知搜尋的內部，其中包含由 Microsoft 內部管理的憑證和加密金鑰，並會全面套用。 您無法在入口網站中或透過程式設計方式，開啟或關閉加密、管理或替代自己的金鑰，或是檢視加密設定。<br><br>待用加密是在2018年1月24日宣佈，適用于所有區域中的所有服務層級，包括免費層。 若要達到完整加密的目的，針對在該日期之前建立的索引，您必須先捨棄再重新建置，才能進行加密。 否則，系統只會加密 1 月 24 日之後新增的新資料。|
-| 待用加密 <br>客戶管理的金鑰 | 使用客戶管理的金鑰進行加密是免費服務無法使用的**預覽**功能。 針對付費服務，它僅適用于在2019年1月或之後使用最新預覽 api 版本（api 版本 = 2019-05 06-01.5.1-Preview）建立的搜尋服務。<br><br>Azure 認知搜尋索引和同義字對應現在可以在 Azure Key Vault 中使用客戶金鑰管理的金鑰進行待用加密。 若要深入瞭解，請參閱[在 Azure 認知搜尋中管理加密金鑰](search-security-manage-encryption-keys.md)。<br>這項功能並不會取代預設的待用加密，而是改為套用。<br>啟用這項功能將會增加索引大小，並降低查詢效能。 根據 date 的觀察值，您可以預期在查詢時間中會看到 30%-60% 的增加，雖然實際的效能會隨著索引定義和查詢類型而有所不同。 基於此效能的影響，建議您只在真正需要的索引上啟用這項功能。
+| 待用加密 <br>客戶管理的金鑰 | 使用客戶管理的金鑰進行加密，現已正式推出。<br><br>Azure 認知搜尋索引和同義字對應現在可以在 Azure Key Vault 中使用客戶金鑰管理的金鑰進行待用加密。 若要深入瞭解，請參閱[在 Azure 認知搜尋中管理加密金鑰](search-security-manage-encryption-keys.md)。<br>這項功能並不會取代預設的待用加密，而是改為套用。<br>啟用這項功能將會增加索引大小，並降低查詢效能。 根據 date 的觀察值，您可以預期在查詢時間中會看到 30%-60% 的增加，雖然實際的效能會隨著索引定義和查詢類型而有所不同。 基於此效能的影響，建議您只在真正需要的索引上啟用這項功能。
 
 ## <a name="azure-wide-user-access-controls"></a>整個 Azure 的使用者存取控制
 
@@ -91,7 +91,7 @@ Azure 認知搜尋已通過下列標準認證，如[2018 年6月所公告](https
 
 如果您需要針對每位使用者的內容控制微調，您可以在您的查詢上建置安全性篩選條件，以傳回包含所指定安全性身分識別的文件。 身分識別型存取控制並不使用預先定義的角色和角色指派，而是以「篩選」的形式來實作，可根據身分識別縮減文件和內容的搜尋結果。 下表說明兩個針對未經授權的內容縮減搜尋結果的方法。
 
-| 方法 | 描述 |
+| 方法 | 說明 |
 |----------|-------------|
 |[根據身分識別篩選進行安全性範圍縮減](search-security-trimming-for-azure-search.md)  | 記載實作使用者身分識別存取控制的基本工作流程。 其中涵蓋在索引中新增安全性識別碼，然後說明如何針對該欄位進行篩選來縮減所禁止內容的結果。 |
 |[根據 Azure Active Directory 身分識別進行安全性範圍縮減](search-security-trimming-for-azure-search-with-aad.md)  | 本文是上一篇文章的延伸，提供從 Azure Active Directory (AAD) (Azure 雲端平台上的其中一項[免費服務](https://azure.microsoft.com/free/)) 擷取身分識別的步驟。 |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b08a124ade6e2db8ca27ef61c7f5a6b3fe839885
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4a99bfe8d8235400f9122423aa4592fc6898abc1
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442770"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922293"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -120,7 +120,9 @@ ms.locfileid: "75442770"
 
 ## <a name="oauth-credentials"></a>OAuth 認證
 
-針對1400和更高相容性層級的表格式模型，Azure SQL Database、Azure SQL 資料倉儲、Dynamics 365 和 SharePoint 清單支援 OAuth 認證。 Azure Analysis Services 會管理 OAuth 資料來源的權杖重新整理，以避免長時間執行的重新整理作業發生超時。 若要產生有效的權杖，請使用 SSMS 設定認證。
+若是1400和更高相容性層級的表格式模型使用記憶體中模式，Azure SQL Database、Azure SQL 資料倉儲、Dynamics 365 和 SharePoint 清單支援 OAuth 認證。 Azure Analysis Services 會管理 OAuth 資料來源的權杖重新整理，以避免長時間執行的重新整理作業發生超時。 若要產生有效的權杖，請使用 SSMS 設定認證。
+
+OAuth 認證不支援直接查詢模式。
 
 ## <a name="next-steps"></a>後續步驟
 [內部部署閘道](analysis-services-gateway.md)   

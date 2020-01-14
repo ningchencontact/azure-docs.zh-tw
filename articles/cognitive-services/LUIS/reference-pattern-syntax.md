@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: e1393b02948f2d86329263504d582fe78a474377
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974337"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890267"
 ---
 # <a name="pattern-syntax"></a>模式語法
 
@@ -142,7 +142,7 @@ Pattern.any 實體可讓您將變動長度的實體新增至模式。 只要遵�
 深入瞭解模式：
 
 * [如何新增模式](luis-how-to-model-intent-pattern.md)
-* [如何新增模式。任何實體](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [如何新增模式。任何實體](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [模式概念](luis-concept-patterns.md)
 
 瞭解如何在 json 回應中傳回[情感](luis-reference-prebuilt-sentiment.md)。
