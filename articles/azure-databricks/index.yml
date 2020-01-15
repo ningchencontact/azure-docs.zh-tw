@@ -11,12 +11,12 @@ metadata:
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/11/2019
-  ms.openlocfilehash: 3d82583617ac5ee2efc7f19bd937a01d557eb5ba
-  ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+  ms.openlocfilehash: 94fa7495feff5199c3b64903ad94feceb20d55bc
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 11/05/2019
-  ms.locfileid: "73606051"
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75971402"
 landingContent:
 - title: 關於 Azure Databricks
   linkLists:
@@ -48,7 +48,7 @@ landingContent:
     links:
     - text: 建立 Apache Spark 叢集
       url: /azure/databricks/clusters/create
-    - text: 連接到資料來源
+    - text: 連線到資料來源
       url: databricks-connect-to-data-sources.md
     - text: 在 Azure Cloud Shell 中使用 Databricks CLI
       url: databricks-cli-from-azure-cloud-shell.md
@@ -83,7 +83,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: 在虛擬網路中部署 Azure Databricks
-      url: vnet-injection.md
+      url: https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject
   - linkListType: tutorial
     links:
     - text: 從 Azure Databricks 筆記本查詢虛擬網路中的 SQL Server Linux Docker 容器

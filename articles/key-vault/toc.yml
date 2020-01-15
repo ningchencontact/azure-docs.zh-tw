@@ -57,7 +57,7 @@
     - name: Azure 容器
       href: ../container-instances/container-instances-managed-identity.md
     - name: Azure Resource Manager 範本
-      href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
+      href: ../azure-resource-manager/templates/key-vault-parameter.md
     - name: 設定金鑰輪換和稽核
       href: key-vault-key-rotation-log-monitoring.md
 - name: 範例
@@ -188,7 +188,7 @@
       href: common-parameters-and-headers.md
     - name: 客戶資料
       href: key-vault-customer-data.md
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: 區域可用性
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault'

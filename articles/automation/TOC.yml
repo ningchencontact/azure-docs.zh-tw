@@ -244,7 +244,7 @@
     - name: 概念
       items:
         - name: PowerShell DSC
-          href: /powershell/dsc/overview/overview
+          href: /powershell/scripting/dsc/overview/overview
     - name: 快速入門
       items:
         - name: 開始使用
@@ -315,7 +315,7 @@
     - name: PowerShell 模組
       items:
         - name: 模組
-          href: automation-integration-modules.md
+          href: shared-resources/modules.md
         - name: 在 Azure 自動化中使用 Az 模組
           href: az-modules.md
         - name: 更新 Azure PowerShell 模組
@@ -374,7 +374,7 @@
       href: 'https://azure.microsoft.com/roadmap/?category=management-tools&query=automation'
     - name: MSDN 論壇
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation'
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/automation/'
     - name: 定價計算機
       href: 'https://azure.microsoft.com/pricing/calculator/'
