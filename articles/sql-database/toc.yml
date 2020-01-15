@@ -630,8 +630,6 @@
           href: sql-database-advisor-portal.md
         - name: 建立警示
           href: sql-database-insights-alerts-portal.md
-        - name: 針對連線問題進行疑難排解
-          href: sql-database-troubleshoot-common-connection-issues.md
         - name: 管理檔案空間
           href: sql-database-file-space-management.md
         - name: 使用資源健康狀態了解連線問題
@@ -844,7 +842,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 公用資料集
       href: sql-database-public-data-sets.md
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/sql-database/'
     - name: MSDN 論壇
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'

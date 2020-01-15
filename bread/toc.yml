@@ -155,7 +155,7 @@
     - name: 成本管理
       tocHref: /azure/cost-management/
       topicHref: /azure/cost-management/
-    - name: Functions
+    - name: 函式
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
       items:
@@ -255,9 +255,6 @@
     - name: Azure Stack 使用者
       tocHref: /azure/azure-stack/user/
       topicHref: /azure/azure-stack/user/
-    - name: 支援能力
-      tocHref: /azure/azure-portal/supportability/
-      topicHref: /azure/azure-portal/supportability/
     - name: Backup
       tocHref: /azure/backup/
       topicHref: /azure/backup/
