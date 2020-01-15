@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 12/09/2019
+ms.date: 01/13/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: cf79911c24998c3d00937937cce5c68bbb564f1e
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 97ee10e0b286f1b007f2e807351301f2037d1754
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751537"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942825"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>網路限制-Azure Resource Manager 下列限制僅適用于透過每個訂用帳戶的每個區域**Azure Resource Manager**管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
@@ -65,12 +65,11 @@ ms.locfileid: "75751537"
 | 負載平衡器                          | 1,000                         |
 | 每個資源的規則                      | 1,500                         |
 | 每個 NIC 的規則（在 NIC 上的所有 Ip） | 300                           |
-| 前端 IP 設定             | 600                           |
-| 後端集區大小                          | 1000實例，單一虛擬網路 |
-| 每個負載平衡器的後端資源<sup>1<sup>   | 150                 |
-| 高可用性埠                 | 每個內部前端 1 個      |
+| 前端 IP 設定              | 600                           |
+| 後端集區大小                       | 1000 IP 設定，單一虛擬網路 |
+| 高可用性埠                 | 每個內部前端 1 個       |
+| 每個 Load Balancer 的輸出規則         | 20                            |
 
-<sup>1</sup>限制是最多150個資源，任何獨立虛擬機器資源、可用性設定組資源和虛擬機器擴展集資源的組合。
 
 **基本 Load Balancer**
 
@@ -79,8 +78,9 @@ ms.locfileid: "75751537"
 | 負載平衡器                          | 1,000                        |
 | 每個資源的規則                      | 250                          |
 | 每個 NIC 的規則（在 NIC 上的所有 Ip） | 300                          |
-| 前端 IP 設定             | 200                          |
-| 後端集區大小                           | 100實例，單一可用性設定組 |
+| 前端 IP 設定              | 200                          |
+| 後端集區大小                       | 300 IP 設定，單一可用性設定組 |
+| 每個 Load Balancer 的可用性設定組     | 150                          |
 
 #### <a name="virtual-networking-limits-classic"></a>下列限制僅適用于透過每個訂用帳戶的**傳統**部署模型所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 

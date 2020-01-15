@@ -8,12 +8,12 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 2663e6c37819acf7cb781779107673b8ee3aec53
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 6c7be7d92cae992e54ca6e9f50dda6342c57856b
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832249"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945726"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>在 Azure Key Vault 中使用客戶管理的金鑰，在 Azure 認知搜尋中進行內容的待用加密
 
@@ -32,7 +32,7 @@ ms.locfileid: "75832249"
 
 此範例會使用下列服務。 
 
-+ [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
++ [建立 Azure 認知搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 搜尋服務必須在2019年1月之後建立，而且不能是免費（共用）服務。
 
 + [建立 Azure Key Vault 資源](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault)，或在您的訂用帳戶下尋找現有的保存庫。
 

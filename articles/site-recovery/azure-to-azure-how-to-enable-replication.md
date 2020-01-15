@@ -1,19 +1,16 @@
 ---
-title: 在 Azure Site Recovery 中設定 Azure VM 的複寫 | Microsoft Docs
-description: 本文說明如何使用 Site Recovery，將 Azure VM 從一個 Azure 區域複寫到另一個區域。
-services: site-recovery
-author: carmonmills
+title: 在 Azure Site Recovery 中設定 Azure Vm 的複寫
+description: 瞭解如何使用 Site Recovery，為 Azure Vm 設定複寫至另一個區域。
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2018
-ms.author: carmonm
-ms.openlocfilehash: 4dbac05ddf747ccaf483e547a2070505487a3706
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 471a7f288cec980e73ab10c8233ea38511acdd8b
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929851"
+ms.locfileid: "75942327"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>將 Azure Vm 複寫到另一個 Azure 區域
 

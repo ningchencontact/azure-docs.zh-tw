@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfe51558cf96e77288186c2ed2b4a2773cbc5cf2
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: ee241c9b4d26377931e828df60db1c50a9c86b84
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829862"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940877"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>建立 SCIM 端點，並使用 Azure Active Directory （Azure AD）來設定使用者布建
 
@@ -153,8 +153,11 @@ SCIM 2.0 （RFC [7642](https://tools.ietf.org/html/rfc7642)， [7643](https://to
   - [更新使用者 [多重值屬性]](#update-user-multi-valued-properties) （[要求](#request-4) /  [回應](#response-4)）
   - [更新使用者 [單一值屬性]](#update-user-single-valued-properties) （[要求](#request-5)
 / [回應](#response-5)） 
+  - [停用使用者](#disable-user)（[要求](#request-14) / 
+[回應](#response-14)）
   - [刪除使用者](#delete-user)（[要求](#request-6) / 
 [回應](#response-6)）
+
 
 [群組作業](#group-operations)
   - [建立群組](#create-group)（[要求](#request-7) / [回應](#response-7)）
@@ -435,6 +438,60 @@ SCIM 2.0 （RFC [7642](https://tools.ietf.org/html/rfc7642)， [7643](https://to
 }
 ```
 
+### <a name="disable-user"></a>停用使用者
+
+##### <a name="request-14"></a>邀請
+
+*PATCH/Users/5171a35d82074e068ce2 HTTP/1。1*
+```json
+{
+    "Operations": [
+        {
+            "op": "Replace",
+            "path": "active",
+            "value": false
+        }
+    ],
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ]
+}
+```
+
+##### <a name="response-14"></a>回應
+
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+    ],
+    "id": "CEC50F275D83C4530A495FCF@834d0e1e5d8235f90a495fda",
+    "userName": "deanruiz@testuser.com",
+    "name": {
+        "familyName": "Harris",
+        "givenName": "Larry"
+    },
+    "active": false,
+    "emails": [
+        {
+            "value": "gloversuzanne@testuser.com",
+            "type": "work",
+            "primary": true
+        }
+    ],
+    "addresses": [
+        {
+            "country": "ML",
+            "type": "work",
+            "primary": true
+        }
+    ],
+    "meta": {
+        "resourceType": "Users",
+        "location": "/scim/5171a35d82074e068ce2/Users/CEC50F265D83B4530B495FCF@5171a35d82074e068ce2"
+    }
+}
+```
 #### <a name="delete-user"></a>刪除使用者
 
 ##### <a name="request-6"></a>邀請

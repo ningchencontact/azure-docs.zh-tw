@@ -1,21 +1,18 @@
 ---
-title: 使用 Azure Site Recovery 針對進行中的 Azrue Vm 進行進行中的複寫進行疑難排解
-description: 對於複寫 Azure 虛擬機器進行災害復原時發生的錯誤和問題進行疑難排解
-services: site-recovery
-author: carmonmills
+title: 針對使用 Azure Site Recovery 的 Azure Vm 複寫進行疑難排解
+description: 使用 Azure Site Recovery 針對 Azure VM 嚴重損壞修復中的複寫進行疑難排解
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.author: carmonm
-ms.openlocfilehash: b738ffc36334fc540582ba29e803eb2790e2119e
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fe300c1efc8f5802397a59296f8b127c321bd871
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930749"
+ms.locfileid: "75941570"
 ---
-# <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>針對 Azure 至 Azure VM 複寫的持續性問題疑進行難排解
+# <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>針對 Azure VM 嚴重損壞修復中的複寫進行疑難排解
 
 本文說明當您在區域間複寫及復原 Azure 虛擬機器時的 Azure Site Recovery 常見問題。 它也會說明如何進行疑難排解。 如需受支援組態的詳細資訊，請參閱[複寫 Azure VM 的支援矩陣](site-recovery-support-matrix-azure-to-azure.md)。
 
@@ -67,7 +64,7 @@ Azure Site Recovery 的資料變更率限制是以磁碟類型為基礎。 若�
     - 流覽至受影響複寫機器的 [磁片] 分頁，並複製複本磁片名稱
     - 流覽至此複本受控磁片
     - 您可能會在 [總覽] 分頁上看到一個橫幅，指出已產生 SAS URL。 按一下此橫幅並取消匯出。 如果您看不到橫幅，請忽略此步驟。
-    - 一旦撤銷 SAS URL，請移至受控磁片的 [設定] 分頁並增加大小，讓 ASR 在來源磁片上支援觀察到的流失率
+    - 一旦撤銷 SAS URL，請移至受控磁片的 [設定] 分頁並增加大小，讓 Site Recovery 在來源磁片上支援觀察到的流失率
 
 ## <a name="Network-connectivity-problem"></a>網路連線問題
 

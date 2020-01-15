@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 8c694cbd8d9386401b8ad26cf5ce6ce31e6b9bd9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 9cce221946a16103e706875e179c677190f32af1
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614920"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940798"
 ---
 # <a name="hyperscale-service-tier"></a>超大規模資料庫服務層級
 
@@ -251,6 +251,7 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用：
 | 資料庫複製 | 您還不能在 Azure SQL 超大規模資料庫中使用資料庫複製來建立新的資料庫。 |
 | TDE/AKV 整合 | Azure SQL Database 超大規模資料庫尚不支援使用 Azure Key Vault （通常稱為自備金鑰或 BYOK）的透明資料庫加密，不過，已完全支援具有服務管理金鑰的 TDE。 |
 |智慧型資料庫功能 | 除了 [強制計畫] 選項之外，超大規模資料庫上還不支援所有其他自動調整選項：選項可能會顯示為已啟用，但不會有任何建議或動作。 |
+|查詢效能深入解析 | 超大規模資料庫資料庫目前不支援查詢效能深入解析。 |
 | 壓縮資料庫 | 超大規模資料庫資料庫目前不支援 DBCC SHRINKDATABASE 或 DBCC SHRINKFILE。 |
 | 資料庫完整性檢查 | 超大規模資料庫資料庫目前不支援 DBCC CHECKDB。 如需 Azure SQL Database 中資料完整性管理的詳細資訊，請參閱[Azure SQL Database 中的資料完整性](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)。 |
 

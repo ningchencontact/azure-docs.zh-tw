@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中使用 PowerShell 調整 Windows VM 的大小
-description: 使用 Azure Powershell 可調整以 Resource Manager 部署模型建立的 Windows 虛擬機器大小。
+title: 在 Azure 中調整 Windows VM 的大小
+description: 變更 Azure 虛擬機器所使用的 VM 大小。
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -12,26 +12,34 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 4b30f2fd8e095b00898e083e33c23c7c9a915b99
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6718804d4635edb2628b53017ab9d377928afad8
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073359"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941729"
 ---
 # <a name="resize-a-windows-vm"></a>調整 Windows VM 大小
 
-本文說明如何使用 Azure PowerShell 將 VM 變更為不同的 [VM 大小](sizes.md)。
+本文說明如何將 VM 移至不同的[vm 大小](sizes.md)。
 
 建立虛擬機器 (VM) 後，您可以透過變更 VM 的大小來放大或縮小 VM。 在某些情況下，您必須先解除配置 VM。 如果新的大小不適用於目前裝載 VM 的硬體叢集上，就會發生此情況。
 
 如果您的 VM 使用進階儲存體，請確實選擇 **s** 版本的大小，以取得進階儲存體支援。 例如，請選擇 Standard_E4**s**_v3，而不是 Standard_E4_v3。
 
- 
+## <a name="use-the-portal"></a>使用入口網站
 
-## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>調整不在可用性設定組中 Windows VM 的大小
+1. 開啟 [Azure 入口網站](https://portal.azure.com)。
+1. 開啟虛擬機器的頁面。
+1. 在左側功能表中，選取 [**大小**]。
+1. 從可用大小清單中選擇新的大小，然後選取 [重**設大小**]。
+
+
+如果虛擬機器目前正在執行，變更其大小將會使其重新開機。 停止虛擬機器可能會顯示其他大小。
+
+## <a name="use-powershell-to-resize-a-vm-not-in-an-availability-set"></a>使用 PowerShell 來調整不在可用性設定組中的 VM 大小
 
 設定一些變數。 使用您自己的資訊取代這些值。
 
@@ -69,7 +77,7 @@ Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 > 
 > 
 
-## <a name="resize-a-windows-vm-in-an-availability-set"></a>調整在可用性設定組中 Windows VM 的大小
+## <a name="use-powershell-to-resize-a-vm-in-an-availability-set"></a>使用 PowerShell 來調整可用性設定組中 VM 的大小
 
 如果可用性設定組中的 VM 新大小，不適用於目前裝載 VM 的硬體叢集，則必須解除配置可用性設定組中所有的 VM，才能調整 VM 大小。 在已調整某個 VM 的大小後，您也可能需要更新可用性設定組中其他 VM 的大小。 若要調整可用性設定組中 VM 的大小，請執行下列步驟。
 

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 0190b94cc6195163de4d428c2cae0de3620bdb01
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e84a6c93ad8757b302670af202f9d4b407f3ef57
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422694"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945306"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>取得 GenerateAnswer API 和中繼資料的解答
 
@@ -41,7 +41,7 @@ QnA Maker 可讓您以索引鍵和值組的形式，將中繼資料新增至您�
 
 <a name="generateanswer-endpoint"></a>
 
-## <a name="publish-to-get-generateanswer-endpoint"></a>發行以取得 GenerateAnswer 端點 
+## <a name="publish-to-get-generateanswer-endpoint"></a>發行以取得 GenerateAnswer 端點
 
 從[QnA Maker 入口網站](https://www.qnamaker.ai)或使用[API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish)發佈知識庫之後，您可以取得 GenerateAnswer 端點的詳細資料。
 
@@ -59,15 +59,15 @@ QnA Maker 可讓您以索引鍵和值組的形式，將中繼資料新增至您�
 
 ## <a name="generateanswer-request-configuration"></a>GenerateAnswer 要求設定
 
-您可以透過 HTTP POST 要求來呼叫 GenerateAnswer。 如需示範如何呼叫 GenerateAnswer 的範例程式碼，請參閱[快速入門](../quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base)。 
+您可以透過 HTTP POST 要求來呼叫 GenerateAnswer。 如需示範如何呼叫 GenerateAnswer 的範例程式碼，請參閱[快速入門](../quickstarts/quickstart-sdk.md#generate-an-answer-from-the-knowledge-base)。
 
 POST 要求會使用：
 
 * 必要的[URI 參數](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
 * 必要的[標頭屬性](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)，`Authorization`，用於安全性
-* 必要的[主體屬性](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)。 
+* 必要的[主體屬性](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)。
 
-GenerateAnswer URL 的格式如下： 
+GenerateAnswer URL 的格式如下：
 
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
@@ -95,7 +95,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 
 深入瞭解[rankerType](../concepts/best-practices.md#choosing-ranker-type)。
 
-先前的 JSON 只要求30% 或高於閾值分數的答案。 
+先前的 JSON 只要求30% 或高於閾值分數的答案。
 
 <a name="generateanswer-response"></a>
 
@@ -125,7 +125,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 }
 ```
 
-先前的 JSON 回應分數為38.5% 的答案。 
+先前的 JSON 回應分數為38.5% 的答案。
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>在中使用 bot 的 QnA MakerC#
 
@@ -144,7 +144,7 @@ qnaOptions.ScoreThreshold = 0.3F;
 var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
 ```
 
-先前的 JSON 只要求30% 或高於閾值分數的答案。 
+先前的 JSON 只要求30% 或高於閾值分數的答案。
 
 支援 bot 具有此[程式](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418)代碼的範例。
 
@@ -164,7 +164,7 @@ var qnaMakerOptions = {
 var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
 ```
 
-先前的 JSON 只要求30% 或高於閾值分數的答案。 
+先前的 JSON 只要求30% 或高於閾值分數的答案。
 
 支援 bot 具有此[程式](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36)代碼的範例。
 
@@ -200,7 +200,7 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>使用問題和答案結果來保持交談內容
 
-GenerateAnswer 的回應包含相符的問題和答案集合的對應中繼資料資訊。 您可以在用戶端應用程式中使用這項資訊來儲存上一個交談的內容，以便在稍後的交談中使用。 
+GenerateAnswer 的回應包含相符的問題和答案集合的對應中繼資料資訊。 您可以在用戶端應用程式中使用這項資訊來儲存上一個交談的內容，以便在稍後的交談中使用。
 
 ```json
 {
@@ -247,7 +247,7 @@ GenerateAnswer 的回應包含相符的問題和答案集合的對應中繼資�
 
 |程式碼|說明|
 |:--|--|
-|2xx|成功|
+|2xx|Success|
 |400|要求的參數不正確，表示必要參數遺失、格式不正確或太大|
 |400|要求的本文不正確，表示 JSON 遺失、格式不正確或太大|
 |401|金鑰無效|

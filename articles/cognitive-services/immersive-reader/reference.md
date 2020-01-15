@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 09244b634fa2603a7dc92af3c78d171f8d6bd9df
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 47d10f75775c49fda0effe10c32e219b3682866d
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903117"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945287"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>沉浸式讀取器 SDK 參考指南
 
 沉浸式讀取器 SDK 是一個 JavaScript 程式庫，可讓您將沉浸式讀取器整合到您的 web 應用程式中。
 
-## <a name="functions"></a>函式
+## <a name="functions"></a>Functions
 
 SDK 會公開函式：
 
@@ -39,16 +39,16 @@ SDK 會公開函式：
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
-| 名稱 | 在系統提示您進行確認時，輸入 | 描述 |
+| 名稱 | 類型 | 說明 |
 | ---- | ---- |------------ |
-| `token` | 字串 | Azure AD 驗證 token。 請參閱[Azure AD authentication](./azure-active-directory-authentication.md)的作法。 |
-| `subdomain` | 字串 | Azure 中您的沉浸式讀取器資源的自訂子域。 請參閱[Azure AD authentication](./azure-active-directory-authentication.md)的作法。 |
+| `token` | string | Azure AD 驗證 token。 |
+| `subdomain` | string | Azure 中您的沉浸式讀取器資源的自訂子域。 |
 | `content` | [內容](#content) | 物件，包含要在沉浸式讀取器中顯示的內容。 |
-| `options` | [選項](#options) | 設定沉浸式讀取器特定行為的選項。 選用。 |
+| `options` | [選項](#options) | 設定沉浸式讀取器特定行為的選項。 選擇性。 |
 
-### <a name="returns"></a>傳回
+### <a name="returns"></a>傳回值
 
 傳回 `Promise<HTMLDivElement>`，這會在載入沉浸式讀取器時解析。 `Promise` 會解析為 `div` 專案，其唯一的子系是包含沉浸式讀取器頁面的 `iframe` 元素。
 
@@ -78,11 +78,11 @@ close(): void;
 renderButtons(options?: RenderButtonsOptions): void;
 ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
-| 名稱 | 在系統提示您進行確認時，輸入 | 描述 |
+| 名稱 | 類型 | 說明 |
 | ---- | ---- |------------ |
-| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | 設定 renderButtons 函數之特定行為的選項。 選用。 |
+| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | 設定 renderButtons 函數之特定行為的選項。 選擇性。 |
 
 ## <a name="types"></a>類型
 
@@ -97,7 +97,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 }
 ```
 
-### <a name="chunk"></a>段
+### <a name="chunk"></a>區塊
 
 資料的單一區塊，會傳遞給沉浸式讀取器的內容。
 
@@ -109,22 +109,30 @@ renderButtons(options?: RenderButtonsOptions): void;
 }
 ```
 
+### <a name="cookiepolicy-enum"></a>CookiePolicy 列舉
+
+用來為沉浸式讀取器的 cookie 使用方式設定原則的列舉。 請參閱[選項](#options)。
+
+```typescript
+enum CookiePolicy { Disable, Enable }
+```
+
 #### <a name="supported-mime-types"></a>支援的 MIME 類型
 
-| MIME 類型 | 描述 |
+| MIME 類型 | 說明 |
 | --------- | ----------- |
 | text/plain | 純文字。 |
 | text/html | HTML 內容。 [深入了解](#html-support)|
-| application/mathml + xml | 數學標記語言（MathML）。 [詳細資訊](https://developer.mozilla.org/en-US/docs/Web/MathML)。
+| application/mathml + xml | 數學標記語言（MathML）。 [深入了解](./how-to/display-math.md)。
 | 應用程式/application. vnd.openxmlformats-officedocument.spreadsheetml.sheet. wordprocessingml 檔 | Microsoft Word .docx 格式檔。
 
 ### <a name="html-support"></a>HTML 支援
 | HTML | 支援的內容 |
 | --------- | ----------- |
 | 字型樣式 | 粗體、斜體、底線、程式碼、刪除線、上標、下標 |
-| 未排序清單 | 光碟、圓形、正方形 |
+| 未排序的清單 | 光碟、圓形、正方形 |
 | 排序清單 | 十進位、上 Alpha、小寫、英數位元、上下羅馬字母、小寫 |
-| 指向 | 敬請期待 |
+| 超連結 | 即將登場 |
 
 不支援的標記會以同等方式呈現。 目前不支援影像和資料表。
 
@@ -142,6 +150,7 @@ renderButtons(options?: RenderButtonsOptions): void;
     customDomain?: string;     // Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null).
     allowFullscreen?: boolean; // The ability to toggle fullscreen (default is true).
     hideExitButton?: boolean;  // Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow).
+    cookiePolicy?: CookiePolicy; // Setting for the Immersive Reader's cookie usage (default is CookiePolicy.Disable). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy.
 }
 ```
 
@@ -168,12 +177,12 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="error-codes"></a>錯誤碼
 
-| 代碼 | 描述 |
+| 程式碼 | 說明 |
 | ---- | ----------- |
 | BadArgument | 提供的引數無效。如需詳細資料，請參閱 `message`。 |
 | 逾時 | 沉浸式讀取器無法在指定的超時時間內載入。 |
 | TokenExpired | 提供的權杖已過期。 |
-| 受 | 已超過呼叫率限制。 |
+| 調整執行速度 | 已超過呼叫率限制。 |
 
 ## <a name="launching-the-immersive-reader"></a>啟動沉浸式讀取器
 
@@ -187,7 +196,7 @@ SDK 會為啟動沉浸式讀取器的按鈕提供預設樣式。 請使用 `imme
 
 使用下列屬性來設定按鈕的外觀與風格。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --------- | ----------- |
 | `data-button-style` | 設定按鈕的樣式。 可以是 `icon`、`text` 或 `iconAndText`。 預設為 `icon`。 |
 | `data-locale` | 設定地區設定。 例如，`en-US` 或 `fr-FR`。 預設為英文 `en`。 |

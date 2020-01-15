@@ -1,18 +1,18 @@
 ---
 title: 使用適用于 MongoDB 的 Azure Cosmos DB API 進行遷移後的優化步驟
 description: 本檔提供從 MongoDB 到 Azure Cosmos DB 的 Mongo DB APi 的遷移後優化技術。
-author: roaror
+author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.author: roaror
-ms.openlocfilehash: c521546bedf1ebfd42bce4c50aa79b199553fd5a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: lbosq
+ms.openlocfilehash: 3a8da5df4c661a160c7ace37144f6ac1a9859da2
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441552"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942267"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>使用適用于 MongoDB 的 Azure Cosmos DB API 時的遷移後優化步驟 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: 3169959250eb45346456c64e606f25efb0ea44f0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 8f65eb008d5df6ea3f2f85778d538023e6ce98eb
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934235"
+ms.locfileid: "75945327"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Azure 安全性基準測試簡介
 
@@ -27,7 +27,7 @@ Azure 安全性基準測試包含高影響力的安全性建議集合，可用�
 
 Azure 安全性基準測試檔會指定安全性控制和服務建議。
 
-- **安全性控制**： Azure 安全性基準測試建議會依安全性控制分類。 安全性控制代表高階廠商中立的安全性需求，例如網路安全性和資料保護。 每個安全性控制項都有一組安全性建議和指示，可協助您實作這些建議。 
+- **安全性控制**： Azure 安全性基準測試建議會依安全性控制分類。 安全性控制代表高階廠商中立的安全性需求，例如網路安全性和資料保護。 每個安全性控制項都有一組安全性建議和指示，可協助您執行這些建議。 
 - **服務建議**：當可用時，azure 服務的基準測試建議會包含專為該服務量身打造的 Azure 安全性基準測試建議。 
 
 「控制」、「基準測試」和「基準」等詞彙經常用於 Azure 安全性基準測試檔中，因此請務必瞭解 Azure 如何使用這些詞彙。 

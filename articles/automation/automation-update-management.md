@@ -3,14 +3,14 @@ title: Azure 中的更新管理解決方案
 description: 本文說明如何使用 Azure 更新管理解決方案來管理 Windows 和 Linux 電腦的更新。
 services: automation
 ms.subservice: update-management
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 924f5bee94544c533f3a2548d931fce292469567
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0cf47538f7db1cef629c2b58a9fbde16640a50ae
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420344"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945133"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -237,7 +237,9 @@ Windows 代理程式必須設定為與 WSUS 伺服器通訊，或必須具有 Mi
 sudo yum -q --security check-update
 ```
 
-目前沒有支援的方法可在 CentOS 上啟用原生分類資料可用性。 此時，只有可能已自行啟用此功能的客戶才會提供最佳支援。
+目前沒有支援的方法可在 CentOS 上啟用原生分類資料可用性。 此時，只有可能已自行啟用此功能的客戶才會提供最佳支援。 
+
+若要將 Red Hat Enterprise 版本6上的更新分類，您必須安裝 yum-security 外掛程式。 在 Red Hat Enterprise Linux 7 上，外掛程式已是 yum 本身的一部分，不需要安裝任何專案。 如需進一步資訊，請參閱下列 Red Hat[知識文章](https://access.redhat.com/solutions/10021)。
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>與 System Center Configuration Manager 進行整合
 
@@ -251,7 +253,7 @@ sudo yum -q --security check-update
 
 ## <a name="patch-linux-machines"></a>修補 Linux 機器
 
-以下各節說明使用 Linux 修補的潛在問題。
+下列各節說明修補 Linux 散發版本的潛在問題。
 
 ### <a name="unexpected-os-level-upgrades"></a>未預期的 OS 層級升級
 

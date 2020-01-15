@@ -9,16 +9,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
-ms.openlocfilehash: 394c674da63bbda643246c3d61fb670d6ac8d1f7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d1a59e7ad86191bcc30b7d898d00f327c20fbc5e
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928609"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945613"
 ---
 # <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-在 vCore 為基礎的購買模型的已布建計算層中，您可以使用[SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，在 SQL Database 上交換您現有的授權以享有折扣優惠。 這項 Azure 權益可讓您使用內部部署 SQL Server 授權搭配軟體保證，最多省下30% 的 Azure SQL Database。 
+在 vCore 為基礎的購買模型的已布建計算層中，您可以使用[SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，在 SQL Database 上交換您現有的授權以享有折扣優惠。 這項 Azure 權益可讓您使用內部部署 SQL Server 授權搭配軟體保證，最多省下30% 或更高的 Azure SQL Database。 請使用先前所述的連結，以取得正確的值，以使用 Azure Hybrid Benefit 的計算機。 
 
 > [!NOTE]
 > 變更為 Azure Hybrid Benefit 不需要停機。

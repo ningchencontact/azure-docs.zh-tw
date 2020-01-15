@@ -2,19 +2,19 @@
 title: Azure 計算-Linux 診斷擴充功能
 description: 如何設定 Azure Linux 診斷擴充功能 (LAD) 從 Azure 中執行的 Linux VM 中收集計量並記錄事件。
 services: virtual-machines-linux
-author: abhijeetgaiha
+author: MicahMcKittrick-MSFT
 manager: gwallace
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: gwallace
-ms.openlocfilehash: 046e61d82893bf1fcdb2d6697cfaaa9f5bde8c2c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: mimckitt
+ms.openlocfilehash: 96ec4f2a76616cf4bb1d824faa4e4ca0fff1ff62
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359357"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941885"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 診斷擴充功能監視計量與記錄
 
@@ -197,7 +197,7 @@ type | 正在定義的接收類型。 決定此類型執行個體中的其他值
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-如需為事件中樞產生 SAS 權杖的相關詳細資訊，請參閱[本網頁](../../event-hubs/event-hubs-authentication-and-security-model-overview.md)。
+如需有關在事件中樞的 SAS 權杖上產生和取得資訊的詳細資訊，請參閱[此網頁](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell)。
 
 #### <a name="the-jsonblob-sink"></a>JsonBlob 接收
 

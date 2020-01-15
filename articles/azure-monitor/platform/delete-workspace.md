@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/28/2019
-ms.openlocfilehash: 2b54dd5161312a081d439b3e10d2cb4bf9014d52
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 01/14/2020
+ms.openlocfilehash: 739f97e912a33402aa7482e59dd78f5aeb005772
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75496539"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75944434"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>刪除和還原 Azure Log Analytics 工作區
 
@@ -55,7 +55,7 @@ ms.locfileid: "75496539"
 
 ### <a name="powershell"></a>PowerShell
 ```PowerShell
-PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "ContosResourceGroup" -Name "MyWorkspace"
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
 
 ## <a name="recover-workspace"></a>復原工作區
@@ -68,6 +68,12 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "ContosResourceG
 * 資源群組名稱
 * 工作區名稱
 * 地區
+
+### <a name="powershell"></a>PowerShell
+```PowerShell
+PS C:\>Select-AzSubscription "subscription-name-the-workspace-was-in"
+PS C:\>New-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name-the-workspace-was-in" -Name "deleted-workspace-name" -Location "region-name-the-workspace-was-in"
+```
 
 工作區及其所有資料都會在復原作業之後恢復運作。 解決方案和已連結的服務在刪除時已從工作區中永久移除，而且應該重新設定，以將工作區帶入其先前設定的狀態。 在工作區復原後，某些資料可能無法供查詢，直到重新安裝相關聯的解決方案，並將其架構新增至工作區為止。
 

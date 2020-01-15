@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: d198ee2e1fa8d3afeacda53c2ad6b91d69abca2a
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 14e33bf77144e4cd5728ec85d3012dc0ba717ece
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195769"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945645"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
 
@@ -29,7 +29,7 @@ ms.locfileid: "74195769"
 
 ![混合式網路中的防火牆](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-在本文中，您將了解：
+在本文中，您將學會如何：
 
 > [!div class="checklist"]
 > * 宣告變數
@@ -47,13 +47,13 @@ ms.locfileid: "74195769"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-本文會要求您在本機執行 PowerShell。 您必須已安裝 Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 找出版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 驗證 PowerShell 版本之後，請執行 `Login-AzAccount` 以建立與 Azure 的連線。
+本文會要求您在本機執行 PowerShell。 您必須已安裝 Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 驗證 PowerShell 版本之後，請執行 `Login-AzAccount` 以建立與 Azure 的連線。
 
 要讓此案例正常運作有三項重要需求：
 
-- 輪輻子網路上使用者定義的路由 (UDR) 會指向 Azure 防火牆 IP 位址，作為預設閘道。 此路由表上的 BGP 路由傳播必須 [已停用]。
+- 輪輻子網路上使用者定義的路由 (UDR) 會指向 Azure 防火牆 IP 位址，作為預設閘道。 必須**停用**此路由表上的虛擬網路閘道路由傳播。
 - 中樞閘道子網路上的 UDR 必須指向防火牆 IP 位址，作為輪輻網路的下一個躍點。
 
    Azure 防火牆子網路不需要任何 UDR，因為可從 BGP 得知路由。
@@ -71,7 +71,7 @@ ms.locfileid: "74195769"
 
 若要檢閱相關的 Azure PowerShell 參考文件，請參閱 [Azure PowerShell 參考](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="declare-the-variables"></a>宣告變數
 
@@ -355,7 +355,7 @@ Set-AzVirtualNetwork
 
 #Now create the default route
 
-#Create a table, with BGP route propagation disabled
+#Create a table, with BGP route propagation disabled. The property is now called "Virtual network gateway route propagation," but the API still refers to the parameter as "DisableBgpRoutePropagation."
 $routeTableSpokeDG = New-AzRouteTable `
   -Name 'UDR-DG' `
   -ResourceGroupName $RG1 `

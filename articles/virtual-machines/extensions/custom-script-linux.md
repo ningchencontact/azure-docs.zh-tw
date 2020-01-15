@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: da7ade4b4724f8d155deb1c109587a311d03375c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: dcc9e63eba605e87a14ba4f09c61a00e9629bd23
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931023"
+ms.locfileid: "75941217"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>搭配 Linux 虛擬機器使用 Azure 自訂指令碼擴充功能第 1 版
 自訂指令碼擴充功能第 2 版會在 Azure 虛擬機器上下載並執行指令碼。 此擴充功能適用於部署後設定、軟體安裝或其他任何設定/管理工作。 您可以從 Azure 儲存體或其他可存取的網際網路位置下載指令碼，或是將指令碼提供給擴充功能執行階段。 
@@ -56,7 +56,7 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 * 指令碼可執行的時間為 90 分鐘。若超過這個時間，將會導致擴充功能佈建失敗。
 * 請不要在指令碼內放置重新開機指令，這會造成正在安裝的其他擴充功能發生問題。也不要放置後續重新開機指令，因為擴充功能在重新啟動後不會繼續執行。 
 * 如果您的腳本將會造成重新開機，則請安裝應用程式並執行腳本等。您應該使用 Cron 作業，或使用 DSC、Chef、Puppet 擴充功能之類的工具來排程重新開機。
-* 擴充功能只會執行指令碼一次。如果您想要在每次開機時執行指令碼，則可以使用 [cloud-init image](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)，並使用 [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) 模組。 或者，您可以使用指令碼來建立 Systemd 服務單位。
+* 擴充功能只會執行指令碼一次。如果您想要在每次開機時執行指令碼，則可以使用 [cloud-init image](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)，並使用 [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) 模組。 或者，您可以使用腳本來建立 SystemD 服務單位。
 * 如果您想要排程指令碼的執行時間，則應該使用擴充功能來建立 Cron 作業。 
 * 當指令碼正在執行時，只能從 Azure 入口網站或 CLI 看到「正在轉換」擴充功能狀態。 如果您需要執行中指令碼更頻繁的狀態更新，便必須建立自己的解決方案。
 * 自訂指令碼擴充功能未原生支援 Proxy 伺服器，但是您可以在指令碼中使用支援 Proxy 伺服器的檔案傳輸工具，例如 *Curl*。 
@@ -87,7 +87,7 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
   "properties": {
     "publisher": "Microsoft.Azure.Extensions",
     "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
+    "typeHandlerVersion": "2.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
       "skipDos2Unix":false,
@@ -98,11 +98,15 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
        "script": "<base64-script-to-execute>",
        "storageAccountName": "<storage-account-name>",
        "storageAccountKey": "<storage-account-key>",
-       "fileUris": ["https://.."]  
+       "fileUris": ["https://.."],
+        "managedIdentity" : "<managed-identity-identifier>"
     }
   }
 }
 ```
+
+>[!NOTE]
+> Microsoft.managedidentity 屬性**不得**與 StorageAccountName 或 storageAccountKey 屬性一起使用
 
 ### <a name="property-values"></a>屬性值
 
@@ -111,7 +115,7 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 | apiVersion | 2019-03-01 | date |
 | publisher | Microsoft.Compute.Extensions | string |
 | type | CustomScript | string |
-| typeHandlerVersion | 2.0 | int |
+| typeHandlerVersion | 2.1 | int |
 | fileUris (例如) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (例如) | python MyPythonScript.py \<my-param1 > | string |
 | 指令碼 (script) | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
@@ -119,6 +123,7 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 | timestamp (範例) | 123456789 | 32 位元整數 |
 | storageAccountName (例如) | examplestorageacct | string |
 | storageAccountKey (例如) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| Microsoft.managedidentity （例如） | {} 或 {"clientId"： "31b403aa-c364-4240-a7ff-d85fb6cd7232"} 或 {"objectId"： "12dd289c-0583-46e5-b9b4-115d5c19ef4b"} | json 物件 |
 
 ### <a name="property-value-details"></a>屬性值詳細資料
 * `apiVersion`：您可以使用[資源總管](https://resources.azure.com/)或從 Azure CLI 使用下列命令，找到最新的 apiVersion `az provider list -o json`
@@ -129,6 +134,9 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 * `fileUris`：(選擇性，字串陣列) 要下載之檔案的 URL。
 * `storageAccountName`：(選用，字串) 儲存體帳戶的名稱。 如果您指定儲存體證明資料，則所有 `fileUris` 都必須是 Azure Blob 的 URL。
 * `storageAccountKey`：(選用，字串) 儲存體帳戶的存取金鑰
+* `managedIdentity`：（選擇性，json 物件）用來下載檔案的[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+  * `clientId`：（選擇性，字串）受控識別的用戶端識別碼
+  * `objectId`：（選擇性，字串）受控識別的物件識別碼
 
 
 下列值可以在公開或受保護的設定中設定，擴充功能將會拒絕任何同時在公開和受保護的設定中設定下列值的組態。
@@ -200,6 +208,45 @@ CustomScript 會使用下列演算法來執行指令碼。
  1. 將解碼 (並選擇性地解壓縮) 的值寫入至磁碟 (/var/lib/waagent/custom-script/#/script.sh)
  1. 使用 _/bin/sh -c /var/lib/waagent/custom-script/#/script.sh 執行指令碼。
 
+####  <a name="property-managedidentity"></a>屬性： Microsoft.managedidentity
+
+CustomScript （版本2.1.2 之後）支援以[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)為基礎的 RBAC，可從 "fileUris" 設定中提供的 url 下載檔案。 它可讓 CustomScript 存取 Azure 儲存體的私用 blob/容器，而不需要使用者傳遞 SAS 權杖或儲存體帳戶金鑰之類的秘密。
+
+若要使用這項功能，使用者必須將[系統指派](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity)或[使用者指派](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity)的身分識別新增至應執行 CUSTOMSCRIPT 的 VM 或 VMSS，並將[Azure 儲存體容器或 blob 的存取權授與受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access)。
+
+若要在目標 VM/VMSS 上使用系統指派的身分識別，請將 "microsoft.managedidentity" 欄位設定為空的 json 物件。 
+
+> 範例：
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.sh"],
+>   "commandToExecute": "sh script1.sh",
+>   "managedIdentity" : {}
+> }
+> ```
+
+若要在目標 VM/VMSS 上使用使用者指派的身分識別，請使用用戶端識別碼或受控識別的物件識別碼來設定 "microsoft.managedidentity" 欄位。
+
+> 範例：
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.sh"],
+>   "commandToExecute": "sh script1.sh",
+>   "managedIdentity" : { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }
+> }
+> ```
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.sh"],
+>   "commandToExecute": "sh script1.sh",
+>   "managedIdentity" : { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" }
+> }
+> ```
+
+> [!NOTE]
+> Microsoft.managedidentity 屬性**不得**與 StorageAccountName 或 storageAccountKey 屬性一起使用
 
 ## <a name="template-deployment"></a>範本部署
 也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 上一節詳述的 JSON 結構描述可以用於 Azure Resource Manager 範本，以在 Azure Resource Manager 範本部署期間執行自訂指令碼擴充功能。 在 [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux) 可以找到包含自訂指令碼擴充功能的範例範本。
@@ -220,7 +267,7 @@ CustomScript 會使用下列演算法來執行指令碼。
   "properties": {
     "publisher": "Microsoft.Azure.Extensions",
     "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
+    "typeHandlerVersion": "2.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
       },

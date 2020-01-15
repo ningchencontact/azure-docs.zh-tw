@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/14/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8cb644495d99b331ec95eb0a9759be45a65e97a6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: bab95f6494fad86c9fdfc0b8fb044c22a7c5a628
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895331"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945441"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>使用讀取權限異地多餘儲存體設計高可用性應用程式
 
@@ -99,7 +99,7 @@ ms.locfileid: "74895331"
 
 ## <a name="handling-retries"></a>處理重試
 
-Azure 儲存體用戶端程式庫可協助您判斷哪些錯誤可以重試。 例如，可能會重試404錯誤（找不到資源），因為重試不可能會導致成功。 另一方面，因為發生伺服器錯誤，所以無法重試500錯誤，而且可能只是暫時性的問題。 如需詳細資訊，請參閱 .NET 儲存體用戶端程式庫中的 [ExponentialRetry 類別的開放原始程式碼 (英文)](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) (尋找 ShouldRetry 方法)。
+Azure 儲存體用戶端程式庫可協助您判斷哪些錯誤可以重試。 例如，404錯誤（找不到資源）將不會重試，因為重試可能不會導致成功。 另一方面，500錯誤可以重試，因為它是伺服器錯誤，而問題可能只是暫時性的問題。 如需詳細資訊，請參閱 .NET 儲存體用戶端程式庫中的 [ExponentialRetry 類別的開放原始程式碼 (英文)](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) (尋找 ShouldRetry 方法)。
 
 ### <a name="read-requests"></a>讀取要求
 
@@ -200,7 +200,7 @@ Azure 儲存體用戶端程式庫可協助您判斷哪些錯誤可以重試。 �
 
 下表顯示當您更新員工的詳細資料，使其成為系統*管理員*角色的成員時，可能會發生的情況。 基於此範例，這會要求您更新**員工**實體，並利用系統管理員總數的計數來更新**系統管理員角色**實體。 請注意，如何在次要區域中不按順序套用更新。
 
-| **時候** | **交易**                                            | **複寫**                       | **上次同步處理時間** | **結果** |
+| **Time** | **交易**                                            | **複寫**                       | **上次同步處理時間** | **結果** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | 交易 A： <br> 會在主要區域中 <br> 插入員工實體 |                                   |                    | 交易 A 已插入至主要區域，<br> 但尚未複寫。 |
 | T1       |                                                            | 交易 A <br> 已複寫到<br> 次要區域 | T1 | 交易 A 已複寫到次要區域。 <br>已更新上次同步處理時間。    |

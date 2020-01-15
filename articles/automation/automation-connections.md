@@ -3,37 +3,37 @@ title: Azure 自動化中的連接資產
 description: Azure 自動化中的連接資產包含從 Runbook 或 DSC 設定連接到外部服務或應用程式所需的資訊。 這篇文章說明連接的詳細資料，以及如何以文字和圖形化編寫形式加以使用。
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/16/2019
+ms.date: 01/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0843277ce74bcc10865792367096aefa7591b244
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b6276153921feb0e6f27194d36d1c32c1d0ffb3d
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75366785"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940822"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自動化中的連接資產
 
 自動化連接資產包含從 Runbook 或 DSC 設定連接到外部服務或應用程式所需的資訊。 除了連接資訊，例如 URL 或連接埠等，這可能包括驗證所需的資訊，例如使用者名稱和密碼。 連接的值會將連接到特定應用程式的所有屬性放在一個資產中，而不是建立多個變數。 使用者可以在一個地方編輯連接的值，而您可以將連接的名稱在單一參數中傳遞至 Runbook 或 DSC 設定。 可以在 Runbook 或 DSC 設定中使用 **Get-AutomationConnection** 活動存取連接的屬性。
 
-建立連接時，您必須指定 *連接類型*。 連接類型是定義一組屬性的範本。 連接會定義在其連接類型中定義的每一個屬性的值。 如果整合模組包含連線類型，且已匯入您的自動化帳戶，連線類型是在整合模組中加入 Azure 自動化或使用 [Azure 自動化 API](/previous-versions/azure/reference/mt163818(v=azure.100))建立。 否則，您必須建立中繼資料檔案來指定自動化連線類型。  如需有關於此的進一步資訊，請參閱[整合模組](automation-integration-modules.md)。
+建立連接時，您必須指定 *連接類型*。 連接類型是定義一組屬性的範本。 連接會定義在其連接類型中定義的每一個屬性的值。 如果整合模組包含連線類型，且已匯入您的自動化帳戶，連線類型是在整合模組中加入 Azure 自動化或使用 [Azure 自動化 API](/previous-versions/azure/reference/mt163818(v=azure.100))建立。 否則，您必須建立中繼資料檔案來指定自動化連線類型。 如需這方面的詳細資訊，請參閱[整合模組](automation-integration-modules.md)。
 
 >[!NOTE]
 >Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一金鑰儲存在 Azure 自動化中。 此金鑰會儲存在系統管理的 Key Vault 中。 在儲存安全資產之前，系統會從 Key Vault 載入金鑰，然後用來加密資產。 此程序由 Azure 自動化所管理。
 
 ## <a name="connection-types"></a>連線類型
 
-Azure 自動化中有三種可用的內建連線：
+Azure 自動化中提供三種類型的內建連接：
 
 * **Azure** - 此連線可用來管理傳統資源。
 * **AzureClassicCertificate** - 此連線由 **AzureClassicRunAs** 帳戶所使用。
 * **AzureServicePrincipal** - 此連線由 **AzureRunAs** 帳戶所使用。
 
-在大部分情況下，您並不需要建立連線資源，因為這項資源會在您建立 [RunAs 帳戶](manage-runas-account.md)時建立。
+在大部分情況下，您不需要建立連線資源，因為它是在您建立[RunAs 帳戶](manage-runas-account.md)時建立的。
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell Cmdlet
 
-下表中的 Cmdlet 是用來使用 Windows PowerShell 建立和管理自動化連接。 它們是隨著 [Azure PowerShell 模組](/powershell/azure/overview) 的一部分推出，可供在自動化 Runbook 和 DSC 設定中使用。
+下表中的 Cmdlet 是用來使用 Windows PowerShell 建立和管理自動化連接。 它們隨附于[Azure PowerShell 模組](/powershell/azure/overview)中，可在自動化 RUNBOOK 和 DSC 設定中使用。
 
 |Cmdlet|說明|
 |:---|:---|
@@ -48,13 +48,14 @@ Azure 自動化中有三種可用的內建連線：
 
 |活動|說明|
 |---|---|
-|[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|取得要使用的連接。 傳回具有連線屬性的雜湊表。|
+|Get-AutomationConnection | 取得要使用的連接。 傳回具有連線屬性的雜湊表。|
 
 >[!NOTE]
 >您應該避免在 **Get-AutomationConnection** 的 -Name 參數使用變數，因為這可能使得在設計階段探索 Runbook 或 DSC 設定與連線資產之間的相依性變得複雜。
 
 
 ## <a name="python2-functions"></a>Python2 函式
+
 下表中的函式用於存取 Python2 Runbook 中的連線。
 
 | 函式 | 說明 |
@@ -86,15 +87,15 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-您可以使用此指令碼來建立連線資產，因為建立「自動化」帳戶時，預設會自動包含數個全域模組以及 **AzureServicePrincipal** 連線類型，以建立**AzureRunAsConnection** 連線資產。  這很重要要牢記在心，因為如果您嘗試建立新的連接資產來連接到採用不同驗證方法的服務或應用程式，它會失敗，因為在您的自動化帳戶未定義該連接類型。  有關如何從 [PowerShell 資源庫](https://www.powershellgallery.com)為您的自訂或模組建立您自己的連線類型，詳細資訊請參閱[整合模組](automation-integration-modules.md)
+您可以使用此指令碼來建立連線資產，因為建立「自動化」帳戶時，預設會自動包含數個全域模組以及 **AzureServicePrincipal** 連線類型，以建立**AzureRunAsConnection** 連線資產。 這很重要要牢記在心，因為如果您嘗試建立新的連接資產來連接到採用不同驗證方法的服務或應用程式，它會失敗，因為在您的自動化帳戶未定義該連接類型。 如需如何從[PowerShell 資源庫](https://www.powershellgallery.com)為自訂或模組建立自己的連線類型的詳細資訊，請參閱[整合模組](automation-integration-modules.md)
 
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>在 Runbook 或 DSC 設定中使用連接
 
-您會使用 **Get-AutomationConnection** Cmdlet 在 Runbook 或 DSC 設定中擷取連接。  您不能使用 [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection) 活動。  這個活動會擷取連接中不同欄位的值，並傳回其作為 [雜湊表](https://go.microsoft.com/fwlink/?LinkID=324844) ，然後可以與 Runbook 或 DSC 設定中的適當命令搭配使用。
+您會使用 **Get-AutomationConnection** Cmdlet 在 Runbook 或 DSC 設定中擷取連接。 您不能使用 [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection) 活動。 此活動會抓取連接中不同欄位的值，並將它們當做[雜湊表](https://go.microsoft.com/fwlink/?LinkID=324844)傳回，然後在 RUNBOOK 或 DSC 設定中搭配適當的命令使用。
 
 ### <a name="textual-runbook-sample"></a>文字式 Runbook 範例
 
-下列範例命令示範如何使用先前提及的執行身分帳戶，向您的 Runbook 中的 Azure Resource Manager 資源驗證。  它會使用代表執行身分帳戶的連接資產，亦即會參考憑證型服務主體而非認證型。
+下列範例命令示範如何使用先前提及的執行身分帳戶，向您的 Runbook 中的 Azure Resource Manager 資源驗證。 它會使用代表執行身分帳戶的連接資產，亦即會參考憑證型服務主體而非認證型。
 
 ```powershell
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -106,15 +107,16 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 
 ### <a name="graphical-runbook-samples"></a>圖形化 Runbook 範例
 
-透過在圖形化編輯器 [文件庫] 窗格的連接上按一下滑鼠右鍵，然後選取 [加入至畫布]，即可將 **Get-AutomationConnection** 活動加入至圖形化 Runbook。
+在圖形化編輯器的 [連結**庫**] 窗格中，以滑鼠右鍵按一下連接，然後選取 [**新增至畫布**]，即可將**get-automationconnection**活動新增至圖形化 runbook。
 
 ![加入至畫布](media/automation-connections/connection-add-canvas.png)
 
-下圖顯示在圖形化 Runbook 中使用連接的範例。  這是如上所述，使用執行身分帳戶與文字 Runbook 進行驗證的相同範例。  這個範例會對使用連接物件進行驗證的 **Get RunAs Connection** 活動使用 **Constant value** 資料集。  在此處使用[管線連結](automation-graphical-authoring-intro.md#links-and-workflow)，是因為 ServicePrincipalCertificate 參數集預期的是單一物件。
+下圖顯示在圖形化 Runbook 中使用連接的範例。 這是如上所述，使用執行身分帳戶與文字 Runbook 進行驗證的相同範例。 這個範例會對使用連接物件進行驗證的 **Get RunAs Connection** 活動使用 **Constant value** 資料集。 在此處使用[管線連結](automation-graphical-authoring-intro.md#links-and-workflow)，是因為 ServicePrincipalCertificate 參數集預期的是單一物件。
 
 ![取得連線](media/automation-connections/automation-get-connection-object.png)
 
 ### <a name="python2-runbook-sample"></a>Python2 Runbook 範例
+
 下列範例會示範如何使用 Python2 Runbook 中的「執行身分」連線進行驗證。
 
 ```python
@@ -163,4 +165,3 @@ azure_credential = get_automation_runas_credential(runas_connection)
 - 閱讀[圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)，以了解如何引導和控制您的 Runbook 中的邏輯流程。
 
 - 若要進一步了解 Azure 自動化如何使用 PowerShell 模組，以及建立自有 PowerShell 模組來做為 Azure 自動化內整合模組的最佳做法，請參閱[整合模組](automation-integration-modules.md)。
-

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2019
 ms.author: alsin
-ms.openlocfilehash: 61991e271a68c9160a34d0de99fe4c9259ca41cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32df17ffed400af80eadadbdeaafbaa1e3e1dbce
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486335"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941711"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Azure 中可用的 Red Hat Enterprise Linux （RHEL）映射
 Azure 針對不同的使用案例提供各種 RHEL 映射。
@@ -66,5 +66,5 @@ rhel-byos     |rhel-lvm74| LVM    | Linux 代理程式 | RHEL 7.4 BYOS 映射（
 ## <a name="next-steps"></a>後續步驟
 * 深入瞭解[Azure 中的 Red Hat 映射](./redhat-images.md)。
 * 深入瞭解[Red Hat 更新基礎結構](./redhat-rhui.md)。
-* 深入瞭解[RHEL BYOS 供應](./redhat-byos.md)專案。
+* 深入瞭解[RHEL BYOS 供應](./byos.md)專案。
 * 如需所有 RHEL 版本的 Red Hat 支援原則資訊，請參閱 [Red Hat Enterprise Linux 生命週期](https://access.redhat.com/support/policy/updates/errata)頁面。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: ee67c811835d99bf2f4c00dc59b43e29f63c81d6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 9ccbd67348a8dae7391471ccd1dcc1ba9b135ea2
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533823"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941833"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>在 Azure 中的 Red Hat Enterprise Linux 上設定 Pacemaker
 
@@ -48,7 +48,7 @@ ms.locfileid: "74533823"
   * Microsoft Azure 上 Windows 和 Linux 所需的 SAP 核心版本。
 * SAP Note [2015553] 列出 Azure 中 SAP 支援的 SAP 軟體部署先決條件。
 * SAP Note [2002167] 建議適用於 Red Hat Enterprise Linux 的作業系統設定
-* SAP Note [2009879] 提供適用於 Red Hat Enterprise Linux 的 SAP Hana 指導方針
+* SAP Note [2009879] 提供適用於 Red Hat Enterprise Linux 的 SAP HANA 方針
 * SAP Note [2178632] 包含在 Azure 中針對 SAP 回報的所有監視計量詳細資訊。
 * SAP Note [2191498] 包含 Azure 中 Linux 所需的 SAP Host Agent 版本。
 * SAP Note [2243692] 包含 Azure 中 Linux 上的 SAP 授權相關資訊。
@@ -88,7 +88,7 @@ ms.locfileid: "74533823"
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   請注意，藉由將集區附加至 Azure Marketplace PAYG RHEL 映射，您將能有效地以 RHEL 使用量重複計費：一次針對 PAYG 映射，另一次用於您所附加之集區中的 RHEL 權利。 為了減輕此問題，Azure 現在提供 BYOS RHEL 映射。 您可以[在這裡](https://aka.ms/rhel-byos)取得詳細資訊。
+   請注意，藉由將集區附加至 Azure Marketplace PAYG RHEL 映射，您將能有效地以 RHEL 使用量重複計費：一次針對 PAYG 映射，另一次用於您所附加之集區中的 RHEL 權利。 為了減輕此問題，Azure 現在提供 BYOS RHEL 映射。 您可以[在這裡](../redhat/byos.md)取得詳細資訊。
 
 1. **[A]** 啟用 RHEL for SAP 存放庫
 
@@ -211,7 +211,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 1. 選取 [憑證和密碼]，然後按一下 [新增用戶端密碼]
 1. 輸入新金鑰的描述，選取 [永不過期]，然後按一下 [新增]
 1. 記下值。 此值會用來做為服務主體的**密碼**
-1. 選取 [總覽]。 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的 **login id**)
+1. 選取 [總覽]。 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的「登入識別碼」)
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 為柵欄代理程式建立自訂角色
 
@@ -250,7 +250,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 1. 按一下 [新增角色指派]
 1. 選取「Linux 柵欄代理程式角色」角色
 1. 輸入您先前建立的應用程式名稱
-1. 按一下 [Save] (儲存)。
+1. 按一下 [儲存]
 
 針對第二個叢集節點重複上述步驟。
 

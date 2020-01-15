@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2019
 ms.author: alsin
-ms.openlocfilehash: 27cd5b775fbd2af58d93d539420262665d70ead4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 211ac68fd10cd745faf68a5efae7392345008d7b
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486322"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941455"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Red Hat Enterprise Linux 映射的總覽
 本文說明 Azure Marketplace 中所提供的 Red Hat Enterprise Linux (RHEL) 映像，以及與其命名和保留期相關的原則。
@@ -154,5 +154,5 @@ Microsoft 和 Red Hat 會在發行新的次要版本時更新映像以解決特�
 ## <a name="next-steps"></a>後續步驟
 * [在 Azure 中查看 RHEL 映射](./redhat-imagelist.md)的完整清單。
 * 請[在這裡](https://aka.ms/rhui-update)了解 Azure Red Hat Update Infrastructure。
-* 深入瞭解[RHEL BYOS 供應](./redhat-byos.md)專案。
+* 深入瞭解[RHEL BYOS 供應](./byos.md)專案。
 * 如需所有 RHEL 版本的 Red Hat 支援原則資訊，請參閱 [Red Hat Enterprise Linux 生命週期](https://access.redhat.com/support/policy/updates/errata)頁面。

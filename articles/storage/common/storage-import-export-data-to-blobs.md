@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bd15e406cdbee57112ff8ecba158d503e908b73f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cab9d309d052acca493e112965c8477a325d8c88
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73178025"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75944744"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure Blob 儲存體
 
@@ -64,7 +64,7 @@ ms.locfileid: "73178025"
     
     下表會說明使用的參數：
 
-    |選項  |描述  |
+    |選項  |說明  |
     |---------|---------|
     |/j:     |日誌檔案的名稱 (具有 .jrn 副檔名)。 每個磁碟機都會產生日誌檔案。 我們建議您使用磁碟序號作為日誌檔案名稱。         |
     |/id:     |工作階段識別碼。 針對命令的每個執行個體使用唯一的工作階段號碼。      |
@@ -72,7 +72,7 @@ ms.locfileid: "73178025"
     |/bk:     |磁碟機的 BitLocker 金鑰。 其數字密碼來自 `manage-bde -protectors -get D:` 的輸出      |
     |/srcdir:     |要寄送之磁碟的磁碟機代號，其後緊接著 `:\`。 例如： `D:\` 。         |
     |/dstdir:     |Azure 儲存體中目的地容器的名稱。         |
-    |/blobtype     |此選項會指定您想要匯入資料的 blob 類型。 針對區塊 blob，這是 `BlockBlob`，而針對分頁 blob，則是 `PagaBlob`。         |
+    |/blobtype     |此選項會指定您想要匯入資料的 blob 類型。 針對區塊 blob，這是 `BlockBlob`，而針對分頁 blob，則是 `PageBlob`。         |
     |/skipwrite：     |此選項表示不需要複製新資料，且即將準備磁碟上的現有資料。          |
     |/enablecontentmd5:     |啟用此選項時，可確保會計算 MD5，並將其設定為每個 blob 上的 `Content-md5` 屬性。 只有當您想要在資料上傳至 Azure 之後使用 [`Content-md5`] 欄位時，才使用此選項。 <br> 此選項不會影響資料完整性檢查（預設會發生）。 此設定會增加將資料上傳至雲端所花費的時間。          |
 7. 為每個要寄送的磁碟重複上述步驟。 每次執行命令列時，都會使用提供的名稱來建立日誌檔案。

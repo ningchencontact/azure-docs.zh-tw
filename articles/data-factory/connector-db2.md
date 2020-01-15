@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 01/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 6dd0734d39237545b7a9bc2553fcd9dea75b8ee0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3d3a1704b75de53bf65012329fba5f8522adff3a
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892809"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941757"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 DB2 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -46,11 +46,6 @@ ms.locfileid: "75892809"
 * IBM DB2 for LUW 10.5
 * IBM DB2 for LUW 10.1
 
-> [!TIP]
-> 如果收到錯誤訊息表示：「找不到對應至 SQL 陳述式執行要求的套件。 SQLSTATE=51002 SQLCODE=-805」，原因是這類作業系統上未針對一般使用者建立所需的套件。 請根據您的 DB2 伺服器類型，遵循下面的指示作業：
-> - DB2 for i (AS400)：使用複製活動之前，讓進階使用者建立登入使用者集合。 命令：`create collection <username>`
-> - DB2 for z/OS 或 LUW：使用高權限帳戶 - 具有封裝授權單位與 BIND、BINDADD、GRANT EXECUTE TO PUBLIC 權限的進階使用者或管理員 - 執行一次複製活動，然後就會在複製期間自動建立所需的封裝。 之後，您可以切換至一般使用者，來執行後續的複製。
-
 ## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
@@ -75,9 +70,12 @@ ms.locfileid: "75892809"
 | authenticationType |用來連接到 DB2 資料庫的驗證類型。<br/>允許的值為**基本**。 |是 |
 | username |指定要連線到 DB2 資料庫的使用者名稱。 |是 |
 | 密碼 |指定您為使用者名稱所指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
-| packageCollection | 指定在查詢資料庫時，ADF 自動建立所需套件的位置 | 否 |
+| packageCollection | 指定在查詢資料庫時，ADF 自動建立所需套件的位置。 | 否 |
 | certificateCommonName | 當您使用安全通訊端層（SSL）或傳輸層安全性（TLS）加密時，您必須輸入 [憑證一般名稱] 的值。 | 否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
+
+> [!TIP]
+> 如果您收到指出 `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`的錯誤訊息，原因是不會為使用者建立所需的套件。 根據預設，ADF 會嘗試以您用來連線到 DB2 的使用者身分，在集合下建立名為的套件。 指定 [封裝集合] 屬性，以指出在查詢資料庫時，ADF 要建立所需套件的位置。
 
 **範例︰**
 

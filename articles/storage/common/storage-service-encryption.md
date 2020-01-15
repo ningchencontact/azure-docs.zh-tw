@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b74943ce3e3e67855a07fa32f15612bbb2351170
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: abb9325510b52672027338314e02466f2d28e701
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913101"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942197"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>待用資料的 Azure 儲存體加密
 
@@ -67,7 +67,7 @@ Azure 儲存體中的資料會使用256位[AES 加密](https://en.wikipedia.org/
 
 您可以使用自己的金鑰來管理儲存體帳戶層級的 Azure 儲存體加密。 當您在儲存體帳戶層級指定客戶管理的金鑰時，該金鑰會用來保護並控制儲存體帳戶的根加密金鑰存取權，然後用來加密和解密所有 blob 和檔案資料。 客戶管理的金鑰提供更大的彈性來建立、輪替、停用及撤銷存取控制。 您也可以審核用來保護資料的加密金鑰。
 
-您必須使用 Azure Key Vault 來儲存客戶管理的金鑰。 您可以建立自己的金鑰，並將其儲存在金鑰保存庫中，或者您可以使用 Azure Key Vault Api 來產生金鑰。 儲存體帳戶與金鑰保存庫必須位於相同區域，但可位於不同的訂用帳戶中。 如需 Azure Key Vault 的詳細資訊，請參閱[什麼是 Azure Key Vault？](../../key-vault/key-vault-overview.md)。
+您必須使用 Azure Key Vault 來儲存客戶管理的金鑰。 您可以建立自己的金鑰，並將其儲存在金鑰保存庫中，或者您可以使用 Azure Key Vault Api 來產生金鑰。 儲存體帳戶和金鑰保存庫必須位於相同的區域，而且位於相同的 Azure Active Directory （Azure AD）租使用者中，但它們可以位於不同的訂用帳戶中。 如需 Azure Key Vault 的詳細資訊，請參閱[什麼是 Azure Key Vault？](../../key-vault/key-vault-overview.md)。
 
 下圖顯示 Azure 儲存體如何使用 Azure Active Directory 和 Azure Key Vault，以使用客戶管理的金鑰來提出要求：
 
@@ -96,15 +96,13 @@ Azure 儲存體中的資料會使用256位[AES 加密](https://en.wikipedia.org/
 - [使用 Key Vault 從 Azure CLI 設定 Azure 儲存體加密的客戶管理金鑰](storage-encryption-keys-cli.md)
 
 > [!IMPORTANT]
-> 客戶管理的金鑰依賴 Azure 資源的受控識別，這是一項 Azure Active Directory （Azure AD）的功能。 當您在 Azure 入口網站中設定客戶管理的金鑰時，受管理的身分識別會自動指派給您的儲存體帳戶。 如果您接著將訂用帳戶、資源群組或儲存體帳戶從一個 Azure AD 目錄移到另一個，則與儲存體帳戶相關聯的受控識別不會傳輸至新的租使用者，因此客戶管理的金鑰可能無法再使用。 如需詳細資訊，請參閱常見問題中的 Azure AD 目錄[和 Azure 資源的受控識別的已知問題](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)中**的訂**用帳戶。  
+> 客戶管理的金鑰依賴 Azure 資源的受控識別，這是一項 Azure AD 的功能。 受控識別目前不支援跨目錄案例。 當您在 Azure 入口網站中設定客戶管理的金鑰時，受管理的身分識別會自動指派給您的儲存體帳戶。 如果您接著將訂用帳戶、資源群組或儲存體帳戶從一個 Azure AD 目錄移到另一個，則與儲存體帳戶相關聯的受控識別不會傳輸至新的租使用者，因此客戶管理的金鑰可能無法再使用。 如需詳細資訊，請參閱常見問題中的 Azure AD 目錄[和 Azure 資源的受控識別的已知問題](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)中**的訂**用帳戶。  
 
 ### <a name="store-customer-managed-keys-in-azure-key-vault"></a>將客戶管理的金鑰儲存在 Azure Key Vault
 
 若要在儲存體帳戶上啟用客戶管理的金鑰，您必須使用 Azure Key Vault 來儲存您的金鑰。 您必須同時啟用「虛**刪除**」和「不要**清除**」金鑰保存庫的屬性。
 
 Azure 儲存體加密僅支援大小為2048的 RSA 金鑰。 如需金鑰的詳細資訊，請參閱[關於 Azure Key Vault 金鑰、秘密和憑證](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)中的**Key Vault 金鑰**。
-
-金鑰保存庫必須位於與儲存體帳戶相同的訂用帳戶中。 Azure 儲存體會使用 Azure 資源的受控識別向金鑰保存庫進行驗證，以進行加密和解密作業。 受控識別目前不支援跨目錄案例。
 
 ### <a name="rotate-customer-managed-keys"></a>輪替客戶管理的金鑰
 

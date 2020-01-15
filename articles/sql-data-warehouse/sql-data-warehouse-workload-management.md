@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/30/2019
+ms.date: 01/13/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2563ea4ab498c11c846cfe79f0e668f7d491c2e7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 66edde9591d4491fa630772f99372f9901319b2f
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692350"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940588"
 ---
 # <a name="what-is-workload-management"></a>什麼是工作負載管理？
 
@@ -54,3 +54,4 @@ SQL 資料倉儲上的工作負載管理包含三個高階概念：[工作負載
 - 如需工作負載分類的詳細資訊，請參閱[工作負載分類](sql-data-warehouse-workload-classification.md)。  
 - 如需工作負載隔離的詳細資訊，請參閱[工作負載隔離](sql-data-warehouse-workload-isolation.md)。  
 - 如需工作負載重要性的詳細資訊，請參閱[工作負載重要性](sql-data-warehouse-workload-importance.md)。  
+- 如需工作負載管理監視的詳細資訊，請參閱[工作負載管理入口網站監視](sql-data-warehouse-workload-management-portal-monitor.md)。  

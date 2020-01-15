@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: b3c355219fcbebc5fda38c33d6eb7f9126b3b2b8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9fe0875f34745b0b5b8b1b7e8b352116b6cbf997
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073832"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941916"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows 的自訂指令碼延伸模組
 
@@ -23,7 +23,7 @@ ms.locfileid: "74073832"
 
 本文件詳細說明如何透過 Azure PowerShell 模組、Azure Resource Manager 範本使用自訂指令碼擴充功能，同時也詳細說明 Windows 系統上的疑難排解步驟。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 > [!NOTE]  
 > 請勿使用自訂指令碼擴充功能以相同的 VM 執行 Update-AzVM 作為其參數，因為它會等候其本身。  
@@ -63,7 +63,7 @@ ms.locfileid: "74073832"
 
 您可將敏感性資料儲存在受保護的組態中，此組態會經過加密，並且只會在虛擬機器內解密。 當執行命令包含機密資料 (例如密碼) 時，受保護的組態會相當有用。
 
-這些項目應被視為敏感性資料，並在擴充功能保護的設定組態中指定。 Azure VM 擴充功能的受保護設定資料會經過加密，而只有在目標虛擬機器上才會解密。
+這些項目應被視為敏感性資料，並在擴充功能保護的設定組態中指定。 Azure VM 擴充功能保護的設定資料會經過加密，只會在目標虛擬機器上解密。
 
 ```json
 {
@@ -81,7 +81,7 @@ ms.locfileid: "74073832"
     "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.9",
+        "typeHandlerVersion": "1.10",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
@@ -92,11 +92,15 @@ ms.locfileid: "74073832"
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
             "storageAccountName": "myStorageAccountName",
-            "storageAccountKey": "myStorageAccountKey"
+            "storageAccountKey": "myStorageAccountKey",
+            "managedIdentity" : {}
         }
     }
 }
 ```
+
+> [!NOTE]
+> Microsoft.managedidentity 屬性**不得**與 StorageAccountName 或 storageAccountKey 屬性一起使用
 
 > [!NOTE]
 > 在某個時間點，VM 上只能安裝一個版本的擴充功能，在相同的 Resource Manager 範本中為相同的 VM 指定自訂腳本兩次，將會失敗。
@@ -108,15 +112,16 @@ ms.locfileid: "74073832"
 
 | 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | 日期 |
-| publisher | Microsoft.Compute | 字串 |
-| 類型 | CustomScriptExtension | 字串 |
-| typeHandlerVersion | 1.9 | int |
+| apiVersion | 2015-06-15 | date |
+| publisher | Microsoft.Compute | string |
+| type | CustomScriptExtension | string |
+| typeHandlerVersion | 1.10 | int |
 | fileUris (例如) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp (範例) | 123456789 | 32 位元整數 |
-| commandToExecute (例如) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | 字串 |
-| storageAccountName (例如) | examplestorageacct | 字串 |
-| storageAccountKey (例如) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 字串 |
+| commandToExecute (例如) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
+| storageAccountName (例如) | examplestorageacct | string |
+| storageAccountKey (例如) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| Microsoft.managedidentity （例如） | {} 或 {"clientId"： "31b403aa-c364-4240-a7ff-d85fb6cd7232"} 或 {"objectId"： "12dd289c-0583-46e5-b9b4-115d5c19ef4b"} | json 物件 |
 
 >[!NOTE]
 >這些屬性名稱會區分大小寫。 為了避免發生部署問題，請使用如下所示的名稱。
@@ -128,6 +133,9 @@ ms.locfileid: "74073832"
 * `timestamp` (選擇性，32 位元整數) 只有在透過變更此欄位的值來觸發指令碼的重新執行時，才需使用此欄位。  任何整數值都是可接受的；只要與先前的值不同即可。
 * `storageAccountName`：(選用，字串) 儲存體帳戶的名稱。 如果您指定儲存體證明資料，則所有 `fileUris` 都必須是 Azure Blob 的 URL。
 * `storageAccountKey`：(選用，字串) 儲存體帳戶的存取金鑰
+* `managedIdentity`：（選擇性，json 物件）用來下載檔案的[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+  * `clientId`：（選擇性，字串）受控識別的用戶端識別碼
+  * `objectId`：（選擇性，字串）受控識別的物件識別碼
 
 下列值可以在公開或受保護的設定中設定，擴充功能將會拒絕任何同時在公開和受保護的設定中設定下列值的組態。
 
@@ -136,6 +144,46 @@ ms.locfileid: "74073832"
 使用公用設定可能有助於進行偵錯工具，但建議您使用受保護的設定。
 
 公開設定會以純文字的格式，傳送到執行指令碼所在的 VM。  受保護的設定會使用只有 Azure 和 VM 知道的金鑰來加密。 這些設定會在傳送時儲存到 VM，也就是說，如果設定已加密，則會在 VM 上以加密方式儲存。 用來解密加密值的憑證會儲存在 VM 上，並在執行階段用於解密設定 (如有必要)。
+
+####  <a name="property-managedidentity"></a>屬性： Microsoft.managedidentity
+
+CustomScript （版本1.10.4 之後）支援以[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)為基礎的 RBAC，可從 "fileUris" 設定中提供的 url 下載檔案。 它可讓 CustomScript 存取 Azure 儲存體的私用 blob/容器，而不需要使用者傳遞 SAS 權杖或儲存體帳戶金鑰之類的秘密。
+
+若要使用這項功能，使用者必須將[系統指派](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity)或[使用者指派](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity)的身分識別新增至應執行 CUSTOMSCRIPT 的 VM 或 VMSS，並將[Azure 儲存體容器或 blob 的存取權授與受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access)。
+
+若要在目標 VM/VMSS 上使用系統指派的身分識別，請將 "microsoft.managedidentity" 欄位設定為空的 json 物件。 
+
+> 範例：
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : {}
+> }
+> ```
+
+若要在目標 VM/VMSS 上使用使用者指派的身分識別，請使用用戶端識別碼或受控識別的物件識別碼來設定 "microsoft.managedidentity" 欄位。
+
+> 範例：
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }
+> }
+> ```
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" }
+> }
+> ```
+
+> [!NOTE]
+> Microsoft.managedidentity 屬性**不得**與 StorageAccountName 或 storageAccountKey 屬性一起使用
 
 ## <a name="template-deployment"></a>範本部署
 
@@ -181,7 +229,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "buildserver1" `
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -Settings $settings    `
     -ProtectedSettings $protectedSettings `
 ```
@@ -199,7 +247,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "serverUpdate"
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -ProtectedSettings $protectedSettings
 
 ```
@@ -225,7 +273,7 @@ The response content cannot be parsed because the Internet Explorer engine is no
 
 若要在傳統 Vm 上部署自訂腳本擴充功能，您可以使用 Azure 入口網站或傳統 Azure PowerShell Cmdlet。
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 流覽至您的傳統 VM 資源。 選取 [**設定**] 底下的 [**擴充**功能]。
 
@@ -255,7 +303,7 @@ $vm | Update-AzureVM
 
 ### <a name="troubleshoot"></a>疑難排解
 
-從 Azure 入口網站及透過使用 Azure PowerShell 模組，都可擷取有關擴充功能部署狀態的資料。 若要查看指定 VM 的擴充功能部署狀態，請執行下列命令：
+使用 Azure PowerShell 模組，就可以從 Azure 入口網站擷取有關擴充功能部署狀態的資料。 若要查看指定 VM 的擴充功能部署狀態，請執行下列命令：
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Name myExtensionName
@@ -277,7 +325,7 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 
 執行 `commandToExecute` 命令時，擴充功能會將此目錄 (例如 `...\Downloads\2`) 設定為目前的工作目錄。 此程序可讓您使用相對路徑找出透過 `fileURIs` 屬性下載的檔案位置。 如需範例，請參閱下表。
 
-由於絕對下載路徑會隨時間而改變，最好盡可能在 `commandToExecute` 字串中選擇相對的指令碼/檔案路徑。 例如︰
+由於絕對下載路徑會隨時間而改變，最好盡可能在 `commandToExecute` 字串中選擇相對的指令碼/檔案路徑。 例如：
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""

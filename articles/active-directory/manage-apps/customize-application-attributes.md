@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804eb63406b33b94e70ef56e0066fa213be04708
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 2cbe5066974734093e440e64eb0b47542e569765
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997049"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940914"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>在 Azure Active Directory 中自訂 SaaS 應用程式的使用者布建屬性對應
 
@@ -71,6 +71,7 @@ Azure AD 使用者物件和每個 SaaS 應用程式的使用者物件之間，�
 
 - **來源屬性** - 來源系統的使用者屬性 (例如：Azure Active Directory)。
 - **目標屬性** – 目標系統中的使用者屬性 (例如：ServiceNow)。
+- **如果為 null （選擇性）** ，則為預設值-如果 source 屬性為 null，將會傳遞至目標系統的值。 只有在建立使用者時，才會布建此值。 更新現有的使用者時，將不會布建「預設值為 null」。 例如，如果您想要在目標系統中布建具有特定職稱的所有現有使用者（在來源系統中為 null 時），您可以使用下列[運算式](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)： Switch （IsPresent （[jobTitle]）、"DefaultValue"、"True"、[jobTitle]）。 請務必使用您想要在來源系統中布建的內容來取代「預設值」。 
 - **使用此屬性**比對物件–是否應該使用此對應來唯一識別來源與目標系統之間的使用者。 通常會在 Azure AD 中的 userPrincipalName 或 mail 屬性上設定，這通常會對應至目標應用程式中的使用者名稱欄位。
 - **比對優先順序** – 您可以設定多個比對屬性。 當有多個時，就會依照此欄位所定義的順序來評估它們。 只要找到相符項目，便不會評估進一步比對屬性。
 - **套用此對應**

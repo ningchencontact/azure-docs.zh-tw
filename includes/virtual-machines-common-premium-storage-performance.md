@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 32c1ca95c01edec74f22fc051e453f2ac0dbd03f
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 88b19257a6a7d335e6a928a9eaf7526fbfd5b02e
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564787"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942703"
 ---
 ## <a name="application-performance-indicators"></a>應用程式效能指標
 
@@ -126,7 +126,7 @@ IOPS，亦即 Input/output Operations Per Second (每秒鐘輸入/輸出作業�
 | **IO 大小** |較小 IO 大小會產生較高的 IOPS。 |較大 IO 大小會產生較高的輸送量。 | &nbsp;|
 | **VM 大小** |使用 IOPS 大於應用程式需求的 VM 大小。 |使用輸送量限制大於應用程式需求的 VM 大小。 |使用調整限制大於應用程式需求的 VM 大小。 |
 | **磁碟大小** |使用 IOPS 大於應用程式需求的磁碟大小。 |使用輸送量限制大於應用程式需求的磁碟大小。 |使用調整限制大於應用程式需求的磁碟大小。 |
-| **VM 和磁碟調整限制** |選擇的 VM 大小的 IOPS 限制，應該大於它連接的進階儲存體磁碟所推動的 IOPS 總數。 |選擇的 VM 大小的輸送量限制，應該大於它連接的進階儲存體磁碟所推動的輸送量總數。 |選擇的 VM 大小的調整限制，必須大於連接的進階儲存體磁碟的調整限制總數。 |
+| **VM 和磁碟調整限制** |所選 VM 大小的 IOPS 限制，應大於其附加的儲存體磁片所驅動的總 IOPS。 |選擇的 VM 大小的輸送量限制，應該大於它連接的進階儲存體磁碟所推動的輸送量總數。 |選擇的 VM 大小的調整限制，必須大於連接的進階儲存體磁碟的調整限制總數。 |
 | **磁碟快取** |在讀取作業繁重的進階儲存體磁碟上，啟用唯讀快取可產生較高的讀取 IOPS。 | &nbsp; |在讀取作業繁重的進階儲存體磁碟上，啟用唯讀快取可產生極低的讀取延遲。 |
 | **磁碟串接** |使用多個磁碟並串接在一起，可結合產生較高的 IOPS 和輸送量限制。 每個 VM 的合併限制應該高於附加的高階磁片的組合限制。 | &nbsp; | &nbsp; |
 | **等量大小** |在 OLTP 應用程式中，隨機小型 IO 模式使用較小的等量大小。 例如，針對 SQL Server OLTP 應用程式，請使用 64 KB 的等量大小。 |在資料倉儲應用程式中，循序大型 IO 模式使用較大的等量大小。 例如，針對 SQL Server 資料倉儲應用程式使用 256 KB 等量大小。 | &nbsp; |

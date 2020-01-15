@@ -1,19 +1,16 @@
 ---
 title: 在 Azure Site Recovery 中為新增的 Azure VM 磁片啟用複寫
 description: 本文說明如何針對新增至 Azure VM 的磁片啟用複寫，以使用 Azure Site Recovery 進行嚴重損壞修復
-services: site-recovery
-author: carmonmills
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2019
-ms.author: carmonm
-ms.openlocfilehash: 08ab539a1b05c67ef77c84389dad7247b72355d6
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fd020755ec579b2553bca42db5d050bd442bf6fc
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929885"
+ms.locfileid: "75942295"
 ---
 # <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>針對新增至 Azure VM 的磁片啟用複寫
 

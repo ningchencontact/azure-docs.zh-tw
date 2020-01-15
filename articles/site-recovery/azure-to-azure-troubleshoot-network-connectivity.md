@@ -1,19 +1,16 @@
 ---
 title: 使用 Azure Site Recovery 針對 Azure 到 Azure 嚴重損壞修復的連線進行疑難排解
-description: 針對損毀修復複寫 Azure 虛擬機器時的錯誤和問題進行疑難排解
-services: site-recovery
-author: carmonmills
+description: 針對 Azure VM 嚴重損壞修復中的連線問題進行疑難排解
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/05/2019
-ms.author: carmonm
-ms.openlocfilehash: 41b5203c328243c9ef7cc74e6b9771c677a54c7c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: d55f06669a538c2f26f3a1d2da0d96a73529f76e
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933415"
+ms.locfileid: "75941476"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>針對 Azure 至 Azure VM 網路連線問題進行疑難排解
 

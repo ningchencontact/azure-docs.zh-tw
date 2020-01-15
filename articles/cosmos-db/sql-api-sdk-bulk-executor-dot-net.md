@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 12/02/2019
+ms.date: 01/14/2020
 ms.author: ramkris
-ms.openlocfilehash: 2d573d329ad27a4801c091d0dcfb10c5f530169f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b5d4f490f7710824b8382091a1e814f6847766fa
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707276"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945544"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET 大量執行程式程式庫：下載資訊 
 
@@ -72,6 +72,10 @@ ms.locfileid: "74707276"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
 * 已將 .NET Standard 2.0 新增為其中一個支援的目標架構，讓大量執行程式程式庫可與 .NET Core 應用程式搭配使用。
+
+### <a name="a-name187187"></a><a name="1.8.7"/>1.8。7
+
+* 已修正當集合具有嵌套資料分割索引鍵路徑時，BulkDeleteAsync 的問題。
 
 ### <a name="a-name186186"></a><a name="1.8.6"/>1.8。6
 

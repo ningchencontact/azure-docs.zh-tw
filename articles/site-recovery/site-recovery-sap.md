@@ -1,18 +1,16 @@
 ---
 title: 使用 Azure Site Recovery 設定 SAP NetWeaver 嚴重損壞修復
-description: 本文說明如何使用 Azure Site Recovery 設定 SAP NetWeaver 應用程式部署的災害復原。
-author: carmonmills
+description: 瞭解如何使用 Azure Site Recovery 設定 SAP NetWeaver 的嚴重損壞修復。
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/27/2018
-ms.author: carmonm
-ms.openlocfilehash: 3ae9a92a27da1b736bf9db6dff88660f7d40143b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: eeb85e97d653b0faac171e2986cb933fc41e6606
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934452"
+ms.locfileid: "75940673"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>設定多層式 SAP NetWeaver 應用程式部署的災害復原
 
@@ -62,28 +60,28 @@ ms.locfileid: "75934452"
 針對災害復原 (DR)，您必須能夠容錯移轉到次要區域。 每一層會使用不同的策略來提供災害復原 (DR) 保護。
 
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>執行 SAP Web Dispatcher 集區的 VM 
-Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量的負載平衡器。 若要達到 Web Dispatcher 元件的高可用性，系統會使用 Azure Load Balancer，針對平衡器集區中可用 Web Dispatcher 之間的 HTTP(S) 流量分配，在循環配置資源組態中實作平行 Web Dispatcher 設定。 系統會使用 Azure Site Recovery(ASR) 進行其複寫，並使用自動化指令碼在災害復原區域上設定負載平衡器。 
+Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量的負載平衡器。 若要達到 Web Dispatcher 元件的高可用性，系統會使用 Azure Load Balancer，針對平衡器集區中可用 Web Dispatcher 之間的 HTTP(S) 流量分配，在循環配置資源組態中實作平行 Web Dispatcher 設定。 這會使用 Site Recovery 進行複寫，且自動化腳本將用來設定嚴重損壞修復區域上的負載平衡器。 
 
 #### <a name="vms-running-application-servers-pool"></a>執行應用程式伺服器集區的 VM
-若要管理 ABAP 應用程式伺服器的登入群組，請使用 SMLG 交易。 它會在中央服務的訊息伺服器內使用負載平衡函式，以針對 SAPGUI 和 RFC 流量，分配 SAP 應用程式伺服器集區之間的工作負載。 系統會使用 Azure Site Recovery 進行其複寫 
+若要管理 ABAP 應用程式伺服器的登入群組，請使用 SMLG 交易。 它會在中央服務的訊息伺服器內使用負載平衡函式，以針對 SAPGUI 和 RFC 流量，分配 SAP 應用程式伺服器集區之間的工作負載。 這會使用 Site Recovery 進行複寫。
 
 #### <a name="vms-running-sap-central-services-cluster"></a>執行 SAP 中央服務叢集的 VM
 此參考架構會在應用程式層中的虛擬機器上執行中央服務。 部署到單一虛擬機器 (不需要高可用性時的典型部署) 時，中央服務是潛在的單一失敗點 (SPOF)。<br>
 
 若要實作高可用性解決方案，可以使用共用磁碟叢集或檔案共用叢集。若要設定共用磁碟叢集的 VM，請使用 Windows Server 容錯移轉叢集。 建議將雲端見證作為仲裁見證。 
  > [!NOTE]
- > Azure Site Recovery 並不會複寫雲端見證，因此建議您在災害復原區域中部署雲端見證。
+ > Site Recovery 不會複寫雲端見證，因此建議您在嚴重損壞修復區域中部署雲端見證。
 
 若要支援容錯移轉叢集環境，[SIOS DataKeeper 叢集版本](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8)會執行叢集共用磁碟區函式，方法為複寫叢集節點所擁有的獨立磁碟。 Azure 本身不支援共用磁碟，因此需要 SIOS 所提供的解決方案。 
 
 處理叢集的另一種方式，是實作檔案共用叢集。 [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) 最近修改了中央服務部署模式，來透過 UNC 路徑存取 /sapmnt 全域目錄。 不過，仍然建議確保 /sapmnt UNC 共用具有高可用性。 您可以藉由使用 Windows Server 容錯移轉叢集與相應放大檔案伺服器 (SOFS) 和 Windows Server 2016 中的儲存空間直接存取 (S2D) 功能，在中央服務執行個體上完成這項操作。 
  > [!NOTE]
- > 目前 Azure Site Recovery 僅支援使用儲存空間直接存取和 SIOS Datakeeper 的被動節點，針對虛擬機器進行損毀一致性點複寫
+ > 目前 Site Recovery 僅支援使用儲存空間直接存取和 SIOS Datakeeper 的被動節點，針對虛擬機器進行損毀一致性點複寫
 
 
 ## <a name="disaster-recovery-considerations"></a>災害復原考量
 
-您可以使用 Azure Site Recovery 在各個 Azure 區域間協調完整 SAP 部署的容錯移轉。
+您可以使用 Site Recovery 來協調跨 Azure 區域的完整 SAP 部署故障。
 以下是設定災害復原的步驟 
 
 1. 複寫虛擬機器 
@@ -133,7 +131,7 @@ Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量�
 為了讓應用程式可正常運作，您可能需要在容錯移轉後或測試容錯移轉期間，於 Azure 虛擬機器上執行某些作業。 您可以自動化某些容錯移轉後的作業。 例如，您可以透過將對應的指令碼新增至復原計畫，以更新 DNS 項目和變更繫結與連線。
 
 
-您可以按一下底下的 [部署至 Azure] 按鈕，將最常用的 Azure Site Recovery 指令碼部署至您的自動化帳戶。 當您使用任何已發佈的指令碼時，請務必遵循指令碼中的指引。
+您可以按一下下方的 [部署至 Azure] 按鈕，將最常使用的 Site Recovery 腳本部署到自動化帳戶中。 當您使用任何已發佈的指令碼時，請務必遵循指令碼中的指引。
 
 [![部署至 Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
@@ -164,5 +162,5 @@ Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量�
 如需詳細資訊，請參閱[在 Site Recovery 中容錯移轉](site-recovery-failover.md)。
 
 ## <a name="next-steps"></a>後續步驟
-* 若要深入了解如何使用 Site Recovery 為 SAP NetWeaver 部署建置災害復原解決方案，請參閱可下載的白皮書＜[SAP NetWeaver：使用 Azure Site Recovery 建置災害復原方案](https://aka.ms/asr_sap)＞。 本白皮書會討論各種 SAP 架構的建議，列出支援 Azure 上的 SAP 的應用程式和 VM 類型，並說明災害復原解決方案的測試計劃選項。
+* 若要深入瞭解如何使用 Site Recovery 建立 SAP NetWeaver 部署的嚴重損壞修復解決方案，請參閱可下載的白皮書[SAP NetWeaver：使用 Site Recovery 建立嚴重損壞修復解決方案](https://aka.ms/asr_sap)。 本白皮書會討論各種 SAP 架構的建議，列出支援 Azure 上的 SAP 的應用程式和 VM 類型，並說明災害復原解決方案的測試計劃選項。
 * 深入了解如何使用 Site Recovery [複寫其他工作負載](site-recovery-workload.md)。

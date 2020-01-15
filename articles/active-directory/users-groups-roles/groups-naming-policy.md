@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3a9300148f4ac2adf6b95ef0afb500af5bc9284
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a9136ce26f0070c8822292c741be59de537d3667
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027044"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941065"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>在 Azure Active Directory 中的 Office 365 群組上強制執行命名原則
 
@@ -65,7 +65,12 @@ ms.locfileid: "74027044"
 - 封鎖字組沒有字元限制。
 - 封鎖字組清單中可以設定的片語上限為 5000 個。 
 
-### <a name="administrator-override"></a>系統管理員覆寫
+### <a name="roles-and-permissions"></a>角色和權限
+
+若要設定命名原則，需要其中一個下列角色：
+- 全域管理員
+- 群組管理員
+- 使用者管理員
 
 選定的系統管理員可以不受這些原則限制 (範圍橫跨所有群組工作負載和端點)，因此可以使用封鎖字組和自己的命名慣例來建立群組。 以下是不受群組命名原則限制的系統管理員角色清單。
 
@@ -77,7 +82,7 @@ ms.locfileid: "74027044"
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>在 Azure 入口網站中設定命名原則
 
-1. 使用全域系統管理員帳戶登入[Azure AD 系統管理中心](https://aad.portal.azure.com)。
+1. 使用群組系統管理員帳戶登入[Azure AD 系統管理中心](https://aad.portal.azure.com)。
 1. 選取 [群組]，然後選取 [命名原則] 以開啟 [命名原則] 頁面。
 
     ![在管理中心開啟 [命名原則] 頁面](./media/groups-naming-policy/policy.png)
@@ -167,7 +172,7 @@ ms.locfileid: "74027044"
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
-就這麼簡單。 您已設定命名原則並新增封鎖字組。
+就這樣， 您已設定命名原則並新增封鎖字組。
 
 ## <a name="export-or-import-custom-blocked-words"></a>匯出或匯入自訂封鎖字組
 

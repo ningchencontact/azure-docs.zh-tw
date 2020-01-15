@@ -7,12 +7,12 @@ ms.date: 03/21/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: be3dc27823c09823133d5b9a3a3f34afe52ec57d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0a9015e33f5456efeac7f7c887995ac4a69f0259
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227896"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941817"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>如何使用 C++ 的 Blob 儲存體
 
@@ -33,13 +33,13 @@ ms.locfileid: "74227896"
 若要安裝 Azure Storage Client Library for C++，您可以使用下列方法：
 
 * **Linux：** 遵循[適用C++于讀我檔案的 Azure 儲存體用戶端程式庫](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux)中提供的指示： Linux 上的消費者入門頁面。
-* **Windows：** 在 Windows 上，請使用[vcpkg](https://github.com/microsoft/vcpkg)做為相依性管理員。 遵循[快速入門](https://github.com/microsoft/vcpkg#quick-start)來初始化 vcpkg。 然後，使用下列命令來安裝程式庫：
+* **Windows：** 在 Windows 上，請使用[vcpkg](https://github.com/microsoft/vcpkg)做為相依性管理員。 請依照[快速入門](https://github.com/microsoft/vcpkg#quick-start)來初始化 vcpkg。 然後，使用下列命令安裝二進位檔：
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp
 ```
 
-您可以在[自述](https://github.com/Azure/azure-storage-cpp#download--install)檔中找到如何建立原始程式碼並匯出至 Nuget 的指南。
+您可以在[自述](https://github.com/Azure/azure-storage-cpp#download--install)檔中找到如何建立原始程式碼並匯出至 NuGet 的指南。
 
 ## <a name="configure-your-application-to-access-blob-storage"></a>設定您的應用程式以存取 Blob 儲存體
 在您要使用 Azure 儲存體 API 來存取 Blob 的 C++ 檔案頂端，加入下列 include 陳述式：  
@@ -52,14 +52,14 @@ ms.locfileid: "74227896"
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>設定 Azure 儲存體連接字串
-Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。 在用戶端應用程式中執行時，您必須以下列格式提供儲存體連接字串 (其中的 [AccountName](https://portal.azure.com) 和 *AccountKey* 值要使用您儲存體帳戶的名稱，以及在 *Azure 入口網站*中針對該儲存體帳戶而列出的儲存體存取金鑰)。 如需有關儲存體帳戶和存取金鑰的資訊，請參閱 [關於 Azure 儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。 本範例將示範如何宣告靜態欄位來存放連接字串：  
+Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。 在用戶端應用程式中執行時，您必須以下列格式提供儲存體連接字串 (其中的 *AccountName* 和 *AccountKey* 值要使用您儲存體帳戶的名稱，以及在 [Azure 入口網站](https://portal.azure.com)中針對該儲存體帳戶而列出的儲存體存取金鑰)。 如需有關儲存體帳戶和存取金鑰的資訊，請參閱 [關於 Azure 儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。 本範例將示範如何宣告靜態欄位來存放連接字串：  
 
 ```cpp
 // Define the connection-string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-若要在本機 Windows 電腦中測試您的應用程式，可以使用隨 [Azure SDK](../storage-use-emulator.md) 一起安裝的 Microsoft Azure [儲存體模擬器](https://azure.microsoft.com/downloads/)。 儲存體模擬器是一個公用程式，可在本機開發電腦上模擬 Azure 提供的 Blob、佇列和表格服務。 下列範例示範如何宣告靜態欄位以便將連接字串存放到本機儲存體模擬器中：
+若要在本機 Windows 電腦中測試您的應用程式，可以使用隨 [Azure SDK](https://azure.microsoft.com/downloads/) 一起安裝的 Microsoft Azure [儲存體模擬器](../storage-use-emulator.md)。 儲存體模擬器是一個公用程式，可在本機開發電腦上模擬 Azure 提供的 Blob、佇列和表格服務。 下列範例示範如何宣告靜態欄位以便將連接字串存放到本機儲存體模擬器中：
 
 ```cpp
 // Define the connection-string with Azure Storage Emulator.

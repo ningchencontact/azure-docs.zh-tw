@@ -1,18 +1,16 @@
 ---
-title: 使用 Azure Site Recovery 進行多層式 Dynamics AX 部署的嚴重損壞修復 |Microsoft Docs
-description: 本文說明如何使用 Azure Site Recovery 來設定 Dynamics AX 的災害復原
-author: carmonmills
+title: Dynamics AX 與 Azure Site Recovery 的嚴重損壞修復
+description: 瞭解如何使用 Azure Site Recovery 設定 Dynamics AX 的嚴重損壞修復
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2018
-ms.author: carmonm
-ms.openlocfilehash: 089edd1f408494f59c8f0042b57d2d79c7faffae
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0b32f00374aa8ce6c41415e28f319e3e7d5abddb
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930177"
+ms.locfileid: "75941581"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>設定多層式 Dynamics AX 應用程式的災害復原   
 
@@ -39,7 +37,7 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 ## <a name="site-recovery-support"></a>Site Recovery 支援
 
-我們為了編寫本文而使用的設備是 Windows Server 2012 R2 Enterprise 上的 VMware 虛擬機器與 Dynamics AX 2012R3。 因為站台復原複寫應用程式無從驗證，我們預期此處提供的建議可以運用在下列案例。
+我們為了編寫本文而使用的設備是 Windows Server 2012 R2 Enterprise 上的 VMware 虛擬機器與 Dynamics AX 2012R3。 由於 Site Recovery 複寫與應用程式無關，因此我們預期此處提供的建議可保留下列案例。
 
 ### <a name="source-and-target"></a>來源與目標
 

@@ -3,12 +3,12 @@ title: YAML 參考-ACR 工作
 description: 適用於以 YAML 為「ACR 工作」定義工作的參考，包括工作屬性、步驟類型、步驟屬性及內建變數。
 ms.topic: article
 ms.date: 10/23/2019
-ms.openlocfilehash: da1b1613d880b9edf6ec6d6018011f43a7ac69a5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d86eb0e24233afb536d27f5d0938d4748941e88a
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445683"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945731"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 工作參考：YAML
 
@@ -79,7 +79,7 @@ az configure --defaults acr=myregistry
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | 是 | 「ACR 工作」服務所剖析的 `acr-task.yaml` 檔案版本。 在「ACR 工作」努力維持回溯相容性的同時，此值則可讓「ACR 工作」在已定義的版本內維持相容性。 如果未指定，則預設為最新版本。 | 否 | 無 |
 | `stepTimeout` | 整數 (秒) | 是 | 步驟的可執行秒數上限。 如果在工作上指定屬性，則會設定所有步驟的預設 `timeout` 屬性。 如果在步驟上指定了 `timeout` 屬性，它會覆寫工作所提供的屬性。 | 是 | 600 (10 分鐘) |
-| `workingDirectory` | string | 是 | 容器在執行時間期間的工作目錄。 如果在工作上指定屬性，則會設定所有步驟的預設 `workingDirectory` 屬性。 如果在步驟上指定，它會覆寫工作所提供的屬性。 | 是 | `$HOME` |
+| `workingDirectory` | string | 是 | 容器在執行時間期間的工作目錄。 如果在工作上指定屬性，則會設定所有步驟的預設 `workingDirectory` 屬性。 如果在步驟上指定，它會覆寫工作所提供的屬性。 | 是 | `/workspace` |
 | `env` | [字串, 字串, ...] | 是 |  `key=value` 格式的字串陣列，可定義工作的環境變數。 如果在工作上指定屬性，則會設定所有步驟的預設 `env` 屬性。 如果在步驟上指定，它會覆寫任何繼承自工作的環境變數。 | 無 |
 | `secrets` | [秘密，秘密，...] | 是 | [秘密](#secret)物件的陣列。 | 無 |
 | `networks` | [network，network，...] | 是 | [網路](#network)物件的陣列。 | 無 |
@@ -379,7 +379,7 @@ steps:
 | `timeout` | 整數 (秒) | 是 | 終止步驟前可允許步驟執行的秒數上限。 | 600 |
 | [`when`](#example-when) | [字串, 字串, ...] | 是 | 設定步驟與工作內一或多個其他步驟的相依性。 | 無 |
 | `user` | string | 是 | 容器的使用者名稱或 UID | 無 |
-| `workingDirectory` | string | 是 | 設定步驟的工作目錄。 「ACR 工作」預設會建立根目錄作為工作目錄。 不過，如果您的組建含有數個步驟，則可藉由指定相同的工作目錄，讓較前面的步驟與較後面的步驟共用成品。 | `$HOME` |
+| `workingDirectory` | string | 是 | 設定步驟的工作目錄。 「ACR 工作」預設會建立根目錄作為工作目錄。 不過，如果您的組建含有數個步驟，則可藉由指定相同的工作目錄，讓較前面的步驟與較後面的步驟共用成品。 | `/workspace` |
 
 ### <a name="examples-task-step-properties"></a>範例：工作步驟屬性
 
