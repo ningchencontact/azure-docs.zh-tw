@@ -81,7 +81,7 @@
               href: ../sql-database/sql-database-private-endpoint-overview.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: 虛擬網路服務端點
               href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
-        - name: Authentication
+        - name: 驗證
           items:
             - name: 概觀
               href: sql-data-warehouse-authentication.md
@@ -115,7 +115,7 @@
           href: guidance-for-loading-data.md
         - name: 資料行存放區壓縮
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
-    - name: 開發
+    - name: 部署
       items:
         - name: 概觀
           href: sql-data-warehouse-overview-develop.md
@@ -179,11 +179,11 @@
               href: sql-data-warehouse-tables-distribute.md
             - name: 資料表條件約束
               href: sql-data-warehouse-table-constraints.md
-            - name: 索引數
+            - name: 索引
               href: sql-data-warehouse-tables-index.md
             - name: 身分識別
               href: sql-data-warehouse-tables-identity.md
-            - name: 分割數
+            - name: 資料分割
               href: sql-data-warehouse-tables-partition.md
             - name: 複寫資料表
               href: design-guidance-for-replicated-tables.md
@@ -191,7 +191,7 @@
               href: sql-data-warehouse-tables-statistics.md
             - name: 暫存
               href: sql-data-warehouse-tables-temporary.md
-        - name: T-SQL 語言元素
+        - name: T-SQL 語言項目
           items:
             - name: 迴圈
               href: sql-data-warehouse-develop-loops.md
@@ -225,6 +225,8 @@
           href: sql-data-warehouse-workload-importance.md
         - name: 工作負載隔離
           href: sql-data-warehouse-workload-isolation.md
+        - name: 工作負載管理監視
+          href: sql-data-warehouse-workload-management-portal-monitor.md
         - name: 記憶體與並行限制
           href: memory-concurrency-limits.md
         - name: 資源類別
@@ -249,7 +251,7 @@
       items:
         - name: 概觀
           href: sql-data-warehouse-overview-integrate.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 安全
       items:

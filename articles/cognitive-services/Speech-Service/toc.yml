@@ -7,7 +7,7 @@
       href: overview.md
     - name: 語言與區域支援
       href: language-support.md
-      displayName: 'languages,locales,region,voice,gender,language code,locale,locale code'
+      displayName: 'languages,locales,region,voice,gender,language code,locale,locale code,neural voice,standard voice'
 - name: 語音轉文字
   expanded: false
   items:
@@ -27,6 +27,8 @@
       items:
         - name: 變更語音辨識的來源語言
           href: how-to-specify-source-language.md
+        - name: 選擇語音辨識模式
+          href: how-to-choose-recognition-mode.md
         - name: 以自訂語音提高精確度
           href: how-to-custom-speech.md
         - name: 以片語清單提高精確度
@@ -102,6 +104,7 @@
           href: speech-synthesis-markup.md
         - name: 使用自訂語音改善輸出
           href: how-to-custom-voice.md
+          displayName: custom voice
         - name: 使用長音訊 API 合成語音
           href: long-audio-api.md
         - name: 搭配 Docker 容器使用語音合成
@@ -363,6 +366,7 @@
           items:
             - name: 開始使用自訂語音
               href: how-to-custom-voice.md
+              displayName: 'custom voice, neural voice'
             - name: 準備資料
               href: how-to-custom-voice-prepare-data.md
             - name: 建立和使用自訂語音模型
