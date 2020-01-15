@@ -117,6 +117,8 @@
       items:
         - name: 部署應用程式
           items:
+            - name: 從套件執行
+              href: deploy-run-package.md
             - name: 部署 ZIP 或 WAR 檔案
               href: deploy-zip.md
             - name: 透過 FTP 進行部署
