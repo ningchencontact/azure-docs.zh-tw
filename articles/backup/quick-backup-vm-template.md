@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 7218b496a3cd94362d27b1883fa5055b819768c3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 721213dcdd4751de936968b7e67a4b5d31b8d9ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171942"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980645"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>使用 Resource Manager 範本在 Azure 中備份虛擬機器
 
@@ -40,7 +40,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -adminUsername $adminUsername -adminPassword $adminPassword -dnsLabelPrefix $dnsPrefix
 ```
 
-在本快速入門中，您會使用 Azure PowerShell 來部署 Resource Manager 範本。 您也可以使用 [Azure 入口網站](../azure-resource-manager/resource-group-template-deploy-portal.md)、[Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 和 [Rest API](../azure-resource-manager/resource-group-template-deploy-rest.md) 來部署範本。
+在本快速入門中，您會使用 Azure PowerShell 來部署 Resource Manager 範本。 您也可以使用 [Azure 入口網站](../azure-resource-manager/templates/deploy-portal.md)、[Azure CLI](../azure-resource-manager/templates/deploy-cli.md) 和 [Rest API](../azure-resource-manager/templates/deploy-rest.md) 來部署範本。
 
 ## <a name="start-a-backup-job"></a>開始備份作業
 

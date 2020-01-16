@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 5f95b42fd17aec4e3ec6b7b8fac1965772fefa67
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: aedb9c8d178cb210efedf8ff4bcbbeca39f89e60
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162597"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981812"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>因 NSG 中未啟用 RDP 連接埠而無法從遠端連線到 VM
 
@@ -25,13 +25,13 @@ ms.locfileid: "71162597"
 
 
 > [!NOTE] 
-> Azure 有兩種用來建立和使用資源的部署模型：[Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 建議您對新部署使用 Resource Manager 部署模型，而不是傳統部署模型。 
+> Azure 有兩種用來建立和使用資源的部署模型： [Resource Manager 和傳統](../../azure-resource-manager/management/deployment-models.md)。 建議您對新部署使用 Resource Manager 部署模型，而不是傳統部署模型。 
 
-## <a name="symptom"></a>徵兆
+## <a name="symptom"></a>徵狀
 
 您無法對 Azure 中的 VM 建立 RDP 連線，因為網路安全性群組中未開啟 RDP 連接埠。
 
-## <a name="solution"></a>方案 
+## <a name="solution"></a>解決方案 
 
 當您建立新 VM 時，根據預設，系統會封鎖所有來自網際網路的流量。 
 
@@ -45,8 +45,8 @@ ms.locfileid: "71162597"
     **名稱**：Port_3389 </br>
     **埠（目的地）** ：3389 </br>
     **通訊協定**：TCP </br>
-    **來源**：Any </br>
-    **目的地**：Any </br>
+    **來源**：任何 </br>
+    **目的地**：任何 </br>
     **動作**：允許 </br>
 
 如果您指定來源 IP 位址，此設定會只允許來自特定 IP 位址或 IP 位址範圍的流量連線至 VM。 請確定您用來啟動 RDP 工作階段的電腦在該範圍內。

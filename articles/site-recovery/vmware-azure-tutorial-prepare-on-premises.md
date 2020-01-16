@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c82f8130340dfc3848159a6f88db0a304a3ab149
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4969a1f14e53aabf79495e179213f9763d4c8803
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953754"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893641"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>準備內部部署 VMware 伺服器以進行 Azure 的災害復原
 
@@ -22,7 +22,7 @@ ms.locfileid: "73953754"
 這是一系列中的第二個教學課程，說明如何為內部部署 VMware VM 設定 Azure 的災害復原。 在第一個教學課程中，我們針對 VMware 災害復原需求[設定 Azure 元件](tutorial-prepare-azure.md)。
 
 
-在本文中，您將了解：
+在本文中，您將學會如何：
 
 > [!div class="checklist"]
 > * 在 vCenter Server 或 vSphere ESXi 主機上，準備一個用來將 VM 探索自動化的帳戶。
@@ -108,7 +108,7 @@ Site Recovery 需要存取 VMware 伺服器才能：
 
 
 ## <a name="failback-requirements"></a>容錯回復需求
-如果您打算容錯回復到內部部署網站，則有一些[容錯回復必要條件](vmware-azure-reprotect.md##before-you-begin)。 您現在可以準備這些項目，但不需要這麼做。 您可以在容錯移轉至 Azure 之後準備。
+如果您打算容錯回復到內部部署網站，則有一些[容錯回復必要條件](vmware-azure-reprotect.md#before-you-begin)。 您現在可以準備這些項目，但不需要這麼做。 您可以在容錯移轉至 Azure 之後準備。
 
 
 

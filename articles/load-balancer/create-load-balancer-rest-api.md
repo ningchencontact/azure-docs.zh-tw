@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: b8acf1faff17f657999769216f71cfb5fa6e3181
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b52c554617bdcbe88b65639473044eb9c5eb7fa8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077083"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045422"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>使用 REST API 建立 Azure 基本負載平衡器
 
-Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡器前端的新輸入流程，分送給各個後端集區執行個體。 負載平衡器有兩種 SKU：基本和標準。 若要了解兩個 SKU 版本之間的差異，請參閱 [Load Balancer SKU 比較](load-balancer-overview.md#skus)。
+Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡器前端的新輸入流程，分送給各個後端集區執行個體。 負載平衡器有兩種 SKU：基本和標準。 若要了解兩個 SKU 版本之間的差異，請參閱 [Load Balancer SKU 比較](concepts-limitations.md#skus)。
  
 此操作說明示範如何使用 [Azure REST API](/rest/api/azure/) 建立 Azure 基本負載平衡器，協助在 Azure 虛擬網路內的多個 VM 間平衡連入要求的負載。 在 [Azure Load Balancer REST 參考](/rest/api/load-balancer/)中可取得完整參考文件和其他範例。
  
@@ -33,22 +33,22 @@ Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡
   ```
 ### <a name="uri-parameters"></a>URI 參數
 
-|名稱  |在  |必要 |在系統提示您進行確認時，輸入 |描述 |
+|名稱  |在  |必要項 |類型 |說明 |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  路徑       |  true       |   字串      |  可唯一識別 Microsoft Azure 訂用帳戶的訂用帳戶認證。 訂用帳戶識別碼會構成每個服務呼叫 URI 的一部分。      |
-|resourceGroupName     |     路徑    | true        |  字串       |   資源群組的名稱。     |
-|loadBalancerName     |  路徑       |      true   |    字串     |    負載平衡器的名稱。    |
-|api-version    |   query     |  true       |     字串    |  用戶端 API 版本。      |
+|subscriptionId   |  path       |  是       |   string      |  可唯一識別 Microsoft Azure 訂用帳戶的訂用帳戶認證。 訂用帳戶識別碼會構成每個服務呼叫 URI 的一部分。      |
+|resourceGroupName     |     path    | 是        |  string       |   資源群組的名稱。     |
+|loadBalancerName     |  path       |      是   |    string     |    負載平衡器的名稱。    |
+|api-version    |   查詢     |  是       |     string    |  用戶端 API 版本。      |
 
 
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>Request body
 
 唯一必要的參數是 `location`。 如果您未定義 *SKU* 版本，預設會建立基本負載平衡器。  使用[選擇性參數](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body)來自訂負載平衡器。
 
-| 名稱 | 在系統提示您進行確認時，輸入 | 描述 |
+| 名稱 | 類型 | 說明 |
 | :--- | :--- | :---------- |
-| location | 字串 | 資源位置。 使用 [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) 作業取得目前的位置清單。 |
+| location | string | 資源位置。 使用 [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) 作業取得目前的位置清單。 |
 
 
 ## <a name="example-create-and-update-a-basic-load-balancer"></a>範例：建立及更新基本負載平衡器
@@ -64,7 +64,7 @@ Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡
   ```HTTP    
   PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb?api-version=2018-02-01
   ```
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>Request body
 
   ```JSON
    {
@@ -78,7 +78,7 @@ Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡
   ```HTTP    
   PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb?api-version=2018-02-01
   ```
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>Request body
 
   ```JSON
 {

@@ -1,23 +1,22 @@
 ---
 title: 快速入門：從麥克風辨識語音，C# (Xamarin) - 語音服務
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f83f249228c96021979edc14c092eded03b96e4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e6934e908111773cef3f7ddcfc2a971d8e1706bf
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818865"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75927946"
 ---
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始之前：
 
@@ -54,11 +53,11 @@ ms.locfileid: "74818865"
 您必須先建立使用訂用帳戶金鑰和訂用帳戶區域的設定，才可以初始化 `SpeechRecognizer` 物件。 在 `RecognizeSpeechAsync()` 方法中插入此程式碼。
 
 > [!NOTE]
-> 此範例會使用 `FromSubscription()` 方法來建置 `SpeechConfig`。 如需可用方法的完整清單，請參閱 [SpeechConfig 類別](https://docs.microsoft.com/dotnet/api/)[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=51-53)]。
+> 此範例會使用 `FromSubscription()` 方法來建置 `SpeechConfig`。 如需可用方法的完整清單，請參閱 [SpeechConfig 類別](https://docs.microsoft.com/dotnet/api/) [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=51-53)] \(英文\)
 
 ## <a name="initialize-a-speechrecognizer"></a>初始化 SpeechRecognizer
 
-現在，我們將建立一個 `SpeechRecognizer`。 這個物件是在 using 陳述式內建立的，可確保能夠適當釋放非受控資源。 將此程式碼插入您的語音設定下方的 `RecognizeSpeechAsync()` 方法中。
+現在，我們將建立一個 `SpeechRecognizer`。 這個物件是在 using 陳述式內建立的，可確保適當釋放未受控資源。 將此程式碼插入您的語音設定下方的 `RecognizeSpeechAsync()` 方法中。
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=58,59,93)]
 
 ## <a name="recognize-a-phrase"></a>辨識片語
@@ -69,7 +68,7 @@ ms.locfileid: "74818865"
 
 ## <a name="display-the-recognition-results-or-errors"></a>顯示辨識結果 (或錯誤)
 
-當語音服務傳回辨識結果時，您會想要對它執行一些動作。 我們將以簡單為原則，將結果列印到狀態面板。
+當語音服務傳回辨識結果時，建議您對其執行一些動作。 我們將以簡單為原則，將結果列印到狀態面板。
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=68-93)]
 
@@ -77,7 +76,7 @@ ms.locfileid: "74818865"
 
 現在，您可以開始建置和測試應用程式。
 
-1. 從功能表列中，選擇 [建置]   > [建置方案]  來建置應用程式。 現在會編譯程式碼，而且不會出現任何錯誤。
+1. 從功能表列中，選擇 [建置]   > [建置方案]  來建置應用程式。 程式碼現在應該可以編譯，而且不會出現任何錯誤。
 
 1. 選擇 [偵錯]   > [開始偵錯]  (或按 **F5**) 以啟動應用程式。 **helloworld** 視窗會出現。
 

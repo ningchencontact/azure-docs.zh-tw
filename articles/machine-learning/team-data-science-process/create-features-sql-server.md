@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7bc44d8e755af3d212d616425c6a1fd925172298
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5aa9a4f0ab536c197f08cb64a5cee8280c23039f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602930"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982064"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>使用 SQL 和 Python 對 SQL Server 中的資料建立功能
 本文件說明如何針對儲存在 Azure 上的 SQL Server VM 中資料產生特徵，以協助演算法更有效率地從資料學習。 若要完成這項工作，您可以使用 SQL 或程式設計語言 (例如 Python)。 以下示範這兩種方法。
@@ -28,10 +28,10 @@ ms.locfileid: "65602930"
 > 
 > 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文假設您已經：
 
-* 建立 Azure 儲存體帳戶。 如需指示，請參閱 [建立 Azure 儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)
+* 建立 Azure 儲存體帳戶。 如需指示，請參閱[建立 Azure 儲存體帳戶](../../storage/common/storage-account-create.md)
 * 將資料儲存在 SQL Server。 如果還沒這麼做，請參閱 [移動資料至 Azure 機器學習的 Azure SQL Database](move-sql-azure.md) ，以取得如何移動資料到該處的指示。
 
 ## <a name="sql-featuregen"></a>使用 SQL 的功能產生
@@ -68,7 +68,7 @@ ms.locfileid: "65602930"
 * 正負號表示是位於地球的北方或南方、東方或西方。
 * 非零的數百個數字表示經度，而非使用緯度。
 * 數十個位數可提供大約 1,000 公里的位置。 它會提供身處哪個大陸或海洋的實用資訊。
-* 單位數 (一個十進位度數) 提供一個最多可達 111 公里 (60 海浬，大約 69 英哩) 的位置。 大致上來說，它指出哪些大的州或國家/地區中。
+* 單位數 (一個十進位度數) 提供一個最多可達 111 公里 (60 海浬，大約 69 英哩) 的位置。 它會指出我們在哪一個大型州或國家/地區。
 * 第一個小數點最多可達 11.1 km：它能夠分辨某一個大型縣 (市) 的位置與鄰近的大型縣 (市)。
 * 第二個小數位數最多可達 1.1 km：它可以將某一個村莊與下一個村莊分隔開來。
 * 第三個小數位數最多可達 110 m：它可以識別大型農場或學術機構校區。

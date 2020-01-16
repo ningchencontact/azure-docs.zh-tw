@@ -54,22 +54,28 @@
   items:
     - name: 支援矩陣
       items:
-        - name: Azure Migrate 的支援矩陣
+        - name: 一般支援
           href: migrate-support-matrix.md
-        - name: VMware 評量和移轉的支援矩陣
+        - name: VMware 評量支援
           href: migrate-support-matrix-vmware.md
-        - name: Hyper-V 評量和移轉的支援矩陣
+        - name: VMware 遷移支援
+          href: migrate-support-matrix-vmware-migration.md
+        - name: Hyper-V 評量支援
           href: migrate-support-matrix-hyper-v.md
-        - name: 實體伺服器評量和移轉的支援矩陣
+        - name: Hyper-V 遷移支援
+          href: migrate-support-matrix-hyper-v-migration.md
+        - name: 實體伺服器評量支援
           href: migrate-support-matrix-physical.md
-        - name: Azure Migrate 設備的支援矩陣
+        - name: 實體伺服器遷移支援
+          href: migrate-support-matrix-physical-migration.md
+        - name: Azure Migrate 設備需求
           href: migrate-appliance.md
+        - name: 複寫設備需求
+          href: migrate-replication-appliance.md
     - name: Hyper-V 移轉架構
       href: hyper-v-migration-architecture.md
     - name: 代理程式移轉架構
       href: agent-based-migration-architecture.md
-    - name: Azure Migrate 複寫設備
-      href: migrate-replication-appliance.md
     - name: 評量的最佳做法
       href: best-practices-assessment.md
     - name: 評量概觀
@@ -112,16 +118,16 @@
       href: prepare-for-migration.md
     - name: 刪除 Azure Migrate 專案
       href: how-to-delete-project.md
-- name: 大規模評量及移轉
-  items:
-    - name: 評估大量的 VMware VM
-      href: scale-vmware-assessment.md
-    - name: 評估大量的 Hyper-V VM
-      href: scale-hyper-v-assessment.md
-    - name: 自動移轉大量的 VM
-      href: how-to-migrate-at-scale.md
-    - name: 移轉範例 (Contoso 系列)
-      href: contoso-migration-overview.md
+    - name: 大規模評量及移轉
+      items:
+        - name: 評估大量的 VMware VM
+          href: scale-vmware-assessment.md
+        - name: 評估大量的 Hyper-V VM
+          href: scale-hyper-v-assessment.md
+        - name: 自動移轉大量的 VM
+          href: how-to-migrate-at-scale.md
+        - name: 移轉範例 (Contoso 系列)
+          href: contoso-migration-overview.md
 - name: 疑難排解
   items:
     - name: 為 Azure Migrate 疑難排解
@@ -140,7 +146,7 @@
       href: 'https://docs.microsoft.com/rest/api/migrate/'
     - name: Resource Manager 範本
       href: /azure/templates/microsoft.migrate/allversions
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/azure-migrate/'
     - name: UserVoice
       href: 'https://aka.ms/AzureMigrateUservoice'

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 85aa1bda395240d0f11b0654ee48b9f1a0401eaa
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 561162767a48a060763510310de77767f37d4eb4
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930599"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770181"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>快速入門：使用適用於 Python 的 Bing 影像搜尋 SDK 來搜尋影像
 
@@ -24,7 +24,7 @@ Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以�
 
 此範例的原始程式碼可從 [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py) 取得，其中含有其他錯誤處理和註釋。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python 2.7 或 3.4](https://www.python.org/) 和更新版本。
 
@@ -33,12 +33,12 @@ Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以�
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>建立並初始化應用程式
+## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
 
 1. 在您慣用的 IDE 或編輯器中建立新的 Python 專案以及下列匯入：
 
     ```python
-    from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
+    from azure.cognitiveservices.search.imagesearch import ImageSearchClient
     from msrest.authentication import CognitiveServicesCredentials
     ```
 
@@ -46,6 +46,7 @@ Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以�
 
     ```python
     subscription_key = "Enter your key here"
+    subscription_endpoint = "Enter your endpoint here"
     search_term = "canadian rockies"
     ```
 
@@ -54,7 +55,7 @@ Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以�
 1. 建立 `CognitiveServicesCredentials` 的執行個體，並使用它來將用戶端具現化：
 
     ```python
-    client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
+    client = ImageSearchClient(endpoint=subscription_endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 1. 將搜尋查詢傳送到 Bing 影像搜尋 API：
     ```python
@@ -87,7 +88,7 @@ else:
 
 * [什麼是 Bing 影像搜尋？](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [試用線上互動式示範](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [取得免費的認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
+* [取得免費認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
 * [Azure 認知服務 SDK 的 Python 範例](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)  
 * [Azure 認知服務文件](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing 影像搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

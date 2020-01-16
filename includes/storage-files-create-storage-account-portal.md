@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: a09e9206b3ecd23a6208572a88c16b149033f123
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d4054760c77a7a70b7ed84a9f95b88a3bcf2bda3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "68699455"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021030"
 ---
 儲存體帳戶是您可在其中部署 Azure 檔案共用或其他儲存體資源 (例如 blob 或佇列) 的共用儲存體集區。 儲存體帳戶可以包含無限多個共用。 共用可儲存無限制數目的檔案，最多可達儲存體帳戶的容量限制。
 
@@ -24,7 +24,7 @@ ms.locfileid: "68699455"
     ![資源搜尋對話方塊中儲存體帳戶項目外觀的螢幕擷取畫面](../articles/storage/files/media/storage-how-to-use-files-portal/create-storage-account-1.png)
 
 3. 在 [名稱]  中，輸入 mystorageacct  且後面加上幾個隨機數字，直到您看見綠色核取記號，表示它是唯一的名稱為止。 儲存體帳戶名稱必須全部小寫，並且是全域唯一的。 請記下您的儲存體帳戶名稱。 稍後您將會用到此資訊。 
-4. 在 [部署模型]  中，保留 [Resource Manager]  的預設值。 若要深入了解 Azure Resource Manager 與傳統部署模型之間的詳細資訊，請參閱[了解部署模型和資源的狀態](../articles/azure-resource-manager/resource-manager-deployment-model.md)。
+4. 在 [部署模型]  中，保留 [Resource Manager]  的預設值。 若要深入了解 Azure Resource Manager 與傳統部署模型之間的詳細資訊，請參閱[了解部署模型和資源的狀態](../articles/azure-resource-manager/management/deployment-models.md)。
 5. 在 [帳戶種類]  中選取 [StorageV2]  。 若要深入了解不同種類的儲存體帳戶，請參閱[了解 Azure 儲存體帳戶](../articles/storage/common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
 6. 在 [效能]  中，保留 [標準儲存體]  的預設值。 Azure 檔案服務目前僅支援標準儲存體；即使您選取 Azure 進階儲存體，檔案共用仍會儲存在標準儲存體中。
 7. 在 [複寫]  中，選取 [本地備援儲存體 (LRS)]  。 

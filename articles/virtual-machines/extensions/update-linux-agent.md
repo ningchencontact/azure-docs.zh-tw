@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
-ms.openlocfilehash: 03e1689ca495d3fd3c8efce6b039386711a49472
-ms.sourcegitcommit: d48afd9a09f850b230709826d4a5cd46e57d19fa
+ms.openlocfilehash: 86ddda8537a4b61c5432072077c183ded2556624
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75904914"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973142"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>如何更新虛擬機器上的 Azure Linux 代理程式
 
@@ -276,6 +276,75 @@ sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 
 ```bash
 sudo systemctl restart waagent.service
+```
+
+## <a name="debian"></a>Debian
+
+### <a name="debian-7-jesse-debian-7-stretch"></a>Debian 7 "Jesse"/Debian 7 "Stretch"
+
+#### <a name="check-your-current-package-version"></a>檢查目前的封裝版本
+
+```bash
+dpkg -l | grep waagent
+```
+
+#### <a name="update-package-cache"></a>更新封裝快取
+
+```bash
+sudo apt-get -qq update
+```
+
+#### <a name="install-the-latest-package-version"></a>安裝最新版本的封裝
+
+```bash
+sudo apt-get install waagent
+```
+
+#### <a name="enable-agent-auto-update"></a>啟用代理程式自動更新
+這一版本的 Debian 沒有高於或等於 2.0.16 的版本，因此無法使用自動更新。 上述命令的輸出結果會顯示封裝是否為最新的狀態。
+
+
+
+### <a name="debian-8-jessie--debian-9-stretch"></a>Debian 8 “Jessie” / Debian 9 “Stretch”
+
+#### <a name="check-your-current-package-version"></a>檢查目前的封裝版本
+
+```bash
+apt list --installed | grep waagent
+```
+
+#### <a name="update-package-cache"></a>更新封裝快取
+
+```bash
+sudo apt-get -qq update
+```
+
+#### <a name="install-the-latest-package-version"></a>安裝最新版本的封裝
+
+```bash
+sudo apt-get install waagent
+```
+
+#### <a name="ensure-auto-update-is-enabled"></a>確定已啟用自動更新
+首先，請檢查是否已啟用：
+
+```bash
+cat /etc/waagent.conf
+```
+
+尋找「AutoUpdate.Enabled」。 如果看到此輸出結果，則表示已啟用：
+
+```bash
+AutoUpdate.Enabled=y
+AutoUpdate.Enabled=y
+```
+
+若要啟用執行：
+
+```bash
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+Restart the waagent service
+sudo systemctl restart walinuxagent.service
 ```
 
 ## <a name="oracle-linux-6-and-oracle-linux-7"></a>Oracle Linux 6 和 Oracle Linux 7

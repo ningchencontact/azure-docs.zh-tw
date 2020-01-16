@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 362662cb6ac9b0535a0e762e5c484b31dcc009a6
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.date: 01/10/2020
+ms.openlocfilehash: b69d67a5c4fc1d907f676cf4e400f9fa7df2653b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796102"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867270"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>快速入門：使用 .Net V4 SDK 建置主控台應用程式來管理 Azure Cosmos DB SQL API 帳戶資源。
 
@@ -36,10 +36,10 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 [程式庫原始程式碼](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/v4) | [套件 (NuGet)](https://www.nuget.org/packages/Azure.Cosmos)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶 - [免費建立一個](https://azure.microsoft.com/free/)，或者您可以[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，無須 Azure 訂用帳戶，也無須任何費用和約定付款。 
-* [NET Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core). 您可以透過執行 `dotnet --version`，來確認您環境中可使用的版本。
+* [NET Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core). 您可以藉由執行 `dotnet --version`，來確認您環境中可使用的版本。
 
 ## <a name="setting-up"></a>設定
 
@@ -115,7 +115,7 @@ Time Elapsed 00:00:34.17
 若您仍在應用程式目錄中，請使用 dotnet add package 命令安裝適用於 .NET Core 的 Azure Cosmos DB 用戶端程式庫。
 
    ```bash
-   dotnet add package Azure.Cosmos --version 4.0.0-preview
+   dotnet add package Azure.Cosmos --version 4.0.0-preview3
    ```
 
 ### <a name="copy-your-azure-cosmos-account-credentials-from-the-azure-portal"></a>從 Azure 入口網站複製您的 Azure Cosmos 帳戶認證

@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 7ff3651d082f1649326e1b41b13fa177069c40d3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 1e27fca86613757c36ac664e2e449cabed68d550
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532341"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772443"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>標記標籤專案中的影像
 
-當您的專案系統管理員在 Azure Machine Learning 中[建立標籤專案](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-labeling-projects#create-a-labeling-project)之後，您就可以使用標籤工具快速準備機器學習專案的資料。 本文章說明：
+當您的專案系統管理員在 Azure Machine Learning 中[建立標籤專案](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project)之後，您就可以使用標籤工具快速準備機器學習專案的資料。 本文章說明：
 
 > [!div class="checklist"]
 > * 如何存取您的標籤專案
@@ -114,5 +114,5 @@ ms.locfileid: "75532341"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 了解如何[在 Azure 中將影像分類模型定型](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+* 了解如何[在 Azure 中將影像分類模型定型](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
 * 了解如何[使用 Azure 和 "Faster R-CNN" 技術進行物件偵測](https://www.microsoft.com/developerblog/2017/10/24/bird-detection-with-azure-ml-workbench/)

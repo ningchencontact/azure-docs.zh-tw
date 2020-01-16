@@ -1,19 +1,19 @@
 ---
 title: 在商業 Marketplace 中建立新的 Dynamics 365 for Operations 供應專案
 description: 如何使用 Microsoft 合作夥伴中心的商業 Marketplace 入口網站，在 Azure Marketplace、AppSource 或透過雲端解決方案提供者（CSP）計畫中，建立新的 Dynamics 365 for Operations 供應專案來進行清單或銷售。
-author: JnHs
+author: ChJenk
 manager: evansma
-ms.author: jenhayes
+ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: 0318f851f547aed7c7682c9e6841f71d56c98be1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/13/2020
+ms.openlocfilehash: 1ba7fca7576c6f015ad7bbcb47909b90c3065d58
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750925"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045951"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>建立新的 Dynamics 365 for Operations 供應專案
 
@@ -33,7 +33,7 @@ ms.locfileid: "75750925"
 
 ### <a name="offer-id-and-alias"></a>供應專案識別碼和別名
 
-- **供應專案 ID**：您帳戶中每個供應專案的唯一識別碼。 在 marketplace 供應專案的 URL 位址中，客戶會看到此識別碼，而 Azure Resource Manager 範本（如果適用）。 供應專案識別碼必須是小寫的英數位元（包括連字號和底線，但不能有空格）。 這限制為50個字元，且在您選取 [**建立**] 之後無法變更。  例如，如果您在這裡輸入 [*測試-供應專案-1* ]，則會 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`供應專案 URL。
+- **供應專案 ID**：您帳戶中每個供應專案的唯一識別碼。 在 marketplace 供應專案的 URL 位址中，客戶會看到此識別碼，而 Azure Resource Manager 範本（如果適用）。 供應專案識別碼必須是小寫的英數位元（包括連字號和底線，但不能有空格）。 此識別碼限制為50個字元，且在您選取 [**建立**] 之後無法變更。  例如，如果您在這裡輸入 [*測試-供應專案-1* ]，則會 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`供應專案 URL。
 
 - **供應專案別名**：用來參照合作夥伴中心內供應專案的名稱。 此名稱不會在 marketplace 中使用，而且與供應專案名稱和其他將向客戶顯示的值不同。 在您選取 [**建立**] 之後，就無法變更這個值。
 
@@ -66,7 +66,7 @@ ms.locfileid: "75750925"
 
 試用產品是向潛在客戶展示您的供應專案的絕佳方式，方法是讓他們選擇「在購買前試用」，進而提升轉換並產生高度合格的潛在客戶。 [深入瞭解試用產品。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-若要啟用試用產品，請核取 [**啟用試用**產品] 方塊。 接著，您必須在試用產品的[技術](#test-drive-technical-configuration)設定中設定示範環境，讓客戶可以在一段固定時間內試用您的供應專案。 
+若要啟用試用產品，請核取 [**啟用試用**產品] 方塊。 接著，您必須在試用產品的[技術](#test-drive-technical-configuration)設定中設定示範環境，讓客戶可以在一段固定時間內試用您的供應專案。
 
 #### <a name="type-of-test-drive"></a>試用產品的類型
 
@@ -91,7 +91,7 @@ ms.locfileid: "75750925"
 
 如需詳細資訊，請參閱[潛在客戶管理總覽](./commercial-marketplace-get-customer-leads.md)。
 
-繼續進行下一節之前，請記得先**儲存**！
+請記得先**儲存**再繼續進行下一節。
 
 ## <a name="properties"></a>屬性
 
@@ -99,11 +99,11 @@ ms.locfileid: "75750925"
 
 ### <a name="category"></a>類別
 
-最多可選取兩個（2）類別，包括主要和次要類別（選擇性）。 針對每個主要和/或次要類別目錄選取最多兩個（2）子類別。 如果未選取任何子類別，您仍然可以在選取的類別中找到您的供應專案。
+選取最少1個，最多三個類別。 這些類別將用來將您的供應專案放入適當的 marketplace 搜尋區域。 請務必在供應專案描述中，呼叫您的供應專案如何支援這些類別。
 
 ### <a name="industry"></a>產業
 
-您可以選擇性地選取每個產業下最多兩個產業和兩個縱向。 當您的供應專案在搜尋篩選中使用，並在店面中套用時，這些類別會用來顯示您的供應專案。  如果您的供應專案以特定產業和/或垂直為目標，請務必在供應專案描述中描述您的供應專案如何支援選取的產業或縱向。  否則，如果您的供應專案不是產業專屬的，請勿進行選擇，並將此區段保留空白。
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>應用程式版本
 
@@ -125,7 +125,7 @@ ms.locfileid: "75750925"
 
 ## <a name="offer-listing"></a>供應專案清單
 
-[供應專案清單] 頁面會顯示您的供應專案列出的語言。 請注意，目前只有**英文（美國）** 是唯一可用的選項。
+[供應專案清單] 頁面會顯示您的供應專案列出的語言。 目前，**英文（美國）** 是唯一可用的選項。
 
 您將需要針對每個語言/市場定義 marketplace 詳細資料（供應專案名稱、描述、影像等）。 選取語言/市場名稱來提供此資訊。
 
@@ -138,22 +138,40 @@ ms.locfileid: "75750925"
 
 ### <a name="short-description"></a>簡短描述
 
-提供供應專案的簡短描述（最多100個字元）。 這可用於 marketplace 搜尋結果。
+提供供應專案的簡短描述（最多100個字元）。 此描述可用於 marketplace 搜尋結果。
 
 ### <a name="description"></a>說明
 
-提供供應專案的較長描述（最多3000個字元）。 在 marketplace 清單總覽中，客戶會看到這項描述。 包含您供應專案的價值主張、主要優點、類別及/或產業關聯、應用程式內購買機會，以及任何必要的公開。 
+提供供應專案的較長描述（最多3000個字元）。 在 marketplace 清單總覽中，客戶會看到這項描述。 包含您供應專案的價值主張、主要優點、類別及/或產業關聯、應用程式內購買機會，以及任何必要的公開。
 
 撰寫描述的一些秘訣：  
 
-- 在您的描述中的前幾個句子清楚描述您供應項目的價值主張。 在您的價值主張中包含下列內容：
+- 在您的描述中的前幾個句子清楚描述您供應項目的價值主張。 在您的價值主張中包含下列資訊：
   - 產品的描述
   - 受益于產品的使用者類型
   - 客戶需要或痛苦的產品位址
 - 請記住，前幾個句子可能會顯示在搜尋引擎結果中。  
 - 請勿依賴特色與功能來銷售您的產品。 反之，要鎖定在您所提供的價值。  
-- 請盡可能使用業界特定詞彙或凸顯優點的字眼。 
+- 請盡可能使用業界特定詞彙或凸顯優點的字眼。
 - 請考慮使用 HTML 標籤來格式化您的描述，使其更吸引人。
+
+若要讓您的供應專案描述更吸引人，請使用 rtf 編輯器來格式化您的描述。
+
+![使用 rich 文字編輯器](./media/text-editor2.png)
+
+使用下列指示來使用 rich 文字編輯器：
+
+- 若要變更內容的格式，請反白顯示您想要格式化的文字，然後選取文字樣式，如下所示：
+
+     ![使用 rich 文字編輯器來變更文字格式](./media/text-editor3.png)
+
+- 若要將專案符號或編號清單新增至文字，請使用下列選項：
+
+     ![使用 rich 文字編輯器加入清單](./media/text-editor4.png)
+
+- 若要新增或移除文字的縮排，請使用下列選項：
+
+     ![使用 rich 文字編輯器縮排](./media/text-editor5.png)
 
 ### <a name="search-keywords"></a>搜尋關鍵字
 
@@ -177,13 +195,13 @@ ms.locfileid: "75750925"
 
 ### <a name="contacts"></a>連絡人
 
-在本節中，您必須提供**支援連絡人**的名稱、電子郵件和電話號碼，以及**工程連絡人**。 此資訊不會向客戶顯示，但可供 Microsoft 使用，並可提供給 CSP 合作夥伴。
+在本節中，請提供**支援連絡人**的名稱、電子郵件和電話號碼，以及**工程連絡人**。 這種資訊不會向客戶顯示，但可供 Microsoft 使用，並可提供給 CSP 合作夥伴。
 
-在**支援連絡人**區段中，您也必須提供**支援 URL** ，讓 CSP 合作夥伴可以在其中找到您的供應專案支援。
+在 [**支援連絡人**] 區段中，提供 CSP 合作夥伴可在其中找到您供應專案支援的**支援 URL** 。
 
 ### <a name="supporting-documents"></a>支援檔
 
-您必須在此提供至少一個（及最多三個）相關的行銷檔，例如白皮書、摺頁冊、檢查清單或簡報。 這些檔必須是 .pdf 格式。
+在此提供至少一個（最多三個）相關的行銷檔，例如白皮書、摺頁冊、檢查清單或簡報。 這些檔必須是 .pdf 格式。
 
 ### <a name="marketplace-images"></a>Marketplace 映射
 
@@ -191,7 +209,7 @@ ms.locfileid: "75750925"
 
 #### <a name="store-logos"></a>Microsoft Store標誌。
 
-您必須以兩種大小提供供應專案標誌：**小型（48 x 48）** 和**大型（216 x 216）** 。
+提供兩種大小的供應專案標誌：**小型（48 x 48）** 和**大型（216 x 216）** 。
 
 #### <a name="hero"></a>主圖
 
@@ -215,11 +233,11 @@ ms.locfileid: "75750925"
 
 ### <a name="markets"></a>市場
 
-此區段可讓您指定供應專案可供使用的市場。 若要這麼做，請選取 [**編輯市場]。** 這會顯示 [**市場選擇**] 快顯視窗。
+此區段可讓您指定供應專案可供使用的市場。 若要這麼做，請選取 [**編輯市場]，** 這將會顯示 [**市場選擇**] 快顯視窗。
 
-根據預設，不會選取任何市場，但您必須至少選取一個市場，才能發佈您的供應專案。 按一下 [**全選**]，讓您的供應專案在每個可能的市場推出，或選取您想要新增的特定市場。 完成後，請選取 [**儲存**]。
+根據預設，不會選取任何市場。 請至少選取一個市場以發佈您的供應專案。 按一下 [**全選**]，讓您的供應專案在每個可能的市場推出，或選取您想要新增的特定市場。 完成後，請選取 [**儲存**]。
 
-請注意，這裡的選擇僅適用于新的收購;如果有人在某個市場上已經有您的應用程式，而您後來又移除該市場，則該市場中已經有該供應專案的人員可以繼續使用它，但該市場中的新客戶也無法取得您的供應專案。
+這裡的選擇僅適用于新的收購;如果有人在某個市場上已經有您的應用程式，而您後來又移除該市場，則該市場中已經有該供應專案的人員可以繼續使用它，但該市場中的新客戶也無法取得您的供應專案。
 
 > [!IMPORTANT]
 > 即使這些需求並未列于此處或合作夥伴中心，您仍須負責符合任何當地法律需求。
@@ -275,7 +293,7 @@ ms.locfileid: "75750925"
 
 - **試用產品 Azure Resource Manager 範本**：上傳包含 Azure Resource Manager 範本的 .zip。  若要深入瞭解如何建立 Azure Resource Manager 範本，請參閱[使用 Azure 入口網站建立和部署 Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)的快速入門文章。
 
-- **試用產品持續時間**（必要）：輸入試用產品將維持作用中狀態的時間長度（以小時為單位）。 在此持續時間過後，試用產品將會自動終止。 此持續時間可能只會由整數小時數來設定（例如 "2" 小時，"1.5" 無效）。
+- **試用產品持續時間**（必要）：輸入試用產品將維持作用中狀態的時間長度（以小時為單位）。 在此持續時間過後，試用產品將會自動終止。 此持續時間可能只會由整數小時數（例如，"2" 小時）設定。"1.5" 無效）。
 
 ### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Dynamics 365 試用產品的技術設定
 
@@ -283,19 +301,19 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 - **最大並行試用**產品（必要）：設定一次可以使用試用產品的客戶數目上限。 當試用產品在使用中時，每個並行使用者都會取用 Dynamics 365 授權，因此您必須確保您有足夠的授權可支援所設定的上限。 建議值為 3-5 個。
 
-- **試用產品持續時間**（必要）：藉由定義時數來輸入試用產品保持作用中狀態的時間長度。 過了數小時之後，會話就會結束，而且不再使用您的其中一個授權。 我們建議的值為2-24 小時，視您的供應專案複雜度而定。 此持續時間可能只會由整數小時數來設定（例如 "2" 小時，"1.5" 無效）。  使用者可以要求新的會話（如果工作時間已用盡），並想要再次存取試用產品。
+- **試用產品持續時間**（必要）：藉由定義時數來輸入試用產品保持作用中狀態的時間長度。 過了數小時之後，會話就會結束，而且不再使用您的其中一個授權。 我們建議的值為2-24 小時，視您的供應專案複雜度而定。 此持續時間可能只會由整數小時數（例如，"2" 小時）設定。"1.5" 無效）。  使用者可以要求新的會話（如果工作時間已用盡），並想要再次存取試用產品。
 
-- **實例 url** （必要）：客戶將開始其試用產品的 URL。 通常是您的 Dynamics 365 實例 URL，其會執行您的應用程式並安裝範例資料（例如 https://testdrive.crm.dynamics.com) 。
+- **實例 url** （必要）：客戶將開始其試用產品的 URL。 一般來說，您的 Dynamics 365 實例 URL 會安裝範例資料（例如 https://testdrive.crm.dynamics.com) ，以執行您的應用程式。
 
-- **實例 WEB API url** （必要）：藉由登入您的 Microsoft 365 帳戶並流覽至 **設定** \&Gt，抓取 Dynamics 365 實例的 Web API url。**自訂**\&gt;**開發人員資源**\&gt;**實例 WEB API （服務根 URL）** ，複製此處找到的 URL （例如 https://testdrive.crm.dynamics.com/api/data/v9.0) 。
+- **實例 WEB API url** （必要）：藉由登入您的 Microsoft 365 帳戶並流覽至 **設定** \&Gt，抓取 Dynamics 365 實例的 Web API url。**自訂**\&gt;**開發人員資源**\&gt;**實例 WEB API （服務根 URL）** ，複製此處找到的 URL （例如， https://testdrive.crm.dynamics.com/api/data/v9.0) 。
 
 - **角色名稱**（必要）：提供您在自訂 Dynamics 365 試用產品中定義的安全性角色名稱。 這會在其試用產品（例如，測試磁片磁碟機-角色）期間指派給使用者。
 
 ### <a name="technical-configuration-for-logic-app-test-drive"></a>邏輯應用程式試用產品的技術設定
 
-任何自訂產品都應該使用此類型的試用產品部署範本，其中包含各種複雜的解決方案架構。 如需設定邏輯應用程式試用產品的詳細資訊，請造訪 GitHub 上的[作業](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md)和[客戶參與](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app)。
+任何自訂產品都應該使用這種類型的試用產品部署範本，其中包含各種複雜的解決方案架構。 如需設定邏輯應用程式試用產品的詳細資訊，請造訪 GitHub 上的[作業](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md)和[客戶參與](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app)。
 
-- **區域**（必要，單一選取下拉式清單）：目前有26個 Azure 支援的區域可供使用您的試用產品。 邏輯應用程式的資源將會部署在您選取的區域中。 如果您的邏輯應用程式有任何自訂資源儲存在特定區域中，請確定已在此處選取該區域。 若要這麼做，最佳方式是在入口網站中的 Azure 訂用帳戶本機上完整部署邏輯應用程式，並確認其正常運作，然後再進行此選取。
+- **區域**（必要，單一選取下拉式清單）：目前有26個 Azure 支援的區域可供使用您的試用產品。 邏輯應用程式的資源將會部署在您選取的區域中。 如果您的邏輯應用程式有任何自訂資源儲存在特定區域中，請確定已在此處選取該區域。 若要確保您有可用的區域自訂資源，最佳方式是在入口網站中的 Azure 訂用帳戶上，完整部署邏輯應用程式，並確認其正常運作，然後再進行此選擇。
 
 - **最大並行試用**產品（必要）：設定一次可以使用試用產品的客戶數目上限。 這些試用產品已部署，讓客戶可以立即存取它們，而不需要等候部署。
 
@@ -315,23 +333,23 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 若要代表您部署試用產品，請建立並提供另一個唯一的 Azure 訂用帳戶。 （不需要用於 Power BI 試用產品）。
 
-- **Azure 訂**用帳戶識別碼（Azure Resource Manager 和邏輯應用程式的必要）：輸入訂用帳戶識別碼，以授與存取權給您的 azure 帳戶服務，以進行資源使用量報告和計費。 我們建議您考慮[建立個別的 Azure 訂](https://docs.microsoft.com/azure/billing/billing-create-subscription)用帳戶，以用於試用產品（如果您還沒有的話）。 您可以藉由登入[Azure 入口網站](https://portal.azure.com/)並流覽至左側功能表的 [**訂閱**] 索引標籤，來尋找您的 AZURE 訂用帳戶識別碼。 選取此索引標籤會顯示您的訂用帳戶識別碼（例如 "a83645ac-1234-5ab6-6789-1h234g764ghty"）。
+- **Azure 訂**用帳戶識別碼（Azure Resource Manager 和邏輯應用程式的必要）：輸入訂用帳戶識別碼，以授與存取權給您的 azure 帳戶服務，以進行資源使用量報告和計費。 我們建議您考慮[建立個別的 Azure 訂](https://docs.microsoft.com/azure/billing/billing-create-subscription)用帳戶，以用於試用產品（如果您還沒有的話）。 您可以藉由登入[Azure 入口網站](https://portal.azure.com/)並流覽至左側功能表的 [**訂閱**] 索引標籤，來尋找您的 AZURE 訂用帳戶識別碼。 選取此索引標籤會顯示您的訂用帳戶識別碼（例如，"a83645ac-1234-5ab6-6789-1h234g764ghty"）。
 
-- **Azure AD 租使用者識別碼**（必要）：輸入您的 AZURE ACTIVE DIRECTORY （AD）[租使用者識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)。 若要尋找此識別碼，請登入[Azure 入口網站](https://portal.azure.com/)，選取左側功能表中的 [Active Directory] 索引標籤，選取 [**屬性**]，然後尋找列出的**目錄識別碼**（例如50c464d3-4930-494c-963c-1e951d15360e）。 您也可以在下列位置使用您的功能變數名稱 URL 來查詢組織的租使用者識別碼： [https://www.whatismytenantid.com](https://www.whatismytenantid.com)。
+- **Azure AD 租使用者識別碼**（必要）：輸入您的 AZURE ACTIVE DIRECTORY （AD）[租使用者識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)。 若要尋找此識別碼，請登入[Azure 入口網站](https://portal.azure.com/)，選取左側功能表中的 [Active Directory] 索引標籤，選取 [**屬性**]，然後尋找列出的**目錄識別碼**（例如，50c464d3-4930-494c-963c-1e951d15360e）。 您也可以在下列位置使用您的功能變數名稱 URL 來查詢組織的租使用者識別碼： [https://www.whatismytenantid.com](https://www.whatismytenantid.com)。
 
 - **Azure AD 租使用者名稱**（動態365所需）：輸入您的 AZURE ACTIVE DIRECTORY （AD）名稱。 若要尋找此名稱，請登入[Azure 入口網站](https://portal.azure.com/)，在右上角，您的租使用者名稱會列在 [您的帳戶名稱] 底下。
 
-- **Azure AD 應用程式識別碼**（必要）：輸入您的 AZURE ACTIVE DIRECTORY （AD）[應用程式識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)。 若要尋找此識別碼，請登入[Azure 入口網站](https://portal.azure.com/)，選取左側功能表中的 [Active Directory] 索引標籤，選取 [**應用程式註冊**]，然後尋找所列的**應用程式識別碼**編號（例如50c464d3-4930-494c-963c-1e951d15360e）。
+- **Azure AD 應用程式識別碼**（必要）：輸入您的 AZURE ACTIVE DIRECTORY （AD）[應用程式識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)。 若要尋找此識別碼，請登入[Azure 入口網站](https://portal.azure.com/)，選取左側功能表中的 [Active Directory] 索引標籤，選取 [**應用程式註冊**]，然後尋找所列的**應用程式識別碼**編號（例如，50c464d3-4930-494c-963c-1e951d15360e）。
 
-- **Azure AD 應用程式用戶端密碼**（必要）：輸入您的 Azure AD 應用程式[用戶端密碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)。 若要尋找此值，請登入[Azure 入口網站](https://portal.azure.com/)。 選取左側功能表中的 [ **Azure Active Directory** ] 索引標籤，選取 [**應用程式註冊**]，然後選取您的試用產品應用程式。 接下來，依序選取 [**憑證和秘密**]、[**新增用戶端密碼**]、[描述]、[**永不** **過期**]，然後選擇 [**新增**]。 請務必向下複製值。 （在執行此動作之前，請不要離開頁面，否則您將無法存取此值。）
+- **Azure AD 應用程式用戶端密碼**（必要）：輸入您的 Azure AD 應用程式[用戶端密碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)。 若要尋找此值，請登入[Azure 入口網站](https://portal.azure.com/)。 選取左側功能表中的 [ **Azure Active Directory** ] 索引標籤，選取 [**應用程式註冊**]，然後選取您的試用產品應用程式。 接下來，依序選取 [**憑證和秘密**]、[**新增用戶端密碼**]、[描述]、[**永不** **過期**]，然後選擇 [**新增**]。 請務必向下複製值。 （請不要在記下此值之前離開頁面，否則您將無法存取此值。）
 
 繼續進行下一節之前，請記得先**儲存**！
 
 ### <a name="test-drive-marketplace-listings"></a>試用產品 marketplace 清單
 
-[**試用**產品] 索引標籤下的 [ **Marketplace 清單**] 選項會顯示您的試用產品可用的語言。 請注意，目前只有**英文（美國）** 是可用的唯一位置。 選取語言名稱，以輸入描述試用產品體驗的資訊。
+[**試用**產品] 索引標籤下的 [ **Marketplace 清單**] 選項會顯示您的試用產品可用的語言。 目前，**英文（美國）** 是唯一可用的位置。 選取語言名稱，以輸入描述試用產品體驗的資訊。
 
-- **描述**（必要）：描述您的試用產品、要示範的專案、要進行實驗的目標、探索的功能，以及可協助使用者決定是否要取得您供應專案的任何相關資訊。 最多可以在此欄位中輸入3000個字元的文字。 
+- **描述**（必要）：描述您的試用產品、要示範的專案、要進行實驗的目標、探索的功能，以及可協助使用者決定是否要取得您供應專案的任何相關資訊。 最多可以在此欄位中輸入3000個字元的文字。
 
 - **存取訊號**（Azure Resource Manager 和邏輯試用產品所需）：說明客戶必須知道才能存取和使用此試用產品的內容。 逐步解說使用您的供應專案的案例，以及客戶在整個試用產品中存取功能的確切方式。 最多可以在此欄位中輸入10000個字元的文字。
 
@@ -348,7 +366,7 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 ### <a name="validation-assets"></a>驗證資產
 
-您必須在此區段中上傳[自訂分析報表（CAR）](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) 。 這份報告是根據一組預先定義的最佳作法規則來分析您的自訂和延伸模組模型而產生的。
+在此區段中上傳[自訂分析報表（CAR）](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) 。 這份報告是根據一組預先定義的最佳作法規則來分析您的自訂和延伸模組模型而產生的。
 
 這個檔案必須是 .xls 或 .xlsx 格式。 如果您有一個以上的報表，您可以上傳包含所有報表的 .zip 檔案。
 
@@ -364,16 +382,16 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 ### <a name="submit-offer-to-preview"></a>提交供應專案以供預覽
 
-當您完成供應專案的所有必要區段之後，請選取入口網站右上角的 [**發佈**]。 系統會將您重新導向至 [**審查及發佈**] 頁面。 
+當您完成供應專案的所有必要區段之後，請選取入口網站右上角的 [**發佈**]。 系統會將您重新導向至 [**審核及發佈**] 頁面。
 
 如果這是您第一次發佈此供應專案，您可以：
 
 - 請參閱供應專案每個區段的完成狀態。
-    - *未啟動*-表示區段尚未觸及，需要完成。
-    - *不完整*-表示區段具有必須修正的錯誤，或需要提供更多資訊的詳細資訊。 請返回一節並加以更新。
+    - *未啟動*-表示區段尚未觸及，應完成。
+    - *不完整*-表示區段具有必須修正的錯誤，或需要提供更多資訊的詳細資訊。 回到一節，並加以更新。
     - *Complete* -表示區段已完成，所有必要的資料都已提供，而且沒有任何錯誤。 供應專案的所有區段都必須處於「完整」狀態，您才能提交供應專案。
 - 在 [**認證的注意事項**] 區段中，提供測試指示給認證小組，確保您的應用程式已正確測試，以及有助於瞭解應用程式的任何補充注意事項。
-- 選取 [**提交**] 以提交供應專案進行發佈。 我們會傳送一封電子郵件給您，讓您知道供應專案的預覽版本何時可供您審查和核准。 您必須回到合作夥伴中心，並為供應專案選取 [**上線**]，以將您的供應專案發佈至公用（或私用供應專案給私人物件）。
+- 選取 [**提交**] 以提交供應專案進行發佈。 我們會傳送一封電子郵件給您，讓您知道供應專案的預覽版本何時可供您審查和核准。 返回 [合作夥伴中心]，並選取供應專案的 [**上線**]，將您的供應專案發佈至公用（或私用供應專案給私人物件）。
 
 ## <a name="next-steps"></a>後續步驟
 

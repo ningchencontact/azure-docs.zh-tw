@@ -1,25 +1,21 @@
 ---
 title: 使用代理程式型 Azure Migrate 伺服器移轉來遷移 VMware VM
 description: 了解如何使用 Azure Migrate 執行 VMware VM 的代理程式型移轉。
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 581014b89627905e3206705dffade5ba19443b65
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: c6e0b65a586bfd629244404933836cde7287ae29
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196286"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028963"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>將 VMware VM 遷移至 Azure (代理程式型)
 
 本文將說明如何搭配 Azure Migrate 伺服器移轉工具使用代理程式型移轉，將內部部署 VMware VM 遷移至 Azure。
 
-[Azure Migrate](migrate-services-overview.md) 提供集中式中樞，可追蹤內部部署應用程式和工作負載及 AWS/GCP VM 執行個體的探索、評量和移轉 (以 Azure 為目標)。 該中樞能提供 Azure Migrate 工具以進行評量和移轉，也提供協力廠商獨立軟體廠商 (ISV) 的供應項目。
+[Azure Migrate](migrate-services-overview.md) 提供集中式中樞，可追蹤內部部署應用程式和工作負載及 AWS/GCP VM 執行個體的探索、評估和移轉 (以 Azure 為目標)。 該中樞能提供 Azure Migrate 工具以進行評估和移轉，也提供協力廠商獨立軟體廠商 (ISV) 的供應項目。
 
 
 在本教學課程中，您會了解如何：
@@ -32,7 +28,7 @@ ms.locfileid: "74196286"
 > * 執行對 Azure 的完整移轉。
 
 > [!NOTE]
-> 教學課程將會針對案例示範最簡單的部署路徑，讓您可以快速設定概念證明。 教學課程會在情況允許時都使用預設選項，且不會顯示所有可能的設定與路徑。 如需詳細指示，請參閱 VMware 評量和移轉的操作說明。
+> 教學課程將會針對案例示範最簡單的部署路徑，讓您可以快速設定概念證明。 教學課程在情況允許時都會使用預設選項，且不會顯示所有可能的設定與路徑。 如需詳細指示，請參閱 VMware 評量和移轉的操作說明。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
@@ -61,7 +57,7 @@ ms.locfileid: "74196286"
 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始進行本教學課程之前，您必須：
 
@@ -82,8 +78,8 @@ ms.locfileid: "74196286"
 如果您尚未執行評量，您必須先設定 Azure 權限，才能使用 Azure Migrate 伺服器移轉來進行遷移。
 
 - **建立專案**：您的 Azure 帳戶必須有建立 Azure Migrate 專案的權限。 
-- **註冊 Azure Migrate 複寫設備**：複寫設備會在您的 Azure 帳戶中建立並註冊 Azure Active Directory 應用程式。 您需要為此委派權限。
-- **建立 Key Vault**：若要使用 Azure Migrate 伺服器移轉來遷移 VMware VM，Azure Migrate 會在資源群組中建立 Key Vault，以管理訂用帳戶中複寫儲存體帳戶的存取金鑰。 若要建立保存庫，您在 Azure Migrate 專案所在的資源群組上必須有角色指派權限。 
+- **註冊 Azure Migrate 複寫設備**：複寫設備會在您的 Azure 帳戶中建立，並註冊 Azure Active Directory 應用程式。 您需要為此委派權限。
+- **建立金鑰保存庫**：若要使用 Azure Migrate 伺服器移轉來遷移 VMware VM，Azure Migrate 會在資源群組中建立 Key Vault，以管理訂用帳戶中複寫儲存體帳戶的存取金鑰。 若要建立保存庫，您在 Azure Migrate 專案所在的資源群組上必須有角色指派權限。 
 
 
 ### <a name="assign-permissions-to-create-project"></a>指派建立專案的權限
@@ -175,11 +171,11 @@ Azure Migrate 伺服器移轉需要 VMware 伺服器的存取權，才能執行�
 
 
 > [!NOTE]
-> 使用 Azure Migrate 伺服器移轉的代理程式型移轉是以 Azure Site Recovery 服務功能作為基礎。 某些需求可能會連結至 Site Recovery 文件。
+> 使用 Azure Migrate 伺服器移轉的代理程式型移轉，會以 Azure Site Recovery 服務的功能作為基礎。 某些需求可能會連結至 Site Recovery 文件。
 
-1. [檢查](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) VMware 伺服器需求。
-2. [確認](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements)移轉的 VM 支援需求。
-3. 確認 VM 設定。 您複寫到 Azure 的內部部署 VM 必須符合 [Azure VM 需求](migrate-support-matrix-vmware.md#azure-vm-requirements)。
+1. [檢查](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) VMware 伺服器需求。
+2. [確認](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms)移轉的 VM 支援需求。
+3. 確認 VM 設定。 您複寫到 Azure 的內部部署 VM 必須符合 [Azure VM 需求](migrate-support-matrix-vmware-migration.md#azure-vm-requirements)。
 
 
 
@@ -187,7 +183,7 @@ Azure Migrate 伺服器移轉需要 VMware 伺服器的存取權，才能執行�
 
 如果您未遵循教學課程來評估 VMware VM，請設定 Azure Migrate 專案，然後新增 Azure Migrate 伺服器移轉工具：
 
-1. 在 Azure 入口網站 > [所有服務]  中搜尋 **Azure Migrate**。
+1. 在 Azure 入口網站 > [所有服務]  中，搜尋 **Azure Migrate**。
 2. 在 [服務]  下，選取 [Azure Migrate]  。
 
     ![設定 Azure Migrate](./media/tutorial-migrate-vmware-agent/azure-migrate-search.png)
@@ -207,7 +203,7 @@ Azure Migrate 伺服器移轉需要 VMware 伺服器的存取權，才能執行�
 
     **地理位置** | **區域**
     --- | ---
-    亞洲 | 東南亞
+    Asia | 東南亞
     歐洲 | 北歐或西歐
     美國 | 美國東部或美國中西部
 
@@ -221,7 +217,7 @@ Azure Migrate 伺服器移轉需要 VMware 伺服器的存取權，才能執行�
 
 移轉的第一個步驟是設定複寫設備。 複寫設備是高可用性的單一內部部署 VMware VM，並且裝載下列元件：
 
-- **組態伺服器**︰組態伺服器會協調內部部署與 Azure 之間的通訊，以及管理資料複寫。
+- **設定伺服器**：組態伺服器會協調內部部署與 Azure 之間的通訊，以及管理資料複寫。
 - **處理序伺服器**：處理序伺服器可作為複寫閘道。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將其傳送至 Azure 中的快取儲存體帳戶。 處理序伺服器也會在您要複寫的 VM 上安裝行動服務代理程式，並且在內部部署 VMware VM 上執行自動探索。
 
 
@@ -274,7 +270,7 @@ Azure Migrate 伺服器移轉需要 VMware 伺服器的存取權，才能執行�
 2. VM 會開機進入 Windows Server 2016 安裝體驗。 接受授權合約，並輸入系統管理員密碼。
 3. 在安裝完成之後，以系統管理員身分使用系統管理員密碼登入 VM。
 4. 您第一次登入時，複寫設備設定工具 (Azure Site Recovery 設定工具) 會在數秒內啟動。
-5. 輸入要用來向 Azure Migrate 伺服器移轉註冊設備的名稱。 然後按 [下一步]  。
+5. 輸入要用來向 Azure Migrate 伺服器移轉註冊設備的名稱。 然後按一下 [下一步]  。
 6. 此工具會檢查 VM 是否可連線到 Azure。 建立連線之後，選取 [登入]  以登入您的 Azure 訂用帳戶。
 7. 等候工具完成註冊 Azure AD 應用程式，以識別設備。 設備會重新開機。
 1. 再次登入機器。 組態伺服器管理精靈會在數秒內自動啟動。
@@ -314,7 +310,7 @@ Azure Migrate 伺服器移轉需要 VMware 伺服器的存取權，才能執行�
 
     ![複寫 VM](./media/tutorial-migrate-vmware-agent/select-replicate.png)
 
-2. 在 [複寫]  > [來源設定]  [您的電腦虛擬化了嗎] >   中，選取 [是，使用 VMware vSphere]  。
+2. 在 [複寫]  > [來源設定]   > [您的電腦虛擬化了嗎]  中，選取 [是，使用 VMware vSphere]  。
 3. 在 [內部部署設備]  中，選取您設定的 Azure Migrate 設備的名稱。
 4. 在 **vCenter Server** 中指定管理 VM 的 vCenter Server 名稱，或裝載 VM 的 vSphere Server 名稱。
 5. 在 [處理序伺服器]  中，選取複寫設備的名稱。
@@ -324,25 +320,25 @@ Azure Migrate 伺服器移轉需要 VMware 伺服器的存取權，才能執行�
 
 7. 在 [虛擬機器]  中，選取您要複寫的機器。
 
-    - 如果您已執行 VM 的評量，您可以套用評量結果中的 VM 大小調整和磁碟類型 (進階/標準) 建議。 若要這麼做，請在 [從 Azure Migrate 評估匯入移轉設定?]  中，選取 [是]  選項。
+    - 如果您已執行 VM 的評估，您可以套用評估結果中的 VM 大小調整和磁碟類型 (進階/標準) 建議。 若要這麼做，請在 [從 Azure Migrate 評估匯入移轉設定?]  中，選取 [是]  選項。
     - 如果您未執行評估，或不想使用評估設定，請選取 [否]  選項。
-    - 如果您選擇使用評量，請選取 VM 群組和評量名稱。
+    - 如果您選擇使用評估，請選取 VM 群組和評估名稱。
 
-8. 檢查您要遷移的每個 VM。 然後按 [下一步：**目標設定]** 。
+8. 檢查您要遷移的每個 VM。 然後按 [下一步：  目標設定]。
 9. 在 [目標設定]  中，選取訂用帳戶、您的遷移目標區域，並指定 Azure VM 在移轉後所在的資源群組。
 10. 在 [虛擬網路]  中，選取 Azure VM 在移轉後所將加入的 Azure VNet/子網路。
 11. 在 [Azure Hybrid Benefit]  中：
 
-    - 如果您不想套用 Azure Hybrid Benefit，請選取 [否]  。 然後按 [下一步]  。
-    - 如果您有 Windows Server 機器涵蓋於有效的軟體保證或 Windows Server 訂用帳戶下，且您想要將權益套用至要移轉的機器，請選取 [是]  。 然後按 [下一步]  。
+    - 如果您不想套用 Azure Hybrid Benefit，請選取 [否]  。 然後按一下 [下一步]  。
+    - 如果您有 Windows Server 機器涵蓋於有效的軟體保證或 Windows Server 訂用帳戶下，且您想要將權益套用至要移轉的機器，請選取 [是]  。 然後按一下 [下一步]  。
 
-12. 在 [計算]  中，檢閱 VM 名稱、大小、OS 磁碟類型和可用性設定組。 VM 必須符合 [Azure 需求](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)。
+12. 在 [計算]  中，檢閱 VM 名稱、大小、OS 磁碟類型和可用性設定組。 VM 必須符合 [Azure 需求](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms)。
 
     - **VM 大小**：如果您使用評估建議，[VM 大小] 下拉式清單會包含建議的大小。 否則，Azure Migrate 會根據 Azure 訂用帳戶中最接近的相符項來選擇大小。 或者，您可以在 [Azure VM 大小]  中手動選擇大小。 
     - **OS 磁碟**：指定 VM 的 OS (開機) 磁碟。 OS 磁碟是具有作業系統開機載入器和安裝程式的磁碟。 
     - **可用性設定組**：如果 VM 在移轉後應位於 Azure 可用性設定組中，請指定設定組。 此設定組必須位於您為移轉指定的目標資源群組中。
 
-13. 在 [磁碟]  中，指定是否應將 VM 磁碟複寫至 Azure，並選取 Azure 中的磁碟類型 (標準 SSD/HDD 或進階受控磁碟)。 然後按 [下一步]  。
+13. 在 [磁碟]  中，指定是否應將 VM 磁碟複寫至 Azure，並選取 Azure 中的磁碟類型 (標準 SSD/HDD 或進階受控磁碟)。 然後按一下 [下一步]  。
     - 您可以從複寫排除磁碟。
     - 如果您排除磁碟，則在移轉後磁碟將不會出現在 Azure VM 上。 
 

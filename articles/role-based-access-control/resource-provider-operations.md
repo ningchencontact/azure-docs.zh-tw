@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9d4b4134fa26fd2cb904a862ac16544873bf8bcb
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: e2655a03fe315feb58668fcda0d19578a5df1a78
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934468"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981097"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
-本文會列出每個 Azure Resource Manager 資源提供者可用的作業。 這些作業可用在[自訂角色](custom-roles.md)中，以對 Azure 中的資源提供細微的[角色型存取控制 (RBAC)](overview.md)。 作業字串的格式如下： `{Company}.{ProviderName}/{resourceType}/{action}`。 如需資源提供者命名空間如何對應至 Azure 服務的清單，請參閱[將資源提供者與服務比對](../azure-resource-manager/azure-services-resource-providers.md)。
+本文會列出每個 Azure Resource Manager 資源提供者可用的作業。 這些作業可用在[自訂角色](custom-roles.md)中，以對 Azure 中的資源提供細微的[角色型存取控制 (RBAC)](overview.md)。 作業字串的格式如下： `{Company}.{ProviderName}/{resourceType}/{action}`。 如需資源提供者命名空間如何對應至 Azure 服務的清單，請參閱[將資源提供者與服務比對](../azure-resource-manager/management/azure-services-resource-providers.md)。
 
 資源提供者作業會不斷發展。 若要取得最新的作業，請使用 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 或 [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list)。
 
@@ -6708,6 +6708,6 @@ ms.locfileid: "75934468"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [將資源提供者與服務比對](../azure-resource-manager/azure-services-resource-providers.md)
+- [將資源提供者與服務比對](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [適用於 Azure 資源的自訂角色](custom-roles.md)
 - [適用於 Azure 資源的內建角色](built-in-roles.md)

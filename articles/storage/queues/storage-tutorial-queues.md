@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: cbrooks
-ms.openlocfilehash: c8e1d5c1c11c4fdf902c7be7bc03be298e93a8b9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 9cbdc5231fdc9f836f300b1a3a81a237a9efc123
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721133"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968204"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>教學課程：使用 Azure 儲存體佇列
 
 Azure 佇列儲存體可實作雲端式佇列，使分散式應用程式的元件之間可進行通訊。 每個佇列都會維護一份可由傳送端元件新增、且可由接收端元件處理的訊息清單。 透過佇列，您的應用程式將可立即進行調整以因應需求。 本文說明使用 Azure 儲存體佇列的基本步驟。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 >
@@ -33,7 +33,7 @@ Azure 佇列儲存體可實作雲端式佇列，使分散式應用程式的元�
 > - 檢查命令列引數
 > - 建置並執行應用程式
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 取得免費的跨平台 [Visual Studio Code](https://code.visualstudio.com/download) 編輯器。
 - 下載並安裝 [.NET Core SDK](https://dotnet.microsoft.com/download)。
@@ -41,7 +41,7 @@ Azure 佇列儲存體可實作雲端式佇列，使分散式應用程式的元�
 
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 
-首先，請建立 Azure 儲存體帳戶。 如需建立儲存體帳戶的逐步指南，請參閱[建立儲存體帳戶](../common/storage-quickstart-create-account.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json)快速入門。
+首先，請建立 Azure 儲存體帳戶。 如需建立儲存體帳戶的逐步指南，請參閱[建立儲存體帳戶](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json)快速入門。
 
 ## <a name="create-the-app"></a>建立應用程式
 

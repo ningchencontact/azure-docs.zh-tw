@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: ca78a9d7eeeeccb71fea75f6ab429e76f2344bbe
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f9d7fa5df1f7568aa357abf8b5864344d768cf75
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895462"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891759"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>快速入門：從原始程式碼啟動 Spring Cloud 應用程式
 
@@ -28,10 +28,10 @@ Azure Spring Cloud 可讓您直接從 java 原始程式碼或預先建置的 JAR
 > * 部署每個微服務
 > * 為您的應用程式指派公用端點
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 >[!Note]
-> Azure Spring Cloud 目前提供公開預覽版。 公開預覽版供應項目可讓客戶在其正式發行前，先試驗新功能。  公開預覽功能和服務不適用於生產環境。  如需有關預覽期間支援的詳細資訊，請參閱我們的[常見問題集](https://azure.microsoft.com/support/faq/)或提出[支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)以深入了解。
+> Azure Spring Cloud 目前提供公開預覽版。 公開預覽版供應項目可讓客戶在其正式發行前，先試驗新功能。  公開預覽功能和服務不適用於生產環境。  如需有關預覽期間支援的詳細資訊，請參閱我們的[常見問題集](https://azure.microsoft.com/support/faq/)或提出[支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)以深入了解。
 
 開始之前，請確定您的 Azure 訂用帳戶具有必要的相依性：
 
@@ -76,6 +76,9 @@ az account set --subscription
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 ```
+
+> [!div class="nextstepaction"]
+> [我遇到問題](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=provision)
 
 ## <a name="create-the-spring-cloud-application"></a>建立 Spring Cloud 應用程式
 
@@ -137,12 +140,18 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 > [!NOTE]
 > 如果該部署是使用 kpack 從來源建立的，則 kpack 記錄只會顯示最新的部署。
 
+> [!div class="nextstepaction"]
+> [我遇到問題](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=deploy)
+
 ## <a name="assign-a-public-endpoint-to-gateway"></a>將公用端點指派到閘道
 
 1. 開啟 [應用程式儀表板]  頁面。
 2. 選取 `gateway` 應用程式以顯示 [應用程式詳細資料]  頁面。
 3. 選取 [指派網域]  來將公用端點指派到閘道。 這可能會需要幾分鐘的時間。 
 4. 將已指派的公用 IP 輸入至您的瀏覽器，以檢視正在執行的應用程式。
+
+> [!div class="nextstepaction"]
+> [我遇到問題](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=public-endpoint)
 
 ## <a name="next-steps"></a>後續步驟
 

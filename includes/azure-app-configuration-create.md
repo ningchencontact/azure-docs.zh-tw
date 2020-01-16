@@ -1,25 +1,23 @@
 ---
-title: 包含檔案
-description: 包含檔案
-services: azure-app-configuration
 author: yegu
+ms.author: yegu
 ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 12/03/2019
-ms.author: yegu
-ms.custom: include file
-ms.openlocfilehash: ccd2a0ded1cd915dc52dea1449d75136bbef18fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ceeeb5ee155624e050f36e733a464c2cb21db88c
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75413411"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750307"
 ---
 1. 若要建立新的應用程式組態存放區，請登入 [Azure 入口網站](https://portal.azure.com)。 在首頁的左上角，選取 [建立資源]  。 在 [搜尋 Marketplace]  方塊中輸入**應用程式組態**，然後選取 Enter 鍵。
 
-    ![搜尋應用程式設定](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-new.png)
+    ![搜尋應用程式設定](media/azure-app-configuration-create/azure-portal-search.png)
 
 1. 從搜尋結果中選取 [應用程式設定]  ，然後選取 [建立]  。
+
+    ![選取 [建立]](media/azure-app-configuration-create/azure-portal-app-configuration-create.png)
 
 1. 在 [應用程式組態]   > [建立]  窗格上，輸入下列設定：
 
@@ -30,7 +28,7 @@ ms.locfileid: "75413411"
     | **資源群組** | *AppConfigTestResources* | 為應用程式組態存放區資源選取或建立資源群組。 此群組可用於組織多個資源，以便能夠藉由刪除資源群組來同時刪除多個資源。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](/azure/azure-resource-manager/resource-group-overview)。 |
     | **位置** | *美國中部* | 使用 [位置]  來指定裝載應用程式設定存放區所在的地理位置。 為了獲得最佳效能，請將資源建立在與應用程式其他元件相同的區域內。 |
 
-    ![建立應用程式組態存放區資源](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-create.png)
+    ![建立應用程式組態存放區資源](media/azure-app-configuration-create/azure-portal-app-configuration-create-settings.png)
 
 1. 選取 [建立]  。 部署可能需要幾分鐘的時間。
 

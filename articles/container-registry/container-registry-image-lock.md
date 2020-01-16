@@ -3,12 +3,12 @@ title: 鎖定映像
 description: 設定容器映射或存放庫的屬性，使其無法在 Azure container registry 中刪除或覆寫。
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 8eb2a549e9d9f3a7ed4a482ac6a9ea4ba61ea4f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93a99f65d5bb21d696ce24365e7c819d2c34a8b0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442225"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972924"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>鎖定 Azure container registry 中的容器映射
 
@@ -17,7 +17,7 @@ ms.locfileid: "75442225"
 本文要求您在 Azure Cloud Shell 或本機執行 Azure CLI （建議使用使用2.0.55 版或更新版本）。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
 
 > [!IMPORTANT]
-> 本文不適用於鎖定整個登錄，例如，使用 Azure 入口網站中的**設定 > 鎖定**，或在 Azure CLI 中 `az lock` 命令。 鎖定登錄資源並不會讓您無法建立、更新或刪除存放庫中的資料。 鎖定登錄只會影響管理作業，例如新增或刪除複寫，或刪除登錄本身。 [鎖定資源以防止非預期的變更](../azure-resource-manager/resource-group-lock-resources.md)的詳細資訊。
+> 本文不適用於鎖定整個登錄，例如，使用 Azure 入口網站中的**設定 > 鎖定**，或在 Azure CLI 中 `az lock` 命令。 鎖定登錄資源並不會讓您無法建立、更新或刪除存放庫中的資料。 鎖定登錄只會影響管理作業，例如新增或刪除複寫，或刪除登錄本身。 [鎖定資源以防止非預期的變更](../azure-resource-manager/management/lock-resources.md)的詳細資訊。
 
 ## <a name="scenarios"></a>案例
 

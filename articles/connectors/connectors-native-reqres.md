@@ -7,12 +7,12 @@ ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: b3723ccc247b8a9451b9a5fdc628bff58da361a0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 822a6d1cd812ead8e677a66a9b1e47ebdbcf8aea
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786990"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030154"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 接收和回應連入的 HTTPS 呼叫
 
@@ -23,7 +23,16 @@ ms.locfileid: "74786990"
 * 接收並回應來自另一個邏輯應用程式的 HTTPS 呼叫。
 
 > [!NOTE]
-> 要求觸發程式*僅*支援連入呼叫的傳輸層安全性（TLS）1.2。 撥出電話會繼續支援 TLS 1.0、1.1 和1.2。 如果您看到 SSL 交握錯誤，請確定您使用的是 TLS 1.2。
+> 要求觸發程式*僅*支援連入呼叫的傳輸層安全性（TLS）1.2。 撥出電話會繼續支援 TLS 1.0、1.1 和1.2。 如果您看到 SSL 交握錯誤，請確定您使用的是 TLS 1.2。 對於傳入的呼叫，以下是支援的加密套件：
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -47,7 +56,7 @@ ms.locfileid: "74786990"
 
    ![要求觸發程序](./media/connectors-native-reqres/request-trigger.png)
 
-   | 屬性名稱 | JSON 屬性名稱 | 必要項 | 描述 |
+   | 屬性名稱 | JSON 屬性名稱 | 必要項 | 說明 |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {無} | 是 | 在您儲存邏輯應用程式並用於呼叫邏輯應用程式之後，所產生的端點 URL |
    | **要求本文 JSON 架構** | `schema` | 否 | 描述傳入要求主體中的屬性和值的 JSON 架構 |
@@ -146,7 +155,7 @@ ms.locfileid: "74786990"
 
 1. 若要指定其他屬性，請開啟 [**加入新的參數**] 清單，然後選取您想要新增的參數。
 
-   | 屬性名稱 | JSON 屬性名稱 | 必要項 | 描述 |
+   | 屬性名稱 | JSON 屬性名稱 | 必要項 | 說明 |
    |---------------|--------------------|----------|-------------|
    | **方法** | `method` | 否 | 傳入要求必須用來呼叫邏輯應用程式的方法 |
    | **相對路徑** | `relativePath` | 否 | 邏輯應用程式的端點 URL 可以接受之參數的相對路徑 |
@@ -158,7 +167,7 @@ ms.locfileid: "74786990"
 
    [**方法**] 屬性會出現在觸發程式中，讓您可以從清單中選取方法。
 
-   ![選取方法](./media/connectors-native-reqres/select-method.png)
+   ![Select 方法](./media/connectors-native-reqres/select-method.png)
 
 1. 現在，新增另一個動作做為工作流程中的下一個步驟。 在觸發程式底下，選取 **[下一步]** ，讓您可以找到想要新增的動作。
 
@@ -178,10 +187,10 @@ ms.locfileid: "74786990"
 
 以下是來自要求觸發程式輸出的詳細資訊：
 
-| JSON 屬性名稱 | Data type | 描述 |
+| JSON 屬性名稱 | Data type | 說明 |
 |--------------------|-----------|-------------|
-| `headers` | Object | 描述要求標頭的 JSON 物件 |
-| `body` | Object | JSON 物件，描述來自要求的本文內容 |
+| `headers` | 物件 | 描述要求標頭的 JSON 物件 |
+| `body` | 物件 | JSON 物件，描述來自要求的本文內容 |
 ||||
 
 <a name="add-response"></a>
@@ -220,11 +229,11 @@ ms.locfileid: "74786990"
 
    以下是您可以在 [回應] 動作中設定之屬性的詳細資訊。 
 
-   | 屬性名稱 | JSON 屬性名稱 | 必要項 | 描述 |
+   | 屬性名稱 | JSON 屬性名稱 | 必要項 | 說明 |
    |---------------|--------------------|----------|-------------|
    | **狀態碼** | `statusCode` | 是 | 要在回應中傳回的狀態碼 |
    | **標頭** | `headers` | 否 | JSON 物件，描述要包含在回應中的一個或多個標頭 |
-   | **內文** | `body` | 否 | 回應本文 |
+   | **本文** | `body` | 否 | 回應本文 |
    |||||
 
 1. 若要指定其他屬性（例如回應主體的 JSON 架構），請開啟 [**加入新的參數**] 清單，然後選取您想要新增的參數。

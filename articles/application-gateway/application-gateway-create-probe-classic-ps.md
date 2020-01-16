@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 5f05c6d82a00e78a4237019128db541eb63f20ba
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e01a1cad98ded9d7ce8683b6adf38b5d53959774
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012243"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966806"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>使用 PowerShell 建立 Azure 應用程式閘道 (傳統) 的自訂探查
 
@@ -24,7 +24,7 @@ ms.locfileid: "74012243"
 在本文中，您會使用 PowerShell 將自訂探查新增到現有的應用程式閘道。 對於具有特定健康狀態檢查頁面的應用程式，或是在預設 Web 應用程式上不提供成功回應的應用程式，自訂探查非常實用。
 
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 了解如何[使用 Resource Manager 模型執行這些步驟](application-gateway-create-probe-ps.md)。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../azure-resource-manager/management/deployment-models.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 了解如何[使用 Resource Manager 模型執行這些步驟](application-gateway-create-probe-ps.md)。
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -140,7 +140,7 @@ Get-AzureApplicationGateway AppGwTest
 
 組態參數如下：
 
-|參數|描述|
+|參數|說明|
 |---|---|
 |**名稱** |自訂探查的參考名稱。 |
 | **通訊協定** | 使用的通訊協定 (可能的值是 HTTP 或 HTTPS)。|
@@ -161,7 +161,7 @@ Get-AzureApplicationGateway AppGwTest
    Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
    ```
 
-1. 在文字編輯器中開啟 XML 檔案。 在 `<probe>` 之後新增 `<frontendport>` 區段。
+1. 在文字編輯器中開啟 XML 檔案。 在 `<frontendport>` 之後新增 `<probe>` 區段。
 
    ```xml
    <Probes>

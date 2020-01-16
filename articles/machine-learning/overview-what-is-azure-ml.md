@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: aea3e6d0e7b0a1d2f28d67f013701a9af5c3ba70
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: cd94001cfe795e7aa78a1332325052afce6b8ec6
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75542184"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762789"
 ---
 # <a name="what-is-azure-machine-learning"></a>什麼是 Azure Machine Learning？
 
@@ -46,13 +46,13 @@ Azure Machine Learning 為開發人員和資料科學家提供其機器學習工
 
 + R 指令碼或筆記本，您可以在其中使用<a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">適用於 R 的 SDK</a> 來撰寫您自己的程式碼，或在設計工具中使用 R 模組。
 
-+ [Visual Studio Code 擴充功能](service/how-to-vscode-tools.md) \(英文\)
++ [Visual Studio Code 擴充功能](how-to-vscode-tools.md) \(英文\)
 
 + [機器學習 CLI](reference-azure-machine-learning-cli.md)
 
 + 開放原始碼架構，例如 PyTorch、TensorFlow 及 scikit-learn 等等。
 
-您甚至可使用 [MLflow 來追蹤計量及部署模型](service/how-to-use-mlflow.md) 或 Kubeflow，以[建置端對端工作流程管線](https://www.kubeflow.org/docs/azure/)。
+您甚至可使用 [MLflow 來追蹤計量及部署模型](how-to-use-mlflow.md) 或 Kubeflow，以[建置端對端工作流程管線](https://www.kubeflow.org/docs/azure/)。
 
 ## <a name="build-ml-models-in-python-or-r"></a>以 Python 或 R 建置 ML 模型
 
@@ -104,12 +104,12 @@ Azure Machine Learning 可與 Azure 平台上的其他服務搭配運作，也�
 
 + 計算目標，例如 __Azure Kubernetes Service__、__Azure 容器執行個體__、__Azure Databricks__、__Azure Data Lake Analytics__ 和 __Azure HDInsight__。 如需計算目標的詳細資訊，請參閱[什麼是計算目標？](concept-compute-target.md)。
 + __Azure 事件方格__。 如需詳細資訊，請參閱[取用 Azure Machine Learning 事件](concept-event-grid-integration.md)。
-+ __Azure 監視器__。 如需詳細資訊，請參閱[監視 Azure Machine Learning](service/monitor-azure-machine-learning.md)。
++ __Azure 監視器__。 如需詳細資訊，請參閱[監視 Azure Machine Learning](monitor-azure-machine-learning.md)。
 + 資料存放區，例如 __Azure 儲存體帳戶__、__Azure Data Lake Storage__、__Azure SQL Database__、__適用於 PostgreSQL 的 Azure 資料庫__和 __Azure 開放資料集__。 如需詳細資訊，請參閱[存取 Azure 儲存體服務中的資料](how-to-access-data.md)和[使用 Azure 開放資料集來建立資料集](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets)。
 + __Azure 虛擬網路__。 如需詳細資訊，請參閱[虛擬網路中的安全實驗和推斷](how-to-enable-virtual-network.md)。
 + __Azure Pipelines__。 如需詳細資訊，請參閱[定型和部署機器學習服務模型](/azure/devops/pipelines/targets/azure-machine-learning)。
 + __Git 存放庫記錄__。 如需詳細資訊，請參閱 [Git 整合](concept-train-model-git-integration.md)。
-+ __MLflow__。 如需詳細資訊，請參閱[使用 MLflow 追蹤計量和部署模型](service/how-to-use-mlflow.md) 
++ __MLflow__。 如需詳細資訊，請參閱[使用 MLflow 追蹤計量和部署模型](how-to-use-mlflow.md) 
 + __Kubeflow__。 如需詳細資訊，請參閱[建置端對端工作流程管線](https://www.kubeflow.org/docs/azure/)。
 
 ### <a name="secure-communications"></a>安全通訊
@@ -135,10 +135,10 @@ Azure Machine Learning 提供兩個針對您的機器學習需求量身打造的
 - 使用您慣用的方法建立您的第一個實驗：
   + [使用 Python 筆記本來定型和部署 ML 模型](tutorial-1st-experiment-sdk-setup.md)
   + [使用 R Markdown 來定型和部署 ML 模型](tutorial-1st-r-experiment.md) 
-  + [使用自動化機器學習來定型和部署 ML 模型](  service/tutorial-first-experiment-automated-ml.md) 
+  + [使用自動化機器學習來定型和部署 ML 模型](tutorial-first-experiment-automated-ml.md) 
   + [使用設計工具的拖放功能進行定型和部署](tutorial-designer-automobile-price-train-score.md) 
   + [使用機器學習 CLI 來定型和部署模型](tutorial-train-deploy-model-cli.md)
 
-- 了解用來建置、最佳化及管理機器學習案例的[機器學習管線](/azure/machine-learning/service/concept-ml-pipelines)。
+- 了解用來建置、最佳化及管理機器學習案例的[機器學習管線](concept-ml-pipelines.md)。
 
 - 進一步閱讀 [Azure Machine Learning 的架構和概念](concept-azure-machine-learning-architecture.md)一文。

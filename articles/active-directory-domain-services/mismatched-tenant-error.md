@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 0d96fd4c435251fb4dd604351e6efeea8bde8353
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 601574cc2a478dc53a261cfcb074e43a556dd4c0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704536"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979502"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>解決現有 Azure AD Domain Services 受控網域的不相符目錄錯誤
 
@@ -56,7 +56,7 @@ Azure 會使用角色型存取控制（RBAC）來限制對資源的存取。 當
 下列兩個選項會解決不相符的目錄錯誤：
 
 * 從現有的 Azure AD 目錄中[刪除 AZURE AD DS 受控網域](delete-aadds.md)。 在與您想要使用的虛擬網路相同的 Azure AD 目錄中，[建立替代 AZURE AD DS 受控網域](tutorial-create-instance.md)。 準備好時，請將先前加入已刪除網域的所有機器加入重新建立的受控網域。
-* 將包含虛擬網路的[Azure 訂](../billing/billing-subscription-transfer.md)用帳戶移至與 Azure AD DS 受控網域相同的 Azure AD 目錄。
+* 將包含虛擬網路的[Azure 訂](../cost-management-billing/manage/billing-subscription-transfer.md)用帳戶移至與 Azure AD DS 受控網域相同的 Azure AD 目錄。
 
 ## <a name="next-steps"></a>後續步驟
 

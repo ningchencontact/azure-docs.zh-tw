@@ -2,21 +2,21 @@
 title: 使用 Azure Batch 執行平行 R 模擬
 description: 教學課程 - 使用 R doAzureParallel 套件在 Azure Batch 中執行 Monte Carlo 財務模擬的逐步指示
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 7fad37af268d3dcd3d4d974d8e839ac47f171b50
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a5422b3b3dfee548e24e989654f8cc219700e712
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321914"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029218"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>教學課程：使用 Azure Batch 執行平行 R 模擬 
 
@@ -30,7 +30,7 @@ ms.locfileid: "68321914"
 > * 建立 Batch 集區作為 R 工作階段的平行後端
 > * 在集區上執行平行模擬範例
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * 已安裝 [R](https://www.r-project.org/) 散發版本，例如 [Microsoft R Open](https://mran.microsoft.com/open)。 使用 R 3.3.1 版或更新版本。
 
@@ -40,7 +40,7 @@ ms.locfileid: "68321914"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>安裝 doAzureParallel
@@ -110,7 +110,7 @@ generateClusterConfig("cluster.json")
 * 將 `maxTasksPerNode` 增加至 2  ，以利用每個節點上的兩個核心
 * 將 `dedicatedNodes` 設定為 0  ，即可嘗試 Batch 可用的低優先順序 VM。 將 `lowPriorityNodes` 的 `min` 設定為 5  ， 以及將 `max` 設定為 10  ，或者視需要選擇較小的數字。 
 
-保留其餘設定的預設值，然後儲存檔案。 看起來應該會像下面這樣：
+保留其餘設定的預設值，然後儲存檔案。 看起來應類似下列範例：
 
 ```json
 {

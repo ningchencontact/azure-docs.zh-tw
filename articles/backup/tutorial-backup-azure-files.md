@@ -3,12 +3,12 @@ title: 教學課程 - 備份 Azure 檔案儲存體檔案共用
 description: 在本教學課程中，您將了解如何使用 Azure 入口網站來設定復原服務保存庫，以及備份 Azure 檔案共用。
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.openlocfilehash: f3c1956a0344d300fff9a745a4733b7bef45a367
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b002d1ea092d2d0507dc761f56ca7835f1521fb3
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171873"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921636"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>在 Azure 入口網站中備份 Azure 檔案共用
 
@@ -20,7 +20,7 @@ ms.locfileid: "74171873"
 > * 設定復原服務保存庫以備份 Azure 檔案
 > * 執行隨選備份作業以建立還原點
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 請先確定 Azure 檔案共用存在於其中一種[支援的儲存體帳戶類型](tutorial-backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview)中，您才可以備份 Azure 檔案共用。 一旦確認這點，您即可保護您的檔案共用。
 
@@ -28,7 +28,6 @@ ms.locfileid: "74171873"
 
 Azure 檔案共用的備份處於預覽狀態。 支援一般用途 v1 和一般用途 v2 儲存體帳戶中的 Azure 檔案共用。 Azure 檔案共用不支援下列備份案例︰
 
-* 您無法在已啟用虛擬網路或防火牆的儲存體帳戶中保護 Azure 檔案共用。
 * 無法透過 CLI 使用 Azure 備份來保護 Azure 檔案服務。
 * 每天的排程備份次數上限為 1 次。
 * 每天的隨選備份次數上限為 4 次。

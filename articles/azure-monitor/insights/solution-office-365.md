@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/08/2019
-ms.openlocfilehash: aaa083ef52dcf18fade3315f598b5f57e791cbe0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: b026ef7dbbe850f0d2d1cb67ec8ca93b14ef879a
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932965"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044902"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解決方案 (預覽)
 
@@ -106,7 +106,7 @@ ms.locfileid: "75932965"
 > 
 > ###   <a name="q-what-will-happen-on-march-30-do-i-need-to-offboard-beforehand"></a>問：3月30日會發生什麼事？ 我是否需要事先下架？
 > 
-> - 您將無法從**Office365**解決方案接收資料，而且它將會從其安裝所在的任何工作區中移除。 解決方案將不再于 Marketplace 中提供
+> - 您將無法從**Office365**解決方案接收資料。 解決方案將不再于 Marketplace 中提供
 > - 針對 Azure Sentinel 客戶，Log Analytics 工作區解決方案**Office365**將包含在 Azure Sentinel **SecurityInsights**解決方案中。
 > - 如果您未手動下架解決方案，您的資料將會在3月30日自動中斷連線。
 > 

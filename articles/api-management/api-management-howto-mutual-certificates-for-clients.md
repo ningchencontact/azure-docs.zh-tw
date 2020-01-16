@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 85eeaaa052604c3198ca2ab8988f9e7a77e2a63d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3680473209b3d65d616879dfbb9080dfbb9c80f4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430655"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967404"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>如何使用 API 管理中的用戶端憑證驗證保護 API
 
@@ -27,7 +27,12 @@ API 管理提供以用戶端憑證保護對 API 之存取 (例如，用戶端對
 如需使用用戶端憑證保護對 API 後端服務之存取的相關資訊（例如，API 管理到後端），請參閱[如何使用用戶端憑證驗證來保護後端服務](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 
 > [!IMPORTANT]
-> 若要接收並確認取用層中的用戶端憑證，您必須先在 [自訂網域] 分頁上開啟 [要求用戶端憑證] 設定，如下所示。
+> 若要透過 HTTP/2 在開發人員、基本、標準或高階層中接收和驗證用戶端憑證，您必須在 [自訂網域] 分頁上開啟 [協商用戶端憑證] 設定，如下所示。
+
+![協調用戶端憑證](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
+
+> [!IMPORTANT]
+> 若要接收並確認取用層中的用戶端憑證，您必須在 [自訂網域] 分頁上開啟 [要求用戶端憑證] 設定，如下所示。
 
 ![要求主體憑證](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
 

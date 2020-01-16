@@ -9,19 +9,19 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 2bb275b1ca129d2381fb89fcbe0111c573d4a8e7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 87b05256103790c706f3ba0df7ea72c169b79f16
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893343"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979824"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>使用 Azure 儲存體封存 Azure 計量和記錄資料
 
-Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲存體帳戶。 當一段時間的監視資料超過保留期之後，建議您將此資料的記錄保留在低成本、不可搜尋的存放區。 
+Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲存體帳戶。 當一段時間的監視資料超過保留期之後，建議您將此資料的記錄保留在低成本、不可搜尋的存放區。
 
-- Azure 監視器平台的計量會保留 93 天。 
-- 資源診斷記錄只會在路由至 Log Analytics 時顯示，其中記錄有最少 30 天的可設定保留期。 
+- Azure 監視器平台的計量會保留 93 天。
+- 資源診斷記錄只會在路由至 Log Analytics 時顯示，其中記錄有最少 30 天的可設定保留期。
 - 活動記錄項目會保留90 天。  
 
 本教學課程逐步引導您設定 Azure 環境，以將資料封存至儲存體帳戶。
@@ -42,11 +42,11 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-首先，您必須設定用來封存監視資料的儲存體帳戶。 若要這樣做，[請遵循這裡的步驟](../../storage/common/storage-quickstart-create-account.md)。
+首先，您必須設定用來封存監視資料的儲存體帳戶。 若要這樣做，[請遵循這裡的步驟](../../storage/common/storage-account-create.md)。
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>將訂用帳戶記錄路由傳送至儲存體帳戶
 
-您現在已準備好開始設定 Azure 環境，以將監視資料路由傳送至儲存體帳戶。 首先，我們會設定要路由傳送至儲存體帳戶的訂用帳戶層級資料 (包含在 Azure 活動記錄中)。 [**Azure 活動記錄**](../../azure-monitor/platform/activity-logs-overview.md)提供 Azure 中的訂用帳戶層級事件的記錄。 您可以在 Azure 入口網站瀏覽，以查明「誰」  建立、更新或刪除「什麼」  資源及「何時」  那樣做。
+您現在已準備好開始設定 Azure 環境，以將監視資料路由傳送至儲存體帳戶。 首先，我們會設定要路由傳送至儲存體帳戶的訂用帳戶層級資料 (包含在 Azure 活動記錄中)。 [**Azure 活動記錄**](../../azure-monitor/platform/platform-logs-overview.md)提供 Azure 中的訂用帳戶層級事件的記錄。 您可以在 Azure 入口網站瀏覽，以查明「誰」  建立、更新或刪除「什麼」  資源及「何時」  那樣做。
 
 1. 按一下左側瀏覽清單上的 [監視]  按鈕，然後按一下 [活動記錄]  。
 
@@ -144,9 +144,9 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>檢視儲存體帳戶中的監視資料
 
 > [!WARNING]
-> 2018 年 11 月 1 日起，儲存體帳戶中的記錄資料格式將變更為 JSON 資料行。 [請參閱本文以了解影響的描述，以及如何更新您的工具，來處理新的格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> 2018 年 11 月 1 日起，儲存體帳戶中的記錄資料格式將變更為 JSON 資料行。 [請參閱本文以了解影響的描述，以及如何更新您的工具，來處理新的格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
 >
-> 
+>
 
 如果您遵循上述步驟操作，資料已經開始流向儲存體帳戶。
 
@@ -199,4 +199,3 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 
 > [!div class="nextstepaction"]
 > [開始使用 Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
-

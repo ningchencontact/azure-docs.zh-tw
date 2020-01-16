@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 7f3fdf1b723158db873bc2635de34d878c464201
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93c4f71c762cff3e3f5a01f0e2595f3498f9d38d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439429"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977320"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Blob 複製到 Azure SQL Database
 
@@ -38,7 +38,7 @@ ms.locfileid: "75439429"
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* *Azure 儲存體帳戶*。 您會使用 Blob 儲存體作為*來源*資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立一般用途的儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。
+* *Azure 儲存體帳戶*。 您會使用 Blob 儲存體作為*來源*資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立一般用途的儲存體帳戶](../storage/common/storage-account-create.md)。
 * *Azure SQL Database*。 您會使用資料庫作為*接收*資料存放區。 如果您沒有 Azure SQL Database，請參閱[建立 Azure SQL Database](../sql-database/sql-database-single-database-get-started.md)。
 * *Visual Studio*。 本文中的逐步解說是使用 Visual Studio 2019。
 * *[適用於 .NET 的 Azure SDK](/dotnet/azure/dotnet-tools)* 。
@@ -84,7 +84,7 @@ ms.locfileid: "75439429"
     1. 請移至 [Azure 入口網站](https://portal.azure.com)，以管理您的 SQL 伺服器。 搜尋並選取 [SQL 伺服器]  。
 
     2. 選取您的伺服器。
-    
+
     3. 在 [SQL 伺服器] 功能表的 [安全性]  標題下，選取 [防火牆和虛擬網路]  。
 
     4. 在 [防火牆和虛擬網路]  頁面的 [允許 Azure 服務和資源存取此伺服器]  底下，選取 [開啟]  。
@@ -154,7 +154,7 @@ ms.locfileid: "75439429"
     string inputBlobName = "inputEmp.txt";
 
     // Specify the sink Azure SQL Database information
-    string azureSqlConnString = 
+    string azureSqlConnString =
         "Server=tcp:<your server name>.database.windows.net,1433;" +
         "Database=<your database name>;" +
         "User ID=<your username>@<your server name>;" +
@@ -265,7 +265,7 @@ Console.WriteLine(
 
 ## <a name="create-datasets"></a>建立資料集
 
-在本節中，您會建立兩個資料集：一個作為來源，另一個作為接收。 
+在本節中，您會建立兩個資料集：一個作為來源，另一個作為接收。
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>建立來源 Azure Blob 的資料集
 
@@ -283,8 +283,8 @@ Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
     {
-        LinkedServiceName = new LinkedServiceReference { 
-            ReferenceName = storageLinkedServiceName 
+        LinkedServiceName = new LinkedServiceReference {
+            ReferenceName = storageLinkedServiceName
         },
         FolderPath = inputBlobPath,
         FileName = inputBlobName,
@@ -309,7 +309,7 @@ Console.WriteLine(
 
 將下列程式碼新增至 `Main` 方法，以建立「Azure SQL Database 資料集」  。 若要進一步了解支援的屬性和詳細資訊，請參閱 [Azure SQL Database 資料集屬性](connector-azure-sql-database.md#dataset-properties)。
 
-您可以定義資料集來代表 Azure SQL Database 中的接收資料。 此資料集會參考您在前一個步驟中建立的 Azure SQL Database 連結服務。 它也會指定 SQL 資料表，其中保存已複製的資料。 
+您可以定義資料集來代表 Azure SQL Database 中的接收資料。 此資料集會參考您在前一個步驟中建立的 Azure SQL Database 連結服務。 它也會指定 SQL 資料表，其中保存已複製的資料。
 
 ```csharp
 // Create an Azure SQL Database dataset
@@ -416,14 +416,14 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(
         resourceGroup, dataFactoryName, runResponse.RunId, filterParams
     );
- 
+
     if (pipelineRun.Status == "Succeeded")
     {
         Console.WriteLine(queryResponse.Value.First().Output);
     }
     else
         Console.WriteLine(queryResponse.Value.First().Error);
-    
+
     Console.WriteLine("\nPress any key to exit...");
     Console.ReadKey();
     ```
@@ -564,7 +564,7 @@ Press any key to exit...
 
 ## <a name="next-steps"></a>後續步驟
 
-在此範例中的管線會將資料從 Azure Blob 儲存體中的一個位置複製到其他位置。 您已了解如何︰ 
+在此範例中的管線會將資料從 Azure Blob 儲存體中的一個位置複製到其他位置。 您已了解如何︰
 
 > [!div class="checklist"]
 > * 建立資料處理站。
@@ -574,7 +574,7 @@ Press any key to exit...
 > * 啟動管線執行。
 > * 監視管線和活動執行。
 
-進入下列教學課程，以了解如何將資料從內部部署複製到雲端： 
+進入下列教學課程，以了解如何將資料從內部部署複製到雲端：
 
 > [!div class="nextstepaction"]
 >[將資料從內部部署複製到雲端](tutorial-hybrid-copy-powershell.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cb21291d4beb9fbba27a56089f13bd0363604eab
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f393ab23df49751efbbcb3d70314b2ac404a8b77
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686711"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981821"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>使用保留容量將 Blob 儲存體的成本優化
 
@@ -21,7 +21,7 @@ ms.locfileid: "73686711"
 
 Azure 儲存體保留容量可以大幅降低區塊 blob 和 Azure Data Lake Storage Gen2 資料的容量成本。 節省的成本取決於您的保留期間、您選擇保留的總容量，以及您為儲存體帳戶選擇的「存取層」和「冗余」類型。 保留容量會提供計費折扣，且不會影響 Azure 儲存體資源的狀態。
 
-如需 Azure 儲存體保留定價的詳細資訊，請參閱[區塊 blob 定價](https://azure.microsoft.com/pricing/details/storage/blobs/)和[Azure Data Lake Storage Gen 2 定價](https://azure.microsoft.com/pricing/details/storage/data-lake/)。
+如需 Azure 儲存體保留定價的詳細資訊，請參閱[區塊 Blob 定價](https://azure.microsoft.com/pricing/details/storage/blobs/)和 [Azure Data Lake Storage Gen 2 定價](https://azure.microsoft.com/pricing/details/storage/data-lake/)。
 
 ## <a name="reservation-terms-for-azure-storage"></a>Azure 儲存體的保留條款
 
@@ -66,7 +66,7 @@ Azure 儲存體保留容量適用于標準儲存體帳戶中的資源，包括�
 
 您可以透過[Azure 入口網站](https://portal.azure.com)購買 Azure 儲存體保留容量。 預先支付保留期，或按月付款。 如需以每月付款購買的詳細資訊，請參閱[購買預付期或每月付款的 Azure 保留](/azure/billing/billing-monthly-payments-reservations)。
 
-如需識別適合您案例之保留條款的協助，請參閱[瞭解 Azure 儲存體保留容量折扣](../../billing/billing-understand-storage-charges.md)。
+如需識別適合您案例之保留條款的協助，請參閱[瞭解 Azure 儲存體保留容量折扣](../../cost-management-billing/reservations/understand-storage-charges.md)。
 
 請遵循下列步驟來購買保留容量：
 
@@ -101,7 +101,7 @@ Azure 儲存體保留容量適用于標準儲存體帳戶中的資源，包括�
 
 若要交換或退款保留，請流覽至 Azure 入口網站中的保留詳細資料。 選取 [ **Exchange** ] 或 [**退款**]，並遵循指示提交支援要求。 處理要求之後，Microsoft 會傳送電子郵件給您，以確認要求完成。
 
-如需 Azure 保留原則的詳細資訊，請參閱[Azure 保留的自助交換和退款](../../billing/billing-azure-reservations-self-service-exchange-and-refund.md)。
+如需 Azure 保留原則的詳細資訊，請參閱[Azure 保留的自助交換和退款](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)。
 
 ### <a name="exchange-a-reservation"></a>交換保留
 
@@ -121,11 +121,11 @@ Azure 儲存體保留容量適用于標準儲存體帳戶中的資源，包括�
 
 您會在保留期限前30天收到電子郵件通知，並在到期日再次出現。 若要繼續利用保留所提供的節省成本，請在到期日之後續訂。
 
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
+## <a name="need-help-contact-us"></a>需要協助嗎？ 連絡我們
 
 如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [什麼是 Azure 保留項目？](../../billing/billing-save-compute-costs-reservations.md)
-- [瞭解保留折扣如何套用至 Azure 儲存體](../../billing/billing-understand-storage-charges.md)
+- [什麼是 Azure 保留項目？](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [瞭解保留折扣如何套用至 Azure 儲存體](../../cost-management-billing/reservations/understand-storage-charges.md)

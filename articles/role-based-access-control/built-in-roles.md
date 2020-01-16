@@ -15,12 +15,12 @@ ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 00d4487abed97084976d81ee1ec78316fc688193
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 17a1f2c245e19afbf4d8c5092a0ddf0562a7cb0e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851378"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979331"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 
@@ -34,7 +34,7 @@ ms.locfileid: "74851378"
 
 
 > [!div class="mx-tableFixed"]
-> | 內建角色 | 描述 | 識別碼 |
+> | 內建角色 | 說明 | Id |
 > | --- | --- | --- |
 > | [擁有者](#owner) | 可讓您管理一切，包括對資源的存取。 | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | [參與者](#contributor) | 除了授與資源的存取權之外，還可讓您管理所有專案。 | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -1242,7 +1242,7 @@ ms.locfileid: "74851378"
 > | Microsoft.ClassicNetwork/virtualNetworks/join/action | 加入虛擬網路。 |
 > | Microsoft.ClassicNetwork/virtualNetworks/read | 取得虛擬網路。 |
 > | Microsoft.ClassicStorage/storageAccounts/disks/read | 傳回儲存體帳戶磁碟。 |
-> | Microsoft.ClassicStorage/storageAccounts/images/read | 傳回儲存體帳戶映像。 (已被取代。 使用 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
+> | Microsoft.ClassicStorage/storageAccounts/images/read | 傳回儲存體帳戶映像。 (已淘汰。 使用 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | 列出儲存體帳戶的存取金鑰。 |
 > | Microsoft.ClassicStorage/storageAccounts/read | 傳回具有給定帳戶的儲存體帳戶。 |
 > | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
@@ -3153,6 +3153,6 @@ ms.locfileid: "74851378"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [將資源提供者與服務比對](../azure-resource-manager/azure-services-resource-providers.md)
+- [將資源提供者與服務比對](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [適用於 Azure 資源的自訂角色](custom-roles.md)
 - [Azure 資訊安全中心的權限](../security-center/security-center-permissions.md)

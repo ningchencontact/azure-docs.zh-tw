@@ -2,19 +2,19 @@
 title: 轉譯雲端中的場景 - Azure Batch
 description: 教學課程 - 如何使用 Batch 轉譯服務和 Azure 命令列介面，透過 Arnold 轉譯 Autodesk 3ds Max 場景
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: tutorial
 ms.date: 12/11/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 28914244f7ea84ec133821d4b125cbd3b0378348
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: e63bd26ec226cfeba1c11570b085fd88570fbb2d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272341"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029188"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教學課程：使用 Azure Batch 轉譯場景 
 
@@ -29,7 +29,7 @@ Azure Batch 提供了按使用次數付費的雲端規模轉譯功能。 Azure B
 
 在本教學課程中，您會使用 [Arnold](https://www.autodesk.com/products/arnold/overview) 光線追蹤轉譯器，透過 Batch 轉譯 3ds Max 場景。 Batch 集區會使用 Azure Marketplace 映像，其中包含提供即用即付授權的預先安裝圖表與轉譯應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 您需要隨用隨付訂用帳戶或其他 Azure 購買選項，以按使用量付費的方式，在 Batch 中使用轉譯應用程式。 **如果您使用提供信用額度金額的免費 Azure 方案，則不支援按使用量付費授權。**
 
@@ -96,7 +96,7 @@ az storage container create \
     --name scenefiles
 ```
 
-從 [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) 將 `MotionBlur-Dragon-Flying.max` 場景下載到本機工作目錄。 例如︰
+從 [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) 將 `MotionBlur-Dragon-Flying.max` 場景下載到本機工作目錄。 例如：
 
 ```azurecli-interactive
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
@@ -186,7 +186,7 @@ se=2020-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ## <a name="render-a-single-frame-scene"></a>轉譯單一框架場景
 
-### <a name="create-a-job"></a>建立工作
+### <a name="create-a-job"></a>建立作業
 
 使用 [az batch job create](/cli/azure/batch/job#az-batch-job-create) 命令建立要在集區上執行的轉譯作業。 一開始作業沒有任何工作。
 
@@ -301,7 +301,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>檢視工作輸出
 
-此工作需花費數分鐘的時間來執行。 使用 [az batch task list](/cli/azure/batch/task#az-batch-task-list) 命令來檢視工作的狀態。 例如︰
+此工作需花費數分鐘的時間來執行。 使用 [az batch task list](/cli/azure/batch/task#az-batch-task-list) 命令來檢視工作的狀態。 例如：
 
 ```azurecli-interactive
 az batch task list \
@@ -309,7 +309,7 @@ az batch task list \
     --output table
 ```
 
-使用 [az batch task show](/cli/azure/batch/task#az-batch-task-show) 命令來檢視個別工作的詳細資訊。 例如︰
+使用 [az batch task show](/cli/azure/batch/task#az-batch-task-show) 命令來檢視個別工作的詳細資訊。 例如：
 
 ```azurecli-interactive
 az batch task show \
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-此工作會在計算節點上產生名為 dragon0002.jpg   - dragon0007.jpg  的輸出檔案，並將它們上傳至您儲存體帳戶中的 job-myrenderjob  容器。 若要檢視輸出，請使用 [az storage blob download-batch](/cli/azure/storage/blob) 命令，將檔案下載到本機電腦上的資料夾。 例如︰
+此工作會在計算節點上產生名為 dragon0002.jpg   - dragon0007.jpg  的輸出檔案，並將它們上傳至您儲存體帳戶中的 job-myrenderjob  容器。 若要檢視輸出，請使用 [az storage blob download-batch](/cli/azure/storage/blob) 命令，將檔案下載到本機電腦上的資料夾。 例如：
 
 ```azurecli-interactive
 az storage blob download-batch \

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 61436b4317e85b67387a75e87c31a1c6cd13d84f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 8aaf5f5fbcabf3476284f0d5e9f4f50ef3e92bd6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895401"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891626"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>快速入門：使用 Maven 外掛程式啟動 Azure Spring Cloud 應用程式
 
@@ -27,7 +27,7 @@ ms.locfileid: "74895401"
 > * 為您的應用程式指派公用端點
 
 >[!Note]
-> Azure Spring Cloud 目前提供公開預覽版。 公開預覽版供應項目可讓客戶在其正式發行前，先試驗新功能。  公開預覽功能和服務不適用於生產環境。  如需有關預覽期間支援的詳細資訊，請參閱我們的[常見問題集](https://azure.microsoft.com/support/faq/)或提出[支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)以深入了解。
+> Azure Spring Cloud 目前提供公開預覽版。 公開預覽版供應項目可讓客戶在其正式發行前，先試驗新功能。  公開預覽功能和服務不適用於生產環境。  如需有關預覽期間支援的詳細資訊，請參閱我們的[常見問題集](https://azure.microsoft.com/support/faq/)或提出[支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)以深入了解。
 
 
 >[!TIP]
@@ -57,6 +57,9 @@ ms.locfileid: "74895401"
 
 部署服務需要約 5 分鐘。 部署服務之後，選取 [前往資源]  ，服務執行個體的 [概觀]  頁面隨即出現。
 
+> [!div class="nextstepaction"]
+> [我遇到問題](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=provision)
+
 ## <a name="set-up-your-configuration-server"></a>設定您的設定伺服器
 
 1. 在服務的 [概觀]  頁面上選取 [設定伺服器]  。
@@ -64,6 +67,9 @@ ms.locfileid: "74895401"
 
     > [!div class="mx-imgBorder"]
     > ![定義並套用組態設定](media/maven-qs-apply-config.jpg)
+
+> [!div class="nextstepaction"]
+> [我遇到問題](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=config-server)
 
 ## <a name="clone-and-build-the-sample-application-repository"></a>複製並建置範例應用程式存放庫
 
@@ -105,6 +111,9 @@ ms.locfileid: "74895401"
    ```
 
 1. 部署完成後，您可以使用上述命令輸出中提供的 URL 存取 PiggyMetrics。
+
+> [!div class="nextstepaction"]
+> [我遇到問題](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=deploy)
 
 ## <a name="next-steps"></a>後續步驟
 

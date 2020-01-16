@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 63a77a4f715402951ba8af70755196d52e3b742d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3e52f88136517339139bebd17dea929ac02201e3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492391"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982019"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>設定用於 Team Data Science Process 中的資料科學環境
 Team Data Science Process 使用各種資料科學環境來儲存、處理和分析資料。 他們包含 Azure Blob 儲存體、數種類型的 Azure 虛擬機器、HDInsight (Hadoop) 叢集，以及 Azure Machine Learning 工作區。 要使用哪一個環境，取決於要進行模型化的資料類型和數量，以及該資料在雲端中的目標目的地。 
@@ -26,7 +26,7 @@ Team Data Science Process 使用各種資料科學環境來儲存、處理和分
 
 下列文章說明如何設定 Team Data Science Process 所用的各種資料科學環境。
 
-* [Azure 儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)
+* [Azure 儲存體帳戶](../../storage/common/storage-account-create.md)
 * [HDInsight (Hadoop) 叢集](customize-hadoop-cluster.md)
 * [Azure Machine Learning Studio （傳統）工作區](../studio/create-workspace.md)
 

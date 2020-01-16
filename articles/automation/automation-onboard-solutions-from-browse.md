@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 188306ca02cee05f17514826ae6d973a17e6bb97
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 385806dca7dcac9fd0aac4c1bf9e1072e7fe5ecb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421866"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979480"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>在多個 VM 上啟用更新管理、變更追蹤和清查解決方案
 
@@ -41,7 +41,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ### <a name="resource-group-limit"></a> 上線限制
 
-您可用於上線的資源群組數目受限於 [Resource Manager 部署限制](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md)。 Resource Manager 部署，而不會與更新部署混淆，每個部署的資源群組限制為5個。 為了確保上線的完整性，系統會保留其中 2 個資源群組來設定 Log Analytics 工作區、自動化帳戶和相關資源。 這讓您有 3 個資源群組可選取以供部署。 此限制僅適用于同時上線，而不是可由自動化解決方案管理的資源群組數目。
+您可用於上線的資源群組數目受限於 [Resource Manager 部署限制](../azure-resource-manager/templates/cross-resource-group-deployment.md)。 Resource Manager 部署，而不會與更新部署混淆，每個部署的資源群組限制為5個。 為了確保上線的完整性，系統會保留其中 2 個資源群組來設定 Log Analytics 工作區、自動化帳戶和相關資源。 這讓您有 3 個資源群組可選取以供部署。 此限制僅適用于同時上線，而不是可由自動化解決方案管理的資源群組數目。
 
 您也可以使用 runbook 來進行上架。如需詳細資訊，請參閱將[更新與變更追蹤解決方案上架到 Azure 自動化](automation-onboard-solutions.md)。
 

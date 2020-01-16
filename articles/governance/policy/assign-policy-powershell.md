@@ -3,12 +3,12 @@ title: 快速入門：使用 PowerShell 進行新原則指派
 description: 在本快速入門中，使用 Azure PowerShell 建立 Azure 原則指派，以識別不符合規範的資源。
 ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 3ce823a7abfe16e4433128dcdfe073dfcfaeba50
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 3fd6060d1f38c523ccf22e80807f6220bfdf3cbc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482395"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978299"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立 Azure 原則指派，以識別不相容資源
 
@@ -17,7 +17,7 @@ ms.locfileid: "74482395"
 Azure PowerShell 模組可用來從命令列或在指令碼中管理 Azure 資源。
 本指南說明如何使用 Az 模組建立原則指派。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -30,7 +30,7 @@ Azure PowerShell 模組可用來從命令列或在指令碼中管理 Azure 資�
   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
-  如需註冊及檢視資源提供者的詳細資訊，請參閱[資源提供者和類型](../../azure-resource-manager/resource-manager-supported-services.md)。
+  如需註冊及檢視資源提供者的詳細資訊，請參閱[資源提供者和類型](../../azure-resource-manager/management/resource-providers-and-types.md)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

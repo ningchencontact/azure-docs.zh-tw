@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 64a5892226b90019f175308b5984dc0a0108e226
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 22060cc6dd5eb15e81a0c397a7b0255f16780d74
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162241"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976503"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中對實驗室新增 VM
 如果您已經[建立您的第一個 VM](tutorial-create-custom-lab.md#add-a-vm-to-the-lab)，您很有可能是透過預先載入的 [Marketplace 映像](devtest-lab-configure-marketplace-images.md)來完成的。 現在，如果您想要將後續的 VM 新增至您的實驗室，您也可以選擇一個「基底」，它可以是[自訂映像](devtest-lab-create-template.md)或[公式](devtest-lab-manage-formulas.md)。 本教學課程會逐步引導您使用 Azure 入口網站，在 DevTest Labs 中對實驗室新增 VM。
@@ -46,7 +46,7 @@ ms.locfileid: "70162241"
         您可以也先將祕密儲存在金鑰保存庫中，然後在實驗室中建立 VM 時使用此祕密。 如需詳細資訊，請參閱[在金鑰保存庫中儲存祕密](devtest-lab-store-secrets-in-key-vault.md)。 若要使用儲存在金鑰保存庫中的密碼，請選取 [使用儲存的祕密]，並指定與祕密 (密碼) 對應的金鑰值。
     4. 在 [更多選項] 區段中，選取 [變更大小]。 選取其中一個預先定義的項目，以指定要建立之 VM 的處理器核心、RAM 大小及硬碟大小。
     5. 選取 [新增或移除成品]。 選取並設定您想要新增到基底映像中的成品。
-    **注意：** 如果您對 DevTest Labs 或設定構件並不熟悉，請參閱[將現有的構件加入至 VM](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) 一節，完成該節之後再返回此處。
+    **附註：** 如果您對 DevTest Labs 或設定構件並不熟悉，請參閱[將現有的構件加入至 VM](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) 一節，完成該節之後再返回此處。
 2. 切換至頂端的 [進階設定] 索引標籤，然後執行下列動作：
     1. 若要變更 VM 所在的虛擬網路，請選取 [變更 VNet]。
     2. 若要變更子網路，請選取 [變更子網路]。
@@ -91,7 +91,7 @@ ms.locfileid: "70162241"
 1. 在 [套用構件] 窗格頂端，選取會指出已新增至 VM 之構件數目的連結。
 
     ![新增至 VM 的構件數目](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. 在 [選取的構件] 窗格中，將構件拖放到所需的順序。 **注意：** 如果您在拖曳成品時發生問題，請確定您是從成品左側進行拖曳。
+1. 在 [選取的構件] 窗格中，將構件拖放到所需的順序。 **附註︰** 如果您在拖曳構件時發生問題，請確定您是從構件左側進行拖曳。
 1. 完成時選取 [確定] 。
 
 ## <a name="view-or-modify-an-artifact"></a>檢視或修改構件
@@ -107,7 +107,7 @@ ms.locfileid: "70162241"
 ## <a name="save-azure-resource-manager-template"></a>儲存 Azure Resource Manager 範本
 Azure Resource Manager 範本提供宣告式方法來定義可重複的部署。
 下列步驟說明如何為建立的 VM 儲存 Azure Resource Manager 範本。
-儲存之後，您便可以使用 Azure Resource Manager 範本[透過 Azure PowerShell 部署新的 VM](../azure-resource-manager/template-deployment-overview.md)。
+儲存之後，您便可以使用 Azure Resource Manager 範本[透過 Azure PowerShell 部署新的 VM](../azure-resource-manager/templates/overview.md)。
 
 1. 在 [虛擬機器] 窗格中，選取 [檢視 Azure Resource Manager 範本]。
 2. 在 [檢視 Azure Resource Manager 範本] 窗格中，選取範本文字。

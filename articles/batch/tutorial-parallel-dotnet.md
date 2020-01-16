@@ -2,21 +2,21 @@
 title: 執行平行工作負載 - Azure Batch .NET
 description: 教學課程 - 使用 Batch .NET 用戶端程式庫透過 Azure Batch 中的 ffmpeg 平行進行媒體檔案轉碼
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 103d09da3fedf9c31d4e5255456e63cab34bc0ee
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 6f12f54e510cb07fcf522d2fd5e2e83fce4dfa96
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258589"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029254"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>教學課程：使用 .NET API 透過 Azure Batch 執行平行工作負載
 
@@ -35,7 +35,7 @@ ms.locfileid: "70258589"
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * 適用於 Linux、macOS 或 Windows 的 [Visual Studio 2017 或更新版本](https://www.visualstudio.com/vs) \(英文\)，或 [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) \(英文\)。
 
@@ -45,7 +45,7 @@ ms.locfileid: "70258589"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 
 ## <a name="add-an-application-package"></a>新增應用程式套件
 
@@ -71,7 +71,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 瀏覽至包含 Visual Studio 方案檔 `BatchDotNetFfmpegTutorial.sln` 的目錄。
 
-在 Visual Studio 中開啟方案檔，然後使用您為帳戶取得的值來更新 `Program.cs` 中的認證字串。 例如︰
+在 Visual Studio 中開啟方案檔，然後使用您為帳戶取得的值來更新 `Program.cs` 中的認證字串。 例如：
 
 ```csharp
 // Batch account credentials
@@ -175,8 +175,8 @@ CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 
 上傳檔案時需要 `Program.cs` 中的兩個方法：
 
-* `UploadFilesToContainerAsync`：傳回 ResourceFile 物件的集合，並在內部呼叫 `UploadResourceFileToContainerAsync` 以上傳在 `inputFilePaths` 參數中傳入的每個檔案。
-* `UploadResourceFileToContainerAsync`：將每個檔案當作 blob 上傳至輸入容器。 上傳檔案之後，它會取得此 blob 的共用存取簽章 (SAS) 並傳回代表它的 ResourceFile 物件。
+* `UploadFilesToContainerAsync`:傳回 ResourceFile 物件的集合，並在內部呼叫 `UploadResourceFileToContainerAsync` 以上傳在 `inputFilePaths` 參數中傳入的每個檔案。
+* `UploadResourceFileToContainerAsync`:將每個檔案當作 blob 上傳至輸入容器。 上傳檔案之後，它會取得此 blob 的共用存取簽章 (SAS) 並傳回代表它的 ResourceFile 物件。
 
 ```csharp
 string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
@@ -230,7 +230,7 @@ pool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await pool.CommitAsync();  
 ```
 
-### <a name="create-a-job"></a>建立工作
+### <a name="create-a-job"></a>建立作業
 
 Batch 工作會指定要在其中執行工作的集區及選擇性設定，例如工作的優先順序和排程。 此範例會藉由呼叫 `CreateJobAsync` 來建立作業。 這個已定義的方法會使用 [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) 方法在您的集區上建立作業。
 

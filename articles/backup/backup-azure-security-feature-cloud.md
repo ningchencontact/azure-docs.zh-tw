@@ -3,12 +3,12 @@ title: 協助保護雲端工作負載的安全性功能
 description: 瞭解如何使用 Azure 備份中的安全性功能，讓備份更加安全。
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: e3da4778a82cd5eb50fbb82c7f9f00cf6c6f1a85
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: e4519a342e1be3244b5d4598880e9ad490f50030
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829624"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028201"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>協助保護使用 Azure 備份之雲端工作負載的安全性功能
 
@@ -251,7 +251,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 ### <a name="backup-of-managed-disk-vm-encrypted-using-customer-managed-keys"></a>使用客戶管理的金鑰進行加密的受控磁片 VM 備份
 
-Azure 備份可讓您備份 Azure 虛擬機器，其中包含使用客戶管理的金鑰加密的磁片。 如需詳細資訊，請參閱[使用客戶管理的金鑰來加密受控磁片](https://docs.microsoft.com//azure/virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview)。
+Azure 備份可讓您備份 Azure 虛擬機器，其中包含使用客戶管理的金鑰加密的磁片。 如需詳細資訊，請參閱[使用客戶管理的金鑰來加密受控磁片](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys)。
 
 ### <a name="backup-of-encrypted-vms"></a>備份已加密的 Vm
 

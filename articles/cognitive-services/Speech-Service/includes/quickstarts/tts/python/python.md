@@ -3,21 +3,21 @@ title: 快速入門：合成語音，Python - 語音服務
 titleSuffix: Azure Cognitive Services
 description: 了解如何使用語音 SDK 以 Python 合成語音
 services: cognitive-services
-author: yulin-li
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 09/14/2019
-ms.author: yulili
-ms.openlocfilehash: 990e795d0331df41ff098ed498508d6ecfd58f0e
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 19/14/2020
+ms.author: dapine
+ms.openlocfilehash: 7be9037ddfd19d82263b37fe0b824e3c2b3f5078
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818476"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76037519"
 ---
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始之前，請務必：
 
@@ -25,21 +25,20 @@ ms.locfileid: "74818476"
 > * [建立 Azure 語音資源](../../../../get-started.md)
 > * [設定開發環境](../../../../quickstarts/setup-platform.md)
 > * [建立空的範例專案](../../../../quickstarts/create-project.md)
-```
 
-## Support and updates
+## <a name="support-and-updates"></a>支援及更新
 
-Updates to the Speech SDK Python package are distributed via PyPI and announced in the [Release notes](~/articles/cognitive-services/Speech-Service/releasenotes.md).
-If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
-Check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable.
+語音 SDK Python 套件的更新會透過 PyPI 散發，並在[版本資訊](~/articles/cognitive-services/Speech-Service/releasenotes.md)上宣佈。
+如果有新版本可用，您可以使用 `pip install --upgrade azure-cognitiveservices-speech` 命令來更新至該版本。
+請檢查 `azure.cognitiveservices.speech.__version__` 變數來確認目前所安裝的版本。
 
-If you have a problem, or you're missing a feature, see [Support and help options](~/articles/cognitive-services/Speech-Service/support.md).
+如果您有問題或缺少功能，請參閱[支援和協助選項](~/articles/cognitive-services/Speech-Service/support.md)。
 
-## Create a Python application that uses the Speech SDK
+## <a name="create-a-python-application-that-uses-the-speech-sdk"></a>建立使用語音 SDK 的 Python 應用程式
 
-### Run the sample
+### <a name="run-the-sample"></a>執行範例
 
-You can copy the [sample code](#sample-code) from this quickstart to a source file `quickstart.py` and run it in your IDE or in the console:
+您可以將本快速入門中的[程式碼範例](#sample-code)複製到原始程式檔 `quickstart.py`，並在您的 IDE 或主控台中執行它：
 
 ```sh
 python quickstart.py
@@ -70,7 +69,7 @@ python quickstart.py
 
 1. 將 [Python 程式碼](#sample-code)複製並貼上到新建立的檔案中，然後儲存它。
 1. 插入您的語音服務訂用帳戶資訊。
-1. 如果已經選取，Python 解譯器會顯示在視窗底部狀態列的左側。
+1. 如果已經選取，Python 直譯器會顯示在視窗底部狀態列的左側。
    否則，會顯示可用 Python 直譯器的清單。 開啟命令選擇區 (Ctrl+Shift+P)，然後輸入 **Python:Select Interpreter**。 選擇適當的解譯器。
 1. 您可以從 Visual Studio Code 內安裝語音 SDK Python 套件。 如果您選取的 Python 直譯器尚未安裝該套件，請按照以下步驟安裝。
    若要安裝語音 SDK 套件，請開啟終端機。 再次開啟命令選擇區 (Ctrl+Shift+P)，然後輸入 **Terminal:Create New Integrated Terminal** 來開啟終端機。

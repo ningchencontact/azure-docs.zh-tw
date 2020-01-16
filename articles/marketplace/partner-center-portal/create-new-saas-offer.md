@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 1df30b25d2029ba31525eaea232d258bbb134366
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/13/2020
+ms.openlocfilehash: c39f41af8ed2f1e25064324c0e1da4a6603face8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863800"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045525"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應專案
 
@@ -167,7 +167,7 @@ SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消
 
 ### <a name="category"></a>類別
 
-選取最少一個（1）和最多三個（3）分類，用來將您的供應專案分組至適當的 marketplace 搜尋區域。 請在供應專案描述中，打電話給您的供應專案如何支援這些類別。 
+選取最少一個（1）和最多三個（3）分類，用來將您的供應專案分組至適當的 marketplace 搜尋區域。 在供應專案描述中，打電話給您的供應專案如何支援這些類別。
 
 ### <a name="industry"></a>產業
 
@@ -175,7 +175,7 @@ SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消
 
 ### <a name="app-version"></a>應用程式版本
 
-這是在 AppSource marketplace 中用來識別供應專案版本號碼的選擇性欄位。
+這是選擇性欄位，可在 AppSource marketplace 中用來識別供應專案的版本號碼。
 
 ### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Microsoft 商業 marketplace 的標準合約
 
@@ -204,12 +204,12 @@ Microsoft 提供標準合約範本。
 >[!NOTE]
 > 這兩種類型的改正堆疊在彼此之上。 以自訂修訂為目標的客戶，也會在購買期間取得標準合約的通用修訂。
 
-**Microsoft 商業 Marketplace 標準合約的通用修訂條款**：請在此方塊中輸入通用修訂條款。 您可以提供每個供應專案的單一通用修訂。 您可以在此方塊中輸入不限數目的字元。 這些會在探索和購買流程期間，向客戶顯示在 AppSource、Azure Marketplace 和/或 Azure 入口網站中。
+**Microsoft 商業 Marketplace 標準合約的通用修訂條款**：請在此方塊中輸入通用修訂條款。 您可以提供每個供應專案的單一通用修訂。 您可以在此方塊中輸入不限數目的字元。 這些條款會向客戶顯示在探索和購買流程期間的 AppSource、Azure Marketplace 和/或 Azure 入口網站。
 
 **Microsoft 商業 Marketplace 標準合約的自訂修訂條款**：從選取 [**新增自訂修訂條款**] 開始。 每個供應專案最多可提供10個自訂修訂條款。
 
 - **自訂修訂條款**：在 [自訂修訂條款] 方塊中輸入您的自訂修訂條款。 您可以在此方塊中輸入不限數目的字元。 只有來自您為這些自訂條款指定之租使用者識別碼的客戶，才會在 Azure 入口網站中提供供應專案購買流程中的自訂修訂條款。  
-- **租使用者識別碼**（必要）：每個自訂修訂的目標最多可達20個租使用者識別碼。 如果您新增自訂修訂，則必須至少提供一個租使用者識別碼。 租使用者識別碼會識別您在 Azure 中的客戶。 您可以向您的客戶要求此識別碼，他們可以流覽至 portal.azure.com > Azure Active Directory > 內容來找到它。 目錄識別碼值是租使用者識別碼（例如50c464d3-4930-494c-963c-1e951d15360e）。 您也可以在 [[我的 Microsoft Azure 和 Office 365 租使用者識別碼為何？](https://www.whatismytenantid.com)] 中，使用其功能變數名稱 URL 來查詢組織的租使用者識別碼。
+- **租使用者識別碼**（必要）：每個自訂修訂的目標最多可達20個租使用者識別碼。 如果您新增自訂修訂，則必須至少提供一個租使用者識別碼。 租使用者識別碼會識別您在 Azure 中的客戶。 您可以向您的客戶要求此識別碼，他們可以流覽至 portal.azure.com > Azure Active Directory > 內容來找到它。 目錄識別碼值是租使用者識別碼（例如，50c464d3-4930-494c-963c-1e951d15360e）。 您也可以在 [[我的 Microsoft Azure 和 Office 365 租使用者識別碼為何？](https://www.whatismytenantid.com)] 中，使用其功能變數名稱 URL 來查詢組織的租使用者識別碼。
 - **描述**（選擇性）：選擇性地提供租使用者識別碼的易記描述，以協助您識別目標為修訂的客戶。
 
 #### <a name="terms-and-conditions"></a>條款及條件
@@ -231,7 +231,7 @@ Microsoft 提供標準合約範本。
 
 提供要顯示在 marketplace 中的詳細資料，包括供應專案和行銷資產的說明。
 
-- **名稱**（必要）：此處定義的名稱會顯示為您所選 marketplace 上您供應專案清單的標題。 系統會根據您先前的**新供應**專案，預先填入名稱。  這可能是商標的。  這不能包含 emoji （除非它們是商標和著作權符號），而且必須限制為50個字元。
+- **名稱**（必要）：此處定義的名稱會顯示為您所選 marketplace 上您供應專案清單的標題。 系統會根據您先前的**新供應**專案，預先填入名稱。 名稱可能是商標。 它不能包含 emoji （除非它們是商標和著作權符號），而且必須限制為50個字元。
 - **摘要**（必要）：提供您供應專案的簡短描述，以用於 marketplace 清單搜尋結果。 最多可以在此欄位中輸入100個字元的文字。
 - **描述**（必要）：提供您供應專案的描述，以顯示在 marketplace 清單總覽中。 請考慮包含價值主張、主要優點、任何類別或產業關聯、應用程式內購買機會、任何必要的公開，以及深入瞭解的連結。
 最多可以在此欄位中輸入3000個字元的文字。 如需其他秘訣，請參閱[撰寫絕佳的應用程式描述](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description)一文。
@@ -240,7 +240,7 @@ Microsoft 提供標準合約範本。
 
 #### <a name="description"></a>**說明**
 
-這是必要的欄位。 要包含在描述中的專案：
+此為必要欄位。 要包含在**描述**中的專案：
 
 * 在您的描述中的前幾個句子清楚描述您供應項目的價值主張。  
 * 請記住，前幾個句子可能會顯示在搜尋引擎結果中。  
@@ -253,76 +253,28 @@ Microsoft 提供標準合約範本。
 * 可從產品獲益的使用者類型。
 * 客戶需要或痛苦的產品位址。
 
-若要讓您的供應專案描述更吸引人，您可以使用 HTML 標籤來設定描述的格式。
+若要讓您的供應專案**描述**更吸引人，請使用 rtf 編輯器來格式化您的描述。
 
-1. 如果您想要建立段落，請將 `<p>` 新增至文字的乞求，並在結尾加入 `</p>`。
+![使用 rich 文字編輯器](./media/text-editor2.png)
 
-    **範例**：
+使用下列指示來使用 rich 文字編輯器：
 
-    `<p>` 這是我的第一個段落。 `</p>` <br>
-    `<p>` 這是我的第二段。 `</p>` <br>
+- 若要變更內容的格式，請反白顯示您想要格式化的文字，然後選取文字樣式，如下所示：
 
-    上述內容看起來像這樣：
+     ![使用 rich 文字編輯器來變更文字格式](./media/text-editor3.png)
 
-    <p> 這是我的第一個段落。 </p>
-    <p> 這是我的第二段。 </p>
+- 若要將專案符號或編號清單新增至文字，請使用下列選項：
 
-1. 如果您想要新增專案的點**符清單**，請將您的文字放在下方的 `<li>` 標籤中。 您可以在 `<ul>` 和 `</ul>` 標記中，複製並貼上更多點符專案（`<li>` 與 `</li>` 標記之間的專案）。 請確定您已新增 `<ul></ul>`。
+     ![使用 rich 文字編輯器加入清單](./media/text-editor4.png)
 
-    **範例**：
+- 若要新增或移除文字的縮排，請使用下列選項：
 
-    ```
-    <ul> 
-        <li>add text here</li>
-        <li> add text here </li>
-        <li> add text here </li>
-    </ul>
-    ```
-
-    上述內容看起來像這樣：
-    <ul> 
-        <li>在此加入文字</li>
-        <li> 在此加入文字 </li>
-        <li> 在此加入文字 </li>
-    </ul> 
-
-1. 若要以**粗體顯示**內容，請在您想要以粗體顯示的文字開頭新增 `<b>`，並在您想要以粗體顯示的文字結尾處新增 `</b>`。
-
-    **範例**： `<b>` 免費試用 `</b>`
-    
-    上述專案會導致店面中的供應專案描述中的「免費試用」字樣為粗體。
-
-    **免費試用**
-
-1. 若要在您的內容之間新增**分行符號**，請在您想要在新行上啟動的內容之前新增 `<br>`。 如果您想要保留一個空格，並確定內容是從新的一行開始，請在內容之前新增 `<br><br>`。
-
-    **範例**：
-
-    這是文字行。 `<br>` 這是將在新行中啟動的文字行。 `<br><br>` 這行程式碼會在下面兩行開始。
-
-    上述內容看起來像這樣：
-
-    這是文字行。 <br> 這是將在新行中啟動的文字行。 <br><br> 這是將在下面兩行開頭的一行。
-
-1. 如果您想要**增加文字的大小**，請先選擇文字要多大。 使用下列範例。 選取文字大小之後，請將對應的 `<H*></H*>` 標記加入至文字的開頭和結尾。
-
-    **範例**：
-
-    `<h1>`這是標題 1`</h1>` <br>
-    `<h2>`這是標題 2`</h2>` <br>
-    `<h3>`這是標題 3`</h3>` <br>
-    `<h4>`這是標題 4`</h4>` <br>
-    `<h5>`這是標題 5`</h5>` <br>
-    `<h6>`這是標題 6`</h6>` 
-
-    上述內容看起來像這樣：
-
-    ![範例標題](./media/heading.png)
+     ![使用 rich 文字編輯器縮排](./media/text-editor5.png)
 
 #### <a name="links"></a>連結
 
 - **隱私權原則**（必要）：連結至貴組織的隱私權原則。 貴使用者必須負責確保您的應用程式符合隱私權法律和法規，以及提供有效的隱私權原則
-- **CSP 計畫行銷**資料（選擇性）：如果您選擇將您的供應專案延伸至[雲端解決方案提供者（CSP）](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)方案，您必須提供行銷資料的連結。 CSP 藉由讓 CSP 合作夥伴組合、行銷及轉售您的供應專案，來將您的供應專案延伸至更廣泛的合格客戶。 這些轉銷商將需要存取行銷您供應專案的素材。 如需詳細資訊，請參閱[進入市場服務](https://partner.microsoft.com/reach-customers/gtm)。
+- **CSP 計畫行銷**資料（選擇性）：如果您選擇將您的供應專案延伸至[雲端解決方案提供者（CSP）](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)計畫，請提供行銷資料的連結。 CSP 藉由讓 CSP 合作夥伴組合、行銷及轉售您的供應專案，來將您的供應專案延伸至更廣泛的合格客戶。 這些轉銷商將需要存取行銷您供應專案的素材。 如需詳細資訊，請參閱[進入市場服務](https://partner.microsoft.com/reach-customers/gtm)。
 - **有用的連結**（選用）：提供**標題**和**URL**來列出您的應用程式或相關服務的選擇性補充線上檔。 按一下 [ **+ 新增 URL**] 來新增其他有用的連結。
 
 #### <a name="contact-information"></a>連絡人資訊
@@ -353,7 +305,7 @@ Microsoft 提供標準合約範本。
 [**預覽**] 索引標籤可讓您定義有限的**預覽物件**，以便在將您的供應專案即時發佈到更廣泛的 marketplace 物件之前發行供應專案。
 
 > [!IMPORTANT]
-> 您必須先**選取 [上線]** ，供應專案才會在預覽中核取您的供應專案之後，即時發佈給 marketplace 公用物件。
+> 在預覽您的供應專案之後，**請選取 [上線]** ，讓您的供應專案可以即時發佈給 marketplace 公用物件。
 
 - **定義預覽物件：每行新增一個 AAD/MSA 帳戶電子郵件，以及選擇性的描述。**
 
@@ -368,11 +320,11 @@ Microsoft 提供標準合約範本。
 
 - **登陸頁面 URL** （必要）：定義從 marketplace 取得您的供應專案之後，客戶將居住的網站 URL。 此 URL 會是當客戶路由傳送至頁面時，接收權杖的端點。 您可以在履行 Api 中使用 resolve，交換該權杖以提供布建詳細資料。 您所收集的這些詳細資料和任何其他專案，都可以用來作為您的經驗，以完成註冊並啟用其購買的客戶互動網頁的一部分。
 
-- **連接 webhook** （必要）：針對 Microsoft 需要代表客戶傳送給您的所有非同步事件（例如： SaaS 訂用帳戶已失效），我們會要求您提供連線 webhook。 如果您還沒有 webhook 系統，最簡單的設定就是讓 HTTP 端點邏輯應用程式接聽張貼的任何事件，然後適當地處理（例如 HTTPs：\//prod-1westus.logic.azure.com:443/work）。 如需詳細資訊，請參閱[在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)。
+- **連接 webhook** （必要）：針對 Microsoft 需要代表客戶傳送給您的所有非同步事件（例如： SaaS 訂用帳戶已失效），我們會要求您提供連線 webhook。 如果您還沒有 webhook 系統，最簡單的設定就是讓 HTTP 端點邏輯應用程式接聽張貼的任何事件，然後適當地處理（例如，HTTPs：\//prod-1westus.logic.azure.com:443/work）。 如需詳細資訊，請參閱[在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)。
 
-- **Azure AD 租使用者識別碼**（必要）：在 Azure 入口網站內，我們會要求您[建立 Azure Active Directory （AD）應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)，以便驗證這兩個服務之間的連線是在驗證通訊之後。 若要尋找[租使用者識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)，請移至您的 Azure Active Directory 並選取 [**屬性**]，然後尋找列出的**目錄識別碼**（例如50c464d3-4930-494c-963c-1e951d15360e）。
+- **Azure AD 租使用者識別碼**（必要）：在 Azure 入口網站內，我們會要求您[建立 Azure Active Directory （AD）應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)，以便驗證這兩個服務之間的連線是在驗證通訊之後。 若要尋找[租使用者識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)，請移至您的 Azure Active Directory 並選取 [**屬性**]，然後尋找列出的**目錄識別碼**（例如，50c464d3-4930-494c-963c-1e951d15360e）。
 
-- **Azure AD 應用程式識別碼**（必要）：您也需要[應用程式識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)和驗證金鑰。 若要取得這些值，請移至您的 Azure Active Directory 並選取 [**應用程式註冊**]，然後尋找所列的**應用程式識別碼**編號（例如50c464d3-4930-494c-963c-1e951d15360e）。 若要尋找驗證金鑰，請移至 [**設定**]，然後選取 [**金鑰**]。 您必須提供 [描述] 和 [持續時間]，然後才會提供數值。
+- **Azure AD 應用程式識別碼**（必要）：您也需要[應用程式識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)和驗證金鑰。 若要取得這些值，請移至您的 Azure Active Directory 並選取 [**應用程式註冊**]，然後尋找列出的**應用程式識別碼**（例如，50c464d3-4930-494c-963c-1e951d15360e）。 若要尋找驗證金鑰，請移至 [**設定**]，然後選取 [**金鑰**]。 您必須提供 [描述] 和 [持續時間]，然後才會提供數值。
 
 >[!Note]
 >Azure 應用程式識別碼會與您的發行者識別碼相關聯，因此請確定您的所有供應專案都使用相同的應用程式識別碼。
@@ -390,8 +342,8 @@ Microsoft 提供標準合約範本。
 
 **建立新方案**（選取要透過 Microsoft 銷售的人員的最少一個方案）
 
-- **方案識別碼：** 為此供應專案中的每個方案建立唯一的方案識別碼。 [產品 URL] 和 [Azure Resource Manager 範本] （如果適用）中的客戶會看到此識別碼。 僅使用小寫、英數位元、虛線或底線。 此方案識別碼最多可以有50個字元。 請注意，在選取 [建立] 之後，就無法修改識別碼。
-- **方案名稱：** 當決定要在您的供應專案內選取哪一個方案時，客戶會看到此名稱。 為此供應專案中的每個方案建立唯一的供應專案名稱。 方案名稱是用來區分可能屬於相同供應專案一部分的軟體方案（例如 供應專案名稱： Windows Server;方案： Windows Server 2016、Windows Server 2019）。
+- **方案識別碼：** 為此供應專案中的每個方案建立唯一的方案識別碼。 [產品 URL] 和 [Azure Resource Manager 範本] （如果適用）中的客戶會看到此識別碼。 僅使用小寫、英數位元、連字號或底線。 此方案識別碼最多可以有50個字元。 選取 [建立] 之後，就無法修改此識別碼。
+- **方案名稱：** 當決定要在您的供應專案內選取哪一個方案時，客戶會看到此名稱。 為此供應專案中的每個方案建立唯一的供應專案名稱。 方案名稱是用來區分可能屬於相同供應專案一部分的軟體方案（例如，供應專案名稱： Windows Server; 方案： Windows Server 2016、Windows Server 2019）。
 
 ### <a name="plan-listing"></a>計畫清單
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
 ms.author: allensu
-ms.openlocfilehash: b84ba055dd8214ae18e76004671e3922e6f3b878
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c87f9d51c69c4f4d330862e83e5cc8e8e849a988
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211452"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969012"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>如何保護 DNS 區域和記錄
 
@@ -20,7 +20,7 @@ ms.locfileid: "74211452"
 
 DNS 區域和記錄是重要的資源。 刪除 DNS 區域或甚至只是單一的 DNS 記錄，可能會導致整個服務中斷。  因此，保護重要的 DNS 區域和記錄以防未經授權或意外變更相當重要。
 
-這篇文章說明 Azure DNS 如何讓您保護您的 DNS 區域和記錄免於這類變更。  我們會套用 Azure Resource Manager 提供的兩個強大的安全性功能︰[角色型存取控制](../role-based-access-control/overview.md)和[資源鎖定](../azure-resource-manager/resource-group-lock-resources.md)。
+這篇文章說明 Azure DNS 如何讓您保護您的 DNS 區域和記錄免於這類變更。  我們會套用 Azure Resource Manager 提供的兩個強大的安全性功能︰[角色型存取控制](../role-based-access-control/overview.md)和[資源鎖定](../azure-resource-manager/management/lock-resources.md)。
 
 ## <a name="role-based-access-control"></a>角色型存取控制
 
@@ -158,7 +158,7 @@ azure role create -inputfile <file path>
 
 ## <a name="resource-locks"></a>資源鎖定
 
-除了 RBAC，Azure Resource Manager 支援另一種安全性控制項，也就是鎖定資源的能力。 其中 RBAC 規則可讓您控制特定使用者和群組的動作，資源鎖定會套用至資源，而且對於所有使用者和角色都有效。 如需詳細資訊，請參閱 [使用 Azure 資源管理員來鎖定資源](../azure-resource-manager/resource-group-lock-resources.md)。
+除了 RBAC，Azure Resource Manager 支援另一種安全性控制項，也就是鎖定資源的能力。 其中 RBAC 規則可讓您控制特定使用者和群組的動作，資源鎖定會套用至資源，而且對於所有使用者和角色都有效。 如需詳細資訊，請參閱[使用 Azure Resource Manager 來鎖定資源](../azure-resource-manager/management/lock-resources.md)。
 
 有兩種類型的資源鎖定： **CanNotDelete**和**ReadOnly**。 這些可以套用至 DNS 區域，或個別的記錄集。  下列章節說明幾個常見的案例，以及如何使用資源鎖定進行支援。
 
@@ -217,4 +217,4 @@ New-AzResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName
 ## <a name="next-steps"></a>後續步驟
 
 * 如需使用 RBAC 的詳細資訊，請參閱[開始使用 Azure 入口網站中的存取管理](../role-based-access-control/overview.md)。
-* 如需使用資源鎖定的詳細資訊，請參閱[使用 Azure Resource Manager 鎖定資源](../azure-resource-manager/resource-group-lock-resources.md)。
+* 如需使用資源鎖定的詳細資訊，請參閱[使用 Azure Resource Manager 鎖定資源](../azure-resource-manager/management/lock-resources.md)。

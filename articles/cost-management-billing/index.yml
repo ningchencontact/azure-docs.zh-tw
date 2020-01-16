@@ -1,0 +1,150 @@
+### YamlMime:Hub
+title: Azure 成本管理 + 計費文件
+summary: Azure 成本管理和計費可協助您了解 Azure 計費、管理您的帳戶和訂用帳戶、監視及控管 Azure 費用，並將資源使用最佳化。 了解如何分析成本、建立及管理預算、匯出資料，以及檢閱並針對建議採取動作。
+metadata:
+  ms.service: cost-management-billing
+  description: Azure 成本管理和計費可協助您了解 Azure 計費、管理您的帳戶和訂用帳戶、監視及控管 Azure 費用，並將資源使用最佳化。 了解如何分析成本、建立及管理預算、匯出資料，以及檢閱並針對建議採取動作。
+  ms.topic: hub-page
+  author: bandersmsft
+  ms.author: banders
+  manager: dougeby
+  ms.date: 12/17/2019
+  ms.openlocfilehash: 83e05501b256848f5fd7d4f42723a64b3fc3b1fb
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75983353"
+highlightedContent:
+  items:
+  - title: 什麼是成本管理 + 計費？
+    itemType: overview
+    url: cost-management-billing-overview.md
+  - title: 分析成本和建立預算
+    itemType: learn
+    url: https://docs.microsoft.com/learn/modules/analyze-costs-create-budgets-azure-cost-management/
+  - title: 成本管理最佳做法
+    itemType: concept
+    url: ./costs/cost-mgt-best-practices.md
+conceptualContent:
+  items:
+  - title: 開始使用 Azure 計費
+    links:
+    - url: ./understand/review-individual-bill.md
+      itemType: tutorial
+      text: 檢閱個別帳戶帳單
+    - url: ./understand/review-customer-agreement-bill.md
+      itemType: tutorial
+      text: 檢閱客戶合約帳單
+    - url: ./understand/review-partner-agreement-bill.md
+      itemType: tutorial
+      text: 檢閱合作夥伴合約帳單
+    - url: ./understand/review-enterprise-agreement-bill.md
+      itemType: tutorial
+      text: 檢閱 Enterprise 合約帳單
+    footerLink:
+      text: 查看更多
+      url: ./understand/index.yml
+  - title: 免費帳戶
+    links:
+    - url: ./manage/create-free-services.md
+      itemType: concept
+      text: 建立免費服務
+    - url: ./manage/avoid-charges-free-account.md
+      itemType: concept
+      text: 避免產生費用
+    - url: ./manage/check-free-service-usage.md
+      itemType: concept
+      text: 檢查使用量
+    - url: ./manage/upgrade-azure-subscription.md
+      itemType: concept
+      text: 升級訂用帳戶
+  - title: 管理 Azure 成本和使用量
+    links:
+    - url: ./costs/quick-acm-cost-analysis.md
+      itemType: quickstart
+      text: 開始分析成本
+    - url: ./costs/tutorial-acm-create-budgets.md
+      itemType: tutorial
+      text: 建立及管理預算
+    - url: ./costs/tutorial-export-acm-data.md
+      itemType: tutorial
+      text: 匯出成本和使用量資料
+    - url: ./costs/tutorial-acm-opt-recommendations.md
+      itemType: tutorial
+      text: 針對節省成本的建議採取行動
+    - url: ./costs/cost-analysis-common-uses.md
+      itemType: how-to-guide
+      text: 對一般工作使用成本分析
+    footerLink:
+      text: 查看更多
+      url: ./costs/index.yml
+  - title: 管理 Azure 帳戶和訂用帳戶
+    links:
+    - url: ./manage/manage-billing-access.md
+      itemType: how-to-guide
+      text: 授與帳單存取權
+    - url: ./manage/change-azure-account-profile.md
+      itemType: how-to-guide
+      text: 編輯設定檔
+    - url: ./manage/resolve-past-due-balance.md
+      itemType: how-to-guide
+      text: 解析逾期資產負債
+    - url: ./manage/subscription-disabled.md
+      itemType: how-to-guide
+      text: 重新啟動訂用帳戶
+    - url: ./manage/billing-subscription-transfer.md
+      itemType: how-to-guide
+      text: 轉送擁有權
+    - url: ./manage/cancel-azure-subscription.md
+      itemType: how-to-guide
+      text: 取消訂用帳戶
+    - url: ./manage/change-credit-card.md
+      itemType: how-to-guide
+      text: 變更信用卡
+    - url: ./manage/add-change-subscription-administrator.md
+      itemType: how-to-guide
+      text: 變更管理員
+    - url: ./manage/create-subscription.md
+      itemType: how-to-guide
+      text: 建立其他訂用帳戶
+    footerLink:
+      text: 查看更多
+      url: ./manage/index.yml
+  - title: Azure 保留項目為您節省成本
+    links:
+    - url: ./reservations/save-compute-costs-reservations.md
+      itemType: concept
+      text: 什麼是 Azure 保留？
+    - url: ./reservations/manage-reserved-vm-instance.md
+      itemType: how-to-guide
+      text: 管理 Azure 保留項目
+    - url: ./reservations/monthly-payments-reservations.md
+      itemType: how-to-guide
+      text: 以每月付款方式購買保留項目
+    - url: ./reservations/reservation-renew.md
+      itemType: how-to-guide
+      text: 更新保留項目
+    - url: ./reservations/exchange-and-refund-azure-reservations.md
+      itemType: how-to-guide
+      text: 保留交換和退款
+    footerLink:
+      text: 查看更多
+      url: ./reservations/index.yml
+  - title: 積極參與
+    links:
+    - url: https://feedback.azure.com/forums/906772-cost-management
+      itemType: how-to-guide
+      text: 要求成本管理服務功能
+    - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22cost%20management%22&location=category:Azure&collapse_discussion=true
+      itemType: how-to-guide
+      text: Azure 成本管理技術社群
+    - url: https://feedback.azure.com/forums/170030-signup-and-billing
+      itemType: how-to-guide
+      text: 要求計費服務功能
+    - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22billing%22&noSynonym=false&location=category:Azure&collapse_discussion=true
+      itemType: how-to-guide
+      text: Azure 計費技術社群
+    - url: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureCostManagement&filter=alltypes&sort=relevancedesc&searchTerm=Azure%20Cost%20Management
+      itemType: how-to-guide
+      text: 提出成本管理和計費論壇問題

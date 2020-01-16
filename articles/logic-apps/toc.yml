@@ -181,6 +181,8 @@
           href: logic-apps-enterprise-integration-as2.md
         - name: Azure Blob 儲存體
           href: ../connectors/connectors-create-api-azureblobstorage.md
+        - name: Azure Container Instances
+          href: ../connectors/connectors-create-api-container-instances.md
         - name: Azure 事件中心
           href: ../connectors/connectors-create-api-azure-event-hubs.md
         - name: Azure Functions
@@ -396,7 +398,7 @@
       href: 'https://aka.ms/logicappsroadmap/'
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/logic-apps/'
     - name: 定價計算機
       href: 'https://azure.microsoft.com/pricing/calculator/'

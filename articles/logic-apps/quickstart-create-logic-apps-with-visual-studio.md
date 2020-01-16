@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: bb284ad336e7110b0354450f3438fadb592370be
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 693b2fd8ac7440b67f53de0aedb9a8268a90de76
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428641"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968877"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>快速入門：使用 Azure Logic Apps 建立自動化工作、程序和工作流程 - Visual Studio
 
@@ -61,7 +61,7 @@ ms.locfileid: "75428641"
 
 ## <a name="create-azure-resource-group-project"></a>建立 Azure 資源群組專案
 
-若要開始進行，請建立 [Azure 資源群組專案](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)。 深入了解 [Azure 資源群組和資源](../azure-resource-manager/management/overview.md)。
+若要開始進行，請建立 [Azure 資源群組專案](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)。 深入了解 [Azure 資源群組和資源](../azure-resource-manager/management/overview.md)。
 
 1. 啟動 Visual Studio。 使用您的 Azure 帳戶進行登入。
 

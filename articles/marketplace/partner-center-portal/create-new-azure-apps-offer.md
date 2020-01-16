@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 60a3392474d11c306d28b9d95668a1e783cdfbb0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: eb8540ac1904b46ba428b3b1e703e59c8b18d9e8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930701"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046039"
 ---
 # <a name="create-an-azure-application-offer"></a>建立 Azure 應用程式供應項目
 
@@ -48,7 +48,7 @@ Azure 應用程式方案有兩種：受控應用程式和解決方案範本。
 
 * 名為[createUiDefinition](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview)之 Azure 應用程式建立體驗的使用者介面定義。  在使用者介面中，您可以指定讓取用者提供參數值的項目。
 
-所有新的 Azure 應用程式供應專案都必須包含[azure 合作夥伴客戶使用狀況](??)的屬性 GUID。
+所有新的 Azure 應用程式供應專案都必須包含[azure 合作夥伴客戶使用狀況](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution)的屬性 GUID。
 
 ### <a name="before-you-begin"></a>開始之前
 

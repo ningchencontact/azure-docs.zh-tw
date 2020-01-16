@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 019c75e67534198494d7591602bd5f9023704a1d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 864cccc4629140754a326823cbaebd7ad8933d3d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75533101"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75765064"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>建立資料標記專案和匯出標籤 
 
@@ -49,7 +49,7 @@ Machine Learning 會追蹤進度，並維護未完成標籤工作的佇列。 �
 
 標籤專案可從 Azure Machine Learning 進行管理。 您可以使用 [標籤專案]  頁面來管理專案和人員。 專案中會指派一或多個小組，而小組中會指派一或多個人員。
 
-如果您的資料已儲存在 Azure Blob 儲存體中，您應先使其成為可用的資料存放區，然後才建立標籤專案。 如需詳細資訊，請參閱[建立和註冊資料存放區](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores)。
+如果您的資料已儲存在 Azure Blob 儲存體中，您應先使其成為可用的資料存放區，然後才建立標籤專案。 如需詳細資訊，請參閱[建立和註冊資料存放區](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores)。
 
 若要建立專案，請選取 [新增專案]  。 請為專案指定適當名稱，然後選取 [標籤工作類型]  。
 

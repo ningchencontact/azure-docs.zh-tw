@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: c666d718586d3e5351974da287a91f6a3a8c04ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 659d00c3fc7a766d800de6f1f12f410003284360
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459152"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979264"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 公用雲端中的隔離
 Azure 可讓您在共用實體基礎結構上執行應用程式和虛擬機器（Vm）。 在雲端環境中執行應用程式的主要經濟動機之一是，能夠將共用資源的成本分散到多位客戶。 這種多重租用的作法會以低成本在不同客戶間進行資源的多工處理來提升效率。 不幸的是，它也會導致下列風險：共用實體伺服器和其他基礎結構資源來執行您的機密應用程式和 VM，而它們或許隸屬於可能惡意的任意使用者。
@@ -190,7 +190,7 @@ Microsoft Azure 的基本設計是將以 VM 為基礎的計算與儲存體分隔
 SAS 意謂著我們可以將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定的時間內使用一組指定的權限進行存取。 我們可以在不須分享您帳戶存取金鑰的情況下，授與這些有限的權限。
 
 ### <a name="ip-level-storage-isolation"></a>IP 層級儲存體隔離
-您可以建立防火牆，並且為受信任的用戶端定義 IP 位址範圍。 使用 IP 位址範圍時，只有具有定義範圍內 IP 位址的用戶端可以連接到 [Azure 儲存體](../../storage/common/storage-security-guide.md)。
+您可以建立防火牆，並且為受信任的用戶端定義 IP 位址範圍。 使用 IP 位址範圍時，只有具有定義範圍內 IP 位址的用戶端可以連接到 [Azure 儲存體](../../storage/blobs/security-recommendations.md)。
 
 IP 儲存體資料可透過網路機制受到保護，以避免未經授權之使用者的存取，該機制可用來將流量的專用通道配置到 IP 儲存體。
 
@@ -203,18 +203,18 @@ Azure 提供下列加密類型來保護資料：
 #### <a name="encryption-in-transit"></a>傳輸中加密
 傳輸中加密是透過網路傳輸資料時用來保護資料的機制。 透過 Azure 儲存體，您可以使用下列各項來保護資料：
 
--   [傳輸層級加密](../../storage/common/storage-security-guide.md)，例如從 Azure 儲存體傳入或傳出資料時的 HTTPS。
+-   [傳輸層級加密](../../storage/blobs/security-recommendations.md)，例如從 Azure 儲存體傳入或傳出資料時的 HTTPS。
 
--   [連線加密](../../storage/common/storage-security-guide.md)，例如 Azure 檔案共用的 SMB 3.0 加密。
+-   [連線加密](../../storage/blobs/security-recommendations.md)，例如 Azure 檔案共用的 SMB 3.0 加密。
 
--   [用戶端加密](../../storage/common/storage-security-guide.md)，以在將資料傳輸至儲存體之前加密資料，以及自儲存體傳出後解密資料。
+-   [用戶端加密](../../storage/blobs/security-recommendations.md)，以在將資料傳輸至儲存體之前加密資料，以及自儲存體傳出後解密資料。
 
 #### <a name="encryption-at-rest"></a>待用加密
 對許多組織來說， [待用資料加密](isolation-choices.md) 是達到資料隱私性、法規遵循及資料主權的必要步驟。 有三個 Azure 功能可提供「待用」資料的加密。
 
--   [儲存體服務加密](../../storage/common/storage-security-guide.md) 可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加密資料。
+-   [儲存體服務加密](../../storage/blobs/security-recommendations.md) 可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加密資料。
 
--   [用戶端加密](../../storage/common/storage-security-guide.md) 也會提供待用加密的功能。
+-   [用戶端加密](../../storage/blobs/security-recommendations.md) 也會提供待用加密的功能。
 
 -   [Azure 磁碟加密](../azure-security-disk-encryption-overview.md) 允許您加密 IaaS 虛擬機器所使用的作業系統磁碟和資料磁碟。
 

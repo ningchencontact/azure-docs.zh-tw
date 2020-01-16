@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eb69028a3b5ea232fbafe8286c3067a22f06d455
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ee107ffdc677a0feffbdaf1441d77a8ed05f2c94
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572819"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749680"
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 
@@ -40,7 +40,7 @@ Azure Analysis Services 會以**開發人員**、**基本**及**標準**層提�
 
 建議將此層用於評估、開發及測試案例。 單一方案包含與標準層相同的功能，但其處理能力、QPU 及記憶體大小有限。 此層無法使用  查詢複本相應放大功能。 此層不提供 SLA。
 
-|規劃  |QPU  |記憶體 (GB)  |
+|計畫  |QPU  |記憶體 (GB)  |
 |---------|---------|---------|
 |D1    |    20     |    3     |
 
@@ -49,7 +49,7 @@ Azure Analysis Services 會以**開發人員**、**基本**及**標準**層提�
 
 此層建議用於具備小型表格式模型、使用者並行能力有限，且只需簡單資料重新整理功能的生產解決方案。 此層無法使用  查詢複本相應放大功能。 此層不支援  檢視方塊、多個分割區和 DirectQuery 表格式模型功能。  
 
-|規劃  |QPU  |記憶體 (GB)  |
+|計畫  |QPU  |記憶體 (GB)  |
 |---------|---------|---------|
 |B1    |    40     |    10     |
 |B2    |    80     |    16     |
@@ -58,7 +58,7 @@ Azure Analysis Services 會以**開發人員**、**基本**及**標準**層提�
 
 對於需要靈活使用者並行且具備快速成長資料模型的任務關鍵性生產應用程式，適合使用此層。 此層支援進階的資料重新整理以提供近乎即時的資料模型更新，並支援所有表格式模型化功能。
 
-|規劃  |QPU  |記憶體 (GB)  |
+|計畫  |QPU  |記憶體 (GB)  |
 |---------|---------|---------|
 |S0    |    40     |    10     |
 |S1    |    100     |    25     |
@@ -128,7 +128,7 @@ Azure Analysis Services 會以**開發人員**、**基本**及**標準**層提�
 
 如同變更層級，您也可以根據您的需求將查詢複本相應放大。 在入口網站或使用 REST API 來設定相應放大。 若要深入了解，請參閱 [Azure Analysis Services 相應放大](analysis-services-scale-out.md)。
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 
 總成本取決於許多因素；例如，您所選擇的區域、服務層、查詢複本和暫停/繼續。 請使用 [Azure Analysis Services 定價](https://azure.microsoft.com/pricing/details/analysis-services/)計算機來判斷您所在區域的一般定價。 此工具會計算單一區域單一伺服器執行個體的定價。 請記住，查詢複本會以相同的伺服器費率計費。 
 
@@ -161,7 +161,7 @@ Azure Analysis Services 可為敏感性資料提供多種層級的安全性。 A
 
 Azure Analysis Services 防火牆會封鎖規則中所指定 IP 位址以外的所有用戶端連線。 依預設不會為新的伺服器啟用防火牆保護。 建議您在伺服器建立後應立即啟用防火牆保護，並且在伺服器佈建指令碼或入口網站中設定規則。 設定指定依個別用戶端 IP 或依範圍允許之 IP 位址的規則。 也可以允許或封鎖 Power BI (服務) 連線。 在入口網站中或藉由使用 PowerShell 來設定防火牆與規則。 若要深入了解，請參閱[設定伺服器防火牆](analysis-services-qs-firewall.md)。
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>驗證
 
 使用者驗證是由 [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) 負責處理的。 使用者在登入時會使用具有資料庫角色型存取權的組織帳戶身分識別。 使用者身分識別必須是伺服器所在訂用帳戶的預設 Azure Active Directory 成員。 若要深入了解，請參閱[驗證和使用者權限](analysis-services-manage-users.md)。
 
@@ -224,7 +224,7 @@ Microsoft Analysis Services 專案會以免費的可安裝 VSIX 套件來提供�
 
 ## <a name="monitoring-and-diagnostics"></a>監視和診斷
 
-Azure Analysis Services 會與 Azure 計量整合，以提供大量的資源特有計量，協助您監視伺服器的效能和健康情況。 若要深入了解，請參閱[監視伺服器計量](analysis-services-monitor.md)。 使用 [Azure 資源診斷記錄](../azure-monitor/platform/resource-logs-overview.md)來記錄計量。 監視記錄並將記錄傳送至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)、將記錄串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將記錄匯出至 [Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/) (這是一項 [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite) 服務)。 若要深入了解，請參閱[設定診斷記錄](analysis-services-logging.md)。
+Azure Analysis Services 會與 Azure 計量整合，以提供大量的資源特有計量，協助您監視伺服器的效能和健康情況。 若要深入了解，請參閱[監視伺服器計量](analysis-services-monitor.md)。 使用 [Azure 資源診斷記錄](../azure-monitor/platform/platform-logs-overview.md)來記錄計量。 監視記錄並將記錄傳送至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)、將記錄串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將記錄匯出至 [Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/) (這是一項 [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite) 服務)。 若要深入了解，請參閱[設定診斷記錄](analysis-services-logging.md)。
 
 Azure Analysis Services 也支援使用[動態管理檢視 (DMV)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)。 根據 SQL 語法，DMV 介面結構描述資料列會傳回有關伺服器執行個體的中繼資料和監視資訊。
 

@@ -1,10 +1,10 @@
 ---
 title: Azure 執行個體中繼資料服務
-description: RESTful 介面，以取得 Windows VM 的計算、網路和近期維護事件的相關資訊。
+description: RESTful 介面，以取得有關 Windows Vm 的計算、網路和近期維護事件的資訊。
 services: virtual-machines-windows
 documentationcenter: ''
 author: KumariSupriya
-manager: harijayms
+manager: paulmey
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 901e075572e0ed73dc7d0633941311c04b4f3c1c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8849029f59ee4eef3baa43a6027022598e12d102
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358355"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045880"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
-Azure 執行個體中繼資料服務提供執行可用於管理和設定虛擬機器之虛擬機器執行個體的相關資訊。
-這包括 SKU、網路組態及近期維護事件等資訊。 如需有關可用資訊類型的詳細資訊，請參閱[中繼資料 api](#metadata-apis)。
+Azure Instance Metadata Service （IMDS）提供目前正在執行之虛擬機器實例的相關資訊，可用來管理和設定您的虛擬機器。
+提供的資訊包括 SKU、網路設定和即將進行的維護事件。 如需可用資料的完整清單，請參閱[中繼資料 api](#metadata-apis)。
 
 Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/)建立之所有 IaaS VM 可存取的 REST 端點。
 端點可以在已知的非可路由 IP 位址 (`169.254.169.254`) 取得，該位址只能從 VM 內存取。
@@ -38,14 +38,15 @@ Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https:
 
 地區                                        | 可用性？                                 | 支援的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
-[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30、2019-06-01、2019-06-04
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30
-[Azure China](https://www.azure.cn/)                                                     | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30
+[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出 | 2017-04-02，2017-08-01，2017-12-01，2018-02-01，2018-04-02，2018-10-01，2019-02-01，2019-03-11，2019-04-30，2019-06-01，2019-06-04，2019-08-01，2019-08-15，2019-11-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02，2017-08-01，2017-12-01，2018-02-01，2018-04-02，2018-10-01，2019-02-01，2019-03-11，2019-04-30，2019-06-01，2019-06-04，2019-08-01，2019-08-15，2019-11-01
+[Azure China 21Vianet](https://www.azure.cn/)                                            | 正式推出 | 2017-04-02，2017-08-01，2017-12-01，2018-02-01，2018-04-02，2018-10-01，2019-02-01，2019-03-11，2019-04-30，2019-06-01，2019-06-04，2019-08-01，2019-08-15，2019-11-01
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式推出 | 2017-04-02，2017-08-01，2017-12-01，2018-02-01，2018-04-02，2018-10-01，2019-02-01，2019-03-11，2019-04-30，2019-06-01，2019-06-04，2019-08-01，2019-08-15，2019-11-01
 
-當有服務更新和/或有新支援的版本可取得時，此表格便會更新。
+當有服務更新和/或新的支援版本可用時，就會更新此資料表。
 
 若要試用執行個體中繼資料服務，請從 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 或 [Azure 入口網站](https://portal.azure.com)的上述區域中建立 VM，並遵循以下的範例。
+如需如何查詢 IMDS 的進一步範例，請參閱[Azure 實例中繼資料範例](https://github.com/microsoft/azureimds)
 
 ## <a name="usage"></a>用量
 
@@ -130,7 +131,7 @@ HTTP 狀態碼 | 原因
 200 確定 |
 400 不正確的要求 | 查詢分葉節點時遺漏 `Metadata: true` 標頭或遺失格式
 404 - 找不到 | 要求的元素不存在
-405 不允許的方法 | 僅支援 `GET` 和 `POST` 要求
+405 不允許的方法 | 僅支援 `GET` 要求
 429 要求太多 | API 目前支援最多每秒 5 個查詢
 500 服務錯誤     | 稍後重試
 
@@ -191,7 +192,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **要求**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-03-11"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-06-01"
 ```
 
 **回應**
@@ -204,30 +205,83 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
   "compute": {
     "azEnvironment": "AzurePublicCloud",
     "customData": "",
-    "location": "westus",
-    "name": "jubilee",
-    "offer": "Windows-10",
-    "osType": "Windows",
+    "location": "centralus",
+    "name": "negasonic",
+    "offer": "lampstack",
+    "osType": "Linux",
     "placementGroupId": "",
     "plan": {
-        "name": "",
-        "product": "",
-        "publisher": ""
+        "name": "5-6",
+        "product": "lampstack",
+        "publisher": "bitnami"
     },
-    "platformFaultDomain": "1",
-    "platformUpdateDomain": "1",
+    "platformFaultDomain": "0",
+    "platformUpdateDomain": "0",
     "provider": "Microsoft.Compute",
     "publicKeys": [],
-    "publisher": "MicrosoftWindowsDesktop",
+    "publisher": "bitnami",
     "resourceGroupName": "myrg",
     "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "rs4-pro",
+    "sku": "5-6",
+    "storageProfile": {
+        "dataDisks": [
+          {
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+              "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+              "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+          }
+        ],
+        "imageReference": {
+          "id": "",
+          "offer": "UbuntuServer",
+          "publisher": "Canonical",
+          "sku": "16.04.0-LTS",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": "30",
+          "diffDiskSettings": {
+            "option": "Local"
+          },
+          "encryptionSettings": {
+            "enabled": "false"
+          },
+          "image": {
+            "uri": ""
+          },
+          "managedDisk": {
+            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+            "storageAccountType": "Standard_LRS"
+          },
+          "name": "exampleosdiskname",
+          "osType": "Linux",
+          "vhd": {
+            "uri": ""
+          },
+          "writeAcceleratorEnabled": "false"
+        }
+    },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "Department:IT;Environment:Prod;Role:WorkerRole",
-    "version": "17134.345.59",
+    "tags": "Department:IT;Environment:Test;Role:WebRole",
+    "version": "7.1.1902271506",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
-    "vmSize": "Standard_D1",
+    "vmSize": "Standard_A1_v2",
     "zone": "1"
   },
   "network": {
@@ -264,14 +318,14 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 可以透過 `curl` 程式在 Windows 中擷取執行個體中繼資料：
 
 ```powershell
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-03-11 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-06-01 | select -ExpandProperty Content
 ```
 
 或透過 `Invoke-RestMethod` PowerShell Cmdlet：
 
 ```powershell
 
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2019-03-11 -Method get
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2019-06-01 -Method get
 ```
 
 **回應**
@@ -284,31 +338,84 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
   "compute": {
     "azEnvironment": "AzurePublicCloud",
     "customData": "",
-    "location": "westus",
-    "name": "SQLTest",
-    "offer": "SQL2016SP1-WS2016",
-    "osType": "Windows",
+    "location": "centralus",
+    "name": "negasonic",
+    "offer": "lampstack",
+    "osType": "Linux",
     "placementGroupId": "",
     "plan": {
-        "name": "",
-        "product": "",
-        "publisher": ""
+        "name": "5-6",
+        "product": "lampstack",
+        "publisher": "bitnami"
     },
     "platformFaultDomain": "0",
     "platformUpdateDomain": "0",
     "provider": "Microsoft.Compute",
     "publicKeys": [],
-    "publisher": "MicrosoftSQLServer",
+    "publisher": "bitnami",
     "resourceGroupName": "myrg",
     "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "Enterprise",
+    "sku": "5-6",
+    "storageProfile": {
+        "dataDisks": [
+          {
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+              "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+              "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+          }
+        ],
+        "imageReference": {
+          "id": "",
+          "offer": "UbuntuServer",
+          "publisher": "Canonical",
+          "sku": "16.04.0-LTS",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": "30",
+          "diffDiskSettings": {
+            "option": "Local"
+          },
+          "encryptionSettings": {
+            "enabled": "false"
+          },
+          "image": {
+            "uri": ""
+          },
+          "managedDisk": {
+            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+            "storageAccountType": "Standard_LRS"
+          },
+          "name": "exampleosdiskname",
+          "osType": "Linux",
+          "vhd": {
+            "uri": ""
+          },
+          "writeAcceleratorEnabled": "false"
+        }
+    },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "Department:IT;Environment:Test;Role:WebRole",
-    "version": "13.0.400110",
-    "vmId": "453945c8-3923-4366-b2d3-ea4c80e9b70e",
+    "version": "7.1.1902271506",
+    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
-    "vmSize": "Standard_DS2",
-    "zone": ""
+    "vmSize": "Standard_A1_v2",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -339,7 +446,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 ## <a name="metadata-apis"></a>中繼資料 API
 
-#### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>下列 Api 可透過中繼資料端點取得：
+下列 Api 可透過中繼資料端點取得：
 
 資料 | 說明 | 引進的版本
 -----|-------------|-----------------------
@@ -349,7 +456,8 @@ instance | 請參閱[實例 API](#instance-api) | 2017-04-02
 scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-08-01
 
 #### <a name="instance-api"></a>實例 API
-##### <a name="the-following-compute-categories-are-available-through-the-instance-api"></a>下列計算類別可透過實例 API 取得：
+
+下列計算類別可透過實例 API 取得：
 
 > [!NOTE]
 > 透過中繼資料端點，可以透過實例/計算來存取下列類別目錄
@@ -357,13 +465,13 @@ scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-08-01
 資料 | 說明 | 引進的版本
 -----|-------------|-----------------------
 Get-azenvironment | VM 執行所在的 Azure 環境 | 2018-10-01
-customData | 請參閱[自訂資料](#custom-data) | 2019-02-01
+customData | 這項功能目前已停用，我們將在此檔可用時加以更新 | 2019-02-01
 location | VM 執行所在的 Azure 區域 | 2017-04-02
 NAME | VM 的名稱 | 2017-04-02
 供應項目 | 提供 VM 映射的資訊，而且只會針對從 Azure 映射庫部署的映射呈現 | 2017-04-02
 osType | Linux 或 Windows | 2017-04-02
 placementGroupId | 虛擬機器擴展集的[放置群組](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
-計劃 | 如果 VM 的 Azure Marketplace 映射，則包含其名稱、產品和發行者的[計畫](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
+計劃 | 如果 VM 是 Azure Marketplace 映射，則包含其名稱、產品和發行者的[計畫](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
 platformUpdateDomain |  VM 執行所在的[更新網域](manage-availability.md) | 2017-04-02
 platformFaultDomain | VM 執行所在的[容錯網域](manage-availability.md) | 2017-04-02
 provider | VM 的提供者 | 2018-10-01
@@ -372,8 +480,9 @@ publisher | VM 映像的發佈者 | 2017-04-02
 resourceGroupName | 虛擬機器的[資源群組](../../azure-resource-manager/management/overview.md) | 2017-08-01
 resourceId | 資源的[完整](https://docs.microsoft.com/rest/api/resources/resources/getbyid)識別碼 | 2019-03-11
 sku | VM 映像的特定 SKU | 2017-04-02
+storageProfile | 請參閱[儲存體設定檔](#storage-profile) | 2019-06-01
 subscriptionId | 虛擬機器的 Azure 訂用帳戶 | 2017-08-01
-tags | 虛擬機器的[標籤](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
+tags | 虛擬機器的[標籤](../../azure-resource-manager/management/tag-resources.md)  | 2017-08-01
 tagsList | 格式化為 JSON 陣列以方便程式設計剖析的標記  | 2019-06-04
 version | VM 映像的版本 | 2017-04-02
 vmId | VM 的[唯一識別碼](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
@@ -381,7 +490,7 @@ vmScaleSetName | 虛擬機器擴展集的[虛擬機器擴展集名稱](../../vir
 vmSize | [VM 大小](sizes.md) | 2017-04-02
 區域 | 您虛擬機器的[可用性區域](../../availability-zones/az-overview.md) | 2017-12-01
 
-##### <a name="the-following-network-categories-are-available-through-the-instance-api"></a>您可以透過實例 API 取得下列網路類別：
+您可以透過實例 API 取得下列網路類別：
 
 > [!NOTE]
 > 透過中繼資料端點，可以透過實例/網路/介面來存取下列類別
@@ -397,7 +506,7 @@ macAddress | VM mac 位址 | 2017-04-02
 
 ## <a name="attested-data"></a>證明資料
 
-執行個體中繼資料會在位於 169.254.169.254 的 http 端點上回應。 Instance Metadata Service 所提供的部分案例，是為了保證所回應的資料確實來自 Azure。 我們會簽署這項資訊的其中一部分，從而確定市集映像就是其在 Azure 上執行的映像。
+Instance Metadata Service 所提供的部分案例，是為了確保所提供的資料來自 Azure。 我們會簽署這項資訊的其中一部分，從而確定市集映像就是其在 Azure 上執行的映像。
 
 ### <a name="example-attested-data"></a>證明資料範例
 
@@ -412,7 +521,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 ```
 
 Api 版本是必要欄位。 如需支援的 API 版本，請參閱[服務可用性一節](#service-availability)。
-Nonce 是所提供的選用 10 位數字串。 Nonce 可用來追蹤要求，若未提供，則在回應編碼字串中會傳回目前的 UTC 時間戳記。
+Nonce 是選擇性的10位數位符串。 如果未提供，IMDS 會在其位置傳回目前的 UTC 時間戳記。 由於 IMDS 的快取機制，可能會傳回先前快取的 nonce 值。
 
  **回應**
 
@@ -425,7 +534,7 @@ Nonce 是所提供的選用 10 位數字串。 Nonce 可用來追蹤要求，若
 }
 ```
 
-> 簽章 Blob 是以 [pkcs7](https://aka.ms/pkcs7) 簽署的文件版本。 它包含用於簽署的憑證，以及 VM 詳細資料，例如 vmId、nonce、subscriptionId、檔建立和到期的時間戳記，以及有關影像的計畫資訊。 Azure Marketplace 映像才會填入方案資訊。 憑證可以從回應中擷取出來，並可用來驗證回應有效且來自 Azure。
+簽章 Blob 是以 [pkcs7](https://aka.ms/pkcs7) 簽署的文件版本。 它包含用於簽署的憑證，以及 VM 詳細資料，例如 vmId、sku、nonce、subscriptionId、檔建立和到期的時間戳記，以及有關影像的計畫資訊。 Azure Marketplace 映像才會填入方案資訊。 憑證可以從回應中擷取出來，並可用來驗證回應有效且來自 Azure。
 
 #### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>在 Windows 虛擬機器中擷取證明中繼資料
 
@@ -444,7 +553,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/met
 ```
 
 Api 版本是必要欄位。 如需支援的 API 版本，請參閱服務可用性一節。
-Nonce 是所提供的選用 10 位數字串。 Nonce 可用來追蹤要求，若未提供，則在回應編碼字串中會傳回目前的 UTC 時間戳記。
+Nonce 是選擇性的10位數位符串。 如果未提供，IMDS 會在其位置傳回目前的 UTC 時間戳記。 由於 IMDS 的快取機制，可能會傳回先前快取的 nonce 值。
 
  **回應**
 
@@ -457,7 +566,7 @@ Nonce 是所提供的選用 10 位數字串。 Nonce 可用來追蹤要求，若
 }
 ```
 
-> 簽章 Blob 是以 [pkcs7](https://aka.ms/pkcs7) 簽署的文件版本。 它包含用於簽署的憑證，以及 VM 詳細資料，例如 vmId、nonce、subscriptionId、檔建立和到期的時間戳記，以及有關影像的計畫資訊。 Azure Marketplace 映像才會填入方案資訊。 憑證可以從回應中擷取出來，並可用來驗證回應有效且來自 Azure。
+簽章 Blob 是以 [pkcs7](https://aka.ms/pkcs7) 簽署的文件版本。 它包含用於簽署的憑證，以及 VM 詳細資料，例如 vmId、sku、nonce、subscriptionId、檔建立和到期的時間戳記，以及有關影像的計畫資訊。 Azure Marketplace 映像才會填入方案資訊。 憑證可以從回應中擷取出來，並可用來驗證回應有效且來自 Azure。
 
 
 ## <a name="example-scenarios-for-usage"></a>使用方式的範例案例  
@@ -503,7 +612,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 **要求**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-08-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01"
 ```
 
 **回應**
@@ -513,19 +622,86 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ```json
 {
-  "compute": {
-    "location": "CentralUS",
-    "name": "IMDSCanary",
-    "offer": "RHEL",
+    "azEnvironment": "AzurePublicCloud",
+    "customData": "",
+    "location": "centralus",
+    "name": "negasonic",
+    "offer": "lampstack",
     "osType": "Linux",
+    "placementGroupId": "",
+    "plan": {
+        "name": "5-6",
+        "product": "lampstack",
+        "publisher": "bitnami"
+    },
     "platformFaultDomain": "0",
     "platformUpdateDomain": "0",
-    "publisher": "RedHat",
-    "sku": "7.2",
-    "version": "7.2.20161026",
-    "vmId": "5c08b38e-4d57-4c23-ac45-aca61037f084",
-    "vmSize": "Standard_DS2"
-  }
+    "provider": "Microsoft.Compute",
+    "publicKeys": [],
+    "publisher": "bitnami",
+    "resourceGroupName": "myrg",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
+    "sku": "5-6",
+    "storageProfile": {
+        "dataDisks": [
+          {
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+              "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+              "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+          }
+        ],
+        "imageReference": {
+          "id": "",
+          "offer": "UbuntuServer",
+          "publisher": "Canonical",
+          "sku": "16.04.0-LTS",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": "30",
+          "diffDiskSettings": {
+            "option": "Local"
+          },
+          "encryptionSettings": {
+            "enabled": "false"
+          },
+          "image": {
+            "uri": ""
+          },
+          "managedDisk": {
+            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+            "storageAccountType": "Standard_LRS"
+          },
+          "name": "exampleosdiskname",
+          "osType": "Linux",
+          "vhd": {
+            "uri": ""
+          },
+          "writeAcceleratorEnabled": "false"
+        }
+    },
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "Department:IT;Environment:Test;Role:WebRole",
+    "version": "7.1.1902271506",
+    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
+    "vmScaleSetName": "",
+    "vmSize": "Standard_A1_v2",
+    "zone": "1"
 }
 ```
 
@@ -549,7 +725,7 @@ Azure 環境的區域和值如下所示。
 ---------|-----------------
 [所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
-[Azure China](https://azure.microsoft.com/global-infrastructure/china)                   | AzureChinaCloud
+[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china)          | AzureChinaCloud
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### <a name="getting-the-tags-for-the-vm"></a>取得 VM 的標記
@@ -637,7 +813,8 @@ Verification successful
     "expiresOn":"11/28/18 06:16:17 -0000"
   },
 "vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34",
-"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+"sku": "RS3-Pro"
 }
 ```
 
@@ -645,10 +822,11 @@ Verification successful
 -----|------------
 nonce | 使用者隨要求提供的選擇性字串。 如果要求中未提供 nonce，則會傳回目前的 UTC 時間戳記
 計劃 | VM 在其 Azure Marketplace 映像中的[方案](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) \(英文\)，包含名稱、產品及發行者
-timestamp/createdOn | 第一個簽署文件的建立時間戳記
-timestamp/expiresOn | 簽署文件的到期時間戳記
+timestamp/createdOn | 第一個簽署的檔建立所在的 UTC 時間戳記
+timestamp/expiresOn | 簽署的檔到期的 UTC 時間戳記
 vmId |  VM 的[唯一識別碼](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)
 subscriptionId | 虛擬機器的 Azure 訂用帳戶，引進于 `2019-04-30`
+sku | VM 映射的特定 SKU，`2019-11-01` 中引進
 
 #### <a name="verifying-the-signature"></a>驗證簽章
 
@@ -661,7 +839,7 @@ subscriptionId | 虛擬機器的 Azure 訂用帳戶，引進于 `2019-04-30`
 ---------|-----------------
 [所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure China](https://azure.microsoft.com/global-infrastructure/china/)                  | metadata.azure.cn
+[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | metadata.azure.cn
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash
@@ -725,35 +903,120 @@ Network Destination        Netmask          Gateway       Interface  Metric
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
-### <a name="custom-data"></a>自訂資料
-Instance Metadata Service 提供 VM 存取其自訂資料的能力。 二進位資料必須小於 64 KB，並以 base64 編碼形式提供給 VM。
+### <a name="storage-profile"></a>儲存體設定檔
 
-您可以透過 REST Api、PowerShell Cmdlet、Azure 命令列介面（CLI）或 ARM 範本，將 Azure 自訂資料插入 VM。
+Instance Metadata Service 可以提供與 VM 相關聯之儲存體磁片的詳細資料。 此資料可以在實例/計算/storageProfile 端點找到。
 
-如需 Azure 命令列介面的範例，請參閱[Microsoft Azure 上的自訂資料和雲端 Init](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/)。
+VM 的儲存體設定檔分成三個類別-映射參考、OS 磁片和資料磁片。
 
-如需 ARM 範本範例，請參閱[使用 CustomData 部署虛擬機器](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)。
+映射參考物件包含下列作業系統映射的相關資訊：
 
-自訂資料適用于在 VM 中執行的所有進程。 建議客戶不要將秘密資訊插入自訂資料。
+資料    | 說明
+--------|-----------------
+id      | 資源識別碼
+供應項目   | 平臺或 marketplace 映射的供應專案
+publisher | 映像發行者
+sku     | 映射 sku
+version | 平臺或 marketplace 映射的版本
 
-目前，自訂資料保證可在 VM 的啟動程式期間使用。 如果對 VM 進行更新，例如新增磁片或調整 VM 的大小，Instance Metadata Service 將不會提供自訂資料。 目前正在進行 Instance Metadata Service 提供自訂資料。
+OS 磁片物件包含 VM 所使用之 OS 磁片的下列資訊：
 
-#### <a name="retrieving-custom-data-in-virtual-machine"></a>正在抓取虛擬機器中的自訂資料
-Instance Metadata Service 以 base64 編碼形式提供自訂資料給 VM。 下列範例會將 base64 編碼字串解碼。
+資料    | 說明
+--------|-----------------
+快取 | 快取需求
+createOption | 如何建立 VM 的相關資訊
+diffDiskSettings | 暫時磁片設定
+diskSizeGB | 磁片的大小（以 GB 為單位）
+image   | 來源使用者映射虛擬硬碟
+lun     | 磁片的邏輯單元編號
+managedDisk | 受控磁片參數
+NAME    | 磁碟名稱
+vhd     | 虛擬硬碟
+writeAcceleratorEnabled | 是否在磁片上啟用 writeAccelerator
 
-> [!NOTE]
-> 此範例中的自訂資料會解讀為 ASCII 字串，其會讀取「我的自訂資料」。
+資料磁片陣列包含連接至 VM 的資料磁片清單。 每個資料磁片物件都包含下列資訊：
+
+資料    | 說明
+--------|-----------------
+快取 | 快取需求
+createOption | 如何建立 VM 的相關資訊
+diffDiskSettings | 暫時磁片設定
+diskSizeGB | 磁片的大小（以 GB 為單位）
+encryptionSettings | 磁片的加密設定
+image   | 來源使用者映射虛擬硬碟
+managedDisk | 受控磁片參數
+NAME    | 磁碟名稱
+osType  | 磁片中包含的 OS 類型
+vhd     | 虛擬硬碟
+writeAcceleratorEnabled | 是否在磁片上啟用 writeAccelerator
+
+以下是如何查詢 VM 儲存體資訊的範例。
 
 **要求**
 
 ```bash
-curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/customData?api-version=2019-02-01&&format=text" | base64 --decode
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01"
 ```
 
 **回應**
 
-```text
-My custom data.
+> [!NOTE]
+> 回應是 JSON 字串。 下列範例回應均列印清晰，很容易閱讀。
+
+```json
+{
+    "dataDisks": [
+      {
+        "caching": "None",
+        "createOption": "Empty",
+        "diskSizeGB": "1024",
+        "image": {
+          "uri": ""
+        },
+        "lun": "0",
+        "managedDisk": {
+          "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+          "storageAccountType": "Standard_LRS"
+        },
+        "name": "exampledatadiskname",
+        "vhd": {
+          "uri": ""
+        },
+        "writeAcceleratorEnabled": "false"
+      }
+    ],
+    "imageReference": {
+      "id": "",
+      "offer": "UbuntuServer",
+      "publisher": "Canonical",
+      "sku": "16.04.0-LTS",
+      "version": "latest"
+    },
+    "osDisk": {
+      "caching": "ReadWrite",
+      "createOption": "FromImage",
+      "diskSizeGB": "30",
+      "diffDiskSettings": {
+        "option": "Local"
+      },
+      "encryptionSettings": {
+        "enabled": "false"
+      },
+      "image": {
+        "uri": ""
+      },
+      "managedDisk": {
+        "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+        "storageAccountType": "Standard_LRS"
+      },
+      "name": "exampleosdiskname",
+      "osType": "Linux",
+      "vhd": {
+        "uri": ""
+      },
+      "writeAcceleratorEnabled": "false"
+    }
+}
 ```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>在 VM 內使用不同語言呼叫中繼資料服務的範例 
@@ -780,9 +1043,9 @@ Puppet | https://github.com/keirans/azuremetadata
 2. 為什麼我沒有收到我的 VM 計算資訊？
    * 目前執行個體中繼資料服務僅支援使用 Azure Resource Manager 建立的執行個體。 未來可能會新增雲端服務 VM 的支援。
 3. 我在一陣子之後回過頭來透過 Azure Resource Manager 建立我的虛擬機器。 為什麼我看不到計算中繼資料資訊？
-   * 針對在 2016 年 9 月之後建立的 VM，新增[標記](../../azure-resource-manager/resource-group-using-tags.md)才會開始看到計算中繼資料。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
+   * 針對在 2016 年 9 月之後建立的 VM，新增[標記](../../azure-resource-manager/management/tag-resources.md)才會開始看到計算中繼資料。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
 4. 我看不到為新版本填入的所有資料
-   * 針對在 2016 年 9 月之後建立的 VM，新增[標記](../../azure-resource-manager/resource-group-using-tags.md)才會開始看到計算中繼資料。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
+   * 針對在 2016 年 9 月之後建立的 VM，新增[標記](../../azure-resource-manager/management/tag-resources.md)才會開始看到計算中繼資料。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
 5. 我為何收到錯誤 `500 Internal Server Error`？
    * 請根據指數型輪詢系統重試您的要求。 若問題持續發生，請連絡 Azure 支援。
 6. 我要在哪裡共用其他問題/註解？

@@ -1,40 +1,46 @@
 ---
-title: 快速入門：瀏覽器中適用於 JavaScript 的 Azure Blob 儲存體 v2
-description: 了解如何在 HTML 網頁中使用 JavaScript v2 SDK 以 BlobService 的執行個體上傳、列出及刪除 Blob。
-keywords: 儲存體, Javascript, Html
+title: 快速入門：瀏覽器中適用於 JavaScript 的 Azure Blob 儲存體 v10
+description: 了解如何在 HTML 網頁中使用 JavaScript v10 SDK 上傳、列出及刪除 Blob。
+services: storage
 author: mhopkins-msft
+ms.custom: mvc
+ms.service: storage
 ms.author: mhopkins
 ms.date: 08/29/2019
-ms.service: storage
-ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 1bf71f899a38fa4ce36f8f0ffc78de0c64f6c3f3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.subservice: blobs
+ms.openlocfilehash: 7d481b115650c72df95f7516bb3b39411201bf83
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74270048"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862895"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>快速入門：在瀏覽器中使用 JavaScript/HTML 來上傳、列出及刪除 Blob
+# <a name="quickstart-upload-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascripthtml-in-the-browser"></a>快速入門：在瀏覽器中使用適用於 JavaScript/HTML 的 Azure 儲存體 v10 SDK 上傳、列出及刪除 Blob
 
-本快速入門會示範如何從完全在瀏覽器中執行的程式碼中管理 Blob。 這裡使用的方法會說明如何使用必要安全措施，來確保 Blob 儲存體帳戶的存取會受到保護。 若要完成本快速入門，您需要 [Azure 訂用帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+在本快速入門中，您將學習如何使用[適用於 JavaScript 的 Azure 儲存體 SDK V10 - Blob](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) 程式庫，從完全在瀏覽器中執行的 JavaScript 程式碼管理 Blob。 這裡使用的方法會說明如何使用必要安全措施，來確保 Blob 儲存體帳戶的存取會受到保護。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-## <a name="setting-up-storage-account-cors-rules"></a>設定儲存體帳戶 CORS 規則 
-您必須先設定帳戶以啟用[跨原始資源共用](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) (或簡稱為 CORS)，Web 應用程式才可從用戶端存取 Blob 儲存體。 
+Azure 儲存體 JavaScript 用戶端程式庫無法直接從檔案系統運作，而必須由 Web 伺服器提供服務。 本主題會使用 [Node.js](https://nodejs.org) 來啟動基本伺服器。 如果您不想安裝 Node，您可以使用任何其他執行本機 Web 伺服器的方法。
 
-返回 Azure 入口網站，然後選取您的儲存體帳戶。 若要定義新的 CORS 規則，請返回 [設定]  區段，然後按一下 [CORS]  連結。 接著，按一下 [新增]  按鈕，以開啟 [新增 CORS 規則]  視窗。 在此快速入門中，您會建立開啟的 CORS 規則：
+若要遵循偵錯步驟，您將需要 [Visual Studio Code](https://code.visualstudio.com) 和 [Chrome 偵錯工具](vscode:extension/msjsdiag.debugger-for-chrome)或 [Microsoft Edge 偵錯工具](vscode:extension/msjsdiag.debugger-for-edge)擴充功能。
 
-![Azure Blob 儲存體帳戶 CORS 設定](media/storage-quickstart-blobs-javascript-client-libraries/azure-blob-storage-cors-settings.png)
+## <a name="setting-up-storage-account-cors-rules"></a>設定儲存體帳戶 CORS 規則
+
+您必須先設定帳戶以啟用[跨原始資源共用](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) (或簡稱為 CORS)，Web 應用程式才可從用戶端存取 Blob 儲存體。
+
+返回 Azure 入口網站，然後選取您的儲存體帳戶。 若要定義新的 CORS 規則，請瀏覽至 [設定]  區段，然後按一下 [CORS]  連結。 接著，按一下 [新增]  按鈕，以開啟 [新增 CORS 規則]  視窗。 在此快速入門中，您會建立開啟的 CORS 規則：
+
+![Azure Blob 儲存體帳戶 CORS 設定](media/storage-quickstart-blobs-javascript-client-libraries-v10/azure-blob-storage-cors-settings.png)
 
 下表說明每個 CORS 設定以及用來定義規則的值。
 
-|設定  |值  | 說明 |
+|設定  |值  | 描述 |
 |---------|---------|---------|
 | 允許的原始來源 | * | 接受設為可接受原始來源之網域的逗號分隔清單。 將值設為 `*` 時，會允許所有網域存取儲存體帳戶。 |
 | 允許的動詞     | delete、get、head、merge、post、options 和 put | 列出可對儲存體帳戶執行的 HTTP 動詞。 基於此快速入門的用途，請選取所有可用選項。 |
@@ -50,209 +56,309 @@ ms.locfileid: "74270048"
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-shared-access-signature"></a>建立共用存取簽章
+
 在瀏覽器中執行的程式碼會使用共用存取簽章 (SAS) 為 Blob 儲存體的要求授權。 藉由使用 SAS，用戶端不需要帳戶存取金鑰或連接字串，即可為儲存體資源的存取授權。 如需 SAS 的詳細資訊，請參閱[使用共用存取簽章 (SAS)](../common/storage-sas-overview.md)。
 
-您可以透過 Azure Cloud Shell 或 Azure 儲存體總管使用 Azure CLI 建立 SAS。 下表說明為使用 CLI 產生 SAS 而需為其提供值的參數。
+您可以透過 Azure Cloud Shell，或是搭配 Azure 入口網站或 Azure 儲存體總管使用 Azure CLI 建立 SAS。 下表說明為使用 CLI 產生 SAS 而需為其提供值的參數。
 
-| 參數      |說明  | Placeholder |
+| 參數      |描述  | 預留位置 |
 |----------------|-------------|-------------|
 | *expiry*       | 存取權杖到期日 (格式為 YYYY-MM-DD)。 請輸入明天的日期，用於此快速入門。 | *FUTURE_DATE* |
 | *account-name* | 儲存體帳戶名稱。 使用在先前的步驟中設定的名稱。 | *YOUR_STORAGE_ACCOUNT_NAME* |
 | *account-key*  | 儲存體帳戶金鑰。 使用在先前的步驟中設定的金鑰。 | *YOUR_STORAGE_ACCOUNT_KEY* |
 
-下列指令碼會使用 Azure CLI 建立可傳遞至 JavaScript Blob 服務的 SAS。
+請使用下列 CLI 命令搭配每個預留位置的實際值，來產生可以在 JavaScript 程式碼中使用的 SAS。
 
-> [!NOTE]
-> 為了獲得最佳結果，請先移除參數之間多餘的空格，再將命令貼到 Azure Cloud Shell 中。
-
-```bash
-az storage account generate-sas
-                    --permissions racwdl
-                    --resource-types sco
-                    --services b
-                    --expiry FUTURE_DATE
-                    --account-name YOUR_STORAGE_ACCOUNT_NAME
-                    --account-key YOUR_STORAGE_ACCOUNT_KEY
+```azurecli-interactive
+az storage account generate-sas \
+  --permissions racwdl \
+  --resource-types sco \
+  --services b \
+  --expiry FUTURE_DATE \
+  --account-name YOUR_STORAGE_ACCOUNT_NAME \
+  --account-key YOUR_STORAGE_ACCOUNT_KEY
 ```
-您可能會發現每個參數後面的值序列都有點難以理解。 這些參數值取自其各自權限的第一個字母。 下表說明這些值來自於何處： 
 
-| 參數        | 值   | 說明  |
+您可能會發現每個參數後面的值序列都有點難以理解。 這些參數值取自其各自權限的第一個字母。 下表說明這些值來自於何處：
+
+| 參數        | 值   | 描述  |
 |------------------|---------|---------|
 | *權限*    | racwdl  | 此 SAS 允許讀取  、附加  、建立  、寫入  、刪除  和列出  功能。 |
 | *resource-types* | sco     | 受到 SAS 影響的資源為服務  、容器  和物件  。 |
 | *services*       | b       | 受到 SAS 影響的服務為 Blob  服務。 |
 
-現在，SAS 已產生，請將主控台中傳回的值複製到文字編輯器中。 您將在後續步驟中使用此值。
+現在，SAS 已產生，請複製傳回值並將其儲存至某處，以用於後續的步驟。 如果您已使用 Azure CLI 以外的方法產生 SAS ，您必須移除開頭的 `?` (如果有的話)。 此字元是 URL 分隔符號，在使用 SAS 的 URL 範本中已提供此符號，本主題稍後會用到此範本。
 
 > [!IMPORTANT]
 > 在生產環境中，請一律使用 SSL 傳遞 SAS 權杖。 此外，SAS 權杖應在伺服器上產生，並傳送至 HTML 網頁，以傳回至 Azure Blob 儲存體。 您可以考慮的其中一個方法，是使用無伺服器函式產生 SAS 權杖。 Azure 入口網站包含函式範本，可提供透過 JavaScript 函式產生 SAS 的功能。
 
 ## <a name="implement-the-html-page"></a>實作 HTML 網頁
 
+在本節中，您會建立基本網頁，以及設定 VS Code 來啟動頁面並進行偵錯。 但是，啟動之前，您必須在瀏覽器有要求時，使用 Node.js 來啟動本機 Web 伺服器並提供頁面。 接下來，您會新增 JavaScript 程式碼來呼叫各種 Blob 儲存體 API，並在網頁中顯示結果。 您也可以在 [Azure 入口網站](https://portal.azure.com)、[Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer)和 VS Code 的 [Azure 儲存體擴充功能](vscode:extension/ms-azuretools.vscode-azurestorage)中查看這些呼叫的結果。
+
 ### <a name="set-up-the-web-application"></a>設定 Web 應用程式
-Azure 儲存體 JavaScript 用戶端程式庫無法直接從檔案系統運作，而必須由 Web 伺服器提供服務。 因此，下列步驟將詳細說明如何透過 Node.js 使用簡單的本機 Web 伺服器。
 
-> [!NOTE]
-> 本節說明如何建立需要在您的電腦上安裝 Node.js 的本機 Web 伺服器。 如果您不想安裝 Node.js，您可以使用任何其他執行本機 Web 伺服器的方法。
-
-首先，為您的專案建立新的資料夾，並將其命名為 *azure-blob-javascript*。 接著，在 *azure-blob-javascript* 資料夾中開啟命令提示字元，並輸入下列命令，將應用程式備妥以安裝 Web 伺服器模組：
-
-```bash
-npm init -y
-```
-執行 *init* 會新增有助於安裝 Web 伺服器模組的檔案。 若要安裝模組，請輸入下列命令：
-
-```bash
-npm i http-server
-```
-接著，編輯 package.json  檔案，並將現有的指令碼  定義取代為下列程式碼片段：
-
-```javascript
-"scripts": {
-    "start": "http-server"
-}
-```
-最後，在命令提示字元中輸入 `npm start`，以啟動 Web 伺服器：
-
-```bash
-npm start
-```
-
-### <a name="get-the-blob-storage-client-library"></a>取得 Blob 儲存體用戶端程式庫
-[下載 JavaScript 用戶端程式庫](https://aka.ms/downloadazurestoragejs)、解壓縮 zip 的內容，並將 bundle  資料夾中的指令碼檔案放入名為 scripts  的資料夾中。
-
-### <a name="add-the-client-script-reference-to-the-page"></a>將用戶端指令碼參考新增至頁面
-在 azure-blob-javascript  資料夾的根目錄建立 HTML 網頁，並將其命名為 index.html  。 此頁面建立後，請在頁面中新增下列標記。
+首先，建立名為 azure-blobs-javascript  的新資料夾，並在 VS Code 中將其開啟。 然後在 VS Code 中建立新檔案，加入下列 HTML，並在 azure-blobs-javascript  資料夾中，將其儲存為 index.html  。
 
 ```html
 <!DOCTYPE html>
 <html>
-    <body>
-        <button id="create-button">Create Container</button>
 
-        <input type="file" id="fileinput" />
-        <button id="upload-button">Upload</button>
+<body>
+    <button id="create-container-button">Create container</button>
+    <button id="delete-container-button">Delete container</button>
+    <button id="select-button">Select and upload files</button>
+    <input type="file" id="file-input" multiple style="display: none;" />
+    <button id="list-button">List files</button>
+    <button id="delete-button">Delete selected files</button>
+    <p><b>Status:</b></p>
+    <p id="status" style="height:160px; width: 593px; overflow: scroll;" />
+    <p><b>Files:</b></p>
+    <select id="file-list" multiple style="height:222px; width: 593px; overflow: scroll;" />
+</body>
 
-        <button id="list-button">List</button>
-        
-        <button id="delete-button">Delete</button>
-    </body>
-    <script src="scripts/azure-storage.blob.min.js" charset="utf-8"></script>
-    <script>
-        // Blob-related code goes here
-    </script>
+<!-- You'll add code here later in this quickstart. -->
+
 </html>
 ```
-此標記會將下列項目新增至頁面：
 
-- scripts/azure-storage.blob.js  的參考
-- 用來建立容器，上傳、列出及刪除 Blob 的按鈕
-- 用來上傳檔案的 INPUT  元素
-- 儲存體專用程式碼的預留位置
+### <a name="configure-the-debugger"></a>設定偵錯工具
 
-### <a name="create-an-instance-of-blobservice"></a>建立 BlobService 執行個體 
-[BlobService](https://azure.github.io/azure-storage-node/BlobService.html) 提供 Azure Blob 儲存體的介面。 若要建立服務的執行個體，您必須提供儲存體帳戶名稱以及在先前的步驟中產生的 SAS。
+若要在 VS Code 中設定偵錯工具擴充功能，請選取 [偵錯] > [新增組態...]  ，然後選取 [Chrome]  或 [Edge]  ，這取決於您稍早在必要條件一節中安裝的擴充功能。 此動作會建立 launch.json  檔案，並在編輯器中將其開啟。
+
+接下來，修改 launch.json  檔案，讓 `url` 包含 `/index.html`，如下所示：
+
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:8080/index.html",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
+```
+
+這項設定會告訴 VS Code 要啟動哪一個瀏覽器和要載入哪一個 URL。
+
+### <a name="launch-the-web-server"></a>啟動 Web 伺服器
+
+若要啟動本機的 Node.js Web 伺服器，請選取 [檢視] > [終端機]  ，以開啟 VS Code 內的主控台視窗中，然後輸入下列命令。
+
+```console
+npx http-server
+```
+
+此命令會安裝 http-server  套件，然後啟動伺服器，讓目前資料夾可透過預設 URL 提供 (包括上一個步驟中指出的 URL)。
+
+### <a name="start-debugging"></a>開始偵錯
+
+若要在連結 VS Code 偵錯工具的瀏覽器中啟動 index.html  ，請選取 [偵錯] > [開始偵錯]  ，或在 VS Code 中按 F5。
+
+顯示的 UI 還不會執行任何動作，但您將在下一節中新增 JavaScript 程式碼來實作每個顯示的函式。 然後，您可以設定中斷點，並在偵錯工具於程式碼上暫停時與之互動。
+
+當您變更 index.html  時，請務必重新載入頁面，如此才能在瀏覽器中看到變更。 在 VS Code 中，您也可以選取 [偵錯] > [重新啟動偵錯]  或按 CTRL + SHIFT + F5。
+
+### <a name="add-the-blob-storage-client-library"></a>新增 Blob 儲存體用戶端程式庫
+
+若要對 Blob 儲存體 API 啟用呼叫，請先[下載適用於 JavaScript 的 Azure 儲存體 SDK - Blob 用戶端程式庫](https://aka.ms/downloadazurestoragejsblob)、將 zip 內容解壓縮，然後將 *azure-storage-blob.js* 檔案放在 *azure-blobs-javascript* 資料夾中。
+
+接下來，將下列 HTML 貼到 index.html  的 `</body>` 結尾標記後面，並取代預留位置註解。
+
+```html
+<script src="azure-storage-blob.js" charset="utf-8"></script>
+
+<script>
+// You'll add code here in the following sections.
+</script>
+```
+
+此程式碼會將參考新增至指令碼檔案，並為您自己的 JavaScript 程式碼提供位置。 基於本快速入門的目的，我們會使用 *azure-storage-blob.js* 指令碼檔案，讓您可以在 VS Code 中將其開啟、讀取其內容，然後設定中斷點。 在生產環境中，您應該使用較精簡的 *azure-storage.blob.min.js* 檔案，這也會以 zip 檔案提供。
+
+您可以在[參考文件](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index)中深入了解每個 Blob 儲存體函式。 請注意，SDK 中的某些函式只適用於 Node.js，或是僅適用於瀏覽器。
+
+*azure-storage-blob.js* 中的程式碼會匯出名為 `azblob` 的全域變數，您將會在 JavaScript 程式碼中使用此變數來存取 Blob 儲存體 API。
+
+### <a name="add-the-initial-javascript-code"></a>新增最初的 JavaScript 程式碼
+
+接下來，將下列程式碼貼到先前程式碼區塊中顯示的 `<script>` 元素，並取代預留位置註解。
 
 ```javascript
-const account = {
-    name: YOUR_STORAGE_ACCOUNT_NAME,
-    sas:  YOUR_SAS
+const createContainerButton = document.getElementById("create-container-button");
+const deleteContainerButton = document.getElementById("delete-container-button");
+const selectButton = document.getElementById("select-button");
+const fileInput = document.getElementById("file-input");
+const listButton = document.getElementById("list-button");
+const deleteButton = document.getElementById("delete-button");
+const status = document.getElementById("status");
+const fileList = document.getElementById("file-list");
+
+const reportStatus = message => {
+    status.innerHTML += `${message}<br/>`;
+    status.scrollTop = status.scrollHeight;
+}
+```
+
+此程式碼會為下列程式碼使用的每個 HTML 元素建立欄位，並實作 `reportStatus` 函式來顯示輸出。
+
+在下列各節中，您會將每個新的 JavaScript 程式碼區塊加在前一個區塊後面。
+
+### <a name="add-your-storage-account-info"></a>新增您的儲存體帳戶資訊
+
+接下來，新增程式碼來存取您的儲存體帳戶，將預留位置取代為您的帳戶名稱和您在上一個步驟中產生的 SAS。
+
+```javascript
+const accountName = "<Add your storage account name>";
+const sasString = "<Add the SAS you generated earlier>";
+const containerName = "testcontainer";
+const containerURL = new azblob.ContainerURL(
+    `https://${accountName}.blob.core.windows.net/${containerName}?${sasString}`,
+    azblob.StorageURL.newPipeline(new azblob.AnonymousCredential));
+```
+
+此程式碼會使用您的帳戶資訊和 SAS 來建立 [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) 執行個體，這可用於建立和管理儲存體容器。
+
+### <a name="create-and-delete-a-storage-container"></a>建立及刪除儲存體容器
+
+接下來，新增當您按下對應的按鈕時，建立和刪除儲存體容器的程式碼。
+
+```javascript
+const createContainer = async () => {
+    try {
+        reportStatus(`Creating container "${containerName}"...`);
+        await containerURL.create(azblob.Aborter.none);
+        reportStatus(`Done.`);
+    } catch (error) {
+        reportStatus(error.body.message);
+    }
 };
 
-const blobUri = 'https://' + account.name + '.blob.core.windows.net';
-const blobService = AzureStorage.Blob.createBlobServiceWithSas(blobUri, account.sas);
+const deleteContainer = async () => {
+    try {
+        reportStatus(`Deleting container "${containerName}"...`);
+        await containerURL.delete(azblob.Aborter.none);
+        reportStatus(`Done.`);
+    } catch (error) {
+        reportStatus(error.body.message);
+    }
+};
+
+createContainerButton.addEventListener("click", createContainer);
+deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-### <a name="create-a-blob-container"></a>建立 Blob 容器
-在 Blob 服務建立後，您現在可以建立新的容器，以存放已上傳的 Blob。 [createContainerIfNotExists](https://azure.github.io/azure-storage-node/BlobService.html#createContainerIfNotExists__anchor) 方法會建立新容器，且在已有容器存在時並不會傳回錯誤。
-
-```javascript
-document.getElementById('create-button').addEventListener('click', () => {
-
-    blobService.createContainerIfNotExists('mycontainer',  (error, container) => {
-        if (error) {
-            // Handle create container error
-        } else {
-            console.log(container.name);
-        }
-    });
-
-});
-```
-
-### <a name="upload-a-blob"></a>上傳 Blob
-若要從 HTML 表單上傳 Blob，您可以從 INPUT  元素取得所選檔案的參考。 當元素的「類型」  設為「檔案」  時，您可以透過`files` 陣列取得選取的檔案。
-
-透過指令碼，您可以參考 HTML 元素，並將選取的檔案傳遞至 Blob 服務。
-
-```javascript
-document.getElementById('upload-button').addEventListener('click', () => {
-
-    const file = document.getElementById('fileinput').files[0];
-
-    blobService.createBlockBlobFromBrowserFile('mycontainer', 
-                                                file.name, 
-                                                file, 
-                                                (error, result) => {
-                                                    if(error) {
-                                                        // Handle blob error
-                                                    } else {
-                                                        console.log('Upload is successful');
-                                                    }
-                                                });
-
-});
-```
-
-[createBlockBlobFromBrowserFile](https://azure.github.io/azure-storage-node/BlobService.html#createBlockBlobFromBrowserFile__anchor) 方法會直接使用瀏覽器檔案上傳至 Blob 容器。
+此程式碼會呼叫 ContainerURL 的[建立](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-)和[刪除](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-)函式，無須使用 [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) 執行個體。 為了簡化本快速入門，此程式碼會假設您已建立並啟用儲存體帳戶。 在生產環境的程式碼中，請使用 Aborter 執行個體來新增逾時功能。
 
 ### <a name="list-blobs"></a>列出 Blob
-當您將檔案上傳至 Blob 容器中後，您可以使用 [listBlobsSegmented](https://azure.github.io/azure-storage-node/BlobService.html#listBlobsSegmented__anchor) 方法存取容器中的 Blob 清單。
+
+接下來，新增當您按下 [列出檔案]  按鈕時會列出儲存體容器內容的程式碼。
 
 ```javascript
-document.getElementById('list-button').addEventListener('click', () => {
-
-    blobService.listBlobsSegmented('mycontainer', null, (error, results) => {
-        if (error) {
-            // Handle list blobs error
+const listFiles = async () => {
+    fileList.size = 0;
+    fileList.innerHTML = "";
+    try {
+        reportStatus("Retrieving file list...");
+        let marker = undefined;
+        do {
+            const listBlobsResponse = await containerURL.listBlobFlatSegment(
+                azblob.Aborter.none, marker);
+            marker = listBlobsResponse.nextMarker;
+            const items = listBlobsResponse.segment.blobItems;
+            for (const blob of items) {
+                fileList.size += 1;
+                fileList.innerHTML += `<option>${blob.name}</option>`;
+            }
+        } while (marker);
+        if (fileList.size > 0) {
+            reportStatus("Done.");
         } else {
-            results.entries.forEach(blob => {
-                console.log(blob.name);
-            });
+            reportStatus("The container does not contain any files.");
         }
-    });
-    
-});
+    } catch (error) {
+        reportStatus(error.body.message);
+    }
+};
+
+listButton.addEventListener("click", listFiles);
 ```
 
-listBlobsSegmented  方法會傳回 Blob 的集合。 預設的集合數量為 5,000 個 Blob，但您可以調整此值以符合您的需求。 [接續範例](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js#L132)會示範如何處理大量 Blob 以及用戶端程式庫如何支援分頁作業。 
+此程式碼會在迴圈中呼叫 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) 函式，以確保擷取所有區段。 該函式會針對每個區段，在所包含的 Blob 項目清單上循環，並更新**檔案**清單。
 
+### <a name="upload-blobs"></a>上傳 Blob
+
+接下來，新增當您按下 [選取並上傳檔案]  按鈕時，將檔案上傳至儲存體容器的程式碼。
+
+```javascript
+const uploadFiles = async () => {
+    try {
+        reportStatus("Uploading files...");
+        const promises = [];
+        for (const file of fileInput.files) {
+            const blockBlobURL = azblob.BlockBlobURL.fromContainerURL(containerURL, file.name);
+            promises.push(azblob.uploadBrowserDataToBlockBlob(
+                azblob.Aborter.none, file, blockBlobURL));
+        }
+        await Promise.all(promises);
+        reportStatus("Done.");
+        listFiles();
+    } catch (error) {
+        reportStatus(error.body.message);
+    }
+}
+
+selectButton.addEventListener("click", () => fileInput.click());
+fileInput.addEventListener("change", uploadFiles);
+```
+
+此程式碼會將 [選取並上傳檔案]  按鈕連結到隱藏的 `file-input` 元素。 如此一來，`click` 按鈕事件會觸發 `click` 檔案輸入事件，並顯示檔案選擇器。 當您選取檔案並關閉對話方塊後，`input` 事件就會發生，並呼叫 `uploadFiles` 函式。 此函式會針對您選取的每個檔案呼叫瀏覽器專用的 [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) 函式。 每個呼叫都會傳回可新增至清單的 Promise，讓所有檔案同時一起等候，這麼一來，檔案就能平行地上傳。
 
 ### <a name="delete-blobs"></a>刪除 Blob
-您可以藉由呼叫 [deleteBlobIfExists](https://azure.github.io/azure-storage-node/BlobService.html#deleteBlobIfExists__anchor) 刪除您上傳的 Blob。
+
+接下來，新增當您按下 [刪除選取檔案]  按鈕時，即可從儲存體容器中刪除檔案的程式碼。
 
 ```javascript
-document.getElementById('delete-button').addEventListener('click', () => {
-
-    var blobName = YOUR_BLOB_NAME;
-    blobService.deleteBlobIfExists('mycontainer', blobName, (error, result) => {
-        if (error) {
-            // Handle delete blob error
+const deleteFiles = async () => {
+    try {
+        if (fileList.selectedOptions.length > 0) {
+            reportStatus("Deleting files...");
+            for (const option of fileList.selectedOptions) {
+                const blobURL = azblob.BlobURL.fromContainerURL(containerURL, option.text);
+                await blobURL.delete(azblob.Aborter.none);
+            }
+            reportStatus("Done.");
+            listFiles();
         } else {
-            console.log('Blob deleted successfully');
+            reportStatus("No files selected.");
         }
-    });
-    
-});
+    } catch (error) {
+        reportStatus(error.body.message);
+    }
+};
+
+deleteButton.addEventListener("click", deleteFiles);
 ```
-> [!WARNING]
-> 若要讓此程式碼範例運作，您必須提供 blobName  的字串值。
+
+此程式碼會呼叫 [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) 函式來移除清單中選定的每個檔案。 然後呼叫稍早說明的 `listFiles` 函式，來重新整理**檔案**清單的內容。
+
+### <a name="run-and-test-the-web-application"></a>執行並測試 Web 應用程式
+
+此時，您可以啟動頁面及進行實驗，以了解 Blob 儲存體的運作方式。 如果發生任何錯誤 (例如您嘗試在建立容器之前列出檔案)，**狀態**窗格將會顯示收到的錯誤訊息。 您也可以在 JavaScript 程式碼中設定中斷點，以檢查儲存體 API 所傳回的值。
 
 ## <a name="clean-up-resources"></a>清除資源
-若要清除在此快速入門期間建立的資源，請返回 [Azure 入口網站](https://portal.azure.com)，並選取您的儲存體帳戶。 選取之後，您可以移至下列位置刪除儲存體帳戶：[概觀 > 刪除儲存體帳戶]  。
+
+若要清除本快速入門建立的資源，請移至 [Azure 入口網站](https://portal.azure.com)並刪除您在必要條件一節中建立的資源群組。
 
 ## <a name="next-steps"></a>後續步驟
-瀏覽範例以了解如何下載 Blob，並在檔案上傳期間報告進度。
+
+在本快速入門中，您已建立可從瀏覽器型 JavaScript 中存取 Blob 儲存體的簡易網站。 若要了解如何在 Blob 儲存體上裝載網站本身，請繼續下列教學課程：
 
 > [!div class="nextstepaction"]
-> [Blob 儲存體用戶端程式庫](https://github.com/Azure/azure-storage-node/tree/master/browser)
+> [將靜態網站裝載於 Blob 儲存體上](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)

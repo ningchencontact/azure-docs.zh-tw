@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b30e260b2eeb0d8af0c347996cdb51685dedd046
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 77bc092c7d44e559562699d9177c2bd168f7dea0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133330"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981601"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>使用 Azure 事件方格來接收和回應金鑰保存庫通知 (預覽)
 
@@ -22,7 +22,7 @@ Azure Key Vault 與 Azure 事件方格的整合 (目前處於預覽狀態) 可�
 
 本指南說明如何透過事件方格接收 Key Vault 通知，以及如何透過 Azure 自動化回應狀態變更。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 - Azure 訂用帳戶中的金鑰保存庫。 您可以遵循[使用 Azure CLI 從 Azure Key Vault 設定和擷取祕密](quick-create-cli.md)中的步驟，快速建立新的金鑰保存庫。
@@ -184,7 +184,7 @@ write-Error "No input data found."
 
 ### <a name="you-cant-create-an-event-subscription"></a>您無法建立事件訂閱。
 
-在您的 Azure 訂用帳戶資源提供者中重新註冊事件方格和金鑰保存庫提供者。 請參閱 [Azure 資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)。
+在您的 Azure 訂用帳戶資源提供者中重新註冊事件方格和金鑰保存庫提供者。 請參閱 [Azure 資源提供者和類型](../azure-resource-manager/management/resource-providers-and-types.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -196,7 +196,7 @@ write-Error "No input data found."
 
 
 - 概觀：[使用 Azure 事件方格監視 Key Vault (預覽)](event-grid-overview.md)
-- 作法：[在金鑰保存庫祕密變更時收到電子郵件](event-grid-logicapps.md)
+- 如何：[在金鑰保存庫祕密變更時收到電子郵件](event-grid-logicapps.md)
 - [Azure Key Vault 的 Azure 事件方格事件結構描述 (預覽)](../event-grid/event-schema-key-vault.md)
 - [Azure Key Vault 概觀](key-vault-overview.md)
 - [Azure 事件方格概觀](../event-grid/overview.md)

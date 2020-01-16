@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3c6fd3de43f80c4cbe8f1f822faebad861c64d64
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cbd452fcf4056c1bcf4d5b8d6debb9d8f4a6f11c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610602"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976110"
 ---
 # <a name="connect-data-sources"></a>連線資料來源
 
@@ -97,7 +97,7 @@ Azure Sentinel 支援下列資料連線方法：
 | **Data type** | **如何連線** | **資料連接器？** | **註解** |
 |------|---------|-------------|------|
 | AWSCloudTrail | [連線 AWS](connect-aws.md) | V | |
-| AzureActivity | [連線 Azure 活動](connect-azure-activity.md)和[活動記錄概觀](../azure-monitor/platform/activity-logs-overview.md)| V | |
+| AzureActivity | [連線 Azure 活動](connect-azure-activity.md)和[活動記錄概觀](../azure-monitor/platform/platform-logs-overview.md)| V | |
 | AuditLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
 | SigninLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
 | AzureFirewall |[Azure 診斷](../firewall/tutorial-diagnostics.md) | V | |
@@ -105,7 +105,7 @@ Azure Sentinel 支援下列資料連線方法：
 | AzureNetworkAnalytics_CL  | [流量分析結構描述](../network-watcher/traffic-analytics.md) [流量分析](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [連線 CEF](connect-common-event-format.md)  | V | |
 | OfficeActivity | [連線 Office 365](connect-office-365.md) | V | |
-| SecurityEvents | [連線 Windows 安全性事件](connect-windows-security-events.md)  | V | 若為不安全的通訊協定活頁簿，請參閱[不安全的通訊協定活頁簿設定](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |
+| SecurityEvents | [連線 Windows 安全性事件](connect-windows-security-events.md)  | V | 若為不安全的通訊協定活頁簿，請參閱[不安全的通訊協定活頁簿設定](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)  |
 | syslog | [連線 Syslog](connect-syslog.md) | V | |
 | Microsoft Web 應用程式防火牆 (WAF) - (AzureDiagnostics) |[連線 Microsoft Web 應用程式防火牆](connect-microsoft-waf.md) | V | |
 | SymantecICDx_CL | [連線 Symantec](connect-symantec.md) | V | |

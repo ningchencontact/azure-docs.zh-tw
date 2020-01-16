@@ -3,7 +3,7 @@ title: Azure CLI 指令碼範例 - Batch 中的 Linux 集區
 description: 此指令碼示範 Azure CLI 中一些可用的命令，用於建立和管理 Azure Batch 中的 Linux 計算節點集區。
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-ms.author: lahugh
-ms.openlocfilehash: 33f66da1911bdefee298f3de949937bbc52d8fe1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: jushiman
+ms.openlocfilehash: c1def861ce22fbaa63397ec4ea667384d1be3c5f
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390225"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029336"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>CLI 範例：在 Azure Batch 中建立和管理 Linux 集區
 

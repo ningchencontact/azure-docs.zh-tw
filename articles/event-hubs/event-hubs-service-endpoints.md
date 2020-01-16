@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: 9b8b3600acc33e177e65002ba69dcf98a20c2253
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 2ac89444bde4e2efc918aced9d76c099eb792557
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555337"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966005"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>將虛擬網路服務端點搭配 Azure 事件中樞使用
 
@@ -30,7 +30,7 @@ ms.locfileid: "74555337"
 >[!WARNING]
 > 實作「虛擬網路」整合可防止其他 Azure 服務與「事件中樞」進行互動。
 >
-> 實作虛擬網路時，不支援受信任的 Microsoft 服務。
+> 實作「虛擬網路」時，不支援受信任的 Microsoft 服務。
 >
 > 無法與「虛擬網路」搭配運作的常見 Azure 案例 (請注意，這**不是**完整的清單) -
 > - 與 Azure 監視器整合。 您無法將來自**其他**Azure 服務的診斷記錄串流到事件中樞。 不過，您可以在事件中樞本身上啟用 Azure 診斷記錄。 當您啟用防火牆（IP 篩選）時，這是相同的情況。
@@ -46,7 +46,7 @@ ms.locfileid: "74555337"
 > [!IMPORTANT]
 > 事件中樞的**標準**和**專用**層級支援虛擬網路。 基本層中不支援虛擬網路。
 
-## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 整合所啟用的進階安全性案例 
+## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 整合所實現的進階安全性案例 
 
 需要嚴格且劃分的安全性，以及虛擬網路子網在劃分服務之間提供分割的解決方案，仍然需要位於這些區間之服務之間的通訊路徑。
 
@@ -76,11 +76,11 @@ ms.locfileid: "74555337"
 > 雖然無法使用任何拒絕規則，但 Azure Resource Manager 範本是將預設動作設定為不會限制連線的 **"Allow"** 。
 > 在建立「虛擬網路」或「防火牆」規則時，我們必須將 ***"defaultAction"***
 > 
-> from
+> 從
 > ```json
 > "defaultAction": "Allow"
 > ```
-> 更新成
+> to
 > ```json
 > "defaultAction": "Deny"
 > ```
@@ -194,5 +194,5 @@ ms.locfileid: "74555337"
 - [Azure 事件中樞 IP 篩選][ip-filtering]
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md
-[lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [ip-filtering]: event-hubs-ip-filtering.md
