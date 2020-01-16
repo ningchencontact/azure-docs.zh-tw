@@ -4,15 +4,15 @@ description: 瞭解如何安裝和設定內部部署資料閘道，以從 Azure 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 37658ea6b94d6369d282c49f79947a1f183b61c7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 019da1810851c730ea8bfe4cf5eea0cfa900bea0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572846"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029892"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
 
@@ -25,13 +25,13 @@ ms.locfileid: "73572846"
 **最低需求：**
 
 * .NET 4.5 Framework
-* 64 位元版本的 Windows 7 / Windows Server 2008 R2 (或更新版本)
+* 64位版本的 Windows 8/Windows Server 2012 R2 （或更新版本）
 
 **建議配備：**
 
 * 8 核心 CPU
 * 8 GB 記憶體
-* 64 位元版本的 Windows 2012 R2 (或更新版本)
+* 64位版本的 Windows 8/Windows Server 2012 R2 （或更新版本）
 
 **重要考量︰**
 
@@ -75,14 +75,14 @@ ms.locfileid: "73572846"
 
 1.  選取 [在這部電腦上註冊新的閘道]。
 
-    ![Register](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![註冊](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. 輸入您的閘道名稱和復原金鑰。 根據預設，閘道會使用您訂用帳戶的預設區域。 如果您需要選取不同的區域，請選取 [變更區域]。
 
     > [!IMPORTANT]
     > 將您的修復金鑰儲存在安全的地方。 必須要有修復金鑰，才能接管、移轉或還原閘道。 
 
-   ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![註冊](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-resource"></a>建立 Azure 閘道資源
@@ -127,7 +127,7 @@ ms.locfileid: "73572846"
 
     ![將伺服器連線至閘道資源成功](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-就這麼簡單。 如果您需要開啟連接埠，或進行疑難排解，請務必簽出[內部部署資料閘道](analysis-services-gateway.md)。
+就這樣， 如果您需要開啟連接埠，或進行疑難排解，請務必簽出[內部部署資料閘道](analysis-services-gateway.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

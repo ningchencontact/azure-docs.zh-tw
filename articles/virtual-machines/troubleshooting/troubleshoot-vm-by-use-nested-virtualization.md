@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: 87faea5385f5b0fd2c481c6aa7c45a9867b34163
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 4ef8bc029c63aaf297462a7b53f6daba1a7c850b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942190"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028436"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>在 Azure 中使用巢狀虛擬化來疑難排解問題 Azure VM
 
@@ -26,11 +26,7 @@ ms.locfileid: "75942190"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要掛接有問題的 VM，「救援 VM」必須符合下列必要條件：
-
--   「救援 VM」必須與問題 VM 處於相同的位置。
-
--   「救援 VM」必須使用與問題 VM 相同類型的儲存體帳戶 (標準或進階)。
+若要掛接問題 VM，修復 VM 必須使用與問題 VM 相同的儲存體帳戶類型（標準或 Premium）。
 
 ## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>步驟 1：建立救援 VM 並安裝 Hyper-V 角色
 

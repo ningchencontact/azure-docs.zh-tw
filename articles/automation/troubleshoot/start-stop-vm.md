@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eeaf44b9abe5c8f0343325454f599d282be6c743
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: aa71e1e6b58906953dfa22d08405c05c10c83242
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769841"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966691"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>疑難排解停機期間啟動/停止 VM 解決方案
 
@@ -67,13 +67,13 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
 請檢閱下列清單，以取得您的問題或搜尋的地方的潛在解決方案：
 
 1. 自動化帳戶在 Azure 區域中必須是唯一的，即使位於不同的資源群組。 檢查目標區域中現有的自動化帳戶。
-2. 現有的原則會防止部署啟動/停止 VM 解決方案所需的資源。 請移至您在 Azure 入口網站中的原則指派，並檢查您是否有不允許這項資源部署的原則指派。 若要深入了解，請參閱 [RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)。
+2. 現有的原則會防止部署啟動/停止 VM 解決方案所需的資源。 請移至您在 Azure 入口網站中的原則指派，並檢查您是否有不允許這項資源部署的原則指派。 若要深入了解，請參閱 [RequestDisallowedByPolicy](../../azure-resource-manager/templates/error-policy-requestdisallowedbypolicy.md)。
 3. 若要部署啟動/停止 VM 解決方案，您的訂用帳戶必須註冊下列 Azure 資源命名空間：
     * `Microsoft.OperationsManagement`
     * `Microsoft.Insights`
     * `Microsoft.Automation`
 
-   請參閱[解決資源提供者註冊的錯誤](../../azure-resource-manager/resource-manager-register-provider-errors.md)，深入了解註冊提供者時的錯誤。
+   請參閱[解決資源提供者註冊的錯誤](../../azure-resource-manager/templates/error-register-resource-provider.md)，深入了解註冊提供者時的錯誤。
 4. 如果您有 Log Analytics 工作區的鎖定，請移至您在 Azure 入口網站中的工作區，並移除資源的任何鎖定。
 5. 如果上述解決方法無法解決您的問題，請遵循[更新解決方案](../automation-solution-vm-management.md#update-the-solution)底下的指示，重新部署啟動/停止解決方案。
 

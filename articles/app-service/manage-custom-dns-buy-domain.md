@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0723a3b0c96339ba86b98ab851c44d2a65e6f34b
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 6bc6f1ca29343e027730cbbd99d210f911fcb492
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672386"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967307"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>針對 Azure App Service 購買自訂網域名稱
 
@@ -23,7 +23,7 @@ App Service 網域是直接在 Azure 中管理的頂層網域。 它們可以讓
 若要完成本教學課程：
 
 * [建立 App Service 應用程式](/azure/app-service/)，或使用您針對另一個教學課程建立的應用程式。
-* [移除訂用帳戶的消費限制](../billing/billing-spending-limit.md#remove)。 您無法使用免費的訂用帳戶信用額度購買 App Service 網域。
+* [移除訂用帳戶的消費限制](../cost-management-billing/manage/spending-limit.md#remove)。 您無法使用免費的訂用帳戶信用額度購買 App Service 網域。
 
 ## <a name="prepare-the-app"></a>準備應用程式
 
@@ -106,7 +106,7 @@ App Service 網域是直接在 Azure 中管理的頂層網域。 它們可以讓
 
 接下來，請為網域選取所需選項。 請參閱下表中的說明：
 
-| 設定 | 建議的值 | 描述 |
+| 設定 | 建議的值 | 說明 |
 |-|-|-|
 |隱私權保護 | 啟用 | 選擇加入「隱私權保護」，此服務已 _免費_ 包含在購買價格中。 有些頂層網域受控於不支援隱私權保護的註冊機構，會將之列在 [隱私權保護] 頁面中。 |
 | 指派預設主機名稱 | **www** 和 **\@** | 如有需要，請選取所需的主機名稱繫結。 網域購買作業完成時，即可從選取的主機名稱存取應用程式。 如果應用程式受 [Azure 流量管理員](https://azure.microsoft.com/services/traffic-manager/)管理，您就不會看到指派根網域 (@) 的選項，因為流量管理員不支援 A 記錄。 您可以在網域購買完成之後變更主機名稱指派。 |

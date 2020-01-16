@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: 0a956a1372ba1535b9d918333bd7411a4ca6abe4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83ecb0ad85a02c8c05b9d7e504e578afd98ed7b6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441938"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969359"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中獲得最低的保留容量費用
 
@@ -20,9 +20,9 @@ Azure Cosmos DB 保留容量可協助您藉由認可一年或三年 Azure Cosmos
 
 Azure Cosmos DB 保留容量可以大幅降低 Cosmos DB 成本&mdash;預付一或三年期承諾用量費用，即可節省高達一般價格的 65%。 保留容量提供帳單折扣，而且不會影響 Azure Cosmos DB 資源的執行階段狀態。
 
-Azure Cosmos DB 保留容量可涵蓋針對資源所佈建的輸送量。 它未涵蓋儲存體和網路費用。 購買保留容量後，符合保留屬性的輸送量費用就不會再按照預付型方案的費率來收費。 如需有關保留的詳細資訊，請參閱 [Azure 保留](../billing/billing-save-compute-costs-reservations.md)一文。
+Azure Cosmos DB 保留容量可涵蓋針對資源所佈建的輸送量。 它未涵蓋儲存體和網路費用。 購買保留容量後，符合保留屬性的輸送量費用就不會再按照預付型方案的費率來收費。 如需有關保留的詳細資訊，請參閱 [Azure 保留](../cost-management-billing/reservations/save-compute-costs-reservations.md)一文。
 
-您可以從 [Azure 入口網站](https://portal.azure.com)購買 Azure Cosmos DB 保留容量。 保留的付款方式可為[預先付款或每月付款](../billing/billing-monthly-payments-reservations.md)。 若要購買保留容量：
+您可以從 [Azure 入口網站](https://portal.azure.com)購買 Azure Cosmos DB 保留容量。 保留的付款方式可為[預先付款或每月付款](../cost-management-billing/reservations/monthly-payments-reservations.md)。 若要購買保留容量：
 
 * 您至少必須是一個企業或個別訂用帳戶的擁有者角色，且具有隨用隨付費率。  
 * 針對企業訂用帳戶，必須在 [EA 入口網站](https://ea.azure.com)中啟用**新增保留執行個體**。 或者，如果該設定已停用，則您必須是訂用帳戶上的 EA 系統管理員。
@@ -74,22 +74,22 @@ Azure Cosmos DB 保留容量可涵蓋針對資源所佈建的輸送量。 它未
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>取消、交換保留或進行退費
 
-如需識別正確保留容量的協助，請參閱[瞭解保留折扣如何套用至 Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md)。
+如需識別正確保留容量的協助，請參閱[瞭解保留折扣如何套用至 Azure Cosmos DB](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md)。
 
-您可以取消、交換保留或進行退費，但有某些限制。 如需詳細資訊，請參閱 [Azure 保留的自助式交換和退費](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)。
+您可以取消、交換保留或進行退費，但有某些限制。 如需詳細資訊，請參閱 [Azure 保留的自助式交換和退費](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
 保留容量折扣會自動套用到符合保留容量範圍和屬性的 Azure Cosmos DB 資源中。 您可以透過 Azure 入口網站、PowerShell、Azure CLI 或 API 來更新保留容量的範圍。
 
-*  若要了解如何將保留容量折扣套用至 Azure Cosmos DB，請參閱[了解 Azure 保留折扣](../billing/billing-understand-cosmosdb-reservation-charges.md)。
+*  若要了解如何將保留容量折扣套用至 Azure Cosmos DB，請參閱[了解 Azure 保留折扣](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md)。
 
 * 若要深入了解 Azure 保留項目，請參閱下列文章：
 
-   * [什麼是 Azure 保留項目？](../billing/billing-save-compute-costs-reservations.md)  
-   * [管理 Azure 保留](../billing/billing-manage-reserved-vm-instance.md)  
-   * [了解 Enterprise 註冊的保留項目使用量](../billing/billing-understand-reserved-instance-usage-ea.md)  
-   * [了解隨用隨付訂用帳戶的保留使用量](../billing/billing-understand-reserved-instance-usage.md)
+   * [什麼是 Azure 保留項目？](../cost-management-billing/reservations/save-compute-costs-reservations.md)  
+   * [管理 Azure 保留](../cost-management-billing/reservations/manage-reserved-vm-instance.md)  
+   * [了解 Enterprise 註冊的保留項目使用量](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)  
+   * [了解隨用隨付訂用帳戶的保留使用量](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
    * [合作夥伴中心 CSP 計劃中的 Azure 保留容量](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 連絡我們。

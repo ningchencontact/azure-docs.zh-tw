@@ -6,15 +6,15 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: e4265cf3f9c211a19fe05bc18cf47a273165c3c3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: df8b65fcb4dd2b9622716052be2df59cbfa5424a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122772"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971799"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>在 Azure Cache for Redis 中匯入與匯出資料
-「匯入/匯出」是 Azure Cache for Redis 的資料管理作業，可讓您從進階快取將「Azure Cache for Redis 資料庫」(RDB) 快照集匯入和匯出至 Azure 儲存體帳戶中的 Blob，以將資料匯入 Azure Cache for Redis 或從 Azure Cache for Redis 匯出資料。 
+「匯入/匯出」是 Azure Cache for Redis 的資料管理作業，可讓您從進階快取將「Azure Cache for Redis 資料庫」(RDB) 快照集匯入和匯出至 Azure 儲存體帳戶中的 Blob，以將資料匯入 Azure Cache for Redis 或從 Azure Cache for Redis 匯出資料。
 
 - **匯出** - 您可以將您的 Azure Cache for Redis RDB 快照集匯出至分頁 Blob。
 - **匯入** - 您可以從分頁 Blob 或區塊 Blob 匯入您的 Azure Cache for Redis RDB 快照集。
@@ -28,7 +28,7 @@ ms.locfileid: "74122772"
 >
 >
 
-## <a name="import"></a>Import
+## <a name="import"></a>匯入
 匯入可以用來從任何雲端或環境中執行的 Redis 伺服器 (包含在 Linux、Windows 上執行的 Redis，或任何雲端提供者，例如 Amazon Web Services 等) 引入 Redis 相容 RDB 檔案。 匯入資料是使用預先填入資料建立快取的輕鬆方式。 在進行匯入程序的期間，Azure Cache for Redis 會從 Azure 儲存體將 RDB 檔案載入記憶體，然後將金鑰插入快取中。
 
 > [!NOTE]
@@ -55,9 +55,9 @@ ms.locfileid: "74122772"
    >
    >
 
-    ![Import](./media/cache-how-to-import-export-data/cache-import-blobs.png)
+    ![匯入](./media/cache-how-to-import-export-data/cache-import-blobs.png)
 
-    您可以遵循 Azure 入口網站的通知，或檢視 [稽核記錄檔](../azure-resource-manager/resource-group-audit.md)中的事件來監視匯入作業的進度。
+    您可以遵循 Azure 入口網站的通知，或檢視 [稽核記錄檔](../azure-resource-manager/management/view-activity-logs.md)中的事件來監視匯入作業的進度。
 
     ![匯入進度](./media/cache-how-to-import-export-data/cache-import-data-import-complete.png)
 
@@ -81,7 +81,7 @@ ms.locfileid: "74122772"
 
     ![匯出](./media/cache-how-to-import-export-data/cache-export-data.png)
 
-    您可以遵循 Azure 入口網站的通知，或檢視[稽核記錄檔](../azure-resource-manager/resource-group-audit.md)中的事件來監視匯出作業的進度。
+    您可以遵循 Azure 入口網站的通知，或檢視[稽核記錄檔](../azure-resource-manager/management/view-activity-logs.md)中的事件來監視匯出作業的進度。
 
     ![匯出資料完成](./media/cache-how-to-import-export-data/cache-export-data-export-complete.png)
 
@@ -109,8 +109,8 @@ ms.locfileid: "74122772"
 
 > [!IMPORTANT]
 > 若要在使用分頁 Blob 時成功匯入從非 Azure Cache for Redis 的 Redis 伺服器匯出的資料，分頁 Blob 大小必須對齊 512 個位元組的界限。 如需執行任何所需的位元組填補的範例程式碼，請參閱[範例分頁 Blob 上傳 ](https://github.com/JimRoberts-MS/SamplePageBlobUpload) \(英文\)。
-> 
-> 
+>
+>
 
 ### <a name="what-rdb-versions-can-i-import"></a>我可以匯入哪些 RDB 版本？
 

@@ -1,17 +1,14 @@
 ---
-title: 使用 Azure Migrate Server 評估，探索安裝在內部部署伺服器上的應用程式、角色和功能
-description: 說明如何使用 Azure Migrate Server 評估，探索內部部署伺服器上的應用程式、角色和功能。
-author: snehaamicrosoft
-ms.service: azure-migrate
+title: 使用 Azure Migrate 探索內部部署伺服器上的應用程式、角色和功能
+description: 瞭解如何在具有 Azure Migrate Server 評估的內部部署伺服器上探索應用程式、角色和功能。
 ms.topic: article
 ms.date: 11/20/2019
-ms.author: snehaa
-ms.openlocfilehash: 279e326ace308b354d7bcb8366d3286980e7b8c6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: adc22925d1152639babe2377a1eae440e0ce418e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278482"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029068"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>探索機器應用程式、角色和功能
 
@@ -30,14 +27,14 @@ ms.locfileid: "74278482"
 1. 請參閱應用層級探索的[支援限制](migrate-support-matrix-vmware.md#application-discovery)。
 2. 請確定您已[建立](how-to-add-tool-first-time.md)Azure Migrate 專案。
 3. 如果您已經建立專案，請確定您已[新增](how-to-assess.md)Azure Migrate：伺服器評估工具。
-4. 請檢查[vmware 需求](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements)，以使用 Azure Migrate 設備探索和評定 vmware vm。
-4. 檢查部署 Azure Migrate 設備的[需求](migrate-support-matrix-vmware.md#assessment-appliance-requirements)。
+4. 請檢查[vmware 需求](migrate-support-matrix-vmware.md#vmware-requirements)，以使用 Azure Migrate 設備探索和評定 vmware vm。
+4. 檢查部署 Azure Migrate 設備的[需求](migrate-appliance.md)。
 
 ## <a name="prepare-for-app-discovery"></a>準備應用程式探索
 
-1. [準備設備部署](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware)。 準備工作包括確認設備設定，以及設定設備將用來存取 vCenter Server 的帳戶。
+1. [準備設備部署](tutorial-prepare-vmware.md)。 準備工作包括確認設備設定，以及設定設備將用來存取 vCenter Server 的帳戶。
 2. 請確定您有一個使用者帳戶（Windows 和 Linux 伺服器各一個），並具有您想要探索應用程式、角色和功能之電腦的系統管理員許可權。
-3. [部署 VMware 設備](how-to-set-up-appliance-vmware.md)以開始探索。 若要部署設備，您可以下載 OVA 範本並將其匯入 VMware，以將設備建立為 VMware VM。 您可以設定設備，然後向 Azure Migrate 註冊。
+3. [部署 Azure Migrate 設備](how-to-set-up-appliance-vmware.md)以開始探索。 若要部署設備，您可以下載 OVA 範本並將其匯入 VMware，以將設備建立為 VMware VM。 您可以設定設備，然後向 Azure Migrate 註冊。
 2. 當您部署設備時，若要啟動連續探索，請指定下列各項：
     - 您要連接之 vCenter Server 的名稱。
     - 您為設備建立的認證，用來連線到 vCenter Server。

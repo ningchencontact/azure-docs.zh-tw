@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.openlocfilehash: fe300c1efc8f5802397a59296f8b127c321bd871
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: b8afdd0f2dd98260a628116fa7402e05cd39e06b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941570"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965848"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>針對 Azure VM 嚴重損壞修復中的複寫進行疑難排解
 
@@ -35,7 +35,7 @@ Azure Site Recovery 會以一致方式將資料從來源區域複寫到災害復
 
 
 ### <a name="azure-site-recovery-limits"></a>Azure Site Recovery 限制
-下表提供 Azure Site Recovery 限制。 上述限制是以我們的測試為基礎，但無法涵蓋所有可能的應用程式 I/O 組合。 實際的結果會隨著您的應用程式 I/O 混合而有所不同。 
+下表提供 Azure Site Recovery 限制。 上述限制是以我們的測試為基礎，但無法涵蓋所有可能的應用程式 I/O 組合。 實際的結果會隨著您的應用程式 I/O 混合而有所不同。
 
 有兩個需要考量的限制：每個磁碟的資料變換率和每部虛擬機器的資料變換率。 例如，我們可以查看下表中的進階 P20 磁碟。 Site Recovery 可為每個磁碟處理 5 MB/秒的變換率，而每部 VM 最多五個這類磁碟，因為每部 VM 有 25 MB/秒的整體變換率限制。
 
@@ -59,7 +59,7 @@ Azure Site Recovery 的資料變更率限制是以磁碟類型為基礎。 若�
 
 如果峰值是偶發性資料高載，且資料變更率超過 10 MB/s (適用於進階儲存體) 和 2 MB/s (適用於標準儲存體) 的情況只持續一段時間便下降，複寫便可趕上進度。 但如果變換率大多時候超過支援的限制，請考慮下列其中一個選項 (可能的話)：
 
-* **排除導致高資料變更率的磁片**：您可以使用[PowerShell](./azure-to-azure-exclude-disks.md)來排除磁片。若要排除磁片，您必須先停用複寫。 
+* **排除導致高資料變更率的磁片**：您可以使用[PowerShell](./azure-to-azure-exclude-disks.md)來排除磁片。若要排除磁片，您必須先停用複寫。
 * **變更嚴重損壞修復存放磁片的**階層：只有在磁片資料變換小於 20 MB/秒時，才可能會有此選項。 假設有採用 P10 磁碟的 VM，其資料變換率大於 8 MB/秒，但小於 10 MB/秒。 如果客戶可以在保護期間將 P30 磁碟用於目標儲存體，則可解決此問題。 請注意，此解決方案僅適用于使用 Premium 受控磁碟的電腦。 請遵循下列步驟：
     - 流覽至受影響複寫機器的 [磁片] 分頁，並複製複本磁片名稱
     - 流覽至此複本受控磁片
@@ -69,28 +69,28 @@ Azure Site Recovery 的資料變更率限制是以磁碟類型為基礎。 若�
 ## <a name="Network-connectivity-problem"></a>網路連線問題
 
 ### <a name="network-latency-to-a-cache-storage-account"></a>快取儲存體帳戶的網路延遲
-Site Recovery 會將複寫的資料傳送到快取儲存體帳戶。 如果將資料從虛擬機器上傳到快取儲存體帳戶的速度低於 3 秒 4 MB，您可能會看到網路延遲。 
+Site Recovery 會將複寫的資料傳送到快取儲存體帳戶。 如果將資料從虛擬機器上傳到快取儲存體帳戶的速度低於 3 秒 4 MB，您可能會看到網路延遲。
 
-若要檢查是否有延遲相關問題，請使用 [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) 來從虛擬機器將資料上傳至快取儲存體資料庫。 如果延遲很高，請檢查您是否使用網路虛擬設備 (NVA) 來控制來自 VM 的輸出網路流量。 如果所有複寫流量都會通過 NVA，系統就可能會對該設備進行節流。 
+若要檢查是否有延遲相關問題，請使用 [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) 來從虛擬機器將資料上傳至快取儲存體資料庫。 如果延遲很高，請檢查您是否使用網路虛擬設備 (NVA) 來控制來自 VM 的輸出網路流量。 如果所有複寫流量都會通過 NVA，系統就可能會對該設備進行節流。
 
 建議您在虛擬網路中為「儲存體」建立一個網路服務端點，這樣複寫流量就不會流向 NVA。 如需詳細資訊，請參閱[網路虛擬設定組態](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)。
 
 ### <a name="network-connectivity"></a>網路連線
-若要使 Site Recovery 複寫正常運作，VM 需要特定 URL 或 IP 範圍的輸出連線能力。 如果您的 VM 位於防火牆後方，或使用網路安全性群組 (NSG) 規則控制輸出連線能力，您可能會遇到下列其中一個問題。 若要確保所有 URL 皆已連線，請參閱 [Site Recovery URL 的輸出連線能力](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)。 
+若要使 Site Recovery 複寫正常運作，VM 需要特定 URL 或 IP 範圍的輸出連線能力。 如果您的 VM 位於防火牆後方，或使用網路安全性群組 (NSG) 規則控制輸出連線能力，您可能會遇到下列其中一個問題。 若要確保所有 URL 皆已連線，請參閱 [Site Recovery URL 的輸出連線能力](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)。
 
 ## <a name="error-id-153006---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>錯誤識別碼 153006-過去 ' XXX ' 分鐘內沒有任何應用程式一致的 VM 可用復原點
 
 以下列出一些最常見的問題
 
-#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>原因1： SQL server 2008/2008 R2 中的已知問題 
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>原因1： SQL server 2008/2008 R2 中的已知問題
 **如何修正**： SQL Server 2008/2008 R2 有已知的問題。 [如需裝載 SQL Server 2008 R2 的伺服器，Azure Site Recovery 代理程式或其他非元件 VSS 備份失敗，](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)請參閱此知識庫文章
 
-#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>原因2：裝載具有 AUTO_CLOSE Db 之任何 SQL Server 實例版本的伺服器上 Azure Site Recovery 作業失敗 
-**如何修正**：請參閱知識庫[文章](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>原因2：裝載具有 AUTO_CLOSE Db 之任何 SQL Server 實例版本的伺服器上 Azure Site Recovery 作業失敗
+**如何修正**：請參閱知識庫[文章](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser)
 
 
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>原因3： SQL Server 2016 和2017中的已知問題
-**如何修正**：請參閱知識庫[文章](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+**如何修正**：請參閱知識庫[文章](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)
 
 #### <a name="cause-4-you-are-using-storage-spaces-direct-configuration"></a>原因4：您使用的是儲存空間直接存取設定
 **如何修正**： Azure Site Recovery 無法建立儲存空間直接存取設定的應用程式一致復原點。 請參閱文章以正確[設定複寫原則](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-s2d-vms)
@@ -98,17 +98,17 @@ Site Recovery 會將複寫的資料傳送到快取儲存體帳戶。 如果將�
 ### <a name="more-causes-due-to-vss-related-issues"></a>造成 VSS 相關問題的其他原因：
 
 若要進一步進行疑難排解，請檢查來源電腦上的檔案，以取得失敗的確切錯誤碼：
-    
+
     C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
 
 如何找出檔案中的錯誤？
 在編輯器中開啟 vacp.exe 檔案，以搜尋字串 "vacpError"
-        
+
     Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
 
 在上述範例中， **2147754994**是告知您失敗的錯誤碼，如下所示
 
-#### <a name="vss-writer-is-not-installed---error-2147221164"></a>未安裝 VSS 寫入器-錯誤2147221164 
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>未安裝 VSS 寫入器-錯誤2147221164
 
 *如何修正*：若要產生應用程式一致性標記，Azure Site Recovery 使用 Microsoft 磁片區陰影複製服務（VSS）。 它會為其作業安裝 VSS 提供者，以取得應用程式一致性快照集。 此 VSS 提供者會安裝為服務。 如果未安裝 VSS 提供者服務，應用程式一致性快照集建立會失敗，並出現錯誤識別碼0x80040154 「類別未註冊」。 </br>
 [如需 VSS 寫入器安裝的疑難排解，](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)請參閱文章 
@@ -126,12 +126,13 @@ Site Recovery 會將複寫的資料傳送到快取儲存體帳戶。 如果將�
 
 ####  <a name="vss-provider-not_registered---error-2147754756"></a>VSS 提供者 NOT_REGISTERED-錯誤2147754756
 
-**如何修正**：若要產生應用程式一致性標記，Azure Site Recovery 使用 Microsoft 磁片區陰影複製服務（VSS）。 檢查是否已安裝 Azure Site Recovery VSS 提供者服務。 </br>
+**如何修正**：若要產生應用程式一致性標記，Azure Site Recovery 使用 Microsoft 磁片區陰影複製服務（VSS）。
+檢查是否已安裝 Azure Site Recovery VSS 提供者服務。 </br>
 
 - 使用下列命令重試提供者安裝：
 - 卸載現有提供者： C:\Program Files （x86） \Microsoft Azure Site Recovery\agent\ InMageVSSProvider_Uninstall .cmd
 - 重新安裝： C:\Program Files （x86） \Microsoft Azure Site Recovery\agent\ InMageVSSProvider_Install .cmd
- 
+
 確認 VSS 提供者服務的 [啟動類型] 設定為 [**自動**]。
     - 重新啟動下列服務：
         - VSS 服務

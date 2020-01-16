@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 7101cef6acd7c7b321fbd31c614063a1fa8fe17a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 339ab811969a3de6ce87d529e1bf77f325be4071
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771865"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968494"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Azure Machine Learning 中的模型 interpretability
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Interpretability 類別可透過多個 SDK 套件取得。 瞭解如何[安裝�
 * 模擬**說明**：模擬說明是以定型[全域代理模型](https://christophm.github.io/interpretable-ml-book/global.html)來模擬黑箱模型的概念為基礎。 全域代理模型是一個本質上的可解譯模型，它會定型以盡可能精確地大致估計黑色方塊模型的預測。 資料科學家可以解讀代理模型，以繪製有關黑色箱模型的結論。 您可以使用下列其中一個可解譯模型做為您的代理模型： LightGBM （LGBMExplainableModel）、線性回歸（LinearExplainableModel）、隨機梯度下降 explainable 模型（SGDExplainableModel）和決策樹（DecisionTreeExplainableModel).
 
 
-* **排列功能重要性說明**：排列功能重要性是用來說明[Breiman 的隨機](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf)樹系紙張所能啟發的分類和回歸模型的技術（請參閱第10節）。 概括而言，它的運作方式是針對整個資料集，一次隨機亂數據一項功能，並計算感利率的效能計量有多大的變化。 變更愈大，該特性愈重要。
+* **排列功能重要性說明**：排列功能重要性是用來說明[Breiman 的隨機](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf)樹系紙張所能啟發的分類和回歸模型的技術（請參閱第10節）。 概括而言，它的運作方式是針對整個資料集，一次隨機亂數據一項功能，並計算感利率的效能計量有多大的變化。 變更愈大，該特性愈重要。
 
 * **酸橙說明**（`contrib`）：根據有[酸](https://github.com/marcotcr/lime)的酸橙色說明，會使用最新的本機可解譯模型中立說明（酸）演算法來建立本機代理模型。 不同于全域代理模型，「酸」會著重于訓練本機代理模型來說明個別的預測。
 * **漢字文字說明**（`contrib`）：漢字文字說明會使用階層式的注意網路，從文字資料取得給定黑色方塊文字模型的模型說明。 它會在指定的黑色方塊模型預測輸出上訓練漢字代理模型。 在文字主體上全域定型之後，它會為特定檔新增微調步驟，以改善說明的正確性。 漢字使用雙向 RNN 和兩個注意層，以進行句子和單字注意。 一旦 DNN 在黑色方塊模型上進行定型，並在特定檔上進行微調，使用者就可以從注意層中解壓縮 importances 一字。 漢字的顯示比文字資料的酸綠色或 SHAP 更精確，但是在定型時間方面也會更昂貴。 已改善，可讓使用者選擇使用手套 word 內嵌來初始化網路，以減少定型時間。 藉由在遠端 Azure GPU VM 上執行漢字，可以大幅改善定型時間。 漢字的執行會在「[檔分類的階層式注意網路（最強烈 et al，2016）](https://www.researchgate.net/publication/305334401_Hierarchical_Attention_Networks_for_Document_Classification)」中說明。

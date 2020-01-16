@@ -3,7 +3,7 @@ title: 適用於開發人員的概觀 - Azure Batch | Microsoft Docs
 description: 從開發觀點了解 Batch 服務的功能及其 API。
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 08/29/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 364861e57f37192a3ae454e27fedf732ee8d513e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 6ea5ce71622e98b60d68c1680382dc63c767999d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350176"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029769"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -65,7 +65,7 @@ ms.locfileid: "71350176"
   * [作業準備和作業釋放工作](#job-preparation-and-release-tasks)
   * 多重執行個體工作 (MPI)
   * [作業相依性](#task-dependencies)
-* [應用程式封裝](#application-packages)
+* [應用程式套件](#application-packages)
 
 ## <a name="account"></a>帳戶
 
@@ -120,13 +120,13 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 * 工作排程原則
 * 計算節點的通訊狀態
 * 計算節點的啟動工作
-* 應用程式套件
+* 應用程式封裝
 * 網路組態
 
 這些設定每一個都會在下列各節詳細說明。
 
 > [!IMPORTANT]
-> Batch 帳戶具有預設配額，以限制 Batch 帳戶中的核心數目。 對應到計算節點數目的核心數目。 在 [Azure Batch 服務的配額和限制](batch-quota-limit.md#increase-a-quota)中，您可以找到預設配額及如何[增加配額](batch-quota-limit.md)的說明。 如果您的集區未達其目標節點數目，可能是因為核心配額的原因。
+> Batch 帳戶具有預設配額，以限制 Batch 帳戶中的核心數目。 對應到計算節點數目的核心數目。 在 [Azure Batch 服務的配額和限制](batch-quota-limit.md)中，您可以找到預設配額及如何[增加配額](batch-quota-limit.md#increase-a-quota)的說明。 如果您的集區未達其目標節點數目，可能是因為核心配額的原因。
 >
 
 ### <a name="compute-node-operating-system-and-version"></a>計算節點作業系統和版本
@@ -143,7 +143,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 
     * 「OS 系列」 也會決定哪些版本的.NET 會與作業系統一起安裝。
     * 如同雲端服務內的背景工作角色，您可以指定 [OS 版本] (如需背景工作角色的詳細資訊，請參閱[雲端服務概觀](../cloud-services/cloud-services-choose-me.md))。
-    * 如同背景工作角色，建議為 [OS 版本]`*`*指定* ，以便自動升級節點，而且不需為了因應新發行的版本而執行工作。 選取特定 OS 版本的主要使用案例是為了確保應用程式相容性，以允許在更新版本之前執行回溯相容性測試。 通過驗證之後，即可更新集區的 [OS 版本] 並安裝新的 OS 映像，如此會中斷任何執行中的工作並重新排入佇列。
+    * 如同背景工作角色，建議為 [OS 版本]指定 `*`，以便自動升級節點，而且不需為了因應新發行的版本而執行工作。 選取特定 OS 版本的主要使用案例是為了確保應用程式相容性，以允許在更新版本之前執行回溯相容性測試。 通過驗證之後，即可更新集區的 [OS 版本] 並安裝新的 OS 映像，如此會中斷任何執行中的工作並重新排入佇列。
 
 當您建立一個集區時，必須選取適當的 **nodeAgentSkuId**，視您 VHD 的基礎映像 OS 而定。 您可以藉由呼叫[列出支援的節點代理程式 sku](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus)作業，取得可用節點代理程式 sku 識別碼與 OS 映射參考的對應。
 
@@ -189,7 +189,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 
 [每個節點的工作數上限](batch-parallel-node-tasks.md) 組態選項會決定可在集區內的每個計算節點上平行執行的工作數目上限。
 
-預設組態會指定在節點上一次執行一項工作，但在某些情況下，在一個節點上同時執行兩項以上工作較為有利。 請參閱[並行節點工作](batch-parallel-node-tasks.md#example-scenario)一文中的[範例案例](batch-parallel-node-tasks.md)，以了解如何從每個節點的多項工作受惠。
+預設組態會指定在節點上一次執行一項工作，但在某些情況下，在一個節點上同時執行兩項以上工作較為有利。 請參閱[並行節點工作](batch-parallel-node-tasks.md)一文中的[範例案例](batch-parallel-node-tasks.md#example-scenario)，以了解如何從每個節點的多項工作受惠。
 
 您也可以指定「*填滿類型*」，以決定 Batch 是否要將工作平均分散到集區中的所有節點，或在指派工作至另一個節點之前，先將每個節點的最大數目封裝在一起。
 
@@ -205,7 +205,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 
 選用的「啟動工作」 將在每個節點加入集區以及每次重新啟動節點或重新安裝其映像時，於該節點上執行。 啟動工作特別適合用於準備計算節點，以便執行工作，例如在計算節點上安裝工作要執行的應用程式。
 
-### <a name="application-packages"></a>應用程式套件
+### <a name="application-packages"></a>應用程式封裝
 
 您可以指定要部署至集區中計算節點的 [應用程式封裝](#application-packages) 。 應用程式封裝會提供您的工作執行之應用程式的簡化部署和版本控制。 您針對集區指定的應用程式封裝會安裝於加入該集區的每個節點，以及在節點重新啟動或重新安裝映像時安裝。
 
@@ -218,7 +218,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 
 您可以指定 Azure [虛擬網路 (VNet)](../virtual-network/virtual-networks-overview.md) 的子網路，可在其中建立集區的計算節點。 如需詳細資訊，請參閱「集區網路組態」一節。
 
-## <a name="job"></a>作業
+## <a name="job"></a>工作 (Job)
 
 作業是工作的集合。 作業可管理其工作在集區中的計算節點上執行計算的方式。
 
@@ -230,7 +230,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 
     Batch 可以偵測並重試失敗的工作。 您可以指定**工作重試次數上限**作為條件約束，包括要「一律」重試工作還是「決不」重試工作。 重試工作表示工作會重新排入佇列，以便再次執行。
 
-* 用戶端應用程式可以在作業中新增工作，或者您可以指定 [作業管理員工作](#job-manager-task)。 作業管理員工作包含為作業建立必要工作所需的資訊，而作業管理員工作會在集區內的其中一個計算節點上執行。 Batch 會特別處理作業管理員工作，此工作會在作業建立後立即排入佇列，且如果失敗，則會重新啟動。 由 *[作業排程](#scheduled-jobs)* 建立的作業「需要」有作業管理員工作，因為它是在作業具現化之前唯一可定義工作的方法。
+* 用戶端應用程式可以在作業中新增工作，或者您可以指定 [作業管理員工作](#job-manager-task)。 作業管理員工作包含為作業建立必要工作所需的資訊，而作業管理員工作會在集區內的其中一個計算節點上執行。 Batch 會特別處理作業管理員工作，此工作會在作業建立後立即排入佇列，且如果失敗，則會重新啟動。 由[作業排程](#scheduled-jobs)建立的作業「需要」有作業管理員工作，因為它是在作業具現化之前唯一可定義工作的方法。
 * 根據預設，作業內的所有工作都完成時，作業仍會保持作用中狀態。 您可以變更此行為，讓作業在其中的所有工作完成時自動終止。 將作業的 [ **onAllTasksComplete** ] 屬性（在 Batch .net 中為[onAllTasksComplete][net_onalltaskscomplete] ）設定為 [ *terminatejob* ]，以在其所有工作都處於 [已完成] 狀態時自動終止作業。
 
     Batch 服務會考慮*沒有*工作的作業，以完成其所有任務。 因此，這個選項最常搭配 [作業管理員工作](#job-manager-task)使用。 如果您想要使用自動作業終止，而不透過作業管理員，您一開始就應該將新作業的 **onAllTasksComplete** 屬性設定為 noaction，而只在您完成將工作新增至作業之後，將它設定為 terminatejob。
@@ -247,7 +247,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 
 [作業][rest_job_schedules]排程可讓您在 Batch 服務內建立週期性作業。 作業排程會指定何時要執行作業，並且包含要執行之作業的規格。 您可以指定排程的持續時間 (排程的有效時間和生效時間)，以及在排程期間建立作業的頻率。
 
-## <a name="task"></a>工作
+## <a name="task"></a>Task
 
 工作是與作業相關聯的計算單位。 工作是在節點上執行。 工作會指派給節點以便執行，或排入佇列直到節點變成可用為止。 簡言之，工作會在計算節點上執行一或多個程式或指令碼，以執行您需要完成的工作。
 
@@ -281,7 +281,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 
 ### <a name="start-task"></a>啟動工作
 
-藉由建立 **啟動工作** 與集區的關聯，您可以準備其節點的作業環境。 例如，您可以執行下列動作：安裝您的工作執行的應用程式或啟動背景程序。 開始工作會在節點每次啟動時執行，且只要留在集區中就會持續執行，包括在節點第一次新增至集區時，以及重新啟動或重新安裝映像時。
+藉由建立 **啟動工作** 與集區的關聯，您可以準備其節點的作業環境。 例如，您可以執行下列動作：安裝您的工作執行的應用程式或啟動背景程序。 啟動工作會在節點每次啟動時執行，且只要留在集區中就會持續執行，包括在節點第一次新增至集區時，以及重新啟動或重新安裝映像時。
 
 啟動工作的主要優點，是其中可包含設定計算節點和安裝工作執行所需的應用程式時必須用到的所有資訊。 因此，增加集區中的節點數目如同指定新目標節點計數一樣簡單。 啟動工作會為 Batch 服務提供設定新節點並讓它們準備好接受工作所需的資訊。
 
@@ -335,7 +335,7 @@ Batch 會提供作業前執行設定的作業準備工作。 作業釋放工作�
 
 如需在 Batch 中使用 Batch .NET 程式庫執行 MPI 作業的詳細討論，請參閱 [在 Azure Batch 中使用多個執行個體的工作執行訊息傳遞介面 (MPI) 應用程式](batch-mpi.md)。
 
-### <a name="task-dependencies"></a>作業相依性
+### <a name="task-dependencies"></a>工作相依性
 
 [工作相依性](batch-task-dependencies.md)正如其名，可讓您在執行某個工作之前，指定該工作相依於其他工作。 此功能提供下列情況的支援：「下游」工作取用「上游」工作的輸出，或當上游工作執行下游工作所需的某種初始化時。 若要使用這項功能，您必須先在 Batch 作業上啟用工作相依性。 然後，針對每個相依于另一個（或其他許多其他工作）的工作，指定該工作相依的工作。
 
@@ -381,7 +381,7 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 
 * **Tasks** **：在工作專案目錄中**，會為節點上執行的每個工作建立一個目錄。 它是藉由參考 `AZ_BATCH_TASK_DIR` 環境變數來存取。
 
-    在每個工作目錄中，Batch 服務會建立由 `wd` 環境變數指定唯一路徑的工作目錄 (`AZ_BATCH_TASK_WORKING_DIR`)。 這個目錄可供讀取/寫入工作。 工作可以建立、讀取、更新和刪除此目錄下的檔案。 此目錄會根據工作指定的「RetentionTime」 條件約束而保留。
+    在每個工作目錄中，Batch 服務會建立由 `AZ_BATCH_TASK_WORKING_DIR` 環境變數指定唯一路徑的工作目錄 (`wd`)。 這個目錄可供讀取/寫入工作。 工作可以建立、讀取、更新和刪除此目錄下的檔案。 此目錄會根據工作指定的「RetentionTime」 條件約束而保留。
 
     `stdout.txt` 和 `stderr.txt`：這些檔案會在工作執行期間寫入至工作資料夾。
 
@@ -390,7 +390,7 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 >
 >
 
-## <a name="application-packages"></a>應用程式套件
+## <a name="application-packages"></a>應用程式封裝
 
 [應用程式套件](batch-application-packages.md) 功能可為集區中的計算節點提供簡單的應用程式管理和部署能力。 您可以輕鬆上傳及管理您的工作所執行的多個應用程式版本，包括其二進位檔和支援檔案。 接著，您可以將一或多個這種類型的應用程式自動部署到集區中的計算節點。
 
@@ -437,7 +437,7 @@ Batch 可處理使用 Azure 儲存體將應用程式封裝儲存及部署到計�
 
 * **時間度量** 是以指定時數內每隔五分鐘收集的統計資料為基礎。
 * **資源度量** 是以 CPU 使用量、頻寬使用量、記憶體使用量和節點的數目為基礎。
-* **工作計量**是以工作狀態為基礎，例如 [作用中] (已排入佇列)、[執行中] 或 [已完成]。
+* **工作計量**是以工作狀態為基礎，例如 [作用中] \(已排入佇列)、[執行中] 或 [已完成]。
 
 當自動調整減少集區中的計算節點數目時，您必須考量如何處理在減少作業時正在執行的工作。 為了配合這一點，Batch 會提供您可以納入公式中的「節點解除配置選項」 。 例如，您可以指定執行中的工作立即停止，然後重新排入佇列以便在另一個節點上執行，或允許先完成再從集區中移除節點。
 
@@ -490,7 +490,7 @@ Batch 可處理使用 Azure 儲存體將應用程式封裝儲存及部署到計�
 
 ### <a name="debugging-application-failures"></a>應用程式失敗偵錯
 
-* `stderr`和`stdout`
+* `stderr` 和 `stdout`
 
     在執行期間，應用程式可能會產生診斷輸出，以便用來排解疑難問題。 如前面的[檔案和目錄](#files-and-directories)一節所述，Batch 服務會將標準輸出和標準錯誤輸出寫入至計算節點上工作目錄中的 `stdout.txt` 和 `stderr.txt` 檔案。 您可以使用 Azure 入口網站或其中一個 Batch SDK 來下載這些檔案。 例如，您可以使用 Batch .NET 程式庫中的[ComputeNode computenode.getnodefile][net_getfile_node]和[CloudTask][net_getfile_task] ，來抓取這些檔案和其他檔案以供疑難排解之用。
 

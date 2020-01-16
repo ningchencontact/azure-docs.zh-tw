@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 275eb545b431085627658eb5d8ac0a065d0cb00e
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 6cd450ac18007e31d9d8144fdb0e8554dd31c363
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867021"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968653"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -92,7 +92,7 @@ new-azresourcegroupdeployment -name exampledeployment `
   -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
 ```
 
-如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../azure-resource-manager/resource-group-template-deploy.md)和[使用 SAS 權杖和 Azure PowerShell 部署私用 Resource Manager 範本](../azure-resource-manager/secure-template-with-sas-token.md)。
+如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../azure-resource-manager/templates/deploy-powershell.md)和[使用 SAS 權杖和 Azure PowerShell 部署私用 Resource Manager 範本](../azure-resource-manager/templates/secure-template-with-sas-token.md)。
 
 ## <a name="use-azure-cli"></a>使用 Azure CLI
 
@@ -107,7 +107,7 @@ az group deployment create \
   --parameters workspaceName=exampleworkspace location=eastus sku=basic
 ```
 
-如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure CLI 來部署資源](../azure-resource-manager/resource-group-template-deploy-cli.md)和[使用 SAS 權杖和 Azure CLI 部署私用 Resource Manager 範本](../azure-resource-manager/secure-template-with-sas-token.md)。
+如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure CLI 來部署資源](../azure-resource-manager/templates/deploy-cli.md)和[使用 SAS 權杖和 Azure CLI 部署私用 Resource Manager 範本](../azure-resource-manager/templates/secure-template-with-sas-token.md)。
 
 ## <a name="troubleshooting"></a>疑難排解
 
@@ -124,7 +124,7 @@ az group deployment create \
 若要避免這個問題，建議您採用下列其中一種方法：
 
 * 不要針對相同的參數多次部署範本。 或刪除現有的資源，然後再使用此範本重新建立它們。
-  
+
 * 檢查 Key Vault 的存取原則，然後使用這些原則來設定範本的 `accessPolicies` 屬性。 若要查看存取原則，請使用下列 Azure CLI 命令：
 
     ```azurecli-interactive
@@ -165,7 +165,7 @@ az group deployment create \
           }
         },
         ```
-    
+
     * 從工作區的 [`dependsOn`] 區段中**移除**`"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` 行。 此外，也請**變更**工作區的 [`properties`] 區段中的 [`keyVault`] 專案，以參考 `keyVaultId` 參數：
 
         ```json
@@ -193,7 +193,7 @@ az group deployment create \
           }
         }
         ```
-      
+
     這些變更之後，您可以在執行範本時指定現有 Key Vault 資源的識別碼。 然後範本會將工作區的 [`keyVault`] 屬性設定為其識別碼，以重新使用 Key Vault。
 
     若要取得 Key Vault 的識別碼，您可以參考原始範本執行的輸出，或使用 Azure CLI。 下列命令是使用 Azure CLI 取得 Key Vault 資源識別碼的範例：
@@ -210,5 +210,5 @@ az group deployment create \
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 Resource Manager 範本和 Resource Manager REST API 部署資源](../azure-resource-manager/resource-group-template-deploy-rest.md)。
-* [透過 Visual Studio 建立與部署 Azure 資源群組](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)。
+* [使用 Resource Manager 範本和 Resource Manager REST API 部署資源](../azure-resource-manager/templates/deploy-rest.md)。
+* [透過 Visual Studio 建立與部署 Azure 資源群組](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)。

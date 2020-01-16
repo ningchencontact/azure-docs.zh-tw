@@ -10,21 +10,24 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 8fe07318d33980ad3ec9fc3d6e8749c6c9aed42e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3c2cc3c280ba0da474898bed93bb8533a42ab07f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442553"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967354"
 ---
 # <a name="configure-a-custom-domain-name"></a>設定自訂網域名稱
 
-當您建立 Azure API 管理服務實例時，Azure 會為其指派 azure-api.net 的子域（例如 `apim-service-name.azure-api.net`）。 不過，您可以使用自己的自訂功能變數名稱（例如**contoso.com**）公開您的 API 管理端點。 本教學課程說明如何將現有的自訂 DNS 名稱對應至 API 管理實例所公開的端點。
+當您建立 Azure API 管理服務實例時，Azure 會為其指派 `azure-api.net` 的子域（例如，`apim-service-name.azure-api.net`）。 不過，您可以使用自己的自訂功能變數名稱（例如**contoso.com**）公開您的 API 管理端點。 本教學課程說明如何將現有的自訂 DNS 名稱對應至 API 管理實例所公開的端點。
+
+> [!IMPORTANT]
+> API 管理只會接受[主機標頭](https://tools.ietf.org/html/rfc2616#section-14.23)值符合預設功能變數名稱或任何已設定自訂功能變數名稱的要求。
 
 > [!WARNING]
-> 想要使用憑證釘選以改善應用程式安全性的客戶，必須使用自訂網域名稱 > 與其所管理的憑證，而非預設憑證。 改為釘選預設憑證的客戶 > 會對其所未控制的憑證屬性採用硬式相依性，這不是建議做法。
+> 想要使用憑證釘選以改善應用程式安全性的客戶，必須使用自訂網域名稱 > 與其所管理的憑證，而非預設憑證。 改為釘選預設憑證的客戶會對其無法控制的憑證屬性進行硬相關性，這不是建議的作法。
 
 ## <a name="prerequisites"></a>必要條件
 

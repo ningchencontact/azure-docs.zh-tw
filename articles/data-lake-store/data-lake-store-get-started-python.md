@@ -1,5 +1,5 @@
 ---
-title: Python：Azure Data Lake Storage Gen1 上的帳戶管理作業 |Microsoft Docs
+title: Python：Azure Data Lake Storage Gen1 的帳戶管理作業 | Microsoft Docs
 description: 了解如何使用 Python SDK 來處理 Azure Data Lake Storage Gen1 帳戶管理作業。
 services: data-lake-store
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 494959e071fb5777f9a815b5bde4bd093cf10bd6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: fad832ba7b16e8dbb37043d971368062fcbd842f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088790"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966050"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>使用 Python 對 Azure Data Lake Storage Gen1 進行帳戶管理作業
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "71088790"
 >
 >
 
-了解如何使用適用於 Azure Data Lake Storage Gen1 的 Python SDK 來執行基本帳戶管理作業，例如建立 Data Lake Storage Gen1 帳戶、列出 Data Lake Storage Gen1 帳戶等。如需有關如何使用 Python 對 Data Lake Storage Gen1 執行檔案系統作業的指示，請參閱[使用 Python 對 Data Lake Storage Gen1 進行檔案系統作業](data-lake-store-data-operations-python.md)。
+瞭解如何使用適用于 Azure Data Lake Storage Gen1 的 Python SDK 來執行基本帳戶管理作業，例如建立 Data Lake Storage Gen1 帳戶、列出 Data Lake Storage Gen1 帳戶等。如需有關如何使用 Python 在 Data Lake Storage Gen1 上執行檔案系統作業的指示，請參閱[使用 python Data Lake Storage Gen1 上的檔案系統作業](data-lake-store-data-operations-python.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -35,7 +35,7 @@ ms.locfileid: "71088790"
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-* **Azure 資源群組**。 如需指示，請參閱[建立 Azure 資源群組](../azure-resource-manager/manage-resource-groups-portal.md)。
+* **Azure 資源群組**。 如需指示，請參閱[建立 Azure 資源群組](../azure-resource-manager/management/manage-resource-groups-portal.md)。
 
 ## <a name="install-the-modules"></a>安裝模組
 
@@ -43,7 +43,7 @@ ms.locfileid: "71088790"
 
 * `azure-mgmt-resource` 模組，這包括適用於 Active Directory 等等的 Azure 模組。
 * `azure-mgmt-datalake-store` 模組包括 Azure Data Lake Storage Gen1 帳戶管理作業。 如需關於此模組的詳細資訊，請參閱 [Azure Data Lake Storage Gen1 Management module reference (Azure Data Lake Storage Gen1 管理模組參考)](/python/api/azure-mgmt-datalake-store/)。
-* `azure-datalake-store` 模組包括 Azure Data Lake Storage Gen1 檔案系統作業。 如需關於此模組的詳細資訊，請參閱 [azure-datalake-store Filesystem module reference (azure-datalake-store 檔案系統模組參考)](https://azure-datalake-store.readthedocs.io/en/latest/)。
+* `azure-datalake-store` 模組，含有 Azure Data Lake Storage Gen1 檔案系統作業。 如需關於此模組的詳細資訊，請參閱 [azure-datalake-store Filesystem module reference (azure-datalake-store 檔案系統模組參考)](https://azure-datalake-store.readthedocs.io/en/latest/)。
 
 使用下列命令來安裝新模組。
 
@@ -133,7 +133,7 @@ pip install azure-datalake-store
 ## <a name="next-steps"></a>後續步驟
 * [使用 Python 對 Data Lake Storage Gen1 進行檔案系統作業](data-lake-store-data-operations-python.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [azure-datalake-store Python (Filesystem) reference (azure-datalake-store Python (檔案系統) 參考)](https://azure-datalake-store.readthedocs.io/en/latest)
 * [與 Azure Data Lake Storage Gen1 相容的開放原始碼巨量資料應用程式](data-lake-store-compatible-oss-other-applications.md)

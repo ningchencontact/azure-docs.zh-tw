@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 34dd15ee638335048c983fbb752bd812291456ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a1761eebe51c5ccb4d30b93ad4122dfc185d216e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418045"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028256"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>管理 Azure 自動化執行身分帳戶
 
@@ -20,19 +20,19 @@ Azure 自動化中的執行身分帳戶可用來提供驗證，以使用 Azure C
 
 執行身分帳戶分為兩種類型：
 
-* **Azure 執行身分帳戶**-此帳戶可用來管理[Resource Manager 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)資源。
+* **Azure 執行身分帳戶**-此帳戶可用來管理[Resource Manager 部署模型](../azure-resource-manager/management/deployment-models.md)資源。
   * 建立可使用自我簽署憑證或企業憑證的公開金鑰進行匯出的 Azure AD 應用程式、建立此應用程式在 Azure AD 中的服務主體帳戶，並在目前的訂用帳戶中為此帳戶指派參與者角色。 您可以將此設定變更為擁有者或任何其他角色。 如需詳細資訊，請參閱 [Azure 自動化中的角色型存取控制](automation-role-based-access-control.md)。
   * 在指定的自動化帳戶中，建立名為 AzureRunAsCertificate 的自動化憑證資產。 憑證資產會保存 Azure AD 應用程式所使用的憑證私密金鑰。
   * 在指定的自動化帳戶中，建立名為 AzureRunAsConnection 的自動化連線資產。 連線資產會保存 applicationId、tenantId、subscriptionId 和憑證指紋。
 
-* **Azure 傳統執行身分帳戶**-此帳戶可用來管理[傳統部署模型](../azure-resource-manager/resource-manager-deployment-model.md)資源。
+* **Azure 傳統執行身分帳戶**-此帳戶可用來管理[傳統部署模型](../azure-resource-manager/management/deployment-models.md)資源。
   * 在訂用帳戶中建立管理憑證
   * 在指定的自動化帳戶中，建立名為 AzureClassicRunAsCertificate 的自動化憑證資產。 憑證資產會保存管理憑證所使用的憑證私密金鑰。
   * 在指定的自動化帳戶中，建立名為 AzureClassicRunAsConnection 的自動化連線資產。 連線資產會保存訂用帳戶名稱、subscriptionId 和憑證資產名稱。
   * 必須是訂用帳戶的共同管理員，才能建立或續訂
 
   > [!NOTE]
-  > 「Azure 雲端解決方案提供者」(Azure CSP) 訂用帳戶僅支援 Azure Resource Manager 模型，因此本方案未提供非 Azure Resource Manager 服務。 使用 CSP 訂用帳戶時，不會建立「Azure 傳統執行身分帳戶」。 但仍然會建立「Azure 執行身分帳戶」。 若要深入了解 CSP 訂用帳戶，請參閱 [CSP 訂用帳戶中可用的服務](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments)。
+  > 「Azure 雲端解決方案提供者」(Azure CSP) 訂用帳戶僅支援 Azure Resource Manager 模型，因此本方案未提供非 Azure Resource Manager 服務。 使用 CSP 訂用帳戶時，不會建立「Azure 傳統執行身分帳戶」。 但仍然會建立「Azure 執行身分帳戶」。 若要深入了解 CSP 訂用帳戶，請參閱 [CSP 訂用帳戶中可用的服務](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services)。
 
   > [!NOTE]
   > 執行身分帳戶的服務主體預設沒有讀取 Azure Active Directory 的許可權。 如果您想要新增讀取或管理 Azure Active directory 的許可權，您必須在 [ **API 許可權**] 下授與服務主體的該許可權。 若要深入瞭解，請參閱[新增存取 Web api 的許可權](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)。

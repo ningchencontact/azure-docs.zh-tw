@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e37b6b800cbe0b4272df227e1411257b33a3e0cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 37fee7f96a27942a1295cb8c2315fedffc5bdefe
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420798"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030167"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure 自動化中的「停機期間啟動/停止 VM」解決方案
 
@@ -33,7 +33,7 @@ ms.locfileid: "75420798"
 > [!NOTE]
 > 如果您對傳統 VM 使用此解決方案，那麼您所有的 VM 將會針對每個雲端服務依序進行處理。 若是跨不同的雲端服務，則仍會以平行方式處理虛擬機器。 如果您的每個雲端服務有20部以上的 Vm，建議您建立多個具有父 runbook **ScheduledStartStop_Parent**的排程，並指定每個排程20個 vm。 在 [排程] 屬性中，將**VMList**參數中的 VM 名稱指定為逗號分隔清單。 否則，如果此解決方案的自動化作業執行超過三個小時，則會根據[公平共用](automation-runbook-execution.md#fair-share)限制暫時卸載或停止該工作。
 >
-> 「Azure 雲端解決方案提供者」(Azure CSP) 訂用帳戶僅支援 Azure Resource Manager 模型，因此本方案未提供非 Azure Resource Manager 服務。 執行「啟動/停止」解決方案時，您可能會收到錯誤，因為它具有可管理傳統資源的 Cmdlet。 若要深入了解 CSP，請參閱 [CSP 訂用帳戶中可用的服務](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments)。 如果您使用 CSP 訂用帳戶，應該在部署之後，將 [**External_EnableClassicVMs**](#variables) 變數修改為 **False**。
+> 「Azure 雲端解決方案提供者」(Azure CSP) 訂用帳戶僅支援 Azure Resource Manager 模型，因此本方案未提供非 Azure Resource Manager 服務。 執行「啟動/停止」解決方案時，您可能會收到錯誤，因為它具有可管理傳統資源的 Cmdlet。 若要深入了解 CSP，請參閱 [CSP 訂用帳戶中可用的服務](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services)。 如果您使用 CSP 訂用帳戶，應該在部署之後，將 [**External_EnableClassicVMs**](#variables) 變數修改為 **False**。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

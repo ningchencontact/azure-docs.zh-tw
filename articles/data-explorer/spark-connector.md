@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 4/29/2019
-ms.openlocfilehash: 6a95cbad161906bd12a608880ac694d6bdf1ed27
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.date: 1/14/2020
+ms.openlocfilehash: 868e9e068244af91e218d906bee115b58906152f
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383058"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027957"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>適用于 Apache Spark 的 Azure 資料總管連接器（預覽）
 
@@ -33,7 +33,7 @@ Azure 資料總管 Spark 連接器是可在任何 Spark 叢集上執行的[開�
 * 安裝 Azure 資料總管連接器程式庫和相依性（[包括下列](https://github.com/Azure/azure-kusto-spark#dependencies) [Kusto JAVA SDK](/azure/kusto/api/java/kusto-java-client-library)程式庫）中所列的程式庫：
     * [Kusto 資料用戶端](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
     * [Kusto 內嵌用戶端](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
-* [Spark 2.4、Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases)的預先建立程式庫
+* [Spark 2.4、Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases)和[Maven](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/spark-kusto-connector)存放庫的預先建立程式庫
 
 ## <a name="how-to-build-the-spark-connector"></a>如何建立 Spark 連接器
 
@@ -82,20 +82,13 @@ mvn clean install
 > [!NOTE]
 > 建議您在執行下列步驟時使用最新的 Azure 資料總管 Spark 連接器版本：
 
-1. 根據使用 Spark 2.4 和 Scala 2.11 的 Azure Databricks 叢集，設定下列 Spark 叢集設定： 
+1. 使用 Spark 2.4.4 和 Scala 2.11，根據 Azure Databricks 叢集設定下列 Spark 叢集設定： 
 
     ![Databricks 叢集設定](media/spark-connector/databricks-cluster.png)
-
-1. 匯入 Azure 資料總管連接器程式庫：
+    
+1. 從 Maven 安裝最新的 spark kusto 連接器程式庫：
 
     ![匯入 Azure 資料總管程式庫](media/spark-connector/db-create-library.png)
-
-1. 新增其他相依性（如果是從 maven 使用，則不需要）：
-
-    ![新增相依性](media/spark-connector/db-dependencies.png)
-
-    > [!TIP]
-    > 在[這裡](https://github.com/Azure/azure-kusto-spark#dependencies)可找到每個 Spark 版本的正確 java 發行版本。
 
 1. 確認已安裝所有必要的程式庫：
 
@@ -103,13 +96,13 @@ mvn clean install
 
 ## <a name="authentication"></a>驗證
 
-Azure 資料總管 Spark 連接器可讓您使用[Azure AD 應用程式](#azure-ad-application-authentication)、 [Azure AD 存取權杖](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token)、[裝置驗證](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication)（適用于非生產案例）或[Azure 金鑰，向 Azure Active Directory （Azure AD）進行驗證保存庫](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault)。 使用者必須安裝 azure keyvault 套件並提供應用程式認證，才能存取 Key Vault 資源。
+Azure 資料總管 Spark 連接器可讓您使用[Azure AD 應用程式](#azure-ad-application-authentication)、 [Azure AD 存取權杖](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token)、[裝置驗證](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication)（適用于非生產案例）或[Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault)，向 Azure Active Directory （Azure AD）進行驗證。 使用者必須安裝 azure keyvault 套件並提供應用程式認證，才能存取 Key Vault 資源。
 
 ### <a name="azure-ad-application-authentication"></a>Azure AD 應用程式驗證
 
 最簡單且常見的驗證方法。 建議將此方法用於 Azure 資料總管 Spark 連接器使用方式。
 
-|屬性  |描述  |
+|屬性  |說明  |
 |---------|---------|
 |**KUSTO_AAD_CLIENT_ID**     |   Azure AD 應用程式（用戶端）識別碼。      |
 |**KUSTO_AAD_AUTHORITY_ID**     |  Azure AD 的驗證授權單位。 Azure AD Directory （租使用者）識別碼。        |
@@ -144,19 +137,19 @@ Azure 資料總管 Spark 連接器可讓您使用[Azure AD 應用程式](#azure-
 
     ```scala
     import com.microsoft.kusto.spark.datasink.KustoSinkOptions
-    val conf = Map(
-            KustoSinkOptions.KUSTO_CLUSTER -> cluster,
-            KustoSinkOptions.KUSTO_TABLE -> table,
-            KustoSinkOptions.KUSTO_DATABASE -> database,
-            KustoSinkOptions.KUSTO_AAD_CLIENT_ID -> appId,
-            KustoSinkOptions.KUSTO_AAD_CLIENT_PASSWORD -> appKey,
-            KustoSinkOptions.KUSTO_AAD_AUTHORITY_ID -> authorityId)
-    
+    import org.apache.spark.sql.{SaveMode, SparkSession}
+
     df.write
       .format("com.microsoft.kusto.spark.datasource")
-      .options(conf)
-      .save()
-      
+      .option(KustoSinkOptions.KUSTO_CLUSTER, cluster)
+      .option(KustoSinkOptions.KUSTO_DATABASE, database)
+      .option(KustoSinkOptions.KUSTO_TABLE, "Demo3_spark")
+      .option(KustoSinkOptions.KUSTO_AAD_CLIENT_ID, appId)
+      .option(KustoSinkOptions.KUSTO_AAD_CLIENT_PASSWORD, appKey)
+      .option(KustoSinkOptions.KUSTO_AAD_AUTHORITY_ID, authorityId)
+      .option(KustoSinkOptions.KUSTO_TABLE_CREATE_OPTIONS, "CreateIfNotExist")
+      .mode(SaveMode.Append)
+      .save()  
     ```
     
    或使用簡化的語法：
@@ -189,7 +182,6 @@ Azure 資料總管 Spark 連接器可讓您使用[Azure AD 應用程式](#azure-
           .option(KustoSinkOptions.KUSTO_WRITE_ENABLE_ASYNC, "true") // Optional, better for streaming, harder to handle errors
           .trigger(Trigger.ProcessingTime(TimeUnit.SECONDS.toMillis(10))) // Sync this with the ingestionBatching policy of the database
           .start()
-    
     ```
 
 ## <a name="spark-source-reading-from-azure-data-explorer"></a>Spark 來源：從 Azure 資料總管讀取
@@ -252,3 +244,9 @@ Azure 資料總管 Spark 連接器可讓您使用[Azure AD 應用程式](#azure-
     
     display(dfFiltered)
     ```
+
+## <a name="next-steps"></a>後續步驟
+
+* 深入瞭解[Azure 資料總管 Spark 連接器](https://github.com/Azure/azure-kusto-spark/tree/master/docs)
+* [範例程式碼](https://github.com/Azure/azure-kusto-spark/tree/master/samples/src/main)
+
