@@ -1,18 +1,15 @@
 ---
 title: 使用無代理程式 Azure Migrate 伺服器移轉來遷移 VMware VM
 description: 了解如何使用 Azure Migrate 執行 VMware VM 的無代理程式移轉。
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2b4aad83abc92170df5a7e7cfa7f7751b49b3424
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: fa77b9d730c28c21569064d05ca3a600dfb71071
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196408"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028705"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>將 VMware VM 遷移至 Azure (無代理程式)
 
@@ -44,7 +41,7 @@ ms.locfileid: "74196408"
 - [了解](server-migrate-overview.md)無代理程式移轉的運作方式，並[比較移轉方法](server-migrate-overview.md#compare-migration-methods)。
 - 如果您想要使用代理程式型方法，請[閱讀這篇文章](tutorial-migrate-vmware-agent.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始進行本教學課程之前，您必須：
 
@@ -92,7 +89,7 @@ Azure Migrate 伺服器移轉會執行輕量型 VMware VM 設備。 此設備會
 
 Azure Migrate 需要稍微變更 VM，以確保 VM 可以遷移至 Azure。
 
-- 在某些作業系統上，Azure Migrate 會自動進行這些變更。 [深入了解](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)
+- 在某些作業系統上，Azure Migrate 會自動進行這些變更。 [深入了解](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms)
 - 如果您要遷移的 VM 未執行上述其中一個作業系統，則請遵循指示來準備 VM。
 - 請務必先進行這些變更再開始移轉。 如果您先遷移 VM 再進行變更，VM 可能無法在 Azure 中啟動。
 - 在啟用 VM 的複寫之後，您對內部部署 VM 所做的設定變更就會複寫到 Azure。 為確保系統會複寫變更，請確定作為遷移目的地的復原點，其建立時間比內部部署環境的設定變更時間還晚。
@@ -100,7 +97,7 @@ Azure Migrate 需要稍微變更 VM，以確保 VM 可以遷移至 Azure。
 
 ### <a name="prepare-windows-server-vms"></a>準備 Windows Server VM
 
-**Action** | **詳細資料** | **指示**
+**動作** | **詳細資料** | **指示**
 --- | --- | ---
 確定 Azure VM 中的 Windows 磁碟區使用與內部部署 VM 相同的磁碟機代號指派。 | 將 [SAN 原則] 設定為 [全都線上]。 | 1.使用系統管理員帳戶登入 VM，然後開啟命令視窗。<br/> 2.輸入 **diskpart** 以執行 Diskpart 公用程式。<br/> 3.輸入 **SAN POLICY=OnlineAll**<br/> 4.輸入 Exit 離開 Diskpart，然後關閉命令提示字元。
 啟用 Azure VM 的 Azure 序列存取主控台 | 這有助於進行疑難排解。 您不需要重新啟動 VM。 Azure VM 會使用磁碟映像來開機，這相當於新 VM 的重新開機。 | 請遵循[這些指示](https://docs.microsoft.com/azure/virtual-machines/windows/serial-console)來啟用。
@@ -109,7 +106,7 @@ Azure Migrate 需要稍微變更 VM，以確保 VM 可以遷移至 Azure。
 
 ### <a name="prepare-linux-vms"></a>準備 Linux VM
 
-**Action** | **詳細資料** 
+**動作** | **詳細資料** 
 --- | --- | ---
 安裝 Hyper-V Linux Integration Services | 最新版的 Linux 散發套件預設會包含此元件。
 重建 Linux init 映像以包含必要的 Hyper-V 驅動程式 | 這可確保 VM 會在 Azure 中開機，只有某些散發套件才需要這麼做。
@@ -153,15 +150,15 @@ Azure Migrate 需要稍微變更 VM，以確保 VM 可以遷移至 Azure。
 
     ![選取 VM](./media/tutorial-migrate-vmware/select-vms.png)
 
-6. 在 [目標設定]  中，選取訂用帳戶、您的移轉目標區域，並指定 Azure VM 在移轉後所在的資源群組。 在 [虛擬網路]  中，選取 Azure VM 在移轉後所將加入的 Azure VNet/子網路。
+6. 在 [目標設定]  中，選取訂用帳戶、您的遷移目標區域，並指定 Azure VM 在移轉後所在的資源群組。 在 [虛擬網路]  中，選取 Azure VM 在移轉後所將加入的 Azure VNet/子網路。
 7. 在 [Azure Hybrid Benefit]  中：
 
-    - 如果您不想套用 Azure Hybrid Benefit，請選取 [否]  。 然後按 [下一步]  。
-    - 如果您有 Windows Server 機器涵蓋於有效的軟體保證或 Windows Server 訂用帳戶下，且您想要將權益套用至要移轉的機器，請選取 [是]  。 然後按 [下一步]  。
+    - 如果您不想套用 Azure Hybrid Benefit，請選取 [否]  。 然後按一下 [下一步]  。
+    - 如果您有 Windows Server 機器涵蓋於有效的軟體保證或 Windows Server 訂用帳戶下，且您想要將權益套用至要移轉的機器，請選取 [是]  。 然後按一下 [下一步]  。
 
     ![目標設定](./media/tutorial-migrate-vmware/target-settings.png)
 
-8. 在 [計算]  中，檢閱 VM 名稱、大小、OS 磁碟類型和可用性設定組。 VM 必須符合 [Azure 需求](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)。
+8. 在 [計算]  中，檢閱 VM 名稱、大小、OS 磁碟類型和可用性設定組。 VM 必須符合 [Azure 需求](migrate-support-matrix-vmware-migration.md#azure-vm-requirements)。
 
     - **VM 大小**：如果您使用評估建議，[VM 大小] 下拉式清單會包含建議的大小。 否則，Azure Migrate 會根據 Azure 訂用帳戶中最接近的相符項來選擇大小。 或者，您可以在 [Azure VM 大小]  中手動選擇大小。 
     - **OS 磁碟**：指定 VM 的 OS (開機) 磁碟。 OS 磁碟是具有作業系統開機載入器和安裝程式的磁碟。 
@@ -169,7 +166,7 @@ Azure Migrate 需要稍微變更 VM，以確保 VM 可以遷移至 Azure。
 
     ![VM 計算設定](./media/tutorial-migrate-vmware/compute-settings.png)
 
-9. 在 [磁碟]  中，指定是否應將 VM 磁碟複寫至 Azure，並選取 Azure 中的磁碟類型 (標準 SSD/HDD 或進階受控磁碟)。 然後按 [下一步]  。
+9. 在 [磁碟]  中，指定是否應將 VM 磁碟複寫至 Azure，並選取 Azure 中的磁碟類型 (標準 SSD/HDD 或進階受控磁碟)。 然後按一下 [下一步]  。
     - 您可以從複寫排除磁碟。
     - 如果您排除磁碟，則在移轉後磁碟將不會出現在 Azure VM 上。 
 

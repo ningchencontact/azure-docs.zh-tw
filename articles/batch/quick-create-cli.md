@@ -2,20 +2,20 @@
 title: Azure 快速入門 - 執行 Batch 作業 - CLI
 description: 快速了解如何使用 Azure CLI 執行 Batch 作業。
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 72c3244fbd9c8d547e35c31f0cd6e659e367e21a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 900bafd5b27fcb5021e9dae2a6bbc13d4e233a45
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322500"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029487"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>快速入門：使用 Azure CLI 執行您的第一個 Batch 作業
 
@@ -95,7 +95,7 @@ az batch pool show --pool-id mypool \
 
 繼續執行下列步驟以建立一個作業和數項工作，然而集區狀態一直在改變。 當配置狀態為 `steady` 且所有節點正在執行時，集區已準備好執行工作。 
 
-## <a name="create-a-job"></a>建立工作
+## <a name="create-a-job"></a>建立作業
 
 既然您有集區，請建立要在其中執行的作業。  Batch 作業是一或多項工作的邏輯群組。 作業包含工作通用的設定，例如優先順序以及要執行工作的集區。 使用 [az batch job create](/cli/azure/batch/job#az-batch-job-create) 命令建立 Batch 作業。 下列範例會在 mypool  集區上建立 myjob  作業。 一開始作業沒有任何工作。
 
@@ -170,7 +170,7 @@ az batch task file download \
     --destination ./stdout.txt
 ```
 
-您可以在文字編輯器中檢視 `stdout.txt` 的內容。 內容會顯示在節點上設定的 Azure Batch 環境變數。 當您建立自己的 Batch 作業時，您可以在工作命令列中，以及由命令列執行的應用程式和指令碼中，參照這些環境變數。 例如︰
+您可以在文字編輯器中檢視 `stdout.txt` 的內容。 內容會顯示在節點上設定的 Azure Batch 環境變數。 當您建立自己的 Batch 作業時，您可以在工作命令列中，以及由命令列執行的應用程式和指令碼中，參照這些環境變數。 例如：
 
 ```
 AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1

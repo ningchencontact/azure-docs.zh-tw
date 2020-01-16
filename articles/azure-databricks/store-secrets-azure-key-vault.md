@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 27e166a8798f851f6c086c025dd82957b2dcfb84
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 15399d5a00c13141877dcf44640df2c1f9b9ba5c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849270"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889063"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>教學課程：使用 Azure Key Vault 從 Azure Databricks 存取 Azure Blob 儲存體
 
@@ -26,7 +26,7 @@ ms.locfileid: "74849270"
 > * 建立 Azure Databricks 工作區並新增秘密範圍
 > * 從 Azure Databricks 存取您的 Blob 容器
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 
@@ -36,7 +36,7 @@ ms.locfileid: "74849270"
 
 > [!Note]
 > 本教學課程不適用 **Azure 免費試用版的訂用帳戶**。
-> 如果您有免費帳戶，請移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。 然後，為您所在區域的 vCPU [移除消費限制](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)並[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。 當您建立 Azure Databricks 工作區時，您可以選取 [試用版 (進階 - 14 天的免費 DBU)]  定價層，讓工作區可免費存取進階 Azure Databricks DBU 14 天。
+> 如果您有免費帳戶，請移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。 然後，為您所在區域的 vCPU [移除消費限制](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)並[要求增加配額](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)。 當您建立 Azure Databricks 工作區時，您可以選取 [試用版 (進階 - 14 天的免費 DBU)]  定價層，讓工作區可免費存取進階 Azure Databricks DBU 14 天。
 
 ## <a name="create-a-storage-account-and-blob-container"></a>建立儲存體帳戶 Blob 容器
 
@@ -74,12 +74,12 @@ ms.locfileid: "74849270"
 
 3. 在 [建立金鑰保存庫]  頁面上輸入下列資訊，並保留其餘欄位的預設值：
 
-   |屬性|說明|
+   |屬性|描述|
    |--------|-----------|
    |名稱|金鑰保存庫的唯一名稱。|
    |訂用帳戶|選擇訂用帳戶。|
    |資源群組|選擇資源群組或建立新的群組。|
-   |位置|選擇位置。|
+   |Location|選擇位置。|
 
    ![Azure Key Vault 屬性](./media/store-secrets-azure-key-vault/create-key-vault-properties.png)
 
@@ -111,12 +111,12 @@ ms.locfileid: "74849270"
 
 2. 在 [Azure Databricks 服務]  下方提供下列值，以建立 Databricks 工作區。
 
-   |屬性  |說明  |
+   |屬性  |描述  |
    |---------|---------|
    |工作區名稱     | 提供您 Databricks 工作區的名稱        |
    |訂用帳戶     | 從下拉式清單中選取您的 Azure 訂用帳戶。        |
    |資源群組     | 選取包含金鑰保存庫的相同資源群組。 |
-   |位置     | 選取與您的 Azure Key Vault 相同的位置。 如需所有可用的區域，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/services/)。        |
+   |Location     | 選取與您的 Azure Key Vault 相同的位置。 如需所有可用的區域，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/services/)。        |
    |定價層     |  選擇 [標準]  或 [進階]  。 如需這些定價層的詳細資訊，請參閱 [Databricks 定價頁面](https://azure.microsoft.com/pricing/details/databricks/)。       |
 
    ![Databricks 工作區屬性](./media/store-secrets-azure-key-vault/create-databricks-service.png)

@@ -3,7 +3,7 @@ title: Azure CLI 指令碼範例 - 在 Batch 中加入應用程式
 description: 此範例指令碼示範如何新增應用程式，以搭配 Azure Batch 集區或工作使用。
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-ms.author: lahugh
-ms.openlocfilehash: 9c580fa7ed4834ca516d373b3c7bb47f4cfd1b38
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: jushiman
+ms.openlocfilehash: f8fb891c2ec6f531ff87b15fe12da46a9cd93941
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390455"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029440"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI 範例：將應用程式新增到 Azure Batch 帳戶
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 2a749e9345fec0e91751641cd15805d7f7d62d95
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: a48edda31f19ef4ce1ba23664eef1f51ba9cf8d1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961419"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970490"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>在 Azure Government 和公用區域之間移動 Azure VM 
 
@@ -65,7 +65,7 @@ ms.locfileid: "73961419"
 
 ### <a name="set-up-an-azure-storage-account"></a>設定 Azure 儲存體帳戶
 
-設定 [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。
+設定 [Azure 儲存體帳戶](../storage/common/storage-account-create.md)。
 
 - Site Recovery 會將內部部署機器複寫至 Azure 儲存體。 容錯移轉發生後，會從儲存體建立 Azure VM。
 - 儲存體帳戶與復原服務保存庫必須位於相同的區域。
@@ -92,7 +92,7 @@ ms.locfileid: "73961419"
 3. 務必為來源網路面配置中識別的每個元件建立目標資源。 務必要確定在完全移轉至目標區域後，您的 VM 具備您在來源中擁有的所有功能和特性。
 
     > [!NOTE]
-    > 當您啟用來源 VM 的複寫，Azure Site Recovery 會自動探索和建立虛擬網路，您也可以在啟用複寫的使用者流程中，預先建立網路並指派給 VM。 但是對於任何其他資源，如下所述，您必須在目標區域中手動加以建立。
+    > 當您啟用來源 VM 的複寫，Azure Site Recovery 會自動探索和建立虛擬網路，您也可以在啟用複寫的使用者流程中，預先建立網路並指派給 VM。 但任何其他資源 (如下所述) 都必須在目標區域中手動建立。
 
      請參閱下列文件，以根據來源 VM 組態，建立您最常用的相關網路資源。
 
@@ -102,7 +102,7 @@ ms.locfileid: "73961419"
     
     如需其他網路元件的資訊，請參閱網路[文件](https://docs.microsoft.com/azure/#pivot=products&panel=network)。 
 
-4. 如果您想要測試組態，請先在目標區域中手動[建立非生產網路](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)，再執行對目標區域的最終完全移轉。 這對生產環境的干擾最少，建議使用此方法。
+4. 如果您想要先測試組態再執行對目標區域的最終完全移轉，請在目標區域中手動[建立非生產網路](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)。 這對生產環境的干擾最少，建議使用此方法。
 
 ## <a name="copy-data-to-the-target-region"></a>將資料複製到目標區域
 下列步驟將說明如何使用 Azure Site Recovery 將資料複製到目標區域。
@@ -197,8 +197,8 @@ ms.locfileid: "73961419"
    > [!WARNING]
    > 您必須輸入所要移動的 Azure VM 的 IP 位址
 
-10. 在 [名稱]   >   中，選取處理序伺服器將用來在機器上自動安裝行動服務的帳戶。
-11. 在 [複寫設定]   > [設定複寫設定]  中，確認已選取正確的複寫原則。 
+10. 在 [名稱]   >  [設定屬性]  中，選取處理序伺服器將用來在機器上自動安裝行動服務的帳戶。
+11. 在 [複寫設定]   >  [進行複寫設定]  中，確認已選取正確的複寫原則。 
 12. 按一下 [啟用複寫]  。 您可以在 [設定]   >  [作業]   >  [Site Recovery 作業]  中，追蹤 [啟用保護]  作業的進度。 執行 [完成保護]  作業之後，機器即準備好進行容錯移轉。
 
 
@@ -212,7 +212,7 @@ ms.locfileid: "73961419"
 
    - **最近處理**：將 VM 容錯移轉到 Site Recovery 服務所處理的最新復原點。 隨即顯示時間戳記。 使用此選項時，無須花費時間處理資料，因此它會提供低 RTO (復原時間目標)。
    - **最新應用程式一致**：此選項會將所有 VM 容錯移轉到最新的應用程式一致復原點。 隨即顯示時間戳記。
-   - **自訂**：選取任何復原點。
+   - [自訂]  ：選取任何復原點。
 
 3. 選取您要移入 Azure VM 的目標 Azure 虛擬網路，以測試組態。 
 

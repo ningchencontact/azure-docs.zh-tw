@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 62faf33dc8b3690036407972e12633e741a85d78
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 880a85676ff7a0364431b33b90093298b12bffed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176759"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980469"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>使用 Key Vault 和 Azure CLI 管理儲存體帳戶金鑰
 
@@ -43,17 +43,17 @@ Key Vault 是在所有 Azure AD 租使用者中預先註冊的 Microsoft 應用�
 
 | 租用戶 | 雲端 | 應用程式識別碼 |
 | --- | --- | --- |
-| Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
+| Azure AD | Azure 政府機構 | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Azure 公用 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | 其他  | 任意 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本指南，您必須先執行下列動作：
 
 - [安裝 Azure CLI](/cli/azure/install-azure-cli)。
 - [建立金鑰保存庫](quick-create-cli.md)
-- [建立 Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md?tabs=azure-cli)。 儲存體帳戶名稱必須僅使用小寫字母和數位。 名稱的長度必須介於3到24個字元之間。
+- [建立 Azure 儲存體帳戶](../storage/common/storage-account-create.md?tabs=azure-cli)。 儲存體帳戶名稱必須僅使用小寫字母和數位。 名稱的長度必須介於3到24個字元之間。
       
 ## <a name="manage-storage-account-keys"></a>管理儲存體帳戶金鑰
 

@@ -16,20 +16,20 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc92fb7bc5ddf451279e6c157f9e93aa7fe9a12a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9cf660cbf981079ca20111e34fcd34504d8dcbfb
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423628"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044128"
 ---
-# <a name="web-api-that-calls-web-apis---acquire-a-token-for-the-app"></a>呼叫 web Api 的 web API-取得應用程式的權杖
+# <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>呼叫 web Api 的 Web API：取得應用程式的權杖
 
 建立用戶端應用程式物件之後，請使用它來取得可用於呼叫 Web API 的權杖。
 
 ## <a name="code-in-the-controller"></a>控制器中的程式碼
 
-以下是會在 API 控制器的動作中呼叫下游 API （名為 todolist）的程式碼範例。
+以下是在 API 控制器的動作中呼叫的程式碼範例。 它會呼叫名為*todolist*的下游 API。
 
 ```csharp
 private async Task GetTodoList(bool isAppStarting)
@@ -50,9 +50,9 @@ private async Task GetTodoList(bool isAppStarting)
 }
 ```
 
-`BuildConfidentialClient()` 類似于您在[呼叫 Web api 的 WEB api （應用程式設定）一](scenario-web-api-call-api-app-configuration.md)文中看到的內容。 `BuildConfidentialClient()` 使用只包含一個帳戶資訊的快取來具現化 `IConfidentialClientApplication`。 此帳戶是由 `GetAccountIdentifier` 方法所提供。
+`BuildConfidentialClient()` 類似于[Web API 中呼叫 Web api 的案例：應用程式](scenario-web-api-call-api-app-configuration.md)設定。 `BuildConfidentialClient()` 具現化具有僅包含一個帳戶資訊之快取的 `IConfidentialClientApplication`。 此帳戶是由 `GetAccountIdentifier` 方法所提供。
 
-`GetAccountIdentifier` 方法會使用與 Web API 收到 JWT 之使用者的身分識別相關聯的宣告：
+`GetAccountIdentifier` 方法會使用與使用者身分識別相關聯的宣告，其 Web API 收到 JSON Web 權杖（JWT）：
 
 ```csharp
 public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
@@ -73,4 +73,4 @@ public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [呼叫 Web API](scenario-web-api-call-api-call-api.md)
+> [呼叫 web Api 的 Web API：呼叫 API](scenario-web-api-call-api-call-api.md)

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: e002a5fbe38596d6507eec81ba3dd2a05c25153a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975800"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982697"
 ---
 # <a name="what-is-custom-translator"></a>什麼是自訂翻譯工具？
 
@@ -28,9 +28,9 @@ ms.locfileid: "74975800"
 
 自訂翻譯工具提供了不同的功能，來供您建置自訂翻譯系統並於後續存取該系統。
 
-|功能  |說明  |
+|功能  |描述  |
 |---------|---------|
-|[利用類神經機器翻譯技術](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  利用自訂翻譯工具所提供的類神經機器翻譯 (NMT) 來改善您的翻譯。       |
+|[利用類神經機器翻譯技術](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  利用自訂翻譯工具所提供的類神經機器翻譯 (NMT) 來改善您的翻譯。       |
 |[建置知道您商務術語的系統](what-are-parallel-documents.md)     |  使用平行處理的文件來自訂和建置翻譯系統，其了解您自己的企業和產業中所使用的術語。       |
 |[使用字典來建置模型](what-is-dictionary.md)     |   如果您沒有訓練資料集，則可以只使用字典資料來訓練模型。       |
 |[與其他人共同作業](how-to-manage-settings.md#share-your-workspace)     |   藉由與不同的人共享工作，來與您的小組共同作業。     |
@@ -38,7 +38,7 @@ ms.locfileid: "74975800"
 
 ## <a name="get-better-translations"></a>獲得更好的翻譯
 
-Microsoft Translator 在 2016 年發行了[類神經機器翻譯 (NMT)](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)。 和業界標準的[統計機器翻譯 (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation) 技術相比，NMT 的翻譯品質有了長足進步。 NMT 會先對整個句子的背景有更好的了解，再翻譯整個句子，因此翻譯品質更好、發音更像真人，且翻譯的內容會更通順。 [自訂翻譯工具](https://portal.customtranslator.azure.ai)會提供 NMT 而讓您的自訂模型產生更好的翻譯品質。
+Microsoft Translator 在 2016 年發行了[類神經機器翻譯 (NMT)](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)。 和業界標準的[統計機器翻譯 (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation) 技術相比，NMT 的翻譯品質有了長足進步。 NMT 會先對整個句子的背景有更好的了解，再翻譯整個句子，因此翻譯品質更好、發音更像真人，且翻譯的內容會更通順。 [自訂翻譯工具](https://portal.customtranslator.azure.ai)會提供 NMT 而讓您的自訂模型產生更好的翻譯品質。
 
 您可以使用先前翻譯好的文件來建置翻譯系統。 這些文件中會有優於標準翻譯系統的領域專屬術語和風格。 使用者可以上傳 ALIGN、PDF、LCL、HTML、HTM、XLF、TMX、XLIFF、TXT、DOCX 和 XLSX 文件。
 

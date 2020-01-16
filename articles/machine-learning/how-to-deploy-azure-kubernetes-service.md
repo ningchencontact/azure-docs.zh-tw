@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: 2d49501b5888368345736047217177142d2e88d2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a61dea2b200b6e4962ce20e39939a75e78e81d0f
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75764043"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024947"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>將模型部署到 Azure Kubernetes Service 叢集
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -115,7 +115,7 @@ az ml computetarget create aks -n myaks
 
 **估計時間：** 大約5分鐘。
 
-如果您的 Azure 訂用帳戶中已經有 AKS 叢集，且其低於1.15 版，您可以使用它來部署您的映射。
+如果您的 Azure 訂用帳戶中已經有 AKS 叢集，而且它是1.16 或更低版本，您可以使用它來部署映射。
 
 > [!TIP]
 > 現有的 AKS 叢集可以位於 Azure Machine Learning 工作區以外的 Azure 區域中。
@@ -187,7 +187,7 @@ az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w m
 
 ## <a name="deploy-to-aks"></a>部署到 AKS
 
-若要將模型部署到 Azure Kubernetes Service，請建立__部署__設定，以描述所需的計算資源。 例如，核心和記憶體數目。 您也需要__推斷__設定，其中描述裝載模型和 web 服務所需的環境。 如需建立推斷設定的詳細資訊，請參閱[如何和部署模型的位置](service/how-to-deploy-and-where.md)。
+若要將模型部署到 Azure Kubernetes Service，請建立__部署__設定，以描述所需的計算資源。 例如，核心和記憶體數目。 您也需要__推斷__設定，其中描述裝載模型和 web 服務所需的環境。 如需建立推斷設定的詳細資訊，請參閱[如何和部署模型的位置](how-to-deploy-and-where.md)。
 
 ### <a name="using-the-sdk"></a>使用 SDK
 
@@ -223,13 +223,13 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-如需詳細資訊，請參閱[az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference。 
+如需詳細資訊，請參閱[az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference。
 
 ### <a name="using-vs-code"></a>使用 VS Code
 
 如需使用 VS Code 的詳細資訊，請參閱透過[VS Code 延伸模組部署至 AKS](how-to-vscode-tools.md#deploy-and-manage-models)。
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > 透過 VS Code 部署時，必須事先建立 AKS 叢集或將其附加至您的工作區。
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>使用受控制的推出（預覽）將模型部署至 AKS
@@ -245,13 +245,13 @@ from azureml.core.compute import AksCompute
 from azureml.core.compute import ComputeTarget
 # select a created compute
 compute = ComputeTarget(ws, 'myaks')
-namespace_name= endpointnamespace 
+namespace_name= endpointnamespace
 # define the endpoint and version name
 endpoint_name = "mynewendpoint",
 version_name= "versiona",
 # create the deployment config and define the scoring traffic percentile for the first deployment
 endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
-                                                              enable_app_insights = true, 
+                                                              enable_app_insights = true,
                                                               tags = {'sckitlearn':'demo'},
                                                               decription = testing versions,
                                                               version_name = version_name,
@@ -262,34 +262,34 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
 
 ### <a name="update-and-add-versions-to-an-endpoint"></a>更新並將版本新增至端點
 
-將另一個版本新增至您的端點，並將評分流量的百分位數設定為版本。 版本有兩種類型：控制項和處理版本。 可以有多個處理版本，以協助與單一控制項版本進行比較。 
+將另一個版本新增至您的端點，並將評分流量的百分位數設定為版本。 版本有兩種類型：控制項和處理版本。 可以有多個處理版本，以協助與單一控制項版本進行比較。
 
  ```python
 from azureml.core.webservice import AksEndpoint
 
 # add another model deployment to the same endpoint as above
-version_name_add = "versionb" 
-endpoint.create_version(version_name = version_name_add, 
+version_name_add = "versionb"
+endpoint.create_version(version_name = version_name_add,
                         inference_config=inference_config,
-                        models=[model], 
-                        tags = {'modelVersion':'b'}, 
-                        description = "my second version", 
+                        models=[model],
+                        tags = {'modelVersion':'b'},
+                        description = "my second version",
                         traffic_percentile = 10)
 ```
 
-更新現有的版本，或在端點中將它們刪除。 您可以變更版本的預設類型、控制項類型和流量百分位數。 
- 
+更新現有的版本，或在端點中將它們刪除。 您可以變更版本的預設類型、控制項類型和流量百分位數。
+
  ```python
 from azureml.core.webservice import AksEndpoint
 
-# update the version's scoring traffic percentage and if it is a default or control type 
-endpoint.update_version(version_name=endpoint.versions["versionb"].name, 
-                        description="my second version update", 
+# update the version's scoring traffic percentage and if it is a default or control type
+endpoint.update_version(version_name=endpoint.versions["versionb"].name,
+                        description="my second version update",
                         traffic_percentile=40,
                         is_default=True,
                         is_control_version_type=True)
 
-# delete a version in an endpoint 
+# delete a version in an endpoint
 endpoint.delete_version(version_name="versionb")
 
 ```

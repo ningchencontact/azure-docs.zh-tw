@@ -1,14 +1,14 @@
 ---
 title: 部署 ISO 27001 藍圖範例
 description: 獨立 ISO 27001 藍圖範例的部署步驟，其中包括藍圖成品參數的詳細資料。
-ms.date: 07/22/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 9ea579537ff98d662066ecb8900a62f080b88d3d
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: f5920541d49c454bd6648318c04ed607eada1dfb
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546664"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922513"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>部署 ISO 27001 藍圖範例
 
@@ -97,16 +97,16 @@ ms.locfileid: "74546664"
 
 下表提供藍圖成品參數的清單：
 
-|成品名稱|成品類型|參數名稱|說明|
+|成品名稱|成品類型|參數名稱|描述|
 |-|-|-|-|
 |\[預覽\]：為 Linux VM 擴展集 (VMSS) 部署 Log Analytics 代理程式|原則指派|Linux VM 擴展集 (VMSS) 的 Log Analytics 工作區|如果工作區是在指派的範圍之外，您必須手動將「Log Analytics 參與者」權限 (或類似權限) 授與原則指派的主體識別碼。|
-|\[預覽\]：為 Linux VM 擴展集 (VMSS) 部署 Log Analytics 代理程式|原則指派|選用：要新增至範圍的 VM 映像清單，這些映像具有支援的 Linux OS|空陣列可以用來表示沒有選擇性參數：\[\]|
+|\[預覽\]：為 Linux VM 擴展集 (VMSS) 部署 Log Analytics 代理程式|原則指派|選擇性：要新增至範圍的 VM 映像清單，這些映像具有支援的 Linux OS|空陣列可以用來表示沒有選擇性參數：\[\]|
 |\[預覽\]：部署適用於 Linux VM 的 Log Analytics 代理程式|原則指派|Linux VM 的 Log Analytics 工作區|如果工作區是在指派的範圍之外，您必須手動將「Log Analytics 參與者」權限 (或類似權限) 授與原則指派的主體識別碼。|
-|\[預覽\]：部署適用於 Linux VM 的 Log Analytics 代理程式|原則指派|選用：要新增至範圍的 VM 映像清單，這些映像具有支援的 Linux OS|空陣列可以用來表示沒有選擇性參數：\[\]|
+|\[預覽\]：部署適用於 Linux VM 的 Log Analytics 代理程式|原則指派|選擇性：要新增至範圍的 VM 映像清單，這些映像具有支援的 Linux OS|空陣列可以用來表示沒有選擇性參數：\[\]|
 |\[預覽\]：為 Windows VM 擴展集 (VMSS) 部署 Log Analytics 代理程式|原則指派|Windows VM 擴展集 (VMSS) 的 Log Analytics 工作區|如果工作區是在指派的範圍之外，您必須手動將「Log Analytics 參與者」權限 (或類似權限) 授與原則指派的主體識別碼。|
-|\[預覽\]：為 Windows VM 擴展集 (VMSS) 部署 Log Analytics 代理程式|原則指派|選用：要新增至範圍的 VM 映像清單，這些映像具有支援的 Windows OS|空陣列可以用來表示沒有選擇性參數：\[\]|
+|\[預覽\]：為 Windows VM 擴展集 (VMSS) 部署 Log Analytics 代理程式|原則指派|選擇性：要新增至範圍的 VM 映像清單，這些映像具有支援的 Windows OS|空陣列可以用來表示沒有選擇性參數：\[\]|
 |\[預覽\]：部署適用於 Windows VM 的 Log Analytics 代理程式|原則指派|Windows VM 的 Log Analytics 工作區|如果工作區是在指派的範圍之外，您必須手動將「Log Analytics 參與者」權限 (或類似權限) 授與原則指派的主體識別碼。|
-|\[預覽\]：部署適用於 Windows VM 的 Log Analytics 代理程式|原則指派|選用：要新增至範圍的 VM 映像清單，這些映像具有支援的 Windows OS|空陣列可以用來表示沒有選擇性參數：\[\]|
+|\[預覽\]：部署適用於 Windows VM 的 Log Analytics 代理程式|原則指派|選擇性：要新增至範圍的 VM 映像清單，這些映像具有支援的 Windows OS|空陣列可以用來表示沒有選擇性參數：\[\]|
 |允許的儲存體帳戶 SKU|原則指派|允許的儲存體 SKU 清單|可為儲存體帳戶指定之 SKU 的清單。|
 |允許的虛擬機器 SKU|原則指派|允許的虛擬機器 SKU 清單|可為虛擬機器指定之 SKU 的清單。|
 |ISO 27001 的藍圖方案|原則指派|應啟用診斷記錄的資源類型清單|診斷記錄設定未啟用時，可稽核的資源類型清單。 您可以在 [Azure 監視器診斷記錄結構描述](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)中找到可用值。|

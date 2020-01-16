@@ -3,7 +3,7 @@ title: Azure CLI 指令碼範例 - 執行 Batch 作業
 description: 此指令碼會建立 Batch 工作，並將一系列作業加入至工作。 它也示範如何監視工作和其作業。
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: tysonn
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2019
-ms.author: lahugh
-ms.openlocfilehash: 3fff556f91558f30389ac3548d699e3788719d59
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: jushiman
+ms.openlocfilehash: 3506ef73bea3215cd548969daa10efca21cf118b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75389990"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029304"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>CLI 範例：使用 Azure Batch 來執行作業和工作
 

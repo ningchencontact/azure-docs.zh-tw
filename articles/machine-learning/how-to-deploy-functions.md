@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 11/22/2019
-ms.openlocfilehash: 77e23467551df8d72fd999049c490600eff11825
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 00a62e970e27d689eb639a62938376f73410c270
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763627"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024903"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>將機器學習模型部署到 Azure Functions （預覽）
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -156,27 +156,35 @@ print(blob.location)
     > [!IMPORTANT]
     > Azure Machine Learning 所建立的映射會使用 Linux，因此您必須使用 `--is-linux` 參數。
 
-1. 若要建立函數應用程式，請使用下列命令。 以您要使用的名稱取代 `<app-name>`。 以先前傳回 `package.location` 中的值取代 `<acrinstance>` 和 `<imagename>`：
-
-    ```azurecli-interactive
-    az storage account create --name 
-    az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
-    ```
-
-    > [!IMPORTANT]
-    > 此時，已建立函數應用程式。 不過，由於您尚未將 blob 觸發程式或認證的連接字串提供給包含該影像的 Azure Container Registry，因此函式應用程式不是作用中。 在接下來的步驟中，您會提供容器登錄的連接字串和驗證資訊。 
-
-1. 建立要當做觸發程式使用的儲存體帳戶，並取得其連接字串。
+1. 建立要用於 web 作業儲存體的儲存體帳戶，並取得其連接字串。 以您要使用的名稱取代 `<webjobStorage>`。
 
     ```azurecli-interactive
     az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
-    az storage account show-connection-string --resource-group myresourcegroup --name triggerStorage --query connectionString --output tsv
+    az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
+    ```
+
+1. 若要建立函數應用程式，請使用下列命令。 以您要使用的名稱取代 `<app-name>`。 以先前傳回 `package.location` 中的值取代 `<acrinstance>` 和 `<imagename>`。 將 Replace `<webjobStorage>` 取代為上一個步驟中的儲存體帳戶名稱：
+
+    ```azurecli-interactive
+    az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
+    ```
+
+    > [!IMPORTANT]
+    > 此時，已建立函數應用程式。 不過，由於您尚未將 blob 觸發程式或認證的連接字串提供給包含該影像的 Azure Container Registry，因此函式應用程式不是作用中。 在接下來的步驟中，您會提供容器登錄的連接字串和驗證資訊。 
+
+1. 建立要用於 blob 觸發程式儲存體的儲存體帳戶，並取得其連接字串。 以您要使用的名稱取代 `<triggerStorage>`。
+
+    ```azurecli-interactive
+    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    ```
+    ```azurecli-interactive
+    az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     記錄此連接字串，以提供給函式應用程式。 我們稍後會在要求 `<triggerConnectionString>` 時使用
 
-1. 在儲存體帳戶中建立輸入和輸出的容器。 
+1. 在儲存體帳戶中建立輸入和輸出的容器。 將 `<triggerConnectionString>` 取代為先前傳回的連接字串：
 
     ```azurecli-interactive
     az storage container create -n input --connection-string <triggerConnectionString>
@@ -185,12 +193,17 @@ print(blob.location)
     az storage container create -n output --connection-string <triggerConnectionString>
     ```
 
-1. 您將需要使用下列命令來抓取與所建立容器相關聯的標記：
+1. 若要將觸發程式連接字串與函數應用程式產生關聯，請使用下列命令。 以函數應用程式的名稱取代 `<app-name>`。 將 `<triggerConnectionString>` 取代為先前傳回的連接字串：
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <app-name> --resource-group myresourcegroup --settings "TriggerConnectionString=<triggerConnectionString>"
+    ```
+1. 您將需要使用下列命令來抓取與所建立容器相關聯的標記。 以先前從容器登錄中傳回的使用者名稱取代 `<username>`：
 
     ```azurecli-interactive
     az acr repository show-tags --repository package --name <username> --output tsv
     ```
-    所顯示的最新標記將會 `imagetag` 如下。
+    儲存傳回的值，將在下一個步驟中用來做為 `imagetag`。
 
 1. 若要為函數應用程式提供存取容器登錄所需的認證，請使用下列命令。 以您要使用的名稱取代 `<app-name>`。 以上一個步驟中 AZ CLI call 的值取代 `<acrinstance>` 和 `<imagetag>`。 以先前抓取的 ACR 登入資訊取代 `<username>` 和 `<password>`：
 

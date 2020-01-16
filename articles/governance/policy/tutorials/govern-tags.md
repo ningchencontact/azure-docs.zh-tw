@@ -3,16 +3,16 @@ title: 教學課程：管理標籤治理
 description: 在本教學課程中，使用 Azure 原則的 Modify 效果，在新的和現有的資源上建立和強制執行標籤治理模型。
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: e3d6e279b293ea8063c690f9fb69a6f183b2838d
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482255"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965989"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>教學課程：使用 Azure 原則管理標籤治理
 
-[標籤](../../../azure-resource-manager/resource-group-using-tags.md)是將 Azure 資源組織成分類的重要部分。 當您依照[標籤管理的最佳做法](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)操作時，標籤可作為使用 Azure 原則來套用商務原則或[使用成本管理來追蹤成本](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources)的基礎。
+[標籤](../../../azure-resource-manager/management/tag-resources.md)是將 Azure 資源組織成分類的重要部分。 當您依照[標籤管理的最佳做法](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)操作時，標籤可作為使用 Azure 原則來套用商務原則或[使用成本管理來追蹤成本](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources)的基礎。
 無論您使用標籤的方式或原因為何，能夠在 Azure 資源上快速新增、變更和移除這些標籤，都是十分重要的。
 
 Azure 原則的 [Modify](../concepts/effects.md#modify) 效果可用來協助您管理標籤，而不論您處於哪個資源治理階段。 **Modify** 可在下列情況下發揮作用：
@@ -28,7 +28,7 @@ Azure 原則的 [Modify](../concepts/effects.md#modify) 效果可用來協助您
 > - 將每項需求對應至原則定義
 > - 將標籤原則分組成一個計畫
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成此教學課程，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -204,7 +204,7 @@ Azure 原則的 [Modify](../concepts/effects.md#modify) 效果可用來協助您
 
 1. 以滑鼠右鍵按一下資料列，或選取定義 (或指派) 結尾的省略符號，然後選取 [刪除定義]  (或 [刪除指派]  )。
 
-## <a name="review"></a>審核
+## <a name="review"></a>檢閱
 
 在本教學課程中，您已了解下列下列工作：
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 2abbf06fee8189bc6ca678e546c8e88504409a51
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: f00702326cf6fe2efd8d4abbfce7174815ea0b1d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660387"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770283"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>使用範例標籤工具，以標籤定型表單辨識器模型
 
@@ -33,9 +33,11 @@ ms.locfileid: "75660387"
 
 您將使用 Docker 引擎來執行範例標籤工具。 請依照下列步驟來設定 Docker 容器。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。
 1. 首先，在主機電腦上安裝 Docker。 主機電腦可以是您的本機電腦 ([Windows](https://docs.docker.com/docker-for-windows/)、[MacOS](https://docs.docker.com/docker-for-mac/) 或 [Linux](https://docs.docker.com/install/))。 或者，您可以使用 Azure 中的 Docker 主控服務，例如[部署至 Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910) 的 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index)、[Azure 容器執行個體](https://docs.microsoft.com/azure/container-instances/index)或 Kubernetes 叢集。 主機電腦必須符合下列硬體需求：
+
     | 容器 | 最小值 | 建議|
     |:--|:--|:--|
-    |範例標籤工具|2 核心、4 GB 記憶體|4 核心，8 GB 記憶體
+    |範例標籤工具|2 核心、4 GB 記憶體|4 核心，8 GB 記憶體|
+    
 1. 接下來，您將需要 [Azure 命令列介面 (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。 請將其安裝在您的電腦上 (如果尚未安裝)。
 1. 在命令提示字元中輸入下列命令。 `<username>` 和 `<password>` 的值位於您的「歡迎使用表單辨識器」電子郵件中。
     ```
@@ -49,7 +51,8 @@ ms.locfileid: "75660387"
     ```
     docker run -it -p 3000:80 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool eula=accept
     ```
-    此命令會讓範例標籤工具可透過網頁瀏覽器來使用。 移至 [http://localhost:3000](http://localhost:3000)。
+
+   此命令會讓範例標籤工具可透過網頁瀏覽器來使用。 移至 [http://localhost:3000](http://localhost:3000)。
 
 > [!NOTE]
 > 您也可以使用表單辨識器 REST API 為文件加上標籤及定型模型。 若要使用此 REST API 進行定型和分析，請參閱[使用 REST API 和 Python以標籤定型](./python-labeled-data.md)。

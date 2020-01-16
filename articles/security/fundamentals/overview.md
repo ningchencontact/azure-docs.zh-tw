@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 8301dc779799ff67a348403e661fc7e66b9e721f
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: a1dbabafe32e013d526ed88a83e446ee765cdb7b
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750121"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045875"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 安全性簡介
 ## <a name="overview"></a>概觀
@@ -69,7 +69,7 @@ Azure 的基礎結構設計涵蓋設備與應用程式，可同時裝載數以�
 此外，您還能設定安全性與合規性，以便在偵測到特定事件時[自動執行特定動作](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/)。
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
-[Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-model.md) 可讓您將方案中的資源做為群組使用。 您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用 [Azure Resource Manager 範本 (英文)](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) 部署，該範本可用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。
+[Azure Resource Manager](../../azure-resource-manager/management/deployment-models.md) 可讓您將方案中的資源做為群組使用。 您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用 [Azure Resource Manager 範本 (英文)](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) 部署，該範本可用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。
 
 以 Azure Resource Manager 範本為基礎的部署，有助於提升部署於 Azure 中之解決方案的安全性 (因為標準的安全性控制設定)，並且可整合至以標準化範本為基礎的部署中。 這會降低可能需要在手動部署期間執行的安全性設定錯誤風險。
 
@@ -142,16 +142,16 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 本節提供關於 Azure 儲存體安全性中主要功能的其他資訊，以及這些功能的摘要資訊。
 
 ### <a name="role-based-access-control-rbac"></a>角色型存取控制 (RBAC)
-您可以使用角色型存取控制 (RBAC) 來保護儲存體帳戶。 對於想要強制執行資料存取安全性原則的組織，根據[需要知道 (英文)](https://en.wikipedia.org/wiki/Need_to_know) 和[最低權限 (英文)](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 安全性主體限制存取權限是必須做的事。 在特定範圍將適當的 RBAC 角色指派給群組和應用程式，即可授與這些存取權限。 您可以使用 [內建的 RBAC 角色](../../role-based-access-control/built-in-roles.md)(例如儲存體帳戶參與者) 將權限指派給使用者。 使用 [Azure Resource Manager](../../storage/common/storage-security-guide.md) 模型來存取儲存體帳戶的儲存體金鑰，可以透過角色型存取控制 (RBAC) 來控制。
+您可以使用角色型存取控制 (RBAC) 來保護儲存體帳戶。 對於想要強制執行資料存取安全性原則的組織，根據[需要知道 (英文)](https://en.wikipedia.org/wiki/Need_to_know) 和[最低權限 (英文)](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 安全性主體限制存取權限是必須做的事。 在特定範圍將適當的 RBAC 角色指派給群組和應用程式，即可授與這些存取權限。 您可以使用 [內建的 RBAC 角色](../../role-based-access-control/built-in-roles.md)(例如儲存體帳戶參與者) 將權限指派給使用者。 使用 [Azure Resource Manager](../../storage/blobs/security-recommendations.md) 模型來存取儲存體帳戶的儲存體金鑰，可以透過角色型存取控制 (RBAC) 來控制。
 
 ### <a name="shared-access-signature"></a>共用存取簽章
 [共用存取簽章 (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) 可提供您儲存體帳戶中資源的委派存取。 SAS 意謂著您可以將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定期間內使用一組指定的權限進行存取。 您可以在不須分享您帳戶存取金鑰的情況下，授與這些有限的權限。
 
 ### <a name="encryption-in-transit"></a>傳輸中加密
 傳輸中加密是透過網路傳輸資料時用來保護資料的機制。 透過 Azure 儲存體，您可以使用下列各項來保護資料：
--   [傳輸層級加密](../../storage/common/storage-security-guide.md)，例如從 Azure 儲存體傳入或傳出資料時的 HTTPS。
+-   [傳輸層級加密](../../storage/blobs/security-recommendations.md)，例如從 Azure 儲存體傳入或傳出資料時的 HTTPS。
 
--   [連線加密](../../storage/common/storage-security-guide.md)，例如 [Azure 檔案共用](../../storage/files/storage-dotnet-how-to-use-files.md)的 [SMB 3.0 加密](../../storage/common/storage-security-guide.md)。
+-   [連線加密](../../storage/blobs/security-recommendations.md)，例如 [Azure 檔案共用](../../storage/files/storage-dotnet-how-to-use-files.md)的 [SMB 3.0 加密](../../storage/blobs/security-recommendations.md)。
 
 -   用戶端加密，在將資料傳輸至儲存體之前加密資料，以及自儲存體傳出後解密資料。
 
@@ -266,9 +266,9 @@ Microsoft [Azure 流量管理員](../../traffic-manager/traffic-manager-overview
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) 可為您的應用程式提供高可用性和網路效能。 這是 Layer 4 (TCP、UDP) 負載平衡器，可將連入流量分配到負載平衡集中所定義服務的狀況良好執行個體。 Azure Load Balancer 可以設定為：
 
--   對虛擬機器的連入網際網路流量進行負載平衡。 這個組態稱為 [網際網路面向的負載平衡](../../load-balancer/load-balancer-overview.md#publicloadbalancer)。
+-   對虛擬機器的連入網際網路流量進行負載平衡。 這個組態稱為 [網際網路面向的負載平衡](../../load-balancer/concepts-limitations.md#publicloadbalancer)。
 
--   平衡虛擬網路中的虛擬機器之間、雲端服務中的虛擬機器之間，或內部部署電腦與跨單位部署虛擬網路中的虛擬機器之間的流量負載。 這個組態稱為 [內部負載平衡](../../load-balancer/load-balancer-overview.md#internalloadbalancer)。
+-   平衡虛擬網路中的虛擬機器之間、雲端服務中的虛擬機器之間，或內部部署電腦與跨單位部署虛擬網路中的虛擬機器之間的流量負載。 這個組態稱為 [內部負載平衡](../../load-balancer/concepts-limitations.md#internalloadbalancer)。
 
 - 將外部流量轉送到特定的虛擬機器
 

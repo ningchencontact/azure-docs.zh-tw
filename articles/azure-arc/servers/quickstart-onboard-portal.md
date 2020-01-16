@@ -6,22 +6,22 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: bobbytreed
 ms.author: robreed
-keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid, onboard, Azure 自動化, 預期狀態設定, 更新管理, 變更追蹤, 清查, 圖形化, 混合式, 上線
+keywords: Azure 自動化, DSC, powershell, Desired State Configuration, 更新管理, 變更追蹤, 清查, Runbook, python, 圖形化, 混合式, 上線
 ms.date: 08/25/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 2ae7c8545286baebc83077276e356cd2e41f0dc3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 26c79db956b2703bf037fc6f7790d4ee13874410
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668666"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834255"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---portal"></a>快速入門：使用適用於伺服器的 Azure Arc 將機器連線至 Azure - 入口網站
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 檢閱[適用於伺服器的 Azure Arc 概觀](overview.md)中的受支援用戶端和必要網路設定。
 

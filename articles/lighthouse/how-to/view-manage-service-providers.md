@@ -1,18 +1,18 @@
 ---
 title: 檢視和管理服務提供者
 description: 客戶可以使用 Azure 入口網站中的 [服務提供者] 頁面，檢視服務提供者、服務提供者供應項目與委派的資源的相關資訊。
-ms.date: 11/15/2019
+ms.date: 01/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 453f5d3ba4ed5c49b5e71c7530298bc0a03c73ee
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: ff3c37c02c580a833008a65315009d1e42e49043
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463808"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046119"
 ---
 # <a name="view-and-manage-service-providers"></a>檢視和管理服務提供者
 
-客戶可以使用 **Azure 入口網站**中的 [服務提供者][](https://portal.azure.com) 頁面，檢視服務提供者與服務提供者供應項目的相關資訊、透過 [Azure 委派的資源管理](../concepts/azure-delegated-resource-management.md)委派特定資源，以及購買額外的服務提供者供應項目。 雖然我們在此所述的是服務提供者與其客戶，但管理多個租用戶的企業也可以使用相同的程序來合併其管理體驗。
+客戶可以使用 [Azure 入口網站](https://portal.azure.com)中的 [服務提供者] 頁面，檢視服務提供者與服務提供者供應項目的相關資訊、透過 [Azure 委派的資源管理](../concepts/azure-delegated-resource-management.md)委派特定資源，以及購買額外的服務提供者供應項目。 雖然我們在此所述的是服務提供者與其客戶，但管理多個租用戶的企業也可以使用相同的程序來合併其管理體驗。
 
 若要存取 Azure 入口網站中的 [服務提供者] 頁面，客戶可選取 [所有服務]，然後搜尋**服務提供者**並選取它。 他們也可在 Azure 入口網站頂端附近的搜尋方塊中輸入「服務提供者」來找到它。
 
@@ -47,13 +47,13 @@ ms.locfileid: "74463808"
 
 如果客戶想要移除服務提供者供應項目，他們可以選取該供應項目列中的垃圾桶圖示。 確認刪除之後，該服務提供者將無法再存取先前委派給該供應項目的客戶資源。
 
-## <a name="update-service-provider-offers"></a>更新服務提供者優惠
+## <a name="update-service-provider-offers"></a>更新服務提供者供應項目
 
-在客戶新增供應專案之後，服務提供者可能會將相同供應專案的更新版本發佈到 Azure Marketplace。 例如，他們可能會想要加入新的角色定義。 如果已發佈新版本的供應專案，則 [**提供者提供**] 頁面會在該供應專案的資料列中顯示「更新」圖示。 客戶可以選取此圖示，以查看供應專案的目前版本與新版本之間的差異。
+在客戶新增供應項目之後，服務提供者可能會將相同供應項目的更新版本發佈到 Azure Marketplace。 例如，他們可能會想要新增新的角色定義。 如果已發佈新版本的供應項目，[提供者供應項目] 頁面會在該供應項目的資料列中顯示「更新」圖示。 客戶可以選取此圖示，以查看供應項目目前版本與新版本之間的差異。
 
  ![更新供應專案圖示](../media/update-offer.jpg)
 
-在檢查變更之後，客戶可以選擇更新至新版本。 一旦完成，在新版本中指定的授權和其他設定，將會套用至已針對該供應專案委派的任何訂用帳戶和/或資源群組。
+在檢閱變更之後，客戶可以選擇更新至新版本。 一旦他們這麼做，在新版本中指定的授權和其他設定，將會套用至已針對該供應項目委派的任何訂用帳戶和/或資源群組。
 
 ## <a name="view-delegations"></a>檢視委派
 
@@ -61,7 +61,10 @@ ms.locfileid: "74463808"
 
 頁面頂端的篩選條件可讓您對委派資訊進行排序及分組，或是依特定客戶、供應項目或關鍵字進行篩選。
 
+> [!NOTE]
+> 在 Azure 入口網站中或透過 Api[查看委派範圍的角色指派資訊](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope)時，客戶將不會看到這些角色指派，或來自已授與這些角色之服務提供者租使用者的任何使用者。
+
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解 [Azure Lighthouse](../overview.md)。
-- 了解服務提供者如何前往 Azure 入口網站中的 [我的客戶][](view-manage-customers.md)，**檢視和管理客戶**。
+- 了解服務提供者如何前往 Azure 入口網站中的 [我的客戶]，[檢視和管理客戶](view-manage-customers.md)。

@@ -1,6 +1,6 @@
 ---
-title: 自動加入 Azure DevTest Labs 中的實驗室使用者 |Microsoft Docs
-description: 了解如何自動化在 Azure DevTest Labs 中對實驗室新增實驗室使用者。
+title: 在 Azure DevTest Labs 中自動新增實驗室使用者 |Microsoft Docs
+description: 瞭解如何在 Azure DevTest Labs 中，自動將實驗室使用者新增至實驗室。
 services: devtest-lab,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 2ad81ae97414abbf3266cc5728febf9abe836151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: deec67a2c64a57bbb380b3fd87bf820499e6efed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522952"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980057"
 ---
-# <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>自動加入 Azure DevTest Labs 中實驗室的實驗室使用者
-Azure DevTest Labs 可讓您快速地建立使用 Azure 入口網站的 自助服務的開發 / 測試環境。 不過，如果您有數個小組和數個 DevTest Labs 執行個體，自動在建立程序可以節省時間。 [Azure Resource Manager 範本](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)可讓您建立實驗室、 實驗室 Vm、 自訂映像、 公式，並以自動化方式新增使用者。 本文特別著重於將使用者新增至 DevTest Labs 執行個體。
+# <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中自動將實驗室使用者新增至實驗室
+Azure DevTest Labs 可讓您使用 Azure 入口網站快速建立自助開發/測試環境。 不過，如果您有數個小組和數個 DevTest Labs 實例，自動化建立程式就可以節省時間。 [Azure Resource Manager 範本](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)可讓您以自動化的方式建立實驗室、實驗室 vm、自訂映射、公式及新增使用者。 本文特別著重于將使用者新增至 DevTest Labs 實例。
 
-若要將使用者新增至實驗室，您將使用者新增至**DevTest Labs 使用者**實驗室的角色。 這篇文章會說明如何自動執行 新增使用者至實驗室，使用下列方法之一：
+若要將使用者新增至實驗室，請將使用者新增至實驗室的**DevTest Labs 使用者**角色。 本文說明如何使用下列其中一種方式，自動將使用者新增至實驗室：
 
-- Azure 資源管理員範本
+- Azure Resource Manager 範本
 - Azure PowerShell Cmdlet 
 - Azure CLI。
 
 ## <a name="use-azure-resource-manager-templates"></a>使用 Azure 資源管理員範本
-下列的範例 Resource Manager 範本會指定要加入至使用者**DevTest Labs 使用者**實驗室的角色。 
+下列範例 Resource Manager 範本會指定要新增至實驗室的**DevTest Labs 使用者**角色的使用者。 
 
 ```json
 {
@@ -85,16 +85,16 @@ Azure DevTest Labs 可讓您快速地建立使用 Azure 入口網站的 自助�
 
 ```
 
-如果您要指派相同的範本建立實驗室中的角色，請記得將角色指派資源和實驗室之間的相依性。 如需詳細資訊，請參閱 < [Azure Resource Manager 範本中定義相依性](../azure-resource-manager/resource-group-define-dependencies.md)文章。
+如果您要在建立實驗室的相同範本中指派角色，請記得在角色指派資源與實驗室之間新增相依性。 如需詳細資訊，請參閱[在 Azure Resource Manager 範本中定義](../azure-resource-manager/templates/define-resource-dependency.md)相依性一文。
 
 ### <a name="role-assignment-resource-information"></a>角色指派資源資訊
-角色指派資源，就必須指定的型別和名稱。
+角色指派資源必須指定類型和名稱。
 
-要注意的第一件事是資源的類型不是`Microsoft.Authorization/roleAssignments`就像在資源群組。  相反地，資源類型會遵循模式`{provider-namespace}/{resource-type}/providers/roleAssignments`。 資源類型將會在此情況下， `Microsoft.DevTestLab/labs/providers/roleAssignments`。
+要注意的第一件事是，資源的型別不 `Microsoft.Authorization/roleAssignments`，就像資源群組一樣。  相反地，資源類型會遵循模式 `{provider-namespace}/{resource-type}/providers/roleAssignments`。 在此情況下，資源類型將會 `Microsoft.DevTestLab/labs/providers/roleAssignments`。
 
-角色指派名稱本身必須是全域唯一的。  指派的名稱會使用模式`{labName}/Microsoft.Authorization/{newGuid}`。 `newGuid`是範本的參數值。 它可確保角色指派名稱是唯一的。 因為沒有範本函式來建立 Guid，您需要使用 GUID 產生器的任何工具自行產生的 GUID。  
+角色指派名稱本身必須是全域唯一的。  指派的名稱會使用模式 `{labName}/Microsoft.Authorization/{newGuid}`。 `newGuid` 是範本的參數值。 它可確保角色指派名稱是唯一的。 因為沒有可建立 Guid 的範本函式，所以您需要使用任何 GUID 產生器工具自行產生 GUID。  
 
-在範本中，所定義的角色指派名稱`fullDevTestLabUserRoleName`變數。 從範本的哪一行是：
+在範本中，角色指派的名稱是由 `fullDevTestLabUserRoleName` 變數所定義。 範本中的確切行如下：
 
 ```json
 "fullDevTestLabUserRoleName": "[concat(parameters('labName'), '/Microsoft.Authorization/', parameters('roleAssignmentGuid'))]"
@@ -102,47 +102,47 @@ Azure DevTest Labs 可讓您快速地建立使用 Azure 入口網站的 自助�
 
 
 ### <a name="role-assignment-resource-properties"></a>角色指派資源屬性
-角色指派本身會定義三個屬性。 它需要`roleDefinitionId`， `principalId`，和`scope`。
+角色指派本身會定義三個屬性。 它需要 `roleDefinitionId`、`principalId`和 `scope`。
 
 ### <a name="role-definition"></a>角色定義
-角色定義識別碼是現有的角色定義的字串識別碼。 識別碼是在表單中的角色`/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}`。 
+角色定義 ID 是現有角色定義的字串識別碼。 角色識別碼的格式為 `/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}`。 
 
-訂用帳戶識別碼使用取得的`subscription().subscriptionId`樣板函式。  
+訂用帳戶識別碼是使用 `subscription().subscriptionId` 範本函數取得。  
 
-您需要取得的角色定義`DevTest Labs User`內建角色。 若要取得的 GUID [DevTest Labs 使用者](../role-based-access-control/built-in-roles.md#devtest-labs-user)角色，您可以使用[角色指派的 REST API](/rest/api/authorization/roleassignments)或[Get AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition?view=azps-1.8.0) cmdlet。
+您需要取得 `DevTest Labs User` 內建角色的角色定義。 若要取得[DevTest Labs 使用者](../role-based-access-control/built-in-roles.md#devtest-labs-user)角色的 GUID，您可以使用 REST API 或[get-azroledefinition 指令程式](/powershell/module/az.resources/get-azroledefinition?view=azps-1.8.0)的[角色指派](/rest/api/authorization/roleassignments)。
 
 ```powershell
 $dtlUserRoleDefId = (Get-AzRoleDefinition -Name "DevTest Labs User").Id
 ```
 
-變數區段中定義的角色識別碼，且名為`devTestLabUserRoleId`。 在範本中，角色識別碼設為：111111111-0000-0000-11111111111111111. 
+角色識別碼會定義在 variables 區段中，並命名為 `devTestLabUserRoleId`。 在範本中，角色識別碼會設定為：111111111-0000-0000-11111111111111111。 
 
 ```json
 "devTestLabUserRoleId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/111111111-0000-0000-11111111111111111')]",
 ```
 
 ### <a name="principal-id"></a>主體識別碼
-主體識別碼為 Active Directory 使用者、 群組或您想要為實驗室使用者新增至實驗室的服務主體的物件識別碼。 此範本會使用`ObjectId`做為參數。
+主體識別碼是您想要新增為實驗室使用者的 Active Directory 使用者、群組或服務主體的物件識別碼。 範本會使用 `ObjectId` 做為參數。
 
-您可以使用，以取得 ObjectId [Get-azurermaduser](/powershell/module/azurerm.resources/get-azurermaduser?view=azurermps-6.13.0)、 [Get-azurermadgroup，或是[Get-azurermadserviceprincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.13.0) PowerShell cmdlet。 這些 cmdlet 會傳回單一或之 Active Directory 物件的 ID 屬性，這是您所需要的物件識別碼的清單。 下列範例會示範如何在這家公司取得單一使用者的物件識別碼。
+您可以使用[get-azurermaduser](/powershell/module/azurerm.resources/get-azurermaduser?view=azurermps-6.13.0)、[AzureRMADGroup] 或[new-azurermadserviceprincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.13.0) PowerShell Cmdlet 來取得 ObjectId。 這些 Cmdlet 會傳回具有 ID 屬性的 Active Directory 物件的單一或清單，這是您所需的物件識別碼。 下列範例示範如何取得公司中單一使用者的物件識別碼。
 
 ```powershell
 $userObjectId = (Get-AzureRmADUser -UserPrincipalName ‘email@company.com').Id
 ```
 
-您也可以使用包含 Azure Active Directory PowerShell cmdlet [Get-msoluser](/powershell/module/msonline/get-msoluser?view=azureadps-1.0)， [Get-msolgroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0)，並[Get-msolserviceprincipal](/powershell/module/msonline/get-msolserviceprincipal?view=azureadps-1.0)。
+您也可以使用 Azure Active Directory 的 PowerShell Cmdlet，其中包括[set-msoluser](/powershell/module/msonline/get-msoluser?view=azureadps-1.0)、 [get-msolgroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0)和[new-msolserviceprincipal](/powershell/module/msonline/get-msolserviceprincipal?view=azureadps-1.0)。
 
-### <a name="scope"></a>`Scope`
-範圍會指定資源或資源群組應該適用於與角色指派。 如需資源，範圍的格式： `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}`。 此範本會使用`subscription().subscriptionId`函式，以填滿`subscription-id`組件和`resourceGroup().name`樣板函式，以填滿`resource-group-name`組件。 使用這些函式表示的實驗室，您要將角色指派必須存在於目前的訂用帳戶和範本部署時所做的相同資源群組。 最後一個部分， `resource-name`，是實驗室的名稱。 透過在此範例中的範本參數，就會收到此值。 
+### <a name="scope"></a>範圍
+範圍指定應該套用角色指派的資源或資源群組。 針對資源，範圍的格式為： `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}`。 此範本會使用 `subscription().subscriptionId` 函式來填入 `subscription-id` 部分和 `resourceGroup().name` 範本函式，以填入 `resource-group-name` 部分。 使用這些函式表示您要為其指派角色的實驗室，必須存在於目前的訂用帳戶中，以及部署範本所使用的相同資源群組。 最後一個部分（`resource-name`）是實驗室的名稱。 此值是透過此範例中的樣板參數所接收。 
 
-角色中的範圍的範本： 
+範本中的角色範圍： 
 
 ```json
 "roleScope": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.DevTestLab/labs/', parameters('labName'))]"
 ```
 
 ### <a name="deploying-the-template"></a>部署範本
-首先，建立參數檔案 (例如： azuredeploy.parameters.json) 中通過的 Resource Manager 範本參數的值。 
+首先，建立傳遞 Resource Manager 範本中參數值的參數檔案（例如： azuredeploy.parameters.json」. parameters. json）。 
 
 ```json
 {
@@ -162,46 +162,46 @@ $userObjectId = (Get-AzureRmADUser -UserPrincipalName ‘email@company.com').Id
 }
 ```
 
-然後，使用[New-azurermresourcegroupdeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment?view=azurermps-6.13.0) PowerShell cmdlet 來部署 Resource Manager 範本。 下列範例命令會將個人、 群組或服務主體指派至實驗室的 DevTest Labs 使用者角色。
+然後，使用[New-azurermresourcegroupdeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment?view=azurermps-6.13.0) PowerShell Cmdlet 來部署 Resource Manager 範本。 下列範例命令會將個人、群組或服務主體指派給實驗室的 DevTest Labs 使用者角色。
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateParameterFile .\azuredeploy.parameters.json -TemplateFile .\azuredeploy.json
 ```
 
-請務必請注意，必須是唯一的群組部署名稱和角色指派的 GUID。 如果您嘗試部署的資源指派具有非唯一的 GUID，則您會收到`RoleAssignmentUpdateNotPermitted`時發生錯誤。
+請務必注意，群組部署名稱和角色指派 GUID 必須是唯一的。 如果您嘗試使用非唯一的 GUID 來部署資源指派，則會收到 `RoleAssignmentUpdateNotPermitted` 錯誤。
 
-如果您打算將數個 Active Directory 物件新增至您的實驗室的 DevTest Labs 使用者角色使用的範本數次，請考慮在您的 PowerShell 命令中使用動態物件。 下列範例會使用[New-guid](/powershell/module/Microsoft.PowerShell.Utility/New-Guid?view=powershell-5.0)指令程式來以動態方式指定資源群組部署名稱和角色指派的 GUID。
+如果您打算使用範本數次，將數個 Active Directory 物件新增至實驗室的 DevTest Labs 使用者角色，請考慮在 PowerShell 命令中使用動態物件。 下列範例會使用[新的-Guid](/powershell/module/Microsoft.PowerShell.Utility/New-Guid?view=powershell-5.0) Cmdlet，以動態方式指定資源群組部署名稱和角色指派 Guid。
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateFile .\azuredeploy.json -roleAssignmentGuid "$(New-Guid)" -labName "MyLab" -principalId "11111111-1111-1111-1111-111111111111"
 ```
 
 ## <a name="use-azure-powershell"></a>使用 Azure PowerShell
-如簡介中所述，您會建立新的 Azure 角色指派，以將使用者加入**DevTest Labs 使用者**實驗室的角色。 在 PowerShell 中，您可以使用這樣[New-azurermroleassignment](/powershell/module/azurerm.resources/new-azurermroleassignment?view=azurermps-6.13.0) cmdlet。 此 cmdlet 有許多選擇性參數，以允許彈性。 `ObjectId`， `SigninName`，或`ServicePrincipalName`可以指定為要授與其權限的物件。  
+如簡介中所述，您會建立新的 Azure 角色指派，以將使用者新增至實驗室的**DevTest Labs 使用者**角色。 在 PowerShell 中，您可以使用[new-azurermroleassignment](/powershell/module/azurerm.resources/new-azurermroleassignment?view=azurermps-6.13.0) Cmdlet 來執行此動作。 此 Cmdlet 有許多選擇性參數可讓您彈性。 `ObjectId`、`SigninName`或 `ServicePrincipalName` 可以指定為被授與許可權的物件。  
 
-以下是將使用者新增至 DevTest Labs 使用者角色指定實驗室中的範例 Azure PowerShell 命令。
+以下是在指定的實驗室中，將使用者新增至 DevTest Labs 使用者角色的範例 Azure PowerShell 命令。
 
 ```powershell
 New-AzureRmRoleAssignment -UserPrincipalName <email@company.com> -RoleDefinitionName 'DevTest Labs User' -ResourceName '<Lab Name>' -ResourceGroupName '<Resource Group Name>' -ResourceType 'Microsoft.DevTestLab/labs'
 ```
 
-若要指定要在權限授與可以指定的資源的組合所`ResourceName`， `ResourceType`，`ResourceGroup`或是`scope`參數。 會使用參數的任何組合，提供足夠的資訊至 cmdlet，以唯一識別 Active Directory 物件 （使用者、 群組或服務主體），範圍 （資源群組或資源） 及角色定義。
+若要指定要授與許可權的資源，可以透過 `ResourceName`、`ResourceType`、`ResourceGroup` 或 `scope` 參數的組合來指定。 使用任何組合的參數時，請提供足夠的資訊給 Cmdlet，以唯一識別 Active Directory 物件（使用者、群組或服務主體）、範圍（資源群組或資源）和角色定義。
 
-## <a name="use-azure-command-line-interface-cli"></a>使用 Azure 命令列介面 (CLI)
-在 Azure CLI 中，新增至實驗室的實驗室使用者由使用`az role assignment create`命令。 如需有關 Azure CLI cmdlet 的詳細資訊，請參閱 <<c0> [ 管理使用 RBAC 和 Azure CLI 的 Azure 資源的存取權](../role-based-access-control/role-assignments-cli.md)。
+## <a name="use-azure-command-line-interface-cli"></a>使用 Azure 命令列介面（CLI）
+在 Azure CLI 中，將實驗室使用者新增至實驗室的作業是使用 `az role assignment create` 命令來完成。 如需 Azure CLI Cmdlet 的詳細資訊，請參閱[使用 RBAC 和 Azure CLI 來管理 Azure 資源的存取權](../role-based-access-control/role-assignments-cli.md)。
 
-您可指定正在授與存取權的物件`objectId`， `signInName`，`spn`參數。 可以藉由識別的物件正在授與存取實驗室`scope`url 或組合`resource-name`， `resource-type`，和`resource-group`參數。
+要授與存取權的物件可以由 `objectId`、`signInName``spn` 參數指定。 物件被授與存取權的實驗室可以透過 `scope` url 或 `resource-name`、`resource-type`和 `resource-group` 參數的組合來識別。
 
-下列 Azure CLI 範例將示範如何將人員新增至 DevTest Labs 使用者角色中，指定的實驗室。  
+下列 Azure CLI 範例示範如何為指定的實驗室將人員新增至 DevTest Labs 使用者角色。  
 
 ```azurecli
 az role assignment create --roleName "DevTest Labs User" --signInName <email@company.com> -–resource-name "<Lab Name>" --resource-type “Microsoft.DevTestLab/labs" --resource-group "<Resource Group Name>"
 ```
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列文章：
+查看下列文章：
 
-- [建立和管理使用 Azure CLI 的 DevTest Labs 虛擬機器](devtest-lab-vmcli.md)
-- [使用 DevTest Labs 使用 Azure PowerShell 建立虛擬機器](devtest-lab-vm-powershell.md)
+- [使用 Azure CLI 建立及管理具有 DevTest Labs 的虛擬機器](devtest-lab-vmcli.md)
+- [使用 Azure PowerShell 建立具有 DevTest Labs 的虛擬機器](devtest-lab-vm-powershell.md)
 - [使用命令列工具來啟動和停止 Azure DevTest Labs 虛擬機器](use-command-line-start-stop-virtual-machines.md)
 

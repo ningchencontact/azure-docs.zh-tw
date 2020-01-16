@@ -7,19 +7,19 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 22734d29973f0d7102307aa9038b6ebe7cc2521b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.date: 01/14/2020
+ms.openlocfilehash: 419a71acbca59c00bd0ffecf39d5d1ff38833b08
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903316"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045142"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>了解和使用 Azure IoT 中樞 SDK
 
 有兩種類別的軟體開發套件 (SDK) 可與「IoT 中樞」搭配使用：
 
-* **IoT 中樞裝置 SDK** 可讓您使用裝置用戶端或模組用戶端，來建置要在 IoT 裝置上執行的應用程式。 這些應用程式會將遙測傳送至您的 IoT 中樞，並選擇性地接收來自 IoT 中樞的訊息、作業、方法或對應項更新。  您也可以使用模組用戶端來撰寫適用於 [Azure IoT Edge 執行階段](../iot-edge/iot-edge-modules.md)的[模組](../iot-edge/about-iot-edge.md)。
+* **IoT 中樞裝置 SDK** 可讓您使用裝置用戶端或模組用戶端，來建置要在 IoT 裝置上執行的應用程式。 這些應用程式會將遙測傳送至您的 IoT 中樞，並選擇性地接收來自 IoT 中樞的訊息、作業、方法或對應項更新。  您也可以使用模組用戶端來撰寫適用於 [Azure IoT Edge 執行階段](../iot-edge/about-iot-edge.md)的[模組](../iot-edge/iot-edge-modules.md)。
 
 * **IoT 中樞服務 SDK** 可讓您建置後端應用程式來管理 IoT 中樞，並選擇性地傳送訊息、排程作業、叫用直接方法，或是將所需的屬性更新傳送到您的 IoT 裝置或模組。
 
@@ -47,7 +47,7 @@ Microsoft Azure IoT 裝置 SDK 包含有助於建置應用程式的程式碼，�
 
 * 從 [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) 下載。  命名空間是 Microsoft.Azure.Devices.Clients，其中包含 IoT 中樞裝置用戶端 (DeviceClient、ModuleClient)。
 * [原始程式碼](https://github.com/Azure/azure-iot-sdk-csharp) \(英文\)
-* [API 參考資料](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
+* [API 參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
 * [模組參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) \(英文\)
 
 適用於 C 的 Azure IoT 中樞裝置 SDK (ANSI C - C99)：
@@ -55,7 +55,7 @@ Microsoft Azure IoT 裝置 SDK 包含有助於建置應用程式的程式碼，�
 * 從 [apt-get、MBED、Arduino IDE 或 iOS](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#packages-and-libraries) 安裝
 * [原始程式碼](https://github.com/Azure/azure-iot-sdk-c) \(英文\)
 * [編譯 C 裝置 SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compiling-the-c-device-sdk)
-* [API 參考資料](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+* [API 參考](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 * [模組參考](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h) \(英文\)
 * [將 C SDK 移轉到其他平台](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
 * 有關交叉編譯和不同平台的使用者入門等資訊，請參閱[開發人員文件](https://github.com/Azure/azure-iot-sdk-c/tree/master/doc)。
@@ -63,23 +63,23 @@ Microsoft Azure IoT 裝置 SDK 包含有助於建置應用程式的程式碼，�
 
 適用於 Java 的 Azure IoT 中樞裝置 SDK： 
 
-* 新增至 [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk) \(英文\) 專案
+* 新增至 [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk)\(英文\) 專案
 * [原始程式碼](https://github.com/Azure/azure-iot-sdk-java) \(英文\)
-* [API 參考資料](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device)
+* [API 參考](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device)
 * [模組參考](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable) \(英文\)
 
 適用於 Node.js 的 Azure IoT 中樞裝置 SDK： 
 
 * 從 [npm](https://www.npmjs.com/package/azure-iot-device) \(英文\) 安裝
 * [原始程式碼](https://github.com/Azure/azure-iot-sdk-node) \(英文\)
-* [API 參考資料](https://docs.microsoft.com/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest)
+* [API 參考](https://docs.microsoft.com/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest)
 * [模組參考](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest) \(英文\)
 
 適用於 Python 的 Azure IoT 中樞裝置 SDK： 
 
 * 從 [pip](https://pypi.org/project/azure-iot-device/) \(英文\) 安裝
 * [原始程式碼](https://github.com/Azure/azure-iot-sdk-python) \(英文\)
-* [API 參考資料](https://docs.microsoft.com/python/api/azure-iot-device)
+* [API 參考](https://docs.microsoft.com/python/api/azure-iot-device)
 
 適用於 iOS 的 Azure IoT 中樞裝置 SDK： 
 
@@ -95,24 +95,24 @@ Microsoft Azure IoT 服務 SDK 包含可協助建置應用程式的程式碼，�
 
 * 從 [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Devices/) 下載。  命名空間是 Microsoft.Azure.Devices，其中包含 IoT 中樞服務用戶端 (RegistryManager、ServiceClients)。
 * [原始程式碼](https://github.com/Azure/azure-iot-sdk-csharp) \(英文\)
-* [API 參考資料](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices)
+* [API 參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices)
 
 適用於 Java 的 Azure IoT 中樞服務 SDK： 
 
-* 新增至 [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk) \(英文\) 專案
+* 新增至 [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk)\(英文\) 專案
 * [原始程式碼](https://github.com/Azure/azure-iot-sdk-java) \(英文\)
-* [API 參考資料](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service)
+* [API 參考](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service)
 
 適用於 Node.js 的 Azure IoT 中樞服務 SDK： 
 
 * 從 [npm](https://www.npmjs.com/package/azure-iothub) \(英文\) 下載
 * [原始程式碼](https://github.com/Azure/azure-iot-sdk-node) \(英文\)
-* [API 參考資料](https://docs.microsoft.com/javascript/api/azure-iothub/?view=azure-iot-typescript-latest)
+* [API 參考](https://docs.microsoft.com/javascript/api/azure-iothub/?view=azure-iot-typescript-latest)
 
 適用於 Python 的 Azure IoT 中樞服務 SDK： 
 
-* 從 [pip](https://pypi.python.org/pypi/azure-iothub-service-client/) \(英文\) 下載
-* [原始程式碼](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated) \(英文\)
+* 從 [pip](https://pypi.python.org/pypi/azure-iot-hub/) \(英文\) 下載
+* [原始程式碼](https://github.com/Azure/azure-iot-sdk-python/tree/master) \(英文\)
 
 適用於 C 的 Azure IoT 中樞服務 SDK： 
 
@@ -135,24 +135,24 @@ Microsoft Azure IoT 服務 SDK 包含可協助建置應用程式的程式碼，�
 
 * 從 NuGet 的[裝置 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Client/)和[服務 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) 下載。
 * [原始程式碼](https://github.com/Azure/azure-iot-sdk-csharp/) \(英文\)
-* [API 參考資料](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.provisioning.client?view=azure-dotnet)
+* [API 參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.provisioning.client?view=azure-dotnet)
 
 適用於 C 的 Azure 佈建裝置與服務 SDK：
 
 * 從 [apt-get、MBED、Arduino IDE 或 iOS](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#packages-and-libraries) 安裝
 * [原始程式碼](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client) \(英文\)
-* [API 參考資料](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+* [API 參考](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 適用於 Java 的 Azure 佈建裝置與服務 SDK：
 
-* 新增至 [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk) \(英文\) 專案
+* 新增至 [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk)\(英文\) 專案
 * [原始程式碼](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning) \(英文\)
-* [API 參考資料](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.provisioning.device?view=azure-java-stable)
+* [API 參考](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.provisioning.device?view=azure-java-stable)
 
 適用於 Node.js 的 Azure 佈建裝置與服務 SDK：
 
 * [原始程式碼](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning) \(英文\)
-* [API 參考資料](https://docs.microsoft.com/javascript/api/overview/azure/iothubdeviceprovisioning?view=azure-node-latest)
+* [API 參考](https://docs.microsoft.com/javascript/api/overview/azure/iothubdeviceprovisioning?view=azure-node-latest)
 * 從 npm 下載[裝置 SDK](https://badge.fury.io/js/azure-iot-provisioning-device) 和[服務 SDK](https://badge.fury.io/js/azure-iot-provisioning-service)
 
 適用於 Python 的 Azure 佈建裝置與服務 SDK：

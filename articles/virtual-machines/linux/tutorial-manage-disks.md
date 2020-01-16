@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 9042bece9b9a4c914941d65d615045cf365b67b6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: dc987fa1a3476b81b198726350d56333b53c795f
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034376"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780295"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>教學課程 - 使用 Azure CLI 管理 Azure 磁碟
 
@@ -47,7 +47,7 @@ Azure 虛擬機器 (VM) 使用磁碟來儲存作業系統、應用程式和資�
 
 ## <a name="azure-data-disks"></a>Azure 資料磁碟
 
-若要安裝應用程式和儲存資料，可以新增額外的資料磁碟。 資料磁碟應使用於任何需要持久且有回應之資料儲存體的情況。 虛擬機器的大小會決定可連結到 VM 的資料磁碟數目。 每個 VM vCPU 可以連結四個資料磁碟。
+若要安裝應用程式和儲存資料，可以新增額外的資料磁碟。 資料磁碟應使用於任何需要持久且有回應之資料儲存體的情況。 虛擬機器的大小會決定可連結到 VM 的資料磁碟數目。
 
 ## <a name="vm-disk-types"></a>VM 磁碟類型
 

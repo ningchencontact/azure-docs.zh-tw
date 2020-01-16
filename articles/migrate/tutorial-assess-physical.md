@@ -1,18 +1,14 @@
 ---
 title: 使用 Azure Migrate 伺服器評定來評定要移轉到 Azure 的實體伺服器
 description: 說明如何使用 Azure Migrate 伺服器評定來評定內部部署實體伺服器是否可移轉到 Azure。
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: 56b7cc6e95cb85b5508199287cc77aedeebc8b81
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 10cd13831fe6cb6b843f0a79a5d5ba56814bcde0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280555"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028983"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>使用 Azure Migrate 來評定實體伺服器：伺服器評量
 
@@ -29,12 +25,12 @@ ms.locfileid: "74280555"
 > * 檢閱評估結果。
 
 > [!NOTE]
-> 教學課程將會針對案例示範最簡單的部署路徑，讓您可以快速設定概念證明。 教學課程會在情況允許時都使用預設選項，且不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱操作說明文章。
+> 教學課程將會針對案例示範最簡單的部署路徑，讓您可以快速設定概念證明。 教學課程在情況允許時都會使用預設選項，且不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱操作說明文章。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - [完成](tutorial-prepare-physical.md)本系列的第一個教學課程。 如果未完成，本教學課程中的指示便沒有作用。
 - 您在第一個教學課程中應該已完成下列作業：
@@ -46,14 +42,14 @@ ms.locfileid: "74280555"
 
 設定新的 Azure Migrate 專案，如下所示。
 
-1. 在 Azure 入口網站 > [所有服務]  中搜尋 **Azure Migrate**。
+1. 在 Azure 入口網站 > [所有服務]  中，搜尋 **Azure Migrate**。
 2. 在 [服務]  下，選取 [Azure Migrate]  。
 3. 在 [概觀]  的 [探索、評估和遷移伺服器]  底下，按一下 [評估和遷移伺服器]  。
 
     ![探索和評估伺服器](./media/tutorial-assess-physical/assess-migrate.png)
 
 4. 在 [開始使用]  中，按一下 [新增工具]  。
-5. 在 [遷移專案]  中，選取您的 Azure 訂用帳戶，並建立資源群組 (如果您還沒有資源群組的話)。     
+5. 在 [Migrate 專案]  中選取您的 Azure 訂用帳戶，並建立資源群組 (如果您還沒有的話)。     
 6. 在 [專案詳細資料]  中，指定專案名稱以及要在其中建立專案的地理位置。 支援亞洲、歐洲、英國和美國。
 
     - 專案地理區域只會用來儲存從內部部署伺服器收集到的中繼資料。
@@ -141,7 +137,7 @@ Azure Migrate：伺服器評定會執行輕量型設備。
 
 ### <a name="verify-appliance-access-to-azure"></a>確認設備是否能存取 Azure
 
-確定設備可以連線至 [Azure URL](migrate-support-matrix-physical.md#assessment-appliance-url-access)。
+確定設備可以連線至 [Azure URL](migrate-appliance.md#url-access)。
 
 
 ### <a name="configure-the-appliance"></a>設定設備
@@ -164,7 +160,7 @@ Azure Migrate：伺服器評定會執行輕量型設備。
 
 1. 按一下 [登入]  。 如果未出現，請確定您已在瀏覽器中停用快顯封鎖程式。
 2. 在新的索引標籤上，使用您的 Azure 認證登入。
-    - 使用您的使用者名稱和密碼登入。
+    - 以您的使用者名稱和密碼登入。
     - 不支援使用 PIN 登入。
 3. 成功登入後，返回 Web 應用程式。
 4. 選取 Azure Migrate 專案建立所在的訂用帳戶。 然後選取專案。
@@ -180,7 +176,7 @@ Azure Migrate：伺服器評定會執行輕量型設備。
 2. 指定**作業系統**、認證的易記名稱、**使用者名稱**與**密碼**，然後按一下 [新增]  。
 您可以新增一組適用於 Windows 與 Linux 伺服器的認證。
 4. 按一下 [新增伺服器]  ，然後指定伺服器詳細資料 - FQDN/IP 位址與認證的易記名稱 (每列一筆輸入) 以連線至伺服器。
-3. 按一下 [驗證]  。 驗證之後，就會顯示可探索的伺服器清單。
+3. 按一下 **[驗證]** 。 驗證之後，就會顯示可探索的伺服器清單。
     - 如果伺服器驗證失敗，請將滑鼠停留在 [狀態]  欄中的圖示上以檢閱錯誤。 修正問題，然後再次驗證。
     - 若要移除伺服器，請選取 > [刪除]  。
 4. 驗證之後，按一下 [儲存並開始探索]  來開始探索程序。
@@ -198,7 +194,7 @@ Azure Migrate：伺服器評定會執行輕量型設備。
 
 您可以使用 Azure Migrate：伺服器評量來建立的評量有兩種。
 
-**評量** | **詳細資料** | **資料**
+**評量** | **詳細資料** | **Data**
 --- | --- | ---
 **以效能為基礎** | 以所收集效能資料為基礎的評估 | **建議的 VM 大小**：以 CPU 和記憶體使用量資料為基礎。<br/><br/> **建議的磁碟類型 (標準或進階受控磁碟**)：以內部部署磁碟的 IOPS 和輸送量為基礎。
 **作為內部部署** | 以內部部署大小調整為基礎的評估。 | **建議的 VM 大小**：以內部部署伺服器大小為基礎<br/><br> **建議的磁碟類型**：以您為評估選取的儲存體類型設定為基礎。
@@ -211,7 +207,7 @@ Azure Migrate：伺服器評定會執行輕量型設備。
 1. 檢閱適用於建立評估的[最佳做法](best-practices-assessment.md)。
 2. 在 [伺服器]  索引標籤的 **[Azure Migrate：伺服器評量]** 磚中，按一下 [評估]  。
 
-    ![評估](./media/tutorial-assess-physical/assess.png)
+    ![評定](./media/tutorial-assess-physical/assess.png)
 
 2. 在 [評估伺服器]  中，指定評估的名稱。
 3. 按一下 [檢視全部]  來檢閱評估屬性。

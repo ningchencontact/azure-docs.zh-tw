@@ -14,16 +14,16 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 4162775153a48dc8ea28e06f7c99f9927b9c602a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8280bb057edea5697b8fa3248ddf755376f62c49
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444763"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978260"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立服務匯流排命名空間
 
-了解如何部署 Azure Resource Manager 範本建立服務匯流排命名空間。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。 如需建立範本的詳細資訊，請參閱[Azure Resource Manager 文件](/azure/azure-resource-manager/)。
+瞭解如何部署 Azure Resource Manager 範本來建立服務匯流排命名空間。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。 如需建立範本的詳細資訊，請參閱[Azure Resource Manager 檔](/azure/azure-resource-manager/)。
 
 下列範本也可用於建立服務匯流排命名空間：
 
@@ -38,15 +38,15 @@ ms.locfileid: "67444763"
 
 ## <a name="create-a-service-bus-namespace"></a>建立服務匯流排命名空間
 
-在此快速入門中，您可以使用[現有的 Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json)從[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/):
+在本快速入門中，您會使用[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)中[現有的 Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json)：
 
 [!code-json[create-azure-service-bus-namespace](~/quickstart-templates/101-servicebus-create-namespace/azuredeploy.json)]
 
-若要尋找更多的範本範例，請參閱[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular)。
+若要尋找更多範本範例，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular)。
 
-若要部署範本建立服務匯流排命名空間：
+若要藉由部署範本來建立服務匯流排命名空間：
 
-1. 選取 **試試**從下列程式碼區塊，，然後依照 登入 Azure Cloud shell 中的指示。
+1. 選取下列程式碼區塊中的 [試用]，然後依照指示登入 Azure Cloud Shell。
 
     ```azurepowershell-interactive
     $serviceBusNamespaceName = Read-Host -Prompt "Enter a name for the service bus namespace to be created"
@@ -60,16 +60,16 @@ ms.locfileid: "67444763"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-    資源群組名稱是使用服務匯流排命名空間名稱**rg**附加。
+    資源組名是已附加**rg**的服務匯流排命名空間名稱。
 
-2. 選取 [複製]  來複製 PowerShell 指令碼。
-3. 殼層主控台中，以滑鼠右鍵按一下，然後選取**貼上**。
+2. 選取 [複製] 來複製 PowerShell 指令碼。
+3. 以滑鼠右鍵按一下殼層主控台，然後選取 [貼上]。
 
-花一些時間來建立事件中樞。
+建立事件中樞需要幾分鐘的時間。
 
 ## <a name="verify-the-deployment"></a>驗證部署
 
-若要查看已部署的服務匯流排命名空間，您可以從 Azure 入口網站中，開啟資源群組，或使用下列 Azure PowerShell 指令碼。 如果仍開啟 Cloud shell 中，您不需要複本/執行下列指令碼的第一個和第二行。
+若要查看已部署的服務匯流排命名空間，您可以從 [Azure 入口網站] 開啟資源群組，或使用下列 Azure PowerShell 腳本。 如果 Cloud shell 仍為開啟狀態，您就不需要複製/執行下列腳本的第一行和第二行。
 
 ```azurepowershell-interactive
 $serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"
@@ -80,15 +80,15 @@ Get-AzServiceBusNamespace -ResourceGroupName $resourceGroupName -Name $serviceBu
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-Azure PowerShell 來部署範本，在本教學課程。 如需其他範本部署方法，請參閱：
+在本教學課程中，會使用 Azure PowerShell 來部署範本。 如需其他範本部署方法，請參閱：
 
-* [使用 Azure 入口網站](../azure-resource-manager/resource-group-template-deploy-portal.md)。
-* [使用 Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)。
-* [使用 REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)。
+* [使用 Azure 入口網站](../azure-resource-manager/templates/deploy-portal.md)。
+* [使用 Azure CLI](../azure-resource-manager/templates/deploy-cli.md)。
+* [使用 REST API](../azure-resource-manager/templates/deploy-rest.md)。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。 如果仍開啟 Cloud shell 中，您不需要複本/執行下列指令碼的第一個和第二行。
+不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。 如果 Cloud shell 仍為開啟狀態，您就不需要複製/執行下列腳本的第一行和第二行。
 
 ```azurepowershell-interactive
 $serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"

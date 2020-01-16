@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: bb60d22c62096725e29b9351bf304504861d9bf1
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 1e6a21e8bf9c284c83af09885aa66b612b52ad7c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902525"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044722"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>為 Azure HDInsight 規劃虛擬網路
 
@@ -251,7 +251,7 @@ HDInsight 是受控服務，針對來自 VNET 的傳入和傳出流量，需要�
 
 ## <a name="load-balancing"></a>負載平衡
 
-當您建立 HDInsight 叢集時，也會建立負載平衡器。 此負載平衡器的類型位於具有特定條件約束的[基本 SKU 層級](../load-balancer/load-balancer-overview.md#skus)。 其中一個條件約束是，如果您在不同的區域中有兩個虛擬網路，您就無法連線至基本負載平衡器。 如需詳細資訊，請參閱[虛擬網路常見問題：全域 vnet 對等互連的條件約束](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)。
+當您建立 HDInsight 叢集時，也會建立負載平衡器。 此負載平衡器的類型位於具有特定條件約束的[基本 SKU 層級](../load-balancer/concepts-limitations.md#skus)。 其中一個條件約束是，如果您在不同的區域中有兩個虛擬網路，您就無法連線至基本負載平衡器。 如需詳細資訊，請參閱[虛擬網路常見問題：全域 vnet 對等互連的條件約束](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)。
 
 ## <a name="transport-layer-security"></a>Transport Layer Security (傳輸層安全性)
 

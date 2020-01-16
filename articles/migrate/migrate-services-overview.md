@@ -4,12 +4,12 @@ description: 了解 Azure Migrate 服務。
 ms.topic: overview
 ms.date: 12/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 983ba420067bf2e4b6416287d8898943142c90c0
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: c336b2f95a17896edcc7eaad2b2586c6859804f9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563559"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772188"
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -39,7 +39,7 @@ Azure Migrate 中樞提供下列工具。
 **資料庫移轉服務 (DMS)** | 將內部部署資料庫遷移至執行 SQL 的 Azure VM、Azure SQL DB 與 Azure SQL 受控執行個體。 | [深入了解](https://docs.microsoft.com/azure/dms/dms-overview) DMS。
 **Movere** | 評定伺服器 | [深入了解](#movere) Movere。
 **Web 應用程式移轉小幫手** | 評估內部部署 Web 應用程式並將其遷移至 Azure。 |  使用 Azure App Service 移轉小幫手來評估內部部署網站，以遷移至 Azure App Service。<br/><br/> 使用 Azure App Service 移轉小幫手來將 .NET 與 PHP Web 應用程式移轉至 Azure。 [深入了解](https://appmigration.microsoft.com/)小幫手。
-**Azure 資料箱** | 離線資料移轉。 | 使用 Azure 資料箱產品將大量資料離線移至 Azure。 [深入了解](https:/docs.microsoft.com/azure/databox/)。
+**Azure 資料箱** | 離線資料移轉。 | 使用 Azure 資料箱產品將大量資料離線移至 Azure。 [深入了解](https://docs.microsoft.com/azure/databox/)。
 
 ## <a name="isv-integration"></a>ISV 整合
 

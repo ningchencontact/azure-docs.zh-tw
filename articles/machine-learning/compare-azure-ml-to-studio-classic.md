@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: a808387c891b4078092c5cac1bf95df8472ff0f6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: a3122a3ae1687369b87d193efc693b3b7c659aac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529539"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974143"
 ---
 # <a name="how-azure-machine-learning-differs-from-machine-learning-studio-classic"></a>Azure Machine Learning 與 Machine Learning Studio (傳統) 有何不同
 
@@ -29,7 +29,7 @@ ms.locfileid: "75529539"
 Azure Machine Learning 設計工具會對 Studio (傳統) 提供類似的拖放體驗。 不過，不同於 Studio (傳統) 專屬的計算平台，此設計工具會使用您自己的計算資源、可調整規模，並與 Azure Machine Learning 完全整合。  
 
 > [!TIP]
-> 我們鼓勵目前正在使用或評估 Machine Learning Studio (傳統) 的客戶嘗試使用 [Azure Machine Learning 設計工具](https://docs.microsoft.com/azure/machine-learning/service/ui-concept-visual-interface) \(部分機器翻譯\) (預覽)，這會提供拖放 ML 模組__加上__延展性、版本控制及企業安全性。
+> 我們鼓勵目前正在使用或評估 Machine Learning Studio (傳統) 的客戶嘗試使用 [Azure Machine Learning 設計工具](https://docs.microsoft.com/azure/machine-learning/concept-designer) \(部分機器翻譯\) (預覽)，這會提供拖放 ML 模組__加上__延展性、版本控制及企業安全性。
 
 ## <a name="comparison-azure-machine-learning-vs-machine-learning-studio-classic"></a>比較：Azure Machine Learning 與Machine Learning Studio (傳統)
 

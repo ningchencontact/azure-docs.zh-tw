@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 10/23/2019
+ms.date: 01/09/2020
 ms.author: diberry
-ms.openlocfilehash: 91aee7f4a110490495a3cf840e6b3ef3282c91c5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bec68cbb88a9acacbc1a9a081ce3d8612b709d18
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446377"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860226"
 ---
 # <a name="quickstart-personalizer-client-library-for-nodejs"></a>快速入門：適用於 Node.js 的個人化工具用戶端程式庫
 
@@ -26,7 +26,7 @@ ms.locfileid: "75446377"
  * 為個人化的動作清單排名。
  * 回報獎勵分數，指出已成功排列出名次最高的動作。
 
-[程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [套件 (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [範例](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
+[參考文件](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [套件 (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [範例](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -49,7 +49,7 @@ ms.locfileid: "75446377"
 
 Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入口網站](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)或 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) 在本機電腦上建立個人化工具的資源。 您也可以：
 
-* 取得可免費使用 7 天的[試用版金鑰](https://azure.microsoft.com/try/cognitive-services)。 註冊之後，即可在 [Azure 網站](https://azure.microsoft.com/try/cognitive-services/my-apis/)上取得該金鑰。  
+* 取得可免費使用 7 天的[試用版金鑰](https://azure.microsoft.com/try/cognitive-services)。 註冊之後，即可在 [Azure 網站](https://azure.microsoft.com/try/cognitive-services/my-apis/)上取得該金鑰。
 * 在 [Azure 入口網站](https://portal.azure.com/)上檢視您的資源。
 
 從試用版訂用帳戶或資源取得金鑰後，請建立兩個[環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)：
@@ -62,13 +62,13 @@ Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入�
 
 ## <a name="create-a-new-nodejs-application"></a>建立新的 Node.js 應用程式
 
-在主控台視窗 (例如 cmd、PowerShell 或 Bash) 中，為您的應用程式建立新的目錄，並瀏覽至該目錄。 
+在主控台視窗 (例如 cmd、PowerShell 或 Bash) 中，為您的應用程式建立新的目錄，並瀏覽至該目錄。
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-執行 `npm init -y` 命令以建立 `package.json` 檔案。 
+執行 `npm init -y` 命令以建立 `package.json` 檔案。
 
 ```console
 npm init -y
@@ -100,11 +100,11 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 
 個人化工具用戶端是一種 PersonalizerClient 物件，會使用含有金鑰的 Microsoft.Rest.ServiceClientCredentials 向 Azure 進行驗證。
 
-若要要求內容的排名，請建立 RankRequest，然後將其傳至 client.Rank 方法。 Rank 方法會傳回包含排名內容的 RankResponse。 
+若要要求內容的排名，請建立 RankRequest，然後將其傳至 client.Rank 方法。 Rank 方法會傳回包含排名內容的 RankResponse。
 
-若要將獎勵傳送至個人化工具，請建立 RewardRequest，然後將其傳至 client.Reward 方法。 
+若要將獎勵傳送至個人化工具，請建立 RewardRequest，然後將其傳至 client.Reward 方法。
 
-在本快速入門中，決定獎勵是很簡單的。 在生產系統中，判斷影響[獎勵分數](concept-rewards.md)的因素及影響程度可能是複雜的程序，您可能會隨著時間做出變更決定。 這應該是個人化工具架構中的一個主要設計決策。 
+在本快速入門中，決定獎勵是很簡單的。 在生產系統中，判斷影響[獎勵分數](concept-rewards.md)的因素及影響程度可能是複雜的程序，您可能會隨著時間做出變更決定。 這應該是個人化工具架構中的一個主要設計決策。
 
 ## <a name="code-examples"></a>程式碼範例
 
@@ -116,7 +116,7 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 
 ## <a name="create-a-new-nodejs-application"></a>建立新的 Node.js 應用程式
 
-在您慣用的編輯器或名為 `sample.js` 的 IDE 中，建立新的 Node.js 應用程式。 
+在您慣用的編輯器或名為 `sample.js` 的 IDE 中，建立新的 Node.js 應用程式。
 
 ## <a name="add-the-dependencies"></a>新增相依性
 
@@ -146,7 +146,7 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 
 ## <a name="create-the-learning-loop"></a>建立學習迴圈
 
-個人化工具學習迴圈是[排名](#request-a-rank)和[獎勵](#send-a-reward)呼叫的循環。 在本快速入門中，用於個人化內容的每個排名呼叫後面都會接著獎勵呼叫，以告訴個人化工具該服務在內容排名上的成效。 
+個人化工具學習迴圈是[排名](#request-a-rank)和[獎勵](#send-a-reward)呼叫的循環。 在本快速入門中，用於個人化內容的每個排名呼叫後面都會接著獎勵呼叫，以告訴個人化工具該服務在內容排名上的成效。
 
 下列迴圈程式碼會在命令列上進行詢問使用者喜好的循環迴圈，並將該資訊傳送至個人化工具以進行排名，然後向客戶顯示已排名的選取項目，讓他們從清單中選擇，接著傳送獎勵給個人化工具，告知服務在排名選取項目上的成效為何。
 
@@ -161,9 +161,9 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 
 ## <a name="request-a-rank"></a>要求排名
 
-為了完成排名要求，程式會詢問使用者的喜好來建立內容選擇。 程式可以建立從排名中排除的內容，如 `excludeActions` 所示。 排名要求需要 [actions](concepts-features.md#actions-represent-a-list-of-options)、currentCoNtext、excludeActions 和唯一排名事件識別碼 (作為 GUID)，才能接收排名的回應。 
+為了完成排名要求，程式會詢問使用者的喜好來建立內容選擇。 程式可以建立從排名中排除的內容，如 `excludeActions` 所示。 排名要求需要 [actions](concepts-features.md#actions-represent-a-list-of-options)、currentCoNtext、excludeActions 和唯一排名事件識別碼 (作為 GUID)，才能接收排名的回應。
 
-本快速入門有一天時間和使用者食物喜好的簡單關係特性。 在生產系統中，判斷和[評估](concept-feature-evaluation.md)[動作和特性](concepts-features.md)可能不是簡單的事。  
+本快速入門有一天時間和使用者食物喜好的簡單關係特性。 在生產系統中，判斷和[評估](concept-feature-evaluation.md)[動作和特性](concepts-features.md)可能不是簡單的事。
 
 [!code-javascript[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/node/sample.js?name=rank)]
 
@@ -171,7 +171,7 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 
 若要完成獎勵要求，程式會從命令列取得使用者的選取項目，將數值指派給每個選取項目，然後將唯一的排名事件識別碼和數值傳送給獎勵方法。
 
-本快速入門會指派簡單的數字作為獎勵，也就是零或 1。 在生產系統中，視您的特定需求而定，判斷要傳送給[獎勵](concept-rewards.md)呼叫的時機和內容可能不是簡單的事。 
+本快速入門會指派簡單的數字作為獎勵，也就是零或 1。 在生產系統中，視您的特定需求而定，判斷要傳送給[獎勵](concept-rewards.md)呼叫的時機和內容可能不是簡單的事。
 
 [!code-javascript[The Personalizer learning loop sends a reward.](~/samples-personalizer/quickstarts/node/sample.js?name=reward)]
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 6f9368dfa230817e985de09b1ee398c55693e425
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 99ba530d4857520693060d83ad78a7f127003a3d
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214822"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732312"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過標準 Load Balancer 將 VM 的負載平均分配至多個可用性區域
 
@@ -215,6 +215,7 @@ ms.locfileid: "74214822"
     - myBackendPool  - 作為後端集區的名稱。
     - myHealthProbe  - 作為健康狀態探查的名稱。
 4. 按一下 [確定]  。
+    
     
     ![新增負載平衡規則](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bbf127f105f0ef22a23f00541396c2ac66b0e5f9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 801a6fc0602882d1af49c06bafcfd51942e6da2e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828370"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965643"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 SQL Server 2017 Windows 虛擬機器
 
@@ -97,7 +97,7 @@ ms.locfileid: "71828370"
 
 您可以從 Azure 入口網站監視部署。 畫面頂端的 [通知]  按鈕會顯示基本的部署狀態。 部署可能需要數分鐘的時間。 
 
-## <a name="connect-to-sql-server"></a>連接到 SQL Server
+## <a name="connect-to-sql-server"></a>連接至 SQL Server
 
 1. 在入口網站中，在虛擬機器屬性的 [概觀]  區段中尋找 SQL Server VM 的 [公用 IP 位址]  。
 
@@ -112,7 +112,7 @@ ms.locfileid: "71828370"
 
 1. 在 [密碼]  方塊中，輸入登入的密碼。
 
-1. 選取 [ **連接**]。
+1. 選取 [連接]  。
 
     ![SSMS 連線](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
 
@@ -128,7 +128,7 @@ ms.locfileid: "71828370"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不需要持續執行 SQL VM，您可以在不使用時將其停止，以避免不必要的費用。 您也可以藉由在入口網站中刪除與虛擬機器相關聯的資源群組，永久刪除與其相關聯的所有資源。 這也會永久刪除虛擬機器，因此請小心使用此命令。 如需詳細資訊，請參閱[透過入口網站管理 Azure 資源](../../../azure-resource-manager/manage-resource-groups-portal.md)。
+如果您不需要持續執行 SQL VM，您可以在不使用時將其停止，以避免不必要的費用。 您也可以藉由在入口網站中刪除與虛擬機器相關聯的資源群組，永久刪除與其相關聯的所有資源。 這也會永久刪除虛擬機器，因此請小心使用此命令。 如需詳細資訊，請參閱[透過入口網站管理 Azure 資源](../../../azure-resource-manager/management/manage-resource-groups-portal.md)。
 
 
 ## <a name="next-steps"></a>後續步驟

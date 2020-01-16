@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: f4410d9cab5677327d2950dfdc1a093140f31708
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 4855451136edfe86baaace48e2582fc7080a9b12
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102267"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770368"
 ---
 # <a name="analyze-videos-in-near-real-time"></a>近乎即時地分析影片
 
@@ -164,7 +164,7 @@ namespace BasicConsoleSample
         const string ApiKey = "<your API key>";
         const string Endpoint = "https://<your API region>.api.cognitive.microsoft.com";
 
-        private static void Main(string[] args)
+        private static async Task Main(string[] args)
         {
             // Create grabber.
             FrameGrabber<DetectedFace[]> grabber = new FrameGrabber<DetectedFace[]>();
@@ -205,14 +205,14 @@ namespace BasicConsoleSample
             grabber.TriggerAnalysisOnInterval(TimeSpan.FromMilliseconds(3000));
 
             // Start running in the background.
-            grabber.StartProcessingCameraAsync().Wait();
+            await grabber.StartProcessingCameraAsync();
 
             // Wait for key press to stop.
             Console.WriteLine("Press any key to stop...");
             Console.ReadKey();
 
             // Stop, blocking until done.
-            grabber.StopProcessingAsync().Wait();
+            await grabber.StopProcessingAsync();
         }
     }
 }
@@ -243,7 +243,7 @@ namespace BasicConsoleSample
 
 VideoFrameAnalyzer 的影像、語音、影片和文字理解功能會使用「Azure 認知服務」。 Microsoft 會收到您透過此應用程式上傳的影像、聲音、影片和其他資料，而且可能使用它們來改善服務。 當您的應用程式將使用者的資料傳送給「Azure 認知服務」時，請務必協助保護這些使用者。
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 在本文中，您已的了解如何使用臉部 API 和電腦視覺 API，在即時影片串流上執行近乎即時的分析。 您也了解如何使用我們的範例程式碼來開始著手。 若要使用免費 API 金鑰來開始建置應用程式，請前往 [Azure 認知服務註冊頁面](https://azure.microsoft.com/try/cognitive-services/)。
 

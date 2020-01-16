@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/16/2019
 ms.author: evansma
-ms.openlocfilehash: 22d1f2d39a1ef3825d7d6c7eb0724e108b9b78e6
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 6f09df7c4ccdfa8a339b9d7f2655128c7ead5184
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933772"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978636"
 ---
 # <a name="publish-an-integrated-solution"></a>發佈整合式解決方案
 
@@ -28,13 +28,13 @@ ms.locfileid: "75933772"
 * 客戶可以尋找可透過 marketplace 解決端對端商務挑戰的封裝解決方案。 因為這項技術是事先整合的，所以它們會加快價值的速度。 客戶不必另外與以分散方式部署的多個應用程式互動。
 * IP 會與其他解決方案和服務一起封裝，以增強專家服務合作夥伴所提供的技術價值。
 * 服務合作夥伴會建立預先定義的預先整合解決方案，其中包含可在更多客戶帳戶中調整、土地和擴大的最佳技術。
-* Microsoft 可以使用這些預先整合的業界對齊解決方案，更輕鬆地向客戶共同銷售。 定價和條款會預先排序。 
+* Microsoft 可以使用這些預先整合的業界對齊解決方案，更輕鬆地向客戶共同銷售。 定價和條款會預先排序。
 
 ## <a name="eligibility-criteria"></a>適用性準則
 
 * 參與的合作夥伴必須擁有 MPN 識別碼。
 * 參與的服務提供者應已準備好共同銷售。
-* 參與的軟體廠商應已準備好 IP 共同銷售。 
+* 參與的軟體廠商應已準備好 IP 共同銷售。
 * 至少一個參與合作夥伴必須具有下列其中一個領域的金級專長認證：
 
     * 應用程式開發
@@ -53,13 +53,13 @@ ms.locfileid: "75933772"
 
 ## <a name="submit-a-nomination"></a>提交提名
 
-想要參與計畫的合作夥伴應該識別他們想要使用的其他合作夥伴。 他們應該完成[整合式解決方案提名表單](https://aka.ms/AA5qicu)。 整合式解決方案計畫小組會回顧提名，並在10個工作天內進行。 小組會提供核准和後續步驟。 
+想要參與計畫的合作夥伴應該識別他們想要使用的其他合作夥伴。 他們應該完成[整合式解決方案提名表單](https://aka.ms/AA5qicu)。 整合式解決方案計畫小組會回顧提名，並在10個工作天內進行。 小組會提供核准和後續步驟。
 
-## <a name="develop-an-integrated-solution"></a>開發整合式解決方案 
+## <a name="develop-an-integrated-solution"></a>開發整合式解決方案
 
-在您的提名經過核准之後，請使用連結的程式資源來開發您的整合式解決方案。 請遵循下列步驟： 
+在您的提名經過核准之後，請使用連結的程式資源來開發您的整合式解決方案。 請遵循下列步驟：
 
-1. 以研討會格式完成重要的商務和技術討論，以定義解決方案和整合方法。 
+1. 以研討會格式完成重要的商務和技術討論，以定義解決方案和整合方法。
 
     您的解決方案討論應包含下列幾點：
     * 範圍
@@ -73,7 +73,7 @@ ms.locfileid: "75933772"
     * 銷售程式
     * 活動
 
-    您對整合方法的討論應牽涉到下列幾點： 
+    您對整合方法的討論應牽涉到下列幾點：
     * 整合點
     * 方案架構
     * 驗證
@@ -101,15 +101,15 @@ ms.locfileid: "75933772"
     * 整合式解決方案的清單描述。 遵循[供應專案清單的最佳做法](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)。
     * 向客戶提供一頁的音調。 使用 [[一頁] 範本](https://aka.ms/AA5s08a)。
     * 客戶簡報。 使用 [[簡報] 範本](https://aka.ms/AA5s7ql)。
-    * 合併解決方案的標誌。 
+    * 合併解決方案的標誌。
 
-## <a name="publish-your-integrated-solution"></a>發佈您的整合式解決方案 
+## <a name="publish-your-integrated-solution"></a>發佈您的整合式解決方案
 
 完成技術整合和行銷宣傳活動之後，請參閱「發行者指南」，以[取得 Microsoft AppSource 和 Azure Marketplace 的諮詢服務](https://docs.microsoft.com/azure/marketplace/consulting-services)。 使用此資源來判斷您的解決方案是否會在 Microsoft AppSource 或 Azure Marketplace 中發佈。 也請使用指南來準備您的發佈成品，並完成發行程式。
 
 雖然有五種服務類型適用于諮詢服務供應專案，但整合式解決方案必須是概念證明或完整的執行。
 
-## <a name="go-to-market-with-your-integrated-solution"></a>透過整合式解決方案進入市場 
+## <a name="go-to-market-with-your-integrated-solution"></a>透過整合式解決方案進入市場
 
 當您的解決方案上線 Microsoft AppSource 或 Azure Marketplace 時，您會想要透過行銷活動推動認知和需求。 檢查[專案計劃和時間軸](https://aka.ms/AA5qiuc)中列出的活動。 這項資源包括合作夥伴可以在自己的小組內進行驅動的活動。 然後，針對在 marketplace 中發佈的合作夥伴，存取[進入市場權益](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits)。 所有的整合式解決方案供應專案都符合試用層級權益的資格。
 

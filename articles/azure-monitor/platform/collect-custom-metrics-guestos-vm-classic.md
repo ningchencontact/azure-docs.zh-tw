@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: af99bd8ea619d17bdc40ea025f0bfcb1c095db52
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: d911a6b65ba0d63bca09437f6451019addcbc0b3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286154"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977628"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>將客體作業系統計量傳送至 Windows 虛擬機器的 Azure 監視器計量資料庫（傳統）
 
@@ -27,9 +27,9 @@ Azure 監視器[診斷擴充功能](https://docs.microsoft.com/azure/monitoring-
 
 本文所述的流程僅適用於執行 Windows 作業系統的傳統虛擬機器。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 您必須是 Azure 訂用帳戶的[服務管理員或共同管理員](../../billing/billing-add-change-azure-subscription-administrator.md)。 
+- 您必須是 Azure 訂用帳戶的[服務管理員或共同管理員](../../cost-management-billing/manage/add-change-subscription-administrator.md)。 
 
 - 您必須先向 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) 註冊您的訂用帳戶。 
 
@@ -49,7 +49,7 @@ Azure 監視器[診斷擴充功能](https://docs.microsoft.com/azure/monitoring-
 
 ## <a name="create-a-service-principal"></a>建立服務主體
 
-使用[建立服務主體](../../active-directory/develop/howto-create-service-principal-portal.md)中的指示，在您的 Azure Active Directory 租用戶中建立服務主體。 進行此程序時，請注意下列事項： 
+使用[建立服務主體](../../active-directory/develop/howto-create-service-principal-portal.md)中的指示，在您的 Azure Active Directory 租用戶中建立服務主體。 進行此流程時，請注意下列事項： 
 - 為此應用程式建立新用戶端密碼。
 - 儲存金鑰與用戶端識別碼，以便在稍後的步驟中使用。
 

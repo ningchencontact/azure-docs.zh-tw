@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/03/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 903193b48f41b2ba25bc35ac245e5afb482e61d2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a77f32620d4e3a694806cdf6c247928fa3c7ede4
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471413"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045286"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教學課程：建立連結的 Azure Resource Manager 範本
 
@@ -142,9 +142,9 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
+              "apiVersion": "2018-11-01",
               "name": "[parameters('storageAccountName')]",
               "location": "[parameters('location')]",
-              "apiVersion": "2018-11-01",
               "sku": {
                 "name": "Standard_LRS"
               },

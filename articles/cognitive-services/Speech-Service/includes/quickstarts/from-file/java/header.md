@@ -1,20 +1,19 @@
 ---
 title: 快速入門：辨識來自音訊檔案的語音，Java - 語音服務
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 0465d617fcb2f1034005ba7694fb403ba365eaa4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 69f4d71bccb791d80f70d3150988868e56b96670
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819468"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75928025"
 ---
 如果您想要直接進入，請在 GitHub 上檢視或下載所有<a href="https://aka.ms/speech/github-java">語音 SDK Java 範例</a> \(英文\)。 否則，讓我們開始吧。

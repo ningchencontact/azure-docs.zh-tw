@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6d2edb7674a82a0388a0e028bee1b222e0e55004
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: be1697038674a177eaced03732536c0df5b16983
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754733"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046140"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>了解您的 Azure Cosmos DB 帳單
 
@@ -22,7 +22,8 @@ Azure Cosmos DB 是一個完全受控的雲端原生資料庫服務，透過只�
 
 此文章使用一些範例協助您了解在每月帳單中看到的詳細資料。 如果您的 Azure Cosmos 容器佈建了不同數量的輸送量、跨越多個區域，或是在一個月的不同期間執行，實際數字可能會與範例中所示數字不一樣。
 
->!注意：計費適用于時鐘小時的任何部分，而不是60分鐘的持續時間。
+> [!NOTE]
+> 計費適用于時鐘小時的任何部分，而不是60分鐘的持續時間。
 
 ## <a name="billing-examples"></a>計費範例
 

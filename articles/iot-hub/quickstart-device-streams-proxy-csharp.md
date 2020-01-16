@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: d131e0112070dcc60e601b2859e8c9df8d40764a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b48c43f90be3f43b05dcb4028c774836ffd196b7
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084339"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045970"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>快速入門：使用 C# Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH 和 RDP 輸送 (預覽)
 
@@ -47,7 +47,7 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * 裝置串流的預覽版目前僅支援在下列區域建立的 IoT 中樞：
 
@@ -152,7 +152,7 @@ dotnet run {DeviceConnectionString} localhost 22
 
 ### <a name="run-the-service-local-proxy-application"></a>執行服務本機 Proxy 應用程式
 
-在另一個本機終端視窗中，瀏覽至未解壓縮專案資料夾中的 `device-streams-proxy/service`。 將下列資訊保存在隨手可及的位置：
+在另一個本機終端視窗中，瀏覽至未解壓縮專案資料夾中的 `iot-hub/quickstarts/device-streams-proxy/service`。 將下列資訊保存在隨手可及的位置：
 
 | 參數名稱 | 參數值 |
 |----------------|-----------------|

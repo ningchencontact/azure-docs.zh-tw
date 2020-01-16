@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 2d09484fcb5211003aeec0ec10bfc9892b4e6f31
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6250238edd15126e7a56bd821fbd1c736ebda07
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456533"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965895"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>將邏輯應用程式資源移至其他 Azure 訂用帳戶、資源群組或區域
 
@@ -33,7 +33,7 @@ ms.locfileid: "75456533"
 
 ## <a name="move-resources-between-subscriptions"></a>在訂用帳戶之間移動資源
 
-若要將資源（例如邏輯應用程式或整合帳戶）移至另一個 Azure 訂用帳戶，您可以使用 [Azure 入口網站]、[Azure PowerShell]、[Azure CLI] 或 [REST API]。 這些步驟涵蓋 Azure 入口網站，您可以在資源的區域保持不變時使用。 如需其他步驟和一般準備，請參閱[將資源移至新的資源群組或訂用](../azure-resource-manager/resource-group-move-resources.md)帳戶。
+若要將資源（例如邏輯應用程式或整合帳戶）移至另一個 Azure 訂用帳戶，您可以使用 [Azure 入口網站]、[Azure PowerShell]、[Azure CLI] 或 [REST API]。 這些步驟涵蓋 Azure 入口網站，您可以在資源的區域保持不變時使用。 如需其他步驟和一般準備，請參閱[將資源移至新的資源群組或訂用](../azure-resource-manager/management/move-resource-group-and-subscription.md)帳戶。
 
 1. 在  [Azure 入口網站](https://portal.azure.com)中，尋找並選取您想要移動的邏輯應用程式資源。
 
@@ -51,7 +51,7 @@ ms.locfileid: "75456533"
 
 ## <a name="move-resources-between-resource-groups"></a>在資源群組之間移動資源
 
-若要將資源（例如邏輯應用程式或整合帳戶）移至另一個 Azure 資源群組，您可以使用 [Azure 入口網站]、[Azure PowerShell]、[Azure CLI] 或 [REST API]。 這些步驟涵蓋 Azure 入口網站，您可以在資源的區域保持不變時使用。 如需其他步驟和一般準備，請參閱[將資源移至新的資源群組或訂用](../azure-resource-manager/resource-group-move-resources.md)帳戶。
+若要將資源（例如邏輯應用程式或整合帳戶）移至另一個 Azure 資源群組，您可以使用 [Azure 入口網站]、[Azure PowerShell]、[Azure CLI] 或 [REST API]。 這些步驟涵蓋 Azure 入口網站，您可以在資源的區域保持不變時使用。 如需其他步驟和一般準備，請參閱[將資源移至新的資源群組或訂用](../azure-resource-manager/management/move-resource-group-and-subscription.md)帳戶。
 
 在實際移動群組之間的資源之前，您可以測試是否可以成功地將資源移至另一個群組。 如需詳細資訊，請參閱[驗證您的移動](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move)。
 
@@ -106,4 +106,4 @@ ms.locfileid: "75456533"
 
 ## <a name="next-steps"></a>後續步驟
 
-[將 Azure 資源移至新的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md)
+[將 Azure 資源移至新的資源群組或訂用帳戶](../azure-resource-manager/management/move-resource-group-and-subscription.md)

@@ -2,20 +2,20 @@
 title: 執行平行工作負載 - Azure Batch Python
 description: 教學課程 - 使用 Batch Python 用戶端程式庫透過 Azure Batch 中的 ffmpeg 平行處理媒體檔案
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: d06cf74b2a29af3fea2c24facac2899d09a0a84f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: bc73c3c40754d1c3eeb6c86f6c9578047a22d73e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090775"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029241"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>教學課程：使用 Python API 透過 Azure Batch 執行平行工作負載
 
@@ -33,7 +33,7 @@ ms.locfileid: "71090775"
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python 2.7 或 3.3 版或更新版本](https://www.python.org/downloads/)
 
@@ -43,7 +43,7 @@ ms.locfileid: "71090775"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 
@@ -65,7 +65,7 @@ git clone https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial.git
 pip install -r requirements.txt
 ```
 
-開啟檔案 `config.py`。 使用您帳戶獨有的值來更新 Batch 和儲存體帳戶認證字串。 例如︰
+開啟檔案 `config.py`。 使用您帳戶獨有的值來更新 Batch 和儲存體帳戶認證字串。 例如：
 
 
 ```Python
@@ -199,7 +199,7 @@ new_pool = batch.models.PoolAddParameter(
 batch_service_client.pool.add(new_pool)
 ```
 
-### <a name="create-a-job"></a>建立工作
+### <a name="create-a-job"></a>建立作業
 
 Batch 工作會指定要在其中執行工作的集區及選擇性設定，例如工作的優先順序和排程。 此範例會藉由呼叫 `create_job` 來建立作業。 這個已定義的函式會使用 [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) 類別在您的集區上建立作業。 [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) 方法會將集區提交至 Batch 服務。 一開始作業沒有任何工作。
 

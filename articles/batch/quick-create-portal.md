@@ -2,19 +2,19 @@
 title: Azure 快速入門 - 執行 Batch 作業 - 入口網站
 description: 快速了解如何使用 Azure 入口網站執行 Batch 作業。
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 92f8499a10c07e7d5ea74e49c374cef192b8a47f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 294d1658559dd426245cf66a47a8791f8b370533
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094129"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029408"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中執行您的第一個 Batch 作業
 
@@ -82,7 +82,7 @@ Batch 會立即建立集區，但需花費數分鐘的時間來配置和啟動�
 
 幾分鐘之後，集區的狀態為 [穩定]  ，而節點會啟動。 選取 [節點]  以檢查節點的狀態。 當節點的狀態為 [閒置]  時，它就準備好執行工作。 
 
-## <a name="create-a-job"></a>建立工作
+## <a name="create-a-job"></a>建立作業
 
 既然您有集區，請建立要在其中執行的作業。 Batch 作業是一或多項工作的邏輯群組。 作業包含工作通用的設定，例如優先順序以及要執行工作的集區。 一開始作業沒有任何工作。 
 
@@ -90,7 +90,7 @@ Batch 會立即建立集區，但需花費數分鐘的時間來配置和啟動�
 
 2. 輸入名為 myjob  的 [作業識別碼]  。 在 [集區]  中，選取 mypool  。 保留其餘設定的預設值，然後選取 [確定]  。
 
-   ![建立工作][job_create]
+   ![建立作業][job_create]
 
 建立作業之後，[工作]  頁面隨即開啟。
 

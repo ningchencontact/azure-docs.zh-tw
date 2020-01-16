@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5618757f4bf5eaf1afc5ef0ce1735eb4ae94e1d2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ef0eed330dd7a5b338cdbf36a159d1f046d3939d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75663164"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020894"
 ---
 共用映射資源庫是一種服務，可協助您在受控映射周圍建立結構和組織。 共用映射資源庫提供：
 
@@ -65,7 +65,7 @@ ms.locfileid: "75663164"
 * Eula-可用來指向映射定義特有的使用者授權合約。
 * 隱私權聲明和版本資訊-將版本資訊和隱私權聲明儲存在 Azure 儲存體中，並提供 URI 供您作為映射定義的一部分來存取這些聲明。
 * 生命循環結束日期-將生命循環結束日期附加至映射定義，以便能夠使用自動化來刪除舊的映射定義。
-* 標記-您可以在建立映射定義時新增標記。 如需標記的詳細資訊，請參閱[使用標記來組織您的資源](../articles/azure-resource-manager/resource-group-using-tags.md)
+* 標記-您可以在建立映射定義時新增標記。 如需標記的詳細資訊，請參閱[使用標記來組織您的資源](../articles/azure-resource-manager/management/tag-resources.md)
 * 最小和最大 vCPU 和記憶體建議-如果您的映射有 vCPU 和記憶體建議，您可以將該資訊附加至映射定義。
 * 不允許的磁片類型-您可以提供 VM 儲存體需求的相關資訊。 例如，如果映射不適合標準 HDD 磁片，您可以將它們新增至不允許清單。
 

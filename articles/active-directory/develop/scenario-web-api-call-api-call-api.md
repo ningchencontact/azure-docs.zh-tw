@@ -15,22 +15,22 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5829ca41aaa4bd61f8878657e5eedbf6351b5df4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 701f1f7c26731f3e9653955907f5f16d2688cdb2
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423569"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043447"
 ---
-# <a name="web-api-that-calls-web-apis---call-an-api"></a>呼叫 web Api 的 web API-呼叫 API
+# <a name="a-web-api-that-calls-web-apis-call-an-api"></a>呼叫 web Api 的 Web API：呼叫 API
 
-有了權杖之後，您就可以呼叫受保護的 Web API。 這是從您 ASP.NET/ASP.NET 核心 Web API 的控制器來完成。
+有了權杖之後，您就可以呼叫受保護的 Web API。 您可以從 ASP.NET 或 ASP.NET Core Web API 的控制器執行此動作。
 
 ## <a name="controller-code"></a>控制器程式碼
 
-以下是受保護 Web API 中顯示的範例程式碼接續，會[呼叫 Web api-取得權杖](scenario-web-api-call-api-acquire-token.md)（在 API 控制器的動作中呼叫），並呼叫下游 API （名為 todolist）。
+下列程式碼會繼續在呼叫 web Api 的 Web API 中顯示的範例[程式碼：取得應用程式的權杖](scenario-web-api-call-api-acquire-token.md)。 程式碼會在 API 控制器的動作中呼叫。 它會呼叫名為*todolist*的下游 API。
 
-一旦您取得權杖，請使用它做為持有人權杖來呼叫下游 API。
+取得權杖之後，請使用它做為持有人權杖來呼叫下游 API。
 
 ```csharp
 private async Task GetTodoList(bool isAppStarting)
@@ -49,7 +49,7 @@ private async Task GetTodoList(bool isAppStarting)
  }
 ...
 
-// Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
+// After the token has been returned by Microsoft Authentication Library (MSAL), add it to the HTTP authorization header before making the call to access the To Do list service.
 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
 // Call the To Do list service.
@@ -61,4 +61,4 @@ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [移至生產環境](scenario-web-api-call-api-production.md)
+> [呼叫 web Api 的 Web API：移至生產環境](scenario-web-api-call-api-production.md)

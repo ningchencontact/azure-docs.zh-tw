@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 1dbbe04818e75e41944a1c0fe54f53849cf71983
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 854d98a4f2a1b2500bc301d2305c0dd1f27aaaa4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725854"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980823"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>針對 Azure Migrate 設備和探索進行疑難排解
 
@@ -75,7 +75,7 @@ ms.locfileid: "75725854"
 
 - 如果用來註冊應用裝置的 Azure 帳戶許可權不足，就會發生錯誤60052：「設備可能未成功註冊至 Azure Migrate 專案」。
     - 請確定用來註冊應用裝置的 Azure 使用者帳戶至少具有訂用帳戶的參與者許可權。
-    - [深入瞭解](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements)必要的 Azure 角色和許可權。
+    - [深入瞭解](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware)必要的 Azure 角色和許可權。
 - 如果註冊失敗，因為找不到用來註冊應用裝置的 Azure Migrate 專案，錯誤60039「可能無法成功地將設備註冊到 Azure Migrate 專案」。
     - 在 Azure 入口網站中，檢查項目是否存在於資源群組中。
     - 如果專案不存在，請在您的資源群組中建立新的 Azure Migrate 專案，然後重新註冊設備。 [瞭解如何](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool)建立新的專案。
@@ -86,7 +86,7 @@ ms.locfileid: "75725854"
 - 請確定用來註冊應用裝置的 Azure 使用者帳戶至少擁有訂用帳戶的參與者許可權。
 - 請確定帳戶可存取錯誤訊息中指定的金鑰保存庫，然後再次嘗試操作。
 - 如果問題持續發生， 請連絡 Microsoft 支援服務。
-- [深入瞭解](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements)必要的 Azure 角色和許可權。
+- [深入瞭解](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware)必要的 Azure 角色和許可權。
 
 ## <a name="error-60028-discovery-couldnt-be-initiated"></a>錯誤60028：無法起始探索
 
@@ -101,7 +101,7 @@ ms.locfileid: "75725854"
 - 確定起始探索的使用者帳戶與用來註冊應用裝置的帳戶相同。
 - 針對探索作業失敗的使用者帳戶，提供 Azure Active Directory 的應用程式存取權限。
 - 刪除先前為 Azure Migrate 專案所建立的資源群組。 建立另一個資源群組以重新開機。
-- [深入瞭解](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements)Azure Active Directory 應用程式許可權。
+- [深入瞭解](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware)Azure Active Directory 應用程式許可權。
 
 
 ## <a name="error-50004-cant-connect-to-host-or-cluster"></a>錯誤50004：無法連接到主機或叢集

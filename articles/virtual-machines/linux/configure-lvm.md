@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: mimckitt
 ms.subservice: disks
-ms.openlocfilehash: 38e460138fde1de6d8fd57dcab5a88238f0981fe
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4fdb3af0433cc32aa7cdbee3c8ca9bdb85031135
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751037"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045351"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>設定 Azure 中 Linux VM 的 LVM
 本文將討論如何在 Azure 虛擬機器中設定邏輯磁碟區管理員 (LVM)。 LVM 可能會根據 OS 磁碟或 Azure VM 中的資料磁碟來使用，不過，根據預設，大部分的雲端映像將不會在 OS 磁碟上設定 LVM。 下列步驟將著重於如何針對您的資料磁碟設定 LVM。
@@ -172,7 +172,7 @@ LVM 可以用來將數個實體磁碟的結合成單一存放磁碟區。 根據
     # sudo fstrim /datadrive
     ```
 
-    **RHEL/CentOS**
+    **RHEL、CentOS 和 Oracle Linux**
 
     ```bash 
     # sudo yum install util-linux

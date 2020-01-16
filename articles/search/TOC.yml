@@ -85,6 +85,8 @@
   items:
     - name: 全文檢索搜尋
       href: search-lucene-query-architecture.md
+    - name: 索引子
+      href: search-indexer-overview.md
     - name: AI 擴充
       href: cognitive-search-concept-intro.md
     - name: 技能集
@@ -179,7 +181,7 @@
           href: search-howto-complex-data-types.md
         - name: 模型關聯式資料
           href: index-sql-relational-data.md
-    - name: 為任何資料編製索引
+    - name: 匯入 (編制索引)
       items:
         - name: 資料匯入概觀
           href: search-what-is-data-import.md
@@ -273,12 +275,16 @@
           href: search-query-lucene-examples.md
         - name: 使用搜尋總管 (入口網站)
           href: search-explorer.md
-        - name: 簡單查詢語法
-          href: query-simple-syntax.md
-        - name: 完整的 Lucene 查詢語法
-          href: query-lucene-syntax.md
-        - name: moreLikeThis 查詢參數
-          href: search-more-like-this.md
+        - name: 特殊字元和部分條款
+          href: search-query-partial-matching.md
+        - name: 語法參考
+          items:
+            - name: 簡單查詢語法
+              href: query-simple-syntax.md
+            - name: 完整的 Lucene 查詢語法
+              href: query-lucene-syntax.md
+            - name: moreLikeThis (預覽)
+              href: search-more-like-this.md
     - name: 套用篩選條件
       items:
         - name: 篩選條件概觀
@@ -421,7 +427,7 @@
           href: 'https://searchsamples.azurewebsites.net/'
     - name: 常見問題集
       href: search-faq-frequently-asked-questions.md
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/search/'
     - name: 影片
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

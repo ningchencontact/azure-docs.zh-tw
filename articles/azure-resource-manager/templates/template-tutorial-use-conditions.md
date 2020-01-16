@@ -5,12 +5,12 @@ author: mumian
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 999b932cc12b945c3bf6bb0a4b56c3da19bb3ca6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 895d82eb79e4674ca95b9052d2384a257b296bf5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470883"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980667"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>教學課程：在 Azure Resource Manager 範本中使用條件
 
@@ -155,7 +155,7 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > 如果 **newOrExisting** 是 **new**，則部署會失敗，但是具有已指定儲存體帳戶名稱的儲存體帳戶已存在。
 
-請嘗試將 **newOrExisting** 設為 "existing" 並且指定現有儲存體帳戶，來進行另一個部署。 若要事先建立儲存體帳戶，請參閱[建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)。
+請嘗試將 **newOrExisting** 設為 "existing" 並且指定現有儲存體帳戶，來進行另一個部署。 若要事先建立儲存體帳戶，請參閱[建立儲存體帳戶](../../storage/common/storage-account-create.md)。
 
 ## <a name="clean-up-resources"></a>清除資源
 

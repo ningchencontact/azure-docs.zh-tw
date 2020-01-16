@@ -7,22 +7,22 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: da46cf826da40658883d22692e5038b09d222907
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60193157"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974519"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>教學課程：監視 Azure 防火牆記錄和計量
 
-您可以使用防火牆記錄來監視 Azure 防火牆。 您也可以使用活動記錄來稽核 Azure 防火牆資源上的作業。 使用計量，您可以在入口網站中檢視效能計數器。 
+您可以使用防火牆記錄來監視 Azure 防火牆。 您也可以使用活動記錄來稽核 Azure 防火牆資源上的作業。 使用計量，您可以在入口網站中檢視效能計數器。
 
 您可以透過入口網站存取其中一些記錄。 您可以將記錄傳送到 [Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)、儲存體和事件中樞，並在 Azure 監視器記錄中或透過不同的工具 (例如 Excel 和 Power BI) 來分析記錄。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 透過 Azure 入口網站啟用記錄功能
@@ -34,7 +34,7 @@ ms.locfileid: "60193157"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 在開始本教學課程之前，您應該閱讀 [Azure 防火牆記錄和計量](logs-and-metrics.md)，以取得適用於 Azure 防火牆的診斷記錄和計量概觀。
 
@@ -52,7 +52,7 @@ ms.locfileid: "60193157"
    * AzureFirewallNetworkRule
 
 3. 若要開始收集資料，請按一下 [開啟診斷]  。
-4. [診斷設定]  頁面中提供診斷記錄的設定。 
+4. [診斷設定]  頁面中提供診斷記錄的設定。
 5. 在此範例中，Azure 監視器記錄會儲存記錄，因此請輸入**防火牆記錄分析**作為名稱。
 6. 按一下 [傳送至 Log Analytics]  來設定您的工作區。 您也可以使用事件中樞和儲存體帳戶來儲存診斷記錄。
 7. 在 [Log Analytics]  下，按一下 [設定]  。
@@ -86,15 +86,15 @@ ms.locfileid: "60193157"
    -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
    -Enabled $true     
     ```
-    
-> [!TIP] 
+
+> [!TIP]
 >診斷記錄不需要個別的儲存體帳戶。 將儲存體用於記錄存取和效能會產生服務費用。
 
 ## <a name="view-and-analyze-the-activity-log"></a>檢視和分析活動記錄檔
 
 您可以使用下列任何方法，檢視和分析活動記錄資料：
 
-* **Azure 工具**：透過 Azure PowerShell、Azure CLI、Azure REST API 或 Azure 入口網站，從活動記錄擷取資訊。 [活動作業與 Resource Manager](../azure-resource-manager/resource-group-audit.md) 一文會詳述每個方法的逐步指示。
+* **Azure 工具**：透過 Azure PowerShell、Azure CLI、Azure REST API 或 Azure 入口網站，從活動記錄擷取資訊。 [活動作業與 Resource Manager](../azure-resource-manager/management/view-activity-logs.md) 一文會詳述每個方法的逐步指示。
 * **Power BI**：如果還沒有 [Power BI](https://powerbi.microsoft.com/pricing) 帳戶，您可以免費試用。 使用 [Power BI 的 Azure 活動記錄內容套件](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)，您可以使用預先設定的儀表板 (可按原樣使用或加以自訂) 來分析資料。
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>檢視及分析網路和應用程式規則記錄

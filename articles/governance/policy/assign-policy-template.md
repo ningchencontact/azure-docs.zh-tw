@@ -3,12 +3,12 @@ title: 快速入門：使用範本進行新原則指派
 description: 在本快速入門中，使用 Resource Manager 範本建立原則指派以識別不符合規範的資源。
 ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: e22c14768622408fb3afb0e491d4179b6113e4ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8b9b0024e5c15c78c6777b8657839791484d66b5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436458"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980515"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>快速入門：使用 Resource Manager 建立原則指派以識別不相容資源
 
@@ -56,7 +56,7 @@ ms.locfileid: "75436458"
 - 若要尋找更多範例範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular)。
 - 若要查看範本參考，請前往 [Azure 範本參考](/azure/templates/microsoft.authorization/allversions)。
 - 若要了解如何開發 Resource Manager 範本，請參閱 [Azure Resource Manager 文件](../../azure-resource-manager/management/overview.md)。
-- 若要了解訂用帳戶層級的部署，請參閱[在訂用帳戶層級建立資源群組和資源](../../azure-resource-manager/deploy-to-subscription.md)。
+- 若要了解訂用帳戶層級的部署，請參閱[在訂用帳戶層級建立資源群組和資源](../../azure-resource-manager/templates/deploy-to-subscription.md)。
 
 ## <a name="identify-non-compliant-resources"></a>識別不相容的資源
 

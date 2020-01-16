@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: dd429c7e8478bb0576605bcffe3c72bde35ae41e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b0b48fea308b385fd8c66bf87d708b1c51f7f495
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437259"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977358"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>教學課程：使用串流分析處理適用於事件中樞的 Apache Kafka 
 本文說明如何將資料串流至啟用的 Kafka 事件中樞，以及使用 Azure 串流分析處理該資料。 本文將逐步引導您完成下列步驟： 
@@ -38,7 +38,7 @@ ms.locfileid: "75437259"
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)。
 * [下載](https://maven.apache.org/download.cgi)及[安裝](https://maven.apache.org/install.html) Maven 二進位封存檔。
 * [Git](https://www.git-scm.com/)
-* **Azure 儲存體帳戶**。 如果您沒有 Azure 儲存體帳戶，請先[建立一個](../storage/common/storage-quickstart-create-account.md)，再繼續執行。 本逐步解說中的作業作業會在 Azure blob 儲存體中儲存輸出資料。 
+* **Azure 儲存體帳戶**。 如果您沒有 Azure 儲存體帳戶，請先[建立一個](../storage/common/storage-account-create.md)，再繼續執行。 本逐步解說中的作業作業會在 Azure blob 儲存體中儲存輸出資料。 
 
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>建立已啟用 Kafka 的事件中樞命名空間
@@ -114,7 +114,7 @@ ms.locfileid: "75437259"
     ![事件中樞 - 訊息](./media/event-hubs-kafka-stream-analytics/confirm-event-hub-messages.png)
 
 ## <a name="process-event-data-using-a-stream-analytics-job"></a>使用串流分析作業處理事件資料
-在這一節中，您會建立 Azure 串流分析作業。 Kafka 用戶端會將事件傳送到事件中樞。 您會建立串流分析作業，以將事件資料當作輸入並將它輸出至 Azure blob 儲存體。 如果您沒有 **Azure 儲存體帳戶**，請[建立一個](../storage/common/storage-quickstart-create-account.md)。
+在這一節中，您會建立 Azure 串流分析作業。 Kafka 用戶端會將事件傳送到事件中樞。 您會建立串流分析作業，以將事件資料當作輸入並將它輸出至 Azure blob 儲存體。 如果您沒有 **Azure 儲存體帳戶**，請[建立一個](../storage/common/storage-account-create.md)。
 
 串流分析作業中的查詢會通過資料，而不執行任何分析。 您可以建立可轉換輸入資料的查詢，以產生不同格式或有所見解的輸出資料。  
 

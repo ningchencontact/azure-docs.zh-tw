@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: f2fda893ad84aaf9d11d26d761f5395c7f5650d2
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: a85ec565077ac229cd24bb7b9cf753015aa56ebf
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666367"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024866"
 ---
 # <a name="threat-detection-for-cloud-native-computing-in-azure-security-center"></a>Azure 資訊安全中心中的雲端原生運算威脅偵測
 
@@ -36,7 +36,7 @@ ms.locfileid: "75666367"
 
 藉由使用 Azure 做為雲端提供者的可見度，資訊安全中心分析 App Service 內部記錄，以識別多個目標的攻擊方法。 例如，方法包含廣泛的掃描和分散式攻擊。 這種類型的攻擊通常來自于一小部分的 Ip，並顯示在多部主機上編目至類似端點的模式。 攻擊會搜尋易受攻擊的頁面或外掛程式，而無法從單一主機的觀點來識別。
 
-資訊安全中心也可以存取基礎沙箱和 Vm。 除了記憶體的辯論外，基礎結構也可以告訴故事，從攻擊者的新攻擊，到客戶電腦的危害。 因此，即使在惡意探索 web 應用程式之後部署資訊安全中心，它還是可能能夠偵測到進行中的攻擊。
+如果您執行的是以 Windows 為基礎的 App Service 方案，資訊安全中心也可以存取基礎沙箱和 Vm。 除了上述的記錄資料，基礎結構也可以告訴故事，從攻擊者的新攻擊，到客戶電腦的危害。 因此，即使在惡意探索 web 應用程式之後部署資訊安全中心，它還是可能能夠偵測到進行中的攻擊。
 
 如需 Azure App Service 警示的清單，請參閱[警示的參考資料表](alerts-reference.md#alerts-azureappserv)。
 
@@ -64,3 +64,7 @@ ms.locfileid: "75666367"
     如需 AKS 叢集層級警示的清單，請參閱[警示的參考資料表](alerts-reference.md#alerts-akscluster)。
 
 此外，我們的全球安全性研究人員小組會持續監視威脅的範圍。 他們會在探索到容器特有的警示和弱點時加以新增。
+
+## <a name="next-steps"></a>後續步驟
+
+* 如需 App Service 計畫的詳細資訊，請參閱[App Service 方案](https://azure.microsoft.com/pricing/details/app-service/plans/)。

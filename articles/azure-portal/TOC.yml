@@ -54,8 +54,12 @@
                   href: supportability/classic-deployment-model-quota-increase-requests.md
             - name: 增加網路限制
               href: supportability/networking-quota-requests.md
+    - name: Azure 入口網站問題疑難排解
+      items:
         - name: 區域或 SKU 訂用帳戶問題疑難排解
           href: supportability/sku-series-unavailable.md
+        - name: 擷取瀏覽器追蹤以進行疑難排解
+          href: capture-browser-trace.md
 - name: 參考
   items:
     - name: 鍵盤快速鍵

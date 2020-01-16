@@ -7,12 +7,12 @@ ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 38717ae103ac72d35042ced9bf662d295ed8a29b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 997014263f0d12e7cc16a761152870c2ee63d6ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931810"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979705"
 ---
 # <a name="payout-reporting"></a>支付報告
 
@@ -52,7 +52,7 @@ ms.locfileid: "75931810"
 | 交易尚未就緒，無法支付支出 | 計費進行中 | 下一個估計付款：支出狀態為 [未處理] 狀態。  |
 | 支出狀態 |  | 尚未 <br> 收益符合付款資格。 如獎勵計畫的程式指南中所定義，它會維持在此狀態的冷卻期間。 <br> <br> 近期： <br> 付款順序-在處理付款之前產生暫止的內部評論。 <br> <br> 寄件日期： <br> 付款已傳送到您的銀行。 |
 
-## <a name="customer-types"></a>客戶類型 
+## <a name="customer-types"></a>客戶類型
 
 ### <a name="enterprise-agreement"></a>Enterprise 合約
 
@@ -66,7 +66,7 @@ ms.locfileid: "75931810"
 
 例如，如果客戶使用信用卡購買。
 
-## <a name="corelation-between-payout-and-usage"></a>支出和使用量之間的 Corelation 
+## <a name="corelation-between-payout-and-usage"></a>支出和使用量之間的 Corelation
 
 |說明    |    日期  | 訂單/使用量  | 支付 |
 |----------|----------|-----------|-------------|
@@ -74,11 +74,11 @@ ms.locfileid: "75931810"
 |期間結束 (月)   | 2019年8月30日 | | |
 |計費日期 | 2019年9月1日 | | |
 |客戶付款日期 | 2019年9月1日 | | |
-|委付期間 (僅信用卡，30 天) | 2019年9月1日-2019 年9月30日 | | **相互關聯屬性訂單：** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li> 客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 尚未 |
+|委付期間 (僅信用卡，30 天) | 2019年9月1日-2019 年9月30日 | | **相互關聯屬性訂單：** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li> 客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 尚未 |
 |收帳期間開始 | 2019年9月1日 | | |
 |收帳期間結束 (最大值，30 天) | 2019年9月30日 | | |
-|付款計算日期 (每月第 15 日) | 2019年10月1日 | | **相互關聯屬性** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li>客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 提交 |
-|付款日期 | 2019年10月15日 | | **相互關聯屬性** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li> 客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 已傳送付款 |
+|付款計算日期 (每月第 15 日) | 2019年10月1日 | | **相互關聯屬性** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li>客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 提交 |
+|付款日期 | 2019年10月15日 | | **相互關聯屬性** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li> 客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 已傳送付款 |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Enterprise 合約（每季/每月客戶）
 
@@ -93,37 +93,37 @@ ms.locfileid: "75931810"
 |收帳期間結束 (最大值，90 天) | 2020年1月15日 | | |
 |客戶付款日期 | 2019年12月30日 | | |
 |支出計算 | 2020年1月15日 | | |
-|付款日期 | 2020年2月15日 | | **以季為基礎的客戶** <br> <br> **訂單報表** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li> 客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 已傳送 |
+|付款日期 | 2020年2月15日 | | **以季為基礎的客戶** <br> <br> **訂單報表** <br> <ul><li>AssetId</li> <li>客戶識別碼</li> <li> 客戶名稱</li> </ul> <br> **使用量** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>客戶名稱</li> <li>訂單識別碼</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **支出狀態：** 已傳送 |
 
 ## <a name="transaction-history-download-export"></a>交易記錄下載匯出
 
-此選項會提供您在 [交易歷程記錄] 頁面中看到的每個賺取明細專案的下載、賺取類型、日期、相關聯的交易金額、客戶、產品，以及適用于獎勵計畫的其他交易詳細資料。 
+此選項會提供您在 [交易歷程記錄] 頁面中看到的每個賺取明細專案的下載、賺取類型、日期、相關聯的交易金額、客戶、產品，以及適用于獎勵計畫的其他交易詳細資料。
 
-| 資料行名稱     | 說明    | 
+| 資料行名稱     | 說明    |
 |-------------|-------------------------------|
 | earningId                      | 每個收益的唯一識別碼                                                                                                       |
-| participantId                  | 方案下合作夥伴賺取的主要身分識別                                                                            | 
-| participantIdType              | 如果是商店程式和 Azure Marketplace，則大多是獎勵計畫和賣方的程式識別碼                                          | 
-| participantName                | 收益合作夥伴的名稱                                                                                                              | 
+| participantId                  | 方案下合作夥伴賺取的主要身分識別                                                                            |
+| participantIdType              | 如果是商店程式和 Azure Marketplace，則大多是獎勵計畫和賣方的程式識別碼                                          |
+| participantName                | 收益合作夥伴的名稱                                                                                                              |
 | partnerCountryCode             | 賺取合作夥伴的地點/國家/地區                                                                                                  |
-| programName                    | 獎勵/商店計畫名稱                                                                                                             | 
-| transactionId                  | 交易的唯一識別碼                                                                                                    | 
-| transactionCurrency            | 原始客戶交易發生的貨幣（不是合作夥伴位置貨幣）                                     | 
-| transactionDate                | 交易的日期。 適用于許多交易貢獻給一個收益的程式                                           | 
-| transactionExchangeRate        | 用來顯示對應交易美元金額的匯率                                                                 | 
-| transactionAmount              | 原始交易貨幣中的交易數量（根據產生的收益）                                              | 
-| transactionAmountUSD           | 交易金額（美元）                                                                                                                | 
-| 向上                          | 表示獲得收益的商務規則                                                                                                  | 
-| earningRate                    | 交易金額所套用的獎勵率，以產生收益                                                                      | 
-| quantity                       | 根據程式而有所不同。 表示交易式程式的計費數量                                                            | 
+| programName                    | 獎勵/商店計畫名稱                                                                                                             |
+| transactionId                  | 交易的唯一識別碼                                                                                                    |
+| transactionCurrency            | 原始客戶交易發生的貨幣（不是合作夥伴位置貨幣）                                     |
+| transactionDate                | 交易的日期。 適用于許多交易貢獻給一個收益的程式                                           |
+| transactionExchangeRate        | 用來顯示對應交易美元金額的匯率                                                                 |
+| transactionAmount              | 原始交易貨幣中的交易數量（根據產生的收益）                                              |
+| transactionAmountUSD           | 交易金額（美元）                                                                                                                |
+| 向上                          | 表示獲得收益的商務規則                                                                                                  |
+| earningRate                    | 交易金額所套用的獎勵率，以產生收益                                                                      |
+| quantity                       | 根據程式而有所不同。 表示交易式程式的計費數量                                                            |
 | quantityType                   | 表示數量的類型，例如：計費的數量、MAU                                                                                     |
-| earningType                    | 指出是否為費用、退款、合作基金、銷售等。                                                                                          | 
+| earningType                    | 指出是否為費用、退款、合作基金、銷售等。                                                                                          |
 | earningAmount                  | 原始交易貨幣中的賺取金額                                                                                      |
 | earningAmountUSD               | 賺取金額（美元）                                                                                                                    |
 | earningDate                    | 賺取的日期                                                                                                                      |
 | calculationDate                | 在系統中計算賺取的日期                                                                                            |
 | earningExchangeRate            | 用來顯示對應美元量的匯率                                                                                  |
-| exchangeRateDate               | 用來計算 EarningAmount 美元的匯率日期                                                                                   | 
+| exchangeRateDate               | 用來計算 EarningAmount 美元的匯率日期                                                                                   |
 | paymentAmountWOTax             | 僅限「已傳送」付款的貨幣金額（不含稅）                                                                 |
 | paymentCurrency                | 付款設定檔中由合作夥伴選擇的貨幣付款。 僅針對已傳送的付款顯示                                                   |
 | paymentExchangeRate            | 使用 ExchangeRateDate 計算付款貨幣中 paymentAmountWOTax 的匯率                                            |

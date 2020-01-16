@@ -1,20 +1,19 @@
 ---
 title: 快速入門：辨識來自音訊檔案的語音，Python - 語音服務
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: a2dca3a8c99fc2253619c2ceeca08067a564201d
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: f3fa4c3e194d05edce973bdeddd0e75de5cdfd4e
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819485"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75928114"
 ---
 如果您想要自行直接開始，請在 GitHub 上檢視或下載所有<a href="https://aka.ms/speech/github-python">語音 SDK Python 範例</a> \(英文\)。 否則，讓我們開始吧。

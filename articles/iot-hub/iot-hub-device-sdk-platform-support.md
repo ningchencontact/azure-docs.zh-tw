@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: d39fd95f8704650db16c1dc1553efaba2f727052
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 496b890cc49b6b6b9f15213a48472447f801b1c9
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889433"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045129"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 裝置 Sdk 平臺支援
 
@@ -44,31 +44,32 @@ Microsoft 會針對下列語言發行 GitHub 上的開放原始碼 Sdk： C、.N
 
 [Azure IoT 中樞 C 裝置 SDK](https://github.com/Azure/azure-iot-sdk-c)會使用進行測試，並支援下列設定。
 
-| 作業系統                  | TLS 程式庫                  | 其他需求                                                                     |
+| OS                  | TLS 程式庫                  | 其他需求                                                                     |
 |---------------------|------------------------------|---------------------------------------------------------------------------------------------|
 | Linux               | OpenSSL、WolfSSL 或 BearSSL | Berkeley 通訊端</br></br>可移植的作業系統介面（POSIX）                       |
-| iOS 12。2            | OpenSSL 或 Native OSX        | OSX 10.13.4 中的 XCode 模擬                                                               |
+| iOS 12。2            | OpenSSL                      | OSX 10.13.4 中的 XCode 模擬                                                               |
 | Windows 10 系列   | SChannel                     |                                                                                             |
 | Mbed 作業系統5。4         | Mbed TLS 2                   | [MXChip IoT 開發工具組](https://microsoft.github.io/azure-iot-developer-kit/)                  |
 | Azure Sphere OS     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/services/azure-sphere/get-started/) |
+| Arduino             | BearSSL                      | [ESP32 或 ESP8266](https://github.com/Azure/azure-iot-arduino#simple-sample-instructions) 
 
 ### <a name="python-sdk"></a>Python SDK
 
 [Azure IoT 中樞 Python 裝置 SDK](https://github.com/Azure/azure-iot-sdk-python)會使用進行測試，並支援下列設定。
 
-| 作業系統                  | 編譯器                          |
+| OS                  | 編譯器                          |
 |---------------------|-----------------------------------|
-| Linux               | Python 2.7 *、3.4*、3.5 *、3.6、3。7 |
-| MacOS High Sierra   | Python 2.7 *、3.4*、3.5 *、3.6、3。7 |
-| Windows 10 系列   | Python 2.7 *、3.4*、3.5 *、3.6、3。7 |
+| Linux               | Python 2.7. *、3.5 或更新版本 |
+| MacOS High Sierra   | Python 2.7. *、3.5 或更新版本 |
+| Windows 10 系列   | Python 2.7. *、3.5 或更新版本 |
 
-\* 只有 Python version 3.5.3 或更新版本支援非同步 Api，建議使用3.7 或更新版本。
+僅 Python 版本3.5.3 或更新版本支援非同步 Api，建議使用3.7 版或更新版本。
 
 ### <a name="net-sdk"></a>.NET SDK
 
 [Azure IoT 中樞 .net （C#）裝置 SDK](https://github.com/Azure/azure-iot-sdk-csharp)會使用進行測試，並支援下列設定。
 
-| 作業系統                                   | 標準                                                   |
+| OS                                   | Standard                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | Windows 10 Desktop 和伺服器 Sku   | .NET Core 2.1、.NET Framework 4.5.1 或 .NET Framework 4。7 |
@@ -79,7 +80,7 @@ Microsoft 會針對下列語言發行 GitHub 上的開放原始碼 Sdk： C、.N
 
 Azure IoT 中樞的 node.js[裝置 SDK](https://github.com/Azure/azure-iot-sdk-node)會使用進行測試，並支援下列設定。
 
-| 作業系統                  | 節點版本    |
+| OS                  | 節點版本    |
 |---------------------|-----------------|
 | Linux               | LTS 和 Current |
 | Windows 10 系列   | LTS 和 Current |
@@ -88,7 +89,7 @@ Azure IoT 中樞的 node.js[裝置 SDK](https://github.com/Azure/azure-iot-sdk-n
 
 [Azure IoT 中樞 JAVA 裝置 SDK](https://github.com/Azure/azure-iot-sdk-java)會使用進行測試，並支援下列設定。
 
-| 作業系統                     | Java 版本 |
+| OS                     | Java 版本 |
 |------------------------|--------------|
 | Android API 28         | Java 8       |
 | Linux x64             | Java 8       |
@@ -115,7 +116,7 @@ Microsoft 與數個合作夥伴合作，以透過 Azure IoT 測試和認證的�
 
 * 若要流覽 Azure IoT 認證的裝置，請參閱[Microsoft Azure IoT 認證裝置目錄](https://catalog.azureiotsolutions.com/)。
 
-* 若要深入瞭解 Microsoft 信任的合作夥伴，或瞭解如何成為 Microsoft 信任的合作夥伴，請參閱[Microsoft Azure 認證物聯網信任的合作夥伴](https://azure.microsoft.com/marketplace/certified-iot-partners/)。
+* 若要深入瞭解 Azure IoT 認證生態系統，請參閱[加入 IoT 認證生態系統](https://catalog.azureiotsolutions.com/register)。
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>不使用 SDK 連接到 IoT 中樞
 

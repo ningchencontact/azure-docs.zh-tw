@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: abb8b6bed6766ff0ea85eab1434014a057af4ca3
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 66c100ecd40e9f0899f7686397339ab849315c3e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843157"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021155"
 ---
 ## <a name="publish-the-project-to-azure"></a>將專案發佈到 Azure
 
@@ -37,8 +37,8 @@ Visual Studio Code 可讓您將函式專案直接發佈到 Azure。 在這過程
 
     當您按下 Enter 時，您的訂用帳戶中會建立下列 Azure 資源：
 
-    * **[資源群組](../articles/azure-resource-manager/resource-group-overview.md)** ：包含所有已建立的 Azure 資源。 該名稱是以您的函數應用程式名稱為根據。
-    * **[儲存體帳戶](../articles/storage/common/storage-quickstart-create-account.md)** ：使用以您的函數應用程式名稱為根據的唯一名稱建立標準儲存體帳戶。
+    * **[資源群組](../articles/azure-resource-manager/management/overview.md)** ：包含所有已建立的 Azure 資源。 該名稱是以您的函數應用程式名稱為根據。
+    * **[儲存體帳戶](../articles/storage/common/storage-account-create.md)** ：使用以您的函數應用程式名稱為根據的唯一名稱建立標準儲存體帳戶。
     * **[主控方案](../articles/azure-functions/functions-scale.md)** ：在美國西部區域建立一個取用方案，來裝載您的無伺服器函數應用程式。
     * **函數應用程式**：您的專案已部署到此新函數應用程式，並在其中執行。
 

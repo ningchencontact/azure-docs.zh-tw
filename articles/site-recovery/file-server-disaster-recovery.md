@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 780db0cc5a99adfd2e7f8cd5be20a191bba009e8
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: c9f10815f2fbc8a17b8b712b6e5f8391fc7d541e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708127"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980289"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保護檔案伺服器 
 
@@ -37,7 +37,7 @@ DFSR 使用名為「遠端差異壓縮 (RDC)」的壓縮演算法，可用來在
 
 ## <a name="disaster-recovery-recommendations-for-file-servers"></a>檔案伺服器的災害復原建議
 
-* **使用 Site Recovery 複寫檔案伺服器**：可以使用 Site Recovery，將檔案伺服器複寫至 Azure。 當一或多個內部部署檔案伺服器無法存取時，可以在 Azure 中執行復原 VM。 後續只要有站對站的 VPN 連線能力，且在 Azure 中設定了 Active Directory，VM 就可以處理內部部署用戶端的要求。 您可以在設定了 DFSR 的環境或沒有 DFSR 的簡單檔案伺服器環境中使用此方法。 
+* **使用 Site Recovery 複寫檔案伺服器**：可使用 Site Recovery 將檔案伺服器複寫至 Azure。 當一或多個內部部署檔案伺服器無法存取時，可以在 Azure 中執行復原 VM。 後續只要有站對站的 VPN 連線能力，且在 Azure 中設定了 Active Directory，VM 就可以處理內部部署用戶端的要求。 您可以在設定了 DFSR 的環境或沒有 DFSR 的簡單檔案伺服器環境中使用此方法。 
 
 * **將 DFSR 延伸至 Azure IaaS VM**：在實作 DFSR 的叢集檔案伺服器環境中，您可以將內部部署 DFSR 延伸至 Azure。 然後啟用 Azure VM，以執行檔案伺服器角色。 
 
@@ -45,7 +45,7 @@ DFSR 使用名為「遠端差異壓縮 (RDC)」的壓縮演算法，可用來在
 
     * 如果您的 VM 所使用的組態不受 Site Recovery 的支援，您可以使用此方法。 範例之一是常用於檔案伺服器環境中的共用叢集磁碟。 DFSR 也適用於具中等變換率的低頻寬環境。 您必須考量讓 Azure VM 隨時啟動並執行的額外成本。 
 
-* **使用 Azure 檔案同步複寫您的檔案**：如果您想要使用雲端，或已經使用 Azure VM，您可以使用「Azure 檔案同步」。「Azure 檔案同步」可讓您同步雲端中受到完整管理、並且可透過業界標準[伺服器訊息區](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (SMB) 通訊協定來存取的檔案共用。 然後 Windows、Linux 和 macOS 的雲端部署或內部部署就可同時掛接 Azure 檔案共用。 
+* **使用 Azure 檔案同步複寫您的**檔案：如果您想要使用雲端，或已經使用 Azure VM，您可以使用 Azure 檔案同步。Azure 檔案同步提供在雲端中完全受控的檔案共用，可透過業界標準的[伺服器訊息區](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)（SMB）通訊協定來進行同步處理。 然後 Windows、Linux 和 macOS 的雲端部署或內部部署就可同時掛接 Azure 檔案共用。 
 
 下圖可協助您決定檔案伺服器環境所適用的策略。
 
@@ -56,7 +56,7 @@ DFSR 使用名為「遠端差異壓縮 (RDC)」的壓縮演算法，可用來在
 
 |環境  |建議  |考慮事項 |
 |---------|---------|---------|
-|有或沒有 DFSR 的檔案伺服器環境|   [使用 Site Recovery 進行複寫](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery 不支援共用磁碟叢集或網路連接儲存裝置 (NAS)。 如果您的環境使用這些組態，請在適當時使用任何其他方法。 <br> Site Recovery 不支援 SMB 3.0。 只有在對檔案所做的變更已在檔案的原始位置中更新時，複寫的 VM 才會納入變更。<br>  Site Recovery 提供近乎同步的資料複寫程式, 因此在發生未規劃的容錯移轉案例時, 可能會遺失資料, 而且可能會造成 USN 不相符的問題。
+|有或沒有 DFSR 的檔案伺服器環境|   [使用 Site Recovery 進行複寫](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery 不支援共用磁碟叢集或網路連接儲存裝置 (NAS)。 如果您的環境使用這些組態，請在適當時使用任何其他方法。 <br> Site Recovery 不支援 SMB 3.0。 只有在對檔案所做的變更已在檔案的原始位置中更新時，複寫的 VM 才會納入變更。<br>  Site Recovery 提供近乎同步的資料複寫程式，因此在發生未規劃的容錯移轉案例時，可能會遺失資料，而且可能會造成 USN 不相符的問題。
 |有 DFSR 的檔案伺服器環境     |  [將 DFSR 延伸到 Azure IaaS 虛擬機器](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR 適用於頻寬極端變換的環境。 要使用此方法，Azure VM 必須隨時處於啟動並執行中的狀態。 您必須在規劃時計算 VM 的成本。         |
 |Azure IaaS VM     |     檔案同步    |     如果您在災害復原案例中使用檔案同步，在容錯移轉期間，您必須手動執行動作，以確保用戶端機器可以透明的方式存取檔案共用。 要使用「檔案同步」，必須從用戶端機器開啟連接埠 445。     |
 
@@ -64,11 +64,11 @@ DFSR 使用名為「遠端差異壓縮 (RDC)」的壓縮演算法，可用來在
 ### <a name="site-recovery-support"></a>Site Recovery 支援
 由於 Site Recovery 複寫無法以應用程式驗證，下列建議應該適用於下列案例。
 
-| Source    |至次要網站    |至 Azure
+| 來源    |至次要網站    |至 Azure
 |---------|---------|---------|
 |Azure| -|是|
 |Hyper-V|   是 |是
-|VMWare |是|   是
+|VMware |是|   是
 |實體伺服器|   是 |是
  
 
@@ -132,7 +132,7 @@ Azure 檔案服務可用來完全取代或補充傳統內部部署檔案伺服�
 2. 延伸內部部署 Active Directory。
 3. 在 Azure 虛擬網路上[建立及佈建檔案伺服器 VM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)。
 請確定虛擬機器已新增至相同的 Azure 虛擬網路，其具備與內部部署環境交叉連線的能力。 
-4. 在 Windows Server 上安裝和[設定 DFSR](https://blogs.technet.microsoft.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx)。
+4. 在 Windows Server 上安裝和[設定 DFSR](https://techcommunity.microsoft.com/t5/storage-at-microsoft/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of/ba-p/424877)。
 5. [實作 DFS 命名空間](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces)。
 6. 若實作 DFS 命名空間，只要更新 DFS 命名空間資料夾目標，就可以將生產網站的共用資料夾容錯移轉至災害復原網站。 透過 Active Directory 複寫這些 DFS 命名空間變更後，使用者就會以透明的方式連線到適當的資料夾目標。
 

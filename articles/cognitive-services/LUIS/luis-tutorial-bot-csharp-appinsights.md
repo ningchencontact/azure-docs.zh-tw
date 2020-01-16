@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 036ecbbbd2ea562f3e809691a1b3af62578893f5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b9c47685253e2a70c7b5e947debaac6f5f3264b2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498977"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888289"
 ---
 # <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>教學課程：從 C# 中的 Bot 將 LUIS 結果新增至 Application Insights
 
@@ -30,7 +30,7 @@ ms.locfileid: "73498977"
 > * 擷取 Application Insights 中的 Bot 和 Language Understanding 資料
 > * 查詢 Application Insights 以取得 Language Understanding 資料
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure Bot 服務 Bot，建立並啟用 Application Insights。
 * 從先前的 Bot **[教學課程](luis-csharp-tutorial-bf-v4.md)** 下載 Bot 程式碼。 
@@ -162,7 +162,7 @@ ms.locfileid: "73498977"
 1. 在 Visual Studio 中，建置並執行 Bot。 
 1. 啟動 Bot 模擬器，並開啟 Bot。 這個[步驟](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot)在先前的教學課程中提供。
 
-1. 詢問 Bot 問題。 這個[步驟](luis-csharp-tutorial-bf-v4.md##use-the-bot-emulator-to-test-the-bot)在先前的教學課程中提供。
+1. 詢問 Bot 問題。 這個[步驟](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot)在先前的教學課程中提供。
 
 ## <a name="view-luis-entries-in-application-insights"></a>在 Application Insights 中檢視 LUIS 項目
 

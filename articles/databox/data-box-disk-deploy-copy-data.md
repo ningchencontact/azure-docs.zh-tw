@@ -10,12 +10,12 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: c309a7cb18086526b23c875b41d9d4f4db4bc213
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: be2bda4e1bfd6a679076f79969e4829aa1a847c9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70231370"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895955"
 ---
 ::: zone target="docs"
 
@@ -35,18 +35,18 @@ ms.locfileid: "70231370"
 
 本教學課程說明如何從主機電腦複製資料，然後產生總和檢查碼來確認資料完整性。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 將資料複製到資料箱磁碟
 > * 驗證資料
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 在您開始前，請確定：
 - 您已完成[教學課程：安裝和設定您的 Azure 資料箱磁碟](data-box-disk-deploy-set-up.md)。
 - 您的磁碟已解除鎖定，並連線到用戶端電腦。
-- 您用來將資料複製到磁碟的用戶端電腦必須執行[支援的作業系統](data-box-disk-system-requirements.md##supported-operating-systems-for-clients)。
+- 您用來將資料複製到磁碟的用戶端電腦必須執行[支援的作業系統](data-box-disk-system-requirements.md#supported-operating-systems-for-clients)。
 - 請確定資料的預定儲存體類型符合[支援的儲存體類型](data-box-disk-system-requirements.md#supported-storage-types-for-upload)。
 - 檢閱 [Azure 物件大小限制中的受控磁碟限制](data-box-disk-limits.md#azure-object-size-limits)。
 
@@ -101,10 +101,10 @@ ms.locfileid: "70231370"
     
     命令的參數和選項會以表格形式顯示，如下所示：
     
-    |參數/選項  |說明 |
+    |參數/選項  |描述 |
     |--------------------|------------|
     |來源            | 指定來源目錄的路徑。        |
-    |目的地       | 指定目的地目錄的路徑。        |
+    |Destination       | 指定目的地目錄的路徑。        |
     |/E                  | 複製子目錄，包含空的目錄。 |
     |/MT[:N]             | 建立具有 N 個執行緒的多執行緒複製，其中 N 是介於 1 到 128 之間的整數。 <br>N 的預設值為 8。        |
     |/R:\<N>             | 指定失敗複製的重試次數。 N 的預設值為 1000000 (1 百萬次重試)。        |

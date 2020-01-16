@@ -1,18 +1,18 @@
 ---
-title: JavaScript Web App 適用的 Azure Application Insights | Microsoft Docs
-description: 取得頁面檢視和工作階段計數、Web 用戶端資料，並追蹤使用量模式。 Detect exceptions and performance issues in JavaScript web pages.
+title: JavaScript web 應用程式的 Azure 應用程式 Insights
+description: 取得頁面流覽和會話計數、web 用戶端資料、單一頁面應用程式（SPA），以及追蹤使用模式。 Detect exceptions and performance issues in JavaScript web pages.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 6bb61f419f4c6d277a9b1c666db92595642cb0e6
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 38f9872fb73f2c680264c2c0b84445db858cf203
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706604"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045845"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
 
@@ -76,7 +76,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
     - 提出要求的相互關聯內容（如果有的話）
 - **使用者資訊**（例如，位置、網路、IP）
 - **裝置資訊**（例如瀏覽器、OS、版本、語言、解析度、模型）
-- **會話資訊**
+- **工作階段資訊**
 
 ### <a name="telemetry-initializers"></a>遙測初始化運算式
 遙測初始化運算式是用來在從使用者的瀏覽器傳送之前，修改所收集遙測的內容。 它們也可以用來防止傳送特定遙測，方法是傳回 `false`。 您可以將多個遙測初始化運算式新增至您的 Application Insights 實例，並依加入它們的循序執行。
@@ -97,11 +97,11 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>組態
 大部分設定欄位的名稱都是，讓它們可以預設為 false。 除了 `instrumentationKey`以外，所有欄位都是選擇性的。
 
-| Name | 預設值 | 描述 |
+| 名稱 | 預設 | 說明 |
 |------|---------|-------------|
 | instrumentationKey | null | **必要**<br>從 Azure 入口網站取得的檢測金鑰。 |
 | accountId | null | 選擇性的帳戶識別碼，如果您的應用程式將使用者群組為帳戶。 不含空格、逗號、分號、等於或分隔號 |
-| sessionRenewalMs | 1800000 | 如果使用者處於非使用中狀態的時間（以毫秒為單位），則會記錄會話。 預設值為30分鐘 |
+| sessionRenewalMs | 1800000 | 如果使用者處於非使用中狀態的時間（以毫秒為單位），則會記錄會話。 預設值是 30 分鐘 |
 | sessionExpirationMs | 86400000 | 如果會話已繼續此時間量（以毫秒為單位），則會記錄會話。 預設值為24小時 |
 | maxBatchSizeInBytes | 10000 | 遙測批次的大小上限。 如果批次超過此限制，則會立即傳送並啟動新的批次 |
 | maxBatchInterval | 15000 | 在傳送之前，批次遙測的時間長度（毫秒） |
@@ -114,7 +114,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | samplingPercentage | 100 | 將傳送的事件百分比。 預設值為100，表示傳送所有事件。 如果您想要保留大型應用程式的資料上限，請設定此設定。 |
 | autoTrackPageVisitTime | false | 若為 true，則在 pageview 上，會追蹤先前檢測的頁面的視圖時間並以遙測的形式傳送，並針對目前的 pageview 啟動新的計時器。 預設值為 false。 |
 | disableAjaxTracking | false | 若為 true，則不會實驗自動收集 Ajax 呼叫。 預設值為 false。 |
-| disableFetchTracking | true | 若為 true，則不會實驗自動收集提取要求。 預設值為 true |
+| disableFetchTracking | true | 若為 true，則不會實驗自動收集提取要求。 預設值為 true。 |
 | overridePageViewDuration | false | 若為 true，則在呼叫 trackPageView 時，trackPageView 的預設行為會變更為 [記錄] 網頁檢視持續時間間隔的結尾。 如果為 false，而且沒有提供任何自訂持續時間來 trackPageView，則會使用導覽計時 API 來計算網頁檢視效能。 預設值為 false。 |
 | maxAjaxCallsPerView | 500 | 預設值 500-控制每個網頁檢視要監視的 Ajax 呼叫數目。 設定為-1 可監視頁面上所有（無限制的） Ajax 呼叫。 |
 | disableDataLossAnalysis | true | 若為 false，則會在啟動時檢查尚未傳送的內部遙測寄件者緩衝區。 |
@@ -132,8 +132,8 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | sdkExtension | null | 設定 sdk 延伸模組名稱。 只允許字母字元。 擴充功能名稱會新增為 ' sdkVersion ' 標記的前置詞（例如 ' ext_javascript： 2.0.0 '）。 預設值為 null。 |
 | isBrowserLinkTrackingEnabled | false | 預設值為 false。 若為 true，SDK 將會追蹤所有[瀏覽器連結](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink)要求。 |
 | appId | null | AppId 會用於用戶端上發生的 AJAX 相依性與伺服器端要求之間的相互關聯。 啟用「指標 API」時，無法自動使用它，但可在設定中手動設定。 預設值為 null |
-| enableCorsCorrelation | false | 若為 true，SDK 會將兩個標頭（「要求識別碼」和「要求-內容」）新增至所有 CORS 要求，以將外寄 AJAX 相依性與伺服器端上的對應要求相互關聯。 預設值為 false |
-| namePrefix | useraccountcontrol | 選擇性值，將會作為 localStorage 和 cookie 名稱的名稱後置詞使用。
+| enableCorsCorrelation | false | 若為 true，SDK 會將兩個標頭（「要求識別碼」和「要求-內容」）新增至所有 CORS 要求，以將外寄 AJAX 相依性與伺服器端上的對應要求相互關聯。 預設值為 false。 |
+| namePrefix | 未定義 | 選擇性值，將會作為 localStorage 和 cookie 名稱的名稱後置詞使用。
 | enableAutoRouteTracking | false | 自動追蹤單一頁面應用程式（SPA）中的路由變更。 若為 true，則每個路由變更都會將新的 Pageview 傳送至 Application Insights。 雜湊路由變更（`example.com/foo#bar`）也會記錄為新的頁面流覽。
 | enableRequestHeaderTracking | false | 若為 true，則會追蹤 AJAX & 提取要求標頭，預設值為 false。
 | enableResponseHeaderTracking | false | 若為 true，則會追蹤 AJAX & 提取要求的回應標頭，預設值為 false。
@@ -147,7 +147,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ## <a name="react-extensions"></a>回應延伸模組
 
-| 擴充功能 |
+| 延伸模組 |
 |---------------|
 | [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
 | [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md) \(英文\)|
@@ -168,7 +168,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ![](./media/javascript/performance-operations.png)
 
-### <a name="dependencies"></a>相依項目
+### <a name="dependencies"></a>相依性
 
 ![](./media/javascript/performance-dependencies.png)
 

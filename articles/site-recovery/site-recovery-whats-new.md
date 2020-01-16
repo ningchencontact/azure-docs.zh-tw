@@ -1,18 +1,14 @@
 ---
 title: Azure Site Recovery 的新功能
 description: 提供新功能的摘要，以及 Azure Site Recovery 服務中的最新更新。
-services: site-recovery
-author: rayne-wiselman
-ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: aa98509ba71ec0797d4b59be9e4df1dea064c933
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/07/2020
+ms.openlocfilehash: 4a9feff3b0bc98b5d9853268d033e60de55ea5ea
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351468"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024821"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 最新功能
 
@@ -28,14 +24,26 @@ ms.locfileid: "75351468"
 
 **更新** |  **整合設定** | **設定伺服器 ova** | **行動服務代理程式** | **Site Recovery 提供者** | **復原服務代理程式**
 --- | --- | --- | --- | --- | ---
+[匯總套件43](https://support.microsoft.com/help/4531426/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
 [匯總套件42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 [匯總套件41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
 [匯總套件40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [匯總套件39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
-[匯總套件38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
+
         
 
 [深入瞭解](service-updates-how-to.md)更新安裝與支援。
+
+## <a name="updates-january-2020"></a>更新（2020年1月）
+
+### <a name="update-rollup-43"></a>更新彙總套件43
+
+[更新彙總套件 43](https://support.microsoft.com/help/4537047/update-rollup-43-for-azure-site-recovery)提供下列更新。
+
+**更新** | **詳細資料**
+--- | ---
+**提供者和代理程式** | Site Recovery 代理程式和提供者的更新（如匯總中所述）
+**問題修正/改進** | 一些修正和改進（如匯總中所述）
 
 
 ## <a name="updates-november-2019"></a>更新（2019年11月）

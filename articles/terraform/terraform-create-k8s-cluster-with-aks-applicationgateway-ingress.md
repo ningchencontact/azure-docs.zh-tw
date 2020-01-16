@@ -3,12 +3,12 @@ title: 教學課程 - 在 Azure Kubernetes Service 中建立應用程式閘道�
 description: 教學課程說明如何使用 Azure Kubernetes Service 建立 Kubernetes 叢集並以應用程式閘道作為輸入控制器
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 6d07fc6becf76453de792c69b25aea49c39775ae
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 898a2052f31965ee45ab2cc5df6956af4831b0d2
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159104"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867408"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>教學課程：在 Azure Kubernetes Service 中建立應用程式閘道輸入控制器
 
@@ -25,9 +25,9 @@ ms.locfileid: "74159104"
 > * 使用 Terraform 和 AKS 建立 Kubernetes 叢集。
 > * 使用 kubectl 工具測試 Kubernetes 叢集的可用性。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
+- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
 - **設定 Terraform**：請遵循 [Terraform 和設定 Azure 的存取](/azure/virtual-machines/linux/terraform-install-configure)一文中的指示
 
@@ -261,7 +261,7 @@ ms.locfileid: "74159104"
       name = var.resource_group_name
     }
 
-    # User Assigned Idntities 
+    # User Assigned Identities 
     resource "azurerm_user_assigned_identity" "testIdentity" {
       resource_group_name = data.azurerm_resource_group.rg.name
       location            = data.azurerm_resource_group.rg.location
@@ -719,16 +719,16 @@ kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/maste
 
     這些步驟的描述如下：
 
-    - `verbosityLevel`：設定 AGIC 記錄基礎結構的詳細資訊層級。 如需可能的值，請參閱[記錄層級](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) \(英文\)。
-    - `appgw.subscriptionId`：應用程式閘道的 Azure 訂用帳戶識別碼。 範例： `a123b234-a3b4-557d-b2df-a0bc12de1234`
-    - `appgw.resourceGroup`：建立應用程式閘道所在 Azure 資源群組的名稱。 
-    - `appgw.name`：應用程式閘道的名稱。 範例： `applicationgateway1`.
-    - `appgw.shared`：此布林值旗標應該預設為 `false`。 如果您需要 [共用應用程式閘道](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway)，請將設定為 `true`。
-    - `kubernetes.watchNamespace`：指定 AGIC 應該監看的命名空間。 命名空間可以是單一字串值，或逗號分隔的命名空間清單。 將此變數保留為註解，或將其設定為空白或空字串，會讓輸入控制器看到所有可存取的命名空間。
-    - `armAuth.type`：`aadPodIdentity` 或 `servicePrincipal` 的值。
-    - `armAuth.identityResourceID`：受控識別的資源識別碼。
-    - `armAuth.identityClientId`：身分識別的用戶端識別碼。
-    - `armAuth.secretJSON`：只有在選擇服務主體秘密類型 (當 `armAuth.type` 已設定為 `servicePrincipal`) 時才需要。
+    - `verbosityLevel`:設定 AGIC 記錄基礎結構的詳細資訊層級。 如需可能的值，請參閱[記錄層級](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) \(英文\)。
+    - `appgw.subscriptionId`:應用程式閘道的 Azure 訂用帳戶識別碼。 範例： `a123b234-a3b4-557d-b2df-a0bc12de1234`
+    - `appgw.resourceGroup`:建立應用程式閘道所在 Azure 資源群組的名稱。 
+    - `appgw.name`:應用程式閘道的名稱。 範例： `applicationgateway1`.
+    - `appgw.shared`:此布林值旗標應該預設為 `false`。 如果您需要 [共用應用程式閘道](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway)，請將設定為 `true`。
+    - `kubernetes.watchNamespace`:指定 AGIC 應該監看的命名空間。 命名空間可以是單一字串值，或逗號分隔的命名空間清單。 將此變數保留為註解，或將其設定為空白或空字串，會讓輸入控制器看到所有可存取的命名空間。
+    - `armAuth.type`:`aadPodIdentity` 或 `servicePrincipal` 的值。
+    - `armAuth.identityResourceID`:受控識別的資源識別碼。
+    - `armAuth.identityClientId`:身分識別的用戶端識別碼。
+    - `armAuth.secretJSON`:只有在選擇服務主體秘密類型 (當 `armAuth.type` 已設定為 `servicePrincipal`) 時才需要。
 
     重要注意事項：
     - `identityResourceID` 值是在 terraform 指令碼中建立的，而且可以透過執行 `echo "$(terraform output identity_client_id)"` 找到。

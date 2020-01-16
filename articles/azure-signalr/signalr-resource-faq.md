@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 013cf619edd998752265b8fa7e58e36869c830c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dde11b6097dddb1568f5adfea811606214a9759e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450204"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891258"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service 常見問題集
 
@@ -37,7 +37,7 @@ ASP.NET SignalR 的支援仍處於*公開預覽*階段。 以下是[程式碼範
 可能的原因包括：
 - 沒有與 SignalR Service 連線的應用程式伺服器。 請檢查應用程式伺服器記錄中是否有可能的連線錯誤。 此案例在具有多個應用程式伺服器的高可用性設定中很少見。
 - SignalR Service 執行個體有連線問題。 這是暫時性的問題，會自動復原。
-如果問題持續超過一小時，請[在 GitHub 上提出問題](https://github.com/Azure/azure-signalr/issues/new)或[在 Azure 中建立支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。
+如果問題持續超過一小時，請[在 GitHub 上提出問題](https://github.com/Azure/azure-signalr/issues/new)或[在 Azure 中建立支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>有多個應用程式伺服器時，用戶端訊息會傳送至所有伺服器還是僅傳送至其中之一？
 

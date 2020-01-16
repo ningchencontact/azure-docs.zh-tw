@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 47fa0d97f21c5e3734cb1104c7d0ab72c14d9679
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ee594bf4e17a06c8333f0836a17e75cc99a2dde3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532271"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771848"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>使用 Azure Machine Learning 對大量資料執行批次推斷
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,7 +92,7 @@ def_data_store = ws.get_default_datastore()
 
 您也可以在自訂推斷指令碼中參照其他資料集。 例如，您可以藉由使用 `Dataset.register` 和 `Dataset.get_by_name`，而用此類別來存取指令碼中用於標記影像的標籤。
 
-如需 Azure Machine Learning 資料集的詳細資訊，請參閱[建立和存取資料集 (預覽)](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets)。
+如需 Azure Machine Learning 資料集的詳細資訊，請參閱[建立和存取資料集 (預覽)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets)。
 
 `PipelineData` 物件可用來在管線步驟之間傳輸中繼資料。 在此範例中，您會將其用於推斷輸出。
 

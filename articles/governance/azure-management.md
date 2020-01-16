@@ -3,12 +3,12 @@ title: Azure 管理概觀 - Azure 控管
 description: 管理 Azure 應用程式與資源的區域概觀，並提供 Azure 管理工具內容的連結。
 ms.date: 12/06/2018
 ms.topic: overview
-ms.openlocfilehash: f91e439a5fb7c330fb29d300e83779083641875b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 644f4fc3a04f86426c2eb04b02c29882fa39fb88
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132837"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980906"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Azure 管理服務概觀
 
@@ -36,7 +36,7 @@ ms.locfileid: "74132837"
 ## <a name="govern"></a>治理
 
 治理提供多項機制和流程，以便維持控制 Azure 中的應用程式與資源。 它同時也涉及規劃您的新措施，以及設定策略層級的優先順序。
-在 Azure 中的治理主要是透過兩個服務進行實作。 [Azure 原則](./policy/overview.md)可讓您建立、指派和管理原則定義，以強制執行資源的規則。 此功能可確保這些資源能夠符合公司的標準規範。 針對您的 Azure 資源和其他雲端服務提供者，[Azure 成本管理](../cost-management/overview-cost-mgt.md)可讓您追蹤雲端使用量和費用。
+在 Azure 中的治理主要是透過兩個服務進行實作。 [Azure 原則](./policy/overview.md)可讓您建立、指派和管理原則定義，以強制執行資源的規則。 此功能可確保這些資源能夠符合公司的標準規範。 針對您的 Azure 資源和其他雲端服務提供者，[Azure 成本管理](../cost-management-billing/cost-management-billing-overview.md)可讓您追蹤雲端使用量和費用。
 
 ## <a name="secure"></a>安全
 
@@ -46,7 +46,7 @@ ms.locfileid: "74132837"
 
 保護是指即使發生了您無法控制的中斷狀況，也能確保應用程式和資料的可用性。 Azure 中的保護是由兩個服務提供。 [Azure 備份](../backup/backup-introduction-to-azure-backup.md)提供雲端或內部部署中資料的備份和復原。 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) 可在災害發生時提供商務持續性和立即復原的能力。
 
-## <a name="migrate"></a>移轉
+## <a name="migrate"></a>遷移
 
 移轉是指將目前正在內部部署環境中執行的工作負載轉換至 Azure 雲端。
 [Azure Migrate](../migrate/migrate-overview.md) 是一項服務，可協助您評估將內部部署虛擬機器移轉至 Azure 的移轉適用性。 Azure Site Recovery 可[從內部部署](../site-recovery/migrate-tutorial-on-premises-azure.md)或[從 Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md) 移轉虛擬機器。 [Azure 資料庫移轉](../dms/dms-overview.md)可協助您將資料庫來源移轉至 Azure 資料平台。

@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: quickstart
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 6b3ead9eefd6f0d4c504cc7711ea4e03facf8edc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 12e79df4af2dab097a41cf8482d5a344080890cf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231518"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769691"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>使用 C\# 建立第一個耐久函式
 
@@ -22,7 +22,7 @@ ms.locfileid: "74231518"
 
 ![在 Azure 中執行耐久函式](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本教學課程：
 
@@ -34,7 +34,7 @@ ms.locfileid: "74231518"
 
 ## <a name="create-a-function-app-project"></a>建立函式應用程式專案
 
-Azure Functions 範本可建立可發佈至 Azure 中函式應用程式的專案。 函式應用程式可讓您將多個函式群組為邏輯單位，以便您管理、部署和共用資源。
+Azure Functions 範本可建立可發佈至 Azure 中函式應用程式的專案。 函式應用程式可讓您將多個函式群組為邏輯單位，以方便您管理、部署、調整和共用資源。
 
 1. 在 Visual Studio 中，從 [檔案]  功能表中選取 [新增]   >  [專案]  。
 
@@ -48,7 +48,7 @@ Azure Functions 範本可建立可發佈至 Azure 中函式應用程式的專案
 
     ![在 Visual Studio 中建立新的 Azure Functions 應用程式對話方塊](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
-    | 設定      | 建議的值  | 說明                      |
+    | 設定      | 建議的值  | 描述                      |
     | ------------ |  ------- |----------------------------------------- |
     | **版本** | Azure Functions 2.0 <br />(.NET Core) | 建立函式專案，該專案會使用支援 .NET Core 的 Azure Functions 2.0 版執行階段。 Azure Functions 1.0 支援 .NET Framework。 如需詳細資訊，請參閱[如何設定 Azure Functions 執行階段目標版本](../functions-versions.md)。   |
     | **範本** | 空白 | 建立空白的函式應用程式。 |
@@ -75,7 +75,7 @@ Azure Functions 範本可建立可發佈至 Azure 中函式應用程式的專案
 
 新的耐久函式會新增至應用程式。  開啟新的 .cs 檔案以檢視內容。 此耐久函式是簡單的函式鏈結範例，包含下列方法：  
 
-| 方法 | FunctionName | 說明 |
+| 方法 | FunctionName | 描述 |
 | -----  | ------------ | ----------- |
 | **`RunOrchestrator`** | `<file-name>` | 管理耐久協調流程。 在此情況下，協調流程會啟動、建立清單，以及將三個函式呼叫的結果新增至清單。  完成三個函式呼叫後，它會傳回清單。 |
 | **`SayHello`** | `<file-name>_Hello` | 此函數會傳回 hello。 此函式包含要進行協調的商務邏輯。 |

@@ -29,6 +29,8 @@
   items:
     - name: 使用 Azure PowerShell 建立受控網域
       href: powershell-create-instance.md
+    - name: 使用範本建立受控網域
+      href: template-create-instance.md
 - name: 概念
   items:
     - name: 管理基本概念
@@ -139,7 +141,7 @@
       href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
     - name: 相容的第三方軟體
       href: compatible-software.md
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/active-directory-ds/'
     - name: Azure AD 意見反應論壇
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'

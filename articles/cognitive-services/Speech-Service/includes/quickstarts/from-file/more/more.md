@@ -1,27 +1,26 @@
 ---
 title: 快速入門：辨識來自音訊檔案的語音 - 語音服務
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 47bc889fb836064922aded42d3ee6856864d7223
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: f77fb95e2bb584e3a9cb7356159c2fb8d50bbf88
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819460"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75927754"
 ---
 ## <a name="additional-language-and-platform-support"></a>其他語言和平台支援
 
 按下此索引標籤，表示您可能未找到慣用程式設計語言的快速入門。 別擔心，我們在 GitHub 上有其他的快速入門資料和程式碼範例可供使用。 您可以使用資料表來尋找您程式設計語言和平台/作業系統組合的合適範例。
 
-| 語言 | 其他快速入門 | 程式碼範例 |
+| Language | 其他快速入門 | 程式碼範例 |
 |----------|------------------------|--------------|
 | C++ | | [Windows](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows)、[Linux](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/linux)、[macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/macos) |
 | C# | |[.NET Framework](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet)、[.NET Core](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnetcore)、[UWP](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp)、[Unity](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/unity)、[Xamarin](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin) |

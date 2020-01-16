@@ -2,7 +2,7 @@
 title: 使用 Azure Functions 觸發 Batch 作業
 description: 教學課程 - 在文件新增至儲存體 blob 時，將 OCR 套用至已掃描的文件
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: d5a5197227ff62ca0c610e2c4e269480690d3faf
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6e3cdb6c7e2774eeb29df6986088f822cbb894cf
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343097"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029234"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>教學課程：使用 Azure Functions 觸發 Batch 作業
 
 在本教學課程中，您將了解如何使用 Azure Functions 觸發 Batch 作業。 我們將逐步解說範例，在其中新增至 Azure 儲存體 blob 容器的文件已透過 Azure Batch 套用光學字元辨識 (OCR)。 為了簡化 OCR 處理流程，我們將設定 Azure 函式，每當檔案新增至 blob 容器時，函式便會執行 Batch OCR 作業。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 * Azure Batch 帳戶和連結的 Azure 儲存體帳戶。 請參閱[建立 Batch 帳戶](quick-create-portal.md#create-a-batch-account)以瞭解有關如何建立及連結帳戶的詳細資訊。
@@ -47,7 +47,7 @@ ms.locfileid: "67343097"
     1. 選擇 `Standard_f2s_v2` 為虛擬機器大小。
     1. 啟用啟動工作，並新增命令 `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`。 請務必將使用者身分識別設定為**工作預設使用者 (管理員)** ，這可讓啟動工作包含具 `sudo` 的命令。
     1. 選取 [確定]  。
-### <a name="create-a-job"></a>建立工作
+### <a name="create-a-job"></a>建立作業
 
 1. 選取左側邊列上的 [作業]  ，然後選取搜尋表單上方的 [新增]  按鈕，以在集區上建立作業。 
     1. 選擇識別碼和顯示名稱。 此範例中，我們將使用 `ocr-job`。
@@ -92,8 +92,8 @@ ms.locfileid: "67343097"
 2019-05-29T19:45:25.846 [Information] Creating job...
 2019-05-29T19:45:25.847 [Information] Accessing input container <inputContainer>...
 2019-05-29T19:45:25.847 [Information] Adding <fileName> as a resource file...
-2019-06-21T20:02:35.129 [Information] Name of output text file: <outputTxtFile>
-2019-06-21T20:02:35.130 [Information] Name of output PDF file: <outputPdfFile>
+2019-05-29T19:45:25.848 [Information] Name of output text file: <outputTxtFile>
+2019-05-29T19:45:25.848 [Information] Name of output PDF file: <outputPdfFile>
 2019-05-29T19:45:26.200 [Information] Adding OCR task <taskID> for <fileName> <size of fileName>...
 ```
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: e4146155915979e51a6e3a989ab57316ca643018
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 43c9ba4ff21f32ca321a62c7f11430d82dfc4ec0
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658014"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045178"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>使用 Azure 監視器記錄來管理使用量和成本
 
@@ -43,6 +43,8 @@ Log Analytics 的預設定價是以資料量內嵌為基礎的隨**用隨付**�
   
 除了隨用隨付模型以外，Log Analytics 還有**容量保留**層，可讓您省下25% 的費用（相較于隨用隨付價格）。 容量保留定價可讓您從 100 GB/天開始購買保留。 任何高於保留層級的使用量都會依照隨用隨付費率計費。 容量保留層有31天的承諾期間。 在承諾期間，您可以變更為較高層級的容量保留層（這會重新開機31天的承諾用量期間），但在承諾期限過後，您將無法移回預付型方案或較低的容量保留層演練. 
 [深入瞭解](https://azure.microsoft.com/pricing/details/monitor/)Log Analytics 的隨用隨付和容量保留定價。 
+
+在所有定價層中，資料磁片區會從資料的字串標記法計算出來，因為它已準備好要儲存。 [所有資料類型通用](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties)的數個屬性都不會包含在事件大小的計算中，包括 `_ResourceId`、`_ItemId`、`_IsBillable` 和 `_BilledSize`。
 
 另請注意，某些解決方案（例如[Azure 資訊安全中心](https://azure.microsoft.com/pricing/details/security-center/)和[Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/)）有自己的計價模式。 
 
@@ -164,6 +166,9 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 > [!NOTE]
 > 每日上限不會從 Azure 資訊安全中心停止收集資料，但在2017年6月19日前安裝 Azure 資訊安全中心的工作區除外。 
+
+> [!NOTE]
+> 套用每日上限的固有延遲可能表示端點不會精確地套用為指定的每日上限層級。 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>識別要定義的每日資料限制
 
