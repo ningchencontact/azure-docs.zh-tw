@@ -1,6 +1,6 @@
 ---
-title: 部署在 Azure DevTest Labs 中的巢狀的 Resource Manager 範本環境 |Microsoft Docs
-description: 了解如何部署巢狀的 Azure Resource Manager 範本，以提供使用 Azure DevTest Labs 的環境。
+title: 在 Azure DevTest Labs 中部署嵌套 Resource Manager 範本環境 |Microsoft Docs
+description: 瞭解如何部署嵌套的 Azure Resource Manager 範本，以提供 Azure DevTest Labs 的環境。
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: spelluru
-ms.openlocfilehash: eec0cde4a36449f85998bfb04d16f1d52c68bb19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 675d2c670f5bc11c1d8b61bc96313e408f788dc3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65835281"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976543"
 ---
-# <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>用於測試環境的巢狀的 Azure Resource Manager 範本部署
-巢狀的部署可讓您執行的主要 Resource Manager 範本內的 從其他 Azure Resource Manager 範本。 它可讓您部署分解成一組目標和特定目的的範本。 提供測試、 重複使用和可讀性方面的優點。 發行項[部署 Azure 資源時使用連結的範本](../azure-resource-manager/resource-group-linked-templates.md)利用數個程式碼範例提供此解決方案的概觀。 這篇文章提供 Azure DevTest Labs 的特定範例。 
+# <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>部署適用于測試環境的嵌套 Azure Resource Manager 範本
+「嵌套部署」可讓您從主要 Resource Manager 範本內執行其他 Azure Resource Manager 範本。 它可讓您將部署分解成一組目標和特定用途的範本。 它提供測試、重複使用和可讀性等方面的優勢。 在[部署 Azure 資源時使用連結的範本](../azure-resource-manager/templates/linked-templates.md)一文提供了使用數個程式碼範例的此解決方案的絕佳總覽。 本文提供 Azure DevTest Labs 特定的範例。 
 
-## <a name="key-parameters"></a>索引鍵參數
-雖然您可以從頭開始建立您自己的 Resource Manager 範本，我們建議您使用[Azure 資源群組專案](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)在 Visual Studio 中，這可讓您輕鬆地開發及偵錯範本。 當您新增到 azuredeploy.json 的巢狀的部署資源時，Visual Studio 會新增數個項目，讓範本更有彈性。 這些項目包括子資料夾中，使用次要的範本和參數檔案，在主要範本檔案中，變數名稱和新檔案的儲存位置的兩個參數。 **_ArtifactsLocation**並 **_artifactsLocationSasToken**是 DevTest Labs 使用的索引鍵參數。 
+## <a name="key-parameters"></a>金鑰參數
+雖然您可以從頭開始建立自己的 Resource Manager 範本，但建議您使用 Visual Studio 中的[Azure 資源群組專案](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)，這可讓您輕鬆地開發和偵錯工具範本。 當您將嵌套的部署資源新增至 azuredeploy.parameters.json」時，Visual Studio 會新增數個專案，讓範本更具彈性。 這些專案包括具有次要範本和參數檔案的子資料夾、主要範本檔案中的變數名稱，以及新檔案儲存位置的兩個參數。 **_ArtifactsLocation**和 **_ArtifactsLocationSasToken**是 DevTest Labs 所使用的主要參數。 
 
-如果您不熟悉 DevTest 實驗室環境的運作方式，請參閱[使用 Azure Resource Manager 範本建立多個 VM 環境和 PaaS 資源](devtest-lab-create-environment-from-arm.md)。 您的範本會儲存在連結至 DevTest Labs 中實驗室的儲存機制。 當您建立新的環境使用這些範本時，檔案會移到實驗室中的 Azure 儲存體容器中。 若要能夠找出並複製巢狀的檔案，DevTest Labs _artifactsLocation 和 _artifactsLocationSasToken 參數識別，並複製到儲存體容器的子資料夾。 然後，它會自動插入的位置和共用存取簽章 (SaS) 權杖的參數。 
+如果您不熟悉 DevTest Labs 如何與環境搭配運作，請參閱[使用 Azure Resource Manager 範本建立多 VM 環境和 PaaS 資源](devtest-lab-create-environment-from-arm.md)。 您的範本會儲存在 DevTest Labs 中連結至實驗室的存放庫中。 當您使用這些範本來建立新的環境時，這些檔案會移至實驗室中的 Azure 儲存體容器。 為了能夠識別並複製嵌套的檔案，DevTest Labs 會識別 _artifactsLocation 並 _artifactsLocationSasToken 參數，並將子資料夾複製到儲存體容器。 然後，它會自動將位置和共用存取簽章（SaS）權杖插入參數中。 
 
-## <a name="nested-deployment-example"></a>巢狀的部署範例
-以下是巢狀部署的簡單範例：
+## <a name="nested-deployment-example"></a>嵌套部署範例
+以下是嵌套部署的簡單範例：
 
 ```json
 
@@ -66,17 +66,17 @@ ms.locfileid: "65835281"
 "outputs": {}
 ```
 
-包含此範本儲存機制中的資料夾包含一個子資料夾`nestedtemplates`的檔案**NestOne.json**並**NestOne.parameters.json**。 在 [ **azuredeploy.json**，URI 範本所建立的構件位置、 巢狀的範本] 資料夾中，使用巢狀範本檔案名稱。 同樣地，參數的 URI 是使用巢狀範本的成品位置、 巢狀的範本資料夾，以及參數檔案建置的。 
+包含此範本之存放庫中的資料夾，具有 `nestedtemplates` 檔案的子資料夾，並具有**NestOne**檔案和**NestOne**。 在**azuredeploy.parameters.json」** 中，範本的 URI 是使用成品位置、嵌套範本資料夾、嵌套範本檔案名所建立。 同樣地，使用嵌套範本的成品位置、嵌套範本資料夾和參數檔案，即可建立參數的 URI。 
 
-以下是相同的專案結構，在 Visual Studio 中的映像： 
+以下是 Visual Studio 中相同專案結構的影像： 
 
 ![Visual Studio 中的專案結構](./media/deploy-nested-template-environments/visual-studio-project-structure.png)
 
-在主資料夾，但不是比單一層級深度，您可以新增其他資料夾。 
+您可以在主要資料夾中新增其他資料夾，但不能在單一層級以外的任何深度。 
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列文章中有關環境的詳細資料： 
+如需環境的詳細資訊，請參閱下列文章： 
 
 - [透過 Azure Resource Manager 範本建立多個 VM 環境和 PaaS 資源](devtest-lab-create-environment-from-arm.md)
-- [設定，並在 Azure DevTest Labs 中使用公用環境](devtest-lab-configure-use-public-environments.md)
-- [在 Azure DevTest Labs 的實驗室的虛擬網路連線的環境](connect-environment-lab-virtual-network.md)
+- [在 Azure DevTest Labs 中設定及使用公用環境](devtest-lab-configure-use-public-environments.md)
+- [在 Azure DevTest Labs 中將環境連線至實驗室的虛擬網路](connect-environment-lab-virtual-network.md)

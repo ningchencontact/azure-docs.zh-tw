@@ -1,17 +1,14 @@
 ---
 title: 使用 Azure Migrate Server 遷移來選取 VMware 遷移選項 |Microsoft Docs
 description: 提供使用 Azure Migrate Server 遷移將 VMware Vm 遷移至 Azure 的選項總覽
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: raynew
-ms.openlocfilehash: 68026af5b96728ea66fd9e584e67e5e596e690fb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 52e7103ea3ebcd83369a866cc3f75b0bf0e889a2
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974660"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028725"
 ---
 # <a name="select-a-vmware-migration-option"></a>選取 VMware 遷移選項
 
@@ -25,7 +22,7 @@ ms.locfileid: "74974660"
 
 ## <a name="compare-migration-methods"></a>比較遷移方法
 
-使用這些選取的比較，協助您決定要使用的方法。 您也可以查看[無代理](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements)[程式和代理](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements)程式為基礎之遷移的完整支援需求。
+使用這些選取的比較，協助您決定要使用的方法。 您也可以查看[無代理](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers)[程式和代理](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers)程式為基礎之遷移的完整支援需求。
 
 **設定** | **款** | **以代理程式為基礎**
 --- | --- | ---

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b6d9a394971e59abaeb48e058b05cd52da69626
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 84296631e35de759fbb971f5de2d918afa5d17f0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529723"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967564"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -425,12 +425,6 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 > [!NOTE]
 > 在 Microsoft Graph API、Azure AD 圖形 API 和 Azure AD PowerShell 中，會將此角色識別為「Lync 服務管理員」。 在 [Azure 入口網站](https://portal.azure.com/)中則是「商務用 Skype 管理員」。
 
-### <a name="teams-administratorteams-service-administrator-permissions"></a>[小組系統管理員](#teams-service-administrator-permissions)
-
-此角色的使用者可以透過 Microsoft Teams 和商務用 Skype 系統管理中心以及個別的 PowerShell 模組，管理 Microsoft Teams 工作負載的所有層面。 這包括所有與電話語音、傳訊、會議和小組本身相關的管理工具以及其他領域。 這個角色會額外獲得授與建立和管理所有 Office 365 群組、管理支援票證，以及監視服務健康情況的能力。
-> [!NOTE]
-> 在 Microsoft Graph API、Azure AD Graph API 和 Azure AD PowerShell 中，會將此角色識別為「Microsoft Teams 服務管理員」。 在 [Azure 入口網站](https://portal.azure.com)中則是「Microsoft Teams 管理員」。
-
 ### <a name="teams-communications-administratorteams-communications-administrator-permissions"></a>[小組通訊管理員](#teams-communications-administrator-permissions)
 
 此角色的使用者可以管理 Microsoft Teams 在語音和電話語音相關工作負載的各個層面。 這包括電話號碼指派管理工具、語音和會議原則，以及呼叫分析工具組的完整存取權。
@@ -442,6 +436,10 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 ### <a name="teams-communications-support-specialistteams-communications-support-specialist-permissions"></a>[小組通訊支援專家](#teams-communications-support-specialist-permissions)
 
 此角色的使用者可以使用 Microsoft Teams 和商務用 Skype 系統管理中心內的使用者呼叫疑難排解工具，針對 Microsoft Teams 和商務用 Skype 內的通訊問題進行疑難排解。 此角色的使用者只能檢視其所查閱特定使用者的呼叫中所含有的使用者詳細資料。 這個角色沒有檢視、建立或管理支援票證的存取權。
+
+### <a name="teams-service-administratorteams-service-administrator-permissions"></a>[小組服務管理員](#teams-service-administrator-permissions)
+
+此角色的使用者可以透過 Microsoft Teams 和商務用 Skype 系統管理中心以及個別的 PowerShell 模組，管理 Microsoft Teams 工作負載的所有層面。 這包括所有與電話語音、傳訊、會議和小組本身相關的管理工具以及其他領域。 這個角色會額外獲得授與建立和管理所有 Office 365 群組、管理支援票證，以及監視服務健康情況的能力。
 
 ### <a name="user-administratoruser-administrator-permissions"></a>[使用者管理員](#user-administrator-permissions)
 

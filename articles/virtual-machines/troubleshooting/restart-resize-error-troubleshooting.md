@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cd05f9f7db0db22759c5e19dbfb59cc377e63f4d
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: a6532558107463311c4225b9855bc4cd3f19eed9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155474"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965616"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>針對在 Azure 中重新啟動或調整現有 Windows VM 大小的部署問題進行疑難排解
 當您嘗試啟動已停止的 Azure 虛擬機器 (VM)，或調整現有 Azure VM 的大小時，常會遇到的錯誤是配置失敗。 當叢集或區域沒有可用的資源或無法支援所要求的 VM 大小，就會產生此錯誤。
@@ -28,7 +28,7 @@ ms.locfileid: "71155474"
 ## <a name="collect-activity-logs"></a>收集活動記錄
 若要開始進行排解疑難，請收集活動記錄，以識別與問題相關的錯誤。 下列連結提供此程序的更多詳細資訊：
 
-[檢視部署作業](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[檢視部署作業](../../azure-resource-manager/templates/deployment-history.md)
 
 [檢視活動記錄以管理 Azure 資源](../../resource-group-audit.md)
 

@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 00d84a7f3b4a15c9278caac8c2715380dd330482
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d143992317c77c6fc3137527bea485a98c046daa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930486"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969214"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure Data Factory 的角色和權限
 
@@ -29,7 +29,7 @@ ms.locfileid: "74930486"
 - 若要在 Azure 入口網站中建立及管理子資源，您必須屬於資源群組層級或更高層級的 **Data Factory 參與者**角色。
 - 若要使用 PowerShell 或 SDK 來建立及管理子資源，具備資源層級或更高層級的**參與者**角色即已足夠。
 
-如需將使用者新增至角色的範例指示，請參閱[新增角色](../billing/billing-add-change-azure-subscription-administrator.md)一文。
+如需將使用者新增至角色的範例指示，請參閱[新增角色](../cost-management-billing/manage/add-change-subscription-administrator.md)一文。
 
 ## <a name="set-up-permissions"></a>設定權限
 

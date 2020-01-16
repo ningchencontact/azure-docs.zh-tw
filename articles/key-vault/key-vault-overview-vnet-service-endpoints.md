@@ -8,12 +8,12 @@ manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: 6e85e33cf0488cf688303c590c2bbaf5d671d9b7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e31153a1c490948266714633202d5e59fe66fa3a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467099"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980477"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault 的虛擬網路服務端點
 
@@ -21,7 +21,7 @@ Azure Key Vault 的虛擬網路服務端點可讓您將存取權限制為指定�
 
 此限制有一個重要例外狀況。 如果使用者已選擇要允許受信任的 Microsoft 服務，則來自這些服務的連線會通過防火牆。 例如，這些服務包括 Office 365 Exchange Online、Office 365 SharePoint Online、Azure Compute、Azure Resource Manager 和 Azure 備份。 這類使用者仍必須出示有效的 Azure Active Directory 權杖，而且必須具有權限 (如存取原則設定) 才能執行要求的作業。 如需詳細資訊，請參閱[虛擬網路服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)。
 
-## <a name="usage-scenarios"></a>使用案例
+## <a name="usage-scenarios"></a>使用方法案例
 
 根據預設，您可以將 [Key Vault 防火牆和虛擬網路](key-vault-network-security.md)設定成拒絕存取所有網路流量 (包括網際網路流量)。 您可以授權存取特定 Azure 虛擬網路和公用網際網路 IP 位址範圍的流量，讓您為應用程式建置安全的網路界限。
 
@@ -63,7 +63,7 @@ Azure Key Vault 的虛擬網路服務端點可讓您將存取權限制為指定�
 |信任的服務|支援的使用案例|
 | --- | --- |
 |Azure 虛擬機器部署服務|[Deploy Certificates to VMs from customer-managed Key Vault (將憑證從客戶管理的 Key Vault 部署到 VM)](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/)。|
-|Azure Resource Manager 範本部署服務|[在部署期間傳遞安全值](../azure-resource-manager/resource-manager-keyvault-parameter.md)。|
+|Azure Resource Manager 範本部署服務|[在部署期間傳遞安全值](../azure-resource-manager/templates/key-vault-parameter.md)。|
 |Azure Disk Encryption 磁碟區加密服務|允許在虛擬機器部署期間，存取 BitLocker 金鑰 (Windows VM) 或 DM 複雜密碼 (Linux VM) 和金鑰加密金鑰。 這可啟用 [Azure 磁碟加密](../security/fundamentals/encryption-overview.md)。|
 |Azure 備份|使用 [Azure 備份](../backup/backup-introduction-to-azure-backup.md)，在 Azure 虛擬機器備份期間，允許相關金鑰和祕密的備份和還原。|
 |Exchange Online 和 SharePoint Online|允許使用[客戶金鑰](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697)存取 Azure 儲存體服務加密的客戶金鑰。|

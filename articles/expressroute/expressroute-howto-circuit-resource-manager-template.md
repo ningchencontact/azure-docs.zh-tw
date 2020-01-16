@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
-ms.openlocfilehash: 25ed38e72f5a21622a87e36ad811ffd66f6a4c90
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 78da84a462566cca1a2800174849159ace8dd6dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083518"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981143"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立 ExpressRoute 線路
 
@@ -44,7 +44,7 @@ ms.locfileid: "74083518"
 
 若要藉由部署範本來建立 ExpressRoute 線路：
 
-1. 從下列程式碼區塊中選取 [**試試看**]，然後依照指示登入 Azure Cloud shell。
+1. 選取下列程式碼區塊中的 [試用]，然後依照指示登入 Azure Cloud Shell。
 
     ```azurepowershell-interactive
     $circuitName = Read-Host -Prompt "Enter a circuit name"
@@ -69,28 +69,28 @@ ms.locfileid: "74083518"
    * [對等位置] 是您與 Microsoft 對等互連的實體位置。
 
      > [!IMPORTANT]
-     > [對等位置] 表示您與 Microsoft 對等互連的[實體位置](expressroute-locations.md)。 這 **不會** 連結到「位置」屬性，這是指 Azure 網路資源提供者所在的地理位置。 儘管它們並無關聯，但最好還是選擇地理位置靠近線路對等位置的網路資源提供者。
+     > [對等位置] 表示您與 Microsoft 對等互連的[實體位置](expressroute-locations.md)。 這**不會**連結到「位置」屬性，這是指 Azure 網路資源提供者所在的地理位置。 儘管它們並無關聯，但最好還是選擇地理位置靠近線路對等位置的網路資源提供者。
 
     資源組名是已附加**rg**的服務匯流排命名空間名稱。
 
 2. 選取 [複製] 來複製 PowerShell 指令碼。
-3. 以滑鼠右鍵按一下 [shell] 主控台，然後選取 [**貼**上]。
+3. 以滑鼠右鍵按一下殼層主控台，然後選取 [貼上]。
 
 建立事件中樞需要幾分鐘的時間。
 
 在本教學課程中，會使用 Azure PowerShell 來部署範本。 如需其他範本部署方法，請參閱：
 
-* [使用 Azure 入口網站](../azure-resource-manager/resource-group-template-deploy-portal.md)。
-* [使用 Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)。
-* [使用 REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)。
+* [使用 Azure 入口網站](../azure-resource-manager/templates/deploy-portal.md)。
+* [使用 Azure CLI](../azure-resource-manager/templates/deploy-cli.md)。
+* [使用 REST API](../azure-resource-manager/templates/deploy-rest.md)。
 
 ## <a name="delete"></a>取消佈建和刪除 ExpressRoute 線路
 
-您可以選取 **刪除** 圖示，刪除 ExpressRoute 線路。 請注意下列資訊︰
+您可以選取**刪除**圖示，刪除 ExpressRoute 線路。 請注意下列資訊︰
 
-* 您必須取消連結 ExpressRoute 循環的所有虛擬網路。 如果此操作失敗，請檢查您是否有任何虛擬網路連結至線路。
+* 您必須取消連結 ExpressRoute 線路的所有虛擬網路。 如果此操作失敗，請檢查您是否有任何虛擬網路連結至線路。
 * 如果 ExpressRoute 線路服務提供者佈建狀態為 **Provisioning** 或 **Provisioned**，您就必須與服務提供者一起合作，取消佈建他們那邊的線路。 我們會繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
-* 若服務提提供者已取消佈建線路 (服務提供者佈建狀態設定為 [未佈建])，則可以刪除線路。 這樣會停止針對線路計費。
+* 若服務提供者已取消佈建線路 (服務提供者佈建狀態設定為 [未佈建])，則可以刪除線路。 這樣會停止針對線路計費。
 
 您可以藉由執行下列 PowerShell 命令來刪除您的 ExpressRoute 線路：
 

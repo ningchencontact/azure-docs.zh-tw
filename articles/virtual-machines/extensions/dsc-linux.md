@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: d19b3d59c48cfc8fc91d4678c2f979b110575b1a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 102433b88ffb140cae46433be1c0edef90857e6d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359148"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969941"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>適用于 Linux 的 DSC 擴充功能（Microsoft.ostcextensions.customscriptforlinux. DSCForLinux）
 
@@ -371,7 +371,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 Login-AzAccount
 ```
 
-若要深入瞭解如何搭配 Azure Resource Manager 使用 Azure PowerShell，請參閱[使用 Azure PowerShell 來管理 Azure 資源](../../azure-resource-manager/manage-resources-powershell.md)。
+若要深入瞭解如何搭配 Azure Resource Manager 使用 Azure PowerShell，請參閱[使用 Azure PowerShell 來管理 Azure 資源](../../azure-resource-manager/management/manage-resources-powershell.md)。
 
 您可以藉由執行下列程式來部署 DSCForLinux 延伸模組：
 

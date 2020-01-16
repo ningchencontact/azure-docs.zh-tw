@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 488130fbd2939fa4d98e379126ba3353a417fd72
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5ff9c45ffb636f53951a763f617c25a2e8c09088
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401755"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977728"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警示新增到管理解決方案 (預覽)
 
@@ -23,7 +23,7 @@ ms.locfileid: "75401755"
 > [!NOTE]
 > 這是建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。
 
-[管理解決方案](solutions.md)通常會包含 Log Analytics 中[儲存的搜尋](../../azure-monitor/log-query/log-query-overview.md)，來分析解決方案所收集的資料。 它們可能也會定義[警示](../../azure-monitor/platform/alerts-overview.md)來通知使用者，或自動採取動作以回應重大的問題。 本文說明如何在[資源範本範本](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)中定義 Log Analytics 儲存的搜尋與警示，讓它們能夠包含於[管理解決方案](solutions-creating.md)中。
+[管理解決方案](solutions.md)通常會包含 Log Analytics 中[儲存的搜尋](../../azure-monitor/log-query/log-query-overview.md)，來分析解決方案所收集的資料。 它們可能也會定義[警示](../../azure-monitor/platform/alerts-overview.md)來通知使用者，或自動採取動作以回應重大的問題。 本文說明如何在[資源範本範本](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)中定義 Log Analytics 儲存的搜尋與警示，讓它們能夠包含於[管理解決方案](solutions-creating.md)中。
 
 > [!NOTE]
 > 本文中的範例使用管理解決方案所需或通用的參數和變數，如[在 Azure 中設計和建置管理解決方案](solutions-creating.md)所述。

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: 3e510cc4073a4b0075cdaeb80091657dbee93fcb
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792481"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979416"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>使用 Enterprise Integration Pack 在 Azure Logic Apps 中以對應來轉換 XML
 
@@ -36,9 +36,9 @@ ms.locfileid: "74792481"
   * 針對組件，您需要 Azure Blob 容器 (以在其中上傳您的組件) 與該容器的位置。 如此一來，您就可以在稍後將組件新增到您的整合帳戶時提供該位置。 
   針對此工作，您需要下列項目：
 
-    | Item | 描述 |
+    | 項目 | 說明 |
     |------|-------------|
-    | [Azure 儲存體帳戶](../storage/common/storage-account-overview.md) | 在此帳戶中，為您的組件建立 Azure Blob 容器。 了解[如何建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。 |
+    | [Azure 儲存體帳戶](../storage/common/storage-account-overview.md) | 在此帳戶中，為您的組件建立 Azure Blob 容器。 了解[如何建立儲存體帳戶](../storage/common/storage-account-create.md)。 |
     | Blob 容器 | 在此容器中，您可以上傳您的組件。 當您將組件新增到您的整合帳戶時，您也需要此容器的位置。 了解如何[建立 Blob 容器](../storage/blobs/storage-quickstart-blobs-portal.md)。 |
     | [Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md) | 此工具可協助您更輕鬆地管理儲存體帳戶與 Blob 容器。 若要使用 [儲存體總管]，請[下載並安裝 Azure 儲存體總管](https://www.storageexplorer.com/)。 接著，依照[開始使用儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md) [儲存體總管] 連線到您的儲存體帳戶。 若要深入瞭解，請參閱[快速入門：使用 Azure 儲存體總管在物件儲存體中建立 blob](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)。 <p>或者，在 Azure 入口網站中，尋找並選取您的儲存體帳戶。 從您的儲存體帳戶功能表，選取 [儲存體總管]。 |
     |||

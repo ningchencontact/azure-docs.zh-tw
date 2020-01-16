@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 63f386212b0277c3b5ee383e707d4c32fa4e63fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7ed58201fa7aa1e608cba6d64ac95740cf9a60dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428839"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965926"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>適用于公用基本 Load Balancer 的 Azure 監視器記錄
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 >Azure Load Balancer 支援兩種不同類型：基本和標準。 本文討論基本 Load Balancer。 如需有關 Standard Load Balancer 的詳細資訊，請參閱 [Standard Load Balancer 概觀](load-balancer-standard-overview.md)，其中會透過 Azure 監視器中的多維度計量來公開遙測資料。
 
 您可以在 Azure 中使用不同類型的記錄來管理 Basic Load Balancer，並對其進行疑難排解。 透過入口網站可以存取其中一些記錄。 記錄可以串流處理至事件中樞或 Log Analytics 工作區。 所有記錄都可以從 Azure blob 儲存體中解壓縮，並在不同的工具（例如 Excel 和 Power BI）中進行查看。  您可以從下列清單進一步了解不同類型的記錄。
@@ -32,7 +32,7 @@ ms.locfileid: "75428839"
 * **健康狀態探查記錄︰** 您可以使用此記錄來檢視健康狀態探查所偵測到的問題，例如後端集區中因為健康狀態探查失敗而未從負載平衡器接收要求的執行個體數目。 健康狀態探查狀態發生變更時會寫入此記錄。
 
 > [!IMPORTANT]
-> Azure 監視器記錄檔目前僅適用于公用基本負載平衡器。 記錄僅適用於在資源管理員部署模型中部署的資源。 您無法將記錄使用於傳統部署模型中的資源。 如需這些部署模型的詳細資訊，請參閱[了解 Resource Manager 部署和傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)。
+> Azure 監視器記錄檔目前僅適用于公用基本負載平衡器。 記錄僅適用於在資源管理員部署模型中部署的資源。 您無法將記錄使用於傳統部署模型中的資源。 如需這些部署模型的詳細資訊，請參閱[了解 Resource Manager 部署和傳統部署](../azure-resource-manager/management/deployment-models.md)。
 
 ## <a name="enable-logging"></a>啟用記錄
 
@@ -57,7 +57,7 @@ ms.locfileid: "75428839"
     1. 選取 [封存**至儲存體帳戶**] 旁的核取方塊。
     2. 選取 [**設定**] 以開啟 [**選取儲存體帳戶**] 窗格。
     3. 在下拉方塊中，選取您的儲存體帳戶建立所在的**訂**用帳戶。
-    4. 在下拉方塊中，選取 [**儲存體帳戶**] 下的儲存體帳戶名稱。 
+    4. 在下拉方塊中，選取 [**儲存體帳戶**] 下的儲存體帳戶名稱。
     5. 選取 [確定]。
 
     ### <a name="stream-to-an-event-hub"></a>串流至事件中樞
@@ -160,7 +160,7 @@ JSON 輸出在屬性欄位中顯示了探查健全狀況狀態的基本資訊。
 
 您可以使用下列任何方法，檢視和分析稽核記錄檔資料：
 
-* **Azure 工具：** 透過 Azure PowerShell、Azure 命令列介面（CLI）、Azure REST API 或 Azure 入口網站，從 audit 記錄取出資訊。 [稽核作業與資源管理員](../azure-resource-manager/resource-group-audit.md) 一文會詳述每個方法的逐步指示。
+* **Azure 工具：** 透過 Azure PowerShell、Azure 命令列介面（CLI）、Azure REST API 或 Azure 入口網站，從 audit 記錄取出資訊。 [稽核作業與資源管理員](../azure-resource-manager/management/view-activity-logs.md) 一文會詳述每個方法的逐步指示。
 * **Power BI︰** 如果還沒有 [Power BI](https:// .microsoft.com/pricing) 帳戶，您可以免費試用。 使用 [Power BI 的 Azure 稽核記錄內容套件](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs)，您可以使用預先設定的儀表板來分析資料，或根據您的需求自訂檢視。
 
 ### <a name="view-and-analyze-the-health-probe-and-event-log"></a>檢視和分析健全狀況探查與事件記錄檔

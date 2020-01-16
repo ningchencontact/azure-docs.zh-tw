@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: 895a7a41c6ba8695e35d74760628c3cbaa34d3ea
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1b807908c9fb54ecf15de6d44a04760659196a31
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516574"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980978"
 ---
 # <a name="diagnostic-logs-for-azure-web-application-firewall"></a>Azure Web 應用程式防火牆的診斷記錄
 
@@ -24,13 +24,13 @@ ms.locfileid: "73516574"
 
 您可以在 Azure 中使用不同類型的記錄來管理和針對應用程式閘道進行疑難排解。 您可以透過入口網站存取其中一些記錄。 可以從 Azure Blob 儲存體擷取所有記錄，並且在不同的工具中進行檢視 (例如 [Azure 監視器記錄](../../azure-monitor/insights/azure-networking-analytics.md)、Excel 和 Power BI)。 您可以從下列清單進一步了解不同類型的記錄：
 
-* **活動記錄**：您可以使用 [Azure 活動記錄](../../azure-resource-manager/resource-group-audit.md) (之前稱為「作業記錄和稽核記錄」) 來檢視提交至您的 Azure 訂用帳戶的所有作業及其狀態。 預設會收集活動記錄，您可在 Azure 入口網站中檢視它們。
+* **活動記錄**：您可以使用 [Azure 活動記錄](../../azure-resource-manager/management/view-activity-logs.md) (之前稱為「作業記錄和稽核記錄」) 來檢視提交至您的 Azure 訂用帳戶的所有作業及其狀態。 預設會收集活動記錄，您可在 Azure 入口網站中檢視它們。
 * **存取記錄**：您可以使用此記錄來查看應用程式閘道存取模式，並分析重要資訊。 這包括呼叫端的 IP、要求的 URL、回應延遲、傳回碼，以及傳入和傳出的位元組。每300秒會收集一次存取記錄檔。 此記錄檔包含每個應用程式閘道執行個體的一筆記錄。 應用程式閘道執行個體是由 instanceId 屬性識別。
 * **效能記錄**：您可以使用此記錄來檢視應用程式閘道執行個體的執行情況。 此記錄會擷取每個執行個體的效能資訊，包括提供的要求總數、輸送量 (以位元組為單位)、提供的總要求數、失敗的要求計數、狀況良好和狀況不良的後端執行個體計數。 每隔 60 秒會收集一次效能記錄。 效能記錄僅適用于 v1 SKU。 針對 v2 SKU，請使用效能資料的[計量](../../application-gateway/application-gateway-metrics.md)。
 * **防火牆記錄**：您可以使用此記錄，檢視透過應用程式閘道的偵測或防止模式 (依 Web 應用程式防火牆的設定) 所記錄的要求。
 
 > [!NOTE]
-> 記錄僅適用於在 Azure Resource Manager 部署模型中部署的資源。 您無法將記錄使用於傳統部署模型中的資源。 若要深入了解這兩個模型，請參閱[了解 Resource Manager 部署和傳統部署](../../azure-resource-manager/resource-manager-deployment-model.md)一文。
+> 記錄僅適用於在 Azure Resource Manager 部署模型中部署的資源。 您無法將記錄使用於傳統部署模型中的資源。 若要深入了解這兩個模型，請參閱[了解 Resource Manager 部署和傳統部署](../../azure-resource-manager/management/deployment-models.md)一文。
 
 您有三個選項可用來排序您的記錄：
 
@@ -55,8 +55,8 @@ ms.locfileid: "73516574"
     ```powershell
     Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
-    
-> [!TIP] 
+
+> [!TIP]
 >活動記錄不需要個別的儲存體帳戶。 將儲存體用於記錄存取和效能會產生服務費用。
 
 ### <a name="enable-logging-through-the-azure-portal"></a>透過 Azure 入口網站啟用記錄功能
@@ -79,9 +79,9 @@ ms.locfileid: "73516574"
 
 5. 輸入設定的名稱，確認設定，然後選取 [**儲存**]。
 
-### <a name="activity-log"></a>活動記錄檔
+### <a name="activity-log"></a>活動記錄
 
-根據預設，Azure 會產生活動記錄。 記錄會在 Azure 的事件記錄存放區中保留 90 天。 閱讀[檢視事件和活動記錄](../../azure-resource-manager/resource-group-audit.md)一文，深入了解這些記錄。
+根據預設，Azure 會產生活動記錄。 記錄會在 Azure 的事件記錄存放區中保留 90 天。 閱讀[檢視事件和活動記錄](../../azure-resource-manager/management/view-activity-logs.md)一文，深入了解這些記錄。
 
 ### <a name="access-log"></a>存取記錄檔
 
@@ -231,7 +231,7 @@ ms.locfileid: "73516574"
 |ruleSetType     | 規則集類型。 可用的值是 OWASP。        |
 |ruleSetVersion     | 規則集版本。 可用值為 2.2.9 和 3.0。     |
 |ruleId     | 觸發事件的規則識別碼。        |
-|Message     | 方便使用的觸發事件訊息。 詳細資料區段中會提供詳細資料。        |
+|message     | 方便使用的觸發事件訊息。 詳細資料區段中會提供詳細資料。        |
 |動作     |  對要求採取的動作。 可用的值為 Blocked 和 Allowed。      |
 |site     | 將產生此網站的記錄。 目前只列出 Global，因為規則為全域。|
 |詳細資料     | 觸發事件的詳細資料。        |
@@ -239,7 +239,7 @@ ms.locfileid: "73516574"
 |details.data     | 在符合規則之要求中找到的特定資料。         |
 |details.file     | 包含規則的組態檔。        |
 |details.line     | 觸發事件的組態檔中的行號。       |
-|主機名稱   | 應用程式閘道的主機名稱或 IP 位址。    |
+|hostname   | 應用程式閘道的主機名稱或 IP 位址。    |
 |transactionId  | 指定交易的唯一識別碼，可協助將同一個要求中發生的多個規則違規組成群組。   |
 |policyId   | 與應用程式閘道、接聽程式或路徑相關聯之防火牆原則的唯一識別碼。   |
 |policyScope    | 原則值的位置可以是「全域」、「接聽程式」或「位置」。   |
@@ -276,7 +276,7 @@ ms.locfileid: "73516574"
       "policyScopeName": "httpListener1"
     }
   }
-} 
+}
 
 ```
 
@@ -284,7 +284,7 @@ ms.locfileid: "73516574"
 
 您可以使用下列任何方法，檢視和分析活動記錄資料：
 
-* **Azure 工具**：透過 Azure PowerShell、Azure CLI、Azure REST API 或 Azure 入口網站，從活動記錄擷取資訊。 [活動作業與 Resource Manager](../../azure-resource-manager/resource-group-audit.md) 一文會詳述每個方法的逐步指示。
+* **Azure 工具**：透過 Azure PowerShell、Azure CLI、Azure REST API 或 Azure 入口網站，從活動記錄擷取資訊。 [活動作業與 Resource Manager](../../azure-resource-manager/management/view-activity-logs.md) 一文會詳述每個方法的逐步指示。
 * **Power BI**：如果還沒有 [Power BI](https://powerbi.microsoft.com/pricing) 帳戶，您可以免費試用。 藉由使用[Power BI 範本應用程式](https://docs.microsoft.com/power-bi/service-template-apps-overview)，您可以分析您的資料。
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>檢視及分析存取、效能和防火牆記錄
@@ -295,8 +295,8 @@ ms.locfileid: "73516574"
 
 > [!TIP]
 > 如果您熟悉 Visual Studio 以及在 C# 中變更常數和變數值的基本概念，您可以使用 GitHub 所提供的[記錄檔轉換器工具 (英文)](https://github.com/Azure-Samples/networking-dotnet-log-converter)。
-> 
-> 
+>
+>
 
 #### <a name="analyzing-access-logs-through-goaccess"></a>透過 GoAccess 分析存取記錄
 

@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ec391db0e18128ad85d3bacb79fa51770aa70ea1
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c49df689ae859c93046c19af043aa2001dbb5481
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298888"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979636"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>開始使用 Azure 資料表儲存體和 Visual Studio 已連線的服務 (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。 Azure 資料表很適合儲存結構化、非關聯式資料。
 
@@ -32,7 +32,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
 ## <a name="prerequisites"></a>必要條件
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)
+* [Azure 儲存體帳戶](../storage/common/storage-account-create.md)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -115,7 +115,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
     }
     ```
 
-1. 在 **CreateTable** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **CreateTable** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -204,7 +204,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
     }
     ```
 
-1. 在 **AddEntity** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **AddEntity** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -299,7 +299,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
     }
     ```
 
-1. 在 **AddEntity** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **AddEntity** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -419,7 +419,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
     }
     ```
 
-1. 在 **GetSingle** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **GetSingle** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -519,7 +519,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
     }
     ```
 
-1. 在 **GetPartition** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **GetPartition** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -629,7 +629,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
     }
     ```
 
-1. 在 **DeleteEntity** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **DeleteEntity** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: c357e460e49ffee669f3978be7678353acfcd249
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f8400cbefc514fa01dedb1434a60989b1df0528d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459420"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980222"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>設定工作階段主機虛擬機器
 
@@ -209,11 +209,11 @@ Windows 虛擬桌面並存堆疊會隨著 Windows Server 2019 自動安裝。 �
 
 1. 使用遠端桌面通訊協定（RDP）以本機系統管理員身分直接進入工作階段主機 VM。
 2. 下載並匯入[Windows 虛擬桌面 powershell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)以用於您的 powershell 會話（如果您尚未這麼做），然後執行此 Cmdlet 來登入您的帳戶：
-    
+
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
     ```
-    
+
 3. 透過使用[PowerShell 建立主機集](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)區，安裝並存堆疊。
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>如何修正 Windows 虛擬桌面並存堆疊而無法故障
@@ -322,7 +322,7 @@ Windows 虛擬桌面並存堆疊會隨著 Windows Server 2019 自動安裝。 �
 2. 在 [開始] 功能表旁的搜尋列中輸入 "About"。
 3. 選取 [**關於您的電腦**]。
 4. 檢查「版本」旁邊的數位。 數位應該是 "1809" 或 "1903"，如下圖所示。
-   
+
     ![Windows 規格視窗的螢幕擷取畫面。 版本號碼會以藍色反白顯示。](media/windows-specifications.png)
 
 既然您已經知道您的版本號碼，請直接跳到相關的章節。
@@ -344,6 +344,6 @@ Windows 虛擬桌面並存堆疊會隨著 Windows Server 2019 自動安裝。 �
 - 若要疑難排解遠端桌面用戶端的問題，請參閱針對[遠端桌面用戶端進行疑難排解](troubleshoot-client.md)
 - 若要針對搭配 Windows 虛擬桌面使用 PowerShell 時的問題進行疑難排解，請參閱[Windows 虛擬桌面 PowerShell](troubleshoot-powershell.md)。
 - 若要深入瞭解此服務，請參閱[Windows 虛擬桌面環境](environment-setup.md)。
-- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署進行疑難排解](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md)。
-- 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](../azure-resource-manager/resource-group-audit.md)。
-- 若要了解部署期間可採取哪些動作來判斷錯誤，請參閱 [檢視部署作業](../azure-resource-manager/resource-manager-deployment-operations.md)。
+- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署進行疑難排解](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)。
+- 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](../azure-resource-manager/management/view-activity-logs.md)。
+- 若要了解部署期間可採取哪些動作來判斷錯誤，請參閱 [檢視部署作業](../azure-resource-manager/templates/deployment-history.md)。

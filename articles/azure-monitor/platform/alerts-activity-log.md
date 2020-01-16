@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 06/25/2019
-ms.openlocfilehash: 54122d784467bc090d82f4126e03ab688883ea7d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4835f1034149a015963569a0b1fc5f9195e3cfca
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364793"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969527"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>使用 Azure 監視器來建立、查看和管理活動記錄警示  
 
@@ -197,7 +197,7 @@ ms.locfileid: "75364793"
   ]
 }
 ```
-先前的範例 JSON 可儲存為（例如 Sampleactivitylogalert.json），以供本逐步解說之用，而且可以使用[Azure 入口網站中的 Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md)來進行部署。
+先前的範例 JSON 可儲存為（例如 Sampleactivitylogalert.json），以供本逐步解說之用，而且可以使用[Azure 入口網站中的 Azure Resource Manager](../../azure-resource-manager/templates/deploy-portal.md)來進行部署。
 
 > [!NOTE]
 > 最多可能需要5分鐘的時間，新的活動記錄警示規則才會變成作用中狀態。

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 01/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a839d75757bcee14d7f696d2d11d1d7d8fa4cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 589d8219681304242585c9fed33a4e3d364909ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422848"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978896"
 ---
 # <a name="what-are-security-defaults"></a>什麼是安全性預設值？
 
@@ -28,7 +28,10 @@ Microsoft 將安全性預設值提供給所有人。 目標是要確保所有組
 
 ![Azure 入口網站的螢幕擷取畫面，具有切換以啟用安全性預設值](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
  
-系統會在您的租使用者中開啟下列安全性設定。 
+> [!TIP]
+> 如果您的租使用者是在2019年10月22日日或之後建立的，您可能會遇到新的預設安全行為，並已在您的租使用者中啟用安全性預設值。 為了保護所有的使用者，系統會將安全性預設值推出至所有建立的新租使用者。
+
+如需有關如何提供安全性預設值的詳細資訊，請參閱 Alex Weinert 的 blog 文章，[安全性預設值簡介](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414)。
 
 ## <a name="unified-multi-factor-authentication-registration"></a>統一的多重要素驗證註冊
 

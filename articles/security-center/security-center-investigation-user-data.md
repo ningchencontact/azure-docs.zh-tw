@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
-ms.openlocfilehash: 059ca2a26e50128d6bc4313dad9f995e97c06378
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9e4c6577f0b8b18aff343ac54b31ff292632f5d0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686399"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979230"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>管理 Azure 資訊安全中心調查中找到的使用者資料
 本文提供有關如何管理 Azure 資訊安全中心調查功能中找到的使用者資料的資訊。 調查資料會儲存在[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)檔中，並在資訊安全中心中公開。 管理使用者資料包含了刪除或匯出資料的能力。
@@ -33,7 +33,7 @@ ms.locfileid: "73686399"
 ## <a name="securing-and-controlling-access-to-personal-information"></a>保護與控制個人資訊存取
 指派為讀者、擁有者、參與者或帳戶管理員角色的資訊安全中心使用者，可以在此工具中存取客戶資料。
 
-若要深入了解讀者、擁有者和參與者角色，請參閱 [Azure 角色型存取控制的內建角色](../role-based-access-control/built-in-roles.md)。 若要深入了解帳戶管理員角色，請參閱 [Azure 訂用帳戶管理員](../billing/billing-add-change-azure-subscription-administrator.md)。
+若要深入了解讀者、擁有者和參與者角色，請參閱 [Azure 角色型存取控制的內建角色](../role-based-access-control/built-in-roles.md)。 若要深入了解帳戶管理員角色，請參閱 [Azure 訂用帳戶管理員](../cost-management-billing/manage/add-change-subscription-administrator.md)。
 
 ## <a name="deleting-personal-data"></a>刪除個人資料
 指派為擁有者、參與者或帳戶管理員角色的資訊安全中心使用者可以刪除調查資訊。
@@ -45,7 +45,7 @@ DELETE
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/security/incidents/{incidentName}
 ```
 
-藉由使用 `incidentName` 要求列出所有事件，可以找到 `GET` 輸入：
+藉由使用 `GET` 要求列出所有事件，可以找到 `incidentName` 輸入：
 
 ```HTTP
 GET

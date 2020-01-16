@@ -9,18 +9,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/31/2019
 ms.author: evansma
-ms.openlocfilehash: f4cd5083d694cb7c463596b7b45c384e0dc8b28d
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 8c0af3f059d1beb0e1d07d3494b31c674f15438d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779734"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980864"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Marketplace 列名指導方針
 
 本文件包含適用於檢閱者針對列名至 Azure Marketplace 之供應項目和服務的需求指導方針與檢查清單。
 
-所有供應項目都必須符合以下所示的[所有列名需求](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#all-listing-requirements)。 針對特定列名類型，會提供其他需求和檢查清單，包括：附加[試用版](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#trial-offer-requirements)的供應項目、[SaaS 應用程式](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#saas-apps-requirements)、[容器](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#container-offer-requirements)和[諮詢供應項目](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#consulting-offer-requirements)。
+所有供應項目都必須符合以下所示的[所有列名需求](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#all-listing-requirements)。 針對特定列名類型，會提供其他需求和檢查清單，包括：附加[試用版](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#trial-offer-requirements)的供應項目、[SaaS 應用程式](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#saas-app-requirements)、[容器](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#container-offer-requirements)和[諮詢供應項目](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#consulting-offer-requirements)。
 
 
 ## <a name="all-listing-requirements"></a>所有列名需求

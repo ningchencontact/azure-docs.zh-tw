@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 6521c139463bb0de1e24783bbbdd6a2d3996be6f
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ffe68352fed0b9c0df0cdfb971c085d1bb7f18c4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430099"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978064"
 ---
 # <a name="sap-lama-connector-for-azure"></a>適用於 Azure 的 SAP LaMa 連接器
 
@@ -69,44 +69,74 @@ ms.locfileid: "72430099"
 * 如果您登入受管理的主機，請確定不封鎖卸載檔案系統  
   如果您登入 Linux 虛擬機器，並將工作目錄變更為掛接點中的目錄（例如/usr/sap/AH1/ASCS00/exe），則無法卸載磁片區，且重新放置或 unprepare 會失敗。
 
+* 請務必停用 SUSE SLES Linux 虛擬機器上的 CLOUD_NETCONFIG_MANAGE。 如需詳細資訊，請參閱[SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633)。
+
 ## <a name="set-up-azure-connector-for-sap-lama"></a>設定適用於 SAP LaMa 的 Azure 連接器
 
-從 SAP LaMa 3.0 SP05 起隨附 Azure 連接器。 我們建議一律針安裝 SAP LaMa 3.0 的最新支援套件和修補程式。 Azure 連接器會使用服務主體來對 Microsoft Azure 授權。 請遵循下列步驟來建立適用於 SAP Landscape Management (LaMa) 的服務主體。
+從 SAP LaMa 3.0 SP05 起隨附 Azure 連接器。 我們建議一律針安裝 SAP LaMa 3.0 的最新支援套件和修補程式。
 
-1. 移至 https://portal.azure.com
+Azure 連接器會使用 Azure Resource Manager API 來管理您的 Azure 資源。 SAP LaMa 可以使用服務主體或受控識別，來對此 API 進行驗證。 如果您的 SAP LaMa 是在 Azure VM 上執行，建議使用受控識別，如[使用受控識別取得 AZURE API 的存取權](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d)一章所述。 如果您想要使用服務主體，請依照[使用服務主體取得 AZURE API 的存取權一](lama-installation.md#913c222a-3754-487f-9c89-983c82da641e)章中的步驟進行。
+
+### <a name="913c222a-3754-487f-9c89-983c82da641e"></a>使用服務主體來取得 Azure API 的存取權
+
+Azure 連接器可以使用服務主體來授權 Microsoft Azure。 請遵循下列步驟來建立適用於 SAP Landscape Management (LaMa) 的服務主體。
+
+1. 前往 https://portal.azure.com
 1. 開啟 [Azure Active Directory] 刀鋒視窗
 1. 按一下 [應用程式註冊]
-1. 按一下 [新增]
-1. 輸入名稱、選取應用程式類型 [Web 應用程式/API]、輸入登入 URL （例如 HTTP：\//localhost），然後按一下 [建立]
-1. 登入 URL 並未使用，而且可以是任何有效的 URL
-1. 選取新的應用程式，然後按一下 [設定] 索引標籤中的金鑰
-1. 輸入新金鑰的說明、選取 [永不過期]，然後按一下 [儲存]
+1. 按一下 [新增註冊]
+1. 輸入名稱，然後按一下 [註冊]
+1. 選取新的應用程式，然後按一下 [設定] 索引標籤中的 [憑證 & 秘密]
+1. 建立新的用戶端密碼，輸入新金鑰的描述，選取密碼應 exire 的時間，然後按一下 [儲存]
 1. 記下值。 此值用來作為服務主體的密碼
 1. 記下應用程式識別碼。 此值用來作為服務主體的使用者名稱
 
 服務主體預設沒有存取您 Azure 資源的權限。 您必須為服務主體提供其存取權限。
 
-1. 移至 https://portal.azure.com
+1. 前往 https://portal.azure.com
 1. 開啟資源群組刀鋒視窗
 1. 選取您要使用的資源群組
 1. 選取 [存取控制 (IAM)]
 1. 按一下 [新增角色指派]
 1. 選取 [參與者] 角色
 1. 輸入您先前建立的應用程式名稱
-1. 按一下 [儲存]。
+1. 按一下 [儲存]
 1. 針對您要使用於 SAP LaMa 的所有資源群組重複步驟 3 到 8
+
+### <a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>使用受控識別來取得 Azure API 的存取權
+
+若要能夠使用受控識別，您的 SAP LaMa 實例必須在具有系統或使用者指派身分識別的 Azure VM 上執行。 如需受控識別的詳細資訊，請參閱[什麼是 Azure 資源的受控識別？](../../../active-directory/managed-identities-azure-resources/overview.md)和[使用 Azure 入口網站在 VM 上設定 azure 資源的受控](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)識別。
+
+根據預設，受控識別不具有存取 Azure 資源的許可權。 您必須授與它存取權限。
+
+1. 前往 https://portal.azure.com
+1. 開啟資源群組刀鋒視窗
+1. 選取您要使用的資源群組
+1. 選取 [存取控制 (IAM)]
+1. 按一下 [新增-> 新增角色指派]
+1. 選取 [參與者] 角色
+1. 針對 [指派存取權] 選取 [虛擬機器]
+1. 選取您的 SAP LaMa 實例執行所在的虛擬機器
+1. 按一下 [儲存]
+1. 針對您想要在 SAP LaMa 中使用的所有資源群組，重複執行步驟
+
+在您的 SAP LaMa Azure 連接器設定中，選取 [使用受控識別] 以啟用受控識別的使用方式。 如果您想要使用系統指派的身分識別，請務必將 [使用者名稱] 欄位保留空白。 如果您想要使用使用者指派的身分識別，請在 [使用者名稱] 欄位中輸入使用者指派的身分識別識別碼。
+
+### <a name="create-a-new-connector-in-sap-lama"></a>在 SAP LaMa 中建立新的連接器
 
 開啟 SAP LaMa 網站並瀏覽至基礎結構。 移至 Cloud Managers 索引標籤，然後按一下 [新增]。 選取 Microsoft Azure 雲端配接器並且按 [下一步]。 輸入以下資訊：
 
 * 標籤：選擇連接器執行個體的名稱
-* 使用者名稱：服務主體的應用程式識別碼
-* 密碼：服務主體金鑰/密碼
+* 使用者名稱：虛擬機器之使用者指派身分識別的服務主體應用程式識別碼或識別碼。 如需詳細資訊，請參閱 [使用系統或使用者指派的身分識別]。
+* 密碼：服務主體金鑰/密碼。 如果您使用系統或使用者指派的身分識別，您可以將此欄位保留空白。
 * URL：保留預設值 https://management.azure.com/
 * 監視間隔 (秒)：應該至少 300
+* 使用受控識別： SAP LaMa 可以使用系統或使用者指派的身分識別，來對 Azure API 進行驗證。 請參閱本指南中的[使用受控識別取得 AZURE API 的存取權](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d)章節。
 * 訂用帳戶識別碼：Azure 訂用帳戶識別碼
 * Active Directory 租用戶識別碼：Active Directory 租用戶的識別碼
 * Proxy 主機：如果 SAP LaMa 需要 Proxy 才能連線到網際網路，則為 Proxy 的主機名稱
 * Proxy 連接埠：Proxy 的 TCP 連接埠
+* 變更儲存類型以節省成本：如果 Azure 介面卡應該變更受控磁碟的儲存體類型，以節省磁片不在使用中的成本，請啟用此設定。 針對 SAP 實例設定中所參考的資料磁片，介面卡會在實例 unprepare 期間，將磁片類型變更為標準儲存體，並在實例準備期間，將其切換回原始儲存體類型。 如果您停止 SAP LaMa 中的虛擬機器，介面卡會變更所有連接磁片的儲存體類型，包括要標準儲存體的 OS 磁片。 如果您在 SAP LaMa 中啟動虛擬機器，介面卡會將儲存體類型變更回原始儲存體類型。
 
 按一下 [測試組態] 以驗證您的輸入。 您應該會看到
 
@@ -393,7 +423,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-di
 
 務必在您嘗試進行租用戶複製、租用戶移動或建立系統複寫之前，備份 SYSTEMDB 和所有的租用戶資料庫。
 
-### <a name="microsoft-sql-server"></a>連接字串
+### <a name="microsoft-sql-server"></a>Microsoft SQL Server
 
 在下列範例中，我們假設您以系統識別碼 AS1 安裝 SAP NetWeaver 系統。 SAP NetWeaver 系統所用 SQL Server 執行個體的虛擬主機名稱為 as1-db、SAP NetWeaver ASCS 的虛擬主機名稱為 as1-ascs，以及第一個 SAP NetWeaver 應用程式伺服器的虛擬主機名稱為 as1-di-0。
 

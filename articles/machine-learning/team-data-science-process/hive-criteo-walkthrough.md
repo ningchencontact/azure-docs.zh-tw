@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: eca19b3774ad285cb143ffc2b6c53360bec85fa4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d47f6f5b983c0f785c76d1b2cede815dda699a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492354"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968720"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process 實務 - 在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集
 
@@ -44,7 +44,7 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 
 此資料集中的數值及分類資料行中有遺漏值。 我們會說明用來處理遺漏值的簡單方法。 資料的其他詳細資料會在將它們儲存成 Hive 資料表時加以說明。
 
-**定義：** *點選率 (CTR)：* 這是資料中點選的百分比。 在此 Criteo 資料集中，CTR 是大約 3.3%或 0.033。
+**定義：** *點選連結率（CTR）：* 這是資料中的點擊百分比。 在此 Criteo 資料集中，CTR 是大約 3.3%或 0.033。
 
 ## <a name="mltasks"></a>預測工作的範例
 本逐步解說將討論兩個範例預測問題：
@@ -60,7 +60,7 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 
 設定 Azure 資料科學環境，用於使用 HDInsight 叢集以三個步驟建置預測性的分析解決方案：
 
-1. [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)：此儲存體帳戶用來將資料儲存在 Azure Blob 儲存體中。 HDInsight 叢集中使用的資料會儲存在這裡。
+1. [建立儲存體帳戶](../../storage/common/storage-account-create.md)：此儲存體帳戶用來將資料儲存在 Azure Blob 儲存體中。 HDInsight 叢集中使用的資料會儲存在這裡。
 2. [自訂適用於資料科學的 Azure HDInsight Hadoop 叢集](customize-hadoop-cluster.md)：這個步驟將會建立已在所有節點上安裝 64 位元 Anaconda Python 2.7 的 Azure HDInsight Hadoop 叢集。 自訂 HDInsight 叢集時有兩個需完成的重要步驟 (如本主題所述)。
 
    * 建立時您必須將步驟 1 中建立的儲存體帳戶與 HDInsight 叢集連結。 此儲存體帳戶用於存取可以在叢集內處理的資料。
@@ -116,9 +116,9 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 下列程式碼會建立資料庫 "criteo"，然後產生 4 個資料表：
 
-* 建置於 day*00 到 day*20 「用於產生計數的資料表」\_\_、
-* 建置於 day*21「用來做為訓練資料集的資料表」* \_，以及
-* 分別建置於 day*22 和 day*23 的兩個「用來做為測試資料集的資料表」\_\_。
+* 建置於 day\_00 到 day\_20 「用於產生計數的資料表」、
+* 建置於 day\_21「用來做為訓練資料集的資料表」，以及
+* 分別建置於 day\_22 和 day\_23 的兩個「用來做為測試資料集的資料表」。
 
 將測試資料集分成兩個不同的資料表，因為其中一天為假日。 目標在於判斷此模型是否可以從點擊率來偵測假日與非假日之間的差異。
 

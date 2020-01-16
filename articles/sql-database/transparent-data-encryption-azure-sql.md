@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/01/2019
-ms.openlocfilehash: 9eebb181ed7aa1ac5898646c29e308f85dbe0f8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 381dfb4fca7476d5805bff92d58ecbbf49679346
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354909"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979961"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL Database 和資料倉儲的透明資料加密
 
@@ -79,7 +79,7 @@ Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰�
 
 您要在資料庫層級上開啟和關閉透明資料加密。 若要在資料庫上啟用透明資料加密，請前往 [Azure 入口網站](https://portal.azure.com)，並使用您的 Azure 系統管理員或參與者帳戶登入。 在您的使用者資料庫下找出透明資料加密設定。 依預設會使用服務管理的透明資料加密。 系統會自動為包含資料庫的伺服器產生透明資料加密憑證。 針對 Azure SQL 受控執行個體，使用 T-SQL 在資料庫上開啟和關閉透明資料加密。
 
-![服務管理的透明資料加密](./media/transparent-data-encryption-azure-sql/service-managed-transparent-data-encryption.png)  
+![服務管理的透明資料加密](./media/transparent-data-encryption-azure-sql/service-managed-transparent-data-encryption.png)
 
 您可以在伺服器層級上設定透明資料加密主要金鑰，也就是透明資料加密保護裝置。 若要使用具有「攜帶您自己的金鑰」支援的透明資料加密，並以 Key Vault 中的金鑰保護您的資料庫，請開啟伺服器下方的透明資料加密設定。
 

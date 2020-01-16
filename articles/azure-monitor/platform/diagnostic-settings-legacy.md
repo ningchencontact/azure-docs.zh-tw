@@ -7,12 +7,12 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 12/20/2019
-ms.openlocfilehash: e3a8048d8bcb8bb737c511a8b8bb6b57f9e81403
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 55efdfe2bb1b37e566654b8041f2cf5ed411cc3f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750973"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977577"
 ---
 # <a name="collect-azure-activity-log-with-legacy-settings"></a>使用舊版設定收集 Azure 活動記錄
 [Azure 活動記錄](platform-logs-overview.md)是一個[平臺記錄](platform-logs-overview.md)，可讓您深入瞭解 Azure 中發生的訂用帳戶層級事件。 到目前為止，您已建立記錄設定檔，以將活動記錄專案傳送至[事件中樞或儲存體帳戶](activity-log-export.md)，並使用連接器將其收集到[log Analytics 工作區](activity-log-collect.md)。 本文說明方法之間的差異、如何使用現有的舊版設定，以及如何清除舊版設定以準備診斷設定。
@@ -28,7 +28,7 @@ ms.locfileid: "75750973"
 - 篩選集合，只收集特定類別的記錄。
 - 收集所有活動記錄類別。 某些分類不會使用舊版方法收集。
 - 記錄內嵌的延遲較快。 先前的方法大約會有15分鐘的延遲，而診斷設定只會加上1分鐘。
-  
+
 ### <a name="considerations"></a>考量
 啟用這項功能之前，請先考慮使用診斷設定的下列活動記錄收集詳細資料。
 
@@ -44,7 +44,7 @@ ms.locfileid: "75750973"
 - ActivityStatus
 - ActivitySubstatus
 - OperationName
-- ResourceProvider 
+- ResourceProvider
 
 已加入下列屬性：
 
@@ -57,10 +57,10 @@ ms.locfileid: "75750973"
 
 1. 從 Azure 入口網站的 [ **Azure 監視器**] 功能表中，選取 [**活動記錄**]。
 3. 按一下 [診斷設定]。
-   
+
    ![診斷設定](media/diagnostic-settings-subscription/diagnostic-settings.png)
-   
-4. 按一下 [紫色] 橫幅以取得舊版體驗。 
+
+4. 按一下 [紫色] 橫幅以取得舊版體驗。
 
     ![舊版體驗](media/diagnostic-settings-subscription/legacy-experience.png)
 
@@ -84,7 +84,7 @@ ms.locfileid: "75750973"
 ### <a name="disable-log-profile"></a>停用記錄檔設定檔
 
 1. 使用 [使用[舊版設定](#work-with-legacy-settings)] 中所述的程式來開啟舊版設定。
-2. 停用儲存體或事件中樞的任何目前集合。 
+2. 停用儲存體或事件中樞的任何目前集合。
 
 
 
@@ -93,5 +93,5 @@ Azure Log Analytics 監視解決方案包含多個記錄查詢和視圖，可用
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入了解活動記錄](../../azure-resource-manager/resource-group-audit.md)
+* [深入了解活動記錄](../../azure-resource-manager/management/view-activity-logs.md)
 * [深入瞭解診斷設定](diagnostic-settings.md)

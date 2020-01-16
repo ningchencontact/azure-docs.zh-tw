@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f935e8fc1e5d6d64bffaeb582e8b248317f49687
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660591"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980636"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之部署問題：常見問題集 (FAQ)
 
@@ -56,7 +56,7 @@ ms.locfileid: "75660591"
 
 您也可以在入口網站追蹤訂用帳戶目前的使用量/配額：Azure 入口網站  => 訂用帳戶  => \<適當的訂用帳戶 > => 使用方式 + 配額。
 
-也可以透過 Azure 計費 API 擷取資源使用量/耗用量的相關資訊。 請參閱 [Azure 資源使用情況 API (預覽)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview)。
+也可以透過 Azure 計費 API 擷取資源使用量/耗用量的相關資訊。 請參閱 [Azure 資源使用情況 API (預覽)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview)。
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>如何在不重新部署的情況下變更已部署之雲端服務 VM 的大小？
 您無法在不重新部署的情況下變更已部署之雲端服務的 VM 大小。 VM 大小已內建於 CSDEF，只可使用重新部署來進行更新。
@@ -66,17 +66,17 @@ ms.locfileid: "75660591"
 ## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>為什麼我在使用 Azure Resource Manager 儲存體帳戶時，無法透過服務管理 API 或 PowerShell 部署雲端服務？ 
 
 由於雲端服務是一種與 Azure Resource Manager 模型不直接相容的傳統資源，因此您無法將其與 Azure Resource Manager 儲存體帳戶產生關聯。 以下提供一些選項： 
- 
+
 - 透過 REST API 部署。
 
     當您透過服務管理 REST API 部署時可以避開限制，方法為將 SAS URL 指定為 blob 存放裝置，這樣可以使用傳統和 Azure Resource Manager 儲存體帳戶。 在[這裡](/previous-versions/azure/reference/ee460813(v=azure.100))深入了解 'PackageUrl' 屬性。
-  
+
 - 透過 [Azure 入口網站](https://portal.azure.com)部署。
 
     這會從[Azure 入口網站](https://portal.azure.com)運作，因為呼叫會透過 proxy/填充碼進行，讓 Azure Resource Manager 和傳統資源之間進行通訊。 
- 
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>為何 Azure 入口網站要求我提供儲存體帳戶進行部署？ 
 
-在傳統入口網站中，套件已直接上傳到管理 API 層，然而 API 層會將套件暫時放入內部儲存體帳戶中。  此程序會造成效能和延展性問題，因為 API 層並未設計成檔案上傳服務。  在 Azure 入口網站 (Resource Manager 部署模型) 中，我們已略過新上傳到 API 層的暫時步驟，而造成更快速且更可靠的部署。 
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>為何 Azure 入口網站要求我提供儲存體帳戶進行部署？
 
-其成本非常低，您可以在所有部署中重複使用相同的儲存體帳戶。 您可以使用[儲存體成本計算機](https://azure.microsoft.com/pricing/calculator/#storage1)來判斷上傳服務套件 (CSPKG)、下載 CSPKG，然後刪除 CSPKG 的成本。 
+在傳統入口網站中，套件已直接上傳到管理 API 層，然而 API 層會將套件暫時放入內部儲存體帳戶中。  此程序會造成效能和延展性問題，因為 API 層並未設計成檔案上傳服務。  在 Azure 入口網站 (Resource Manager 部署模型) 中，我們已略過新上傳到 API 層的暫時步驟，而造成更快速且更可靠的部署。
+
+其成本非常低，您可以在所有部署中重複使用相同的儲存體帳戶。 您可以使用[儲存體成本計算機](https://azure.microsoft.com/pricing/calculator/#storage1)來判斷上傳服務套件 (CSPKG)、下載 CSPKG，然後刪除 CSPKG 的成本。

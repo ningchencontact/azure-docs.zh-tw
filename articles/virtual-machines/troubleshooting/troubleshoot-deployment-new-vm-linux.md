@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: f02e1f73460140c9fe9f2cf6d7ffda26533d570d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 98c3a6b14230e30ccbb103be741595696a20c236
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090013"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981411"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>針對在 Azure 中建立新 Linux 虛擬機器的 Resource Manager 部署問題進行疑難排解
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "70090013"
 ## <a name="collect-activity-logs"></a>收集活動記錄
 若要開始進行排解疑難，請收集活動記錄，以識別與問題相關的錯誤。 下列連結提供此程序該遵循的更多詳細資訊。
 
-[檢視部署作業](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[檢視部署作業](../../azure-resource-manager/templates/deployment-history.md)
 
 [檢視活動記錄以管理 Azure 資源](../../resource-group-audit.md)
 
@@ -42,34 +42,34 @@ ms.locfileid: "70090013"
 
 [!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**Y：** 如果 OS 是一般化的 Linux, 且上傳及/或以一般化設定進行捕獲, 則不會有任何錯誤。 同樣地，如果作業系統是特殊化的 Linux，且上傳和 (或) 擷取它時使用的是特殊化設定，就不會有任何錯誤。
+**Y：** 如果作業系統是一般化的 Linux，且上傳和 (或) 擷取它時使用的是一般化設定，就不會有任何錯誤。 同樣地，如果作業系統是特殊化的 Linux，且上傳和 (或) 擷取它時使用的是特殊化設定，就不會有任何錯誤。
 
 **上傳錯誤：**
 
-**N<sup>1</sup>：** 如果 OS 是一般化的 Linux, 且上傳為特製化, 您將會收到布建逾時錯誤, 因為 VM 會卡在布建階段。
+**N<sup>1</sup>：** 如果作業系統是一般化的 Linux，但是上傳它時是以特殊化形式上傳，就會發生佈建逾時錯誤，因為 VM 會卡在佈建階段。
 
-**N<sup>2</sup>：** 如果作業系統是特殊化的 Linux, 而且以一般化的形式上傳, 就會發生布建失敗錯誤, 因為新的 VM 是以原始的電腦名稱稱、使用者名稱和密碼執行。
+**N<sup>2</sup>：** 如果作業系統是特殊化的 Linux，但是上傳它時是以一般化形式上傳，就會發生佈建失敗錯誤，因為新 VM 是以原始的電腦名稱、使用者名稱和密碼執行。
 
 **解決方案：**
 
-若要解決這兩個錯誤, 請上傳原始 VHD (可供內部部署使用), 其設定與 OS (一般化/特製化) 相同。 若要以一般化形式上傳，請務必先執行 -deprovision。
+若要解決這兩個錯誤，請上傳原始 VHD （可供內部部署使用），其設定與 OS （一般化/特製化）相同。 若要以一般化形式上傳，請務必先執行 -deprovision。
 
 **擷取錯誤：**
 
-**N<sup>3</sup>：** 如果 OS 是一般化的 Linux, 而且是以特製化的方式加以捕捉, 您會收到布建逾時錯誤, 因為原始 VM 無法使用, 因為它已標示為一般化。
+**N<sup>3</sup>：** 如果作業系統是一般化的 Linux，但是擷取它時是以特殊化形式擷取，就會發生佈建逾時錯誤，因為原始 VM 會因被標示為一般化而無法供使用。
 
-**N<sup>4</sup>：** 如果作業系統是特殊化的 Linux, 而且是以一般化的形式加以捕獲, 您會收到布建失敗錯誤, 因為新的 VM 是以原始的電腦名稱稱、使用者名稱和密碼執行。 此外，原始 VM 會因被標示為特殊化而無法供使用。
+**N<sup>4</sup>：** 如果作業系統是特殊化的 Linux，但是擷取它時是以一般化形式擷取，就會發生佈建失敗錯誤，因為新 VM 是以原始的電腦名稱、使用者名稱和密碼執行。 此外，原始 VM 會因被標示為特殊化而無法供使用。
 
 **解決方案：**
 
 若要解決這兩個錯誤，請從入口網站中刪除目前的映像，然後使用與作業系統相同的設定 (一般化/特殊化) [從目前的 VHD 重新擷取映像](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
-## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>問題：自訂/圖庫/marketplace 映射;配置失敗
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>問題︰自訂/資源庫/Marketplace 映像；配置失敗
 當新的 VM 要求被釘選到不支援所要求的 VM 大小、或沒有可用空間可處理要求的叢集，便會發生此錯誤。
 
 **原因 1：** 叢集無法支援要求的 VM 大小。
 
-**解決方式 1：**
+**解決方法 1：**
 
 * 以較小的 VM 大小重試要求。
 * 如果無法變更要求的 VM 的大小︰
@@ -80,7 +80,7 @@ ms.locfileid: "70090013"
 
 **原因 2：** 叢集沒有可用的資源。
 
-**解決方式 2：**
+**解決方法 2：**
 
 * 稍後再重試要求。
 * 如果新的 VM 可以屬於不同的可用性設定組

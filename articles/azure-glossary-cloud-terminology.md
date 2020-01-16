@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: f5e0344cb1da86661ae87b5e45bd93dd181e7bb0
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659554"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978766"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 詞彙︰Azure 平台上的雲端術語字典
 
@@ -31,7 +31,7 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 
 ## <a name="account"></a>account
 用來存取和管理 Azure 訂用帳戶的帳戶。 通常稱為 Azure 帳戶，雖然帳戶可以是以下任何一項：現有公司、學校或個人 Microsoft 帳戶，或 Office 365 使用者名稱和密碼。 當您註冊[免費試用版](https://azure.microsoft.com)時，也可以建立帳戶來管理 Azure 訂用帳戶。  
-請參閱[ Office 365 帳戶註冊 Azure 訂用帳戶](billing/billing-use-existing-office-365-account-azure-subscription.md)和[您可以用來登入的帳戶](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
+請參閱[ Office 365 帳戶註冊 Azure 訂用帳戶](cost-management-billing/manage/office-365-account-for-azure-subscription.md)和[您可以用來登入的帳戶](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
 
 ## <a name="api-app"></a>API 應用程式
 [App Service 應用程式](#app-service-app)的另一個名稱。
@@ -96,11 +96,11 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 
 ## <a name="resource"></a>resource
 Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型的資源，例如資料庫或虛擬機器。   
-請參閱 [Azure Resource Manager 概觀](azure-resource-manager/resource-group-overview.md)
+請參閱 [Azure Resource Manager 概觀](azure-resource-manager/management/overview.md)
 
 ## <a name="resource-group"></a>資源群組
 資源管理員中的容器，可保留應用程式的相關資源。 資源群組可以包含應用程式的所有資源，或只保留以邏輯方式分組在一起的資源。 您可以決定如何根據對組織最有利的方式，將資源配置到資源群組。  
-請參閱 [Azure Resource Manager 概觀](azure-resource-manager/resource-group-overview.md)
+請參閱 [Azure Resource Manager 概觀](azure-resource-manager/management/overview.md)
 
 ## <a name="arm-template"></a>Resource Manager 範本
 一個 JSON 檔案，可以宣告方式定義一或多個 Azure 資源，並定義所部署資源之間的相依性。 範本可用來以一致性方式重複部署資源。  
@@ -108,7 +108,7 @@ Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型
 
 ## <a name="resource-provider"></a>資源提供者
 提供資源的服務，讓您可透過資源管理員進行部署及管理。 每個資源提供者都會提供作業，以便能運用所部署的資源。 資源提供者可以透過 Azure 入口網站、Azure PowerShell 和數個程式設計的 SDK 來存取。  
-請參閱 [Azure Resource Manager 概觀](azure-resource-manager/resource-group-overview.md)
+請參閱 [Azure Resource Manager 概觀](azure-resource-manager/management/overview.md)
 
 ## <a name="role"></a>角色 (role)
 用於控制可指派給使用者、群組和服務的存取權的方式。 角色能夠在 Azure 資源上執行建立、管理及讀取之類的動作。  

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 6eeabb279f5bd5165ebb249651b8bc926deb92a6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: a385d3ed7ef46389f96de72c98ffc29cebf60ec4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530913"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978822"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Cache for Redis
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "75530913"
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-如需傳統部署模型的詳細資訊，請參閱 [Azure Resource Manager 與傳統部署比較：了解資源的部署模型和狀態](../azure-resource-manager/resource-manager-deployment-model.md)。
+如需傳統部署模型的詳細資訊，請參閱 [Azure Resource Manager 與傳統部署比較：了解資源的部署模型和狀態](../azure-resource-manager/management/deployment-models.md)。
 
 ## <a name="prerequisites"></a>必要條件
 如果您已安裝 Azure PowerShell，其必須是 Azure PowerShell 1.0.0 或更新的版本。 您可以在 Azure PowerShell 命令提示字元下使用這個命令來檢查已安裝的 Azure PowerShell 版本。
@@ -776,7 +776,7 @@ ms.locfileid: "75530913"
 
 * [MSDN 上的 Azure Cache for Redis Cmdlet 文件](https://docs.microsoft.com/powershell/module/az.rediscache)
 * [Azure Resource Manager Cmdlet](https://go.microsoft.com/fwlink/?LinkID=394765)：了解如何使用 Azure Resource Manager 模組中的 Cmdlet。
-* [使用資源群組管理 Azure 資源](../azure-resource-manager/resource-group-template-deploy-portal.md)：了解如何在 Azure 入口網站中建立和管理資源群組。
+* [使用資源群組管理 Azure 資源](../azure-resource-manager/templates/deploy-portal.md)：了解如何在 Azure 入口網站中建立和管理資源群組。
 * [Azure 部落格](https://azure.microsoft.com/blog/)：深入了解 Azure 的新功能。
 * [Windows PowerShell 部落格](https://blogs.msdn.com/powershell)：深入了解 Windows PowerShell 的新功能。
 * ["Hey, Scripting Guy!" 部落格](https://blogs.technet.com/b/heyscriptingguy/)：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。

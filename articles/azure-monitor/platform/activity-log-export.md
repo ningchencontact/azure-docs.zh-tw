@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: b71f5590f120e15bd4ea027bcf6132795dac3cb6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 0e5780561df121d3d5af3a9b754d774cc7d6cf76
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750567"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969666"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>將 Azure 活動記錄匯出至儲存體或 Azure 事件中樞
 
 > [!WARNING]
-> 您現在可以使用與收集資源記錄的方式類似的診斷設定，將活動記錄收集到 Log Analytics 工作區。 請參閱[在 Azure 監視器中收集和分析 Log Analytics 工作區中的 Azure 活動記錄](diagnostic-settings-subscription.md)。
+> 您現在可以使用與收集資源記錄的方式類似的診斷設定，將活動記錄收集到 Log Analytics 工作區。 請參閱[在 Azure 監視器中收集和分析 Log Analytics 工作區中的 Azure 活動記錄](diagnostic-settings-legacy.md)。
 
 [Azure 活動記錄](platform-logs-overview.md)可讓您深入瞭解 azure 訂用帳戶中所發生的訂用帳戶層級事件。 除了在 Azure 入口網站中查看活動記錄，或將它複製到 Log Analytics 工作區，您可以使用 Azure 監視器收集的其他資料進行分析，您可以建立記錄設定檔，將活動記錄封存至 Azure 儲存體帳戶，或將其串流至 事件中樞。
 
@@ -28,12 +28,12 @@ ms.locfileid: "75750567"
 ## <a name="stream-activity-log-to-event-hub"></a>將活動記錄串流至事件中樞
 [Azure 事件中樞](/azure/event-hubs/)是一種資料串流平臺和事件內嵌服務，每秒可接收和處理數百萬個事件。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 有兩種方式可以使用活動記錄的串流處理功能：
 * **串流至協力廠商記錄與遙測系統** – 隨著時間進展，「Azure 事件中樞」串流會成為將「活動記錄」輸送到協力廠商 SIEM 與記錄分析解決方案的機制。
-* **建置自訂遙測與記錄平台** – 如果您已經有自訂建置的遙測平台或正考慮建置一個，「事件中樞」所具備的高度可調整發佈訂閱特質將可讓您靈活擷取活動記錄。 
+* **建置自訂遙測與記錄平台** – 如果您已經有自訂建置的遙測平台或正考慮建置一個，「事件中樞」所具備的高度可調整發佈訂閱特質將可讓您靈活擷取活動記錄。
 
 ## <a name="prerequisites"></a>必要條件
 
 ### <a name="storage-account"></a>儲存體帳戶
-如果您要封存活動記錄檔，您必須[建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)（如果您還沒有的話）。 您不應該使用已儲存其他非監視資料的現有儲存體帳戶，讓您可以更有效地控制監視資料的存取。 不過，如果您也將記錄和計量封存到儲存體帳戶，您可以選擇使用相同的儲存體帳戶，將所有監視資料保留在中央位置。
+如果您要封存活動記錄檔，您必須[建立儲存體帳戶](../../storage/common/storage-account-create.md)（如果您還沒有的話）。 您不應該使用已儲存其他非監視資料的現有儲存體帳戶，讓您可以更有效地控制監視資料的存取。 不過，如果您也將記錄和計量封存到儲存體帳戶，您可以選擇使用相同的儲存體帳戶，將所有監視資料保留在中央位置。
 
 儲存體帳戶不一定要和訂用帳戶發出記錄屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
 > [!NOTE]
@@ -65,7 +65,7 @@ ms.locfileid: "75750567"
 
 
 > [!IMPORTANT]
-> 如果未註冊 Microsoft Insights 資源提供者，您可能會在建立記錄檔設定檔時收到錯誤。 若要註冊此提供者，請參閱[Azure 資源提供者和類型](../../azure-resource-manager/resource-manager-supported-services.md)。
+> 如果未註冊 Microsoft Insights 資源提供者，您可能會在建立記錄檔設定檔時收到錯誤。 若要註冊此提供者，請參閱[Azure 資源提供者和類型](../../azure-resource-manager/management/resource-providers-and-types.md)。
 
 
 ### <a name="create-log-profile-using-the-azure-portal"></a>使用 Azure 入口網站建立記錄檔設定檔
@@ -77,7 +77,7 @@ ms.locfileid: "75750567"
     ![入口網站中的匯出按鈕](media/activity-log-export/portal-export.png)
 
 3. 在出現的分頁中，指定下列各項：
-   * 具有要匯出之事件的區域。 您應該選取 [所有區域] 以確保您不會遺漏關鍵事件，因為活動記錄是全域（非區域）記錄檔，因此大部分的事件都沒有與其相關聯的區域。 
+   * 具有要匯出之事件的區域。 您應該選取 [所有區域] 以確保您不會遺漏關鍵事件，因為活動記錄是全域（非區域）記錄檔，因此大部分的事件都沒有與其相關聯的區域。
    * 如果您想要寫入儲存體帳戶：
        * 您想要儲存事件的儲存體帳戶。
        * 您想要在儲存體中保留這些事件的天數。 如果設定為 0 天會永遠保留記錄。
@@ -167,5 +167,5 @@ ms.locfileid: "75750567"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入了解活動記錄](../../azure-resource-manager/resource-group-audit.md)
+* [深入了解活動記錄](../../azure-resource-manager/management/view-activity-logs.md)
 * [將活動記錄檔收集到 Azure 監視器記錄檔](activity-log-collect.md)

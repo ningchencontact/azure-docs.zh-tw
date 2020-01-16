@@ -9,12 +9,12 @@ ms.service: storage
 custom: jenkins
 ms.date: 08/13/2019
 ms.subservice: common
-ms.openlocfilehash: 72756bd3eb12ca80f419a0d53db76e6637d884fc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0e426dcead5d1f315717fbc19cf7f7bdac62d563
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839140"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970178"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>將 Azure 儲存體用於 Jenkins 連續整合解決方案
 
@@ -49,7 +49,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
      
       雖然一般 Jenkins CI 解決方案會設定成以服務的形式執行，但對本教學課程來說，在命令列執行 Jenkins war 已經足夠。
 * 一個 Azure 帳戶。 您可以在 <https://www.azure.com> 註冊 Azure 帳戶。
-* 一個 Azure 儲存體帳戶。 如果您還沒有儲存體帳戶，可以使用 [建立儲存體帳戶](../common/storage-quickstart-create-account.md)中的步驟建立一個帳戶。
+* 一個 Azure 儲存體帳戶。 如果您還沒有儲存體帳戶，可以使用 [建立儲存體帳戶](../common/storage-account-create.md)中的步驟建立一個帳戶。
 * 建議您熟悉 Jenkins CI 解決方案，但這並非必要，因為下列內容將使用一個基本範例來示範使用 Blob 服務作為 Jenkins CI 組建成品的存放庫時所需的步驟。
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>如何使用 Blob 服務搭配 Jenkins CI
@@ -129,8 +129,8 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 本節提供 Blob 服務元件的概觀。
 
 * **儲存體帳戶**：一律透過儲存體帳戶來存取 Azure 儲存體。 儲存體帳戶是存取 Blob 的最上層命名空間。 帳戶可以包含不限數目的容器，只要它們的大小總計低於 100 TB 即可。
-* **容器**：容器提供一組 Blob 的群組。 所有 Blob 都必須放在容器中。 一個帳戶可以包含的容器不限數量。 容器可以儲存無限制的 Blob。
-* **Blob**：任何類型和大小的檔案。 Azure 儲存中可以儲存兩種 Blob：區塊 Blob 和分頁 Blob。 大部分檔案都是區塊 Blob。 單一區塊 Blob 的大小上限為 200 GB。 本教學課程使用區塊 Blob。 分頁 Blob (另一種 Blob 類型) 的大小上限為 1 TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。 如需關於 Blob 的詳細資訊，請參閱 [了解區塊 Blob、附加 Blob 及分頁 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx)。
+* **容器**：容器提供一組 Blob 的群組。 所有 Blob 都必須位於容器中。 帳戶可以包含不限制數目的容器。 容器可以儲存不限數目的 Blob。
+* **Blob**：任何類型和大小的檔案。 Azure 儲存體可以儲存的 Blob 類型有兩種：區塊和分頁 Blob。 大部分檔案都是區塊 Blob。 單一區塊 Blob 的大小上限為 200 GB。 本教學課程使用區塊 Blob。 分頁 Blob (另一種 Blob 類型) 的大小上限為 1 TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。 如需關於 Blob 的詳細資訊，請參閱 [了解區塊 Blob、附加 Blob 及分頁 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx)。
 * **URL 格式**：可利用下列 URL 格式來定址 Blob：
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -141,7 +141,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>針對 Jenkins 外掛程式進行疑難排解
+## <a name="troubleshooting-the-jenkins-plugin"></a>對 Jenkins 外掛程式進行疑難排解
 
 如果您遇到任何有關 Jenkins 外掛程式的錯誤，請在 [Jenkins JIRA](https://issues.jenkins-ci.org/) 的特定元件中提交問題。
 

@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: c9f59eb8c299eb9319694d392c2b5d1d814ed9b8
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 4aa45cc1e8b79186d3ddd5d2b2964addb3929b1a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997321"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978579"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 安全性功能的概觀
 
@@ -46,7 +46,7 @@ IP 防火牆規則會根據每個要求的來源 IP 位址授與資料庫存取�
 > [!IMPORTANT]
 > 在 Azure 內管理資料庫和資料庫伺服器，是由入口網站使用者帳戶的角色指派所控制。 如需有關此文章的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../role-based-access-control/overview.md)。
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>驗證
 
 驗證是證明使用者宣告身分的程序。 Azure SQL Database 支援兩種驗證類型：
 
@@ -65,7 +65,7 @@ IP 防火牆規則會根據每個要求的來源 IP 位址授與資料庫存取�
 > [!IMPORTANT]
 > 在 Azure 內管理資料庫和伺服器，是由入口網站使用者帳戶的角色指派所控制。 如需有關此文章的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../role-based-access-control/overview.md)。 控制防火牆規則的存取「不」適用於**受控執行個體**。 如需所需網路設定的相關資訊，請參閱下列關於[連線到受控執行個體](sql-database-managed-instance-connect-app.md)的文章。
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>授權
 
 授權是指在 Azure SQL Database 內指派給使用者的權限，並可決定允許使用者執行的動作。 許可權的控制方式是將使用者帳戶新增至[資料庫角色](/sql/relational-databases/security/authentication-access/database-level-roles)，並將資料庫層級許可權指派給這些角色，或授與使用者特定的[物件層級許可權](/sql/relational-databases/security/permissions-database-engine)。 如需詳細資訊，請參閱[登入與使用者](sql-database-manage-logins.md)
 
@@ -73,7 +73,7 @@ IP 防火牆規則會根據每個要求的來源 IP 位址授與資料庫存取�
 
 ### <a name="row-level-security"></a>資料列層級安全性
 
-資料列層級安全性讓客戶能夠根據執行查詢的使用者特性 (例如，依群組成員資格或執行內容)，來控制資料庫資料表中的資料列存取。 資料列層級安全性也可以用來執行以自訂標籤為基礎的安全性概念。 如需詳細資訊，請參閱[資料列層級安全性](/sql/relational-databases/security/row-level-security)。
+資料列層級安全性可讓客戶根據執行查詢的使用者特性 (例如群組成員資格或執行內容)，來控制對資料庫資料表中資料列的存取。 資料列層級安全性也可以用來執行以自訂標籤為基礎的安全性概念。 如需詳細資訊，請參閱[資料列層級安全性](/sql/relational-databases/security/row-level-security)。
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
@@ -104,7 +104,7 @@ Sql Server 會針對所有連線強制執行加密（SSL/TLS）。 這可確保�
 例如，使用 ADO.NET 驅動程式時，會透過**Encrypt = True**和**TrustServerCertificate = False**來完成此作業。 如果您從 Azure 入口網站取得連接字串，則它將具有正確的設定。
 
 > [!IMPORTANT]
-> 請注意，某些非 Microsoft 驅動程式預設可能不會使用 TLS，或依賴舊版的 TLS （< 1.2）才能運作。 在此情況下 SQL Server 仍可讓您連接到資料庫。 不過，我們建議您評估允許這類驅動程式和應用程式連接到 SQL Database 的安全性風險，特別是當您儲存敏感性資料時。 
+> 請注意，某些非 Microsoft 驅動程式預設可能不會使用 TLS，或依賴舊版的 TLS （< 1.2）才能運作。 在此情況下 SQL Server 仍可讓您連接到資料庫。 不過，我們建議您評估允許這類驅動程式和應用程式連接到 SQL Database 的安全性風險，特別是當您儲存敏感性資料時。
 >
 > 如需 TLS 和連線能力的進一步資訊，請參閱[tls 考慮](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
@@ -138,7 +138,7 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 
 ### <a name="data-discovery--classification"></a>資料探索與分類
 
-資料探索與分類 (目前處於預覽階段) 提供內建於 Azure SQL Database 的進階功能，可用於探索、分類、標記和保護您資料庫中的敏感性資料。 探索與分類您最具敏感性的資料 (商業/財務、醫療保健、個人資料等)，可在您組織的資訊保護方面扮演著關鍵角色。 它可以作為以下的基礎結構：
+資料探索與分類 (目前處於預覽階段) 提供內建於 Azure SQL Database 的進階功能，可用於探索、分類、標記和保護您資料庫中的敏感性資料。 探索與分類您最具敏感性的資料 (商業/財務、醫療保健、個人資料等)，可在您組織的資訊保護方面扮演著關鍵角色。 它可以作為下列的基礎結構：
 
 - 各種安全性案例，例如針對敏感性資料異常存取的監視 (稽核) 及警示。
 - 對包含高度敏感性資料的資料庫進行存取控制並強化安全性。

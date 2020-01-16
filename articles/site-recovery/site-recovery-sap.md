@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: eeb85e97d653b0faac171e2986cb933fc41e6606
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 0cef6332a169b71d7812efdc41247443fbc194f2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940673"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982371"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>設定多層式 SAP NetWeaver 應用程式部署的災害復原
 
@@ -68,13 +68,13 @@ Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量�
 #### <a name="vms-running-sap-central-services-cluster"></a>執行 SAP 中央服務叢集的 VM
 此參考架構會在應用程式層中的虛擬機器上執行中央服務。 部署到單一虛擬機器 (不需要高可用性時的典型部署) 時，中央服務是潛在的單一失敗點 (SPOF)。<br>
 
-若要實作高可用性解決方案，可以使用共用磁碟叢集或檔案共用叢集。若要設定共用磁碟叢集的 VM，請使用 Windows Server 容錯移轉叢集。 建議將雲端見證作為仲裁見證。 
+若要實作高可用性解決方案，可以使用共用磁碟叢集或檔案共用叢集。若要設定共用磁碟叢集的 VM，請使用 Windows Server 容錯移轉叢集。 建議將雲端見證作為仲裁見證。
  > [!NOTE]
  > Site Recovery 不會複寫雲端見證，因此建議您在嚴重損壞修復區域中部署雲端見證。
 
-若要支援容錯移轉叢集環境，[SIOS DataKeeper 叢集版本](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8)會執行叢集共用磁碟區函式，方法為複寫叢集節點所擁有的獨立磁碟。 Azure 本身不支援共用磁碟，因此需要 SIOS 所提供的解決方案。 
+若要支援容錯移轉叢集環境，[SIOS DataKeeper 叢集版本](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8)會執行叢集共用磁碟區函式，方法為複寫叢集節點所擁有的獨立磁碟。 Azure 本身不支援共用磁碟，因此需要 SIOS 所提供的解決方案。
 
-處理叢集的另一種方式，是實作檔案共用叢集。 [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) 最近修改了中央服務部署模式，來透過 UNC 路徑存取 /sapmnt 全域目錄。 不過，仍然建議確保 /sapmnt UNC 共用具有高可用性。 您可以藉由使用 Windows Server 容錯移轉叢集與相應放大檔案伺服器 (SOFS) 和 Windows Server 2016 中的儲存空間直接存取 (S2D) 功能，在中央服務執行個體上完成這項操作。 
+處理叢集的另一種方式，是實作檔案共用叢集。 [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) 最近修改了中央服務部署模式，來透過 UNC 路徑存取 /sapmnt 全域目錄。 不過，仍然建議確保 /sapmnt UNC 共用具有高可用性。 您可以藉由使用 Windows Server 容錯移轉叢集與相應放大檔案伺服器 (SOFS) 和 Windows Server 2016 中的儲存空間直接存取 (S2D) 功能，在中央服務執行個體上完成這項操作。
  > [!NOTE]
  > 目前 Site Recovery 僅支援使用儲存空間直接存取和 SIOS Datakeeper 的被動節點，針對虛擬機器進行損毀一致性點複寫
 
@@ -84,14 +84,14 @@ Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量�
 您可以使用 Site Recovery 來協調跨 Azure 區域的完整 SAP 部署故障。
 以下是設定災害復原的步驟 
 
-1. 複寫虛擬機器 
+1. 複寫虛擬機器
 2. 設計復原網路
 3.  複寫網域控制站
-4.  將資料複寫到基本層 
-5.  執行測試容錯移轉 
-6.  執行容錯移轉 
+4.  將資料複寫到基本層
+5.  執行測試容錯移轉
+6.  執行容錯移轉
 
-以下我們針對此範例中使用的各層提供的災害復原建議。 
+以下我們針對此範例中使用的各層提供的災害復原建議。
 
  **SAP 層** | **建議**
  --- | ---

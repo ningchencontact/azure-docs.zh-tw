@@ -11,16 +11,16 @@ ms.topic: conceptual
 author: dalechen
 manager: dcscontentpm
 ms.author: ninarn
-ms.reviewer: carlrab
-ms.date: 11/14/2019
-ms.openlocfilehash: c25fa3f378c1e5a0f8bc26e4fb8c6f4ec752b43c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.reviewer: carlrab, vanto
+ms.date: 01/14/2020
+ms.openlocfilehash: d2b56e259f551f7655936c975a7a864a27a1df79
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082500"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027807"
 ---
-# <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>處理 SQL Database 連線問題和暫時性錯誤
+# <a name="troubleshooting-transient-connection-errors-to-sql-database"></a>針對 SQL Database 的暫時性連接錯誤進行疑難排解
 
 本文描述如何防止、排解、診斷和減少您的用戶端應用程式在與 Azure SQL Database 互動時發生的連接錯誤和暫時性錯誤。 了解如何設定重試邏輯、建置連接字串和調整其他連接設定。
 
@@ -77,8 +77,8 @@ ms.locfileid: "74082500"
 
 使用重試邏輯的程式碼範例位於：
 
-- [使用 ADO.NET 復原連接 SQL][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-- [Step 4: Connect resiliently to SQL with PHP (步驟 4：使用 PHP 復原連接 SQL)][step-4-connect-resiliently-to-sql-with-php-p42h]
+- [使用 ADO.NET 彈性地連接到 SQL][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [使用 PHP 彈性地連接到 SQL][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
@@ -188,7 +188,7 @@ ms.locfileid: "74082500"
 例如，當用戶端程式裝載在 Windows 電腦上時，您可在主機上使用 Windows 防火牆來開啟通訊埠 1433。
 
 1. 開啟 [控制台]。
-2. 選取 [所有控制台項目] > [Windows 防火牆] > [進階設定] > [輸出規則]  > [動作] > [新增規則]。
+2. 選取 [所有控制台項目] > [Windows 防火牆] > [進階設定] > [輸出規則] > [動作] > [新增規則]。
 
 如果您的用戶端程式裝載在 Azure 虛擬機器 (VM) 上，請閱讀[適用於 ADO.NET 4.5 和 SQL Database 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
@@ -215,7 +215,7 @@ ms.locfileid: "74082500"
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
-## <a name="diagnostics"></a>診斷
+## <a name="diagnostics"></a>診斷程式
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
@@ -275,7 +275,7 @@ Enterprise Library 6 (EntLib60) 提供 .NET 受控類別來協助記錄。 如�
 
 以下是一些可查詢錯誤記錄和其他資訊的 Transact-SQL SELECT 陳述式。
 
-| 記錄查詢 | 描述 |
+| 記錄查詢 | 說明 |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[Sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) 檢視可提供個別事件的資訊，包括會導致暫時性錯誤或連線失敗的某些事件。<br/><br/>在理想的情況下，您可以讓 **start_time** 或 **end_time** 值與用戶端程式發生問題時的相關資訊相互關聯。<br/><br/>您必須連線到 master 資料庫來執行此查詢。 |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[Sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) 檢視可針對其他診斷提供事件類型的彙總計數。<br/><br/>您必須連線到 master 資料庫來執行此查詢。 |
@@ -444,7 +444,6 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需針對其他常見 SQL Database 連線問題進行疑難排解的詳細資訊，請參閱[針對 Azure SQL Database 連線問題進行疑難排解](sql-database-troubleshoot-common-connection-issues.md)。
 - [SQL Database 和 SQL Server 的連線庫](sql-database-libraries.md)
 - [SQL Server 連線集區 (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 - [Retrying 是 Apache 2.0 授權的一般用途重試程式庫 (以 Python 撰寫)](https://pypi.python.org/pypi/retrying)，可簡化可對任何案例新增重試行為的工作。

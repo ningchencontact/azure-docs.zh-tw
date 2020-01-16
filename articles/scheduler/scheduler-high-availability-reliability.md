@@ -9,19 +9,19 @@ ms.reviewer: klam
 ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: 3cc15d173ad735d77505f636bd230e0876371271
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 6a729df7eb08f8dacff4b0d35d011854208510ff
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300938"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979293"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Azure 排程器的高可用性和可靠性
 
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md)會取代即將[淘汰](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)的 Azure 排程器。 若要繼續使用您在排程器中設定的作業，請儘快[遷移至 Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) 。 
 
-Azure 排程器可為作業同時提供[高可用性](https://docs.microsoft.com/azure/architecture/guide/pillars#availability)和可靠性。 如需詳細資訊，請參閱[排程器 SLA](https://azure.microsoft.com/support/legal/sla/scheduler)。
+Azure 排程器可為作業同時提供[高可用性](https://docs.microsoft.com/azure/architecture/framework/#resiliency)和可靠性。 如需詳細資訊，請參閱[排程器 SLA](https://azure.microsoft.com/support/legal/sla/scheduler)。
 
 ## <a name="high-availability"></a>高可用性
 
@@ -70,7 +70,7 @@ Azure 排程器可讓您設定重試原則。 如果作業失敗，則根據預�
 
 若要了解如何設定替代端點，請參閱 [errorAction](scheduler-concepts-terms.md#error-action)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [什麼是 Azure 排程器？](scheduler-intro.md)
 * [概念、術語及實體階層](scheduler-concepts-terms.md)

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 728398aeec4715d15ebe44ae6d4e4bfa5f295df8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 74dac926ea67b9f6a31993a72dc6331aa48155b7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884781"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981560"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault 安全性
 
 您需要在雲端中保護加密金鑰和秘密，例如憑證、連接字串和密碼，以使用 Azure Key Vault。 由於您要儲存機密和商務關鍵資料，因此您必須採取步驟，將保存庫和其中所儲存之資料的安全性最大化。 本文將討論您在設計 Azure Key Vault 安全性時，應該考慮的一些概念。
 
-## <a name="identity-and-access-management"></a>身分識別和存取管理
+## <a name="identity-and-access-management"></a>身分識別與存取管理
 
 當您在 Azure 訂用帳戶中建立金鑰保存庫時，它會自動與該訂用帳戶的 Azure AD 租用戶建立關聯。 嘗試從保存庫管理或抓取內容的任何人，都必須透過 Azure AD 進行驗證。
 
@@ -47,9 +47,9 @@ ms.locfileid: "70884781"
 
 當您在資源群組中建立金鑰保存庫時，您可以使用 Azure AD 來管理存取權。 您可以對使用者或群組授與在資源群組中管理金鑰保存庫的能力。 您可以藉由指派適當的 RBAC 角色，在特定範圍層級授與存取權。 若要對使用者授與管理金鑰保存庫的權限，您可以在特定範圍對使用者指派預先定義的 `key vault Contributor` 角色。 您可以對 RBAC 角色指派下列範圍層級：
 
-- 訂用帳戶：在訂用帳戶層級指派的 RBAC 角色，會套用至該訂用帳戶內的所有資源群組和資源。
-- **资源组**：在資源群組層級指派的 RBAC 角色，會套用至該資源群組內的所有資源。
-- **特定資源**：針對特定資源指派的 RBAC 角色，則會套用至該資源。 在此情況下，資源會是特定的金鑰保存庫。
+- **訂**用帳戶：在訂用帳戶層級指派的 RBAC 角色會套用至該訂用帳戶內的所有資源群組和資源。
+- **資源群組**：在資源群組層級指派的 RBAC 角色會套用至該資源群組中的所有資源。
+- **特定資源**：指派給特定資源的 RBAC 角色會套用至該資源。 在此情況下，資源會是特定的金鑰保存庫。
 
 有數個預先定義的角色。 如果預先定義的角色不符合您的需求，您可以定義您自己的角色。 如需詳細資訊，請參閱[RBAC：內建角色](../role-based-access-control/built-in-roles.md)。
 
@@ -87,12 +87,12 @@ Key Vault 記錄會儲存在保存庫上執行之活動的相關資訊。 Key Va
     - 簽署、驗證、加密、解密、包裝和解除包裝金鑰、取得秘密，以及列出金鑰和祕密 (及其版本)。
 - 產生 401 回應的未經驗證要求。 例如，沒有持有人權杖的要求、格式不正確或已過期的要求，或具有無效權杖的要求。
 
-記錄資訊可在金鑰保存庫作業之後的10分鐘記憶體取。 您可以在儲存體帳戶中管理您的記錄。 
+記錄資訊可在金鑰保存庫作業之後的10分鐘記憶體取。 您可以在儲存體帳戶中管理您的記錄。
 
 - 請使用標準的 Azure 存取控制方法限制可存取記錄的人員，藉此來保護記錄。
 - 刪除不想繼續保留在儲存體帳戶中的記錄。
 
-如需安全管理儲存體帳戶的建議，請參閱[Azure 儲存體安全性指南](../storage/common/storage-security-guide.md)
+如需安全管理儲存體帳戶的建議，請參閱[Azure 儲存體安全性指南](../storage/blobs/security-recommendations.md)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -3,7 +3,7 @@ title: Azure 虛擬機器代理程式概觀
 description: Azure 虛擬機器代理程式概觀
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: b003f2823ffceebecdb2af681a3bdbb4cf25704c
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 7185ac40cafce86c68efbf28c7e6a35fd4789bc3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615080"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027650"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure 虛擬機器代理程式概觀
 Microsoft Azure 虛擬機器代理程式 (VM 代理程式) 是一個安全的輕量型處理程序，可管理虛擬機器 (VM) 與 Azure 網狀架構控制器的互動。 VM 代理程式已啟用主要角色並執行 Azure 虛擬機器擴充功能。 VM 擴充功能可啟用 VM 的部署後組態，例如安裝和設定軟體。 VM 擴充功能也會啟用復原功能，例如重設 VM 的系統管理密碼。 若沒有 Azure VM 代理程式，便無法執行 VM 擴充功能。
 
-本文詳述 Azure 虛擬機器代理程式的安裝、偵測及移除。
+本文詳述 Azure 虛擬機器代理程式的安裝和偵測。
 
 ## <a name="install-the-vm-agent"></a>安裝 VM 代理程式
 
@@ -61,8 +61,17 @@ Windows 客體代理程式套件將分成兩個部分：
 ### <a name="manual-installation"></a>手動安裝
 Windows VM 代理程式可以使用 Windows Installer 套件來手動安裝。 當您建立部署至 Azure 的自訂 VM 映像時，可能需要手動安裝。 若要手動安裝 Windows VM 代理程式，[下載 VM 代理程式安裝程式](https://go.microsoft.com/fwlink/?LinkID=394789)。 Windows Server 2008 R2 和更新版本支援 VM 代理程式。
 
+> [注意！]在未啟用 ProvisionVMAgent 的情況下，在從映射部署的 VM 上手動安裝 VMAgent 之後，請務必更新 AllowExtensionOperations 選項。
+
+```powershell
+$vm.OSProfile.AllowExtensionOperations = $true
+$vm | Update-AzVM
+```
+
 ### <a name="prerequisites"></a>必要條件
-Windows VM 代理程式至少需要 Windows Server 2008 R2 （64位），才能執行 .Net Framework 4.0。 請參閱[Azure 中虛擬機器代理程式的最低版本支援](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
+- Windows VM 代理程式至少需要 Windows Server 2008 R2 （64位），才能執行 .Net Framework 4.0。 請參閱[Azure 中虛擬機器代理程式的最低版本支援](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
+
+- 請確定您的 VM 可存取 IP 位址168.63.129.16。 如需詳細資訊[，請參閱什麼是 IP 位址 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)。
 
 ## <a name="detect-the-vm-agent"></a>偵測 VM 代理程式
 

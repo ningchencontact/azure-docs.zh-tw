@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5217c4c7b68c487d7285ec03700266ad2768606d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 325c68e5e4531e5519596bea00c370c26460a8ed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571530"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981900"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>補救 Azure 資訊安全中心中的建議
 
-建議可讓您建議如何更有效地保護您的資源。 您可以遵循建議中提供的補救步驟來執行建議。 
+建議可讓您建議如何更有效地保護您的資源。 您可以遵循建議中提供的補救步驟來執行建議。
 
 ## 補救步驟<a name="remediation-steps"></a>
 
@@ -46,14 +46,14 @@ ms.locfileid: "73571530"
 
     [![選取 [快速修復]！](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png#lightbox)
 
-1. 從 [**狀況不良的資源**] 索引標籤中，選取您想要在其中執行建議的資源，然後按一下 [**修復**]。 
+1. 從 [**狀況不良的資源**] 索引標籤中，選取您想要在其中執行建議的資源，然後按一下 [**修復**]。
 
     > [!NOTE]
     > 部分列出的資源可能已停用，因為您沒有適當的許可權可修改它們。
 
-1. 在確認方塊中，閱讀補救詳細資料和含意。 
+1. 在確認方塊中，閱讀補救詳細資料和含意。
 
-    ![快速修正](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
+    ![快速檢修](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
 
     > [!NOTE]
     > 這些含意會列在 [**補救資源**] 視窗中，按一下 [**修復**] 之後開啟的灰色方塊中。 它們會列出繼續進行快速修正補救時所發生的變更。
@@ -67,7 +67,7 @@ ms.locfileid: "73571530"
 
 ## 在活動記錄中快速修正補救記錄<a name="activity-log"></a>
 
-補救作業會使用範本部署或 REST 修補程式 API 呼叫，將設定套用至資源。 這些作業會記錄在[Azure 活動記錄](../azure-resource-manager/resource-group-audit.md)中。
+補救作業會使用範本部署或 REST 修補程式 API 呼叫，將設定套用至資源。 這些作業會記錄在[Azure 活動記錄](../azure-resource-manager/management/view-activity-logs.md)中。
 
 
 ## <a name="recommendations-with-quick-fix-remediation"></a>具有快速修正補救的建議
@@ -76,11 +76,11 @@ ms.locfileid: "73571530"
 |---|---|
 |應該啟用 SQL server 上的審核|此動作會在這些伺服器及其資料庫上啟用 SQL 審核。 <br>**注意**： <ul><li>針對所選 SQL server 的每個區域，該區域中的所有伺服器都會建立並共用用來儲存 audit 記錄檔的儲存體帳戶。</li><li>若要確保適當的審核，請不要刪除或重新命名資源群組或儲存體帳戶。</li></ul>|
 |應在 SQL 受控執行個體上啟用進階資料安全性|此動作會在選取的 SQL 受控實例上啟用 SQL Advanced Data Security （ADS）。 <br>**注意**： <ul><li>針對所選 SQL 受控實例的每個區域和資源群組，將會建立用於儲存掃描結果的儲存體帳戶，並由該區域中的所有實例共用。</li><li> 廣告的費用為每個 SQL 受控實例 $15。</li></ul>|
-|應該在 SQL 受控實例上啟用弱點評估|此動作會在選取的 SQL 受控實例上啟用 SQL 弱點評估。 <br>**注意**：<ul><li>SQL 弱點評定是 SQL Advanced Data Security （ADS）套件的一部分。 如果尚未啟用 ADS，則會自動在受控實例上啟用。</li><li>針對所選 SQL 受控實例的每個區域和資源群組，將會建立用於儲存掃描結果的儲存體帳戶，並由該區域中的所有實例共用。</li><li>廣告的費用為每個 SQL server $15。</li></ul>||
+|SQL 受控執行個體上應啟用弱點評定|此動作會在選取的 SQL 受控實例上啟用 SQL 弱點評估。 <br>**注意**：<ul><li>SQL 弱點評定是 SQL Advanced Data Security （ADS）套件的一部分。 如果尚未啟用 ADS，則會自動在受控實例上啟用。</li><li>針對所選 SQL 受控實例的每個區域和資源群組，將會建立用於儲存掃描結果的儲存體帳戶，並由該區域中的所有實例共用。</li><li>廣告的費用為每個 SQL server $15。</li></ul>||
 |應在您的 SQL server 上啟用 Advanced Data Security|此動作會在這些選取的伺服器和其資料庫上啟用 Advanced Data Security （ADS）。 <br>**注意**：<ul><li>針對所選 SQL server 的每個區域和資源群組，將會建立用於儲存掃描結果的儲存體帳戶，並由該區域中的所有伺服器共用。 <</li><li>廣告的費用為每個 SQL server $15。</li></ul>||
 |應在您的 SQL server 上啟用弱點評估|此動作會在這些選取的伺服器及其資料庫上啟用 SQL 弱點評估。 <br>**注意**：<ul><li>SQL 弱點評定是 SQL Advanced Data Security （ADS）套件的一部分。 如果尚未啟用廣告，則會在 SQL server 上自動啟用。</li><li>針對所選 SQL server 的每個區域和資源群組，將會建立用於儲存掃描結果的儲存體帳戶，並由該區域中的所有實例共用。</li><li>廣告的費用為每個 SQL server $15。</li></ul>||
-|應該啟用 SQL 資料庫上的透明資料加密|此動作會在選取的資料庫上啟用 SQL Database 透明資料加密（TDE）。 <br>**注意**：根據預設，將會使用服務管理的 TDE 金鑰。 
-|應啟用儲存體帳戶的安全傳輸|此動作會將您的儲存體帳戶安全性更新為只允許安全連線的要求。 （HTTPS）。 <br>**注意**：<ul><li>任何使用 HTTP 的要求都會遭到拒絕。</li><li>當您使用 Azure 檔案服務時，不加密的連線將會失敗，包括使用 SMB 2.1 的案例、沒有加密的 SMB 3.0，以及 Linux SMB 用戶端的某些類別。 深入了解。</li></ul>|
+|應該啟用 SQL 資料庫上的透明資料加密|此動作會在選取的資料庫上啟用 SQL Database 透明資料加密（TDE）。 <br>**注意**：根據預設，將會使用服務管理的 TDE 金鑰。
+|應啟用儲存體帳戶的安全傳輸|此動作會將您的儲存體帳戶安全性更新為只允許安全連線的要求。 （HTTPS）。 <br>**注意**：<ul><li>任何使用 HTTP 的要求都會遭到拒絕。</li><li>當您使用 Azure 檔案服務時，不加密的連線將會失敗，包括使用 SMB 2.1 的案例、沒有加密的 SMB 3.0，以及 Linux SMB 用戶端的某些類別。 了解更多。</li></ul>|
 |Web 應用程式應只可經由 HTTPS 存取|此動作會將所選資源上的所有流量從 HTTP 重新導向到 HTTPS。 <br>**注意**：<ul><li>沒有 SSL 憑證的 HTTPS 端點會顯示在瀏覽器中，並出現「隱私權錯誤」。 因此，具有自訂網域的使用者必須確認他們已設定 SSL 憑證。</li><li>請確定用來保護 app service 的封包和 web 應用程式防火牆，允許 HTTPS 會話轉送。</li></ul>|
 |函式應用程式應只可經由 HTTPS 存取|此動作會將所選資源上的所有流量從 HTTP 重新導向到 HTTPS。 <br>**注意**：<ul><li>沒有 SSL 憑證的 HTTPS 端點會顯示在瀏覽器中，並出現「隱私權錯誤」。 因此，具有自訂網域的使用者必須確認他們已設定 SSL 憑證。</li><li>請確定用來保護 app service 的封包和 web 應用程式防火牆，允許 HTTPS 會話轉送。</li></ul>|
 |API 應用程式應只可經由 HTTPS 存取|此動作會將所選資源上的所有流量從 HTTP 重新導向到 HTTPS。 <br>**注意**：<ul><li>沒有 SSL 憑證的 HTTPS 端點會顯示在瀏覽器中，並出現「隱私權錯誤」。 因此，具有自訂網域的使用者必須確認他們已設定 SSL 憑證。</li><li>請確定用來保護 app service 的封包和 web 應用程式防火牆，允許 HTTPS 會話轉送。</li></ul>|

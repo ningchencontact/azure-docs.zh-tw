@@ -3,12 +3,12 @@ title: 適用於容器的 Azure 監視器常見問題集 | Microsoft Docs
 description: 適用於容器的 Azure 監視器是一種解決方案，可監視 Azure 中 AKS 叢集與容器執行個體的健康狀情況。 本文將回答常見問題。
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 0984de51221c506bb1824e4dcfd93eef56453a4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b0d2be8b573dbbf047f4a27ae9ac9f611b76dc51
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405075"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977752"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>適用於容器的 Azure 監視器常見問題集
 
@@ -73,7 +73,7 @@ ContainerInventory 資料表包含已停止和執行中容器的相關資訊。 
  
 ## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>如何? 解決*遺失的訂閱註冊*錯誤？
 
-如果您收到**Microsoft.operationsmanagement 缺少訂閱註冊**的錯誤，您可以在定義工作區的訂用帳戶中註冊**microsoft.operationsmanagement**資源提供者來解決此問題。 您可以在[這裡](../../azure-resource-manager/resource-manager-register-provider-errors.md)找到作法的相關文件。
+如果您收到**Microsoft.operationsmanagement 缺少訂閱註冊**的錯誤，您可以在定義工作區的訂用帳戶中註冊**microsoft.operationsmanagement**資源提供者來解決此問題。 您可以在[這裡](../../azure-resource-manager/templates/error-register-resource-provider.md)找到作法的相關文件。
 
 ## <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>是否支援已啟用 RBAC 的 AKS 叢集？
 

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
-ms.openlocfilehash: ed48082c52a5b4f79fd2030303dbe2bb7bedafe6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6319d2d72df69cc9633bd2b2ff8e777c2a48966a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456595"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982543"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理邏輯應用程式
 
@@ -90,13 +90,13 @@ ms.locfileid: "75456595"
 
    ![從 Azure 入口網站開啟已部署的邏輯應用程式](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   在 Logic Apps 設計工具中開啟邏輯應用程式之後，您可以在設計工具的底部選取 [程式**代碼視圖**]，讓您可以查看基礎邏輯應用程式定義結構。 如果您想要為邏輯應用程式建立部署範本，請了解針對該邏輯應用程式要[如何下載 Azure Resource Manager 範本](#download-logic-app)。 深入了解 [Resource Manager 範本](../azure-resource-manager/template-deployment-overview.md)。
+   在 Logic Apps 設計工具中開啟邏輯應用程式之後，您可以在設計工具的底部選取 [程式**代碼視圖**]，讓您可以查看基礎邏輯應用程式定義結構。 如果您想要為邏輯應用程式建立部署範本，請了解針對該邏輯應用程式要[如何下載 Azure Resource Manager 範本](#download-logic-app)。 深入了解 [Resource Manager 範本](../azure-resource-manager/templates/overview.md)。
 
 <a name="download-logic-app"></a>
 
 ## <a name="download-from-azure"></a>從 Azure 下載
 
-您可以從 [Azure 入口網站](https://portal.azure.com)下載邏輯應用程式，並將它們儲存為 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 範本。 之後您可以在本機使用 Visual Studio 編輯範本，並針對不同部署環境自訂邏輯應用程式。  下載邏輯應用程式會自動將其在 [Resource Manager 範本](../azure-resource-manager/template-deployment-overview.md)中的定義「參數化」，這也會使用 JavaScript 物件標記法 (JSON)。
+您可以從 [Azure 入口網站](https://portal.azure.com)下載邏輯應用程式，並將它們儲存為 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 範本。 之後您可以在本機使用 Visual Studio 編輯範本，並針對不同部署環境自訂邏輯應用程式。  下載邏輯應用程式會自動將其在 [Resource Manager 範本](../azure-resource-manager/templates/overview.md)中的定義「參數化」，這也會使用 JavaScript 物件標記法 (JSON)。
 
 1. 在 Visual Studio 中，開啟 Cloud Explorer。 尋找並選取您想要從 Azure 下載的邏輯應用程式。
 
@@ -113,13 +113,13 @@ ms.locfileid: "75456595"
 
 1. 當系統提示您輸入位置時，瀏覽至該位置，並以 JSON (.json) 檔案格式儲存邏輯應用程式定義的 Resource Manager 範本。
 
-   您的邏輯應用程式定義會出現在 Resource Manager 範本的 `resources` 子區段中。 您現在可以使用 Visual Studio 來編輯邏輯應用程式定義和 Resource Manager 範本。 您也可以將範本做為[Azure 資源群組專案](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)新增至 Visual Studio 解決方案。 [在 Visual Studio 中瞭解邏輯應用程式的 Azure 資源群組專案](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
+   您的邏輯應用程式定義會出現在 Resource Manager 範本的 `resources` 子區段中。 您現在可以使用 Visual Studio 來編輯邏輯應用程式定義和 Resource Manager 範本。 您也可以將範本做為[Azure 資源群組專案](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)新增至 Visual Studio 解決方案。 [在 Visual Studio 中瞭解邏輯應用程式的 Azure 資源群組專案](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
 
 <a name="link-integration-account"></a>
 
 ## <a name="link-to-integration-account"></a>連結至整合帳戶
 
-若要建立企業對企業（B2B）企業整合案例的邏輯應用程式，您可以將邏輯應用程式連結至與邏輯應用程式位於相同區域的先前建立[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)。 整合帳戶包含 B2B 成品（例如交易夥伴、合約、架構及對應），可讓您的邏輯應用程式使用 B2B 連接器進行 XML 驗證和一般檔案編碼或解碼。 雖然您可以[使用 Azure 入口網站建立此連結](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account)，您也可以在符合[必要條件](#requirements)之後使用 Visual Studio，而邏輯應用程式會以 json （json）檔案的形式存在於[Azure 資源群組專案](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)內。 [在 Visual Studio 中瞭解邏輯應用程式的 Azure 資源群組專案](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project)。
+若要建立企業對企業（B2B）企業整合案例的邏輯應用程式，您可以將邏輯應用程式連結至與邏輯應用程式位於相同區域的先前建立[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)。 整合帳戶包含 B2B 成品（例如交易夥伴、合約、架構及對應），可讓您的邏輯應用程式使用 B2B 連接器進行 XML 驗證和一般檔案編碼或解碼。 雖然您可以[使用 Azure 入口網站建立此連結](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account)，您也可以在符合[必要條件](#requirements)之後使用 Visual Studio，而邏輯應用程式會以 json （json）檔案的形式存在於[Azure 資源群組專案](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)內。 [在 Visual Studio 中瞭解邏輯應用程式的 Azure 資源群組專案](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project)。
 
 1. 在 Visual Studio 中，開啟包含邏輯應用程式的 Azure 資源群組專案。
 
@@ -149,7 +149,7 @@ ms.locfileid: "75456595"
 
 ## <a name="change-deployment-location"></a>變更部署位置
 
-在 Visual Studio 中，如果您的邏輯應用程式是以 JSON （. json）檔案的形式存在於您用來自動化部署的[Azure 資源群組專案](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)中，則該邏輯應用程式會設定為位置類型和特定位置。 此位置可以是 Azure 區域或現有的[整合服務環境（ISE）](connect-virtual-network-vnet-isolated-environment.md)。
+在 Visual Studio 中，如果您的邏輯應用程式是以 JSON （. json）檔案的形式存在於您用來自動化部署的[Azure 資源群組專案](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)中，則該邏輯應用程式會設定為位置類型和特定位置。 此位置可以是 Azure 區域或現有的[整合服務環境（ISE）](connect-virtual-network-vnet-isolated-environment.md)。
 
 若要變更邏輯應用程式的位置類型或位置，您必須使用邏輯應用程式設計工具，從方案總管開啟邏輯應用程式的工作流程定義（json）檔案。 您無法使用 Cloud Explorer 來變更這些屬性。
 

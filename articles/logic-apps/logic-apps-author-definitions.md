@@ -6,18 +6,21 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 95e9f7211c8cd6cb4edd59d099ae9c189bae3780
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 0f5f01c757bf651beddaa76fc3eb8046b21b31eb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666919"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979384"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立、編輯或擴充邏輯應用程式工作流程定義的 JSON
 
-當您在 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 中使用自動化工作流程建立企業整合解決方案時，基礎邏輯應用程式定義會針對其描述和驗證，使用簡單的宣告式 JavaScript 物件標記法 (JSON) 及[工作流程定義語言 (WDL) 結構描述](../logic-apps/logic-apps-workflow-definition-language.md)。 這些格式讓邏輯應用程式定義更容易閱讀及了解，且無須很多程式碼方面的知識。 如果您想要自動化邏輯應用程式的建立及部署，您可以將邏輯應用程式定義納入 [Azure Resource Manager 範本](../azure-resource-manager/template-deployment-overview.md)中的 [Azure 資源](../azure-resource-manager/management/overview.md)。 然後您可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp)、[Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 或 [Azure Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/) 來建立、管理及部署邏輯應用程式。
+當您在 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 中使用自動化工作流程建立企業整合解決方案時，基礎邏輯應用程式定義會針對其描述和驗證，使用簡單的宣告式 JavaScript 物件標記法 (JSON) 及[工作流程定義語言 (WDL) 結構描述](../logic-apps/logic-apps-workflow-definition-language.md)。 這些格式讓邏輯應用程式定義更容易閱讀及了解，且無須很多程式碼方面的知識。
+如果您想要自動化邏輯應用程式的建立及部署，您可以將邏輯應用程式定義納入 [Azure Resource Manager 範本](../azure-resource-manager/templates/overview.md)中的 [Azure 資源](../azure-resource-manager/management/overview.md)。
+然後您可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp)、[Azure CLI](../azure-resource-manager/templates/deploy-cli.md) 或 [Azure Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/) 來建立、管理及部署邏輯應用程式。
 
-若要以 JSON 編寫邏輯應用程式定義，可以在 Azure 入口網站或 Visual Studio 中開啟程式碼檢視編輯器，或將定義複製到任何您想要的編輯器中。 如果您還不熟悉邏輯應用程式，請先檢閱[如何建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+若要以 JSON 編寫邏輯應用程式定義，可以在 Azure 入口網站或 Visual Studio 中開啟程式碼檢視編輯器，或將定義複製到任何您想要的編輯器中。
+如果您還不熟悉邏輯應用程式，請先檢閱[如何建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 > [!NOTE]
 > 有些 Azure Logic Apps 功能只支援 JSON，不支援 Logic Apps 設計工具，例如在邏輯應用程式定義中定義參數和多個觸發程序。
@@ -27,7 +30,8 @@ ms.locfileid: "75666919"
 
 1. 登入 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>。
 
-2. 在左側功能表中，選擇 [所有服務]。 在搜尋方塊中尋找「邏輯應用程式」，然後從結果中選取您的邏輯應用程式。
+2. 在左側功能表中，選擇 [所有服務]。
+在搜尋方塊中尋找「邏輯應用程式」，然後從結果中選取您的邏輯應用程式。
 
 3. 在邏輯應用程式功能表的 [開發工具] 底下，選取 [邏輯應用程式程式碼檢視]。
 
@@ -35,22 +39,25 @@ ms.locfileid: "75666919"
 
 ## <a name="edit-json---visual-studio"></a>編輯 JSON - Visual Studio
 
-在 Visual Studio 中編寫邏輯應用程式定義之前，請先確定您已經[安裝必要的工具](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites)。 若要使用 Visual Studio 建立邏輯應用程式，請檢閱[快速入門：使用 Azure Logic Apps 自動化工作和程序 - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
+在 Visual Studio 中編寫邏輯應用程式定義之前，請先確定您已經[安裝必要的工具](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites)。
+若要使用 Visual Studio 建立邏輯應用程式，請檢閱[快速入門：使用 Azure Logic Apps 自動化工作和程序 - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
 
 在 Visual Studio 中，您可以開啟直接從 Azure 入口網站建立或部署的邏輯應用程式，或開啟 Visual Studio 中以 Azure Resource Manager 專案形式建立或部署的邏輯應用程式。
 
 1. 開啟包含邏輯應用程式的 Visual Studio 解決方案或 [Azure 資源群組](../azure-resource-manager/management/overview.md)專案。
 
-2. 尋找並開啟邏輯應用程式的定義，根據預設，該定義在 [Resource Manager 範本](../azure-resource-manager/template-deployment-overview.md)中會以 **LogicApp.json** 的名稱顯示。 您可以使用及自訂此範本，以部署至不同的環境。
+2. 尋找並開啟邏輯應用程式的定義，根據預設，該定義在 [Resource Manager 範本](../azure-resource-manager/templates/overview.md)中會以 **LogicApp.json** 的名稱顯示。
+您可以使用及自訂此範本，以部署至不同的環境。
 
-3. 開啟邏輯應用程式定義和範本的捷徑功能表。 選取 [以邏輯應用程式設計工具開啟]。
+3. 開啟邏輯應用程式定義和範本的捷徑功能表。
+選取 [以邏輯應用程式設計工具開啟]。
 
    ![開啟 Visual Studio 解決方案中的邏輯應用程式](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
    > [!TIP]
    > 如果您在 Visual Studio 2019 中沒有此命令，請檢查您是否有最新的 Visual Studio 更新。
 
-4. 在設計工具底部，選擇 [程式碼檢視]。 
+4. 在設計工具底部，選擇 [程式碼檢視]。
 
    程式碼檢視編輯器隨即開啟，並以 JSON 格式顯示您的邏輯應用程式定義。
 
@@ -58,7 +65,7 @@ ms.locfileid: "75666919"
 
 ## <a name="parameters"></a>參數
 
-部署生命週期通常會有不同的環境來進行開發、測試、預備和生產。 如果您想要在沒有硬式編碼的情況下重複使用邏輯應用程式，或是根據您的部署需求而有所不同的值，您可以為工作流程定義建立[Azure Resource Manager 範本](../azure-resource-manager/management/overview.md)，如此一來，您也可以將邏輯應用程式部署自動化。 
+部署生命週期通常會有不同的環境來進行開發、測試、預備和生產。 如果您想要在沒有硬式編碼的情況下重複使用邏輯應用程式，或是根據您的部署需求而有所不同的值，您可以為工作流程定義建立[Azure Resource Manager 範本](../azure-resource-manager/management/overview.md)，如此一來，您也可以將邏輯應用程式部署自動化。
 
 請遵循下列一般步驟*來參數*化或定義和使用這些值的參數。 接著，您可以在個別的參數檔案中提供值，將這些值傳遞至您的範本。 如此一來，您就可以更輕鬆地變更這些值，而不需要更新和重新部署邏輯應用程式。 如需完整詳細資料，請參閱[總覽：使用 Azure Resource Manager 範本自動部署邏輯應用程式](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)。
 
@@ -76,7 +83,10 @@ ms.locfileid: "75666919"
 
 ## <a name="process-strings-with-functions"></a>使用函式處理字串
 
-Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公司名稱從訂單傳遞至另一個系統。 不過，您不確定字元編碼的正確處理方式。 您可以在這個字串上執行 base64 編碼，但若要避免在 URL 中逸出，您可改為取代數個字元。 此外，公司名稱只需要一個子字串，因為不會用到前五個字元。
+Logic Apps 具有各種函式可處理字串。
+例如，假設您需要將公司名稱從訂單傳遞至另一個系統。
+不過，您不確定字元編碼的正確處理方式。
+您可以在這個字串上執行 base64 編碼，但若要避免在 URL 中逸出，您可改為取代數個字元。 此外，公司名稱只需要一個子字串，因為不會用到前五個字元。
 
 ``` json
 {
@@ -121,7 +131,8 @@ Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公�
 
 2. 若要取得較短的字串，請減去 `5`。
 
-3. 現在可取得 [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md)。 從索引 `5` 開始，並移至字串的其餘部分。
+3. 現在可取得 [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md)。
+從索引 `5` 開始，並移至字串的其餘部分。
 
 4. 將這個子字串轉換成 [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) 字串。
 
@@ -133,7 +144,8 @@ Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公�
 
 若要根據屬性值取得不同的結果，您可以建立可比對每個屬性值與結果的對應，然後使用該對應作為參數。
 
-例如，此工作流程會將某些類別定義為參數，以及定義可比對這些類別與特定 URL 的對應。 首先，工作流程會取得文章清單。 接著，工作流程會使用此對應來尋找符合每篇文章之類別的 URL。
+例如，此工作流程會將某些類別定義為參數，以及定義可比對這些類別與特定 URL 的對應。
+首先，工作流程會取得文章清單。 接著，工作流程會使用此對應來尋找符合每篇文章之類別的 URL。
 
 *   [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md) 函式會檢查類別是否符合已定義的知名類別。
 
@@ -209,7 +221,8 @@ Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公�
 
 ## <a name="get-data-with-date-functions"></a>使用 Date 函式取得資料
 
-若要從原生不支援「觸發程序」的資料來源取得資料，您可改為使用 Date 函式來處理時間和日期。 例如，這個運算式會尋找這個工作流程從內部到外部的步驟需要花費多少時間：
+若要從原生不支援「觸發程序」的資料來源取得資料，您可改為使用 Date 函式來處理時間和日期。
+例如，這個運算式會尋找這個工作流程從內部到外部的步驟需要花費多少時間：
 
 ``` json
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
@@ -219,15 +232,16 @@ Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公�
 2. 使用 `utcNow()` 取得目前時間。
 3. 減去一秒：
 
-   [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
+   [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md)
 
    您可以使用其他的時間單位，例如 `minutes` 或 `hours`。
 
-3. 現在，您可以比較這兩個值。 
+3. 現在，您可以比較這兩個值。
 
    如果第一個值小於第二個值，則自從訂單最初提交以來已超過一秒。
 
-若要將日期格式化，您可以使用字串格式器。 例如，若要取得 RFC1123，請使用 [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md)。 深入了解[日期格式化](../logic-apps/logic-apps-workflow-definition-language.md)。
+若要將日期格式化，您可以使用字串格式器。 例如，若要取得 RFC1123，請使用 [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md)。
+深入了解[日期格式化](../logic-apps/logic-apps-workflow-definition-language.md)。
 
 ``` json
 {

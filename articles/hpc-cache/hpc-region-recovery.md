@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: e0ff9bc66c7d185f8fe07b4b4574833fcd7e2604
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4eb203915c8fedbef6af0e5a3bc14eff1835a92b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582089"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982167"
 ---
 # <a name="use-multiple-caches-for-regional-failover-recovery"></a>使用多個快取進列區域容錯移轉復原
 
@@ -37,7 +37,7 @@ ms.locfileid: "73582089"
    1. 供快取用戶端使用的掛接命令
 
    > [!NOTE]
-   > 您可以透過[Azure Resource Manager 範本](../azure-resource-manager/template-deployment-overview.md)或直接存取其 API，以程式設計方式建立 Azure HPC 快取。 如需詳細資訊，請洽詢 Azure HPC 快取小組。
+   > 您可以透過[Azure Resource Manager 範本](../azure-resource-manager/templates/overview.md)或直接存取其 API，以程式設計方式建立 Azure HPC 快取。 如需詳細資訊，請洽詢 Azure HPC 快取小組。
 
 ## <a name="failover-example"></a>容錯移轉範例
 
@@ -55,7 +55,7 @@ ms.locfileid: "73582089"
 
 所有用戶端都必須掛接新的快取，即使用戶端不會受到區域中斷的影響。 新的快取與舊的快取有不同的掛接位址。
 
-## <a name="learn-more"></a>詳細資訊
+## <a name="learn-more"></a>了解更多
 
 Azure 應用程式架構指南包含如何[從全區域服務中斷復原](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>)的詳細資訊。
 <!-- this should be an internal link instead of a URL but I can't find the tree  -->

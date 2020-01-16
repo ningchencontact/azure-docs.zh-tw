@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 039a19f38da4e651ee35fe60ba2b95a40cf890b0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: be797f76988c924503e11b6f66cce899b515e3a2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931913"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982188"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>利用資料管理閘道在內部部署來源和雲端之間移動資料
 > [!NOTE]
-> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱[使用 Data Factory 在內部部署和雲端之間複製資料](../tutorial-hybrid-copy-powershell.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[使用 Data Factory 在內部部署和雲端之間複製資料](../tutorial-hybrid-copy-powershell.md)。
 
 本文提供使用 Data Factory 整合內部部署資料存放區與雲端資料存放區資料的概觀。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文和其他 Data Factory 核心概念文章：[資料集](data-factory-create-datasets.md)和[管線](data-factory-create-pipelines.md)。
 
@@ -29,15 +29,15 @@ ms.locfileid: "74931913"
 若要將資料移入/移出內部部署資料存放區，您必須在內部部署機器上安裝資料管理閘道。 您可以將閘道安裝在與資料存放區相同或相異的電腦上，只要閘道可以連接資料存放區即可。
 
 > [!IMPORTANT]
-> 如需資料管理閘道的詳細資料，請參閱 [資料管理閘道](data-factory-data-management-gateway.md) 一文。 
+> 如需資料管理閘道的詳細資料，請參閱 [資料管理閘道](data-factory-data-management-gateway.md) 一文。
 
 以下逐步解說將示範如何使用將資料從內部部署 **SQL Server** 資料庫移至 Azure Blob 儲存體的管線來建立 Data Factory。 在逐步解說中，您會在電腦上安裝及設定資料管理閘道。
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>逐步解說︰將內部部署資料複製到雲端
-在本逐步解說中，您會執行下列步驟： 
+在本逐步解說中，您會執行下列步驟：
 
 1. 建立資料處理站。
-2. 建立資料管理閘道。 
+2. 建立資料管理閘道。
 3. 為來源和接收的資料存放區建立已連結的服務。
 4. 建立資料集來代表輸入和輸出資料。
 5. 建立具有複製活動的管線來移動資料。
@@ -46,8 +46,8 @@ ms.locfileid: "74931913"
 開始進行本逐步解說之前，您必須具備下列必要條件：
 
 * **Azure 訂用帳戶**。  如果您沒有訂用帳戶，則只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [免費試用](https://azure.microsoft.com/pricing/free-trial/) 一文。
-* **Azure 儲存體帳戶**。 在本教學課程中，您會使用 Blob 儲存體作為**目的地/接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md) 一文以取得建立步驟。
-* **SQL Server**。 在本教學課程中，您會使用內部部署 SQL 資料庫作為**來源**資料存放區。 
+* **Azure 儲存體帳戶**。 在本教學課程中，您會使用 Blob 儲存體作為**目的地/接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-account-create.md) 一文以取得建立步驟。
+* **SQL Server**。 在本教學課程中，您會使用內部部署 SQL 資料庫作為**來源**資料存放區。
 
 ## <a name="create-data-factory"></a>建立資料處理站
 在此步驟中，您將使用 Azure 入口網站來建立名為 **ADFTutorialOnPremDF**的 Azure Data Factory 執行個體。
@@ -138,7 +138,7 @@ ms.locfileid: "74931913"
    * 檢視或匯出閘道所使用的憑證。
    * 變更閘道使用的 HTTPS 端點。    
    * 設定閘道要使用的 HTTP Proxy。     
-9. (選擇性) 切換到 [診斷] 索引標籤，如果您想啟用詳細資訊記錄功能，以便對閘道的任何問題進行疑難排解，請勾選 [啟用詳細資訊記錄] 選項。 在 [應用程式及服務記錄檔]  ->  [資料管理閘道] 節點之下的 [事件檢視器] 中可找到記錄資訊。
+9. (選擇性) 切換到 [診斷] 索引標籤，如果您想啟用詳細資訊記錄功能，以便對閘道的任何問題進行疑難排解，請勾選 [啟用詳細資訊記錄] 選項。 在 [應用程式及服務記錄檔] ->  [資料管理閘道] 節點之下的 [事件檢視器] 中可找到記錄資訊。
 
     ![[診斷] 索引標籤](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
@@ -277,7 +277,7 @@ ms.locfileid: "74931913"
    * **type** 設定為 **AzureBlob**。
    * **linkedServiceName** 設定為 **AzureStorageLinkedService** (您已在步驟 2 中建立此連結服務)。
    * **folderPath** 設定為 **adftutorial/outfromonpremdf**，其中 outfromonpremdf 是 adftutorial 容器中的資料夾。 建立 **adftutorial** 容器 (如果尚未存在)。
-   * **availability** 設定為**每小時**，且 (**frequency** 設定為**小時**，**interval** 設定為 **1**)。  Data Factory 服務會每隔一小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。
+   * **availability** 設定為**每小時** (**frequency** 設為 **hour**，**interval** 設為 **1**)。  Data Factory 服務會每隔一小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。
 
    如果您未指定**輸出資料表**的**fileName** ， **folderPath**中產生的檔案會依照下列格式命名： `Data.<Guid>.txt` （例如： Data. 0a405f8a-93ff-4c6f-b3be-f69616f1df7a .txt.）。
 
@@ -397,7 +397,7 @@ ms.locfileid: "74931913"
 
     ![資料配量刀鋒視窗](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
 
-    若配量不是處於 [就緒] 狀態，您可以在 [未就緒的上游配量]清單中看到未就緒且阻礙目前配量執行的上游配量。
+    若配量不是處於 [就緒] 狀態，您可以在 [未就緒的上游配量] 清單中看到未就緒且阻礙目前配量執行的上游配量。
 5. 按一下底部清單中的 [活動執行]，可查看 [活動執行詳細資料]。
 
    ![[活動執行詳細資料] 頁面](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)

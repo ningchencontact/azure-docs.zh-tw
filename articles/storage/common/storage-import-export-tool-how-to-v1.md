@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 1/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 4cd5fde2f47cca1b03efbc217d7764ac429d15fb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: aaceee65ae91a22dc658d185a874e2040b1e0f04
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973929"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975659"
 ---
 # <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>使用 Azure 匯入/匯出工具 (傳統部署模型)
 
@@ -25,10 +25,10 @@ Azure 匯入/匯出工具 (WAImportExport.exe) 是用來建立及管理 Azure �
 
 - 安裝並設定匯入/匯出工具。
 - 準備硬碟機進行將資料從您的磁碟機匯入 Azure Blob 儲存體的作業。
-- 使用複製記錄檔檢閱作業的狀態。 
-- 修復匯入作業。 
-- 修復匯出作業。 
-- 如果您在程序期間發生問題，請疑難排解 Azure 匯入/匯出工具。 
+- 使用複製記錄檔檢閱作業的狀態。
+- 修復匯入作業。
+- 修復匯出作業。
+- 如果您在程序期間發生問題，請疑難排解 Azure 匯入/匯出工具。
 
 ## <a name="next-steps"></a>後續步驟
 

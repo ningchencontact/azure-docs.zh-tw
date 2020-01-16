@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: b9a5e388ce6749023cff223de2376d1360ca7574
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 5e4a8afdb9bea4f528e57c914149f611b0578c63
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895688"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973479"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 
@@ -224,7 +224,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您根據所使�
 
     > [!TIP]
     > 若要在屬於另一個 Azure AD 租使用者的 VNet 中新增子網的規則，請使用完整的子網識別碼，格式為 "/subscriptions/\<訂用帳戶識別碼\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet 名稱\>/subnets/\<子網名稱\>"。
-    > 
+    >
     > 您可以使用**訂**用帳戶參數來抓取屬於另一個 Azure AD 租使用者之 VNet 的子網識別碼。
 
 1. 移除虛擬網路和子網路的網路規則。
@@ -391,7 +391,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您根據所使�
 | Azure Container Registry 工作 | Microsoft.ContainerRegistry/registries | 建立容器映射時，ACR 工作可以存取儲存體帳戶。 |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | 允許透過 ADF 執行時間存取儲存體帳戶。 |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | 讓邏輯應用程式能夠存取儲存體帳戶。 [深入了解](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity)。 |
-| Azure Machine Learning | Microsoft.MachineLearningServices      | 已授權的 Azure Machine Learning 工作區會將實驗輸出、模型和記錄寫入 Blob 儲存體。 [深入了解](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace)。 | 
+| Azure Machine Learning | Microsoft.MachineLearningServices      | 已授權的 Azure Machine Learning 工作區會將實驗輸出、模型和記錄寫入 Blob 儲存體。 [深入了解](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace)。 |
 | Azure SQL 資料倉儲       | Microsoft.Sql                          | 允許使用 PolyBase 從特定的 SQL Database 實例匯入和匯出資料。 [深入了解](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)。 |
 | Azure 串流分析         | Microsoft.StreamAnalytics             | 允許將串流作業中的資料寫入 Blob 儲存體。 此功能目前為預覽狀態。 [深入了解](/azure/stream-analytics/blob-output-managed-identity)。 |
 | Azure Synapse Analytics        | Synapse/工作區          | 可讓您從 Synapse 分析存取 Azure 儲存體中的資料。 |
@@ -471,4 +471,4 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您根據所使�
 
 深入了解[服務端點](/azure/virtual-network/virtual-network-service-endpoints-overview) 中的 Azure 網路服務端點。
 
-在 [Azure 儲存體安全性指南](storage-security-guide.md)中深入了解 Azure 儲存體安全性。
+在 [Azure 儲存體安全性指南](../blobs/security-recommendations.md)中深入了解 Azure 儲存體安全性。

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 40aa35e9f9d40a8a021797a0a2a4af9216d90618
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 92d7522c8382ded182c5f482df3f3d917b4b3a14
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898166"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982390"
 ---
 # <a name="private-link-for-azure-database-for-mariadb-preview"></a>適用於 MariaDB 的 Azure 資料庫的私人連結（預覽）
 
@@ -28,7 +28,7 @@ ms.locfileid: "75898166"
 
 假設有一個案例，其中的使用者在連線到適用於 MariaDB 的 Azure 資料庫實例的 Azure VM 內執行適用于 mariadb 工作臺。 這個適用于 mariadb 實例位於「美國西部」資料中心。 下列範例示範如何使用網路存取控制，在適用於 MariaDB 的 Azure 資料庫上限制具有公用端點的存取。
 
-* 將 [允許 Azure 服務] 設為 [關閉]，以停用透過公用端點適用於 MariaDB 的 Azure 資料庫的所有 Azure 服務流量。 請確定不允許透過[防火牆規則](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules)或[虛擬網路服務端點](https://docs.microsoft.com/azure/mariadb/concepts-data-access-and-security-vnet)來存取伺服器的 IP 位址或範圍。
+* 將 [允許 Azure 服務] 設為 [關閉]，以停用透過公用端點適用於 MariaDB 的 Azure 資料庫的所有 Azure 服務流量。 請確定不允許透過[防火牆規則](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules)或[虛擬網路服務端點](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)來存取伺服器的 IP 位址或範圍。
 
 * 僅允許使用 VM 的私人 IP 位址對適用於 MariaDB 的 Azure 資料庫的流量。 如需詳細資訊，請參閱[服務端點](concepts-data-access-security-vnet.md)和 [VNet 防火牆規則](howto-manage-vnet-portal.md)的相關文章。
 

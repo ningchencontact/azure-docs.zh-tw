@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 22dae518a45d5c4af20044d5f3eb88e764e92c8b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5fe1e45f2ff80c1a212009291ab880a57f347fdf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895121"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978380"
 ---
-# <a name="transfer-data-with-the-data-movement-library"></a>使用資料手機連結庫傳輸資料
+# <a name="transfer-data-with-the-data-movement-library"></a>透過資料移動程式庫傳輸資料
 
 Azure 儲存體資料手機連結庫是一種跨平臺的開放原始碼程式庫，其設計是為了高效能上傳、下載及複製 blob 和檔案。 這個程式庫是支援 [AzCopy](../storage-use-azcopy.md) 的核心資料移動架構。 資料手機連結庫提供了在適用于 .NET 的 Azure 儲存體用戶端程式庫中無法使用的便利方法。 這些方法可讓您設定平行作業的數目、追蹤傳輸進度、輕鬆地恢復已取消的傳輸，以及其他更多作業。
 
@@ -35,9 +35,9 @@ Azure 儲存體資料手機連結庫是一種跨平臺的開放原始碼程式�
 ## <a name="prerequisites"></a>必要條件
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Azure 儲存體帳戶](storage-quickstart-create-account.md)
+- [Azure 儲存體帳戶](storage-account-create.md)
 
-## <a name="setup"></a>設定
+## <a name="setup"></a>安裝程式
 
 1. 瀏覽 [.NET Core 安裝指南](https://www.microsoft.com/net/core)以安裝 .NET Core。 選取環境時，請選擇命令列選項。
 2. 從命令列為專案建立目錄。 瀏覽到此目錄中，然後輸入 `dotnet new console -o <sample-project-name>` 以建立 C# 主控台專案。

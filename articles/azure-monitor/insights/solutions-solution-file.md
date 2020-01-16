@@ -8,26 +8,26 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 517b9768c1df928012c34a4dcdd2dfa6b0c94d0c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d583f47a9c83abb1119262a2a6b70292cfa4ab69
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401591"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977683"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中建立管理解決方案檔 (預覽)
 > [!NOTE]
 > 這是在 Azure 中建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。  
 
-Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)。  學習如何撰寫管理解決方案的主要工作，是學習如何[撰寫範本](../../azure-resource-manager/templates/template-syntax.md)。  本文提供用於解決方案的範本獨特詳細資料，以及設定一般解決方案資源的方式。
+Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)。  學習如何撰寫管理解決方案的主要工作，是學習如何[撰寫範本](../../azure-resource-manager/templates/template-syntax.md)。  本文提供用於解決方案的範本獨特詳細資料，以及設定一般解決方案資源的方式。
 
 
 ## <a name="tools"></a>工具
 
 您可以使用任何文字編輯器來處理解決方案檔，但建議您利用 Visual Studio 或 Visual Studio Code 中提供的功能，如下列文章所述。
 
-- [透過 Visual Studio 建立與部署 Azure 資源群組](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [在 Visual Studio Code 中使用 Azure Resource Manager 範本](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
+- [透過 Visual Studio 建立與部署 Azure 資源群組](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)
+- [在 Visual Studio Code 中使用 Azure Resource Manager 範本](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 
 
 
@@ -159,7 +159,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 
 
 ### <a name="dependencies"></a>相依性
-**dependsOn** 元素指定對另一個資源的[相依性](../../azure-resource-manager/resource-group-define-dependencies.md)。  安裝解決方案時，直到所有相依性建立後才會建立資源。  例如，解決方案可能會在使用[作業資源](solutions-resources-automation.md#automation-jobs)安裝時[啟動 Runbook](solutions-resources-automation.md#runbooks)。  作業資源會相依於 Runbook 資源，以確保在建立作業前建立 Runbook。
+**dependsOn** 元素指定對另一個資源的[相依性](../../azure-resource-manager/templates/define-resource-dependency.md)。  安裝解決方案時，直到所有相依性建立後才會建立資源。  例如，解決方案可能會在使用[作業資源](solutions-resources-automation.md#automation-jobs)安裝時[啟動 Runbook](solutions-resources-automation.md#runbooks)。  作業資源會相依於 Runbook 資源，以確保在建立作業前建立 Runbook。
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 工作區和自動化帳戶
 管理解決方案需要 [Log Analytics 工作區](../../azure-monitor/platform/manage-access.md)來包含檢視，以及[自動化帳戶](../../automation/automation-security-overview.md#automation-account-overview)來包含 Runbook 和相關資源。  這些項目必須在建立解決方案中的資源前取得，且不得定義於解決方案本身。  使用者將會在部署解決方案時[指定工作區和帳戶](solutions.md#log-analytics-workspace-and-automation-account)，但身為作者，您應該考慮下列幾點。
@@ -200,7 +200,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 
 
 ### <a name="dependencies"></a>相依性
-解決方案資源在解決方案中的每隔一個資源上須有[相依性](../../azure-resource-manager/resource-group-define-dependencies.md)，因為必須先存在相依性，才能建立解決方案。  您可以在 **dependsOn** 項目中針對每個資源新增一個項目。
+解決方案資源在解決方案中的每隔一個資源上須有[相依性](../../azure-resource-manager/templates/define-resource-dependency.md)，因為必須先存在相依性，才能建立解決方案。  您可以在 **dependsOn** 項目中針對每個資源新增一個項目。
 
 ### <a name="properties"></a>屬性
 解決方案資源具有下表中的屬性。  這包括由定義解決方案安裝後如何管理資源的解決方案所參考及包含的資源。  解決方案中的每個資源應列在 **referencedResources** 或 **containedResources** 屬性中。

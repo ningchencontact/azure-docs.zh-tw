@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a491f923d7755513d84adfe765d595a3a7a80715
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 979652a467ea91c05884d2f7a24781f82035e505
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399332"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982051"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>針對使用 Hive 查詢之 Hadoop 叢集中的資料建立特徵
 本文件說明如何使用 Hive 查詢，針對儲存在 Azure HDInsight Hadoop 叢集中的資料建立特徵。 這些 Hive 查詢會使用針對其提供指令碼的內嵌 Hive 使用者定義函式 (UDF)。
@@ -30,7 +30,7 @@ ms.locfileid: "60399332"
 ## <a name="prerequisites"></a>必要條件
 本文假設您已經：
 
-* 建立 Azure 儲存體帳戶。 如需指示，請參閱[建立 Azure 儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)
+* 建立 Azure 儲存體帳戶。 如需指示，請參閱[建立 Azure 儲存體帳戶](../../storage/common/storage-account-create.md)
 * 佈建含有 HDInsight 服務的自訂 Hadoop 叢集。  如需指示，請參閱 [自訂適用於進階分析的 Azure HDInsight Hadoop 叢集](customize-hadoop-cluster.md)。
 * 已將資料上傳至 Azure HDInsight Hadoop 叢集中的 Hive 資料表。 如果沒有，則遵循[建立資料並載入到 Hive 資料表](move-hive-tables.md) ，先將資料上傳至 Hive 資料表。
 * 啟用叢集的遠端存取。 如需指示，請參閱 [存取 Hadoop 叢集的前端節點](customize-hadoop-cluster.md)。
@@ -89,14 +89,14 @@ Hive 會和一組 UDF 一起出現，用來處理日期時間欄位。 在 Hive 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-這個 Hive 查詢假設 *\<日期時間欄位 >* 是預設的日期時間格式。
+這個 Hive 查詢假設 *\<datetime 欄位 >* 是預設的日期時間格式。
 
 如果日期時間欄位不是預設格式，您需要先將日期時間欄位轉換為 Unix 時間戳記，然後將 Unix 時間戳記轉換為預設格式的日期時間字串。 將日期時間為預設格式之後，使用者就可以套用內嵌的日期時間 UDF 來擷取功能。
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-在此查詢中，如果 *\<日期時間欄位 >* 具有類似*2015 年 03 月 26 日 12:04:39*，則 *\<of the datetime field> 模式 >'* 應該是`'MM/dd/yyyy HH:mm:ss'`。 若要進行測試，使用者可以執行
+在此查詢中，如果 *\<日期時間欄位 >* 的模式類似*03/26/2015 12:04:39*，則應該 `'MM/dd/yyyy HH:mm:ss'`*datetime 欄位 > ' 的\<模式*。 若要進行測試，使用者可以執行
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -130,7 +130,7 @@ Hive 會和一組 UDF 一起出現，用來處理日期時間欄位。 在 Hive 
         and dropoff_latitude between 30 and 90
         limit 10;
 
-您可以在<a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">可移動的類型指令碼</a>網站 (作者為 Peter Lapisu) 上找到計算兩個 GPS 座標間之距離的數學方程式。 在此 Javascript 中，此函式`toRad()`就*lat_or_lon*pi/180，然後將度轉換為弧度。 此處的 *lat_or_lon* 為緯度或經度。 由於 Hive 不提供函式 `atan2`，但提供函式 `atan`，因此 `atan2` 函式是由上述 Hive 查詢中的 `atan` 函式以 <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a> 中提供的定義來實作。
+您可以在<a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">可移動的類型指令碼</a>網站 (作者為 Peter Lapisu) 上找到計算兩個 GPS 座標間之距離的數學方程式。 在此 JAVAscript 中，函式 `toRad()` 只是*lat_or_lon*pi/180，可將角度轉換為弧度。 此處的 *lat_or_lon* 為緯度或經度。 由於 Hive 不提供函式 `atan2`，但提供函式 `atan`，因此 `atan2` 函式是由上述 Hive 查詢中的 `atan` 函式以 <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a> 中提供的定義來實作。
 
 ![建立工作區](./media/create-features-hive/atan2new.png)
 
@@ -139,7 +139,7 @@ Hive 會和一組 UDF 一起出現，用來處理日期時間欄位。 在 Hive 
 ## <a name="tuning"></a> 進階主題：微調 Hive 參數以提升查詢速度
 Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處理的資料。 本節將討論一些使用者可以微調以提升 Hive 查詢效能的參數。 使用者需要在處理資料的查詢之前新增參數微調查詢。
 
-1. **Java 堆積空間**：對於涉及聯結大型資料集或處理長記錄的查詢，常見的錯誤之一是**堆積空間不足**。 透過將參數 *mapreduce.map.java.opts* 和 *mapreduce.task.io.sort.mb* 設定為所需的值可避免此錯誤。 下列是一個範例：
+1. **Java 堆積空間**：對於涉及聯結大型資料集或處理長記錄的查詢，常見的一項錯誤是**堆積空間不足**。 透過將參數 *mapreduce.map.java.opts* 和 *mapreduce.task.io.sort.mb* 設定為所需的值可避免此錯誤。 範例如下：
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
@@ -151,7 +151,7 @@ Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處
 
         set dfs.block.size=128m;
 
-2. **將 Hive 中的聯結作業最佳化**：儘管 Map/Reduce 架構中的聯結作業通常會在縮減階段執行，但有時可藉由在對應階段中排程聯結 (亦稱為 "mapjoin") 來獲取大量利益。 若要在適當時機引導 Hive 執行這個動作，請設定：
+2. **將 Hive 中的聯結作業最佳化**：儘管 Map/Reduce 架構中的聯結作業通常是在縮減階段執行，但有時可藉由在對應階段中排程聯結 (亦稱為 "mapjoin") 來得到大量的收穫。 若要在適當時機引導 Hive 執行這個動作，請設定：
    
        set hive.auto.convert.join=true;
 

@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 40d89dd675e063283d1ed90cf145575b8164e4e5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0afc67bf6d9e997ef615ecadc6836b36ed73e2ea
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400695"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969673"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>針對混合式環境啟用適用於 VM 的 Azure 監視器（預覽）
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-本文說明如何針對您資料中心或其他雲端環境中裝載的虛擬機器或實體電腦啟用適用於 VM 的 Azure 監視器（預覽）。 在此程式結束時，您將已成功開始監視環境中的虛擬機器，並瞭解它們是否遇到任何效能或可用性問題。 
+本文說明如何針對您資料中心或其他雲端環境中裝載的虛擬機器或實體電腦啟用適用於 VM 的 Azure 監視器（預覽）。 在此程式結束時，您將已成功開始監視環境中的虛擬機器，並瞭解它們是否遇到任何效能或可用性問題。
 
 開始之前，請務必檢查[必要條件](vminsights-enable-overview.md)，並確認您的訂用帳戶和資源符合需求。 檢閱適用於 [Log Analytics Linux 和 Windows 代理程式](../../log-analytics/log-analytics-agent-overview.md)的需求和部署方法。
 
@@ -121,7 +121,7 @@ configuration ServiceMap {
     Node localhost
     {
         # Download and install the Dependency agent
-        xRemoteFile DAPackage 
+        xRemoteFile DAPackage
         {
             Uri = "https://aka.ms/dependencyagentwindows"
             DestinationPath = $DAPackageLocalPath
@@ -154,8 +154,8 @@ configuration ServiceMap {
 此方法包含一個 JSON 範本，其會指定在 Log Analytics 工作區中啟用解決方案元件的設定。
 
 如果您不知道如何使用範本來部署資源，請參閱：
-* [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/resource-group-template-deploy.md)
-* [使用 Resource Manager 範本與 Azure CLI 部署資源](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/templates/deploy-powershell.md)
+* [使用 Resource Manager 範本與 Azure CLI 部署資源](../../azure-resource-manager/templates/deploy-cli.md)
 
 若要使用 Azure CLI，您必須先在本機安裝和使用 CLI。 您必須執行 Azure CLI 2.0.27 版或更新版本。 若要知道您使用的版本，請執行 `az --version`。 若要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
@@ -232,13 +232,13 @@ configuration ServiceMap {
 
 1. Dependency Agent 是否安裝成功？ 您可以查看是否已安裝服務並且執行，以便驗證。
 
-    **Windows**︰尋找名稱為「Microsoft Dependency Agent」的服務。 
+    **Windows**︰尋找名稱為「Microsoft Dependency Agent」的服務。
 
     **Linux**：尋找執行中的處理序 "microsoft-dependency-agent"。
 
 2. 您在[Log Analytics 的免費定價層](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)嗎？ 免費方案最多允許五部唯一的電腦。 任何後續的電腦都不會顯示在地圖上，即使先前的五個已不再傳送資料也一樣。
 
-3. 電腦會將記錄檔和效能資料傳送給 Azure 監視器記錄嗎？ 針對您的電腦執行下列查詢： 
+3. 電腦會將記錄檔和效能資料傳送給 Azure 監視器記錄嗎？ 針對您的電腦執行下列查詢：
 
     ```Kusto
     Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
@@ -248,7 +248,7 @@ configuration ServiceMap {
 
 #### <a name="computer-appears-on-the-map-but-has-no-processes"></a>電腦出現在地圖上，但是沒有任何進程
 
-如果您在對應上看到您的伺服器，但它沒有進程或連接資料，則表示相依性代理程式已安裝且正在執行，但未載入核心驅動程式。 
+如果您在對應上看到您的伺服器，但它沒有進程或連接資料，則表示相依性代理程式已安裝且正在執行，但未載入核心驅動程式。
 
 請檢查 C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file (Windows) 檔案或 /var/opt/microsoft/dependency-agent/log/service.log 檔案 (Linux)。 檔案的最後幾行應該會指出未載入核心的原因。 例如，若您更新過核心，在 Linux 上可能會不受支援。
 
@@ -256,7 +256,7 @@ configuration ServiceMap {
 ## <a name="next-steps"></a>後續步驟
 
 現在已針對您的虛擬機器啟用監視，此資訊可透過適用於 VM 的 Azure 監視器進行分析。
- 
+
 - 若要檢視探索到的應用程式相依性，請參閱[檢視適用於 VM 的 Azure 監視器對應](vminsights-maps.md)。
 
 - 若要找出 VM 效能的瓶頸和整體使用率，請參閱[查看 AZURE VM 效能](vminsights-performance.md)。

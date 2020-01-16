@@ -12,21 +12,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: d1cb34f1666db0e213a41fa8d2e684ba148b7e61
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7756d4c808e104b0de14e1cea4af5e843cff755c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088451"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981774"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>因為靜態 IP 而無法將遠端桌面連線到 Azure 虛擬機器
 
 本文說明在 VM 中設定靜態 IP 之後，您無法將遠端桌面連線至 Azure Windows 虛擬機器 (VM) 的問題。
 
 > [!NOTE]
-> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文說明如何使用 Resource Manager 部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
+> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../azure-resource-manager/management/deployment-models.md)。 本文說明如何使用 Resource Manager 部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
 
-## <a name="symptoms"></a>徵兆
+## <a name="symptoms"></a>徵狀
 
 當您對 Azure 中的 VM 進行 RDP 連線時，您會收到下列錯誤訊息：
 
@@ -46,7 +46,7 @@ ms.locfileid: "71088451"
 
 VM 具有在 Windows 中的網路介面上定義的靜態 IP 位址。 此 IP 位址不同於 Azure 入口網站中所定義的位址。
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方案
 
 在遵循下列步驟之前，請擷取受影響虛擬機器作業系統磁碟的快照集作為備份。 如需詳細資訊，請參閱[擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
 

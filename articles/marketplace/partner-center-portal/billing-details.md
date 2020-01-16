@@ -7,22 +7,22 @@ ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/12/2019
-ms.openlocfilehash: 0fda04bbfa632f429539ddc0ad90941cb645226b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: a483f143b70a4969114c078b3b0a6f960c4b6b41
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934628"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976069"
 ---
-# <a name="commercial-marketplace-billing"></a>商業 marketplace 帳單 
+# <a name="commercial-marketplace-billing"></a>商業 marketplace 帳單
 
 本文涵蓋商業 marketplace 的商務相關主題：
 
-- [Marketplace 發行選項](#marketplace-publishing-options) 
+- [Marketplace 發行選項](#marketplace-publishing-options)
 - [交易一般總覽](#transact-general-overview)
 - [交易計費模型](#transact-billing-models)
 
-## <a name="marketplace-publishing-options"></a>Marketplace 發行選項 
+## <a name="marketplace-publishing-options"></a>Marketplace 發行選項
 
 商用 marketplace 為發行者提供了數種發行選項。
 
@@ -36,9 +36,9 @@ ms.locfileid: "75934628"
 
 ## <a name="transact-general-overview"></a>交易一般概觀
 
-使用交易發行選項時，Microsoft 會啟用協力廠商軟體的銷售，並將某些供應專案類型部署到客戶的 Azure 訂用帳戶。 選取計費模式和供應專案類型時，發行者必須考慮基礎結構費用的計費，以及發行者的軟體授權費用。 
+使用交易發行選項時，Microsoft 會啟用協力廠商軟體的銷售，並將某些供應專案類型部署到客戶的 Azure 訂用帳戶。 選取計費模式和供應專案類型時，發行者必須考慮基礎結構費用的計費，以及發行者的軟體授權費用。
 
-目前支援下列供應專案類型的交易發行選項：虛擬機器、Azure 應用程式和 SaaS 應用程式。 
+目前支援下列供應專案類型的交易發行選項：虛擬機器、Azure 應用程式和 SaaS 應用程式。
 
 ![Azure Marketplace 中的交易](./media/transact-amp.png)
 

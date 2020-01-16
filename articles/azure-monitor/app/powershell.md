@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 3f9a04d767ffeb5112e2b06ed319a3c28f3b7f57
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 82b406d6f2d9f9dc4464472108c8136c7b65c67a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406524"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977825"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>使用 PowerShell 管理 Application Insights 資源
 
@@ -20,7 +20,7 @@ ms.locfileid: "75406524"
 
 本文說明如何使用 Azure 資源管理，自動將 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 資源的建立和更新自動化。 例如，您可能建置程序中這麼做。 除了基本的 Application Insights 資源外，您可以建立[可用性 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md)、設定[警示](../../azure-monitor/app/alerts.md)、設定[價格配置](pricing.md)和建立其他 Azure 資源。
 
-建立這些資源的關鍵是 [Azure 資源管理員](../../azure-resource-manager/manage-resources-powershell.md)適用的 JSON 範本。 基本程式是：下載現有資源的 JSON 定義;參數化特定的值，例如名稱;然後，每當您想要建立新的資源時，再執行範本。 您可以一起封裝幾項資源一次全部建立，例如一個包含可用性測試、警示和連續匯出儲存體的應用程式監視器。 部分參數化有一些微妙之處，我們會在這裡說明。
+建立這些資源的關鍵是 [Azure 資源管理員](../../azure-resource-manager/management/manage-resources-powershell.md)適用的 JSON 範本。 基本程式是：下載現有資源的 JSON 定義;參數化特定的值，例如名稱;然後，每當您想要建立新的資源時，再執行範本。 您可以一起封裝幾項資源一次全部建立，例如一個包含可用性測試、警示和連續匯出儲存體的應用程式監視器。 部分參數化有一些微妙之處，我們會在這裡說明。
 
 ## <a name="one-time-setup"></a>單次設定
 若您未曾將 PowerShell 與 Azure 訂用帳戶搭配使用：
@@ -394,7 +394,7 @@ Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <
     `"apiVersion": "2015-05-01",`
 
 ### <a name="parameterize-the-template"></a>參數化範本
-現在您必須以參數取代特定的名稱。 若要[參數化範本](../../azure-resource-manager/templates/template-syntax.md)，您要使用[一組協助程式函式](../../azure-resource-manager/resource-group-template-functions.md)撰寫表示式。 
+現在您必須以參數取代特定的名稱。 若要[參數化範本](../../azure-resource-manager/templates/template-syntax.md)，您要使用[一組協助程式函式](../../azure-resource-manager/templates/template-functions.md)撰寫表示式。 
 
 您無法將參數化字串的一部分，因此請使用 `concat()` 建置字串。
 

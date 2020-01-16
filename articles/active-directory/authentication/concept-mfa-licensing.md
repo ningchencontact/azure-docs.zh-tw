@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61a2afad33aea7fa2a21135dca0995ad862a2258
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1528bffc613d2e8ab2c0150095d90791b649198a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848658"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979489"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
 
@@ -30,9 +30,9 @@ ms.locfileid: "74848658"
 
 下表描述多重要素驗證版本之間的差異：
 
-| 版本 | 描述 |
+| 版本 | 說明 |
 | --- | --- |
-| 免費選項 | 利用 Azure AD 免費權益的客戶可以使用[安全性預設值](../conditional-access/concept-conditional-access-security-defaults.md)，在其環境中啟用多重要素驗證。 |
+| 免費選項 | 利用 Azure AD 免費權益的客戶可以使用[安全性預設值](../fundamentals/concept-fundamentals-security-defaults.md)，在其環境中啟用多重要素驗證。 |
 | Multi-Factor Authentication for Office 365 | 此版本是從 Office 365 或 Microsoft 365 入口網站進行管理。 系統管理員可以[使用雙步驟驗證來保護 Office 365 資源的安全](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)。 此版本隨附於 Office 365 訂用帳戶。 |
 | 適用於 Azure AD 系統管理員的 Multi-Factor Authentication | Azure AD 租用戶中指派為 Azure AD 全域管理員角色的使用者，可以啟用雙步驟驗證，而不需要額外收費。 |
 | Azure Multi-Factor Authentication | 通常稱為「完整」版本，Azure Multi-Factor Authentication 提供最豐富的功能。 它能透過 [Azure 入口網站](https://portal.azure.com)、進階報告及支援一系列內部部署和雲端應用程式來提供其他設定選項。 Azure 多重要素驗證是[Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features)和[Microsoft 365 商務版](https://www.microsoft.com/microsoft-365/business)的功能。 |
@@ -48,7 +48,7 @@ ms.locfileid: "74848658"
 > 此比較表會討論每個 Multi-Factor Authentication 版本中所包含的功能。 如果您擁有完整的 Azure Multi-Factor Authentication 服務，則依您使用的是[雲端中的 MFA 或內部部署 MFA](concept-mfa-whichversion.md) 而定，某些功能可能無法使用。
 >
 
-| 功能 | Multi-Factor Authentication for Office 365 | 適用於 Azure AD 系統管理員的 Multi-Factor Authentication | Azure Multi-Factor Authentication | 安全性預設值 | 
+| 功能 | Multi-Factor Authentication for Office 365 | 適用於 Azure AD 系統管理員的 Multi-Factor Authentication | Azure Multi-Factor Authentication | 安全性預設值 |
 | --- |:---:|:---:|:---:|:---:|
 | 透過 MFA 保護 Azure AD 系統管理員帳戶 |● |● (僅限 Azure AD 全域系統管理員帳戶) |● |● |
 | 以行動應用程式做為第二個因素 |● |● |● |● |

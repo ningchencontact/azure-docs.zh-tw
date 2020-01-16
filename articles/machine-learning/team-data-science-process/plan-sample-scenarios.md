@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: de02e94014fa2a28e364c4f85bcb31a1a4827b8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3e7d747901fb73afa78b6162316709d7d2e78927
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495051"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981124"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>在 Azure 機器學習中的進階分析案例
 本文概述可以運用 [Team Data Science Process (TDSP)](overview.md)來處理的各種範例資料來源和目標案例。 TDSP 提供系統化的方法，可讓小組共同建置智慧型應用程式。 此處呈現的案例將根據資料特性、來源位置和在 Azure 中的目標儲存機制，來說明資料處理工作流程中可用的選項。
@@ -29,7 +29,7 @@ ms.locfileid: "73495051"
 > **對於下列所有案例，您必須：**
 > <br/>
 > 
-> * [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)
+> * [建立儲存體帳戶](../../storage/common/storage-account-create.md)
 >   <br/>
 > * [建立 Azure Machine Learning 工作區](../studio/create-workspace.md)
 > 
@@ -113,14 +113,14 @@ ms.locfileid: "73495051"
    
        blobs.
    
-   b.這是另一個 C# 主控台應用程式。  若有需要，請將資料轉換為已清理的表格式格式。
+   b.  若有需要，請將資料轉換為已清理的表格式格式。
    
    c.  將資料儲存至 VM-local 檔案 (IPython Notebook 會在 VM 上執行，本機磁碟是指 VM 磁碟機)。
 1. 將資料載入執行於 Azure VM 的 SQL Server 資料庫。
    
    a.  登入 SQL Server VM。
    
-   b.這是另一個 C# 主控台應用程式。  如果資料尚未儲存，請從 Azure 下載資料檔案
+   b.  如果資料尚未儲存，請從 Azure 下載資料檔案
    
        storage container to local-VM folder.
    
@@ -158,7 +158,7 @@ ms.locfileid: "73495051"
    
    a.  登入 SQL Server VM。
    
-   b.這是另一個 C# 主控台應用程式。  將資料檔案從 Azure 儲存體容器下載到 local-VM 資料夾。
+   b.  將資料檔案從 Azure 儲存體容器下載到 local-VM 資料夾。
    
    c.  執行 SQL Server Management Studio。
    
@@ -186,9 +186,9 @@ ms.locfileid: "73495051"
 
 1. 在來源位置卸離資料庫。 如需詳細資訊，請參閱[卸離資料庫](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx)。
 1. 在 Windows 檔案總管或 Windows 命令提示字元視窗中，將已卸離的資料庫檔案和記錄檔複製到位於 Azure 中 SQL Server VM 上的目標位置。
-1. 將複製檔案連結至目標 SQL Server 執行個體。 如需詳細資訊，請參閱[連結資料庫](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx)。
+1. 將複製檔案連結至目標 SQL Server 執行個體。 如需詳細資訊，請參閱 [Attach a Database](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx)。
 
-[使用卸離和連結來移動資料庫 (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
+[使用卸離與附加移動資料庫 (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
 ## <a name="largedbtohive"></a>案例 \#7：本機檔案中的巨量資料，目標 Azure HDInsight Hadoop 叢集中的 Hive 資料庫
 ![本機目標 Hive 中的巨量資料][9]
@@ -202,7 +202,7 @@ ms.locfileid: "73495051"
    
        blobs.
    
-   b.這是另一個 C# 主控台應用程式。  若有需要，請將資料轉換為已清理的表格式格式。
+   b.  若有需要，請將資料轉換為已清理的表格式格式。
    
    c.  將資料儲存至 VM-local 檔案 (IPython Notebook 會在 VM 上執行，本機磁碟是指 VM 磁碟機)。
 1. 將資料上傳至步驟 2 中已選取 Hadoop 叢集的預設容器。
@@ -210,7 +210,7 @@ ms.locfileid: "73495051"
    
    a.  登入 Hadoop 叢集的前端節點
    
-   b.這是另一個 C# 主控台應用程式。  開啟 Hadoop 命令列。
+   b.  開啟 Hadoop 命令列。
    
    c.  透過 Hadoop 命令列中的 `cd %hive_home%\bin` 命令進入 Hive 根目錄。
    
@@ -224,7 +224,7 @@ ms.locfileid: "73495051"
    
    a.  登入 Hadoop 叢集的前端節點
    
-   b.這是另一個 C# 主控台應用程式。  開啟 Hadoop 命令列。
+   b.  開啟 Hadoop 命令列。
    
    c.  透過 Hadoop 命令列中的 `cd %hive_home%\bin` 命令進入 Hive 根目錄。
    

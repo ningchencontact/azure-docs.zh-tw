@@ -15,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 6278e848a82fb31939117fa9b916a92a2fb74a3e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3c1c385a87fc302d180729ec2e4bcd1c4a315f6f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129271"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981473"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 進階威脅偵測
 
-Azure 透過 Azure Active Directory (Azure AD)、Azure 監視器記錄和 Azure 資訊安全中心等服務, 提供內建的先進威脅偵測功能。 這個安全性服務和功能集合提供簡單且快速的方式，來了解您 Azure 部署內的一舉一動。
+Azure 透過 Azure Active Directory （Azure AD）、Azure 監視器記錄和 Azure 資訊安全中心等服務，提供內建的先進威脅偵測功能。 這個安全性服務和功能集合提供簡單且快速的方式，來了解您 Azure 部署內的一舉一動。
 
 Azure 提供各種選項來設定和自訂安全性，以符合您應用程式部署的需求。 本文討論如何滿足這些需求。
 
 ## <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md)是[Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md)版本功能, 可讓您大致瞭解可能會影響貴組織身分識別的風險偵測和潛在弱點。 Identity Protection 使用現有的 Azure AD 異常偵測功能, 可透過[Azure AD 異常活動報告](../../active-directory/active-directory-reporting-azure-portal.md)取得, 並引進可偵測即時異常的新風險偵測類型。
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md)是[Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md)版本功能，可讓您大致瞭解可能會影響貴組織身分識別的風險偵測和潛在弱點。 Identity Protection 使用現有的 Azure AD 異常偵測功能，可透過[Azure AD 異常活動報告](../../active-directory/active-directory-reporting-azure-portal.md)取得，並引進可偵測即時異常的新風險偵測類型。
 
 ![Azure AD Identity Protection 圖表](./media/threat-detection/azure-threat-detection-fig1.png)
 
-Identity Protection 會使用調適型機器學習演算法和啟發學習法來偵測異常和風險偵測, 這可能表示身分識別已遭入侵。 Identity Protection 會使用此資料來產生報告和警示, 讓您可以調查這些風險偵測, 並採取適當的補救或緩和措施。
+Identity Protection 會使用調適型機器學習演算法和啟發學習法來偵測異常和風險偵測，這可能表示身分識別已遭入侵。 Identity Protection 會使用此資料來產生報告和警示，讓您可以調查這些風險偵測，並採取適當的補救或緩和措施。
 
-Azure Active Directory Identity Protection 不只是監視和報告工具而已。 根據風險偵測, Identity Protection 會計算每個使用者的使用者風險層級, 讓您可以設定以風險為基礎的原則來自動保護您組織的身分識別。
+Azure Active Directory Identity Protection 不只是監視和報告工具而已。 根據風險偵測，Identity Protection 會計算每個使用者的使用者風險層級，讓您可以設定以風險為基礎的原則來自動保護您組織的身分識別。
 
-除了 Azure Active Directory 和[EMS](../../active-directory/active-directory-conditional-access-azure-portal.md)所提供的其他條件式[存取控制](../../active-directory/active-directory-conditional-access-azure-portal.md)以外, 這些以風險為基礎的原則可以自動封鎖或提供彈性補救動作, 包括密碼重設和多重要素強制執行驗證。
+除了 Azure Active Directory 和[EMS](../../active-directory/active-directory-conditional-access-azure-portal.md)所提供的其他條件式[存取控制](../../active-directory/active-directory-conditional-access-azure-portal.md)以外，這些以風險為基礎的原則可以自動封鎖或提供彈性補救動作，包括密碼重設和強制執行多重要素驗證。
 
 ### <a name="identity-protection-capabilities"></a>Identity Protection 功能
 
-Azure Active Directory Identity Protection 不只是監視和報告工具而已。 若要保護您組織的身分識別，您可以設定以風險為基礎的原則，當達到指定風險層級時自動回應偵測到的問題。 除了 Azure Active Directory 和 EMS 所提供的其他條件式存取控制以外, 這些原則也可以自動封鎖或起始彈性修復動作, 包括密碼重設和強制執行多重要素驗證。
+Azure Active Directory Identity Protection 不只是監視和報告工具而已。 若要保護您組織的身分識別，您可以設定以風險為基礎的原則，當達到指定風險層級時自動回應偵測到的問題。 除了 Azure Active Directory 和 EMS 所提供的其他條件式存取控制以外，這些原則也可以自動封鎖或起始彈性修復動作，包括密碼重設和強制執行多重要素驗證。
 
 Azure Identity Protection 可用以協助保護您的帳戶和身分識別的一些方法範例包括：
 
@@ -57,7 +57,7 @@ Azure Identity Protection 可用以協助保護您的帳戶和身分識別的一
 -   提供基本工作流程來追蹤調查。
 -   讓您輕鬆存取補救動作 (例如重設密碼)。
 
-[風險條件式存取原則](../../active-directory/identity-protection/overview.md)
+[以風險為基礎的條件式存取原則](../../active-directory/identity-protection/overview.md)
 -   封鎖登入或要求 Multi-Factor Authentication 挑戰，以阻止高風險登入。
 -   封鎖或保護有風險的使用者帳戶。
 -   要求使用者註冊 Multi-Factor Authentication。
@@ -78,15 +78,15 @@ PIM 可協助您：
 
 ## <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-[Azure 監視器記錄](../../azure-monitor/index.yml)是 Microsoft 雲端式 IT 管理解決方案, 可協助您管理及保護您的內部部署和雲端基礎結構。 由於 Azure 監視器記錄會實作為雲端式服務, 因此您可以在最少的基礎結構服務投資中快速啟動並執行。 會自動提供新的安全性功能，以節省持續維護和升級成本。
+[Azure 監視器記錄](../../azure-monitor/index.yml)是 Microsoft 雲端式 IT 管理解決方案，可協助您管理及保護您的內部部署和雲端基礎結構。 由於 Azure 監視器記錄會實作為雲端式服務，因此您可以在最少的基礎結構服務投資中快速啟動並執行。 會自動提供新的安全性功能，以節省持續維護和升級成本。
 
-除了自行提供重要服務之外, Azure 監視器記錄可以與 System Center 元件 (例如[System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/)) 整合, 以將現有的安全性管理投資擴充到雲端。 System Center 和 Azure 監視器記錄可以共同合作, 以提供完整的混合式管理體驗。
+除了自行提供重要服務之外，Azure 監視器記錄可以與 System Center 元件（例如[System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/)）整合，以將現有的安全性管理投資擴充到雲端。 System Center 和 Azure 監視器記錄可以共同合作，以提供完整的混合式管理體驗。
 
 ### <a name="holistic-security-and-compliance-posture"></a>整體安全性與合規性狀態
 
 [Log Analytics 安全性與稽核儀表板](../../security-center/security-center-intro.md)針對值得您注意的問題，使用內建的搜尋查詢，為您組織的 IT 安全性狀態提供全面檢視。 [安全性與稽核儀表板] 是 Azure 監視器記錄檔中所有安全性相關專案的主畫面。 它可讓您深入了解您的電腦的安全性狀態。 您也可以檢視過去 24 小時、7 天或任何其他自訂時間範圍內的所有事件。
 
-Azure 監視器記錄可協助您快速且輕鬆地瞭解任何環境的整體安全性狀態, 全都在 IT 作業的內容中, 包括軟體更新評估、反惡意程式碼評估和設定基準。 可立即存取安全性記錄資料，以簡化安全性與合規性稽核程序。
+Azure 監視器記錄可協助您快速且輕鬆地瞭解任何環境的整體安全性狀態，全都在 IT 作業的內容中，包括軟體更新評估、反惡意程式碼評估和設定基準。 可立即存取安全性記錄資料，以簡化安全性與合規性稽核程序。
 
 ![Log Analytics 安全性與稽核儀表板](./media/threat-detection/azure-threat-detection-fig3.jpg)
 
@@ -114,14 +114,14 @@ Azure 監視器記錄可協助您快速且輕鬆地瞭解任何環境的整體�
 資料來源和解決方案各會建立具有其專屬屬性集的不同記錄類型，但仍能一起分析來查詢存放庫。 您可以使用相同的工具和方法，來處理各種來源所收集的各種資料。
 
 
-大部分與 Azure 監視器記錄的互動都是透過 Azure 入口網站, 它會在任何瀏覽器中執行, 並可讓您存取設定和多項工具來分析及處理所收集的資料。 從入口網站中，您可以使用：
+大部分與 Azure 監視器記錄的互動都是透過 Azure 入口網站，它會在任何瀏覽器中執行，並可讓您存取設定和多項工具來分析及處理所收集的資料。 從入口網站中，您可以使用：
 * [記錄搜尋](../../log-analytics/log-analytics-queries.md)，以建構查詢來分析收集的資料。
 * [儀表板](../../azure-monitor/learn/tutorial-logs-dashboards.md)，可使用最有價值搜尋的圖形檢視來自訂。
 * [解決方案](../../monitoring/monitoring-solutions.md)，提供額外的功能和分析工具。
 
 ![分析工具](./media/threat-detection/azure-threat-detection-fig6.png)
 
-解決方案會將功能新增至 Azure 監視器記錄。 它們主要是在雲端執行, 並提供 log analytics 存放庫中所收集資料的分析。 解決方案也可能會定義要收集的新記錄類型, 可以使用記錄搜尋進行分析, 或使用解決方案在 log analytics 儀表板中提供的其他使用者介面來進行分析。
+解決方案會將功能新增至 Azure 監視器記錄。 它們主要是在雲端執行，並提供 log analytics 存放庫中所收集資料的分析。 解決方案也可能會定義要收集的新記錄類型，可以使用記錄搜尋進行分析，或使用解決方案在 log analytics 儀表板中提供的其他使用者介面來進行分析。
 
 [安全性與稽核] 儀表板是這類解決方案的範例。
 
@@ -135,7 +135,7 @@ Azure 自動化會使用以 PowerShell 為基礎並在雲端中執行的 Runbook
 
 ## <a name="azure-security-center"></a>Azure 資訊安全中心
 
-Azure 資訊安全中心可協助保護您的 Azure 資源。 它提供您 Azure 訂用帳戶之間的整合式安全性監視和原則管理。 在服務內，您可以定義對 Azure 訂用帳戶和[資源群組](../../azure-resource-manager/manage-resources-portal.md)的原則，以取得更詳細的資料。
+Azure 資訊安全中心可協助保護您的 Azure 資源。 它提供您 Azure 訂用帳戶之間的整合式安全性監視和原則管理。 在服務內，您可以定義對 Azure 訂用帳戶和[資源群組](../../azure-resource-manager/management/manage-resources-portal.md)的原則，以取得更詳細的資料。
 
 ![Azure 資訊安全中心圖表](./media/threat-detection/azure-threat-detection-fig8.png)
 
@@ -194,7 +194,7 @@ Microsoft 可以存取大量的全域威脅情報。
 
 ### <a name="anomaly-detection"></a>異常偵測
 
-Azure 資訊安全中心也會使用異常偵測來識別威脅。 相較於行為分析 (這取決於衍生自大型資料集的已知模式)，異常偵測更加「個人化」，且著重於您的部署專用的基準。 機器學習適用於判斷您部署的正常活動，然後產生規則來定義可能代表安全性事件的極端狀況。 以下為範例：
+Azure 資訊安全中心也會使用異常偵測來識別威脅。 相較於行為分析 (這取決於衍生自大型資料集的已知模式)，異常偵測更加「個人化」，且著重於您的部署專用的基準。 機器學習適用於判斷您部署的正常活動，然後產生規則來定義可能代表安全性事件的極端狀況。 範例如下：
 
 -   **輸入 RDP/SSH 暴力密碼破解攻擊**︰您的部署中可能包含每天都有許多登入的繁忙虛擬機器，以及有少量 (如果有的話) 登入的其他虛擬機器。 Azure 資訊安全中心可以判斷這些虛擬機器的基準登入活動，並使用要定義於正常登入活動周圍的機器學習服務。 如果與針對登入相關特性所定義的基準有任何差異，則可能會產生警示。 同樣地，機器學習服務會判斷何者值得關注。
 
@@ -214,7 +214,7 @@ Azure 資訊安全中心在世界各地設有資訊安全研究和資料科學�
 
 ## <a name="advanced-threat-detection-features-other-azure-services"></a>進階威脅偵測功能：其他 Azure 服務
 
-### <a name="virtual-machines-microsoft-antimalware"></a>虛擬機器：Microsoft Antimalware
+### <a name="virtual-machines-microsoft-antimalware"></a>虛擬機器︰Microsoft Antimalware
 
 適用於 Azure 的 [Microsoft Antimalware](antimalware.md) 是針對應用程式和租用戶環境所提供的單一代理程式解決方案，其設計可於無人為介入的情況下在背景中執行。 您可依據應用程式工作負載需求，選擇預設的基本安全性或進階的自訂組態 (包括反惡意程式碼監視) 來部署保護。 Azure Antimalware 是自動安裝在所有 Azure PaaS 虛擬機器之 Azure 虛擬機器的安全性選項。
 
@@ -240,7 +240,7 @@ Azure 資訊安全中心在世界各地設有資訊安全研究和資料科學�
 
 -   **排除項目**：可讓應用程式和服務管理員設定特定的檔案、處理序及磁碟機，以因應效能和其他原因將其從保護和掃描中排除。
 
--   **Antimalware 事件收集**：記錄作業系統事件記錄檔中反惡意程式碼軟體服務健康狀態、可疑的活動以及其所採取的補救動作，並將它們收集至客戶的 Azure 儲存體帳戶。
+-   **反惡意程式碼軟體事件收集**：記錄作業系統事件記錄檔中反惡意程式碼軟體服務健康狀態、可疑的活動以及其所採取的補救動作，並將它們收集至客戶的 Azure 儲存體帳戶。
 
 ### <a name="azure-sql-database-threat-detection"></a>Azure SQL Database 威脅偵測
 
@@ -345,7 +345,7 @@ SQL Database 威脅偵測器會使用下列其中一種偵測方法：
 | 探索 | 利用 Cloud App Security 來揭露影子 IT。 藉由探索雲端環境中的應用程式、活動、使用者、資料和檔案，來取得可見度。 探索連接到您雲端的協力廠商應用程式。|
 |調查 | 使用雲端鑑識工具深入探討有風險的應用程式、特定的使用者及您網路中的檔案，藉以調查您的雲端應用程式。 在收集自您雲端的資料中尋找模式。 產生報告來監視您的雲端。 |
 | 控制 | 藉由設定原則和警示以便能充分控制網路雲端流量來降低風險。 使用 Cloud App Security，將您的使用者移轉至安全且獲批准的雲端應用程式替代項目。 |
-| Protect | 使用 Cloud App Security 來批准或禁止應用程式、強制執行資料損失防範措施、控制權限和共用，並產生自訂報告和警示。 |
+| 保護 | 使用 Cloud App Security 來批准或禁止應用程式、強制執行資料損失防範措施、控制權限和共用，並產生自訂報告和警示。 |
 | 控制 | 藉由設定原則和警示以便能充分控制網路雲端流量來降低風險。 使用 Cloud App Security，將您的使用者移轉至安全且獲批准的雲端應用程式替代項目。 |
 | | |
 
@@ -366,7 +366,7 @@ Cloud App Security 會透過下列方式來整合雲端的可見性：
 
 ## <a name="third-party-advanced-threat-detection-capabilities-through-the-azure-marketplace"></a>透過 Azure Marketplace 的協力廠商進階威脅偵測功能
 
-### <a name="web-application-firewall"></a>Web 應用程式防火牆
+### <a name="web-application-firewall"></a>Web Application Firewall
 
 Web 應用程式防火牆會檢查輸入的 Web 流量和並封鎖 SQL 插入、跨網站指令碼、惡意程式碼上傳和應用程式 DDoS 攻擊，以及目標為您 Web 應用程式的其他攻擊。 它也會針對資料外洩防護 (DLP) 檢查來自後端 Web 伺服器的回應。 整合式存取控制引擎讓系統管理員能夠建立細微的存取控制原則以用於驗證、授權和帳戶處理 (AAA)，其可為組織提供增強式驗證和使用者控制。
 
@@ -384,6 +384,6 @@ Web 應用程式防火牆提供下列優點：
 
 ## <a name="next-steps"></a>後續步驟
 
-- [回應現今的威脅](../../security-center/security-center-alerts-overview.md#respond-threats):協助識別以您的 Azure 資源為目標的作用中威脅，並提供您快速回應所需的見解。
+- [回應現今的威脅](../../security-center/security-center-alerts-overview.md#respond-threats)：協助識別以您的 Azure 資源為目標的作用中威脅，並提供您快速回應所需的見解。
 
 - [Azure SQL Database 威脅偵測](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/)：協助解決您對資料庫潛在威脅的疑慮。
