@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 564126ab262306f2b01948e29baf239b725083e0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7216d2f97a52798d2609073761eb8f4a2ce9024d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427612"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976122"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio （傳統） Web 服務：部署和耗用量
 
@@ -49,7 +49,7 @@ Web 服務的 Azure Machine Learning Studio （傳統）資源提供者可讓您
 
 Web 服務的 Azure Machine Learning Studio （傳統）資源提供者可讓您使用 PowerShell Cmdlet 來部署和管理 web 服務。
 
-若要使用這些 Cmdlet，您必須先使用[disconnect-azaccount](/powershell/module/az.accounts/connect-azaccount)指令程式，從 PowerShell 環境中登入您的 Azure 帳戶。 如果您不熟悉如何呼叫以 Resource Manager 為基礎的 PowerShell 命令，請參閱 [搭配使用 Azure PowerShell 與 Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md)。
+若要使用這些 Cmdlet，您必須先使用[disconnect-azaccount](/powershell/module/az.accounts/connect-azaccount)指令程式，從 PowerShell 環境中登入您的 Azure 帳戶。 如果您不熟悉如何呼叫以 Resource Manager 為基礎的 PowerShell 命令，請參閱 [搭配使用 Azure PowerShell 與 Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md)。
 
 若要匯出預測實驗，請使用這個 [範例程式碼](https://github.com/ritwik20/AzureML-WebServices)。 由程式碼建立 .exe 檔案之後，您可以輸入︰
 

@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: b67c77f25b14263abe7207359c00660df635df13
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 49fbdf4a4090350cc0a6a5a1b938621b3cb08632
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863786"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045105"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用原生 Azure 憑證驗證設定 VNet 的點對站 VPN 連線： PowerShell
 
@@ -32,13 +32,15 @@ ms.locfileid: "75863786"
 
 ## <a name="before-you-begin"></a>開始之前
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 請確認您有 Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)或註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial)。
+
+### <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-本文中大部分的步驟都可以使用 Cloud Shell。 不過，若要上傳根憑證公開金鑰，您必須在本機使用 PowerShell，或使用 Azure 入口網站。
+>[!NOTE]
+> 本文中的大部分步驟都可以使用 Azure Cloud Shell。 不過，若要上傳根憑證公開金鑰，您必須在本機使用 PowerShell，或使用 Azure 入口網站。
+>
 
 ### <a name="example"></a>範例值
 
@@ -170,7 +172,9 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPoo
 
 確認 VPN 閘道已完成建立。 完成之後，您可以將受信任根憑證的 .cer 檔案 (其中包含公開金鑰資訊) 上傳至 Azure。 一旦上傳 .cer 檔案，Azure 就可以使用它來驗證已安裝從受信任根憑證產生之用戶端憑證的用戶端。 如有需要，您稍後可以上傳其他受信任的根憑證檔案 (最多總計 20 個檔案)。
 
-您無法使用 Azure Cloud Shell 上傳這項資訊。 您可以在您的本機電腦上使用 PowerShell，或使用 [Azure 入口網站步驟](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile)。
+>[!NOTE]
+> 您無法使用 Azure Cloud Shell 上傳 .cer 檔案。 您可以在本機電腦上使用 PowerShell，也可以使用[Azure 入口網站步驟](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile)。
+>
 
 1. 宣告您的憑證名稱的變數，以自己的值取代。
 
@@ -185,7 +189,7 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPoo
    $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
    $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
    ```
-3. 將公開金鑰資訊上傳至 Azure。 一旦上傳憑證資訊，Azure 會將它視為受信任的根憑證。
+3. 將公開金鑰資訊上傳至 Azure。 一旦上傳憑證資訊，Azure 會將它視為受信任的根憑證。 上傳時，請確定您是在本機電腦上執行 PowerShell，或者您可以使用[Azure 入口網站步驟](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile)。 您無法使用 Azure Cloud Shell 上傳。
 
    ```azurepowershell
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64

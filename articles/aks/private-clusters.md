@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mlearned
-ms.openlocfilehash: d7b1d82f88afd8ac3d94cbdd2d117834c12d0b96
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: e01579272878a2436abca2ee50f0f6ea6cf78cbf
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867143"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045604"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>建立私人 Azure Kubernetes Service 叢集（預覽）
 
@@ -131,7 +131,7 @@ API 伺服器端點沒有公用 IP 位址。 因此，您必須在虛擬網路�
 
 ## <a name="limitations"></a>限制 
 * [Azure 私人連結服務限制][private-link-service]適用于私人叢集、azure 私人端點和虛擬網路服務端點，但目前在相同的虛擬網路中並不支援。
-* 不支援私用叢集中的虛擬節點，以在私人 Azure 虛擬網路中微調私用 Cisco 應用程式中心的基礎結構（ACI）實例。
+* 不支援私用叢集中的虛擬節點，以在私人 Azure 虛擬網路中微調私用 Cisco 應用程式中心基礎結構（Cisco ACI）實例。
 * 不支援使用私人叢集的現成 Azure DevOps 整合。
 * 對於需要啟用 Azure Container Registry 以使用私用 AKS 的客戶，必須使用代理程式叢集虛擬網路來對等互連 Container Registry 虛擬網路。
 * 目前不支援 Azure Dev Spaces。

@@ -12,21 +12,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 7949bedec2d304cd87fb512b44cd61d6f0894638
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 92c4a40de7e35d0580fe407e36305a50ad68094c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168945"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981795"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>遠端桌面服務未在 Azure VM 上啟動
 
 本文說明如何針對在遠端桌面服務 (或 TermService) 未啟動或無法啟動的問題，以及連線到 Azure 虛擬機器 (VM) 的問題進行疑難排解。
 
 > [!NOTE]  
-> Azure 建立和處理資源的部署模型有兩種：[Azure Resource Manager 和傳統模型](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文將說明如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不使用傳統部署模型。
+> Azure 建立和處理資源的部署模型有二種：[Azure Resource Manager 和傳統](../../azure-resource-manager/management/deployment-models.md)。 本文將說明如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不使用傳統部署模型。
 
-## <a name="symptoms"></a>徵兆
+## <a name="symptoms"></a>徵狀
 
 當您嘗試連線到 VM 時，會遇到下列案例：
 
@@ -36,14 +36,14 @@ ms.locfileid: "72168945"
 
 - 您使用事件檢視器從遠端檢視 VM 中的事件記錄。 您看到遠端桌面服務 (TermService)，沒有啟動或無法啟動。 下列記錄檔是範例：
 
-    **記錄檔名稱**：    系統 </br>
-    **來源**：      服務控制管理員 </br>
-    **日期**：        2017 年 12 月 16 日上午 11:19:36</br>
-    **事件識別碼**：    7022</br>
-    **工作類別**：None</br>
-    **層級**：       Error</br>
-    **關鍵字**：    傳統</br>
-    **使用者**：        N/A</br>
+    **記錄名稱**：     系統 </br>
+    **來源**：        服務控制管理員 </br>
+    **日期**：          12/16/2017 11:19:36 AM</br>
+    **事件識別碼**：      7022</br>
+    **工作分類**：無</br>
+    **層級**：         錯誤</br>
+    **關鍵字**：      傳統</br>
+    **使用者**：          N/A</br>
     **電腦**：vm.contoso.com</br>
     **描述**：遠端桌面服務啟動時無反應。 
 
@@ -59,7 +59,7 @@ ms.locfileid: "72168945"
 - TermService 服務已損毀或沒有回應。 
 - 因為的設定不正確，所以無法啟動 TermService。
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方案
 
 若要對此問題進行疑難排解，請使用序列主控台。 或者，藉由將 VM 的 OS 磁碟連結至復原 VM，進行[離線修復 VM](#repair-the-vm-offline)。
 
@@ -96,7 +96,7 @@ ms.locfileid: "72168945"
    ```
 8. 如果服務無法啟動，請根據您所收到的錯誤訊息來遵循解決方案：
 
-    |  Error |  建議 |
+    |  錯誤 |  建議 |
     |---|---|
     |5- 拒絕存取 |請參閱 [TermService 服務因為拒絕存取錯誤而停止](#termservice-service-is-stopped-because-of-an-access-denied-problem)。 |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |請參閱 [TermService 服務已停用](#termservice-service-is-disabled)。  |  
@@ -145,7 +145,7 @@ ms.locfileid: "72168945"
 
     1. [將資料磁碟連結至 VM](../windows/attach-managed-disk-portal.md
 )。
-    2. 您可以使用序列主控台，將檔案複製到新的磁碟機。 例如，`copy C:\temp\ProcMonTrace.PML F:\`。 在此命令中，F 是所連結之資料磁碟的磁碟機代號。
+    2. 您可以使用序列主控台，將檔案複製到新的磁碟機。 例如： `copy C:\temp\ProcMonTrace.PML F:\` 。 在此命令中，F 是所連結之資料磁碟的磁碟機代號。
     3. 將資料磁碟機中斷連結，並連結到作用中且已安裝處理序監視的 VM。
 
 6. 使用作用中 VM 的處理序監視開啟 **ProcMonTrace.PML**。 然後依**結果篩選為拒絕存取**，如下列螢幕擷取畫面所示：
@@ -205,7 +205,7 @@ ms.locfileid: "72168945"
 
 1. [將 OS 磁碟連結至復原 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 2. 啟動復原 VM 的遠端桌面連線。 確定連結的磁碟在磁碟管理主控台中標示為 [線上]。 記下指派給所連結 OS 磁碟的磁碟機代號。
-3. 開啟提升權限的命令提示字元執行個體 (**以系統管理員身分執行**)。 然後執行下列指令碼。 我們假設指派給所連結 OS 磁碟的磁碟機代號是 **F**。將它取代為您 VM 中適當的值。 
+3. 開啟提升權限的命令提示字元執行個體 (**以系統管理員身分執行**)。 然後執行下列指令碼。 我們假設指派給所連結 OS 磁片的磁碟機號是**F**。將它取代為您 VM 中的適當值。 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -221,6 +221,6 @@ ms.locfileid: "72168945"
 
 4. [將 OS 磁碟中斷連結並建立 VM](../windows/troubleshoot-recovery-disks-portal.md)。 然後檢查問題是否已解決。
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
+## <a name="need-help-contact-support"></a>需要協助嗎？ 連絡客戶支援
 
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以解決您的問題。

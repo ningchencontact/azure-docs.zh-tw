@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/07/2018
-ms.openlocfilehash: f68838e271e51c37985f55b40b140e279c1df2a4
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 337b340df10eb406fef3148b1d8bfde66b3b8ff6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862538"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979841"
 ---
 # <a name="azure-management---monitoring"></a>Azure 管理 - 監視
 
@@ -36,7 +36,7 @@ ms.locfileid: "75862538"
 設定是指應用程式及資源的初始部署和設定，以及透過修補程式和更新所持續進行的維護。  您可以透過指令碼和原則將這些工作自動化，以免於重複進行各項工作、將投注的時間及精力降至最低，並增加正確性和效率。  [Azure 自動化](../automation/automation-intro.md)提供自動化設定工作的主要服務。  它除了讓流程自動化的 Runbook，還提供設定和更新管理，可協助您透過原則管理設定，以及協助識別和部署更新。
 
 ## <a name="govern"></a>治理
-治理提供多項機制和流程，以便維持控制 Azure 中的應用程式與資源。  它同時也涉及規劃您的新措施，以及設定策略層級的優先順序。  在 Azure 中的治理主要是透過兩個服務進行實作。  [Azure 原則](../governance/policy/overview.md)可讓您建立、指派和管理會對資源強制執行不同規則和動作的原則定義，讓這些資源能符合公司標準和服務等級協定的規範。 [Azure 成本管理](../cost-management/overview-cost-mgt.md)可讓您追蹤 Azure 資源和其他雲端提供者（包括 AWS 和 Google）的雲端使用量和支出。
+治理提供多項機制和流程，以便維持控制 Azure 中的應用程式與資源。  它同時也涉及規劃您的新措施，以及設定策略層級的優先順序。  在 Azure 中的治理主要是透過兩個服務進行實作。  [Azure 原則](../governance/policy/overview.md)可讓您建立、指派和管理會對資源強制執行不同規則和動作的原則定義，讓這些資源能符合公司標準和服務等級協定的規範。 [Azure 成本管理](../cost-management-billing/cost-management-billing-overview.md)可讓您追蹤 Azure 資源和其他雲端提供者（包括 AWS 和 Google）的雲端使用量和支出。
 
 ## <a name="secure"></a>安全
 管理應用程式、資源和資料的安全性涉及多種動作的組合，其中包括評估威脅、收集和分析安全性資料，以及確保您的應用程式和資源是以安全方式來設計及設定的。  安全性監視和威脅分析是由 [Azure 資訊安全中心](../security-center/security-center-intro.md)所提供，其中包含跨混合式雲端工作負載的整合式安全性管理和進階威脅保護。  另請參閱 [Azure 安全性簡介](../security/fundamentals/overview.md)，了解 Azure 中更完整的安全性資訊，以及安全地設定 Azure 資源的指導方針。

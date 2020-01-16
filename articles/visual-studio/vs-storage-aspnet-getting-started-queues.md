@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5b57f171a9407acea8231d796a80c3a1cc1d9474
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f229661ca78dc75adbc0b49073dc6f0feaf2ba22
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300105"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980743"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>開始使用 Azure 佇列儲存體和 Visual Studio 已連線的服務 (ASP.NET)
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計擴充性的應用程式時，會經常分離應用程式元件，以便進行個別擴充。 佇列儲存體可針對應用程式元件間的通訊，提供非同步傳訊，無論應用程式元件是在雲端、桌面、內部部署伺服器或行動裝置上執行。 佇列儲存體也支援管理非同步工作並建置處理工作流程。
 
@@ -33,7 +33,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 ## <a name="prerequisites"></a>必要條件
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)
+* [Azure 儲存體帳戶](../storage/common/storage-account-create.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -84,7 +84,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     }
     ```
 
-1. 在 **CreateQueue** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **CreateQueue** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -165,7 +165,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     }
     ```
  
-1. 在 **AddMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **AddMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -254,7 +254,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     }
     ```
  
-1. 在 **PeekMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **PeekMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -279,7 +279,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. 以下列兩個值更新 **ViewBag**︰佇列名稱和已讀取的訊息。 **CloudQueueMessage**物件會公開兩個屬性來取得物件的值：**CloudQueueMessage. cloudqueuemessage.asbytes**和**CloudQueueMessage. AsString**。 **AsString** (在此範例中使用) 會傳回字串，而 **AsBytes** 會傳回位元組陣列。
+1. 以下列兩個值更新 **ViewBag**︰佇列名稱和已讀取的訊息。 **CloudQueueMessage** 物件會公開取得物件值的兩個屬性：**CloudQueueMessage.AsBytes** 和 **CloudQueueMessage.AsString**。 **AsString** (在此範例中使用) 會傳回字串，而 **AsBytes** 會傳回位元組陣列。
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
@@ -338,7 +338,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     }
     ```
  
-1. 在 **ReadMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **ReadMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -429,7 +429,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     }
     ```
  
-1. 在 **ReadMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **ReadMessage** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -516,7 +516,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     }
     ```
  
-1. 在 **DeleteQueue**方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **DeleteQueue**方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您要存取之 Azure 儲存體帳戶的名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(

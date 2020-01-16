@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.author: b-juche
-ms.openlocfilehash: f65e715c237309d062f48ffb85f03a77fd1be3ba
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 9559f1d52f87314670162482e10714dad13be5bb
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891042"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046167"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>關於 Azure NetApp Files 的常見問題
 
@@ -201,3 +201,4 @@ NetApp 提供以 SaaS 為基礎的解決方案，即[Netapp Cloud Sync](https://
 - [Microsoft Azure 虛擬網路常見問題](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Azure 資料箱](https://docs.microsoft.com/azure/databox-family/)
+- [適用于 Azure NetApp Files 的 SMB 效能常見問題](azure-netapp-files-smb-performance.md)

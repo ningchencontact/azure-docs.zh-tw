@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: d765422957392a5cdb170208b809c24bf5aec2a3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 31a6c53ec269c512ad641fcdc10469ccf16a1fe9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932199"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979752"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Azure 監視器記錄中的標準屬性
 Azure 監視器記錄檔中的資料會[儲存為 Log Analytics 工作區或 Application Insights 應用程式中的一組記錄](../log-query/logs-structure.md)，每一個都具有具有一組唯一屬性的特定資料類型。 有許多資料類型都具有多種類型之間通用的標準屬性。 本文將說明這些屬性，並提供在查詢中加以使用的範例。
@@ -79,7 +79,7 @@ search *
 ## <a name="_resourceid"></a>\_ResourceId
 **\_ResourceId** 屬性會保存與記錄相關聯的資源唯一識別碼。 這可讓您有標準屬性可用來將查詢範圍限定於來自特定資源的記錄，或跨多個資料表聯結相關的資料。
 
-就 Azure 資源而言， **_ResourceId** 的值為 [Azure 資源識別碼 URL](../../azure-resource-manager/resource-group-template-functions-resource.md)。 此屬性目前僅適用於 Azure 資源，但未來將擴充至 Azure 以外的資源，例如內部部署電腦。
+就 Azure 資源而言， **_ResourceId** 的值為 [Azure 資源識別碼 URL](../../azure-resource-manager/templates/template-functions-resource.md)。 此屬性目前僅適用於 Azure 資源，但未來將擴充至 Azure 以外的資源，例如內部部署電腦。
 
 > [!NOTE]
 > 某些資料類型的欄位已包含 Azure 資源識別碼，或是至少屬於其一部份的訂用帳戶識別碼等。 雖然這些欄位會保留回溯相容性，但還是建議您使用 _ResourceId 執行交叉相互關聯，這樣將會更一致。

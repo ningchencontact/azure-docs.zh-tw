@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 72d8e58d1f4ca2955ed2469d061277949751d8b3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 17c957dbd9c43b3cc66af39195a73bad8e006814
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772693"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982357"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>針對適用於 MariaDB 的 Azure 資料庫使用虛擬網路服務端點和規則
 
@@ -50,7 +50,7 @@ ms.locfileid: "74772693"
 
 除非您採取動作，否則子網路上的 VM 無法與適用於 MariaDB 的 Azure 資料庫伺服器通訊。 建立通訊的一個動作，就是建立虛擬網路規則。 為了選擇虛擬網路 (VNet) 規則方法，基本上需要經過一番比較與對照討論，以確實了解防火牆所提供的各種只能擇其一的安全性選項。
 
-### <a name="a-allow-access-to-azure-services"></a>答： 允許存取 Azure 服務
+### <a name="a-allow-access-to-azure-services"></a>A. 允許存取 Azure 服務
 
 連線安全性窗格有一個標示為 [允許存取 Azure 服務] 的 [開啟/關閉] 按鈕。 [開啟] 設定允許來自所有 Azure IP 位址和所有 Azure 子網路的通訊。 這些 Azure IP 或子網路可能不是您所擁有。 此 [開啟] 設定可能會超出您想要開啟適用於 MariaDB 資料庫的 Azure 資料庫的幅度。 虛擬網路規則功能提供更細微的控制。
 
@@ -88,8 +88,8 @@ ms.locfileid: "74772693"
 
 有一組獨立的安全性角色負責管理虛擬網路服務端點。 下列每個角色都需要採取動作：
 
-- **網路管理員：** &nbsp;開啟端點。
-- **資料庫管理員：** &nbsp;更新存取控制清單 (ACL) 以將指定的子網路新增至適用於 MariaDB 的 Azure 資料庫伺服器。
+- **網路系統管理員：** &nbsp; 開啟端點。
+- **資料庫管理員：** &nbsp; 更新存取控制清單（ACL），以將指定的子網新增至適用於 MariaDB 的 Azure 資料庫伺服器。
 
 RBAC 替代方案：
 
@@ -117,7 +117,7 @@ RBAC 替代方案：
 
 - 使用 **Microsoft.Sql** 服務標籤對適用於 MariaDB 的 Azure 資料庫開啟虛擬網路服務端點，也會對所有 Azure 資料庫服務啟用端點：適用於 MariaDB 的 Azure 資料庫、適用於 MySQL 的 Azure 資料庫、適用於 PostgreSQL 的 Azure 資料庫、Azure SQL Database，以及 Azure SQL 資料倉儲。
 
-- VNet 服務端點的支援僅適用於一般用途和記憶體最佳化伺服器。
+- VNet 服務端點的支援僅適用於一般用途伺服器和記憶體最佳化伺服器。
 
 - 在防火牆上，IP 位址範圍會套用到下列網路項目，但虛擬網路規則不這麼做：
     - [站對站（S2S）虛擬私人網路（VPN）][vpn-gateway-indexmd-608y]
@@ -148,7 +148,7 @@ RBAC 替代方案：
 -->
 
 <!-- Link references, to text, Within this same GitHub repo. -->
-[resource-manager-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[resource-manager-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
 
@@ -162,4 +162,4 @@ RBAC 替代方案：
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

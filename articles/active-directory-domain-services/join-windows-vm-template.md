@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 3e1a754d39025136866712cb57026e827c986f6a
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c9f5bcd9921b0324eb194eefd2066f6c0eaa4706
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705006"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975214"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>使用 Resource Manager 範本將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域
 
@@ -84,11 +84,11 @@ Resource Manager 範本可讓您在程式碼中定義 Azure 基礎結構。 Vm �
 1. 流覽至[快速入門範本](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)。 選取要**部署至 Azure**的選項。
 1. 在 [**自訂部署**] 頁面上，輸入下列資訊，以建立 WINDOWS Server VM 並將其加入 Azure AD DS 受控網域：
 
-    | 設定                   | Value |
+    | 設定                   | 值 |
     |---------------------------|-------|
-    | Subscription              | 挑選已啟用 Azure AD Domain Services 的相同 Azure 訂用帳戶。 |
-    | Resource group            | 選擇您 VM 的資源群組。 |
-    | Location                  | 選取 VM 的位置。 |
+    | 訂閱              | 挑選已啟用 Azure AD Domain Services 的相同 Azure 訂用帳戶。 |
+    | 資源群組            | 選擇您 VM 的資源群組。 |
+    | 位置                  | 選取 VM 的位置。 |
     | 現有的 VNET 名稱        | 要連接 VM 的現有虛擬網路名稱，例如*myVnet*。 |
     | 現有的子網名稱      | 現有虛擬網路子網的名稱，例如*工作負載*。 |
     | DNS 標籤首碼          | 輸入要用於 VM 的 DNS 名稱，例如*myvm*。 |
@@ -117,11 +117,11 @@ Resource Manager 範本可讓您在程式碼中定義 Azure 基礎結構。 Vm �
 1. 流覽至[快速入門範本](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)。 選取要**部署至 Azure**的選項。
 1. 在 [**自訂部署**] 頁面上，輸入下列資訊以將 VM 加入 Azure AD DS 受控網域：
 
-    | 設定                   | Value |
+    | 設定                   | 值 |
     |---------------------------|-------|
-    | Subscription              | 挑選已啟用 Azure AD Domain Services 的相同 Azure 訂用帳戶。 |
-    | Resource group            | 選擇包含現有 VM 的資源群組。 |
-    | Location                  | 選取現有 VM 的位置。 |
+    | 訂閱              | 挑選已啟用 Azure AD Domain Services 的相同 Azure 訂用帳戶。 |
+    | 資源群組            | 選擇包含現有 VM 的資源群組。 |
+    | 位置                  | 選取現有 VM 的位置。 |
     | VM 清單                   | 輸入要加入 Azure AD DS 受控網域的現有 VM 逗號分隔清單，例如*myVM1、myVM2*。 |
     | 加入網域的使用者名稱     | Azure AD DS 受控網域中的使用者帳戶，應該用來將 VM 加入受控網域。 此帳戶必須是*AZURE AD DC 系統管理員*群組的成員。 |
     | 加入網域的使用者密碼 | 先前設定中所指定使用者帳戶的密碼。 |
@@ -143,6 +143,6 @@ Resource Manager 範本可讓您在程式碼中定義 Azure 基礎結構。 Vm �
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
-[template-overview]: ../azure-resource-manager/template-deployment-overview.md
-[deploy-powershell]: ../azure-resource-manager/resource-group-template-deploy.md
-[deploy-cli]: ../azure-resource-manager/resource-group-template-deploy-cli.md
+[template-overview]: ../azure-resource-manager/templates/overview.md
+[deploy-powershell]: ../azure-resource-manager/templates/deploy-powershell.md
+[deploy-cli]: ../azure-resource-manager/templates/deploy-cli.md

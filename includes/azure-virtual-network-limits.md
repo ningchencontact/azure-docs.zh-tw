@@ -5,27 +5,28 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 01/13/2020
+ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 97ee10e0b286f1b007f2e807351301f2037d1754
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 17558b44c91425ce1a06625f8fd5c1806a762ba2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942825"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021113"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>網路限制-Azure Resource Manager 下列限制僅適用于透過每個訂用帳戶的每個區域**Azure Resource Manager**管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
 > [!NOTE]
-> 我們最近已將所有預設限制提升至其最大限制。 如果沒有上限資料行，則資源沒有可調整的限制。 如果您過去的支援增加了這些限制，而且在下表中看不到更新的限制，請免費[開啟線上客戶支援要求](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+> 我們最近已將所有預設限制提升至其最大限制。 如果沒有上限資料行，則資源沒有可調整的限制。 如果您過去的支援增加了這些限制，而且在下表中看不到更新的限制，請免費[開啟線上客戶支援要求](../articles/azure-resource-manager/templates/error-resource-quota.md)
 
 | 資源 | 預設/最大限制 | 
 | --- | --- |
 | 虛擬網路 |1,000 |
 | 每一虛擬網路的子網路 |3,000 |
 | 每個虛擬網路的虛擬網路對等互連 |500 |
-| [每個虛擬網路的虛擬網路閘道（VPN 閘道）](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
+| [每個虛擬網路的虛擬網路閘道（VPN 閘道）](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
+| [每個虛擬網路的虛擬網路閘道（ExpressRoute 閘道）](../articles/expressroute/expressroute-about-virtual-network-gateways.md#gwsku) |1 |
 | 每個虛擬網路的 DNS 伺服器 |20 |
 | 每個虛擬網路的私人 IP 位址 |65,536 |
 | 每個網路介面的私人 IP 位址 |256 |

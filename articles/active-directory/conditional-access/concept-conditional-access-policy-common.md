@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 01/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d8d803a8256845c61def1b1df4d633ce95a3ce6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d5cfe6b790d5eb2877e46845317779c89cf33884
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424980"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978011"
 ---
 # <a name="common-conditional-access-policies"></a>一般條件式存取原則
 
@@ -33,14 +33,16 @@ ms.locfileid: "75424980"
 
 ## <a name="typical-policies-deployed-by-organizations"></a>組織部署的一般原則
 
-* [系統管理員需要 MFA](howto-conditional-access-policy-admin-mfa.md)
-* [Azure 管理需要 MFA](howto-conditional-access-policy-azure-management.md)
-* [所有使用者都需要 MFA](howto-conditional-access-policy-all-users-mfa.md)
-* [封鎖舊版驗證](howto-conditional-access-policy-block-legacy.md)
+* 系統[管理員需要 MFA](howto-conditional-access-policy-admin-mfa.md)\*
+* [Azure 管理\* 需要 MFA](howto-conditional-access-policy-azure-management.md)
+* [所有使用者都需要 MFA](howto-conditional-access-policy-all-users-mfa.md)\*
+* [封鎖舊版驗證](howto-conditional-access-policy-block-legacy.md)\*
 * [以風險為基礎的條件式存取（需要 Azure AD Premium P2）](howto-conditional-access-policy-risk.md)
 * [MFA 註冊需要信任的位置](howto-conditional-access-policy-registration.md)
 * [依位置封鎖存取](howto-conditional-access-policy-location.md)
 * [需要符合規範的裝置](howto-conditional-access-policy-compliant-device.md)
+
+\* 這四個原則一起設定時，會模擬[安全性預設值](../fundamentals/concept-fundamentals-security-defaults.md)所啟用的功能。
 
 ## <a name="next-steps"></a>後續步驟
 

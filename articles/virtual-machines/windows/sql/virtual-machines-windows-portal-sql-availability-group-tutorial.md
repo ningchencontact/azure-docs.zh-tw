@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 5c4eb5241cc5e50c11c05cac6909e37557ba106d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ed5fc923c82fb0d0e4004e18159d943564c6f55e
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037503"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045815"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>教學課程：以手動方式在 Azure SQL Server VM 上設定可用性群組
 
@@ -32,21 +32,21 @@ ms.locfileid: "74037503"
 
 ![可用性群組](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程假設您對「SQL Server Always On 可用性群組」有基本的了解。 如需詳細資訊，請參閱 [AlwaysOn 可用性群組概觀 (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx)。
 
 下表列出開始本教學課程之前，您必須完成的必要條件：
 
-|  |需求 |描述 |
+|  |需求 |說明 |
 |----- |----- |----- |
-|![正方形](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | 兩部 SQL Server | - 在 Azure 可用性設定組中 <br/> - 在單一網域中 <br/> - 已安裝「容錯移轉叢集」功能 |
-|![正方形](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | 叢集見證的檔案共用 |  
-|![正方形](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server 服務帳戶 | 網域帳戶 |
-|![正方形](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server Agent 服務帳戶 | 網域帳戶 |  
-|![正方形](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|防火牆連接埠開啟 | - SQL Server：**1433** (用於預設執行個體) <br/> - 資料庫鏡像端點：**5022** 或任何可用的連接埠 <br/> - 可用性群組負載平衡器 IP 位址健康情況探查：**59999** 或任何用的連接埠 <br/> - 叢集核心負載平衡器 IP 位址健康情況探查：**58888** 或任何可用的連接埠 |
-|![正方形](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|新增容錯移轉叢集功能 | 兩部 SQL Server 都需要此功能 |
-|![正方形](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|安裝網域帳戶 | - 每部 SQL Server 上的本機系統管理員 <br/> - 每個 SQL Server 執行個體之 SQL Server sysadmin 固定伺服器角色的成員  |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | 兩部 SQL Server | - 在 Azure 可用性設定組中 <br/> - 在單一網域中 <br/> - 已安裝「容錯移轉叢集」功能 |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | 叢集見證的檔案共用 |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server 服務帳戶 | 網域帳戶 |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server Agent 服務帳戶 | 網域帳戶 |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|防火牆連接埠開啟 | - SQL Server：**1433** (用於預設執行個體) <br/> - 資料庫鏡像端點：**5022** 或任何可用的連接埠 <br/> - 可用性群組負載平衡器 IP 位址健康情況探查：**59999** 或任何用的連接埠 <br/> - 叢集核心負載平衡器 IP 位址健康情況探查：**58888** 或任何可用的連接埠 |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|新增容錯移轉叢集功能 | 兩部 SQL Server 都需要此功能 |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|安裝網域帳戶 | - 每部 SQL Server 上的本機系統管理員 <br/> - 每個 SQL Server 執行個體之 SQL Server sysadmin 固定伺服器角色的成員  |
 
 
 開始本教學課程之前，您必須先[完成在 Azure 虛擬機器中建立 Always On 可用性群組的必要條件 (英文)](virtual-machines-windows-portal-sql-availability-group-prereq.md)。 如果這些必要條件都已經完成，您可以跳到[建立叢集](#CreateCluster)。
@@ -72,7 +72,7 @@ ms.locfileid: "74037503"
    ![建立叢集](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
 4. 在「建立叢集精靈」中，以下表中的設定逐步完成每個頁面來建立單節點叢集：
 
-   | Page | 設定 |
+   | 頁 | 設定 |
    | --- | --- |
    | 開始之前 |使用預設值 |
    | 選取伺服器 |在 [輸入伺服器名稱] 中輸入第一部 SQL Server 名稱，然後按一下 [新增]。 |
@@ -105,7 +105,7 @@ ms.locfileid: "74037503"
 
 1. 在 [新增節點精靈] 中，按 [下一步]。 在 [選取伺服器] 頁面中，新增第二部 SQL Server。 在 [輸入伺服器名稱] 中輸入伺服器名稱，然後按一下 [新增]。 完成之後，按 [下一步]。
 
-1. 在 [驗證警告] 頁面上，按一下 [否] (實際操作時，請執行驗證測試)。 然後按 [下一步]。
+1. 在 [驗證警告] 頁面上，按一下 [否] \(實際操作時，請執行驗證測試)。 然後按 [下一步]。
 
 8. 如果您使用「儲存空間」，請在 [確認] 頁面上取消選取標示為 [新增適合的儲存裝置到叢集] 的核取方塊。
 
@@ -114,7 +114,7 @@ ms.locfileid: "74037503"
     >[!WARNING]
    >如果您使用「儲存空間」但未取消選取 [新增適合的儲存裝置到叢集]，Windows 就會在進行叢集程序時將虛擬機器中斷連結。 因此，它們將不會顯示在「磁碟管理員」或「總管」中，直到您使用 PowerShell 將儲存空間從叢集中移除後再重新連接為止。 儲存空間可將多個磁碟分組為存放集區。 如需詳細資訊，請參閱[儲存空間](https://technet.microsoft.com/library/hh831739)。
 
-1. 按一下 [下一步]。
+1. 按 [下一步]。
 
 1. 按一下 [完成]。
 
@@ -138,9 +138,9 @@ ms.locfileid: "74037503"
 
    使用「建立共用資料夾精靈」來建立共用。
 
-1. 在 [資料夾路徑] 上，按一下 [瀏覽]，然後找出或建立共用資料夾的路徑。 按一下 [下一步]。
+1. 在 [資料夾路徑] 上，按一下 [瀏覽]，然後找出或建立共用資料夾的路徑。 按 [下一步]。
 
-1. 在 [名稱、描述和設定] 中，確認共用名稱和路徑。 按一下 [下一步]。
+1. 在 [名稱、描述和設定] 中，確認共用名稱和路徑。 按 [下一步]。
 
 1. 在 [共用資料夾權限] 上，設定 [自訂權限]。 按一下 [自訂]。
 
@@ -175,9 +175,9 @@ ms.locfileid: "74037503"
    >[!TIP]
    >Windows Server 2016 支援雲端見證。 如果您選擇此類型的見證，就不需要檔案共用見證。 如需詳細資訊，請參閱[為容錯移轉叢集部署雲端見證 (Deploy a cloud witness for a Failover Cluster)](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness)。 本教學課程使用檔案共用見證，這是舊版作業系統所支援的類型。
 
-1. 在 [設定檔按共用見證] 上，輸入您所建立共用的路徑。 按一下 [下一步]。
+1. 在 [設定檔按共用見證] 上，輸入您所建立共用的路徑。 按 [下一步]。
 
-1. 確認 [確認] 上的設定。 按一下 [下一步]。
+1. 確認 [確認] 上的設定。 按 [下一步]。
 
 1. 按一下 [完成]。
 
@@ -193,11 +193,11 @@ ms.locfileid: "74037503"
 
     ![啟用 AlwaysOn 可用性群組](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
 
-4. 按一下 [Apply (套用)]。 在快顯對話方塊中按一下 [確定] 。
+4. 按一下 [套用]。 在快顯對話方塊中按一下 [確定] 。
 
 5. 重新啟動 SQL Server 服務。
 
-在其他 SQL Server 上重複這些步驟。
+請在其他 SQL Server 上重複這些步驟。
 
 <!-----------------
 ## <a name="endpoint-firewall"></a>Open firewall for the database mirroring endpoint
@@ -240,9 +240,9 @@ Repeat these steps on the second SQL Server.
 
    使用「建立共用資料夾精靈」來建立共用。
 
-1. 在 [資料夾路徑] 上，按一下 [瀏覽]，然後找出或建立資料庫備份共用資料夾的路徑。 按一下 [下一步]。
+1. 在 [資料夾路徑] 上，按一下 [瀏覽]，然後找出或建立資料庫備份共用資料夾的路徑。 按 [下一步]。
 
-1. 在 [名稱、描述和設定] 中，確認共用名稱和路徑。 按一下 [下一步]。
+1. 在 [名稱、描述和設定] 中，確認共用名稱和路徑。 按 [下一步]。
 
 1. 在 [共用資料夾權限] 上，設定 [自訂權限]。 按一下 [自訂]。
 
@@ -278,7 +278,7 @@ Repeat these steps on the second SQL Server.
 
     ![啟動新增可用性群組精靈](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/56-newagwiz.png)
 
-2. 在 [簡介] 頁面上，按 [下一步]。 在 [指定可用性群組名稱] 頁面的 [可用性群組名稱] 中，輸入「可用性群組」的名稱 (例如 **AG1**)。 按一下 [下一步]。
+2. 在 [簡介] 頁面上，按 [下一步]。 在 [指定可用性群組名稱] 頁面的 [可用性群組名稱] 中，輸入「可用性群組」的名稱 (例如 **AG1**)。 按 [下一步]。
 
     ![新增 AG 精靈：指定 AG 名稱](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/58-newagname.png)
 
@@ -291,7 +291,7 @@ Repeat these steps on the second SQL Server.
 4. 在 [指定複本] 頁面中，按一下 [新增複本]。
 
    ![新增 AG 精靈：指定複本](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/62-newagaddreplica.png)
-5. 隨即跳出 [連接至伺服器] 對話方塊。 在 [伺服器名稱] 中輸入第二部伺服器的名稱。 按一下 [連接]。
+5. 隨即跳出 [連接至伺服器] 對話方塊。 在 [伺服器名稱] 中輸入第二部伺服器的名稱。 按一下 [ **連接**]。
 
    回到 [指定複本] 頁面，您現在應該會看到 [可用性複本] 中列出第二部伺服器。 請依照下列方式設定複本。
 
@@ -301,7 +301,7 @@ Repeat these steps on the second SQL Server.
 
     ![新增 AG 精靈：選取初始資料同步處理](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. 在 [選取初始資料同步處理] 頁面中，選取 [完整]，然後指定一個共用網路位置。 針對位置，請使用[您所建立的備份共用](#backupshare)。 在此範例中是 **\\\\\<第一部 SQL Server\>\Backup\\** 。 按一下 [下一步]。
+8. 在 [選取初始資料同步處理] 頁面中，選取 [完整]，然後指定一個共用網路位置。 針對位置，請使用[您所建立的備份共用](#backupshare)。 在此範例中是 **\\\\\<第一部 SQL Server\>\Backup\\** 。 按 [下一步]。
 
    >[!NOTE]
    >完整同步處理會完整備份第一個 SQL Server 執行個體上的資料庫，然後將它還原到第二個執行個體。 就大型資料庫而言，不建議進行完整同步處理，因為可能費時很久。 您可以手動備份並使用 `NO RECOVERY` 來還原備份，以縮短此時間。 如果在設定「可用性群組」之前已經使用 `NO RECOVERY` 在第二部 SQL Server 上還原資料庫，請選擇 [僅聯結]。 如果您想要在設定「可用性群組」之後進行備份，請選擇 [略過初始資料同步處理]。
@@ -318,7 +318,7 @@ Repeat these steps on the second SQL Server.
 10. 在 [摘要] 頁面中，按一下 [完成]，然後等候精靈設定新的「可用性群組」。 在 [進度] 頁面中，按一下 [詳細資料] 可檢視詳細的進度。 在精靈完成後，請檢查 [結果] 頁面，確認已成功建立「可用性群組」。
 
      ![新增 AG 精靈：結果](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/74-results.png)
-11. 按一下 [關閉] 以結束精靈。
+11. 按一下 [關閉] 結束精靈。
 
 ### <a name="check-the-availability-group"></a>檢查可用性群組
 
@@ -348,7 +348,7 @@ Repeat these steps on the second SQL Server.
 
 在 Azure 虛擬機器上，「SQL Server 可用性群組」需要負載平衡器。 負載平衡器會保有可用性群組接聽程式以及 Windows Server 容錯移轉叢集的 IP 位址。 本節摘要說明如何在 Azure 入口網站中建立負載平衡器。
 
-Azure Load Balancer 可以是標準負載平衡器，也可以是基本負載平衡器。 標準負載平衡器的功能比基本負載平衡器多。 對於可用性群組，如果您使用「可用性區域」(而非「可用性設定組」)，則需要標準負載平衡器。 如需負載平衡器類型有何不同的詳細資訊，請參閱 [Load Balancer SKU comparison](../../../load-balancer/load-balancer-overview.md#skus)。
+Azure Load Balancer 可以是標準負載平衡器，也可以是基本負載平衡器。 標準負載平衡器的功能比基本負載平衡器多。 對於可用性群組，如果您使用「可用性區域」(而非「可用性設定組」)，則需要標準負載平衡器。 如需負載平衡器類型有何不同的詳細資訊，請參閱 [Load Balancer SKU comparison](../../../load-balancer/concepts-limitations.md#skus)。
 
 1. 在 Azure 入口網站中，移至您 SQL Server 所在的資源群組，然後按一下 [+ 加入]。
 1. 搜尋 [負載平衡器]。 選擇 Microsoft 所發行的負載平衡器。
@@ -361,13 +361,13 @@ Azure Load Balancer 可以是標準負載平衡器，也可以是基本負載平
    | 設定 | 欄位 |
    | --- | --- |
    | **名稱** |使用負載平衡器的文字名稱，例如 **sqlLB**。 |
-   | **類型** |內部 |
+   | **型別** |內部 |
    | **虛擬網路** |使用 Azure 虛擬網路的名稱。 |
    | **子網路** |使用虛擬機器所在子網路的名稱。  |
    | **IP 位址指派** |靜態 |
    | **IP 位址** |使用來自子網路的可用位址。 將此位址用於您的可用性群組接聽程式。 請注意，這與您的叢集 IP 位址不同。  |
    | **訂用帳戶** |使用與虛擬機器相同的訂用帳戶。 |
-   | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> |使用與虛擬機器相同的位置。 |
+   | **位置** |使用與虛擬機器相同的位置。 |
 
    Azure 入口網站刀鋒視窗看起來應該會像這樣：
 
@@ -402,11 +402,11 @@ Azure Load Balancer 可以是標準負載平衡器，也可以是基本負載平
 
 1. 依照下列方式設定接聽程式健康情況探查：
 
-   | 設定 | 描述 | 範例
+   | 設定 | 說明 | 範例
    | --- | --- |---
    | **名稱** | 文字 | SQLAlwaysOnEndPointProbe |
    | **通訊協定** | 選擇 [TCP] | TCP |
-   | **連接埠** | 任何未使用的連接埠 | 59999 |
+   | **通訊埠** | 任何未使用的連接埠 | 59999 |
    | **間隔**  | 探查嘗試間隔的時間長度 (秒) |5 |
    | **狀況不良臨界值** | 將虛擬機器視為狀況不良之前，必須達到的連續探查失敗次數  | 2 |
 
@@ -418,17 +418,17 @@ Azure Load Balancer 可以是標準負載平衡器，也可以是基本負載平
 
 1. 依照下列方式接聽程式負載平衡規則。
 
-   | 設定 | 描述 | 範例
+   | 設定 | 說明 | 範例
    | --- | --- |---
    | **名稱** | 文字 | SQLAlwaysOnEndPointListener |
    | **前端 IP 位址** | 選擇一個位址 |使用您建立負載平衡器時所建立的位址。 |
    | **通訊協定** | 選擇 [TCP] |TCP |
-   | **連接埠** | 使用可用性群組接聽程式的連接埠 | 1433 |
+   | **通訊埠** | 使用可用性群組接聽程式的連接埠 | 1433 |
    | **後端連接埠** | 如果已為伺服器直接回傳設定「浮動 IP」，便不會使用此欄位。 | 1433 |
    | **探查** |您為探查指定的名稱 | SQLAlwaysOnEndPointProbe |
    | **工作階段持續性** | 下拉式清單 | **None** |
    | **閒置逾時** | 讓 TCP 連線保持開啟的分鐘數 | 4 |
-   | **浮動 IP (伺服器直接回傳)** | |已啟用 |
+   | **浮動 IP (伺服器直接回傳)** | |啟用 |
 
    > [!WARNING]
    > 伺服器直接回傳是在建立時設定。 無法予以變更。
@@ -445,11 +445,11 @@ WSFC IP 位址也必須位於負載平衡器上。
 
 1. 依照下列所述設定 WSFC 叢集核心 IP 位址健康情況探查：
 
-   | 設定 | 描述 | 範例
+   | 設定 | 說明 | 範例
    | --- | --- |---
    | **名稱** | 文字 | WSFCEndPointProbe |
    | **通訊協定** | 選擇 [TCP] | TCP |
-   | **連接埠** | 任何未使用的連接埠 | 58888 |
+   | **通訊埠** | 任何未使用的連接埠 | 58888 |
    | **間隔**  | 探查嘗試間隔的時間長度 (秒) |5 |
    | **狀況不良臨界值** | 將虛擬機器視為狀況不良之前，必須達到的連續探查失敗次數  | 2 |
 
@@ -459,17 +459,17 @@ WSFC IP 位址也必須位於負載平衡器上。
 
 1. 依照下列所述設定叢集核心 IP 位址負載平衡規則。
 
-   | 設定 | 描述 | 範例
+   | 設定 | 說明 | 範例
    | --- | --- |---
    | **名稱** | 文字 | WSFCEndPoint |
    | **前端 IP 位址** | 選擇一個位址 |使用您在設定 WSFC IP 位址時所建立的位址。 這與接聽程式 IP 位址不同 |
    | **通訊協定** | 選擇 [TCP] |TCP |
-   | **連接埠** | 使用叢集 IP 位址的連接埠。 這個可用的連接埠不用於接聽程式探查連接埠。 | 58888 |
+   | **通訊埠** | 使用叢集 IP 位址的連接埠。 這個可用的連接埠不用於接聽程式探查連接埠。 | 58888 |
    | **後端連接埠** | 如果已為伺服器直接回傳設定「浮動 IP」，便不會使用此欄位。 | 58888 |
    | **探查** |您為探查指定的名稱 | WSFCEndPointProbe |
    | **工作階段持續性** | 下拉式清單 | **None** |
    | **閒置逾時** | 讓 TCP 連線保持開啟的分鐘數 | 4 |
-   | **浮動 IP (伺服器直接回傳)** | |已啟用 |
+   | **浮動 IP (伺服器直接回傳)** | |啟用 |
 
    > [!WARNING]
    > 伺服器直接回傳是在建立時設定。 無法予以變更。
@@ -507,7 +507,7 @@ WSFC IP 位址也必須位於負載平衡器上。
 
 1. 透過 RDP 連接到相同虛擬網路中不擁有複本的 SQL Server。 您可以使用叢集中的其他 SQL Server。
 
-1. 使用 **sqlcmd** 公用程式來測試連線。 例如，下列指令碼會透過接聽程式搭配 Windows 驗證來建立主要複本的 **sqlcmd** 連線︰
+1. 使用 **sqlcmd** 公用程式來測試連線。 例如，下列指令碼會透過接聽程式搭配 Windows 驗證，建立與主要複本的 **sqlcmd** 連線︰
 
    ```cmd
    sqlcmd -S <listenerName> -E

@@ -1,20 +1,20 @@
 ---
-title: Service Fabric 秘密存放區
-description: 本文說明如何使用 Service Fabric 秘密存放區。
+title: Azure Service Fabric 集中式秘密存放區
+description: 本文說明如何在 Azure Service Fabric 中使用中央秘密存放區。
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: 16608d9eaf12fc9abc535ef316d7b5e8b74a8b37
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bc6ea6260bf50d5b4f8e294e0a3827426f90bee3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457518"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980931"
 ---
-#  <a name="service-fabric-secrets-store"></a>Service Fabric 秘密存放區
-本文說明如何使用 Service Fabric 秘密存放區（CSS），在 Service Fabric 應用程式中建立及使用秘密。 CSS 是一個本機秘密存放區快取，用來防止機密資料（例如密碼、權杖和金鑰）在記憶體中加密。
+# <a name="central-secrets-store-in-azure-service-fabric"></a>Azure Service Fabric 中的中央秘密存放區 
+本文說明如何在 Azure Service Fabric 中使用中央秘密存放區（CSS），在 Service Fabric 的應用程式中建立秘密。 CSS 是一個本機秘密存放區快取，可讓機密資料（例如密碼、權杖和金鑰）在記憶體中加密。
 
-## <a name="enabling-secrets-store"></a>啟用秘密存放區
- 將下列新增至您的叢集設定底下的 `fabricSettings` 以啟用 CSS。 建議使用與適用于 CSS 的叢集憑證不同的憑證。 請確定已在所有節點上安裝加密憑證，且 `NetworkService` 擁有憑證私密金鑰的讀取權限。
+## <a name="enable-central-secrets-store"></a>啟用集中式秘密存放區
+將下列腳本新增至 [`fabricSettings`] 底下的叢集設定，以啟用 CSS。 我們建議您不要使用適用于 CSS 的叢集憑證以外的憑證。 請確定已在所有節點上安裝加密憑證，且該 `NetworkService` 具有憑證私密金鑰的讀取權限。
   ```json
     "fabricSettings": 
     [
@@ -46,10 +46,14 @@ ms.locfileid: "75457518"
         ...
      ]
 ```
-## <a name="declare-secret-resource"></a>宣告秘密資源
-您可以使用 Resource Manager 範本或使用 REST API 來建立秘密資源。
+## <a name="declare-a-secret-resource"></a>宣告秘密資源
+您可以使用 Azure Resource Manager 範本或 REST API 來建立秘密資源。
 
-* 使用 Resource Manager 範本
+### <a name="use-resource-manager"></a>使用 Resource Manager
+
+使用下列範本來使用 Resource Manager 來建立秘密資源。 此範本會建立 `supersecret` 的秘密資源，但尚未為密碼資源設定任何值。
+
+
 ```json
    "resources": [
       {
@@ -66,20 +70,20 @@ ms.locfileid: "75457518"
         }
       ]
 ```
-上述範本會建立 `supersecret` 秘密資源，但尚未為密碼資源設定任何值。
 
-* 使用 REST API
+### <a name="use-the-rest-api"></a>使用 REST API
 
-若要建立秘密資源，`supersecret` 提出 PUT 要求來 `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`。 您需要叢集憑證或管理用戶端憑證，才能建立秘密。
+若要使用 REST API 建立 `supersecret` 秘密資源，請提出 PUT 要求給 `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`。 您需要叢集憑證或管理用戶端憑證，才能建立秘密資源。
 
 ```powershell
 Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview -Method PUT -CertificateThumbprint <CertThumbprint>
 ```
 
-## <a name="set-secret-value"></a>設定秘密值
-* 使用 Resource Manager 範本
+## <a name="set-the-secret-value"></a>設定密碼值
 
-下列 Resource Manager 範本會針對具有版本 `ver1`的密碼 `supersecret` 建立和設定值。
+### <a name="use-the-resource-manager-template"></a>使用 Resource Manager 範本
+
+使用下列 Resource Manager 範本來建立及設定秘密值。 此範本會將 `supersecret` 秘密資源的秘密值設定為 `ver1`版本。
 ```json
   {
   "parameters": {
@@ -117,67 +121,68 @@ Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecre
     }
   ],
   ```
-* 使用 REST API
+### <a name="use-the-rest-api"></a>使用 REST API
 
+使用下列腳本來使用 REST API 來設定密碼值。
 ```powershell
 $Params = @{"properties": {"value": "mysecretpassword"}}
 Invoke-WebRequest -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret/values/ver1?api-version=6.4-preview -Method PUT -Body $Params -CertificateThumbprint <ClusterCertThumbprint>
 ```
-## <a name="using-the-secret-in-your-application"></a>在您的應用程式中使用密碼
+## <a name="use-the-secret-in-your-application"></a>在您的應用程式中使用秘密
 
-1.  在 config.xml 檔案中新增包含下列內容的區段。 請注意，此值的格式為 {`secretname:version`}
+請遵循下列步驟，在您的 Service Fabric 應用程式中使用密碼。
 
-```xml
-  <Section Name="testsecrets">
-   <Parameter Name="TopSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/
-  </Section>
-```
-2. 現在匯入 ApplicationManifest 中的區段
-```xml
-  <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
-    <Policies>
-      <ConfigPackagePolicies CodePackageRef="Code">
-        <ConfigPackage Name="Config" SectionName="testsecrets" EnvironmentVariableName="SecretPath" />
-        </ConfigPackagePolicies>
-    </Policies>
-  </ServiceManifestImport>
-```
+1. 使用下列程式碼片段，在**設定 .xml**檔案中新增區段。 請注意，此值的格式為 {`secretname:version`}。
 
-環境變數 ' SecretPath ' 將指向所有秘密儲存所在的目錄。 [`testsecrets`] 區段底下所列的每個參數將會儲存在不同的檔案中。 應用程式現在可以使用密碼，如下所示
-```C#
-secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
-```
-3. 將秘密裝載至容器
+   ```xml
+     <Section Name="testsecrets">
+      <Parameter Name="TopSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/
+     </Section>
+   ```
 
-只有在容器內提供秘密所需的變更，就是在 `<ConfigPackage>`中指定一個掛接點。
-以下是修改過的 ApplicationManifest .xml。  
+1. 匯入**ApplicationManifest**中的區段。
+   ```xml
+     <ServiceManifestImport>
+       <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
+       <ConfigOverrides />
+       <Policies>
+         <ConfigPackagePolicies CodePackageRef="Code">
+           <ConfigPackage Name="Config" SectionName="testsecrets" EnvironmentVariableName="SecretPath" />
+           </ConfigPackagePolicies>
+       </Policies>
+     </ServiceManifestImport>
+   ```
 
-```xml
-<ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
-    <Policies>
-      <ConfigPackagePolicies CodePackageRef="Code">
-        <ConfigPackage Name="Config" SectionName="testsecrets" MountPoint="C:\secrets" EnvironmentVariableName="SecretPath" />
-        <!-- Linux Container
-         <ConfigPackage Name="Config" SectionName="testsecrets" MountPoint="/mnt/secrets" EnvironmentVariableName="SecretPath" />
-        -->
-      </ConfigPackagePolicies>
-    </Policies>
-  </ServiceManifestImport>
-```
-您容器內的掛接點下會提供秘密。
+   環境變數 `SecretPath` 會指向所有秘密儲存所在的目錄。 `testsecrets` 區段底下所列的每個參數都會儲存在不同的檔案中。 應用程式現在可以使用密碼，如下所示：
+   ```C#
+   secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
+   ```
+1. 將秘密掛接至容器。 在容器內提供秘密所需的唯一變更，就是 `specify` `<ConfigPackage>`中的掛接點。
+下列程式碼片段是修改過的**ApplicationManifest。**  
 
-4. 將秘密系結至環境變數 
+   ```xml
+   <ServiceManifestImport>
+       <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
+       <ConfigOverrides />
+       <Policies>
+         <ConfigPackagePolicies CodePackageRef="Code">
+           <ConfigPackage Name="Config" SectionName="testsecrets" MountPoint="C:\secrets" EnvironmentVariableName="SecretPath" />
+           <!-- Linux Container
+            <ConfigPackage Name="Config" SectionName="testsecrets" MountPoint="/mnt/secrets" EnvironmentVariableName="SecretPath" />
+           -->
+         </ConfigPackagePolicies>
+       </Policies>
+     </ServiceManifestImport>
+   ```
+   您容器內的掛接點下會提供密碼。
 
-您可以藉由指定 Type = ' SecretsStoreRef '，將秘密系結至進程環境變數。 以下範例說明如何將 `supersecret` 版本 `ver1` 系結至 ServiceManifest 中的環境變數 `MySuperSecret`。
+1. 您可以藉由指定 `Type='SecretsStoreRef`，將秘密系結至進程環境變數。 下列程式碼片段是如何將 `supersecret` 版本 `ver1` 系結至**ServiceManifest**中的環境變數 `MySuperSecret` 的範例。
 
-```xml
-<EnvironmentVariables>
-  <EnvironmentVariable Name="MySuperSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/>
-</EnvironmentVariables>
-```
+   ```xml
+   <EnvironmentVariables>
+     <EnvironmentVariable Name="MySuperSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/>
+   </EnvironmentVariables>
+   ```
+
 ## <a name="next-steps"></a>後續步驟
-深入了解[應用程式及服務安全性](service-fabric-application-and-service-security.md)
+深入瞭解[應用程式和服務安全性](service-fabric-application-and-service-security.md)。

@@ -3,14 +3,14 @@ title: 常見問題疑難排解
 description: 瞭解如何針對建立、指派和移除藍圖等問題進行疑難排解，例如原則違規和藍圖參數函式。
 ms.date: 11/22/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 4e7ea1760e000a167c4329d6f12f3acc18d18f7c
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 5b8a20b0757934bbd356ab037a22521a248a7eb2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406603"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982482"
 ---
-# <a name="troubleshoot-errors-using-azure-blueprints"></a>使用 Azure 藍圖針對錯誤進行疑難排解
+# <a name="troubleshoot-errors-using-azure-blueprints"></a>針對使用 Azure 藍圖發生的錯誤進行疑難排解
 
 您可能會在建立或指派藍圖時遇到錯誤。 此文章說明可能發生的各種錯誤與解決方式。
 
@@ -43,7 +43,7 @@ ms.locfileid: "74406603"
 - 要建立的資源受到原則所限制 (通常是 SKU 或位置限制)
 - 部署正在設定原則所設定的欄位 (通常會使用標記)
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解析度
 
 變更藍圖，使其不會與錯誤詳細資料中的原則發生發生衝突。 如果此變更不可行，替代選項就是變更原則指派的範圍，使藍圖不再與原則產生衝突。
 
@@ -57,9 +57,9 @@ ms.locfileid: "74406603"
 
 將使用如 `[resourceGroup().tags.myTag]` 等函式的藍圖參數傳遞至成品，會造成在成品上設定該函式處理過後的結果，而非動態函式。
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解析度
 
-若要將函式作為參數傳遞，請使用 `[` 逸出整個字串，讓藍圖參數看起來像 `[[resourceGroup().tags.myTag]`。 逸出字元會導致「藍圖」在處理藍圖時，將值視為字串。 接著「藍圖」會將函式置於成品上，讓它如預期般地為動態函式。 如需詳細資訊，請參閱[Azure Resource Manager 範本中的語法和運算式](../../../azure-resource-manager/template-expressions.md)。
+若要將函式作為參數傳遞，請使用 `[` 逸出整個字串，讓藍圖參數看起來像 `[[resourceGroup().tags.myTag]`。 逸出字元會導致「藍圖」在處理藍圖時，將值視為字串。 接著「藍圖」會將函式置於成品上，讓它如預期般地為動態函式。 如需詳細資訊，請參閱[Azure Resource Manager 範本中的語法和運算式](../../../azure-resource-manager/templates/template-expressions.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

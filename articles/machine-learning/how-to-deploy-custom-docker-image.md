@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 66c5873749924df2133cb1ba4711b779e0aba24a
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 5d828ab59f790bab1003f0ad73fc7be1b77410bb
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834733"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044882"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>使用自訂的 Docker 基底映射部署模型
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -234,13 +234,12 @@ myenv.inferencing_stack_version = "latest"  # This will install the inference sp
 # Define the packages needed by the model and scripts
 from azureml.core.conda_dependencies import CondaDependencies
 conda_dep = CondaDependencies()
-# Unless you are using your own custom inference stack,
 # you must list azureml-defaults as a pip dependency
 conda_dep.add_pip_package("azureml-defaults")
 myenv.python.conda_dependencies=conda_dep
 ```
 
-請注意，除非您也使用自己的自訂推斷堆疊，否則您必須將 > = 1.0.45 版本的 azureml 預設值新增為 pip 相依性。 此套件包含將模型裝載為 web 服務所需的功能。
+您必須將 > = 1.0.45 版本的 azureml 預設值新增為 pip 相依性。 此套件包含將模型裝載為 web 服務所需的功能。 您也必須將環境上的 inferencing_stack_version 屬性設定為 [最新]，這將會安裝 web 服務所需的特定 apt 套件。 
 
 定義環境之後，請將它與[InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)物件搭配使用，以定義將在其中執行模型和 web 服務的推斷環境。
 

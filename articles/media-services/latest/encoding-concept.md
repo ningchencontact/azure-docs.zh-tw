@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e9a0a8c8709e41bb7778878f76024263cdc32481
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6a134d2bdfe7f370503b80703933ff646970d976
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896078"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981112"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>使用媒體服務編碼影片和音訊
 
-媒體服務中的「編碼」一詞適用于將包含數位影片和/或音訊的檔案從一種標準格式轉換成另一種格式的程式，目的是（a）減少檔案大小，和/或（b）產生與相容的格式。各種裝置和應用程式。 這個進程也稱為「影片壓縮」或轉碼。 如需概念的進一步討論，請參閱[資料壓縮](https://en.wikipedia.org/wiki/Data_compression)和[什麼是編碼和轉碼？](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) 。
+媒體服務中的「編碼」一詞適用于將包含數位影片和/或音訊的檔案從一種標準格式轉換成另一種格式的程式，目的是（a）減少檔案大小，並（或）（b）產生與各種裝置和應用程式相容的格式。 這個進程也稱為「影片壓縮」或轉碼。 如需概念的進一步討論，請參閱[資料壓縮](https://en.wikipedia.org/wiki/Data_compression)和[什麼是編碼和轉碼？](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) 。
 
 影片通常會藉由[漸進式下載](https://en.wikipedia.org/wiki/Progressive_download)或透過自動調整[位元速率串流](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)，傳遞至裝置和應用程式。
 
@@ -95,7 +95,7 @@ ms.locfileid: "74896078"
 
 - **EncoderNamedPreset. AACGoodQualityAudio**：產生單一的一個檔案，其中只包含 192 kbps 編碼的身歷聲音訊。
 - **EncoderNamedPreset. AdaptiveStreaming** （建議選項）：如需詳細資訊，請參閱[自動產生位元速率階梯](autogen-bitrate-ladder.md)。
-- **EncoderNamedPreset. ContentAwareEncodingExperimental**：公開內容感知編碼的實驗性預設值。 針對任何輸入內容，服務會嘗試自動判斷最佳的層級數目，以及彈性串流傳遞所需的適當位元速率和解析度設定。 基礎演算法會在一段時間後繼續進化。 輸出會包含具有影片和音訊交錯的有案檔案。 如需詳細資訊，請參閱[內容感知編碼的實驗](cae-experimental.md)性預設值。
+- **EncoderNamedPreset. ContentAwareEncodingExperimental**：公開內容感知編碼的實驗性預設值。 針對任何輸入內容，服務會嘗試自動判斷最佳的層級數目，以及彈性串流傳遞所需的適當位元速率和解析度設定。 基礎演算法會在一段時間後繼續進化。 輸出會包含具有影片和音訊交錯的有案檔案。 如需詳細資訊，請參閱[內容感知編碼的實驗](content-aware-encoding.md)性預設值。
 - **EncoderNamedPreset. H264MultipleBitrate1080p**：產生一組八個對齊 GOP 的設定檔案，範圍從 6000 kbps 到 400 kbps，以及身歷聲 AAC 音訊。 解析度起自 1080p，下至 360p。
 - **EncoderNamedPreset. H264MultipleBitrate720p**：產生一組六個對齊 GOP 的設定檔案，範圍從 3400 kbps 到 400 kbps，以及身歷聲 AAC 音訊。 解析度起自 720p，下至 360p。
 - **EncoderNamedPreset. H264MultipleBitrateSD**：產生一組五個對齊 GOP 的設定檔案，範圍從 1600 kbps 到 400 kbps，以及身歷聲 AAC 音訊。 解析度起自 480p，下至 360p。

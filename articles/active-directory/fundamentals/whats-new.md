@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d55cb4667c846b179caef6c2819a08f4e9fe2ae
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 23e48787162bccbf45e420f2deb002879c72fa09
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422747"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978888"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -768,7 +768,7 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 我們對動態群組規則產生器提供了一些 UI 改良功能，可在 Azure 入口網站中使用，以協助您更輕鬆地設定新規則，或變更現有的規則。 這項設計改進可讓您建立最多五個運算式的規則，而不只是一個。 我們也已更新裝置屬性清單，以移除已淘汰的裝置屬性。
 
-如需詳細資訊，請參閱[管理動態成員資格規則](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-update-rule)。
+如需詳細資訊，請參閱[管理動態成員資格規則](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)。
 
 ---
 

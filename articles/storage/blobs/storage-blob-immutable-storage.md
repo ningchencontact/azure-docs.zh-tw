@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: a8c19a8e88ec7fe2002a327c7e4a57874a753b9f
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: b8b5de910195b14c279fe395cc35c12768536728
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921226"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981831"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>使用不可變的儲存體儲存業務關鍵的 blob 資料
 
@@ -156,7 +156,7 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 
 **如果我嘗試刪除具有以時間為基礎的保留原則或合法保存之容器的儲存體帳戶，會發生什麼事？**
 
-如果至少有一個容器具有合法保存集或**鎖定**的以時間為基礎的原則，則儲存體帳戶刪除作業將會失敗。 具有已解除鎖定之以時間為基礎之原則的容器無法防止刪除儲存體帳戶。 您必須先移除所有合法保存並刪除所有**鎖定**的容器，才能刪除儲存體帳戶。 如需有關容器刪除的資訊，請參閱前面的問題。 您也可以對具有[Azure Resource Manager 鎖定](../../azure-resource-manager/resource-group-lock-resources.md)的儲存體帳戶套用進一步的刪除保護。
+如果至少有一個容器具有合法保存集或**鎖定**的以時間為基礎的原則，則儲存體帳戶刪除作業將會失敗。 具有已解除鎖定之以時間為基礎之原則的容器無法防止刪除儲存體帳戶。 您必須先移除所有合法保存並刪除所有**鎖定**的容器，才能刪除儲存體帳戶。 如需有關容器刪除的資訊，請參閱前面的問題。 您也可以對具有[Azure Resource Manager 鎖定](../../azure-resource-manager/management/lock-resources.md)的儲存體帳戶套用進一步的刪除保護。
 
 **當 blob 處於不可變狀態時，可以將資料移到不同的 blob 層（經常性存取、非經常性存取、封存）嗎？**
 
@@ -179,4 +179,4 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 - [設定和管理 Blob 儲存體的不可變性原則](storage-blob-immutability-policies-manage.md)
 - [使用生命週期管理將規則設定為自動分層和刪除 blob 資料](storage-lifecycle-management-concepts.md)
 - [Azure 儲存體 Blob 的虛刪除](../blobs/storage-blob-soft-delete.md)
-- [使用 Azure Resource Manager 鎖定來保護訂用帳戶、資源群組和資源](../../azure-resource-manager/resource-group-lock-resources.md)。
+- [使用 Azure Resource Manager 鎖定來保護訂用帳戶、資源群組和資源](../../azure-resource-manager/management/lock-resources.md)。

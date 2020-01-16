@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d31b046bf02893affff84069ee92b3bd7735b904
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 072e62d89e8febc4837c10874398daea3b8114ed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243227"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974860"
 ---
 # <a name="troubleshooting-metrics-charts"></a>針對計量圖表進行疑難排解
 
@@ -29,7 +29,7 @@ ms.locfileid: "72243227"
 
 1. 請確定您已選取正確的資源群組。
     > [!WARNING]
-    > 為了達到最佳效能，當您第一次開啟計量瀏覽器時，[資源群組] 下拉式清單中不會有任何預先選取的資源群組。 您必須選擇至少一個群組，才可看到資源。
+    > 為了達到最佳效能，當您第一次開啟 [計量瀏覽器] 時，[**資源群組**] 下拉式清單中沒有預先選取的資源群組。 您必須選擇至少一個群組，才可看到資源。
 
 ## <a name="chart-shows-no-data"></a>圖表沒有顯示任何資料
 
@@ -37,7 +37,7 @@ ms.locfileid: "72243227"
 
 ### <a name="microsoftinsights-resource-provider-isnt-registered-for-your-subscription"></a>未針對您的訂用帳戶註冊 Microsoft Insights 資源提供者
 
-必須在您的訂用帳戶中註冊 *Microsoft.Insights* 資源提供者，才能瀏覽計量。 在許多情況下都會自動註冊 (也就是說，在您設定警示規則、自訂任何資源的，或設定自動調整規則後，就會註冊)。 如果未註冊 Microsoft Insights 資源提供者，您必須依照[Azure 資源提供者和類型](../../azure-resource-manager/resource-manager-supported-services.md)中所述的步驟手動註冊。
+必須在您的訂用帳戶中註冊 *Microsoft.Insights* 資源提供者，才能瀏覽計量。 在許多情況下都會自動註冊 (也就是說，在您設定警示規則、自訂任何資源的，或設定自動調整規則後，就會註冊)。 如果未註冊 Microsoft Insights 資源提供者，您必須依照[Azure 資源提供者和類型](../../azure-resource-manager/management/resource-providers-and-types.md)中所述的步驟手動註冊。
 
 **解決方案：** 開啟 [訂用帳戶]、[**資源提供者**] 索引卷**標，並**確認已為您的訂閱註冊*Microsoft Insights* 。
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 80e77e2caacfed7d662fdfa04aa9524bd7c2083a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 36f6152e52d6cb45d0a30b385678596331232560
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445423"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980681"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>設定從虛擬網路 (VNet) 存取
 
@@ -52,7 +52,7 @@ ms.locfileid: "75445423"
 > 若要啟用虛擬網路服務端點，您必須具備下列訂用帳戶權限：
 >   * 虛擬網路的訂用帳戶：網路參與者
 >   * Azure Cosmos DB 帳戶的訂用帳戶：DocumentDB 帳戶參與者
->   * 如果您的虛擬網路和 Azure Cosmos DB 帳戶位於不同的訂用帳戶中，請確定具有虛擬網路的訂閱也已註冊 `Microsoft.DocumentDB` 資源提供者。 若要註冊資源提供者，請參閱[Azure 資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)一文。
+>   * 如果您的虛擬網路和 Azure Cosmos DB 帳戶位於不同的訂用帳戶中，請確定具有虛擬網路的訂閱也已註冊 `Microsoft.DocumentDB` 資源提供者。 若要註冊資源提供者，請參閱[Azure 資源提供者和類型](../azure-resource-manager/management/resource-providers-and-types.md)一文。
 
 以下是向資源提供者註冊訂用帳戶的指示。
 

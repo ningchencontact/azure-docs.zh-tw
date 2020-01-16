@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 775c6016acbcd0f87f368852a68eaea706c79898
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: d55dc2a1311d66eae01ae12a3dae798fbab20677
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945696"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045609"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>建立 Azure Machine Learning 資料集
 
@@ -196,16 +196,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 若要使用來自 SDK 的 Azure 開放資料集來建立資料集，請確定您已使用 `pip install azureml-opendatasets`安裝封裝。 每個離散資料集都是以自己在 SDK 中的類別來表示，而某些類別則以 `TabularDataset`、`FileDataset`或兩者的形式提供。 如需類別的完整清單，請參閱[參考檔](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)。
 
-大部分的類別會繼承自並傳回 `TabularDataset`的實例。 這些類別的範例包括 `PublicHolidays`、`BostonSafety`和 `UsPopulationZip`。 若要從這些類型的類別建立 `TabularDataset`，請使用不含引數的函式。 當您註冊從開啟的資料集建立的資料集時，不會立即下載任何資料，但稍後會在從中央儲存位置要求時（例如，在定型期間）存取資料。 
-
-```python
-from azureml.opendatasets import UsPopulationZip
-
-tabular_dataset = UsPopulationZip()
-tabular_dataset = tabular_dataset.register(workspace=workspace, name="pop data", description="US population data by zip code")
-```
-
-您可以使用 `TabularDataset` 或 `FileDataset`來抓取特定類別，讓您直接操作和（或）下載檔案。 其他類別只能使用 `get_tabular_dataset()` 或 `get_file_dataset()` 函數來取得資料集。 下列程式碼範例顯示這些類別類型的一些範例：
+您可以使用 `TabularDataset` 或 `FileDataset`來抓取特定類別，讓您直接操作和（或）下載檔案。 其他類別只能使用其中一個 `get_tabular_dataset()` 或 `get_file_dataset()` 函數來**取得資料集**。 下列程式碼範例顯示這些類別類型的一些範例。
 
 ```python
 from azureml.opendatasets import MNIST
@@ -219,6 +210,8 @@ from azureml.opendatasets import Diabetes
 # Diabetes class can return ONLY return TabularDataset and must be called from the static function
 diabetes_tabular = Diabetes.get_tabular_dataset()
 ```
+
+當您註冊從開啟的資料集建立的資料集時，不會立即下載任何資料，但稍後會在從中央儲存位置要求時（例如，在定型期間）存取資料。
 
 ### <a name="use-the-ui"></a>使用 UI
 

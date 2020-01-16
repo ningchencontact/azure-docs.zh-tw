@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: a06184cb45280d323a050085e94945a730d6c72c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81daada7a62da86772d4657a1a8aaff91f27b673
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442599"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045589"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API 管理開發人員入口網站總覽
 
@@ -39,7 +39,7 @@ ms.locfileid: "75442599"
 您可以透過兩種方式來建立開發人員入口網站：
 
 - **受控版本**-藉由編輯和自訂入口網站（內建于您的 API 管理實例中），並可透過 `<your-api-management-instance-name>.developer.azure-api.net`的 URL 存取。 請參閱[此檔文章](api-management-howto-developer-portal-customize.md)，以瞭解如何存取和自訂受管理的入口網站。
-- **自我裝載版本**-藉由在 API 管理實例外部部署和自我裝載您的入口網站。 這種方法可讓您編輯入口網站的程式碼基底，並擴充提供的核心功能。 您也需要自行將入口網站升級至最新版本。 如需詳細資訊和指示，請參閱[GitHub 存放庫，並提供入口網站的原始程式碼][1]。 [受控版本的教學](api-management-howto-developer-portal-customize.md)課程會逐步解說入口網站的系統管理面板，此功能也會在自我裝載版本中提供。
+- **自我裝載版本**-藉由在 API 管理實例外部部署和自我裝載您的入口網站。 這種方法可讓您編輯入口網站的程式碼基底，並擴充提供的核心功能。 您也需要自行將入口網站升級至最新版本。 如需詳細資訊和指示，請參閱[GitHub 存放庫，其中包含入口網站的原始程式碼][1]和[執行 widget 的教學][4]課程。 [受控版本的教學](api-management-howto-developer-portal-customize.md)課程會逐步解說入口網站的系統管理面板，此功能也會在自我裝載版本中提供。
 
 ## <a name="portal-architectural-concepts"></a>入口網站架構概念
 
@@ -101,6 +101,10 @@ ms.locfileid: "75442599"
 舊的開發人員和發行者入口網站現在是*舊版*的功能-他們只會接收安全性更新。 新功能將僅會在新的開發人員入口網站中實作。
 
 舊版入口網站的淘汰將會分開宣告。 如果您有任何疑問、疑慮或意見，請[在專屬的 GitHub 問題中](https://github.com/Azure/api-management-developer-portal/issues/121)提出。
+
+### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>入口網站不支援我所需的功能
+
+使用自我裝載版本，並[執行您自己的 widget][4]。
 
 ### <a name="how-can-i-automate-portal-deployments"></a>如何自動進行入口網站部署？
 
@@ -216,6 +220,7 @@ New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM N
 
 - [存取和自訂受管理的開發人員入口網站](api-management-howto-developer-portal-customize.md)
 - [設定入口網站的自我裝載版本][2]
+- [執行您自己的小工具][4]
 
 流覽其他資源：
 
@@ -225,3 +230,4 @@ New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM N
 [1]: https://aka.ms/apimdevportal
 [2]: https://github.com/Azure/api-management-developer-portal/wiki
 [3]: https://github.com/Azure/api-management-developer-portal/projects
+[4]: https://aka.ms/apimdevportal/extend

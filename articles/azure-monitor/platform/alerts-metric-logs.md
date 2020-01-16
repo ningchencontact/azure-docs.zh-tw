@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d6b65b76138cb180ab105631ebc0f19b7d38f206
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 358312bcbb23aee5a06eaa39898ff4e632cd8b4b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226524"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977606"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>為 Azure 監視器中的記錄建立計量警示
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -30,7 +30,7 @@ Azure 監視器支援的[計量警示類型](../../azure-monitor/platform/alerts
 - [更新管理](../../automation/automation-update-management.md)記錄
 - [事件資料](../../azure-monitor/platform/data-sources-windows-events.md)記錄
 
-在 Azure 中對以查詢為基礎的**記錄警示**使用[記錄的計量警示](../../azure-monitor/platform/alerts-log.md)有許多優點；以下列出一部分優點：
+在 Azure 中對以查詢為基礎的[記錄警示](../../azure-monitor/platform/alerts-log.md)使用**記錄的計量警示**有許多優點；以下列出一部分優點：
 
 - 計量警示提供近乎即時的監視功能，以及來自記錄來源的記錄計量警示分支資料，以確保一致性。
 - 計量警示具狀態，只會在引發警示和解決警示時各通知一次，因此與無狀態、只要符合警示條件就會在每個間隔持續引發的記錄警示並不相同。
@@ -58,7 +58,7 @@ Azure 監視器支援的[計量警示類型](../../azure-monitor/platform/alerts
 1. **使用中的 Log Analytics 工作區**：有效且使用中的 Log Analytics 工作區必須存在。 如需詳細資訊，請參閱[在 Azure 入口網站中建立 Log Analytics 工作區](../../azure-monitor/learn/quick-create-workspace.md)。
 2. 已**針對 Log Analytics 工作區設定代理程式**：需要為 Azure vm （和/或）內部部署 vm 設定代理程式，以將資料傳送至先前步驟中使用的 Log Analytics 工作區。 如需詳細資訊，請參閱 [Log Analytics - 代理程式概觀](../../azure-monitor/platform/agents-overview.md)。
 3. **已安裝支援的 Log Analytics 解決方案**：應設定 log analytics 解決方案，並將資料傳送至 log analytics 工作區-支援的解決方案為[Windows & Linux 的效能計數器](../../azure-monitor/platform/data-sources-performance-counters.md)、[代理程式健全狀況的心跳記錄](../../azure-monitor/insights/solution-agenthealth.md)、[更新管理](../../automation/automation-update-management.md)和[事件資料](../../azure-monitor/platform/data-sources-windows-events.md)。
-4. **設定 Log Analytics 解決方案以傳送記錄**：Log Analytics 解決方案應啟用對應至 [Log Analytics 工作區所支援計量](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)的必要記錄/資料。 例如，您必須先在*效能計數器*解決方案中設定其 [% Available Memory](../../azure-monitor/platform/data-sources-performance-counters.md) 計數器。
+4. **設定 Log Analytics 解決方案以傳送記錄**：Log Analytics 解決方案應啟用對應至 [Log Analytics 工作區所支援計量](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)的必要記錄/資料。 例如，您必須先在[效能計數器](../../azure-monitor/platform/data-sources-performance-counters.md)解決方案中設定其 *% Available Memory* 計數器。
 
 ## <a name="configuring-metric-alert-for-logs"></a>設定記錄的計量警示
 
@@ -357,7 +357,7 @@ Azure 監視器支援的[計量警示類型](../../azure-monitor/platform/alerts
 }
 ```
 
-假設上述參數檔案儲存為 metricfromLogsAlertStatic.parameters.json，您可以使用[在 Azure 入口網站中用於建立的資源範本](../../azure-resource-manager/resource-group-template-deploy-portal.md)，為記錄建立計量警示。
+假設上述參數檔案儲存為 metricfromLogsAlertStatic.parameters.json，您可以使用[在 Azure 入口網站中用於建立的資源範本](../../azure-resource-manager/templates/deploy-portal.md)，為記錄建立計量警示。
 
 此外，您也可以使用下列 Azure Powershell 命令：
 
@@ -673,7 +673,7 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 }
 ```
 
-假設上述參數檔案儲存為 metricfromLogsAlertDynamic.parameters.json，您可以使用[在 Azure 入口網站中用於建立的資源範本](../../azure-resource-manager/resource-group-template-deploy-portal.md)，為記錄建立計量警示。
+假設上述參數檔案儲存為 metricfromLogsAlertDynamic.parameters.json，您可以使用[在 Azure 入口網站中用於建立的資源範本](../../azure-resource-manager/templates/deploy-portal.md)，為記錄建立計量警示。
 
 此外，您也可以使用下列 Azure Powershell 命令：
 

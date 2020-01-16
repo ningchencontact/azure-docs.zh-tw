@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5429ebb611f852f7672d89de190ddd68dbcb01cf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 67d624bb81105b8219030c57460b6d7bf7458671
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707786"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980997"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>針對適用於 Azure 資源的 RBAC 進行疑難排解
 
@@ -28,26 +28,26 @@ ms.locfileid: "74707786"
 
 ## <a name="problems-with-rbac-role-assignments"></a>RBAC 角色指派的問題
 
-- 如果您無法在 [**存取控制（IAM）** ] 的 Azure 入口網站中新增角色指派，因為 [**新增** > **新增角色指派**] 選項已停用，或因為您收到許可權錯誤「具有物件識別碼的用戶端沒有執行動作的授權」，請確認您目前已登入的使用者已獲指派角色，且該角色具有 [`Microsoft.Authorization/roleAssignments/write`] 許可權，例如您嘗試指派角色之範圍的 [[擁有](built-in-roles.md#owner)者] 或 [[使用者存取系統管理員](built-in-roles.md#user-access-administrator)]。
+- 如果您無法在 [**存取控制（IAM）** ] 的 Azure 入口網站中新增角色指派，因為 [**新增** > **新增角色指派**] 選項已停用，或因為您收到許可權錯誤「具有物件識別碼的用戶端沒有執行動作的授權」，請確認您目前登入的使用者已`Microsoft.Authorization/roleAssignments/write`獲指派角色的許可權，例如您嘗試指派角色之範圍的[擁有者](built-in-roles.md#owner)或[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。
 - 如果您在嘗試指派角色時收到錯誤訊息「無法建立更多角色指派（程式碼： RoleAssignmentLimitExceeded）」，請嘗試改為將角色指派給群組，以減少角色指派的數目。 Azure 支援每個訂用帳戶最多 **2000** 個角色指派。 這個角色指派限制是固定的，而且無法增加。
 
 ## <a name="problems-with-custom-roles"></a>自訂角色的問題
 
 - 如果您需要如何建立自訂角色的步驟，請參閱使用[Azure PowerShell](tutorial-custom-role-powershell.md)或[Azure CLI](tutorial-custom-role-cli.md)的自訂角色教學課程。
-- 如果您無法更新現有的自訂角色，請確認您目前登入的使用者已獲指派具有 [`Microsoft.Authorization/roleDefinition/write`] 許可權的角色，例如 [[擁有](built-in-roles.md#owner)者] 或 [[使用者存取系統管理員](built-in-roles.md#user-access-administrator)]。
+- 如果您無法更新現有的自訂角色，請檢查您目前登入的使用者是否已獲指派具有`Microsoft.Authorization/roleDefinition/write`許可權的角色，例如[擁有者](built-in-roles.md#owner)或[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。
 - 如果您無法刪除自訂角色，並收到錯誤訊息「有現有的角色指派參考角色（代碼： RoleDefinitionHasAssignments）」，則仍有使用自訂角色的角色指派。 請移除這些角色指派，並試著再次刪除自訂角色。
 - 如果您收到「已超過角色定義限制」錯誤訊息。 當您嘗試建立新的自訂角色時，無法建立更多角色定義（代碼： RoleDefinitionLimitExceeded）」，請刪除未使用的任何自訂角色。 Azure 在租使用者中最多支援**5000**個自訂角色。 (若為特製化的雲端，例如 Azure Government、Azure 德國和 Azure 中國 21Vianet，則限制為 2000 個自訂角色)。
 - 如果您收到類似于「用戶端具有在範圍 '/subscriptions/{subscriptionid} ' 上執行動作 ' roleDefinitions/write ' 的許可權，但找不到連結的訂用帳戶」的錯誤，請檢查租使用者中是否已刪除一或多個可[指派的範圍](role-definitions.md#assignablescopes)。 如果範圍已刪除，則可以建立支援票證，因為此時已沒有可用的自助解決方案。
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>當訂用帳戶在租用戶之間移動時復原 RBAC
 
-- 如果您需要如何將訂用帳戶轉移至不同 Azure AD 租使用者的步驟，請參閱將[Azure 訂用帳戶的擁有權轉移給另一個帳戶](../billing/billing-subscription-transfer.md)。
+- 如果您需要如何將訂用帳戶轉移至不同 Azure AD 租使用者的步驟，請參閱將[Azure 訂用帳戶的擁有權轉移給另一個帳戶](../cost-management-billing/manage/billing-subscription-transfer.md)。
 - 如果您將訂用帳戶轉移至不同的 Azure AD 租用戶，所有角色指派都會從來源 Azure AD 租用戶中永久刪除，而且不會遷移至目標 Azure AD 租用戶。 您必須在目標租用戶中重新建立角色指派。 您也必須手動重新建立適用于 Azure 資源的受控識別。 如需詳細資訊，請參閱[常見問題和受控識別的已知問題](../active-directory/managed-identities-azure-resources/known-issues.md)。
 - 如果您是 Azure AD 全域管理員，而且在租使用者之間移動後無法存取訂用帳戶，請使用**Azure 資源的存取管理**切換來暫時[提高存取](elevate-access-global-admin.md)權，以取得訂用帳戶的存取權。
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>服務管理員或共同管理員的問題
 
-- 如果您有服務管理員或共同管理員的問題，請參閱[新增或變更 azure 訂](../billing/billing-add-change-azure-subscription-administrator.md)用帳戶管理員和[傳統訂用帳戶管理員角色、Azure RBAC 角色和 Azure AD 系統管理員角色](rbac-and-directory-admin-roles.md)。
+- 如果您有服務管理員或共同管理員的問題，請參閱[新增或變更 azure 訂](../cost-management-billing/manage/add-change-subscription-administrator.md)用帳戶管理員和[傳統訂用帳戶管理員角色、Azure RBAC 角色和 Azure AD 系統管理員角色](rbac-and-directory-admin-roles.md)。
 
 ## <a name="access-denied-or-permission-errors"></a>拒絕存取或許可權錯誤
 
@@ -165,7 +165,7 @@ Web 應用程式因為幾個互有關聯的資源而顯得複雜。 以下是具
 * 端點  
 * IP 位址  
 * 磁碟  
-* 擴充功能  
+* 延伸模組  
 
 這些項目都需要同時具備「虛擬機器」與所屬之「資源群組」(連同網域名稱) 的**寫入**權：  
 

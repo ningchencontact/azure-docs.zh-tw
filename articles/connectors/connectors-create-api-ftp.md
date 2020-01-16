@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
-ms.openlocfilehash: 71f768506d7cec575c6bd765447397d8d0406859
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0314dceb23f02b723854dfc406e9440bbc14ccf6
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446001"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044296"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來建立、監視及管理 FTP 檔案
 
@@ -25,7 +25,7 @@ ms.locfileid: "75446001"
 
 您可以使用觸發程序，從 FTP 伺服器收到回應，並且讓輸出可供其他動作使用。 您可以在邏輯應用程式中使用執行動作來管理 FTP 伺服器上的檔案。 您也可以讓其他動作使用 FTP 動作的輸出。 例如，如果您定期從 FTP 伺服器取得檔案，可以藉由使用 Office 365 Outlook 連接器或 Outlook.com 連接器，傳送關於這些檔案及其內容的電子郵件。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md)。
 
-## <a name="limits"></a>限制
+## <a name="limitations"></a>限制
 
 * FTP 連接器僅支援明確的 FTP over SSL （FTPS），且與隱含 FTPS 不相容。
 
@@ -36,6 +36,8 @@ ms.locfileid: "75446001"
   * 使用會傳回檔案屬性的 FTP 觸發程式，例如，**新增或修改檔案時（僅限屬性）** 。
 
   * 遵循具有 FTP**取得檔案內容**動作的觸發程式，它會讀取完整的檔案，並隱含地使用區塊化。
+
+* 如果您有內部部署 FTP 伺服器，請考慮建立[整合服務環境（ISE）](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) ，或使用[Azure App Service 混合](../app-service/app-service-hybrid-connections.md)式連線，這兩種連線都可讓您存取內部部署資料來源，而不需使用內部部署資料閘道。
 
 ## <a name="how-ftp-triggers-work"></a>FTP 觸發程式的工作方式
 

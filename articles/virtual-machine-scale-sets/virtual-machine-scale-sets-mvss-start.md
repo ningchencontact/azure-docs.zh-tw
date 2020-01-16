@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: e3d8ada67b0a592df9c2dba145626836f27da631
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 52fb7c770e9f9e2570cad92a8c0dd9bc4374e708
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459367"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980173"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>了解虛擬機器擴展集範本
 [Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process)是部署相關資源群組的絕佳方式。 本教學課程系列說明如何建立基本的擴展集範本，以及如何修改此範本以符合各種案例。 所有範例皆來自這個 [GitHub 存放庫](https://github.com/gatneil/mvss)。
@@ -75,7 +75,7 @@ Resource Manager 範本也可讓您定義以後要在範本中使用的變數。
 ```
 
 ## <a name="specify-location"></a>指定位置
-若要指定虛擬網路的位置，請使用 [Resource Manager 範本函式](../azure-resource-manager/resource-group-template-functions.md)。 此函式必須括在引號和方括號內，如下所示︰`"[<template-function>]"`。 在此案例中，請使用 `resourceGroup` 函式。 此函式不接受任何引數並且會傳回 JSON 物件，此物件含有這項部署之目的地資源群組的相關中繼資料。 資源群組是由使用者在部署時所設定。 接著會使用 `.location` 將此值編入此 JSON 物件中來作為索引，以從此 JSON 物件取得位置。
+若要指定虛擬網路的位置，請使用 [Resource Manager 範本函式](../azure-resource-manager/templates/template-functions.md)。 此函式必須括在引號和方括號內，如下所示︰`"[<template-function>]"`。 在此案例中，請使用 `resourceGroup` 函式。 此函式不接受任何引數並且會傳回 JSON 物件，此物件含有這項部署之目的地資源群組的相關中繼資料。 資源群組是由使用者在部署時所設定。 接著會使用 `.location` 將此值編入此 JSON 物件中來作為索引，以從此 JSON 物件取得位置。
 
 ```json
        "location": "[resourceGroup().location]",

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0b54ca89511063e1a76753793846deaf8e8b9b4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c8f6e36997939be90d74eabad9a4145d2e503521
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466785"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045034"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>如何將自訂技能新增至 Azure 認知搜尋擴充管線
 
@@ -122,7 +122,7 @@ Web API 必須接受要處理的記錄陣列。 每一筆記錄都必須包含�
 
 ## <a name="consuming-custom-skills-from-skillset"></a>取用技能集的自訂技能
 
-當您建立 Web API 擴充程式時，可以在要求中描述 HTTP 標頭和參數。 以下程式碼片段示範如何在技能集定義中描述要求參數和 HTTP 標頭。
+當您建立 Web API 擴充程式時，可以在要求中描述 HTTP 標頭和參數。 下列程式碼片段顯示如何將要求參數和*選擇性*HTTP 標頭描述為技能集定義的一部分。 HTTP 標頭不是必要條件，但可讓您將額外的設定功能新增至您的技能，並從技能集定義加以設定。
 
 ```json
 {
@@ -160,4 +160,4 @@ Web API 必須接受要處理的記錄陣列。 每一筆記錄都必須包含�
 + [範例：建立 AI 擴充的自訂技能](cognitive-search-create-custom-skill-example.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
 + [建立技能集 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [如何對應擴充的欄位](cognitive-search-output-field-mapping.md)
++ [如何對應豐富型欄位](cognitive-search-output-field-mapping.md) (英文)

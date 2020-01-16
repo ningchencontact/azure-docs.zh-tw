@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: 40da2016026c8a7e02d1b243a783d01559e8c197
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c550174bff0529e0fc619f1de79c41ab7cf62a36
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005508"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020976"
 ---
-本文會說明如何將 IaaS 資源從傳統部署模型遷移至 Resource Manager 部署模型，並詳述如何使用虛擬網路站對站閘道，從並存於訂用帳戶中的兩個部署模型連線到資源。 您可以進一步了解 [Azure Resource Manager 功能和優點](../articles/azure-resource-manager/resource-group-overview.md)。 
+本文會說明如何將 IaaS 資源從傳統部署模型遷移至 Resource Manager 部署模型，並詳述如何使用虛擬網路站對站閘道，從並存於訂用帳戶中的兩個部署模型連線到資源。 您可以進一步了解 [Azure Resource Manager 功能和優點](../articles/azure-resource-manager/management/overview.md)。 
 
 ## <a name="goal-for-migration"></a>移轉目標
 Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，還可使用 VM 擴充功能來設定虛擬機器，並且納入了存取管理和標記功能。 Azure Resource Manager 還將虛擬機器的可調整、平行部署納入可用性設定組中。 新部署模型也針對計算、網路及儲存體個別提供生命週期管理功能。 最後，將焦點放在藉由在虛擬網路中強制使用虛擬機器的方式，預設啟用安全性。
@@ -114,11 +114,11 @@ Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，
 
 | 服務 | 組態 | 建議 |
 | --- | --- | --- |
-| 資源管理員 |傳統資源以角色為基礎的存取控制（RBAC） |由於資源的 URI 在移轉後會經過修改，因此建議您規劃需要在移轉後進行的 RBAC 原則更新。 |
+| Resource Manager |傳統資源以角色為基礎的存取控制（RBAC） |由於資源的 URI 在移轉後會經過修改，因此建議您規劃需要在移轉後進行的 RBAC 原則更新。 |
 | 計算 |與 VM 關聯的多個子網路 |將子網路組態更新為只參考一個子網路。 這可能要求您從 VM 移除次要 NIC (其參考另一個子網路)，並在移轉完成後重新連結它。 |
 | 計算 |隸屬於虛擬網路但未獲指派明確子網路的虛擬機器。 |您可以選擇刪除此 VM。 |
 | 計算 |具有警示、自動調整原則的虛擬機器 |移轉會進行到完成，但會捨棄這些設定。 強烈建議您在執行移轉前先評估您的環境。 或者，您也可以在移轉完成之後重新設定警示設定。 |
-| 計算 |XML VM 擴充功能 (BGInfo 1.*、Visual Studio Debugger、Web Deploy 及遠端偵錯) |不支援此做法。 建議您從虛擬機器中移除這些擴充功能以繼續進行移轉，否則系統會在移轉過程中自動卸除它們。 |
+| 計算 |XML VM 擴充功能 (BGInfo 1.*、Visual Studio Debugger、Web Deploy 及遠端偵錯) |不支援這個動作。 建議您從虛擬機器中移除這些擴充功能以繼續進行移轉，否則系統會在移轉過程中自動卸除它們。 |
 | 計算 |使用進階儲存體進行開機診斷 |先停用 VM 的「開機診斷」功能，再繼續進行移轉。 您可以在移轉完成之後，於 Resource Manager 堆疊中重新啟用開機診斷。 此外，應該將用於快照和序列記錄的 Blob 刪除，這樣您就不再需要支付這些 Blob 的費用。 |
 | 計算 | 包含 Web 角色/背景工作角色的雲端服務 | 目前不支援。 |
 | 計算 | 包含一個以上可用性設定組或多個可用性設定組的雲端服務。 |目前不支援。 請先將虛擬機器移至相同可用性設定組，然後再移轉。 |

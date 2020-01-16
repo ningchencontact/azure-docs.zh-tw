@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 39665e0361747e0f75fa6c92f244317b995ce6a8
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: ab8baa810c36c794bbefd264c5588f8b28cbd62a
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863371"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046198"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>規劃您的 Azure 時間序列深入解析 GA 環境
 
@@ -24,7 +24,7 @@ ms.locfileid: "75863371"
 
 ## <a name="video"></a>影片
 
-**觀看這段影片以深入瞭解 Azure 時間序列深入解析中的資料保留以及如何進行規劃**：<br /><br />
+**觀看這段影片以深入瞭解 Azure 時間序列深入解析中的資料保留以及如何進行規劃**：<br />
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -53,7 +53,7 @@ ms.locfileid: "75863371"
 Azure 時間序列深入解析有兩種模式：
 
 * 其中一種模式會針對最新的資料進行優化。 它會強制執行原則，以**清除舊**資料，讓實例能夠使用最新的資料。 此模式預設為開啟。 
-* 另一個則會將資料優化，維持在設定的保留限制以下。 **暫停**輸入會防止新資料在選取為**超出儲存體限制的行為**時被輸入。 
+* 另一個則會將資料優化，維持在設定的保留限制以下。 **暫停**輸入會防止新資料在選取為**超出儲存體限制的行為**時被輸入。
 
 您可以在 [Azure 入口網站] 環境的 [設定] 頁面上，調整兩種模式的保留期和切換。
 
