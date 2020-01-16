@@ -1,18 +1,18 @@
 ---
 title: 最佳做法-Azure Batch
 description: 瞭解開發 Azure Batch 解決方案的最佳作法和實用秘訣。
-author: laurenhughes
-ms.author: lahugh
+author: ju-shim
+ms.author: jushiman
 ms.date: 11/22/2019
 ms.service: batch
 ms.topic: article
 manager: gwallace
-ms.openlocfilehash: 19c5b6acaeddb915af49cf62a884da0678075f15
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 20fc7844054fc7e05f56105e69ad6bd8a4272ed8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535661"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026155"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 最佳做法
 
@@ -67,7 +67,7 @@ Batch 集區是在 Batch 服務上執行作業的計算資源。 下列各節提
 
 集區配置失敗可能會在第一次配置或後續調整大小的任何時間點發生。 這可能是因為在某個區域發生暫時容量耗盡，或批次所依賴的其他 Azure 服務失敗。 您的核心配額不是保證，而是限制。
 
-### <a name="unplanned-downtime"></a>非計畫的停機時間
+### <a name="unplanned-downtime"></a>非計劃性停機
 
 Batch 集區可以在 Azure 中遇到停機事件。 在規劃和開發 Batch 的案例或工作流程時，請務必記住這一點。
 

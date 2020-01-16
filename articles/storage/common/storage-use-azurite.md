@@ -7,12 +7,12 @@ ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 0421f49b31eba688542adc0a5b62e1cf75028836
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5e1fce0852a4e820d7ee0af626ce3fddf6773750
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74269464"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029918"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>使用 Azurite 模擬器進行本機 Azure 儲存體開發和測試（預覽）
 
@@ -282,6 +282,20 @@ azurite --debug path/debug.log
 azurite -d path/debug.log
 ```
 
+### <a name="loose-mode"></a>鬆散模式
+
+**選擇性**根據預設，Azurite 會套用 strict 模式來封鎖不支援的要求標頭和參數。 使用 **--鬆散**參數停用 strict 模式。
+
+```console
+azurite --loose
+```
+
+請注意大寫的 ' L ' 快捷方式參數：
+
+```console
+azurite -L
+```
+
 ## <a name="authorization-for-tools-and-sdks"></a>工具和 Sdk 的授權
 
 使用任何驗證策略，從 Azure 儲存體 Sdk 或工具（例如[Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)）連接到 Azurite。 需要驗證。 Azurite 支援使用共用金鑰和共用存取簽章（SAS）進行授權。 Azurite 也支援公用容器的匿名存取。
@@ -296,7 +310,7 @@ azurite -d path/debug.log
 > [!NOTE]
 > 除了 SharedKey authentication，Azurite 也支援帳戶和服務 SAS 驗證。 當容器設定為允許公用存取時，也可以使用匿名存取。
 
-### <a name="connection-string"></a>Connection string
+### <a name="connection-string"></a>連接字串
 
 從您的應用程式連線到 Azurite 最簡單的方式，就是在應用程式的設定檔中設定參考快捷方式*UseDevelopmentStorage = true*的連接字串。 以下是*app.config*檔案中的連接字串範例：
 
@@ -307,6 +321,33 @@ azurite -d path/debug.log
 ```
 
 如需詳細資訊，請參閱[設定 Azure 儲存體連接字串](storage-configure-connection-string.md)。
+
+### <a name="custom-storage-accounts-and-keys"></a>自訂儲存體帳戶和金鑰
+
+Azurite 會以下列格式設定 `AZURITE_ACCOUNTS` 環境變數，以支援自訂的儲存體帳戶名稱和金鑰： `account1:key1[:key2];account2:key1[:key2];...`。
+
+例如，使用具有一個金鑰的自訂儲存體帳戶：
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1"
+```
+
+或使用多個具有2個金鑰的儲存體帳戶：
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
+```
+
+根據預設，Azurite 會每分鐘重新整理來自環境變數的自訂帳戶名稱和金鑰。 透過這項功能，您可以在不重新開機 Azurite 的情況下，動態地旋轉帳戶金鑰，或新增新的儲存體帳戶。
+
+> [!NOTE]
+> 當您設定自訂儲存體帳戶時，預設的 `devstoreaccount1` 儲存體帳戶會停用。
+
+> [!NOTE]
+> 使用自訂帳戶名稱和金鑰時，請據以更新連接字串。
+
+> [!NOTE]
+> 使用 `export` 關鍵字在 Linux 環境中設定環境變數，並在 Windows 中使用 `set`。
 
 ### <a name="storage-explorer"></a>儲存體總管
 

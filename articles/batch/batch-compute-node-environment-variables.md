@@ -2,7 +2,7 @@
 title: 工作執行時間環境變數-Azure Batch |Microsoft Docs
 description: Azure Batch 分析的工作執行時間環境變數指引和參考。
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/12/2019
-ms.author: lahugh
-ms.openlocfilehash: cb087b261780ba88bd26bea3e14fc875e5c63566
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.author: jushiman
+ms.openlocfilehash: fd3c8ac9e65f7f77be070e1d1d108490e61eb248
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177146"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027182"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 執行時間環境變數
 
@@ -44,15 +44,15 @@ ms.locfileid: "73177146"
 
 ## <a name="environment-variables"></a>環境變數
 
-| 變數名稱                     | 描述                                                              | 可用性 | 範例 |
+| 變數名稱                     | 說明                                                              | 可用性 | 範例 |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | 工作所屬之批次帳戶的名稱。                  | 所有工作。   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | Batch 帳戶的 URL。 | 所有工作。 | `https://myaccount.westus.batch.azure.com` |
-| AZ_BATCH_APP_PACKAGE            | 所有應用程式套件環境變數的前置詞。 例如，如果應用程式 "FOO" 版本 "1" 安裝在集區上，則環境變數會是 AZ_BATCH_APP_PACKAGE_FOO_1。 AZ_BATCH_APP_PACKAGE_FOO_1 指向下載封裝的位置（資料夾）。 使用預設版本的應用程式套件時，請使用不含版本號碼的 AZ_BATCH_APP_PACKAGE 環境變數。 | 與應用程式套件相關聯的任何工作。 如果節點本身有應用程式套件，也適用於所有的工作。 | AZ_BATCH_APP_PACKAGE_FOO_1 |
+| AZ_BATCH_APP_PACKAGE            | 所有應用程式套件環境變數的前置詞。 例如，如果應用程式 "FOO" 版本 "1" 安裝在集區上，則環境變數會 AZ_BATCH_APP_PACKAGE_FOO_1。 AZ_BATCH_APP_PACKAGE_FOO_1 指向下載封裝的位置（資料夾）。 使用預設版本的應用程式套件時，請使用不含版本號碼的 AZ_BATCH_APP_PACKAGE 環境變數。 | 與應用程式套件相關聯的任何工作。 如果節點本身有應用程式套件，也適用於所有的工作。 | AZ_BATCH_APP_PACKAGE_FOO_1 |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | 驗證權杖，可授與一組有限 Batch 服務作業的存取權。 只有在設定[新增工作](/rest/api/batchservice/task/add#request-body)時設定 [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings)，此環境變數才存在。 權杖值會在 Batch API 中作為認證來建立 Batch 用戶端，例如在 [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_)。 | 所有工作。 | OAuth2 存取權杖 |
 | AZ_BATCH_CERTIFICATES_DIR       | 在[工作工作目錄][files_dirs]中的目錄，其中儲存了 Linux 計算節點的憑證。 此環境變數不適用於 Windows 計算節點。                                                  | 所有工作。   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | 以 `nodeIP,nodeIP`格式配置給[多重實例][multi_instance]工作的節點清單。 | 多重執行個體的主要工作和子工作。 | `10.0.0.4,10.0.0.5` |
-| AZ_BATCH_IS_CURRENT_NODE_MASTER | 指定目前的節點是否為[多重實例][multi_instance]工作的主要節點。 可能的值為 `true` 與 `false`。| 多重執行個體的主要工作和子工作。 | `true` |
+| AZ_BATCH_IS_CURRENT_NODE_MASTER | 指定目前的節點是否為[多重實例][multi_instance]工作的主要節點。 可能的值是 `true` 和 `false`。| 多重執行個體的主要工作和子工作。 | `true` |
 | AZ_BATCH_JOB_ID                 | 工作所屬之作業的 ID。 | 啟動工作之外的所有工作。 | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | 節點上作業準備工作[目錄][files_dirs]的完整路徑。 | 啟動工作與作業準備工作之外的所有工作。 僅適用於透過作業準備工作設定作業時。 | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | 節點上作業準備[工作工作目錄][files_dirs]的完整路徑。 | 啟動工作與作業準備工作之外的所有工作。 僅適用於透過作業準備工作設定作業時。 | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |

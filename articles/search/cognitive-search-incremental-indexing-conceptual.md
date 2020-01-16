@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: a5b12a426e52c3b80c58a30b320b2f746bbe990d
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 285b3608bc57d88ca2e81ed14355923436ed9d8d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832184"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028521"
 ---
 # <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Azure 認知搜尋中的增量擴充和快取簡介
 
@@ -56,14 +56,16 @@ ms.locfileid: "75832184"
 
 雖然累加式擴充的設計是要偵測並回應變更，而不需介入，但您還是可以使用參數來覆寫預設行為：
 
-+ 暫止快取
++ 設定新檔的優先順序
 + 略過技能集檢查
 + 略過資料來源檢查
 + 強制技能集評估
 
-### <a name="suspend-caching"></a>暫止快取
+### <a name="prioritize-new-documents"></a>設定新檔的優先順序
 
-您可以將快取中的 `enableReprocessing` 屬性設定為 `false`，以暫止累加式擴充，且稍後將其設定為 `true` 以繼續累加式擴充，並達成最終的一致性。 當您想要讓為新文件編製索引的優先順序高於確保文件主體間的一致性時，此控制會特別有用。
+設定 `enableReprocessing` 屬性，以控制已在快取中表示的傳入檔處理。 當 `true` （預設值）時，當您重新執行索引子時，已在快取中的檔會被重新處理，前提是您的技能更新會影響該 doc 
+
+當 `false`時，不會重新處理現有的檔，而是會有效地排列現有內容的新內送內容優先順序。 您應該只將 `enableReprocessing` 設定為暫時 `false`。 為了確保主體間的一致性，`enableReprocessing` 應該在大部分的時間 `true`，確保所有檔（包括新的和現有的）都是根據目前的技能集定義來有效。
 
 ### <a name="bypass-skillset-evaluation"></a>略過技能集評估
 
@@ -93,9 +95,9 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 ### <a name="force-skillset-evaluation"></a>強制技能集評估
 
-快取的目的是要避免不必要的處理，但假設您變更了索引子無法偵測的技能或技能集（例如，自訂技能集之類的外部元件變更）。 
+快取的目的是要避免不必要的處理，但假設您變更了索引子無法偵測的技能（例如，變更外部程式碼中的某個專案，例如自訂技能）。
 
-在此情況下，您可以使用[重設技能](preview-api-resetskills.md)API 來強制重新處理特定技能，包括任何相依于該技能輸出的下游技能。 此 API 會接受 POST 要求，其中包含應失效並重新執行的技能清單。 重設技能之後，請執行索引子來執行作業。
+在此情況下，您可以使用[重設技能](preview-api-resetskills.md)來強制重新處理特定技能，包括任何相依于該技能輸出的下游技能。 此 API 會接受 POST 要求，其中包含應失效並標示為重新處理的技能清單。 重設技能之後，請執行索引子來叫用管線。
 
 ## <a name="change-detection"></a>變更偵測
 
@@ -158,7 +160,7 @@ REST `api-version=2019-05-06-Preview` 提供適用于累加擴充的 Api，以�
 
 ### <a name="datasources"></a>資料來源
 
-+ 某些索引子會透過查詢抓取資料。 若為抓取資料的查詢，[更新資料來源](https://docs.microsoft.com/rest/api/searchservice/update-datasource)支援要求 `ignoreResetRequirement`的新參數，當您的更新動作不應使快取無效時，應該將其設定為 `true`。
++ 某些索引子會透過查詢抓取資料。 若為抓取資料的查詢，[更新資料來源](https://docs.microsoft.com/rest/api/searchservice/update-data-source)支援要求 `ignoreResetRequirement`的新參數，當您的更新動作不應使快取無效時，應該將其設定為 `true`。
 
 請謹慎使用 `ignoreResetRequirement`，因為它可能會導致不容易偵測到的資料中發生非預期的不一致。
 

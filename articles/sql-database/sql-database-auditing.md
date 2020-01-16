@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: aeca4499a41adf37ba78452f1cf76047dd8c6592
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0994ebe451bddea371f375e4d39172833df4d88a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931936"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028524"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -246,6 +246,14 @@ Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](..
 - 使用 AAD 驗證時，失敗的登入記錄「不會」顯示在 SQL 稽核記錄中。 若要檢視失敗的登入稽核記錄，您需要瀏覽 [Azure Active Directory 入口網站]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)，其中會記錄這些事件的詳細資料。
 
 - Azure SQL Database 的審核已針對可用性 & 效能進行優化。 在非常高的活動期間，Azure SQL Database 允許作業繼續執行，而不會記錄某些已審核的事件。
+
+- 如需在儲存體帳戶上設定不可變的審核，請參閱[允許受保護的附加 blob 寫入](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes)。 請注意，用於審核的容器名稱是**sqldbauditlogs**。
+
+> [!IMPORTANT] 
+>  [以時間為基礎的保留] 下的 [允許受保護的附加 blob 寫入] 設定目前可供使用，只有下欄區域才會顯示：
+> - 美國東部
+> - 美國中南部
+> - 美國西部 2
 
 
 ## <a id="subheading-7"></a>使用 Azure PowerShell 管理 Azure SQL Server 和資料庫審核

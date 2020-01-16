@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 858aba2a45a6b8cf133e6f94bac45e721535ab25
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 27d43af2d5860d287d8b5914379747ae528db34b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073256"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980159"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>適用于 Windows 的 Azure 監視器相依性虛擬機器擴充功能
 
@@ -75,14 +75,14 @@ ms.locfileid: "74073256"
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | DependencyAgent。 |
-| 類型 | DependencyAgentWindows |
+| type | DependencyAgentWindows |
 | typeHandlerVersion | 9.5 |
 
 ## <a name="template-deployment"></a>範本部署
 
 您可以使用 Azure Resource Manager 範本來部署 Azure VM 擴充功能。 您可以使用 Azure Resource Manager 範本上一節中詳述的 JSON 架構，在 Azure Resource Manager 範本部署期間執行 Azure VM Dependency agent 擴充功能。
 
-虛擬機器擴充功能的 JSON 可以嵌套在虛擬機器資源內。 或者，您可以將它放在 Resource Manager JSON 範本的根層或最上層。 JSON 的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/child-resource-name-type.md)。
+虛擬機器擴充功能的 JSON 可以嵌套在虛擬機器資源內。 或者，您可以將它放在 Resource Manager JSON 範本的根層或最上層。 JSON 的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/templates/child-resource-name-type.md)。
 
 下列範例假設 Dependency agent 延伸模組是嵌套在虛擬機器資源內部。 當您將擴充功能資源嵌套時，JSON 會放在虛擬機器的 `"resources": []` 物件中。
 

@@ -2,18 +2,18 @@
 title: 在 Azure Batch 集區中設定節點端點 | Microsoft Docs
 description: 如何設定或停用 Azure Batch 集區內之計算節點上的 SSH 或 RDP 連接埠存取權。
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: lahugh
-ms.openlocfilehash: e6c7f2762a6742a1aff7a2c3aff977b5e3657349
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.author: jushiman
+ms.openlocfilehash: 1ac4c7647125cd6164235e98a4a828f6b072cbee
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322463"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029459"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>設定或停用 Azure Batch 集區內計算節點的遠端存取權
 
@@ -22,7 +22,7 @@ ms.locfileid: "68322463"
 在您的環境中，您可能需要限制或停用這些預設的外部存取設定。 您可以使用 Batch API 設定 [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration) 屬性，來修改這些設定。 
 
 ## <a name="about-the-pool-endpoint-configuration"></a>關於集區端點設定
-端點設定包含一或多個前端連接埠的[網路位址轉譯 (NAT) 集區](/rest/api/batchservice/pool/add#inboundnatpool)。 (請勿將 NAT 集區與計算節點的 Batch 集區混淆。)您可設定每個 NAT 集區以覆寫集區計算節點上的預設連線設定。 
+端點設定包含一或多個前端連接埠的[網路位址轉譯 (NAT) 集區](/rest/api/batchservice/pool/add#inboundnatpool)。 （請勿混淆 NAT 集區與計算節點的 Batch 集區）。您可以設定每個 NAT 集區，以覆寫集區計算節點上的預設連線設定。 
 
 每個 NAT 集區設定都包含一或多個[網路安全性群組 (NSG) 規則](/rest/api/batchservice/pool/add#networksecuritygrouprule)。 每個 NSG 規則皆會允許或拒絕通往端點的特定網路流量。 您可選擇要允許或拒絕所有流量、以[服務標籤](../virtual-network/security-overview.md#service-tags) (例如「網際網路」) 識別的網路流量，或來自特定 IP 位址或子網路的流量。
 

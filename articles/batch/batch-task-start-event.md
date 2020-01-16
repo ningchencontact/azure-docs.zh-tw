@@ -2,7 +2,7 @@
 title: Azure Batch 工作開始事件 | Microsoft Docs
 description: Batch 工作開始事件的參考。
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
-ms.openlocfilehash: ffad1696bc2c85a1a150ac87d90c2fb9c34e1519
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.author: jushiman
+ms.openlocfilehash: e8265286a5d33c9a8a118dafa66a83b5ed36f8a6
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258533"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029614"
 ---
 # <a name="task-start-event"></a>工作開始事件
 
@@ -47,7 +47,7 @@ ms.locfileid: "70258533"
 }
 ```
 
-|元素名稱|Type|注意|
+|元素名稱|類型|注意|
 |------------------|----------|-----------|
 |`jobId`|String|包含工作之作業的識別碼。|
 |`id`|String|工作的識別碼。|
@@ -60,25 +60,25 @@ ms.locfileid: "70258533"
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|元素名稱|Type|注意|
+|元素名稱|類型|注意|
 |------------------|----------|-----------|
 |`poolId`|String|工作執行所在集區的識別碼。|
 |`nodeId`|String|工作執行所在節點的識別碼。|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|元素名稱|Type|注意|
+|元素名稱|類型|注意|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int|工作需要的計算節點數目。|
 
 ###  <a name="constraints"></a> constraints
 
-|元素名稱|Type|注意|
+|元素名稱|類型|注意|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|工作重試次數上限。 如果工作的結束代碼不是零，Batch 服務會重試工作。<br /><br /> 請注意，這個值會特別控制重試次數。 Batch 服務會嘗試工作一次，然後可一直重試直到達此限制。 例如，如果重試計數上限為 3，則 Batch 可嘗試工作最多 4 次 (一次首次嘗試，3 次重試)。<br /><br /> 如果重試計數上限為 0，則 Batch 服務不會重試工作。<br /><br /> 如果重試計數上限為 -1，則 Batch 服務會無限制地重試工作。<br /><br /> 預設值為 0 (不重試)。|
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|元素名稱|Type|注意|
+|元素名稱|類型|注意|
 |------------------|----------|-----------|
 |`retryCount`|Int32|Batch 服務已重試工作的次數。 如果工作結束時的結束代碼不是零，便會重試工作，直到次數達指定的 MaxTaskRetryCount|

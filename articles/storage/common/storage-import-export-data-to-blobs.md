@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: cab9d309d052acca493e112965c8477a325d8c88
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 723cd78b1c7325300513664b64f7ca77ac71bcdd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75944744"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978534"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure Blob 儲存體
 
@@ -21,14 +21,15 @@ ms.locfileid: "75944744"
 
 ## <a name="prerequisites"></a>必要條件
 
-在建立匯入作業來將資料傳入 Azure Blob 儲存體之前，請仔細檢閱並完成此服務的下列必要條件清單。 您必須：
+在建立匯入作業來將資料傳入 Azure Blob 儲存體之前，請仔細檢閱並完成此服務的下列必要條件清單。
+您必須：
 
 - 具有可用於匯入/匯出服務的有效 Azure 訂用帳戶。
-- 至少具有一個包含儲存體容器的 Azure 儲存體帳戶。 請參閱[匯入/匯出服務支援的儲存體帳戶和儲存體類型](storage-import-export-requirements.md)清單。 
-    - 如需建立新儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](storage-quickstart-create-account.md)(英文)。 
+- 至少具有一個包含儲存體容器的 Azure 儲存體帳戶。 請參閱[匯入/匯出服務支援的儲存體帳戶和儲存體類型](storage-import-export-requirements.md)清單。
+    - 如需建立新儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](storage-account-create.md)(英文)。 
     - 如需有關儲存體容器的資訊，請移至[建立儲存體容器](../blobs/storage-quickstart-blobs-portal.md#create-a-container)。
-- 具有屬於[支援類型](storage-import-export-requirements.md#supported-disks)的磁碟，且數量足夠。 
-- 具有執行[受支援 OS 版本](storage-import-export-requirements.md#supported-operating-systems) 的 Windows 系統。 
+- 具有屬於[支援類型](storage-import-export-requirements.md#supported-disks)的磁碟，且數量足夠。
+- 具有執行[受支援 OS 版本](storage-import-export-requirements.md#supported-operating-systems) 的 Windows 系統。
 - 在 Windows 系統上啟用 BitLocker。 請參閱[如何啟用 BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)。
 - 請在 Windows 系統上[下載 WAImportExport 第 1 版](https://www.microsoft.com/download/details.aspx?id=42659)。 將檔案解壓縮至預設資料夾 `waimportexportv1`。 例如： `C:\WaImportExportV1` 。
 - 擁有 FedEx/DHL 帳戶。 如果您想要使用 FedEx/DHL 以外的貨運公司，請聯絡 `adbops@microsoft.com`的 Azure 資料箱營運小組。  
@@ -36,12 +37,12 @@ ms.locfileid: "75944744"
     - 產生匯出作業的追蹤號碼。
     - 每個作業都應該具有個別的追蹤號碼。 不支援多個作業使用相同的追蹤號碼。
     - 如果您沒有貨運公司帳戶，請移至：
-        - [建立 FedEX 帳戶](https://www.fedex.com/en-us/create-account.html) \(英文\)，或 
+        - [建立 FedEX 帳戶](https://www.fedex.com/en-us/create-account.html) \(英文\)，或
         - [建立 DHL 帳戶](http://www.dhl-usa.com/en/express/shipping/open_account.html) \(英文\)。
 
 ## <a name="step-1-prepare-the-drives"></a>步驟 1：準備磁碟機
 
-此步驟會產生日誌檔案。 日誌檔案會儲存磁碟機序號、加密金鑰及儲存體帳戶詳細資料等基本資訊。 
+此步驟會產生日誌檔案。 日誌檔案會儲存磁碟機序號、加密金鑰及儲存體帳戶詳細資料等基本資訊。
 
 執行下列步驟來準備磁碟機。
 
@@ -50,18 +51,18 @@ ms.locfileid: "75944744"
 2.  在 NTFS 磁碟區上啟用 BitLocker 加密。 如果使用 Windows Server 系統，請使用[如何在 Windows Server 2012 R2 上啟用 BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/) 中的指示。
 3.  將資料複製到加密磁碟區。 使用拖放或 Robocopy，或是任何這類的複製工具。
 4.  以系統管理權限開啟 PowerShell 或命令列視窗。 若要將目錄變更為解壓縮的資料夾，請執行下列命令：
-    
+
     `cd C:\WaImportExportV1`
 5.  若要取得磁碟機的 BitLocker 金鑰，請執行下列命令：
-    
+
     `manage-bde -protectors -get <DriveLetter>:`
-6.  若要準備磁碟，請執行下列命令。 **視資料大小而定，這可能需要數小時到數天的時間。** 
+6.  若要準備磁碟，請執行下列命令。 **視資料大小而定，這可能需要數小時到數天的時間。**
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
     ```
     日誌檔案會建立在執行此工具的相同資料夾中。 還會建立其他兩個檔案 - .xml 檔案 (您執行工具的資料夾) 和 drive-manifest.xml 檔案 (資料所在的資料夾)。
-    
+
     下表會說明使用的參數：
 
     |選項  |說明  |
@@ -76,17 +77,17 @@ ms.locfileid: "75944744"
     |/skipwrite：     |此選項表示不需要複製新資料，且即將準備磁碟上的現有資料。          |
     |/enablecontentmd5:     |啟用此選項時，可確保會計算 MD5，並將其設定為每個 blob 上的 `Content-md5` 屬性。 只有當您想要在資料上傳至 Azure 之後使用 [`Content-md5`] 欄位時，才使用此選項。 <br> 此選項不會影響資料完整性檢查（預設會發生）。 此設定會增加將資料上傳至雲端所花費的時間。          |
 7. 為每個要寄送的磁碟重複上述步驟。 每次執行命令列時，都會使用提供的名稱來建立日誌檔案。
-    
+
     > [!IMPORTANT]
-    > - 與日誌檔案一起，`<Journal file name>_DriveInfo_<Drive serial ID>.xml` 檔案也會建立在工具所在的相同資料夾中。 如果日誌檔案太大，建立作業時會使用 .xml 檔案代替日誌檔案。 
+    > - 與日誌檔案一起，`<Journal file name>_DriveInfo_<Drive serial ID>.xml` 檔案也會建立在工具所在的相同資料夾中。 如果日誌檔案太大，建立作業時會使用 .xml 檔案代替日誌檔案。
 
 ## <a name="step-2-create-an-import-job"></a>步驟 2：建立匯入作業
 
 在 Azure 入口網站中執行下列步驟，以建立匯入作業。
 
 1. 登入 https://portal.azure.com/ 。
-2. 移至 [所有服務] > [儲存體] > [匯入/匯出作業]。 
-    
+2. 移至 [所有服務] > [儲存體] > [匯入/匯出作業]。
+
     ![移至匯入/匯出作業](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
 3. 按一下 [建立匯入/匯出作業]。
@@ -106,23 +107,23 @@ ms.locfileid: "75944744"
 
 3. 在 [作業詳細資料] 中：
 
-    - 上傳在磁碟機準備步驟中取得的磁碟機日誌檔案。 如果已使用 `waimportexport.exe version1`，您需要針對已備妥的每個磁碟機上傳一個檔案。 如果日誌檔案大小超過 2 MB，則您可以使用與日誌檔案一起建立的 `<Journal file name>_DriveInfo_<Drive serial ID>.xml`。 
-    - 選取將存放資料的目的地儲存體帳戶。 
+    - 上傳在磁碟機準備步驟中取得的磁碟機日誌檔案。 如果已使用 `waimportexport.exe version1`，您需要針對已備妥的每個磁碟機上傳一個檔案。 如果日誌檔案大小超過 2 MB，則您可以使用與日誌檔案一起建立的 `<Journal file name>_DriveInfo_<Drive serial ID>.xml`。
+    - 選取將存放資料的目的地儲存體帳戶。
     - 系統會根據所選儲存體帳戶的區域，自動填入置放位置。
-   
+
    ![建立匯入作業 - 步驟 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
 4. 在 [寄返資訊] 中：
 
    - 從下拉式清單中選取貨運公司。 如果您想要使用 FedEx/DHL 以外的貨運公司，請從下拉式清單中選擇現有的選項。 請洽詢 `adbops@microsoft.com` 的 Azure 資料箱營運小組，其中包含您打算使用之電訊廠商的相關資訊。
    - 輸入您在該貨運公司中建立的有效貨運帳戶號碼。 當匯入作業完成時，Microsoft 會透過此帳戶將磁碟機寄還給您。 如果您沒有帳戶號碼，請建立 [FedEx](https://www.fedex.com/us/oadr/) 或 [DHL](https://www.dhl.com/) 貨運帳戶。
-   - 提供完整且有效的連絡人名稱、電話、電子郵件、街道地址、城市、郵遞區號、州/省和國家/地區。 
-        
-       > [!TIP] 
+   - 提供完整且有效的連絡人名稱、電話、電子郵件、街道地址、城市、郵遞區號、州/省和國家/地區。
+
+       > [!TIP]
        > 請提供群組電子郵件，而不是指定單一使用者的電子郵件地址。 這樣可以確保即使當系統管理員不在時，您也可以收到通知。
 
      ![建立匯入工作 - 步驟 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
-   
+
 5. 在 [摘要] 中：
 
    - 檢閱摘要中提供的作業資訊。 記下作業名稱和 Azure 資料中心寄送地址，以將磁碟寄回 Azure。 這項資訊稍後會用在出貨標籤上。
@@ -130,7 +131,7 @@ ms.locfileid: "75944744"
 
      ![建立匯入作業 - 步驟 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives"></a>步驟 3：寄送磁碟機 
+## <a name="step-3-ship-the-drives"></a>步驟 3：寄送磁碟機
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
@@ -147,5 +148,3 @@ ms.locfileid: "75944744"
 
 * [檢視作業和磁碟機狀態](storage-import-export-view-drive-status.md)
 * [檢閱匯入/匯出的需求](storage-import-export-requirements.md)
-
-

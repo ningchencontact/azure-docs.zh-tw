@@ -1,17 +1,14 @@
 ---
 title: 設定 VMware 的 Azure Migrate 設備
 description: 瞭解如何設定 Azure Migrate 設備，以評估和遷移 VMware Vm。
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: adb78682e80d78aa4fa6b48507f1fcce789a3fe1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: da451149d0420bc71a355fdf4f4fb122b196d5a0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360169"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029053"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>設定適用于 VMware Vm 的應用裝置
 
@@ -72,7 +69,7 @@ VMware VM 應用裝置是一種輕量設備，Azure Migrate Server 評估/遷移
 
 ### <a name="verify-appliance-access-to-azure"></a>確認設備是否能存取 Azure
 
-請確定設備 VM 可以連線至 [Azure URL](migrate-support-matrix-vmware.md#assessment-url-access-requirements)。
+請確定設備 VM 可以連線至 [Azure URL](migrate-appliance.md#url-access)。
 
 
 ## <a name="configure-the-appliance"></a>設定設備
@@ -114,7 +111,7 @@ VMware VM 應用裝置是一種輕量設備，Azure Migrate Server 評估/遷移
 
 ### <a name="specify-vcenter-server-details"></a>指定 vCenter Server 詳細資料
 1. 在 [指定 vCenter Server 詳細資料] 中，指定 vCenter Server 的名稱 (FQDN) 或 IP 位址。 您可以保留預設的連接埠，或指定您 vCenter Server 接聽的自訂連接埠。
-2. 在 [使用者名稱] 和 [密碼] 中，指定設備要用來探索 vCenter Server 上之 VM 的唯讀帳戶認證。 請確定帳戶具有[探索所需的權限](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions)。 您可以藉由限制 vCenter 帳戶的存取來界定探索的範圍；[請從此處](tutorial-assess-vmware.md#set-the-scope-of-discovery)深入了解探索範圍。
+2. 在 [使用者名稱] 和 [密碼] 中，指定設備要用來探索 vCenter Server 上之 VM 的唯讀帳戶認證。 您可以藉由限制 vCenter 帳戶的存取來界定探索的範圍；[請從此處](tutorial-assess-vmware.md#set-the-scope-of-discovery)深入了解探索範圍。
 3. 按一下 [驗證連線] 以確定設備可以連線到 vCenter Server。
 
 ### <a name="specify-vm-credentials"></a>指定 VM 認證

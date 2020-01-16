@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d30b2001889a2555f736de0685fe23de1ea0e055
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ce5fb014c7d954b3e8430a86430c6a666adff204
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438848"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969238"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>從 Azure Data Factory 叫用 Spark 程式管線
 
@@ -36,23 +36,23 @@ ms.locfileid: "75438848"
 > 本文適用於第 1 版 Azure Data Factory (正式運作版)。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用 Apache Spark 活動來轉換資料](../transform-data-using-spark.md)。
 
 ## <a name="introduction"></a>簡介
-Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-factory-data-transformation-activities.md)。 此活動會在 Azure HDInsight 中 Spark 叢集上執行指定的 Spark 程式。 
+Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-factory-data-transformation-activities.md)。 此活動會在 Azure HDInsight 中 Spark 叢集上執行指定的 Spark 程式。
 
 > [!IMPORTANT]
 > - Spark 活動不支援使用 Azure Data Lake Store 作為主要儲存體的 HDInsight Spark 叢集。
 > - Spark 活動僅支援現有 (您自己的) HDInsight Spark 叢集。 它不支援隨選 HDInsight 已連結服務。
 
 ## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>逐步解說：建立含有 Spark 活動的管線
-以下是建立含有 Spark 活動之資料處理站管線的一般步驟： 
+以下是建立含有 Spark 活動之資料處理站管線的一般步驟：
 
 * 建立資料處理站。
 * 建立 Azure 儲存體已連結服務，以將與 HDInsight Spark 叢集關聯的儲存體連結至資料處理站。
 * 建立 HDInsight 已連結服務，以將 HDInsight 中的 Spark 叢集連結至資料處理站。
-* 建立會參考儲存體已連結服務的資料集。 目前，您必須指定活動的輸出資料集，即使沒有產生任何輸出。 
+* 建立會參考儲存體已連結服務的資料集。 目前，您必須指定活動的輸出資料集，即使沒有產生任何輸出。
 * 建立含有 Spark 活動的管線，此活動會參考您所建立的 HDInsight 已連結服務。 此活動已使用您在上一個步驟中建立的資料集設定為輸出資料集。 輸出資料集是驅動排程 (每小時、每天) 的因子。 因此，即使活動並不會真的產生輸出，您仍然必須指定輸出資料集。
 
 ### <a name="prerequisites"></a>必要條件
-1. 依照[建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)中的指示，建立一般用途的儲存體帳戶。
+1. 依照[建立儲存體帳戶](../../storage/common/storage-account-create.md)中的指示，建立一般用途的儲存體帳戶。
 
 1. 依照教學課程[在 HDInsight 中建立 Spark 叢集](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)中的指示，在 HDInsight 中建立 Spark 叢集。 將您在步驟 1 中建立的儲存體帳戶與此叢集產生關聯。
 
@@ -90,10 +90,10 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
     ![Data Factory 刀鋒視窗](./media/data-factory-spark/data-factory-blade.png)
 
 ### <a name="create-linked-services"></a>建立連結的服務
-在此步驟中，您會建立兩個已連結的服務。 其中一個服務會將您的 Spark 叢集連結至資料處理站，另一個服務則會將您的儲存體連結至資料處理站。 
+在此步驟中，您會建立兩個已連結的服務。 其中一個服務會將您的 Spark 叢集連結至資料處理站，另一個服務則會將您的儲存體連結至資料處理站。
 
 #### <a name="create-a-storage-linked-service"></a>建立儲存體連結服務
-在此步驟中，您會將儲存體帳戶連結至資料處理站。 您在本逐步解說稍後的步驟中建立的資料集會參考此連結服務。 您在下一個步驟中定義的 HDInsight 連結服務也會參考此連結服務。 
+在此步驟中，您會將儲存體帳戶連結至資料處理站。 您在本逐步解說稍後的步驟中建立的資料集會參考此連結服務。 您在下一個步驟中定義的 HDInsight 連結服務也會參考此連結服務。
 
 1. 在 [資料處理站] 刀鋒視窗上，選取 [編寫及部署]。 隨即會出現「Data Factory 編輯器」。
 
@@ -110,7 +110,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 1. 若要部署已連結的服務，請選取命令列上的 [部署]。 成功部署連結服務之後，[Draft-1] 視窗就會消失。 您會在左側的樹狀檢視中看到 **AzureStorageLinkedService**。
 
 #### <a name="create-an-hdinsight-linked-service"></a>建立 HDInsight 連結服務
-在此步驟中，您會建立一個 HDInsight 已連結服務，以將 HDInsight Spark 叢集連結至資料處理站。 HDInsight 叢集是用來執行此範例管線的 Spark 活動中指定的 Spark 程式。 
+在此步驟中，您會建立一個 HDInsight 已連結服務，以將 HDInsight Spark 叢集連結至資料處理站。 HDInsight 叢集是用來執行此範例管線的 Spark 活動中指定的 Spark 程式。
 
 1. 在「Data Factory 編輯器」中，選取 [更多] > [新增計算] > [HDInsight 叢集]。
 
@@ -147,14 +147,14 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
     如需有關 HDInsight 已連結服務的詳細資訊，請參閱 [HDInsight 已連結服務](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)。
 
-1. 若要部署已連結的服務，請選取命令列上的 [部署]。 
+1. 若要部署已連結的服務，請選取命令列上的 [部署]。
 
 ### <a name="create-the-output-dataset"></a>建立輸出資料集
 輸出資料集是驅動排程 (每小時、每天) 的因子。 因此，即使管線中的 Spark 活動並不會產生任何輸出，您仍然必須為該活動指定輸出資料集。 為活動指定輸入資料集是選擇性的。
 
 1. 在 Data Factory 編輯器中，選取 [更多] > [新增資料集] > [Azure Blob 儲存體]。
 
-1. 複製下列程式碼片段並貼到 [Draft-1] 視窗。 JSON 程式碼片段會定義名為 **OutputDataset** 的資料集。 此外，指定將結果儲存在名為 **adfspark** 的 Blob 容器及名為 **pyFiles/output** 的資料夾中。 如先前所述，此資料集是一個虛擬資料集。 此範例中的 Spark 程式不會產生任何輸出。 **availability** 區段指定每日產生一次輸出資料集。 
+1. 複製下列程式碼片段並貼到 [Draft-1] 視窗。 JSON 程式碼片段會定義名為 **OutputDataset** 的資料集。 此外，指定將結果儲存在名為 **adfspark** 的 Blob 容器及名為 **pyFiles/output** 的資料夾中。 如先前所述，此資料集是一個虛擬資料集。 此範例中的 Spark 程式不會產生任何輸出。 **availability** 區段指定每日產生一次輸出資料集。
 
     ```json
     {
@@ -226,7 +226,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
     > [!IMPORTANT]
     > 建議您在生產環境中不要將這個屬性設定為 `Always`，除非您要針對問題進行疑難排解。
 
-    e. **outputs** 區段有一個輸出資料集。 即使 Spark 程式不會產生任何輸出，您仍然必須指定輸出資料集。 輸出資料集會驅動管線的排程 (每小時、每天)。 
+    e. **outputs** 區段有一個輸出資料集。 即使 Spark 程式不會產生任何輸出，您仍然必須指定輸出資料集。 輸出資料集會驅動管線的排程 (每小時、每天)。
 
     如需有關 Spark 活動所支援之屬性的詳細資訊，請參閱 [Spark 活動屬性](#spark-activity-properties)。
 
@@ -260,12 +260,12 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-1. 確認您看到來自 hvac 資料表的資料。 
+1. 確認您看到來自 hvac 資料表的資料。
 
     ![Jupyter 查詢結果](media/data-factory-spark/jupyter-notebook-results.png)
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-如需詳細指示，請參閱[執行 Spark SQL 查詢](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)一節。 
+如需詳細指示，請參閱[執行 Spark SQL 查詢](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)一節。
 
 ### <a name="troubleshooting"></a>疑難排解
 由於您將 getDebugInfo 設定為 **Always**，因此您會在 Blob 容器的 [pyFiles] 資料夾中看到一個 [log] 子資料夾。 [log] 資料夾中的記錄檔會提供額外的資訊。 發生錯誤時，此記錄檔特別有用。 在生產環境中，您可以將它設定為 **Failure**。
@@ -288,7 +288,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 下列各節提供資料處理站實體的相關資訊，以在您的資料處理站中使用 Spark 叢集和 Spark 活動。
 
 ## <a name="spark-activity-properties"></a>Spark 活動屬性
-以下是含有 Spark 活動之管線的範例 JSON 定義： 
+以下是含有 Spark 活動之管線的範例 JSON 定義：
 
 ```json
 {
@@ -342,7 +342,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 ## <a name="folder-structure"></a>資料夾結構
 與 Pig 和 Hive 活動不同，Spark 活動並不支援內嵌指令碼。 Spark 作業也比 Pig/Hive 作業更具擴充性。 針對 Spark 作業，您可以提供多個相依性，例如 jar 套件 (置於 java CLASSPATH 中)、Python 檔案 (置於 PYTHONPATH 中) 及任何其他檔案。
 
-請在 HDInsight 已連結服務所參考的 Blob 儲存體中，建立下列資料夾結構。 然後，將相依檔案上傳至根資料夾中 **entryFilePath** 所代表的適當子資料夾。 例如，將 Python 檔案上傳至根資料夾的 [pyFiles] 子資料夾，將 jar 檔案上傳至 [jars] 子資料夾。 在執行階段，Data Factory 服務會預期 Blob 儲存體中有下列資料夾結構︰ 
+請在 HDInsight 已連結服務所參考的 Blob 儲存體中，建立下列資料夾結構。 然後，將相依檔案上傳至根資料夾中 **entryFilePath** 所代表的適當子資料夾。 例如，將 Python 檔案上傳至根資料夾的 [pyFiles] 子資料夾，將 jar 檔案上傳至 [jars] 子資料夾。 在執行階段，Data Factory 服務會預期 Blob 儲存體中有下列資料夾結構︰
 
 | Path | 說明 | 必要項 | 類型 |
 | ---- | ----------- | -------- | ---- |

@@ -3,7 +3,7 @@ title: Azure Batch 集區的 Azure 檔案共用 | Microsoft Docs
 description: 如何從 Linux 中的計算節點或 Azure Batch 中的 Windows 集區，裝載 Azure Files 共用。
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 05/24/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: ''
-ms.openlocfilehash: cd185035640bf0beaa54fa6a0f4d92a33837442b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d84fdd4635a7a9227e29fe3cd8c43a1fc4cbeb5b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093973"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029441"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>搭配 Batch 集區使用 Azure 檔案共用
 
@@ -51,7 +51,7 @@ Batch 提供原生 API 支援，您可使用 Azure 儲存體 BLOb 讀取和寫�
 例如，在每個工作命令列中包括 `net use` 命令以裝載檔案共用。 若要裝載檔案共用，需要以下認證：
 
 * **使用者名稱**：AZURE\\\<storageaccountname\>，例如 AZURE\\*mystorageaccountname*
-* **密碼**：\<StorageAccountKeyWhichEnds in = = >, 例如*XXXXXXXXXXXXXXXXXXXXX = =*
+* **密碼**：在 = = > 中 \<StorageAccountKeyWhichEnds，例如， *XXXXXXXXXXXXXXXXXXXXX = =*
 
 下列命令在儲存體帳戶 *mystorageaccountname* 裝載檔案共用 *myfileshare* 作為 *S:* 磁碟機：
 
@@ -128,7 +128,7 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 接著，執行 `mount` 命令以裝載檔案共用，藉此提供這些認證：
 
 * **使用者名稱**：\<storageaccountname\>，例如 *mystorageaccountname*
-* **密碼**：\<StorageAccountKeyWhichEnds in = = >, 例如*XXXXXXXXXXXXXXXXXXXXX = =*
+* **密碼**：在 = = > 中 \<StorageAccountKeyWhichEnds，例如， *XXXXXXXXXXXXXXXXXXXXX = =*
 
 下列命令在 */mnt/MyAzureFileShare* 的儲存體帳戶 *mystorageaccountname* 裝載檔案共用 *myfileshare*： 
 

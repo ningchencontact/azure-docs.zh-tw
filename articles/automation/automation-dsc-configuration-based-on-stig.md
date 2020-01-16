@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6215884a5f11e92d3a6ab61d86c338c30c090ee6
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 275b3bd25f931b73e8a378433899ef9ade4d47c1
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769977"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028270"
 ---
 # <a name="configuration-based-on-stig"></a>以 STIG 為基礎的設定
 
@@ -37,7 +37,7 @@ ms.locfileid: "75769977"
 PowerSTIG 藉由提供[複合資源](https://github.com/microsoft/powerstig#powerstigdsc)來處理每個設定區域，而不是嘗試在一個大型檔案中處理整個範圍的設定，來解決此問題。
 
 一旦產生設定之後，您就可以使用 DSC 設定[腳本](/powershell/scripting/dsc/configurations/configurations)來產生 mof 檔案，並將[mof 檔案上傳到 Azure 自動化](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)。
-然後從[內部部署](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws)或[在 Azure 中](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)註冊您的伺服器，以提取設定。
+然後從[內部部署](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)或[在 Azure 中](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)註冊您的伺服器，以提取設定。
 
 若要試用 PowerSTIG，請造訪[PowerShell 資源庫](https://www.powershellgallery.com)並下載解決方案，或按一下 [專案網站] 以查看[檔](https://github.com/microsoft/powerstig)。
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 5ffee146bdbd666d4175af2f49f6b447743b2bc0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0806c1101c0bc93a1b917cb2d18709721ff0c6d6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457676"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968279"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>透過 .NET 開始使用 Azure 佇列儲存體
 
@@ -37,7 +37,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 * [適用于 .NET 的 Azure 儲存體一般用戶端程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
 * [適用于 .NET 的 Azure 儲存體佇列用戶端程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
 * [適用於.NET 的 Azure 設定管理員](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
-* [Azure 儲存體帳戶](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [Azure 儲存體帳戶](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 

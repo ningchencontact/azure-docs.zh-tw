@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: d4c9b926afe93f52946c5f1adf40835f72812f2a
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: ba591872f4f8af93e5f7e13e0fb69d0679fd1a0c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995817"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965756"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>使用 PowerShell 移除透明資料加密 (TDE) 保護裝置
 
@@ -53,10 +53,10 @@ ms.locfileid: "74995817"
 資料庫目前 TDE 保護裝置的指紋，而且可以藉由執行下列程式來找到資料庫識別碼：
 
 ```sql
-SELECT [database_id], 
-       [encryption_state], 
-       [encryptor_type], /*asymmetric key means AKV, certificate means service-managed keys*/ 
-       [encryptor_thumbprint], 
+SELECT [database_id],
+       [encryption_state],
+       [encryptor_type], /*asymmetric key means AKV, certificate means service-managed keys*/
+       [encryptor_thumbprint],
  FROM [sys].[dm_database_encryption_keys]
 ```
 

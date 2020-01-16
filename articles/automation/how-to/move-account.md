@@ -9,16 +9,16 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d1c747a52a1e8dedd0b5ba411b673eee463a2b6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1aa759a2984764169eb28935e095d0f7c0f90c08
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849576"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969836"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>將您的 Azure 自動化帳戶移至另一個訂用帳戶
 
-Azure 讓您能夠將一些資源移到新的資源群組或訂用帳戶。 您可以透過 Azure 入口網站、PowerShell、Azure CLI 或 REST API 來移動資源。 若要深入瞭解此程式，請參閱[將資源移至新的資源群組或訂用](../../azure-resource-manager/resource-group-move-resources.md)帳戶。
+Azure 讓您能夠將一些資源移到新的資源群組或訂用帳戶。 您可以透過 Azure 入口網站、PowerShell、Azure CLI 或 REST API 來移動資源。 若要深入瞭解此程式，請參閱[將資源移至新的資源群組或訂用](../../azure-resource-manager/management/move-resource-group-and-subscription.md)帳戶。
 
 Azure 自動化帳戶是可以移動的其中一個資源。 在本文中，您將瞭解將自動化帳戶移至另一個資源或訂用帳戶的步驟。
 
@@ -147,4 +147,4 @@ Remove-AzureRmActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_V
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入瞭解如何在 Azure 中移動資源，請參閱[在 azure 中移動資源](../../azure-resource-manager/move-support-resources.md)。
+若要深入瞭解如何在 Azure 中移動資源，請參閱[在 azure 中移動資源](../../azure-resource-manager/management/move-support-resources.md)。

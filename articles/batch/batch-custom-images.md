@@ -2,18 +2,18 @@
 title: 從受控映射布建自訂集區-Azure Batch |Microsoft Docs
 description: 從受控映射資源建立 Batch 集區，以使用應用程式的軟體和資料來布建計算節點。
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: lahugh
-ms.openlocfilehash: 82a5f79ca7b7a16cd8f7294ebd1f70816b40ad82
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.author: jushiman
+ms.openlocfilehash: 3c7aafb5cfdd2e0127aa9969b904976cb93db614
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "73519239"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029758"
 ---
 # <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>使用受控映射來建立虛擬機器的集區
 

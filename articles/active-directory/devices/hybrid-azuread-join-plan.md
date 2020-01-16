@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a4f85aeaf2fb263ba2df8f34a51f9e25c212aff
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 36dd80669c6a9495751f577748f48c02a782b920
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379326"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029865"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：規劃混合式 Azure Active Directory 聯結執行
 
@@ -30,7 +30,7 @@ ms.locfileid: "74379326"
 
 如果您有內部部署 Active Directory （AD）環境，而且想要將已加入 AD 網域的電腦加入 Azure AD，您可以執行混合式 Azure AD 聯結來完成這項作業。 本文提供在您的環境中實作混合式 Azure AD Join 的相關步驟。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文假設您已熟悉[Azure Active Directory 中的裝置身分識別管理簡介](../device-management-introduction.md)。
 
@@ -77,7 +77,7 @@ ms.locfileid: "74379326"
 
 如果您的環境使用虛擬桌面基礎結構（VDI），請參閱[裝置身分識別和桌面虛擬化](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure)。
 
-符合 FIPS 規範的 TPM 2.0 支援混合式 Azure AD 聯結，TPM 1.2 則不支援。 如果您的裝置具有 FIPS 相容的 TPM 1.2，您必須先停用它們，再繼續進行混合式 Azure AD 聯結。 Microsoft 不會提供任何工具來停用 Tpm 的 FIPS 模式，因為它相依于 TPM 製造商。 請洽詢您的硬體 OEM 以取得支援。 從 WIndows 10 1903 版本開始，Tpm 1.2 不會用於混合式 Azure AD 聯結，而那些 Tpm 的裝置將會被視為沒有 TPM。
+符合 FIPS 規範的 TPM 2.0 支援混合式 Azure AD 聯結，TPM 1.2 則不支援。 如果您的裝置具有 FIPS 相容的 TPM 1.2，您必須先停用它們，再繼續進行混合式 Azure AD 聯結。 Microsoft 不會提供任何工具來停用 Tpm 的 FIPS 模式，因為它相依于 TPM 製造商。 請洽詢您的硬體 OEM 以取得支援。 從 Windows 10 1903 版本開始，Tpm 1.2 不會用於混合式 Azure AD 聯結，而那些 Tpm 的裝置將會被視為沒有 TPM。
 
 執行網域控制站（DC）角色的 Windows Server 不支援混合式 Azure AD 聯結。
 
@@ -108,7 +108,7 @@ ms.locfileid: "74379326"
 
 ### <a name="managed-environment"></a>受控環境
 
-受控環境可使用[無縫單一登入](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs)透過[密碼雜湊同步 (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) 或[傳遞驗證 (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) 進行部署。
+受控環境可使用[無縫單一登入](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)透過[密碼雜湊同步 (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) 或[傳遞驗證 (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) 進行部署。
 
 在這些案例中，您不需要設定同盟伺服器以進行驗證。
 
@@ -146,7 +146,7 @@ ms.locfileid: "74379326"
 
 下表提供有關在 Windows 10 混合式 Azure AD Join 中支援這些內部部署 AD UPN 的詳細資料
 
-| 內部部署 AD UPN 的類型 | 網域類型 | Windows 10 版本 | 描述 |
+| 內部部署 AD UPN 的類型 | 網域類型 | Windows 10 版本 | 說明 |
 | ----- | ----- | ----- | ----- |
 | 路由式 | 同盟 | 自 1703 版起 | 正式推出 |
 | 非可路由傳送 | 同盟 | 自 1803 版起 | 正式推出 |

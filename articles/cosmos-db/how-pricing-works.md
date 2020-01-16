@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 0e0adef2728ef75dc67f02fdf38b6638965df62f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7efae8fb3c00868e2740eac2d4d5bcb3c82f663a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756861"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977545"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Azure Cosmos DB 的計價模式 
 
@@ -43,7 +43,7 @@ Azure Cosmos DB 的計價模式在所有 API 之間都是一致的。 若要深�
 
 Azure Cosmos DB 為開發人員提供數個免費選項。 這些選項包含︰
 
-* **Azure 免費帳戶**： azure 提供[免費層](https://azure.microsoft.com/free/)，$200 可提供您前30天的 Azure 點數，以及12個月有限的免費服務數量。 如需詳細資訊，請參閱 [Azure 免費帳戶](../billing/billing-avoid-charges-free-account.md)。 Azure Cosmos DB 屬於 Azure 免費帳戶。 此免費帳戶會特別針對 Azure Cosmos DB，在為期一年的時間內提供 5-GB 的儲存體，以及 400 RU 的已佈建輸送量。 
+* **Azure 免費帳戶**： azure 提供[免費層](https://azure.microsoft.com/free/)，$200 可提供您前30天的 Azure 點數，以及12個月有限的免費服務數量。 如需詳細資訊，請參閱 [Azure 免費帳戶](../cost-management-billing/manage/avoid-charges-free-account.md)。 Azure Cosmos DB 屬於 Azure 免費帳戶。 此免費帳戶會特別針對 Azure Cosmos DB，在為期一年的時間內提供 5-GB 的儲存體，以及 400 RU 的已佈建輸送量。 
 
 * **免費試用 Azure Cosmos DB**： Azure Cosmos DB 使用免費帳戶的試用 Azure Cosmos DB，提供限時的體驗。 您可以透過使用快速入門和教學課程，建立 Azure Cosmos DB 帳戶、建立資料庫和集合及執行範例應用程式。 您可以在不註冊 Azure 帳戶或使用信用卡的情況下執行範例應用程式。 [免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) 提供一個月的 Azure Cosmos DB，可以任意次數更新您的帳戶。
 
@@ -60,7 +60,7 @@ Azure Cosmos DB [保留容量](cosmos-db-reserved-capacity.md)有助於您透過
 您可以在下列文章中深入了解最佳化 Azure Cosmos DB 資源的成本：
 
 * 深入了解[最佳化開發與測試](optimize-dev-test.md)
-* 深入了解 [Azure Cosmos DB 上的計費](understand-your-bill.md)
+* 深入了解 [Azure Cosmos DB 帳單](understand-your-bill.md)
 * 深入了解[最佳化輸送量成本](optimize-cost-throughput.md)
 * 深入了解[最佳化儲存體成本](optimize-cost-storage.md)
 * 深入了解[最佳化讀取和寫入的成本](optimize-cost-reads-writes.md)

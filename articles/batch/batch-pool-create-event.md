@@ -2,7 +2,7 @@
 title: Azure Batch 集區建立事件 | Microsoft Docs
 description: Batch 集區建立事件的參考。
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,19 +10,19 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
-ms.openlocfilehash: 3f7b20cb915e0a969c6a400c07a094943f7f3a1b
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.author: jushiman
+ms.openlocfilehash: b804d828d276c39febf7fdd9347bce04a062676a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258434"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026742"
 ---
 # <a name="pool-create-event"></a>集區建立事件
 
  一旦集區建立完成，就會發出此事件。 記錄檔內容將公開集區的一 般資訊。 請注意，如果集區的目標大小大於 0 個計算節點，則集區調整開始事件將緊接在此事件之後。
 
- 下列範例顯示使用`CloudServiceConfiguration`屬性建立之集區的集區建立事件主體。
+ 下列範例顯示使用 `CloudServiceConfiguration` 屬性建立之集區的集區建立事件主體。
 
 ```
 {
@@ -62,11 +62,11 @@ ms.locfileid: "70258434"
 |`id`|String|集區的識別碼。|
 |`displayName`|String|集區顯示名稱。|
 |`vmSize`|String|集區中虛擬機器的大小。 集區中所有虛擬機器的大小相同。 <br/><br/> 如需雲端服務集區 (使用 cloudServiceConfiguration 建立的集區) 的虛擬機器可用大小相關資訊，請參閱[雲端服務的大小](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/)。 Batch 支援 `ExtraSmall` 以外的所有雲端服務 VM 大小。<br/><br/> 如需使用 Virtual Machines Marketplace 中映像的集區 (使用 virtualMachineConfiguration 建立的集區) 其可用 VM 大小的相關資訊，請參閱[虛擬機器大小](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (英文) (Linux) 或 [Azure 中 Windows 虛擬機器的大小](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows)。 除了 `STANDARD_A0` 和進階儲存體的大小 (`STANDARD_GS`、`STANDARD_DS` 和 `STANDARD_DSV2` 系列) 以外，Batch 支援所有的 Azure VM 大小。|
-|`imageType`|String|映射的部署方法。 支援的值`virtualMachineConfiguration`為或`cloudServiceConfiguration`|
+|`imageType`|String|映射的部署方法。 支援的值為 `virtualMachineConfiguration` 或 `cloudServiceConfiguration`|
 |[`cloudServiceConfiguration`](#bk_csconf)|複雜類型|集區的雲端服務組態。|
 |[`virtualMachineConfiguration`](#bk_vmconf)|複雜類型|集區的虛擬機器組態。|
 |[`networkConfiguration`](#bk_netconf)|複雜類型|集區的網路組態。|
-|`resizeTimeout`|Time|將計算節點配置至為集區上最後一次調整大小作業所指定的集區逾時。  (建立集區時的初始大小視為一次調整大小。)|
+|`resizeTimeout`|時間|將計算節點配置至為集區上最後一次調整大小作業所指定的集區逾時。  (建立集區時的初始大小視為一次調整大小。)|
 |`targetDedicatedNodes`|Int32|針對集區要求的專用計算節點數目。|
 |`targetLowPriorityNodes`|Int32|針對集區要求的低優先順序計算節點數目。|
 |`enableAutoScale`|Bool|指定集區大小是否隨著時間自動調整。|
@@ -77,14 +77,14 @@ ms.locfileid: "70258434"
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|元素名稱|Type|注意|
+|元素名稱|類型|注意|
 |------------------|----------|-----------|
 |`osFamily`|String|安裝在集區中虛擬機器上的 Azure 客體 OS 系列。<br /><br /> 可能的值包括：<br /><br /> **2** – OS 系列 2，相當於 Windows Server 2008 R2 SP1。<br /><br /> **3** – OS 系列 3，相當於 Windows Server 2012。<br /><br /> **4** – OS 系列 4，相當於Windows Server 2012 R2。<br /><br /> 如需詳細資訊，請參閱[客體 ​OS 發佈新聞](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)。|
 |`targetOSVersion`|String|安裝在集區中虛擬機器上的 Azure 客體 OS 版本。<br /><br /> 預設值為 **\*** 用於指定所指定系列的最新作業系統版本。<br /><br /> 如需其他允許的值，請參閱[客體 OS 發佈新聞](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)。|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|元素名稱|Type|注意|
+|元素名稱|類型|注意|
 |------------------|----------|-----------|
 |[`imageReference`](#bk_imgref)|複雜類型|指定要使用的平台或 Marketplace 映像的相關資訊。|
 |`nodeAgentId`|String|佈建在計算節點上的 Batch 節點代理程式其 SKU。|
@@ -92,7 +92,7 @@ ms.locfileid: "70258434"
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|元素名稱|Type|注意|
+|元素名稱|類型|注意|
 |------------------|----------|-----------|
 |`publisher`|String|映像的發行者。|
 |`offer`|String|映像的供應項目。|
@@ -101,12 +101,12 @@ ms.locfileid: "70258434"
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|元素名稱|Type|注意|
+|元素名稱|類型|注意|
 |------------------|----------|-----------|
 |`enableAutomaticUpdates`|Boolean|指出是否已針對自動更新啟用虛擬機器。 如果未指定此屬性，則預設值為 true。|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|元素名稱|Type|注意|
+|元素名稱|類型|注意|
 |------------------|--------------|----------|
 |`subnetId`|String|指定建立集區的計算節點所在的子網路其資源識別碼。|

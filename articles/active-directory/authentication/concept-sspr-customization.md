@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 039b514fe70da0e300e74bbc98a3a0f4e9ea342c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c6f7f59f7bcc93edafa3cbb47bd432b52bde985c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848590"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979467"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>自訂 Azure AD 的自助式密碼重設功能
 
@@ -43,9 +43,9 @@ ms.locfileid: "74848590"
 
 這封連絡人電子郵件會依下列順序傳送給下列收件者︰
 
-1. 如果已指派**密碼管理員**角色，就會通知具備此角色的系統管理員。
-2. 如果未指派任何密碼管理員，就會通知具備**使用者管理員**角色的系統管理員。
-3. 如果上述角色都未指派，則會通知**全域管理員**。
+1. 如果指派了**技術服務管理員**角色或**密碼管理員**角色，系統管理員會收到這些角色的通知。
+1. 如果未指派技術支援系統管理員或密碼管理員，則會通知具有**使用者管理員**角色的系統管理員。
+1. 如果未指派任何先前的角色，則會通知**全域系統管理員**。
 
 在所有情況下，最多 100 位收件者會收到通知。
 

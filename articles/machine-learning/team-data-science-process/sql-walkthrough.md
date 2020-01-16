@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 148d0c203248e4dcde5baaadc596d56e8b8ea17a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 533c91bdc02425cabf5eeae93f37811144b32149
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669387"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976334"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process 實務：使用 SQL Server
 在這個教學課程中，您將遵循逐步解說，使用 SQL Server 和可公開取得的資料集 ([NYC Taxi Trips (NYC 計程車車程)](https://www.andresmh.com/nyctaxitrips/) 資料集)，完成建置和部署機器學習服務模型的程序。 程序會遵循標準的資料科學工作流程︰包括擷取和瀏覽資料，以及設計功能以加快學習，接著建置和部署模型。
@@ -47,7 +47,7 @@ ms.locfileid: "73669387"
 我們將根據 *tip\_amount* 編寫三個預測問題的公式，公式如下：
 
 1. 二元分類：預測是否已支付某趟車程的小費，例如大於美金 $0 元的 *tip\_amount* 為正面範例，而等於美金 $0 元的 *tip\_amount* 為負面範例。
-2. 多類別分類：預測已針對該車程支付的小費的金額範圍。 我們將 tip*amount\_* 分成五個分類收納組或類別：
+2. 多類別分類：預測已針對該車程支付的小費的金額範圍。 我們將 tip\_amount 分成五個分類收納組或類別：
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -66,14 +66,14 @@ ms.locfileid: "73669387"
 
 設定您的 Azure 資料科學環境：
 
-1. [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)
+1. [建立儲存體帳戶](../../storage/common/storage-account-create.md)
 2. [建立 Azure Machine Learning 工作區](../studio/create-workspace.md)
 3. [佈建資料科學虛擬機器](../data-science-virtual-machine/setup-sql-server-virtual-machine.md)，這樣會提供 SQL Server 和 IPython Notebook 伺服器。
    
    > [!NOTE]
    > 指令碼範例和 IPython Notebook 將在安裝過程中下載到您的資料科學虛擬機器上。 當 VM 後續安裝指令碼完成之後，範例將位於您的 VM 文件庫上。  
    > 
-   > * 指令碼範例： `C:\Users\<user_name>\Documents\Data Science Scripts`  
+   > * 指令碼範例：`C:\Users\<user_name>\Documents\Data Science Scripts`  
    > * IPython Notebook 範例：`C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
    >   where `<user_name>` 是 VM 的 Windows 登入名稱。 我們會將範例資料夾稱為「指令碼範例」和「IPython Notebook 範例」。
    > 
@@ -102,7 +102,7 @@ ms.locfileid: "73669387"
 2. 使用 Windows 驗證進行連接。
    
     ![SSMS 連線][12]
-3. 如果您尚未變更 SQL Server 驗證模式，且尚未建立新的 SQL 登入使用者，請開啟 [指令碼範例] **\_ 資料夾中名為** change**auth.sql** 的指令碼檔案。 變更預設的使用者名稱和密碼。 按一下工具列中的 [ **!執行** ] 執行指令碼。
+3. 如果您尚未變更 SQL Server 驗證模式，且尚未建立新的 SQL 登入使用者，請開啟 [指令碼範例] 資料夾中名為 **change\_auth.sql** 的指令碼檔案。 變更預設的使用者名稱和密碼。 按一下工具列中的 [ **!執行** ] 執行指令碼。
    
     ![執行指令碼][13]
 4. 驗證和 (或) 變更 SQL Server 預設資料庫和記錄檔資料夾，以確保新建立的資料庫會儲存於資料磁碟中。 系統會使用資料和記錄磁碟，預先設定已針對資料倉儲載入進行最佳化的 SQL Server VM 映像。 如果您的 VM 不含資料磁碟，而您在 VM 安裝過程中加入新的虛擬硬碟，則需變更預設資料夾，如下所示：
@@ -132,7 +132,7 @@ ms.locfileid: "73669387"
    
     您也可以選取驗證模式，預設值是 Windows 驗證。 按一下工具列中的綠色箭頭來執行。 指令碼將平行啟動 24 個大量匯入作業，針對每個資料分割資料表啟動 12 個作業。 您可以藉由開啟 SQL Server 預設資料資料夾 (如上述所設定)，來監視資料匯入進度。
 9. PowerShell 指令碼會報告開始和結束時間。 完成所有大量匯入時，即會報告結束時間。 檢查目標記錄資料夾，以確認大量匯入已成功，亦即，目標記錄資料夾中未報告任何錯誤。
-10. 您的資料庫已準備好進行探索、功能工程，以及所需的其他作業。 由於這些資料表是根據 **pickup\_datetime** 欄位來進行資料分割，因此資料分割配置將為在 **WHERE\_ 子句中加入** pickup**datetime** 條件的查詢帶來好處。
+10. 您的資料庫已準備好進行探索、功能工程，以及所需的其他作業。 由於這些資料表是根據 **pickup\_datetime** 欄位來進行資料分割，因此資料分割配置將為在 **WHERE** 子句中加入 **pickup\_datetime** 條件的查詢帶來好處。
 11. 在 **SQL Server Management Studio** 中，探索當中提供的指令碼範例 **sample\_queries.sql**。 若要執行查詢範例，請先將查詢行反白，然後按一下工具列中的 [ **!執行** ]。
 12. 「NYC 計程車車程」資料會載入兩個不同的資料表。 若要改善聯結作業，強烈建議您為資料表編製索引。 指令碼範例 **create\_partitioned\_index.sql** 會在複合聯結索引鍵 **medallion、hack\_license 和 pickup\_datetime** 上建立資料分割索引。
 
@@ -405,7 +405,7 @@ ms.locfileid: "73669387"
     cursor.commit()
 
 ### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>在 IPython Notebook 中使用 SQL 查詢進行資料探索
-在本節中，我們將使用前面所建立的新資料表中保存的 1% 取樣資料，來探索資料分佈。 請注意，如 **SQL Server 中的資料探索和功能工程**一節所述，您可以使用原始資料表，或是使用 **TABLESAMPLE\_ 執行類似的探索，以限制探索範例，或是透過使用** pickup[datetime](#dbexplore) 資料分割，將結果限制為指定的期間。
+在本節中，我們將使用前面所建立的新資料表中保存的 1% 取樣資料，來探索資料分佈。 請注意，如 [SQL Server 中的資料探索和功能工程](#dbexplore)一節所述，您可以使用原始資料表，或是使用 **TABLESAMPLE** 執行類似的探索，以限制探索範例，或是透過使用 **pickup\_datetime** 資料分割，將結果限制為指定的期間。
 
 #### <a name="exploration-daily-distribution-of-trips"></a>探索：車程的每日分佈
     query = '''

@@ -2,7 +2,7 @@
 title: Azure Batch 集區調整大小完成事件
 description: Batch 集區調整大小完成事件的參考。 查看已增加大小且已成功完成的集區範例。
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
-ms.openlocfilehash: 44d7aaa60ee89a1ec6b0b98c38b83038fc4e70d4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: jushiman
+ms.openlocfilehash: 0d4d07fe5762905633487cfd541b1c039ee1c841
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449762"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026654"
 ---
 # <a name="pool-resize-complete-event"></a>集區調整大小完成事件
 

@@ -3,7 +3,7 @@ title: 平行執行工作以便有效率地使用計算資源 - Azure Batch | Mi
 description: 在 Azure Batch 集區中的每個節點上執行並行工作時，使用較少的運算節點以增加效率和降低成本
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/17/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f45c35e6d9fb611ebf73c4eab8b517d8575b8e82
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2a47cbbf11117197d6d00d532fb0321d284c56b7
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094935"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026821"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>並行執行工作以充分使用 Batch 計算節點 
 
@@ -38,24 +38,24 @@ ms.locfileid: "70094935"
 如果不使用 Standard\_D1 節點 (具有 1 個 CPU 核心)，您可以採用具有 16 個核心的 [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) 節點，並啟用平行工作執行。 因此，不需使用 1000 個節點，而只需 63 個節點，用量「少了16 倍」 。 此外，由於資料只需複製到 63 個節點，如果每個節點都需要大型應用程式檔案或參考資料，那麼作業持續時間和效率都能再獲得改善。
 
 ## <a name="enable-parallel-task-execution"></a>啟用平行工作執行
-您可以針對集區層級的平行工作執行，設定計算節點。 使用 Batch .NET 程式庫, 當您建立集區時, 請設定[CloudPool. cloudpool.maxtaskspercomputenode][maxtasks_net]屬性。 如果您使用批次 REST API, 請在建立集區期間, 設定要求主體中的[maxTasksPerNode][rest_addpool]元素。
+您可以針對集區層級的平行工作執行，設定計算節點。 使用 Batch .NET 程式庫，當您建立集區時，請設定[CloudPool. cloudpool.maxtaskspercomputenode][maxtasks_net]屬性。 如果您使用批次 REST API，請在建立集區期間，設定要求主體中的[maxTasksPerNode][rest_addpool]元素。
 
-Azure Batch 可讓您將每個節點的工作設定為最多 (4x) 核心節點數目。 例如，如果集區設定的節點大小為 [大] \(四個核心)，則 `maxTasksPerNode` 可以設定為 16。 不過, 不論節點具有多少核心, 每個節點不能有超過256個工作。 如需每個節點大小的核心數目的詳細資料，請參閱 [雲端服務的大小](../cloud-services/cloud-services-sizes-specs.md)。 如需服務限制的詳細資訊，請參閱 [Azure Batch 服務的配額和限制](batch-quota-limit.md)。
+Azure Batch 可讓您將每個節點的工作設定為最多（4x）核心節點數目。 例如，如果集區設定的節點大小為 [大] \(四個核心)，則 `maxTasksPerNode` 可以設定為 16。 不過，不論節點具有多少核心，每個節點不能有超過256個工作。 如需每個節點大小的核心數目的詳細資料，請參閱 [雲端服務的大小](../cloud-services/cloud-services-sizes-specs.md)。 如需服務限制的詳細資訊，請參閱 [Azure Batch 服務的配額和限制](batch-quota-limit.md)。
 
 > [!TIP]
-> 當您為集區建立自動`maxTasksPerNode`調整[公式][enable_autoscaling]時, 請務必將值納入考慮。 例如，評估 `$RunningTasks` 的公式可能大幅受到每個節點的工作增加的影響。 如需詳細資訊，請參閱 [自動調整 Azure Batch 集區中的運算節點](batch-automatic-scaling.md) 。
+> 當您為集區建立[自動調整公式][enable_autoscaling]時，請務必將 `maxTasksPerNode` 值納入考慮。 例如，評估 `$RunningTasks` 的公式可能大幅受到每個節點的工作增加的影響。 如需詳細資訊，請參閱 [自動調整 Azure Batch 集區中的運算節點](batch-automatic-scaling.md) 。
 >
 >
 
 ## <a name="distribution-of-tasks"></a>工作的分佈
 在集區內的計算節點能夠同時執行工作時，請務必指定您希望在集區內進行跨節點分佈工作的方式。
 
-藉由使用[CloudPool. cloudpool.taskschedulingpolicy][task_schedule]屬性, 您可以指定應該將工作平均指派給集區中的所有節點 (「散佈」)。 或者，您可以在工作指派到集區中其他節點之前，盡可能將最多工作指派給每個節點 (「封裝」)。
+藉由使用[CloudPool. cloudpool.taskschedulingpolicy][task_schedule]屬性，您可以指定應該將工作平均指派給集區中的所有節點（「散佈」）。 或者，您可以在工作指派到集區中其他節點之前，盡可能將最多工作指派給每個節點 (「封裝」)。
 
-如需這項功能有什麼價值的範例, 請考慮使用[CloudPool. cloudpool.maxtaskspercomputenode][maxtasks_net]值16設定的[\_標準 D14](../cloud-services/cloud-services-sizes-specs.md)節點集區 (在上述範例中)。 如果[cloudpool.taskschedulingpolicy][task_schedule]是以[ComputeNodeFillType][fill_type]的*套件*來設定, 它會充分利用每個節點的所有16個核心, 並允許自動調整[集](batch-automatic-scaling.md)區修剪集區中未使用的節點 (節點, 而不需要指派的任何工作)。 這可最小化資源使用量和節省金錢。
+如需這項功能有什麼價值的範例，請考慮使用[CloudPool. cloudpool.maxtaskspercomputenode][maxtasks_net]值16設定的[標準\_D14](../cloud-services/cloud-services-sizes-specs.md)節點集區（在上述範例中為）。 如果[cloudpool.taskschedulingpolicy][task_schedule]是以[ComputeNodeFillType][fill_type]的*套件*來設定，它會最大化使用每個節點的所有16個核心，並允許自動調整[集](batch-automatic-scaling.md)區修剪集區中未使用的節點（未指派任何工作的節點）。 這可最小化資源使用量和節省金錢。
 
 ## <a name="batch-net-example"></a>Batch .NET 範例
-這個[Batch .Net][api_net] API 程式碼片段會顯示建立集區的要求, 其中包含四個節點, 每個節點最多有四個工作。 它會指定工作排程原則，該原則會先以工作填滿每個節點，再將工作指派給集區中的其他節點。 如需使用 Batch .NET API 新增集區的詳細資訊, 請參閱[BatchClient. PoolOperations. batchclient.pooloperations.createpool][poolcreate_net]。
+這個[Batch .Net][api_net] API 程式碼片段會顯示建立集區的要求，其中包含四個節點，每個節點最多有四個工作。 它會指定工作排程原則，該原則會先以工作填滿每個節點，再將工作指派給集區中的其他節點。 如需使用 Batch .NET API 新增集區的詳細資訊，請參閱[BatchClient. PoolOperations. batchclient.pooloperations.createpool][poolcreate_net]。
 
 ```csharp
 CloudPool pool =
@@ -71,7 +71,7 @@ pool.Commit();
 ```
 
 ## <a name="batch-rest-example"></a>Batch REST 範例
-此[批次 REST][api_rest] API 程式碼片段會顯示建立集區的要求, 其中包含兩個大型節點, 每個節點最多有四個工作。 如需使用 REST API 新增集區的詳細資訊, 請參閱[將集區新增至帳戶][rest_addpool]。
+此[批次 REST][api_rest] API 程式碼片段會顯示建立集區的要求，其中包含兩個大型節點，每個節點最多有四個工作。 如需使用 REST API 新增集區的詳細資訊，請參閱[將集區新增至帳戶][rest_addpool]。
 
 ```json
 {
@@ -89,7 +89,7 @@ pool.Commit();
 ```
 
 > [!NOTE]
-> 您只能在建立`maxTasksPerNode`集區時設定元素和[cloudpool.maxtaskspercomputenode][maxtasks_net]屬性。 建立集區後無法加以修改。
+> 您只能在建立集區時設定 `maxTasksPerNode` 元素和[cloudpool.maxtaskspercomputenode][maxtasks_net]屬性。 建立集區後無法加以修改。
 >
 >
 
@@ -125,7 +125,7 @@ Duration: 00:08:48.2423500
 
 ## <a name="next-steps"></a>後續步驟
 ### <a name="batch-explorer-heat-map"></a>Batch 總管熱圖
-[Batch Explorer][batch_labs]是免費、功能豐富、獨立用戶端的工具，可以協助建立、偵錯及監視 Azure Batch 應用程式。 Batch Explorer 包含「熱圖」功能，可提供工作執行的視覺效果。 當您執行[ParallelTasks][parallel_tasks_sample]範例應用程式時, 您可以使用熱度圖功能, 輕鬆地視覺化每個節點上的平行工作執行。
+[Batch Explorer][batch_labs]是免費、功能豐富、獨立用戶端的工具，可以協助建立、偵錯及監視 Azure Batch 應用程式。 Batch Explorer 包含「熱圖」功能，可提供工作執行的視覺效果。 當您執行[ParallelTasks][parallel_tasks_sample]範例應用程式時，您可以使用熱度圖功能，輕鬆地視覺化每個節點上的平行工作執行。
 
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx

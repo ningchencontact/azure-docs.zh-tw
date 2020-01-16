@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: f0dd7160ae41ac004564ea21300945e135d31689
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 56be45b8d0f8086d9a64811fe715fad967fca33e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945530"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027767"
 ---
 # <a name="release-notes"></a>版本資訊
 
@@ -34,10 +34,10 @@ Azure HDInsight 是 Azure 上的開放原始碼分析企業客戶中最受歡迎
 ### <a name="tls-12-enforcement"></a>TLS 1.2 強制執行
 傳輸層安全性 (TLS) 和安全通訊端層 (SSL) 是密碼編譯通訊協定，可透過電腦網路提供通訊安全性。 深入瞭解[TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)。 HDInsight 在公用 HTTPs 端點上使用 TLS 1.2，但仍支援 TLS 1.1 以提供回溯相容性。 
 
-在此版本中，客戶只能針對透過公用叢集端點的所有連線加入宣告 TLS 1.2。 為了支援這種情況，會引進新的屬性**minSupportedTlsVersion** ，並可在叢集建立期間指定。 如果未設定此屬性，叢集仍然支援 TLS 1.0、1.1 和1.2，這與今天的行為相同。 客戶可以將此屬性的值設定為 "1.2"，這表示叢集僅支援 TLS 1.2 和更新版本。 
+在此版本中，客戶只能針對透過公用叢集端點的所有連線加入宣告 TLS 1.2。 為了支援這種情況，會引進新的屬性**minSupportedTlsVersion** ，並可在叢集建立期間指定。 如果未設定此屬性，叢集仍然支援 TLS 1.0、1.1 和1.2，這與今天的行為相同。 客戶可以將此屬性的值設定為 "1.2"，這表示叢集僅支援 TLS 1.2 和更新版本。 如需詳細資訊，請參閱[規劃虛擬網路-傳輸層安全性](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#transport-layer-security)。
 
 ### <a name="bring-your-own-key-for-disk-encryption"></a>攜帶您自己的金鑰進行磁片加密
-HDInsight 中的所有受控磁碟都會使用 Azure 儲存體服務加密 (SSE) 來加以保護。 根據預設，這些磁片上的資料會由受 Microsoft 管理的金鑰加密。 從這個版本開始，您可以攜帶您自己的金鑰（BYOK）進行磁片加密，並使用 Azure Key Vault 來管理它。 BYOK 加密是叢集建立期間的單一步驟設定，不需額外費用。 只要使用 Azure Key Vault 將 HDInsight 註冊為受控識別，並在建立叢集時新增加密金鑰。 
+HDInsight 中的所有受控磁碟都會使用 Azure 儲存體服務加密 (SSE) 來加以保護。 根據預設，這些磁片上的資料會由受 Microsoft 管理的金鑰加密。 從這個版本開始，您可以攜帶您自己的金鑰（BYOK）進行磁片加密，並使用 Azure Key Vault 來管理它。 BYOK 加密是叢集建立期間的單一步驟設定，不需額外費用。 只要使用 Azure Key Vault 將 HDInsight 註冊為受控識別，並在建立叢集時新增加密金鑰。 如需詳細資訊，請參閱[客戶管理的金鑰磁片加密](https://docs.microsoft.com/azure/hdinsight/disk-encryption)。
 
 ## <a name="deprecation"></a>淘汰
 此版本沒有任何棄用功能。 若要準備開始進行棄用功能，請參閱即將進行的[變更](#upcoming-changes)。

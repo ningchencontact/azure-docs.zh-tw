@@ -1,7 +1,7 @@
 ---
 title: 將設定轉換成狀態設定的複合資源-Azure 自動化
 description: 瞭解如何在 Azure 自動化中將設定轉換成複合資源以進行狀態設定。
-keywords: dsc，powershell，設定，安裝程式
+keywords: dsc,powershell,設定,安裝
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,19 +10,19 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 85c13a7175bca015ab24c8b09500b47e3ea846ed
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c060462a84b197cdd0aec1beecc0b4d4807feb49
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231642"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030108"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>將設定轉換成複合資源
 
 > 適用于： Windows PowerShell 5。1
 
 開始撰寫設定之後，您可以快速建立「案例」來管理設定群組。
-範例如下：
+範例為：
 
 - 建立 web 伺服器
 - 建立 DNS 伺服器
@@ -50,13 +50,13 @@ CompositeResource 會自動化從您的設定建立新模組的程式。
 產生模組之後，您可以在每次進行變更時遞增版本並新增版本資訊，並將其發佈至您自己的[PowerShellGet 存放庫](https://kevinmarquette.github.io/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo)。
 
 建立包含設定（或多個設定）的複合資源模組之後，您可以在 Azure 的可組合撰寫[體驗](/azure/automation/compose-configurationwithcompositeresources)中使用它們，或將它們新增至[DSC 設定腳本](/powershell/scripting/dsc/configurations/configurations)來產生 mof 檔案，並將[mof 檔案上傳到 Azure 自動化](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)。
-然後從[內部部署](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws)或[在 Azure 中](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)註冊您的伺服器，以提取設定。
+然後從[內部部署](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)或[在 Azure 中](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)註冊您的伺服器，以提取設定。
 專案的最新更新也已發行 Azure 自動化的[runbook](https://www.powershellgallery.com/packages?q=DscGallerySamples) ，可將從 PowerShell 資源庫匯入設定的程式自動化。
 
 若要嘗試自動建立 DSC 的複合資源，請造訪[PowerShell 資源庫](https://www.powershellgallery.com/packages/compositeresource/)並下載解決方案，或按一下 [專案網站] 以查看[檔](https://github.com/microsoft/compositeresource)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Windows PowerShell 預期狀態設定概觀](/powershell/scripting/dsc/overview/overview)
+- [Windows PowerShell Desired State Configuration 概觀](/powershell/scripting/dsc/overview/overview)
 - [DSC 資源](/powershell/scripting/dsc/resources/resources)
-- [設定本機 Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- [設定本機設定管理員](/powershell/scripting/dsc/managing-nodes/metaconfig)

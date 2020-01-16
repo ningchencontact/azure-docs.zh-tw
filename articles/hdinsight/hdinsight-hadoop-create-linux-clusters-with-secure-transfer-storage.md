@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 09a6b158c4390f881754c90d52a476f0bc249a5a
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: bcb0e9551f4415b2aac9eb2d641c91df9f692437
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74947634"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979112"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>在 Azure HDInsight 中使用安全傳輸儲存體帳戶來建立 Apache Hadoop 叢集
 
@@ -24,14 +24,14 @@ ms.locfileid: "74947634"
 在開始本文之前，您必須具備：
 
 * Azure 訂用帳戶：若要建立一個月的免費試用帳戶，請流覽至[azure.microsoft.com/free](https://azure.microsoft.com/free)。
-* 已啟用安全傳輸的 Azure 儲存體帳戶。 如需相關指示，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)和[需要安全傳輸](../storage/common/storage-require-secure-transfer.md)。 在建立叢集之後啟用安全儲存體傳輸需要本文未涵蓋的其他步驟。
+* 已啟用安全傳輸的 Azure 儲存體帳戶。 如需相關指示，請參閱[建立儲存體帳戶](../storage/common/storage-account-create.md)和[需要安全傳輸](../storage/common/storage-require-secure-transfer.md)。 在建立叢集之後啟用安全儲存體傳輸需要本文未涵蓋的其他步驟。
 * 儲存體帳戶上的 Blob 容器。
 
 ## <a name="create-cluster"></a>建立叢集
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-在本節中，您會在 HDInsight 中使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-template-deploy.md)建立 Hadoop 叢集。 這個範本位於 [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/) 中。 遵循這篇文章不需要 Resource Manager 範本體驗。 如需其他叢集建立方法及瞭解本文中使用的屬性，請參閱[建立 HDInsight](hdinsight-hadoop-provision-linux-clusters.md)叢集。
+在本節中，您會在 HDInsight 中使用 [Azure Resource Manager 範本](../azure-resource-manager/templates/deploy-powershell.md)建立 Hadoop 叢集。 這個範本位於 [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/) 中。 遵循這篇文章不需要 Resource Manager 範本體驗。 如需其他叢集建立方法及瞭解本文中使用的屬性，請參閱[建立 HDInsight](hdinsight-hadoop-provision-linux-clusters.md)叢集。
 
 1. 按一下以下影像，在 Azure 入口網站中登入 Azure 並開啟 Resource Manager 範本。
 

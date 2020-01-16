@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c51eff77c0375491f4376f12c9ff959f033e2ad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d8e96ffc3e2b4756a4184a9a023133f14b326ed3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425376"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979934"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>啟用 Azure Active Directory Domain Services 的安全性審核
 
@@ -126,7 +126,7 @@ Azure AD DS 安全性審核與傳統 AD DS 網域控制站的傳統審核一致�
 
 1. 建立安全性 audit 事件的目標資源。
 
-    * **Azure 儲存體** - [使用 Azure PowerShell 建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell)
+    * **Azure 儲存體** - [使用 Azure PowerShell 建立儲存體帳戶](../storage/common/storage-account-create.md?tabs=azure-powershell)
     * **Azure 事件中樞** - [使用 Azure PowerShell 來建立事件中樞](../event-hubs/event-hubs-quickstart-powershell.md)。 您可能也需要使用[AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) Cmdlet 來建立授權規則，以將 Azure AD DS 許可權授與事件中樞*命名空間*。 授權規則必須包含「**管理**」、「**接聽**」和「**傳送**」許可權。
 
         > [!IMPORTANT]

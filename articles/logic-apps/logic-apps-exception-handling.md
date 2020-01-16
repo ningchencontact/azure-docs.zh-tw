@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: a5cfb79626370ab9f8493038ac1583993a154b59
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 21314d3c80832c14538130ce373ccf6d2dd19f18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912050"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965942"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>處理 Azure Logic Apps 中的錯誤和例外狀況
 
@@ -249,7 +249,7 @@ ms.locfileid: "75912050"
 
 ## <a name="evaluate-actions-with-scopes-and-their-results"></a>以範圍和其結果評估動作
 
-類似于在 `runAfter` 屬性的個別動作之後執行步驟，您可以在[範圍](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)內將動作群組在一起。 當您想要以邏輯方式將動作群組在一起、評估範圍的彙總狀態，並根據這些狀態執行動作時，即可使用範圍。 當範圍中的所有動作都執行完成之後，範圍本身會取得自己的狀態。 
+類似于在 `runAfter` 屬性的個別動作之後執行步驟，您可以在[範圍](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)內將動作群組在一起。 當您想要以邏輯方式將動作群組在一起、評估範圍的彙總狀態，並根據這些狀態執行動作時，即可使用範圍。 當範圍中的所有動作都執行完成之後，範圍本身會取得自己的狀態。
 
 若要檢查範圍的狀態，您可以使用您用來檢查邏輯應用程式執行狀態的相同準則，例如 `Succeeded`、`Failed`等等。
 
@@ -267,7 +267,7 @@ ms.locfileid: "75912050"
 
 [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result)函式會提供範圍中所有動作之結果的相關內容。 `result()` 函式會接受單一參數，也就是範圍的名稱，並傳回包含該範圍內所有動作結果的陣列。 這些動作物件包含與 `actions()` 物件相同的屬性，例如動作的開始時間、結束時間、狀態、輸入、相互關聯識別碼和輸出。 若要傳送在範圍內失敗之任何動作的內容，您可以輕鬆地將 `@result()` 運算式與 `runAfter` 屬性配對。
 
-若要針對範圍中具有 `Failed` 結果的每個動作執行動作，並將結果的陣列篩選到失敗的動作，您可以將 `@result()` 運算式與[**篩選陣列**](../connectors/connectors-native-query.md)動作和[**for each**](../logic-apps/logic-apps-control-flow-loops.md)迴圈配對。 您可以取得篩選後的結果陣列，並使用 `For_each` 迴圈對每個失敗執行動作。
+若要針對範圍中具有 `Failed` 結果的每個動作執行動作，並將結果的陣列篩選到失敗的動作，您可以將 `@result()` 運算式與[**篩選陣列**](logic-apps-perform-data-operations.md#filter-array-action)動作和[**for each**](../logic-apps/logic-apps-control-flow-loops.md)迴圈配對。 您可以取得篩選後的結果陣列，並使用 `For_each` 迴圈對每個失敗執行動作。
 
 以下範例 (隨後並有詳細說明) 會傳送 HTTP POST 要求，其中含有任何在 "My_Scope" 範圍內失敗之動作的回應本文：
 

@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1168faa1f39546dc75af28b885c9095cfffa1135
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 62d0bf776b2d0c97d95b992ed6a1fd2a356e467a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422124"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967388"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>透過可預測方式在 Azure 中佈建和部署微服務
 本教學課程示範如何在 [Azure App Service](https://azure.microsoft.com/services/app-service/) 中將包含[微服務](https://en.wikipedia.org/wiki/Microservices)的應用程式佈建和部署為單一單位，並且使用 JSON 資源群組範本和 PowerShell 指令碼的可預測方式。 
@@ -252,10 +252,10 @@ ms.locfileid: "75422124"
 ## <a name="more-resources"></a>更多資源
 * [Azure 資源管理員範本語言](../azure-resource-manager/templates/template-syntax.md)
 * [編寫 Azure 資源管理員範本](../azure-resource-manager/templates/template-syntax.md)
-* [Azure 資源管理員範本函式](../azure-resource-manager/resource-group-template-functions.md)
-* [使用 Azure 資源管理員範本部署應用程式](../azure-resource-manager/resource-group-template-deploy.md)
+* [Azure 資源管理員範本函式](../azure-resource-manager/templates/template-functions.md)
+* [使用 Azure 資源管理員範本部署應用程式](../azure-resource-manager/templates/deploy-powershell.md)
 * [搭配使用 Azure PowerShell 與 Azure 資源管理員](../azure-resource-manager/powershell-azure-resource-manager.md)
-* [Azure 中的資源群組部署疑難排解](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+* [Azure 中的資源群組部署疑難排解](../azure-resource-manager/templates/common-deployment-errors.md)
 
 ## <a name="next-steps"></a>後續步驟
 

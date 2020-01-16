@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
-ms.openlocfilehash: 4170418b4f53277a8f4306fe2835286c8ac99dee
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: ffeb8e1347d75af2be59763faf0b512c0b329221
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186346"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975335"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>透過 PowerShell 控制路由和使用虛擬應用裝置 (傳統)
 
@@ -33,7 +33,7 @@ ms.locfileid: "74186346"
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> 使用 Azure 資源之前，請務必了解 Azure 目前有 Azure Resource Manager 和「傳統」兩種部署模型。 在使用任何 Azure 資源之前，請先確認您了解 [部署模型和工具](../azure-resource-manager/resource-manager-deployment-model.md) 。 您可以選取本文章頂端的選項，檢視不同工具的文件。 本文涵蓋之內容包括傳統部署模型。
+> 使用 Azure 資源之前，請務必了解 Azure 目前有 Azure Resource Manager 和「傳統」兩種部署模型。 在使用任何 Azure 資源之前，請先確認您了解 [部署模型和工具](../azure-resource-manager/management/deployment-models.md) 。 您可以選取本文章頂端的選項，檢視不同工具的文件。 本文涵蓋之內容包括傳統部署模型。
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "74186346"
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## <a name="create-the-udr-for-the-front-end-subnet"></a>建立前端子網路的 UDR
-若要根據上述案例建立前端子網路所需的路由表和路徑，請依照下列步驟執行。
+若要根據上述案例建立前端子網路所需的路由表和路由，請依照下列步驟執行。
 
 1. 執行下列命令，建立前端子網路的路由表：
 

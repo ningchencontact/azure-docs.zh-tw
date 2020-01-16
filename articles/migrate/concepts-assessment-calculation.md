@@ -3,12 +3,12 @@ title: Azure Migrate 中的評量
 description: 深入瞭解 Azure Migrate 中的評量。
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 6950050be3c6fb812a6ade47e98f2d1ed479e61f
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: a8912263432bc0e9cd7172c4b6c9b118132863d3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720237"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029111"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>關於 Azure Migrate 中的評量
 
@@ -23,7 +23,7 @@ ms.locfileid: "75720237"
 
 1. [Azure Migrate 設備](migrate-appliance.md)會收集即時取樣點：
 
-    - **Vmware vm*：針對 vmware vm，Azure Migrate 設備會收集每20秒間隔的即時取樣點。
+    - **Vmware vm**：針對 vmware vm，Azure Migrate 設備會收集每20秒間隔的即時取樣點。
     - **Hyper-v vm**：針對 hyper-v vm，會每隔30秒收集一次即時取樣點。
     - **實體伺服器**：針對實體伺服器，即時取樣點會每隔五分鐘收集一次。 
     
@@ -58,7 +58,7 @@ ms.locfileid: "75720237"
 
 1. [Azure Migrate 設備](migrate-appliance.md)會收集即時取樣點：
 
-    - **Vmware vm*：針對 vmware vm，Azure Migrate 設備會收集每20秒間隔的即時取樣點。
+    - **Vmware vm**：針對 vmware vm，Azure Migrate 設備會收集每20秒間隔的即時取樣點。
     - **Hyper-v vm**：針對 hyper-v vm，會每隔30秒收集一次即時取樣點。
     - **實體伺服器**：針對實體伺服器，即時取樣點會每隔五分鐘收集一次。 
     
@@ -73,25 +73,24 @@ ms.locfileid: "75720237"
 5. 這個值會乘以緩和因數，以取得每個計量（CPU 使用率、記憶體使用率、磁片 IOPS （讀取和寫入）、磁片輸送量（讀取和寫入），以及網路輸送量（輸入和輸出）的有效效能使用率資料，這是設備收集。
 ## <a name="whats-in-an-assessment"></a>評估包含什麼？
 
-以下是 Azure Migrate 的評量中所包含的內容：伺服器評估
+以下是 Azure Migrate：伺服器評估中的評量所包含的內容。
 
 **屬性** | **詳細資料**
 --- | ---
-**目標位置** | 您要遷移的目標位置。<br/><br/>伺服器評估目前支援下列目標 Azure 區域：澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、印度中部、美國中部、中國東部、中國北部、東亞、美國東部、東部美國2、德國中部、德國東北部、日本東部、日本西部、韓國中部、南韓南部、美國中北部、北歐、美國中南部、東南亞、印度南部、英國南部、英國西部、US Gov 亞利桑那州、US Gov 德克薩斯州、US Gov 維吉尼亞州、美國中西部、西歐、印度西部、美國西部和西部美國2.
-**目標儲存體磁片：依大小調整** | 要在 Azure 中用於儲存的磁片類型。 <br/><br/> 將目標儲存體磁片指定為高階受控、標準 SSD 受控，或管理標準 HDD。<br/><br/> 
-**目標儲存體磁片：以效能為基礎的大小調整** | 將目標儲存體磁片的類型指定為 [自動]、[premium 管理]、[標準 HDD 管理] 或 [標準 SSD 受控]。<br/><br/> **自動**：磁片建議是根據磁片的效能資料（每秒輸入/輸出作業（IOPS）和輸送量）。 <br/><br/>**Premium/standard**：評估會建議所選儲存體類型內的磁片 SKU。<br/><br/> 如果您想要達到99.9% 的單一實例 VM SLA，請考慮使用 premium 受控磁片。 這可確保將評估中的所有磁片都建議為高階受控磁片。<br/><br/> Azure Migrate 只支援將受控磁碟用於進行移轉評估。
+**目標位置** | 您要遷移的目標位置。伺服器評估目前支援下列目標 Azure 區域：<br/><br/> 澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、印度中部、美國中部、中國東部、中國北部、東亞、美國東部、東部美國2、德國中部、德國東北部、日本東部、日本西部、韓國中部、南韓南部、北部美國中部、北歐、美國中南部、東南亞、印度南部、英國南部、英國西部、US Gov 亞利桑那州、US Gov 德克薩斯州、US Gov 維吉尼亞州、美國中西部、西歐、印度西部、美國西部和 West 美國2。
+*目標儲存體磁片（依大小調整）* * | 要在 Azure 中用於儲存的磁片類型。 <br/><br/> 將目標儲存體磁片指定為高階受控、標準 SSD 受控，或管理標準 HDD。
+**目標儲存體磁片（以效能為基礎的調整大小）** | 將目標儲存體磁片的類型指定為 [自動]、[premium 管理]、[標準 HDD 管理] 或 [標準 SSD 受控]。<br/><br/> **自動**：磁片建議是根據磁片的效能資料（每秒輸入/輸出作業（IOPS）和輸送量）。<br/><br/>**Premium/standard**：評估會建議所選儲存體類型內的磁片 SKU。<br/><br/> 如果您想要達到99.9% 的單一實例 VM SLA，請考慮使用 premium 受控磁片。 這可確保將評估中的所有磁片都建議為高階受控磁片。<br/><br/> Azure Migrate 只支援將受控磁碟用於進行移轉評估。
 **保留實例（RIs）** | 指定 Azure 中的[保留實例](https://azure.microsoft.com/pricing/reserved-vm-instances/)，讓評估中的成本估計會將 RI 折扣納入考慮。<br/><br/> RIs 目前僅支援 Azure Migrate 中的隨用隨付供應專案。
 **調整大小準則** | 用來在 Azure 中適當調整 VM 的大小。<br/><br/> [使用中]、[大小] 或 [以效能為基礎的大小調整]。
 **效能歷程記錄** | 用於以效能為基礎的大小調整。 指定評估效能資料時所使用的持續時間。
 **百分位數使用率** | 用於以效能為基礎的大小調整。 指定要用於適當調整大小之效能範例的百分位數值。 
 **VM 系列** | 指定您想要針對適當調整大小考慮的 Azure VM 系列。 例如，如果您在 Azure 中沒有需要 A 系列 Vm 的生產環境，您可以從清單或數列中排除 A 系列。
-**緩和因數** | 評估期間使用的緩衝區。 適用于 Vm 的機器使用量資料（CPU、記憶體、磁片和網路）。 
-其適用于季節性使用量、簡短效能歷程記錄等問題，而且未來可能會增加。<br/><br/> 例如，具有20% 使用率的10核心 VM 通常會產生兩個核心的 VM。 使用 2.0 x 的緩和因數，其結果會改為四核心 VM。
-**供應**專案 |顯示您所註冊的[Azure 供應](https://azure.microsoft.com/support/legal/offer-details/)專案。 伺服器評估會據以預估成本。
-**貨幣**|您帳戶的帳單貨幣。
-**折扣（%）** |列出您在 Azure 供應專案上所收到的任何訂用帳戶特定折扣。 預設設定為 0%。
-**VM 執行時間**|如果 Azure Vm 一天不會執行24小時，一周7天，您可以指定將會執行的持續時間（每月天數和每日小時數）。 成本預估會據此處理。<br/><br/> 預設值是每月 31 天和每天 24 小時。
-**Azure Hybrid Benefit** |指定您是否擁有軟體保證，以及是否符合[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)的資格。 如果設定為 [是] （預設設定），則會考慮 Windows Vm 的非 Windows Azure 價格。
+**緩和因數** | 評估期間使用的緩衝區。 適用于 Vm 的機器使用量資料（CPU、記憶體、磁片和網路）。 其適用于季節性使用量、簡短效能歷程記錄等問題，而且未來可能會增加。<br/><br/> 例如，具有20% 使用率的10核心 VM 通常會產生兩個核心的 VM。 使用 2.0 x 的緩和因數，其結果會改為四核心 VM。
+**供應項目** | 顯示您所註冊的[Azure 供應](https://azure.microsoft.com/support/legal/offer-details/)專案。 伺服器評估會據以預估成本。
+**貨幣** | 您帳戶的帳單貨幣。
+**折扣 (%)** | 列出您在 Azure 供應專案上所收到的任何訂用帳戶特定折扣。 預設設定為 0%。
+**VM 運作時間** | 如果 Azure Vm 一天不會執行24小時，一周7天，您可以指定將會執行的持續時間（每月天數和每日小時數）。 成本預估會據此處理。<br/><br/> 預設值是每月 31 天和每天 24 小時。
+**Azure Hybrid Benefit** | 指定您是否擁有軟體保證，以及是否符合[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)的資格。 如果設定為 [是] （預設設定），則會考慮 Windows Vm 的非 Windows Azure 價格。
 
 請參閱使用伺服器評估來建立評量[的最佳作法](best-practices-assessment.md)。
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 87cdd3d18fe0e6a3655c8bbc940cdc00fa211e74
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 70523dc12f3f20362fcf4a2c3cb456a182038e8a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750585"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982253"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>建立、變更或刪除虛擬網路
 
@@ -79,7 +79,7 @@ ms.locfileid: "75750585"
 
      ![網路介面概觀](./media/manage-virtual-network/vnet-overview.png)
 
-     您可以選取 [資源群組] 或 [訂用帳戶名稱] 旁的 [變更]，將虛擬網路移至不同的訂用帳戶或資源群組。 若要了解如何移動虛擬網路，請參閱[將資源移到不同的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 該文會列出必要條件，以及如何使用 Azure 入口網站、PowerShell 和 Azure CLI 來移動資源。 所有連線至虛擬網路的資源都必須隨著虛擬網路移動。
+     您可以選取 [資源群組] 或 [訂用帳戶名稱] 旁的 [變更]，將虛擬網路移至不同的訂用帳戶或資源群組。 若要了解如何移動虛擬網路，請參閱[將資源移到不同的資源群組或訂用帳戶](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 該文會列出必要條件，以及如何使用 Azure 入口網站、PowerShell 和 Azure CLI 來移動資源。 所有連線至虛擬網路的資源都必須隨著虛擬網路移動。
    - **位址空間**︰這裡會列出指派給虛擬網路的位址空間。 若要了解如何將位址範圍新增至位址空間和從中移除，請完成[新增或移除位址範圍](#add-or-remove-an-address-range)中的步驟。
    - **已連線的裝置**︰這裡會列出任何與虛擬網路連線的資源。 在上述螢幕擷取畫面中，有三個網路介面和一個負載平衡器連線到虛擬網路。 您建立並連線到虛擬網路的任何新資源都會在此列出。 如果您刪除已連線到虛擬網路的資源，清單中就不會再顯示該資源。
    - **子網路**︰虛擬網路中現存的子網路清單會在此顯示。 若要了解如何新增和移除子網路，請參閱[管理子網路](virtual-network-manage-subnet.md)。
@@ -90,8 +90,8 @@ ms.locfileid: "75750585"
    - **一般 Azure 設定**：若要深入了解 Azure 的一般設定，請參閱下列資訊：
      - [活動記錄檔](../azure-monitor/platform/platform-logs-overview.md)
      - [存取控制 (IAM)](../role-based-access-control/overview.md)
-     - [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (標籤)
-     - [鎖定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (標籤)
+     - [鎖定](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [自動化指令碼](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **命令**

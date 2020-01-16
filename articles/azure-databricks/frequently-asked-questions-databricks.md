@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: f4164966d1a9662a72d41fefcb7cfbb1b444d614
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c2cb7a90f0fe57efcd8f4d75aff3b5ee375abd07
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888991"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971505"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>關於 Azure Databricks 的常見問題集
 
@@ -107,7 +107,7 @@ Azure 錯誤碼：MissingSubscriptionRegistration Azure 錯誤訊息：訂用帳
 1. 依序選取 [訂用帳戶]、您所使用的訂用帳戶及 [資源提供者]。 
 1. 在資源提供者清單中，針對 **Microsoft.Compute** 選取 [註冊]。 您在訂用帳戶中必須具有參與者或擁有者角色，才能註冊資源提供者。
 
-如需更多詳細指示，請參閱[資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)。
+如需更多詳細指示，請參閱[資源提供者和類型](../azure-resource-manager/management/resource-providers-and-types.md)。
 
 ### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>問題：Azure Databricks 需要只有管理員才能授與的權限來存取您組織中的資源。
 

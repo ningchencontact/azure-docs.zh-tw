@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/22/2019
+ms.date: 01/14/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de64385e21604188a5c9002f2e007dad86b2674c
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 333e440fdd5f5062dda45fb12a83543c63e66c04
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420445"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978024"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>使用 AD FS 應用程式活動報告（預覽），將應用程式遷移至 Azure AD
 
@@ -32,7 +32,7 @@ Azure 入口網站中的 AD FS 應用程式活動報告（預覽）可讓您快�
 
 AD FS 的應用程式活動資料可供指派給任何系統管理員角色的使用者使用：全域管理員、報告讀取者、安全性讀取者、應用程式系統管理員或雲端應用程式系統管理員。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 您的組織目前必須使用 AD FS 來存取應用程式。
 * 必須在您的 Azure AD 租使用者中啟用 Azure AD Connect Health。
@@ -63,7 +63,7 @@ AD FS 的應用程式活動資料可供指派給任何系統管理員角色的�
 
 1. 在 [AD FS 應用程式活動] 清單中，按一下 [**遷移狀態**] 欄中的狀態，以開啟 [遷移詳細資料]。 您會看到所傳遞之設定測試的摘要，以及任何可能的遷移問題。
 
-   ![遷移詳細資料](media/migrate-adfs-application-activity/migration-details.png)
+   ![移轉詳細資料](media/migrate-adfs-application-activity/migration-details.png)
 
 2. 按一下訊息以開啟其他的遷移規則詳細資料。 如需已測試屬性的完整清單，請參閱下方的[AD FS 應用程式設定測試](#ad-fs-application-configuration-tests)資料表。
 
@@ -73,7 +73,7 @@ AD FS 的應用程式活動資料可供指派給任何系統管理員角色的�
 
 下表列出在 AD FS 應用程式上執行的所有設定測試。
 
-|結果  |通過/警告/失敗  |描述  |
+|結果  |通過/警告/失敗  |說明  |
 |---------|---------|---------|
 |測試-ADFSRPAdditionalAuthenticationRules <br> 在 AdditionalAuthentication 中偵測到至少一個非可移轉的規則。       | 通過/警告          | 信賴憑證者的規則會提示多重要素驗證（MFA）。 若要移至 Azure AD，請將這些規則轉譯為條件式存取原則。 如果您使用的是內部部署 MFA，建議您移至 Azure MFA。 [深入瞭解條件式存取](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)。        |
 |測試-ADFSRPAdditionalWSFedEndpoint <br> 信賴憑證者的 AdditionalWSFedEndpoint 設為 true。       | 通過/失敗          | AD FS 中的信賴憑證者允許多個 WS-ADDRESSING 宣告端點。 目前，Azure AD 只支援一個。 如果您有此結果封鎖遷移的案例，請[讓我們知道](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints)。     |
@@ -109,7 +109,7 @@ AD FS 的應用程式活動資料可供指派給任何系統管理員角色的�
 
 下表列出在 AD FS 應用程式上執行的所有宣告規則測試。
 
-|屬性  |描述  |
+|屬性  |說明  |
 |---------|---------|
 |UNSUPPORTED_CONDITION_PARAMETER      | 條件陳述式會使用正則運算式來評估宣告是否符合特定模式。  若要在 Azure AD 中達到類似的功能，您可以使用預先定義的轉換，例如 Defaultifempty （）、與 startwith （）、Contains （），以及其他專案。 如需詳細資訊，請參閱[針對企業應用程式自訂 SAML 權杖中發出的宣告](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)。          |
 |UNSUPPORTED_CONDITION_CLASS      | 條件陳述式具有多個必須在執行發行語句之前評估的條件。 Azure AD 可以使用宣告的轉換函式來支援這項功能，您可以在其中評估多個宣告值。  如需詳細資訊，請參閱[針對企業應用程式自訂 SAML 權杖中發出的宣告](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)。          |
@@ -124,6 +124,7 @@ AD FS 的應用程式活動資料可供指派給任何系統管理員角色的�
 
 ## <a name="next-steps"></a>後續步驟
 
+- [影片：如何使用 AD FS 活動報告來遷移應用程式](https://www.youtube.com/watch?v=OThlTA239lU)
 - [使用 Azure Active Directory 來管理應用程式](what-is-application-management.md)
 - [管理應用程式的存取權](what-is-access-management.md)
 - [Azure AD Connect 同盟](../hybrid/how-to-connect-fed-whatis.md)

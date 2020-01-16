@@ -3,7 +3,7 @@ title: 適用于 Windows 的 Azure 監視器虛擬機器擴充功能
 description: 使用虛擬機器擴充功能在 Windows 虛擬機器上部署 Log Analytics 代理程式。
 services: virtual-machines-windows
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2019
 ms.author: akjosh
-ms.openlocfilehash: c9fd62e57d131fb21e657c53914f9cd5349107ec
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 072e30baa4ebb976a662019e5213f7eb26808a93
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073668"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969954"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>適用于 Windows 的 Azure 監視器虛擬機器擴充功能
 
@@ -27,7 +27,7 @@ Azure 監視器記錄可提供跨雲端和內部部署資產的監視功能。 M
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="operating-system"></a>作業系統
 
@@ -46,7 +46,7 @@ Azure 監視器記錄可提供跨雲端和內部部署資產的監視功能。 M
 | 8.0.11103 | n/a |  2018 年 4 月 | |
 | 8.0.11081 | 1.0.11081 | 2017年11月 | | 
 | 8.0.11072 | 1.0.11072 | 2017年9月 | |
-| 8.0.11049 | 1.0.11049 | 2017年2月 | |
+| 8.0.11049 | 1.0.11049 | 2017 年 2 月 | |
 
 ### <a name="azure-security-center"></a>Azure 資訊安全中心
 
@@ -57,7 +57,7 @@ Azure 資訊安全中心會自動布建 Log Analytics 代理程式，並將它�
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
-下列 JSON 顯示 Log Analytics 代理程式擴充功能的結構描述。 此擴充功能需要來自目標 Log Analytics 工作區的工作區識別碼和工作區金鑰。 在 Azure 入口網站中工作區的設定中可找到這些項目。 由於工作區金鑰應視為敏感性資料，因此應儲存在受保護的設定組態中。 Azure VM 擴充功能的受保護設定資料會經過加密，而只有在目標虛擬機器上才會解密。 請注意，**workspaceId** 和 **workspaceKey** 區分大小寫。
+下列 JSON 顯示 Log Analytics 代理程式擴充功能的結構描述。 此擴充功能需要來自目標 Log Analytics 工作區的工作區識別碼和工作區金鑰。 在 Azure 入口網站中工作區的設定中可找到這些項目。 由於工作區金鑰應視為敏感性資料，因此應儲存在受保護的設定組態中。 Azure VM 擴充功能保護的設定資料會經過加密，只會在目標虛擬機器上解密。 請注意，**workspaceId** 和 **workspaceKey** 區分大小寫。
 
 ```json
 {
@@ -88,12 +88,14 @@ Azure 資訊安全中心會自動布建 Log Analytics 代理程式，並將它�
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| 類型 | MicrosoftMonitoringAgent |
+| type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId (例如)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (例如) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 \* workspaceId 在 Log Analytics API 中稱為 consumerId。
+
+> [注意！]如需其他屬性，請參閱 Azure [Connect Windows 計算以 Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows)。
 
 ## <a name="template-deployment"></a>範本部署
 
@@ -102,7 +104,7 @@ Azure 資訊安全中心會自動布建 Log Analytics 代理程式，並將它�
 >[!NOTE]
 >當您想要將代理程式設定為向多個工作區報告時，此範本不支援指定多個工作區識別碼和工作區金鑰。 若要將代理程式設定為向多個工作區報告，請參閱[新增或移除工作區](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace)。  
 
-虛擬機器擴充功能的 JSON 可以巢狀方式置於虛擬機器資源內部，或放在 Resource Manager JSON 範本的根目錄或最上層。 JSON 的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/child-resource-name-type.md)。 
+虛擬機器擴充功能的 JSON 可以巢狀方式置於虛擬機器資源內部，或放在 Resource Manager JSON 範本的根目錄或最上層。 JSON 的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/templates/child-resource-name-type.md)。 
 
 下列範例假設 Azure 監視器延伸模組是嵌套在虛擬機器資源內部。 在巢狀處理擴充資源時，JSON 會放在虛擬機器的 `"resources": []` 物件中。
 
@@ -180,7 +182,7 @@ Set-AzVMExtension -ExtensionName "MicrosoftMonitoringAgent" `
 
 ### <a name="troubleshoot"></a>疑難排解
 
-從 Azure 入口網站及透過使用 Azure PowerShell 模組，都可擷取有關擴充功能部署狀態的資料。 若要查看所指定 VM 的擴充功能部署狀態，請使用 Azure PowerShell 模組來執行下列命令。
+使用 Azure PowerShell 模組，就可以從 Azure 入口網站擷取有關擴充功能部署狀態的資料。 若要查看所指定 VM 的擴充功能部署狀態，請使用 Azure PowerShell 模組來執行下列命令。
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName

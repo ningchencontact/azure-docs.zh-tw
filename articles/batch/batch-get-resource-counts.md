@@ -2,29 +2,29 @@
 title: 計算作業和節點狀態的數目 - Azure Batch | Microsoft Docs
 description: 計算 Azure Batch 作業和計算節點狀態的數目，以利管理及監視 Batch 解決方案。
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 09/07/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 7b41be8c325cd238592f33369499348885de1778
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 5e90045b7863968e8c61c3cbc382434bc8be415a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323530"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029711"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>依狀態計算作業和節點數目以監視 Batch 解決方案
 
 若要監視及管理大規模的 Azure Batch 解決方案，處於各種狀態的資源必須要有精準的計數。 Azure Batch 提供有效的作業，可取得 Batch *作業*和*計算節點*的這些計數。 請使用這些作業，而非可能很耗時的清單查詢 (會傳回大型工作或節點集合的相關詳細資訊)。
 
-* [取得工作計數][rest_get_task_counts]會取得作業中作用中、執行中和已完成工作的匯總計數, 以及成功或失敗的工作。 
+* [取得工作計數][rest_get_task_counts]會取得作業中作用中、執行中和已完成工作的匯總計數，以及成功或失敗的工作。 
 
   藉由計算處於各個狀態的工作數目，您可以更輕鬆地向使用者顯示作業進度，或偵測可能會影響作業的非預期延遲或失敗。 「取得工作計數」適用於 Batch 服務 API 2017-06-01.5.1 起的版本，以及相關 SDK 和工具。
 
-* [列出集區節點計數][rest_get_node_counts]會取得每個集區中處於各種狀態的專用和低優先順序計算節點數目: 建立、閒置、離線、搶先、重新開機、重新安裝映射、啟動和其他。 
+* [列出集區節點計數][rest_get_node_counts]會取得每個集區中處於各種狀態的專用和低優先順序計算節點數目：建立、閒置、離線、搶先、重新開機、重新安裝映射、啟動和其他。 
 
   藉由計算各個狀態的節點數目，您將可判斷是否有足夠的計算資源可執行作業，並找出集區的潛在問題。 「列出集區節點計數」適用於 Batch 服務 API 2018-03-01.6.1 起的版本，以及相關 SDK 和工具。
 
@@ -35,9 +35,9 @@ ms.locfileid: "68323530"
 「取得工作計數」作業會依下列狀態計算工作數目：
 
 - **作用中** - 已排入佇列且能夠執行、但目前尚未指派給計算節點的工作。 如果工作[相依於尚未完成的父工作](batch-task-dependencies.md)，也會計為 `active`。 
-- **執行中** - 已指派給計算節點、但尚未完成的工作。 工作的計算`running`狀態`preparing`為或`running`, 如[取得工作作業相關資訊][rest_get_task]所指出。
+- **執行中** - 已指派給計算節點、但尚未完成的工作。 當工作的狀態為 [`preparing`] 或 [`running`] 時（如取得工作作業的[相關資訊][rest_get_task]所指示），會將其視為 `running`。
 - **已完成** - 因已順利完成，或未順利完成且已達到其重試限制，而不再符合執行條件的工作。 
-- **成功** - 工作執行結果為 `success` 的工作。 Batch 會藉由檢查`TaskExecutionResult` [executionInfo][rest_get_exec_info]屬性的屬性, 來判斷工作是否成功或失敗。
+- **成功** - 工作執行結果為 `success` 的工作。 Batch 會藉由檢查[executionInfo][rest_get_exec_info]屬性的 `TaskExecutionResult` 屬性來判斷工作是否成功或失敗。
 - **失敗** - 工作執行結果為 `failure` 的工作。
 
 下列 .NET 程式碼範例示範如何依狀態擷取工作計數： 
@@ -71,7 +71,7 @@ Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 - **重新安裝映像中** - 正在重新安裝作業系統的節點。
 - **執行中** - 正在執行一或多個工作 (非啟動工作) 的節點。
 - **啟動中** - 正在啟動 Batch 服務的節點。 
-- **StartTaskFailed** -[啟動][rest_start_task]工作失敗的節點, 並`waitForSuccess`已耗盡所有重試次數, 並在啟動工作上設定。 此類節點無法用來執行工作。
+- **StartTaskFailed** -[啟動][rest_start_task]工作失敗的節點，並已耗盡所有重試次數，以及在啟動工作上設定 `waitForSuccess`。 此類節點無法用來執行工作。
 - **不明** - 失去與 Batch 服務的聯繫、且狀態不明的節點。
 - **無法使用** - 因發生錯誤而無法用來執行工作的節點。
 - **WaitingForStartTask** - 啟動工作已開始執行、但設定了 `waitForSuccess`且啟動工作未完成的節點。

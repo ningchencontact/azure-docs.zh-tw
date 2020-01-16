@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 1a69741ba3ced91b6b0d1fc4bcd4aea887452151
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 20c231e4f3052797eac79a3c97a3d8148690b8c5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792175"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965426"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集實例
 
@@ -47,7 +47,7 @@ ms.locfileid: "74792175"
 
 儲存空間直接存取支援兩種類型的架構：聚合式和超交集。 本文件中的架構為超交集。 超交集基礎結構會將儲存體放置於與裝載叢集應用程式相同的伺服器上。 在此架構中，儲存體會放置在每個 SQL Server FCI 節點上。
 
-## <a name="licensing-and-pricing"></a>授權和價格
+## <a name="licensing-and-pricing"></a>授權和定價
 
 在 Azure 虛擬機器上，您可以使用隨用隨付（PAYG）或攜帶您自己的授權（BYOL） VM 映射來授權 SQL Server。 您選擇的映射類型會影響向您收費的方式。
 
@@ -78,7 +78,7 @@ ms.locfileid: "74792175"
 您也應該對這些技術有大致的瞭解：
 
 - [在 Windows Server 2016 中使用儲存空間直接存取的超融合式解決方案](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Azure 資源群組](../../../azure-resource-manager/manage-resource-groups-portal.md)
+- [Azure 資源群組](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > 目前，只有[SQL Server IaaS 代理程式擴充](virtual-machines-windows-sql-server-agent-extension.md)功能的[輕量管理模式](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes)才支援 Azure 虛擬機器上的 SQL Server 容錯移轉叢集實例。 若要從完整延伸模式變更為輕量，請刪除對應 Vm 的**Sql 虛擬機器**資源，然後在輕量模式中向 sql VM 資源提供者註冊。 使用 Azure 入口網站刪除**SQL 虛擬機器**資源時，請**清除正確虛擬機器旁的核取方塊**。 完整延伸模組支援自動備份、修補和先進入口網站管理等功能。 在輕量管理模式中重新安裝代理程式之後，這些功能將無法在 SQL Vm 上使用。
@@ -174,7 +174,7 @@ ms.locfileid: "74792175"
 
    在每部虛擬機器上，開啟 Windows 防火牆上的下列埠：
 
-   | 目的 | TCP 埠 | 注意
+   | 目的 | TCP 連接埠 | 注意
    | ------ | ------ | ------
    | SQL Server | 1433 | 適用於 SDL Server 預設執行個體的一般連接埠。 若您曾使用來自資源庫的映像，此連接埠會自動開啟。
    | 健全狀況探查 | 59999 | 任何開啟的 TCP 連接埠。 在接下來的步驟中，設定負載平衝器[健全狀況探查](#probe)和要使用此連接埠的叢集。  

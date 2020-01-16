@@ -2,21 +2,21 @@
 title: 使用範本執行端對端作業 - Azure Batch | Microsoft Docs
 description: 使用範本檔案和 Azure CLI 來建立 Batch 集區、作業和工作。
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 4733cf1a83bec472baae42f2ac29636bff5fc324
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2612986491268651222e51646e75cdecc95dc40c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095320"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029742"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>使用 Azure Batch CLI 範本和檔案傳輸
 
@@ -24,7 +24,7 @@ ms.locfileid: "70095320"
 
 建立 JSON 範本檔案並搭配 Azure CLI 使用，以建立 Batch 集區、作業和工作。 使用 CLI 擴充命令可輕鬆地將作業輸入檔案上傳至與 Batch 帳戶相關聯的儲存體帳戶，以及下載作業輸出檔案。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 Azure CLI 的擴充功能可讓非開發人員的使用者端對端使用 Batch。 您只需要使用 CLI 命令，就可以建立集區、上傳輸入資料、建立作業和相關聯工作，以及下載結果輸出資料。 不需要額外的程式碼。 直接執行 CLI 命令，或將它們整合到指令碼。
 
@@ -143,7 +143,7 @@ Azure Batch 範本在功能和語法方面類似於 Azure Resource Manager 範�
 az batch pool create --template pool-ffmpeg.json
 ```
 
-CLI 會提示您提供 `poolId` 和 `nodeCount` 參數的值。 您也可以在 JSON 檔案中提供此參數。 例如:
+CLI 會提示您提供 `poolId` 和 `nodeCount` 參數的值。 您也可以在 JSON 檔案中提供此參數。 例如：
 
 ```json
 {
@@ -284,7 +284,7 @@ az batch file download --file-group ffmpeg-output --local-path
 
 集區和作業範本允許指定儲存在檔案群組中的檔案，以複製到集區節點上，或從集區節點複製回到檔案群組。 例如，在先前指定的作業範本中，會指定工作處理站的 ffmpeg-input 檔案群組，作為向下複製到節點進行轉碼的來源視訊檔案位置。 檔案群組 *ffmpeg-output* 是從執行每項工作的節點複製轉碼輸出檔案的位置。
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 目前僅已將範本和檔案傳輸支援新增至 Azure CLI。 目標旨在將可使用 Batch 的對象拓展到不需要使用 Batch API 來開發程式碼的使用者，例如研究人員和 IT 使用者。 無需程式碼撰寫，了解 Azure、Batch 和 Batch 所要執行之應用程式的使用者可以建立集區和作業建立的範本。 利用範本參數，未深入了解 Batch 和應用程式的使用者就可以使用範本。
 

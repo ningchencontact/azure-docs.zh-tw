@@ -3,7 +3,7 @@ title: 使用適用於 .NET 的檔案慣例程式庫將作業和工作輸出保�
 description: 了解如何使用適用於 .NET 的 Azure Batch 檔案慣例程式庫，將 Batch 工作和作業輸出保存到 Azure 儲存體，並在 Azure 入口網站檢視保存的輸出。
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2970c46c7cbc978bf6d7491c9258dcccc5404bd
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: cf9372cfc89aca3285128c96c1b7e6756ba42cda
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302684"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026227"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>使用適用於 .NET 的 Batch 檔案慣例程式庫將作業和工作輸出保存到 Azure 儲存體
 
@@ -109,7 +109,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-`kind`TaskOutputStorage[.](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage)SaveAsync[ 方法的 ](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) 參數會分類保存的檔案。 有四個預先定義的 [TaskOutputKind][net_taskoutputkind] 類型`TaskOutput``TaskPreview`: `TaskLog`、`TaskIntermediate.`和, 您也可以定義輸出的自訂類別。
+[TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) 方法的 `kind` 參數會分類保存的檔案。 有四個預先定義的 [TaskOutputKind][net_taskoutputkind] 類型`TaskOutput``TaskPreview`: `TaskLog`、`TaskIntermediate.`和, 您也可以定義輸出的自訂類別。
 
 這些輸出類型可供您在稍後針對特定工作的保存輸出查詢 Batch 時，指定要列出的輸出類型。 換句話說，當您列出某個工作的輸出時，可以根據其中一個輸出類型來篩選清單。 例如，「給我工作 *109* 的 *preview* 輸出」。 本文稍後的「擷取輸出」會提供列出和擷取輸出的詳細資訊。
 

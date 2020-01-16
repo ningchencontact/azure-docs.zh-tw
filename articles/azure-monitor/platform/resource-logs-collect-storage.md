@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: b6a687fc7ddf5eeacdfe3480a252598c6f9e773e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e99a0e8e42bcfb5c7967a9cb1c91631bacbea53a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750382"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980065"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>將 Azure 資源記錄封存到儲存體帳戶
 Azure 中的[平臺記錄](platform-logs-overview.md)，包括 azure 活動記錄和資源記錄，可提供 azure 資源的詳細診斷和審核資訊，以及它們所依賴的 azure 平臺。  本文說明如何將平臺記錄檔收集至 Azure 儲存體帳戶，以保留資料以供封存。
 
 ## <a name="prerequisites"></a>必要條件
-如果您還沒有[Azure 儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)，您必須建立它。 儲存體帳戶不一定要與資源傳送記錄位於相同的訂用帳戶中，前提是設定此設定的使用者具有這兩個訂用帳戶的適當 RBAC 存取權。
+如果您還沒有[Azure 儲存體帳戶](../../storage/common/storage-account-create.md)，您必須建立它。 儲存體帳戶不一定要與資源傳送記錄位於相同的訂用帳戶中，前提是設定此設定的使用者具有這兩個訂用帳戶的適當 RBAC 存取權。
 
 
 > [!IMPORTANT]

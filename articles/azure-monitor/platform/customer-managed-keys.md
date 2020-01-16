@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/11/2020
-ms.openlocfilehash: 04bda5b016234f96d4bef7796799f2526296dd26
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0354abf6a5450a1116423e3a35c3a7e2ae7b9057
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932735"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971097"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Azure 監視器客戶管理的金鑰設定 
 
@@ -34,23 +34,22 @@ ms.locfileid: "75932735"
 
 > [!NOTE]
 > Log Analytics 和 Application Insights 使用相同的資料存放區平臺和查詢引擎。
-> 我們會透過將 Application Insights 整合到 Log Analytics 中，將這兩個存放區結合在一起，以在 Azure 監視器下建立單一的整合記錄存放區。 這項變更是針對日曆年度2020的第二季計畫。 如果您不需要再為您的應用程式深入解析資料部署 CMK，建議您等待合併完成，因為這類部署將會因為匯總而中斷，而且您必須在遷移至記錄之後重新設定 CMKAnalytics 工作區。 每日 1 TB 最小值適用于叢集層級，直到匯總在第二季完成時 Application Insights 和 Log Analytics 需要個別的叢集。
+> 我們會透過將 Application Insights 整合到 Log Analytics 中，將這兩個存放區結合在一起，以在 Azure 監視器下建立單一的整合記錄存放區。 這項變更是針對日曆年度2020的第二季計畫。 如果您不需要再為 Application Insights 資料部署 CMK，建議您等待合併完成，因為這類部署將會因為匯總而中斷，而且您必須在遷移至記錄之後重新設定 CMKAnalytics 工作區。 每日1TB 的最小值適用于叢集層級，直到匯總在第二季完成時，Application Insights 和 Log Analytics 需要個別的叢集。
 
 ## <a name="customer-managed-key-cmk-overview"></a>客戶管理的金鑰（CMK）總覽
 
 待用[加密](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)是組織中的常見隱私權和安全性需求。 您可以讓 Azure 完全管理待用加密，而您有各種選項可嚴密管理加密或加密金鑰。
 
-Azure 監視器的資料存放區可確保在儲存于 Azure 儲存體時，使用 Azure 管理的金鑰進行待用加密的所有資料。 Azure 監視器也會提供使用您自己的金鑰（儲存在[Azure key](https://docs.microsoft.com/azure/key-vault/key-vault-overview)vault 中）進行資料加密的選項，使用系統指派的[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)驗證來存取。 此金鑰可能是[軟體或硬體 HSM 保護](https://docs.microsoft.com/azure/key-vault/key-vault-overview)的。
+Azure 監視器的資料存放區可確保在儲存于 Azure 儲存體時，使用 Azure 管理的金鑰進行待用加密的所有資料。 Azure 監視器也會提供使用您自己的金鑰（儲存在[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)中）的資料加密選項，這是使用系統指派的[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)驗證來存取。 此金鑰可能是[軟體或硬體 HSM 保護](https://docs.microsoft.com/azure/key-vault/key-vault-overview)的。
 Azure 監視器使用加密與[Azure 儲存體加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)運作的方式相同。
 
-Azure 監視器儲存體存取包裝和解除封裝作業 Key Vault 的頻率是介於6到60秒之間。 Azure 監視器儲存體  
-一律會在一小時內尊重金鑰許可權的變更。
+Azure 監視器儲存體存取包裝和解除封裝作業 Key Vault 的頻率是介於6到60秒之間。 Azure 監視器儲存體一律會在一小時內尊重金鑰許可權的變更。
 
 過去14天內的內嵌資料也會保留在快取記憶體（SSD 支援）中，以進行有效率的查詢引擎作業。 無論 CMK 設定為何，這項資料仍會使用 Microsoft 金鑰進行加密，但我們正努力在2020年初使用 CMK 加密。
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>CMK 在 Azure 監視器中的運作方式
 
-Azure 監視器會利用系統指派的受控識別，將存取權授與您的 Azure Key Vault。 系統指派的受控識別只能與單一 Azure 資源相關聯。 叢集層級支援 Azure 監視器資料存放區（ADX 叢集）的識別，這表示 CMK 功能是在專用的 ADX 叢集上傳遞。 為了支援多個工作區上的 CMK，新的 Log Analytics 資源（*叢集）會*在您的 Key Vault 與 Log analytics 工作區之間以中繼身分識別連線的形式執行。 此概念符合系統指派的身分識別條件約束，且身分識別會在 ADX 叢集與*Log Analytics 叢集*資源之間進行維護 *，* 而所有相關聯工作區的資料會以您的 Key Vault 金鑰來保護。 Underlay ADX 叢集儲存體會使用與*叢集資源相關聯\'的受控*識別，透過 Azure Active Directory 來驗證和存取您的 Azure Key Vault。
+Azure 監視器會利用系統指派的受控識別，將存取權授與您的 Azure Key Vault。 系統指派的受控識別只能與單一 Azure 資源相關聯。 叢集層級支援 Azure 監視器資料存放區（ADX 叢集）的識別，這表示 CMK 功能是在專用的 ADX 叢集上傳遞。 為了支援多個工作區上的 CMK，新的 Log Analytics 資源（*叢集）會*在您的 Key Vault 與 Log analytics 工作區之間以中繼身分識別連線的形式執行。 此概念符合系統指派的身分識別條件約束，且身分識別會在 ADX 叢集與*Log Analytics 叢集*資源之間進行維護，而所有相關聯工作區的資料會以您的 Key Vault 金鑰來保護。 Underlay ADX 叢集儲存體會使用與*叢集資源相關聯\'的受控*識別，透過 Azure Active Directory 來驗證和存取您的 Azure Key Vault。
 
 ![CMK 總覽](media/customer-managed-keys/cmk-overview.png)
 1.  客戶的 Key Vault。
@@ -74,7 +73,7 @@ Azure 監視器會利用系統指派的受控識別，將存取權授與您的 A
 
 - 當您在 Key Vault 中設定金鑰，並在*叢集資源中*參考它時，Azure 儲存體會在 Azure Key Vault 中包裝 AEK 與您的 KEK。
 
-- 您的 KEK 永遠不會離開 Key Vault，而且在 HSM 金鑰的情況下，它絕對不會離開硬體。
+- 您的 KEK 永遠不會離開 Key Vault，而且在 HSM 金鑰的情況下，它絕不會離開硬體。
 
 - Azure 儲存體使用與*叢集資源相關聯的受控*識別，透過 Azure Active Directory 來驗證和存取 Azure Key Vault。
 
@@ -82,7 +81,7 @@ Azure 監視器會利用系統指派的受控識別，將存取權授與您的 A
 
 ## <a name="cmk-provisioning-procedure"></a>CMK 布建程式
 
-布建套裝程式括下列步驟：
+如 Application Insights CMK 設定，請遵循步驟3和6的附錄內容。
 
 1. 訂用帳戶允許清單--這是此早期存取功能的必要項
 2. 建立 Azure Key Vault 和儲存金鑰
@@ -121,7 +120,7 @@ Authorization: Bearer eyJ0eXAiO....
 
 CMK 功能是早期的存取功能。 您*打算建立叢集*資源的訂用帳戶必須事先由 Azure 產品群組列入允許清單。 在 Microsoft 中使用您的連絡人，以提供您的訂用帳戶識別碼。
 
-> [!WARNING]
+> [!IMPORTANT]
 > CMK 功能是區域。 您的 Azure Key Vault、儲存體帳戶 *、叢集*資源和相關聯的 Log Analytics 工作區必須位於相同的區域中，但它們可以位於不同的訂用帳戶中。
 
 ### <a name="storing-encryption-key-kek"></a>儲存加密金鑰（KEK）
@@ -130,13 +129,15 @@ CMK 功能是早期的存取功能。 您*打算建立叢集*資源的訂用帳�
 
 Azure Key Vault 必須設定為可復原，以保護您的金鑰和存取您的 Azure 監視器資料。
 
-這些設定可透過 CLI 和 PowerSell 取得：
+這些設定可透過 CLI 和 PowerShell 取得：
 - 必須開啟虛[刪除](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
 - 應該開啟[清除保護](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)，以防止強制刪除秘密/保存庫，即使在虛刪除之後也一樣
 
 ### <a name="create-cluster-resource"></a>建立*叢集*資源
 
-此資源是用來做為 Key Vault 與您的工作區之間的中繼身分識別連線。 只有在您收到訂用帳戶列入允許清單的確認之後，請在您的工作區所在的區域建立*Log Analytics 叢集*資源。 Application Insights 和 Log Analytics 需要個別的叢集資源。 叢集資源的類型是在建立時定義的，其方式是將 "clusterType" 屬性設定為 ' LogAnalytics ' 或 ' ApplicationInsights '。 無法更改叢集資源類型。
+此資源是用來做為 Key Vault 與您的工作區之間的中繼身分識別連線。 在您收到訂用帳戶列入允許清單的確認之後，請在您的工作區所在的區域建立*Log Analytics 叢集*資源。 Application Insights 和 Log Analytics 需要個別的叢集資源。 叢集資源的類型是在建立時定義的，其方式是將 "clusterType" 屬性設定為 ' LogAnalytics ' 或 ' ApplicationInsights '。 無法更改叢集資源類型。
+
+如 Application Insights CMK 設定，請遵循此步驟的附錄內容。
 
 **建立**
 
@@ -180,9 +181,9 @@ Content-type: application/json
 
 ```
 > [!IMPORTANT]
-> 複製並保留「叢集識別碼」，因為您在接下來的步驟中將會用到它。
+> 複製並保留「叢集識別碼」值，因為在接下來的步驟中將會用到它。
 
-如果您因為任何原因而要刪除叢集資源（例如，使用不同的名稱加以建立 *），請*使用此 API 呼叫：
+如果您因為任何原因而要刪除*叢集資源，* 例如，使用不同的名稱或 clusterType 建立它，請使用此 API 呼叫：
 
 ```rst
 DELETE
@@ -206,9 +207,7 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 ### <a name="update-cluster-resource-with-key-identifier-details"></a>以金鑰識別碼詳細資料更新叢集資源
 
-當您建立新版本的金鑰時，也適用此程式。
-
-以 Azure Key Vault 金鑰識別碼詳細資料更新叢集資源，以允許 Azure 監視器儲存體使用新的金鑰版本。 在 Azure Key Vault 中選取您金鑰的目前版本，以取得金鑰識別碼詳細資料：
+此步驟適用于您 Key Vault 中的後續金鑰版本更新。 以 Key Vault*金鑰識別碼*詳細資料更新*叢集資源，* 以允許 Azure 監視器儲存體使用新的金鑰版本。 在 Azure Key Vault 中選取您金鑰的目前版本，以取得金鑰識別碼的詳細資料。
 
 ![授與 Key Vault 許可權](media/customer-managed-keys/key-identifier-8bit.png)
 
@@ -266,41 +265,39 @@ Content-type: application/json
 
 在此功能的早期存取期間，產品小組會在先前的步驟完成後，手動布建 ADX 叢集。 使用與 Microsoft 搭配的頻道，提供下列詳細資料：
 
-1. 確認上述步驟已完成
+- 確認上述步驟已順利完成。
 
-2. 叢集資源 API 回應。 您可以隨時使用 Get API 呼叫來抓取此檔案。
+- 上一個步驟的 JSON 回應。 您可以隨時使用 Get API 呼叫來抓取此檔案：
 
-**讀取叢集*資源識別碼***
+   ```rst
+   GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+   Authorization: Bearer <token>
+   ```
 
-```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
-Authorization: Bearer <token>
-```
-
-**回應**
-```json
-{
-  "identity": {
-    "type": "SystemAssigned",
-    "tenantId": "tenant-id",
-    "principalId": "principal-Id"
-  },
-  "properties": {
-       "KeyVaultProperties": {    // Key Vault key identifier
-            KeyVaultUri: "https://key-vault-name.vault.azure.net",
-            KeyName: "key-name",
-            KeyVersion: "current-version"
-            },
-    "provisioningState": "Succeeded",
-    "clusterType": "LogAnalytics", 
-    "clusterId": "cluster-id"
-  },
-  "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
-  "name": "cluster-name",
-  "type": "Microsoft.OperationalInsights/clusters",
-  "location": "region-name"
-}
-```
+   **回應**
+   ```json
+   {
+     "identity": {
+       "type": "SystemAssigned",
+       "tenantId": "tenant-id",
+       "principalId": "principal-Id"
+     },
+     "properties": {
+          "KeyVaultProperties": {    // Key Vault key identifier
+               KeyVaultUri: "https://key-vault-name.vault.azure.net",
+               KeyName: "key-name",
+               KeyVersion: "current-version"
+               },
+       "provisioningState": "Succeeded",
+       "clusterType": "LogAnalytics", 
+       "clusterId": "cluster-id"
+     },
+     "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
+     "name": "cluster-name",
+     "type": "Microsoft.OperationalInsights/clusters",
+     "location": "region-name"
+   }
+   ```
 
 ### <a name="workspace-association-to-cluster-resource"></a>*與叢集*資源的工作區關聯
 
@@ -308,6 +305,8 @@ Authorization: Bearer <token>
 > 只有在您透過 Microsoft 通道（已滿足**Azure 監視器資料存放區（ADX cluster）布建）** 收到來自產品群組的確認之後，**才**應該執行此步驟。 如果您在布建此布建之前，將工作區與內嵌資料產生關聯，資料將會被**捨棄，而且**無法復原。
 
 **使用工作區建立工作區與*叢集資源的*關聯[-建立或更新](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate)API**
+
+如 Application Insights CMK 設定，請遵循此步驟的附錄內容。
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2015-11-01-preview 
@@ -359,15 +358,15 @@ Content-type: application/json
 
 ## <a name="cmk-kek-revocation"></a>CMK （KEK）撤銷
 
-Azure 監視器儲存體一律會在一小時內遵循金鑰許可權的變更（通常較早），儲存空間將會變得無法使用--*與您的*叢集資源相關聯之工作區的任何資料內嵌都會卸載，而且查詢將會失敗。 先前內嵌的資料在您的金鑰被撤銷時，Azure 監視器儲存體中仍然無法存取，且不會刪除您的工作區。 無法存取的資料是由資料保留原則所控管，並會在達到保留期時清除。
+Azure 監視器儲存體一律會在一小時內遵循金鑰許可權的變更（通常較早），而且儲存體將會變成無法使用。 已卸載與*叢集資源相關*聯之工作區的任何資料內嵌，且查詢將會失敗。 先前內嵌的資料在您的金鑰被撤銷時，Azure 監視器儲存體中仍然無法存取，且不會刪除您的工作區。 無法存取的資料是由資料保留原則所控管，並會在達到保留期時清除。
 
 儲存體會定期輪詢您的 Key Vault 以嘗試解除包裝加密金鑰，並在存取之後，在30分鐘內進行資料內嵌和查詢繼續。
 
 ## <a name="cmk-kek-rotation"></a>CMK （KEK）旋轉
 
-CMK 的輪替需要使用新的 Azure Key Vault 金鑰版本來明確更新叢集資源。 若要使用新的金鑰版本更新 Azure 監視器，請依照「使用金鑰識別碼詳細資料更新*叢集資源」* 步驟中的指示進行。
+CMK 的輪替需要使用新的 Azure Key Vault 金鑰版本來明確更新*叢集資源。* 若要使用新的金鑰版本更新 Azure 監視器，請依照「使用*金鑰識別碼*詳細資料更新*叢集資源」* 步驟中的指示進行。
 
--   如果您在 Key Vault 中旋轉金鑰，且在不久後不更新 Azure 監視器的新版本，Azure 監視器儲存體將無法存取該金鑰。
+如果您在 Key Vault 中更新金鑰，而不更新*叢集資源 * 中的新* *金鑰識別碼*詳細資料，Azure 監視器儲存體會繼續使用您先前的金鑰。
 
 ## <a name="limitations-and-constraints"></a>限制和限制
 
@@ -383,10 +382,10 @@ CMK 的輪替需要使用新的 Azure Key Vault 金鑰版本來明確更新叢�
 
 - 一旦將工作區與叢集*資源相關*聯，就無法將其與叢集資源解除關聯，因為資料是以*您的金鑰*加密，而且在 Azure Key Vault 中不需要您的 KEK 即可存取。
 
-- Azure Key Vault 必須設定為可復原。 這些屬性預設不會啟用：
+- Azure Key Vault 必須設定為可復原。 這些屬性預設不會啟用，而且應該使用 CLI 和 PowerShell 來設定：
 
-  - 已開啟虛[刪除](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-  - [不要清除] 會開啟以防止強制刪除秘密/保存庫，即使在虛刪除之後也一樣
+  - 必須開啟虛[刪除](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
+  - 應該開啟[清除保護](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)，以防止強制刪除秘密/保存庫，即使在虛刪除之後也一樣
 
 - Application Insights 和 Log Analytics*需要個別的*叢集資源。 叢集資源的類型是在建立時定義的 *，其方式*是將 "clusterType" 屬性設定為 ' LogAnalytics ' 或 ' ApplicationInsights '。 無法更改*叢集資源類型*。
 
@@ -401,11 +400,9 @@ CMK 的輪替需要使用新的 Azure Key Vault 金鑰版本來明確更新叢�
 - Key Vault 可用性
     - 在正常作業中，儲存體會在短時間內快取 AEK，以進行解除包裝的 Key Vault。
     
-    - 暫時性連接錯誤。 儲存體會藉由允許金鑰長時間保持在快取中，以處理暫時性錯誤（超時、連線失敗、DNS 問題），而且這會克服可用性查詢功能中的任何小型短暫中斷都可供使用，而不會中斷。
-            -內嵌不中斷的情況下繼續
+    - 暫時性連接錯誤。 儲存體會藉由允許金鑰長時間保持在快取中，以處理暫時性錯誤（超時、連線失敗、DNS 問題），而且這會克服可用性中的任何小型短暫中斷。 查詢和內嵌功能會繼續進行，而不會中斷。
     
-    - 在30分鐘內無法使用即時網站，將導致儲存體帳戶無法使用。
-            -   **查詢**功能無法**使用-內嵌--** 資料會使用 Microsoft 金鑰以數小時的時間進行快取，以避免資料遺失。 當還原 Key Vault 的存取權時，查詢就會變成可用，而且暫時快取的資料會內嵌至資料存放區，並使用 CMK 加密。
+    - 即時網站無法使用大約30分鐘的時間，將導致儲存體帳戶變成無法使用。 查詢功能無法使用，而且內嵌的資料會以 Microsoft 金鑰快取數小時，以避免資料遺失。 當還原 Key Vault 的存取權時，查詢就會變成可用，而且暫時快取的資料會內嵌至資料存放區，並使用 CMK 加密。
 
 - 如果您建立叢集*資源並*立即指定 KeyVaultProperties，此作業可能會失敗，因為在系統識別指派給*叢集資源之前*，無法定義存取原則。
 
@@ -413,55 +410,55 @@ CMK 的輪替需要使用新的 Azure Key Vault 金鑰版本來明確更新叢�
 
 - 如果您嘗試刪除與工作區相關*聯的叢集資源，* 刪除作業將會失敗。
 
-- 取得資源群組*的所有叢集*資源：
+- 使用此 API 呼叫來取得資源群組*的所有叢集*資源：
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
   Authorization: Bearer <token>
   ```
     
-**回應**
+  **回應**
+  
+  ```json
+  {
+    "value": [
+      {
+        "identity": {
+          "type": "SystemAssigned",
+          "tenantId": "tenant-id",
+          "principalId": "principal-Id"
+        },
+        "properties": {
+           "KeyVaultProperties": {    // Key Vault key identifier
+              KeyVaultUri: "https://{key-vault-name}.vault.azure.net",
+              KeyName: "key-name",
+              KeyVersion: "current-version"
+              },
+          "provisioningState": "Succeeded",
+          "clusterType": "LogAnalytics", 
+          "clusterId": "cluster-id"
+        },
+        "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
+        "name": "cluster-name",
+        "type": "Microsoft.OperationalInsights/clusters",
+        "location": "region-name"
+      }
+    ]
+  }
+  ```
 
-```json
-{
-  "value": [
-    {
-      "identity": {
-        "type": "SystemAssigned",
-        "tenantId": "tenant-id",
-        "principalId": "principal-Id"
-      },
-      "properties": {
-         "KeyVaultProperties": {    // Key Vault key identifier
-            KeyVaultUri: "https://{key-vault-name}.vault.azure.net",
-            KeyName: "key-name",
-            KeyVersion: "current-version"
-            },
-        "provisioningState": "Succeeded",
-        "clusterType": "LogAnalytics", 
-        "clusterId": "cluster-id"
-      },
-      "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
-      "name": "cluster-name",
-      "type": "Microsoft.OperationalInsights/clusters",
-      "location": "region-name"
-    }
-  ]
-}
-```
-
-- 取得訂用帳戶*的所有叢集*資源
+- 使用此 API 呼叫來取得訂用帳戶*的所有叢集*資源：
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
   Authorization: Bearer <token>
   ```
     
-**回應**
+  **回應**
     
-與「資源群組的叢集*資源」* 相同的回應，但在訂用帳戶範圍中。
+  與「資源群組的叢集*資源」* 相同的回應，但在訂用帳戶範圍中。
     
-- 刪除叢集*資源-* -您必須先刪除所有相關聯的工作區，才能刪除叢集資源：
+- 使用此 API 呼叫來刪除叢集*資源-* -您必須先刪除所有相關聯的工作區，才能刪除叢集資源：
 
   ```rst
   DELETE
@@ -469,20 +466,20 @@ CMK 的輪替需要使用新的 Azure Key Vault 金鑰版本來明確更新叢�
   Authorization: Bearer <token>
   ```
 
-**回應**
+  **回應**
 
-200 確定
+  200 確定
 
 
 ## <a name="appendix"></a>附錄
 
-本文也適用于 Application Insights 客戶管理的金鑰（CMK），但您應該考慮即將進行的變更，以協助您規劃應用程式深入解析元件的 CMK 部署。
+同時也支援 Application Insights 客戶管理的金鑰（CMK），但您應該考慮下列變更，以協助您規劃應用程式深入解析元件的 CMK 部署。
 
-Log Analytics 和 Application Insights 使用相同的資料存放區平臺和查詢引擎--我們會透過將 Application Insights 整合到 Log Analytics 中，將這兩個存放區結合在一起，以提供 Azure 監視器的單一整合記錄存放區第二季
+Log Analytics 和 Application Insights 使用相同的資料存放區平臺和查詢引擎。 我們會透過將 Application Insights 整合到 Log Analytics 中，將這兩個存放區結合在一起，以在第二季的 Azure 監視器下提供單一的整合記錄儲存
 2020. 這項變更會將您的應用程式深入解析資料帶入 Log Analytics 工作區，並在您工作區上的 CMK 設定時，讓查詢、深入解析和其他改善也適用于您的 Application Insights 資料。
 
 > [!NOTE]
-> 如果您不需要再為您的應用程式深入解析資料部署 CMK，建議您等待合併完成，因為這類部署將會因為匯總而中斷，而且您必須在遷移至記錄之後重新設定 CMKAnalytics 工作區。 每日 1 TB 最小值適用于叢集層級，直到匯總在第二季完成時 Application Insights 和 Log Analytics 需要個別的叢集。
+> 如果您不需要在整合之前為您的應用程式深入解析資料部署 CMK，建議您等待 Application Insights CMK，因為這類部署將會中斷整合，而您必須在遷移至記錄之後重新設定 CMK。Analytics 工作區。 每日1TB 的最小值適用于叢集層級，直到匯總在第二季完成時，Application Insights 和 Log Analytics 需要個別的叢集。
 
 ## <a name="application-insights-cmk-configuration"></a>Application Insights CMK 設定
 
@@ -496,7 +493,7 @@ Application Insights CMK 的設定與本文中所述的程式完全相同，包�
 
 ### <a name="create-a-cluster-resource"></a>建立叢集*資源*
 
-此資源是用來做為 Key Vault 與您的元件之間的中繼身分識別連接。 在您收到訂用帳戶列入允許清單的確認之後，請在您的元件所在的區域建立 Log Analytics 叢集資源。 叢集資源的類型是在建立時定義的，其方式是將*clusterType*屬性設定為*LogAnalytics*或*ApplicationInsights*。 它應該是針對 Application Insights CMK 而*ApplicationInsights*的。 設定之後，就無法改變*clusterType*設定。
+此資源是用來做為 Key Vault 與您的元件之間的中繼身分識別連接。 在您收到訂用帳戶列入允許清單的確認之後，請在您的元件所在的區域建立*Log Analytics 叢集*資源。 叢集資源的類型是在建立時定義的 *，其方式*是將*clusterType*屬性設定為*LogAnalytics*或*ApplicationInsights*。 它應該是針對 Application Insights CMK 而*ApplicationInsights*的。 設定之後，就無法改變*clusterType*設定。
 
 **建立**
 
@@ -540,19 +537,19 @@ Content-type: application/json
 }
 ```
 
-### <a name="associate-a-component-to-a-cluster-resource"></a>*建立元件與叢集資源的*關聯
+### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-updatehttpsdocsmicrosoftcomrestapiapplication-insightscomponentscreateorupdate-api"></a>使用元件建立元件與*叢集資源的*關聯[-建立或更新](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate)API
 
 ```rst
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Insights/components/{component-name}?api-version=2015-05-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Insights/components/<component-name>?api-version=2015-05-01
 Authorization: Bearer <token>
 Content-type: application/json
 
 {
   "properties": {
-    "clusterDefinitionId": "cluster-id" //It's the "clusterId" value provided in the respond from the previous step
+    "clusterDefinitionId": "cluster-id"    //It's the "clusterId" value provided in the respond from the previous step
   },
-  "location": "region-name",
-  "kind": "component-type",
+  "location": "<region-name>",
+  "kind": "<component-type>",    //Example: web
 }
 ```
 
@@ -567,7 +564,7 @@ Content-type: application/json
   "tags": "",
   "kind": "",
   "properties": {
-    "clusterDefinitionId": "cluster-id" //The Cluster resource ID that is associated to this component
+    "clusterDefinitionId": "cluster-id"    //The Cluster resource ID that is associated to this component
     "ApplicationId": "",
     "AppId": "",
     "Application_Type": "",

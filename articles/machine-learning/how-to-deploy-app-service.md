@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: a8a5b8df4307d9a73477944351c2889a86bdb2b4
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 562dd900bb3d64731e5467058e2718b081c675b6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75540330"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968537"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>將機器學習模型部署到 Azure App Service （預覽）
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -49,7 +49,7 @@ ms.locfileid: "75540330"
     > * `model`-即將部署的已註冊模型。
     > * `inference_config`-模型的推斷設定。
     >
-    > 如需有關設定這些變數的詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](service/how-to-deploy-and-where.md)。
+    > 如需有關設定這些變數的詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
 
 ## <a name="prepare-for-deployment"></a>準備部署
 
@@ -67,7 +67,7 @@ ms.locfileid: "75540330"
     >
     > 另一個適用于您案例的替代方法是[批次預測](how-to-run-batch-predictions.md)，這可在計分時提供對資料存放區的存取。
 
-    如需有關輸入腳本的詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](service/how-to-deploy-and-where.md)。
+    如需有關輸入腳本的詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
 
 * 執行專案腳本或模型所**需的相依性，例如**helper 腳本或 Python/Conda 套件
 
@@ -93,7 +93,7 @@ ms.locfileid: "75540330"
 
 如需環境的詳細資訊，請參閱[建立和管理用於定型和部署的環境](how-to-use-environments.md)。
 
-如需有關推斷設定的詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](service/how-to-deploy-and-where.md)。
+如需有關推斷設定的詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
 
 > [!IMPORTANT]
 > 部署到 Azure App Service 時，您不需要建立__部署__設定。
@@ -103,7 +103,7 @@ ms.locfileid: "75540330"
 若要建立部署到 Azure App Service 的 Docker 映射，請使用 [ [Model. package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-)]。 下列程式碼片段示範如何從模型和推斷設定建立新的影像：
 
 > [!NOTE]
-> 此程式碼片段假設 `model` 包含已註冊的模型，而且該 `inference_config` 包含推斷環境的設定。 如需詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](service/how-to-deploy-and-where.md)。
+> 此程式碼片段假設 `model` 包含已註冊的模型，而且該 `inference_config` 包含推斷環境的設定。 如需詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
 
 ```python
 from azureml.core import Model
@@ -121,7 +121,7 @@ print(package.location)
 
 ## <a name="deploy-image-as-a-web-app"></a>將映射部署為 web 應用程式
 
-1. 使用下列命令來取得包含映射之 Azure Container Registry 的登入認證。 將 `<acrinstance>` 取代為先前從 `package.location`傳回的第 e 個值： 
+1. 使用下列命令來取得包含映射之 Azure Container Registry 的登入認證。 將 `<acrinstance>` 取代為先前從 `package.location`傳回的第 e 個值：
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -168,7 +168,7 @@ print(package.location)
     此命令會傳回與下列 JSON 檔類似的資訊：
 
     ```json
-    { 
+    {
     "adminSiteName": null,
     "appServicePlanName": "myplanname",
     "geoRegion": "West Europe",

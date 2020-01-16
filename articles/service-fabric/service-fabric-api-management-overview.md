@@ -5,18 +5,18 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 656bb6d400461c93540b77d871502b738c679f47
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a331715d4e4538cfdda8d958ff549a81b627b79
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378105"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028543"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric 搭配 Azure API 管理概觀
 
 雲端應用程式通常需要前端閘道來為使用者、裝置或其他應用程式提供單一輸入點。 在 Service Fabric 中，閘道可以是任何無狀態服務 (例如 [ASP.NET Core 應用程式](service-fabric-reliable-services-communication-aspnetcore.md))，或是為流量輸入設計的另一個服務 (例如[事件中樞](https://docs.microsoft.com/azure/event-hubs/)、[IoT 中樞](https://docs.microsoft.com/azure/iot-hub/)或 [Azure API 管理](https://docs.microsoft.com/azure/api-management/))。
 
-本文是使用「Azure API 管理」作為 Service Fabric 應用程式閘道的簡介。 「API 管理」直接與 Service Fabric 整合，可讓您將具有一組豐富路由規則的 API 發佈至後端 Service Fabric 服務。 
+本文是使用「Azure API 管理」作為 Service Fabric 應用程式閘道的簡介。 「API 管理」直接與 Service Fabric 整合，可讓您將具有一組豐富路由規則的 API 發佈至後端 Service Fabric 服務。
 
 ## <a name="availability"></a>可用性
 
@@ -47,7 +47,8 @@ Service Fabric 中的服務可以是無狀態或具狀態服務，並且可使�
 
 在最簡單的案例中，會將流量轉送到無狀態服務執行個體。 為了達成此目的，「API 管理」作業會包含一個具有 Service Fabric 後端的輸入處理原則，此後端會對應至 Service Fabric 後端中特定的無狀態服務執行個體。 傳送至該服務的要求會傳送至服務的隨機實例。
 
-#### <a name="example"></a>範例
+**範例**
+
 在以下案例中，Service Fabric 應用程式包含一個名為 `fabric:/app/fooservice` 的無狀態服務，此服務會公開內部 HTTP API。 此服務執行個體名稱為已知的名稱，可直接以硬式編碼編寫在「API 管理」輸入處理原則中。 
 
 ![Service Fabric 搭配 Azure API 管理拓撲概觀][sf-apim-static-stateless]
@@ -56,7 +57,7 @@ Service Fabric 中的服務可以是無狀態或具狀態服務，並且可使�
 
 與無狀態服務案例類似，系統可以將流量轉送到具狀態服務執行個體。 在此情況下，「API 管理」作業會包含一個具有 Service Fabric 後端的輸入處理原則，此後端會將要求對應至特定「具狀態」服務執行個體的特定分割區。 與每個要求對應的分割區是使用來自傳入 HTTP 要求的一些輸入資料 (例如 URL 路徑中的值) 透過 Lambda 方法計算來得出的。 您可以將原則設定為只將要求傳送到主要複本，或針對讀取作業傳送到隨機複本。
 
-#### <a name="example"></a>範例
+**範例**
 
 在以下案例中，Service Fabric 應用程式包含一個名為 `fabric:/app/userservice` 的已分割具狀態服務，此服務會公開內部 HTTP API。 此服務執行個體名稱為已知的名稱，可直接以硬式編碼編寫在「API 管理」輸入處理原則中。  
 
@@ -66,14 +67,14 @@ Service Fabric 中的服務可以是無狀態或具狀態服務，並且可使�
 
 ## <a name="send-traffic-to-multiple-stateless-services"></a>將流量傳送到多個無狀態服務
 
-在較進階的案例中，您可以定義一個將要求對應至多個服務執行個體的「API 管理」作業。 在此情況下，每個作業都會包含一個原則，此原則會根據來自傳入 HTTP 要求的值 (例如 URL 路徑或查詢字串) 將要求對應至特定的服務執行個體，而在具狀態服務的案例中，則是會對應至服務執行個體內的分割區。 
+在較進階的案例中，您可以定義一個將要求對應至多個服務執行個體的「API 管理」作業。 在此情況下，每個作業都會包含一個原則，此原則會根據來自傳入 HTTP 要求的值 (例如 URL 路徑或查詢字串) 將要求對應至特定的服務執行個體，而在具狀態服務的案例中，則是會對應至服務執行個體內的分割區。
 
 為了達成此目的，「API 管理」作業會包含一個具有 Service Fabric 後端的輸入處理原則，此後端會根據從傳入 HTTP 要求擷取到的值，對應至 Service Fabric 後端中的無狀態服務執行個體。 服務的要求會傳送至服務的隨機實例。
 
-#### <a name="example"></a>範例
+**範例**
 
 在此範例中，會為應用程式的每個使用者都建立一個新的無狀態服務，其中會使用下列公式為這些服務執行個體動態產生名稱：
- 
+
 - `fabric:/app/users/<username>`
 
   每個服務都具有唯一的名稱，但並無法事先得知這些名稱，因為是根據使用者或系統管理員的輸入來建立服務，所以無法以硬式編碼編寫在 APIM 原則或路由規則中。 取而代之的是，會在後端原則定義中，從 URL 要求路徑中提供的 `name` 值產生作為要求傳送目的地的服務名稱。 例如：
@@ -89,10 +90,10 @@ Service Fabric 中的服務可以是無狀態或具狀態服務，並且可使�
 
 為了達成此目的，「API 管理」作業會包含一個具有 Service Fabric 後端的輸入處理原則，此後端會根據從傳入 HTTP 要求擷取到的值，對應至 Service Fabric 後端中的具狀態服務執行個體。 除了將要求對應至特定服務執行個體之外，也可以將要求對應至服務執行個體內的特定分割區，以及視需要對應至分割區內的主要複本或隨機次要複本。
 
-#### <a name="example"></a>範例
+**範例**
 
 在此範例中，會為應用程式的每個使用者都建立一個新的具狀態服務，其中會使用下列公式為這些服務執行個體動態產生名稱：
- 
+
 - `fabric:/app/users/<username>`
 
   每個服務都具有唯一的名稱，但並無法事先得知這些名稱，因為是根據使用者或系統管理員的輸入來建立服務，所以無法以硬式編碼編寫在 APIM 原則或路由規則中。 取而代之的是，會在後端原則定義中，從 URL 要求路徑中提供的 `name` 值產生作為要求傳送目的地的服務名稱。 例如：

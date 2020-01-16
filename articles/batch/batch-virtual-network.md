@@ -2,19 +2,19 @@
 title: 在虛擬網路中佈建集區 - Azure Batch | Microsoft Docs
 description: 如何在 Azure 虛擬網路中建立 Batch 集區，以便計算節點可以與網路中的其他 VM (例如，檔案伺服器) 安全地通訊。
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 04/10/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 78f29bacaadac5f01e4a8dd26bf03b2bda84f2bf
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 06b861f306718068366653685ebe4daf8d5dcfa6
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577567"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026279"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>在虛擬網路中建立 Azure Batch 集區
 

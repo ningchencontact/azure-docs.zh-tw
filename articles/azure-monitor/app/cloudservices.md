@@ -7,26 +7,26 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/05/2018
-ms.openlocfilehash: 860694a750ae313f04aceab924429dcf08ecbb66
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f915764deaa70117b96a42c5e7310b691125d731
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887547"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979842"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure 雲端服務的 Application Insights
 [Application Insights][start]可以藉由結合來自 Application Insights sdk 的資料與雲端服務的[Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)資料，來監視[Azure 雲端服務應用程式](https://azure.microsoft.com/services/cloud-services/)的可用性、效能、失敗和使用方式。 當您取得有關應用程式在現實世界的效能和效率的意見反應時，您可以在每個開發生命週期中針對設計方向做出明智的抉擇。
 
 ![概觀儀表板](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 在開始之前，您需要：
 
 * [Azure](https://azure.com) 訂用帳戶。 使用 Windows、Xbox Live 或其他 Microsoft 雲端服務適用的 Microsoft 帳戶登入。 
 * Microsoft Azure 工具 2.9 或更新版本。
 * 開發人員分析工具 7.10 或更新版本。
 
-## <a name="get-started-quickly"></a>即刻開始使用
+## <a name="get-started-quickly"></a>快速入門
 使用 Application Insights 來監視您雲端服務的最快、最簡單方式就是在將服務發佈到 Azure 時選擇該選項。
 
 ![診斷設定頁面範例](./media/cloudservices/azure-cloud-application-insights.png)
@@ -52,7 +52,7 @@ ms.locfileid: "73887547"
 ## <a name="plan-resources-and-resource-groups"></a>規劃資源和資源群組
 來自您應用程式的遙測將會在 Application Insights 類型的 Azure 資源中儲存、分析及顯示。 
 
-每個資源只屬於一個資源群組。 資源群組用來在經過協調的單一交易中管理成本、將存取權授與小組成員，以及部署更新項目。 例如，您可以[撰寫指令碼來部署](../../azure-resource-manager/resource-group-template-deploy.md) Azure 雲端服務及其 Application Insights 監視資源，全部都在一個作業中完成。
+每個資源只屬於一個資源群組。 資源群組用來在經過協調的單一交易中管理成本、將存取權授與小組成員，以及部署更新項目。 例如，您可以[撰寫指令碼來部署](../../azure-resource-manager/templates/deploy-powershell.md) Azure 雲端服務及其 Application Insights 監視資源，全部都在一個作業中完成。
 
 ### <a name="resources-for-components"></a>元件的資源
 我們建議您建立為您應用程式的每個元件建立不同的資源。 也就是為每個 Web 角色和背景工作角色建立資源。 您可以個別分析每個元件，但建立一個[儀表板](../../azure-monitor/app/overview-dashboard.md)來彙總所有元件的重要圖表，讓您能夠在單一檢視中一起比較和監視這些圖表。 
@@ -109,7 +109,7 @@ ms.locfileid: "73887547"
 
     a. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]。
 
-    b.這是另一個 C# 主控台應用程式。 新增[適用於 Windows 伺服器的 Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)。
+    b. 新增[適用於 Windows 伺服器的 Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)。
 
     ![搜尋「Application Insights」](./media/cloudservices/04-ai-nuget.png)
 
@@ -122,7 +122,7 @@ ms.locfileid: "73887547"
      TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
     ```
    
-    b.這是另一個 C# 主控台應用程式。 對您應用程式中的每個角色重複「步驟 a」。 請參閱範例：
+    b. 對您應用程式中的每個角色重複「步驟 a」。 請參閱範例：
    
     * [Web 角色](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
     * [背景工作角色](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
@@ -237,7 +237,7 @@ ms.locfileid: "73887547"
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
-您可以藉由編輯 *ApplicationInsights.config* 來指定額外的自訂或其他 Windows 效能計數器，[如此範例所示](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14)。
+您可以藉由編輯*ApplicationInsights*來指定額外的自訂或其他 Windows 效能計數器，[如下列範例所示](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14)。
 
   ![效能計數器](./media/cloudservices/002-servers.png)
 
@@ -246,7 +246,7 @@ ms.locfileid: "73887547"
 
 若要達成此檢視背景工作角色的目的，您可以使用自訂遙測初始設定式，為所有遙測設定一個通用 Operation.Id 內容屬性。 這可讓您一目了然延遲/失敗問題是相依性或程式碼所造成的。 
 
-方式如下：
+方法：
 
 * 設定相互關聯識別碼到 CallContext 中，如[此範例所示](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36)。 在此案例中，我們使用「要求 ID」做為相互關聯識別碼。
 * 新增自訂的 TelemetryInitializer 實作，其會將 Operation.Id 設為前面所設定的相互關聯識別碼。 例如，請見 [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)。
@@ -255,7 +255,7 @@ ms.locfileid: "73887547"
 ## <a name="client-telemetry"></a>用戶端遙測
 若要取得以瀏覽器為基礎的遙測資料，例如網頁檢視計數、頁面載入時間或腳本例外狀況，並在頁面腳本中撰寫自訂遙測，請參閱[將 JAVASCRIPT SDK 新增至您的網頁][client]。
 
-## <a name="availability-tests"></a>可用性測試
+## <a name="availability-tests"></a>可用性集合
 若要確保您的應用程式保持上線並回應，請[設定 web 測試][availability]。
 
 ## <a name="display-everything-together"></a>將所有內容一起顯示

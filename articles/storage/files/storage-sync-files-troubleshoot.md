@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f60d9714db71325bd9c67cae6e2f82d54f8e5eb3
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 1b24258efdd75977b5571506b3eabf952a4ae0a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753919"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027775"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -182,8 +182,6 @@ Set-AzStorageSyncServerEndpoint `
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-
 <a id="endpoint-noactivity-sync"></a>**伺服器端點的健康狀態為 [無活動]，且 [已註冊的伺服器] 刀鋒視窗上的伺服器狀態為 [離線]**  
 
 伺服器端點健康狀態為 [無活動] 時，表示伺服器端點在過去兩小時內未記錄任何同步活動。
@@ -322,7 +320,7 @@ PerItemErrorCount: 1006.
 | 0x0010FFFE、0x0010FFFF | 2 |
 
 ### <a name="common-sync-errors"></a>常見同步錯誤
-<a id="-2147023673"></a>**同步工作階段已取消。**  
+<a id="-2147023673"></a>**同步會話已取消。**  
 
 | | |
 |-|-|
@@ -392,6 +390,22 @@ PerItemErrorCount: 1006.
 2. [確定 Azure 檔案共用確實存在。](#troubleshoot-azure-file-share)
 3. [確定 Azure 檔案同步具有儲存體帳戶的存取權。](#troubleshoot-rbac)
 4. [請確認是否已在儲存體帳戶上正確設定防火牆和虛擬網路設定 (若已啟用的話)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+<a id="-2134351804"></a>**同步處理失敗，因為要求未獲授權，無法執行此操作。**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c86044 |
+| **HRESULT (十進位)** | -2134351804 |
+| **錯誤字串** | ECS_E_AZURE_AUTHORIZATION_FAILED |
+| **需要補救** | 是 |
+
+發生此錯誤的原因是 Azure 檔案同步代理程式未獲授權，無法存取 Azure 檔案共用。 您可以透過下列步驟，對此錯誤進行疑難排解：
+
+1. [確認儲存體帳戶確實存在。](#troubleshoot-storage-account)
+2. [確定 Azure 檔案共用確實存在。](#troubleshoot-azure-file-share)
+3. [請確認是否已在儲存體帳戶上正確設定防火牆和虛擬網路設定 (若已啟用的話)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+4. [確定 Azure 檔案同步具有儲存體帳戶的存取權。](#troubleshoot-rbac)
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**無法解析使用的儲存體帳戶名稱。**  
 
@@ -495,7 +509,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
 | **需要補救** | 是 |
 
-當 Azure 訂用帳戶暫止時，就會發生此錯誤。 同步將在 Azure 訂用帳戶恢復時重新啟用。 如需詳細資訊，請參閱[我的 Azure 訂用帳戶為何停用，以及如何重新啟動它？](../../billing/billing-subscription-become-disable.md)。
+當 Azure 訂用帳戶暫止時，就會發生此錯誤。 同步將在 Azure 訂用帳戶恢復時重新啟用。 如需詳細資訊，請參閱[我的 Azure 訂用帳戶為何停用，以及如何重新啟動它？](../../cost-management-billing/manage/subscription-disabled.md)。
 
 <a id="-2134364052"></a>**儲存體帳戶已設定了防火牆或虛擬網路。**  
 

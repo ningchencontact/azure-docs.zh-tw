@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f9e60b2f1685e03a9daa7a4801f43799a21eb411
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 263fdda178752ee22997a03a11902a7bff4791dc
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940533"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028623"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-customer-managed-key"></a>使用客戶管理的金鑰適用於 PostgreSQL 的 Azure 資料庫單一伺服器資料加密
 
@@ -41,7 +41,7 @@ ms.locfileid: "75940533"
 
 **金鑰加密金鑰（KEK）** -用來加密資料加密金鑰的加密金鑰。 使用永遠不會離開 Key Vault 的金鑰加密金鑰，允許加密和控制資料加密金鑰本身。 可存取 KEK 的實體可能不同於需要 DEK 的實體。 因為需要 KEK 才能將 DEK 解密，KEK 實際上就是單一點，藉以透過刪除 KEK 來有效地刪除 DEK。
 
-以金鑰加密金鑰加密的資料加密金鑰會分開儲存，而且只有具備金鑰加密金鑰存取權的實體，才可以解密這些資料加密金鑰。 如需詳細資訊，請參閱[靜態加密中的安全性](../security/fundamentals/encryption-atrest.md)。
+以金鑰加密金鑰加密的資料加密金鑰（DEK）會個別儲存，且只有具有金鑰加密金鑰存取權的實體可以解密這些資料加密金鑰。 如需詳細資訊，請參閱[靜態加密中的安全性](../security/fundamentals/encryption-atrest.md)。
 
 ## <a name="how-data-encryption-with-customer-managed-key-works"></a>使用客戶管理的金鑰來加密資料的方式
 
@@ -50,8 +50,8 @@ ms.locfileid: "75940533"
 若要讓于 postgresql 伺服器能夠使用儲存在 AKV 中的客戶管理金鑰來加密 DEK，Key Vault 系統管理員必須使用其唯一的身分識別，授與伺服器的下列存取權限：
 
 * **get** -用於在 Key Vault 中抓取金鑰的公用元件和屬性
-* **wrapKey** -能夠保護（加密） DEK
-* **unwrapKey** -能夠解除保護（解密） DEK
+* **wrapKey** -能夠加密 DEK
+* **unwrapKey** -能夠解密 DEK
 
 Key Vault 系統管理員也可以[啟用 Key Vault audit 事件的記錄](../azure-monitor/insights/azure-key-vault.md)，以便稍後再進行審核。
 

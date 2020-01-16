@@ -6,19 +6,19 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 66e7c2160317d71ced7517e1ec19014c1475c915
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 082fede57814fa7649309b672c2eea0d0f14b3f6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764094"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965876"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>使用 Azure 入口網站建立及管理適用於 MariaDB 的 Azure 資料庫的 VNet 服務端點和 VNet 規則
 
 虛擬網路 (VNet) 服務端點和規則會將虛擬網路的私人位址空間延伸到您適用於 MariaDB 的 Azure 資料庫伺服器。 如需適用於 MariaDB 的 Azure 資料庫的 VNet 服務端點概觀 (包含限制)，請參閱[適用於 MariaDB 的 Azure 資料庫伺服器的 VNet 服務端點](concepts-data-access-security-vnet.md)。 VNet 服務端點在「適用於 MariaDB 的 Azure 資料庫」的所有支援區域皆可使用。
 
 > [!NOTE]
-> VNet 服務端點的支援僅適用於一般用途和記憶體最佳化伺服器。
+> VNet 服務端點的支援僅適用於一般用途伺服器和記憶體最佳化伺服器。
 
 ## <a name="create-a-vnet-rule-and-enable-service-endpoints"></a>建立 VNet 規則並啟用服務端點
 
@@ -60,4 +60,4 @@ ms.locfileid: "74764094"
 - 同樣地，您可以編寫指令碼，以[使用 Azure CLI 啟用 VNet 服務端點及建立適用於 MariaDB 的 Azure 資料庫的 VNET 規則](howto-manage-vnet-cli.md)。
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

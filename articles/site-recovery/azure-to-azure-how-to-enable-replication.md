@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 471a7f288cec980e73ab10c8233ea38511acdd8b
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 1c6b7cfbf193f02598052b6922efec17fb16ec83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942327"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973696"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>將 Azure Vm 複寫到另一個 Azure 區域
 
@@ -62,7 +62,7 @@ ms.locfileid: "75942327"
      >[!NOTE]
      >啟用複寫之後，便無法變更可用性類型 - 單一執行個體、可用性設定組或可用性區域。 您需要停用後再啟用複寫，以變更可用性類型。
      >
-    
+
    - **複寫原則**：這會定義復原點保留期歷程記錄和應用程式一致快照集頻率的設定。 根據預設，Azure Site Recovery 會使用「24小時」的預設設定來建立新的複寫原則，以用於復原點保留，而「4小時」則適用于應用程式一致快照集頻率。
 
      ![啟用複寫](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
@@ -74,7 +74,7 @@ ms.locfileid: "75942327"
 -   如果您為新增的磁片啟用保護，在磁片的初始複寫之後，此警告就會消失。
 -   如果您選擇不啟用磁片的複寫，您可以選擇關閉警告。
 
-    
+
     ![新增的磁片](./media/azure-to-azure-how-to-enable-replication/newdisk.png)
 
 若要為新增的磁片啟用複寫，請執行下列動作：
@@ -88,7 +88,7 @@ ms.locfileid: "75942327"
 執行「啟用複寫」作業並完成初始複寫後，就會移除磁片問題的複寫健康情況警告。
 
 
-  
+
 ## <a name="customize-target-resources"></a>自訂目標資源
 
 您可以修改 Site Recovery 所使用的預設目標設定。
@@ -112,7 +112,7 @@ ms.locfileid: "75942327"
     - 請確定沒有防火牆應用裝置封鎖 Vm 之間透過埠20004的內部通訊。
     - 如果您想要讓 Linux Vm 成為複寫群組的一部分，請確定已根據特定 Linux 版本的指引手動開啟埠20004上的輸出流量。
 ![啟用複寫](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
-    
+
 5. 按一下 [建立目標資源] > [啟用複寫]。
 6. 啟用 VM 以進行複寫之後，您就可以在 [複寫的項目] 下方檢查 VM 健康情況的狀態。
 

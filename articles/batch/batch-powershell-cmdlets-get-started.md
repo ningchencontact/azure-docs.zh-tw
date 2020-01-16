@@ -3,7 +3,7 @@ title: 開始使用 PowerShell - Azure Batch | Microsoft Docs
 description: 您可以用來管理 Batch 資源的 Azure PowerShell Cmdlet 快速簡介。
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 01/15/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 21930d5240225540159fa425d9d9fa518a1b19d5
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 48b728d0e5b710f3adaa576f012bdbd19effc20a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323086"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026585"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell Cmdlet 管理 Batch 資源
 
@@ -30,7 +30,7 @@ ms.locfileid: "68323086"
 
 本文是根據 Az Batch 模組 1.0.0 中的 Cmdlet 而撰寫的。 建議您經常更新 Azure PowerShell 模組，以充分運用服務更新和增強功能。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [安裝及設定 Azure PowerShell 模組](/powershell/azure/overview)。 若要安裝特定的 Azure Batch 模組 (例如發行前版本模組)，請參閱 [PowerShell 資源庫](https://www.powershellgallery.com/packages/Az.Batch/1.0.0)。
 
@@ -48,15 +48,15 @@ ms.locfileid: "68323086"
 
 ## <a name="manage-batch-accounts-and-keys"></a>管理 Batch 帳戶和金鑰
 
-### <a name="create-a-batch-account"></a>建立批次帳戶：
+### <a name="create-a-batch-account"></a>建立 Batch 帳戶
 
-**New-AzBatchAccount** 會在指定的資源群組中建立 Batch 帳戶。 如果您還沒有資源群組，請執行 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) Cmdlet 建立一個資源群組。 在 **Location** 參數中指定其中一個 Azure 區域，例如 "Central US"。 例如:
+**New-AzBatchAccount** 會在指定的資源群組中建立 Batch 帳戶。 如果您還沒有資源群組，請執行 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) Cmdlet 建立一個資源群組。 在 **Location** 參數中指定其中一個 Azure 區域，例如 "Central US"。 例如：
 
 ```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-然後，在資源群組中建立 Batch 帳戶。 為 <*account_name*> 中的帳戶指定名稱，以及指定資源群組的位置和名稱。 建立 Batch 帳戶可能需要一些時間來完成。 例如:
+然後，在資源群組中建立 Batch 帳戶。 為 <*account_name*> 中的帳戶指定名稱，以及指定資源群組的位置和名稱。 建立 Batch 帳戶可能需要一些時間來完成。 例如：
 
 ```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -90,7 +90,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>刪除 Batch 帳戶
 
-**Remove-AzBatchAccount** 會刪除 Batch 帳戶。 例如:
+**Remove-AzBatchAccount** 會刪除 Batch 帳戶。 例如：
 
 ```powershell
 Remove-AzBatchAccount -AccountName <account_name>
@@ -125,9 +125,9 @@ $context = Get-AzBatchAccount -AccountName <account_name>
 
 ### <a name="create-a-batch-pool"></a>建立 Batch 集區
 
-建立或更新 Batch 集區時，請為計算節點上的作業系統選取雲端服務設定或虛擬機器設定 (請參閱 [Batch 功能概觀](batch-api-basics.md#pool))。 如果您指定雲端服務設定，則會使用其中一個 [Azure 客體 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)來製作計算節點的映像。 如果您指定虛擬機器設定, 您可以指定[Azure 虛擬機器 Marketplace][vm_marketplace]中列出的其中一個支援的 Linux 或 Windows VM 映射, 或提供您已備妥的自訂映射。
+建立或更新 Batch 集區時，請為計算節點上的作業系統選取雲端服務設定或虛擬機器設定 (請參閱 [Batch 功能概觀](batch-api-basics.md#pool))。 如果您指定雲端服務設定，則會使用其中一個 [Azure 客體 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)來製作計算節點的映像。 如果您指定虛擬機器設定，您可以指定[Azure 虛擬機器 Marketplace][vm_marketplace]中列出的其中一個支援的 Linux 或 Windows VM 映射，或提供您已備妥的自訂映射。
 
-當您執行 **New-AzBatchPool** 時，請將作業系統設定傳入 PSCloudServiceConfiguration 或 PSVirtualMachineConfiguration 物件中。 例如，下列程式碼片段會使用虛擬機器組態中的 Standard_A1 計算節點建立 Batch 集區，並以 Ubuntu Server 18.04-LTS 製作映像。 在此，**VirtualMachineConfiguration** 參數會將 $configuration  變數指定為 PSVirtualMachineConfiguration 物件。 **BatchContext** 參數會將先前定義的變數 $context  指定為 BatchAccountContext 物件。
+當您執行 **New-AzBatchPool** 時，請將作業系統設定傳入 PSCloudServiceConfiguration 或 PSVirtualMachineConfiguration 物件中。 例如，下列程式碼片段會使用虛擬機器組態中的 Standard_A1 計算節點建立 Batch 集區，並以 Ubuntu Server 18.04-LTS 製作映像。 在此，**VirtualMachineConfiguration** 參數會將 $configuration 變數指定為 PSVirtualMachineConfiguration 物件。 **BatchContext** 參數會將先前定義的變數 $context 指定為 BatchAccountContext 物件。
 
 ```powershell
 $imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04-LTS")
@@ -175,7 +175,7 @@ Get-AzBatchPool -Id "myPool" -BatchContext $context
 
 ### <a name="use-the-maxcount-parameter"></a>使用 MaxCount 參數
 
-依預設，每個 Cmdlet 最多傳回 1000 個物件。 如果到達此限制，請調整您的篩選器以傳回較少的物件，或使用 **MaxCount** 參數明確地設定最大值。 例如:
+依預設，每個 Cmdlet 最多傳回 1000 個物件。 如果到達此限制，請調整您的篩選器以傳回較少的物件，或使用 **MaxCount** 參數明確地設定最大值。 例如：
 
 ```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context
@@ -301,7 +301,7 @@ Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Res
 ```
 
 > [!TIP]
-> 您可以將多個應用程式套件部署至集區中的計算節點。 如果您想要新增  應用程式套件，而非取代目前部署的套件，請省略上面的 `$pool.ApplicationPackageReferences.Clear()` 一行。
+> 您可以將多個應用程式套件部署至集區中的計算節點。 如果您想要新增應用程式套件，而非取代目前部署的套件，請省略上面的 `$pool.ApplicationPackageReferences.Clear()` 一行。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -4,16 +4,19 @@ description: 如何在 Azure 上部署和設定 Hyperledger Fabric 聯盟網路�
 ms.date: 05/09/2019
 ms.topic: article
 ms.reviewer: caleteet
-ms.openlocfilehash: be35cfa26204b36ad65da91252144b9167cb9e54
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 3e7dcd3cdcfa636c0b23ac6643bd7732e7f8ada0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325140"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029158"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger Fabric 聯盟網路
 
 您可以使用 Hyperledger Fabric 聯盟解決方案範本在 Azure 上部署和設定 Hyperledger Fabric 聯盟網路。
+
+> [!IMPORTANT]
+> [Azure 上的 Hyperledger 網狀架構](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-azure-blockchain.azure-blockchain-hyperledger-fabric)範本即將淘汰。 請改為[在 Azure Kubernetes Service 上使用 Hyperledger 網狀架構](hyperledger-fabric-consortium-azure-kubernetes-service.md)。  
 
 閱讀本文之後，您將能夠：
 
@@ -50,7 +53,7 @@ ms.locfileid: "74325140"
 
 ![多個虛擬機器架構](./media/hyperledger-fabric-consortium-blockchain/hlf-multi-arch.png)
 
-## <a name="getting-started"></a>快速入門
+## <a name="getting-started"></a>開始使用
 
 若要開始，您需要可支援部署數個虛擬機器和標準儲存體帳戶的 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，則可[建立免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -64,13 +67,13 @@ ms.locfileid: "74325140"
 
 範本部署會引導您設定多節點 [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) 網路。 部署流程分成四個步驟：基本概念、聯盟網路設定、網狀架構設定和選擇性元件。
 
-### <a name="basics"></a>基本
+### <a name="basics"></a>基本概念
 
 在 [基本資料] 中，為任何部署指定標準參數的值。 例如，訂用帳戶、資源群組及基本虛擬機器屬性。
 
-![基本](./media/hyperledger-fabric-consortium-blockchain/basics.png)
+![基本概念](./media/hyperledger-fabric-consortium-blockchain/basics.png)
 
-| 參數名稱 | 描述 | 允許的值 |
+| 參數名稱 | 說明 | 允許的值 |
 |---|---|---|
 **資源前置詞** | 部署時所佈建資源的名稱前置詞 |6 個字元以下 |
 **使用者名稱** | 為此成員所部署的每個虛擬機器，其管理員的使用者名稱 |1 - 64 個字元 |
@@ -79,7 +82,7 @@ ms.locfileid: "74325140"
 **SSH 金鑰 (驗證類型 = SSH 公開金鑰)** |用於遠端登入的安全殼層金鑰 ||
 **訂用帳戶** |要作為部署目的地的訂用帳戶 ||
 **資源群組** |要對其部署聯盟網路的資源群組 ||
-<bpt id="p1">**</bpt>Location<ept id="p1">**</ept> |要在其中部署第一個成員的 Azure 區域 ||
+**位置** |要在其中部署第一個成員的 Azure 區域 ||
 
 選取 [確定]。
 
@@ -89,12 +92,12 @@ ms.locfileid: "74325140"
 
 ![聯盟網路設定](./media/hyperledger-fabric-consortium-blockchain/network-settings.png)
 
-| 參數名稱 | 描述 | 允許的值 |
+| 參數名稱 | 說明 | 允許的值 |
 |---|---|---|
 **網路組態** |您可以選擇建立新的，或加入現有的網路。 如果選擇*加入現有*，您需要提供其他的值。 |新增網路 <br/> 加入現有的 |
 **HLF CA 密碼** |用於部署時建立的憑證授權單位所產生憑證的密碼。 密碼必須包含下列其中三個字元類型：1 個大寫字元、1 個小寫字元、1 個數字與 1 個特殊字元。<br /><br />所有虛擬機器一開始都有相同的密碼，但您可以在佈建之後變更密碼。|1 - 25 個字元 |
-**組織設定** |您可以自訂組織的名稱和憑證，或使用預設值。|預設值 <br/> 進階 |
-**VPN 網路設定** | 佈建 VPN 通道閘道以存取 VM | yes <br/> 否 |
+**組織設定** |您可以自訂組織的名稱和憑證，或使用預設值。|預設 <br/> 進階 |
+**VPN 網路設定** | 佈建 VPN 通道閘道以存取 VM | 是 <br/> 否 |
 
 選取 [確定]。
 
@@ -104,16 +107,16 @@ ms.locfileid: "74325140"
 
 ![Fabric 設定](./media/hyperledger-fabric-consortium-blockchain/fabric-specific-settings.png)
 
-| 參數名稱 | 描述 | 允許的值 |
+| 參數名稱 | 說明 | 允許的值 |
 |---|---|---|
 **調整類型** |部署類型可以是單一虛擬機器具備多個容器，或在相應放大模型中具備多個虛擬機器。|單一 VM 或多個 VM |
-**VM 磁碟類型** |支援每個所部署節點的儲存體類型。 <br/> 若要深入了解可用的磁碟類型，請參閱[選取磁碟類型](../../virtual-machines/windows/disks-types.md)。|標準 SSD <br/> 進階 SSD |
+**VM 磁碟類型** |支援每個所部署節點的儲存體類型。 <br/> 若要深入了解可用的磁碟類型，請參閱[選取磁碟類型](../../virtual-machines/windows/disks-types.md)。|標準 SSD <br/> 高階 SSD |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>多個 VM 部署 (額外設定)
 
 ![適用於多個 VM 部署的網狀架構設定](./media/hyperledger-fabric-consortium-blockchain/multiple-vm-deployment.png)
 
-| 參數名稱 | 描述 | 允許的值 |
+| 參數名稱 | 說明 | 允許的值 |
 |---|---|---|
 **排序者節點數目** |將交易排序 (組織) 到區塊的節點數目。 <br />如需排序服務的其他詳細資料，請瀏覽 Hyperledger [文件](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) |1 - 4 |
 **排序者節點的虛擬機器大小** |網路中排序者節點所使用的虛擬機器大小|標準 Bs、<br />標準 Ds、<br />標準 FS |
@@ -133,7 +136,7 @@ ms.locfileid: "74325140"
 
 在 [摘要] 中，檢閱所指定的輸入，並執行基本的預先部署驗證。
 
-![Summary](./media/hyperledger-fabric-consortium-blockchain/summary.png)
+![摘要](./media/hyperledger-fabric-consortium-blockchain/summary.png)
 
 檢閱法律和隱私權條款，然後選取 [購買] 以進行部署。 根據所要佈建的 VM 數目，部署時間可能會從幾分鐘到數十分鐘不等。
 

@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 8b805f01722c58d60e994a3a6b2440bb115b1bfa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0fa4c7fa42cbc0eceb9efd2f364a0fbcab1698e1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351270"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975680"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>關於 Azure 儲存體移轉的常見問題集
 
-本文提供 Azure 儲存體移轉的常見問題解答。 
+本文提供 Azure 儲存體移轉的常見問題解答。
 
 ## <a name="faq"></a>常見問題集
 
@@ -31,10 +31,10 @@ ms.locfileid: "75351270"
     /S
 
 AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservices/copy-blob) \(英文\) 來複製容器中的各個檔案。  
-  
+
 只要具有網際網路存取權限，任何虛擬機器或本機電腦都可以用來執行 AzCopy。 您也可以使用 Azure Batch 排程自動執行此操作，但是會比較複雜。  
-  
-自動化指令碼是專門為了部署 Azure Resource Manager 所設計，而不是用來操作儲存體內容。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/resource-group-template-deploy.md)。
+
+自動化指令碼是專門為了部署 Azure Resource Manager 所設計，而不是用來操作儲存體內容。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/templates/deploy-powershell.md)。
 
 **有兩個檔案共用，位在相同區域的相同儲存體帳戶上，在這兩者間複製資料是否收取費用？**
 
@@ -43,14 +43,14 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
 **如何將我的整個儲存體帳戶備份到其他儲存體帳戶？**
 
 沒有選項可直接備份整個儲存體帳戶。 但您可以使用 AzCopy 或儲存體總管，將該儲存體帳戶中的容器手動移動至另一個帳戶。 下列步驟示範了如何使用 AzCopy 移動容器：  
- 
+
 
 1.  安裝 [AzCopy](storage-use-azcopy.md) 命令列工具。 此工具可協助您在儲存體帳戶之間移動 VHD 檔案。
 
 2.  以安裝程式在 Windows 上安裝好 AzCopy 之後，請開啟 [命令提示字元] 視窗，然後瀏覽至您電腦上的 AzCopy 安裝資料夾。 根據預設，AzCopy 會安裝到 **%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy** 或 **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**。
 
 3.  執行下列命令以移動容器。 您必須以實際值來取代文字。   
-     
+
             AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
@@ -157,7 +157,7 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
     $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
 
     $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
-    ``` 
+    ```
 
 如需進一步瞭解如何部署受控磁碟中的虛擬機器，請參閱 [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1)。
 
@@ -170,10 +170,10 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
 建立儲存體帳戶時，您可以為帳戶選取主要區域。 次要地區的選擇是以主要地區為準，無法變更。 如需詳細資訊，請參閱[異地備援儲存體 (GRS)：適用於 Azure 儲存體的跨區域複寫](storage-redundancy.md)。
 
 **我可以從哪裡取得更多關於 Azure 儲存體服務加密 (SSE) 的資訊？**  
-  
+
 查看下列文章：
 
--  [Azure 儲存體安全性指南](storage-security-guide.md)
+-  [Azure 儲存體安全性指南](../blobs/security-recommendations.md)
 
 -  [待用資料的 Azure 儲存體服務加密](storage-service-encryption.md)
 
@@ -194,11 +194,11 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
 
 **將儲存體帳戶的複寫從異地備援儲存體變更為本地備援儲存體是否有任何必要條件？**
 
-不會。 
+不會。
 
 **如何存取 Azure 檔案備援儲存體？**
 
-需有讀取權限異地備援儲存體，才能存取備援儲存體。 不過，Azure 檔案只支援本機備援儲存體和不允許唯讀權限的異地備援儲存體。 
+需有讀取權限異地備援儲存體，才能存取備援儲存體。 不過，Azure 檔案只支援本機備援儲存體和不允許唯讀權限的異地備援儲存體。
 
 **如何從進階儲存體移至標準儲存體帳戶？**
 
@@ -207,12 +207,12 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
 1.  建立標準儲存體帳戶。 (或使用訂用帳戶中的現有標準儲存體帳戶。)
 
 2.  下載 AzCopy。 執行下列其中一個 AzCopy 命令。
-      
+
     若要複製儲存體帳戶中的整個磁碟：
 
         AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-        /SourceKey:key1 /DestKey:key2 /S 
+        /SourceKey:key1 /DestKey:key2 /S
 
     若只要複製一個磁碟，請在 **Pattern**  中提供磁碟的名稱：
 
@@ -220,11 +220,11 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
         /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
 
-   
+
 此作業可能需花費數小時才能完成。
 
 若要確定是否順利完成傳輸，可以至 Azure 入口網站檢查目的地儲存體帳戶容器。 當磁碟複製到標準儲存體帳戶之後，您可以將其附加到虛擬機器作為現有磁碟使用。 如需詳細資訊，請參閱[如何在 Azure 入口網站中將受控資料磁碟連結至 Windows 虛擬機器](../../virtual-machines/windows/attach-managed-disk-portal.md)。  
-  
+
 **如何將檔案共用轉換至 Azure 進階儲存體？**
 
 Azure 檔案共用不允許使用進階儲存體。
@@ -249,7 +249,7 @@ Azure 檔案共用不允許使用進階儲存體。
 
       azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
 
-- 上傳單一 Blob： 
+- 上傳單一 Blob：
 
       azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
 
@@ -257,7 +257,7 @@ Azure 檔案共用不允許使用進階儲存體。
 
 若要讓其他人存取儲存體資源：
 
--   請使用共用存取簽章 (SAS) 權杖來提供資源的存取權。 
+-   請使用共用存取簽章 (SAS) 權杖來提供資源的存取權。
 
 -   將儲存體帳戶的主要或次要金鑰提供給使用者。 如需詳細資訊，請參閱[管理儲存體帳戶存取金鑰](storage-account-keys-manage.md)。
 
@@ -276,9 +276,9 @@ Azure 檔案共用不允許使用進階儲存體。
 -   如果您使用的是區域備援儲存體或異地備援儲存體，除非您起始以該區域為目的地的容錯移轉，否則無法從次要區域存取資料。 如需容錯移轉程序的詳細資訊，請參閱 [Azure 儲存體的災害復原和儲存體帳戶容錯移轉 (預覽)](storage-disaster-recovery-guidance.md)。
 
 -   如果您使用的是讀取權限異地備援儲存體，可以隨時存取次要區域中的資料。 請使用下列其中一個方法：  
-      
+
     - **AzCopy**：將 **-secondary** 附加至 URL 中的儲存體帳戶名稱，即可存取次要端點。 例如：  
-     
+
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **SAS 權杖**︰使用 SAS 權杖以存取來自端點的資料。 如需詳細資訊，請參閱[使用共用存取簽章](storage-sas-overview.md)。

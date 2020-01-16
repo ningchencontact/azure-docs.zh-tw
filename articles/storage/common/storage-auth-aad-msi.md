@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c0b07cc001f65ff369f87954779634b8b49ba4ec
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f3bac0d47a53da1ec4d1fa08b5f0933f5f65dc56
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892046"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965769"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>使用 Azure 資源的受控識別來授權 blob 和佇列資料的存取
 
@@ -93,7 +93,7 @@ az ad sp create-for-rbac \
 
 Azure 身分識別用戶端程式庫會在執行時間讀取來自三個環境變數的值，以驗證服務主體。 下表描述要針對每個環境變數設定的值。
 
-|環境變數|Value
+|環境變數|值
 |-|-
 |`AZURE_CLIENT_ID`|服務主體的應用程式識別碼
 |`AZURE_TENANT_ID`|服務主體的 Azure AD 租使用者識別碼
@@ -164,4 +164,4 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 - [使用 RBAC 管理儲存體資料的存取權限](storage-auth-aad-rbac.md)。
 - 搭配[使用 Azure AD 與儲存體應用程式](storage-auth-aad-app.md)。
-- [執行 Azure CLI 或具有 Azure AD 認證的 PowerShell 命令，以存取 blob 或佇列資料](storage-auth-aad-script.md)。
+- [執行 Azure CLI 或具有 Azure AD 認證的 PowerShell 命令，以存取 blob 或佇列資料](authorize-active-directory-powershell.md)。

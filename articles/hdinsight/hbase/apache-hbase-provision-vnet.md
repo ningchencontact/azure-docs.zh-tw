@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: c128f17a3d2c4f5461a04ae375e05336cc994b4b
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e4e15d1c6554fc567f668b2033bff5b5664db918
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552299"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972786"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虛擬網路中的 HDInsight 上建立 Apache HBase 叢集
 
@@ -29,7 +29,7 @@ ms.locfileid: "75552299"
 
 ## <a name="create-apache-hbase-cluster-into-virtual-network"></a>在虛擬網路中建立 Apache HBase 叢集
 
-在本節中，您會使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-template-deploy.md)，在 Azure 虛擬網路中建立以 Linux 為基礎的 Apache HBase 叢集與相依的 Azure 儲存體帳戶。 如需其他叢集建立方法及了解各項設定，請參閱 [建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。 如需有關使用範本在 HDInsight 中建立 Apache Hadoop 叢集的詳細資訊，請參閱 [使用 Azure Resource Manager 範本在 HDInsight 中建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+在本節中，您會使用 [Azure Resource Manager 範本](../../azure-resource-manager/templates/deploy-powershell.md)，在 Azure 虛擬網路中建立以 Linux 為基礎的 Apache HBase 叢集與相依的 Azure 儲存體帳戶。 如需其他叢集建立方法及了解各項設定，請參閱 [建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。 如需有關使用範本在 HDInsight 中建立 Apache Hadoop 叢集的詳細資訊，請參閱 [使用 Azure Resource Manager 範本在 HDInsight 中建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]  
 > 某些屬性已以硬式編碼方式寫入範本。 例如：

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: 14daa37a414e814ed6de036bbb625933ce2532e0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 24746b7bbbbf3985a9801139b301a829c51a14da
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888119"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030075"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用 HTTP webhook，建立並執行自動化事件型工作流程
 
@@ -36,7 +36,16 @@ HTTP webhook 動作也是以事件為基礎，並且會藉由向該服務或端�
 例如，Office 365 Outlook 連接器的 [[**傳送核准電子郵件**](connectors-create-api-office365-outlook.md)] 動作是遵循此模式的 webhook 動作範例。 您可以使用 webhook 動作，將此模式延伸至任何服務。
 
 > [!NOTE]
-> Logic Apps 在收到 HTTP webhook 觸發程式或動作的回呼時，會強制執行傳輸層安全性（TLS）1.2。 如果您看到 SSL 交握錯誤，請確定您使用的是 TLS 1.2。
+> Logic Apps 在收到 HTTP webhook 觸發程式或動作的回呼時，會強制執行傳輸層安全性（TLS）1.2。 如果您看到 SSL 交握錯誤，請確定您使用的是 TLS 1.2。 對於傳入的呼叫，以下是支援的加密套件：
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 如需詳細資訊，請參閱下列主題：
 

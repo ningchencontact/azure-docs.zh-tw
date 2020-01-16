@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 15db96824336c92611b9e1113c42c621f6508744
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f0db35e188aeca4de7b74d6c3e4dfc45b349279a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978112"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972718"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure 儲存體 Blob 的虛刪除
 
@@ -68,11 +68,11 @@ Azure 儲存體現在提供 Blob 物件的虛刪除功能，因此，當應用�
 > [!NOTE]  
 > 在覆寫已虛刪除的 Blob 時，將會自動產生該 Blob 在寫入作業之前所處狀態的虛刪除快照集。 覆寫的 Blob 層會由新的 Blob 繼承。
 
-如果是刪除容器或帳戶，或是覆寫了 Blob 中繼資料和 Blob 屬性，虛刪除將不會儲存您的資料。 若要防止儲存體帳戶誤遭刪除，您可以使用 Azure Resource Manager 設定鎖定。 若要深入了解，請參閱 Azure Resource Manager 文章[鎖定資源以防止非預期的變更](../../azure-resource-manager/resource-group-lock-resources.md)。
+如果是刪除容器或帳戶，或是覆寫了 Blob 中繼資料和 Blob 屬性，虛刪除將不會儲存您的資料。 若要防止儲存體帳戶誤遭刪除，您可以使用 Azure Resource Manager 設定鎖定。 若要深入了解，請參閱 Azure Resource Manager 文章[鎖定資源以防止非預期的變更](../../azure-resource-manager/management/lock-resources.md)。
 
 下表將詳細說明虛刪除開啟時的預期行為：
 
-| REST API 作業 | 資源類型 | 描述 | 行為變更 |
+| REST API 作業 | 資源類型 | 說明 | 行為變更 |
 |--------------------|---------------|-------------|--------------------|
 | [刪除](/rest/api/storagerp/StorageAccounts/Delete) | 帳戶 | 刪除儲存體帳戶，包括其中包含的所有容器和 Blob。                           | 無變更。 已刪除之帳戶中的容器和 Blob 無法復原。 |
 | [刪除容器](/rest/api/storageservices/delete-container) | 容器 | 刪除容器，包括其中包含的所有 Blob。 | 無變更。 已刪除之容器中的 Blob 無法復原。 |
@@ -335,7 +335,7 @@ blockBlob.StartCopy(copySource);
 
 ### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>如果我刪除已開啟虛刪除的整個帳戶或容器，是否會儲存所有相關聯的 blob？
 
-不會，如果您刪除整個帳戶或容器，將會永久刪除所有相關聯的 Blob。 如需保護儲存體帳戶不被意外刪除的詳細資訊，請參閱[鎖定資源以防止非預期的變更](../../azure-resource-manager/resource-group-lock-resources.md)。
+不會，如果您刪除整個帳戶或容器，將會永久刪除所有相關聯的 Blob。 如需保護儲存體帳戶不被意外刪除的詳細資訊，請參閱[鎖定資源以防止非預期的變更](../../azure-resource-manager/management/lock-resources.md)。
 
 ### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>我可以查看已刪除資料的容量計量嗎？
 

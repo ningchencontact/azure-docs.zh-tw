@@ -3,16 +3,16 @@ title: 轉譯應用程式 - Azure Batch
 description: 預先安裝的 Batch 轉譯應用程式
 services: batch
 ms.service: batch
-author: laurenhughes
-ms.author: lahugh
+author: ju-shim
+ms.author: jushiman
 ms.date: 09/19/2019
 ms.topic: conceptual
-ms.openlocfilehash: 30a365b36645dfe79f35b4bb889c0a06535a4c73
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 367f7655c32c30f11b37c86c098d76e146fec69c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212720"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026580"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>在轉譯的 VM 映像上預先安裝的應用程式
 
@@ -64,7 +64,7 @@ ms.locfileid: "71212720"
 * AZ 10
 
 > [!IMPORTANT]
-> 若要在[Azure Batch 延伸模組範本](https://github.com/Azure/batch-extension-templates)外執行具有 Maya 的 V-Ray `vrayses.exe` ，請先啟動，再執行轉譯。 若要在範本外啟動 vrayses，您可以使用下列命令`%MAYA_2017%\vray\bin\vrayses.exe"`。
+> 若要在[Azure Batch 延伸模組範本](https://github.com/Azure/batch-extension-templates)外執行具有 Maya 的 V-Ray，請先啟動 `vrayses.exe` 再執行轉譯。 若要在範本外啟動 vrayses，您可以使用下列命令 `%MAYA_2017%\vray\bin\vrayses.exe"`。
 >
 > 如需範例，請參閱 GitHub 上的[Maya 和 V Ray 範本](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json)的啟動工作。
 

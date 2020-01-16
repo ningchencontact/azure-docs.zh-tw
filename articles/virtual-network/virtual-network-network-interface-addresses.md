@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: 1a6fb5d2b27996d67e0bf27eb57d16f4d2fb2797
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dc5b1f2f8e8b529149184ce173bcdd315311bad4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647249"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975319"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>新增、變更或移除 Azure 網路介面的 IP 位址
 
@@ -146,7 +146,7 @@ ms.locfileid: "75647249"
 4. 啟動虛擬機器。
 5. [手動設定](virtual-network-multiple-ip-addresses-portal.md#os-config)作業系統內的次要 IP 位址 (以及 Windows 內的主要 IP 位址)，以符合您在 Azure 中的設定。
 
-若依上述步驟執行，指派給 Azure 內之網路介面的私人 IP 位址，將與虛擬機器作業系統內的私人 IP 位址相同。 若要記錄訂用帳戶內已為哪些虛擬機器手動設定作業系統內的 IP 位址，請考慮在虛擬機器加入 Azure[標記](../azure-resource-manager/resource-group-using-tags.md)。 例如，您可以使用「IP 位址指派：靜態」。 如此一來，就可以輕鬆了解在訂用帳戶內，已為哪些虛擬機器手動設定作業系統內的 IP 位址。
+若依上述步驟執行，指派給 Azure 內之網路介面的私人 IP 位址，將與虛擬機器作業系統內的私人 IP 位址相同。 若要記錄訂用帳戶內已為哪些虛擬機器手動設定作業系統內的 IP 位址，請考慮在虛擬機器加入 Azure[標記](../azure-resource-manager/management/tag-resources.md)。 例如，您可以使用「IP 位址指派：靜態」。 如此一來，就可以輕鬆了解在訂用帳戶內，已為哪些虛擬機器手動設定作業系統內的 IP 位址。
 
 除了讓虛擬機器與同一虛擬網路或已連線虛擬網路內的其他資源通訊，私人 IP 位址也可讓虛擬機器與網際網路進行輸出通訊。 輸出連線是由 Azure 轉譯為不可預測的公用 IP 位址的來源網路位址。 若要深入了解 Azure 輸出網際網路連線能力，請閱讀[Azure 輸出網際網路連線能力](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)一文。 您無法從網際網路對虛擬機器的私人 IP 位址進行輸入通訊。 如果您的輸出連線需要可預測的公用 IP 位址，請建立公用 IP 位址資源與網路介面的關聯。
 

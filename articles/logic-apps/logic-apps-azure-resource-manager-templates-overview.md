@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 000271095530e269472fba4bc5f1c5563aa16ff9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 41410d4e534d0940050521ecc86e8a384566f439
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428810"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972690"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>總覽：使用 Azure Resource Manager 範本自動部署 Azure Logic Apps
 
 當您準備好要自動建立和部署邏輯應用程式時，您可以將邏輯應用程式的基礎工作流程定義擴充到[Azure Resource Manager 範本](../azure-resource-manager/management/overview.md)中。 此範本會定義用來布建和部署邏輯應用程式的基礎結構、資源、參數和其他資訊。 藉由定義不同部署（也稱為*參數*化）的值參數，您可以根據不同的部署需求，重複且一致地部署邏輯應用程式。
 
-例如，如果您部署至開發、測試和生產環境，您可能會在每個環境中使用不同的連接字串。 您可以宣告接受不同連接字串的範本參數，然後將這些字串儲存在不同的[參數](../azure-resource-manager/templates/parameter-files.md)檔案中。 如此一來，您就可以變更這些值，而不需要更新和重新部署範本。 對於您有機密或必須受到保護之參數值的案例（例如密碼和秘密），您可以將這些值儲存在[Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)中，並讓您的參數檔案抓取這些值。 不過，在這些情況下，您會重新部署以取得目前的值。
+例如，如果您部署至開發、測試和生產環境，您可能會在每個環境中使用不同的連接字串。 您可以宣告接受不同連接字串的範本參數，然後將這些字串儲存在不同的[參數](../azure-resource-manager/templates/parameter-files.md)檔案中。 如此一來，您就可以變更這些值，而不需要更新和重新部署範本。 對於您有機密或必須受到保護之參數值的案例（例如密碼和秘密），您可以將這些值儲存在[Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)中，並讓您的參數檔案抓取這些值。 不過，在這些情況下，您會重新部署以取得目前的值。
 
 本總覽描述 Resource Manager 範本中的屬性，其中包含邏輯應用程式工作流程定義。 範本和您的工作流程定義都使用 JSON 語法，但有一些差異存在，因為工作流程定義也會遵循[工作流程定義語言架構](../logic-apps/logic-apps-workflow-definition-language.md)。 例如，範本運算式和工作流程定義運算式的[參考參數](#parameter-references)和其可接受的值有何不同。
 
@@ -31,8 +31,8 @@ ms.locfileid: "75428810"
 如需 Resource Manager 範本的詳細資訊，請參閱下列主題：
 
 * [Azure Resource Manager 範本結構和語法](../azure-resource-manager/templates/template-syntax.md)
-* [Azure Resource Manager 範本最佳做法](../azure-resource-manager/template-best-practices.md)
-* [針對雲端一致性開發 Azure Resource Manager 範本](../azure-resource-manager/templates-cloud-consistency.md)
+* [Azure Resource Manager 範本最佳做法](../azure-resource-manager/templates/template-best-practices.md)
+* [針對雲端一致性開發 Azure Resource Manager 範本](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
 如需範例邏輯應用程式範本，請參閱下列範例：
 
@@ -149,7 +149,7 @@ ms.locfileid: "75428810"
 
 * [範本參數的安全性建議](../azure-resource-manager/templates/template-best-practices.md#parameters)
 * [安全範本參數](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
-* [使用 Azure Key Vault 傳遞安全參數值](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+* [使用 Azure Key Vault 傳遞安全參數值](../azure-resource-manager/templates/key-vault-parameter.md)
 
 其他範本物件通常會參考樣板參數，讓它們可以使用透過範本參數傳遞的值，例如：
 
@@ -173,7 +173,7 @@ ms.locfileid: "75428810"
 
   * [安全範本參數](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
-  * [使用 Azure Key Vault 傳遞安全參數值](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+  * [使用 Azure Key Vault 傳遞安全參數值](../azure-resource-manager/templates/key-vault-parameter.md)
 
 * 若要區別範本參數名稱與工作流程定義參數名稱，您可以使用描述性範本參數名稱，例如： `TemplateFabrikamPassword`
 
@@ -188,7 +188,7 @@ ms.locfileid: "75428810"
 * 邏輯應用程式範本檔案名： **<*邏輯-應用程式名稱*>. json**
 * 參數檔案名： **<*邏輯-應用程式名稱*>. parameters. json**
 
-以下是參數檔案內的結構，其中包含用來[傳遞安全參數值與 Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)的金鑰保存庫參考：
+以下是參數檔案內的結構，其中包含用來[傳遞安全參數值與 Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)的金鑰保存庫參考：
 
 ```json
 {
@@ -409,7 +409,7 @@ ms.locfileid: "75428810"
 
 對於在執行時間處理機密資訊、密碼、存取金鑰或密碼的工作流程定義參數，請宣告或編輯參數，以使用 `securestring` 或 `secureobject` 參數類型。 您可以在工作流程定義中，同時參考此參數。 在範本的最上層，宣告具有相同類型的參數，以便在部署時處理此資訊。
 
-若要設定工作流程定義參數的值，請使用工作流程定義*以外*但仍在邏輯應用程式資源定義*內*的 `parameters` 物件，來參考範本參數。 最後，若要在部署時將值傳遞給您的範本參數，請將該值儲存在[Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)中，並在部署時于範本所使用的[參數](#template-parameter-files)檔案中參考該金鑰保存庫。
+若要設定工作流程定義參數的值，請使用工作流程定義*以外*但仍在邏輯應用程式資源定義*內*的 `parameters` 物件，來參考範本參數。 最後，若要在部署時將值傳遞給您的範本參數，請將該值儲存在[Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)中，並在部署時于範本所使用的[參數](#template-parameter-files)檔案中參考該金鑰保存庫。
 
 此範例範本會顯示如何在必要時定義安全的參數來完成這些工作，讓您可以將其值儲存在 Azure Key Vault 中：
 
@@ -558,7 +558,7 @@ ms.locfileid: "75428810"
 
   * [工作流程定義中參數的安全性建議](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow)
 
-  * [使用 Azure Key Vault 傳遞安全參數值](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+  * [使用 Azure Key Vault 傳遞安全參數值](../azure-resource-manager/templates/key-vault-parameter.md)
 
 如需工作流程定義參數的詳細資訊，請參閱[參數-工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md#parameters)。
 
@@ -652,7 +652,7 @@ ms.locfileid: "75428810"
 
 * 在您的工作流程定義*之外*，但仍在邏輯應用程式的資源定義*內*，另一個 `parameters` 物件會藉由參考對應的範本參數，設定要在執行時間用於 `$connections` 參數的值。 這些值會使用範本運算式來參考資源，以安全地將連接的中繼資料儲存在邏輯應用程式中。
 
-  例如，中繼資料可以包含連接字串和存取權杖，您可以將它們儲存在[Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)中。 若要將這些值傳遞至您的範本參數，您可以在部署時于範本所使用的[參數](#template-parameter-files)檔案中參考該金鑰保存庫。 如需參考參數之差異的詳細資訊，請參閱本主題稍後的[參數參考](#parameter-references)。
+  例如，中繼資料可以包含連接字串和存取權杖，您可以將它們儲存在[Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)中。 若要將這些值傳遞至您的範本參數，您可以在部署時于範本所使用的[參數](#template-parameter-files)檔案中參考該金鑰保存庫。 如需參考參數之差異的詳細資訊，請參閱本主題稍後的[參數參考](#parameter-references)。
 
   當您透過 Azure 入口網站或 Visual Studio 在程式碼視圖中開啟邏輯應用程式的工作流程定義時，`$connections` 物件會出現在工作流程定義的外部，但位於相同的層級。 當您手動更新工作流程定義時，程式碼視圖中的這個順序可讓您更輕鬆地參考這些參數：
 
@@ -744,7 +744,7 @@ ms.locfileid: "75428810"
 
 ### <a name="secure-connection-parameters"></a>安全連線參數
 
-針對處理機密資訊、密碼、存取金鑰或密碼的連線參數，連線的資源定義包括以成對的名稱/值組格式指定這些值的 `parameterValues` 物件。 若要隱藏這項資訊，您可以使用 `securestring` 或 `secureobject` 參數類型，宣告或編輯這些值的範本參數。 然後，您可以將該資訊儲存在[Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)中。 若要將這些值傳遞至您的範本參數，您可以在部署時于範本所使用的[參數](#template-parameter-files)檔案中參考該金鑰保存庫。
+針對處理機密資訊、密碼、存取金鑰或密碼的連線參數，連線的資源定義包括以成對的名稱/值組格式指定這些值的 `parameterValues` 物件。 若要隱藏這項資訊，您可以使用 `securestring` 或 `secureobject` 參數類型，宣告或編輯這些值的範本參數。 然後，您可以將該資訊儲存在[Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)中。 若要將這些值傳遞至您的範本參數，您可以在部署時于範本所使用的[參數](#template-parameter-files)檔案中參考該金鑰保存庫。
 
 以下範例會提供 Azure Blob 儲存體連接的帳戶名稱和存取金鑰：
 
@@ -1011,7 +1011,7 @@ ms.locfileid: "75428810"
 
 ## <a name="references-to-parameters"></a>參數的參考
 
-若要參考樣板參數，您可以使用樣板運算式搭配[範本](../azure-resource-manager/resource-group-template-functions.md)函式，這些函式會在部署時進行評估。 範本運算式會使用方括弧（ **[]** ）：
+若要參考樣板參數，您可以使用樣板運算式搭配[範本](../azure-resource-manager/templates/template-functions.md)函式，這些函式會在部署時進行評估。 範本運算式會使用方括弧（ **[]** ）：
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 

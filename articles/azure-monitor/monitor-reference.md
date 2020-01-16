@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 630eeb8ec5582f2dc968a10e7cf1b5750683cf66
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 21ad0c38b8901c1e33e05ab162552cb074a392a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830541"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969604"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure 監視器監視的內容為何？
 本文說明 Azure 監視器監視的不同應用程式和服務。 
@@ -177,7 +177,7 @@ ms.locfileid: "75830541"
 |:---|:---|
 | [Azure 自動化](/azure/automation/) | 管理作業系統更新，並追蹤 Windows 和 Linux 電腦上的變更。 請參閱[變更追蹤](../automation/change-tracking.md)和[更新管理](../automation/automation-update-management.md)。 |
 | [Azure 資訊保護](https://docs.microsoft.com/azure/information-protection/) | 分類並選擇性地保護檔和電子郵件。 請參閱[Azure 資訊保護的集中報告](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports)。 |
-| [Azure 資訊安全中心](/azure/security-center/) | 收集和分析安全性事件，並執行威脅分析。 請參閱[Azure 資訊安全中心中的資料收集](/security-center/security-center-enable-data-collection.md) |
+| [Azure 資訊安全中心](/azure/security-center/) | 收集和分析安全性事件，並執行威脅分析。 請參閱[Azure 資訊安全中心中的資料收集](/azure/security-center/security-center-enable-data-collection) |
 | [Azure Sentinel](/azure/sentinel/) | 連接到不同的來源，包括 Office 365 和 Amazon Web Services 雲端記錄。 請參閱[連接資料來源](/azure/sentinel/connect-data-sources)。 |
 | [金鑰保存庫分析](insights/azure-key-vault.md) | 分析 Azure Key Vault AuditEvent 記錄。 |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | 建立診斷設定，以將記錄檔傳送至 Azure 監視器。 請參閱[在 Intune 中將記錄資料傳送至儲存體、事件中樞或 log analytics （預覽）](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor)。  |

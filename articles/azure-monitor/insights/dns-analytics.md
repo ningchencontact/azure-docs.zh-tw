@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 6500020d9d1c7c735206efe8ebb08fd908eee10d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bca77db3452aecb31852c4c50e7754c7777fc458
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75403255"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971267"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>收集搭配 DNS 分析預覽版解決方案使用 DNS 基礎結構的深入解析
 
@@ -100,7 +100,7 @@ DNS 圖格包含收集到的資料所在的 DNS 伺服器之數目。 它也包�
 
 ![[DNS 安全性] 刀鋒視窗](./media/dns-analytics/dns-security-blade.png)
 
-當您按一下清單中的用戶端 IP 時，記錄搜尋就會開啟，其中顯示個別查詢的查閱詳細資料。 在下列範例中，DNS 分析偵測到透過 [IRCbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot) 進行的通訊：
+當您按一下清單中的用戶端 IP 時，記錄搜尋就會開啟，其中顯示個別查詢的查閱詳細資料。 在下列範例中，DNS 分析偵測到透過 [IRCbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot&threatId=2621) 進行的通訊：
 
 ![顯示 ircbot 的記錄搜尋結果](./media/dns-analytics/ircbot.png)
 

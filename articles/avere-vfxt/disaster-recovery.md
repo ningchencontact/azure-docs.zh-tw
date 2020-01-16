@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 19f31a2fafc112f499ff87eed23843915cab32a2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414228"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966656"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Avere vFXT for Azure 的嚴重損壞修復指引
 
@@ -60,7 +60,7 @@ Avere vFXT for Azure 使用 Azure Blob 核心檔存放區的本機多餘儲存�
 保護 Azure Blob 儲存體中資料的最佳作法包括：
 
 * 經常將重要資料複製到另一個區域中的另一個儲存體帳戶（通常是由您的嚴重損壞修復計畫所決定）。
-* 控制對所有目標系統上資料的存取，以防止意外刪除或損毀。 請考慮在資料存放區上使用[資源鎖定](../azure-resource-manager/resource-group-lock-resources.md)。
+* 控制對所有目標系統上資料的存取，以防止意外刪除或損毀。 請考慮在資料存放區上使用[資源鎖定](../azure-resource-manager/management/lock-resources.md)。
 * 為您的 Blob 核心檔案系統啟用 [Avere vFXT for Azure[雲端快照](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_snapshot_policies.html>)集] 功能。
 
 ### <a name="copy-avere-vfxt-core-filer-data-to-a-backup-account"></a>將 Avere vFXT 核心檔案管理工具資料複製到備份帳戶

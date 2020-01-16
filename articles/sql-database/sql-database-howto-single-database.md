@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 02/08/2019
-ms.openlocfilehash: 3c03797c97a354eb06b6c3b1d76ba5c39d512c18
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 01/14/2020
+ms.openlocfilehash: 4283e1a2c92b7fe738fb57a8103cea1deb0015a0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811212"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027711"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>如何在 Azure SQL Database 中使用單一資料庫
 
@@ -42,7 +42,7 @@ ms.locfileid: "73811212"
 - [啟用自動調整的電子郵件通知](sql-database-automatic-tuning-email-notifications.md)以取得調整建議的相關資訊。
 - [套用效能建議](sql-database-advisor-portal.md)將資料庫最佳化。
 - [建立警示](sql-database-insights-alerts-portal.md)以從 Azure SQL Database 取得通知。
-- 如果發現應用程式與資料庫之間有一些連線問題，請[疑難排解連線](sql-database-troubleshoot-common-connection-issues.md)。 您也可以使用[資源健康狀態了解連線問題](sql-database-resource-health.md)。
+- 如果發現應用程式與資料庫之間有一些連線問題，請[疑難排解連線](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md)。 您也可以使用[資源健康狀態了解連線問題](sql-database-resource-health.md)。
 - [管理檔案空間](sql-database-file-space-management.md)來監視您資料庫中的儲存體使用量。
 
 ## <a name="query-distributed-data"></a>查詢分散式資料

@@ -3,12 +3,12 @@ title: 判斷不符合的原因
 description: 當資源不符合規範時，有許多可能的原因。 學習如何找出導致不符合規範的原因。
 ms.date: 04/26/2019
 ms.topic: how-to
-ms.openlocfilehash: 213797a1eafda10d5e97fbc60fc143de975fe221
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c931831ddf3cc727b9861e75969eac3bf00c9e45
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873126"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972831"
 ---
 # <a name="determine-causes-of-non-compliance"></a>判斷不符合的原因
 
@@ -190,7 +190,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 ## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>變更歷程記錄（預覽）
 
-做為新**公開預覽**的一部分，所有支援[完整模式刪除](../../../azure-resource-manager/complete-mode-deletion.md)的 Azure 資源都可使用變更歷程記錄的過去14天。 變更歷程記錄會提供關於何時偵測到變更的詳細資料，以及每項變更的_視覺化差異_。 新增、移除或更改 Resource Manager 的屬性時，就會觸發變更偵測。
+做為新**公開預覽**的一部分，所有支援[完整模式刪除](../../../azure-resource-manager/templates/complete-mode-deletion.md)的 Azure 資源都可使用變更歷程記錄的過去14天。 變更歷程記錄會提供關於何時偵測到變更的詳細資料，以及每項變更的_視覺化差異_。 新增、移除或更改 Resource Manager 的屬性時，就會觸發變更偵測。
 
 1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
 

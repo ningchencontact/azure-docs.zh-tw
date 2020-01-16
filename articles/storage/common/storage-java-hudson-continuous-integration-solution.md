@@ -9,14 +9,14 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: tarcher
 ms.subservice: common
-ms.openlocfilehash: 75b0ea106be04cd77b18bfed8487edb6a7b7f65b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f8cdd7b950a11045f795ac93d4a0904f2dc526fa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839176"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970184"
 ---
-# <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>使用 Azure 儲存體與 Hudson 連續整合解決方案
+# <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>搭配使用 Azure 儲存體和 Hudson 連續整合解決方案
 ## <a name="overview"></a>概觀
 下列資訊說明如何使用 Blob 儲存體，做為 Hudson 連續整合 (CI) 解決方案所建立的組建構件儲存機制，或做為在組建程序中要使用之可下載檔案的來源。 您會發現這很實用的其中一種情況就是，當您在敏捷式開發環境中編寫程式碼 (使用 Java 或其他語言) 時，組建是根據連續整合來執行，而您需要一個存放庫來存放組建成品，以便能夠將這些成品分享給其他組織成員或客戶，或是維護封存等等。  另一種情況是當組建工作本身需要其他檔案時，例如，要隨組建輸入一起下載的相依性項目。
 
@@ -53,7 +53,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
      
       雖然典型的 Hudson CI 解決方案可設定作為服務執行，但在本教學課程中，您可以直接在命令列中執行 Hudson war。
 * 一個 Azure 帳戶。 您可以在 <https://www.azure.com> 註冊 Azure 帳戶。
-* 一個 Azure 儲存體帳戶。 如果您還沒有儲存體帳戶，可以使用 [建立儲存體帳戶](../common/storage-quickstart-create-account.md)中的步驟建立一個帳戶。
+* 一個 Azure 儲存體帳戶。 如果您還沒有儲存體帳戶，可以使用 [建立儲存體帳戶](../common/storage-account-create.md)中的步驟建立一個帳戶。
 * 建議學習 Hudson CI 解決方案，但這不是必須的，因為下列內容會使用基本範例來說明使用 Blob 服務作為 Hudson CI 組建成品的儲存機制時的所需步驟。
 
 ## <a name="how-to-use-the-blob-service-with-hudson-ci"></a>如何使用 Blob 服務與 Hudson CI
@@ -75,7 +75,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
    
     a. 輸入您的儲存體帳戶名稱，您可以從[Azure 入口網站](https://portal.azure.com)取得。
    
-    b.這是另一個 C# 主控台應用程式。 輸入您的儲存體帳戶金鑰，也可從[Azure 入口網站](https://portal.azure.com)中獲得。
+    b. 輸入您的儲存體帳戶金鑰，也可從[Azure 入口網站](https://portal.azure.com)中獲得。
    
     c. 如果您使用全域 Azure 雲端，請讓 [Blob 服務端點 URL] 使用預設值。 如果您使用不同的 Azure 雲端，請使用儲存體帳戶的[Azure 入口網站](https://portal.azure.com)中指定的端點。
    
@@ -109,7 +109,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
    
     在您為 [Execute Windows batch command] 輸入指令碼的 [命令] 區段下方是個連結，可連結到 Hudson 認可的環境變數。 按一下該連結即可了解各環境變數名稱和描述。 含有特殊字元的環境變數 (例如 **BUILD_URL** 環境變數) 不能當做容器名稱或共同虛擬路徑。
 8. 在此範例中，請按一下 [Make new container public by default]。 (如果您想要使用私用容器，則需要建立共用存取簽章來允許存取。 這已超出本文的範圍。 若要深入了解共用存取簽章，請參閱[使用共用存取簽章 (SAS)](storage-sas-overview.md)。)
-9. [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [Clean container before uploading] (若不想清除容器的內容，請維持不核取)。
+9. [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 **Clean container before uploading** \(若不想清除容器的內容，請維持不核取)。
 10. 在 [List of Artifacts to upload]，輸入 **text/*.txt**。
 11. 在 [Common virtual path for uploaded artifacts]，輸入 **${BUILD\_ID}/${BUILD\_NUMBER}** 。
 12. 按一下 [Save] 儲存您的設定。
@@ -118,7 +118,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
     
     a. 登入 [Azure 入口網站](https://portal.azure.com)。
     
-    b.這是另一個 C# 主控台應用程式。 按一下 [儲存體]。
+    b. 按一下 [儲存體]。
     
     c. 按一下您在 Hudson 中使用的儲存體帳戶名稱。
     
@@ -145,8 +145,8 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 以下提供 Blob 服務元件的概觀。
 
 * **儲存體帳戶**：一律透過儲存體帳戶來存取 Azure 儲存體。 這是存取 blob 用的最高等級的命名空間。 帳戶可以包含不限數目的容器，只要它們的大小總計低於 100 TB 即可。
-* **容器**：容器提供一組 Blob 的群組。 所有 Blob 都必須放在容器中。 一個帳戶可以包含的容器不限數量。 容器可以儲存無限制的 Blob。
-* **Blob**：任何類型和大小的檔案。 Azure 儲存中可以儲存兩種 Blob：區塊 Blob 和分頁 Blob。 大部分檔案都是區塊 Blob。 單一區塊 Blob 的大小上限為 200 GB。 本教學課程使用區塊 Blob。 分頁 Blob (另一種 Blob 類型) 的大小上限為 1 TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。 如需關於 Blob 的詳細資訊，請參閱 [了解區塊 Blob、附加 Blob 及分頁 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx)。
+* **容器**：容器提供一組 Blob 的群組。 所有 Blob 都必須位於容器中。 帳戶可以包含不限制數目的容器。 容器可以儲存不限數目的 Blob。
+* **Blob**：任何類型和大小的檔案。 Azure 儲存體可以儲存的 Blob 類型有兩種：區塊和分頁 Blob。 大部分檔案都是區塊 Blob。 單一區塊 Blob 的大小上限為 200 GB。 本教學課程使用區塊 Blob。 分頁 Blob (另一種 Blob 類型) 的大小上限為 1 TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。 如需關於 Blob 的詳細資訊，請參閱 [了解區塊 Blob、附加 Blob 及分頁 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx)。
 * **URL 格式**：可利用下列 URL 格式來定址 Blob：
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`

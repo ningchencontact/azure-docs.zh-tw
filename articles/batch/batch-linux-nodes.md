@@ -3,7 +3,7 @@ title: 在虛擬機器計算節點上執行 Linux - Azure Batch | Microsoft Docs
 description: 了解如何在 Azure Batch 中處理您的 Linux 虛擬機器集區的平行計算工作負載。
 services: batch
 documentationcenter: python
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: na
 ms.date: 06/01/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18df43ebf3a20547917ddd372d922741b4cee849
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 27273fecc9d117079cfda58d537cf7342d3c5dc4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350118"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027071"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>在 Batch 集區中佈建 Linux 計算節點
 
@@ -30,7 +30,7 @@ ms.locfileid: "71350118"
 >
 >
 
-## <a name="virtual-machine-configuration"></a>虛擬機器組態
+## <a name="virtual-machine-configuration"></a>虛擬機器設定
 在 Batch 中建立計算節點集區時，有兩個選項可選取節點大小和作業系統︰雲端服務組態和虛擬機器組態。
 
 **雲端服務組態**「只」提供 Windows 計算節點。 可用的計算節點大小列於[雲端服務的大小](../cloud-services/cloud-services-sizes-specs.md)，而可用的作業系統則列於 [Azure 客體 OS 版次與 SDK 相容性矩陣](../cloud-services/cloud-services-guestos-update-matrix.md)。 在建立包含 Azure 雲端服務節點的集區時，您要指定節點大小和其 OS 系列，先前提到的文章中會說明這些內容。 針對 Windows 計算節點的集區，最常使用的是雲端服務。
@@ -39,16 +39,16 @@ ms.locfileid: "71350118"
 
 ### <a name="virtual-machine-image-reference"></a>虛擬機器映像參考
 
-Batch 服務使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)來提供虛擬機器設定中的計算節點。 您可以指定[Azure Marketplace][vm_marketplace]中的映射, 或提供您已備妥的自訂映射。 如需自訂映射的詳細資訊，請參閱[使用共用映射資源庫建立集](batch-sig-images.md)區。
+Batch 服務使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)來提供虛擬機器設定中的計算節點。 您可以指定[Azure Marketplace][vm_marketplace]中的映射，或提供您已備妥的自訂映射。 如需自訂映射的詳細資訊，請參閱[使用共用映射資源庫建立集](batch-sig-images.md)區。
 
 設定虛擬機器映像參考時，您會指定虛擬機器映像的屬性。 建立虛擬機器映像參考時，會需要下列屬性︰
 
 | **映像參考屬性** | **範例** |
 | --- | --- |
-| 發行者 |Canonical |
+| 發佈者 |Canonical |
 | 供應項目 |UbuntuServer |
 | SKU |14.04.4-LTS |
-| Version |最新 |
+| 版本 |latest |
 
 > [!TIP]
 > 您可以在[使用 CLI 或 PowerShell 在 Azure 中巡覽並選取 Linux 虛擬機器映像](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)中深入了解這些屬性，以及如何列出 Marketplace 映像。 請注意，並非所有 Marketplace 映像目前都與 Batch 相容。 如需詳細資訊，請參閱 [節點代理程式 SKU](#node-agent-sku)。
@@ -67,10 +67,10 @@ Batch 節點代理程式是一項程式，會在集區中的每個節點上執�
 >
 >
 
-## <a name="create-a-linux-pool-batch-python"></a>建立 Linux 集區：Batch Python
+## <a name="create-a-linux-pool-batch-python"></a>建立 Linux 集區︰Batch Python
 下列程式碼片段顯示如何使用[適用于 Python 的 Microsoft Azure Batch 用戶端程式庫][py_batch_package]，來建立 Ubuntu Server 計算節點的集區範例。 您可以在 azure 上找到 Batch Python 模組的參考檔。如需取得 batch[套件][py_batch_docs]，請參閱閱讀檔。
 
-此程式碼片段會明確建立[ImageReference][py_imagereference] ，並指定其每一個屬性（發行者、供應專案、SKU、版本）。 不過，在實際執行的程式碼中，我們建議您使用[list_node_agent_skus][py_list_skus]方法，在執行時間判斷並選取可用的映射和節點代理程式 SKU 組合。
+此程式碼片段會明確建立[ImageReference][py_imagereference] ，並指定其每一個屬性（發行者、供應專案、SKU、版本）。 不過，在實際執行的程式碼中，建議您使用[list_node_agent_skus][py_list_skus]方法，在執行時間判斷並選取可用的映射和節點代理程式 SKU 組合。
 
 ```python
 # Import the required modules from the
@@ -146,7 +146,7 @@ vmc = batchmodels.VirtualMachineConfiguration(
     node_agent_sku_id=ubuntu1404agent.id)
 ```
 
-## <a name="create-a-linux-pool-batch-net"></a>建立 Linux 集區：Batch .NET
+## <a name="create-a-linux-pool-batch-net"></a>建立 Linux 集區︰Batch .NET
 下列程式碼片段顯示如何使用[Batch .net][nuget_batch_net]用戶端程式庫來建立 Ubuntu Server 計算節點集區的範例。 您可以在 docs.microsoft.com 上找到[Batch .net 參考檔][api_net]。
 
 下列程式碼片段會使用[PoolOperations][net_pool_ops]。要從目前支援的 Marketplace 映射和節點代理程式 SKU 組合清單中選取的[ListNodeAgentSkus][net_list_skus]方法。 這項技術最理想，因為支援的組合清單可能會隨著時間變更。 最常見的是新增支援的組合。
@@ -217,33 +217,33 @@ ImageReference imageReference = new ImageReference(
 
 | **發行者** | **供應項目** | **映像 SKU** | **版本** | **節點代理程式 SKU 識別碼** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| 批次 | rendering-centos73 | 轉譯 | 最新 | batch.node.centos 7 |
-| 批次 | rendering-windows2016 | 轉譯 | 最新 | batch.node.windows amd64 |
-| Canonical | UbuntuServer | 16.04-LTS | 最新 | batch.node.ubuntu 16.04 |
-| Canonical | UbuntuServer | 14.04.5-LTS | 最新 | batch.node.ubuntu 14.04 |
-| Credativ | Debian | 9 | 最新 | batch.node.debian 9 |
-| Credativ | Debian | 8 | 最新 | batch.node.debian 8 |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | 最新 | batch.node.centos 7 |
-| microsoft-ads | standard-data-science-vm | standard-data-science-vm | 最新 | batch.node.windows amd64 |
-| microsoft-azure-batch | centos-container | 7-4 | 最新 | batch.node.centos 7 |
-| microsoft-azure-batch | centos-container-rdma | 7-4 | 最新 | batch.node.centos 7 |
-| microsoft-azure-batch | ubuntu-server-container | 16-04-lts | 最新 | batch.node.ubuntu 16.04 |
-| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | 最新 | batch.node.ubuntu 16.04 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | 最新 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk | 最新 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | 最新 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 最新 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | 最新 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 最新 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | 最新 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | 最新 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | 最新 | batch.node.windows amd64 |
-| OpenLogic | CentOS | 7.4 | 最新 | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.4 | 最新 | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.3 | 最新 | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.1 | 最新 | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.4 | 最新 | batch.node.centos 7 |
-| SUSE | SLES-HPC | 12-SP2 | 最新 | batch.node.opensuse 42.1 |
+| batch | rendering-centos73 | 轉譯 | latest | batch.node.centos 7 |
+| batch | rendering-windows2016 | 轉譯 | latest | batch.node.windows amd64 |
+| Canonical | UbuntuServer | 16.04-LTS | latest | batch.node.ubuntu 16.04 |
+| Canonical | UbuntuServer | 14.04.5-LTS | latest | batch.node.ubuntu 14.04 |
+| Credativ | Debian | 9 | latest | batch.node.debian 9 |
+| Credativ | Debian | 8 | latest | batch.node.debian 8 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | latest | batch.node.centos 7 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | latest | batch.node.windows amd64 |
+| microsoft-azure-batch | centos-container | 7-4 | latest | batch.node.centos 7 |
+| microsoft-azure-batch | centos-container-rdma | 7-4 | latest | batch.node.centos 7 |
+| microsoft-azure-batch | ubuntu-server-container | 16-04-lts | latest | batch.node.ubuntu 16.04 |
+| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | latest | batch.node.ubuntu 16.04 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | latest | batch.node.windows amd64 |
+| OpenLogic | CentOS | 7.4 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.4 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.3 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | latest | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.4 | latest | batch.node.centos 7 |
+| SUSE | SLES-HPC | 12-SP2 | latest | batch.node.opensuse 42.1 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>使用 SSH 連線至 Linux 節點
 在開發期間或問題進行疑難排解時，您可能會發現需要登入您的集區中的節點。 不同於 Windows 計算節點，您無法使用遠端桌面通訊協定 (RDP) 連線到 Linux 節點。 相反地，Batch 服務可讓您遠端連線的每個節點上的 SSH 存取。
@@ -320,7 +320,7 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 在節點上建立使用者時，不要使用密碼，而是可以指定 SSH 公開金鑰。 在 Python SDK 中，使用[ComputeNodeUser][py_computenodeuser]上的**ssh_public_key**參數。 在 .NET 中，使用[ComputeNodeUser][net_computenodeuser]。[SshPublicKey][net_ssh_key]屬性。
 
 ## <a name="pricing"></a>定價
-Azure Batch 採用 Azure 雲端服務和 Azure 虛擬機器技術。 Batch 服務本身為免費提供，這表示您僅需支付 Batch 解決方案所使用的計算資源。 當您選擇**雲端服務**設定時, 會根據[雲端服務定價][cloud_services_pricing]結構向您收費。 當您選擇 [**虛擬機器**設定] 時, 會根據[虛擬機器定價][vm_pricing]結構向您收費。 
+Azure Batch 採用 Azure 雲端服務和 Azure 虛擬機器技術。 Batch 服務本身為免費提供，這表示您僅需支付 Batch 解決方案所使用的計算資源。 當您選擇**雲端服務**設定時，會根據[雲端服務定價][cloud_services_pricing]結構向您收費。 當您選擇 [**虛擬機器**設定] 時，會根據[虛擬機器定價][vm_pricing]結構向您收費。 
 
 如果您是使用[應用程式套件](batch-application-packages.md)將應用程式部署到您的 Batch 節點，也需要支付應用程式套件使用的 Azure 儲存體資源。 一般情況下，Azure 儲存體成本很低。 
 

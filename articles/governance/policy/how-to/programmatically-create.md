@@ -3,12 +3,12 @@ title: 以程式設計方式建立原則
 description: 本文會逐步引導您以程式設計方式建立和管理具有 Azure CLI、Azure PowerShell 和 REST API 之 Azure 原則的原則。
 ms.date: 01/31/2019
 ms.topic: how-to
-ms.openlocfilehash: e81f0ca43788d8f36dde0a58d2ecd4b1604fd77e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873058"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982475"
 ---
 # <a name="programmatically-create-policies"></a>以程式設計方式建立原則
 
@@ -30,7 +30,7 @@ ms.locfileid: "74873058"
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
-   如需註冊及檢視資源提供者的詳細資訊，請參閱[資源提供者和類型](../../../azure-resource-manager/resource-manager-supported-services.md)。
+   如需註冊及檢視資源提供者的詳細資訊，請參閱[資源提供者和類型](../../../azure-resource-manager/management/resource-providers-and-types.md)。
 
 1. 如果尚未安裝 Azure CLI，請先安裝。 您可以於[在 Windows 上安裝 Azure CLI](/cli/azure/install-azure-cli-windows) 中取得最新版本。
 

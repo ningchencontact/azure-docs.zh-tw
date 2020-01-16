@@ -15,19 +15,19 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccdd234f951327aeb5baa6aabcac4314b9de7b34
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 0b938de0fec099b3f964eae60dc94d059e05a1c6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517095"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973497"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>部署 StorSimple Virtual Array - 準備 Azure 入口網站
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
@@ -59,7 +59,7 @@ ms.locfileid: "68517095"
 * 下載 [StorSimple Virtual Array 檔案伺服器的設定檢查清單](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf)。
 * 下載 [StorSimple Virtual Array iSCSI 伺服器的設定檢查清單](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 我們在此提供 StorSimple 裝置管理員服務、StorSimple Virtual Array 及資料中心網路的設定必要條件。
 
@@ -94,7 +94,7 @@ ms.locfileid: "68517095"
 
 請依照下列逐步指示，為您的 StorSimple 裝置管理員服務準備入口網站。
 
-## <a name="step-1-create-a-new-service"></a>步驟 1:建立新的服務
+## <a name="step-1-create-a-new-service"></a>步驟 1：建立新的服務
 
 單一 StorSimple 裝置管理員服務執行個體就能管理多個 StorSimple Virtual Array。 執行下列步驟來建立 StorSimple 裝置管理員服務的執行個體。 如果您已經有 StorSimple 裝置管理員服務來管理虛擬陣列，請略過此步驟，並移至[步驟 2：取得服務註冊金鑰](#step-2-get-the-service-registration-key)。
 
@@ -108,7 +108,7 @@ ms.locfileid: "68517095"
 > 
 > 
 
-## <a name="step-2-get-the-service-registration-key"></a>步驟 2:取得服務註冊金鑰。
+## <a name="step-2-get-the-service-registration-key"></a>步驟 2：取得服務註冊金鑰
 
 當 StorSimple 裝置管理員服務已啟動並執行之後，您就必須取得服務註冊金鑰。 這個金鑰是用來註冊和將 StorSimple 裝置與服務連接。
 
@@ -144,11 +144,11 @@ ms.locfileid: "68517095"
    * VMDK (適用於 VMWare ESXi 5.0、5.5、6.0 或 6.5)
 5. 下載檔案並將檔案解壓縮至本機磁碟機，記下解壓縮檔案的所在位置。
 
-## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>選擇性步驟︰針對服務設定新的儲存體帳戶
+## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>選用步驟：為服務設定新的儲存體帳戶
 
 這是選擇性步驟，只有在您未啟用隨著服務自動建立儲存體帳戶時才需要執行。
 
-如果您需要在不同區域建立 Azure 儲存體帳戶，請參閱[如何建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)來取得逐步指示。
+如果您需要在不同區域建立 Azure 儲存體帳戶，請參閱[如何建立儲存體帳戶](../storage/common/storage-account-create.md)來取得逐步指示。
 
 請在 [Azure 入口網站](https://ms.portal.azure.com/)的 [StorSimple 裝置管理員服務] 頁面上執行下列步驟，以新增現有的 Microsoft Azure 儲存體帳戶。
 

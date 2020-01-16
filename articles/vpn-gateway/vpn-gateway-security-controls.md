@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2c32f46ca85007608b5e17f2bf77b0a8f0fb8397
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: cdf616b29a93e786ef26af83b5d3b3541f94d67c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862742"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972285"
 ---
 # <a name="security-controls-for-azure-vpn-gateway"></a>Azure VPN 閘道的安全性控制
 
@@ -36,7 +36,7 @@ ms.locfileid: "75862742"
 |---|---|--|
 | Azure 監視支援（Log analytics、App insights 等）| 是 | 請參閱[Azure 監視器診斷記錄/警示](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Azure 監視器計量/警示](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md)。  |
 | 控制和管理平面記錄和審核| 是 | Azure Resource Manager 活動記錄。 |
-| 資料平面記錄和審核 | 是 | Azure 監視器 VPN 連線記錄和審核的[診斷記錄](../azure-resource-manager/resource-group-audit.md)。 |
+| 資料平面記錄和審核 | 是 | Azure 監視器 VPN 連線記錄和審核的[診斷記錄](../azure-resource-manager/management/view-activity-logs.md)。 |
 
 ## <a name="identity"></a>身分識別
 
@@ -59,7 +59,7 @@ ms.locfileid: "75862742"
 
 | 安全性控制 | 是/否 | 注意|
 |---|---|--|
-| 設定管理支援（設定的版本設定等）| 是 | 針對管理作業，Azure VPN 閘道設定的狀態可以匯出為 Azure Resource Manager 範本，並在一段時間後進行版本設定。 | 
+| 設定管理支援（設定的版本設定等）| 是 | 針對管理作業，Azure VPN 閘道設定的狀態可以匯出為 Azure Resource Manager 範本，並在一段時間後進行版本設定。 |
 
 ## <a name="next-steps"></a>後續步驟
 

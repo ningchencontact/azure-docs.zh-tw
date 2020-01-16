@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e58b3f651a7a8f65d3450cf4b069d4e3f252d928
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b76ade40db1e85abc0fb42af2e6f4ab88cb092c4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100272"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982275"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>使用 SQL Server 代理程式延伸模組 (傳統) 自動化 Azure 虛擬機器上的管理工作
 > [!div class="op_single_selector"]
@@ -32,12 +32,12 @@ ms.locfileid: "70100272"
 Azure 虛擬機器會執行 SQL Server IaaS Agent 擴充功能 (SQLIaaSAgent) 以自動化系統管理工作。 本主題概述擴充功能所支援的服務，以及與安裝、狀態及移除相關的指示。
 
 > [!IMPORTANT] 
-> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 若要檢視這篇文章的 Resource Manager 版本，請參閱 [適用於 SQL Server VM Resource Manager 的 SQL Server Agent 擴充功能](../sql/virtual-machines-windows-sql-server-agent-extension.md)。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../azure-resource-manager/management/deployment-models.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 若要檢視這篇文章的 Resource Manager 版本，請參閱 [適用於 SQL Server VM Resource Manager 的 SQL Server Agent 擴充功能](../sql/virtual-machines-windows-sql-server-agent-extension.md)。
 
 ## <a name="supported-services"></a>支援的服務
 SQL Server IaaS 代理程式擴充功能支援下列管理工作︰
 
-| 系統管理功能 | 描述 |
+| 系統管理功能 | 說明 |
 | --- | --- |
 | **SQL 自動備份** |針對 VM 中 SQL Server 的預設執行個體，將所有資料庫的備份排程自動化。 如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 自動備份 (傳統)](../classic/sql-automated-backup.md)。 |
 | **SQL 自動修補** |設定維護期間 (在此期間會進行 VM 的重要 Windows 更新)，以避免在工作負載尖峰時段進行更新。 如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 自動修補 (傳統)](../classic/sql-automated-patching.md)。 |

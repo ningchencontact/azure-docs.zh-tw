@@ -1,7 +1,7 @@
 ---
 title: 從現有的伺服器建立設定-Azure 自動化
 description: 瞭解如何從現有的伺服器建立 Azure 自動化的設定。
-keywords: dsc，powershell，設定，安裝程式
+keywords: dsc,powershell,設定,安裝
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 35f967e946854c3ca097db379015a7ee0bbe2f3d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d888c8fd3bf7cd44c37e7225618bd197f419d275
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231678"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030136"
 ---
 # <a name="create-configurations-from-existing-servers"></a>從現有的伺服器建立設定
 
@@ -39,12 +39,12 @@ ms.locfileid: "74231678"
 使用此解決方案的結果是產生與 SharePointDSC 設定腳本搭配使用的設定[資料](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data)。
 
 一旦產生資料檔案之後，您就可以使用它們來搭配[DSC 設定腳本](/powershell/scripting/dsc/overview/overview)來產生 mof 檔案，並將[mof 檔案上傳到 Azure 自動化](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)。
-然後從[內部部署](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws)或[在 Azure 中](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)註冊您的伺服器，以提取設定。
+然後從[內部部署](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)或[在 Azure 中](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)註冊您的伺服器，以提取設定。
 
 若要試用 ReverseDSC，請造訪[PowerShell 資源庫](https://www.powershellgallery.com/packages/ReverseDSC/)並下載解決方案，或按一下 [專案網站] 以查看[檔](https://github.com/Microsoft/sharepointDSC.reverse)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Windows PowerShell 預期狀態設定概觀](/powershell/scripting/dsc/overview/overview)
+- [Windows PowerShell Desired State Configuration 概觀](/powershell/scripting/dsc/overview/overview)
 - [DSC 資源](/powershell/scripting/dsc/resources/resources)
-- [設定本機 Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- [設定本機設定管理員](/powershell/scripting/dsc/managing-nodes/metaconfig)
