@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 459aeaefc07e3f55b0829f0ad378992104982941
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 26ae70f9283ac7be847a59753130dd8ba8c11c18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703946"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979897"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>已知問題： Azure Active Directory Domain Services 中的常見警示和解決方式
 
@@ -92,7 +92,7 @@ Azure AD DS 受控網域的健康狀態會在兩小時內自動更新，並移�
 
 Azure AD DS 需要有效的訂用帳戶，且無法移至不同的訂用帳戶。 如果已刪除與 Azure AD DS 受控網域相關聯的 Azure 訂用帳戶，您必須重新建立 Azure 訂用帳戶和 Azure AD DS 受控網域。
 
-1. [建立 Azure 訂](../billing/billing-create-subscription.md)用帳戶。
+1. [建立 Azure 訂](../cost-management-billing/manage/create-subscription.md)用帳戶。
 1. 從現有的 Azure AD 目錄中[刪除 AZURE AD DS 受控網域](delete-aadds.md)。
 1. [建立替代 AZURE AD DS 受控網域](tutorial-create-instance.md)。
 

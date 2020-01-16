@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: c01e5c508644214c078dfc42ae8c77964933a277
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 7c4d6a01ccaeffb4042753dc0a904d970631383f
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896000"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045195"
 ---
 # <a name="vcore-model-overview"></a>虛擬核心模型概觀
 
@@ -142,6 +142,16 @@ VCore 模型中的硬體產生選項包括 Gen 4/5、M 系列（預覽）和 Fsv
   
 **變更現有受控實例的硬體世代**
 
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+從 [受控實例] 頁面，選取放置於 [設定] 區段底下的 [**定價層**] 連結
+
+![變更受控實例硬體](media/sql-database-service-tiers-vcore/change-managed-instance-hardware.png)
+
+在 [**定價層**] 頁面上，您將能夠如先前步驟所述變更硬體世代。
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 使用下列 PowerShell 指令碼︰
 
 ```powershell-interactive
@@ -178,6 +188,8 @@ Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType
 
 請務必輸入您的訂用帳戶識別碼、名稱和受控實例的資源群組。
 
+---
+
 ### <a name="hardware-availability"></a>硬體可用性
 
 #### <a name="gen4gen5-1"></a>第4代/第5代
@@ -213,9 +225,9 @@ M 系列在其他區域中可能也會有有限的可用性。 您可以要求�
 
 在 [**詳細資料**] 頁面上，提供下列資訊：
 
-5. 在 [**問題詳細資料**] 區段中，選取 [**提供詳細資料**] 連結。 
-6. 針對 [ **SQL Database 配額類型**]，選取 [ **M 系列**]。
-7. 針對 [**地區**]，選取要啟用 M 系列的區域。
+1. 在 [**問題詳細資料**] 區段中，選取 [**提供詳細資料**] 連結。 
+2. 針對 [ **SQL Database 配額類型**]，選取 [ **M 系列**]。
+3. 針對 [**地區**]，選取要啟用 M 系列的區域。
     如需 M 系列可用的區域，請參閱[m 系列可用性](#m-series)。
 
 核准的支援要求通常會在5個工作天內完成。

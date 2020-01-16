@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: df1ef21da43bc74809bd9fd71b5dde3906cdb343
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6812393b01172cda5d2fa4dcbe9de2bf4264a99f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820967"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980760"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>將 SQL Server 資料庫移轉至 Azure SQL Database
 
@@ -40,7 +40,7 @@ ms.locfileid: "73820967"
 
   ![VSSSDT 移轉圖表](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. 使用最新版的 [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) \(英文\) 來[評估](https://www.microsoft.com/download/details.aspx?id=53595) \(英文\) 資料庫的相容性。
+1. 使用最新版的 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) \(英文\) 來[評估](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) \(英文\) 資料庫的相容性。
 2. 準備 Transact-SQL 指令碼形式的任何必要修正。
 3. 針對要移轉的來源資料庫建立交易一致性複本，或是在進行移轉時，防止在來源資料庫中進行新交易。 完成後面這個選項的方法包括停用用戶端連線或建立[資料庫快照集](https://msdn.microsoft.com/library/ms175876.aspx)。 移轉之後，您可能能夠使用異動複寫來更新所移轉的資料庫，以反映在移轉截止點之後所發生的變更。 請參閱[使用異動移轉來進行移轉](sql-database-single-database-migrate.md#method-2-use-transactional-replication)。  
 4. 部署 Transact-SQL 指令碼，將修正套用至資料庫複本。
@@ -56,7 +56,7 @@ ms.locfileid: "73820967"
 - 選擇預算許可的最高服務層級和計算大小，以獲得最大傳輸效能。 移轉完成後，您可以相應減少層級以節省成本。
 - 盡量縮短 BACPAC 檔案和目的地資料中心之間的距離。
 - 在移轉期間停用自動統計資料
-- 分割資料表和索引
+- 分割區資料表與索引
 - 捨棄索引檢視表，然後於移轉完成後重新建立
 - 將鮮少查詢的歷程記錄資料移除到另一個資料庫，然後將此歷程記錄資料移轉至不同的 Azure SQL 資料庫。 您接著可以使用[彈性查詢](sql-database-elastic-query-overview.md)查詢此歷程記錄資料。
 
@@ -89,7 +89,7 @@ ms.locfileid: "73820967"
 2. 建立發佈
    - [使用 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
    - [使用 Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
-3. 建立訂用帳戶
+3. 建立訂閱
    - [使用 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
    - [使用 Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
 
@@ -107,9 +107,9 @@ ms.locfileid: "73820967"
 您可能會發現各種不同的不相容問題，取決於來源資料庫中的 SQL Server 版本，以及您正在移轉的資料庫複雜度。 舊版 SQL Server 有更多的相容性問題。 除了使用您選擇之搜尋引擎的目標網際網路搜尋之外，請使用下列資源︰
 
 - [Azure SQL Database 中不支援的 SQL Server 資料庫功能](sql-database-transact-sql-information.md)
-- [SQL Server 2016 中已終止的資料庫引擎功能](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
-- [SQL Server 2014 中已終止的資料庫引擎功能](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
-- [SQL Server 2012 中已終止的資料庫引擎功能](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
+- [SQL Server 2016 中已停止的 Database Engine 功能](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
+- [SQL Server 2014 中已停止的 Database Engine 功能](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
+- [SQL Server 2012 中已停止的 Database Engine 功能](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
 - [SQL Server 2008 R2 中已終止的資料庫引擎功能](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 - [SQL Server 2005 中已終止的資料庫引擎功能](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
@@ -121,7 +121,7 @@ ms.locfileid: "73820967"
 ## <a name="next-steps"></a>後續步驟
 
 - 使用 Azure SQL EMEA 工程師部落格上的指令碼來[監視移轉期間的 tempdb 使用量](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/)。
-- 使用 Azure SQL EMEA 工程師部落格上的指令碼來[監視移轉時資料庫的交易記錄檔空間](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0)。
+- 使用 Azure SQL EMEA 工程師部落格上的指令碼來[監視移轉時資料庫的交易記錄檔空間](https://docs.microsoft.com/archive/blogs/azuresqlemea/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database)。
 - 如需 SQL Server 客戶諮詢小組部落格中有關使用 BACPAC 檔案進行移轉的主題，請參閱[使用 BACPAC 檔案從 SQL Server 移轉至 Azure SQL Database](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)。
 - 如需移轉後的 UTC 時間處理相關資訊，請參閱[修改當地時區的預設時區](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/)。
 - 如需移轉後變更資料庫預設語言的相關資訊，請參閱[如何變更 Azure SQL Database 的預設語言](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/)。

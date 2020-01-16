@@ -4,12 +4,12 @@ description: Azure 區塊鏈服務資料存取和安全性概念
 ms.date: 11/22/2019
 ms.topic: conceptual
 ms.reviewer: janders
-ms.openlocfilehash: e1a40acfec6b0dc5cdf21fb84b341b6b4987797a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 06bf4e0fa4037b07505a4f816fc7af56c14576d8
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455706"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982234"
 ---
 # <a name="azure-blockchain-service-security"></a>Azure 區塊鏈服務安全性
 
@@ -23,7 +23,7 @@ Azure 區塊鏈服務資源會在私人虛擬網路中隔離。 每個交易和�
 
 ## <a name="encryption"></a>加密
 
-使用者資料會儲存在 Azure 儲存體中。 使用者資料會在行動和待用時加密，以提供安全性和機密性。 如需詳細資訊，請參閱： [Azure 儲存體安全性指南](../../storage/common/storage-security-guide.md)。
+使用者資料會儲存在 Azure 儲存體中。 使用者資料會在行動和待用時加密，以提供安全性和機密性。 如需詳細資訊，請參閱： [Azure 儲存體安全性指南](../../storage/blobs/security-recommendations.md)。
 
 ## <a name="authentication"></a>驗證
 

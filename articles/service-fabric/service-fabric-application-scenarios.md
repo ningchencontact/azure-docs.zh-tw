@@ -2,18 +2,20 @@
 title: 應用程式案例和設計
 description: Service Fabric 中雲端應用程式類別概觀。 討論使用具狀態和無狀態服務的應用程式設計。
 ms.topic: conceptual
-ms.date: 4/24/2019
-ms.openlocfilehash: bdbbf81186463e1f645738b370662de9c13f5c17
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.custom: sfrev
+ms.openlocfilehash: 0aeb8ab2923915befdd11f96025687be3b3c4ff9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464902"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024732"
 ---
 # <a name="service-fabric-application-scenarios"></a>Service Fabric 應用程式案例
-Azure Service Fabric 提供可靠且彈性的平臺，可讓您撰寫及執行許多類型的商務應用程式和服務。 這些應用程式和微服務可以是無狀態或具狀態的，而且它們會在虛擬機器之間進行資源平衡，以達到最高效率。 
 
-Service Fabric 的獨特架構可讓您在應用程式中執行接近即時的資料分析、記憶體中計算、平行交易和事件處理。 您可以輕鬆地根據變更的資源需求上下調整 (其實是收發) 您的應用程式。
+Azure Service Fabric 提供可靠且彈性的平臺，可讓您撰寫及執行許多類型的商務應用程式和服務。 這些應用程式和微服務可以是無狀態或具狀態的，而且它們會在虛擬機器之間進行資源平衡，以達到最高效率。
+
+Service Fabric 的獨特架構可讓您在應用程式中執行接近即時的資料分析、記憶體中計算、平行交易和事件處理。 您可以根據變更的資源需求，輕鬆地將應用程式相應縮小或相應放大。
 
 如需建立應用程式的設計指引，請參閱[Azure 上的微服務架構 Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric)和[使用 Service Fabric 進行應用程式設計的最佳作法](service-fabric-best-practices-applications.md)。
 
@@ -33,8 +35,8 @@ Service Fabric 的獨特架構可讓您在應用程式中執行接近即時的�
 
 * **資料的計算**： Service Fabric 可讓您建立執行大量資料計算的具狀態應用程式。 Service Fabric 允許在應用程式中進行處理（計算）和資料的共置。 
 
-   一般來說，當您的應用程式需要存取資料時，與外部資料快取或儲存層相關聯的網路延遲會限制計算時間。 具狀態 Service Fabric 服務會消除該延遲，以提供更優化的讀取和寫入。 
-   
+   一般來說，當您的應用程式需要存取資料時，與外部資料快取或儲存層相關聯的網路延遲會限制計算時間。 具狀態 Service Fabric 服務會消除該延遲，以提供更優化的讀取和寫入。
+
    例如，假設有一個應用程式會為客戶執行近乎即時的建議選擇，而來回時間需求則小於100毫秒。 相較于必須從遠端存放裝置提取必要資料的標準執行模型，Service Fabric 服務的延遲和效能特性可為使用者提供回應式體驗。 系統會更有回應，因為建議選取專案的計算與資料和規則共存。
 
     具有內建計算服務的客戶包括[Solidsoft 回復](https://customers.microsoft.com/story/solidsoft-reply-platform-powers-e-verification-of-pharmaceuticals)和[Infosupport](https://customers.microsoft.com/story/service-fabric-customer-profile-info-support-and-fudura)。
@@ -44,16 +46,18 @@ Service Fabric 的獨特架構可讓您在應用程式中執行接近即時的�
 * **可調整的服務**：可以分割個別服務，以便在叢集中相應放大。 您也可以即時建立和移除個別服務。 您可以從數個節點上的幾個實例向外延展服務，並在多個節點上將數千個實例相應放大，然後視需要再重新調整。 您可以使用 Service Fabric 來建立這些服務，並管理其完整的生命週期。
 
 ## <a name="application-design-case-studies"></a>應用程式設計個案研究
-示範如何使用 Service Fabric 來設計應用程式的個案研究，會在[客戶案例](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=0&so=story_publish_date%20desc/)和 Azure 網站的[微服務](https://azure.microsoft.com/solutions/microservice-applications/)上發佈。
+
+示範如何使用 Service Fabric 來設計應用程式的個案研究，會在[客戶案例](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=2&so=story_publish_date%20desc)和 Azure 網站的[微服務](https://azure.microsoft.com/solutions/microservice-applications/)上發佈。
 
 ## <a name="designing-applications-composed-of-stateless-and-stateful-microservices"></a>設計由無狀態和具狀態微服務組成的應用程式
-使用 Azure 雲端服務背景工作角色建立應用程式是無狀態服務的範例。 相較之下，具狀態的微服務會維護要求及其回應以外的授權狀態。 這項功能透過簡單的 Api 提供高可用性和狀態的一致性，提供複寫所支援的交易保證。 
+
+使用 Azure 雲端服務背景工作角色建立應用程式是無狀態服務的範例。 相較之下，具狀態的微服務會維護要求及其回應以外的授權狀態。 這項功能透過簡單的 Api 提供高可用性和狀態的一致性，提供複寫所支援的交易保證。
 
 中的具狀態服務 Service Fabric 將高可用性帶入所有類型的應用程式，而不只是資料庫和其他資料存放區。 這是自然的進展。 針對高可用性，應用程式已經從使用單純的關聯式資料庫進展到 NoSQL 資料庫的境界。 現在應用程式就能在其本身內管理它們的「熱門」狀態和資料，以便進一步提高效能，而不需犧牲可靠性、一致性或可用性。
 
 當您正在建立包含微服務的應用程式時，您通常會有無狀態 web 應用程式（例如 ASP.NET 和 node.js）的組合，可在無狀態和具狀態的 business 中介層服務上呼叫。 應用程式和服務全都會透過 Service Fabric 部署命令，部署在相同的 Service Fabric 叢集中。 這些服務各自獨立于規模、可靠性和資源使用方式。 此獨立性可改善開發和生命週期管理的靈活性和彈性。
 
-具狀態的微服務簡化了應用程式設計，因此不需要傳統上為滿足純無狀態應用程式的可用性與延遲需求時所需的其他佇列與快取。 因為具狀態服務有高可用性和低延遲，所以在您的應用程式中管理的詳細資料較少。 
+具狀態的微服務簡化了應用程式設計，因此不需要傳統上為滿足純無狀態應用程式的可用性與延遲需求時所需的其他佇列與快取。 因為具狀態服務有高可用性和低延遲，所以在您的應用程式中管理的詳細資料較少。
 
 下圖說明設計無狀態的應用程式與可設定狀態的應用程式之間的差異。 藉由運用 [Reliable Services](service-fabric-reliable-services-introduction.md) 和 [Reliable Actors](service-fabric-reliable-actors-introduction.md) 程式設計模型，具狀態服務既可降低應用程式複雜度，又可提高輸送量和降低延遲。
 
@@ -63,18 +67,16 @@ Service Fabric 的獨特架構可讓您在應用程式中執行接近即時的�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入瞭解[模式和案例](service-fabric-patterns-and-scenarios.md)。
-
 * 開始使用 Service Fabric [Reliable Services](service-fabric-reliable-services-quick-start.md)和[Reliable Actors](service-fabric-reliable-actors-get-started.md)程式設計模型，建立無狀態和具狀態服務。
 * 如需在[Azure 上建立微服務](https://docs.microsoft.com/azure/architecture/microservices/)的指引，請造訪 Azure 架構中心。
 * 如需應用程式設計指引，請移至[Azure Service Fabric 應用程式和叢集最佳作法](service-fabric-best-practices-overview.md)。
 
-* 另請參閱下列主題：
-  * [Microservices 詳細說明](service-fabric-overview-microservices.md)
+* 另請參閱：
+  * [瞭解微服務](service-fabric-overview-microservices.md)
   * [定義及管理服務狀態](service-fabric-concepts-state.md)
-  * [Service Fabric 服務的可用性](service-fabric-availability-services.md)
-  * [調整 Service Fabric 服務](service-fabric-concepts-scalability.md)
-  * [分割 Service Fabric 服務](service-fabric-concepts-partitioning.md)
+  * [服務可用性](service-fabric-availability-services.md)
+  * [調整服務規模](service-fabric-concepts-scalability.md)
+  * [分割服務](service-fabric-concepts-partitioning.md)
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.png
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.png

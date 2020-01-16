@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: 1af7241094e8062185c9c000e4df08d6b59644c3
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 9ea77a6822a851951ea7363b9cf496fa0df534ed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75692819"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982101"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Azure Key Vault REST API 錯誤代碼
  
@@ -54,7 +54,7 @@ Content-Length: 31
 
 ### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>Token 缺少與其相關聯的正確資源。 
 
-從 Azure OAUTH 端點要求存取權杖時，必須要有稱為「資源」的參數。 此值對權杖提供者而言很重要，因為它會將權杖的範圍限定于其預期用途。 \* 用來存取 Key Vault 的*所有*權杖的資源都是 <https://vault.keyvault.net> （沒有尾端斜線）。
+從 Azure OAUTH 端點要求存取權杖時，必須要有稱為「資源」的參數。 此值對權杖提供者而言很重要，因為它會將權杖的範圍限定于其預期用途。 \* 用來存取 Key Vault 的*所有*權杖的資源都是 <https:\//vault.keyvault.net> （沒有尾端斜線）。
 
 ### <a name="the-token-is-expired"></a>權杖已過期
 

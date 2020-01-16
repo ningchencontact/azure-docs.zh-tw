@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/06/2019
 ms.author: helohr
-ms.openlocfilehash: 817cd09797ad861521a462da9c5d0850c65bf562
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ce1af278d67f96873ed611db8dc05938205638dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459586"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980249"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>疑難排解概觀、意見反應和支援
 
@@ -27,7 +27,7 @@ ms.locfileid: "75459586"
 使用下表來找出並解決使用遠端桌面用戶端設定租使用者環境時可能會遇到的問題。 設定租使用者之後，您就可以使用新的[診斷服務](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service)來識別常見案例的問題。
 
 >[!NOTE]
-> 我們有一個技術社區論壇，可供您造訪以與產品小組和主動式社區成員討論您的問題。 前往[Windows 虛擬桌面技術社區](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) 
+> 我們有一個技術社區論壇，可供您造訪以與產品小組和主動式社區成員討論您的問題。 前往[Windows 虛擬桌面技術社區](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
 
 | **問題**                                                            | **建議的解決方案**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
@@ -54,6 +54,6 @@ ms.locfileid: "75459586"
 - 若要疑難排解遠端桌面用戶端的問題，請參閱針對[遠端桌面用戶端進行疑難排解](troubleshoot-client.md)
 - 若要針對搭配 Windows 虛擬桌面使用 PowerShell 時的問題進行疑難排解，請參閱[Windows 虛擬桌面 PowerShell](troubleshoot-powershell.md)。
 - 若要深入瞭解此服務，請參閱[Windows 虛擬桌面環境](environment-setup.md)。
-- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署進行疑難排解](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md)。
-- 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](../azure-resource-manager/resource-group-audit.md)。
-- 若要瞭解在部署期間判斷錯誤的動作，請參閱[查看部署作業](../azure-resource-manager/resource-manager-deployment-operations.md)。
+- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署進行疑難排解](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)。
+- 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](../azure-resource-manager/management/view-activity-logs.md)。
+- 若要瞭解在部署期間判斷錯誤的動作，請參閱[查看部署作業](../azure-resource-manager/templates/deployment-history.md)。

@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b549cc0e890a122a04984baa2348831fc51abe08
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 2a171ae89e8314684eddf29f78b9b09bc52f9c9b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530998"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977563"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>使用 Resource Manager 範本在 Azure 中建立診斷設定
-Azure 監視器中的[診斷設定](diagnostic-settings.md)會指定 azure 資源所收集的[平臺記錄](platform-logs-overview.md)檔，以及它們所依賴的 azure 平臺。 本文提供詳細資料和範例，說明如何使用[Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)來建立和設定診斷設定，以將平臺記錄檔收集到不同的目的地。 
+Azure 監視器中的[診斷設定](diagnostic-settings.md)會指定 azure 資源所收集的[平臺記錄](platform-logs-overview.md)檔，以及它們所依賴的 azure 平臺。 本文提供詳細資料和範例，說明如何使用[Azure Resource Manager 範本](../../azure-resource-manager/templates/template-syntax.md)來建立和設定診斷設定，以將平臺記錄檔收集到不同的目的地。
 
 > [!NOTE]
 > 因為您無法使用 PowerShell 或 CLI （例如其他 Azure 資源的診斷設定）來建立 Azure 活動記錄的[診斷設定](diagnostic-settings.md)，請使用本文中的資訊建立活動記錄的 Resource Manager 範本，並使用 POWERSHELL 或 CLI 來部署範本。
 
 ## <a name="deployment-methods"></a>部署方法
-您可以使用任何有效的方法（包括 PowerShell 和 CLI）來部署 Resource Manager 範本。 活動記錄的診斷設定必須使用適用于 CLI 的 `az deployment create` 或適用于 PowerShell 的 `New-AzDeployment`，部署至訂用帳戶。 資源記錄的診斷設定必須使用適用于 CLI 的 `az group deployment create` 或適用于 PowerShell 的 `New-AzResourceGroupDeployment`，部署到資源群組。 
+您可以使用任何有效的方法（包括 PowerShell 和 CLI）來部署 Resource Manager 範本。 活動記錄的診斷設定必須使用適用于 CLI 的 `az deployment create` 或適用于 PowerShell 的 `New-AzDeployment`，部署至訂用帳戶。 資源記錄的診斷設定必須使用適用于 CLI 的 `az group deployment create` 或適用于 PowerShell 的 `New-AzResourceGroupDeployment`，部署到資源群組。
 
-如需詳細資訊，請參閱[使用 Resource Manager 範本部署資源和 Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)和[使用 Resource Manager 範本部署資源和 Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md) 。 
+如需詳細資訊，請參閱[使用 Resource Manager 範本部署資源和 Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)和[使用 Resource Manager 範本部署資源和 Azure CLI](../../azure-resource-manager/templates/deploy-cli.md) 。 
 
 
 
@@ -33,7 +33,7 @@ Azure 監視器中的[診斷設定](diagnostic-settings.md)會指定 azure 資�
 ## <a name="resource-logs"></a>資源記錄
 針對資源記錄，請將 `<resource namespace>/providers/diagnosticSettings` 類型的資源新增至範本。 [屬性] 區段會遵循 [[診斷設定-建立或更新](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)] 中所述的格式。 針對您想要收集的資源，在 [`logs`] 區段中提供 `category`。 新增 `metrics` 屬性，以在[資源支援計量](metrics-supported.md)時，將資源計量收集到相同的目的地。
 
-以下範本會將特定資源的資源記錄類別收集到 Log Analytics 工作區、儲存體帳戶和事件中樞。 
+以下範本會將特定資源的資源記錄類別收集到 Log Analytics 工作區、儲存體帳戶和事件中樞。
 
 ```json
 "resources": [
@@ -50,7 +50,7 @@ Azure 監視器中的[診斷設定](diagnostic-settings.md)會指定 azure 資�
       "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
       "eventHubName": "[parameters('eventHubName')]",
       "workspaceId": "[parameters('workspaceId')]",
-      "logs": [ 
+      "logs": [
         {
           "category": "<category name>",
           "enabled": true

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 4132dacbb628051e674952806cb6b606ee915525
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c6ea57ac30a1b4d228a19c3be6a794b3d2175171
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644609"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973038"
 ---
 # <a name="virtual-network-traffic-routing"></a>虛擬網路流量路由
 
@@ -69,7 +69,7 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
 * **VirtualNetworkServiceEndpoint**：當您對特定服務啟用服務端點時，Azure 會將該服務的公用 IP 位址新增至路由表。 服務端點是針對虛擬網路內的個別子網路啟用，因此路由只會新增至服務端點已啟用的子網路路由表。 Azure 服務的公用 IP 位址會定期變更。 當位址變更時，Azure 會自動管理路由表中的位址。 深入了解[虛擬網路服務端點](virtual-network-service-endpoints-overview.md)，以及可以對其建立服務端點的服務。<br>
 
     > [!NOTE]
-    > **VNet 對等互連**和 **VirtualNetworkServiceEndpoint** 下一個躍點類型只會新增至透過 Azure Resource Manager 部署模型建立的虛擬網路子網路路由表。 如果路由表是與透過傳統部署模型建立的虛擬網路子網路相關聯，則下一個躍點類型不會新增至該路由表。 深入了解 Azure [部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+    > **VNet 對等互連**和 **VirtualNetworkServiceEndpoint** 下一個躍點類型只會新增至透過 Azure Resource Manager 部署模型建立的虛擬網路子網路路由表。 如果路由表是與透過傳統部署模型建立的虛擬網路子網路相關聯，則下一個躍點類型不會新增至該路由表。 深入了解 Azure [部署模型](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 ## <a name="custom-routes"></a>自訂路由
 
@@ -101,7 +101,7 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
 
 ## <a name="next-hop-types-across-azure-tools"></a>跨 Azure 工具的下一個躍點類型
 
-下一個躍點類型的顯示和參照名稱在 Azure 入口網站和命令列工具之間是不同的，以及在 Azure Resource Manager 和傳統部署模型之間也不同。 下表列出的名稱可用來參照使用不同工具和[部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的每種下一個躍點類型：
+下一個躍點類型的顯示和參照名稱在 Azure 入口網站和命令列工具之間是不同的，以及在 Azure Resource Manager 和傳統部署模型之間也不同。 下表列出的名稱可用來參照使用不同工具和[部署模型](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的每種下一個躍點類型：
 
 |下一個躍點類型                   |Azure CLI 和 PowerShell (Resource Manager) |Azure 傳統 CLI 和 PowerShell (傳統)|
 |-------------                   |---------                                       |-----|

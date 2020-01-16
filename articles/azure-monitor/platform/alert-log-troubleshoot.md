@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 794f4ad5bba46af53280d35b55b762b9eef8e1a1
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: aa2f3481b63c98ec23e1db8213939278684a4cd6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675239"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977647"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>針對 Azure 監視器中的記錄警示進行疑難排解  
 
-本文說明如何解決在 Azure 監視器中設定記錄警示時可能發生的常見問題。 它也提供記錄警示功能或設定的常見問題解決方案。 
+本文說明如何解決在 Azure 監視器中設定記錄警示時可能發生的常見問題。 它也提供記錄警示功能或設定的常見問題解決方案。
 
 「*記錄警示*」一詞描述根據[Azure log Analytics 工作區](../learn/tutorial-viewdata.md)中的記錄查詢或[Azure 應用程式 Insights](../../azure-monitor/app/analytics.md)中引發的規則。 在 Azure 監視器中，深入瞭解[記錄警示](../platform/alerts-unified-log.md)中的功能、術語和類型。
 
@@ -26,17 +26,17 @@ ms.locfileid: "71675239"
 
 ## <a name="log-alert-didnt-fire"></a>記錄警示未引發
 
-以下是一些[在 Azure 監視器中設定的記錄警示規則](../platform/alerts-log.md)狀態不會[如預期般顯示為已*引發*](../platform/alerts-managing-alert-states.md)的常見原因。 
+以下是一些[在 Azure 監視器中設定的記錄警示規則](../platform/alerts-log.md)狀態不會[如預期般顯示為已*引發*](../platform/alerts-managing-alert-states.md)的常見原因。
 
 ### <a name="data-ingestion-time-for-logs"></a>記錄的資料內嵌時間
 
 記錄警示會根據[Log Analytics](../learn/tutorial-viewdata.md)或[Application Insights](../../azure-monitor/app/analytics.md)定期執行查詢。 由於 Azure 監視器會處理來自全球各地不同來源的數千個客戶的數 tb 資料，因此服務容易受到不同時間延遲的影響。 如需詳細資訊，請參閱[Azure 監視器記錄中的資料內嵌時間](../platform/data-ingestion-time.md)。
 
-為了減輕延遲，系統會等待並多次嘗試警示查詢，以找出所需的資料尚未內嵌。 系統已設定以指數方式增加等候時間。 只有在資料可供使用之後，才會觸發記錄警示，因此延遲可能是因為記錄資料的內嵌緩慢所造成。 
+為了減輕延遲，系統會等待並多次嘗試警示查詢，以找出所需的資料尚未內嵌。 系統已設定以指數方式增加等候時間。 只有在資料可供使用之後，才會觸發記錄警示，因此延遲可能是因為記錄資料的內嵌緩慢所造成。
 
 ### <a name="incorrect-time-period-configured"></a>設定的時間週期不正確
 
-如[記錄警示的術語](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types)一文所述，設定中所述的時間週期會指定查詢的時間範圍。 此查詢只會傳回在此範圍內建立的記錄。 
+如[記錄警示的術語](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types)一文所述，設定中所述的時間週期會指定查詢的時間範圍。 此查詢只會傳回在此範圍內建立的記錄。
 
 時間週期會限制針對記錄檔查詢所提取的資料，以防止濫用，並規避記錄查詢中所使用的任何時間命令（例如**前**）。 例如，如果時間週期設定為 60 分鐘，且查詢會在下午 1:15 執行，則只有在下午 12:15 與下午 1:15 之間所建立的記錄會用於記錄查詢。 如果記錄查詢使用如**前（1d）** 之類的時間命令，則查詢仍然只會使用 12:15 pm 到 1:15 pm 之間的資料，因為時間週期設定為該間隔。
 
@@ -52,13 +52,13 @@ ms.locfileid: "71675239"
 
 ### <a name="metric-measurement-alert-rule-is-incorrect"></a>公制度量單位警示規則不正確
 
-*計量度量記錄警示*是記錄警示的子類型，具有特殊功能和受限制的警示查詢語法。 計量度量記錄警示的規則要求查詢輸出必須是計量時間序列。 也就是說，輸出是一個資料表，其中包含不同的時間週期，以及對應的匯總值。 
+*計量度量記錄警示*是記錄警示的子類型，具有特殊功能和受限制的警示查詢語法。 計量度量記錄警示的規則要求查詢輸出必須是計量時間序列。 也就是說，輸出是一個資料表，其中包含不同的時間週期，以及對應的匯總值。
 
-您可以選擇在資料表中加入額外的變數，並**AggregatedValue**。 這些變數可以用來排序資料表。 
+您可以選擇在資料表中加入額外的變數，並**AggregatedValue**。 這些變數可以用來排序資料表。
 
 例如，假設計量度量記錄警示的規則設定為：
 
-- @No__t-0 的查詢  
+- `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)` 的查詢  
 - 6小時的時間週期
 - 閾值50
 - 三個連續違規的警示邏輯
@@ -68,9 +68,9 @@ ms.locfileid: "71675239"
 
 ![具有多個值的度量測量查詢執行](media/alert-log-troubleshoot/LogMMQuery.png)
 
-由於在 **$table**上定義了**Aggregate** ，因此資料會以 **$table**的資料行排序（以紅色表示）。 然後，我們會群組並尋找 [**匯總依據**] 欄位的類型。 
+由於在 **$table**上定義了**Aggregate** ，因此資料會以 **$table**的資料行排序（以紅色表示）。 然後，我們會群組並尋找 [**匯總依據**] 欄位的類型。
 
-例如，針對 **$table**， **availabilityResults**的值會被視為一個繪圖/實體（以橙色表示）。 在這個值繪圖/實體中，警示服務會檢查是否有三個連續的違規（以綠色表示）。 缺口會觸發資料表值**availabilityResults**的警示。 
+例如，針對 **$table**， **availabilityResults**的值會被視為一個繪圖/實體（以橙色表示）。 在這個值繪圖/實體中，警示服務會檢查是否有三個連續的違規（以綠色表示）。 缺口會觸發資料表值**availabilityResults**的警示。
 
 同樣地，如果 **$table**的任何其他值發生三個連續的缺口，則會針對相同的內容觸發另一個警示通知。 警示服務會依時間自動排序一個繪圖/實體中的值（以橙色表示）。
 
@@ -91,7 +91,7 @@ ms.locfileid: "71675239"
 
 Log Analytics 和 Application Insights 會受限於內嵌延遲和處理。 當您執行記錄警示查詢時，可能會發現沒有可用的資料，或只有部分資料可以使用。 如需詳細資訊，請參閱[Azure 監視器中的記錄資料內建時間](../platform/data-ingestion-time.md)。
 
-根據您設定警示規則的方式而定，如果在警示執行時，記錄中沒有資料或部分資料，就可能會發生 misfiring。 在這種情況下，建議您變更警示查詢或設定。 
+根據您設定警示規則的方式而定，如果在警示執行時，記錄中沒有資料或部分資料，就可能會發生 misfiring。 在這種情況下，建議您變更警示查詢或設定。
 
 例如，如果您設定在分析查詢的結果數目小於5時觸發記錄警示規則，則當沒有資料（零筆記錄）或部分結果（一筆記錄）時，就會觸發警示。 但在資料內嵌延遲之後，具有完整資料的相同查詢可能會提供10筆記錄的結果。
 
@@ -111,7 +111,7 @@ Log Analytics 和 Application Insights 會受限於內嵌延遲和處理。 當�
 
 在 Azure 監視器中建立的記錄警示規則會以特定資源（例如 Azure Log Analytics 工作區、Azure 應用程式 Insights 應用程式和 Azure 資源）為目標。 然後，記錄警示服務會針對指定的目標，執行規則中提供的分析查詢。 但在建立規則之後，使用者通常會繼續從 Azure 刪除--或在 Azure 內部移動--記錄警示規則的目標。 因為警示規則的目標已不再有效，所以規則的執行會失敗。
 
-在這種情況下，Azure 監視器會停用記錄警示，並確保當規則無法持續在可調整的期間（例如一周）內執行時，不會不必要地向您收費。 您可以找出 Azure 監視器透過[Azure 活動記錄](../../azure-resource-manager/resource-group-audit.md)停用記錄警示的確切時間。 在 [Azure 活動記錄檔] 中，當 Azure 監視器停用記錄警示規則時，就會新增事件。
+在這種情況下，Azure 監視器會停用記錄警示，並確保當規則無法持續在可調整的期間（例如一周）內執行時，不會不必要地向您收費。 您可以找出 Azure 監視器透過[Azure 活動記錄](../../azure-resource-manager/management/view-activity-logs.md)停用記錄警示的確切時間。 在 [Azure 活動記錄檔] 中，當 Azure 監視器停用記錄警示規則時，就會新增事件。
 
 Azure 活動記錄中的下列範例事件適用于因為連續失敗而停用的警示規則。
 
@@ -187,7 +187,7 @@ Azure 活動記錄中的下列範例事件適用于因為連續失敗而停用�
 
 [Azure Advisor](../../advisor/advisor-overview.md)警告您有關此行為。 系統會針對 Azure Advisor 上的 [高可用性] 類別下的 [使用中度影響] 和 [修復您的記錄警示規則以確保監視] 的描述，新增特定記錄警示規則的建議。 如果在 Azure Advisor 提供7天的建議之後，記錄警示規則中的警示查詢不會受到修正，Azure 監視器將會停用記錄警示，並確保當規則無法持續在可調整的期間內執行時，不會不必要地向您收費（類似一周）。
 
-您可以尋找[Azure 活動記錄](../../azure-resource-manager/resource-group-audit.md)中的事件，以找出 Azure 監視器停用記錄警示規則的確切時間。
+您可以尋找[Azure 活動記錄](../../azure-resource-manager/management/view-activity-logs.md)中的事件，以找出 Azure 監視器停用記錄警示規則的確切時間。
 
 ## <a name="next-steps"></a>後續步驟
 

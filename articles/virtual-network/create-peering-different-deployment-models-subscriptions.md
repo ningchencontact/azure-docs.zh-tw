@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: fa647da6764ca61679aade2acc2849b474912278
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6d45e3d911b8070529c43d9069a3d0d2fa5d3e69
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871978"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979004"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>建立虛擬網路對等互連 - 不同部署模型和訂用帳戶
 
 在本教學課程中，您會了解如何在透過不同部署模型建立的虛擬網路之間，建立虛擬網路對等互連。 這些虛擬網路存在於不同的訂用帳戶中。 對等互連兩個虛擬網路，可讓不同虛擬網路中的資源彼此通訊，且通訊時會有相同的頻寬和延遲，彷彿這些資源是位於相同的虛擬網路中。 深入了解[虛擬網路對等互連](virtual-network-peering-overview.md)。
 
-建立虛擬網路對等互連的步驟會因一些因素而有所不同，這取決於虛擬網路是位於相同還是不同的訂用帳戶中，以及是透過哪一個 [Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)建立虛擬網路。 請按一下下表中的案例，以了解如何在其他案例中建立虛擬網路對等互連：
+建立虛擬網路對等互連的步驟會因一些因素而有所不同，這取決於虛擬網路是位於相同還是不同的訂用帳戶中，以及是透過哪一個 [Azure 部署模型](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)建立虛擬網路。 請按一下下表中的案例，以了解如何在其他案例中建立虛擬網路對等互連：
 
 |Azure 部署模型  | Azure 訂用帳戶  |
 |--------- |---------|
@@ -43,59 +43,59 @@ ms.locfileid: "67871978"
 本教學課程針對每個訂用帳戶使用不同的帳戶。 如果您使用對兩個訂用帳戶都有權限的帳戶，便可以使用該相同帳戶來進行所有步驟、略過登出入口網站的步驟，以及略過指派另一位使用者權限給虛擬網路的步驟。
 
 1. 以 UserA 身分登入 [Azure 入口網站](https://portal.azure.com)。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需權限清單，請參閱[虛擬網路對等互連權限](virtual-network-manage-peering.md#permissions)。
-2. 依序按一下 [新增]  、[網路]  及 [虛擬網路]  。
-3. 在 [建立虛擬網路]  刀鋒視窗上，輸入或選取下列設定的值，然後按一下 [建立]  ：
+2. 依序按一下 [新增]、[網路] 及 [虛擬網路]。
+3. 在 [建立虛擬網路] 刀鋒視窗上，輸入或選取下列設定的值，然後按一下 [建立]：
     - **名稱**：*myVnetA*
     - **位址空間**：*10.0.0.0/16*
     - **子網路名稱**：*預設值*
-    - **子網路位址範圍**︰*10.0.0.0/24*
-    - 訂用帳戶  ：選取訂用帳戶 A。
-    - **資源群組**：選取 [新建]  ，然後輸入 *myResourceGroupA*
-    - **位置**：美國東部 
-4. 在入口網站頂端的 [搜尋資源]  方塊中，輸入 *myVnetA*。 當 myVnetA 出現在搜尋結果中時，按一下 [myVnetA]  。 隨即會顯示 [myVnetA]  虛擬網路刀鋒視窗。
-5. 在顯示的 [myVnetA]  刀鋒視窗中，從刀鋒視窗左側的垂直選項清單中按一下 [存取控制 (IAM)]  。
-6. 在顯示的 [myVnetA - 存取控制 (IAM)]  刀鋒視窗中，按一下 [+ 新增角色指派]  。
-7. 在顯示的 [新增角色指派]  刀鋒視窗中，選取 [角色]  方塊中的 [網路參與者]  。
-8. 在 [選取]  方塊中，選取 [UserB]，或輸入 UserB 的電子郵件地址來搜尋它。 顯示的使用者清單來自與您設定對等互連之虛擬網路相同的 Azure Active Directory 租用戶。 當 UserB 出現在清單中時，按一下 [UserB]。
-9. 按一下 [儲存]  。
+    - **子網路位址範圍**：*10.0.0.0/24*
+    - **訂用帳戶**︰選取訂用帳戶 A。
+    - **資源群組**：選取 [建立新項目]，然後輸入 *myResourceGroupA*
+    - **位置**：*美國東部*
+4. 在入口網站頂端的 [搜尋資源] 方塊中，輸入 *myVnetA*。 當 myVnetA 出現在搜尋結果中時，按一下 [myVnetA]。 隨即會顯示 [myVnetA] 虛擬網路刀鋒視窗。
+5. 在顯示的 [myVnetA] 刀鋒視窗中，從刀鋒視窗左側的垂直選項清單中按一下 [存取控制 (IAM)]。
+6. 在顯示的 [myVnetA - 存取控制 (IAM)] 刀鋒視窗中，按一下 [+ 新增角色指派]。
+7. 在顯示的 [新增角色指派] 刀鋒視窗中，選取 [角色] 方塊中的 [網路參與者]。
+8. 在 [選取] 方塊中，選取 [UserB]，或輸入 UserB 的電子郵件地址來搜尋它。 顯示的使用者清單來自與您設定對等互連之虛擬網路相同的 Azure Active Directory 租用戶。 當 UserB 出現在清單中時，按一下 [UserB]。
+9. 按一下 [檔案]。
 10. 以 UserA 身分登出入口網站，然後以 UserB 身分登入。
-11. 按一下 [+ 新增]  ，在 [搜尋 Marketplace]  方塊中輸入*虛擬網路*，然後按一下搜尋結果中的 [虛擬網路]  。
-12. 在出現的 [虛擬網路]  刀鋒視窗中，於 [選取部署模型]  方塊中選取 [傳統]  ，然後按一下 [建立]  。
+11. 按一下 [+ 新增]，在 [搜尋 Marketplace] 方塊中輸入*虛擬網路*，然後按一下搜尋結果中的 [虛擬網路]。
+12. 在出現的 [虛擬網路] 刀鋒視窗中，於 [選取部署模型] 方塊中選取 [傳統]，然後按一下 [建立]。
 13. 在顯示的 [建立虛擬網路 (傳統)] 方塊中，輸入下列值：
 
     - **名稱**：*myVnetB*
     - **位址空間**：*10.1.0.0/16*
     - **子網路名稱**：*預設值*
-    - **子網路位址範圍**︰*10.1.0.0/24*
-    - 訂用帳戶  ：選取訂用帳戶 B。
-    - **資源群組**：選取 [新建]  ，然後輸入 *myResourceGroupB*
-    - **位置**：美國東部 
+    - **子網路位址範圍**：*10.1.0.0/24*
+    - **訂用帳戶**︰選取訂用帳戶 B。
+    - **資源群組**：選取 [建立新項目]，然後輸入 *myResourceGroupB*
+    - **位置**：*美國東部*
 
-14. 在入口網站頂端的 [搜尋資源]  方塊中，輸入 *myVnetB*。 當 myVnetB 出現在搜尋結果中時，按一下 [myVnetB]  。 隨即會顯示 [myVnetB]  虛擬網路刀鋒視窗。
-15. 在顯示的 [myVnetB]  刀鋒視窗中，從刀鋒視窗左側的垂直選項清單中按一下 [屬性]  。 複製 [資源識別碼]  ，在稍後的步驟中將會用到此識別碼。 資源識別碼與下列範例類似:`/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
+14. 在入口網站頂端的 [搜尋資源] 方塊中，輸入 *myVnetB*。 當 myVnetB 出現在搜尋結果中時，按一下 [myVnetB]。 隨即會顯示 [myVnetB] 虛擬網路刀鋒視窗。
+15. 在顯示的 [myVnetB] 刀鋒視窗中，從刀鋒視窗左側的垂直選項清單中按一下 [屬性]。 複製 [資源識別碼]，在稍後的步驟中將會用到此識別碼。 資源識別碼與下列範例類似： `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
 16. 針對 myVnetB 完成步驟 5-9，其中在步驟 8 輸入 **UserA**。
 17. 以 UserB 身分登出入口網站，然後以 UserA 身分登入。
-18. 在入口網站頂端的 [搜尋資源]  方塊中，輸入 *myVnetA*。 當 myVnetA 出現在搜尋結果中時，按一下 [myVnetA]  。 隨即會顯示 [myVnet]  虛擬網路刀鋒視窗。
-19. 按一下 [myVnetA]  。
-20. 在顯示的 [myVnetA]  刀鋒視窗中，從刀鋒視窗左側的垂直選項清單中按一下 [對等]  。
-21. 在顯示的 [myVnetA - 對等互連]  刀鋒視窗中，按一下 [+ 新增] 
-22. 在顯示的 [新增對等互連]  刀鋒視窗中，輸入或選取下列選項，然後按一下 [確定]  ：
+18. 在入口網站頂端的 [搜尋資源] 方塊中，輸入 *myVnetA*。 當 myVnetA 出現在搜尋結果中時，按一下 [myVnetA]。 隨即會顯示 [myVnet] 虛擬網路刀鋒視窗。
+19. 按一下 [myVnetA]。
+20. 在顯示的 [myVnetA] 刀鋒視窗中，從刀鋒視窗左側的垂直選項清單中按一下 [對等]。
+21. 在顯示的 [myVnetA - 對等互連] 刀鋒視窗中，按一下 [+ 新增]
+22. 在顯示的 [新增對等互連] 刀鋒視窗中，輸入或選取下列選項，然後按一下 [確定]：
      - **名稱**：*myVnetAToMyVnetB*
-     - **虛擬網路部署模型**︰選取 [傳統]  。
+     - **虛擬網路部署模型**︰選取 [傳統]。
      - **我知道我的資源識別碼**：核取此方塊。
-     - **資源識別碼**：輸入來自步驟 15 的 myVnetB 資源識別碼。
-     - **允許虛擬網路存取：** 確定已選取 [啟用]  。
+     - **資源識別碼**： 輸入來自步驟 15 的 myVnetB 資源識別碼。
+     - **允許虛擬網路存取**：確定已選取 [啟用]。
     本教學課程中不會使用其他設定。 若要了解所有對等互連設定，請閱讀[管理虛擬網路對等互連](virtual-network-manage-peering.md#create-a-peering)。
-23. 在上一個步驟中按一下 [確定]  之後，[新增對等互連]  刀鋒視窗隨就會關閉，而您則會再次看到 [myVnetA - 對等]  刀鋒視窗。 幾秒之後，您建立的對等互連會出現在刀鋒視窗中。 您所建立之 **myVnetAToMyVnetB** 對等互連的 [對等互連狀態]  資料行中會列出 [已連接]  。 現在已建立對等互連。 沒有必要將虛擬網路 (傳統) 對等互連到虛擬網路 (Resource Manager)。
+23. 在上一個步驟中按一下 [確定] 之後，[新增對等互連] 刀鋒視窗隨就會關閉，而您則會再次看到 [myVnetA - 對等] 刀鋒視窗。 幾秒之後，您建立的對等互連會出現在刀鋒視窗中。 您所建立之 **myVnetAToMyVnetB** 對等互連的 [對等互連狀態] 資料行中會列出 [已連接]。 現在已建立對等互連。 沒有必要將虛擬網路 (傳統) 對等互連到虛擬網路 (Resource Manager)。
 
     您在任何一個虛擬網路中建立的任何 Azure 資源現在能夠透過其 IP 位址彼此通訊。 如果您使用虛擬網路的預設 Azure 名稱解析，則虛擬網路中的資源無法跨虛擬網路解析名稱。 如果您想要跨對等互連中的虛擬網路解析名稱，您必須建立自己的 DNS 伺服器。 了解如何設定[使用自己的 DNS 伺服器進行名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
 
 24. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
-25. **選擇性**：若要刪除您在本教學課程中建立的資源，請完成本文中[刪除資源](#delete-portal)一節的步驟。
+25. **選擇性︰** 若要刪除您在本教學課程中建立的資源，請完成本文之[刪除資源](#delete-portal)一節中的步驟。
 
 ## <a name="cli"></a>建立對等互連 - Azure CLI
 
-本教學課程針對每個訂用帳戶使用不同的帳戶。 如果您使用對兩個訂用帳戶都有權限的帳戶，便可以使用該相同帳戶來進行所有步驟、略過登出 Azure 的步驟，以及移除建立使用者角色指派項目的指令碼行。 請使用您要用於 UserA 和 UserB 的使用者名稱來取代下列指令碼中的 UserA@azure.com 和 UserB@azure.com。 使用 Azure 傳統 CLI 與 Azure CLI 完成下列步驟。 您可以從 Azure Cloud Shell 完成這些步驟，只需在下列任一步驟中選取 [試用]  按鈕，或安裝[傳統 CLI](/cli/azure/install-classic-cli) 與 [CLI](/cli/azure/install-azure-cli) 並在您的本機電腦上執行命令。
+本教學課程針對每個訂用帳戶使用不同的帳戶。 如果您使用對兩個訂用帳戶都有權限的帳戶，便可以使用該相同帳戶來進行所有步驟、略過登出 Azure 的步驟，以及移除建立使用者角色指派項目的指令碼行。 請使用您要用於 UserA 和 UserB 的使用者名稱來取代下列指令碼中的 UserA@azure.com 和 UserB@azure.com。 使用 Azure 傳統 CLI 與 Azure CLI 完成下列步驟。 您可以從 Azure Cloud Shell 完成這些步驟，只需在下列任一步驟中選取 [試用] 按鈕，或安裝[傳統 CLI](/cli/azure/install-classic-cli) 與 [CLI](/cli/azure/install-azure-cli) 並在您的本機電腦上執行命令。
 
 1. 如果使用 Cloud Shell，請跳至步驟 2，因為 Cloud Shel l會自動將您登入 Azure。 開啟命令工作階段，然後使用 `azure login` 命令來登入 Azure。
 2. 輸入 `azure config mode asm` 命令來以「服務管理」模式執行傳統 CLI。
@@ -105,7 +105,7 @@ ms.locfileid: "67871978"
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
 4. 必須使用 bash 殼層搭配 Azure CLI (而不是傳統 CLI) 完成其餘步驟。
-5. 將下列指令碼複製到您電腦上的文字編輯器中。 使用您的訂用帳戶 ID 來取代 `<SubscriptionB-Id>` 。 如果您不知道您的訂用帳戶 ID，請輸入 `az account show` 命令。 輸出中的 **id** 值就是您的訂用帳戶 ID。複製修改過的指令碼並貼到您的 CLI 工作階段中，然後按 `Enter`。
+5. 將下列指令碼複製到您電腦上的文字編輯器中。 使用您的訂用帳戶 ID 來取代 `<SubscriptionB-Id>` 。 如果您不知道您的訂用帳戶 ID，請輸入 `az account show` 命令。 輸出中的**id**值是您的訂用帳戶識別碼。請複製修改過的腳本，將其貼到您的 CLI 會話中，然後按 `Enter`。
 
     ```azurecli-interactive
     az role assignment create \
@@ -150,7 +150,7 @@ ms.locfileid: "67871978"
       --scope $vNetAId
     ```
 
-8. 在透過不同部署模型建立的兩個虛擬網路之間，建立虛擬網路對等互連。 將下列指令碼複製到您電腦上的文字編輯器中。 使用您的訂用帳戶 ID 來取代 `<SubscriptionB-id>` 。如果您不知道您的訂用帳戶 ID，請輸入 `az account show` 命令。 輸出中的 **id** 值就是您的訂用帳戶 ID。Azure 已將您在步驟 4 中建立的虛擬網路 (傳統) 建立在名為 *Default-Networking* 的資源群組中。 請將修改過的指令碼貼到您的 CLI 工作階段中，然後按 `Enter`。
+8. 在透過不同部署模型建立的兩個虛擬網路之間，建立虛擬網路對等互連。 將下列指令碼複製到您電腦上的文字編輯器中。 將 `<SubscriptionB-id>` 取代為您的訂用帳戶識別碼。如果您不知道您的訂用帳戶識別碼，請輸入 `az account show` 命令。 輸出中的**id**值是您的訂用帳戶識別碼。 Azure 會建立您在步驟4中建立的虛擬網路（傳統），您在名為 [*預設網路*] 的資源群組中。 請將修改過的指令碼貼到您的 CLI 工作階段中，然後按 `Enter`。
 
     ```azurecli-interactive
     # Peer VNet1 to VNet2.
@@ -175,7 +175,7 @@ ms.locfileid: "67871978"
     您在任何一個虛擬網路中建立的任何 Azure 資源現在能夠透過其 IP 位址彼此通訊。 如果您使用虛擬網路的預設 Azure 名稱解析，則虛擬網路中的資源無法跨虛擬網路解析名稱。 如果您想要跨對等互連中的虛擬網路解析名稱，您必須建立自己的 DNS 伺服器。 了解如何設定[使用自己的 DNS 伺服器進行名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
 
 10. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
-11. **選擇性**：若要刪除您在本教學課程中所建立的資源，請完成本文中[刪除資源](#delete-cli)的步驟。
+11. **選擇性︰** 若要刪除您在本教學課程中所建立的資源，請完成本文之[刪除資源](#delete-cli)中的步驟。
 
 ## <a name="powershell"></a>建立對等互連 - PowerShell
 
@@ -265,19 +265,19 @@ ms.locfileid: "67871978"
     您在任何一個虛擬網路中建立的任何 Azure 資源現在能夠透過其 IP 位址彼此通訊。 如果您使用虛擬網路的預設 Azure 名稱解析，則虛擬網路中的資源無法跨虛擬網路解析名稱。 如果您想要跨對等互連中的虛擬網路解析名稱，您必須建立自己的 DNS 伺服器。 了解如何設定[使用自己的 DNS 伺服器進行名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
 
 12. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
-13. **選擇性**：若要刪除您在本教學課程中所建立的資源，請完成本文中[刪除資源](#delete-powershell)的步驟。
+13. **選擇性︰** 若要刪除您在本教學課程中所建立的資源，請完成本文之[刪除資源](#delete-powershell)中的步驟。
 
 ## <a name="delete"></a>刪除資源
 當您完成本教學課程時，您可能會想刪除您在教學課程中建立的資源，以免產生使用費。 刪除資源群組同時會刪除其內含的所有資源。
 
 ### <a name="delete-portal"></a>Azure 入口網站
 
-1. 在入口網站搜尋方塊中，輸入 **myResourceGroupA**。 在搜尋結果中，按一下 [myResourceGroupA]  。
-2. 在 [myResourceGroupA]  刀鋒視窗中，按一下 [刪除]  圖示。
-3. 若要確認刪除，請在 [輸入資源群組名稱]  方塊中輸入 **myResourceGroupA**，然後按一下 [刪除]  。
-4. 在入口網站頂端的 [搜尋資源]  方塊中，輸入 *myVnetB*。 當 myVnetB 出現在搜尋結果中時，按一下 [myVnetB]  。 隨即會顯示 [myVnetB]  虛擬網路刀鋒視窗。
-5. 在 [myVnetB]  刀鋒視窗中，按一下 [刪除]  。
-6. 若要確認刪除，請在 [刪除虛擬網路]  方塊中，按一下 [是]  。
+1. 在入口網站搜尋方塊中，輸入 **myResourceGroupA**。 在搜尋結果中，按一下 [myResourceGroupA]。
+2. 在 [myResourceGroupA] 刀鋒視窗中，按一下 [刪除] 圖示。
+3. 若要確認刪除，請在 [輸入資源群組名稱] 方塊中輸入 **myResourceGroupA**，然後按一下 [刪除]。
+4. 在入口網站頂端的 [搜尋資源] 方塊中，輸入 *myVnetB*。 當 myVnetB 出現在搜尋結果中時，按一下 [myVnetB]。 隨即會顯示 [myVnetB] 虛擬網路刀鋒視窗。
+5. 在 [myVnetB] 刀鋒視窗中，按一下 [刪除]。
+6. 若要確認刪除，請在 [刪除虛擬網路] 方塊中，按一下 [是]。
 
 ### <a name="delete-cli"></a>Azure CLI
 

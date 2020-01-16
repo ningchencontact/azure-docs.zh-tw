@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 13b0f7bd37956b51c6dce780d0709abfb3546336
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 23e04bf651c199364f23bf36f327de94c709d643
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430307"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028586"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>使用 Azure 私人連結私下連接到 Azure Cosmos 帳戶
 
@@ -141,7 +141,7 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
    10.1.255.14 mycosmosaccount-eastus.documents.azure.com
 
 
-1. 在 *myVM*的遠端桌面中，安裝[Microsoft Azure 儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows)。
+1. 在*myVM*的遠端桌面中，安裝[Microsoft Azure 儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows)。
 
 1. 選取 [ **Cosmos DB 帳戶（預覽）** ]，並按一下滑鼠右鍵。
 
@@ -159,22 +159,22 @@ Azure 私用端點是 Azure 中私人連結的基本建立區塊。 它可讓 Az
 
 1. （選擇性）將新的專案加入至*mycosmosaccount*。
 
-1. 關閉對 *myVM*的遠端桌面連線。
+1. 關閉對*myVM*的遠端桌面連線。
 
 ## <a name="clean-up-resources"></a>清除資源
 
 當您使用私人端點、Azure Cosmos 帳戶和 VM 完成時，請刪除資源群組及其包含的所有資源： 
 
-1. 在入口網站頂端的 [搜尋] 方塊中輸入  *myResourceGroup* ，然後從搜尋結果中選取 [myResourceGroup] **  。
+1. 在入口網站頂端的 [搜尋] 方塊中輸入 *myResourceGroup*，然後從搜尋結果中選取 [myResourceGroup]。
 
 1. 選取 [刪除資源群組]。
 
-1. **在 [輸入資源組名**] 中輸入 *myResourceGroup* ，然後選取 [**刪除**]。
+1. 針對 [輸入資源群組名稱] 輸入 *myResourceGroup*，然後選取 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 
 在本文中，您已在虛擬網路、Azure Cosmos 帳戶和私人端點上建立 VM。 您已從網際網路連線至 VM，並使用私人連結安全地與 Azure Cosmos 帳戶通訊。
 
-* 若要深入瞭解私用端點，請參閱 [什麼是 Azure 私人端點？](private-endpoint-overview.md)。
+* 若要深入瞭解私用端點，請參閱[什麼是 Azure 私人端點？](private-endpoint-overview.md)。
 
 * 若要深入瞭解搭配 Azure Cosmos DB 使用私人端點的限制，請參閱[Azure Cosmos DB 文章的 Azure 私用連結](../cosmos-db/how-to-configure-private-endpoints.md)。

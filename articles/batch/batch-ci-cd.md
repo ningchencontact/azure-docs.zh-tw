@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.service: batch
-ms.openlocfilehash: 7f471032d69213fc11ff748e3fa9093991ee23d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 03e383e43cbe90ae2f59766a235f167cff623b6a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449809"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982703"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>使用 Azure Pipelines 來建立和部署 HPC 解決方案
 
@@ -192,7 +192,7 @@ Azure Pipelines 提供各種新式 CI/CD 程式來建立、部署、測試和監
 
 最後，我們有一個類似協調器的範本。 此範本會負責部署功能範本。
 
-您也可以在個別的文章中深入瞭解如何[建立連結的 Azure Resource Manager 範本](../azure-resource-manager/resource-manager-tutorial-create-linked-templates.md)。
+您也可以在個別的文章中深入瞭解如何[建立連結的 Azure Resource Manager 範本](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md)。
 
 ```json
 {
@@ -368,7 +368,7 @@ Azure Pipelines 也用來部署您的應用程式和基礎結構。 [發行管�
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>部署您的應用程式和基礎結構
 
-部署基礎結構牽涉到幾個步驟。 因為我們已使用[連結的範本](../azure-resource-manager/resource-group-linked-templates.md)，所以必須可從公用端點（HTTP 或 HTTPS）存取這些範本。 這可能是 GitHub 上的儲存機制，或 Azure Blob 儲存體帳戶或其他儲存位置。 已上傳的範本成品可以維持安全，因為它們可以保存在私用模式中，但使用某種形式的共用存取簽章（SAS）權杖來存取。 下列範例示範如何使用 Azure 儲存體 blob 的範本來部署基礎結構。
+部署基礎結構牽涉到幾個步驟。 因為我們已使用[連結的範本](../azure-resource-manager/templates/linked-templates.md)，所以必須可從公用端點（HTTP 或 HTTPS）存取這些範本。 這可能是 GitHub 上的儲存機制，或 Azure Blob 儲存體帳戶或其他儲存位置。 已上傳的範本成品可以維持安全，因為它們可以保存在私用模式中，但使用某種形式的共用存取簽章（SAS）權杖來存取。 下列範例示範如何使用 Azure 儲存體 blob 的範本來部署基礎結構。
 
 1. 建立**新的發行定義**，然後選取空白的定義。 接著，我們需要將新建立的環境重新命名為與管線相關的專案。
 

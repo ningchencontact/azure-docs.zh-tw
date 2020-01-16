@@ -3,12 +3,12 @@ title: 使用 Azure 備份伺服器備份工作負載
 description: 在本文中，您將瞭解如何準備您的環境，以使用 Microsoft Azure 備份 Server （MABS）來保護和備份工作負載。
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 7379992eeb441372a9140621f9d90b337ad0d2e2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: db2bac3464939edc5dec2ee2947faf7a05ad6812
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172982"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979871"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>安裝及升級 Azure 備份伺服器
 
@@ -31,7 +31,7 @@ ms.locfileid: "74172982"
 部署在 Azure VM 中的 MABS 可以在 Azure 中備份 Vm，但它們必須位於相同的網域中，才能啟用備份作業。 備份 Azure VM 的程式與備份內部部署 Vm 的程式相同，但在 Azure 中部署 MABS 有一些限制。 如需有關限制的詳細資訊，請參閱[DPM 做為 Azure 虛擬機器](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
-> Azure 有兩種用來建立和使用資源的部署模型： [Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文提供的資訊和程序可供還原使用 Resource Manager 模型部署的 VM。
+> Azure 有兩種用來建立和使用資源的部署模型： [Resource Manager 和傳統](../azure-resource-manager/management/deployment-models.md)。 本文提供的資訊和程序可供還原使用 Resource Manager 模型部署的 VM。
 >
 >
 
@@ -75,7 +75,7 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
 
 ### <a name="set-storage-replication"></a>設定儲存體複寫
 
-儲存體複寫選項有異地備援儲存體和本地備援儲存體可供您選擇。 根據預設，復原服務保存庫會使用異地備援儲存體。 如果這個保存庫是您的主要保存庫，儲存體選項請保持設定為異地備援儲存體。 如果您想要更便宜但不持久的選項，請選擇本地備援儲存體。 在 [Azure 儲存體複寫概觀](../storage/common/storage-redundancy-grs.md)中，深入了解[異地備援](../storage/common/storage-redundancy-lrs.md)和[本地備援](../storage/common/storage-redundancy.md)儲存體選項。
+儲存體複寫選項有異地備援儲存體和本地備援儲存體可供您選擇。 根據預設，復原服務保存庫會使用異地備援儲存體。 如果這個保存庫是您的主要保存庫，儲存體選項請保持設定為異地備援儲存體。 如果您想要更便宜但不持久的選項，請選擇本地備援儲存體。 在 [Azure 儲存體複寫概觀](../storage/common/storage-redundancy.md)中，深入了解[異地備援](../storage/common/storage-redundancy-grs.md)和[本地備援](../storage/common/storage-redundancy-lrs.md)儲存體選項。
 
 若要編輯儲存體複寫設定︰
 
@@ -285,10 +285,10 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 
 | 連線狀態 | Azure 訂用帳戶 | 備份至 Azure | 備份到磁碟 | 從 Azure 還原 | 從磁碟還原 |
 | --- | --- | --- | --- | --- | --- |
-| 連線 |作用中 |允許 |允許 |允許 |允許 |
+| 連線 |Active |允許 |允許 |允許 |允許 |
 | 連線 |已過期 |已停止 |已停止 |允許 |允許 |
 | 連線 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
-| 連線中斷 > 15 天 |作用中 |已停止 |已停止 |允許 |允許 |
+| 連線中斷 > 15 天 |Active |已停止 |已停止 |允許 |允許 |
 | 連線中斷 > 15 天 |已過期 |已停止 |已停止 |允許 |允許 |
 | 連線中斷 > 15 天 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
 
@@ -339,7 +339,7 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 
 3. 在受保護的伺服器上更新保護代理程式。
 4. 備份應會繼續，而不需重新啟動您的生產伺服器。
-5. 您現在可以開始保護您的資料。 如果您要升級到新式備份儲存體，同時提供保護，您也可選擇您要儲存備份的磁碟區，以及檢查佈建不足的空間。 [詳細資訊](backup-mabs-add-storage.md)。
+5. 您現在可以開始保護您的資料。 如果您要升級到新式備份儲存體，同時提供保護，您也可選擇您要儲存備份的磁碟區，以及檢查佈建不足的空間。 [深入了解](backup-mabs-add-storage.md)。
 
 ## <a name="troubleshooting"></a>疑難排解
 

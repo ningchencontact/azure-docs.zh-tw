@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: aaa67c5e48c6246e94410bdbf2eb8509b6810001
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 8325b4ef6b89a76eeec418386cec4922cb5916b1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645186"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979158"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>使用 Azure 監視器來警示及監視 data factory
 
@@ -67,7 +67,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ##### <a name="headers"></a>headers
 
 * 將 `{api-version}` 取代為 `2016-09-01`。
-* 以您想要編輯診斷設定的資源識別碼取代 `{resource-id}`。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/manage-resource-groups-portal.md)。
+* 以您想要編輯診斷設定的資源識別碼取代 `{resource-id}`。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/manage-resource-groups-portal.md)。
 * 將 `Content-Type` 標頭設定為 `application/json`。
 * 將授權標頭設定為您從 Azure Active Directory （Azure AD）所獲得的 JSON web 權杖。 如需詳細資訊，請參閱[驗證要求](../active-directory/develop/authentication-scenarios.md)。
 
@@ -188,7 +188,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ##### <a name="headers"></a>headers
 
 * 將 `{api-version}` 取代為 `2016-09-01`。
-* 以您想要編輯診斷設定的資源識別碼取代 `{resource-id}`。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/manage-resource-groups-portal.md)。
+* 以您想要編輯診斷設定的資源識別碼取代 `{resource-id}`。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/management/manage-resource-groups-portal.md)。
 * 將 `Content-Type` 標頭設定為 `application/json`。
 * 將授權標頭設定為您從 Azure AD 所獲得的 JSON web 權杖。 如需詳細資訊，請參閱[驗證要求](../active-directory/develop/authentication-scenarios.md)。
 

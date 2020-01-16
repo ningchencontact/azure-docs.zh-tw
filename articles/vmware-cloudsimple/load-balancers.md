@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d26eb0160316737c9ad31d98c8cf23bdcad42d32
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6c98b699b1d3aba15ce69c519d35d7ce3e90d123
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206508"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045742"
 ---
 # <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>選擇適用于 CloudSimple 私人雲端的負載平衡解決方案
 
@@ -37,7 +37,7 @@ ms.locfileid: "74206508"
 
 如果您選擇在混合式部署中執行應用程式，其中 web 前端層是在 Azure 訂用帳戶中的 Azure vNet 內執行，而應用程式的 DB 層是在 CloudSimple 私用雲端的 VMware Vm 中執行，您可以使用 Azure 內部負載在您的 DB 層 Vm 前面的平衡器（L4 負載平衡器），用於流量管理。
 
-若要深入瞭解，請參閱 Azure[內部 Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)檔。
+若要深入瞭解，請參閱 Azure[內部 Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer)檔。
 
 ## <a name="global-server-load-balancer"></a>全域伺服器負載平衡器
 

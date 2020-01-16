@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c08dc5091e7ab0eec5d4e6dd455e6adb3caa35f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5465c177cf174ebf8d6b7d4f43c5387bce3adb70
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402055"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969705"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>在 Azure 中設計和建置管理解決方案 (預覽)
 > [!NOTE]
@@ -23,7 +23,7 @@ ms.locfileid: "75402055"
 
 ## <a name="what-is-a-management-solution"></a>何謂管理解決方案？
 
-管理解決方案包含可共同運作以達成特殊監視案例的 Azure 資源。  解決方案會實作為[資源管理範本](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)，範本中包含如何在安裝解決方案時安裝及設定其內含資源的詳細資料。
+管理解決方案包含可共同運作以達成特殊監視案例的 Azure 資源。  解決方案會實作為[資源管理範本](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)，範本中包含如何在安裝解決方案時安裝及設定其內含資源的詳細資料。
 
 基本策略是藉由在 Azure 環境中建置個別元件來開始您的管理解決方案。  當功能正常運作後，您就可以開始將這些元件封裝到[管理解決方案檔]( solutions-solution-file.md)。 
 
@@ -64,7 +64,7 @@ Log Analytics 中的檢視可以視覺方式呈現 Log Analytics 儲存機制中
 
 
 ## <a name="test-your-solution"></a>測試解決方案
-在開發解決方案的同時，您必須將其安裝在工作區中並進行測試。  您可以使用任何可用來[測試和安裝 Resource Manager 範本](../../azure-resource-manager/resource-group-template-deploy.md)的方法來進行此操作。
+在開發解決方案的同時，您必須將其安裝在工作區中並進行測試。  您可以使用任何可用來[測試和安裝 Resource Manager 範本](../../azure-resource-manager/templates/deploy-powershell.md)的方法來進行此操作。
 
 ## <a name="publish-your-solution"></a>發佈您的解決方案
 解決方案完成並通過測試後，您可以透過下列來源將它提供給客戶。

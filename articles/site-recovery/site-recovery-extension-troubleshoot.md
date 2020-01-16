@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.openlocfilehash: 7f9ae32b95d629ef79f085ed590d9057b0414911
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: a9d28a12f5f1fa32d2bc3bcf590134930503f2ac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941545"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970390"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>針對 Azure VM 擴充功能問題進行疑難排解
 
@@ -105,8 +105,6 @@ VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代
 4. 選取 [Site Recovery 延伸模組]。
 5. 選取 [解除安裝]。
 
-針對 Linux VM，如果 VMSnapshot 延伸模組未顯示在 Azure 入口網站中，請[更新 Azure Linux 代理程式](../virtual-machines/linux/update-agent.md)，然後再執行保護。 
+針對 Linux VM，如果 VMSnapshot 延伸模組未顯示在 Azure 入口網站中，請[更新 Azure Linux 代理程式](../virtual-machines/linux/update-agent.md)，然後再執行保護。
 
 完成這些步驟會使得在保護期間重新安裝延伸模組。
-
-

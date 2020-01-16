@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 46e6f19a071986cf12590e9bd5c420e070572a14
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 584a37ffb9727a48e2adb5e339697314cffe93f7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707091"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980857"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>使用 Key Vault 和 Azure PowerShell 管理儲存體帳戶金鑰
 
@@ -54,7 +54,7 @@ Key Vault 是在所有 Azure AD 租使用者中預先註冊的 Microsoft 應用�
 
 - [安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps?view=azps-2.6.0)。
 - [建立金鑰保存庫](quick-create-powershell.md)
-- [建立 Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell)。 儲存體帳戶名稱必須僅使用小寫字母和數位。 名稱的長度必須介於3到24個字元之間。
+- [建立 Azure 儲存體帳戶](../storage/common/storage-account-create.md?tabs=azure-powershell)。 儲存體帳戶名稱必須僅使用小寫字母和數位。 名稱的長度必須介於3到24個字元之間。
       
 
 ## <a name="manage-storage-account-keys"></a>管理儲存體帳戶金鑰

@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4df22108591fe3f80078bce050081c4953443847
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 9342a70e539c4a2717fe45426c26595285172681
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903004"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045765"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔
 
@@ -99,9 +99,14 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 4. 從 **Generic** 資料夾的 **VpnSettings.xml** 檔案複製 **VpnServer** 標記值。 將此值貼到設定檔的 [伺服器位址] 和 [遠端識別碼] 欄位。
 
    ![伺服器資訊](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-5. 按一下 [驗證設定]，然後選取 [憑證]。 
+5. 按一下 [驗證設定]，然後選取 [憑證]。 針對 [ **Catalina**]，按一下 [**無**]，然後按 [**憑證**]
 
    ![驗證設定](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
+
+   * 針對 [Catalina]，選取 [**無**]，然後選取 [**憑證**]。 **選取**正確的憑證：
+   
+   ![catalina](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
+
 6. 按一下 [選取...] 以選擇您要用於驗證的用戶端憑證。 這是您在步驟 2 安裝的憑證。
 
    ![憑證 (certificate)](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)

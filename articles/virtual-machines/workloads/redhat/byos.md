@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: alsin
-ms.openlocfilehash: e9cbd98afd5f9ed5561cba2236d85da331db7895
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 911d86dd7cb03479d9bde49d8fce0f7861e32e27
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75944693"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980147"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux 在 Azure 中攜帶自己的訂用帳戶黃金映射
 Red Hat Enterprise Linux （RHEL）映射可透過隨用隨付（PAYG）或自備訂用帳戶（Red Hat 黃金圖）模型，在 Azure 中提供。 本檔概要說明 Azure 中的 Red Hat 黃金映射。
@@ -189,5 +189,6 @@ Red Hat Enterprise Linux （RHEL）映射可透過隨用隨付（PAYG）或自�
 ## <a name="next-steps"></a>後續步驟
 * 您可以在[Red Hat 雲端存取檔](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)中找到雲端存取的逐步指南和程式詳細資料。
 * 深入瞭解[Azure Red Hat 更新基礎結構](./redhat-rhui.md)。
-* 若要深入了解 Azure 中的 Red Hat 映像，請移至[文件頁面](./redhat-images.md)。
+* 若要深入瞭解 Azure 中的所有 Red Hat 映射，請移至[檔頁面](./redhat-images.md)。
 * 如需所有 RHEL 版本的 Red Hat 支援原則資訊，請參閱 [Red Hat Enterprise Linux 生命週期](https://access.redhat.com/support/policy/updates/errata)頁面。
+* 您可以在[Red Hat 檔](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure)中找到 RHEL 黃金映射的其他檔。

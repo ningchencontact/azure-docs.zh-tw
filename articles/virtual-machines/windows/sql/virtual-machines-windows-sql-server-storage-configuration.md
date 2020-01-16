@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 231c8cb8e66d658ad49e02fd585f6c8a1593cb2d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9d8fce0772f13c6e009b2441ecd85779a7622c5c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75373979"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981745"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM 的儲存體組態
 
@@ -33,7 +33,7 @@ ms.locfileid: "75373979"
 若要使用自動儲存體組態設定，您的虛擬機器需具備下列特性︰
 
 * 使用 [SQL Server 資源庫映像](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)佈建。
-* 使用 [Resource Manager 部署模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。
+* 使用 [Resource Manager 部署模型](../../../azure-resource-manager/management/deployment-models.md)。
 * 使用[進階 SSD](../disks-types.md)。
 
 ## <a name="new-vms"></a>新的 VM

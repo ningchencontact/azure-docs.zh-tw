@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f40b479b66f2fa9a60e084fc0e29f40cef052e99
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 479f9abc667e20a136da5f6231e78a1e4052f087
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162520"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965660"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配 SQL Server 使用 Azure 進階儲存體
 
@@ -29,11 +29,11 @@ ms.locfileid: "73162520"
 [Azure 進階 SSD](../disks-types.md) 是新一代儲存體，可提供低延遲和高輸送量 IO。 它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](https://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。
 
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../azure-resource-manager/management/deployment-models.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 
 本文提供移轉執行 SQL Server 的虛擬機器來執行進階儲存體的規劃與指導方針。 這包括 Azure 基礎結構 (網路功能、儲存體) 和客體 Windows VM 步驟。 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 中的範例示範一個全方位的端對端移轉，說明如何透過 PowerShell 來移動更大的 VM，以利用改進的本機 SSD 儲存體。
 
-請務必了解在 IAAS VM 上搭配使用 Azure 進階儲存體和 SQL Server 的端對端處理程序。 其中包括：
+請務必了解在 IAAS VM 上搭配使用 Azure 進階儲存體和 SQL Server 的端對端處理程序。 這包括：
 
 * 識別要使用進階儲存體的必要條件。
 * 在新部署中，將 IaaS 上的 SQL Server 部署到進階儲存體的範例。
@@ -142,7 +142,7 @@ Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 1. 請注意 DiskName 和 LUN。
 
     ![DisknameAndLUN][2]
-1. 從遠端桌面連接到 VM。 然後移至 [電腦管理]  |  [裝置管理員]  |  [磁碟機]。 查看每一個「Microsoft 虛擬磁碟」的屬性
+1. 從遠端桌面連接到 VM。 然後移至 [電腦管理] |  [裝置管理員] |  [磁碟機]。 查看每一個「Microsoft 虛擬磁碟」的屬性
 
     ![VirtualDiskProperties][3]
 1. 此處的 LUN 編號是您在將 VHD 連結到 VM 時所指定的 LUN 編號的參考。
@@ -403,7 +403,7 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 > [!NOTE]
 > 針對現有部署，請先參閱本文的[必要條件](#prerequisites-for-premium-storage)一節。
 
-對於未使用「Always On 可用性群組」的 SQL Server 部署與使用該可用性群組的部署，有不同的考量。 如果您未使用 Always On 且目前擁有獨立的 SQL Server，就可以使用新的雲端服務和儲存體帳戶升級到進階儲存體。 請考量下列選項：
+對於未使用「Always On 可用性群組」的 SQL Server 部署與使用該可用性群組的部署，有不同的考量。 如果您未使用 Always On 且目前擁有獨立的 SQL Server，就可以使用新的雲端服務和儲存體帳戶升級到進階儲存體。 請考慮下列選項：
 
 * **建立新的 SQL Server VM**。 您可以建立新的 SQL Server VM 來使用進階儲存體帳戶，如＜新的部署＞中所述。 然後備份並還原 SQL Server 設定和使用者資料庫。 如果您會從內部或外部存取應用程式，就需要更新該應用程式，才能參考新的 SQL Server。 您需要複製所有「超出資料庫範圍」的物件，如同執行並存的 (SxS) SQL Server 移轉一樣。 這包含像是登入、憑證及連結的伺服器等物件。
 * **移轉現有的 SQL Server VM**。 這需要使 SQL Server VM 離線，然後將它傳輸到新的雲端服務，其中包含將其連結的所有 VHD 複製到進階儲存體帳戶。 當虛擬機器上線時，應用程式會和以前一樣參考伺服器主機名稱。 請注意，現有磁碟的大小會影響效能特性。 例如，400 GB 的磁碟會調高為 P20。 如果您知道不需要該磁碟效能，則可重新建立 VM 做為 DS 系列 VM，然後連結所需大小/效能規格的進階儲存體 VHD。 然後，您可以中斷連結並重新連結 SQL DB 檔案。

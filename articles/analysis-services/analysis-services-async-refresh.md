@@ -4,15 +4,15 @@ description: 說明如何使用 Azure Analysis Services REST API 來程式碼非
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7c6fba10264939335cdef26f288973f8217f340b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2281f9d493edf955881772ec174c82b527f1b6fa
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573386"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029869"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>使用 REST API 進行非同步重新整理
 
@@ -30,7 +30,7 @@ Azure Analysis Services 的 REST API 可讓資料重新整理作業以非同步�
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-例如，名為 AdventureWorks 的模型，在名為 myserver 的伺服器上，位於 West US Azure 區域。 伺服器名稱是：
+例如，在名為 `myserver`（位於美國西部 Azure 區域）的伺服器上，考慮名為 AdventureWorks 的模型。 伺服器名稱是：
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -93,26 +93,37 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 }
 ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
 不一定要指定參數。 會套用預設值。
 
-| 名稱             | 在系統提示您進行確認時，輸入  | 描述  |預設值  |
+| 名稱             | 類型  | 說明  |預設  |
 |------------------|-------|--------------|---------|
-| `Type`           | 列舉  | 要執行的處理類型。 Type 對應於 TMSL 的 [refresh 命令](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic 和 defragment。 不支援 Add 類型。      |   automatic      |
-| `CommitMode`     | 列舉  | 決定物件要批次認可或只在完成時認可。 CommitMode 包括：default、transactional、partialBatch。  |  transactional       |
-| `MaxParallelism` | int   | 這個值決定了可以平行執行處理命令的執行緒數目上限。 此值與 MaxParallelism 屬性對應，後者可以在 TMSL 的 [sequence 命令](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl)中設定，或使用其他方法設定。       | 10        |
-| `RetryCount`     | int   | 表示作業失敗之前重試的次數。      |     0    |
-| `Objects`        | 陣列 | 要處理的物件陣列。 每個物件包含：「資料表」(處理整份資料表時)，或「資料表」和「分割區」(處理資料分割時)。 如未指定物件，會重新整理整個模型。 |   處理整個模型      |
+| `Type`           | 例舉  | 要執行的處理類型。 Type 對應於 TMSL 的 [refresh 命令](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic 和 defragment。 不支援 Add 類型。      |   automatic      |
+| `CommitMode`     | 例舉  | 決定物件要批次認可或只在完成時認可。 CommitMode 包括：default、transactional、partialBatch。  |  transactional       |
+| `MaxParallelism` | Int   | 這個值決定了可以平行執行處理命令的執行緒數目上限。 此值與 MaxParallelism 屬性對應，後者可以在 TMSL 的 [sequence 命令](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl)中設定，或使用其他方法設定。       | 10        |
+| `RetryCount`     | Int   | 表示作業失敗之前重試的次數。      |     0    |
+| `Objects`        | Array | 要處理的物件陣列。 每個物件包含：「資料表」(處理整份資料表時)，或「資料表」和「分割區」(處理資料分割時)。 如未指定物件，會重新整理整個模型。 |   處理整個模型      |
 
 CommitMode 等於 partialBatch。 當進行大型資料集的初始載入需要數小時時，會使用它。 如果在成功認可一或多個批次之後，重新整理作業失敗，已成功認可的批次會保留認可 (不會回復已成功認可的批次)。
 
 > [!NOTE]
 > 在本文撰寫之際，批次大小是 MaxParallelism 值，但此值無法變更。
 
+### <a name="status-values"></a>狀態值
+
+|狀態值  |說明  |
+|---------|---------|
+|`notStarted`    |   操作尚未啟動。      |
+|`inProgress`     |   作業進行中。      |
+|`timedOut`     |    作業因使用者指定的超時時間而超時。     |
+|`cancelled`     |   使用者或系統已取消操作。      |
+|`failed`     |   作業失敗。      |
+|`succeeded`      |   作業成功。      |
+
 ## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
 
-若要檢查重新整理作業的狀態，請對重新整理識別碼使用 GET 動詞命令。 以下是回應主體的範例。 如果作業正在進行中，會傳回 **inProgress** 狀態。
+若要檢查重新整理作業的狀態，請對重新整理識別碼使用 GET 動詞命令。 以下是回應主體的範例。 如果作業正在進行中，則會以狀態傳回 `inProgress`。
 
 ```
 {
@@ -211,7 +222,7 @@ CommitMode 等於 partialBatch。 當進行大型資料集的初始載入需要�
 3.  執行範例。
 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [範例](analysis-services-samples.md)   
 [REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
