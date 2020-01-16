@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 4ef268367d1c4c8808cbda3814c863940bcdc32b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 19b7fbe5541bda5e6e2c265681e292f452cd57c0
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771899"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044277"
 ---
 # <a name="model-interpretability-for-local-and-remote-runs"></a>本機和遠端執行的模型 interpretability
 
@@ -333,10 +333,10 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
     jupyter labextension install microsoft-mli-widget
     ```
 
-若要載入視覺效果儀表板，請使用下列程式碼：
+若要載入視覺效果儀表板，請使用下列程式碼。
 
 ```python
-from azureml.contrib.interpret.visualize import ExplanationDashboard
+from interpret_community.widget import ExplanationDashboard
 
 ExplanationDashboard(global_explanation, model, x_test)
 ```
