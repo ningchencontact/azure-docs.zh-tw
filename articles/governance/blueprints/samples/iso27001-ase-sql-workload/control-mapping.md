@@ -1,14 +1,14 @@
 ---
 title: ISO 27001 ASE/SQL 工作負載藍圖範例控制項
 description: ISO 27001 App Service 環境/SQL Database 工作負載藍圖範例對於 Azure 原則和 RBAC 的控制項對應。
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 5c5b83669a477255f0cdce45993a5871b5a9c6f8
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: bc370170374654bf8bc9ae9ed3f1b545f4db8cba
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546767"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920707"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>ISO 27001 ASE/SQL 工作負載藍圖的控制項對應
 

@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 9eb7a80599966345d90cc4a079b586e743ca37d4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: be0f61b1458fa8bd63d85669c7956a789892996a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451213"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981336"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>嘗試透過遠端桌面連線至 Azure VM 時發生內部錯誤
 
 本文說明當您嘗試連線至 Microsoft Azure 中的虛擬機器 (VM) 時所可能遇到的錯誤。
 > [!NOTE]
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文說明如何使用 Resource Manager 部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
+> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../azure-resource-manager/management/deployment-models.md)。 本文說明如何使用 Resource Manager 部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
 
 ## <a name="symptoms"></a>徵狀
 

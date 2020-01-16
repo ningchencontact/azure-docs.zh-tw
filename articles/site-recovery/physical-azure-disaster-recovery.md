@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a298505779def353834c294f7b5a406720fdd46c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936175"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980327"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>設定內部部署實體伺服器至 Azure 的災害復原
 
 [Azure Site Recovery](site-recovery-overview.md) 服務可藉由管理及協調內部部署電腦與 Azure 虛擬機器 (VM) 的複寫、容錯移轉及容錯回復，為您的災害復原策略做出貢獻。
 
-本教學課程說明如何設定內部部署實體 Windows 和 Linux 伺服器至 Azure 的災害復原。 在本教學課程中，您將了解如何：
+本教學課程說明如何設定內部部署實體 Windows 和 Linux 伺服器至 Azure 的災害復原。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 設定 Azure 與內部部署的必要條件
@@ -27,7 +27,7 @@ ms.locfileid: "73936175"
 > * 建立複寫原則
 > * 啟用伺服器的複寫
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程：
 
@@ -68,14 +68,14 @@ ms.locfileid: "73936175"
 設定 [Azure 網路](../virtual-network/quick-create-portal.md)。
 
 - 在容錯移轉之後建立的 Azure VM 會置於這個網路。
-- 此網路應該位於與「復原服務」保存庫相同的區域
+- 此網路應位於與復原服務保存庫相同的區域
 
 
 ## <a name="set-up-an-azure-storage-account"></a>設定 Azure 儲存體帳戶
 
-設定 [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。
+設定 [Azure 儲存體帳戶](../storage/common/storage-account-create.md)。
 
-- Site Recovery 會將內部部署機器複寫至 Azure 儲存體。 在容錯移轉發生後，會從該儲存體建立 Azure VM。
+- Site Recovery 會將內部部署機器複寫至 Azure 儲存體。 容錯移轉發生後，會從儲存體建立 Azure VM。
 - 儲存體帳戶與復原服務保存庫必須位於相同的區域。
 
 
@@ -98,7 +98,7 @@ ms.locfileid: "73936175"
 選取要複寫的內容及複寫目的地。
 
 1. 按一下 [復原服務保存庫] > 保存庫。
-2. 在 [資源] 功能表中，按一下 [Site Recovery] > [準備基礎結構] > [保護目標]。
+2. 在 [資源功能表] 中，按一下 [Site Recovery] > [準備基礎結構] > [保護目標]。
 3. 在 [保護目標] 中，選取 [至 Azure] > [未虛擬化/其他]。
 
 ## <a name="set-up-the-source-environment"></a>設定來源環境
@@ -146,7 +146,7 @@ ms.locfileid: "73936175"
 2. 指定目標部署模型。
 3. Site Recovery 會檢查您是否有一或多個相容的 Azure 儲存體帳戶和網路。
 
-   ![目標](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![確定目標](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>建立複寫原則
@@ -178,9 +178,9 @@ ms.locfileid: "73936175"
 7. 選取 Azure VM 在容錯移轉後啟動時所要建立的 Azure 網路和子網路。
 8. 選取 [立即設定選取的機器]，將網路設定套用至您選取要進行保護的所有機器。 選取 [稍後設定] 以選取每部機器的 Azure 網路。 
 9. 在 [實體機器] 中，按一下 [+實體機器]。 指定名稱和 IP 位址。 選擇您想要複寫之機器的作業系統。 需要經過幾分鐘才會發現並列出伺服器。 
-10. 在 [名稱] > 中，選取處理序伺服器將用來在機器上自動安裝行動服務的帳戶。
-11. 在 [複寫設定] > [設定複寫設定] 中，確認已選取正確的複寫原則。 
-12. 按一下 [啟用複寫]。 您可以在 [設定]  **[作業]**  >   **[Site Recovery 作業]**  >  中，追蹤 [啟用保護] 作業的進度。 執行 [完成保護] 作業之後，機器即準備好進行容錯移轉。
+10. 在 [名稱] >  [設定屬性] 中，選取處理序伺服器將用來在機器上自動安裝行動服務的帳戶。
+11. 在 [複寫設定] >  [進行複寫設定] 中，確認已選取正確的複寫原則。 
+12. 按一下 [啟用複寫]。 您可以在 [設定] >  [作業] >  [Site Recovery 作業] 中，追蹤 [啟用保護] 作業的進度。 執行 [完成保護] 作業之後，機器即準備好進行容錯移轉。
 
 
 若要監視您新增的伺服器，您可以在 [設定伺服器] > [上次連絡時間] 中查看上次探索伺服器的時間。 若要新增機器而不等候已排定的探索時間，請醒目提示設定伺服器 (不要按一下)，然後按一下 [重新整理]。

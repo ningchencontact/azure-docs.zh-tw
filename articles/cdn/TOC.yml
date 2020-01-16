@@ -40,13 +40,13 @@
       href: cdn-china-delivery.md
     - name: HTTP/2 支援
       href: cdn-http2.md
-    - name: 取出 Verizon POP 清單
+    - name: 擷取 POP IP 的
       href: cdn-pop-list-api.md
     - name: 從標準 Verizon 遷移至進階 Verizon
       href: cdn-migrate.md
     - name: DDoS 保護
       href: cdn-ddos.md
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 最佳化內容
       href: cdn-optimization-overview.md
@@ -183,7 +183,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: MSDN 論壇
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurecdn'
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/cdn/'
     - name: 定價計算機
       href: 'https://azure.microsoft.com/pricing/calculator/'

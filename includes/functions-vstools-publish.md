@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 327a7689e0297002f1ce3f48d2bd367104277680
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 689889588aba4da888a7d66f5e1d45dfde71d520
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769690"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021078"
 ---
 1. 在 [方案總管]  中，以滑鼠右鍵按一下專案並選取 [發佈]  。
 
@@ -38,9 +38,9 @@ ms.locfileid: "75769690"
     | ------------ |  ------- | -------------------------------------------------- |
     | **名稱** | 全域唯一的名稱 | 用以唯一識別新函式應用程式的名稱。 有效字元是 `a-z`、`0-9` 和 `-`。 |
     | **訂用帳戶** | 選擇您的訂用帳戶 | 要使用的 Azure 訂用帳戶。 |
-    | **[資源群組](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  要在其中建立函式應用程式的資源群組名稱。 選擇 [新增]  以建立新的資源群組。|
+    | **[資源群組](../articles/azure-resource-manager/management/overview.md)** | myResourceGroup |  要在其中建立函式應用程式的資源群組名稱。 選擇 [新增]  以建立新的資源群組。|
     | **[主控方案](../articles/azure-functions/functions-scale.md)** | 取用方案 | 在您選取 [新增]  以建立無伺服器方案之後，請務必選擇 [大小]  之下的 [取用]  。 或者，在[區域](https://azure.microsoft.com/regions/)中選擇您附近的 [位置]  ，或選擇與函式將會存取之其他服務接近的位置。 在**取用**以外的方案中執行時，您必須管理[函式應用程式的調整](../articles/azure-functions/functions-scale.md)。  |
-    | **[Azure 儲存體](../articles/storage/common/storage-quickstart-create-account.md)** | 一般用途的儲存體帳戶 | Functions 執行階段需要 Azure 儲存體帳戶。 選取 [新增]  以建立一般用途的儲存體帳戶。 您也可以使用符合[儲存體帳戶需求](../articles/azure-functions/functions-scale.md#storage-account-requirements)的現有帳戶。  |
+    | **[Azure 儲存體](../articles/storage/common/storage-account-create.md)** | 一般用途的儲存體帳戶 | Functions 執行階段需要 Azure 儲存體帳戶。 選取 [新增]  以建立一般用途的儲存體帳戶。 您也可以使用符合[儲存體帳戶需求](../articles/azure-functions/functions-scale.md#storage-account-requirements)的現有帳戶。  |
 
 5. 選取 [建立]  以在 Azure 中使用這些設定建立函式應用程式和相關資源，並且部署函式專案程式碼。 
 

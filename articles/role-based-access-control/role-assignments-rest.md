@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1ba0c2bd81f32c0aec242dbfb32b2d7f4064ddbe
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3c7b7dac649548b8b21cc13761009c11609c8904
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707837"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981044"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>使用 Azure RBAC 和 REST API 新增或移除角色指派
 
@@ -57,22 +57,22 @@ ms.locfileid: "74707837"
 
 1. 在 URI 中，將 *{scope}* 取代為角色指派的範圍。
 
-    | Scope | Type |
+    | 範圍 | 類型 |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | 管理群組 |
-    | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}` | 訂閱 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 資源群組 |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | 資源 |
 
 1. 將 *{roleAssignmentName}* 取代為角色指派的 GUID 識別碼。
 
 1. 在要求主體中，將 *{scope}* 取代為角色指派的範圍。
 
-    | Scope | Type |
+    | 範圍 | 類型 |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | 管理群組 |
-    | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}` | 訂閱 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 資源群組 |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | 資源 |
 
 1. 將 *{roleDefinitionId}* 取代為角色定義識別碼。
@@ -93,11 +93,11 @@ ms.locfileid: "74707837"
 
 1. 在 URI 中，將 *{scope}* 取代為要移除角色指派的範圍。
 
-    | Scope | Type |
+    | 範圍 | 類型 |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | 管理群組 |
-    | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}` | 訂閱 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 資源群組 |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | 資源 |
 
 1. 將 *{roleAssignmentName}* 取代為角色指派的 GUID 識別碼。
@@ -105,6 +105,6 @@ ms.locfileid: "74707837"
 ## <a name="next-steps"></a>後續步驟
 
 - [使用 Azure RBAC 和 REST API 列出角色指派](role-assignments-list-rest.md)
-- [使用 Resource Manager 範本和 Resource Manager REST API 部署資源](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [使用 Resource Manager 範本和 Resource Manager REST API 部署資源](../azure-resource-manager/templates/deploy-rest.md)
 - [Azure REST API 參考](/rest/api/azure/)
 - [使用 REST API 建立 Azure 資源的自訂角色](custom-roles-rest.md)

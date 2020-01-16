@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 1/13/2020
+ms.date: 1/14/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 9f8ed6be825470504b5e7b45a15c4faa9cf5ccfc
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: bfa5d240ba4905f79274941568933daf1425bf8b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932889"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969422"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 範本建立計量警示
 
@@ -29,7 +29,7 @@ ms.locfileid: "75932889"
 1. 使用下列範本之一，作為描述如何建立警示的 JSON 檔案。
 2. 編輯並使用對應的參數檔案作為 JSON，以自訂警示。
 3. 如需 `metricName` 參數，請參閱[Azure 監視器支援的計量](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)中的可用計量。
-4. 使用[任何部署方法](../../azure-resource-manager/resource-group-template-deploy.md)部署範本。
+4. 使用[任何部署方法](../../azure-resource-manager/templates/deploy-powershell.md)部署範本。
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>簡單靜態閾值的計量警示範本
 
@@ -378,6 +378,13 @@ az group deployment create \
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
+    "ignoreDataBefore": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format, e.g. '2019-12-31T22:00:00Z')."
+            }
+        },
         "timeAggregation": {
             "type": "string",
             "defaultValue": "Average",
@@ -455,6 +462,7 @@ az group deployment create \
                                 "numberOfEvaluationPeriods": "[parameters('numberOfEvaluationPeriods')]",
                                 "minFailingPeriodsToAlert": "[parameters('minFailingPeriodsToAlert')]"
                             },
+                "ignoreDataBefore": "[parameters('ignoreDataBefore')]",
                             "timeAggregation": "[parameters('timeAggregation')]"
                         }
                     ]
@@ -511,6 +519,9 @@ az group deployment create \
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
+    "ignoreDataBefore": {
+            "value": ""
+        },
         "timeAggregation": {
             "value": "Average"
         },
@@ -559,7 +570,7 @@ az group deployment create \
 - 在每個條件中，您只能為每個維度選取一個值。
 - 您不能使用 "\*" 做為維度值。
 - 當不同使用準則來中設定的計量支援相同的維度時，您必須以相同的方式，針對所有這些計量（在相關的使用準則來中）明確設定已設定的維度值。
-    - 在下列範例中，因為**交易**和**SuccessE2ELatency**計量都有**api 名稱**維度，而*Criterion1*指定**api 名稱**維度的 *"GetBlob"* 值，則*criterion2*也必須設定**api 名稱**維度的 *"GetBlob"* 值。
+    - 在下列範例中，因為**交易**和**SuccessE2ELatency**度量都有**ApiName**維度，而*criterion1*指定**ApiName**維度的 *"GetBlob"* 值，則*criterion2*也必須設定**GetBlob**維度的 *"ApiName"* 值。
 
 
 根據本逐步解說的目的，請將以下的 JSON 儲存為 advancedstaticmetricalert.json。

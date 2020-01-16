@@ -10,12 +10,12 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 13e9abb2a7b79ad9355261832145766e424c3df6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b49b3187f9178012131d793a7762ae470b0ea540
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895166"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965726"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>使用共用金鑰授權呼叫 REST API 作業
 
@@ -23,13 +23,13 @@ ms.locfileid: "74895166"
 
 ## <a name="prerequisites"></a>必要條件
 
-範例應用程式會列出儲存體帳戶的 blob 容器。 若要試用本文中的程式碼，您需要下列項目︰ 
+範例應用程式會列出儲存體帳戶的 blob 容器。 若要試用本文中的程式碼，您需要下列項目︰
 
-- 使用**Azure 開發**工作負載安裝[Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) 。
+- 透過 **Azure 開發**工作負載安裝 [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)。
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-- 一般用途的儲存體帳戶。 如果您還沒有儲存體帳戶，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
+- 一般用途的儲存體帳戶。 如果您還沒有儲存體帳戶，請參閱[建立儲存體帳戶](storage-account-create.md)。
 
 - 本文中的範例示範如何列出儲存體帳戶中的容器。 若要查看輸出，請在開始前，先將一些容器新增至儲存體帳戶中的 blob 儲存體。
 
@@ -43,7 +43,7 @@ ms.locfileid: "74895166"
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-此命令會將存放庫複製到本機的 git 資料夾。 若要開啟 Visual Studio 解決方案，請找到並開啟 storage-dotnet-rest-api-with-auth 資料夾，然後按兩下 StorageRestApiAuth.sln。 
+此命令會將存放庫複製到本機的 git 資料夾。 若要開啟 Visual Studio 解決方案，請找到並開啟 storage-dotnet-rest-api-with-auth 資料夾，然後按兩下 StorageRestApiAuth.sln。
 
 ## <a name="about-rest"></a>關於 REST
 
@@ -93,16 +93,16 @@ REST API 的呼叫包含由用戶端提出的要求，以及由服務傳回的�
 
 在我們的範例專案中，用於建立授權標頭的程式碼位於不同的類別中。 其概念是，您可以採用整個類別，並將其新增至您自己的解決方案，並以「原樣」使用它。 授權標頭程式碼適用於對 Azure 儲存體的大部分 REST API 呼叫。
 
-若要建立要求 (也就是 HttpRequestMessage 物件)，請移至 Program.cs 中的 ListContainersAsyncREST。 建立要求的步驟如下： 
+若要建立要求 (也就是 HttpRequestMessage 物件)，請移至 Program.cs 中的 ListContainersAsyncREST。 建立要求的步驟如下：
 
-- 建立要用於呼叫服務的 URI。 
+- 建立要用於呼叫服務的 URI。
 - 建立 HttpRequestMessage 物件並設定承載。 ListContainersAsyncREST 的承載為 null，因為我們並未傳入任何項目。
 - 新增 x-ms-date 和 x-ms-version 的要求標頭。
 - 取得授權標頭並加以新增。
 
-您需要的一些基本資訊： 
+您需要的一些基本資訊：
 
-- 對 ListContainers 而言，**方法**是 `GET`。 此值會在具現化要求時設定。 
+- 對 ListContainers 而言，**方法**是 `GET`。 此值會在具現化要求時設定。
 - **資源**是 URI 的查詢部份，其可指出正在呼叫哪一個 API，所以此值為 `/?comp=list`。 如前文所述，資源位於參考文件頁面上，可顯示 [ListContainers API](/rest/api/storageservices/List-Containers2) 的相關資訊。
 - 建立該儲存體帳戶的 Blob 服務端點並串連資源，即可建構 URI。 **要求 URI** 的值最終是 `http://contosorest.blob.core.windows.net/?comp=list`。
 - 對 ListContainers 而言，**requestBody** 為 null，而且沒有額外的**標頭**。
@@ -160,7 +160,7 @@ httpRequestMessage.Headers.Authorization = AzureStorageAuthenticationHelper.GetA
     using (HttpResponseMessage httpResponseMessage =
       await new HttpClient().SendAsync(httpRequestMessage, cancellationToken))
     {
-        // If successful (status code = 200), 
+        // If successful (status code = 200),
         //   parse the XML response for the container names.
         if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
         {
@@ -209,7 +209,7 @@ Content-Length: 1511
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
-<EnumerationResults 
+<EnumerationResults
   ServiceEndpoint="http://contosorest.blob.core.windows.net/">
   <Containers>
     <Container>
@@ -308,7 +308,7 @@ StringToSign = VERB + "\n" +
 
 ### <a name="canonicalized-headers"></a>正式標頭
 
-若要建立此值，請擷取以 "x-ms-" 開頭的標頭並加以排序，然後將它們格式化成 `[key:value\n]` 執行個體的字串 (串連成一個字串)。 此範例中，正式標頭如下所示： 
+若要建立此值，請擷取以 "x-ms-" 開頭的標頭並加以排序，然後將它們格式化成 `[key:value\n]` 執行個體的字串 (串連成一個字串)。 此範例中，正式標頭如下所示：
 
 ```
 x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
@@ -316,7 +316,7 @@ x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
 
 以下是用來建立該輸出的程式碼：
 
-```csharp 
+```csharp
 private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMessage)
 {
     var headers = from kvp in httpRequestMessage.Headers
@@ -444,7 +444,7 @@ https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list
 在 ListContainersAsyncREST 中，將設定 URI 的程式碼變更為 ListBlobs 的 API。 容器的名稱是 **container-1**。
 
 ```csharp
-String uri = 
+String uri =
     string.Format("http://{0}.blob.core.windows.net/container-1?restype=container&comp=list",
       storageAccountName);
 
@@ -516,7 +516,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**回應主體 (XML)：** 此 XML 回應會顯示 blob 和其屬性的清單。 
+**回應主體 (XML)：** 此 XML 回應會顯示 blob 和其屬性的清單。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -563,7 +563,7 @@ Content-Length: 1135
 </EnumerationResults>
 ```
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 在本文中，您已瞭解如何對 blob 儲存體 REST API 提出要求。 在要求中，您可以在容器中抓取容器清單或 blob 清單。 您已瞭解如何建立 REST API 呼叫的授權簽章，以及如何在 REST 要求中使用它。 最後，您已瞭解如何檢查回應。
 

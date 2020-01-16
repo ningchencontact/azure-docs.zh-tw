@@ -3,12 +3,12 @@ title: 如何停止監視 Azure Kubernetes Service 叢集 | Microsoft Docs
 description: 本文說明如何停止使用容器的 Azure 監視器來監視 Azure AKS 叢集。
 ms.topic: conceptual
 ms.date: 08/19/2019
-ms.openlocfilehash: 9d4034f06cf85ee7803edba0898a5528818f1d97
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7415f0ef2a06c3f9c8cc7f517c0b5d456671738d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404095"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979792"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>如何停止使用容器的 Azure 監視器來監視 Azure Kubernetes Service (AKS)
 
@@ -27,17 +27,17 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 範本
 
-若要一致且重複地從資源群組中移除解決方案資源，有兩個 Azure Resource Manager 範本可供使用。 一個是 JSON 範本，用來指定停止監視的設定，而另一個範本包含參數值，您可設定來指定 AKS 叢集資源識別碼與叢集部署所在的資源群組。 
+若要一致且重複地從資源群組中移除解決方案資源，有兩個 Azure Resource Manager 範本可供使用。 一個是 JSON 範本，用來指定停止監視的設定，而另一個範本包含參數值，您可設定來指定 AKS 叢集資源識別碼與叢集部署所在的資源群組。
 
 若您不熟悉使用範本部署資源的概念，請參閱：
-* [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/resource-group-template-deploy.md)
-* [使用 Resource Manager 範本與 Azure CLI 部署資源](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/templates/deploy-powershell.md)
+* [使用 Resource Manager 範本與 Azure CLI 部署資源](../../azure-resource-manager/templates/deploy-cli.md)
 
 >[!NOTE]
 >範本必須部署在叢集的相同資源群組中。 使用此範本時，如果您省略其他任何屬性或附加元件，可能會導致從叢集移除這些屬性或附加元件。 例如， *enableRBAC*用於在您的叢集中執行的 RBAC 原則，或如果已針對 AKS 叢集指定標記，則為*aksResourceTagValues* 。  
 >
 
-如果您選擇使用 Azure CLI，必須先在本機安裝並使用 CLI。 您必須執行 Azure CLI 2.0.27 版或更新版本。 若要知道您使用的版本，請執行 `az --version`。 如果您需要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+如果您選擇使用 Azure CLI，必須先在本機安裝並使用 CLI。 您必須執行 Azure CLI 2.0.27 版或更新版本。 若要知道您使用的版本，請執行 `az --version`。 如果您需要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 ### <a name="create-template"></a>建立範本
 
@@ -119,13 +119,13 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 
     ![容器屬性頁面](media/container-insights-optout/container-properties-page.png)
 
-    當您在 [屬性] 頁面上時，亦請複製 [工作區資源識別碼]。 如果您稍後決定要刪除 Log Analytics 工作區，必須要有這個值。 這部分的程序並不會刪除 Log Analytics 工作區。 
+    當您在 [屬性] 頁面上時，亦請複製 [工作區資源識別碼]。 如果您稍後決定要刪除 Log Analytics 工作區，必須要有這個值。 這部分的程序並不會刪除 Log Analytics 工作區。
 
     編輯**aksResourceTagValues**的值，以符合針對 AKS 叢集指定的現有標記值。
 
 5. 將此檔案儲存為本機資料夾的 **OptOutParam.json**。
 
-6. 您已準備好部署此範本。 
+6. 您已準備好部署此範本。
 
 ### <a name="remove-the-solution-using-azure-cli"></a>使用 Azure CLI 來移除解決方案
 
@@ -133,7 +133,7 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 
 ```azurecli
 az login   
-az account set --subscription "Subscription Name" 
+az account set --subscription "Subscription Name"
 az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
@@ -164,5 +164,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>後續步驟
 
-如果建立工作區只為了支援監視叢集，當您不再需要時，可以手動予以刪除。 如果您不熟悉如何刪除工作區，請參閱[使用 Azure 入口網站來刪除 Azure Log Analytics 工作區](../../log-analytics/log-analytics-manage-del-workspace.md)。 別忘了稍早在步驟4中複製的**工作區資源識別碼**，您就需要這麼做。 
-
+如果建立工作區只為了支援監視叢集，當您不再需要時，可以手動予以刪除。 如果您不熟悉如何刪除工作區，請參閱[使用 Azure 入口網站來刪除 Azure Log Analytics 工作區](../../log-analytics/log-analytics-manage-del-workspace.md)。 別忘了稍早在步驟4中複製的**工作區資源識別碼**，您就需要這麼做。

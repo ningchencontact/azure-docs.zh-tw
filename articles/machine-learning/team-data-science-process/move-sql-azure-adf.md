@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4b95fb8d5a0c05d2d66744a91f4200d58a71470d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b64aa6c0e6e0e3bf449d44996df3223b12a69923
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427371"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982420"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>使用 Azure Data Factory 從內部部署 SQL Server 將資料移至 SQL Azure
 
@@ -51,7 +51,7 @@ ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排�
 本教學課程假設您有：
 
 * **Azure 訂用帳戶**。 如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* **Azure 儲存體帳戶**。 在本教學課程中，您會使用 Azure 儲存體帳戶來儲存資料。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md) 一文。 建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。 請參閱[管理儲存體帳戶存取金鑰](../../storage/common/storage-account-keys-manage.md)。
+* **Azure 儲存體帳戶**。 在本教學課程中，您會使用 Azure 儲存體帳戶來儲存資料。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-account-create.md) 一文。 建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。 請參閱[管理儲存體帳戶存取金鑰](../../storage/common/storage-account-keys-manage.md)。
 * 存取 **Azure SQL Database**。 如果您必須設定 Azure SQL Database，[與 Microsoft Azure SQL Database 消費者入門](../../sql-database/sql-database-get-started.md)的主題會提供如何布建 Azure SQL Database 之新實例的相關資訊。
 * 已在本機上安裝和設定 **Azure PowerShell** 。 如需指示，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 46f8e59713896cd94b96de62d982072119c32513
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 700dd305cf5365a604a5613bd5b48dbd2ac8f840
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050159"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021034"
 ---
 本節將說明如何使用 [Azure 入口網站](https://portal.azure.com)建立 IoT 中樞。
 
@@ -27,7 +27,7 @@ ms.locfileid: "70050159"
 
    - 訂用帳戶  ：選取要為您的中樞使用的訂用帳戶。
 
-   - **資源群組**：選取資源群組或建立新的資源群組。 若要建立新的資源群組，選取 [新建]  並填入您要使用的名稱。 若要使用現有資源群組，請選取該資源群組。 如需詳細資訊，請參閱[管理 Azure Resource Manager 資源群組](../articles/azure-resource-manager/manage-resource-groups-portal.md)。
+   - **資源群組**：選取資源群組或建立新的資源群組。 若要建立新的資源群組，選取 [新建]  並填入您要使用的名稱。 若要使用現有資源群組，請選取該資源群組。 如需詳細資訊，請參閱[管理 Azure Resource Manager 資源群組](../articles/azure-resource-manager/management/manage-resource-groups-portal.md)。
 
    - **區域**：選擇您要放置中樞的區域。 選取支援 IoT 中樞裝置串流預覽的區域，可能是 [美國中部]  或 [美國中部 EUAP]  。
 
@@ -41,7 +41,7 @@ ms.locfileid: "70050159"
 
    ![使用 Azure 入口網站設定新 IoT 中樞的大小與級別](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-02.png)
 
-   在 [大小與級別]  中，您可以接受預設設定並選取底部的 [檢閱 + 建立]  。 請考量下列選項：
+   在 [大小與級別]  中，您可以接受預設設定並選取底部的 [檢閱 + 建立]  。 請考慮下列選項：
 
    - **定價與級別層**：您選取的階層。 選取其中一個標準層 (**S1**、**S2** 或 **S3**) 或 **[F1：** 免費層]。 這項選擇也可依據您的機群規模以及您預期中樞所將包含的非串流工作負載 (例如遙測訊息) 來決定。 例如，免費層適用於測試和評估。 它可允許 500 個裝置連接到 IoT 中樞，每天最多可允許 8,000 則訊息。 每個 Azure 訂用帳戶可以在免費層建立一個 IoT 中樞。 
 

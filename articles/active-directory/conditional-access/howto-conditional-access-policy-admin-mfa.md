@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce506f88802dee75898a3da4fa795a64ccbbd02
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e972228923654ca73063aad370d087e550138dbf
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424945"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043365"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>條件式存取：系統管理員需要 MFA
 
@@ -42,7 +42,7 @@ Microsoft 建議您至少要求下列角色的 MFA：
 
 * **緊急存取**或**中斷玻璃**帳戶，以避免整個租使用者帳戶鎖定。 在不太可能發生的情況下，所有系統管理員都會被鎖定在您的租使用者中，您的緊急存取系統管理帳戶可以用來登入租使用者，採取復原存取的步驟。
    * 如需詳細資訊，請參閱[Azure AD 中的管理緊急存取帳戶](../users-groups-roles/directory-emergency-access.md)一文。
-* **服務帳戶**和**服務原則**，例如 Azure AD Connect 同步處理帳戶。 服務帳戶是不會與任何特定使用者系結的非互動式帳戶。 後端服務通常會使用它們，並允許以程式設計方式存取應用程式。 應該排除服務帳戶，因為無法以程式設計方式完成 MFA。
+* **服務帳戶**和**服務主體**，例如 Azure AD Connect 同步帳戶。 服務帳戶是不會與任何特定使用者系結的非互動式帳戶。 後端服務通常會使用它們，並允許以程式設計方式存取應用程式。 應該排除服務帳戶，因為無法以程式設計方式完成 MFA。
    * 如果您的組織在指令碼或程式碼中使用這些帳戶，請考慮將它們取代為[受管理的身分識別](../managed-identities-azure-resources/overview.md)。 暫時的因應措施是，您可以從基準原則中排除這些特定帳戶。
 
 ## <a name="create-a-conditional-access-policy"></a>建立條件式存取原則

@@ -10,19 +10,19 @@ ms.date: 01/02/2020
 ms.topic: include
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 22a40cac59c36e9e0b6b7ef534639748428ae62e
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: f2a46b8a0868aaa1097dd7f1ae738a2a3e06e3b8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660455"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772932"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 開始之前：
 
-* 如果這是您的第一個 Python 專案，請使用本指南<a href="../quickstarts/create-project.md" target="_blank">建立空的範例專案</a>。
-* <a href="../quickstarts/setup-platform.md" target="_blank">為您的開發環境安裝語音 SDK</a>。
+* 如果這是您的第一個 Python 專案，請使用本指南<a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md" target="_blank">建立空的範例專案</a>。
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">為您的開發環境安裝語音 SDK</a>。
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>建立意圖辨識的 LUIS 應用程式
 

@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: allensu
-ms.openlocfilehash: e80de4a3102f9fec8ad06c0facd110b51558d338
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 37e5f5ed1d877900d8ef967f83de95f056fcca0c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211013"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980538"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 區域和記錄的概觀
 
@@ -115,7 +115,7 @@ DNS 記錄中的多個字串，不應與 TXT 記錄集中的多個 TXT 記錄相
 
 ### <a name="tags"></a>標籤
 
-標記是名稱-值組的清單，由 Azure Resource Manager 用來標示資源。  Azure Resource Manager 會使用標記來啟用 Azure 帳單篩選過的檢視，也可讓您設定標記需要的原則。 如需標記的詳細資訊，請參閱 [使用標記來組織您的 Azure 資源](../azure-resource-manager/resource-group-using-tags.md)。
+標記是名稱-值組的清單，由 Azure Resource Manager 用來標示資源。  Azure Resource Manager 會使用標記來啟用 Azure 帳單篩選過的檢視，也可讓您設定標記需要的原則。 如需標記的詳細資訊，請參閱 [使用標記來組織您的 Azure 資源](../azure-resource-manager/management/tag-resources.md)。
 
 Azure DNS 支援在 DNS 區域資源上，使用 Azure Resource Manager 標記。  不支援在 DNS 記錄集上使用標記，不過，支援在 DNS 記錄集上使用「中繼資料」作為替代，如下所述。
 
@@ -133,7 +133,7 @@ Azure DNS 使用 Etag 以安全地處理相同資源的並行變更。 Etag 和 
 
 在 Azure DNS REST API 層級上是使用 HTTP 標頭指定 Etag。  下表提供它們的行為：
 
-| 標頭 | 行為 |
+| 頁首 | 行為 |
 | --- | --- |
 | 無 |PUT 一定成功 (沒有 Etag 檢查) |
 | If-match \<etag > |唯有當資源存在且 Etag 符合時，PUT 才會成功 |

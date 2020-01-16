@@ -2,18 +2,18 @@
 title: 使用共用映射資源庫來建立自訂集區-Azure Batch |Microsoft Docs
 description: 使用共用映射資源庫建立 Batch 集區，以將自訂映射布建到包含應用程式所需軟體和資料的計算節點。 自訂映像是設定計算節點以執行 Batch 工作負載的有效方式。
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
-ms.author: lahugh
-ms.openlocfilehash: fa232fb48e80e3ae3751920e4215c4b4d3ded19a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.author: jushiman
+ms.openlocfilehash: a933d0656bb4c22e848a663757f4e5e3fa276c61
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827923"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029660"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>使用共用映射資源庫來建立自訂集區
 
@@ -34,7 +34,7 @@ ms.locfileid: "71827923"
 * **預先安裝應用程式。** 在布建具有啟動工作的計算節點之後，在 OS 磁片上預先安裝應用程式比安裝應用程式更有效率且較不容易發生錯誤。
 * **複製大量資料一次。** 將靜態資料複製到受控映射的資料磁片，使其成為受管理共用映射的一部分。 這只需要執行一次，就能將資料提供給集區的每個節點。
 * **將集區成長至較大的大小。** 使用共用映射資源庫，您可以使用自訂映射和更多共用映射複本來建立較大的集區。
-* **比自訂映射更好的效能。** 使用共用映射，集區達到穩定狀態所花費的時間，最快可達 25%，且 VM 閒置延遲最高可達 30%。
+* **比自訂映射更好的效能。** 使用共用映射，集區達到穩定狀態所花費的時間，最快可達25%，且 VM 閒置延遲最高可達30%。
 * **映射版本設定和群組，以方便管理。** 映射群組定義包含建立映射的原因、作業系統的目標，以及使用映射的相關資訊。 群組影像可讓您更輕鬆地管理映射。 如需詳細資訊，請參閱[影像定義](../virtual-machines/windows/shared-image-galleries.md#image-definitions)。
 
 ## <a name="prerequisites"></a>必要條件
@@ -58,7 +58,7 @@ ms.locfileid: "71827923"
 
 ### <a name="prepare-a-vm"></a>準備 VM
 
-如果您要為映射建立新的 VM, 請使用 Batch 所支援的第一方 Azure Marketplace 映射作為受控映射的基礎映射。 只有第一方映射可以用來作為基底映射。 若要取得 Azure Batch 所支援 Azure Marketplace 映射參考的完整清單, 請參閱[列出節點代理程式 sku](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus)作業。
+如果您要為映射建立新的 VM，請使用 Batch 所支援的第一方 Azure Marketplace 映射作為受控映射的基礎映射。 只有第一方映射可以用來作為基底映射。 若要取得 Azure Batch 所支援 Azure Marketplace 映射參考的完整清單，請參閱[列出節點代理程式 sku](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus)作業。
 
 > [!NOTE]
 > 您無法使用具有額外授權和購買條款的第三方映像作為您的基礎映像。 如需這些 Marketplace 映像的相關資訊，請參閱 [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
@@ -67,7 +67,7 @@ ms.locfileid: "71827923"
 
 * 請確定已使用受控磁片建立 VM。 當您建立 VM 時，這是預設的儲存體設定。
 * 不要在 VM 上安裝 Azure 延伸模組，例如「自訂指令碼」延伸模組。 如果映像包含預先安裝的延伸模組，則 Azure 在部署 Batch 集區時可能會遇到問題。
-* 使用連接的資料磁片時, 您必須在 VM 內掛接並格式化磁片, 才能使用它們。
+* 使用連接的資料磁片時，您必須在 VM 內掛接並格式化磁片，才能使用它們。
 * 確定您提供的基本 OS 映像使用預設的暫存磁碟機。 Batch 節點代理程式目前需要有預設的暫存磁碟機。
 * 一旦 VM 開始執行之後，請透過 RDP (適用於 Windows) 或 SSH (適用於 Linux) 向它連線。 安裝任何必要的軟體或複製所需的資料。  
 
@@ -79,13 +79,13 @@ ms.locfileid: "71827923"
 
 若要從快照集建立受控映像，請使用 Azure 命令列工具，例如 [az image create](/cli/azure/image) 命令。 藉由指定 OS 磁片快照集，以及選擇性的一或多個資料磁片快照集來建立映射。
 
-### <a name="create-a-shared-image-gallery"></a>建立共用映射資源庫
+### <a name="create-a-shared-image-gallery"></a>建立共用映像庫
 
 成功建立受控映射後，您必須建立共用映射資源庫，讓您的自訂映射可供使用。 若要瞭解如何為您的映射建立共用映射庫，請參閱使用[Azure CLI 建立共用映射](../virtual-machines/linux/shared-images.md)資源庫，或[使用 Azure 入口網站建立共用映射](../virtual-machines/linux/shared-images-portal.md)資源庫。
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>使用 Azure CLI 從共用映射建立集區
 
-若要使用 Azure CLI 從共用映射建立集區，請使用 `az batch pool create` 命令。 在 [`--image`] 欄位中指定共用映射識別碼。 請確定 OS 類型和 SKU 符合 `--node-agent-sku-id` 所指定的版本
+若要使用 Azure CLI 從共用映射建立集區，請使用 `az batch pool create` 命令。 在 [`--image`] 欄位中指定共用映射識別碼。 請確定 OS 類型和 SKU 符合所指定的版本 `--node-agent-sku-id`
 
 ```azurecli
 az batch pool create \

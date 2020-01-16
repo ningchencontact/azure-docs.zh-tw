@@ -7,19 +7,19 @@ ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 089cda74740d3934c76a3b0ca8803a30654feccf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8473bff3b6e7d2079bb202befc23e1ada3791eb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465111"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970262"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>快速入門：適用於 JavaScript 的 Azure Blob 儲存體用戶端程式庫 v12
 
 開始使用適用於 JavaScript 的 Azure Blob 儲存體用戶端程式庫 v12。 Azure Blob 儲存體是 Microsoft 針對雲端推出的物件儲存體解決方案。 請依照下列步驟來安裝套件，並試用基本工作的範例程式碼。 Blob 儲存體經過最佳化，已能妥善儲存大量的非結構化資料。
 
 > [!NOTE]
-> 若要開始使用舊版 SDK，請參閱[快速入門：適用於 JavaScript 的 Azure Blob 儲存體用戶端程式庫](storage-quickstart-blobs-nodejs-v10.md)。
+> 若要開始使用舊版 SDK，請參閱[快速入門：適用於 JavaScript 的 Azure Blob 儲存體用戶端程式庫](storage-quickstart-blobs-nodejs-legacy.md)。
 
 使用適用於 JavaScript 的 Azure Blob 儲存體用戶端程式庫 v12：
 

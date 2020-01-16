@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 059fd1eb5df09cd0f24763f18cbb02b34017793c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f079071a88d034dfd279da8656da517b934275a3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647895"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982108"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>企業的 Azure DevTest Labs 參考架構
 本文提供參考架構，可協助您根據企業中的 Azure DevTest Labs 部署解決方案。 其中包括下列各項：
@@ -56,7 +56,7 @@ ms.locfileid: "75647895"
 - 每個資源類型每個**資源群組的資源**：每個資源類型每個[資源群組的資源預設限制為 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits)。  當您使用 [*所有 vm] 移至相同的資源群組*設定時，使用者會更快達到此訂用帳戶限制，特別是當 vm 有許多額外的磁片時。
 - **儲存體帳戶**： DevTest Labs 中的實驗室隨附儲存體帳戶。 每個訂用[帳戶每個區域的儲存體帳戶數目](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)的 Azure 配額為250。 相同區域中的 DevTest Labs 數目上限也是250。
 - **角色**指派：角色指派是指您將資源（擁有者、資源、許可權等級）的存取權授與使用者或主體。 在 Azure 中，[每個訂用帳戶的角色指派限制為 2000](../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits)。 根據預設，DevTest Labs 服務會為每個 VM 建立一個資源群組。 擁有者會被授與 DevTest Labs VM 的*擁有*者許可權，以及資源群組的*讀取*者許可權。 如此一來，您所建立的每個新 VM 都會使用兩個角色指派，以及授與使用者對實驗室的許可權時所使用的指派。
-- **API 讀取/寫入**：有各種方式可將 Azure 和 DevTest Labs 自動化，包括 REST Api、PowerShell、Azure CLI 和 Azure SDK。 透過自動化，您可能會遇到 API 要求的另一個限制：每個訂用帳戶最多允許[12000 個讀取要求和每小時1200個寫入要求](../azure-resource-manager/resource-manager-request-limits.md)。 當您將 DevTest Labs 自動化時，請注意這項限制。
+- **API 讀取/寫入**：有各種方式可將 Azure 和 DevTest Labs 自動化，包括 REST Api、PowerShell、Azure CLI 和 Azure SDK。 透過自動化，您可能會遇到 API 要求的另一個限制：每個訂用帳戶最多允許[12000 個讀取要求和每小時1200個寫入要求](../azure-resource-manager/management/request-limits-and-throttling.md)。 當您將 DevTest Labs 自動化時，請注意這項限制。
 
 ## <a name="manageability-considerations"></a>管理性考量
 DevTest Labs 具有絕佳的系統管理使用者介面，可使用單一實驗室。 但在企業中，您可能有多個 Azure 訂用帳戶和許多實驗室。 將變更一致地提供給所有實驗室，需要腳本/自動化。 以下是 DevTest Labs 部署的一些範例和最佳管理作法：

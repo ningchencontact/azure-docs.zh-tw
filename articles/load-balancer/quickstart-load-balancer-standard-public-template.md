@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 09/20/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 884ba1106e7b68fefaf91ee4e25cacd05bf96fc0
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 28c4ca59b20fcdd8ab0249392dc0f13cbabf1a97
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048756"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970642"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本建立 Standard 負載平衡器以平衡 VM 的負載
 
 負載平衡會將傳入要求分散於多部虛擬機器 (VM)，藉此提供高可用性和範圍。 本快速入門會示範如何部署 Azure Resource Manager 範本，以建立標準負載平衡器來平衡 VM 的負載。 相較於其他部署方法，使用 Resource Manager 範本所需的步驟比較少。
 
-[Resource Manager 範本](../azure-resource-manager/template-deployment-overview.md)是一個 JavaScript 物件標記法 (JSON) 檔案，定義了專案的基礎結構和組態。 範本會使用宣告式語法，可讓您陳述您要部署的項目，而不需要撰寫一連串程式設計命令來加以建立。 如果您要深入了解如何開發 Resource Manager 範本，請參閱 [Resource Manager 文件](/azure/azure-resource-manager/)和[範本參考](/azure/templates/microsoft.network/loadbalancers)。
+[Resource Manager 範本](../azure-resource-manager/templates/overview.md)是一個 JavaScript 物件標記法 (JSON) 檔案，定義了專案的基礎結構和組態。 範本會使用宣告式語法，可讓您陳述您要部署的項目，而不需要撰寫一連串程式設計命令來加以建立。 如果您要深入了解如何開發 Resource Manager 範本，請參閱 [Resource Manager 文件](/azure/azure-resource-manager/)和[範本參考](/azure/templates/microsoft.network/loadbalancers)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -84,7 +84,7 @@ Standard Load Balancer 只支援標準公用 IP 位址。 當您建立標準負�
 
 ![Azure Standard Load Balancer Resource Manager 範本 PowerShell 部署輸出](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-powershell-output.png)
 
-Azure PowerShell 用於部署範本。 除了 Azure PowerShell 以外，您也可以使用 Azure 入口網站、Azure CLI 和 REST API。 若要了解其他部署方法，請參閱[部署範本](../azure-resource-manager/resource-group-template-deploy-portal.md)。
+Azure PowerShell 用於部署範本。 除了 Azure PowerShell 以外，您也可以使用 Azure 入口網站、Azure CLI 和 REST API。 若要了解其他部署方法，請參閱[部署範本](../azure-resource-manager/templates/deploy-portal.md)。
 
 ## <a name="test-the-load-balancer"></a>測試負載平衡器
 
