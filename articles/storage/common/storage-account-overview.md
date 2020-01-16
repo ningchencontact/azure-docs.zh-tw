@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 30f39fc72d6a96b83f57d6553db3f348c8486ee5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8f912635fc0fb14fc54426a108af5f67d26213f4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460608"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975697"
 ---
 # <a name="storage-account-overview"></a>儲存體帳戶概觀
 
 Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔案、佇列、資料表和磁碟。 儲存體帳戶會為您的 Azure 儲存體資料提供唯一的命名空間，可透過 HTTP 或 HTTPS 從世界各地存取。 您的 Azure 儲存體帳戶中的資料既持久又高可用性、安全且可大幅擴充。
 
-若要了解如何建立 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
+若要了解如何建立 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](storage-account-create.md)。
 
 ## <a name="types-of-storage-accounts"></a>儲存體帳戶類型
 
@@ -72,7 +72,7 @@ BlockBlobStorage 帳戶目前不支援對經常性、非經常性或封存存取
 
 ### <a name="filestorage-accounts"></a>FileStorage 帳戶
 
-FileStorage 帳戶是特殊的儲存體帳戶，用來儲存和建立 premium 檔案共用。 此儲存體帳戶種類支援檔案，但不支援區塊 blob、附加 blob、分頁 blob、資料表或佇列。 
+FileStorage 帳戶是特殊的儲存體帳戶，用來儲存和建立 premium 檔案共用。 此儲存體帳戶種類支援檔案，但不支援區塊 blob、附加 blob、分頁 blob、資料表或佇列。
 
 FileStorage 帳戶提供獨特的效能專用特性，例如 IOPS 負載平衡。 如需這些特性的詳細資訊，請參閱檔規劃指南的檔案[共用效能層](../files/storage-files-planning.md#file-share-performance-tiers)一節。
 
@@ -150,15 +150,15 @@ Azure 儲存體提供不同的選項，以便根據使用量模式來存取區�
 - **共用存取**簽章：如果您不是使用 Azure AD 授權，請使用共用存取簽章來委派儲存體帳戶中資源的存取權。 共用存取簽章是一個權杖，可封裝在 URL 上對 Azure 儲存體的要求授權所需的資訊。 您可以將儲存體資源、授與的權限，以及權限有效的間隔指定為共用存取簽章的一部分。 如需詳細資訊，請參閱[使用共用存取簽章 (SAS)](storage-sas-overview.md)。
 
 > [!NOTE]
-> 使用 Azure AD 認證來驗證使用者或應用程式，可提供比其他授權方法更高的安全性，也更容易使用。 雖然您可以繼續使用共用金鑰授權於應用程式，但使用 Azure AD 就不需要將帳戶存取金鑰和程式碼一起儲存。 您也可以繼續使用共用存取簽章 (SAS) 將細部存取權授與儲存體帳戶中的資源，但 Azure AD 提供類似功能，卻不必管理 SAS 權杖或擔心需要撤銷遭盜用的 SAS。 
+> 使用 Azure AD 認證來驗證使用者或應用程式，可提供比其他授權方法更高的安全性，也更容易使用。 雖然您可以繼續使用共用金鑰授權於應用程式，但使用 Azure AD 就不需要將帳戶存取金鑰和程式碼一起儲存。 您也可以繼續使用共用存取簽章 (SAS) 將細部存取權授與儲存體帳戶中的資源，但 Azure AD 提供類似功能，卻不必管理 SAS 權杖或擔心需要撤銷遭盜用的 SAS。
 >
 > Microsoft 建議您在可能的情況下，為您的 Azure 儲存體 blob 和佇列應用程式使用 Azure AD 授權。
 
 ## <a name="copying-data-into-a-storage-account"></a>將資料複製到儲存體帳戶中
 
-Microsoft 會提供一些公用程式和程式庫，以便將從內部部署儲存裝置或第三方雲端儲存體提供者匯入您的資料。 您所使用的解決方案取決於您要傳輸的資料量。 
+Microsoft 會提供一些公用程式和程式庫，以便將從內部部署儲存裝置或第三方雲端儲存體提供者匯入您的資料。 您所使用的解決方案取決於您要傳輸的資料量。
 
-當您從一般用途 v1 或 Blob 儲存體帳戶升級至一般用途 v2 儲存體帳戶時，您的資料會自動遷移。 Microsoft 建議使用此路徑來升級您的帳戶。 不過，如果您決定將資料從一般用途 v1 帳戶移至 Blob 儲存體帳戶，則您會使用下面所述的工具和程式庫，手動遷移您的資料。 
+當您從一般用途 v1 或 Blob 儲存體帳戶升級至一般用途 v2 儲存體帳戶時，您的資料會自動遷移。 Microsoft 建議使用此路徑來升級您的帳戶。 不過，如果您決定將資料從一般用途 v1 帳戶移至 Blob 儲存體帳戶，則您會使用下面所述的工具和程式庫，手動遷移您的資料。
 
 ### <a name="azcopy"></a>AzCopy
 
@@ -183,5 +183,5 @@ AzCopy 為 Windows 命令列公用程式，可以極高效能將資料複製到 
 
 ## <a name="next-steps"></a>後續步驟
 
-- [建立儲存體帳戶](storage-quickstart-create-account.md)
+- [建立儲存體帳戶](storage-account-create.md)
 - [建立區塊 Blob 儲存體帳戶](../blobs/storage-blob-create-account-block-blob.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: 5f37971e9680468c29efd5733517cb900852431f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4fc5afe3bbb4b2ccf2329432347b23fe9a69c5ea
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400744"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977666"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>使用 Azure PowerShell 或 Resource Manager 範本啟用適用於 VM 的 Azure 監視器（預覽）
 
@@ -20,7 +20,7 @@ ms.locfileid: "75400744"
 
 本文說明如何使用 Azure PowerShell 或 Azure Resource Manager 範本來啟用 Azure 虛擬機器或虛擬機器擴展集的適用於 VM 的 Azure 監視器（預覽）。 在此程式結束時，您將已成功開始監視所有虛擬機器，並瞭解是否有任何效能或可用性問題。
 
-## <a name="set-up-a-log-analytics-workspace"></a>設定 Log Analytics 工作區 
+## <a name="set-up-a-log-analytics-workspace"></a>設定 Log Analytics 工作區
 
 如果您沒有 Log Analytics 工作區，則需要建立一個。 請先參閱[必要條件](vminsights-enable-overview.md#log-analytics)一節中所建議的方法，再繼續進行設定的步驟。 然後，您可以使用 Azure Resource Manager 範本方法來完成適用於 VM 的 Azure 監視器的部署。
 
@@ -35,8 +35,8 @@ ms.locfileid: "75400744"
 此方法包含一個 JSON 範本，其會指定在 Log Analytics 工作區中啟用解決方案元件的設定。
 
 如果您不知道如何使用範本來部署資源，請參閱：
-* [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/resource-group-template-deploy.md)
-* [使用 Resource Manager 範本與 Azure CLI 部署資源](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/templates/deploy-powershell.md)
+* [使用 Resource Manager 範本與 Azure CLI 部署資源](../../azure-resource-manager/templates/deploy-cli.md)
 
 若要使用 Azure CLI，您必須先在本機安裝和使用 CLI。 您必須執行 Azure CLI 2.0.27 版或更新版本。 若要知道您使用的版本，請執行 `az --version`。 若要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
@@ -91,7 +91,7 @@ ms.locfileid: "75400744"
 1. 擷取 *WorkspaceName*、*ResourceGroupName* 和 *WorkspaceLocation* 的值。 *WorkspaceName* 的值是您 Log Analytics 工作區的名稱。 *WorkspaceLocation* 的值是定義工作區所在的區域。
 
 1. 您已準備好部署此範本。
- 
+
     * 在包含範本的資料夾中使用下列 PowerShell 命令：
 
         ```powershell
@@ -105,7 +105,7 @@ ms.locfileid: "75400744"
         ```
 
     * 使用 Azure CLI 來執行下列命令：
-    
+
         ```azurecli
         az login
         az account set --subscription "Subscription Name"
@@ -126,14 +126,14 @@ ms.locfileid: "75400744"
 >範本必須部署在與資源相同的資源群組中，才能放在面板上。
 
 如果您不知道如何使用範本來部署資源，請參閱：
-* [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/resource-group-template-deploy.md)
-* [使用 Resource Manager 範本與 Azure CLI 部署資源](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/templates/deploy-powershell.md)
+* [使用 Resource Manager 範本與 Azure CLI 部署資源](../../azure-resource-manager/templates/deploy-cli.md)
 
 若要使用 Azure CLI，您必須先在本機安裝和使用 CLI。 您必須執行 Azure CLI 2.0.27 版或更新版本。 若要知道您使用的版本，請執行 `az --version`。 若要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 ### <a name="download-templates"></a>下載範本
 
-您可以從 GitHub 存放庫[下載](https://aka.ms/VmInsightsARMTemplates)的封存檔案（.zip）中提供 Azure Resource Manager 範本。 檔案的內容包括代表每個部署案例的資料夾，以及範本和參數檔案。 在執行之前，請修改參數檔案，並指定所需的值。 請勿修改範本檔案，除非您需要加以自訂以支援您的特定需求。 修改參數檔案之後，您可以使用本文稍後所述的下列方法來部署該檔案。 
+您可以從 GitHub 存放庫[下載](https://aka.ms/VmInsightsARMTemplates)的封存檔案（.zip）中提供 Azure Resource Manager 範本。 檔案的內容包括代表每個部署案例的資料夾，以及範本和參數檔案。 在執行之前，請修改參數檔案，並指定所需的值。 請勿修改範本檔案，除非您需要加以自訂以支援您的特定需求。 修改參數檔案之後，您可以使用本文稍後所述的下列方法來部署該檔案。
 
 下載檔案包含適用于不同案例的下列範本：
 
@@ -180,7 +180,7 @@ provisioningState       : Succeeded
 若要啟用多個 Vm 或虛擬機器擴展集的適用於 VM 的 Azure 監視器，請使用 PowerShell 腳本[install-vminsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0)。 它可以從 Azure PowerShell 資源庫取得。 此腳本會逐一查看：
 
 - 您的訂用帳戶中的每個虛擬機器和虛擬機器擴展集。
-- *ResourceGroup*所指定的範圍資源群組。 
+- *ResourceGroup*所指定的範圍資源群組。
 - 依*名稱*指定的單一 VM 或虛擬機器擴展集。
 
 針對每個 VM 或虛擬機器擴展集，指令碼會確認是否已經安裝 VM 延伸模組。 如果已安裝 VM 延伸模組，腳本會嘗試重新安裝它。 如果未安裝 VM 延伸模組，腳本會安裝 Log Analytics 和 Dependency agent VM 延伸模組。
@@ -341,7 +341,7 @@ Failed: (0)
 ## <a name="next-steps"></a>後續步驟
 
 現在已針對您的虛擬機器啟用監視，此資訊可透過適用於 VM 的 Azure 監視器進行分析。
- 
-- 若要檢視探索到的應用程式相依性，請參閱[檢視適用於 VM 的 Azure 監視器對應](vminsights-maps.md)。 
 
-- 若要找出 VM 效能的瓶頸和整體使用率，請參閱[查看 AZURE VM 效能](vminsights-performance.md)。 
+- 若要檢視探索到的應用程式相依性，請參閱[檢視適用於 VM 的 Azure 監視器對應](vminsights-maps.md)。
+
+- 若要找出 VM 效能的瓶頸和整體使用率，請參閱[查看 AZURE VM 效能](vminsights-performance.md)。

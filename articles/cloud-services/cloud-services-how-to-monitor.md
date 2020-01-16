@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
-ms.openlocfilehash: 096077550a426d7eb77ed0d71e720149dd103a55
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75386063"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972950"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>雲端服務監視簡介
 
@@ -52,7 +52,7 @@ ms.locfileid: "75386063"
 
 ## <a name="setup-diagnostics-extension"></a>設定診斷延伸模組
 
-首先，如果您沒有**傳統**儲存體帳戶，則請[建立傳統儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。 請確定建立已指定**傳統部署模型**的儲存體帳戶。
+首先，如果您沒有**傳統**儲存體帳戶，則請[建立傳統儲存體帳戶](../storage/common/storage-account-create.md)。 請確定建立已指定**傳統部署模型**的儲存體帳戶。
 
 接下來，巡覽至 [儲存體帳戶 (傳統)] 資源。 選取 [設定] > [存取金鑰]，然後複製 [主要連接字串] 值。 雲端服務需要有此值。 
 

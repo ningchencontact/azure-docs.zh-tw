@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 6ca8dd08f3b6c1a7bc9a0b8c7ba853adb46fd30c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.openlocfilehash: 91884d5da7c75ce151bd346d9dad1ded2079eaa2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355986"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973176"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -373,7 +373,7 @@ resourceGroupName | 虛擬機器的[資源群組](../../azure-resource-manager/m
 resourceId | 資源的[完整](https://docs.microsoft.com/rest/api/resources/resources/getbyid)識別碼 | 2019-03-11
 sku | VM 映像的特定 SKU | 2017-04-02
 subscriptionId | 虛擬機器的 Azure 訂用帳戶 | 2017-08-01
-tags | 虛擬機器的[標籤](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
+tags | 虛擬機器的[標籤](../../azure-resource-manager/management/tag-resources.md)  | 2017-08-01
 tagsList | 格式化為 JSON 陣列以方便程式設計剖析的標記  | 2019-06-04
 version | VM 映像的版本 | 2017-04-02
 vmId | VM 的[唯一識別碼](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
@@ -779,9 +779,9 @@ Puppet | https://github.com/keirans/azuremetadata
 2. 為什麼我沒有收到我的 VM 計算資訊？
    * 目前執行個體中繼資料服務僅支援使用 Azure Resource Manager 建立的執行個體。 未來可能會新增雲端服務 VM 的支援。
 3. 我在一陣子之後回過頭來透過 Azure Resource Manager 建立我的虛擬機器。 為什麼我看不到計算中繼資料資訊？
-   * 針對在 2016 年 9 月之後建立的 VM，新增[標記](../../azure-resource-manager/resource-group-using-tags.md)才會開始看到計算中繼資料。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
+   * 針對在 2016 年 9 月之後建立的 VM，新增[標記](../../azure-resource-manager/management/tag-resources.md)才會開始看到計算中繼資料。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
 4. 我看不到為新版本填入的所有資料
-   * 針對在 2016 年 9 月之後建立的 VM，新增[標記](../../azure-resource-manager/resource-group-using-tags.md)才會開始看到計算中繼資料。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
+   * 針對在 2016 年 9 月之後建立的 VM，新增[標記](../../azure-resource-manager/management/tag-resources.md)才會開始看到計算中繼資料。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
 5. 我為何收到錯誤 `500 Internal Server Error`？
    * 請根據指數型輪詢系統重試您的要求。 若問題持續發生，請連絡 Azure 支援。
 6. 我要在哪裡共用其他問題/註解？

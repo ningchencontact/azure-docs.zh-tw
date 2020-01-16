@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 2738e7be6ae40afd5f0d94f1ad32b7b4cda0417f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3cdabbd5f527934492ce7ff37ae7d0f756d91fc1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453421"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979422"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立和管理 B2B 企業整合的整合帳戶
 
@@ -77,7 +77,7 @@ ms.locfileid: "75453421"
 
 ## <a name="link-to-logic-app"></a>連結至邏輯應用程式
 
-若要將您的邏輯應用程式存取權授與包含 B2B 成品的整合帳戶，您必須先將整合帳戶連結到邏輯應用程式。 邏輯應用程式和整合帳戶必須存在於相同的區域中。 若要完成這項工作，您可以使用 Azure 入口網站。 如果您使用 Visual Studio，而您的邏輯應用程式是在[Azure 資源群組專案](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)中，您可以[使用 Visual Studio 將邏輯應用程式連結至整合帳戶](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account)。
+若要將您的邏輯應用程式存取權授與包含 B2B 成品的整合帳戶，您必須先將整合帳戶連結到邏輯應用程式。 邏輯應用程式和整合帳戶必須存在於相同的區域中。 若要完成這項工作，您可以使用 Azure 入口網站。 如果您使用 Visual Studio，而您的邏輯應用程式是在[Azure 資源群組專案](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)中，您可以[使用 Visual Studio 將邏輯應用程式連結至整合帳戶](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account)。
 
 1. 在 Azure 入口網站中，尋找並開啟邏輯應用程式。
 

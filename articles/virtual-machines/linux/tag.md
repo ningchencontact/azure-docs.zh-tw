@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: 871159a660d03469b67461f5eb1ce8245d4c3611
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cb8ec68ac0be4cf4480f5d75f987707cf7393003
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369145"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973194"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>如何在 Azure 中標記 Linux 虛擬機器
 本文說明在 Azure 中透過 Resource Manager 部署模型標記 Linux 虛擬機器的各種不同方式。 標記是使用者定義的成對「索引鍵/值」，可直接置於資源或資源群組。 Azure 目前對每一個資源和資源群組最多支援 15 個標記。 標記可在建立或加入至現有資源時置於資源上。 請注意，標記只支援透過 Resource Manager 部署模型建立的資源。
@@ -61,6 +61,6 @@ az vm update --resource-group MyResourceGroup --name MyTestVM --remove tags.myNe
 
 [Azure CLI environment]: ../../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/management/overview.md
-[Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
-[Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md
-[Gain insights into your Microsoft Azure resource consumption]: ../../billing/billing-usage-rate-card-overview.md
+[Using Tags to organize your Azure Resources]: ../../azure-resource-manager/management/tag-resources.md
+[Understanding your Azure Bill]:../../cost-management-billing/understand/review-individual-bill.md
+[Gain insights into your Microsoft Azure resource consumption]:../../cost-management-billing/manage/usage-rate-card-overview.md

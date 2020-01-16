@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: a80a54f3dc760d80f713db9857cbef0c580e66d6
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 088913959b5850e87dc3a6a39d2907d30b7e5ade
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621377"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976237"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中使用平臺即服務（PaaS）服務
 DevTest Labs 透過環境功能支援 PaaS。 DevTest Labs 中的環境受到預先設定 Azure Resource Manager Git 存放庫中的範本所支援。 環境可以同時包含 PaaS 和 IaaS 資源。 它們可讓您建立複雜的系統，其中包含 Azure 資源，例如虛擬機器、資料庫、虛擬網路和 Web 應用程式，它們會經過自訂以搭配使用。 這些範本可讓您使用原始程式碼控制來一致部署和改善環境的管理。 
@@ -37,7 +37,7 @@ DevTest Labs 資源提供者會代表實驗室使用者建立資源，因此，�
 
 在大型組織中，開發小組通常會提供一些環境，例如自訂/隔離的測試環境。 某些環境可能會供業務單位或部門內的所有小組使用。 IT 小組可能會想要提供可供組織中所有小組使用的環境。  
 
-## <a name="customizations"></a>自
+## <a name="customizations"></a>自訂
 
 #### <a name="sandbox"></a>沙箱 
 實驗室擁有者可以自訂實驗室環境，將使用者的角色從**讀者**變更為資源群組中的**參與者**。 這項功能位於實驗室的 [設定]**和 [原則**] 底下的 [**實驗室設定**] 頁面中。 角色中的這項變更可讓使用者新增或移除該環境中的資源。 如果您想要進一步限制存取權，請使用 Azure 原則。 此功能可讓您自訂資源或設定，而不需要訂用帳戶層級的存取權。
@@ -53,11 +53,11 @@ DevTest Labs 資源提供者會代表實驗室使用者建立資源，因此，�
 將[環境連接到實驗室的虛擬網路](connect-environment-lab-virtual-network.md)一文說明如何將 Resource Manager 範本修改為使用 `$(LabSubnetId)` token。 建立環境時，會將 `$(LabSubnetId)` token 取代為第一個子網標記，其中 [**在虛擬機器中使用**] 選項設定為 [ **true**]。 它可讓我們的環境使用先前建立的網路。 如果您想要在測試中的環境中使用相同的 Resource Manager 範本作為預備和生產環境，請使用 `$(LabSubnetId)` 做為 Resource Manager 範本參數中的預設值。 
 
 #### <a name="environment-storage-account"></a>環境儲存體帳戶
-DevTest Labs 支援使用[嵌套 Resource Manager 範本](../azure-resource-manager/resource-group-linked-templates.md)。 [[部署適用于測試環境的嵌套 Azure Resource Manager 範本](deploy-nested-template-environments.md)] 一文說明如何使用 `_artifactsLocation` 和 `_artifactsLocationSasToken` token，在與主要範本的嵌套資料夾中相同的資料夾內，建立 Resource Manager 範本的 URI。 如需這兩個權杖的詳細資訊，請參閱[Azure Resource Manager –最佳做法指南](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)的**部署構件**一節。
+DevTest Labs 支援使用[嵌套 Resource Manager 範本](../azure-resource-manager/templates/linked-templates.md)。 [[部署適用于測試環境的嵌套 Azure Resource Manager 範本](deploy-nested-template-environments.md)] 一文說明如何使用 `_artifactsLocation` 和 `_artifactsLocationSasToken` token，在與主要範本的嵌套資料夾中相同的資料夾內，建立 Resource Manager 範本的 URI。 如需這兩個權杖的詳細資訊，請參閱[Azure Resource Manager –最佳做法指南](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)的**部署構件**一節。
 
-## <a name="user-experience"></a>使用者體驗
+## <a name="user-experience"></a>使用者經驗
 
-## <a name="developer"></a>開發人員
+## <a name="developer"></a>Developer
 開發人員使用相同的工作流程來建立 VM，以建立特定的環境。 他們會選取環境與機器映射，並輸入範本所需的必要資訊。 每位擁有環境的開發人員都可以部署變更，並改善內部迴圈的偵錯工具。 您可以隨時使用最新的範本來建立環境。  這項功能可讓環境終結並重新建立，以協助減少必須以手動方式建立系統或從錯誤測試復原的停機時間。  
 
 ### <a name="testing"></a>測試
@@ -71,7 +71,7 @@ DevTest Labs 環境可讓您以非同步方式進行特定程式碼和設定的�
 ### <a name="security"></a>安全性
 使用 DevTest Labs 正確設定的 Azure 訂用帳戶，可以[只透過實驗室來限制對 azure 資源的存取](devtest-lab-add-devtest-user.md)。 使用環境，實驗室擁有者可以讓使用者使用已核准的設定來存取 PaaS 資源，而不允許存取任何其他 Azure 資源。 在實驗室使用者自訂環境的案例中，實驗室擁有者可以允許參與者存取。 「參與者存取權」可讓實驗室使用者只在受控資源群組內新增或移除 Azure 資源。 它可讓您更輕鬆地追蹤和管理，並允許使用者參與者存取訂用帳戶。
 
-### <a name="automation"></a>自動化
+### <a name="automation"></a>Automation
 自動化是大規模、有效生態系統的重要元件。 需要自動化，才能處理跨訂用帳戶和實驗室的管理或追蹤多個環境。
 
 ### <a name="cicd-pipeline"></a>CI/CD 管線

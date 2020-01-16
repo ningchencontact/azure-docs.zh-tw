@@ -7,28 +7,28 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 75a11cb5d513438824773a3bfba3b7443300dc05
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 5e80b48e43e72bc3eda16a5dcc64f980065c923f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770334"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974116"
 ---
 # <a name="create-and-manage-vnet-service-endpoints-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>使用 Azure CLI 建立和管理適用於 PostgreSQL 的 Azure 資料庫單一伺服器的 VNet 服務端點
-虛擬網路 (VNet) 服務端點和規則會將虛擬網路的私人位址空間延伸到您適用於 PostgreSQL 伺服器的 Azure 資料庫。 您可以使用 Azure 命令列介面 (CLI) 命令建立、更新、刪除、列出及顯示 VNet 服務端點和規則，以管理您的伺服器。 如需適用於 PostgreSQL 的 Azure 資料庫的 VNet 服務端點概觀 (包含限制)，請參閱[適用於 PostgreSQL 伺服器的 Azure 資料庫的 VNet 服務端點](concepts-data-access-and-security-vnet.md)。 VNet 服務端點在「適用於 PostgreSQL 的 Azure 資料庫」的所有支援區域皆可使用。
+虛擬網路 (VNet) 服務端點和規則會將虛擬網路的私人位址空間延伸到您適用於 PostgreSQL 伺服器的 Azure 資料庫。 您可以使用 Azure 命令列介面 (CLI) 命令，來建立、更新、刪除、列出及顯示 VNet 服務端點和規則，以管理您的伺服器。 如需適用於 PostgreSQL 的 Azure 資料庫的 VNet 服務端點概觀 (包含限制)，請參閱[適用於 PostgreSQL 伺服器的 Azure 資料庫的 VNet 服務端點](concepts-data-access-and-security-vnet.md)。 VNet 服務端點在「適用於 PostgreSQL 的 Azure 資料庫」的所有支援區域皆可使用。
 
 ## <a name="prerequisites"></a>必要條件
-若要逐步執行本作法指南，您需要：
+若要逐步執行本作法指南，您需要︰
 - 安裝 [Azure CLI](/cli/azure/install-azure-cli) 或在瀏覽器中使用 Azure Cloud Shell。
 - [「適用於 PostgreSQL 的 Azure 資料庫」伺服器和資料庫](quickstart-create-server-database-azure-cli.md)。
 
 > [!NOTE]
-> VNet 服務端點的支援僅適用於一般用途和記憶體最佳化伺服器。
+> VNet 服務端點的支援僅適用於一般用途伺服器和記憶體最佳化伺服器。
 > 在 VNet 對等互連的案例中，如果流量流經含有服務端點的通用 VNet 閘道，且應流往同儕節點，請建立 ACL/VNet 規則以允許閘道 VNet 中的 Azure 虛擬機器存取適用於 PostgreSQL 的 Azure 資料庫伺服器。
 
 
 ## <a name="configure-vnet-service-endpoints-for-azure-database-for-postgresql"></a>設定適用於 PostgreSQL 的 Azure 資料庫的 VNet 服務端點
-[az network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) 命令是用來設定虛擬網路。
+[az network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) \(英文\) 命令會用來設定虛擬網路。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -66,4 +66,4 @@ VNet 和 Azure 服務資源不一定要位於相同訂用帳戶中。 如果 VNe
 [!code-azurecli-interactive[main](../../cli_scripts/postgresql/create-postgresql-server-vnet/delete-postgresql.sh "Delete the resource group.")]
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 737cd9d306f01fa77dafa3d1a9a71495ff0a572e
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 0e4b2cd208e11f7696e016d3fa4353b38f3060d8
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940779"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977529"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory 中的持續整合與傳遞
 
@@ -145,7 +145,7 @@ ms.locfileid: "75940779"
 
 有兩種方式可處理密碼：
 
--  將秘密新增至參數檔案。 如需詳細資訊，請參閱[使用 Azure Key Vault 在部署期間傳遞安全的參數值](../azure-resource-manager/resource-manager-keyvault-parameter.md)。
+1.  將祕密新增至參數檔案。 如需詳細資訊，請參閱[在部署期間使用 Azure Key Vault 以傳遞安全的參數值](../azure-resource-manager/templates/key-vault-parameter.md)。
 
     建立要上傳至發佈分支之參數檔案的複本。 使用下列格式，設定您想要從 Key Vault 取得的參數值：
 

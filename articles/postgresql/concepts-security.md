@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: a1bd9b8cbcbc785425c2d1870dc555ff91f695f7
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 02dc9e1ad9ee46b1a400e44b6ef737e70571a17a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485077"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972592"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫中的安全性-單一伺服器
 
@@ -37,6 +37,9 @@ IP 防火牆規則會根據每個要求的原始 IP 位址來授與伺服器的�
 ### <a name="virtual-network-firewall-rules"></a>虛擬網路防火牆規則
 虛擬網路服務端點會透過 Azure 骨幹擴充您的虛擬網路連線能力。 您可以使用虛擬網路規則，讓您的適用於 PostgreSQL 的 Azure 資料庫伺服器允許來自虛擬網路中所選子網的連線。 如需詳細資訊，請參閱[虛擬網路服務端點總覽](concepts-data-access-and-security-vnet.md)。
 
+### <a name="private-ip"></a>私人 IP
+私人連結可讓您透過私人端點連接到您在 Azure 中的適用於 PostgreSQL 的 Azure 資料庫單一伺服器。 Azure 私用連結基本上會將 Azure 服務帶入您的私用虛擬網路（VNet）內。 您可以使用私人 IP 位址來存取 PaaS 資源，就像 VNet 中的任何其他資源一樣。 如需詳細資訊，請參閱[私用連結總覽](concepts-data-access-and-security-private-link.md)
+
 
 ## <a name="access-management"></a>存取管理
 
@@ -45,7 +48,7 @@ IP 防火牆規則會根據每個要求的原始 IP 位址來授與伺服器的�
 您也可以使用[Azure Active Directory （AAD）驗證](concepts-aad-authentication.md)來連接到伺服器。
 
 
-## <a name="threat-protection"></a>威脅保護
+## <a name="threat-protection"></a>威脅防護
 
 您可以選擇使用 [[先進的威脅防護](concepts-data-access-and-security-threat-protection.md)] 來偵測異常活動，指出有不尋常且可能有害的嘗試存取或惡意探索伺服器。
 

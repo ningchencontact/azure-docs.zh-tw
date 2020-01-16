@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fd42a6ffa6ea46d49df673cde617c70ce7425d91
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 489cb9e652d571b5322a1bd92663ca089e28b8cd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460384"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980783"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>針對 Azure 檔案儲存體啟用透過 SMB 的 Azure Active Directory Domain Services 驗證
 
@@ -26,7 +26,7 @@ ms.locfileid: "75460384"
 
 針對 Azure 檔案儲存體啟用透過 SMB 進行 Azure AD DS 驗證之前，請確認您的 Azure AD 和 Azure 儲存體環境已正確設定。 我們建議您逐步完成[必要條件](#prerequisites)，以確定您已完成所有必要的步驟。
 
-接著，遵循下列步驟，授與對 Azure AD 認證之 Azure 檔案資源的存取權： 
+接著，遵循下列步驟，授與對 Azure AD 認證之 Azure 檔案資源的存取權：
 
 1. 針對您的儲存體帳戶啟用透過 SMB Azure AD DS 驗證，以向相關聯的 Azure AD DS 部署註冊儲存體帳戶。
 2. 將共用的存取權限指派至 Azure AD 身分識別 (使用者、群組或服務主體)。
@@ -62,7 +62,7 @@ ms.locfileid: "75460384"
 
 4.  **選取或建立 Azure 檔案共用。**
 
-    選取與 Azure AD 租用戶相同訂閱關聯的全新或現有檔案共用。 如需建立新檔案共用的資訊，請參閱 [在 Azure 檔案中建立檔案共用](storage-how-to-create-file-share.md)。 
+    選取與 Azure AD 租用戶相同訂閱關聯的全新或現有檔案共用。 如需建立新檔案共用的資訊，請參閱 [在 Azure 檔案中建立檔案共用](storage-how-to-create-file-share.md)。
     為了達到最佳效能，我們建議您的檔案共用與您規劃用來存取共用的 VM 位於相同的區域。
 
 5.  **藉由使用儲存體帳戶金鑰裝載 Azure 檔案共用，驗證 Azure 檔案連線。**
@@ -79,14 +79,14 @@ ms.locfileid: "75460384"
 
 若要使用[Azure 入口網站](https://portal.azure.com)啟用透過 SMB 進行 Azure AD DS 驗證，請遵循下列步驟：
 
-1. 在 Azure 入口網站中，移至您現有的儲存體帳戶，或[建立儲存體帳戶](../common/storage-quickstart-create-account.md)。
+1. 在 Azure 入口網站中，移至您現有的儲存體帳戶，或[建立儲存體帳戶](../common/storage-account-create.md)。
 2. 在 [設定] 區段中，選取 [組態]。
 3. 從 [Azure 檔案驗證的身分**識別型目錄服務**] 下拉式清單中，選取 [ **AZURE ACTIVE DIRECTORY DOMAIN SERVICES （Azure AD DS）** ]。
 
 下圖顯示如何針對您的儲存體帳戶啟用透過 SMB 的 Azure AD DS 驗證。
 
 ![在 Azure 入口網站中啟用透過 SMB 進行 Azure AD 驗證](media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png)
-  
+
 ### <a name="powershell"></a>PowerShell  
 
 若要啟用透過 Azure PowerShell 對 SMB 進行 Azure AD DS 驗證，請安裝最新的 Az 模組（2.4 或更新版本）或 Az. Storage 模組（1.5 或更新版本）。 如需安裝 PowerShell 的詳細資訊，請參閱[使用 PowerShellGet 在 Windows 上安裝 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
@@ -172,8 +172,8 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 ```
 
 #### <a name="cli"></a>CLI
-  
-下列 CLI 2.0 命令說明如何根據登入名稱，將 RBAC 角色指派給 Azure AD 身分識別。 如需有關使用 Azure CLI 指派 RBAC 角色的詳細資訊，請參閱[使用 RBAC 和 Azure CLI 來管理存取權](../../role-based-access-control/role-assignments-cli.md)。 
+
+下列 CLI 2.0 命令說明如何根據登入名稱，將 RBAC 角色指派給 Azure AD 身分識別。 如需有關使用 Azure CLI 指派 RBAC 角色的詳細資訊，請參閱[使用 RBAC 和 Azure CLI 來管理存取權](../../role-based-access-control/role-assignments-cli.md)。
 
 執行下列範例腳本之前，請記得使用您自己的值來取代預留位置值（包括括弧）。
 
@@ -182,10 +182,10 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
-## <a name="configure-ntfs-permissions-over-smb"></a>透過 SMB 設定 NTFS 權限 
+## <a name="configure-ntfs-permissions-over-smb"></a>透過 SMB 設定 NTFS 權限
 使用 RBAC 指派共用層級權限之後，必須在根、目錄或檔案層級指派適當的 NTFS 權限。 將共用層級的許可權視為用來決定使用者是否可以存取共用的高階閘道管理員。 NTFS 許可權會以更細微的層級來決定使用者可以在目錄或檔案層級執行哪些作業。
 
-Azure 檔案支援全套 NTFS 基本和進階權限。 您可以藉由掛接共用，然後使用 Windows 檔案瀏覽器或執行 Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls)或[Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl)命令，來查看和設定 Azure 檔案共用中目錄和檔案的 NTFS 許可權。 
+Azure 檔案支援全套 NTFS 基本和進階權限。 您可以藉由掛接共用，然後使用 Windows 檔案瀏覽器或執行 Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls)或[Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl)命令，來查看和設定 Azure 檔案共用中目錄和檔案的 NTFS 許可權。
 
 若要以超級使用者權限設定 NTFS，您必須從已加入網域的 VM 使用您的儲存體帳戶金鑰來掛接共用。 依照下一節中的指示，從命令提示字元掛接 Azure 檔案共用，並據以設定 NTFS 許可權。
 
@@ -229,7 +229,7 @@ icacls <mounted-drive-letter>: /grant <user-email>:(f)
 
 ## <a name="mount-a-file-share-from-a-domain-joined-vm"></a>從已加入網域的 VM 中裝載檔案共用
 
-下列程式會驗證您的 Azure AD 認證是否已正確設定，而且您可以從已加入網域的 VM 存取 Azure 檔案共用： 
+下列程式會驗證您的 Azure AD 認證是否已正確設定，而且您可以從已加入網域的 VM 存取 Azure 檔案共用：
 
 使用您已授與許可權的 Azure AD 身分識別來登入 VM，如下圖所示。
 

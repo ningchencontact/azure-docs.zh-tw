@@ -3,7 +3,7 @@ title: 計量、警示和診斷記錄 - Azure Batch | Microsoft Docs
 description: 記錄並分析 Azure Batch 帳戶資源 (如集區和工作) 的診斷記錄事件。
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 12/05/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 9412107759e0aa068d982828d47b97822c09ae35
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: ffe8eb58fba570bf6002884ee365e76d9b53a273
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748094"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027197"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用於診斷評估和監視的 Batch 計量、警示和記錄
 

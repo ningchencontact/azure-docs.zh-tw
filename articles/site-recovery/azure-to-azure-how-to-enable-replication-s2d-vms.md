@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 465c0ddd91e81bb597a996637fdc2147e90464de
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 9f394fa8d618c97d74a47ff6e42a002f177cf7d9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942222"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973656"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>將執行儲存空間直接存取的 Azure Vm 複寫至另一個區域
 
@@ -30,7 +30,7 @@ ms.locfileid: "75942222"
 
 ![storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
 
- 
+
 - 在 Windows 容錯移轉叢集中的兩個 Azure 虛擬機器和每個虛擬機器都有兩個以上的資料磁碟。
 - S2D 會同步處理資料磁碟上的資料，並將已同步處理的儲存體當做儲存體集區使用。
 - 儲存體集區會向容錯移轉叢集提供叢集共用磁碟區 (CSV)。
@@ -51,7 +51,7 @@ ms.locfileid: "75942222"
 
    ![storagespacesdirect 保護](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
-2. 移至複寫的項目，然後您即可看到兩個虛擬機器狀態。 
+2. 移至複寫的項目，然後您即可看到兩個虛擬機器狀態。
 3. 兩個虛擬機器會開始受到保護，而且會顯示為多 VM 一致性群組的一部分。
 
    ![storagespacesdirect 保護](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)

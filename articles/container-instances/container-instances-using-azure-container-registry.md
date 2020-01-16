@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/30/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 823a25f388860fa55962a717b9dfed22f5d9c103
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 0d39c83646357cf9426239d28e445c4791ddceb0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770506"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981679"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>從 Azure Container Registry 部署至 Azure 容器執行個體
 
@@ -136,7 +136,7 @@ $ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_L
 
 如需完整的容器群組設定，請參閱[Resource Manager 範本參考](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups)。    
 
-如需參考 Resource Manager 範本中 Azure Key Vault 祕密的詳細資訊，請參閱[在部署期間使用 Azure Key Vault 傳遞安全的參數值](../azure-resource-manager/resource-manager-keyvault-parameter.md)。
+如需參考 Resource Manager 範本中 Azure Key Vault 祕密的詳細資訊，請參閱[在部署期間使用 Azure Key Vault 傳遞安全的參數值](../azure-resource-manager/templates/key-vault-parameter.md)。
 
 ## <a name="deploy-with-azure-portal"></a>使用 Azure 入口網站進行部署
 

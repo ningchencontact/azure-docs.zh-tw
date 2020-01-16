@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 41289110049a7f907b76c8f9a8b2d9dc850f201c
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: a8dd859b05c3e95a1c584a7947334dad25813122
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75707198"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970657"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全性技術功能
 本文提供 Azure 中的安全性服務簡介，協助您保護雲端中的資料、資源和應用程式，並滿足企業的安全性需求。
@@ -499,7 +499,7 @@ Resource Manager 會提供數個優點：
 - 您可以檢視共用相同標籤之資源群組的成本，以釐清您的組織的計費方式。
 
 > [!Note]
-> Resource Manager 提供一個部署和管理方案的新方式。 如果您使用較舊的部署模型並想要了解這些變更，請參閱[了解 Resource Manager 部署和傳統部署](../../azure-resource-manager/resource-manager-deployment-model.md)。
+> Resource Manager 提供一個部署和管理方案的新方式。 如果您使用較舊的部署模型並想要了解這些變更，請參閱[了解 Resource Manager 部署和傳統部署](../../azure-resource-manager/management/deployment-models.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

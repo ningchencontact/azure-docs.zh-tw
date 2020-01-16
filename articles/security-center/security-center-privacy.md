@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 45b7b419277d338d70cf285838103f97d4eb5c3a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 6edea1d0de53e2dc9f764de26209dc1f3110556e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749674"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978608"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>在 Azure 資訊安全中心管理使用者資料
 本文提供有關如何在 Azure 資訊安全中心管理使用者資料的資訊。 管理使用者資料包含了存取、刪除或匯出資料的能力。
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-指派為讀者、擁有者、參與者或帳戶管理員角色的資訊安全中心使用者，可以在此工具中存取客戶資料。 若要深入瞭解帳戶管理員角色，請參閱[Azure 角色型存取控制的內建角色](../role-based-access-control/built-in-roles.md)，以深入瞭解讀取者、擁有者和參與者角色。 請參閱[Azure 訂](../billing/billing-add-change-azure-subscription-administrator.md)用帳戶管理員。
+指派為讀者、擁有者、參與者或帳戶管理員角色的資訊安全中心使用者，可以在此工具中存取客戶資料。 若要深入瞭解帳戶管理員角色，請參閱[Azure 角色型存取控制的內建角色](../role-based-access-control/built-in-roles.md)，以深入瞭解讀取者、擁有者和參與者角色。 請參閱[Azure 訂](../cost-management-billing/manage/add-change-subscription-administrator.md)用帳戶管理員。
 
 ## <a name="searching-for-and-identifying-personal-data"></a>搜尋及識別個人資料
 資訊安全中心使用者可以透過 Azure 入口網站檢視他們的個人資料。 資訊安全中心只會儲存安全性連絡人詳細資料，例如電子郵件地址和電話號碼。 如需詳細資訊，請參閱[Azure 資訊安全中心中的提供安全性連絡人詳細資料](security-center-provide-security-contact-details.md)。

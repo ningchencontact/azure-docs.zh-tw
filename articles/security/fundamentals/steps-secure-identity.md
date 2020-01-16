@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: d62704feaaa46f6780c302f5564b112dd1badbc1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b416b38cfac48260f3375696caa2ecabcb4d57a9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353241"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973918"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>可保護身分識別基礎結構的五個步驟
 
@@ -47,11 +47,11 @@ ms.locfileid: "75353241"
 
 在開始進行此檢查清單之前，請確定您不會在閱讀此檢查清單時遭到入侵。 您必須先保護特殊權限帳戶。
 
-攻擊者若掌控了特殊權限帳戶，將會造成極大的破壞，因此請務必先保護這些帳戶。 使用[Azure AD 安全性預設值](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md)或[條件式存取](../../active-directory/conditional-access/plan-conditional-access.md)，為組織中的所有系統管理員啟用和要求[Azure 多重要素驗證](../../active-directory/authentication/multi-factor-authentication.md)（MFA）。 如果您尚未實作 MFA，請立即實作！ 這一點非常重要。
+攻擊者若掌控了特殊權限帳戶，將會造成極大的破壞，因此請務必先保護這些帳戶。 使用[Azure AD 安全性預設值](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)或[條件式存取](../../active-directory/conditional-access/plan-conditional-access.md)，為組織中的所有系統管理員啟用和要求[Azure 多重要素驗證](../../active-directory/authentication/multi-factor-authentication.md)（MFA）。 如果您尚未實作 MFA，請立即實作！ 這一點非常重要。
 
 全都準備好了嗎？ 那就開始進行此檢查清單吧。
 
-## <a name="step-1---strengthen-your-credentials"></a>步驟 1 - 強化認證 
+## <a name="step-1---strengthen-your-credentials"></a>步驟 1 - 強化認證
 
 企業的安全性缺口，大多是因為帳戶遭到少數幾種入侵方法 (例如，密碼噴灑、入侵重播或網路釣魚) 入侵。 若要深入了解這些攻擊，請觀看這段影片 (45 分鐘)：
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
@@ -60,7 +60,7 @@ ms.locfileid: "75353241"
 
 有鑑於入侵者經常會猜測、誘騙或以惡意程式碼竊取密碼，使用者也經常會重複使用密碼，所以請務必使用某種形式的強式認證來支援密碼 - 詳情請參閱 [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md)。
 
-若要輕鬆啟用基本層級的身分識別安全性，您可以搭配使用單鍵啟用與[Azure AD 安全性預設值](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md)。 安全性預設值會對租使用者中的所有使用者強制執行 Azure MFA，並封鎖從舊版通訊協定進行租使用者的登入。
+若要輕鬆啟用基本層級的身分識別安全性，您可以搭配使用單鍵啟用與[Azure AD 安全性預設值](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)。 安全性預設值會對租使用者中的所有使用者強制執行 Azure MFA，並封鎖從舊版通訊協定進行租使用者的登入。
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>開始禁用常常受到攻擊的密碼，並關閉傳統的複雜性規則及到期規則。
 
@@ -86,7 +86,7 @@ Microsoft 建議採用下列根據 [NIST 指導方針](https://pages.nist.gov/80
 深入了解[密碼雜湊同步處理](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)的運作方式。
 
 > [!NOTE]
-> 如果您啟用密碼雜湊同步處理，並且要使用 Azure AD Domain Services，則 Kerberos (AES 256) 雜湊以及選擇性地 NTLM (RC4，沒有 salt) 雜湊也會加密並同步處理至 Azure AD。 
+> 如果您啟用密碼雜湊同步處理，並且要使用 Azure AD Domain Services，則 Kerberos (AES 256) 雜湊以及選擇性地 NTLM (RC4，沒有 salt) 雜湊也會加密並同步處理至 Azure AD。
 
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>實作 AD FS 外部網路智慧鎖定
 
@@ -106,7 +106,7 @@ Microsoft 建議採用下列根據 [NIST 指導方針](https://pages.nist.gov/80
 
 1. 封鎖[舊式驗證 (如果您使用 AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)。
 2. 將 [SharePoint Online 和 Exchange Online 設定為使用新式驗證](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md)。
-3. 如果您有 Azure AD Premium，請使用[條件式存取原則](../../active-directory/conditional-access/conditions.md)來封鎖舊版驗證，否則請使用[Azure AD 安全性預設值](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md)。
+3. 如果您有 Azure AD Premium，請使用[條件式存取原則](../../active-directory/conditional-access/conditions.md)來封鎖舊版驗證，否則請使用[Azure AD 安全性預設值](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)。
 
 ### <a name="block-invalid-authentication-entry-points"></a>封鎖無效的驗證進入點
 
@@ -123,7 +123,7 @@ Microsoft 建議[停用未來的使用者同意作業](https://docs.microsoft.co
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>實作 Azure AD Privileged Identity Management
 
-「假想入侵」的另一個影響是需要將遭到入侵的帳戶可使用特殊權限角色進行操作的可能性降到最低。 
+「假想入侵」的另一個影響是需要將遭到入侵的帳戶可使用特殊權限角色進行操作的可能性降到最低。
 
 [Azure AD Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) 可協助您進行下列作業，讓您將帳戶特殊權限最小化：
 
@@ -172,13 +172,13 @@ Microsoft Azure 服務和功能提供可設定的安全性稽核和記錄選項�
 
 Azure AD Identity Protection 能提供兩個您應該每天監視的重要報告：
 1. 具風險的登入報告將能顯示您應該調查的使用者登入活動，因為執行該登入的可能不是帳戶的合法使用者。
-2. 具風險的使用者報告將能顯示可能已被入侵的使用者帳戶，例如偵測到外洩的認證，或是當使用者從兩個不可能在該時間範圍內於它們之間移動的不同位置登入時。 
+2. 具風險的使用者報告將能顯示可能已被入侵的使用者帳戶，例如偵測到外洩的認證，或是當使用者從兩個不可能在該時間範圍內於它們之間移動的不同位置登入時。
 
 ![標示有風險的使用者](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>稽核應用程式和已同意的權限
 
-使用者可以誘騙流覽至遭入侵的網站，或能夠存取其設定檔資訊和使用者資料的應用程式，例如其電子郵件。 惡意的執行者可以使用其所接收到的已同意權限來對使用者的信箱內容進行加密，並要求使用者支付贖金以重新存取其信箱資料。 系統[管理員應該檢查並審核](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants)使用者所提供的許可權，或停用使用者預設同意的能力。 
+使用者可以誘騙流覽至遭入侵的網站，或能夠存取其設定檔資訊和使用者資料的應用程式，例如其電子郵件。 惡意的執行者可以使用其所接收到的已同意權限來對使用者的信箱內容進行加密，並要求使用者支付贖金以重新存取其信箱資料。 系統[管理員應該檢查並審核](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants)使用者所提供的許可權，或停用使用者預設同意的能力。
 
 除了審核使用者所提供的許可權之外，它也可以協助您嘗試並明確[找出有風險或不想要的 OAuth 應用程式](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth)，這是高階環境可用的功能。
 

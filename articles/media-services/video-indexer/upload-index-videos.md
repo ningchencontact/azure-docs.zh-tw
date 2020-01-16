@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.author: juliako
-ms.openlocfilehash: beb44c469aa8a03430cd5cb5a162966855aad448
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: c4c39dc53e492fd295cf30a7b7d75c933ebc912f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815394"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972616"
 ---
 # <a name="upload-and-index-your-videos"></a>上傳影片及編製影片索引  
 
@@ -40,6 +40,7 @@ ms.locfileid: "74815394"
 - `videoURL` param 中提供的 URL 必須進行編碼。
 - 編制索引媒體服務資產與從 URL 編制索引的限制相同。
 - 影片索引子的最大持續時間限制為單一檔案4小時。
+- 每分鐘最多可以上傳60電影。
 
 > [!Tip]
 > 建議使用 .NET Framework 4.6.2 版。 或更高版本，因為舊版 .NET Framework 不會預設使用 TLS 1.2。
@@ -61,7 +62,7 @@ ms.locfileid: "74815394"
 - 索引狀態變更： 
     - 屬性：    
     
-        |Name|描述|
+        |名稱|說明|
         |---|---|
         |id|影片識別碼|
         |state|影片狀態|  
@@ -69,7 +70,7 @@ ms.locfileid: "74815394"
 - 在影片中識別到的人員：
   - 屬性
     
-      |Name|描述|
+      |名稱|說明|
       |---|---|
       |id| 影片識別碼|
       |faceId|影片索引中出現的臉部識別碼|
@@ -94,7 +95,7 @@ ms.locfileid: "74815394"
 
 價格取決於選取的索引編製選項。  
 
-### <a name="priority"></a>優先順序
+### <a name="priority"></a>priority
 
 影片索引器會根據影片的優先順序來為其編製索引。 請使用 **priority** 參數來指定索引的優先順序。 下列是有效值：**Low (低)** 、**Normal** (一般，預設值) 和 **High (高)** 。
 
@@ -311,9 +312,9 @@ public class AccountContractSlim
 
 下表列出上傳作業可能會傳回的狀態碼。
 
-|狀態碼|ErrorType (在回應本文中)|描述|
+|狀態碼|ErrorType (在回應本文中)|說明|
 |---|---|---|
-|400|VIDEO_ALREADY_IN_PROGRESS|指定帳戶中已有正在處理的相同影片。|
+|409|VIDEO_INDEXING_IN_PROGRESS|指定帳戶中已有正在處理的相同影片。|
 |400|VIDEO_ALREADY_FAILED|不到 2 小時前，指定帳戶中有相同的影片處理失敗。 API 用戶端應該等待至少 2 小時，才能重新上傳影片。|
 
 ## <a name="next-steps"></a>後續步驟

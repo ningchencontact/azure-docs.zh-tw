@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 4d9fe58457f9a74466128273dcffee08e17aeb75
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 02e814a9da320d688fe57edf3a3fe0640b8f5a47
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457030"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976744"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>使用 Azure Resource Manager 範本建立 IoT 中樞 (.NET)
 
@@ -23,7 +23,7 @@ ms.locfileid: "75457030"
 您可以使用 Azure 資源管理員，以程式設計方式建立和管理 Azure IoT 中樞。 本教學課程示範如何使用 Azure Resource Manager 範本從 C# 程式建立 IoT 中樞。
 
 > [!NOTE]
-> Azure 有兩種不同的部署模型可建立和處理資源：[Azure Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。  本文涵蓋使用 Azure Resource Manager 部署模型的部分。
+> Azure 有兩種不同的部署模型可建立和處理資源：[Azure Resource Manager 和傳統](../azure-resource-manager/management/deployment-models.md)。  本文涵蓋使用 Azure Resource Manager 部署模型的部分。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

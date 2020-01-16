@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: f233b1a60202b440abf34edd1c56eebaecba18e2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1267b3295762f6eb6af92b1cec909bae768886c1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166996"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974512"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure 防火牆記錄和計量
 
@@ -20,7 +20,7 @@ ms.locfileid: "74166996"
 
 您可以透過入口網站存取其中一些記錄。 您可以將記錄傳送到 [Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)、儲存體和事件中樞，並在 Azure 監視器記錄中或透過不同的工具 (例如 Excel 和 Power BI) 來分析記錄。
 
-計量非常輕量，而且可以支援近乎即時的案例，使其適用于警示和快速的問題偵測。 
+計量非常輕量，而且可以支援近乎即時的案例，使其適用于警示和快速的問題偵測。
 
 ## <a name="diagnostic-logs"></a>診斷記錄
 
@@ -33,7 +33,7 @@ ms.locfileid: "74166996"
    ```
    Category: application rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -56,7 +56,7 @@ ms.locfileid: "74166996"
    ```
    Category: network rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -83,9 +83,9 @@ ms.locfileid: "74166996"
 
    預設會收集活動記錄，您可在 Azure 入口網站中檢視它們。
 
-   您可以使用[azure 活動記錄](../azure-resource-manager/resource-group-audit.md)（先前稱為「作業記錄」和「審核記錄」）來查看提交至您的 Azure 訂用帳戶的所有作業。
+   您可以使用[azure 活動記錄](../azure-resource-manager/management/view-activity-logs.md)（先前稱為「作業記錄」和「審核記錄」）來查看提交至您的 Azure 訂用帳戶的所有作業。
 
-## <a name="metrics"></a>度量
+## <a name="metrics"></a>計量
 
 Azure 監視器中的計量是數值，可描述系統在特定時間的某些層面。 計量會每分鐘收集一次，而且很適合用於警示，因為它們可以經常進行取樣。 您可以使用相對簡單的邏輯快速地引發警示。
 

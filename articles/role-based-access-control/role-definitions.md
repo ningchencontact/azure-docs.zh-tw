@@ -15,12 +15,12 @@ ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 1cd5325be7def4bc631d994f8811734e6c3cf545
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3ff4b2cb6a59a35dc6da4748a7c7fbb4758a4fcf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996443"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981005"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>了解適用於 Azure 資源的角色定義
 
@@ -48,7 +48,7 @@ AssignableScopes []
 
 作業字串的 `{action}` 部分指定您可以對資源類型執行的作業類型。 例如，您將會在 `{action}` 中看到下列子字串：
 
-| 動作子字串    | 描述         |
+| 動作子字串    | 說明         |
 | ------------------- | ------------------- |
 | `*` | 此萬用字元會授與所有符合字串之作業的存取權。 |
 | `read` | 啟用讀取作業 (GET)。 |
@@ -98,7 +98,7 @@ AssignableScopes []
 - 將儲存體 Blob 寫入容器中
 - 刪除佇列中的訊息
 
-以下是[儲存體 Blob 資料讀取器](built-in-roles.md#storage-blob-data-reader)角色定義，其中包含`Actions`和`DataActions`屬性中的作業。 此角色可讓您讀取 Blob 容器和基礎 Blob 資料。
+以下是[儲存體 Blob 資料讀取器](built-in-roles.md#storage-blob-data-reader)角色定義，其中包含 `Actions` 和 `DataActions` 屬性中的作業。 此角色可讓您讀取 Blob 容器和基礎 Blob 資料。
 
 ```json
 {
@@ -148,17 +148,17 @@ Alice 的「[擁有](built-in-roles.md#owner)者」角色和 Bob 的「[儲存�
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-由於 Alice 在訂用帳戶`*`範圍有萬用字元（）動作，因此其許可權會向下繼承，讓他們能夠執行所有管理動作。 Alice 可以讀取、寫入和刪除容器。 不過，Alice 無法在未採取額外步驟的情況下執行資料作業。 例如，根據預設，Alice 無法讀取容器內的 Blob。 若要讀取 Blob，Alice 必須擷取儲存體存取金鑰，並使用它們來存取 Blob。
+由於 Alice 在訂用帳戶範圍有萬用字元（`*`）動作，因此其許可權會向下繼承，讓他們能夠執行所有管理動作。 Alice 可以讀取、寫入和刪除容器。 不過，Alice 無法在未採取額外步驟的情況下執行資料作業。 例如，根據預設，Alice 無法讀取容器內的 Blob。 若要讀取 Blob，Alice 必須擷取儲存體存取金鑰，並使用它們來存取 Blob。
 
-Bob 的許可權僅限於`Actions` [儲存體 Blob 資料參與者](built-in-roles.md#storage-blob-data-contributor)角色中所指定的和`DataActions` 。 以此角色為基礎，Bob 可以執行管理和資料作業。 例如，Bob 可以在指定的儲存體帳戶中讀取、寫入和刪除容器，也可以讀取、寫入和刪除 blob。
+Bob 的許可權僅限於[儲存體 Blob 資料參與者](built-in-roles.md#storage-blob-data-contributor)角色中所指定的 `Actions` 和 `DataActions`。 以此角色為基礎，Bob 可以執行管理和資料作業。 例如，Bob 可以在指定的儲存體帳戶中讀取、寫入和刪除容器，也可以讀取、寫入和刪除 blob。
 
-如需適用於儲存體之管理及資料平面安全性的詳細資訊，請參閱 [Azure 儲存體安全性指南](../storage/common/storage-security-guide.md)。
+如需適用於儲存體之管理及資料平面安全性的詳細資訊，請參閱 [Azure 儲存體安全性指南](../storage/blobs/security-recommendations.md)。
 
 ### <a name="what-tools-support-using-rbac-for-data-operations"></a>哪些工具支援對資料作業使用 RBAC？
 
 若要檢視及使用資料作業，您必須有正確版本的工具或 SDK：
 
-| Tool  | Version  |
+| 工具  | 版本  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 或更新版本 |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 或更新版本 |
@@ -172,11 +172,11 @@ Bob 的許可權僅限於`Actions` [儲存體 Blob 資料參與者](built-in-rol
 
 - 2018-07-01
 
-## <a name="actions"></a>個動作
+## <a name="actions"></a>動作
 
 `Actions` 權限會指定角色所允許執行的管理作業。 它是識別 Azure 資源提供者的安全性實體作業的作業字串集合。 以下是可用於 `Actions` 中的一些管理作業範例。
 
-| 作業字串    | 描述         |
+| 作業字串    | 說明         |
 | ------------------- | ------------------- |
 | `*/read` | 授與所有 Azure 資源提供者的所有資源類型之讀取作業的存取權。|
 | `Microsoft.Compute/*` | 授與對 Microsoft.Compute 資源提供者中所有資源類型之所有作業的存取權。|
@@ -196,7 +196,7 @@ Bob 的許可權僅限於`Actions` [儲存體 Blob 資料參與者](built-in-rol
 
 `DataActions` 權限會指定角色允許對物件內資料執行的管理作業。 例如，如果使用者有儲存體帳戶的讀取 Blob 資料存取權，則他們可讀取該儲存體帳戶中的 Blob。 以下是可用於 `DataActions` 中的一些資料作業範例。
 
-| 作業字串    | 描述         |
+| 作業字串    | 說明         |
 | ------------------- | ------------------- |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | 傳回 Blob 或 Blob 清單。 |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | 傳回寫入 Blob 的結果。 |
@@ -213,7 +213,7 @@ Bob 的許可權僅限於`Actions` [儲存體 Blob 資料參與者](built-in-rol
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-`AssignableScopes`屬性會指定具有此角色定義的範圍（管理群組、訂用帳戶、資源群組或資源）。 您可以只將角色指派給需要它的管理群組、訂用帳戶或資源群組。 您至少必須使用一個管理群組、訂用帳戶、資源群組或資源識別碼。
+[`AssignableScopes`] 屬性會指定具有此角色定義的範圍（管理群組、訂用帳戶、資源群組或資源）。 您可以只將角色指派給需要它的管理群組、訂用帳戶或資源群組。 您至少必須使用一個管理群組、訂用帳戶、資源群組或資源識別碼。
 
 內建角色的 `AssignableScopes` 設定為根目錄範圍 (`"/"`)。 根目錄範圍表示角色可指派給所有範圍。 有效的可指派範圍範例包括：
 

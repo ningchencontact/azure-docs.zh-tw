@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 91e95dcf7cfc46073e2fd752a0e7e5ae6fce4ee8
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ff221a32ff6c995d019b13f20ca2c3f9e2027f63
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300073"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980741"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務 (ASP.NET Core)
 
@@ -69,7 +69,7 @@ Azure Blob 儲存體是可將非結構化資料儲存在雲端作為物件或 Bl
 1. 在 [Azure 儲存體] 對話方塊中，選取要用於本教學課程的 Azure 儲存體帳戶。 若要建立新的 Azure 儲存體帳戶，請選取 [建立新的儲存體帳戶]，然後完成表單。 在選取現有儲存體帳戶或建立新的儲存體帳戶之後，選取 [新增]。 Visual Studio 會將 Azure 儲存體的 NuGet 套件及儲存體連接字串安裝到 **appsettings.json**。
 
 > [!TIP]
-> 若要了解如何使用 [Azure 入口網站](https://portal.azure.com)來建立儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。
+> 若要了解如何使用 [Azure 入口網站](https://portal.azure.com)來建立儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-account-create.md)。
 >
 > 您也可以使用 [Azure PowerShell](../storage/common/storage-powershell-guide-full.md)、[Azure CLI](../storage/common/storage-azure-cli.md) 或 [Azure Cloud Shell](../cloud-shell/overview.md) 來建立儲存體帳戶。
 
@@ -78,7 +78,7 @@ Azure Blob 儲存體是可將非結構化資料儲存在雲端作為物件或 Bl
 
 1. 在 [方案總管] 中，於 [控制器] 上按一下滑鼠右鍵。
 
-2. 從操作功能表中，選取 [新增] > [控制器]。
+2. 從快顯功能表中，選取 [新增] > [控制器]。
 
     ![[方案總管] 的螢幕擷取畫面](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller-menu.png)
 

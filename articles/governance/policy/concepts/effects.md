@@ -3,12 +3,12 @@ title: 了解效果的運作方式
 description: Azure 原則定義有各種不同的效果，可決定合規性的管理和報告方式。
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: fec2f966260d997b45be50554e0f41d5fd0491aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2b588cfb7c13a63e3fa5d3a65d9ccb24a2e854fd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436355"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972804"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure 原則效果
 
@@ -367,7 +367,7 @@ DeployIfNotExists 效果的**details**屬性具有所有子屬性，可定義要
   - 此屬性必須包含與訂用帳戶可存取之角色型存取控制角色識別碼相符的字串陣列。 如需詳細資訊，請參閱[補救 - 設定原則定義](../how-to/remediate-resources.md#configure-policy-definition)。
 - **DeploymentScope** (選擇性)
   - 允許的值為 _Subscription_ 和 _ResourceGroup_。
-  - 設定要觸發的部署類型。 _Subscription_ 表示[在訂用帳戶層級進行部署](../../../azure-resource-manager/deploy-to-subscription.md)、_ResourceGroup_ 表示部署至某個資源群組。
+  - 設定要觸發的部署類型。 _Subscription_ 表示[在訂用帳戶層級進行部署](../../../azure-resource-manager/templates/deploy-to-subscription.md)、_ResourceGroup_ 表示部署至某個資源群組。
   - 使用訂用帳戶層級部署時，必須在 _Deployment_ 中指定 _location_ 屬性。
   - 預設值為 _ResourceGroup_。
 - **Deployment** [必要]

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 4e95cc6a724c17402ed1ed0cda83377492787a3a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: afd6ded6dc027e118694078f8b8eeadfe8dd80e4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644914"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981486"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs 常見問題集
 獲得一些關於 Azure DevTest Labs 最常見問題的解答。
@@ -46,13 +46,13 @@ ms.locfileid: "75644914"
 ### <a name="what-if-my-question-isnt-answered-here"></a>如果這裡沒有解答我的問題該怎麼辦？
 如果此處未列出您的問題，請讓我們知道，讓我們可以協助您找到答案。
 
-- 將問題張貼在此常見問題集尾端。 
+- 將問題張貼在此常見問題集尾端。
 - 若要觸及更多讀者，可將問題張貼在 [Azure DevTest Labs MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs)。 與 Azure DevTest Labs 小組和社群的其他成員交流。
 - 若要提出功能要求，請將您的要求和想法提交到 [Azure DevTest Labs 使用者心聲](https://feedback.azure.com/forums/320373-azure-devtest-labs)。
 
 ### <a name="what-is-a-microsoft-account"></a>什麼是 Microsoft 帳戶？
 Microsoft 帳戶是您使用 Microsoft 裝置和服務來執行幾乎所有作業時所使用的帳戶。 這是您用來登入 Skype、Outlook.com、OneDrive、Windows phone、Azure 和 Xbox Live 的電子郵件地址和密碼。 單一帳戶意味著不論您移到哪個裝置，檔案、相片、連絡人及設定都會跟著您移動。
- 
+
 > [!NOTE]
 > 用來呼叫 Windows Live ID 的 Microsoft 帳戶。
 
@@ -145,18 +145,18 @@ $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef
 ## <a name="lab-configuration"></a>實驗室組態
 
 ### <a name="how-do-i-create-a-lab-from-a-resource-manager-template"></a>如何從 Resource Manager 範本建立實驗室？
-我們提供一個[實驗室 Azure Resource Manager 範本的 GitHub 存放庫](https://azure.microsoft.com/resources/templates/101-dtl-create-lab)，您可以依原狀部署，或是加以修改來為您的實驗室建立自訂範本。 每個範本都有一個連結，可將實驗室部署在您自己的 Azure 訂用帳戶中。 或者，您可以自訂範本並[使用 PowerShell 或 Azure CLI 來進行部署](../azure-resource-manager/resource-group-template-deploy.md)。
+我們提供一個[實驗室 Azure Resource Manager 範本的 GitHub 存放庫](https://azure.microsoft.com/resources/templates/101-dtl-create-lab)，您可以依原狀部署，或是加以修改來為您的實驗室建立自訂範本。 每個範本都有一個連結，可將實驗室部署在您自己的 Azure 訂用帳戶中。 或者，您可以自訂範本並[使用 PowerShell 或 Azure CLI 來進行部署](../azure-resource-manager/templates/deploy-powershell.md)。
 
 
-### <a name="can-i-have-all-virtual-machines-to-be-created-in-a-common-resource-group-instead-having-each-machine-in-its-own-resource-group"></a>我是否可以在通用資源群組中建立所有虛擬機器，而不是讓每一部電腦都位於自己的資源群組中？ 
-是的，身為實驗室擁有者，您可以讓實驗室處理您的資源群組配置，或在您指定的通用資源群組中建立所有虛擬機器。 
+### <a name="can-i-have-all-virtual-machines-to-be-created-in-a-common-resource-group-instead-having-each-machine-in-its-own-resource-group"></a>我是否可以在通用資源群組中建立所有虛擬機器，而不是讓每一部電腦都位於自己的資源群組中？
+是的，身為實驗室擁有者，您可以讓實驗室處理您的資源群組配置，或在您指定的通用資源群組中建立所有虛擬機器。
 
 個別的資源群組案例：
 -   DevTest Labs 會為您啟動的每個公用/私人 IP 虛擬機器建立新的資源群組
 -   DevTest Labs 會針對屬於相同大小的共用 IP 機器建立資源群組。
 
 常見的資源群組案例：
--   所有虛擬機器都會在您指定的一般資源群組中啟動。 深入瞭解[實驗室的資源群組配置](https://aka.ms/RGControl)。 
+-   所有虛擬機器都會在您指定的一般資源群組中啟動。 深入瞭解[實驗室的資源群組配置](https://aka.ms/RGControl)。
 
 ### <a name="how-do-i-maintain-a-naming-convention-across-my-devtest-labs-environment"></a>如何在 DevTest Labs 環境中維護命名慣例？
 您可能想要將目前的企業命名慣例擴充到 Azure 作業，並使其在整個 DevTest Labs 環境中保持一致。 部署 DevTest Labs 時，我們建議您具備特定的起始原則。 您可以透過中央指令碼和 JSON 範本來部署這些原則，以強制保持一致性。 命名原則可透過在訂用帳戶層級套用的 Azure 原則來實作。 如需適用於 Azure 原則的 JSON 範例，請參閱 [Azure 原則範例](../governance/policy/samples/index.md)。
@@ -196,7 +196,7 @@ $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef
 有兩個選項可供您透過相同範本同時建立多個 VM：
 
 - 您可以使用 [Azure DevOps 工作擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)進行以下作業。
-- 您可以在建立 VM 時[產生 Resource Manager 範本](devtest-lab-add-vm.md#save-azure-resource-manager-template)，並[從 Windows PowerShell 部署 Resource Manager 範本](../azure-resource-manager/resource-group-template-deploy.md)。
+- 您可以在建立 VM 時[產生 Resource Manager 範本](devtest-lab-add-vm.md#save-azure-resource-manager-template)，並[從 Windows PowerShell 部署 Resource Manager 範本](../azure-resource-manager/templates/deploy-powershell.md)。
 - 您也可以指定要在虛擬機器建立期間建立的多個機器實例。 若要深入瞭解如何建立虛擬機器的多個實例，請參閱[建立實驗室虛擬機器](devtest-lab-add-vm.md)上的檔。
 
 ### <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>如何將現有 Azure VM 移到 DevTest Labs 實驗室？
@@ -252,7 +252,7 @@ foreach($labVM in $labVMs)
 }
 ```
 
-## <a name="environments"></a>環境 
+## <a name="environments"></a>環境
 
 ### <a name="how-can-i-use-resource-manager-templates-in-my-devtest-labs-environment"></a>如何在 DevTest Labs 環境中使用 Resource Manager 範本？
 您可以使用[DevTest Labs 中的環境功能](devtest-lab-test-env.md)一文所述的步驟，將您的 Resource Manager 範本部署到 DevTest Labs 環境中。 基本上，您會將 Resource Manager 範本簽入到 Git 存放庫 (Azure Repos 或 GitHub)，並將[適用於範本的私人存放庫](devtest-lab-test-env.md)新增到實驗室。 如果您使用 DevTest Labs 來裝載開發機器，但如果您要建立可代表生產的預備環境，則此案例可能會很有用。
@@ -264,7 +264,7 @@ foreach($labVM in $labVMs)
 ### <a name="how-can-i-set-up-an-easily-repeatable-process-to-bring-my-custom-organizational-images-into-a-devtest-labs-environment"></a>如何設定可輕鬆重複執行的程序，以便將自訂的組織映像帶入 DevTest Labs 環境？
 請參閱[映射 Factory 模式的](https://sec.ch9.ms/ch9/8e8a/9ea0b8d4-b803-4f23-bca4-4808d9368e8a/dtlimagefactory_mid.mp4)這段影片。 此案例是一個進階案例，而提供的指令碼只是範例指令碼。 如果不需要任何變更，則您需要管理和維護環境中所使用的指令碼。
 
-如需建立映射 factory 的詳細資訊，請參閱[在 Azure DevTest Labs 中建立自訂映射 factory](image-factory-create.md)。 
+如需建立映射 factory 的詳細資訊，請參閱[在 Azure DevTest Labs 中建立自訂映射 factory](image-factory-create.md)。
 
 ### <a name="what-is-the-difference-between-a-custom-image-and-a-formula"></a>自訂映像和公式有何差異？
 自訂映射是受控映射。 公式則是可以透過其他設定來加以設定，然後儲存並重現的映像。 如果您想要使用相同的不可變基底映像快速建立幾個環境，自訂映像可能較合適。 如果您想要使用最新版本來重現 VM 的組態、將 VM 的組態重現為虛擬網路或子網路的一部分，或是將 VM 的組態重現為特定大小的 VM，則公式可能較合適。 如需更深入的說明，請參閱[比較 DevTest Labs 中的自訂映像和公式](devtest-lab-comparing-vm-base-image-types.md)。
@@ -343,19 +343,19 @@ foreach($labVM in $labVMs)
 - [透過 Azure DevOps Services 在現有 DevTest Labs 實驗室中部署新的 VM](https://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
 - [使用 Azure DevOps Services 發行管理來持續部署至 DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-如需其他的持續整合 (CI)/持續傳遞 (CD) 工具鏈，可藉由使用 [Azure PowerShell Cmdlet](../azure-resource-manager/resource-group-template-deploy.md) 和 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/) 部署 [Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/) 來實現相同的案例。 您也可以使用[適用於 DevTest Labs 的 REST API](https://aka.ms/dtlrestapis) 來與您的工具鏈整合。
+如需其他的持續整合 (CI)/持續傳遞 (CD) 工具鏈，可藉由使用 [Azure PowerShell Cmdlet](../azure-resource-manager/templates/deploy-powershell.md) 和 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/) 部署 [Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/) 來實現相同的案例。 您也可以使用[適用於 DevTest Labs 的 REST API](https://aka.ms/dtlrestapis) 來與您的工具鏈整合。
 
 ## <a name="networking"></a>網路
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>何時應該針對 DevTest Labs 環境建立新的虛擬網路，而何時該使用現有的虛擬網路？
-如果您的 Vm 需要與現有的基礎結構互動，請考慮在 DevTest Labs 環境內使用現有的虛擬網路。 如果您使用 ExpressRoute，您可能會想要將 Vnet/子網的數量降到最低，這樣您就不會分割指派給訂用帳戶中使用的 IP 位址空間。 
+如果您的 Vm 需要與現有的基礎結構互動，請考慮在 DevTest Labs 環境內使用現有的虛擬網路。 如果您使用 ExpressRoute，您可能會想要將 Vnet/子網的數量降到最低，這樣您就不會分割指派給訂用帳戶中使用的 IP 位址空間。
 
-請考慮在這裡使用 VNet 對等互連模式（[中樞輪輻模型](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)）。 這種方法可讓訂用帳戶之間進行 vnet/子網通訊。 否則，每個 DevTest Labs 環境都可能有它自己的虛擬網路。 
+請考慮在這裡使用 VNet 對等互連模式（[中樞輪輻模型](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)）。 這種方法可讓訂用帳戶之間進行 vnet/子網通訊。 否則，每個 DevTest Labs 環境都可能有它自己的虛擬網路。
 
 每個訂用帳戶的虛擬網路數目有[限制](../azure-resource-manager/management/azure-subscription-service-limits.md)。 雖然可將此限制提升到 100，但預設數目是 50。
 
 ### <a name="when-should-i-use-a-shared-ip-vs-public-ip-vs-private-ip"></a>何時應使用共用 IP、公用 IP 及私人 IP？
- 
+
 如果您使用站對站 VPN 或 Express Route，請考慮使用私人 IP，如此一來，您的機器就可透過透過內部網路存取，但無法透過公用網際網路存取。
 
 > [!NOTE]
@@ -383,15 +383,15 @@ foreach($labVM in $labVMs)
 ### <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>為何我從 PowerShell 佈建 VM 時遇到「找不到父資源」錯誤？
 當某資源為另一個資源的父資源時，父資源必須在建立子資源之前就存在。 如果父資源不存在，您會看到**ParentResourceNotFound**訊息。 如果您未在父資源上指定相依性，子資源可能會在父資源之前進行部署。
 
-VM 是資源群組中實驗室下的子資源。 當您使用 Resource Manager 範本透過 PowerShell 部署 VM 時，在 PowerShell 指令碼中提供的資源群組名稱應該是實驗室的資源群組名稱。 如需詳細資訊，請參閱[對常見的 Azure 部署錯誤進行疑難排解](../azure-resource-manager/resource-manager-common-deployment-errors.md)。
+VM 是資源群組中實驗室下的子資源。 當您使用 Resource Manager 範本透過 PowerShell 部署 VM 時，在 PowerShell 指令碼中提供的資源群組名稱應該是實驗室的資源群組名稱。 如需詳細資訊，請參閱[對常見的 Azure 部署錯誤進行疑難排解](../azure-resource-manager/templates/common-deployment-errors.md)。
 
 ### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>當 VM 部署失敗時，我可以在哪裡找到更多錯誤資訊？
 VM 部署錯誤會擷取至活動記錄中。 您可以在實驗室 VM 頁面的 [資源] 功能表上，于 [ **Audit logs** ] 或 [**虛擬機器診斷**] 底下找到實驗室 vm 活動記錄（在您從 [我的虛擬機器] 清單中選取 VM 之後，該頁面就會出現）。
 
-系統有時候會在 VM 部署開始之前就發生部署錯誤。 舉例來說，如果您超過隨 VM 一起建立之資源的訂用帳戶限制時。 在此情況下，系統會將錯誤詳細資料擷取到實驗室層級的活動記錄中。 活動記錄位於 [組態和原則] 設定底部。 如需在 Azure 中使用活動記錄的詳細資訊，請參閱[檢視活動記錄以稽核對資源的動作](../azure-resource-manager/resource-group-audit.md)。
+系統有時候會在 VM 部署開始之前就發生部署錯誤。 舉例來說，如果您超過隨 VM 一起建立之資源的訂用帳戶限制時。 在此情況下，系統會將錯誤詳細資料擷取到實驗室層級的活動記錄中。 活動記錄位於 [組態和原則] 設定底部。 如需在 Azure 中使用活動記錄的詳細資訊，請參閱[檢視活動記錄以稽核對資源的動作](../azure-resource-manager/management/view-activity-logs.md)。
 
 ### <a name="why-do-i-get-location-is-not-available-for-resource-type-error-when-trying-to-create-a-lab"></a>當嘗試建立實驗室時，為什麼會收到「無法提供資源類型的位置」錯誤？
-當您嘗試建立實驗室時，您可能會看到類似下列的錯誤訊息： 
+當您嘗試建立實驗室時，您可能會看到類似下列的錯誤訊息：
 
 ```
 The provided location 'australiacentral' is not available for resource type 'Microsoft.KeyVault/vaults'. List of available regions for the resource type is 'northcentralus,eastus,northeurope,westeurope,eastasia,southeastasia,eastus2,centralus,southcentralus,westus,japaneast,japanwest,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia,canadacentral,canadaeast,uksouth,ukwest,westcentralus,westus2,koreacentral,koreasouth,francecentral,southafricanorth
@@ -400,9 +400,7 @@ The provided location 'australiacentral' is not available for resource type 'Mic
 您可以採取下列其中一個步驟來解決這個錯誤：
 
 #### <a name="option-1"></a>選項 1
-在 [[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)] 頁面上，檢查 Azure 區域中資源類型的可用性。 如果資源類型在特定區域中無法使用，DevTest Labs 就不支援在該區域中建立實驗室。 建立實驗室時，請選取另一個區域。 
+在 [[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)] 頁面上，檢查 Azure 區域中資源類型的可用性。 如果資源類型在特定區域中無法使用，DevTest Labs 就不支援在該區域中建立實驗室。 建立實驗室時，請選取另一個區域。
 
 #### <a name="option-2"></a>選項 2
-如果您的區域中有可用的資源類型，請檢查它是否已向您的訂用帳戶註冊。 它可以在訂用帳戶擁有者層級完成，如[這篇文章](../azure-resource-manager/resource-manager-supported-services.md)所示。 
-
-
+如果您的區域中有可用的資源類型，請檢查它是否已向您的訂用帳戶註冊。 它可以在訂用帳戶擁有者層級完成，如[這篇文章](../azure-resource-manager/management/resource-providers-and-types.md)所示。

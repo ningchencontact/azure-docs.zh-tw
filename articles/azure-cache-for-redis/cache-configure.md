@@ -6,20 +6,20 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 62e0c9bbf8b1c7cef9b1cc239810cb554b5ffa45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c4d5716c8a31ceccbe23c1f77ad3b88030ff3065
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433543"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972135"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>如何設定 Azure Redis 快取
 本主題說明您「Azure Redis 快取」執行個體可用的設定。 本主題也涵蓋適用於「Azure Redis 快取」執行個體的預設 Redis 伺服器設定。
 
 > [!NOTE]
 > 如需設定及使用進階快取功能的詳細資訊，請參閱[如何設定持續性](cache-how-to-premium-persistence.md)、[如何設定叢集](cache-how-to-premium-clustering.md)，以及[如何設定虛擬網路支援](cache-how-to-premium-vnet.md)。
-> 
-> 
+>
+>
 
 ## <a name="configure-azure-cache-for-redis-settings"></a>設定 Azure Redis 快取設定
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
@@ -68,7 +68,7 @@ ms.locfileid: "75433543"
 
 ### <a name="activity-log"></a>活動記錄
 
-按一下 [活動記錄] ，以檢視在快取上執行的動作。 您也可以使用篩選，來展開此檢視以包含其他資源。 如需使用稽核記錄的詳細資訊，請參閱[使用 Resource Manager 來稽核作業](../azure-resource-manager/resource-group-audit.md)。 如需有關監視「Azure Redis 快取」事件的詳細資訊，請參閱[作業和警示](cache-how-to-monitor.md#operations-and-alerts)。
+按一下 [活動記錄] ，以檢視在快取上執行的動作。 您也可以使用篩選，來展開此檢視以包含其他資源。 如需使用稽核記錄的詳細資訊，請參閱[使用 Resource Manager 來稽核作業](../azure-resource-manager/management/view-activity-logs.md)。 如需有關監視「Azure Redis 快取」事件的詳細資訊，請參閱[作業和警示](cache-how-to-monitor.md#operations-and-alerts)。
 
 ### <a name="access-control-iam"></a>存取控制 (IAM)
 
@@ -76,7 +76,7 @@ ms.locfileid: "75433543"
 
 ### <a name="tags"></a>標籤
 
-[標記] 區段有助於您組織資源。 如需詳細資訊，請參閱 [使用標記組織您的 Azure 資源](../azure-resource-manager/resource-group-using-tags.md)。
+[標記] 區段有助於您組織資源。 如需詳細資訊，請參閱 [使用標記組織您的 Azure 資源](../azure-resource-manager/management/tag-resources.md)。
 
 
 ### <a name="diagnose-and-solve-problems"></a>診斷並解決問題
@@ -149,8 +149,8 @@ ms.locfileid: "75433543"
 
 > [!IMPORTANT]
 > 只有標準和高階快取提供 **maxmemory-reserved** 和 **maxfragmentationmemory-reserved** 設定。
-> 
-> 
+>
+>
 
 #### <a name="keyspace-notifications-advanced-settings"></a>Keyspace 通知 (進階設定)
 Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspace 通知可讓用戶端在特定事件發生時收到通知。
@@ -159,15 +159,15 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 
 > [!IMPORTANT]
 > Keyspace 通知和 **notify-keyspace-events** 設定只適用於標準和高階快取。
-> 
-> 
+>
+>
 
 如需詳細資訊，請參閱 [Redis Keyspace 通知](https://redis.io/topics/notifications)(英文)。 如需範例程式碼，請參閱 [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 範例中的 [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) 檔案。
 
 
 <a name="recommendations"></a>
 ## <a name="azure-cache-for-redis-advisor"></a>Azure Redis 快取建議程式
-[Azure Redis 快取建議程式] 刀鋒視窗會顯示適用於快取的建議。 在一般作業期間，不會顯示任何建議。 
+[Azure Redis 快取建議程式] 刀鋒視窗會顯示適用於快取的建議。 在一般作業期間，不會顯示任何建議。
 
 ![建議](./media/cache-configure/redis-cache-no-recommendations.png)
 
@@ -205,8 +205,8 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 
 > [!NOTE]
 > 請注意，雖然「Azure Redis 快取」進階層已發行正式運作版，但「Redis 叢集大小」功能目前為預覽狀態。
-> 
-> 
+>
+>
 
 ![Redis 叢集大小](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
@@ -214,8 +214,8 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 
 > [!IMPORTANT]
 > Redis 叢集只適用於進階快取。 如需詳細資訊，請參閱 [如何設定進階 Azure Redis 快取的叢集功能](cache-how-to-premium-clustering.md)。
-> 
-> 
+>
+>
 
 
 ### <a name="redis-data-persistence"></a>Redis 資料永續性
@@ -226,16 +226,16 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 
 > [!IMPORTANT]
 > Redis 資料持續性僅適用於進階快取。
-> 
-> 
+>
+>
 
 ### <a name="schedule-updates"></a>排程更新
-[排程更新] 刀鋒視窗可讓您指定適用於快取的 Redis 伺服器更新維護期間。 
+[排程更新] 刀鋒視窗可讓您指定適用於快取的 Redis 伺服器更新維護期間。
 
 > [!IMPORTANT]
 > 維護期間僅適用於 Redis 伺服器更新，不適用於任何 Azure 更新，或是在裝載快取的 VM 上更新作業系統。
-> 
-> 
+>
+>
 
 ![排程更新](./media/cache-configure/redis-schedule-updates.png)
 
@@ -243,8 +243,8 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 
 > [!IMPORTANT]
 > 只有進階層快取提供**排程更新**功能。 如需詳細資訊和指示，請參閱 [Azure Redis 快取管理 - 排程更新](cache-administration.md#schedule-updates)。
-> 
-> 
+>
+>
 
 ### <a name="geo-replication"></a>異地複寫
 
@@ -252,16 +252,16 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 
 > [!IMPORTANT]
 > **異地複寫**僅適用於進階層快取。 如需詳細資訊和指示，請參閱[如何為 Azure Redis 快取設定異地複寫](cache-how-to-geo-replication.md)。
-> 
-> 
+>
+>
 
 ### <a name="virtual-network"></a>虛擬網路
 [虛擬網路] 區段可讓您為快取設定虛擬網路。 如需有關使用 VNET 支援來建立進階快取並更新其設定的資訊，請參閱[如何為進階 Azure Redis 快取設定虛擬網路支援](cache-how-to-premium-vnet.md)。
 
 > [!IMPORTANT]
-> 虛擬網路設定只適用於快取建立期間利用 VNET 支援設定的進階快取。 
-> 
-> 
+> 虛擬網路設定只適用於快取建立期間利用 VNET 支援設定的進階快取。
+>
+>
 
 ### <a name="firewall"></a>防火牆
 
@@ -275,8 +275,8 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 
 > [!IMPORTANT]
 > 系統一律會允許來自「Azure Redis 快取」監視系統的連線，即使已設定防火牆規則也一樣。
-> 
-> 
+>
+>
 
 ### <a name="properties"></a>屬性
 按一下 [屬性] 以檢視快取的相關資訊，包括快取端點和連接埠。
@@ -284,14 +284,14 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 ![Azure Redis 快取屬性](./media/cache-configure/redis-cache-properties.png)
 
 ### <a name="locks"></a>鎖定
-[鎖定] 區段可讓您鎖定訂用帳戶、資源群組或資源，以防止組織中的其他使用者不小心刪除或修改重要資源。 如需詳細資訊，請參閱[使用 Azure Resource Manager 來鎖定資源](../azure-resource-manager/resource-group-lock-resources.md)。
+[鎖定] 區段可讓您鎖定訂用帳戶、資源群組或資源，以防止組織中的其他使用者不小心刪除或修改重要資源。 如需詳細資訊，請參閱[使用 Azure Resource Manager 來鎖定資源](../azure-resource-manager/management/lock-resources.md)。
 
 ### <a name="automation-script"></a>自動化指令碼
 
-按一下 [自動化指令碼] 可建置並匯出您所部署資源的範本，供未來部署使用。 如需使用範本的詳細資訊，請參閱 [使用 Azure Resource Manager 範本部署資源](../azure-resource-manager/resource-group-template-deploy.md)。
+按一下 [自動化指令碼] 可建置並匯出您所部署資源的範本，供未來部署使用。 如需使用範本的詳細資訊，請參閱 [使用 Azure Resource Manager 範本部署資源](../azure-resource-manager/templates/deploy-powershell.md)。
 
 ## <a name="administration-settings"></a>管理設定
-[管理] 區段中的設定可讓您針對快取執行下列管理工作。 
+[管理] 區段中的設定可讓您針對快取執行下列管理工作。
 
 ![系統管理](./media/cache-configure/redis-cache-administration.png)
 
@@ -309,8 +309,8 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 
 > [!IMPORTANT]
 > 匯入/匯出僅供進階層快取使用。 如需詳細資訊和指示，請參閱[在 Azure Redis 快取中匯入和匯出資料](cache-how-to-import-export-data.md)。
-> 
-> 
+>
+>
 
 ### <a name="reboot"></a>重新啟動
 [重新啟動] 刀鋒視窗可讓您重新啟動快取的節點。 這個重新啟動的能力可讓您測試應用程式在快取節點失敗時的恢復功能。
@@ -325,13 +325,14 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 
 > [!IMPORTANT]
 > 重新啟動現在適用於所有定價層。 如需詳細資訊和指示，請參閱 [Azure Redis 快取管理 - 重新啟動](cache-administration.md#reboot)。
-> 
-> 
+>
+>
 
 
 ## <a name="monitoring"></a>監視
 
-[監視] 區段可讓您設定「Azure Redis 快取」的診斷和監視。 如需有關「Azure Redis 快取」監視和診斷的詳細資訊，請參閱[如何監視 Azure Redis 快取](cache-how-to-monitor.md)。
+[監視] 區段可讓您設定「Azure Redis 快取」的診斷和監視。
+如需有關「Azure Redis 快取」監視和診斷的詳細資訊，請參閱[如何監視 Azure Redis 快取](cache-how-to-monitor.md)。
 
 ![診斷程式](./media/cache-configure/redis-cache-diagnostics.png)
 
@@ -368,8 +369,8 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 
 > [!NOTE]
 > 資源健康狀態目前無法針對虛擬網路中所裝載「Azure Redis 快取」執行個體的健康狀態提出報告。 如需詳細資訊，請參閱 [將快取裝載於 VNET 時，所有快取功能都可以正常運作嗎？](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
-> 
-> 
+>
+>
 
 ### <a name="new-support-request"></a>新增支援要求
 按一下 [新增支援要求] 以開啟快取的支援要求。
@@ -383,12 +384,12 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 
 > [!NOTE]
 > 您無法使用 `StackExchange.Redis.IServer.ConfigSet` 方法變更本區段中的設定。 如果使用本區段中的其中一個命令來呼叫此方法，則會擲回類似下列範例的例外狀況：  
-> 
+>
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
-> 
+>
 > 任何可設定的值 (例如 **max-memory-policy**) 都可以透過 Azure 入口網站或命令列管理工具 (例如 Azure CLI 或 PowerShell) 加以設定。
-> 
-> 
+>
+>
 
 | 設定 | 預設值 | 說明 |
 | --- | --- | --- |
@@ -422,8 +423,8 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 
 > [!NOTE]
 > `databases` 設定，而且只能使用 PowerShell、CLI 或其他管理用戶端。 如需在快取建立期間使用 PowerShell 來設定 `databases` 的範例，請參閱 [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases)。
-> 
-> 
+>
+>
 
 <a name="maxclients"></a>
 <sup>2</sup>每個「Azure Redis 快取」定價層的 `maxclients` 皆不相同。
@@ -444,15 +445,15 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 
 > [!NOTE]
 > 每個快取大小都可允許以某個數目為「上限」的連線數，而每個連到 Redis 的連線則都有相關的額外負荷。 因 TLS/SSL 加密而產生的 CPU 與記憶體使用量即是這類額外負荷的其中一例。 所指定快取大小的連線數上限是假設快取負載情況為輕度。 如果來自連線額外負荷的負載「加上」來自用戶端作業的負載超過系統的容量，則即使您尚未超出目前快取大小的連線限制，快取也會發生容量問題。
-> 
-> 
+>
+>
 
 
 
 ## <a name="redis-commands-not-supported-in-azure-cache-for-redis"></a>Azure Redis 快取中不支援的 Redis 命令
 > [!IMPORTANT]
 > 「Azure Redis 快取」執行個體的設定與管理是由 Microsoft 管理，因此會停用下列命令。 如果您嘗試叫用它們，會收到類似 `"(error) ERR unknown command"` 的錯誤訊息。
-> 
+>
 > * BGREWRITEAOF
 > * BGSAVE
 > * CONFIG
@@ -462,8 +463,8 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 > * SHUTDOWN
 > * SLAVEOF
 > * CLUSTER - 叢集寫入命令已停用，但允許唯讀的叢集命令。
-> 
-> 
+>
+>
 
 如需 Redis 命令的詳細資訊，請參閱 [https://redis.io/commands](https://redis.io/commands)。
 
@@ -473,8 +474,8 @@ Redis Keyspace 通知是在 [進階設定] 刀鋒視窗上進行設定。 Keyspa
 > [!IMPORTANT]
 > - Redis 主控台不使用 [VNET](cache-how-to-premium-vnet.md)。 如果您的快取是 VNET 的一部分，只有在 VNET 中的用戶端可以存取快取。 由於 Redis 主控台在您的本機瀏覽器 (位於 VNET 之外) 中執行，因此無法連接到您的快取。
 > - 「Azure Redis 快取」並未支援所有 Redis 命令。 如需針對「Azure Redis 快取」停用的 Redis 命令清單，請參閱先前的 [Azure Redis 快取中不支援的 Redis 命令](#redis-commands-not-supported-in-azure-cache-for-redis)一節。 如需 Redis 命令的詳細資訊，請參閱 [https://redis.io/commands](https://redis.io/commands)。
-> 
-> 
+>
+>
 
 若要存取 [Redis 主控台]，請從 [Azure Redis 快取] 刀鋒視窗按一下 [主控台]。
 
@@ -506,8 +507,7 @@ shard1>get myKey
 
 ![移動 Azure Redis 快取](./media/cache-configure/redis-cache-move.png)
 
-如需將資源從某個資源群組移到另一個資源群組，以及從某個訂用帳戶移到另一個訂用帳戶的相關資訊，請參閱 [將資源移動到新的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md)。
+如需將資源從某個資源群組移到另一個資源群組，以及從某個訂用帳戶移到另一個訂用帳戶的相關資訊，請參閱 [將資源移動到新的資源群組或訂用帳戶](../azure-resource-manager/management/move-resource-group-and-subscription.md)。
 
 ## <a name="next-steps"></a>後續步驟
 * 如需使用 Redis 命令的詳細資訊，請參閱[如何執行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)
-

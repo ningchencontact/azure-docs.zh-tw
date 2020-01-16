@@ -5,16 +5,16 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8ed5df15b8ae8e9836c5b8ac8e7d6ad0111f63e1
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 051e8b0add7cf7ab2c4cb2f02ed4e33ea9a23c9b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941901"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973816"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>常見問題： Azure 到 Azure 的嚴重損壞修復
 
-本文提供有關使用[Site Recovery](site-recovery-overview.md)將 Azure vm 嚴重損壞修復至另一個 Azure 區域的常見問題的解答。 
+本文提供有關使用[Site Recovery](site-recovery-overview.md)將 Azure vm 嚴重損壞修復至另一個 Azure 區域的常見問題的解答。
 
 
 ## <a name="general"></a>一般
@@ -26,7 +26,7 @@ ms.locfileid: "75941901"
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>在這前 31 天，我是否須負擔任何其他費用？
 是的，即使 Azure Site Recovery 在受保護執行個體的前 31 天免費，您仍可能須負擔 Azure 儲存體、儲存體交易和資料傳輸的費用。 復原的虛擬機器也可能會產生 Azure 計算費用。 在[這裡](https://azure.microsoft.com/pricing/details/site-recovery)取得有關定價的完整詳細資料
 
-### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>哪裡可以找到 Azure VM 嚴重損壞修復的最佳做法？ 
+### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>哪裡可以找到 Azure VM 嚴重損壞修復的最佳做法？
 1. [了解 Azure 至 Azure 架構](azure-to-azure-architecture.md)
 2. [檢閱支援和不支援的組態](azure-to-azure-support-matrix.md)
 3. [設定適用於 Azure VM 的災害復原](azure-to-azure-how-to-enable-replication.md)

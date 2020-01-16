@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c37c49d8f7e09334014af290bf3a8c8e6d35f04b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a13a0a54e9ded48cc5848843f4c329b2dea90f65
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058359"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975223"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>如何使用 PowerShell 設定靜態內部私人 IP 位址 (傳統)
 在大部分情況下，您不需要針對虛擬機器指定靜態內部 IP 位址。 虛擬網路中的 VM 會從您指定的範圍自動接收內部 IP 位址。 但在某些情況下，針對特定 VM 指定靜態 IP 位址是合理的。 例如，如果您的 VM 即將執行 DNS 或將成為網域控制站。 靜態內部 IP 位址會伴隨 VM 而存在，甚至是透過停止/取消佈建狀態。 
 
 > [!IMPORTANT]
-> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 [Resource Manager 部署模型](virtual-networks-static-private-ip-arm-ps.md)。
+> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../azure-resource-manager/management/deployment-models.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 [Resource Manager 部署模型](virtual-networks-static-private-ip-arm-ps.md)。
 > 
 > 
 > ## <a name="install-the-azure-powershell-service-management-module"></a>安裝 Azure PowerShell 服務管理模組

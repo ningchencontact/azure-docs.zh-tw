@@ -3,12 +3,12 @@ title: 原則定義結構的詳細資料
 description: 說明如何使用原則定義來建立組織中 Azure 資源的慣例。
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: c067a5a603c1adcafe6827b3118ecff20ae23238
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 909d8e69e02b55ee6e45515b0d9c316a549e1332
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770929"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972840"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -76,7 +76,7 @@ ms.locfileid: "75770929"
 
 我們建議您在大部分的情況下都將 **mode** 設定為 `all`。 透過入口網站使用 `all` 模式建立的所有原則定義。 如果您是使用 PowerShell 或 Azure CLI，則可手動指定 **mode** 參數。 如果原則定義未包含 **mode** 值，則在 Azure PowerShell 中會預設為 `all`，而在 Azure CLI 中會預設為 `null`。 `null` 模式與使用 `indexed` 來支援回溯相容性相同。
 
-建立會強制執行標籤或位置的原則時，應該使用 `indexed`。 雖然並非必要，但它可防止不支援標籤和位置的資源在合規性結果中顯示為不符合規範。 有一個例外，就是**資源群組**。 原則如果會在資源群組上強制執行位置或標籤，就應該將 **mode** 設定為 `all`，並明確地以 `Microsoft.Resources/subscriptions/resourceGroups` 類型作為目標。 如需範例，請參閱[強制執行資源群組標籤](../samples/enforce-tag-rg.md)。 如需支援標記的資源清單，請參閱[Azure 資源的標記支援](../../../azure-resource-manager/tag-support.md)。
+建立會強制執行標籤或位置的原則時，應該使用 `indexed`。 雖然並非必要，但它可防止不支援標籤和位置的資源在合規性結果中顯示為不符合規範。 有一個例外，就是**資源群組**。 原則如果會在資源群組上強制執行位置或標籤，就應該將 **mode** 設定為 `all`，並明確地以 `Microsoft.Resources/subscriptions/resourceGroups` 類型作為目標。 如需範例，請參閱[強制執行資源群組標籤](../samples/enforce-tag-rg.md)。 如需支援標記的資源清單，請參閱[Azure 資源的標記支援](../../../azure-resource-manager/management/tag-support.md)。
 
 ### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a><a name="resource-provider-modes" />資源提供者模式（預覽）
 
@@ -552,7 +552,7 @@ Azure 原則支援下列類型的效果：
 
 ### <a name="policy-functions"></a>原則函式
 
-除了下列函數和使用者定義函數之外，所有[Resource Manager 範本](../../../azure-resource-manager/resource-group-template-functions.md)函式都可在原則規則中使用：
+除了下列函數和使用者定義函數之外，所有[Resource Manager 範本](../../../azure-resource-manager/templates/template-functions.md)函式都可在原則規則中使用：
 
 - copyIndex()
 - deployment()

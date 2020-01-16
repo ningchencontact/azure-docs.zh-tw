@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2019
-ms.openlocfilehash: fd020755ec579b2553bca42db5d050bd442bf6fc
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 6cbbe63d7968816de78256f5a8408517bb8da278
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942295"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973804"
 ---
 # <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>針對新增至 Azure VM 的磁片啟用複寫
 
@@ -31,9 +31,9 @@ ms.locfileid: "75942295"
 
 ## <a name="before-you-start"></a>開始之前
 
-本文假設您已經為您要新增磁片的 VM 設定嚴重損壞修復。 如果您尚未這麼做，請遵循[azure 到 azure](azure-to-azure-tutorial-enable-replication.md)的嚴重損壞修復教學課程。 
+本文假設您已經為您要新增磁片的 VM 設定嚴重損壞修復。 如果您尚未這麼做，請遵循[azure 到 azure](azure-to-azure-tutorial-enable-replication.md)的嚴重損壞修復教學課程。
 
-## <a name="enable-replication-for-an-added-disk"></a>為新增的磁碟啟用複寫 
+## <a name="enable-replication-for-an-added-disk"></a>為新增的磁碟啟用複寫
 
 若要為新增的磁片啟用複寫，請執行下列動作：
 

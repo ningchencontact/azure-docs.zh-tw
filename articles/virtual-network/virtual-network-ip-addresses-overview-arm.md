@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: c522e88b5c7a759f72704e44e041c01d8541cc7c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 23db74b1cd157141454692805f9ec306ef89710a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646807"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975197"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 位址類型及配置方法
 
@@ -30,7 +30,7 @@ ms.locfileid: "75646807"
 您也可以透過公用 IP 前置詞，建立連續範圍的靜態公用 IP 位址。 [深入瞭解功用首碼。](public-ip-address-prefix.md)
 
 > [!NOTE]
-> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。  本文涵蓋內容包括使用 Resource Manager 部署模型，Microsoft 建議大部分的新部署使用此模型，而不是[傳統部署模型](virtual-network-ip-addresses-overview-classic.md)。
+> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。  本文涵蓋內容包括使用 Resource Manager 部署模型，Microsoft 建議大部分的新部署使用此模型，而不是[傳統部署模型](virtual-network-ip-addresses-overview-classic.md)。
 > 
 
 如果您熟悉傳統部署模型，請參閱 [傳統與 Resource Manager 之間的 IP 定址差異](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments)。

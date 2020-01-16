@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/10/2020
+ms.date: 01/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a799339f2780c2bc372c39120a6e20b34d907326
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 662b2792a2e09603425b1988138326799334f323
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912768"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973410"
 ---
 ### <a name="portal"></a>入口網站
 
@@ -88,3 +88,27 @@ VM 部署程式類似于標準部署程式，唯一的差異在於您需要在�
 1. 依您的需要進行其餘的選擇。
 
     ![sse-create-vm-select-cmk-encryption-set .png](media/virtual-machines-disk-encryption-portal/sse-create-vm-select-cmk-encryption-set.png)
+
+#### <a name="enable-on-an-existing-disk"></a>在現有磁片上啟用
+
+若要在現有磁片上管理和設定磁片加密，您必須使用下列連結： https://aka.ms/diskencryptionsets 。 在現有磁片上啟用客戶管理的金鑰尚無法在全域 Azure 入口網站中使用。
+
+> [!CAUTION]
+> 若要在任何連接至 VM 的磁片上啟用磁片加密，則需要停止 VM。
+
+1. 流覽至與您的其中一個磁片加密集位於相同區域的 VM。
+1. 開啟 VM，然後選取 [**停止**]。
+
+    ![sse-stop-VM-to-encrypt-disk .png](media/virtual-machines-disk-encryption-portal/sse-stop-VM-to-encrypt-disk.png)
+
+1. VM 完成停止之後，請選取 [**磁片**]，然後選取您想要加密的磁片。
+
+    ![sse-existing-disk-select .png](media/virtual-machines-disk-encryption-portal/sse-existing-disk-select.png)
+
+1. 選取 [**加密**]，然後選取 [**使用客戶管理的金鑰進行待用加密**]，然後在下拉式清單中選取您的磁片加密集。
+1. 選取 [儲存]。
+
+    ![sse-encrypt-existing-disk-customer-managed-key .png](media/virtual-machines-disk-encryption-portal/sse-encrypt-existing-disk-customer-managed-key.png)
+
+1. 針對連接至您想要加密之 VM 的任何其他磁片，重複此程式。
+1. 當您的磁片完成切換到客戶管理的金鑰時，如果沒有任何其他您想要加密的連接磁片，您可以啟動 VM。

@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 495f53bc97835c4940f7b36d23349b768a7a637f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b4e09bf84d78c88d3625b0f6b478746db09cc2d8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440972"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030056"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>使用在 Azure 資料總管中的資料，來連接資料庫
 
@@ -127,7 +127,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本附加資料庫
 
-在本節中，您將瞭解如何使用[Azure Resource Manager 範本](../azure-resource-manager/management/overview.md)附加資料庫。 
+在本節中，您將瞭解如何使用[Azure Resource Manager 範本](../azure-resource-manager/management/overview.md)來建立「資料的」叢集，並將資料庫附加至該叢集。 如果您已經有叢集，請從下面的資源清單中移除 `Microsoft.Kusto/clusters` 資源。
 
 ```json
 {
@@ -159,7 +159,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Name of the leader cluster to create."
+                "description": "The resource ID of the leader cluster."
             }
         },
         "defaultPrincipalsModificationKind": {
@@ -217,7 +217,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 |**設定**  |**說明**  |
 |---------|---------|
-|進行中的叢集名稱     |  進行中的叢集名稱       |
+|進行中的叢集名稱     |  進行中的叢集名稱。 如果叢集名稱存在，請從 ARM 範本的資源清單中移除 `Microsoft.Kusto/clusters` 資源。 否則，將會建立新的叢集。     |
 |附加的資料庫設定名稱    |    附加的資料庫設定物件的名稱。 名稱在叢集層級必須是唯一的。     |
 |資料庫名稱     |      要遵循的資料庫名稱。 如果您想要追蹤所有領導者的資料庫，請使用 ' * '。   |
 |領導者叢集資源識別碼    |   領導者叢集的資源識別碼。      |

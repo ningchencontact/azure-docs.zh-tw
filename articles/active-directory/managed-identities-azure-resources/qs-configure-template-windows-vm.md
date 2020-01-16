@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 820ed0c3de49105bb0365213e5179c474652e5f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e5540697e8e64586d73e34d253fb95e549fc0301
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429967"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972155"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>使用範本在 Azure VM 上設定 Azure 資源的受控識別
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供自動受控識別。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
+Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供自動受控識別。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。
 
 在本文中，藉由使用 Azure Resource Manager 部署範本，您將了解如何在 Azure VM 上執行 Azure 資源作業的下列受控識別：
 
@@ -44,7 +44,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    - 使用本機 [JSON 編輯器 (例如 VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md)，然後使用 PowerShell 或 CLI 上傳和部署。
    - 使用 Visual Studio 的 [Azure 資源群組專案](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)來建立和部署範本。  
 
-不論您選擇的選項，在初始部署和重新部署期間，範本的語法都相同。 在新的或現有虛擬機器上啟用系統或使用者指派的受控識別，是以相同的方式來進行。 此外，根據預設，Azure Resource Manager 會對部署採取[累加式更新](../../azure-resource-manager/deployment-modes.md)。
+不論您選擇的選項，在初始部署和重新部署期間，範本的語法都相同。 在新的或現有虛擬機器上啟用系統或使用者指派的受控識別，是以相同的方式來進行。 此外，根據預設，Azure Resource Manager 會對部署採取[累加式更新](../../azure-resource-manager/templates/deployment-modes.md)。
 
 ## <a name="system-assigned-managed-identity"></a>系統指派的受控識別
 
@@ -59,7 +59,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 2. 若要啟用系統指派的受控識別，請將範本載入到編輯器、在 `resources` 區段中找出感興趣的 `Microsoft.Compute/virtualMachines` 資源，然後在與 `"type": "Microsoft.Compute/virtualMachines"` 屬性相同的層級上新增 `"identity"` 屬性。 使用下列語法：
 
    ```JSON
-   "identity": { 
+   "identity": {
        "type": "SystemAssigned"
    },
    ```
@@ -80,7 +80,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
                 "type": "SystemAssigned",
                 },
             },
-        
+
             //The following appears only if you provisioned the optional VM extension (to be deprecated)
             {
             "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -110,9 +110,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 若要將角色指派給 VM 的系統指派受控識別，您的帳戶需要[使用者存取管理員](/azure/role-based-access-control/built-in-roles#user-access-administrator)角色指派。
 
 1. 無論您是在本機登入 Azure 或透過 Azure 入口網站登入，都請使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。
- 
+
 2. 在[編輯器](#azure-resource-manager-templates)中載入範本，然後新增下列資訊，以將 VM 在其中建立的資源群組**讀者**存取授與 VM。  您的範本結構可能會因您選擇的編輯器與部署模型而有所不同。
-   
+
    在 `parameters` 區段下新增下列內容：
 
     ```JSON
@@ -156,15 +156,15 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 1. 無論您是在本機登入 Azure 或透過 Azure 入口網站登入，都請使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。
 
 2. 在[編輯器](#azure-resource-manager-templates)中載入範本，然後在 `resources` 區段找出想要的 `Microsoft.Compute/virtualMachines` 資源。 若您的虛擬機器只有系統指派的受控識別，您可以將識別類型變更為 `None` 予以停用。  
-   
+
    **Microsoft.Compute/virtualMachines API 版本 2018-06-01**
 
    如果虛擬機器同時具有系統與使用者指派的身分識別，請從受控識別類型中移除 `SystemAssigned`，並保留 `UserAssigned` 以及 `userAssignedIdentities` 字典值。
 
    **Microsoft.Compute/virtualMachines API 版本 2018-06-01**
-   
+
    若 `apiVersion` 為 `2017-12-01` 且虛擬機器同時具有系統與使用者指派的受控識別，請從身分識別類型中移除 `SystemAssigned`，並保留 `UserAssigned` 以及使用者指派受控識別的 `identityIds` 陣列。  
-   
+
 下列範例示範如何從沒有使用者指派受控識別的虛擬機器中移除系統指派的受控識別：
 
  ```JSON
@@ -173,7 +173,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
      "type": "Microsoft.Compute/virtualMachines",
      "name": "[parameters('vmName')]",
      "location": "[resourceGroup().location]",
-     "identity": { 
+     "identity": {
          "type": "None"
      }
  }
@@ -210,11 +210,11 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
         }
     }
    ```
-   
+
    **Microsoft.Compute/virtualMachines API 版本 2017-12-01**
-    
+
    如果 `apiVersion` 為 `2017-12-01`，則使用者指派的受控識別會儲存在 `identityIds` 陣列中，而 `<USERASSIGNEDIDENTITYNAME>` 值必須儲存在您範本 `variables` 區段內所定義的變數中。
-    
+
    ```JSON
    {
        "apiVersion": "2017-12-01",
@@ -229,9 +229,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
        }
    }
    ```
-       
+
 3. 當您完成時，應該將下列區段新增至範本的 `resource` 區段，而且應該類似下列內容：
-   
+
    **Microsoft.Compute/virtualMachines API 版本 2018-06-01**    
 
    ```JSON
@@ -271,7 +271,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
     ]   
    ```
    **Microsoft.Compute/virtualMachines API 版本 2017-12-01**
-   
+
    ```JSON
    "resources": [
         {
@@ -287,7 +287,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
                 ]
             }
         },
-                 
+
         //The following appears only if you provisioned the optional VM extension (to be deprecated)                   
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -317,33 +317,33 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 1. 無論您是在本機登入 Azure 或透過 Azure 入口網站登入，都請使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。
 
 2. 在[編輯器](#azure-resource-manager-templates)中載入範本，然後在 `resources` 區段找出想要的 `Microsoft.Compute/virtualMachines` 資源。 若您的虛擬機器只有使用者指派的受控識別，您可以將身分識別類型變更為 `None` 予以停用。
- 
+
    下列範例示範如何從沒有系統指派受控識別的虛擬機器中移除所有使用者指派的受控識別：
-   
+
    ```json
     {
       "apiVersion": "2018-06-01",
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[parameters('vmName')]",
       "location": "[resourceGroup().location]",
-      "identity": { 
+      "identity": {
           "type": "None"
           },
     }
    ```
-   
+
    **Microsoft.Compute/virtualMachines API 版本 2018-06-01**
-    
+
    若要從虛擬機器中移除單一使用者指派的受控識別，請從 `useraAssignedIdentities` 字典中移除它。
 
    如果您有系統指派的受控識別，則將它保存在 `identity` 值下方的 `type` 值中。
- 
+
    **Microsoft.Compute/virtualMachines API 版本 2017-12-01**
 
    若要從虛擬機器中移除單一使用者指派的受控識別，請從 `identityIds` 陣列中移除它。
 
    如果您有系統指派的受控識別，則將它保存在 `identity` 值下方的 `type` 值中。
-   
+
 ## <a name="next-steps"></a>後續步驟
 
 - [適用於 Azure 資源的受控識別概觀](overview.md)。

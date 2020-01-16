@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: bfae540af1c501c09ec026b97ac11e8a14b177a9
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 1ddbc8e909c5ba0b720e893e87c0f495d256a886
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326539"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966934"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>應用程式閘道的後端健康情況和診斷記錄
 
@@ -29,7 +29,7 @@ ms.locfileid: "74326539"
 
 ## <a name="back-end-health"></a>後端健康情況
 
-應用程式閘道提供透過入口網站、PowerShell 及命令列界面 (CLI) 監視後端集區中個別成員健康情況的功能。 您也可以透過效能診斷記錄找到彙總的後端集區健康情況摘要。 
+應用程式閘道提供透過入口網站、PowerShell 及命令列界面 (CLI) 監視後端集區中個別成員健康情況的功能。 您也可以透過效能診斷記錄找到彙總的後端集區健康情況摘要。
 
 後端健康情況報表會將應用程式閘道健康情況探查的輸出反映到後端執行個體。 當探查成功且後端可以接收流量，則視為狀況良好。 否則，視為狀況不良。
 
@@ -39,7 +39,7 @@ ms.locfileid: "74326539"
 
 ### <a name="view-back-end-health-through-the-portal"></a>透過入口網站檢視後端健康情況
 
-入口網站中會自動提供後端的健康情況。 在現有的應用程式閘道中，選取 [監視]  >  [後端健康情況]。 
+入口網站中會自動提供後端的健康情況。 在現有的應用程式閘道中，選取 [監視] >  [後端健康情況]。
 
 後端集區中的每個成員均會列於此頁面中 (無論是 NIC、IP 或 FQDN)。 後端集區名稱、連接埠、後端 HTTP 設定名稱和健康情況均會顯示。 健康情況的有效值為「狀況良好」、「狀況不良」和「未知」。
 
@@ -101,7 +101,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 * **防火牆記錄**：您可以使用此記錄，檢視透過應用程式閘道的偵測或防止模式 (依 Web 應用程式防火牆的設定) 所記錄的要求。
 
 > [!NOTE]
-> 記錄僅適用於在 Azure Resource Manager 部署模型中部署的資源。 您無法將記錄使用於傳統部署模型中的資源。 若要深入了解這兩個模型，請參閱[了解 Resource Manager 部署和傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)一文。
+> 記錄僅適用於在 Azure Resource Manager 部署模型中部署的資源。 您無法將記錄使用於傳統部署模型中的資源。 若要深入了解這兩個模型，請參閱[了解 Resource Manager 部署和傳統部署](../azure-resource-manager/management/deployment-models.md)一文。
 
 您有三個選項可用來排序您的記錄：
 
@@ -126,8 +126,8 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
     ```powershell
     Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
-    
-> [!TIP] 
+
+> [!TIP]
 >活動記錄不需要個別的儲存體帳戶。 將儲存體用於記錄存取和效能會產生服務費用。
 
 ### <a name="enable-logging-through-the-azure-portal"></a>透過 Azure 入口網站啟用記錄功能
@@ -150,7 +150,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 5. 輸入設定的名稱，確認設定，然後選取 [**儲存**]。
 
-### <a name="activity-log"></a>活動記錄檔
+### <a name="activity-log"></a>活動記錄
 
 根據預設，Azure 會產生活動記錄。 記錄會在 Azure 的事件記錄存放區中保留 90 天。 閱讀[檢視事件和活動記錄](../monitoring-and-diagnostics/insights-debugging-with-events.md)一文，深入了解這些記錄。
 
@@ -158,7 +158,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 只有當您如上述步驟所述，在每個應用程式閘道上啟用存取記錄，才會產生存取記錄。 資料會儲存在您啟用記錄功能時指定的儲存體帳戶中。 應用程式閘道的每個存取都會以 JSON 格式記錄，如下列 v1 範例所示：
 
-|值  |描述  |
+|值  |說明  |
 |---------|---------|
 |instanceId     | 處理要求的應用程式閘道執行個體。        |
 |clientIP     | 要求的原始 IP。        |
@@ -202,7 +202,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 ```
 對於應用程式閘道和 WAF v2，記錄檔會顯示更多詳細資訊：
 
-|值  |描述  |
+|值  |說明  |
 |---------|---------|
 |instanceId     | 處理要求的應用程式閘道執行個體。        |
 |clientIP     | 要求的原始 IP。        |
@@ -256,7 +256,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 只有當您如上述步驟所述，在每個應用程式閘道上啟用效能記錄，才會產生效能記錄。 資料會儲存在您啟用記錄功能時指定的儲存體帳戶中。 產生效能記錄資料的時間間隔為 1 分鐘。 它僅適用于 v1 SKU。 針對 v2 SKU，請使用效能資料的[計量](application-gateway-metrics.md)。 會記錄下列資料：
 
 
-|值  |描述  |
+|值  |說明  |
 |---------|---------|
 |instanceId     |  將產生此應用程式閘道執行個體的效能資料。 應用程式閘道若有多個執行個體，則是一個執行個體一行資料。        |
 |healthyHostCount     | 後端集區中狀況良好主機的數目。        |
@@ -293,7 +293,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 只有當您如上述步驟所述，在每個應用程式閘道上啟用防火牆記錄，才會產生防火牆記錄。 此記錄也需要在應用程式閘道上設定該 Web 應用程式防火牆。 資料會儲存在您啟用記錄功能時指定的儲存體帳戶中。 會記錄下列資料：
 
 
-|值  |描述  |
+|值  |說明  |
 |---------|---------|
 |instanceId     | 將產生此應用程式閘道執行個體的防火牆資料。 應用程式閘道若有多個執行個體，則是一個執行個體一行資料。         |
 |clientIp     |   要求的原始 IP。      |
@@ -302,7 +302,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |ruleSetType     | 規則集類型。 可用的值是 OWASP。        |
 |ruleSetVersion     | 規則集版本。 可用值為 2.2.9 和 3.0。     |
 |ruleId     | 觸發事件的規則識別碼。        |
-|訊息     | 方便使用的觸發事件訊息。 詳細資料區段中會提供詳細資料。        |
+|message     | 方便使用的觸發事件訊息。 詳細資料區段中會提供詳細資料。        |
 |動作     |  對要求採取的動作。 可用的值會相符並遭到封鎖。      |
 |site     | 將產生此網站的記錄。 目前只列出 Global，因為規則為全域。|
 |詳細資料     | 觸發事件的詳細資料。        |
@@ -310,7 +310,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |details.data     | 在符合規則之要求中找到的特定資料。         |
 |details.file     | 包含規則的組態檔。        |
 |details.line     | 觸發事件的組態檔中的行號。       |
-|主機名稱   | 應用程式閘道的主機名稱或 IP 位址。    |
+|hostname   | 應用程式閘道的主機名稱或 IP 位址。    |
 |transactionId  | 指定交易的唯一識別碼，可協助將同一個要求中發生的多個規則違規組成群組。   |
 
 ```json
@@ -336,10 +336,10 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
       "file": "rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf",
       "line": "865"
     }
-    "hostname": "40.90.218.100", 
+    "hostname": "40.90.218.100",
     "transactionId": "AYAcUqAcAcAcAcAcASAcAcAc"
   }
-} 
+}
 
 ```
 
@@ -347,7 +347,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 您可以使用下列任何方法，檢視和分析活動記錄資料：
 
-* **Azure 工具**：透過 Azure PowerShell、Azure CLI、Azure REST API 或 Azure 入口網站，從活動記錄擷取資訊。 [活動作業與 Resource Manager](../azure-resource-manager/resource-group-audit.md) 一文會詳述每個方法的逐步指示。
+* **Azure 工具**：透過 Azure PowerShell、Azure CLI、Azure REST API 或 Azure 入口網站，從活動記錄擷取資訊。 [活動作業與 Resource Manager](../azure-resource-manager/management/view-activity-logs.md) 一文會詳述每個方法的逐步指示。
 * **Power BI**：如果還沒有 [Power BI](https://powerbi.microsoft.com/pricing) 帳戶，您可以免費試用。 藉由使用[Power BI 範本應用程式](https://docs.microsoft.com/power-bi/service-template-apps-overview)，您可以分析您的資料。
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>檢視及分析存取、效能和防火牆記錄
@@ -358,8 +358,8 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 > [!TIP]
 > 如果您熟悉 Visual Studio 以及在 C# 中變更常數和變數值的基本概念，您可以使用 GitHub 所提供的[記錄檔轉換器工具 (英文)](https://github.com/Azure-Samples/networking-dotnet-log-converter)。
-> 
-> 
+>
+>
 
 #### <a name="analyzing-access-logs-through-goaccess"></a>透過 GoAccess 分析存取記錄
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 612da322e0d248f9b0000c8f0006893b87b74e44
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 4725329ace12a2bfb285253c52249f242da31619
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084651"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970202"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 儲存體簡介
 
@@ -21,7 +21,7 @@ Azure 儲存體是 Microsoft 針對最新資料儲存體環境推出的雲端儲
 
 - **持久與高可用性。** 備援功能可在發生暫時性硬體失敗時，確保您的資料安全無虞。 您也可以選擇在資料中心或地理區域間複寫資料，以便在發生地方性災難或天然災害時獲得額外保護。 以此方式複寫資料，可在發生未預期的中斷事件時保持高可用性。
 - **安全。** 所有寫入 Azure 儲存體的資料皆會由服務進行加密。 Azure 儲存體在存取您資料的人員控管上，提供更細微的控制。
-- **可調整。** Azure 儲存體設計為可大幅調整，以符合現今應用程式的資料儲存和效能需求。 
+- **可調整。** Azure 儲存體設計為可大幅調整，以符合現今應用程式的資料儲存和效能需求。
 - **受控。** Microsoft Azure 會為您處理硬體維護、更新和重大問題。
 - **可存取。** 您可以從世界各地透過 HTTP 或 HTTPS 存取 Azure 儲存體中的資料。 Microsoft 提供各種語言的 Azure 儲存體用戶端程式庫，包括 .NET、JAVA、node.js、Python、PHP、Ruby、Go 等，以及成熟的 REST API。 Azure 儲存體支援在 Azure PowerShell 或 Azure CLI 中使用指令碼。 而且在使用資料方面，Azure 入口網站和 Azure 儲存體總管提供簡易的視覺式解決方案。  
 
@@ -31,14 +31,14 @@ Azure 儲存體包含以下資料服務：
 
 - [Azure Blob](../blobs/storage-blobs-introduction.md)：適用於文字和二進位資料且可大幅調整的物件存放區。
 - [Azure 檔案服務](../files/storage-files-introduction.md)：雲端或內部部署的受控檔案共用。
-- [Azure 佇列](../queues/storage-queues-introduction.md)：可在應用程式元件之間可靠傳訊的訊息存放區。 
+- [Azure 佇列](../queues/storage-queues-introduction.md)：可在應用程式元件之間可靠傳訊的訊息存放區。
 - [Azure 資料表](../tables/table-storage-overview.md)：以無結構描述方式儲存結構化資料的 NoSQL 存放區。
 
-每個服務都會透過儲存體帳戶存取。 若要開始使用，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
+每個服務都會透過儲存體帳戶存取。 若要開始使用，請參閱[建立儲存體帳戶](storage-account-create.md)。
 
 ## <a name="blob-storage"></a>Blob 儲存體
 
-Azure Blob 儲存體是 Microsoft 針對雲端推出的物件儲存體解決方案。 Blob 儲存體已針對儲存大量非結構化物件資料 (例如文字或二進位資料) 最佳化。 
+Azure Blob 儲存體是 Microsoft 針對雲端推出的物件儲存體解決方案。 Blob 儲存體已針對儲存大量非結構化物件資料 (例如文字或二進位資料) 最佳化。
 
 Blob 儲存體是適合用於：
 
@@ -108,7 +108,7 @@ Azure 儲存體的每個要求都必須獲得授權。 Azure 儲存體支援下�
 
 ## <a name="encryption"></a>加密
 
-有兩個基本加密類型可用於儲存體服務。 如需安全性和加密的詳細資訊，請參閱 [Azure 儲存體安全性指南](storage-security-guide.md)。
+有兩個基本加密類型可用於儲存體服務。 如需安全性和加密的詳細資訊，請參閱 [Azure 儲存體安全性指南](../blobs/security-recommendations.md)。
 
 ### <a name="encryption-at-rest"></a>待用加密
 
@@ -118,7 +118,7 @@ Azure 儲存體加密可保護您的資料，以符合您組織的安全性和�
 
 Azure 儲存體用戶端程式庫會提供方法，以在透過網路傳送資料並將回應解密之前，從用戶端程式庫加密資料。 透過用戶端加密加密的資料也會在待用時 Azure 儲存體進行加密。 如需用戶端加密的詳細資訊，請參閱[使用 .net 進行 Azure 儲存體的用戶端加密](storage-client-side-encryption.md)。
 
-## <a name="redundancy"></a>備援性
+## <a name="redundancy"></a>備援
 
 為了確保資料的持久性，Azure 儲存體會為您複寫多個資料複本。 當您設定儲存體帳戶時，您可選取備援選項。
 
@@ -171,4 +171,4 @@ Azure 儲存體用戶端程式庫會提供方法，以在透過網路傳送資�
 
 ## <a name="next-steps"></a>後續步驟
 
-若要讓 Azure 儲存體啟動並執行，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
+若要讓 Azure 儲存體啟動並執行，請參閱[建立儲存體帳戶](storage-account-create.md)。

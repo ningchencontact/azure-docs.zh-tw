@@ -2,17 +2,17 @@
 title: Azure 受控磁碟 Azure CLI 的伺服器端加密
 description: Azure 儲存體保護您的資料，方法是在將它保存到儲存體叢集之前，將它加密。 您可以依賴 Microsoft 管理的金鑰來加密您的受控磁片，也可以使用客戶管理的金鑰來管理使用您自己的金鑰進行加密。
 author: roygara
-ms.date: 01/10/2020
+ms.date: 01/13/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 61e45a5d13da7af42bbed273e5b39ce2af15d1ca
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: d8729e447aabfcb1c378919501ee48124e7ae27b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912759"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027813"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Azure 受控磁片的伺服器端加密
 
@@ -54,21 +54,18 @@ Azure 受控磁片預設會在將資料保存到雲端時，自動將您的資�
 
 若要撤銷對客戶管理的金鑰的存取權，請參閱[Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/)和[Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)。 撤銷存取權可有效封鎖對儲存體帳戶中所有資料的存取，因為 Azure 儲存體無法存取加密金鑰。
 
-### <a name="supported-scenarios-and-restrictions"></a>支援的案例和限制
+### <a name="supported-regions"></a>支援區域
 
-目前僅支援下列案例：
+目前僅支援下欄區域：
 
-- 從 Azure Marketplace 映射建立虛擬機器（VM），並使用客戶管理的金鑰，以伺服器端加密來加密 OS 磁片。
-- 建立使用伺服器端加密和客戶管理的金鑰加密的自訂映射。
-- 從自訂映射建立 VM，並使用伺服器端加密和客戶管理的金鑰來加密 OS 磁片。
-- 建立使用伺服器端加密和客戶管理的金鑰加密的資料磁片。
-- （僅限 CLI/PowerShell）建立使用伺服器端加密和客戶管理的金鑰來加密的快照集。
-- 建立使用伺服器端加密和客戶管理的金鑰來加密的虛擬機器擴展集。
+- 可在美國東部、美國西部2和美國中南部區域正式提供。
+- 可在美國中西部、美國東部2、加拿大中部和北歐地區提供公開預覽。
 
-目前，我們也有下列限制：
+### <a name="restrictions"></a>限制
 
-- 以「美國東部」、「美國西部2」和「美國中南部」的 GA 供應專案形式提供。
-- 以美國中西部、美國東部2、加拿大中部和北歐的公開預覽形式提供。
+目前，客戶管理的金鑰具有下列限制：
+
+- 僅支援大小為2080的「[軟」和「硬性」 RSA 金鑰](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types)，沒有其他金鑰或大小。
 - 從使用伺服器端加密和客戶管理金鑰加密的自訂映射建立的磁片，必須使用相同的客戶管理金鑰進行加密，而且必須在相同的訂用帳戶中。
 - 從使用伺服器端加密和客戶管理金鑰加密的磁片建立的快照集，必須使用相同的客戶管理金鑰進行加密。
 - 使用伺服器端加密和客戶管理的金鑰所加密的自訂映射，無法在共用映射資源庫中使用。

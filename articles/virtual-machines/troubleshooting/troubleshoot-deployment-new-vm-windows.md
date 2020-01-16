@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6dbe4c1533aecfab4a62ce3ad90b694c0c00f4b6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103494"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981395"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>針對在 Azure 中建立新 Windows VM 時的部署問題進行疑難排解
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "70103494"
 ## <a name="collect-activity-logs"></a>收集活動記錄
 若要開始進行排解疑難，請收集活動記錄，以識別與問題相關的錯誤。 下列連結提供此程序該遵循的更多詳細資訊。
 
-[檢視部署作業](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[檢視部署作業](../../azure-resource-manager/templates/deployment-history.md)
 
 [檢視活動記錄以管理 Azure 資源](../../resource-group-audit.md)
 
@@ -43,13 +43,13 @@ ms.locfileid: "70103494"
 
 [!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
-**Y：** 如果 OS 是一般化的 Windows，且上傳和 (或) 擷取它時使用的是一般化設定，則不會產生任何錯誤。 同樣地，如果 OS 是特殊化的 Windows，且上傳和 (或) 擷取它時使用的是特殊化設定，就不會有任何錯誤。
+**Y：** 如果 OS 是一般化的 Windows，且上傳和 (或) 擷取它時使用的是一般化設定，就不會有任何錯誤。 同樣地，如果 OS 是特殊化的 Windows，且上傳和 (或) 擷取它時使用的是特殊化設定，就不會有任何錯誤。
 
 **上傳錯誤：**
 
-**N<sup>1</sup>：** 如果 OS 是一般化的 Windows，但是以特殊化形式所上傳，則您將會發生佈建逾時錯誤，且 VM 會卡在 OOBE 畫面。
+**N<sup>1</sup>：** 如果作業系統是一般化的 Windows，但是以特殊化被上傳，就會發生佈建逾時錯誤，VM 會卡在 OOBE 畫面。
 
-**N<sup>2</sup>：** 如果 OS 是特殊化的 Windows，但是以一般化形式所上傳，則您將會發生佈建失敗錯誤，且 VM 會卡在 OOBE 畫面，因為新 VM 會以原始的電腦名稱、使用者名稱和密碼來執行。
+**N<sup>2</sup>：** 如果作業系統是特殊化的 Windows，但是以一般化被上傳，就會發生佈建失敗錯誤，VM 會卡在 OOBE 畫面，因為新 VM 是以原始的電腦名稱、使用者名稱和密碼執行。
 
 **解決方案**
 
@@ -57,20 +57,20 @@ ms.locfileid: "70103494"
 
 **擷取錯誤：**
 
-**N<sup>3</sup>：** 如果 OS 是一般化的 Windows，但是以特殊化形式所擷取，則您將會發生佈建逾時錯誤，因為系統會將原始 VM 標示為一般化而無法加以使用。
+**N<sup>3</sup>：** 如果作業系統是一般化的 Windows，但是以特殊化被擷取，就會發生佈建逾時錯誤，因為 VM 被標示為一般化而無法加以使用。
 
-**N<sup>4</sup>：** 如果 OS 是特殊化的 Windows，但是以一般化形式所擷取，則您將會發生佈建失敗錯誤，因為新 VM 會以原始的電腦名稱、使用者名稱和密碼來執行。 此外，原始 VM 會因被標示為特殊化而無法供使用。
+**N<sup>4</sup>：** 如果作業系統是特殊化的 Windows，但是以一般化被擷取，就會發生佈建失敗錯誤，因為新 VM 是以原始的電腦名稱、使用者名稱和密碼執行。 此外，原始 VM 會因被標示為特殊化而無法供使用。
 
 **解決方案**
 
 若要解決這兩個錯誤，請從入口網站中刪除目前的映像，然後使用與作業系統相同的設定 (一般化/特殊化) [從目前的 VHD 重新擷取映像](../windows/create-vm-specialized.md)。
 
-## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>問題：自訂/資源庫/Marketplace 映像；配置失敗
+## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>問題︰自訂/資源庫/Marketplace 映像；配置失敗
 當新的 VM 要求被釘選到不支援所要求的 VM 大小、或沒有可用空間可處理要求的叢集，便會發生此錯誤。
 
 **原因 1：** 叢集無法支援要求的 VM 大小。
 
-**解決方式 1：**
+**解決方法 1：**
 
 * 以較小的 VM 大小重試要求。
 * 如果無法變更要求的 VM 的大小︰
@@ -81,7 +81,7 @@ ms.locfileid: "70103494"
 
 **原因 2：** 叢集沒有可用的資源。
 
-**解決方式 2：**
+**解決方法 2：**
 
 * 稍後再重試要求。
 * 如果新的 VM 可以屬於不同的可用性設定組

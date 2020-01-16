@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e1789122079d5cbc6f5914a6fd6a69a38df04e45
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2591f1846574994b878814f3b08df1de2a6e9fc1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748251"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973370"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>建立具有異地區域冗余儲存體（切換）（預覽）的高可用性 Azure 儲存體應用程式
 
@@ -51,7 +51,7 @@ Microsoft 會繼續在其他 Azure 區域中啟用切換和 RA 切換。 請定�
 > [!IMPORTANT]
 > 非同步複寫牽涉到將資料寫入主要區域，以及何時複寫到次要區域之間的延遲時間。 當發生區域性災害時，如果無法從主要區域復原尚未複寫到次要區域的變更，則這些變更可能會遺失。
 
-當您建立儲存體帳戶時，可以指定要如何複寫該帳戶中的資料，而且您也可以指定該帳戶的主要區域。 異地複寫帳戶的配對次要區域是根據主要區域而定，且無法變更。 如需有關 Azure 所支援區域的最新資訊，請參閱[商務持續性和災害復原 (BCDR)：Azure 配對的區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 如需使用切換或 RA-切換建立儲存體帳戶的相關資訊，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
+當您建立儲存體帳戶時，可以指定要如何複寫該帳戶中的資料，而且您也可以指定該帳戶的主要區域。 異地複寫帳戶的配對次要區域是根據主要區域而定，且無法變更。 如需有關 Azure 所支援區域的最新資訊，請參閱[商務持續性和災害復原 (BCDR)：Azure 配對的區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 如需使用切換或 RA-切換建立儲存體帳戶的相關資訊，請參閱[建立儲存體帳戶](storage-account-create.md)。
 
 ### <a name="use-ra-gzrs-for-high-availability"></a>使用 RA-切換來提供高可用性
 

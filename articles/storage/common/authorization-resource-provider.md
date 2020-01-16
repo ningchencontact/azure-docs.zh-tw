@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d632de0a6274ebb2ede950ca610dfd5e94310d28
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f5d42a6a0567d3949bc4b0fb1947450a9c957f18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613868"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972354"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>使用 Azure 儲存體資源提供者來存取管理資源
 
@@ -72,7 +72,7 @@ Azure 也支援定義自訂 RBAC 角色來存取管理資源。 如需自訂角�
 
 Resource Manager 和傳統部署模型代表部署和管理 Azure 解決方案的兩個不同方式。 當您建立新的儲存體帳戶時，Microsoft 建議使用 Azure Resource Manager 部署模型。 可能的話，Microsoft 也建議您以 Resource Manager 模型重新建立現有的傳統儲存體帳戶。 雖然您可以使用傳統部署模型建立儲存體帳戶，但傳統模型較不具彈性，且最終會被取代。
 
-如需有關 Azure 部署模型的詳細資訊，請參閱[Resource Manager 和傳統部署](../../azure-resource-manager/resource-manager-deployment-model.md)。
+如需有關 Azure 部署模型的詳細資訊，請參閱[Resource Manager 和傳統部署](../../azure-resource-manager/management/deployment-models.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

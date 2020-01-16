@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: b855fde88173fe9a14a964ba1f9fd07aa74d85eb
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: d4561d49c37298a2b1a7f6c6542d78c3e19a145c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911985"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978345"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>使用 PowerShell 建立 Azure 資料總管叢集與資料庫
 
@@ -52,9 +52,9 @@ Azure Data Explorer 是快速、完全受控的資料分析服務，可即時分
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
 1. 在本機或 Azure Cloud Shell 中執行 Azure CLI 時，您需要在裝置上安裝 Az.Kusto 模組：
-    
+
     ```azurepowershell-interactive
-     Install-Module -Name Az.Kusto  
+     Install-Module -Name Az.Kusto
     ```
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>建立 Azure 資料總管叢集

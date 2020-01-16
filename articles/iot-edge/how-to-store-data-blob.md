@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3496e0942488a881dbb376d0e53228956e10a7f3
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 12c5bf66de966faf8dc31c7265fdfb0180a95323
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75729436"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970836"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>在具有 Azure Blob 儲存體的 IoT Edge 上儲存邊緣的資料
 
@@ -174,8 +174,8 @@ Azure Blob 儲存體檔包含幾種語言的快速入門範例程式碼。 您�
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * 在 Python SDK 2.1 之前的版本有已知的問題，此模組不會傳回 blob 建立時間。 基於這個問題，某些方法（例如清單 blob）無法運作。 因應措施是將 blob 用戶端上的 API 版本明確設定為 ' 2017-04-17 '。 範例：`block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [附加 Blob 範例](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
-* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
-* [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-v10.md)
+* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
+* [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md)
 * [Ruby](../storage/blobs/storage-quickstart-blobs-ruby.md)
 * [Go](../storage/blobs/storage-quickstart-blobs-go.md)
 * [PHP](../storage/blobs/storage-quickstart-blobs-php.md)

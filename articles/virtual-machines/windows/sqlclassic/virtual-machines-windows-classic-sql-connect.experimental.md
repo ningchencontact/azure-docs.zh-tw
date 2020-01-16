@@ -14,26 +14,27 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mathoma
 ms.reviewer: jroth
+experimental: true
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 60c5af609cea876370c74684362e9b44db40c1ee
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1c2d5ae5d85624ea172eb9a95d4086dd71287c4f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101961"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978217"
 ---
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>連線到 Azure 上的 SQL Server 虛擬機器 (傳統部署)
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>連接至 Azure 上的 SQL Server 虛擬機器 (傳統部署)
 > [!div class="op_single_selector"]
-> * [資源管理員](../sql/virtual-machines-windows-sql-connect.md)
+> * [Resource Manager](../sql/virtual-machines-windows-sql-connect.md)
 > * [傳統](../classic/sql-connect.md)
 > 
 > 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 本主題說明如何連線到在 Azure 虛擬機器上執行的 SQL Server 執行個體。 其中涵蓋一些[一般連線案例](#connection-scenarios)並提供[在 Azure VM 中設定 SQL Server 連線的詳細步驟](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)。
 
 > [!IMPORTANT] 
-> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 如果您是使用 Resource Manager VM，請參閱 [使用 Resource Manager 連接到 Azure 上的 SQL Server 虛擬機器](../sql/virtual-machines-windows-sql-connect.md)。
+> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../azure-resource-manager/management/deployment-models.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 如果您是使用 Resource Manager VM，請參閱 [使用 Resource Manager 連接到 Azure 上的 SQL Server 虛擬機器](../sql/virtual-machines-windows-sql-connect.md)。
 
 ## <a name="connection-scenarios"></a>連接案例
 用戶端連接在虛擬機器上執行的 SQL Server 方式，取決於用戶端的位置與電腦/網路組態。 這些案例包括：

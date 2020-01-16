@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c4902ff5194c1648a8353b2a21ea559d15d574b3
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: b60b036954691bdea12dfff559ceee86f179d44d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861841"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973216"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立時間序列深入解析資源
 
@@ -33,8 +33,8 @@ ms.locfileid: "75861841"
 
 Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的基礎結構和設定。 下列檔會更詳細地描述範本檔案：
 
-- [Azure Resource Manager 範本部署](../azure-resource-manager/template-deployment-overview.md)
-- [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../azure-resource-manager/resource-group-template-deploy.md)
+- [Azure Resource Manager 範本部署](../azure-resource-manager/templates/overview.md)
+- [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../azure-resource-manager/templates/deploy-powershell.md)
 - [Microsoft.TimeSeriesInsights 資源類型](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) 快速入門範本已在 GitHub 上發行。 此範本會建立一個「時間序列深入解析」環境、一個設定為從事件中樞取用事件的子系事件來源，以及授與環境資料存取權的存取原則。 如果未指定現有事件中樞，就會隨著部署建立一個事件中樞。
@@ -118,7 +118,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
          }
      }
      ```
-  
+
     * 如需詳細資訊，請參閱[參數](../azure-resource-manager/templates/parameter-files.md)文章。
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>使用 PowerShell 在本機部署快速入門範本
@@ -174,12 +174,12 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
 1. 建立部署
 
-    * 若要建立新的部署，請執行 `New-AzResourceGroupDeployment` Cmdlet，並於提示出現時提供必要的參數。 參數會包含部署的名稱、資源群組的名稱，以及範本檔案的路徑或 URL。 如未指定 **Mode** 參數，即會使用預設值 **Incremental**。 如需詳細資訊，請參閱[增量和完整部署](../azure-resource-manager/deployment-modes.md)。
+    * 若要建立新的部署，請執行 `New-AzResourceGroupDeployment` Cmdlet，並於提示出現時提供必要的參數。 參數會包含部署的名稱、資源群組的名稱，以及範本檔案的路徑或 URL。 如未指定 **Mode** 參數，即會使用預設值 **Incremental**。 如需詳細資訊，請參閱[增量和完整部署](../azure-resource-manager/templates/deployment-modes.md)。
 
     * 以下命令會提示您在 PowerShell 視窗中輸入五個必要參數︰
 
       ```powershell
-      New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
+      New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
       ```
 
     * 若要改為指定參數檔案，使用下列命令：
@@ -194,7 +194,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    * 若要執行[完整](../azure-resource-manager/deployment-modes.md)部署，請將 **Mode** 參數設為 **Complete**：
+    * 若要執行[完整](../azure-resource-manager/templates/deployment-modes.md)部署，請將 **Mode** 參數設為 **Complete**：
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 02655a3697139ae3a9c4c36b423b874b6e5d34f9
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 6bba4414390efa6e07be6c253fe55f1638d414dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541864"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974098"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>什麼是 Azure Machine Learning 計算實例？
 
@@ -54,7 +54,7 @@ Azure Machine Learning 計算實例可讓您在工作區中以完全整合的筆
 |Intel MPI 程式庫||
 |Azure CLI ||
 |Azure Machine Learning 範例 ||
-|Azure Machine Learning EDAT 引擎 ||            
+|Azure Machine Learning EDAT 引擎 ||
 |Docker||
 |Nginx||
 |NCCL 2。0 ||
@@ -76,11 +76,26 @@ Azure Machine Learning 計算實例可讓您在工作區中以完全整合的筆
 |其他 PyPI 套件|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Conda 套件|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |深度學習套件|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
-|ONNX 套件|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|                           
+|ONNX 套件|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Azure Machine Learning Python & R SDK 範例||
+
+Python 套件全都安裝在**python 3.6-AzureML**環境中。  
 
 計算實例通常用來做為開發環境。  它們也可以當做用於開發和測試之定型和推斷的計算目標。  針對大型工作，具有多重節點調整功能的[Azure Machine Learning 計算](how-to-set-up-training-targets.md#amlcompute)叢集是較佳的計算目標選擇。
 
+### <a name="installing-packages"></a>安裝套件
+
+您可以直接在 Jupyter 筆記本或 Rstudio 中安裝套件：
+
+* RStudio 使用右下方的 [**套件**] 索引標籤，或左上角的 [**主控台**] 索引標籤。  
+* Python：在 Jupyter 筆記本資料格中新增安裝程式碼並執行。
+
+或者，您可以使用下列任何一種方式來存取終端機視窗：
+
+* RStudio：選取左上方的 [**終端**機] 索引標籤。
+* Jupyter Lab：選取 [啟動器] 索引標籤中 [**其他**] 標題底下的 [**終端**機] 磚。
+* Jupyter：在 [檔案] 索引標籤中，選取右上方的 [**新增 > 終端**機]。
+* 透過 SSH 連線到電腦。  然後將 Python 套件安裝到**python 3.6-AzureML**環境中。  在**r**環境中安裝 r 套件。
 
 ## <a name="accessing-files"></a>存取檔案
 

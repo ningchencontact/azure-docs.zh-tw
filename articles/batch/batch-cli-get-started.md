@@ -3,7 +3,7 @@ title: 開始使用 Azure CLI for Batch | Microsoft Docs
 description: 取得 Azure CLI 中 Batch 命令的快速簡介，以便管理 Azure Batch 服務資源
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 07/24/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dd4a93b9829d69d9d0262428d23d2156d732c006
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d6d625e092618d1190c3dcdf9997b1ce35211d75
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095414"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027293"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 資源
 
@@ -38,7 +38,7 @@ Azure CLI 是管理 Azure 資源的 Azure 命令列體驗。 它可以用於 mac
 
 ## <a name="command-help"></a>命令說明
 
-您可以將 `-h` 附加至命令，以在 Azure CLI 中顯示每個命令的說明文字。 略過任何其他選項。 例如:
+您可以將 `-h` 附加至命令，以在 Azure CLI 中顯示每個命令的說明文字。 略過任何其他選項。 例如：
 
 * 若要取得 `az` 命令的說明，請輸入︰`az -h`
 * 若要取得 CLI 中所有 Batch 命令的清單，請使用︰`az batch -h`
@@ -121,7 +121,7 @@ az login
 
 ## <a name="json-files-for-resource-creation"></a>用於建立資源的 JSON 檔案
 
-當您建立 Batch 資源 (如集區和工作) 時，您可以指定包含新資源組態的 JSON 檔案，而不是將它的參數當作命令列選項傳遞。 例如:
+當您建立 Batch 資源 (如集區和工作) 時，您可以指定包含新資源組態的 JSON 檔案，而不是將它的參數當作命令列選項傳遞。 例如：
 
 ```azurecli
 az batch pool create my_batch_pool.json
@@ -129,7 +129,7 @@ az batch pool create my_batch_pool.json
 
 雖然您只可以使用命令列選項建立大多數 Batch 資源，但有些功能需要您指定 JSON 格式的檔案 (內含資源詳細資料)。 例如，如果您想要指定啟動工作的資源檔，則必須使用 JSON 檔案。
 
-若要查看建立資源所需的 JSON 語法, 請參閱[批次 REST API 參考][rest_api]檔。 REST API 參考中的每個「新增資源類型」主題都包含可供建立該資源的範例 JSON 指令碼。 您可以使用這些範例 JSON 指令碼作為 JSON 檔案的範本，以搭配 Azure CLI 使用。 例如, 若要查看用於建立集區的 JSON 語法, 請參閱[將集區新增至帳戶][rest_add_pool]。
+若要查看建立資源所需的 JSON 語法，請參閱[批次 REST API 參考][rest_api]檔。 REST API 參考中的每個「新增資源類型」主題都包含可供建立該資源的範例 JSON 指令碼。 您可以使用這些範例 JSON 指令碼作為 JSON 檔案的範本，以搭配 Azure CLI 使用。 例如，若要查看用於建立集區的 JSON 語法，請參閱[將集區新增至帳戶][rest_add_pool]。
 
 如需可指定 JSON 檔案的範例指令碼，請參閱[使用 Batch 執行作業和工作](./scripts/batch-cli-sample-run-job.md)。
 
@@ -151,7 +151,7 @@ az batch task list --job-id job001
 
 下表描述 Batch 服務所支援的 OData 子句︰
 
-| 子句 | 描述 |
+| 子句 | 說明 |
 |---|---|
 | `--select-clause [select-clause]` | 傳回每個實體的屬性子集。 |
 | `--filter-clause [filter-clause]` | 傳回符合指定之 OData 運算式的實體。 |
@@ -161,7 +161,7 @@ az batch task list --job-id job001
 
 如需使用 OData 子句執行有效率之清單查詢的詳細資訊，請參閱[有效率地查詢 Azure Batch 服務](batch-efficient-list-queries.md)。
 
-## <a name="troubleshooting-tips"></a>疑難排解秘訣
+## <a name="troubleshooting-tips"></a>疑難排解提示
 
 當您針對 Azure CLI 問題進行疑難排解時，下列秘訣可能有所幫助︰
 

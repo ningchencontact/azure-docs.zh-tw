@@ -3,12 +3,12 @@ title: 設定 Power BI 報告
 description: 使用復原服務保存庫針對 Azure 備份設定 Power BI 報告。
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 9b6ef62a924761642ef3217ff8af64ac6847c766
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4f8a2dd927f996ea09e40c7db2e43b46c17f6258
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450114"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978363"
 ---
 # <a name="configure-azure-backup-reports"></a>設定 Azure 備份報告
 
@@ -30,7 +30,7 @@ ms.locfileid: "75450114"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 建立 [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)以針對報告進行設定。 這個儲存體帳戶會用來儲存與報告相關的資料。
+- 建立 [Azure 儲存體帳戶](../storage/common/storage-account-create.md)以針對報告進行設定。 這個儲存體帳戶會用來儲存與報告相關的資料。
 - [建立 Power BI 帳戶](https://powerbi.microsoft.com/landing/signin/)，以使用 Power BI 入口網站來檢視、自訂及建立您自己的報告。
 - 註冊資源提供者 **Microsoft.insights** (如果尚未註冊的話)。 請使用儲存體帳戶和「復原服務」保存庫的訂用帳戶，以便讓報告資料能夠流向儲存體帳戶。 若要執行此步驟，請前往 Azure 入口網站，選取 [訂用帳戶] > [資源提供者]，然後查看是否有此提供者以註冊它。
 
