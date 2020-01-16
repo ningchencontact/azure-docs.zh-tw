@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: bc637976632551eb1afce1894714fc96baabfe03
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3849106fbc488f456a4d267d0ccef76647c1939f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894224"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981320"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>因網路介面已停用而無法將遠端桌面連線到 VM
 
 此文章說明如何解決因網路介面已停用而無法使用遠端桌面連線方式連線到 Azure Windows 虛擬機器 (VM) 的問題。
 
 > [!NOTE]
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文說明如何使用 Resource Manager 部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
+> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../azure-resource-manager/management/deployment-models.md)。 本文說明如何使用 Resource Manager 部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
 
 ## <a name="symptoms"></a>徵狀
 

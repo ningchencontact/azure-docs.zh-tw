@@ -4,12 +4,12 @@ description: 了解如何建置能部署函數應用程式的 Azure Resource Man
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 6d5b7b33bfb2645128a545bb371c70188a724c40
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 650997cfddc71a8bfe347e29c8992b78d1828034
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920627"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978794"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions 中函數應用程式的自動化資源部署
 
@@ -372,7 +372,7 @@ Premium 方案是一種特殊類型的「伺服器陣列」資源。 您可以�
 ```
 
 
-<a name="app-service-plan"></a> 
+<a name="app-service-plan"></a>
 
 ## <a name="deploy-on-app-service-plan"></a>在 App Service 方案上部署
 
@@ -419,7 +419,7 @@ App Service 計畫是由 "伺服器陣列" 資源所定義。
 }
 ```
 
-### <a name="create-a-function-app"></a>建立函數應用程式 
+### <a name="create-a-function-app"></a>建立函數應用程式
 
 App Service 計畫上的函式應用程式必須將 `serverFarmId` 屬性設定為稍早建立之方案的資源識別碼。
 
@@ -637,10 +637,10 @@ Linux 應用程式也應該在 `siteConfig`下包含 `linuxFxVersion` 屬性。 
 
 您可以使用以下任何方式來部署範本：
 
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure 入口網站](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+* [Azure 入口網站](../azure-resource-manager/templates/deploy-portal.md)
+* [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>部署至 Azure 按鈕
 

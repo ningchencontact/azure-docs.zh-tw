@@ -12,25 +12,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: f038e56fe4b1e6ad2737217674706eef77a39fd6
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 590505d954d52ebec9f8a5c344d6e750f11ef677
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058062"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981357"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>將 Azure VM 重新開機時，Windows 會在藍色畫面上顯示 "CRITICAL SERVICE FAILED"
 本文說明當您在 Microsoft Azure 中將 Windows 虛擬機器 (VM) 開機時可能發生的 "CRITICAL SERVICE FAILED" 錯誤。 文中會提供疑難排解步驟，以協助解決問題。 
 
 > [!NOTE] 
-> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文說明如何使用「資源管理員」部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
+> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../azure-resource-manager/management/deployment-models.md)。 本文說明如何使用「資源管理員」部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
 
-## <a name="symptom"></a>徵兆 
+## <a name="symptom"></a>徵狀 
 
 Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.md)中的開機螢幕擷取畫面時，您會在藍色畫面中看到下列其中一項錯誤訊息：
 
-- 「您的電腦發生問題，並需要重新啟動。 您可以重新啟動。 如需此問題及可能修正的詳細資訊，請前往 https://windows.com/stopcode 。 如果您連絡支援人員，請提供此資訊：停止代碼：CRITICAL SERVICE FAILED" 
-- 「您的電腦發生問題，並需要重新啟動。 我們只會收集一些錯誤資訊，然後會為您重新啟動。 若要深入了解，您可稍後在線上搜尋此錯誤：CRITICAL_SERVICE_FAILED」
+- 「您的電腦發生問題，並需要重新啟動。 您可以重新啟動。 如需此問題及可能修正的詳細資訊，請前往 https://windows.com/stopcode 。 若您連絡支援人員，請向其提供此資訊: 停止代碼: CRITICAL SERVICE FAILED」 
+- 「您的電腦發生問題，並需要重新啟動。 我們只會收集一些錯誤資訊，然後會為您重新啟動。 若要深入了解，您可稍後線上搜尋此錯誤: CRITICAL_SERVICE_FAILED」
 
 ## <a name="cause"></a>原因
 
@@ -39,7 +39,7 @@ Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.m
 - 系統檔案或記憶體損毀
 - 應用程式存取記憶體的禁止磁區
 
-## <a name="solution"></a>方案 
+## <a name="solution"></a>解決方案 
 
 若要解決此問題，請[連絡支援人員並提交傾印檔案](./troubleshoot-common-blue-screen-error.md#collect-memory-dump-file)，這有助我們更快診斷問題，或是嘗試下列自助解決方案。
 
@@ -103,12 +103,12 @@ Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.m
         bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
 8.  重新啟動 VM。 
 
-### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>選擇性：分析傾印損毀模式中的傾印記錄
+### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>選用：分析傾印損毀模式中的傾印記錄
 
 若要自行分析傾印記錄，請遵循下列步驟：
 
 1. 將 OS 磁碟連結至還原 VM。
-2. 在您連結的 OS 磁碟上，瀏覽至 **\windows\system32\config**。需要將所有檔案複製為備份以便復原。
+2. 在您連接的 OS 磁片上，流覽至 **\windows\system32\config**。複製所有檔案作為備份，以防需要復原。
 3. 啟動 [登錄編輯程式] (regedit.exe)。
 4. 選取 [HKEY_LOCAL_MACHINE] 機碼。 在功能表上，選取 [檔案] > [載入 Hive]。
 5. 在您連結的 OS 磁碟上，瀏覽至 **\windows\system32\config\SYSTEM** 資料夾。 針對 Hive 的名稱，輸入 **BROKENSYSTEM**。 新的 Hive 會顯示在 [HKEY_LOCAL_MACHINE] 機碼下方。
@@ -137,7 +137,7 @@ Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.m
 9. [將 OS 磁碟中斷連結，然後將 OS 磁碟重新連結至受影響的 VM](troubleshoot-recovery-disks-portal-windows.md)。
 10. 將 VM 開機，以查看其是否顯示傾印分析。 尋找無法載入的檔案。 您需要以運作中 VM 的檔案取代此檔案。 
 
-    下列是傾印分析範例。 您可以在 filecrypt.sys 上看到**失敗**："FAILURE_BUCKET_ID:0x5A_c0000428_IMAGE_filecrypt.sys"。
+    下列是傾印分析範例。 您可看到 **FAILURE** 位於 filecrypt.sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys" 上。
 
     ```
     kd> !analyze -v 

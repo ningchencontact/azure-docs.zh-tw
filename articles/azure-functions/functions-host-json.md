@@ -3,12 +3,12 @@ title: 適用於 Azure Functions 2.x 的 host.json 參考
 description: Azure Functions host.json 檔案與 v2 執行階段的參考文件。
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: d33b63e2eb733e2cea360d3c5f6096fca3521736
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 782998e49b9af3bf4d2ae5a561faaca399c6809f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769161"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978805"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 和更新版本的 host. json 參考 
 
@@ -179,7 +179,7 @@ ms.locfileid: "75769161"
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>applicationInsights. snapshotConfiguration
 
-如需有關快照集的詳細資訊，請參閱[.net 應用程式中的例外](/azure-monitor/app/snapshot-debugger)狀況的 Debug 錯快照集和[疑難排解啟用 Application Insights 快照偵錯工具或查看快照](/azure/azure-monitor/app/snapshot-debugger-troubleshoot)集的問題。
+如需有關快照集的詳細資訊，請參閱[.net 應用程式中的例外](/azure/azure-monitor/app/snapshot-debugger)狀況的 Debug 錯快照集和[疑難排解啟用 Application Insights 快照偵錯工具或查看快照](/azure/azure-monitor/app/snapshot-debugger-troubleshoot)集的問題。
 
 |屬性 | 預設 | 說明 |
 | --------- | --------- | --------- | 
