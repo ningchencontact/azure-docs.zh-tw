@@ -1,6 +1,6 @@
 ---
 title: Azure 資訊安全中心的安全分數 | Microsoft Docs
-description: " 使用 Azure 資訊安全中心的安全分數，設定安全性建議的優先權。 "
+description: " 使用 Azure 資訊安全中心中的安全分數，設定安全性建議的優先順序。 "
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,15 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2019
 ms.author: memildin
-ms.openlocfilehash: 0a39fd1870ae803f2cf694e01c67d125fc96cac9
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: bd896cbee98bd61518c9a093f86e088f0b018d73
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200965"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156653"
 ---
-# <a name="improve-your-secure-score-in-azure-security-center"></a>改善您 Azure 資訊安全中心的安全分數
+# <a name="improve-your-secure-score-in-azure-security-center"></a>在 Azure 資訊安全中心中改善您的安全分數
 
+> [!NOTE]
+> 預覽中提供了增強的安全分數。 增強的安全分數最終會取代現有的安全分數，但會在一段時間並存執行，以簡化轉換。
+>
+> 如需增強型安全分數之優點的詳細資訊，請參閱[這裡](secure-score-security-controls.md)。
+>
+> 若要參與預覽，請開啟 Azure 入口網站，啟動 Azure 資訊安全中心，然後選取 [安全分數]。 在那裡，您會在頁面頂端看到一個橫幅，提供新的安全分數體驗。 或者，按一下[這裡](https://aka.ms/ascnewscore)。
 
 有這麼多提供安全優勢的服務，通常很難知道首先要採取哪些步驟來保護和加強您的工作負載。 Azure 安全分數會檢閱您的安全性建議，並為您排列這些建議的優先順序，讓您了解要先執行哪些建議。 這可協助您找出最嚴重的資訊安全漏洞，以便優先安排調查。 安全分數是一個可協助您評估工作負載安全性狀態的工具。
 
@@ -34,13 +40,12 @@ ms.locfileid: "71200965"
 
 **整體安全分數**是您所有建議分數的累計。 您可以在訂用帳戶或管理群組中檢視整體安全分數，具決於您選取的項目。 分數將根據所選訂用帳戶和這些訂用帳戶使用中的建議而有所不同。
 
- 
 若要檢查哪些建議會對您的安全分數產生最大影響，您可以檢視「資訊安全中心」儀表板中前 3 個最具影響力的建議，或使用 [安全分數影響] 資料行來排序建議清單刀鋒視窗中的建議。
-
 
 檢視您的整體安全分數：
 
 1. 在 Azure 資訊安全中心儀表板上按一下 [資訊安全中心]，然後按一下 [安全分數]。
+
 2. 您可以在頂端看到安全性分數重點：
    - [整體安全性分數] 代表每個所選訂用帳戶每個原則的分數
    - [依類別計的安全分數] 顯示最需要注意的資源

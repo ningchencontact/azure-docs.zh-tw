@@ -54,6 +54,8 @@
       href: spring-cloud-service-registration.md
     - name: 分析應用程式記錄和計量
       href: diagnostic-services.md
+    - name: 將 Azure Spring Cloud 記錄串流以立即得知可用性
+      href: spring-cloud-howto-log-streaming.md
     - name: 自動化 Azure Spring Cloud 中的 CI/CD 管線
       href: spring-cloud-howto-cicd.md
     - name: 在 Azure Spring Cloud 中使用持續性儲存體

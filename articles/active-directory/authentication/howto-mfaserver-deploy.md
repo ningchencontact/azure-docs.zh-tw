@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6001dc47d19665184bf44114ab36744f0287264
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 53428039055005693f30f63a709105b77fe65f8f
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608749"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155225"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>開始使用 Azure Multi-Factor Authentication Server
 
@@ -96,8 +96,8 @@ ms.locfileid: "75608749"
 請遵循下列步驟，以從 Azure 入口網站下載 Azure Multi-Factor Authentication Server：
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 搜尋並選取 [Azure Active Directory]。 選取 [ **MFA Server**]。
-3. 選取 [伺服器設定]。
+2. 搜尋並選取 [Azure Active Directory]。 選取 [**安全性** > **MFA**]。
+3. 在 [**管理員 MFA Server**] 底下，選取 [**伺服器設定**]。
 4. 選取 [下載] 並遵循下載頁面上的指示，以儲存安裝程式。 
 
    ![從 Azure 入口網站下載 MFA Server](./media/howto-mfaserver-deploy/downloadportal.png)

@@ -35,6 +35,8 @@
       href: rule-processing.md
     - name: 服務標籤
       href: service-tags.md
+    - name: 合規性認證
+      href: compliance-certifications.md
 - name: 操作指南
   items:
     - name: 使用 Azure PowerShell 進行部署
@@ -81,7 +83,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 社群範本
       href: 'https://azure.microsoft.com/documentation/templates'
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
     - name: 區域可用性
       href: 'https://azure.microsoft.com/regions/services/'

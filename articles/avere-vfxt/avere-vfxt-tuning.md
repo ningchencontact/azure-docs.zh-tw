@@ -4,30 +4,22 @@ description: 在 Avere vFXT for Azure 中最佳化效能的自訂設定概觀
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 8e25b3408482d9be9cb870df338ba0e53af52507
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: df20f050ff87fdb59a3e5cca373098240f8bfbb9
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414323"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152930"
 ---
 # <a name="cluster-tuning"></a>叢集調整
 
 大部分的 vFXT 叢集都可以受益於自訂的效能設定。 這些設定可協助叢集妥善搭配您特定的工作流程、資料集和工具使用。
 
-這項自訂工作應該與支援代表一起完成，因為它通常會牽涉到設定 Avere 控制項台中不提供的功能。
+這項自訂作業應該透過支援代表的協助來完成，因為它可能牽涉到設定 Avere 控制台無法使用的功能。
 
-本節將說明一些可以完成的自訂調整。
-
-<!-- 
-[ xxx keep or not? \/ research this xxx ]
-
-> [!TIP]
-> The VDBench utility can be helpful in generating I/O workloads to test a vFXT cluster. Read [Measuring vFXT Performance](vdbench.md) to learn more.
-
--->
+本節說明一些可以完成的自訂調整。
 
 ## <a name="general-optimizations"></a>一般最佳化
 
@@ -42,19 +34,21 @@ ms.locfileid: "75414323"
 
 ## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>雲端 NAS 或雲端閘道最佳化
 
-若要在雲端 NAS 或閘道案例 (vFXT 叢集對雲端容器提供 NAS 樣式存取) 的 vFXT 叢集和雲端儲存體之間使用較高的資料速度，您的代表可能會建議變更諸如此類的這些設定，以便將資料從快取更積極地將推送到儲存體磁碟區：
+在雲端 NAS 或閘道案例中，vFXT 叢集會提供對雲端容器的 NAS 樣式存取。 若要利用 vFXT 叢集和雲端儲存體之間的更高資料速度，您的代表可能會建議您變更設定，以更積極地將資料從快取推送至存放磁片區。 例如：
 
 * 增加叢集與儲存體容器之間 TCP 連線的數目
 
 ## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>雲端負載平衡或混合式 WAN 最佳化
 
-在雲端負載平衡案例或混合式儲存體 WAN 最佳化案例 (其中 vFXT 叢集會在雲端和內部部署硬體儲存體之間提供整合) 中，這些變更可能很有幫助：
+在雲端負載平衡案例或混合式儲存體 WAN 優化案例中，vFXT 叢集會提供雲端與內部部署硬體儲存體之間的整合。 這些變更可能很有説明：
 
 * 增加叢集與核心篩選之間允許之 TCP 連線的數目
 * 針對遠端核心篩選啟用 WAN 最佳化設定 (此設定在不同的 Azure 區域中，可用於遠端內部部署篩選或雲端核心篩選)。
-* 增加 TCP 通訊端緩衝區大小 (取決於工作負載和效能需求)
-* 啟用「一律轉送」設定，減少重複快取的檔案 (取決於工作負載和效能需求)
+* 增加 TCP 通訊端緩衝區大小<sup>*</sup>
+* 啟用「永遠轉寄」設定，以減少重複的快取檔案<sup>*</sup>
+
+<sup>*</sup>這些調整可能不適用於所有系統，視工作負載和效能需求而定。
 
 ## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>協助最佳化 Avere vFXT for Azure
 
-使用[取得有關系統的協助](avere-vfxt-open-ticket.md)中所述的程序，連絡支援人員了解這些最佳化相關問題。
+若要與支援人員聯繫這些優化，請使用[取得系統協助](avere-vfxt-open-ticket.md)中所述的程式。

@@ -1,14 +1,14 @@
 ---
 title: 將受控服務供應項目發佈到 Azure Marketplace
 description: 了解如何發佈將客戶上線至 Azure 委派資源管理的受控服務。
-ms.date: 01/09/2020
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6a1720a3bcfd0b08f8d9c8147b5e47ed42af6fda
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 841cb52791709be5649d66b72f5c18ef35b740ef
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834098"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155242"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>將受控服務供應項目發佈到 Azure Marketplace
 
@@ -86,6 +86,8 @@ ms.locfileid: "75834098"
 - **Azure AD 物件**識別碼：使用者、使用者群組或應用程式的 Azure AD 識別碼，會將特定許可權（如角色定義所述）授與客戶的資源。
 - **Azure AD 物件顯示名稱**：可協助客戶瞭解此授權用途的易記名稱。 客戶會在委派資源時看到此名稱。
 - **角色定義**：從清單中選取其中一個可用的 Azure AD 內建角色。 此角色將會決定 [Azure AD 物件識別碼] 欄位中的使用者，對於您的客戶資源會有那些權限。 如需這些角色的說明，請參閱[Azure 委派資源管理的](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)[內建角色](../../role-based-access-control/built-in-roles.md)和角色支援。
+  > [!NOTE]
+  > 當適用的新內建角色新增至 Azure 時，將會在這裡提供，雖然可能會在出現一些延遲的情況下顯示。
 - 可**指派的角色**：只有在您已在此授權的**角色定義**中選取 [使用者存取系統管理員] 時，才需要執行此動作。 若是如此，您必須在此新增一或多個可指派的角色。 [Azure AD 物件識別碼] 欄位中的使用者將能夠將這些**可指派的角色**指派給[受控識別](../../active-directory/managed-identities-azure-resources/overview.md)，[部署可補救的原則](deploy-policy-remediation.md)時需要這些角色。 請注意，不會有其他一般與「使用者存取系統管理員」角色相關聯的權限套用至此使用者。 如果您未在此選取一個或多個角色，您的提交將不會通過認證。 (如果您沒有為此使用者的 [角色定義] 選取 [使用者存取系統管理員]，則此欄位無效。)
 
 > [!TIP]

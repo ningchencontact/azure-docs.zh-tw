@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: cbc45036497547b78514b1d175d67c6ed437ee2d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: d5ded7200c438fc734e1af0a42ca6071196bd41c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769484"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120332"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>適用於 Azure Functions 的 SignalR Service 繫結
 
@@ -1011,9 +1011,9 @@ public SignalRGroupAction removeFromGroup(
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
-|**type**|| 必須設為 `signalRConnectionInfo`。|
-|**direction**|| 必須設為 `in`。|
-|**name**|| 函式程式碼中用於連線資訊物件的變數名稱。 |
+|**type**| n/a | 必須設為 `signalRConnectionInfo`。|
+|**direction**| n/a | 必須設為 `in`。|
+|**name**| n/a | 函式程式碼中用於連線資訊物件的變數名稱。 |
 |**hubName**|**HubName**| 此值必須設為 SignalR 中樞 (針對該中樞產生連線資訊) 的名稱。|
 |**userId**|UserId| 選擇性：要在存取金鑰權杖中設定的使用者識別碼宣告值。 |
 |**connectionStringSetting**|**ConnectionStringSetting**| 包含 SignalR Service 連接字串 (預設值為 "AzureSignalRConnectionString") 的應用程式設定名稱 |
@@ -1024,9 +1024,9 @@ public SignalRGroupAction removeFromGroup(
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
-|**type**|| 必須設為 `signalR`。|
-|**direction**|| 必須設為 `out`。|
-|**name**|| 函式程式碼中用於連線資訊物件的變數名稱。 |
+|**type**| n/a | 必須設為 `signalR`。|
+|**direction**| n/a | 必須設為 `out`。|
+|**name**| n/a | 函式程式碼中用於連線資訊物件的變數名稱。 |
 |**hubName**|**HubName**| 此值必須設為 SignalR 中樞 (針對該中樞產生連線資訊) 的名稱。|
 |**connectionStringSetting**|**ConnectionStringSetting**| 包含 SignalR Service 連接字串 (預設值為 "AzureSignalRConnectionString") 的應用程式設定名稱 |
 

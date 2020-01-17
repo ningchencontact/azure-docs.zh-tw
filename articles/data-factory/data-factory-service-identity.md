@@ -8,14 +8,14 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 01/16/2020
 ms.author: jingwang
-ms.openlocfilehash: ede1e56384c75c64765962b7db196973a30c605b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 45699680ad2003c034bce588857f8b102a0b6d26
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928439"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121772"
 ---
 # <a name="managed-identity-for-data-factory"></a>適用於 Data Factory 的受控身分識別
 
@@ -155,17 +155,19 @@ client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>使用 Azure 入口網站取出受控識別
 
-您可以從 Azure 入口網站 > 您的資料處理站 > 屬性來尋找受控識別資訊：
+您可以從 Azure 入口網站 > 您的資料處理站 > 屬性來尋找受控識別資訊。
 
 - 受控識別物件識別碼
 - 受控識別租使用者
-- **受控識別應用程式識別碼**> 複製此值
+- 受控識別應用程式識別碼
 
-![取出受控識別](media/data-factory-service-identity/retrieve-service-identity-portal.png)
+當您建立支援受控識別驗證（例如 Azure Blob、Azure Data Lake Storage、Azure Key Vault 等）的連結服務時，也會顯示受控識別資訊。
+
+授與許可權時，請使用物件識別碼或 data factory 名稱（做為受控識別名稱）來尋找此身分識別。
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>使用 PowerShell 取出受控識別
 
-當您取得特定的資料處理站時，將會傳回受控識別主體識別碼和租使用者識別碼，如下所示：
+當您取得特定的資料處理站時，將會傳回受控識別主體識別碼和租使用者識別碼，如下所示。 使用**PrincipalId**授與存取權：
 
 ```powershell
 PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
@@ -175,7 +177,7 @@ PrincipalId                          TenantId
 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
-複製主體識別碼，然後以主體識別碼作為參數來執行下面的 Azure Active Directory 命令，以取得您可用於授與存取權的 **ApplicationId**：
+您可以藉由複製上述主體識別碼來取得應用程式識別碼，然後以主體識別碼作為參數執行 Azure Active Directory 命令下方執行。
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc

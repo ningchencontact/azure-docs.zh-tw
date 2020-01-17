@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d02ca3a8b5b617edb8ee00ae7d15ea7e94cae80
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 03855b7596f45fcdde0bebe018d2157ad33a617b
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278954"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156075"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>將安全性金鑰設定為您的驗證方法
 
@@ -25,8 +25,21 @@ ms.locfileid: "74278954"
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
->[!Important]
->本內容適用於使用者。 I如果您是系統管理員，可以在 [Azure Active Directory 文件](https://docs.microsoft.com/azure/active-directory)中找到更多關於如何設定和管理 Azure Active Directory (Azure AD) 環境的資訊。
+>[!Note]
+> 如果您沒有看到 [安全性金鑰] 選項，可能是您的組織不允許您使用此選項來進行驗證。 在此情況下，您必須選擇其他方法，或洽詢貴組織的技術支援人員以取得更多協助。
+
+## <a name="security-verification-versus-password-reset-authentication"></a>安全性驗證與密碼重設驗證
+
+安全性資訊方法可用於雙因素安全性驗證和密碼重設。 不過，並非所有方法都同時適用於這兩者。
+
+| 方法 | 用於 |
+| ------ | -------- |
+| 驗證器應用程式 | 雙因素驗證與密碼重設驗證。 |
+| 簡訊 | 雙因素驗證與密碼重設驗證。 |
+| 電話 | 雙因素驗證與密碼重設驗證。 |
+| 安全性金鑰 | 雙因素驗證與密碼重設驗證。 |
+| 電子郵件帳戶 | 僅適用於密碼重設驗證。 您必須選擇另一種方法來進行雙因素驗證。 |
+| 安全性問題 | 僅適用於密碼重設驗證。 您必須選擇另一種方法來進行雙因素驗證。 |
 
 ## <a name="what-is-a-security-key"></a>什麼是安全性金鑰？
 

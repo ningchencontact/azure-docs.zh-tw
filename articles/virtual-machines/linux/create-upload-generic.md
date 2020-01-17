@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: mimckitt
-ms.openlocfilehash: d98efd46e3c2fbc11be2cde6a0c4f2b37acc8d7c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: ffa99c6ba0157eca133dc36ecbbb159b076b8bc0
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934004"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155548"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>非背書的發行版本相關資訊
 
@@ -43,7 +43,7 @@ ms.locfileid: "75934004"
 
 ## <a name="general-linux-installation-notes"></a>一般 Linux 安裝注意事項
 * Azure 中不支援 Hyper-V 虛擬硬碟 (VHDX) 格式，只支援「固定 VHD」。  您可以使用 Hyper-V 管理員或 [Convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd) \(英文\) Cmdlet，將磁碟轉換為 VHD 格式。 如果您使用的是 VirtualBox，即會在建立磁碟時選取 [固定大小] 而不是預設值 (動態配置的)。
-* Azure 僅支援第 1 代虛擬機器。 您可以將第 1 代虛擬機器從 VHDX 轉換為 VHD 檔案格式，並從動態擴充轉換為固定大小的磁碟。 您無法變更虛擬機器的世代。 如需詳細資訊，請參閱[應該在 Hyper-V 中建立第 1 代還是第 2 代的虛擬機器？](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+* Azure 支援 Gen1 （BIOS 開機） & Gen2 （UEFI 開機）虛擬機器。
 * 允許的 VHD 大小上限為 1023 GB。
 * 安裝 Linux 系統時，建議您使用標準磁碟分割而不是邏輯磁碟區管理員 (LVM)，此為許多安裝的預設值。 使用標準磁碟分割將可避免 LVM 名稱與複製的 VM 發生衝突，特別是為了疑難排解而一律要將 OS 磁碟連接至另一個相同的 VM 時。 如果願意，您可以在資料磁碟上使用 [LVM](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 * 需要裝載 UDF 檔案系統的核心支援。 在 Azure 上第一次開機時，會使用連接客體的 UDF 格式媒體，將佈建設定傳遞至 Linux VM。 Azure Linux 代理程式必須裝載 UDF 檔案系統，才能讀取其設定並佈建 VM。

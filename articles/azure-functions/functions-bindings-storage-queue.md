@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 3680de5d8e0e761047e1263c2679da87b1fa2d0b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 70254e42b5964c7c7a3bf15c396f4c118f68a5ed
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769450"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121228"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -249,7 +249,7 @@ def main(msg: func.QueueMessage):
   }
   ```
 
-  您可以設定 `Connection` 屬性來指定要使用的儲存體帳戶，如下列範例所示：
+  您可以設定 `Connection` 屬性來指定應用程式設定，其中包含要使用的儲存體帳戶連接字串，如下列範例所示：
 
   ```csharp
   [FunctionName("QueueTrigger")]
@@ -312,7 +312,7 @@ def main(msg: func.QueueMessage):
 
 如果您嘗試繫結至 `CloudQueueMessage`，並出現錯誤訊息，請確定您已參考[正確的儲存體 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
 
-在 JavaScript 中，使用 `context.bindings.<name>` 存取佇列項目承載。 如果承載為 JSON，則會將已序列化的承載還原為物件。
+在 JavaScript 中，使用 `context.bindings.<name>` 存取佇列項目承載。 如果承載為 JSON，則會將已序列化的承載還原為物件。 此承載也會當作第二個參數傳遞給函式。
 
 ## <a name="trigger---message-metadata"></a>觸發程序 - 訊息中繼資料
 
@@ -320,7 +320,7 @@ def main(msg: func.QueueMessage):
 
 |屬性|類型|說明|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|佇列承載 (如果為有效字串)。 如果佇列承載為字串，`QueueTrigger` 具有相同於 *function.json* 中由 `name` 屬性命名之變數的值。|
+|`QueueTrigger`|`string`|佇列承載 (如果為有效字串)。 如果佇列訊息承載是字串，`QueueTrigger` 的值與*函數. json*中 `name` 屬性所命名的變數相同。|
 |`DequeueCount`|`int`|此訊息已從佇列清除的次數。|
 |`ExpirationTime`|`DateTimeOffset`|訊息到期時間。|
 |`Id`|`string`|佇列訊息識別碼。|
@@ -411,7 +411,7 @@ public static class QueueFunctions
     {
       "type": "http",
       "direction": "out",
-      "name": "return"
+      "name": "$return"
     },
     {
       "type": "queue",
@@ -472,7 +472,7 @@ public static void Run(
     {
       "type": "http",
       "direction": "out",
-      "name": "return"
+      "name": "$return"
     },
     {
       "type": "queue",
@@ -506,7 +506,7 @@ module.exports = function(context) {
 
 ### <a name="output---java-example"></a>輸出 - Java 範例
 
- 下列範例所示範的 Java 函式會在經由 HTTP 要求觸發時，建立佇列訊息。
+ 下列範例顯示的 JAVA 函式會在 HTTP 要求觸發時建立佇列訊息。
 
 ```java
 @FunctionName("httpToQueue")
@@ -514,7 +514,7 @@ module.exports = function(context) {
  public String pushToQueue(
      @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
      final String message,
-     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
        result.setValue(message + " has been added.");
        return message;
  }

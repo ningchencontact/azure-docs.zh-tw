@@ -1,18 +1,18 @@
 ---
 title: 常見問題疑難排解
 description: 瞭解如何針對建立、指派和移除藍圖等問題進行疑難排解，例如原則違規和藍圖參數函式。
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 5b8a20b0757934bbd356ab037a22521a248a7eb2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7306e344a479008a87164a954c4444d375950b0b
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982482"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157078"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>針對使用 Azure 藍圖發生的錯誤進行疑難排解
 
-您可能會在建立或指派藍圖時遇到錯誤。 此文章說明可能發生的各種錯誤與解決方式。
+建立、指派或移除藍圖時，您可能會遇到錯誤。 此文章說明可能發生的各種錯誤與解決方式。
 
 ## <a name="finding-error-details"></a>尋找錯誤詳細資料
 
@@ -60,6 +60,22 @@ ms.locfileid: "75982482"
 #### <a name="resolution"></a>解析度
 
 若要將函式作為參數傳遞，請使用 `[` 逸出整個字串，讓藍圖參數看起來像 `[[resourceGroup().tags.myTag]`。 逸出字元會導致「藍圖」在處理藍圖時，將值視為字串。 接著「藍圖」會將函式置於成品上，讓它如預期般地為動態函式。 如需詳細資訊，請參閱[Azure Resource Manager 範本中的語法和運算式](../../../azure-resource-manager/templates/template-expressions.md)。
+
+## <a name="delete-errors"></a>刪除錯誤
+
+### <a name="assign-delete-timeout"></a>案例：指派刪除超時
+
+#### <a name="issue"></a>問題
+
+刪除藍圖指派並不會完成。
+
+#### <a name="cause"></a>原因
+
+藍圖指派可能會在刪除時卡在非終止狀態。 當藍圖指派所建立的資源仍待刪除，或未將狀態碼傳回 Azure 藍圖時，就會導致此狀態。
+
+#### <a name="resolution"></a>解析度
+
+處於非終端機狀態的藍圖指派會在_6 小時_的時間內自動標示為**失敗**。 當超時時間調整了藍圖指派的狀態之後，就可以重試刪除。
 
 ## <a name="next-steps"></a>後續步驟
 

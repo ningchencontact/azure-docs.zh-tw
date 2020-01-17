@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/03/2019
+ms.date: 01/16/2020
 ms.author: shvija
-ms.openlocfilehash: bea59ff29579c5d009a87c8d1564db4c0baf6e69
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 26056e9b52ea319856505db837c67dc68b2f4aa6
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793263"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157282"
 ---
 # <a name="troubleshooting-guide-for-azure-event-hubs"></a>Azure 事件中樞的疑難排解指南
 本文提供事件中樞 .NET Framework Api 所產生的一些 .NET 例外狀況，還有其他疑難排解問題的秘訣。 
@@ -115,10 +115,10 @@ ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The r
     ```shell
     telnet sbwagn2.servicebus.windows.net 5671
     ```
-- 當發生間歇連線問題時，請執行下列命令來檢查是否有任何已丟棄的封包。 將它保持執行大約1分鐘，以得知連線是否被部分封鎖。 您可以從[這裡](/sysinternals/downloads/psping)下載 `psping` 工具。
+- 當發生間歇連線問題時，請執行下列命令來檢查是否有任何已丟棄的封包。 此命令會嘗試使用服務每隔1秒建立25個不同的 TCP 連線，然後您可以檢查多少成功/失敗，同時也會看到 TCP 連線延遲。 您可以從[這裡](/sysinternals/downloads/psping)下載 `psping` 工具。
 
     ```shell
-    psping.exe -t -q ehedhdev.servicebus.windows.net:9354 -nobanner     
+    .\psping.exe -n 25 -i 1 -q yournamespace.servicebus.windows.net:5671 -nobanner     
     ```
     如果您使用其他工具（例如 `tnc`、`ping`等），可以使用對等的命令。 
 - 如果先前的步驟沒有協助和分析，或[Microsoft 支援服務](https://support.microsoft.com/)，請取得網路追蹤。 

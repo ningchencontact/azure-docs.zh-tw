@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cc696e6351281ec9bd84cc6611d81d9148cda1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 00200436784eca970f736c4a7f2afebd652c9577
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848420"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155208"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>使用 Azure Multi-Factor Authentication 與 AD FS 保護雲端資源
 
@@ -78,7 +78,7 @@ ms.locfileid: "74848420"
     ![建立自訂宣告以讓使用者保持登入](./media/howto-mfa-adfs/trustedip5.png)
 13. 按一下 [完成]。
 14. 按一下 [套用]。
-15. 按一下 [建立] **Ok**。
+15. 按一下 [確定]。
 16. 關閉 [AD FS 管理]。
 
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>搭配同盟使用者設定 Azure Multi-Factor Authentication 信任的 IP
@@ -86,7 +86,7 @@ ms.locfileid: "74848420"
 既然已經有宣告，我們可以開始設定信任的 IP。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 > **條件式存取** > **名為 [位置**] 的**Azure Active Directory** 。
+2. 選取**Azure Active Directory** > **安全性** > [**條件式存取**] > **名為 [位置**]。
 3. 從 [**條件式存取-命名位置**] 分頁中，選取 [**設定 MFA 信任的 ip** ]
 
    ![Azure AD 名為位置的條件式存取設定 MFA 信任的 Ip](./media/howto-mfa-adfs/trustedip6.png)

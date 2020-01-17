@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bb7d811b1d622fb14935b4d5ddf0cb60e44daa8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c120c9092d9cf0e4029cadea1b412a73e858fa75
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278972"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156141"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>設定電話號碼作為驗證方法
 
@@ -30,7 +30,20 @@ ms.locfileid: "74278972"
 > [!Note]
 > 安全性資訊不支援使用電話分機。 即使您新增適當格式 +1 4255551234X12345，在撥號之前仍會移除該分機號碼。
 >
-> 如果您未看到電話選項，很可能您的組織不允許您使用電話號碼進行驗證。 在這種情況下，您將必須選擇其他方法，或連絡您的系統管理員以取得更多協助。
+> 如果您沒有看到電話選項，可能是您的組織不允許您使用此選項來進行驗證。 在此情況下，您必須選擇其他方法，或洽詢貴組織的技術支援人員以取得更多協助。
+
+## <a name="security-verification-versus-password-reset-authentication"></a>安全性驗證與密碼重設驗證
+
+安全性資訊方法可用於雙因素安全性驗證和密碼重設。 不過，並非所有方法都同時適用於這兩者。
+
+| 方法 | 用於 |
+| ------ | -------- |
+| 驗證器應用程式 | 雙因素驗證與密碼重設驗證。 |
+| 簡訊 | 雙因素驗證與密碼重設驗證。 |
+| 電話 | 雙因素驗證與密碼重設驗證。 |
+| 安全性金鑰 | 雙因素驗證與密碼重設驗證。 |
+| 電子郵件帳戶 | 僅適用於密碼重設驗證。 您必須選擇另一種方法來進行雙因素驗證。 |
+| 安全性問題 | 僅適用於密碼重設驗證。 您必須選擇另一種方法來進行雙因素驗證。 |
 
 ## <a name="set-up-phone-calls-from-the-security-info-page"></a>從安全性資訊頁面設定電話
 
@@ -47,7 +60,7 @@ ms.locfileid: "74278972"
 
 2. 以左側瀏覽窗格或是 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後在 [安全性資訊] 頁面選取 [新增方法]。
 
-    ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![醒目提示 [新增方法] 選項的 [安全性資訊] 頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. 在 [新增方法] 頁面上，從下拉式清單中選取 [電話]，然後選取 [新增]。
 

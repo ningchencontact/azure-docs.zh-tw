@@ -4,14 +4,14 @@ description: 如何將後端儲存體系統新增至「適用於 Azure 的 Avere
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 3f7d7b5091b6439f17455b5ea66a3a23ebf79811
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75416451"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153984"
 ---
 # <a name="configure-storage"></a>設定儲存體
 
@@ -32,7 +32,7 @@ ms.locfileid: "75416451"
 
 ## <a name="create-a-core-filer"></a>建立核心檔案管理工具
 
-「核心檔案管理工具」是一個 vFXT 詞彙，代表後端儲存體系統。 此儲存體可以是硬體 NAS 設備 (例如 NetApp 或 Isilon)，也可以是雲端物件存放區。 如需有關核心檔的詳細資訊，請參閱[Avere 叢集設定指南](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers)。
+「核心檔案管理工具」是後端儲存體系統的 vFXT 詞彙。 此儲存體可以是硬體 NAS 設備 (例如 NetApp 或 Isilon)，也可以是雲端物件存放區。 如需有關核心檔的詳細資訊，請參閱[Avere 叢集設定指南](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers)。
 
 若要新增核心檔案管理工具，請選擇兩個主要類型的核心檔案管理工具其中之一：
 
@@ -69,7 +69,7 @@ NAS 核心檔案管理工具可以是內部部署 NetApp 或 Isilon 設備，或
 
 ### <a name="azure-blob-storage-cloud-core-filer"></a>Azure Blob 儲存體雲端核心檔案管理工具
 
-若要使用 Azure Blob 儲存體作為您 vFXT 叢集的後端儲存體，您需要一個空的容器來新增為核心檔案管理工具。
+若要使用 Azure Blob 儲存體作為 vFXT 叢集的後端儲存體，您需要將空的容器新增為核心檔案管理工具。
 
 將 Blob 儲存體新增到您的叢集需要執行下列步驟：
 

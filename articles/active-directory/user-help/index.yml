@@ -12,12 +12,12 @@ metadata:
   author: eross-msft
   ms.author: lizross
   ms.date: 08/26/2019
-  ms.openlocfilehash: c60b536c43b8a82a46ef9176eb077b212da529c0
-  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.openlocfilehash: 461cebd5a7bbb5a3483c2b08670317a31b71484a
+  ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73574216"
+  ms.lasthandoff: 01/16/2020
+  ms.locfileid: "76156262"
 landingContent:
 - title: 設定並使用 Microsoft Authenticator 應用程式
   linkLists:
@@ -35,44 +35,6 @@ landingContent:
       url: user-help-auth-app-backup-recovery.md
     - text: 使用應用程式登入
       url: user-help-auth-app-sign-in.md
-- title: 選擇雙步驟驗證方法
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: 何謂雙因素驗證？
-      url: user-help-two-step-verification-overview.md
-  - linkListType: how-to-guide
-    links:
-    - text: 設定驗證方法
-      url: multi-factor-authentication-end-user-first-time.md
-    - text: 管理設定
-      url: multi-factor-authentication-end-user-manage-settings.md
-    - text: 取得說明
-      url: multi-factor-authentication-end-user-troubleshoot.md
-- title: 在「我的應用程式」入口網站中更新您的資訊
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: 什麼是「我的應用程式」入口網站？
-      url: my-apps-portal-end-user-access.md
-  - linkListType: how-to-guide
-    links:
-    - text: 更新您的資訊
-      url: my-apps-portal-end-user-update-profile.md
-    - text: 取得說明
-      url: my-apps-portal-end-user-troubleshoot.md
-- title: 設定和管理您的安全性資訊 (預覽)
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: 何謂安全性資訊 (預覽)？
-      url: user-help-security-info-overview.md
-  - linkListType: how-to-guide
-    links:
-    - text: 設定安全性資訊方法
-      url: security-info-add-update-methods-overview.md
-    - text: 在登入提示期間新增資訊
-      url: security-info-setup-signin.md
 - title: 在「我的帳戶」入口網站中管理資訊
   linkLists:
   - linkListType: overview
@@ -87,12 +49,44 @@ landingContent:
       url: my-account-portal-organizations-page.md
     - text: 檢視您最近的登入活動
       url: my-account-portal-sign-ins-page.md
-- title: 重設您自己的密碼
+- title: 設定和管理您的安全性資訊 (預覽)
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 設定驗證器應用程式以進行安全性驗證
+      url: security-info-setup-auth-app.md
+    - text: 設定安全性驗證的文字訊息
+      url: security-info-setup-text-msg.md
+    - text: 設定安全性驗證的來電
+      url: security-info-setup-phone-number.md
+    - text: 在登入提示期間新增資訊
+      url: security-info-setup-signin.md
+- title: 在我的應用程式 (預覽) 入口網站上存取和啟用應用程式
   linkLists:
   - linkListType: overview
     links:
-    - text: 何謂密碼重設？
-      url: user-help-password-reset-overview.md
+    - text: 存取「我的應用程式」入口網站
+      url: my-applications-portal-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: 存取和使用工作區
+      url: my-applications-portal-workspaces.md
+- title: 選擇雙步驟驗證方法
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是額外驗證頁面？
+      url: user-help-two-step-verification-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 設定驗證方法
+      url: multi-factor-authentication-end-user-first-time.md
+    - text: 管理設定
+      url: multi-factor-authentication-end-user-manage-settings.md
+    - text: 取得說明
+      url: multi-factor-authentication-end-user-troubleshoot.md
+- title: 重設您自己的密碼
+  linkLists:
   - linkListType: how-to-guide
     links:
     - text: 註冊以進行密碼重設

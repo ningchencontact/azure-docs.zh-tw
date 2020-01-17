@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: ff84b085b7d40bcb6c5a0aa87416e5814f67814b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 058099ceca886f375e6add07033174bf80d5b647
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979578"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156534"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows 的自訂指令碼延伸模組
 
@@ -147,7 +147,7 @@ ms.locfileid: "75979578"
 
 ####  <a name="property-managedidentity"></a>屬性： Microsoft.managedidentity
 
-CustomScript （版本1.10.4 之後）支援以[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)為基礎的 RBAC，可從 "fileUris" 設定中提供的 url 下載檔案。 它可讓 CustomScript 存取 Azure 儲存體的私用 blob/容器，而不需要使用者傳遞 SAS 權杖或儲存體帳戶金鑰之類的秘密。
+CustomScript （版本1.10 後）支援從 "fileUris" 設定中提供的 Url 下載檔案的[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。 它可讓 CustomScript 存取 Azure 儲存體私人 blob 或容器，而不需要使用者傳遞 SAS 權杖或儲存體帳戶金鑰之類的秘密。
 
 若要使用這項功能，使用者必須將[系統指派](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity)或[使用者指派](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity)的身分識別新增至應執行 CUSTOMSCRIPT 的 VM 或 VMSS，並將[Azure 儲存體容器或 blob 的存取權授與受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access)。
 

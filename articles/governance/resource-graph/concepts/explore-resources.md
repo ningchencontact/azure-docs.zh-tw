@@ -3,12 +3,12 @@ title: 探索您的 Azure 資源
 description: 瞭解如何使用 Resource Graph 查詢語言來探索您的資源，並探索其連線方式。
 ms.date: 10/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: e489a4eafdbbd838c4850d67fcd8ec40f76f290c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 0c191915b8c558d80ffef554ef758a35157e035c
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959229"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156976"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>使用 Resource Graph 探索您的 Azure 資源
 
@@ -152,7 +152,7 @@ JSON 結果的結構類似於下列範例：
 ```kusto
 Resources
 | where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
-| project name, resourceGroup"
+| project name, resourceGroup
 ```
 
 ```azurecli-interactive
@@ -309,6 +309,6 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddr
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入瞭解[查詢語言](query-language.md)。
+- 深入了解[查詢語言](query-language.md)。
 - 請參閱[入門查詢](../samples/starter.md)中使用的語言。
 - 請參閱 advanced[查詢](../samples/advanced.md)中的 advanced 使用。

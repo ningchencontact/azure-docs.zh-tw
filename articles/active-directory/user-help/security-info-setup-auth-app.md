@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e3c237f47e889b6af1b49254af9039dc8789006
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 223dc6c340beb1b584ffbf90adc12667ed2feb23
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279073"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156177"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>將 Microsoft Authenticator 應用程式設定為您的驗證方法
 
@@ -28,7 +28,20 @@ ms.locfileid: "74279073"
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->如果您沒有看到驗證器應用程式選項，很可能您的組織不允許您使用驗證器應用程式進行驗證。 在這種情況下，您將必須選擇其他方法，或連絡您的系統管理員以取得更多協助。
+> 如果您沒有看到驗證器應用程式選項，您的組織可能不允許您使用此選項來進行驗證。 在此情況下，您必須選擇其他方法，或洽詢貴組織的技術支援人員以取得更多協助。
+
+## <a name="security-vs-password-reset-verification"></a>安全性與密碼重設驗證
+
+安全性資訊方法可用於雙因素安全性驗證和密碼重設。 不過，並非所有方法都同時適用於這兩者。
+
+| 方法 | 用於 |
+| ------ | -------- |
+| 驗證器應用程式 | 雙因素驗證與密碼重設驗證。 |
+| 簡訊 | 雙因素驗證與密碼重設驗證。 |
+| 電話 | 雙因素驗證與密碼重設驗證。 |
+| 安全性金鑰 | 雙因素驗證與密碼重設驗證。 |
+| 電子郵件帳戶 | 僅適用於密碼重設驗證。 您必須選擇另一種方法來進行雙因素驗證。 |
+| 安全性問題 | 僅適用於密碼重設驗證。 您必須選擇另一種方法來進行雙因素驗證。 |
 
 ## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>從安全性資訊頁面設定 Microsoft Authenticator 應用程式
 
@@ -42,7 +55,7 @@ ms.locfileid: "74279073"
 
 2. 以左側瀏覽窗格或是 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後在 [安全性資訊] 頁面選取 [新增方法]。
 
-    ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![醒目提示 [新增方法] 選項的 [安全性資訊] 頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. 在 [新增方法] 頁面上，從下拉式清單中選取 [驗證器應用程式]，然後選取 [新增]。
 
@@ -57,7 +70,7 @@ ms.locfileid: "74279073"
    > [!Note]
    > 如果您想要使用 Microsoft Authenticator 應用程式以外的驗證器應用程式，請選取 [我想要使用其他驗證器應用程式] 連結。
    >
-   > 如果您的組織允許您選擇驗證器應用程式以外的方法，您可以選取 [我想要設定其他方法] 連結。
+   > 如果您的組織允許您選擇驗證器應用程式以外的方法，您可以選取 [我想要設定其他方法連結]。
 
 5. 在行動裝置上設定 Microsoft Authenticator 應用程式時，請讓 [設定帳戶] 頁面保持開啟。
 

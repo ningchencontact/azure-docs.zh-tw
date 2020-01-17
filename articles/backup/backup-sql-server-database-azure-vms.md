@@ -4,12 +4,12 @@ description: 在本文中，您將瞭解如何使用 Azure 備份來備份 Azure
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 52a7e98702299e790ee097cca871332ebb6a52c5
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: fc0c3127594fe3ca90b0a66ce548f471c55f4e5f
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611384"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156466"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>備份 Azure VM 中的 SQL Server 資料庫
 
@@ -29,7 +29,7 @@ SQL Server 資料庫是需要低復原點目標（RPO）和長期保留的重要
 
 在備份 SQL Server 資料庫之前，請先檢查下列準則：
 
-1. 在與裝載 SQL Server 實例的 VM 相同的區域或地區設定中，識別或建立復原[服務保存庫](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault)。
+1. 在與裝載 SQL Server 實例的 VM 相同的區域和訂用帳戶中，識別或建立復原[服務保存庫](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault)。
 2. 確認 VM 具有網路連線[能力](backup-sql-server-database-azure-vms.md#establish-network-connectivity)。
 3. 請確定 SQL Server 資料庫遵循[Azure 備份的資料庫命名指導方針](#database-naming-guidelines-for-azure-backup)。
 4. 請確認您沒有針對資料庫啟用的任何其他備份解決方案。 在備份資料庫之前，請先停用所有其他 SQL Server 備份。

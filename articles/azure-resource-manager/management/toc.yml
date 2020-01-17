@@ -8,6 +8,8 @@
   items:
     - name: 訂用帳戶與服務限制
       href: azure-subscription-service-limits.md
+    - name: 資源名稱規則
+      href: resource-name-rules.md
     - name: Resource Manager 與傳統部署
       href: deployment-models.md
     - name: Azure 常見安全性屬性

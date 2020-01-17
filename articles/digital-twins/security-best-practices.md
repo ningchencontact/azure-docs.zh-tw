@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 5d2fe5a00d131af54862551991cf984d8576b57e
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/15/2020
+ms.openlocfilehash: 5fc5ba447557aa89e8f0870c576d6d4c439f3353
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860940"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122554"
 ---
 # <a name="azure-digital-twins-security-best-practices"></a>Azure Digital Twins 安全性最佳做法
 
@@ -40,6 +40,7 @@ Azure Digital Twins 也會使用 Azure IoT 中的其他安全性功能，包括 
 > * 限制 I/O 和裝置頻寬，以改善效能。 速率限制可以藉由防止拒絕服務的攻擊來改善安全性。
 > * 讓裝置的固件、作業系統和軟體保持在最新狀態。
 > * 在裝置、軟體、網路和閘道安全性最佳作法持續改善和演進時，定期進行審核及審查。
+> * 使用受信任、經認證且符合規範的安全性系統、軟體和裝置。 例如，請參閱 Azure 雲端[的合規性供應](https://azure.microsoft.com/overview/trusted-cloud/compliance/)專案。
 
 可以安全地保護 IoT 空間的一些主要做法包括：
 
@@ -67,8 +68,8 @@ Azure 數位 Twins 會使用[Azure Active Directory](https://docs.microsoft.com/
 > * 使用受信任[憑證授權單位](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)所發出的憑證 (而非應用程式祕密) 進行驗證。
 > * 限制權杖的 OAuth 2.0 存取範圍。
 > * 確認權杖的有效時間長度以及權杖是否依然有效。
-> * 設定適當的權杖有效時間長度。
-> * 更新過期權杖。
+> * 設定適當的權杖有效時間長度。 更新過期權杖。
+> * 依據[角色型存取控制的最佳做法](#role-based-access-control-best-practices)，移除未使用的重新**導向 uri**和許可權。
 
 ## <a name="role-based-access-control-best-practices"></a>角色型存取控制最佳做法
 

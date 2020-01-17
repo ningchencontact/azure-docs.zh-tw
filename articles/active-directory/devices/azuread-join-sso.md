@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14e7a4389c192dde8d086a69a35114f3b8b33e96
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 15ccbc568a2986fbb2a547eb958b5e853c8c9f77
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562188"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154817"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>內部部署資源的 SSO 如何在加入 Azure AD 的裝置上運作
 
@@ -24,12 +24,17 @@ ms.locfileid: "68562188"
 
 本文將說明此作業的運作方式。
 
+## <a name="prerequisites"></a>必要條件
+
+ 如果 Azure AD 聯結的電腦未連線到您組織的網路，則需要 VPN 或其他網路基礎結構。 內部部署 SSO 需要與內部部署 AD DS 網域控制站之間的通訊。
+
 ## <a name="how-it-works"></a>運作方式 
 
 因為您只需要記住一個單一使用者名稱和密碼，因此 SSO 會簡化資源的存取，並提升環境的安全性。 透過已加入 Azure AD 的裝置，您的使用者已將 SSO 體驗帶入環境中的雲端應用程式。 如果您的環境具有 Azure AD 和內部部署 AD，您可能會想將 SSO 體驗的範圍延伸至內部部署企業營運 (LOB) 應用程式、檔案共用和印表機。  
 
 加入 Azure AD 的裝置不了解您的內部部署 AD 環境，因為這些裝置未加入該環境。 不過，您可以透過 Azure AD Connect 將其他有關內部部署 AD 的資訊提供給這些裝置。
-同時具有 Azure AD 和內部部署 AD 的環境也稱為混合式環境。 如果您有混合式環境，您很可能已經部署了 Azure AD Connect，可將內部部署身分識別資訊同步至雲端。 作為同步處理程序的一部分，Azure AD Connect 會將內部部署網域資訊同步至 Azure AD。 當使用者登入混合式環境中已加入 Azure AD 的裝置時：
+
+同時具有 Azure AD 和內部部署 AD 的環境也稱為混合式環境。 如果您有混合式環境，您很可能已經部署了 Azure AD Connect，可將內部部署身分識別資訊同步至雲端。 做為同步處理常式的一部分，Azure AD Connect 會將內部部署使用者資訊同步到 Azure AD。 當使用者登入混合式環境中已加入 Azure AD 的裝置時：
 
 1. Azure AD 會將使用者所屬的內部部署網域名稱傳回到裝置。 
 1. 本機安全性授權 (LSA) 服務可讓您在裝置上啟用 Kerberos 驗證。
@@ -44,7 +49,7 @@ ms.locfileid: "68562188"
 
 Windows Hello 企業版需要其他設定，才能從已加入 Azure AD 的裝置中啟用內部部署 SSO。 如需詳細資訊，請參閱[使用 Windows Hello 企業版為加入 Azure AD 的裝置設定內部部署單一登入](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base)。 
 
-## <a name="what-you-get"></a>得到什麼結果
+## <a name="what-you-get"></a>您的權益
 
 藉由 SSO，您可以在加入 Azure AD 的裝置上執行下列作業： 
 

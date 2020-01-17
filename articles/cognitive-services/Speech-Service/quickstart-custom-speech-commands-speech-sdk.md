@@ -3,19 +3,19 @@ title: 快速入門：使用語音 SDK 連接到自訂命令應用程式-語音�
 titleSuffix: Azure Cognitive Services
 description: 在本文中，您將使用自訂命令來建立語音 SDK 用戶端應用程式。
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 69a03ce5a8da7c8af6c17d122be3744e7b79e246
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9e324af0b90f595b5b7af2a417a562efb193d854
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381098"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156772"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>快速入門：使用語音 SDK 連接到自訂命令應用程式（預覽）
 
@@ -46,7 +46,7 @@ ms.locfileid: "75381098"
 
 1. 開啟您[先前建立的自訂命令應用程式](./quickstart-custom-speech-commands-create-new.md)，然後選取 [**發佈**]
 
-   > [!div class="mx-imgBorder"] 
+   > [!div class="mx-imgBorder"]
    > ![發行應用程式](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. 複製發佈通知中的 [應用程式識別碼] 以供稍後使用

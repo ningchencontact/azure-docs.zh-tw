@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/19/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: a320a446bf6a2ff5d5d923961b2614970ffa70f9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b337c1d57d253f55f3171e1de78a81b6de13ba31
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75988405"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157135"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>開始使用 Azure 成本管理合作夥伴
 
@@ -213,7 +213,7 @@ Azure 成本管理需要您的帳單帳戶或訂用帳戶的讀取權限。
 | 位置 | 資源的正規化位置。 | N/A |
 | effectivePrice | 服務的有效單位價格（以定價貨幣表示）。 產品、服務系列、計量及供應專案都是唯一的。 在計費帳戶的價位表中搭配定價使用。 當有階層式定價或包含的數量時，會顯示耗用量的混合價格。 | 進行調整後的單位價格。 |
 | 數量 | 已購買或耗用的測量數量。 計費期間所使用的計量數量。 | 單位數。 請確定它符合您在對帳期間計費系統中的資訊。 |
-| unitOfMeasure | 識別服務的計費單位。 例如，GB 和小時。 | 識別服務的計費單位。 例如，GB、小時和10，萬為單位。 |
+| unitOfMeasure | 識別服務的計費單位。 例如，GB 和小時。 | 識別服務的計費單位。 例如，GB、小時和10000秒。 |
 | pricingCurrency | 定義單位價格的貨幣。 | 價格清單中的貨幣。|
 | billingCurrency | 定義計費成本的貨幣。 | 客戶地理區域的貨幣。 |
 | chargeType | 定義成本在 Azure 成本管理中所代表的費用類型，例如購買和退款。 | 費用或調整的類型。 目前的活動無法使用。 |
@@ -257,7 +257,7 @@ Azure 成本管理需要您的帳單帳戶或訂用帳戶的讀取權限。
 
 ## <a name="export-cost-data-to-azure-storage"></a>將成本資料匯出至 Azure 儲存體
 
-具有合作夥伴租使用者中計費範圍存取權的合作夥伴，可以將其成本和使用量資料匯出至 Azure 儲存體的 blob。 Blob 必須位於合作夥伴租使用者中的訂用帳戶，而不是共用服務訂用帳戶或客戶的訂用帳戶。 若要啟用成本資料匯出，建議您在合作夥伴租使用者中設定獨立的隨用隨付訂用帳戶，以裝載匯出的成本資料。 系統會在隨用隨付訂用帳戶中託管的 Azure 儲存體 blob 上建立匯出儲存體帳戶。 根據夥伴建立匯出的範圍，相關聯的資料會自動定期匯出至儲存體帳戶。
+具有合作夥伴租使用者中計費範圍存取權的合作夥伴，可以將其成本和使用量資料匯出至 Azure 儲存體的 blob。 Blob 必須位於合作夥伴租使用者中的訂用帳戶，而不是共用服務訂用帳戶或客戶的訂用帳戶。 若要啟用成本資料匯出，建議您在合作夥伴租使用者中設定獨立的隨用隨付訂用帳戶，以裝載匯出的成本資料。 系統會在隨用隨付訂用帳戶中託管的 Azure 儲存體 blob 上建立匯出儲存體帳戶。 根據夥伴建立匯出的範圍，相關聯的資料會定期自動匯出至儲存體帳戶。
 
 具有訂用帳戶之 RBAC 存取權的使用者，也可以將成本資料匯出至客戶租使用者中任何訂用帳戶所裝載的 Azure 儲存體 blob。
 
@@ -265,7 +265,11 @@ Azure 成本管理需要您的帳單帳戶或訂用帳戶的讀取權限。
 
 在 Azure 入口網站中，登入合作夥伴租使用者或客戶租使用者，然後選取 **成本管理 + 帳單**。 選取適當的範圍（例如帳單帳戶），然後選取 [**成本分析**]。 當頁面載入時，選取 [**匯出**]。 選取 [排程匯出] 底下的 [**查看所有匯出**]。
 
+![選取匯出和查看所有匯出](./media/get-started-partners/export01.png)
+
 接下來，選取 [**新增**] 並輸入名稱，然後選取匯出類型。 選取 [**儲存體**] 索引標籤，然後輸入必要的資訊。
+
+![[新增匯出] 和 [選取儲存體] 索引標籤](./media/get-started-partners/export02.png)
 
 當您在合作夥伴租使用者中建立匯出時，請選取合作夥伴租使用者中的隨用隨付訂用帳戶。 使用該訂閱建立 Azure 儲存體帳戶。
 
@@ -274,6 +278,8 @@ Azure 成本管理需要您的帳單帳戶或訂用帳戶的讀取權限。
 檢查內容，然後選取 [**建立**] 以排程匯出。
 
 若要確認匯出清單中的資料，請選取儲存體帳戶名稱。 在 [儲存體帳戶] 頁面上，選取 [**容器**]，然後選取容器。 流覽至對應的資料夾，然後選取 CSV 檔案。 選取 [**下載**] 以取得 CSV 檔案並加以開啟。 匯出的資料會類似成本資料，類似于 Azure 入口網站的使用量詳細資料。
+
+![匯出資料的範例](./media/get-started-partners/example-export-data.png)
 
 ## <a name="cost-management-rest-apis"></a>成本管理 REST Api
 

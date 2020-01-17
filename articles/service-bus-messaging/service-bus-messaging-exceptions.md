@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
-ms.openlocfilehash: 7ad0eb602d9e7b907e23ebf7b91ed86650c1e807
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: eebbef25f2cd4539a5092f271c3944c24503f287
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790489"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156806"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Azure 服務匯流排的疑難排解指南
 本文提供服務匯流排 .NET Framework Api 所產生的一些 .NET 例外狀況，還有其他疑難排解問題的秘訣。 
@@ -121,10 +121,10 @@ ConnectionsQuotaExceeded for namespace xxx.
     ```shell
     telnet sbwagn2.servicebus.windows.net 5671
     ```
-- 當發生間歇連線問題時，請執行下列命令來檢查是否有任何已丟棄的封包。 將它保持執行大約1分鐘，以得知連線是否被部分封鎖。 您可以從[這裡](/sysinternals/downloads/psping)下載 `psping` 工具。
+- 當發生間歇連線問題時，請執行下列命令來檢查是否有任何已丟棄的封包。 此命令會嘗試使用服務每隔1秒建立25個不同的 TCP 連線，然後您可以檢查多少成功/失敗，同時也會看到 TCP 連線延遲。 您可以從[這裡](/sysinternals/downloads/psping)下載 `psping` 工具。
 
     ```shell
-    psping.exe -t -q ehedhdev.servicebus.windows.net:9354 -nobanner     
+    .\psping.exe -n 25 -i 1 -q yournamespace.servicebus.windows.net:5671 -nobanner     
     ```
     如果您使用其他工具（例如 `tnc`、`ping`等），可以使用對等的命令。 
 - 如果先前的步驟沒有協助和分析，或[Microsoft 支援服務](https://support.microsoft.com/)，請取得網路追蹤。

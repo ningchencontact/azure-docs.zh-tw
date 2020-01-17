@@ -4,20 +4,20 @@ description: 如何將資料新增至新的存放磁碟區以與「適用於 Azu
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: 183ed719eb5396fe0e442e6b774d962d1ba48386
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480586"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153713"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>將資料移至 vFXT 叢集 - 平行資料擷取
 
-在您建立新的 vFXT 叢集之後，您的第一項工作可能是將資料移至其新存放磁碟區上。 不過，如果您一般移動資料的方法是從一個用戶端發出簡單的複製命令，您可能會發現複製效能很差。 對於將資料複製到 Avere vFXT 叢集的後端儲存體來說，單一執行緒複製並不是一個理想的選項。
+建立新的 vFXT 叢集之後，您的第一項工作可能是將資料移至 Azure 中的新儲存體磁片區。 不過，如果您一般移動資料的方法是從一個用戶端發出簡單的複製命令，您可能會發現複製效能很差。 將資料複製到 Avere vFXT 叢集的後端儲存體時，單一執行緒複製並不是個好選項。
 
-由於 Avere vFXT 叢集是一個可調整規模的多用戶端快取，因此將資料複製到此叢集的最快且最有效率方式就是使用多個用戶端。 此技術會平行處理資料與物件的擷取。
+因為 Avere vFXT for Azure 叢集是可擴充的多用戶端快取，所以將資料複製到其中的最快速且最有效率的方式是使用多個用戶端。 此技術會平行處理資料與物件的擷取。
 
 ![顯示多用戶端、多執行緒資料移動的圖表：左上方有一個內部部署硬體儲存體的圖示，其中有多個來自它的箭頭。 這些箭頭指向四部用戶端機器。 從每部用戶端機器都有三個箭頭指向 Avere vFXT。 從 Avere vFXT，有多個箭頭指向 Blob 儲存體。](media/avere-vfxt-parallel-ingest.png)
 
@@ -44,12 +44,12 @@ GitHub 上有提供 Resource Manager 範本，此範本可藉由本文中所提�
 
 ## <a name="strategic-planning"></a>策略規劃
 
-建置策略來平行複製資料時，您應該了解檔案大小、檔案計數及目錄深度方面的權衡取捨。
+在設計同時複製資料的策略時，您應該瞭解檔案大小、檔案計數和目錄深度的取捨。
 
 * 當檔案較小時，攸關的計量是每秒檔案數。
 * 當檔案較大 (10 MiBi 或更大) 時，攸關的計量是每秒位元組數。
 
-每個複製處理序都有輸送量速率和檔案傳輸速率，藉由對複製命令的長度進行計時及分解檔案大小和檔案計數，即可測量這些速率。 本文件未涵蓋這些速率的測量方式說明，但請務必了解您將處理的是大型檔案還是小型檔案。
+每個複製處理序都有輸送量速率和檔案傳輸速率，藉由對複製命令的長度進行計時及分解檔案大小和檔案計數，即可測量這些速率。 說明如何測量費率不在本檔的討論範圍內，但請務必瞭解您是否要處理小型或大型檔案。
 
 ## <a name="manual-copy-example"></a>手動複製範例
 
@@ -278,7 +278,7 @@ rsync -azh --inplace <source> <destination> && rsync -azh <source> <destination>
 
 ## <a name="use-the-msrsync-utility"></a>使用 msrsync 公用程式
 
-``msrsync`` 工具也可用來將資料移至 Avere 叢集的後端核心檔案管理工具。 此工具的設計目的是要藉由執行多個平行的 ``rsync`` 處理序，將頻寬使用情況最佳化。 您可以從 GitHub 取得它，網址為 <https://github.com/jbd/msrsync>。
+``msrsync`` 工具也可以用來將資料移至 Avere 叢集的後端核心檔案管理工具。 此工具的設計目的是要藉由執行多個平行的 ``rsync`` 處理序，將頻寬使用情況最佳化。 您可以從 GitHub 取得它，網址為 <https://github.com/jbd/msrsync>。
 
 ``msrsync`` 會將來源目錄分解成個別的「貯體」，然後在每個貯體上執行個別的 ``rsync`` 處理序。
 
@@ -323,7 +323,7 @@ rsync -azh --inplace <source> <destination> && rsync -azh <source> <destination>
 
 ## <a name="use-the-parallel-copy-script"></a>使用平行複製指令碼
 
-``parallelcp`` 指令碼對於將資料移至 vFXT 叢集的後端儲存體也相當有用。
+``parallelcp`` 腳本也有助於將資料移至 vFXT 叢集的後端儲存體。
 
 下方指令碼會新增 `parallelcp` 可執行檔。 (此指令碼是專為 Ubuntu 而設計的；如果使用另一個散發套件，則必須個別安裝 ``parallel``)。
 

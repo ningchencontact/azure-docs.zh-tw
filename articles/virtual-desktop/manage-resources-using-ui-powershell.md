@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 5049c32e06967cc123a24f07f601c1698bea3351
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: d7304c1267c4a4f5548bb57ffb3e6016fac21d99
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896424"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122503"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>使用 PowerShell 部署管理工具
 
@@ -31,19 +31,19 @@ ms.locfileid: "75896424"
 - Mozilla Firefox 52.0 或更高版本
 - Safari 10 或更高版本 (僅限 macOS)
 
-## <a name="what-you-need-to-deploy-the-management-tool"></a>部署管理工具的需求
+## <a name="what-you-need-to-deploy-the-management-tool"></a>部署管理工具需要具備的條件
 
-部署管理工具之前，您需要 Azure Active Directory （Azure AD）使用者來建立應用程式註冊，並部署管理 UI。 此使用者必須：
+部署管理工具之前，您需要 Azure Active Directory (Azure AD) 使用者建立應用程式註冊，並部署管理 UI。 此使用者必須：
 
 - 擁有在您的 Azure 訂用帳戶中建立資源的權限
-- 擁有建立 Azure AD 應用程式的權限。 依照下列步驟來檢查您的使用者是否具有必要的許可權，方法是遵循[必要許可權](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)中的指示。
+- 擁有建立 Azure AD 應用程式的權限。 遵循[必要權限](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)中的指示，依下列步驟檢查您的使用者是否具有必要的權限。
 
 若要成功部署及設定管理工具，您必須先從[RDS 範本 GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts)存放庫下載下列 PowerShell 腳本，並將其儲存至本機電腦上的相同資料夾。
 
   - createWvdMgmtUxAppRegistration. ps1
   - updateWvdMgmtUxApiUrl. ps1
 
-部署及設定管理工具之後，建議您要求使用者啟動管理 UI，以確保所有專案都能正常運作。 啟動管理 UI 的使用者必須有角色指派，讓他們能夠查看或編輯 Windows 虛擬桌面的租使用者。
+部署及設定管理工具之後，建議您要求使用者啟動管理 UI，以確保可正常運作。 啟動管理 UI 的使用者必須具備角色指派，才能檢視或編輯 Windows 虛擬桌面租用戶。
 
 ## <a name="set-up-powershell"></a>設定 PowerShell
 
@@ -135,7 +135,7 @@ Get-AzureADApplication | where { $_.AppId -match $servicePrincipalCredentials.Us
    
    [![具有所輸入重新導向 URI 的驗證頁面](media/management-ui-redirect-uri-inline.png)](media/management-ui-redirect-uri-expanded.png#lightbox)
 
-5. 在左面板中，選取 [ **API 許可權**] 以確認已新增許可權。 如果您是全域系統管理員，請選取 [`tenantname`的系統**管理員同意**] 按鈕，並遵循對話方塊提示，為您的組織提供系統管理員同意。
+5. 在左面板中，選取 [ **API 許可權**] 以確認已新增許可權。 如果您是全域系統管理員，請選取 [**為 `tenantname`授與系統管理員同意**] 按鈕，並遵循對話方塊提示，為您的組織提供系統管理員同意。
     
     [![[API 許可權] 頁面](media/management-ui-permissions-inline.png)](media/management-ui-permissions-expanded.png#lightbox)
 
@@ -152,15 +152,15 @@ Get-AzureADApplication | where { $_.AppId -match $servicePrincipalCredentials.Us
    > 如果您在設定管理工具時未授與系統管理員同意，則每位登入的使用者都必須提供他們自己的使用者同意，才能使用此工具。
 
 3. 當系統提示您選擇租使用者群組時，從下拉式清單中選取 [**預設租使用者群組**]。
-4. 當您選取 [**預設租使用者群組**] 時，功能表的左邊應該會出現一個功能表。 在此功能表中，尋找租使用者群組的名稱並加以選取。
+4. 選取 [預設租用戶群組] 時，視窗的左側應該會出現一個功能表。 在此功能表上，尋找租用戶群組的名稱並選取。
    
    > [!NOTE]
-   > 如果您有自訂的租使用者群組，請以手動方式輸入名稱，而不是從下拉式清單中選擇。
+   > 若您有自訂租用戶群組，請手動輸入名稱，不要從下拉式清單選擇。
 
 ## <a name="report-issues"></a>報告問題
 
-如果您遇到管理工具或其他 Windows 虛擬桌面工具的任何問題，請遵循 Azure Resource Manager 範本中的指示，以[供遠端桌面服務](https://github.com/Azure/RDS-Templates/blob/master/README.md)在 GitHub 上報告。
+如果管理工具或其他 Windows 虛擬桌面工具發生任何問題，請依照[遠端桌面服務的 Azure Resource Manager 範本](https://github.com/Azure/RDS-Templates/blob/master/README.md)中的指示，在 GitHub 上回報問題。
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已瞭解如何部署和連接到管理工具，您可以瞭解如何使用 Azure 服務協助來監視服務問題和健康情況諮詢。 若要深入瞭解，請參閱我們的[設定服務警示教學](./set-up-service-alerts.md)課程。
+既然您已學到如何部署並連線到管理工具，您可以學習如何使用 Azure 服務來監視服務問題與健康情況諮詢。 若要深入了解，請參閱我們的[設定服務警示教學課程](./set-up-service-alerts.md)。

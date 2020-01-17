@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: evansma
-ms.openlocfilehash: b8c1034b047e0c72db41bbbbff06feb0bdf06517
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 21bbd34520283620626aff27439e89058a534f4e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933914"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121806"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>您的商業 marketplace 權益
 
@@ -86,7 +86,7 @@ Marketplace 報酬的設計是為了在您的特定成長階段支援您，從�
 
 ### <a name="publisher-agreement"></a>發行者合約
 
-本頁面所述的所有活動均由[marketplace 發行者合約](https://docs.microsoft.com/legal/marketplace/terms)所涵蓋，並遵循商業權益方案的增補條款。
+本頁面所述的所有活動均由[marketplace 發行者合約](https://go.microsoft.com/fwlink/?LinkID=699560)所涵蓋，並遵循商業權益方案的增補條款。
 
 ### <a name="cancellation-policy"></a>取消原則
 

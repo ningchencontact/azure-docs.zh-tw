@@ -12,20 +12,34 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c32e2e2a7b609f999c7b804494188e2c6820171
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a6fb6153c2dc5794fce0e74d1981e98ad1f37fc1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278996"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156092"
 ---
 # <a name="set-up-security-questions-as-your-verification-method"></a>將安全性問題設定為您的驗證方法
 
 您可以遵循下列步驟來新增密碼重設方法。 在您首次將此設定好之後，即可返回 [安全性資訊] 頁面來新增、更新或刪除安全性資訊。
 
-在設定密碼重設方法之後，您還必須設定使用[驗證器應用程式](security-info-setup-auth-app.md)、[簡訊](security-info-setup-text-msg.md)或[電話](security-info-setup-phone-number.md)的雙因素驗證方法。
-
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+>[!Note]
+>如果您沒有看到 [安全性問題] 選項，可能是您的組織不允許您將此選項用於您的密碼重設方法。 在此情況下，您必須選擇其他方法，或洽詢貴組織的技術支援人員以取得更多協助。
+
+## <a name="security-verification-versus-password-reset-authentication"></a>安全性驗證與密碼重設驗證
+
+安全性資訊方法可用於雙因素安全性驗證和密碼重設。 不過，並非所有方法都同時適用於這兩者。
+
+| 方法 | 用於 |
+| ------ | -------- |
+| 驗證器應用程式 | 雙因素驗證與密碼重設驗證。 |
+| 簡訊 | 雙因素驗證與密碼重設驗證。 |
+| 電話 | 雙因素驗證與密碼重設驗證。 |
+| 安全性金鑰 | 雙因素驗證與密碼重設驗證。 |
+| 電子郵件帳戶 | 僅適用於密碼重設驗證。 您必須選擇另一種方法來進行雙因素驗證。 |
+| 安全性問題 | 僅適用於密碼重設驗證。 您必須選擇另一種方法來進行雙因素驗證。 |
 
 ## <a name="set-up-your-security-questions-from-the-security-info-page"></a>從安全性資訊頁面設定安全性問題
 
@@ -36,7 +50,7 @@ ms.locfileid: "74278996"
 > [!Note]
 > 安全性問題會私密且安全地儲存在目錄中的使用者物件上，只能在註冊期間由您回答。 系統管理員無法讀取或修改您的問題或答案。
 >
-> 如果您未看到安全性問題選項，可能是因為您的組織不允許您使用安全性問題進行驗證。 如果發生這種情況，您必須選擇其他方法，或連絡您的系統管理員以取得更多協助。
+> 如果您未看到安全性問題選項，可能是因為您的組織不允許您使用安全性問題進行驗證。 如果發生這種情況，您將必須選擇其他方法，或連絡您的系統管理員以取得更多協助。
 >
 > 系統管理員帳戶不允許使用安全性問題做為密碼重設方法。 如果您以系統管理員層級帳戶登入，將不會看到這些選項。
 
@@ -48,7 +62,7 @@ ms.locfileid: "74278996"
 
 2. 以左側瀏覽窗格或是 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後在 [安全性資訊] 頁面選取 [新增方法]。
 
-    ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![醒目提示 [新增方法] 選項的 [安全性資訊] 頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. 在 [新增方法] 頁面上，從下拉式清單中選取 [安全性問題]，然後選取 [新增]。
 

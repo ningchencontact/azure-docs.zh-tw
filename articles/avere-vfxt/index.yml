@@ -8,7 +8,7 @@ metadata:
   author: ekpgh
   ms.service: avere-vfxt
   ms.topic: landing-page
-  ms.date: 10/09/2019
+  ms.date: 12/19/2019
   ms.author: rohogue
 abstract:
   description: 'Avere vFXT for Azure 為資料密集高效能運算 (HPC) 工作提供雲端式快取層。 Avere vFXT 會快取接近計算節點的檔案，加速讀取時間並讓您即使是在尖峰負載期間也能運利運作。 搭配 1,000 和 40,000 用戶端核心系統能發揮最大效能。 <p>Avere vFXT 可搭配您的現有資料儲存體使用，以縮短檔案與 Azure 型運算資源之間的距離。 頻繁存取的檔案仍會儲存在您的資料中心比較長的時間。'

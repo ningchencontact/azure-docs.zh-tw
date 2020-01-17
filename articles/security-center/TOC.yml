@@ -29,6 +29,10 @@
       href: security-center-compliance-dashboard.md
 - name: 概念
   items:
+    - name: 資訊安全中心中的安全分數
+      href: security-center-secure-score.md
+    - name: 增強的安全分數
+      href: secure-score-security-controls.md
     - name: 權限
       href: security-center-permissions.md
     - name: 資料安全性
@@ -73,8 +77,6 @@
           href: security-center-alert-validation.md
 - name: 操作指南
   items:
-    - name: 改善您的安全分數
-      href: security-center-secure-score.md
     - name: 升級為進階安全性
       href: security-center-onboarding.md
     - name: 掃描 VM 的弱點
@@ -123,7 +125,7 @@
       href: advanced-threat-protection-key-vault.md
     - name: 設定電子郵件通知
       href: security-center-provide-security-contact-details.md
-    - name: 價格
+    - name: 定價
       href: security-center-pricing.md
     - name: 取得全租用戶的可見度
       href: security-center-management-groups.md
@@ -207,7 +209,7 @@
       href: 'https://stackoverflow.com/search?q=azure-security-center'
     - name: 影片
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/security-center/'
     - name: 區域可用性
       href: 'https://azure.microsoft.com/regions/services/'

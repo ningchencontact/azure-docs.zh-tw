@@ -9,23 +9,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d8b46dbc0cc3c61396acdc7d21517c13d4650bf3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160798"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156279"
 ---
-# <a name="reset-your-work-or-school-password"></a>重設您的工作密碼或學校密碼
+# <a name="reset-your-work-or-school-password-using-security-info"></a>使用安全性資訊重設公司或學校密碼
 
-如果您忘記密碼、公司支援人員不曾提供密碼給您，或您的帳戶遭鎖定，您可以使用安全性資訊和行動裝置來重設密碼。
+如果您忘記公司或學校密碼、組織不曾提供密碼給您，或您的帳戶遭鎖定，您可以使用安全性資訊和行動裝置來重設公司或學校密碼。 您的系統管理員必須開啟這項功能，才能夠設定您的資訊並重設您自己的密碼。
 
->[!NOTE]
->如果您知道密碼，但只想變更它，您可以前往本文中的[變更您的密碼](#how-to-change-your-password)步驟。<br><br>
->如果您正嘗試重新進入個人帳戶 (例如 Xbox、hotmail.com 或 outlook.com)，請試試[當您無法登入 Microsoft 帳戶時](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文中所提供的建議。
+如果您知道您的密碼，但想要加以變更，請參閱本文的[變更您的密碼步驟](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password)一節。
+
+>[!Important]
+>本文適用于嘗試使用重設忘記或未知的工作或學校帳戶密碼的使用者。 如果您是系統管理員，尋找如何為您的員工或其他使用者開啟自助式密碼重設的相關資訊，請參閱[部署 Azure AD 自助式密碼重設和其他文章](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment)。
 
 ## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>如何將公司或學校帳戶的密碼重設或解除鎖定
 
@@ -58,7 +59,7 @@ ms.locfileid: "73160798"
     1. 選取 [寄電子郵件到我的備用電子郵件地址]，然後選取 [電子郵件]。
 
     2. 在方塊中輸入電子郵件內的驗證碼，然後選取 [下一步]。
-    
+
     3. 輸入並確認您的新密碼，然後選取 [完成]。
 
 - **使用簡訊重設密碼。** 將簡訊傳送到您先前在安全性資訊中設定的電話號碼。 如果您的系統管理員已開啟安全性資訊體驗，您就能在[將安全性資訊設定為使用簡訊 (預覽)](security-info-setup-text-msg.md) 一文中，找到設定簡訊的詳細資訊。 如果您尚未使用安全性資訊，您可以在[對我的帳戶進行雙步驟驗證設定](multi-factor-authentication-end-user-first-time.md)一文中找到設定簡訊的詳細資訊。
@@ -100,7 +101,7 @@ ms.locfileid: "73160798"
   3. 輸入並確認您的新密碼，然後選取 [完成]。
 
   4. 在您收到訊息指出密碼已重設之後，就可以使用新密碼來登入帳戶。
-        
+
      如果您仍無法存取帳戶，您應該連絡貴組織的系統管理員以獲得更多協助。
 
 重設密碼之後，您可能會收到確認電子郵件，其來源是「Microsoft 代表 \<*your_organization*>」之類的帳戶。 如果您收到類似的電子郵件，但您最近並未重設密碼，則您必須立即連絡貴組織的系統管理員。
@@ -155,7 +156,7 @@ ms.locfileid: "73160798"
 
 以下提供一些常見的錯誤案例及其解決方案：
 
-|問題|描述|方案|
+|問題|說明|解決方案|
 | --- | --- | --- |
 |當我嘗試變更密碼時，收到一個錯誤。 |您的密碼包含使密碼容易猜到的字組、片語或模式。| 請使用強度更高的密碼重試。|
 |在輸入我的使用者識別碼之後，會移至一個畫面指出「請連絡您的系統管理員」。|Microsoft 已判定您的使用者帳戶密碼會由您內部部署環境中的系統管理員所管理。 因此，您無法從 [無法存取您的帳戶] 連結重設密碼。 |請連絡您的系統管理員以獲得更多協助。|
@@ -163,10 +164,7 @@ ms.locfileid: "73160798"
 |在輸入我的使用者識別碼之後，出現了「我們無法驗證您的帳戶」錯誤。|登入程序無法驗證您的帳戶資訊。|有兩個原因會讓您看到此訊息。<br><br>1. 您的系統管理員已為您的組織開啟密碼重設，但您尚未註冊使用此服務。 若要註冊密碼重設，請根據您的驗證方法參閱下列其中一篇文章：[將安全性資訊設定為使用驗證器應用程式 (預覽)](security-info-setup-auth-app.md)、[將安全性資訊設定為使用電話 (預覽)](security-info-setup-phone-number.md)、[將安全性資訊設定為使用簡訊 (預覽)](security-info-setup-text-msg.md)、[將安全性資訊設定為使用電子郵件 (預覽)](security-info-setup-email.md) 或[將安全性資訊設定為使用安全性問題 (預覽)](security-info-setup-questions.md)。<br><br>2. 您的系統管理員尚未為您的組織開啟密碼重設。 在此情況下，您必須選取 [連絡系統管理員] 連結，以傳送電子郵件給公司的系統管理員，要求重設您的密碼。|
 
 ## <a name="next-steps"></a>後續步驟
+
 - 了解[安全性資訊 (預覽) 概觀](user-help-security-info-overview.md)一文中的安全性資訊。
 
-- 了解[雙步驟驗證概觀](user-help-two-step-verification-overview.md)一文中的雙步驟驗證。 
-
-- 如果您遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)重設密碼。
-
-- 在[無法登入 Microsoft 帳戶](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文中，取得登入問題的疑難排解秘訣和說明。
+- 如果您想要回到個人帳戶，例如 Xbox、hotmail.com 或 outlook.com，[當您無法登入您的 Microsoft 帳戶文章時](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)，請嘗試中的建議。

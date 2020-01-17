@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 01/07/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 94b8fb026b61b52e8096cf54e1db30a6c260c04b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e4f4dd3c1e23855a8a1a69dac72c232779206f1d
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109948"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121704"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>指定語音轉換文字的來來源語言
 
@@ -26,23 +26,28 @@ ms.locfileid: "74109948"
 
 ## <a name="how-to-specify-source-language-in-c"></a>如何在中指定來源語言C#
 
-第一個步驟是建立 `SpeechConfig`：
+在此範例中，會使用 `SpeechRecognizer` 結構，將原始語言明確地提供給參數。
 
 ```csharp
-var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+var recognizer = new SpeechRecognizer(speechConfig, "de-DE", audioConfig);
 ```
 
-接下來，使用 `SpeechRecognitionLanguage`來指定音訊的來來源語言：
+在此範例中，會使用 `SourceLanguageConfig`來提供來來源語言。 然後，`sourceLanguageConfig` 會當做參數傳遞至 `SpeechRecognizer` 結構。
 
 ```csharp
-speechConfig.SpeechRecognitionLanguage = "de-DE";
+var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE");
+var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-如果您使用自訂模型進行辨識，您可以指定具有 `EndpointId`的端點：
+在此範例中，會使用 `SourceLanguageConfig`來提供來來源語言和自訂端點。 然後，`sourceLanguageConfig` 會當做參數傳遞至 `SpeechRecognizer` 結構。
 
 ```csharp
-speechConfig.EndpointId = "The Endpoint ID for your custom model.";
+var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE", "The Endpoint ID for your custom model.");
+var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
+
+>[!Note]
+> `SpeechRecognitionLanguage` 和 `EndpointId` set 方法已從的 `SpeechConfig` 類別中C#淘汰。 不建議使用這些方法，而在建立 `SpeechRecognizer`時則不應使用。
 
 ::: zone-end
 
@@ -174,7 +179,7 @@ speechConfig.endpointId = @"The Endpoint ID for your custom model.";
 
 ::: zone-end
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * 如需支援的語言和語音轉換文字的地區設定清單，請參閱[語言支援](language-support.md)。
 

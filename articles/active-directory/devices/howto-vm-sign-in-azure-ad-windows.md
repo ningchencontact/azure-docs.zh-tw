@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77e24fa41c5f716460d82e1079659e6aee5e9a9b
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 0b70a475d841c3649ba9e2bcc63187fc4484a23d
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561145"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119970"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>使用 Azure Active Directory authentication （預覽）登入 Azure 中的 Windows 虛擬機器
 
@@ -48,6 +48,9 @@ ms.locfileid: "75561145"
 
 - Windows Server 2019 Datacenter
 - Windows 10 1809 和更新版本
+
+> [!IMPORTANT]
+> 只有已加入 Azure AD 的 Windows 10 電腦或混合式 Azure AD 加入與 VM**相同**的目錄，才允許從遠端連線至已加入 Azure AD 的 vm。 
 
 以下是目前在這項功能的預覽期間支援的 Azure 區域：
 

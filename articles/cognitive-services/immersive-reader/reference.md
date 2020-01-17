@@ -1,7 +1,7 @@
 ---
 title: 沉浸式讀取器 SDK 參考
 titleSuffix: Azure Cognitive Services
-description: 沉浸式讀取器 SDK 是一個 JavaScript 程式庫，可讓您將沉浸式讀取器整合到您的 web 應用程式中。
+description: 沉浸式讀取器 SDK 包含 JavaScript 程式庫，可讓您將沉浸式讀取器整合到您的應用程式中。
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 47d10f75775c49fda0effe10c32e219b3682866d
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: b20a3e6dd3b32b183bbf34dbefd76f0e4cd56b99
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945287"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156398"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>沉浸式讀取器 SDK 參考指南
 
-沉浸式讀取器 SDK 是一個 JavaScript 程式庫，可讓您將沉浸式讀取器整合到您的 web 應用程式中。
+沉浸式讀取器 SDK 包含 JavaScript 程式庫，可讓您將沉浸式讀取器整合到您的應用程式中。
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>函式
 
 SDK 會公開函式：
 
@@ -36,7 +36,7 @@ SDK 會公開函式：
 在 web 應用程式中的 `iframe` 內啟動沉浸式讀取器。
 
 ```typescript
-launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
+launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
 ```
 
 ### <a name="parameters"></a>參數
@@ -50,7 +50,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 ### <a name="returns"></a>傳回值
 
-傳回 `Promise<HTMLDivElement>`，這會在載入沉浸式讀取器時解析。 `Promise` 會解析為 `div` 專案，其唯一的子系是包含沉浸式讀取器頁面的 `iframe` 元素。
+傳回 `Promise<LaunchResponse>`，這會在載入沉浸式讀取器時解析。 `Promise` 會解析為[`LaunchResponse`](#launchresponse)物件。
 
 ### <a name="exceptions"></a>例外狀況
 
@@ -109,6 +109,17 @@ renderButtons(options?: RenderButtonsOptions): void;
 }
 ```
 
+### <a name="launchresponse"></a>LaunchResponse
+
+包含 `ImmersiveReader.launchAsync`呼叫的回應。
+
+```typescript
+{
+    container: HTMLDivElement;    // HTML element which contains the Immersive Reader iframe
+    sessionId: string;            // Globally unique identifier for this session, used for debugging
+}
+```
+
 ### <a name="cookiepolicy-enum"></a>CookiePolicy 列舉
 
 用來為沉浸式讀取器的 cookie 使用方式設定原則的列舉。 請參閱[選項](#options)。
@@ -127,6 +138,7 @@ enum CookiePolicy { Disable, Enable }
 | 應用程式/application. vnd.openxmlformats-officedocument.spreadsheetml.sheet. wordprocessingml 檔 | Microsoft Word .docx 格式檔。
 
 ### <a name="html-support"></a>HTML 支援
+
 | HTML | 支援的內容 |
 | --------- | ----------- |
 | 字型樣式 | 粗體、斜體、底線、程式碼、刪除線、上標、下標 |
@@ -186,7 +198,7 @@ enum CookiePolicy { Disable, Enable }
 
 ## <a name="launching-the-immersive-reader"></a>啟動沉浸式讀取器
 
-SDK 會為啟動沉浸式讀取器的按鈕提供預設樣式。 請使用 `immersive-reader-button` 類別屬性來啟用此樣式。
+SDK 會為啟動沉浸式讀取器的按鈕提供預設樣式。 請使用 `immersive-reader-button` 類別屬性來啟用此樣式。 如需詳細資訊，請參閱 [這篇文章](./how-to-customize-launch-button.md) 。
 
 ```html
 <div class='immersive-reader-button'></div>

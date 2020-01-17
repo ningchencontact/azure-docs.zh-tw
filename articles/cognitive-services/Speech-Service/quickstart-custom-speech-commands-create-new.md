@@ -3,19 +3,19 @@ title: 快速入門：建立自訂命令（預覽）-語音服務
 titleSuffix: Azure Cognitive Services
 description: 在本文中，您會建立並測試託管的自訂命令應用程式。
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: d8e28b88757fa7557b04ee471ede17012094bb9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4ae8f13b4887bbc41b17defa3f9a20c07ed0cb45
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446898"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155582"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>快速入門：建立自訂命令（預覽）
 
@@ -24,7 +24,7 @@ ms.locfileid: "75446898"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 語音訂用帳戶。 
+- 語音訂用帳戶。
 
 如果您沒有語音訂用帳戶，您可以流覽至[語音 Studio](https://speech.microsoft.com/)並選取 [**建立語音資源**] 來建立一個。
 
@@ -73,7 +73,7 @@ ms.locfileid: "75446898"
 
 ## <a name="update-luis-resources-optional"></a>更新 LUIS 資源（選擇性）
 
-您可以在 [新增專案] 視窗中更新撰寫資源集，並在執行時間設定用來辨識輸入的預測資源。 
+您可以在 [新增專案] 視窗中更新撰寫資源集，並在執行時間設定用來辨識輸入的預測資源。
 
 > [!NOTE]
 > 您必須先設定預測資源，應用程式才會要求預測超過撰寫資源所提供的1000要求。

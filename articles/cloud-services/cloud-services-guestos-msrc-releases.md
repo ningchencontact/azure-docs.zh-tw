@@ -10,17 +10,65 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/08/2020
+ms.date: 01/15/2020
 ms.author: raiye
-ms.openlocfilehash: 97f4283e02dd3b67df5381f78e87c3ee5b23b74e
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 85029b5f819a59ffc4934d245778044a94a18d5e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779581"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122129"
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 針對在中引進的特定[系列][family-explain]，一律會繼續進行更新。
+
+## <a name="january-2020-guest-os"></a>2020年1月的客體作業系統
+
+>[!NOTE]
+>我們目前正在將 1 月客體 OS 推展到已設定要自動更新的雲端服務 VM。 推展完成時，我們會透過 Azure 入口網站和組態檔來提供此版本，以便您可以手動更新。 下列修補程式會包含在 1 月客體 OS 中。 此清單會隨時變動。
+
+| 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| --- | --- | --- | --- | --- |
+|  Rel 20-01  |  [4532960]  |  Windows 安全性  | 2.94 | 2020年1月14日 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 2.94 | 2020年1月14日 |
+|  Rel 20-01  |  [4534314]  |  Windows 安全性  | 2.94 | 2020年1月14日 |
+|  Rel 20-01  |  [4532958]  |  Windows 安全性  | 3.81 | 2020年1月14日 |
+|  Rel 20-01  |  [4532963]  |  Windows 安全性  | 3.81 | 2020年1月14日 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 3.81 | 2020年1月14日 |
+|  Rel 20-01  |  [4534288]  |  Windows 安全性  | 3.81 | 2020年1月14日 |
+|  Rel 20-01  |  [4532961]  |  Windows 安全性  | 4.74 | 2020年1月14日 |
+|  Rel 20-01  |  [4532962]  |  Windows 安全性  | 4.74 | 2020年1月14日 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 4.74 | 2020年1月14日 |
+|  Rel 20-01  |  [4534309]  |  Windows 安全性  | 4.74 | 2020年1月14日 |
+|  Rel 20-01  |  [4494175]  |  微碼 v3  | 5.39 | 2019 年 8 月 29 日 |
+|  Rel 20-01  |  [4534271]  |  LCU  | 5.39 | 2020年1月14日 |
+|  Rel 20-01  |  [4494174]  |  微碼 v4  | 6.15 | 2019 年 8 月 29 日 |
+|  Rel 20-01  |  [4532947]  |  Windows 安全性  | 6.15 | 2020年1月14日 |
+|  Rel 20-01  |  [4534273]  |  LCU  | 6.15 | 2020年1月14日 |
+|  Rel 20-01  |  [4530734]  |  非安全性  | 2.94 | 2019年12月10日 |
+|  Rel 20-01  |  [4530691]  |  非安全性   | 3.81 | 2019年12月10日 |
+|  Rel 20-01  |  [4530702]  |  非安全性  | 4.74 | 2019年12月10日 |
+
+[4532960]: https://support.microsoft.com/kb/4532960
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534314]: https://support.microsoft.com/kb/4534314
+[4532958]: https://support.microsoft.com/kb/4532958
+[4532963]: https://support.microsoft.com/kb/4532963
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534288]: https://support.microsoft.com/kb/4534288
+[4532961]: https://support.microsoft.com/kb/4532961
+[4532962]: https://support.microsoft.com/kb/4532962
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534309]: https://support.microsoft.com/kb/4534309
+[4494175]: https://support.microsoft.com/kb/4494175
+[4534271]: https://support.microsoft.com/kb/4534271
+[4494174]: https://support.microsoft.com/kb/4494174
+[4532947]: https://support.microsoft.com/kb/4532947
+[4534273]: https://support.microsoft.com/kb/4534273
+[4530734]: https://support.microsoft.com/kb/4530734
+[4530691]: https://support.microsoft.com/kb/4530691
+[4530702]: https://support.microsoft.com/kb/4530702
+
 
 ## <a name="december-2019-guest-os"></a>2019年12月的客體作業系統
 

@@ -12,24 +12,27 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37994125f7f1a7119a8878c7edec401328fd75ca
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9cd2d712dfcc6d3f01cbdb1f4886dd64a6d299d4
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233206"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156211"
 ---
-# <a name="manage-devices-connected-to-your-work-or-school-account-from-the-devices-page"></a>從 [裝置] 頁面管理連線到工作或學校帳戶的裝置
+# <a name="manage-your-connected-devices-from-the-devices-page"></a>從 [裝置] 頁面管理已連線的裝置
 
-從 [**我的帳戶**] 入口網站的 [**裝置**] 頁面，您可以：
+[**我的帳戶**] 入口網站的 [**裝置**] 頁面可協助您管理連線到工作或學校帳戶的裝置。 從 [**裝置**] 頁面，您可以：
 
 - 查看您的工作或學校帳戶連線的裝置。
 
 - 停用不再擁有、遺失或遭竊的裝置。
 
+>[!Important]
+>本文適用于嘗試更新已連線至公司或學校帳戶之裝置資訊的使用者。 如果您是系統管理員，尋找員工和其他用途的裝置管理相關資訊，請參閱裝置身分識別[檔](https://docs.microsoft.com/azure/active-directory/devices/index)。
+
 ## <a name="view-your-connected-devices"></a>檢視已連線裝置
 
-1. 登入您的公司或學校帳戶，然後前往 https://myprofile.microsoft.com/ 頁面。
+1. 登入您的公司或學校帳戶，然後移至 **我的帳戶** （ https://myprofile.microsoft.com/)  頁面。
 
 2. 從左側瀏覽窗格選取 [裝置]，或從 [裝置] 區塊選取 [管理裝置] 連結。
 
@@ -73,3 +76,13 @@ ms.locfileid: "74233206"
 - 查看您的登[入活動](my-account-portal-sign-ins-page.md)。
 
 - 瞭解您的組織如何[使用您的隱私權相關資料](my-account-portal-privacy-page.md)。
+
+## <a name="related-office-content"></a>相關的 Office 內容
+
+- [登入以管理您的 Office 產品](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
+
+- [前往 Office [我的帳戶] 頁面](https://portal.office.com/account/#home)
+
+- [前往 Office [我的安裝] 頁面](https://portal.office.com/account/#installs)
+
+- [前往 Office [訂閱] 頁面](https://portal.office.com/account/#subscriptions)

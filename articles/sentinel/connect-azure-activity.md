@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4c451c62a16a70d85d75ee00c3e08758e27425f6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 107bbed8aea692a76f6d5bf6bbf1da26277b2c85
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749984"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156568"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>從 Azure 活動記錄連接資料
 
@@ -31,7 +31,7 @@ ms.locfileid: "75749984"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 具有全域管理員或安全性系統管理員許可權的使用者
+- 具有 Log Analytics 工作區參與者許可權的使用者 
 
 
 ## <a name="connect-to-azure-activity-log"></a>連接到 Azure 活動記錄

@@ -3,12 +3,12 @@ title: 部署模式
 description: 說明如何指定是否要透過 Azure Resource Manager 使用完整或累加部署模式。
 ms.topic: conceptual
 ms.date: 12/23/2019
-ms.openlocfilehash: f5a6f6416240ce512167e779c086d2665771c3f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dc5446c56c92b61016563995ebc4c884d48e2419
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484749"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152386"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 部署模式
 
@@ -26,16 +26,16 @@ ms.locfileid: "75484749"
 
 如果您[在範本中部署到一個以上的資源群組](cross-resource-group-deployment.md)，部署作業中指定的資源群組中的資源就有資格刪除。 不會刪除次要資源群組中的資源。
 
-資源類型處理完整模式刪除的方式有一些差異。 當不在以完整模式部署的範本中時，將自動刪除父代資源。 當不在範本中時，不會自動刪除某些子系資源。 不過，如果刪除父資源，則會刪除這些子資源。 
+資源類型處理完整模式刪除的方式有一些差異。 當不在以完整模式部署的範本中時，將自動刪除父代資源。 當不在範本中時，不會自動刪除某些子系資源。 不過，如果刪除父資源，則會刪除這些子資源。
 
-例如，如果您的資源群組包含 DNS 區域 (Microsoft.Network/dnsZones 資源類型) 和 CNAME 記錄 (Microsoft.Network/dnsZones/CNAME 資源類型)，則 DNS 區域是 CNAME 記錄的父代資源。 如果您使用完整模式部署，且範本中不包含 DNS 區域，則 DNS 區域和 CNAME 記錄都將同時刪除。 如果您在範本中包含 DNS 區域，但未包含 CNAME 記錄，則不會刪除 CNAME。 
+例如，如果您的資源群組包含 DNS 區域 (Microsoft.Network/dnsZones 資源類型) 和 CNAME 記錄 (Microsoft.Network/dnsZones/CNAME 資源類型)，則 DNS 區域是 CNAME 記錄的父代資源。 如果您使用完整模式部署，且範本中不包含 DNS 區域，則 DNS 區域和 CNAME 記錄都將同時刪除。 如果您在範本中包含 DNS 區域，但未包含 CNAME 記錄，則不會刪除 CNAME。
 
 如需資源類型如何處理刪除的清單，請參閱[刪除完整模式部署的 Azure 資源](complete-mode-deletion.md)。
 
 如果資源群組已[鎖定](../management/lock-resources.md)，[完成] 模式不會刪除資源。
 
 > [!NOTE]
-> 只有根層級範本支援完整部署模式。 針對[連結或巢狀的範本](linked-templates.md)，您必須使用累加模式。 
+> 只有根層級範本支援完整部署模式。 針對[連結或巢狀的範本](linked-templates.md)，您必須使用累加模式。
 >
 > [訂用帳戶層級部署](deploy-to-subscription.md)不支援完整模式。
 >
@@ -105,9 +105,9 @@ az group deployment create \
 ```json
 "resources": [
   {
+      "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
-      "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
           <nested-template-or-external-template>

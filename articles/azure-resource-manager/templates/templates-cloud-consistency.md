@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 7065d5e9cae9e0a06eab82bd982693a1ad1d8fba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c69c90410aab7fa37ab87e82314c53e4459ca25
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483774"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155650"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>開發針對雲端一致性的 Azure Resource Manager 範本
 
@@ -22,7 +22,7 @@ Azure 的主要優點在於一致性。 對某個位置的開發投資可重複�
 Microsoft 在許多位置提供符合企業需求的智慧型雲端服務，包括：
 
 * Microsoft 受控之全球各區域資料中心中不斷成長的網路，支援全球 Azure 平台。
-* 隔離式主權雲端，如 Azure 德國、Azure Government 和 Azure 中國 (21Vianet 所操作的 Azure)。 主權雲端提供一致的平台和大多數全球 Azure 客戶都能存取的相同絕佳功能。
+* 獨立的主權雲端，例如 Azure 德國、Azure Government 和 Azure 中國世紀。 主權雲端提供一致的平台和大多數全球 Azure 客戶都能存取的相同絕佳功能。
 * Azure Stack 是混合式雲端平台，可讓您從貴組織的資料中心提供 Azure 服務。 企業可以在自己的資料中心設定 Azure Stack，或從服務提供者取用 Azure 服務，在其設備 (有時稱為代管區域) 中執行 Azure Stack。
 
 在所有這些雲端的核心，Azure Resource Manager 提供一個 API 讓各種不同的使用者介面都能與 Azure 平台通訊。 此 API 提供您強大的基礎結構即程式碼功能。 您可以使用 Azure Resource Manager 在 Azure 雲端平台上部署並設定任何類型的可用資源。 使用單一範本，您可以將完成的應用程式部署及設定成作業結束狀態。
@@ -47,9 +47,9 @@ Microsoft 在許多位置提供符合企業需求的智慧型雲端服務，包�
 
 Resource Manager 範本的基本語法是 JSON。 範本使用 JSON 的超集，擴展運算式和函式的語法。 範本語言處理器經常更新，以支援額外的範本函式。 如需可用範本函式的詳細說明，請參閱 [Azure Resource Manager 範本函式](template-functions.md)。
 
-Azure Resource Manager 中引入的新範本函式，不能立即提供主權雲端或 Azure Stack 使用。 若要成功部署範本，範本中參考的所有函式都必須能在目標雲端中使用。 
+Azure Resource Manager 中引入的新範本函式，不能立即提供主權雲端或 Azure Stack 使用。 若要成功部署範本，範本中參考的所有函式都必須能在目標雲端中使用。
 
-Azure Resource Manager 功能一律先引入全球 Azure。 您可以使用下列 PowerShell 指令碼確認 Azure Stack 是否可以使用新引入的範本函式： 
+Azure Resource Manager 功能一律先引入全球 Azure。 您可以使用下列 PowerShell 指令碼確認 Azure Stack 是否可以使用新引入的範本函式：
 
 1. 建立 GitHub 存放庫的複製品：[https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions)。
 
@@ -69,7 +69,7 @@ Azure Resource Manager 功能一律先引入全球 Azure。 您可以使用下�
 
 ## <a name="working-with-linked-artifacts"></a>使用連結的成品
 
-範本可以包含已連結成品的參考，並包含連結至另一個範本的部署資源。 Resource Manager 會在執行階段擷取連結的範本 (也稱為巢狀範本)。 範本也可以包含虛擬機器 (VM) 延伸模組成品的參考。 這些成品是由 VM 延伸模組所擷取，此延伸模組於部署範本期間，在設定 VM 延伸模組的 VM 內執行。 
+範本可以包含已連結成品的參考，並包含連結至另一個範本的部署資源。 Resource Manager 會在執行階段擷取連結的範本 (也稱為巢狀範本)。 範本也可以包含虛擬機器 (VM) 延伸模組成品的參考。 這些成品是由 VM 延伸模組所擷取，此延伸模組於部署範本期間，在設定 VM 延伸模組的 VM 內執行。
 
 以下各節會描述在開發包含主部署範本外部成品的範本時，雲端一致性的考量。
 
@@ -82,9 +82,9 @@ Azure Resource Manager 功能一律先引入全球 Azure。 您可以使用下�
 ```json
 "resources": [
   {
+     "type": "Microsoft.Resources/deployments",
      "apiVersion": "2017-05-10",
      "name": "linkedTemplate",
-     "type": "Microsoft.Resources/deployments",
      "properties": {
        "mode": "incremental",
        "templateLink": {
@@ -100,9 +100,9 @@ Azure Resource Manager 在執行階段評估主要範本，然後擷取並評估
 
 ### <a name="make-linked-templates-accessible-across-clouds"></a>讓連結的範本能跨雲端存取
 
-考慮在哪裡以及如何儲存您使用的所有範本。 Azure Resource Manager 會在執行階段擷取任何連結的範本，因此需要直接存取連結的範本。 常見做法是使用 GitHub 儲存巢狀範本。 GitHub 存放庫可以包含透過 URL 公開存取的檔案。 雖然這項技術在公用雲端和主權雲端運作良好，但 Azure Stack 環境可能位於公司網路或中斷連線的遠端位置，沒有任何連外的網際網路存取。 在這些情況下，Azure Resource Manager 會無法擷取巢狀範本。 
+考慮在哪裡以及如何儲存您使用的所有範本。 Azure Resource Manager 會在執行階段擷取任何連結的範本，因此需要直接存取連結的範本。 常見做法是使用 GitHub 儲存巢狀範本。 GitHub 存放庫可以包含透過 URL 公開存取的檔案。 雖然這項技術在公用雲端和主權雲端運作良好，但 Azure Stack 環境可能位於公司網路或中斷連線的遠端位置，沒有任何連外的網際網路存取。 在這些情況下，Azure Resource Manager 會無法擷取巢狀範本。
 
-跨雲端部署的較佳做法是將您的連結範本儲存在可供目標雲端存取的位置。 理想的情況是，所有部署成品都是在持續整合/持續開發 (CI/CD) 管線中維護，並由此部署。 或者，您可以將巢狀範本儲存在 Blob 儲存體容器中，Azure Resource Manager 從容器擷取範本。 
+跨雲端部署的較佳做法是將您的連結範本儲存在可供目標雲端存取的位置。 理想的情況是，所有部署成品都是在持續整合/持續開發 (CI/CD) 管線中維護，並由此部署。 或者，您可以將巢狀範本儲存在 Blob 儲存體容器中，Azure Resource Manager 從容器擷取範本。
 
 因為每個雲端上的 Blob 儲存體使用不同的端點完整網域名稱 (FQDN)，以有兩個參數的連結範本位置設定範本。 參數可以在部署期間接受使用者輸入。 範本通常是由很多人撰寫與共用，因此最佳做法是使用這些參數的標準名稱。 命名慣例更有助於跨區域、雲端和作者重複使用範本。
 
@@ -132,9 +132,9 @@ Azure Resource Manager 在執行階段評估主要範本，然後擷取並評估
 ```json
 "resources": [
   {
-    "name": "shared",
     "type": "Microsoft.Resources/deployments",
     "apiVersion": "2015-01-01",
+    "name": "shared",
     "properties": {
       "mode": "Incremental",
       "templateLink": {
@@ -150,7 +150,7 @@ Azure Resource Manager 在執行階段評估主要範本，然後擷取並評估
 
 ### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>使用 _artifactsLocation 而非硬式編碼連結
 
-除了用於巢狀範本，`_artifactsLocation` 參數中的 URL 還用為部署範本之所有相關成品的基底。 一些 VM 延伸模組包含儲存在範本外部的指令碼連結。 您不應該為這些延伸模組硬式編碼連結。 例如，自訂指令碼和 PowerShell DSC 延伸模組可連結至 GitHub 上的外部指令碼，如下所示： 
+除了用於巢狀範本，`_artifactsLocation` 參數中的 URL 還用為部署範本之所有相關成品的基底。 一些 VM 延伸模組包含儲存在範本外部的指令碼連結。 您不應該為這些延伸模組硬式編碼連結。 例如，自訂指令碼和 PowerShell DSC 延伸模組可連結至 GitHub 上的外部指令碼，如下所示：
 
 ```json
 "properties": {
@@ -215,7 +215,7 @@ Resource Manager 會在執行階段擷取巢狀範本。 在 VM 延伸模組，�
 
 範本會部署與設定資源。 資源類型是由資源提供者提供。 例如，計算資源提供者 (Microsoft.Compute) 提供多種資源類型，例如 virtualMachines 和 availabilitySets。 每個資源提供者都會向 Azure Resource Manager 提供通用合約定義的 API，讓所有的資源提供者都能獲得一致統一的撰寫體驗。 不過，全球 Azure 提供的資源提供者可能無法在主權雲端或 Azure Stack 區域中使用。
 
-![資源提供者](./media/templates-cloud-consistency/resource-providers.png) 
+![資源提供者](./media/templates-cloud-consistency/resource-providers.png)
 
 若要確認指定的雲端是否可以使用資源提供者，請在 Azure 命令列介面中 ([CLI](/cli/azure/install-azure-cli)) 執行下列程式碼：
 
@@ -253,7 +253,7 @@ Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty Re
 
 即使您可以在範本中指定資源屬性時硬式編碼區域名稱，但這種方法並不能保證可將範本部署到其他 Azure Stack 環境，因為那裡很可能沒有區域名稱。
 
-請將輸入參數位置新增至具有預設值的範本，以容納不同的區域。 如果在部署期間未指定任何值，則會使用預設值。 
+請將輸入參數位置新增至具有預設值的範本，以容納不同的區域。 如果在部署期間未指定任何值，則會使用預設值。
 
 範本函式 `[resourceGroup()]` 會傳回包含下列索引鍵/值組的物件：
 
@@ -284,9 +284,9 @@ Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty Re
 },
 "resources": [
   {
-    "name": "storageaccount1",
     "type": "Microsoft.Storage/storageAccounts",
     "apiVersion": "2015-06-15",
+    "name": "storageaccount1",
     "location": "[parameters('location')]",
     ...
 ```
@@ -301,40 +301,40 @@ Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty Re
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "metadata": {
-                "description": "Location the resources will be deployed to."
-            },
-            "defaultValue": "[resourceGroup().location]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "metadata": {
+          "description": "Location the resources will be deployed to."
+      },
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
+      "name": "mystorageaccount",
+      "location": "[parameters('location')]",
+      "properties": {
+        "accountType": "Standard_LRS"
+      }
     },
-    "variables": {},
-    "resources": [
-        {
-            "name": "mystorageaccount",
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2016-01-01",
-            "location": "[parameters('location')]",
-            "properties": {
-                "accountType": "Standard_LRS"
-            }
-        },
-        {
-            "name": "myavailabilityset",
-            "type": "Microsoft.Compute/availabilitySets",
-            "apiVersion": "2016-03-30",
-            "location": "[parameters('location')]",
-            "properties": {
-                "platformFaultDomainCount": 2,
-                "platformUpdateDomainCount": 2
-            }
-        }
-    ],
-    "outputs": {}
+    {
+      "type": "Microsoft.Compute/availabilitySets",
+      "apiVersion": "2016-03-30",
+      "name": "myavailabilityset",
+      "location": "[parameters('location')]",
+      "properties": {
+        "platformFaultDomainCount": 2,
+        "platformUpdateDomainCount": 2
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -357,16 +357,16 @@ API 設定檔版本的作用為依據 Azure 和 Azure Stack 通用資源類型�
     "variables": {},
     "resources": [
         {
-            "name": "mystorageaccount",
             "type": "Microsoft.Storage/storageAccounts",
+            "name": "mystorageaccount",
             "location": "[parameters('location')]",
             "properties": {
                 "accountType": "Standard_LRS"
             }
         },
         {
-            "name": "myavailabilityset",
             "type": "Microsoft.Compute/availabilitySets",
+            "name": "myavailabilityset",
             "location": "[parameters('location')]",
             "properties": {
                 "platformFaultDomainCount": 2,
@@ -399,17 +399,17 @@ API 設定檔不是範本中的必要項目。 即使您新增項目，它也只
     "variables": {},
     "resources": [
         {
-            "name": "mystorageaccount",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2016-01-01",
+            "name": "mystorageaccount",
             "location": "[parameters('location')]",
             "properties": {
                 "accountType": "Standard_LRS"
             }
         },
         {
-            "name": "myavailabilityset",
             "type": "Microsoft.Compute/availabilitySets",
+            "name": "myavailabilityset",
             "location": "[parameters('location')]",
             "properties": {
                 "platformFaultDomainCount": 2,
@@ -423,7 +423,7 @@ API 設定檔不是範本中的必要項目。 即使您新增項目，它也只
 
 ## <a name="check-endpoint-references"></a>檢查端點參考
 
-資源可以參考平台上的其他服務。 例如，公用 IP 可以獲指派公用 DNS 名稱。 公用雲端、主權雲端和 Azure Stack 解決方案可有自己的不同端點命名空間。 在大部分情況下，資源在範本中只需要有前置詞作為輸入。 在執行階段，Azure Resource Manager 會將端點值附加在其後。 範本中必須明確指定某些端點值。 
+資源可以參考平台上的其他服務。 例如，公用 IP 可以獲指派公用 DNS 名稱。 公用雲端、主權雲端和 Azure Stack 解決方案可有自己的不同端點命名空間。 在大部分情況下，資源在範本中只需要有前置詞作為輸入。 在執行階段，Azure Resource Manager 會將端點值附加在其後。 範本中必須明確指定某些端點值。
 
 > [!NOTE]
 > 若要針對雲端一致性開發範本，請不要硬式編碼端點命名空間。
@@ -444,7 +444,7 @@ API 設定檔不是範本中的必要項目。 即使您新增項目，它也只
 在範本中，一般會避免硬式編碼的端點。 最佳做法是使用參考範本函式動態擷取端點。 例如，最常見的硬式編碼端點是儲存體帳戶的端點命名空間。 每個儲存體帳戶都有唯一的 FQDN，透過串連儲存體帳戶的名稱和端點命名空間所建構。 名為 mystorageaccount1 的 Blob 儲存體帳戶會導致不同的 FQDN，視雲端而定：
 
 * 在全球 Azure 雲端上建立時，**mystorageaccount1.Blob.core.windows.net**。
-* 在 Azure 中國雲端中建立時為 **mystorageaccount1.Blob.core.chinacloudapi.cn**。
+* 在 Azure 中國世紀雲端中建立時的**mystorageaccount1.blob.core.chinacloudapi.cn** 。
 
 下列參考範本函式會從儲存體資源提供者擷取端點命名空間：
 
@@ -456,7 +456,7 @@ API 設定檔不是範本中的必要項目。 即使您新增項目，它也只
 
 ### <a name="refer-to-existing-resources-by-unique-id"></a>依唯一的識別碼參考現有的資源
 
-您也可以參考同一雲端之相同租用戶中，相同或另一個訂用帳戶內相同或另一個資源群組中的現有資源。 若要擷取資源屬性，您必須使用資源本身的唯一識別碼。 `resourceId` 範本函式會擷取 SQL Server 等資源的唯一識別碼，如下列程式碼所示： 
+您也可以參考同一雲端之相同租用戶中，相同或另一個訂用帳戶內相同或另一個資源群組中的現有資源。 若要擷取資源屬性，您必須使用資源本身的唯一識別碼。 `resourceId` 範本函式會擷取 SQL Server 等資源的唯一識別碼，如下列程式碼所示：
 
 ```json
 "outputs": {
@@ -602,8 +602,8 @@ Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageTy
 
 ```json
 {
-    "apiVersion": "2015-06-15",
     "type": "Microsoft.Compute/virtualMachines/extensions",
+    "apiVersion": "2015-06-15",
     "name": "myExtension",
     "location": "[parameters('location')]",
     ...
@@ -627,9 +627,9 @@ Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Obje
 
 ```json
 {
-    "name": "MyCustomScriptExtension",
     "type": "extensions",
     "apiVersion": "2016-03-30",
+    "name": "MyCustomScriptExtension",
     "location": "[parameters('location')]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/myVM', copyindex())]"
@@ -638,7 +638,7 @@ Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Obje
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
         "typeHandlerVersion": "1.7",
-        ...   
+        ...
 ```
 
 若要擷取特定 VM 延伸模組的可用版本清單，請使用 [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) Cmdlet。 下列範例會從 **myLocation** 擷取 PowerShell DSC (預期狀態設定) VM 延伸模組的可用版本：
@@ -655,12 +655,12 @@ Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerS
 
 下圖顯示使用整合式開發環境 (IDE) 之小組的開發程序典型範例。 在時間軸的不同階段，會執行不同的測試類型。 在這裡，兩名開發人員處理相同的解決方案，而此案例既適用於一位開發人員也適用於大型小組。 每位開發人員一般都會建立中央存放庫的本機複本，讓每個人都能在本機複本上工作，但不影響可能要使用相同檔案的其他人。
 
-![工作流程](./media/templates-cloud-consistency/workflow.png) 
+![工作流程](./media/templates-cloud-consistency/workflow.png)
 
 請考慮下列測試和自動化祕訣：
 
 * 請務必使用測試工具。 例如，包含 IntelliSense 和其他功能的 Visual Studio Code 和 Visual Studio，可協助您驗證您的範本。
-* 若要在本機 IDE 開發期間改善程式碼品質，請使用單元測試和整合測試來執行靜態程式碼分析。 
+* 若要在本機 IDE 開發期間改善程式碼品質，請使用單元測試和整合測試來執行靜態程式碼分析。
 * 為在初始開發期間取得更好的體驗，單元測試和整合測試應該只在找到問題和繼續進行測試時提出警告。 如此一來，您可以找出問題來加以解決，並決定變更的優先處理順序，也稱為測試導向部署 (TDD)。
 * 請注意，某些測試可以不必連線至 Azure Resource Manager 執行。 其他測試，例如測試範本部署，則需要 Resource Manager 執行某些無法離線執行的動作。
 * 針對驗證 API 測試部署範本不等於實際部署。 而且，即使您部署來自本機檔案的範本，所有對範本中巢狀範本的參考都是由 Resource Manager 直接擷取，而 VM 延伸模組參考的成品是由在已部署 VM 內執行的 VM 代理程式所擷取。

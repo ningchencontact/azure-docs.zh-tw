@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b413fd7efe865f1dc2062a8f2dcfae983ec2f27a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 0e613dd1c47a9942d95bd668f1e9f85e42649b5c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771916"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122367"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 版本資訊
 
@@ -1488,7 +1488,7 @@ Azure Machine Learning 現在已正式推出。
 + ML 管線
   + 適用於開始使用管線、批次範圍和樣式移轉範例之全新和更新的 Notebook： https://aka.ms/aml-pipeline-notebooks
   + 了解如何[建立您的第一個管線](how-to-create-your-first-pipeline.md)
-  + 了解如何[使用管線執行批次預測](how-to-run-batch-predictions.md)
+  + 了解如何[使用管線執行批次預測](how-to-use-parallel-run-step.md)
 + Azure Machine Learning 計算目標
   + [範例 Notebook](https://aka.ms/aml-notebooks) 現在已更新為使用新的受控計算。
   + [了解這個計算](how-to-set-up-training-targets.md#amlcompute)。

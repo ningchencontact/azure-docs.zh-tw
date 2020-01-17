@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 30990c3d1e3f885e8984227425d3e8e5c44b9286
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6f2db91a35573bc2cbdd0df2cb1ac09914cc956b
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927485"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122639"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>使用 Azure Data Factory 將資料從 Amazon S3 遷移至 Azure 儲存體 
 
@@ -47,7 +47,7 @@ ADF 提供無伺服器架構，允許不同層級的平行處理原則，讓開�
 
 在單一複製活動執行中，ADF 具有內建的重試機制，因此它可以處理資料存放區或基礎網路中特定層級的暫時性失敗。 
 
-進行從 S3 到 Blob 的二進位複製，以及從 S3 複製到 ADLS Gen2 時，ADF 會自動執行檢查點。  如果複製活動執行失敗或已超時，後續重試（請務必重試計數 > 1），複製會從最後一個失敗點繼續，而不是從開頭開始。 
+進行從 S3 到 Blob 的二進位複製，以及從 S3 複製到 ADLS Gen2 時，ADF 會自動執行檢查點。  如果複製活動執行失敗或超時，則在後續的重試中，複製會從最後一個失敗點繼續，而不是從開頭開始。 
 
 ## <a name="network-security"></a>網路安全性 
 
@@ -86,7 +86,7 @@ ADF 提供無伺服器架構，允許不同層級的平行處理原則，讓開�
 
 ### <a name="initial-snapshot-data-migration"></a>初始快照集資料移轉 
 
-當遷移超過 10 TB 的資料時，建議使用資料分割。  若要分割資料，請利用 [前置詞] 設定來依名稱篩選 Amazon S3 中的資料夾和檔案，然後每個 ADF 複製作業一次只能複製一個分割區。  您可以同時執行多個 ADF 複製工作，以獲得更好的輸送量。 
+當遷移超過 100 TB 的資料時，建議使用資料分割。  若要分割資料，請利用 [前置詞] 設定來依名稱篩選 Amazon S3 中的資料夾和檔案，然後每個 ADF 複製作業一次只能複製一個分割區。  您可以同時執行多個 ADF 複製工作，以獲得更好的輸送量。 
 
 如果有任何複製作業因為網路或資料存放區暫時性問題而失敗，您可以重新執行失敗的複製作業，從 AWS S3 重新載入該特定的分割區。  載入其他分割區的所有其他複製作業都不會受到影響。 
 

@@ -17,6 +17,8 @@
   items:
     - name: 啟動沈浸式閱讀程式 (Python)
       href: tutorial-python.md
+    - name: 使用多個沉浸式讀取器資源
+      href: tutorial-multiple-resources.md
 - name: 作法
   items:
     - name: 建立沉浸式讀取器資源

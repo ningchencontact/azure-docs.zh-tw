@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0738e56cf6760a356b6e2b6db76f2dc3f6f157ee
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 74d209adf745d1a3c319ef6567b2a7818a5fd514
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763159"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152251"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>針對 Azure 認知搜尋中的常見索引子錯誤和警告進行疑難排解
 
@@ -171,6 +171,18 @@ ms.locfileid: "75763159"
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>錯誤：無法處理索引子執行時間上限中的檔
 
 當索引子無法在允許的執行時間內從資料來源完成處理單一檔時，就會發生這個錯誤。 使用技能集時，[執行時間上限](search-limits-quotas-capacity.md#indexer-limits)較短。 當此錯誤發生時，如果您將 maxFailedItems 設定為0以外的值，則索引子會在未來執行時略過檔，讓索引可以進行。 如果您無法承受略過任何檔，或如果您一直看到此錯誤，請考慮將檔分解成較小的檔，以便在單一索引子執行中進行部分進度。
+
+<a name="could-not-project-document"/>
+
+## <a name="error-could-not-project-document"></a>錯誤：無法投影檔
+
+當索引子嘗試將[資料投影到知識存放區](knowledge-store-projection-overview.md)，而且嘗試執行這項作業失敗時，就會發生此錯誤。  這項失敗可能是一致且可修復的，或可能是暫時性的失敗，而且需要等候並重試才能解決的預測輸出接收。  以下是一組已知的失敗狀態和可能的解決方法。
+
+| 原因 | 詳細資料/範例 | 解析度 |
+| --- | --- | --- |
+| 無法更新容器 `'containerName'` 中的投射 blob `'blobUri'` |指定的容器不存在。 | 索引子會檢查先前是否已建立指定的容器，並在必要時建立它，但它只會在每個索引子執行時執行此檢查一次。 此錯誤表示某個專案在此步驟之後刪除了容器。  若要解決此錯誤，請嘗試：單獨保留您的儲存體帳戶資訊，等待索引子完成，然後重新執行索引子。 |
+| 無法更新容器 `'containerName'` 中的投射 blob `'blobUri'` |無法將資料寫入傳輸連線：遠端主機已強制關閉現有的連接。 | 這應該是 Azure 儲存體的暫時性失敗，因此應該藉由重新執行索引子來解決。 如果您一直遇到此錯誤，請提出[支援票證](https://ms.portal.azure.com/#create/Microsoft.Support)，以便進一步調查。  |
+| 無法更新資料表 `'tableName'` 中的資料列 `'projectionRow'` | 伺服器忙碌中。 | 這應該是 Azure 儲存體的暫時性失敗，因此應該藉由重新執行索引子來解決。 如果您一直遇到此錯誤，請提出[支援票證](https://ms.portal.azure.com/#create/Microsoft.Support)，以便進一步調查。  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 

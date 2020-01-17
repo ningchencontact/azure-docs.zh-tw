@@ -12,29 +12,30 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0b8a5a8ac4132c998567f956f3171db06a9ca53
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1ab01f5427401bd129fa84f9a5dd1a4d3f8dc77d
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231852"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156194"
 ---
-# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>從 [組織] 頁面管理連線到工作或學校帳戶的組織
+# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>從 [組織] 頁面管理已連線的組織
 
-您可以從 [**我的帳戶**] 入口網站的 [**組織**] 頁面管理您的組織。
-
-**組織**頁面上顯示兩種組織：
+[**我的帳戶**] 入口網站的 [**組織**] 頁面可協助您管理連線到工作或學校帳戶的組織（通常是您的組織名稱）。 **組織**頁面上顯示兩種組織：
 
 - **主要組織**。 您的主要組織是擁有公司或學校帳戶的組織。 您無法離開主要組織。
-
-- **其他組織**。 其他組織是您先前使用公司或學校帳戶登入的任何群組。 您可以隨時離開這些組織。
 
     >[!NOTE]
     > 如果您沒有指派的主要組織，您只會看到一個標題，告訴組織有相關聯組織的清單。
 
+- **其他組織**。 其他組織是您先前使用公司或學校帳戶登入的任何群組。 您可以隨時離開這些組織。
+
+>[!Important]
+>本文適用于嘗試更新已連線至公司或學校帳戶之組織資訊的使用者。 如果您是系統管理員，尋找員工和其他用途的群組和使用者管理的相關資訊，請參閱[企業使用者管理檔](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index)。
+
 ## <a name="view-your-organizations"></a>檢閱您的組織
 
-1. 登入您的公司或學校帳戶，然後前往 https://myprofile.microsoft.com/ 頁面。
+1. 登入您的公司或學校帳戶，然後移至 **我的帳戶** （ https://myprofile.microsoft.com/)  頁面。
 
 2. 從左側瀏覽窗格選取 [組織]，或從 [組織] 區塊選取 [管理組織] 連結。
 
@@ -53,7 +54,7 @@ ms.locfileid: "74231852"
 >[!Important]
 >如果您不小心從組織離開，將無法復原。 您必須等候該組織的系統管理員再次邀請您。
 
-1. 選取您想要離開的組織旁邊的 [**保留組織**]，然後選取 [**保留**] 以確認您想要離開。
+- 選取您想要離開的組織旁邊的 [**保留組織**]，然後選取 [**保留**] 以確認您想要離開。
 
     ![組織頁面醒目提示離開組織的連結](media/my-account-portal/my-account-portal-organizations-leave.png)
 

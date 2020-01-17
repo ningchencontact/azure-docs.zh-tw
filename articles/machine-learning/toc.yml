@@ -310,15 +310,9 @@
         - name: 即時取用
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: 執行批次預測
-          displayName: score scoring batch consume pipeline parallelrunstep inference
-          href: how-to-run-batch-predictions.md
         - name: 設計工具批次預測
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
           href: how-to-run-batch-predictions-designer.md
-        - name: 針對批次預測進行偵錯和疑難排解
-          displayName: debug_batch consume pipeline parallelrunstep inference
-          href: how-to-debug-batch-predictions.md
     - name: 監視模型
       items:
         - name: 收集和評估模型資料
@@ -343,6 +337,12 @@
         - name: 設計工具：使用已發佈的管線重新定型
           displayName: 'retrain, designer, published pipeline'
           href: how-to-retrain-designer.md
+        - name: 使用平行執行步驟
+          displayName: score scoring batch consume pipeline parallelrunstep inference
+          href: how-to-use-parallel-run-step.md
+        - name: 針對平行執行步驟進行偵錯和疑難排解
+          displayName: debug_batch consume pipeline parallelrunstep inference
+          href: how-to-debug-parallel-run-step.md
     - name: 管理資源配額
       displayName: limits
       href: how-to-manage-quotas.md
@@ -381,7 +381,7 @@
       href: azure-machine-learning-release-notes.md
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: 區域可用性
       href: 'https://azure.microsoft.com/regions/services/'

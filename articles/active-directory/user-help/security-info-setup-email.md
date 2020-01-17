@@ -12,27 +12,41 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dafa78e6f46a3d2d6b7a9c505defaeae21875946
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 82bbdd7f209b2ce22225628416a07524c62f1484
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279011"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156160"
 ---
 # <a name="set-up-an-email-address-as-your-verification-method"></a>設定電子郵件地址做為您的驗證方法
 
 您可以遵循下列步驟來新增密碼重設方法。 在您首次將此設定好之後，即可返回 [安全性資訊] 頁面來新增、更新或刪除安全性資訊。
 
-在設定密碼重設方法之後，您還必須設定使用[驗證器應用程式](security-info-setup-auth-app.md)、[簡訊](security-info-setup-text-msg.md)或[電話](security-info-setup-phone-number.md)的雙因素驗證方法。
-
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+>[!Note]
+>如果您看不到電子郵件選項，可能是您的組織不允許您將此選項用於您的密碼重設方法。 在此情況下，您必須選擇其他方法，或洽詢貴組織的技術支援人員以取得更多協助。
+
+## <a name="security-vs-password-reset-verification"></a>安全性與密碼重設驗證
+
+安全性資訊方法可用於雙因素安全性驗證和密碼重設。 不過，並非所有方法都同時適用於這兩者。
+
+| 方法 | 用於 |
+| ------ | -------- |
+| 驗證器應用程式 | 雙因素驗證與密碼重設驗證。 |
+| 簡訊 | 雙因素驗證與密碼重設驗證。 |
+| 電話 | 雙因素驗證與密碼重設驗證。 |
+| 安全性金鑰 | 雙因素驗證與密碼重設驗證。 |
+| 電子郵件帳戶 | 僅適用於密碼重設驗證。 您必須選擇另一種方法來進行雙因素驗證。 |
+| 安全性問題 | 僅適用於密碼重設驗證。 您必須選擇另一種方法來進行雙因素驗證。 |
 
 ## <a name="set-up-your-email-address-from-the-security-info-page"></a>從安全性資訊頁面設定電子郵件地址
 
 根據組織的設定，您或許可以使用電子郵件地址來作為其中一個安全性資訊方法。
 
 >[!Note]
->建議使用不需要您的網路密碼即可存取的電子郵件地址。 如果您沒有看到電子郵件選項，很可能是您的組織不允許您使用電子郵件進行驗證。 如果發生這種情況，您必須選擇其他方法，或連絡您的系統管理員以取得更多協助。
+>建議使用不需要您的網路密碼即可存取的電子郵件地址。 如果您沒有看到電子郵件選項，很可能是您的組織不允許您使用電子郵件進行驗證。 如果發生這種情況，您將必須選擇其他方法，或連絡您的系統管理員以取得更多協助。
 
 ### <a name="to-set-up-your-email-address"></a>設定電子郵件地址
 
@@ -42,7 +56,7 @@ ms.locfileid: "74279011"
 
 2. 以左側瀏覽窗格或是 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後在 [安全性資訊] 頁面選取 [新增方法]。
 
-    ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![醒目提示 [新增方法] 選項的 [安全性資訊] 頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. 在 [新增方法] 頁面上，從下拉式清單中選取 [電子郵件]，然後選取 [新增]。
 

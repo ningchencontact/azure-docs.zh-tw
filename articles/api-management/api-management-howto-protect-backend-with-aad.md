@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 36b4b597ae70642fee8726555ea71b5164c13cca
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 771257df12ee29c2bc8d32672c8e8b7d039a96ba
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889375"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120804"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>使用 OAuth 2.0 搭配 Azure Active Directory 與 API 管理來保護 API
 
@@ -207,6 +207,8 @@ ms.locfileid: "75889375"
     </required-claims>
 </validate-jwt>
 ```
+> [!NOTE]
+> 此 `openid-config` URL 會對應至 v1 端點。 針對 v2 `openid-config`端點，請使用 `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`。
 
 ## <a name="build-an-application-to-call-the-api"></a>建置應用程式來呼叫 API
 

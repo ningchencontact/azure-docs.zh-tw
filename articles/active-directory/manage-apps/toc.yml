@@ -139,8 +139,8 @@
               href: configure-linked-sign-on.md
         - name: 指派使用者和管理應用程式存取
           items:
-            - name: 設定使用者同意
-              href: configure-user-consent.md
+            - name: 管理和評估同意要求
+              href: manage-consent-requests.md
             - name: 授與全租用戶管理員同意
               href: grant-admin-consent.md
             - name: 設定管理員同意工作流程 (預覽)
@@ -417,7 +417,7 @@
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: MSDN 論壇
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/active-directory'
     - name: 服務更新
       href: 'https://azure.microsoft.com/updates/?product=active-directory'

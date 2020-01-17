@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/8/2020
+ms.date: 1/15/2020
 ms.author: raiye
-ms.openlocfilehash: dd148a4dd454e2ebebcb6b9befc576570ecb0352
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 1139e2b26cdc1dee524b1d3b6a942c735c43aec7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778204"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122240"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 客體 OS 版次與 SDK 相容性矩陣
 提供適用於雲端服務的最新 Azure 客體作業系統版次的最新資訊。 此資訊協助您在客體 OS停用之前規劃升級路徑。 如果您設定角色來使用「自動化」 客體 OS 更新，如 [Azure 客體 OS 更新設定][Azure Guest OS Update Settings]所述，則不一定要閱讀此頁面。
@@ -214,9 +214,9 @@ ms.locfileid: "75778204"
 
 | 組態字串 | 發行日期 | 停用日期 |
 | --- | --- | --- |
-| WA-來賓-OS-2.94 _201912-01 | 2020年1月8日 | 文章2.95 |  
-| WA-來賓-OS-2.93 _201911-01 | 2019年12月5日 | 文章2.94 |  
-|~ WA-來賓-OS-2.91 _201910-01 ~| 2019 年 11 月 1 日 | 2020年1月8日 |  
+| WA-來賓-OS-2.93 _201912-01 | 2020年1月8日 | 文章2.95 |  
+| WA-來賓-OS-2.92 _201911-01 | 2019年12月5日 | 文章2.94 |  
+|~~WA-來賓-OS-2.91 _201910-01~~| 2019 年 11 月 1 日 | 2020年1月8日 |  
 |~~WA-來賓-OS-2.90 _201909-01~~| 2019年10月7日 | 2019年12月5日 |  
 |~~WA-來賓-OS-2.89 _201908-01~~| 2019年8月4日 | 2019 年 11 月 1 日 |  
 |~~WA-來賓-OS-2.88 _201907-01~~| 2019 年 7 月 26 日 | 2019年10月7日 |

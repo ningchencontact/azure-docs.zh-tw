@@ -4,14 +4,14 @@ description: 在 Azure 中部署 Avere vFXT 叢集的步驟
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: ad5b0ecd9e7e6326c5b91844b6f7b557972b4852
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d1058125d5bb3912b9561027bbe0a977637d3379
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415583"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153561"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>部署 vFXT 叢集
 
@@ -22,7 +22,7 @@ ms.locfileid: "75415583"
 * 建立叢集節點 Vm，並將其設定為 Avere 叢集。
 * 如有要求，會建立新的 Azure Blob 容器，並將其設定為叢集核心檔案管理工具。
 
-依照本檔中的指示進行之後，您將會有一個虛擬網路、一個子網、一個控制器和一個 vFXT 叢集，如下圖所示。 此圖顯示選擇性的 Azure Blob 核心檔案管理工具，其中包含新的 Blob 儲存體容器（在新的儲存體帳戶中，未顯示），以及子網內 Microsoft 儲存體的服務端點。
+依照本檔中的指示進行之後，您將會有一個虛擬網路、一個子網、一個叢集控制器和一個 vFXT 叢集，如下圖所示。 此圖顯示選擇性的 Azure Blob 核心檔案管理工具，其中包含新的 Blob 儲存體容器（在新的儲存體帳戶中，未顯示），以及子網內 Microsoft 儲存體的服務端點。
 
 ![此圖顯示三個具有 Avere 叢集元件的同心圓矩形。 外部矩形會標示為「資源群組」，並包含標示為「Blob 儲存體（選擇性）」的六邊形。 中的下一個矩形標示為「虛擬網路： 10.0.0.0/16」，而且不包含任何唯一的元件。 最內層的矩形標示為「子網： 10.0.0.0/24」，其中包含標示為「叢集控制器」的 VM、三個標示為「vFXT 節點（vFXT Cluster）」的 Vm 堆疊，以及標示為「服務端點」的六邊形。 有一個箭號可連接服務端點（位於子網內）和 blob 儲存體（在資源群組中的子網和 vnet 外部）。 箭頭會通過子網和虛擬網路界限。](media/avere-vfxt-deployment.png)
 
@@ -31,7 +31,7 @@ ms.locfileid: "75415583"
 1. [新的訂用帳戶](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [訂用帳戶擁有者權限](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [vFXT 叢集配額](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [儲存體服務端點（如有需要）](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) -使用現有的虛擬網路部署和建立 blob 儲存體所需
+1. [儲存體服務端點（如有需要）](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) -使用現有虛擬網路並建立 blob 儲存體的部署所需
 
 如需有關叢集部署步驟和規劃的詳細資訊，請參閱[規劃您的 Avere vFXT 系統](avere-vfxt-deploy-plan.md)和[部署概觀](avere-vfxt-deploy-overview.md)。
 
@@ -41,7 +41,7 @@ ms.locfileid: "75415583"
 
 ![使用階層連結 [新增 > Marketplace > 全部內容] 瀏覽顯示的 Azure 入口網站的視窗。 在 [所有專案] 頁面中，搜尋欄位具有「avere」一詞，而第二個結果「Avere vFXT for Azure ARM 範本」則以紅色標示，以反白顯示。](media/avere-vfxt-template-choose.png)
 
-閱讀 Avere vFXT for Azure ARM 範本頁面上的詳細資料之後，請按一下 [**建立**] 開始。
+閱讀 [Avere vFXT for Azure ARM 範本] 頁面上的詳細資料之後，按一下其 [**建立**] 按鈕以開始。
 
 ![使用部署範本的 Azure Marketplace 第一頁顯示畫面](media/avere-vfxt-deploy-first.png)
 
@@ -149,11 +149,11 @@ ms.locfileid: "75415583"
 
 1. 在左側按一下 [部署]，然後選取 [microsoft-avere.vfxt-template]。
 
-   ![資源群組入口網站頁面，其中左側已選取 [部署]，而 [microsoft-avere.vfxt-template] 則顯示在 [部署名稱] 底下的表格中](media/avere-vfxt-outputs-deployments.png) <!-- update image for new portal GUI -->
+   ![資源群組入口網站頁面，其中左側已選取 [部署]，而 [microsoft-avere.vfxt-template] 則顯示在 [部署名稱] 底下的表格中](media/avere-vfxt-outputs-deployments.png)
 
 1. 在左側按一下 [輸出]。 複製每個欄位中的值。
 
-   ![輸出頁面的標籤右側欄位中顯示 SSHSTRING、RESOURCE_GROUP、LOCATION、NETWORK_RESOURCE_GROUP、NETWORK、SUBNET、SUBNET_ID、VSERVER_IPs 和 MGMT_IP 值](media/avere-vfxt-outputs-values.png)<!-- update image for new portal GUI -->
+   ![輸出頁面的標籤右側欄位中顯示 SSHSTRING、RESOURCE_GROUP、LOCATION、NETWORK_RESOURCE_GROUP、NETWORK、SUBNET、SUBNET_ID、VSERVER_IPs 和 MGMT_IP 值](media/avere-vfxt-outputs-values.png)
 
 ## <a name="next-steps"></a>後續步驟
 

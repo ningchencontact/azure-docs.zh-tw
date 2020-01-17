@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 6b23ae21366699162b900ae420afae640aa20613
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 4c2985f35621ff3120217cbe38705ad2c228d6f7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921464"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122095"
 ---
 # <a name="how-to-use-batch-transcription"></a>如何使用批次轉譯
 
@@ -28,7 +28,7 @@ ms.locfileid: "75921464"
 - 下載轉譯結果
 - 從服務中刪除轉譯資訊
 
-詳細的 API 會以[Swagger 檔](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A)的形式在 `Custom Speech transcriptions`的標題底下提供。
+詳細的 API 可於 `Custom Speech transcriptions` 標題底下的 [Swagger 文件](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A)中取得。
 
 批次轉譯作業是以最大的方式排定。 目前不會估計作業何時會變更為「執行中」狀態。 在一般系統負載下，應該會在幾分鐘內發生。 一旦處於 [執行中] 狀態，實際轉譯的處理速度會比音訊即時長。
 
@@ -88,18 +88,13 @@ Batch 轉譯 API 支援下列格式：
 使用這些選擇性屬性來設定轉譯：
 
 | 參數 | 說明 |
-|-----------|------------|
-|`ProfanityFilterMode`|指定如何處理辨識結果中的不雅內容
-||**`Masked`** -預設值。 以星號取代不雅內容<br>`None`-停用不雅內容篩選<br>`Removed`-從結果中移除所有不雅內容<br>`Tags`-新增不雅內容的標記
-|`PunctuationMode`|指定在辨識結果中處理標點符號
-||`Automatic`-服務插入標點符號<br>`Dictated` 聽寫的（朗讀）標點符號<br>**`DictatedAndAutomatic`** -預設值。 聽寫和自動標點符號<br>`None`-停用標點符號
-|`AddWordLevelTimestamps`|指定是否應將 word 層級時間戳記新增至輸出
-||`True`-啟用 word 層級時間戳記<br>**`False`** -預設值。 停用 word 層級時間戳記
-|`AddSentiment`|指定是否將情感分析加入至語句
-||`True`-啟用每個語句的情感<br>**`False`** -預設值。 停用情感
-|`AddDiarization`|指定是否執行 diarization 分析。如果 `true`，則輸入應為 mono 聲道音訊，其中最多可包含兩個語音。 `AddWordLevelTimestamps` 必須設定為 `true`
-||`True`-啟用 diarization<br>**`False`** -預設值。 停用 diarization
-|`TranscriptionResultsContainerUrl`|選擇性的 SAS 權杖到 Azure 中可寫入的容器。 結果會儲存在此容器中
+|-----------|-------------|
+| `ProfanityFilterMode` | 指定如何處理辨識結果中的不雅內容。 接受的值為 `None` (會停用不雅內容過濾)、`Masked` (為以星號取代不雅內容)、`Removed` (會移除結果中的所有不雅內容) 或 `Tags` (會新增「不雅內容」標記)。 預設值是 `Masked`。 |
+| `PunctuationMode` | 指定如何處理辨識結果中的標點符號。 接受的值為`None` (會停用標點符號)、`Dictated` (暗示明確的標點符號)、`Automatic` (會讓解碼器處理標點符號) 或 `DictatedAndAutomatic` (暗示口述的標點符號或自動)。 |
+| `AddWordLevelTimestamps` | 指定是否將字組層級時間戳記新增至輸出。 接受的值為`true` 會啟用字組層級時間戳記，而 `false` (預設值) 會停用。 |
+| `AddSentiment` | 指定應該將情感新增至語句。 接受的值為 `true`，可讓每個語句的情感和 `false` （預設值）停用它。 |
+| `AddDiarization` | 指定應該在輸入上執行 diarization 分析，這應該是包含兩個語音的 mono 通道。 接受的值為 `true`，可讓 diarization 和 `false` （預設值）停用它。 它也需要 `AddWordLevelTimestamps` 設定為 true。|
+|`TranscriptionResultsContainerUrl`|選擇性的 SAS 權杖到 Azure 中可寫入的容器。 結果將會儲存在此容器中。
 
 ### <a name="storage"></a>儲存體
 
