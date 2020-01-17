@@ -3,12 +3,12 @@ title: 使用 Azure 備份伺服器來備份 VMware VM
 description: 在本文中，您將瞭解如何使用 Azure 備份伺服器來備份在 VMware vCenter/ESXi 伺服器上執行的 VMware Vm。
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: d1c8ec249e010d75bbe96f5c70072f41b9738370
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: df85cba42118a2e814a4a1c8338f3927e4d75f36
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173366"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152862"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>使用 Azure 備份伺服器來備份 VMware VM
 
@@ -24,7 +24,7 @@ ms.locfileid: "74173366"
 
 ## <a name="before-you-start"></a>開始之前
 
-- 確認您執行的 vCenter/ESXi 版本支援備份 (6.5、6.0 和 5.5 版)。
+- 請確認您正在執行支援備份的 vCenter/ESXi 版本。 請參閱[這裡](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)的支援矩陣。
 - 確定您已設定 Azure 備份伺服器。 如果還沒，請在開始之前[進行設定](backup-azure-microsoft-azure-backup.md)。 您應該執行具有最新更新的 Azure 備份伺服器。
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>建立 vCenter Server 的安全連線
@@ -96,9 +96,11 @@ ms.locfileid: "74173366"
 
 1. 複製以下文字並貼到 .txt 檔案中。
 
-       ```text
-      Windows 登錄編輯程式5.00 版 [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare] "IgnoreCertificateValidation" = dword：00000001
-       ```
+```text
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
+"IgnoreCertificateValidation"=dword:00000001
+```
 
 2. 使用名稱 **DisableSecureAuthentication.reg**，將檔案儲存在 Azure 備份伺服器電腦上。
 
@@ -128,26 +130,41 @@ Azure 備份伺服器需要具有存取 v-Center Server/ESXi 主機權限的使�
 
 ### <a name="role-permissions"></a>角色權限
 
-**6.5/6.0** | **5.5**
---- | ---
-Datastore.AllocateSpace | Datastore.AllocateSpace
-Global.ManageCustomFields | Global.ManageCustomFields
-Global.SetCustomField |
-Host.Local.CreateVM | Network.Assign
-Network.Assign |
-Resource.AssignVMToPool |
-VirtualMachine.Config.AddNewDisk  | VirtualMachine.Config.AddNewDisk
-VirtualMachine.Config.AdvancedConfig| VirtualMachine.Config.AdvancedConfig
-VirtualMachine.Config.ChangeTracking| VirtualMachine.Config.ChangeTracking
-VirtualMachine.Config.HostUSBDevice |
-VirtualMachine.Config.QueryUnownedFiles |
-VirtualMachine.Config.SwapPlacement| VirtualMachine.Config.SwapPlacement
-VirtualMachine.Interact.PowerOff| VirtualMachine.Interact.PowerOff
-VirtualMachine.Inventory.Create| VirtualMachine.Inventory.Create
-VirtualMachine.Provisioning.DiskRandomAccess |
-VirtualMachine.Provisioning.DiskRandomRead | VirtualMachine.Provisioning.DiskRandomRead
-VirtualMachine.State.CreateSnapshot | VirtualMachine.State.CreateSnapshot
-VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
+| **VCenter 6.5 和更新版本使用者帳戶的許可權**        | **VCenter 6.0 使用者帳戶的許可權**               | **VCenter 5.5 使用者帳戶的許可權** |
+| ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------- |
+| Datastore.AllocateSpace                                      |                                                           |                                             |
+| 資料存放區。流覽資料存放區                                   | Datastore.AllocateSpace                                   | Network.Assign                              |
+| 資料存放區. 低層級檔案作業                          | Global. 管理自訂屬性                           | Datastore.AllocateSpace                     |
+| 資料存放區叢集。設定 datatstore 叢集             | Global. 設定自訂屬性                               | VirtualMachine.Config.ChangeTracking        |
+| Global. Disable 方法                                       | 主機。本機作業。建立虛擬機器              | VirtualMachine.State.RemoveSnapshot         |
+| Global. Enable 方法                                        | 網路。 指派網路                                   | VirtualMachine.State.CreateSnapshot         |
+| Global. 授權                                              | Resource. 將虛擬機器指派給資源集區         | VirtualMachine.Provisioning.DiskRandomRead  |
+| Global .Log 事件                                             | 虛擬機器。設定。新增磁片                | VirtualMachine.Interact.PowerOff            |
+| Global. 管理自訂屬性                              | 虛擬機器。設定。 Advanced                    | VirtualMachine.Inventory.Create             |
+| Global. 設定自訂屬性                                  | 虛擬機器。設定磁片變更追蹤        | VirtualMachine.Config.AddNewDisk            |
+| Network. 指派網路                                       | 虛擬機器。設定。主機 USB 裝置             | VirtualMachine.Config.HostUSBDevice         |
+| Resource. 將虛擬機器指派給資源集區            | 虛擬機器。設定。查詢未擁有的檔案         | VirtualMachine.Config.AdvancedConfig        |
+| 虛擬機器。設定。新增磁片                   | 虛擬機器。Cloud-init 放置          | VirtualMachine.Config.SwapPlacement         |
+| 虛擬機器。設定。 Advanced                       | 虛擬機器。互動。關閉電源                     | Global.ManageCustomFields                   |
+| 虛擬機器。設定磁片變更追蹤           | 虛擬機器。進程. 新建                     |                                             |
+| 虛擬機器。設定磁片租用                     | 虛擬機器。布建。允許磁片存取            |                                             |
+| 虛擬機器。設定。擴充虛擬磁片            | 虛擬機器。調配. 允許唯讀磁片存取 |                                             |
+| 虛擬機器。來賓作業。來賓操作修改 | 虛擬機器。快照集管理。建立快照集       |                                             |
+| 虛擬機器。來賓操作。來賓作業程式執行 | 虛擬機器。快照集管理。移除快照集       |                                             |
+| 虛擬機器。來賓作業。來賓操作查詢     |                                                           |                                             |
+| 虛擬機器。操作.裝置連線              |                                                           |                                             |
+| 虛擬機器。操作.VIX API 的客體作業系統管理 |                                                           |                                             |
+| 虛擬機器。清查。註冊                          |                                                           |                                             |
+| 虛擬機器。清查。移除                            |                                                           |                                             |
+| 虛擬機器。布建。允許磁片存取              |                                                           |                                             |
+| 虛擬機器。布建。允許唯讀磁片存取    |                                                           |                                             |
+| 虛擬機器。布建。允許虛擬機器下載 |                                                           |                                             |
+| 虛擬機器。快照集管理。 建立快照集        |                                                           |                                             |
+| 虛擬機器。快照集管理。移除快照集         |                                                           |                                             |
+| 虛擬機器。快照集管理。還原為快照集      |                                                           |                                             |
+| vApp。新增虛擬機器                                     |                                                           |                                             |
+| vApp。指派資源集區                                    |                                                           |                                             |
+| vApp。取消註冊                                              |                                                           |                                             |
 
 ## <a name="create-a-vmware-account"></a>建立 VMware 帳戶
 
@@ -217,7 +234,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![生產伺服器新增精靈](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
-3. 在 [選取電腦] [伺服器名稱/IP 位址] 中，指定 VMware 伺服器的 FQDN 或 IP 位址。 如果所有 ESXi 伺服器均由相同的 vCenter 管理，您可以指定 vCenter 名稱。 否則，請新增 ESXi 主機。
+3. 在 [**選取電腦**] [**伺服器名稱/ip 位址**] 中，指定 VMware 伺服器的 FQDN 或 IP 位址。 如果所有 ESXi 伺服器均由相同的 vCenter 管理，您可以指定 vCenter 名稱。 否則，請新增 ESXi 主機。
 
     ![指定 VMware 伺服器](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 
@@ -227,7 +244,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![指定認證](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. 按一下 [新增] 以將 VMware 伺服器新增到伺服器清單。 然後按一下 [確定](英文)。
+6. 按一下 [新增] 以將 VMware 伺服器新增到伺服器清單。 然後按一下 [下一步]。
 
     ![新增 VMWare 伺服器和認證](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -255,14 +272,14 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
 1. 在 [選取保護群組類型] 頁面上，選取 [伺服器]，然後按 [下一步]。 [選取群組成員] 頁面隨即出現。
 
-1. 在 [**選取群組成員**] 中，選取您想要備份的 vm （或 vm 資料夾）。 然後按一下 [確定](英文)。
+1. 在 [**選取群組成員**] 中，選取您想要備份的 vm （或 vm 資料夾）。 然後按一下 [下一步]。
 
     - 當您選取資料夾時，也會選取該資料夾內的 VM 或資料夾以進行備份。 您可以將不想備份的資料夾或 VM 取消選取。
 1. 如果 VM 或資料夾已經過備份，您就無法加以選取。 這可確保不會為 VM 建立重複的復原點。
 
     ![選擇群組成員](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. 在 [選取資料保護方法] 頁面上，輸入保護群組的名稱和保護設定。 若要備份至 Azure，請將短期保護設定為 [磁碟]，並啟用線上保護。 然後按一下 [確定](英文)。
+1. 在 [選取資料保護方法] 頁面上，輸入保護群組的名稱和保護設定。 若要備份至 Azure，請將短期保護設定為 [磁碟]，並啟用線上保護。 然後按一下 [下一步]。
 
     ![選擇資料保護方式](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -293,17 +310,17 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![選擇複本的建立方式](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. 在 [一致性檢查選項] 中，選取如何及何時自動執行一致性檢查。 然後按一下 [確定](英文)。
+1. 在 [一致性檢查選項] 中，選取如何及何時自動執行一致性檢查。 然後按一下 [下一步]。
       - 當複本資料變得不一致時，或依據設定的排程，您可以執行一致性檢查。
       - 如果您不想設定自動一致性檢查，可以執行手動檢查。 若要這樣做，以滑鼠右鍵按一下保護群組 > [執行一致性檢查]。
 
-1. 在 [指定線上保護資料] 頁面中，選取要備份的 VM 或 VM 資料夾。 您可以個別地選取成員，或按一下 [全選] 來選擇所有成員。 然後按一下 [確定](英文)。
+1. 在 [指定線上保護資料] 頁面中，選取要備份的 VM 或 VM 資料夾。 您可以個別地選取成員，或按一下 [全選] 來選擇所有成員。 然後按一下 [下一步]。
 
     ![指定線上保護資料](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. 在 [指定線上備份排程] 頁面上，指定要從本機儲存體將資料備份至 Azure 的頻率。
 
-    - 資料的雲端復原點將會根據排程來產生。 然後按一下 [確定](英文)。
+    - 資料的雲端復原點將會根據排程來產生。 然後按一下 [下一步]。
     - 復原點在產生後會傳輸至 Azure 中的復原服務保存庫。
 
     ![指定線上備份排程](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
@@ -319,36 +336,36 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![保護群組成員和設定的摘要](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
-## <a name="vmware-vsphere-67"></a>VMWare vSphere 6。7
+## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
 
 若要備份 vSphere 6.7，請執行下列動作：
 
-- 在 DPM 服務器上啟用 TLS 1。2
-  >[!Note]
-  >VMWare 6.7 開始已啟用 TLS 做為通訊協定。
+- 在 DPM Server 上啟用 TLS 1.2
+
+>[!NOTE]
+>VMWare 6.7 開始已將 TLS 啟用為通訊協定。
 
 - 設定登錄機碼，如下所示：
 
-       ```text
+```text
+Windows Registry Editor Version 5.00
 
-        Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
 
-        [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
 
-       [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
 
-       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
-
-       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
-       ```
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
+```
 
 ## <a name="next-steps"></a>後續步驟
 

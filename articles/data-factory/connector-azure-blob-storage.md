@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 9001a7837e6106df4e052277168388064e65e7ee
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/16/2020
+ms.openlocfilehash: f245254c85cbf9223ab5dda60799c6b7ce72f11c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893315"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120208"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 複製和轉換 Azure Blob 儲存體中的資料
 
@@ -270,7 +270,7 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 
 如需 Azure 儲存體驗證的一般資訊，請參閱[使用 Azure Active Directory 授權存取 Azure Blob 和佇列](../storage/common/storage-auth-aad.md) \(部分機器翻譯\)。 若要使用 Azure 資源的受控識別驗證，請遵循下列步驟：
 
-1. 藉由複製與您的處理站一起產生的「服務識別應用程式識別碼」值，來[取出 data factory 受控識別資訊](data-factory-service-identity.md#retrieve-managed-identity)。
+1. 藉由複製與您的處理站一起產生的**受控識別物件識別碼**值，來[取出 data factory 受控識別資訊](data-factory-service-identity.md#retrieve-managed-identity)。
 
 2. 將 Azure Blob 儲存體中適當的權限授與受控識別。 如需角色的詳細資訊，請參閱[在 Azure 入口網站中使用 RBAC 授與 Azure Blob 和佇列資料的存取權](../storage/common/storage-auth-aad-rbac.md) \(部分機器翻譯\)。
 

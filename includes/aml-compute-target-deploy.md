@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 08/23/2019
-ms.openlocfilehash: 59e545e788fd6173de70e6d1580cf2832f71b72b
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ba1e0eee5de65364d8e5e762195f7de98384c2a7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75540460"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122573"
 ---
 | 計算目標 | 用於 | GPU 支援 | FPGA 支援 | 說明 |
 | ----- | ----- | ----- | ----- | ----- |
@@ -22,7 +22,7 @@ ms.locfileid: "75540460"
 | [Azure Machine Learning 計算實例&nbsp;web&nbsp;服務](../articles/machine-learning/how-to-deploy-and-where.md#notebookvm) | 測試/調試 | &nbsp; | &nbsp; | 用於有限的測試和疑難排解。
 | [Azure Kubernetes Service (AKS)](../articles/machine-learning/how-to-deploy-and-where.md#aks) | 即時推斷 |  [是](../articles/machine-learning/how-to-deploy-inferencing-gpus.md)（web 服務部署） | [是](../articles/machine-learning/how-to-deploy-fpga-web-service.md)   |用於大規模生產環境部署。 提供已部署服務的快速回應時間和自動調整。 不支援透過 Azure Machine Learning SDK 進行叢集自動調整。 若要變更 AKS 叢集中的節點，請在 Azure 入口網站中使用 AKS 叢集的 UI。 AKS 是唯一適用于設計工具的選項。 |
 | [Azure 容器執行個體](../articles/machine-learning/how-to-deploy-and-where.md#aci) | 測試或開發 | &nbsp;  | &nbsp; | 針對需要少於 48 GB RAM 的低規模 CPU 型工作負載，使用。 |
-| [Azure Machine Learning 計算叢集](../articles/machine-learning/how-to-run-batch-predictions.md) | 預覽Batch&nbsp;推斷 | [是](../articles/machine-learning/how-to-run-batch-predictions.md)（機器學習管線） | &nbsp;  | 在無伺服器計算上執行批次評分。 支援一般和低優先順序的 Vm。 |
+| [Azure Machine Learning 計算叢集](../articles/machine-learning/how-to-use-parallel-run-step.md) | 預覽Batch&nbsp;推斷 | [是](../articles/machine-learning/how-to-use-parallel-run-step.md)（機器學習管線） | &nbsp;  | 在無伺服器計算上執行批次評分。 支援一般和低優先順序的 Vm。 |
 | [Azure Functions](../articles/machine-learning/how-to-deploy-functions.md) | 預覽即時推斷 | &nbsp; | &nbsp; | &nbsp; |
 | [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | 預覽IoT&nbsp;模組 |  &nbsp; | &nbsp; | 在 IoT 裝置上部署和提供 ML 模型。 |
 | [Azure Data Box Edge](../articles/databox-online/data-box-edge-overview.md)   | Via IoT Edge |  &nbsp; | 是 | 在 IoT 裝置上部署和提供 ML 模型。 |

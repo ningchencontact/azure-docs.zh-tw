@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 10/22/2019
 author: rboucher
 ms.author: robb
-ms.openlocfilehash: e744cdde298054de3631adb96b56bbc808f36a38
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 044c453152d44420d5e78855751a2680698e89f3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750948"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120140"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>適用于 Azure 資源記錄的支援服務、架構和類別
 
@@ -86,6 +86,9 @@ ms.locfileid: "75750948"
 | 虛擬網路閘道 | 無法使用結構描述。 |
 
 ## <a name="supported-log-categories-per-resource-type"></a>每個資源類型支援的記錄檔類別
+
+某些類別目錄可能只支援特定類型的資源。 這是以某種形式提供的全部清單。  例如，所有資料庫類型都無法使用 [Microsoft .Sql/伺服器/資料庫] 類別。 如需詳細資訊，請參閱[SQL Database 診斷記錄](../../sql-database/sql-database-metrics-diag-logging.md)的相關資訊。 
+
 |資源類型|類別|類別顯示名稱|
 |---|---|---|
 |Microsoft AAD/domainServices|SystemSecurity|SystemSecurity|

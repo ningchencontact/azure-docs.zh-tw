@@ -3,12 +3,12 @@ title: 範本錯誤無效
 description: 描述在部署 Azure Resource Manager 範本時，如何解決不正確範本錯誤。
 ms.topic: troubleshooting
 ms.date: 03/08/2018
-ms.openlocfilehash: 9337812152dac7948afc7471760f3dc14443f549
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484567"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154052"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>解決無效範本的錯誤
 
@@ -86,18 +86,18 @@ for type {resource-type} has incorrect segment lengths.
 
 ```json
 "resources": [
-    {
-        "type": "Microsoft.KeyVault/vaults",
-        "name": "contosokeyvault",
+  {
+    "type": "Microsoft.KeyVault/vaults",
+    "name": "contosokeyvault",
+    ...
+    "resources": [
+      {
+        "type": "secrets",
+        "name": "appPassword",
         ...
-        "resources": [
-            {
-                "type": "secrets",
-                "name": "appPassword",
-                ...
-            }
-        ]
-    }
+      }
+    ]
+  }
 ]
 ```
 
@@ -105,9 +105,9 @@ for type {resource-type} has incorrect segment lengths.
 
 ```json
 {
-    "type": "Microsoft.Web/sites/providers/locks",
-    "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-    ...
+  "type": "Microsoft.Web/sites/providers/locks",
+  "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+  ...
 }
 ```
 
@@ -140,13 +140,13 @@ part of the allowed values
 
 解決循環相依性︰
 
-1. 在範本中，找出循環相依性中所識別的資源。 
-2. 針對該資源，檢查 **dependsOn** 屬性和任何使用的 **reference** 函式，查看相依於哪些資源。 
+1. 在範本中，找出循環相依性中所識別的資源。
+2. 針對該資源，檢查 **dependsOn** 屬性和任何使用的 **reference** 函式，查看相依於哪些資源。
 3. 檢查這些資源，查看所相依的資源。 跟隨相依性，直到您找出相依於原始資源的資源。
-5. 針對參與循環相依性的資源，仔細檢查所有使用的 **dependsOn** 屬性，以識別不需要的任何相依性。 移除這些相依性。 如果您不確定是否需要某個相依性，請嘗試移除它。 
+5. 針對參與循環相依性的資源，仔細檢查所有使用的 **dependsOn** 屬性，以識別不需要的任何相依性。 移除這些相依性。 如果您不確定是否需要某個相依性，請嘗試移除它。
 6. 重新部署範本。
 
-移除 **dependsOn** 屬性的值可能會在您部署範本時導致錯誤。 如果您收到錯誤，請將相依性新增回範本。 
+移除 **dependsOn** 屬性的值可能會在您部署範本時導致錯誤。 如果您收到錯誤，請將相依性新增回範本。
 
 如果該方法無法解決循環相依性，請考慮將一部分部署邏輯移到子資源 (例如擴充功能或設定值)。 設定這些子資源在參與循環相依性的資源之後才進行部署。 例如，假設您要部署兩部虛擬機器，但是您必須分別在上面設定互相參考的屬性。 您可以採取下列順序部署︰
 

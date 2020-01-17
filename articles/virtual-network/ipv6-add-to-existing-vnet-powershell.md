@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2019
 ms.author: kumud
-ms.openlocfilehash: 907a6de2ff89ddd3c2cb5bdab67e1deb984141dc
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: d08ce1c382d173ac98a0e61e6117ed50b958ba44
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965244"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119817"
 ---
 # <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell-preview"></a>將 IPv4 應用程式升級至 Azure 虛擬網路中的 IPv6-PowerShell （預覽）
 
@@ -26,7 +26,7 @@ ms.locfileid: "72965244"
 - 虛擬網路和子網的 IPv6 位址空間
 - 具有 IPv4 和 IPV6 前端設定的 Standard Load Balancer
 - 具有同時具有 IPv4 + IPv6 設定之 Nic 的 Vm
-- IPv 公用 IP，讓負載平衡器具有網際網路對向 IPv6 連線能力
+- IPv6 公用 IP，讓負載平衡器具有網際網路對向 IPv6 連線能力
 
 > [!Important]
 > Azure 虛擬網路的 IPv6 支援目前處於公開預覽狀態。 此預覽版是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。

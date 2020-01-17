@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 562dd900bb3d64731e5467058e2718b081c675b6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2a3e1f1997857ab9812fe87d5ec68b71e280e6ce
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75968537"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122537"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>將機器學習模型部署到 Azure App Service （預覽）
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -65,7 +65,7 @@ ms.locfileid: "75968537"
     > [!IMPORTANT]
     > Azure Machine Learning SDK 不會提供 web 服務存取資料存放區或資料集的方式。 如果您需要部署的模型來存取儲存在部署外部的資料，例如在 Azure 儲存體帳戶中，您必須使用相關的 SDK 開發自訂程式碼解決方案。 例如，[適用于 Python 的 AZURE 儲存體 SDK](https://github.com/Azure/azure-storage-python)。
     >
-    > 另一個適用于您案例的替代方法是[批次預測](how-to-run-batch-predictions.md)，這可在計分時提供對資料存放區的存取。
+    > 另一個適用于您案例的替代方法是[批次預測](how-to-use-parallel-run-step.md)，這可在計分時提供對資料存放區的存取。
 
     如需有關輸入腳本的詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
 
@@ -74,7 +74,7 @@ ms.locfileid: "75968537"
 這些實體會封裝成__推斷__設定。 推斷設定會參考輸入指令碼和其他相依性。
 
 > [!IMPORTANT]
-> 建立要與 Azure App Service 搭配使用的推斷設定時，您必須使用[環境](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py)物件。 請注意，如果您要定義自訂環境，您必須將 > = 1.0.45 版本的 azureml 預設值新增為 pip 相依性。 此套件包含將模型裝載為 web 服務所需的功能。 下列範例示範如何建立環境物件，並將它與推斷設定搭配使用：
+> 建立要與 Azure App Service 搭配使用的推斷設定時，您必須使用[環境](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py)物件。 請注意，如果您要定義自訂環境，您必須將 > = 1.0.45 版本的 azureml 預設值新增為 pip 相依性。 此套件包含將模型裝載為 Web 服務所需的功能。 下列範例示範如何建立環境物件，並將它與推斷設定搭配使用：
 >
 > ```python
 > from azureml.core.environment import Environment

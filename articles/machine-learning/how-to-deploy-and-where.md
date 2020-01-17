@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 12/17/2019
+ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 48ecaea82e8874ff521abafaa075b41367f8fbf1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 1560b5d60ae3c6de3ecb6d50859e24ebb7bc2d28
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753994"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156908"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 部署模型
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "75753994"
 
 - 模型。 如果您沒有定型的模型，您可以使用[本教學](https://aka.ms/azml-deploy-cloud)課程中提供的模型和相依性檔案。
 
-- [Machine Learning 服務的 Azure CLI 擴充](reference-azure-machine-learning-cli.md)功能、[適用于 PYTHON 的 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)，或[Azure Machine Learning Visual Studio Code 延伸](how-to-vscode-tools.md)模組。
+- [Machine Learning 服務的 Azure CLI 擴充](reference-azure-machine-learning-cli.md)功能、[適用于 PYTHON 的 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)，或[Azure Machine Learning Visual Studio Code 延伸](tutorial-setup-vscode-extension.md)模組。
 
 ## <a name="connect-to-your-workspace"></a>連線到您的工作區
 
@@ -59,7 +59,7 @@ ms.locfileid: "75753994"
 
 + **使用 VS Code**
 
-   當您使用 VS Code 時，您可以使用圖形化介面來選取工作區。 如需詳細資訊，請參閱 VS Code 擴充功能檔中的[部署和管理模型](how-to-vscode-tools.md#deploy-and-manage-models)。
+   當您使用 VS Code 時，您可以使用圖形化介面來選取工作區。 如需詳細資訊，請參閱 VS Code 擴充功能檔中的[部署和管理模型](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model)。
 
 ## <a id="registermodel"></a>註冊您的模型
 
@@ -115,7 +115,7 @@ ms.locfileid: "75753994"
 
 + **使用 VS Code**
 
-  使用[VS Code](how-to-vscode-tools.md#deploy-and-manage-models)擴充功能，透過任何模型檔案或資料夾來註冊模型。
+  使用[VS Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model)擴充功能，透過任何模型檔案或資料夾來註冊模型。
 
 ### <a name="register-a-model-from-a-local-file"></a>從本機檔案註冊模型
 
@@ -185,7 +185,7 @@ Azure ML 支援在單一端點後方部署單一或多個模型。
     >
     > * Azure Machine Learning SDK 不會提供 web 服務或 IoT Edge 部署的方式來存取您的資料存放區或資料集。 如果您已部署的模型需要存取儲存在部署外部的資料，例如 Azure 儲存體帳戶中的資料，您必須使用相關的 SDK 開發自訂程式碼解決方案。 例如，[適用于 Python 的 AZURE 儲存體 SDK](https://github.com/Azure/azure-storage-python)。
     >
-    >   可能適用于您案例的替代方法是[批次預測](how-to-run-batch-predictions.md)，這會在計分期間提供資料存放區的存取權。
+    >   可能適用于您案例的替代方法是[批次預測](how-to-use-parallel-run-step.md)，這會在計分期間提供資料存放區的存取權。
 
 * **相依性**，例如執行輸入指令碼或模型所需的協助程式指令碼或 Python/Conda 套件。
 

@@ -3,16 +3,16 @@ title: 使用 REST API 和範本部署資源
 description: 使用 Azure Resource Manager 和 Resource Manager REST API 將資源部署至 Azure。 資源會定義在 Resource Manager 範本中。
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.openlocfilehash: 3a3447746b3e7cbdfeeddd296ce78068e120a134
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc386f51073c256fd083a04bbed39316784827b1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484957"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152505"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>使用 Resource Manager 範本和 Resource Manager REST API 部署資源
 
-這篇文章說明如何使用 Resource Manager REST API 與 Resource Manager 範本來將您的資源部署至 Azure。  
+這篇文章說明如何使用 Resource Manager REST API 與 Resource Manager 範本來將您的資源部署至 Azure。
 
 您可以在要求本文中納入範本，也可以連結至檔案。 使用檔案時，該檔案可以是本機檔案，也可以是透過 URI 所取得的外部檔案。 當範本位於儲存體帳戶中時，您可以限制範本的存取權，並在部署期間提供共用存取簽章 (SAS) 權杖。
 
@@ -67,7 +67,7 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
 
 1. 請先執行[驗證範本部署作業](/rest/api/resources/deployments/validate)來驗證部署，然後再執行部署。 測試部署時，請提供與執行部署時完全一致的參數 (如下個步驟所示)。
 
-1. 若要部署範本，請在要求 URI 中提供您的訂用帳戶 ID、資源群組的名稱、部署的名稱。 
+1. 若要部署範本，請在要求 URI 中提供您的訂用帳戶 ID、資源群組的名稱、部署的名稱。
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-05-01
@@ -116,7 +116,7 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
 
     您可以設定儲存體帳戶以使用共用存取簽章 (SAS) Token。 如需詳細資訊，請參閱[使用共用存取簽章委派存取](/rest/api/storageservices/delegating-access-with-a-shared-access-signature)。
 
-    如果您需要提供參數機密的值 (例如密碼)，請將該值加入金鑰保存庫。 在部署期間擷取金鑰保存庫，如先前範例所示。 如需詳細資訊，請參閱 [在部署期間傳遞安全值](key-vault-parameter.md)。 
+    如果您需要提供參數機密的值 (例如密碼)，請將該值加入金鑰保存庫。 在部署期間擷取金鑰保存庫，如先前範例所示。 如需詳細資訊，請參閱 [在部署期間傳遞安全值](key-vault-parameter.md)。
 
 1. 不要連結至含有範本和參數的檔案，而是將它們納入要求本文中。 下列範例顯示具有範本和參數內嵌的要求本文：
 
@@ -155,8 +155,8 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageAccountName')]",
             "apiVersion": "2018-02-01",
+            "name": "[variables('storageAccountName')]",
             "location": "[parameters('location')]",
             "sku": {
               "name": "[parameters('storageAccountType')]"

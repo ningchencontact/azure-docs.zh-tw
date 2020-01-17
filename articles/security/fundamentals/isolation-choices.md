@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 659d00c3fc7a766d800de6f1f12f410003284360
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8fab85b6f1d876cc65ceb44acd60b53c379e59e8
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979264"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121942"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 公用雲端中的隔離
 Azure 可讓您在共用實體基礎結構上執行應用程式和虛擬機器（Vm）。 在雲端環境中執行應用程式的主要經濟動機之一是，能夠將共用資源的成本分散到多位客戶。 這種多重租用的作法會以低成本在不同客戶間進行資源的多工處理來提升效率。 不幸的是，它也會導致下列風險：共用實體伺服器和其他基礎結構資源來執行您的機密應用程式和 VM，而它們或許隸屬於可能惡意的任意使用者。
@@ -179,7 +179,7 @@ Hypervisor 與主機 OS 提供網路封包 - 篩選器，以協助保證不受�
 ### <a name="logical-isolation-between-compute-and-storage"></a>計算和儲存體之間的邏輯隔離
 Microsoft Azure 的基本設計是將以 VM 為基礎的計算與儲存體分隔開來。 這種區隔讓計算和儲存體能夠各自調整，更容易提供多重租用和隔離。
 
-因此，除了透過邏輯方式，Azure 儲存體會在沒有連到 Azure 計算之網路連線的個別硬體上執行。 [這](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)表示，在建立虛擬磁碟時，不會將磁碟空間配置給它的整個產能。 而會改為建立表格，將虛擬磁碟上的位址對應至實體磁碟上的區域，而該表格最初是空的。 **客戶第一次將資料寫入虛擬磁碟、配置實體磁碟上的空間，然後在表格中放置它的指標。**
+因此，除了透過邏輯方式，Azure 儲存體會在沒有連到 Azure 計算之網路連線的個別硬體上執行。 這表示在建立虛擬磁片時，不會配置磁碟空間給其整個容量。 而會改為建立表格，將虛擬磁碟上的位址對應至實體磁碟上的區域，而該表格最初是空的。 **客戶第一次將資料寫入虛擬磁碟、配置實體磁碟上的空間，然後在表格中放置它的指標。**
 ### <a name="isolation-using-storage-access-control"></a>使用儲存體存取控制進行隔離
 **Azure 儲存體中的存取控制**具有簡單的存取控制模型。 每個 Azure 訂用帳戶都能建立一或多個儲存體帳戶。 每個儲存體帳戶都會有單一祕密金鑰，可用來控制存取該儲存體帳戶中的所有資料。
 
@@ -320,14 +320,6 @@ Azure 部署具有多層網路隔離。 下圖顯示 Azure 提供給客戶的各
 
 ## <a name="next-steps"></a>後續步驟
 
-- [適用於 Windows Azure 虛擬網路中之機器的網路隔離選項 (英文)](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
+- 瞭解[Windows Azure 虛擬網路中電腦的網路隔離選項](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)。 這包括傳統的前端和後端案例，其中特定後端網路或子網中的機器可能只允許特定的用戶端或其他電腦根據允許的 IP 位址清單來連線到特定端點。
 
-這包括傳統的前端和後端案例，其中特定後端網路或子網中的機器可能只允許特定的用戶端或其他電腦根據允許的 IP 位址清單來連線到特定端點。
-
-- [計算隔離 (英文)](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-Microsoft Azure 提供各種雲端式計算服務，其中包含各式各樣的計算執行個體和服務，可自動相應增加或縮小以符合您應用程式或企業的需求。
-
-- [儲存體隔離 (英文)](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-Microsoft Azure 會將以客戶 VM 為基礎的計算從儲存體中分隔出來。 這種區隔讓計算和儲存體能夠各自調整，更容易提供多重租用和隔離。 因此，除了透過邏輯方式，Azure 儲存體會在沒有連到 Azure 計算之網路連線的個別硬體上執行。 所有要求都會根據客戶的選擇，透過 HTTP 或 HTTPS 來執行。
+- 瞭解[Azure 中的虛擬機器隔離](../../virtual-machines/windows/isolation.md)。 Azure 計算提供的虛擬機器大小會隔離到特定的硬體類型，並專供單一客戶使用。

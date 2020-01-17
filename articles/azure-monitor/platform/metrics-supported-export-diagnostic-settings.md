@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 author: rboucher
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 1bab6a990ba38bc32c2b7350bb1d4eac15a7b95e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d38786d3c7b852d3a9b65cd366eed68ebbb01e3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479029"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152947"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>透過診斷設定可匯出 Azure 監視器平臺計量
 
@@ -689,10 +689,10 @@ Azure 監視器預設會提供[平臺計量](data-platform-metrics.md)，而且�
 是 | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusQueues | 路由：服務匯流排佇列的訊息延遲 | 毫秒 | Average
 是 | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusTopics | 路由：服務匯流排主題的訊息延遲 | 毫秒 | Average
 是 | Microsoft.Devices/IotHubs | d2c.endpoints.latency.storage | 路由：儲存體的訊息延遲 | 毫秒 | Average
-是 | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | 路由：丟棄的遙測訊息 | 計數 | 總計
+是 | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | 路由：已捨棄的遙測訊息  | 計數 | 總計
 是 | Microsoft.Devices/IotHubs | d2c.telemetry.egress.fallback | 路由：傳遞至後援的訊息 | 計數 | 總計
 是 | Microsoft.Devices/IotHubs | d2c.telemetry.egress.invalid | 路由：不相容的遙測訊息 | 計數 | 總計
-是 | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | 路由：孤立的遙測訊息 | 計數 | 總計
+是 | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | 路由：已遺棄的遙測訊息  | 計數 | 總計
 是 | Microsoft.Devices/IotHubs | d2c.telemetry.egress.success | 路由：已傳遞的遙測訊息 | 計數 | 總計
 是 | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.allProtocol | 遙測訊息傳送嘗試 | 計數 | 總計
 是 | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.sendThrottle | 節流錯誤數目 | 計數 | 總計

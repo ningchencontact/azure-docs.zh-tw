@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 15b7dab7de2affb67fa080d69b4895a31bf9ba3b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462070"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121738"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>使用共用存取簽章的服務匯流排存取控制
 
@@ -82,7 +82,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 * **`sr`** - 所存取之資源的 URI。
 * **`sig`** - 簽章。
 
-`signature-string` 是對資源 URI (**範圍**的說明請見上一節) 和權杖到期時間的字串表示 (以 CRLF 分隔) 計算的 SHA-256 雜湊。
+`signature-string` 是根據資源 URI 計算的 SHA-256 雜湊（如上一節所述的**範圍**），以及權杖到期時刻的字串表示（以 LF 分隔）。
 
 雜湊計算看起來類似下列虛擬程式碼，會傳回 256 位元/32 位元組的雜湊值。
 

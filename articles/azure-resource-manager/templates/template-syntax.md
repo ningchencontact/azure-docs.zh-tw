@@ -3,12 +3,12 @@ title: 範本結構和語法
 description: 使用宣告式 JSON 語法描述 Azure Resource Manager 範本的結構和屬性。
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 4cebe017793bc167f0a78c0be2f24154dc27b3c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7f9b964212d7b8056895aa1c6826766315af2ec2
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483891"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122061"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
 
@@ -130,7 +130,7 @@ ms.locfileid: "75483891"
 
 如需如何使用變數的範例，請參閱[Azure Resource Manager 範本中的變數](template-variables.md)。
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>函式
 
 在您的範本內，您可以建立自己的函式。 這些函式可供您在範本中使用。 通常，您會定義不想要在整個範本中重複的複雜運算式。 您會從範本中支援的運算式和[函式](template-functions.md)建立使用者定義的函式。
 
@@ -185,33 +185,17 @@ ms.locfileid: "75483891"
 "resources": [
   {
       "condition": "<true-to-deploy-this-resource>",
-      "apiVersion": "<api-version-of-resource>",
       "type": "<resource-provider-namespace/resource-type-name>",
+      "apiVersion": "<api-version-of-resource>",
       "name": "<name-of-the-resource>",
-      "location": "<location-of-resource>",
-      "tags": {
-          "<tag-name1>": "<tag-value1>",
-          "<tag-name2>": "<tag-value2>"
-      },
       "comments": "<your-reference-notes>",
-      "copy": {
-          "name": "<name-of-copy-loop>",
-          "count": <number-of-iterations>,
-          "mode": "<serial-or-parallel>",
-          "batchSize": <number-to-deploy-serially>
-      },
+      "location": "<location-of-resource>",
       "dependsOn": [
           "<array-of-related-resource-names>"
       ],
-      "properties": {
-          "<settings-for-the-resource>",
-          "copy": [
-              {
-                  "name": ,
-                  "count": ,
-                  "input": {}
-              }
-          ]
+      "tags": {
+          "<tag-name1>": "<tag-value1>",
+          "<tag-name2>": "<tag-value2>"
       },
       "sku": {
           "name": "<sku-name>",
@@ -221,12 +205,28 @@ ms.locfileid: "75483891"
           "capacity": <sku-capacity>
       },
       "kind": "<type-of-resource>",
+      "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": <number-of-iterations>,
+          "mode": "<serial-or-parallel>",
+          "batchSize": <number-to-deploy-serially>
+      },
       "plan": {
           "name": "<plan-name>",
           "promotionCode": "<plan-promotion-code>",
           "publisher": "<plan-publisher>",
           "product": "<plan-product>",
           "version": "<plan-version>"
+      },
+      "properties": {
+          "<settings-for-the-resource>",
+          "copy": [
+              {
+                  "name": ,
+                  "count": ,
+                  "input": {}
+              }
+          ]
       },
       "resources": [
           "<array-of-child-resources>"
@@ -238,18 +238,18 @@ ms.locfileid: "75483891"
 | 元素名稱 | 必要項 | 說明 |
 |:--- |:--- |:--- |
 | condition (條件) | 否 | 布林值，指出是否會在此部署期間佈建資源。 若為 `true`，就會在部署期間建立資源。 若為 `false`，則會略過此部署的資源。 請參閱[條件](conditional-resource-deployment.md)。 |
-| apiVersion |是 |要用來建立資源的 REST API 版本。 若要判斷可用的值，請參閱[範本參考](/azure/templates/)。 |
 | type |是 |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 若要判斷可用的值，請參閱[範本參考](/azure/templates/)。 對於子資源，類型的格式取決於它是內嵌在父資源內，還是在父資源外部定義。 請參閱[設定子資源的名稱和類型](child-resource-name-type.md)。 |
+| apiVersion |是 |要用來建立資源的 REST API 版本。 若要判斷可用的值，請參閱[範本參考](/azure/templates/)。 |
 | NAME |是 |資源名稱。 此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。 將資源名稱公開給外部合作物件的 Azure 服務會驗證該名稱，以確保不會嘗試偽造另一個身分識別。 對於子資源，名稱的格式取決於它是內嵌在父資源內，還是在父資源外部定義。 請參閱[設定子資源的名稱和類型](child-resource-name-type.md)。 |
-| location |不定 |所提供資源的支援地理位置。 您可以選取任何可用的位置，但通常選擇接近您的使用者的位置很合理。 通常，將彼此互動的資源放在相同區域也合乎常理。 大部分的資源類型都需要有位置，但某些類型 (例如角色指派) 不需要位置。 請參閱[設定資源位置](resource-location.md)。 |
-| tags |否 |與資源相關聯的標記。 套用標籤，既可以邏輯方式組織訂用帳戶中的資源。 |
 | comments |否 |您在範本中記錄資源的註解。 如需詳細資訊，請參閱[範本中的註解](template-syntax.md#comments)。 |
-| copy |否 |如果需要多個執行個體，要建立的資源數目。 預設模式為平行。 如果您不想要同時部署所有或某些資源，請指定序列模式。 如需詳細資訊，請參閱[在 Azure Resource Manager 中建立資源的數個執行個體](create-multiple-instances.md)。 |
+| location |不定 |所提供資源的支援地理位置。 您可以選取任何可用的位置，但通常選擇接近您的使用者的位置很合理。 通常，將彼此互動的資源放在相同區域也合乎常理。 大部分的資源類型都需要有位置，但某些類型 (例如角色指派) 不需要位置。 請參閱[設定資源位置](resource-location.md)。 |
 | dependsOn |否 |在部署這項資源之前必須部署的資源。 Resource Manager 會評估資源之間的相依性，並依正確的順序進行部署。 資源若不互相依賴，則會平行部署資源。 值可以是以逗號分隔的資源名稱或資源唯一識別碼清單。 只會列出此範本中已部署的資源。 此範本中未定義的資源必須已經存在。 避免加入不必要的相依性，因為可能會降低部署速度並產生循環相依性。 如需設定相依性的指引，請參閱[定義 Azure Resource Manager 範本中的相依性](define-resource-dependency.md)。 |
-| properties |否 |資源特定的組態設定。 屬性的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是一樣的。 您也可以指定複本陣列，以建立屬性的數個執行個體。 若要判斷可用的值，請參閱[範本參考](/azure/templates/)。 |
+| tags |否 |與資源相關聯的標記。 套用標籤，既可以邏輯方式組織訂用帳戶中的資源。 |
 | sku | 否 | 某些資源允許以值定義要部署的 SKU。 例如，您可以指定儲存體帳戶的備援類型。 |
 | kind | 否 | 某些資源允許以值定義您所部署的資源類型。 例如，您可以指定要建立的 Cosmos DB 類型。 |
+| copy |否 |如果需要多個執行個體，要建立的資源數目。 預設模式為平行。 如果您不想要同時部署所有或某些資源，請指定序列模式。 如需詳細資訊，請參閱[在 Azure Resource Manager 中建立資源的數個執行個體](create-multiple-instances.md)。 |
 | 計劃 | 否 | 某些資源允許以值定義要部署的計劃。 例如，您可以指定虛擬機器的 Marketplace 映像。 |
+| properties |否 |資源特定的組態設定。 屬性的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是一樣的。 您也可以指定複本陣列，以建立屬性的數個執行個體。 若要判斷可用的值，請參閱[範本參考](/azure/templates/)。 |
 | resources |否 |與正在定義的資源相依的下層資源。 只提供父資源的結構描述允許的資源類型。 沒有隱含父資源的相依性。 您必須明確定義該相依性。 請參閱[設定子資源的名稱和類型](child-resource-name-type.md)。 |
 
 ## <a name="outputs"></a>輸出
@@ -293,9 +293,9 @@ ms.locfileid: "75483891"
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2018-10-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[parameters('location')]", //defaults to resource group location
-  "apiVersion": "2018-10-01",
   "dependsOn": [ /* storage account and network interface must be deployed first */
     "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
     "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
@@ -341,10 +341,10 @@ ms.locfileid: "75483891"
 ```json
 "resources": [
   {
-    "comments": "Storage account used to store VM disks",
-    "apiVersion": "2018-07-01",
     "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2018-07-01",
     "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+    "comments": "Storage account used to store VM disks",
     "location": "[parameters('location')]",
     "metadata": {
       "comments": "These tags are needed for policy compliance."
@@ -384,11 +384,11 @@ ms.locfileid: "75483891"
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2018-10-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[
     parameters('location')
     ]", //defaults to resource group location
-  "apiVersion": "2018-10-01",
   /*
     storage account and network interface
     must be deployed first

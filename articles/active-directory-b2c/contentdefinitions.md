@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f8acf499d4d82c49096e4e5beff8209d0970b421
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1ce564767fe9664604687d8cbaced58507e6b8b3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064326"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119647"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -37,7 +37,7 @@ ms.locfileid: "71064326"
   <Metadata>
     <Item Key="DisplayName">Local account sign up page</Item>
   </Metadata>
-  <LoalizedResourcesReferences MergeBehavior="Prepend">
+  <LocalizedResourcesReferences MergeBehavior="Prepend">
     <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
     <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
     ...
@@ -61,13 +61,13 @@ ms.locfileid: "71064326"
 
 **ContentDefinition** 元素包含下列屬性：
 
-| 屬性 | 必要項 | 描述 |
+| 屬性 | 必要項 | 說明 |
 | --------- | -------- | ----------- |
 | Id | 是 | 內容定義的識別碼。 此值是本頁面後面的**內容定義識別碼**區段中指定的值。 |
 
 **ContentDefinition** 元素包含下列元素：
 
-| 元素 | 發生次數 | 描述 |
+| 元素 | 發生次數 | 說明 |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | 此字串包含內容定義之 HTML5 頁面的 URL。 |
 | RecoveryUri | 0:1 | 此字串包含 HTML 頁面的 URL，以顯示與內容定義相關的錯誤。 |
@@ -79,7 +79,7 @@ ms.locfileid: "71064326"
 
 **DataUri** 元素用於指定頁面識別碼。 Azure AD B2C 使用頁面識別碼以載入並初始化 UI 元素與用戶端 JavaScript。 值的格式為 `urn:com:microsoft:aad:b2c:elements:page-name:version`。  下表列出您可以使用的頁面識別碼清單。
 
-| 值 |   描述 |
+| 值 |   說明 |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | 發生例外狀況或錯誤時，會顯示錯誤頁面。 |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | 列出使用者可以在登入期間選擇的識別提供者。 |
@@ -93,13 +93,13 @@ ms.locfileid: "71064326"
 
 **LocalizedResourcesReferences** 元素包含下列元素：
 
-| 元素 | 發生次數 | 描述 |
+| 元素 | 發生次數 | 說明 |
 | ------- | ----------- | ----------- |
 | LocalizedResourcesReference | 1:n | 內容定義的當地語系化資源參考清單。 |
 
 **LocalizedResourcesReferences** 元素包含下列屬性：
 
-| 屬性 | 必要項 | 描述 |
+| 屬性 | 必要項 | 說明 |
 | --------- | -------- | ----------- |
 | 語言 | 是 | 此字串針對每個 RFC 5646 - 標記的原則包含支援的語言，以進行識別語言。 |
 | LocalizedResourcesReferenceId | 是 | **LocalizedResources** 元素的識別碼。 |
@@ -141,7 +141,7 @@ ms.locfileid: "71064326"
 
 **ContentDefinition** 元素的識別碼屬性會指定與內容定義相關的頁面類型。 此元素會定義自訂 HTML5/CSS 範本即將套用的內容。 下表說明身分識別體驗架構所能辨識之內容定義識別碼的集合，以及這些識別碼的相關頁面類型。 您可以使用任意識別碼建立自己的內容定義。
 
-| id | 預設範本 | 描述 |
+| ID | 預設範本 | 說明 |
 | -- | ---------------- | ----------- |
 | api.error | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **錯誤頁面** - 發生例外狀況或錯誤時，會顯示錯誤頁面。 |
 | api.idpselections | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **識別提供者選取頁面** - 列出使用者可以在登入期間選擇的識別提供者。 這些選項通常是企業識別提供者、社交識別提供者 (如 Facebook 和 Google+) 或本機帳戶。 |

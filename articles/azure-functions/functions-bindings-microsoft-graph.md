@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: ef65904b19c5f42548c7b98cb37f6609124e0541
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 1923e26ba0ada7dcf5b8b333150b7cd5b775398b
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922415"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121194"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Microsoft Graph 繫結
 
@@ -207,9 +207,9 @@ module.exports = function (context, req) {
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
-|**name**||必要項目 - 函式程式碼中用於驗證權杖的變數名稱。 請參閱[從程式碼使用驗證權杖輸入繫結](#token-input-code)。|
-|**type**||必要項目 - 必須設定為 `token`。|
-|**direction**||必要項目 - 必須設定為 `in`。|
+|**name**| n/a |必要項目 - 函式程式碼中用於驗證權杖的變數名稱。 請參閱[從程式碼使用驗證權杖輸入繫結](#token-input-code)。|
+|**type**| n/a |必要項目 - 必須設定為 `token`。|
+|**direction**| n/a |必要項目 - 必須設定為 `in`。|
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
 |**userId**|UserId  |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
 |**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
@@ -342,9 +342,9 @@ module.exports = function (context, req) {
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
-|**name**||必要項目 - 函式程式碼中用於 Excel 資料表的變數名稱。 請參閱[從程式碼使用 Excel 資料表輸入繫結](#excel-input-code)。|
-|**type**||必要項目 - 必須設定為 `excel`。|
-|**direction**||必要項目 - 必須設定為 `in`。|
+|**name**| n/a |必要項目 - 函式程式碼中用於 Excel 資料表的變數名稱。 請參閱[從程式碼使用 Excel 資料表輸入繫結](#excel-input-code)。|
+|**type**| n/a |必要項目 - 必須設定為 `excel`。|
+|**direction**| n/a |必要項目 - 必須設定為 `in`。|
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
 |**userId**|UserId  |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
 |**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
@@ -504,9 +504,9 @@ module.exports = function (context, req) {
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
-|**name**||必要項目 - 函式程式碼中用於驗證權杖的變數名稱。 請參閱[從程式碼使用 Excel 資料表輸出繫結](#excel-output-code)。|
-|**type**||必要項目 - 必須設定為 `excel`。|
-|**direction**||必要項目 - 必須設定為 `out`。|
+|**name**| n/a |必要項目 - 函式程式碼中用於驗證權杖的變數名稱。 請參閱[從程式碼使用 Excel 資料表輸出繫結](#excel-output-code)。|
+|**type**| n/a |必要項目 - 必須設定為 `excel`。|
+|**direction**| n/a |必要項目 - 必須設定為 `out`。|
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
 |UserId |**userId** |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
 |**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
@@ -650,9 +650,9 @@ module.exports = function (context, req) {
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
-|**name**||必要項目 - 函式程式碼中用於檔案的變數名稱。 請參閱[從程式碼使用 OneDrive 檔案輸入繫結](#onedrive-input-code)。|
-|**type**||必要項目 - 必須設定為 `onedrive`。|
-|**direction**||必要項目 - 必須設定為 `in`。|
+|**name**| n/a |必要項目 - 函式程式碼中用於檔案的變數名稱。 請參閱[從程式碼使用 OneDrive 檔案輸入繫結](#onedrive-input-code)。|
+|**type**| n/a |必要項目 - 必須設定為 `onedrive`。|
+|**direction**| n/a |必要項目 - 必須設定為 `in`。|
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
 |**userId**|UserId  |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
 |**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
@@ -798,9 +798,9 @@ module.exports = function (context, req) {
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
-|**name**||必要項目 - 函式程式碼中用於檔案的變數名稱。 請參閱[從程式碼使用 OneDrive 檔案輸出繫結](#onedrive-output-code)。|
-|**type**||必要項目 - 必須設定為 `onedrive`。|
-|**direction**||必要項目 - 必須設定為 `out`。|
+|**name**| n/a |必要項目 - 函式程式碼中用於檔案的變數名稱。 請參閱[從程式碼使用 OneDrive 檔案輸出繫結](#onedrive-output-code)。|
+|**type**| n/a |必要項目 - 必須設定為 `onedrive`。|
+|**direction**| n/a |必要項目 - 必須設定為 `out`。|
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
 |UserId |**userId** |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
 |**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
@@ -949,9 +949,9 @@ module.exports = function (context, req) {
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
-|**name**||必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
-|**type**||必要項目 - 必須設定為 `outlook`。|
-|**direction**||必要項目 - 必須設定為 `out`。|
+|**name**| n/a |必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
+|**type**| n/a |必要項目 - 必須設定為 `outlook`。|
+|**direction**| n/a |必要項目 - 必須設定為 `out`。|
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
 |**userId**|UserId  |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
 |**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
@@ -1092,9 +1092,9 @@ module.exports = function (context) {
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
-|**name**||必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
-|**type**||必要項目 - 必須設定為 `graphWebhook`。|
-|**direction**||必要項目 - 必須設定為 `trigger`。|
+|**name**| n/a |必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
+|**type**| n/a |必要項目 - 必須設定為 `graphWebhook`。|
+|**direction**| n/a |必要項目 - 必須設定為 `trigger`。|
 |**resourceType**|**ResourceType**|必要項目 - 這個函式應回應 webhook 的圖表資源。 可以是下列其中一個值：<ul><li><code>#Microsoft.Graph.Message</code> - 對 Outlook 訊息所做的變更。</li><li><code>#Microsoft.Graph.DriveItem</code> - 對 OneDrive 根項目所做的變更。</li><li><code>#Microsoft.Graph.Contact</code> - 對 Outlook 中個人連絡人所做的變更。</li><li><code>#Microsoft.Graph.Event</code> - 對 Outlook 行事曆項目所做的變更。</li></ul>|
 
 > [!Note]
@@ -1244,9 +1244,9 @@ module.exports = function (context, req) {
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
-|**name**||必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
-|**type**||必要項目 - 必須設定為 `graphWebhookSubscription`。|
-|**direction**||必要項目 - 必須設定為 `in`。|
+|**name**| n/a |必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
+|**type**| n/a |必要項目 - 必須設定為 `graphWebhookSubscription`。|
+|**direction**| n/a |必要項目 - 必須設定為 `in`。|
 |**filter**|**Filter**| 如果設定為 `userFromRequest`，繫結就只會擷取呼叫使用者擁有的訂用帳戶 (僅在搭配 [HTTP 觸發程序]時有效)。| 
 
 ### <a name="webhook-input---usage"></a>Webhook 輸入 - 使用方式
@@ -1385,9 +1385,9 @@ module.exports = function (context, req) {
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
-|**name**||必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
-|**type**||必要項目 - 必須設定為 `graphWebhookSubscription`。|
-|**direction**||必要項目 - 必須設定為 `out`。|
+|**name**| n/a |必要項目 - 函式程式碼中用於電子郵件訊息的變數名稱。 請參閱[從程式碼使用 Outlook 訊息輸出繫結](#outlook-output-code)。|
+|**type**| n/a |必要項目 - 必須設定為 `graphWebhookSubscription`。|
+|**direction**| n/a |必要項目 - 必須設定為 `out`。|
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
 |**userId**|UserId  |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
 |**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |

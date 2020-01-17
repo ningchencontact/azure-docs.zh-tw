@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 11/06/2019
-ms.openlocfilehash: a61dea2b200b6e4962ce20e39939a75e78e81d0f
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/16/2020
+ms.openlocfilehash: 78903d8f988efc1b0986f7e48050e63831b68319
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76024947"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156823"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>將模型部署到 Azure Kubernetes Service 叢集
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "76024947"
 
 - 在您的工作區中註冊的機器學習模型。 如果您沒有已註冊的模型，請參閱[部署模型的方式和位置](how-to-deploy-and-where.md)。
 
-- [Machine Learning 服務的 Azure CLI 延伸](reference-azure-machine-learning-cli.md)模組， [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)，或[Azure Machine Learning Visual Studio Code 延伸](how-to-vscode-tools.md)模組。
+- [Machine Learning 服務的 Azure CLI 延伸](reference-azure-machine-learning-cli.md)模組， [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)，或[Azure Machine Learning Visual Studio Code 延伸](tutorial-setup-vscode-extension.md)模組。
 
 - 本文中的__Python__程式碼片段假設已設定下列變數：
 
@@ -109,7 +109,7 @@ aks_target.wait_for_completion(show_output = True)
 az ml computetarget create aks -n myaks
 ```
 
-如需詳細資訊，請參閱[az ml computetarget create ask](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference。
+如需詳細資訊，請參閱[az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference。
 
 ## <a name="attach-an-existing-aks-cluster"></a>附加現有的 AKS 叢集
 
@@ -227,7 +227,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 ### <a name="using-vs-code"></a>使用 VS Code
 
-如需使用 VS Code 的詳細資訊，請參閱透過[VS Code 延伸模組部署至 AKS](how-to-vscode-tools.md#deploy-and-manage-models)。
+如需使用 VS Code 的詳細資訊，請參閱透過[VS Code 延伸模組部署至 AKS](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model)。
 
 > [!IMPORTANT]
 > 透過 VS Code 部署時，必須事先建立 AKS 叢集或將其附加至您的工作區。

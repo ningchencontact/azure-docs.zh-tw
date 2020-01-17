@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 01/16/2020
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d6fe6744c2af22f8891d2f3b3a6eb30ec9d3904
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: dc68b34ce10957d8c025d4767cc4f8d04c6a72c3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045277"
+ms.locfileid: "76155854"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>關於 Microsoft Authenticator 應用程式的常見問題（Faq）
 
@@ -52,6 +52,7 @@ Microsoft Authenticator 應用程式取代了 Azure Authenticator 應用程式�
 | 什麼是應用程式鎖定功能，其如何協助提升我使用裝置時的安全性？ | 若要讓單次密碼、應用程式資訊和應用程式設定更加安全，您可以在 Microsoft Authenticator 應用程式中開啟應用程式鎖定功能。 從 Microsoft Authenticator 應用程式的 [設定] 畫面開啟 [應用程式鎖定]，代表系統會在您每次開啟 Microsoft Authenticator 應用程式時，要求您使用 PIN 碼或生物特徵辨識進行驗證。 這項功能可提供額外的保護，您在 Microsoft Authenticator 應用程式中核准通知的方式並不會改變。<br><br>**注意**<br>由於裝置註冊可能發生在 Microsoft Authenticator 應用程式以外的其他位置，例如在公司入口網站應用程式中或 Android 帳戶設定中，因此不保證應用程式鎖定會阻止使用者存取 Microsoft驗證器應用程式。 |
 | 為什麼我會收到關於帳戶活動的通知？ | 為了讓您更了解個人 Microsoft 帳戶的現況，我們會將活動通知傳送至您的 Microsoft Authenticator 應用程式。 這些通知會發生變更後立即顯示，以利確保您的安全性。 我們之前透過電子郵件和簡訊傳送這些通知，而現在已擴充為包括應用程式。 如需這些活動通知的詳細資訊，請參閱[若您的帳戶出現異常登入，將會如何](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in)。 若要變更您收到通知的位置，請登入您帳戶的 [[我們可以如何與您的非關鍵帳戶警示](https://account.live.com/SecurityNotifications/Update)連線] 頁面。 |
 | 使用 iOS 隨附的預設郵件應用程式登入我的公司或學校帳戶時，我會收到 Microsoft Authenticator 應用程式的提示，以取得我的安全性驗證資訊。 輸入該資訊並返回郵件應用程式之後，我收到錯誤。 我該怎麼辦？ | 這很可能是因為您的登入和郵件應用程式會在兩個不同的應用程式中發生，導致初始背景登入進程停止運作並失敗。 若要嘗試修正此問題，建議您在登入郵件應用程式時，選取畫面右下方的**Safari**圖示。 藉由移至 Safari，整個登入程式會在單一應用程式中進行，讓您可以成功登入應用程式。 |
+| 我的一次性密碼（OTP）代碼無法運作。 我該怎麼做？ | 請確定您裝置上的日期和時間是正確的，而且會自動同步處理。 如果日期和時間錯誤或不同步，則程式碼將無法使用。 |
 
 ## <a name="next-steps"></a>後續步驟
 

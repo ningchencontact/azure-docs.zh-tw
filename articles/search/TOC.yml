@@ -249,6 +249,8 @@
           items:
             - name: 整合自訂技術
               href: cognitive-search-custom-skill-interface.md
+            - name: 範例 - Azure Functions (Python)
+              href: cognitive-search-custom-skill-python.md
             - name: 範例 - Azure Functions
               href: cognitive-search-create-custom-skill-example.md
             - name: 範例 - 容器

@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 54435dd21fccdd43f17d13674b324b989a00f7a1
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 777fa7caa80371592f93ee6f7458a7669fe6698f
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684260"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121353"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>在 Azure App Service 中針對應用程式啟用診斷記錄
 ## <a name="overview"></a>概觀
@@ -23,12 +23,12 @@ Azure 提供內建診斷功能，可協助對 [App Service 應用程式](overvie
 >
 >
 
-|Type|平台|Location|描述|
+|類型|平台|位置|說明|
 |-|-|-|-|
 | 應用程式記錄檔 | Windows、Linux | App Service 檔案系統和/或 Azure 儲存體 blob | 記錄您的應用程式代碼所產生的訊息。 這些訊息可以由您選擇的 web 架構，或直接使用您語言的標準記錄模式來產生。 每則訊息會指派下列其中一個類別：**重大**、**錯誤**、**警告**、**資訊**、 **Debug**和**Trace**。 當您啟用應用程式記錄時，您可以藉由設定嚴重性層級，來選取您想要記錄的詳細資訊。|
-| Web 服務器記錄| Windows | App Service 檔案系統或 Azure 儲存體 blob| [W3C 擴充記錄檔格式](/windows/desktop/Http/w3c-logging)的原始 HTTP 要求資料。 每個記錄訊息都包含 HTTP 方法、資源 URI、用戶端 IP、用戶端埠、使用者代理程式、回應碼等資料。 |
-| 詳細的錯誤記錄 | Windows | App Service 檔案系統 | 已傳送至用戶端瀏覽器的 *.htm*錯誤頁面複本。 基於安全考慮，詳細的錯誤網頁不應傳送至生產環境中的用戶端，但 App Service 可以在每次發生具有 HTTP 代碼400或更新版本的應用程式錯誤時儲存錯誤頁面。 該頁面可能包含有助於判斷伺服器傳回錯誤碼之原因的資訊。 |
-| 失敗要求的追蹤 | Windows | App Service 檔案系統 | 失敗要求的詳細追蹤資訊，包括用來處理要求的 IIS 元件追蹤，以及每個元件所花費的時間。 如果您想要改善網站效能或隔離特定的 HTTP 錯誤，這會相當有用。 會針對每個失敗的要求產生一個資料夾，其中包含 XML 記錄檔，以及用來查看記錄檔的 XSL 樣式表單。 |
+| Web 伺服器記錄| Windows | App Service 檔案系統或 Azure 儲存體 blob| [W3C 擴充記錄檔格式](/windows/desktop/Http/w3c-logging)的原始 HTTP 要求資料。 每個記錄訊息都包含 HTTP 方法、資源 URI、用戶端 IP、用戶端埠、使用者代理程式、回應碼等資料。 |
+| 詳細的錯誤訊息| Windows | App Service 檔案系統 | 已傳送至用戶端瀏覽器的 *.htm*錯誤頁面複本。 基於安全考慮，詳細的錯誤網頁不應傳送至生產環境中的用戶端，但 App Service 可以在每次發生具有 HTTP 代碼400或更新版本的應用程式錯誤時儲存錯誤頁面。 該頁面可能包含有助於判斷伺服器傳回錯誤碼之原因的資訊。 |
+| 失敗的要求追蹤 | Windows | App Service 檔案系統 | 失敗要求的詳細追蹤資訊，包括用來處理要求的 IIS 元件追蹤，以及每個元件所花費的時間。 如果您想要改善網站效能或隔離特定的 HTTP 錯誤，這會相當有用。 會針對每個失敗的要求產生一個資料夾，其中包含 XML 記錄檔，以及用來查看記錄檔的 XSL 樣式表單。 |
 | 部署記錄 | Windows、Linux | App Service 檔案系統 | 當您將內容發佈至應用程式時，會記錄。 部署記錄會自動進行，而且沒有可設定的部署記錄。 它可協助您判斷部署失敗的原因。 例如，如果您使用[自訂部署腳本](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)，您可能會使用部署記錄來判斷腳本失敗的原因。 |
 
 > [!NOTE]
@@ -59,8 +59,8 @@ Azure 提供內建診斷功能，可協助對 [App Service 應用程式](overvie
 
 | 層級 | 包含的類別 |
 |-|-|
-|**已停用** | None |
-|**Error** | 錯誤、嚴重 |
+|**Disabled** | 無 |
+|**錯誤** | 錯誤、嚴重 |
 |**警告** | 警告、錯誤、嚴重|
 |**資訊** | 資訊、警告、錯誤、嚴重|
 |**詳細資訊** | 追蹤、偵錯、資訊、警告、錯誤、嚴重 (所有類別) |
@@ -163,7 +163,7 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 對於 Windows 應用程式，ZIP 檔案包含 App Service 檔案系統中*D:\Home\LogFiles*目錄的內容。 其結構如下：
 
-| 記錄類型 | 目錄 | 描述 |
+| 記錄類型 | 目錄 | 說明 |
 |-|-|-|
 | **應用程式記錄檔** |*/LogFiles/Application/* | 包含一個或多個文字檔。 記錄訊息的格式取決於您所使用的記錄提供者。 |
 | **失敗的要求追蹤** | */LogFiles/W3SVC # # # # # # # # #/* | 包含 XML 檔案和 XSL 檔案。 您可以在瀏覽器中查看格式化的 XML 檔案。 |
@@ -182,7 +182,7 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 下表顯示支援的記錄類型和描述： 
 
-| 記錄類型 | Windows 支援 | Linux （Docker）支援 | 描述 |
+| 記錄類型 | Windows 支援 | Linux （Docker）支援 | 說明 |
 |-|-|-|
 | AppServiceConsoleLogs | TBA | 是 | 標準輸出和標準錯誤 |
 | AppServiceHTTPLogs | 是 | 是 | Web 伺服器記錄 |

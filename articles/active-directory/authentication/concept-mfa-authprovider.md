@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57ac23bbb0465be2f15e0a35bb4fd7c331e83988
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 43a620d32fcfa7970dbdb5bee9740cc8f8b33e50
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848709"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155124"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>何時使用 Azure Multi-Factor Authentication Provider
 
@@ -48,11 +48,11 @@ Azure Multi-Factor Auth Provider 可讓**沒有授權**的使用者能夠充分�
 > [!CAUTION]
 > 刪除驗證提供者時，不會有任何確認。 選取 [**刪除**] 是永久的程式。
 
-您可以在**Azure 入口網站** > **Azure Active Directory** > **MFA** > **提供者**中找到驗證提供者。 按一下列出的提供者，以查看與該提供者相關聯的詳細資料和設定。
+您可以在**Azure 入口網站** > **Azure Active Directory** > **Security** > **MFA** > **提供者**中找到驗證提供者。 按一下列出的提供者，以查看與該提供者相關聯的詳細資料和設定。
 
 移除驗證提供者之前，請記下您在提供者中設定的任何自訂設定。 決定哪些設定需要從您的提供者遷移至一般 MFA 設定，並完成這些設定的遷移。 
 
-連結到提供者的 Azure MFA Server 必須使用在**Azure 入口網站** > **Azure Active Directory** > **MFA** > **伺服器設定**中產生的認證重新開機。 在重新開機之前，您必須從環境中 Azure MFA Server 上的 `\Program Files\Multi-Factor Authentication Server\Data\` 目錄中刪除下列檔案：
+連結到提供者的 Azure MFA Server 必須使用在**Azure 入口網站** > **Azure Active Directory** > **Security** > **MFA** > **伺服器設定**中產生的認證重新開機。 在重新開機之前，您必須從環境中 Azure MFA Server 上的 `\Program Files\Multi-Factor Authentication Server\Data\` 目錄中刪除下列檔案：
 
 - caCert
 - cert
@@ -64,7 +64,7 @@ Azure Multi-Factor Auth Provider 可讓**沒有授權**的使用者能夠充分�
 
 ![從 Azure 入口網站刪除驗證提供者](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-當您確認所有設定都已遷移之後，您可以流覽至**Azure 入口網站** > **Azure Active Directory** > **MFA** > **提供者**，然後選取省略號 **...** ，然後選取 **刪除**。
+當您確認所有設定都已遷移之後，您可以流覽至**Azure 入口網站** > **Azure Active Directory** > **Security** > **MFA** > **提供者**，然後選取省略號 **...** ，然後選取 **刪除**。
 
 > [!WARNING]
 > 刪除驗證提供者將會刪除與該提供者相關聯的任何報告資訊。 在刪除您的提供者之前，您可能會想要儲存活動報告。

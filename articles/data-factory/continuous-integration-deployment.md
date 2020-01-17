@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 0e4b2cd208e11f7696e016d3fa4353b38f3060d8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fb049b5af5c700cdb72f0319019cfd6eee952d9f
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977529"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156959"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory 中的持續整合與傳遞
 
@@ -330,7 +330,7 @@ else {
 * 您會使用自動化的 CI/CD，而您想要在 Resource Manager 部署期間變更某些屬性，但預設不會將屬性參數化。
 * 因為預設 Resource Manager 範本的數目超過允許的最大值（256），所以您的 factory 很大。
 
-在這些情況下，若要覆寫預設參數化範本，請在存放庫的根資料夾中建立名為 arm-template-parameters-definition 的檔案。 您必須使用該正確的檔案名。 Data Factory 從您目前在 Azure Data Factory 入口網站中的任何分支讀取此檔案，而不只是從共同作業分支。 您可以從私人分支建立或編輯該檔案，您可以在 UI 中選取 [**匯出 ARM 範本**] 來測試變更。 接著，您可以將檔案合併到共同作業分支。 如果找不到任何檔案，則會使用預設範本。
+在這些情況下，若要覆寫預設參數化範本，請在指定為 data factory git 整合根資料夾的資料夾中，建立名為 arm-template-parameters-definition 的檔案。 您必須使用該正確的檔案名。 Data Factory 從您目前在 Azure Data Factory 入口網站中的任何分支讀取此檔案，而不只是從共同作業分支。 您可以從私人分支建立或編輯該檔案，您可以在 UI 中選取 [**匯出 ARM 範本**] 來測試變更。 接著，您可以將檔案合併到共同作業分支。 如果找不到任何檔案，則會使用預設範本。
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>自訂參數檔案的語法
 

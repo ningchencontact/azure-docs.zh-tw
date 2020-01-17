@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/11/2020
-ms.openlocfilehash: 0354abf6a5450a1116423e3a35c3a7e2ae7b9057
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ef70c211c395556a4c15ff06e65098e8aaac32ba
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971097"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120259"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Azure 監視器客戶管理的金鑰設定 
 
@@ -378,8 +378,6 @@ CMK 的輪替需要使用新的 Azure Key Vault 金鑰版本來明確更新*叢�
 
 - CMK 加密適用于 CMK 設定後的新內嵌資料。 在 CMK 設定之前內嵌的資料會以 Microsoft 金鑰保持加密。 您可以在設定順暢地前後查詢資料。
 
-- CMK 功能是區域--您的 Azure Key Vault *、叢集*資源和相關聯的工作區必須位於相同的區域中，但可位於不同的訂用帳戶中。
-
 - 一旦將工作區與叢集*資源相關*聯，就無法將其與叢集資源解除關聯，因為資料是以*您的金鑰*加密，而且在 Azure Key Vault 中不需要您的 KEK 即可存取。
 
 - Azure Key Vault 必須設定為可復原。 這些屬性預設不會啟用，而且應該使用 CLI 和 PowerShell 來設定：
@@ -391,9 +389,9 @@ CMK 的輪替需要使用新的 Azure Key Vault 金鑰版本來明確更新*叢�
 
 - 目前不支援將*叢集資源移*到另一個資源群組或訂用帳戶。
 
-- 如果*叢集資源位於*不同的租使用者*中，叢集資源的*工作區關聯將會失敗。
+- 您的 Azure Key Vault *、叢集*資源和相關聯的工作區必須位於相同的區域和相同的 Azure Active Directory （Azure AD）租使用者中，但它們可以位於不同的訂用帳戶中。
 
--   如果叢集資源與*另一個*叢集資源相關*聯，則*其工作區關聯將會失敗
+- 如果叢集資源與*另一個*叢集資源相關*聯，則*其工作區關聯將會失敗
 
 ## <a name="troubleshooting-and-management"></a>疑難排解和管理
 
@@ -557,7 +555,7 @@ Content-type: application/json
 
 ```json
 {
-  "id": "/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.insights/components/{component-name}",
+  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.insights/components/component-name",
   "name": "component-name",
   "type": "Microsoft.Insights/components",
   "location": "region-name",

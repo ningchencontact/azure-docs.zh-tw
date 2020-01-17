@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a97490bffa16a32d17d41d3a3386b3d363f818d8
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 478a7ae8d6938ee4d4ef5c30c8126c3e95f35305
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921121"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121279"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 Azure Cosmos DB 繫結
 
@@ -255,9 +255,9 @@ namespace CosmosDBSamplesV2
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
-|**type** || 必須設為 `cosmosDBTrigger`。 |
-|**direction** || 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此參數。 |
-|**name** || 函式程式碼中使用的變數名稱，代表有變更的文件清單。 |
+|**type** | n/a | 必須設為 `cosmosDBTrigger`。 |
+|**direction** | n/a | 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此參數。 |
+|**name** | n/a | 函式程式碼中使用的變數名稱，代表有變更的文件清單。 |
 |**connectionStringSetting**|**ConnectionStringSetting** | 應用程式設定的名稱，包含用來連接到要監視之 Azure Cosmos DB 帳戶的連接字串。 |
 |**databaseName**|**DatabaseName**  | 含有要監視之集合的 Azure Cosmos DB 資料庫名稱。 |
 |**collectionName** |**CollectionName** | 要監視的集合名稱。 |
@@ -1737,9 +1737,9 @@ public class DocsFromRouteSqlQuery {
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
-|**type**     || 必須設為 `cosmosDB`。        |
-|**direction**     || 必須設為 `in`。         |
-|**name**     || 代表函式中之文件的繫結參數名稱。  |
+|**type**     | n/a | 必須設為 `cosmosDB`。        |
+|**direction**     | n/a | 必須設為 `in`。         |
+|**name**     | n/a | 代表函式中之文件的繫結參數名稱。  |
 |**databaseName** |**DatabaseName** |包含文件的資料庫。        |
 |**collectionName** |**CollectionName** | 包含文件的集合名稱。 |
 |**id**    | **Id** | 要擷取之文件的識別碼。 此屬性支援[繫結運算式](./functions-bindings-expressions-patterns.md)。 請勿同時設定 **id** 和 **sqlQuery** 屬性。 如果您未設定其中一個，就會擷取整個集合。 |
@@ -2366,9 +2366,9 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 
 |function.json 屬性 | 屬性內容 |說明|
 |---------|---------|----------------------|
-|**type**     || 必須設為 `cosmosDB`。        |
-|**direction**     || 必須設為 `out`。         |
-|**name**     || 代表函式中之文件的繫結參數名稱。  |
+|**type**     | n/a | 必須設為 `cosmosDB`。        |
+|**direction**     | n/a | 必須設為 `out`。         |
+|**name**     | n/a | 代表函式中之文件的繫結參數名稱。  |
 |**databaseName** | **DatabaseName**|包含其中將建立文件之集合的資料庫。     |
 |**collectionName** |**CollectionName**  | 包含其中將建立文件之集合的名稱。 |
 |**createIfNotExists**  |**CreateIfNotExists**    | 一個布林值，用來指出當集合不存在時，是否要建立集合。 預設是 false，因為會使用保留的輸送量來建立新集合，可能會涉及成本。 如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。  |

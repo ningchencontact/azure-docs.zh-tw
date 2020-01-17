@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse 案例中的租用戶、角色和使用者
 description: 了解 Azure Active Directory 租用戶、使用者和角色的概念，以及如何在 Azure Lighthouse 案例中使用它們。
-ms.date: 11/05/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 77a247c86765f25539833a6ba70f80e737c6846d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 344e104201a83b3589dae6dbd3b02e49e4575e00
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453560"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156330"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Azure Lighthouse 案例中的租用戶、角色和使用者
 
@@ -29,6 +29,9 @@ Azure 委派的資源管理目前支援所有[內建角色](../../role-based-acc
 - 不支援[擁有者](../../role-based-access-control/built-in-roles.md#owner)角色。
 - 不支援具有 [DataActions](../../role-based-access-control/role-definitions.md#dataactions) 權限的任何內建角色。
 - 支援[使用者存取系統管理員](../../role-based-access-control/built-in-roles.md#user-access-administrator)內建角色，但僅限於[將角色指派給客戶租用戶中的受控識別](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)。 將不適用此角色通常授與的其他任何權限。 如果您定義具有此角色的使用者，您也必須指定此使用者可以指派給受控識別的內建角色。
+
+> [!NOTE]
+> 一旦將適用的新內建角色新增至 Azure 之後，您就可以在[使用 Azure Resource Manager 範本將客戶](../how-to/onboard-customer.md)上線時加以指派。 在[發佈受管理的服務供應](../how-to/publish-managed-services-offers.md)專案的 Cloud Partner 入口網站中，可能會有一段延遲時間，新加入的角色才會變成可用。
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>定義使用者和角色的最佳做法
 
