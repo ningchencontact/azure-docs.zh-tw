@@ -1,17 +1,22 @@
 ---
-ms.openlocfilehash: ee44cd4ee5ec6fedfec46cbbb68b0c30118a4b9f
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+title: 包含檔案
+description: 包含檔案
+services: api-management
+author: vladvino
+ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
+ms.service: api-management
+ms.topic: include
+ms.date: 01/10/2020
+ms.author: vlvinogr
+ms.custom: include file
+ms.openlocfilehash: 2d4c8c2c831bd6ef16f60c34a6353f4a742798f7
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75904449"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159017"
 ---
----
-
-標題： include file description： include file services： api 管理作者： vladvino
-
-assetid： 1b813833-39c8-46be-8666-fd0960cfbf04 ms-chap： api 管理。主題：包含 ms-chap： 01/10/2020 ms. author： vlvinogr ms. custom： include file
----| 資源 | 限制 |
+| 資源 | 限制 |
 | ---------------------------------------------------------------------- | -------------------------- |
 | 縮放單位數上限 | 每個區域 10 個<sup>1</sup> |
 | 快取大小 | 每個單位 5 GiB<sup>2</sup> |

@@ -56,6 +56,12 @@
           href: tutorial-1st-r-experiment.md
     - name: 機器學習 CLI
       href: tutorial-train-deploy-model-cli.md
+    - name: Visual Studio Code
+      items:
+        - name: 設定 Azure Machine Learning 擴充功能
+          href: tutorial-setup-vscode-extension.md
+        - name: 定型和部署 TensorFlow 影像分類模型
+          href: tutorial-train-deploy-image-classification-model-vscode.md
 - name: 範例
   items:
     - name: Jupyter Notebook
@@ -151,9 +157,6 @@
         - name: 設定輸入和輸出目錄
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
-        - name: 使用 VS Code 擴充功能
-          displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
-          href: how-to-vscode-tools.md
         - name: 互動式偵錯
           displayName: 'Visual Studio Code, VSCode, debug, bugs, remote, compute, instance'
           href: how-to-set-up-vs-code-remote.md
@@ -397,3 +400,6 @@
     - name: Workbench 有什麼改變
       displayName: 'desktop, ui, Workbench, upgrade, update, transfer'
       href: overview-what-happened-to-workbench.md
+    - name: 設計工具協助工具功能
+      displayName: 'accessibility, designer, visual interface, screen reader, keyboard shortcuts'
+      href: designer-accessibility.md

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 5aeb0e01192c0635def8eef0c73aa2d14b7921e2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a9473f69d600a86ff71da69c7efe0dea3f2b0a08
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173902"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76158940"
 ---
 ## <a name="os-config"></a>將 IP 位址新增至 VM 作業系統
 
@@ -22,21 +22,21 @@ ms.locfileid: "67173902"
 ### <a name="windows"></a>Windows
 
 1. 從命令提示字元輸入 *ipconfig /all*。  您只會看到 *Primary* 私人 IP 位址 (透過 DHCP)。
-2. 在命令提示字元中輸入 ncpa.cpl  ，以開啟 [網路連線]  。
-3. 開啟適當的配接器的屬性：**區域連線**。
+2. 在命令提示字元中輸入 ncpa.cpl，以開啟 [網路連線]。
+3. 開啟適當介面卡的屬性：**區域連線**。
 4. 按兩下 [網際網路通訊協定第 4 版 (IPv4)]。
-5. 選取 [使用下列 IP 位址]  並輸入下列值︰
+5. 選取 [使用下列 IP 位址] 並輸入下列值︰
 
-    * **IP 位址**：請輸入*主要*私人 IP 位址
-    * **子網路遮罩**:根據您的子網路集。 例如，如果子網路為 /24 子網路，則子網路遮罩為 255.255.255.0。
-    * **預設閘道**:子網路中的第一個 IP 位址。 如果您的子網路為 10.0.0.0/24，則閘道 IP 位址為 10.0.0.1。
-    * 選取 [使用下列 DNS 伺服器位址]  並輸入下列值︰
-        * **慣用的 DNS 伺服器**:如果您不會使用您自己的 DNS 伺服器，請輸入 168.63.129.16。  如果您是使用自己的 DNS 伺服器，請輸入您的伺服器 IP 位址。
-    * 選取 [進階]  按鈕，然後新增其他 IP 位址。 將您在上一個步驟中新增至 Azure 網路介面的每個次要私人 IP 位址新增至 Windows 網路介面，而該 Windows 網路介面已獲取指派給 Azure 網路介面的主要 IP 位址。
+    * **IP 位址**︰輸入 *Primary* 私人 IP 位址
+    * **子網路遮罩**︰根據您的子網路設定。 例如，如果子網路為 /24 子網路，則子網路遮罩為 255.255.255.0。
+    * **預設閘道**︰子網路中的第一個 IP 位址。 如果您的子網路為 10.0.0.0/24，則閘道 IP 位址為 10.0.0.1。
+    * 選取 [使用下列 DNS 伺服器位址] 並輸入下列值︰
+        * **慣用 DNS 伺服器**︰如果您不是使用自己的 DNS 伺服器，請輸入 168.63.129.16。  如果您是使用自己的 DNS 伺服器，請輸入您的伺服器 IP 位址。
+    * 選取 [進階] 按鈕，然後新增其他 IP 位址。 將您在上一個步驟中新增至 Azure 網路介面的每個次要私人 IP 位址新增至 Windows 網路介面，而該 Windows 網路介面已獲取指派給 Azure 網路介面的主要 IP 位址。
 
-        您絕對不能手動指派在虛擬機器的作業系統內已指派給 Azure 虛擬機器的公用 IP 位址。 當您手動設定作業系統內的 IP 位址時，請確保它的位址與指派給 Azure [網路介面](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings)的私人 IP 位址相同，否則您可能會失去與虛擬機器的連線。 深入了解[私人 IP 位址](../articles/virtual-network/virtual-network-network-interface-addresses.md#private)設定。 您絕對不能指派作業系統內的 Azure 公用 IP 位址。
+        請勿手動指派在虛擬機器作業系統內已指派給 Azure 虛擬機器的公用 IP 位址。 當您手動設定作業系統內的 IP 位址時，請確保它的位址與指派給 Azure [網路介面](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings)的私人 IP 位址相同，否則您可能會失去與虛擬機器的連線。 深入了解[私人 IP 位址](../articles/virtual-network/virtual-network-network-interface-addresses.md#private)設定。 您絕對不能指派作業系統內的 Azure 公用 IP 位址。
 
-    * 按一下 [確定]  關閉 TCP/IP 設定，然後再按一次 [確定]  關閉介面卡設定。 您的 RDP 連接已重建。
+    * 按一下 [確定] 關閉 TCP/IP 設定，然後再按一次 [確定] 關閉介面卡設定。 您的 RDP 連接已重建。
 
 6. 從命令提示字元輸入 *ipconfig /all*。 此時會顯示您加入的所有 IP 位址，而 DHCP 是關閉的。
 7. 設定 Windows 在 Azure 中使用主要 IP 設定的私人 IP 位址，作為適用於 Windows 的主要 IP 位址。 如需詳細資訊，請參閱[從具有多個 IP 位址的 Azure Windows VM 無權存取網際網路](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse)。 
@@ -51,8 +51,70 @@ ping -S 10.0.0.5 hotmail.com
 >[!NOTE]
 >對於次要 IP 組態，如果組態有與其相關聯的公用 IP 位址，您只可以 Ping 網際網路。 對於主要 IP 組態，公用 IP 位址不需要 Ping 網際網路。
 
-### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
-我們建議您查看最新的 Linux 散發套件的文件。 
+### <a name="linux-ubuntu-1416"></a>Linux （Ubuntu 14/16）
+
+我們建議您查看 Linux 散發套件的最新檔。 
+
+1. 開啟終端機視窗。
+2. 請確定您是 root 使用者。 如果不是，請輸入下列命令：
+
+   ```bash
+   sudo -i
+   ```
+
+3. 更新網路介面 (假設為 'eth0') 的組態檔。
+
+   * 保留針對 dhcp 的現有行。 主要 IP 位址的設定仍然與先前一樣。
+   * 使用下列命令，新增其他靜態 IP 位址的組態︰
+
+     ```bash
+     cd /etc/network/interfaces.d/
+     ls
+     ```
+
+     您應該會看到一個 .cfg 檔案。
+4. 開啟 檔案。 您應該會在檔案結尾看到下列這幾行：
+
+   ```bash
+   auto eth0
+   iface eth0 inet dhcp
+   ```
+
+5. 在此檔案已有的幾行後面加入下列這幾行︰
+
+   ```bash
+   iface eth0 inet static
+   address <your private IP address here>
+   netmask <your subnet mask>
+   ```
+
+6. 使用下列命令儲存檔案︰
+
+   ```bash
+   :wq
+   ```
+
+7. 使用下列命令重設網路介面︰
+
+   ```bash
+   sudo ifdown eth0 && sudo ifup eth0
+   ```
+
+   > [!IMPORTANT]
+   > 如果使用遠端連線，請在同一行中同時執行 ifdown 和 ifup。
+   >
+
+8. 使用下列命令確認 IP 位址已加入網路介面︰
+
+   ```bash
+   ip addr list eth0
+   ```
+
+   您應該會在清單中看到您加入的 IP 位址。
+
+### <a name="linux-ubuntu-1804"></a>Linux （Ubuntu 18.04 +）
+
+Ubuntu 18.04 和更新版本已變更為 OS 網路管理的 `netplan`。 我們建議您查看 Linux 散發套件的最新檔。 
 
 1. 開啟終端機視窗。
 2. 請確定您是 root 使用者。 如果不是，請輸入下列命令：
@@ -61,47 +123,43 @@ ping -S 10.0.0.5 hotmail.com
     sudo -i
     ```
 
-3. 更新網路介面 (假設為 'eth0') 的組態檔。
-
-   * 保留針對 dhcp 的現有行。 主要 IP 位址的設定仍然與先前一樣。
-   * 使用下列命令，新增其他靜態 IP 位址的組態︰
-
-       ```bash
-       cd /etc/network/interfaces.d/
-       ls
-       ```
-
-     您應該會看到一個 .cfg 檔案。
-4. 開啟 檔案。 您應該會在檔案結尾看到下列這幾行：
+3. 建立第二個介面的檔案，並在文字編輯器中開啟它：
 
     ```bash
-    auto eth0
-    iface eth0 inet dhcp
+    vi /etc/netplan/60-static.yaml
     ```
 
-5. 在此檔案已有的幾行後面加入下列這幾行︰
+4. 將下列幾行新增至檔案，並將 `10.0.0.6/24` 取代為您的 IP/網路遮罩：
 
     ```bash
-    iface eth0 inet static
-    address <your private IP address here>
-    netmask <your subnet mask>
+    network:
+        version: 2
+        ethernets:
+            eth0:
+                addresses:
+                    - 10.0.0.6/24
     ```
 
-6. 使用下列命令儲存檔案︰
+5. 使用下列命令儲存檔案︰
 
     ```bash
     :wq
     ```
 
-7. 使用下列命令重設網路介面︰
+6. 使用[netplan 嘗試](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html)確認語法來測試變更：
 
     ```bash
-    sudo ifdown eth0 && sudo ifup eth0
+    netplan try
     ```
 
-    > [!IMPORTANT]
-    > 如果使用遠端連線，請在同一行中同時執行 ifdown 和 ifup。
-    >
+> [!NOTE]
+> `netplan try` 會暫時套用變更，並于120秒後回復變更。 如果連線中斷，請等候120秒，然後重新連線。 在這段時間，變更將會復原。
+
+7. 假設 `netplan try`沒有問題，請套用設定變更：
+
+    ```bash
+    netplan apply
+    ```
 
 8. 使用下列命令確認 IP 位址已加入網路介面︰
 
@@ -109,8 +167,25 @@ ping -S 10.0.0.5 hotmail.com
     ip addr list eth0
     ```
 
-    您應該會在清單中看到您加入的 IP 位址。
+    您應該會在清單中看到您加入的 IP 位址。 範例：
 
+    ```bash
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+        valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host
+        valid_lft forever preferred_lft forever
+    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+        link/ether 00:0d:3a:8c:14:a5 brd ff:ff:ff:ff:ff:ff
+        inet 10.0.0.6/24 brd 10.0.0.255 scope global eth0
+        valid_lft forever preferred_lft forever
+        inet 10.0.0.4/24 brd 10.0.0.255 scope global secondary eth0
+        valid_lft forever preferred_lft forever
+        inet6 fe80::20d:3aff:fe8c:14a5/64 scope link
+        valid_lft forever preferred_lft forever
+    ```
+    
 ### <a name="linux-red-hat-centos-and-others"></a>Linux (Red Hat、CentOS 以及其他)
 
 1. 開啟終端機視窗。
@@ -146,7 +221,7 @@ ping -S 10.0.0.5 hotmail.com
     vi ifcfg-eth0:0
     ```
 
-7. 使用下列命令，新增檔案內容，在此案例中為 eth0:0  。 請務必根據您的 IP 位址更新資訊。
+7. 使用下列命令，新增檔案內容，在此案例中為 eth0:0。 請務必根據您的 IP 位址更新資訊。
 
     ```bash
     DEVICE=eth0:0
