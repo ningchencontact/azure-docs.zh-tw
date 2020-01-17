@@ -118,7 +118,7 @@ ms.locfileid: "74707417"
 
 - Just-In-Time 網路存取控制應套用在虛擬機器上
 
-## <a name="213-ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>2.13 確定 ASC 預設原則設定 [監視自適性應用程式白名單] 不是 [已停用]
+## <a name="213-ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>2.13 確定 ASC 預設原則設定 [監視自適性應用程式允許清單] 不是 [已停用]
 
 此藍圖會指派 [Azure 原則](../../../policy/overview.md)定義，以協助您確定已在虛擬機器上啟用自適性應用程式控制。
 

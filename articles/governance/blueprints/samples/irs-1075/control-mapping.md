@@ -141,7 +141,7 @@ Azure 監視器所收集的記錄資料會儲存在 Log Analytics 工作區中�
 
 - 應在虛擬機器上啟用自適性應用程式控制
 
-## <a name="9357-cm-7-5-least-functionality--authorized-software--whitelisting"></a>9.3.5.7 CM-7 (5) 最少的功能 | 已授權的軟體 / 加入白名單
+## <a name="9357-cm-7-5-least-functionality--authorized-software--whitelisting"></a>9.3.5.7 CM-7 (5) 最少的功能 | 已授權的軟體 / 加入允許清單
 
 「Azure 資訊安全中心」的自適性應用程式控制是智慧型的自動化端對端應用程式允許清單解決方案，可封鎖或防止在虛擬機器上執行特定軟體。 應用程式控制可協助您建立虛擬機器的已核准應用程式清單。 此藍圖指派一個 [Azure 原則](../../../policy/overview.md)定義，協助您監視已建議但尚未設定允許清單解決方案的虛擬機器。
 

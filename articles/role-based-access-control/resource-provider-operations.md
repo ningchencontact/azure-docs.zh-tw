@@ -1319,9 +1319,9 @@ ms.locfileid: "75981097"
 > | DataAction | CognitiveServices/accounts/CustomVision。預測/使用者/狀態/寫入 | 更新使用者狀態 |
 > | DataAction | CognitiveServices/accounts/CustomVision。預測/使用者/層級/寫入 | *NotDefined* |
 > | DataAction | CognitiveServices/accounts/CustomVision。預測/使用者/讀取 | *NotDefined* |
-> | DataAction | CognitiveServices/accounts/CustomVision。預測/帳戶白名單/刪除 | 刪除具有特定功能的白名單使用者 |
-> | DataAction | CognitiveServices/accounts/CustomVision。預測/帳戶白名單/讀取 | 取得具有特定功能的白名單使用者清單 |
-> | DataAction | CognitiveServices/accounts/CustomVision。預測/列入允許清單/寫入 | 在具有特定功能的白名單中更新或建立使用者 |
+> | DataAction | CognitiveServices/accounts/CustomVision。預測/帳戶允許清單/刪除 | 刪除具有特定功能的允許清單使用者 |
+> | DataAction | CognitiveServices/accounts/CustomVision。預測/帳戶允許清單/讀取 | 取得具有特定功能的允許清單使用者清單 |
+> | DataAction | CognitiveServices/accounts/CustomVision。預測/列入允許清單/寫入 | 在具有特定功能的允許清單中更新或建立使用者 |
 > | 行動 | Microsoft.CognitiveServices/accounts/delete | 刪除 API 帳戶 |
 > | DataAction | CognitiveServices/帳戶/EntitySearch/搜尋/動作 | 取得給定查詢的實體和位置結果。 |
 > | DataAction | CognitiveServices/帳戶/臉部/偵測/動作 | 偵測影像中的人臉、傳回臉部矩形，並選擇性地使用 faceIds、地標和屬性。 |
