@@ -4,21 +4,21 @@ description: 瞭解如何安裝和設定內部部署資料閘道，以從 Azure 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 019da1810851c730ea8bfe4cf5eea0cfa900bea0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: f578840726543027a8c1b1db9bd88ea42f6e85fa
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029892"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264062"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
 
-如果相同區域中有一或多部 Analysis Services 伺服器連線到內部部署資料來源，則需要一個內部部署閘道。  雖然您安裝的閘道與其他服務（例如 Power BI、Power Apps 和 Logic Apps）所使用的相同，但在安裝 for Azure Analysis Services 時，還有一些額外的步驟需要完成。 本安裝文章專屬於**Azure Analysis Services**。
+如果相同區域中有一或多部 Analysis Services 伺服器連線到內部部署資料來源，則需要一個內部部署閘道。  雖然您安裝的閘道與其他服務（例如 Power BI、Power Apps 和 Logic Apps）所使用的相同，但在安裝 for Azure Analysis Services 時，還有一些額外的步驟需要完成。 本安裝文章專屬於**Azure Analysis Services**。 
 
-若要深入瞭解閘道，以及 Azure Analysis Services 如何使用它，請參閱連線[至內部部署資料來源](analysis-services-gateway.md)。
+若要深入瞭解 Azure Analysis Services 如何與閘道搭配運作，請參閱[連接到內部部署資料來源](analysis-services-gateway.md)。 若要深入瞭解有關先進的安裝案例和閘道的詳細資訊，請參閱內部[部署資料閘道檔](/data-integration/gateway/service-gateway-onprem)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -35,11 +35,11 @@ ms.locfileid: "76029892"
 
 **重要考量︰**
 
-* 在設定期間，向 Azure 註冊您的閘道時，系統會選取您訂用帳戶的預設區域。 您可以選擇不同的區域。 如果您有伺服器位於多個區域中，您必須針對每個區域安裝一個閘道。 
+* 在設定期間，向 Azure 註冊您的閘道時，系統會選取您訂用帳戶的預設區域。 您可以選擇不同的訂用帳戶和區域。 如果您有伺服器位於多個區域中，您必須針對每個區域安裝一個閘道。 
 * 閘道無法安裝在網域控制站上。
 * 一部電腦只能安裝一個閘道。
 * 請在電源維持開啟且不會進入睡眠狀態的電腦上安裝閘道。
-* 請勿將閘道安裝於採用無線網路的電腦上。 效能會因此降低。
+* 請勿在只有無線連線到您網路的電腦上安裝閘道。 效能會因此降低。
 * 安裝閘道時，您用來登入電腦的使用者帳戶必須具有「登入為服務」權限。 安裝完成時，內部部署資料閘道服務會使用 NT SERVICE\PBIEgwService 帳戶登入為服務。 在安裝期間可以指定不同的帳戶，或是可在安裝完成後於服務中指定。 在安裝時請確定群組原則設定允許您用於登入的帳戶，且您選擇的服務帳戶具有「登入為服務」權限。
 * 如果[租用戶](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant)與您要註冊閘道的訂用帳戶相同，請以 Azure AD 中的帳戶登入 Azure。 安裝和註冊閘道時不支援 Azure B2B (來賓) 帳戶。
 * 如果資料來源位於 Azure 虛擬網路 (VNet) 上，您必須設定 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 伺服器屬性。
@@ -87,7 +87,7 @@ ms.locfileid: "76029892"
 
 ## <a name="create-resource"></a>建立 Azure 閘道資源
 
-在您安裝並註冊閘道之後，您需要在您的 Azure 訂用帳戶中建立閘道資源。 使用您用於註冊閘道的相同帳戶登入 Azure。
+安裝並註冊閘道之後，您必須在 Azure 中建立閘道資源。 使用您用於註冊閘道的相同帳戶登入 Azure。
 
 1. 在 Azure 入口網站中，按一下 [**建立資源**]，然後搜尋 [**內部部署資料閘道**]，再按一下 [**建立**]。
 

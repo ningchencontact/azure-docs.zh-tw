@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: d55dc2a1311d66eae01ae12a3dae798fbab20677
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: b9060823c997391d02eae61911f8aa748f191657
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045609"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260849"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>建立 Azure Machine Learning 資料集
 
@@ -49,7 +49,7 @@ ms.locfileid: "76045609"
 
 有兩種資料集類型，根據使用者在定型中取用它們的方式而定：
 
-* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py)藉由剖析提供的檔案或檔案清單，以表格格式表示資料。 這讓您能夠將資料具體化為 Pandas 或 Spark 資料框架。 您可以從 .csv、tsv 和 parquet 檔案，以及從 SQL 查詢結果建立 `TabularDataset` 物件。 如需完整清單，請參閱[TabularDatasetFactory 類別](https://aka.ms/tabulardataset-api-reference)。
+* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py)藉由剖析提供的檔案或檔案清單，以表格格式表示資料。 這讓您能夠將資料具體化為 Pandas 或 Spark 資料框架。 您可以從 .csv、tsv、parquet、. jsonl 檔案和 SQL 查詢結果建立 `TabularDataset` 物件。 如需完整清單，請參閱[TabularDatasetFactory 類別](https://aka.ms/tabulardataset-api-reference)。
 
 * [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py)類別會參考資料存放區或公用 url 中的單一或多個檔案。 藉由這個方法，您可以將檔案下載或掛接至您的計算，做為 FileDataset 物件。 這些檔案可以是任何格式，可提供更廣泛的機器學習服務案例，包括深度學習。
 
@@ -74,7 +74,7 @@ ms.locfileid: "76045609"
 
 #### <a name="create-a-tabulardataset"></a>建立 TabularDataset
 
-您可以透過 SDK 或使用 Azure Machine Learning Studio 來建立 TabularDatasets。 您可以指定資料行中的時間戳記，或從資料儲存所在的路徑模式來啟用時間序列特性。 此規格可讓您依時間輕鬆且有效率地進行篩選。
+您可以透過 SDK 或使用 Azure Machine Learning studio 來建立 TabularDatasets。 
 
 使用 `TabularDatasetFactory` 類別上的[`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-)方法來讀取 .csv 或 tsv 格式的檔案，並建立未註冊的 TabularDataset。 如果您要讀取多個檔案，結果會匯總成一個表格式表示。
 
@@ -186,7 +186,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 ```
 
 > [!Note]
-> 透過 Azure Machine Learning Studio 建立的資料集會自動註冊到工作區。
+> 透過 Azure Machine Learning studio 建立的資料集會自動註冊到工作區。
 
 ## <a name="create-datasets-with-azure-open-datasets"></a>使用 Azure 開放資料集建立資料集
 
@@ -244,7 +244,6 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'new titanic training data',
                                  create_new_version = True)
 ```
-
 
 ## <a name="access-datasets-in-your-script"></a>存取腳本中的資料集
 

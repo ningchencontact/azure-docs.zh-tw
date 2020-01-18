@@ -3,23 +3,23 @@ title: 使用 Azure 地圖服務搜尋服務搜尋位置 |Microsoft Azure 對應
 description: 在本文中，您將瞭解如何使用 Microsoft Azure Maps 搜尋服務來搜尋位置。
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/05/2019
+ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 59d58b9ecb42a7329df6c91e0a646c557d78a415
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 53856b4157afa5976947c451952fc26eefcdd0ea
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911447"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264181"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>使用 Azure 地圖服務搜尋服務來尋找地址
 
-地圖服務搜尋服務是一組 RESTful API，專門針對要搜尋地址、位置、景點、公司清單及其他地理資訊的開發人員所設計。 此服務會將經緯度指派給特定地址、交叉街道、地理功能或感景點 (POI)。 搜尋所傳回的緯度與經度值可用來作為其他地圖服務的參數 (例如路線和流量)。
+Maps 搜尋服務是針對開發人員所設計的一組 RESTful Api。 服務可以搜尋位址、地點、感點、商務清單及其他地理資訊。 下列每一個都有緯度和經度值：特定位址、交叉街道、地理功能或感對點（POI）。 您可以使用查詢中傳回的緯度和經度值，做為其他地圖服務中的參數。 例如，傳回的值可能會變成路線規劃服務或流量流程服務的參數。 
 
-在本文中，您將瞭解如何：
+讓我們來瞭解如何：
 
 * 使用[模糊搜尋 API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)搜尋位址
 * 搜尋位址以及屬性和座標
@@ -28,13 +28,13 @@ ms.locfileid: "75911447"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要對地圖服務 API 進行呼叫，您需要有地圖服務帳戶和金鑰。 依照[建立帳戶](quick-demo-map-app.md#create-an-account-with-azure-maps)中的指示來建立 Azure 地圖服務帳戶訂用帳戶，並遵循[取得主要金鑰](quick-demo-map-app.md#get-the-primary-key-for-your-account)中的步驟來取得您帳戶的主要金鑰。 如需 Azure 地圖服務中驗證的詳細資訊，請參閱[Azure 地圖服務中的管理驗證](./how-to-manage-authentication.md)。
+若要對地圖服務 Api 進行任何呼叫，您需要 Maps 帳戶和金鑰。 若要建立 Azure 地圖服務的帳戶，請遵循[建立帳戶](quick-demo-map-app.md#create-an-account-with-azure-maps)中的指示。 如果您需要取得主要金鑰的協助，請依照[取得主要金鑰](quick-demo-map-app.md#get-the-primary-key-for-your-account)中的步驟進行。 如需 Azure 地圖服務中驗證的詳細資訊，請參閱[Azure 地圖服務中的管理驗證](./how-to-manage-authentication.md)。
 
 本文使用 [Postman 應用程式](https://www.getpostman.com/apps)來建置 REST 呼叫。 您可以使用您偏好的任何 API 開發環境。
 
 ## <a name="using-fuzzy-search"></a>使用模糊搜尋
 
-搜尋服務的預設 API 為[模糊搜尋](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)，這在您不知道使用者針對搜尋查詢所輸入之內容的情況下很有幫助。 該 API 會將 POI 搜尋和地理編碼結合為標準的「單行搜尋」。 例如，該 API 可以處理任何地址或 POI 權杖之組合的輸入。 API 也可與內容相關的位置進行加權 (lat./lon. pair)，完全受到座標和半徑所限制，或可以更廣泛地執行，不受任何地理偏差錨點影響。
+搜尋服務的預設 API 是[模糊搜尋](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)。 當您不確定搜尋查詢中的使用者輸入格式時，此服務會很有用。 該 API 會將 POI 搜尋和地理編碼結合為標準的「單行搜尋」。 例如，該 API 可以處理任何地址或 POI 權杖之組合的輸入。 此外，它也可以使用內容相關的位置加權（lat./lon。 pair)，完全受到座標和半徑所限制，或可以更廣泛地執行，不受任何地理偏差錨點影響。
 
 大部分的搜尋查詢預設為 `maxFuzzyLevel=1` 以取得效能並減少不尋常的結果。 可以視需要依據要求覆寫此預設值，方法是傳入查詢參數 `maxFuzzyLevel=2` 或 `3`。
 
@@ -52,7 +52,7 @@ ms.locfileid: "75911447"
     | 要求 URL | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
     | 授權 | 無授權 |
 
-    URL 路徑中的 **Json** 屬性會判斷回應格式。 您在整篇文章中使用 json，以方便使用並提升可讀性。 您可以在[地圖服務功能性 API 參考](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)的＜取得搜尋模糊＞定義中找到可用的回應格式。
+    URL 路徑中的 **Json** 屬性會判斷回應格式。 本文使用 json 來方便使用和可讀性。 您可以在[地圖服務功能性 API 參考](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)的＜取得搜尋模糊＞定義中找到可用的回應格式。
 
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
 
@@ -66,9 +66,9 @@ ms.locfileid: "75911447"
 
 4. 按一下 [傳送]，然後檢視回應本文。
 
-    「pizza」的模稜兩可查詢字串傳回了 10 個[景點](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) 結果，其類別分別落在「pizza」和「restaurant」。 每個結果都會傳回街道地址、緯度 / 經度值、檢視連接埠和位置的進入點。
+    「比薩餅」的不明確查詢字串會在「比薩餅」和「餐廳」類別中傳回10個[感興趣的結果](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse)（POI）。 每個結果都會傳回位置的街道位址、緯度和經度值、視圖埠和進入點。
   
-    此查詢中的結果會有所不同，未繫結至任何特定的參考位置。 您可以使用**countrySet**參數來指定您的應用程式需要涵蓋範圍的國家/地區，因為預設行為是搜尋整個世界，可能會傳回不必要的結果。
+    此查詢中的結果會有所不同，未繫結至任何特定的參考位置。 您可以使用**countrySet**參數來指定您的應用程式需要涵蓋範圍的國家/地區。 預設行為是搜尋整個世界，可能會傳回不必要的結果。
 
 5. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
@@ -91,7 +91,7 @@ ms.locfileid: "75911447"
 
 ## <a name="search-for-address-properties-and-coordinates"></a>搜尋地址內容和座標
 
-您可以將完整或部分的街道地址傳遞至搜尋地址 API，並收到包含詳細地址內容 (例如自治區或分部)，以及緯度和經度中的位置值。
+您可以將完整或部分街道位址傳遞給搜尋位址 API。 您仍然會收到包含詳細位址屬性的回應。 詳細的位址屬性是高度和經度、municipality 或子分支中的位置值之類的值。
 
 1. 在 Postman 中，按一下 [新要求] | [取得要求]，然後將它命名為**地址搜尋**。
 2. 在 [建立器] 索引標籤上，選取 [取得] HTTP 方法、輸入您 API 端點的要求 URL，然後選取授權通訊協定 (如果有的話)。
@@ -165,7 +165,7 @@ ms.locfileid: "75911447"
     |-----|------------|
     | number | true |
 
-    如果 [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 查詢參數隨著要求傳送，回應可能會包含街道邊 (左/右)，以及該號碼的位移位置。
+    如果[數位](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)查詢參數與要求一起傳送，回應可能會包含街道的側邊（左或右），以及該數位的位移位置。
   
 6. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
@@ -173,7 +173,7 @@ ms.locfileid: "75911447"
     |-----|------------|
     | returnSpeedLimit | true |
   
-    當設定 [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 查詢參數時，回應會傳回已張貼的速度限制。
+    設定[returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)查詢參數時，回應會傳回已張貼的速度限制。
 
 7. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
@@ -189,7 +189,7 @@ ms.locfileid: "75911447"
     |-----|------------|
     | roadUse | true |
 
-    您可以使用 [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 查詢參數，將反向地理代碼限制為特定類型的道路使用。
+    您可以使用[roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)查詢參數，將反向地理編碼查詢限制為特定類型的道路。
   
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>使用反向地址交叉街道搜尋來搜尋交叉街道
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 7017c3065e41befab6b5d7cdea47e2e3e6720173
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d35c02386b7bcb18781dcbd8c209da43d590868c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928649"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169518"
 ---
 # <a name="support-and-help-options"></a>支援和協助選項
 
@@ -37,7 +37,7 @@ ms.locfileid: "74928649"
 
 當有新版本可用時，就會立即更新[版本](https://aka.ms/csspeech/whatsnew)資訊。 這些附注包含新功能、改進和 bug 修正的相關資訊。
 
-## <a name="search"></a>Search
+## <a name="search"></a>搜尋
 
 您可能會在下列項目中發現需要的答案：文件、範例或 [Stack Overflow](https://www.stackoverflow.com) 問題的解答。
 
@@ -57,17 +57,6 @@ Azure 客戶可以在 Azure 入口網站中建立和管理支援要求。
 
 * [Azure 入口網站](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [美國政府的 Azure 入口網站](https://portal.azure.us)
-
-## <a name="post-a-question-to-stack-overflow"></a>在 Stack Overflow 張貼問題
-
-Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 Microsoft 小組成員會在這裡直接參與以協助您解決問題。
-
-如果您無法透過搜尋找到問題的解答，請將新問題提交至 Stack Overflow 使用標記[\[microsoft 認知\]\[語音\]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech)。
-
-> [!TIP]
-> Stack Overflow 的下列貼文包含如何提出問題以及新增原始程式碼的提示。 遵循這些指導方針有助於增加社群成員快速評估並回應您問題的機會：  
-> * [要如何問一個好問題？](https://stackoverflow.com/help/how-to-ask)
-> * [如何建立最小、完成且可驗證的範例](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>建立 GitHub 問題
 
@@ -108,6 +97,16 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
  - 如果您針對特定的服務互動回報錯誤，請報告事件的 SessionId 和時間（包括時區）。 在您收到的所有回呼/事件中都會回報 SessionId。
  - 任何其他額外資訊
 
+## <a name="post-a-question-to-stack-overflow"></a>在 Stack Overflow 張貼問題
+
+Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 Microsoft 小組成員會在這裡直接參與以協助您解決問題。
+
+如果您無法透過搜尋找到問題的解答，請將新問題提交至 Stack Overflow 使用標記[\[microsoft 認知\]\[語音\]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech)。
+
+> [!TIP]
+> Stack Overflow 的下列貼文包含如何提出問題以及新增原始程式碼的提示。 遵循這些指導方針有助於增加社群成員快速評估並回應您問題的機會：  
+> * [要如何問一個好問題？](https://stackoverflow.com/help/how-to-ask)
+> * [如何建立最小、完成且可驗證的範例](https://stackoverflow.com/help/mcve)
 
 ## <a name="uservoice-forum"></a>UserVoice 論壇
 

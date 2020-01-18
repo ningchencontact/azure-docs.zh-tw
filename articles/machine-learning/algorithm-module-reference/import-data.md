@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 8d099d0b8f8e31bf77f5ddfad320ac792c5c01e5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f3a1bf518b8ef122e2df64f2815c8885929b127d
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529604"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166777"
 ---
 # <a name="import-data-module"></a>匯入資料模組
 
@@ -27,7 +27,7 @@ ms.locfileid: "75529604"
 > 註冊資料集之後，您可以在 [設計師] 介面的 [**資料**集] -> [**我的資料集**] 類別目錄中找到它。 本課程模組已保留給 Studio （傳統）使用者使用，以獲得熟悉的體驗。 
 >
 
-首先，選擇您要從中讀取的來源，然後完成其他設定。 「匯**入資料**」模組支援從下列來源讀取資料：
+「匯**入資料**」模組支援從下列來源讀取資料：
 
 - 透過 HTTP 的 URL
 - 透過[**資料存放區**](../how-to-access-data.md)的 Azure 雲端儲存體）

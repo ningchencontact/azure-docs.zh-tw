@@ -4,15 +4,15 @@ description: 取得頁面流覽和會話計數、web 用戶端資料、單一頁
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: Dawgfan
+ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 38f9872fb73f2c680264c2c0b84445db858cf203
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 83b167baa29a54e53f7fe8bdb7b7e5c88bc3eddf
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045845"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264079"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
 
@@ -20,7 +20,7 @@ ms.locfileid: "76045845"
 
 Application Insights 可以使用於任何網頁 - 您剛剛新增 JavaScript 的簡短片段。 如果您的 web 服務是[JAVA](java-get-started.md)或[ASP.NET](asp-net.md)，您可以使用伺服器端 Sdk 搭配用戶端 JavaScript SDK 來取得應用程式效能的端對端瞭解。
 
-## <a name="adding-the-javascript-sdk"></a>新增 JAVAscript SDK
+## <a name="adding-the-javascript-sdk"></a>新增 JavaScript SDK
 
 1. 首先，您需要 Application Insights 資源。 如果您還沒有資源和檢測金鑰，請遵循[建立新的資源指示](create-new-resource.md)。
 2. 從您想要傳送 JavaScript 遙測的資源複製檢測金鑰。
@@ -29,7 +29,10 @@ Application Insights 可以使用於任何網頁 - 您剛剛新增 JavaScript �
     * [JavaScript 程式碼片段](#snippet-based-setup)
 
 > [!IMPORTANT]
-> 您只需要使用下列其中一種方法，即可將 Application Insights JavaScript SDK 新增至您的應用程式。 如果您使用以 npm 為基礎的安裝程式，請勿使用以程式碼片段為基礎的安裝程式。 使用以程式碼片段為基礎的方法時，反向案例也不會使用以 npm 為基礎的安裝程式。 
+> > 僅使用一種方法將 JavaScript SDK 新增至您的應用程式。 如果您使用 NPM 安裝程式，請不要使用程式碼片段，反之亦然。
+
+> [!NOTE]
+> NPM 安裝程式會安裝 JavaScript SDK 作為您專案的相依性，啟用 IntelliSense，而程式碼片段則會在執行時間提取 SDK。 兩者都支援相同的功能。 不過，想要有更多自訂事件和設定的開發人員通常會選擇 NPM 安裝，而使用者需要快速啟用現成的 web 分析來選擇程式碼片段。
 
 ### <a name="npm-based-setup"></a>以 npm 為基礎的設定
 
@@ -261,4 +264,3 @@ Application Insights JavaScript SDK 是開放原始碼，可供您查看原始�
 * [追蹤流量](usage-overview.md)
 * [自訂事件和計量](api-custom-events-metrics.md)
 * [Build-measure-learn](usage-overview.md)
-

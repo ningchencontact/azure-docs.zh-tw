@@ -1,24 +1,24 @@
 ---
-title: 啟用 Azure Cosmos DB 帳戶中的筆記本
+title: 在 Azure Cosmos DB 帳戶中啟用筆記本（預覽）
 description: Azure Cosmos DB 的內建筆記本可讓您從入口網站中分析資料並加以視覺化。 本文說明如何啟用 Cosmos 帳戶的這項功能。
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 22bad3b31b8cbe54900b96bd4b327f18916e81a3
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8c65b7d010e521ec78322de9807f741c856a2381
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677154"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264843"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts"></a>啟用 Azure Cosmos DB 帳戶的筆記本
 
 > [!IMPORTANT]
-> 下列 Azure 區域目前提供適用于 Azure Cosmos DB 的內建筆記本：澳大利亞東部、美國東部、美國東部2、歐洲北部、美國中南部、東南亞、英國南部、西歐和美國西部2。 若要使用筆記本，請[建立具有筆記本的新帳戶](#enable-notebooks-in-a-new-cosmos-account)，或在其中一個區域中的[現有帳戶上啟用筆記本](#enable-notebooks-in-an-existing-cosmos-account)。
+> 下列 Azure 區域目前提供適用于 Azure Cosmos DB 的內建筆記本：澳大利亞東部、美國東部、美國東部2、北歐、美國中南部、東南亞、英國南部、西歐和美國西部2。 若要使用筆記本，請[建立具有筆記本的新帳戶](#enable-notebooks-in-a-new-cosmos-account)，或在其中一個區域中的[現有帳戶上啟用筆記本](#enable-notebooks-in-an-existing-cosmos-account)。
 
-Azure Cosmos DB 中的內建 Jupyter 筆記本可讓您從 Azure 入口網站分析資料並將其視覺化。 本文說明如何為您的 Azure Cosmos DB 帳戶啟用這項功能。
+Azure Cosmos DB 中的內建 Jupyter 筆記本可讓您從 Azure 入口網站分析資料並將其視覺化。 本文說明如何為 Azure Cosmos DB 帳戶啟用此功能。
 
 ## <a name="enable-notebooks-in-a-new-cosmos-account"></a>在新的 Cosmos 帳戶中啟用筆記本
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。

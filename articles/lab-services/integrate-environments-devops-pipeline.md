@@ -1,5 +1,5 @@
 ---
-title: 將環境整合到 Azure DevTest Labs 中的 Azure Pipelines |Microsoft Docs
+title: 將環境整合到 Azure DevTest Labs 中的 Azure Pipelines
 description: 瞭解如何將 Azure DevTest Labs 環境整合到您的 Azure DevOps 持續整合（CI）和持續傳遞（CD）管線中。
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: c665c65dcda2266a7acd7bc78726179d559f4d64
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3d7e481879326ac30093bd116222bddc28640398
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163924"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169415"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>將環境整合到您的 Azure DevOps CI/CD 管線
-您可以使用 Azure DevOps Services （之前稱為 Visual Studio Team Services）中安裝的 Azure DevTest Labs 工作延伸模組，輕鬆地將您的持續整合（CI）/持續傳遞（CD）組建和發行管線與 Azure 整合DevTest Labs。 這些擴充功能可讓您更輕鬆地快速部署特定測試工作的[環境](devtest-lab-test-env.md)，然後在測試完成時將其刪除。 
+您可以使用安裝在 Azure DevOps Services （之前稱為 Visual Studio Team Services）的 Azure DevTest Labs 工作延伸模組，輕鬆地將持續整合（CI）/持續傳遞（CD）組建和發行管線與 Azure DevTest Labs 整合。 這些擴充功能可讓您更輕鬆地快速部署特定測試工作的[環境](devtest-lab-test-env.md)，然後在測試完成時將其刪除。 
 
 本文說明如何建立和部署環境，然後刪除環境，全都放在一個完整的管線中。 您通常會在自己的自訂群組建-測試-部署管線中個別執行每個工作。 本文中使用的延伸模組除了[建立/刪除 DTL VM](devtest-lab-integrate-ci-cd-vsts.md)工作之外，還包括：
 
@@ -77,7 +77,7 @@ ms.locfileid: "73163924"
 2. 輸入發行定義的名稱，並加以儲存。
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列文章： 
+查看下列文章： 
 - [使用 Resource Manager 範本來建立多個 VM 環境](devtest-lab-create-environment-from-arm.md)。
 - 從[DevTest Labs GitHub 存放庫](https://github.com/Azure/azure-quickstart-templates)DevTest labs 自動化的快速入門 Resource Manager 範本。
 - [VSTS 疑難排解頁面](/azure/devops/pipelines/troubleshooting)

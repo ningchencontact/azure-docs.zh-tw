@@ -9,19 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/29/2019
+ms.date: 01/16/2020
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4cb0f3d054f9afd0c606f80fd6fc5d553eff806
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 29418e0000f917f7184a230c04b93adeae44efef
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916310"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261189"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>使用 MSAL 在驗證要求中傳遞自訂狀態
+
 *狀態*參數（如 OAuth 2.0 所定義）包含在驗證要求中，也會在權杖回應中傳回，以防止跨網站偽造要求攻擊。 根據預設，適用于 JavaScript 的 Microsoft 驗證程式庫（MSAL）會在驗證要求中傳遞隨機產生的唯一*狀態*參數值。
 
 State 參數也可以在重新導向之前用來編碼應用程式狀態的資訊。 您可以在應用程式中傳遞使用者的狀態，例如其所在的頁面或視圖，做為此參數的輸入。 MSAL 程式庫可讓您將自訂狀態傳遞為 `Request` 物件中的 state 參數：
@@ -40,8 +41,16 @@ export type AuthenticationParameters = {
     account?: Account;
     sid?: string;
     loginHint?: string;
+    forceRefresh?: boolean;
 };
 ```
+
+> [!Note]
+> 如果您想要略過快取的權杖並移至伺服器，請將布林 `forceRefresh` 傳入用來提出登入/token 要求的 AuthenticationParameters 物件。
+> 因為對應用程式效能的影響，預設不應使用 `forceRefresh`。
+> 依賴快取可讓您的使用者獲得更好的體驗。
+> 略過快取僅適用于您知道目前快取的資料沒有最新資訊的情況。
+> 例如，系統管理員工具，會將角色新增至需要以更新角色取得新權杖的使用者。
 
 例如：
 

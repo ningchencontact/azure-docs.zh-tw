@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/28/2019
-ms.openlocfilehash: e3e399e99dca453a84c4daef782027b2b1ad6da1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 23b1391033713fc8eeccf2d0872c49a4291b8292
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401040"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168885"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>使用 Azure 監視器中的 SQL Server 健康情況檢查解決方案來優化您的 SQL 環境
 
@@ -196,6 +196,19 @@ Log Analytics 會使用 Operations Manager 代理程式及管理群組來收集�
 3. 如果您稍後決定想要查看忽略的建議，請移除任何 IgnoreRecommendations.txt 檔案，或從中移除 RecommendationID。
 
 ## <a name="sql-health-check-solution-faq"></a>SQL 健康情況檢查方案常見問題集
+
+*SQL 評定解決方案會執行哪些檢查？*
+
+* 下列查詢會顯示目前執行的所有檢查的描述：
+
+```Kusto
+SQLAssessmentRecommendation
+| distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
+| sort by FocusArea,ActionArea, Recommendation
+```
+然後可將結果匯出至 Excel 供進一步檢閱。
+
+
 *執行健康情況檢查的頻率為何？*
 
 * 每隔七天執行檢查。

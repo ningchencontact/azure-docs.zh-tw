@@ -1,6 +1,6 @@
 ---
-title: 路由與標記運算式
-description: 本主題說明 Azure 通知中樞的路由與標記運算式。
+title: Azure 通知中樞中的路由和標記運算式
+description: 瞭解如何路由及標記 Azure 通知中樞的運算式。
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 236e222da9e9a64d4b93002d28c94fa6fe469c08
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 254517cc1d9cc042387b63147b2a3fd9bdeece5e
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971968"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263773"
 ---
 # <a name="routing-and-tag-expressions"></a>路由與標記運算式
 
@@ -37,7 +37,7 @@ ms.locfileid: "74971968"
 2. **標記**：所有包含指定標記的註冊都會收到通知。
 3. **標記運算式**：所有標記設定符合指定運算式的註冊都會收到通知。
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>標籤
 
 標記可以是任何字串，包括英數字元及下列非英數字元，且長度不得超過 120 個字元：‘_’、‘@’、‘#’、‘.’、‘:’、‘-’。 下列範例示範的應用程式可以讓您從中接收有關特定音樂群組的快顯通知。 在此案例中，一個簡單路由通知的方法是為註冊加上標記，以指出不同的樂團，如下列圖片所示：
 

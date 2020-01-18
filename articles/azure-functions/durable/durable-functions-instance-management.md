@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ab9cc9b093008730d175fa3fde4391f9de236a84
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 43094fe91921d1399650d9cf47e7a84c47996cd5
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231372"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261563"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>在 Azure 中管理 Durable Functions 中的執行個體
 
@@ -18,7 +18,7 @@ ms.locfileid: "74231372"
 
 例如，您可以啟動和終止實例，而且可以查詢實例，包括使用篩選準則查詢所有實例和查詢實例的能力。 此外，您可以將事件傳送至實例、等候協調流程完成，並取出 HTTP 管理 webhook Url。 本文也涵蓋其他管理作業，包括倒帶實例、清除實例歷程記錄，以及刪除工作中樞。
 
-在 Durable Functions 中，您可以選擇要如何執行每個管理作業。 本文提供的範例會使用 .NET [](../functions-run-local.md) （C#）和 JavaScript 的 Azure Functions Core Tools。
+在 Durable Functions 中，您可以選擇要如何執行每個管理作業。 本文提供的範例會使用 .NET（C#）和 JavaScript 的 [Azure Functions Core Tools](../functions-run-local.md)。
 
 ## <a name="start-instances"></a>啟動實例
 
@@ -39,7 +39,7 @@ ms.locfileid: "74231372"
 
 下列程式碼是啟動新協調流程實例的範例函數：
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
@@ -56,7 +56,40 @@ public static async Task Run(
 > [!NOTE]
 > 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-### <a name="javascript"></a>Javascript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+<a name="javascript-function-json"></a>除非另有指定，否則此頁面上的範例會使用 HTTP 觸發程式搭配下列函數. json。
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": ["post"]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+> [!NOTE]
+> 這個範例是以 Durable Functions 2.x 版為目標。 在1.x 版中，請使用 `orchestrationClient`，而不是 `durableClient`。
+
+**index.js**
 
 ```javascript
 const df = require("durable-functions");
@@ -68,6 +101,8 @@ module.exports = async function(context, input) {
     context.log(`Started orchestration with ID = ${instanceId}.`);
 };
 ```
+
+---
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
@@ -98,7 +133,7 @@ func durable start-new --function-name HelloWorld --input @counter-data.json --t
 
 * **`showHistory`** ：如果設定為 [`true`]，回應會包含執行歷程記錄。
 * **`showHistoryOutput`** ：如果設定為 `true`，則執行歷程記錄會包含活動輸出。
-* **`showInput`** ：如果設定為 `false`，回應將不會包含函數的輸入。 預設值為 `true`。
+* **`showInput`** ：如果設定為 `false`，回應將不會包含函數的輸入。 預設值是 `true`。
 
 此方法會傳回具有下列屬性的物件：
 
@@ -120,7 +155,7 @@ func durable start-new --function-name HelloWorld --input @counter-data.json --t
 
 如果實例不存在，這個方法會傳回 `null` （.NET）或 `undefined` （JavaScript）。
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("GetStatus")]
@@ -136,7 +171,7 @@ public static async Task Run(
 > [!NOTE]
 > 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -149,13 +184,17 @@ module.exports = async function(context, instanceId) {
 }
 ```
 
+請參閱[啟動實例](#javascript-function-json)以取得函數. json 設定。
+
+---
+
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
 您也可以使用[Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` 命令，直接取得協調流程實例的狀態。 它需要以下參數：
 
 * **`id` （必要）** ：協調流程實例的識別碼。
-* **`show-input` （選用）** ：如果設為 `true`，回應會包含函式的輸入。 預設值為 `false`。
-* **`show-output` （選用）** ：如果設為 `true`，回應會包含函式的輸出。 預設值為 `false`。
+* **`show-input` （選用）** ：如果設為 `true`，回應會包含函式的輸入。 預設值是 `false`。
+* **`show-output` （選用）** ：如果設為 `true`，回應會包含函式的輸出。 預設值是 `false`。
 * **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
 * **`task-hub-name` （選用）** ：要使用之 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 您也可以使用 durableTask： HubName，在[host. json](durable-functions-bindings.md#host-json)中設定它。
 
@@ -181,7 +220,7 @@ func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 
 您可以使用 `GetStatusAsync` (.NET) 或 `getStatusAll` (JavaScript) 方法來查詢所有協調流程執行個體的狀態。 在 .NET 中，您可以傳遞 `CancellationToken` 物件，以防您想要將它取消。 此方法會和使用參數的 `GetStatusAsync`方法一樣傳回具有相同屬性的物件。
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("GetAllStatus")]
@@ -201,7 +240,7 @@ public static async Task Run(
 > [!NOTE]
 > 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -215,6 +254,10 @@ module.exports = async function(context, req) {
     });
 };
 ```
+
+請參閱[啟動實例](#javascript-function-json)以取得函數. json 設定。
+
+---
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
@@ -235,7 +278,7 @@ func durable get-instances
 
 使用 `GetStatusAsync` （.NET）或 `getStatusBy` （JavaScript）方法來取得符合一組預先定義之篩選準則的協調流程實例清單。
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryStatus")]
@@ -263,7 +306,7 @@ public static async Task Run(
 > [!NOTE]
 > 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -285,6 +328,10 @@ module.exports = async function(context, req) {
     });
 };
 ```
+
+請參閱[啟動實例](#javascript-function-json)以取得函數. json 設定。
+
+---
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
@@ -310,7 +357,7 @@ func durable get-instances --created-after 2018-03-10T13:57:31Z --created-before
 
 您可以使用[協調流程用戶端](durable-functions-bindings.md#orchestration-client)系結的 `TerminateAsync` （.net）或 `terminate` （JavaScript）方法來終止實例。 這兩個參數是一個 `instanceId` 和一個 `reason` 字串，會寫入記錄和實例狀態。 終止的實例會在到達下一個 `await` （.NET）或 `yield` （JavaScript）點時立即停止執行，如果已在 `await` 或 `yield`上，則會立即終止。
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -326,7 +373,7 @@ public static Task Run(
 > [!NOTE]
 > 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -338,6 +385,10 @@ module.exports = async function(context, instanceId) {
     return client.terminate(instanceId, reason);
 };
 ```
+
+請參閱[啟動實例](#javascript-function-json)以取得函數. json 設定。
+
+---
 
 > [!NOTE]
 > 實例終止目前不會傳播。 活動函式和子協調流程會執行到完成，不論您是否已結束通話它們的協調流程實例。
@@ -369,7 +420,7 @@ func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was ti
 * **EventName**：要傳送的事件名稱。
 * **EventData**：要傳送至執行個體的 JSON 可序列化裝載。
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RaiseEvent")]
@@ -385,7 +436,7 @@ public static Task Run(
 > [!NOTE]
 > 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -397,6 +448,10 @@ module.exports = async function(context, instanceId) {
     return client.raiseEvent(instanceId, "MyEvent", eventData);
 };
 ```
+
+請參閱[啟動實例](#javascript-function-json)以取得函數. json 設定。
+
+---
 
 > [!NOTE]
 > 如果沒有具有指定之實例識別碼的協調流程實例，則會捨棄事件訊息。 如果實例存在，但尚未等候事件，則事件會儲存在實例狀態中，直到準備好接收和處理為止。
@@ -427,9 +482,17 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 
 以下是範例 HTTP 觸發函式，它會示範如何使用這個 API：
 
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
+
+請參閱[啟動實例](#javascript-function-json)以取得函數. json 設定。
+
+---
 
 使用下列程式程式碼呼叫函數。 在 [重試間隔] 中，針對 [超時] 和 [0.5 秒] 使用2秒：
 
@@ -493,7 +556,7 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 
 函數可以將這些物件的實例傳送至外部系統，以監視或引發對應協調流程上的事件，如下列範例所示：
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("SendInstanceInfo")]
@@ -515,7 +578,7 @@ public static void SendInstanceInfo(
 > [!NOTE]
 > 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `DurableActivityContext` 而不是 `IDurableActivityContext`，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -533,6 +596,10 @@ modules.exports = async function(context, ctx) {
 };
 ```
 
+請參閱[啟動實例](#javascript-function-json)以取得函數. json 設定。
+
+---
+
 ## <a name="rewind-instances-preview"></a>倒轉實例（預覽）
 
 如果您因為非預期的原因而發生協調流程失敗，*您可以使用*針對該目的所建立的 API，將實例倒轉成先前狀況良好的狀態。
@@ -547,7 +614,7 @@ modules.exports = async function(context, ctx) {
 > [!NOTE]
 > 倒轉*功能不*支援使用持久計時器的倒帶協調流程實例。
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RewindInstance")]
@@ -563,7 +630,7 @@ public static Task Run(
 > [!NOTE]
 > 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -575,6 +642,10 @@ module.exports = async function(context, instanceId) {
     return client.rewind(instanceId, reason);
 };
 ```
+
+請參閱[啟動實例](#javascript-function-json)以取得函數. json 設定。
+
+---
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
@@ -595,6 +666,8 @@ func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator
 
 這個方法有兩個多載。 第一個多載會依協調流程實例的識別碼清除記錄：
 
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
@@ -605,6 +678,8 @@ public static Task Run(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -614,7 +689,13 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
+請參閱[啟動實例](#javascript-function-json)以取得函數. json 設定。
+
+---
+
 下一個範例顯示計時器觸發的函式，它會清除在指定時間間隔之後完成的所有協調流程實例的歷程記錄。 在這種情況下，它會移除所有實例在30天之前完成的資料。 其排程為每天上午12點執行一次：
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -635,7 +716,49 @@ public static Task Run(
 > [!NOTE]
 > 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-**JavaScript**`purgeInstanceHistoryBy` 方法可以用來有條件地清除多個實例的實例歷程記錄。
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+`purgeInstanceHistoryBy` 方法可以用來有條件地清除多個實例的實例歷程記錄。
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "schedule": "0 0 12 * * *",
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+> [!NOTE]
+> 這個範例是以 Durable Functions 2.x 版為目標。 在1.x 版中，請使用 `orchestrationClient`，而不是 `durableClient`。
+
+**index.js**
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context, myTimer) {
+    const client = df.getClient(context);
+    const createdTimeFrom = new Date(0);
+    const createdTimeTo = new Date().setDate(today.getDate() - 30);
+    const runtimeStatuses = [ df.OrchestrationRuntimeStatus.Completed ];
+    return client.purgeInstanceHistoryBy(createdTimeFrom, createdTimeTo, runtimeStatuses);
+};
+```
+
+---
 
 > [!NOTE]
 > 若要讓清除歷程記錄作業成功，目標實例的執行時間狀態必須是 [**已完成**]、[已**終止**] 或 [**失敗**]。

@@ -3,12 +3,12 @@ title: Azure Service Fabric-使用 Service Fabric 應用程式 KeyVault 參考
 description: 本文說明如何使用應用程式密碼的 service fabric KeyVaultReference 支援。
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: b0e882c2b39c06a3040d22fc6694599966ceeb39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3f4c4979d0ce1329ac8ba49b236dae20a4e88b53
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463045"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167134"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Service Fabric 應用程式的 KeyVaultReference 支援（預覽）
 
@@ -61,6 +61,7 @@ ms.locfileid: "75463045"
 
     > [!NOTE] 
     > 建議您針對 CSS 使用個別的加密憑證。 您可以將它新增至 "CentralSecretService" 區段底下。
+    
 
     ```json
         {
@@ -68,7 +69,18 @@ ms.locfileid: "75463045"
             "value": "<EncryptionCertificateThumbprint for CSS>"
         }
     ```
-
+為了讓變更生效，您也需要變更升級原則，以便在升級完成叢集時，在每個節點上指定強制重新開機 Service Fabric 執行時間。 此重新開機可確保新啟用的系統服務已在每個節點上啟動並執行。 在下列程式碼片段中，forceRestart 是必要的設定。將您現有的值用於其餘的設定。
+```json
+"upgradeDescription": {
+    "forceRestart": true,
+    "healthCheckRetryTimeout": "00:45:00",
+    "healthCheckStableDuration": "00:05:00",
+    "healthCheckWaitDuration": "00:05:00",
+    "upgradeDomainTimeout": "02:00:00",
+    "upgradeReplicaSetCheckTimeout": "1.00:00:00",
+    "upgradeTimeout": "12:00:00"
+}
+```
 - 將應用程式的受控識別存取權授與 keyvault
 
     參考這[份檔](how-to-grant-access-other-resources.md)，以瞭解如何將受控識別存取權授與 keyvault。 另請注意，如果您使用系統指派的受控識別，則只有在應用程式部署之後才會建立受控識別。

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 01/13/2020
 ms.author: juliako
-ms.openlocfilehash: c4c39dc53e492fd295cf30a7b7d75c933ebc912f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e457fbe5b8dd23c93110fb8ccc7d8857128de82c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972616"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169366"
 ---
 # <a name="upload-and-index-your-videos"></a>上傳影片及編製影片索引  
 
@@ -25,9 +25,12 @@ ms.locfileid: "75972616"
 * 將影片檔案當作要求本文中的位元組陣列傳送、
 * 藉由提供[資產識別碼](https://docs.microsoft.com/azure/media-services/latest/assets-concept)（僅在付費帳戶中支援）來使用現有的 Azure 媒體服務資產。
 
-本文將示範如何根據 URL 使用[上傳影片](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API 來上傳影片及編製影片索引。 文章中的程式碼範例包含加上註解的程式碼，用來說明如何上傳位元組陣列。 <br/>本文也會探討一些可以在 API 上設定的參數，以變更 API 的程序和輸出。
+當您的影片上傳之後，影片索引子（選擇性）會對影片進行編碼（在本文中討論）。 建立影片索引器帳戶時，您可以選擇免費試用帳戶 (您可取得特定的免費編製索引分鐘數) 或付費選項 (您不會受限於配額)。 使用免費試用時，影片索引器最多可為網站使用者提供 600 分鐘的免費編製索引，以及為 API 使用者提供 2400 分鐘的免費索引編製。 使用付費選項時，您建立的影片索引器帳戶會[連線到您的 Azure 訂用帳戶和 Azure 媒體服務帳戶](connect-to-azure.md)。 您需支付已編製索引的分鐘數，以及媒體帳戶相關費用。 
 
-上傳您的視訊之後，影片索引器會選擇性地對視訊進行編碼 (如文章中所討論)。 建立影片索引器帳戶時，您可以選擇免費試用帳戶 (您可取得特定的免費編製索引分鐘數) 或付費選項 (您不會受限於配額)。 使用免費試用時，影片索引器最多可為網站使用者提供 600 分鐘的免費編製索引，以及為 API 使用者提供 2400 分鐘的免費索引編製。 使用付費選項時，您建立的影片索引器帳戶會[連線到您的 Azure 訂用帳戶和 Azure 媒體服務帳戶](connect-to-azure.md)。 您需支付已編製索引的分鐘數，以及媒體帳戶相關費用。 
+本文說明如何使用下列選項來上傳和編制影片的索引：
+
+* [影片索引子網站](#website) 
+* [影片索引子 Api](#apis)
 
 ## <a name="uploading-considerations-and-limitations"></a>上傳考慮和限制
  
@@ -40,6 +43,10 @@ ms.locfileid: "75972616"
 - `videoURL` param 中提供的 URL 必須進行編碼。
 - 編制索引媒體服務資產與從 URL 編制索引的限制相同。
 - 影片索引子的最大持續時間限制為單一檔案4小時。
+- URL 必須可供存取（例如公用 URL）。 
+
+    如果它是私人 URL，必須在要求中提供存取權杖。
+- URL 必須指向有效的媒體檔案，而不是網頁，例如 [`www.youtube.com`] 頁面的連結。
 - 每分鐘最多可以上傳60電影。
 
 > [!Tip]
@@ -47,15 +54,39 @@ ms.locfileid: "75972616"
 >
 > 如果您必須使用舊版 .NET Framework，請在進行 REST API 呼叫之前，在程式碼中新增一行：  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
-## <a name="configurations-and-params"></a>設定與參數
+## <a name="supported-file-formats-for-video-indexer"></a>影片索引子支援的檔案格式
+
+如需可與影片索引子搭配使用的檔案格式清單，請參閱[輸入容器/檔案格式](../latest/media-encoder-standard-formats.md#input-containerfile-formats)一文。
+
+## <a name="a-idwebsiteupload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>使用影片索引子網站上傳影片並為其編制索引
+
+> [!NOTE]
+> 影片名稱不得超過 80 個字元。
+
+1. 登入 [Video Indexer](https://www.videoindexer.ai/) 網站。
+2. 若要上傳影片，請按 [上傳] 按鈕或連結。
+
+    ![上傳](./media/video-indexer-get-started/video-indexer-upload.png)
+
+    上傳您的影片後，Video Indexer 會開始編製索引及分析影片。
+
+    ![已上傳](./media/video-indexer-get-started/video-indexer-uploaded.png) 
+
+    Video Indexer 完成分析後，您會收到通知，內含您的影片連結以及在影片中找到的簡短描述。 例如：人員、主題、OCR。
+
+## <a name="a-idapisupload-and-index-with-api"></a>使用 API <a id="apis"/>上傳和編制索引
+
+使用 [[上傳影片](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)API]，根據 URL 上傳並編制您的影片索引。 後面的程式碼範例包含批註化的程式碼，說明如何上傳位元組陣列。 
+
+### <a name="configurations-and-params"></a>設定與參數
 
 本節將說明一些選擇性參數及設定這些參數的時機。
 
-### <a name="externalid"></a>externalID 
+#### <a name="externalid"></a>externalID 
 
 此參數可讓您指定要與影片建立關聯的識別碼。 識別碼可以套用至外部的「影片內容管理」(VCM) 系統整合。 您可以使用指定的外部識別碼，搜尋位在影片索引器入口網站中的影片。
 
-### <a name="callbackurl"></a>callbackUrl
+#### <a name="callbackurl"></a>callbackUrl
 
 用來通知客戶下列事件的 URL (使用 POST 要求)：
 
@@ -79,12 +110,12 @@ ms.locfileid: "75972616"
         
     - 範例： HTTPs：\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
-#### <a name="notes"></a>注意
+##### <a name="notes"></a>注意
 
 - 影片索引器會傳回原始 URL 中提供的任何現有參數。
 - 提供的 URL 必須進行編碼。
 
-### <a name="indexingpreset"></a>indexingPreset
+#### <a name="indexingpreset"></a>indexingPreset
 
 如果原始或外部錄影包含背景雜訊，請使用此參數。 此參數會用來設定索引編製程序。 您可以指定下列值：
 
@@ -95,13 +126,13 @@ ms.locfileid: "75972616"
 
 價格取決於選取的索引編製選項。  
 
-### <a name="priority"></a>priority
+#### <a name="priority"></a>priority
 
 影片索引器會根據影片的優先順序來為其編製索引。 請使用 **priority** 參數來指定索引的優先順序。 下列是有效值：**Low (低)** 、**Normal** (一般，預設值) 和 **High (高)** 。
 
 僅有付費帳戶可支援 **Priority** 參數。
 
-### <a name="streamingpreset"></a>streamingPreset
+#### <a name="streamingpreset"></a>streamingPreset
 
 上傳您的影片後，影片索引器會選擇性地對影片進行編碼。 然後，繼續進行索引編製並分析影片。 當影片索引器完成分析時，您會收到包含影片識別碼的通知。  
 
@@ -111,17 +142,17 @@ ms.locfileid: "75972616"
 
 如果您只想要編製影片索引，但不要對影片進行編碼，請將 `streamingPreset` 設定為 `NoStreaming`。
 
-### <a name="videourl"></a>videoUrl
+#### <a name="videourl"></a>videoUrl
 
 要對其編製索引的視訊/音訊檔案 URL。 URL 必須指向媒體檔案 (不支援 HTML 網頁)。 作為 URI 一部分提供的存取權杖可以保護檔案，而處理檔案的端點必須透過 TLS 1.2 或更高版本來保護。 URL 必須進行編碼。 
 
 如果未指定 `videoUrl`，影片索引器將預期您會以多部分/表單主體內容的形式傳遞檔案。
 
-## <a name="code-sample"></a>程式碼範例
+### <a name="code-sample"></a>程式碼範例
 
 下列 C# 程式碼片段會示範一起使用所有影片索引器 API 的方式。
 
-### <a name="instructions-for-running-this-code-sample"></a>執行此程式碼範例的指示
+#### <a name="instructions-for-running-this-code-sample"></a>執行此程式碼範例的指示
 
 將此程式碼複製到您的開發平臺之後，您必須提供兩個參數： [API 管理] [驗證金鑰] 和 [影片 URL]。
 
@@ -308,7 +339,8 @@ public class AccountContractSlim
     public string AccessToken { get; set; }
 }
 ```
-## <a name="common-errors"></a>常見錯誤
+
+### <a name="common-errors"></a>常見錯誤
 
 下表列出上傳作業可能會傳回的狀態碼。
 

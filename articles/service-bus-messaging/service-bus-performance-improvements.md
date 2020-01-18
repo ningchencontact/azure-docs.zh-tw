@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 服務匯流排提升效能的最佳做法 |Microsoft Docs
+title: 使用 Azure 服務匯流排改善效能的最佳做法
 description: 描述如何使用服務匯流排來在交換代理訊息時將效能最佳化。
 services: service-bus-messaging
 documentationcenter: na
@@ -8,14 +8,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: 3d2d26e8cb8a3b1ee7720424aea701ca063ecc9f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 683a28ca3cdabd5a7ffbf6e9ffdc3ed0c58d3247
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596450"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264690"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服務匯流排傳訊的效能改進最佳作法
 
@@ -31,7 +31,7 @@ ms.locfileid: "72596450"
 
 1. 進階訊息佇列通訊協定 (AMQP)
 2. 服務匯流排傳訊通訊協定 (SBMP)
-3. http
+3. HTTP
 
 AMQP 和 SBMP 會更有效率，因為只要傳訊處理站存在，它們就會維護服務匯流排連線。 它也會實作批次處理和預先擷取作業。 除非明確提到，否則本文中的所有內容都假設為使用 AMQP 和 SBMP。
 

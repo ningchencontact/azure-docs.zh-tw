@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 01/17/2020
 ms.author: aschhab
-ms.openlocfilehash: eebbef25f2cd4539a5092f271c3944c24503f287
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a795aa536e6e72b487abd18e60cfa52d6ab633ee
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156806"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264877"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Azure 服務匯流排的疑難排解指南
 本文提供服務匯流排 .NET Framework Api 所產生的一些 .NET 例外狀況，還有其他疑難排解問題的秘訣。 
@@ -109,25 +109,25 @@ ConnectionsQuotaExceeded for namespace xxx.
 ## <a name="connectivity-certificate-or-timeout-issues"></a>連線、憑證或超時問題
 下列步驟可協助您針對 *. servicebus.windows.net 下所有服務的連線/憑證/超時問題進行疑難排解。 
 
-- 流覽至或[wget](https://www.gnu.org/software/wget/) `https://sbwagn2.servicebus.windows.net/`。 它有助於檢查您是否有 IP 篩選或虛擬網路或憑證鏈問題（最常見的情況是使用 java SDK）。
-- 執行下列命令，以檢查防火牆上是否有任何埠遭到封鎖。 視您使用的程式庫而定，也會使用其他埠。 例如：443、5672、9354。
+- 流覽至或[wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`。 它有助於檢查您是否有 IP 篩選或虛擬網路或憑證鏈問題（最常見的情況是使用 java SDK）。
+- 執行下列命令，以檢查防火牆上是否有任何埠遭到封鎖。 使用的埠為443（HTTPS）、5671（AMQP）和9354（Net 訊息/SBMP）。 視您使用的程式庫而定，也會使用其他埠。 以下是檢查5671埠是否已封鎖的範例命令。 
 
     ```powershell
-    tnc sbwagn2.servicebus.windows.net -port 5671
+    tnc <yournamespacename>.servicebus.windows.net -port 5671
     ```
 
     在 Linux 上：
 
     ```shell
-    telnet sbwagn2.servicebus.windows.net 5671
+    telnet <yournamespacename>.servicebus.windows.net 5671
     ```
-- 當發生間歇連線問題時，請執行下列命令來檢查是否有任何已丟棄的封包。 此命令會嘗試使用服務每隔1秒建立25個不同的 TCP 連線，然後您可以檢查多少成功/失敗，同時也會看到 TCP 連線延遲。 您可以從[這裡](/sysinternals/downloads/psping)下載 `psping` 工具。
+- 當發生間歇連線問題時，請執行下列命令來檢查是否有任何已丟棄的封包。 此命令會嘗試使用服務每隔1秒建立25個不同的 TCP 連線。 然後，您可以檢查其中有多少個成功/失敗，同時查看 TCP 連接延遲。 您可以從[這裡](/sysinternals/downloads/psping)下載 `psping` 工具。
 
     ```shell
-    .\psping.exe -n 25 -i 1 -q yournamespace.servicebus.windows.net:5671 -nobanner     
+    .\psping.exe -n 25 -i 1 -q <yournamespace>.servicebus.windows.net:5671 -nobanner     
     ```
     如果您使用其他工具（例如 `tnc`、`ping`等），可以使用對等的命令。 
-- 如果先前的步驟沒有協助和分析，或[Microsoft 支援服務](https://support.microsoft.com/)，請取得網路追蹤。
+- 如果先前的步驟沒有使用[Wireshark](https://www.wireshark.org/)之類的工具來協助並加以分析，請取得網路追蹤。 如有需要，請聯絡[Microsoft 支援服務](https://support.microsoft.com/)。 
 
 
 ## <a name="next-steps"></a>後續步驟

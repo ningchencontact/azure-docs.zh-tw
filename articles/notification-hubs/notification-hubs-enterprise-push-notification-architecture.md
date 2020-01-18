@@ -1,6 +1,6 @@
 ---
-title: 通知中樞 - 企業推送架構
-description: 在企業環境中使用 Azure 通知中樞的指引
+title: 通知中樞企業推播架構
+description: 瞭解如何在企業環境中使用 Azure 通知中樞
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,14 +16,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5b65fe6acb1fdf7ba79b106c876527c9b6736c5f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211901"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264028"
 ---
-# <a name="enterprise-push-architectural-guidance"></a>企業推送架構指引
+# <a name="enterprise-push-architectural-guidance"></a>企業推播架構指引
 
 當代的企業正逐漸朝著為使用者 (外部) 或員工 (內部) 建立行動應用程式的方向邁進。 他們擁有現成的後端系統 (無論是大型主機還是某些 LoB 應用程式)，而這些系統必須整合到行動應用程式架構中。 本指南會討論如何以最佳方式進行整合，並針對常見案例建議適用的可行方案。
 
@@ -51,12 +51,12 @@ ms.locfileid: "71211901"
 1. 行動應用程式
    * 接收及顯示通知
 
-### <a name="benefits"></a>優點
+### <a name="benefits"></a>優勢
 
 1. 接收器 (行動應用程式/透過通知中樞傳送的服務) 與傳送器 (後端系統) 的解離可讓您在變更少量架構的情況下整合額外的後端系統。
 1. 它也能促成讓多個行動應用程式接收來自一或多個後端系統事件的案例。  
 
-## <a name="sample"></a>樣本
+## <a name="sample"></a>範例
 
 ### <a name="prerequisites"></a>必要條件
 

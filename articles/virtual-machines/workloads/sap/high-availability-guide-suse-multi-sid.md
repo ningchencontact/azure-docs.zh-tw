@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/20/2019
+ms.date: 01/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 493056037637ffb2afa9570e1287620869ee8fc7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 94cf30d2d3650212707cf92db83236882fe5e49f
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479302"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169345"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Azure Vm 上的 SAP NetWeaver 高可用性-適用于 SAP 應用程式的 SUSE Linux Enterprise Server 多 SID 指南
 
@@ -52,7 +52,7 @@ ms.locfileid: "75479302"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-本文說明如何使用適用于 SAP 應用程式的 SUSE Linux Enterprise Server，在 Azure Vm 上的兩個節點叢集中部署多個 SAP NetWeaver 高可用性系統（也就是多重 SID）。  
+本文說明如何使用適用于 SAP 應用程式的 SUSE Linux Enterprise Server，在 Azure Vm 上的兩個節點叢集中部署多個 SAP NetWeaver 或 S4HANA 高可用性系統（也就是多重 SID）。  
 
 在範例設定、安裝命令等中，三個 SAP NetWeaver 7.50 系統會部署在單一的雙節點高可用性叢集。 SAP 系統 Sid 包括：
 * **NW1**： ASCS 實例號碼**00**和虛擬主機名稱**msnw1ascs**;ERS 實例號碼**02**和虛擬主機名稱**msnw1ers**。  
@@ -426,7 +426,7 @@ SAP NetWeaver 需要傳輸、設定檔目錄等的共用儲存體。 針對高�
 
 8. **[1]** 建立新安裝之 sap 系統的 sap 叢集資源。 
 
-   此處顯示的範例是針對 SAP systems **NW2**和**NW3**，假設它使用的是排入佇列伺服器1架構（ENSA1）：
+   如果使用佇列伺服器1架構（ENSA1），請定義 SAP systems **NW2**和**NW3**的資源，如下所示：
 
     ```
      sudo crm configure property maintenance-mode="true"
@@ -472,6 +472,52 @@ SAP NetWeaver 需要傳輸、設定檔目錄等的共用儲存體。 針對高�
      sudo crm configure order ord_sap_NW3_first_start_ascs Optional: rsc_sap_NW3_ASCS20:start rsc_sap_NW3_ERS22:stop symmetrical=false
      sudo crm configure property maintenance-mode="false"
     ```
+
+   SAP 引進了對佇列伺服器2的支援，包括複寫（從 SAP NW 7.52 開始）。 從 ABAP Platform 1809 開始，預設會安裝排入佇列的伺服器2。 請參閱適用于排入佇列伺服器2支援的 SAP 附注[2630416](https://launchpad.support.sap.com/#/notes/2630416) 。
+   如果使用佇列伺服器2架構（[ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)），請定義 SAP systems **NW2**和**NW3**的資源，如下所示：
+
+    ```
+     sudo crm configure property maintenance-mode="true"
+    
+     sudo crm configure primitive rsc_sap_NW2_ASCS10 SAPInstance \
+      operations \$id=rsc_sap_NW2_ASCS10-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW2_ASCS10_msnw2ascs START_PROFILE="/sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs" \
+      AUTOMATIC_RECOVER=false \
+      meta resource-stickiness=5000 
+    
+     sudo crm configure primitive rsc_sap_NW2_ERS12 SAPInstance \
+      operations \$id=rsc_sap_NW2_ERS12-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" AUTOMATIC_RECOVER=false IS_ERS=true 
+    
+     sudo crm configure modgroup g-NW2_ASCS add rsc_sap_NW2_ASCS10
+     sudo crm configure modgroup g-NW2_ERS add rsc_sap_NW2_ERS12
+    
+     sudo crm configure colocation col_sap_NW2_no_both -5000: g-NW2_ERS g-NW2_ASCS
+     sudo crm configure order ord_sap_NW2_first_start_ascs Optional: rsc_sap_NW2_ASCS10:start rsc_sap_NW2_ERS12:stop symmetrical=false
+   
+     sudo crm configure primitive rsc_sap_NW3_ASCS20 SAPInstance \
+      operations \$id=rsc_sap_NW3_ASCS20-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW3_ASCS10_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
+      AUTOMATIC_RECOVER=false \
+      meta resource-stickiness=5000
+    
+     sudo crm configure primitive rsc_sap_NW3_ERS22 SAPInstance \
+      operations \$id=rsc_sap_NW3_ERS22-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW3_ERS22_msnw2ers" AUTOMATIC_RECOVER=false IS_ERS=true
+    
+     sudo crm configure modgroup g-NW3_ASCS add rsc_sap_NW3_ASCS20
+     sudo crm configure modgroup g-NW3_ERS add rsc_sap_NW3_ERS22
+    
+     sudo crm configure colocation col_sap_NW3_no_both -5000: g-NW3_ERS g-NW3_ASCS
+     sudo crm configure order ord_sap_NW3_first_start_ascs Optional: rsc_sap_NW3_ASCS20:start rsc_sap_NW3_ERS22:stop symmetrical=false
+     sudo crm configure property maintenance-mode="false"
+    ```
+
+   如果您要從舊版升級並切換至排入佇列伺服器2，請參閱 SAP 附注[2641019](https://launchpad.support.sap.com/#/notes/2641019)。 
 
    請確定叢集狀態正常，且所有資源皆已啟動。 資源在哪一個節點上執行並不重要。
    下列範例顯示在將 SAP systems **NW2**和**NW3**新增至叢集之後，叢集資源狀態。 

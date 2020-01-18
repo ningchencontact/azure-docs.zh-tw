@@ -1,6 +1,6 @@
 ---
-title: 適用於 Azure 通知中樞 APNS 的權杖型 (HTTP/2) 驗證 | Microsoft Docs
-description: 本主題說明如何使用適用于 APNS 的新權杖驗證
+title: Azure 通知中樞中 APNS 的權杖型（HTTP/2）驗證 |Microsoft Docs
+description: 瞭解如何使用適用于 APNS 的新權杖驗證。
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.date: 11/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
-ms.openlocfilehash: 56689981d6c85c844fefbec6a4ec4aeb041dbc7f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 448b5c38371024c2eae900f4f87b343ee0a3b36a
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111905"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263807"
 ---
-# <a name="token-based-http2-authentication-for-apns"></a>適用於 APNS 的權杖型 (HTTP/2) 驗證
+# <a name="token-based-http2-authentication-for-apns"></a>APNS 的權杖型（HTTP/2）驗證
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 本文說明如何使用新的 APNS HTTP/2 通訊協定搭配以權杖為基礎的驗證。
 

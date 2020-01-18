@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 3b2fff84b70c5c5e37d14faa87143e5dacc82bce
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 0b24c064424b00fa9acb96b03c0a3c5ca69f67f2
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930191"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264335"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中建立遙測規則並設定通知
 
-*此文章適用於操作員、建置人員及系統管理員。*
+*本文適用於操作員、建置員及系統管理員。*
 
 [!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
@@ -27,7 +27,7 @@ ms.locfileid: "73930191"
 
 ## <a name="create-a-telemetry-rule"></a>建立遙測規則
 
-若要建立遙測規則，裝置範本必須至少定義一個遙測量測。 此範例使用會傳送溫度和濕度遙測的冷藏自動販賣機裝置。 此規則會監視裝置所報告的遙測，並在裝置溫度超過 80 度時傳送電子郵件。
+若要建立遙測規則，裝置範本必須至少定義一個遙測量測。 此範例使用會傳送溫度和濕度遙測的冷藏自動販賣機裝置。 此規則會監視裝置所報告的溫度，並在超過 70&deg; F 時傳送電子郵件。
 
 1. 使用 [**裝置範本**] 頁面，流覽至您要為其新增規則的裝置範本。
 
@@ -43,7 +43,7 @@ ms.locfileid: "73930191"
 
 1. 輸入名稱來協助您識別此裝置範本中的規則。
 
-1. 若要立即為針對此範本建立的所有裝置啟用規則，請切換 [為此範本的所有裝置啟用規則]。
+1. 若要立即為此範本建立的所有裝置啟用規則，請切換 [**為此範本的所有裝置啟用規則**]。
 
    ![規則詳細資訊](media/howto-create-telemetry-rules/rule_detail1.png)
 
@@ -58,8 +58,8 @@ ms.locfileid: "73930191"
 1. 從 [量測] 下拉式清單中選取想要監視的遙測。
 
 1. 接下來，選擇 [彙總]、[操作員]，並提供**閾值**。
-   - 彙總為選擇性的。 如果沒有彙總，規則就會在每個遙測資料點符合條件時觸發。 例如，如果規則設定為在溫度高於80時觸發，則此規則幾乎會在裝置回報溫度 > 80 時立即觸發。
-   - 如果選擇了像是 Average、Min、Max、Count 的彙總函式，則使用者必須提供需要評估條件的**彙總時間範圍**。 例如，如果您將期間設定為「5 分鐘」，而且您的規則會尋找超過 80 的平均溫度，則此規則會在平均溫度超過 80 至少 5 分鐘時觸發。 規則評估頻率與**彙總時間範圍**相同，這表示，在此範例中，此規則每隔 5 分鐘就會評估一次。
+   - 彙總為選擇性的。 如果沒有彙總，規則就會在每個遙測資料點符合條件時觸發。 例如，如果規則設定為在溫度高於 70&deg; F 時觸發，則此規則幾乎會在裝置回報溫度 > 70 時立即觸發。
+   - 如果選擇了像是 Average、Min、Max、Count 的彙總函式，則使用者必須提供需要評估條件的**彙總時間範圍**。 例如，如果您將期間設定為「5分鐘」，而您的規則會尋找高於70的平均溫度，則當平均溫度高於 70&deg; F 至少5分鐘時，規則就會觸發。 規則評估頻率與**彙總時間範圍**相同，這表示，在此範例中，此規則每隔 5 分鐘就會評估一次。
 
      ![條件](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
 
@@ -70,7 +70,7 @@ ms.locfileid: "73930191"
 
 本節示範如何設定要在引發規則時採取的動作。 當規則中指定的所有條件都評估為 True 時，即會叫用動作。
 
-1. 選擇 [動作] **+ 旁的 [** ]。 在此，您會看到可用動作的清單。  
+1. 選擇 [動作] 旁的 [+]。 在此，您會看到可用動作的清單。  
 
     ![新增動作](media/howto-create-telemetry-rules/add_action1.png)
 
@@ -90,7 +90,7 @@ ms.locfileid: "73930191"
 
 ## <a name="parameterize-the-rule"></a>將規則參數化
 
-規則可以從 [裝置屬性] 衍生特定值來作為參數。 在不同裝置會有不同遙測閾值的情況下，使用參數會很有幫助。 當您建立規則時，請選擇會指定閾值的裝置屬性 (例如，**理想閾值上限**)，而不要提供絕對值 (例如 80 度)。 當規則執行時，它會比對裝置遙測與裝置屬性中所設定的值。
+規則可以從 [裝置屬性] 衍生特定值來作為參數。 在不同裝置會有不同遙測閾值的情況下，使用參數會很有幫助。 當您建立規則時，請選擇指定閾值的裝置屬性（例如**最大理想臨界**值），而不是提供絕對值，例如 70&deg; F。當規則執行時，它會比對裝置遙測與裝置屬性中所設定的值。
 
 使用參數可有效減少要針對每個裝置範本管理的規則數目。
 

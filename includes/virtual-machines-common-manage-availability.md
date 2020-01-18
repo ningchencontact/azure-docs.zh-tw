@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: edaa3f7c17ff5fb6bc79f67b7028a7ba72347367
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5350ecdd3b73894e43db3b9f342fc657cf73f224
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466977"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76268270"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>了解 VM 重新開機 - 維護與停機時間
 有三種情況可能會導致 Azure 中的虛擬機器受到影響：未規劃的硬體維護、未預期的停機時間以及規劃的維護。
@@ -69,9 +69,15 @@ Azure 區域中的可用性區域是**容錯網域**和**更新網域**的組合
 ![受控磁碟 FD](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]
-> 受控可用性設定組的容錯網域數目會依區域而異，每個區域會有兩個或三個。 下表顯示每個區域擁有的數目：
+> 受控可用性設定組的容錯網域數目會依區域而異，每個區域會有兩個或三個。 您可以藉由執行下列腳本，來查看每個區域的容錯網域。
 
-[!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+```azurepowershell-interactive
+Get-AzComputeResourceSku | where{$_.ResourceType -eq 'availabilitySets' -and $_.Name -eq 'Aligned'}
+```
+
+```azurecli-interactive 
+az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Location:locationInfo[0].location, MaximumFaultDomainCount:capabilities[0].value}' -o Table
+```
 
 > 注意：在某些情況下，相同 AvailabilitySet 的2個 Vm 部分可能會共用相同的 FaultDomain。 這可以藉由進入您的 AvailabilitySet 並檢查「容錯網域」資料行來確認。
 > 當部署 Vm 時發生下列順序時，可能會觀察到此行為：

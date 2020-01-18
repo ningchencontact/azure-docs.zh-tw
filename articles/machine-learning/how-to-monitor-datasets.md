@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 524a831c63e2a034766b874cc45bb039e3185b50
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4efdc47e65f0f29f74f1477b02efdc6b8767ffb2
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536872"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264758"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>在資料集上偵測資料漂移（預覽）
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -315,6 +315,7 @@ monitor = monitor.enable_schedule()
 * 200功能的限制，除非未指定功能清單（所有使用的功能）。
 * 計算大小必須夠大，才能處理資料。 
 * 請確定您的資料集在指定的監視執行的開始和結束日期內有資料。
+* 資料集監視器僅適用于包含50個或更多資料列的資料集。 
 
 資料集中的資料行或功能會根據下表中的條件分類為類別或數值。 如果功能不符合這些條件，例如，具有 > 100 個唯一值之 string 類型的資料行，則會從我們的資料漂移演算法中卸載此功能，但仍會進行分析。 
 

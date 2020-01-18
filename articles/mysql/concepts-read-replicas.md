@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: f3a6da6888b823c637411c508c949686fc378e58
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/16/2020
+ms.openlocfilehash: 98461928e465a103f73761afce5270234224fbae
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790087"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167354"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>讀取「適用於 MySQL 的 Azure 資料庫」中的複本
 
@@ -132,7 +132,7 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 
 ### <a name="deleted-master-and-standalone-servers"></a>已刪除的主要和獨立伺服器
 
-刪除主要伺服器時，會在所有讀取複本上停止複寫。 這些複本會成為獨立伺服器。 主要伺服器本身會被刪除。
+刪除主要伺服器時，會在所有讀取複本上停止複寫。 這些複本會自動成為獨立伺服器，而且可以同時接受讀取和寫入。 主要伺服器本身會被刪除。
 
 ### <a name="user-accounts"></a>使用者帳戶
 

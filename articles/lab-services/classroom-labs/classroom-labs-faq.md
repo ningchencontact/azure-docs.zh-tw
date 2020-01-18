@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 91c5c1480669829bad7f8d89ce360bb806d6c997
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 3bc58e9545f38508a9e08e9ae1aa9cf8713cc520
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646858"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264741"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Azure 實驗室服務中的教室實驗室-常見問題（FAQ）
 取得一些關於 Azure 實驗室服務中的教室實驗室最常見問題的解答。 
@@ -46,6 +46,11 @@ ms.locfileid: "73646858"
 
 ### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>我應該在組織的防火牆設定上開啟哪些公用 IP 位址範圍，以透過 RDP/SSH 連接到實驗室虛擬機器？
 請參閱[AZURE IP 範圍和服務標籤-公用雲端](https://www.microsoft.com/download/details.aspx?id=56519)，其可為 Azure 中的資料中心提供公用 IP 位址範圍。 您可以開啟實驗室帳戶所在區域的 IP 位址。
+
+## <a name="users"></a>使用者人數
+
+### <a name="how-many-users-can-be-in-a-classroom-lab"></a>教室實驗室中可以有多少使用者？
+您最多可以新增400個使用者到教室實驗室。 
 
 ## <a name="blog-post"></a>Blog 文章
 訂閱[Azure 實驗室服務的 blog](https://azure.microsoft.com/blog/tag/azure-lab-services/)。

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure DevTest Labs 中使用平臺即服務（PaaS）服務 |Microsoft Docs
+title: 在 Azure DevTest Labs 中使用平臺即服務（PaaS）服務
 description: 瞭解如何在 Azure DevTest Labs 中使用平臺即服務（傳遞）服務。
 services: devtest-lab,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 088913959b5850e87dc3a6a39d2907d30b7e5ade
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 88bbf921fedae4bcdba2b6386ce6e08105206cd2
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75976237"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169197"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中使用平臺即服務（PaaS）服務
 DevTest Labs 透過環境功能支援 PaaS。 DevTest Labs 中的環境受到預先設定 Azure Resource Manager Git 存放庫中的範本所支援。 環境可以同時包含 PaaS 和 IaaS 資源。 它們可讓您建立複雜的系統，其中包含 Azure 資源，例如虛擬機器、資料庫、虛擬網路和 Web 應用程式，它們會經過自訂以搭配使用。 這些範本可讓您使用原始程式碼控制來一致部署和改善環境的管理。 

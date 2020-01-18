@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: f1cedd9851e425de1e4b6392d42a11dbf9f92644
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: b647af11e47952656011a06268d4b0f384126ae9
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934402"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263705"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>在 Azure 虛擬網路中保護 Azure ML 實驗和推斷作業
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -81,6 +81,22 @@ Azure Machine Learning 依賴其他 Azure 服務來計算資源。 計算資源�
 >
 > 針對非預設儲存體帳戶， [`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)函式中的 `storage_account` 參數可讓您依 AZURE 資源識別碼指定自訂儲存體帳戶。
 
+## <a name="use-azure-data-lake-storage-gen-2"></a>使用 Azure Data Lake Storage Gen 2
+
+Azure Data Lake Storage Gen 2 是一組適用于大規模資料分析的功能，建置於 Azure Blob 儲存體上。 它可以用來儲存用來將模型定型的資料，Azure Machine Learning。 
+
+若要在 Azure Machine Learning 工作區的虛擬網路中使用 Data Lake Storage Gen 2，請使用下列步驟：
+
+1. 建立 Azure Data Lake Storage gen 2 帳戶。 如需詳細資訊，請參閱[建立 Azure Data Lake Storage Gen2 儲存體帳戶](../storage/blobs/data-lake-storage-quickstart-create-account.md)。
+
+1. 使用上一節中的步驟2-4，將[儲存體帳戶用於您的工作區](#use-a-storage-account-for-your-workspace)，以將帳戶放在虛擬網路中。
+
+在虛擬網路內使用具有 Data Lake Storage Gen 2 的 Azure Machine Learning 時，請使用下列指導方針：
+
+* 如果您使用__SDK 來建立資料集__，而執行程式碼的系統__不在虛擬網路中__，請使用 `validate=False` 參數。 此參數會略過驗證，如果系統不在與儲存體帳戶相同的虛擬網路中，就會失敗。 如需詳細資訊，請參閱[from_files （）](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-)方法。
+
+* 使用 Azure Machine Learning 計算實例或計算叢集來使用資料集來定型模型時，它必須位於與儲存體帳戶相同的虛擬網路中。
+
 ## <a name="use-a-key-vault-instance-with-your-workspace"></a>搭配您的工作區使用 key vault 實例
 
 Azure Machine Learning 會使用與工作區相關聯的金鑰保存庫實例來儲存下列認證：
@@ -110,7 +126,7 @@ Azure Machine Learning 會使用與工作區相關聯的金鑰保存庫實例來
 ## <a name="compute-instance"></a>使用 Machine Learning Compute
 
 > [!NOTE]
-> 計算實例（預覽）目前僅適用于區域為**美國中北部**或**英國南部**的工作區，並支援其他即將推出的區域。
+> 計算執行個體 (預覽) 目前僅適用於區域為 [美國中北部] 或 [英國南部] 的工作區，其他區域的支援將於近期推出。
 > 使用其中一個區域來建立可新增至虛擬網路的計算實例。
 
 若要在虛擬網路中使用 Azure Machine Learning 計算實例或計算叢集，必須符合下列網路需求：

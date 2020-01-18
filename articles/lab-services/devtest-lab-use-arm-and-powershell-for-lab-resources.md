@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 及 Azure Resource Manager 範本自動建立或修改實驗室 |Microsoft 文件
+title: 使用 Azure Resource Manager 範本建立或修改實驗室
 description: 了解如何使用 Powershell 及 Azure Resource Manager 範本，在 DevTest 實驗室中自動建立或修改實驗室
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: cb5a08730b47cb5df3116aa4a54554ef0ee6f260
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 180081829387afeb7e63defe7a22378aa8d417d6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622452"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170301"
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>使用 PowerShell 及 Azure Resource Manager 範本自動建立或修改實驗室
 
@@ -27,7 +27,7 @@ DevTest 實驗室提供許多 Azure Resource Manager 範本和 PowerShell 指令
 
 本文循序指導您使用這些範本及指令碼，來自動化實驗室的建立、修改及部署。 本文也將說明，您將可以在哪裡找到如何使用 PowerShell 來執行 DevTest 實驗室中的若干一般工作的相關資訊。
 
-## <a name="step-1-gather-your-templates-and-scripts"></a>步驟 1：收集您的範本和指令碼
+## <a name="step-1-gather-your-templates-and-scripts"></a>步驟 1︰收集您的範本和指令碼
 您可以在我們的公用 [GitHub 存放庫](https://github.com/Azure/azure-devtestlab)中找到預先製作的 [Azure Resource Manager 範本](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)和 [PowerShell 指令碼](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts)。 直接使用，或針對您的需求進行自訂，並儲存在您自己的[私人 Git 存放庫](devtest-lab-add-artifact-repo.md)。
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>步驟 2：修改您的 Azure Resource Manager 範本
@@ -35,7 +35,7 @@ DevTest 實驗室提供許多 Azure Resource Manager 範本和 PowerShell 指令
 
 此外，[建立 Azure Resource Manager 範本的最佳做法](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices)提供許多指導方針和建議，可以協助您建立可靠又容易使用的 Azure Resource Manager 範本。 一般而言，您會使用所提供的其中一個方法或範例的某種變化，再針對您的需要來修改範本。
 
-## <a name="step-3-deploy-resources-with-powershell"></a>步驟 3：使用 PowerShell 來部署資源
+## <a name="step-3-deploy-resources-with-powershell"></a>步驟 3︰ 使用 PowerShell 部署資源
 自訂您的範本和指令碼之後，請依照下列步驟，[使用 Resource Manager 範本和 Azure PowerShell 部署資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)。 本文提供有關使用 Azure PowerShell 和 Azure Resource Manager 範本，將您的資源部署至 Azure 的一般資訊。
 
 

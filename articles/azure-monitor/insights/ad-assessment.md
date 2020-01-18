@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: f0de484d58085f598988589d18495c9a6fe1b374
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1e97ce1655ae35f4986a915a382d456bb8d2ce4b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406144"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167837"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>在 Azure 監視器中使用 Active Directory 健康情況檢查解決方案來最佳化 Active Directory 環境
 
@@ -166,6 +166,17 @@ ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Co
 2. 如果您稍後決定想要查看忽略的建議，請移除任何 IgnoreRecommendations.txt 檔案，或從中移除 RecommendationID。
 
 ## <a name="ad-health-check-solutions-faq"></a>AD 健康情況檢查方案常見問題集
+
+*AD 評定解決方案會執行哪些檢查？*
+
+* 下列查詢會顯示目前執行的所有檢查的描述：
+
+```Kusto
+ADAssessmentRecommendation
+| distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
+| sort by FocusArea,ActionArea, Recommendation
+```
+然後可將結果匯出至 Excel 供進一步檢閱。
 
 *執行健康情況檢查的頻率為何？*
 

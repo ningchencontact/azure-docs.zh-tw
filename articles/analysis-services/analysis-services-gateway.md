@@ -4,19 +4,21 @@ description: 如果 Azure 中的 Analysis Services 伺服器會連接到內部�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a896c98040773179f9a0911162bbfdc5689b1a2e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f1fc00ced0d933884ca0fe6dce91fed4602eb825
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768549"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263433"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>使用內部部署資料閘道連接到內部部署資料來源
 
-內部部署資料閘道在內部部署資料來源和雲端中的 Azure Analysis Services 伺服器之間提供安全的資料傳輸。 除了使用相同區域中的多個 Azure Analysis Services 伺服器，最新的閘道版本也適用于 Azure Logic Apps、Power BI、電源應用程式和電源自動化。 您可以讓相同訂用帳戶及相同區域中的多個服務與單一閘道建立關聯。 雖然您安裝的閘道在所有這些服務中都相同，但 Azure Analysis Services 和 Logic Apps 有一些額外的步驟。
+內部部署資料閘道在內部部署資料來源和雲端中的 Azure Analysis Services 伺服器之間提供安全的資料傳輸。 除了使用相同區域中的多個 Azure Analysis Services 伺服器，最新的閘道版本也適用于 Azure Logic Apps、Power BI、電源應用程式和電源自動化。 雖然您安裝的閘道在所有這些服務中都相同，但 Azure Analysis Services 和 Logic Apps 有一些額外的步驟。
+
+此處提供的資訊僅適用于 Azure Analysis Services 與內部部署資料閘道搭配使用的方式。 若要深入瞭解閘道的一般資訊，以及它如何與其他服務搭配運作，請參閱[什麼是內部部署資料閘道？](/data-integration/gateway/service-gateway-onprem)。
 
 針對 Azure Analysis Services，第一次取得閘道的設定是四個部分的程式：
 
@@ -24,9 +26,11 @@ ms.locfileid: "75768549"
 
 - **註冊您的閘道** - 在此步驟中，您會為您的閘道指定名稱和復原金鑰，然後選取區域，並且向閘道雲端服務註冊您的閘道。 閘道資源可以註冊於任何區域中，但建議位於與 Analysis Services 伺服器相同的區域中。 
 
-- **在 Azure 中建立閘道資源** - 在此步驟中，您會在您的 Azure 訂用帳戶中建立閘道資源。
+- 在**azure 中建立閘道資源**-在此步驟中，您會在 azure 中建立閘道資源。
 
-- **將您的伺服器連線到閘道資源** - 您的訂用帳戶中一旦有閘道資源，您就可以開始將您的伺服器連線到它。 您可以連線多部伺服器及其他資源，只要它們都位於相同訂用帳戶和相同區域中即可。
+- **將您的伺服器連線到閘道資源**-一旦您擁有閘道資源，就可以開始將您的伺服器連接到該資源。 您可以連接多部伺服器和其他資源（如果它們位於相同區域）。
+
+
 
 ## <a name="how-it-works"></a>運作方式
 您在組織的電腦上安裝的閘道會以 Windows 服務 (**內部部署資料閘道**) 的形式執行。 此本機服務已透過 Azure 服務匯流排向閘道雲端服務註冊。 接著，您會為您的 Azure 訂用帳戶建立內部部署資料閘道資源。 您的 Azure Analysis Services 伺服器接著會連線到您的 Azure 閘道資源。 當您伺服器上的模型需要連線到內部部署資料來源進行查詢或處理時，查詢和資料流程會周遊閘道資源、Azure 服務匯流排、本機內部部署資料閘道服務以及您的資料來源。 

@@ -179,7 +179,7 @@
         - name: 純量運算式
           displayName: 'scalar expressions, scalar'
           href: sql-query-scalar-expressions.md
-        - name: Functions
+        - name: 函式
           items:
             - name: 使用者自訂函數
               displayName: 'functions, udf'
@@ -851,8 +851,6 @@
         - name: 管理一致性層級
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
           href: how-to-manage-consistency.md
-        - name: 實作自訂同步處理
-          href: how-to-custom-synchronization.md
         - name: 設定衝突解決原則
           href: how-to-manage-conflicts.md
     - name: 佈建的輸送量
@@ -1125,7 +1123,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 免費試用 Azure Cosmos DB
       href: 'https://azure.microsoft.com/try/cosmosdb/'
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: 多重主機優點
       href: multi-master-benefits.md

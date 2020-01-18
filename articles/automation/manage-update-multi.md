@@ -3,14 +3,14 @@ title: 管理多部 Azure 虛擬機器的更新
 description: 本文說明如何管理 Azure 和非 Azure 虛擬機器的更新。
 services: automation
 ms.subservice: update-management
-ms.date: 11/20/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9a5a4330a90bd376114f836250e290944f03860
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de7171d3807540ae7d5f09c3a877031631248e49
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75417833"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168038"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -147,6 +147,13 @@ ms.locfileid: "75417833"
   - 更新
 
 - **要包含/排除的更新** - 這會開啟 [包含]/[排除] 頁面。 要包含或排除的更新會在個別的索引標籤上。 如需有關如何處理包含的詳細資訊，請參閱[排程更新部署](automation-tutorial-update-management.md#schedule-an-update-deployment)。
+
+> [!NOTE]
+> 請務必了解，排除會覆寫包含。 例如，如果您定義 `*` 排除規則，系統便不會安裝任何修補程式或套件，因為已將它們全部排除。 排除的修補程式仍然會顯示為從機器中遺漏。 就 Linux 機器而言，如果已包含某個套件，但排除了它的某個相依套件，就不會安裝該套件。
+
+> [!NOTE]
+> 您無法指定已取代以包含在更新部署中的更新。
+>
 
 - **排程設定**：您可以接受預設的日期和時間 (目前時間之後的 30 分鐘)。 您也可以指定不同的時間。
 

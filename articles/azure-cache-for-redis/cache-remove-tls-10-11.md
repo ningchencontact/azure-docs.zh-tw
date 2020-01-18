@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 2f6203deb5e06ba69a3b4d06297d5e702992c79d
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 77f526470204204ef2a801575bb4e8d7e364ffed
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708051"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260147"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>移除與 Azure Cache for Redis 搭配使用的 TLS 1.0 和1。1
 
@@ -19,8 +19,8 @@ ms.locfileid: "75708051"
 
 作為這項工作的一部分，我們將對 Azure Cache for Redis 進行下列變更：
 
-* 從2020年1月13日開始，我們會針對新建立的快取實例，將預設的最低 TLS 版本設定為1.2。  此時不會更新現有的快取實例。  如有需要，您可以將[最小的 TLS 版本變更](cache-configure.md#access-ports)回1.0 或1.1 以提供回溯相容性。  這種變更可以透過 Azure 入口網站或其他管理 Api 來完成。
-* 自2020年3月31日起，我們將停止支援 TLS 版本1.0 和1.1。 在這種變更之後，您的應用程式必須使用 TLS 1.2 或更新版本來與您的快取通訊。
+* **第1階段：** 我們會針對新建立的快取實例，將預設的最低 TLS 版本設定為1.2。  此時不會更新現有的快取實例。  如有需要，您可以將[最小的 TLS 版本變更](cache-configure.md#access-ports)回1.0 或1.1 以提供回溯相容性。  這種變更可以透過 Azure 入口網站或其他管理 Api 來完成。
+* **第2階段：** 我們將停止支援 TLS 版本1.0 和1.1。 在這種變更之後，您的應用程式必須使用 TLS 1.2 或更新版本來與您的快取通訊。
 
 此外，做為這項變更的一部分，我們將會移除對舊版、不安全的 cypher 套件的支援。  當快取設定為最低的 TLS 版本1.2 時，我們支援的 cypher 套件將受限於下列各項。
 
@@ -28,6 +28,15 @@ ms.locfileid: "75708051"
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
 
 本文提供有關如何偵測這些舊版 TLS 版本的相依性，並將其從您的應用程式中移除的一般指引。
+
+這些變更生效的日期如下：
+
+| 雲端               | 第1階段開始日期 | 第2階段開始日期 |
+|---------------------|--------------------|--------------------|
+| Azure (全域)      |  2020 年 1 月 13 日  | 2020年3月31日     |
+| Azure 政府機構    |  2020年3月13日    | 2020 5 月11日       |
+| Azure 德國       |  2020年3月13日    | 2020 5 月11日       |
+| Azure 中國         |  2020年3月13日    | 2020 5 月11日       |
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>檢查您的應用程式是否已經符合規範
 

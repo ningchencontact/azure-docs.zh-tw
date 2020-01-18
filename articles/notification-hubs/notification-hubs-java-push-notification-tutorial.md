@@ -1,5 +1,5 @@
 ---
-title: 如何搭配使用通知中樞與 Java
+title: 如何搭配使用 Azure 通知中樞與 JAVA
 description: 了解如何從 Java 後端使用 Azure 通知中樞。
 services: notification-hubs
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 532ffc7a7393f016f27264b67b4ee5d3e6e5888f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213216"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263858"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>如何從 Java 使用通知中樞
 
@@ -41,7 +41,7 @@ SDK 目前支援：
 * 定期傳送
 * 排程的傳送
 * 透過 Java NIO 的非同步作業
-* 支援的平台：APNS (iOS)、FCM (Android)、WNS (Windows 市集應用程式)、MPNS (Windows Phone)、ADM (Amazon Kindle Fire)、Baidu (沒有 Google 服務的 Android)
+* 支援的平臺： APNS （iOS）、FCM （Android）、WNS （Windows Store 應用程式）、MPNS （Windows Phone）、ADM （Amazon Kindle 火災）、百度（不含 Google 服務的 Android）
 
 ## <a name="sdk-usage"></a>SDK 的使用方式
 
@@ -374,7 +374,7 @@ SDK 目前支援：
 
 ## <a name="next-steps"></a>後續步驟
 
-本主題會說明如何為通知中樞建立簡單的 Java REST 用戶端。 您可以在這裡執行下列動作：
+本主題會說明如何為通知中樞建立簡單的 Java REST 用戶端。 從這裡，您可以：
 
 * 下載完整的 [Java SDK]，其中包含完整的 SDK 程式碼。
 * 試用範例：

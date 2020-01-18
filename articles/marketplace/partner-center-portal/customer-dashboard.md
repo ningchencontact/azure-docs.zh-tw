@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d1d94e07fc38ae5de62793666df5a73dbf8b79eb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2eaaf2ec2f3dad1da345d0cfeadf1cae223a592
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480563"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264011"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>商業 Marketplace 分析中的客戶儀表板
 
@@ -72,7 +72,7 @@ ms.locfileid: "75480563"
 
 [**依訂單/使用量的客戶**] 圖表有三個索引標籤：「訂單」、「正規化使用」和「原始使用量」。 **最上層的客戶百分**位數會沿著 X 軸顯示，由其訂單數目決定。 Y 軸會顯示客戶的訂單計數。 [次要 y 軸（折線圖）] 會顯示訂單總數的累計百分比。 您可以將滑鼠停留在折線圖上的點上方，以顯示詳細資料。
 
-如需範例，請參閱下圖以瞭解正規化的使用方式：客戶的前30個百分位數累積了87% 的標準化使用量。 客戶的30個百分位數只會影響 1.57 M 小時的使用量。
+如需範例，請參閱下圖以瞭解正規化的使用方式：客戶的前30個百分位數累積了87% 的標準化使用量。 客戶的30個百分位數只會貢獻1570000小時的使用量。
 
 ### <a name="customers-by-skus"></a>依 Sku 的客戶
 

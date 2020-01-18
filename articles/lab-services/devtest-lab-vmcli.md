@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure CLI 在 DevTest Labs 中建立和管理虛擬機器 | Microsoft Docs
+title: 使用 Azure CLI 在 DevTest Labs 中建立和管理虛擬機器
 description: 了解如何使用 Azure CLI 在 Azure DevTest Labs 中建立及管理虛擬機器
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 7a089eae935fe5ecbf3dd2836d86912d0c63ef84
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: d3cd104e36cb407e9b1b833335869cac2c69d0ec
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773108"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167061"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>使用 Azure CLI 在 DevTest Labs 中建立和管理虛擬機器
 本快速入門將引導您在實驗室中建立、啟動、連接、更新和清理開發電腦。 
@@ -30,7 +30,7 @@ ms.locfileid: "70773108"
 * [安裝 Azure CLI](/cli/azure/install-azure-cli)。 若要開始，請執行 az login 建立 Azure 連線。 
 
 ## <a name="create-and-verify-the-virtual-machine"></a>建立並確認虛擬機器 
-執行 DevTest Labs 相關的命令之前，請使用`az account set`命令來設定適當的 Azure 內容：
+執行 DevTest Labs 相關的命令之前，請使用 `az account set` 命令來設定適當的 Azure 內容：
 
 ```azurecli
 az account set --subscription 11111111-1111-1111-1111-111111111111
@@ -61,7 +61,7 @@ az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGrou
 您也可以將**影像類型**參數設定為**公式**，以根據公式建立虛擬機器。 如果您需要為虛擬機器選擇特定的虛擬網路，請使用**vnet 名稱**和**子網**參數。 如需詳細資訊，請參閱[az lab vm create](/cli/azure/lab/vm#az-lab-vm-create)。
 
 ## <a name="verify-that-the-vm-is-available"></a>確認有可用的 VM。
-您可以使用命令來確認 VM 可供使用，然後再進行連接。 `az lab vm show` 
+請使用 `az lab vm show` 命令來確認 VM 可供使用，然後再進行連接。 
 
 ```azurecli
 az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand 'properties($expand=ComputeVm,NetworkInterface)' --query '{status: computeVm.statuses[0].displayStatus, fqdn: fqdn, ipAddress: networkInterface.publicIpAddress}'
@@ -81,7 +81,7 @@ az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sam
 az lab vm start --lab-name sampleLabName --name sampleVMName --resource-group sampleLabResourceGroup
 ```
 
-連接到 VM：[SSH](../virtual-machines/linux/mac-create-ssh-keys.md)或[遠端桌面](../virtual-machines/windows/connect-logon.md)。
+連接到 VM：[SSH](../virtual-machines/linux/mac-create-ssh-keys.md) 或[遠端桌面](../virtual-machines/windows/connect-logon.md)。
 ```bash
 ssh userName@ipAddressOrfqdn 
 ```
@@ -127,13 +127,13 @@ az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resou
 
 若要列出實驗室中 VM 內可用的構件，請執行下列命令。
 
-**Cloud Shell-PowerShell**：請注意在 $expand 之前使用倒引號\`（）（例如 ' $expand）：
+**Cloud Shell-PowerShell**：請注意 $expand 的 $ 之前使用倒引號（\`）（即 ' $expand）：
 
 ```azurecli-interactive
 az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(`$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"
 ```
 
-**Cloud Shell-Bash**：請注意命令中 $ 前面的\\斜線（）字元的用法。 
+**Cloud Shell-Bash**：請注意命令中 $ 前面的斜線（\\）字元的用法。 
 
 ```azurecli-interactive
 az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(\$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"
@@ -163,4 +163,4 @@ az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group s
 ```
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列內容：[Azure DevTest Labs 的 Azure CLI 檔](/cli/azure/lab?view=azure-cli-latest)。 
+請參閱下列內容： [Azure DevTest Labs 的 Azure CLI 檔](/cli/azure/lab?view=azure-cli-latest)。 

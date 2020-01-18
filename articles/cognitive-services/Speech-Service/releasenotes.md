@@ -1,24 +1,65 @@
 ---
 title: 版本資訊-語音服務
 titleSuffix: Azure Cognitive Services
-description: 查看語音服務的功能版本、改進、bug 修正和已知問題的執行記錄。
+description: 語音服務功能版本、改進、bug 修正和已知問題的執行記錄。
 services: cognitive-services
-author: BrianMouncer
+author: oscholz
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.author: brianem
+ms.date: 01/15/2020
+ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 73f1739b09111052abd985920efe3ef944a89ca9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b421e7acd7f94654ea80e41340022c8ef7a130e
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75380349"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264215"
 ---
 # <a name="release-notes"></a>版本資訊
+
+## <a name="speech-sdk-190-2020-january-release"></a>語音 SDK 1.9.0： 2020-1 月版本
+
+**新功能**
+
+- 多裝置對話：在語音或以文字為基礎的交談中連接多個裝置，並選擇性地轉譯在它們之間傳送的訊息。 請在[這篇文章](multi-device-conversation.md)中深入瞭解。 
+- 已新增 aar 套件的關鍵字辨識支援，並已新增 x86 和 x64 類別的支援。 
+- `SendMessage` 和 `SetMessageProperty` 方法新增至目標-C 中的 `Connection` 物件。 請參閱[這裡](https://docs.microsoft.com/objectivec/cognitive-services/speech/)的檔。
+- TTS C++ api 現在支援以合成文字輸入 `std::wstring`，而不需要將 wstring 轉換成字串，再將它傳遞至 SDK。 請參閱[這裡](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync)的詳細資料。 
+- [語言識別項](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp)和[來源語言](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp)設定現在可在中C#使用。
+
+
+**重大變更**
+
+- `OpenSSL` 已更新為 1.1.1 b 版，並以靜態方式連結至適用于 Linux 的語音 SDK 核心程式庫。 如果您的收件匣 `OpenSSL` 尚未安裝到系統的 `/usr/lib/ssl` 目錄中，這可能會造成中斷。 如要解決此問題，請參閱語音 SDK 檔底下的[檔](how-to-configure-openssl-linux.md)。
+- 我們已將C# `WordLevelTimingResult.Offset` 從 `int` 傳回的資料類型變更為 `long`，以允許在語音資料超過2分鐘時存取 `WordLevelTimingResults`。
+
+
+**錯誤修正**
+
+- 請參閱上述重大變更底下的 `OpenSSL` 更新。 我們已修正 Linux 和 JAVA 中間歇性損毀和效能問題（在高負載下鎖定爭用）。 
+- 改善了高並行處理案例中的 JAVA 物件關閉。
+- 已重構我們的 Nuget 套件。 我們已移除 lib 資料夾底下的三個 `Microsoft.CognitiveServices.Speech.core.dll` 和 `Microsoft.CognitiveServices.Speech.extension.kws.dll` 複本，讓 Nuget 套件的下載變得更小且更快速，而且我們已新增C++編譯一些原生應用程式所需的標頭。
+- 已修正[這裡](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp)的快速入門範例。 這些會結束，而不會顯示 Linux、MacOS、Windows 上的「找不到麥克風」例外狀況。
+- 修正了具有長語音辨識的 SDK 損毀，會導致特定程式碼路徑（如[此範例](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/uwp/speechtotext-uwp)）。
+- 已修正 Azure Web 應用程式環境中的 SDK 部署錯誤，以解決[此客戶問題](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/396)。
+- 已修正使用多個 `<voice>` 標記或 `<audio>` 標記來解決[此客戶問題](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/433)時的 TTS 錯誤。 
+- 修正從擱置中復原 SDK 時的 TTS 401 錯誤。
+
+
+**範例**
+
+- 已[在此處](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo)新增適用于 Android 的關鍵字辨識範例。
+- [這裡](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp)已新增伺服器案例的 TTS 範例。 
+- C++ C# [在和 .net 中](multi-device-conversation.md)新增多裝置對話快速入門。
+
+
+**其他變更**
+
+- Android 上的優化 SDK 核心程式庫大小。
+- 1\.9.0 和更新版本中的 SDK 在對話 Transcriber 的 [語音簽名版本] 欄位中，支援 `int` 和 `string` 類型。
 
 ## <a name="speech-sdk-180-2019-november-release"></a>語音 SDK 1.8.0： 2019-11 月版本
 

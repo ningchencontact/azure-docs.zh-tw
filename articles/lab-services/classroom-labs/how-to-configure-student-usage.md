@@ -1,5 +1,5 @@
 ---
-title: 設定 Azure 實驗室服務的教室實驗室中的使用方式設定 | Microsoft Docs
+title: 在 Azure 實驗室服務的教室實驗室中設定使用方式設定
 description: 了解如何設定實驗室的使用者數目、讓他們向實驗室註冊、控制他們可以使用 VM 的時數等等。
 services: lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 0ab8d8688c7856eeae7d75527620c2b77ae78029
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 80e8bc47f6e6293d70bbc9fae888abdf5527fe93
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584219"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169216"
 ---
 # <a name="add-and-manage-lab-users"></a>新增和管理實驗室使用者
 本文說明如何將使用者新增至實驗室、讓他們向實驗室註冊、控制他們可以使用 VM 的時數等等。 
@@ -27,18 +27,18 @@ ms.locfileid: "73584219"
 ## <a name="add-users-to-the-lab"></a>將使用者新增至實驗室
 
 1. 選取左側功能表上的 [使用者]。 預設會啟用 [限制存取] 選項。 當此設定為開啟時，即使使用者有註冊連結，除非使用者位於使用者清單中，否則也無法向實驗室註冊。 只有清單中的使用者可以使用您傳送的註冊連結，向實驗室註冊。 在此程序中，您會在清單中新增使用者。 或者，您可以關閉 [限制存取]，讓使用者能向實驗室註冊 (只要他們有註冊連結)。 
-2. 選取工具列上的 [**新增使用者**]，然後選取 [透過**電子郵件地址新增**]。 
+2. 選取工具列上的 [新增使用者]，然後選取 [以電子郵件地址新增]。 
 
     ![[新增使用者] 按鈕](../media/how-to-configure-student-usage/add-users-button.png)
 1. 在 [新增使用者] 頁面上的不同行或以分號隔開的單一行中，輸入使用者的電子郵件地址。 
 
     ![新增使用者電子郵件地址](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. 選取 [ **儲存**]。 您會在清單中看到使用者的電子郵件地址及其狀態 (是否已註冊)。 
+4. 選取 [儲存]。 您會在清單中看到使用者的電子郵件地址及其狀態 (是否已註冊)。 
 
     ![使用者清單](../media/how-to-configure-student-usage/users-list-new.png)
 
     > [!NOTE]
-    > 向實驗室註冊後，您會在清單中看到使用者的名稱。 清單中顯示的名稱是在 Azure Active Directory 中使用使用者的名字和姓氏所建立。 
+    > 在使用者向實驗室註冊後，您會在清單中看到使用者的名稱。 清單中顯示的名稱是在 Azure Active Directory 中使用使用者的名字和姓氏所建立。 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>上傳 CSV 檔案以新增使用者
 您也可以上傳具有使用者電子郵件地址的 CSV 檔案，藉此新增使用者。
@@ -60,19 +60,19 @@ ms.locfileid: "73584219"
 ## <a name="send-invitations-to-users"></a>傳送邀請給使用者
 若要將註冊連結傳送給學生，請使用下列其中一種方法。 第一種方法會示範如何使用註冊連結和選擇性訊息，將電子郵件傳送給學生。 第二種方法會向您示範如何取得註冊連結，以您想要的方式與其他人共用。 
 
-如果實驗室啟用 [限制存取]，則只有使用者清單中的使用者可以使用註冊連結向實驗室註冊。 預設會啟用此選項。 
+如果實驗室啟用 [限制存取]，則只有使用者清單中的使用者可以使用註冊連結向實驗室註冊。 此選項預設為啟用。 
 
 ### <a name="invite-all-users"></a>邀請所有使用者
-1. 如果您還不在頁面上，請切換到 [**使用者**] 視圖，然後選取工具列上的 [**全部邀請**]。 
+1. 如果您並未在該頁面上，請切換至 [使用者] 檢視，然後選取工具列上的 [全部邀請]。 
 
     ![選取學員](../media/tutorial-setup-classroom-lab/invite-all-button.png)
 
-1. 在 [透過**電子郵件傳送邀請**] 頁面上，輸入選用的訊息，然後選取 [**傳送**]。 電子郵件會自動包含註冊連結。 您可以選取 [...]，以取得此註冊連結。 **（省略號）** 在工具列上，以及 [**註冊連結**]。 
+1. 在 [透過電子郵件傳送邀請] 頁面上輸入選擇性訊息，然後選取 [傳送]。 電子郵件會自動包含註冊連結。 您可以選取工具列上的 [...(省略符號)] 和 [註冊連結]，來取得此註冊連結。 
 
     ![透過電子郵件傳送註冊連結](../media/tutorial-setup-classroom-lab/send-email.png)
-4. 您會在 [**使用者**] 清單中看到**邀請**的狀態。 狀態應該會**變更為 [** 傳送中]，然後**在 \<日期 > 上傳送**。 
+4. 您會在 [使用者] 清單中看到 [邀請] 的狀態。 狀態應該會**變更為 [** 傳送中]，然後**在 \<日期 > 上傳送**。 
 
-    如需將學生新增至類別及管理其實驗室使用方式的詳細資訊，請參閱[如何設定學生使用](how-to-configure-student-usage.md)。
+    如需將學生新增到班級及管理其實驗室使用方式的詳細資訊，請參閱[如何設定學生使用方式](how-to-configure-student-usage.md)。
 
 ### <a name="invite-selected-users"></a>邀請選取的使用者
 
@@ -172,7 +172,7 @@ ms.locfileid: "73584219"
 最後，系統會提示他們建立連結至其 GitHub 帳戶的 Microsoft 帳戶。 當學生選取 **[下一步]** 時，就會自動發生。  然後，學生會立即登入並聯機到教室實驗室。
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列文章：
+查看下列文章：
 
 - [以管理員身分建立及管理實驗室帳戶](how-to-manage-lab-accounts.md)
 - [以實驗室擁有者身分建立及管理實驗室](how-to-manage-classroom-labs.md)

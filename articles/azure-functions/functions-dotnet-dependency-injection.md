@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 4c6ccf9dce0fc119bd666871489a42a3ef734f81
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a17ff15e71251e781cd30c33a5616af85e4f4eb9
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769195"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260078"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>在 .NET Azure Functions 中使用相依性插入
 
@@ -153,12 +153,22 @@ Azure Functions 應用程式提供與 ASP.NET 相依性[插入](https://docs.mic
 
 您可以從 `IConfiguration` 實例中，將值解壓縮至自訂類型。 將應用程式設定值複製到自訂類型，可以讓這些值得以插入，輕鬆地測試您的服務。 讀入設定實例的設定必須是簡單的索引鍵/值組。
 
-請考慮下列類別，其中包含名稱與應用程式設定一致的屬性。
+請考慮下列類別，其中包含名稱與應用程式設定一致的屬性：
 
 ```csharp
 public class MyOptions
 {
     public string MyCustomSetting { get; set; }
+}
+```
+
+以及可能會將自訂設定結構為的 `local.settings.json` 檔案，如下所示：
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "MyOptions:MyCustomSetting": "Foobar"
+  }
 }
 ```
 
@@ -168,7 +178,7 @@ public class MyOptions
 builder.Services.AddOptions<MyOptions>()
                 .Configure<IConfiguration>((settings, configuration) =>
                                            {
-                                                configuration.Bind(settings);
+                                                configuration.GetSection("MyOptions").Bind(settings);
                                            });
 ```
 

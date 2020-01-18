@@ -1,5 +1,5 @@
 ---
-title: 將 Azure DevTest Labs 整合到 Azure Pipelines 持續整合和傳遞管線 | Microsoft Docs
+title: 將 Azure DevTest Labs 整合到您的 Azure Pipelines
 description: 了解如何將 Azure DevTest Labs 整合到 Azure Pipelines 持續整合和傳遞管線
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 20ba297d22e26aa8c7e20db300173f12582d257e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 54b4e6e6a283f46e03f7b94ce96ba79a03f75523
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224472"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170385"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>將 Azure DevTest Labs 整合到您的 Azure Pipelines CI/CD 管線
 
@@ -106,7 +106,7 @@ ms.locfileid: "71224472"
 
 若要建立新的發行管線：
 
-1. 從您的 Azure DevOps 專案 頁面，選取左側導覽中的 **管線** > **發行**。
+1. 從 Azure DevOps 專案 頁面中，從左側導覽中選取 **管線** > **發行**。
 1. 選取 [新增管線]。
 1. 在 [**選取範本**] 底下，向下**並選取 [** **空白作業**]，然後選取 [套用]。
 
@@ -120,7 +120,7 @@ ms.locfileid: "71224472"
    
 1. 針對每個變數，選取 [**新增**]，然後輸入名稱和值：
    
-   |Name|值|
+   |名稱|值|
    |---|---|
    |*vmName*|您在 Resource Manager 範本中指派的 VM 名稱|
    |*userName*|存取 VM 的使用者名稱|
@@ -130,7 +130,7 @@ ms.locfileid: "71224472"
 
 下一個步驟是建立要用於未來部署的黃金映射 VM。 您可以使用*Azure DevTest Labs 建立 vm*工作，在 Azure DevTest Labs 實例中建立 vm。
 
-1. 在 [發行管線**管線**] 索引標籤上，選取 [**階段 1** ] 中的超連結文字來**查看階段**工作 **+** ，然後選取 [**代理程式作業**] 旁的加號。 
+1. 在 [發行管線**管線**] 索引標籤上，選取 [**階段 1** ] 中的超連結文字來**查看階段**工作，然後選取 [**代理程式作業**] 旁邊的加號 **+** 。 
    
 1. 在 [**新增**工作] 底下，選取 [ **Azure DevTest Labs 建立 VM**]，然後選取 [**新增**]。 
    
@@ -144,17 +144,17 @@ ms.locfileid: "71224472"
    |**實驗室名稱**|選取將在其中建立實驗室 VM 的現有實驗室名稱。|
    |**範本名稱**|輸入您儲存到原始程式碼存放庫之範本檔案的完整路徑和名稱。 您可以使用內建屬性來簡化路徑，例如：<br /><br />`$(System.DefaultWorkingDirectory)/Templates/CreateVMTemplate.json`|
    |**範本參數**|輸入您稍早定義之變數的參數：<br /><br />`-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`|
-   |**輸出變數** > **實驗室 VM 識別碼**|輸入所建立之實驗室 VM 識別碼的變數。 如果您使用預設**labVMId**，您可以在後續工作中將變數參考為 *$ （labVMId）* 。<br /><br />您可以建立預設值以外的名稱，但請記得在後續工作中使用正確的名稱。 您可以用下列格式撰寫實驗室 VM 識別碼：<br /><br />`/subscriptions/{subscription Id}/resourceGroups/{resource group Name}/providers/Microsoft.DevTestLab/labs/{lab name}/virtualMachines/{vmName}`|
+   | > **實驗室 VM 識別碼**的**輸出變數**|輸入所建立之實驗室 VM 識別碼的變數。 如果您使用預設**labVMId**，您可以在後續工作中將變數參考為 *$ （labVMId）* 。<br /><br />您可以建立預設值以外的名稱，但請記得在後續工作中使用正確的名稱。 您可以用下列格式撰寫實驗室 VM 識別碼：<br /><br />`/subscriptions/{subscription Id}/resourceGroups/{resource group Name}/providers/Microsoft.DevTestLab/labs/{lab name}/virtualMachines/{vmName}`|
 
 ### <a name="collect-the-details-of-the-devtest-labs-vm"></a>收集 DevTest Labs VM 的詳細資料
 
 執行您先前建立的指令碼，以收集 DevTest Labs VM 的詳細資料。 
 
-1. 在 [發行管線**管線**] 索引標籤上，選取 [**階段 1** ] 中的超連結文字來**查看階段**工作 **+** ，然後選取 [**代理程式作業**] 旁的加號。 
+1. 在 [發行管線**管線**] 索引標籤上，選取 [**階段 1** ] 中的超連結文字來**查看階段**工作，然後選取 [**代理程式作業**] 旁邊的加號 **+** 。 
    
 1. 在 [**新增**工作] 底下，選取 [ **Azure PowerShell**]，然後選取 [**新增**]。 
    
-1. 選取**Azure PowerShell 腳本：左**窗格中的 FilePath。 
+1. 在左窗格中選取 [ **Azure PowerShell 腳本： FilePath** ]。 
    
 1. 在右窗格中，填寫表單，如下所示：
    
@@ -164,7 +164,7 @@ ms.locfileid: "71224472"
    |**Azure 訂用帳戶**|選取您的服務連接或訂用帳戶。| 
    |**腳本類型**|選取 [**指令檔路徑**]。|
    |**腳本路徑**|輸入您儲存到原始程式碼存放庫之 PowerShell 腳本的完整路徑和名稱。 您可以使用內建屬性來簡化路徑，例如：<br /><br />`$(System.DefaultWorkingDirectory/Scripts/GetLabVMParams.ps1`|
-   |**腳本引數**|輸入前一項工作所填入的*labVmId*變數名稱，例如：<br /><br />`-labVmId '$(labVMId)'`|
+   |**指令碼引數**|輸入前一項工作所填入的*labVmId*變數名稱，例如：<br /><br />`-labVmId '$(labVMId)'`|
 
 此腳本會收集所需的值，並將它們儲存在發行管線內的環境變數中，以便您在後續步驟中輕鬆地參考它們。
 
@@ -172,7 +172,7 @@ ms.locfileid: "71224472"
 
 下一個工作是在您的 Azure DevTest Labs 實例中建立新部署 VM 的映射。 後續當您想要執行開發工作或執行某些測試時，您即可使用此映像隨需建立 VM 的複本。 
 
-1. 在 [發行管線**管線**] 索引標籤上，選取 [**階段 1** ] 中的超連結文字來**查看階段**工作 **+** ，然後選取 [**代理程式作業**] 旁的加號。 
+1. 在 [發行管線**管線**] 索引標籤上，選取 [**階段 1** ] 中的超連結文字來**查看階段**工作，然後選取 [**代理程式作業**] 旁邊的加號 **+** 。 
    
 1. 在 [**新增**工作] 底下，選取 [ **Azure DevTest Labs 建立自訂映射**]，然後選取 [**新增**]。 
    
@@ -183,9 +183,9 @@ ms.locfileid: "71224472"
    |**Azure RM 訂用帳戶**|選取您的服務連接或訂用帳戶。|
    |**實驗室名稱**|選取將在其中建立映射之現有實驗室的名稱。|
    |**自訂映射名稱**|輸入自訂映射的名稱。|
-   |**描述**選擇性|輸入描述，讓您稍後可以輕鬆地選取正確的映射。|
-   |**來源實驗室 vm**  > **來源實驗室 vm 識別碼**|如果您變更了 LabVMId 變數的預設名稱，請在這裡輸入。 預設值為 **$(labVMId)** 。|
-   |**輸出變數** > **自訂映射識別碼**|您可以視需要編輯變數的預設名稱。|
+   |**描述**（選擇性）|輸入描述，讓您稍後可以輕鬆地選取正確的映射。|
+   |**來源實驗室 vm** > **來源實驗室 vm 識別碼**|如果您變更了 LabVMId 變數的預設名稱，請在這裡輸入。 預設值為 **$(labVMId)** 。|
+   | > **自訂映射識別碼**的**輸出變數**|您可以視需要編輯變數的預設名稱。|
    
 ### <a name="deploy-your-app-to-the-devtest-labs-vm-optional"></a>將您的應用程式部署至 DevTest Labs VM （選擇性）
 
@@ -197,7 +197,7 @@ ms.locfileid: "71224472"
 
 最後一項工作是刪除您在 Azure DevTest Labs 實例中部署的 VM。 在已部署的 VM 上執行您所需的開發工作或測試之後，您通常會刪除 VM。 
 
-1. 在 [發行管線**管線**] 索引標籤上，選取 [**階段 1** ] 中的超連結文字來**查看階段**工作 **+** ，然後選取 [**代理程式作業**] 旁的加號。 
+1. 在 [發行管線**管線**] 索引標籤上，選取 [**階段 1** ] 中的超連結文字來**查看階段**工作，然後選取 [**代理程式作業**] 旁邊的加號 **+** 。 
    
 1. 在 [**新增**工作] 底下，選取 [ **Azure DevTest Labs 刪除 VM**]，然後選取 [**新增**]。 
    

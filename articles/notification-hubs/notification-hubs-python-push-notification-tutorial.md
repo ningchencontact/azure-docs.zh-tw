@@ -1,6 +1,6 @@
 ---
 title: 如何透過 Python 使用通知中樞
-description: 了解如何透過 Python 後端使用 Azure 通知中樞。
+description: 瞭解如何從 Python 後端使用 Azure 通知中樞。
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5321802023d57bedc135e2d19b2289f1d66deb72
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: db5174ed6f008be0fed1fdf3c2c83d33277c3b4e
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213074"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263790"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>如何透過 Python 使用通知中樞
 
@@ -32,7 +32,7 @@ ms.locfileid: "71213074"
 > [!NOTE]
 > 這是在 Python 實作通知傳送的範例參考實作，並非正式支援的通知中樞 Python SDK。 此範例是使用 Python 3.4 建立的。
 
-本文將說明如何：
+本文示範如何：
 
 - 在 Python 中建置通知中樞功能的 REST 用戶端。
 - 使用 Python 介面傳送通知到通知中樞 REST API。
@@ -447,7 +447,7 @@ hub.send_template_notification(template_payload)
 
 ## <a name="next-steps"></a>後續步驟
 
-本主題會說明如何針對通知中樞建立 Python REST 用戶端。 您可以在這裡執行下列動作：
+本主題會說明如何針對通知中樞建立 Python REST 用戶端。 從這裡，您可以：
 
 - 下載完整的 [Python REST 包裝函式範例]，其中包含本文章的所有程式碼。
 - 繼續了解 [即時新聞教學課程]

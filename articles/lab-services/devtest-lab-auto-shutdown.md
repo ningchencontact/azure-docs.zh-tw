@@ -12,19 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2019
+ms.date: 01/17/2020
 ms.author: spelluru
-ms.openlocfilehash: 1c13414bb252da1192f82675da5b134bf43a40f0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a2d0b9bdfba1b96ad42e45d54faf106b2361e29d
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772630"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264777"
 ---
-# <a name="manage-autoshutdown-policies-for-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中管理實驗室的 autoshutdown 原則
+# <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中設定實驗室和計算虛擬機器的 autoshutdown
+
+本文說明如何在 DevTest Labs 和計算 Vm 中設定實驗室 Vm 的 autoshutdown 設定。 
+
+## <a name="configure-autoshutdown-for-lab-vms-devtest-labs"></a>設定實驗室 Vm 的 autoshutdown （DevTest Labs）
 Azure DevTest Labs 可讓您管理每個實驗室的原則 (設定)，以控制實驗室的成本並儘可能避免浪費。 本文說明如何設定實驗室帳戶的 autoshutdown 原則，並在實驗室帳戶中設定實驗室的 autoshutdown 設定。 若要了解如何設定每個實驗室原則，請參閱[在 Azure DevTest Labs 中定義實驗室原則](devtest-lab-set-lab-policy.md)。  
 
-## <a name="set-auto-shutdown-policy-for-a-lab"></a>為實驗室設定自動關機原則
+### <a name="set-auto-shut-down-policy-for-a-lab"></a>設定實驗室的自動關閉原則
 身為實驗室擁有者，您可以在實驗室中設定所有 VM 的關機排程。 如此一來，您可經由執行未使用 (閒置) 的機器來節省成本。 您可以在所有的實驗室 VM 上集中強制執行關機原則，但也可讓實驗室使用者免於為其個別機器設定排程。 這項功能可讓您設定實驗室排程的原則，從完全無法控制，以至完全控制實驗室使用者。 身為實驗室擁有者，您可以採取下列步驟來設定此原則：
 
 1. 在實驗室首頁上，選取 [設定與原則]。
@@ -33,7 +37,7 @@ Azure DevTest Labs 可讓您管理每個實驗室的原則 (設定)，以控制�
 
     ![自動關閉原則選項](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 
-## <a name="configure-auto-shutdown-settings"></a>設定自動關機設定
+### <a name="configure-auto-shutdown-settings"></a>設定自動關機設定
 Autoshutdown 原則可讓您指定此實驗室的 Vm 關閉時間，協助將實驗室浪費降至最低。
 
 若要檢視 (及變更) 實驗室的原則，請依照下列步驟操作：
@@ -72,7 +76,7 @@ Autoshutdown 原則可讓您指定此實驗室的 Vm 關閉時間，協助將實
 
 ![自動關閉原則選項-3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
 
-## <a name="notifications"></a>通知
+### <a name="notifications"></a>通知
 一旦由實驗室擁有者設定 autoshutdown 之後，如果有任何 Vm 會受到影響，通知就會在 autoshutdown 觸發前30分鐘傳送給實驗室使用者。 此選項可讓實驗室使用者有機會在關閉前儲存其工作。 此通知也會提供每個 VM 的連結，以進行下列動作：
 
 - 在此時間略過 autoshutdown
@@ -82,7 +86,7 @@ Autoshutdown 原則可讓您指定此實驗室的 Vm 關閉時間，協助將實
 
 我們建議您使用 web 勾點，因為各種應用程式（例如，時差、Azure Logic Apps 等等）都有廣泛的支援。這可讓您執行自己的傳送通知方式。 例如，本文將逐步引導您瞭解如何使用 Azure Logic Apps 從電子郵件取得 autoshutdown 通知。 首先，讓我們快速完成在實驗室中啟用 autoshutdown 通知的基本步驟。   
 
-## <a name="create-a-logic-app-that-receives-email-notifications"></a>建立可接收電子郵件通知的邏輯應用程式
+### <a name="create-a-logic-app-that-receives-email-notifications"></a>建立可接收電子郵件通知的邏輯應用程式
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)提供許多現成可用的連接器，可讓您輕鬆地將服務與其他用戶端（例如 Office 365 和 twitter）整合。 在高階中，為電子郵件通知設定邏輯應用程式的步驟可分為四個階段： 
 
 - 建立邏輯應用程式。 
@@ -185,5 +189,16 @@ Autoshutdown 原則可讓您指定此實驗室的 Vm 關閉時間，協助將實
 
     ![WebHook URL](./media/devtest-lab-auto-shutdown/webhook-url.png)
 
+## <a name="configure-autoshutdown-for-compute-vms"></a>設定計算 Vm 的 autoshutdown
+
+1. 在 [**虛擬機器**] 頁面上，選取左側功能表上的 [**自動關機**]。 
+2. 在 [**自動關機**] 頁面上，選取 [**開啟**] 來啟用此原則，而 [**關閉**] 則會停用它。
+3. 如果您啟用此原則，請指定應關閉 VM 的**時間** **（和時區**）。
+4. 指定 [**是]** 或 [**否**]，以便在指定的 autoshutdown 時間前30分鐘傳送通知。 如果您選擇 [是]，請輸入 Webhook URL 端點或電子郵件地址，指定您要在哪裡張貼或傳送通知。 使用者會收到通知，並且給予延遲關機的選項。 如需詳細資訊，請參閱[通知](#notifications)一節。 
+9. 選取 [儲存]。
+
+    ![設定計算 VM 的 autoshutdown](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
+
 ## <a name="next-steps"></a>後續步驟
 若要瞭解如何設定所有原則，請參閱[在 Azure DevTest Labs 中定義實驗室原則](devtest-lab-set-lab-policy.md)。
+

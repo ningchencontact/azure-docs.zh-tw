@@ -1,6 +1,6 @@
 ---
-title: Azure 通知中樞：常見問題集 (FAQ) | Microsoft Docs
-description: 在通知中樞上設計/實作解決方案的常見問題集
+title: Azure 通知中樞常見問題（Faq） |Microsoft Docs
+description: 有關在 Azure 通知中樞上設計和執行解決方案的常見問題。
 services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
@@ -17,12 +17,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: c84a4472789430524cbf5ff3f1ae24ea10d342b9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74066867"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263824"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中樞推播通知：常見問題集 (FAQ)
 
@@ -56,7 +56,7 @@ Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單�
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>如何將中樞或命名空間升級或降級為不同層級？
 
-移至  **[Azure 入口網站]**  > **通知中樞命名空間**或**通知中樞**。 選取您要更新的資源，並移至**定價層**。 請注意下列需求：
+移至 **[Azure 入口網站]**  > **通知中樞命名空間**或**通知中樞**。 選取您要更新的資源，並移至**定價層**。 請注意下列需求：
 
 * 更新後的定價層會套用至您正在使用的命名空間中所有中樞。
 * 如果您要降級至某一層，而您的裝置數量超過該層的限制，則必須要先刪除裝置才能降級。
@@ -153,7 +153,7 @@ Azure 通知中樞使用[共用存取簽章](../storage/common/storage-dotnet-sh
 
 若要傳送機密乘載，我們建議您使用「安全推播」模式。 傳送者會傳送 Ping 通知與訊息識別碼給裝置 (不含機密承載)。 當裝置上的應用程式收到此承載時，就能夠直接呼叫安全 API 以擷取訊息詳細資料。 您可以在[通知中樞安全推播教學課程]頁面上，取得如何實作此模式的指南。
 
-## <a name="operations"></a>作業
+## <a name="operations"></a>Dynamics 365
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>我可以得到哪些災害復原支援？
 
@@ -181,7 +181,7 @@ Azure 通知中樞會將待用的所有客戶資料加密，但註冊標記除�
 
 ### <a name="is-there-audit-log-capability"></a>是否有稽核記錄功能？
 
-是。 所有「通知中樞」管理作業都會更新在 [Azure 入口網站]中公開的「Azure 活動記錄」。 「Azure 活動記錄」可讓您深入了解在您訂用帳戶中資源上執行的作業。 藉由使用「活動記錄」，您可以判斷出為訂用帳戶中資源進行的任何寫入作業 (PUT、POST、DELETE) 的內容、對象及時間。 您也可以了解作業的狀態和其他相關屬性。 不過， 「活動記錄」不包含讀取 (GET) 作業。
+可以。 所有「通知中樞」管理作業都會更新在 [Azure 入口網站]中公開的「Azure 活動記錄」。 「Azure 活動記錄」可讓您深入了解在您訂用帳戶中資源上執行的作業。 藉由使用「活動記錄」，您可以判斷出為訂用帳戶中資源進行的任何寫入作業 (PUT、POST、DELETE) 的內容、對象及時間。 您也可以了解作業的狀態和其他相關屬性。 不過， 「活動記錄」不包含讀取 (GET) 作業。
 
 ## <a name="monitoring-and-troubleshooting"></a>監視與疑難排解
 
@@ -193,7 +193,7 @@ Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨�
 
 您可透過 Azure 通知中樞，在 [Azure 入口網站]中檢視遙測資料。 您可以在[通知中樞計量]頁面上取得計量的詳細資料。
 
-您也可以透過程式設計方式存取計量。 如需詳細資訊，請參閱下列文章。
+您也可以透過程式設計方式存取計量。 如需詳細資訊，請參閱下列文章：
 
 - [使用 .Net 取得 Azure 監視器計量](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)。 這個範例會使用使用者名稱和密碼。 若要使用憑證，請多載 FromServicePrincipal 方法以提供憑證，如[本範例](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs)所示。 
 - [取得資源的計量和活動記錄](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)

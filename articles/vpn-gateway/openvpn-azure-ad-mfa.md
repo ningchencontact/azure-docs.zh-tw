@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: alzam
-ms.openlocfilehash: 7f05b850a0d886ac0df5c542de647f91fe62eb05
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b22581d012b2c69081bc7b4eee093227c060b4c2
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382230"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169702"
 ---
 # <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>為 VPN 使用者啟用 Azure 多重要素驗證（MFA）
 
@@ -22,27 +22,7 @@ ms.locfileid: "74382230"
 
 這項設定的必要條件是使用[設定租](openvpn-azure-ad-tenant.md)使用者中的步驟設定 Azure AD 租使用者。
 
-## <a name="mfa"></a>開啟 [MFA] 頁面
-
-1. 登入 Azure 入口網站。
-2. 流覽至**Azure Active Directory-> [所有使用者**]。
-3. 選取 [**多重要素驗證**] 以開啟 [多重要素驗證] 頁面。
-
-   ![登入](./media/openvpn-azure-ad-mfa/mfa1.jpg)
-
-## <a name="users"></a>選取使用者
-
-1. 在 [**多重要素驗證**] 頁面上，選取您想要啟用 MFA 的使用者。
-2. 選取 [啟用]。
-
-   ![選取 [封裝設定]](./media/openvpn-azure-ad-mfa/mfa2.jpg)
-
-## <a name="enableauth"></a>啟用驗證
-
-1. 流覽至**Azure Active Directory-> 企業應用程式-> 所有應用程式**。
-2. 在 [**企業應用程式-所有應用程式**] 頁面上，選取 [ **Azure VPN**]。
-
-   ![目錄識別碼](./media/openvpn-azure-ad-mfa/user1.jpg)
+[!INCLUDE [MFA steps](../../includes/vpn-gateway-vwan-openvpn-azure-ad-mfa.md)]
 
 ## <a name="enablesign"></a>設定登入設定
 
@@ -52,7 +32,7 @@ ms.locfileid: "74382230"
 2. **需要設定使用者指派嗎？** 如果您想要將登入限制為僅有 Azure VPN 許可權的使用者，則為 **[是]** 。
 3. 儲存您的變更。
 
-   ![權限](./media/openvpn-azure-ad-mfa/user2.jpg)
+   ![使用權限](./media/openvpn-azure-ad-mfa/user2.jpg)
 
 ## <a name="next-steps"></a>後續步驟
 

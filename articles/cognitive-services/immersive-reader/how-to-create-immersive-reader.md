@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: a806e6eeecc6976286566d05a0f19dac684b2c0b
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: a2a404a03c06dde59edc88436afdc9dba3d74797
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75946278"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170172"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>建立沉浸式讀取器資源並設定 Azure Active Directory 驗證
 
@@ -153,7 +153,7 @@ ms.locfileid: "75946278"
     | SubscriptionName |要用於您的沉浸式讀取器資源的 Azure 訂用帳戶名稱。 您必須擁有訂用帳戶，才能建立資源。 |
     | ResourceName |  必須是英數位元，而且可以包含 '-'，前提是 '-' 不是第一個或最後一個字元。 長度不得超過63個字元。|
     | ResourceSubdomain |您的沉浸式讀取器資源需要自訂子域。 當呼叫沉浸式讀取器服務來啟動讀取器時，SDK 會使用子域。 子域必須是全域唯一的。 子域必須是英數位元，而且可以包含 '-'，前提是 '-' 不是第一個或最後一個字元。 長度不得超過63個字元。 如果資源已經存在，此參數是選擇性的。 |
-    | ResourceSKU |選項： `S0` 或 `S1`。 請流覽我們的[認知服務定價頁面](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/)，以深入瞭解每個可用的 SKU。 如果資源已經存在，此參數是選擇性的。 |
+    | ResourceSKU |選項： `S0`。 請流覽我們的[認知服務定價頁面](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/)，以深入瞭解每個可用的 SKU。 如果資源已經存在，此參數是選擇性的。 |
     | ResourceLocation |選項： `eastus`、`eastus2`、`southcentralus`、`westus`、`westus2`、`australiaeast`、`southeastasia`、`centralindia`、`japaneast`、`northeurope`、`uksouth`、`westeurope`。 如果資源已經存在，此參數是選擇性的。 |
     | resourceGroupName |資源會建立在訂用帳戶內的資源群組中。 提供現有資源群組的名稱。 如果資源群組不存在，則會建立一個具有這個名稱的新群組。 |
     | ResourceGroupLocation |如果您的資源群組不存在，您必須提供要在其中建立群組的位置。 若要尋找位置的清單，請執行 `az account list-locations`。 在傳回的結果中使用*name*屬性（不含空格）。 如果您的資源群組已經存在，此參數是選擇性的。 |

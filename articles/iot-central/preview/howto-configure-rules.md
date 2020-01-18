@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 987e8d9e667339d7526e8acbc3164e58abcd3e4d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f528135445824a17a8d8c95913adf6934cc87eb0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895754"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260104"
 ---
 # <a name="configure-rules-preview-features"></a>設定規則（預覽功能）
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-*此文章適用於操作員、建置人員及系統管理員。*
+*本文適用於操作員、建置員及系統管理員。*
 
 IoT Central 中的規則是可自訂的回應工具，它會觸發來自已連線裝置的主動監視事件。 下列各節說明如何評估規則。
 
@@ -33,7 +33,7 @@ IoT Central 中的規則是可自訂的回應工具，它會觸發來自已連�
 
 條件就是要在其中觸發的規則。 目前，當您將多個條件新增至規則時，它們會以邏輯方式在一起。 換句話說，必須符合所有條件，規則才會評估為 true。  
 
-在下列螢幕擷取畫面中，當溫度大於90且濕度小於10時，條件會進行檢查。 當這兩個語句都是 true 時，規則會評估為 true 並觸發動作。
+在下列螢幕擷取畫面中，當溫度大於 70&deg; F，且濕度小於10時，條件會進行檢查。 當這兩個語句都是 true 時，規則會評估為 true 並觸發動作。
 
 ![條件](media/howto-configure-rules/conditions.png)
 

@@ -2,19 +2,21 @@
 title: 部署模式
 description: 說明如何指定是否要透過 Azure Resource Manager 使用完整或累加部署模式。
 ms.topic: conceptual
-ms.date: 12/23/2019
-ms.openlocfilehash: dc5446c56c92b61016563995ebc4c884d48e2419
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 01/17/2020
+ms.openlocfilehash: e53b8c58bf0919e64079e62c687b76ada1db7ff0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152386"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261019"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 部署模式
 
-部署您的資源時，您可以指定部署是累加式更新或完整更新。  這兩種模式的差異在於 Resource Manager 如何處理不在範本中的資源群組中的現有資源。 預設模式為累加。
+部署您的資源時，您可以指定部署是累加式更新或完整更新。 這兩種模式的差異在於 Resource Manager 如何處理不在範本中的資源群組中的現有資源。
 
 在這兩種模式中，Resource Manager 都會嘗試建立範本內指定的所有資源。 如果資源已存在於資源群組中，且其設定保持不變，則不會對該資源執行任何作業。 如果您變更資源的屬性值，則會以這些新值來更新資源。 如果您嘗試更新現有資源的位置或類型，部署會失敗並發生錯誤。 相反地，請以您需要的位置或類型部署新的資源。
+
+預設模式為累加。
 
 ## <a name="complete-mode"></a>完整模式
 
@@ -46,7 +48,8 @@ ms.locfileid: "76152386"
 
 在累加模式中，Resource Manager 會讓現存於資源群組中但未在範本內指定的資源**保持不變**。 範本中的資源**會新增**至資源群組。
 
-請務必注意，累加模式會套用至整個資源，而不是現有資源上的個別屬性。 在增量模式中重新部署現有的資源時，會重新套用所有屬性。 這些**屬性不會以累加方式加入**。 常見的誤解是認為未在範本中指定的屬性會保持不變。 如果您未指定某些屬性，Resource Manager 會將部署解讀為覆寫這些值。 未包含在範本中的屬性會重設為資源提供者所設定的預設值。 指定資源的所有非預設值，而不只是您要更新的值。 範本中的資源定義一律包含資源的最終狀態。 它不能代表現有資源的部分更新。
+> [!NOTE]
+> 在增量模式中重新部署現有的資源時，會重新套用所有屬性。 這些**屬性不會以累加方式加入**。 常見的誤解是認為未在範本中指定的屬性會保持不變。 如果您未指定某些屬性，Resource Manager 會將部署解讀為覆寫這些值。 未包含在範本中的屬性會重設為預設值。 指定資源的所有非預設值，而不只是您要更新的值。 範本中的資源定義一律包含資源的最終狀態。 它不能代表現有資源的部分更新。
 
 ## <a name="example-result"></a>範例結果
 

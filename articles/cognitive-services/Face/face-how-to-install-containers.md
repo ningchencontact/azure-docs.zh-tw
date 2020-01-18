@@ -1,5 +1,5 @@
 ---
-title: 安裝和執行容器-臉部 API
+title: 安裝和執行容器-臉部
 titleSuffix: Azure Cognitive Services
 description: 本文說明如何在本逐步解說教學課程中下載、安裝及執行臉部的容器。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 574f6bead9cac384c72d2d0cd35353eb571a9490
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e467b195ab1e2124286bfef74d7d1b71a4d99dd6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327046"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165985"
 ---
 # <a name="install-and-run-face-containers-preview"></a>安裝和執行臉部容器（預覽）
 
@@ -26,7 +26,7 @@ Azure 認知服務臉部提供 Docker 的標準化 Linux 容器，以偵測影�
 
 ## <a name="prerequisites"></a>必要條件
 
-使用臉部 API 容器之前，您必須符合下列必要條件。
+使用臉部服務容器之前，您必須符合下列必要條件。
 
 |必要項|目的|
 |--|--|
@@ -46,7 +46,7 @@ Azure 認知服務臉部提供 Docker 的標準化 Linux 容器，以偵測影�
 
 ### <a name="container-requirements-and-recommendations"></a>容器的需求和建議
 
-下表說明每個臉部 API 容器的最低和建議的 CPU 核心與記憶體配置。
+下表說明要為每個臉部服務容器配置的最低和建議 CPU 核心和記憶體。
 
 | 容器 | 最小值 | 建議 | 每秒交易數<br>（最小值，最大值）|
 |-----------|---------|-------------|--|
@@ -59,9 +59,9 @@ Azure 認知服務臉部提供 Docker 的標準化 Linux 容器，以偵測影�
 
 ## <a name="get-the-container-image-with-docker-pull"></a>取得具有 docker pull 的容器映射
 
-臉部 API 的容器映射可供使用。 
+臉部服務的容器映射可供使用。 
 
-| 容器 | 存放庫 |
+| 容器 | Repository |
 |-----------|------------|
 | 臉部 | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
@@ -84,7 +84,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 
 將 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令執行容器。 如需如何取得 `{ENDPOINT_URI}` 和 `{API_KEY}` 值的詳細資訊，請參閱[收集必要的參數](#gathering-required-parameters)。
 
-`docker run` 命令的[範例](face-resource-container-config.md#example-docker-run-commands)可供使用。
+命令的[範例](face-resource-container-config.md#example-docker-run-commands)可供使用。`docker run`
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -132,7 +132,7 @@ ApiKey={API_KEY}
 
 ## <a name="billing"></a>計費
 
-臉部 API 容器會使用您 Azure 帳戶上的臉部 API 資源，將帳單資訊傳送至 Azure。 
+臉部服務容器會使用您 Azure 帳戶上的臉部資源，將帳單資訊傳送至 Azure。 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -142,13 +142,13 @@ ApiKey={API_KEY}
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
-在本文中，您已瞭解如何下載、安裝及執行臉部 API 容器的概念和工作流程。 摘要說明：
+在本文中，您已瞭解如何下載、安裝及執行臉部服務容器的概念和工作流程。 摘要說明：
 
 * 容器映射會從 Azure Container Registry 下載。
 * 容器映像是在 Docker 中執行。
-* 您可以藉由指定容器的主機 URI，使用 REST API 或 SDK 來呼叫臉部 API 容器中的作業。
+* 您可以藉由指定容器的主機 URI，使用 REST API 或 SDK 來呼叫臉部服務容器中的作業。
 * 當您具現化容器時，您必須指定帳單資訊。
 
 > [!IMPORTANT]

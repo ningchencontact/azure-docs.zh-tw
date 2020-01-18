@@ -1,6 +1,6 @@
 ---
-title: 通知中樞的安全性
-description: 本主題說明 Azure 通知中樞的安全性。
+title: 通知中樞安全性模型
+description: 瞭解 Azure 通知中樞的安全性模型。
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,16 +16,16 @@ ms.date: 09/23/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: a9598f6a01e5536351fb20b7c352a5eaf5746042
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273624"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263756"
 ---
 # <a name="notification-hubs-security"></a>通知中樞安全性
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 本主題說明 Azure 通知中樞的安全性模型。
 
@@ -46,11 +46,11 @@ ms.locfileid: "71273624"
 
 ## <a name="security-claims"></a>安全性宣告
 
-與其他實體類似，通知中樞作業也可有三種安全性宣告：**接聽**、**傳送**及**管理**。
+與其他實體類似，通知中樞作業允許三種安全性宣告：**接聽**、**傳送**和**管理**。
 
-| 宣告   | 描述                                          | 允許的作業 |
+| 宣告   | 說明                                          | 允許的作業 |
 | ------- | ---------------------------------------------------- | ------------------ |
-| 待命  | 建立/更新、讀取及刪除單一註冊 | 建立/更新註冊<br><br>讀取註冊<br><br>讀取控制代碼的所有註冊<br><br>刪除註冊 |
+| 接聽  | 建立/更新、讀取及刪除單一註冊 | 建立/更新註冊<br><br>讀取註冊<br><br>讀取控制代碼的所有註冊<br><br>刪除註冊 |
 | 傳送    | 將訊息傳送至通知中樞                | 傳送訊息 |
 | 管理  | 對通知中樞執行 CRUD (包含更新 PNS 認證及安全性金鑰) 並依標記讀取的註冊 |建立/更新/讀取/刪除中樞<br><br>依標記讀取註冊 |
 

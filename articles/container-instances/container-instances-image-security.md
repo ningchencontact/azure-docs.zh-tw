@@ -2,18 +2,18 @@
 title: 容器實例的安全性
 description: 針對 Azure 容器實例保護映射和秘密的建議，以及任何容器平臺的一般安全性考慮
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: b25cb4178ba211ff819ba512c9820165e0efbbf1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b5f2c4d9ca80318574e288110fd4ce7f490af00d
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481701"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260492"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Azure 容器實例的安全性考慮
 
-本文介紹使用 Azure 容器實例來執行容器應用程式的安全性考慮。 主題包括：
+本文介紹使用 Azure 容器實例來執行容器應用程式的安全性考慮。 當日的主題包括：
 
 > [!div class="checklist"]
 > * 管理 Azure 容器實例之映射和秘密的**安全性建議**
@@ -23,13 +23,17 @@ ms.locfileid: "74481701"
 
 ### <a name="use-a-private-registry"></a>使用私人登錄
 
-容器是透過一或多個存放庫中所儲存的映像來建立的。 這些存放庫可以屬於公用登錄，例如[Docker Hub](https://hub.docker.com)或私人登錄。 私人登錄的範例是 [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/)，它可以安裝在內部部署環境或虛擬私人雲端中。 您也可以使用以雲端為基礎的私用容器登錄服務，包括[Azure Container Registry](../container-registry/container-registry-intro.md)。 
+容器是透過一或多個存放庫中所儲存的映像來建立的。 這些存放庫可以屬於公用登錄，例如[Docker Hub](https://hub.docker.com)或私人登錄。 私人登錄的範例是 [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/)，它可以安裝在內部部署環境或虛擬私人雲端中。 您也可以使用以雲端為基礎的私用容器登錄服務，包括[Azure Container Registry](../container-registry/container-registry-intro.md)。 
 
-公開可用的容器映射不保證安全性。 容器映射是由多個軟體層所組成，而每個軟體層可能會有弱點。 若要協助降低攻擊的威脅，您應該從私人登錄（例如 Azure Container Registry 或 Docker 信任的登錄）儲存和取出映射。 除了提供受控的私用登錄之外，Azure Container Registry 透過基本驗證流程 Azure Active Directory，支援以[服務主體為基礎的驗證](../container-registry/container-registry-authentication.md)。 這種驗證封裝括以角色為基礎的唯讀存取權（提取）、寫入（push）和擁有者許可權。
+公開可用的容器映射不保證安全性。 容器映射是由多個軟體層所組成，而每個軟體層可能會有弱點。 若要協助降低攻擊的威脅，您應該從私人登錄（例如 Azure Container Registry 或 Docker 信任的登錄）儲存和取出映射。 除了提供受控的私用登錄之外，Azure Container Registry 透過基本驗證流程 Azure Active Directory，支援以[服務主體為基礎的驗證](../container-registry/container-registry-authentication.md)。 這種驗證封裝括以角色為基礎的唯讀存取權（提取）、寫入（push）和其他許可權。
 
 ### <a name="monitor-and-scan-container-images"></a>監視和掃描容器映射
 
-安全性監視和掃描解決方案（例如[Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview)和[淺綠色的安全性](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview)）可透過 Azure Marketplace 取得。 您可以使用它們來掃描私人登錄中的容器映射，並找出潛在的弱點。 請務必瞭解不同解決方案所提供的掃描深度。 
+利用解決方案來掃描私用登錄中的容器映射，並找出潛在的弱點。 請務必瞭解不同解決方案所提供的威脅偵測深度。
+
+例如，Azure Container Registry 選擇性地[與 Azure 資訊安全中心整合](../security-center/azure-container-registry-integration.md)，以自動掃描所有推送至登錄的 Linux 映射。 Azure 資訊安全中心的整合式 Qualys 掃描器會偵測映射弱點、加以分類，並提供補救指導方針。
+
+安全性監視和影像掃描解決方案（例如[Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview)和[淺綠色的安全性](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview)）也可透過 Azure Marketplace 取得。  
 
 ### <a name="protect-credentials"></a>保護認證
 
@@ -90,17 +94,17 @@ ms.locfileid: "74481701"
 
 您也可以從容器執行時間移除任何未使用或不必要的進程或許可權，將潛在的攻擊面降至最低。 具有特殊許可權的容器會以 root 身分執行。 如果特殊許可權容器中的惡意使用者或工作負載會進行轉義，則容器會在該系統上以 root 的身分執行。
 
-### <a name="whitelist-files-and-executables-that-the-container-is-allowed-to-access-or-run"></a>允許容器存取或執行的允許清單檔案和可執行檔 
+### <a name="preapprove-files-and-executables-that-the-container-is-allowed-to-access-or-run"></a>允許容器存取或執行的 Preapprove 檔案和可執行檔 
 
-減少變數或未知的數目可協助您維護穩定、可靠的環境。 限制容器，使其只能存取或執行預先核准或列入允許清單的檔案和可執行檔，是限制暴露于風險的方法。  
+減少變數或未知的數目可協助您維護穩定、可靠的環境。 限制容器，使其只能存取或執行預先核准或 safelisted 檔案和可執行檔，是限制暴露于風險的方法。  
 
-從一開始就可以管理允許清單，是比較容易的方式。 當您瞭解應用程式正常運作所需的檔案和可執行檔時，允許清單會提供控制和管理的量值。 
+從一開始就能輕鬆地管理安全檔案，這是很容易的事。 當您瞭解應用程式正常運作所需的檔案和可執行檔時，「安全檔案」可提供控制和管理的量值。 
 
-允許清單不只會減少受攻擊面，也可以提供異常的基準，並防止「有雜訊的鄰近」和容器分類案例的使用案例。 
+「安全狀態」不僅會減少受攻擊面，也可以提供異常的基準，並防止「有雜訊的鄰近」和容器分類案例的使用案例。 
 
 ### <a name="enforce-network-segmentation-on-running-containers"></a>強制執行容器的網路分割  
 
-若要協助保護一個子網中的容器免于另一個子網中的安全性風險，請維護網路分割（或 nano 分割），或在執行中的容器之間進行隔離。 若要在需要符合合規性要求的產業中使用容器，也可能需要維護網路分割。  
+若要協助保護一個子網中的容器免于另一個子網中的安全性風險，請維護網路分割（或 nano 分割），或在執行中的容器之間進行隔離。 維護網路分割也可能需要使用符合合規性要求的產業中的容器。  
 
 例如，合作夥伴工具[綠色](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview)會提供 nano 分割的自動化方法。 淺綠色監視執行時間中的容器網路活動。 它會識別與其他容器、服務、IP 位址和公用網際網路之間的所有輸入和輸出網路連線。 系統會根據受監視的流量自動建立 Nano 分割。 
 
@@ -108,13 +112,13 @@ ms.locfileid: "74481701"
 
 如同任何 IT 環境，您應該一致地監視容器生態系統的活動和使用者存取權，以快速識別任何可疑或惡意的活動。 Azure 提供容器監視解決方案，包括：
 
-* [Azure 監視器容器](../azure-monitor/insights/container-insights-overview.md)，以監視部署至裝載于 AZURE KUBERNETES SERVICE （AKS）之 Kubernetes 環境的工作負載效能。 適用於容器的 Azure 監視器可藉由透過計量 API 從 Kubernetes 中取得的控制器、節點與容器來收集記憶體與處理器計量，為您提供效能可見度。 
+* [適用于容器的 Azure 監視器](../azure-monitor/insights/container-insights-overview.md)會監視部署至裝載于 AZURE KUBERNETES SERVICE （AKS）之 Kubernetes 環境的工作負載效能。 適用於容器的 Azure 監視器可藉由透過計量 API 從 Kubernetes 中取得的控制器、節點與容器來收集記憶體與處理器計量，為您提供效能可見度。 
 
-* [Azure 容器監視解決方案](../azure-monitor/insights/containers.md)可協助您在單一位置中查看和管理其他 Docker 和 Windows 容器主機。 例如︰
+* [Azure 容器監視解決方案](../azure-monitor/insights/containers.md)可協助您在單一位置中查看和管理其他 Docker 和 Windows 容器主機。 例如：
 
   * 查看詳細的 audit 資訊，以顯示與容器搭配使用的命令。 
   * 藉由查看及搜尋集中式記錄來疑難排解容器，而不需要遠端查看 Docker 或 Windows 主機。  
-  * 尋找可能有雜訊且耗用超過主機資源的容器。
+  * 尋找可能有雜訊並耗用主機上多餘資源的容器。
   * 針對容器，觀看集中化的 CPU、記憶體、儲存體和網路使用量和效能資訊。  
 
   解決方案支援容器協調器，包括 Docker Swarm、DC/OS、非受控 Kubernetes、Service Fabric 和 Red Hat OpenShift。 
@@ -125,14 +129,18 @@ ms.locfileid: "74481701"
 
 [Azure 監視器](../azure-monitor/overview.md)會透過允許集合計量、活動記錄及診斷記錄，來啟用 Azure 服務的核心監視功能。 例如，活動記錄會告訴您新資源的建立或修改時間。 
 
-系統會提供計量，這些計量可提供不同資源 (甚至是虛擬機器內的作業系統) 的效能統計資料。 您可以在 Azure 入口網站中使用其中一個總管檢視這項資料，並且根據這些計量建立警示。 Azure 監視器提供最快速的計量管線（5分鐘到1分鐘），因此您應該將它用於時間緊迫的警示和通知。 
+  系統會提供計量，這些計量可提供不同資源 (甚至是虛擬機器內的作業系統) 的效能統計資料。 您可以在 Azure 入口網站中使用其中一個總管檢視這項資料，並且根據這些計量建立警示。 Azure 監視器提供最快的計量管線 (5 分鐘降至 1 分鐘)，因此您應該將它用於講究時效性的警示和通知。 
 
 ### <a name="log-all-container-administrative-user-access-for-auditing"></a>記錄所有容器系統管理使用者存取權以進行審核 
 
-針對您的容器生態系統、容器登錄和容器映射，維護系統管理存取權的精確審核記錄。 這些記錄檔可能需要進行審核，而且在任何安全性事件之後將可做為法庭辨識項。 您可以使用[Azure 容器監視解決方案](../azure-monitor/insights/containers.md)來達成此目的。 
+維護您容器生態系統管理存取權的精確審核線索，包括您的 Kubernetes 叢集、container registry 和容器映射。 這些記錄檔可能需要進行審核，而且在任何安全性事件之後將可做為法庭辨識項。 Azure 解決方案包括：
+
+* [Azure Kubernetes Service 與 Azure 資訊安全中心整合](../security-center/azure-kubernetes-service-integration.md)，以監視叢集環境的安全性設定，並產生安全性建議
+* [Azure 容器監視解決方案](../azure-monitor/insights/containers.md)
+* [Azure 容器實例](container-instances-log-analytics.md)和[Azure Container Registry](../container-registry/container-registry-diagnostics-audit-logs.md)的資源記錄
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入瞭解如何使用[Twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/)和[淺青色安全性](https://www.aquasec.com/solutions/azure-container-security/)的解決方案來管理容器弱點。
+* 深入瞭解如何在您的容器化環境中使用[Azure 資訊安全中心](../security-center/container-security.md)進行即時威脅偵測。
 
-* 深入瞭解[Azure 中的容器安全性](https://azure.microsoft.com/resources/container-security-in-microsoft-azure/)。
+* 深入瞭解如何使用[Twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/)和[淺青色安全性](https://www.aquasec.com/solutions/azure-container-security/)的解決方案來管理容器弱點。

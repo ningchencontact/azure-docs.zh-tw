@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: pafarley
-ms.openlocfilehash: 465f24c3d9b7f53c0b494f387cc5d21aa6bd83b5
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: a23e6d46ee6e79fd7a5cabf4434c561f7d83b31b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754236"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169512"
 ---
 # <a name="content-moderator-review-tool"></a>內容仲裁審查工具
 
@@ -31,7 +31,7 @@ Azure 內容仲裁提供的服務可結合機器學習內容仲裁與人工審�
 - 在仲裁 API 結果出現時，自動建立人工[審核](../review-api.md#reviews)。
 - 將內容審查指派或呈報給多個審查小組，並依內容類別別或經驗層級組織。
 - 使用預設或自訂邏輯篩選（[工作流程](../review-api.md#workflows)）來排序和追蹤內容，而不需要撰寫任何程式碼。
-- 除了內容仲裁 Api 之外，您還可以使用[連接器](./configure.md#connectors)來處理 Microsoft PhotoDNA、文字分析和臉部 api 的內容。
+- 除了內容仲裁 Api 之外，您還可以使用[連接器](./configure.md#connectors)來處理 Microsoft PhotoDNA、文字分析和臉部服務的內容。
 - 建立您自己的連接器，為任何 API 或商務程式建立工作流程。
 - 取得您內容審核程序的關鍵效能計量。
 

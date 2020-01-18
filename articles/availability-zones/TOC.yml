@@ -33,7 +33,7 @@
         - name: 負載平衡器
           items:
             - name: 何謂負載平衡器？
-              href: ../load-balancer/load-balancer-standard-overview.md
+              href: ../load-balancer/load-balancer-overview.md
             - name: Load Balancer 標準和可用性區域
               href: ../load-balancer/load-balancer-standard-availability-zones.md
             - name: 建立區域備援公用標準 Load Balancer

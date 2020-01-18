@@ -1,6 +1,6 @@
 ---
-title: 使用 PowerShell 來部署和管理通知中樞
-description: 如何使用 PowerShell 來進行自動化的通知中樞建立和管理
+title: 使用 PowerShell 部署和管理通知中樞
+description: 如何使用 PowerShell 來建立和管理通知中樞以進行自動化
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,16 +16,16 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5af920249000cabbc63f0c9ab453738450875172
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 863fdb445cce41f0fe4cbee63a3d6198c0a79339
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213410"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264639"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>使用 PowerShell 來部署和管理通知中樞
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 本文將說明如何使用 PowerShell 來建立和管理 Azure 通知中樞。 本文示範下列一般自動化工作。
 
@@ -49,7 +49,7 @@ Azure PowerShell 中的 PowerShell Cmdlet 尚未提供「管理 Azure 通知中�
 首先，請確定指令碼可以找到 **Microsoft.Azure.NotificationHubs.dll** 組件，其在 Visual Studio 專案中會以 NuGet 套件的形式安裝。 為了要有使用彈性，指令碼會執行這些步驟：
 
 1. 判斷叫用的路徑。
-2. 周遊路徑，直到找到名為 `packages`的資料夾為止。 當您安裝 Visual Studio 專案的 NuGet 封裝時，會建立這個資料夾。
+2. 周遊路徑，直到找到名為 `packages` 的資料夾為止。 當您安裝 Visual Studio 專案的 NuGet 封裝時，會建立這個資料夾。
 3. 以遞迴方式在 `packages` 資料夾中搜尋名為 `Microsoft.Azure.NotificationHubs.dll` 的組件。
 4. 參考組件，以供稍後使用這些類型。
 
@@ -94,10 +94,10 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 您會在指令碼的這個部分設定四個區域變數。
 
-1. `$Namespace`:將此變數設定為要在其中建立通知中樞的命名空間名稱。
-2. `$Path`:將此路徑設定為新的通知中樞名稱。  例如，"MyHub"。
-3. `$WnsPackageSid`:從 [Windows 開發人員中心](https://developer.microsoft.com/en-us/windows)，將此變數設定為 Windows 應用程式的套件 SID。
-4. `$WnsSecretkey`:從 [Windows 開發人員中心](https://developer.microsoft.com/en-us/windows)，將此變數設定為 Windows 應用程式的祕密金鑰。
+1. `$Namespace`：將此變數設定為要在其中建立通知中樞的命名空間名稱。
+2. `$Path`：將此路徑設定為新的通知中樞名稱。  例如，"MyHub"。
+3. `$WnsPackageSid`：從 [Windows 開發人員中心](https://developer.microsoft.com/en-us/windows)，將此變數設定為 Windows 應用程式的套件 SID。
+4. `$WnsSecretkey`：從 [Windows 開發人員中心](https://developer.microsoft.com/en-us/windows)，將此變數設定為 Windows 應用程式的祕密金鑰。
 
 這些變數可用以連接命名空間，以及建立新的通知中樞，並將其設定為利用 WNS 認證，為 Windows 應用程式處理 Windows Notification Services (WNS) 通知。 如需取得封裝 SID 與祕密金鑰的相關資訊，請參閱 [開始使用通知中樞](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 教學課程。
 
@@ -149,7 +149,7 @@ else
 ## <a name="additional-resources"></a>其他資源
 
 - [使用 PowerShell 管理服務匯流排](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
-- [如何使用 PowerShell 指令碼來建立服務匯流排佇列、主題及訂用帳戶](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+- [如何使用 PowerShell 指令碼來建立服務匯流排佇列、主題及訂閱](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [如何使用 PowerShell 指令碼來建立服務匯流排命名空間與事件中樞](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
 也有一些現成的指令碼可供下載：

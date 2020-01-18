@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36dd80669c6a9495751f577748f48c02a782b920
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 0ad3bb41b6c5faa7bab0e618dd46c48427f364db
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029865"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167372"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：規劃混合式 Azure Active Directory 聯結執行
 
@@ -64,7 +64,7 @@ ms.locfileid: "76029865"
 ### <a name="windows-down-level-devices"></a>舊版 Windows 裝置
 
 - Windows 8.1
-- Windows 7。 如需 Windows 7 的支援資訊，請參閱[windows 7 的支援即將結束](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support)。
+- Windows 7 支援已于2020年1月14日結束。 如需詳細資訊，請參閱[Windows 7 的支援已結束](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020)。
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2。 如需 Windows Server 2008 和 2008 R2 的支援資訊，請參閱[準備 Windows server 2008 終止支援](https://www.microsoft.com/cloud-platform/windows-server-2008)。

@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure DevTest Labs 虛擬機器中的構件失敗進行診斷 | Microsoft Docs
+title: 診斷 Azure DevTest Labs 虛擬機器中的構件失敗
 description: 了解如何針對 Azure DevTest Labs 中的構件失敗進行疑難排解。
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 8b7a72c03d41d54aa80505e781b6f6d32cd2a2c0
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 50cb3138b8d79c4d60c94513d931996d667d9c01
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991374"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170320"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>針對實驗室中的構件失敗進行診斷 
 建立構件之後，您可以檢查以確認其成功或失敗。 Azure DevTest Labs 中的構件記錄會提供資訊供您用來診斷構件失敗。 有幾個選項可供您檢視 Windows VM 的構件記錄資訊：
@@ -52,7 +52,7 @@ ms.locfileid: "69991374"
 
 3. 開啟**狀態**檔案。
 
-如需有關在**Linux** VM 上尋找記錄檔的指示, 請參閱下列文章:[搭配 Linux 虛擬機器使用 Azure 自訂腳本擴充功能第2版](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
+如需有關在**linux** VM 上尋找記錄檔的指示，請參閱下列文章：搭配[Linux 虛擬機器使用 Azure 自訂腳本擴充功能第2版](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
 
 
 ## <a name="related-blog-posts"></a>相關部落格文章

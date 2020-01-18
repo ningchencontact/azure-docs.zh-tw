@@ -1,6 +1,6 @@
 ---
 title: 變更通知中樞命名空間的定價層 | Microsoft Docs
-description: 了解如何變更 Azure 通知中樞命名空間的定價層。
+description: 瞭解如何變更 Azure 通知中樞命名空間的定價層。
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -13,17 +13,17 @@ ms.date: 01/28/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 679e8b58e5876d5460b426e694df85ded992a36d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 51d0880b7f56d523a01fbc993993b3caf7328134
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212558"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261070"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>變更 Azure 通知中樞命名空間的定價層
 通知中樞以三個層級提供：**免費**、**基本**和**標準**。 本文說明如何變更 Azure 通知中樞命名空間的定價層。 
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 在 Azure 通知中樞，**中樞**是最小的資源/實體。 它通常會對應至一個應用程式，並且可為支援應用程式的每個平台通知系統保存一個憑證。 應用程式可以是混合式或原生和跨平台應用程式。
 
 **命名空間**是通知中樞的集合。 每個命名空間通常由相關和特定用途的中樞所組成。 例如，您可能會有三個不同的命名空間，分別供開發、測試和生產環境使用。 

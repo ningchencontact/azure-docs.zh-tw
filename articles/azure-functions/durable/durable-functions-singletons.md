@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8c12e0ab854bb2b5764dd326e3f1649202f6f16b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4eff7c4c91ed664fcf1f4fc7a8be2d43d24e5c6b
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232809"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262804"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的單次協調器
 
@@ -20,7 +20,7 @@ ms.locfileid: "74232809"
 
 下列範例顯示可建立單一背景工作協調流程的 HTTP 觸發程式函式。 程式碼可確保一個指定的執行個體識別碼只存在一個執行個體。
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 [FunctionName("HttpStartSingle")]
@@ -54,9 +54,10 @@ public static async Task<HttpResponseMessage> RunSingle(
 > [!NOTE]
 > 先前C#的程式碼適用于 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `OrchestrationClient` 屬性，而不是 `DurableClient` 屬性，而且您必須使用 `DurableOrchestrationClient` 參數類型，而不是 `IDurableOrchestrationClient`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-以下是 function.json 檔案：
+**function.json**
+
 ```json
 {
   "bindings": [
@@ -82,7 +83,8 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-以下是 JavaScript 程式碼：
+**index.js**
+
 ```javascript
 const df = require("durable-functions");
 
@@ -109,6 +111,8 @@ module.exports = async function(context, req) {
     }
 };
 ```
+
+---
 
 根據預設，執行個體識別碼是隨機產生的 GUID。 不過，在上一個範例中，會從 URL 的路由資料中傳遞實例識別碼。 程式碼會呼叫 `GetStatusAsync`C#（）或 `getStatus` （JavaScript）來檢查具有指定識別碼的實例是否已在執行中。 如果沒有這類實例正在執行，則會建立具有該識別碼的新實例。
 

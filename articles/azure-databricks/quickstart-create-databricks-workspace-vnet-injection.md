@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: b7dd11c3a71c46bbc06b205c6b4300337683305a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 8d118170de01c7685ac9dba65c7e22cefb6d4829
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889001"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263118"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>快速入門：在您自己的虛擬網路中建立 Azure Databricks 工作區
 
@@ -41,17 +41,24 @@ Azure Databricks 的預設部署會建立由 Databricks 管理的新虛擬網路
 
     |設定|建議的值|說明|
     |-------|---------------|-----------|
-    |名稱|databricks-快速入門|選取虛擬網路的 [名稱]。|
-    |位址空間|10.1.0.0/16|CIDR 標記法中的虛擬網路位址範圍。 CIDR 範圍必須介於/16 和/24 之間|
     |訂閱|\<您的訂用帳戶\>|選取您要使用的 Azure 訂用帳戶。|
     |資源群組|databricks-快速入門|選取 **[新建]** ，然後為您的帳戶輸入新的資源組名。|
-    |位置|\<選取最接近使用者的區域\>|選取您可以裝載虛擬網路的地理位置。 使用最靠近您的使用者的位置。|
+    |名稱|databricks-快速入門|選取虛擬網路的 [名稱]。|
+    |地區|\<選取最接近使用者的區域\>|選取您可以裝載虛擬網路的地理位置。 使用最靠近您的使用者的位置。|
+
+    ![Azure 入口網站上的虛擬網路基本概念](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
+
+3. 選取 **[下一步]： [IP 位址] >** 並套用下列設定。 然後選取 [**審查 + 建立**]。
+    
+    |設定|建議的值|說明|
+    |-------|---------------|-----------|
+    |IPv4 位址空間|10.2.0.0/16|CIDR 標記法中的虛擬網路位址範圍。 CIDR 範圍必須介於/16 和/24 之間|
     |子網路名稱|預設|選取虛擬網路中預設子網的 [名稱]。|
-    |子網路位址範圍|10.1.0.0/24|採用 CIDR 標記法的子網路位址範圍。 它必須包含在虛擬網路的位址空間內。 無法編輯使用中的子網位址範圍。|
+    |子網路位址範圍|10.2.0.0/24|採用 CIDR 標記法的子網路位址範圍。 它必須包含在虛擬網路的位址空間內。 無法編輯使用中的子網位址範圍。|
 
-    ![在 Azure 入口網站上建立虛擬網路](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
+    ![在 Azure 入口網站上設定虛擬網路的 IP 配置](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network-ip-config.png)
 
-3. 部署完成後，流覽至您的虛擬網路，然後選取 [**設定**] 底下的 [**位址空間**]。 在顯示 [*新增其他位址範圍*] 的方塊中，插入 `10.179.0.0/16` 並選取 [**儲存**]。
+4. 在 [**審查 + 建立**] 索引標籤上，選取 [**建立**] 以部署虛擬網路。 部署完成後，流覽至您的虛擬網路，然後選取 [**設定**] 底下的 [**位址空間**]。 在顯示 [*新增其他位址範圍*] 的方塊中，插入 `10.179.0.0/16` 並選取 [**儲存**]。
 
     ![Azure 虛擬網路位址空間](./media/quickstart-create-databricks-workspace-vnet-injection/add-address-space.png)
 
@@ -70,6 +77,13 @@ Azure Databricks 的預設部署會建立由 Databricks 管理的新虛擬網路
     |資源群組|databricks-快速入門|選取您用於虛擬網路的相同資源群組。|
     |位置|\<選取最接近使用者的區域\>|選擇與您的虛擬網路相同的位置。|
     |價格層次|選擇 [Standard] 或 [Premium]。|如需定價層的詳細資訊，請參閱[Databricks 定價頁面](https://azure.microsoft.com/pricing/details/databricks/)。|
+
+    ![建立 Azure Databricks 的工作區基本概念](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
+
+3. 完成 [**基本**] 頁面上的輸入設定後，請選取 **[下一步：網路] >** 並套用下列設定：
+
+    |設定|建議的值|說明|
+    |-------|---------------|-----------|
     |在您的虛擬網路（VNet）中部署 Azure Databricks 工作區|是|此設定可讓您在虛擬網路中部署 Azure Databricks 工作區。|
     |虛擬網路|databricks-快速入門|選取您在上一節中建立的虛擬網路。|
     |公用子網名稱|公用-子網|使用預設的公用子網名稱。|
@@ -77,7 +91,7 @@ Azure Databricks 的預設部署會建立由 Databricks 管理的新虛擬網路
     |私人子網名稱|私用-子網|使用預設的私人子網名稱。|
     |私人子網 CIDR 範圍|10.179.0.0/18|使用高達和包含/26 的 CIDR 範圍。|
 
-    ![在 Azure 入口網站上建立 Azure Databricks 工作區](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
+    ![將 VNet 資訊新增至 Azure 入口網站上的 Azure Databricks 工作區](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace-vnet-config.png)
 
 3. 部署完成後，流覽至 Azure Databricks 資源。 請注意，虛擬網路對等互連已停用。 另請注意 [總覽] 頁面中的 [資源群組] 和 [受控資源群組]。 
 

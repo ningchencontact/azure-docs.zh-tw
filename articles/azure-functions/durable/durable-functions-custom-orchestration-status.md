@@ -4,16 +4,16 @@ description: 了解如何設定及使用 Durable Functions 的自訂協調流程
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 22242a40a29a1a014a7ab88ed705c7ca3e5ba288
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2b8b78f58570186a0b17eb47f8445d2ba9aa47e8
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232957"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261648"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Durable Functions 中的自訂協調流程狀態 (Azure Functions)
 
-自訂協調流程狀態可讓您為協調器函式設定自訂狀態值。 該狀態可透過 HTTP GetStatus API 或 `DurableOrchestrationClient.GetStatusAsync` API 提供。
+自訂協調流程狀態可讓您為協調器函式設定自訂狀態值。 此狀態是透過[HTTP GETSTATUS api](durable-functions-http-api.md#get-instance-status)或協調流程用戶端上的[`GetStatusAsync` api](durable-functions-instance-management.md#query-instances)提供。
 
 ## <a name="sample-use-cases"></a>範例使用案例
 
@@ -24,7 +24,7 @@ ms.locfileid: "74232957"
 
 用戶端可以輪詢狀態結束點及顯示進度 UI，以視覺化方式呈現目前的執行階段。 以下範例示範進度共用：
 
-#### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -51,7 +51,9 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+`E1_HelloSequence` 協調器函式：
 
 ```javascript
 const df = require("durable-functions");
@@ -71,15 +73,19 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
+`E1_SayHello` 活動函數：
+
 ```javascript
 module.exports = async function(context, name) {
     return `Hello ${name}!`;
 };
 ```
 
+---
+
 接著，唯有當 `CustomStatus` 欄位設定為 "London" 時，用戶端才會接收到協調流程的輸出：
 
-#### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -112,7 +118,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -142,13 +148,15 @@ module.exports = async function(context, req) {
 ```
 
 > [!NOTE]
-> 在 JavaScript 中，排程下一個 `customStatus` 或 `yield` 動作時，將設定 `return` 欄位。
+> 在 JavaScript 中，排程下一個 `yield` 或 `return` 動作時，將設定 `customStatus` 欄位。
+
+---
 
 ### <a name="output-customization"></a>自訂輸出
 
 另一個有趣的情節是依照獨特的特性或互動傳回自訂輸出，藉此區分使用者。 在自訂協調流程狀態的協助之下，用戶端將能保有泛型的程式碼。 主要修改的內容全都發生在伺服器端，如以下範例所示：
 
-#### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -186,7 +194,7 @@ public static void Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -219,11 +227,13 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 ### <a name="instruction-specification"></a>指示規格
 
 協調器能透過自訂狀態將唯一指示提供給用戶端。 自訂狀態指示將與協調流程程式碼中的步驟相對應：
 
-#### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -251,7 +261,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -278,11 +288,13 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 ## <a name="sample"></a>範例
 
 以下範例先設定自訂狀態：
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrationContext context)
@@ -297,7 +309,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 }
 ```
 
-### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -312,6 +324,8 @@ module.exports = df.orchestrator(function*(context) {
     // ...do more work...
 });
 ```
+
+---
 
 當協調流程執行時，外部用戶端能擷取該自訂狀態：
 

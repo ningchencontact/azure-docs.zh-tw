@@ -7,20 +7,20 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/20/2019
+ms.date: 01/15/2020
 ms.custom: include file
-ms.openlocfilehash: e46041a33c12b3fcb40e5a04de11108471e59855
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: cb43c8b8c952d8db6cf450a7015c22c85e7fe4b5
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307204"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76268280"
 ---
 `objectIdType` (或 **物件識別碼類型**) 係指給予角色的身分識別類型。 除了 `DeviceId` 和 `UserDefinedFunctionId` 類型之外，物件識別碼類型還會對應至 Azure Active Directory 物件的屬性。
 
 下表包含 Azure Digital Twins 中支援的物件識別碼類型：
 
-| 在系統提示您進行確認時，輸入 | 描述 |
+| 類型 | 說明 |
 | --- | --- |
 | UserId | 會為使用者指派角色。 |
 | deviceId | 會為裝置指派角色。 |

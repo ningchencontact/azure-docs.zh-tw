@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 012ff33bb31c78b26791e6337ae434acfe4bc865
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6bf391f22843991bf224539b82037c0e29251e7b
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351359"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260948"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 儲存體生命週期
 
@@ -246,6 +246,9 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 ### <a name="sample-rule"></a>範例規則
 
 下列範例規則會篩選帳戶，以對存在於 `container1` 中的物件執行動作，並從 `foo`開始。  
+
+>[!NOTE]
+>生命週期管理僅支援區塊 blob 類型。  
 
 - 在上次修改 30 天後將 Blob 分層到「非經常性」層
 - 在上次修改 90 天後將 Blob 分層到「封存」層

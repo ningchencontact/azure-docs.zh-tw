@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 7e63afee87d69a80a656ba7c5923b6f313268e2f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/16/2020
+ms.openlocfilehash: 41b5d7519776ca84cf002d463048eb7a8dec2410
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790444"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169141"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>「適用於 MariaDB 的 Azure 資料庫」中的讀取複本
 
@@ -137,7 +137,7 @@ mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
 
 ### <a name="deleted-master-and-standalone-servers"></a>已刪除的主要和獨立伺服器
 
-刪除主要伺服器時，會在所有讀取複本上停止複寫。 這些複本會成為獨立伺服器。 主要伺服器本身會被刪除。
+刪除主要伺服器時，會在所有讀取複本上停止複寫。 這些複本會自動成為獨立伺服器，而且可以同時接受讀取和寫入。 主要伺服器本身會被刪除。
 
 ### <a name="user-accounts"></a>使用者帳戶
 

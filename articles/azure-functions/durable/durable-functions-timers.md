@@ -4,12 +4,12 @@ description: 了解如何在 Azure Functions 的 Durable Functions 擴充中實�
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 463d5e6c253643c82935c82c7dee5996c8e44b5f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 0565cc149a36baf31d8516fffcf48b194c465760
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706111"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261478"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的計時器
 
@@ -29,7 +29,7 @@ ms.locfileid: "74706111"
 
 下列範例說明如何使用永久性計時器來延遲執行。 此範例會每天發出帳單通知10天。
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -48,7 +48,7 @@ public static async Task Run(
 > [!NOTE]
 > 先前C#的範例是以 Durable Functions 2.x 為目標。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```js
 const df = require("durable-functions");
@@ -63,6 +63,8 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 > [!WARNING]
 > 在協調器函式中避免無限迴圈。 如需有關如何安全而有效率地實作無限迴圈案例的資訊，請參閱[永久性協調流程](durable-functions-eternal-orchestrations.md)。
 
@@ -70,7 +72,7 @@ module.exports = df.orchestrator(function*(context) {
 
 此範例說明如何使用永久性計時器來實作逾時。
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -104,7 +106,7 @@ public static async Task<bool> Run(
 > [!NOTE]
 > 先前C#的範例是以 Durable Functions 2.x 為目標。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-### <a name="javascript-functions-20-only"></a>JavaScript (僅限 Functions 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```js
 const df = require("durable-functions");
@@ -130,8 +132,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 > [!WARNING]
-> 如果您的程式碼不會等待其完成，請使用 `CancellationTokenSource` 來取消長期計時器（.NET），或在傳回的 `TimerTask` （JavaScript）上呼叫 `cancel()`。 長期工作架構在完成或取消所有未完成的工作之前，不會將協調流程的狀態變更為「已完成」。
+> 如果您的程式碼不會等待其完成，請使用 `CancellationTokenSource` （.NET）或在傳回的 `TimerTask` （JavaScript）上呼叫 `cancel()` 來取消永久性計時器。 長期工作架構在完成或取消所有未完成的工作之前，不會將協調流程的狀態變更為「已完成」。
 
 此取消機制不會終止進行中的活動函數或子協調流程執行。 只是讓協調器函式略過結果並繼續執行。 如果您的函式應用程式使用取用方案，您仍需支付已放棄的活動功能所耗用的任何時間和記憶體。 根據預設，在取用量方案中執行的函式會在五分鐘後逾時。 如果超過此限制，Azure Functions 主機會重新開機來停止所有執行，以避免計費失控狀況發生。 [函式逾時可設定](../functions-host-json.md#functiontimeout)。
 

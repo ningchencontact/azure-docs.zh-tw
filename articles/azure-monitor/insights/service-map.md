@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: d4fd443959604f1a50dffbcb646bbe66fa159f8d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0f2181a388a5329dbc16ce8968da79529b22ea85
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402604"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168183"
 ---
 # <a name="using-service-map-solution-in-azure"></a>在 Azure 中使用服務對應解決方案
 
@@ -27,7 +27,7 @@ ms.locfileid: "75402604"
 * 相依性代理程式已安裝在 Windows 電腦或 Linux 伺服器上。
 
 >[!NOTE]
->如果您已部署服務對應，則現在還可以在適用於 VM 的 Azure 監視器中檢視您的對應，其中包括用於監視 VM 健康情況和效能的其他功能。 若要深入了解，請參閱[適用於 VM 的 Azure 監視器概觀](../../azure-monitor/insights/vminsights-overview.md)。 若要瞭解服務對應解決方案和適用於 VM 的 Azure 監視器對應 功能之間的差異，請參閱下列[常見問題](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map)。
+>如果您已部署服務對應，則現在還可以在適用於 VM 的 Azure 監視器中檢視您的對應，其中包括用於監視 VM 健康情況和效能的其他功能。 若要深入了解，請參閱[適用於 VM 的 Azure 監視器概觀](../../azure-monitor/insights/vminsights-overview.md)。 若要瞭解服務對應解決方案和適用於 VM 的 Azure 監視器對應 功能之間的差異，請參閱下列[常見問題](../faq.md#azure-monitor-for-vms-preview)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -321,7 +321,7 @@ Linux：
 
 ### <a name="connections"></a>連線
 
-連線計量會寫入到 Log Analytics 中的新資料表：VMConnection。 這個資料表會提供機器連線 (輸入和輸出) 的相關資訊。 連線計量也會透過 API 來公開，這類 API 會提供方法來取得某個時間範圍內的特定計量。  因為在接聽通訊端上「接受」而產生的 TCP 連線是輸入，因為「連線」到指定 IP 和連接埠而建立的連線則為輸出。 連線的方向會透過 Direction 屬性來表示，此屬性可設為 **inbound** 或 **outbound**。 
+連線計量會寫入到 Log Analytics 中的新資料表：VMConnection。 這個資料表會提供機器連線 (輸入和輸出) 的相關資訊。 連線計量也會透過 API 來公開，這類 API 會提供方法來取得某個時間範圍內的特定計量。  在接聽通訊端上接受的 TCP 連線是輸入的，而透過連線到指定 IP 和埠所建立的連接則是輸出。 連線的方向會透過 Direction 屬性來表示，此屬性可設為 **inbound** 或 **outbound**。 
 
 這些資料表中的記錄都是從 Dependency Agent 所報告的資料產生的。 每筆記錄均代表在一分鐘時間間隔內的觀測。 TimeGenerated 屬性表示時間間隔的開始時間。 每筆記錄均包含資訊來識別個別的實體 (也就是連線或連接埠)，以及與該實體相關聯的計量。 目前只會報告透過 IPv4 使用 TCP 而發生的網路活動。
 

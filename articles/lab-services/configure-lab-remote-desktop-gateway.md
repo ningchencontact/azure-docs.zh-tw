@@ -1,5 +1,5 @@
 ---
-title: 設定實驗室以使用 Azure DevTest Labs 中的遠端桌面閘道 |Microsoft Docs
+title: 設定實驗室以使用 Azure DevTest Labs 中的遠端桌面閘道
 description: 瞭解如何使用遠端桌面閘道在 Azure DevTest Labs 中設定實驗室，以確保能夠安全地存取實驗室 Vm，而不需要公開 RDP 埠。
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 0f879a6389c7a77708e8041dd8b82dc3785679fa
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 88daecdf4490ffd4eef45e6cd664a16f86bad113
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162627"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170291"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>在 Azure DevTest Labs 中設定您的實驗室以使用遠端桌面閘道
 在 Azure DevTest Labs 中，您可以為您的實驗室設定遠端桌面閘道，以確保能夠安全地存取實驗室虛擬機器（Vm），而不需要公開 RDP 埠。 實驗室提供一個集中的位置，讓您的實驗室使用者能夠查看並聯機到他們可以存取的所有虛擬機器。 [**虛擬機器**] 頁面上的 [連線 **]** 按鈕會建立電腦特定的 RDP 檔案，您可以開啟該檔案來連接到電腦。 您可以藉由將您的實驗室連接至遠端桌面閘道，進一步自訂和保護 RDP 連線。 

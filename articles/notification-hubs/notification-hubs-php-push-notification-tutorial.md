@@ -1,5 +1,5 @@
 ---
-title: 如何搭配使用通知中樞與 PHP
+title: 如何搭配使用 Azure 通知中樞與 PHP
 description: 了解如何從 PHP 後端使用 Azure 通知中樞。
 services: notification-hubs
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 4df48475af4b140e4446dde9069eafcc95d9d3b2
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9a77a9d9c8b2d71197089f66d81e07d56c780e11
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213183"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263841"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>如何從 PHP 使用通知中樞
 
@@ -282,7 +282,7 @@ ms.locfileid: "71213183"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本主題中，我們會說明如何為通知中心建立簡單的 Java REST 用戶端。 您可以在這裡執行下列動作：
+在本主題中，我們會說明如何為通知中心建立簡單的 Java REST 用戶端。 從這裡，您可以：
 
 * 下載完整的 [PHP REST 包裝函式範例]，其中包含上述所有程式碼。
 * 繼續了解 [即時新聞教學課程] 中的通知中心標記功能

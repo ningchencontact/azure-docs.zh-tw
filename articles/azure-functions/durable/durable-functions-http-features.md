@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1c8f56810edb39db66cbb83750e5cff02e22662a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a7d8891c6f925cfac326685f01ba5f6149a1b233
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433276"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262855"
 ---
 # <a name="http-features"></a>HTTP 功能
 
@@ -41,21 +41,21 @@ Durable Functions 延伸模組會自動將一組 HTTP Api 新增至 Azure Functi
 
 [協調流程用戶端](durable-functions-bindings.md#orchestration-client)系結會公開可產生便利 HTTP 回應裝載的 api。 例如，它可以建立回應，其中包含特定協調流程實例的管理 Api 連結。 下列範例顯示的 HTTP 觸發程式函式示範如何將此 API 用於新的協調流程實例：
 
-#### <a name="precompiled-c"></a>先行編譯 C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-#### <a name="c-script"></a>C# 指令碼
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
-
-#### <a name="javascript-with-functions-20-or-later-only"></a>具有函數2.0 或更新版本的 JavaScript
+**index.js**
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-#### <a name="functionjson"></a>Function.json
+**function.json**
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+
+---
 
 使用先前所示的 HTTP 觸發程式函式來啟動協調器函數，可以使用任何 HTTP 用戶端來完成。 下列捲曲命令會啟動名為 `DoWork`的協調器函式：
 
@@ -112,10 +112,9 @@ Retry-After: 10
 
 從 Durable Functions 2.0 開始，協調流程可以使用[協調流程觸發](durable-functions-bindings.md#orchestration-trigger)程式系結，以原生方式使用 HTTP api。
 
-> [!NOTE]
-> JavaScript 中尚未提供直接從協調器函式呼叫 HTTP 端點的功能。
+下列範例程式碼顯示發出輸出 HTTP 要求的協調器函式：
 
-下列範例程式碼顯示使用C# **CallHttpAsync** .NET API 發出輸出 HTTP 要求的協調器函式：
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -134,6 +133,23 @@ public static async Task CheckSiteAvailable(
     }
 }
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    const url = context.df.getInput();
+    const response = context.df.callHttp("GET", url)
+
+    if (response.statusCode >= 400) {
+        // handling of error codes goes here
+    }
+});
+```
+
+---
 
 藉由使用「呼叫 HTTP」動作，您可以在協調器函式中執行下列動作：
 
@@ -156,6 +172,8 @@ Durable Functions 原本就支援對接受 Azure Active Directory （Azure AD）
 
 下列程式碼是 .NET 協調器函式的範例。 此函式會使用 Azure Resource Manager[虛擬機器 REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines)，進行已驗證的呼叫以重新開機虛擬機器。
 
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
 ```csharp
 [FunctionName("RestartVm")]
 public static async Task RunOrchestrator(
@@ -164,6 +182,7 @@ public static async Task RunOrchestrator(
     string subscriptionId = "mySubId";
     string resourceGroup = "myRG";
     string vmName = "myVM";
+    string apiVersion = "2019-03-01";
     
     // Automatically fetches an Azure AD token for resource = https://management.core.windows.net
     // and attaches it to the outgoing Azure Resource Manager API call.
@@ -178,6 +197,32 @@ public static async Task RunOrchestrator(
     }
 }
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const subscriptionId = "mySubId";
+    const resourceGroup = "myRG";
+    const vmName = "myVM";
+    const apiVersion = "2019-03-01";
+    const tokenSource = new df.ManagedIdentityTokenSource("https://management.core.windows.net");
+
+    // get a list of the Azure subscriptions that I have access to
+    const restartResponse = yield context.df.callHttp(
+        "POST",
+        `https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.Compute/virtualMachines/${vmName}/restart?api-version=${apiVersion}`,
+        undefined, // no request content
+        undefined, // no request headers (besides auth which is handled by the token source)
+        tokenSource);
+
+    return restartResponse;
+});
+```
+
+---
 
 在上述範例中，`tokenSource` 參數設定為取得[Azure Resource Manager](../../azure-resource-manager/management/overview.md)的 Azure AD 權杖。 權杖是由 `https://management.core.windows.net`的資源 URI 所識別。 此範例假設目前的函式應用程式正在本機執行，或已部署為具有受控識別的函式應用程式。 本機身分識別或受控識別會假設具有在指定的資源群組 `myRG`中管理 Vm 的許可權。
 

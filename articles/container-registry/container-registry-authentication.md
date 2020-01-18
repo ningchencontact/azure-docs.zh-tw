@@ -4,12 +4,12 @@ description: Azure Container Registry 的驗證選項，包括使用 Azure Activ
 ms.topic: article
 ms.date: 12/21/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29e23f6a983ccc2197e609511aee2ce13726ed0f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: fbe77dee4104e3c654aad58db82765733b2c3e1d
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455381"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264504"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>向私用 Docker 容器登錄進行驗證
 
@@ -19,7 +19,7 @@ ms.locfileid: "74455381"
 
 ## <a name="individual-login-with-azure-ad"></a>使用 Azure AD 進行個人登入
 
-直接與您的登錄搭配運作時 (例如將映像拖曳至開發工作站或從開發工作站推送映像)，請在 [Azure CLI](/cli/azure/acr?view=azure-cli-latest#az-acr-login) 中使用 [az acr login](/cli/azure/install-azure-cli) 命令來進行驗證：
+直接與您的登錄搭配運作時 (例如將映像拖曳至開發工作站或從開發工作站推送映像)，請在 [Azure CLI](/cli/azure/install-azure-cli) 中使用 [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) 命令來進行驗證：
 
 ```azurecli
 az acr login --name <acrName>
@@ -27,9 +27,9 @@ az acr login --name <acrName>
 
 當您使用 `az acr login` 來進行登入時，CLI 會使用您執行 [az login](/cli/azure/reference-index#az-login) 時所建立的權杖，以順暢地向登錄驗證您的工作階段。 在您以此方式登入之後，系統會快取您的認證，而您工作階段中的後續 `docker` 命令不會要求提供使用者名稱或密碼。 
 
-為了進行登錄存取，`az acr login` 所用的驗證權杖有效期為 1 小時，所以我們建議您在執行 `docker` 命令前，一律先登入登錄。 如果您的權杖過期，您可以再次使用 `az acr login` 命令進行重新驗證來重新整理該權杖。 
+針對登錄存取，`az acr login` 使用的權杖有效期限為**3 小時**，因此建議您一律先登入登錄，再執行 `docker` 命令。 如果您的權杖過期，您可以再次使用 `az acr login` 命令進行重新驗證來重新整理該權杖。 
 
-使用 `az acr login` 搭配 Azure 身分識別可提供[角色型存取](../role-based-access-control/role-assignments-portal.md)功能。 在某些情況下，您可能會想在 Azure AD 中，使用自己的個別身分識別登入登錄庫。 針對跨服務案例，或針對您不想管理個別存取權的工作群組處理其需求時，也可以使用 [Azure 資源的受控識別](container-registry-authentication-managed-identity.md)登入。
+使用 `az acr login` 搭配 Azure 身分識別可提供[角色型存取](../role-based-access-control/role-assignments-portal.md)功能。 在某些情況下，您可能會想要在 Azure AD 中使用自己的個別身分識別登入登錄。 針對跨服務案例，或針對您不想管理個別存取權的工作群組處理其需求時，也可以使用 [Azure 資源的受控識別](container-registry-authentication-managed-identity.md)登入。
 
 ## <a name="service-principal"></a>服務主體
 
@@ -55,7 +55,7 @@ az acr login --name <acrName>
 > 管理帳戶是專為讓單一使用者存取登錄而設計，主要用於測試。 我們不建議在多個使用者之間共用系統管理員帳號憑證。 所有使用管理帳戶進行驗證的使用者會顯示為單一使用者，此使用者具備登錄的推送和提取存取權。 變更或停用此帳戶時，會將所有使用其認證之使用者的登錄存取權都停用。 針對遠端控制案例的使用者和服務主體，建議使用個人身分識別。
 >
 
-管理帳戶隨附兩個密碼，兩個密碼都可以重新產生。 兩個密碼可讓您在重新產生其中一個密碼時，使用另一個密碼來維持與登錄的連線。 如果已啟用管理帳戶，即可在系統提示時將使用者名稱和其中一個密碼傳遞給 `docker login` 命令，向登錄進行基本驗證。 例如︰
+管理帳戶隨附兩個密碼，兩個密碼都可以重新產生。 兩個密碼可讓您在重新產生其中一個密碼時，使用另一個密碼來維持與登錄的連線。 如果已啟用管理帳戶，即可在系統提示時將使用者名稱和其中一個密碼傳遞給 `docker login` 命令，向登錄進行基本驗證。 例如：
 
 ```
 docker login myregistry.azurecr.io 
@@ -63,7 +63,7 @@ docker login myregistry.azurecr.io
 
 如需管理登入認證的最佳作法，請參閱[docker login](https://docs.docker.com/engine/reference/commandline/login/)命令參考。
 
-若要為現有的登錄啟用管理使用者，您可以在 Azure CLI 中使用 `--admin-enabled`az acr update[ 命令的 ](/cli/azure/acr?view=azure-cli-latest#az-acr-update) 參數：
+若要為現有的登錄啟用管理使用者，您可以在 Azure CLI 中使用 [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) 命令的 `--admin-enabled` 參數：
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

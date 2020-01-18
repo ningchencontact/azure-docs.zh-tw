@@ -1,5 +1,5 @@
 ---
-title: 在 Azure DevTest Labs 中部署嵌套 Resource Manager 範本環境 |Microsoft Docs
+title: 在 Azure DevTest Labs 中部署嵌套範本環境
 description: 瞭解如何部署嵌套的 Azure Resource Manager 範本，以提供 Azure DevTest Labs 的環境。
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 675d2c670f5bc11c1d8b61bc96313e408f788dc3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e83bc4e77a44f20d55fa3b56bc81aefd1d25bb03
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75976543"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168830"
 ---
 # <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>部署適用于測試環境的嵌套 Azure Resource Manager 範本
 「嵌套部署」可讓您從主要 Resource Manager 範本內執行其他 Azure Resource Manager 範本。 它可讓您將部署分解成一組目標和特定用途的範本。 它提供測試、重複使用和可讀性等方面的優勢。 在[部署 Azure 資源時使用連結的範本](../azure-resource-manager/templates/linked-templates.md)一文提供了使用數個程式碼範例的此解決方案的絕佳總覽。 本文提供 Azure DevTest Labs 特定的範例。 

@@ -1,5 +1,5 @@
 ---
-title: PowerShell 指令碼：在 Azure DevTest Labs 的實驗室建立自訂角色 |Microsoft Docs
+title: PowerShell-在 Azure DevTest Labs 中的實驗室中建立自訂角色
 description: 這個 PowerShell 指令碼會將外部使用者新增至 Azure DevTest Labs 的實驗室中。
 services: lab-services
 author: spelluru
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4d0c795dffb40ab7efec9005660439f9baef9f3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bcad4e02105bff2dc78a4adc3ca614f997794d52
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160581"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166430"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>使用 PowerShell 在 Azure DevTest Labs 的實驗室中建立自訂角色
 
@@ -27,7 +27,7 @@ ms.locfileid: "66160581"
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * **實驗室**。 指令碼需要您擁有現有的實驗室。 
 
 ## <a name="sample-script"></a>範例指令碼
@@ -38,9 +38,9 @@ ms.locfileid: "66160581"
 
 此指令碼會使用下列命令： 
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
-| [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | 取得使用 Azure RBAC 保護安全的 Azure 資源提供者作業。 |
+| [Get-azprovideroperation](/powershell/module/az.resources/get-azprovideroperation) | 取得使用 Azure RBAC 保護安全的 Azure 資源提供者作業。 |
 | [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | 列出可用來指派的所有 Azure RBAC 角色。 |
 | [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | 建立自訂角色。 |
 

@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: 65e1fa3fe371766566eeeaaa2d33479ea0243d61
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/17/2020
+ms.openlocfilehash: 6e1321e01d8d12974a2704f4478b02a26c14142f
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383343"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264928"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>使用 Azure Digital Twins 啟用多租用戶應用程式
 
@@ -52,9 +52,9 @@ ms.locfileid: "74383343"
   - **客戶**的 Azure Active Directory 租用戶管理員必須取得[隨用隨付 Azure 訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0003p/)。
   - **客戶**的 Azure Active Directory 租用戶管理員接著必須[連結其租用戶與新訂用帳戶](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)。
 
-- [客戶](https://portal.azure.com)的 Azure Active Directory 租用戶管理員必須在 **Azure 入口網站**上執行下列步驟：
+- **客戶**的 Azure Active Directory 租用戶管理員必須在 [Azure 入口網站](https://portal.azure.com)上執行下列步驟：
 
-  1. 在頂端**的 Azure**搜尋服務欄位中搜尋訂用帳戶。 選取 [訂用帳戶]。
+  1. 在頂端**的 Azure**搜尋服務欄位中搜尋訂用帳戶。 選取 **訂用帳戶** 。
   1. 選取有要用於**開發人員**之應用程式的 Azure Active Directory 租用戶的訂用帳戶。
 
      [![Azure Active Directory 訂閱](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)

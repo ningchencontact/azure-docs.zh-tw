@@ -1,7 +1,7 @@
 ---
-title: 如何指定辨識模型-臉部 API
+title: 如何指定辨識模型-臉部
 titleSuffix: Azure Cognitive Services
-description: 本文將說明如何選擇要搭配 Azure 臉部 API 應用程式使用的辨識模型。
+description: 本文將說明如何選擇要與您的 Azure 臉部應用程式搭配使用的辨識模型。
 services: cognitive-services
 author: longli0
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
-ms.openlocfilehash: 5b84e078e3b674a539b61c07c4bb4370719e4799
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 44392b807659ff8f13511b48d0afd33db080e4f6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771014"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166466"
 ---
 # <a name="specify-a-face-recognition-model"></a>指定臉部辨識模式
 
-本指南說明如何使用 Azure 臉部 API 指定臉部偵測、識別和相似性搜尋的臉部辨識模型。
+本指南說明如何使用 Azure 臉部服務指定臉部偵測、識別和相似性搜尋的臉部辨識模型。
 
-臉部 API 會使用機器學習模型，對影像中的人臉執行作業。 我們會根據客戶的意見反應和研究的進展，持續改善模型的精確度，並將這些改良功能當做模型更新來提供。 開發人員可以選擇指定他們想要使用的臉部辨識模型版本;他們可以選擇最適合其使用案例的模型。
+臉部服務會使用機器學習模型，對影像中的人臉執行作業。 我們會根據客戶的意見反應和研究的進展，持續改善模型的精確度，並將這些改良功能當做模型更新來提供。 開發人員可以選擇指定他們想要使用的臉部辨識模型版本;他們可以選擇最適合其使用案例的模型。
 
 如果您是新的使用者，建議使用最新的模型。 請繼續閱讀以瞭解如何在不同的臉部作業中指定它，同時避免模型衝突。 如果您是 advanced 使用者，而且不確定是否應該切換至最新的模型，請跳至[評估不同](#evaluate-different-models)的模型一節，以評估新的模型，並使用您目前的資料集來比較結果。
 
@@ -57,7 +57,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recog
 
 ## <a name="identify-faces-with-specified-model"></a>使用指定的模型識別臉部
 
-臉部 API 可以從影像中解壓縮臉部資料，並將其與**Person**物件產生關聯（例如，透過[新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)API 呼叫），而多個**Person**物件可以一起儲存在**PersonGroup**中。 然後，可以將新的臉部與**PersonGroup** （使用[臉部識別]通話）進行比較，並且可以識別該群組內的相符人員。
+臉部服務可以從影像中取出臉部資料，並將它與**Person**物件產生關聯（例如，透過[新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)API 呼叫），而多個**Person**物件可以一起儲存在**PersonGroup**中。 然後，可以將新的臉部與**PersonGroup** （使用[臉部識別]通話）進行比較，並且可以識別該群組內的相符人員。
 
 **PersonGroup**應該有一個唯一的辨識模型供所有**人**使用，而且您可以在建立群組時（[PersonGroup - 建立]或[LargePersonGroup - 建立]）使用 `recognitionModel` 參數來指定此模型。 如果您未指定此參數，則會使用原始的 `recognition_01` 模型。 群組一律會使用所建立的辨識模型，而且新的臉部會在新增至其中時，與此模型產生關聯;這無法在群組建立後變更。 若要查看**PersonGroup**的設定是哪一個模型，請使用[PersonGroup-Get] API 並將_returnRecognitionModel_參數設定為**true**。
 

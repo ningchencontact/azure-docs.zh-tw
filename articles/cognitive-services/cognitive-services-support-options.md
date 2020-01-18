@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 2dc5bfb7459e28a4d118c5d1629133bae3a5637f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 2cdf34bb7df121665548be98f9f2098cc5cfe99b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533703"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169072"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Azure 認知服務支援和協助選項
 
@@ -91,8 +91,8 @@ ms.locfileid: "74533703"
 
 版本資訊會隨著新版本的推出而更新。 這些附注包含新功能、改進和 bug 修正的相關資訊。
 
- - [自訂視覺服務](custom-vision-service/release-notes.md)
- - [臉部 API](face/releasenotes.md)
+ - [自訂視覺](custom-vision-service/release-notes.md)
+ - [臉部](face/releasenotes.md)
  - [Language Understanding (LUIS)](luis/whats-new.md)
  - [語音服務](speech-service/releasenotes.md)
  - [語音服務 SDK](speech-service/devices-sdk-release-notes.md)
@@ -106,7 +106,7 @@ ms.locfileid: "74533703"
 
 有關認知服務的新聞已在[Azure blog](https://azure.microsoft.com/blog/topics/cognitive-services/)中共用。
 
-## <a name="search"></a>Search
+## <a name="search"></a>搜尋
 
 <div class='icon is-large'>
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>

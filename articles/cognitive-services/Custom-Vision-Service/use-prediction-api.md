@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 50325b75280160a3fefa5b5487df29a25e53bddd
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: dcb12da680d70e1f0ce4cd763bee340bb3416c6b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70966927"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169940"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>搭配預測 API 使用您的模型
 
@@ -109,9 +109,9 @@ ms.locfileid: "70966927"
     ```
 
 1. 變更下列資訊：
-   * `namespace`將欄位設定為專案的名稱。
-   * 以您稍`<Your prediction key>`早取得的金鑰值取代預留位置。
-   * 將預留位置`<Your prediction URL>`取代為您稍早取得的 URL。
+   * 將 [`namespace`] 欄位設定為您專案的名稱。
+   * 以您稍早取得的金鑰值取代預留位置 `<Your prediction key>`。
+   * 以您稍早取得的 URL 取代預留位置 `<Your prediction URL>`。
 
 ## <a name="run-the-application"></a>執行應用程式
 
@@ -135,7 +135,7 @@ ms.locfileid: "70966927"
 在本指南中，您已瞭解如何將影像提交至自訂影像分類器/偵測器，並使用C# SDK 以程式設計方式接收回應。 接下來，瞭解如何使用C#完成端對端案例，或開始使用不同的語言 SDK。
 
 * [快速入門： .NET SDK](csharp-tutorial.md)
-* [快速入門：Python SDK](python-tutorial.md)
-* [快速入門：Java SDK](java-tutorial.md)
-* [快速入門：Node SDK](node-tutorial.md)
-* [快速入門：Go SDK](go-tutorial.md)
+* [快速入門： Python SDK](python-tutorial.md)
+* [快速入門： JAVA SDK](java-tutorial.md)
+* [快速入門： Node SDK](node-tutorial.md)
+* [快速入門： Go SDK](go-tutorial.md)

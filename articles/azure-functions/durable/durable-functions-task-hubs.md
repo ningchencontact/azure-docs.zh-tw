@@ -5,16 +5,16 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 38c7da8a1de57ed5acf3248fc6a71431de0bd1e2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ffb3d590aebe80994de1e7e834a2eba5777df9a1
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232796"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262481"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的工作中樞
 
-*Durable Functions* 中的「工作中樞」[](durable-functions-overview.md)是協調流程所使用之 Azure 儲存體資源的邏輯容器。 協調器和活動函式必須屬於相同的工作中樞，才能彼此互動。
+[Durable Functions](durable-functions-overview.md) 中的「工作中樞」是協調流程所使用之 Azure 儲存體資源的邏輯容器。 協調器和活動函式必須屬於相同的工作中樞，才能彼此互動。
 
 如果多個函式應用程式共用儲存體帳戶，則每個函式應用程式「必須」設有個別的工作中樞名稱。 儲存體帳戶可以包含多個工作中樞。 下圖說明每個函式應用程式在共用和專用儲存體帳戶中的一個工作中樞。
 
@@ -96,9 +96,9 @@ ms.locfileid: "74232796"
 }
 ```
 
-下列程式碼是一個先行C#編譯的範例，說明如何撰寫使用[協調流程用戶端](durable-functions-bindings.md#orchestration-client)系結的函式，以使用設定為應用程式設定的工作中樞：
+下列程式碼示範如何撰寫使用[協調流程用戶端](durable-functions-bindings.md#orchestration-client)系結的函式，以使用設定為應用程式設定的工作中樞：
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -121,7 +121,7 @@ public static async Task<HttpResponseMessage> Run(
 > [!NOTE]
 > 上一個C#範例是針對 Durable Functions 2.x。 針對 Durable Functions 1.x，您必須使用 `DurableOrchestrationContext`，而不是 `IDurableOrchestrationContext`。 如需版本之間差異的詳細資訊，請參閱[Durable Functions 版本](durable-functions-versions.md)一文。
 
-### <a name="javascript"></a>Javascript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 `function.json` 檔案中的工作中樞屬性會透過應用程式設定來設定：
 
@@ -134,7 +134,9 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-工作中樞名稱必須以字母開頭，僅包含字母和數字。 如果未指定，則會使用預設的工作中樞名稱，如下表所示：
+---
+
+工作中樞名稱必須以字母開頭，且只包含字母和數字。 如果未指定，則會使用預設的工作中樞名稱，如下表所示：
 
 | 持久性延伸模組版本 | 預設工作中樞名稱 |
 | - | - |
