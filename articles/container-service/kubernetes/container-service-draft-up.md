@@ -1,20 +1,18 @@
 ---
 title: (已淘汰) 使用 Draft 搭配 Azure Container Service 與 Azure Container Registry
 description: 建立 ACS Kubernetes 叢集和 Azure Container Registry，可使用 Draft 在 Azure 中建立第一個應用程式。
-services: container-service
 author: squillace
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: fb34be09ec08957621517c957b3570cdbcfc0468
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d688d2918c9100019d033e93e9a3dca9e492de2
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712665"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271140"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(已淘汰) 使用 Draft 搭配 Azure Container Service 與 Azure Container Registry，可將應用程式建置及部署至 Kubernetes
 
@@ -31,7 +29,7 @@ ms.locfileid: "60712665"
 ## <a name="create-an-azure-container-registry"></a>建立 Azure Container Registry
 您可以輕鬆地[建立新的 Azure Container Registry](../../container-registry/container-registry-get-started-azure-cli.md)，步驟如下所示：
 
-1. 建立 Azure 資源群組來管理您的 ACR 登錄和 Kubernetes 叢集，在 ACS 中。
+1. 建立 Azure 資源群組，以管理您的 ACR 登錄和 ACS 中的 Kubernetes 叢集。
       ```azurecli
       az group create --name draft --location eastus
       ```
@@ -204,7 +202,7 @@ kubernetes                    10.0.0.1       <none>          443/TCP            
 
 ### <a name="map-the-ingress-ip-to-a-custom-subdomain"></a>將輸入 IP 對應至自訂子網域
 
-Draft 會針對其所建立的每個 Helm 圖表，以及您在使用每個應用程式建立一個版本。 每個版本都會取得一個供 **draft** 使用的產生名稱，作為您所控制之根「部署網域」  上的「子網域」  。 (在此範例中，我們使用 `squillace.io` 作為部署網域。)若要啟用此子網域行為，您必須針對部署網域，在 DNS 項目中建立 `'*.draft'` 的 A 記錄，以便每個產生的子網域會路由傳送至 Kubernetes 叢集的輸入控制器。 
+Draft 會針對其所建立的每個 Helm 圖表，以及您在使用每個應用程式建立一個版本。 每個版本都會取得一個供 **draft** 使用的產生名稱，作為您所控制之根「部署網域」上的「子網域」。 （在此範例中，我們使用 `squillace.io` 作為部署網域）。若要啟用這個子域行為，您必須在部署網域的 DNS 專案中建立 `'*.draft'` 的 A 記錄，讓每個產生的子域都會路由傳送至 Kubernetes 叢集的輸入控制器。 
 
 您自己的網域提供者都有其各自的方法可指派 DNS 伺服器；若要[將您的 nameservers 網域委派給 Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)，請採取下列步驟：
 

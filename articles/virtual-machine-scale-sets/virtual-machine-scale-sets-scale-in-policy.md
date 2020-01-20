@@ -1,22 +1,20 @@
 ---
-title: 搭配 Azure 虛擬機器擴展集使用自訂相應縮小原則 |Microsoft Docs
+title: 搭配 Azure 虛擬機器擴展集使用自訂相應縮小原則
 description: 瞭解如何搭配使用自動調整設定來管理實例計數的 Azure 虛擬機器擴展集，使用自訂的向外延展原則
-services: virtual-machine-scale-sets
 author: avverma
-manager: vashan
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: avverma
-ms.openlocfilehash: c1618c398c0f7c4f0f54647e5232fdacc17de186
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 8e51ebab36d75d1c9512446ee0370f7359a72551
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72453156"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271773"
 ---
 # <a name="preview-use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>預覽：使用自訂相應縮小原則搭配 Azure 虛擬機器擴展集
 
@@ -24,7 +22,7 @@ ms.locfileid: "72453156"
 
 相應縮小原則功能可讓使用者設定相應縮小虛擬機器的順序。 預覽引進三個相應縮小設定： 
 
-1. 預設值
+1. 預設
 2. NewestVM
 3. OldestVM
 
@@ -133,11 +131,11 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 1. 防止相應縮小
 2. 防止調整集動作
 
-不論套用的相應縮小原則為何，受保護的虛擬機器不會透過相應縮小動作刪除。 例如，如果 VM_0 （擴展集中最舊的 VM）受到相應縮小的保護，而且擴展集已啟用「OldestVM」相應縮小原則，則 VM_0 將不會被視為相應縮小，即使它是擴展集中最舊的 VM 也一樣。 
+不論套用的相應縮小原則為何，受保護的虛擬機器不會透過相應縮小動作刪除。 例如，如果 VM_0 （擴展集中最舊的 VM）受到相應縮小的保護，而且擴展集已啟用 ' OldestVM ' 相應縮小原則，則 VM_0 不會被視為相應縮小，即使它是擴展集中最舊的 VM 也一樣。 
 
 無論在擴展集上啟用的相應縮小原則為何，使用者隨時都可以手動刪除受保護的虛擬機器。 
 
-## <a name="usage-examples"></a>使用方式範例 
+## <a name="usage-examples"></a>使用範例 
 
 下列範例示範當觸發相應縮小事件時，虛擬機器擴展集會如何選取要刪除的 Vm。 具有最高實例識別碼的虛擬機器，會假設為擴展集中的最新 Vm，而具有最小實例識別碼的 Vm 則會假設為擴展集中最舊的 Vm。 
 
@@ -164,7 +162,7 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 | 相應縮小              | 3、4、5、 ***10***      | 2、6、9                | 1、7、8                | 選擇 [區域 1]，因為它有比其他兩個區域更多的 Vm。 從區域1刪除 VM10，因為它是該區域中最新的 VM。          |
 | 相應縮小              | 3、4、5                | 2、6、 ***9***          | 1、7、8                | 區域已平衡。 刪除區域2中的且 PG2，因為它是擴展集中的最新 VM。                                                |
 | 相應縮小              | 3、4、5                | 2、6                   | 1、7、 ***8***          | 選擇區域1和區域3。 刪除區域3中的 VM8，因為它是該區域中最新的 VM。                                      |
-| 相應縮小              | 3、4、 ***5***          | 2、6                   | 1、7                   | 即使區域3有最新的 VM，還是選擇區域1。 刪除區域1中的 VM5，因為它是該區域中最新的 VM。                    |
+| 相應縮小              | 3、4、 ***5***          | 2、6                   | 1, 7                   | 即使區域3有最新的 VM，還是選擇區域1。 刪除區域1中的 VM5，因為它是該區域中最新的 VM。                    |
 | 相應縮小              | 3、4                   | 2、6                   | 1、 ***7***             | 區域已平衡。 刪除區域3中的 VM7，因為它是擴展集中的最新 VM。                                                |
 
 針對非區域虛擬機器擴展集，原則會選取要刪除的擴展集內的最新 VM。 將略過任何「受保護」 VM 以進行刪除。 

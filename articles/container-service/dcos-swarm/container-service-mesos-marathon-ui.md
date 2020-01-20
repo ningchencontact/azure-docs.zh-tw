@@ -1,20 +1,18 @@
 ---
 title: (已淘汰) 使用 Marathon UI 管理 Azure DC/OS 叢集
 description: 使用 Marathon Web UI 將容器部署到 Azure 容器服務叢集服務。
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 16c16c0217a796ffbb57e10430f90cb4a7660ac6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b251096915506c3c7a4eebf45b6a03e24779a3d8
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61468144"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277794"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(已淘汰) 透過 Marathon Web UI 管理 Azure Container Service DC/OS 叢集
 
@@ -25,7 +23,7 @@ DC/OS 提供環境來部署及調整叢集工作負載，同時將基礎硬體�
 雖然許多常見的工作負載都有可用的架構，但此文件只說明如何使用 Marathon 來開始部署容器。 
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 在練習這些範例之前，您需要 Azure 容器服務中設定的 DC/OS 叢集。 您也需要有此叢集的遠端連線。 如需這些項目的詳細資訊，請參閱下列文章。
 
 * [部署 Azure 容器服務叢集](container-service-deployment.md)
@@ -36,26 +34,26 @@ DC/OS 提供環境來部署及調整叢集工作負載，同時將基礎硬體�
 >
 
 ## <a name="explore-the-dcos-ui"></a>探索 DC/OS UI
-安全殼層 (SSH) 通道[建立](../container-service-connect.md)，瀏覽至 http:\/localhost /。 這會載入 DC/OS Web UI 並顯示叢集的相關資訊，例如使用的資源、作用中代理程式和執行中的服務。
+[建立](../container-service-connect.md)安全殼層（SSH）通道後，流覽至 HTTP：\//localhost/。 這會載入 DC/OS Web UI 並顯示叢集的相關資訊，例如使用的資源、作用中代理程式和執行中的服務。
 
 ![DC/OS UI](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>瀏覽 Marathon UI
-若要查看 Marathon UI，請瀏覽至 http:\/localhost/marathon。 在此畫面中，您可以啟動 Azure 容器服務 DC/OS 叢集上的新容器或其他應用程式。 您也可以看到有關執行容器和應用程式的資訊。  
+若要查看 Marathon UI，請流覽至 HTTP：\//localhost/marathon。 在此畫面中，您可以啟動 Azure 容器服務 DC/OS 叢集上的新容器或其他應用程式。 您也可以看到有關執行容器和應用程式的資訊。  
 
 ![Marathon UI](./media/container-service-mesos-marathon-ui/dcos3.png)
 
 ## <a name="deploy-a-docker-formatted-container"></a>部署 Docker 格式化容器
-若要使用 Marathon 部署新容器，請按一下 [建立應用程式]  ，並在表單索引標籤中輸入下列資訊：
+若要使用 Marathon 部署新容器，請按一下 [建立應用程式]，並在表單索引標籤中輸入下列資訊：
 
 | 欄位 | 值 |
 | --- | --- |
-| id |nginx |
+| ID |nginx |
 | 記憶體 | 32 |
-| Image |nginx |
+| 映像 |nginx |
 | 網路 |橋接 |
 | 主機連接埠 |80 |
-| Protocol |TCP |
+| 通訊協定 |TCP |
 
 ![新增應用程式 UI--一般](./media/container-service-mesos-marathon-ui/dcos4.png)
 
@@ -71,25 +69,25 @@ DC/OS 提供環境來部署及調整叢集工作負載，同時將基礎硬體�
 
 ![新增應用程式 UI--連接埠 80 範例](./media/container-service-mesos-marathon-ui/dcos13.png)
 
-如果您想要啟用健康狀態檢查，請在 [健康狀態檢查]  索引標籤上設定路徑。
+如果您想要啟用健康狀態檢查，請在 [健康狀態檢查] 索引標籤上設定路徑。
 
 ![新的應用程式 UI--健康狀態檢查](./media/container-service-mesos-marathon-ui/dcos_healthcheck.png)
 
-DC/OS 叢集會使用一組私人和公用代理程式來進行部署。 若要讓叢集能夠從網際網路存取應用程式，您需要將應用程式部署至公用代理程式。 若要這樣做，請選取「新增應用程式」精靈的 [選擇性]  索引標籤，並在 [接受的資源角色]  中輸入 **slave_public**。
+DC/OS 叢集會使用一組私人和公用代理程式來進行部署。 若要讓叢集能夠從網際網路存取應用程式，您需要將應用程式部署至公用代理程式。 若要這樣做，請選取「新增應用程式」精靈的 [選擇性] 索引標籤，並在 [接受的資源角色] 中輸入 **slave_public**。
 
-然後按一下 [建立應用程式]  。
+然後按一下 [建立應用程式]。
 
 ![新增應用程式 UI--公用代理程式設定](./media/container-service-mesos-marathon-ui/dcos14.png)
 
-回到 Marathon 主頁面，您可以看到容器的部署狀態。 一開始您看到的狀態為 [部署中]  。 部署成功之後，狀態會變更為 [執行中]  。
+回到 Marathon 主頁面，您可以看到容器的部署狀態。 一開始您看到的狀態為 [部署中]。 部署成功之後，狀態會變更為 [執行中]。
 
 ![Marathon 主頁面 UI--容器部署狀態](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-當您切換回 DC/OS web UI (http:\//localhost/)，您會看到 （在此案例中是 Docker 格式化容器） 的工作在 DC/OS 叢集上執行。
+當您切換回 DC/OS web UI （HTTP：\//localhost/）時，您會看到 DC/OS 叢集上正在執行一項工作（在此案例中為 Docker 格式的容器）。
 
 ![DC/OS Web UI--在叢集上執行的工作](./media/container-service-mesos-marathon-ui/dcos8.png)
 
-若要查看工作執行所在的叢集節點，請按一下 [節點]  索引標籤。
+若要查看工作執行所在的叢集節點，請按一下 [節點] 索引標籤。
 
 ![DC/OS Web UI--工作叢集節點](./media/container-service-mesos-marathon-ui/dcos9.png)
 

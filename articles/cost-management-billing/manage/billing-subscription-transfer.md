@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 01/17/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f43f7424cddae8659301be0ddc4842412a62952
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d2bbfd7f4ddc5fc34c0bec3612783dfef5074d83
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75993540"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270862"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>將 Azure 訂用帳戶的帳單擁有權轉移給另一個帳戶
 
@@ -86,7 +86,7 @@ Visual Studio 和 Microsoft 合作夥伴網路訂用帳戶都有相關聯的每�
 
 ## <a name="transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions"></a>轉移 Enterprise 合約 (EA) 訂用帳戶的帳單擁有權
 
-企業系統管理員可以在註冊內的帳戶之間轉移訂用帳戶的擁有權。 如需詳細資訊，請參閱 EA 入口網站中的[轉移帳戶擁有權](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription)。
+企業系統管理員可以在註冊內的帳戶之間轉移訂用帳戶的擁有權。 如需詳細資訊，請參閱 EA 入口網站中的[變更帳戶擁有](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#change-account-owner)者。
 
 ## <a name="next-steps-after-accepting-billing-ownership"></a>接受帳單擁有權後的後續步驟
 
@@ -117,7 +117,7 @@ Azure 入口網站中的訂用帳戶轉移適用於以下所列的訂用帳戶�
 - [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)
 - [Microsoft Azure 方案](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 
-透過[EA 入口網站](#EA)\*。
+\*[透過 EA 入口網站](#EA)。
 
 \*\* 僅對在 Azure 網站註冊期間建立的帳戶提供支援。
 

@@ -1,31 +1,24 @@
 ---
-title: Microsoft Azure StorSimple Virtual Array 概觀 | Microsoft Docs
+title: Microsoft Azure StorSimple Virtual Array 總覽
 description: 說明 StorSimple Virtual Array，這是一個整合式儲存體解決方案，可管理內部部署虛擬陣列與 Microsoft Azure 雲端儲存體之間的儲存體工作。
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: cbfc69c7d8d9354ae4e727b9eb0180583165abab
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 32781a83aec996b23f161f5fe695f39a0de38685
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516716"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273878"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple Virtual Array 簡介
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 Microsoft Azure StorSimple Virtual Array 是一個整合式儲存體解決方案，可管理 Hypervisor 中執行之內部部署虛擬陣列與 Microsoft Azure 雲端儲存體之間的儲存體工作。 虛擬陣列是一個有效率、符合成本效益且易於管理的檔案伺服器或 iSCSI 伺服器解決方案，可減少許多與企業儲存體和資料保護相關聯的問題和支出。 虛擬陣列特別適合不常存取之封存資料的儲存體。
 
@@ -64,7 +57,7 @@ StorSimple 會在數分鐘內將使用者和伺服器連接到 Azure 儲存體�
 
 下表說明一些 StorSimple Virtual Array 解決方案所提供的主要優點。
 
-| 功能 | 優點 |
+| 功能 | 權益 |
 | --- | --- |
 | 透明整合 |虛擬陣列支援 iSCSI 或 SMB 通訊協定。 本機層和雲端層之間的資料移動十分順暢，讓使用者不致察覺。 |
 | 降低儲存成本 |您可以使用 StorSimple 來佈建足夠的本機儲存體，以符合目前對於最常使用的熱資料需求。 隨著儲存體需求的成長，StorSimple 會將冷資料分層至符合成本效益的雲端儲存體。 資料會在傳送到雲端之前進行重複資料刪除並加以壓縮，以進一步降低儲存體需求和費用。 |
@@ -76,7 +69,7 @@ StorSimple 會在數分鐘內將使用者和伺服器連接到 Azure 儲存體�
 
 下表顯示所支援 StorSimple 工作負載的摘要。
 
-|狀況     |工作負載     |支援      |限制               | 適用的版本|
+|案例     |工作負載     |支援的      |限制               | 適用的版本|
 |-------------|-------------|---------------|---------------------------|--------------------|
 |遠端辦公室/分公司 (ROBO)  |檔案共用     |是      |請參閱[檔案伺服器的上限](storsimple-ova-limits.md)。<br></br>請參閱[支援 SMB 版的系統需求](storsimple-ova-system-requirements.md)。| 所有版本     |
 |雲端封存  |封存檔案共用     |是      |請參閱[檔案伺服器的上限](storsimple-ova-limits.md)。<br></br>請參閱[支援 SMB 版的系統需求](storsimple-ova-system-requirements.md)。| 所有版本     |
@@ -89,7 +82,7 @@ StorSimple Virtual Array 最適合不常存取的資料。 雖然虛擬陣列具
 
 StorSimple Virtual Array 不適合需要高可用性的工作負載。 虛擬陣列是安裝軟體更新時會遇到停機時間的單一節點裝置。 系統管理員應該規劃每年 3-4 次 30 分鐘的維護期間。
 
-## <a name="workflows"></a>Workflows
+## <a name="workflows"></a>工作流程
 
 StorSimple Virtual Array 特別適用於下列工作流程：
 
@@ -103,7 +96,7 @@ StorSimple Virtual Array 特別適用於下列工作流程：
 ![雲端儲存體管理](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>與位置無關的備份
-運用虛擬陣列，雲端快照集可針對磁碟區或共用提供與位置無關的時間點複本。 預設會啟用雲端快照集，並且無法停用。 所有磁片區和共用都是透過單一每日備份原則同時備份, 而且您可以在必要時採取額外的特定備份。
+運用虛擬陣列，雲端快照集可針對磁碟區或共用提供與位置無關的時間點複本。 預設會啟用雲端快照集，並且無法停用。 所有磁片區和共用都是透過單一每日備份原則同時備份，而且您可以在必要時採取額外的特定備份。
 
 ### <a name="data-protection-and-disaster-recovery"></a>資料保護和災害復原
 虛擬陣列支援下列資料保護和災害復原案例：
@@ -122,7 +115,7 @@ StorSimple Virtual Array 特別適用於下列工作流程：
 * [命令列介面](#command-line-interface) – 一種 Windows PowerShell 介面，可用來在虛擬陣列上啟動支援工作階段。
   下列各節將更詳細描述每個元件，並說明解決方案如何排列資料、配置儲存體、加快儲存體管理速度以及資料保護。
 
-### <a name="virtual-array"></a>虛擬陣列
+### <a name="virtual-array"></a>Virtual Array
 
 虛擬陣列是一種單一節點儲存體解決方案，可提供主要儲存體、管理與雲端儲存體的通訊，並協助確保所有儲存在裝置之資料的安全性和機密性。
 
@@ -175,7 +168,7 @@ Microsoft Azure StorSimple 提供可讓您集中管理 StorSimple 儲存體的 W
 * [排程和隨選備份](#scheduled-and-on-demand-backups)
 
 ### <a name="automatic-storage-tiering"></a>自動儲存體分層
-虛擬陣列使用新的分層機制來管理跨虛擬陣列和雲端儲存的資料。 只有兩層：本機虛擬陣列和 Azure 雲端儲存體。 StorSimple Virtual Array 會根據熱度圖自動排列分層中的資料，以追蹤目前使用量、使用年限以及與其他資料的關聯性。 最常使用 (最熱) 的資料會儲存在本機，而不常使用和非使用中資料會自動移轉至雲端 (所有備份都是儲存在雲端中)。StorSimple 會隨著使用模式變更而調整並重新排列資料和儲存體指派。 例如，某些資訊在經過一段時間之後可能會變成不常使用。 資訊逐漸變成不常使用時，會分層輸出至雲端。 如果相同的資料再次變成使用中，則會分層輸入至儲存體陣列。
+虛擬陣列使用新的分層機制來管理跨虛擬陣列和雲端儲存的資料。 只有兩層：本機虛擬陣列和 Azure 雲端儲存體。 StorSimple Virtual Array 會根據熱度圖自動排列分層中的資料，以追蹤目前使用量、使用年限以及與其他資料的關聯性。 最常使用 (最熱) 的資料會儲存在本機，而不常使用和非使用中資料會自動移轉至雲端 （所有備份都會儲存在雲端中）。當使用模式變更時，StorSimple 會調整並重新排列資料和儲存體指派。 例如，某些資訊在經過一段時間之後可能會變成不常使用。 資訊逐漸變成不常使用時，會分層輸出至雲端。 如果相同的資料再次變成使用中，則會分層輸入至儲存體陣列。
 
 特定階層式共用或磁碟區的資料保證其自身本機層的空間 (大約為該共用或磁碟區已佈建總空間的 10%)。 雖然這會降低虛擬陣列上該共用或磁碟區的可用儲存體，但是可確保某個共用或磁碟區的分層不受其他共用或磁碟區的分層需求的影響。 因此，某個共用或磁碟區上的極忙碌工作負載無法將所有其他工作負載強制到雲端。
 
@@ -213,7 +206,7 @@ StorSimple 資料保護功能可讓您建立隨選備份。 此外，預設備�
 
 虛擬系列的 StorSimple 裝置管理員會收集兩個主要執行個體中的個人資訊：
  - 警示使用者設定，其中會設定使用者的電子郵件地址。 系統管理員可以清除此資訊。 
- - 可以存取位於共用上的資料的使用者。 顯示可存取共用資料之使用者的清單，並且可匯出。 刪除共用時，也會一併刪除這份清單。
+ - 可以存取位於共用上之資料的使用者。 顯示可存取共用資料之使用者的清單，並且可匯出。 刪除共用時，也會一併刪除此清單。
 
 如需詳細資訊，請在信任中心[檢閱 Microsoft 隱私權原則](https://www.microsoft.com/trustcenter)。
 

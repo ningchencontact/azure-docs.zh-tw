@@ -1,20 +1,18 @@
 ---
 title: (已淘汰) 快速入門 - 適用於 Windows 的 Azure Kubernetes 叢集
 description: 快速了解如何在 Azure Container Service 中使用 Azure CLI 建立適用於 Windows 的 Kubernetes 叢集。
-services: container-service
 author: dlepow
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: d7ce702bb726fb89780d251f31023c9490112c36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e36de9f2a6af3643b6f609339d413968f6a8d6e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148797"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277653"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(已淘汰) 部署適用於 Windows 容器的 Kubernetes 叢集
 
@@ -22,7 +20,7 @@ ms.locfileid: "66148797"
 
 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 本指南詳述使用 Azure CLI 在 [Azure Container Service](../container-service-intro.md) 中部署 [Kubernetes](https://kubernetes.io/docs/home/) 叢集。 部署叢集之後，您要使用 Kubernetes`kubectl` 命令列工具與其連線，且您要部署第一個 Windows 容器。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -34,7 +32,7 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯群組。 
+使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 Azure 資源群組是部署及管理 Azure 資源所在的邏輯群組。 
 
 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 

@@ -1,28 +1,19 @@
 ---
-title: 在 Azure 中使用共用 VM 映像來建立擴展集 | Microsoft Docs
+title: 在 Azure 中使用共用 VM 映射建立擴展集
 description: 了解如何使用 Azure PowerShell 來建立共用 VM 映像，以用來在 Azure 中部署虛擬機器擴展集。
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: axayjo
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.custom: ''
-ms.openlocfilehash: 13c870ec87fa914f74bcfc4297dbe2fcc0bea282
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: b60a00828cfed8ef5d47704de2b2d7ede309ed6d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875617"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276304"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>使用 Azure PowerShell 為虛擬機器擴展集建立及使用共用映像
 
@@ -34,7 +25,7 @@ ms.locfileid: "67875617"
 
 共用映像庫具有多個資源類型。 我們將在這篇文章中使用或建置這些資源類型：
 
-| Resource | 描述|
+| 資源 | 說明|
 |----------|------------|
 | **受控映像** | 這是基本映像，既可單獨使用，也可用來在映像庫中建立個**映像版本**。 受控映像是從一般化 VM 建立的。 受控映像是一種特殊的 VHD 類型，可用來產生多個 VM，現在可以用來建立共用映像版本。 |
 | **映像庫** | 和 Azure Marketplace 一樣，**映像庫**是用於管理和共用映像的存放庫，但您可以控制哪些使用者能夠存取。 |
@@ -49,7 +40,7 @@ ms.locfileid: "67875617"
 
 下列步驟將詳細說明如何將現有 VM 轉換成可重複使用的自訂映像，以便讓您用來建立新的 VM 執行個體。
 
-若要完成本文中的範例，您必須具有現有的受控映像。 您可以遵循[教學課程：使用 Azure PowerShell 建立及使用虛擬機器擴展集的自訂映像](tutorial-use-custom-image-powershell.md)來建立一個 (如有需要)。 如果受控映射包含資料磁片, 資料磁片大小不能超過 1 TB。
+若要完成本文中的範例，您必須具有現有的受控映像。 您可以遵循[教學課程：建立及使用虛擬機器擴展集的自訂映射與 Azure PowerShell](tutorial-use-custom-image-powershell.md) ，以在需要時建立一個。 如果受控映射包含資料磁片，資料磁片大小不能超過 1 TB。
 
 逐步完成本文之後，請視需要取代資源群組和 VM 名稱。
 

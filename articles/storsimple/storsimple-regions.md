@@ -1,31 +1,23 @@
 ---
-title: StorSimple 區域可用性 | Microsoft Docs
+title: StorSimple 區域可用性
 description: 說明提供各種 StorSimple 裝置型號的 Azure 區域。
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 5b41f738c2419f806aef60374a545ff004a6f19e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965131"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275119"
 ---
 # <a name="available-regions-for-your-storsimple"></a>您的 StorSimple 的可用區域
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 Azure 資料中心在全球多個地區運行，以滿足客戶對資料位置相關之效能、需求和喜好設定的要求。 Azure 地理位置是包含至少一個 Azure 區域的已定義世界區域。 Azure 區域是包含一或多個資料中心之地理位置內的區域。
 
@@ -63,11 +55,11 @@ StorSimple 資料實際儲存在 Azure 儲存體帳戶中，且這些帳戶在�
 
 ## <a name="availability-of-storsimple-device"></a>StorSimple 裝置的可用性
 
-視模型而定, StorSimple 裝置可以在不同的地理位置或國家/地區使用。
+視模型而定，StorSimple 裝置可以在不同的地理位置或國家/地區使用。
 
 ### <a name="storsimple-physical-device-models-81008600"></a>StorSimple 實體裝置 (型號 8100/8600)
 
-如果使用 StorSimple 8100 或8600實體裝置, 裝置會在下列國家/地區提供。
+如果使用 StorSimple 8100 或8600實體裝置，裝置會在下列國家/地區提供。
 
 | #  | 國家/地區        | #  | 國家/地區     | #  | 國家/地區      | #  | 國家/地區             |
 |----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|

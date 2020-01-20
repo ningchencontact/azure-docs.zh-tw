@@ -1,26 +1,19 @@
 ---
 title: 了解虛擬機器擴展集範本
 description: 瞭解如何透過幾個簡單的步驟，建立 Azure 虛擬機器擴展集的基本擴展集範本。
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 52fb7c770e9f9e2570cad92a8c0dd9bc4374e708
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 24db9b2d39771c481a8c43e2b55f12cef381b4d6
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980173"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271898"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>了解虛擬機器擴展集範本
 [Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process)是部署相關資源群組的絕佳方式。 本教學課程系列說明如何建立基本的擴展集範本，以及如何修改此範本以符合各種案例。 所有範例皆來自這個 [GitHub 存放庫](https://github.com/gatneil/mvss)。

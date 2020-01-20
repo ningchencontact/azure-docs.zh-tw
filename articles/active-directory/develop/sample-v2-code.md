@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ba9df2aa81111ec28970c28e9c584baf2f8cd93
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f6a3ed104e6e8d79fe629b9b97c8a4ec0678d2a7
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766339"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271028"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft 身分識別平臺程式碼範例（v2.0 端點）
 
@@ -39,13 +39,13 @@ ms.locfileid: "74766339"
 
 若要瞭解每個範例類型的基本案例，請參閱[Microsoft 身分識別平臺端點的應用程式類型](v2-app-types.md)。
 
-您也可以在 GitHub 上參與範例。 若要了解做法，請參閱 [Microsoft Azure Active Directory 範例與文件](https://github.com/Azure-Samples?page=3&query=active-directory) (英文)。
+您也可以在 GitHub 上參與範例。 若要了解做法，請參閱 [Microsoft Azure Active Directory 範例與文件](https://github.com/Azure-Samples?page=3&query=active-directory)。
 
 ## <a name="single-page-applications"></a>單頁應用程式
 
 這些範例示範如何撰寫使用 Microsoft 身分識別平臺保護的單一頁面應用程式。 這些範例會使用 MSAL 的其中一種類別。
 
-| 平台 | 描述 | 連結 |
+| 平台 | 說明 | 連結 |
 | -------- | --------------------- | -------- |
 | ![此影像顯示 JavaScript 標誌](media/sample-v2-code/logo_js.png) [javascript （msal）](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | 呼叫 Microsoft Graph |[javascript-graphapi-web-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) (英文) |
 | ![此影像顯示 JavaScript 標誌](media/sample-v2-code/logo_js.png) [javascript （msal）](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | 呼叫 B2C |[b2c-javascript-msal-active-directory-javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
@@ -75,8 +75,8 @@ ms.locfileid: "74766339"
 | 桌上型 (WPF)      | ![此圖顯示 .NET/C#標誌](media/sample-v2-code/logo_NET.png) | [互動](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) (英文) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) (英文) |
 | 桌上型 (主控台)   | ![此圖顯示 .NET/C# （桌面）標誌](media/sample-v2-code/logo_NET.png) | [整合式 Windows 驗證](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
 | 桌上型 (主控台)   | ![此圖顯示 .NET/C# （桌面）標誌](media/sample-v2-code/logo_NETcore.png) | [使用者名稱/密碼](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
-| 桌上型 (主控台)   | ![此圖顯示 JAVA 標誌](media/sample-v2-code/logo_java.png) | [使用者名稱/密碼](msal-authentication-flows.md#usernamepassword) |[ms-身分識別-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/tree/master/Call-MsGraph-WithUsernamePassword) |  |
-| 桌上型 (主控台)   | ![此圖顯示 Python 標誌](media/sample-v2-code/logo_python.png) | [使用者名稱/密碼](msal-authentication-flows.md#usernamepassword) |[毫秒-身分識別-python-桌面](https://github.com/Azure-Samples/ms-identity-python-desktop/tree/master/2-Call-MsGraph-WithUsernamePassword) |  |
+| 桌上型 (主控台)   | ![此圖顯示 JAVA 標誌](media/sample-v2-code/logo_java.png) | [使用者名稱/密碼](msal-authentication-flows.md#usernamepassword) |[ms-身分識別-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
+| 桌上型 (主控台)   | ![此圖顯示 Python 標誌](media/sample-v2-code/logo_python.png) | [使用者名稱/密碼](msal-authentication-flows.md#usernamepassword) |[毫秒-身分識別-python-桌面](https://github.com/Azure-Samples/ms-identity-python-desktop) |  |
 | 行動裝置 (Android、iOS、UWP)   | ![此圖顯示 .NET/C# （Xamarin）標誌](media/sample-v2-code/logo_xamarin.png) | [互動](msal-authentication-flows.md#interactive) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) (英文) |  |
 | 行動裝置 (iOS)       | ![此圖顯示 iOS/目標-C 或 Swift](media/sample-v2-code/logo_iOS.png) | [互動](msal-authentication-flows.md#interactive) |[ios-swift-objc-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) (英文) |  |
 | Desktop （macOS）       | macOS | [互動](msal-authentication-flows.md#interactive) |[macOS-swift-objc-native-v2](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) |  |

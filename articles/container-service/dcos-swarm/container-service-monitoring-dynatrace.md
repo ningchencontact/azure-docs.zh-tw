@@ -1,20 +1,18 @@
 ---
 title: (已淘汰) 監視 Azure DC/OS 叢集 - Dynatrace
 description: 使用 Dynatrace 監視 Azure Container Service DC/OS 叢集。 使用 DC/OS 儀表板部署 Dynatrace OneAgent。
-services: container-service
 author: MartinGoodwell
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 8f34a00d9256c288a2842e905c06d5336522eece
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a82481c5cb3d12b11179b41999f73e67583ec43b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119842"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277754"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(已淘汰) 使用 Dynatrace SaaS/受控監視 Azure Container Service DC/OS 叢集
 
@@ -39,11 +37,11 @@ Dynatrace 是高動態容器和叢集環境適用的雲端原生監視解決方�
 
     ![DC/OS Universe 中的 Dynatrace](./media/container-service-monitoring-dynatrace/dynatrace-universe.png)
 
-2. 若要完成設定，您需要 Dynatrace SaaS 帳戶或免費試用帳戶。 登入 Dynatrace 儀表板後，請選取 [部署 Dynatrace]  。
+2. 若要完成設定，您需要 Dynatrace SaaS 帳戶或免費試用帳戶。 登入 Dynatrace 儀表板後，請選取 [部署 Dynatrace]。
 
     ![Dynatrace 設定 PaaS 整合](./media/container-service-monitoring-dynatrace/setup-paas.png)
 
-3. 在頁面上，選取 [設定 PaaS 整合]  。 
+3. 在頁面上，選取 [設定 PaaS 整合]。 
 
     ![Dynatrace API 權杖](./media/container-service-monitoring-dynatrace/api-token.png) 
 

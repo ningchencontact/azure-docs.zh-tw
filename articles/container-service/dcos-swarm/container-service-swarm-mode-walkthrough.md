@@ -1,20 +1,18 @@
 ---
 title: (已淘汰) 快速入門 - 適用於 Linux 的 Azure Docker CE 叢集
 description: 快速了解如何在 Azure Container Service 中使用 Azure CLI 建立適用於 Linux 容器的 Docker CE 叢集。
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f492dd2bd270d3f067c05c1dc2235d54e481847
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721774"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274883"
 ---
 # <a name="deprecated-deploy-docker-ce-cluster"></a>(已淘汰) 部署 Docker CE 叢集
 
@@ -24,13 +22,13 @@ ms.locfileid: "60721774"
 
 Azure Container Service 上的 Docker CE 處於預覽狀態，**不得用於生產工作負載**。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯群組。
+使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 Azure 資源群組是部署及管理 Azure 資源所在的邏輯群組。
 
 下列範例會在 *westus2* 位置建立名為 *myResourceGroup* 的資源群組。
 
@@ -57,7 +55,7 @@ az group create --name myResourceGroup --location westus2
 
 使用 [az acs create](/cli/azure/acs#az-acs-create) 命令，在 Azure Container Service 中建立 Docker CE 叢集。 如需可取得 Docker CE 之區域的相關資訊，請參閱 [Docker CE 的 ACS 區域](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md) \(英文\)
 
-下列範例會建立一個名為 mySwarmCluster  的叢集，其中包含一個 Linux 主要節點和三個 Linux 代理程式節點。
+下列範例會建立一個名為 mySwarmCluster 的叢集，其中包含一個 Linux 主要節點和三個 Linux 代理程式節點。
 
 ```azurecli-interactive
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
@@ -65,9 +63,9 @@ az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-grou
 
 在有限試用之類的某些情況下，Azure 訂用帳戶只擁有 Azure 資源的有限存取權。 如果部署因可用核心受限而失敗，請將 `--agent-count 1` 加入 [az acs create](/cli/azure/acs#az-acs-create) 命令來減少預設代理程式的數量。 
 
-幾分鐘之後，此命令就會完成，並以 JSON 格式傳回叢集的相關資訊。
+在數分鐘之後，該命令會完成並傳回關於節點的 JSON 格式資料。
 
-## <a name="connect-to-the-cluster"></a>連接到叢集
+## <a name="connect-to-the-cluster"></a>連線至叢集
 
 在本快速入門中，您需要 Docker Swarm 主機和 Docker 代理程式集區的 FQDN。 執行下列命令以傳回主機和代理程式 FQDN。
 
@@ -106,7 +104,6 @@ export DOCKER_HOST=localhost:2374
 
 ```yaml
 version: '3'
-services:
   azure-vote-back:
     image: redis
     ports:

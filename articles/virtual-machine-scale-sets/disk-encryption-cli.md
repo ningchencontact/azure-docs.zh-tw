@@ -1,20 +1,19 @@
 ---
 title: 使用 Azure CLI 將 Azure 擴展集的磁片加密
 description: 了解如何使用 Azure PowerShell 加密 Windows 虛擬機器擴展集中的 VM 執行個體和已連結的磁碟
-services: virtual-machine-scale-sets
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2577eef95cad3405eb42af22e4c57511a660c1a6
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 557d5c023acbc7987d58c9e78bfe11e25f314879
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530806"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279085"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>使用 Azure CLI 在虛擬機器擴展集中加密作業系統和連結的資料磁片
 
@@ -22,7 +21,7 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="create-a-scale-set"></a>建立擴展集
 

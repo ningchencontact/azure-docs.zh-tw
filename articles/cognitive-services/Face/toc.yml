@@ -1,9 +1,9 @@
-- name: 臉部 API 文件
+- name: 臉部辨識文件
   href: index.yml
 - name: 概觀
   expanded: true
   items:
-    - name: 什麼是臉部 API？
+    - name: 什麼是臉部辨識服務？
       href: Overview.md
 - name: 快速入門
   items:
@@ -77,7 +77,7 @@
           href: face-resource-container-config.md
         - name: 使用容器執行個體
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
-    - name: 使用臉部 API 連線服務
+    - name: 使用臉部連線服務
       href: vs-face-connected-service.md
 - name: 參考
   items:
@@ -101,7 +101,7 @@
   items:
     - name: 範例
       items:
-        - name: 臉部 API 範例
+        - name: 臉部範例
           href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=face'
     - name: 價格和限制
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'

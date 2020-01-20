@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7334d4292db710a32b888d9a3ad4e78872d15227
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 232d85789c25e905873286eba6fda32c327a6e25
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863507"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276926"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中建立使用者定義函式
 
@@ -246,7 +246,7 @@ function process(telemetry, executionContext) {
 
 ## <a name="send-telemetry-to-be-processed"></a>傳送要處理的遙測
 
-空間智慧圖形中所定義的感應器會傳送遙測。 接著，遙測會觸發已上傳的使用者定義函式執行。 資料處理器取用遙測資料。 然後針對使用者定義函式的引動，建立執行計畫。
+空間智慧圖形中所定義的感應器會傳送遙測。 接著，遙測會觸發已上傳的使用者定義函式執行。 資料處理器取用遙測資料。 然後，系統會針對使用者定義函數的調用建立執行計畫。
 
 1. 針對產生讀數的感應器擷取比對器。
 1. 根據評估成功的比對器，擷取相關聯的使用者定義函式。

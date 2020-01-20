@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5be8668f9a2761bf1aa9809749fa44f21d622dde
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: b3192e4bf25763e870cc618e5e45f16384607b7f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045807"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277995"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>在 Python 中設定自動化 ML 實驗
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -415,7 +415,7 @@ best_run, fitted_model = automl_run.get_output()
 |自訂|定義|
 |--|--|
 |資料行目的更新|覆寫指定之資料行的功能類型。|
-|轉換器參數更新 |更新指定之轉換器的參數。 目前支援 Imputer 和 HashOneHotEncoder。|
+|轉換器參數更新 |更新指定之轉換器的參數。 目前支援 Imputer （mean、最常 & 中位數）和 HashOneHotEncoder。|
 |卸載資料行 |要從特徵化中捨棄的資料行。|
 |區塊轉換器| 封鎖要在特徵化進程上使用的轉換器。|
 

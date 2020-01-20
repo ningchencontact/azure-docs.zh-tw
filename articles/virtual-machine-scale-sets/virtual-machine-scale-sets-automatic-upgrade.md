@@ -1,26 +1,18 @@
 ---
-title: 使用 Azure 虛擬機器擴展集進行 OS 映像自動升級 | Microsoft Docs
+title: 使用 Azure 虛擬機器擴展集自動升級 OS 映射
 description: 瞭解如何在擴展集中的 VM 實例上自動升級 OS 映射
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: vashan
-ms.openlocfilehash: 95a313b3c6995d55b86561c685641b447edae127
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: c452ba5b8abfce4227d72922139824d639c62755
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240929"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278150"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure 虛擬機器擴展集的 OS 映像自動升級
 
@@ -56,12 +48,12 @@ ms.locfileid: "72240929"
 
 目前支援下列 SKU (會定期新增更多項目)：
 
-| 發行者               | OS 供應項目      |  SKU               |
+| 發佈者               | OS 供應項目      |  SKU               |
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |
 | Rogue Wave (OpenLogic)  | CentOS        | 7.5                |
-| CoreOS                  | CoreOS        | Stable             |
+| CoreOS                  | CoreOS        | 穩定             |
 | Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter-Smalldisk |
@@ -78,7 +70,7 @@ ms.locfileid: "72240929"
 - 非 Service Fabric 的擴展集必須使用應用程式健康情況探查或[應用程式健康情況擴充功能](virtual-machine-scale-sets-health-extension.md)。
 - 使用計算 API 2018-10-01 版或更高版本。
 - 請確定擴展集模型中指定的外部資源可供使用且已更新。 範例包括在 VM 擴充功能屬性中用於啟動承載的 SAS URI、儲存體帳戶中的承載，以及模型中祕密的參照等等。
-- 針對使用 Windows 虛擬機器的擴展集，從計算 API 版本2019-03-01 開始，擴展集模型中的屬性*virtualMachineProfile. osProfile. windowsConfiguration. enableAutomaticUpdates*屬性必須設定為*false* 。清晰. 上述屬性可啟用 VM 內升級，其中 "Windows Update" 會套用作業系統修補程式，而不會取代 OS 磁片。 在擴展集上啟用自動 OS 映射升級之後，就不需要透過「Windows Update」進行額外的更新。
+- 針對使用 Windows 虛擬機器的擴展集，從計算 API 版本2019-03-01 開始，擴展集模型定義中的屬性*virtualMachineProfile. osProfile. enableAutomaticUpdates*屬性必須設定為*false* 。 上述屬性可啟用 VM 內升級，其中 "Windows Update" 會套用作業系統修補程式，而不會取代 OS 磁片。 在擴展集上啟用自動 OS 映射升級之後，就不需要透過「Windows Update」進行額外的更新。
 
 ### <a name="service-fabric-requirements"></a>Service Fabric 需求
 

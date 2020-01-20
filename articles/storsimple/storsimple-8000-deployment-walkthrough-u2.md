@@ -1,31 +1,23 @@
 ---
-title: 在 Azure 入口網站中部署 StorSimple 8000 系列裝置 | Microsoft Docs
+title: 在 Azure 入口網站中部署 StorSimple 8000 系列裝置
 description: 描述部署執行 Update 3 和更新版本之 StorSimple 8000 系列裝置和 StorSimple 裝置管理員服務的步驟與最佳做法。
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 1f44690de1f38e3d337072cc7c974887eb0e31cc
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965906"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273953"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>部署您的內部部署 StorSimple 裝置 (Update 3 和更新版本)
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 歡迎使用 Microsoft Azure StorSimple 裝置部署。 這些部署教學課程適用於 StorSimple 8000 Series Update 3 或更新版本。 這一系列的教學課程包含 StorSimple 裝置的設定檢查清單、設定必要條件，以及詳細的設定步驟。
 
 這些教學課程中的資訊均假設您已經檢閱安全性預防措施，並已打開 StorSimple 裝置包裝、裝上機架並接好纜線。 如果您仍然需要執行這些工作，請從檢閱 [安全性預防措施](storsimple-8000-safety.md)開始。 請遵循裝置特定的指示打開包裝、掛接機架和佈線您的裝置。
@@ -42,20 +34,20 @@ ms.locfileid: "68965906"
 ## <a name="deployment-steps"></a>部署步驟
 請執行這些必要步驟來設定 StorSimple 裝置，並將它連線到 StorSimple 裝置管理員服務。 除了這些必要步驟外，部署期間也會有一些您可能需要的選擇性步驟和程序。 逐步部署指出您應該執行各選擇性步驟的時機。
 
-| 步驟 | 描述 |
+| 步驟 | 說明 |
 | --- | --- |
 | **必要條件** |這些是針對將要進行的部署所必須完成的準備工作。 |
 | [部署設定檢查清單](#deployment-configuration-checklist) |使用此檢查清單，將部署之前和部署期間的資訊加以收集並記錄。 |
 | [部署必要條件](#deployment-prerequisites) |這些會驗證環境是否準備就緒以供部署。 |
 |  | |
 | **逐步部署** |需要執行這些步驟，才能在生產環境中部署您的 StorSimple 裝置。 |
-| [步驟 1：建立新服務](#step-1-create-a-new-service) |設定雲端管理和 StorSimple 裝置的儲存體。 *如果您現在已經有針對其他 StorSimple 裝置的服務，請略過此步驟*。 |
+| [步驟 1：建立新的服務](#step-1-create-a-new-service) |設定雲端管理和 StorSimple 裝置的儲存體。 *如果您現在已經有針對其他 StorSimple 裝置的服務，請略過此步驟*。 |
 | [步驟 2：取得服務註冊金鑰](#step-2-get-the-service-registration-key) |使用此金鑰註冊並將 StorSimple 裝置與管理服務連接。 |
-| [步驟 3：透過適用於 StorSimple 的 Windows PowerShell 設定和註冊裝置](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |使用管理服務將裝置連線到您的網路，並使用 Azure 註冊以完成設定。 |
-| [步驟 4：完成最小裝置設定](#step-4-complete-minimum-device-setup)</br>[最佳做法:更新您的 StorSimple 裝置](#scan-for-and-apply-updates) |使用管理服務來完成裝置設定並啟用裝置以提供儲存體。 |
-| [步驟 5：建立磁片區容器](#step-5-create-a-volume-container) |建立容器以佈建磁碟區。 磁碟區容器具有其中所含之所有磁碟區的儲存體帳戶、頻寬及加密設定。 |
-| [步驟 6：建立磁片區](#step-6-create-a-volume) |在您伺服器的 StorSimple 裝置上，佈建儲存體磁碟區。 |
-| [步驟 7：掛接、初始化及格式化磁碟區](#step-7-mount-initialize-and-format-a-volume)</br>[選擇性：設定 MPIO](storsimple-8000-configure-mpio-windows-server.md) |將您的伺服器連接至裝置提供的 iSCSI 儲存體。 選擇性地設定 MPIO 確保您的伺服器可以容許連結、網路和介面失敗。 |
+| [步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |使用管理服務將裝置連線到您的網路，並使用 Azure 註冊以完成設定。 |
+| [步驟 4：完成最小量裝置設定](#step-4-complete-minimum-device-setup)</br>[最佳做法：更新您的 StorSimple 裝置](#scan-for-and-apply-updates) |使用管理服務來完成裝置設定並啟用裝置以提供儲存體。 |
+| [步驟 5：建立磁碟區容器](#step-5-create-a-volume-container) |建立容器以佈建磁碟區。 磁碟區容器具有其中所含之所有磁碟區的儲存體帳戶、頻寬及加密設定。 |
+| [步驟 6：建立磁碟區](#step-6-create-a-volume) |在您伺服器的 StorSimple 裝置上，佈建儲存體磁碟區。 |
+| [步驟 7：掛接、初始化及格式化磁碟區](#step-7-mount-initialize-and-format-a-volume)</br>[選用：設定 MPIO。](storsimple-8000-configure-mpio-windows-server.md) |將您的伺服器連接至裝置提供的 iSCSI 儲存體。 選擇性地設定 MPIO 確保您的伺服器可以容許連結、網路和介面失敗。 |
 | [步驟 8：進行備份](#step-8-take-a-backup) |設定備份原則以保護您的資料 |
 |  | |
 | **其他程序** |在您部署解決方案時可能需要參考這些程序。 |
@@ -95,7 +87,7 @@ ms.locfileid: "68965906"
 ## <a name="step-by-step-deployment"></a>逐步部署
 請在資料中心使用下列逐步指示來部署 StorSimple 裝置。
 
-## <a name="step-1-create-a-new-service"></a>步驟 1:建立新的服務
+## <a name="step-1-create-a-new-service"></a>步驟 1：建立新的服務
 StorSimple 裝置管理員服務可以管理多個 StorSimple 裝置。 執行下列步驟來建立 StorSimple 裝置管理員服務的執行個體。
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-8000-create-new-service.md)]
@@ -107,19 +99,19 @@ StorSimple 裝置管理員服務可以管理多個 StorSimple 裝置。 執行�
 > * 如果您已啟用自動建立儲存體帳戶，請移至 [步驟 2：取得服務註冊金鑰](#step-2-get-the-service-registration-key)。
 
 
-## <a name="step-2-get-the-service-registration-key"></a>步驟 2:取得服務註冊金鑰。
+## <a name="step-2-get-the-service-registration-key"></a>步驟 2：取得服務註冊金鑰
 當 StorSimple 裝置管理員服務已啟動並執行之後，您就必須取得服務註冊金鑰。 這個金鑰是用來註冊和將 StorSimple 裝置與服務連接。
 
 請在 Azure 入口網站中執行下列步驟。
 
 [!INCLUDE [storsimple-8000-get-service-registration-key](../../includes/storsimple-8000-get-service-registration-key.md)]
 
-## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>步驟 3：透過適用於 StorSimple 的 Windows PowerShell 設定和註冊裝置
+## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置
 您可以使用 Windows PowerShell for StorSimple 來完成 StorSimple 裝置的初始安裝，如下列程序所述。 您必須使用終端機模擬軟體來完成這個步驟。 如需詳細資訊，請參閱 [使用 PuTTY 連接到裝置序列主控台](#use-putty-to-connect-to-the-device-serial-console)。
 
 [!INCLUDE [storsimple-8000-configure-and-register-device-u2](../../includes/storsimple-8000-configure-and-register-device-u2.md)]
 
-## <a name="step-4-complete-minimum-device-setup"></a>步驟 4：完成最小裝置設定
+## <a name="step-4-complete-minimum-device-setup"></a>步驟 4：完成最小量裝置設定
 為完成 StorSimple 裝置的最小量裝置設定，您必須： 
 
 * 為裝置提供 [易記名稱]。
@@ -132,7 +124,7 @@ StorSimple 裝置管理員服務可以管理多個 StorSimple 裝置。 執行�
 
 完成最低裝置設定之後，它就是[掃描及套用最新更新](#scan-for-and-apply-updates)的最佳做法。
 
-## <a name="step-5-create-a-volume-container"></a>步驟 5：建立磁片區容器
+## <a name="step-5-create-a-volume-container"></a>步驟 5：建立磁碟區容器
 磁碟區容器具有其中所含之所有磁碟區的儲存體帳戶、頻寬及加密設定。 您必須建立磁碟區容器，才能開始在 StorSimple 裝置上佈建磁碟區。
 
 請在 Azure 入口網站中執行下列步驟，來建立磁碟區容器。

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 83b167baa29a54e53f7fe8bdb7b7e5c88bc3eddf
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: c98feda62b7e5de5551b02d6189a1142ca8c5f88
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264079"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276788"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
 
@@ -29,7 +29,7 @@ Application Insights 可以使用於任何網頁 - 您剛剛新增 JavaScript �
     * [JavaScript 程式碼片段](#snippet-based-setup)
 
 > [!IMPORTANT]
-> > 僅使用一種方法將 JavaScript SDK 新增至您的應用程式。 如果您使用 NPM 安裝程式，請不要使用程式碼片段，反之亦然。
+> 僅使用一種方法將 JavaScript SDK 新增至您的應用程式。 如果您使用 NPM 安裝程式，請不要使用程式碼片段，反之亦然。
 
 > [!NOTE]
 > NPM 安裝程式會安裝 JavaScript SDK 作為您專案的相依性，啟用 IntelliSense，而程式碼片段則會在執行時間提取 SDK。 兩者都支援相同的功能。 不過，想要有更多自訂事件和設定的開發人員通常會選擇 NPM 安裝，而使用者需要快速啟用現成的 web 分析來選擇程式碼片段。

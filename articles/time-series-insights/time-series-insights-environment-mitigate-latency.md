@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5000d79db0d9036fe8904322764e4c480111d6cc
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: b301bc6c1674cad26288556957ba6214df74f18d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863388"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278674"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>監視與降低節流，以減少 Azure 時間序列深入解析中的延遲
 
@@ -30,7 +30,7 @@ ms.locfileid: "75863388"
 - 新增事件來源，其中包含的舊資料可能會超過您的配置輸入率 (時間序列深入解析必須趕上)。
 - 將更多事件來源新增至環境，從而導致其他事件高峰 (這可能會超出您環境的容量)。
 - 將大量的歷程記錄事件推送至事件來源，從而導致延隔時間 (時間序列深入解析必須趕上)。
-- 將參考資料與遙測聯結，從而導致較大的事件大小。  就節流的觀點而言，會將封包大小為 32 KB 的輸入資料封包視為 32 個事件，每個大小為 1 KB。 允許的事件大小上限為 32 KB；大於 32 KB 的資料封包會加以截斷。
+- 將參考資料與遙測聯結，從而導致較大的事件大小。 就節流的觀點而言，會將封包大小為 32 KB 的輸入資料封包視為 32 個事件，每個大小為 1 KB。 允許的事件大小上限為 32 KB；大於 32 KB 的資料封包會加以截斷。
 
 ## <a name="video"></a>影片
 
@@ -40,13 +40,13 @@ ms.locfileid: "75863388"
 
 ## <a name="monitor-latency-and-throttling-with-alerts"></a>使用警示來監視延遲和節流
 
-警示有助於您協助診斷並減少您環境所造成的延遲問題。
+警示可協助您診斷和緩和環境中發生的延遲問題。
 
 1. 在 Azure 入口網站中，選取您的時間序列深入解析環境。 然後選取 [**警示**]。
 
    [![將警示新增至您的時間序列深入解析環境](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
-1. 接著會顯示 [**建立規則**] 面板。 選取 [**條件**] 底下的 [**新增**]。
+1. 選取 [+ 新增警示規則]。 接著會顯示 [**建立規則**] 面板。 選取 [**條件**] 底下的 [**新增**]。
 
    [![新增警示窗格](media/environment-mitigate-latency/mitigate-latency-add-pane.png)](media/environment-mitigate-latency/mitigate-latency-add-pane.png#lightbox)
 

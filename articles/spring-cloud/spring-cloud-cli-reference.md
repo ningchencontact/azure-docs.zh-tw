@@ -1,24 +1,24 @@
 ---
 title: az 春季 cloud
 description: 使用 Azure CLI 管理 Azure 春季雲端
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: reference
 ms.date: 10/03/2019
-ms.author: jeconnoc
-ms.openlocfilehash: a1f82d4efa7756b44ca5ed9859aa872c1f55b565
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.author: brendm
+ms.openlocfilehash: 869a47469f8e0429d3726651c28f5a58acfcb856
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607830"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279051"
 ---
 # <a name="az-spring-cloud"></a>az 春季-雲端
 
 ## <a name="manage-azure-spring-cloud-using-the-azure-cli"></a>使用 Azure CLI 管理 Azure 春季雲端
 
 >[!Note]
-> Azure 春季雲端目前為預覽狀態。  這些命令可能會在未來的版本中變更或移除。
+> Azure Spring Cloud 目前為預覽狀態。  這些命令可能會在未來的版本中變更或移除。
 
 | az 春季-雲端 |  |
 |------|------:|
@@ -179,7 +179,7 @@ az spring-cloud app create --name -n
 | --- | ---: |
 | --name-n | 應用程式的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 | 選擇性參數 | |
 | --- | ---: |
@@ -187,7 +187,7 @@ az spring-cloud app create --name -n
 | --啟用-持續性儲存體 | 布林值。  若為 true，則裝載具有預設路徑的50GB 磁片。 |
 | --instance-count | 實例的數目。  預設值：1。 |
 | --為-公用 | 布林值。  若為 true，則指派公用網域。 |
-| --記憶體 | 每個實例的記憶體 GB 數。  預設值：1。 |
+| --memory | 每個實例的記憶體 GB 數。  預設值：1。 |
 
 ### <a name="examples"></a>範例
 
@@ -217,7 +217,7 @@ az spring cloud app delete  --name -n
 | --- | ---: |
 | --name-n | 應用程式的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 ## <a name="az-spring-cloud-app-deploy"></a>az 春天雲端應用程式部署
 
@@ -244,7 +244,7 @@ az spring cloud app deploy  --name -n
 | --- | ---: |
 | --name-n | 應用程式的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 | 選擇性參數 | |
 | --- | ---: |
@@ -254,9 +254,9 @@ az spring cloud app deploy  --name -n
 | --instance-count | 實例的數目。 |
 | --jar-path | 如有提供，請從指定的路徑部署 jar。 否則，請將目前資料夾部署為 tar。 |
 | --jvm-選項 | 包含 JVM 選項的字串。  請使用 ' = ' 而不是 ' ' 來避免 shell 剖析錯誤。 例如，`--jvm-options='-Xms1024m -Xmx2048m`。 |
-| --記憶體 | 每個實例的記憶體 GB 數。 |
+| --memory | 每個實例的記憶體 GB 數。 |
 | --no-wait | 請不要等候長時間執行的作業完成。 |
-| --執行時間版本 | 應用程式中所使用之語言的執行階段版本。  允許的值： `Java_11`，`Java_8`。 |
+| --執行時間版本 | 應用程式中所使用之語言的執行階段版本。  允許的值： `Java_11`、`Java_8`。 |
 | --目的模組 | 要部署的子模組。  從原始程式碼建立多個 jar 封裝時的必要項。 |
 | --version | 部署版本。  如果未設定，則為未變更。 |
 
@@ -292,7 +292,7 @@ az spring-cloud app list --resource-group -g
 |必要參數 | |
 | --- | ---: |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 ## <a name="az-spring-cloud-app-restart"></a>az 春季-雲端應用程式重新開機
 
@@ -310,7 +310,7 @@ az spring-cloud app restart --name -n
 | --- | ---: |
 | --name-n | 應用程式的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 | 選擇性參數 | |
 | --- | ---: |
@@ -336,14 +336,14 @@ az spring-cloud app scale --name -n
 | --- | ---: |
 | --name-n | 應用程式的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 | 選擇性參數 | |
 | --- | ---: |
 | --cpu | 每個應用程式實例的虛擬 CPU 核心數目。 |
 | --deployment-d | 應用程式現有部署的名稱。  如果未指定，則預設為生產部署。 |
 | --instance-count | 此應用程式的實例數目。 |
-| --記憶體 | 每個應用程式實例的記憶體 GB 數。 |
+| --memory | 每個應用程式實例的記憶體 GB 數。 |
 | --no-wait | 請不要等候長時間執行的作業完成。 |
 
 ### <a name="examples"></a>範例
@@ -377,7 +377,7 @@ az spring-cloud app set-deployment --deployment -d
 | --deployment-d | 應用程式現有部署的名稱。 |
 | --name-n | 應用程式的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 | 選擇性參數 | |
 | --- | ---: |
@@ -405,7 +405,7 @@ az spring-cloud app show --name -n
 | --- | ---: |
 | --name-n | 應用程式的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 ## <a name="az-spring-cloud-app-show-deploy-log"></a>az 春天-雲端應用程式顯示-部署-記錄
 
@@ -422,7 +422,7 @@ az spring-cloud app show-deploy-log --name -n
 | --- | ---: |
 | --name-n | 應用程式的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 | 選擇性參數 | |
 | --- | ---: |
@@ -444,7 +444,7 @@ az spring-cloud app start --name -n
 | --- | ---: |
 | --name-n | 應用程式的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 | 選擇性參數 | |
 | --- | ---: |
@@ -467,7 +467,7 @@ az spring-cloud app stop --name -n
 | --- | ---: |
 | --name-n | 應用程式的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 | 選擇性參數 | |
 | --- | ---: |
@@ -495,7 +495,7 @@ az spring-cloud app update --name -n
 | --- | ---: |
 | --name-n | 應用程式的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 | 選擇性參數 | |
 | --- | ---: |
@@ -505,7 +505,7 @@ az spring-cloud app update --name -n
 | --為-公用 | 布林值。  若為 true，則將公用網域指派給應用程式。 |
 | --jvm-選項 | 包含 JVM 選項的字串。  請使用 ' = ' 而不是 ' ' 來避免 shell 剖析錯誤。 例如，`--jvm-options='-Xms1024m -Xmx2048m`。 |
 | --no-wait | 請不要等候長時間執行的作業完成。 |
-| --執行時間版本 | 應用程式中所使用之語言的執行階段版本。  允許的值： `Java_11`，`Java_8`。 |
+| --執行時間版本 | 應用程式中所使用之語言的執行階段版本。  允許的值： `Java_11`、`Java_8`。 |
 
 ### <a name="example"></a>範例
 
@@ -529,7 +529,7 @@ az spring-cloud app binding list --app
 | --- | ---: |
 | --應用程式 | 應用程式的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 ## <a name="az-spring-cloud-app-binding-remove"></a>az 春天-雲端應用程式系結移除
 
@@ -547,7 +547,7 @@ az spring-cloud app binding list --app
 | --應用程式 | 應用程式的名稱。 |
 | --name | 要移除之服務系結的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 ## <a name="az-spring-cloud-app-binding-show"></a>az 春季 cloud app binding show
 
@@ -565,7 +565,7 @@ az spring-cloud app binding show --app
 | --應用程式 | 應用程式的名稱。 |
 | --name | 服務系結的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 ## <a name="az-spring-cloud-app-binding-cosmos-add"></a>az 春季 cloud app binding cosmos add
 
@@ -596,12 +596,12 @@ az spring-cloud app binding list --app
 | --應用程式 | 應用程式的名稱。 |
 | --name | 服務系結的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 |選擇性參數 | |
 | --- | ---: |
 | --collection-name | 集合的名稱。  使用 Gremlin 時的必要。 |
-| --資料庫-名稱 | 資料庫名稱。  使用 Mongo、SQL 和 Gremlin 時的必要。 |
+| --資料庫-名稱 | 資料庫的名稱。  使用 Mongo、SQL 和 Gremlin 時的必要。 |
 | --索引鍵-空間 | Cassandra 索引鍵-空格。  使用 Cassandra 時的必要。 |
 
 ## <a name="az-spring-cloud-app-binding-cosmos-update"></a>az 春季 cloud app binding cosmos update
@@ -621,12 +621,12 @@ az spring-cloud app binding cosmos update --app
 | --應用程式 | 應用程式的名稱。 |
 | --name | 服務系結的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 |選擇性參數 | |
 | --- | ---: |
 | --collection-name | 集合的名稱。  使用 Gremlin 時的必要。 |
-| --資料庫-名稱 | 資料庫名稱。  使用 Mongo、SQL 和 Gremlin 時的必要。 |
+| --資料庫-名稱 | 資料庫的名稱。  使用 Mongo、SQL 和 Gremlin 時的必要。 |
 | --索引鍵-空間 | Cassandra 索引鍵-空格。  使用 Cassandra 時的必要。 |
 
 ## <a name="az-spring-cloud-app-binding-mysql-add"></a>az 春天-雲端應用程式系結 mysql 新增
@@ -644,12 +644,12 @@ az spring-cloud app binding mysql add --app
 | 必要參數 | |
 | --- | ---: |
 | --應用程式 | 應用程式的名稱。 |
-| --資料庫-名稱 | 資料庫名稱。 |
+| --資料庫-名稱 | 資料庫的名稱。 |
 | --key | 服務的 API 金鑰。 |
 | --name | 服務系結的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
 | --資源識別碼 | 要系結之服務的 Azure 資源識別碼。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 | --username | 資料庫存取的使用者名稱。 |
 
 ## <a name="az-spring-cloud-app-binding-mysql-update"></a>az 春天-雲端應用程式系結 mysql 更新
@@ -671,11 +671,11 @@ az spring-cloud app binding mysql update --add
 | --應用程式 | 應用程式的名稱。 |
 | --name | 服務系結的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 | 選擇性參數 | |
 | --- | ---: |
-| --資料庫-名稱 | 資料庫名稱。 |
+| --資料庫-名稱 | 資料庫的名稱。 |
 | --key | 服務的 API 金鑰。 |
 | --username | 資料庫存取的使用者名稱。 |
 
@@ -698,7 +698,7 @@ az spring-cloud app binding redis add --app
 | --name | 服務系結的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
 | --資源識別碼 | 您想要系結之服務的 Azure 資源識別碼。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 | 選擇性參數 | |
 | --- | ---: |
@@ -713,7 +713,7 @@ az spring-cloud app binding redis add --app
 | --應用程式 | 應用程式的名稱。 |
 | --name | 服務系結的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 | 選擇性參數 | |
 | --- | ---: |
@@ -723,14 +723,14 @@ az spring-cloud app binding redis add --app
 
 建立應用程式的預備環境部署。
 
-若要部署程式碼或將設定更新為現有的部署，請使用 `az spring-cloud app deploy --deployment <staging-deployment>` 或 ' az 春季-cloud app update--部署 <staging deployment>。
+若要部署程式碼或將設定更新為現有的部署，請使用 `az spring-cloud app deploy --deployment <staging-deployment>` 或 ' az 春季-cloud app update--deployment <staging deployment>。
 
 | 必要參數 | |
 | --- | ---: |
 | --應用程式 | 應用程式的名稱。 |
 | --name | 服務系結的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 | 選擇性參數 | |
 | --- | ---: |
@@ -739,9 +739,9 @@ az spring-cloud app binding redis add --app
 | --instance-count | 實例的數目。 預設值：1。 |
 | --jar-path | 若有提供，請部署 jar。  否則，請將目前資料夾部署為 tar。 |
 | --jvm-選項 | 包含 JVM 選項的字串。  請使用 ' = ' 而不是 ' ' 來避免 shell 剖析錯誤。 例如，`--jvm-options='-Xms1024m -Xmx2048m`。 |
-| --記憶體 | 每個實例的記憶體 GB 數。 |
+| --memory | 每個實例的記憶體 GB 數。 |
 | --no-wait | 請不要等候長時間執行的作業完成。 |
-| --執行時間版本 | 應用程式中所使用之語言的執行階段版本。  允許的值： `Java_11`，`Java_8`。 |
+| --執行時間版本 | 應用程式中所使用之語言的執行階段版本。  允許的值： `Java_11`、`Java_8`。 |
 | --略過-複製-設定 | 複製目前的生產部署設定以建立預備部署。 |
 | --目的模組 | 要部署的子模組。  從原始程式碼建立多個 jar 封裝時的必要項。 |
 | --version | 部署版本。  如果未設定，則為未變更。 |
@@ -776,7 +776,7 @@ az spring-cloud app deployment delete --app
 | --應用程式 | 應用程式的名稱。 |
 | --name | 部署的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 ## <a name="az-spring-cloud-app-deployment-list"></a>az 春天-雲端應用程式部署清單
 
@@ -792,7 +792,7 @@ az spring-cloud app deployment list --app
 | --- | ---: |
 | --應用程式 | 應用程式的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 ## <a name="az-spring-cloud-app-deployment-show"></a>az 春季-cloud 應用程式部署 show
 
@@ -810,7 +810,7 @@ az spring-cloud app deployment show --app
 | --應用程式 | 應用程式的名稱。 |
 | --name | 部署的名稱。 |
 | --resource-group -g | 資源群組的名稱。  您可以使用 `az configure --defaults group=<name>` 來設定預設群組。 |
-| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>` 來設定預設服務。 |
+| --service-s | Azure 春季雲端的名稱。  您可以使用 `az configure --defaults spring-cloud=<name>`來設定預設服務。 |
 
 ## <a name="az-spring-cloud-config-server-clear"></a>az 春季-cloud config-伺服器 clear
 

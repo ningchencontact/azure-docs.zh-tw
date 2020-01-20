@@ -3,12 +3,12 @@ title: 如何建立來賓設定原則
 description: 瞭解如何使用 Azure PowerShell 為 Windows 或 Linux Vm 建立 Azure 原則來賓設定原則。
 ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: dbdb4288812b8d1016c3ccc879582f76222d17cd
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 7a6c6bb68302d41cd750c59062432a40cf01e8bd
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867329"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278463"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>如何建立來賓設定原則
 
@@ -176,42 +176,6 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 
 完成的封裝必須儲存在受管理的虛擬機器可存取的位置。 範例包括 GitHub 存放庫、Azure 儲存機制或 Azure 儲存體。 如果您不想讓套件公開，您可以在 URL 中包含[SAS 權杖](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
 雖然這項設定只適用于存取封裝，而不是與服務通訊，但您也可以在私人網路中執行機器的[服務端點](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)。
-
-### <a name="working-with-secrets-in-guest-configuration-packages"></a>使用來賓設定套件中的秘密
-
-在 Azure 原則來賓設定中，管理在執行時間使用之秘密的最佳方式是將它們儲存在 Azure Key Vault 中。 這種設計會在自訂 DSC 資源內執行。
-
-1. 在 Azure 中建立使用者指派的受控識別。
-
-   電腦會使用此身分識別來存取儲存在 Key Vault 中的秘密。 如需詳細步驟，請參閱[使用 Azure PowerShell 建立、列出或刪除使用者指派的受控識別](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)。
-
-1. 建立 Key Vault 實例。
-
-   如需詳細步驟，請參閱[設定和取出秘密-PowerShell](../../../key-vault/quick-create-powershell.md)。
-   指派許可權給實例，以授與使用者指派的身分識別，存取儲存在 Key Vault 中的秘密。 如需詳細步驟，請參閱[設定和取出密碼-.net](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault)。
-
-1. 將使用者指派的身分識別指派給您的電腦。
-
-   如需詳細步驟，請參閱[使用 PowerShell 在 AZURE VM 上設定 azure 資源的受控](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity)識別。
-   透過大規模的 Azure 原則，使用 Azure Resource Manager 指派此身分識別。 如需詳細步驟，請參閱[使用範本在 AZURE VM 上設定 azure 資源的受控](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm)識別。
-
-1. 使用在您的自訂資源內產生的用戶端識別碼，以使用機器提供的權杖來存取 Key Vault。
-
-   Key Vault 實例的 `client_id` 和 url 可以當做[屬性](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema)傳遞至資源，因此，不需要更新多個環境的資源，或是否需要變更這些值。
-
-下列程式碼範例可用於自訂資源，以使用使用者指派的身分識別從 Key Vault 取出秘密。 從要求傳回到 Key Vault 的值是純文字。 最佳做法是將它儲存在 credential 物件中。
-
-```azurepowershell-interactive
-# the following values should be input as properties
-$client_id = 'e3a78c9b-4dd2-46e1-8bfa-88c0574697ce'
-$keyvault_url = 'https://keyvaultname.vault.azure.net/secrets/mysecret'
-
-$access_token = ((Invoke-WebRequest -Uri "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=$client_id&resource=https%3A%2F%2Fvault.azure.net" -Method GET -Headers @{Metadata='true'}).Content | ConvertFrom-Json).access_token
-
-$value = ((Invoke-WebRequest -Uri $($keyvault_url+'?api-version=2016-10-01') -Method GET -Headers @{Authorization="Bearer $access_token"}).content | convertfrom-json).value |  ConvertTo-SecureString -asplaintext -force
-
-$credential = New-Object System.Management.Automation.PSCredential('secret',$value)
-```
 
 ## <a name="test-a-guest-configuration-package"></a>測試來賓設定套件
 

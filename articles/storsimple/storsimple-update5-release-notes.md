@@ -1,29 +1,22 @@
 ---
-title: StorSimple 8000 系列 Update 5 版本資訊 | Microsoft Docs
+title: StorSimple 8000 系列 Update 5 版本資訊
 description: 說明 StorSimple 8000 系列 Update 5 的新功能、問題及因應措施。
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 462cbd6261723aa91bbfd23292611e758a800ed2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fed65e12a166c046a0c63d7c4849f86805bbe9c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844086"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275161"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>StorSimple 8000 系列 Update 5 版本資訊
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 下列版本資訊說明 StorSimple 8000 系列 Update 5 的新功能，並識別未決的重要問題。 當中也包含此版本中隨附之 StorSimple 軟體更新的清單。
 

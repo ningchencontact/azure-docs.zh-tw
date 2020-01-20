@@ -1,21 +1,18 @@
 ---
 title: 深入瞭解 Azure 中虛擬機器擴展集的協調流程模式
 description: 深入瞭解 Azure 中虛擬機器擴展集的協調流程模式。
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: gwallace
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: vashan
-ms.openlocfilehash: 063b3210877c06edf7eeddab37c50ed84033098a
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 4a0be30f181921461ad0bacea6f18ce439d22353
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73065908"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279053"
 ---
 # <a name="orchestration-mode-preview"></a>協調流程模式（預覽）
 
@@ -42,7 +39,7 @@ ms.locfileid: "73065908"
 
 |                             | "orchestrationMode"： "VM" （VirtualMachine） | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| VM 設定模型      | None                                       | 必要項 |
+| VM 設定模型      | 無                                       | 必要項 |
 | 正在將新的 VM 新增至擴展集  | 建立 VM 時，會將 Vm 明確新增至擴展集。 | Vm 會根據 VM 設定模型、實例計數和自動調整規則，以隱含方式建立並新增至擴展集 | |
 | 刪除 VM                   | Vm 必須個別刪除，如果擴展集內有任何 Vm，則不會刪除它。 | 您可以個別刪除 Vm，而刪除擴展集將會刪除所有的 VM 實例。  |
 | 附加/卸離 Vm           | 不支援                              | 不支援 |
@@ -55,7 +52,7 @@ ms.locfileid: "73065908"
 | 模型更新               | 不支援                              | 支援的 |
 | 實例控制項            | 完整的 VM 控制。 Vm 具有完整的 URI，可支援完整範圍的 Azure VM 管理功能（例如 Azure 原則、Azure 備份和 Azure Site Recovery） | Vm 是擴展集的相依資源。 只能透過擴展集來存取實例。 |
 | 實例模型              | Microsoft. Compute/VirtualMachines 模型定義。 | VirtualMachineScaleSets/VirtualMachines 模型定義。 |
-| Capacity                    | 可以建立空的擴展集;最多可將200個 Vm 新增至擴展集 | 您可以使用實例計數 0-1000 來定義擴展集 |
+| 容量                    | 可以建立空的擴展集;最多可將200個 Vm 新增至擴展集 | 您可以使用實例計數 0-1000 來定義擴展集 |
 | 移動                        | 支援的                                  | 支援的 |
 | 單一放置群組 = = false | 不支援                          | 支援的 |
 

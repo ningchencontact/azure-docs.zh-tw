@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2019
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cef5058936a45badd700a573611c82398ca4d546
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 01ce1599f86082aef3ff53d298cc53896074af66
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805700"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277603"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>適用于 SAP 應用程式之最佳網路延遲的 Azure 鄰近性放置群組
 以 SAP NetWeaver 或 SAP S/4HANA 架構為基礎的 SAP 應用程式，對於 SAP 應用層與 SAP 資料庫層之間的網路延遲是敏感的。 此敏感度是在應用層中執行的大部分商務邏輯所產生的結果。 因為 SAP 應用層會執行商務邏輯，所以會以較高的頻率向資料庫層發出查詢，以每秒數千或數十個的速率。 在大部分情況下，這些查詢的本質很簡單。 它們通常可以在500毫秒或更少的資料庫層上執行。
@@ -156,7 +156,7 @@ New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppgavsetappvm" -Locati
 > 因為您會將一個 DBMS VM 部署到一個區域，而第二個 DBMS VM 放到另一個區域以建立高可用性設定，所以每個區域都需要不同的鄰近放置群組。 您所使用的任何可用性設定組也是如此。
 
 ## <a name="move-an-existing-system-into-proximity-placement-groups"></a>將現有的系統移至鄰近位置群組
-如果您已經部署 SAP 系統，您可能會想要將某些重要系統的網路延遲優化，並在相同的資料中心內找出應用層和 DBMS 層。 在近接位置群組的公開預覽期間，您必須刪除 Vm，並建立新的 Vm，以將系統移至鄰近放置群組。 您目前不能直接關閉 Vm，並將它們指派給鄰近放置群組。
+如果您已經部署 SAP 系統，您可能會想要將某些重要系統的網路延遲優化，並在相同的資料中心內找出應用層和 DBMS 層。 若要將完整 Azure 可用性設定組的 Vm 移至已設定範圍的現有鄰近位置群組，您必須關閉可用性設定組的所有 Vm，並透過 Azure 入口網站將可用性設定組指派給現有的鄰近放置群組。PowerShell 或 CLI。 如果您想要將不屬於可用性設定組的 VM 移到現有的鄰近放置群組，您只需要關閉 VM，並將它指派給現有的鄰近放置群組。 
 
 
 ## <a name="next-steps"></a>後續步驟

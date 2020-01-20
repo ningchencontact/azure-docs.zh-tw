@@ -1,20 +1,17 @@
 ---
 title: Azure 虛擬機器擴展集的安全性控制
 description: 評估 Azure 虛擬機器擴展集的安全性控制清單
-services: virtual-machine-scale-sets
 ms.service: virtual-machine-scale-sets
-documentationcenter: ''
 author: msmbaldwin
-manager: rkarlin
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6aee9edaf3c594a2e7083416726da8e57bbf5c6b
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 51ddd4f3775ae8e41c0d0bdd4ed8a3a2a59b7db4
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529148"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271785"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Azure 虛擬機器擴展集的安全性控制
 
@@ -43,8 +40,8 @@ ms.locfileid: "72529148"
 
 | 安全性控制 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 |  |
-| Authorization| 是 |  |
+| 驗證| 是 |  |
+| 授權| 是 |  |
 
 ## <a name="data-protection"></a>資料保護
 

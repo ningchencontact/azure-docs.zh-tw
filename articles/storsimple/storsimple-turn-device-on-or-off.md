@@ -1,30 +1,23 @@
 ---
-title: 開啟或關閉 StorSimple 8000 系列裝置 | Microsoft Docs
+title: 開啟或關閉您的 StorSimple 8000 系列裝置
 description: 說明如何開啟新的 StorSimple 裝置、開啟曾關閉或失去電源的裝置，以及關閉執行中的裝置。
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29a45c0d32e35b5d321670bf25334a2976b93e56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1319583569a8abc619ad902a87ee551b476f88eb
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693669"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276887"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>開啟或關閉 StorSimple 8000 系列裝置
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 正常系統作業並不需要關閉 Microsoft Azure StorSimple 裝置。 不過，您可能需要開啟新的裝置，或有裝置必須關閉。 一般而言，在您需要更換故障的硬體、實際移動單元，或將裝置報廢的情況下才需要關機。 本教學課程將說明在不同案例中開啟和關閉 StorSimple 裝置的必要程序。
 
 ## <a name="turn-on-a-new-device"></a>開啟新的裝置
@@ -153,7 +146,7 @@ StorSimple 8600 型同時具有主要機箱和 EBOD 機箱。 這需要使用纜
 > [!IMPORTANT]
 > 請勿使用裝置背面的電源按鈕關閉執行中的裝置。
 > 
-> 關閉裝置之前，請確定所有的裝置元件狀態良好。 在 Azure 入口網站中，瀏覽至 [裝置]   > [監視]   >  [硬體健康狀態]  ，確認所有的元件狀態都為綠色。 這只適用於狀態良好的系統。 如果系統正在關閉中以更換故障的元件，您會在 [硬體狀態]  中看到個別元件的失敗 (紅色) 或降級 (黃色) 狀態。
+> 關閉裝置之前，請確定所有的裝置元件狀態良好。 在 Azure 入口網站中，瀏覽至 [裝置] > [監視] >  [硬體健康狀態]，確認所有的元件狀態都為綠色。 這只適用於狀態良好的系統。 如果系統正在關閉中以更換故障的元件，您會在 [硬體狀態]中看到個別元件的失敗 (紅色) 或降級 (黃色) 狀態。
 > 
 > 
 
@@ -161,7 +154,7 @@ StorSimple 8600 型同時具有主要機箱和 EBOD 機箱。 這需要使用纜
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>具有 EBOD 機箱的裝置 <a name="8600a">
 > [!IMPORTANT]
-> 關閉主要機箱和 EBOD 機箱之前，請確定所有裝置元件狀態良好。 在 Azure 入口網站中，瀏覽至 [裝置]   > [監視]   >  [硬體健康狀態]  ，確認所有的元件狀態都良好。
+> 關閉主要機箱和 EBOD 機箱之前，請確定所有裝置元件狀態良好。 在 Azure 入口網站中，瀏覽至 [裝置] > [監視] >  [硬體健康狀態]，確認所有的元件狀態都良好。
 
 
 #### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>若要關閉具有 EBOD 機箱的執行中裝置

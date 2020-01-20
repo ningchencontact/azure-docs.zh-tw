@@ -1,26 +1,18 @@
 ---
-title: Azure 虛擬機器擴展集實例的終止通知 |Microsoft Docs
+title: Azure 虛擬機器擴展集實例的終止通知
 description: 瞭解如何啟用 Azure 虛擬機器擴展集實例的終止通知
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: vashan
-ms.openlocfilehash: d3d7f92b3803114321bc7420b5c4ba059aabcb9d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a1b1e07fa0622ae25d8086ec65827816ec52a5ce
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705929"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271744"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Azure 虛擬機器擴展集實例的終止通知（預覽）
 擴展集實例可以選擇接收實例終止通知，並將預先定義的延遲時間設定為終止作業。 終止通知會透過 Azure Metadata Service- [Scheduled Events](../virtual-machines/windows/scheduled-events.md)傳送，這會提供影響力作業的通知和延遲，例如重新開機和重新部署。 預覽解決方案會將另一個事件–終止–新增至 Scheduled Events 清單，而終止事件的相關延遲將取決於使用者在其擴展集模型設定中所指定的延遲限制。
@@ -152,7 +144,7 @@ DocumentIncarnation 是 ETag，透過它很容易就能檢查自從上次查詢�
 
 您也可以參考使用[PowerShell](../virtual-machines/windows/scheduled-events.md#powershell-sample)和[Python](../virtual-machines/linux/scheduled-events.md#python-sample)查詢和回應事件的範例腳本。
 
-## <a name="tips-and-best-practices"></a>秘訣和最佳作法
+## <a name="tips-and-best-practices"></a>祕訣和最佳作法
 -   僅在「刪除」作業上終止通知–如果您的擴展集已啟用*scheduledEventsProfile* ，則所有刪除作業（手動刪除或自動調整起始的相應縮小）都會產生終止事件。 其他作業（如重新開機、重新安裝映射、重新部署和停止/解除配置）不會產生終止事件。 無法啟用低優先順序 Vm 的終止通知。
 -   不需要等待超時時間–您可以在收到事件之後以及事件的*NotBefore*時間到期之前，隨時啟動終止作業。
 -   在超時時強制刪除-預覽在產生事件之後，不會提供擴充超時值的任何功能。 當超時時間過期時，將會處理暫止的終止事件，而且 VM 將會被刪除。

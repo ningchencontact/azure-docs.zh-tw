@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8f912635fc0fb14fc54426a108af5f67d26213f4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5034aaaee335bbd87e7ea42b448e4e8fbf6aacca
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975697"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274551"
 ---
 # <a name="storage-account-overview"></a>儲存體帳戶概觀
 
@@ -64,17 +64,15 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 
 ### <a name="blockblobstorage-accounts"></a>BlockBlobStorage 帳戶
 
-BlockBlobStorage 帳戶是特殊的儲存體帳戶，可讓您用來將非結構化物件資料儲存為區塊 blob。 您也可以使用 BlockBlobStorage 帳戶來建立 premium 區塊 blob。 這種類型的儲存體帳戶支援區塊 blob 和附加 blob，但不支援分頁 blob、資料表或佇列。
+在高階效能層級中，BlockBlobStorage 帳戶是特殊的儲存體帳戶，可將非結構化物件資料儲存為區塊 blob 或附加 blob。 相較于一般用途 v2 和 BlobStorage 帳戶，BlockBlobStorage 帳戶提供低、一致的延遲和較高的交易速率。
 
-相較于一般用途 v2 和 BlobStorage 帳戶，BlockBlobStorage 帳戶可提供低和一致的延遲，以及更高的交易速率。
-
-BlockBlobStorage 帳戶目前不支援對經常性、非經常性或封存存取層進行分層。
+BlockBlobStorage 帳戶目前不支援對經常性、非經常性或封存存取層進行分層。 這種類型的儲存體帳戶不支援分頁 blob、資料表或佇列。
 
 ### <a name="filestorage-accounts"></a>FileStorage 帳戶
 
 FileStorage 帳戶是特殊的儲存體帳戶，用來儲存和建立 premium 檔案共用。 此儲存體帳戶種類支援檔案，但不支援區塊 blob、附加 blob、分頁 blob、資料表或佇列。
 
-FileStorage 帳戶提供獨特的效能專用特性，例如 IOPS 負載平衡。 如需這些特性的詳細資訊，請參閱檔規劃指南的檔案[共用效能層](../files/storage-files-planning.md#file-share-performance-tiers)一節。
+FileStorage 帳戶提供獨特的效能特性，例如 IOPS 高載。 如需這些特性的詳細資訊，請參閱檔規劃指南的檔案[共用效能層](../files/storage-files-planning.md#file-share-performance-tiers)一節。
 
 ## <a name="naming-storage-accounts"></a>儲存體帳戶命名
 
@@ -85,12 +83,20 @@ FileStorage 帳戶提供獨特的效能專用特性，例如 IOPS 負載平衡�
 
 ## <a name="performance-tiers"></a>效能層級
 
+視您建立的儲存體帳戶類型而定，您可以選擇 [標準] 和 [premium] 效能層級。
+
+### <a name="general-purpose-storage-accounts"></a>一般用途的儲存體帳戶
+
 可以針對下列任一效能層級設定一般用途儲存體帳戶：
 
 - 標準效能層可供儲存 Blob、檔案、資料表、佇列和 Azure 虛擬機器磁碟。 如需標準儲存體帳戶之擴充性目標的詳細資訊，請參閱[標準儲存體帳戶的擴充性目標](scalability-targets-standard-account.md)。
-- 進階效能層僅供儲存非受控虛擬機器磁碟。 Microsoft 建議使用受控磁片搭配 Azure 虛擬機器，而不是非受控磁片。 如需高階效能層級之擴充性目標的詳細資訊，請參閱[premium 分頁 blob 儲存體帳戶的擴充性目標](../blobs/scalability-targets-premium-page-blobs.md)。
+- 用於儲存非受控虛擬機器磁片的 premium 效能層級。 Microsoft 建議使用受控磁片搭配 Azure 虛擬機器，而不是非受控磁片。 如需高階效能層級之擴充性目標的詳細資訊，請參閱[premium 分頁 blob 儲存體帳戶的擴充性目標](../blobs/scalability-targets-premium-page-blobs.md)。
+
+### <a name="blockblobstorage-storage-accounts"></a>BlockBlobStorage 儲存體帳戶
 
 BlockBlobStorage 儲存體帳戶可提供高階效能層來儲存區塊 blob 和附加 blob。 如需詳細資訊，請參閱[premium 區塊 blob 儲存體帳戶的擴充性目標](../blobs/scalability-targets-premium-block-blobs.md)。
+
+### <a name="filestorage-storage-accounts"></a>FileStorage 儲存體帳戶
 
 FileStorage 儲存體帳戶可提供 Azure 檔案共用的 premium 效能層級。 如需詳細資訊，請參閱[Azure 檔案儲存體擴充性和效能目標](../files/storage-files-scale-targets.md)。
 
@@ -102,7 +108,7 @@ Azure 儲存體提供不同的選項，以便根據使用量模式來存取區�
 
 - **熱**存取層。 此層級已針對儲存體帳戶中的物件頻繁存取進行優化。 存取經常性存取層中的資料最符合成本效益，而儲存成本較高。 預設會在經常性存取層中建立新的儲存體帳戶。
 - 非**經常性存取層**。 這一層已優化，可用於儲存不常存取且至少儲存30天的大量資料。 在非經常性存取層中儲存資料更符合成本效益，但是存取該資料可能比存取經常性存取層中的資料更昂貴。
-- 封存**層。** 這一層僅適用于個別的區塊 blob。 封存層已針對可容忍數小時的抓取延遲，而且將保留在封存層中至少180天的資料進行優化。 封存層是儲存資料最符合成本效益的選項。 不過，存取該資料比存取經常性或非經常性存取層中的資料更耗費資源。
+- 封存**層。** 這一層僅適用于個別的區塊 blob 和附加 blob。 封存層已針對可容忍數小時的抓取延遲，而且將保留在封存層中至少180天的資料進行優化。 封存層是儲存資料最符合成本效益的選項。 不過，存取該資料比存取經常性或非經常性存取層中的資料更耗費資源。
 
 如果您的資料使用模式有所變更，您可以隨時在這些存取層之間切換。 如需存取層的詳細資訊，請參閱[Azure Blob 儲存體：經常性存取、非經常性存取和封存存取層](../blobs/storage-blob-storage-tiers.md)。
 

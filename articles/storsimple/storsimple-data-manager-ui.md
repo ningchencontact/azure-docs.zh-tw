@@ -1,25 +1,17 @@
 ---
-title: Microsoft Azure StorSimple Data Manager UI | Microsoft Docs
+title: Microsoft Azure StorSimple 資料管理員 UI
 description: 描述如何使用 StorSimple 資料管理員服務 UI
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 3a87b4c07d2e961d9876fb44c6584f37ad9246df
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: d485a2655b569b3def6162934857b02dbe4f75ea
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796649"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273973"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>在 Azure 入口網站中管理 StorSimple 資料管理員服務
 
@@ -56,7 +48,7 @@ ms.locfileid: "73796649"
     
    5. 若要在儀表板上取得此服務的連結，請選取 [釘選到儀表板]。
     
-   6. 按一下 [建立]。
+   6. 按一下頁面底部的 [新增]。
 
       ![建立 StorSimple 資料管理員服務 3](./media/storsimple-data-manager-ui/create-service-4.png)
 
@@ -147,7 +139,7 @@ ms.locfileid: "73796649"
      
      ![啟動作業執行 1](./media/storsimple-data-manager-ui/start-job-run1.png)
 
-2. 按一下 [立即執行]。
+2. 按一下 **[立即執行]** 。
      
      ![啟動作業執行 2](./media/storsimple-data-manager-ui/start-job-run2.png)
 

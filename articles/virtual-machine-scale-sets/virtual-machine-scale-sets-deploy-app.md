@@ -1,26 +1,19 @@
 ---
-title: 將應用程式部署到 Azure 虛擬機器擴展集 | Microsoft Docs
+title: 將應用程式部署至 Azure 虛擬機器擴展集
 description: 了解如何將應用程式部署到擴展集中的 Linux 和 Windows 虛擬機器執行個體
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 0dc1c52e65090acd5f63d1b23d8da6f37e3cf567
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 6bc319ea50da4ff6a654b2c9ab09bbe218695533
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960732"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278111"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>在虛擬機器擴展集上部署您的應用程式
 
@@ -47,7 +40,7 @@ ms.locfileid: "73960732"
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>使用 PowerShell DSC 將應用程式安裝到 Windows VM
 [PowerShell 預期狀態設定 (DSC)](/powershell/scripting/dsc/overview/overview) 是一個管理平台，可定義目標電腦的設定。 DSC 設定會定義要在電腦上安裝的項目，以及設定主機的方式。 本機設定管理員 (LCM) 引擎會在每個目標節點上執行，這些節點會以推送組態作為基礎來處理要求的動作。
 
-PowerShell DSC 延伸模組可讓您在擴展集中使用 PowerShell 來自訂 VM 執行個體。 下列範例：
+PowerShell DSC 延伸模組可讓您在擴展集中使用 PowerShell 來自訂 VM 執行個體。 下列範例將：
 
 - 指示 VM 執行個體從 GitHub 下載 DSC 套件 - *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
 - 設定延伸模組來執行安裝指令碼 - `configure-http.ps1`

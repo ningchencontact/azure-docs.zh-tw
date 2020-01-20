@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 1b421e7acd7f94654ea80e41340022c8ef7a130e
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 1cf9ce6d57c1e106472caeef6c1f2a4b008a09bd
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264215"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277863"
 ---
 # <a name="release-notes"></a>版本資訊
 
@@ -24,36 +24,43 @@ ms.locfileid: "76264215"
 
 **新功能**
 
-- 多裝置對話：在語音或以文字為基礎的交談中連接多個裝置，並選擇性地轉譯在它們之間傳送的訊息。 請在[這篇文章](multi-device-conversation.md)中深入瞭解。 
+- 多裝置交談：將多個裝置連接到相同的語音或文字型交談，並選擇性地轉譯它們之間傳送的訊息。 請在[這篇文章](multi-device-conversation.md)中深入瞭解。 
 - 已新增 aar 套件的關鍵字辨識支援，並已新增 x86 和 x64 類別的支援。 
-- `SendMessage` 和 `SetMessageProperty` 方法新增至目標-C 中的 `Connection` 物件。 請參閱[這裡](https://docs.microsoft.com/objectivec/cognitive-services/speech/)的檔。
+- 目標-C： `SendMessage` 和 `SetMessageProperty` 方法已加入 `Connection` 物件中。 請參閱[這裡](https://docs.microsoft.com/objectivec/cognitive-services/speech/)的檔。
 - TTS C++ api 現在支援以合成文字輸入 `std::wstring`，而不需要將 wstring 轉換成字串，再將它傳遞至 SDK。 請參閱[這裡](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync)的詳細資料。 
-- [語言識別項](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp)和[來源語言](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp)設定現在可在中C#使用。
+- C#：[語言識別項](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp)和[來源語言](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp)設定現在可供使用。
+- JavaScript：將功能新增至 `Connection` 物件，以從語音服務以回呼 `receivedServiceMessage`傳遞自訂訊息。
+- JavaScript：已新增 `FromHost API` 的支援，以輕鬆搭配內部內部部署的容器和主權雲端使用。 請參閱[這裡](speech-container-howto.md)的檔。
+- JavaScript：我們現在接受 `NODE_TLS_REJECT_UNAUTHORIZED`，感謝[orgads](https://github.com/orgads)的貢獻。 請參閱[這裡](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75)的詳細資料。
 
 
 **重大變更**
 
 - `OpenSSL` 已更新為 1.1.1 b 版，並以靜態方式連結至適用于 Linux 的語音 SDK 核心程式庫。 如果您的收件匣 `OpenSSL` 尚未安裝到系統的 `/usr/lib/ssl` 目錄中，這可能會造成中斷。 如要解決此問題，請參閱語音 SDK 檔底下的[檔](how-to-configure-openssl-linux.md)。
 - 我們已將C# `WordLevelTimingResult.Offset` 從 `int` 傳回的資料類型變更為 `long`，以允許在語音資料超過2分鐘時存取 `WordLevelTimingResults`。
+- `PushAudioInputStream` 和 `PullAudioInputStream` 現在會根據 `AudioStreamFormat`（選擇性地在建立時指定），將 wav 標頭資訊傳送至語音服務。 客戶現在必須使用[支援的音訊輸入格式](how-to-use-audio-input-streams.md)。 任何其他格式都會取得次佳的辨識結果，或可能會造成其他問題。 
 
 
 **錯誤修正**
 
 - 請參閱上述重大變更底下的 `OpenSSL` 更新。 我們已修正 Linux 和 JAVA 中間歇性損毀和效能問題（在高負載下鎖定爭用）。 
-- 改善了高並行處理案例中的 JAVA 物件關閉。
+- JAVA：改善高並行處理案例中的物件關閉。
 - 已重構我們的 Nuget 套件。 我們已移除 lib 資料夾底下的三個 `Microsoft.CognitiveServices.Speech.core.dll` 和 `Microsoft.CognitiveServices.Speech.extension.kws.dll` 複本，讓 Nuget 套件的下載變得更小且更快速，而且我們已新增C++編譯一些原生應用程式所需的標頭。
 - 已修正[這裡](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp)的快速入門範例。 這些會結束，而不會顯示 Linux、MacOS、Windows 上的「找不到麥克風」例外狀況。
 - 修正了具有長語音辨識的 SDK 損毀，會導致特定程式碼路徑（如[此範例](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/uwp/speechtotext-uwp)）。
 - 已修正 Azure Web 應用程式環境中的 SDK 部署錯誤，以解決[此客戶問題](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/396)。
 - 已修正使用多個 `<voice>` 標記或 `<audio>` 標記來解決[此客戶問題](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/433)時的 TTS 錯誤。 
 - 修正從擱置中復原 SDK 時的 TTS 401 錯誤。
+- JavaScript：已修正音訊資料的迴圈匯入，感謝[euirim](https://github.com/euirim)的貢獻。 
+- JavaScript：新增了設定服務屬性的支援，如1.7 中所新增。
+- JavaScript：已修正連接錯誤可能導致連續、不成功的 websocket 重新連線嘗試的問題。
 
 
 **範例**
 
 - 已[在此處](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo)新增適用于 Android 的關鍵字辨識範例。
-- [這裡](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp)已新增伺服器案例的 TTS 範例。 
-- C++ C# [在和 .net 中](multi-device-conversation.md)新增多裝置對話快速入門。
+- 在[此](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs)新增伺服器案例的 TTS 範例。
+- 已C#在和C++ [這裡](quickstarts/multi-device-conversation.md)新增多裝置對話快速入門。
 
 
 **其他變更**

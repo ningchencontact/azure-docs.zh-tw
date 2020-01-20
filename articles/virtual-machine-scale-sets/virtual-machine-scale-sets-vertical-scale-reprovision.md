@@ -1,26 +1,21 @@
 ---
-title: 垂直調整 Azure 虛擬機器擴展集 | Microsoft Docs
+title: 垂直調整 Azure 虛擬機器擴展集
 description: 如何垂直調整虛擬機器大小以回應 Azure 自動化的監視警示
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: manayar
-ms.openlocfilehash: 87d2b19f6143f567782778e35c8511f233d8b0e8
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: fa1dda2907e8400491c8d18897bb41fb9cff49fd
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958150"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274440"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>使用虛擬機器擴展集垂直自動調整
 
@@ -56,8 +51,8 @@ ms.locfileid: "71958150"
 > | Standard_A2m_v2 |Standard_A8m_v2  |
 > | Standard_B1s |Standard_B2s |
 > | Standard_B1ms |Standard_B8ms |
-> | Standard_D1 |Standard_D4 |
-> | Standard_D11 |Standard_D14 |
+> | 標準_D1 |標準_D4 |
+> | 標準_D11 |標準_D14 |
 > | Standard_DS1 |Standard_DS4 |
 > | Standard_DS11 |Standard_DS14 |
 > | Standard_D1_v2 |Standard_D5_v2 |
@@ -162,7 +157,7 @@ Add-AzMetricAlertRule  -Name  $alertName `
 * [Azure 監視器 PowerShell 快速入門範例](../azure-monitor/platform/powershell-quickstart-samples.md)
 * [Azure 監視器跨平台 CLI 快速入門範例](../azure-monitor/platform/cli-samples.md)
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 這篇文章示範簡單的垂直調整範例。 藉助這些建置組塊 (自動化帳戶、Runbook、Webhook、警示)，您可以連接各式各樣的事件與一組自訂的動作。
 

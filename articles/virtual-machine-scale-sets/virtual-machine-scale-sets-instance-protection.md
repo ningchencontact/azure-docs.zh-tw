@@ -1,61 +1,53 @@
 ---
-title: 執行個體保護的 Azure 虛擬機器擴展集執行個體 |Microsoft Docs
-description: 了解如何保護 Azure 虛擬機器擴展集執行個體從相應縮小和擴展集的作業。
-services: virtual-machine-scale-sets
-documentationcenter: ''
+title: Azure 虛擬機器擴展集實例的實例保護
+description: 瞭解如何保護 Azure 虛擬機器擴展集實例，不受相應縮小和擴展集作業的限制。
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: manayar
-ms.openlocfilehash: 61430f5a43a04fa0e5b2f0c79ff03419c73aaf28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 071ea79f4d288e86cc5b9347f8607b4ff7190bc1
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416545"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275797"
 ---
-# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>執行個體保護的 Azure 虛擬機器擴展集執行個體 （預覽）
-Azure 虛擬機器擴展集可讓您的工作負載，透過較佳的彈性[自動調整規模](virtual-machine-scale-sets-autoscale-overview.md)，因此當您的基礎結構需要相應放大時，您可以設定和時它標尺。 擴展集也可讓您集中管理、 設定及更新透過不同的 Vm 大量[升級原則](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)設定。 您可以設定擴展集模型更新和新的組態會自動套用至每個擴展集執行個體如果您已經設定為自動或正在復原的升級原則。
+# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Azure 虛擬機器擴展集實例的實例保護（預覽）
+Azure 虛擬機器擴展集可讓您透過[自動](virtual-machine-scale-sets-autoscale-overview.md)調整，為您的工作負載提供更好的彈性，讓您可以設定當基礎結構相應放大和縮小規模時。 擴展集也可讓您透過不同的[升級原則](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)設定，集中管理、設定和更新大量的 vm。 如果您已將升級原則設定為 [自動] 或 [輪流]，則您可以在擴展集模型上設定更新，並自動將新設定套用到每個擴展集實例。
 
-因為您的應用程式處理流量，可以有您想要以不同方式處理，小數位數的其餘部分的特定執行個體集合執行個體。 比方說，在擴展集中的特定執行個體無法執行長時間執行的作業，並不想要調整入作業完成之前這些執行個體。 您可能也有專用的擴展集來執行其他或不同的工作，比其他成員的擴展集內的少數執行個體。 您需要這些不是要修改與擴展集內的其他執行個體的 「 特殊 」 Vm。 執行個體保護提供額外的控制項，可讓這些和其他案例，您的應用程式。
+當您的應用程式處理流量時，您可能會想要讓特定實例的處理方式不同于擴展集實例的其餘部分。 例如，擴展集中的某些實例可能會執行長時間執行的作業，而且您不想要相應縮小這些實例，直到作業完成為止。 您也可以在擴展集中特製化一些實例，以執行其他工作或不同于擴展集成員的工作。 您要求這些「特殊」 Vm 不會與擴展集內的其他實例一起修改。 實例保護會提供其他控制項，以啟用應用程式的這些和其他案例。
 
-本文說明如何套用，並搭配擴展集執行個體使用不同的執行個體保護功能。
+本文說明如何將不同的實例保護功能與擴展集實例搭配使用。
 
 > [!NOTE]
->執行個體保護目前處於公開預覽狀態。 沒有選擇加入程序才能使用如下所述的公開預覽功能。 使用 API 版本 2019年-03-01，並使用受控的磁碟的擴展集上才支援執行個體保護預覽。
+>實例保護目前為公開預覽狀態。 使用以下所述的公開預覽功能時，不需要任何加入宣告程式。 只有在使用受控磁片的 API 版本2019-03-01 和擴展集上，才支援實例保護預覽。
 
-## <a name="types-of-instance-protection"></a>類型的執行個體保護
-擴展集提供兩種類型的執行個體保護功能：
+## <a name="types-of-instance-protection"></a>實例保護的類型
+擴展集提供兩種類型的實例保護功能：
 
--   **保護從相應縮小**
-    - 透過啟用**protectFromScaleIn**標尺上的屬性集的執行個體
-    - 保護執行個體從起始的自動調整相應縮小
-    - 使用者起始的執行個體作業 （包括執行個體刪除）**未遭到封鎖**
-    - 擴展集上所起始的作業 （升級、 重新安裝映像、 解除配置等） 是**未遭到封鎖**
+-   **防止相應縮小**
+    - 已透過擴展集實例上的**protectFromScaleIn**屬性啟用
+    - 保護實例不受自動調整起始的相應縮小
+    - 使用者起始的實例作業（包括實例刪除）**不會遭到封鎖**
+    - 在擴展集上起始的作業（升級、重新安裝映射、解除配置等等）**不會遭到封鎖**
 
--   **保護從擴展集動作**
-    - 透過啟用**protectFromScaleSetActions**標尺上的屬性集的執行個體
-    - 保護執行個體從起始的自動調整相應縮小
-    - 保護執行個體從擴展集上所起始的作業 （例如升級，請重新安裝映像、 解除配置，等等）。
-    - 使用者起始的執行個體作業 （包括執行個體刪除）**未遭到封鎖**
-    - 完整的擴展集的刪除**未遭到封鎖**
+-   **防止擴展集動作**
+    - 已透過擴展集實例上的**protectFromScaleSetActions**屬性啟用
+    - 保護實例不受自動調整起始的相應縮小
+    - 保護實例免于在擴展集上起始的作業（例如升級、重新安裝映射、解除配置等等）
+    - 使用者起始的實例作業（包括實例刪除）**不會遭到封鎖**
+    - **未封鎖**完整擴展集的刪除
 
-## <a name="protect-from-scale-in"></a>保護從相應縮小
-執行個體保護可以套用至擴展集執行個體之後建立的執行個體。 保護是套用，而且只有在修改[執行個體模型](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view)而不是在[擴展集模型](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model)。
+## <a name="protect-from-scale-in"></a>防止相應縮小
+實例保護可以在建立實例之後，套用至擴展集實例。 只會對[實例模型](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view)套用保護，而不會在[擴展集模型](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model)上進行修改。
 
-有多種方式來套用相應縮小保護在您的擴展集執行個體在下列範例中所述。
+有多種方式可在您的擴展集實例上套用相應縮小保護，如下列範例所述。
 
 ### <a name="rest-api"></a>REST API
 
-下列範例會套用到擴展集中的執行個體的相應縮小保護。
+下列範例會將相應縮小保護套用至擴展集中的實例。
 
 ```
 PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines/{instance-id}?api-version=2019-03-01`
@@ -73,13 +65,13 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 ```
 
 > [!NOTE]
->執行個體保護僅適用於 api 2019-03-01 版和更新版本
+>只有 API 版本2019-03-01 和更新版本才支援實例保護
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-使用[更新 AzVmssVM](/powershell/module/az.compute/update-azvmssvm) cmdlet，將相應縮小保護套用至您的擴展集執行個體。
+使用[get-azvmssvm 指令程式](/powershell/module/az.compute/update-azvmssvm)，將相應縮小保護套用至您的擴展集實例。
 
-下列範例適用於相應縮小保護中擁有執行個體識別碼 0 的擴展集的執行個體。
+下列範例會將相應縮小保護套用至具有實例識別碼0的擴展集內的實例。
 
 ```azurepowershell-interactive
 Update-AzVmssVM `
@@ -91,9 +83,9 @@ Update-AzVmssVM `
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-使用[az vmss 更新](/cli/azure/vmss#az-vmss-update)套用相應縮小保護您的擴展集執行個體。
+使用[az vmss update](/cli/azure/vmss#az-vmss-update)將相應縮小保護套用至您的擴展集實例。
 
-下列範例適用於相應縮小保護中擁有執行個體識別碼 0 的擴展集的執行個體。
+下列範例會將相應縮小保護套用至具有實例識別碼0的擴展集內的實例。
 
 ```azurecli-interactive
 az vmss update \  
@@ -103,16 +95,16 @@ az vmss update \
   --protect-from-scale-in true
 ```
 
-## <a name="protect-from-scale-set-actions"></a>保護從擴展集動作
-執行個體保護可以套用至擴展集執行個體之後建立的執行個體。 保護是套用，而且只有在修改[執行個體模型](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view)而不是在[擴展集模型](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model)。
+## <a name="protect-from-scale-set-actions"></a>防止擴展集動作
+實例保護可以在建立實例之後，套用至擴展集實例。 只會對[實例模型](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view)套用保護，而不會在[擴展集模型](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model)上進行修改。
 
-保護執行個體從擴展集動作也會保護執行個體從起始的自動調整相應縮小。
+從擴展集動作保護實例也會保護實例不受自動調整起始的相應縮小。
 
-有多種方式來套用調整動作上設定保護您的擴展集執行個體在下列範例中所述。
+有多種方式可在您的擴展集實例上套用擴展集動作保護，如下列範例所述。
 
 ### <a name="rest-api"></a>REST API
 
-下列範例會套用到擴展集中的執行個體從擴展集動作的保護。
+下列範例會將保護從擴展集動作套用至擴展集中的實例。
 
 ```
 PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vMScaleSetName}/virtualMachines/{instance-id}?api-version=2019-03-01`
@@ -131,14 +123,14 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 ```
 
 > [!NOTE]
->執行個體保護僅適用於 api 2019-03-01 版和更新版本。</br>
-保護執行個體從擴展集動作也會保護執行個體從起始的自動調整相應縮小。 您無法指定 「 protectFromScaleIn": false 時設定 「 protectFromScaleSetActions": true
+>只有 API 版本2019-03-01 和更新版本才支援實例保護。</br>
+從擴展集動作保護實例也會保護實例不受自動調整起始的相應縮小。 您不能指定 "protectFromScaleIn"： false，設定 "protectFromScaleSetActions"： true
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-使用[更新 AzVmssVM](/powershell/module/az.compute/update-azvmssvm) cmdlet，將套用 距標尺的保護設定為您的擴展集執行個體的動作。
+使用[get-azvmssvm](/powershell/module/az.compute/update-azvmssvm) Cmdlet，將保護從擴展集動作套用至擴展集實例。
 
-下列範例會從擴展集動作中擁有執行個體識別碼 0 的擴展集執行個體的保護。
+下列範例會將保護從擴展集動作套用至具有實例識別碼0的擴展集內的實例。
 
 ```azurepowershell-interactive
 Update-AzVmssVM `
@@ -151,9 +143,9 @@ Update-AzVmssVM `
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-使用[az vmss 更新](/cli/azure/vmss#az-vmss-update)套用到您的擴展集執行個體從擴展集動作的保護。
+使用[az vmss update](/cli/azure/vmss#az-vmss-update)將保護從擴展集動作套用至擴展集實例。
 
-下列範例會從擴展集動作中擁有執行個體識別碼 0 的擴展集執行個體的保護。
+下列範例會將保護從擴展集動作套用至具有實例識別碼0的擴展集內的實例。
 
 ```azurecli-interactive
 az vmss update \  
@@ -165,16 +157,16 @@ az vmss update \
 ```
 
 ## <a name="troubleshoot"></a>疑難排解
-### <a name="no-protectionpolicy-on-scale-set-model"></a>在擴展集模型沒有 protectionPolicy
-只有適用於擴展集執行個體上，而不是在擴展集模型執行個體保護。
+### <a name="no-protectionpolicy-on-scale-set-model"></a>擴展集模型上沒有任何 protectionPolicy
+實例保護僅適用于擴展集實例，而不適用於擴展集模型。
 
-### <a name="no-protectionpolicy-on-scale-set-instance-model"></a>在擴展集執行個體模型上沒有 protectionPolicy
-根據預設，保護原則不套用至執行個體建立時。
+### <a name="no-protectionpolicy-on-scale-set-instance-model"></a>擴展集實例模型上沒有任何 protectionPolicy
+根據預設，保護原則在建立時不會套用至實例。
 
-您可以套用至擴展集執行個體之後建立的執行個體, 的執行個體保護。
+建立實例之後，您可以將實例保護套用至擴展集實例。
 
-### <a name="not-able-to-apply-instance-protection"></a>無法將執行個體保護
-執行個體保護僅適用於 api 2019-03-01 版和更新版本。 檢查所使用的 API 版本，並視需要更新。 此外，您可能也需要更新為最新版本的 PowerShell 或 CLI。
+### <a name="not-able-to-apply-instance-protection"></a>無法套用實例保護
+只有 API 版本2019-03-01 和更新版本才支援實例保護。 檢查所使用的 API 版本，並視需要進行更新。 您可能也需要將您的 PowerShell 或 CLI 更新為最新版本。
 
 ## <a name="next-steps"></a>後續步驟
 了解如何在虛擬機器擴展集上[部署您的應用程式](virtual-machine-scale-sets-deploy-app.md)。

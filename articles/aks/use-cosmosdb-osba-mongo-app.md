@@ -1,21 +1,19 @@
 ---
 title: 將現有的 MongoDB 應用程式與適用於 MongoDB 的 Azure Cosmos DB API 和 Open Service Broker for Azure (OSBA) 整合
 description: 在本文中，您會了解如何將現有的 Java 和 MongoDB 應用程式與適用於 MongoDB 的 Azure Cosmos DB API 和 Open Service Broker for Azure (OSBA) 整合。
-services: azure-dev-spaces
 author: zr-msft
-manager: jeconnoc
 ms.service: azure-dev-spaces
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker for Azure
-ms.openlocfilehash: 46fa5564e5dd3429f812b263295044d867a8511c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d0ab0b27d77e45d779227d30c5a8e4f824ba62a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61028403"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277695"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>將現有的 MongoDB 應用程式與適用於 MongoDB 的 Azure Cosmos DB API 和 Open Service Broker for Azure (OSBA) 整合
 
@@ -189,7 +187,7 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>在 AKS 叢集上執行您的應用程式
 
-您可以使用 [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) 將應用程式部署到您的 AKS 叢集。 Azure 開發人員的空間可協助您產生成品，例如 Dockerfile 和 Helm 圖表，並部署在 AKS 中執行的應用程式。
+您可以使用 [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) 將應用程式部署到您的 AKS 叢集。 Azure Dev Spaces 可協助您產生成品（例如 Dockerfile 和 Helm 圖表），以及在 AKS 中部署和執行應用程式。
 
 在您的 AKS 叢集中啟用 Azure Dev Spaces：
 

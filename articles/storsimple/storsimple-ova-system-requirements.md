@@ -1,31 +1,24 @@
 ---
-title: Microsoft Azure StorSimple Virtual Array 系統需求| Microsoft Docs
+title: Microsoft Azure StorSimple 虛擬陣列系統需求
 description: 了解 StorSimple Virtual Array 的軟體和網路功能需求
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 65d2a21a9f40470cee1dd9d713f9f9cb5431a245
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 38f9c432191ac613c1c0f8c02458e8bc4bf8232a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516692"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273777"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple Virtual Array 系統需求
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 本文章說明 Microsoft Azure StorSimple Virtual Array 以及針對儲存體用戶端存取陣列的重要系統需求。 建議您先仔細檢閱資訊，再部署 StorSimple 系統，然後在部署和後續作業期間，必要時回顧參考。
 
@@ -98,13 +91,13 @@ ms.locfileid: "68516692"
 
 | **連接埠號碼<sup>1</sup>** | **內或外** | **連接埠範圍** | **必要** | **注意事項** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |輸出 |WAN |否 |輸出連接埠用於網際網路存取以擷取更新。 <br></br>輸出 Web Proxy 可由使用者設定。 |
-| TCP 443 (HTTPS) |輸出 |WAN |是 |輸出連接埠用來存取雲端中的資料。 <br></br>輸出 Web Proxy 可由使用者設定。 |
-| UDP 53 (DNS) |輸出 |WAN |在某些情況下，請參閱附註。 |只有當您使用網際網路 DNS 伺服器時，才需要此連接埠。 <br></br> 注意，如果部署的是檔案伺服器，建議使用本機 DNS 伺服器。 |
-| UDP 123 (NTP) |輸出 |WAN |在某些情況下，請參閱附註。 |只有當您使用網際網路 NTP 伺服器時，才需要此連接埠。<br></br> 注意，如果部署的是檔案伺服器，建議將時間與您的 Active Directory 網域控制站同步。 |
-| TCP 80 (HTTP) |入 |LAN |是 |這是 StorSimple 裝置上用於本機管理的本機 UI 的輸入連接埠。 <br></br> 注意，透過 HTTP 存取本機 UI 會自動重新導向至 HTTPS。 |
-| TCP 443 (HTTPS) |入 |LAN |是 |這是 StorSimple 裝置上用於本機管理的本機 UI 的輸入連接埠。 |
-| TCP 3260 (iSCSI) |入 |LAN |否 |此連接埠用來透過 iSCSI 存取資料。 |
+| TCP 80 (HTTP) |外 |WAN |否 |輸出連接埠用於網際網路存取以擷取更新。 <br></br>輸出 Web Proxy 可由使用者設定。 |
+| TCP 443 (HTTPS) |外 |WAN |是 |輸出連接埠用來存取雲端中的資料。 <br></br>輸出 Web Proxy 可由使用者設定。 |
+| UDP 53 (DNS) |外 |WAN |在某些情況下，請參閱附註。 |只有當您使用網際網路 DNS 伺服器時，才需要此連接埠。 <br></br> 注意，如果部署的是檔案伺服器，建議使用本機 DNS 伺服器。 |
+| UDP 123 (NTP) |外 |WAN |在某些情況下，請參閱附註。 |只有當您使用網際網路 NTP 伺服器時，才需要此連接埠。<br></br> 注意，如果部署的是檔案伺服器，建議將時間與您的 Active Directory 網域控制站同步。 |
+| TCP 80 (HTTP) |在 |LAN |是 |這是 StorSimple 裝置上用於本機管理的本機 UI 的輸入連接埠。 <br></br> 注意，透過 HTTP 存取本機 UI 會自動重新導向至 HTTPS。 |
+| TCP 443 (HTTPS) |在 |LAN |是 |這是 StorSimple 裝置上用於本機管理的本機 UI 的輸入連接埠。 |
+| TCP 3260 (iSCSI) |在 |LAN |否 |此連接埠用來透過 iSCSI 存取資料。 |
 
 <sup>1</sup> 公用網際網路上沒有必須開啟的輸入連接埠。
 
@@ -121,7 +114,7 @@ ms.locfileid: "68516692"
 > [!NOTE]
 > 
 > * 裝置 (來源) IP 應該一律設定為所有啟用雲端功能的網路介面。 
-> * 目的地 IP 應該設定為 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)。
+> * 目的地 IP 應該設為 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)。
 > 
 > 
 
@@ -133,7 +126,7 @@ ms.locfileid: "68516692"
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 儲存體帳戶和監視 |
 | `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update 伺服器<br> |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
-| `https://*.partners.extranet.microsoft.com/*` |支援套件 |
+| `https://*.partners.extranet.microsoft.com/*` |支援封裝 |
 | `https://*.data.microsoft.com` |Windows 中的遙測服務，請參閱[客戶經驗和診斷遙測的更新](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>後續步驟

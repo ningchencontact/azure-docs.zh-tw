@@ -1,25 +1,18 @@
 ---
-title: 在 StorSimple Linux 主機上設定 MPIO | Microsoft Docs
+title: 在 StorSimple Linux 主機上設定 MPIO
 description: 在連線到執行 CentOS 6.6 之 Linux 主機的 StorSimple 上設定 MPIO
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: tysonn
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: d6d4a5b9688540e5aa96dd8789dbb609aedeca97
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5dadd231335e93839e947077168f32dbfe96eb45
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077846"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278370"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>在執行 CentOS 的 StorSimple 主機上設定 MPIO
 本文說明在 Centos 6.6 主機伺服器上設定多重路徑 IO (MPIO) 所需的步驟。 主機伺服器會連線到您的 Microsoft Azure StorSimple 裝置，以透過 iSCSI 啟動器取得高可用性。 文中詳細描述多重路徑裝置的自動探索，以及 StorSimple 磁碟區特有的設定。
@@ -35,15 +28,15 @@ ms.locfileid: "67077846"
 
 多重路徑有雙重目的：
 
-* **高可用性**：如果 I/O 路徑 （例如，纜線、 開關、 網路介面或控制站） 的任何項目失敗，它會提供替代路徑。
-* **負載平衡**:根據您的儲存裝置的設定，它可以偵測 I/O 路徑上的負載及動態重新平衡這些負載來改善效能。
+* **高可用性**︰如果 I/O 路徑的任何元素 (例如纜線、開關、網路介面或控制站) 失敗，它會提供替代路徑。
+* **負載平衡**︰視您的儲存體裝置的組態而定，它可透過偵測 I/O 路徑上的負載及動態重新平衡這些負載來改善效能。
 
 ### <a name="about-multipathing-components"></a>關於多重路徑元件
 Linux 中的多重路徑是由核心元件和下列的使用者空間元件所組成。
 
-* **核心**:主要元件是*裝置對應程式*，device-mapper I/O，並支援的路徑和路徑群組的容錯移轉。
+* **核心**︰主要元件是 *device-mapper* ，可重新路由傳送 I/O 及支援路徑和路徑群組的容錯移轉。
 
-* **使用者空間**:這些是*多重路徑工具*，管理多重路徑裝置的指示裝置對應程式的多重路徑模組該怎麼辦。 這些工具包括：
+* **使用者空間**：這些是 *multipath-tools* ，可藉由指示 device-mapper 多重路徑模組該怎麼做來管理多重路徑的裝置。 這些工具包括：
    
    * **Multipath**︰列出及設定多重路徑的裝置。
    * **Multipathd**︰可執行多重路徑及監視路徑的精靈。
@@ -56,11 +49,11 @@ Linux 中的多重路徑是由核心元件和下列的使用者空間元件所�
 
 multipath.conf 有五個區段：
 
-- **系統層級的預設值** *（預設）* :您可以覆寫系統層級的預設值。
-- **列封鎖清單中的裝置** *(blacklist)* :您可以指定不受裝置對應程式的裝置清單。
-- **列入封鎖清單例外狀況** *(blacklist_exceptions)* :您可以識別即使列入封鎖清單，被視為多重路徑裝置的特定裝置。
-- **設定特定的儲存體控制器** *（裝置）* :您可以指定將套用至具有廠商和產品資訊的裝置的組態設定。
-- **裝置特定的設定** *(multipaths)* :您可以使用本節來微調個別 Lun 的組態設定。
+- **系統層級預設值** *（預設值）* ：您可以覆寫系統層級預設值。
+- **黑名單裝置** *（黑名單）* ：您可以指定裝置對應程式不應控制的裝置清單。
+- 封鎖清單**例外**狀況 *（blacklist_exceptions）* ：您可以識別要被視為多重路徑裝置的特定裝置，即使列于黑名單中也一樣。
+- **存放裝置控制器專屬設定** *（裝置）* ：您可以指定將套用到具有廠商和產品資訊之裝置的設定。
+- **裝置特定設定** *（多重路徑）* ：您可以使用此區段來微調個別 lun 的設定。
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>在連線到 Linux 主機的 StorSimple 上設定多重路徑
 可以設定連線到 Linux 主機的 StorSimple 裝置，以取得高可用性和負載平衡。 例如，如果 Linux 主機有兩個連接到 SAN 的介面，而裝置有兩個連接到 SAN 的介面，以致這些介面位於相同的子網路上，則會有 4 個路徑可用。 不過，如果裝置瀚主機介面上的每個 DATA 介面位於不同的 IP 子網路上 (且不可路由傳送)，則只有 2 路徑可用。 您可以設定多重路徑，以便自動探索所有可用的路徑、選擇這些路徑的負載平衡演算法、套用僅限 StorSimple 磁碟區的特定組態設定，然後啟用和驗證多重路徑。
@@ -71,7 +64,7 @@ multipath.conf 有五個區段：
 本節將詳細說明 CentOS 伺服器和 StorSimple 裝置的設定必要條件。
 
 ### <a name="on-centos-host"></a>在 CentOS 主機上
-1. 確定 CentOS 主機已啟用 2 個網路介面。 輸入：
+1. 確定 CentOS 主機已啟用 2 個網路介面。 類型：
    
     `ifconfig`
    
@@ -109,10 +102,10 @@ multipath.conf 有五個區段：
 1. 在 CentOS 伺服器上安裝 *iSCSI-initiator-utils* 。 執行下列步驟以安裝 *iSCSI-initiator-utils*。
    
    1. 以 `root` 身分登入到 CentOS 主機。
-   1. 安裝 *iSCSI-initiator-utils*。 輸入：
+   1. 安裝 *iSCSI-initiator-utils*。 類型：
       
        `yum install iscsi-initiator-utils`
-   1. 在成功安裝 *iSCSI-Initiator-utils* 之後，啟動 iSCSI 服務。 輸入：
+   1. 在成功安裝 *iSCSI-Initiator-utils* 之後，啟動 iSCSI 服務。 類型：
       
        `service iscsid start`
       
@@ -130,7 +123,7 @@ multipath.conf 有五個區段：
            iscsid  0:off   1:off   2:on3:on4:on5:on6:off
       
        在上述範例中，您可以看到 iSCSI 環境將在開機時於執行層級 2、 3、 4 和 5 執行。
-1. 安裝 *device-mapper-multipath*。 輸入：
+1. 安裝 *device-mapper-multipath*。 類型：
    
     `yum install device-mapper-multipath`
    
@@ -186,19 +179,19 @@ multipath.conf 有五個區段：
 ### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>步驟 1：為自動探索設定多重路徑
 系統可以自動探索及設定多重路徑支援的裝置。
 
-1. 初始化 `/etc/multipath.conf` 檔案。 輸入：
+1. 初始化 `/etc/multipath.conf` 檔案。 類型：
    
      `mpathconf --enable`
    
     上述命令會建立 `sample/etc/multipath.conf` 檔案。
-1. 啟動多重路徑服務。 輸入：
+1. 啟動多重路徑服務。 類型：
    
     `service multipathd start`
    
     您會看到下列輸出︰
    
     `Starting multipathd daemon:`
-1. 啟用多重路徑的自動探索。 輸入：
+1. 啟用多重路徑的自動探索。 類型：
    
     `mpathconf --find_multipaths y`
    
@@ -213,7 +206,7 @@ multipath.conf 有五個區段：
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>步驟 2：為 StorSimple 磁碟區設定多重路徑
 根據預設，所有裝置都會列入 multipath.conf 檔案的封鎖清單並遭到略過。 您必須建立封鎖清單例外狀況，允許 StorSimple 裝置中的磁碟區啟動多重路徑。
 
-1. 編輯 `/etc/mulitpath.conf` 檔案。 輸入：
+1. 編輯 `/etc/mulitpath.conf` 檔案。 類型：
    
     `vi /etc/multipath.conf`
 1. 找出 multipath.conf 檔案中的 blacklist_exceptions 區段。 您的 StorSimple 裝置必須列為本節中的封鎖清單例外狀況。 您可以在此檔案中取消註解相關行，如下所示修改該檔案 (僅使用您所用裝置的特定模型)︰
@@ -232,7 +225,7 @@ multipath.conf 有五個區段：
 ### <a name="step-3-configure-round-robin-multipathing"></a>步驟 3：設定循環配置資源多重路徑
 此負載平衡演算法會以平衡且循環配置資源的方式，使用作用中控制器的所有可用多重路徑。
 
-1. 編輯 `/etc/multipath.conf` 檔案。 輸入：
+1. 編輯 `/etc/multipath.conf` 檔案。 類型：
    
     `vi /etc/multipath.conf`
 1. 在 `defaults` 區段之下，將 `path_grouping_policy` 設定為 `multibus`。 `path_grouping_policy` 指定預設路徑群組原則，以要套用到未指定的多重路徑。 defaults 區段會如下所示。
@@ -251,7 +244,7 @@ multipath.conf 有五個區段：
 > 
 
 ### <a name="step-4-enable-multipathing"></a>步驟 4：啟用多重路徑
-1. 重新啟動 `multipathd` 精靈。 輸入：
+1. 重新啟動 `multipathd` 精靈。 類型：
    
     `service multipathd restart`
 1. 輸出應如下所示：
@@ -262,7 +255,7 @@ multipath.conf 有五個區段：
 ### <a name="step-5-verify-multipathing"></a>步驟 5：驗證多重路徑
 1. 如下所示，先確定 iSCSI 連接是以 StorSimple 裝置建立︰
    
-   a. 探索您的 StorSimple 裝置。 輸入：
+   a. 探索您的 StorSimple 裝置。 類型：
       
     ```
     iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>
@@ -277,7 +270,7 @@ multipath.conf 有五個區段：
 
     從上述輸出複製 StorSimple 裝置的 IQN ( `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`)。
 
-   b. 使用目標 IQN 連接到此裝置。 StorSimple 裝置在此是 iSCSI 目標。 輸入：
+   b. 使用目標 IQN 連接到此裝置。 StorSimple 裝置在此是 iSCSI 目標。 類型：
 
     ```
     iscsiadm -m node --login -T <IQN of iSCSI target>
@@ -298,12 +291,12 @@ multipath.conf 有五個區段：
 
     如果您在此只看到一個主機介面和兩個路徑，您必須在主機上針對 iSCSI 啟用這兩個介面。 您可以遵循 [Linux 文件中的詳細指示](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html)。
 
-1. 磁碟區會從 StorSimple 裝置公開至 CentOS 伺服器。 如需詳細資訊，請參閱[步驟 6:建立磁碟區](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume)透過 Azure 入口網站在 StorSimple 裝置上。
+1. 磁碟區會從 StorSimple 裝置公開至 CentOS 伺服器。 如需詳細資訊，請參閱[步驟 6：建立磁碟區](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) (透過 StorSimple 裝置上的 Azure 入口網站)。
 
-1. 驗證可用的路徑。 輸入：
+1. 驗證可用的路徑。 類型：
 
       ```
-      multipath –l
+      multipath -l
       ```
 
       下列範例顯示透過兩個可用路徑連接到單一主機網路介面的 StorSimple 裝置上兩個網路介面的輸出。
@@ -333,39 +326,39 @@ multipath.conf 有五個區段：
 ## <a name="troubleshoot-multipathing"></a>多重路徑疑難排解
 如果您在多重路徑設定期間遇到任何問題，請參閱本節所提供的一些實用秘訣。
 
-問： 我未看見 `multipath.conf` 檔案的變更生效。
+Q. 我未看見 `multipath.conf` 檔案的變更生效。
 
 A. 如果您已對 `multipath.conf` 檔案進行任何變更，您必須重新啟動多重路徑服務。 輸入以下命令：
 
     service multipathd restart
 
-問： 我已在 StorSimple 裝置上啟用兩個網路介面以及在主機上啟用兩個網路介面。 當我列出可用的路徑時，我只看到兩個路徑。 我預計看見四個可用的路徑。
+Q. 我已在 StorSimple 裝置上啟用兩個網路介面以及在主機上啟用兩個網路介面。 當我列出可用的路徑時，我只看到兩個路徑。 我預計看見四個可用的路徑。
 
 A. 確定這兩個路徑位於相同的子網路上並可路由傳送。 如果網路介面位於不同的 vLAN 上且不可路由傳送，您只會看到兩個路徑。 確認這點的唯一方法就是確定您可以從 StorSimple 裝置上的網路介面存取這兩個主機介面。 您必須[連絡 Microsoft 支援](storsimple-8000-contact-microsoft-support.md)，因為這項驗證只能透過支援工作階段完成。
 
-問： 當我列出可用的路徑時，我看不到任何輸出。
+Q. 當我列出可用的路徑時，我看不到任何輸出。
 
-A. 通常，看不到任何多重路徑的路徑，即暗示多重路徑精靈有問題，而最可能是 `multipath.conf` 檔案有問題。
+A. 一般來說，看不到任何多重路徑路徑，都是指多重路徑 daemon 的問題，而這裡最有可能的問題是在 `multipath.conf` 檔案中。
 
-此外，也值得檢查您可以在連接到目標後實際看到某些磁碟，因為多重路徑清單沒有回應也可能表示您沒有任何磁碟。
+此外，您也可以檢查連線到目標之後，實際看到一些磁片，因為從多重路徑清單中沒有任何回應也可能表示您沒有任何磁片。
 
 * 使用下列命令來重新掃描 SCSI 匯流排：
   
-    `$ rescan-scsi-bus.sh` （屬於 sg3_utils）
+    `$ rescan-scsi-bus.sh` （sg3_utils 套件的一部分）
 * 輸入下列命令：
   
     `$ dmesg | grep sd*`
      
      或
   
-    `$ fdisk –l`
+    `$ fdisk -l`
   
     這些將傳回最近新增磁碟的詳細資料。
 * 若要判斷它是否為 StorSimple 磁碟，請使用下列命令︰
   
     `cat /sys/block/<DISK>/device/model`
   
-    這會傳回一個字串，判斷它是否為 StorSimple 磁碟。
+    這會傳回一個字串，它會判斷它是否為 StorSimple 磁片。
 
 有一個比較不可能的可能原因也可能是 iscsid pid 過時。 使用下列命令從 iSCSI 工作階段登出：
 
@@ -376,11 +369,11 @@ A. 通常，看不到任何多重路徑的路徑，即暗示多重路徑精靈�
     iscsiadm -m node --login -T <TARGET_IQN>
 
 
-問： 我不確定我的裝置是否已列入允許清單。
+Q. 我不確定我的裝置是否已列入允許清單。
 
 A. 若要驗證您的裝置是否已列入允許清單，請使用下列疑難排解互動式命令︰
 
-    multipathd –k
+    multipathd -k
     multipathd> show devices
     available block devices:
     ram0 devnode blacklisted, unmonitored
@@ -417,10 +410,10 @@ A. 若要驗證您的裝置是否已列入允許清單，請使用下列疑難�
     dm-3 devnode blacklisted, unmonitored
 
 
-如需詳細資訊，請移至[多重路徑疑難排解](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot)。
+如需詳細資訊，請移至[多重路徑的疑難排解](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot)。
 
 ## <a name="list-of-useful-commands"></a>有用的命令清單
-| 在系統提示您進行確認時，輸入 | 命令 | 描述 |
+| 類型 | Command | 說明 |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |啟動 iSCSI 服務 |
 | &nbsp; |`service iscsid stop` |停止 iSCSI 服務 |
@@ -429,15 +422,15 @@ A. 若要驗證您的裝置是否已列入允許清單，請使用下列疑難�
 | &nbsp; |`iscsiadm -m node --login -T <TARGET_IQN>` |登入 iSCSI 目標 |
 | &nbsp; |`iscsiadm -m node --logout -p <Target_IP>` |登出 iSCSI 目標 |
 | &nbsp; |`cat /etc/iscsi/initiatorname.iscsi` |列印 iSCSI 啟動器名稱 |
-| &nbsp; |`iscsiadm –m session –s <sessionid> -P 3` |檢查 iSCSI 工作階段的狀態以及在主機上探索到的磁碟區 |
-| &nbsp; |`iscsi –m session` |顯示在主機與 StorSimple 裝置之間建立的所有 iSCSI 工作階段 |
+| &nbsp; |`iscsiadm -m session -s <sessionid> -P 3` |檢查 iSCSI 工作階段的狀態以及在主機上探索到的磁碟區 |
+| &nbsp; |`iscsi -m session` |顯示在主機與 StorSimple 裝置之間建立的所有 iSCSI 工作階段 |
 |  | | |
 | **多重路徑** |`service multipathd start` |啟動多重路徑 daemon |
 | &nbsp; |`service multipathd stop` |停止多重路徑 daemon |
 | &nbsp; |`service multipathd restart` |重新啟動多重路徑 daemon |
-| &nbsp; |`chkconfig multipathd on` </br> 或 </br> `mpathconf –with_chkconfig y` |啟用多重路徑 daemon 以在開機時啟動 |
-| &nbsp; |`multipathd –k` |啟動互動式主控台以進行疑難排解 |
-| &nbsp; |`multipath –l` |列出多重路徑連接和裝置 |
+| &nbsp; |`chkconfig multipathd on` </br> 或 </br> `mpathconf -with_chkconfig y` |啟用多重路徑 daemon 以在開機時啟動 |
+| &nbsp; |`multipathd -k` |啟動互動式主控台以進行疑難排解 |
+| &nbsp; |`multipath -l` |列出多重路徑連接和裝置 |
 | &nbsp; |`mpathconf --enable` |在 `/etc/mulitpath.conf` |
 |  | | |
 

@@ -3,16 +3,16 @@ title: 啟用虛擬機器擴展集的 Azure 磁碟加密
 description: 本文提供針對虛擬機器擴展集啟用 Microsoft Azure 磁片加密的指示
 author: msmbaldwin
 ms.service: virtual-machine-scale-sets
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0097d0e1d5ea7de092da14683d4bab3d673b2219
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 36eb83d99af299260ebbbd74fe56d69921ba389b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177772"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278979"
 ---
 # <a name="azure-disk-encryption-for-virtual-machine-scale-sets"></a>虛擬機器擴展集的 Azure 磁碟加密
 
@@ -23,7 +23,7 @@ Azure 磁碟加密提供虛擬機器的 OS 和資料磁片的磁片區加密，�
 - Windows 擴展集中的 OS 和資料磁片區。
 - Linux 擴展集內的資料磁片區。 Linux 擴展集目前不支援 OS 磁片加密。
 
-只有幾分鐘的時間，您可以使用[Azure CLI 來加密虛擬機器](disk-encryption-cli.md)擴展集，或[使用 Azure PowerShell 來加密](disk-encryption-powershell.md)虛擬機器擴展集，以瞭解虛擬機器擴展集 Azure 磁碟加密的基本概念教程.
+只有幾分鐘的時間，您可以使用[Azure CLI 來加密虛擬機器](disk-encryption-cli.md)擴展集，或[使用 Azure PowerShell](disk-encryption-powershell.md)教學課程來加密虛擬機器擴展集，以瞭解虛擬機器擴展集 Azure 磁碟加密的基本概念。
 
 ## <a name="next-steps"></a>後續步驟
 

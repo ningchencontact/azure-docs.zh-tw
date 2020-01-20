@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 03dbb679c25ea692d2c52f80b9493889e367823d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c2f774401f32ff02ced690173c418dafc4c789b5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112142"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278799"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Azure 認知搜尋中的 API 版本
 
@@ -30,7 +30,7 @@ Azure 認知搜尋會定期推出功能更新。 有時候 (但並不一定)，�
 以下是 Azure 認知搜尋的所有程式設計介面目前版本的快照集。
 
 
-| 介面 | 最新主要版本 | Status |
+| 介面 | 最新主要版本 | 狀態 |
 | --- | --- | --- |
 | [.NET SDK](https://aka.ms/search-sdk) |9.0 |正式推出，2019年5月發行 |
 | [.NET SDK 預覽版](https://aka.ms/search-sdk-preview) |8.0-預覽 |預覽，2019年4月發行 |
@@ -49,6 +49,9 @@ Azure 認知搜尋會定期推出功能更新。 有時候 (但並不一定)，�
 > 服務 REST API 和管理 REST API 的版本是彼此獨立的。 版本號碼如有類似，純屬巧合。
 
 正式推出 (或 GA) 的 API 可以用於實際執行，並且受到 Azure 服務等級協定所約束。 預覽版本具有實驗性功能，那些功能並不會都移轉到 GA 版本上。 **強烈建議您避免在實際執行的應用程式中使用預覽 API。**
+
+## <a name="update-to-the-latest-version-of-the-rest-api-by-october-15-2020"></a>2020年10月15日更新為最新版本的 REST API
+下列 Azure 認知搜尋 REST API 版本將于2020年10月15日淘汰且不再支援： **2014-07-31-preview**、 **2014-10-20-preview**、 **2015-02-28-preview**和**2015-02-28**。 此外，比**3.0.0-rc**還舊的 Azure 認知搜尋 .net SDK 版本也將淘汰，因為它們的目標是這些 REST API 版本的其中之一。 在此日期之後，使用任何已淘汰之 REST API 或 SDK 版本的應用程式將無法再使用，而且必須升級。 如同任何變更此類型，我們會提供12個月的通知，讓您有足夠的時間進行調整。  若要繼續使用 Azure 認知搜尋，請將以[REST API](search-api-migration.md)為目標的現有程式碼，遷移[REST API 至2019-05-06 版](https://docs.microsoft.com/rest/api/searchservice/)或更新版本，或 .Net SDK 至[3.0](search-dotnet-sdk-migration.md)年10月15日（2020）。  如果您有任何關於更新至最新版本的問題，請傳送電子郵件至 2020 5 月15日 azuresearch_contact@microsoft.com，以確保您有足夠的時間更新您的程式碼。
 
 ## <a name="about-preview-and-generally-available-versions"></a>關於預覽與正式推出版本
 Azure 認知搜尋一律會先透過 REST API 預先發行實驗性功能，然後再透過 .NET SDK 的發行前版本進行。

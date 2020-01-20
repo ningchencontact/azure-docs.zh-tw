@@ -3,15 +3,15 @@ title: Azure 磁碟加密和 Azure 虛擬機器擴展集擴充功能排序
 description: 本文提供啟用 Linux IaaS VM 適用的 Microsoft Azure 磁碟加密的指示。
 author: msmbaldwin
 ms.service: virtual-machine-scale-sets
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/10/2019
-ms.openlocfilehash: 351c3603ddc069647577b5465ea9fa839810cbc1
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: aa638b86b0788b8c274f9dcb3c04c1fc385b4ae1
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530884"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279018"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>使用 Azure 磁碟加密搭配虛擬機器擴展集擴充功能排序
 
@@ -158,7 +158,7 @@ Azure 磁片加密等擴充功能可以依照指定的順序新增至 Azure 虛�
 ## <a name="next-steps"></a>後續步驟
 - 深入瞭解擴充功能排序：[虛擬機器擴展集中的序列延伸](virtual-machine-scale-sets-extension-sequencing.md)模組布建。
 - 深入瞭解 `provisionAfterExtensions` 屬性： [Microsoft. Compute virtualMachineScaleSets/extensions template reference](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)。
-- [虛擬機器擴展集的 Azure 磁碟加密](disk-encryption-overview.md)
-- [使用 Azure CLI 加密虛擬機器擴展集](disk-encryption-cli.md)
-- [使用 Azure PowerShell 加密虛擬機器擴展集](disk-encryption-powershell.md)
-- [為 Azure 磁碟加密建立及設定金鑰保存庫](disk-encryption-key-vault.md)
+- [適用於虛擬機器擴展集的 Azure 磁碟加密](disk-encryption-overview.md)
+- [使用 Azure CLI 將虛擬機器擴展集加密](disk-encryption-cli.md)
+- [使用 Azure PowerShell 將虛擬機器擴展集加密](disk-encryption-powershell.md)
+- [針對 Azure 磁碟加密建立及設定金鑰保存庫](disk-encryption-key-vault.md)

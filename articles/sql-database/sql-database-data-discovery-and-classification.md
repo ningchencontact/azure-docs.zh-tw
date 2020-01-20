@@ -12,12 +12,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: bb6961d87fd08af78db495b700acf34fbf4944a1
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 7161c5554fe2d4993f3bd30ad82d675a71927f23
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552544"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279189"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL Database 和 SQL 資料倉儲資料探索 & 分類
 
@@ -184,6 +184,7 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 
 - 深入了解[進階資料安全性](sql-database-advanced-data-security.md)。
 - 請考慮設定 [Azure SQL Database 稽核](sql-database-auditing.md)，以監視和稽核對已分類敏感性資料的存取。
+- 如需包含資料探索 & 分類的 YouTube 簡報，請參閱[探索、分類、標記 & 保護 SQL 資料 |公開的資料](https://www.youtube.com/watch?v=itVi9bkJUNc)。
 
 <!--Anchors-->
 [What is data discovery & classification]: #subheading-1

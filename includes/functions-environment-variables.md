@@ -1,20 +1,18 @@
 ---
 title: 包含檔案
 description: 包含檔案
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 05/08/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e7e613adc98f6cec2fe8f369f1a6413cba6179c1
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: b72de9fb15eafd48c3b72aae4f35fef3bb1f1bef
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170725"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279323"
 ---
 這些函數應用程式設定值在您的程式碼中也可以做為環境變數加以讀取。 如需詳細資訊，請參閱這些特定語言參考主題的「環境變數」章節：
 

@@ -1,18 +1,18 @@
 ---
-author: jpconnock
+author: tanmaygore
+ms.author: tagore
 ms.service: cloud-services
 ms.topic: include
 ms.date: 11/25/2018
-ms.author: jeconnoc
-ms.openlocfilehash: f23d5246401f23694755e63a51c52da5dbf5ac1b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5deba9d8968f71ef1b21517e74e6af4c39aa9271
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67174321"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279319"
 ---
 > [!WARNING]
-> 當您在現有角色上啟用診斷功能時，您已設定的任何擴充功能都會在部署套件時停用。 它們包括：
+> 當您在現有角色上啟用診斷功能時，您已設定的任何擴充功能都會在部署套件時停用。 這些區域包括：
 >
 > * Microsoft Monitoring Agent 診斷
 > * Microsoft Azure 安全性監控

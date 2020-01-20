@@ -1,20 +1,18 @@
 ---
 title: (已淘汰) 搭配 Azure Container Service 引擎和 Swarm 模式使用 CI/CD
 description: 搭配 Docker Swarm 模式、Azure Container Registry 及 Azure DevOps 使用 Azure Container Service 引擎，以持續傳遞多容器 .NET Core 應用程式
-services: container-service
 author: diegomrtnzg
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/27/2017
 ms.author: dimart
 ms.custom: mvc
-ms.openlocfilehash: fe24ab21a9a7d227d58e50c58f9aff2bd91e767f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 1ec7ece6f5afd1bbd2613ae08af04b82e8a156b2
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598563"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277922"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(已淘汰) 使用 Azure DevOps 的完整 CI/CD 管線，搭配 ACS 引擎和 Docker Swarm 模式在 Azure Container Service 上部署多容器應用程式
 
@@ -24,10 +22,9 @@ ms.locfileid: "68598563"
 
 現在，為雲端開發現代化應用程式的其中一個最大挑戰是要能持續傳遞這些應用程式。 在本文中，您會了解如何實作完整的持續整合和部署 (CI/CD) 管線，使用： 
 * 使用 Docker Swarm 模式的 Azure Container Service 引擎
-* Azure 容器登錄
+* Azure Container Registry
 * Azure DevOps
 
-本文是以一個使用 ASP.NET Core 開發的簡單應用程式 (可在 [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux) 上取得) 為依據。 該應用程式由四個不同的服務組成：三個 Web API 和一個 Web 前端：
 
 ![MyShop 範例應用程式](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/myshop-application.png)
 
@@ -46,7 +43,7 @@ ms.locfileid: "68598563"
 7. 叢集上的 Docker Swarm 模式提取最新版本的映像 
 8. 使用 Docker 堆疊部署應用程式的最新版本 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前，您需要完成下列工作：
 
@@ -189,7 +186,7 @@ ms.locfileid: "68598563"
 
    ![Azure DevOps - 建置成功](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
-## <a name="step-3-create-the-release-pipeline"></a>步驟 3：建立發行管線
+## <a name="step-3-create-the-release-pipeline"></a>步驟 3︰建立發行管線
 
 Azure DevOps 可讓您[跨環境管理發行](https://www.visualstudio.com/team-services/release-management/)。 您可以啟用持續部署以確保應用程式會順利部署到不同環境 (例如開發、測試、進入生產階段前和生產)。 您可以建立代表 Azure Container Service Docker Swarm 模式叢集的環境。
 
@@ -251,6 +248,6 @@ Azure DevOps 可讓您[跨環境管理發行](https://www.visualstudio.com/team-
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需 CI/CD 與 Azure DevOps 的詳細資訊, 請參閱[Azure Pipelines 檔](/azure/devops/pipelines/?view=azure-devops)文章。
+* 如需 CI/CD 與 Azure DevOps 的詳細資訊，請參閱[Azure Pipelines 檔](/azure/devops/pipelines/?view=azure-devops)文章。
 * 如需 ACS 引擎的詳細資訊，請參閱 [ACS Engine GitHub repo](https://github.com/Azure/acs-engine) (ACS 引擎 GitHub 儲存機制)。
 * 如需 Docker Swarm 模式的詳細資訊，請參閱 [Swarm mode overview](https://docs.docker.com/engine/swarm/) (Swarm 模式概觀)。

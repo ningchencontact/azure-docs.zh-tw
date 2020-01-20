@@ -1,29 +1,21 @@
 ---
-title: 適用於 StorSimple Virtual Array 的新驗證 |Microsoft 文件
+title: StorSimple Virtual array 的新驗證
 description: 說明如何針對您的服務使用 AAD 型驗證、產生新的註冊金鑰，以及執行裝置的手動註冊。
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 723d5e969ba2f635724ffa50d562a7abaf936dcf
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 89f367e866c1a794f4359c76b8b8a8a9cfefd50d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517127"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273797"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>針對您的 StorSimple 使用新驗證
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
@@ -61,9 +53,9 @@ AAD 驗證會在執行 Update 1 或更新版本的 StorSimple Virtual Array (120
 
 | 如果您的裝置正在執行  | 請採取下列動作                                    |
 |----------------------------|--------------------------------------------------------------|
-| Update 1.0 或更新版本，且裝置已離線。 <br> 您會看到表示 URL 未列入允許清單的警示。| 1.修改防火牆規則以包含驗證 URL。 請參閱[驗證 URL](#url-changes-for-aad-authentication)。 <br> 2.[從服務取得 AAD 註冊金鑰](#aad-based-registration-keys)。 <br> 3.執行步驟 1-5 以[連線到虛擬陣列的 Windows PowerShell 介面](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor)。<br> 4.使用 `Invoke-HcsReRegister` Cmdlet 以透過 Windows PowerShell 註冊裝置。 提供您在上一個步驟中取得的金鑰。|
-| Update 1.0 或更新版本，且裝置已上線。| 不需要任何動作。                                       |
-| Update 0.6 或更早版本，且裝置已離線。 | 1.[透過目錄伺服器下載 Update 1.0](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix)。<br>2.[透過本機 Web UI 套用 Update 1.0](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix)。<br>3.[從服務取得 AAD 註冊金鑰](#aad-based-registration-keys)。 <br>4.執行步驟 1-5 以[連線到虛擬陣列的 Windows PowerShell 介面](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor)。<br>5.使用 `Invoke-HcsReRegister` Cmdlet 以透過 Windows PowerShell 註冊裝置。 提供您在上一個步驟中取得的金鑰。|
+| Update 1.0 或更新版本，且裝置已離線。 <br> 您會看到表示 URL 未列入允許清單的警示。| 1. 修改防火牆規則以包含驗證 URL。 請參閱[驗證 URL](#url-changes-for-aad-authentication)。 <br> 2.[從服務取得 AAD 註冊金鑰](#aad-based-registration-keys)。 <br> 3. 執行步驟1-5 以[連接到虛擬陣列的 Windows PowerShell 介面](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor)。<br> 4. 使用 `Invoke-HcsReRegister` Cmdlet 透過 Windows PowerShell 註冊裝置。 提供您在上一個步驟中取得的金鑰。|
+| Update 1.0 或更新版本，且裝置已上線。| 不需執行任何動作。                                       |
+| Update 0.6 或更早版本，且裝置已離線。 | 1.[透過目錄伺服器下載更新 1.0](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix)。<br>2.[透過本機 WEB UI 套用更新 1.0](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix)。<br>3.[從服務取得 AAD 註冊金鑰](#aad-based-registration-keys)。 <br>4. 執行步驟1-5 以[連接到虛擬陣列的 Windows PowerShell 介面](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor)。<br>5. 使用 `Invoke-HcsReRegister` Cmdlet 透過 Windows PowerShell 註冊裝置。 提供您在上一個步驟中取得的金鑰。|
 | Update 0.6 或更早版本，且裝置已上線 | 修改防火牆規則以包含驗證 URL。<br> 透過 Azure 入口網站來安裝 Update 1.0。 |
 
 ## <a name="aad-based-registration-keys"></a>AAD 型註冊金鑰
@@ -80,7 +72,7 @@ AAD 驗證會在執行 Update 1 或更新版本的 StorSimple Virtual Array (120
 
 #### <a name="to-generate-the-aad-service-registration-key"></a>產生 AAD 服務註冊金鑰
 
-1. 在 [StorSimple 裝置管理員] 中，移至 [管理] &gt; [金鑰]。
+1. 在**StorSimple Device Manager**中，移至 [**管理] &gt;** [**金鑰**]。
     
     ![移至 [金鑰]](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key1.png)
 

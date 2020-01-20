@@ -1,20 +1,18 @@
 ---
 title: 包含檔案
 description: 包含檔案
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 10/19/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 4d0a61bf7f4ee9e441a49e21ce6535dc3bff0edc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 9c51ce726545d1c64d69c86c36fc69ea43c3b882
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608111"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279471"
 ---
 指定[計算 Application Insights 的計量](../articles/azure-functions/functions-monitoring.md#configure-the-aggregator)時彙總多少函式引動過程。 
 
@@ -27,7 +25,7 @@ ms.locfileid: "67608111"
 }
 ```
 
-|屬性 |預設  | 描述 |
+|屬性 |預設  | 說明 |
 |---------|---------|---------| 
 |batchSize|1000|要彙總的要求數目上限。| 
 |flushTimeout|00:00:30|要彙總的最長期間。| 

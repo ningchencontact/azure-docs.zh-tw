@@ -1,26 +1,20 @@
 ---
-title: 針對使用虛擬機器擴展集的自動調整進行疑難排解 | Microsoft Docs
+title: 使用虛擬機器擴展集進行自動調整疑難排解
 description: 針對使用虛擬機器擴展集的自動調整進行疑難排解。 了解所遇到的一般問題和解決方式。
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
 ms.service: virtual-machine-scale-sets
-ms.workload: na
 ms.tgt_pltfrm: windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 3308b22606e87853aad7e3d3a3995aab8d1b5401
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 923967a902f611ce845fbdc096fd2c02e681bb6e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803588"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76272421"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>針對使用虛擬機器擴展集的自動調整進行疑難排解
 **問題** - 您已使用虛擬機器擴展集在 Azure Resource Manager 中建立自動調整基礎結構，例如藉由部署範本，如下所示︰ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale - 您有已定義的調整規則，並且運作良好，美中不足的是無論您在 VM 上放置多少負載，它都不會自動調整。
@@ -52,7 +46,7 @@ ms.locfileid: "60803588"
     Azure 資源總管是向您顯示 Azure Resource Manager 資源的狀態不可或缺的疑難排解工具。 按一下您的訂用帳戶，查看您正在進行疑難排解的資源群組。 在「計算」資源提供者下查看您建立的虛擬機器擴展集，並且檢查執行個體檢視，它會顯示部署的狀態。 也請檢查虛擬機器擴展集中的 VM 執行個體檢視。 然後進入 Microsoft.Insights 資源提供者，並且檢查自動調整規則看起來是否沒有問題。
 * 診斷擴充是否正常運作，而且發出效能資料？
   
-    **更新：** 若要使用的主機型度量管線，不再需要安裝診斷擴充功能已增強 azure 自動調整規模。 如果您使用新的管線建立自動調整應用程式，則不再適用於後續幾個段落。 已經轉換為使用主機管線的 Azure 範本範例位於： https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale 。 
+    **更新︰** 已增強 Azure 自動調整，以使用不再需要安裝診斷擴充功能的主機型度量管線。 如果您使用新的管線建立自動調整應用程式，則不再適用於後續幾個段落。 已經轉換為使用主機管線的 Azure 範本範例位於： https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale 。 
   
     使用主機型度量進行自動調整較佳，原因如下︰
   

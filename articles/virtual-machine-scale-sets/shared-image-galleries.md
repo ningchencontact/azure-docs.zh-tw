@@ -1,28 +1,23 @@
 ---
-title: 使用共用資源庫共用 VM 映像 | Microsoft Docs
+title: 使用共用資源庫共用 VM 映射
 description: 了解如何使用共用映像資源庫，跨組織共用 VM 映像。
-services: virtual-machine-scale-sets
 documentationcenter: virtual-machine-scale-sets
 author: axayjo
-manager: jeconnoc
-editor: tysonn
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: ceb1aa9ae29b42d1ac4782499fd3157b103a492e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 38b8738a383d2953d89677f76e6395035b83181f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621106"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276351"
 ---
 # <a name="shared-image-galleries-overview"></a>共用映像資源庫概觀
 

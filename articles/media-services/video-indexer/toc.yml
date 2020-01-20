@@ -35,17 +35,17 @@
           href: animated-characters-recognition.md
         - name: 品牌
           href: customize-brands-model-overview.md
-        - name: 語言
+        - name: Language
           href: customize-language-model-overview.md
         - name: 個人
           href: customize-person-model-overview.md
 - name: 使用說明指南
   items:
-    - name: 連接到 Azure
+    - name: 連線到 Azure
       href: connect-to-azure.md
     - name: 管理與 Azure 連線的帳戶
       href: manage-account-connected-to-azure.md
-    - name: 使用 API 上傳並為影片製作索引
+    - name: 上傳並為影片製作索引
       href: upload-index-videos.md
     - name: 檢查影片索引器輸出
       href: video-indexer-output-json-v2.md
@@ -79,7 +79,7 @@
               href: customize-brands-model-with-website.md
             - name: 使用影片索引器 API
               href: customize-brands-model-with-api.md
-        - name: 語言
+        - name: Language
           items:
             - name: 使用影片索引器網站
               href: customize-language-model-with-website.md
@@ -93,7 +93,7 @@
   items:
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: 區域可用性
       href: 'https://azure.microsoft.com/regions/services/'

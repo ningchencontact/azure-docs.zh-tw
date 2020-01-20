@@ -1,28 +1,20 @@
 ---
-title: 在 Azure 中使用共用 VM 映像來建立擴展集 | Microsoft Docs
+title: 在 Azure 中使用共用 VM 映射建立擴展集
 description: 了解如何使用 Azure CLI 來建立共用 VM 映像，以用來在 Azure 中部署虛擬機器擴展集。
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: axayjo
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 166e859f8ddd080ec8e44cf9647e1c8687b12b2c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 83b3d5c904a65b28482acf8b685c939493c8c03b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621513"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276275"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 為虛擬機器擴展集建立及使用共用映像
 
@@ -35,7 +27,7 @@ ms.locfileid: "67621513"
 [!INCLUDE [virtual-machines-common-shared-images-cli](../../includes/virtual-machines-common-shared-images-cli.md)]
 
 ## <a name="create-a-scale-set-from-the-custom-vm-image"></a>從自訂 VM 映像建立擴展集
-建立的擴展集[ `az vmss create` ](/cli/azure/vmss#az-vmss-create)。 請勿使用 UbuntuLTS  或 CentOS  這類平台映像，而是指定自訂 VM 映像的名稱。 下列範例會建立名為 myScaleSet  的擴展集，其使用前一步驟中名為 myImage  的自訂映像：
+建立具有[`az vmss create`](/cli/azure/vmss#az-vmss-create)的擴展集。 請勿使用 UbuntuLTS 或 CentOS 這類平台映像，而是指定自訂 VM 映像的名稱。 下列範例會建立名為 myScaleSet 的擴展集，其使用前一步驟中名為 myImage 的自訂映像：
 
 ```azurecli-interactive
 az vmss create \

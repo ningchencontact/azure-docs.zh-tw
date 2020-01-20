@@ -1,24 +1,22 @@
 ---
 title: 使用 OpenFaaS 搭配 Azure Kubernetes Service (AKS)
 description: 部署及使用 OpenFaaS 搭配 Azure Kubernetes Service (AKS)
-services: container-service
 author: justindavies
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 5ed6e0b21b00ede3f78a102fd004e5706ae3cea5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7949735eff4478d2d04700e1c6df69d28fe25979
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60464853"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278487"
 ---
 # <a name="using-openfaas-on-aks"></a>在 AKS 上使用 OpenFaaS
 
-[OpenFaaS] [ open-faas]是用於建置無伺服器函式，透過容器使用的架構。 由於是開放原始碼專案，它在社群內被廣泛採用。 本文件詳述在 Azure Kubernetes Service (AKS) 叢集上安裝和使用 OpenFaas 的做法。
+[OpenFaaS][open-faas]是一種架構，可讓您透過使用容器來建立無伺服器函式。 由於是開放原始碼專案，它在社群內被廣泛採用。 本文件詳述在 Azure Kubernetes Service (AKS) 叢集上安裝和使用 OpenFaas 的做法。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,9 +27,9 @@ ms.locfileid: "60464853"
 * 在您的開發系統上安裝 Azure CLI。
 * 在您的系統上安裝 Git 命令列工具。
 
-## <a name="add-the-openfaas-helm-chart-repo"></a>將 OpenFaaS 的 helm 圖表存放庫新增
+## <a name="add-the-openfaas-helm-chart-repo"></a>新增 OpenFaaS helm 圖表存放庫
 
-OpenFaaS 會維護它自己的 helm 圖表，以保持最新狀態的所有最新的變更。
+OpenFaaS 會維護它自己的 helm 圖，以隨時掌握最新的變更。
 
 ```azurecli-interactive
 helm repo add openfaas https://openfaas.github.io/faas-netes/
@@ -48,7 +46,7 @@ helm repo update
 kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
 ```
 
-OpenFaaS UI 入口網站和 REST API 產生的密碼：
+產生 OpenFaaS UI 入口網站和 REST API 的密碼：
 
 ```azurecli-interactive
 # generate a random password
@@ -59,9 +57,9 @@ kubectl -n openfaas create secret generic basic-auth \
 --from-literal=basic-auth-password="$PASSWORD"
 ```
 
-您可以取得的祕密值`echo $PASSWORD`。
+您可以使用 `echo $PASSWORD`取得密碼的值。
 
-我們在這裡建立的密碼將供 helm 圖表，以啟用 OpenFaaS 閘道，其會公開至網際網路，透過雲端負載平衡器上的基本驗證。
+Helm 圖表會使用我們在此處建立的密碼來啟用 OpenFaaS 閘道上的基本驗證，這是透過雲端 LoadBalancer 向網際網路公開。
 
 複製的存放庫中包含適用於 OpenFaaS 的 Helm 圖表。 使用此圖表來將 OpenFaaS 部署至 AKS 叢集。
 
@@ -95,7 +93,7 @@ To verify that openfaas has started, run:
   kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
 
-建立了用於存取 OpenFaaS 閘道的公用 IP 位址。 若要擷取此 IP 位址，請使用 [kubectl get service][kubectl-get] 命令。 將 IP 位址指派給服務可能需要一些時間。
+建立了用於存取 OpenFaaS 閘道的公用 IP 位址。 若要取出此 IP 位址，請使用[kubectl get service][kubectl-get]命令。 將 IP 位址指派給服務可能需要一些時間。
 
 ```console
 kubectl get service -l component=gateway --namespace openfaas
@@ -109,19 +107,19 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-若要測試 OpenFaaS 系統，瀏覽至外部 IP 位址的 8080 連接埠，在此範例中是 `http://52.186.64.52:8080`。 系統會提示您登入。 若要擷取您的密碼，請輸入`echo $PASSWORD`。
+若要測試 OpenFaaS 系統，瀏覽至外部 IP 位址的 8080 連接埠，在此範例中是 `http://52.186.64.52:8080`。 系統會提示您登入。 若要提取您的密碼，請輸入 `echo $PASSWORD`。
 
 ![OpenFaaS 使用者介面](media/container-service-serverless/openfaas.png)
 
-最後，安裝 OpenFaaS CLI。 此範例使用 brew，如需更多選項請參閱 [OpenFaaS CLI 文件][open-faas-cli]。
+最後，安裝 OpenFaaS CLI。 這個範例使用 brew，如需更多選項，請參閱[OPENFAAS CLI 檔][open-faas-cli]。
 
 ```console
 brew install faas-cli
 ```
 
-設定`$OPENFAAS_URL`上面找到的公用 ip。
+將 `$OPENFAAS_URL` 設定為上面找到的公用 IP。
 
-Azure CLI 登入：
+使用 Azure CLI 登入：
 
 ```azurecli-interactive
 export OPENFAAS_URL=http://52.186.64.52:8080
@@ -132,7 +130,7 @@ echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 
 現在，OpenFaaS 已可正常運作，請使用 OpenFaas 入口網站建立函式。
 
-按一下 [部署新函式]  ，並搜尋 **Figlet**。 選取 Figlet 函式，然後按一下 [部署]  。
+按一下 [部署新函式]，並搜尋 **Figlet**。 選取 Figlet 函式，然後按一下 [部署]。
 
 ![Figlet](media/container-service-serverless/figlet.png)
 
@@ -197,7 +195,7 @@ COSMOS=$(az cosmosdb list-connection-strings \
 
 使用 *mongoimport* 工具載入包含資料的 CosmosDB 執行個體。
 
-視需要安裝 MongoDB 工具。 下列範例會使用 brew 安裝這些工具，如需其他選項請參閱 [MongoDB 文件][install-mongo]。
+視需要安裝 MongoDB 工具。 下列範例會使用 brew 來安裝這些工具，如需其他選項，請參閱[MongoDB 檔][install-mongo]。
 
 ```azurecli-interactive
 brew install mongodb
@@ -247,7 +245,7 @@ curl -s http://52.186.64.52:8080/function/cosmos-query
 
 ## <a name="next-steps"></a>後續步驟
 
-您可以繼續使用 OpenFaaS 研討會，探討主題，例如如何建立您自己的 GitHub 機器人的實際操作實驗室的一組透過了解使用祕密，檢視計量，和自動調整。
+您可以透過一組實際操作實驗室繼續學習 OpenFaaS 研討會，其中涵蓋的主題包括如何建立您自己的 GitHub bot、取用秘密、查看計量和自動調整。
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

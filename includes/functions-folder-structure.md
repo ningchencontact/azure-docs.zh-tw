@@ -1,20 +1,18 @@
 ---
 title: 包含檔案
 description: 包含檔案
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: fd220a4a955a8b2cd583c2fe9e3899cb36c1587d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ea7396117935c13698a8c6cc6ef4029cc82b90bc
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74935822"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279348"
 ---
 特定函式應用程式中所有函式的程式碼，都位於包含主機設定檔和一或多個子資料夾的根專案資料夾中。 每個子資料夾都包含個別函式的程式碼。 資料夾結構會顯示在下列標記法中：
 

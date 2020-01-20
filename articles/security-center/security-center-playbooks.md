@@ -13,15 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: faf297ef4b07b76f98bb7773c636cd8f6228bbc0
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b4a2617bec145cf735058bc13c01bf8ebdfe6550
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201734"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275504"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure 資訊安全中心的安全性劇本 (預覽)
 這份文件可協助您使用 Azure 資訊安全中心的安全性劇本，以回應安全性相關問題。
+
+> [!NOTE]
+> 安全性腳本功能已重新命名為工作流程自動化。 請檢查[工作流程自動化（預覽）](https://docs.microsoft.com/azure/security-center/workflow-automation)頁面以取得更新的內容資訊。 這是暫時封存的內容，可供先前已預覽過，且將會逐漸移除的客戶使用。 預覽中的任何功能都是由[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定所引導
 
 ## <a name="what-is-security-playbook-in-security-center"></a>資訊安全中心的安全性劇本是什麼？
 安全性劇本是程序的集合，一旦特定劇本從選取的警示觸發，則可以從資訊安全中心執行這些程序。 安全性劇本可協助自動化以及協調您對於資訊安全中心偵測到之特定安全性警示的回應。 資訊安全中心的安全性劇本是根據 [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps)，這表示您可以使用在 Logic Apps 範本中安全性類別底下所提供的範本，您可以根據您的需求進行修改，或者可以使用 [Azure Logic Apps 工作流程](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app)建立新的劇本，並且使用資訊安全中心作為觸發程序。
@@ -35,7 +38,7 @@ ms.locfileid: "71201734"
 1.  開啟 [資訊安全中心] 儀表板。
 2.  在左窗格的 [自動化與協調流程] 區段中，按一下 [劇本 (預覽)]。
 
-    ![邏輯應用程式](./media/security-center-playbooks/security-center-playbooks-fig17.png)
+    ![Logic 應用程式](./media/security-center-playbooks/security-center-playbooks-fig17.png)
 
 3. 在 [資訊安全中心 - 劇本 (預覽)] 分頁中，按一下 [新增] 按鈕。
 
@@ -95,7 +98,7 @@ ms.locfileid: "71201734"
 > 如需如何使用 Azure Logic App 來建立自己的劇本的詳細資訊，請參閱[建立第一個邏輯應用程式工作流程來自動執行雲端應用程式與雲端服務之間的程序](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app)。
 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 在本文件中，您已了解如何在 Azure 資訊安全中心內使用劇本。 若要深入了解「Azure 資訊安全中心」，請參閱下列主題：
 
 * [管理及回應 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)。 了解如何在資訊安全中心管理警示，以及回應安全性事件。

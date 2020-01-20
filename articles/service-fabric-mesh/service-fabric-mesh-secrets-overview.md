@@ -1,16 +1,16 @@
 ---
 title: 儲存和使用 Azure Service Fabric 網狀應用程式密碼
 description: Service Fabric Mesh 支援以祕密作為 Azure 資源。 以下說明如何使用您的 Service Fabric 網狀應用程式來儲存和管理秘密。
-author: v-steg
-ms.author: jeconnoc
+author: erikadoyle
+ms.author: edoyle
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: d45b9e98c1f325e5dbd656c85655a4ac72e4c3e3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: da4eaa34840f14714616b85e24fd62cf65602b84
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459122"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277628"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Service Fabric Mesh 應用程式秘密
 Service Fabric Mesh 支援以祕密作為 Azure 資源。 Service Fabric Mesh 秘密可以是任何機密文字資訊，例如儲存體連接字串、密碼，或其他應安全地儲存和傳輸的值。

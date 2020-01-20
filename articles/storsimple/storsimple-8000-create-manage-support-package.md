@@ -1,29 +1,21 @@
 ---
-title: 建立 StorSimple 8000 系列支援封裝 | Microsoft Docs
+title: 建立 StorSimple 8000 系列支援封裝
 description: 了解如何建立、解密和編輯 StorSimple 8000 系列裝置的支援封裝。
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61481823"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277062"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>建立及管理 StorSimple 8000 系列的支援封裝
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 StorSimple 支援封裝是一種簡便的機制，可收集所有相關的記錄以協助 Microsoft 支援服務針對任何 StorSimple 裝置問題進行疑難排解。 收集的記錄都會經過加密並壓縮。
 
@@ -31,7 +23,7 @@ StorSimple 支援封裝是一種簡便的機制，可收集所有相關的記錄
 
 ## <a name="create-a-support-package"></a>建立支援封裝
 
-在某些情況下，您必須透過 Windows PowerShell for StorSimple 手動建立支援封裝。 例如:
+在某些情況下，您必須透過 Windows PowerShell for StorSimple 手動建立支援封裝。 例如：
 
 * 如果您在與 Microsoft 支援服務共用您的記錄檔之前，必須從其中移除機密資訊。
 * 如果您在上傳封裝時，因為連線能力問題而遇到困難。
@@ -51,7 +43,7 @@ StorSimple 支援封裝是一種簡便的機制，可收集所有相關的記錄
    2. 在開啟的對話方塊中，輸入您的裝置系統管理員密碼。 預設密碼為 _Password1_。
      
       ![[PowerShell 認證] 對話方塊](./media/storsimple-8000-create-manage-support-package/IC740962.png)
-   3. 選取 [確定]  。
+   3. 選取 [確定]。
    4. 在命令提示字元中，輸入：
      
       `Enter-PSSession $MS`
@@ -72,14 +64,14 @@ StorSimple 支援封裝是一種簡便的機制，可收集所有相關的記錄
 
 您可以使用下列參數搭配 Export-HcsSupportPackage cmdlet。
 
-| 參數 | 必要/選用 | 描述 |
+| 參數 | 必要/選用 | 說明 |
 | --- | --- | --- |
 | `-Path` |必要項 |用來提供存放支援封裝的網路共用資料夾位置。 |
 | `-EncryptionPassphrase` |必要項 |用來提供複雜密碼，以協助加密支援封裝。 |
-| `-Credential` |選擇性 |用來提供網路共用資料夾的存取認證。 |
-| `-Force` |選擇性 |用來略過加密複雜密碼確認步驟。 |
-| `-PackageTag` |選擇性 |用來指定 *Path* 下存放支援封裝的目錄。 預設值是 [裝置名稱]-[目前日期和時間：yyyy-MM-dd-HH-mm-ss]。 |
-| `-Scope` |選擇性 |指定為 **Cluster** (預設值) 可以為兩個控制器建立支援封裝。 如果您只想針對目前的控制器建立封裝，請指定 **Controller**。 |
+| `-Credential` |選用 |用來提供網路共用資料夾的存取認證。 |
+| `-Force` |選用 |用來略過加密複雜密碼確認步驟。 |
+| `-PackageTag` |選用 |用來指定 *Path* 下存放支援封裝的目錄。 預設值是 [裝置名稱]-[目前日期和時間：yyyy-MM-dd-HH-mm-ss]。 |
+| `-Scope` |選用 |指定為 **Cluster** (預設值) 可以為兩個控制器建立支援封裝。 如果您只想針對目前的控制器建立封裝，請指定 **Controller**。 |
 
 ## <a name="edit-a-support-package"></a>編輯支援封裝
 
@@ -121,7 +113,7 @@ StorSimple 支援封裝是一種簡便的機制，可收集所有相關的記錄
         Supply values for the following parameters:EncryptionPassphrase: ****
 9. 記下新的複雜密碼，當接到要求時就能提供給 Microsoft 支援服務。
 
-### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>範例：編輯支援封裝中受密碼保護共用上的檔案
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>範例：在受密碼保護的共用中編輯支援封裝中的檔案
 
 下列範例將示範如何解密、編輯和重新加密支援封裝。
 

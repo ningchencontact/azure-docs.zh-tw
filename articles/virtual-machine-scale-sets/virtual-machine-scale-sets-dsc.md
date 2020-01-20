@@ -1,27 +1,20 @@
 ---
 title: 搭配虛擬機器擴展集使用 Desired State Configuration
 description: 使用虛擬機器擴展集搭配 Azure Desired State Configuration 延伸模組來設定虛擬機器。
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: zjalexander
-manager: jeconnoc
-editor: ''
 tags: azure-service-management,azure-resource-manager
-keywords: ''
 ms.assetid: c8f047b5-0e6c-4ef3-8a47-f1b284d32942
 ms.service: virtual-machine-scale-sets
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
-ms.workload: na
 ms.date: 04/05/2017
 ms.author: zachal
-ms.openlocfilehash: d3d064bc1d9c0a72b10ca27515d8325e7ca7fef9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a93a8a9c27be5a1736a50e6c4c4b830980b7d974
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359293"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278079"
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>搭配 Azure DSC 擴充功能使用虛擬機器擴展集
 [虛擬機器擴展集](virtual-machine-scale-sets-overview.md)可以搭配 [Azure 期望狀態設定 (DSC)](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 擴充功能處理常式來使用。 虛擬機器擴展集提供一個部署及管理大量虛擬機器的方式，可以因應負載情況來彈性地相應縮小和放大。 當 VM 上線時，可使用 DSC 來設定它們，因為它們正在執行生產環境的軟體。

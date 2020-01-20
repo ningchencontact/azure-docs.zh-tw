@@ -1,17 +1,17 @@
 ---
 title: 啟動、停止及刪除您的 Azure 春季雲端應用程式 |Microsoft Docs
 description: 如何啟動、停止和刪除您的 Azure Spring Cloud 應用程式
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.author: jeconnoc
-ms.openlocfilehash: ed3db5cfbdeb501e564a8da0020821c550a54787
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: brendm
+ms.openlocfilehash: daa549e248668add54530e90174134c4e0059b3a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461643"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276829"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>啟動、停止及刪除您的 Azure 春季雲端應用程式
 

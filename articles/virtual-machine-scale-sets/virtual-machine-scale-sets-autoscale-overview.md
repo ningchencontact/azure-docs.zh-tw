@@ -1,27 +1,21 @@
 ---
-title: 使用 Azure 虛擬機器擴展集自動調整的概觀 | Microsoft Docs
+title: 使用 Azure 虛擬機器擴展集自動調整的概觀
 description: 深入了解您可以根據效能或依固定的排程自動調整 Azure 虛擬機器擴展集的不同方式
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 610f3073594f73f04a68865593be6bfb4188d4f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb96be187502afcccfd3fb2c88f709facfbc3b59
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883665"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278148"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>使用 Azure 虛擬機器擴展集自動調整的概觀
 Azure 虛擬機器擴展集可以自動增加或減少執行您的應用程式的 VM 執行個體數目。 這個自動化和彈性的行為會降低監視和最佳化應用程式效能的管理額外負荷。 您可以建立規則，用以定義對於正面客戶體驗可接受的效能水準。 符合那些定義的閾值時，自動調整規則就會採取動作來調整擴展集的容量。 您也可以排定事件，以在固定時間自動增加或減少擴展集的容量。 本文提供可用效能計量以及可執行的自動調整動作的概觀。
@@ -83,8 +77,8 @@ Azure 虛擬機器擴展集可以自動增加或減少執行您的應用程式�
 | 最小值          |
 | 最大值          |
 | 總計            |
-| 最後一個             |
-| Count            |
+| Last             |
+| 計數            |
 
 使用下列其中一個運算子將計量與您定義的閾值相比較時，則會觸發自動調整規則：
 
@@ -92,7 +86,7 @@ Azure 虛擬機器擴展集可以自動增加或減少執行您的應用程式�
 |--------------------------|
 | 大於             |
 | 大於或等於 |
-| 小於                |
+| 少於                |
 | 小於或等於    |
 | 等於                 |
 | 不等於             |
@@ -104,10 +98,10 @@ Azure 虛擬機器擴展集可以自動增加或減少執行您的應用程式�
 | 調整規模作業     | 使用案例                                                                                                                               |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | 將計數增加   | 要建立的固定 VM 執行個體數目。 在具有較少數量 VM 的擴展集中很有用。                                           |
-| 將百分比增加 | VM 執行個體以百分比為基礎的增加。 適用於固定增加可能無法大幅改善效能的較大擴展集。 |
+| 增加多少百分比 | VM 執行個體以百分比為基礎的增加。 適用於固定增加可能無法大幅改善效能的較大擴展集。 |
 | 將計數增加至   | 需要建立多個 VM 執行個體，才能達到所需的最大數量。                                                            |
 | 將計數減少   | 要移除的固定 VM 執行個體數目。 在具有較少數量 VM 的擴展集中很有用。                                           |
-| 將百分比減少 | VM 執行個體以百分比為基礎的減少。 適用於固定增加可能無法大幅減少資源耗用量和費用的較大擴展集。 |
+| 減少多少百分比 | VM 執行個體以百分比為基礎的減少。 適用於固定增加可能無法大幅減少資源耗用量和費用的較大擴展集。 |
 | 將計數減少至   | 需要移除多個 VM 執行個體，才能達到所需的最小數量。                                                            |
 
 

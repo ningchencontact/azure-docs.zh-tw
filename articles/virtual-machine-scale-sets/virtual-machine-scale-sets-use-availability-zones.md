@@ -1,26 +1,20 @@
 ---
-title: 建立使用可用性區域的 Azure 擴展集 | Microsoft Docs
+title: 建立使用可用性區域的 Azure 擴展集
 description: 了解如何建立使用可用性區域的 Azure 虛擬機器擴展集，以提升系統中斷時的備援能力
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 0a31ed174c7a5986594f7c07b7ce00b1649413c8
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 11695eb889a10dc689b00399a37382a3b9772eae
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907971"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274416"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>建立使用可用性區域的虛擬機器擴展集
 
@@ -34,25 +28,25 @@ ms.locfileid: "69907971"
 
 使用最大分配時，無論您在多少個容錯網域間分配 VM，在擴展集 VM 執行個體檢視和執行個體中繼資料中只會看到一個容錯網域。 每個區域中的分配都是隱含的。
 
-若要使用最大分配，請將 *platformFaultDomainCount* 設為 *1*。 若要使用靜態的五個容錯網域分配，請將 *platformFaultDomainCount* 設為 *5*。 在 API 版本 *2017-12-01* 中，單一區域和跨區域擴展集的 *platformFaultDomainCount* 預設值為 *1*。 目前, 地區 (非區域) 擴展集只支援靜態的五個容錯網域分配。
+若要使用最大分配，請將 *platformFaultDomainCount* 設為 *1*。 若要使用靜態的五個容錯網域分配，請將 *platformFaultDomainCount* 設為 *5*。 在 API 版本 *2017-12-01* 中，單一區域和跨區域擴展集的 *platformFaultDomainCount* 預設值為 *1*。 目前，地區（非區域）擴展集只支援靜態的五個容錯網域分配。
 
 ### <a name="placement-groups"></a>放置群組
 
-當您部署規模集時，也可以選擇使用每個可用性區域的單一[放置群組](./virtual-machine-scale-sets-placement-groups.md)進行部署，或者每個可用性區域使用多個進行部署。 針對區域 (非區域) 擴展集, 選擇在區域中具有單一放置群組, 或在區域中有多個。 針對大部分的工作負載，我們建議您使用多個放置群組，如此便能有更大的擴展性。 在 API 版本*2017-12-01*中, 擴展集預設為單一區域和跨區域擴展集的多個放置群組, 但它們預設為區域 (非區域性) 擴展集的單一放置群組。
+當您部署規模集時，也可以選擇使用每個可用性區域的單一[放置群組](./virtual-machine-scale-sets-placement-groups.md)進行部署，或者每個可用性區域使用多個進行部署。 針對區域（非區域）擴展集，選擇在區域中具有單一放置群組，或在區域中有多個。 針對大部分的工作負載，我們建議您使用多個放置群組，如此便能有更大的擴展性。 在 API 版本*2017-12-01*中，擴展集預設為單一區域和跨區域擴展集的多個放置群組，但它們預設為區域（非區域性）擴展集的單一放置群組。
 
 > [!NOTE]
 > 如果您使用最大分配，您必須使用多個放置群組。
 
 ### <a name="zone-balancing"></a>區域平衡
 
-最後，針對跨多個區域部署的擴展集，您也可以選擇「最佳區域平衡」或「嚴格區域平衡」。 對擴展集而言，如果每個區域有相同數目的 VM，或是與所有其他區域中的 VM 數目差異為 +\\- 1 個，則此擴展集即為「平衡」。 例如:
+最後，針對跨多個區域部署的擴展集，您也可以選擇「最佳區域平衡」或「嚴格區域平衡」。 對擴展集而言，如果每個區域有相同數目的 VM，或是與所有其他區域中的 VM 數目差異為 +\\- 1 個，則此擴展集即為「平衡」。 例如：
 
 - 擴展集的區域 1 中有 2 個 VM，區域 2 中有 3 個 VM，而區域 3 中有 3 個 VM，則視為平衡。 只有一個區域的 VM 計數不同，且只比其他區域少 1 個。 
 - 擴展集的區域 1 中有 1 個 VM，區域 2 中有 3 個 VM，而區域 3 中有 3 個 VM，則視為不平衡。 區域 1 的 VM 數目比區域 2 和 3 少 2 個。
 
 也有可能發生擴展集中的 VM 建立成功，但這些 VM 上的延伸模組卻無法部署。 判斷擴展集是否平衡時，仍會將這些擴充失敗的 VM 計算在內。 例如，針對區域 1 中有 3 個 VM，區域 2 中有 3 個 VM，以及區域 3 中有 3 個 VM 的擴展集，即使區域 1 中的所有擴充都失敗，但區域 2 和區域 3 中的所有擴充都成功，則此擴展集將視為平衡。
 
-若使用最佳區域平衡，擴展集會嘗試相應縮小或相應放大以維持平衡。 不過，如果基於某些原因而不能這麼做 (例如，如果某一個區域無法運作，擴展集不能在該區域中建立新的 VM)，該擴展集會允許暫時性的不平衡，以成功進行相應縮小或放大。在後續的相應放大嘗試上，該擴展集會將 VM 新增至其擴展集需要更多 VM 以取得平衡的區域。 同樣地，在後續的相應縮小嘗試上，該擴展集會將 VM 從其擴展集需要減少 VM 以取得平衡的區域中移除。 使用「嚴格區域平衡」，擴展集無法嘗試任何相應縮小或放大，如果這樣做會導致不平衡。
+若使用最佳區域平衡，擴展集會嘗試相應縮小或相應放大以維持平衡。 不過，如果基於某些原因而無法這麼做（例如，如果某個區域故障，擴展集就無法在該區域中建立新的 VM），擴展集允許暫時不平衡，以成功相應縮小或放大。在後續的向外延展嘗試中，擴展集會將 Vm 新增到需要更多 Vm 才能平衡擴展集的區域。 同樣地，在後續的相應縮小嘗試上，該擴展集會將 VM 從其擴展集需要減少 VM 以取得平衡的區域中移除。 使用「嚴格區域平衡」，擴展集無法嘗試任何相應縮小或放大，如果這樣做會導致不平衡。
 
 若要使用最佳區域平衡，請將 *zoneBalance* 設為 *false*。 在 API 版本 *2017-12-01* 中，這項設定是預設值。 若要使用嚴格區域平衡，請將 *zoneBalance* 設為 *true*。
 
@@ -215,7 +209,7 @@ New-AzVmss `
 }
 ```
 
-如果您建立的是公用 IP 位址或負載平衡器，請指定 *"sku": { "name":"Standard" }"* 屬性，以建立區域備援網路資源。 您還必須建立網路安全性群組和規則，以便允許所有流量。 如需詳細資訊，請參閱 [Azure Load Balancer Standard 概觀](../load-balancer/load-balancer-standard-overview.md)和[標準 Load Balancer 和可用性區域](../load-balancer/load-balancer-standard-availability-zones.md)。
+如果您建立的是公用 IP 位址或負載平衡器，請指定「"sku": { "name": "Standard" }"」屬性，以建立區域備援網路資源。 您還必須建立網路安全性群組和規則，以便允許所有流量。 如需詳細資訊，請參閱 [Azure Load Balancer Standard 概觀](../load-balancer/load-balancer-standard-overview.md)和[標準 Load Balancer 和可用性區域](../load-balancer/load-balancer-standard-availability-zones.md)。
 
 如需區域備援擴展集和網路資源的完整範例，請參閱[這個 Resource Manager 範本範例](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 

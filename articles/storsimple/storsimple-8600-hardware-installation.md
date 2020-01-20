@@ -1,31 +1,24 @@
 ---
-title: 安裝 Microsoft Azure StorSimple 8600 裝置 | Microsoft Docs
+title: 安裝 Microsoft Azure StorSimple 8600 裝置
 description: 描述如何打開包裝、掛接機架和佈線 StorSimple 8600 裝置，再部署和設定軟體。
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 571c8b729408d7b9e805b875baccfd9ac8d6b9be
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965274"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277120"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>打開包裝、掛接機架和佈線 StorSimple 8600 裝置
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 您的 Microsoft Azure StorSimple 8600 是雙重機箱裝置，包含主要及 EBOD 機箱。 本教學課程說明如何在您設定 StorSimple 軟體之前，打開包裝、利用機架掛接和配接 StorSimple 8600 裝置硬體纜線。
 
 ## <a name="unpack-your-storsimple-8600-device"></a>打開您的 StorSimple 8600 裝置包裝
@@ -34,7 +27,7 @@ ms.locfileid: "68965274"
 ### <a name="prepare-to-unpack-your-device"></a>準備打開裝置包裝
 打開裝置包裝之前，請檢閱下列資訊。
 
-![警告圖示](./media/storsimple-safety/IC740879.png)![重量圖示](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **警告！**
+![警告圖示](./media/storsimple-safety/IC740879.png)![超權數圖示](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)**警告！**
 
 1. 如果您手動處理它，請確定您有兩名人員可以應付裝置的重量。 完全設定的機箱可以重達 32 公斤 (70 磅)。
 2. 將箱子放置在平坦的表面上。
@@ -49,7 +42,7 @@ ms.locfileid: "68965274"
    
     **儲存體裝置打開包裝的樣子**
    
-   | ThisAddIn | 描述 |
+   | 標籤 | 說明 |
    | --- | --- |
    |   1 |包裝箱 |
    |   2 |SAS 纜線 (在附件和纜線匣) |
@@ -70,7 +63,7 @@ ms.locfileid: "68965274"
    * 2 個機架掛接套件 (4 個側軌掛接硬體，主要機箱與 EBOD 機箱各 2 個)，每個箱子中各 1 個
    * 開始使用文件
      
-     如果您未收到任何上述項目， [請連絡 Microsoft 支援](storsimple-8000-contact-microsoft-support.md)。  
+     如果您未收到任何上述項目，請[連絡 Microsoft 支援](storsimple-8000-contact-microsoft-support.md)。  
 
 下一步是利用機架掛接裝置。
 
@@ -92,7 +85,7 @@ ms.locfileid: "68965274"
 2. 請確認您想要安裝的場地具有獨立來源的標準 AC 電源，或是具有不斷電供應系統 (UPS) 的機架電源分配單元 (PDU)。
 3. 請確定您要掛接機箱的機架上有一個 4U (2 X 2U) 插槽可用。
 
-![警告圖示](./media/storsimple-safety/IC740879.png)![重量圖示](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **警告！**
+![警告圖示](./media/storsimple-safety/IC740879.png)![超權數圖示](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)**警告！**
 
  如果您手動處理裝置安裝，請確定您有兩名人員可以應付裝置的重量。 完全設定的機箱可以重達 32 公斤 (70 磅)。
 
@@ -113,7 +106,7 @@ ms.locfileid: "68965274"
    
     **將滑軌連接至機箱側邊**
    
-   | ThisAddIn | 描述 |
+   | 標籤 | 說明 |
    | --- | --- |
    |  1 |M 3x4 圓頭螺釘 |
    |  2 |底座滑軌 |
@@ -126,7 +119,7 @@ ms.locfileid: "68965274"
    
     **將滑軌組件連接至機架**
    
-   | ThisAddIn | 描述 |
+   | 標籤 | 說明 |
    | --- | --- |
    |   1 |固定螺絲 |
    |   2 |方孔前端機架柱螺絲 |
@@ -152,7 +145,7 @@ ms.locfileid: "68965274"
    
     **安裝輪緣蓋**
    
-   | ThisAddIn | 描述 |
+   | 標籤 | 說明 |
    | --- | --- |
    |   1 |機箱鎖固螺絲 |
 
@@ -171,7 +164,7 @@ ms.locfileid: "68965274"
 ## <a name="cable-your-storsimple-8600-device"></a>佈線您的 StorSimple 8600 裝置
 下列程序說明如何針對 StorSimple 8600 裝置的電源、網路和序列連線進行佈線。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 開始您的裝置佈線之前，您需要：
 
 * 完全打開您的主要機箱與 EBOD 機箱的包裝
@@ -205,7 +198,7 @@ ms.locfileid: "68965274"
    
     **裝置後方的資料連接埠**
    
-   | ThisAddIn | 描述 |
+   | 標籤 | 說明 |
    | --- | --- |
    |   0,1,4,5 |1 GbE 網路介面 |
    |   2,3 |10 GbE 網路介面 |
@@ -216,10 +209,10 @@ ms.locfileid: "68965274"
 
 **您裝置的網路纜線**
 
-| ThisAddIn | 描述 |
+| 標籤 | 說明 |
 | --- | --- |
 | A |具有網際網路存取的 LAN |
-| B |控制站 0 |
+| B |控制器 0 |
 | C |PCM 0 |
 | D |控制器 1 |
 | E |PCM 1 |
@@ -263,7 +256,7 @@ ms.locfileid: "68965274"
 6. 藉由在主控台上按下 Enter 鍵，驗證連線是否正在運作。 序列主控台功能表應該會出現。
 
 > [!NOTE]
-> **燈外管理:** 當裝置安裝在遠端資料中心或在具有限制存取的電腦室時, 請確定兩個控制器的序列連線一律連接至序列主控台交換器或類似的設備。 如此可以在網路中斷或非預期失敗時允許頻外遠端控制和支援作業。
+> **熄燈管理** ：當裝置安裝在遠端資料中心或在具有限制存取的電腦室時，請確定兩個控制器的序列連接一律會連線至序列主控台交換器或類似的設備。 如此可以在網路中斷或非預期失敗時允許頻外遠端控制和支援作業。
 > 
 > 
 

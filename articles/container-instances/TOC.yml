@@ -63,6 +63,8 @@
           href: container-instances-encrypt-data.md
         - name: 在專用主機上部署
           href: container-instances-dedicated-hosts.md
+        - name: 使用 Logic Apps 連接器
+          href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
     - name: 容器案例
       items:
         - name: 為僅執行一次的工作設定重新啟動原則
@@ -141,7 +143,7 @@
       href: /learn/browse/?products=azure-container-instances
     - name: 區域可用性
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/container-instances/'
     - name: 藍圖
       href: 'https://azure.microsoft.com/roadmap/'

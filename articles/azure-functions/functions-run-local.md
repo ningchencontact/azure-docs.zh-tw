@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: feaecbf3b9a39d77f6a60593c8e5f57f14c24ad7
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4eafd0fbaed067a0852edea010408a1d82353392
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768974"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277969"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -35,7 +35,7 @@ Azure Functions Core Tools 有三個版本。 您使用的版本取決於您的�
 
 + 1\.x**版**：支援版本1.x 的 Azure Functions 執行時間。 這個版本的工具只有在 Windows 電腦上提供支援，並且從 [npm 套件](https://www.npmjs.com/package/azure-functions-core-tools)進行安裝。
 
-+ 2\.x [ **/3.X 版**](#v2)：支援版本2.x 或 3.x[的 Azure Functions 運行](functions-versions.md)時間。 這些版本支援[Windows](#windows-npm)、 [macOS](#brew)和[Linux](#linux) ，並使用平臺特定套件管理員或 npm 進行安裝。
++ 2\.x [ **/3.X 版**](#v2)：支援版本2.x 或 3.x[的 Azure Functions 運行](functions-versions.md)時間。 這些版本支援[Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2)、 [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)和[Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) ，並使用平臺特定套件管理員或 npm 進行安裝。
 
 除非另有說明，否則本文中的範例適用于3.x 版。
 
@@ -45,12 +45,12 @@ Azure Functions Core Tools 有三個版本。 您使用的版本取決於您的�
 
 ### <a name="v2"></a>2.x 和3.x 版
 
-2\.x/3.x 版的工具會使用以 .NET Core 為基礎的 Azure Functions 執行時間。 .NET Core 支援的所有平臺都支援這個版本，包括[Windows](#windows-npm)、 [macOS](#brew)和[Linux](#linux)。 
+2\.x/3.x 版的工具會使用以 .NET Core 為基礎的 Azure Functions 執行時間。 .NET Core 支援的所有平臺都支援這個版本，包括[Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2)、 [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)和[Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2)。 
 
 > [!IMPORTANT]
 > 您可以使用[延伸]模組套件，略過安裝 .NET Core SDK 的需求。
 
-#### <a name="windows-npm"></a>Windows
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 下列步驟使用 npm 在 Windows 上安裝 Core Tools。 您也可以使用 [Chocolatey](https://chocolatey.org/)。 如需詳細資訊，請參閱 [Core Tools 讀我檔案](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)。
 
@@ -76,7 +76,7 @@ Azure Functions Core Tools 有三個版本。 您使用的版本取決於您的�
 
 1. 如果您不打算使用[延伸]模組配套，請安裝[適用于 Windows 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/windows)。
 
-#### <a name="brew"></a>採用 Homebrew 的 MacOS
+# <a name="macostabmacos"></a>[MacOS](#tab/macos)
 
 下列步驟使用 Homebrew 在 macOS 上安裝 Core Tools。
 
@@ -100,7 +100,7 @@ Azure Functions Core Tools 有三個版本。 您使用的版本取決於您的�
     brew link --overwrite azure-functions-core-tools@3
     ```
 
-#### <a name="linux"></a> 採用 APT 的 Linux (Ubuntu/Debian)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 下列步驟使用 [APT](https://wiki.debian.org/Apt) 在 Ubuntu/Debian Linux 散發套件上安裝 Core Tools。 若為其他 Linux 散發套件，請參閱 [Core Tools 讀我檔案](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)。
 
@@ -122,7 +122,7 @@ Azure Functions Core Tools 有三個版本。 您使用的版本取決於您的�
    若要設定 Debian 的 APT 來源清單，請執行此命令：
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs | cut -d'.' -f 1)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
 1. 查看下列其中一個適當 Linux 版本字串的 `/etc/apt/sources.list.d/dotnetdev.list` 檔案：
@@ -149,6 +149,8 @@ Azure Functions Core Tools 有三個版本。 您使用的版本取決於您的�
     ```
 
 1. 如果您不打算使用[延伸]模組配套，請安裝[適用于 Linux 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/linux)。
+
+---
 
 ## <a name="create-a-local-functions-project"></a>建立本機的 Functions 專案
 
@@ -292,9 +294,9 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 | 引數     | 說明                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (2.x 版) 產生 1.x 版中和入口網站中所使用的相同 C# 指令碼 (.csx) 範本。 |
-| **`--language -l`**| 範本程式語言，例如 C#、F# 或 JavaScript。 這是 1.x 版中的必要選項。 在 2.x 版中請勿使用此選項，或選擇符合背景工作執行階段的語言。 |
-| **`--name -n`** | 函數名稱。 |
-| **`--template -t`** | 使用 `func templates list` 命令，以針對每個支援的語言查看可用範本的完整清單。   |
+| **`--language`** , **`-l`**| 範本程式語言，例如 C#、F# 或 JavaScript。 這是 1.x 版中的必要選項。 在 2.x 版中請勿使用此選項，或選擇符合背景工作執行階段的語言。 |
+| **`--name`** , **`-n`** | 函數名稱。 |
+| **`--template`** , **`-t`** | 使用 `func templates list` 命令，以針對每個支援的語言查看可用範本的完整清單。   |
 
 例如，若要在單一命令中建立 JavaScript HTTP 觸發程序，請執行：
 
@@ -351,13 +353,13 @@ func host start
 | **`--cert`** | 包含私密金鑰的 .pfx 檔案路徑。 僅能與 `--useHttps` 搭配使用。 僅限 2.x 版。 |
 | **`--cors-credentials`** | 允許跨來源的已驗證要求 (也就是 cookie 及驗證標頭) 僅限 2.x 版。 |
 | **`--cors`** | 以逗號分隔的 CORS 來源清單，不含空格。 |
-| **`--language-worker`** | 用於設定語言背景工作的引數。 例如，您可以藉由提供[debug 埠和其他必要的引數](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers)，啟用語言背景工作的偵錯工具。 僅限 2.x 版。 |
-| **`--nodeDebugPort -n`** | 要使用之 node.js 偵錯工具的埠。 預設值：Launch.json 中的值或 5858。 僅限 1.x 版。 |
+| **`--language-worker`** | 用來設定語言背景工作角色的引數。 例如，您可以藉由提供[debug 埠和其他必要的引數](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers)，啟用語言背景工作的偵錯工具。 僅限 2.x 版。 |
+| **`--nodeDebugPort`** , **`-n`** | 要使用之 node.js 偵錯工具的埠。 預設值：Launch.json 中的值或 5858。 僅限 1.x 版。 |
 | **`--password`** | 密碼或包含 .pfx 檔案密碼的檔案。 僅能與 `--cert` 搭配使用。 僅限 2.x 版。 |
-| **`--port -p`** | 要接聽的本機連接埠。 預設值：7071。 |
+| **`--port`** , **`-p`** | 要接聽的本機連接埠。 預設值：7071。 |
 | **`--pause-on-error`** | 暫停以在結束處理程序之前取得其他輸入。 這僅適用於從整合式開發環境 (IDE) 啟動 Core Tools 時。|
-| **`--script-root --prefix`** | 用來為要執行或部署的函式應用程式指定根目錄的路徑。 此選項可用於在子資料夾中產生專案檔的編譯專案。 例如，當您建置 C# 類別庫專案時，將會以類似於 `MyProject/bin/Debug/netstandard2.0` 的路徑在 *root* 子資料夾中產生 host.json、local.settings.json 和 function.json 等檔案。 在此情況下，請將前置詞設為 `--script-root MyProject/bin/Debug/netstandard2.0`。 這是函式應用程式在 Azure 中執行時的根目錄。 |
-| **`--timeout -t`** | Functions 主機要啟動的逾時 (以秒為單位)。 預設值：20 秒。|
+| **`--script-root`** , **`--prefix`** | 用來為要執行或部署的函式應用程式指定根目錄的路徑。 此選項可用於在子資料夾中產生專案檔的編譯專案。 例如，當您建置 C# 類別庫專案時，將會以類似於 `MyProject/bin/Debug/netstandard2.0` 的路徑在 *root* 子資料夾中產生 host.json、local.settings.json 和 function.json 等檔案。 在此情況下，請將前置詞設為 `--script-root MyProject/bin/Debug/netstandard2.0`。 這是函式應用程式在 Azure 中執行時的根目錄。 |
+| **`--timeout`** , **`-t`** | Functions 主機要啟動的逾時 (以秒為單位)。 預設值：20 秒。|
 | **`--useHttps`** | 繫結至 `https://localhost:{port}` 而不是 `http://localhost:{port}` 。 根據預設，此選項會在您的電腦上建立受信任的憑證。|
 
 Functions 主機啟動時，它會輸出 HTTP 觸發函式的 URL：
@@ -437,10 +439,10 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 | 選項     | 說明                            |
 | ------------ | -------------------------------------- |
-| **`--content -c`** | 內嵌內容。 |
-| **`--debug -d`** | 在執行函式之前，請先將偵錯工具附加到主機處理序。|
-| **`--timeout -t`** | 本機 Functions 主機就緒前的等候時間 (以秒為單位)。|
-| **`--file -f`** | 要用來作為內容的檔案名稱。|
+| **`--content`** , **`-c`** | 內嵌內容。 |
+| **`--debug`** , **`-d`** | 在執行函式之前，請先將偵錯工具附加到主機處理序。|
+| **`--timeout`** , **`-t`** | 本機 Functions 主機就緒前的等候時間 (以秒為單位)。|
+| **`--file`** , **`-f`** | 要用來作為內容的檔案名稱。|
 | **`--no-interactive`** | 不會提示輸入。 適用於自動化情節。|
 
 例如，若要呼叫 HTTP 觸發的函式並傳遞內容的內文，請執行下列命令：
@@ -480,12 +482,12 @@ func azure functionapp publish <FunctionAppName>
 
 | 選項     | 說明                            |
 | ------------ | -------------------------------------- |
-| **`--publish-settings-only -o`** |  僅發佈設定而略過內容。 預設值為提示。 |
+| **`--publish-settings-only`** , **`-o`** |  僅發佈設定而略過內容。 預設值為提示。 |
 |**`--list-ignored-files`** | 顯示在發佈期間忽略的檔案清單，以 .funcignore 檔案為準。 |
 | **`--list-included-files`** | 顯示要發佈的檔案清單，以 .funcignore 檔案為準。 |
 | **`--nozip`** | 關閉預設 `Run-From-Package` 模式。 |
 | **`--build-native-deps`** | 發行 Python 函式應用程式時，略過產生車輪資料夾。 |
-| **`--build`**<br/>**`-b`** | 部署至 Linux 函式應用程式時執行組建動作。 接受： `remote` 和 `local`。 |
+| **`--build`** , **`-b`** | 部署至 Linux 函式應用程式時執行組建動作。 接受： `remote` 和 `local`。 |
 | **`--additional-packages`** | 建置原生相依性時將安裝的套件清單。 例如： `python3-dev libevent-dev` 。 |
 | **`--force`** | 在設定情況下忽略發佈前驗證。 |
 | **`--csx`** | 發佈 C# 指令碼 (.csx) 專案。 |

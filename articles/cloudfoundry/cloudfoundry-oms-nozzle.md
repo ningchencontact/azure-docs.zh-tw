@@ -3,21 +3,20 @@ title: 部署適用于 Cloud Foundry 監視的 Azure Log Analytics 噴嘴
 description: 部署 Azure Log Analytics 之 Cloud Foundry Loggregator Nozzle 的逐步指引。 您可以使用 Nozzle 來監視 Cloud Foundry 系統健全狀況和效能計量。
 services: virtual-machines-linux
 author: ningk
-manager: jeconnoc
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: azure-monitor
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: d71f1d6af0944a676e35dfe6347fafb8706f21b8
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286632"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277366"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>部署適用於 Cloud Foundry 系統監控的 Azure Log Analytics Nozzle
 
@@ -29,7 +28,7 @@ Log Analytics 噴嘴（噴嘴）是 Cloud Foundry （CF）元件，它會將來�
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 下列步驟是部署 Nozzle 的必要條件。
 
@@ -101,7 +100,7 @@ Nozzle 也需要 Loggregator Firehose 和 Cloud Controller 的存取權限。 �
 
 #### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>透過 CF CLI 以管理員身分登入 CF 部署
 
-執行下列命令：
+執行以下命令：
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
@@ -112,7 +111,7 @@ cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 
 #### <a name="create-a-cf-user-and-grant-required-privileges"></a>建立 CF 使用者及授與必要權限
 
-執行以下命令：
+執行下列命令：
 ```
 uaac target https://uaa.${SYSTEM_DOMAIN} --skip-ssl-validation
 uaac token client get admin
@@ -125,7 +124,7 @@ uaac member add doppler.firehose ${FIREHOSE_USER}
 
 #### <a name="download-the-latest-log-analytics-nozzle-release"></a>下載最新版本的 Log Analytics Nozzle
 
-執行下列命令：
+執行以下命令：
 ```
 git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
@@ -156,7 +155,7 @@ LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Azur
 
 ### <a name="push-the-application-from-your-development-computer"></a>從開發電腦推送應用程式
 
-確認您在 oms-log-analytics-firehose-nozzle 資料夾下。 執行下列命令：
+確認您在 oms-log-analytics-firehose-nozzle 資料夾下。 執行以下命令：
 ```
 cf push
 ```
@@ -194,7 +193,7 @@ cf apps
 
 您可以視需要[建立警示](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts)，並自訂查詢和閾值。 以下是建議的警示：
 
-| 搜尋查詢                                                                  | 產生警示的依據 | 描述                                                                       |
+| 搜尋查詢                                                                  | 產生警示的依據 | 說明                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | 結果數目 < 1   | **bbs.Domain.cf-apps** 表示 cf-apps 網域是否處於最新狀態。 這表示來自 Cloud Controller 的 CF 應用程式要求已同步至 bbs.LRPsDesired (Diego 所需 AI) 以供執行。 未接收到資料表示 cf-apps 網域在指定時間範圍內不是最新狀態。 |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | 結果數目 > 0   | 對於 Diego 資料格來說，0 表示健康情況良好，1 表示健康情況不佳。 請設定警示，使其在指定時間範圍內偵測到多個健康情況不佳的 Diego 資料格時發出。 |
@@ -205,7 +204,7 @@ cf apps
 | Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | 結果數目 > 0   | 當噴嘴收到來自 loggregator 的緩慢取用者警示時，它會將**slowConsumerAlert** valuemetric 傳送傳送至 Azure 監視器記錄。 |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | 結果數目 > 0   | 如果遺失事件的差異數目達到閾值，代表 Nozzle 可能發生執行上的問題。 |
 
-## <a name="scale"></a>調整
+## <a name="scale"></a>擴展性
 
 您可以調整 Nozzle 和 Loggregator。
 

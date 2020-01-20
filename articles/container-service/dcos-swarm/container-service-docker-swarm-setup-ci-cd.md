@@ -1,20 +1,18 @@
 ---
 title: (已淘汰) 搭配 Azure Container Service 和 Swarm 使用 CI/CD
 description: 搭配 Docker Swarm、Azure Container Registry 及 Azure DevOps 使用 Azure Container Service，以持續傳遞多容器 .NET Core 應用程式
-services: container-service
 author: jcorioland
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 8990f1f8e4cda5a6cc8b8d3197b843662b1397a5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 860c277e88918dc37eceb496d852691ced2af114
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598547"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277895"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(已淘汰) 使用 Azure DevOps Services 搭配 Docker Swarm 在 Azure Container Service 上部署多容器應用程式的完整 CI/CD 管線
 
@@ -22,7 +20,6 @@ ms.locfileid: "68598547"
 
 為雲端開發現代化應用程式的其中一個最大挑戰是要能持續傳遞這些應用程式。 在本文中，您會了解如何搭配 Docker Swarm、Azure Container Registry 及 Azure Pipelines 使用 Azure Container Service 來實作完整的持續整合與部署 (CI/CD) 管線。
 
-本文是以一個使用 ASP.NET Core 開發的簡單應用程式 (可在 [GitHub](https://github.com/jcorioland/MyShop/tree/acs-docs) 上取得) 為依據。 該應用程式由四個不同的服務組成：三個 Web API 和一個 Web 前端：
 
 ![MyShop 範例應用程式](./media/container-service-docker-swarm-setup-ci-cd/myshop-application.png)
 
@@ -162,7 +159,7 @@ Microsoft 提供 Azure DevOps Services 擴充功能，以在 Azure Pipelines 程
 
 1. 針對這五個映像個別設定好建置和推送步驟之後，請在建置工作流程中再新增兩個步驟。
 
-    a. 命令列工作會使用 bash 指令碼以目前的組建識別碼取代 docker-compose.yml 檔案中的 *BuildNumber*。請參閱以下畫面了解詳細資料。
+    a. 命令列工作，使用 bash 腳本以目前的組建識別碼取代 docker-compose.dev.debug.yml. yml 檔案中的*BuildNumber*發生次數。如需詳細資訊，請參閱下列畫面。
 
     ![Azure DevOps Services - 更新 Compose 檔案](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-replace-build-number.png)
 
@@ -172,7 +169,7 @@ Microsoft 提供 Azure DevOps Services 擴充功能，以在 Azure Pipelines 程
 
 1. 按一下 [儲存] 並命名您的組建管線。
 
-## <a name="step-3-create-the-release-pipeline"></a>步驟 3：建立發行管線
+## <a name="step-3-create-the-release-pipeline"></a>步驟 3︰建立發行管線
 
 Azure DevOps Services 可讓您[跨環境管理發行](https://www.visualstudio.com/team-services/release-management/)。 您可以啟用持續部署以確保應用程式會順利部署到不同環境 (例如開發、測試、進入生產階段前和生產)。 您可以建立代表 Azure Container Service Docker Swarm 叢集的新環境。
 
@@ -219,10 +216,10 @@ Azure DevOps Services 可讓您[跨環境管理發行](https://www.visualstudio.
 >這個部署包含幾段停機時間，因為我們會停止舊服務並執行新服務。 執行藍綠部署可以避免此情況。
 >
 
-## <a name="step-4-test-the-cicd-pipeline"></a>步驟 4. 測試 CI/CD 管線
+## <a name="step-4-test-the-cicd-pipeline"></a>步驟 4： 測試 CI/CD 管線
 
 您已經完成設定，現在可以開始測試這個新的 CI/CD 管線。 最簡單的測試方法是更新原始程式碼，然後將變更認可到您的 GitHub 存放庫。 推送程式碼的數秒之後，您會看到新的組建在 Azure DevOps Services 中執行。 一旦順利完成，就會觸發新的發行，並且在 Azure Container Service 叢集中部署新版的應用程式。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需 CI/CD 與 Azure DevOps Services 的詳細資訊, 請參閱[Azure Pipelines 檔](/azure/devops/pipelines/?view=azure-devops)文章。
+* 如需 CI/CD 與 Azure DevOps Services 的詳細資訊，請參閱[Azure Pipelines 檔](/azure/devops/pipelines/?view=azure-devops)文章。

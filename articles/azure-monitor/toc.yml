@@ -6,6 +6,8 @@
       href: overview.md
     - name: 術語變更
       href: terminology.md
+    - name: 常見問題集
+      href: faq.md
 - name: 快速入門
   items:
     - name: 監視 Azure 資源
@@ -76,7 +78,7 @@
           href: platform/data-platform.md
         - name: 資料地點
           href: platform/data-locations.md
-        - name: 度量
+        - name: 計量
           href: platform/data-platform-metrics.md
         - name: 記錄
           href: platform/data-platform-logs.md
@@ -113,14 +115,6 @@
       href: visualizations.md
     - name: 合作夥伴整合
       href: platform/partners.md
-    - name: 常見問題集
-      items:
-        - name: Log Analytics
-          displayName: FAQ
-          href: platform/log-faq.md
-        - name: Application Insights
-          displayName: FAQ
-          href: app/troubleshoot-faq.md
 - name: 操作指南
   items:
     - name: 管理 Azure 監視器
@@ -162,6 +156,8 @@
       items:
         - name: Application Insights 概觀
           href: app/app-insights-overview.md
+        - name: 常見問題集
+          href: app/troubleshoot-faq.md
         - name: 以程式碼為基礎的監視
           items:
             - name: ASP.NET Core
@@ -312,7 +308,7 @@
         - name: 即時計量串流
           displayname: 'live, quickpulse, quick pulse, live metrics'
           href: app/live-stream.md
-        - name: 度量
+        - name: 計量
           items:
             - name: 記錄檔型與預先彙總的計量
               href: app/pre-aggregated-metrics-log-metrics.md
@@ -535,6 +531,8 @@
           items:
             - name: 代理程式概觀
               href: platform/agents-overview.md
+            - name: 常見問題集
+              href: 'faq.md#agents'
             - name: Azure 診斷擴充功能
               items:
                 - name: 概觀
@@ -633,7 +631,7 @@
             - name: 正式運作常見問題集
               href: insights/vminsights-ga-release-faq.md
             - name: 常見問題集
-              href: insights/vminsights-faq.md
+              href: 'faq.md#azure-monitor-for-vms-preview'
             - name: 啟用監視
               items:
                 - name: 啟用監視概觀
@@ -679,7 +677,7 @@
             - name: 概觀
               href: insights/container-insights-overview.md
             - name: 常見問題集
-              href: insights/container-insights-faq.md
+              href: 'faq.md#azure-monitor-for-containers'
             - name: 啟用監視
               items:
                 - name: 啟用監視概觀
@@ -763,7 +761,7 @@
                   href: insights/network-performance-monitor-service-connectivity.md
                 - name: ExpressRoute
                   href: insights/network-performance-monitor-expressroute.md
-                - name: 價格
+                - name: 定價
                   href: insights/network-performance-monitor-pricing-faq.md
                 - name: 常見問題集
                   href: insights/network-performance-monitor-faq.md
@@ -795,7 +793,7 @@
           href: platform/create-pipeline-datacollector-api.md
     - name: 分析資料
       items:
-        - name: 度量
+        - name: 計量
           items:
             - name: 開始使用計量瀏覽器
               href: platform/metrics-getting-started.md
@@ -834,7 +832,7 @@
                   href: log-query/data-explorer-difference.md
                 - name: 實用運算子
                   href: log-query/useful-operators.md
-                - name: Functions
+                - name: 函式
                   href: log-query/functions.md
                 - name: 從記錄搜尋轉換
                   href: log-query/log-search-transition.md
@@ -1159,7 +1157,7 @@
               href: app/data-model-context.md
             - name: 與 Azure Functions 整合
               href: app/azure-functions-supported-features.md
-    - name: 度量
+    - name: 計量
       items:
         - name: 支援的計量
           href: platform/metrics-supported.md
@@ -1221,7 +1219,7 @@
   items:
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/log-analytics/'
     - name: 定價計算機
       href: 'https://azure.microsoft.com/pricing/calculator/'

@@ -1,25 +1,21 @@
 ---
-title: 使用 Azure CLI 管理 Azure DNS 中的 DNS 記錄 | Microsoft Docs
+title: 使用 Azure CLI 管理 Azure DNS 中的 DNS 記錄
 description: 將網域裝載於 Azure DNS 時，在 Azure DNS 管理 DNS 記錄集和記錄。
-services: dns
-documentationcenter: na
 author: asudbring
-manager: jeconnoc
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: allensu
-ms.openlocfilehash: a0316710f78afc8810f5f65e108638b08fae3da2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a7ecbb5eb2ff6e9b62091496b4debab14e906c55
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211642"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278583"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>使用 Azure CLI 管理 Azure DNS 中的 DNS 記錄和記錄集
 
@@ -82,7 +78,7 @@ az network dns record-set a create --resource-group myresourcegroup --zone-name 
 az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --metadata "dept=finance" "environment=production"
 ```
 
-建立好空白記錄集之後，可依`azure network dns record-set <record-type> add-record`建立 DNS 記錄[所述使用 ](#create-a-dns-record) 新增記錄。
+建立好空白記錄集之後，可依[建立 DNS 記錄](#create-a-dns-record)所述使用 `azure network dns record-set <record-type> add-record` 新增記錄。
 
 ## <a name="create-records-of-other-types"></a>建立其他類型的記錄
 
