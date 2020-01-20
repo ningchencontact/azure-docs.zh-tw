@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64b7add9ddb1734d763c46e93d6788ce21a2c321
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: MT
+ms.openlocfilehash: bf34abaf072b7b80f5831f15d86b12ad2780a920
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150885"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424863"
 ---
 # <a name="conditional-access-block-access-by-location"></a>條件式存取：依位置封鎖存取
 
@@ -25,31 +25,31 @@ ms.locfileid: "73150885"
 ## <a name="define-locations"></a>定義位置
 
 1. 以全域管理員、安全性系統管理員或條件式存取系統管理員的身分登入**Azure 入口網站**。
-1. 流覽至**Azure Active Directory** > **條件式存取**。
+1. 流覽至**Azure Active Directory** > **安全性** > **條件式存取**。
 1. 選擇 [**新增位置**]。
 1. 為您的位置命名。
 1. 如果您知道組成該位置或**國家/地區**的特定外部可存取 IPv4 位址範圍，請選擇 [ **IP 範圍**]。
    1. 提供**IP 範圍**，或選取您要指定之位置的**國家/地區**。
       * 如果您選擇 [國家/地區]，您可以選擇包含未知區域。
-1. 選擇 [**儲存**]
+1. 選擇 [儲存]
 
-如需有關條件式存取中位置條件的詳細資訊，請參閱 >條件式存取中的位置條件 Azure Active Directory[](location-condition.md)
+如需有關條件式存取中位置條件的詳細資訊，請參閱 [條件式存取中的位置條件 Azure Active Directory](location-condition.md)
 
 ## <a name="create-a-conditional-access-policy"></a>建立條件式存取原則
 
 1. 以全域管理員、安全性系統管理員或條件式存取系統管理員的身分登入**Azure 入口網站**。
-1. 流覽至**Azure Active Directory** > **條件式存取**。
+1. 流覽至**Azure Active Directory** > **安全性** > **條件式存取**。
 1. 選取 [新增原則]。
 1. 提供您的原則名稱。 我們建議組織針對其原則的名稱建立有意義的標準。
 1. 在 [**指派**] 底下，選取 [**使用者和群組**]
    1. 在 [**包含**] 底下，選取 [**所有使用者**]。
-   1. 選取 [完成]。
+   1. 選取 [完成] 。
 1. 在 [**雲端應用程式] 或 [動作** > **包括**] 底下，選取 [**所有雲端應用程式**] 並選取 [**完成**]
-1. 在 **條件** > **位置** 底下。
+1. 在 [**條件**] > **位置**] 底下。
    1. 將 **[** 設定] 設為 **[是]**
    1. **包含**選取選取的**位置**
    1. 選取您為組織建立的已封鎖位置。
-   1. 按一下 [**選取** > 完成 ** > 完成**]。
+   1. 按一下 [**選取** > 完成** > 完成**]。 
 1. 在 [**存取控制**] 底下 > [**封鎖**]，然後選取 [**選取**]。
 1. 確認您的設定，並將 [**啟用原則**] 設為 [**開啟**]。
 1. 選取 [**建立**] 以建立以啟用您的原則。
@@ -57,5 +57,7 @@ ms.locfileid: "73150885"
 ## <a name="next-steps"></a>後續步驟
 
 [條件式存取的一般原則](concept-conditional-access-policy-common.md)
+
+[使用條件式存取僅限報告模式判斷影響](howto-conditional-access-report-only.md)
 
 [使用條件式存取 What If 工具模擬登入行為](troubleshoot-conditional-access-what-if.md)
