@@ -66,8 +66,6 @@
           href: enable-browser-connection-lab-virtual-machines.md
         - name: 設定成本管理
           href: devtest-lab-configure-cost-management.md
-        - name: 傳送自動關閉通知
-          href: devtest-lab-auto-shutdown.md
         - name: 設定實驗室虛擬機器自動啟動
           href: devtest-lab-auto-startup-vm.md
         - name: 調整您的實驗室
@@ -124,8 +122,8 @@
           href: devtest-lab-resize-vm.md
         - name: 重新部署 VM
           href: devtest-lab-redeploy-vm.md
-        - name: 設定虛擬機器自動關機
-          href: devtest-lab-auto-shutdown-vm.md
+        - name: 設定計算和實驗室 VM 的自動關機
+          href: devtest-lab-auto-shutdown.md
         - name: 建立及管理可認領 VM
           href: devtest-lab-add-claimable-vm.md
         - name: 設定秘密
@@ -259,7 +257,7 @@
   items:
     - name: Azure 更新
       href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'
     - name: MSDN 論壇
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs'

@@ -232,48 +232,68 @@
       items:
         - name: 語音翻譯常見問題集
           href: 'https://www.microsoft.com/translator/faq.aspx'
-- name: 對話轉譯
+- name: 對話情節
   expanded: false
   items:
-    - name: 概觀
+    - name: 對話轉譯
       items:
-        - name: 什麼是對話轉譯？
-          href: conversation-transcription.md
-    - name: 操作指南
-      items:
-        - name: 即時對話轉譯
-          href: how-to-use-conversation-transcription.md
-        - name: 非同步對話轉譯
-          href: how-to-async-conversation-transcription.md
-    - name: 參考
-      items:
-        - name: 語音 SDK
+        - name: 概觀
           items:
-            - name: C++
-              href: 'https://aka.ms/csspeech/cppref'
-              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-            - name: 'C#'
-              href: 'https://aka.ms/csspeech/csharpref'
-              displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-            - name: Java
-              href: 'https://aka.ms/csspeech/javaref'
-              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-            - name: JavaScript
-              href: 'https://aka.ms/csspeech/javascriptref'
-              displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-            - name: Objective-C
-              href: 'https://aka.ms/csspeech/objectivecref'
-              displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-            - name: Python
-              href: 'https://aka.ms/csspeech/pythonref'
-              displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-            - name: 版本資訊
-              href: releasenotes.md
-              displayName: 'release notes,updates,what''s new,what is new,changes'
-        - name: REST API
+            - name: 什麼是對話轉譯？
+              href: conversation-transcription.md
+        - name: 操作指南
           items:
-            - name: 對話轉譯 REST API
-              href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
+            - name: 即時對話轉譯
+              href: how-to-use-conversation-transcription.md
+            - name: 非同步對話轉譯
+              href: how-to-async-conversation-transcription.md
+        - name: 參考
+          items:
+            - name: 語音 SDK
+              items:
+                - name: C++
+                  href: 'https://aka.ms/csspeech/cppref'
+                  displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+                - name: 'C#'
+                  href: 'https://aka.ms/csspeech/csharpref'
+                  displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+                - name: Java
+                  href: 'https://aka.ms/csspeech/javaref'
+                  displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+                - name: JavaScript
+                  href: 'https://aka.ms/csspeech/javascriptref'
+                  displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
+                - name: Objective-C
+                  href: 'https://aka.ms/csspeech/objectivecref'
+                  displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+                - name: Python
+                  href: 'https://aka.ms/csspeech/pythonref'
+                  displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+                - name: 版本資訊
+                  href: releasenotes.md
+                  displayName: 'release notes,updates,what''s new,what is new,changes'
+            - name: REST API
+              items:
+                - name: 對話轉譯 REST API
+                  href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
+    - name: 多裝置對話
+      items:
+        - name: 概觀
+          items:
+            - name: 什麼是多裝置對話？
+              href: multi-device-conversation.md
+        - name: 快速入門
+          items:
+            - name: 開始和加入對話
+              href: quickstarts/multi-device-conversation.md
+        - name: 參考
+          items:
+            - name: 語音 SDK
+              items:
+                - name: C++
+                  href: 'https://aka.ms/csspeech/cppref'
+                - name: 'C#'
+                  href: 'https://aka.ms/csspeech/csharpref'
 - name: 語音助理
   expanded: false
   items:
