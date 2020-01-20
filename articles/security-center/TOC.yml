@@ -173,8 +173,6 @@
           href: security-center-investigation.md
         - name: 管理調查使用者資料
           href: security-center-investigation-user-data.md
-        - name: Logic Apps 手冊
-          href: security-center-playbooks.md
         - name: 規劃與作業
           href: security-center-planning-and-operations-guide.md
 - name: 參考
