@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/09/2019
+ms.date: 01/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 503de723894388a198abbb687221cb1403a6fa84
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 29cf5eebfb485837ee9656909323688384a4b890
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104438"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028603"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Cisco Webex 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "71104438"
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要開始，您需要下列項目：
 
@@ -99,13 +99,13 @@ ms.locfileid: "71104438"
     
     | 名稱 |  來源屬性|
     | ---------------|--------- |
-    | UID | user.userprincipalname |
+    | uid | user.userprincipalname |
 
     a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
 
-    ![映像](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![映像](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
     b. 在 [名稱]  文字方塊中，輸入該資料列所顯示的屬性名稱。
 
@@ -158,21 +158,29 @@ ms.locfileid: "71104438"
 
 ## <a name="configure-cisco-webex"></a>設定 Cisco Webex
 
-1. 使用完整系統管理員認證，登入 [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/)。
+1. 若要自動執行 Cisco Webex 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
 
-2. 選取 [設定]  ，然後按一下 [驗證]  區段下方的 [修改]  。
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+2. 將擴充功能新增至瀏覽器之後，按一下 [設定 Cisco Webex]  便會將您導向到 Cisco Webex 應用程式。 請從該處提供用以登入 Cisco Webex 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 8。
+
+    ![設定組態](common/setup-sso.png)
+
+3. 如果您要手動設定 Cisco Webex，請使用完整系統管理員認證登入 [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/)。
+
+4. 選取 [設定]  ，然後按一下 [驗證]  區段下方的 [修改]  。
 
     ![設定單一登入](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
-3. 選取 [整合協力廠商識別提供者  (進階)]，然後移至下一個畫面。
+5. 選取 [整合協力廠商識別提供者  (進階)]，然後移至下一個畫面。
 
-4. 在 [匯入 Idp 中繼資料]  頁面上，將 Azure AD 中繼資料檔案拖放到頁面，或使用檔案瀏覽器選項來找到並上傳 Azure AD 中繼資料檔案。 然後，選取 [需要中繼資料中憑證授權單位所簽署的憑證 (較安全)]  ，然後按 [下一步]  。
+6. 在 [匯入 Idp 中繼資料]  頁面上，將 Azure AD 中繼資料檔案拖放到頁面，或使用檔案瀏覽器選項來找到並上傳 Azure AD 中繼資料檔案。 然後，選取 [需要中繼資料中憑證授權單位所簽署的憑證 (較安全)]  ，然後按 [下一步]  。
 
     ![設定單一登入](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
-5. 選取 [測試 SSO 連接]  ，並在新的瀏覽器索引標籤開啟時，透過登入向 Azure AD 進行驗證。
+7. 選取 [測試 SSO 連接]  ，並在新的瀏覽器索引標籤開啟時，透過登入向 Azure AD 進行驗證。
 
-6. 返回 [Cisco Cloud Collaboration Management]  瀏覽器索引標籤。如果測試成功，請選取 [這項測試成功。  啟用單一登入] 選項，然後按 [下一步]  。
+8. 返回 [Cisco Cloud Collaboration Management]  瀏覽器索引標籤。如果測試成功，請選取 [這項測試成功。  啟用單一登入] 選項，然後按 [下一步]  。
 
 ### <a name="create-cisco-webex-test-user"></a>建立 Cisco Webex 測試使用者
 

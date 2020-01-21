@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d4fae87d999bd0f6b0b388613098a17c181dae0c
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 78440b8150a0992bed2e2a3e597fdac8e7a1c7b0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392737"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749721"
 ---
 # <a name="latency-in-blob-storage"></a>Blob 儲存體中的延遲
 
@@ -67,5 +67,5 @@ Azure 儲存體提供兩個區塊 Blob 的延遲計量。 您可以在 Azure 入
 
 ## <a name="next-steps"></a>後續步驟
 
-- [儲存體帳戶的 Azure 儲存體延展性和效能目標](../common/storage-scalability-targets.md)
-- [Azure 儲存體效能與延展性檢查清單](../common/storage-performance-checklist.md)
+- [Blob 儲存體的延展性和效能目標](scalability-targets.md)
+- [Blob 儲存體的效能和延展性檢查清單](storage-performance-checklist.md)

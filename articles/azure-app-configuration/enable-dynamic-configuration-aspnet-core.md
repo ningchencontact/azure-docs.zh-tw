@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 608368daa17246f2512d243b2656dd7702d84f50
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1c08b42d8217bf16dfcd8af17fa3c4627b95ffc3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433716"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028232"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>教學課程：在 ASP.NET Core 應用程式中使用動態設定
 
@@ -53,10 +53,12 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
 1. 透過執行下列命令，將參考新增至 `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet 套件：
 
     ```CLI
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-010560002-1165
     ```
 
 1. 開啟 Program.cs  ，然後更新 `CreateWebHostBuilder` 方法以新增 `config.AddAzureAppConfiguration()` 方法。
+
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -79,6 +81,30 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
             .UseStartup<Startup>();
     ```
 
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    config.AddAzureAppConfiguration(options =>
+                    {   
+                        options.Connect(settings["ConnectionStrings:AppConfig"])
+                            .ConfigureRefresh(refresh =>
+                                {
+                                    refresh.Register("TestApp:Settings:BackgroundColor")
+                                            .Register("TestApp:Settings:FontColor")
+                                            .Register("TestApp:Settings:Message");
+                                });
+                    });
+                })
+            .UseStartup<Startup>());
+    ```
+    ---
+
     `ConfigureRefresh` 方法可用來指定相關設定，以用來在系統觸發重新整理作業時，使用應用程式組態存放區來更新組態資料。 若要實際觸發重新整理作業，您必須設定重新整理中介軟體，才能讓應用程式在發生任何變更時，重新整理組態資料。
 
 2. 新增 Settings.cs  檔案，以定義及實作新的 `Settings` 類別。
@@ -96,12 +122,38 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
     }
     ```
 
-3. 開啟 Startup.cs  ，然後更新 `ConfigureServices` 方法以將組態資料繫結至 `Settings` 類別。
+3. 開啟 Startup.cs  ，然後在 `ConfigureServices` 方法中使用 `IServiceCollection.Configure<T>`，以將組態資料繫結至 `Settings` 類別。
+
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
         services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+    }
+    ```
+
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
+        services.AddControllersWithViews();
+    }
+    ```
+    ---
+
+4. 更新 `Configure` 方法以新增 `UseAzureAppConfiguration` 中介軟體，讓已註冊要重新整理的組態設定可以進行更新，同時讓 ASP.NET Core Web 應用程式繼續接收要求。
+
+
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
 
         services.Configure<CookiePolicyOptions>(options =>
         {
@@ -109,19 +161,46 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
             options.MinimumSameSitePolicy = SameSiteMode.None;
         });
 
-        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-    }
-    ```
-
-4. 更新 `Configure` 方法以新增中介軟體，讓已註冊要重新整理的組態設定可以進行更新，同時讓 ASP.NET Core Web 應用程式繼續接收要求。
-
-    ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-        app.UseAzureAppConfiguration();
         app.UseMvc();
     }
     ```
+
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
+
+            // Add the following line:
+            app.UseAzureAppConfiguration();
+
+            app.UseHttpsRedirection();
+            
+            app.UseStaticFiles();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+    }
+    ```
+    ---
     
     中介軟體會使用 `Program.cs` 內的 `AddAzureAppConfiguration` 方法所指定的重新整理組態，來針對 ASP.NET Core Web 應用程式所收到的每個要求觸發重新整理。 每個要求都會觸發一個重新整理作業，而且用戶端程式庫會檢查已註冊的組態設定是否有已過期的快取值。 對於已過期的快取值，設定的值會使用應用程式組態存放區加以更新，其餘值則保持不變。
     
@@ -137,6 +216,8 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
     ```
 
 2. 將 `HomeController` 類別更新為透過相依性插入來接收 `Settings`，並使用其值。
+
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public class HomeController : Controller
@@ -158,6 +239,37 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
         }
     }
     ```
+
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+    public class HomeController : Controller
+    {
+        private readonly Settings _settings;
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger, IOptionsSnapshot<Settings> settings)
+        {
+            _logger = logger;
+            _settings = settings.Value;
+        }
+
+        public IActionResult Index()
+        {
+            ViewData["BackgroundColor"] = _settings.BackgroundColor;
+            ViewData["FontSize"] = _settings.FontSize;
+            ViewData["FontColor"] = _settings.FontColor;
+            ViewData["Message"] = _settings.Message;
+
+            return View();
+        }
+
+        // ...
+    }
+    ```
+    ---
+
+
 
 3. 開啟 [Views] > [Home] 目錄中的 Index.cshtml  ，然後以下列程式碼取代其內容：
 

@@ -5,12 +5,12 @@ ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: quickstart
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: fb5fc2fadf4087ebc42253cf568af424a80cb9d5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226892"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769178"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>使用 Functions 在 Azure 儲存體佇列中新增訊息
 
@@ -18,7 +18,7 @@ ms.locfileid: "74226892"
 
 ![儲存體總管中顯示的佇列訊息](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本快速入門：
 
@@ -34,9 +34,9 @@ ms.locfileid: "74226892"
 
 1. 選取您在稍早的快速入門中建立的函式。
 
-1. 選取 [整合 > 新的輸出 > Azure 佇列儲存體]  。
+1. 選取 [整合] > [新增輸出] > [Azure 佇列儲存體]  。
 
-1. 按一下 [選取]  。
+1. 按一下 [選取]。 
 
     ![在 Azure 入口網站中對函式新增佇列儲存體輸出繫結。](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
@@ -48,7 +48,7 @@ ms.locfileid: "74226892"
 
     ![在 Azure 入口網站中對函式新增佇列儲存體輸出繫結。](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
-    | 設定      |  建議的值   | 說明                              |
+    | 設定      |  建議的值   | 描述                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **訊息參數名稱** | outputQueueItem | 輸出繫結參數的名稱。 | 
     | **儲存體帳戶連線** | AzureWebJobsStorage | 您可以使用應用程式函式已在使用的儲存體帳戶連線，或建立新的連線。  |

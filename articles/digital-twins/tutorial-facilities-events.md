@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: 7700c61a978532a63fc5b3298d45b8e7041dba40
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/10/2020
+ms.openlocfilehash: 1cd617204bbc12a99b6ae9e3b55fbc59b0e0578a
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790337"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933723"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>教學課程：使用 Logic Apps 接收來自 Azure Digital Twins 空間的通知
 
@@ -30,7 +30,7 @@ ms.locfileid: "74790337"
 > * 整合事件與 Azure 事件方格。
 > * 使用 Logic Apps 發出事件通知。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 本教學課程假設您已經[設定](tutorial-facilities-setup.md)並[佈建](tutorial-facilities-udf.md) Azure Digital Twins 設定。 繼續之前，請確定您有：
 
@@ -65,7 +65,7 @@ ms.locfileid: "74790337"
 
 1. 選取 [存取金鑰]  ，然後將 [金鑰 1]  和 [金鑰 2]  複製到暫存檔。 下一節在建立端點時需要用到這些值。
 
-    [![事件方格金鑰](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
+    [![事件方格金鑰](./media/tutorial-facilities-events/tutorial-event-grid-keys.png)](./media/tutorial-facilities-events/tutorial-event-grid-keys.png#lightbox)
 
 ### <a name="create-an-endpoint-for-the-event-grid-topic"></a>建立事件方格主題的端點
 
@@ -114,7 +114,7 @@ ms.locfileid: "74790337"
 
 1. 輸入邏輯應用程式資源的 [名稱]  ，然後選取 [訂用帳戶]  、[資源群組]  和 [位置]  。 選取 [建立]  。
 
-    [![建立 Logic Apps 資源](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
+    [![建立 Logic Apps 資源](./media/tutorial-facilities-events/tutorial-create-logic-app.png)](./media/tutorial-facilities-events/tutorial-create-logic-app.png#lightbox)
 
 1. 開啟部署好的 Logic Apps 資源，然後開啟 [邏輯應用程式設計工具]  窗格。 
 
@@ -172,7 +172,7 @@ ms.locfileid: "74790337"
 
    c. 在第二個 [選擇值]  文字方塊中，輸入`UdfCustom`。
 
-   [![已選取的條件](./media/tutorial-facilities-events/logic-app-condition.png)](./media/tutorial-facilities-events/logic-app-condition.png#lightbox)
+   [![已選取的條件](./media/tutorial-facilities-events/tutorial-logic-app-condition.png)](./media/tutorial-facilities-events/tutorial-logic-app-condition.png#lightbox)
 
 1. 在 [若為 true]  視窗中：
 
@@ -182,9 +182,9 @@ ms.locfileid: "74790337"
 
    c. 在 [收件者]  方塊中，輸入要用來接收通知的電子郵件識別碼。 在 [主旨]  中，輸入文字：**空間中空氣品質不佳的 Digital Twins 通知**。 然後從 [剖析 JSON]  的 [動態內容]  中選取 [TopologyObjectId]  。
 
-   d. 在相同視窗中的 [本文]  底下，輸入如下的文字：**房間內所偵測到的空氣品質不良，且需要調整溫度**。 您可以使用 [動態內容]  清單中的元素，任意地加上詳細說明。
+   d. 在相同視窗中的 [本文]  底下，輸入如下所示的文字：**房間內所偵測到的空氣品質不良，且需要調整溫度**。 您可以使用 [動態內容]  清單中的元素，任意地加上詳細說明。
 
-   [![Logic Apps 的「傳送電子郵件」選取項目](./media/tutorial-facilities-events/logic-app-send-email.png)](./media/tutorial-facilities-events/logic-app-send-email.png#lightbox)
+   [![Logic Apps 的「傳送電子郵件」選取項目](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png)](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png#lightbox)
 
 1. 選取 [邏輯應用程式設計工具]  窗格頂端的 [儲存]  按鈕。
 

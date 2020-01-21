@@ -10,16 +10,16 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8f937bcfb1bd03c970f21263c1cd09a1c3baba0a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e353a65544e86e702bd216db5c8b5f81f033c46a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429429"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772239"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>教學課程：為 Linux 裝置開發及部署 Python IoT Edge 模組
 
-使用 Visual Studio Code 開發 C 程式碼，並將它部署到執行 Azure IoT Edge 的 Linux 裝置。 
+使用 Visual Studio Code 開發 Python 程式碼，並將其部署至執行 Azure IoT Edge 的 Linux 裝置。 
 
 您可以使用 Azure IoT Edge 模組來部署程式碼，直接在 IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署 IoT Edge 模組，該模組可在您於快速入門中設定的 IoT Edge 裝置上篩選感應器資料。 在本教學課程中，您會了解如何：    
 
@@ -100,7 +100,7 @@ ms.locfileid: "75429429"
 
 ### <a name="select-your-target-architecture"></a>選取您的目標架構
 
-目前，Visual Studio Code 可以開發適用於 Linux AMD64 和 Linux ARM32v7 裝置的 C 模組。 您必須為每個解決方案都選取要作為目標的架構，因為容器是針對每個架構類型，以不同方式建置和執行。 預設值為 Linux AMD64。 
+目前，Visual Studio Code 可開發適用於 Linux AMD64 和 Linux ARM32v7 裝置的 Python 模組。 您必須為每個解決方案都選取要作為目標的架構，因為容器是針對每個架構類型，以不同方式建置和執行。 預設值為 Linux AMD64。 
 
 1. 開啟命令選擇區並搜尋 **Azure IoT Edge:Set Default Target Platform for Edge Solution**，或選取視窗底部側邊欄的捷徑圖示。 
 

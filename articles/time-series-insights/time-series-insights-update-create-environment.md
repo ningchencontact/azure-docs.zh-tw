@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 12/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6adb48b9d6c490b60302f93101506ec53679ae4f
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: bebc7dde30dad57157d0abee7f2294d9da58fd5c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530188"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861807"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>教學課程：設定 Azure 時間序列深入解析預覽版環境
 
@@ -39,7 +39,7 @@ ms.locfileid: "75530188"
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* 您至少必須擁有 Azure 訂用帳戶的**參與者**角色。 如需詳細資訊，請參閱[使用角色型存取控制和 Azure 入口網站管理存取權](../role-based-access-control/role-assignments-portal.md)。
+* 您至少必須擁有 Azure 訂用帳戶的**參與者**角色。 如需詳細資訊，請閱讀[使用角色型存取控制和 Azure 入口網站管理存取權](../role-based-access-control/role-assignments-portal.md)。
 
 ## <a name="create-a-device-simulation"></a>建立裝置模擬
 
@@ -62,7 +62,7 @@ ms.locfileid: "75530188"
 
    [![佈建裝置模擬解決方案。](media/v2-update-provision/iot-solution-accelerators-configuration.png)](media/v2-update-provision/iot-solution-accelerators-configuration.png#lightbox)
 
-1. 佈建完成後，您會看到兩個更新，顯示部署狀態已從 [佈建中]  變為 [就緒]  。 
+1. 佈建完成後會顯示兩項通知，宣告部署狀態已從 [佈建中]  變為 [就緒]  。 
 
    >[!IMPORTANT]
    > 請還不要輸入解決方案加速器！ 請將此網頁保持為開啟，因為您稍後將會回到這裡。
@@ -92,7 +92,7 @@ ms.locfileid: "75530188"
     | **資源群組** | 請為 Azure 時間序列深入解析預覽版環境資源選取現有的資源群組，或建立新的資源群組。 資源群組是 Azure 資源的容器。 您使用的資源群組最好與裝置模擬器所建立的其餘 IoT 資源相同。 |
     | **位置** | 為 Azure 時間序列深入解析預覽版環境選取資料中心區域。 為了避免增加額外延遲時間，建議您將 Azure 時間序列深入解析預覽版環境建立在裝置模擬器建立的 IoT 中樞所在區域。 |
     | **層級** |  選取 [PAYG]  ([隨用隨付]  )。 這是適用於「Azure 時間序列深入解析預覽版」產品的 SKU。 |
-    | **屬性名稱** | 輸入可唯一識別時間序列執行個體的值。 您在 [屬性識別碼]  方塊中輸入的值是無法在稍後變更的。 針對本教學課程，請輸入 ***iothub-connection-device-id***。若要深入了解時間序列識別碼，請參閱[選擇時間序列識別碼的最佳做法](./time-series-insights-update-how-to-id.md)。 |
+    | **屬性名稱** | 輸入可唯一識別時間序列執行個體的值。 您在 [屬性識別碼]  方塊中輸入的值是無法在稍後變更的。 針對本教學課程，請輸入 ***iothub-connection-device-id***。若要深入了解時間序列識別碼，請閱讀[選擇時間序列識別碼的最佳做法](./time-series-insights-update-how-to-id.md)。 |
     | **儲存體帳戶名稱** | 針對新儲存體帳戶輸入全域唯一的名稱。|
     |**啟用溫存放區**|選取 [是]  以啟用溫存放區。 您可以稍後再回來啟用此設定。 |
     |**資料保留 (天數)**|選擇預設的 7 天選項。 |
@@ -125,7 +125,7 @@ ms.locfileid: "75530188"
 
     [![[檢閱 + 建立] 頁面，其中含有 [建立] 按鈕。](media/v2-update-provision/tsi-environment-confirmation.png)](media/v2-update-provision/tsi-environment-confirmation.png#lightbox)
 
-    您可以看到部署的狀態：
+    您可以檢視部署的狀態：
 
     [![部署已完成的通知。](media/v2-update-provision/tsi-deployment-notification.png)](media/v2-update-provision/tsi-deployment-notification.png#lightbox)
 
@@ -169,7 +169,7 @@ ms.locfileid: "75530188"
 
     選取 [開始模擬]  。
 
-    在裝置模擬儀表板中，您會看到 [使用中的裝置]  和 [訊息總計]  。
+    在裝置模擬儀表板中，會顯示 [使用中的裝置]  和 [訊息總計]  。
 
     [![Azure IoT 模擬儀表板。](media/v2-update-provision/tsi-see-active-devices-and-messages.png)](media/v2-update-provision/tsi-see-active-devices-and-messages.png#lightbox)
 
@@ -181,9 +181,9 @@ ms.locfileid: "75530188"
 
     [![時間序列深入解析預覽版總管 URL。](media/v2-update-provision/tsi-select-explorer-url.png)](media/v2-update-provision/tsi-select-explorer-url.png#lightbox)
 
-1. 在 [時間序列深入解析總管] 中，您會看到橫跨畫面頂端的長條。 這是您的可用性選擇器。 請務必至少選取 2m，並在需要時，藉由將選取的選擇器控點向左和向右拖曳來擴展時間範圍。
+1. 在 [時間序列深入解析總管] 中，會顯示橫跨畫面頂端的長條。 這是您的可用性選擇器。 請務必至少選取 2m，並在需要時，藉由將選取的選擇器控點向左和向右拖曳來擴展時間範圍。
 
-1. 您可以在左側看到**時間序列執行個體**。
+1. 左側會顯示**時間序列執行個體**。
 
     [![無上層執行個體的清單。](media/v2-update-provision/tsi-explorer-unparented-instances.png)](media/v2-update-provision/tsi-explorer-unparented-instances.png#lightbox)
 
@@ -205,7 +205,7 @@ ms.locfileid: "75530188"
 
 ## <a name="define-and-apply-a-model"></a>定義並套用模型
 
-在本節中，您會套用模型來建構資料。 為了完成此模型，您會定義類型、階層和執行個體。 若要深入了解資料模型化，請參閱[時間序列模型](./time-series-insights-update-tsm.md)。
+在本節中，您會套用模型來建構資料。 為了完成此模型，您會定義類型、階層和執行個體。 若要深入了解資料模型化，請閱讀[時間序列模型](./time-series-insights-update-tsm.md)。
 
 1. 在總管中，選取 [模型]  索引標籤：
 
@@ -254,9 +254,9 @@ ms.locfileid: "75530188"
 
     選取 [套用]  。
 
-1. 選取 [儲存]  。 您應該會看到三個已建立的變數。
+1. 選取 [儲存]  。 系統會建立並顯示三個變數。
 
-    [![新增類別之後，您可以在模型檢視中看到該類別。](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
+    [![新增類別之後，請在 [模型] 檢視中加以檢視。](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
 
 1. 選取 [階層]  索引標籤。然後選取 [+ 新增]  。
    

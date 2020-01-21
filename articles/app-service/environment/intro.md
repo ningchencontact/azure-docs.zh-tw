@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ca172e16fc13d2b8e10d0797f5b57b5b48136349
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0fc5c32570e5a5920d1616a522120ea5d5b251d8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430438"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768322"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>App Service 環境簡介 #
  
@@ -24,7 +24,7 @@ Azure App Service Environment 是 Azure App Service 的功能，可提供完全�
 * Linux Web 應用程式 
 * Docker 容器
 * 行動應用程式
-* Functions
+* 函式
 
 App Service Environment (ASE) 適合需要下列項目的應用程式工作負載：
 
@@ -41,6 +41,7 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
 * 您可以使用多個 ASE 進行水平調整。 如需詳細資訊，請參閱[如何設定異地分散應用程式使用量](app-service-app-service-environment-geo-distributed-scale.md)。
 * 您可以將 ASE 用於設定安全性架構，如 AzureCon 深入探討所示。 若要了解 AzureCon 深入探討中示範之安全性架構的設定方式，請參閱有關如何透過 App Service Environment [實行分層安全性架構的文章](app-service-app-service-environment-layered-security.md)。
 * 在 ASE 中執行之應用程式的存取權可能會受到 Web 應用程式防火牆 (WAF) 等上游裝置的管制。 如需詳細資訊，請參閱 [Web 應用程式防火牆 (WAF)][AppGW]。
+* App Service 環境可使用區域釘選來部署到可用性區域 (AZ) 中。  如需詳細資訊，請參閱[可用性區域的 App Service 環境支援][ASEAZ]。
 
 ## <a name="dedicated-environment"></a>專用的環境 ##
 
@@ -102,3 +103,4 @@ ASEv1 使用與 ASEv2 不同的定價模式。 在 ASEv1 中，您需要支付�
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/waf-overview.md
+[ASEAZ]: https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html

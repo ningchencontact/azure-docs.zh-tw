@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: cab13fd65e9fdbd7179e6ba759b1aa696ef95fa1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/10/2020
+ms.openlocfilehash: 38bd1755ed87050cf8b91a0a82f6e5f1d2af9db5
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790329"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933796"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>教學課程：使用時間序列深入解析對來自 Azure Digital Twins 的事件進行視覺化檢視和分析
 
@@ -30,7 +30,7 @@ ms.locfileid: "74790329"
 > * 使用 Azure 事件中樞來串流資料。
 > * 使用時間序列深入解析來進行分析。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 本教學課程假設您已經[設定](tutorial-facilities-setup.md)並[佈建](tutorial-facilities-udf.md) Azure Digital Twins 設定。 繼續之前，請確定您有：
 
@@ -54,16 +54,16 @@ ms.locfileid: "74790329"
 
 1. 搜尋並選取 [事件中樞]  。 選取 [建立]  。
 
-    [![建立事件中樞命名空間](./media/tutorial-facilities-analyze/create-event-hubs.png)](./media/tutorial-facilities-analyze/create-event-hubs.png#lightbox)
+    [![建立事件中樞命名空間](./media/tutorial-facilities-analyze/tutorial-create-event-hubs.png)](./media/tutorial-facilities-analyze/tutorial-create-event-hubs.png#lightbox)
 
 1. 輸入事件中樞命名空間的 [名稱]  。 選擇 [標準]  **定價層**、[訂用帳戶]  、用於 Digital Twins 執行個體的 [資源群組]  ，以及 [位置]  。 選取 [建立]  。
 
 1. 在事件中樞命名空間部署中，選取 [概觀]  窗格，然後選取 [移至資源]  。
 
-    [![部署後的事件中樞命名空間](./media/tutorial-facilities-analyze/open-event-hub-ns.png)](./media/tutorial-facilities-analyze/open-event-hub-ns.png#lightbox)
+    [![部署後的事件中樞命名空間](./media/tutorial-facilities-analyze/tutorial-event-hub-ns.png)](./media/tutorial-facilities-analyze/tutorial-event-hub-ns.png#lightbox)
 
 1. 在事件中樞命名空間的 [概觀]  窗格中，選取頂端的 [事件中樞]  按鈕。
-    [![事件中樞按鈕](./media/tutorial-facilities-analyze/create-event-hub.png)](./media/tutorial-facilities-analyze/create-event-hub.png#lightbox)
+    [![事件中樞按鈕](./media/tutorial-facilities-analyze/tutorial-create-event-hub.png)](./media/tutorial-facilities-analyze/tutorial-create-event-hub.png#lightbox)
 
 1. 輸入事件中樞的 [名稱]  ，然後選取 [建立]  。
 
@@ -143,23 +143,23 @@ ms.locfileid: "74790329"
 
 1. 輸入時間序列深入解析執行個體的**名稱**，然後選取 [訂用帳戶]  。 選取用於 Digital Twins 執行個體的 [資源群組]  ，以及您的 [位置]  。 完成時，選取 [下一步:**事件來源**] 按鈕或 [事件來源]  索引標籤。
 
-    [![用於建立時間序列深入解析執行個體的選取項目](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
+    [![用於建立時間序列深入解析執行個體的選取項目](./media/tutorial-facilities-analyze/tutorial-create-tsi-environment.png)](./media/tutorial-facilities-analyze/tutorial-create-tsi-environment.png#lightbox)
 
 1. 在 [事件來源]  索引標籤上輸入**名稱**，並選取 [事件中樞]  作為 [來源類型]  ，然後確定其他值都已正確選取，以參考您所建立的事件中樞。 選取 [ManageSend]  作為 [事件中樞存取原則名稱]  ，然後選取您在上一節建立的取用者群組來作為 [事件中樞取用者群組]  。 選取 [檢閱 + 建立]  。
 
-    [![用於建立事件來源的選取項目](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
+    [![用於建立事件來源的選取項目](./media/tutorial-facilities-analyze/tutorial-tsi-event-source.png)](./media/tutorial-facilities-analyze/tutorial-tsi-event-source.png#lightbox)
 
 1. 在 [檢閱 + 建立]  窗格中，檢閱您所輸入的資訊，然後選取 [建立]  。
 
-1. 在部署窗格中，選取您剛才建立的時間序列深入解析資源。 這會開啟您「時間序列深入解析」環境的 [概觀]  窗格。
+1. 在部署窗格中，選取您建立的時間序列深入解析資源。 這會開啟您「時間序列深入解析」環境的 [概觀]  窗格。
 
 1. 選取頂端的 [移至環境]  按鈕。 如果您收到資料存取警告，則請開啟時間序列深入解析執行個體的 [資料存取原則]  窗格，選取 [新增]  ，選取 [參與者]  角色，然後選取適當的使用者。
 
 1. [移至環境]  按鈕會開啟[時間序列深入解析總管](../time-series-insights/time-series-insights-explorer.md)。 如果總管中未顯示任何事件，請藉由瀏覽至 Digital Twins 範例的 **device-connectivity** 專案並執行 `dotnet run`，以模擬裝置事件。
 
-1. 產生幾個模擬事件後，返回時間序列深入解析總管，並選取頂端的 [重新整理] 按鈕。 您應該會看到系統已針對模擬感應器資料建立了分析圖表。 
+1. 產生幾個模擬事件後，返回時間序列深入解析總管，並選取頂端的 [重新整理] 按鈕。 系統針對模擬感應器資料建立的分析圖表會隨即顯示。 
 
-    [![時間序列深入解析總管中的圖表](./media/tutorial-facilities-analyze/tsi-explorer.png)](./media/tutorial-facilities-analyze/tsi-explorer.png#lightbox)
+    [![時間序列深入解析總管中的圖表](./media/tutorial-facilities-analyze/tsi-explorer-with-adt-telemetry.png)](./media/tutorial-facilities-analyze/tsi-explorer-with-adt-telemetry.png#lightbox)
 
 1. 在時間序列深入解析總管中，您接著可以針對來自房間、感應器和其他資源的不同事件和資料，產生圖表和熱度圖。 使用左側的 [量值]  和 [分割依據]  下拉式方塊，來建立您自己的視覺效果。 
 

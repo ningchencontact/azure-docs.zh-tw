@@ -5,17 +5,17 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 11/12/2019
+ms.date: 01/08/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 91674d6335ae95993bcdd59250658d562302b1dc
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: de4d3ce11e23d7ec4f6ad26852e7d7d01eebe590
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954134"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780006"
 ---
-# <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>設定 Azure VM 到次要 Azure 區域的災害復原        
+# <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>設定 Azure VM 到次要 Azure 區域的災害復原
 
 [Azure Site Recovery](site-recovery-overview.md) 服務藉由確保您的商務應用程式可在計劃性與非計劃性中斷期間持續啟動並執行，來提供商務持續性和災害復原 (BCDR) 策略。 Site Recovery 會管理並協調內部部署機器和 Azure 虛擬機器 (VM) 的災害復原，包括複寫、容錯移轉和復原。
 
@@ -24,11 +24,11 @@ ms.locfileid: "73954134"
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 > [!NOTE]
-> 本文也是新使用者的快速逐步解說。 其使用預設選項和最低的自訂來提供最簡單的路徑。  如需更完整的逐步解說，請檢閱[本教學課程](azure-to-azure-tutorial-enable-replication.md)。
+> 本文也是適用於新使用者的快速逐步解說。 其使用預設選項和最低的自訂來提供最簡單的路徑。 如需完整的逐步解說，請參閱[啟用複寫](azure-to-azure-tutorial-enable-replication.md)教學課程。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-在 https://portal.azure.com 上登入 Azure 入口網站。
+登入 [Azure 入口網站](https://portal.azure.com)。
 
 ## <a name="enable-replication-for-the-azure-vm"></a>啟用 Azure VM 的複寫
 
@@ -38,7 +38,7 @@ ms.locfileid: "73954134"
 4. 在本快速入門中，接受其他預設設定。
 5. 選取 [檢閱 + 開始複寫]  。 然後選取 [開始複寫]  ，以啟動作業來啟用 VM 的複寫。
 
-    ![啟用複寫](media/azure-to-azure-quickstart/enable-replication1.png)
+   ![啟用複寫](media/azure-to-azure-quickstart/enable-replication1.png)
 
 ## <a name="verify-settings"></a>確認設定
 
@@ -55,10 +55,10 @@ ms.locfileid: "73954134"
 
 主要區域中的 VM 會在您停用其複寫功能時停止複寫：
 
-- 來源複寫設定會自動清除。 於複寫期間安裝在 VM 上的 Site Recovery 擴充功能不會移除，而必須以手動方式移除。 
+- 來源複寫設定會自動清除。 於複寫期間安裝在 VM 上的 Site Recovery 擴充功能不會移除，而必須以手動方式移除。
 - VM 的 Site Recovery 計費會停止。
 
-停止複寫，如下所示
+停止複寫，如下所示︰
 
 1. 在 Azure 入口網站功能表上，選取 [虛擬機器]  ，或在任何頁面上搜尋並選取 [虛擬機器]  。 選取您要修改的 VM。
 2. 在 [災害復原]  中，選取 [停用複寫]  。
@@ -70,4 +70,4 @@ ms.locfileid: "73954134"
 本快速入門中，您以將單一 VM 複寫到次要區域。 現在，請嘗試使用復原方案複寫多個 Azure VM。
 
 > [!div class="nextstepaction"]
-> [設定 Azure VM 的災害復原](azure-to-azure-tutorial-enable-replication.md)
+> [設定適用於 Azure VM 的災害復原](azure-to-azure-tutorial-enable-replication.md)

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 51f72011b89656d8f56e996d4654a2714f2f482b
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 8c2bbd3aff8c2c10864fb2fa8937c9159ecd3606
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615611"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972459"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob 儲存體簡介
 
@@ -41,7 +41,7 @@ Blob 儲存體提供三種類型資源：
 http://mystorageaccount.blob.core.windows.net 
 ```
 
-若要建立儲存體帳戶，請參閱[儲存體帳戶](../common/storage-quickstart-create-account.md)。 若要深入了解儲存體帳戶，請參閱 [Azure 儲存體帳戶概觀](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+若要建立儲存體帳戶，請參閱[儲存體帳戶](../common/storage-account-create.md)。 若要深入了解儲存體帳戶，請參閱 [Azure 儲存體帳戶概觀](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
 ### <a name="containers"></a>容器
 
@@ -73,5 +73,5 @@ Azure 儲存體支援三種 blob 類型：
 
 ## <a name="next-steps"></a>後續步驟
 
-* [建立儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Azure 儲存體的延展性與效能目標](../common/storage-scalability-targets.md)
+- [建立儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Blob 儲存體的延展性和效能目標](scalability-targets.md)

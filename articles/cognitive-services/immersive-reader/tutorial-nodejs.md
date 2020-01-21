@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 2a07e392170fb9e6993f4c560a4896a468d90820
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 37453e1fdd8fdcfc89468731980581652027343c
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338494"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945245"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>教學課程：啟動沈浸式閱讀程式 (Node.js)
 
@@ -31,9 +31,9 @@ ms.locfileid: "71338494"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-* 為 Azure Active Directory (Azure AD) 驗證所設定的沈浸式閱讀程式資源。 遵循[這些指引](./azure-active-directory-authentication.md)來設定。 設定環境屬性時，您需要這裡建立的一些值。 將工作階段的輸出儲存到文字檔中，以供日後參考。
+* 為 Azure Active Directory 驗證所設定的沈浸式閱讀程式資源。 遵循[這些指引](./how-to-create-immersive-reader.md)來設定。 設定環境屬性時，您需要這裡建立的一些值。 將工作階段的輸出儲存到文字檔中，以供日後參考。
 * [Node.js](https://nodejs.org/) 和 [Yarn](https://yarnpkg.com)
 * 整合式開發環境，例如 [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -111,14 +111,14 @@ router.get('/getimmersivereaderlaunchparams', function(req, res) {
                 if (err) {
                     return res.status(500).send('CogSvcs IssueToken error');
                 }
-        
+
                 const token = JSON.parse(tokenResponse).access_token;
                 const subdomain = process.env.SUBDOMAIN;
                 return res.send({token: token, subdomain: subdomain});
         }
   );
 });
- 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -149,7 +149,7 @@ module.exports = router;
           p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
           div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
           script.
-        
+
             function getImmersiveReaderLaunchParamsAsync() {
                     return new Promise((resolve, reject) => {
                         $.ajax({
@@ -165,7 +165,7 @@ module.exports = router;
                         });
                     });
             }
-        
+
             async function launchImmersiveReader() {
                     const content = {
                             title: document.getElementById('title').innerText,
@@ -174,11 +174,11 @@ module.exports = router;
                                     lang: 'en'
                             }]
                     };
-            
+
                     const launchParams = await getImmersiveReaderLaunchParamsAsync();
                     const token = launchParams.token;
                     const subdomain = launchParams.subdomain;
-            
+
                     ImmersiveReader.launchAsync(token, subdomain, content);
             }
     ```

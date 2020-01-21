@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.openlocfilehash: 71308b7f17d6009e8650cafbb02afd577fd73cf4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.openlocfilehash: 42638af9f51770a9a5738cd92f91c28439af273a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437720"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750092"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立 Azure 資料庫移轉服務的執行個體
 
@@ -55,11 +55,11 @@ ms.locfileid: "75437720"
     - 選取您要建立執行個體的 Azure **訂用帳戶**。
     - 選取現有的 [資源群組]  或建立新群組。
     - 選擇最接近您的來源或目標伺服器的**位置**。
-    - 選取現有的**虛擬網路** (VNet) 或建立一個。
+    - 選取現有的**虛擬網路**或建立一個。
 
-        VNet 會為 Azure 資料庫移轉服務提供來源資料庫和目標環境的存取權。
+        虛擬網路會為 Azure 資料庫移轉服務提供來源資料庫和目標環境的存取權。
 
-        如需如何在 Azure 入口網站中建立 VNet 的詳細資訊，請參閱[使用 Azure 入口網站建立虛擬網路](https://aka.ms/vnet)一文。
+        如需如何在 Azure 入口網站中建立虛擬網路的詳細資訊，請參閱[使用 Azure 入口網站建立虛擬網路](https://aka.ms/vnet)一文。
 
     - 選取 [基本:1 個 vCore] 作為 [定價層]  。
 

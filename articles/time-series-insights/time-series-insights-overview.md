@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 12/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b9491a4438ff07222bb5ce5bd684964bdfc0031
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c068e33bc7844c464bc8a289387990128d96dd35
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452823"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861790"
 ---
 # <a name="what-is-azure-time-series-insights"></a>什麼是 Azure 時間序列深入解析？
 
@@ -82,7 +82,7 @@ Azure 時間序列深入解析會擷取每個新事件並將其各自儲存為�
 1. 在 Azure 入口網站中佈建時間序列深入解析環境。
 1. 連線至 IoT 中樞或事件中樞等事件來源。
 1. 上傳參考資料。 這不是一項額外服務。
-1. 在幾分鐘內使用時間序列深入解析總管查看您的資料。
+1. 在幾分鐘內使用時間序列深入解析總管檢閱及顯示您的資料。
 
 ## <a name="explorer"></a>總管
 

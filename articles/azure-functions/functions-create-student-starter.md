@@ -1,21 +1,21 @@
 ---
 title: 使用 Azure 學生入門版建立函式
 description: 了解如何從 Azure 學生入門版訂用帳戶建立 Azure 函式
-Customer intent: As a student, I want to be able to create a HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
+Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 5c0228feb88296e0c82efa52648ce38d70e5b921
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 189a0bc80ab2894b2888b496b3beb45249d859f6
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409888"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921123"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>使用 Azure 學生入門版建立函式
 
-在本教學課程中，我們將在 Azure 學生入門版訂用帳戶中建立 hello world HTTP 函式。 我們也將逐步說明 Azure Functions 中此訂用帳戶類型可用的功能。
+在本教學課程中，我們將在 Azure 學生入門版訂用帳戶中建立 "hello world" HTTP 函式。 我們也將逐步說明 Azure Functions 中此訂用帳戶類型可用的功能。
 
 Microsoft Azure 學生入門版  可讓您免費開始使用在雲端開發所需的 Azure 產品。 [在此深入了解這項供應項目。](https://azure.microsoft.com/offers/ms-azr-0144p/)
 
@@ -33,9 +33,9 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
 
 ## <a name="create-a-function-app"></a>建立函數應用程式
 
-您必須擁有函式應用程式以便主控函式的執行。 函式應用程式可讓您將多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 
+您必須擁有函式應用程式以便主控函式的執行。 函式應用程式可讓您將多個函式群組為邏輯單位，以方便您管理、部署、調整和共用資源。
 
-1. 選取 Azure 入口網站左上角的 [新增]  按鈕，然後選取 [計算]   > [函式應用程式]  。
+1. 選取 Azure 入口網站左上角的 [建立資源]  按鈕。 然後選取 [計算]   > [函式應用程式]  。
 
     ![在 Azure 入口網站中建立函式應用程式](./media/functions-create-student-starter/function-app-create-flow.png)
 
@@ -116,7 +116,7 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
     * 支援所有輸入和所有輸出繫結！ [請在此參閱完整清單。](functions-triggers-bindings.md)
 * 支援的語言： 
     * C# (.NET Core 2)
-    * Javascript (Node.js 8 和 10)
+    * JavaScript (Node.js 8 & 10)
     * F# (.NET Core 2)
     * [請在此參閱更高方案中支援的語言](supported-languages.md)
 * Windows 是唯一支援的作業系統。

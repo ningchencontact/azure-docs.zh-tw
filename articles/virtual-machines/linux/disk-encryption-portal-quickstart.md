@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: e777387437b572eb11ebb7999d87a172b54738bb
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 20802cf9f9934a85e00bce41b6bbe21a6ff95579
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151248"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772290"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立和加密 Linux 虛擬機器
 
@@ -71,7 +71,7 @@ ms.locfileid: "74151248"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您會建立為加密金鑰啟用的 Key Vault、建立虛擬機器，並為虛擬機器啟用加密。  
+在本快速入門中，您已建立為加密金鑰啟用的 Key Vault、建立虛擬機器，並為虛擬機器啟用加密。  
 
 > [!div class="nextstepaction"]
 > [Azure 磁碟加密概觀](disk-encryption-overview.md)

@@ -4,12 +4,12 @@ description: 使用 Azure CLI 建立無伺服器 Python 函式應用程式
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
-ms.openlocfilehash: d077c775ec6a182260d5ab75c4562acca9f9cc4c
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: c55934c42db6bb7248db107b97fb8998163fae8b
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534575"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922632"
 ---
 # <a name="create-a-serverless-python-function-app-using-azure-cli"></a>使用 Azure CLI 建立無伺服器 Python 函式應用程式
 
@@ -26,9 +26,9 @@ ms.locfileid: "74534575"
 
 ## <a name="sample-script"></a>範例指令碼
 
-此指令碼會使用[取用方案](../functions-scale.md#consumption-plan)建立 Azure 函數應用程式。
+此指令碼會使用[取用方案](../functions-scale.md#consumption-plan)建立 Azure 函式應用程式。
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a consumption plan")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a Consumption plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -36,7 +36,7 @@ ms.locfileid: "74534575"
 
 下表中的每個命令都會連結至命令特定的文件。 此指令碼會使用下列命令：
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 建立 Azure 儲存體帳戶。 |

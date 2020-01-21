@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2dfe17b99c1a9b1130695c8e5cd9c65ca7681d35
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e7d6b23aa3f35c99cf03f855152b2b231a60a965
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470943"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921627"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>教學課程：Azure Resource Manager 範本與 Azure Pipelines 的持續整合
 
@@ -194,7 +194,7 @@ azuredeploy.json 已新增至本機存放庫。 接下來您會將範本推送�
 
     進行下列變更：
 
-    * **deloymentScope**：從選項中選取部署範圍：`Management Group`、`Subscription` 和 `Resource Group`。 本教學課程中使用**資源群組**。 若要深入了解範圍，請參閱[部署範圍](deploy-rest.md#deployment-scope)。
+    * **deploymentScope**：從選項中選取部署範圍：`Management Group`、`Subscription` 和 `Resource Group`。 本教學課程中使用**資源群組**。 若要深入了解範圍，請參閱[部署範圍](deploy-rest.md#deployment-scope)。
     * **ConnectedServiceName**：指定您稍早建立的服務連線名稱。
     * **SubscriptionName**：指定目標訂用帳戶識別碼。
     * **動作**：**Create Or Update Resource Group** 動作會執行 2 個動作 - 1. 如果已經提供新的資源群組名稱，就會建立一個資源群組；2. 部署指定的範本。

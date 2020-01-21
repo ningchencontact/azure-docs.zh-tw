@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 387f3df7313c26c5cd8f7fee7c9b58ec3b5c4552
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 83462d47af49a02817dcfa05afcd8fdb5e0beab1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872359"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863701"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>教學課程：建立 Azure 時間序列深入解析環境
 
@@ -30,9 +30,9 @@ ms.locfileid: "74872359"
 > [!IMPORTANT]
 > 如果您沒有帳戶，請註冊[免費 Azure 訂用帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-* 您的 Azure 登入帳戶也必須是訂用帳戶的**擁有者**角色成員。 如需詳細資訊，請參閱[使用角色型存取控制和 Azure 入口網站管理存取權](../role-based-access-control/role-assignments-portal.md)。
+* 您的 Azure 登入帳戶也必須是訂用帳戶的**擁有者**角色成員。 如需詳細資訊，請閱讀[使用角色型存取控制和 Azure 入口網站管理存取權](../role-based-access-control/role-assignments-portal.md)。
 
 ## <a name="review-video"></a>檢閱影片
 
@@ -61,7 +61,7 @@ Azure IoT 中樞是教學課程中所有裝置 (模擬或實體) 用來安全地
 
 1.  選取 [立即試用]  。 然後，在 [建立裝置模擬解決方案]  頁面上輸入必要的參數。
 
-   參數|說明
+   參數|描述
    ---|---
    **部署名稱** | 此唯一值會用來建立新的資源群組。 列出的 Azure 資源會在建立後指派給資源群組。
    **Azure 訂用帳戶** | 指定與上一節中用於建立「時間序列深入解析」環境的相同訂用帳戶。
@@ -72,7 +72,7 @@ Azure IoT 中樞是教學課程中所有裝置 (模擬或實體) 用來安全地
 
    [![佈建裝置模擬解決方案](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png#lightbox)
 
-1. 佈建完成後，您會看到兩個更新，顯示部署狀態已從 [佈建中]  變為 [就緒]  。 
+1. 佈建完成後會顯示兩項更新，指出部署狀態已從 [佈建中]  變為 [就緒]  。 
 
    >[!IMPORTANT]
    > 請還不要輸入解決方案加速器！ 請將此網頁保持為開啟，因為您稍後將會回到這裡。
@@ -95,7 +95,7 @@ Azure IoT 中樞是教學課程中所有裝置 (模擬或實體) 用來安全地
 
 1. 在 [時間序列深入解析環境]  頁面上，填入必要參數。
 
-   參數|說明
+   參數|描述
    ---|---
    **環境名稱** | 為時間序列深入解析環境選擇唯一的名稱。 時間序列深入解析總管和[查詢 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) 會使用這些名稱。
    **訂用帳戶** | 訂用帳戶是 Azure 資源的容器。 請選擇要建立時間序列深入解析環境的訂用帳戶。
@@ -134,7 +134,7 @@ Azure IoT 中樞是教學課程中所有裝置 (模擬或實體) 用來安全地
 
 1. 選取 [+ 新增模擬]  。 在 [模擬設定]  頁面載入後，請輸入必要的參數。
 
-   參數|說明
+   參數|描述
    ---|---
    **目標 IoT 中樞** | 選取 [使用預先佈建的 IoT 中樞]  。
    **裝置型號** | 選取 [Chiller]  。
@@ -162,7 +162,7 @@ Azure IoT 中樞是教學課程中所有裝置 (模擬或實體) 用來安全地
 
    [![時間序列深入解析總管](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
-1. 時間序列深入解析總管會使用您的 Azure 入口網站帳戶進行載入和驗證。 在初始檢視中，您可以看到時間序列深入解析環境中已填入模擬遙測資料的圖表區域。 若要篩選為較小的時間範圍，請選取左上角的下拉式清單。 輸入足以跨越裝置模擬持續時間的時間範圍。 然後選取搜尋放大鏡。
+1. 時間序列深入解析總管會使用您的 Azure 入口網站帳戶進行載入和驗證。 最初，會顯示時間序列深入解析環境中已填入模擬遙測資料的圖表區域。 若要篩選為較小的時間範圍，請選取左上角的下拉式清單。 輸入足以跨越裝置模擬持續時間的時間範圍。 然後選取搜尋放大鏡。
 
    [![時間序列深入解析總管時間範圍篩選條件](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
 
@@ -198,4 +198,4 @@ Azure IoT 中樞是教學課程中所有裝置 (模擬或實體) 用來安全地
 您現在已了解如何建立您自己的時間序列深入解析環境，並了解如何建置從時間序列深入解析環境中取用資料的 Web 應用程式：
 
 > [!div class="nextstepaction"]
-> [查看裝載的用戶端 SDK 虛擬化範例](https://tsiclientsample.azurewebsites.net/) \(英文\)
+> [閱讀裝載的用戶端 SDK 虛擬化範例](https://tsiclientsample.azurewebsites.net/)

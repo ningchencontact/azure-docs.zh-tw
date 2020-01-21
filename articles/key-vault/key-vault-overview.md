@@ -10,20 +10,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0cd6cbf21a392f68db707b9c0184320316d45ffe
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 97df5c309a3bdbf5055d67f893e33ab1a0c3232a
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851021"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832767"
 ---
-# <a name="what-is-azure-key-vault"></a>什麼是 Azure 金鑰保存庫？
+# <a name="what-is-azure-key-vault"></a>何謂 Azure Key Vault？
 
 Azure Key Vault 可協助您解決下列問題：
 
 - **祕密管理** - Azure Key Vault 可用來安全地儲存權杖、密碼、憑證、API 金鑰和其他祕密，並嚴密控制其存取
 - **金鑰管理** - Azure Key Vault 也可作為金鑰管理解決方案。 Azure Key Vault 可讓您輕鬆地建立和控制用來加密資料的加密金鑰。 
-- **憑證管理** - Azure Key Vault 也是一項服務，可讓您輕鬆地佈建、管理及部署 Azure 和您內部連線的資源所使用的公用和私人安全通訊端層/傳輸層安全性 (SSL/TLS) 憑證。 
+- **憑證管理** - Azure Key Vault 也是一項服務，可讓您輕鬆地佈建、管理及部署 Azure 和您內部連線的資源所使用的公用和私人傳輸層安全性/安全通訊端層 (TLS/SSL) 憑證。 
 - **儲存受到硬體安全性模型支援的祕密** - 祕密和金鑰可受到軟體的保護，或由通過 FIPS 140-2 Level 2 驗證的 HSM 保護
 
 ## <a name="why-use-azure-key-vault"></a>為何使用 Azure Key Vault？

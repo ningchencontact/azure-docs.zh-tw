@@ -1,19 +1,15 @@
 ---
 title: 使用 Azure Migrate 準備電腦以進行移轉
 description: 了解如何使用 Azure Migrate 準備內部部署電腦以進行移轉。
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 12/10/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6f5535a57fae847c8a376b8b39e43955675da739
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c3c10321e8d49ac6ecfe80024d23f24711298651
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974779"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028746"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>準備內部部署電腦以移轉至 Azure
 
@@ -44,9 +40,9 @@ ms.locfileid: "74974779"
 
 ## <a name="check-whats-supported"></a>檢查支援的項目
 
-- 針對 VMware VM，Azure Migrate 伺服器移轉支援[無代理程式或代理程式型移轉](server-migrate-overview.md)。 確認 VMware VM 需求/支援以進行[無代理程式](migrate-support-matrix-vmware.md#migration---limitations)和[代理程式型](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements)移轉。
-- 確認 Hyper-V VM 的[移轉需求和支援](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements)。
-- 確認內部部署實體電腦或其他虛擬化伺服器的[移轉需求和支援](migrate-support-matrix-physical.md)。 
+- 針對 VMware VM，Azure Migrate 伺服器移轉支援[無代理程式或代理程式型移轉](server-migrate-overview.md)。 確認 VMware VM 的[移轉需求和支援](migrate-support-matrix-vmware-migration.md)。
+- 確認 Hyper-V 的[移轉需求和支援](migrate-support-matrix-hyper-v-migration.md)。
+- 確認內部部署實體電腦或其他虛擬化伺服器的[移轉需求和支援](migrate-support-matrix-physical-migration.md)。 
 
 
 
@@ -55,10 +51,11 @@ ms.locfileid: "74974779"
 
 電腦可能需要在移轉期間存取網際網路。
 
-- 檢閱 VMware VM 在[無代理程式](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements)或[代理程式型](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements)移轉期間需要存取的 URL。
-- 檢閱 Hyper-V 主機在移轉期間需要存取的 URL。 Hyper-V VM 不需要網際網路存取。
-- [檢閱實體電腦或其他虛擬化伺服器在移轉期間需要存取的 URL](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements)。
-- 在 VMware VM/實體伺服器的代理程式型移轉中，電腦上執行的行動服務需要存取 Azure Migrate 元件。 針對複寫管理，在電腦上執行的服務會與輸入連接埠 HTTPS 443 上的內部部署 Azure Migrate 複寫設備進行通訊。 電腦會透過輸入連接埠 HTTPS 9443，將複寫資料傳送到 Azure Migrate 處理序伺服器。 您可以修改此連接埠。
+- 檢閱 Azure Migrate 設備在無代理程式移轉期間需要存取的 [URL](migrate-appliance.md#url-access)。 [檢閱連接埠存取](migrate-support-matrix-vmware-migration.md#agentless-ports)需求。
+- 檢閱複寫設備在進行 VMware VM 代理程式型移轉期間所使用的 [URL](migrate-replication-appliance.md#url-access) 和 [連接埠] (migrate-replication-appliance.md#port-access)。 
+- [檢閱](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) Hyper-V 主機在移轉期間需要存取的 URL 和連接埠。 
+- 檢閱複寫設備在進行實體伺服器移轉期間所使用的 [URL](migrate-replication-appliance.md#url-access) 和 [連接埠] (migrate-replication-appliance.md#port-access)。
+
 
 
 ## <a name="verify-required-changes-before-migration"></a>在移轉前確認所需的變更
@@ -105,7 +102,7 @@ ms.locfileid: "74974779"
 
 ## <a name="check-azure-vm-requirements"></a>檢查 Azure VM 需求
 
-您複寫到 Azure 的內部部署電腦必須符合適用於作業系統的 Azure VM 需求，以及架構、磁碟、網路設定和 VM 命名。 請先確認 [VMware VM/實體伺服器](migrate-support-matrix-vmware.md#azure-vm-requirements)及 [Hyper-V VM](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) 的需求，再進行移轉。
+您複寫到 Azure 的內部部署電腦必須符合適用於作業系統的 Azure VM 需求，以及架構、磁碟、網路設定和 VM 命名。 請先確認 [VMware VM/實體伺服器](migrate-support-matrix-vmware-migration.md#azure-vm-requirements)及 [Hyper-V VM](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements) 的需求，再進行移轉。
 
 
 ## <a name="prepare-to-connect-after-migration"></a>準備在移轉後連線

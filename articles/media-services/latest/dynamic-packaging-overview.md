@@ -1,5 +1,5 @@
 ---
-title: 媒體服務中的動態封裝
+title: Azure 媒體服務 v3 中的動態封裝
 titleSuffix: Azure Media Services
 description: 本文能提供 Azure 媒體服務中動態封裝的概觀。
 author: Juliako
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: c12ebe307eb370e07b785b4379f82a4274964492
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 05a515d5f74569ff8d0fa8aec68eb681dc79d2fc
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977755"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779598"
 ---
-# <a name="dynamic-packaging-in-media-services"></a>媒體服務中的動態封裝
+# <a name="dynamic-packaging-in-media-services-v3"></a>媒體服務 v3 中的動態封裝
 
 Microsoft Azure 媒體服務可以用來為許多媒體來源檔案格式編碼。 它會透過不同的串流通訊協定 (不論是否有內容保護) 來傳遞這些格式，以聯繫所有主要裝置 (例如 iOS 和 Android 裝置)。 這些用戶端了解不同的通訊協定。 例如，iOS 需要以 HTTP 即時串流 (HLS) 格式傳遞串流，而 Android 裝置則支援 HLS 和 MPEG DASH。
 

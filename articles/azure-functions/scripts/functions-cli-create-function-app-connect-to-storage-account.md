@@ -4,12 +4,12 @@ description: Azure CLI 指令碼範例 - 建立連線至 Azure 儲存體的 Azur
 ms.topic: sample
 ms.date: 04/20/2017
 ms.custom: mvc
-ms.openlocfilehash: 9c2a70066e673bfa164a58884891f29e220c7bd6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 833b9223d473c8bfc62485e9e47ba662a4f0e154
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532826"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922677"
 ---
 # <a name="create-a-function-app-with-a-named-storage-account-connection"></a>透過具名儲存體帳戶連線建立函式應用程式 
 
@@ -33,7 +33,7 @@ ms.locfileid: "74532826"
 
 此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 使用位置建立資源群組。 |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 建立儲存體帳戶。 |

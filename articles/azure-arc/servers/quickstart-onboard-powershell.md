@@ -10,18 +10,18 @@ keywords: Azure 自動化, DSC, powershell, Desired State Configuration, 更新�
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: e7a527fc290433390436eac3d4c291f2a32bf2b3
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 814be233c80213f84fb81a62caf152536ef4811f
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951440"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834085"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>快速入門：使用適用於伺服器的 Azure Arc 將機器連線至 Azure - PowerShell
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 檢閱[適用於伺服器的 Azure Arc 概觀](overview.md)中的受支援用戶端和必要網路設定。
 
@@ -35,6 +35,9 @@ ms.locfileid: "74951440"
 ### <a name="steps-to-create-the-service-principal"></a>建立服務主體的步驟
 
 在此範例中，我們將使用 [Azure PowerShell](/powershell/azure/install-az-ps) 來建立服務主體名稱 (SPN)。 或者，您可以針對此工作，遵循[使用 Azure 入口網站來建立服務主體](../../active-directory/develop/howto-create-service-principal-portal.md)之下所列的步驟。
+
+> [!NOTE]
+> 在建立服務主體時，您在要用於上線的訂用帳戶上必須是擁有者或使用者存取系統管理員。 如果您沒有足夠的權限可建立角色指派，服務主體仍可建立，但將無法使機器上線。
 
 `Azure Connected Machine Onboarding` 角色只包含上線所需的權限。 您可以定義 SPN 的權限，以允許其範圍涵蓋資源群組或訂用帳戶。
 
@@ -142,7 +145,7 @@ msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-Str
   --service-principal-secret "{your-spn-password}" `
   --resource-group "{your-resource-group-name}" `
   --tenant-id "{your-tenant-id}" `
-  --location "{location-of-your-resource-group}" `
+  --location "{desired-location}" `
   --subscription-id "{your-subscription-id}"
 ```
 
@@ -164,7 +167,7 @@ azcmagent connect \
 * `tenant-id`：租用戶 GUID。 選取 [Azure Active Directory]   -> [屬性]   -> [目錄識別碼]  ，即可在 Azure 入口網站中找到它。
 * `subscription-id`：訂用帳戶的 GUID，在 Azure 中，您想要讓機器連線到該訂用帳戶。
 * `resource-group`：您想要讓機器連線的資源群組。
-* `location`：請參閱 [Azure 區域和位置](https://azure.microsoft.com/global-infrastructure/regions/)。 此位置可與資源群組的位置相同或不同。 若為公開預覽版，則會在 [美國西部2]  和 [西歐]  支援此服務。
+* `location`：請參閱 [Azure 區域和位置](https://azure.microsoft.com/global-infrastructure/regions/)。 此位置可與資源群組的位置相同或不同。 若為公開預覽版，則會在 [美國西部 2]  、[東南亞]  和 [西歐]  支援此服務。
 * `resource-name`：(*選擇性*) 用於內部部署機器的 Azure 資源表示法。 如果您未指定此值，將會使用電腦主機名稱。
 
 您可以在 [Azcmagent 參考](azcmagent-reference.md)中找到有關 'azcmagent' 工具的詳細資訊。

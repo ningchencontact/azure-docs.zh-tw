@@ -4,12 +4,12 @@ description: 建立函數應用程式，並使用 Azure Functions 從 GitHub 存
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 37dc0235b258f6d47f8813546fe953e92799454a
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: e424737b67be58ac0c3880ad2454c87fab803a15
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532810"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922726"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>在 Azure 中建立從 GitHub 部署的函式應用程式
 
@@ -38,7 +38,7 @@ ms.locfileid: "74532810"
 
 下表中的每個命令都會連結至命令特定的文件。 此指令碼會使用下列命令：
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 建立函式應用程式所需的儲存體帳戶。 |

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 363549662a17a87513c8426347909142ee405cae
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: f81f47349610cd72489df305ccf544c8346cb9b3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196388"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028664"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>準備評估實體伺服器並將其移轉至 Azure
 
@@ -56,7 +56,7 @@ ms.locfileid: "74196388"
 2. 在 [檢查存取權]  中，尋找相關的帳戶，然後按一下以查看權限。
 3. 您應該會具有「參與者」  或「擁有者」  權限。
     - 如果您剛建立免費的 Azure 帳戶，您就是訂用帳戶的擁有者。
-    - 如果您不是訂用帳戶擁有者，請與擁有者合作來指派角色。
+    - 如果您不是訂用帳戶擁有者，請與擁有者合作以指派角色。
 
 
 ### <a name="assign-permissions-to-register-the-appliance"></a>指派權限以註冊設備
@@ -68,7 +68,7 @@ ms.locfileid: "74196388"
 
 值得注意的是：
 
-- 除了所述的訂用帳戶外，應用程式沒有任何其他訂用帳戶的存取權限。
+- 除了前述權限外，應用程式在訂用帳戶上沒有任何其他存取權限。
 - 只有當您註冊新的設備時，才需要這些權限。 完成設備的設定後，您可以移除權限。
 
 
@@ -95,18 +95,18 @@ ms.locfileid: "74196388"
 
 ### <a name="verify-physical-server-settings"></a>確認實體伺服器設定
 
-1. 確認伺服器評量的[實體伺服器需求](migrate-support-matrix-physical.md#assessment-physical-server-requirements)。
-2. 確定已在實體伺服器上開啟[必要的連接埠](migrate-support-matrix-physical.md#assessment-port-requirements)。
+1. 確認伺服器評量的[實體伺服器需求](migrate-support-matrix-physical.md#physical-server-requirements)。
+2. 確定已在實體伺服器上開啟[必要的連接埠](migrate-support-matrix-physical.md#port-access)。
 
 
 ### <a name="verify-appliance-settings"></a>確認設備設定
 
 在下一個教學課程中設定 Azure Migrate 設備並開始進行評量之前，請先準備設備部署。
 
-1. [確認](migrate-support-matrix-physical.md#assessment-appliance-requirements)設備需求。
-2. [檢閱](migrate-support-matrix-physical.md#assessment-appliance-url-access)設備需要存取的 Azure URL。
-3. 檢閱設備將在探索和評量期間收集的資料。
-4. [注意](migrate-support-matrix-physical.md#assessment-port-requirements)設備的連接埠存取需求。
+1. [確認](migrate-appliance.md#appliance---physical)實體的設備需求。
+2. [檢閱](migrate-appliance.md#url-access)設備需要存取的 Azure URL。
+3. [檢閱](migrate-appliance.md#collected-data---vmware)設備將在探索和評量期間收集的資料。
+4. [注意](migrate-support-matrix-physical.md#port-access)實體伺服器評量的連接埠存取需求。
 
 
 ### <a name="set-up-an-account-for-physical-server-discovery"></a>設定用於實體伺服器探索的帳戶
@@ -115,6 +115,15 @@ Azure Migrate 需要探索內部部署伺服器的權限。
 
 - **Windows：** 在要包含在探索中的所有 Windows 伺服器上，設定本機使用者帳戶。這個使用者帳戶必須新增至下列群組：       - 遠端管理使用者       - 效能監視器使用者       - 效能記錄使用者
 - **Linux：** 您在要探索的 Linux 伺服器上必須要有根帳戶。
+
+## <a name="prepare-for-physical-server-migration"></a>準備進行實體伺服器移轉
+
+檢閱實體伺服器的移轉需求。
+
+- [檢閱](migrate-support-matrix-physical-migration.md#physical-server-requirements)用於移轉的實體伺服器需求。
+- Azure Migrate：伺服器移轉會使用複寫伺服器來進行實體伺服器的移轉：
+    - [檢閱](migrate-replication-appliance.md#appliance-requirements)複寫設備的部署需求，以及在設備上安裝 MySQL 的[選項](migrate-replication-appliance.md#mysql-installation)。
+    - 檢閱複寫設備的 [URL](migrate-replication-appliance.md#url-access) 和 [連接埠] (migrate-replication-appliance.md#port-access) 存取需求。
 
 
 ## <a name="next-steps"></a>後續步驟

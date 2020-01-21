@@ -1,32 +1,26 @@
 ---
-title: 快速入門：辨識儲存在 Blob 儲存體中的語音，Java - 語音服務
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: e110c87835cdf517bdd54adda0ef6d9168a44d52
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.author: dapine
+ms.openlocfilehash: 1225a1e528b32401f350374fb9393c52225c49e8
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468757"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942672"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 開始之前，請務必：
 
 > [!div class="checklist"]
+> * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
+> * [建立空的範例專案](../../../../quickstarts/create-project.md?pivots=programmming-language-java)
 > * [建立 Azure 語音資源](../../../../get-started.md)
 > * [將原始程式檔上傳至 Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-> * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [建立空的範例專案](../../../../quickstarts/create-project.md?tabs=dotnet)
+
 
 ## <a name="open-your-project-in-eclipse"></a>以 Eclipse 開啟您的專案
 
@@ -45,7 +39,8 @@ ms.locfileid: "75468757"
 我們將新增程式碼，作為專案的基本架構。
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=1-13,95-105,206-207)]
-(您必須以您自己的值來取代 `YourSubscriptionKey`、`YourServiceRegion` 和 `YourFileUrl` 的值。)
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
 ## <a name="json-wrappers"></a>JSON 包裝函式
 

@@ -4,12 +4,12 @@ description: 將您的第一個自訂 Windows 容器部署至 Azure App Service�
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b618c4f1a24e4089cac2ddf34e61bab156aefdd
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 7901498772b8e746fb2c87a5237f06ab279e3b64
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671339"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922303"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>在 Azure (預覽) 中執行自訂 Windows 容器
 
@@ -17,7 +17,7 @@ ms.locfileid: "74671339"
 
 此快速入門說明如何將 Windows 映像中的 ASP.NET 應用程式從 Visual Studio 部署到至 [Docker Hub](https://hub.docker.com/)。 您可以在 Azure App Service 中於自訂容器內執行應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本教學課程：
 
@@ -163,7 +163,7 @@ https://<app_name>.scm.azurewebsites.net/api/logstream
 
 ## <a name="use-a-different-parent-image"></a>使用不同的父映象
 
-您可以自由使用不同的自訂 Docker 映像來執行應用程式。 不過，您必須為您要的架構選擇正確的[父映像](https://docs.docker.com/develop/develop-images/baseimages/)：
+您可以自由使用不同的自訂 Docker 映像來執行應用程式。 不過，您必須為您要的架構選擇正確的[父映像 (基礎映像)](https://docs.docker.com/develop/develop-images/baseimages/)：
 
 - 若要部署 .NET Framework 應用程式，請根據 Windows Server Core 2019 [長期維護通道 (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) 版本使用正確的父映像。 
 - 若要部署 .NET Core 應用程式，請根據 Windows Server Nano 1809 [半年維護通道 (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) 版本使用正確的父映像。 
@@ -171,7 +171,7 @@ https://<app_name>.scm.azurewebsites.net/api/logstream
 在應用程式啟動期間，下載父映像需要一些時間。 不過，您可以使用下列其中一個已在 Azure App Service 中快取的父映像，以縮短啟動時間：
 
 - [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
-- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 - 此映像是跨 Microsoft [ASP.NET Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet) 使用的基底容器 Microsoft Windows Nano Server 映像。
+- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 - 此映像是跨 Microsoft [ASP.NET Core](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/) 使用的基底容器 Microsoft Windows Nano Server 映像。
 
 ## <a name="next-steps"></a>後續步驟
 

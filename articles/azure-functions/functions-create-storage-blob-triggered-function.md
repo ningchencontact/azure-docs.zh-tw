@@ -5,12 +5,12 @@ ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: be8d7abc6d7bb583516ca75f316edd18965ac395
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 65717e4373f64ae38a324fd19624f049dba9dfb1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227155"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769297"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>建立 Azure Blob 儲存體所觸發的函式
 
@@ -18,7 +18,7 @@ ms.locfileid: "74227155"
 
 ![檢視記錄中的訊息。](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 + 下載並安裝 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)。
 + Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
@@ -45,7 +45,7 @@ ms.locfileid: "74227155"
 
 1. 在搜尋欄位中，輸入 `blob`，然後選擇 [Blob 觸發程序]  範本。
 
-1. 如果出現提示，請選取 [安裝]  ，以在函式應用程式中安裝 Azure 儲存體延伸模組的任何相依性。 安裝成功之後，請選取 [繼續]  。
+1. 如果出現提示，請選取 [安裝]  ，以在函式應用程式中安裝 Azure 儲存體延伸模組和任何相依性。 安裝成功之後，請選取 [繼續]  。
 
     ![安裝繫結延伸模組](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
 
@@ -53,7 +53,7 @@ ms.locfileid: "74227155"
 
     ![建立由 Blob 儲存體所觸發的函式。](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
-    | 設定 | 建議的值 | 說明 |
+    | 設定 | 建議的值 | 描述 |
     |---|---|---|
     | **名稱** | 函式應用程式中的唯一名稱 | 這個由 blob 所觸發之函式的名稱。 |
     | **路徑**   | samples-workitems/{name}    | 受監視 Blob 儲存體中的位置。 在繫結中，Blob 的檔案名稱會以「名稱」  參數的形式來傳遞。  |

@@ -1,30 +1,29 @@
 ---
 title: 快速入門：辨識來自音訊檔案的語音，C# (.NET) - 語音服務
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
-ms.author: erhopf
-ms.openlocfilehash: 7fc7edcb37b31022afb989199bd54e55589e1849
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.topic: include
+ms.date: 01/14/2020
+ms.author: dapine
+ms.openlocfilehash: 0e5bbafee04a909be53c2143c72aba6f5a4e05f9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819181"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76038079"
 ---
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始之前，請務必：
 
 > [!div class="checklist"]
 > * [建立 Azure 語音資源](../../../../get-started.md)
 > * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [建立空的範例專案](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * [建立空的範例專案](../../../../quickstarts/create-project.md?tabs=vs)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
@@ -34,33 +33,37 @@ ms.locfileid: "74819181"
 
 1. 啟動 Visual Studio 2019。
 2. 載入您的專案，並開啟 `Program.cs`。
+3. 下載<a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download="whatstheweatherlike" target="_blank">whatstheweatherlike.wav <span class="docon docon-download x-hidden-focus"></span></a>，並將其新增至您的專案。
+    - 儲存 `Program.cs` 檔案旁邊的 whatstheweatherlike.wav  檔案。
+    - 在 [方案總管]  中，以滑鼠右鍵按一下專案，然後選取 [新增] > [現有項目]  。
+    - 選取 whatstheweatherlike.wav  檔案，然後選取 [新增]  按鈕。
+    - 以滑鼠右鍵按一下新增的檔案，然後選取 [屬性]  。
+    - 將 [複製到輸出目錄]  變更為 [永遠複製]  。
 
 ## <a name="start-with-some-boilerplate-code"></a>從重複使用程式碼開始著手
 
 我們將新增程式碼，作為專案的基本架構。 請注意，您已建立名為 `RecognizeSpeechAsync()` 的非同步方法。
 
-````C#
-
+```csharp
 using System;
 using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
 
-namespace helloworld
+namespace HelloWorld
 {
     class Program
     {
-        public static async Task RecognizeSpeechAsync()
+        static async Task Main()
         {
+            await RecognizeSpeechAsync();
         }
 
-        static void Main()
+        static async Task RecognizeSpeechAsync()
         {
-            RecognizeSpeechAsync().Wait();
         }
     }
 }
-
-````
+```
 
 ## <a name="create-a-speech-configuration"></a>建立語音設定
 
@@ -70,73 +73,75 @@ namespace helloworld
 > 此範例會使用 `FromSubscription()` 方法來建置 `SpeechConfig`。 如需可用方法的完整清單，請參閱 [SpeechConfig 類別](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) \(英文\)。
 > 語音 SDK 會預設為使用 en-us 來辨識語言，如需選擇來源語言的詳細資訊，請參閱[指定語音轉換文字的來源語言](../../../../how-to-specify-source-language.md)。
 
-````C#
+```csharp
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-````
+```
 
 ## <a name="create-an-audio-configuration"></a>建立音訊設定
 
-現在，您需要建立指向音訊檔案的 ````AudioConfig```` 物件。 這個物件是在 using 陳述式內建立的，可確保適當釋放未受控資源。 將此程式碼插入您的語音設定下方的 `RecognizeSpeechAsync()` 方法中。
+現在，您需要建立指向音訊檔案的 `AudioConfig` 物件。 這個物件是在 using 陳述式內建立的，可確保適當釋放未受控資源。 將此程式碼插入您的語音設定下方的 `RecognizeSpeechAsync()` 方法中。
 
-````C#
-using (var audioInput = AudioConfig.FromWavFileInput(@"whatstheweatherlike.wav"))
+```csharp
+using (var audioInput = AudioConfig.FromWavFileInput("whatstheweatherlike.wav"))
 {
 }
-````
+```
 
 ## <a name="initialize-a-speechrecognizer"></a>初始化 SpeechRecognizer
 
-現在，讓我們使用稍早建立的 `SpeechConfig` 和 `AudioConfig` 物件來建立 `SpeechRecognizer` 物件。 這個物件也是在 using 陳述式內建立的，可確保適當釋放未受控資源。 在包裝 ````AudioConfig```` 物件的 using 陳述式內，將此程式碼插入 `RecognizeSpeechAsync()` 方法中。
+現在，讓我們使用稍早建立的 `SpeechConfig` 和 `AudioConfig` 物件來建立 `SpeechRecognizer` 物件。 這個物件也是在 using 陳述式內建立的，可確保適當釋放未受控資源。 在 `RecognizeSpeechAsync()` 方法中插入此程式碼，在包裝 ```AudioConfig``` 物件的 using 陳述式內。
 
-````C#
+```csharp
 using (var recognizer = new SpeechRecognizer(config, audioInput))
 {
 }
-````
+```
 
 ## <a name="recognize-a-phrase"></a>辨識片語
 
 從 `SpeechRecognizer` 物件，您將呼叫 `RecognizeOnceAsync()` 方法。 此方法可讓語音服務知道您要傳送單一片語以進行辨識，且一旦識別出該片語即停止辨識語音。
 
 在 using 陳述式中，新增下列程式碼：
-````C#
+
+```csharp
 Console.WriteLine("Recognizing first result...");
 var result = await recognizer.RecognizeOnceAsync();
-````
+```
 
 ## <a name="display-the-recognition-results-or-errors"></a>顯示辨識結果 (或錯誤)
 
 當語音服務傳回辨識結果時，建議您對其執行一些動作。 為了簡單起見，我們將結果列印到主控台。
 
 在 using 陳述式中的 `RecognizeOnceAsync()` 下方，新增此程式碼：
-````C#
-if (result.Reason == ResultReason.RecognizedSpeech)
-{
-    Console.WriteLine($"We recognized: {result.Text}");
-}
-else if (result.Reason == ResultReason.NoMatch)
-{
-    Console.WriteLine($"NOMATCH: Speech could not be recognized.");
-}
-else if (result.Reason == ResultReason.Canceled)
-{
-    var cancellation = CancellationDetails.FromResult(result);
-    Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
 
-    if (cancellation.Reason == CancellationReason.Error)
-    {
-        Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
-        Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-        Console.WriteLine($"CANCELED: Did you update the subscription info?");
-    }
+```csharp
+switch (result.Reason)
+{
+    case ResultReason.RecognizedSpeech:
+        Console.WriteLine($"We recognized: {result.Text}");
+        break;
+    case ResultReason.NoMatch:
+        Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+        break;
+    case ResultReason.Canceled:
+        var cancellation = CancellationDetails.FromResult(result);
+        Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
+
+        if (cancellation.Reason == CancellationReason.Error)
+        {
+            Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
+            Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
+            Console.WriteLine($"CANCELED: Did you update the subscription info?");
+        }
+        break;
 }
-````
+```
 
 ## <a name="check-your-code"></a>檢查您的程式碼
 
 此時，您的程式碼應會如下所示：
 
-````C#
+```csharp
 //
 // Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE.md file in the project root for full license information.
@@ -146,62 +151,60 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
 
-namespace helloworld
+namespace HelloWorld
 {
     class Program
     {
-        public static async Task RecognizeSpeechAsync()
+        static async Task Main()
+        {
+            await RecognizeSpeechAsync();
+        }
+
+        static async Task RecognizeSpeechAsync()
         {
             var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-            using (var audioInput = AudioConfig.FromWavFileInput(@"whatstheweatherlike.wav"))
+            using (var audioInput = AudioConfig.FromWavFileInput("whatstheweatherlike.wav"))
+            using (var recognizer = new SpeechRecognizer(config, audioInput))
             {
-                using (var recognizer = new SpeechRecognizer(config, audioInput))
-                {
-                    Console.WriteLine("Recognizing first result...");
-                    var result = await recognizer.RecognizeOnceAsync();
+                Console.WriteLine("Recognizing first result...");
+                var result = await recognizer.RecognizeOnceAsync();
 
-                    if (result.Reason == ResultReason.RecognizedSpeech)
-                    {
+                switch (result.Reason)
+                {
+                    case ResultReason.RecognizedSpeech:
                         Console.WriteLine($"We recognized: {result.Text}");
-                    }
-                    else if (result.Reason == ResultReason.NoMatch)
-                    {
+                        break;
+                    case ResultReason.NoMatch:
                         Console.WriteLine($"NOMATCH: Speech could not be recognized.");
-                    }
-                    else if (result.Reason == ResultReason.Canceled)
-                    {
+                        break;
+                    case ResultReason.Canceled:
                         var cancellation = CancellationDetails.FromResult(result);
                         Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
-
+                
                         if (cancellation.Reason == CancellationReason.Error)
                         {
                             Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
                             Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
                             Console.WriteLine($"CANCELED: Did you update the subscription info?");
                         }
-                    }
+                        break;
                 }
             }
         }
-
-        static void Main()
-        {
-            RecognizeSpeechAsync().Wait();
-        }
     }
 }
-````
+```
 
 ## <a name="build-and-run-your-app"></a>建置並執行您的應用程式
 
 現在您已準備好使用語音服務來建立應用程式，並測試我們的語音辨識。
 
-1. **編譯程式碼** - 從 Visual Studio 的功能表列中，選擇 [建置]   > [建置解決方案]  。
-2. **啟動應用程式** - 從功能表列中，選擇 [偵錯]   > [開始偵錯]  ，或按 **F5**。
-3. **開始辨識** - 您的音訊檔案會傳送到語音服務、轉譯為文字，並在主控台中呈現。
+1. 編譯程式碼：從 Visual Studio  的功能表列中，選擇 [建置]   > [建置解決方案]  。
+2. 啟動您的應用程式：從功能表列中，選擇 [偵錯]   > [開始偵錯]  ，或按 **F5**。
+3. 開始辨識：您的音訊檔會傳送至語音服務、轉譯為文字，並在主控台中轉譯。
 
-   ```text
+   ```console
    Recognizing first result...
    We recognized: What's the weather like?
    ```

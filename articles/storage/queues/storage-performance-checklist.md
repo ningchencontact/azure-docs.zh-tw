@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 55bcefc19723dc275cc8b421d5620c5dfe2c96e7
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: eb1821537e6e25b05dfdca3107729eecf4c6e1bf
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614964"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750507"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>佇列儲存體的效能和延展性檢查清單
 
 Microsoft 開發了一些實證做法，以便使用佇列儲存體開發高效能應用程式。 此檢查清單會識別可供開發人員遵循以將效能最佳化的重要做法。 在設計應用程式時和整個過程中，請記住這些做法。
 
-Azure 儲存體具有容量、交易速率和頻寬的延展性和效能目標。 如需 Azure 儲存體延展性目標的詳細資訊，請參閱[適用於儲存體帳戶的 Azure 儲存體延展性和效能目標](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)。
+Azure 儲存體具有容量、交易速率和頻寬的延展性和效能目標。 如需 Azure 儲存體帳戶延展性目標的詳細資訊，請參閱[標準儲存體帳戶的延展性與效能目標](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)及[佇列儲存體的延展性與效能目標](scalability-targets.md)。
 
 ## <a name="checklist"></a>檢查清單
 
@@ -194,5 +194,6 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 ## <a name="next-steps"></a>後續步驟
 
-- [儲存體帳戶的 Azure 儲存體延展性和效能目標](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- [佇列儲存體的延展性和效能目標](scalability-targets.md)
+- [標準儲存體帳戶的延展性和效能目標](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [狀態和錯誤碼](/rest/api/storageservices/Status-and-Error-Codes2)

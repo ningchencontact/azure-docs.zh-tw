@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 31af4ad9c6985202555dbcbe86c52e45d5c4154a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 58e6e7b3cdf749909165d7ff071a2f3885d7e8b9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453289"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028737"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>使用 Azure Migrate 伺服器評估來評估 VMware VM
 
@@ -41,11 +41,11 @@ ms.locfileid: "75453289"
 
 - 針對 Azure Migrate [設定 Azure 權限](tutorial-prepare-vmware.md#prepare-azure)。
 - [準備 VMware](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) 以進行評估：
-   - 確認 VMware 設定。
-   - 設定權限以使用 OVA 範本建立 VMware VM。
-   - 設定用於 VM 探索的帳戶。 
-   - 讓所需的連接埠可供使用。
-   - 得知要存取 Azure 所需的 URL。
+   - [確認](migrate-support-matrix-vmware.md#vmware-requirements) VMware 設定。
+   - 在 VMware 中設定可使用 OVA 範本建立 VMware VM 的權限。
+   - 設定[用於 VM 探索的帳戶](migrate-support-matrix-vmware.md#vmware-requirements)。 
+   - 讓[所需的連接埠](migrate-support-matrix-vmware.md#port-access)可供使用。
+   - 得知要存取 Azure [所需的 URL](migrate-replication-appliance.md#url-access)。
 
 ## <a name="set-up-an-azure-migrate-project"></a>設定 Azure Migrate 專案
 
@@ -130,7 +130,7 @@ SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 ### <a name="verify-appliance-access-to-azure"></a>確認設備是否能存取 Azure
 
-請確定設備 VM 可以連線至 [Azure URL](migrate-support-matrix-vmware.md#assessment-url-access-requirements)。
+請確定設備 VM 可以連線至 [Azure URL](migrate-appliance.md#url-access)。
 
 ### <a name="configure-the-appliance"></a>設定設備
 
@@ -172,7 +172,7 @@ SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 1. 在 [指定 vCenter Server 詳細資料]  中，指定 vCenter Server 執行個體的名稱 (FQDN) 或 IP 位址。 您可以保留預設的連接埠，或指定 vCenter Server 接聽的自訂連接埠。
 1. 在 [使用者名稱]  和 [密碼]  中，指定設備要用來在 vCenter Server 執行個體上探索 VM 的 vCenter Server 帳戶認證。 
 
-   請確定帳戶具有[探索所需的權限](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions)。 您可以藉由限制對 vCenter 帳戶的存取權，來[界定探索範圍](tutorial-assess-vmware.md#set-the-scope-of-discovery)。
+   請確定帳戶具有[探索所需的權限](migrate-support-matrix-vmware.md#vmware-requirements)。 您可以藉由限制對 vCenter 帳戶的存取權，來[界定探索範圍](tutorial-assess-vmware.md#set-the-scope-of-discovery)。
 1. 選取 [驗證連線]  以確定設備可以連線到 vCenter Server。
 
 ### <a name="specify-vm-credentials"></a>指定 VM 認證

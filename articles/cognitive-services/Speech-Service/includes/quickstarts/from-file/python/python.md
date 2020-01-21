@@ -1,23 +1,22 @@
 ---
 title: 快速入門：辨識來自音訊檔案的語音，Python - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 您可以使用本指南來建立語音轉換文字的主控台應用程式 (其會使用適用於 Python 的語音 SDK)。 完成之後，您可以使用電腦的麥克風將語音即時轉譯為文字。
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.topic: include
+ms.date: 01/14/2020
 ms.author: chlandsi
-ms.openlocfilehash: 8a5652f6cb8b42200e24221921868b084bd6e62f
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 587a0e83eb6b8c96b44589f7f5701526c23e2aae
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819213"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76038108"
 ---
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始之前，請務必：
 
@@ -54,8 +53,7 @@ python quickstart.py
 > [!NOTE]
 > 語音 SDK 會預設為使用 en-us 來辨識語言，如需選擇來源語言的詳細資訊，請參閱[指定語音轉換文字的來源語言](../../../../how-to-specify-source-language.md)。
 
-````Python
-
+```python
 import azure.cognitiveservices.speech as speechsdk
 
 # Creates an instance of a speech config with specified subscription key and service region.
@@ -72,7 +70,6 @@ audio_input = speechsdk.AudioConfig(filename=audio_filename)
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
 
 print("Recognizing first result...")
-
 
 # Starts speech recognition, and returns after a single utterance is recognized. The end of a
 # single utterance is determined by listening for silence at the end or until a maximum of 15
@@ -92,8 +89,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
     print("Speech Recognition canceled: {}".format(cancellation_details.reason))
     if cancellation_details.reason == speechsdk.CancellationReason.Error:
         print("Error details: {}".format(cancellation_details.error_details))
-
-````
+```
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>透過 Visual Studio Code 安裝及使用語音 SDK
 
@@ -114,15 +110,15 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 1. 將 [Python 程式碼](#sample-code)複製並貼上到新建立的檔案中，然後儲存它。
 1. 插入您的語音服務訂用帳戶資訊。
-1. 如果已經選取，Python 解譯器會顯示在視窗底部狀態列的左側。
-   否則，會顯示可用 Python 直譯器的清單。 開啟命令選擇區 (Ctrl+Shift+P)，然後輸入 **Python:Select Interpreter**。 選擇適當的解譯器。
+1. 如果已經選取，Python 直譯器會顯示在視窗底部狀態列的左側。
+   否則，會顯示可用 Python 直譯器的清單。 開啟命令選擇區 <kbd>Ctrl+Shift+P</kbd>，然後輸入 **Python:Select Interpreter**。 選擇適當的解譯器。
 1. 您可以從 Visual Studio Code 內安裝語音 SDK Python 套件。 如果您選取的 Python 直譯器尚未安裝該套件，請按照以下步驟安裝。
-   若要安裝語音 SDK 套件，請開啟終端機。 再次開啟命令選擇區 (Ctrl+Shift+P)，然後輸入 **Terminal:Create New Integrated Terminal** 來開啟終端機。
+   若要安裝語音 SDK 套件，請開啟終端機。 再次開啟命令選擇區 <kbd>Ctrl+Shift+P</kbd>，然後輸入 **Terminal:Create New Integrated Terminal** 來開啟終端機。
    在開啟的終端機中，輸入命令 `python -m pip install azure-cognitiveservices-speech` 或系統所適用的命令。
 1. 若要執行範例程式碼，請在編輯器內任意地方按一下滑鼠右鍵。 選取 [在終端機中執行 Python 檔案]  。
    系統會從音訊檔案中辨識語音輸入的前 15 秒，並記錄在主控台視窗中。
 
-   ```text
+   ```console
    Recognizing first result...
    We recognized: What's the weather like?
    ```

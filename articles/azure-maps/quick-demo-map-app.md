@@ -1,6 +1,6 @@
 ---
-title: 快速入門：使用 Azure 地圖服務的互動式地圖搜尋
-description: Azure 快速入門 - 使用 Azure 地圖服務建立互動式地圖搜尋示範
+title: 快速入門：使用 Azure 地圖服務的互動式地圖搜尋 | Microsoft Azure 地圖服務
+description: 了解如何使用 Microsoft Azure Maps Web SDK 建立互動式地圖搜尋的示範 Web 應用程式。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7553499dc9aba8d20bee126204b6d19f2386d295
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5f11fa4fce38b125e21564b4cfbe4582e55a7b64
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408443"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910686"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>快速入門：使用 Azure 地圖服務建立互動式地圖搜尋
 
@@ -57,7 +57,7 @@ ms.locfileid: "75408443"
 2. 在 [設定] 區段上，選取 [驗證]  。
 3. 將 [主索引鍵]  複製到剪貼簿。 將其儲存在本機，以供本教學課程稍後使用。
 
-![在入口網站中取得主索引鍵](./media/quick-demo-map-app/get-key.png)
+![在 Azure 入口網站中取得主要金鑰 Azure 地圖服務金鑰](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>下載應用程式
 
@@ -73,7 +73,7 @@ ms.locfileid: "75408443"
 4. 試用互動式搜尋體驗。 在示範 Web 應用程式左上角的搜尋方塊中，搜尋**餐廳**。
 5. 將滑鼠移到搜尋方塊下所出現的地址和位置清單。 注意地圖上對應的圖釘如何彈出該位置的相關資訊。 為了保護私人公司的隱私權，在此顯示的是虛構的名稱和地址。
 
-    ![互動式搜尋 Web 應用程式](./media/quick-demo-map-app/interactive-search.png)
+    ![互動式地圖搜尋 Web 應用程式](./media/quick-demo-map-app/interactive-search.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 

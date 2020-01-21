@@ -1,32 +1,25 @@
 ---
-title: 快速入門：辨識儲存在 Blob 儲存體中的語音，C++ - 語音服務
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b7ce80baa090ed87722397384b8e75c134eb26da
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.author: dapine
+ms.openlocfilehash: 731248c88855e2c23d2d7e94a01a9681d30259ce
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468971"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942798"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 開始之前，請務必：
 
 > [!div class="checklist"]
+> * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programmming-language-cpp)
+> * [建立空的範例專案](../../../../quickstarts/create-project.md?pivots=programmming-language-cpp)
 > * [建立 Azure 語音資源](../../../../get-started.md)
 > * [將原始程式檔上傳至 Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-> * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [建立空的範例專案](../../../../quickstarts/create-project.md?tabs=dotnet)
 
 ## <a name="open-your-project-in-visual-studio"></a>在 Visual Studio 中開啟您的專案
 
@@ -53,7 +46,8 @@ vcpkg install nlohmann-json
 我們將新增程式碼，作為專案的基本架構。
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-32,187-190,300-309)]
-(您必須以您自己的值來取代 `YourSubscriptionKey`、`YourServiceRegion` 和 `YourFileUrl` 的值。)
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
 ## <a name="json-wrappers"></a>JSON 包裝函式
 

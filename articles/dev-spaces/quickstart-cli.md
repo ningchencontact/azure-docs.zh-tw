@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: 本快速入門說明如何使用 Azure Dev Spaces 和命令列，在 Azure Kubernetes Service 上開發應用程式
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b4902930b04e880bbbdfbe7418d5e0ec86f89470
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 553c316587d27e0921fbbbf78b02ddb048532c43
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438265"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867240"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>快速入門：在 Kubernetes 上開發應用程式 - Azure Dev Spaces
 在本指南中，您將了解如何：
@@ -80,6 +80,9 @@ azds prep --public
 ```
 
 您必須從 dev-spaces/samples/nodejs/getting-started/webfrontend  目錄執行 `prep` 命令，以正確產生 Docker 和 Helm 圖表資產。
+
+> [!TIP]
+> `prep` 命令會嘗試為您的專案產生 [Dockerfile 和 Helm 圖表](how-dev-spaces-works.md#prepare-your-code)。 Azure Dev Spaces 會使用這些檔案來建置和執行您的程式碼，但如果您想要變更專案的建置和執行方式，可以修改這些檔案。
 
 ## <a name="build-and-run-code-in-kubernetes"></a>在 Kubernetes 中建置及執行程式碼
 
@@ -157,4 +160,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 [nodejs-quickstart]: quickstart-nodejs.md
 [netcore-quickstart]: quickstart-netcore.md
 [team-quickstart]: quickstart-team-development.md
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

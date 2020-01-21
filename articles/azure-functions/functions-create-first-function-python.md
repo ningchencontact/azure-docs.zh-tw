@@ -4,12 +4,12 @@ description: 了解如何使用 Azure Functions Core Tools 和 Azure CLI 在 Azu
 ms.date: 11/07/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: bd20c55fdaef5e820773b4ff4e0ddf3d36c6e371
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3de8c42c59455cc326fa909bc520a94daac68706
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433202"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769331"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>快速入門：在 Azure 中建立 HTTP 觸發的 Python 函式
 
@@ -122,7 +122,7 @@ Http Functions:
 
 ## <a name="create-a-function-app-in-azure"></a>在 Azure 中建立函式應用程式
 
-函式應用程式會提供環境來執行函式程式碼。 它可讓您將多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 
+函式應用程式會提供環境來執行函式程式碼。 其可讓您將多個函式群組為邏輯單位，以方便您管理、部署、調整和共用資源。
 
 執行下列命令。 使用唯一的函式應用程式名稱取代 `<APP_NAME>`。 使用儲存體帳戶名稱取代 `<STORAGE_NAME>`。 `<APP_NAME>` 也是函式應用程式的預設 DNS 網域。 此名稱在 Azure 中的所有應用程式之間必須是唯一的。
 

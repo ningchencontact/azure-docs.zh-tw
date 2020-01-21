@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 477f13f58d9b630519faa79424f22cb1bb34918c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ffd91bbcc33ef313d496e793c8263126db81b685
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351267"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863939"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>快速入門：適用於 Java 的 Azure Blob 儲存體用戶端程式庫 v12
 
@@ -349,7 +349,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-在開始清除程序之前，請檢查 *MyDocuments* 資料夾，找出這兩個檔案。 您可以開啟它們，並觀察它們是否相同。
+在開始清除程序之前，請檢查 *data* 資料夾，找出這兩個檔案。 您可以開啟它們，並觀察它們是否相同。
 
 確認檔案之後，按 **Enter** 鍵以刪除測試檔案並完成示範。
 

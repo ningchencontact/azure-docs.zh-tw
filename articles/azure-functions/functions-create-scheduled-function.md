@@ -5,12 +5,12 @@ ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 8e89c3923daab15793707ff99dbbed6deeb6a0b0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 808f0f81f937da688a8873e5f6ee959976e9d6aa
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227181"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769280"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>在 Azure 中建立由計時器觸發的函式
 
@@ -18,7 +18,7 @@ ms.locfileid: "74227181"
 
 ![在 Azure 入口網站中建立函式應用程式](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本教學課程：
 
@@ -48,12 +48,12 @@ ms.locfileid: "74227181"
 
     ![在 Azure 入口網站中建立計時器觸發函式。](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
-    | 設定 | 建議的值 | 說明 |
+    | 設定 | 建議的值 | 描述 |
     |---|---|---|
-    | **名稱** | 預設值 | 定義計時器觸發函式的名稱。 |
-    | **排程** | 0 \*/1 \* \* \* \* | 含有六個欄位的 [CRON 運算式](functions-bindings-timer.md#ncrontab-expressions)，它會將函式排程為每分鐘執行一次。 |
+    | **名稱** | 預設 | 定義計時器觸發函式的名稱。 |
+    | **[排程]** | 0 \*/1 \* \* \* \* | 含有六個欄位的 [CRON 運算式](functions-bindings-timer.md#ncrontab-expressions)，它會將函式排程為每分鐘執行一次。 |
 
-4. 按一下頁面底部的 [新增]  。 系統隨即會以您所選的語言建立函式，並讓它每分鐘執行一次。
+4. 按一下頁面底部的 [新增]  。 系統隨即會以您所選的語言建立函式，並讓函式每分鐘整點執行一次。
 
 5. 檢視寫入到記錄的追蹤資訊以確認執行情形。
 
@@ -69,7 +69,7 @@ ms.locfileid: "74227181"
 
 ![函式便會在 Azure 入口網站中更新計時器排程。](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 
-您現在已擁有每小時執行一次的函式。 
+您現在已擁有每小時整點執行一次的函式。
 
 ## <a name="clean-up-resources"></a>清除資源
 

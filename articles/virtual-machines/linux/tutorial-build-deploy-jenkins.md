@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 734b0a516d4a9fe882545dd5cde5a57d8af719cb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1265861a872b01d558646ea2adb6cba27fa3ebd4
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034575"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778408"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>教學課程：使用 Jenkins 和 Azure DevOps Services 在 Azure 中將應用程式部署至 Linux 虛擬機器
 
@@ -163,7 +163,7 @@ ms.locfileid: "74034575"
 
 1. 選取 [+ 發行]  ，然後選取 [建立發行]  。
 2. 在反白顯示的下拉式清單中選取您完成的組建，然後選取 [佇列]  。
-3. 在快顯訊息中選擇發行連結。 例如︰「發行 **Release-1** 已建立。」
+3. 在快顯訊息中選擇發行連結。 例如：「發行 **Release-1** 已建立。」
 4. 開啟 [記錄]  索引標籤以查看發行主控台輸出。
 5. 在瀏覽器中，開啟您在部署群組中新增之其中一部伺服器的 URL。 例如，輸入 **http://{您的伺服器 IP 位址}** 。
 6. 移至來源 Git 存放庫，並使用某些變更的文字修改 app/views/index.jade 檔案中的 **h1** 標題。
@@ -182,9 +182,11 @@ ms.locfileid: "74034575"
 > * 在 Jenkins 中建置應用程式。
 > * 設定適用於 Azure DevOps Services 整合的 Jenkins。
 > * 建立 Azure 虛擬機器的部署群組。
-> * 建立發行管線以設定 VM 及部署應用程式。
+> * 建立 Azure 管線以設定 VM 及部署應用程式。
 
-若要了解如何部署 LAMP (Linux、Apache、MySQL 和 PHP) 堆疊，請前進到下一個教學課程。
+若要了解如何使用 Azure Pipelines 進行建置和發行步驟，請參閱[這裡](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-linuxvm-deploygroups)。
+
+若要了解如何撰寫以 CI/CD 管線為基礎的 YAML 來部署至 VM，請前往下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [部署 LAMP 堆疊](tutorial-lamp-stack.md)
+> [使用 Azure Pipelines 的 CI/CD](tutorial-build-deploy-azure-pipelines.md)

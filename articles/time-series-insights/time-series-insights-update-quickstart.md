@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 12/20/2019
-ms.openlocfilehash: b97c8c51bc63fb0c1ff0070714e7393d11ea0dbf
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 023128d35030f99458bc5fd2c7a4a155a856e4c9
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497384"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861501"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>快速入門：探索 Azure 時間序列深入解析預覽版示範環境
 
@@ -45,7 +45,7 @@ ms.locfileid: "75497384"
 
       [![Contoso Plant 1 中的 W7](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
-1. 近期，Contoso 發現風力發電機 **W7** 曾經起火。 對於起火原因的相關意見不同。 在時間序列深入解析中，我們可以看到在火災期間啟動了火災警報器。
+1. 近期，Contoso 發現風力發電機 **W7** 曾經起火。 對於起火原因的相關意見不同。 在時間序列深入解析中，顯示了在火災期間啟動的火災警示感應器。
 
    1. 將檢視範圍變更為 **3/9/17 20:00:00.00 至 3/10/17 20:00:00.00 (UTC)** 。
    1. 選取 [安全系統]   > [FireAlert]  。
@@ -59,7 +59,7 @@ ms.locfileid: "75497384"
 
       [![檢閱同一時間點前後的其他事件](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 
-1. 油壓和作用中警告感應器在起火之前都急遽升高。 展開顯示的時間序列，以查看其他起火前的徵兆。 兩個感應器都持續波動了一段時間。 波動表示持續而有安全疑慮的模式。
+1. 油壓和作用中警告感應器在起火之前都急遽升高。 展開顯示的時間序列，以檢閱其他起火前的徵兆。 兩個感應器都持續波動了一段時間。 波動表示持續而有安全疑慮的模式。
 
     * 將檢視範圍變更為 **2/24/17 20:00:00.00 至 3/10/17 20:00:00.00 (UTC)** 。
 
@@ -86,7 +86,7 @@ ms.locfileid: "75497384"
 
        [![變更檢視範圍並選取 W6](media/v2-update-quickstart/quick-start-voltage-switch-warning.png)](media/v2-update-quickstart/quick-start-voltage-switch-warning.png#lightbox)
 
-1. 警告指出發電機的電壓有問題。 以目前的時間間隔來看，發電機的整體電力輸出均在正常參數內。 藉由增加時間間隔，將會看到形成另一種模式。 下降很明顯。
+1. 警告指出發電機的電壓有問題。 以目前的時間間隔來看，發電機的整體電力輸出均在正常參數內。 藉由增加時間間隔，將會形成另一種模式。 下降很明顯。
 
     1. 移除 **VoltageActuatorSwitchWarning** 感應器。
     1. 選取 [發電機系統]   > [ActivePower]  。
@@ -100,7 +100,7 @@ ms.locfileid: "75497384"
 
       [![將時間範圍延伸至 60 天](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
-1. 我們可以新增其他感應器資料點，以提供更詳盡的內容。 我們檢視的感應器愈多，就愈能充分了解問題的本質。 我們將置放標記，以查看實際的值。 
+1. 我們可以新增其他感應器資料點，以提供更詳盡的內容。 我們檢視的感應器愈多，就愈能充分了解問題的本質。 我們將置放標記，以顯示實際的值。 
 
     1. 選取 [發電機系統]  ，然後選取三個感應器：**GridVoltagePhase1**、**GridVoltagePhase2** 和 **GridVoltagePhase3**。
     1. 在可見區域的最後一個資料點上置放標記。

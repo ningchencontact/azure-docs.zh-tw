@@ -1,6 +1,6 @@
 ---
-title: Azure 地圖服務概觀 | Microsoft Docs
-description: Azure 地圖服務簡介
+title: 概觀 | Microsoft Azure 地圖服務
+description: 在本文中，您將了解 Microsoft Azure 地圖服務中的服務和功能，以及如何在您的應用程式中使用這些項目。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/04/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: dbcb0e87159efc7cc33101cdd5eee55afbdf3c10
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 353850cacb06dcc8a0db1b957114db314d7002a3
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516645"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911839"
 ---
 # <a name="what-is-azure-maps"></a>什麼是 Azure 地圖服務？
 

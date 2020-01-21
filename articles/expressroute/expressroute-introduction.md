@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.openlocfilehash: db728de120a50461257d8e85e708aa4c7f4d6190
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d2f31be5e7ece32fb1e0f6d9a2e482688d46eeb3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083415"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770946"
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 概欟
 ExpressRoute 可讓您透過連線提供者所提供的私人連線，將內部部署網路延伸至 Microsoft 雲端。 透過 ExpressRoute，您可以建立 Microsoft 雲端服務的連線，例如 Microsoft Azure 和 Office 365。
@@ -39,7 +39,7 @@ ExpressRoute 可讓您透過連線提供者所提供的私人連線，將內部�
 Microsoft 採用BGP (業界標準動態路由通訊協定)，在您的內部部署網路、Azure 中的執行個體和 Microsoft 公用位址之間交換路由。 我們會針對不同的流量設定檔，與您的網路建立多個 BGP 工作階段。 如需詳細資訊，請參閱 [ExpressRoute 線路和路由網域](expressroute-circuit-peerings.md) 一文。
 
 ### <a name="redundancy"></a>備援性
-每個 ExpressRoute 線路有兩條連線，從連線提供者 / 您的網路邊緣連接到兩個 Microsoft Enterprise 邊緣路由器 (MSEE)。 Microsoft 需要有來自連線提供者 / 您網路邊緣的雙重 BGP 連線 – 每個連線皆各自連線至每個 MSEE。 您可以選擇不要在您這端部署備援裝置 / 乙太網路線路。 不過，連線提供者會使用備援裝置，確保以備援方式將您的連線交給 Microsoft。 備援第 3 層連線組態是我們的 [SLA](https://azure.microsoft.com/support/legal/sla/) 生效的條件。
+每個 ExpressRoute 線路有兩條連線，會從連線提供者/您的網路邊緣連線至兩個位於 [ExpressRoute 位置](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations)的 Microsoft Enterprise 邊緣路由器 (MSEE)。 Microsoft 需要有來自連線提供者 / 您網路邊緣的雙重 BGP 連線 – 每個連線皆各自連線至每個 MSEE。 您可以選擇不要在您這端部署備援裝置 / 乙太網路線路。 不過，連線提供者會使用備援裝置，確保以備援方式將您的連線交給 Microsoft。 備援第 3 層連線組態是我們的 [SLA](https://azure.microsoft.com/support/legal/sla/) 生效的條件。
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>連線到 Microsoft 雲端服務
 透過 ExpressRoute 連線可存取下列服務：
@@ -79,7 +79,7 @@ ExpressRoute Direct 讓客戶有機會在策略性分散於世界各地的對等
 ExpressRoute Direct 提供的主要功能包括但不限於：
 
 * 將資料大量擷取至儲存體與 Cosmos DB 等服務
-* 實體隔離適用於受規範且需要專用隔離連線的產業，例如：銀行、政府與零售業
+* 實體隔離適用於受規範且需要專用隔離連線的產業，例如：銀行、政府機構及零售業
 * 根據業務單位決定的細微線路分散控制
 
 如需詳細資訊，請參閱[關於 ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973)。

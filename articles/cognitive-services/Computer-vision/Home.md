@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 703e750c0d2515484cd9f1d2cb046096dfd1800d
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 2b80e09f086cfaa90174dc9abc5a5cd06294036e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794968"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770419"
 ---
 # <a name="what-is-computer-vision"></a>什麼是電腦視覺？
 
@@ -32,7 +32,7 @@ Azure 的電腦視覺服務可供開發人員存取進階演算法，以根據�
 
 您可以分析影像，以偵測並提供與其視覺特徵和特性有關的深入解析。 下表中的所有功能是由[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API 所提供。
 
-| 動作 | 說明 |
+| 動作 | 描述 |
 | ------ | ----------- |
 |**[標記視覺特徵](concept-tagging-images.md)**|從一組數千個可辨識的物件、生物、景象和動作，識別及標記影像中的視覺特徵。 若標記不明確或不屬於常識，API 回應會提供提示來釐清標記的內容。 標記並未限定於主體 (例如前景中的人物)，而是包含周遭環境 (室內或室外)、家具、工具、植物、動物、配件和小工具等。|
 |**[偵測物件](concept-object-detection.md)**| 物件偵測與標記功能類似，但 API 會傳回每個所套用標記的週框方塊座標。 例如，如果影像包含狗、貓或人物，「偵測」作業就會列出這些物件及其在影像中的座標。 您可以使用此功能來處理影像中物件間的進一步關聯性。 當影像中有多個相同標記的執行個體時，此功能也會讓您知道。|

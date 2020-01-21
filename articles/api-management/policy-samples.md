@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: f8bd768dc7c01310874cd484f59869fbafcf3fe7
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9bdcf9ea247adb8d5941c75f90f7db3915af20bc
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074200"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940950"
 ---
 # <a name="api-management-policy-samples"></a>API 管理原則範例
 
@@ -33,6 +33,7 @@ ms.locfileid: "70074200"
 | [根據 JWT 宣告授權存取](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json)                                              | 示範如何在以 JWT 宣告為基礎的 API 上授權存取特定的 HTTP 方法。                                                                                                                                       |
 | [使用外部授權者授權要求](./policies/authorize-request-using-external-authorizer.md)                                                   | 示範如何使用外部授權者來保護 API 存取。                                                                                                                                                               |
 | [使用 Google OAuth 權杖授權存取](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json)                                            | 示範如何使用 Google 作為 OAuth 權杖提供者來授權存取您的端點。                                                                                                                                    |
+| [使用應用程式閘道時篩選 IP 位址](./policies/filter-ip-addresses-when-using-appgw.md) | 說明如何在透過應用程式閘道存取 APIM 執行個體時，於原則中設定 IP 篩選
 | [產生共用存取簽章並將要求轉送到 Azure 儲存體](./policies/generate-shared-access-signature.md?toc=api-management/toc.json)                  | 示範如何使用運算式來產生[共用存取簽章](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1)，並使用 rewrite-uri 原則來將要求轉送到 Azure 儲存體。 |
 | [從 AAD 取得 OAuth2 存取權杖並將它轉送到後端](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json)                             | 提供使用 OAuth2 在閘道與後端之間進行授權的範例。 此範例示範如何從 AAD 取得存取權杖並將它轉送到後端。                                                    |
 | [使用傳送要求原則從 SAP 閘道取得 X-CSRF 權杖](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json)                           | 示範如何實作許多 API 所使用的 X-CSRF 模式。 這是 SAP 閘道特有的範例。                                                                                                                           |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 50dd97107296c70ba9dde162b723f49a658a3994
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 72b6c1f86b18df172994827ec78eb109fe82454e
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355900"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913774"
 ---
 ## <a name="benefits-of-managed-disks"></a>受控磁碟的好處
 
@@ -55,7 +55,7 @@ ms.locfileid: "75355900"
 
 ### <a name="server-side-encryption"></a>伺服器端加密
 
-[Azure 伺服器端加密](../articles/virtual-machines/windows/disk-encryption.md)提供待用加密，並保護資料安全，以符合組織安全性和合規性承諾。 在所有受控磁碟可供使用的區域中，所有受控磁碟、快照集和映像預設都會啟用伺服器端加密。 您可以允許 Azure 為您管理金鑰 (這些屬於平台管理的金鑰)，您也可以自行管理金鑰 (這些屬於客戶管理的金鑰 (預覽))。 如需詳細資訊，請造訪[受控磁碟常見問題頁面](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)。
+[Azure 伺服器端加密](../articles/virtual-machines/windows/disk-encryption.md)提供待用加密，並保護資料安全，以符合組織安全性和合規性承諾。 在所有受控磁碟可供使用的區域中，所有受控磁碟、快照集和映像預設都會啟用伺服器端加密。 您可以允許 Azure 為您管理金鑰 (這些屬於平台管理的金鑰)，您也可以自行管理金鑰 (這些屬於客戶管理的金鑰)。 如需詳細資訊，請造訪[受控磁碟常見問題頁面](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)。
 
 ### <a name="azure-disk-encryption"></a>Azure 磁碟加密
 

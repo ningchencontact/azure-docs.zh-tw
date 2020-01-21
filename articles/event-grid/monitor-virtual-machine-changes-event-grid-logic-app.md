@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 10/11/2019
-ms.openlocfilehash: 5d852378812d8e69480ceb2c5dcea95f1d5f3770
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f5aac7fe63b2afc997ff69e5d976c755440c1bea
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488611"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982577"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>教學課程：使用 Azure 事件方格和 Logic Apps 監視虛擬機器的變更
 
@@ -41,7 +41,7 @@ ms.locfileid: "73488611"
 > * 新增可特別檢查虛擬機器變更的條件。
 > * 在虛擬機器變更時傳送電子郵件。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -63,12 +63,12 @@ ms.locfileid: "73488611"
 
    ![提供邏輯應用程式詳細資料](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
-   | 屬性 | 必要 | Value | 說明 |
+   | 屬性 | 必要 | 值 | 描述 |
    |----------|----------|-------|-------------|
-   | **名稱** | yes | <*logic-app-name*> | 提供邏輯應用程式的唯一名稱。 |
-   | **訂用帳戶** | yes | <*Azure-subscription-name*> | 在本教學課程中，請針對所有服務選取相同的 Azure 訂用帳戶。 |
-   | **資源群組** | yes | <*Azure-resource-group*> | 邏輯應用程式的 Azure 資源組名稱，您可以針對本教學課程中的所有服務選取此名稱。 |
-   | **位置** | yes | <*Azure-region*> | 在本教學課程中，針對所有服務選取相同的區域。 |
+   | **名稱** | 是 | <*logic-app-name*> | 提供邏輯應用程式的唯一名稱。 |
+   | **訂用帳戶** | 是 | <*Azure-subscription-name*> | 在本教學課程中，請針對所有服務選取相同的 Azure 訂用帳戶。 |
+   | **資源群組** | 是 | <*Azure-resource-group*> | 邏輯應用程式的 Azure 資源組名稱，您可以針對本教學課程中的所有服務選取此名稱。 |
+   | **位置** | 是 | <*Azure-region*> | 在本教學課程中，針對所有服務選取相同的區域。 |
    |||
 
 1. 在 Azure 部署您的邏輯應用程式之後，Logic Apps 設計工具會顯示含有簡介影片和常用觸發程序的頁面。 將影片與觸發程序捲動過去。
@@ -98,11 +98,11 @@ ms.locfileid: "73488611"
 
    ![提供事件訂閱的詳細資料](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
-   | 屬性 | 必要 | Value | 說明 |
+   | 屬性 | 必要 | 值 | 描述 |
    | -------- | -------- | ----- | ----------- |
-   | **訂用帳戶** | yes | <*event-publisher-Azure-subscription-name*> | 選取與「事件發行者」  相關聯的 Azure 訂用帳戶名稱。 在本教學課程中，選取虛擬機器的 Azure 訂用帳戶名稱。 |
-   | **資源類型** | yes | <*event-publisher-Azure-resource-type*> | 選取事件發行者的 Azure 資源類型。 如需有關 Azure 資源類型的詳細資訊，請參閱 [Azure 資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)。 在本教學課程中，選取 `Microsoft.Resources.ResourceGroups` 值以監視 Azure 資源群組。 |
-   | **資源名稱** |  yes | <*event-publisher-Azure-resource-name*> | 選取事件發行者的 Azure 資源名稱。 這份清單會根據您選取的資源類型而有所不同。 在此教學課程中，請選取包含虛擬機器的 Azure 資源群組名稱。 |
+   | **訂用帳戶** | 是 | <*event-publisher-Azure-subscription-name*> | 選取與「事件發行者」  相關聯的 Azure 訂用帳戶名稱。 在本教學課程中，選取虛擬機器的 Azure 訂用帳戶名稱。 |
+   | **資源類型** | 是 | <*event-publisher-Azure-resource-type*> | 選取事件發行者的 Azure 資源類型。 如需有關 Azure 資源類型的詳細資訊，請參閱 [Azure 資源提供者和類型](../azure-resource-manager/management/resource-providers-and-types.md)。 在本教學課程中，選取 `Microsoft.Resources.ResourceGroups` 值以監視 Azure 資源群組。 |
+   | **資源名稱** |  是 | <*event-publisher-Azure-resource-name*> | 選取事件發行者的 Azure 資源名稱。 這份清單會根據您選取的資源類型而有所不同。 在此教學課程中，請選取包含虛擬機器的 Azure 資源群組名稱。 |
    | **事件類型項目** |  否 | <*event-types*> | 選取要篩選的一或多個特定事件類型，並傳送至您的事件方格。 例如，您可以選擇性地新增這些事件類型，以偵測資源何時遭到變更或刪除： <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>如需詳細資訊，請參閱下列主題： <p><p>- [Azure Event Grid 資源群組事件結構描述](../event-grid/event-schema-resource-groups.md) <br>- [了解事件篩選](../event-grid/event-filtering.md) <br>- [針對事件方格篩選事件](../event-grid/how-to-filter-events.md) |
    | 若要新增選擇性屬性，請選取 [新增參數]  ，然後選取您想要的屬性。 | 否 | {請參閱說明} | * **前置詞篩選**：在此教學課程中，將此屬性保留空白。 預設行為會比對所有的值。 不過，您可以指定前置詞字串作為篩選條件，例如，特定資源的路徑和參數。 <p>* **後置詞篩選**：在此教學課程中，將此屬性保留空白。 預設行為會比對所有的值。 不過，您可以指定前置詞字串作為篩選條件，例如，副檔名 (如果只想要特定檔案類型)。 <p>* **訂用帳戶名稱**：在此教學課程中，您可以為事件訂閱提供唯一名稱。 |
    |||
@@ -145,7 +145,7 @@ ms.locfileid: "73488611"
 
       `triggerBody()?['data']['operationName']`
 
-      例如︰
+      例如：
 
       ![輸入運算式以擷取作業名稱](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
 
@@ -173,7 +173,7 @@ ms.locfileid: "73488611"
 
    ![新增條件為 true 時的動作](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-true-add-action.png)
 
-1. 在 [選擇動作]  底下的搜尋方塊中，輸入 `send an email` 作為篩選條件。 根據您的電子郵件提供者，尋找並選取相符的連接器。 然後針對您的連接器選取 [傳送電子郵件] 動作。 例如︰
+1. 在 [選擇動作]  底下的搜尋方塊中，輸入 `send an email` 作為篩選條件。 根據您的電子郵件提供者，尋找並選取相符的連接器。 然後針對您的連接器選取 [傳送電子郵件] 動作。 例如：
 
    * 對於 Azure 公司或學校帳戶，選取 Office 365 Outlook 連接器。
 
@@ -196,11 +196,11 @@ ms.locfileid: "73488611"
    > [!TIP]
    > 若要從工作流程的先前步驟輸出中選取，請按一下編輯方塊以便顯示動態內容清單，或選取 [新增動態內容]  。 如需更多結果，在清單中的每個區段選取 [更多資訊]  。 若要關閉動態內容清單，請再次選取 [新增動態內容]  。
 
-   | 屬性 | 必要 | Value | 說明 |
+   | 屬性 | 必要 | 值 | 描述 |
    | -------- | -------- | ----- | ----------- |
-   | **To** | yes | <*recipient\@domain*> | 輸入收件者的電子郵件地址。 為了測試用途，您可以使用自己的電子郵件地址。 |
-   | **主旨** | yes | `Resource updated:` **主旨** | 輸入電子郵件主旨的內容。 在本教學課程中，輸入指定的文字，然後選取事件的 [主旨]  欄位。 在這裡，您的電子郵件主旨包含更新資源 (虛擬機器) 的名稱。 |
-   | **內文** | yes | `Resource:` **主題** <p>`Event type:` **事件類型**<p>`Event ID:` **識別碼**<p>`Time:` **事件時間** | 輸入電子郵件內文的內容。 在本教學課程中，輸入指定的文字並選取事件的 [主題]  、[事件類型]  、[識別碼]  和 [事件時間]  欄位，讓您的電子郵件包含觸發事件的資源、事件類型、事件戳記，以及更新的事件識別碼。 在本教學課程中，此資源是觸發程序中選取的 Azure 資源群組。 <p>若要在內容中新增空白的行，請按 Shift + Enter。 |
+   | **若要** | 是 | <*recipient\@domain*> | 輸入收件者的電子郵件地址。 為了測試用途，您可以使用自己的電子郵件地址。 |
+   | **主旨** | 是 | `Resource updated:` **主旨** | 輸入電子郵件主旨的內容。 在本教學課程中，輸入指定的文字，然後選取事件的 [主旨]  欄位。 在這裡，您的電子郵件主旨包含更新資源 (虛擬機器) 的名稱。 |
+   | **本文** | 是 | `Resource:` **主題** <p>`Event type:` **事件類型**<p>`Event ID:` **識別碼**<p>`Time:` **事件時間** | 輸入電子郵件內文的內容。 在本教學課程中，輸入指定的文字並選取事件的 [主題]  、[事件類型]  、[識別碼]  和 [事件時間]  欄位，讓您的電子郵件包含觸發事件的資源、事件類型、事件戳記，以及更新的事件識別碼。 在本教學課程中，此資源是觸發程序中選取的 Azure 資源群組。 <p>若要在內容中新增空白的行，請按 Shift + Enter。 |
    ||||
 
    > [!NOTE]
@@ -224,7 +224,7 @@ ms.locfileid: "73488611"
 
    例如，您可以在 Azure 入口網站中調整您的虛擬機器大小，或[使用 Azure PowerShell 調整您的 VM 大小](../virtual-machines/windows/resize-vm.md)。
 
-   一會兒之後，您應可取得電子郵件。 例如︰
+   一會兒之後，您應可取得電子郵件。 例如：
 
    ![關於虛擬機器更新的電子郵件](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 

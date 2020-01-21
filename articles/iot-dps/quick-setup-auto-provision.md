@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e2b2f13c3570683b575d13b5aadb3e03ec549cab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 765b7e5bb7341974a6a16d3f1ed0bcabf415f9f3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434586"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029174"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>快速入門：使用 Azure 入口網站設定 IoT 中樞裝置佈建服務
 
@@ -44,7 +44,7 @@ IoT 中樞裝置佈建服務可以搭配 IoT 中樞使用，無須人為介入�
 
     * **名稱：** 提供新的「裝置佈建服務」執行個體的唯一名稱。 如果您輸入的名稱可用，則會出現綠色核取記號。
     * **訂用帳戶︰** 選擇您想要用於建立此裝置佈建服務執行個體的訂用帳戶。
-    * **資源群組：** 此欄位可讓您建立新的資源群組，或選擇現有群組以包含新的執行個體。 選擇包含您先前所建立 IoT 中樞的相同資源群組，例如 **TestResources**。 您可以將所有相關資源一起放在群組中，一併加以管理。 例如，刪除資源群組時，將會刪除該群組中包含的所有資源。 如需詳細資訊，請參閱[管理 Azure Resource Manager 資源群組](../azure-resource-manager/manage-resource-groups-portal.md)。
+    * **資源群組：** 此欄位可讓您建立新的資源群組，或選擇現有群組以包含新的執行個體。 選擇包含您先前所建立 IoT 中樞的相同資源群組，例如 **TestResources**。 您可以將所有相關資源一起放在群組中，一併加以管理。 例如，刪除資源群組時，將會刪除該群組中包含的所有資源。 如需詳細資訊，請參閱[管理 Azure Resource Manager 資源群組](../azure-resource-manager/management/manage-resource-groups-portal.md)。
     * **位置：** 選取最接近裝置的位置。
 
       ![在入口網站刀鋒視窗中輸入關於裝置佈建服務執行個體的基本資訊](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
@@ -57,7 +57,9 @@ IoT 中樞裝置佈建服務可以搭配 IoT 中樞使用，無須人為介入�
 
 在本節中，您會將組態新增至裝置佈建服務執行個體。 此組態會設定要對其佈建裝置的 IoT 中樞。
 
-1. 選取 Azure 入口網站左側功能表中的 [所有資源]  按鈕。 選取您在上一節中建立的裝置佈建服務執行個體。  
+1. 選取 Azure 入口網站左側功能表中的 [所有資源]  按鈕。 選取您在上一節中建立的裝置佈建服務執行個體。 
+
+    如果您的功能表是使用**飛出視窗**來設定，而不是使用入口網站設定中的**固定**模式，您將必須按一下左上方的 3 條線，以開啟左側的入口網站功能表。  
 
 2. 在裝置佈建服務的功能表中，選取 [連結的 IoT 中樞]  。 點擊位於頂端的 [+ 新增]  按鈕。 
 

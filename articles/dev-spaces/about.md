@@ -6,12 +6,12 @@ ms.topic: overview
 description: 了解 Azure Dev Spaces 可為 Azure Kubernetes Service 叢集中的小組提供快速、反覆的 Kubernetes 開發體驗。
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 5026c2c45b0c5920c096bab6f9eb1ed851abd2a2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 586b19070ec36517add21f7aac86ddf15121be2d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438593"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771184"
 ---
 # <a name="introduction-to-azure-dev-spaces"></a>Azure Dev Spaces 簡介
 
@@ -38,7 +38,7 @@ Azure Dev Spaces 提供可為您的專案產生 Docker 和 Kubernetes 資產的�
 
 ## <a name="supported-regions-and-configurations"></a>支援的區域和組態
 
-Azure Dev Spaces 僅受下列區域的 AKS 叢集支援：**美國東部**、**美國東部 2**、**美國中部**、**美國中南部**、**美國西部 2**、**歐洲北部**、**歐洲西部**、**英國南部**、**東亞**、**東南亞**、**澳大利亞東部**、**加拿大中部**和**加拿大東部**。 Azure Dev Spaces 支援使用 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 或 [Visual Studio Code](https://code.visualstudio.com/download) 搭配在 Linux、MacOS 或 Windows 8 或更新版本上安裝的 [Azure Dev Spaces 擴充功能](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)，以在 AKS 上建置和執行應用程式。 它也支援使用安裝在 Windows 8 或更新版本上的 [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。 使用 Visual Studio 2019 時，您將需要 Azure 開發工作負載。 使用 Visual Studio 2017 時，您將需要 Web 開發工作負載和[適用於 Kubernetes 的 Visual Studio Tools](https://aka.ms/get-vsk8stools)。
+在[某些區域][supported-regions]中，只有 AKS 叢集會支援 Azure Dev Spaces。 Azure Dev Spaces 支援使用 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 或 [Visual Studio Code](https://code.visualstudio.com/download) 搭配在 Linux、MacOS 或 Windows 8 或更新版本上安裝的 [Azure Dev Spaces 擴充功能](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)，以在 AKS 上建置和執行應用程式。 它也支援使用安裝在 Windows 8 或更新版本上的 [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。 使用 Visual Studio 2019 時，您將需要 Azure 開發工作負載。 使用 Visual Studio 2017 時，您將需要 Web 開發工作負載和[適用於 Kubernetes 的 Visual Studio Tools](https://aka.ms/get-vsk8stools)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -49,4 +49,5 @@ Azure Dev Spaces 僅受下列區域的 AKS 叢集支援：**美國東部**、**�
 
 
 [how-dev-spaces-works]: how-dev-spaces-works.md
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [team-development-quickstart]: quickstart-team-development.md

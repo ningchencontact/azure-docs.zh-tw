@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: b8de6df5761baef79310062614f578a92f17b826
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 2570e3753dd93173166c6b563e9add69bed3f862
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670486"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922266"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>設定適用於 Azure App Service 的 Linux Python 應用程式
 
@@ -50,7 +50,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="container-characteristics"></a>容器的特性
 
-部署至 Linux 上 App Service 的 Python 應用程式，會在 GitHub 存放庫 ([Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) 或 [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0)) 中所定義的 Docker 容器內執行。
+Python 應用程式部署至 Linux 上的 App Service 後，則會在 [App Service Python GitHub 存放庫](https://github.com/Azure-App-Service/python)中所定義的 Docker 容器內執行。 您可以在屬於特定版本的目錄內找到映像設定。
 
 此容器具有下列特性︰
 

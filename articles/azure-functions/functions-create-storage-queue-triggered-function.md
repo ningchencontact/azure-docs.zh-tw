@@ -5,12 +5,12 @@ ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3f4e9f8a607856e3de92a4824a4221071f3c02a4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3d4cfc40f1849ecd2745b1d662973c7f64a0a60c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227146"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769246"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>建立 Azure 佇列儲存體所觸發的函式
 
@@ -18,7 +18,7 @@ ms.locfileid: "74227146"
 
 ![檢視記錄中的訊息。](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - 下載並安裝 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)。
 
@@ -46,7 +46,7 @@ ms.locfileid: "74227146"
 
 1. 在搜尋欄位中，輸入 `queue`，然後選擇 [佇列觸發程序]  範本。
 
-1. 如果出現提示，請選取 [安裝]  ，以在函式應用程式中安裝 Azure 儲存體延伸模組的任何相依性。 安裝成功之後，請選取 [繼續]  。
+1. 如果出現提示，請選取 [安裝]  ，以在函式應用程式中安裝 Azure 儲存體延伸模組和任何相依性。 安裝成功之後，請選取 [繼續]  。
 
     ![安裝繫結延伸模組](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
 
@@ -54,11 +54,11 @@ ms.locfileid: "74227146"
 
     ![設定由儲存體佇列所觸發的函式。](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
 
-    | 設定 | 建議的值 | 說明 |
+    | 設定 | 建議的值 | 描述 |
     |---|---|---|
     | **名稱** | 函式應用程式中的唯一名稱 | 這個由佇列所觸發之函式的名稱。 |
     | **佇列名稱**   | myqueue-items    | 儲存體帳戶中的連線目標佇列名稱。 |
-    | **儲存體帳戶連線** | AzureWebJobStorage | 您可以使用應用程式函式已在使用的儲存體帳戶連線，或建立新的連線。  |    
+    | **儲存體帳戶連線** | AzureWebJobsStorage | 您可以使用應用程式函式已在使用的儲存體帳戶連線，或建立新的連線。  |    
 
 1. 按一下 [建立]  可建立函式。
 

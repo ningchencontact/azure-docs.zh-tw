@@ -4,12 +4,12 @@ description: Azure CLI 指令碼範例 - 建立連線至 Azure Cosmos DB 的 Azu
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc
-ms.openlocfilehash: d881a5eb6132f95239418f032da51d002af01905
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5ee80283ed39789eabb702a48aa97f678a6409f9
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532856"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922720"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>建立連線至 Azure Cosmos DB 的 Azure 函式
 
@@ -33,7 +33,7 @@ ms.locfileid: "74532856"
 
 此指令碼會使用下列命令：下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 指定位置建立資源群組 |
 | [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | 建立儲存體帳戶 |

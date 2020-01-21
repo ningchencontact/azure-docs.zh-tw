@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d9890a393d9b2955c1eb0c9894d454a774af68ef
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3cba7781ac80ae567b2bfd54c4131429ed94b90f
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701837"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772358"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>教學課程：建立和部署自訂 IoT Edge 模組
 

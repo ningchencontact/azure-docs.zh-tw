@@ -9,13 +9,13 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 11/12/2019
-ms.openlocfilehash: b150167ca6a808e0da337be4a609a21cd974598a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: 6c9c5df27f4a361e534bac2fe21b2c470f8d0186
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383150"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895542"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>快速入門：使用 Azure Digital Twins 尋找空閒會議室
 
@@ -27,7 +27,7 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 
 >[!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 1. 如果您沒有 Azure 帳戶，請在開始之前[建立免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -83,11 +83,11 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 
 1. 佈建步驟可能需要進行幾分鐘的時間。 它也會在 Digital Twins 執行個體內佈建 IoT 中樞。 這個過程會一直循環進行，直到 IoT 中樞顯示狀態為 `Running`。
 
-    [![佈建範例 - 狀態=正在執行](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
+    [![佈建範例 - 狀態=正在執行](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-provision-sample.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-provision-sample.png#lightbox)
 
 1. 執行結束時，請複製裝置的 `ConnectionString` 以便用於裝置模擬器範例。 您只需要複製下圖所述的字串。
 
-    [![複製連接字串](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
+    [![複製連接字串](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-connection-string.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-connection-string.png#lightbox)
 
     >[!TIP]
     > 您可以使用 [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer) 檢視和修改空間圖形。
@@ -102,9 +102,9 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 1. 執行 `cd device-connectivity`。
 1. 執行 `dotnet restore`。
 1. 編輯 [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) 以使用先前的 `ConnectionString` 來更新 DeviceConnectionString  。 儲存更新的檔案。
-1. 執行 `dotnet run` 來開始傳送感應器資料。 您會看到資料傳送到 Digital Twins，如下圖所示。
+1. 執行 `dotnet run` 來開始傳送感應器資料。 資料會傳送至 Digital Twins，如下圖所示。
 
-     [![裝置連線能力](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
+     [![裝置連線能力](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-device-connectivity.png#lightbox)
 
 1. 讓此模擬器執行，以便您可以使用下一個步驟的動作來並排檢視結果。 此視窗會顯示傳送到 Digital Twins 的模擬感應器資料。 下一個步驟會進行即時查詢，以尋找有新鮮空氣的空閒會議室。
 
@@ -123,7 +123,7 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
    - `Room is available and air is fresh`
    - `Room is not available or air quality is poor`
 
-     [![取得有新鮮空氣的空閒空間](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
+     [![取得有新鮮空氣的空閒空間](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png#lightbox)
 
 若要了解本快速入門所發生的情況以及已呼叫的 API，請使用 `digital-twins-samples-csharp` 中找到的程式碼工作區專案來開啟 [Visual Studio Code](https://code.visualstudio.com/Download)。 使用下列命令：
 
@@ -161,7 +161,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
 ## <a name="next-steps"></a>後續步驟
 
-本快速入門使用簡單的案例和範例應用程式，示範如何使用 Digital Twins 來尋找有良好工作條件的會議室。 若要深入分析此案例，請參閱本教學課程：
+本快速入門使用簡單的案例和範例應用程式，示範如何使用 Digital Twins 來尋找有良好工作條件的會議室。 若要深入分析此案例，請閱讀本教學課程：
 
 >[!div class="nextstepaction"]
 >[教學課程：部署 Azure Digital Twins 及設定空間圖形](tutorial-facilities-setup.md)

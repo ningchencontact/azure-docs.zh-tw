@@ -4,12 +4,12 @@ description: Azure Container Instances 服務提供最簡單快速的方法，�
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 040f246fa687dfe3ca56877c11c140ddb40247a4
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552316"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888028"
 ---
 # <a name="what-is-azure-container-instances"></a>什麼是 Azure Container Instances？
 
@@ -54,7 +54,7 @@ Azure Container Instances 可讓您使用相同的 API 來排程 Windows 和 Lin
 * 每個容器群組的多個容器
 * 磁碟區掛接 ([Azure 檔案儲存體](container-instances-volume-azure-files.md)、[emptyDir](container-instances-volume-emptydir.md)、[GitRepo](container-instances-volume-gitrepo.md)、[祕密](container-instances-volume-secret.md))
 * Azure 監視器的[資源使用量計量](container-instances-monitor.md)
-* [虛擬網路部署模型](container-instances-vnet.md) (預覽)
+* [虛擬網路部署](container-instances-vnet.md)
 * [GPU 資源](container-instances-gpu.md) (預覽)
 
 進行 Windows 容器部署時，請使用以常用的 [Windows 基礎映像](container-instances-faq.md#what-windows-base-os-images-are-supported)為基礎的映像。
@@ -66,12 +66,9 @@ Azure Container Instances 可讓您使用相同的 API 來排程 Windows 和 Lin
 
 Azure Container Instances 支援排程共用主機、區域網路、儲存體和生命週期的[多個容器群組](container-instances-container-groups.md)。 這可讓您合併主要應用程式容器與其他支援角色容器，例如記錄 Sidecar。
 
-## <a name="virtual-network-deployment-preview"></a>虛擬網路部署模型 (預覽)
+## <a name="virtual-network-deployment"></a>虛擬網路部署
 
-Azure 容器執行個體的這個功能 (目前處於預覽狀態) 可以[將容器執行個體部署至 Azure 虛擬網路](container-instances-vnet.md)。 藉由將容器執行個體部署至您虛擬網路內的子網路，這些執行個體可以安全地與虛擬網路中的其他資源通訊，包括內部部署的資源 (透過 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)或 [ExpressRoute](../expressroute/expressroute-introduction.md))。
-
-> [!IMPORTANT]
-> Azure Container Instances 的某些功能為預覽狀態，而且[適用一些限制](container-instances-vnet.md#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，這些功能的某些領域可能會變更。
+Azure 容器執行個體的這項功能目前可在部分 Azure 區域中用於生產工作負載，可以[將容器執行個體部署至 Azure 虛擬網路](container-instances-vnet.md)。 藉由將容器執行個體部署至您虛擬網路內的子網路，這些執行個體可以安全地與虛擬網路中的其他資源通訊，包括內部部署的資源 (透過 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)或 [ExpressRoute](../expressroute/expressroute-introduction.md))。
 
 ## <a name="next-steps"></a>後續步驟
 

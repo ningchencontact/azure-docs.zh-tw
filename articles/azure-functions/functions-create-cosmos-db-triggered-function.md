@@ -5,12 +5,12 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: e321fcdf4b5871cf4a55e7018229569a337e8305
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 830c7cdee247118ed24fc9b3a2a9efe8609c75d0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230933"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863261"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>建立 Azure Cosmos DB 所觸發的函式
 
@@ -18,7 +18,7 @@ ms.locfileid: "74230933"
 
 ![檢視記錄中的訊息。](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本教學課程：
 
@@ -61,13 +61,13 @@ ms.locfileid: "74230933"
 
     ![建立 Azure Cosmos DB 觸發的函式](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
 
-    | 設定      | 建議的值  | 說明                                |
+    | 設定      | 建議的值  | 描述                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **名稱** | 預設值 | 使用範本所建議的預設函式名稱。|
+    | **名稱** | 預設 | 使用範本所建議的預設函式名稱。|
     | **Azure Cosmos DB 帳戶連線** | 新增設定 | 選取 [新增]  ，然後選擇 [訂用帳戶]  、稍早建立的 [資料庫帳戶]  以及 [選取]  。 這會建立適用於帳戶連線的應用程式設定。 繫結會使用此設定來連線至資料庫。 |
-    | **集合名稱** | 項目 | 要監視的集合名稱。 |
-    | **建立租用集合 (如果不存在)** | 已檢查 | 集合尚未存在，因此加以建立。 |
-    | **資料庫名稱** | 工作 | 含有要監視之集合的資料庫名稱。 |
+    | **容器名稱** | 項目 | 要監視的容器名稱。 |
+    | **建立租用容器 (如果不存在)** | 已檢查 | 容器尚不存在，請加以建立。 |
+    | **資料庫名稱** | 工作 | 含有要監視之容器的資料庫名稱。 |
 
 1. 按一下 [建立]  ，以建立 Azure Cosmos DB 觸發的函式。 建立函式之後，會顯示以範本為基礎的函式程式碼。  
 
@@ -75,9 +75,9 @@ ms.locfileid: "74230933"
 
     此函式範本會將文件數和第一個文件識別碼寫入記錄。
 
-接下來，連線到 Azure Cosmos DB 帳戶，並在 `Tasks` 資料庫中建立 `Items` 集合。
+接下來，連線至 Azure Cosmos DB 帳戶，並在 `Tasks` 資料庫中建立 `Items` 容器。
 
-## <a name="create-the-items-collection"></a>建立項目集合
+## <a name="create-the-items-container"></a>建立項目容器
 
 1. 在瀏覽器的新索引標籤中，開啟 [Azure 入口網站](https://portal.azure.com)的第二個執行個體。
 
@@ -87,33 +87,32 @@ ms.locfileid: "74230933"
 
 1. 選擇您的 Azure Cosmos DB 帳戶，然後選取 [資料總管]  。 
 
-1. 在 [集合]  中，選擇 [taskDatabase]  ，然後選取 [新增集合]  。
+1. 在 [SQL API]  底下選擇 [工作]  資料庫，然後選取 [新增容器]  。
 
-    ![建立集合](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection.png)
+    ![建立容器](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container.png)
 
-1. 在 [新增集合]  中，使用下圖下方之表格中所示的設定。 
+1. 在 [新增容器]  中，使用下圖下方的表格中顯示的設定。 
 
-    ![定義 taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
+    ![定義工作容器](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container2.png)
 
-    | 設定|建議的值|說明 |
+    | 設定|建議的值|描述 |
     | ---|---|--- |
     | **資料庫識別碼** | 工作 |新資料庫的名稱。 這必須符合您函式繫結中定義的名稱。 |
-    | **集合識別碼** | 項目 | 新集合的名稱。 這必須符合您函式繫結中定義的名稱。  |
-    | **儲存體容量** | 固定 (10 GB)|使用預設值。 此值是資料庫的儲存體容量。 |
-    | **輸送量** |400 RU| 使用預設值。 如果您想要降低延遲，稍後可以相應增加輸送量。 |
-    | **[分割區索引鍵](../cosmos-db/partition-data.md)** | /類別|可將資料平均分散到每個資料分割的資料分割索引鍵。 選取正確的資料分割索引鍵對於建立高效能集合來說很重要。 | 
+    | **容器識別碼** | 項目 | 新容器的名稱。 這必須符合您函式繫結中定義的名稱。  |
+    | **[分割區索引鍵](../cosmos-db/partition-data.md)** | /類別|可將資料平均分散到每個資料分割的資料分割索引鍵。 選取正確的資料分割索引鍵對於建立高效能容器來說很重要。 | 
+    | **輸送量** |400 RU| 使用預設值。 如果您想要降低延遲，稍後可以相應增加輸送量。 |    
 
-1. 按一下 [確定]  以建立 [項目] 集合。 集合可能會在很短的時間內建立。
+1. 按一下 [確定]  以建立 [項目] 容器。 容器可能會在很短的時間內建立。
 
-當函式繫結中指定的集合存在之後，您就能將文件新增至這個新集合，藉以測試函式。
+當函式繫結中指定的容器存在之後，您就能將項目新增至這個新容器，藉以測試函式。
 
 ## <a name="test-the-function"></a>測試函式
 
-1. 在 [資料總管] 中展開新的 [taskCollection]  集合、選擇 [文件]  ，然後選取 [新增文件]  。
+1. 在資料總管中展開新的**項目**容器，選擇 [項目]  ，然後選取 [新增項目]  。
 
-    ![在 taskCollection 中建立文件](./media/functions-create-cosmos-db-triggered-function/create-document-in-collection.png)
+    ![在項目容器中建立項目](./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png)
 
-1. 使用以下內容來取代新文件的內容，然後選擇 [儲存]  。
+1. 使用以下內容來取代新項目的內容，然後選擇 [儲存]  。
 
         {
             "id": "task1",

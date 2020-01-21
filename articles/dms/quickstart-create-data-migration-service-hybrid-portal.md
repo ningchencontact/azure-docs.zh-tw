@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 12/17/2019
-ms.openlocfilehash: c93ff5d97826ee618716cc15361a439a5429d696
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 64d4998e287f9981c666dee54fc3b67886791bbf
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437744"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708286"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>快速入門：使用 Azure 入口網站和 Azure 資料庫移轉服務建立混合模式執行個體
 
@@ -172,7 +172,7 @@ Azure 資料庫移轉服務混合模式會使用裝載於內部部署的移轉�
 
 ## <a name="set-up-the-azure-database-migration-service-hybrid-worker-using-powershell"></a>使用 PowerShell 設定 Azure 資料庫移轉服務混合式背景工作角色
 
-除了透過 Azure 入口網站安裝 Azure 資料庫移轉服務混合式背景工作角色之外，我們還提供 PowerShell 指令碼，您可在混合模式中建立新的 Azure 資料庫移轉服務執行個體之後，將其用於自動執行背景工作角色安裝步驟。 指令碼：
+除了透過 Azure 入口網站安裝 Azure 資料庫移轉服務混合式背景工作角色之外，我們還提供 [PowerShell 指令碼](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/119/1/DMS_Hybrid_Script.zip)，您可在混合模式中建立新的 Azure 資料庫移轉服務執行個體之後，將其用於自動執行背景工作角色安裝步驟。 指令碼：
 
 1. 建立新的 AdApp。
 2. 下載安裝程式。

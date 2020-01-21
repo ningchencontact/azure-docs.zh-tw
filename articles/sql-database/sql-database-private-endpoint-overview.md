@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: fcb89cbcadb5e101ab2b4bfd18d0b7b91c63c92a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6cc8282a5c56f8f45e8d9e5ee452089a74f0d4ed
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821300"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045634"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>適用於 Azure SQL Database 和資料倉儲的 Private Link (預覽)
 
@@ -57,7 +57,7 @@ Private Link 可讓您透過**私人端點**連線到 Azure 中的各種 PaaS �
 ### <a name="approval-process"></a>核准流程
 網路管理員建立私人端點 (PE) 後，SQL 管理員就可以管理 SQL Database 的私人端點連線 (PEC)。
 
-1. 在 Azure 入口網站中瀏覽至 SQL 伺服器資源。
+1. 依照下列螢幕擷取畫面中所示的步驟，瀏覽至 Azure 入口網站中的 SQL 伺服器資源
 
     - (1) 在左窗格中選取私人端點連線
     - (2) 顯示所有私人端點連線 (PEC) 的清單
@@ -146,8 +146,10 @@ Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>使用 SQL Server Management Studio (SSMS) 檢查連線能力
+> [!NOTE]
+>在用戶端的連接字串中，使用伺服器的**完整網域名稱 (FQDN)** 。 根據設計，任何直接對 IP 位址進行的登入嘗試都會失敗。
 
-最後一個步驟是使用 [SSMS 連線到 SQL Database](sql-database-connect-query-ssms.md)。 使用 SSMS 連線到 SQL Database 之後，請執行下列查詢，以確認您可以從 Azure VM 的私人 IP 位址進行連線：
+請遵循此處的步驟來使用 [SSMS 連線到 SQL Database](sql-database-connect-query-ssms.md)。 使用 SSMS 連線到 SQL Database 之後，請執行下列查詢，以確認您可以從 Azure VM 的私人 IP 位址進行連線：
 
 ````
 select client_net_address from sys.dm_exec_connections 

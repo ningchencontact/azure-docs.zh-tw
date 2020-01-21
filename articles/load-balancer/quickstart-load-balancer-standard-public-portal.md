@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/11/2019
+ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: d15223dfe6d9ce710f2a3d402a49203ef169132e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 027e05b3fbf7163c4a1b927a2b83db84c7eef1ff
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225198"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771456"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立標準負載平衡器以平衡 VM 的負載
 
@@ -34,7 +34,7 @@ ms.locfileid: "74225198"
 
 ## <a name="create-a-standard-load-balancer"></a>建立標準負載平衡器
 
-在本節中，您會建立標準負載平衡器，以協助平衡虛擬機器的負載。 標準負載平衡器只支援標準公用 IP 位址。 當您建立標準負載平衡器時，也必須建立新的標準公用 IP 位址，而該 IP 位址會設定為標準負載平衡器的前端 (預設的名稱為 LoadBalancerFrontend  )。 
+在本節中，您會建立標準負載平衡器，以協助平衡虛擬機器的負載。 您可以建立公用 Standard Load Balancer 或內部 Standard Load Balancer。 Standard Load Balancer 只支援標準公用 IP 位址，而不支援基本公用 IP 位址。 當您建立公用 Standard Load Balancer 時，也必須建立新的標準公用 IP 位址，而該 IP 位址會設定為標準負載平衡器的前端 (預設的名稱為 LoadBalancerFrontend  )。 
 
 1. 在畫面的左上方，選取 [建立資源]   > [網路]   > [負載平衡器]  。
 2. 在 [建立負載平衡器]  頁面的 [基本資料]  中，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [檢閱 + 建立]  ：
@@ -77,7 +77,7 @@ ms.locfileid: "74225198"
     | ------- | ----- |
     | 名稱 | 輸入 *myHealthProbe*。 |
     | 通訊協定 | 選取 [HTTP]  。 |
-    | Port | 輸入 *80*。|
+    | 連接埠 | 輸入 *80*。|
     | 間隔 | 輸入 *15* 作為探查嘗試之間的 [間隔]  秒數。 |
     | 狀況不良臨界值 | 選取 [2]  作為 [狀況不良閾值]  的數值，或將 VM 視為狀況不良之前，必須達到的連續探查失敗次數。|
     | | |
@@ -94,7 +94,7 @@ ms.locfileid: "74225198"
     | ------- | ----- |
     | 名稱 | 輸入 *myHTTPRule*。 |
     | 通訊協定 | 選取 [TCP]  。 |
-    | Port | 輸入 *80*。|
+    | 連接埠 | 輸入 *80*。|
     | 後端連接埠 | 輸入 *80*。 |
     | 後端集區 | 選取 [myBackendPool]  。|
     | 健全狀況探查 | 選取 [myHealthProbe]  。 |
@@ -116,7 +116,7 @@ ms.locfileid: "74225198"
     | 位址空間 | 輸入 *10.1.0.0/16*。 |
     | 訂用帳戶 | 選取您的訂用帳戶。|
     | 資源群組 | 選取現有的資源 - *myResourceGroupSLB*。 |
-    | 位置 | 選取 [西歐]  。|
+    | Location | 選取 [西歐]  。|
     | 子網路 - 名稱 | 輸入 *myBackendSubnet*。 |
     | 子網路 - 位址範圍 | 輸入 *10.1.0.0/24*。 |
 1. 保留其餘的預設值，然後選取 [建立]  。
@@ -199,7 +199,7 @@ ms.locfileid: "74225198"
 6. 使用 myVM1  關閉 RDP 工作階段。
 7. 重複步驟 1 到 6，在 myVM2  和 myVM3  上安裝 IIS 和更新的 iisstart.htm 檔案。
 
-## <a name="test-the-load-balancer"></a>測試 Load Balancer
+## <a name="test-the-load-balancer"></a>測試負載平衡器
 1. 在 [概觀]  畫面上尋找負載平衡器的公用 IP 位址。 選取左側功能表中的 [所有服務]  、選取 [所有資源]  ，然後選取 [myPublicIP]  。
 
 2. 將公用 IP 位址複製並貼到您瀏覽器的網址列。 IIS Web 伺服器的預設頁面會顯示在瀏覽器上。

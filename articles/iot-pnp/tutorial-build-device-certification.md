@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 43fc928b1274159839dc0df395e86d065f84b4c7
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 2dae0a31ad53a777f5ae88c1c12f988d2f80630a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550261"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867411"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>建置可供認證的 IoT 隨插即用預覽版裝置
 
@@ -35,7 +35,7 @@ ms.locfileid: "75550261"
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [適用於 VS Code 的 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) \(英文\) 擴充套件
 
-您也需要在下列快速入門中建立的 IoT 隨插即用裝置：[使用裝置功能模型來建立裝置](quickstart-create-pnp-device-windows.md)。
+您也需要完成適用於 Windows 的[使用裝置功能模型來建立裝置](quickstart-create-pnp-device-windows.md)快速入門。 此快速入門會說明如何使用 Vcpkg 來設定開發環境，以及如何建立範例專案。
 
 ## <a name="store-a-capability-model-and-interfaces"></a>儲存功能模型和介面
 
@@ -107,20 +107,53 @@ ms.locfileid: "75550261"
 
 1. 選擇您要用來產生裝置程式碼 Stub 的 DCM 檔案。
 
-1. 輸入專案名稱，這是您的裝置應用程式名稱。
+1. 輸入專案名稱，例如 **sample_device**。 這是您的裝置應用程式名稱。
 
 1. 選擇 [ANSI C]  作為語言。
 
 1. 選擇 [透過 DPS (裝置佈建服務) 對稱金鑰]  作為連線方法。
 
-1. 根據您的裝置作業系統，選擇 **Windows 上的 CMake 專案**或 **Linux 上的 CMake 專案**作為專案範本。
+1. 選擇 [Windows 上的 CMake 專案]  作為專案範本。
+
+1. 選擇 [透過 Vcpkg]  作為包含裝置 SDK 的方式。
 
 1. VS Code 會開啟新視窗，其中包含產生的裝置程式碼 Stub 檔案。
 
-1. 建置程式碼之後，請輸入 DPS 認證 (**DPS 識別碼範圍**、**DPS 對稱金鑰**、**裝置識別碼**) 作為應用程式的參數。 若要從憑證入口網站取得認證，請參閱[連線並測試您的 IoT 隨插即用裝置](tutorial-certification-test.md#connect-and-discover-interfaces)。
+## <a name="build-and-run-the-code"></a>建置並執行程式碼
 
-    ```cmd/sh
-    .\your_pnp_app.exe [DPS ID Scope] [DPS symmetric key] [device ID]
+您可以使用 Vcpkg 套件來建置產生的裝置程式碼 Stub。 您所建置的應用程式會模擬連線至 IoT 中樞的裝置。 應用程式會傳送遙測資料和屬性，並接收命令。
+
+1. 在 `sample_device` 資料夾中建立一個 `cmake` 子目錄，並瀏覽至該資料夾：
+
+    ```cmd
+    mkdir cmake
+    cd cmake
+    ```
+
+1. 執行下列命令以建置產生的程式碼 Stub (將預留位置取代為 Vcpkg 存放庫的目錄)：
+
+    ```cmd
+    cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
+
+    cmake --build .
+    ```
+    
+    > [!NOTE]
+    > 如果您使用的是 Visual Studio 2017 或 2015，則需要根據您所使用的建置工具來指定 CMake 產生器：
+    >```cmd
+    ># Either
+    >cmake .. -G "Visual Studio 15 2017" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+    ># or
+    >cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+    >```
+
+    > [!NOTE]
+    > 如果 cmake 找不到您的 C++ 編譯器，您會在執行先前的命令時收到建置錯誤。 如果發生這種情況，請嘗試在 [Visual Studio 命令提示字元](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)上執行此命令。
+
+1. 順利完成建置後，請輸入 DPS 認證 (**DPS 識別碼範圍**、**DPS 對稱金鑰**、**裝置識別碼**) 作為應用程式的參數。 若要從憑證入口網站取得認證，請參閱[連線並測試您的 IoT 隨插即用裝置](tutorial-certification-test.md#connect-and-discover-interfaces)。
+
+    ```cmd\sh
+    .\Debug\sample_device.exe [Device ID] [DPS ID Scope] [DPS symmetric key]
     ```
 
 ### <a name="implement-standard-interfaces"></a>實作標準介面

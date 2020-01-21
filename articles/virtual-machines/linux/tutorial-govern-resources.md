@@ -1,6 +1,6 @@
 ---
-title: 教學課程 - 使用 Azure CLI 控管 Azure 虛擬機器
-description: 在此教學課程中，您將了解如何使用 Azure CLI，透過套用 RBAC、原則、鎖定與標籤來管理 Azure 虛擬機器
+title: 教學課程 - 使用 CLI 管理虛擬機器
+description: 在此教學課程中，您將了解如何使用 Azure CLI，透過套用 RBAC、原則、鎖定與標籤來管理 Azure 虛擬機器。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: e9475f4226a65ad06d45170e0ab802c6cdb79d8f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b9595c6ce464cf9e4ab0baff9ef842e76f3d18a3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034533"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970118"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>教學課程：了解如何使用 Azure CLI 控管 Linux 虛擬機器
+# <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>教學課程：了解如何使用 Azure CLI 管理 Linux 虛擬機器
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -140,7 +140,7 @@ az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --ge
 
 ## <a name="lock-resources"></a>鎖定資源
 
-[資源鎖定](../../azure-resource-manager/resource-group-lock-resources.md)可避免組織中的使用者不小心刪除或修改重要資源。 不同於角色型存取控制，資源鎖定會對所有使用者和角色套用限制。 您可以將鎖定層級設定為 *CanNotDelete* 或 *ReadOnly*。
+[資源鎖定](../../azure-resource-manager/management/lock-resources.md)可避免組織中的使用者不小心刪除或修改重要資源。 不同於角色型存取控制，資源鎖定會對所有使用者和角色套用限制。 您可以將鎖定層級設定為 *CanNotDelete* 或 *ReadOnly*。
 
 若要建立或刪除管理鎖定，您必須擁有 `Microsoft.Authorization/locks/*` 動作的存取權。 在內建角色中，只有 **擁有者** 和 **使用者存取管理員** 被授與這些動作的存取權。
 
@@ -172,7 +172,7 @@ az group delete --name myResourceGroup
 
 ## <a name="tag-resources"></a>標記資源
 
-您可將[標籤](../../azure-resource-manager/resource-group-using-tags.md)套用至 Azure 資源，以便以邏輯方式依照類別組織這些資源。 每個標記都是由一個名稱和一個值所組成。 例如，您可以將「環境」名稱和「生產」值套用至生產環境中的所有資源。
+您可將[標籤](../../azure-resource-manager/management/tag-resources.md)套用至 Azure 資源，以便以邏輯方式依照類別組織這些資源。 每個標記都是由一個名稱和一個值所組成。 例如，您可以將「環境」名稱和「生產」值套用至生產環境中的所有資源。
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 

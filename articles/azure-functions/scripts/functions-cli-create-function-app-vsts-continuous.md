@@ -4,16 +4,16 @@ description: 建立函式應用程式和從 Azure DevOps 部署函式程式碼
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 3fa11d5cd81d93b89b6e8ae63fd491842be78633
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d10c3987aef6e0a32081acd17425517f5109c4bb
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532793"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922647"
 ---
 # <a name="create-a-function-in-azure-that-is-deployed-from-azure-devops"></a>在 Azure 中建立從 Azure DevOps 部署的函式
 
-本主題示範如何使用 Azure Functions，以使用[使用情況方案](../functions-scale.md#consumption-plan)來建立[無伺服器](https://azure.microsoft.com/solutions/serverless/)函數應用程式。 函式應用程式 (即您函式的容器) 是從 Azure DevOps 存放庫持續部署。 
+本主題示範如何使用 Azure Functions，以使用[取用方案](../functions-scale.md#consumption-plan)來建立[無伺服器](https://azure.microsoft.com/solutions/serverless/)函式應用程式。 函式應用程式 (即您函式的容器) 是從 Azure DevOps 存放庫持續部署。 
 
 若要完成本主題，您必須具備：
 
@@ -38,7 +38,7 @@ ms.locfileid: "74532793"
 
 此指令碼使用下列命令來建立資源群組、儲存體帳戶、函數應用程式和所有相關資源。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 建立函式應用程式所需的儲存體帳戶。 |

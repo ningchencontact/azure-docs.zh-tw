@@ -5,12 +5,12 @@ ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 11/13/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 147ad4bd20ee1c7ae8f1529e1b3bc0e4f3e7dbb0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 222e4a98974a1af40ff860cfc4fdb246d9c97bca
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230848"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769382"
 ---
 # <a name="quickstart-create-your-first-function-from-the-command-line-using-azure-cli"></a>快速入門：使用 Azure CLI 從命令列建立您的第一個函式
 
@@ -18,7 +18,7 @@ ms.locfileid: "74230848"
 
 您可以使用 Mac、Windows 或 Linux 電腦，依照下面步驟操作。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 在執行此範例之前，您必須具備下列項目︰
 
@@ -46,7 +46,7 @@ ms.locfileid: "74230848"
 
 ## <a name="create-a-function-app"></a>建立函數應用程式
 
-您必須擁有函式應用程式以便主控函式的執行。 函式應用程式會提供環境來讓您的函式程式碼進行無伺服器執行。 它可讓您將多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 使用 [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 命令來建立函式應用程式。 
+您必須擁有函式應用程式以便主控函式的執行。 函式應用程式會提供環境來讓您的函式程式碼進行無伺服器執行。 其可讓您將多個函式群組為邏輯單位，以方便您管理、部署、調整和共用資源。 使用 [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 命令來建立函式應用程式。
 
 在下列命令中，使用唯一函式應用程式名稱來替代您看見 `<APP_NAME>` 預留位置的地方，並使用儲存體帳戶名稱來替代 `<STORAGE_NAME>`。 `<APP_NAME>` 會作為函式應用程式的預設 DNS 網域，所以此名稱在 Azure 的所有應用程式中都必須是唯一的名稱。 您也應該從 `dotnet` (C#) 或 `node` (JavaScript)，設定函式應用程式的 `<language>` 執行階段。
 

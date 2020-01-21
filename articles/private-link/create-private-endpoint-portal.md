@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bc8141b951dbc27972dc2efb6819a7c0137ea7fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 491ba986c6ca71be0bc5b13e2f9f0717ffec99a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459927"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028889"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>快速入門：使用 Azure 入口網站建立私人端點
 
@@ -64,7 +64,7 @@ ms.locfileid: "75459927"
     | 虛擬機器名稱 | 輸入 myVm  。 |
     | 區域 | 選取 [WestCentralUS]  。 |
     | 可用性選項 | 保留預設值 [不需要基礎結構備援]  。 |
-    | 影像 | 選取 [Windows Server 2019 Datacenter]  。 |
+    | 映像 | 選取 [Windows Server 2019 Datacenter]  。 |
     | 大小 | 保留預設值 [標準 DS1 v2]  。 |
     | **系統管理員帳戶** |  |
     | 使用者名稱 | 輸入您選擇的使用者名稱。 |
@@ -162,7 +162,7 @@ ms.locfileid: "75459927"
     | ------- | ----- |
     |**網路**| |
     | 虛擬網路| 選取 [MyVirtualNetwork]  。 |
-    | 子網路 | 選取 [mySubnet] ** 。 |
+    | 子網路 | 選取 [mySubnet]  。 |
     |**私人 DNS 整合**||
     |與私人 DNS 區域整合 |選取 [是]  。 |
     |私人 DNS 區域 |選取 [(New)privatelink.database.windows.net]  |
@@ -199,9 +199,9 @@ ms.locfileid: "75459927"
 
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>從 VM 私下存取 SQL 資料庫伺服器
 
-1. 在 myVM ** 的遠端桌面中，開啟 PowerShell。
+1. 在 myVm  的遠端桌面中，開啟 PowerShell。
 
-2. 輸入  `nslookup myserver.database.windows.net`。 
+2. 輸入 `nslookup myserver.database.windows.net`。 
 
     您將收到如下訊息：
     ```azurepowershell
@@ -227,11 +227,11 @@ ms.locfileid: "75459927"
 1. 選取 [連接]  。
 2. 瀏覽左側功能表中的資料庫。
 3. (選擇性) 從 mydatabase 建立或查詢資訊。
-4. 關閉對  *myVm* 的遠端桌面連線。 
+4. 關閉對 myVm  的遠端桌面連線。 
 
 ## <a name="clean-up-resources"></a>清除資源 
 在私人端點、SQL Server 和 VM 使用完畢後，請刪除資源群組及其包含的所有資源： 
-1. 在入口網站頂端的 [搜尋]  方塊中輸入  *myResourceGroup* ，然後從搜尋結果中選取 [myResourceGroup] **  。 
+1. 在入口網站頂端的 [搜尋]  方塊中輸入 *myResourceGroup*，然後從搜尋結果中選取 [myResourceGroup]  。 
 2. 選取 [刪除資源群組]  。 
 3. 針對 [輸入資源群組名稱]  輸入 myResourceGroup，然後選取 [刪除]  。
 

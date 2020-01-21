@@ -1,32 +1,25 @@
 ---
-title: 快速入門：辨識儲存在 Blob 儲存體中的語音，C# - 語音服務
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b8b650920c03b14c7d55aafd6ecdb43dafaafafe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.author: dapine
+ms.openlocfilehash: 1022a744564ed61a90973f7bba3eb32e9a632b46
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468462"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942709"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 開始之前，請務必：
 
 > [!div class="checklist"]
+> * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=vs&pivots=programmming-language-csharp)
+> * [建立空的範例專案](../../../../quickstarts/create-project.md?pivots=programmming-language-csharp)
 > * [建立 Azure 語音資源](../../../../get-started.md)
 > * [將原始程式檔上傳至 Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-> * [設定開發環境](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [建立空的範例專案](../../../../quickstarts/create-project.md?tabs=dotnet)
 
 ## <a name="open-your-project-in-visual-studio"></a>在 Visual Studio 中開啟您的專案
 
@@ -35,7 +28,7 @@ ms.locfileid: "75468462"
 1. 啟動 Visual Studio 2019。
 2. 載入您的專案，並開啟 `Program.cs`。
 
-## <a name="add-a-reference-to-newtonsoftjson"></a>新增對 NewtonSoftJSon 的參考
+## <a name="add-a-reference-to-newtonsoftjson"></a>新增對 Newtonsoft.Json 的參考
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 **helloworld** 專案，然後選取 [管理 NuGet 套件]  以顯示 NuGet 套件管理員。
 
@@ -45,7 +38,7 @@ ms.locfileid: "75468462"
 
 1. 在搜尋方塊中，輸入 *newtonsoft.json*，然後選取 **Enter**。
 
-1. 從搜尋結果中，選取 [Newtonsoft.Json]  套件，然後選取 [安裝]  以安裝最新的穩定版本。
+1. 從搜尋結果中，選取 [**Newtonsoft.Json**](https://www.nuget.org/packages/Newtonsoft.Json) 套件，然後選取 [安裝]  以安裝最新的穩定版本。
 
 1. 接受所有合約和授權，即可開始安裝。
 
@@ -56,7 +49,9 @@ ms.locfileid: "75468462"
 我們將新增程式碼，作為專案的基本架構。
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-43,138,277)]
-(您必須以您自己的值來取代 `YourSubscriptionKey`、`YourServiceRegion` 和 `YourFileUrl` 的值。)
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
+
 ## <a name="json-wrappers"></a>JSON 包裝函式
 
 由於 REST 的 API 會取得 JSON 格式的要求，而且也會以 JSON 格式傳回結果，因此我們只能使用字串與它們互動，但並不建議這麼做。

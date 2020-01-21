@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 15c707b5424e84e99e0b1942bb623e6d3845213a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f73a35b9c04b8b520be4f0adeb8ddb4142499075
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471253"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834370"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教學課程：使用相依資源建立 Azure Resource Manager 範本中使用的 Cloud Shell 部署方法
 
@@ -161,7 +161,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已開發和部署用來建立虛擬機器、虛擬網路和相依資源的範本。 若要深入了解如何根據條件部署 Azure 資源，請參閱：
+在本教學課程中，您已開發和部署用來建立虛擬機器、虛擬網路和相依資源的範本。 若要了解如何使用部署指令碼來執行部署前/後的作業，請參閱：
 
 > [!div class="nextstepaction"]
-> [使用條件](./template-tutorial-use-conditions.md)
+> [使用部署指令碼](./template-tutorial-deployment-script.md)

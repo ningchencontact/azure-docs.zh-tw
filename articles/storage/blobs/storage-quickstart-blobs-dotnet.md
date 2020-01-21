@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: f788f7827f778029a0f34ec1f7e73b174738e1f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a1a9b1973ded5db7182fb1898fc7222904c39c3
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351296"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863956"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>快速入門：適用於 .NET 的 Azure Blob 儲存體用戶端程式庫 v12
 
@@ -229,7 +229,8 @@ await foreach (BlobItem blobItem in containerClient.GetBlobsAsync())
 
 ```csharp
 // Download the blob to a local file
-// Append the string "DOWNLOAD" before the .txt extension so you can see both files in MyDocuments
+// Append the string "DOWNLOAD" before the .txt extension 
+// so you can compare the files in the data directory
 string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOAD.txt");
 
 Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
@@ -267,7 +268,7 @@ Console.WriteLine("Done");
 
 ## <a name="run-the-code"></a>執行程式碼
 
-此應用程式會在本機 *MyDocuments* 資料夾中建立測試檔案，並將它上傳到 Blob 儲存體。 範例會接著列出容器中的 Blob，並下載具有新名稱的檔案，您便可比較舊檔案和新檔案。
+此應用程式會在本機 *data* 資料夾中建立一個測試檔案，並將其上傳到 Blob 儲存體。 範例會接著列出容器中的 Blob，並下載具有新名稱的檔案，您便可比較舊檔案和新檔案。
 
 瀏覽至您的應用程式目錄，並建置和執行應用程式。
 
@@ -299,7 +300,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-在開始清除程序之前，請檢查 *MyDocuments* 資料夾，找出這兩個檔案。 您可以開啟它們，並觀察它們是否相同。
+在開始清除程序之前，請檢查 *data* 資料夾，找出這兩個檔案。 您可以開啟它們，並觀察它們是否相同。
 
 確認檔案之後，按 **Enter** 鍵以刪除測試檔案並完成示範。
 

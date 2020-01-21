@@ -6,12 +6,12 @@ ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 4bf0e43132662f6f5322485a59f356f872559092
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0fe4cb6e75a74f58b4c3b312f923935053ea4756
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532510"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922616"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>建立無伺服器程式碼也可執行的函式應用程式 
 
@@ -25,9 +25,9 @@ ms.locfileid: "74532510"
 
 ## <a name="sample-script"></a>範例指令碼
 
-此指令碼會使用[取用方案](../functions-scale.md#consumption-plan)建立 Azure 函數應用程式。
+此指令碼會使用[取用方案](../functions-scale.md#consumption-plan)建立 Azure 函式應用程式。
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Create an Azure Function on a consumption plan")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Create an Azure Function on a Consumption plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -35,7 +35,7 @@ ms.locfileid: "74532510"
 
 下表中的每個命令都會連結至命令特定的文件。 此指令碼會使用下列命令：
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 建立 Azure 儲存體帳戶。 |

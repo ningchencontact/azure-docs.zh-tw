@@ -13,18 +13,18 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77763ac30b4ba98e4849a25690302469843b4d06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f003daea188c6f556d0981c83c98f3328362f864
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920628"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975119"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>快速入門：登入使用者並取得 JavaScript SPA 中的存取權杖
 
 在本快速入門中，您會使用程式碼範例了解 JavaScript 單頁應用程式 (SPA) 如何讓使用者登入個人帳戶、公司帳戶和學校帳戶。 JavaScript SPA 也可以取得呼叫 Microsoft Graph API 或任何 Web API 的存取權杖。 (如需圖例，請參閱[此範例的運作方式](#how-the-sample-works)。)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/).
@@ -44,7 +44,7 @@ ms.locfileid: "74920628"
 >
 > ### <a name="option-2-manual-register-and-manually-configure-your-application-and-code-sample"></a>選項 2 (手動)：註冊並手動設定您的應用程式和程式碼範例
 >
-> #### <a name="step-1-register-your-application"></a>步驟 1：註冊您的應用程式
+> #### <a name="step-1-register-your-application"></a>步驟 1:註冊您的應用程式
 >
 > 1. 使用公司或學校帳戶或個人 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 >
@@ -60,15 +60,15 @@ ms.locfileid: "74920628"
 > 1. 在頁面上方選取 [儲存]  。
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>步驟 1：在 Azure 入口網站中設定您的應用程式
-> 若要讓此快速入門中的程式碼範例正常運作，您需要將重新導向 URI 新增為 `http://localhost:30662/`，並且啟用 [隱含授與]  。
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>步驟 1:在 Azure 入口網站中設定您的應用程式
+> 若要讓此快速入門中的程式碼範例正常運作，您需要將 `redirectUri` 新增為 `http://localhost:30662/`，並且啟用 [隱含授與]  。
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [為我進行這些變更]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![已設定](media/quickstart-v2-javascript/green-check.png) 您的應用程式已設定了這些屬性。
 
-#### <a name="step-2-download-the-project"></a>步驟 2：下載專案
+#### <a name="step-2-download-the-project"></a>步驟 2:下載專案
 
 選取適合您開發環境的選項：
 
@@ -89,7 +89,7 @@ var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
         authority: "https://login.microsoftonline.com/Enter_the_Tenant_info_here",
-        redirectURI: "http://localhost:30662/"
+        redirectUri: "http://localhost:30662/"
     },
     cache: {
         cacheLocation: "localStorage",
@@ -167,7 +167,7 @@ var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
         authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
-        redirectURI: "http://localhost:30662/"
+        redirectUri: "http://localhost:30662/"
     },
     cache: {
         cacheLocation: "localStorage",
@@ -182,7 +182,7 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 > |---------|---------|
 > |`clientId`     | 註冊於 Azure 入口網站中之應用程式的應用程式識別碼。|
 > |`authority`    | (選擇性) 支援帳戶類型的授權單位 URL，如設定一節先前所述。 預設授權單位是 `https://login.microsoftonline.com/common`。 |
-> |`redirectURI`     | 應用程式註冊的已設定回覆/重新導向 URI。 在此案例中為 `http://localhost:30662/`。 |
+> |`redirectUri`     | 應用程式註冊的已設定回覆/重新導向 URI。 在此案例中為 `http://localhost:30662/`。 |
 > |`cacheLocation`  | (選擇性) 設定驗證狀態的瀏覽器儲存體。 預設值是 sessionStorage。   |
 > |`storeAuthStateInCookie`  | (選擇性) 程式庫會在瀏覽器 Cookie 中儲存驗證流程的驗證所需驗證要求狀態。 此 Cookie 會針對 IE 和 Edge 瀏覽器設定，以減少特定[已知問題](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) \(英文\)。 |
 
@@ -238,7 +238,7 @@ myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 
 #### <a name="get-a-user-token-interactively"></a>以互動方式取得使用者權杖
 
-在某些情況下，您可能必須強制使用者與 Microsoft 身分識別平台端點互動。 例如︰
+在某些情況下，您可能必須強制使用者與 Microsoft 身分識別平台端點互動。 例如：
 * 使用者可能需要重新輸入其認證，因為密碼已過期。
 * 您的應用程式要求其他資源範圍的存取權，需要使用者同意。
 * 需要雙因素驗證。

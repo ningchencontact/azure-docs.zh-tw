@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2018
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d7200dd89d51817a5d146ff4d33e2501ed2826
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 182bf02bfaad598a447304cc9f2ed42f6221176d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278020"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971954"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure 儲存體
 
@@ -36,11 +36,22 @@ ms.locfileid: "68278020"
 > [!NOTE]
 > Azure 儲存體的 Azure Active Directory 驗證處於公開預覽狀態。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>建立儲存體帳戶
+
+
+## <a name="enable"></a>啟用
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>授與存取權
+
+
+### <a name="create-storage-account"></a>建立儲存體帳戶
 
 在本節中，您會建立儲存體帳戶。
 
@@ -53,7 +64,7 @@ ms.locfileid: "68278020"
 
     ![建立新的儲存體帳戶](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>建立 Blob 容器，並將檔案上傳至儲存體帳戶
+### <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>建立 Blob 容器，並將檔案上傳至儲存體帳戶
 
 檔案需要 Blob 儲存體，因此您必須建立 Blob 容器，用來儲存檔案。 然後，您可以在新的儲存體帳戶中，將檔案上傳到 Blob 容器。
 
@@ -69,9 +80,9 @@ ms.locfileid: "68278020"
 7. 在 [上傳 blob]  窗格的 [檔案]  下，按一下資料夾圖示，然後在本機電腦瀏覽至檔案 **hello_world.txt**、選取檔案，然後按一下 [上傳]  。
     ![上傳文字檔](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>將您的虛擬機器存取權授與 Azure 儲存體容器
+### <a name="grant-access"></a>授與存取權
 
-您可以使用 VM 系統指派的受控識別，來擷取 Azure 儲存體 Blob 中的資料。
+本節將說明如何將您的 VM 存取權授與 Azure 儲存體容器。 您可以使用 VM 系統指派的受控識別，來擷取 Azure 儲存體 Blob 中的資料。
 
 1. 巡覽回到您新建立的儲存體帳戶。
 2. 按一下左側面板中的 [存取控制 (IAM)]  連結。
@@ -83,7 +94,7 @@ ms.locfileid: "68278020"
 
     ![指派權限](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>取得存取權杖，並用來呼叫 Azure 儲存體 
+## <a name="access-data"></a>存取資料 
 
 Azure 儲存體原生支援 Azure AD 驗證，因此可直接接受使用受控識別取得的存取權杖。 這是 Azure AD 與 Azure 儲存體整合的一部分，與在連接字串上提供認證不同。
 
@@ -160,6 +171,13 @@ namespace StorageOAuthToken
 回應會包含檔案的內容：
 
 `Hello world! :)`
+
+
+## <a name="disable"></a>停用
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -5,15 +5,15 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 01/14/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 1838cfefee8c1cf9ca6548aa64fa7a6fcb46f66a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b668d2bfecfba53c2a1b0904a8b6b77805ad965b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442846"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967427"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>教學課程：調整 Azure Kubernetes Service (AKS) 中的應用程式
 
@@ -98,6 +98,43 @@ resources:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
+```
+
+或者，您可以建立資訊清單檔，以定義自動調整程式行為和資源限制。 以下是資訊清單檔 (名稱為 `azure-vote-hpa.yaml`) 的範例。
+
+```yaml
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: azure-vote-back-hpa
+spec:
+  maxReplicas: 10 # define max replica count
+  minReplicas: 3  # define min replica count
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: azure-vote-back
+  targetCPUUtilizationPercentage: 50 # target CPU utilization
+
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: azure-vote-front-hpa
+spec:
+  maxReplicas: 10 # define max replica count
+  minReplicas: 3  # define min replica count
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: azure-vote-front
+  targetCPUUtilizationPercentage: 50 # target CPU utilization
+```
+
+使用 `kubectl apply` 來套用 `azure-vote-hpa.yaml` 資訊清單檔中定義的自動調整程式。
+
+```
+$ kubectl apply -f azure-vote-hpa.yaml
 ```
 
 若要查看自動調整程式的狀態，請使用 `kubectl get hpa` 命令，如下所示：

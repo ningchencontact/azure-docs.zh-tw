@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b447a0328de210caeb23a1beb91c532853c180bc
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e80194f53a406b8b378d0fb787df627937125a27
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550412"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867479"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>快速入門：使用裝置功能模型建立 IoT 隨插即用預覽版裝置 (Windows)
 
@@ -85,7 +85,7 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 在本快速入門中，您會使用現有的範例裝置功能模型和相關聯的介面。
 
-1. 在您的本機磁碟機中建立 `pnp_app` 目錄。 您可以使用此資料夾來存放裝置模型檔案和裝置程式碼 Stub。
+1. 在您的本機磁碟機中建立 `pnp_app` 資料夾。 您可以使用此資料夾來存放裝置模型檔案和裝置程式碼 Stub。
 
 1. 下載[裝置功能模型及介面範例檔案](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json)和[介面範例](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json)，並將檔案儲存到 `pnp_app` 資料夾中。
 
@@ -109,7 +109,7 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 1. 選擇要用來產生裝置程式程式碼 Stub 的 **SampleDevice.capabilitymodel.json** 檔案。
 
-1. 輸入專案名稱 **sample_device**。 這會是您裝置應用程式的名稱。
+1. 輸入專案名稱 **sample_device**。 這是您的裝置應用程式名稱。
 
 1. 選擇 [ANSI C]  作為您的語言。
 
@@ -124,7 +124,7 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 ## <a name="build-and-run-the-code"></a>建置並執行程式碼
 
-您可以使用裝置 SDK 原始程式碼建置產生的裝置程式碼 Stub。 您所建置的應用程式會模擬連線至 IoT 中樞的裝置。 應用程式會傳送遙測資料和屬性，並接收命令。
+您可以使用 Vcpkg 套件來建置產生的裝置程式碼 Stub。 您所建置的應用程式會模擬連線至 IoT 中樞的裝置。 應用程式會傳送遙測資料和屬性，並接收命令。
 
 1. 在 `sample_device` 資料夾中建立一個 `cmake` 子目錄，並瀏覽至該資料夾：
 

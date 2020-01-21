@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 10/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 16837ff53d7a87f6d6ac86643c7c8d16721e9470
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: b95c5511b2f64414fcf165a4346dbb06b1f02435
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660370"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833864"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>快速入門：搭配使用 REST API 與 cURL 將表單辨識器模型定型並擷取表單資料
 
@@ -30,7 +30,7 @@ ms.locfileid: "75660370"
 若要完成此快速入門，您必須：
 - 有權存取表單辨識器的有限存取預覽版。 若要存取此預覽服務，請先填寫並提交[表單辨識器存取要求](https://aka.ms/FormRecognizerRequestAccess)表單。
 - 已安裝 [cURL](https://curl.haxx.se/windows/)。
-- 至少有五個相同類型的表單。 您將使用此資料來定型模型。 您的表單可以是不同的檔案類型，但必須是相同類型的文件。 您可以使用本快速入門的[範例資料集](https://go.microsoft.com/fwlink/?linkid=2090451)。 將訓練檔案上傳至 Azure 儲存體帳戶中 Blob 儲存體容器的根目錄。
+- 至少有六個相同類型的表單。 您將使用其中的五個來定型模型，然後使用第六個表單加以測試。 您的表單可以是不同的檔案類型，但必須是相同類型的文件。 您可以使用本快速入門的[範例資料集](https://go.microsoft.com/fwlink/?linkid=2090451)。 將訓練檔案上傳至 Azure 儲存體帳戶中 Blob 儲存體容器的根目錄。 您可以將測試檔案放在不同的資料夾中。
 
 ## <a name="create-a-form-recognizer-resource"></a>建立表單辨識器資源
 
@@ -143,15 +143,14 @@ curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model
 
 1. 將 `<Endpoint>` 取代為您從表單辨識器訂用帳戶金鑰中取得的端點。 您可以在表單辨識器的資源 [概觀]  索引標籤上找到此項目。
 1. 將 `<model ID>` 取代為您在上一節中取得的模型識別碼。
-1. 將 `<path to your form>` 取代為表單的檔案路徑 (例如，C:\temp\file.pdf)。 這也可以是遠端檔案的 URL。 在本快速入門中，您可以使用[範例資料集](https://go.microsoft.com/fwlink/?linkid=2090451)中 **Test** 資料夾底下的檔案。
-1. 將 `<file type>` 取代為檔案類型。 支援的類型：`application/pdf`、`image/jpeg`、`image/png`、`image/tiff`。
+1. 將 `<SAS URL>` 取代為您在 Azure 儲存體中的檔案的 SAS URL。 請依照「訓練」一節中的步驟操作，但不要取得整個 Blob 容器的 SAS URL，而是取得您要分析之特定檔案的 URL。
 1. 將 `<subscription key>` 取代為訂用帳戶金鑰。
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -v "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" -d "{ \"source\": \""<SAS URL>"\" } "
 ```
 
-您會收到 `202 (Success)` 回應，其中包含 **Operation-Location** 標頭。 此標頭的值是您用來追蹤分析作業結果的識別碼。 請儲存此識別碼以供下一個步驟使用。
+您會收到 `202 (Success)` 回應，其中包含 **Operation-Location** 標頭。 此標頭的值會包含您用來追蹤分析作業結果的結果識別碼。 請儲存此結果識別碼以供下一個步驟使用。
 
 ## <a name="get-the-analyze-results"></a>取得分析結果
 

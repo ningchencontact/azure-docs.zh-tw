@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/02/2019
 ms.author: dylankil
-ms.openlocfilehash: 6404a5d49bd7af1ed5d74299f03eda8d0bb14b89
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 3293c4ea76010e5f39c793a1faee14d9a74226a0
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326418"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945235"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>教學課程：使用 Python 範例專案啟動沈浸式閱讀程式
 
@@ -28,9 +28,9 @@ ms.locfileid: "71326418"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
-* 為 Azure Active Directory (Azure AD) 驗證所設定的沈浸式閱讀程式資源。 遵循[這些指引](./azure-active-directory-authentication.md)來設定。 設定環境屬性時，您需要這裡建立的一些值。 將工作階段的輸出儲存到文字檔中，以供日後參考。
+* 為 Azure Active Directory 驗證所設定的沈浸式閱讀程式資源。 遵循[這些指引](./how-to-create-immersive-reader.md)來設定。 設定環境屬性時，您需要這裡建立的一些值。 將工作階段的輸出儲存到文字檔中，以供日後參考。
 * [Git](https://git-scm.com/)
 * [沈浸式閱讀程式 SDK](https://github.com/microsoft/immersive-reader-sdk)
 * [Python](https://www.python.org/downloads/) 和 [pip](https://docs.python.org/3/installing/index.html)。 從 Python 3.4 開始，Python 二進位安裝程式依預設會包含 pip。
@@ -40,20 +40,9 @@ ms.locfileid: "71326418"
 * [要求模組](https://pypi.org/project/requests/2.7.0/)
 * 整合式開發環境，例如 [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="acquire-an-azure-ad-authentication-token"></a>取得 Azure AD 驗證權杖
+## <a name="configure-authentication-credentials"></a>設定驗證認證
 
-撰寫後端 API 以擷取 Azure AD 驗證權杖。
-
-這一部分，您需要上述 Azure AD 驗證組態先決步驟中的一些值。 請回頭參考您在該工作階段儲存的文字檔。
-
-````text
-TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
-````
-
-擁有這些值之後，請建立名為 _.env_ 的新檔案，然後將下列程式碼貼入其中，並提供上述的自訂屬性值。 將範例應用程式中的 _.env_ 檔案取代為新建立的檔案。
+建立名為 .env  的新檔案，並將下列程式碼貼入其中，然後使用您建立沈浸式閱讀程式資源時提供的值。
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
