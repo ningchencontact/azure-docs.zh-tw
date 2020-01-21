@@ -14,8 +14,10 @@
   items:
     - name: 用戶端程式庫
       items:
-        - name: 使用用戶端程式庫來分析文字
+        - name: 使用 v3.0 分析文字 - 預覽
           href: quickstarts/text-analytics-sdk.md
+        - name: 使用 v2 分析文字
+          href: quickstarts/text-analytics-sdk-v2.md
     - name: REST API
       items:
         - name: 使用 Java
@@ -42,7 +44,7 @@
     - name: 使用 Flask 翻譯文字、分析情緒及合成語音
       maintainContext: true
       href: 'https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis'
-- name: 使用說明指南
+- name: 操作指南
   items:
     - name: 呼叫文字分析 API
       href: How-tos/text-analytics-how-to-call-api.md
@@ -98,7 +100,7 @@
       href: language-support.md
     - name: 具名實體類型
       href: named-entity-types.md
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
     - name: 區域可用性
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
