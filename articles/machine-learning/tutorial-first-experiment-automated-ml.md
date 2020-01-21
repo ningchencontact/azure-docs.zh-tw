@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: c13b2a24147c542e36b78e8ae17af8e85414cd74
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 93cbf8e9e60ef48e1ff3516dd4e9e123f70e0f42
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532471"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982427"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>教學課程：使用自動化機器學習建立第一個分類模型
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -138,9 +138,9 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
         驗證 | 選擇交叉驗證類型與測試次數。|驗證類型：<br>K 折交叉驗證&nbsp;&nbsp; <br> <br> 驗證次數：2
         並行| 已執行的平行反覆運算數目上限和每個反覆運算使用的核心數目上限| 並行反覆運算上限：&nbsp;&nbsp;5<br> 每個反覆運算的核心上限：&nbsp;&nbsp;&nbsp;None
         
-        選取 [確定]  。
+        選取 [儲存]  。
 
-1. 選取 [建立]  以執行實驗。 當實驗準備開始時，[回合詳細資料]  畫面隨即開啟，並顯示 [執行狀態]  。
+1. 選取 [完成]  以執行實驗。 當實驗準備開始時，[回合詳細資料]  畫面隨即開啟，並顯示 [執行狀態]  。
 
 >[!IMPORTANT]
 > 準備實驗執行需要 **10-15 分鐘**的時間。

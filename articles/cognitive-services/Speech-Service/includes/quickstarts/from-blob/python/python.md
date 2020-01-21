@@ -1,32 +1,25 @@
 ---
-title: 快速入門：辨識儲存在 Blob 儲存體中的語音，C# - 語音服務
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 2f06d0015bd80b37407df28045d4ced4a128e47e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.author: dapine
+ms.openlocfilehash: bfecfa1918d2e9199971b2f9738530dc1b4e3c4c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467812"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942797"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 開始之前，請務必：
 
 > [!div class="checklist"]
-> * [建立 Azure 語音資源](../../../../get-started.md)
-> * [將原始程式檔上傳至 Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 > * [設定開發環境](../../../../quickstarts/setup-platform.md)
 > * [建立空的範例專案](../../../../quickstarts/create-project.md)
+> * [建立 Azure 語音資源](../../../../get-started.md)
+> * [將原始程式檔上傳至 Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="download-and-install-the-api-client-library"></a>下載並安裝 API 用戶端程式庫
 
@@ -43,7 +36,8 @@ ms.locfileid: "75467812"
 1. 使用 pip 將解壓縮的 python-client 模組安裝在 Python 環境中：`pip install path/to/package/python-client`。
 1. 安裝的套件名為 `swagger_client`。 您可以使用命令 `python -c "import swagger_client"` 來檢查安裝是否正常運作。
 
-> **注意：** 由於 [Swagger 自動產生的已知錯誤](https://github.com/swagger-api/swagger-codegen/issues/7541) /(英文/)，您可能會在匯入 `swagger_client` 套件時發生錯誤。
+> [!NOTE]
+> 由於 [Swagger 自動產生的已知錯誤](https://github.com/swagger-api/swagger-codegen/issues/7541) /(英文/)，您可能會在匯入 `swagger_client` 套件時發生錯誤。
 > 修正方法是將含有該內容的行
 > ```py
 > from swagger_client.models.model import Model  # noqa: F401,E501
@@ -67,7 +61,8 @@ pip install requests
 我們將新增程式碼，作為專案的基本架構。
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-2,7-34,115-119)]
-(您必須以您自己的值來取代 `YourSubscriptionKey`、`YourServiceRegion` 和 `YourFileUrl` 的值。)
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
 ## <a name="create-and-configure-an-http-client"></a>建立與設定 HTTP 用戶端
 我們需要的第一件事是具有正確基底 URL 和驗證集的 HTTP 用戶端。
