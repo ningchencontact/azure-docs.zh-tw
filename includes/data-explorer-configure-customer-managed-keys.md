@@ -4,17 +4,19 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 01/07/2020
 ms.author: orspodek
-ms.openlocfilehash: 5443ee6912c30b89cee6fdb43f84f3bc1fbcfe68
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0d78e48fead7b1f53e67860e6be8fe6d77469e87
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76020908"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280591"
 ---
 Azure 資料總管會加密待用儲存體帳戶中的所有資料。 根據預設，資料會使用 Microsoft 管理的金鑰進行加密。 若要進一步控制加密金鑰，您可以提供客戶管理的金鑰以用於資料加密。 客戶管理的金鑰必須儲存在[Azure Key Vault](/azure/key-vault/key-vault-overview)中。 您可以建立自己的金鑰，並將其儲存在金鑰保存庫中，或者您可以使用 Azure Key Vault API 來產生金鑰。 Azure 資料總管叢集和金鑰保存庫必須位於相同的區域中，但它們可以位於不同的訂用帳戶中。 如需客戶管理之金鑰的詳細說明，請參閱[客戶管理的金鑰與 Azure Key Vault](/azure/storage/common/storage-service-encryption)。 本文說明如何設定客戶管理的金鑰。
 
-> [!Note]
-> 若要使用 Azure 資料總管來設定客戶管理的金鑰，您必須[在金鑰保存庫上設定兩個屬性](/azure/key-vault/key-vault-ovw-soft-delete)：「虛**刪除**」和「不要**清除**」。 預設不會啟用這些屬性。 若要啟用這些屬性，請使用[PowerShell](/azure/key-vault/key-vault-soft-delete-powershell)或[Azure CLI](/azure/key-vault/key-vault-soft-delete-cli)。 僅支援 RSA 金鑰和金鑰大小2048。
+若要使用 Azure 資料總管來設定客戶管理的金鑰，您必須[在金鑰保存庫上設定兩個屬性](/azure/key-vault/key-vault-ovw-soft-delete)：「虛**刪除**」和「不要**清除**」。 預設不會啟用這些屬性。 若要啟用這些屬性，請使用[PowerShell](/azure/key-vault/key-vault-soft-delete-powershell)或[Azure CLI](/azure/key-vault/key-vault-soft-delete-cli)。 僅支援 RSA 金鑰和金鑰大小2048。
+
+> [!NOTE]
+> [領導人和](/azure/data-explorer/follower)後向叢集不支援使用客戶管理的金鑰進行資料加密。 
 
 ## <a name="assign-an-identity-to-the-cluster"></a>將身分識別指派給叢集
 

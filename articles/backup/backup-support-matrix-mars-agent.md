@@ -3,12 +3,12 @@ title: MARS 代理程式的支援矩陣
 description: 本文摘要說明當您備份執行 Microsoft Azure 復原服務（MARS）代理程式的電腦時的 Azure 備份支援。
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 26f3dde0bb20443753e2b443ffc00ee23c9124c4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 27ad81c42a079485d8eab95bb1250cba41e8fb5b
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893972"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281269"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 復原服務 (MARS) 代理程式進行備份的支援矩陣
 
@@ -41,10 +41,10 @@ Azure 備份使用 MARS 代理程式，將資料從內部部署機器和 Azure V
 
 當您使用 MARS 代理程式來備份資料時，代理程式會取得資料的快照集，並將它儲存在本機快取資料夾中，然後再將資料傳送至 Azure。 快取（臨時）資料夾有數個需求：
 
-**快取** | **詳細資料**
+**Cache** | **詳細資料**
 --- | ---
 大小 |  快取資料夾中的可用空間至少應為備份資料整體大小的5% 到10%。
-Location | 快取資料夾必須存放在要備份的電腦上，而且必須在線上。 快取資料夾不可以在網路共用、卸載式媒體或離線磁片區上。
+位置 | 快取資料夾必須存放在要備份的電腦上，而且必須在線上。 快取資料夾不可以在網路共用、卸載式媒體或離線磁片區上。
 資料夾 | 快取資料夾不應在已重復資料刪除的磁片區上，或在已壓縮、稀疏或具有重新分析點的資料夾中進行加密。
 位置變更 | 您可以藉由停止備份引擎（`net stop bengine`），並將快取資料夾複製到新的磁片磁碟機，來變更快取位置。 （請確認新的磁片磁碟機具有足夠的空間。）然後將**HKLM\SOFTWARE\Microsoft\Windows Azure 備份**（**config/ScratchLocation**和**config/CloudBackupProvider/ScratchLocation**）下的兩個登錄專案更新為新位置，然後重新開機引擎。
 
@@ -104,6 +104,8 @@ Windows Server 2019 (Standard、Datacenter、Essentials) | 是 | 是 | -.NET 4�
 
 ## <a name="backup-limits"></a>備份限制
 
+### <a name="size-limits"></a>大小限制
+
 Azure 備份限制可以備份的檔案或資料夾資料來源的大小。 您從單一磁片區備份的專案不能超過此表中摘要說明的大小：
 
 **作業系統** | **大小限制**
@@ -114,12 +116,16 @@ Windows Server 2008 SP2| 1700 GB
 Windows 8 或更新版本| 54,400 GB
 Windows 7| 1700 GB
 
+### <a name="other-limitations"></a>其他限制
+
+- MARS 不支援以相同名稱對單一保存庫的多部電腦進行保護。
+
 ## <a name="supported-file-types-for-backup"></a>支援的備份檔案類型
 
-**類型** | **支援**
+**型別** | **支援**
 --- | ---
 加密| 支援。
-已壓縮 | 支援。
+Compressed | 支援。
 疏鬆 | 支援。
 已壓縮和疏鬆 |支援。
 永久連結| 不支援。 略.

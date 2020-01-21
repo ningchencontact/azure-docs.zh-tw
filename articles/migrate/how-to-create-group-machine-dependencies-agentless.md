@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: b13ad375adf20a606b48755a6d57851abf89e549
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4bc2e67d276deeea01989ed76be7352ce27abd71
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454663"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280810"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>設定無代理程式相依性視覺效果以進行評量
 
-本文說明如何在 Azure Migrate：伺服器評估中設定無代理程式相依性對應。 這項功能目前可供使用 Azure Migrate 設備探索到的 VMware 機器預覽。 
+本文說明如何在 Azure Migrate：伺服器評估中設定無代理程式相依性對應。 
 
 > [!IMPORTANT]
 > 無代理程式相依性視覺效果目前為使用 Azure Migrate 設備探索到的 Azure VMware Vm 預覽。
@@ -54,17 +54,8 @@ ms.locfileid: "75454663"
 - 無代理程式相依性分析目前僅適用于 VMware 機器。
 - 如果您已經建立專案，請確定您已[新增](how-to-assess.md)Azure Migrate：伺服器評估工具。
 - 請確定您已在 Azure Migrate 中探索到 VMware 電腦;您可以藉由設定適用于[VMware](how-to-set-up-appliance-vmware.md)的 Azure Migrate 設備來完成這項操作。 設備會探索內部部署機器，並將中繼資料和效能資料傳送至 Azure Migrate：伺服器評量。 [深入了解](migrate-appliance.md)。
-- 請確定 VMware Vm 支援無代理程式相依性視覺效果，如下表摘要所示。
+- 檢查設定無代理程式相依性視覺效果[的需求](migrate-support-matrix-vmware.md#agentless-dependency-visualization)。
 
-
-### <a name="supported-operating-systems"></a>支援的作業系統
-
-無代理程式相依性視覺效果的支援作業系統如下所示。
-
-**型別** | **受支援的作業系統**
---- | ---
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 （64位）
-**Linux** | Red Hat Enterprise Linux 7、6、5 <br/> Ubuntu Linux 14.04、16.04 <br/> Debian 7、8 <br/> Oracle Linux 6、7 <br/> CentOS 5、6、7  
 
 
 ## <a name="create-a-user-account-for-discovery"></a>建立用於探索的使用者帳戶

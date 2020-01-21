@@ -3,12 +3,12 @@ title: 使用 Azure Migrate 探索內部部署伺服器上的應用程式、角�
 description: 瞭解如何在具有 Azure Migrate Server 評估的內部部署伺服器上探索應用程式、角色和功能。
 ms.topic: article
 ms.date: 11/20/2019
-ms.openlocfilehash: adc22925d1152639babe2377a1eae440e0ce418e
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 454d70a53c3ea00a4dc592703c0bc04d5517b97f
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029068"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280759"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>探索機器應用程式、角色和功能
 
@@ -17,18 +17,18 @@ ms.locfileid: "76029068"
 探索應用程式的清查，以及在您的內部部署機器上執行的角色/功能，可協助您識別並規劃針對您的工作負載量身打造的 Azure 遷移路徑。
 
 > [!NOTE]
-> 目前僅支援 VMware Vm 的應用程式探索，而且僅限探索。 我們尚未提供以應用程式為基礎的評量。  目前，伺服器評量目前會評估機器層級的內部部署 VMware Vm、Hyper-v Vm 和實體伺服器，以進行隨即轉移。
+> 目前僅支援 VMware Vm 的應用程式探索，而且僅限探索。 我們尚未提供以應用程式為基礎的評量。 適用于內部部署 VMware Vm、Hyper-v Vm 和實體伺服器的機器型評估。
 
 使用 Azure Migrate 進行應用程式探索：伺服器評估是無代理程式。 電腦和 Vm 上都不需要安裝任何內容。 伺服器評估會使用 Azure Migrate 設備，搭配電腦來賓認證來執行探索。 設備會使用 VMware Api 從遠端存取 VMware 機器。
 
 
 ## <a name="before-you-start"></a>開始之前
 
-1. 請參閱應用層級探索的[支援限制](migrate-support-matrix-vmware.md#application-discovery)。
-2. 請確定您已[建立](how-to-add-tool-first-time.md)Azure Migrate 專案。
-3. 如果您已經建立專案，請確定您已[新增](how-to-assess.md)Azure Migrate：伺服器評估工具。
+1. 請確定您已[建立](how-to-add-tool-first-time.md)Azure Migrate 專案。
+2. 請確定您已將 [Azure Migrate：伺服器評估工具][新增](how-to-assess.md)至專案。
 4. 請檢查[vmware 需求](migrate-support-matrix-vmware.md#vmware-requirements)，以使用 Azure Migrate 設備探索和評定 vmware vm。
-4. 檢查部署 Azure Migrate 設備的[需求](migrate-appliance.md)。
+5. 檢查部署 Azure Migrate 設備的[需求](migrate-appliance.md)。
+6. 確認應用程式探索的[支援和需求](/migrate-support-matrix-vmware.md#application-discovery)。
 
 ## <a name="prepare-for-app-discovery"></a>準備應用程式探索
 

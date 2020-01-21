@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 1c721685e12c417116888ccc3cf8d25123761933
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fa8bc56376704b96f5ddee09db7b09e28f10a936
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978633"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281235"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-portal"></a>使用入口網站建立和管理適用於 MySQL 的 Azure 資料庫（預覽）的私人連結
 
@@ -62,7 +62,7 @@ ms.locfileid: "75978633"
     | 虛擬機器名稱 | 輸入 myVm。 |
     | 地區 | 選取 [西歐]。 |
     | 可用性選項 | 保留預設值 [不需要基礎結構備援]。 |
-    | 影像 | 選取 [Windows Server 2019 Datacenter]。 |
+    | 映像 | 選取 [Windows Server 2019 Datacenter]。 |
     | 大小 | 保留預設值 [標準 DS1 v2]。 |
     | **系統管理員帳戶** |  |
     | 使用者名稱 | 輸入您選擇的使用者名稱。 |
@@ -203,14 +203,14 @@ ms.locfileid: "75978633"
 
 1. 在 myVM ** 的遠端桌面中，開啟 PowerShell。
 
-2. 輸入  `nslookup  myServer.mysql.privatelink.database.azure.com`。 
+2. 輸入  `nslookup  myServer.privatelink.mysql.database.azure.com`。 
 
     您將收到如下訊息：
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    myServer.mysql.privatelink.database.azure.com
+    Name:    myServer.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
 
 3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
@@ -220,7 +220,7 @@ ms.locfileid: "75978633"
     | Setting | Value |
     | ------- | ----- |
     | Server type| Select **MySQL**.|
-    | Server name| Select *myServer.mysql.privatelink.database.azure.com* |
+    | Server name| Select *myServer.privatelink.mysql.database.azure.com* |
     | User name | Enter username as username@servername which is provided during the MySQL server creation. |
     |Password |Enter a password provided during the MySQL server creation. |
     |SSL|Select **Required**.|

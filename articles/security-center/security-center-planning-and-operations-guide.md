@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 358895f84b43437a174214eaf75e77574b3f02e8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 239438133dc16630852626c49e8ffda08590976b
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462467"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280997"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure 資訊安全中心規劃和操作指南
 本指南適用于規劃使用 Azure 資訊安全中心的資訊技術（IT）專業人員、IT 架構設計師、資訊安全分析師和雲端系統管理員。
@@ -239,7 +239,7 @@ Azure 資訊安全中心使用 Microsoft Monitoring Agent –這是 Azure 監視
 
 您也可以從這個分頁開始[調查](https://docs.microsoft.com/azure/security-center/security-center-investigation)，以更加了解攻擊的時間軸、攻擊如何發生、哪些系統可能會被入侵、哪些認證會被使用，以及查看整個攻擊鏈的圖形化表示法。
 
-一旦您識別出遭入侵的系統，您可以執行先前建立的安全性[劇本](https://docs.microsoft.com/azure/security-center/security-center-playbooks)。 安全性劇本是程序的集合，一旦特定劇本從選取的警示觸發，則可以從資訊安全中心執行這些程序。
+一旦識別出遭入侵的系統之後，您就可以執行先前建立的[工作流程自動化](workflow-automation.md)。 這些是程式的集合，可以從警示所觸發的資訊安全中心執行。
 
 在[如何利用事件回應影片的 Azure 資訊安全中心 & Microsoft Operations Management Suite](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703)中，您可以看到一些示範，可協助您瞭解如何在每個階段中使用資訊安全中心。
 

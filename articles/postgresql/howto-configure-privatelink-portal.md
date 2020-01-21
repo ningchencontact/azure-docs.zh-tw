@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: dca271e745976f7797d3e911c2f1f6232fe5400d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f7a796408267fda08d765425a3c529895a251782
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75897724"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281099"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-portal"></a>使用入口網站建立和管理適用於 PostgreSQL 的 Azure 資料庫單一伺服器（預覽）的私人連結
 
@@ -62,7 +62,7 @@ ms.locfileid: "75897724"
     | 虛擬機器名稱 | 輸入 myVm。 |
     | 地區 | 選取 [西歐]。 |
     | 可用性選項 | 保留預設值 [不需要基礎結構備援]。 |
-    | 影像 | 選取 [Windows Server 2019 Datacenter]。 |
+    | 映像 | 選取 [Windows Server 2019 Datacenter]。 |
     | 大小 | 保留預設值 [標準 DS1 v2]。 |
     | **系統管理員帳戶** |  |
     | 使用者名稱 | 輸入您選擇的使用者名稱。 |
@@ -163,7 +163,7 @@ ms.locfileid: "75897724"
     | 子網路 | 選取 [mySubnet] ** 。 |
     |**私人 DNS 整合**||
     |與私人 DNS 區域整合 |選取 [是]。 |
-    |私人 DNS 區域 |選取 *[（新增） privatelink* ]。 |
+    |私人 DNS 區域 |選取 *[（新增）] privatelink. postgres. azure .com* |
     |||
 
 1. 選取 [檢閱 + 建立]。 您會移至 [檢閱 + 建立] 頁面，其中 Azure 會驗證您的設定。 
@@ -201,14 +201,14 @@ ms.locfileid: "75897724"
 
 1. 在 myVM ** 的遠端桌面中，開啟 PowerShell。
 
-2. 輸入  `nslookup mydemopostgresserver.database.azure.com`。 
+2. 輸入  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`。 
 
     您將收到如下訊息：
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemopostgresserver.postgres.privatelink.database.azure.com
+    Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
     Address:  10.1.3.4
 
 3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
@@ -218,7 +218,7 @@ ms.locfileid: "75897724"
     | Setting | Value |
     | ------- | ----- |
     | Server type| Select **PostgreSQL**.|
-    | Server name| Select *mydemopostgresserver.postgres.privatelink.database.azure.com* |
+    | Server name| Select *mydemopostgresserver.privatelink.postgres.database.azure.com* |
     | User name | Enter username as username@servername which is provided during the PostgreSQL server creation. |
     |Password |Enter a password provided during the PostgreSQL server creation. |
     |SSL|Select **Required**.|

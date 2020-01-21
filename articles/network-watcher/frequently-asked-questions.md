@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 0eea6700b8b248a87666071ee02572d356110cd0
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 570b8057fc09e3f054152d09467519a167d938e9
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830168"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280776"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>關於 Azure 網路監看員的常見問題（FAQ）
 [Azure 網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)服務提供一套工具，可用來監視、診斷、查看計量，以及啟用或停用 Azure 虛擬網路中的資源記錄。 本文會回答有關此服務的常見問題。
@@ -71,9 +71,9 @@ ms.locfileid: "75830168"
 ### <a name="what-does-nsg-flow-logs-do"></a>NSG 流量記錄有哪些功能？
 您可以透過[網路安全性群組（nsg）](https://docs.microsoft.com/azure/virtual-network/security-overview)結合和管理 Azure 網路資源。 NSG 流量記錄可讓您透過 Nsg 記錄所有流量的5個元組流量資訊。 未經處理的流量記錄會寫入 Azure 儲存體帳戶，讓您可以視需要進一步進行處理、分析、查詢或匯出。
 
-### <a name="how-do-i-use-nsg-flow-logs-on-a-storage-account-with-a-firewall-or-through-a-service-endpoints"></a>如何? 在具有防火牆或透過服務端點的儲存體帳戶上使用 NSG 流量記錄嗎？
+### <a name="how-do-i-use-nsg-flow-logs-on-a-storage-account-with-a-firewall"></a>如何? 在具有防火牆的儲存體帳戶上使用 NSG 流量記錄嗎？
 
-若要使用具有防火牆的儲存體帳戶或透過服務端點，您必須允許受信任的 Microsoft 服務存取您的儲存體帳戶：
+若要使用具有防火牆的儲存體帳戶，您必須為受信任的 Microsoft 服務提供例外狀況，才能存取您的儲存體帳戶：
 
 * 尋找儲存體帳戶的名稱，方法是在 [[NSG 流量記錄] 概觀頁面](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs)上找到 NSG。
 * 在入口網站的全域搜尋中輸入儲存體帳戶的名稱，以瀏覽至儲存體帳戶
@@ -82,6 +82,11 @@ ms.locfileid: "75830168"
 * 如果早已選取，則不需要再變更。  
 
 您可以在幾分鐘後檢查儲存體記錄，屆時應該就會看到已更新的時間戳記或新建立的 JSON 檔案。
+
+### <a name="how-do-i-use-nsg-flow-logs-with-service-endpoints-for-storage"></a>如何? 使用 NSG 流量記錄搭配服務端點來儲存儲存體嗎？
+
+請參閱[啟用服務端點教學](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint)課程。 
+
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>流量記錄版本 1 & 2 之間的差異為何？
 流量記錄第2版引進了*流程狀態*的概念，& 儲存傳輸位元組和封包的相關資訊。 [閱讀更多](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)。

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: ea029e62ac1273d9796e52edc3f7a46868964d2a
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 4603240a76ec72223b88853c63ed11152707201c
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520747"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281286"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure 資訊安全中心整備藍圖
 本文件提供的整備藍圖將協助您開始使用 Azure 資訊安全中心。
@@ -85,7 +85,7 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 
 文章    
 * [使用 Azure 資訊安全中心進行事件回應](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
-* [使用安全性腳本自動進行回應](https://docs.microsoft.com/azure/security-center/security-center-playbooks)
+* [自動化工作流程自動化的回應](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>進階雲端防禦
 
@@ -115,7 +115,7 @@ Azure VM 可以利用資訊安全中心的進階雲端防禦功能。 這些功�
 * [身分識別安全性最佳做法](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 * [網路安全性的最佳做法](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [PaaS 建議](https://docs.microsoft.com/azure/security/security-paas-deployments)
-* [合規性](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
+* [遵循](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
 * [Log analytics 客戶現在可以使用 Azure 資訊安全中心來保護其混合式雲端工作負載](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>社群資源

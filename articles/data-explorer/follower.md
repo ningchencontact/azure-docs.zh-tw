@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 41d48bdd7cc7972536d0cf0e0cb78483f727d7f2
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: eb0b5ea960aa7bc9158791d1fc9fa0986e7d99e6
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277026"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281337"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>使用在 Azure 資料總管中的資料，來連接資料庫
 
@@ -383,6 +383,7 @@ poller = kusto_management_client.clusters.detach_follower_databases(resource_gro
 
 * 「進行中」和「領導者」叢集必須位於相同的區域。
 * [資料流程](/azure/data-explorer/ingest-data-streaming)內嵌無法用於所遵循的資料庫。
+* 在領導者和後向叢集上不支援使用[客戶管理的金鑰](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault)進行資料加密。 
 * 卸離另一個叢集之前，您無法刪除該資料庫。
 * 卸離資料庫之前，您無法刪除已附加至不同叢集的叢集。
 * 您無法停止已連接到或領導者資料庫的叢集。 
