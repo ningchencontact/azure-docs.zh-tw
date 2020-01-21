@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 28705ea8a552f4d2e6653857c69ebb8d5f87b962
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 4a6e33770f93c365d5ccd034803c7c7f247d528a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907122"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028795"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>將實體或虛擬化伺服器遷移至 Azure 
 
@@ -26,7 +26,7 @@ ms.locfileid: "73907122"
 - 遷移在公用雲端中執行的 VM，例如 Amazon Web Services (AWS) 或 Google Cloud Platform (GCP)。
 
 
-[Azure Migrate](migrate-services-overview.md) 提供集中式中樞，可追蹤內部部署應用程式和工作負載以及雲端 VM 執行個體的探索、評量和移轉 (以 Azure 為目標)。 該中樞提供的 Azure Migrate 工具可進行評量和移轉，也提供第三方獨立軟體廠商 (ISV) 的供應項目。
+[Azure Migrate](migrate-services-overview.md) 提供集中式中樞，可追蹤內部部署應用程式和工作負載以及雲端 VM 執行個體的探索、評量和移轉 (以 Azure 為目標)。 該中樞能提供 Azure Migrate 工具以進行評估和移轉，也提供協力廠商獨立軟體廠商 (ISV) 的供應項目。
 
 
 在本教學課程中，您會了解如何：
@@ -46,7 +46,7 @@ ms.locfileid: "73907122"
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始進行本教學課程之前，您必須：
 
@@ -123,19 +123,18 @@ ms.locfileid: "73907122"
 > [!NOTE]
 > 使用 Azure Migrate 伺服器移轉的代理程式型移轉，會以 Azure Site Recovery 服務的功能作為基礎。 某些需求可能會連結至 Site Recovery 文件。
 
-1. [確認](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements)伺服器需求。
-2. [確認](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements)移轉的 VM 支援需求。
-3. 確認 VM 設定。 您複寫到 Azure 的內部部署 VM 必須符合 [Azure VM 需求](migrate-support-matrix-vmware.md#azure-vm-requirements)。
+1. [確認](migrate-support-matrix-physical-migration.md#physical-server-requirements)實體伺服器需求。
+2. 確認 VM 設定。 您複寫到 Azure 的內部部署機器必須符合 [Azure VM 需求](migrate-support-matrix-physical-migration.md#azure-vm-requirements)。
 
 
 ### <a name="prepare-a-machine-for-the-replication-appliance"></a>準備複寫設備的機器
 
 「Azure Migrate 伺服器移轉」會使用複寫設備將機器複寫至 Azure。 複寫設備會執行下列元件。
 
-- **組態伺服器**︰組態伺服器會協調內部部署與 Azure 之間的通訊，以及管理資料複寫。
+- **設定伺服器**：組態伺服器會協調內部部署與 Azure 之間的通訊，以及管理資料複寫。
 - **處理序伺服器**：處理序伺服器可作為複寫閘道。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將其傳送至 Azure 中的快取儲存體帳戶。 
 
-開始之前，您必須準備用來裝載複寫設備的 Windows Server 2016 機器。 此機器應符合[這些需求](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements)。 設備不應該安裝在您想要保護的來源機器上。
+開始之前，您必須準備用來裝載複寫設備的 Windows Server 2016 機器。 此機器應符合[這些需求](migrate-replication-appliance.md)。 設備不應該安裝在您想要保護的來源機器上。
 
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>新增 Azure Migrate 伺服器移轉工具
@@ -159,7 +158,7 @@ ms.locfileid: "73907122"
 
     **地理位置** | **區域**
     --- | ---
-    亞洲 | 東南亞
+    Asia | 東南亞
     歐洲 | 北歐或西歐
     美國 | 美國東部或美國中西部
 
@@ -279,16 +278,16 @@ ms.locfileid: "73907122"
     ![選取 VM](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
 
 
-9. 在 [目標設定]  中，選取訂用帳戶、您的移轉目標區域，並指定 Azure VM 在移轉後所在的資源群組。
+9. 在 [目標設定]  中，選取訂用帳戶、您的遷移目標區域，並指定 Azure VM 在移轉後所在的資源群組。
 10. 在 [虛擬網路]  中，選取 Azure VM 在移轉後所將加入的 Azure VNet/子網路。
 11. 在 [Azure Hybrid Benefit]  中：
 
-    - 如果您不想套用 Azure Hybrid Benefit，請選取 [否]  。 然後按 [下一步]  。
-    - 如果您有 Windows Server 機器涵蓋於有效的軟體保證或 Windows Server 訂用帳戶下，且您想要將權益套用至要移轉的機器，請選取 [是]  。 然後按 [下一步]  。
+    - 如果您不想套用 Azure Hybrid Benefit，請選取 [否]  。 然後按一下 [下一步]  。
+    - 如果您有 Windows Server 機器涵蓋於有效的軟體保證或 Windows Server 訂用帳戶下，且您想要將權益套用至要移轉的機器，請選取 [是]  。 然後按一下 [下一步]  。
 
     ![目標設定](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
-12. 在 [計算]  中，檢閱 VM 名稱、大小、OS 磁碟類型和可用性設定組。 VM 必須符合 [Azure 需求](migrate-support-matrix-vmware.md#azure-vm-requirements)。
+12. 在 [計算]  中，檢閱 VM 名稱、大小、OS 磁碟類型和可用性設定組。 VM 必須符合 [Azure 需求](migrate-support-matrix-physical-migration.md#azure-vm-requirements)。
 
     - **VM 大小**：根據預設，「Azure Migrate 伺服器移轉」會根據 Azure 訂用帳戶中最接近的相符項來選擇大小。 或者，您可以在 [Azure VM 大小]  中手動選擇大小。 
     - **OS 磁碟**：指定 VM 的 OS (開機) 磁碟。 OS 磁碟是具有作業系統開機載入器和安裝程式的磁碟。 
@@ -296,7 +295,7 @@ ms.locfileid: "73907122"
 
     ![計算設定](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-13. 在 [磁碟]  中，指定是否應將 VM 磁碟複寫至 Azure，並選取 Azure 中的磁碟類型 (標準 SSD/HDD 或進階受控磁碟)。 然後按 [下一步]  。
+13. 在 [磁碟]  中，指定是否應將 VM 磁碟複寫至 Azure，並選取 Azure 中的磁碟類型 (標準 SSD/HDD 或進階受控磁碟)。 然後按一下 [下一步]  。
     - 您可以從複寫排除磁碟。
     - 如果您排除磁碟，則在移轉後磁碟將不會出現在 Azure VM 上。 
 

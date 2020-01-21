@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 01/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d578b5d08fecde733bb7b257057e480fef83c4e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ad7065ba6378bcb383e67b4a58d7c195e88679ca
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754422"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890673"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>教學課程：整合 Azure AD 單一登入 (SSO) 與 NetSuite
 
@@ -33,7 +32,7 @@ ms.locfileid: "72754422"
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要開始，您需要下列項目：
 
@@ -71,9 +70,8 @@ NetSuite 支援：
 若要設定及測試與 NetSuite 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
 1. [設定 Azure AD SSO](#configure-azure-ad-sso)，讓您的使用者能夠使用此功能。
-
-    a. [建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)，以 B.Simon 使用者測試 Azure AD 單一登入。  
-    b. [指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)，讓 B.Simon 使用者能夠使用 Azure AD 單一登入。
+    * [建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)，以 B.Simon 使用者測試 Azure AD 單一登入。  
+    * [指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)，讓 B.Simon 使用者能夠使用 Azure AD 單一登入。
 1. [設定 NetSuite SSO](#configure-netsuite-sso) - 在應用程式端設定單一登入設定。
     * [建立 NetSuite 測試使用者](#create-the-netsuite-test-user) - 讓 NetSuite 中對應的 B.Simon 使用者連結到該使用者在 Azure AD 中的代表項目。
 1. [測試 SSO](#test-sso)，以驗證組態是否能運作。
@@ -90,52 +88,32 @@ NetSuite 支援：
 
 1. 在 [基本 SAML 組態]  區段的 [回覆 URL]  文字方塊中，以下列其中一種格式輸入 URL：
 
-    ```
-    https://<tenant-name>.NetSuite.com/saml2/acs
-    https://<tenant-name>.na1.NetSuite.com/saml2/acs
-    https://<tenant-name>.na2.NetSuite.com/saml2/acs
-    https://<tenant-name>.sandbox.NetSuite.com/saml2/acs
-    https://<tenant-name>.na1.sandbox.NetSuite.com/saml2/acs
-    https://<tenant-name>.na2.sandbox.NetSuite.com/saml2/acs
-    ```
+    ||
+    |-|
+    | `https://<Account ID>.NetSuite.com/saml2/acs`|
+    | `https://<Account ID>.na1.NetSuite.com/saml2/acs`|
+    | `https://<Account ID>.na2.NetSuite.com/saml2/acs`|
+    | `https://<Account ID>.sandbox.NetSuite.com/saml2/acs`|
+    | `https://<Account ID>.na1.sandbox.NetSuite.com/saml2/acs`|
+    | `https://<Account ID>.na2.sandbox.NetSuite.com/saml2/acs`|
 
     > [!NOTE]
     > 上述 URL 中的值不是真實的值。 請使用實際的 [回覆 URL] 來更新這些值。 請連絡 [NetSuite 客戶支援小組](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml)以取得此值。 您也可以參考 Azure 入口網站中 [基本 SAML 組態]  區段所示的格式。
 
-    NetSuite 應用程式需要以特定格式顯示 SAML 判斷提示。 您必須將自訂屬性對應新增至 SAML 權杖屬性組態。 
-    
-1. 若要開啟 [使用者屬性]  窗格，請選取 [編輯]  圖示 (鉛筆)。 此窗格會顯示預設屬性清單，如下圖所示： 
+1. NetSuite 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應加入 SAML 權杖屬性設定中。 以下螢幕擷取畫面顯示預設屬性清單。
 
-    ![[使用者屬性] 窗格](common/edit-attribute.png)
+    ![image](common/default-attributes.png)
 
-    除了這些屬性外，NetSuite 應用程式還需要在 SAML 回應中傳回更多屬性。 
+1. 除了上述屬性外，NetSuite 應用程式還需要在 SAML 回應中多傳回幾個屬性，如下所示。 這些屬性也會預先填入，但您可以根據您的需求來檢閱這些屬性。
 
-1. 在 [使用者屬性]  窗格的 [使用者宣告]  底下，執行下列步驟來新增 SAML 權杖屬性，如下表所示：
-
-    | 名稱 | 來源屬性 | 
+    | 名稱 | 來源屬性 |
     | ---------------| --------------- |
-    | 帳戶  | `account id` |
+    | account  | `account id` |
 
-    a. 選取 [新增宣告]  以開啟 [管理使用者宣告]  窗格。
+    > [!NOTE]
+    > 帳戶屬性值不是真實的值。 您將會更新此值，稍後會在本教學課程中說明。
 
-    b. 在 [名稱]  方塊中，輸入該資料列所顯示的屬性名稱。
-
-    c. 讓 [命名空間]  方塊保持空白。
-
-    d. 在 [來源]  下拉式清單中選取 [屬性]  。
-
-    e. 在 [來源屬性]  清單中，輸入該資料列所顯示的屬性值。
-
-    f. 選取 [確定]  。
-
-    g. 選取 [儲存]  。
-
-    >[!NOTE]
-    >帳戶屬性值不是真實的值。 您將會更新此值，稍後會在本教學課程中說明。
-
-1. 在 [以 SAML 設定單一登入]  窗格上的 [SAML 簽署憑證]  區段中，尋找**同盟中繼資料 XML**。
-
-1. 選取 [下載]  以下載憑證，並將其儲存在您的電腦上。
+1. 在 [以 SAML 設定單一登入] 頁面上的 [SAML 簽署憑證] 區段中，尋找 [同盟中繼資料 XML]，然後選取 [下載]，以下載憑證並將其儲存在電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
@@ -275,7 +253,7 @@ NetSuite 支援：
 
 本節會在 NetSuite 中建立名為 B.Simon 的使用者。 NetSuite 支援依預設啟用的 Just-In-Time 使用者佈建。 這一節沒有您需要進行的動作項目。 如果 NetSuite 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
-## <a name="test-sso"></a>測試 SSO 
+## <a name="test-sso"></a>測試 SSO
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入組態。
 
@@ -287,4 +265,3 @@ NetSuite 支援：
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [嘗試搭配 Azure AD 使用 NetSuite](https://aad.portal.azure.com/)
-

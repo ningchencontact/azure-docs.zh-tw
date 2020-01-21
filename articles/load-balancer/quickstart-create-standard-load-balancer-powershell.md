@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: b387df5049fff2cb17e8d0758f1cf5fd8f0d0853
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 21488fbc8a5a9354db74d5b93719d100bce8878c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049098"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045661"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 來建立 Standard Load Balancer
 
@@ -105,7 +105,7 @@ $rule = New-AzLoadBalancerRuleConfig `
 
 ### <a name="create-the-nat-rules"></a>建立 NAT 規則
 
-使用 [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) 建立 NAT 規則。 下列範例會建立名為 myLoadBalancerRDP1  和 myLoadBalancerRDP2  的 NAT 規則，以允許透過 4221 和 4222 連接埠與後端伺服器進行 RDP 連線：
+使用 [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) 建立 NAT 規則。 下列範例會建立名為 myLoadBalancerRDP1  和 myLoadBalancerRDP2  的 NAT 規則，以允許透過 4221 和 4222 連接埠與後端伺服器進行 RDP 連線：
 
 ```azurepowershell
 $natrule1 = New-AzLoadBalancerInboundNatRuleConfig `

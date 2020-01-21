@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 043a21aec5753dd16f558ad29d2300ada7a35d72
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 50c5067c3db2f07da225b72d9ba0a8f0bdc44368
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431764"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748133"
 ---
 # <a name="azure-storage-samples-using-net"></a>使用 .NET 的 Azure 儲存體範例
 
@@ -21,7 +21,7 @@ ms.locfileid: "75431764"
 > [!NOTE]
 > 這些範例會使用 Azure 儲存體 .NET v11 程式庫。 如需 v12 程式碼，請參閱 GitHub 存放庫中的[範例](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)。
 
-## <a name="blob-samples"></a>Blob 範例
+## <a name="blob-samples-v11"></a>Blob 範例 (v11)
 
 | **案例** | **範例程式碼** |
 |--------------|-----------------|
@@ -42,7 +42,7 @@ ms.locfileid: "75431764"
 | 服務屬性 | [開始使用 Blob](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) |
 | 快照 Blob | [使用增量快照備份 Azure 虛擬機器磁碟](https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs) |
 
-## <a name="file-samples"></a>檔案範例
+## <a name="file-samples-v11"></a>檔案範例 (v11)
 
 | **案例** | **範例程式碼** |
 |--------------|-----------------|
@@ -56,7 +56,7 @@ ms.locfileid: "75431764"
 | 列出共用 | [Azure 儲存體 .NET 檔案儲存體範例](https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs) |
 | 共用屬性/中繼資料/統計資料 | [Azure 儲存體 .NET 檔案儲存體範例](https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs) |
 
-## <a name="queue-samples"></a>佇列範例
+## <a name="queue-samples-v11"></a>佇列範例 (v11)
 
 | **案例** | **範例程式碼** |
 |--------------|-----------------|
@@ -69,7 +69,7 @@ ms.locfileid: "75431764"
 | 佇列服務屬性 | [Getting Started with Azure Queue Service in .NET (開始使用 .NET 中的 Azure 佇列服務)](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs) |
 | 更新訊息 | [Getting Started with Azure Queue Service in .NET (開始使用 .NET 中的 Azure 佇列服務)](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs) |
 
-## <a name="table-samples"></a>資料表範例
+## <a name="table-samples-v11"></a>資料表範例 (v11)
 
 | **案例** | **範例程式碼** |
 |--------------|-----------------|

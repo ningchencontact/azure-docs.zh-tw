@@ -4,12 +4,12 @@ description: 了解如何建立在自訂 Linux 映像上執行的 Azure Function
 ms.date: 09/27/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 5a7fbecca2dc7585ff7110d53deccbbbbf23087c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e70edac09c8b2d61c148c9ba0fd04ec231e9a965
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551483"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769314"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>在 Linux 上使用自訂映像建立函式
 
@@ -17,7 +17,7 @@ Azure Functions 可讓您在 Linux 的自訂容器中裝載函式。 您也可�
 
 在本教學課程中，您將了解如何以自訂 Docker 映像的形式將函式部署到 Azure。 當您需要自訂內建容器映像時，此模式相當有用。 當您的函式需要特定的語言版本，或需要內建映像未提供的特定相依性或設定時，您可能會想使用自訂映像。 在 [Azure Functions 基底映像存放庫](https://hub.docker.com/_/microsoft-azure-functions-base)中可找到針對 Azure Functions 支援的基底映像。 
 
-本教學課程會引導您使用 Azure Functions Core Tools 在自訂 Linux 映像中建立建立函式。 您會將此映像發佈到 Azure 中使用 Azure CLI 建立的函式應用程式。 稍後，您會更新此函式以連線到 Azure 佇列儲存體。 您也會啟用。  
+本教學課程會引導您使用 Azure Functions Core Tools 在自訂 Linux 映像中建立建立函式。 您會將此映像發佈到 Azure 中使用 Azure CLI 建立的函式應用程式。 稍後，您會更新此函式以連線到 Azure 佇列儲存體。
 
 在本教學課程中，您會了解如何：
 
@@ -118,7 +118,7 @@ docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 
 ## <a name="push-to-docker-hub"></a>推送至 Docker Hub
 
-登錄是裝載映像並提供服務映像和容器服務的應用程式。 您必須將映像推送到登錄，才能共用您的映像。 Docker Hub 是 Docker 映像的登錄，可讓您裝載自己的公用或私人存放庫。
+登錄是裝載映像並提供映像和容器服務的應用程式。 您必須將映像推送到登錄，才能共用您的映像。 Docker Hub 是 Docker 映像的登錄，可讓您裝載自己的公用或私人存放庫。
 
 推送映像之前，必須先使用 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令登入 Docker Hub。 在命令提示字元中，以您的帳戶名稱取代 `<docker-id>`，並於主控台輸入您的密碼。 如需其他 Docker Hub 密碼選項，請參閱 [docker login 命令文件](https://docs.docker.com/engine/reference/commandline/login/) \(英文\)。
 
@@ -140,7 +140,7 @@ docker push <docker-id>/mydockerimage:v1.0.0
 
 ## <a name="create-a-premium-plan"></a>建立進階方案
 
-針對[專用 (App Service) 方案](functions-scale.md#app-service-plan)和[進階方案](functions-premium-plan.md#features)上支援的自訂 Functions 容器進行 Linux 主控。 本教學課程使用可視需要進行調整的進階方案。 若要深入了解裝載，請參閱 [Azure Functions 裝載方案比較](functions-scale.md)。
+[專用 (App Service) 方案](functions-scale.md#app-service-plan)和[進階方案](functions-premium-plan.md#features)支援自訂 Functions 容器的 Linux 裝載。 本教學課程使用可視需要進行調整的進階方案。 若要深入了解裝載，請參閱 [Azure Functions 裝載方案比較](functions-scale.md)。
 
 下列範例會在 [彈性進階 1]  定價層 (`--sku EP1`)、在美國西部區域 (`-location WestUS`)，以及在 Linux 容器 (`--is-linux`) 中建立名為 `myPremiumPlan` 的進階方案。
 
@@ -346,13 +346,13 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 在根資料夾中，再次執行 [docker build](https://docs.docker.com/engine/reference/commandline/build/) \(英文\) 命令，這次會將標記中的版本更新為 `v1.0.2`。 和之前一樣，以您的 Docker Hub 帳戶識別碼取代 `<docker-id>`。 
 
 ```bash
-docker build --tag <docker-id>/mydockerimage:v1.0.0 .
+docker build --tag <docker-id>/mydockerimage:v1.0.2
 ```
 
 將更新的映像推送回存放庫。
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0
+docker push <docker-id>/mydockerimage:v1.0.2
 ```
 
 ### <a name="verify-the-updates-in-azure"></a>確認 Azure 中的更新

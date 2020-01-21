@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: 20174a4eafb4e72fb62eeff6df2d129b91016b9e
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: bf07a165b6ea933719eb06b6625a91033030a120
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383017"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895492"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>教學課程：部署 Azure Digital Twins 預覽版及設定空間圖形
 
@@ -36,7 +36,7 @@ ms.locfileid: "74383017"
 
 這些教學課程會使用並修改[尋找可用會議室快速入門](quickstart-view-occupancy-dotnet.md)所用的相同範例，以涵蓋更詳細且深入的概念。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 訂用帳戶。 如果您沒有 Azure 帳戶，請建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -102,7 +102,7 @@ Digital Twins 會使用 [Azure Active Directory](../active-directory/fundamental
    * **Tenant**：輸入 [Azure AD 租用戶](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)的目錄識別碼。 您也在[設定應用程式權限](#grant-permissions-to-your-app)的章節中記下了這個識別碼。
    * **BaseUrl**：輸入您的 Digital Twins 執行個體 URL。 若要取得此 URL，以您執行個體的值取代此 URL 中的預留位置：`https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`。 您也可以從[部署區段](#deploy-digital-twins)修改「管理 API URL」，藉此來取得此 URL。 將 **swagger/** 取代為 **api/v1.0/** 。
 
-1. 查看您可以使用此範例來探索的 Digital Twins 功能清單。 執行以下命令：
+1. 檢閱您可以使用此範例來探索的 Digital Twins 功能清單。 執行以下命令：
 
     ```cmd/sh
     dotnet run
@@ -129,7 +129,6 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
     return results;
 }
-
 ```
 
 此函式會使用相同資料夾中的 [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml)。 開啟此檔案，並記下辦公大樓的階層：Venue  、Floor  、Area  和 Rooms  。 上述任何實體空間均可包含「裝置」  和「感應器」  。 每個項目都有預先定義的 `type`&mdash;例如，Floor、Room。
@@ -150,7 +149,7 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 - **devices**：空間可以包含 `devices`，這是可管理許多感應器的實體或虛擬實體。 例如，裝置可能是使用者的電話、Raspberry Pi 感應器 Pod 或閘道。 在您範例的虛構建築物中，請注意名為「聚焦會議室」(Focus Room)  且包含 Raspberry Pi 3 A1  裝置的會議室。 每個裝置節點都是以唯一的 `hardwareId` 識別，這已在範例中硬式編碼。 若要針對實際生產環境設定這個範例，請以您設定中的值取代這些值。  
 
-- **sensors**:裝置可以包含多個 `sensors`。 其可偵測並記錄實體變更，例如溫度、移動和電力。 每個感應器節點都是以 `hardwareId` 唯一識別 (已在此硬式編碼)。 對於實際應用程式，請使用設定中感應器的唯一識別碼來取代這些值。 provisionSample.yaml 檔案有兩個感應器可記錄 Motion  和 CarbonDioxide  。 在 CarbonDioxide 感應器的程式碼行下面新增下列幾行，以新增另一個感應器來記錄 Temperature  。 請注意，在 provisionSample.yaml 中，這幾行已註解化。 您可以藉由移除每一行前面的 `#` 字元來將該行取消註解。 
+- **sensors**:裝置可以包含多個 `sensors`。 其可偵測並記錄實體變更，例如溫度、移動和電力。 每個感應器節點都是以 `hardwareId` 唯一識別 (已在此硬式編碼)。 對於實際應用程式，請使用設定中感應器的唯一識別碼來取代這些值。 provisionSample.yaml 檔案有兩個感應器可記錄 Motion  和 CarbonDioxide  。 在 CarbonDioxide 感應器的程式碼行下面新增下列幾行，以新增另一個感應器來記錄 Temperature  。 在 provisionSample.yaml 中，這幾行已註解化。 您可以藉由移除每一行前面的 `#` 字元來將該行取消註解。 
 
     ```yaml
             - dataType: Temperature
@@ -162,7 +161,7 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 儲存並關閉 provisionSample.yaml 檔案。 在下一個教學課程中，您會在此檔案中新增更多資訊，然後佈建 Azure Digital Twins 範例建築物。
 
 > [!TIP]
-> 您可以使用 [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer)來檢視和修改空間圖。
+> 您可以使用 [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer) 檢視和修改空間圖形。
 
 ## <a name="clean-up-resources"></a>清除資源
 

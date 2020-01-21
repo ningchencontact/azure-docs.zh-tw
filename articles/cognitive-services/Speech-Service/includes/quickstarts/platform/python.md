@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 37b0deba6531c8e714b8786f8c815cf323c310ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 218d0dca43d126c1318c273603a4980697c465af
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468377"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751916"
 ---
 本指南說明如何安裝適用於 Python 的[語音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)。
 
@@ -47,7 +47,7 @@ ms.locfileid: "75468377"
         ```
 
 - 在 Windows 上，您需根據平台來選擇[適用於 Visual Studio 2019 的 Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)。 請注意，第一次安裝時，可能需要重新啟動 Windows，再繼續進行本指南。
-- 最後，您將需要 [Python 3.5 或更新版本](https://www.python.org/downloads/)。 若要檢查您的安裝，請開啟命令提示字元，然後輸入命令 `python --version` 並檢查結果。 如果已正確安裝，您會收到「Python 3.5.1」或類似的回應。
+- 最後，您將需要 [Python 3.5、3.6 或 3.7](https://www.python.org/downloads/)。 若要檢查您的安裝，請開啟命令提示字元，然後輸入命令 `python --version` 並檢查結果。 如果已正確安裝，您會收到「Python 3.5.1」或類似的回應。
 
 ## <a name="install-the-speech-sdk-using-visual-studio-code"></a>使用 Visual Studio Code 安裝語音 SDK
 

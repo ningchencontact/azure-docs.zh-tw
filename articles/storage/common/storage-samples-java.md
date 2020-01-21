@@ -7,18 +7,21 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 2d08180d40233c0ab990bc700f0412d11647d5f1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dfdde1ae981dcd2d539dec3667e44e90cef4d1c8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349962"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748038"
 ---
 # <a name="azure-storage-samples-using-java"></a>使用 Java 的 Azure 儲存體範例
 
 下表提供我們的範例儲存機制和每個範例所涵蓋案例的概觀。 按一下連結即可檢視 GitHub 中對應的範例程式碼。
 
-## <a name="blob-samples"></a>Blob 範例
+> [!NOTE]
+> 這些範例會使用 Azure 儲存體 Java v11 程式庫。 如需 v12 程式碼，請參閱 GitHub 存放庫中的[範例](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)。
+
+## <a name="blob-samples-v11"></a>Blob 範例 (v11)
 
 | **案例** | **範例程式碼** |
 |--------------|-----------------|
@@ -39,7 +42,7 @@ ms.locfileid: "71349962"
 | 服務屬性 | [開始使用 Java 中的 Azure Blob 服務](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java) |
 | 快照 Blob | [開始使用 Java 中的 Azure Blob 服務](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
 
-## <a name="file-samples"></a>檔案範例
+## <a name="file-samples-v11"></a>檔案範例 (v11)
 
 | **案例** | **範例程式碼** |
 |--------------|-----------------|
@@ -53,7 +56,7 @@ ms.locfileid: "71349962"
 | 列出共用 | [開始使用 Java 中的 Azure 檔案服務](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java) |
 | 共用屬性/中繼資料/統計資料 | [開始使用 Java 中的 Azure 檔案服務](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java) |
 
-## <a name="queue-samples"></a>佇列範例
+## <a name="queue-samples-v11"></a>佇列範例 (v11)
 
 | **案例** | **範例程式碼** |
 |--------------|-----------------|
@@ -66,7 +69,7 @@ ms.locfileid: "71349962"
 | 佇列服務屬性 | [開始使用 Java 中的 Azure 佇列服務](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java) |
 | 更新訊息 | [開始使用 Java 中的 Azure 佇列服務](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java)
 |
-## <a name="table-samples"></a>資料表範例
+## <a name="table-samples-v11"></a>資料表範例 (v11)
 
 | **案例** | **範例程式碼** |
 |--------------|-----------------|
@@ -79,13 +82,13 @@ ms.locfileid: "71349962"
 | 更新實體 | [開始使用 Java 中的 Azure 表格服務](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java) |
 ## <a name="azure-code-samples-library"></a>Azure 程式碼範例程式庫
 
-若要檢視完整的範例程式庫，請移至 [Azure 程式碼範例](https://azure.microsoft.com/resources/samples/?service=storage)程式庫，其中包含您可以下載並在本機執行的「Azure 儲存體」範例。 程式碼範例程式庫會提供 .zip 格式的範例程式碼。 或者，您可以瀏覽並複製每個範例的 GitHub 儲存機制。
+若要檢視完整的範例程式庫，請移至 [Azure 程式碼範例](https://azure.microsoft.com/resources/samples/?service=storage)程式庫，其中包含您可以下載並在本機執行的「Azure 儲存體」範例。 程式碼範例程式庫會提供 .zip 格式的範例程式碼。 或者，您可以瀏覽並複製每個範例的 GitHub 存放庫。
 
 [!INCLUDE [storage-java-samples-include](../../../includes/storage-java-samples-include.md)]
 
 ## <a name="getting-started-guides"></a>入門指南
 
-如果您要尋找有關如何安裝和開始使用 Azure 儲存體用戶端程式庫的指示，請查看下列指南。
+如果您要尋找有關如何安裝和開始使用「Azure 儲存體用戶端程式庫」的指示，請查看下列指南。
 
 * [開始使用 Java 中的 Azure Blob 服務](../blobs/storage-quickstart-blobs-java.md)
 * [開始使用 Java 中的 Azure 佇列服務](../queues/storage-java-how-to-use-queue-storage.md)

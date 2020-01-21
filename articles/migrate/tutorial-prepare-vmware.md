@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 34bc62a9cb7e5d1358322500a8929b6f8b36d422
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4dec76140f61c433561ccfea07b833d9821acfc5
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454560"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028901"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>準備 VMware VM 以進行評量並移轉至 Azure
 
@@ -104,8 +104,9 @@ ms.locfileid: "75454560"
 
 ### <a name="verify-vmware-settings"></a>確認 VMware 設定
 
-1. [確認](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements)用於評量的 VMware 伺服器需求。
-2. [確認](migrate-support-matrix-vmware.md#assessment-port-requirements) vCenter 伺服器上已開啟您需要的連接埠。
+1. [確認](migrate-support-matrix-vmware.md#vmware-requirements)用於評量的 VMware 伺服器需求。
+2. [確認](migrate-support-matrix-vmware.md#port-access) vCenter 伺服器上已開啟您需要的連接埠。
+3. 在 vCenter Server 上，確定您的帳戶有權使用 OVA 檔案建立 VM。 您可以使用 OVA 檔案，將 Azure Migrate 設備部署為 VMware VM。
 
 
 ### <a name="set-up-an-account-for-assessment"></a>設定用於評量的帳戶
@@ -120,15 +121,12 @@ Azure Migrate 需要存取 vCenter Server，才能探索用於評估和無代理
 
 ### <a name="verify-appliance-settings-for-assessment"></a>確認用於評量的設備設定
 
-在部署設備之前，請先檢查設備需求。
+在下一個教學課程中設定 Azure Migrate 設備並開始進行評量之前，請先準備設備部署。
 
-1. [確認](migrate-support-matrix-vmware.md#assessment-appliance-requirements)設備需求與限制。
-2. 如果您使用以 URL 為基礎的防火牆 Proxy，[請檢閱](migrate-support-matrix-vmware.md#assessment-url-access-requirements)設備需要存取的 Azure URL。 請確定 Proxy 會解析在查詢 URL 時所收到的任何 CNAME 記錄。
-3. 請檢閱設備在探索和評量期間收集的[效能資料](migrate-appliance.md#collected-performance-data-vmware)和[中繼資料](migrate-appliance.md#collected-metadata-vmware)。
-4. [請注意](migrate-support-matrix-vmware.md#assessment-port-requirements)設備所存取的連接埠。
-5. 在 vCenter Server 上，確定您的帳戶有權使用 OVA 檔案建立 VM。 您可以使用 OVA 檔案，將 Azure Migrate 設備部署為 VMware VM。
-
-如果您使用以 URL 為基礎的 firewall.proxy，請允許必要 [Azure URL](migrate-support-matrix-vmware.md#assessment-url-access-requirements) 的存取權。
+1. [確認](migrate-appliance.md#appliance---vmware) VMware VM 的設備需求。
+2. [檢閱](migrate-appliance.md#url-access)設備需要存取的 Azure URL。 如果您使用以 URL 為基礎的防火牆或 Proxy，請務必允許必要 URL 的存取。
+3. [檢閱](migrate-appliance.md#collected-data---vmware)設備將在探索和評量期間收集的資料。
+4. [注意](migrate-support-matrix-vmware.md#port-access)設備的連接埠存取需求。
 
 
 
@@ -137,23 +135,22 @@ Azure Migrate 需要存取 vCenter Server，才能探索用於評估和無代理
 
 請檢閱 VMware VM 無代理程式移轉的需求。
 
-1. [檢閱](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) VMware 伺服器需求。
-2. 設定具有[必要權限](migrate-support-matrix-vmware.md#agentless-migration-vcenter-server-permissions)的帳戶，讓 Azure Migrate 可存取 vCenter Server 並使用 Azure Migrate 伺服器移轉進行無代理程式移轉。
-3. [檢閱](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)透過無代理程式移轉將 VMware VM 遷移至 Azure 的需求。
-4. [檢閱](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements)透過 Azure Migrate 設備進行無代理程式移轉的需求。
-5. 請注意 [URL 存取權](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements)和[連接埠存取權](migrate-support-matrix-vmware.md#agentless-migration-port-requirements)，Azure Migrate 設備需要這些權限進行無代理程式移轉。
+1. [檢閱](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) VMware 伺服器需求，以及讓 Azure Migrate 可存取 vCenter Server 並使用 Azure Migrate 伺服器移轉進行無代理程式移轉的[權限](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers)。
+2. [檢閱](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms)透過無代理程式移轉將 VMware VM 遷移至 Azure 的需求。
+4. [檢閱](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance)透過 Azure Migrate 設備進行無代理程式移轉的需求。
+5. 請注意無代理程式移轉所需的 [URL 存取](migrate-appliance.md#url-access)和[連接埠存取](migrate-support-matrix-vmware-migration.md#agentless-ports)。
 
 
 ## <a name="prepare-for-agent-based-vmware-migration"></a>準備代理程式型 VMware 移轉
 
 請檢閱 VMware VM 進行[代理程式型移轉](server-migrate-overview.md)時的需求。
 
-1. [檢閱](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) VMware 伺服器需求。
-2. 設定具有[必要權限](migrate-support-matrix-vmware.md#agent-based-migration-vcenter-server-permissions)的帳戶。 讓 Azure Migrate 可存取 vCenter Server 並使用 Azure Migrate 伺服器移轉進行代理程式型移轉。
-3. [檢閱](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements)透過代理程式型移轉將 VMware VM 遷移至 Azure 時的需求，包括在每個要遷移的 VM 上安裝行動服務。
-4. 注意 [URL 存取](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements)。
-5. 檢閱 Azure Migrate 元件進行代理程式型存取所需的[連接埠存取權](migrate-support-matrix-vmware.md#agent-based-migration-port-requirements)。
-
+1. [檢閱](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) VMware 伺服器需求，以及讓 Azure Migrate 可存取 vCenter Server 並使用 Azure Migrate 伺服器移轉進行代理程式型移轉的權限。
+2. [檢閱](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms)透過代理程式型移轉將 VMware VM 遷移至 Azure 時的需求，包括在每個要遷移的 VM 上安裝行動服務。
+3. 代理程式型移轉會使用複寫設備：
+    - [檢閱](migrate-replication-appliance.md#appliance-requirements)複寫設備的部署需求，以及在設備上安裝 MySQL 的[選項](migrate-replication-appliance.md#mysql-installation)。
+    - 檢閱複寫設備的 [URL](migrate-replication-appliance.md#url-access) 和[連接埠](migrate-replication-appliance.md#port-access)存取需求。
+    
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您：

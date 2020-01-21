@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 2cba4e8223e98f95fc8d0f0472c10b2f9b67a658
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 1a9801fc0d8a2a013fa737c9d53138dc7d52b398
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670726"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768450"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>在 Azure App Service 中新增 SSL 憑證
 
@@ -21,15 +21,15 @@ ms.locfileid: "74670726"
 
 下表列出您在 App Service 中所擁有可新增憑證的選項：
 
-|選項|說明|
+|選項|描述|
 |-|-|
-| 建立免費 App Service 受控憑證 (預覽) | 如果您只需要保護`www`[自訂網域](app-service-web-tutorial-custom-domain.md)或 App Service 中的任何非裸網域時，此為您可輕鬆使用的私人憑證。 |
+| 建立免費 App Service 受控憑證 (預覽) | 如果您只需要保護 `www` [自訂網域](app-service-web-tutorial-custom-domain.md)或 App Service 中的任何非裸網域時，此為您可輕鬆使用的私人憑證。 |
 | 購買 App Service 憑證 | 此為由 Azure 管理的私人憑證。 它具有自動化憑證管理的簡易性，並兼具更新和匯出選項的彈性。 |
 | 從金鑰保存庫匯入憑證 | 如果您使用 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) 管理您的 [PKCS12 憑證](https://wikipedia.org/wiki/PKCS_12)，這會很有用。 請參閱[私人憑證需求](#private-certificate-requirements)。 |
 | 上傳私人憑證 | 如果您已經有協力廠商提供者的私人憑證，您可以將該憑證上傳。 請參閱[私人憑證需求](#private-certificate-requirements)。 |
 | 上傳公開憑證 | 公開憑證無法用來保護自訂網域，但如果您需要公開憑證來存取遠端資源，則可將公開憑證載入程式碼中。 |
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要遵循本操作說明指南：
 
@@ -109,12 +109,12 @@ ms.locfileid: "74670726"
 
 使用下表來協助您設定憑證。 完成後，按一下 [建立]  。
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 |-|-|
 | 名稱 | App Service 憑證的易記名稱。 |
 | 裸網域主機名稱 | 在此處指定根網域。 根網域和 `www` 子網域*皆*受到發行憑證的保護。 在發行的憑證中，[一般名稱] 欄位包含根網域，[主體別名] 欄位則包含 `www` 網域。 若只要保護所有子網域，請在這裡指定子網域的完整網域名稱 (例如 `mysubdomain.contoso.com`)。|
-| 訂用帳戶 | 裝載 Web 應用程式的資料中心。 |
-| 資源群組 | 包含憑證的資源群組。 您可以使用新的資源群組，或為您的 App Service 應用程式選取相同的資源群組。 |
+| 訂用帳戶 | 會包含憑證的訂用帳戶。 |
+| 資源群組 | 會包含憑證的資源群組。 您可以使用新的資源群組，或為您的 App Service 應用程式選取相同的資源群組。 |
 | 憑證 SKU | 決定要建立的憑證類型：標準憑證或[萬用字元憑證](https://wikipedia.org/wiki/Wildcard_certificate)。 |
 | 法律條款 | 按一下以確認您同意法律條款。 憑證是從 GoDaddy 取得的。 |
 
@@ -128,18 +128,18 @@ ms.locfileid: "74670726"
 
 [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) 是一項 Azure 服務，可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。 這是 App Service 憑證的儲存體選擇。
 
-在 [Key Vault 狀態]  頁面中，按一下 [Key Vault 存放庫]  來建立新的保存庫或選擇現有的保存庫。 如果您選擇建立新的保存庫，請使用下表來協助您設定保存庫並按一下 [建立]。 了解如何在相同訂用帳戶和資源群組中建立新的 Key Vault。
+在 [Key Vault 狀態]  頁面中，按一下 [Key Vault 存放庫]  來建立新的保存庫或選擇現有的保存庫。 如果您選擇建立新的保存庫，請使用下表來協助您設定保存庫並按一下 [建立]。 在與 App Service 應用程式相同的訂用帳戶和資源群組內建立新的 Key Vault。
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 |-|-|
 | 名稱 | 包含英數字元和虛線的唯一名稱。 |
 | 資源群組 | 建議選取相同的資源群組作為您的 App Service 憑證。 |
-| 位置 | 選取與 App Service 應用程式相同的位置。 |
+| Location | 選取與 App Service 應用程式相同的位置。 |
 | 定價層 | 如需詳細資訊，請參閱 [Azure Key Vault 定價詳細資料](https://azure.microsoft.com/pricing/details/key-vault/)。 |
 | 存取原則| 定義應用程式以及允許的保存庫資源存取權。 您可以稍後設定它，並遵循[將金鑰保存庫的存取權授與數個應用程式](../key-vault/key-vault-group-permissions-for-apps.md)中的步驟。 |
 | 虛擬網路存取 | 限制某些 Azure 虛擬網路的保存庫存取權。 您可以稍後設定它，並遵循[設定 Azure Key Vault 防火牆和虛擬網路](../key-vault/key-vault-network-security.md)中的步驟。 |
 
-選取保存庫之後，關閉 [Key Vault 存放庫]  頁面。 [存放區]  選項應顯示綠色核取記號，表示成功。 讓頁面保持開啟，以供下一個步驟使用。
+選取保存庫之後，關閉 [Key Vault 存放庫]  頁面。 [步驟 1：  儲存] 選項應該會顯示綠色核取記號來表示已成功。 讓頁面保持開啟，以供下一個步驟使用。
 
 ### <a name="verify-domain-ownership"></a>確認網域擁有權
 
@@ -183,11 +183,11 @@ ms.locfileid: "74670726"
 
 從您應用程式的左側導覽中，選取 [TLS/SSL 設定]   >   [私密金鑰憑證 (.pfx)] > [匯入 Key Vault 憑證]  。
 
-![在 App Service 中匯入 Key Vault 憑證](./media/configure-ssl-certificate/import-key-vault-cert.png))
+![在 App Service 中匯入 Key Vault 憑證](./media/configure-ssl-certificate/import-key-vault-cert.png)
 
 使用下表來協助您選取憑證。
 
-| 設定 | 說明 |
+| 設定 | 描述 |
 |-|-|
 | 訂用帳戶 | Key Vault 所屬的訂用帳戶。 |
 | Key Vault | 具有所要匯入憑證的保存庫。 |

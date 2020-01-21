@@ -1,6 +1,6 @@
 ---
-title: 教學課程：使用 Azure 地圖服務建立地理柵欄
-description: 教學課程：使用 Azure 地圖服務設定地理柵欄。
+title: 教學課程：建立地理柵欄並在地圖上追蹤裝置 | Microsoft Azure 地圖服務
+description: 在本教學課程中，您將了解如何使用 Microsoft Azure 地圖服務的空間服務來設定地理柵欄，並追蹤與地理柵欄相關的裝置。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2998c67bf00c74422baa19af0b389118600ba1c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e408adfe1daed402ef690224368e846bd0a97c8
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407839"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910948"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>教學課程：使用 Azure 地圖服務設定地理柵欄
 
@@ -58,7 +58,7 @@ ms.locfileid: "75407839"
 
 3. 按一下 [Params]  (參數)，然後輸入下列金鑰/值組用於 POST 要求 URL。 將 subscription-key 值取代為您的 Azure 地圖服務金鑰。
    
-    ![金鑰-值參數 Postman](./media/tutorial-geofence/postman-key-vals.png)
+    ![Postman 中的上傳資料 (地理柵欄) 參數](./media/tutorial-geofence/postman-key-vals.png)
 
 4. 按一下 [Body]  (主體)，然後選取 [raw input format] (原始輸入格式)，並從下拉式清單中選擇 [JSON] 作為輸入格式。 提供下列 JSON 作為要上傳的資料：
 
@@ -177,7 +177,7 @@ ms.locfileid: "75407839"
 
 1. 在 Azure 入口網站中建立邏輯應用程式
 
-   ![建立 Logic Apps](./media/tutorial-geofence/logic-app.png)
+   ![建立 Azure Logic Apps 來處理地理柵欄事件](./media/tutorial-geofence/logic-app.png)
 
 2. 選取 HTTP 要求觸發程序，然後選取 [傳送電子郵件] 作為 Outlook 連接器中的動作
   
@@ -185,7 +185,7 @@ ms.locfileid: "75407839"
 
 3. 儲存邏輯應用程式以產生 HTTP URL 端點，並複製 HTTP URL。
 
-   ![Logic Apps 端點](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![產生 Logic Apps 端點](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>建立 Azure 地圖服務事件訂用帳戶
@@ -196,15 +196,15 @@ Azure 地圖服務支援三種事件類型。 您可以在[這裡](https://docs.
 
 1. 透過[此入口網站連結](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/dashboard/)瀏覽至您的 Azure 地圖服務帳戶，然後選取事件索引標籤。
 
-   ![Azure 地圖服務事件](./media/tutorial-geofence/events-tab.png)
+   ![瀏覽至 Azure 地圖服務帳戶的事件](./media/tutorial-geofence/events-tab.png)
 
 2. 若要建立事件訂用帳戶，請從事件頁面中選取事件訂用帳戶。
 
-   ![Azure 地圖服務事件訂用帳戶](./media/tutorial-geofence/create-event-subscription.png)
+   ![建立 Azure 地圖服務事件訂用帳戶](./media/tutorial-geofence/create-event-subscription.png)
 
 3. 為事件訂用帳戶命名，並訂閱進入事件類型。 現在，選取為 Webhook 作為 [Endpoint Type] (端點類型)，並將您邏輯應用程式的 HTTP URL 端點複製到 [Endpoint] (端點) 中
 
-   ![事件訂用帳戶](./media/tutorial-geofence/events-subscription.png)
+   ![Azure 地圖服務事件訂用帳戶的詳細資料](./media/tutorial-geofence/events-subscription.png)
 
 
 ## <a name="use-geofence-api"></a>使用地理柵欄 API
@@ -214,7 +214,7 @@ Azure 地圖服務支援三種事件類型。 您可以在[這裡](https://docs.
 > [!Note]
 > 上述案例和行為以相同的**裝置識別碼**為基礎，因此反映出五個不同的位置，如下圖所示。
 
-![地理柵欄地圖](./media/tutorial-geofence/geofence.png)
+![Azure 地圖服務中的地理柵欄地圖](./media/tutorial-geofence/geofence.png)
 
 在 Postman 應用程式中，在您於上方建立的相同集合中開啟新的索引標籤。 選取建立器索引標籤上的 GET HTTP 方法：
 

@@ -1,6 +1,6 @@
 ---
-title: 教學課程：使用 Azure 地圖服務建立商店定位器
-description: 教學課程：使用 Azure 地圖服務建立商店定位器。
+title: 教學課程：使用 Azure 地圖服務建立商店定位器應用程式 | Microsoft Azure 地圖服務
+description: 在本教學課程中，您將了解如何使用 Microsoft Azure 地圖服務 Web SDK 來建立商店定位器 Web 應用程式。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b5ce78e95d139cf16b6193fedffc563513b39719
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 830641ae1421b799ab8e7d8b47a1c1a6e38419cf
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408032"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910957"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>教學課程：使用 Azure 地圖服務建立商店定位器
 
@@ -43,13 +43,13 @@ ms.locfileid: "75408032"
 
 <center>
 
-![Contoso Coffee 咖啡廳所在位置的商店定位器框線](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Contoso Coffee 商店位置的商店定位器應用程式框線](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 為了充分發揮此商店定位器的實用性，我們加入了回應式配置，可在使用者的螢幕寬度小於 700 個像素時進行調整。 回應式配置可方便您在小型螢幕上使用商店定位器，例如行動裝置。 以下是小型螢幕配置的框線：  
 
 <center>
 
-![Contoso Coffee 商店定位器在行動裝置上的框線](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![Contoso Coffee 商店定位器應用程式在行動裝置上的框線](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 框線可直觀地顯示應用程式。 應用程式具有搜尋方塊、鄰近商店清單、附有一些標記 (符號) 的地圖，和一個在使用者選取標記時顯示相關資訊的快顯視窗。 以下詳細列出我們在本教學課程中建置到此商店定位器的功能：
 

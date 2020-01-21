@@ -3,12 +3,12 @@ title: 教學課程：建立自訂原則定義
 description: 在本教學課程中，針對 Azure 原則製作自訂原則定義，以在您的 Azure 資源上強制執行自訂商務規則。
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 51899491d7a75dc41bdab94d17769393ab4a6659
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885444"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966028"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>教學課程：建立自訂原則定義
 
@@ -31,7 +31,7 @@ ms.locfileid: "74885444"
 > - 決定要使用的效果
 > - 撰寫原則定義
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -66,7 +66,7 @@ ms.locfileid: "74885444"
 
 ### <a name="resource-manager-templates"></a>Resource Manager 範本
 
-對於包含您所要管理屬性的 [Resource Manager 範本](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)，其查看方式有好幾種。
+對於包含您所要管理屬性的 [Resource Manager 範本](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md)，其查看方式有好幾種。
 
 #### <a name="existing-resource-in-the-portal"></a>入口網站中的現有資源
 
@@ -463,7 +463,7 @@ Azure Resource Graph 可透過 [Cloud Shell](https://shell.azure.com) 來使用�
 
 1. 以滑鼠右鍵按一下資料列，或選取定義 (或指派) 結尾的省略符號，然後選取 [刪除定義]  (或 [刪除指派]  )。
 
-## <a name="review"></a>審核
+## <a name="review"></a>檢閱
 
 在本教學課程中，您已成功完成下列工作：
 

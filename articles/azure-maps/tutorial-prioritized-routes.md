@@ -1,6 +1,6 @@
 ---
-title: 教學課程：Azure 地圖服務的多個路線
-description: 教學課程：使用 Azure 地圖服務尋找不同行進模式的路線
+title: 教學課程：依行進模式尋找多條路線 | Microsoft Azure 地圖服務
+description: 在本教學課程中，您將了解如何使用 Microsoft Azure 地圖服務尋找不同行進模式的路線。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cec7027ee0eadae2284e9aa2b127c195870ee929
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 258572d4451be6d9a1090c032467e85889148d14
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613630"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910857"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>教學課程：使用 Azure 地圖服務尋找不同行進模式的路線
 
@@ -117,7 +117,7 @@ ms.locfileid: "75613630"
 
 2. 儲存 **MapTruckRoute.html** 檔案，並重新整理瀏覽器頁面。 如果您與地圖互動並將洛杉磯放大，您應該會看到街道與目前的路況資料。
 
-   ![檢視流量地圖](./media/tutorial-prioritized-routes/traffic-map.png)
+   ![在地圖上檢視交通情況](./media/tutorial-prioritized-routes/traffic-map.png)
 
 <a id="queryroutes"></a>
 

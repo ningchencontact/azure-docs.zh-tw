@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 10/03/2017
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 7208825581a0bf16f6ee3a3947387b01abfd16d0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5488606939bafc402210ad35f3a17e71ac072010
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433062"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044525"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 簡介  
 Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解決方案。 您可以只撰寫處理手邊問題所需的程式碼，而不需擔心要執行它的整個應用程式或基礎結構。 Functions 可讓開發更有生產力，而且您可以使用您選擇的開發語言，例如 C#、Java、JavaScript、PowerShell 和 Python。 只需對您的程式碼執行的時間付費，並信任 Azure 視需要調整。 Azure Functions 可讓您在 Microsoft Azure 上開發 [無伺服器](https://azure.microsoft.com/solutions/serverless/)應用程式。
@@ -21,7 +21,7 @@ Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解�
 ## <a name="features"></a>特性
 以下是 Functions 的一些主要功能︰
 
-* **語言選擇**  - 使用所選的 C#、Java、Javascript、Python 和其他語言撰寫函式。 如需完整清單，請參閱[支援的語言](supported-languages.md)。
+* **語言選擇**  - 使用所選的 C#、Java、JavaScript、Python 和其他語言撰寫函式。 如需完整清單，請參閱[支援的語言](supported-languages.md)。
 * **使用即付費價格模式** - 只對執行您的程式碼所花的時間付費。 請參閱[價格區段](#pricing)中的使用情況主控方案選項。  
 * **自備相依性** - Functions 支援 NuGet 和 NPM，以便您使用您最愛的程式庫。  
 * **整合式安全性** - 利用 OAuth 提供者 (如 Azure Active Directory、Facebook、Google、Twitter 和 Microsoft 帳戶) 保護 HTTP 觸發的函數。  
@@ -30,7 +30,7 @@ Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解�
 * **開放原始碼** - Functions 執行階段是開放原始碼的平台並 [可在 GitHub 上取得](https://github.com/azure/azure-webjobs-sdk-script)。  
 
 ## <a name="what-can-i-do-with-functions"></a>我可以用 Functions 來做什麼？
-Functions 是處理資料、整合系統、使用物聯網 (IoT)，以及建置簡單 API 和微服務的絕佳解決方案。 考慮將 Functions 用於如下的工作：映像或訂單處理、檔案維護，或者您要排程執行的任何工作。 
+Functions 是處理資料、整合系統、使用物聯網 (IoT)，以及建置簡單 API 和微服務的絕佳解決方案。 考慮將 Functions 用於如下的工作：Web API、映像或訂單處理、檔案維護，或者您要排程執行的任何工作。 
 
 Functions 提供範本，可讓您開始使用重要的案例，包括下列案例︰
 

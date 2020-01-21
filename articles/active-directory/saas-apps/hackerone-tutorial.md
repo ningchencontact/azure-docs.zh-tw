@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0158a7df96f4c83763c5b2324ccc2bfcb5a72b5d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e03aa99e53f4aa2c646dc425a18d848539d537b0
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159170"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768158"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>教學課程：Azure Active Directory 與 HackerOne 整合
 
@@ -35,7 +35,7 @@ HackerOne 與 Azure AD 整合提供下列優點：
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要設定 Azure AD 與 HackerOne 整合，您需要下列項目：
 
@@ -107,12 +107,9 @@ HackerOne 與 Azure AD 整合提供下列優點：
 
     ![HackerOne 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL]  文字方塊中，使用下列模式輸入 URL：`https://hackerone.com/<company name>/authentication`
+    a. 在 [登入 URL]  文字方塊中，輸入下列內容：`https://hackerone.com/users/saml/auth`
 
-    b. 在 [識別碼 (實體識別碼)]  文字方塊中，輸入 URL：`https://hackerone.com/users/saml/metadata`
-
-    > [!NOTE]
-    > 此 [登入 URL] 值不是真正的值。 請使用實際的登入 URL 來更新此值。 請連絡 [HackerOne 用戶端支援小組](mailto:support@hackerone.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    b. 在 [識別碼 (實體識別碼)]  文字方塊中，輸入下列內容：`hackerone.com`
 
 5. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，按一下 [下載]  ，以依據您的需求從指定選項下載 [憑證 (Base64)]  ，並儲存在您的電腦上。
 

@@ -1,6 +1,6 @@
 ---
-title: 教學課程：使用 Azure 地圖服務尋找路線
-description: 教學課程：使用 Azure 地圖服務的景點路線
+title: 教學課程：尋找前往位置的路線 | Microsoft Azure 地圖服務
+description: 本教學課程會示範如何使用 Microsoft Azure 地圖服務的路線服務，在地圖上呈現如何前往某個位置 (景點) 的路線。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: efc60acae78c96983e79044ae1ba7399154f3568
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 7f13e5342e880a9ed5e2cb35ebaf558a1641618b
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613596"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910844"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>教學課程：使用 Azure 地圖服務的景點路線
 
@@ -168,7 +168,7 @@ ms.locfileid: "75613596"
 
 3. 儲存 **MapRoute.html** 檔案並重新整理瀏覽器。 現在地圖會以西雅圖作為中心，而且您會看到以藍色圖釘標示的起點，和以圓形藍色圖釘標示的終點。
 
-   ![檢視標有起點和終點的地圖](media/tutorial-route-location/map-pins.png)
+   ![在地圖上檢視路線的起點和終點](media/tutorial-route-location/map-pins.png)
 
 <a id="getroute"></a>
 

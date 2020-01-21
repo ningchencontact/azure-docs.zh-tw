@@ -13,25 +13,25 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b646c64b0ec45a11f99350ff5bd81a89418b2ecd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: fc5e8c7a7aa0d4693d96c3405ec0e180a6d13f8e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072517"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768517"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>使用要求追蹤對 API 進行偵錯
 
 本教學課程會說明如何檢查要求處理，協助您對 API 進行偵錯和疑難排解。 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 追蹤呼叫
 
 ![API 偵測器](media/api-management-howto-api-inspector/api-inspector001.PNG)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 + 了解 [Azure API 管理術語](api-management-terminology.md)。
 + 完成下列快速入門：[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。
@@ -47,8 +47,10 @@ ms.locfileid: "70072517"
 4. 選取 [GetSpeakers]  作業。
 5. 務必包含名為 **Ocp-Apim-Trace** 且值為 **true** 的 HTTP 標頭。
 
-    > [!NOTE]
-    > 如果 Ocp-Apim-Subscription-Key 未自動填入，您可以移至開發人員入口網站並且在設定檔頁面公開金鑰，以便擷取該金鑰。
+   > [!NOTE]
+   > * 如果 Ocp-Apim-Subscription-Key 未自動填入，您可以移至開發人員入口網站並且在設定檔頁面公開金鑰，以便擷取該金鑰。
+   > * 若要在使用 Ocp-Apim-Trace HTTP 標頭時取得追蹤，您必須啟用訂用帳戶金鑰的 [允許追蹤]  設定。 若要設定 [允許追蹤]  設定，請在左側功能表中的 [API 管理]  底下，選取 [訂用帳戶]  。
+   >   ![在 [API 管理訂用帳戶] 窗格上允許追蹤](media/api-management-howto-api-inspector/allowtracing.png)
 
 6. 按一下 [傳送]  以進行 API 呼叫。 
 7. 請等待呼叫完成。 

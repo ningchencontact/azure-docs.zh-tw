@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3d46e0695238ed7a09f180fe59063f8e2590f307
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 420db19a5ddcddfe37fa1a922e792fc0c8bc5b66
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701929"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912305"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>教學課程：將 Azure Machine Learning 部署為 IoT Edge 模組 (預覽)
 
 請使用 Azure Notebooks 來開發機器學習模組，並將模組部署至執行 Azure IoT Edge 的 Linux 裝置。 
 
-您可以使用 IoT Edge 模組來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您部署 Azure Machine Learning 模組，以根據模擬機器的溫度資料來預測裝置何時會故障。 如需 IoT Edge 上 Azure Machine Learning 的詳細資訊，請參閱 [Azure Machine Learning 文件](../machine-learning/service/how-to-deploy-to-iot.md)。
+您可以使用 IoT Edge 模組來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您部署 Azure Machine Learning 模組，以根據模擬機器的溫度資料來預測裝置何時會故障。 如需 IoT Edge 上 Azure Machine Learning 的詳細資訊，請參閱 [Azure Machine Learning 文件](../machine-learning/how-to-deploy-and-where.md)。
 
 您在本教學課程中建立的 Azure Machine Learning 模組會讀取裝置所產生的環境資料，並將訊息標示為異常或非異常。
 
@@ -38,7 +38,7 @@ ms.locfileid: "74701929"
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 Azure IoT Edge 裝置：
 
@@ -49,7 +49,7 @@ Azure IoT Edge 裝置：
 雲端資源：
 
 * Azure 中的免費或標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
-* Azure Machine Learning 工作區。 請依照[透過 Azure 入口網站開始使用 Azure Machine Learning](../machine-learning/service/quickstart-get-started.md) 中的指示來建立一個，並了解如何使用它。
+* Azure Machine Learning 工作區。 請依照[透過 Azure 入口網站開始使用 Azure Machine Learning](../machine-learning/tutorial-1st-experiment-sdk-setup.md) 中的指示來建立一個，並了解如何使用它。
    * 記下工作區名稱、資源群組和訂用帳戶識別碼。 這些值全都適用於 Azure 入口網站中的工作區概觀。 您會在本教學課程稍後使用這些值，來將 Azure 筆記本連線至您的工作區資源。 
 
 
@@ -101,7 +101,7 @@ Azure IoT Edge 裝置：
 
 4. 選取 [tempanomalydetection]  。 您應該會看到存放庫有一個標記：**1**。 
 
-   既然您已經知道登錄名稱、存放庫名稱和標記，您就會知道容器的完整映像路徑。 映像路徑看起來類似  **\<registry_name>\>.azurecr.io/tempanomalydetection:1**。 您可以使用映像路徑來將此容器部署到 IoT Edge 裝置。 
+   既然您已經知道登錄名稱、存放庫名稱和標記，您就會知道容器的完整映像路徑。 映像路徑看起來類似 **\<registry_name>\>.azurecr.io/tempanomalydetection:1**。 您可以使用映像路徑來將此容器部署到 IoT Edge 裝置。 
 
 5. 在容器登錄中，選取 [存取金鑰]  。 您應該會看到數個存取認證，包括**登入伺服器**，以及管理使用者的**使用者名稱**和**密碼**。
 
@@ -133,7 +133,7 @@ Azure IoT Edge 裝置：
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>檢視抵達 IoT 中樞的資料
 
-您可以使用[適用於 Visual Studio Code 的 Azure IoT 中樞工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (先前稱為 Azure IoT 工具組擴充功能)，來檢視 IoT 中樞所收到的裝置到雲端訊息。
+您可以使用[適用於 Visual Studio Code 的 Azure IoT 中樞擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)，檢視 IoT 中樞接收的裝置到雲端訊息。
 
 下列步驟說明如何設定 Visual Studio Code 來監視抵達 IoT 中樞的裝置到雲端訊息。
 

@@ -8,19 +8,19 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 12/30/2019
-ms.openlocfilehash: 4d9810b9075bc3049758e03ba8376621661b79ba
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 7dd1f07d44bd3b71bb83becee5405cf5c100460c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563219"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754078"
 ---
-# <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>使用 REST 建立 Azure 認知搜尋知識存放區
+# <a name="create-a-knowledge-store-using-rest-and-postman"></a>使用 REST 和 Postman 建立知識存放區
 
 > [!IMPORTANT] 
 > 知識存放區目前為公開預覽狀態。 預覽功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供預覽功能。 目前的入口網站支援有限，而且沒有 .NET SDK 支援。
 
-Azure 認知搜尋中的知識存放區功能可保存 AI 擴充管線的輸出，以便進行後續分析或其他下游處理。 AI 擴充管線可接受影像檔案或非結構化文字檔、使用 Azure 認知搜尋編製其索引、從 Azure 認知服務 (例如影像分析和自然語言處理) 套用 AI 擴充，然後將結果儲存至 Azure 儲存體中的知識存放區。 您可以在 Azure 入口網站中使用 Power BI 或儲存體總管之類的工具來探索知識存放區。
+知識存放區包含來自 Azure 認知搜尋擴充管線的輸出，以供稍後進行分析或其他下游處理。 AI 擴充管線可接受影像檔案或非結構化文字檔、使用 Azure 認知搜尋編製其索引、從認知服務 (例如影像分析和自然語言處理) 套用 AI 擴充，然後將結果儲存至 Azure 儲存體中的知識存放區。 您可以在 Azure 入口網站中使用 Power BI 或儲存體總管之類的工具來探索知識存放區。
 
 在此文章文中，您會使用 REST API 介面將 AI 擴充內嵌、編製索引及套用至一組旅館評論。 旅館評論會匯入到 Azure Blob 儲存體中。 結果會以知識存放區的形式儲存在 Azure 資料表儲存體中。
 

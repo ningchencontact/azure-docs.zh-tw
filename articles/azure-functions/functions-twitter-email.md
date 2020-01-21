@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: c7b8e41cc09137ee06e975d136dd999ba146731b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226616"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768957"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>建立與 Azure Logic Apps 整合的函式
 
@@ -32,7 +32,7 @@ Azure Functions 與 Logic Apps 設計工具中的 Azure Logic Apps 進行整合�
 > * 將邏輯應用程式連線至函式。
 > * 以函式的回應作為基礎來傳送電子郵件。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 + 使用中的 [Twitter](https://twitter.com/) 帳戶。 
 + [Outlook.com](https://outlook.com/) 帳戶 (用於傳送通知)。
@@ -51,7 +51,7 @@ Azure Functions 與 Logic Apps 設計工具中的 Azure Logic Apps 進行整合�
 
     ![建立 [識別資源] 頁面](media/functions-twitter-email/01-create-text-analytics.png)
 
-    | 設定      |  建議的值   | 說明                                        |
+    | 設定      |  建議的值   | 描述                                        |
     | --- | --- | --- |
     | **名稱** | MyCognitiveServicesAccnt | 請選擇唯一的帳戶名稱。 |
     | **位置** | 美國西部 | 使用距離您最近的位置。 |
@@ -129,7 +129,7 @@ Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處�
 
 ## <a name="create-a-logic-app"></a>建立邏輯應用程式   
 
-1. 在 Azure 入口網站中，按一下 Azure 入口網站左上角的 [新增]  按鈕。
+1. 在 Azure 入口網站中，按一下其左上角的 [建立資源]  按鈕。
 
 2. 按一下 [Web]   > [邏輯應用程式]  。
  
@@ -137,7 +137,7 @@ Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處�
 
     ![在 Azure 入口網站中建立邏輯應用程式](./media/functions-twitter-email/08-logic-app-create.png)
 
-    | 設定      |  建議的值   | 說明                                        |
+    | 設定      |  建議的值   | 描述                                        |
     | ----------------- | ------------ | ------------- |
     | **名稱** | TweetSentiment | 為您的應用程式選擇適當名稱。 |
     | **資源群組** | myResourceGroup | 選擇與之前相同的現有資源群組。 |
@@ -161,11 +161,11 @@ Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處�
 
     ![Twitter 連接器設定](media/functions-twitter-email/10-tweet-settings.png)
 
-    | 設定      |  建議的值   | 說明                                        |
+    | 設定      |  建議的值   | 描述                                        |
     | ----------------- | ------------ | ------------- |
     | **搜尋文字** | #Azure | 使用熱門程度足夠在指定間隔內產生新推文的雜湊標記。 當您是使用免費層且您的雜湊標記太熱門時，可能很快就會將認知服務 API 中的交易配額用完。 |
     | **間隔** | 15 | Twitter 要求之間所經過的時間 (以頻率為單位)。 |
-    | **頻率** | 分鐘 | 用於輪詢 Twitter 的頻率單位。  |
+    | **頻率** | Minute | 用於輪詢 Twitter 的頻率單位。  |
 
 3.  按一下 [儲存]  可連線到您的 Twitter 帳戶。 
 
@@ -232,11 +232,11 @@ Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處�
 
     ![設定傳送電子郵件動作的電子郵件。](media/functions-twitter-email/21-configure-email.png)
     
-| 設定      |  建議的值   | 說明  |
+| 設定      |  建議的值   | 描述  |
 | ----------------- | ------------ | ------------- |
-| **To** | 輸入您的電子郵件地址 | 接收通知電子郵件地址。 |
+| **若要** | 輸入您的電子郵件地址 | 接收通知電子郵件地址。 |
 | **主旨** | 偵測到負面的推文情感  | 電子郵件通知的主旨列。  |
-| **內文** | 推文文字、位置 | 按一下 [推文文字]  和 [位置]  參數。 |
+| **本文** | 推文文字、位置 | 按一下 [推文文字]  和 [位置]  參數。 |
 
 1. 按一下 [檔案]  。
 

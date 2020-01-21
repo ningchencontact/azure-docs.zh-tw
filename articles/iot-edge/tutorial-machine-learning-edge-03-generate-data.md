@@ -8,17 +8,17 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d51a577b8a460e872b2baddcb668b13981609e40
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1c56dd23084feabeb72f084b03e055d4aa09a11d
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707752"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912271"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>教學課程：產生模擬裝置資料
 
 > [!NOTE]
-> 此文章是關於在 IoT Edge 上使用 Azure Machine Learning 的系列文章之一。 如果您是被直接引導至這篇文章，我們建議您先從本系列的[第一篇文章](tutorial-machine-learning-edge-01-intro.md)開始，以取得最佳成效。
+> 此文章是關於在 IoT Edge 上使用 Azure Machine Learning 的系列文章之一。 如果您是被直接引導至此文章，我們建議您先從本系列的[第一篇文章](tutorial-machine-learning-edge-01-intro.md)開始，以取得最佳成效。
 
 在此文章中，我們會使用機器學習定型資料來模擬將遙測傳送至 IoT 中樞的裝置。 如同簡介中所述，本端對端教學課程會使用[渦輪風扇引擎降級模擬資料集](https://c3.nasa.gov/dashlink/resources/139/) \(英文\) 來模擬來自一組飛機引擎的資料以進行定型和測試。
 
@@ -123,7 +123,7 @@ DeviceHarness 專案是以 C# 撰寫的 .NET Core 專案，並包含四個類別
 
 1. 您可以檢視被傳送至中樞的訊息，方法是以滑鼠右鍵按一下任何裝置，然後選取 [開始監視內建事件端點]  。 訊息將會出現在 Visual Studio Code 的輸出窗格中。
 
-1. 按一下 [Azure IoT 中樞工具組]  輸出窗格，並選擇 [停止監視內建事件端點]  。
+1. 若要停止監視，請按一下 [Azure IoT 中樞]  輸出窗格，並選擇 [停止監視內建事件端點]  。
 
 1. 讓應用程式執行完成；這需要花費幾分鐘的時間。
 

@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: metan
-ms.openlocfilehash: bdaee97c8c5d7e19076847c5f1f7c07c528c1747
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 48e74f7dd6fa6f2c7fafe10797a301b3d4cc7f1d
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899380"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045250"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>教學課程：建立以相片中的內容啟動沈浸式閱讀程式的 iOS 應用程式 (Swift)
 
@@ -24,19 +24,19 @@ ms.locfileid: "69899380"
 
 在本教學課程中，您將從頭開始建置 iOS 應用程式，並且使用沈浸式閱讀程式 SDK 整合讀取 API 與沈浸式閱讀程式。 本教學課程的完整工作範例可以在[這裡](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/picture-to-immersive-reader-swift)取得。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
-* 為 Azure Active Directory (Azure AD) 驗證所設定的沈浸式閱讀程式資源。 遵循[這些指引](./azure-active-directory-authentication.md)來設定。 設定範例專案屬性時，您需要這裡建立的一些值。 將工作階段的輸出儲存到文字檔中，以供日後參考。
+* 為 Azure Active Directory 驗證所設定的沈浸式閱讀程式資源。 遵循[這些指引](./how-to-create-immersive-reader.md)來設定。 設定範例專案屬性時，您需要這裡建立的一些值。 將工作階段的輸出儲存到文字檔中，以供日後參考。
 * 要使用此範例，必須要有電腦視覺認知服務的 Azure 訂用帳戶。 [在 Azure 入口網站中建立電腦視覺認知服務資源](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)。
 
 ## <a name="create-an-xcode-project"></a>建立 Xcode 專案
 
 在 Xcode 中建立新的專案。
 
-![New Project](./media/ios/xcode-create-project.png)
+![新增專案](./media/ios/xcode-create-project.png)
 
 選擇 [單一檢視應用程式]  。
 
@@ -58,7 +58,7 @@ ms.locfileid: "69899380"
 ```
 4. 在終端機中，於 Xcode 專案的目錄中執行命令 `pod install`，以安裝沈浸式閱讀程式 SDK Pod。
 5. 將 `import immersive_reader_sdk` 新增至所有需要參考 SDK 的檔案。
-6. 確實以開啟 `.xcworkspace` 檔案 (而非 `.xcodeproj` 檔案) 的方式開啟專案。
+6. 確定是以開啟 `.xcworkspace` 檔案 (而非 `.xcodeproj` 檔案) 的方式開啟專案。
 
 ## <a name="acquire-an-azure-ad-authentication-token"></a>取得 Azure AD 驗證權杖
 
@@ -73,19 +73,13 @@ Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the reso
 
 在包含 ViewController.swift 檔案的主要專案資料夾中，建立名為 Constants.swift 的 Swift 類別檔案。 在適用的情況下加入您的值，將類別取代為下列程式碼。 請將此檔案保存為僅存在於您電腦上的本機檔案，且切勿將此檔案認可到原始檔控制，因為其中包含不應公開的機密資料。 建議您不要將秘密保存在應用程式中。 我們建議使用後端服務來取得權杖，如此，秘密將可保存在應用程式和裝置以外。 後端 API 端點應在某種形式的驗證 (例如 [OAuth](https://oauth.net/2/)) 後方受到保護，以防止未經授權的使用者取得權杖，而使用您的沈浸式閱讀程式服務和計費；該工作不在本教學課程的討論範圍內。
 
-[!code-swift[Constants](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/Constants.swift)]
-
 ## <a name="set-up-the-app-to-run-without-a-storyboard"></a>將應用程式設定為在沒有分鏡腳本的情況下執行
 
 開啟 AppDelegate.swift，並將檔案取代為下列程式碼。
 
-[!code-swift[AppDelegate](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/AppDelegate.swift)]
-
 ## <a name="add-functionality-for-taking-and-uploading-photos"></a>新增用來拍攝和上傳相片的功能
 
 將 ViewController.swift 重新命名為 PictureLaunchViewController.swift，並將檔案取代為下列程式碼。
-
-[!code-swift[PictureLaunchViewController](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/PictureLaunchViewController.swift)]
 
 ## <a name="build-and-run-the-app"></a>建置並執行應用程式
 
@@ -105,4 +99,4 @@ Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the reso
 
 ## <a name="next-steps"></a>後續步驟
 
-* 探索[沈浸式閱讀程式 iOS SDK](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS) 和[沈浸式閱讀程式 iOS SDK 參考](./ios-reference.md)
+* 探索[沈浸式閱讀程式 SDK 參考](./reference.md)

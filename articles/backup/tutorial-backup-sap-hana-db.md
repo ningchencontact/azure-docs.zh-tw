@@ -3,12 +3,12 @@ title: 教學課程 - 將 SAP HANA 資料庫備份至 Azure VM
 description: 在本教學課程中，您將了解如何將執行於 Azure VM 上的 SAP HANA 資料庫備份至 Azure 備份復原服務保存庫。
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: a622370fca3144aeb6a5d7c071c227b3c21cf135
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: bb84f6b362adf7c190f3300e6e3f1bc572153151
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287185"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75753987"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>教學課程：將 SAP HANA 資料庫備份至 Azure VM
 
@@ -34,7 +34,7 @@ ms.locfileid: "74287185"
     Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 設定備份之前，請務必先執行下列動作：
 
@@ -55,11 +55,60 @@ sudo zypper install unixODBC
 
 ## <a name="set-up-network-connectivity"></a>設定網路連線
 
-執行任何作業時，SAP HANA VM 都需要連線至 Azure 公用 IP 位址。 若未連線，VM 作業 (資料庫探索、設定備份、排程備份、還原復原點等) 將無法運作。 請允許存取 Azure 資料中心的 IP 範圍，以建立連線：
+在執行所有作業時，SAP HANA VM 都需要連線至 Azure 公用 IP 位址。 若未連線至 Azure 公用 IP 位址，VM 作業 (資料庫探索、設定備份、排程備份、還原復原點等) 將會失敗。
 
-* 您可以下載 Azure 資料中心的 [IP 位址範圍](https://www.microsoft.com/download/details.aspx?id=41653)，然後允許存取這些 IP 位址。
-* 如果您使用網路安全性群組 (NSG)，您可以使用 AzureCloud [服務標籤](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)來允許所有的 Azure 公用 IP 位址。 您可以使用 [Set-AzureNetworkSecurityRule Cmdlet](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0) 來修改 NSG 規則。
-* 由於傳輸是經由 HTTPS 進行的，連接埠 443 應新增至允許清單。
+請使用下列其中一個選項來建立連線：
+
+### <a name="allow-the-azure-datacenter-ip-ranges"></a>允許 Azure 資料中心 IP 範圍
+
+此選項會允許所下載檔案中的 [IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 若要存取網路安全性群組 (NSG)，請使用 Set-AzureNetworkSecurityRule Cmdlet。 如果安全收件者清單只包含區域專屬的 IP，您還必須更新安全收件者清單 Azure Active Directory (Azure AD) 服務標籤以啟用驗證。
+
+### <a name="allow-access-using-nsg-tags"></a>允許使用 NSG 標籤來存取
+
+如果您使用 NSG 來限制連線，則請使用 AzureBackup 服務標籤來允許針對 Azure 備份進行輸出存取。 此外，您也應該使用 Azure AD 和 Azure 儲存體的[規則](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)，來允許驗證和資料傳輸使用連線能力。 這可以從 Azure 入口網站或透過 PowerShell 來進行。
+
+若要使用入口網站建立規則：
+
+  1. 在 [所有服務]  中，移至 [網路安全性群組]  ，然後選取網路安全性群組。
+  2. 選取 [設定]  底下的 [輸出安全性規則]  。
+  3. 選取 [新增]  。 輸入可供用於建立新規則的所有必要詳細資料，如[安全性規則設定](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)中所述。 請確定 [目的地]  選項已設定為 [服務標籤]  ，且 [目的地服務標籤]  已設定為 [AzureBackup]  。
+  4. 按一下 [新增]  以儲存新建立的輸出安全性規則。
+
+若要使用 PowerShell 建立規則：
+
+ 1. 新增 Azure 帳戶認證並更新國家雲端<br/>
+      `Add-AzureRmAccount`<br/>
+
+ 2. 選取 NSG 訂用帳戶<br/>
+      `Select-AzureRmSubscription "<Subscription Id>"`
+
+ 3. 選取 NSG<br/>
+    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
+
+ 4. 新增 Azure 備份服務標籤的允許輸出規則<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 5. 新增儲存體服務標籤的允許輸出規則<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 6. 新增 AzureActiveDirectory 服務標籤的允許輸出規則<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
+
+ 7. 儲存 NSG<br/>
+    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+
+**允許使用 Azure 防火牆標籤來存取**。 如果您使用的是 Azure 防火牆，請使用 AzureBackup [FQDN 標籤](https://docs.microsoft.com/azure/firewall/fqdn-tags)來建立應用程式規則。 這會允許針對 Azure 備份進行輸出存取。
+
+**部署 HTTP Proxy 伺服器以路由流量**。 當您在 Azure VM 上備份 SAP HANA 資料庫時，VM 上的備份擴充功能會使用 HTTPS API 將管理命令傳送至 Azure 備份，並將資料傳送至 Azure 儲存體。 備份延伸模組也會使用 Azure AD 進行驗證。 透過 HTTP Proxy 路由傳送這三項服務的備份延伸模組流量。 延伸模組是唯一為了要存取公用網際網路而設定的元件。
+
+連線能力選項包含下列優缺點：
+
+**選項** | **優點** | **缺點**
+--- | --- | ---
+允許 IP 範圍 | 沒有額外的成本 | 由於 IP 位址範圍會隨著時間改變，因此難以管理 <br/><br/> 提供整個 Azure 的存取權，而不只是 Azure 儲存體的存取權
+使用 NSG 服務標籤 | 會自動合併範圍變更，因此更容易管理 <br/><br/> 沒有額外的成本 <br/><br/> | 只能搭配 NSG 使用 <br/><br/> 提供整個服務的存取權
+使用 Azure 防火牆 FQDN 標籤 | 會自動管理所需的 FQDN，因此更容易管理 | 只能搭配 Azure 防火牆使用
+使用 HTTP Proxy | 允許在 Proxy 中精確控制儲存體 URL <br/><br/> VM 的單一網際網路存取點 <br/><br/> 不會隨著 Azure IP 位址變更 | 使用 Proxy 軟體執行 VM 時的額外成本
 
 ## <a name="setting-up-permissions"></a>設定權限
 
@@ -107,7 +156,7 @@ hdbuserstore list
 
 ![建立復原服務保存庫](./media/tutorial-backup-sap-hana-db/create-vault.png)
 
-* **名稱**：名稱會用來識別復原服務保存庫，且對於 Azure 訂用帳戶必須是唯一的。 指定的名稱至少要有兩個字元，但不能超過 50 個字元。 名稱開頭必須是字母，且只能包含字母、數字和連字號。 在本教學課程中，我們使用名稱 **SAPHanaVault**。
+* **Name**：名稱會用來識別復原服務保存庫，且對於 Azure 訂用帳戶必須是唯一的。 指定的名稱至少要有兩個字元，但不能超過 50 個字元。 名稱開頭必須是字母，且只能包含字母、數字和連字號。 在本教學課程中，我們使用名稱 **SAPHanaVault**。
 * 訂用帳戶  ：選擇要使用的訂用帳戶。 如果您是唯一一個訂用帳戶的成員，就會看到該名稱。 如果您不確定要使用哪個訂用帳戶，請使用預設 (建議) 的訂用帳戶。 只有在您的公司或學校帳戶與多個 Azure 訂用帳戶相關聯時，才會有多個選擇。 在此，我們使用了 **SAP HANA 解決方案實驗室訂用帳戶**訂用帳戶。
 * **資源群組**：使用現有的資源群組或建立新群組。 在此，我們使用了 **SAPHANADemo**。<br>
 若要查看您訂用帳戶中可用的資源群組清單，請選取 [使用現有的]  ﹐然後從下拉式清單方塊中選取資源。 若要建立新的資源群組，請選取 [新建]  ，然後輸入名稱。 如需資源群組的完整資訊，請參閱 [Azure Resource Manager 概觀](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。

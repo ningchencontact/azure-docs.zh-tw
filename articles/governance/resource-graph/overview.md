@@ -3,12 +3,12 @@ title: Azure Resource Graph 概觀
 description: 了解 Azure Resource Graph 服務如何能夠在訂用帳戶和租用戶之間，大規模地進行複雜的資源查詢。
 ms.date: 10/21/2019
 ms.topic: overview
-ms.openlocfilehash: 7a96faa8502fca6fc501985cd677ac28454f1ba1
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 301543075d587079af0f53b6200890a75bfbb768
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406692"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965967"
 ---
 # <a name="what-is-azure-resource-graph"></a>什麼是 Azure Resource Graph？
 
@@ -31,7 +31,7 @@ Azure Resource Graph 是 Azure 中的一項服務，透過大規模查詢指定�
 
 Azure Resource Manager 目前支援查詢基本資源欄位 (尤其是資源名稱、識別碼、類型、資源群組、訂用帳戶及位置)。 Resource Manager 也提供呼叫個別資源提供者的功能，可一次取得一個資源的詳細屬性。
 
-使用 Azure Resource Graph，您可以存取這些由資源提供者傳回的屬性，而無須對每個資源提供者進行個別呼叫。 如需支援的資源類型清單，請在[完整模式部署資源](../../azure-resource-manager/complete-mode-deletion.md)資料表中尋找 [是]  的部分。 其他資源類型列在相關的 [Resource Graph 資料表](./concepts/query-language.md#resource-graph-tables)中。 另一種查看所支援資源類型的方法是透過 [Azure Resource Graph Explorer 結構描述瀏覽器](./first-query-portal.md#schema-browser)。
+使用 Azure Resource Graph，您可以存取這些由資源提供者傳回的屬性，而無須對每個資源提供者進行個別呼叫。 如需支援的資源類型清單，請在[完整模式部署資源](../../azure-resource-manager/templates/complete-mode-deletion.md)資料表中尋找 [是]  的部分。 其他資源類型列在相關的 [Resource Graph 資料表](./concepts/query-language.md#resource-graph-tables)中。 另一種查看所支援資源類型的方法是透過 [Azure Resource Graph Explorer 結構描述瀏覽器](./first-query-portal.md#schema-browser)。
 
 透過 Azure Resource Graph，您可以：
 

@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/28/2019
+ms.date: 1/8/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8a99bdb1d181142b456c00f696d0271805f1567a
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: a7d25dfad20d8eff25020070d0bb32d5777fdb62
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561492"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754604"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>設定適用於 Azure VM 的災害復原
 
@@ -30,7 +30,7 @@ ms.locfileid: "74561492"
 > [!NOTE]
 > 本文將說明如何以最簡單的設定部署災害復原。 如果您想深入了解自訂設定，請檢閱[操作說明區段](azure-to-azure-how-to-enable-replication.md)底下的文章。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要完成本教學課程：
 
@@ -42,7 +42,7 @@ ms.locfileid: "74561492"
 在來源區域以外的任何區域中建立保存庫。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com) > [復原服務]  。
-2. 從 Azure 入口網站功能表或**首頁**，選取 [建立資源]  。 然後選取 [管理工具]   > [備份和 Site Recovery]  。
+2. 從 Azure 入口網站功能表或 **[首頁]** 頁面，選取 [建立資源]  。 然後選取 [管理工具]   > [備份和 Site Recovery]  。
 3. 在 [名稱]  中，指定保存庫的易記識別名稱。 如果您有多個訂用帳戶，請選取適當的一個。
 4. 建立資源群組，或選取現有的資源群組。 指定 Azure 區域。 若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](https://azure.microsoft.com/pricing/details/site-recovery/)。
 5. 若要從儀表板快速存取保存庫，請按一下 [釘選到儀表板]  ，然後按一下 [建立]  。
@@ -77,15 +77,18 @@ ms.locfileid: "74561492"
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 位址範圍的輸出連線能力
 
-如果您想要使用 IP 位址控制輸出連線能力，而不是使用 URL，請在 IP 式防火牆、Proxy 或 NSG 規則上允許這些位址。
+如果您使用 NSG，請針對 Azure 儲存體、Azure Active Directory、Site Recovery 服務和 Site Recovery 監視的存取權建立以服務標籤為基礎的 NSG 規則。 [深入了解](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)。
+
+如果您想要使用 IP 位址控制輸出連線能力，而不是使用 NSG 規則，請在 IP 式防火牆、Proxy 或 NSG 規則上允許這些位址。
+
+>[!NOTE]
+>建議您一律針對輸出存取權使用服務標籤來設定 NSG 規則。
 
   - [Microsoft Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)
   - [德國 Windows Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=54770)
   - [中國 Windows Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=42064)
   - [Office 365 URL 與 IP 位址範圍](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery 服務端點 IP 位址](https://aka.ms/site-recovery-public-ips)
-
-如果您使用 NSG，您可以為來源區域建立儲存體服務標籤的 NSG 規則。 [深入了解](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)。
 
 ## <a name="verify-azure-vm-certificates"></a>驗證 Azure VM 憑證
 
@@ -132,7 +135,7 @@ Site Recovery 會設定目標區域的預設設定和複寫原則。 您可以�
 1. 按一下 [設定]  以檢視目標和複寫設定。
 2. 若要覆寫預設目標設定，請按一下 [資源群組、網路、儲存體和可用性]  旁的 [自訂]  。
 
-   ![配置設定](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+   ![進行設定](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 3. 自訂目標設定，如下表所摘要的內容。

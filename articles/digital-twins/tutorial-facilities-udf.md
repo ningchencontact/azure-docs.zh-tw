@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/13/2019
-ms.openlocfilehash: 80fd1275f3bf9585ff8e40a94d0de2d422baec71
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: 6cf6a8f7de181a81d60028e33ba2631815c8ca04
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383231"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895346"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>教學課程：使用 Azure Digital Twins 預覽版來佈建建築物及監視運作狀況
 
@@ -28,7 +28,7 @@ ms.locfileid: "74383231"
 > * 模擬感應器資料。
 > * 取得使用者定義的函式結果。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 本教學課程假設您已經[完成 Azure Digital Twins 設定](tutorial-facilities-setup.md)。 繼續之前，請確定您有：
 
@@ -38,7 +38,7 @@ ms.locfileid: "74383231"
 - 在開發電腦上安裝 [.NET Core SDK 2.1.403 版或更新版本](https://www.microsoft.com/net/download)，以建置和執行範例。 執行 `dotnet --version` 來確認是否已安裝正確版本。 
 - [Visual Studio Code](https://code.visualstudio.com/) 以探索範例程式碼。 
 
-> [!TIP]
+>[!TIP]
 > 如果您要佈建新的執行個體，請使用唯一的 Digital Twins 執行個體名稱。
 
 ## <a name="define-conditions-to-monitor"></a>定義要監視的狀況
@@ -74,7 +74,7 @@ ms.locfileid: "74383231"
 
    修改 JavaScript 檔案，以監視溫度以及其他狀況。 新增下列幾行程式碼以尋找下列狀況：在會議室中偵測不到任何移動、二氧化碳濃度低於 1,000 ppm，以及溫度低於華氏 78 度。
 
-   > [!NOTE]
+   >[!NOTE]
    > 這一節會修改 src\actions\userDefinedFunctions\availability.js  檔案，讓您深入了解用於撰寫使用者定義函式的一種方法。 不過，您可以選擇在您的設定中直接使用 [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) 檔案。 此檔案具有本教學課程需要的所有變更。 如果您改為使用此檔案，請務必使用 [src\actions\provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) 中 **script** 索引鍵的正確檔名。
 
     a. 在檔案頂端，針對註解 `// Add your sensor type here` 下方的溫度新增下列幾行：
@@ -178,7 +178,7 @@ ms.locfileid: "74383231"
     dotnet run ProvisionSample
     ```
 
-   > [!IMPORTANT]
+   >[!IMPORTANT]
    > 若要防止未經授權存取您的 Digital Twins 管理 API，**occupancy-quickstart** 應用程式會要求您使用您的 Azure 帳戶認證登入。 它會儲存您的認證一小段時間，因此您不需在每次執行它時登入。 此程式第一次執行時，以及當您儲存的認證之後到期時，該應用程式都會將您導向登入頁面並提供工作階段專用程式碼，以在該頁面上輸入。 依照提示使用您的 Azure 帳戶登入。
 
 1. 您的帳戶經過驗證後，應用程式就會開始建立如 provisionSample.yaml  中所設定的範例空間圖形。 等候佈建完成。 可能需要數分鐘的時間。 之後，觀察命令視窗中的訊息，並且注意空間圖表的建立方式。 請注意，應用程式會在根節點或 `Venue` 建立 IoT 中樞。
@@ -187,7 +187,7 @@ ms.locfileid: "74383231"
 
     [![佈建範例](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
-> [!TIP]
+>[!TIP]
 > 如果您在佈建過程中，收到類似於「I/O 作業因為執行緒結束或應用程式要求而中止」的錯誤訊息，請再次嘗試執行命令。 如果 HTTP 用戶端因為網路問題而逾時，就可能發生這種情形。
 
 ## <a name="simulate-sensor-data"></a>模擬感應器資料
@@ -229,12 +229,12 @@ ms.locfileid: "74383231"
     dotnet run
     ```
 
-   > [!NOTE]
+   >[!NOTE]
    > 模擬範例不會直接與您的 Digital Twins 執行個體通訊，因此不會要求您進行驗證。
 
 ## <a name="get-results-of-the-user-defined-function"></a>取得使用者定義函式的結果
 
-每次您的執行個體收到裝置和感應器資料時，就會執行使用者定義的函式。 這一節會查詢您的 Azure Digital Twins 執行個體，以取得使用者定義的函式結果。 當會議室空出來、空氣新鮮且溫度適宜時，您會近乎即時地知道。 
+每次您的執行個體收到裝置和感應器資料時，就會執行使用者定義的函式。 這一節會查詢您的 Azure Digital Twins 執行個體，以取得使用者定義的函式結果。 當會議室空出來、空氣新鮮且溫度適宜時，您會近乎即時地收到通知。 
 
 1. 開啟您用來佈建範例的命令視窗或新的命令視窗，再次移至範例的 **occupancy-quickstart\src** 資料夾。
 
@@ -246,7 +246,7 @@ ms.locfileid: "74383231"
 
 輸出視窗會顯示使用者定義函式的執行情形，並攔截來自裝置模擬的事件。 
 
-   [![UDF 的輸出](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
+   [![UDF 的輸出](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png)](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png#lightbox)
 
 如果所監視的狀況符合，則使用者定義的函式會以我們在[稍早](#create-a-user-defined-function)看到的相關訊息設定空間的值。 `GetAvailableAndFreshSpaces` 函式會在主控台上列印出訊息。
 
@@ -256,7 +256,7 @@ ms.locfileid: "74383231"
 
 1. 從 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]  ，選取您的 Digital Twins 資源群組，然後選取 [刪除]  。
 
-    > [!TIP]
+    >[!TIP]
     > 如果您在刪除 Digital Twins 執行個體時遇到問題，已推出的服務更新中具有修正程式。 請重試刪除執行個體。
 
 2. 如有必要，請刪除工作電腦上的應用程式範例。

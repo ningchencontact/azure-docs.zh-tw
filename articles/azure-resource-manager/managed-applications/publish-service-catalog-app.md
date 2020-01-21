@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: de2b79c5016b44011a14c1071eab6579f3a0b6df
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e756617a700d258078e84a3fa11c8aceb6f4dd88
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75649055"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903274"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>建立及發佈受控應用程式定義
 
@@ -18,7 +18,7 @@ ms.locfileid: "75649055"
 
 您可以建立及發佈 Azure [受控應用程式](overview.md)，以供組織成員使用。 例如，IT 部門可以發佈符合組織標準的受控應用程式。 這些受控應用程式可透過服務類別目錄取得，而非 Azure Marketplace。
 
-若要發佈受服務類別目錄管理的應用程式，您必須：
+若要將受控應用程式發佈至您的 Azure 服務類別目錄，您必須：
 
 * 建立範本，該範本會定義要與受控應用程式一起部署的資源。
 * 部署受控應用程式時，定義入口網站的使用者介面元素。
@@ -207,6 +207,108 @@ New-AzManagedApplicationDefinition `
   -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
+
+## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>以您自備的儲存體存放受控應用程式定義
+您可以選擇將受控應用程式定義儲存在您於在建立期間提供的儲存體帳戶中，以全面管理其位置和存取權而符合法規需求。
+
+> [!NOTE]
+> 「自備儲存體」僅支援受控應用程式定義的 ARM 範本或 REST API 部署。
+
+### <a name="select-your-storage-account"></a>選取您的儲存體帳戶
+您必須[建立儲存體帳戶](../../storage/common/storage-account-create.md)，用以保存用於服務類別目錄的受控應用程式定義。
+
+複製儲存體帳戶的資源識別碼。 稍後在部署定義時將會用到這項資料。
+
+### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>在您的儲存體帳戶中設定「設備資源提供者」的角色指派
+您必須先為**設備資源提供者**角色授與參與者權限，使其能夠將定義檔案寫入至您儲存體帳戶的容器，受控應用程式定義才可部署至您的儲存體帳戶。
+
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的儲存體帳戶。
+1. 選取 [存取控制 (IAM)]  ，以顯示儲存體帳戶的存取控制設定。 選取 [角色指派]  索引標籤，以查看角色指派的清單。
+1. 在 [新增角色指派]  視窗中，選取 [參與者]  角色。 
+1. 在 [存取權指派對象為]  欄位中，選取 [Azure AD 使用者、群組或服務主體]  。
+1. 在 [選取]  底下搜尋**設備資源提供者**角色，並加以選取。
+1. 儲存角色指派。
+
+### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>使用 ARM 範本部署受控應用程式定義 
+
+使用下列 ARM 範本，在以您自己的儲存體帳戶儲存及維護定義檔案的服務類別目錄，將您已封裝的受控應用程式部署為新的受控應用程式定義：
+   
+```json
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "applicationName": {
+            "type": "string",
+            "metadata": {
+                "description": "Managed Application name"
+            }
+        },
+        "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
+    },
+        "definitionStorageResourceID": {
+            "type": "string",
+            "metadata": {
+                "description": "Storage account resource ID for where you're storing your definition"
+            }
+        },
+        "_artifactsLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "The base URI where artifacts required by this template are located."
+            }
+        }
+    },
+    "variables": {
+        "lockLevel": "None",
+        "description": "Sample Managed application definition",
+        "displayName": "Sample Managed application definition",
+        "managedApplicationDefinitionName": "[parameters('applicationName')]",
+        "packageFileUri": "[parameters('_artifactsLocation')]",
+        "defLocation": "[parameters('definitionStorageResourceID')]",
+        "managedResourceGroupId": "[concat(subscription().id,'/resourceGroups/', concat(parameters('applicationName'),'_managed'))]",
+        "applicationDefinitionResourceId": "[resourceId('Microsoft.Solutions/applicationDefinitions',variables('managedApplicationDefinitionName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Solutions/applicationDefinitions",
+            "apiVersion": "2019-07-01",
+            "name": "[variables('managedApplicationDefinitionName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "lockLevel": "[variables('lockLevel')]",
+                "description": "[variables('description')]",
+                "displayName": "[variables('displayName')]",
+                "packageFileUri": "[variables('packageFileUri')]",
+                "storageAccountId": "[variables('defLocation')]"
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+我們已將名為 **storageAccountId** 的新屬性新增至 applicationDefintion 的屬性，並提供您要用來儲存定義的儲存體帳戶識別碼作為其值：
+
+您可以確認應用程式定義檔案是否已儲存於您在名為 **applicationdefinitions** 的容器中提供的儲存體帳戶內。
+
+> [!NOTE]
+> 若要提升安全性，您可以建立受控應用程式定義，並將其儲存在[已啟用加密的 Azure 儲存體帳戶 Blob](../../storage/common/storage-service-encryption.md) 中。 定義內容會透過儲存體帳戶的加密選項進行加密。 只有具備檔案權限的使用者，才能在服務類別目錄中看到該定義。
 
 ### <a name="make-sure-users-can-see-your-definition"></a>確定使用者可以看到您的定義
 

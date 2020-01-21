@@ -1,6 +1,6 @@
 ---
-title: 教學課程：使用 Azure 地圖服務進行搜尋
-description: 教學課程：使用 Azure 地圖服務來搜尋附近景點
+title: 教學課程：在地圖上搜尋附近位置 | Microsoft Azure 地圖服務
+description: 在本教學課程中，您將了解如何使用 Microsoft Azure 地圖服務，在地圖上搜尋附近的位置 (景點)。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ae2d7b3d855f1c06397d4eb0f977dd04aa841942
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65a091dbe935967d63a11c3c40dd834207f34782
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432764"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910816"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>教學課程：使用 Azure 地圖服務來搜尋附近景點
 
@@ -49,7 +49,7 @@ ms.locfileid: "75432764"
     * 閱讀 [授權]  和 [隱私權聲明]  ，然後選取核取方塊以接受條款。
     * 按一下 [ **建立** ] 按鈕。
 
-![在入口網站中建立地圖服務帳戶](./media/tutorial-search-location/create-account.png)
+![在 Azure 入口網站中建立 Azure 地圖服務帳戶](./media/tutorial-search-location/create-account.png)
 
 <a id="getkey"></a>
 
@@ -61,7 +61,7 @@ ms.locfileid: "75432764"
 2. 在 [設定] 區段上，選取 [驗證]  。
 3. 將 [主索引鍵]  複製到剪貼簿。 將其儲存在本機，以供本教學課程稍後使用。
 
-![在入口網站中取得主索引鍵](./media/tutorial-search-location/get-key.png)
+![在 Azure 入口網站中取得主要金鑰](./media/tutorial-search-location/get-key.png)
 
 如需 Azure 地圖服務中驗證的詳細資訊，請參閱[管理 Azure 地圖服務中的驗證](how-to-manage-authentication.md)。
 
