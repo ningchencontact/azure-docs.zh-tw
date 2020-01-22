@@ -63,7 +63,7 @@
     - name: 高可用性連接埠
       href: load-balancer-ha-ports-overview.md
     - name: IPv6 支援
-      href: load-balancer-ipv6-overview.md
+      href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-overview'
     - name: 多個前端
       href: load-balancer-multivip-overview.md
     - name: 輸出連線
@@ -107,11 +107,11 @@
     - name: 以 IPv6 建立公用 Load Balancer
       items:
         - name: Azure CLI
-          href: load-balancer-ipv6-internet-cli.md
+          href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli'
         - name: Azure PowerShell
-          href: load-balancer-ipv6-internet-ps.md
+          href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell'
         - name: '[範本]'
-          href: load-balancer-ipv6-internet-template.md
+          href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
     - name: 設定內部 Load Balancer
       items:
         - name: Azure CLI

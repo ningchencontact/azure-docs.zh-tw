@@ -1040,8 +1040,6 @@
         - name: Azure 串流分析
           href: '/azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db'
           maintainContext: true
-        - name: Logic Apps 與服務匯流排
-          href: change-feed-hl7-fhir-logic-apps.md
         - name: Azure 事件中樞與 Azure 儲存體
           href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
         - name: 使用 Spring Boot Starter
