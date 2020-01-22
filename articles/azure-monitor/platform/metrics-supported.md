@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 67e2675dbf65daf929407a437447f5d977c7a6c3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 475e91957ab94538d07112ba808edd7c7d08f59e
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75750403"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310776"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
 
@@ -1299,7 +1299,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |模型部署已開始|模型部署已開始|計數|總計|在此工作區中啟動的模型部署數目|案例|
 |模型部署成功|模型部署成功|計數|總計|在此工作區中成功的模型部署數|案例|
 |模型部署失敗|模型部署失敗|計數|總計|在此工作區中失敗的模型部署數|案例，StatusCode|
-|節點總計|節點總計|計數|Average|總節點數。 此總計包括一些作用中節點、閒置節點、無法使用的節點、Premepted 節點、離開節點|案例，ClusterName|
+|節點總計|節點總計|計數|Average|總節點數。 此總計包括一些作用中節點、閒置節點、無法使用的節點、優先的節點、離開節點|案例，ClusterName|
 |現用節點|現用節點|計數|Average|Acitve 節點的數目。 這些是目前正在執行作業的節點。|案例，ClusterName|
 |閒置節點|閒置節點|計數|Average|閒置節點的數目。 閒置節點是指未執行任何作業的節點，但可以接受新作業（如果有的話）。|案例，ClusterName|
 |無法使用的節點|無法使用的節點|計數|Average|無法使用的節點數目。 無法使用的節點無法運作，因為有一些無法解析的問題。 Azure 將會回收這些節點。|案例，ClusterName|

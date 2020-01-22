@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b00948f8d0e1eb8538354a6c16febf81bd4d1f16
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b1c167c71907e5f8af1006dfabd8f81ce4425d09
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457376"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291153"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>將大量資料移轉至 Azure 檔案同步
 您可以透過兩種方式將大量資料移轉至 Azure 檔案同步：
@@ -79,7 +79,7 @@ Azure 檔案同步可確保即使您使用的大量遷移工具最初並未傳�
 現在您可以清除預備共用以節省成本：
 
 1. 在 [**伺服器端點屬性**] 分頁上，當狀態為 [**已完成**] 時，選取 [**停用離線資料傳輸**]。
-2. 請考慮刪除暫存共用以節省成本。 預備共用可能不包含檔案和資料夾 Acl，因此不太實用。 針對備份時點的目的，請建立[同步處理 Azure 檔案共用](storage-snapshots-files.md)的實際快照集。 您可以[設定 Azure 備份來依排程拍攝快照集]( ../../backup/backup-azure-files.md)。
+2. 請考慮刪除暫存共用以節省成本。 預備共用可能不包含檔案和資料夾 Acl，因此不太實用。 針對備份時點的目的，請建立[同步處理 Azure 檔案共用](storage-snapshots-files.md)的實際快照集。 您可以[設定 Azure 備份來依排程拍攝快照集]( ../../backup/backup-afs.md)。
 
 只有在狀態為 [**已完成**] 時，或當您想要取消設定錯誤時，才停用離線資料傳輸模式。 如果您在部署期間停用模式，即使您的預備共用仍然可用，檔案也會從伺服器開始上傳。
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: d0dfbec3abd379c7bf8add6445296dff74d92a76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8d58180b11c12afb256dc888406c7c0d58fb119
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428479"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314312"
 ---
 # <a name="select-columns-transform"></a>選取資料行轉換
 
-本文說明如何在 Azure Machine Learning 設計工具（預覽）中使用 [選取資料行轉換] 模組。 [選取資料行轉換] 模組的目的是要確保在下游機器學習作業中使用一組可預測、一致的資料行。
+本文描述如何在 Azure Machine Learning 設計師中使用 [選取資料行轉換] 模組。 [選取資料行轉換] 模組的目的是要確保在下游機器學習作業中使用一組可預測、一致的資料行。
 
 此模組對於需要特定資料行的計分等工作很有説明。 [可用的資料行] 中的變更可能會中斷管線或變更結果。
 

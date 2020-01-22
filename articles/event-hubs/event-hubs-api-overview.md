@@ -1,6 +1,6 @@
 ---
 title: Azure 事件中樞 API 概觀 | Microsoft Docs
-description: 可用的 Azure 事件中樞 API 概觀
+description: 本文提供使用 Azure 事件中樞服務的可用 Api （執行時間和管理）的總覽。
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 80566b0246179064d2a479b8c9bf3c79a2a93aac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c852bdeb30efe6acf626ae67028ec1ccb9e0b6db
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822625"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310963"
 ---
 # <a name="available-event-hubs-apis"></a>可用的事件中樞 API
 
@@ -31,7 +31,7 @@ ms.locfileid: "60822625"
 
 如需與每個執行階段程式庫的目前狀態有關的詳細資訊，請參閱[其他資訊](#additional-information)。
 
-| 語言/平台 | 用戶端封裝 | EventProcessorHost 封裝 | 存放庫 |
+| 語言/平台 | 用戶端封裝 | EventProcessorHost 封裝 | Repository |
 | --- | --- | --- | --- |
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
 | .NET Framework | [NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | N/A |
@@ -53,7 +53,7 @@ ms.locfileid: "60822625"
 
 下表列出目前所有可用的管理特定程式庫。 這些程式庫都不包含執行階段作業，而且唯一的用途是管理事件中樞項目。
 
-| 語言/平台 | 管理封裝 | 存放庫 |
+| 語言/平台 | 管理封裝 | Repository |
 | --- | --- | --- |
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
 

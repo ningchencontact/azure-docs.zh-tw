@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 93fad58e971d761f626b79dc68f9576ccc2e1892
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a68393b2852f8ddc758e2a47b9e1b5d94befb7b4
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75993995"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290133"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>了解 Azure 使用量和費用檔案中的詞彙
 
@@ -90,11 +90,11 @@ PublisherType | 所有 | 發行者的類型（值： **Azure**、 **AWS**、 **M
 數量 | 所有 | 所購買或取用的單位數。
 ReservationId | EA、MCA | 所購買保留執行個體的唯一識別碼。
 ReservationName | EA、MCA | 所購買保留執行個體的名稱。
-ResourceGroup | 所有 | 資源所在[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)的名稱。
+ResourceGroup | 所有 | 資源所在[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)的名稱。 並非所有費用都是來自部署到資源群組的資源。 沒有資源群組的費用將會顯示為 null/空白、**其他**或**不適用**。
 ResourceId<sup>1</sup> | 所有 | [AzureResource Manager](https://docs.microsoft.com/rest/api/resources/resources) 資源的唯一識別碼。
 ResourceLocation | 所有 | 正在執行資源的資料中心位置。 請參閱 Location。
-ResourceName | EA、PAYG | 資源名稱。
-ResourceType | MCA | 資源執行個體的類型。
+ResourceName | EA、PAYG | 資源名稱。 並非所有費用都是來自已部署的資源。 沒有資源類型的費用將會顯示為 null/空白、**其他**或**不適用**。
+ResourceType | MCA | 資源執行個體的類型。 並非所有費用都是來自已部署的資源。 沒有資源類型的費用將會顯示為 null/空白、**其他**或**不適用**。
 ServiceFamily | MCA | 服務所屬的服務系列。
 ServiceInfo1 | 所有 | 服務專屬的中繼資料。
 ServiceInfo2 | 所有 | 含有選擇性服務特定中繼資料的舊版欄位。

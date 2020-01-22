@@ -1,6 +1,6 @@
 ---
 title: 與 Apache Spark 整合 - Azure 事件中樞 | Microsoft Docs
-description: 整合 Apache Spark 以啟用事件中樞的結構化串流
+description: 本文說明如何整合與 Apache Spark，以使用事件中樞來啟用結構化串流。
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 605669a740663040ab7a167bf266fe1940123afc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4c4fd74e9123e1310be297a15090433d365d24cf
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343387"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311677"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>整合 Apache Spark 與 Azure 事件中樞
 

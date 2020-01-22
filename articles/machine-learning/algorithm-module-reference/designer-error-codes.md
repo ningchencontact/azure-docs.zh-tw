@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 12/03/2019
-ms.openlocfilehash: d491a67a44a2cb01e4968c4d31d20dee4b75a60a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a6aeb4022ee7cbce465f88a246303f80acfb883b
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980279"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311660"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>設計工具的例外狀況和錯誤碼（預覽）
+# <a name="exceptions-and-error-codes-for-the-designer"></a>設計工具的例外狀況和錯誤碼
 
-本文說明 Azure Machine Learning 設計工具（預覽）中的錯誤訊息和例外狀況代碼，以協助您針對機器學習管線進行疑難排解。
+本文說明 Azure Machine Learning 設計工具中的錯誤訊息和例外狀況代碼，以協助您針對機器學習管線進行疑難排解。
 
 有兩種方式可取得設計工具中錯誤訊息的完整文字：  
 
@@ -356,7 +356,7 @@ Azure Machine Learning 不支援某些較新的帳戶類型。 例如，新的�
 
 <!---   The module requires a specific data type. For example, ratings provided to [Train Matchbox Recommender](train-matchbox-recommender.md) can be either numeric or categorical, but cannot be floating point numbers.  -->
 
--   資料的格式錯誤。  
+-   資料採用錯誤的格式。  
   
 -   匯入的資料包含不正確字元、錯誤的值或超出範圍的值。  
 -   資料行是空的或包含太多遺漏值。  

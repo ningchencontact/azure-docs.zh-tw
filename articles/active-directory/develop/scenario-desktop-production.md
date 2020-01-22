@@ -17,34 +17,34 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe727afcfdec204c92c82c3e695961707af90e65
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a07a28837abf2fb6df3dd0583309ec1f3d278a58
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423816"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293482"
 ---
-# <a name="desktop-app-that-calls-web-apis---move-to-production"></a>呼叫 web Api 的桌面應用程式-移至生產環境
+# <a name="desktop-app-that-calls-web-apis-move-to-production"></a>呼叫 web Api 的桌面應用程式：移至生產環境
 
-本文提供將您的傳統型應用程式（呼叫 web Api）移至生產環境的詳細資料。
+在本文中，您將瞭解如何將呼叫 web Api 的桌面應用程式移至生產環境。
 
-## <a name="handling-errors-in-desktop-applications"></a>處理桌面應用程式中的錯誤
+## <a name="handle-errors-in-desktop-applications"></a>處理桌面應用程式中的錯誤
 
-在不同的流程中，您已瞭解如何處理無訊息流程的錯誤（如程式碼片段所示）。 您也會發現需要互動的情況（累加同意和條件式存取）。
+在不同的流程中，您已瞭解如何處理無訊息流程的錯誤，如程式碼片段所示。 您也會看到需要進行互動的情況，如同在增量同意和條件式存取中。
 
-## <a name="how-to-have--the-user-consent-upfront-for-several-resources"></a>如何讓使用者在數個資源中提前同意
+## <a name="have-the-user-consent-upfront-for-several-resources"></a>讓使用者預先同意數個資源
 
 > [!NOTE]
-> 針對 Microsoft 身分識別平臺（但不適用於 Azure Active Directory （Azure AD） B2C，取得數項資源的同意。 Azure AD B2C 僅支援管理員同意，而非使用者同意。
+> 獲得數項資源的同意，適用于 Microsoft 身分識別平臺，但不適用於 Azure Active Directory （Azure AD） B2C。 Azure AD B2C 僅支援管理員同意，而非使用者同意。
 
-Microsoft 身分識別平臺（v2.0）端點不允許您一次取得數個資源的權杖。 因此，`scopes` 參數只能包含單一資源的範圍。 您可以使用 `extraScopesToConsent` 參數，確保使用者已預先同意至數個資源。
+您無法使用 Microsoft 身分識別平臺（v2.0）端點一次取得數個資源的權杖。 `scopes` 參數只能包含單一資源的範圍。 您可以使用 `extraScopesToConsent` 參數，確保使用者已預先同意至數個資源。
 
-比方說，如果您有兩個資源，每個都有兩個範圍：
+例如，您可能有兩個具有兩個範圍的資源：
 
-- `https://mytenant.onmicrosoft.com/customerapi`-具有2個範圍 `customer.read` 和 `customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi`-具有2個範圍 `vendor.read` 和 `vendor.write`
+- `customer.read` 和 `customer.write` 的範圍 `https://mytenant.onmicrosoft.com/customerapi`
+- `vendor.read` 和 `vendor.write` 的範圍 `https://mytenant.onmicrosoft.com/vendorapi`
 
-您應該使用具有 `extraScopesToConsent` 參數的 `.WithAdditionalPromptToConsent` 修飾詞。
+在此範例中，請使用具有 `extraScopesToConsent` 參數的 `.WithAdditionalPromptToConsent` 修飾詞。
 
 例如：
 
@@ -101,15 +101,15 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 此呼叫會取得第一個 Web API 的存取權杖。
 
-當您需要呼叫第二個 Web API 時，您可以呼叫 `AcquireTokenSilent` API：
+當您需要呼叫第二個 Web API 時，請呼叫 `AcquireTokenSilent` API。
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 
-### <a name="microsoft-personal-account-requires-reconsenting-each-time-the-app-is-run"></a>每次執行應用程式時，Microsoft 個人帳戶都需要 reconsenting
+### <a name="microsoft-personal-account-requires-reconsent-each-time-the-app-runs"></a>每次執行應用程式時，Microsoft 個人帳戶都需要重新同意
 
-若為 Microsoft 個人帳戶使用者，reprompting 在每個 native client （桌上型/行動裝置應用程式）呼叫上同意，以取得所需的行為。 Native client 身分識別原本就不安全（相反的是，與 Microsoft 身分識別平臺交換秘密以證明其身分識別的機密用戶端應用程式）。 Microsoft 身分識別平臺會在每次應用程式獲得授權時，藉由提示使用者同意，選擇減輕此安全的取用者服務。
+針對 Microsoft 個人帳戶使用者，reprompting 在每個原生用戶端（桌面或行動應用程式）呼叫以授與授權是預期的行為。 Native client 身分識別原本就不安全，這違反了機密用戶端應用程式身分識別。 機密用戶端應用程式會與 Microsoft 身分識別平臺交換秘密，以證明其身分識別。 Microsoft 身分識別平臺選擇在每次授權應用程式時提示使用者同意，藉此減少取用者服務的安全。
 
 ## <a name="next-steps"></a>後續步驟
 

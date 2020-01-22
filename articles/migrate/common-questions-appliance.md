@@ -3,12 +3,12 @@ title: Azure Migrate 設備的相關常見問題
 description: 取得 Azure Migrate 設備的常見問題解答
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c8bcebeee58401cb3d2b65ae82e51d31ab4dad0b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: c9727287160f996059e9c1fb2d1fb5aec5900ab5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029118"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292327"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 設備：常見的問題
 
@@ -83,9 +83,9 @@ Azure Migrate 應用裝置所收集的資料會儲存在您建立遷移專案時
 
 不會。 設備與 vCenter Server 之間會有一對一的對應。 若要探索多個 vCenter Server 實例上的 Vm，您必須部署多個應用裝置。
 
-### <a name="how-many-vms-can-i-discover-with-an-appliance"></a>我可以使用設備探索多少部 Vm？
+### <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>我可以使用設備探索多少部 Vm 或伺服器？
 
-您最多可以探索10000個 VMware Vm，以及多達5000部具有單一設備的 Hyper-v Vm。 如果您的內部部署環境中有更多電腦，請參閱調整[hyper-v](scale-hyper-v-assessment.md)和[VMware](scale-vmware-assessment.md)評估。
+您最多可以探索10000個 VMware Vm，最多5000部 Hyper-v Vm，最多可達250部具有單一應用裝置的伺服器。 如果您的內部部署環境中有更多電腦，請參閱調整[hyper-v](scale-hyper-v-assessment.md)、 [VMware](scale-vmware-assessment.md)和[實體](scale-physical-assessment.md)評量。
 
 ## <a name="can-i-delete-an-appliance"></a>我可以刪除設備嗎？
 

@@ -12,12 +12,12 @@ ms.date: 12/27/2019
 ms.author: mimart
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c6a77fa8c6c48c9c3d4f2eba3ba56ac9114707a
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 528aff73b931776ef9a6542437db271bb214c7fb
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122986"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290694"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>管理應用程式的同意及評估同意要求
 
@@ -42,7 +42,7 @@ Microsoft[建議](https://docs.microsoft.com/azure/security/fundamentals/steps-s
 
 3. 如果您的組織具有適當的授權：
 
-    * [在 Microsoft Cloud App Security 中使用其他的 OAuth 應用程式審核功能](https://docs.microsoft.com/azure/cloud-app-security/investigate-risky-oauth)。
+    * [在 Microsoft Cloud App Security 中使用其他的 OAuth 應用程式審核功能](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth)。
     * 使用[Azure 監視器活頁簿來監視許可權和同意](../reports-monitoring/howto-use-azure-monitor-workbooks.md)相關的活動。 *同意深入*解析活頁簿會依失敗的同意要求數來提供應用程式的觀點。 這有助於設定應用程式的優先順序，讓系統管理員能夠檢查並決定是否要授與系統管理員同意。
 
 ### <a name="additional-considerations-for-reducing-friction"></a>減少摩擦的其他考慮

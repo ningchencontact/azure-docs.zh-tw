@@ -3,12 +3,12 @@ title: Azure VM 備份的支援矩陣
 description: 摘要說明使用 Azure 備份服務來備份 Azure VM 時的支援設定和限制。
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 36fbc4813cdc9849b77e8309c97a2d42511a31d0
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: c57f625e7f44dc5de6a801ec93bad5433e9a9a66
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829539"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294281"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 
@@ -31,6 +31,18 @@ ms.locfileid: "75829539"
 將 Azure VM 備份至備份伺服器  | 備份檔案/資料夾/磁片區;系統狀態/裸機檔案;應用程式資料至 System Center DPM 或 Microsoft Azure 備份 Server （MABS）。<br/><br/> DPM/MABS 接著會備份至備份保存庫。 | 在 VM 上安裝 DPM/MABS 保護代理程式。 在 DPM/MABS 上安装 MARS 代理程式。| 還原檔案/資料夾/磁碟區、系統狀態/裸機檔案、應用程式資料。
 
 深入瞭解如何[使用備份伺服器](backup-architecture.md#architecture-back-up-to-dpmmabs)和[支援需求](backup-support-matrix-mabs-dpm.md)來進行備份。
+
+>[!NOTE]
+> Azure 備份現在支援使用 Azure 虛擬機器備份解決方案進行選擇性磁片備份和還原。
+>
+>目前，Azure 備份支援使用虛擬機器備份解決方案，同時備份 VM 中的所有磁片（作業系統和資料）。 使用 [排除磁片] 功能時，您可以選擇從 VM 中的多個資料磁片備份一或數個。 這為您的備份和還原需求提供有效率且符合成本效益的解決方案。 每個復原點都包含備份作業中包含的磁片資料，這可讓您在還原作業期間，擁有從指定復原點還原的磁片子集。 這適用于從快照集和保存庫還原兩者。
+>
+> 此解決方案在下列案例中特別有用：
+>  
+>1. 您的重要資料只能備份在一個磁片中，而您不想要備份連接至 VM 的其餘磁片。 這可將備份儲存體成本降到最低。  
+>2. 您有部分 VM 資料的其他備份解決方案。 例如，您使用不同的工作負載備份解決方案來備份資料庫或資料，而且您想要使用 Azure VM 層級備份來存放磁片和資料的其餘部分，以利用可用的最佳功能來建立有效率且健全的系統。
+>
+>若要註冊預覽版，請在 AskAzureBackupTeam@microsoft.com 寫信給我們
 
 ## <a name="supported-backup-actions"></a>支援的備份動作
 
@@ -154,7 +166,7 @@ Gen2 Vm | 支援的 <br> Azure 備份支援[Gen2 vm](https://azure.microsoft.com
 
 **元件** | **支援**
 --- | ---
-Azure VM 資料磁碟 | 備份具有16個或更少資料磁片的 VM。<BR> 若要註冊具有16個以上磁片（最多32個磁片）之 Vm 的私人預覽，請在 AskAzureBackupTeam@microsoft.com 寫入我們
+Azure VM 資料磁碟 | 備份具有16個或更少資料磁片的 VM。<BR> 若要註冊具有 16 個以上磁碟 (最多 32 個磁碟) 的 VM 私人預覽版，請利用 AskAzureBackupTeam@microsoft.com 寫信給我們
 資料磁碟大小 | 針對 VM 中的所有磁片，個別磁片大小最高可達 32 TB，最大為 256 TB。
 儲存體類型 | 標準 HDD、標準 SSD 進階 SSD。
 受控磁碟 | 支援。

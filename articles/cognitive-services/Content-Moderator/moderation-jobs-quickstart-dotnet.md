@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: bdc9e8cbea77b504cfdc2c3b1c83c74ea4ab8ed1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fe1b5b4171dc5e61c1c82abfd723d0b77a05a5b9
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935966"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294332"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>定義和使用審核作業（.NET）
 
@@ -124,7 +124,7 @@ public static class Clients
 將下列內容和靜態欄位新增至 Program.cs 中的 **Program** 類別。
 
 > [!NOTE]
-> 您可以將 TeamName 常數設定為建立 Content Moderator 訂用帳戶時所使用的名稱。 您可以從 [Content Moderator 網站](https://westus.contentmoderator.cognitive.microsoft.com/)擷取 TeamName。
+> 您可以將 TeamName 常數設定為建立 Content Moderator 訂用帳戶時所使用的名稱。 您可以從內容仲裁網站取得 TeamName。
 > 登入後，請從 [設定] (齒輪) 功能表選取 [認證]。
 >
 > 小組名稱會是 [API] 區段中 [Id] 欄位的值。
@@ -250,7 +250,7 @@ Then, press any key to continue.
 
 使用 [下一步] 按鈕以提交影像。
 
-![給人工審核者的影像檢閱](images/ocr-sample-image.PNG)
+![給人工仲裁的影像檢閱](images/ocr-sample-image.PNG)
 
 ## <a name="see-the-sample-output-in-the-log-file"></a>查看記錄檔中的輸出範例
 

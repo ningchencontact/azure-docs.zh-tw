@@ -2,13 +2,13 @@
 title: 找不到資源的錯誤
 description: 描述當使用 Azure Resource Manager 範本部署時，找不到資源時，如何解決錯誤。
 ms.topic: troubleshooting
-ms.date: 06/06/2018
-ms.openlocfilehash: 81a2541be4f0a99aa28186eb6b7289bdb595e678
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 01/21/2020
+ms.openlocfilehash: c3e19af24fa7fb850eadf3deb346180476943241
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152420"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310657"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>解決找不到 Azure 資源的錯誤
 
@@ -87,4 +87,16 @@ Resource Manager 需要擷取資源的屬性，但是無法識別您訂用帳戶
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
+```
+
+## <a name="solution-4---get-managed-identity-from-resource"></a>解決方案 4-從資源取得受控識別
+
+如果您要部署隱含建立[受控識別](../../active-directory/managed-identities-azure-resources/overview.md)的資源，您必須等到該資源部署之後，再抓取受控識別上的值。 如果您將受控識別名稱傳遞給[reference](template-functions-resource.md#reference)函式，Resource Manager 會在部署資源和身分識別之前，先嘗試解析參考。 請改為傳遞要套用身分識別的資源名稱。 這種方法可確保在 Resource Manager 解析參考函式之前，會先部署資源和受控識別。
+
+在 reference 函式中，使用 `Full` 來取得所有屬性，包括受控識別。
+
+例如，若要取得適用于虛擬機器擴展集之受控識別的租使用者識別碼，請使用：
+
+```json
+"tenantId": "[reference(concat('Microsoft.Compute/virtualMachineScaleSets/',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
 ```

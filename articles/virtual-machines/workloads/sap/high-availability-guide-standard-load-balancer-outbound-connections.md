@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/28/2019
 ms.author: radeltch
-ms.openlocfilehash: ae2fb4c13633fa2ac22510a98e193bd9f01efb12
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 15abee96f81bca68575d61be1276d4394e9a6f55
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045378"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293805"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>在 SAP 高可用性案例中使用 Azure Standard Load Balancer 虛擬機器的公用端點連線能力
 
@@ -35,7 +35,7 @@ ms.locfileid: "73045378"
 
 標準 Azure 負載平衡器提供了一些優於基本負載平衡器的優點。 例如，它可跨 Azure 可用性區域運作，其具有更佳的監視和記錄功能，可更輕鬆地進行疑難排解、減少延遲。 「HA 埠」功能涵蓋所有埠，也就是說，不再需要列出所有個別埠。  
 
-Azure 負載平衡器的基本和標準 SKU 之間有一些重要的差異。 其中一個是處理公用端點的輸出流量。 如需完整的基本與標準 SKU 負載平衡器的比較，請參閱[LOAD BALANCER SKU 比較](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus)。  
+Azure 負載平衡器的基本和標準 SKU 之間有一些重要的差異。 其中一個是處理公用端點的輸出流量。 如需完整的基本與標準 SKU 負載平衡器的比較，請參閱[LOAD BALANCER SKU 比較](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)。  
  
 如果沒有公用 IP 位址的 Vm 放在內部（沒有公用 IP 位址）標準 Azure 負載平衡器的後端集區中，則不會對公用端點進行輸出連線，除非完成額外設定。  
 
@@ -71,7 +71,7 @@ SAP 系統通常包含機密的商務資料。 裝載 SAP 系統的 Vm 很少可
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>適用于網際網路輸出連線的其他外部 Azure Standard Load Balancer
 
-若要達到公用端點的輸出連線能力，而不允許從公用端點對 VM 進行輸入連線，有一個選項是建立具有公用 IP 位址的第二個負載平衡器，將 Vm 新增至第二個負載平衡器的後端集區，並定義僅[輸出規則](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)。  
+若要達到公用端點的輸出連線能力，而不允許從公用端點對 VM 進行輸入連線，有一個選項是建立具有公用 IP 位址的第二個負載平衡器，將 Vm 新增至第二個負載平衡器的後端集區，並只定義[輸出規則](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)。  
 使用[網路安全性群組](https://docs.microsoft.com/azure/virtual-network/security-overview)來控制可從 VM 撥出電話存取的公用端點。  
 如需詳細資訊，請參閱檔[輸出連接](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios)中的案例2。  
 設定看起來會像這樣：  

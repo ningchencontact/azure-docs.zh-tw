@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 11/19/2019
-ms.openlocfilehash: b07bde671be73af2a351353d9794907972a022e7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c984b38498085567441fb0c4f965602d437589e5
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232612"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311490"
 ---
 # <a name="join-data"></a>聯結資料
 
-本文描述如何在 Azure Machine Learning 設計師（預覽）中使用**聯結資料**模組，以使用資料庫樣式的聯結作業來合併兩個資料集。  
+本文描述如何在 Azure Machine Learning 設計師中使用**聯結資料**模組，以使用資料庫樣式的聯結作業來合併兩個資料集。  
 
 ## <a name="how-to-configure-join-data"></a>如何設定聯結資料
 
@@ -47,7 +47,7 @@ ms.locfileid: "74232612"
    
 1. 使用 [**聯結類型**] 下拉式清單，指定資料集的結合方式。  
   
-    * **內部聯結**：*內部聯結*是最常見的聯結作業。 只有當索引鍵資料行的值相符時，它才會傳回合並的資料列。  
+    * **內部聯結**：*內部聯結*是最常見的聯結作業。 只有當索引鍵資料行的值符合時，它才會傳回合併的資料列。  
   
     * **左方外部聯結**：*左方外部聯結*會傳回左側資料表中所有資料列的聯結資料列。 當左資料表中的資料列在右資料表中沒有相符的資料列時，傳回的資料列會包含來自右資料表之所有資料行的遺漏值。 您也可以指定遺漏值的取代值。  
   
@@ -62,9 +62,9 @@ ms.locfileid: "74232612"
     * 選取此選項可同時從兩個輸入資料表中查看索引鍵。
     * 取消選取即可只傳回左邊輸入的索引鍵資料行。
 
-1. 執行管線，或選取 [聯結資料] 模組，選取的 **[執行] 以執行**聯結。
+1. 執行管道。
 
-1. 若要查看結果，請以滑鼠右鍵按一下 [**聯結資料** > **結果資料集**] > [**視覺化**]。
+1. 若要查看結果，請以滑鼠右鍵按一下**聯結資料**，然後選取 [**視覺化**]。
 
 ## <a name="next-steps"></a>後續步驟
 

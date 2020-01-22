@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 28cc2e1f8782f1ffd37e3a20fcc68264b481e42e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b62e03184453c4daea8615ee2bea39c936de5c73
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490378"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313972"
 ---
 # <a name="train-model-module"></a>訓練模組
 
-本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
+本文說明 Azure Machine Learning 設計工具中的模組。
 
 使用此模組來定型分類或回歸模型。 定型會在您定義模型並設定其參數之後進行，而且需要已標記的資料。 您也可以使用**訓練模型**，以新的資料重新定型現有的模型。 
 
@@ -57,21 +57,20 @@ ms.locfileid: "73490378"
     
     範例可能是信用風險分數、硬碟故障的預估時間，或在指定的一天或一段預測話務中心的呼叫次數。  如果您沒有選擇數值資料行，可能會收到錯誤。
   
-    -   如果您未指定要使用哪一個標籤資料行，Azure Machine Learning 會使用資料集的中繼資料，嘗試推斷哪個是適當的標籤資料行。 如果它挑選錯誤的資料行，請使用資料行選取器來更正它。
+    -   如果未指定要使用哪一個標籤資料行，Azure Machine Learning 會使用資料集的中繼資料，嘗試推斷適當的標籤資料行。 如果它挑選錯誤的資料行，請使用資料行選取器來更正它。
   
     > [!TIP] 
     > 如果您在使用資料行選取器時遇到問題，請參閱[選取資料集中的資料行](./select-columns-in-dataset.md)以取得秘訣一文。 其中說明使用**WITH 規則**和**依名稱**選項的一些常見案例和秘訣。
   
 5.  執行管道。 如果您有大量資料，這可能需要一些時間。
 
-## <a name="bkmk_results"></a>更
+## <a name="bkmk_results"></a> 結果
 
 定型模型之後：
 
-+ 若要查看模型參數和功能加權，請以滑鼠右鍵按一下輸出，然後選取 [**視覺化**]。
-+ 若要在其他管線中使用模型，請以滑鼠右鍵按一下模型，然後選取 [**儲存模型**]。 輸入模型的名稱。 
 
-    這會將模型儲存為不會重複執行管線所更新的快照集。
++ 若要在其他管線中使用模型，請選取模組，並選取右面板中 [**輸出**] 索引標籤底下的 [**註冊資料集**] 圖示。 您可以在 [**資料集**] 下的模組選擇區中存取已儲存的模型。
+
 + 若要使用模型來預測新的值，請將它連接到 [[評分模型](./score-model.md)] 模組，連同新的輸入資料。
 
 

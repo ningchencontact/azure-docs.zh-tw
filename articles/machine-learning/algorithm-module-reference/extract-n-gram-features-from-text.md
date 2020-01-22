@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 71c1afd294b880f68849b283ea1a4b058d744801
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f64ac9b276c71a037f96766b38a2574b89441c8
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497845"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312221"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>從文字模塊參考中解壓縮 N 語法功能
 
-本文說明 Azure Machine Learning 設計工具（預覽）中的模組。 使用 [從文字中解壓縮 N 語法特徵] 模組來為非結構化文字資料提供*特徵*。 
+本文說明 Azure Machine Learning 設計工具中的模組。 使用 [從文字中解壓縮 N 語法特徵] 模組來為非結構化文字資料提供*特徵*。 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>設定從文字模塊解壓縮 N 語法功能
 

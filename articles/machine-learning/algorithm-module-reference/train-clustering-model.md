@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 57cf5bab2afe58ed802ef5ec03c316f1ebec6673
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1f1a508e6188b68f932993eb60e13228b56f8e7e
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232582"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313938"
 ---
 # <a name="train-clustering-model"></a>定型叢集模型
 
-本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
+本文說明 Azure Machine Learning 設計工具中的模組。
 
 使用此模組來定型群集模型。
 
@@ -49,10 +49,7 @@ ms.locfileid: "74232582"
 
 訓練完成之後：
 
-
-+  若要查看資料集中的值，請以滑鼠右鍵按一下模組，選取 [**結果資料集**]，然後按一下 [**視覺化**]。
-
-+ 若要儲存已定型的模型以供日後重複使用，請以滑鼠右鍵按一下模組，選取 [**定型模型**]，然後按一下 [**另存為定型模型**]。
++ 若要儲存定型模型的快照集，請選取 [**訓練模型**] 模組右面板中的 [**輸出**] 索引標籤。 選取 [**註冊資料集**] 圖示，將模型儲存為可重複使用的模組。
 
 + 若要從模型產生分數，請使用 [[將資料指派給群集](assign-data-to-clusters.md)]。
 

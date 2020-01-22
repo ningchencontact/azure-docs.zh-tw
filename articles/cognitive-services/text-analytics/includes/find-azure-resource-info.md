@@ -1,5 +1,5 @@
 ---
-title: 尋找您的文字分析資源端點和金鑰
+title: 尋找您的文字分析資源端點和金鑰 - v3 用戶端程式庫
 titleSuffix: Azure Cognitive Services
 description: 了解如何建立認知服務文字分析資源。
 services: cognitive-services
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/14/2019
 ms.author: aahi
-ms.openlocfilehash: b56bb8dfdce58de60f82693b511f7923b80fc37a
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: d432e2c9ccf0563e18d7f3958a030dd7ce32f4d0
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76159591"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281127"
 ---
 > [!IMPORTANT]
 > 移至您建立的資源，尋找金鑰和端點。 您可以在 [資源管理]  下的資源 [快速啟動]  頁面中找到。

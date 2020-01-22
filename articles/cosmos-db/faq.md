@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: dc627fc4bb7be449547a07cc34eb2cb3694964e9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ac93d1f4f0f148e1f0ce3d0f21ac9a694f2e896d
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445444"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310011"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>關於 Azure Cosmos DB 內不同 API 的常見問題集
 
@@ -76,8 +76,6 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 當�
 若要要求新功能，請在 [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db) 上建立新的要求。
 
 若要修正您的帳戶問題，請在 Azure 入口網站中提出[支援要求](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
-
-您可以將其他問題提交給小組 (利用 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com))；不過，這不是技術支援小組的別名。
 
 ## <a id="try-cosmos-db"></a>試用 Azure Cosmos DB 訂用帳戶
 
@@ -288,8 +286,6 @@ Azure Cosmos DB 資料表 API 可在[Azure 入口網站][azure-portal]中取得�
 | TableServiceEntity | " " |
 | TableServiceExtensions | " " |
 | TableServiceQuery | " " |
-
-如果上述差異為您的專案帶來問題，請連絡 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) 並且讓我們知道。
 
 ### <a name="how-do-i-provide-feedback-about-the-sdk-or-bugs"></a>如何提供關於 SDK 和 Bug 的意見反應？
 

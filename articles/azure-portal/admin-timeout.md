@@ -3,18 +3,18 @@ title: 為 Azure 入口網站的使用者設定目錄層級的非啟用時間 |M
 description: 系統管理員可以在會話登出之前，強制執行最大閒置時間。在目錄層級設定的無活動超時原則。
 services: azure-portal
 keywords: 設定，超時
-author: mblythe
+author: mgblythe
 ms.author: mblythe
 ms.date: 12/19/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 55136b5418b0c455ef66bd322f519c1e52114b93
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 87de67eec9171825a1ebff9ab60782fea8836039
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640494"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310793"
 ---
 # <a name="set-directory-level-inactivity-timeout"></a>設定目錄層級的非啟用時間
 

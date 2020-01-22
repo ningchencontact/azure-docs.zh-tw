@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: eb3e473535c394818772ac949808023254087555
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 21afb12bf2464218119ebf52ebd980745e3d731d
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448027"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311711"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>如何新增模式以改善預測精確度
 LUIS 應用程式收到端點語句之後，請使用[模式](luis-concept-patterns.md)來改善以單字順序和字組選擇顯示模式之語句的預測精確度。 模式會使用特定的[語法](luis-concept-patterns.md#pattern-syntax)來指出的位置：[實體](luis-concept-entity-types.md)、實體[角色](luis-concept-roles.md)和選擇性文字。
@@ -42,7 +42,7 @@ LUIS 應用程式收到端點語句之後，請使用[模式](luis-concept-patte
     > [!div class="mx-imgBorder"]
     > ![在 [意圖詳細資料] 頁面上確認範例語句為範本模式的螢幕擷取畫面。](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
 
-1. 如果您需要編輯範本（例如，選取 [文字] 做為選擇性）和 [`[]` （方形）] 括弧，您需要將此編輯表單為 [**模式**] 頁面。
+1. 如果您需要編輯範本（例如，選取 [文字] 做為選擇性）和 [`[]` （方形）] 括弧，您必須從 [**模式**] 頁面進行這種編輯。
 
 1. 在導覽列中，選取 [**定型**]，以新的模式訓練應用程式。
 

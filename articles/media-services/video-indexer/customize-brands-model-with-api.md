@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 01/14/2020
 ms.author: anzaman
-ms.openlocfilehash: 804cc7b2b0b51312ed756723fff5150b02f324cc
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 81ba4cc7be5f9361d21aaea2ba78d0fd6f0f8c95
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892799"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289912"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>使用影片索引器 API 自訂品牌模型
 
@@ -27,43 +27,15 @@ ms.locfileid: "74892799"
 
 ## <a name="create-a-brand"></a>建立品牌
 
-這會建立新的自訂品牌，並將其新增至指定之帳戶的自訂品牌模型。
+[建立品牌](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand)API 會建立新的自訂品牌，並將其新增至指定帳戶的自訂品牌模型。 
 
-### <a name="request-url"></a>要求 URL
+> [!NOTE]
+> 將 [**已啟用**] （在本文中）設定為 [true] 會將品牌置於影片索引子的 [*包含*] 清單中，以偵測。 將 **enabled** 設為 false，則可將品牌置於 [排除] 清單，如此影片索引器將不會偵測該品牌。
 
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
-```
+您可以在本文中設定的一些其他參數：
 
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) \(英文\)。
-
-### <a name="request-parameters"></a>要求參數
-
-|**名稱**|**類型**|**必要**|**說明**|
-|---|---|---|---|
-|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|string|是|帳戶的全域唯一識別碼|
-|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
-
-### <a name="request-body"></a>Request body
-
-除了這些參數之外，您還必須提供要求主體 JSON 物件，此物件可依照下列範例的格式，提供新品牌的相關資訊。
-
-```json
-{
-  "name": "Example",
-  "enabled": true,
-  "tags": ["Tag1", "Tag2"],
-  "description": "This is an example",
-  "referenceUrl": "https://en.wikipedia.org/wiki/Example"
-}
-```
-
-將 **enabled** 設為 true，可將品牌置於要偵測之影片索引器的 [包含] 清單。 將 **enabled** 設為 false，則可將品牌置於 [排除] 清單，如此影片索引器將不會偵測該品牌。
-
-**referenceUrl** 值可以是品牌的任何參考網站，例如其維基百科頁面的連結。
-
-**tags** 值是品牌標籤的清單。 這在影片索引器網站中，會出現在品牌的 [分類] 欄位內。 例如，您可以將品牌 "Azure" 標記或分類為「雲端」。
+* **referenceUrl** 值可以是品牌的任何參考網站，例如其維基百科頁面的連結。
+* **tags** 值是品牌標籤的清單。 這在影片索引器網站中，會出現在品牌的 [分類] 欄位內。 例如，您可以將品牌 "Azure" 標記或分類為「雲端」。
 
 ### <a name="response"></a>回應
 
@@ -89,28 +61,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ## <a name="delete-a-brand"></a>刪除品牌
 
-從指定之帳戶的自訂品牌模型中移除品牌。 帳戶是使用 **accountId** 參數指定的。 一旦呼叫成功之後，該品牌將不再位於 [包含] 或 [排除] 品牌清單中。
-
-### <a name="request-url"></a>要求 URL
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
-```
-
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) \(英文\)。
-
-### <a name="request-parameters"></a>要求參數
-
-|**名稱**|**類型**|**必要**|**說明**|
-|---|---|---|---|
-|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|string|是|帳戶的全域唯一識別碼|
-|id|integer|是|品牌識別碼 (建立品牌時產生)|
-|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
-
-### <a name="request-body"></a>Request body
-
-此呼叫不需要其他要求本文。
+「[刪除品牌](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?)API」會從指定之帳戶的自訂品牌模型中移除品牌。 帳戶是使用 **accountId** 參數指定的。 一旦呼叫成功之後，該品牌將不再位於 [包含] 或 [排除] 品牌清單中。
 
 ### <a name="response"></a>回應
 
@@ -118,28 +69,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ## <a name="get-a-specific-brand"></a>取得特定品牌
 
-這可讓您使用品牌識別碼，在指定之帳戶的自訂品牌模型中搜尋品牌的詳細資料。
-
-### <a name="request-url"></a>要求 URL
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
-```
-
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?) \(英文\)。
-
-### <a name="request-parameters"></a>要求參數
-
-|**名稱**|**類型**|**必要**|**說明**|
-|---|---|---|---|
-|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|string|是|帳戶的全域唯一識別碼|
-|id|integer|是|品牌識別碼 (建立品牌時產生)|
-|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
-
-### <a name="request-body"></a>Request body
-
-此呼叫不需要其他要求本文。
+[取得品牌](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?)API 可讓您使用品牌識別符，在指定帳戶的自訂品牌模型中搜尋品牌的詳細資料。
 
 ### <a name="response"></a>回應
 
@@ -168,44 +98,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ## <a name="update-a-specific-brand"></a>更新特定品牌
 
-這可讓您使用品牌識別碼，在指定之帳戶的自訂品牌模型中搜尋品牌的詳細資料。
-
-### <a name="request-url"></a>要求 URL
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
-```
-
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?) \(英文\)。
-
-### <a name="request-parameters"></a>要求參數
-
-|**名稱**|**類型**|**必要**|**說明**|
-|---|---|---|---|
-|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|string|是|帳戶的全域唯一識別碼|
-|id|integer|是|品牌識別碼 (建立品牌時產生)|
-|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
-
-### <a name="request-body"></a>Request body
-
-除了這些參數之外，您還必須提供要求本文 JSON 物件，此物件可依照下列範例的格式，提供您要更新之品牌的相關更新資訊。
-
-```json
-{
-  "name": "Example",
-  "enabled": false,
-  "tags": ["Tag1", "NewTag2"],
-  "description": "This is an update example",
-  "referenceUrl": "https://en.wikipedia.org/wiki/Example",
-  "lastModifierUserName": "SampleUserName",
-  "created": "2018-04-25T14:59:52.7433333",
-  "lastModified": "2018-04-28T15:52:22.3413983",
-}
-```
-
-> [!NOTE]
-> 在此範例中，於 [建立品牌] 區段中範例本文內所建立的品牌，在這裡會更新為新的標籤和新的描述。 **enabled** 值也會變更為 false，以便將其置於 [排除] 清單。
+[更新品牌](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?)API 可讓您使用品牌識別符，在指定帳戶的自訂品牌模型中搜尋品牌的詳細資料。
 
 ### <a name="response"></a>回應
 
@@ -231,27 +124,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ## <a name="get-all-of-the-brands"></a>取得所有品牌
 
-這會在指定之帳戶的自訂品牌模型中，傳回 [包含] 和 [排除] 品牌清單中的所有品牌。
-
-### <a name="request-url"></a>要求 URL
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
-```
-
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?) \(英文\)。
-
-### <a name="request-parameters"></a>要求參數
-
-|**名稱**|**類型**|**必要**|**說明**|
-|---|---|---|---|
-|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|string|是|帳戶的全域唯一識別碼|
-|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
-
-### <a name="request-body"></a>Request body
-
-此呼叫不需要其他要求本文。
+不論品牌是否要位於 [*包含*或*排除*品牌] 清單中，「[取得所有品牌](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?)」 API 都會針對指定的帳號傳回自訂品牌模型中的所有品牌。
 
 ### <a name="response"></a>回應
 
@@ -291,27 +164,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ## <a name="get-brands-model-settings"></a>取得品牌模型設定
 
-這會傳回指定之帳戶中的品牌模型設定。 品牌模型設定表示是否已從 Bing 品牌資料庫中啟用偵測。 如果未啟用 Bing 品牌，影片索引器將只會從指定之帳戶的自訂品牌模型中偵測品牌。
-
-### <a name="request-url"></a>要求 URL
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
-```
-
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) \(英文\)。
-
-### <a name="request-parameters"></a>要求參數
-
-|**名稱**|**類型**|**必要**|**說明**|
-|---|---|---|---|
-|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|string|是|帳戶的全域唯一識別碼|
-|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
-
-### <a name="request-body"></a>Request body
-
-此呼叫不需要其他要求本文。
+[取得品牌設定](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands)API 會傳回指定帳戶中的品牌模型設定。 品牌模型設定表示是否已從 Bing 品牌資料庫中啟用偵測。 如果未啟用 Bing 品牌，影片索引器將只會從指定之帳戶的自訂品牌模型中偵測品牌。
 
 ### <a name="response"></a>回應
 
@@ -329,35 +182,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ## <a name="update-brands-model-settings"></a>更新品牌模型設定
 
-這會更新指定之帳戶中的品牌模型設定。 品牌模型設定表示是否已從 Bing 品牌資料庫中啟用偵測。 如果未啟用 Bing 品牌，影片索引器將只會從指定之帳戶的自訂品牌模型中偵測品牌。
+[更新品牌](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?)會更新指定之帳戶中的品牌模型設定。 品牌模型設定表示是否已從 Bing 品牌資料庫中啟用偵測。 如果未啟用 Bing 品牌，影片索引器將只會從指定之帳戶的自訂品牌模型中偵測品牌。
 
-### <a name="request-url"></a>要求 URL：
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/BrandsModelSettings?accessToken={accessToken}
-```
-
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) \(英文\)。
-
-### <a name="request-parameters"></a>要求參數
-
-|**名稱**|**類型**|**必要**|**說明**|
-|---|---|---|---|
-|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|string|是|帳戶的全域唯一識別碼|
-|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
-
-### <a name="request-body"></a>Request body
-
-除了這些參數之外，您還必須提供要求主體 JSON 物件，此物件可依照下列範例的格式，提供新品牌的相關資訊。
-
-```json
-{
-    "useBuiltIn":true
-}
-```
-
-> [!NOTE]
-> **useBuiltIn** 設為 true 時，表示已啟用 Bing 品牌。 如果 *useBuiltin* 為 false，則會停用 Bing 品牌。
+**UseBuiltIn**旗標設為 true 時，表示已啟用 Bing 品牌。 如果 *useBuiltin* 為 false，則會停用 Bing 品牌。
 
 ### <a name="response"></a>回應
 

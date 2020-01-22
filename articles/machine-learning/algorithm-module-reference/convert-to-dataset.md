@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: a004fdf0ed01c97fe5c21cc9011c46f5e4c51648
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 00414bea82a7a78dd88ff4b1a592a6e35b5241c7
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428581"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314397"
 ---
 # <a name="convert-to-dataset"></a>轉換為資料集
 
-本文說明如何使用 Azure Machine Learning 設計工具（預覽）中的 [轉換成資料集] 模組，將管線的任何資料轉換為設計工具的內部格式。
+本文說明如何使用 Azure Machine Learning 設計工具中的 [轉換成資料集] 模組，將管線的任何資料轉換為設計工具的內部格式。
   
 在大部分的情況下，不需要轉換。 Azure Machine Learning 在資料上執行任何作業時，會隱含地將資料轉換成其原生資料集格式。 
 
@@ -51,11 +51,11 @@ ms.locfileid: "75428581"
     請注意， **ReplaceValues**作業只適用于完全相符的專案。 例如，這些字串不會受到影響： `obs.`、`obsolete`。  
  
   
-5.  執行管線，或以滑鼠右鍵按一下 [轉換成資料集] 模組，然後選取 [**執行選取**的]。  
+5.  執行管道。  
 
 ## <a name="results"></a>結果
 
-+  若要使用新名稱儲存產生的資料集，請以滑鼠右鍵按一下 [轉換成資料集] 的輸出，然後選取 [**另存為資料集**]。  
++  若要使用新名稱儲存產生的資料集，請在模組右側面板的 [**輸出**] 索引標籤底下，選取 [**註冊資料集**] 圖示。  
   
 ## <a name="technical-notes"></a>技術說明  
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: dc78322b09548e4e9c2f666e0c8315ce688d6541
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 075216cf7d67aa4d5a04f34a7ae3444a078b4c62
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428428"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313904"
 ---
 # <a name="train-svd-recommender"></a>訓練 SVD 推薦
 
-本文說明如何在 Azure Machine Learning 設計工具（預覽）中使用 [定型 SVD 推薦] 模組。 使用此模組來根據單一值分解（SVD）演算法來定型建議模型。  
+本文說明如何在 Azure Machine Learning 設計工具中使用 [定型 SVD 推薦] 模組。 使用此模組來根據單一值分解（SVD）演算法來定型建議模型。  
 
 [定型 SVD 推薦] 模組會讀取使用者-專案-評等三合一的資料集。 它會傳回定型的 SVD 推薦。 接著，您可以使用[計分 SVD 推薦](score-svd-recommender.md)模組，透過定型的模型來預測評等或產生建議。  
 

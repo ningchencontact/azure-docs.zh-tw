@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 16ae6775494f9076d442e181f70a2ecde5863dab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4b6944f7703500a2c3859e8e3111eceefbd5ff10
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428442"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311405"
 ---
 # <a name="smote"></a>SMOTE
 
-本文說明如何使用 Azure Machine Learning 設計工具（預覽）中的 SMOTE 模組，來增加用於機器學習服務之資料集中的不具代表性案例數目。 SMOTE 是較好的方法，可增加罕見案例的數目，而不只是複製現有的案例。  
+本文說明如何在 Azure Machine Learning 設計工具中使用 SMOTE 模組，以增加用於機器學習服務之資料集中的不具代表性案例數目。 SMOTE 是較好的方法，可增加罕見案例的數目，而不只是複製現有的案例。  
 
 您將 SMOTE 模組連接到*不平衡*的資料集。 資料集可能不平衡的原因有很多。 例如，您的目標類別在擴展中可能很罕見，或資料可能很難收集。 一般而言，當您想要分析的*類別*是不具代表性時，您會使用 SMOTE。 
   

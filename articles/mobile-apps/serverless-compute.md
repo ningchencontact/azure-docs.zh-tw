@@ -8,12 +8,12 @@ ms.assetid: 444f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: d59cca4b5c956134516aa2c8066894aa14e5d33d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ec7091a32a1be8d875e16d8e0a9b20b5e80de387
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453095"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291952"
 ---
 # <a name="build-mobile-back-end-components-with-compute-services"></a>使用計算服務建立行動後端元件
 每個行動應用程式都需要一個後端，負責資料儲存、商務邏輯和安全性。 若要管理基礎結構來裝載和執行後端程式碼，您需要調整、布建及調整多部伺服器。 您也必須管理作業系統更新和相關硬體，並套用安全性修補程式。 接著，您必須監視所有這些基礎結構元件的效能、可用性和容錯能力。 
@@ -36,7 +36,7 @@ ms.locfileid: "75453095"
 - 事件驅動和可調整的位置，您可以在其中使用觸發程式和系結來定義叫用函式的時間，以及它所連接的資料。
 - 帶入您自己的相依性，因為函式支援 NuGet 和 NPM，因此您可以使用您最愛的程式庫。
 - 整合式安全性，讓您可以使用 OAuth 提供者（例如 Azure Active Directory、Facebook、Google、Twitter 和 Microsoft 帳戶）保護 HTTP 觸發的函式。
-- 簡化與不同[Azure 服務](/azure/azure-functions/functions-overview#integrations)和軟體即服務（SaaS）供應專案的整合。
+- 簡化與不同[Azure 服務](/azure/azure-functions/functions-overview)和軟體即服務（SaaS）供應專案的整合。
 - 彈性的開發，讓您可以直接在 Azure 入口網站中撰寫函式的程式碼，或透過 GitHub、Azure DevOps Services 和其他支援的開發工具來設定持續整合和部署程式碼。
 - 函式執行時間是開放原始碼，並可在[GitHub](https://github.com/azure/azure-webjobs-sdk-script)上取得。
 - 增強的開發體驗，讓您可以使用其慣用的編輯器或便於使用的 web 介面，透過整合式工具和內建的 DevOps 功能，在本機進行程式碼、測試和調試。

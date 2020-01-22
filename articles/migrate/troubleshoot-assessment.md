@@ -7,14 +7,14 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 3098e85fd21b6185defc4bbcf0a71d412846ab25
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: fb1e32d9f67febb09eadfb5d31221db33504eb05
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725737"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289470"
 ---
-# <a name="troubleshoot-assessmentdependency-visualization"></a>針對評量/相依性視覺效果進行疑難排解
+# <a name="troubleshoot-assessmentdependency-visualization"></a>評量/相依性視覺效果疑難排解
 
 本文可協助您使用[Azure Migrate：伺服器評](migrate-services-overview.md#azure-migrate-server-assessment-tool)量，針對評估和相依性視覺效果的問題進行疑難排解。
 
@@ -92,6 +92,7 @@ Azure Migrate Server 評估可能會根據評量的類型，建議較大的磁�
 - 如果在評估期間關閉 Vm，就會發生這種情況。 應用裝置關閉時，無法收集 VM 的效能資料。
 - 如果只有記憶體計數器遺失，而且您正嘗試評估 Hyper-v Vm，請檢查您是否已在這些 Vm 上啟用動態記憶體。 只有 Hyper-v Vm 的已知問題，在此情況下，Azure Migrate 設備無法收集未啟用動態記憶體之 Vm 的記憶體使用量資料。
 - 如果遺失任何效能計數器，Azure Migrate Server 評估會降回已配置的核心和記憶體，並建議對應的 VM 大小。
+- 如果遺失所有效能計數器，請確定已符合評估的埠存取需求。 深入瞭解[VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access)、 [hyper-v](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access)和[實體](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access)伺服器評量的埠存取需求。
 
 ## <a name="is-the-operating-system-license-included"></a>是否包含作業系統授權？
 

@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: 798c368edb4a738124fce965f8990e6805fbdeba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ac66e46d449100fcdd004627820252473f6e2f3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472605"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293652"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中進階排程器功能的最佳做法
 
-您在管理 Azure Kubernetes Service (AKS) 中的叢集時，往往需要隔離小組和工作負載。 Kubernetes 排程器提供了進階功能，可讓您控制可以在特定節點上排程哪些 pod，或者如何在叢集中適當地散發多 pod 應用程式。 
+您在管理 Azure Kubernetes Service (AKS) 中的叢集時，往往需要隔離小組和工作負載。 Kubernetes 排程器提供了一些先進的功能，可讓您控制哪些 pod 可以在特定節點上排定，或如何在整個叢集中適當地散發多 pod 應用程式。 
 
-本最佳做法文章著重於叢集運算子的進階 Kubernetes 排程功能。 在本文中，您將了解：
+本最佳做法文章著重於叢集運算子的進階 Kubernetes 排程功能。 在本文中，您將學會如何：
 
 > [!div class="checklist"]
 > * 使用污點和容差來限制可以在節點上排程的 pod

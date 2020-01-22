@@ -3,12 +3,12 @@ title: 使用 PowerShell 備份和還原 Azure 檔案儲存體
 description: 在本文中，您將瞭解如何使用 Azure 備份服務和 PowerShell 來備份和還原 Azure 檔案儲存體。
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 78000bc669eb7a61f8698ad8c39ef49f65b245a2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9665bbc3562faab760562e1e6729d8be0796acd
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224167"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294043"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>使用 PowerShell 備份和還原 Azure 檔案儲存體
 
@@ -28,7 +28,7 @@ ms.locfileid: "74224167"
 ## <a name="before-you-start"></a>開始之前
 
 * [深入瞭解](backup-azure-recovery-services-vault-overview.md)復原服務保存庫。
-* 閱讀[備份 Azure 檔案共用](backup-azure-files.md)的預覽功能。
+* 閱讀[備份 Azure 檔案共用](backup-afs.md)的預覽功能。
 * 請參閱復原服務的 PowerShell 物件階層。
 
 ## <a name="recovery-services-object-hierarchy"></a>復原服務物件階層
@@ -249,7 +249,7 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 1. 使用[AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer)，從保存備份資料的保存庫中的容器，取出儲存體帳戶和檔案共用。
 2. 若要開始備份作業，您需使用 [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem) 來取得 VM 的相關資訊。
-3. 使用[備份 backup-azrecoveryservicesbackupitem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem)執行隨選備份。
+3. 使用 [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem) 來執行隨選備份。
 
 執行隨選備份，如下所示：
 
@@ -419,4 +419,4 @@ $job.ErrorDetails
 
 ## <a name="next-steps"></a>後續步驟
 
-[瞭解](backup-azure-files.md)Azure 入口網站中的備份 Azure 檔案儲存體。
+[瞭解](backup-afs.md)Azure 入口網站中的備份 Azure 檔案儲存體。

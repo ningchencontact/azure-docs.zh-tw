@@ -3,12 +3,12 @@ title: 設定 VMware 的 Azure Migrate 設備
 description: 瞭解如何設定 Azure Migrate 設備，以評估和遷移 VMware Vm。
 ms.topic: article
 ms.date: 11/18/2019
-ms.openlocfilehash: da451149d0420bc71a355fdf4f4fb122b196d5a0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 139b694bafb9d67192e6f182ff879e86e2b73ce4
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029053"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291935"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>設定適用于 VMware Vm 的應用裝置
 
@@ -87,7 +87,7 @@ VMware VM 應用裝置是一種輕量設備，Azure Migrate Server 評估/遷移
         - 按一下 [Proxy 設定]，然後以 http://ProxyIPAddress 或 http://ProxyFQDN 格式指定 Proxy 位址和接聽連接埠。
         - 如果 Proxy 需要驗證，請指定認證。
         - 僅支援 HTTP Proxy。
-    - **時間同步**：已驗證時間。 設備上的時間應該與網際網路時間同步，讓探索正常運作。
+    - **時間同步**：已驗證時間。 設備上的時間應該與網際網路時間同步，探索才能正常運作。
     - **安裝更新**： Azure Migrate 檢查是否已安裝最新的設備更新。
     - **安裝 VDDK**： Azure Migrate 檢查是否已安裝 VMWare VSphere 虛擬磁片開發工具組（VDDK）。
         - Azure 遷移會使用 VDDK 在遷移至 Azure 期間複寫機器。
@@ -115,7 +115,7 @@ VMware VM 應用裝置是一種輕量設備，Azure Migrate Server 評估/遷移
 3. 按一下 [驗證連線] 以確定設備可以連線到 vCenter Server。
 
 ### <a name="specify-vm-credentials"></a>指定 VM 認證
-若要探索應用程式、角色和功能，以及視覺化 VM 的相依性，您可以提供可存取 VMware VM 的 VM 認證。 您可以新增一個適用於 Windows VM 的認證，以及一個適用於 Linux VM 的認證。 [深入了解](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions)所需的存取權限。
+若要探索應用程式、角色和功能，以及視覺化 VM 的相依性，您可以提供可存取 VMware VM 的 VM 認證。 您可以新增一個適用於 Windows VM 的認證，以及一個適用於 Linux VM 的認證。 [深入了解](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)所需的存取權限。
 
 > [!NOTE]
 > 這是選擇性的輸入，而且是啟用應用程式探索和無代理程式相依性視覺效果的必要項。

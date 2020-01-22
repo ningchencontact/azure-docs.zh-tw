@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 0ecbb4399e038355a328055590da1c34170f3852
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 6ec818ff77664fcc038412f79fffc1e3e05b82f0
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894612"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294247"
 ---
 # <a name="supported-platforms"></a>支援的平台 
 
@@ -49,6 +49,10 @@ ms.locfileid: "75894612"
 |Windows Server 2008 R2|✔|✔|
 
 若要深入瞭解上述 Windows 作業系統支援的功能，請參閱[虛擬機器/伺服器支援的功能](security-center-services.md#vm-server-features)。
+
+### Windows 作業系統<a name="os-windows (non-server)"></a>
+
+Azure 資訊安全中心與 Azure 服務整合，以監視及保護您的 Windows 虛擬機器。
 
 ### Linux 作業系統<a name="os-linux"></a>
 

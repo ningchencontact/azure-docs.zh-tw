@@ -1,5 +1,5 @@
 ---
-title: Python：Azure Data Lake Storage Gen1 上的檔案系統作業 | Microsoft Docs
+title: Python：Azure Data Lake Storage Gen1 的檔案系統作業 | Microsoft Docs
 description: 了解如何利用 Python SDK 來使用 Data Lake Storage Gen1 檔案系統。
 services: data-lake-store
 author: twooley
@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: f2ee982e2c1e1c363a391779721f848b8ae6afd5
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 17b53c508f0c4c5ba8fa257fcdc692cdaa45d470
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088897"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294213"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>使用 Python 在 Azure Data Lake Storage Gen1 上進行檔案系統作業
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.locfileid: "71088897"
 
 * `azure-mgmt-resource` 模組，這包括適用於 Active Directory 等等的 Azure 模組。
 * `azure-mgmt-datalake-store` 模組包括 Azure Data Lake Storage Gen1 帳戶管理作業。 如需關於此模組的詳細資訊，請參閱 [azure-mgmt-datalake-store 模組參考](/python/api/azure-mgmt-datalake-store/)。
-* `azure-datalake-store` 模組，含有 Azure Data Lake Storage Gen1 檔案系統作業。 如需此模組的詳細資訊，請參閱 [azure-datalake-store 檔案系統模組參考](https://azure-datalake-store.readthedocs.io/en/latest/)。
+* `azure-datalake-store` 模組，含有 Azure Data Lake Storage Gen1 檔案系統作業。 如需此模組的詳細資訊，請參閱 [azure-datalake-store 檔案系統模組參考](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core/)。
 
 使用下列命令來安裝新模組。
 
@@ -125,7 +125,7 @@ pip install azure-datalake-store
 ## <a name="next-steps"></a>後續步驟
 * [使用 Python 在 Data Lake Storage Gen1 上進行帳戶管理作業](data-lake-store-get-started-python.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-* [Azure Data Lake Storage Gen1 Python (檔案系統) 參考](https://azure-datalake-store.readthedocs.io/en/latest)
+* [Azure Data Lake Storage Gen1 Python (檔案系統) 參考](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core)
 * [與 Azure Data Lake Storage Gen1 相容的開放原始碼巨量資料應用程式](data-lake-store-compatible-oss-other-applications.md)

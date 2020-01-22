@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: ae04bf5268bb9973098735183842f7393e9d679b
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 4de8b032bd284ce0a2d6d8fd168b9ea3dd4937d3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121755"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289045"
 ---
 # <a name="access-data-in-azure-storage-services"></a>存取 Azure 儲存體服務中的資料
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,7 +52,7 @@ ms.locfileid: "76121755"
 | 儲存體&nbsp;類型 | 驗證&nbsp;類型 | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Azure&nbsp;機器&nbsp;學習 CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;機器&nbsp;學習&nbsp; Rest API](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---
 [Azure&nbsp;Blob&nbsp;儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| 帳戶金鑰 <br> SAS 權杖 | ✓ | ✓ | ✓ |✓
-[Azure&nbsp;檔案&nbsp;共用]((https://docs.microsoft.com/azure/storage/files/storage-files-introduction))| 帳戶金鑰 <br> SAS 權杖 | ✓ | ✓ | ✓ |✓
+[Azure&nbsp;檔案&nbsp;共用](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| 帳戶金鑰 <br> SAS 權杖 | ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;儲存體 Gen&nbsp;1](https://docs.microsoft.com/azure/data-lake-store/)| 服務主體| ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;儲存體 Gen&nbsp;2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| 服務主體| ✓ | ✓ | ✓ |✓
 Azure&nbsp;SQL&nbsp;資料庫| SQL 驗證 <br>服務主體| ✓ | ✓ | ✓ |✓
@@ -271,7 +271,7 @@ Azure Machine Learning 提供數種方式來使用您的模型進行評分。 �
 
 ## <a name="move-data-to-supported-azure-storage-solutions"></a>將資料移至支援的 Azure 儲存體解決方案
 
-Azure Machine Learning 支援從 Azure Blob 儲存體、Azure 檔案儲存體、Azure Data Lake Storage Gen1、Azure Data Lake Storage Gen2、Azure SQL Database 和適用於 PostgreSQL 的 Azure 資料庫存取資料。 如果您使用不支援的儲存體，我們建議您使用[Azure Data Factory 和這些步驟]((https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool))，將您的資料移至支援的 Azure 儲存體解決方案。 將資料移至支援的儲存體，可協助您節省機器學習實驗期間的資料輸出成本。 
+Azure Machine Learning 支援從 Azure Blob 儲存體、Azure 檔案儲存體、Azure Data Lake Storage Gen1、Azure Data Lake Storage Gen2、Azure SQL Database 和適用於 PostgreSQL 的 Azure 資料庫存取資料。 如果您使用不支援的儲存體，我們建議您使用[Azure Data Factory 和這些步驟](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool)，將您的資料移至支援的 Azure 儲存體解決方案。 將資料移至支援的儲存體，可協助您節省機器學習實驗期間的資料輸出成本。 
 
 Azure Data Factory 提供具有超過80個預先建立連接器的有效率且彈性的資料傳輸，且不需額外費用。 這些連接器包括 Azure 資料服務、內部部署資料來源、Amazon S3 和 Redshift，以及 Google BigQuery。
 

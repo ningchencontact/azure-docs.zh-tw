@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: a9b942c4726c770f1ea0d35c924395cdff40e1c7
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 07e267af307fedd9b896e08919b7026a3a1c2bac
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732013"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292957"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>快速入門：使用草稿在 Azure Kubernetes Service （AKS）上進行開發
 
 Draft 是一個開放原始碼工具，可協助在 Kubernetes 叢集中封裝和執行應用程式容器。 使用 Draft 時，您可以將應用程式快速重新部署至 Kubernetes，因為程式碼變更會發生，而不需要將變更認可至版本控制。 如需草稿的詳細資訊，請參閱[GitHub 上的 draft 檔][draft-documentation]。
 
-本文說明如何使用草稿封裝，並在 AKS 上執行應用程式。
+本文說明如何使用 Draft 在 AKS 上封裝和執行應用程式。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -172,7 +172,7 @@ draft config set registry mydraftacr.azurecr.io
 
 ## <a name="download-the-sample-application"></a>下載範例應用程式
 
-本快速入門會使用[Draft GitHub 存放庫中的範例 java 應用程式][example-java]。 從 GitHub 複製應用程式，並流覽至 `draft/examples/example-java/` 目錄。
+本快速入門會使用[Draft GitHub 存放庫中的範例 JAVA 應用程式][example-java]。 從 GitHub 複製應用程式，並流覽至 `draft/examples/example-java/` 目錄。
 
 ```console
 git clone https://github.com/Azure/draft
@@ -235,7 +235,7 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-使用 `localhost` url 在瀏覽器中流覽至應用程式，以查看範例應用程式。 在上述範例中，url 為 `http://localhost:49804`。 使用 `Ctrl+c`停止連接。
+使用 `localhost` URL 在瀏覽器中流覽至應用程式，以查看範例應用程式。 在上述範例中，URL 為 `http://localhost:49804`。 使用 `Ctrl+c`停止連接。
 
 ## <a name="access-the-application-on-the-internet"></a>在網際網路上存取應用程式
 

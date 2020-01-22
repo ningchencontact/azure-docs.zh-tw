@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: e352f5aa764795c27dd94ef2750b1265ffcc527d
-  ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+  ms.openlocfilehash: 607603965b0935941fa5ad06c39110535aa33633
+  ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 12/02/2019
-  ms.locfileid: "74669091"
+  ms.lasthandoff: 01/21/2020
+  ms.locfileid: "76290779"
 landingContent:
 - title: 了解 Azure 備份
   linkLists:
@@ -103,7 +103,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: 備份和還原 Azure 檔案共用
-      url: backup-azure-files.md
+      url: backup-afs.md
     - text: 常見問題集 - 備份 Azure 檔案儲存體
       url: backup-azure-files-faq.md
 - title: 使用 Microsoft Azure 復原服務 (MARS) 代理程式備份

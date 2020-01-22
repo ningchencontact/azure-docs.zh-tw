@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b70a475d841c3649ba9e2bcc63187fc4484a23d
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 42d1fde92e9315e8df3f65b2ab91ced74b377c0a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76119970"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293448"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>使用 Azure Active Directory authentication （預覽）登入 Azure 中的 Windows 虛擬機器
 
@@ -63,10 +63,10 @@ ms.locfileid: "76119970"
 
 若要在 Azure 中為您的 Windows Vm 啟用 Azure AD 驗證，您必須確定您的 Vm 網路設定允許透過 TCP 埠443對下列端點進行輸出存取：
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
-- https://pas.windows.net
+- HTTPs：\//enterpriseregistration.windows.net
+- https:\//login.microsoftonline.com
+- HTTPs：\//device.login.microsoftonline.com
+- HTTPs：\//pas.windows.net
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>在 Azure 中啟用 Windows VM 的 Azure AD 登入
 
@@ -239,24 +239,24 @@ AADLoginForWindows 擴充功能必須成功安裝，VM 才能完成 Azure AD 聯
 
    | 要執行的命令 | 預期的輸出 |
    | --- | --- |
-   | 捲曲-H 中繼資料： true "http://169.254.169.254/metadata/instance?api-version=2017-08-01 " | 更正 Azure VM 的相關資訊 |
-   | 捲曲-H 中繼資料： true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01 " | 與 Azure 訂用帳戶相關聯的有效租使用者識別碼 |
-   | 捲曲-H 中繼資料： true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01 " | 為指派給此 VM 的受控識別 Azure Active Directory 所簽發的有效存取權杖 |
+   | 捲曲-H 中繼資料： true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | 更正 Azure VM 的相關資訊 |
+   | 捲曲-H 中繼資料： true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | 與 Azure 訂用帳戶相關聯的有效租使用者識別碼 |
+   | 捲曲-H 中繼資料： true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | 為指派給此 VM 的受控識別 Azure Active Directory 所簽發的有效存取權杖 |
 
    > [!NOTE]
    > 您可以使用[http://calebb.net/](http://calebb.net/)之類的工具來解碼存取權杖。 確認存取權杖中的「appid」符合指派給 VM 的受控識別。
 
 1. 請使用命令列，確定可從 VM 存取所需的端點：
    
-   - 捲曲 https://login.microsoftonline.com/ -D –
-   - 捲曲 https://login.microsoftonline.com/`<TenantID>` /-D –
+   - 捲曲的 HTTPs：\//login.microsoftonline.com/-D –
+   - 捲曲的 HTTPs：\//login.microsoftonline.com/`<TenantID>`/-D –
 
    > [!NOTE]
    > 將 `<TenantID>` 取代為與 Azure 訂用帳戶相關聯的 Azure AD 租使用者識別碼。
 
-   - 捲曲 https://enterpriseregistration.windows.net/ -D-
-   - 捲曲 https://device.login.microsoftonline.com/ -D-
-   - 捲曲 https://pas.windows.net/ -D-
+   - 捲曲的 HTTPs：\//enterpriseregistration.windows.net/-D-
+   - 捲曲的 HTTPs：\//device.login.microsoftonline.com/-D-
+   - 捲曲的 HTTPs：\//pas.windows.net/-D-
 
 1. 您可以藉由執行 `dsregcmd /status`來查看裝置狀態。 目標是讓裝置狀態顯示為 `AzureAdJoined : YES`。
 
@@ -283,15 +283,15 @@ AADLoginForWindows 擴充功能必須成功安裝，VM 才能完成 Azure AD 聯
 
 1. 使用命令列確認可從 VM 存取所需的端點：
 
-   - 捲曲 https://login.microsoftonline.com/ -D –
-   - 捲曲 https://login.microsoftonline.com/`<TenantID>` /-D –
+   - 捲曲的 HTTPs：\//login.microsoftonline.com/-D –
+   - 捲曲的 HTTPs：\//login.microsoftonline.com/`<TenantID>`/-D –
    
    > [!NOTE]
    > 將 `<TenantID>` 取代為與 Azure 訂用帳戶相關聯的 Azure AD 租使用者識別碼。 如果您需要尋找 [租使用者識別碼]，您可以將滑鼠停留在帳戶名稱上以取得目錄/租使用者識別碼，或在 Azure 入口網站中選取 [Azure Active Directory > 屬性] > [目錄識別碼]。
 
-   - 捲曲 https://enterpriseregistration.windows.net/ -D-
-   - 捲曲 https://device.login.microsoftonline.com/ -D-
-   - 捲曲 https://pas.windows.net/ -D-
+   - 捲曲的 HTTPs：\//enterpriseregistration.windows.net/-D-
+   - 捲曲的 HTTPs：\//device.login.microsoftonline.com/-D-
+   - 捲曲的 HTTPs：\//pas.windows.net/-D-
 
 1. 如果有任何命令因「無法解析主機 `<URL>`」而失敗，請嘗試執行此命令來判斷 VM 正在使用的 DNS 伺服器。
    

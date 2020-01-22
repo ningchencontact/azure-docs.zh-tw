@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 156b963fc1644d1f863d8ddd1d86c15b311e18a8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 18a9f9d49dce96b037f10a95a458e52d020fe6c7
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763380"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311065"
 ---
 # <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>透過 Azure Machine Learning 設計工具使用回歸來預測汽車價格
 
-**設計工具（預覽）範例1**
+**設計師範例1**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-瞭解如何使用設計工具（預覽）來建立機器學習回歸模型，而不需要撰寫任何一行程式碼。
+瞭解如何使用設計工具來建立機器學習回歸模型，而不需要撰寫任何一行程式碼。
 
 此管線會訓練**線性回歸輸入變數**，以根據品牌、型號、動力和大小等技術功能來預測汽車的價格。 因為您正試著回答「多少？」這個問題 這稱為回歸問題。 不過，在此範例中，您可以套用相同的基本步驟來處理任何類型的機器學習問題，不論其為回歸、分類、叢集等。
 

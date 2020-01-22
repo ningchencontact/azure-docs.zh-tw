@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 56a3d4f172cde70bdd1a875c76213c43184cbbc3
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: fd91701a20b8a760eadcafe6f93f9ba5857a1c9f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167957"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310181"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 擴充
 
@@ -50,7 +50,7 @@ ms.locfileid: "76167957"
 
 ### <a name="synchronization-mode"></a>同步處理模式
 
-根據預設，查詢複本會以完整的方式解除凍結，而不是累加。 解除凍結會分階段發生。 它們會一次卸離並連結兩個（假設至少有三個複本），以確保在任何指定的時間，至少有一個複本保持在線上，供查詢使用。 在某些情況下，當此程式進行時，用戶端可能需要重新連線到其中一個線上複本。 藉由使用**ReplicaSyncMode**設定，您現在可以指定平行進行查詢複本同步處理。 平行同步處理提供下列優點： 
+根據預設，查詢複本會以完整的方式解除凍結，而不是累加。 解除凍結會分階段發生。 它們會一次卸離並連結兩個（假設至少有三個複本），以確保在任何指定的時間，至少有一個複本保持在線上，供查詢使用。 在某些情況下，當此程式進行時，用戶端可能需要重新連線到其中一個線上複本。 藉由使用 [（預覽）] **ReplicaSyncMode**設定，您現在可以指定以平行方式進行查詢複本同步處理。 平行同步處理提供下列優點： 
 
 - 大幅減少同步處理時間。 
 - 在同步處理過程中，跨複本的資料比較可能一致。 

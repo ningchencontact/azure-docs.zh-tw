@@ -10,20 +10,20 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 06a88ba1e477054aa6080baa9c9644d4da396442
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 73861456edbb7493038fbf2adbf12300d170cab2
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771422"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311031"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>使用 Azure Machine Learning 設計工具建立分類器來預測公司類別目錄。
 
-**設計工具（預覽）範例7**
+**設計師範例7**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-這個範例會示範如何使用文字分析模組，在 Azure Machine Learning 設計工具（預覽）中建立文字分類管線。
+這個範例示範如何使用文字分析模組，在 Azure Machine Learning 的設計工具中建立文字分類管線。
 
 文字分類的目標是要將某個文字片段指派給一或多個預先定義的類別或類別。 文字片段可以是檔、新聞文章、搜尋查詢、電子郵件、推文、支援票證、客戶意見反應、使用者產品評論等等。文字分類的應用程式包括將報紙文章和新聞內容分類為主題、將網頁組織成階層式類別、篩選垃圾郵件、情感分析、從搜尋查詢預測使用者意圖、路由支援票證，以及分析客戶的意見反應。 
 

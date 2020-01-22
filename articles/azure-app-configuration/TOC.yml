@@ -63,6 +63,8 @@
       href: concept-point-time-snapshot.md
     - name: 功能管理
       href: concept-feature-management.md
+    - name: 使用 GitHub Actions 同步
+      href: concept-github-action.md
     - name: 事件處理
       href: concept-app-configuration-event.md
     - name: 高可用性
@@ -109,7 +111,7 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
 - name: 資源
   items:
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/app-configuration/'
     - name: 影片
       items:

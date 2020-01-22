@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 68c50d3455c0ed240fa62532818a0b07b39ec772
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c4ed78dc9fd277fc61a923364519e338a9f720c2
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889512"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290388"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>遷移至 Azure Kubernetes Service （AKS）
 
@@ -111,7 +111,7 @@ az aks create \
 
 無狀態應用程式移轉是最直接的案例。 將您的資源定義（YAML 或 Helm）套用至新叢集，確定所有專案都如預期般運作，然後重新導向流量以啟用您的新叢集。
 
-### <a name="considers-for-stateful-applications"></a>考慮具狀態應用程式
+### <a name="considerations-for-stateful-applications"></a>具狀態應用程式的考慮
 
 請仔細規劃您的具狀態應用程式遷移，以避免資料遺失或非預期的停機時間。
 
@@ -161,7 +161,7 @@ az aks create \
 
 ### <a name="deployment-of-your-cluster-configuration"></a>部署叢集設定
 
-建議您使用現有的持續整合（CI）和持續傳遞（CD）管線，將已知良好的設定部署至 AKS。 您可以使用 Azure Pipelines 來[建立及部署您的應用程式，以 AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops)複製現有的部署工作，並確保 `kubeconfig` 指向新的 AKS 叢集。
+建議您使用現有的持續整合（CI）和持續傳遞（CD）管線，將已知良好的設定部署至 AKS。 您可以使用 Azure Pipelines 來[建立應用程式，並將其部署至 AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops)。 複製現有的部署工作，並確保 `kubeconfig` 指向新的 AKS 叢集。
 
 如果無法這麼做，請從現有的 Kubernetes 叢集中匯出資源定義，然後將它們套用至 AKS。 您可以使用 `kubectl` 匯出物件。
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: bf4f176eef502cdd1c68f19904a24bd2500e1302
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 939ac7caacac7cfb55bd29ed9a5d9c136a8e5c90
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428506"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314244"
 ---
 # <a name="one-vs-all-multiclass"></a>一對多多級
 
-本文說明如何在 Azure Machine Learning 設計工具（預覽）中使用一對一的多元模組。 目標是使用*一對一*方法來建立可預測多個類別的分類模型。
+本文說明如何在 Azure Machine Learning 設計工具中使用一對一的多元模組。 目標是使用*一對一*方法來建立可預測多個類別的分類模型。
 
 當結果取決於連續或類別預測量變數時，此模組可用來建立能夠預測三個或更多可能結果的模型。 此方法也可讓您使用二元分類方法解決需要多個輸出級別的問題。
 

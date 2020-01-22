@@ -17,18 +17,18 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dabc96ef669f0c0c61a7bca4a16828294cf404df
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 878f942bf36fef999b90274b81eaa7735afa73e5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423846"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293346"
 ---
-# <a name="desktop-app-that-calls-web-apis---app-registration"></a>呼叫 web Api 的桌面應用程式-應用程式註冊
+# <a name="desktop-app-that-calls-web-apis-app-registration"></a>呼叫 web Api 的桌面應用程式：應用程式註冊
 
 本文涵蓋桌面應用程式的應用程式註冊細節。
 
-## <a name="supported-accounts-types"></a>支援的帳戶類型
+## <a name="supported-account-types"></a>支援的帳戶類型
 
 桌面應用程式中支援的帳戶類型取決於您想要亮起的體驗。 基於此關聯性，支援的帳戶類型取決於您想要使用的流程。
 
@@ -38,30 +38,30 @@ ms.locfileid: "75423846"
 
 ### <a name="audience-for-desktop-app-silent-flows"></a>桌面應用程式無訊息流程的物件
 
-- 若要使用整合式 Windows 驗證或使用者名稱/密碼，您的應用程式必須在您自己的租使用者（LOB 開發人員）或 Azure Active directory 組織（ISV 案例）中登入使用者。 Microsoft 個人帳戶不支援這些驗證流程。
+- 若要使用整合式 Windows 驗證或使用者名稱和密碼，您的應用程式必須在您自己的租使用者（例如，如果您是企業營運（LOB）開發人員）中登入使用者。 或者，在 Azure Active Directory 組織中，如果您的應用程式是 ISV 案例，則必須在您自己的租使用者中登入他們。 Microsoft 個人帳戶不支援這些驗證流程。
 - 如果您想要使用裝置程式碼流程，則無法使用他們的 Microsoft 個人帳戶登入使用者。
-- 如果您使用社交身分識別來登入使用者，並傳遞 B2C 授權單位和原則，您只能使用互動式和使用者名稱密碼驗證。
+- 如果您登入的使用者具有通過企業對商務（B2C）授權單位和原則的社交身分識別，您只能使用互動式和使用者名稱密碼驗證。
 
 ## <a name="redirect-uris"></a>重新導向 URI
 
-桌面應用程式中所使用的重新導向 Uri 將取決於您想要使用的流程。
+桌面應用程式中所使用的重新導向 Uri 取決於您想要使用的流程。
 
-- 如果您使用的是**互動式驗證**或**裝置程式碼流程**，您會想要使用 `https://login.microsoftonline.com/common/oauth2/nativeclient`。 在應用程式的 [**驗證**] 區段中按一下對應的 URL，即可達到此設定。
+- 如果您使用互動式驗證或裝置程式碼流程，請使用 `https://login.microsoftonline.com/common/oauth2/nativeclient`。 若要完成這項設定，請在應用程式的 [**驗證**] 區段中選取對應的 URL。
   
   > [!IMPORTANT]
-  > 今日 MSAL.NET 預設會在 Windows 上執行的桌面應用程式（`urn:ietf:wg:oauth:2.0:oob`）中，使用另一個重新導向 URI。 在未來，我們會想要變更此預設值，因此建議您使用 `https://login.microsoftonline.com/common/oauth2/nativeclient`
+  > 目前，MSAL.NET 會在 Windows 上執行的桌面應用程式（`urn:ietf:wg:oauth:2.0:oob`）中，預設使用另一個重新導向 URI。 在未來，我們會想要變更此預設值，因此建議使用 `https://login.microsoftonline.com/common/oauth2/nativeclient`。
 
-- 如果您要為 macOS 建立原生的目標 C 或 Swift 應用程式，您會想要根據應用程式的套件組合識別碼，以下列格式註冊 redirectUri： **msauth。 < 您的 app.config。 id >：//auth** （以您應用程式的套件組合識別碼 > 取代 < 您的 app.config。
-- 如果您的應用程式只使用整合式 Windows 驗證或使用者名稱/密碼，您就不需要為應用程式註冊重新導向 URI。 這些流程會執行 Microsoft 身分識別平臺 v2.0 端點的來回行程，而您的應用程式將不會在任何特定的 URI 上被回呼。
-- 若要區別裝置程式碼流程、整合式 Windows 驗證，以及不具重新導向 Uri 的機密用戶端應用程式流程中的使用者名稱/密碼（用於 daemon 應用程式中的用戶端認證流程），您需要表達應用程式是公用用戶端應用程式。 若要達到此設定，請移至應用程式的 [**驗證**] 區段。 然後，在 [**高級設定**] 子區段的 [**預設用戶端類型**] 段落中，針對 [將**應用程式視為公用用戶端**] 問題選擇 [**是]** 。
+- 如果您為 macOS 建立原生的目標 C 或 Swift 應用程式，請根據應用程式的套件組合識別碼，以下列格式註冊重新導向 URI： msauth. <。識別碼 >：//auth. 以應用程式的套件組合識別碼取代 < 您的 app.config。識別碼 >。
+- 如果您的應用程式只使用整合式 Windows 驗證或使用者名稱和密碼，您就不需要為應用程式註冊重新導向 URI。 這些流程會執行 Microsoft 身分識別平臺 v2.0 端點的往返。 您的應用程式不會在任何特定的 URI 上回呼。
+- 若要區別裝置程式碼流程、整合式 Windows 驗證，以及不具重新導向 Uri 的機密用戶端應用程式流程中的使用者名稱和密碼（背景工作應用程式中使用的用戶端認證流程），您需要表達該您的應用程式是公用用戶端應用程式。 若要達到此設定，請移至應用程式的 [**驗證**] 區段。 在 [**高級設定**] 子區段的 [**預設用戶端類型**] 段落中，針對 [**將應用程式視為公用用戶端** **] 選取 [是]** 。
 
   ![允許公用用戶端](media/scenarios/default-client-type.png)
 
 ## <a name="api-permissions"></a>API 權限
 
-桌面應用程式會呼叫已登入使用者的 Api。 他們需要要求委派的許可權。 不過，他們無法要求應用程式許可權，而只會在[守護程式應用程式](scenario-daemon-overview.md)中處理。
+桌面應用程式會呼叫已登入使用者的 Api。 他們需要要求委派的許可權。 他們無法要求應用程式許可權，而只會在[後臺應用程式](scenario-daemon-overview.md)中處理。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [桌面應用程式-應用程式設定](scenario-desktop-app-configuration.md)
+> [桌面應用程式：應用程式設定](scenario-desktop-app-configuration.md)

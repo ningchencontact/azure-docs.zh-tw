@@ -76,7 +76,7 @@
   items:
     - name: 應用程式整合
       items:
-        - name: 註冊 OIDC 應用程式
+        - name: 註冊應用程式
           href: tutorial-register-applications.md
         - name: 註冊 SAML 服務提供者
           href: connect-with-saml-service-providers.md
@@ -282,6 +282,11 @@
                   items:
                     - name: 當地語系化字串識別碼
                       href: localization-string-ids.md
+                - name: DisplayControls
+                  href: display-controls.md
+                  items:
+                    - name: 驗證
+                      href: display-control-verification.md
             - name: ClaimsProviders
               href: claimsproviders.md
               items:
@@ -320,11 +325,6 @@
                       href: active-directory-b2c-reference-sso-custom.md
                     - name: 驗證
                       href: validation-technical-profile.md
-            - name: DisplayControls
-              href: display-controls.md
-              items:
-                - name: 驗證
-                  href: display-control-verification.md
             - name: UserJourneys
               href: userjourneys.md
             - name: RelyingParty
@@ -358,7 +358,7 @@
         - name: 使用者資料
           href: manage-user-data.md
           displayName: GDPR
-    - name: 移轉
+    - name: 遷移
       items:
         - name: 移轉使用者
           href: active-directory-b2c-user-migration.md
@@ -392,7 +392,7 @@
       href: active-directory-b2c-faqs.md
     - name: 取得說明
       href: /azure/active-directory/develop/developer-support-help-options
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/active-directory-b2c/'
     - name: 定價計算機
       href: 'https://azure.microsoft.com/pricing/calculator/'

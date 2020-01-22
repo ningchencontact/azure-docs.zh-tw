@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
-ms.openlocfilehash: 80812d1989e528a5a0f2333e92a068093d7b6b90
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c2a699a9fafdba60fb2a938fd4691c291562fbc5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75528210"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292513"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>教學課程：將 SAP SuccessFactors 設定為 Active Directory 使用者布建（預覽）
 本教學課程的目的是要示範將使用者從 SuccessFactors 員工中心布建到 Active Directory （AD）和 Azure AD 的必要步驟，並將電子郵件地址的選擇性回寫至 SuccessFactors。 這項整合處於公開預覽狀態，支援從 SuccessFactors Employee Central 抓取超過70個以上的[使用者屬性](../manage-apps/sap-successfactors-attribute-reference.md)。
@@ -342,7 +342,7 @@ Azure AD 的使用者布建服務支援的 SuccessFactors 使用者布建工作�
 SuccessFactors 布建應用程式設定完成之後，您就可以在 Azure 入口網站中開啟布建服務。
 
 > [!TIP]
-> 根據預設，當您開啟佈建服務時，它會為範圍中的所有使用者起始佈建作業。 如果有對應錯誤或 Workday 資料問題，則佈建作業可能失敗並進入隔離狀態。 為了避免這種情況，我們建議您最好是先設定 [來源物件範圍] 篩選，並使用幾個測試使用者來測試您的屬性對應，然後才為所有使用者啟動完整同步處理。 確認對應能夠運作且提供您所需的結果之後，您便可以移除篩選，或逐漸擴大篩選來包含更多使用者。
+> 根據預設，當您開啟佈建服務時，它會為範圍中的所有使用者起始佈建作業。 如果對應或 SuccessFactors 資料問題發生錯誤，則布建作業可能會失敗並進入隔離狀態。 為了避免這種情況，我們建議您最好是先設定 [來源物件範圍] 篩選，並使用幾個測試使用者來測試您的屬性對應，然後才為所有使用者啟動完整同步處理。 確認對應能夠運作且提供您所需的結果之後，您便可以移除篩選，或逐漸擴大篩選來包含更多使用者。
 
 1. 在 [佈建] 索引標籤中，將 [佈建狀態] 設定為 [開啟]。
 
@@ -350,7 +350,7 @@ SuccessFactors 布建應用程式設定完成之後，您就可以在 Azure 入�
 
 3. 這項作業會啟動初始同步處理，這可能會花費數小時的時間，視 SuccessFactors 租使用者中的使用者人數而定。 您可以檢查進度列以追蹤同步處理週期的進度。 
 
-4. 您可隨時檢查 Azure 入口網站中的 [稽核記錄] 索引標籤，查看佈建服務執行了哪些動作。 稽核記錄會列出佈建服務執行的所有個別同步處理事件，例如從 Workday 外部讀取了哪些使用者，接著又新增到或更新到 Active Directory 中。 
+4. 您可隨時檢查 Azure 入口網站中的 [稽核記錄] 索引標籤，查看佈建服務執行了哪些動作。 Audit 記錄會列出布建服務所執行的所有個別同步事件，例如哪些使用者被讀取 SuccessFactors，然後再新增或更新為 Active Directory。 
 
 5. 在初始同步完成之後，它會在 [佈建] 索引標籤中寫入稽核摘要報告，如下所示。
 

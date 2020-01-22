@@ -1,5 +1,5 @@
 ---
-title: 設計具有存取控制的多重 DRM 內容保護系統 - Azure 媒體服務 | Microsoft Docs
+title: 多重 DRM 內容保護系統-Azure 媒體服務 v3
 description: 這篇文章提供如何使用 Azure 媒體服務設計多重 DRM 內容保護系統的詳細說明。
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 00ddedf135d13c07e8abe1094dd5366acb0f4ae5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: efc070491ca1ea84dc8ef095a2144df9d0bf1bcb
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896177"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311898"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>設計具有存取控制的多重 DRM 內容保護系統 
 
@@ -202,10 +202,10 @@ DRM 子系統可能包含下列元件：
 
     | **DRM** | **[瀏覽器]** | **有權限使用者的結果** | **無權限使用者的結果** |
     | --- | --- | --- | --- |
-    | **PlayReady** |Windows 10 的 Microsoft Edge 或 Internet Explorer 11 |成功 |不合格 |
-    | **Widevine** |Chrome、Firefox、Opera |成功 |不合格 |
-    | **FairPlay** |macOS 上的 Safari      |成功 |不合格 |
-    | **AES-128** |大部分的新式瀏覽器  |成功 |不合格 |
+    | **PlayReady** |Windows 10 的 Microsoft Edge 或 Internet Explorer 11 |成功 |失敗 |
+    | **Widevine** |Chrome、Firefox、Opera |成功 |失敗 |
+    | **FairPlay** |macOS 上的 Safari      |成功 |失敗 |
+    | **AES-128** |大部分的新式瀏覽器  |成功 |失敗 |
 
 如需如何針對 ASP.NET MVC 播放器應用程式設定 Azure AD 的相關資訊，請參閱[整合 Azure 媒體服務 OWIN MVC 型應用程式與 Azure Active Directory 並根據 JWT 宣告限制內容金鑰傳遞](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)。
 

@@ -3,19 +3,19 @@ title: 在 Azure 入口網站中開啟高對比 | Microsoft Docs
 description: 變更 Azure 入口網站主題，以選擇所顯示的背景和字型色彩。 開啟 [高對比]，讓 Azure 入口網站更快速且更容易閱讀。
 services: azure-portal
 keywords: ''
-author: mblythe
+author: mgblythe
 ms.author: mblythe
 ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: accessibility
 manager: mtillman
-ms.openlocfilehash: db0b010d1adcf4f5178390913bedf773580dbb80
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ae135e0d7ac613d78b1c1f76e233503a60570f0f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640375"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310759"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>在 Azure 入口網站中開啟高對比或變更佈景主題
 

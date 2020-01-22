@@ -148,10 +148,28 @@
           href: backup-mabs-sharepoint-azure-stack.md
         - name: 保護 SQL Server 資料庫
           href: backup-mabs-sql-azure-stack.md
-    - name: Azure 檔案共用
+    - name: Azure 檔案共用備份
       items:
-        - name: 備份 Azure 檔案共用
-          href: backup-azure-files.md
+        - name: 從 Azure 入口網站
+          items:
+            - name: 備份 Azure 檔案共用
+              href: backup-afs.md
+            - name: 還原 Azure 檔案共用
+              href: restore-afs.md
+            - name: 管理 Azure 檔案共用備份
+              href: manage-afs-backup.md
+        - name: 透過 Azure CLI
+          items:
+            - name: 使用 CLI 備份 Azure 檔案共用
+              href: backup-afs-cli.md
+            - name: 使用 CLI 還原 Azure 檔案共用
+              href: restore-afs-cli.md
+            - name: 使用 CLI 管理 Azure 檔案共用備份
+              href: manage-afs-backup-cli.md
+        - name: 透過 PowerShell
+          items:
+            - name: 使用 PowerShell 備份 Azure 檔案共用
+              href: backup-azure-afs-automation.md
     - name: 備份 Azure VM
       items:
         - name: 關於 Azure VM 備份
@@ -222,8 +240,6 @@
           href: backup-dpm-automation.md
         - name: Azure 入口網站中的 Windows Server
           href: backup-client-automation.md
-        - name: Azure 入口網站中的 Azure 檔案共用
-          href: backup-azure-afs-automation.md
         - name: Azure VM 備份中的 SQL
           href: backup-azure-sql-automation.md
     - name: 使用 Azure 備份 REST API
@@ -334,7 +350,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: MSDN 論壇
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup'
-    - name: 價格
+    - name: 定價
       href: 'https://azure.microsoft.com/pricing/details/backup/'
     - name: 定價計算機
       href: 'https://azure.microsoft.com/pricing/calculator/'

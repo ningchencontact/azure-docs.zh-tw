@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: b6ea5c9ef5e128116ef389675a09e6ab4b230b75
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 24a19487567f2753457d5886cbb9fa4bf438bad4
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982447"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311337"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>使用 Azure Machine Learning 中的資料集進行定型
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -83,7 +83,7 @@ df = dataset.to_pandas_dataframe()
 
 * 腳本的腳本目錄。 在此目錄中的所有檔案都會上傳到叢集節點以便執行。
 * 定型腳本， *train_titanic .py*。
-* 用於定型的輸入資料集，`titanic`。
+* 用於定型的輸入資料集，`titanic`。 `as_named_input()` 是必要的，以便在定型腳本中由指派的名稱來參考輸入資料集。 
 * 實驗的計算目標。
 * 實驗的環境定義。
 
@@ -126,7 +126,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>設定估計工具
 
-除了透過估計工具中的 `inputs` 參數傳遞資料集，您也可以透過 `script_params` 傳遞資料集，並透過引數取得定型腳本中的資料路徑（掛接點）。 如此一來，您就可以存取您的資料，並使用現有的定型腳本。
+除了透過估計工具中的 `inputs` 參數傳遞資料集之外，您也可以透過 `script_params` 傳遞資料集，並透過引數取得定型腳本中的資料路徑（掛接點）。 如此一來，您就可以讓定型腳本與 azureml sdk 無關。 換句話說，您可以在任何雲端平臺上使用相同的訓練腳本進行本機的偵錯工具和遠端訓練。
 
 [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py)估計工具物件是用來提交 scikit-learn-學習實驗的執行。 深入瞭解如何使用[SKlearn 估計工具](how-to-train-scikit-learn.md)進行訓練。
 

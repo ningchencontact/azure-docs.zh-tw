@@ -1,6 +1,6 @@
 ---
 title: Azure 事件中樞 .NET Framework API 概觀 | Microsoft Docs
-description: 一些主要事件中樞 .NET Framework 用戶端 API 的摘要。
+description: 本文提供一些金鑰事件中樞的摘要，.NET Framework 用戶端 Api （管理和執行時間）。
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: f56882d2d73c85434c6f81972a06e5ea9ccdff99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f67351fa38543504d63dbf8d86c9537feea24a4f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822036"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312612"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>事件中樞 .NET Framework API 概觀
 
@@ -26,7 +26,7 @@ ms.locfileid: "60822036"
 
 若要執行下列管理作業，您必須擁有事件中樞命名空間的 **管理** 權限：
 
-### <a name="create"></a>建立
+### <a name="create"></a>Create
 
 ```csharp
 // Create the event hub
@@ -35,7 +35,7 @@ ehd.PartitionCount = SampleManager.numPartitions;
 await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
-### <a name="update"></a>Update
+### <a name="update"></a>更新
 
 ```csharp
 var ehd = await namespaceManager.GetEventHubAsync(eventHubName);
@@ -48,7 +48,7 @@ ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new A
 await namespaceManager.UpdateEventHubAsync(ehd);
 ```
 
-### <a name="delete"></a>DELETE
+### <a name="delete"></a>刪除
 
 ```csharp
 await namespaceManager.DeleteEventHubAsync("event hub name");

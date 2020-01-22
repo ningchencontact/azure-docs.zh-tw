@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: ea8e1565a5ebe4e5cb40049fbfcb329feb83bdda
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1fdb9dffbe06430ea7e3eb9339e23f5239e4e36
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498197"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310827"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>移轉至叢集組態中以角色為基礎的細微存取
 
@@ -26,12 +26,12 @@ ms.locfileid: "73498197"
 
 我們也引進了新的[HDInsight 叢集操作員](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator)角色，將能夠在不被授與參與者或擁有者的系統管理許可權的情況下，取得密碼。 總結：
 
-| 角色                                  | 先前                                                                                       | 往後       |
+| 角色                                  | 先前                                                                                       | 展望       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| 讀取器                                | -讀取權限，包括秘密                                                                   | -讀取權限，不**包括**秘密 |           |   |   |
+| 讀取者                                | -讀取權限，包括秘密                                                                   | -讀取權限，不**包括**秘密 |           |   |   |
 | HDInsight 叢集操作員<br>（新角色） | N/A                                                                                              | -讀取/寫入存取權，包括秘密         |   |   |
-| 參與者                           | -讀取/寫入存取權，包括秘密<br>-建立和管理所有類型的 Azure 資源。     | 無變更 |
-| 擁有者                                 | -讀取/寫入存取權，包括秘密<br>-所有資源的完整存取權<br>-將存取權委派給其他人 | 無變更 |
+| 參與者                           | -讀取/寫入存取權，包括秘密<br>-建立和管理所有類型的 Azure 資源。     | 不變 |
+| 擁有者                                 | -讀取/寫入存取權，包括秘密<br>-所有資源的完整存取權<br>-將存取權委派給其他人 | 不變 |
 
 如需如何將 HDInsight 叢集操作員角色指派新增至使用者以授與對叢集密碼之讀取/寫入存取權的詳細資訊，請參閱下一節[將 hdinsight 叢集操作員角色指派新增至使用者](#add-the-hdinsight-cluster-operator-role-assignment-to-a-user)。
 
@@ -44,7 +44,7 @@ ms.locfileid: "73498197"
 - [Azure Toolkit for IntelliJ](#azure-toolkit-for-intellij)版本3.20.0 或以下。
 - [Azure Data Lake 和串流分析適用于 Visual Studio 版本2.3.9000.1 的工具](#azure-data-lake-and-stream-analytics-tools-for-visual-studio)。
 - [Azure Toolkit for Eclipse](#azure-toolkit-for-eclipse)版本3.15.0 或以下。
-- [SDK for .NET](#sdk-for-net)
+- [適用于 .NET 的 SDK](#sdk-for-net)
     - [版本1.x 或](#versions-1x-and-2x)2.x：使用 `GetClusterConfigurations`、`GetConnectivitySettings`、`ConfigureHttpSettings`、`EnableHttp` 或來自 ConfigurationsOperationsExtensions 類別之 `DisableHttp` 方法的使用者。
     - 3\.x[和更新版本](#versions-3x-and-up)：使用來自 `ConfigurationsOperationsExtensions` 類別之 `Get`、`Update`、`EnableHttp`或 `DisableHttp` 方法的使用者。
 - [適用于 Python 的 SDK](#sdk-for-python)：使用 `get` 或從 `ConfigurationsOperations` 類別 `update` 方法的使用者。
@@ -80,7 +80,7 @@ ms.locfileid: "73498197"
 
 如果您使用的版本為1.1.1 或以下，請更新為[Visual Studio Code 的最新版本 Azure HDInsight 工具](https://marketplace.visualstudio.com/items?itemName=mshdinsight.azure-hdinsight&ssr=false)，以避免中斷。
 
-### <a name="azure-toolkit-for-intellij"></a>Azure Toolkit for IntelliJ
+### <a name="azure-toolkit-for-intellij"></a>適用於 IntelliJ 的 Azure 工具組
 
 如果您使用的是 [版本 3.20.0] 或以下，請更新至[最新版本的 Azure Toolkit for IntelliJ 外掛程式](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij)以避免中斷。
 
@@ -132,9 +132,7 @@ Azure Data Lake 的版本2.3.9000.1 或更新版本[，以及 Visual Studio 的�
 更新為適用于 JAVA 的 HDInsight SDK [1.0.0 版](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar)或更新版本。 如果您使用受這些變更影響的方法，可能需要最少的程式碼修改：
 
 - [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get) **不會再傳回敏感的參數**，例如儲存體金鑰（核心網站）或 HTTP 認證（閘道）。
-    - 若要取出所有設定（包括機密參數），請使用[`ConfigurationsInner.list`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.configurationsinner.list?view=azure-java-stable)繼續進行。  請注意，具有「讀取者」角色的使用者將無法使用這個方法。 這可讓您更精確地控制哪些使用者可以存取叢集的機密資訊。 
-    - 若只要取得 HTTP 閘道認證，請使用[`ClustersInner.getGatewaySettings`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.getgatewaysettings?view=azure-java-stable)。
-- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update)現在已被取代，並已由[`ClustersInner.updateGatewaySettings`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.updategatewaysettings?view=azure-java-stable)取代。
+- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update)現在已被取代。
 
 ### <a name="sdk-for-go"></a>適用于 Go 的 SDK
 

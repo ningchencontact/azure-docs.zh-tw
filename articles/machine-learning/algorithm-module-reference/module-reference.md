@@ -1,6 +1,6 @@
 ---
 title: 演算法和模組參考
-description: 瞭解 Azure Machine Learning 設計工具中可用的模組（預覽）
+description: 瞭解 Azure Machine Learning 設計工具中可用的模組
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 12/17/2019
-ms.openlocfilehash: 659c205bd12d7ca27bfc28e3ab6e62f58d9743ac
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c265c2386b31fd02a5aa635c343be5d3cb227722
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978664"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312170"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Azure Machine Learning 設計工具的演算法 & 模組參考
 
-此參考內容提供 Azure Machine Learning 設計工具（預覽）中所提供的每個機器學習服務演算法和模組的技術背景。
+此參考內容提供 Azure Machine Learning 設計工具中可用的每個機器學習服務演算法和模組的技術背景。
 
 每個模組都代表一組程式碼，可以獨立執行並執行機器學習工作（指定必要的輸入）。 模組可能包含特定的演算法，或執行在機器學習中很重要的工作，例如遺漏值取代或統計分析。
 

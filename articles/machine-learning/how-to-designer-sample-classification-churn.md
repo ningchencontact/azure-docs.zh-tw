@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: sgilley
 ms.date: 12/25/2019
-ms.openlocfilehash: 9e0bae722430662ddbe252e82c5108eb820ce352
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 88f688608a0ae3d435699362f9326c7c02d494a4
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660089"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311105"
 ---
 # <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>使用促進式決策樹，利用 Azure Machine Learning 設計工具來預測流失
 
-**設計工具（預覽）範例5**
+**設計師範例5**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-瞭解如何使用設計工具（預覽）來建立複雜的機器學習管線，而不需要撰寫任何一行程式碼。
+瞭解如何使用設計工具來建立複雜的機器學習管線，而不需要撰寫任何一行程式碼。
 
 此管線會訓練 2**個雙類別促進式決策樹**分類器，以預測客戶關係管理（CRM）系統的一般工作-客戶流失。 資料值和標籤會分割成多個資料來源，並以匿名的客戶資訊進行加密，不過，我們仍然可以使用設計工具來結合資料集，並使用遮蔽的值來定型模型。
 

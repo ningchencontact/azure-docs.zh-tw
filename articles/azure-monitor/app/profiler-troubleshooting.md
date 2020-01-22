@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6022bf975352f9f70c4ba8aa716a695ead590a32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a9817205a419e2b61af66dba16d09620e2c1dec9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432375"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310855"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>針對啟用或檢視 Application Insights Profiler 的問題進行疑難排解
 
@@ -47,6 +47,7 @@ Profiler 會將追蹤訊息和自訂事件寫入至您的 Application Insights �
 * 如果 Web 應用程式是 ASP.NET Core 應用程式，則必須至少執行 ASP.NET Core 2.0。
 * 如果您嘗試檢視的資料已存在好幾週，請試著限縮時間篩選條件，然後再試一次。 追蹤會在七天後刪除。
 * 確定 Proxy 或防火牆未封鎖對 https://gateway.azureserviceprofiler.net 的存取。
+* 免費或共用的 app service 方案不支援 Profiler。 如果您使用其中一個方案，請嘗試相應增加至其中一個基本方案，而 Profiler 應該會開始運作。
 
 ### <a id="double-counting"></a>平行執行緒重複計算
 

@@ -3,12 +3,12 @@ title: 備份 Azure 檔案服務常見問題集
 description: 在本文中，您可以針對如何使用 Azure 備份服務來保護 Azure 檔案共用的常見問題，找到相關解答。
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bc4d7f9ad6512831687b974ae68870314775457d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 053fe38b07fff5d289c72024ef185fbf5d647f70
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892562"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293992"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有關備份 Azure 檔案服務的問題
 
@@ -36,7 +36,7 @@ ms.locfileid: "74892562"
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>可以將保存庫變更為我備份檔案共用的保存庫嗎？
 
-可以。 不過，您必須從已連線的保存庫[停止保護](backup-azure-files.md#stop-protecting-an-azure-file-share)，[取消註冊](troubleshoot-azure-files.md#configuring-backup)這個儲存體帳戶，然後從不同的保存庫加以保護。
+可以。 不過，您必須從已連線的保存庫[停止保護檔案共用](manage-afs-backup.md#stop-protection-on-a-file-share)、[取消註冊](troubleshoot-azure-files.md#configuring-backup)此儲存體帳戶，然後從不同的保存庫加以保護。
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares"></a>我可以在哪些地區備份 Azure 檔案共用？
 
@@ -93,7 +93,7 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 
 不會。 一個儲存體帳戶中的所有檔案共用只能由相同的保存庫保護。
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>備份
 
 ### <a name="how-many-scheduled-backups-can-i-configure-per-file-share"></a>每個檔案共用可以設定多少個排程備份？
 

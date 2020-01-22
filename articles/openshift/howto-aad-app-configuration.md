@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 285456c87835344aba083c68a7876ecc78d9e45e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 09ae896d26d534d3f9d5651834e181d37581c8f3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76270565"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288946"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift 的 Azure Active Directory 整合
 
@@ -90,8 +90,8 @@ Microsoft Azure Red Hat OpenShift 需要代表您的叢集執行工作的許可�
 ## <a name="add-api-permissions"></a>新增 API 權限
 
 1. 在 [**管理**] 區段中，按一下 [ **API 許可權**]。
-2. 按一下 [**新增許可權**] **，然後依**序選取 [ **Azure Active Directory 圖形]**
-3. 在下列清單中展開 [**使用者**]，並確定 [使用者] 已啟用**讀取**。
+2. 按一下 [**新增許可權**]，然後依序選取 [ **Azure Active Directory 圖形]** 和 [**委派許可權**] 
+3. 在下列清單中展開 [**使用者**]，並啟用 [**讀取**] 許可權。 如果依預設會啟用 [**讀取**]，請確定它是**Azure Active Directory 圖形**許可權**使用者。 [讀取**]，*而不*是 [ **Microsoft Graph**許可權]**使用者。 [讀取**]。
 4. 向上快移並選取 [**應用程式許可權**]。
 5. 展開下列清單上的**目錄**，並啟用**目錄。 ReadAll**
 6. 按一下 [**新增許可權**] 以接受變更。

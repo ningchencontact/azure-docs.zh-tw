@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: f64352906da5d6e3a314b3af68e37f4dc5bb80bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ee52f3a0bec058f1b94820123ac5514e4e855c05
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485931"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311388"
 ---
 # <a name="two-class-logistic-regression-module"></a>雙類別羅吉斯回歸模組
 
-本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
+本文說明 Azure Machine Learning 設計工具中的模組。
 
 您可以使用此模組來建立羅吉斯回歸模型，以用來預測兩個（而且只有兩個）結果。 
 
@@ -44,15 +44,14 @@ ms.locfileid: "73485931"
   
 3.  針對 [**優化容錯**]，指定優化模型時要使用的臨界值。 如果反覆運算之間的改進低於指定的臨界值，則會將演算法視為在解決方案上具有交集，而定型會停止。  
   
-4.  針對 [ **l1 正規化權數**] 和 [ **l2 正規化權數**]，輸入要用於正規化參數 L1 和 l2 的值。 建議同時使用非零值。  
-  
+4.  針對 [ **l1 正規化權數**] 和 [ **l2 正規化權數**]，輸入要用於正規化參數 L1 和 l2 的值。 非零值建議用於兩者。  
      *正規化*是一種防止過度學習的方法，penalizing 具有極端係數值的模型。 正規化的運作方式是將與係數值相關聯的負面影響加入假設的錯誤中。 因此，具有極端係數值的精確模型會懲罰更多，但具有較保守值的較不精確模型會懲罰較少。  
   
-     L1 和 L2 正規化具有不同的效果，並使用。  
+     L1 與 L2 regularization 有不同的效果，並使用。  
   
-    -   L1 可以套用至 sparse 模型，這在使用高維度資料時很有用。  
+    -   L1 可以套用到疏鬆的模型，使用高維度資料時，這是很有用。  
   
-    -   相反地，L2 正規化適用于不是稀疏的資料。  
+    -   相較之下，L2 regularization 是不是疏鬆的資料。  
   
      此演算法支援 L1 和 L2 正規化值的線性組合：也就是說，如果 <code>x = L1</code> 和 <code>y = L2</code>，則 <code>ax + by = c</code> 會定義正規化詞彙的線性範圍。  
   
@@ -63,9 +62,9 @@ ms.locfileid: "73485931"
       
 5.  針對**l-BFGS 的記憶體大小**，指定用於*l BFGS*優化的記憶體數量。  
   
-     L BFGS 代表「有限的記憶體 Broyden-Fletcher-Goldfarb-Shanno」。 這是常用於參數估計的優化演算法。 此參數表示要儲存的過去位置和漸層數目，以供下一個步驟的計算之用。  
+     L BFGS 代表「有限的記憶體 Broyden-Fletcher-Goldfarb-Shanno」。 這是常用於參數估計的最佳化演算法。 此參數指出要儲存的通過位置和梯度數目，以計算下一個階梯。  
   
-     此優化參數會限制用來計算下一個步驟和方向的記憶體數量。 當您指定較少的記憶體時，定型的速度會更快，但較不精確。  
+     此最佳化參數限制用來計算下一個步驟和方向的記憶體數量。 當您指定較少的記憶體時，訓練是更快，但較不精確。  
   
 6.  針對 [**亂數字種子**]，輸入整數值。 如果您想要在相同管線的多個回合之間重現結果，則定義種子值是很重要的。  
   
@@ -79,8 +78,7 @@ ms.locfileid: "73485931"
 ## <a name="results"></a>結果
 
 定型完成後：
-
-+ 若要查看模型參數的摘要，以及從定型學習到的特徵權數，請以滑鼠右鍵按一下[定型模型](./train-model.md)的輸出，然後選取 [**視覺化**]。   
+ 
   
 + 若要對新資料進行預測，請使用定型的模型和新的資料做為[評分模型](./score-model.md)模組的輸入。 
 

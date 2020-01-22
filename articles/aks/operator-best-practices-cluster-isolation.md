@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: e9f7a10f19ed23e4f3b4fefa38fbb2d1912f2ac0
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 88b2da863b30157de7bb749ae0ca4d040484af52
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348780"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293635"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中隔離叢集的最佳做法
 
 您在管理 Azure Kubernetes Service (AKS) 中的叢集時，往往需要隔離小組和工作負載。 AKS 可讓您彈性決定要如何執行多租用戶叢集和隔離資源。 為了讓 Kubernetes 投資發揮最大效果，請了解並實作這些多租用戶和隔離功能。
 
-這個最佳做法文章著重於叢集操作員的隔離操作。 在本文中，您將了解：
+這個最佳做法文章著重於叢集操作員的隔離操作。 在本文中，您將學會如何：
 
 > [!div class="checklist"]
 > * 規劃多租用戶叢集和隔離資源
@@ -54,7 +54,7 @@ Kubernetes 提供功能讓您以邏輯方式隔離相同叢集中的小組和工
 
 ![AKS 中個別 Kubernetes 叢集的實體隔離](media/operator-best-practices-cluster-isolation/physical-isolation.png)
 
-實際分隔的叢集通常有較低密度的 Pod。 由於每個小組或工作負載都會擁有自己的 AKS 叢集，該叢集往往會過度佈建計算資源。 這些節點上排定的 Pod 往往很少。 節點上未使用的容量又無法供其他小組用來開發應用程式或服務。 這些多餘的資源會導致實際分隔叢集的成本增加。
+實際分隔的叢集通常有較低密度的 Pod。 由於每個小組或工作負載都會擁有自己的 AKS 叢集，該叢集往往會過度佈建計算資源。 通常會在這些節點上排定少量的 pod。 節點上未使用的容量又無法供其他小組用來開發應用程式或服務。 這些多餘的資源會導致實際分隔叢集的成本增加。
 
 ## <a name="next-steps"></a>後續步驟
 

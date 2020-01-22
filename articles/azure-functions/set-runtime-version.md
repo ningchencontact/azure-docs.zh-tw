@@ -3,16 +3,16 @@ title: 如何設定 Azure Functions 執行階段目標版本
 description: Azure Functions 支援多個執行階段版本。 了解如何指定 Azure 中裝載之函式應用程式的執行階段版本。
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 0031fe08ee1e77c35a78b2128615f08846c1b612
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 60953d10aeb92083b0aad3432921c7c55bc77e39
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74942268"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294162"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>如何設定 Azure Functions 執行階段目標版本
 
-函式應用程式可在特定版本的 Azure Functions 執行階段中執行。 有兩個主要版本： 1.x[和](functions-versions.md)2.x，版本 3. x 處於預覽狀態。 根據預設，所建立的函式應用程式會使用 2.x 版的執行階段。 本文說明如何在 Azure 中設定要在您選擇的版本上執行的函式應用程式。 如需如何為特定版本設定本機開發環境的相關資訊，請參閱[在本機進行 Azure Functions 的程式碼編寫和測試](functions-run-local.md)。
+函式應用程式可在特定版本的 Azure Functions 執行階段中執行。 有三個主要版本： 1.x [、2.x 和](functions-versions.md)3.x。 根據預設，函數應用程式會在2.x 版的執行時間中建立。 本文說明如何在 Azure 中設定要在您選擇的版本上執行的函式應用程式。 如需如何為特定版本設定本機開發環境的相關資訊，請參閱[在本機進行 Azure Functions 的程式碼編寫和測試](functions-run-local.md)。
 
 ## <a name="automatic-and-manual-version-updates"></a>自動和手動版本更新
 

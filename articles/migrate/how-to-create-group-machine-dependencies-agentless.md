@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 4bc2e67d276deeea01989ed76be7352ce27abd71
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: ff267aabe2f9e4cec38c307fe4382a84ba6d62df
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280810"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288945"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>設定無代理程式相依性視覺效果以進行評量
 
@@ -87,10 +87,10 @@ ms.locfileid: "76280810"
 
 1. 在 [ **Azure Migrate：伺服器評定**] 中，按一下 [探索到的**伺服器**]。
 2. 按一下 [相依性**分析**] 圖示。
-3. 按一下 [啟動相依性**探索**]。
-3. 在 [**啟動**相依性探索] 頁面中，選擇正在探索相關機器的設備。
+3. 按一下 [**新增伺服器**]。
+3. 在 [**新增伺服器**] 頁面中，選擇正在探索相關機器的設備。
 4. 從 [電腦] 清單中，選取電腦。
-5. 按一下 [啟動相依性**探索**]。
+5. 按一下 [**新增伺服器**]。
 
     ![啟動相依性探索](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
@@ -123,10 +123,10 @@ ms.locfileid: "76280810"
 
 1. 在 [ **Azure Migrate：伺服器評定**] 中，按一下 [探索到的**伺服器**]。
 2. 按一下 [相依性**分析**] 圖示。
-3. 按一下 [停止相依性**探索**]。
-3. 在 [**停止**相依性探索] 頁面中，選擇要在其上探索要停止相依性探索之 vm 的**設備**。
+3. 按一下 [**移除伺服器**]。
+3. 在 [**移除伺服器**] 頁面中，選擇正在探索 vm 的**設備**，以停止相依性探索。
 4. 從 [電腦] 清單中，選取電腦。
-5. 按一下 [停止相依性**探索**]
+5. 按一下 [**移除伺服器**]。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -2,13 +2,13 @@
 title: 延伸模組資源類型
 description: 列出 Azure 資源類型是用來擴充其他資源類型的功能。
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: af60bd648e41532cca364272fb0ded01c0c18239
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/20/2020
+ms.openlocfilehash: 47a98bca4912a1c59c8b2d9bad458769c6bf4ebf
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484671"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293261"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>擴充其他資源功能的資源類型
 
@@ -23,12 +23,14 @@ ms.locfileid: "75484671"
 - Microsoft.alertsmanagement/alertsSummary
 - Microsoft 授權/checkAccess
 - Microsoft 授權/denyAssignments
+- Microsoft 授權/findOrphanRoleAssignments
 - Microsoft。授權/鎖定
 - Microsoft。授權/許可權
 - Microsoft 授權/policyAssignments
 - Microsoft 授權/policyDefinitions
 - Microsoft 授權/policySetDefinitions
 - Microsoft 授權/roleAssignments
+- Microsoft 授權/roleAssignmentsUsageMetrics
 - Microsoft 授權/roleDefinitions
 - Microsoft 帳單/billingPeriods
 - Microsoft 帳單/billingPermissions
@@ -82,6 +84,7 @@ ms.locfileid: "75484671"
 - microsoft insights/automatedExportSettings
 - microsoft insights/基準
 - microsoft insights/calculatebaseline
+- microsoft insights/dataCollectionRuleAssociations
 - microsoft insights/diagnosticSettings
 - microsoft insights/diagnosticSettingsCategories
 - microsoft insights/eventtypes
@@ -94,6 +97,8 @@ ms.locfileid: "75484671"
 - microsoft insights/metricbaselines
 - microsoft insights/計量
 - microsoft insights/myWorkbooks
+- microsoft insights/拓撲
+- microsoft 深入解析/交易
 - microsoft insights/vmInsightsOnboardingStatuses
 - KubernetesConfiguration/sourceControlConfigurations
 - Microsoft. 維護/applyUpdates
@@ -109,6 +114,7 @@ ms.locfileid: "75484671"
 - Microsoft.policyinsights/policyTrackedResources
 - Microsoft.policyinsights/補救
 - Azurerm.recoveryservices/backupProtectedItems
+- Azurerm.recoveryservices/replicationEligibilityResults  
 - ResourceHealth/availabilityStatuses
 - ResourceHealth/childAvailabilityStatuses
 - ResourceHealth/childResources

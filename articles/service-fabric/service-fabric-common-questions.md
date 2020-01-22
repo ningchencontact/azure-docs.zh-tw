@@ -4,12 +4,12 @@ description: 有關 Service Fabric 的常見問題，包括功能、使用案例
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 7638a360821e73b7485014c8e6f006e91bbea551
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 17c1d05e119df8207c0599283f1d04b869e8297b
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614633"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293516"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 的常見問題
 
@@ -183,4 +183,4 @@ B. 對於已啟用虛擬機器擴展集的 MSI，您可以為 SF 應用程式開
 
 ## <a name="next-steps"></a>後續步驟
 
-瞭解[核心 Service Fabric 概念](service-fabric-technical-overview.md)和[最佳做法](service-fabric-best-practices-overview.md)ice 網狀架構概念] （overview.md）和[最佳作法](service-fabric-best-practices-overview.md)
+了解[核心 Service Fabric 概念](service-fabric-technical-overview.md)和[最佳做法](service-fabric-best-practices-overview.md)

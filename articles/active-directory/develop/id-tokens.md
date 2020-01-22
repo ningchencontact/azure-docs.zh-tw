@@ -14,12 +14,12 @@ ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0aa868d5ed57e27a89f2791f617dcdda74e766b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: f7e910faaf9875b6791135c8721090fa801a7e08
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167454"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294179"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft 身分識別平臺識別碼權杖
 
@@ -85,6 +85,12 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 |`unique_name` | String | 提供人類看得懂的值，用以識別權杖的主體。 這個值在任何指定的時間點都是唯一的，但是當電子郵件和其他識別碼可以重複使用時，這個值可以重新出現在其他帳戶上，因此只能用於顯示用途。 僅在 v1.0 `id_tokens` 中發出。 |
 |`uti` | 不透明字串 | Azure 用來重新驗證權杖的內部宣告。 應該予以忽略。 |
 |`ver` | 字串，1.0 或 2.0 | 表示 id_token 的版本。 |
+
+
+> [!NOTE]
+> V1 和 v2 id_token 與上述範例中所見的資訊數量有所差異。 版本基本上會指定發出它的 Azure AD 平臺端點。 [Azure AD 的 Oauth 實行](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform)已演變到數年。 目前，我們有兩個不同的 oAuth 端點可用於 AzureAD 應用程式。 您可以使用任何分類為 v2 的新端點，或稱為 v1 的舊端點。 這兩者的 Oauth 端點都不同。 V2 端點較新，我們正嘗試遷移 v1 端點的所有功能，並建議新的開發人員使用 V2 端點。 
+> - V1： Azure Active Directory 端點： `https://login.microsoftonline.com/common/oauth2/authorize`
+> - V2： Microsoft 身分識別平臺端點： `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ## <a name="validating-an-id_token"></a>驗證 id_token
 

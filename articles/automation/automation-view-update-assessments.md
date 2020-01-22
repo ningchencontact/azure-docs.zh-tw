@@ -3,14 +3,14 @@ title: 查看 Azure 更新管理更新評量
 description: 本文說明如何查看更新部署的更新評量。
 services: automation
 ms.subservice: update-management
-ms.date: 05/17/2019
+ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: b6f86c72bfc1a1d51ed509a70d786e67f11d8166
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75419892"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310079"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>查看 Azure 更新管理更新評量
 
@@ -30,7 +30,7 @@ ms.locfileid: "75419892"
 
 ## <a name="update-classifications"></a>更新分類
 
-下表列出「更新管理」中的更新分類清單，以及每個分類的定義。
+下表列出更新管理中支援的更新分類，以及每個分類的定義。
 
 ### <a name="windows"></a>Windows
 
@@ -59,6 +59,8 @@ sudo yum -q --security check-update
 ```
 
 目前沒有支援的方法可在 CentOS 上啟用原生分類資料可用性。 目前，只會為已自行啟用此功能的客戶提供最佳支援。
+
+若要將 Red Hat Enterprise 版本6上的更新分類，您必須安裝 yum-security 外掛程式。 在 Red Hat Enterprise Linux 7 上，外掛程式已是 yum 本身的一部分，不需要安裝任何專案。 如需進一步資訊，請參閱下列 Red Hat[知識文章](https://access.redhat.com/solutions/10021)。
 
 ## <a name="next-steps"></a>後續步驟
 

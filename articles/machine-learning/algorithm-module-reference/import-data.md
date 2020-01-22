@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: f3a1bf518b8ef122e2df64f2815c8885929b127d
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: f9815dac9e61eec51230911094f35a33a64e541c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166777"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311507"
 ---
 # <a name="import-data-module"></a>匯入資料模組
 
-本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
+本文說明 Azure Machine Learning 設計工具中的模組。
 
 使用此模組，將資料從現有的雲端資料服務載入機器學習管線。 
 
@@ -78,7 +78,7 @@ ms.locfileid: "76166777"
 
 當匯入完成時，按一下輸出資料集，然後選取 [**視覺化**] 以查看資料是否已成功匯入。
 
-如果您想要儲存資料以供重複使用，而不是在每次執行管線時匯入新的資料集，請以滑鼠右鍵按一下輸出，然後選取 [**另存為資料集**]。 選擇資料集的名稱。 儲存的資料集會在儲存時保留資料，而當重新執行管線時，即使管線中的資料集變更，資料也不會更新。 這可以方便製作資料的快照集。
+如果您想要儲存資料以供重複使用，而不是在每次執行管線時匯入新的資料集，請在模組的右面板中，選取 [**輸出**] 索引標籤底下的 [**註冊資料集**] 圖示。 選擇資料集的名稱。 儲存的資料集會在儲存時保留資料，而在重新執行管線時不會更新資料集，即使管線中的資料集變更也是一樣。 這有助於製作資料的快照集。
 
 匯入資料之後，可能需要一些額外的模型化和分析準備：
 

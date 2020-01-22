@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 807bb4b4dd07298635ff0cd3e18f095ccf862e91
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9ebc418327d8c73198d43d3c40e14d48c73ad209
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989796"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290235"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Azure 保留折扣如何套用至虛擬機器
 
@@ -47,7 +47,7 @@ ms.locfileid: "75989796"
 
 ![一個套用的保留執和兩個對應的 VM 執行個體的螢幕擷取畫面](./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png)
 
-1. 任何超過保留線的使用量，都會依一般隨用隨付費率收費。 您不用支付低於保留線的使用費用，因為此費用已涵蓋於所購買的保留內。
+1. 任何超過保留線的使用量，都會依一般隨用隨付費率收費。 您不需支付保留線底下的任何使用量費用，因為它已在保留購買的過程中付費。
 2. 在第一個 1 小時內，執行個體 1 執行了 0.75 個小時，而執行個體 2 執行了 0.5 小時。 第一個 1 小時的使用量總計為 1.25 小時。 您必須為剩餘的 0.25 小時支付隨用隨付費率的費用。
 3. 針對第 2 小時和第 3 小時，兩個執行個體各執行 1 小時。 一個執行個體涵蓋在保留內，而另一個執行個體須依隨用隨付的費率計費。
 4. 針對第 4 個小時，執行個體 1 執行了 0.5 個小時，而執行個體 2 執行了 1 小時。 保留可完全涵蓋執行個體 1，並涵蓋了執行個體 2 的 0.5 個小時。 您必須為剩餘的 0.5 小時支付隨用隨付費率的費用。

@@ -9,20 +9,20 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 2c8224edbe95c8185e390c2ce48cbb4263f97586
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 173e483710c3fa96ae542f7941f0912ed07ea2ca
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497953"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312189"
 ---
 # <a name="edit-metadata-module"></a>編輯中繼資料模組
 
-本文說明 Azure Machine Learning 設計工具（預覽）中所包含的模組。
+本文說明 Azure Machine Learning 設計工具中所包含的模組。
 
 使用 [編輯資料] 模組來變更與資料集內之資料行相關聯的中繼資料。 使用 [編輯中繼資料] 模組之後，資料集的值和資料類型將會變更。
 
-一般的中繼資料變更可能包括：
+常見的中繼資料變更可能包括：
   
 + 將布林值或數值資料行視為類別值。
   
@@ -63,7 +63,7 @@ ms.locfileid: "73497953"
   
 1. 如果您想要變更 Azure Machine Learning 在模型中使用資料的方式，請使用 [**欄位**] 選項。
 
-    + **功能**：使用此選項可將資料行標示為僅在特徵資料行上操作之模組中的功能。 根據預設，所有資料行一開始都會被視為功能。  
+    + **功能**：使用此選項可將資料行標示為僅在特徵資料行上操作之模組中的功能。 根據預設，所有資料行一開始會視為特徵來處理。  
   
     + **標籤**：使用此選項來標示標籤，這也稱為可預測的屬性或目標變數。 許多模組都需要資料集內只會有一個標籤資料行。
 

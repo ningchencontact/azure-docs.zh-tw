@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 11/19/2019
-ms.openlocfilehash: dce4fee57a6d712534ba265cc932e10e66fc9899
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0be7e1ac0f505f227c46e63a80a954a5dd176d66
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232643"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312272"
 ---
 # <a name="execute-r-script"></a>執行 R 指令碼
 
-本文說明如何使用 [**執行 r 腳本**] 模組，在您的 Azure Machine Learning designer （預覽）管線中執行 r 程式碼。
+本文說明如何使用 [**執行 r 腳本**] 模組，在您的 Azure Machine Learning 設計工具管線中執行 r 程式碼。
 
 使用 R，您可以執行現有模組目前不支援的工作，例如： 
 - 建立自訂資料轉換
@@ -29,7 +29,7 @@ ms.locfileid: "74232643"
 
 Azure Machine Learning 設計工具會使用 R 的 CRAN （全方位 R 封存網路）散發。目前使用的版本是 CRAN 3.5.1。
 
-## <a name="supported-r-packages"></a>支援的 R 套件
+## <a name="supported-r-packages"></a>受支援的 R 套件
 
 R 環境已預先安裝了超過100個套件。 如需完整清單，請參閱[預先安裝的 R 套件](#pre-installed-r-packages)一節。
 
@@ -121,7 +121,7 @@ azureml_main <- function(dataframe1, dataframe2){
     > [!NOTE]
     >  現有的 R 程式碼可能需要較小的變更，才能在設計工具管線中執行。 例如，您以 CSV 格式提供的輸入資料應該先明確轉換成資料集，您才能在程式碼中使用它。 在 R 語言中使用的資料和資料行類型，在設計工具中使用的資料和資料行類型方面也有不同的差異。
 
-1.  **隨機種子**：輸入要在 R 環境內用來做為隨機種子值的值。 這個參數相當於呼叫 R 程式碼中的 `set.seed(value)`。  
+1.  **隨機種子**：輸入要在 R 環境內用來做為隨機種子值的值。 此參數等同於呼叫 R 程式碼中的 `set.seed(value)`。  
 
 1. 執行管道。  
 
@@ -259,17 +259,17 @@ azureml_main <- function(dataframe1, dataframe2){
 | Package      | 版本    | 
 | askpass      | 1.1        | 
 | assertthat   | 0.2.1      | 
-| 反向移植    | 類庫      | 
-| 群體         | 3.5.1      | 
+| backports    | 1.1.4      | 
+| base         | 3.5.1      | 
 | base64enc    | 0.1-3      | 
 | BH           | 1.69.0-1   | 
 | bindr        | 0.1.1      | 
 | bindrcpp     | 0.2.2      | 
 | bitops       | 1.0-6      | 
 | boot         | 1.3-22     | 
-| 掃帚        | 0.5.2      | 
+| broom        | 0.5.2      | 
 | callr        | 3.2.0      | 
-| 插入號        | 6.0-84     | 
+| caret        | 6.0-84     | 
 | caTools      | 1.17.1.2   | 
 | cellranger   | 1.1.0      | 
 | class        | 7.3-15     | 
@@ -278,10 +278,10 @@ azureml_main <- function(dataframe1, dataframe2){
 | 叢集      | 2.0.7-1    | 
 | codetools    | 0.2-16     | 
 | colorspace   | 1.4-1      | 
-| 編譯器     | 3.5.1      | 
-| 起來       | 1.3.4      | 
-| 彎曲         | 3.3        | 
-| 資料。資料表   | 1.12.2     | 
+| compiler     | 3.5.1      | 
+| crayon       | 1.3.4      | 
+| curl         | 3.3        | 
+| data.table   | 1.12.2     | 
 | 資料集     | 3.5.1      | 
 | DBI          | 1.0.0      | 
 | dbplyr       | 1.4.1      | 
@@ -298,12 +298,12 @@ azureml_main <- function(dataframe1, dataframe2){
 | 泛型     | 0.0.2      | 
 | ggplot2      | 3.2.0      | 
 | glmnet       | 2.0-18     | 
-| 黏附         | 1.3.1      | 
+| glue         | 1.3.1      | 
 | gower        | 0.2.1      | 
 | gplots       | 3.0.1.1    | 
 | 圖形     | 3.5.1      | 
 | grDevices    | 3.5.1      | 
-| 格         | 3.5.1      | 
+| 方格 (grid)         | 3.5.1      | 
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1：      | 
 | haven        | 2.1.0      | 
@@ -312,19 +312,19 @@ azureml_main <- function(dataframe1, dataframe2){
 | htmltools    | 0.3.6      | 
 | httr         | 1.4.0      | 
 | ipred        | 0.9-9      | 
-| 反覆運算    | 1.0.10     | 
+| Iterator    | 1.0.10     | 
 | jsonlite     | 1.6        | 
 | KernSmooth   | 2.23-15    | 
 | knitr        | 1.23       | 
-| 條碼     | 0.3        | 
+| 標籤     | 0.3        | 
 | lattice      | 0.20-38    | 
 | lava         | 1.6.5      | 
 | lazyeval     | 0.2.2      | 
 | lubridate    | avro-mapred-1.7.4-hadoop2.jar      | 
 | magrittr     | 1.5        | 
 | markdown     | 1          | 
-| 大規模         | 7.3-51。4   | 
-| 核准       | 1.2-17     | 
+| MASS         | 7.3-51。4   | 
+| 矩陣       | 1.2-17     | 
 | 方法      | 3.5.1      | 
 | mgcv         | 1.8-28     | 
 | mime         | 0.7        | 
@@ -335,8 +335,8 @@ azureml_main <- function(dataframe1, dataframe2){
 | nnet         | 7.3-12     | 
 | numDeriv     | 2016.8-1。1 | 
 | openssl      | 1.4        | 
-| 並列     | 3.5.1      | 
-| 要件       | 1.4.1      | 
+| parallel     | 3.5.1      | 
+| pillar       | 1.4.1      | 
 | pkgconfig    | 2.0.2      | 
 | plogr        | 0.2.0      | 
 | plyr         | 1.8.4      | 
@@ -344,7 +344,7 @@ azureml_main <- function(dataframe1, dataframe2){
 | processx     | 3.3.1      | 
 | prodlim      | 2018.04.18 | 
 | progress     | 1.2.2      | 
-| 專業           | 1.3.0      | 
+| ps           | 1.3.0      | 
 | purrr        | 0.3.2      | 
 | quadprog     | 1.5-7      | 
 | quantmod     | 0.4-15     | 
@@ -366,8 +366,8 @@ azureml_main <- function(dataframe1, dataframe2){
 | rpart        | 4.1-15     | 
 | rstudioapi   | 0.1        | 
 | rvest        | 0.3.4      | 
-| 隨       | 1.0.0      | 
-| 選取      | 0.4-1      | 
+| 縮放比例       | 1.0.0      | 
+| selectr      | 0.4-1      | 
 | 空間      | 7.3-11     | 
 | 曲線      | 3.5.1      | 
 | SQUAREM      | 2017.10-1  | 
@@ -375,23 +375,23 @@ azureml_main <- function(dataframe1, dataframe2){
 | stats4       | 3.5.1      | 
 | stringi      | 1.4.3      | 
 | stringr      | 1.3.1      | 
-| 至關重要     | 2.44 秒內-1。1   | 
+| survival     | 2.44 秒內-1。1   | 
 | sys          | 3.2        | 
 | tcltk        | 3.5.1      | 
 | tibble       | 2.1.3      | 
 | tidyr        | 0.8.3      | 
 | tidyselect   | 0.2.5      | 
 | tidyverse    | 1.2.1      | 
-| Timedate 時間     | 3043.102   | 
+| timeDate     | 3043.102   | 
 | tinytex      | 0.13       | 
 | 工具        | 3.5.1      | 
 | tseries      | 0.10-47    | 
 | TTR          | lsscsi-0.23-2.el6.x86 64.rpm-4     | 
-| utf8         | 類庫      | 
-| utils        | 3.5.1      | 
+| utf8         | 1.1.4      | 
+| 公用程式        | 3.5.1      | 
 | vctrs        | 0.1.0      | 
 | viridisLite  | 0.3.0      | 
-| 須值      | 0.3-2      | 
+| whisker      | 0.3-2      | 
 | withr        | 2.1.2      | 
 | xfun         | 0.8        | 
 | xml2         | 1.2.0      | 

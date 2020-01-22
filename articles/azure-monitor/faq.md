@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/30/2019
-ms.openlocfilehash: 1002a19506ad0a59cb24ae4edb1f7c9726d68cb2
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 38966d537398d2770fba185a59b51956cf2223c3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170858"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290337"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure 監視器常見問題
 
@@ -94,7 +94,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 Azure 監視器收集的所有記錄資料都會儲存在 Log Analytics 工作區中。 工作區基本上是從各種來源收集記錄資料的容器。 您的所有監視資料可能都有單一 Log Analytics 工作區，或可能有多個工作區的需求。 請參閱[設計您的 Azure 監視器記錄部署](platform/design-logs-deployment.md)。
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>您可以將現有的 Log Analytics 工作區移至另一個 Azure 訂用帳戶嗎？
-您可以在資源群組或訂用帳戶之間移動工作區，但不能將它移到不同的區域。 請參閱[將 Log Analytics 工作區移至不同的訂用帳戶或資源群組](/platform/move-workspace.md)。
+您可以在資源群組或訂用帳戶之間移動工作區，但不能將它移到不同的區域。 請參閱[將 Log Analytics 工作區移至不同的訂用帳戶或資源群組](platform/move-workspace.md)。
 
 
 ## <a name="alerts"></a>警示
@@ -345,7 +345,7 @@ WireData
 ### <a name="what-are-the-user-and-session-counts"></a>什麼是使用者和和工作階段計數？
 
 * JavaScript SDK 會在 Web 用戶端上設定使用者 Cookie 來識別傳回使用者，以及設定一個工作階段 Cookie 來將活動分組。
-* 如果沒有任何用戶端指令碼，則您可以[在伺服器設定 Cookie](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-app/)。
+* 如果沒有任何用戶端指令碼，則您可以[在伺服器設定 Cookie](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/)。
 * 如果有一個真實的使用者以不同的瀏覽器使用您的站台，或是使用 InPrivate/Incognito 瀏覽，或透過不同的電腦，則系統會將其計算多次。
 * 若要跨電腦和瀏覽器識別登入的使用者，請新增對 [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users) 的呼叫。
 
@@ -455,7 +455,7 @@ Azure 警示僅針對計量。 請建立一個會在每次事件發生時超出�
 #### <a name="proxy-passthrough"></a>Proxy 傳遞
 
 藉由設定電腦層級或應用層級 proxy，即可達到 Proxy 傳遞。
-如需詳細資訊，請參閱[DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-app/file-schema/network/defaultproxy-element-network-settings)上的 dotnet 文章。
+如需詳細資訊，請參閱[DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings)上的 dotnet 文章。
  
  範例 Web.config：
  ```xml

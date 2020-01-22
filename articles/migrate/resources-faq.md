@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: 8bfa9237d365636c0bdaa3af06c5af23b683231d
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: d06e75ec900faa17ed4441c20a52d8da60ee4d97
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563529"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289453"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate：常見的問題
 
@@ -53,7 +53,7 @@ Azure Migrate 提供集中式的中樞，供您評估和遷移至 Azure。 [Azur
 
 ## <a name="which-geographies-are-supported"></a>支援哪些地理位置？
 
-查看適用于[VMWARE VM](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects)和[hyper-v vm](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects)的 Azure Migrate 支援地理位置。
+查看適用于[VMWARE VM](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)和[hyper-v vm](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)的 Azure Migrate 支援地理位置。
 
 ## <a name="how-do-i-get-started"></a>如何開始使用？
 

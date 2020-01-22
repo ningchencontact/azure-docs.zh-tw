@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: a0faba895c5717d061bacee2ce724c20464f8150
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 91434a5392f37a297e474fedf00fac6b1e4d8362
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497689"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314159"
 ---
 # <a name="remove-duplicate-rows-module"></a>移除重複的資料列模組
 
-本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
+本文說明 Azure Machine Learning 設計工具中的模組。
 
 使用此模組從資料集移除潛在的重複專案。
 
@@ -26,11 +26,11 @@ ms.locfileid: "73497689"
 
 | PatientID | Initials| 性別|年齡|住院|
 |----|----|----|----|----|
-|1|F.M.| M| 53| Jan|
-|2| F.A.M.| M| 53| Jan|
-|3| F.A.M.| M| 24| Jan|
-|3| F.M.| M| 24| Feb|
-|4| F.M.| M| 23| Feb|
+|1|F.M.| M| 53| 一月|
+|2| F.A.M.| M| 53| 一月|
+|3| F.A.M.| M| 24| 一月|
+|3| F.M.| M| 24| 二月|
+|4| F.M.| M| 23| 二月|
 | | F.M.| M| 23| |
 |5| F.A.M.| M| 53| |
 |6| F.A.M.| M| NaN| |
@@ -71,7 +71,7 @@ ms.locfileid: "73497689"
 
 5. 執行管道。
 
-6. 若要檢查結果，請以滑鼠右鍵按一下模組，選取 [**結果資料集**]，然後按一下 [**視覺化**]。 
+6. 若要檢查結果，請以滑鼠右鍵按一下模組，然後選取 [**視覺化**]。 
 
 > [!TIP]
 > 如果結果很容易瞭解，或如果您想要排除某些資料行的考慮，您可以使用 [[選取資料集中的資料行](./select-columns-in-dataset.md)] 模組來移除資料行。

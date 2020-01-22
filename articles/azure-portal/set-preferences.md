@@ -3,18 +3,18 @@ title: 設定您的 Azure 入口網站喜好設定 |Microsoft Docs
 description: 您可以變更 Azure 入口網站預設值，以符合您自己的喜好設定。 設定包括非使用中會話超時、預設視圖、功能表模式、對比、主題、通知，以及語言和地區格式
 services: azure-portal
 keywords: 設定、超時、語言、地區
-author: mblythe
+author: mgblythe
 ms.author: mblythe
 ms.date: 12/19/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 0c18ccbf5d9e4884af46e088f1a4ead67f50c3f5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 7bcfdeec832b14eb53c0dab6cb2f53970d85c804
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75641361"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310674"
 ---
 # <a name="set-your-azure-portal-preferences"></a>設定您的 Azure 入口網站喜好設定
 

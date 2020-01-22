@@ -1,5 +1,5 @@
 ---
-title: 使用媒體服務動態加密來保護您的內容
+title: 使用媒體服務 v3 動態加密來保護您的內容
 titleSuffix: Azure Media Services
 description: 瞭解在 Azure 媒體服務中使用動態加密、串流通訊協定和加密類型的內容保護。
 services: media-services
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1ae8645f3e782305ed5e1b7847b019a978e48dde
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 18e80383bfcbebc6a442663c141100faa56fd061
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977772"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313800"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>使用媒體服務動態加密來保護您的內容
 
@@ -51,7 +51,7 @@ ms.locfileid: "74977772"
   
 [DRM 範例會示範](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)如何使用 .net，透過媒體服務 v3 來執行多重 DRM 系統。 它也會說明如何使用媒體服務授權/金鑰傳遞服務。
   
-您可以使用多種加密類型 (AES-128、PlayReady、Widevine、FairPlay) 來加密每個資產。 若要查看結合的意義，請參閱[串流通訊協定和加密類型](#streaming-protocols-and-encryption-types)。
+您可以使用多種加密類型 (AES-128、PlayReady、Widevine、FairPlay) 來加密每項資產。 若要查看結合的意義，請參閱[串流通訊協定和加密類型](#streaming-protocols-and-encryption-types)。
 
 下列範例示範如何：
 
@@ -247,7 +247,7 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 如需使用自訂授權/金鑰取得 Url 的 REST 範例，請參閱[串流原則-建立](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)。
 
 > [!NOTE]
-> Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
+> Widevine 是 Google Inc. 所提供的服務，並受到 Google Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="troubleshoot"></a>疑難排解
 

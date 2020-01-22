@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 577dc6d4344cd6d7a38c4d538218c9dd89e883aa
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 803c82c9926c3b75545b42a9a382fd5c327b7151
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643650"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289079"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常見問題集 (FAQ)
 
@@ -27,7 +27,7 @@ Azure AD 擴充功能無法運作有兩個常見原因。 Azure AD B2C 要求您
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>我可以在以員工為主的現有 Azure AD 租用戶中使用 Azure AD B2C 功能嗎？
 
-Azure AD 和 Azure AD B2C 為個別的產品供應項目，無法共存於同一個租用戶。 一個 Azure AD 租用戶代表一個組織。 一個 Azure AD B2C 租用戶代表一組要用於信賴憑證者應用程式的身分識別。 使用自訂原則，Azure AD B2C 可以與 Azure AD 允許組織中的員工驗證。
+Azure AD 和 Azure AD B2C 為個別的產品供應項目，無法共存於同一個租用戶。 一個 Azure AD 租用戶代表一個組織。 一個 Azure AD B2C 租用戶代表一組要用於信賴憑證者應用程式的身分識別。 藉由在**Azure AD B2C > 身分識別提供者**或自訂原則中**新增 OpenID connect 提供者**，Azure AD B2C 可以與 Azure AD 允許組織中的員工驗證。
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>我可以使用 Azure AD B2C 來提供 Office 365 的社交登入 (Facebook 和 Google+) 嗎？
 
@@ -49,7 +49,7 @@ Azure AD B2C 也支援[自訂原則](active-directory-b2c-overview-custom.md)。
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>我可以設定範圍，以便從各種社交身分識別提供者收集取用者的詳細資訊嗎？
 
-號 我們支援的一組社交身分識別提供者所使用的預設範圍如下：
+不會。 我們支援的一組社交身分識別提供者所使用的預設範圍如下：
 
 * Facebook: email
 * Google+: email
@@ -134,7 +134,7 @@ Azure AD B2C 不適用於 SharePoint 外部夥伴共用的情節。請改以參�
 
 您可以使用目前的**應用程式**體驗或我們新的統一**應用程式註冊（預覽）** 體驗。 [深入了解新的體驗](https://aka.ms/b2cappregintro)。
 
-#### <a name="applicationstabapplications"></a>[](#tab/applications/)
+#### <a name="applicationstabapplications"></a>[應用程式](#tab/applications/)
 
 1. 以*訂用帳戶管理員*身分登入[Azure 入口網站](https://portal.azure.com/)。 使用相同的公司或學校帳戶，或您用來註冊 Azure 的相同 Microsoft 帳戶。
 1. 在頂端功能表中選取 [目錄 + 訂用帳戶] 篩選，然後選取包含您 Azure AD B2C 租用戶的目錄。
@@ -150,7 +150,7 @@ Azure AD B2C 不適用於 SharePoint 外部夥伴共用的情節。請改以參�
 1. 在 [**管理**] 底下，選取 [**使用者設定**]。
 1. 如果存在，請在 [ **LinkedIn 帳戶**連線] 下選取 [**否**]，然後選取 [**儲存**]。
 1. 在 [**管理**] 底下，選取 [**屬性**]
-1. 在 [ **Azure 資源的存取管理**] 底下，選取 **[是]** ，然後選取 [**儲存**]。
+1. 在[Azure 資源的存取管理] 底下，選取 [是]，然後選取 [儲存]。
 1. 登出 Azure 入口網站然後再次登入以重新整理您的存取權。
 1. 選取左側功能表上的 [ **Azure Active Directory** ]。
 1. 在 [**總覽**] 頁面上，選取 [**刪除目錄**]。 遵循畫面上的指示來完成程式。
@@ -170,7 +170,7 @@ Azure AD B2C 不適用於 SharePoint 外部夥伴共用的情節。請改以參�
 1. 在 [**管理**] 底下，選取 [**使用者設定**]。
 1. 如果存在，請在 [ **LinkedIn 帳戶**連線] 下選取 [**否**]，然後選取 [**儲存**]。
 1. 在 [**管理**] 底下，選取 [**屬性**]
-1. 在 [ **Azure 資源的存取管理**] 底下，選取 **[是]** ，然後選取 [**儲存**]。
+1. 在[Azure 資源的存取管理] 底下，選取 [是]，然後選取 [儲存]。
 1. 登出 Azure 入口網站然後再次登入以重新整理您的存取權。
 1. 選取左側功能表上的 [ **Azure Active Directory** ]。
 1. 在 [**總覽**] 頁面上，選取 [**刪除目錄**]。 遵循畫面上的指示來完成程式。

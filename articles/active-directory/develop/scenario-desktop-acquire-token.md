@@ -1,7 +1,7 @@
 ---
 title: 取得權杖以呼叫 Web API （桌面應用程式） |Azure
 titleSuffix: Microsoft identity platform
-description: 瞭解如何建立桌面應用程式來呼叫 web Api （取得應用程式的權杖 |）
+description: 瞭解如何建立桌面應用程式，以呼叫 web Api 來取得應用程式的權杖
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,23 +16,23 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89a9426b1ed0ccd3c5f9eec576e5d78bf3d3dfc2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: da8d9a43ac5db4cedc8b27910bb838b911f3ebc6
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423881"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293142"
 ---
-# <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api 的桌面應用程式-取得權杖
+# <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>呼叫 web Api 的桌面應用程式：取得權杖
 
-一旦建立了公用用戶端應用程式的實例之後，您就可以使用它來取得權杖，然後用它來呼叫 Web API。
+建立公用用戶端應用程式的實例之後，您將使用它來取得權杖，然後用來呼叫 Web API。
 
 ## <a name="recommended-pattern"></a>建議模式
 
-Web API 是由其 `scopes`所定義。 無論您在應用程式中提供的體驗為何，您會想要使用的模式如下：
+Web API 是由其 `scopes`所定義。 無論您在應用程式中提供的體驗為何，使用的模式如下：
 
-- 藉由呼叫 `AcquireTokenSilent`，有系統地嘗試從權杖快取取得權杖
-- 如果此呼叫失敗，請使用您想要使用的 `AcquireToken` 流程（此處以 `AcquireTokenXX`表示）
+- 藉由呼叫 `AcquireTokenSilent`，有系統地嘗試從權杖快取取得權杖。
+- 如果這個呼叫失敗，請使用您想要使用的 `AcquireToken` 流程，這是由 `AcquireTokenXX`在這裡表示。
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -146,9 +146,9 @@ application.acquireTokenSilent(with: silentParameters) { (result, error) in
 ```
 ---
 
-以下是在桌面應用程式中取得權杖的各種方式的詳細資料
+以下是在桌面應用程式中取得權杖的各種方式。
 
-## <a name="acquiring-a-token-interactively"></a>以互動方式取得權杖
+## <a name="acquire-a-token-interactively"></a>以互動方式取得權杖
 
 下列範例顯示使用 Microsoft Graph 以互動方式取得權杖的最少程式碼，以讀取使用者的設定檔。
 
@@ -174,15 +174,15 @@ catch(MsalUiRequiredException)
 
 ### <a name="mandatory-parameters"></a>必要參數
 
-`AcquireTokenInteractive` 只有一個強制參數 ``scopes``，其中包含定義需要權杖之範圍的字串列舉。 如果權杖適用于 Microsoft Graph，則在名為「許可權」的區段中，您可以在每個 Microsoft Graph API 的 api 參考中找到所需的範圍。 例如，若要[列出使用者的連絡人](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts)，則必須使用「使用者. 讀取」、「連絡人」等範圍。 另請參閱[Microsoft Graph 許可權參考](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)。
+`AcquireTokenInteractive` 只有一個強制參數，``scopes``，其中包含定義需要權杖之範圍的字串列舉。 如果權杖是用於 Microsoft Graph，則在名為「許可權」的區段中，您可以在每個 Microsoft Graph API 的 API 參考中找到所需的範圍。 例如，若要[列出使用者的連絡人](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts)，必須使用範圍「使用者. 讀取」、「連絡人. 讀取」。 如需詳細資訊，請參閱[Microsoft Graph 許可權參考](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)。
 
-在 Android 上，您也必須指定父活動（使用 `.WithParentActivityOrWindow`，請參閱下方），讓權杖在互動之後回到該父活動。 如果您未指定，則在呼叫 `.ExecuteAsync()`時，將會擲回例外狀況（exception）。
+在 Android 上，您也必須使用 `.WithParentActivityOrWindow`來指定父活動，如此一來，權杖就會在互動之後回到該父活動。 如果您未指定，則在呼叫 `.ExecuteAsync()`時，就會擲回例外狀況（exception）。
 
 ### <a name="specific-optional-parameters-in-msalnet"></a>MSAL.NET 中的特定選擇性參數
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-互動式，UI 很重要。 `AcquireTokenInteractive` 有一個特定的選擇性參數，可讓您針對支援它的平臺（父 UI）指定。 在桌面應用程式中使用時，根據平臺，`.WithParentActivityOrWindow` 具有不同的類型：
+UI 很重要，因為它是互動式的。 `AcquireTokenInteractive` 有一個特定的選擇性參數，可以針對支援的平臺、父 UI 來指定。 在桌面應用程式中使用時，`.WithParentActivityOrWindow` 具有不同的類型，這取決於平臺。
 
 ```csharp
 // net45
@@ -198,9 +198,9 @@ WithParentActivityOrWindow(object parent).
 
 備註：
 
-- 在 .NET Standard 上，預期的 `object` 是 Android 上的 `Activity`、iOS 上的 `UIViewController`、MAC 上的 `NSWindow`，以及 Windows 上的 `IWin32Window` 或 `IntPr`。
-- 在 Windows 上，您必須從 UI 執行緒呼叫 `AcquireTokenInteractive`，讓內嵌瀏覽器取得適當的 UI 同步處理內容。  不是從 UI 執行緒呼叫，可能會導致訊息無法使用 UI 來提取正確和/或鎖死案例。 如果您不是在 UI 執行緒上，從 UI 執行緒呼叫 MSAL 的其中一種方法，就是在 WPF 上使用 `Dispatcher`。
-- 如果您使用的是 WPF，若要從 WPF 控制項取得視窗，您可以使用 `WindowInteropHelper.Handle` 類別。 然後，從 WPF 控制項（`this`）呼叫：
+- 在 .NET Standard 上，預期的 `object` 會在 Android 上 `Activity`、在 iOS 上 `UIViewController`、在 MAC 上 `NSWindow`，以及在 Windows 上 `IWin32Window` 或 `IntPr`。
+- 在 Windows 上，您必須從 UI 執行緒呼叫 `AcquireTokenInteractive`，讓內嵌瀏覽器取得適當的 UI 同步處理內容。 不是從 UI 執行緒呼叫，可能會導致訊息無法使用 UI 來提取正確和鎖死的情況。 如果您不是在 UI 執行緒上，從 UI 執行緒呼叫 Microsoft 驗證程式庫（MSALs）的其中一種方式，就是在 WPF 上使用 `Dispatcher`。
+- 如果您使用的是 WPF，若要從 WPF 控制項取得視窗，您可以使用 `WindowInteropHelper.Handle` 類別。 然後呼叫是來自 WPF 控制項（`this`）：
 
   ```csharp
   result = await app.AcquireTokenInteractive(scopes)
@@ -210,21 +210,21 @@ WithParentActivityOrWindow(object parent).
 
 #### <a name="withprompt"></a>WithPrompt
 
-`WithPrompt()` 可用來透過指定提示來控制使用者的互動性
+`WithPrompt()` 是用來透過指定提示來控制使用者的互動性。
 
 <img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
 
 類別會定義下列常數：
 
-- ``SelectAccount``：將強制 STS 顯示帳戶選取對話方塊，其中包含使用者具有會話的帳戶。 當應用程式開發人員想要讓使用者在不同的身分識別之間進行選擇時，這個選項非常有用。 此選項會驅動 MSAL，以將 ``prompt=select_account`` 傳送至身分識別提供者。 此選項是預設值，而且可以根據可用的資訊（帳戶、使用者的會話是否存在等等）提供最佳的體驗。 ...).除非您有充分的理由，否則請不要變更它。
-- ``Consent``：讓應用程式開發人員強制系統提示使用者同意，即使之前已授與同意亦然。 在此情況下，MSAL 會將 `prompt=consent` 傳送給識別提供者。 此選項可用於某些安全性焦點應用程式，其中組織治理會要求使用者在每次使用應用程式時呈現同意對話方塊。
-- ``ForceLogin``：讓應用程式開發人員可以讓使用者透過服務提示認證，即使不需要此使用者提示也一樣。 如果取得權杖失敗，此選項會很有用，讓使用者重新登入。 在此情況下，MSAL 會將 `prompt=login` 傳送給識別提供者。 同樣地，我們已看到它用於某些安全性焦點應用程式，組織治理會要求使用者在每次存取應用程式的特定部分時 relogs。
-- ``Never`` （僅適用于 .NET 4.5 和 WinRT）不會提示使用者，而是會嘗試使用儲存在隱藏的內嵌 web 視圖中的 cookie （請參閱以下： MSAL.NET 中的 Web Views）。 使用這個選項可能會失敗，在此情況下 `AcquireTokenInteractive` 會擲回例外狀況，以通知需要 UI 互動，而且您必須使用另一個 `Prompt` 參數。
-- ``NoPrompt``：不會將任何提示傳送給識別提供者。 此選項僅適用于 Azure AD B2C 編輯設定檔原則（請參閱[B2C 細節](https://aka.ms/msal-net-b2c-specificities)）。
+- ``SelectAccount`` 強制 STS 呈現 [帳戶選取] 對話方塊，其中包含使用者具有會話的帳戶。 當應用程式開發人員想要讓使用者在不同的身分識別之間進行選擇時，這個選項很有用。 此選項會驅動 MSAL，以將 ``prompt=select_account`` 傳送至身分識別提供者。 這個選項是預設值。 它會根據可用的資訊（例如使用者的會話帳戶和出現狀態），提供最佳的可能體驗。 除非您有充分的理由，否則請不要變更它。
+- ``Consent`` 可讓應用程式開發人員強制提示使用者同意，即使之前已授與同意亦然。 在此情況下，MSAL 會將 `prompt=consent` 傳送給識別提供者。 此選項可用於某些以安全性為主的應用程式，其中組織治理會要求每次使用應用程式時，都會向使用者顯示同意對話方塊。
+- ``ForceLogin`` 可讓應用程式開發人員將服務提示使用者提供認證，即使可能不需要此使用者提示也一樣。 如果取得權杖失敗，此選項可讓使用者再次登入。 在此情況下，MSAL 會將 `prompt=login` 傳送給識別提供者。 有時候，它會用於以安全性為主的應用程式，組織治理會要求使用者在每次存取應用程式的特定部分時重新登入。
+- ``Never`` （僅適用于 .NET 4.5 和 WinRT）不會提示使用者，而是會嘗試使用儲存在隱藏的內嵌 web 視圖中的 cookie。 如需詳細資訊，請參閱 MSAL.NET 中的 web views。 使用此選項可能會失敗。 在此情況下，`AcquireTokenInteractive` 會擲回例外狀況，以通知需要 UI 互動。 您必須使用另一個 `Prompt` 參數。
+- ``NoPrompt`` 不會傳送任何提示給識別提供者。 此選項僅適用于 Azure Active Directory （Azure AD） B2C 編輯設定檔原則。 如需詳細資訊，請參閱[Azure AD B2C 細節](https://aka.ms/msal-net-b2c-specificities)。
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-這個修飾詞用於您想要讓使用者預先同意數個資源的先進案例（而不想要使用累加式同意，這通常與 MSAL.NET/Microsoft 身分識別平臺搭配使用）。 如需詳細資訊，請參閱[如何：將使用者同意預先用於數個資源](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources)。
+這個修飾詞用於您想要讓使用者預先同意數個資源的先進案例，而且您不想要使用累加式同意，這通常與 MSAL.NET/the Microsoft 身分識別平臺搭配使用。 如需詳細資訊，請參閱將[使用者同意預先用於數個資源](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources)。
 
 ```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
@@ -235,34 +235,35 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 #### <a name="withcustomwebui"></a>WithCustomWebUi
 
 Web UI 是用來叫用瀏覽器的機制。 這種機制可以是專用的 UI WebBrowser 控制項或委派開啟瀏覽器的方式。
-MSAL 為大部分的平臺提供 Web UI，但仍有一些情況下，您可能會想要自行裝載瀏覽器：
+MSAL 為大部分的平臺提供 web UI，但在某些情況下，您可能會想要自行裝載瀏覽器：
 
-- MSAL 未明確涵蓋的平臺，例如 Blazor、Unity、在桌面上的 Mono
-- 您想要 UI 測試您的應用程式，並想要使用可與 Selenium 搭配使用的自動化瀏覽器
-- 瀏覽器和執行 MSAL 的應用程式位於不同的進程中
+- MSAL 未明確涵蓋的平臺，例如 Blazor、Unity 和在桌上型電腦上的 Mono。
+- 您想要對應用程式進行 UI 測試，並使用可與 Selenium 搭配使用的自動化瀏覽器。
+- 執行 MSAL 的瀏覽器和應用程式位於不同的進程中。
 
 ##### <a name="at-a-glance"></a>概覽
 
-為了達到此目的，您將會 MSAL 一個 `start Url`，這需要在選擇的瀏覽器中顯示，讓使用者可以輸入他們的使用者名稱等等。驗證完成後，您的應用程式必須傳回以 MSAL `end Url`，其中包含 Azure AD 所提供的程式碼。
-`end Url` 的主機一律是 `redirectUri`。 若要攔截 `end Url` 您可以：
+為了達到此目的，您會提供 MSAL `start Url`，這需要在選擇的瀏覽器中顯示，讓使用者可以輸入如使用者名稱之類的專案。
+驗證完成後，您的應用程式必須傳回 MSAL `end Url`，其中包含 Azure AD 所提供的程式碼。
+`end Url` 的主機一律 `redirectUri`。 若要攔截 `end Url`，請執行下列其中一項動作：
 
-- 監視瀏覽器重新導向，直到達到 `redirect Url` 或
-- 讓瀏覽器重新導向至您監視的 URL
+- 監視瀏覽器重新導向，直到達到 `redirect Url` 為止。
+- 讓瀏覽器重新導向至您所監視的 URL。
 
 ##### <a name="withcustomwebui-is-an-extensibility-point"></a>WithCustomWebUi 是擴充點
 
-`WithCustomWebUi` 是一個擴充點，可讓您在公用用戶端應用程式中提供自己的 UI，並讓使用者通過身分識別提供者的/Authorize 端點，並讓他們登入和同意。 MSAL.NET 可以，然後兌換驗證碼並取得權杖。 這是用於 Visual Studio 中的實例，以讓 electrons 應用程式（例如 VS 意見反應）提供 web 互動，但讓它 MSAL.NET 來執行大部分的工作。 如果您想要提供使用者介面自動化，也可以使用它。 在公用用戶端應用程式中，MSAL.NET 會使用 PKCE 標準（[由 OAuth 公用用戶端交換程式碼的 RFC 7636-證明金鑰](https://tools.ietf.org/html/rfc7636)），以確保遵守安全性：只有 MSAL.NET 可以兌換程式碼。
+`WithCustomWebUi` 是擴充點，可用來在公用用戶端應用程式中提供您自己的 UI。 您也可以讓使用者通過身分識別提供者的/Authorize 端點，並讓他們登入和同意。 MSAL.NET 接著可以兌換驗證碼並取得權杖。 例如，它會在 Visual Studio 中用來讓 electrons 應用程式（例如，Visual Studio 意見反應）提供 web 互動，但讓它 MSAL.NET 來執行大部分的工作。 如果您想要提供使用者介面自動化，也可以使用它。 在公用用戶端應用程式中，MSAL.NET 會使用程式碼交換的證明金鑰（PKCE）標準，以確保遵守安全性。 只有 MSAL.NET 可以兌換程式碼。 如需詳細資訊，請參閱[RFC 7636-OAuth 公用用戶端的程式碼交換的證明金鑰](https://tools.ietf.org/html/rfc7636)。
 
   ```csharp
   using Microsoft.Identity.Client.Extensions;
   ```
 
-##### <a name="how-to-use-withcustomwebui"></a>如何使用 WithCustomWebUi
+##### <a name="use-withcustomwebui"></a>使用 WithCustomWebUi
 
-若要使用 `.WithCustomWebUI`，您需要：
+若要使用 `.WithCustomWebUI`，請遵循下列步驟。
 
-  1. 執行 `ICustomWebUi` 介面（請參閱[這裡](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70)。 基本上，您必須執行一種方法 `AcquireAuthorizationCodeAsync` 接受授權碼 URL （由 MSAL.NET 計算），讓使用者能夠完成與識別提供者的互動，然後傳回識別提供者用來呼叫您的執行的 URL （包括授權碼）。 如果您有任何問題，則您的執行應該會擲回 `MsalExtensionException` 例外狀況，以便與 MSAL 完美合作。
-  2. 在您的 `AcquireTokenInteractive` 呼叫中，您可以使用 `.WithCustomUI()` 修飾詞來傳遞自訂 web UI 的實例
+  1. 實作 `ICustomWebUi` 介面。 如需詳細資訊，請參閱[此網站](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70)。 執行一個 `AcquireAuthorizationCodeAsync`方法，並接受 MSAL.NET 所計算的授權碼 URL。 然後讓使用者完成與身分識別提供者的互動，並傳回識別提供者與授權碼一起呼叫您的執行的 URL。 如果您有任何問題，則您的執行應該會擲回 `MsalExtensionException` 例外狀況，以便與 MSAL 完美合作。
+  2. 在您的 `AcquireTokenInteractive` 呼叫中，使用 `.WithCustomUI()` 修飾詞，傳遞自訂 web UI 的實例。
 
      ```csharp
      result = await app.AcquireTokenInteractive(scopes)
@@ -270,19 +271,19 @@ MSAL 為大部分的平臺提供 Web UI，但仍有一些情況下，您可能�
                        .ExecuteAsync();
      ```
 
-##### <a name="examples-of-implementation-of-icustomwebui-in-test-automation---seleniumwebui"></a>在測試自動化中執行 ICustomWebUi 的範例-SeleniumWebUI
+##### <a name="examples-of-implementation-of-icustomwebui-in-test-automation-seleniumwebui"></a>測試自動化中的 ICustomWebUi 執行範例： SeleniumWebUI
 
-MSAL.NET 小組已重寫我們的 UI 測試，以利用這個擴充性機制。 如果您有興趣，可以查看 MSAL.NET 原始程式碼中的[SeleniumWebUI](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/tests/Microsoft.Identity.Test.Integration/Infrastructure/SeleniumWebUI.cs#L15-L160)類別
+MSAL.NET 小組已重寫 UI 測試，以使用此擴充性機制。 如果您有興趣，請查看 MSAL.NET 原始程式碼中的[SeleniumWebUI](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/tests/Microsoft.Identity.Test.Integration/Infrastructure/SeleniumWebUI.cs#L15-L160)類別。
 
-##### <a name="providing-a-great-experience-with-systemwebviewoptions"></a>提供 SystemWebViewOptions 的絕佳體驗
+##### <a name="provide-a-great-experience-with-systemwebviewoptions"></a>提供 SystemWebViewOptions 的絕佳體驗
 
-從 MSAL.NET 4.1 [`SystemWebViewOptions`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet)可讓您指定：
+從 MSAL.NET 4.1 [`SystemWebViewOptions`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet)中，您可以指定：
 
-- 要導覽的 URI （`BrowserRedirectError`），或在系統網頁瀏覽器中登入/同意錯誤時要顯示的 HTML 片段（`HtmlMessageError`）
-- 要在成功登入/同意時，流覽至（`BrowserRedirectSuccess`）或要顯示的 HTML 片段的 URI （`HtmlMessageSuccess`）。
-- 要執行以啟動系統瀏覽器的動作。 為此，您可以藉由設定 `OpenBrowserAsync` 委派來提供自己的執行。 類別也提供兩個瀏覽器的預設執行： `OpenWithEdgeBrowserAsync` 和 `OpenWithChromeEdgeBrowserAsync`，分別適用于 Chromium 上的 Microsoft Edge 和[Microsoft edge](https://www.windowscentral.com/faq-edge-chromium)。
+- 要在系統網頁瀏覽器中登入或同意錯誤時，所要顯示的 URI （`BrowserRedirectError`）或 HTML 片段（`HtmlMessageError`）。
+- 要在成功登入或同意的情況下，移至的 URI （`BrowserRedirectSuccess`）或要顯示的 HTML 片段（`HtmlMessageSuccess`）。
+- 要執行以啟動系統瀏覽器的動作。 您可以藉由設定 `OpenBrowserAsync` 委派來提供自己的執行方式。 類別也提供兩個瀏覽器的預設執行：分別是 Chromium 的 Microsoft Edge 和[Microsoft edge](https://www.windowscentral.com/faq-edge-chromium)的 `OpenWithEdgeBrowserAsync` 和 `OpenWithChromeEdgeBrowserAsync`。
 
-若要使用這個結構，您可以撰寫如下所示的內容：
+若要使用這個結構，請撰寫如下列範例所示的內容：
 
 ```csharp
 IPublicClientApplication app;
@@ -302,11 +303,11 @@ var result = app.AcquireTokenInteractive(scopes)
 
 #### <a name="other-optional-parameters"></a>其他選擇性參數
 
-從[AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)的參考檔深入瞭解 `AcquireTokenInteractive` 的所有其他選擇性參數
+若要深入瞭解 `AcquireTokenInteractive`的所有其他選用參數，請參閱[AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-MSAL JAVA 不會直接提供互動式取得權杖方法。 相反地，它會要求應用程式在其使用者互動流程的執行中傳送授權要求，以取得可以傳遞給 `acquireToken` 方法以取得權杖的授權碼。
+MSAL JAVA 不會直接提供互動式取得權杖方法。 相反地，它會要求應用程式在其使用者互動流程的執行中傳送授權要求，以取得授權碼。 然後，可以將此程式碼傳遞給 `acquireToken` 方法，以取得權杖。
 
 ```java
 AuthorizationCodeParameters parameters =  AuthorizationCodeParameters.builder(
@@ -345,7 +346,7 @@ future.handle((res, ex) -> {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-MSAL Python 不會直接提供互動式取得權杖方法。 相反地，它會要求應用程式在其使用者互動流程的執行中傳送授權要求，以取得可以傳遞給 `acquire_token_by_authorization_code` 方法以取得權杖的授權碼。
+MSAL Python 不會直接提供互動式取得權杖方法。 相反地，它會要求應用程式在其使用者互動流程的執行中傳送授權要求，以取得授權碼。 然後，可以將此程式碼傳遞給 `acquire_token_by_authorization_code` 方法，以取得權杖。
 
 ```Python
 result = None
@@ -401,47 +402,47 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 ## <a name="integrated-windows-authentication"></a>整合式 Windows 驗證
 
-如果您想要在網域或 Azure AD 加入的電腦上登入網域使用者，您必須使用整合式 Windows 驗證。
+若要在網域或 Azure AD 加入的電腦上登入網域使用者，請使用整合式 Windows 驗證（IWA）。
 
 ### <a name="constraints"></a>條件約束
 
-- 整合式 Windows 驗證（IWA）僅適用于**同盟使用者，** 也就是在 Active Directory 中建立並受到 Azure Active Directory 支援的使用者。 直接在 AAD 中建立的使用者，沒有受 AD 支援**管理**的使用者-無法使用此驗證流程。 這項限制並不會影響使用者名稱/密碼的流程。
-- IWA 適用于針對 .NET Framework、.NET Core 和 UWP 平臺所撰寫的應用程式
-- IWA 不會略過 MFA （多重要素驗證）。 如果已設定 MFA，則在需要 MFA 挑戰時，IWA 可能會失敗，因為 MFA 需要使用者互動。
+- 整合式 Windows 驗證僅適用于同盟 *+* 使用者，也就是在 Active Directory 建立的使用者，並由 Azure AD 支援。 直接在 Azure AD 中建立的使用者若沒有 Active Directory 支援（稱為「*受管理*使用者」），就無法使用此驗證流程。 這項限制並不會影響使用者名稱和密碼流程。
+- IWA 適用于針對 .NET Framework、.NET Core 和通用 Windows 平臺（UWP）平臺所撰寫的應用程式。
+- IWA 不會略過多重要素驗證（MFA）。 如果已設定 MFA，則在需要 MFA 挑戰時，IWA 可能會失敗，因為 MFA 需要使用者互動。
   > [!NOTE]
-  > 這一點很棘手。 IWA 非互動式，但 MFA 需要使用者互動。 您不會控制身分識別提供者要求執行 MFA 的時間，租使用者管理員會這麼做。 從我們的觀察中，當您從不同國家/地區登入時，若未透過 VPN 連線到公司網路，有時甚至是透過 VPN 連線時，就需要使用 MFA。 不預期有一組具決定性的規則，Azure Active Directory 使用 AI 來持續瞭解是否需要 MFA。 如果 IWA 失敗，您應該回到使用者提示（互動式驗證或裝置程式碼流程）。
+  > 這一點很棘手。 IWA 非互動式，但 MFA 需要使用者互動。 您不會控制身分識別提供者要求執行 MFA 的時間，租使用者系統管理員會這麼做。 從我們的觀察，當您從不同的國家/地區、未透過 VPN 連線到公司網路，甚至是透過 VPN 連線時，都需要 MFA。 不預期有一組具決定性的規則。 Azure AD 使用 AI 來持續瞭解是否需要 MFA。 當 IWA 失敗時，切換回使用者提示，例如互動式驗證或裝置程式碼流程。
 
-- `PublicClientApplicationBuilder` 中傳遞的授權單位必須是：
-  - 租使用者-ed （的形式 `https://login.microsoftonline.com/{tenant}/`，其中 `tenant` 是代表租使用者識別碼的 guid 或與租使用者相關聯的網域。
-  - 適用于任何公司和學校帳戶（`https://login.microsoftonline.com/organizations/`）
-  - 不支援 Microsoft 個人帳戶（您無法使用/common 或/consumers 租使用者）
+- 傳入 `PublicClientApplicationBuilder` 的授權單位必須是：
+  - `https://login.microsoftonline.com/{tenant}/`表單的租使用者，其中 `tenant` 是代表租使用者識別碼的 GUID，或與租使用者相關聯的網域。
+  - 適用于任何[公司和學校帳戶](`https://login.microsoftonline.com/organizations/`)。
+  - 不支援 Microsoft 個人帳戶。 您不能使用/common 或/consumers 租使用者。
 
 - 因為整合式 Windows 驗證是無訊息流程：
-  - 您應用程式的使用者必須先前已同意使用應用程式
+  - 您應用程式的使用者必須先同意使用應用程式。
   - 或者，租使用者系統管理員必須先前已同意租使用者中的所有使用者，才能使用該應用程式。
   - 換句話說：
-    - 身為開發人員，您可以自行按下 Azure 入口網站的 [**授**與] 按鈕，
-    - 或者，租使用者系統管理員已在應用程式註冊的 [ **API 許可權**] 索引標籤中，按下 [**授與/撤銷系統管理員同意**] 按鈕（請參閱[新增許可權以存取 web api](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis)）
-    - 或者您已提供使用者同意應用程式的方式（請參閱[要求個別使用者同意](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent)）
-    - 或者您已提供一種方法讓租使用者管理員同意應用程式（請參閱系統[管理員同意](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant)）
+    - 身為開發人員，您可以自行選取 Azure 入口網站中的 [**授**與] 按鈕。
+    - 或者，租使用者系統管理員已在應用程式註冊的 [ **API 許可權**] 索引標籤上，選取 [**授與/撤銷系統管理員同意**] 按鈕。 如需詳細資訊，請參閱[新增存取 Web api 的許可權](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis)。
+    - 或者，您已經為使用者提供同意應用程式的方式。 如需詳細資訊，請參閱[要求個別使用者同意](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent)。
+    - 或者，您也提供了一種方法，讓租使用者系統管理員同意應用程式。 如需詳細資訊，請參閱系統[管理員同意](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant)。
 
-- 此流程已針對 .net desktop、.net core 和 Windows 通用（UWP）應用程式啟用。
+- 此流程已針對 .NET desktop、.NET Core 和 UWP 應用程式啟用。
 
-如需有關同意的詳細資訊，請參閱[Microsoft 身分識別平臺許可權和同意](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
+如需有關同意的詳細資訊，請參閱[Microsoft 身分識別平臺許可權和同意](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)。
 
-### <a name="how-to-use-it"></a>如何使用它
+### <a name="learn-how-to-use-it"></a>了解其使用方式
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-在 MSAL.NET 中，您必須使用
+在 MSAL.NET 中，您必須使用：
 
 ```csharp
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 ```
 
-您通常只需要一個參數（`scopes`）。 不過，視您的 Windows 系統管理員設定原則的方式而定，您的 windows 電腦上的應用程式可能不允許查詢已登入的使用者。 在此情況下，請使用第二個方法 `.WithUsername()`，並以 UPN 格式（`joe@contoso.com`）傳入登入使用者的使用者名稱。 在 .NET core 中，只有取得使用者名稱的多載可供使用，因為 .NET Core 平臺無法向 OS 要求使用者名稱。
+您通常只需要一個參數（`scopes`）。 根據您的 Windows 系統管理員設定原則的方式而定，您的 Windows 電腦上的應用程式可能不允許查詢已登入的使用者。 在此情況下，請使用第二個方法，`.WithUsername()`，並以 UPN 格式傳入登入使用者的使用者名稱，例如 `joe@contoso.com`。 在 .NET Core 上，只有取得使用者名稱的多載可供使用，因為 .NET Core 平臺無法向 OS 要求使用者名稱。
 
-下列範例會呈現最新的案例，並說明您可以取得的例外狀況類型及其緩和措施
+下列範例會呈現最新的案例，並說明您可以取得的例外狀況種類及其緩和措施。
 
 ```csharp
 static async Task GetATokenForGraph()
@@ -520,11 +521,11 @@ static async Task GetATokenForGraph()
 }
 ```
 
-如需 AcquireTokenByIntegratedWindowsAuthentication 上可能的修飾詞清單，請參閱[AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
+如需 AcquireTokenByIntegratedWindowsAuthentication 上可能的修飾詞清單，請參閱[AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-這是[MSAL JAVA dev 範例](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/)的摘錄。 以下是 MSAL JAVA dev 範例中用來設定範例的類別： [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java)。
+這是來自[MSAL JAVA dev 範例](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/)的摘錄。 以下是在 MSAL JAVA dev 範例中用來設定範例的類別： [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java)。
 
 ```Java
 PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
@@ -550,45 +551,44 @@ MSAL Python 尚不支援此流程。
 
 # <a name="macostabmacos"></a>[MacOS](#tab/macOS)
 
-此流程不適用 MacOS。
+此流程不適用於 MacOS。
 
 ---
 
-## <a name="username--password"></a>使用者名稱/密碼
+## <a name="username-and-password"></a>使用者名稱和密碼
 
 您也可以藉由提供使用者名稱和密碼來取得權杖。 此流程受到限制且不建議，但仍有必要的使用案例。
 
 ### <a name="this-flow-isnt-recommended"></a>不建議使用此流程
 
-**不建議使用**此流程，因為詢問使用者密碼的應用程式並不安全。 如需此問題的詳細資訊，請參閱[這篇文章](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/)。 在已加入網域的 Windows 電腦上以無訊息方式取得權杖的慣用流程是[整合式 Windows 驗證](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication)。 否則，您也可以使用[裝置程式碼流程](https://aka.ms/msal-net-device-code-flow)
+*不建議使用*此流程，因為讓應用程式詢問使用者密碼並不安全。 如需詳細資訊，請參閱[不斷增加的密碼問題的解決方法？](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/)。 在已加入網域的 Windows 電腦上以無訊息方式取得權杖的慣用流程是[整合式 Windows 驗證](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication)。 您也可以使用[裝置程式碼流程](https://aka.ms/msal-net-device-code-flow)。
 
 > [!NOTE]
-> 雖然這在某些情況下很有用（DevOps 案例），但如果您想要在提供自己 UI 的互動式案例中使用使用者名稱/密碼，您應該真的考慮如何將它移開。 藉由使用使用者名稱/密碼，您將會產生許多事項：
+> 在某些情況下，使用使用者名稱和密碼會很有用，例如 DevOps 案例。 但是，如果您想要在您提供自己的 UI 的互動式案例中使用使用者名稱和密碼，請考慮如何將它移開。 藉由使用使用者名稱和密碼，您就會產生許多事項：
 >
-> - 新式身分識別的核心原則：密碼會取得 fished、重新執行。 因為我們有可攔截的共用密碼概念。
-> 這與無密碼不相容。
-> - 需要執行 MFA 的使用者將無法登入（因為沒有互動）
-> - 使用者將無法進行單一登入
+> - 現代化身分識別的核心原則。 密碼可能會誘騙並重新執行，因為共用密碼可以被攔截。 它與無密碼不相容。
+> - 因為沒有互動，所以需要進行 MFA 的使用者無法登入。
+> - 使用者無法執行單一登入（SSO）。
 
 ### <a name="constraints"></a>條件約束
 
 下列條件約束也適用：
 
-- 使用者名稱/密碼流程與條件式存取和多重要素驗證不相容：因此，如果您的應用程式在租使用者系統管理員需要多重要素驗證的 Azure AD 租使用者中執行，您就無法使用此流程。 許多組織都會這麼做。
-- 僅適用于公司和學校帳戶（不是 MSA）
-- 此流程適用于 .net desktop 和 .net core，但不適用於 UWP。
+- 使用者名稱和密碼流程與條件式存取和多重要素驗證不相容。 因此，如果您的應用程式在租使用者系統管理員需要多重要素驗證的 Azure AD 租使用者中執行，您就無法使用此流程。 許多組織都會這麼做。
+- 它僅適用于公司和學校帳戶（而非 MSA）。
+- 此流程適用于 .NET desktop 和 .NET Core，但不適用於 UWP。
 
 ### <a name="b2c-specifics"></a>B2C 細節
 
-有關[使用 ROPC 與 B2C 的詳細資訊](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics#resource-owner-password-credentials-ropc-with-b2c)。
+如需詳細資訊，請參閱[使用 B2C 的資源擁有者密碼認證（ROPC）](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics#resource-owner-password-credentials-ropc-with-b2c)。
 
-### <a name="how-to-use-it"></a>如何使用？
+### <a name="use-it"></a>使用
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-`IPublicClientApplication`包含方法 `AcquireTokenByUsernamePassword`
+`IPublicClientApplication`包含 `AcquireTokenByUsernamePassword`的方法。
 
-下列範例呈現簡化的案例
+下列範例呈現簡化的案例。
 
 ```csharp
 static async Task GetATokenForGraph()
@@ -629,7 +629,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-下列範例會呈現最新的案例，並說明您可以取得的例外狀況類型及其緩和措施
+下列範例會呈現最新的案例，並說明您可以取得的例外狀況種類及其緩和措施。
 
 ```csharp
 static async Task GetATokenForGraph()
@@ -791,11 +791,11 @@ static async Task GetATokenForGraph()
 }
 ```
 
-如需可套用至 `AcquireTokenByUsernamePassword`之所有修飾詞的詳細資訊，請參閱[AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
+如需可套用至 `AcquireTokenByUsernamePassword`之所有修飾詞的詳細資訊，請參閱[AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-這是[MSAL JAVA dev 範例](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/)的摘錄。 以下是 MSAL JAVA dev 範例中用來設定範例的類別： [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java)。
+以下是來自[MSAL JAVA dev 範例](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/)的摘錄。 以下是在 MSAL JAVA dev 範例中用來設定範例的類別： [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java)。
 
 ```Java
 PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
@@ -842,7 +842,7 @@ future.handle((res, ex) -> {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-這是[MSAL Python dev 範例](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/)的摘錄。
+這是來自[MSAL Python dev 範例](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/)的摘錄。
 
 ```Python
 # Create a preferably long-lived app instance which maintains a token cache.
@@ -876,23 +876,23 @@ MSAL for macOS 不支援此流程。
 
 ---
 
-## <a name="command-line-tool-without-web-browser"></a>命令列工具（不含網頁瀏覽器）
+## <a name="command-line-tool-without-a-web-browser"></a>不使用網頁瀏覽器的命令列工具
 
 ### <a name="device-code-flow"></a>裝置程式碼流程
 
-如果您撰寫的是命令列工具（沒有 Web 控制項），而且不能或不想使用先前的流程，則必須使用裝置程式碼流程。
+如果您要撰寫的命令列工具沒有 web 控制項，而且您不能或不想使用先前的流程，則需要使用裝置程式碼流程。
 
-具有 Azure AD 的互動式驗證需要網頁瀏覽器（如需詳細資訊，請參閱[web 瀏覽器的使用](https://aka.ms/msal-net-uses-web-browser)方式）。 不過，若要在不提供網頁瀏覽器的裝置或作業系統上驗證使用者，裝置程式碼流程可讓使用者使用另一個裝置（例如另一部電腦或行動電話）以互動方式登入。 藉由使用裝置程式碼流程，應用程式會透過兩個步驟的進程取得權杖，特別針對這些裝置/Os 所設計。 這類應用程式的範例包括在 iOT 上執行的應用程式，或命令列工具（CLI）。 其概念如下：
+使用 Azure AD 的互動式驗證需要網頁瀏覽器。 如需詳細資訊，請參閱[web 瀏覽器的使用](https://aka.ms/msal-net-uses-web-browser)方式。 若要在不提供網頁瀏覽器的裝置或作業系統上驗證使用者，裝置程式碼流程可讓使用者使用另一部裝置（例如電腦或行動電話）以互動方式登入。 藉由使用裝置程式碼流程，應用程式會透過針對這些裝置或作業系統所設計的兩個步驟進程來取得權杖。 這類應用程式的範例是在 iOT 或命令列工具（CLI）上執行的應用程式。 其概念如下：
 
-1. 每當需要使用者驗證時，應用程式就會提供代碼，並要求使用者使用另一部裝置（例如連線到網際網路的 smartphone）來流覽至 URL （例如，`https://microsoft.com/devicelogin`），系統會提示使用者輸入程式碼。 如此一來，網頁將會引導使用者完成一般驗證體驗，包括同意提示和多重要素驗證（如有需要）。
+1. 每當需要使用者驗證時，應用程式會為使用者提供代碼。 系統會要求使用者使用另一部裝置（例如網際網路連線的 smartphone）來移至 URL，例如 `https://microsoft.com/devicelogin`。 然後，系統會提示使用者輸入程式碼。 如此一來，網頁會引導使用者完成一般驗證體驗，其中包括同意提示和多重要素驗證（如有需要）。
 
-2. 成功驗證之後，命令列應用程式會透過後端通道接收所需的權杖，並使用它來執行所需的 Web API 呼叫。
+2. 成功驗證之後，命令列應用程式會透過後端通道接收所需的權杖，並使用它們來執行所需的 Web API 呼叫。
 
-### <a name="how-to-use"></a>如何使用？
+### <a name="use-it"></a>使用
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-`IPublicClientApplication`包含名為的方法 `AcquireTokenWithDeviceCode`
+`IPublicClientApplication`包含名為 `AcquireTokenWithDeviceCode`的方法。
 
 ```csharp
  AcquireTokenWithDeviceCode(IEnumerable<string> scopes,
@@ -901,12 +901,12 @@ MSAL for macOS 不支援此流程。
 
 這個方法會使用做為參數：
 
-- 要求存取權杖的 `scopes`
-- 將接收 `DeviceCodeResult` 的回呼。
+- 要為其要求存取權杖的 `scopes`。
+- 接收 `DeviceCodeResult`的回呼。
 
-  ![image](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
+  ![DeviceCodeResult 屬性](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
 
-下列範例程式碼會提供最新的案例，並說明您可以取得的例外狀況類型及其緩和措施。
+下列範例程式碼提供最新的案例，並說明您可以取得的例外狀況種類及其緩和措施。
 
 ```csharp
 private const string ClientId = "<client_guid>";
@@ -997,7 +997,7 @@ private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientA
 ```
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-這是[MSAL java dev 範例](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/)的摘錄。 以下是 MSAL JAVA dev 範例中用來設定範例的類別： [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java)。
+這是來自[MSAL JAVA dev 範例](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/)的摘錄。 以下是在 MSAL JAVA dev 範例中用來設定範例的類別： [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java)。
 
 ```java
 PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
@@ -1030,7 +1030,7 @@ future.join();
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-這是[MSAL Python dev 範例](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/)的摘錄。
+這是來自[MSAL Python dev 範例](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/)的摘錄。
 
 ```Python
 # Create a preferably long-lived app instance which maintains a token cache.
@@ -1081,7 +1081,7 @@ if not result:
 
 # <a name="macostabmacos"></a>[MacOS](#tab/macOS)
 
-此流程不適用 MacOS。
+此流程不適用於 MacOS。
 
 ---
 
@@ -1089,35 +1089,35 @@ if not result:
 
 在 MSAL.NET 中，預設會提供記憶體內部權杖快取。
 
-### <a name="serialization-is-customizable-in-windows-desktop-apps-and-web-appsweb-apis"></a>序列化可自訂于 Windows 桌面應用程式和 web 應用程式/web Api
+### <a name="serialization-is-customizable-in-windows-desktop-apps-and-web-apps-or-web-apis"></a>序列化可自訂于 Windows 桌面應用程式和 web 應用程式或 web Api
 
-在 .NET Framework 和 .NET core 的案例中，如果您未執行任何額外的作業，記憶體中的權杖快取會持續在應用程式的持續時間內。 若要瞭解為何不提供預設的序列化，請記住 MSAL .NET desktop/core 應用程式可以是主控台或 Windows 應用程式（這可能會有檔案系統的存取權），**同時也**是 Web 應用程式或 Web API。 這些 Web 應用程式和 web Api 可能會使用一些特定的快取機制，例如資料庫、分散式快取、redis 快取等等。 若要在 .NET Desktop 或 Core 中擁有持續性權杖快取應用程式，您必須自訂序列化。
+在 .NET Framework 和 .NET Core 的案例中，如果您未執行任何額外的作業，記憶體中的權杖快取會持續在應用程式的持續時間內。 若要瞭解為何不提供現成的序列化，請記住，MSAL .NET desktop 或 .NET Core 應用程式可以是主控台或 Windows 應用程式（其可存取檔案系統），*以及*web 應用程式或 web api。 這些 web 應用程式和 web Api 可能會使用一些特定的快取機制，例如資料庫、分散式快取和 Redis 快取。 若要在 .NET desktop 或 .NET Core 中擁有持續性權杖快取應用程式，您必須自訂序列化。
 
 與權杖快取序列化相關的類別和介面為下列類型：
 
-- ``ITokenCache``，其定義要訂閱權杖快取序列化要求的事件，以及用來序列化或還原序列化各種格式之快取的方法（ADAL v3.0、MSAL 2.x 和 MSAL 3.x = ADAL v 5.0）
-- ``TokenCacheCallback`` 是傳遞至事件的回呼，以便您處理序列化。 系統會使用 ``TokenCacheNotificationArgs``類型的引數來呼叫它們。
-- ``TokenCacheNotificationArgs`` 只會提供應用程式的 ``ClientId``，以及可使用權杖之使用者的參考
+- ``ITokenCache``，其定義訂閱權杖快取序列化要求的事件，以及用來序列化或還原序列化各種格式之快取（ADAL v3.0、MSAL 2.x 和 MSAL 3.x = ADAL 5.0 版）的方法。
+- ``TokenCacheCallback`` 是傳遞至事件的回呼，以便您處理序列化。 系統將會透過 ``TokenCacheNotificationArgs`` 類型的引數進行呼叫。
+- ``TokenCacheNotificationArgs`` 只會提供應用程式 ``ClientId`` 以及可使用權杖之使用者的參考。
 
-  ![image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
+  ![權杖快取序列化圖表](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
 > [!IMPORTANT]
 > MSAL.NET 會為您建立權杖快取，並且在您呼叫應用程式的 `UserTokenCache` 和 `AppTokenCache` 屬性時提供 `IToken` 快取。 您不應該自行執行介面。 當您實作自訂權杖快取序列化時，您的責任是：
 >
-> - 回應 `BeforeAccess` 並 `AfterAccess` 「事件」（或*非同步*對應）。 `BeforeAccess` 委派負責還原序列化快取，而 `AfterAccess` 一個則負責序列化快取。
-> - 其中有些事件會儲存或載入 Blob，其會透過事件引數傳遞到您想要的儲存體的。
+> - 回應 `BeforeAccess` 和 `AfterAccess` 事件，或其*非同步*對應。 `BeforeAccess` 委派負責還原序列化快取。 `AfterAccess` 委派負責序列化快取。
+> - 瞭解這些事件的一部分會儲存或載入 blob，並透過事件引數傳遞至您想要的任何儲存體。
 
-這些策略會根據您是撰寫公用用戶端應用程式（桌面）的權杖快取序列化，還是機密用戶端應用程式（web 應用程式/Web API、daemon 應用程式）而有所不同。
+根據您是針對公用用戶端應用程式（例如桌面）或機密用戶端應用程式（例如 web 應用程式或 Web API 或 daemon 應用程式）撰寫權杖快取序列化，這些策略會有所不同。
 
-由於 MSAL V2. x，您有數個選項，取決於您是否要將快取序列化為 MSAL.NET 格式（通用於 MSAL 的統一格式快取，也是跨平臺），或如果您也想要支援 ADAL V3 的[舊版](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization)權杖快取序列化。
+自 MSAL v2. x 之後，您有數個選項。 您的選擇取決於您是否要將快取序列化為 MSAL.NET 格式，這是 MSAL 常見的統一格式快取，也是跨平臺。 或者，您也可能想要支援 ADAL v3 的[舊版](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization)權杖快取序列化。
 
-在下列範例中，會說明自訂權杖快取序列化以共用 ADAL.NET 3.x、ADAL.NET 5.x 和 MSAL.NET 之間的 SSO 狀態： [active-目錄-dotnet-v1 至 v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)
+ADAL.NET 3.x、ADAL.NET 5.x 和 MSAL.NET 之間共用 SSO 狀態的權杖快取序列化自訂會在範例[active directory-dotnet-v1 至 v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)中說明。
 
 ### <a name="simple-token-cache-serialization-msal-only"></a>簡單權杖快取序列化 (僅限 MSAL)
 
-以下是適用於傳統型應用程式的自訂權杖快取序列化的單純實作範例。 這裡的使用者權杖快取位於與應用程式相同的資料夾中。
+下列範例是針對桌面應用程式的權杖快取自訂序列化的簡單執行。 在這裡，使用者 token 快取與應用程式位於相同資料夾的檔案中。
 
-建立應用程式之後，您可以藉由呼叫 ``TokenCacheHelper.EnableSerialization()`` 傳遞應用程式來啟用序列化 `UserTokenCache`
+建立應用程式之後，您可以藉由呼叫 ``TokenCacheHelper.EnableSerialization()`` 並傳遞應用程式 `UserTokenCache`來啟用序列化。
 
 ```csharp
 app = PublicClientApplicationBuilder.Create(ClientId)
@@ -1175,14 +1175,14 @@ static class TokenCacheHelper
  }
 ```
 
-適用于公用用戶端應用程式（適用于在 Windows、Mac 和 linux 上執行的桌面應用程式）的產品品質權杖快取檔案型序列化程式預覽，可從[Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal)開放原始碼程式庫取得。 您可以從下列 nuget 套件將它包含在您的應用程式中： [Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/)。
+您可以從[Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal)開放原始碼程式庫，取得適用于 Windows、Mac 和 Linux 上執行的桌面應用程式之以產品品質權杖快取檔案為基礎之序列化程式的預覽。 您可以從下列 NuGet 套件將它包含在您的應用程式中： [Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/)。
 
 > [!NOTE]
-> 免責聲明. Msal 程式庫是透過 MSAL.NET 的延伸模組。 這些程式庫中的類別可能會在未來 MSAL.NET，也就是透過重大變更來進行。
+> 免責聲明： Msal 程式庫是透過 MSAL.NET 的延伸模組。 這些程式庫中的類別可能會在未來 MSAL.NET，也就是透過重大變更來進行。
 
-### <a name="dual-token-cache-serialization-msal-unified-cache--adal-v3"></a>雙重權杖快取序列化（MSAL 整合快取 + ADAL V3）
+### <a name="dual-token-cache-serialization-msal-unified-cache--adal-v3"></a>雙重權杖快取序列化（MSAL 整合快取 + ADAL v3）
 
-如果您想要使用統一快取格式來執行權杖快取序列化（通用於 ADAL.NET 4.x 和 MSAL.NET 2.x，另一種是相同層代或更舊版本的其他 MSALs，請在相同的平臺上），您可以透過下列程式碼取得靈感:
+您可能想要使用統一快取格式來執行權杖快取序列化。 這種格式通用於 ADAL.NET 4.x 和 MSAL.NET 2.x，而且在相同的平臺上具有相同世代或更舊版本的其他 MSALs。 透過下列程式碼取得靈感：
 
 ```csharp
 string appLocation = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location;

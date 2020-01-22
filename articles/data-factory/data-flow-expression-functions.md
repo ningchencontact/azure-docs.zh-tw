@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: c85ce38f88ecf113a9d27e82b0be12bbfb0b3b47
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 8cbc067326bf77648d242cadaf91b491f50c3848
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122656"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294264"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>對應資料流程中的資料轉換運算式 
 
@@ -151,7 +151,7 @@ ___
 ___
 ### <code>currentUTC</code>時的目前時間戳記 
 <code><b>currentUTC([<i>&lt;value1&gt;</i> : string]) => timestamp</b></code><br/><br/>
-取得目前的時間戳記（UTC）。 如果您想要將目前時間轉譯成與您的叢集時區不同的時區，您可以用 ' GMT '、' PST '、' UTC '、' 北美洲/開曼 ' 的格式傳遞選擇性的時區。 預設為目前的時區。 如需可用的格式，請參閱 JAVA 的 SimpleDateFormat。 https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.htmlTo 將 UTC 時間轉換成不同的時區，請使用 fromUTC （） * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
+取得目前的時間戳記（UTC）。 如果您想要將目前時間轉譯成與您的叢集時區不同的時區，您可以用 ' GMT '、' PST '、' UTC '、' 北美洲/開曼 ' 的格式傳遞選擇性的時區。 預設為目前的時區。 如需可用的格式，請參閱 JAVA 的 SimpleDateFormat。 [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)＞。 若要將 UTC 時間轉換成不同的時區，請使用 fromUTC （） * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
 * ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``
 * ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
 ___

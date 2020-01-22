@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: spelluru
-ms.openlocfilehash: d7a0c757f7314e45d5b4d13273df984739912b27
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 43223f7cb9ed254340c99d235d494d1e93583c7f
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942408"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293533"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-using-python"></a>在 Azure 儲存體中捕獲事件中樞資料，並使用 Python 加以讀取 
 您可以使用 [設定事件中樞]，以便在 Azure 儲存體或 Azure Data Lake Storage 中捕捉傳送至事件中樞的資料。 本文說明如何使用寫入 Python 程式碼，將事件傳送至事件中樞，以及從 Azure blob 儲存體讀取已捕獲的資料。 如需這項功能的詳細資訊，請參閱[事件中樞 Capture 功能總覽](event-hubs-capture-overview.md)。
@@ -42,9 +42,9 @@ ms.locfileid: "75942408"
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
 - [在命名空間中建立事件中樞命名空間和事件中樞](event-hubs-create.md)。 記下事件中樞命名空間的名稱、事件中樞的名稱，以及命名空間的主要存取金鑰。 遵循下列文章中的指示取得存取金鑰：[取得連接字串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 預設的索引鍵名稱為： **RootManageSharedAccessKey**。 您不需要教學課程的連接字串。 您只需要主要金鑰。 
 - 請遵循下列步驟來建立**Azure 儲存體帳戶**和**blob 容器**：
-    1. [建立 Azure 儲存體帳戶](/storage/common/storage-quickstart-create-account.md?tabs=azure-portal)。
-    2. [在儲存體中建立 blob 容器](/storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)。 
-    3. [取得儲存體帳戶的連接字串](/storage/common/storage-configure-connection-string?#view-and-copy-a-connection-string)
+    1. [建立 Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)。
+    2. [在儲存體中建立 blob 容器](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)。 
+    3. [取得儲存體帳戶的連接字串](../storage/common/storage-configure-connection-string.md#view-and-copy-a-connection-string)。
 
         記下**連接字串**和**容器名稱**。 您稍後會在程式碼中使用它們。 
 - 依照下列的指示，啟用事件中樞的**Capture**功能：[使用 Azure 入口網站啟用事件中樞 Capture](event-hubs-capture-enable-through-portal.md)。 選取您在上一個步驟中建立的儲存體帳戶和 blob 容器。 您也可以在建立事件中樞時啟用此功能。 

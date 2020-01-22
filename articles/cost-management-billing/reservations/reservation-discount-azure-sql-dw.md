@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 01/21/2020
 ms.author: banders
-ms.openlocfilehash: 0671843b09cd90123b856b94db2618bac617dd5b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 24a673dc7949d5ce05aa1a701cc8b939a766fd99
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75995776"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313921"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-sql-data-warehouse"></a>保留折扣如何套用至 Azure SQL 資料倉儲
 
@@ -31,9 +31,9 @@ SQL 資料倉儲保留容量折扣會套用至執行中的倉儲 (以小時計�
 
 下列範例會根據部署來顯示 SQL 資料倉儲保留容量折扣的套用方式。
 
-- **範例 1**：購買5個單位的 100 cDWU 保留容量。 您執行一小時的 DW1500c SQL 資料倉儲執行個體。 在此案例中，系統會發出 15 個單位的 100 cDWU 使用量。 保留折扣會套用至您已使用的 5 個單位。 針對您已使用的其餘 10 個單位 100 cDWU 使用量，您會以隨用隨付費率來支付費用。
+- **範例 1**：購買5個單位的 100 cDWU 保留容量。 您執行一小時的 DW1500c SQL 資料倉儲執行個體。 在此案例中，系統會發出 15 個單位的 100 cDWU 使用量。 保留折扣會套用至您已使用的 5 個單位。 針對您已使用的其餘 10 個單位 100 cDWU 使用量，您會以隨用隨付費率來支付費用。 換句話說，部分涵蓋範圍適用于多個保留。
 
-- **範例 2**：您購買5個單位的 100 cDWU 保留容量。 您執行兩個 DW100c SQL 資料倉儲執行個體，為期一小時。 在此案例中，系統會針對 1 個單位的 100 cDWU 使用量發出兩個使用量事件。 這兩個使用量事件都會獲得保留容量折扣。 其餘 3 個單位的 100 cDWU 保留容量則會浪費掉，而無法延續到未來使用。
+- **範例 2**：您購買5個單位的 100 cDWU 保留容量。 您執行兩個 DW100c SQL 資料倉儲執行個體，為期一小時。 在此案例中，系統會針對 1 個單位的 100 cDWU 使用量發出兩個使用量事件。 這兩個使用量事件都會獲得保留容量折扣。 其餘 3 個單位的 100 cDWU 保留容量則會浪費掉，而無法延續到未來使用。 換句話說，單一保留區可以符合多個 SQL 資料倉儲實例。
 
 - **範例 3**：您購買1個100單位的 cDWU 保留容量。 您執行兩個 DW100c SQL 資料倉儲執行個體。 每個都執行 30 分鐘。 在此案例中，這兩個使用量事件都會獲得保留容量折扣。 不會以隨用隨付費率來對任何使用量收取費用。
 

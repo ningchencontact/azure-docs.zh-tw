@@ -9,14 +9,14 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: 421f1f733e64daaa4d87ce3c5af5126a48a8ffa5
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 5df00d68b7114cc489b0708f5c2e401c87d0be15
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170884"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314023"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>將資料匯入 Azure Machine Learning 設計工具（預覽）
+# <a name="import-your-data-into-azure-machine-learning-designer"></a>將資料匯入 Azure Machine Learning 設計工具
 
 在本文中，您將瞭解如何在設計工具中匯入您自己的資料，以建立自訂的解決方案。 有兩種方式可以將資料匯入設計工具中： 
 

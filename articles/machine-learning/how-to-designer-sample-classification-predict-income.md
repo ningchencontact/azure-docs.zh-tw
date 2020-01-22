@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 227bf490d1ac264bb54ff3d1ecf0ccc2b3ef2e0e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: bfae0d8eed80a88475c447a141097022fed9adff
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763539"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311101"
 ---
 # <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>建立分類器 & 使用特徵選取來預測具有 Azure Machine Learning 設計工具的收入
 
-**設計工具（預覽）範例3**
+**設計師範例3**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-瞭解如何使用設計工具（預覽）來建立機器學習分類器，而不需撰寫任何一行程式碼。 這個範例會訓練二元促進**式決策樹**來預測成人人口普查收入（> = 50K 或 < = 50K）。
+瞭解如何使用設計工具來建立機器學習分類器，而不需撰寫任何一行程式碼。 這個範例會訓練二元促進**式決策樹**來預測成人人口普查收入（> = 50K 或 < = 50K）。
 
 因為問題是回應「哪一個？」 這稱為分類問題。 不過，您可以套用相同的基本程式來處理任何類型的機器學習問題-回歸、分類、叢集等。
 

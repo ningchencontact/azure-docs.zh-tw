@@ -1,22 +1,22 @@
 ---
 title: 將其他 Azure 儲存體帳戶新增至 HDInsight
-description: 了解如何將其他 Azure 儲存體帳戶新增至現有的 HDInsight 叢集。
+description: 瞭解如何將其他 Azure 儲存體帳戶新增至現有的 HDInsight 叢集。
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.openlocfilehash: 86b9230dbdca82c5599c1839fd64bd3df4725051
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/21/2020
+ms.openlocfilehash: 6ad583fdb880e36e6ac9c2dfda56bb68378ea598
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435581"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313991"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>將其他儲存體帳戶新增至 HDInsight
 
-瞭解如何使用腳本動作，將其他 Azure 儲存體*帳戶*新增至 HDInsight。 本檔中的步驟會將儲存體*帳戶*新增至現有的以 Linux 為基礎的 HDInsight 叢集。 本文適用于儲存體*帳戶*（不是預設的叢集儲存體帳戶），而不是額外的儲存體，例如[Azure Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md)和[Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md)。
+瞭解如何使用腳本動作，將其他 Azure 儲存體*帳戶*新增至 HDInsight。 本檔中的步驟會將儲存體*帳戶*新增至現有的 HDInsight 叢集。 本文適用于儲存體*帳戶*（不是預設的叢集儲存體帳戶），而不是額外的儲存體，例如[Azure Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md)和[Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md)。
 
 > [!IMPORTANT]  
 > 本檔中的資訊是關於在叢集建立之後，將其他儲存體帳戶新增至叢集。 如需在叢集建立期間新增儲存體帳戶的資訊，請參閱[使用 Apache Hadoop、Apache Spark、Apache Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)。
@@ -25,20 +25,9 @@ ms.locfileid: "75435581"
 
 * HDInsight 上的 Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](./hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 * 儲存體帳戶名稱和金鑰。 請參閱[管理儲存體帳戶存取金鑰](../storage/common/storage-account-keys-manage.md)。
-* 叢集[名稱的大小寫正確](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name)。
 * 如果使用 PowerShell，您將需要 AZ 模組。  請參閱[Azure PowerShell 的總覽](https://docs.microsoft.com/powershell/azure/overview)。
-* 如果您尚未安裝 Azure CLI，請參閱[Azure 命令列介面（CLI）](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。
-* 如果使用 bash 或 windows 命令提示字元，您也需要**jq**命令列 JSON 處理器。  請參閱 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。 針對 Windows 10 上 Ubuntu 上的 bash，請參閱適用[于 windows 10 的 Windows 子系統 For Linux 安裝指南](https://docs.microsoft.com/windows/wsl/install-win10)。
 
 ## <a name="how-it-works"></a>運作方式
-
-此指令碼採用下列參數︰
-
-* __Azure 儲存體帳戶名稱__：要新增至 HDInsight 叢集的儲存體帳戶名稱。 執行指令碼之後，HDInsight 可以讀取和寫入此儲存體帳戶中儲存的資料。
-
-* __Azure 儲存體帳戶金鑰__︰授與存取權給儲存體帳戶的金鑰。
-
-* __-p__ （選擇性）：如果指定，金鑰不會加密，而且會以純文字的形式儲存在 core-site.xml 中。
 
 在處理期間，此指令碼會執行下列動作：
 
@@ -55,79 +44,37 @@ ms.locfileid: "75435581"
 > [!WARNING]  
 > 不支援在與 HDInsight 叢集不同的位置中使用儲存體帳戶。
 
-## <a name="the-script"></a>指令碼
+## <a name="add-storage-account"></a>新增儲存體帳戶
 
-__指令碼位置__：[https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
+使用 [[腳本動作](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)] 以下列考慮套用變更：
 
-__需求__：必須在前端__節點__上套用腳本。 您不需要將此腳本標示為__持續__性，因為它會直接更新叢集的 Ambari 設定。
+|屬性 | 值 |
+|---|---|
+|Bash 指令碼 URI|`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`|
+|節點類型|Head|
+|參數|`ACCOUNTNAME` `ACCOUNTKEY` `-p` （選擇性）|
 
-## <a name="to-use-the-script"></a>若要使用指令碼
+* `ACCOUNTNAME` 是要新增至 HDInsight 叢集的儲存體帳戶名稱。
+* `ACCOUNTKEY` 是 `ACCOUNTNAME`的存取金鑰。
+* `-p` 是選擇性的。 如果指定，金鑰不會加密，而且會以純文字的形式儲存在 core-site.xml 中。
 
-此腳本可從 Azure PowerShell、Azure CLI 或 Azure 入口網站中使用。
+## <a name="verification"></a>驗證
 
-### <a name="powershell"></a>PowerShell
+在 Azure 入口網站中查看 HDInsight 叢集時，選取 [__屬性__] 底下的 [__儲存體帳戶__] 專案，並不會顯示透過此腳本動作新增的儲存體帳戶。 Azure PowerShell 和 Azure CLI 不會顯示其他儲存體帳戶。 因為此腳本只會修改叢集的 `core-site.xml` 設定，所以不會顯示儲存資訊。 使用 Azure 管理 Api 來抓取叢集資訊時，不會使用此資訊。
 
-使用[AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/submit-azhdinsightscriptaction)。 以適當的值取代 `CLUSTERNAME`、`ACCOUNTNAME`和 `ACCOUNTKEY`。
+若要確認額外的儲存體，請使用下列其中一種方法：
 
-```powershell
-# Update these parameters
-$clusterName = "CLUSTERNAME"
-$parameters = "ACCOUNTNAME ACCOUNTKEY"
+### <a name="powershell"></a>Powershell
 
-$scriptActionName = "addStorage"
-$scriptActionUri = "https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh"
-
-# Execute script
-Submit-AzHDInsightScriptAction `
-    -ClusterName $clusterName `
-    -Name $scriptActionName `
-    -Uri $scriptActionUri `
-    -NodeTypes "headnode" `
-    -Parameters $parameters
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-使用[az hdinsight 腳本動作執行](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute)。  以適當的值取代 `CLUSTERNAME`、`RESOURCEGROUP`、`ACCOUNTNAME`和 `ACCOUNTKEY`。
-
-```cli
-az hdinsight script-action execute ^
-    --name CLUSTERNAME ^
-    --resource-group RESOURCEGROUP ^
-    --roles headnode ^
-    --script-action-name addStorage ^
-    --script-uri "https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh" ^
-    --script-parameters "ACCOUNTNAME ACCOUNTKEY"
-```
-
-### <a name="azure-portal"></a>Azure Portal
-
-請參閱[將腳本動作套用至執行中的](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)叢集。
-
-## <a name="known-issues"></a>已知問題
-
-### <a name="storage-firewall"></a>儲存體防火牆
-
-如果您選擇使用**所選網路**上的**防火牆和虛擬網路**限制來保護您的儲存體帳戶，請務必啟用 [**允許信任的 Microsoft 服務**] 例外狀況，讓 HDInsight 可以存取您的儲存體帳戶。
-
-### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>儲存體帳戶未顯示在 Azure 入口網站或工具中
-
-在 Azure 入口網站中查看 HDInsight 叢集時，選取 [__屬性__] 底下的 [__儲存體帳戶__] 專案，並不會顯示透過此腳本動作新增的儲存體帳戶。 Azure PowerShell 和 Azure CLI 不會顯示其他儲存體帳戶。
-
-沒有顯示儲存體資訊是因為指令碼只修改叢集的 core-site.xml 組態。 使用 Azure 管理 Api 來抓取叢集資訊時，不會使用此資訊。
-
-若要檢視使用此指令碼新增至叢集的儲存體帳戶資訊，請使用 Ambari REST API。 請使用下列命令，為您的叢集擷取此資訊：
-
-### <a name="powershell"></a>PowerShell
-
-以正確的大小寫叢集名稱取代 `CLUSTERNAME`。 以實際名稱取代 `ACCOUNTNAME`。 出現提示時，輸入叢集登入密碼。
+腳本會傳回與指定叢集相關聯的儲存體帳戶名稱。 以實際的叢集名稱取代 `CLUSTERNAME`，然後執行腳本。
 
 ```powershell
 # Update values
 $clusterName = "CLUSTERNAME"
-$accountName = "ACCOUNTNAME"
 
 $creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
+
+$clusterName = $clusterName.ToLower();
 
 # getting service_config_version
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_service_config_versions/HDFS" `
@@ -139,50 +86,39 @@ $configVersion=$respObj.Clusters.desired_service_config_versions.HDFS.service_co
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=$configVersion" `
     -Credential $creds
 $respObj = ConvertFrom-Json $resp.Content
-$respObj.items.configurations.properties."fs.azure.account.key.$accountName.blob.core.windows.net"
+
+# extract account names
+$value = ($respObj.items.configurations | Where type -EQ "core-site").properties | Get-Member -membertype properties | Where Name -Like "fs.azure.account.key.*"
+foreach ($name in $value ) { $name.Name.Split(".")[4]}
 ```
 
-### <a name="bash"></a>Bash
+### <a name="apache-ambari"></a>Apache Ambari
 
-以正確的大小寫叢集名稱取代 `CLUSTERNAME`。 將 `PASSWORD` 取代為叢集系統管理員密碼。 以實際的儲存體帳戶名稱取代 `STORAGEACCOUNT`。
+1. 從網頁瀏覽器流覽至 `https://CLUSTERNAME.azurehdinsight.net`，其中 `CLUSTERNAME` 是叢集的名稱。
 
-```bash
-export clusterName="CLUSTERNAME"
-export password='PASSWORD'
-export storageAccount="STORAGEACCOUNT"
+1. 流覽至**HDFS** > 的 > **Advanced** > **自訂核心網站**。
 
-export ACCOUNTNAME='"'fs.azure.account.key.$storageAccount.blob.core.windows.net'"'
+1. 觀察開頭為 `fs.azure.account.key`的機碼。 帳戶名稱會是金鑰的一部分，如下列範例影像所示：
 
-export configVersion=$(curl --silent -u admin:$password -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName?fields=Clusters/desired_service_config_versions/HDFS" \
-| jq ".Clusters.desired_service_config_versions.HDFS[].service_config_version")
+   ![透過 Apache Ambari 進行驗證](./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png)
 
-curl --silent -u admin:$password -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=$configVersion" \
-| jq ".items[].configurations[].properties[$ACCOUNTNAME] | select(. != null)"
-```
+## <a name="remove-storage-account"></a>移除儲存體帳戶
 
-### <a name="cmd"></a>cmd
+1. 從網頁瀏覽器流覽至 `https://CLUSTERNAME.azurehdinsight.net`，其中 `CLUSTERNAME` 是叢集的名稱。
 
-以兩個腳本中正確的大小寫叢集名稱取代 `CLUSTERNAME`。 請先輸入下列命令，以識別使用中的服務設定版本：
+1. 流覽至**HDFS** > 的 > **Advanced** > **自訂核心網站**。
 
-```cmd
-curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_service_config_versions/HDFS" | ^
-jq-win64 ".Clusters.desired_service_config_versions.HDFS[].service_config_version"
-```
+1. 移除下列機碼：
+    * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
+    * `fs.azure.account.keyprovider.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
 
-以實際的儲存體帳戶名稱取代 `ACCOUNTNAME`。 然後，將 `4` 取代為實際的服務設定版本，並輸入命令：
+移除這些金鑰並儲存設定之後，您必須逐一重新開機 Oozie、Yarn、MapReduce2、HDFS 和 Hive。
 
-```cmd
-curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=4" | ^
-jq-win64 ".items[].configurations[].properties["""fs.azure.account.key.ACCOUNTNAME.blob.core.windows.net"""] | select(. != null)"
-```
+## <a name="known-issues"></a>已知問題
 
----
+### <a name="storage-firewall"></a>儲存體防火牆
 
-此命令傳回的資訊看起來類似下列文字：
-
-    "MIIB+gYJKoZIhvcNAQcDoIIB6zCCAecCAQAxggFaMIIBVgIBADA+MCoxKDAmBgNVBAMTH2RiZW5jcnlwdGlvbi5henVyZWhkaW5zaWdodC5uZXQCEA6GDZMW1oiESKFHFOOEgjcwDQYJKoZIhvcNAQEBBQAEggEATIuO8MJ45KEQAYBQld7WaRkJOWqaCLwFub9zNpscrquA2f3o0emy9Vr6vu5cD3GTt7PmaAF0pvssbKVMf/Z8yRpHmeezSco2y7e9Qd7xJKRLYtRHm80fsjiBHSW9CYkQwxHaOqdR7DBhZyhnj+DHhODsIO2FGM8MxWk4fgBRVO6CZ5eTmZ6KVR8wYbFLi8YZXb7GkUEeSn2PsjrKGiQjtpXw1RAyanCagr5vlg8CicZg1HuhCHWf/RYFWM3EBbVz+uFZPR3BqTgbvBhWYXRJaISwssvxotppe0ikevnEgaBYrflB2P+PVrwPTZ7f36HQcn4ifY1WRJQ4qRaUxdYEfzCBgwYJKoZIhvcNAQcBMBQGCCqGSIb3DQMHBAhRdscgRV3wmYBg3j/T1aEnO3wLWCRpgZa16MWqmfQPuansKHjLwbZjTpeirqUAQpZVyXdK/w4gKlK+t1heNsNo1Wwqu+Y47bSAX1k9Ud7+Ed2oETDI7724IJ213YeGxvu4Ngcf2eHW+FRK"
-
-此文字是已加密的金鑰範例，可用來存取儲存體帳戶。
+如果您選擇使用**所選網路**上的**防火牆和虛擬網路**限制來保護您的儲存體帳戶，請務必啟用 [**允許信任的 Microsoft 服務**] 例外狀況，讓 HDInsight 可以存取您的儲存體帳戶。
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>無法在變更金鑰之後存取儲存體
 
@@ -190,27 +126,12 @@ jq-win64 ".items[].configurations[].properties["""fs.azure.account.key.ACCOUNTNA
 
 再次執行指令碼動作並__不會__更新金鑰，因為指令碼會查看儲存體帳戶的項目是否已經存在。 如果專案已存在，則不會進行任何變更。
 
-若要解決這個問題，您必須移除儲存體帳戶的現有項目。 執行下列步驟以移除現有項目：
+若要解決此問題：  
+1. 移除儲存體帳戶。
+1. 新增儲存體帳戶。
 
 > [!IMPORTANT]  
 > 不支援輪替附加至叢集之主要儲存體帳戶的儲存體金鑰。
-
-1. 在 Web 瀏覽器中，對您的 HDInsight 叢集開啟 Ambari Web UI。 URI 為 `https://CLUSTERNAME.azurehdinsight.net`。 將 `CLUSTERNAME` 取代為您的叢集名稱。
-
-    出現提示時，輸入您叢集的 HTTP 登入使用者和密碼。
-
-2. 從頁面左邊的服務清單中，選取 [HDFS]。 然後選取頁面中間的 [設定] 索引標籤。
-
-3. 在 [篩選...] 欄位中，輸入 __fs.azure.account__ 值。 這會傳回已新增到叢集的任何其他儲存體帳戶項目。 有兩種項目類型：__keyprovider__ 和 __key__。 兩者都會包含儲存體帳戶名稱做為金鑰名稱的一部分。
-
-    下列是名為 __mystorage__ 之儲存體帳戶的項目範例：
-
-        fs.azure.account.keyprovider.mystorage.blob.core.windows.net
-        fs.azure.account.key.mystorage.blob.core.windows.net
-
-4. 識別出您需要移除之儲存體帳戶的金鑰之後，請使用專案右邊的紅色 '-' 圖示將其刪除。 然後使用 [儲存] 按鈕來儲存您的變更。
-
-5. 在儲存變更之後，使用指令碼動作將儲存體帳戶和新的金鑰值新增至叢集。
 
 ### <a name="poor-performance"></a>效能不佳
 

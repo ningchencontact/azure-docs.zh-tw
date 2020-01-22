@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 54ca0df005dccceacc88044a51f31ad784b7071b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 1430db34f9c31cbd9d9df921650c628d265bccc5
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763397"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311082"
 ---
 # <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>建立分類器 & 使用 Python 腳本來預測使用 Azure Machine Learning 設計工具的信用風險
 
-**設計工具（預覽）範例4**
+**設計師範例4**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-本文說明如何使用設計工具（預覽）來建立複雜的機器學習管線。 您將瞭解如何使用 Python 腳本來執行自訂邏輯，並比較多個模型來選擇最佳選項。
+本文說明如何使用設計工具建立複雜的機器學習管線。 您將瞭解如何使用 Python 腳本來執行自訂邏輯，並比較多個模型來選擇最佳選項。
 
 這個範例會將分類器定型，以使用信用額度記錄、年齡和信用卡號碼等點數應用程式資訊來預測信用風險。 不過，您可以套用本文中的概念來處理您自己的機器學習問題。
 

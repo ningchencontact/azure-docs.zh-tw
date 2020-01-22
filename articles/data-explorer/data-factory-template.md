@@ -8,18 +8,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/08/2019
-ms.openlocfilehash: ca50a1ecd4d2a21593ddd11f83337ae7476cf916
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 884f4e956b37c2def6c25d0acdf20f15eddf7767
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300435"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293550"
 ---
 # <a name="copy-in-bulk-from-a-database-to-azure-data-explorer-by-using-the-azure-data-factory-template"></a>使用 Azure Data Factory 範本，從資料庫大量複製到 Azure 資料總管 
 
 Azure 資料總管是一種快速、完全受控的資料分析服務。 它會針對從許多來源（例如應用程式、網站和 IoT 裝置）串流的大量資料提供即時分析。 
 
-Azure Data Factory 是完全受控且以雲端為基礎的資料整合服務。 您可以使用它，以現有系統的資料填入您的 Azure 資料總管資料庫。 當您建立分析解決方案時，它可協助您節省時間。 
+若要將資料從 Oracle 伺服器中的資料庫、Netezza、Teradata 或 SQL Server 複製到 Azure 資料總管，您必須從多個資料表載入大量資料。 通常，資料必須在每個資料表中進行分割，如此一來，您就可以從單一資料表以平行方式載入具有多個執行緒的資料列。 本文說明在這些案例中使用的範本。
 
 [Azure Data Factory 範本](/azure/data-factory/solution-templates-introduction)是預先定義的 Data Factory 管線。 這些範本可協助您快速開始使用 Data Factory，並縮短資料整合專案的開發時間。 
 
@@ -53,7 +53,7 @@ ADXTableName varchar(255)
 
 下表描述程式碼元素：
 
-|屬性  |描述  | 範例
+|屬性  |說明  | 範例
 |---------|---------| ---------|
 |PartitionId   |  複製順序 | 1  |  
 |SourceQuery   |  指出管線執行時間期間將複製哪些資料的查詢 | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
@@ -79,7 +79,7 @@ ADXTableName varchar(255)
 
     c. 在 [ **AzureDataExplorerTable** ] 下拉式清單中，選取 [Azure 資料總管] 資料表。 如果資料集不存在，請[建立 Azure 資料總管連結服務](data-factory-load-data.md#create-the-azure-data-explorer-linked-service)以新增資料集。
 
-    d. 選取 [**使用此範本**]。
+    d. 選取 [使用此範本]。
 
     ![[從資料庫大量複製到 Azure 資料總管] 窗格](media/data-factory-template/configure-bulk-copy-adx-template.png)
 

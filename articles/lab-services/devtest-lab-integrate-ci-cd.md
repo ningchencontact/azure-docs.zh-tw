@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 54b4e6e6a283f46e03f7b94ce96ba79a03f75523
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 9604da5252254120ac7bd3fca3f0cc97324aef92
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170385"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293210"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>將 Azure DevTest Labs 整合到您的 Azure Pipelines CI/CD 管線
 
@@ -140,7 +140,7 @@ ms.locfileid: "76170385"
    
    |欄位|值|
    |---|---|
-   |**Azure RM 訂用帳戶**|從 [**可用的 Azure 服務**連線] 或下拉式清單中的 [**可用的 azure 訂用**帳戶] 選取服務連線或訂閱，並視需要選取 [**授權**]。<br /><br />**注意：** 如需有關為您的 Azure 訂用帳戶建立更受限制的許可權連線的詳細資訊，請參閱[Azure Resource Manager 服務端點](/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)。|
+   |**Azure RM 訂用帳戶**|從 [**可用的 Azure 服務**連線] 或下拉式清單中的 [**可用的 azure 訂用**帳戶] 選取服務連線或訂閱，並視需要選取 [**授權**]。<br /><br />**注意：** 如需有關為您的 Azure 訂用帳戶建立更受限制的許可權連線的詳細資訊，請參閱[Azure Resource Manager 服務端點](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager)。|
    |**實驗室名稱**|選取將在其中建立實驗室 VM 的現有實驗室名稱。|
    |**範本名稱**|輸入您儲存到原始程式碼存放庫之範本檔案的完整路徑和名稱。 您可以使用內建屬性來簡化路徑，例如：<br /><br />`$(System.DefaultWorkingDirectory)/Templates/CreateVMTemplate.json`|
    |**範本參數**|輸入您稍早定義之變數的參數：<br /><br />`-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`|

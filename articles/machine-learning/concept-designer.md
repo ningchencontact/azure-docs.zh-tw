@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: d3a12dec64d481c5c877039fecc71b46f224e91d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 8208bbf4d196091a6fe4cd962ddc7373d303e125
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541825"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312425"
 ---
-# <a name="what-is-azure-machine-learning-designer-preview"></a>什麼是 Azure Machine Learning 設計工具（預覽）？ 
+# <a name="what-is-azure-machine-learning-designer"></a>什麼是 Azure Machine Learning 設計工具？ 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Azure Machine Learning 設計工具可讓您以視覺化方式連接互動式畫布上的[資料集](#datasets)和[模組](#module)，以建立機器學習模型。 若要瞭解如何開始使用設計工具，請參閱[教學課程：使用設計工具預測汽車價格](tutorial-designer-automobile-price-train-score.md)
@@ -116,7 +116,7 @@ Azure Machine Learning 設計工具可讓您以視覺化方式連接互動式畫
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>從視覺化介面移至設計工具
 
-視覺介面（預覽）已更新，現在已 Azure Machine Learning 設計工具（預覽）。 設計工具已重新架構為使用管線型後端，可完全與 Azure Machine Learning 的其他功能整合。 
+視覺介面（預覽）已更新，現在已 Azure Machine Learning 設計工具中。 設計工具已重新架構為使用管線型後端，可完全與 Azure Machine Learning 的其他功能整合。 
 
 由於這些更新的結果，視覺介面的一些概念和詞彙已變更或重新命名。 請參閱下表，以瞭解最重要的概念變更。 
 

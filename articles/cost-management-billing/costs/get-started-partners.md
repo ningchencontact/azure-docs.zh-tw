@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: b3e2b6fbfb11c0ee89e56cd29fa3bf606c336235
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 10889f6d872510fb53e76ab3722343aa2ee6a5e8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278547"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293907"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>開始使用 Azure 成本管理合作夥伴
 
@@ -120,7 +120,7 @@ Azure 成本管理需要您的帳單帳戶或訂用帳戶的讀取權限。
 
 合作夥伴會使用下列資訊來啟用原則，以查看其客戶的 Azure 使用量費用。
 
-在 Azure 入口網站中，登入合作夥伴租使用者，然後選取 **成本管理 + 帳單**。 選取帳單帳戶，然後選取 [**客戶**]。 客戶清單與帳單帳戶相關聯。
+在 Azure 入口網站中，登入合作夥伴租使用者，然後選取 **成本管理 + 帳單**。 選取相關的 Microsoft 合作夥伴合約帳單帳戶，然後選取 [**客戶**]。 客戶清單與帳單帳戶相關聯。
 
 在客戶清單中，選取您想要允許的客戶來查看成本。
 
@@ -137,7 +137,7 @@ Azure 成本管理需要您的帳單帳戶或訂用帳戶的讀取權限。
 
 若已啟用成本可見度原則，所有具有訂用帳戶使用量的服務都會以隨用隨付費率顯示成本。 保留使用量會以零費用顯示實際和分攤成本。 購買和權利不會與特定訂用帳戶相關聯。 因此，購買不會顯示在訂用帳戶範圍。
 
-若要查看客戶租使用者的成本，請開啟 [成本管理 + 帳單]，然後選取 [帳單帳戶]。 在帳單帳戶清單中，選取帳單帳戶。
+若要查看客戶租使用者的成本，請開啟 [**成本管理 + 帳單**]，然後選取相關的 Microsoft 合作夥伴合約帳單帳戶。
 
 ![選取帳單帳戶](./media/get-started-partners/select-billing-account.png)
 
@@ -263,7 +263,7 @@ Azure 成本管理需要您的帳單帳戶或訂用帳戶的讀取權限。
 
 ### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>在合作夥伴租使用者或客戶租使用者中建立匯出
 
-在 Azure 入口網站中，登入合作夥伴租使用者或客戶租使用者，然後選取 **成本管理 + 帳單**。 選取適當的範圍（例如帳單帳戶），然後選取 [**成本分析**]。 當頁面載入時，選取 [**匯出**]。 選取 [排程匯出] 底下的 [**查看所有匯出**]。
+在 Azure 入口網站中，登入合作夥伴租使用者或客戶租使用者，然後選取 **成本管理 + 帳單**。 選取適當的範圍，例如 Microsoft 合作夥伴合約帳單帳戶，然後選取 [**成本分析**]。 當頁面載入時，選取 [**匯出**]。 選取 [排程匯出] 底下的 [**查看所有匯出**]。
 
 ![選取匯出和查看所有匯出](./media/get-started-partners/export01.png)
 

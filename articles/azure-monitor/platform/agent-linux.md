@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/24/2019
-ms.openlocfilehash: c06a7551a5c0f14be94ed14072b81c189e359aa8
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 01/21/2020
+ms.openlocfilehash: 15334f0c58f602a2728e3daa6645b957dfcd7129
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541994"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290320"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>將 Linux 電腦連線至 Azure 監視器
 
@@ -74,9 +74,10 @@ docker-cimprov | 1.0.0 | OMI 的 Docker 提供者。 僅在偵測到 Docker 時�
 
 適用于 Linux 的 Log Analytics 代理程式會在自動解壓縮和可安裝的 shell 腳本組合中提供。 此套件組合包含每個代理程式元件的 Debian 與 RPM 封裝，且可直接安裝或解壓縮以擷取個別的封裝。 其中一個套件組合是針對 x64 提供，一個用於 x86 架構。 
 
-針對 Azure Vm，我們建議您使用適用于 Linux 的[Azure Log ANALYTICS VM 擴充](../../virtual-machines/extensions/oms-linux.md)功能，在其上安裝代理程式。 
+> [!NOTE]
+> 針對 Azure Vm，我們建議您使用適用于 Linux 的[Azure Log ANALYTICS VM 擴充](../../virtual-machines/extensions/oms-linux.md)功能，在其上安裝代理程式。 
 
-1. 使用 scp/sftp，將適當的套件組合（x86 或 x64）傳輸至您的 Linux VM 或實體電腦。
+1. 使用 scp/sftp，將適當的套件組合（x64 或 x86）[下載](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide)並傳輸至您的 Linux VM 或實體電腦。
 
 2. 使用 `--install` 引數安裝配套。 若要在安裝期間上架至 Log Analytics 工作區，請提供稍早複製的 `-w <WorkspaceID>` 和 `-s <workspaceKey>` 參數。
 
@@ -133,7 +134,7 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    當您的 proxy 伺服器需要驗證時，下列命令會包含 `-p` proxy 參數和範例語法：
+    當您的 Proxy 伺服器需要驗證時，下列命令會包含 `-p` Proxy 參數和範例語法：
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -145,7 +146,7 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    當您的 proxy 伺服器需要驗證時，下列命令會包含 `-p` proxy 參數和範例語法：
+    當您的 Proxy 伺服器需要驗證時，下列命令會包含 `-p` Proxy 參數和範例語法：
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us

@@ -4,12 +4,12 @@ description: 瞭解如何搭配 Azure Functions 使用 Azure 應用程式 Insigh
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 4a182ddffd4c1ee4d2e71e7d9e6385df23e4260e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dda62e3041d04d5becc9179fff1c56d0c587ba1e
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978078"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292921"
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
@@ -31,7 +31,7 @@ ms.locfileid: "74978078"
 
 ### <a name="new-function-app-in-the-portal"></a>入口網站中的新函數應用程式
 
-當您[在 Azure 入口網站中建立函數應用程式](functions-create-first-azure-function.md)時，預設會啟用 Application Insights 整合。 Application Insights 資源的名稱與您的函式應用程式相同，而且是在相同區域或最近的區域中建立。
+當您[在 Azure 入口網站中建立函數應用程式](functions-create-first-azure-function.md)時，預設會啟用 Application Insights 整合。 Application Insights 資源的名稱與您的函式應用程式相同，而且是在相同區域或最近的區域中建立的。
 
 若要檢查所建立的 Application Insights 資源，請選取它以展開 [ **Application Insights** ] 視窗。 您可以變更**新的資源名稱**，或在[Azure 地理](https://azure.microsoft.com/global-infrastructure/geographies/)位置中選擇您要用來儲存資料的不同**位置**。
 
@@ -74,7 +74,7 @@ ms.locfileid: "74978078"
 
 ![在 Application Insights 中執行](media/functions-monitoring/run-in-ai.png)
 
-會顯示下列查詢。 您可以看到調用清單限制為過去30天。 此清單不會顯示20個以上的資料列（`where timestamp > ago(30d) | take 20`）。 [調用詳細資料] 清單適用于過去30天，沒有限制。
+會顯示下列查詢。 您可以看到查詢結果受限於過去30天（`where timestamp > ago(30d)`）。 此外，結果只會顯示20個以上的資料列（`take 20`）。 相反地，函式的調用詳細資料清單是過去30天沒有限制的。
 
 ![Application Insights 分析引動過程清單](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -92,13 +92,13 @@ ms.locfileid: "74978078"
 
 評估函式中的行為、效能和錯誤時，Application Insights 的下欄區域會很有説明：
 
-| Tab 鍵 | 描述 |
+| 索引標籤 | 說明 |
 | ---- | ----------- |
 | **[故障](../azure-monitor/app/asp-net-exceptions.md)** |  根據函式失敗和伺服器例外狀況建立圖表和警示。 **作業名稱**是函式名稱。 除非您針對相依性執行自訂遙測，否則不會顯示相依性中的失敗。 |
 | **[性能](../azure-monitor/app/performance-counters.md)** | 分析效能問題。 |
 | **伺服器** | 查看每一伺服器的資源使用率和輸送量。 如果要對函式拖累基礎資源的案例進行偵錯，此資料非常有用。 伺服器會作為「雲端角色執行個體」來參考。 |
 | **[計量](../azure-monitor/app/metrics-explorer.md)** | 建立以度量為基礎的圖表和警示。 計量包括函式呼叫數目、執行時間和成功率。 |
-| **[即時計量串流](../azure-monitor/app/live-stream.md)** | 查看即時建立的計量資料。 |
+| **[即時計量串流](../azure-monitor/app/live-stream.md)** | 查看以近乎即時的方式建立的計量資料。 |
 
 ## <a name="query-telemetry-data"></a>查詢遙測資料
 
@@ -119,7 +119,7 @@ requests
 
 可用的資料表會顯示在左邊的 [**架構**] 索引標籤中。 您可以找到下表中函式引動過程所產生的資料：
 
-| 表格 | 描述 |
+| 表格 | 說明 |
 | ----- | ----------- |
 | **追蹤** | 由執行時間和函式程式碼所建立的記錄。 |
 | **requests** | 每個函式呼叫都有一個要求。 |
@@ -161,9 +161,9 @@ Azure Functions 記錄器也會包含每個記錄檔的*記錄層級*。 [LogLev
 |偵錯       | 1 |
 |資訊 | 2 |
 |警告     | 3 |
-|Error       | 4 |
+|錯誤       | 4 |
 |危急    | 5 |
-|None        | 6 |
+|無        | 6 |
 
 下一節會說明記錄層級 `None`。 
 
@@ -337,7 +337,7 @@ Application Insights 具有[取樣](../azure-monitor/app/sampling.md)功能，�
 
 在您的函式中使用 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 參數而不是 `TraceWriter` 參數。 使用 `TraceWriter` 建立的記錄會移至 Application Insights，但 `ILogger` 可讓您執行[結構化記錄](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)。
 
-利用 `ILogger` 物件，您可以呼叫 `Log<level>` [擴充方法 (位於 ILogger 上)](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) \(英文\) 來建立記錄。 下列程式碼會寫入分類為 "Function" `Information` 記錄。
+利用 `ILogger` 物件，您可以呼叫 `Log<level>` [擴充方法 (位於 ILogger 上)](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) \(英文\) 來建立記錄。 下列程式碼會寫入分類為 "Function. < YOUR_FUNCTION_NAME > `Information` 記錄。「使用者」。
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -561,7 +561,7 @@ namespace functionapp0915
 
 請勿呼叫 `TrackRequest` 或 `StartOperation<RequestTelemetry>`，因為您會看到函式呼叫的重複要求。  Functions 執行階段會自動追蹤要求。
 
-請勿設定 `telemetryClient.Context.Operation.Id`。 當同時執行許多函式時，此全域設定會導致不正確的相互關聯。 請改為建立新的遙測執行個體 (`DependencyTelemetry`、`EventTelemetry`)，並修改其 `Context` 屬性。 接著，將遙測執行個體傳入至 `TelemetryClient` 上的對應 `Track` 方法 (`TrackDependency()`、`TrackEvent()`)。 這個方法可確保遙測具有目前函式呼叫的正確相互關聯詳細資料。
+請勿設定 `telemetryClient.Context.Operation.Id`。 當同時執行許多函式時，此全域設定會導致不正確的相互關聯。 請改為建立新的遙測執行個體 (`DependencyTelemetry`、`EventTelemetry`)，並修改其 `Context` 屬性。 然後在 `TelemetryClient` （`TrackDependency()`、`TrackEvent()`、`TrackMetric()`）上，將遙測實例傳入對應的 `Track` 方法。 這個方法可確保遙測具有目前函式呼叫的正確相互關聯詳細資料。
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>在 JavaScript 函式中記錄自訂遙測
 
@@ -588,9 +588,9 @@ module.exports = function (context, req) {
 
 `tagOverrides` 參數會將 `operation_Id` 設定為函式的調用識別碼。 此設定能夠讓指定的函式引動過程中所有自動產生和自訂的遙測相互關聯。
 
-## <a name="dependencies"></a>相依項目
+## <a name="dependencies"></a>相依性
 
-[函式 v2] 會自動收集 HTTP 要求、匯流排和 SQL 的相依性。
+函式 v2 會自動收集 HTTP 要求、事件匯流排、EventHub 和 SQL 的相依性。
 
 您可以撰寫自訂程式碼來顯示相依性。 如需範例，請參閱[ C#自訂遙測一節](#log-custom-telemetry-in-c-functions)中的範例程式碼。 範例程式碼會產生 Application Insights 中的*應用程式對應*，如下圖所示：
 
@@ -602,13 +602,13 @@ module.exports = function (context, req) {
 
 ## <a name="streaming-logs"></a>串流記錄
 
-在開發應用程式時，您通常會想要查看在 Azure 中執行時，會以近乎即時的方式來寫入記錄檔。
+開發應用程式時，您通常會想要查看在 Azure 中執行時，以近乎即時的方式將寫入記錄的內容。
 
 有兩種方式可查看函數執行所產生之記錄檔的資料流程。
 
 * **內建記錄串流**： App Service 平臺可讓您查看應用程式記錄檔的資料流程。 這相當於當您在[本機開發](functions-develop-local.md)期間，以及在入口網站中使用 [**測試**] 索引標籤時，會看到的輸出。 所有以記錄為基礎的資訊都會顯示出來。 如需詳細資訊，請參閱[串流記錄](../app-service/troubleshoot-diagnostic-logs.md#stream-logs)。 此串流方法僅支援單一實例，且不能與在使用方式方案中的 Linux 上執行的應用程式搭配使用。
 
-* **即時計量資料流**：當您的函式應用程式[連線到 Application Insights](#enable-application-insights-integration)時，您可以使用[即時計量資料流](../azure-monitor/app/live-stream.md)，在 Azure 入口網站中近乎即時地查看記錄資料和其他計量。 當您在取用方案中監視多個實例或 Linux 上執行的函數時，請使用此方法。 這個方法會使用[取樣的資料](#configure-sampling)。
+* **即時計量資料流**：當您的函式應用程式[連線到 Application Insights](#enable-application-insights-integration)時，您可以使用[即時計量資料流](../azure-monitor/app/live-stream.md)，以近乎即時 Azure 入口網站的方式來查看記錄資料和其他計量。 當您在取用方案中監視多個實例或 Linux 上執行的函數時，請使用此方法。 這個方法會使用[取樣的資料](#configure-sampling)。
 
 您可以在入口網站和大部分的本機開發環境中查看記錄資料流程。 
 

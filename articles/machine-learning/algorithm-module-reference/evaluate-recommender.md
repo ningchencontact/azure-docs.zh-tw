@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0890e13acbba8dae31de28d7c78a81bd9b516853
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428544"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312255"
 ---
 # <a name="evaluate-recommender"></a>評估推薦
 
-本文說明如何使用 Azure Machine Learning 設計工具（預覽）中的 [評估推薦] 模組。 其目標是要測量建議模型所做預測的精確度。 藉由使用此課程模組，您可以評估不同類型的建議：  
+本文說明如何在 Azure Machine Learning 設計工具中使用 [評估推薦] 模組。 其目標是要測量建議模型所做預測的精確度。 藉由使用此課程模組，您可以評估不同類型的建議：  
   
 -   針對使用者和專案所預測的評等    
 -   建議使用者使用的專案  

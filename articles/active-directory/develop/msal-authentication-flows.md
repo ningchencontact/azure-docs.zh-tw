@@ -14,27 +14,27 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c818b7d7508555e1233d4ef954502728f65abfb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9e224218217b18ffc5c35ec45011097d93e5d797
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917194"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291579"
 ---
 # <a name="authentication-flows"></a>驗證流程
 
 本文說明 Microsoft Authentication Library （MSAL）所提供的不同驗證流程。  這些流程可以在各種不同的應用程式案例中使用。
 
-| 流程 | 描述 | 使用於|  
+| 流程 | 說明 | 使用於|  
 | ---- | ----------- | ------- | 
 | [互動式](#interactive) | 透過互動式進程取得權杖，此程式會透過瀏覽器或快顯視窗提示使用者提供認證。 | [桌面應用程式](scenario-desktop-overview.md)、行動[應用程式](scenario-mobile-overview.md) |
 | [隱含授與](#implicit-grant) | 允許應用程式取得權杖，而不需要執行後端伺服器認證交換。 這可讓應用程式在用戶端 JavaScript 程式碼內，登入使用者、維護會話，以及取得其他 web Api 的權杖。| [單一頁面應用程式（SPA）](scenario-spa-overview.md) |
 | [授權碼](#authorization-code) | 用於安裝在裝置上的應用程式，以存取受保護的資源，例如 web Api。 這可讓您將登入和 API 存取權新增至您的行動和桌面應用程式。 | [桌面應用程式](scenario-desktop-overview.md)、行動[應用程式](scenario-mobile-overview.md)、 [web 應用](scenario-web-app-call-api-overview.md)程式 | 
 | [代理者](#on-behalf-of) | 應用程式會叫用服務或 Web API，而這又需要呼叫另一個服務或 Web API。 其概念是透過要求鏈傳播委派的使用者身分識別和權限。 | [Web API](scenario-web-api-call-api-overview.md) |
 | [用戶端認證](#client-credentials) | 可讓您使用應用程式的身分識別來存取 web 主控的資源。 通常用於必須在背景中執行的伺服器對伺服器互動，而不需要立即與使用者互動。 | [Daemon 應用程式](scenario-daemon-overview.md) |
-| [裝置程式碼](#device-code) | 可讓使用者登入受輸入限制的裝置，例如智慧型電視、IoT 裝置或印表機。 | [桌面/行動應用程式](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
+| [裝置程式碼](#device-code) | 可讓使用者登入受輸入限制的裝置，例如智慧型電視、IoT 裝置或印表機。 | [桌面/行動應用程式](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
 | [整合式 Windows 驗證](scenario-desktop-acquire-token.md#integrated-windows-authentication) | 允許已加入網域或 Azure Active Directory （Azure AD）電腦上的應用程式以無訊息方式取得權杖（不需要使用者的任何 UI 互動）。| [桌面/行動應用程式](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
-| [使用者名稱/密碼](scenario-desktop-acquire-token.md#username--password) | 允許應用程式藉由直接處理其密碼來登入使用者。 不建議使用此流程。 | [桌面/行動應用程式](scenario-desktop-acquire-token.md#username--password) |
+| [使用者名稱/密碼](scenario-desktop-acquire-token.md#username-and-password) | 允許應用程式藉由直接處理其密碼來登入使用者。 不建議使用此流程。 | [桌面/行動應用程式](scenario-desktop-acquire-token.md#username-and-password) |
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>每個流程如何發出權杖和代碼
  

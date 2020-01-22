@@ -7,13 +7,13 @@ ms.author: orspodek
 ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 51683e529f832e06efbe8eb71466f3b27d95fcb1
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 01/20/2020
+ms.openlocfilehash: bb08cf4db45a378b35a8245eadd56a2ab3e48bab
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819133"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293618"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>將 Azure 資料總管與 Azure Data Factory 整合
 
@@ -44,6 +44,14 @@ Azure 資料總管受到 Azure IR （Integration Runtime）的支援，當資料
 ### <a name="copy-in-bulk-from-a-database-template"></a>從資料庫範本大量複製
 
 [使用 Azure Data Factory 範本，從資料庫大量複製到 Azure 資料總管](data-factory-template.md)是預先定義的 Azure Data Factory 管線。 此範本可用來為每個資料庫或每個資料表建立許多管線，以加快資料複製速度。 
+
+### <a name="mapping-data-flows"></a>對應資料流程 
+
+[Azure Data Factory 對應](/azure/data-factory/concepts-data-flow-overview)的資料流程是以視覺化方式設計的資料轉換，可讓資料工程師開發圖形化資料轉換邏輯，而不需要撰寫程式碼。 若要建立資料流程，並將資料內嵌至 Azure 資料總管，請使用下列方法：
+
+1. 建立[對應資料流程](/azure/data-factory/data-flow-create)。
+1. [將資料匯出至 Azure Blob](/azure/data-factory/data-flow-sink)。 
+1. 定義[事件方格](/azure/data-explorer/ingest-data-event-grid)或[ADF 複製活動](/azure/data-explorer/data-factory-load-data)，以將資料內嵌至 Azure 資料總管。
 
 ## <a name="select-between-copy-and-azure-data-explorer-command-activities-when-copy-data"></a>複製資料時，請選取 [複製] 和 [Azure 資料總管命令] 活動 
 
@@ -93,7 +101,7 @@ Azure 資料總管受到 Azure IR （Integration Runtime）的支援，當資料
 | 步驟 | 作業 | 最低許可權層級 | 注意 |
 |---|---|---|---|
 | **建立連結服務** | 資料庫導覽 | *資料庫檢視器* <br>使用 ADF 的登入使用者應該獲得授權，才能讀取資料庫中繼資料。 | 使用者可以手動提供資料庫名稱。 |
-| | 測試連線 | *資料庫監視器*或*資料表擷取器* <br>服務主體應該獲得授權，以執行資料庫層級 `.show` 命令或資料表層級內嵌。 | <ul><li>TestConnection 會確認與叢集的連線，而不會驗證資料庫的連接。 即使資料庫不存在，也會成功。</li><li>資料表管理員許可權不足。</li></ul>|
+| | [測試連接] | *資料庫監視器*或*資料表擷取器* <br>服務主體應該獲得授權，以執行資料庫層級 `.show` 命令或資料表層級內嵌。 | <ul><li>TestConnection 會確認與叢集的連線，而不會驗證資料庫的連接。 即使資料庫不存在，也會成功。</li><li>資料表管理員許可權不足。</li></ul>|
 | **建立資料集** | 資料表流覽 | *資料庫監視器* <br>使用 ADF 登入的使用者必須獲得授權，才能執行資料庫層級 `.show` 命令。 | 使用者可以手動提供資料表名稱。|
 | **建立資料集**或**複製活動** | 預覽資料 | *資料庫檢視器* <br>服務主體必須獲得授權，才能讀取資料庫中繼資料。 | | 
 |   | 匯入架構 | *資料庫檢視器* <br>服務主體必須獲得授權，才能讀取資料庫中繼資料。 | 當 ADX 是表格式對表格式複製的來源時，ADF 會自動匯入架構，即使使用者未明確匯入架構也一樣。 |

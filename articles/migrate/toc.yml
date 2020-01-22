@@ -124,6 +124,8 @@
           href: scale-vmware-assessment.md
         - name: 評估大量的 Hyper-V VM
           href: scale-hyper-v-assessment.md
+        - name: 評估大量的實體伺服器
+          href: scale-physical-assessment.md
         - name: 自動移轉大量的 VM
           href: how-to-migrate-at-scale.md
         - name: 移轉範例 (Contoso 系列)

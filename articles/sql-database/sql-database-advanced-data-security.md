@@ -11,12 +11,12 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: a4f4306023b37c3b1cba46acd11ec5c0a489d0d6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1f0e6694e596dc60264dfe0789a2f80090e0da3d
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822579"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293839"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Azure SQL Database 的進階資料安全性
 
@@ -28,7 +28,7 @@ ms.locfileid: "73822579"
 
 - [資料探索 & 分類](sql-database-data-discovery-and-classification.md)提供 Azure SQL Database 的內建功能，可用於探索、分類、標記 & 保護資料庫中的敏感性資料。 它可用來讓您檢視資料庫分類狀態、追蹤對資料庫內敏感性資料的存取，並具有其他多方面的用途。
 - [弱點評估](sql-vulnerability-assessment.md)是容易設定的服務，可探索、追蹤及協助您修復潛在的資料庫弱點。 它可讓您檢視安全性狀態，且包含解決安全性問題和增強資料庫防護性的可行步驟。
-- [先進的威脅防護](sql-database-threat-detection-overview.md)會偵測異常活動，指出不尋常且可能有害的嘗試存取或惡意探索您的資料庫。 它會持續監視您的資料庫是否有可疑的活動，並在發現潛在弱點、SQL 插入式攻擊和異常資料庫存取模式時提供即時安全性警示。 Advanced 威脅防護警示會提供可疑活動的詳細資料，以及如何調查和緩和威脅的建議動作。
+- [進階威脅防護](sql-database-threat-detection-overview.md)偵測到異常活動，即表示有不尋常及可能有害的活動，試圖存取或惡意探索您的資料庫。 它會持續監視您的資料庫是否有可疑的活動，並在發現潛在弱點、SQL 插入式攻擊和異常資料庫存取模式時提供即時安全性警示。 進階威脅防護警示會提供可疑活動的詳細資料，以及如何調查與降低威脅的建議。
 
 只要啟用 SQL ADS，其中包含的所有功能即會一併啟用。 只要按一下按鍵，即可對 SQL Database 伺服器或受控執行個體上的所有資料庫啟用 ADS。 啟用或管理 ADS 設定需要屬於 [SQL 安全性管理員角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager)、SQL 資料庫管理員角色或 SQL Server 管理員角色。 
 
@@ -40,7 +40,7 @@ ADS 的定價與 Azure 資訊安全中心標準層相同，每個受保護的 SQ
 
 ## <a name="1-enable-ads"></a>1. 啟用 ADS
 
-針對您的 SQL Database 伺服器或受控執行個體，瀏覽至 [安全性] 標題下的 [進階資料安全性]，以啟用 ADS。 若要對資料庫伺服器或受控執行個體上的所有資料庫啟用 ADS，請按一下 [在伺服器上啟用進階資料安全性]。
+在 SQL Database 伺服器或受控實例的 [**安全性**] 標題底下，流覽至 [ **Advanced Data Security** ]，以啟用廣告。 若要對資料庫伺服器或受控執行個體上的所有資料庫啟用 ADS，請按一下 [在伺服器上啟用進階資料安全性]。
 
 > [!NOTE]
 > 系統會自動建立並設定儲存體帳戶，以儲存您的**弱點評定**掃描結果。 如果您已針對相同資源群組和區域中的另一部伺服器啟用廣告，則會使用現有的儲存體帳戶。

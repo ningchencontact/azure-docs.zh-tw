@@ -4,14 +4,14 @@ description: 提供通用的 Azure 訂用帳戶和服務限制、配額和條件
 tags: billing
 ms.topic: conceptual
 ms.date: 01/02/2020
-ms.openlocfilehash: 4a6d5664d76df5401a2bb5c55f42d86b48e99017
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: ebfa1139ba0649280634bc0fd18627ba74f0c3cc
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75662944"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294111"
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂閱和服務的限制、配額和條件
 
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 經過一段時間，清單就會展開並更新，以涵蓋更多服務。
 
@@ -48,6 +48,7 @@ ms.locfileid: "75662944"
 * [Azure 認知搜尋](#azure-cognitive-search-limits)
 * [Azure 認知服務](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [Azure 資料總管](#azure-data-explorer-limits)
 * [適用於 MySQL 的 Azure 資料庫](#azure-database-for-mysql)
 * [適用於 PostgreSQL 的 Azure 資料庫](#azure-database-for-postgresql)
 * [Azure DNS](#azure-dns-limits)
@@ -214,7 +215,7 @@ ms.locfileid: "75662944"
 
 [!INCLUDE [azure-front-door-service-limits](../../../includes/front-door-limits.md)]
 
-### <a name="storage-limits"></a>存放裝置限制
+### <a name="storage-limits"></a>儲存體限制
 
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
@@ -299,6 +300,10 @@ ms.locfileid: "75662944"
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 限制
 
 如 Azure Cosmos DB 限制，請參閱[Azure Cosmos DB 的限制](../../cosmos-db/concepts-limits.md)。
+
+### <a name="azure-data-explorer-limits"></a>Azure 資料總管限制
+
+[!INCLUDE [azure-data-explorer-limits](../../../includes/data-explorer-limits.md)]
 
 ### <a name="azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫
 
@@ -474,7 +479,7 @@ ms.locfileid: "75662944"
 
 如 SQL 資料倉儲限制，請參閱[SQL 資料倉儲資源限制](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [瞭解 Azure 限制和增加](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Azure 的虛擬機器和雲端服務大小](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

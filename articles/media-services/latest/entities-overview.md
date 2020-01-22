@@ -1,5 +1,5 @@
 ---
-title: 媒體服務實體的篩選、排序和分頁
+title: 媒體服務 v3 實體的篩選、排序和分頁
 titleSuffix: Azure Media Services
 description: 瞭解 Azure 媒體服務實體的篩選、排序和分頁。
 services: media-services
@@ -10,21 +10,21 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 22b8c4e2454d6130ebcaf85346b767c843fbc1f0
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: c5ae9839b7bbb86e28c9f8adab0aa0ec5e885087
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186254"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311694"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>媒體服務實體的篩選、排序和分頁
 
 本主題討論當您在列出 Azure 媒體服務 v3 實體時可用的 OData 查詢選項和分頁支援。
 
-## <a name="considerations"></a>注意事項
+## <a name="considerations"></a>考量
 
 * 屬於 `Datetime` 類型之實體的屬性一律為 UTC 格式。
 * 在您傳送要求之前，查詢字串中的空白字元應以 URL 編碼。
@@ -45,7 +45,7 @@ ms.locfileid: "74186254"
 - `ge`：測試欄位是否*大於或等於*常數值。
 - `le`：測試欄位是否*小於或等於*常數值。
 
-## <a name="filter"></a>篩選器
+## <a name="filter"></a>篩選
 
 使用 `$filter` 提供 OData 篩選參數，只尋找您感興趣的物件。
 
@@ -64,13 +64,13 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>排序依據
 
-使用 `$orderby`，依據指定的參數排序傳回的物件。 例如︰  
+使用 `$orderby`，依據指定的參數排序傳回的物件。 例如：  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-若要以遞增或遞減順序排序結果，請將 `asc` 或 `desc` 附加至功能變數名稱，並以空格分隔。 例如： `$orderby properties/created desc`。
+若要以遞增或遞減順序排序結果，請將 `asc` 或 `desc` 附加至功能變數名稱，並以空格分隔。 例如： `$orderby properties/created desc` 。
 
 ## <a name="skip-token"></a>略過權杖
 
@@ -156,29 +156,29 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 下表顯示如何將篩選和排序選項套用至不同的實體：
 
-|實體名稱|屬性名稱|篩選器|順序|
+|實體名稱|屬性名稱|篩選|訂購|
 |---|---|---|---|
-|[資產](https://docs.microsoft.com/rest/api/media/assets/)|名稱|`eq`、`gt`、`lt`、`ge`、`le`|`asc`和`desc`|
+|[資產](https://docs.microsoft.com/rest/api/media/assets/)|NAME|`eq`, `gt`, `lt`, `ge`, `le`|`asc` 和 `desc`|
 ||properties.alternateId |`eq`||
 ||properties.assetId |`eq`||
-||properties.created| `eq`、`gt`, `lt`| `asc`和`desc`|
-|[內容金鑰原則](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|名稱|`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
-||properties.created    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
+||properties.created| `eq`、`gt`、`lt`| `asc` 和 `desc`|
+|[內容金鑰原則](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|NAME|`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc` 和 `desc`|
+||properties.created    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc` 和 `desc`|
 ||properties.description    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`||
-||properties.lastModified|`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
-||properties.policyId|`eq`、`ne`||
-|[作業](https://docs.microsoft.com/rest/api/media/jobs)| 名稱  | `eq`            | `asc`和`desc`|
-||properties.state        | `eq`、`ne`        |                         |
-||properties.created      | `gt`、`ge`、`lt`、`le`| `asc`和`desc`|
-||properties.lastModified | `gt`、`ge`、`lt`、`le` | `asc`和`desc`| 
-|[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)|名稱|`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
-||properties.created    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
-||properties.endTime    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
-|[串流原則](https://docs.microsoft.com/rest/api/media/streamingpolicies)|名稱|`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
-||properties.created    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
-|[可轉換](https://docs.microsoft.com/rest/api/media/transforms)| 名稱 | `eq`            | `asc`和`desc`|
-|| properties.created      | `gt`、`ge`、`lt`、`le`| `asc`和`desc`|
-|| properties.lastModified | `gt`、`ge`、`lt`、`le`| `asc`和`desc`|
+||properties.lastModified|`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc` 和 `desc`|
+||properties.policyId|`eq`，`ne`||
+|[作業](https://docs.microsoft.com/rest/api/media/jobs)| NAME  | `eq`            | `asc` 和 `desc`|
+||properties.state        | `eq`，`ne`        |                         |
+||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` 和 `desc`|
+||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` 和 `desc`| 
+|[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)|NAME|`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc` 和 `desc`|
+||properties.created    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc` 和 `desc`|
+||properties.endTime    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc` 和 `desc`|
+|[串流原則](https://docs.microsoft.com/rest/api/media/streamingpolicies)|NAME|`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc` 和 `desc`|
+||properties.created    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc` 和 `desc`|
+|[轉換](https://docs.microsoft.com/rest/api/media/transforms)| NAME | `eq`            | `asc` 和 `desc`|
+|| properties.created      | `gt`, `ge`, `lt`, `le`| `asc` 和 `desc`|
+|| properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` 和 `desc`|
 
 ## <a name="next-steps"></a>後續步驟
 
