@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: af7431dd808a7d5eb106eff96a790eb876a20026
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b136f408bbc4fbf13bba902f76f7d33ce6b2ba96
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428616"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314567"
 ---
 # <a name="apply-math-operation"></a>套用數學運算
 
-本文說明 Azure Machine Learning 設計工具（預覽）的模組。
+本文說明 Azure Machine Learning 設計工具的模組。
 
 使用 [套用數學運算] 來建立在輸入資料集內套用至數值資料行的計算。 
 

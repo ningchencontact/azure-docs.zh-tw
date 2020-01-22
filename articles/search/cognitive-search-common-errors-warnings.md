@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 74d209adf745d1a3c319ef6567b2a7818a5fd514
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 9cf3bcc514118c7f8052981c39023d6cac361d22
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152251"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314720"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>針對 Azure 認知搜尋中的常見索引子錯誤和警告進行疑難排解
 
@@ -167,6 +167,11 @@ ms.locfileid: "76152251"
 在所有這些情況下，請參閱[支援的資料類型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)和[索引子的資料類型對應](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search)，以確保您正確地建立索引架構，並設定適當的[索引子欄位](search-indexer-field-mappings.md)對應。 錯誤訊息將包含有助於追蹤不相符之來源的詳細資料。
 
 <a name="could-not-process-document-within-indexer-max-run-time"/>
+
+## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>錯誤：因為資料表有複合主鍵，所以無法使用整合式變更追蹤原則
+
+這適用于 SQL 資料表，通常會在索引鍵定義為複合索引鍵時，或在資料表已定義唯一的叢集索引（如同在 SQL 索引中，而不是 Azure 搜尋服務索引）時發生。 主要的原因是在[唯一叢集索引](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15)的情況下，索引鍵屬性已修改為複合主鍵。 在此情況下，請確定您的 SQL 資料表沒有唯一的叢集索引，或者您將索引鍵欄位對應到保證不會有重複值的欄位。
+
 
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>錯誤：無法處理索引子執行時間上限中的檔
 

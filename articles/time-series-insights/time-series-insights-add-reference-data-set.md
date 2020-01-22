@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1b5950c3769431420c199711190a02ad0be1e177
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 71041012bc77da6d7613deb178c3cec1413e57e2
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863490"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314875"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>使用 Azure 入口網站建立時間序列深入解析環境的參考資料集
 
@@ -38,7 +38,9 @@ ms.locfileid: "75863490"
 
 1. 找出您現有的 Azure 時間序列深入解析環境。 在 Azure 入口網站左側的功能表中選取 [所有資源]。 選取 Time Series Insights 環境。
 
-1. 選取 [概觀] 頁面。 找出 [時間序列深入解析總管 URL] 並開啟連結。  
+1. 選取 [概觀] 頁面。 展開頁面頂端附近的 [**基本**] 區段，找出 [**時間序列深入解析 explorer URL** ] 並開啟連結。  
+
+   [![展開基本內容區段](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
    查看時間序列深入解析環境的 [explorer]。
 

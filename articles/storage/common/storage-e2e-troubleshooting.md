@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7a0cf3c41929eb6a020a9d4761b08a2a4f2f6caa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 69983502fb7d099f474fb1c4c084f5d381a173e9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460395"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314754"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 儲存體計量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解
 
@@ -143,10 +143,10 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 
 Azure 儲存體會將伺服器記錄檔資料寫入至 Blob，而度量會寫入至資料表。 記錄檔 Blob 位於您儲存體帳戶已知名稱的 `$logs` 容器中。 記錄檔 Blob 會以階層方式依照年、月、日和小時命名，讓您輕鬆地找出您要調查的時間範圍。 例如，在 `storagesample` 帳戶中，01/02/2015 上午 8-9 點的記錄檔 Blob 容器為 `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`。 此容器中的個別 Blob 會循序命名，並以 `000000.log`開頭。
 
-您可以使用 AzCopy 命令列工具，將這些伺服器端記錄檔下載至您在本機電腦上選擇的位置。 例如，您可以使用下列命令，將發生於 2015 年 1 月 2 日的 Blob 作業的記錄檔下載至 `C:\Temp\Logs\Server` 資料夾；以您的儲存體帳戶名稱取代 `<storageaccountname>`，並以您的帳戶存取金鑰取代 `<storageaccountkey>`：
+您可以使用 AzCopy 命令列工具，將這些伺服器端記錄檔下載至您在本機電腦上選擇的位置。 例如，您可以使用下列命令，將在2015年1月2日發生的 blob 作業的記錄檔下載到 `C:\Temp\Logs\Server`的資料夾。將 `<storageaccountname>` 取代為您的儲存體帳戶名稱：
 
 ```azcopy
-AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
+azcopy copy 'http://<storageaccountname>.blob.core.windows.net/$logs/blob/2015/01/02' 'C:\Temp\Logs\Server'  --recursive
 ```
 
 在 [Azure 下載](https://azure.microsoft.com/downloads/) 頁面可以下載 AzCopy。 如需使用 AzCopy 的詳細資訊，請參閱 [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)。

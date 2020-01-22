@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 0ab4a0ebf2844d064e40c8417ab22162d2d0ded6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ca47bed45f8d726010dde40a936da6f93eb0b140
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485860"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76315009"
 ---
 # <a name="two-class-support-vector-machine-module"></a>雙類別支援向量機器模組
 
-本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
+本文說明 Azure Machine Learning 設計工具中的模組。
 
 使用此模組來建立以支援向量機器演算法為基礎的模型。 
 
@@ -28,7 +28,7 @@ ms.locfileid: "73485860"
 
 ## <a name="about-support-vector-machines"></a>關於支援向量機器
 
-支援向量機器是最早的機器學習演算法，而許多應用程式中都使用了 SVM 模型，從資訊抓取到文字和影像分類。 Svm 可用於分類和回歸工作。
+支援向量機器是其中一個最早的機器學習演算法，而且在許多應用程式 (從資訊擷取到文字和影像分類) 中，都已使用 SVM 模型。 Svm 可用於分類和回歸工作。
 
 此 SVM 模型是一種受監督的學習模型，需要加上標籤的資料。 在定型程式中，演算法會分析輸入資料，並辨識多維度功能空間中稱為*超平面*的模式。  所有輸入範例都會以此空間中的點來表示，並對應到輸出類別，讓類別劃分為寬，並盡可能清除間距。
 
@@ -46,11 +46,11 @@ ms.locfileid: "73485860"
 
 3.  在 [反復專案**數**] 中，輸入數位，表示建立模型時所使用的反覆運算次數。  
   
-     這個參數可以用來控制定型速度和精確度之間的取捨。  
+     這個參數可以用來控制定型速度和精確性之間的取捨。  
   
 4.  針對 [ **Lambda**]，輸入要用來做為 L1 正規化權數的值。  
   
-     此正規化係數可以用來微調模型。 較大的值會會較複雜的模型。  
+     這個正則化係數可用來調整模型。 值越大，模型就越複雜。  
   
 5.  如果您想要在定型之前將功能正規化，請選取 [**標準化功能**] 選項。
   
@@ -66,16 +66,15 @@ ms.locfileid: "73485860"
   
     -   如果您將 [**建立訓練員模式]** 設定為 [**單一參數**]，請使用 [[定型模型](train-model.md)] 模組。
   
-
 10. 執行管道。
 
 ## <a name="results"></a>結果
 
 定型完成後：
 
-+ 若要查看模型參數的摘要，以及從定型中學習到的特徵權數，請以滑鼠右鍵按一下 [[定型模型](./train-model.md)] 的輸出，然後選取 [**視覺化**]。
++ 若要儲存定型模型的快照集，請選取 [**訓練模型**] 模組右面板中的 [**輸出**] 索引標籤。 選取 [**註冊資料集**] 圖示，將模型儲存為可重複使用的模組。
 
-+ 若要使用定型的模型進行預測，請將定型的模型連接到 [[評分模型](score-model.md)] 模組。
++ 若要使用模型進行評分，請將 [**評分模型**] 模組新增至管線。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 9d6e6c11f0e2a8fb7e08385f7abf26fb4a8d21c8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d6140e97383fb07e65c87f74a555046f918ac41
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465975"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314856"
 ---
 # <a name="multiclass-logistic-regression-module"></a>多元羅吉斯回歸模組
 
-本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
+本文說明 Azure Machine Learning 設計工具中的模組。
 
 您可以使用此模組來建立羅吉斯回歸模型，以用來預測多個值。
 
@@ -42,13 +42,13 @@ Azure Machine Learning 也會提供[兩個類別的羅吉斯回歸](./two-class-
 
     + **參數範圍**：如果您不確定最佳參數，而且想要使用參數清除，請使用此選項。
 
-3. **優化容錯**，指定優化工具聚合的臨界值。 如果反覆運算之間的改進小於臨界值，則演算法會停止並傳回目前的模型。
+3. **優化容錯**，指定優化工具聚合的臨界值。 換句話說，如果反覆運算之間的改進少於臨界值，此演算法會停止，並傳回目前的模型。
 
-4. **L1 正規化權數**， **L2 正規化權數**：輸入用於正規化參數 L1 和 L2 的值。 建議同時使用非零值。
+4. **L1 正規化權數**， **L2 正規化權數**：輸入用於正規化參數 L1 和 L2 的值。 非零值建議用於兩者。
 
     正規化是一種防止過度學習的方法，penalizing 具有極端係數值的模型。 正規化的運作方式是將與係數值相關聯的負面影響加入假設的錯誤中。 具有極端係數值的精確模型會懲罰更多，但具有較保守值的較不精確模型會懲罰較少。
 
-     L1 和 L2 正規化具有不同的效果，並使用。 L1 可以套用至 sparse 模型，這在使用高維度資料時很有用。 相反地，L2 正規化適用于不是稀疏的資料。  此演算法支援 L1 和 L2 正規化值的線性組合：也就是說，如果 `x = L1` 和 `y = L2`，`ax + by = c` 會定義正規化詞彙的線性範圍。
+     L1 與 L2 regularization 有不同的效果，並使用。 L1 可以套用到疏鬆的模型，使用高維度資料時，這是很有用。 相較之下，L2 regularization 是不是疏鬆的資料。  此演算法支援 L1 和 L2 正規化值的線性組合：也就是說，如果 `x = L1` 和 `y = L2`，`ax + by = c` 會定義正規化詞彙的線性範圍。
 
      L1 和 L2 詞彙的不同線性組合已設計成羅吉斯回歸模型，例如[彈性網路正規化](https://wikipedia.org/wiki/Elastic_net_regularization)。
 
@@ -60,9 +60,6 @@ Azure Machine Learning 也會提供[兩個類別的羅吉斯回歸](./two-class-
 
 9. 執行管道。
 
-## <a name="results"></a>結果
-
-定型完成之後，您可以看到模型參數的摘要，以及從定型學習到的功能權數，以滑鼠右鍵按一下 [[定型模型](./train-model.md)] 模組的輸出，然後選取 [**視覺化**]。
 
 
 ## <a name="next-steps"></a>後續步驟

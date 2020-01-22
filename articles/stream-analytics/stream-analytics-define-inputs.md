@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 72568be0cf87770e8878f95de4a9c82842b470df
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 01/17/2020
+ms.openlocfilehash: 388f43fec9242f6a4b448483d9486aa4413d2612
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646841"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314788"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>將資料作為輸入串流處理至串流分析中
 
@@ -55,6 +55,7 @@ Azure 事件中樞提供高延展性的發佈-訂閱事件擷取器。 事件中
 | **事件中樞名稱** | 作為輸入的事件中樞名稱。 |
 | **事件中樞原則名稱** | 支援存取事件中樞的共用存取原則。 每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 此選項會自動填入，除非您選取手動提供事件中樞設定的選項。|
 | **事件中樞取用者群組** (建議使用) | 強烈建議您為每一個串流分析作業使用不同的取用者群組。 此字串可識別要用來從事件中樞擷取資料的取用者群組。 若未指定取用者群組，串流分析作業會使用 $Default 取用者群組。  |
+| **分割區索引鍵** | 如果您的輸入是以屬性進行分割，您可以加入這個屬性的名稱。 分割區索引鍵是選擇性的，如果您在此屬性中包含 PARTITION BY 或 GROUP BY 子句，就會用來改善查詢的效能。 |
 | **事件序列化格式** | 傳入資料流程的序列化格式（JSON、CSV、Avro 或[其他（Protobuf、XML、專屬 ...）](custom-deserializer.md)）。  確認 JSON 格式與規格一致，並且不包含以 0 開頭的十進位數字。 |
 | **編碼方式** | UTF-8 是目前唯一支援的編碼格式。 |
 | **事件壓縮類型** | 用來讀取內送資料流的壓縮類型，例如無 (預設值)、GZip 或 Deflate。 |
@@ -104,6 +105,7 @@ Azure IoT 中樞是可高度擴充的發佈-訂閱事件擷取器，針對 IoT �
 | **共用存取原則名稱** | 支援存取 IoT 中樞的共用存取原則。 每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 |
 | **共用存取原則金鑰** | 用來授與 IoT 中樞存取權的共用存取金鑰。  此選項會自動填入，除非您選取手動提供 IoT 中樞設定的選項。 |
 | **取用者群組** | 強烈建議讓每個串流分析作業使用不同的取用者群組。 用來從 IoT 中樞擷取資料的取用者群組。 串流分析會使用 $Default 取用者群組，除非您另有指定。  |
+| **分割區索引鍵** | 如果您的輸入是以屬性進行分割，您可以加入這個屬性的名稱。 分割區索引鍵是選擇性的，如果您在此屬性中包含 PARTITION BY 或 GROUP BY 子句，就會用來改善查詢的效能。 |
 | **事件序列化格式** | 傳入資料流程的序列化格式（JSON、CSV、Avro 或[其他（Protobuf、XML、專屬 ...）](custom-deserializer.md)）。  確認 JSON 格式與規格一致，並且不包含以 0 開頭的十進位數字。 |
 | **編碼方式** | UTF-8 是目前唯一支援的編碼格式。 |
 | **事件壓縮類型** | 用來讀取內送資料流的壓縮類型，例如無 (預設值)、GZip 或 Deflate。 |
@@ -157,6 +159,7 @@ CSV 格式的輸入需要一個標頭資料列來定義資料集的欄位，而�
 | **路徑模式** (選用) | 用來在指定的容器中找出 blob 的檔案路徑。 如果您想要從容器的根目錄讀取 blob，請勿設定路徑模式。 在該路徑內，您可以指定下列三個變數的一個或多個執行個體：`{date}`、`{time}` 或 `{partition}`<br/><br/>範例 1：`cluster1/logs/{date}/{time}/{partition}`<br/><br/>範例 2：`cluster1/logs/{date}`<br/><br/>`*` 字元不是路徑前置詞允許的值。 僅允許有效的 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 字元</a>。 請勿包含容器名稱或檔案名。 |
 | **日期格式** (選用) | 在路徑中使用日期變數時，用來組織檔案的日期格式。 範例： `YYYY/MM/DD` |
 | **時間格式** (選用) |  在路徑中使用時間變數時，用來組織檔案的時間格式。 目前唯一支援的值為 `HH` (表示小時)。 |
+| **分割區索引鍵** | 如果您的輸入是以屬性進行分割，您可以加入這個屬性的名稱。 分割區索引鍵是選擇性的，如果您在此屬性中包含 PARTITION BY 或 GROUP BY 子句，就會用來改善查詢的效能。 |
 | **事件序列化格式** | 傳入資料流程的序列化格式（JSON、CSV、Avro 或[其他（Protobuf、XML、專屬 ...）](custom-deserializer.md)）。  確認 JSON 格式與規格一致，並且不包含以 0 開頭的十進位數字。 |
 | **編碼方式** | 對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式。 |
 | **壓縮** | 用來讀取內送資料流的壓縮類型，例如無 (預設值)、GZip 或 Deflate。 |

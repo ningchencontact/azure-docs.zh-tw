@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 19385870d184654d902cd40b45d4be3646c87b46
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a48ce60dca9f4221e364d53567f5b53719deb18c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493905"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314516"
 ---
 # <a name="apply-transformation-module"></a>套用轉換模組
 
-本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
+本文說明 Azure Machine Learning 設計工具中的模組。
 
 使用此模組來根據先前計算的轉換來修改輸入資料集。  
   

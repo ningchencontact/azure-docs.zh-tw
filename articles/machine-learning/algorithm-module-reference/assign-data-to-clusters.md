@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: dd8b23f92f5b24101a7d42ca65f5835a8d4e9ff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1dd88eaa9c92a4f8ff5d491da950f7bb1cc48c20
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214563"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314499"
 ---
 # <a name="module-assign-data-to-clusters"></a>模組：將資料指派給群集
 
-本文說明如何在 Azure Machine Learning 設計工具（預覽）中使用 [*將資料指派給*叢集] 模組。 此模組會透過以*K 表示*叢集演算法定型的群集模型來產生預測。
+本文說明如何在 Azure Machine Learning 設計師中使用 [*將資料指派給*叢集] 模組。 此模組會透過以*K 表示*叢集演算法定型的群集模型來產生預測。
 
 [將資料指派給叢集] 模組會傳回資料集，其中包含每個新資料點的可能指派。 
 
@@ -47,5 +47,5 @@ ms.locfileid: "74214563"
   
 ### <a name="results"></a>結果
 
-+  若要查看資料集中的值，請以滑鼠右鍵按一下模組，選取 [**結果資料集**]，然後選取 [**視覺化**]。
++  若要查看資料集中的值，請以滑鼠右鍵按一下模組，然後選取 [**視覺化**]。 或者，選取模組並切換至右窗格中的 [**輸出**] 索引標籤，按一下**埠輸出**中的長條圖圖示，將結果視覺化。
 

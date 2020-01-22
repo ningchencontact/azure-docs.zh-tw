@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 7c4d62c19984e1316a01213f579c059b97f709c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 509b82596ce4819152fcd8d0bc202df186a20095
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497938"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314839"
 ---
 # <a name="enter-data-manually-module"></a>手動輸入資料模組
 
-本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
+本文說明 Azure Machine Learning 設計工具中的模組。
 
 使用此模組，藉由輸入值來建立小型資料集。 Dataset 可以有多個資料行。
   
@@ -28,7 +28,7 @@ ms.locfileid: "73497938"
   
 - 建立標籤的簡短清單
   
-- 輸入要插入 dataset 中的資料行名稱清單
+- 輸入要插入資料集內的資料行名稱清單
 
 ## <a name="enter-data-manually"></a>手動輸入資料 
   
@@ -97,9 +97,9 @@ ms.locfileid: "73497938"
   
      如果您建立具有遺漏值的資料列，您隨時都可以將它們篩選出來。  
   
-5.  以滑鼠右鍵按一下模組，然後選取 [**執行選取**] 來剖析資料，並將它載入至您的工作區做為資料集。  
+5.  將輸出埠連接到其他模組，然後執行管線。  
   
-     若要查看資料集，請按一下輸出埠，然後選取 [**視覺化**]。  
+     若要查看資料集，請以滑鼠右鍵按一下模組，然後選取 [**視覺化**]。  
 ## <a name="next-steps"></a>後續步驟
 
 請參閱可用來 Azure Machine Learning 的[模組集合](module-reference.md)。 

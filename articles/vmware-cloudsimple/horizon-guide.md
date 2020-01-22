@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0936de818303117797e1704f3cecb7f877a3935e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 723821a78ecae308443c93567402e3b232c036f0
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206547"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314703"
 ---
 # <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>使用 CloudSimple 私用雲端網站來裝載使用 VMware 範圍的虛擬桌面基礎結構
 
@@ -47,7 +47,7 @@ CloudSimple 解決方案會要求您執行下列動作：
 ### <a name="estimate-the-size-of-your-desktop-environment"></a>估計桌面環境的大小
 
 * 確認您已識別的設定是否在 VMware 操作限制內。
-* 估計 DR 網站中所需的資源，以保護您的內部部署環境。
+* 估計所有桌上型電腦和您的水準管理元件所需的資源。
 
 ### <a name="create-a-private-cloud-for-your-environment"></a>為您的環境建立私人雲端
 
