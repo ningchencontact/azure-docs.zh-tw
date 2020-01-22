@@ -93,6 +93,8 @@
       href: concept-designer.md
     - name: 演算法功能提要
       href: /azure/machine-learning/algorithm-cheat-sheet
+    - name: 如何選取演算法
+      href: /azure/machine-learning/how-to-select-algorithms
     - name: 自動化機器學習
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
