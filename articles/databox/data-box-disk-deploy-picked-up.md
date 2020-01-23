@@ -9,13 +9,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
-Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b67e7bf0b6b79d2ae29c2ba8ed7c337f152faebc
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: d0acc2d92c564f89f4777ccb243c7255e47c9105
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092086"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514114"
 ---
 ::: zone target="chromeless"
 
@@ -29,13 +28,13 @@ ms.locfileid: "74092086"
 
 本教學課程說明如何安排取貨以寄回 Azure 資料箱磁碟。 取貨指示取決於您寄回裝置的位置。 
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您將學會如何：
 
 > [!div class="checklist"]
 > * 將資料箱磁碟寄送給 Microsoft
 > * 在不同區域中取回資料箱磁碟
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始之前，請確定您已完成[教學課程：將資料複製到 Azure 資料箱磁碟並確認](data-box-disk-deploy-copy-data.md)。
 

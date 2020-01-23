@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: ee52f3a0bec058f1b94820123ac5514e4e855c05
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 7c2618f7703ba1a9803952efabcfbd800149ada4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311388"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548334"
 ---
 # <a name="two-class-logistic-regression-module"></a>雙類別羅吉斯回歸模組
 
-本文說明 Azure Machine Learning 設計工具中的模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 您可以使用此模組來建立羅吉斯回歸模型，以用來預測兩個（而且只有兩個）結果。 
 

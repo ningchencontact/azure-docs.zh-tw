@@ -1,23 +1,23 @@
 ---
 title: 教學課程 - 如何將適用於 MySQL 的 Azure 資料庫執行個體繫結至您的 Azure Spring Cloud 應用程式
 description: 本教學課程說明如何將適用於 MySQL 的 Azure 資料庫執行個體繫結至您的 Azure Spring Cloud 應用程式
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.author: jeconnoc
-ms.openlocfilehash: a9911798e42db55d5aaae90c933cfb64945b244c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.author: brendm
+ms.openlocfilehash: 657aa70d77fd1af9fd2121a3e98ea3aca7773642
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708819"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277549"
 ---
 # <a name="tutorial-bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>教學課程：將適用於 MySQL 的 Azure 資料庫執行個體繫結至您的 Azure Spring Cloud 應用程式 
 
 透過 Azure Spring Cloud，您可以將特定的 Azure 服務自動繫結至應用程式，而無須手動設定 Spring Boot 應用程式。 本教學課程說明如何將應用程式繫結至適用於 MySQL 的 Azure 資料庫執行個體。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * 已部署的 Azure Spring Cloud 執行個體
 * 適用於 MySQL 的 Azure 資料庫帳戶

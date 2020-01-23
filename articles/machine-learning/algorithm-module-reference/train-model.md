@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: b62e03184453c4daea8615ee2bea39c936de5c73
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: c9d02490a5627ead502429ead06608b4fb621058
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313972"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548402"
 ---
 # <a name="train-model-module"></a>訓練模組
 
-本文說明 Azure Machine Learning 設計工具中的模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用此模組來定型分類或回歸模型。 定型會在您定義模型並設定其參數之後進行，而且需要已標記的資料。 您也可以使用**訓練模型**，以新的資料重新定型現有的模型。 
 

@@ -1,20 +1,18 @@
 ---
 title: (已淘汰) 快速入門 - 適用於 Linux 的 Azure Kubernetes 叢集
 description: 快速了解如何在 Azure Container Service 中使用 Azure CLI 建立適用於 Linux 的 Kubernetes 叢集。
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 70c9fec818147b76feb306cc47ba2e72cd865fe8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 5c182d6119f59daaf21e4b4e1304363eeb0c11e5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659604"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273506"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(已淘汰) 部署適用於 Linux 容器的 Kubernetes 叢集
 
@@ -31,7 +29,7 @@ ms.locfileid: "55659604"
 
 本快速入門假設讀者已了解 Kubernetes 的基本概念，如需 Kubernetes 的詳細資訊，請參閱 [Kubernetes 文件]( https://kubernetes.io/docs/home/)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -39,9 +37,9 @@ ms.locfileid: "55659604"
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯群組。 
+使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 Azure 資源群組是部署及管理 Azure 資源所在的邏輯群組。 
 
-下列範例會在 westeurope 位置建立名為 myResourceGroup 的資源群組。
+下列範例會在 westeurope  位置建立名為 myResourceGroup  的資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location westeurope
@@ -74,7 +72,7 @@ az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --
 
 幾分鐘之後，此命令就會完成，並以 json 格式傳回叢集的相關資訊。 
 
-## <a name="connect-to-the-cluster"></a>連接到叢集
+## <a name="connect-to-the-cluster"></a>連線至叢集
 
 若要管理 Kubernetes 叢集，請使用 Kubernetes 命令列用戶端：[kubectl](https://kubernetes.io/docs/user-guide/kubectl/)。 
 
@@ -86,7 +84,7 @@ az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-若要驗證叢集的連線，請使用 [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 命令來傳回叢集節點的清單。
+若要驗證針對您叢集的連線，請使用 [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 命令來傳回叢集節點的清單。
 
 ```azurecli-interactive
 kubectl get nodes
@@ -194,7 +192,7 @@ service "azure-vote-front" created
 kubectl get service azure-vote-front --watch
 ```
 
-一開始，*azure-vote-front* 服務的 **EXTERNAL-IP** 會顯示為 *pending*。 當 EXTERNAL-IP 位址從 *pending* 變成一個「IP 位址」之後，請使用 `CTRL-C` 來停止 kubectl 監看式流程。 
+一開始，*azure-vote-front* 服務的 **EXTERNAL-IP** 會顯示為 *pending*。 當 EXTERNAL-IP 位址從 *pending* 變成一個「IP 位址」  之後，請使用 `CTRL-C` 來停止 kubectl 監看式流程。 
   
 ```bash
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s

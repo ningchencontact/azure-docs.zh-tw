@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 01/22/2020
 ms.author: jgao
-ms.openlocfilehash: 5475f49acfdcd74a792a9a0f2f16cf1ea3272232
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 125fefbb1d83db8b6114b2d09f5bd6da885159ba
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121891"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547637"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>在範本中使用部署腳本（預覽）
 
@@ -42,7 +42,7 @@ ms.locfileid: "76121891"
 
 ## <a name="prerequisites"></a>必要條件
 
-- **使用者指派的受控識別，在訂用帳戶層級具有參與者的角色**。 此身分識別是用來執行部署腳本。 若要建立一個，請參閱[使用者指派的受控識別](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity)。 當您部署範本時，您需要識別識別碼。 身分識別的格式為：
+- **使用者指派的受控識別，在訂用帳戶層級具有參與者的角色**。 此身分識別是用來執行部署腳本。 若要建立一個，請參閱使用 Azure 入口網站或[使用 Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)[建立使用者指派的受控識別](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)，或使用[Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)。 當您部署範本時，您需要識別識別碼。 身分識別的格式為：
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>

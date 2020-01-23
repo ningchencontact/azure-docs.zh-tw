@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: bfce7d77f214762a69857e74f0bb533ad1ce0f1b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e98a1f49ebf0fd8811be8efe8d001d450959369a
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107651"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549235"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>應用程式開發人員在 Azure Kubernetes Services (AKS) 中管理資源的最佳做法
 

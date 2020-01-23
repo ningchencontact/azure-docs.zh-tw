@@ -4,14 +4,14 @@ description: Avere vFXT for Azure 的必要條件
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 7f89ea553bc7198c1faee5ba3549f88da5ec2b2c
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152981"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547501"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>準備建立 Avere vFXT
 
@@ -23,10 +23,10 @@ ms.locfileid: "76152981"
 
 若要在 Azure 入口網站中建立新的 Azure 訂用帳戶：
 
-* 瀏覽至 [訂用帳戶](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) 刀鋒視窗
-* 按一下位於頂端的 [+ 新增] 按鈕
-* 在出現提示時登入
-* 選取供應項目，並逐步執行新建訂用帳戶的步驟
+1. 瀏覽至 [訂用帳戶](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) 刀鋒視窗
+1. 按一下位於頂端的 [+ 新增] 按鈕
+1. 在出現提示時登入
+1. 選取供應項目，並逐步執行新建訂用帳戶的步驟
 
 ## <a name="configure-subscription-owner-permissions"></a>設定訂用帳戶擁有者權限
 
@@ -104,6 +104,6 @@ ms.locfileid: "76152981"
 
    ![含有建立服務端點之註解的 Azure 入口網站螢幕擷取畫面](media/avere-vfxt-service-endpoint.png)
 
-## <a name="next-step-create-the-vfxt-cluster"></a>下一個步驟：建立 vFXT 叢集
+## <a name="next-steps"></a>後續步驟
 
 完成這些必要條件之後，您就可以建立叢集。 如需指示，請參閱[部署 vFXT 叢集](avere-vfxt-deploy.md)。

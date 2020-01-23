@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 1c14d1dd171f9bca6b6bdc61e35c0d541b29cb3c
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 1ba133acda414d9779e2fb10150bbdd57285e9a5
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026164"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511207"
 ---
 # <a name="what-is-azure-iot-edge"></a>什麼是 Azure IoT Edge
 
@@ -26,7 +26,7 @@ Azure IoT Edge 將雲端分析和自訂商務邏輯移至裝置，讓您的組�
 Azure IoT Edge 是由三個元件組成：
 
 * **IoT Edge 模組**是執行 Azure 服務、第三方服務或自有程式碼的容器。 這類模組會部署到 IoT Edge 裝置，並在這些裝置本機上執行。
-* **IoT Edge 執行階段**會在每個 IoT Edge 裝置上執行，並管理部署到每個裝置的模組。 
+* **IoT Edge 執行階段**會在每個 IoT Edge 裝置上執行，並管理部署到每個裝置的模組。
 * **雲端式介面**可讓您在遠端監視及管理 IoT Edge 裝置。
 
 >[!NOTE]

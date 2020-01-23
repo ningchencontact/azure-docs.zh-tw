@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/01/2019
+ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: c8ef1d4dacf500c459ae1ab9a534ed118ca9e05a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4c314148b8e1495a8b5a12c42d4989d13cdd6a08
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446688"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548113"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>翻譯工具文字 API 3.0：BreakSentence
 
@@ -33,45 +33,20 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 在查詢字串上傳遞的要求參數為：
 
-<table width="100%">
-  <th width="20%">查詢參數</th>
-  <th>說明</th>
-  <tr>
-    <td>api-version</td>
-    <td>*必要查詢參數*。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
-  </tr>
-  <tr>
-    <td>語言</td>
-    <td>*選擇性的查詢參數*。<br/>識別輸入文字語言的語言標記。 如果未指定代碼，將會套用自動語言偵測。</td>
-  </tr>
-  <tr>
-    <td>指令碼 (script)</td>
-    <td>*選擇性的查詢參數*。<br/>識別輸入文字所使用指令碼的指令碼標記。 如果未指定指令碼，將會假設語言的預設指令碼。</td>
-  </tr>
-</table> 
+| 查詢參數 | 說明 |
+| -------| ----------- |
+| api-version <img width=200/>   | **必要查詢參數**。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。 |
+| 語言 | **選擇性的查詢參數**。<br/>識別輸入文字語言的語言標記。 如果未指定代碼，將會套用自動語言偵測。 |
+| 指令碼 (script)    | **選擇性的查詢參數**。<br/>識別輸入文字所使用指令碼的指令碼標記。 如果未指定指令碼，將會假設語言的預設指令碼。  | 
 
 要求標頭包括：
 
-<table width="100%">
-  <th width="20%">headers</th>
-  <th>說明</th>
-  <tr>
-    <td>驗證標頭</td>
-    <td>必要的要求標頭。<br/>請參閱<a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">可用的驗證選項</a>。</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td>必要的要求標頭。<br/>指定承載的內容類型。 可能的值為：`application/json`。</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td>必要的要求標頭。<br/>要求本文的長度。</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td>*選擇性*。<br/>用於識別唯一要求的 GUID，由用戶端產生。 請注意，若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
-  </tr>
-</table> 
+| headers | 說明 |
+| ------- | ----------- |
+| 驗證標頭 <img width=200/>  | 必要的要求標頭。<br/>請參閱<a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">可用的驗證選項</a>。 |
+| Content-Type | 必要的要求標頭。<br/>指定承載的內容類型。 可能的值為：`application/json`。 |
+| Content-Length    | 必要的要求標頭。<br/>要求本文的長度。  | 
+| X-ClientTraceId   | **選擇性**。<br/>用於識別唯一要求的 GUID，由用戶端產生。 請注意，若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。  | 
 
 ## <a name="request-body"></a>Request body
 

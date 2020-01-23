@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 2d9de5e7294fdca7514989ba009e9dee8985a084
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83884447e9856b5e3db26e4829ccbd3ab1baed13
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421953"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549082"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -681,8 +681,8 @@ public static void CreateQueueMessage(
 Azure Functions 檔提供有關每個系結類型的參考資訊。 您會在每個系結參考文章中找到下列資訊。 （此範例是以儲存體佇列為基礎）。
 
 * [封裝](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x)。 您需要安裝的套件，包括對 Webjob SDK 專案中的系結支援。
-* [範例](../azure-functions/functions-bindings-storage-queue.md#trigger---example)。 程式碼範例。 C#類別庫範例適用于 webjob SDK。 只要省略 `FunctionName` 屬性即可。
-* [屬性](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes)。 要用於系結類型的屬性。
+* [範例](../azure-functions/functions-bindings-storage-queue.md#trigger)。 程式碼範例。 C#類別庫範例適用于 webjob SDK。 只要省略 `FunctionName` 屬性即可。
+* [屬性](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes-and-annotations)。 要用於系結類型的屬性。
 * [設定](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration)。 屬性屬性和構造函式參數的說明。
 * [使用方式](../azure-functions/functions-bindings-storage-queue.md#trigger---usage)。 您可以系結的類型，以及系結運作方式的相關資訊。 例如：輪詢演算法、有害佇列處理。
   

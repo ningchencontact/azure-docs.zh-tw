@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: f903a358ea493cd01238339ede10b4b16f98c7c5
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: e7cddf95a6537e5799acc523effb484c2249453d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514590"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548045"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>搭配事件方格使用 CloudEvents v1.0 架構
 
@@ -139,11 +139,85 @@ New-AzureRmEventGridSubscription `
   -DeliverySchema CloudEventSchemaV1_0
 ```
 
- 目前，當事件是在 CloudEvents 結構描述中傳遞時，您無法針對 Azure Functions 應用程式使用事件方格觸發程序。 使用 HTTP 觸發程序。 如需實作 HTTP 觸發程序 (該觸發程序會接收 CloudEvents 結構描述中的事件) 的範例，請參閱[使用 HTTP 觸發程序作為事件方格觸發程序](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger)。
+ 目前，當事件是在 CloudEvents 結構描述中傳遞時，您無法針對 Azure Functions 應用程式使用事件方格觸發程序。 使用 HTTP 觸發程序。 如需執行在 CloudEvents 架構中接收事件之 HTTP 觸發程式的範例，請參閱搭配[使用 CloudEvents 與 Azure Functions](#azure-functions)。
 
  ## <a name="endpoint-validation-with-cloudevents-v10"></a>使用 CloudEvents v1.0 的端點驗證
 
 如果您已經熟悉事件方格，您可能會注意到事件方格的端點驗證交握以防止濫用。 CloudEvents v1.0 會使用 HTTP OPTIONS 方法來執行自己的[濫用保護語義](security-authentication.md#webhook-event-delivery)。 您可以在 [此處](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection)閱讀相關資訊。 使用 CloudEvents 架構進行輸出時，事件方格會使用搭配 CloudEvents v1.0 的濫用保護來取代事件方格驗證事件機制。
+
+<a name="azure-functions"></a>
+
+## <a name="use-with-azure-functions"></a>搭配 Azure Functions 使用
+
+[Azure Functions 事件方格](../azure-functions/functions-bindings-event-grid.md)系結原本就不支援 CloudEvents，因此會使用 HTTP 觸發的函式來讀取 CloudEvents 訊息。 使用 HTTP 觸發程式來讀取 CloudEvents 時，您必須撰寫事件方格觸發程式自動執行動作的程式碼：
+
+* 將驗證回應傳送給[訂用帳戶驗證要求](../event-grid/security-authentication.md#webhook-event-delivery)。
+* 為要求本文中包含的每個事件陣列元素分別叫用一次函式。
+
+如需在本機叫用函式時或在 Azure 中執行函式時所使用的 URL 相關資訊，請參閱 [HTTP 觸發程序繫結參考文件](../azure-functions/functions-bindings-http-webhook.md)
+
+HTTP 觸發程序的下列範例 C# 程式碼會模擬事件格線觸發程序的行為。  使用此範例示範以 CloudEvents 結構描述傳送的事件。
+
+```csharp
+[FunctionName("HttpTrigger")]
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    var requestmessage = await req.Content.ReadAsStringAsync();
+    var message = JToken.Parse(requestmessage);
+
+    if (message.Type == JTokenType.Array)
+    {
+        // If the request is for subscription validation, send back the validation code.
+        if (string.Equals((string)message[0]["eventType"],
+        "Microsoft.EventGrid.SubscriptionValidationEvent",
+        System.StringComparison.OrdinalIgnoreCase))
+        {
+            log.LogInformation("Validate request received");
+            return req.CreateResponse<object>(new
+            {
+                validationResponse = message[0]["data"]["validationCode"]
+            });
+        }
+    }
+    else
+    {
+        // The request is not for subscription validation, so it's for an event.
+        // CloudEvents schema delivers one event at a time.
+        log.LogInformation($"Source: {message["source"]}");
+        log.LogInformation($"Time: {message["eventTime"]}");
+        log.LogInformation($"Event data: {message["data"].ToString()}");
+    }
+
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+HTTP 觸發程序的下列範例 JavaScript 程式碼會模擬事件格線觸發程序行為。 使用此範例示範以 CloudEvents 結構描述傳送的事件。
+
+```javascript
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    var message = req.body;
+    // If the request is for subscription validation, send back the validation code.
+    if (message.length > 0 && message[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
+        context.log('Validate request received');
+        var code = message[0].data.validationCode;
+        context.res = { status: 200, body: { "ValidationResponse": code } };
+    }
+    else {
+        // The request is not for subscription validation, so it's for an event.
+        // CloudEvents schema delivers one event at a time.
+        var event = JSON.parse(message);
+        context.log('Source: ' + event.source);
+        context.log('Time: ' + event.eventTime);
+        context.log('Data: ' + JSON.stringify(event.data));
+    }
+    context.done();
+};
+```
 
 ## <a name="next-steps"></a>後續步驟
 

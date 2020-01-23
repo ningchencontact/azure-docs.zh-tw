@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 680cf04e79a9cb6d5748723dad3cb37cf3c76468
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 5ac1f3e4bf629a2e12eb0461b932a5865228c79c
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314210"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546702"
 ---
 # <a name="cross-validate-model"></a>交叉驗證模型
 
-本文說明如何使用 Azure Machine Learning 設計師中的 [交叉驗證模型] 模組。 *交叉驗證*是一種技術，通常用於機器學習服務，以評估資料集的變化，以及透過該資料定型之任何模型的可靠性。  
+本文說明如何在 Azure Machine Learning 設計工具（預覽）中使用 [交叉驗證模型] 模組。 *交叉驗證*是一種技術，通常用於機器學習服務，以評估資料集的變化，以及透過該資料定型之任何模型的可靠性。  
 
 [交叉驗證模型] 模組會將加上標籤的資料集作為輸入，以及未定型的分類或回歸模型。 它會將資料集分割成數個子集（折*迭）、* 在每個折迭上建立模型，然後傳回每個折迭的一組精確度統計資料。 藉由比較所有折迭的精確度統計資料，您可以解讀資料集的品質。 接著，您可以瞭解模型是否容易受到資料中的變化。  
 

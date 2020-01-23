@@ -14,12 +14,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3a4e847bc0d297f3aa41551fbf56242ae1a566f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c75162cc66e9277d111def92842f5a67a132f59
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424317"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548147"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Internet Explorer 和 Microsoft Edge 瀏覽器（MSAL）的已知問題
 
@@ -38,10 +38,6 @@ ms.locfileid: "75424317"
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
 - **使用登入透過快顯進行驗證時，快顯視窗不會關閉或停滯**。 透過 Microsoft Edge 或 IE （InPrivate）中的快顯視窗進行驗證時，在輸入認證並登入之後，如果流覽中包含多個跨安全性區域的網域，則不會關閉快顯視窗，因為 MSAL 會失去的控制碼。快顯視窗。  
-
-    以下是 Microsoft Edge 問題追蹤程式中這些問題的連結：  
-    - [Bug 13861050](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861050/)
-    - [Bug 13861663](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861663/)
 
 ### <a name="update-fix-available-in-msaljs-023"></a>更新： MSAL 中提供的修正程式0.2。3
 已在[MSAL 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)中發行驗證重新導向迴圈問題的修正程式。 啟用 MSAL 中的旗標 `storeAuthStateInCookie`，以利用此修正程式。 根據預設，此旗標設定為 false。

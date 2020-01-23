@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: b6a019fbea2ebfed67db4f7c2a9b0f8085438aa8
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: a906e5f354f332cebb0656c6fc40b17c8a5016a2
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311643"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546685"
 ---
 # <a name="evaluate-model-module"></a>評估模型模組
 
-本文說明 Azure Machine Learning 設計工具中的模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用此模組來測量已定型模型的精確度。 您提供的資料集包含從模型產生的分數，而 [**評估模型**] 模組則會計算一組業界標準的評估度量。
   

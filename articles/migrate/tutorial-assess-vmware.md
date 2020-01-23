@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 58e6e7b3cdf749909165d7ff071a2f3885d7e8b9
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 7f161afe13bad8c548806d4b4ceb9372dc511cc3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028737"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289436"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>使用 Azure Migrate 伺服器評估來評估 VMware VM
 
@@ -176,7 +176,7 @@ SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 1. 選取 [驗證連線]  以確定設備可以連線到 vCenter Server。
 
 ### <a name="specify-vm-credentials"></a>指定 VM 認證
-若要探索應用程式、角色和功能，以及視覺化 VM 的相依性，您可以提供可存取 VMware VM 的 VM 認證。 您可以新增一個適用於 Windows VM 的認證，以及一個適用於 Linux VM 的認證。 [深入了解](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions)必要的存取權限。
+若要探索應用程式、角色和功能，以及視覺化 VM 的相依性，您可以提供可存取 VMware VM 的 VM 認證。 您可以新增一個適用於 Windows VM 的認證，以及一個適用於 Linux VM 的認證。 [深入了解](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)必要的存取權限。
 
 > [!NOTE]
 > 您可以選擇是否輸入，但如果您想要啟用應用程式探索和無代理程式相依性視覺效果，就必須輸入。
@@ -210,7 +210,7 @@ SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 1.  從下拉式功能表中選取您的 vCenter Server 執行個體。
 1.  選取 [建立角色]  。
 1.  輸入新角色的名稱 (例如，<em>Azure_Migrate</em>)。
-1.  將[權限](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions)指派給新定義的角色。
+1.  將[權限](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)指派給新定義的角色。
 1.  選取 [確定]  。
 
 #### <a name="3-assign-permissions-on-vcenter-objects"></a>3.指派 vCenter 物件的權限
@@ -219,7 +219,7 @@ SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 若要評估伺服器，則必須針對所要探索 VM 裝載所在的所有父物件，將**唯讀**角色套用至其中的 vCenter 使用者帳戶。 所有父物件都會包含在內：階層中的主機、主機資料夾、叢集和叢集資料夾，一直到資料中心為止。 這些權限會傳播到階層中的子物件。
 
-同樣地，若要移轉伺服器，則必須針對所要遷移 VM 裝載所在的所有父物件，將具有[權限](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions)的使用者定義角色套用至其中的 vCenter 使用者帳戶。 此角色可以命名為 <em>Azure _Migrate</em>。
+同樣地，若要移轉伺服器，則必須針對所要遷移 VM 裝載所在的所有父物件，將具有[權限](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)的使用者定義角色套用至其中的 vCenter 使用者帳戶。 此角色可以命名為 <em>Azure _Migrate</em>。
 
 ![指派權限](./media/tutorial-assess-vmware/assign-perms.png)
 

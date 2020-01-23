@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 4271a180a0f00ae921de9b8deb9a3e5123f9b519
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: fb3ff990dcc207fd6dff6073c7464b6e410431af
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314482"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546872"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>促進式決策樹回歸模組
 
-本文說明 Azure Machine Learning 設計工具中的模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用此模組來建立使用提升的迴歸樹狀結構集團。 [*提升*] 表示每個樹狀結構都相依于先前的樹系。 此演算法會藉由調整剩餘的樹狀結構來學習。 因此，決策樹集團中的促進有助於提高精確度，但稍微有涵蓋範圍不足的風險。  
   

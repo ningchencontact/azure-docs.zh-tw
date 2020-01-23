@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 255c18144fe0089a3f630d90f527a57d2b4ed68b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 47adda38bb39a95fe9abc0775a1822d677f19dab
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75391853"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513842"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題
 
@@ -89,7 +89,6 @@ Azure VM 代理程式可能已停止、過期、處於不一致的狀態，或�
 
 **原因 1︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **原因 2︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
-**原因 3：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
 
 ## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks-VMSnapshot 延伸模組作業失敗
 
@@ -113,7 +112,7 @@ Azure VM 代理程式可能已停止、過期、處於不一致的狀態，或�
 **原因 3︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **原因 4︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
 **原因5：備份服務因為資源群組鎖定而沒有刪除舊還原點的許可權** <br>
-**原因 6：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
+
 
 ## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsupportedDiskSize-Azure 備份目前不支援設定的磁片大小。
 
@@ -141,16 +140,6 @@ Azure VM 代理程式可能已停止、過期、處於不一致的狀態，或�
 如果排定的備份作業花費較長的時間，與下一個備份設定發生衝突，則請參閱[最佳作法](backup-azure-vms-introduction.md#best-practices)、[備份效能](backup-azure-vms-introduction.md#backup-performance)和[還原考慮](backup-azure-vms-introduction.md#backup-and-restore-considerations)。
 
 ## <a name="causes-and-solutions"></a>原因和解決方案
-
-### <a name="the-vm-has-no-internet-access"></a>VM 沒有網際網路存取
-
-根據部署需求，VM 無法存取網際網路。 或者，它可能會有防止存取 Azure 基礎結構的限制。
-
-備份延伸模組需要連線到 Azure 公用 IP 位址，才能正確運作。 延伸模組會將命令傳送至 Azure 儲存體端點 (HTTPS URL) 來管理 VM 的快照集。 如果延伸模組無法存取公用網際網路，則備份最終會失敗。
-
-#### <a name="solution"></a>解決方案
-
-若要解決網路問題，請參閱[建立網路連線](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)
 

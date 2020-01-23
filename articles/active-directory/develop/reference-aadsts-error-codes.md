@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8979481452b0c4e8bf862c306a7916ddcabf1307
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b1de85e2c075d343a72fcc9fd29c0358d0054350
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423975"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548130"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 驗證和授權錯誤碼
 
@@ -222,6 +222,7 @@ ms.locfileid: "75423975"
 | AADSTS90092 | GraphNonRetryableError |
 | AADSTS90093 | GraphUserUnauthorized - 傳回的圖表包含要求的禁止錯誤碼。 |
 | AADSTS90094 | AdminConsentRequired - 需要系統管理員同意。 |
+| AADSTS900382 | 跨雲端要求中不支援機密用戶端。 |
 | AADSTS90100 | InvalidRequestParameter - 參數空白或無效。 |
 | AADSTS901002 | AADSTS901002：不支援 ' resource ' 要求參數。 |
 | AADSTS90101 | InvalidEmailAddress - 所提供的資料不是有效的電子郵件地址。 電子郵件地址的格式必須是 `someone@example.com`。 |

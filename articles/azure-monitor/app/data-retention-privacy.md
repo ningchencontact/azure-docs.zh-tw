@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/29/2019
-ms.openlocfilehash: aacd41debfa8810facc41896051767eb4ab6e3b6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: b4550f55d160a77c2fb149dd509ca1cfad784f79
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052497"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513451"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的資料收集、保留和儲存
 
@@ -118,7 +118,7 @@ Microsoft 人員對您的資料存取會受到限制。 我們只有在獲得您
 所有資料都會在待用時加密，而且會在資料中心之間移動。
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>將資料從我的應用程式傳輸到 Application Insights 伺服器時是否進行加密？
-是，我們使用 HTTPs 從幾乎所有的 Sdk （包括網頁伺服器、裝置和 HTTPS 網頁）將資料傳送至入口網站。 唯一的例外是從純 HTTP 網頁傳送的資料。
+是，我們使用 HTTPs 從幾乎所有的 Sdk （包括網頁伺服器、裝置和 HTTPS 網頁）將資料傳送至入口網站。 
 
 ## <a name="does-the-sdk-create-temporary-local-storage"></a>SDK 是否會建立暫存本機儲存體？
 
@@ -234,12 +234,12 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 | 您的動作 | 收集的資料類別 (請參閱下一個資料表) |
 | --- | --- |
-| [將 Application Insights SDK 新增至 .NET Web 專案][greenbrown] |ServerContext<br/>推斷<br/>效能計數器<br/>Requests<br/>**例外狀況**<br/>Session<br/>使用者人數 |
-| [在 IIS 上安裝狀態監視器][redfield] |相依項目<br/>ServerContext<br/>推斷<br/>效能計數器 |
+| [將 Application Insights SDK 新增至 .NET Web 專案][greenbrown] |ServerContext<br/>推斷<br/>效能計數器<br/>要求<br/>**例外狀況**<br/>Session<br/>使用者人數 |
+| [在 IIS 上安裝狀態監視器][redfield] |相依性<br/>ServerContext<br/>推斷<br/>效能計數器 |
 | [將 Application Insights SDK 新增至 JAVA web 應用程式][java] |ServerContext<br/>推斷<br/>要求<br/>Session<br/>使用者人數 |
-| [將 JavaScript SDK 新增至網頁][client] |ClientContext <br/>推斷<br/>頁面<br/>ClientPerf<br/>Ajax |
+| [將 JavaScript SDK 新增至網頁][client] |ClientContext <br/>推斷<br/>頁<br/>ClientPerf<br/>Ajax |
 | [定義預設屬性][apiproperties] |**屬性** |
-| [呼叫 TrackMetric][api] |數值<br/>**屬性** |
+| [呼叫 TrackMetric][api] |數字值<br/>**屬性** |
 | [通話軌 *][api] |事件名稱<br/>**屬性** |
 | [呼叫 TrackException][api] |**例外狀況**<br/>堆疊傾印<br/>**屬性** |
 | SDK 無法收集資料。 例如： <br/> - 無法存取效能計數器<br/> - 遙測初始設定式中發生例外狀況 |SDK 診斷 |
@@ -257,12 +257,12 @@ openssl s_client -connect bing.com:443 -tls1_2
 | ServerContext |電腦名稱、地區設定、作業系統、裝置、使用者工作階段、使用者內容、作業 |
 | 推斷 |從 IP 位址的地區位置、時間戳記、作業系統、瀏覽器 |
 | 計量 |計量名稱和值 |
-| 事件 |事件名稱和值 |
+| 活動 |事件名稱和值 |
 | PageViews |URL 和頁面名稱或螢幕名稱 |
 | 用戶端效能 |URL/頁面名稱、瀏覽器載入時間 |
 | Ajax |從網頁向伺服器發出的 HTTP 呼叫 |
-| Requests |URL、持續時間、回應碼 |
-| 相依項目 |Type （SQL，HTTP，...），連接字串，或 URI，同步/非同步，持續時間，成功，SQL 語句（含狀態監視器） |
+| 要求 |URL、持續時間、回應碼 |
+| 相依性 |Type （SQL，HTTP，...），連接字串，或 URI，同步/非同步，持續時間，成功，SQL 語句（含狀態監視器） |
 | **例外狀況** |類型、**訊息**、呼叫堆疊、原始程式檔、行號、`thread id` |
 | 損毀 |`Process id`、`parent process id`、`crash thread id`;應用程式修補，`id`，組建; 例外狀況類型、位址、原因;模糊符號和暫存器、二進位開始和結束位址、二進位檔名稱和路徑、cpu 類型 |
 | 追蹤 |**訊息** 和嚴重性層級 |

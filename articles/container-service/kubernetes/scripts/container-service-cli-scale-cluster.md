@@ -1,27 +1,21 @@
 ---
-title: Azure CLI 指令碼範例 - 調整 ACS 叢集 | Microsoft Docs
+title: Azure CLI 指令碼範例 - 調整 ACS 叢集
 description: Azure CLI 指令碼範例 - 調整 ACS 叢集
-services: container-service
-documentationcenter: ''
 author: iainfoulds
-manager: jeconnoc
-editor: ''
 tags: acs, azure-container-service
 keywords: Docker, 容器, 微服務, Kubernetes, DC/OS, Azure
 ms.assetid: ''
 ms.service: container-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 199a2f09df57878d6523cfed6873001f190e14f5
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7e1136c179c5729f5ed0de189a90bbbb31412ab7
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992245"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270664"
 ---
 # <a name="deprecated-scale-an-azure-container-service-cluster"></a>(已被取代) 調整 Azure Container Service 叢集
 
@@ -51,7 +45,7 @@ az group delete --name myResourceGroup
 
 此指令碼會使用下列命令來建立部署。 下表中的每個項目都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az acs scale](/cli/azure/acs#az-acs-scale) | 調整 ACS 叢集的規模。 |
 

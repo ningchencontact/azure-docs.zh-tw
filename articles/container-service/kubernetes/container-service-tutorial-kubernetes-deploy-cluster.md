@@ -1,25 +1,23 @@
 ---
 title: (已被取代) Azure Container Service 教學課程 - 部署叢集
 description: Azure Container Service 教學課程 - 部署叢集
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 58fef0357a903f2ab1d238bbab7b2d9dca673eb4
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 5cb21bff2834751843061910184499f37bde834e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662052"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275447"
 ---
 # <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(已被取代) 在 Azure Container Service 中部署 Kubernetes 叢集
 
 > [!TIP]
-> 如需本教學課程中使用 Azure Kubernetes Service 的更新版本，請參閱[教學課程：部署 Azure Kubernetes Service (AKS) 叢集](../../aks/tutorial-kubernetes-deploy-cluster.md)。
+> 如需使用 Azure Kubernetes Service 的本教學課程更新版本，請參閱[教學課程：部署 Azure Kubernetes Service (AKS) 叢集](../../aks/tutorial-kubernetes-deploy-cluster.md)。
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

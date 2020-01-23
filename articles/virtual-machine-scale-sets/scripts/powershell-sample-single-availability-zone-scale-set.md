@@ -1,27 +1,19 @@
 ---
 title: Azure PowerShell 範例 - 單一區域擴展集
 description: 此指令碼會建立在單一可用性區域中執行 Windows Server 2016 的虛擬機器擴展集。
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9ef39306b18a03e194b94ae24860151462a870f6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a9b3547844d0b2dcca58a95d04c9cb81d32fa52c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350797"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276422"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 建立單一區域虛擬機器擴展集
 此指令碼會建立在單一可用性區域中執行 Windows Server 2016 的虛擬機器擴展集。 執行指令碼之後，您可以透過 RDP 存取虛擬機器。

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: bb0af855a136c83eac7e28287b28046b50a7c124
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b9fb15fc9f3dc51a0df40a4ccb738a97d4558dff
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892731"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545886"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>在您的應用程式中內嵌影片索引子小工具
 
@@ -29,34 +29,34 @@ ms.locfileid: "74892731"
 
 認知深入解析 widget 包含所有從您的影片編制索引程式中解壓縮的視覺深入解析。 認知深入解析小工具支援下列選擇性 URL 參數。
 
-|Name|定義|描述|
+|名稱|定義|說明|
 |---|---|---|
 |`widgets`|以逗號分隔的字串|可讓您控制要呈現的見解。 <br/> 範例： `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` 只轉譯人員和品牌 UI 深入解析。<br/>可用的選項：人員、關鍵字、註解、品牌、情緒、文字記錄、搜尋。<br/>請注意，在第2版中不支援 `widgets` URL 參數。<br/>|
-|`locale`|簡短的語言代碼|控制 insights 語言。 預設值為 `en`。 <br/> 範例：`locale=de`.|
+|`locale`|簡短的語言代碼|控制 insights 語言。 預設值是 `en`。 <br/> 範例： `locale=de`.|
 |`tab`|預設選取的索引標籤|控制預設呈現的 [**深入**解析] 索引標籤。 <br/> 範例： `tab=timeline` 呈現已選取 [**時間軸**] 索引標籤的見解。|
 
 ### <a name="player-widget"></a>播放器小工具
 
 您可以使用 [播放程式] 小工具，透過調適型位元速率來串流影片。 播放工具 widget 支援下列選擇性 URL 參數。
 
-|Name|定義|描述|
+|名稱|定義|說明|
 |---|---|---|
-|`t`|開始的秒數|讓玩家從指定的時間點開始播放。<br/> 範例：`t=60`.|
-|`captions`|語言代碼|在 widget 載入時，以指定的語言提取標題，以供 [**標題**] 功能表使用。<br/> 範例：`captions=en-US`.|
-|`showCaptions`|布林值|可讓播放器載入已啟用的標題。<br/> 範例：`showCaptions=true`.|
-|`type`||啟動音訊播放機面板（影片部分已移除）。<br/> 範例：`type=audio`.|
-|`autoplay`|布林值|表示播放者是否應該在載入時開始播放影片。 預設值為 `true`。<br/> 範例：`autoplay=false`.|
-|`language`|語言代碼|控制播放機語言。 預設值為 `en-US`。<br/>範例：`language=de-DE`.|
+|`t`|開始的秒數|讓玩家從指定的時間點開始播放。<br/> 範例： `t=60`.|
+|`captions`|語言代碼|在 widget 載入時，以指定的語言提取標題，以供 [**標題**] 功能表使用。<br/> 範例： `captions=en-US`.|
+|`showCaptions`|布林值|可讓播放器載入已啟用的標題。<br/> 範例： `showCaptions=true`.|
+|`type`||啟動音訊播放機面板（影片部分已移除）。<br/> 範例： `type=audio`.|
+|`autoplay`|布林值|表示播放者是否應該在載入時開始播放影片。 預設值是 `true`。<br/> 範例： `autoplay=false`.|
+|`language`|語言代碼|控制播放機語言。 預設值是 `en-US`。<br/>範例： `language=de-DE`.|
 
 ### <a name="editor-widget"></a>編輯器 widget
 
 您可以使用編輯器 widget 來建立新的專案，以及管理影片的深入解析。 編輯器 widget 支援下列選擇性 URL 參數。
 
-|Name|定義|描述|
+|名稱|定義|說明|
 |---|---|---|
 |`accessToken`<sup>*</sup>|String|提供只在用來內嵌 widget 之帳戶中的影片存取。<br> 編輯器 widget 需要 `accessToken` 參數。|
-|`language`|語言代碼|控制播放機語言。 預設值為 `en-US`。<br/>範例：`language=de-DE`.|
-|`locale`|簡短的語言代碼|控制 insights 語言。 預設值為 `en`。<br/>範例：`language=de`.|
+|`language`|語言代碼|控制播放機語言。 預設值是 `en-US`。<br/>範例： `language=de-DE`.|
+|`locale`|簡短的語言代碼|控制 insights 語言。 預設值是 `en`。<br/>範例： `language=de`.|
 
 <sup>*</sup>擁有者應謹慎提供 `accessToken`。
 
@@ -159,7 +159,8 @@ ms.locfileid: "74892731"
             this.videobreakdown({
             videoId: "c4c1ad4c9a",
             syncTranscript: true,
-            syncLanguage: true
+            syncLanguage: true,
+            location: "trial" /* location option for paid accounts (default is trial) */
             });
 
             // Set the source dynamically.
@@ -261,7 +262,7 @@ iframe 視窗的標題也可透過將 `&title=<YourTitle>` 提供給 iframe URL 
 
 如果您想要停用標題，您可以將 `captions` 參數值當做 `false`傳遞。
 
-#### <a name="autoplay"></a>AutoPlay
+#### <a name="autoplay"></a>自動播放
 根據預設，播放程式會開始播放影片。 您可以將 `&autoplay=false` 傳遞至先前的內嵌 URL，以選擇不進行。
 
 ## <a name="next-steps"></a>後續步驟

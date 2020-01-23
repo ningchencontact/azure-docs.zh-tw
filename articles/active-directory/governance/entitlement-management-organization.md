@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/24/2019
+ms.date: 01/22/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd57523dd41eadcf64ceb1e4a1c8d8ba083c17f0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0c1b6f5ebffa39d3b735e85df794e37329e3aa2e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608732"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548895"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>在 Azure AD 權利管理中新增已連線的組織
 
@@ -31,9 +31,12 @@ Azure AD 權利管理可讓您與組織外部的人員共同作業。 如果您�
 
 已連線的組織是與您有關聯性的外部 Azure AD 目錄或網域。
 
-例如，假設您在 Woodgrove Bank 工作，而且想要與兩個外部組織共同作業：圖形設計研究所和 Contoso。 您已由您的連絡人在使用 Azure AD 的圖形設計機構中告訴您，而且該圖形設計人員的使用者具有以 `graphicdesigninstitute.com`結尾的使用者主體名稱。 而且您是在 Contoso 的連絡人告訴您，他們尚未使用 Azure AD，但 Contoso 的使用者擁有以 `contoso.com`結尾的使用者主體名稱。
+例如，假設您在 Woodgrove Bank 工作，而且想要與兩個外部組織共同作業。 這兩個組織有不同的設定：
 
-您可以設定兩個已連線的組織--一個用於具有網域 `graphicdesigninstitute.com`的圖形設計研究所，另一個用於具有網域 `contoso.com`的 Contoso。 如果您接著將這兩個已連線的組織新增至原則，則每個組織中具有符合原則之使用者主體名稱的使用者，都可以要求存取封裝。 此外，由於圖形設計局已識別為使用 Azure AD，因此，如果圖形設計局後面有子域（例如 `graphicdesigninstitute.example`），則具有該使用者主體名稱的使用者也能夠使用相同的原則來要求存取封裝。
+- 圖形設計局使用 Azure AD，而其使用者的使用者主體名稱結尾為 `graphicdesigninstitute.com`
+- Contoso 尚未使用 Azure AD。 Contoso 使用者的使用者主體名稱結尾為 `contoso.com`。
+
+在此情況下，您可以設定兩個已連線的組織。 您會為圖形設計局建立一個已連線的組織，一個用於 Contoso。 如果您接著將這兩個已連線的組織新增至原則，則每個組織中具有符合原則之使用者主體名稱的使用者，都可以要求存取封裝。 使用者主體名稱具有 graphicdesigninstitute.com 網域的使用者，會符合圖形設計研究所已連線的組織並允許提交要求，而具有 contoso.com 網域之使用者主體名稱的使用者則會符合Contoso 已連線的組織也會允許要求封裝。 此外，因為圖形設計研究所使用 Azure AD，所以主體名稱符合[已驗證網域](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name)（例如 graphicdesigninstitute）的任何使用者，都可以使用相同的原則來要求存取封裝。
 
 ![已連線的組織範例](./media/entitlement-management-organization/connected-organization-example.png)
 

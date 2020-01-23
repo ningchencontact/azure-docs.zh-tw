@@ -1,17 +1,17 @@
 ---
 title: 快速入門：使用 Azure CLI 來啟動 Java Spring 應用程式
 description: 在本快速入門中，您會在 Azure CLI 上將範例應用程式部署到 Azure Spring Cloud。
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.author: jeconnoc
-ms.openlocfilehash: 41801fce41cd79898e9ebd12f9ca970f17b017bb
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.author: brendm
+ms.openlocfilehash: 44b2f39cb1467e3459ee326bf81381830510d6b6
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891708"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278934"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>快速入門：使用 Azure CLI 來啟動 Java Spring 應用程式
 

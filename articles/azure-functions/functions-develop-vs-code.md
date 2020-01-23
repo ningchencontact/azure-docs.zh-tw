@@ -3,12 +3,12 @@ title: 使用 Visual Studio Code 開發 Azure Functions
 description: 瞭解如何使用適用于 Visual Studio Code 的 Azure Functions 延伸模組來開發和測試 Azure Functions。
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 54bbc46c703646f4680f6dc22d5c4b6781614ae7
-ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
+ms.openlocfilehash: 4a5f60c2da8a77f385dba40dcd4d342583e989c1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75667550"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547416"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>使用 Visual Studio Code 開發 Azure Functions
 
@@ -146,7 +146,7 @@ using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 `msg` 參數是 `ICollector<T>` 類型，其代表會在函式完成時寫入輸出繫結的訊息集合。 您可以將一或多個訊息新增至集合。 當函式完成時，會將這些訊息傳送至佇列。
 
-若要深入瞭解，請參閱[佇列儲存體輸出](functions-bindings-storage-queue.md#output---c-example)系結檔。
+若要深入瞭解，請參閱[佇列儲存體輸出](functions-bindings-storage-queue.md#output)系結檔。
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
@@ -184,7 +184,7 @@ Visual Studio Code 可讓您遵循一組方便的提示，將系結新增至您�
 context.bindings.msg = "Name passed to the function: " req.query.name;
 ```
 
-若要深入瞭解，請參閱[佇列儲存體輸出](functions-bindings-storage-queue.md#output---javascript-example)系結參考。
+若要深入瞭解，請參閱[佇列儲存體輸出](functions-bindings-storage-queue.md#output)系結參考。
 
 ---
 

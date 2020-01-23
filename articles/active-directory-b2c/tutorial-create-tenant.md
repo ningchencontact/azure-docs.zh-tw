@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b7e872f3320a2c72b6e9fb3ffba65510b205ca03
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9cb23dc11a853401d8d99a750a0c79082adbe036
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425567"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547586"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>教學課程：建立 Azure Active Directory B2C 租用戶
 
@@ -68,6 +68,8 @@ ms.locfileid: "75425567"
     在 [資源群組] 中，選取 [新建]。 輸入將包含租使用者的資源組**名**，選取**資源群組位置**，然後選取 [**建立**]。
 
     ![連結 Azure 入口網站中的訂用帳戶設定表單](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
+    
+    您可以將多個 Azure AD B2C 租使用者連結至單一 Azure 訂用帳戶，以供計費之用。 
 
 ## <a name="select-your-b2c-tenant-directory"></a>選取您的 B2C 租使用者目錄
 

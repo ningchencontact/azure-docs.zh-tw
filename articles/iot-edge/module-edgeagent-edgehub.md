@@ -8,36 +8,36 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 731c51894126a6de75c9fc25e4e7bdb3dfa4dd03
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 4684daf2a1095a40c478170be37edcae788868ef
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665792"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548606"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>IoT Edge 代理程式和 IoT Edge 中樞模組對應項的屬性
 
-IoT Edge 代理程式和 IoT Edge 中樞是構成 IoT Edge 執行階段的兩個模組。 如需模組各自執行哪些工作的相關資訊，請參閱[了解 Azure IoT Edge 執行階段及其架構](iot-edge-runtime.md)。 
+IoT Edge 代理程式和 IoT Edge 中樞是構成 IoT Edge 執行階段的兩個模組。 如需每個執行時間模組之責任的詳細資訊，請參閱[瞭解 Azure IoT Edge 執行時間及其架構](iot-edge-runtime.md)。
 
 本文提供執行階段模組對應項的所需屬性和報告屬性。 如需如何在 IoT Edge 裝置上部署模組的詳細資訊，請參閱[瞭解如何在 IoT Edge 中部署模組及建立路由](module-composition.md)。
 
-模組對應項包括： 
+模組對應項包括：
 
 * **所需屬性**。 解決方案後端可以設定所需的屬性，而模組可以讀取它們。 此模組也可以接收所需屬性中變更的通知。 所需屬性會與報告屬性一起使用，以同步處理模組設定或狀況。
 
-* **報告屬性**。 模組可以設定報告屬性，而解決方案後端可以讀取和查詢它們。 報告屬性會與所需屬性搭配使用，以同步處理模組設定或狀況。 
+* **報告屬性**。 模組可以設定報告屬性，而解決方案後端可以讀取和查詢它們。 報告屬性會與所需屬性搭配使用，以同步處理模組設定或狀況。
 
 ## <a name="edgeagent-desired-properties"></a>EdgeAgent 的所需屬性
 
-IoT Edge 代理程式的模組對應項稱為 `$edgeAgent`，並且會協調裝置與 IoT 中樞上執行之 IoT Edge 代理程式之間的通訊。 在單一裝置或規模部署時，在特定裝置上套用部署資訊清單時，會設定預期屬性。 
+IoT Edge 代理程式的模組對應項稱為 `$edgeAgent`，並且會協調裝置與 IoT 中樞上執行之 IoT Edge 代理程式之間的通訊。 在單一裝置或規模部署時，在特定裝置上套用部署資訊清單時，會設定預期屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 屬性 | 說明 | 必要項 |
 | -------- | ----------- | -------- |
 | schemaVersion | 必須為「1.0」 | 是 |
 | runtime.type | 必須為「docker」 | 是 |
 | runtime.settings.minDockerVersion | 此部署資訊清單需要設定為最小 Docker 版本 | 是 |
 | runtime.settings.loggingOptions | stringified JSON，包含 IoT Edge 代理程式容器的記錄選項。 [Docker 記錄選項](https://docs.docker.com/engine/admin/logging/overview/) | 否 |
-| runtime.settings.registryCredentials<br>.{registryId}.username | 容器登錄的使用者名稱。 Azure Container Registry 的使用者名稱通常是登錄名稱。<br><br> 非公用的任何模組映像都需要登錄認證。 | 否 |
+| runtime.settings.registryCredentials<br>.{registryId}.username | 容器登錄的使用者名稱。 Azure Container Registry 的使用者名稱通常是登錄名稱。<br><br> 所有私人模組映射都需要登錄認證。 | 否 |
 | runtime.settings.registryCredentials<br>.{registryId}.password | 容器登錄的密碼。 | 否 |
 | runtime.settings.registryCredentials<br>.{registryId}.address | 容器登錄的位址。 Azure Container Registry 的位址通常是 {登錄名稱}.azurecr.io。 | 否 |  
 | systemModules.edgeAgent.type | 必須為「docker」 | 是 |
@@ -67,14 +67,14 @@ IoT Edge 代理程式報告屬性包含三個主要部分資訊：
 2. 目前在裝置上執行之模組的狀態；由 IoT Edge 代理程式報告；以及
 3. 目前在裝置上執行之預期屬性的複本。
 
-這最後一項資訊是目前所需屬性的複本，可用來分辨裝置是否已套用最新的所需屬性，或是否仍在執行先前的部署資訊清單。
+目前所需屬性的複本有助於分辨裝置是否已套用最新的部署，或仍在執行先前的部署資訊清單。
 
 > [!NOTE]
 > 可以使用 [IoT 中樞查詢語言](../iot-hub/iot-hub-devguide-query-language.md)查詢，以調查大規模部署的狀態時，IoT Edge 代理程式的報告屬性相當有用。 如需如何將 IoT Edge 代理程式屬性用於狀態的詳細資訊，請參閱[了解單一裝置或大規模的 IoT Edge 部署](module-deployment-monitoring.md)。
 
 下表不包含從預期屬性複製的資訊。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | -------- | ----------- |
 | lastDesiredVersion | 此整數代表 IoT Edge 代理程式處理之所需屬性的最後版本。 |
 | lastDesiredStatus.code | 此狀態碼會參考 IoT Edge 代理程式看到的最後所需屬性。 允許的值：`200` 成功、`400` 無效的設定、`412` 無效的結構描述版本、`417` 預期屬性是空的、`500` 失敗 |
@@ -102,9 +102,9 @@ IoT Edge 代理程式報告屬性包含三個主要部分資訊：
 
 ## <a name="edgehub-desired-properties"></a>EdgeHub 的所需屬性
 
-IoT Edge 中樞的模組對應項稱為 `$edgeHub`，並且會協調裝置與 IoT 中樞上執行之 IoT Edge 中樞之間的通訊。 在單一裝置或規模部署時，在特定裝置上套用部署資訊清單時，會設定預期屬性。 
+IoT Edge 中樞的模組對應項稱為 `$edgeHub`，並且會協調裝置與 IoT 中樞上執行之 IoT Edge 中樞之間的通訊。 在單一裝置或規模部署時，在特定裝置上套用部署資訊清單時，會設定預期屬性。
 
-| 屬性 | 描述 | 部署資訊清單中的必要項目 |
+| 屬性 | 說明 | 部署資訊清單中的必要項目 |
 | -------- | ----------- | -------- |
 | schemaVersion | 必須為「1.0」 | 是 |
 | routes.{routeName} | 字串，表示 IoT Edge 中樞路由。 如需詳細資訊，請參閱宣告[路由](module-composition.md#declare-routes)。 | `routes` 元素可以存在但為空白。 |
@@ -112,7 +112,7 @@ IoT Edge 中樞的模組對應項稱為 `$edgeHub`，並且會協調裝置與 Io
 
 ## <a name="edgehub-reported-properties"></a>EdgeHub 的報告屬性
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | -------- | ----------- |
 | lastDesiredVersion | 此整數代表 IoT Edge 中樞處理之所需屬性的最後版本。 |
 | lastDesiredStatus.code | 狀態碼，參考 IoT Edge 中樞所看到的最後所需屬性。 允許的值：`200` 成功、`400` 無效的設定、`500` 失敗 |

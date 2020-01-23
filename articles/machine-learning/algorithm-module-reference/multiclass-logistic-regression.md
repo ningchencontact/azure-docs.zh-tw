@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 8d6140e97383fb07e65c87f74a555046f918ac41
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: aba33730d235cc50742cdc86007933e12f763053
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314856"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548453"
 ---
 # <a name="multiclass-logistic-regression-module"></a>多元羅吉斯回歸模組
 
-本文說明 Azure Machine Learning 設計工具中的模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 您可以使用此模組來建立羅吉斯回歸模型，以用來預測多個值。
 

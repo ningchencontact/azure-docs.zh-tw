@@ -5,20 +5,20 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 7c40cfc8fbc6a9957281be842f6714fa9289a3c8
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 745e3f0b6c7bd4e6d984ce2df29b9965d4b8ca21
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122214"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513725"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>從感應器合作夥伴取得感應器資料
 
 Azure FarmBeats 可協助您將 IoT 裝置和感應器的串流資料帶入 Datahub。 目前支援下列感應器裝置合作夥伴。
 
-  ![FarmBeats 合作夥伴](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
+  ![FarmBeats 合作夥伴](./media/get-sensor-data-from-sensor-partner/partner-information-2.png)
 
-將裝置資料與 Azure FarmBeats 整合，可協助您從部署在伺服器陣列中的 IoT 感應器取得基礎資料至 datahub。 資料一經提供，就可以透過 FarmBeats 加速器來視覺化。 資料可以用於資料融合，並使用 FarmBeats 來建立機器學習/人工智慧（ML/AI）模型。
+將裝置資料與 Azure FarmBeats 整合，可協助您從伺服器陣列中部署的 IoT 感應器，取得資料中樞的基礎資料。 資料一經提供，就可以透過 FarmBeats 加速器來視覺化。 資料可以用於資料融合，並使用 FarmBeats 來建立機器學習/人工智慧（ML/AI）模型。
 
 若要啟動感應器資料串流，請確定下列事項：
 
@@ -44,7 +44,7 @@ Azure FarmBeats 可協助您將 IoT 裝置和感應器的串流資料帶入 Data
 1. 下載[zip](https://aka.ms/farmbeatspartnerscriptv2)檔案，並將它解壓縮到您的本機磁片磁碟機。 Zip 檔案中將會有一個檔案。
 2. 登入 https://portal.azure.com/ 並移至 Azure Active Directory > 應用程式註冊
 
-3. 按一下在 FarmBeats 部署過程中建立的應用程式註冊。 它的名稱會與您的 FarmBeats Datahub 相同。
+3. 按一下在 FarmBeats 部署過程中建立的應用程式註冊。 它的名稱會與您的 FarmBeats 資料中樞相同。
 
 4. 按一下 [公開 API]-> 按一下 [新增用戶端應用程式] 並輸入**04b07795-8ddb-461a-bbee-02f9e1bf7b46** ，然後選取 [授權範圍]。 這會授與 Azure CLI （Cloud Shell）的存取權，以執行下列步驟。
 

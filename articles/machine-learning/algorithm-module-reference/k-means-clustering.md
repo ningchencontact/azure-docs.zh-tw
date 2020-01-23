@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 7451758e758d597bfe63d92fe4789c8fa81b3dff
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 000db771f27c7063aee120f06e13eec3575c8ef5
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311473"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546634"
 ---
 # <a name="module-k-means-clustering"></a>模組： K-表示群集
 
-本文說明如何在 Azure Machine Learning 設計工具中使用*K 意指*叢集模組，以建立未定型的 K 表示叢集模型。 
+本文說明如何在 Azure Machine Learning 設計工具（預覽）中使用*K 意指*叢集模組，以建立未定型的 k 意義群集模型。 
  
 K-表示是其中一個最簡單且最知名的*不受監督*學習演算法。 您可以使用演算法來進行各種機器學習工作，例如： 
 

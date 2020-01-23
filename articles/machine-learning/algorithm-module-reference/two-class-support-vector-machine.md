@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: ca47bed45f8d726010dde40a936da6f93eb0b140
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: c5ad269bf9cfa43ebad7163c858ef20bc8641878
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76315009"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548317"
 ---
 # <a name="two-class-support-vector-machine-module"></a>雙類別支援向量機器模組
 
-本文說明 Azure Machine Learning 設計工具中的模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用此模組來建立以支援向量機器演算法為基礎的模型。 
 

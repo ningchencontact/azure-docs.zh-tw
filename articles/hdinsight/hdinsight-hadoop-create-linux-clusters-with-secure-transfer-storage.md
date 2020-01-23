@@ -7,24 +7,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
-ms.openlocfilehash: bcb0e9551f4415b2aac9eb2d641c91df9f692437
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/22/2020
+ms.openlocfilehash: a8176cc07296b7de7b6aba5356485280ef5ebde1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979112"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548810"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>在 Azure HDInsight 中使用安全傳輸儲存體帳戶來建立 Apache Hadoop 叢集
 
 [需要安全傳輸](../storage/common/storage-require-secure-transfer.md)功能透過安全連線來強制對您帳戶的所有要求，以增強 Azure 儲存體帳戶的安全性。 只有 HDInsight 叢集 3.6 版或更新版本支援這項功能和 wasbs 配置。
+
+**在建立叢集之後啟用安全儲存體傳輸，可能會導致使用您的儲存體帳戶發生錯誤，因此不建議您這麼做。最好是在啟用屬性的情況下建立新的叢集。**
 
 ## <a name="prerequisites"></a>必要條件
 
 在開始本文之前，您必須具備：
 
 * Azure 訂用帳戶：若要建立一個月的免費試用帳戶，請流覽至[azure.microsoft.com/free](https://azure.microsoft.com/free)。
-* 已啟用安全傳輸的 Azure 儲存體帳戶。 如需相關指示，請參閱[建立儲存體帳戶](../storage/common/storage-account-create.md)和[需要安全傳輸](../storage/common/storage-require-secure-transfer.md)。 在建立叢集之後啟用安全儲存體傳輸需要本文未涵蓋的其他步驟。
+* 已啟用安全傳輸的 Azure 儲存體帳戶。 如需相關指示，請參閱[建立儲存體帳戶](../storage/common/storage-account-create.md)和[需要安全傳輸](../storage/common/storage-require-secure-transfer.md)。 
 * 儲存體帳戶上的 Blob 容器。
 
 ## <a name="create-cluster"></a>建立叢集

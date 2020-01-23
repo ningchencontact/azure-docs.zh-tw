@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: 88b2da863b30157de7bb749ae0ca4d040484af52
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: cb15f637337df05c61eeac611286b49e23b6adac
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293635"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549184"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中隔離叢集的最佳做法
 
@@ -26,7 +26,7 @@ ms.locfileid: "76293635"
 
 ## <a name="design-clusters-for-multi-tenancy"></a>設計多租用戶的叢集
 
-Kubernetes 提供功能讓您以邏輯方式隔離相同叢集中的小組和工作負載。 其目標應該是要提供以每個小組所需資源為範圍的最少權限數目。 Kubernetes 中的[命名空間][k8s-namespaces]會建立邏輯隔離界限。 其他的 Kubernetes 功能和隔離與多租用戶考量包括下列領域：
+Kubernetes 提供功能讓您以邏輯方式隔離相同叢集中的小組和工作負載。 其目標應該是要提供以每個小組所需資源為範圍的最少權限數目。 Kubernetes 中的[命名空間][k8s-namespaces]會建立邏輯隔離界限。 隔離和多租使用者的其他 Kubernetes 功能和考慮包括下欄區域：
 
 * **排程**包含使用基本功能，例如資源配額和 Pod 中斷預算。 如需這些功能的詳細資訊，請參閱[AKS 中基本排程器功能的最佳做法][aks-best-practices-scheduler]。
   * 更進階的排程器功能包括污點和容差、節點選取器，以及節點和 Pod 的親和性或反親和性。 如需這些功能的詳細資訊，請參閱[AKS 中先進排程器功能的最佳做法][aks-best-practices-advanced-scheduler]。

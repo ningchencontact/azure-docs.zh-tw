@@ -4,12 +4,12 @@ description: 瞭解如何使用適用于 Visual Studio 2019 的 Azure Functions 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 571519b996948a9fc4ac98e18e510fcee1dbef9b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 7aceae256c4fc4d18615e181bbcb7425e659955d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769759"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547348"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 來開發 Azure Functions  
 
@@ -136,7 +136,7 @@ Visual Studio 在開發函數時提供下列優點：
     }
     ```
 
-    會將繫結特定屬性套用至提供給進入點方法的每個繫結參數。 屬性會將繫結資訊作為參數使用。 在上述範例中，第一個參數套用了 **QueueTrigger** 屬性，指出佇列觸發的函數。 佇列名稱和連接字串設定名稱會作為參數傳遞至 **QueueTrigger** 屬性。 如需詳細資訊，請參閱 [Azure Functions 的 Azure 佇列儲存體繫結](functions-bindings-storage-queue.md#trigger---c-example)。
+    會將繫結特定屬性套用至提供給進入點方法的每個繫結參數。 屬性會將繫結資訊作為參數使用。 在上述範例中，第一個參數套用了 **QueueTrigger** 屬性，指出佇列觸發的函數。 佇列名稱和連接字串設定名稱會作為參數傳遞至 **QueueTrigger** 屬性。 如需詳細資訊，請參閱 [Azure Functions 的 Azure 佇列儲存體繫結](functions-bindings-storage-queue.md#trigger)。
 
 您可以使用上述程序，對函式應用程式專案新增更多函式。 專案中的每個函式都可以有不同的觸發程序，但函式必須只有一個觸發程序。 如需詳細資訊，請參閱 [Azure Functions 觸發程序和繫結概念](functions-triggers-bindings.md)。
 

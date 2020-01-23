@@ -1,27 +1,21 @@
 ---
 title: 跨可用性區域進行 VM 負載平衡 - Azure CLI - Azure Load Balancer
 description: 此 Azure CLI 指令碼範例示範如何跨越可用性區域為 VM 的流量進行負載平衡
-services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
-manager: jeconnoc
-editor: tysonn
-tags: ''
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
-ms.openlocfilehash: 92f03981a573a9688115d9505266e94b7cab0e78
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 8ef4a0d1eca76ffaad7136c9b55756b96b80925f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048892"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274584"
 ---
 # <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Azure CLI 指令碼範例：跨越多個可用性區域為虛擬機器進行負載平衡
 
@@ -167,7 +161,7 @@ az group delete --name myResourceGroup
 
 此指令碼使用下列命令來建立資源群組、虛擬機器、可用性設定組、負載平衡器和所有相關資源。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az-network-vnet-create) | 建立 Azure 虛擬網路和子網路。 |

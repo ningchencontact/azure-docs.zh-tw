@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 70254e42b5964c7c7a3bf15c396f4c118f68a5ed
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: ea213921c736bc3b6bf88c0bdd81a96656ecbe5b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121228"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547280"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -21,7 +21,7 @@ ms.locfileid: "76121228"
 
 ## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
-[Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 套件 2.x 版中提供佇列儲存體繫結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub 存放庫中。
+[Microsoft. Azure webjob](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) Nuget 套件2.x 版中提供佇列儲存體系結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub 存放庫中。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -29,7 +29,7 @@ ms.locfileid: "76121228"
 
 ## <a name="packages---functions-2x-and-higher"></a>封裝-函數2.x 和更新版本
 
-[Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet 套件 3.x 版中提供佇列儲存體繫結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) GitHub 存放庫中。
+在3.x 版中，會提供[佇列儲存體的系](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage)結，例如版本3.x。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) GitHub 存放庫中。
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -40,17 +40,7 @@ Functions 預期有 base64 編碼的字串。 任何對於編碼類型的調整 
 
 在佇列上收到新項目時，可使用佇列觸發程序以啟動函式。 佇列訊息會當成函式輸入提供。
 
-## <a name="trigger---example"></a>觸發程序 - 範例
-
-請參閱特定語言的範例：
-
-* [C#](#trigger---c-example)
-* [C# 指令碼 (.csx)](#trigger---c-script-example)
-* [JavaScript](#trigger---javascript-example)
-* [Java](#trigger---java-example)
-* [Python](#trigger---python-example)
-
-### <a name="trigger---c-example"></a>觸發程序 - C# 範例
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 下列範例所示範的 [C# 函式](functions-dotnet-class-library.md)會輪詢 `myqueue-items` 佇列，並在每次處理佇列項目時寫入記錄。
 
@@ -67,7 +57,7 @@ public static class QueueFunctions
 }
 ```
 
-### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 下列範例示範的是 *function.json* 檔案中的佇列觸發程序繫結，以及使用該繫結的 [C# 指令碼 (.csx)](functions-reference-csharp.md) 程式碼。 此函式會輪詢 `myqueue-items` 佇列，並在每次處理佇列項目時寫入記錄。
 
@@ -122,7 +112,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 [使用方式](#trigger---usage)章節會說明 `myQueueItem` (由 function.json 中的`name` 屬性命名)。  [訊息中繼資料區段](#trigger---message-metadata)會說明所有其他顯示的變數。
 
-### <a name="trigger---javascript-example"></a>觸發程序 - JavaScript 範例
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 下列範例示範的是 *function.json* 檔案中的佇列觸發程序繫結，以及使用該繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會輪詢 `myqueue-items` 佇列，並在每次處理佇列項目時寫入記錄。
 
@@ -167,23 +157,7 @@ module.exports = async function (context, message) {
 
 [使用方式](#trigger---usage)章節會說明 `myQueueItem` (由 function.json 中的`name` 屬性命名)。  [訊息中繼資料區段](#trigger---message-metadata)會說明所有其他顯示的變數。
 
-### <a name="trigger---java-example"></a>觸發程序 - Java 範例
-
-下列 Java 範例所示範的儲存體佇列觸發程序函式會記錄放入 `myqueuename` 佇列的已觸發訊息。
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
-
-### <a name="trigger---python-example"></a>觸發程序 - Python 範例
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 下列範例示範如何讀取透過觸發程式傳遞至函式的佇列訊息。
 
@@ -204,7 +178,7 @@ module.exports = async function (context, message) {
 }
 ```
 
-程式碼 *_\_init_\_。 .py*會將參數宣告為 `func.ServiceBusMessage`，這可讓您讀取函數中的佇列訊息。
+程式碼 *_\_init_\_。 .py*會將參數宣告為 `func.ServiceBusMessage`，這可讓您讀取函式中的佇列訊息。
 
 ```python
 import logging
@@ -231,7 +205,27 @@ def main(msg: func.QueueMessage):
     logging.info(result)
 ```
 
-## <a name="trigger---attributes"></a>觸發程序 - 屬性
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+下列 JAVA 範例顯示儲存體佇列觸發程式函式，此函式會記錄放入佇列 `myqueuename`中已觸發的訊息。
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
+ ---
+
+## <a name="trigger---attributes-and-annotations"></a>觸發程式-屬性和注釋
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用下列屬性以設定佇列觸發程序：
 
@@ -261,7 +255,7 @@ def main(msg: func.QueueMessage):
   }
   ```
 
-  如需完整範例，請參閱[觸發程序 - C# 範例](#trigger---c-example)。
+  如需完整範例，請參閱[觸發程序 - C# 範例](#trigger)。
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -287,6 +281,47 @@ def main(msg: func.QueueMessage):
 * `StorageAccount` 屬性套用至該類別。
 * 「AzureWebJobsStorage」應用程式設定。
 
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
+
+C#腳本不支援屬性。
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JAVA 腳本不支援屬性。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python 不支援屬性。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+`QueueTrigger` 注釋可讓您存取觸發函數的佇列。 下列範例會透過 `message` 參數，將佇列訊息提供給函式。
+
+```java
+package com.function;
+import com.microsoft.azure.functions.annotation.*;
+import java.util.Queue;
+import com.microsoft.azure.functions.*;
+
+public class QueueTriggerDemo {
+    @FunctionName("QueueTriggerDemo")
+    public void run(
+        @QueueTrigger(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Queue message: " + message);
+    }
+}
+```
+
+| 屬性    | 說明 |
+|-------------|-----------------------------|
+|`name`       | 宣告函式簽章中的參數名稱。 觸發函式時，這個參數的值會有佇列訊息的內容。 |
+|`queueName`  | 宣告儲存體帳戶中的佇列名稱。 |
+|`connection` | 指向儲存體帳戶連接字串。 |
+
+---
+
 ## <a name="trigger---configuration"></a>觸發程式 - 設定
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `QueueTrigger` 屬性。
@@ -303,7 +338,9 @@ def main(msg: func.QueueMessage):
 
 ## <a name="trigger---usage"></a>觸發程序 - 使用方式
 
-在 C# 和 C# 指令碼中，使用方法參數 (例如 `string paramName`) 來存取訊息資料。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以繫結至下列任何類型：
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+使用方法參數（例如 `string paramName`）存取訊息資料。 您可以繫結至下列任何類型：
 
 * 物件：Functions 執行階段會將 JSON 裝載還原序列化為程式碼中所定義之任意類別的執行個體。 
 * `string`
@@ -312,7 +349,30 @@ def main(msg: func.QueueMessage):
 
 如果您嘗試繫結至 `CloudQueueMessage`，並出現錯誤訊息，請確定您已參考[正確的儲存體 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
 
-在 JavaScript 中，使用 `context.bindings.<name>` 存取佇列項目承載。 如果承載為 JSON，則會將已序列化的承載還原為物件。 此承載也會當作第二個參數傳遞給函式。
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
+
+使用方法參數（例如 `string paramName`）存取訊息資料。 `paramName` 是在*函數. json*的 `name` 屬性中指定的值。 您可以繫結至下列任何類型：
+
+* 物件：Functions 執行階段會將 JSON 裝載還原序列化為程式碼中所定義之任意類別的執行個體。 
+* `string`
+* `byte[]`
+* [CloudQueueMessage]
+
+如果您嘗試繫結至 `CloudQueueMessage`，並出現錯誤訊息，請確定您已參考[正確的儲存體 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+佇列專案裝載可透過 `context.bindings.<NAME>` 取得，其中 `<NAME>` 符合在函*式中定義的名稱。* 如果裝載是 JSON，此值會還原序列化為物件。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+透過輸入為[QueueMessage](https://docs.microsoft.com/python/api/azure-functions/azure.functions.queuemessage?view=azure-python)的參數來存取佇列訊息。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+[QueueTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable)注釋可讓您存取觸發函式的佇列訊息。
+
+---
 
 ## <a name="trigger---message-metadata"></a>觸發程序 - 訊息中繼資料
 
@@ -365,22 +425,12 @@ def main(msg: func.QueueMessage):
 
 使用 Azure 佇列儲存體輸出繫結，將訊息寫入佇列。
 
-## <a name="output---example"></a>輸出 - 範例
-
-請參閱特定語言的範例：
-
-* [C#](#output---c-example)
-* [C# 指令碼 (.csx)](#output---c-script-example)
-* [JavaScript](#output---javascript-example)
-* [Java](#output---java-example)
-* [Python](#output---python-example)
-
-### <a name="output---c-example"></a>輸出 - C# 範例
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 下列範例所示範的 [C# 函式](functions-dotnet-class-library.md)會為每個收到的 HTTP 要求建立佇列訊息。
 
 ```csharp
-[StorageAccount("AzureWebJobsStorage")]
+[StorageAccount("MyStorageConnectionAppSetting")]
 public static class QueueFunctions
 {
     [FunctionName("QueueOutput")]
@@ -393,7 +443,7 @@ public static class QueueFunctions
 }
 ```
 
-### <a name="output---c-script-example"></a>輸出 - C# 指令碼範例
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 下列範例示範的是 *function.json* 檔案中的 HTTP 觸發程序繫結，以及使用該繫結的 [C# 指令碼 (.csx)](functions-reference-csharp.md) 程式碼。 此函式會針對每個收到的 HTTP 要求，使用 **CustomQueueMessage** 物件承載來建立佇列項目。
 
@@ -454,7 +504,7 @@ public static void Run(
 }
 ```
 
-### <a name="output---javascript-example"></a>輸出 - JavaScript 範例
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 下列範例示範的是 *function.json* 檔案中的 HTTP 觸發程序繫結，以及使用該繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會針對每個收到的 HTTP 要求建立佇列項目。
 
@@ -504,25 +554,7 @@ module.exports = function(context) {
 };
 ```
 
-### <a name="output---java-example"></a>輸出 - Java 範例
-
- 下列範例顯示的 JAVA 函式會在 HTTP 要求觸發時建立佇列訊息。
-
-```java
-@FunctionName("httpToQueue")
-@QueueOutput(name = "item", queueName = "myqueue-items", connection = "AzureWebJobsStorage")
- public String pushToQueue(
-     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-     final String message,
-     @HttpOutput(name = "response") final OutputBinding<String> result) {
-       result.setValue(message + " has been added.");
-       return message;
- }
-```
-
-在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值要寫入至佇列儲存體的參數使用 `@QueueOutput` 註釋。  參數類型應為 `OutputBinding<T>`，其中 T 是任何原生 Java 類型的 POJO。
-
-### <a name="output---python-example"></a>輸出 - Python 範例
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 下列範例示範如何將單一和多個值輸出到儲存體佇列。 *函數. json*所需的設定也是相同的方式。
 
@@ -585,7 +617,29 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
     return 'OK'
 ```
 
-## <a name="output---attributes"></a>輸出 - 屬性
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+ 下列範例顯示的 JAVA 函式會建立由 HTTP 要求觸發時的佇列訊息。
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+```
+
+在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值要寫入至佇列儲存體的參數使用 `@QueueOutput` 註釋。  參數類型應該是 `OutputBinding<T>`，其中 `T` 是 POJO 的任何原生 JAVA 類型。
+
+---
+
+## <a name="output---attributes-and-annotations"></a>輸出-屬性和注釋
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs)。
 
@@ -611,9 +665,54 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-如需完整範例，請參閱[輸出 - C# 範例](#output---c-example)。
+如需完整範例，請參閱[輸出 - C# 範例](#output)。
 
 您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱「觸發程序 - 屬性」。
+
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
+
+C#腳本不支援屬性。
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JAVA 腳本不支援屬性。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python 不支援屬性。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+`QueueOutput` 注釋可讓您存取，以寫入訊息的輸出函式。 下列範例顯示的是 HTTP 觸發的函式，它會建立佇列訊息。
+
+```java
+package com.function;
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
+public class HttpTriggerQueueOutput {
+    @FunctionName("HttpTriggerQueueOutput")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
+            @QueueOutput(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") OutputBinding<String> message,
+            final ExecutionContext context) {
+
+        message.setValue(request.getQueryParameters().get("name"));
+        return request.createResponseBuilder(HttpStatus.OK).body("Done").build();
+    }
+}
+```
+
+| 屬性    | 說明 |
+|-------------|-----------------------------|
+|`name`       | 宣告函式簽章中的參數名稱。 觸發函式時，這個參數的值會有佇列訊息的內容。 |
+|`queueName`  | 宣告儲存體帳戶中的佇列名稱。 |
+|`connection` | 指向儲存體帳戶連接字串。 |
+
+與 `QueueOutput` 注釋相關聯的參數會輸入為[OutputBinding\<t\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java)實例。
+
+---
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
@@ -631,7 +730,9 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 ## <a name="output---usage"></a>輸出 - 使用方式
 
-在 C# 和 C# 指令碼中，藉由使用方法參數 (例如 `out T paramName`) 寫入單一佇列訊息。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 您可以使用方法傳回類型，而不是 `out` 參數，而且 `T` 可以是下列類型之一：
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+使用方法參數（例如 `out T paramName`）撰寫單一佇列訊息。 您可以使用方法傳回類型，而不是 `out` 參數，而且 `T` 可以是下列類型之一：
 
 * 可序列化為 JSON 的物件
 * `string`
@@ -645,8 +746,43 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 * `ICollector<T>` 或 `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-在 JavaScript 函式中，使用 `context.bindings.<name>` 存取輸出佇列訊息。 對於佇列項目承載，可使用字串或 JSON 可序列化物件。
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
+使用方法參數（例如 `out T paramName`）撰寫單一佇列訊息。 `paramName` 是在*函數. json*的 `name` 屬性中指定的值。 您可以使用方法傳回類型，而不是 `out` 參數，而且 `T` 可以是下列類型之一：
+
+* 可序列化為 JSON 的物件
+* `string`
+* `byte[]`
+* [CloudQueueMessage] 
+
+如果您嘗試繫結至 `CloudQueueMessage`，並出現錯誤訊息，請確定您已參考[正確的儲存體 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
+
+在 C# 和 C# 指令碼中，藉由使用下列其中一個類型，寫入多個佇列訊息： 
+
+* `ICollector<T>` 或 `IAsyncCollector<T>`
+* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+輸出佇列專案可透過 `context.bindings.<NAME>`，其中 `<NAME>` 符合在函*式中定義的名稱。* 對於佇列項目承載，可使用字串或 JSON 可序列化物件。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+有兩個選項可從函式輸出事件中樞訊息：
+
+- 傳回**值**：將*函數. json*中的 `name` 屬性設定為 `$return`。 使用此設定時，函數的傳回值會保存為佇列儲存體訊息。
+
+- **命令式**：將值傳遞給宣告為[Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python)類型之參數的[set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none)方法。 傳遞給 `set` 的值會保存為佇列儲存體訊息。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+有兩個選項可從函式使用[QueueOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queueoutput)批註輸出事件中樞訊息：
+
+- 傳回**值**：藉由將注釋套用至函式本身，函式的傳回值會保存為事件中樞訊息。
+
+- **命令式**：若要明確設定訊息值，請將注釋套用至類型[`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding)的特定參數，其中 `T` 是 POJO 或任何原生 JAVA 類型。 使用此設定時，將值傳遞至 `setValue` 方法會將值保存為事件中樞訊息。
+
+---
 
 ## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
 
@@ -679,7 +815,6 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
     }
 }
 ```
-
 
 |屬性  |預設 | 說明 |
 |---------|---------|---------|

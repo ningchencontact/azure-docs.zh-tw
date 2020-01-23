@@ -1,14 +1,14 @@
 ---
 title: 讓客戶在 Azure 委派的資源管理中上線
 description: 了解如何讓客戶在 Azure 委派的資源管理中上線，讓其資源可透過您自己的租用戶來管理。
-ms.date: 01/09/2020
+ms.date: 01/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca9e17a9ee4e83492eccf63e4c7d353891071f27
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: b3868987fa76d4ce0d4c34e81b46301ea106203d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314618"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543404"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>讓客戶在 Azure 委派的資源管理中上線
 
@@ -236,7 +236,7 @@ az deployment create --name <deploymentName> \
                      --verbose
 
 # Deploy external Azure Resource Manager template, with local parameter file
-az deployment create --name <deploymentName \
+az deployment create --name <deploymentName> \
                      --location <AzureRegion> \
                      --template-uri <templateUri> \
                      --parameters <parameterFile> \
@@ -302,6 +302,12 @@ az account list
 ```
 
 擁有此權限的使用者可以使用下列其中一種方式移除委派。
+
+### <a name="azure-portal"></a>Azure Portal
+
+1. 瀏覽至 [[我的客戶] 頁面](view-manage-customers.md)。
+2. 選取 [**委派**]。
+3. 尋找您要移除的委派，然後選取出現在其資料列中的垃圾桶圖示。
 
 ### <a name="powershell"></a>PowerShell
 

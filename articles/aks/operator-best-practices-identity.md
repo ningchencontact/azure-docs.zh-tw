@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 82bf59dddeecab0addf00a935f55be8d1d7952d3
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 06d15d66df0b2ec0049d4b2fffae6a9909b05dca
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614785"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549133"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中驗證和授權的最佳做法
 
 當您在 Azure Kubernetes Service (AKS) 中部署及維護叢集時，您必須透過適當實作來管理對資源和服務的存取。 若沒有這樣的控制，帳戶將可能存取不需要的資源和服務。 此外，也會難以追蹤用來進行變更的認證集。
 
-這篇最佳做法文章主要將說明叢集操作員如何管理 AKS 叢集的存取與身分識別。 在本文中，您將了解：
+這篇最佳做法文章主要將說明叢集操作員如何管理 AKS 叢集的存取與身分識別。 在本文中，您將學會如何：
 
 > [!div class="checklist"]
 > * 使用 Azure Active Directory 驗證 AKS 叢集使用者
@@ -42,13 +42,13 @@ Kubernetes 叢集的開發人員和應用程式擁有者需要存取不同的資
 1. 套用 Kubernetes 角色型存取控制 (RBAC) 和叢集原則。
 1. 開發人員的要求是否成功取決於根據先前的 Azure AD 群組成員資格以及 Kubernetes RBAC 和原則的驗證。
 
-若要建立 AKS 叢集使用 Azure AD，請參閱[整合 Azure Active Directory 與 AKS][aks-aad]。
+若要建立使用 Azure AD 的 AKS 叢集，請參閱[整合 Azure Active Directory 與 AKS][aks-aad]。
 
 ## <a name="use-role-based-access-controls-rbac"></a>使用角色型存取控制 (RBAC)
 
 **最佳做法指引** - 使用 Kubernetes RBAC 定義使用者或群組對於叢集中的資源所擁有的權限。 建立會指派最少量必要權限的角色和繫結。 與 Azure AD 整合，讓使用者狀態或群組成員資格中的任何變更都會自動更新，並且讓叢集資源的存取權保持在最新狀態。
 
-在 Kubernetes 中，您可以對叢集中的資源存取進行更精細的控制。 權限可定義於叢集層級上，或定義至特定的命名空間。 您可以定義可管理哪些資源，以及具備哪些權限。 這些角色會套用至具有繫結的使用者或群組。 如需詳細資訊*角色*， *ClusterRoles*，並*繫結*，請參閱[存取和身分識別選項 Azure Kubernetes Service (AKS)][aks-concepts-identity].
+在 Kubernetes 中，您可以對叢集中的資源存取進行更精細的控制。 權限可定義於叢集層級上，或定義至特定的命名空間。 您可以定義可管理哪些資源，以及具備哪些權限。 這些角色接著會套用至具有系結的使用者或群組。 如需*角色*、 *ClusterRoles*和系*結的詳細資訊，請*參閱[Azure Kubernetes Service （AKS）的存取和身分識別選項][aks-concepts-identity]。
 
 例如，您可以在名為 *finance-app* 的命名空間中建立會授與完整資源存取權的角色，如下列範例 YAML 資訊清單所示：
 
@@ -64,7 +64,7 @@ rules:
   verbs: ["*"]
 ```
 
-RoleBinding 接著會建立繫結的 Azure AD 使用者*developer1\@contoso.com*至 RoleBinding，如下列 YAML 資訊清單中所示：
+接著會建立接著，將 Azure AD 使用者*developer1\@contoso.com*系結至接著，如下列 YAML 資訊清單所示：
 
 ```yaml
 kind: RoleBinding
@@ -82,17 +82,17 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-當*developer1\@contoso.com*通過驗證還針對 AKS 叢集，在資源的完整權限*財務應用程式*命名空間。 如此，您將可透過邏輯方式來區分及控制對資源的存取。 如上一節的討論，Kubernetes RBAC 應與 Azure AD 整合搭配使用。
+當*developer1\@contoso.com*向 AKS 叢集進行驗證時，他們具有*財務應用程式*命名空間中資源的完整許可權。 如此，您將可透過邏輯方式來區分及控制對資源的存取。 如上一節的討論，Kubernetes RBAC 應與 Azure AD 整合搭配使用。
 
-若要了解如何使用 Azure AD 群組來控制使用 RBAC 的 Kubernetes 資源的存取權，請參閱[控制在 AKS 中使用角色型存取控制和 Azure Active Directory 身分識別的叢集資源的存取權][azure-ad-rbac]。
+若要瞭解如何使用 Azure AD 群組來控制使用 RBAC 的 Kubernetes 資源存取，請參閱[使用角色型存取控制來控制叢集資源的存取和 AKS 中的 Azure Active Directory][azure-ad-rbac]身分識別。
 
 ## <a name="use-pod-identities"></a>使用 Pod 身分識別
 
-**最佳做法指引** - 請勿使用 Pod 或容器映像內的固定認證，因為這些認證有外洩或濫用的風險。 請改用 Pod 身分識別，以使用中央 Azure AD 身分識別解決方案自動要求存取權。 適用於 Linux 的 pod 和容器映像只是 pod 身分識別。
+**最佳做法指引** - 請勿使用 Pod 或容器映像內的固定認證，因為這些認證有外洩或濫用的風險。 請改用 Pod 身分識別，以使用中央 Azure AD 身分識別解決方案自動要求存取權。 Pod 身分識別僅適用于 Linux Pod 和容器映射。
 
 當 Pod 需要存取其他 Azure 服務時 (例如 Cosmos DB、Key Vault 或 Blob 儲存體)，Pod 將需要存取認證。 這些存取認證可以使用容器映像來定義或插入作為 Kubernetes 祕密，但必須以手動方式建立並指派。 認證通常會跨 Pod 重複使用，而不會定期輪替。
 
-適用於 Azure 資源 （目前實作為相關聯的 AKS 開放原始碼專案） 的受管理身分識別可讓您自動要求存取透過 Azure AD 的服務。 您不需手動定義 Pod 的認證，因為 Pod 會即時要求存取權杖，並且可用該權杖來存取其獲指派的服務。 在 AKS 中，叢集操作員會部署兩個元件，讓 Pod 能夠使用受控識別：
+適用于 Azure 資源的受控識別（目前實作為相關聯的 AKS 開放原始碼專案）可讓您透過 Azure AD 自動要求存取服務。 您不需手動定義 Pod 的認證，因為 Pod 會即時要求存取權杖，並且可用該權杖來存取其獲指派的服務。 在 AKS 中，叢集操作員會部署兩個元件，讓 Pod 能夠使用受控識別：
 
 * **節點管理身分識別 (NMI) 伺服器**是在 AKS 叢集中的每個節點上以 DaemonSet 形式執行的 Pod。 NMI 伺服器會接聽 Pod 對 Azure 服務的要求。
 * **受控識別控制器 (MIC)** 是一個中央 Pod，有權查詢 Kubernetes API 伺服器，以及檢查對應至 Pod 的 Azure 身分識別對應。
@@ -109,22 +109,22 @@ roleRef:
 1. 權杖傳回至 Pod，並用來存取 Azure SQL Server 執行個體。
 
 > [!NOTE]
-> 受管理的 pod 身分識別是開放原始碼專案，並不支援的 Azure 技術支援。
+> 受控 pod 身分識別是一個開放原始碼專案，不受 Azure 技術支援的支援。
 
-若要使用 pod 身分識別，請參閱[Kubernetes 應用程式的 Azure Active Directory 身分識別][aad-pod-identity]。
+若要使用 pod 身分識別，請參閱[Kubernetes 應用程式的 Azure Active Directory][aad-pod-identity]身分識別。
 
 ## <a name="next-steps"></a>後續步驟
 
 這篇最佳做法文章主要討論叢集和資源的驗證和授權。 若要實作這些最佳做法，請參閱下列文章：
 
-* [搭配 AKS 整合 Azure Active Directory][aks-aad]
-* [適用於 Azure 資源搭配 AKS 使用受管理的身分識別][aad-pod-identity]
+* [整合 Azure Active Directory 與 AKS][aks-aad]
+* [透過 AKS 使用適用于 Azure 資源的受控識別][aad-pod-identity]
 
 如需 AKS 中叢集作業的相關詳細資訊，請參閱下列最佳作法：
 
-* [多租用戶和叢集的隔離][aks-best-practices-scheduler]
-* [基本的 Kubernetes 排程器功能][aks-best-practices-scheduler]
-* [進階的 Kubernetes 排程器功能][aks-best-practices-advanced-scheduler]
+* [多租使用者和叢集隔離][aks-best-practices-scheduler]
+* [基本 Kubernetes 排程器功能][aks-best-practices-scheduler]
+* [Advanced Kubernetes 排程器功能][aks-best-practices-advanced-scheduler]
 
 <!-- EXTERNAL LINKS -->
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity

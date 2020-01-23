@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 111581def3ed0c366898534ee6b6c5f5b6d9e756
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 9c4f0a72cb598a8e38fc69f23f62f0f456cccb04
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293108"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543914"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步來實作密碼雜湊同步處理
 本文提供您所需資訊，以讓您將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure Active Directory (Azure AD) 執行個體。
@@ -124,7 +124,7 @@ Azure AD 針對每個已註冊的網域支援不同的密碼到期原則。
 > [!NOTE]
 > 這項功能目前處於公開預覽狀態。
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon"></a>同步處理暫時密碼和「下次登入時強制密碼」的公開預覽
+#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon"></a>同步處理暫時密碼和「下次登入時強制密碼重設」的公開預覽
 
 通常會強制使用者在第一次登入時變更其密碼，特別是在發生系統管理員密碼重設之後。  這通常稱為設定「暫時」密碼，並透過在 Active Directory （AD）中的使用者物件上核取 [使用者必須在下次登入時變更密碼] 旗標來完成。
   

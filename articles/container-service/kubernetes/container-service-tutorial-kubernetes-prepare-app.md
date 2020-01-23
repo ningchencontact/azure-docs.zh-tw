@@ -1,20 +1,18 @@
 ---
 title: (即將淘汰) Azure Container Service 教學課程 - 準備應用程式
 description: Azure Container Service 教學課程 - 準備應用程式
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 961f09d7581a26596b03e7a2f8e97d98fe83e6aa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b67e3008bc2ad681e222af6b9edc4a08875732e4
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995379"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275434"
 ---
 # <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(即將淘汰) 建立要與 Azure Container Service 搭配使用的容器映像
 
@@ -46,7 +44,7 @@ Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元
 
 ## <a name="get-application-code"></a>取得應用程式程式碼
 
-本教學課程中使用的範例應用程式是基本投票應用程式。 應用程式是由前端 Web 元件和後端 Redis 執行個體所組成。 Web 元件會封裝至自訂容器映像。 Redis 執行個體會從 Docker Hub 使用未修改的映像。  
+本教學課程中使用的應用程式的範例是基本投票應用程式。 應用程式是由前端 Web 元件和後端 Redis 執行個體所組成。 Web 元件會封裝至自訂容器映像。 Redis 執行個體會從 Docker Hub 使用未修改的映像。  
 
 使用 git 將應用程式的複本下載至您的開發環境。
 

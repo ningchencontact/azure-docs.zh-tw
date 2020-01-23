@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 478a7ae8d6938ee4d4ef5c30c8126c3e95f35305
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: da05dc7136a75d519660412f2ce176f7530eb392
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121279"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547433"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 Azure Cosmos DB 繫結
 
@@ -41,19 +41,7 @@ ms.locfileid: "76121279"
 
 Azure Cosmos DB 觸發程序會使用 [Azure Cosmos DB 變更摘要](../cosmos-db/change-feed.md)，跨分割區接聽插入項目及變更。 變更摘要會發行插入和更新，而非刪除。
 
-## <a name="trigger---example"></a>觸發程序 - 範例
-
-請參閱特定語言的範例：
-
-* [C#](#trigger---c-example)
-* [C# 指令碼 (.csx)](#trigger---c-script-example)
-* [Java](#trigger---java-example)
-* [JavaScript](#trigger---javascript-example)
-* [Python](#trigger---python-example)
-
-[略過觸發程序範例](#trigger---c-attributes)
-
-### <a name="trigger---c-example"></a>觸發程序 - C# 範例
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 以下範例顯示當指定的資料庫和集合中具備插入項目或更新時，系統叫用的 [C# 函式](functions-dotnet-class-library.md)。
 
@@ -87,9 +75,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[略過觸發程序範例](#trigger---c-attributes)
-
-### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 下列範例示範 function.json 檔案中的 Cosmos DB 觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 新增或修改 Cosmos DB 記錄時，函數會寫入記錄訊息。
 
@@ -125,9 +111,7 @@ namespace CosmosDBSamplesV2
     }
 ```
 
-[略過觸發程序範例](#trigger---c-attributes)
-
-### <a name="trigger---javascript-example"></a>觸發程序 - JavaScript 範例
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 下列範例示範的是使用繫結之 function.json 檔案，以及 [JavaScript 函式](functions-reference-node.md)中的 Cosmos DB 觸發程序繫結。 新增或修改 Cosmos DB 記錄時，函數會寫入記錄訊息。
 
@@ -156,9 +140,38 @@ namespace CosmosDBSamplesV2
     }
 ```
 
-[略過觸發程序範例](#trigger---c-attributes)
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
-### <a name="trigger---java-example"></a>觸發程序 - Java 範例
+下列範例示範 function.json 檔案中的 Cosmos DB 觸發程序繫結，以及使用此繫結的 [Python 指令碼函式](functions-reference-python.md)。 修改 Cosmos DB 記錄時，函式會寫入記錄訊息。
+
+以下是 *function.json* 檔案中的繫結資料：
+
+```json
+{
+    "name": "documents",
+    "type": "cosmosDBTrigger",
+    "direction": "in",
+    "leaseCollectionName": "leases",
+    "connectionStringSetting": "<connection-app-setting>",
+    "databaseName": "Tasks",
+    "collectionName": "Items",
+    "createLeaseCollectionIfNotExists": true
+}
+```
+
+以下是 Python 程式碼：
+
+```python
+    import logging
+    import azure.functions as func
+
+
+    def main(documents: func.DocumentList) -> str:
+        if documents:
+            logging.info('First document Id modified: %s', documents[0]['id'])
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 下列範例示範的是使用繫結的 function.json 檔案，以及 [Java 函式](functions-reference-java.md)中的 Cosmos DB 觸發程序繫結。 當指定的資料庫和集合中有插入或更新時，就會叫用函數。
 
@@ -192,44 +205,13 @@ namespace CosmosDBSamplesV2
 ```
 
 
-在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自 Cosmos DB 的參數使用 `@CosmosDBTrigger` 註釋。  此注釋可以搭配原生 JAVA 類型、Pojo 或可為 null 的值使用（選擇性）\<T >。
+在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自 Cosmos DB 的參數使用 `@CosmosDBTrigger` 註釋。  此註釋可以搭配原生 Java 類型、POJO 或使用 `Optional<T>` 的可為 Null 值使用。
 
+---
 
-[略過觸發程序範例](#trigger---c-attributes)
+## <a name="trigger---attributes-and-annotations"></a>觸發程式-屬性和注釋
 
-
-### <a name="trigger---python-example"></a>觸發程序 - Python 範例
-
-下列範例示範 function.json 檔案中的 Cosmos DB 觸發程序繫結，以及使用此繫結的 [Python 指令碼函式](functions-reference-python.md)。 新增或修改 Cosmos DB 記錄時，函數會寫入記錄訊息。
-
-以下是 *function.json* 檔案中的繫結資料：
-
-```json
-{
-    "name": "documents",
-    "type": "cosmosDBTrigger",
-    "direction": "in",
-    "leaseCollectionName": "leases",
-    "connectionStringSetting": "<connection-app-setting>",
-    "databaseName": "Tasks",
-    "collectionName": "Items",
-    "createLeaseCollectionIfNotExists": true
-}
-```
-
-以下是 Python 程式碼：
-
-```python
-    import logging
-    import azure.functions as func
-
-
-    def main(documents: func.DocumentList) -> str:
-        if documents:
-            logging.info('First document Id modified: %s', documents[0]['id'])
-```
-
-## <a name="trigger---c-attributes"></a>觸發程序 - C# 屬性
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) 屬性。
 
@@ -246,8 +228,25 @@ namespace CosmosDBSamplesV2
     }
 ```
 
-如需完整範例，請參閱[觸發程序 - C# 範例](#trigger---c-example)。
+如需完整範例，請參閱[觸發](#trigger)程式。
 
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
+
+C#腳本不支援屬性。
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript 不支援屬性。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python 不支援屬性。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+從 JAVA 函式執行時間連結[庫](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)，在從 Cosmos DB 讀取資料的參數上使用 `@CosmosDBInput` 注釋。
+
+---
 
 ## <a name="trigger---configuration"></a>觸發程式 - 設定
 
@@ -265,15 +264,15 @@ namespace CosmosDBSamplesV2
 |**leaseDatabaseName** |**LeaseDatabaseName** | (選擇性) 保存用來儲存租用之集合的資料庫名稱。 如果未設定，會使用 `databaseName` 設定的值。 在入口網站中建立繫結時，會自動設定此參數。 |
 |**leaseCollectionName** | **LeaseCollectionName** | (選擇性) 用來儲存租用的集合名稱。 如果未設定，會使用 `leases` 值。 |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (選擇性) 設為 `true` 時，如果租用集合尚未存在，即會自動加以建立。 預設值是 `false`。 |
-|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (選擇性) 定義要在建立租用集合時指派的要求單位數。 只有在將 `createLeaseCollectionIfNotExists` 設為 `true` 時才會使用此設定。 使用入口網站建立繫結時，會自動設定此參數。
-|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (選擇性) 如果設定，將會為此函式對建立於租用集合中的租用加上前置詞，而有效地讓兩個不同的 Azure Functions 藉由使用不同的前置詞來共用相同的租用。
-|**feedPollDelay**| **FeedPollDelay**| (選擇性) 如果設定，將會以毫秒為單位定義在目前所有的變更都清空後，每次輪詢分割區以了解摘要上是否有新變更時所要延遲的時間。 預設值為 5000 (5 秒)。
+|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| 選擇性定義建立租用集合時要指派的要求單位數目。 只有當 `createLeaseCollectionIfNotExists` 設定為 `true`時，才會使用此設定。 使用入口網站建立繫結時，會自動設定此參數。
+|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| 選擇性設定時，會將值新增為此函式的租用集合中所建立租用的前置詞。 使用前置詞可讓兩個不同的 Azure Functions 使用不同的首碼來共用相同的租用集合。
+|**feedPollDelay**| **FeedPollDelay**| 選擇性在所有目前的變更清空之後，針對摘要上的新變更輪詢資料分割之間的延遲時間（以毫秒為單位）。 預設值為5000毫秒，或5秒。
 |**leaseAcquireInterval**| **LeaseAcquireInterval**| (選擇性) 如果設定，將會以毫秒為單位定義啟動工作以計算分割區是否平均分散到已知主機執行個體的間隔。 預設值為 13000 (13 秒)。
 |**leaseExpirationInterval**| **LeaseExpirationInterval**| (選擇性) 如果設定，將會以毫秒為單位定義租用代表分割區的間隔。 未在此間隔內更新的租用將會過期，且分割區的擁有權會移轉給另一個執行個體。 預設值為 60000 (60 秒)。
 |**leaseRenewInterval**| **LeaseRenewInterval**| (選擇性) 如果設定，將會以毫秒為單位定義目前由執行個體保有之分割區的所有租用所適用的更新間隔。 預設值為 17000 (17 秒)。
 |**checkpointFrequency**| **CheckpointFrequency**| (選擇性) 如果設定，將會以毫秒為單位定義租用檢查點的間隔。 預設永遠是各函式呼叫後。
-|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| 選擇性設定時，這個屬性會設定每個函式呼叫所接收的最大專案量。 如果受監視集合中的作業是透過預存程式執行，則從變更摘要讀取專案時，會保留[交易範圍](../cosmos-db/stored-procedures-triggers-udfs.md#transactions)。 因此，接收的專案數量可能會高於指定的值，如此一來，相同交易變更的專案就會當做一個不可部分完成批次的一部分傳回。
-|**startFromBeginning**| **StartFromBeginning**| (選擇性) 如果設定此項，它會告訴觸發程序從集合記錄 (而非當前的時間) 起始點讀取變更。 因為在後續執行中，檢查點已儲存，所以這只會在觸發程序第一次啟動時運作。 若已經建立租用，將此項設為 `true` 不會有任何作用。
+|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| 選擇性設定時，這個屬性會設定每個函式呼叫所接收的最大專案數。 如果受監視集合中的作業是透過預存程式執行，則從變更摘要讀取專案時，會保留[交易範圍](../cosmos-db/stored-procedures-triggers-udfs.md#transactions)。 因此，接收的專案數可能會高於指定的值，如此一來，相同交易變更的專案就會當做一個不可部分完成批次的一部分傳回。
+|**startFromBeginning**| **StartFromBeginning**| 選擇性此選項會指示觸發程式從集合的變更歷程記錄開始讀取變更，而不是從目前的時間開始。 從開頭開始讀取只會在觸發程式第一次啟動時運作，而在後續的執行中，檢查點已經儲存。 若已建立租用，將此選項設定為 `true` 則不會有任何作用。
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -294,20 +293,7 @@ Azure Cosmos DB 輸入繫結會使用 SQL API 來擷取一或多個 Azure Cosmos
 > 如果集合已[分割](../cosmos-db/partition-data.md#logical-partitions)，查閱作業也必須指定資料分割索引鍵值。
 >
 
-## <a name="input---examples"></a>輸入 - 範例
-
-請指定 ID 指，以讀取單一文件的方式參閱您慣用語言的範例：
-
-* [C#](#input---c-examples)
-* [C# 指令碼 (.csx)](#input---c-script-examples)
-* [F#](#input---f-examples)
-* [Java](#input---java-examples)
-* [JavaScript](#input---javascript-examples)
-* [Python](#input---python-examples)
-
-[跳過輸入範例](#input---attributes)
-
-### <a name="input---c-examples"></a>輸入 - C# 範例
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 本區段包含下列範例：
 
@@ -332,9 +318,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="queue-trigger-look-up-id-from-json-c"></a>
 
-#### <a name="queue-trigger-look-up-id-from-json-c"></a>佇列觸發程序，從 JSON 中查閱識別碼 (C#)
+### <a name="queue-trigger-look-up-id-from-json"></a>佇列觸發程式，從 JSON 中查閱識別碼 
 
 下列範例示範會顯示擷取單一文件的 [C# 函式](functions-dotnet-class-library.md)。 函式會由包含 JSON 物件的佇列訊息觸發。 佇列觸發程式會將 JSON 剖析為 `ToDoItemLookup`類型的物件，其中包含要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
@@ -385,9 +371,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="http-trigger-look-up-id-from-query-string-c"></a>
 
-#### <a name="http-trigger-look-up-id-from-query-string-c"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 (C#)
+### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP 觸發程式，從查詢字串中查閱識別碼
 
 下列範例示範會顯示擷取單一文件的 [C# 函式](functions-dotnet-class-library.md)。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
@@ -435,9 +421,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-c"></a>
 
-#### <a name="http-trigger-look-up-id-from-route-data-c"></a>HTTP 觸發程序，從路由資料中查閱識別碼 (C#)
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP 觸發程式，從路由資料中查閱識別碼
 
 下列範例示範會顯示擷取單一文件的 [C# 函式](functions-dotnet-class-library.md)。 此函式是由 HTTP 要求所觸發，其使用路由資料來指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
@@ -481,9 +467,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-using-sqlquery-c"></a>
 
-#### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-c"></a>HTTP 觸發程序，使用 SqlQuery 從路由資料中查閱識別碼 (C#)
+### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>HTTP 觸發程式，使用 SqlQuery 從路由資料中查閱識別碼
 
 下列範例示範會顯示擷取單一文件的 [C# 函式](functions-dotnet-class-library.md)。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用路由資料指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 `ToDoItem` 文件。
 
@@ -528,9 +514,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="http-trigger-get-multiple-docs-using-sqlquery-c"></a>
 
-#### <a name="http-trigger-get-multiple-docs-using-sqlquery-c"></a>HTTP 觸發程序，使用 SqlQuery 取得多個文件 (C#)
+### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>HTTP 觸發程式，使用 SqlQuery 取得多個檔
 
 下列範例示範會顯示擷取文件清單的 [C# 函式](functions-dotnet-class-library.md)。 函式是由 HTTP 要求所觸發。 查詢會在 `SqlQuery` 屬性內容中指定。
 
@@ -571,9 +557,9 @@ namespace CosmosDBSamplesV2
 
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="http-trigger-get-multiple-docs-using-documentclient-c"></a>
 
-#### <a name="http-trigger-get-multiple-docs-using-documentclient-c"></a>HTTP 觸發程序，使用 DocumentClient 取得多個文件 (C#)
+### <a name="http-trigger-get-multiple-docs-using-documentclient"></a>HTTP 觸發程式，使用 DocumentClient 取得多個檔
 
 下列範例示範會顯示擷取文件清單的 [C# 函式](functions-dotnet-class-library.md)。 函式是由 HTTP 要求所觸發。 程式碼會使用由 Azure Cosmos DB 繫結提供的 `DocumentClient` 執行個體來讀取文件清單。 `DocumentClient` 執行個體也會用來進行寫入作業。
 
@@ -636,9 +622,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[跳過輸入範例](#input---attributes)
-
-### <a name="input---c-script-examples"></a>輸入 - C# 指令碼範例
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 本區段包含下列範例：
 
@@ -662,9 +646,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="queue-trigger-look-up-id-from-string-c-script"></a>
 
-#### <a name="queue-trigger-look-up-id-from-string-c-script"></a>佇列觸發程序，從字串中查閱識別碼 (C# 指令碼)
+### <a name="queue-trigger-look-up-id-from-string"></a>佇列觸發程式，從字串中查閱識別碼
 
 下列範例示範 function.json 檔案中的 Cosmos DB 輸入繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會讀取單一文件，並更新文件的文字值。
 
@@ -696,9 +680,9 @@ namespace CosmosDBSamplesV2
     }
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="queue-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
 
-#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-c-script"></a>佇列觸發程序，使用 SqlQuery 取得多個文件 (C# 指令碼)
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>佇列觸發程式，使用 SqlQuery 取得多個檔
 
 下列範例顯示 *function.json* 檔案中的 Azure Cosmos DB 輸入繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會使用佇列觸發程序來自訂查詢參數，以擷取 SQL 查詢所指定的多份文件。
 
@@ -737,9 +721,9 @@ namespace CosmosDBSamplesV2
     }
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="http-trigger-look-up-id-from-query-string-c-script"></a>
 
-#### <a name="http-trigger-look-up-id-from-query-string-c-script"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 (C# 指令碼)
+### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP 觸發程式，從查詢字串中查閱識別碼
 
 下列範例會顯示擷取單一文件的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
@@ -800,9 +784,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 }
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-c-script"></a>
 
-#### <a name="http-trigger-look-up-id-from-route-data-c-script"></a>HTTP 觸發程序，從路由資料中查閱識別碼 (C# 指令碼)
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP 觸發程式，從路由資料中查閱識別碼
 
 下列範例會顯示擷取單一文件的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式是由 HTTP 要求所觸發，其使用路由資料來指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
@@ -864,9 +848,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 }
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="http-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
 
-#### <a name="http-trigger-get-multiple-docs-using-sqlquery-c-script"></a>HTTP 觸發程序，使用 SqlQuery 取得多個文件 (C# 指令碼)
+### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>HTTP 觸發程式，使用 SqlQuery 取得多個檔
 
 下列範例會顯示擷取文件清單的 [C# 指令碼函式](functions-reference-csharp.md)。 函式是由 HTTP 要求所觸發。 查詢會在 `SqlQuery` 屬性內容中指定。
 
@@ -922,9 +906,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoIt
 }
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="http-trigger-get-multiple-docs-using-documentclient-c-script"></a>
 
-#### <a name="http-trigger-get-multiple-docs-using-documentclient-c-script"></a>HTTP 觸發程序，使用 DocumentClient 取得多個文件 (C# 指令碼)
+### <a name="http-trigger-get-multiple-docs-using-documentclient"></a>HTTP 觸發程式，使用 DocumentClient 取得多個檔
 
 下列範例會顯示擷取文件清單的 [C# 指令碼函式](functions-reference-csharp.md)。 函式是由 HTTP 要求所觸發。 程式碼會使用由 Azure Cosmos DB 繫結提供的 `DocumentClient` 執行個體來讀取文件清單。 `DocumentClient` 執行個體也會用來進行寫入作業。
 
@@ -1001,9 +985,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 }
 ```
 
-[跳過輸入範例](#input---attributes)
-
-### <a name="input---javascript-examples"></a>輸入 - JavaScript 範例
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 本章節包含下列範例，藉由從各種來源中指定識別碼值，讀取單一文件：
 
@@ -1012,9 +994,9 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 * [HTTP 觸發程序，從路由資料中查閱識別碼](#http-trigger-look-up-id-from-route-data-javascript)
 * [佇列觸發程序，使用 SqlQuery 取得多個文件](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
 
-[跳過輸入範例](#input---attributes)
+<a id="queue-trigger-look-up-id-from-json-javascript"></a>
 
-#### <a name="queue-trigger-look-up-id-from-json-javascript"></a>佇列觸發程序，從 JSON 中查閱識別碼 (JavaScript)
+### <a name="queue-trigger-look-up-id-from-json"></a>佇列觸發程式，從 JSON 中查閱識別碼
 
 下列範例示範 function.json 檔案中的 Cosmos DB 輸入繫結，以及使用此繫結的 [JavaScript 指令碼函式](functions-reference-node.md)。 函式會讀取單一文件，並更新文件的文字值。
 
@@ -1042,6 +1024,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
     "direction": "out"
 }
 ```
+
 [設定](#input---configuration)章節會說明這些屬性。
 
 以下是 JavaScript 程式碼：
@@ -1055,9 +1038,9 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
     };
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="http-trigger-look-up-id-from-query-string-javascript"></a>
 
-#### <a name="http-trigger-look-up-id-from-query-string-javascript"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 (JavaScript)
+### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP 觸發程式，從查詢字串中查閱識別碼
 
 下列範例會顯示擷取單一文件的 [JavaScript 函式](functions-reference-node.md)。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
@@ -1114,9 +1097,9 @@ module.exports = function (context, req, toDoItem) {
 };
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-javascript"></a>
 
-#### <a name="http-trigger-look-up-id-from-route-data-javascript"></a>HTTP 觸發程序，從路由資料中查閱識別碼 (JavaScript)
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP 觸發程式，從路由資料中查閱識別碼
 
 下列範例會顯示擷取單一文件的 [JavaScript 函式](functions-reference-node.md)。 此函式是由 HTTP 要求所觸發，其使用路由資料來指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
@@ -1174,9 +1157,9 @@ module.exports = function (context, req, toDoItem) {
 };
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="queue-trigger-get-multiple-docs-using-sqlquery-javascript"></a>
 
-#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-javascript"></a>佇列觸發程序，使用 SqlQuery 取得多個文件 (JavaScript)
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>佇列觸發程式，使用 SqlQuery 取得多個檔
 
 下列範例顯示 *function.json* 檔案中的 Azure Cosmos DB 輸入繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 函式會使用佇列觸發程序來自訂查詢參數，以擷取 SQL 查詢所指定的多份文件。
 
@@ -1211,9 +1194,7 @@ module.exports = function (context, req, toDoItem) {
     };
 ```
 
-[跳過輸入範例](#input---attributes)
-
-### <a name="input---python-examples"></a>輸入 - Python 範例
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 本章節包含下列範例，藉由從各種來源中指定識別碼值，讀取單一文件：
 
@@ -1222,9 +1203,9 @@ module.exports = function (context, req, toDoItem) {
 * [HTTP 觸發程序，從路由資料中查閱識別碼](#http-trigger-look-up-id-from-route-data-python)
 * [佇列觸發程序，使用 SqlQuery 取得多個文件](#queue-trigger-get-multiple-docs-using-sqlquery-python)
 
-[跳過輸入範例](#input---attributes)
+<a id="queue-trigger-look-up-id-from-json-python"></a>
 
-#### <a name="queue-trigger-look-up-id-from-json-python"></a>佇列觸發程序，從 JSON 中查閱識別碼 (Python)
+### <a name="queue-trigger-look-up-id-from-json"></a>佇列觸發程式，從 JSON 中查閱識別碼
 
 下列範例示範 function.json 檔案中的 Cosmos DB 觸發程序繫結，以及使用此繫結的 [Python 函式](functions-reference-python.md)。 函式會讀取單一文件，並更新文件的文字值。
 
@@ -1268,9 +1249,9 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
         return document
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="http-trigger-look-up-id-from-query-string-python"></a>
 
-#### <a name="http-trigger-look-up-id-from-query-string-python"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 (Python)
+### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP 觸發程式，從查詢字串中查閱識別碼
 
 下列範例示範會擷取單一文件的 [Python 函式](functions-reference-python.md)。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
@@ -1327,9 +1308,9 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
     return 'OK'
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-python"></a>
 
-#### <a name="http-trigger-look-up-id-from-route-data-python"></a>HTTP 觸發程序，從路由資料中查閱識別碼 (Python)
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP 觸發程式，從路由資料中查閱識別碼
 
 下列範例示範會擷取單一文件的 [Python 函式](functions-reference-python.md)。 此函式是由 HTTP 要求所觸發，其使用路由資料來指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取 `ToDoItem` 檔。
 
@@ -1386,9 +1367,9 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
     return 'OK'
 ```
 
-[跳過輸入範例](#input---attributes)
+<a id="queue-trigger-get-multiple-docs-using-sqlquery-python"></a>
 
-#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-python"></a>佇列觸發程序，使用 SqlQuery 取得多個文件 (Python)
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>佇列觸發程式，使用 SqlQuery 取得多個檔
 
 下列範例顯示 *function.json* 檔案中的 Azure Cosmos DB 輸入繫結，以及使用此繫結的 [Python 指令碼函式](functions-reference-python.md)。 函式會使用佇列觸發程序來自訂查詢參數，以擷取 SQL 查詢所指定的多份文件。
 
@@ -1420,58 +1401,7 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList):
         # operate on each document
 ```
 
-
-[跳過輸入範例](#input---attributes)
-
-<a name="infsharp"></a>
-
-### <a name="input---f-examples"></a>輸入 - F# 範例
-
-下列範例示範 function.json 檔案中的 Cosmos DB 觸發程序繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 函式會讀取單一文件，並更新文件的文字值。
-
-以下是 *function.json* 檔案中的繫結資料：
-
-```json
-{
-    "name": "inputDocument",
-    "type": "cosmosDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "id" : "{queueTrigger}",
-    "connectionStringSetting": "MyAccount_COSMOSDB",
-    "direction": "in"
-}
-```
-
-[設定](#input---configuration)章節會說明這些屬性。
-
-以下是 F# 程式碼：
-
-```fsharp
-    (* Change input document contents using Azure Cosmos DB input binding *)
-    open FSharp.Interop.Dynamic
-    let Run(myQueueItem: string, inputDocument: obj) =
-    inputDocument?text <- "This has changed."
-```
-
-此範例需要一個指定 `FSharp.Interop.Dynamic` 和 `Dynamitey` NuGet 相依性的 `project.json` 檔案︰
-
-```json
-{
-    "frameworks": {
-        "net46": {
-            "dependencies": {
-                "Dynamitey": "1.0.2",
-                "FSharp.Interop.Dynamic": "3.0.0"
-            }
-        }
-    }
-}
-```
-
-若要新增 `project.json` 檔案，請參閱 [F# 封裝管理](functions-reference-fsharp.md#package)。
-
-### <a name="input---java-examples"></a>輸入 - Java 範例
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 本區段包含下列範例：
 
@@ -1504,7 +1434,9 @@ public class ToDoItem {
 }
 ```
 
-#### <a name="http-trigger-look-up-id-from-query-string---string-parameter-java"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 - 字串參數 (Java)
+<a id="http-trigger-look-up-id-from-query-string---string-parameter-java"></a>
+
+### <a name="http-trigger-look-up-id-from-query-string---string-parameter"></a>HTTP 觸發程式，從查詢字串中查閱識別碼-字串參數
 
 下列範例示範會擷取單一文件的 Java 函式。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中，以字串形式抓取檔。
 
@@ -1548,9 +1480,11 @@ public class DocByIdFromQueryString {
 }
  ```
 
-在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自 Cosmos DB 的函式參數使用 `@CosmosDBInput` 註釋。  此注釋可以搭配原生 JAVA 類型、Pojo 或可為 null 的值使用（選擇性）\<T >。
+在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自 Cosmos DB 的函式參數使用 `@CosmosDBInput` 註釋。  此註釋可以搭配原生 Java 類型、POJO 或使用 `Optional<T>` 的可為 Null 值使用。
 
-#### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 - POJO 參數 (Java)
+<a id="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>
+
+### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter"></a>HTTP 觸發程式，從查詢字串中查閱識別碼-POJO 參數
 
 下列範例示範會擷取單一文件的 Java 函式。 此函式是由 HTTP 要求所觸發，它會使用查詢字串指定要查閱的識別碼和資料分割索引鍵值。 用來從指定的資料庫和集合抓取檔的識別碼和分割區索引鍵值。 該文件接著會轉換為先前建立之 ```ToDoItem``` POJO 的執行個體，並當成引數傳遞到函式。
 
@@ -1592,7 +1526,9 @@ public class DocByIdFromQueryStringPojo {
 }
  ```
 
-#### <a name="http-trigger-look-up-id-from-route-data-java"></a>HTTP 觸發程序，從路由資料中查閱識別碼 (Java)
+<a id="http-trigger-look-up-id-from-route-data-java"></a>
+
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP 觸發程式，從路由資料中查閱識別碼
 
 下列範例示範會擷取單一文件的 Java 函式。 此函式是由 HTTP 要求所觸發，它會使用路由參數來指定要查閱的識別碼和資料分割索引鍵值。 該識別碼和分割區索引鍵值是用來從指定的資料庫和集合中抓取檔，然後將它當做 ```Optional<String>```傳回。
 
@@ -1637,7 +1573,9 @@ public class DocByIdFromRoute {
 }
  ```
 
-#### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>HTTP 觸發程序，使用 SqlQuery 從路由資料中查閱識別碼 (Java)
+ <a id="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>
+
+### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>HTTP 觸發程式，使用 SqlQuery 從路由資料中查閱識別碼
 
 下列範例示範會擷取單一文件的 Java 函式。 此函式是由 HTTP 要求所觸發，該 HTTP 要求會使用路由參數來指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中擷取文件，並將結果集轉換為 ```ToDoItem[]```，因為根據查詢準則而定，可能會傳回許多文件。
 
@@ -1683,7 +1621,9 @@ public class DocByIdFromRouteSqlQuery {
 }
  ```
 
-#### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>HTTP 觸發程序，使用 SqlQuery 從路由資料中取得多份文件 (Java)
+ <a id="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>
+
+### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery"></a>HTTP 觸發程式，使用 SqlQuery 從路由資料取得多個檔
 
 下列範例顯示可抓取多個檔的 JAVA 函式。 此函式是由 HTTP 要求所觸發，該 HTTP 要求會使用路由參數 ```desc``` 來指定要在 [```description```] 欄位中搜尋的字串。 搜尋字詞會用來從指定的資料庫和集合中擷取文件集合，並將結果集轉換為 ```ToDoItem[]```，然後將其當成引數傳遞到函式。
 
@@ -1725,11 +1665,33 @@ public class DocsFromRouteSqlQuery {
 }
  ```
 
-## <a name="input---attributes"></a>輸入 - 屬性
+ ---
+
+## <a name="input---attributes-and-annotations"></a>輸入-屬性和注釋
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) 屬性。
 
 屬性的建構函式可接受資料庫名稱和集合名稱。 如需這些設定及其他您可以設定之屬性的相關資訊，請參閱[下列組態區段](#input---configuration)。
+
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
+
+C#腳本不支援屬性。
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript 不支援屬性。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python 不支援屬性。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+從 JAVA 函式執行時間連結[庫](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)，在寫入 Cosmos DB 的參數上使用 `@CosmosDBOutput` 注釋。 批註參數類型應為 `OutputBinding<T>`，其中 `T` 是原生 JAVA 類型或 POJO。
+
+---
 
 ## <a name="input---configuration"></a>輸入 - 組態
 
@@ -1742,8 +1704,8 @@ public class DocsFromRouteSqlQuery {
 |**name**     | n/a | 代表函式中之文件的繫結參數名稱。  |
 |**databaseName** |**DatabaseName** |包含文件的資料庫。        |
 |**collectionName** |**CollectionName** | 包含文件的集合名稱。 |
-|**id**    | **Id** | 要擷取之文件的識別碼。 此屬性支援[繫結運算式](./functions-bindings-expressions-patterns.md)。 請勿同時設定 **id** 和 **sqlQuery** 屬性。 如果您未設定其中一個，就會擷取整個集合。 |
-|**sqlQuery**  |**SqlQuery**  | 用來擷取多份文件的 Azure Cosmos DB SQL 查詢。 屬性會支援執行階段繫結，如此範例所示：`SELECT * FROM c where c.departmentId = {departmentId}`。 請勿同時設定 **id** 和 **sqlQuery** 屬性。 如果您未設定其中一個，就會擷取整個集合。|
+|**id**    | **Id** | 要擷取之文件的識別碼。 此屬性支援[繫結運算式](./functions-bindings-expressions-patterns.md)。 請勿同時設定 [`id`] 和 [ **sqlQuery** ] 屬性。 如果您未設定其中一個，就會擷取整個集合。 |
+|**sqlQuery**  |**SqlQuery**  | 用來擷取多份文件的 Azure Cosmos DB SQL 查詢。 屬性會支援執行階段繫結，如此範例所示：`SELECT * FROM c where c.departmentId = {departmentId}`。 請勿同時設定 `id` 和 `sqlQuery` 屬性。 如果您未設定其中一個，就會擷取整個集合。|
 |**connectionStringSetting**     |**ConnectionStringSetting**|包含 Azure Cosmos DB 連接字串的應用程式設定名稱。        |
 |**partitionKey**|**PartitionKey**|指定分割區索引鍵值進行查閱。 可能包含繫結參數。 這是在資料[分割](../cosmos-db/partition-data.md#logical-partitions)的集合中查閱的必要項。|
 
@@ -1751,35 +1713,38 @@ public class DocsFromRouteSqlQuery {
 
 ## <a name="input---usage"></a>輸入 - 使用方式
 
-在 C# 和 F# 函式中，當函式順利結束時，系統會自動保留透過具名輸入參數對輸入文件所做的任何變更。
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-在 JavaScript 函數中，不會在函數結束時自動執行更新。 請改用 `context.bindings.<documentName>In` 和 `context.bindings.<documentName>Out` 來進行更新。 請參閱 JavaScript 範例。
+當函式成功結束時，透過命名的輸入參數對輸入檔所做的任何變更都會自動儲存。
+
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
+
+當函式成功結束時，透過命名的輸入參數對輸入檔所做的任何變更都會自動儲存。
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+當函式結束時，不會自動進行更新。 請改用 `context.bindings.<documentName>In` 和 `context.bindings.<documentName>Out` 來進行更新。 請參閱 JavaScript 範例。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+資料可透過 `DocumentList` 參數提供給函式。 對檔所做的變更不會自動儲存。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+從 JAVA 函式執行時間連結[庫](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)， [@CosmosDBInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput)批註會將 Cosmos DB 資料公開給函式。 此註釋可以搭配原生 Java 類型、POJO 或使用 `Optional<T>` 的可為 Null 值使用。
+
+---
 
 ## <a name="output"></a>輸出
 
 Azure Cosmos DB 輸出繫結可讓您使用 SQL API，將新的文件寫入 Azure Cosmos DB 資料庫。
 
-## <a name="output---examples"></a>輸出 - 範例
-
-請參閱特定語言的範例：
-
-* [C#](#output---c-examples)
-* [C# 指令碼 (.csx)](#output---c-script-examples)
-* [F#](#output---f-examples)
-* [Java](#output---java-examples)
-* [JavaScript](#output---javascript-examples)
-* [Python](#output---python-examples)
-
-另請參閱使用 `DocumentClient` 的[輸入範例](#input---c-examples)。
-
-[跳過輸出範例](#output---attributes)
-
-### <a name="output---c-examples"></a>輸出 - C# 範例
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 本區段包含下列範例：
 
-* 佇列觸發程序，寫入一份文件
-* 佇列觸發程序，使用 IAsyncCollector 寫入文件
+* [佇列觸發程式，寫入一份檔](#queue-trigger-write-one-doc-c)
+* [佇列觸發程式，使用 IAsyncCollector 寫入檔](#queue-trigger-write-docs-using-iasynccollector-c)
 
 範例會參考簡單的 `ToDoItem` 類型：
 
@@ -1794,9 +1759,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[跳過輸出範例](#output---attributes)
+<a id="queue-trigger-write-one-doc-c"></a>
 
-#### <a name="queue-trigger-write-one-doc-c"></a>佇列觸發程序，寫入一份文件 (C#)
+### <a name="queue-trigger-write-one-doc"></a>佇列觸發程序，寫入一份文件
 
 下列範例顯示 [C# 函式](functions-dotnet-class-library.md)，它使用佇列儲存體之訊息中提供的資料，將文件新增至資料庫。
 
@@ -1828,9 +1793,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[跳過輸出範例](#output---attributes)
+<a id="queue-trigger-write-docs-using-iasynccollector-c"></a>
 
-#### <a name="queue-trigger-write-docs-using-iasynccollector-c"></a>佇列觸發程序，使用 IAsyncCollector 寫入文件 (C#)
+### <a name="queue-trigger-write-docs-using-iasynccollector"></a>佇列觸發程序，使用 IAsyncCollector 寫入文件
 
 下列範例顯示 [C# 函式](functions-dotnet-class-library.md)，它會使用佇列訊息 JSON 中提供的資料，將文件集合新增至資料庫中。
 
@@ -1866,18 +1831,17 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[跳過輸出範例](#output---attributes)
-
-### <a name="output---c-script-examples"></a>輸出 - C# 指令碼範例
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 本區段包含下列範例：
 
-* 佇列觸發程序，寫入一份文件
-* 佇列觸發程序，使用 IAsyncCollector 寫入文件
+* [佇列觸發程式，寫入一份檔](#queue-trigger-write-one-doc-c-script)
+* [佇列觸發程式，使用 IAsyncCollector 寫入檔](#queue-trigger-write-docs-using-iasynccollector-c-script)
 
-[跳過輸出範例](#output---attributes)
 
-#### <a name="queue-trigger-write-one-doc-c-script"></a>佇列觸發程序，寫入一份文件 (C# 指令碼)
+<a id="queue-trigger-write-one-doc-c-script"></a>
+
+### <a name="queue-trigger-write-one-doc"></a>佇列觸發程序，寫入一份文件
 
 下列範例顯示 *function.json* 檔案中的 Azure Cosmos DB 輸出繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會使用可接收 JSON 佇列的佇列輸入繫結，其格式如下︰
 
@@ -1940,7 +1904,9 @@ namespace CosmosDBSamplesV2
     }
 ```
 
-#### <a name="queue-trigger-write-docs-using-iasynccollector"></a>佇列觸發程序，使用 IAsyncCollector 寫入文件
+<a id="queue-trigger-write-docs-using-iasynccollector-c-script"></a>
+
+### <a name="queue-trigger-write-docs-using-iasynccollector"></a>佇列觸發程序，使用 IAsyncCollector 寫入文件
 
 如果要建立多個文件，您可以繫結至 `ICollector<T>` 或 `IAsyncCollector<T>`，`T` 表示其中一種支援的類型。
 
@@ -2000,9 +1966,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-[跳過輸出範例](#output---attributes)
-
-### <a name="output---javascript-examples"></a>輸出 - JavaScript 範例
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 下列範例顯示 function.json 檔案中的 Azure Cosmos DB 輸出繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會使用可接收 JSON 佇列的佇列輸入繫結，其格式如下︰
 
@@ -2057,240 +2021,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
     };
 ```
 
-[跳過輸出範例](#output---attributes)
-
-### <a name="output---f-examples"></a>輸出 - F# 範例
-
-下列範例顯示 function.json 檔案中的 Azure Cosmos DB 輸出繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 此函式會使用可接收 JSON 佇列的佇列輸入繫結，其格式如下︰
-
-```json
-{
-    "name": "John Henry",
-    "employeeId": "123456",
-    "address": "A town nearby"
-}
-```
-
-此函式會針對每一筆記錄建立下列格式的 Azure Cosmos DB 文件：
-
-```json
-{
-    "id": "John Henry-123456",
-    "name": "John Henry",
-    "employeeId": "123456",
-    "address": "A town nearby"
-}
-```
-
-以下是 *function.json* 檔案中的繫結資料：
-
-```json
-{
-    "name": "employeeDocument",
-    "type": "cosmosDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "createIfNotExists": true,
-    "connectionStringSetting": "MyAccount_COSMOSDB",
-    "direction": "out"
-}
-```
-[設定](#output---configuration)章節會說明這些屬性。
-
-以下是 F# 程式碼：
-
-```fsharp
-    open FSharp.Interop.Dynamic
-    open Newtonsoft.Json
-    open Microsoft.Extensions.Logging
-    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: ILogger) =
-      log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
-      let employee = JObject.Parse(myQueueItem)
-      employeeDocument <-
-        { id = sprintf "%s-%s" employee?name employee?employeeId
-          name = employee?name
-          employeeId = employee?employeeId
-          address = employee?address }
-```
-
-此範例需要一個指定 `FSharp.Interop.Dynamic` 和 `Dynamitey` NuGet 相依性的 `project.json` 檔案︰
-
-```json
-{
-    "frameworks": {
-        "net46": {
-          "dependencies": {
-            "Dynamitey": "1.0.2",
-            "FSharp.Interop.Dynamic": "3.0.0"
-           }
-        }
-    }
-}
-```
-
-若要新增 `project.json` 檔案，請參閱 [F# 封裝管理](functions-reference-fsharp.md#package)。
-
-### <a name="output---java-examples"></a>輸出 - Java 範例
-
-* [佇列觸發程序，透過傳回值將訊息儲存至資料庫](#queue-trigger-save-message-to-database-via-return-value-java)
-* [HTTP 觸發程序，透過傳回值將一份文件儲存至資料庫](#http-trigger-save-one-document-to-database-via-return-value-java)
-* [HTTP 觸發程序，透過 OutputBinding 將一份文件儲存至資料庫](#http-trigger-save-one-document-to-database-via-outputbinding-java)
-* [HTTP 觸發程序，透過 OutputBinding 將多份文件儲存至資料庫](#http-trigger-save-multiple-documents-to-database-via-outputbinding-java)
-
-
-#### <a name="queue-trigger-save-message-to-database-via-return-value-java"></a>佇列觸發程序，透過傳回值將訊息儲存至資料庫 (Java)
-
-下列範例示範的 Java 函式使用佇列儲存體中的訊息資料，將文件新增至資料庫。
-
-```java
-@FunctionName("getItem")
-@CosmosDBOutput(name = "database",
-  databaseName = "ToDoList",
-  collectionName = "Items",
-  connectionStringSetting = "AzureCosmosDBConnection")
-public String cosmosDbQueryById(
-    @QueueTrigger(name = "msg",
-      queueName = "myqueue-items",
-      connection = "AzureWebJobsStorage")
-    String message,
-    final ExecutionContext context)  {
-     return "{ id: \"" + System.currentTimeMillis() + "\", Description: " + message + " }";
-   }
-```
-
-#### <a name="http-trigger-save-one-document-to-database-via-return-value-java"></a>HTTP 觸發程序，透過傳回值將一份文件儲存至資料庫 (Java)
-
-下列範例所示範的 Java 函式，其簽章會加上 ```@CosmosDBOutput``` 的標註並具有 ```String``` 類型的傳回值。 函式所傳回的 JSON 文件將會自動寫入至對應的 CosmosDB 集合。
-
-```java
-    @FunctionName("WriteOneDoc")
-    @CosmosDBOutput(name = "database",
-      databaseName = "ToDoList",
-      collectionName = "Items",
-      connectionStringSetting = "Cosmos_DB_Connection_String")
-    public String run(
-            @HttpTrigger(name = "req",
-              methods = {HttpMethod.GET, HttpMethod.POST},
-              authLevel = AuthorizationLevel.ANONYMOUS)
-            HttpRequestMessage<Optional<String>> request,
-            final ExecutionContext context) {
-
-        // Item list
-        context.getLogger().info("Parameters are: " + request.getQueryParameters());
-
-        // Parse query parameter
-        String query = request.getQueryParameters().get("desc");
-        String name = request.getBody().orElse(query);
-
-        // Generate random ID
-        final int id = Math.abs(new Random().nextInt());
-
-        // Generate document
-        final String jsonDocument = "{\"id\":\"" + id + "\", " +
-                                    "\"description\": \"" + name + "\"}";
-
-        context.getLogger().info("Document to be saved: " + jsonDocument);
-
-        return jsonDocument;
-    }
-```
-
-#### <a name="http-trigger-save-one-document-to-database-via-outputbinding-java"></a>HTTP 觸發程序，透過 OutputBinding 將一份文件儲存至資料庫 (Java)
-
-下列範例所示範的 Java 函式，會透過 ```OutputBinding<T>``` 輸出參數將一份文件寫入至 CosmosDB。 請注意，在此設定中，它是必須以 ```@CosmosDBOutput``` 標註的 ```outputItem``` 參數，而非函式簽章。 使用 ```OutputBinding<T>``` 可讓您的函式利用繫結來將文件寫入至 CosmosDB，同時又能將不同的值傳回給函式呼叫端，例如 JSON 或 XML 文件。
-
-```java
-    @FunctionName("WriteOneDocOutputBinding")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req",
-              methods = {HttpMethod.GET, HttpMethod.POST},
-              authLevel = AuthorizationLevel.ANONYMOUS)
-            HttpRequestMessage<Optional<String>> request,
-            @CosmosDBOutput(name = "database",
-              databaseName = "ToDoList",
-              collectionName = "Items",
-              connectionStringSetting = "Cosmos_DB_Connection_String")
-            OutputBinding<String> outputItem,
-            final ExecutionContext context) {
-
-        // Parse query parameter
-        String query = request.getQueryParameters().get("desc");
-        String name = request.getBody().orElse(query);
-
-        // Item list
-        context.getLogger().info("Parameters are: " + request.getQueryParameters());
-
-        // Generate random ID
-        final int id = Math.abs(new Random().nextInt());
-
-        // Generate document
-        final String jsonDocument = "{\"id\":\"" + id + "\", " +
-                                    "\"description\": \"" + name + "\"}";
-
-        context.getLogger().info("Document to be saved: " + jsonDocument);
-
-        // Set outputItem's value to the JSON document to be saved
-        outputItem.setValue(jsonDocument);
-
-        // return a different document to the browser or calling client.
-        return request.createResponseBuilder(HttpStatus.OK)
-                      .body("Document created successfully.")
-                      .build();
-    }
-```
-
-#### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding-java"></a>HTTP 觸發程序，透過 OutputBinding 將多份文件儲存至資料庫 (Java)
-
-下列範例所示範的 Java 函式，會透過 ```OutputBinding<T>``` 輸出參數將多份文件寫入至 CosmosDB。 請注意，在此設定中，它是必須以 ```@CosmosDBOutput``` 標註的 ```outputItem``` 參數，而非函式簽章。 輸出參數 ```outputItem``` 有一份 ```ToDoItem``` 物件清單作為其範本參數類型。 使用 ```OutputBinding<T>``` 可讓您的函式利用繫結來將多份文件寫入至 CosmosDB，同時又能將不同的值傳回給函式呼叫端，例如 JSON 或 XML 文件。
-
-```java
-    @FunctionName("WriteMultipleDocsOutputBinding")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req",
-              methods = {HttpMethod.GET, HttpMethod.POST},
-              authLevel = AuthorizationLevel.ANONYMOUS)
-            HttpRequestMessage<Optional<String>> request,
-            @CosmosDBOutput(name = "database",
-              databaseName = "ToDoList",
-              collectionName = "Items",
-              connectionStringSetting = "Cosmos_DB_Connection_String")
-            OutputBinding<List<ToDoItem>> outputItem,
-            final ExecutionContext context) {
-
-        // Parse query parameter
-        String query = request.getQueryParameters().get("desc");
-        String name = request.getBody().orElse(query);
-
-        // Item list
-        context.getLogger().info("Parameters are: " + request.getQueryParameters());
-
-        // Generate documents
-        List<ToDoItem> items = new ArrayList<>();
-
-        for (int i = 0; i < 5; i ++) {
-          // Generate random ID
-          final int id = Math.abs(new Random().nextInt());
-
-          // Create ToDoItem
-          ToDoItem item = new ToDoItem(String.valueOf(id), name);
-
-          items.add(item);
-        }
-
-        // Set outputItem's value to the list of POJOs to be saved
-        outputItem.setValue(items);
-        context.getLogger().info("Document to be saved: " + items);
-
-        // return a different document to the browser or calling client.
-        return request.createResponseBuilder(HttpStatus.OK)
-                      .body("Documents created successfully.")
-                      .build();
-    }
-```
-
-在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對即將寫入至 Cosmos DB 的參數使用 `@CosmosDBOutput` 註釋。  註釋參數類型應該是 ```OutputBinding<T>```，其中 T 是原生 Java 類型或 POJO。
-
-### <a name="output---python-examples"></a>輸出-Python 範例
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 下列範例示範如何將檔寫入 Azure CosmosDB 資料庫，做為函數的輸出。
 
@@ -2342,7 +2073,178 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
     return 'OK'
 ```
 
-## <a name="output---attributes"></a>輸出 - 屬性
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+* [佇列觸發程序，透過傳回值將訊息儲存至資料庫](#queue-trigger-save-message-to-database-via-return-value-java)
+* [HTTP 觸發程序，透過傳回值將一份文件儲存至資料庫](#http-trigger-save-one-document-to-database-via-return-value-java)
+* [HTTP 觸發程序，透過 OutputBinding 將一份文件儲存至資料庫](#http-trigger-save-one-document-to-database-via-outputbinding-java)
+* [HTTP 觸發程序，透過 OutputBinding 將多份文件儲存至資料庫](#http-trigger-save-multiple-documents-to-database-via-outputbinding-java)
+
+
+<a id="queue-trigger-save-message-to-database-via-return-value-java"></a>
+
+### <a name="queue-trigger-save-message-to-database-via-return-value"></a>佇列觸發程式，透過傳回值將訊息儲存至資料庫
+
+下列範例示範的 Java 函式使用佇列儲存體中的訊息資料，將文件新增至資料庫。
+
+```java
+@FunctionName("getItem")
+@CosmosDBOutput(name = "database",
+  databaseName = "ToDoList",
+  collectionName = "Items",
+  connectionStringSetting = "AzureCosmosDBConnection")
+public String cosmosDbQueryById(
+    @QueueTrigger(name = "msg",
+      queueName = "myqueue-items",
+      connection = "AzureWebJobsStorage")
+    String message,
+    final ExecutionContext context)  {
+     return "{ id: \"" + System.currentTimeMillis() + "\", Description: " + message + " }";
+   }
+```
+<a id="http-trigger-save-one-document-to-database-via-return-value-java"></a>
+
+#### <a name="http-trigger-save-one-document-to-database-via-return-value"></a>HTTP 觸發程式，透過傳回值將一份檔儲存至資料庫
+
+下列範例所示範的 Java 函式，其簽章會加上 ```@CosmosDBOutput``` 的標註並具有 ```String``` 類型的傳回值。 函式所傳回的 JSON 文件將會自動寫入至對應的 CosmosDB 集合。
+
+```java
+    @FunctionName("WriteOneDoc")
+    @CosmosDBOutput(name = "database",
+      databaseName = "ToDoList",
+      collectionName = "Items",
+      connectionStringSetting = "Cosmos_DB_Connection_String")
+    public String run(
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+
+        // Parse query parameter
+        String query = request.getQueryParameters().get("desc");
+        String name = request.getBody().orElse(query);
+
+        // Generate random ID
+        final int id = Math.abs(new Random().nextInt());
+
+        // Generate document
+        final String jsonDocument = "{\"id\":\"" + id + "\", " +
+                                    "\"description\": \"" + name + "\"}";
+
+        context.getLogger().info("Document to be saved: " + jsonDocument);
+
+        return jsonDocument;
+    }
+```
+
+<a id="http-trigger-save-one-document-to-database-via-outputbinding-java"></a>
+
+### <a name="http-trigger-save-one-document-to-database-via-outputbinding"></a>HTTP 觸發程式，透過 OutputBinding 將一份檔儲存至資料庫
+
+下列範例所示範的 Java 函式，會透過 ```OutputBinding<T>``` 輸出參數將一份文件寫入至 CosmosDB。 在此範例中，```outputItem``` 參數必須以 ```@CosmosDBOutput```標注，而不是函數簽章。 使用 ```OutputBinding<T>``` 可讓您的函式利用繫結來將文件寫入至 CosmosDB，同時又能將不同的值傳回給函式呼叫端，例如 JSON 或 XML 文件。
+
+```java
+    @FunctionName("WriteOneDocOutputBinding")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            @CosmosDBOutput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              connectionStringSetting = "Cosmos_DB_Connection_String")
+            OutputBinding<String> outputItem,
+            final ExecutionContext context) {
+
+        // Parse query parameter
+        String query = request.getQueryParameters().get("desc");
+        String name = request.getBody().orElse(query);
+
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+
+        // Generate random ID
+        final int id = Math.abs(new Random().nextInt());
+
+        // Generate document
+        final String jsonDocument = "{\"id\":\"" + id + "\", " +
+                                    "\"description\": \"" + name + "\"}";
+
+        context.getLogger().info("Document to be saved: " + jsonDocument);
+
+        // Set outputItem's value to the JSON document to be saved
+        outputItem.setValue(jsonDocument);
+
+        // return a different document to the browser or calling client.
+        return request.createResponseBuilder(HttpStatus.OK)
+                      .body("Document created successfully.")
+                      .build();
+    }
+```
+
+<a id="http-trigger-save-multiple-documents-to-database-via-outputbinding-java"></a>
+
+### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding"></a>HTTP 觸發程式，透過 OutputBinding 將多份檔儲存至資料庫
+
+下列範例所示範的 Java 函式，會透過 ```OutputBinding<T>``` 輸出參數將多份文件寫入至 CosmosDB。 在此範例中，```outputItem``` 參數是以 ```@CosmosDBOutput```標注，而不是函數簽章。 輸出參數 ```outputItem``` 有一份 ```ToDoItem``` 物件清單作為其範本參數類型。 使用 ```OutputBinding<T>``` 可讓您的函式利用繫結來將多份文件寫入至 CosmosDB，同時又能將不同的值傳回給函式呼叫端，例如 JSON 或 XML 文件。
+
+```java
+    @FunctionName("WriteMultipleDocsOutputBinding")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            @CosmosDBOutput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              connectionStringSetting = "Cosmos_DB_Connection_String")
+            OutputBinding<List<ToDoItem>> outputItem,
+            final ExecutionContext context) {
+
+        // Parse query parameter
+        String query = request.getQueryParameters().get("desc");
+        String name = request.getBody().orElse(query);
+
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+
+        // Generate documents
+        List<ToDoItem> items = new ArrayList<>();
+
+        for (int i = 0; i < 5; i ++) {
+          // Generate random ID
+          final int id = Math.abs(new Random().nextInt());
+
+          // Create ToDoItem
+          ToDoItem item = new ToDoItem(String.valueOf(id), name);
+
+          items.add(item);
+        }
+
+        // Set outputItem's value to the list of POJOs to be saved
+        outputItem.setValue(items);
+        context.getLogger().info("Document to be saved: " + items);
+
+        // return a different document to the browser or calling client.
+        return request.createResponseBuilder(HttpStatus.OK)
+                      .body("Documents created successfully.")
+                      .build();
+    }
+```
+
+在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對即將寫入至 Cosmos DB 的參數使用 `@CosmosDBOutput` 註釋。  註釋參數類型應該是 ```OutputBinding<T>```，其中 T 是原生 Java 類型或 POJO。
+
+---
+
+## <a name="output---attributes-and-annotations"></a>輸出-屬性和注釋
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) 屬性。
 
@@ -2358,7 +2260,23 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
     }
 ```
 
-如需完整範例，請參閱＜輸出 - C# 範例＞。
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
+
+C#腳本不支援屬性。
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript 不支援屬性。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python 不支援屬性。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+`CosmosDBOutput` 批註可用來將資料寫入 Cosmos DB。 您可以將批註套用至函式或個別的函數參數。 在函式方法上使用時，函式的傳回值會寫入 Cosmos DB。 如果您使用具有參數的注釋，則參數的類型必須宣告為 `OutputBinding<T>`，其中 `T` 原生 JAVA 類型或 POJO。
+
+---
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
@@ -2372,8 +2290,8 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 |**databaseName** | **DatabaseName**|包含其中將建立文件之集合的資料庫。     |
 |**collectionName** |**CollectionName**  | 包含其中將建立文件之集合的名稱。 |
 |**createIfNotExists**  |**CreateIfNotExists**    | 一個布林值，用來指出當集合不存在時，是否要建立集合。 預設是 false，因為會使用保留的輸送量來建立新集合，可能會涉及成本。 如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。  |
-|**partitionKey**|**PartitionKey** |當 `CreateIfNotExists` 為 true 時，定義所建立集合的分割區索引鍵路徑。|
-|**collectionThroughput**|**CollectionThroughput**| 當 `CreateIfNotExists` 為 true 時，定義所建立集合的[輸送量](../cosmos-db/set-throughput.md)。|
+|**partitionKey**|**PartitionKey** |當 `CreateIfNotExists` 為 true 時，它會定義所建立集合的分割區索引鍵路徑。|
+|**collectionThroughput**|**CollectionThroughput**| 當 `CreateIfNotExists` 為 true 時，它會定義所建立集合的[輸送量](../cosmos-db/set-throughput.md)。|
 |**connectionStringSetting**    |**ConnectionStringSetting** |包含 Azure Cosmos DB 連接字串的應用程式設定名稱。        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 08/9/2019
+ms.date: 01/22/2020
 ms.author: mlearned
-ms.openlocfilehash: 9c72c8431907c52dab338114ce09be139608ab0a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f9d00cff5d910d6bbbb4c436249283cca87b91e1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768583"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549099"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service （AKS）中建立及管理叢集的多個節點集區
 
@@ -36,14 +36,14 @@ ms.locfileid: "75768583"
 * AKS 叢集必須使用標準 SKU 負載平衡器來使用多個節點集區，但基本 SKU 負載平衡器不支援此功能。
 * AKS 叢集必須使用節點的虛擬機器擴展集。
 * 節點集區的名稱只可包含小寫英數位元，且必須以小寫字母開頭。 針對 Linux 節點集區，長度必須介於1到12個字元之間，而 Windows 節點集區的長度必須介於1到6個字元之間。
-* AKS 叢集最多可以有八個節點集區。
-* AKS 叢集在這八個節點集區中最多可以有800個節點。
+* AKS 叢集最多可以有10個節點集區。
+* AKS 叢集在這10個節點集區中最多可以有1000個節點。
 * 所有節點集區都必須位於相同的 vnet 和子網中。
 * 在叢集建立時建立多個節點集區時，節點集區所使用的所有 Kubernetes 版本都必須符合控制平面的版本。 使用每個節點集區作業布建叢集之後，即可更新此項。
 
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
 
-若要開始使用，請建立具有單一節點集區的 AKS 叢集。 下列範例會使用[az group create][az-group-create]命令，在*eastus*區域中建立名為*myResourceGroup*的資源群組。 然後使用[az AKS create][az-aks-create]命令來建立名為*myAKSCluster*的 AKS 叢集。 *--Kubernetes-* *1.13.10*版本是用來示範如何在下列步驟中更新節點集區。 您可以指定任何[支援的 Kubernetes 版本][supported-versions]。
+若要開始使用，請建立具有單一節點集區的 AKS 叢集。 下列範例會使用[az group create][az-group-create]命令，在*eastus*區域中建立名為*myResourceGroup*的資源群組。 然後使用[az AKS create][az-aks-create]命令來建立名為*myAKSCluster*的 AKS 叢集。 *--Kubernetes-* *1.15.7*版本是用來示範如何在下列步驟中更新節點集區。 您可以指定任何[支援的 Kubernetes 版本][supported-versions]。
 
 > [!NOTE]
 > 使用多個節點集區時，**不支援***基本*負載平衡器 SKU。 根據預設，系統會使用 Azure CLI 和 Azure 入口網站的*標準*負載平衡器 SKU 來建立 AKS 叢集。
@@ -59,7 +59,7 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.10 \
+    --kubernetes-version 1.15.7 \
     --load-balancer-sku standard
 ```
 
@@ -84,7 +84,7 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name mynodepool \
     --node-count 3 \
-    --kubernetes-version 1.12.7
+    --kubernetes-version 1.15.5
 ```
 
 > [!NOTE]
@@ -107,7 +107,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.12.7",
+    "orchestratorVersion": "1.15.5",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -117,7 +117,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -126,32 +126,32 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ```
 
 > [!TIP]
-> 當您新增節點集區時，如果未指定*OrchestratorVersion*或*VmSize* ，則會根據 AKS 叢集的預設值來建立節點。 在此範例中，這是 Kubernetes 的版本*1.13.10*和節點大小*Standard_DS2_v2*。
+> 當您新增節點集區時，如果未指定*VmSize* ，則 Windows 節點集區的預設大小為*Standard_DS2_v3* ，而 Linux 節點集區*Standard_DS2_v2*則為。 如果未指定*OrchestratorVersion* ，則會預設為與控制平面相同的版本。
 
 ## <a name="upgrade-a-node-pool"></a>升級節點集區
- 
+
 > [!NOTE]
 > 在叢集或節點集區上的升級和調整作業不能同時發生，如果嘗試了錯誤就會傳回。 相反地，每個作業類型必須在目標資源上完成，然後才在該相同資源上進行下一個要求。 請在我們的[疑難排解指南](https://aka.ms/aks-pending-upgrade)中閱讀更多相關資訊。
 
-當您的 AKS 叢集最初是在第一個步驟中建立時，就會指定*1.13.10*的 `--kubernetes-version`。 這會設定控制平面和預設節點集區的 Kubernetes 版本。 本節中的命令說明如何升級單一特定的節點集區。
+當您的 AKS 叢集最初是在第一個步驟中建立時，就會指定*1.15.7*的 `--kubernetes-version`。 這會設定控制平面和預設節點集區的 Kubernetes 版本。 本節中的命令說明如何升級單一特定的節點集區。
 
 [下一節](#upgrade-a-cluster-control-plane-with-multiple-node-pools)將說明升級控制平面和節點集區的 Kubernetes 版本之間的關聯性。
 
 > [!NOTE]
 > 節點集區 OS 映射版本會系結至叢集的 Kubernetes 版本。 在叢集升級之後，您只會取得 OS 映射升級。
 
-因為在此範例中有兩個節點集區，所以我們必須使用[az aks nodepool upgrade][az-aks-nodepool-upgrade]來升級節點集區。 讓我們將*mynodepool*升級至 Kubernetes *1.13.10*。 使用[az aks nodepool upgrade][az-aks-nodepool-upgrade]命令升級節點集區，如下列範例所示：
+因為在此範例中有兩個節點集區，所以我們必須使用[az aks nodepool upgrade][az-aks-nodepool-upgrade]來升級節點集區。 讓我們將*mynodepool*升級至 Kubernetes *1.15.7*。 使用[az aks nodepool upgrade][az-aks-nodepool-upgrade]命令升級節點集區，如下列範例所示：
 
 ```azurecli-interactive
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.13.10 \
+    --kubernetes-version 1.15.7 \
     --no-wait
 ```
 
-使用[az aks node pool list][az-aks-nodepool-list]命令再次列出節點集區的狀態。 下列範例顯示*mynodepool*處於*1.13.10*的*升級*狀態：
+使用[az aks node pool list][az-aks-nodepool-list]命令再次列出節點集區的狀態。 下列範例顯示*mynodepool*處於*1.15.7*的*升級*狀態：
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -162,7 +162,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Upgrading",
     ...
@@ -174,7 +174,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -240,7 +240,7 @@ az aks nodepool scale \
 使用[az aks node pool list][az-aks-nodepool-list]命令再次列出節點集區的狀態。 下列範例顯示*mynodepool*處於*調整*狀態，而且有*5*個節點的新計數：
 
 ```console
-$ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 [
   {
@@ -248,7 +248,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Scaling",
     ...
@@ -260,7 +260,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -298,7 +298,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Deleting",
     ...
@@ -310,7 +310,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -351,7 +351,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "gpunodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Creating",
     ...
@@ -363,7 +363,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -383,8 +383,8 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 $ kubectl get nodes
 
 NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.10
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.10
+aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
+aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
 ```
 
 Kubernetes 排程器可以使用污點和容差來限制可以在節點上執行的工作負載。
@@ -461,7 +461,7 @@ Events:
 建立 `aks-agentpools.json` 的範本，並貼上下列範例資訊清單。 這個範例範本會設定下列設定：
 
 * 更新名為*myagentpool*的*Linux*節點集區，以執行三個節點。
-* 設定節點集區中的節點，以執行 Kubernetes 版本*1.13.10*。
+* 設定節點集區中的節點，以執行 Kubernetes 版本*1.15.7*。
 * 將節點大小定義為*Standard_DS2_v2*。
 
 視需要編輯這些值，視需要更新、新增或刪除節點集區：
@@ -500,7 +500,7 @@ Events:
     },
     "variables": {
         "apiVersion": {
-            "aks": "2019-04-01"
+            "aks": "2020-01-01"
         },
         "agentPoolProfiles": {
             "maxPods": 30,
@@ -513,7 +513,7 @@ Events:
     },
     "resources": [
         {
-            "apiVersion": "2019-04-01",
+            "apiVersion": "2020-01-01",
             "type": "Microsoft.ContainerService/managedClusters/agentPools",
             "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
             "location": "[parameters('location')]",
@@ -526,7 +526,7 @@ Events:
                 "storageProfile": "ManagedDisks",
                 "type": "VirtualMachineScaleSets",
                 "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
-                "orchestratorVersion": "1.13.10"
+                "orchestratorVersion": "1.15.7"
             }
         }
     ]
@@ -540,6 +540,25 @@ az group deployment create \
     --resource-group myResourceGroup \
     --template-file aks-agentpools.json
 ```
+
+> [!TIP]
+> 您可以藉由在範本中新增*tag*屬性，將標記新增至您的節點集區，如下列範例所示。
+> 
+> ```json
+> ...
+> "resources": [
+> {
+>   ...
+>   "properties": {
+>     ...
+>     "tags": {
+>       "name1": "val1"
+>     },
+>     ...
+>   }
+> }
+> ...
+> ```
 
 視您在 Resource Manager 範本中定義的節點集區設定和作業而定，可能需要幾分鐘的時間來更新 AKS 叢集。
 

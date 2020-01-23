@@ -2,17 +2,17 @@
 title: Azure 應用程式設定搭配 Azure Functions 的快速入門 | Microsoft Docs
 description: 搭配使用 Azure 應用程式設定與 Azure Functions 的快速入門。
 services: azure-app-configuration
-author: yegu-ms
+author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: yegu
-ms.openlocfilehash: 3c8dc27b9d7781a8420fa76e5aeac9637b87c569
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 1/9/2019
+ms.author: lcozzens
+ms.openlocfilehash: 268e6c5a999244eb643990143d1102d129b7af68
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75413771"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310051"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式組態建立 Azure Functions 應用程式
 
@@ -45,7 +45,7 @@ ms.locfileid: "75413771"
 1. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]  。 在 [瀏覽]  索引標籤上，搜尋下列 NuGet 套件並新增至您的專案。 如果您找不到它們，請選取 [包括發行前版本]  核取方塊。
 
     ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 2.1.0-preview-010380001-1099 or later
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 3.0.0-preview-010550001-251 or later
     ```
 
 2. 開啟 *Function1.cs*，並新增 .NET Core 組態和應用程式組態設定提供者的命名空間。

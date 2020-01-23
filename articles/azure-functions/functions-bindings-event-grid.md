@@ -5,22 +5,22 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: b1717b9b336d31c86db1ec38eb97c7e8814b76d7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 8062428ae63a572b81a5432c8b29910fe8422e24
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926005"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547450"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions 的 Event Grid 觸發程序
 
-本文說明如何在 Azure Functions 中處理 [Event Grid](../event-grid/overview.md) 事件。
+本文說明如何在 Azure Functions 中處理 [Event Grid](../event-grid/overview.md) 事件。 如需如何在 HTTP 端點中處理事件方格訊息的詳細資訊，請參閱[接收事件至 HTTP 端點](../event-grid/receive-events.md)。
 
 Event Grid 是一項 Azure 服務，會傳送 HTTP 要求通知您「發行者」中發生的事件。 發行者是產生事件的服務或資源。 例如，Azure Blob 儲存體帳戶即為發行者，而 [Blob 的上傳或刪除是事件](../storage/blobs/storage-blob-event-overview.md)。 部分 [Azure 服務內建有將事件發佈至 Event Grid 的支援](../event-grid/overview.md#event-sources)。
 
 事件*處理常式*會接收及處理事件。 Azure Functions 是數個[有內建 Event Grid 事件處理支援的 Azure 服務](../event-grid/overview.md#event-handlers)之一。 在本文中，您將了解如何在接收到來自 Event Grid 的事件時使用 Event Grid 觸發程序來叫用函式。
 
-如果您想要的話，您可以使用 HTTP 觸發程序來處理 Event Grid 事件；請參閱本文稍後的[以 HTTP 觸發程序作為 Event Grid 觸發程序](#use-an-http-trigger-as-an-event-grid-trigger)。 目前，當事件是在 [CloudEvents 結構描述](../event-grid/cloudevents-schema.md)中傳遞時，您無法針對 Azure Functions 應用程式使用事件格線觸發程序。 相反地，請使用 HTTP 觸發程序。
+如果您想要的話，可以使用 HTTP 觸發程式來處理事件方格事件;請參閱[將事件接收到 HTTP 端點](../event-grid/receive-events.md)。 目前，當事件是在 [CloudEvents 結構描述](../event-grid/cloudevents-schema.md#azure-functions)中傳遞時，您無法針對 Azure Functions 應用程式使用事件格線觸發程序。 相反地，請使用 HTTP 觸發程序。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -38,15 +38,9 @@ Event Grid 是一項 Azure 服務，會傳送 HTTP 要求通知您「發行者�
 
 ## <a name="example"></a>範例
 
-請參閱 Event Grid 觸發程序的語言特定範例：
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-* C#
-* [C# 指令碼 (.csx)](#c-script-example)
-* [Java](#trigger---java-examples)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
-
-如需 HTTP 觸發程序範例，請參閱本文稍後的[如何使用 HTTP 觸發程序](#use-an-http-trigger-as-an-event-grid-trigger)。
+如需 HTTP 觸發程式範例，請參閱[將事件接收到 HTTP 端點](../event-grid/receive-events.md)。
 
 ### <a name="c-2x-and-higher"></a>C#（2.x 和更新版本）
 
@@ -74,7 +68,7 @@ namespace Company.Function
 
 如需詳細資訊，請參閱套件、[屬性](#attributes)、[設定](#configuration)和[用法](#usage)。
 
-### <a name="c-version-1x"></a>C# (1.x 版)
+### <a name="version-1x"></a>1\.x 版
 
 下列範例顯示繫結至 `JObject` 的 Functions 1.x [C# 函式](functions-dotnet-class-library.md)：
 
@@ -99,7 +93,7 @@ namespace Company.Function
 }
 ```
 
-### <a name="c-script-example"></a>C# 指令碼範例
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 下列範例示範 function.json 檔案中的觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。
 
@@ -135,7 +129,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 
 如需詳細資訊，請參閱套件、[屬性](#attributes)、[設定](#configuration)和[用法](#usage)。
 
-#### <a name="c-script-version-1x"></a>C# 指令碼 (1.x 版)
+### <a name="version-1x"></a>1\.x 版
 
 以下是繫結至 `JObject` 的 Functions 1.x C# 指令碼：
 
@@ -151,7 +145,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-### <a name="javascript-example"></a>JavaScript 範例
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 下列範例示範的是使用繫結之 function.json 檔案，以及 [JavaScript 函式](functions-reference-node.md)中的觸發程序繫結。
 
@@ -182,7 +176,7 @@ module.exports = function (context, eventGridEvent) {
 };
 ```
 
-### <a name="python-example"></a>Python 範例
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 下列範例示範 *function.json* 檔案中的觸發程序繫結，以及使用此繫結的 [Python 函式](functions-reference-python.md)。
 
@@ -205,23 +199,30 @@ module.exports = function (context, eventGridEvent) {
 以下是 Python 程式碼：
 
 ```python
+import json
 import logging
+
 import azure.functions as func
 
-
 def main(event: func.EventGridEvent):
-    logging.info("Python Event Grid function processed a request.")
-    logging.info("  Subject: %s", event.subject)
-    logging.info("  Time: %s", event.event_time)
-    logging.info("  Data: %s", event.get_json())
+
+    result = json.dumps({
+        'id': event.id,
+        'data': event.get_json(),
+        'topic': event.topic,
+        'subject': event.subject,
+        'event_type': event.event_type,
+    })
+
+    logging.info('Python EventGrid trigger processed an event: %s', result)
 ```
 
-### <a name="trigger---java-examples"></a>觸發程序 - Java 範例
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 本區段包含下列範例：
 
-* [事件格線觸發程序，字串參數](#event-grid-trigger-string-parameter-java)
-* [事件格線觸發程序，POJO 參數](#event-grid-trigger-pojo-parameter-java)
+* [事件格線觸發程序，字串參數](#event-grid-trigger-string-parameter)
+* [事件格線觸發程序，POJO 參數](#event-grid-trigger-pojo-parameter)
 
 下列範例會在 *function.json* 檔案中顯示觸發程序繫結，以及使用該繫結並印出事件的 [Java 函式](functions-reference-java.md)，其會將第一次接收事件當作 ```String```，並將第二次當作 POJO。
 
@@ -237,7 +238,7 @@ def main(event: func.EventGridEvent):
 }
 ```
 
-#### <a name="event-grid-trigger-string-parameter-java"></a>事件格線觸發程序，字串參數 (Java)
+### <a name="event-grid-trigger-string-parameter"></a>事件方格觸發程式，字串參數
 
 ```java
   @FunctionName("eventGridMonitorString")
@@ -251,7 +252,7 @@ def main(event: func.EventGridEvent):
   }
 ```
 
-#### <a name="event-grid-trigger-pojo-parameter-java"></a>事件格線觸發程序，POJO 參數 (Java)
+### <a name="event-grid-trigger-pojo-parameter"></a>事件方格觸發程式，POJO 參數
 
 此範例會使用下列 POJO 來代表事件格線事件的最上層屬性：
 
@@ -293,7 +294,11 @@ public class EventSchema {
 
 在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自事件方格的參數使用 `EventGridTrigger` 註釋。 具有這些附註的參數會使得函式在事件抵達時執行。  此註釋可以搭配原生 Java 類型、POJO 或使用 `Optional<T>` 的可為 Null 值使用。
 
+---
+
 ## <a name="attributes"></a>屬性
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) 屬性。
 
@@ -309,11 +314,29 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 如需完整範例，請參閱 C# 範例。
 
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
+
+C#腳本不支援屬性。
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript 不支援屬性。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python 不支援屬性。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+[EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java)注釋可讓您藉由提供設定值，以宣告方式設定事件方格系結。 如需詳細資訊，請參閱[範例](#example)[和設定](#configuration)章節。
+
+---
+
 ## <a name="configuration"></a>組態
 
 下表說明您在 function.json 檔案中設定的繫結設定屬性。 沒有要在 `EventGridTrigger` 屬性中設定的建構函式參數或屬性。
 
-|function.json 屬性 |描述|
+|function.json 屬性 |說明|
 |---------|---------|
 | **type** | 必要項目 - 必須設定為 `eventGridTrigger`。 |
 | **direction** | 必要項目 - 必須設定為 `in`。 |
@@ -321,19 +344,47 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 ## <a name="usage"></a>用量
 
-使用 Azure Functions 1.x 中的 C# 和 F# 函式時，您可以為 Event Grid 觸發程序使用下列參數類型：
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+在 Azure Functions 1.x 中，您可以針對事件方格觸發程式使用下列參數類型：
 
 * `JObject`
 * `string`
 
-針對C# Azure Functions F# 2.x 和更新版本中的和函式，您也可以選擇針對事件方格觸發程式使用下列參數類型：
+在 Azure Functions 2.x 和更新版本中，您也可以選擇為 Event Grid 觸發程式使用下列參數類型：
+
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent` - 定義所有事件類型通用之欄位的屬性。
+
+> [!NOTE]
+> 在 Functions v1 中，如果您嘗試繫結至 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`，編譯器將會顯示「已淘汰」訊息，並建議您改用 `Microsoft.Azure.EventGrid.Models.EventGridEvent`。 若要使用較新的類型，請參考 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 套件，並且為 `EventGridEvent` 類型名稱加上 `Microsoft.Azure.EventGrid.Models` 首碼，加以完整限定。
+
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
+
+在 Azure Functions 1.x 中，您可以針對事件方格觸發程式使用下列參數類型：
+
+* `JObject`
+* `string`
+
+在 Azure Functions 2.x 和更新版本中，您也可以選擇為 Event Grid 觸發程式使用下列參數類型：
 
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent` - 定義所有事件類型通用之欄位的屬性。
 
 > [!NOTE]
 > 在 Functions v1 中，如果您嘗試繫結至 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`，編譯器將會顯示「已淘汰」訊息，並建議您改用 `Microsoft.Azure.EventGrid.Models.EventGridEvent`。 若要使用較新的類型，請參考 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 套件，並且為 `EventGridEvent` 類型名稱加上 `Microsoft.Azure.EventGrid.Models` 首碼，加以完整限定。 如需如何在 C# 指令碼函式中參考 NuGet 套件的相關資訊，請參閱[使用 NuGet 套件](functions-reference-csharp.md#using-nuget-packages)
 
-對於 JavaScript 函式，由 *function.json* `name` 屬性命名的參數會參考事件物件。
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+您可以透過在*函數 json*檔案的 `name` 屬性中設定的參數，取得事件方格實例。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+您可以*透過在函*式的 `name` 屬性中設定的參數來使用事件方格實例，其型別為 `func.EventGridEvent`。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+事件方格事件實例可透過與 `EventGridTrigger` 屬性相關聯的參數（類型為 `EventSchema`）來取得。 如需詳細資訊，請參閱[範例](#example)。
+
+---
 
 ## <a name="event-schema"></a>結構描述
 
@@ -545,227 +596,6 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 Event Grid 觸發程序函式會執行並顯示類似於下列範例的記錄：
 
 ![Event Grid 觸發程序函式記錄的範例](media/functions-bindings-event-grid/eg-output.png)
-
-## <a name="local-testing-with-ngrok"></a>使用 ngrok 進行本機測試
-
-在本機測試 Event Grid 觸發程序的另一種方式，是自動建立網際網路與您開發電腦之間的 HTTP 連線。 您可以使用[ngrok](https://ngrok.com/)之類的工具來執行此動作：
-
-1. [建立 ngrok 端點](#create-an-ngrok-endpoint)。
-1. [執行 Event Grid 觸發程序函式](#run-the-event-grid-trigger-function)。
-1. [建立會將事件傳送至 ngrok 端點的 Event Grid 訂用帳戶](#create-a-subscription)。
-1. [觸發事件](#trigger-an-event)。
-
-完成測試後，您可以藉由更新端點，在生產環境使用相同的訂用帳戶。 使用 [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 命令。
-
-### <a name="create-an-ngrok-endpoint"></a>建立 ngrok 端點
-
-從 [ngrok](https://ngrok.com/) 下載 *ngrok.exe*，並使用下列命令加以執行：
-
-```
-ngrok http -host-header=localhost 7071
-```
-
-此時必須使用 -host-header 參數，因為函式執行階段在 localhost 執行時預期會有來自 localhost 的要求。 7071 是執行階段在本機執行時的預設連接埠號碼。
-
-此命令會建立如下的輸出：
-
-```
-Session Status                online
-Version                       2.2.8
-Region                        United States (us)
-Web Interface                 http://127.0.0.1:4040
-Forwarding                    http://263db807.ngrok.io -> localhost:7071
-Forwarding                    https://263db807.ngrok.io -> localhost:7071
-
-Connections                   ttl     opn     rt1     rt5     p50     p90
-                              0       0       0.00    0.00    0.00    0.00
-```
-
-您的 Event Grid 訂用帳戶將會使用 `https://{subdomain}.ngrok.io` URL。
-
-### <a name="run-the-event-grid-trigger-function"></a>執行 Event Grid 觸發程序函式
-
-Event Grid 不會以特殊方式處理 ngrok URL，因此，在訂用帳戶建立時，您的函式必須在本機執行。 若非如此，則不會傳送驗證回應，且訂用帳戶的建立將會失敗。
-
-### <a name="create-a-subscription"></a>建立訂用帳戶
-
-建立您想要測試的 Event Grid 訂用帳戶類型，並為其提供您的 ngrok 端點。
-
-將此端點模式用於2.x 和更高版本的函式：
-
-```
-https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
-```
-
-將此端點模式使用於 Functions 1.x：
-
-```
-https://{SUBDOMAIN}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
-```
-
-`{FUNCTION_NAME}` 參數必須是 `FunctionName` 屬性中指定的名稱。
-
-以下是使用 Azure CLI 的範例：
-
-```azurecli
-az eventgrid event-subscription create --resource-id /subscriptions/aeb4b7cb-b7cb-b7cb-b7cb-b7cbb6607f30/resourceGroups/eg0122/providers/Microsoft.Storage/storageAccounts/egblobstor0122 --name egblobsub0126 --endpoint https://263db807.ngrok.io/runtime/webhooks/eventgrid?functionName=EventGridTrigger
-```
-
-如需如何建立訂用帳戶的相關資訊，請參閱本文前述的[建立訂用帳戶](#create-a-subscription)。
-
-### <a name="trigger-an-event"></a>觸發事件
-
-觸發會對您的 ngrok 端點產生 HTTP 流量的事件。  例如，如果您已建立 Blob 儲存體訂用帳戶，請上傳或刪除 Blob。
-
-Event Grid 觸發程序函式會執行並顯示類似於下列範例的記錄：
-
-![Event Grid 觸發程序函式記錄的範例](media/functions-bindings-event-grid/eg-output.png)
-
-## <a name="use-an-http-trigger-as-an-event-grid-trigger"></a>以 HTTP 觸發程序作為 Event Grid 觸發程序
-
-接收到的 Event Grid 事件會是 HTTP 要求，因此您可以使用 HTTP 觸發程序來處理事件，而不使用 Event Grid 觸發程序。 這麼做的可能原因之一，是對於叫用函式的端點 URL 想要有更充分的掌控。 另一個原因是當您需要接收 [CloudEvents 結構描述](../event-grid/cloudevents-schema.md)中的事件時。 事件格線觸發程序目前不支援 CloudEvents 結構描述。 本節中的範例示範事件格線結構描述和 CloudEvents 結構描述的解決方案。
-
-如果您使用 HTTP 觸發程序，則必須撰寫程式碼來處理 Event Grid 觸發程序自動執行的作業：
-
-* 將驗證回應傳送給[訂用帳戶驗證要求](../event-grid/security-authentication.md#webhook-event-delivery)。
-* 為要求本文中包含的每個事件陣列元素分別叫用一次函式。
-
-如需在本機叫用函式時或在 Azure 中執行函式時所使用的 URL 相關資訊，請參閱 [HTTP 觸發程序繫結參考文件](functions-bindings-http-webhook.md)
-
-### <a name="event-grid-schema"></a>事件格線結構描述
-
-HTTP 觸發程序的下列範例 C# 程式碼會模擬事件格線觸發程序的行為。 使用此範例示範以事件格線結構描述傳送的事件。
-
-```csharp
-[FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequestMessage req,
-    ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    var messages = await req.Content.ReadAsAsync<JArray>();
-
-    // If the request is for subscription validation, send back the validation code.
-    if (messages.Count > 0 && string.Equals((string)messages[0]["eventType"],
-        "Microsoft.EventGrid.SubscriptionValidationEvent",
-        System.StringComparison.OrdinalIgnoreCase))
-    {
-        log.LogInformation("Validate request received");
-        return req.CreateResponse<object>(new
-        {
-            validationResponse = messages[0]["data"]["validationCode"]
-        });
-    }
-
-    // The request is not for subscription validation, so it's for one or more events.
-    foreach (JObject message in messages)
-    {
-        // Handle one event.
-        EventGridEvent eventGridEvent = message.ToObject<EventGridEvent>();
-        log.LogInformation($"Subject: {eventGridEvent.Subject}");
-        log.LogInformation($"Time: {eventGridEvent.EventTime}");
-        log.LogInformation($"Event data: {eventGridEvent.Data.ToString()}");
-    }
-
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-HTTP 觸發程序的下列範例 JavaScript 程式碼會模擬事件格線觸發程序行為。 使用此範例示範以事件格線結構描述傳送的事件。
-
-```javascript
-module.exports = function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
-    var messages = req.body;
-    // If the request is for subscription validation, send back the validation code.
-    if (messages.length > 0 && messages[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
-        context.log('Validate request received');
-        var code = messages[0].data.validationCode;
-        context.res = { status: 200, body: { "ValidationResponse": code } };
-    }
-    else {
-        // The request is not for subscription validation, so it's for one or more events.
-        // Event Grid schema delivers events in an array.
-        for (var i = 0; i < messages.length; i++) {
-            // Handle one event.
-            var message = messages[i];
-            context.log('Subject: ' + message.subject);
-            context.log('Time: ' + message.eventTime);
-            context.log('Data: ' + JSON.stringify(message.data));
-        }
-    }
-    context.done();
-};
-```
-
-您的事件處理程式碼會透過 `messages` 陣列進入迴圈。
-
-### <a name="cloudevents-schema"></a>CloudEvents 結構描述
-
-HTTP 觸發程序的下列範例 C# 程式碼會模擬事件格線觸發程序的行為。  使用此範例示範以 CloudEvents 結構描述傳送的事件。
-
-```csharp
-[FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    var requestmessage = await req.Content.ReadAsStringAsync();
-    var message = JToken.Parse(requestmessage);
-
-    if (message.Type == JTokenType.Array)
-    {
-        // If the request is for subscription validation, send back the validation code.
-        if (string.Equals((string)message[0]["eventType"],
-        "Microsoft.EventGrid.SubscriptionValidationEvent",
-        System.StringComparison.OrdinalIgnoreCase))
-        {
-            log.LogInformation("Validate request received");
-            return req.CreateResponse<object>(new
-            {
-                validationResponse = message[0]["data"]["validationCode"]
-            });
-        }
-    }
-    else
-    {
-        // The request is not for subscription validation, so it's for an event.
-        // CloudEvents schema delivers one event at a time.
-        log.LogInformation($"Source: {message["source"]}");
-        log.LogInformation($"Time: {message["eventTime"]}");
-        log.LogInformation($"Event data: {message["data"].ToString()}");
-    }
-
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-HTTP 觸發程序的下列範例 JavaScript 程式碼會模擬事件格線觸發程序行為。 使用此範例示範以 CloudEvents 結構描述傳送的事件。
-
-```javascript
-module.exports = function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
-    var message = req.body;
-    // If the request is for subscription validation, send back the validation code.
-    if (message.length > 0 && message[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
-        context.log('Validate request received');
-        var code = message[0].data.validationCode;
-        context.res = { status: 200, body: { "ValidationResponse": code } };
-    }
-    else {
-        // The request is not for subscription validation, so it's for an event.
-        // CloudEvents schema delivers one event at a time.
-        var event = JSON.parse(message);
-        context.log('Source: ' + event.source);
-        context.log('Time: ' + event.eventTime);
-        context.log('Data: ' + JSON.stringify(event.data));
-    }
-    context.done();
-};
-```
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 452b0e597d0b4ad027ff62303afe2f0e7fd6abb9
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: e3dcd9305a48b0d34f1bcbea64d6628efabc1235
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314363"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546056"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 的運作方式：架構和概念
 
@@ -47,8 +47,7 @@ ms.locfileid: "76314363"
 +  使用[適用于 python 的 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)，在任何 Python 環境中與服務互動。
 + 使用[適用于 r 的 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)，在任何 r 環境中與服務互動。
 + 使用[AZURE MACHINE LEARNING CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)自動化您的機器學習活動。
-+ 使用[Azure Machine Learning VS Code 延伸](tutorial-setup-vscode-extension.md)模組，在 Visual Studio Code 中撰寫程式碼
-+ 使用[Azure Machine Learning 設計](concept-designer.md)工具來執行工作流程步驟，而不需要撰寫程式碼。
++ 使用[Azure Machine Learning 設計工具（預覽）](concept-designer.md)來執行工作流程步驟，而不需要撰寫程式碼。
 
 
 > [!NOTE]

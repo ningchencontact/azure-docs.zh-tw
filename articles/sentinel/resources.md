@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 98c76b2be6a5cc801f9e7b31357cbeb158a966fe
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 2ce8b9e82907402538ca2d14b864c02bb8bc2d82
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771286"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547994"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>使用 Azure Sentinel 的實用資源
 
@@ -46,13 +46,13 @@ Azure Sentinel 的 Audit 記錄會保留在[Azure 活動記錄](../azure-monitor
 |刪除已儲存的搜尋    |Microsoft.operationalinsights/workspace/savedSearches|
 |更新警示規則 |SecurityInsights/alertRules|
 |刪除警示規則 |SecurityInsights/alertRules|
-|更新警示規則回應動作 |SecurityInsights/alertRules|
-|刪除警示規則回應動作 |SecurityInsights/alertRules|
+|更新警示規則回應動作 |SecurityInsights/alertRules/actions|
+|刪除警示規則回應動作 |SecurityInsights/alertRules/actions|
 |更新書簽   |SecurityInsights/書簽|
 |刪除書簽   |SecurityInsights/書簽|
 |更新案例   |SecurityInsights/案例|
-|更新案例調查  |SecurityInsights/案例|
-|建立案例批註   |SecurityInsights/案例|
+|更新案例調查  |SecurityInsights/案例/調查|
+|建立案例批註   |SecurityInsights/案例/留言|
 |更新資料連線器 |SecurityInsights/dataConnectors|
 |刪除資料連線器 |SecurityInsights/dataConnectors|
 |更新設定    |SecurityInsights/settings|

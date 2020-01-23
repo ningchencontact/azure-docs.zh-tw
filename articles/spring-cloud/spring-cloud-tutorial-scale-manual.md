@@ -3,15 +3,15 @@ title: 教學課程：在 Azure Spring Cloud 中調整應用程式 | Microsoft D
 description: 在此教學課程中，您將了解如何在 Azure 入口網站中使用 Azure Spring Cloud 調整應用程式
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.author: jeconnoc
-author: jpconnock
+ms.author: brendm
+author: bmitchell287
 ms.date: 10/06/2019
-ms.openlocfilehash: eaf7e7ec39555e5b933020835f3bb96429e3aa81
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f08a3b5d0a03b0e898457bbb783dd5031c4b0f27
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461427"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277486"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>在 Azure Spring Cloud 中調整應用程式
 

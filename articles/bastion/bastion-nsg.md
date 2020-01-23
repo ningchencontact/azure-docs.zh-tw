@@ -2,17 +2,17 @@
 title: 使用 Azure 防禦中的 Vm 和 Nsg |Microsoft Docs
 description: 本文說明如何將 NSG 存取納入 Azure 防禦
 services: bastion
-author: cherylmc
+author: ashjain
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.author: cherylmc
-ms.openlocfilehash: 4b64c420290bec687388690f1c901c2ae789a3c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.author: ashishj
+ms.openlocfilehash: 8fb48b3dbe0d727f92bd2e0fec91ac2dbf33338b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707556"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547620"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>使用 NSG 存取和 Azure 防禦
 

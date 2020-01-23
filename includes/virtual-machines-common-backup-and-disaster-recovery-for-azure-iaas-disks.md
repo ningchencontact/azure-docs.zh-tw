@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9332079cd77c4dcc972059071165ba0631135b5c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: cd10bd2a04bfb2a3e3316d86e64a98c75c12e36d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012520"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76530946"
 ---
 本文說明如何在 Azure 中規劃 IaaS 虛擬機器 (VM) 和磁碟的備份和災害復原 (DR)。 本文件涵蓋受控磁碟和非受控磁碟。
 
@@ -119,10 +119,10 @@ IaaS 應用程式資料問題是另一種可能性。 請考慮一個可計算�
 
 應用程式或基礎結構層級的高可用性、備份和 DR 選項如下所示：
 
-| 等級 |   高可用性   | 備份或 DR |
+| 層級 |   高可用性   | 備份或 DR |
 | --- | --- | --- |
 | 應用程式 | SQL Server AlwaysOn | Azure 備份 |
-| 基礎結構    | 可用性集合  | 使用一致性快照的異地備援儲存體 |
+| 基礎結構    | 可用性設定組  | 使用一致性快照的異地備援儲存體 |
 
 ### <a name="using-azure-backup"></a>使用 Azure 備份 
 
@@ -144,15 +144,13 @@ Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝�
 
     a. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽 [所有資源] 並尋找 [復原服務保存庫]。
 
-    b.這是另一個 C# 主控台應用程式。 在 [復原服務保存庫] 功能表上，按一下 [新增]，然後遵循步驟以在與 VM 相同的區域中建立新的保存庫。 例如，如果您的 VM 位於美國西部地區，請選取美國西部作為保存庫。
+    b. 在 [復原服務保存庫] 功能表上，按一下 [新增]，然後遵循步驟以在與 VM 相同的區域中建立新的保存庫。 例如，如果您的 VM 位於美國西部地區，請選取美國西部作為保存庫。
 
 1.  確認新建立保存庫的儲存體複寫。 存取復原服務保存**庫**底下的保存庫，然後移至 內容 ** > ** **備份**設定 > **更新**。 確定預設已選取 [異地備援儲存體] 選項。 此選項可確保您的保存庫會自動複寫至次要資料中心。 例如，您在美國西部的保存庫會自動複寫至美國東部。
 
 1.  設定備份原則，然後從相同的 UI 中選取 VM。
 
 1.  確認已在 VM 上安裝備份代理程式。 如果使用 Azure 資源庫映像建立 VM，則已安裝備份代理程式。 否則 (也就是，如果您使用自訂映像)，請使用相關指示[在虛擬機器上安裝 VM 代理程式](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent)。
-
-1.  確定 VM 允許網路連線，備份服務才能運作正常。 請遵循[網路連線](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity)的指示。
 
 1.  完成上述步驟之後，備份就會依照備份原則中指定的間隔定期執行。 如有必要，您可以從 Azure 入口網站上的保存庫儀表板，以手動方式觸發第一個備份。
 

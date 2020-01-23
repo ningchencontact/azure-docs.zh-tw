@@ -1,26 +1,20 @@
 ---
 title: 平衡多個網站的負載 - Azure PowerShell - Azure Load Balancer
 description: 此 Azure PowerShell 指令碼範例示範如何將多個網站負載平衡至相同的虛擬機器
-services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
-manager: jeconnoc
-editor: tysonn
-tags: ''
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
-ms.openlocfilehash: 82bd8a82418bad44786f009c75d742fcc0fc66e7
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: b7beb5186bd039d7098883915663e8a3286fb99d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048898"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274607"
 ---
 # <a name="azure-powershell-script-example-load-balance-multiple-websites"></a>Azure PowerShell 指令碼範例：進行多個網站的負載平衡
 
@@ -48,7 +42,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 此指令碼使用下列命令建立資源群組、虛擬網路、負載平衡器和所有相關資源。 下表中的每個命令都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 建立用來存放所有資源的資源群組。 |
 | [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | 建立 Azure 可用性設定組以提供高可用性。 |

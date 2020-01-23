@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 9978bd567b1b07e8dd0e22e1f02834626281a5dd
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 83c57b27c1cd1d524805a92381a1ba9eb2e1fbd6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920670"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549031"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>使用 KEDA 在 Kubernetes 上 Azure Functions
 
@@ -26,15 +26,9 @@ Azure Functions 服務是由兩個主要元件所組成：執行時間和縮放�
 
 若要在 Kubernetes 叢集上執行函數，您必須安裝 KEDA 元件。 您可以使用[Azure Functions Core Tools](functions-run-local.md)安裝此元件。
 
-### <a name="installing-with-the-azure-functions-core-tools"></a>使用 Azure Functions Core Tools 安裝
+### <a name="installing-with-helm"></a>使用 Helm 安裝
 
-根據預設，核心工具會同時安裝 KEDA 和 Osiris 元件，分別支援事件驅動和 HTTP 調整。  安裝會使用在目前內容中執行 `kubectl`。
-
-執行下列 install 命令，在您的叢集中安裝 KEDA：
-
-```cli
-func kubernetes install --namespace keda
-```
+有各種方式可以在任何 Kubernetes 叢集中安裝 KEDA，包括 Helm。  部署選項記載于[KEDA 網站](https://keda.sh/deploy/)。
 
 ## <a name="deploying-a-function-app-to-kubernetes"></a>將函數應用程式部署至 Kubernetes
 
@@ -73,11 +67,7 @@ kubectl delete secret <name-of-function-deployment>
 
 ## <a name="uninstalling-keda-from-kubernetes"></a>從 Kubernetes 卸載 KEDA
 
-您可以執行下列 core tools 命令，從 Kubernetes 叢集中移除 KEDA：
-
-```cli
-func kubernetes remove --namespace keda
-```
+卸載 KEDA 的步驟記載[于 KEDA 網站](https://keda.sh/deploy/)。
 
 ## <a name="supported-triggers-in-keda"></a>KEDA 中支援的觸發程式
 
@@ -91,7 +81,7 @@ KEDA 支援下列 Azure 函數觸發程式：
 
 ### <a name="http-trigger-support"></a>HTTP 觸發程式支援
 
-您可以使用公開 HTTP 觸發程式的 Azure Functions，但 KEDA 不會直接管理它們。  Azure Functions Core Tools 將會安裝相關的專案 Osiris，讓 HTTP 端點從0調整為1。  從1到*n*的調整會依賴傳統的 Kubernetes 調整原則。
+您可以使用公開 HTTP 觸發程式的 Azure Functions，但 KEDA 不會直接管理它們。  您可以利用 KEDA prometheus 觸發程式，將[HTTP Azure Functions 從1調整為*n*個實例](https://dev.to/anirudhgarg_99/scale-up-and-down-a-http-triggered-function-app-in-kubernetes-using-keda-4m42)。
 
 ## <a name="next-steps"></a>後續步驟
 如需詳細資訊，請參閱下列資源：

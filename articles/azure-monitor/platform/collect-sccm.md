@@ -7,22 +7,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 2262c951b52ef58006bacde4be76dc92468a20ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5b5af034b116ec1cdcefc811630683c9f560c840
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364045"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513642"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>將 Configuration Manager 連接到 Azure 監視器
-您可以將 System Center Configuration Manager 環境連線到 Azure 監視器，以同步處理裝置集合資料，並在 Azure 監視器和 Azure 自動化中參考這些集合。  
+您可以將您的 Microsoft 端點 Configuration Manager 環境連接到 Azure 監視器，以同步處理裝置集合資料，並在 Azure 監視器和 Azure 自動化中參考這些集合。  
 
 ## <a name="prerequisites"></a>必要條件
 
-Azure 監視器支援 System Center Configuration Manager 最新分支1606版和更高版本。
+Azure 監視器支援 Configuration Manager 最新分支1606版和更高版本。
 
 >[!NOTE]
->與 Log Analytics 工作區連線 Configuration Manager 的功能是選擇性的，而且預設不會啟用。 您必須先先啟用這項功能才能使用它。 如需詳細資訊，請參閱[從更新啟用選擇性功能](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_options)。
+>與 Log Analytics 工作區連線 Configuration Manager 的功能是選擇性的，而且預設不會啟用。 您必須先先啟用這項功能才能使用它。 如需詳細資訊，請參閱[從更新啟用選擇性功能](https://docs.microsoft.com/configmgr/core/servers/manage/install-in-console-updates#bkmk_options)。
 
 ## <a name="configuration-overview"></a>組態概觀
 
@@ -67,7 +67,7 @@ Azure 監視器支援 System Center Configuration Manager 最新分支1606版和
 ## <a name="connect-configuration-manager-to-log-analytics-workspace"></a>將 Configuration Manager 連線到 Log Analytics 工作區
 
 >[!NOTE]
-> 若要新增 Log Analytics 連線，您的 Configuration Manager 環境必須已針對線上模式設定[服務連接點](https://docs.microsoft.com/sccm/core/servers/deploy/configure/about-the-service-connection-point)。
+> 若要新增 Log Analytics 連線，您的 Configuration Manager 環境必須已針對線上模式設定[服務連接點](https://docs.microsoft.com/configmgr/core/servers/deploy/configure/about-the-service-connection-point)。
 
 > [!NOTE]
 > 您必須將階層中的頂層網站連線到 Azure 監視器。 如果您將獨立主要網站連線到 Azure 監視器，然後將管理中心網站新增至您的環境，則必須在新階層內刪除並重新建立連線。

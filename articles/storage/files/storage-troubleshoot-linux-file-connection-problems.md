@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 8b7a743ebcdf74f6ad740e4e4193bbd98da1536d
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 9849e8ab918562267e93506771a4c32cf96533a4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291119"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544934"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>針對 Linux 中的 Azure 檔案服務問題進行疑難排解
 
@@ -131,9 +131,8 @@ Linux 4.11 核心已推出 SMB 3.0 適用的加密功能。 此功能讓您可�
 如果您的 Linux SMB 用戶端不支援加密，請從位於檔案共用相同資料中心的 Azure Linux VM 使用 SMB 2.1 來掛接 Azure 檔案服務。 驗證儲存體帳戶上已停用[需要安全傳輸]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定。 
 
 <a id="noaaccessfailureportal"></a>
-## <a name="error-no-access-when-browsing-to-an-azure-file-share-in-the-portal"></a>流覽入口網站中的 Azure 檔案共用時發生錯誤「沒有存取權」
-
-當您瀏覽至入口網站中的 Azure 檔案共用時，可能會接收到下列錯誤：
+## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>當您嘗試存取或刪除 Azure 檔案共用時發生錯誤「沒有存取權」  
+當您嘗試存取或刪除入口網站中的 Azure 檔案共用時，可能會收到下列錯誤：
 
 無存取權  
 錯誤碼：403 

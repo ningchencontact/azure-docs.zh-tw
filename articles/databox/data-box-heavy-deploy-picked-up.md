@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: e438fb38afb649f6f4c7f595059ef64800977242
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: cfb9f54f5ba219a4db87144ab1e7ebff2b72b69e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70240338"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514437"
 ---
 ::: zone target = "docs"
 
@@ -35,13 +35,13 @@ ms.locfileid: "70240338"
 在本教學課程中，您將了解如下所列的主題：
 
 > [!div class="checklist"]
-> * 必要條件
+> * Prerequisites
 > * 準備寄送
 > * 將 Data Box Heavy 寄送給 Microsoft
 > * 確認資料上傳至 Azure
 > * 清除 Data Box Heavy 中的資料
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 在您開始前，請確定：
 
@@ -134,7 +134,7 @@ ms.locfileid: "70240338"
 在本教學課程中，您已了解 Azure 資料箱的相關主題，像是：
 
 > [!div class="checklist"]
-> * 必要條件
+> * Prerequisites
 > * 準備寄送
 > * 將 Data Box Heavy 寄送給 Microsoft
 > * 確認資料上傳至 Azure

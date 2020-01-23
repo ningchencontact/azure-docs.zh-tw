@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4a902e869ed9fd2ae9274f0ad8eee11e43b8edc6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5f3e05752967be8872c0e6fd9008bfae05d950fa
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974320"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169543"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>快速入門：使用 Ruby 來呼叫 Bing Web 搜尋 API  
 
 使用本快速入門進行對 Bing Web 搜尋 API 第一次的呼叫，並接收 JSON 回應。 這個 Ruby 應用程式會將搜尋要求傳送給 API，並顯示回應。 雖然此應用程式是以 Ruby 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 以下是執行本快速入門之前的幾個必備項目：
 
@@ -157,9 +157,9 @@ puts JSON::pretty_generate(JSON(response.body))
         "snippet": "Knock down barriers between you and your ideas. Enable natural and contextual interaction with tools that augment users' experiences via the power of machine-based AI. Plug them in and bring your ideas to life.",
         "deepLinks": [
           {
-            "name": "Face API",
+            "name": "Face",
             "url": "https://azure.microsoft.com/services/cognitive-services/face/",
-            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face API from Microsoft Azure. ... Cognitive Services; Face API;"
+            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using the Face service from Microsoft Azure. ... Cognitive Services; Face service;"
           },
           {
             "name": "Text Analytics",

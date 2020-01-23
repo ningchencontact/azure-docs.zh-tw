@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: 8e0fcdc97475053dcf285b562b28784deffff28c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 5cf1986711479f7330b0cd477744d9f4e2ac6459
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552724"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548929"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>使用 Apache Spark 歷程記錄伺服器的擴充功能來偵測和診斷 Spark 應用程式
 
@@ -163,7 +163,7 @@ Spark 歷程記錄伺服器 web UI 看起來可能像這樣的影像：
 
 #### <a name="specify-parameters"></a>指定參數
 
-[**指定參數**] 區段會顯示用來偵測資料扭曲的參數。 預設規則為：工作資料讀取大於平均工作資料讀取的3倍，而工作資料讀取超過 10 MB。 如果您想要為扭曲的工作定義自己的規則，您可以選擇您的參數。 **扭曲的階段**和**扭曲字元**區段會據以更新。
+[**指定參數**] 區段會顯示用來偵測資料扭曲的參數。 預設規則為：工作資料讀取大於平均工作資料讀取的3倍，而工作資料讀取超過 10 MB。 如果您想要為扭曲的工作定義自己的規則，您可以選擇您的參數。 **扭曲的階段**和**扭曲圖表**區段會據以更新。
 
 #### <a name="skewed-stage"></a>扭曲階段
 

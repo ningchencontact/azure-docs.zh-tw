@@ -3,12 +3,12 @@ title: 備份和還原已加密的 Azure Vm
 description: 說明如何使用 Azure 備份服務來備份和還原已加密的 Azure Vm。
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 2ce0453c0b57ab682fa102f76c31afa567d80778
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 754a0899d25f2672c6a66eeafe5013f98b7a8f4d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449973"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513774"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>備份和還原已加密的 Azure VM
 
@@ -53,7 +53,6 @@ Azure 備份可以使用具有和不含 Azure AD 應用程式的 ADE 來備份�
 此外，在某些情況下，您可能還需要做幾件事：
 
 - 在**vm 上安裝 vm 代理程式**： Azure 備份會藉由將擴充功能安裝到在電腦上執行的 azure vm 代理程式來備份 Azure vm。 如果您的 VM 是從 Azure marketplace 映射建立的，則代理程式已安裝且正在執行。 如果您建立自訂 VM，或遷移內部部署機器，您可能需要[手動安裝代理程式](backup-azure-arm-vms-prepare.md#install-the-vm-agent)。
-- **明確允許輸出存取**：一般而言，您不需要明確地允許 Azure VM 的輸出網路存取，以便與 Azure 備份進行通訊。 不過，有些 Vm 可能會遇到連線問題，並顯示嘗試連線時的**ExtensionSnapshotFailedNoNetwork**錯誤。 如果發生這種情況，您應該[明確地允許輸出存取](backup-azure-arm-vms-prepare.md#explicitly-allow-outbound-access)，因此 Azure 備份擴充功能可以與 AZURE 公用 IP 位址進行通訊，以進行備份流量。
 
 ## <a name="configure-a-backup-policy"></a>設定備份原則
 

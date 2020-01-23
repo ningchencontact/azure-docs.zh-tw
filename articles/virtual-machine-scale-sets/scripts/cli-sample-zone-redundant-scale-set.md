@@ -1,27 +1,20 @@
 ---
 title: Azure CLI 範例 - 區域備援擴展集
 description: 此指令碼會建立能在多個可用性區域執行 Ubuntu 的 Azure 虛擬機器擴展集。
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 433c49208cdd115c1efdd53258f6e3c6e5721164
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d03eb9ca86472670caf89f8a9f9c4cf861b2eb62
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350968"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278726"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-azure-cli"></a>使用 Azure CLI 建立區域備援虛擬機器擴展集
 此指令碼會建立能在多個可用性區域執行 Ubuntu 的虛擬機器擴展集。 執行指令碼之後，您可以透過 RDP 存取虛擬機器。

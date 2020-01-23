@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: b2ebb4c5a0df360cede084a90ebe5da041a08aa0
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 70d5481c37777150927914042133286a77f53b89
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70241384"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514403"
 ---
 ::: zone target = "docs"
 
@@ -24,17 +24,17 @@ ms.locfileid: "70241384"
 
 如需部署和追蹤的詳細逐步指示，請移至[教學課程：訂購 Azure Data Box Heavy](data-box-heavy-deploy-ordered.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 在您部署裝置之前，請完成安裝位置、資料箱服務和裝置的下列設定必要條件。
 
-### <a name="for-installation-site"></a>對於安裝位置
+### <a name="for-installation-site"></a>針對安裝位置
 
 在您開始前，請確定：
 
 - 裝置可以通過您所有的入口。 裝置尺寸：寬度：26 吋 長度：48 吋 高度：28 吋。
 - 如果打算將裝置安裝在一樓以外的樓層，您可透過電梯或坡道取得裝置。
-- 您有兩個人可處理裝置。 裝置的重量約為 ~500 lbs。 而且附有輪子。
+- 您有兩個人可處理裝置。 裝置的重量約為 500 磅。 而且附有輪子。
 - 您的資料中心內有塊平坦區域，且靠近可用的網路連線，以容納具有此磁碟使用量的裝置。
 
 ### <a name="for-service"></a>針對服務
@@ -61,9 +61,9 @@ ms.locfileid: "70241384"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 
-## <a name="order"></a>順序
+## <a name="order"></a>單
 
 這個步驟需要大約 5 分鐘。
 
@@ -147,7 +147,7 @@ ms.locfileid: "70241384"
 
 1. 移除纜線，然後將其放回裝置背面的線槽。
 2. 與區域性貨運公司排定取貨時間。
-3. 連絡 [Data Box Operations](mailto:DataBoxOps@microsoft.com)，告知取貨事宜並取得退貨標籤。
+3. 連絡 [Data Box Operations](mailto:DataBoxOps@microsoft.com)，告知取貨事宜並取得寄返標籤。
 4. 退貨標籤應清楚顯示在裝置的前面板上。
 
 ## <a name="verify-data"></a>驗證資料

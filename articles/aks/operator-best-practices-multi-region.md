@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ff55257891ff379bea9ff44aa5136195ced44354
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 855d40f9c20f966f6fa2b89949e47c943704bf2b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613103"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549150"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>因應 Azure Kubernetes Service (AKS) 中商務持續性和災害復原的最佳做法
 
@@ -66,7 +66,7 @@ AKS 區域可用性和配對區域是共同考慮。 請將 AKS 叢集部署到�
 
 如果叢集需要彼此溝通，可以透過[虛擬網路對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)來連接兩個虛擬網路。 這項技術可將虛擬網路彼此互連，跨 Microsoft 骨幹網路提供高頻寬，甚至是在不同的地理區域。
 
-將 AKS 叢集執行所在的虛擬網路對等互連的必要條件是，在您的 AKS 叢集中使用標準 Load Balancer，讓虛擬網路對等互連能夠連線到 kubernetes 服務。
+將 AKS 叢集執行所在的虛擬網路對等互連的必要條件是，在您的 AKS 叢集中使用標準 Load Balancer，讓虛擬網路對等互連能夠連線到 Kubernetes 服務。
 
 ## <a name="enable-geo-replication-for-container-images"></a>為容器映像啟用異地複寫
 

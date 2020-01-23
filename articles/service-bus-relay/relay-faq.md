@@ -1,6 +1,6 @@
 ---
 title: Azure 轉送常見問題集 | Microsoft Docs
-description: 獲得一些有關 Azure 轉送常見問題的答案。
+description: 本文提供一些關於 Azure 轉送服務常見問題的解答。
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 066ac1080f7ea378efe1665e7ebc70e57118191c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d5032b427316a3c4e07013af4e8214e239a6efb3
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459099"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513995"
 ---
 # <a name="azure-relay-faqs"></a>Azure 轉送常見問題集
 

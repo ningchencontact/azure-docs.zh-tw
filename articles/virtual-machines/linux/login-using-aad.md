@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: cccdb54b89dff7c6a1fc9dac55c63b19d661ab65
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 9980ad7af4a9e5db1d93ffb389ef7b04209b8c43
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951304"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544611"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>預覽：使用 Azure Active Directory authentication 登入 Azure 中的 Linux 虛擬機器
 
@@ -66,17 +66,17 @@ ms.locfileid: "74951304"
 > 若要使用這項預覽功能，請您僅在支援的 Azure 區域中部署支援的 Linux 發行版。 Azure Government 或主權雲端不支援這項功能。
 
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="network-requirements"></a>網路需求
 
 若要在 Azure 中啟用 Linux Vm 的 Azure AD 驗證，您必須確定您的 Vm 網路設定允許透過 TCP 埠443對下列端點進行輸出存取：
 
-* https://login.microsoftonline.com
-* https://device.login.microsoftonline.com
-* https://pas.windows.net
-* https://management.azure.com
-* https://packages.microsoft.com
+* https:\//login.microsoftonline.com
+* HTTPs：\//device.login.microsoftonline.com
+* HTTPs：\//pas.windows.net
+* https:\//management.azure.com
+* HTTPs：\//packages.microsoft.com
 
 > [!NOTE]
 > 目前，您無法針對以 Azure AD authentication 啟用的 Vm 設定 Azure 網路安全性群組。

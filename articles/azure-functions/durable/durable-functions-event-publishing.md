@@ -3,12 +3,12 @@ title: 發佈至 Azure 事件方格 (預覽) 的 Durable Functions
 description: 了解如何針對 Durable Functions 設定自動 Azure 事件方格發佈。
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 5d1960f0e8d249ac77f3c64e18b332a3d55d5180
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 768af2e89d6523f50bd9fcc3d13cc84b711cc6f0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613120"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547467"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>發佈至 Azure 事件方格 (預覽) 的 Durable Functions
 
@@ -277,7 +277,7 @@ namespace LifeCycleEventSpike
 
 ## <a name="how-to-test-locally"></a>本機測試方式
 
-若要在本機測試，請使用 [ngrok](../functions-bindings-event-grid.md#local-testing-with-ngrok)。
+若要在本機進行測試，請參閱[Azure 函數事件方格觸發程式本機的調試](../functions-debug-event-grid-trigger-local.md)程式。
 
 ## <a name="next-steps"></a>後續步驟
 

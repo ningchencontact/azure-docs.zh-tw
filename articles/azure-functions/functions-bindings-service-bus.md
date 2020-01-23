@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 4deae28d172bf717f527824be4be050975614c7d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 424d797410c091dc53687284c2b32e2f1f0358e1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277381"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549065"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服務匯流排繫結
 
@@ -40,16 +40,7 @@ ms.locfileid: "76277381"
 
 ## <a name="trigger---example"></a>觸發程序 - 範例
 
-請參閱特定語言的範例：
-
-* [C#](#trigger---c-example)
-* [C# 指令碼 (.csx)](#trigger---c-script-example)
-* [F#](#trigger---f-example)
-* [Java](#trigger---java-example)
-* [JavaScript](#trigger---javascript-example)
-* [Python](#trigger---python-example)
-
-### <a name="trigger---c-example"></a>觸發程序 - C# 範例
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 下列範例示範的 [C# 函式](functions-dotnet-class-library.md)可讀取[訊息中繼資料](#trigger---message-metadata)和記錄服務匯流排佇列訊息：
 
@@ -70,7 +61,7 @@ public static void Run(
 }
 ```
 
-### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 下列範例示範 function.json 檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式可讀取[訊息中繼資料](#trigger---message-metadata)和記錄服務匯流排佇列訊息。
 
@@ -110,90 +101,7 @@ public static void Run(string myQueueItem,
 }
 ```
 
-### <a name="trigger---f-example"></a>觸發程序 - F# 範例
-
-下列範例示範 function.json 檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 此函式可記錄服務匯流排佇列訊息。 
-
-以下是 *function.json* 檔案中的繫結資料：
-
-```json
-{
-"bindings": [
-    {
-    "queueName": "testqueue",
-    "connection": "MyServiceBusConnection",
-    "name": "myQueueItem",
-    "type": "serviceBusTrigger",
-    "direction": "in"
-    }
-],
-"disabled": false
-}
-```
-
-以下是 F# 指令碼程式碼：
-
-```fsharp
-let Run(myQueueItem: string, log: ILogger) =
-    log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
-```
-
-### <a name="trigger---java-example"></a>觸發程序 - Java 範例
-
-下列 JAVA 函式會使用 JAVA 函式執行時間連結[庫](/java/api/overview/azure/functions/runtime)中的 `@ServiceBusQueueTrigger` 批註來描述服務匯流排佇列觸發程式的設定。 函式會抓取放在佇列上的訊息，並將它新增至記錄。
-
-```java
-@FunctionName("sbprocessor")
- public void serviceBusProcess(
-    @ServiceBusQueueTrigger(name = "msg",
-                             queueName = "myqueuename",
-                             connection = "myconnvarname") String message,
-   final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
-```
-
-下列 JAVA 函式顯示在服務匯流排訊息的_使用者屬性_中定義的中繼資料的抓取： 
-```java
-public class ServiceBusQueueTriggerJava {
-    @FunctionName("ServiceBusQueueTriggerJava")
-    public void run(
-            @ServiceBusQueueTrigger(name = "message", queueName = "myqueue", connection = "AzureWebJobsStorage") String message,
-            @BindingName("UserProperties") UserProperties userProperties,
-            final ExecutionContext context
-    ) {
-        context.getLogger().info("Java Service Bus Queue trigger function executed.");
-        context.getLogger().info(message);
-        context.getLogger().info(userProperties.key1);
-        context.getLogger().info(userProperties.key2);
-    }
-}
-
-public class UserProperties {
-    public String key1;
-    public String key2;
-}
-```
-
-當訊息新增至服務匯流排主題時，也會觸發 JAVA 函式。 下列範例會使用 `@ServiceBusTopicTrigger` 注釋來描述觸發程式設定。
-
-```java
-@FunctionName("sbtopicprocessor")
-    public void run(
-        @ServiceBusTopicTrigger(
-            name = "message",
-            topicName = "mytopicname",
-            subscriptionName = "mysubscription",
-            connection = "ServiceBusConnection"
-        ) String message,
-        final ExecutionContext context
-    ) {
-        context.getLogger().info(message);
-    }
-```
-
-### <a name="trigger---javascript-example"></a>觸發程序 - JavaScript 範例
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 下列範例示範 function.json 檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式可讀取[訊息中繼資料](#trigger---message-metadata)和記錄服務匯流排佇列訊息。 
 
@@ -226,7 +134,7 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-### <a name="trigger---python-example"></a>觸發程序 - Python 範例
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 下列範例示範如何透過觸發程式來讀取服務匯流排的佇列訊息。
 
@@ -277,7 +185,44 @@ def main(msg: func.ServiceBusMessage):
     logging.info(result)
 ```
 
-## <a name="trigger---attributes"></a>觸發程序 - 屬性
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+下列 JAVA 函式會使用 JAVA 函式執行時間連結[庫](/java/api/overview/azure/functions/runtime)中的 `@ServiceBusQueueTrigger` 批註來描述服務匯流排佇列觸發程式的設定。 函式會抓取放在佇列上的訊息，並將它新增至記錄。
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+```
+
+當訊息新增至服務匯流排主題時，也會觸發 JAVA 函式。 下列範例會使用 `@ServiceBusTopicTrigger` 注釋來描述觸發程式設定。
+
+```java
+@FunctionName("sbtopicprocessor")
+    public void run(
+        @ServiceBusTopicTrigger(
+            name = "message",
+            topicName = "mytopicname",
+            subscriptionName = "mysubscription",
+            connection = "ServiceBusConnection"
+        ) String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info(message);
+    }
+```
+
+---
+
+## <a name="trigger---attributes-and-annotations"></a>觸發程式-屬性和注釋
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用下列屬性以設定服務匯流排觸發程序：
 
@@ -308,7 +253,7 @@ def main(msg: func.ServiceBusMessage):
   }
   ```
 
-  如需完整範例，請參閱[觸發程序 - C# 範例](#trigger---c-example)。
+  如需完整範例，請參閱[觸發程式-範例](#trigger---example)。
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAccountAttribute.cs)
 
@@ -336,6 +281,28 @@ def main(msg: func.ServiceBusMessage):
 * `ServiceBusAccount` 屬性套用至該類別。
 * "AzureWebJobsServiceBus" 應用程式設定。
 
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
+
+C#腳本不支援屬性。
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript 不支援屬性。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python 不支援屬性。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+`ServiceBusQueueTrigger` 注釋可讓您建立在建立服務匯流排佇列訊息時執行的函式。 可用的設定選項包括 [佇列名稱] 和 [連接字串名稱]。
+
+`ServiceBusTopicTrigger` 批註可讓您指定主題和訂用帳戶，以將觸發函式的資料設為目標。
+
+如需詳細資訊，請參閱觸發程式[範例](#trigger---example)。
+
+---
+
 ## <a name="trigger---configuration"></a>觸發程式 - 設定
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `ServiceBusTrigger` 屬性。
@@ -356,7 +323,9 @@ def main(msg: func.ServiceBusMessage):
 
 ## <a name="trigger---usage"></a>觸發程序 - 使用方式
 
-在 C# 和 C# 指令碼中，您可以針對佇列或主題訊息使用下列參數類型：
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+下列是適用于佇列或主題訊息的參數類型：
 
 * `string` - 如果訊息是文字。
 * `byte[]` - 適用於二進位資料。
@@ -365,7 +334,32 @@ def main(msg: func.ServiceBusMessage):
 
 這些參數類型適用于 Azure Functions 1.x 版;若為2.x 和更高版本，請使用[`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) ，而不是 `BrokeredMessage`。
 
-在 JavaScript 中，使用 `context.bindings.<name from function.json>` 來存取佇列或主題訊息。 服務匯流排訊息會以字串或 JSON 物件的形式傳遞至函式。
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
+
+下列是適用于佇列或主題訊息的參數類型：
+
+* `string` - 如果訊息是文字。
+* `byte[]` - 適用於二進位資料。
+* 自訂類型 - 如果訊息包含 JSON，Azure Functions 會嘗試將 JSON 資料還原序列化。
+* `BrokeredMessage`-提供已還原序列化的訊息，其中包含[BrokeredMessage. GetBody\<t > （）](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)方法。
+
+這些參數適用于 Azure Functions 1.x 版;若為2.x 和更高版本，請使用[`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) ，而不是 `BrokeredMessage`。
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+使用 `context.bindings.<name from function.json>`存取佇列或主題訊息。 服務匯流排訊息會以字串或 JSON 物件的形式傳遞至函式。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+佇列訊息可透過輸入為 `func.ServiceBusMessage`的參數提供給函式。 服務匯流排訊息會以字串或 JSON 物件的形式傳遞至函式。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+傳入服務匯流排訊息可透過 `ServiceBusQueueMessage` 或 `ServiceBusTopicMessage` 參數取得。
+
+如需[詳細資訊，請參閱範例](#trigger)。
+
+---
 
 ## <a name="trigger---poison-messages"></a>觸發程序 - 有害訊息
 
@@ -404,18 +398,9 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 
 使用 Azure 服務匯流排輸出繫結來傳送佇列或主題訊息。
 
-## <a name="output---example"></a>輸出 - 範例
+### <a name="output---example"></a>輸出 - 範例
 
-請參閱特定語言的範例：
-
-* [C#](#output---c-example)
-* [C# 指令碼 (.csx)](#output---c-script-example)
-* [F#](#output---f-example)
-* [Java](#output---java-example)
-* [JavaScript](#output---javascript-example)
-* [Python](#output---python-example)
-
-### <a name="output---c-example"></a>輸出 - C# 範例
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 下列範例示範的 [C# 函式](functions-dotnet-class-library.md)可記錄服務匯流排佇列訊息：
 
@@ -429,7 +414,7 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-### <a name="output---c-script-example"></a>輸出 - C# 指令碼範例
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
 下列範例示範 function.json 檔案中的服務匯流排輸出繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會使用計時器觸發程序，每隔 15 秒傳送一則佇列訊息。
 
@@ -480,79 +465,7 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 }
 ```
 
-### <a name="output---f-example"></a>輸出 - F# 範例
-
-下列範例示範 function.json 檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會使用計時器觸發程序，每隔 15 秒傳送一則佇列訊息。
-
-以下是 *function.json* 檔案中的繫結資料：
-
-```json
-{
-    "bindings": [
-        {
-            "schedule": "0/15 * * * * *",
-            "name": "myTimer",
-            "runsOnStartup": true,
-            "type": "timerTrigger",
-            "direction": "in"
-        },
-        {
-            "name": "outputSbQueue",
-            "type": "serviceBus",
-            "queueName": "testqueue",
-            "connection": "MyServiceBusConnection",
-            "direction": "out"
-        }
-    ],
-    "disabled": false
-}
-```
-
-以下是可建立單一訊息的 F# 指令碼程式碼：
-
-```fsharp
-let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
-    let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
-    log.LogInformation(message)
-    outputSbQueue = message
-```
-
-### <a name="output---java-example"></a>輸出 - Java 範例
-
-下列範例顯示的 JAVA 函式會在 HTTP 要求觸發時，將訊息傳送至服務匯流排佇列 `myqueue`。
-
-```java
-@FunctionName("httpToServiceBusQueue")
-@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
-public String pushToQueue(
-  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-  final String message,
-  @HttpOutput(name = "response") final OutputBinding<T> result ) {
-      result.setValue(message + " has been sent.");
-      return message;
- }
-```
-
- 在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值要寫入至服務匯流排佇列的函式參數使用 `@ServiceBusQueueOutput` 註釋。  參數類型應為 `OutputBinding<T>`，其中 T 是任何原生 Java 類型的 POJO。
-
-JAVA 函數也可以寫入服務匯流排主題。 下列範例會使用 `@ServiceBusTopicOutput` 注釋來描述輸出系結的設定。 
-
-```java
-@FunctionName("sbtopicsend")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
-            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
-            final ExecutionContext context) {
-        
-        String name = request.getBody().orElse("Azure Functions");
-
-        message.setValue(name);
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-        
-    }
-```
-
-### <a name="output---javascript-example"></a>輸出 - JavaScript 範例
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 下列範例示範 function.json 檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會使用計時器觸發程序，每隔 15 秒傳送一則佇列訊息。
 
@@ -604,7 +517,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-### <a name="output---python-example"></a>輸出 - Python 範例
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 下列範例示範如何在 Python 中寫出服務匯流排的佇列。
 
@@ -654,7 +567,46 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     return 'OK'
 ```
 
-## <a name="output---attributes"></a>輸出 - 屬性
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+下列範例所示範的 Java 函式，會在經由 HTTP 要求觸發時，傳送訊息給服務匯流排佇列 `myqueue`。
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T> result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+```
+
+ 在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值要寫入至服務匯流排佇列的函式參數使用 `@QueueOutput` 註釋。  參數類型應為 `OutputBinding<T>`，其中 T 是任何原生 Java 類型的 POJO。
+
+JAVA 函數也可以寫入服務匯流排主題。 下列範例會使用 `@ServiceBusTopicOutput` 注釋來描述輸出系結的設定。 
+
+```java
+@FunctionName("sbtopicsend")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
+            final ExecutionContext context) {
+        
+        String name = request.getBody().orElse("Azure Functions");
+
+        message.setValue(name);
+        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+        
+    }
+```
+
+---
+
+## <a name="output---attributes-and-annotations"></a>輸出-屬性和注釋
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 在 [C# 類別程式庫](functions-dotnet-class-library.md)中，使用 [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs)。
 
@@ -680,9 +632,27 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-如需完整範例，請參閱[輸出 - C# 範例](#output---c-example)。
+如需完整範例，請參閱[輸出-範例](#output---example)。
 
-您可以使用 `ServiceBusAccount` 屬性來指定要在類別、方法或參數層級使用的服務匯流排帳戶。  如需詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes)。
+您可以使用 `ServiceBusAccount` 屬性來指定要在類別、方法或參數層級使用的服務匯流排帳戶。  如需詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes-and-annotations)。
+
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
+
+C#腳本不支援屬性。
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript 不支援屬性。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python 不支援屬性。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+`ServiceBusQueueOutput` 和 `ServiceBusTopicOutput` 批註可用來將訊息寫入為函式輸出。 以這些注釋裝飾的參數必須宣告為 `OutputBinding<T>`，其中 `T` 是對應至訊息類型的類型。
+
+---
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
@@ -704,7 +674,9 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 在 Azure Functions 1.x 中，執行階段會建立佇列 (如果佇列不存在)，且您已將 `accessRights` 設為 `manage`。 在函數2.x 版和更新版本中，佇列或主題必須已經存在;如果您指定的佇列或主題不存在，此函式將會失敗。 
 
-在 C# 和 C# 指令碼中，您可以針對輸出繫結使用下列參數類型：
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+針對輸出系結使用下列參數類型：
 
 * `out T paramName` - `T` 可以是任何可序列化 JSON 的類型。 當函式結束時，如果參數值為 Null，則 Functions 會使用 Null 物件建立訊息。
 * `out string` - 當函式結束時，如果參數值為 Null，則 Functions 不會建立一則訊息。
@@ -719,9 +691,36 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 * 若要存取會話識別碼，請系結至[`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)型別，然後使用 `sessionId` 屬性。
 
-在 JavaScript 中，使用 `context.bindings.<name from function.json>` 來存取佇列或主題。 您可以將字串、位元組陣列或 JavaScript 物件（還原序列化為 JSON）指派給 `context.binding.<name>`。
+# <a name="c-scripttabcsharp-script"></a>[C#文字](#tab/csharp-script)
 
-若要以非C#語言將訊息傳送至啟用會話的佇列，請使用[Azure 服務匯流排 SDK](https://docs.microsoft.com/azure/service-bus-messaging) ，而不是內建的輸出系結。
+針對輸出系結使用下列參數類型：
+
+* `out T paramName` - `T` 可以是任何可序列化 JSON 的類型。 當函式結束時，如果參數值為 Null，則 Functions 會使用 Null 物件建立訊息。
+* `out string` - 當函式結束時，如果參數值為 Null，則 Functions 不會建立一則訊息。
+* `out byte[]` - 當函式結束時，如果參數值為 Null，則 Functions 不會建立一則訊息。
+* `out BrokeredMessage`-當函式結束時，如果參數值為 null，函數不會建立訊息（針對函式1.x）
+* `out Message`-當函式結束時，如果參數值為 null，函數不會建立訊息（for 函數2.x 和更新版本）
+* `ICollector<T>` 或 `IAsyncCollector<T>` - 適用於建立多個訊息。 當您呼叫 `Add` 方法時，就會建立一則訊息。
+
+使用C#函數時：
+
+* 非同步函數需要傳回值或 `IAsyncCollector`，而不是 `out` 參數。
+
+* 若要存取會話識別碼，請系結至[`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)型別，然後使用 `sessionId` 屬性。
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+使用 `context.bindings.<name from function.json>`存取佇列或主題。 您可以將字串、位元組陣列或 JavaScript 物件（還原序列化為 JSON）指派給 `context.binding.<name>`。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+請使用[AZURE 服務匯流排 SDK](https://docs.microsoft.com/azure/service-bus-messaging) ，而不是內建的輸出系結。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+請使用[AZURE 服務匯流排 SDK](https://docs.microsoft.com/azure/service-bus-messaging) ，而不是內建的輸出系結。
+
+---
 
 ## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
 

@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: juliako
-ms.openlocfilehash: cd1f55a4ca94aae73a56334c76f211afff6e9622
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c1b72f2a84f8cafa1767639cae64fb420b0a997c
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514046"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546039"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>媒體服務中的即時事件和即時輸出
 
@@ -36,7 +36,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 [實況活動](https://docs.microsoft.com/rest/api/media/liveevents)可以是下列兩種類型的其中一種：傳遞或即時編碼。 在建立期間，會使用[LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype)來設定類型：
 
-* **LiveEventEncodingType。 None**：內部部署即時編碼器會傳送多位元率串流。 內嵌資料流程會通過即時事件，而不需要進行任何進一步的處理。 
+* **LiveEventEncodingType。 None**：內部部署即時編碼器會傳送多位元率串流。 內嵌資料流程會通過即時事件，而不需要進行任何進一步的處理。 也稱為「傳遞」模式。
 * **LiveEventEncodingType**：內部部署即時編碼器會將單一位元速率串流傳送至即時事件，媒體服務會建立多位元率串流。 如果「貢獻摘要」是720p 或更高的解析度， **Default720p**預設值將會編碼一組6個解析/位元速率配對。
 * **LiveEventEncodingType. Premium1080p**：內部部署即時編碼器會將單一位元速率串流傳送至即時事件，媒體服務會建立多位元率串流。 Default1080p 預設值指定解析/位元速率配對的輸出集。
 
@@ -81,6 +81,8 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 * 內嵌和預覽的 IP 限制。 您可以定義獲允許將視訊內嵌到這個「實況活動」的 IP 位址。 允許的 IP 位址可以指定為單一 IP 位址 (例如 ‘10.0.0.1’)、使用 IP 位址和 CIDR 子網路遮罩的 IP 範圍 (例如 ‘10.0.0.1/22’)，或是使用 IP 位址和小數點十進位子網路遮罩的 IP 範圍 (例如 '10.0.0.1(255.255.252.0)')。<br/>如果未指定 IP 位址而且也未定義規則，則任何 IP 位址都不允許。 若要允許任何 IP 位址，請建立規則，並設定 0.0.0.0/0。<br/>IP 位址必須採用下列其中一種格式：具有四個數字或 CIDR 位址範圍的 IpV4 位址。
 
     如果您想要在自己的防火牆上啟用特定 Ip，或想要將即時事件的輸入限制為 Azure IP 位址，請從[Azure 資料中心 IP 位址範圍](https://www.microsoft.com/download/details.aspx?id=41653)下載 JSON 檔案。 如需此檔案的詳細資訊，請選取頁面上的 [**詳細資料**] 區段。
+    
+* 建立事件時，您可以選擇開啟即時轉譯。 <br/> 根據預設，會停用即時轉譯。 當即時事件或其相關聯的即時輸出正在執行時，您無法變更此屬性。 
 
 ### <a name="naming-rules"></a>命名規則
 

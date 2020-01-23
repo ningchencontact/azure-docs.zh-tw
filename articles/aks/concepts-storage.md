@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 601f89c4510899dbb1f5d8a238961d9a4e5864e0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d6c14f78fd3cefa5ec41a686ca385639eb3fcb67
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913709"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549269"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的應用程式適用的儲存體選項
 
@@ -40,7 +40,7 @@ ms.locfileid: "74913709"
 
 在 Kubernetes 中，磁碟區所代表的不只是可供儲存和擷取資訊的傳統磁碟。 Kubernetes 磁碟區也可用來將資料插入 Pod 中，供容器使用。 Kubernetes 中常見的其他磁碟區類型包括：
 
-- *emptyDir* - 此磁碟區通常作為 Pod 的暫存空間。 Pod 內的所有容器都可存取磁碟區上的資料。 寫入此磁碟區類型的資料只會在 Pod 的存留期內保存 - 當 Pod 遭刪除後，磁碟區集會刪除。 此磁碟區通常會使用基礎本機節點磁碟儲存體，但也只能存留於節點的記憶體中。
+- *emptyDir* - 此磁碟區通常作為 Pod 的暫存空間。 Pod 內的所有容器都可存取磁碟區上的資料。 寫入此磁碟區類型的資料只會在 Pod 的存留期內保存 - 當 Pod 遭刪除後，磁碟區集會刪除。 此磁片區通常會使用基礎本機節點磁片儲存體，但它也只能存在於節點的記憶體中。
 - *secret* - 此磁碟區可用來將敏感性資料插入 Pod 中，例如密碼。 首先，您必須使用 Kubernetes API 建立祕密。 您在定義 Pod 或部署時，系統可能會要求特定秘密。 對於有已排程的 Pod 需要秘密的節點，才會提供秘密，且秘密會儲存在 *tmpfs* 中，不會寫入至磁碟。 當節點上最後一個需要祕密的 Pod 遭刪除時，即會從該節點的 tmpfs 中刪除秘密。 祕密儲存在指定的命名空間內，且僅供相同命名空間中的 Pod 存取。
 - *configMap* - 此磁碟區類型可用來將索引鍵/值組屬性插入 Pod 中，例如應用程式設定資訊。 您無須將應用程式設定資訊定義於容器映像內，而可以將其定義為 Kubernetes 資源，以便在 Pod 的新執行個體部署時為其更新和套用該資源。 和使用祕密一樣，您必須先使用 Kubernetes API 建立 ConfigMap。 隨後當您定義 Pod 或部署，即可要求此 ConfigMap。 ConfigMap 會儲存在指定的命名空間內，且僅供相同命名空間中的 Pod 存取。
 

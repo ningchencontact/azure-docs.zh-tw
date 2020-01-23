@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 1dd88eaa9c92a4f8ff5d491da950f7bb1cc48c20
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: ac99b95e3cece09c5bdeb0986a11a999603707e6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314499"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548521"
 ---
 # <a name="module-assign-data-to-clusters"></a>模組：將資料指派給群集
 
-本文說明如何在 Azure Machine Learning 設計師中使用 [*將資料指派給*叢集] 模組。 此模組會透過以*K 表示*叢集演算法定型的群集模型來產生預測。
+本文說明如何在 Azure Machine Learning 設計工具（預覽）中使用 [*將資料指派給*叢集] 模組。 此模組會透過以*K 表示*叢集演算法定型的群集模型來產生預測。
 
 [將資料指派給叢集] 模組會傳回資料集，其中包含每個新資料點的可能指派。 
 

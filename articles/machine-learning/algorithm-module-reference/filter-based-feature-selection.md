@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: e4e09ca77de00b7f189db2cbbcaca2e090dd7e72
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: bd1a6d4009181056ff0f91fc115d59851539bbe8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311626"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548470"
 ---
 # <a name="filter-based-feature-selection"></a>以篩選為基礎的特徵選取
 
-本文說明如何在 Azure Machine Learning 設計工具中使用以篩選為基礎的特徵選取模組。 此模組可協助您識別輸入資料集中具有最佳預測能力的資料行。 
+本文說明如何在 Azure Machine Learning 設計工具（預覽）中使用以篩選為基礎的特徵選取模組。 此模組可協助您識別輸入資料集中具有最佳預測能力的資料行。 
 
 一般而言，*特徵選取*是指在給定指定的輸出時，將統計測試套用至輸入的程式。 目標是要判斷哪些資料行比較適合輸出的預測。 以篩選為基礎的特徵選取模組提供多個特徵選取演算法，可供選擇。 此模組包含相互關聯方法，例如皮耳森相互關聯和卡方的值。 
 

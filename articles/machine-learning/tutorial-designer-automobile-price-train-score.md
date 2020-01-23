@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 9184929099b43def0f690f51d5e76532a0310448
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 917ded03892f3a8a5812948bcbfe31f029fc5cf8
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532871"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314975"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>教學課程：使用設計工具預測汽車價格 (預覽)
+# <a name="tutorial-predict-automobile-price-with-the-designer"></a>教學課程：使用設計工具預測汽車價格
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 在這個分成兩部分的教學課程中，您將了解如何使用 Azure Machine Learning 設計工具來開發及部署預測性分析解決方案，以預測任何汽車的價格。 

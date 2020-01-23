@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4efe9fe8dd1f006cb21c60c4c0e086264af26561
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 9e03ba960ab6542198372d75de7e0d34bf8d9e1b
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310096"
+ms.locfileid: "76513315"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -100,7 +100,7 @@ ms.locfileid: "76310096"
 
 Windows 代理程式必須設定為與 WSUS 伺服器通訊，或必須具有 Microsoft Update 的存取權。
 
-您可以搭配 System Center Configuration Manager 使用「更新管理」。 若要深入了解整合案例，請參閱[整合 System Center Configuration Manager 與更新管理](oms-solution-updatemgmt-sccmintegration.md#configuration)。 需要 [Windows 代理程式](../azure-monitor/platform/agent-windows.md)。 如果您要將 Azure VM 上架，則會自動安裝代理程式。
+您可以使用更新管理搭配 Configuration Manager。 若要深入瞭解整合案例，請參閱[整合 Configuration Manager 與更新管理](oms-solution-updatemgmt-sccmintegration.md#configuration)。 需要 [Windows 代理程式](../azure-monitor/platform/agent-windows.md)。 如果您要將 Azure VM 上架，則會自動安裝代理程式。
 
 根據預設，從 Azure Marketplace 部署的 Windows Vm 會設定為從 Windows Update 服務接收自動更新。 當您新增此解決方案或將 Windows Vm 新增至工作區時，此行為不會變更。 如果您未使用這個解決方案來主動管理更新，則會套用預設行為 (自動套用更新)。
 
@@ -192,15 +192,65 @@ Windows 代理程式必須設定為與 WSUS 伺服器通訊，或必須具有 Mi
 
 依照[連接沒有網際網路存取的電腦](../azure-monitor/platform/gateway.md)中的指示，設定無法存取網際網路的電腦。
 
-## <a name="integrate-with-system-center-configuration-manager"></a>與 System Center Configuration Manager 進行整合
+## <a name="view-update-assessments"></a>檢視更新評估
 
-投資了 System Center Configuration Manager 來管理電腦、伺服器和行動裝置的客戶也需仰賴 Configuration Manager 的強度和成熟度，以協助他們管理軟體更新。 Configuration Manager 是其軟體更新管理 (SUM) 週期的一部分。
+在您的自動化帳戶中，選取 [更新管理] 來檢視機器的狀態。
 
-若要了解如何將管理解決方案與 Sytem Center Configuration Manager 整合，請參閱[將 System Center Configuration Manager 與更新管理整合](oms-solution-updatemgmt-sccmintegration.md)。
+此檢視會提供您的機器、缺少的更新、更新部署以及已排定之更新部署的相關資訊。 在 [**相容性**] 欄中，您可以看到上次評估電腦的時間。 在 [**更新代理程式準備就緒**] 欄位中，您可以檢查更新代理程式的健全狀況。 如果發生問題，請選取 [移至疑難排解檔] 連結，以協助您更正問題。
+
+若要執行會傳回機器、更新或部署相關資訊的記錄檔搜尋，請選取清單中的對應專案。 [記錄搜尋] 窗格隨即開啟，並顯示所選項目的查詢：
+
+![更新管理的預設檢視](media/automation-update-management/update-management-view.png)
+
+## <a name="view-missing-updates"></a>檢視缺少的更新
+
+選取 [缺少的更新] 以檢視機器缺少的更新清單。 會列出每個更新，而且您可以選取更新。 畫面上會顯示需要更新的機器數目、作業系統以及一個能提供詳細資訊的連結。 [記錄搜尋] 窗格會顯示與更新有關的詳細資訊。
+
+![遺失更新](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
+
+## <a name="update-classifications"></a>更新分類
+
+下表列出「更新管理」中的更新分類清單，以及每個分類的定義。
+
+### <a name="windows"></a>Windows
+
+|分類  |說明  |
+|---------|---------|
+|重大更新     | 特定問題的更新，負責處理與安全性無關的重大錯誤。        |
+|安全性更新     | 特定產品的安全性相關更新。        |
+|更新彙總套件     | 一組累計的 Hotfix，封裝在一起以便於部署。        |
+|Feature Pack     | 在產品版本之外散發的新產品功能。        |
+|Service Pack     | 一組套用到應用程式的累計 Hotfix。        |
+|定義更新     | 病毒或其他定義檔案的更新。        |
+|工具     | 有助於完成一或多個工作的公用程式或功能。        |
+|更新     | 目前安裝之應用程式或檔案的更新。        |
+
+### <a name="linux-2"></a>Linux
+
+|分類  |說明  |
+|---------|---------|
+|重大更新和安全性更新     | 特定問題或特定產品的安全性相關問題的更新，         |
+|其他更新     | 本質上不重要或不是安全性更新的所有其他更新。        |
+
+針對 Linux，更新管理可以區別雲端中的重大更新和安全性更新，同時顯示因雲端中的資料擴充而產生的評量資料。 針對修補，「更新管理」仰賴機器上可用的分類資料。 與其他散發套件不同的是，CentOS 不會在 RTM 版本中提供這項資訊。 如果您已將 CentOS 機器設定為傳回下列命令的安全性資料，更新管理可以根據分類進行修補。
+
+```bash
+sudo yum -q --security check-update
+```
+
+目前沒有支援的方法可在 CentOS 上啟用原生分類資料可用性。 此時，只有可能已自行啟用此功能的客戶才會提供最佳支援。 
+
+若要將 Red Hat Enterprise 版本6上的更新分類，您必須安裝 yum-security 外掛程式。 在 Red Hat Enterprise Linux 7 上，外掛程式已是 yum 本身的一部分，不需要安裝任何專案。 如需進一步資訊，請參閱下列 Red Hat[知識文章](https://access.redhat.com/solutions/10021)。
+
+## <a name="integrate-with-configuration-manager"></a>與 Configuration Manager 整合
+
+已投資 Microsoft Endpoint Configuration Manager 來管理電腦、伺服器和行動裝置的客戶也需依賴 Configuration Manager 的強度和成熟度，以協助他們管理軟體更新。 Configuration Manager 是其軟體更新管理 (SUM) 週期的一部分。
+
+若要瞭解如何整合管理解決方案與 Configuration Manager，請參閱[整合 Configuration Manager 與更新管理](oms-solution-updatemgmt-sccmintegration.md)。
 
 ### <a name="third-party-patches-on-windows"></a>Windows 上的協力廠商修補程式
 
-更新管理依賴本機設定的更新存放庫來修補支援的 Windows 系統。 這可能是 WSUS 或 Windows Update。 像 [System Center Updates Publisher](/sccm/sum/tools/updates-publisher) (Updates Publisher) 這樣的工具，允許您將自訂更新發佈至 WSUS。 此案例可讓更新管理利用協力廠商軟體，修補使用 System Center Configuration Manager 作為其更新存放庫的機器。 若要了解如何設定 Updates Publisher，請參閱[安裝Updates Publisher](/sccm/sum/tools/install-updates-publisher)。
+更新管理依賴本機設定的更新存放庫來修補支援的 Windows 系統。 這可能是 WSUS 或 Windows Update。 像 [System Center Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/updates-publisher) (Updates Publisher) 這樣的工具，允許您將自訂更新發佈至 WSUS。 此案例可讓更新管理利用協力廠商軟體，修補使用 Configuration Manager 作為其更新存放庫的機器。 若要了解如何設定 Updates Publisher，請參閱[安裝Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/install-updates-publisher)。
 
 ## <a name="patch-linux-machines"></a>修補 Linux 機器
 

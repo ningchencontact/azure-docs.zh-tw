@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 50517db6a5bb1fc458ab2f563e905fca34f70cf4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c0c1a28dc399d3f176f92e656621fec1bc92dbfc
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442077"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513487"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>使用 Azure Cosmos DB 變更摘要以視覺方式呈現即時資料分析
 
@@ -93,7 +93,7 @@ Azure Cosmos DB 變更摘要是一種機制，可在建立或修改這些記錄�
 
 現在您將建立用來保存電子商務網站事件的集合。 當使用者檢視某個項目、將某項目新增至其購物車或購買某項目時，集合就會收到記錄，其中包含動作 (「已檢視」、「已新增」或「已購買」)、相關項目的名稱、相關項目的價格，以及相關使用者購物車的識別碼。
 
-1. 移至 [Azure 入口網站](https://portal.azure.com/)，並找出範本部署所建立的 **Azure Cosmos DB 帳戶**。  
+1. 移至[Azure 入口網站](https://portal.azure.com/)並尋找範本部署所建立的**Azure Cosmos DB 帳戶**。  
 
 2. 在 [資料總管] 窗格中選取 [新增集合]，然後在表單中填寫下列詳細資料：  
 
@@ -117,7 +117,7 @@ Azure Cosmos DB 變更摘要是一種機制，可在建立或修改這些記錄�
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>取得 Azure Cosmos DB 連接字串
 
-1. 移至 [Azure 入口網站](https://portal.azure.com/)，並找出範本部署所建立的 **Azure Cosmos DB 帳戶**。  
+1. 移至[Azure 入口網站](https://portal.azure.com/)並尋找範本部署所建立的**Azure Cosmos DB 帳戶**。  
 
 2. 瀏覽至 [金鑰] 窗格，然後將 PRIMARY CONNECTION STRING 複製到 [記事本] 或您在整個實驗室中都可存取的其他文件。 您應將其標示為 [Cosmos DB 連接字串]。 您稍後必須將此字串複製到您的程式碼中，因此請將其記下，並記住其儲存位置。
 
@@ -177,7 +177,7 @@ Azure 事件中樞會接收事件資料，並加以儲存、處理然後轉送�
  
 6. 等候程式執行。 出現星號時，表示資料即將產生！ 請讓程式持續執行 - 收集大量資料是很重要的。  
 
-7. 如果您依序瀏覽至 [Azure 入口網站](https://portal.azure.com/)、資源群組中的 Cosmos DB 帳戶和 [資料總管]，您會看到隨機產生的資料已匯入您的 **changefeedlabcollection** 中。
+7. 如果您流覽至 [ [Azure 入口網站](https://portal.azure.com/)]，然後移至資源群組內的 [Cosmos DB] 帳戶，則在 [**資料總管**] 中，您會看到亂數據匯入**changefeedlabcollection**中。
  
    ![在入口網站中產生的資料](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -185,7 +185,7 @@ Azure 事件中樞會接收事件資料，並加以儲存、處理然後轉送�
 
 Azure 串流分析是一項完全受控、可即時處理串流資料的雲端服務。 在此實驗室中，您將使用串流分析來處理來自事件中樞的新事件 (也就是在檢視某個項目、將其新增至購物車或購買時產生的事件)、將這些事件併入即時資料分析中，並將其傳送至 Power BI 以視覺方式呈現。
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中瀏覽至您的資源群組，然後瀏覽至 **streamjob1** (您在預先實驗室中建立的串流分析作業)。  
+1. 從 [ [Azure 入口網站](https://portal.azure.com/)] 中，流覽至您的資源群組，然後流覽至**streamjob1** （您在 prelab 中建立的串流分析作業）。  
 
 2. 選取 [輸入]，如下所示。  
 
@@ -320,7 +320,7 @@ Power BI 是一套商務分析工具，用來分析資料及分享見解。 它�
 
 現在，您將觀察如何使用新的資料分析工具與實際的電子商務網站連線。 若要建立電子商務網站，請使用 Azure Cosmos 資料庫來儲存產品類別目錄清單（女性、男、Unisex）、產品目錄，以及最受歡迎的專案清單。
 
-1. 瀏覽回 [Azure 入口網站](https://portal.azure.com/)，然後依序瀏覽至您的 **Cosmos DB 帳戶**和**資料總管**。  
+1. 流覽回到 [ [Azure 入口網站](https://portal.azure.com/)]，然後移至您的**Cosmos DB 帳戶**，**資料總管**。  
 
    以固定的儲存體容量，在 **changefeedlabdatabase** 下新增兩個集合 - **產品**和**目錄**。
 
@@ -390,9 +390,8 @@ Power BI 是一套商務分析工具，用來分析資料及分享見解。 它�
 
 ## <a name="delete-the-resources"></a>刪除資源
 
-若要刪除您在本實驗室中建立的資源，請在 [Azure 入口網站](https://portal.azure.com/)中瀏覽至資源群組，然後從頁面頂端的功能表中選取 [刪除資源群組]，並依照隨附的指示操作。
+若要刪除您在此實驗室中建立的資源，請流覽至[Azure 入口網站](https://portal.azure.com/)上的資源群組，然後從頁面頂端的功能表中選取 [**刪除資源群組**]，並遵循所提供的指示。
 
 ## <a name="next-steps"></a>後續步驟 
   
 * 若要深入了解變更摘要，請參閱[使用 Azure Cosmos DB 中的變更摘要支援](change-feed.md) 
-* 採用 Azure Cosmos DB 的醫療保健組織所適用的[變更摘要通知解決方案](change-feed-hl7-fhir-logic-apps.md)。

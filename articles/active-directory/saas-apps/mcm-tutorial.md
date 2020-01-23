@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 96966e4b9db5af40eee233d746d5790bbb769455
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4ed3e5c543f96876d9b6078f1bd47839a0a0396a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227502"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293414"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>教學課程：Azure Active Directory 與 MCM 整合
 
@@ -34,7 +34,7 @@ MCM 與 Azure AD 整合提供下列優點：
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要設定 Azure AD 與 MCM 整合，您需要下列項目：
 
@@ -110,7 +110,7 @@ MCM 與 Azure AD 整合提供下列優點：
     b. 在 [識別碼 (實體識別碼)]  文字方塊中，使用下列模式輸入 URL：`https://myaba.co.uk/<companyname>`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [MCM 客戶支援小組](https://mcmtechnology.com/support/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [MCM 客戶支援小組](https://mcmtechnology.com/support)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 4. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
@@ -128,7 +128,7 @@ MCM 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-mcm-single-sign-on"></a>設定 MCM 單一登入
 
-若要在 **MCM** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和所複製的適當 URL 傳送給 [MCM 支援小組](https://mcmtechnology.com/support/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **MCM** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和所複製的適當 URL 傳送給 [MCM 支援小組](https://mcmtechnology.com/support)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -183,7 +183,7 @@ MCM 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-mcm-test-user"></a>建立 MCM 測試使用者
 
-在本節中，您要在 MCM 中建立名為 Britta Simon 的使用者。 請與 [MCM 支援小組](https://mcmtechnology.com/support/)合作，在 MCM 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 MCM 中建立名為 Britta Simon 的使用者。 請與 [MCM 支援小組](https://mcmtechnology.com/support)合作，在 MCM 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 >[!NOTE]
 >您可以使用任何其他的 MCM 使用者帳戶建立工具或 MCM 提供的 API，來佈建 Azure AD 使用者帳戶。

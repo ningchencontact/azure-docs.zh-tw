@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 01/10/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 905acd206ba574e092f41707c9a5625bcaed7f8d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 718fd4054d5e21c7f6309b3b1ac65a459c514ea0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932366"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548011"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中查看 Azure 資源角色的活動和審核歷程記錄
 
@@ -111,6 +111,9 @@ ms.locfileid: "75932366"
 1. 使用預先定義的日期或自訂範圍篩選記錄。
 
     ![目前使用者的審核清單](media/azure-pim-resource-rbac/my-audit-time.png)
+    
+> [!NOTE]
+> 存取 audit 歷程記錄需要全域管理員或特殊許可權角色管理員角色。
 
 ## <a name="next-steps"></a>後續步驟
 

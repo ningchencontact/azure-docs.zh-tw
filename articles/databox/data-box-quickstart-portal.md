@@ -9,24 +9,14 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 26578e277a9f6747063ee377e72845b599a0301b
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 04343f684539307957cd635822ba1ba5a1ce24c9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772739"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313768"
 ---
-::: zone target="docs"
-
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站部署 Azure 資料箱
-
-::: zone-end
-
-::: zone target="chromeless"
-
 # <a name="get-started-with-azure-data-box"></a>開始使用 Azure 資料箱 
-
-::: zone-end
 
 ::: zone target="docs"
 
@@ -44,7 +34,7 @@ ms.locfileid: "70772739"
 
 ::: zone target="docs"
  
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 開始之前：
 
@@ -68,7 +58,7 @@ ms.locfileid: "70772739"
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 在您開始前，請確定您已經：
 
@@ -87,9 +77,9 @@ ms.locfileid: "70772739"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 
-## <a name="order"></a>順序
+## <a name="order"></a>單
 
 這個步驟需要大約 5 分鐘。
 
@@ -112,9 +102,9 @@ ms.locfileid: "70772739"
 2. 在將裝置連接纜線之前，請確定您有下列的纜線：
     
     - (已包含) 額定電流為 10 A 或更高的接地電源線，一端帶有 IEC60320 C-13 接點，用於連接裝置。
-    - 一條 RJ-45 CAT 6 網路纜線 (與 MGMT 網路介面搭配使用)
+    - 一條 RJ-45 CAT 6 網路線 (與 MGMT 網路介面搭配使用)
     - 兩條 10 GbE SFP+ Twinax 銅纜線 (搭配 10 Gbps DATA 1、DATA 2 網路介面使用)
-    - 一條 RJ-45 CAT 6A 或一條 RJ-45 CAT 6 網路纜線 (與 DATA 3 網路介面搭配使用，分別設定為 10 Gbps 或 1 Gbps)
+    - 一條 RJ-45 CAT 6A 或一條 RJ-45 CAT 6 網路線 (與 DATA 3 網路介面搭配使用，分別設定為 10 Gbps 或 1 Gbps)
 
 3. 移除裝置並將其放在平面上。 
     

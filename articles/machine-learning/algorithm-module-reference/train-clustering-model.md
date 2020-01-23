@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 1f1a508e6188b68f932993eb60e13228b56f8e7e
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: ea247af871b06bd21c2733272b3d938c536d16ec
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313938"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546447"
 ---
 # <a name="train-clustering-model"></a>定型叢集模型
 
-本文說明 Azure Machine Learning 設計工具中的模組。
+本文說明 Azure Machine Learning 設計工具（預覽）中的模組。
 
 使用此模組來定型群集模型。
 

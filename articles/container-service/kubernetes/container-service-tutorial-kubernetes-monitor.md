@@ -1,20 +1,18 @@
 ---
 title: (即將淘汰) Azure Container Service 教學課程 - 監視 Kubernetes
 description: Azure Container Service 教學課程 - 使用 Log Analytics 監視 Kubernetes
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6f95aa701228730682c0122dc1fd46d8a2537ce1
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 35f7c2fb968ea5285af5f2d597c67b3b22065906
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001602"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278231"
 ---
 # <a name="deprecated-monitor-a-kubernetes-cluster-with-log-analytics"></a>(即將淘汰) 使用 Log Analytics 監視 Kubernetes 叢集
 
@@ -42,7 +40,7 @@ ms.locfileid: "53001602"
 
 ## <a name="get-workspace-settings"></a>取得工作區設定
 
-可以存取 [Log Analytics 入口網站](https://mms.microsoft.com)時，請移至 [設定] >  [已連線的服務] >  [Linux 伺服器]。 您可以在那裡找到「工作區識別碼」和主要或次要「工作區金鑰」。 請記下這些值，您在叢集上設定 Log Analytics 代理程式時需要用到這些值。
+可以存取 [Log Analytics 入口網站](https://mms.microsoft.com)時，請移至 [設定]   >  [已連線的服務]   >  [Linux 伺服器]  。 您可以在那裡找到「工作區識別碼」  和主要或次要「工作區金鑰」  。 請記下這些值，您在叢集上設定 Log Analytics 代理程式時需要用到這些值。
 
 ## <a name="create-kubernetes-secret"></a>建立 Kubernetes 祕密
 
@@ -148,13 +146,13 @@ omsagent   3         3         3         0            3           <none>        
 
 在 Log Analytics 入口網站或 Azure 入口網站中，使用[容器解決方案](../../azure-monitor/insights/containers.md)來檢視和分析容器監視資料。
 
-若要使用 [Log Analytics 入口網站](https://mms.microsoft.com)來安裝容器解決方案，請移至**方案庫**。 然後新增 [Container 解決方案]。 或者，從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview) 新增 Containers 解決方案。
+若要使用 [Log Analytics 入口網站](https://mms.microsoft.com)來安裝容器解決方案，請移至**方案庫**。 然後新增 [Container 解決方案]  。 或者，從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview) 新增 Containers 解決方案。
 
-在 Log Analytics 入口網站中，尋找儀表板上的 [容器] 摘要圖格。 按一下此圖格以取得下列詳細資訊：容器事件、錯誤、狀態、映像清查，以及 CPU 和記憶體使用量。 如需更細微的資訊，請按一下任何圖格上的資料列，或執行[記錄搜尋](../../log-analytics/log-analytics-log-searches.md)。
+在 Log Analytics 入口網站中，尋找儀表板上的 [容器]  摘要圖格。 按一下此圖格以取得下列詳細資訊：容器事件、錯誤、狀態、映像清查，以及 CPU 和記憶體使用量。 如需更細微的資訊，請按一下任何圖格上的資料列，或執行[記錄搜尋](../../log-analytics/log-analytics-log-searches.md)。
 
 ![Azure 入口網站中的容器儀表板](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-同樣地，在 Azure 入口網站中，移至 [Log Analytics] 並選取您的工作區名稱。 若要查看 [Containers] 摘要圖格，請按一下 [解決方案] > [Containers]。 若要查看詳細資料，按一下圖格。
+同樣地，在 Azure 入口網站中，移至 [Log Analytics]  並選取您的工作區名稱。 若要查看 [Containers]  摘要圖格，請按一下 [解決方案]   > [Containers]  。 若要查看詳細資料，按一下圖格。
 
 請參閱 [Azure Log Analytics 文件](../../azure-monitor/log-query/log-query-overview.md)，以取得查詢及分析監視資料的詳細指引。
 

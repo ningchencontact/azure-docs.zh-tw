@@ -4,7 +4,6 @@ description: Azure PowerShell 指令碼範例 - 使用應用程式閘道和虛�
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
@@ -14,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b9b34f124d1260fe17d1f43c6e97f20fd116c5f8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 89915cdd4ae88f1092c45e1d428679a99f1ac906
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202846"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273389"
 ---
 # <a name="manage-web-traffic-with-azure-powershell"></a>使用 Azure PowerShell 管理網路流量
 
@@ -45,7 +44,7 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 此指令碼會使用下列命令來建立部署。 下表中的每個項目都會連結至命令特定的文件。
 
-| 命令 | 注意 |
+| Command | 注意 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 建立用來存放所有資源的資源群組。 |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | 建立子網路組態。 |

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 4f434afdd02d15f98e005b44f5563847f4c5847d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: a7afb80276147c1562a5963a3ae9a319a8b73264
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278216"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544780"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>預覽：適用于虛擬機器擴展集的 Azure 位置 Vm 
 
@@ -91,50 +91,20 @@ $vmssConfig = New-AzVmssConfig `
 
 ## <a name="resource-manager-templates"></a>資源管理員範本
 
-建立使用點 Vm 之擴展集的程式，與適用于[Linux](quick-create-template-linux.md)或[Windows](quick-create-template-windows.md)的使用者入門文章中所述的流程相同。 將 [優先順序] 屬性新增至範本中的 [ *virtualMachineScaleSets/virtualMachineProfile* ] 資源類型，並指定 [*點*] 做為值。 請務必使用*2019-03-01* API 版本或更高版本。 
+建立使用點 Vm 之擴展集的程式，與適用于[Linux](quick-create-template-linux.md)或[Windows](quick-create-template-windows.md)的使用者入門文章中所述的流程相同。 
 
-為了要將收回原則設定為刪除，請新增 'evictionPolicy' 參數，並將它設定為 delete (刪除)。
-
-下列範例會在*美國中西部*中建立名為*Myscaleset 擴展集*的 Linux 點擴展集，這會在收回時*刪除*擴展集中的 vm：
+若是點範本部署，請使用`"apiVersion": "2019-03-01"` 或更新版本。 將 `priority`、`evictionPolicy` 和 `billingProfile` 屬性新增至範本中的 `"virtualMachineProfile":` 區段： 
 
 ```json
-{
-  "type": "Microsoft.Compute/virtualMachineScaleSets",
-  "name": "myScaleSet",
-  "location": "East US 2",
-  "apiVersion": "2019-03-01",
-  "sku": {
-    "name": "Standard_DS2_v2",
-    "capacity": "2"
-  },
-  "properties": {
-    "upgradePolicy": {
-      "mode": "Automatic"
-    },
-    "virtualMachineProfile": {
-       "priority": "Spot",
-       "evictionPolicy": "delete",
-       "storageProfile": {
-        "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage"
-        },
-        "imageReference":  {
-          "publisher": "Canonical",
-          "offer": "UbuntuServer",
-          "sku": "16.04-LTS",
-          "version": "latest"
-        }
-      },
-      "osProfile": {
-        "computerNamePrefix": "myvmss",
-        "adminUsername": "azureuser",
-        "adminPassword": "P@ssw0rd!"
-      }
-    }
-  }
-}
+                "priority": "Spot",
+                "evictionPolicy": "Deallocate",
+                "billingProfile": {
+                    "maxPrice": -1
+                }
 ```
+
+若要在收回實例之後將它刪除，請將 `evictionPolicy` 參數變更為 `Delete`。
+
 ## <a name="faq"></a>常見問題集
 
 **問：** 建立後，它是一個與標準實例相同的點實例嗎？

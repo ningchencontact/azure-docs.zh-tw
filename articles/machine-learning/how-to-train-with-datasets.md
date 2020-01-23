@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: 24a19487567f2753457d5886cbb9fa4bf438bad4
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: f87dbedb1428b5884e20a9f7daabea792387fe88
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311337"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543302"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>使用 Azure Machine Learning 中的資料集進行定型
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -105,8 +105,11 @@ experiment_run.wait_for_completion(show_output=True)
 如果您想要讓資料檔案可用於定型的計算目標，請使用[FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py)來掛接或下載其所參考的檔案。
 
 ### <a name="mount-vs-download"></a>掛接 v.s。 下載
-當您掛接資料集時，您會將資料集所參考的檔案附加至目錄（掛接點），並將它提供給計算目標。 針對以 Linux 為基礎的計算支援掛接，包括 Azure Machine Learning 計算、虛擬機器和 HDInsight。 如果您的資料大小超過計算磁片大小，或您只是在您的腳本中載入資料集的一部分，建議您裝載。 因為下載大於磁片大小的資料集將會失敗，而且裝載只會載入您的腳本在處理時所使用的資料部分。 當您下載資料集時，資料集所參考的所有檔案都會下載到計算目標。 所有計算類型都支援下載。 如果您的腳本會處理資料集所參考的所有檔案，且您的計算磁片可以納入完整資料集，建議您下載，以避免從儲存體服務串流資料的額外負荷。
+當您掛接資料集時，您會將資料集所參考的檔案附加至目錄（掛接點），並將它提供給計算目標。 針對以 Linux 為基礎的計算支援掛接，包括 Azure Machine Learning 計算、虛擬機器和 HDInsight。 如果您的資料大小超過計算磁片大小，或您只是在您的腳本中載入資料集的一部分，建議您裝載。 因為下載大於磁片大小的資料集將會失敗，而且裝載只會載入您的腳本在處理時所使用的資料部分。 
 
+當您下載資料集時，資料集所參考的所有檔案都會下載到計算目標。 所有計算類型都支援下載。 如果您的腳本會處理資料集所參考的所有檔案，且您的計算磁片可以納入完整資料集，建議您下載，以避免從儲存體服務串流資料的額外負荷。
+
+針對從 Azure Blob 儲存體、Azure 檔案儲存體、Azure Data Lake Storage Gen1、Azure Data Lake Storage Gen2、Azure SQL Database 和適用於 PostgreSQL 的 Azure 資料庫所建立的資料集，支援裝載或下載任何格式的檔案。 
 
 ### <a name="create-a-filedataset"></a>建立 FileDataset
 

@@ -6,16 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: d1058125d5bb3912b9561027bbe0a977637d3379
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e70d1dfebcf25ee8f4e90a062cee6dd72a663e02
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153561"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547518"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>部署 vFXT 叢集
 
-此程序會引導您使用 Azure Marketplace 中提供的部署精靈。 精靈會自動使用 Azure Resource Manager 範本來部署叢集。 在表單中輸入參數並按一下 [建立] 後，Azure 會自動完成下列步驟：
+此程序會引導您使用 Azure Marketplace 中提供的部署精靈。 精靈會自動使用 Azure Resource Manager 範本來部署叢集。 在表單中輸入參數並按一下 [**建立**] 之後，Azure 會自動完成下列工作：
 
 * 建立叢集控制器，這是基本 VM，其中包含部署和管理叢集所需的軟體。
 * 設定資源群組和虛擬網路基礎結構，包括建立新的元素。
@@ -28,10 +28,10 @@ ms.locfileid: "76153561"
 
 使用建立範本之前，請確定您已滿足下列先決條件：  
 
-1. [新的訂用帳戶](avere-vfxt-prereqs.md#create-a-new-subscription)
-1. [訂用帳戶擁有者權限](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
-1. [vFXT 叢集配額](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [儲存體服務端點（如有需要）](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) -使用現有虛擬網路並建立 blob 儲存體的部署所需
+* [新的訂用帳戶](avere-vfxt-prereqs.md#create-a-new-subscription)
+* [訂用帳戶擁有者權限](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
+* [vFXT 叢集配額](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
+* [儲存體服務端點（如有需要）](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) -使用現有虛擬網路並建立 blob 儲存體的部署所需
 
 如需有關叢集部署步驟和規劃的詳細資訊，請參閱[規劃您的 Avere vFXT 系統](avere-vfxt-deploy-plan.md)和[部署概觀](avere-vfxt-deploy-overview.md)。
 

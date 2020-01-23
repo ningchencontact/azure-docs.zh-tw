@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 4629e4e9cfd5c8f9861b692b2aec89057f83587c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2377cc2e0824911217fbc2783fdf8e86fd7b9405
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442927"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549201"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中叢集安全性和升級的最佳做法
 
@@ -24,7 +24,7 @@ ms.locfileid: "75442927"
 > * 使用 Azure Active Directory 和角色型存取控制來保護 API 伺服器存取
 > * 保護容器對節點資源的存取
 > * 將 AKS 叢集升級至最新版 Kubernetes
-> * 讓節點保持在最新狀態，並自動套用安全性更新
+> * 讓節點保持在最新狀態，並自動套用安全性修補程式
 
 您也可以閱讀[容器映射管理][best-practices-container-image-management]和[pod 安全性][best-practices-pod-security]的最佳做法。
 

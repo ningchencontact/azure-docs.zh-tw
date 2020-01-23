@@ -1,20 +1,18 @@
 ---
 title: (已淘汰) Azure Container Service 快速入門 - 部署 DC/OS 叢集
 description: Azure Container Service 快速入門 - 部署 DC/OS 叢集
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: efaf82c3f378f572c289b587dbe5df1923a58c62
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 9efedd5b619a2a3bd592019fea3ca48b7244ca10
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000525"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278492"
 ---
 # <a name="deprecated-deploy-a-dcos-cluster"></a>(已淘汰) 部署 DC/OS 叢集
 
@@ -22,7 +20,7 @@ ms.locfileid: "53000525"
 
 DC/OS 所提供的分散式平台可執行現代及容器化的應用程式。 透過 Azure Container Service 可簡單又快速地佈建生產環境就緒 DC/OS 叢集。 本快速入門將詳細說明部署 DC/OS 叢集和執行基本工作負載所需的基本步驟。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 本教學課程需要 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
@@ -38,7 +36,7 @@ az login
 
 使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
-下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組。
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -48,7 +46,7 @@ az group create --name myResourceGroup --location eastus
 
 使用 [az acs create](/cli/azure/acs#az-acs-create) 命令來建立 DC/OS 叢集。
 
-下列範例會建立名為 myDCOSCluster 的 DC/OS 叢集，並建立 SSH 金鑰 (如果它們尚未存在)。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。  
+下列範例會建立名為 myDCOSCluster  的 DC/OS 叢集，並建立 SSH 金鑰 (如果它們尚未存在)。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。  
 
 ```azurecli
 az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
@@ -140,7 +138,7 @@ dcos marathon app add marathon-app.json
 dcos marathon app list
 ```
 
-當 **WAITING** 資料行值從 True 切換為 False 時，應用程式部署就已完成。
+當 **WAITING** 資料行值從 True  切換為 False  時，應用程式部署就已完成。
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   

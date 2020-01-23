@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 12/16/2019
-ms.openlocfilehash: 3c921bda1b839ee18a91b28f875ba7c84c0dd944
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 01/18/2020
+ms.openlocfilehash: 95960a0af628526eb11335ea5c2fcec51f3c66b5
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515032"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548538"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -47,8 +47,8 @@ ms.locfileid: "76515032"
 
 | 名稱 | 多租使用者限制 | 整合服務環境限制 | 注意 |
 |------|--------------------|---------------------------------------|-------|
-| 執行持續時間 | 90 天 | 366天 | 若要變更預設限制，請參閱[變更執行持續時間](#change-duration)。 |
-| 儲存體保留期 | 從執行開始時間算起 90 天 | 366天 | 若要變更預設限制，請參閱[變更儲存體保留](#change-retention)。 |
+| 執行持續時間 | 90 天 | 366天 | 執行持續時間的計算方式是使用執行的開始時間，以及在*開始時間*由工作流程設定指定的限制，[**執行歷程記錄保留（以天**](#change-duration)為單位）。 <p><p>若要變更預設限制，也就是90天，請參閱[變更執行持續時間](#change-duration)。 |
+| 在儲存體中執行保留 | 90 天 | 366天 | 執行保留的計算方式是使用執行的開始時間，以及工作流程設定的*目前時間*所指定的限制，執行歷程[**記錄保留（以天**](#change-retention)為單位）。 無論執行完成或超時，保留期計算一律會使用執行的開始時間。 當執行的持續時間超過*目前*的保留限制時，就會從執行歷程記錄中移除執行。 <p><p>如果您變更此設定，則一律會使用目前的限制來計算保留期，而不考慮先前的限制。 例如，如果您將保留限制從90天減少為30天，則會從執行歷程記錄中移除60天以前的執行。 如果您將保留期限從30天增加到60天，則過去20天的執行會保留在執行歷程記錄中另一個40天。 <p><p>若要變更預設限制，也就是90天，請參閱[變更儲存體中的執行保留](#change-retention)。 |
 | 最小循環間隔 | 1 秒 | 1 秒 ||
 | 最大循環間隔 | 500 天 | 500 天 ||
 |||||
@@ -56,9 +56,13 @@ ms.locfileid: "76515032"
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-duration-and-storage-retention"></a>變更執行持續時間和儲存體保留期
+### <a name="change-run-duration-and-run-retention-in-storage"></a>變更執行持續時間並在儲存體中執行保留
 
-若要變更執行持續時間和儲存體保留期的預設限制，請遵循下列步驟。 若要增加最大限制，[請洽詢 Logic Apps 小組](mailto://logicappsemail@microsoft.com)，以協助滿足您的需求。
+若要變更 [執行持續時間] 的預設限制並在儲存體中執行保留，請遵循下列步驟。 若要增加最大限制，[請洽詢 Logic Apps 小組](mailto://logicappsemail@microsoft.com)，以協助滿足您的需求。
+
+> [!NOTE]
+> 針對多租使用者 Azure 中的邏輯應用程式，90天的預設限制與上限相同。 您只能減少此值。
+> 對於整合服務環境中的邏輯應用程式，您可以減少或增加90天的預設限制。
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。 在入口網站的搜尋方塊中，尋找並選取 [**邏輯應用程式**]。
 
@@ -68,11 +72,9 @@ ms.locfileid: "76515032"
 
 1. 在 [執行時間**選項**] 底下的 [**執行歷程記錄保留天數**] 清單中，選取 [**自訂**]。
 
-1. 輸入或拖曳滑杆以取得您想要的天數。
+1. 拖曳滑杆來變更您想要的天數。
 
-   > [!NOTE]
-   > 針對多租使用者 Azure 中的邏輯應用程式，90天的預設限制與上限相同。 您只能減少此值。
-   > 對於整合服務環境中的邏輯應用程式，您可以減少或增加90天的預設限制。
+1. 當您完成時，請在 [**工作流程設定**] 工具列上選取 [**儲存**]。
 
 <a name="looping-debatching-limits"></a>
 
@@ -82,11 +84,11 @@ ms.locfileid: "76515032"
 
 | 名稱 | 限制 | 注意 |
 | ---- | ----- | ----- |
-| 觸發程序並行 | * 並行控制關閉時無限制 <p><p>* 並行控制開啟時的預設限制為 25，在開啟此控制之後便無法復原此限制。 您可以將預設值變更為介於 1 到 50 之間的值 (含 1 與 50)。 | 此限制描述可以同時 (或稱「平行」) 執行的邏輯應用程式執行個體數目上限。 <p><p>**注意**：當並行開啟時，[解除批次處理陣列](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)的 SplitOn 限制會縮減為100個專案。 <p><p>若要將預設限制變更為介於 1 到 50 個之間 (含 1 與 50)，請參閱[變更觸發程序並行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency)或[循序觸發執行個體](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)。 |
-| 最大等候執行數 | 當並行控制開啟時，等候執行數目下限為 10，加上並行執行數目 (觸發程序並行)。 您可以將數目上限變更為 100 (含)。 | 此限制描述當您的邏輯應用程式準備執行並行執行個體數目上限時，可以等候執行的邏輯應用程式執行個體數目上限。 <p><p>若要變更預設限制，請參閱[變更等候執行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)。 |
+| 觸發程序並行 | -並行控制關閉時無限制 <p><p>-25 是開啟並行存取控制時的預設限制，當您開啟控制項之後就無法復原。 您可以將預設值變更為介於 1 到 50 之間的值 (含 1 與 50)。 | 此限制描述可以同時 (或稱「平行」) 執行的邏輯應用程式執行個體數目上限。 <p><p>**注意**：當並行開啟時，[解除批次處理陣列](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)的 SplitOn 限制會縮減為100個專案。 <p><p>若要將預設限制變更為介於 1 到 50 個之間 (含 1 與 50)，請參閱[變更觸發程序並行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency)或[循序觸發執行個體](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)。 |
+| 最大等候執行數 | -若沒有平行存取，等候執行的最小數目為1，而最大值為50。 <p><p>-使用並行時，等候執行的最小數目為10，加上並存執行的數目（觸發程式並行）。 您可以將數目上限變更為 100 (含)。 | 此限制描述當您的邏輯應用程式準備執行並行執行個體數目上限時，可以等候執行的邏輯應用程式執行個體數目上限。 <p><p>若要變更預設限制，請參閱[變更等候執行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)。 |
 | Foreach 陣列項目 | 100,000 家 | 此限制描述 "for each" 迴圈可以處理的陣列項目數目上限。 <p><p>若要篩選較大的陣列，您可以使用[查詢動作](logic-apps-perform-data-operations.md#filter-array-action)。 |
 | Foreach 並行 | 並行控制關閉時的預設限制為 20。 您可以將預設值變更為介於 1 到 50 之間的值 (含 1 與 50)。 | 此限制是可以同時 (或平行) 執行的 "for each" 迴圈反覆項目數目上限。 <p><p>若要將預設限制變更為介於 1 到 50 個之間 (含 1 與 50)，請參閱[變更 "for each" 並行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency)或[循序執行 "for each" 迴圈](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)。 |
-| SplitOn 項目 | * 100000 但不含觸發程式並行 <p><p>* 100 與觸發程式並行 | 對於傳回陣列的觸發程序，您可以指定使用 'SplitOn' 屬性的運算式，將[陣列項目分割或解除批次為多個工作流程執行個體](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)以供處理，而非使用 "Foreach" 迴圈。 這個運算式會參考要用於建立及執行每個陣列項目的工作流程執行個體的陣列。 <p><p>**注意**：當並行開啟時，SplitOn 限制會縮減為100個專案。 |
+| SplitOn 項目 | -100000 但不含觸發程式並行 <p><p>-100 與觸發程式並行 | 對於傳回陣列的觸發程序，您可以指定使用 'SplitOn' 屬性的運算式，將[陣列項目分割或解除批次為多個工作流程執行個體](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)以供處理，而非使用 "Foreach" 迴圈。 這個運算式會參考要用於建立及執行每個陣列項目的工作流程執行個體的陣列。 <p><p>**注意**：當並行開啟時，SplitOn 限制會縮減為100個專案。 |
 | 反覆運算之前 | 5,000 | |
 ||||
 

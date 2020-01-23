@@ -6,16 +6,17 @@ tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 01/23/2020
 ms.author: genli
-ms.openlocfilehash: 8c22ce859aa58aeb8339b16265f6614bd7e723f8
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: ac8dffe3b1200f3925478f968170498ee744bb79
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896996"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548963"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure 新的支援要求檔案上傳公用程式指導方針
+
 當您[建立支援要求](https://portal.azure.com/#create/Microsoft.Support)時，[檔案上傳] 選項可協助您輕鬆上傳診斷檔案或您認為與事件相關的任何其他檔案。  
 
 > [!NOTE]
@@ -25,12 +26,13 @@ ms.locfileid: "75896996"
 
 當您使用 [檔案上傳] 選項時，請遵循下列指導方針：
 
-* 所有檔案必須有副檔名，例如 .docx 或 .xlsx。 請參閱表格以取得允許的檔案名稱副檔名清單。
+* 所有檔案都必須具有副檔名，例如 *.docx*或 *.xlsx*。 請參閱資料表以取得允許的副檔名。
 * 檔案名稱的長度不得超過 110 個字元。
-* 您無法上傳多個檔案。
+* 您無法上傳一個以上的檔案。
 * 檔案不能大於 4 MB。
 
 ## <a name="table-of-the-allowed-file-name-extensions"></a>允許的檔案名稱副檔名的資料表
+
 | 0-9、A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
 | .7z         | .dat  | .hwl        | .odx  | .rar     | .tdb       | .xlam   |

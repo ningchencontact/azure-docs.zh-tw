@@ -5,21 +5,21 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 12/06/2019
+ms.date: 01/22/2020
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: a7b6867033e750f476b3d995926f0b670965a5d7
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 92c2e79910e40721a0ef62d44825bd1f3e19fc79
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875501"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548189"
 ---
 | 資源 | 預設限制 |
 | --- | --- |
 | 資料輸送量 |30 Gbps<sup>1</sup> |
 |規則|10000。 結合所有規則類型。|
-|每個公用 IP 位址的 DNAT 規則|299|
+|最大 DNAT 規則|299|
 |AzureFirewallSubnet 大小下限 |/26|
 |網路和應用程式規則中的連接埠範圍|0-64,000。 我們正努力放寬這項限制。|
 |公用 IP 位址|100最大值（目前只會針對前五個公用 IP 位址新增 SNAT 埠）。|

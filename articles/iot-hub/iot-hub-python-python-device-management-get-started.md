@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 01/17/2020
 ms.author: robinsh
-ms.openlocfilehash: 514f4b26a708a6fec30a1f54cfe6da6d1b58b79d
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 2abccf3c891a4e5c4db1e05f09d2e61a590b73b7
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555525"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548557"
 ---
 # <a name="get-started-with-device-management-python"></a>開始使用裝置管理 (Python)
 
@@ -37,7 +37,7 @@ ms.locfileid: "74555525"
 
 ## <a name="prerequisites"></a>必要條件
 
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -150,15 +150,11 @@ ms.locfileid: "74555525"
 
 在本節中，您會建立 Python 主控台應用程式，此應用程式會使用直接方法起始遠端重新開機。 應用程式使用裝置對應項查詢來探索該裝置的上次重新開機時間。
 
-1. 在命令提示字元上執行下列命令，以安裝 **azure-iot-service-client** 套件：
+1. 在命令提示字元中，執行下列命令來安裝**azure iot 中樞**套件：
 
     ```cmd/sh
-    pip install azure-iothub-service-client
+    pip install azure-iot-hub
     ```
-
-   > [!NOTE]
-   > Azure iothub-服務用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS，請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
-   >
 
 2. 使用文字編輯器，在工作目錄中建立名為**dmpatterns_getstarted_service .py**的檔案。
 
@@ -166,9 +162,9 @@ ms.locfileid: "74555525"
 
     ```python
     import sys, time
-    import iothub_service_client
 
-    from iothub_service_client import IoTHubDeviceMethod, IoTHubError, IoTHubDeviceTwin
+    from azure.iot.hub import IoTHubRegistryManager
+    from azure.iot.hub.models import CloudToDeviceMethod, CloudToDeviceMethodResult, Twin
     ```
 
 4. 新增下列變數宣告。 使用您先前在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中所複製的 IoT 中樞連接字串，取代 `{IoTHubConnectionString}` 的預留位置值。 將 `{deviceId}` 預留位置的值取代為您在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中註冊的裝置識別碼。
@@ -188,13 +184,15 @@ ms.locfileid: "74555525"
     ```python
     def iothub_devicemethod_sample_run():
         try:
-            iothub_twin_method = IoTHubDeviceTwin(CONNECTION_STRING)
-            iothub_device_method = IoTHubDeviceMethod(CONNECTION_STRING)
+            # Create IoTHubRegistryManager
+            registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
 
             print ( "" )
             print ( "Invoking device to reboot..." )
 
-            response = iothub_device_method.invoke(DEVICE_ID, METHOD_NAME, METHOD_PAYLOAD, TIMEOUT)
+            # Call the direct method.
+            deviceMethod = CloudToDeviceMethod(method_name=METHOD_NAME, payload=METHOD_PAYLOAD)
+            response = registry_manager.invoke_device_method(DEVICE_ID, deviceMethod)
 
             print ( "" )
             print ( "Successfully invoked the device to reboot." )
@@ -208,19 +206,19 @@ ms.locfileid: "74555525"
 
                 status_counter = 0
                 while status_counter <= WAIT_COUNT:
-                    twin_info = iothub_twin_method.get_twin(DEVICE_ID)
+                    twin_info = registry_manager.get_twin(DEVICE_ID)
 
-                    if twin_info.find("rebootTime") != -1:
-                        print ( "Last reboot time: " + twin_info[twin_info.find("rebootTime")+11:twin_info.find("rebootTime")+37])
+                    if twin_info.properties.reported.get("rebootTime") != None :
+                        print ("Last reboot time: " + twin_info.properties.reported.get("rebootTime"))
                     else:
                         print ("Waiting for device to report last reboot time...")
 
                     time.sleep(5)
                     status_counter += 1
 
-        except IoTHubError as iothub_error:
+        except Exception as ex:
             print ( "" )
-            print ( "Unexpected error {0}".format(iothub_error) )
+            print ( "Unexpected error {0}".format(ex) )
             return
         except KeyboardInterrupt:
             print ( "" )

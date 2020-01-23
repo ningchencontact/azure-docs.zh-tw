@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb2da2214cd5fab378368a363e6f18e02626b9d8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: dfa07b3df7071ed99a02b854ff41ad6a5137c8dc
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373109"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292836"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-figma"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Figma 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "72373109"
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 若要開始，您需要下列項目：
 
@@ -76,7 +76,7 @@ ms.locfileid: "72373109"
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Figma]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
-1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
+1. 在 [**選取單一登入方法**] 頁面上，選取 [**SAML**]。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
@@ -92,7 +92,7 @@ ms.locfileid: "72373109"
     在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://www.figma.com/saml/<TENANT ID>/start`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。 您將從 Figma 的[設定 Azure Active Directory SAML SSO 程序](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso) \(英文\) 一文步驟 11 取得 `TENANT ID`。
+    > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。 您將從 Figma 的[設定 Azure Active Directory SAML SSO 程序](https://help.figma.com/hc/en-us/articles/360040532413-Configure-and-Provision-SAML-SSO-with-Azure-Active-Directory) \(英文\) 一文步驟 11 取得 `TENANT ID`。
 
 1. Figma 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應加入 SAML 權杖屬性設定中。 以下螢幕擷取畫面顯示預設屬性清單。
 
@@ -146,7 +146,7 @@ ms.locfileid: "72373109"
 
 ## <a name="configure-figma-sso"></a>設定 Figma SSO
 
-若要在 Figma 端設定單一登入，您必須依照 Figma 的[設定 Azure Active Directory SAML SSO 程序](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso) \(英文\) 一文進行操作。
+若要在 Figma 端設定單一登入，您必須依照 Figma 的[設定 Azure Active Directory SAML SSO 程序](https://help.figma.com/hc/en-us/articles/360040532413-Configure-and-Provision-SAML-SSO-with-Azure-Active-Directory) \(英文\) 一文進行操作。
 
 ### <a name="create-figma-test-user"></a>建立 Figma 測試使用者
 

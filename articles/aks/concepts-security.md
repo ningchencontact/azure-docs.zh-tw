@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 3ba4ac665df45ab6d53d2195ab59ec577f8bab05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e461f9de8b20e4f6c8f027b1ae81ae21e54ece86
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422276"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547926"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的應用程式和叢集的安全性概念
 
@@ -30,7 +30,7 @@ ms.locfileid: "75422276"
 
 在 AKS 中，Kubernetes 主要元件包含在 Microsoft 所提供的受控服務中。 每個 AKS 叢集都有自己的單一租使用者專用 Kubernetes 主機，可提供 API 伺服器、排程器等。此主要是由 Microsoft 管理及維護。
 
-根據預設，Kubernetes API 伺服器會使用公用 IP 位址，且具有完整網域名稱 (FQDN)。 您可以使用 Kubernetes 角色型存取控制和 Azure Active Directory 來控制對 API 伺服器的存取。 如需詳細資訊，請參閱[Azure AD 與 AKS 整合][aks-aad]。
+根據預設，Kubernetes API 伺服器會使用公用 IP 位址和完整功能變數名稱（FQDN）。 您可以使用 Kubernetes 角色型存取控制和 Azure Active Directory 來控制對 API 伺服器的存取。 如需詳細資訊，請參閱[Azure AD 與 AKS 整合][aks-aad]。
 
 ## <a name="node-security"></a>節點安全性
 

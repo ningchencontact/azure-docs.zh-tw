@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: 8cefd8357893657d94959cb853004b34b0ec9d8d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f4d180dd6ad99d5bc00e6970e22b756aa26275da
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500708"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76268329"
 ---
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 * 入門金鑰。
 * 匯入來自 cognitive-services-language-understanding GitHub 存放庫的 [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) 應用程式。
@@ -36,7 +36,7 @@ ms.locfileid: "73500708"
 
 ## <a name="change-model-programmatically"></a>以程式設計方式變更模型
 
-使用 Go 將機器學習的實體 [API](https://aka.ms/luis-apim-v3-authoring) 新增至應用程式。 
+使用 GO 將機器學習的實體 [API](https://aka.ms/luis-apim-v3-authoring) 新增至應用程式。 
 
 1. 建立名為 `model.py` 的新檔案。 新增下列程式碼：
 
@@ -55,8 +55,8 @@ ms.locfileid: "73500708"
     # The version number of your LUIS app
     LUIS_APP_VERSION = "0.1"
     
-    URI_AddUtterances = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_ID}/examples'
-    URI_Train = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_ID}/train'
+    URI_AddUtterances = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_VERSION}/examples'
+    URI_Train = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_VERSION}/train'
     
     HEADERS = {'Ocp-Apim-Subscription-Key': LUIS_authoringKey}
     
@@ -94,7 +94,7 @@ ms.locfileid: "73500708"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-您完成本快速入門時，請從檔案系統中刪除檔案。 
+您完成本快速入門時，請從檔案系統中刪除該檔案。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: fe09fb47a75ff9d412ffab2daafaf241a43443b4
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 8c2df4854f4cdb93c08e22f7dcdc23b1b69b13d6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75729602"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548776"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>將 IoT Edge 模組上的 Azure Blob 儲存體部署至您的裝置
 
@@ -37,7 +37,7 @@ Azure 入口網站會引導您建立部署資訊清單，並將部署推送至 I
 
 ### <a name="configure-a-deployment-manifest"></a>設定部署資訊清單
 
-部署資訊清單為 JSON 文件，說明應部署的模組、資料如何在模組之間流動，以及想要的模組對應項需要的屬性。 Azure 入口網站有一個 wizard，會逐步引導您建立部署資訊清單，而不是手動建立 JSON 檔。 其中有三個步驟會組織成索引標籤：**模組**、**路由**，以及 [**審核] + [建立**]。
+部署資訊清單為 JSON 文件，說明應部署的模組、資料如何在模組之間流動，以及想要的模組對應項需要的屬性。 Azure 入口網站有一個可引導您建立部署資訊清單的 wizard。 其中有三個步驟會組織成索引標籤：**模組**、**路由**，以及 [**審核] + [建立**]。
 
 #### <a name="add-modules"></a>新增模組
 
@@ -57,11 +57,11 @@ Azure 入口網站會引導您建立部署資訊清單，並將部署推送至 I
    > [!IMPORTANT]
    > 當您對模組進行呼叫時，Azure IoT Edge 會區分大小寫，而且儲存體 SDK 也會預設為小寫。 雖然[Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace)中的模組名稱是**AzureBlobStorageonIoTEdge**，但將名稱變更為小寫有助於確保您與 IoT Edge 模組上 Azure Blob 儲存體的連線不會中斷。
 
-3. 在 [**容器建立選項**] 索引標籤上，您會提供 JSON 程式碼來提供儲存體帳戶資訊，以及裝置上的儲存體掛接。
+3. 開啟 [**容器建立選項**] 索引標籤。
 
    ![模組對應項設定](./media/how-to-deploy-blob/addmodule-tab3.png)
 
-   複製下列 JSON 並貼到方塊中，並在下一個步驟中參考預留位置的描述。
+   將下列 JSON 複製並貼到方塊中，以提供儲存體帳戶資訊，以及裝置上的儲存體掛接。
   
    ```json
    {
@@ -80,13 +80,13 @@ Azure 入口網站會引導您建立部署資訊清單，並將部署推送至 I
    }
    ```
 
-4. 使用下列資訊，更新您為**容器建立選項**複製的 JSON：
+4. 使用下列資訊，將您複製的 JSON 更新為**容器建立選項**：
 
    - 將 `<your storage account name>` 取代為您可以記住的名稱。 帳戶名稱的長度必須是3到24個字元，且包含小寫字母和數位。 無空格。
 
    - 使用 64 位元組 base64 金鑰取代 `<your storage account key>`。 您可以 [GeneratePlus](https://generate.plus/en/base64) 之類的工具產生金鑰。 您將使用這些認證，從其他模組存取 Blob 儲存體。
 
-   - 根據您的容器作業系統來取代 `<storage mount>`。 提供[磁碟區](https://docs.docker.com/storage/volumes/)的名稱，或您想要 Blob 模組儲存其資料的 IoT Edge 裝置目錄絕對路徑。 儲存體掛接會將您提供的裝置上的位置對應至模組中的集合位置。
+   - 根據您的容器作業系統來取代 `<storage mount>`。 提供[磁片](https://docs.docker.com/storage/volumes/)區的名稱，或 IoT Edge 裝置上，blob 模組將用來儲存其資料之現有目錄的絕對路徑。 儲存體掛接會將您提供的裝置上的位置對應至模組中的集合位置。
 
      - 針對 Linux 容器，格式為 *\<儲存體路徑或磁片區 >：/blobroot 與*。 例如：
          - 使用[磁片區掛接](https://docs.docker.com/storage/volumes/)：**我的磁片區：/blobroot**
@@ -261,6 +261,7 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
 您連接到其他 Blob 儲存體模組時，請變更端點來指向已更新的主機連接埠。
 
 ## <a name="next-steps"></a>後續步驟
+
 深入瞭解[IoT Edge 上的 Azure Blob 儲存體](how-to-store-data-blob.md)
 
 如需部署資訊清單的功能，以及如何建立此類清單的詳細資訊，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md) (英文)。

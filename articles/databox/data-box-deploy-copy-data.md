@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d86da3013a3cb4573556bc14ea1e6a0fbab72623
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: c82a67bbbf8f1a4f77db6ca965031e85e69ee100
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70240400"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514165"
 ---
 ::: zone target="docs"
 
@@ -32,15 +32,15 @@ ms.locfileid: "70240400"
 
 本教學課程說明如何使用本機 Web UI 來連線至主機電腦並從中複製資料。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
-> * 必要條件
+> * Prerequisites
 > * 連線至資料箱
 > * 將資料複製到資料箱
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 在您開始前，請確定：
 
@@ -130,7 +130,7 @@ ms.locfileid: "70240400"
   
  下表說明這些屬性。
     
-|屬性  |說明  |
+|屬性  |描述  |
 |---------|---------|
 |/e     |複製子目錄，包含空的目錄。         |
 |/r:     |指定失敗複製的重試次數。         |
@@ -283,7 +283,7 @@ ms.locfileid: "70240400"
 在本教學課程中，您已了解 Azure 資料箱的相關主題，像是：
 
 > [!div class="checklist"]
-> * 必要條件
+> * Prerequisites
 > * 連線至資料箱
 > * 將資料複製到資料箱
 

@@ -4,28 +4,25 @@ description: 瞭解如何與 Azure 防火牆整合，以保護從 App Service �
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 01/14/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c78749d9d0f0bd4b1dadb8dc0d2f6dd84408a95e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 6b9633e8a37e665577f1e69e8008a64b7e139c1c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687222"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513334"
 ---
 # <a name="locking-down-an-app-service-environment"></a>鎖定 App Service 環境
 
 App Service Environment (ASE) 有一些外部相依性，它需要能夠存取，才能正確運作。 ASE 位於客戶 Azure 虛擬網路 (VNet)。 客戶必須允許 ASE 相依性流量，這對於想要鎖定從其 VNet 所有輸出流量的客戶而言會是個問題。
 
-ASE 有一些輸入相依性。 輸入的管理流量不能透過防火牆裝置傳送。 此流量的來源位址已知，且發佈在 [App Service Environment 管理位址](https://docs.microsoft.com/azure/app-service/environment/management-addresses)文件。 您可以建立具有該資訊的網路安全性群組規則，來保護輸入的流量。
+有數個輸入端點可用來管理 ASE。 輸入的管理流量不能透過防火牆裝置傳送。 此流量的來源位址已知，且發佈在 [App Service Environment 管理位址](https://docs.microsoft.com/azure/app-service/environment/management-addresses)文件。 另外還有一個名為 AppServiceManagement 的服務標記，可以與網路安全性群組（Nsg）搭配使用，以保護輸入流量。
 
-ASE 輸出相依性幾乎完全使用 FQDN 定義，它背後並沒有靜態位址。 缺乏靜態位址表示網路安全性群組 (NSG) 不能用來鎖定來自 ASE 的輸出流量。 地址經常變更，使得無法根據目前的解析度來設定規則，以用來建立 NSG。 
+ASE 輸出相依性幾乎完全使用 FQDN 定義，它背後並沒有靜態位址。 缺少靜態位址表示「網路安全性群組」無法用來鎖定 ASE 的輸出流量。 地址經常變更，使得無法根據目前的解析度來設定規則，以用來建立 NSG。 
 
 保護輸出位址的解決方案在於使用可以根據網域名稱控制輸出流量的防火牆裝置。 Azure 防火牆可以依據目的地的 FQDN 限制 HTTP 和 HTTPS 流量輸出。  
-
-> [!NOTE]
-> 目前，我們無法完全鎖定輸出連接。
 
 ## <a name="system-architecture"></a>系統架構
 
@@ -42,6 +39,12 @@ ASE 輸出相依性幾乎完全使用 FQDN 定義，它背後並沒有靜態位�
 
 ![具有 Azure 防火牆連線流程的 ASE][5]
 
+## <a name="locking-down-inbound-management-traffic"></a>鎖定輸入管理流量
+
+如果您的 ASE 子網尚未指派 NSG，請建立一個。 在 NSG 中設定第一個規則，以允許來自埠454，455上名為 AppServiceManagement 的服務標記流量。 這就是公用 Ip 用來管理 ASE 所需的一切。 該服務標籤後方的位址只會用來管理 Azure App Service。 流經這些連線的管理流量會經過加密，並使用驗證憑證來保護。 此通道上的一般流量包括客戶起始的命令和健康狀態探查等。 
+
+透過入口網站使用新子網進行的 Ase，是以包含 AppServiceManagement 標籤允許規則的 NSG 來建立。  
+
 ## <a name="configuring-azure-firewall-with-your-ase"></a>使用 ASE 設定 Azure 防火牆 
 
 使用 Azure 防火牆來鎖定現有 ASE 輸出流量的步驟如下：
@@ -51,14 +54,19 @@ ASE 輸出相依性幾乎完全使用 FQDN 定義，它背後並沒有靜態位�
    ![選取服務端點][2]
   
 1. 在存在 ASE 的 VNet 中建立名為 AzureFirewallSubnet 的子網路。 請遵照 [Azure 防火牆文件](https://docs.microsoft.com/azure/firewall/)的指示，來建立您的 Azure 防火牆。
+
 1. 從 [Azure 防火牆 UI > 規則 > 應用程式規則集合] 中，選取 [新增應用程式規則集合]。 提供名稱、優先順序，並設定為 [允許]。 在 [FQDN 標記] 區段中，提供名稱、將來源位址設定為 *，然後選取 [App Service 環境 FQDN 標記] 和 [Windows Update]。 
    
    ![加入應用程式規則][1]
    
-1. 從 [Azure 防火牆 UI > 規則 > 網路規則集合] 中，選取 [新增網路規則集合]。 提供名稱、優先順序，並設定為 [允許]。 在 [規則] 區段中，提供名稱、選取 [任何]、將 * 設定為來源和目的地位址，並將連接埠設定為 123。 此規則可讓系統使用 NTP 執行時鐘同步。 以與連接埠 12000 相同的方式建立另一個規則，以協助分類任何系統問題。
+1. 從 [Azure 防火牆 UI > 規則 > 網路規則集合] 中，選取 [新增網路規則集合]。 提供名稱、優先順序，並設定為 [允許]。 在 [IP 位址] 底下的 [規則] 區段中，提供名稱、選取 [**任何**]、[設定 * 至來源] 和 [目的地位址] 的 ptocol，然後將埠設定為123。 此規則可讓系統使用 NTP 執行時鐘同步。 以與連接埠 12000 相同的方式建立另一個規則，以協助分類任何系統問題。 
 
    ![加入 NTP 網路規則][3]
+   
+1. 從 [Azure 防火牆 UI > 規則 > 網路規則集合] 中，選取 [新增網路規則集合]。 提供名稱、優先順序，並設定為 [允許]。 在 [服務標籤] 底下的 [規則] 區段中，提供名稱、選取 [**任何**] 的通訊協定、將 * 設定為 [來源位址]、選取 AzureMonitor 的服務標籤，然後將埠設定為80，443。 此規則可讓系統提供具有健康情況和計量資訊的 Azure 監視器。
 
+   ![新增 NTP 服務標記網路規則][6]
+   
 1. 建立路由表，其中具有來自 [App Service Environment 管理位址]( https://docs.microsoft.com/azure/app-service/environment/management-addresses)的管理位址，以及網際網路的下一個躍點。 需要路由表項目，才能避免發生非對稱式路由問題。 針對底下＜IP 位址相依性＞所註明的 IP 位址相依性，新增具有網際網路下一個躍點的路由。 在路由表中新增 0.0.0.0/0 的虛擬設備路由，並且以 Azure 防火牆私人IP 位址作為下一個躍點。 
 
    ![建立路由表][4]
@@ -90,7 +98,7 @@ Azure 防火牆可以將記錄傳送至 Azure 儲存體、事件中樞或 Azure 
  
 當您不知道所有應用程式相依性時，第一次讓應用程式運作時，將 Azure 防火牆與 Azure 監視器記錄整合會很有用。 您可以從[Azure 監視器中的分析記錄資料](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)，深入瞭解 Azure 監視器記錄。
  
-## <a name="dependencies"></a>相依項目
+## <a name="dependencies"></a>相依性
 
 當您想要設定 Azure 防 火牆以外的防火牆設備時，才需要下列資訊。 
 
@@ -248,7 +256,25 @@ Azure 防火牆可以將記錄傳送至 Azure 儲存體、事件中樞或 Azure 
 
 ## <a name="us-gov-dependencies"></a>US Gov 相依性
 
-對於 US Gov，您仍然需要為儲存體、SQL 和事件中樞設定服務端點。  您也可以使用 Azure 防火牆，以及本檔稍早的指示。 如果您需要使用自己的輸出防火牆裝置，則端點如下所示。
+如需 US Gov 區域中的 Ase，請依照本檔的[使用 ase 設定 Azure 防火牆](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase)一節中的指示，使用您的 ase 來設定 azure 防火牆。
+
+如果您想要在 US Gov 中使用 Azure 防火牆以外的裝置 
+
+* 應使用服務端點來設定支援的服務端點服務。
+* FQDN HTTP/HTTPS 端點可以放在您的防火牆裝置。
+* 萬用字元 HTTP/HTTPS 端點是根據一些限定條件，可能隨著 ASE 而變的相依性。
+
+Linux 在 US Gov 區域中無法使用，因此不會列為選擇性設定。
+
+#### <a name="service-endpoint-capable-dependencies"></a>服務端點功能相依性 ####
+
+| 端點 |
+|----------|
+| Azure SQL |
+| Azure 儲存體 |
+| Azure 事件中樞 |
+
+#### <a name="dependencies"></a>相依性 ####
 
 | 端點 |
 |----------|
@@ -375,3 +401,4 @@ Azure 防火牆可以將記錄傳送至 Azure 儲存體、事件中樞或 Azure 
 [3]: ./media/firewall-integration/firewall-ntprule.png
 [4]: ./media/firewall-integration/firewall-routetable.png
 [5]: ./media/firewall-integration/firewall-topology.png
+[6]: ./media/firewall-integration/firewall-ntprule-monitor.png

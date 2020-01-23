@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 29b69499b708726b10947bd3202d3a52893f5c90
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2430d7e6fa74438c148d3cb849510be06243faa0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826169"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543149"
 ---
 # <a name="azure-application-skus-tab"></a>Azure 應用程式 SKU 索引標籤
 
@@ -82,17 +82,19 @@ ms.locfileid: "73826169"
 
 ### <a name="package-details-for-solution-template"></a>解決方案範本的套件詳細資料
 
-   ![解決方案範本的套件詳細資料](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
+![解決方案範本的套件詳細資料](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
 
 提供下列**套件詳細資料**值。  以星號附加的欄位是必要的。
 
 - **版本\*** -您將上傳的套件版本。 版本標籤格式應為 X.Y.Z，其中 X、Y 和 Z 是整數。
 - **封裝檔案（.zip）\*** -此套件包含下列檔案，並儲存在 .zip 檔中。
-  - MainTemplate.json - 用來部署解決方案/應用程式並建立針對解決方案定義之資源的部署範本檔案。 如需詳細資訊，請參閱[如何製作部署範本檔案](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)。
-  - createUIDefinition.json - Azure 入口網站會使用這個檔案來產生使用者介面，以便佈建此解決方案/應用程式。 如需詳細資訊，請參閱[為您的受控應用程式建立 Azure 入口網站使用者介面](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)。
+  - **\*mainTemplate** ：用來部署解決方案/應用程式，並建立為解決方案定義之資源的部署範本檔案。 如需詳細資訊，請參閱[如何製作部署範本檔案](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)。
+  - **createUIDefinition\*** -此檔案是由 Azure 入口網站用來產生使用者介面，以布建此解決方案/應用程式。 如需詳細資訊，請參閱[為您的受控應用程式建立 Azure 入口網站使用者介面](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)。
+  - 腳本（如有必要）-執行範本時可能需要的任何其他腳本，例如 `Microsoft.Compute/virtualMachines/extensions`。
+  - 嵌套樣板（如有需要）-任何其他的嵌套範本。
 
-  >[!IMPORTANT] 
-  >此套件應該包含佈建此應用程式所需的任何巢狀範本或指令碼。 MainTemplate.json 檔案與 createUIDefinition.json 檔案必須位於根資料夾。
+  > [!IMPORTANT] 
+  > 此套件應該包含佈建此應用程式所需的任何巢狀範本或指令碼。 MainTemplate 檔案和 createUIDefinition 檔案必須位於根資料夾中。 如需部署成品的詳細資訊，請參閱[Azure Resource Manager 範本-最佳做法指南](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#deployment-artifacts-nested-templates-scripts)。
 
 
 ### <a name="package-details-for-managed-application"></a>受控應用程式的套件詳細資料

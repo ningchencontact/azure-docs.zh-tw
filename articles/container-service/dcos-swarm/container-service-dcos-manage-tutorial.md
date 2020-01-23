@@ -1,20 +1,18 @@
 ---
 title: (已被取代) Azure Container Service 教學課程 - 管理 DC/OS
 description: Azure Container Service 教學課程 - 管理 DC/OS
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fe943ae5ac7894cdd8d8e104615cea670513b7eb
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 1c9b3bfdbe7aff203efa6b36f0e40cb65aba1175
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000411"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278343"
 ---
 # <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(已被取代) Azure Container Service 教學課程 - 管理 DC/OS
 
@@ -24,7 +22,7 @@ DC/OS 所提供的分散式平台可執行現代及容器化的應用程式。 �
 
 > [!div class="checklist"]
 > * 建立 ACS DC/OS 叢集
-> * 連接到叢集
+> * 連線至叢集
 > * 安裝 DC/OS CLI
 > * 將應用程式部署到叢集
 > * 調整叢集上的應用程式
@@ -38,7 +36,7 @@ DC/OS 所提供的分散式平台可執行現代及容器化的應用程式。 �
 
 首先，使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
-下列範例會在 westeurope 位置建立名為 myResourceGroup 的資源群組。
+下列範例會在 westeurope  位置建立名為 myResourceGroup  的資源群組。
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -46,7 +44,7 @@ az group create --name myResourceGroup --location westeurope
 
 接下來，使用 [az acs create](/cli/azure/acs#az-acs-create) 命令來建立 DC/OS 叢集。
 
-下列範例會建立名為 myDCOSCluster 的 DC/OS 叢集，並建立 SSH 金鑰 (如果它們尚未存在)。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。  
+下列範例會建立名為 myDCOSCluster  的 DC/OS 叢集，並建立 SSH 金鑰 (如果它們尚未存在)。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。  
 
 ```azurecli
 az acs create \
@@ -128,7 +126,7 @@ dcos marathon app add marathon-app.json
 dcos marathon app list
 ```
 
-當 **TASKS** 資料行值從 0/1 切換為 1/1 時，應用程式部署就已完成。
+當 **TASKS** 資料行值從 0/1  切換為 1/1  時，應用程式部署就已完成。
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
@@ -177,7 +175,7 @@ dcos marathon app update demo-app-private < marathon-app.json
 dcos marathon app list
 ```
 
-當 **TASKS** 資料行值從 1/3 切換為 3/1 時，應用程式部署就已完成。
+當 **TASKS** 資料行值從 1/3  切換為 3/1  時，應用程式部署就已完成。
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
@@ -268,7 +266,7 @@ az group delete --name myResourceGroup --no-wait
 
 > [!div class="checklist"]
 > * 建立 ACS DC/OS 叢集
-> * 連接到叢集
+> * 連線至叢集
 > * 安裝 DC/OS CLI
 > * 將應用程式部署到叢集
 > * 調整叢集上的應用程式

@@ -1,5 +1,5 @@
 ---
-title: 使用影片索引器網站自訂語言模型 - Azure
+title: 使用影片索引子網站自訂語言模型-Azure
 titleSuffix: Azure Media Services
 description: 本文說明如何使用影片索引器網站自訂語言模型。
 services: media-services
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 5d92cb02a0ac52b317cf9d4b6c8e0278f9291910
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 329da39914ef957d3a5376ba59e0c7103ad6a5dd
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838448"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513910"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>使用影片索引器網站自訂語言模型
 
@@ -72,7 +72,7 @@ ms.locfileid: "73838448"
 
 ### <a name="using-a-language-model-to-reindex"></a>使用語言模型重新編製索引
 
-若要使用您的語言模型為您收藏的視訊重新編製索引，請移至 [**影片索引器**] 首頁上的 [帳戶視訊][](https://www.videoindexer.ai/)，然後將滑鼠停駐在您想要重新編製索引之視訊的名稱上。
+若要使用您的語言模型為您收藏的視訊重新編製索引，請移至 [[影片索引器](https://www.videoindexer.ai/)] 首頁上的 [帳戶視訊]，然後將滑鼠停駐在您想要重新編製索引之視訊的名稱上。
 
 您會看到編輯視訊、刪除視訊，以及重新編製視訊索引的選項。 按一下重新編製視訊索引的選項。
 

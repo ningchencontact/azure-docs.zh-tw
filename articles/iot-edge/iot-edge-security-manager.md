@@ -9,16 +9,16 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 871f2ec029379f37fc02bcd79847fa04091f0507
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: d5cfa16196a8815b711fd5277a80f6eb67d3a388
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666064"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548691"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge 安全性管理員
 
-Azure IoT Edge 安全性管理員是有完整界限的安全性核心，它透過將安全晶片硬體抽象化，來保護 IoT Edge 裝置與其所有元件。 這是強化安全性的焦點，並提供技術整合點給原始設備製造商（OEM）。
+Azure IoT Edge 安全性管理員是有完整界限的安全性核心，它透過將安全晶片硬體抽象化，來保護 IoT Edge 裝置與其所有元件。 安全性管理員是強化安全性的焦點，並提供技術整合點給原始設備製造商（OEM）。
 
 ![Azure IoT Edge 安全性管理員](media/edge-security-manager/iot-edge-security-manager.png)
 
@@ -41,7 +41,7 @@ IoT Edge 安全性管理員包含三項元件：
 
 ## <a name="the-iot-edge-security-daemon"></a>IoT Edge 安全性精靈
 
-IoT Edge 安全性守護程式負責 IoT Edge 安全性管理員的邏輯作業。 它代表 IoT Edge 裝置之受信任計算基礎的重要部分。 
+IoT Edge 安全性守護程式負責 IoT Edge 安全性管理員的邏輯作業。 它代表 IoT Edge 裝置之受信任計算基礎的重要部分。
 
 ### <a name="design-principles"></a>設計原則
 
@@ -79,11 +79,11 @@ IoT Edge 安全性守護程式會利用任何可用的硬體根信任技術來�
 
 #### <a name="management-api"></a>管理 API
 
-IoT Edge security daemon 提供管理 API，在建立/啟動/停止/移除 IoT Edge 模組時，IoT Edge 代理程式會呼叫它。 安全性守護程式會儲存所有作用中模組的「註冊」。 這些註冊將模組的身分識別對應到模組的某些屬性。 這些屬性的一些範例為在容器中執行之處理序的處理序識別碼 (pid)，或是 Docker 容器內容的雜湊。
+IoT Edge security daemon 提供管理 API，在建立/啟動/停止/移除 IoT Edge 模組時，IoT Edge 代理程式會呼叫它。 安全性守護程式會儲存所有作用中模組的「註冊」。 這些註冊將模組的身分識別對應到模組的某些屬性。 例如，這些模組屬性包含在容器中執行之進程的處理序識別碼（pid），以及 docker 容器內容的雜湊。
 
-這些屬性是由工作負載 API 所使用（如下所述），以確認呼叫者有權執行動作。
+這些屬性是由工作負載 API 所使用（如下所述），以確認呼叫端已獲授權可進行動作。
 
-管理 API 是特殊許可權的 API，只能從 IoT Edge 代理程式呼叫。  由於 IoT Edge 安全性精靈會啟動 (Bootstrap) 及啟動 (Start) IoT Edge 代理程式，所以它能在證明 IoT Edge 代理程式沒有被竄改之後，為 IoT Edge 代理程式建立隱含的註冊。 工作負載 API 所使用的相同證明程式也會將管理 API 的存取限制為只有 IoT Edge 代理程式。
+管理 API 是特殊許可權的 API，只能從 IoT Edge 代理程式呼叫。  由於 IoT Edge security daemon 會啟動並啟動 IoT Edge 代理程式，因此它會確認 IoT Edge 代理程式未遭到篡改，然後可以為 IoT Edge 代理程式建立隱含的註冊。 工作負載 API 所使用的相同證明程式也會將管理 API 的存取限制為只有 IoT Edge 代理程式。
 
 #### <a name="container-api"></a>容器 API
 
@@ -93,7 +93,7 @@ IoT Edge security daemon 提供管理 API，在建立/啟動/停止/移除 IoT E
 
 所有模組都可存取工作負載 API。 它會提供身分識別證明，可能是 HSM 根簽署權杖或 X509 憑證，以及對應至模組的信任配套。 信任組合包含模組應該信任之所有其他伺服器的 CA 憑證。
 
-IoT Edge security daemon 會使用證明程式來保護此 API。 當模組呼叫此 API 時，安全性守護程式會嘗試尋找身分識別的註冊。 如果成功，它會使用註冊的屬性來測量模組。 如果測量流程的結果符合註冊，則會產生新的身分識別證明。 對應的 CA 憑證 (信任組合) 會傳回到模組。  模組使用此憑證來連線到 IoT 中樞、其他模組或用來啟動伺服器。 當簽署的權杖或憑證接近到期日時，模組會負責要求新的憑證。 
+IoT Edge security daemon 會使用證明程式來保護此 API。 當模組呼叫此 API 時，安全性守護程式會嘗試尋找身分識別的註冊。 如果成功，它會使用註冊的屬性來測量模組。 如果測量流程的結果符合註冊，則會產生新的身分識別證明。 對應的 CA 憑證 (信任組合) 會傳回到模組。  模組使用此憑證來連線到 IoT 中樞、其他模組或用來啟動伺服器。 當簽署的權杖或憑證接近到期日時，模組會負責要求新的憑證。
 
 ### <a name="integration-and-maintenance"></a>整合和維護
 

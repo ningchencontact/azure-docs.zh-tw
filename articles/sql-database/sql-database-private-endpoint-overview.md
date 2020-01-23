@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: 6cc8282a5c56f8f45e8d9e5ee452089a74f0d4ed
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 427ba0e46f8f4090ce8c2080b1d6780b165e864c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045634"
+ms.locfileid: "76121075"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>適用於 Azure SQL Database 和資料倉儲的 Private Link (預覽)
 
@@ -43,8 +43,6 @@ Private Link 可讓您透過**私人端點**連線到 Azure 中的各種 PaaS �
 當客戶從內部部署機器連線到公用端點時，他們的 IP 位址必須透過[伺服器層級防火牆規則](sql-database-server-level-firewall-rule.md)來新增至以 IP 為基礎的防火牆。 雖然此模型可針對開發或測試工作負載來允許個別機器的存取，但難以在生產環境中進行管理。
 
 透過 Private Link，客戶可以使用 [ExpressRoute](../expressroute/expressroute-introduction.md)、私人對等互連或 VPN 通道來啟用私人端點的跨單位存取。 接著，客戶就可以停用所有透過公用端點的存取，而不使用以 IP 為基礎的防火牆來允許任何 IP 位址。
-
-透過 Private Link，客戶可以使用 Express Route (ER) 私人對等互連或 VPN 通道來啟用私人端點的跨單位存取。然後他們就可以停用透過公用端點的所有存取，而且無須使用以 IP 為基礎的防火牆。
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>如何設定適用於 Azure SQL Database 的 Private Link 
 
