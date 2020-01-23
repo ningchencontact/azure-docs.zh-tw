@@ -1,5 +1,5 @@
 ---
-title: Azure AD Domain Services 中的常見警示和解決方式 |Microsoft Docs '
+title: Azure AD Domain Services 中的常見警示和解決方式 |Microsoft Docs
 description: 瞭解如何解決 Azure Active Directory Domain Services 的健全狀況狀態中產生的常見警示
 services: active-directory-ds
 author: iainfoulds
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 26ae70f9283ac7be847a59753130dd8ba8c11c18
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0bb02e6436bf9c9ebb9e54efa73aeed03ab44f3e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979897"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512659"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>已知問題： Azure Active Directory Domain Services 中的常見警示和解決方式
 
@@ -37,7 +37,7 @@ ms.locfileid: "75979897"
 此錯誤無法復原。 若要解決警示，請[刪除現有的 AZURE AD DS 受控網域](delete-aadds.md)，然後在新的目錄中重新建立它。 如果您無法刪除 Azure AD DS 受控網域，請[開啟 Azure 支援要求][azure-support]以取得額外的疑難排解協助。
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101：Azure AD B2C 在此目錄中執行
- 
+
 ### <a name="alert-message"></a>警示訊息
 
 無法在 Azure AD B2C 目錄中啟用 Azure AD Domain Services。
@@ -78,7 +78,7 @@ Azure AD DS 受控網域的健康狀態會在兩小時內自動更新，並移�
 1. 選取左側導覽中的 [**子網**]。
 1. 選擇您想要編輯的子網，或建立額外的子網。
 1. 更新或指定私人 IP 位址範圍，然後**儲存**您的變更。
-1. [建立替代 AZURE AD DS 受控網域](tutorial-create-instance.md)。 請務必挑選具有私人 IP 位址範圍的已更新虛擬網路子網。
+1. [建立替代 AZURE AD DS 受控網域](tutorial-create-instance.md)。 請確定您選擇的是已更新的虛擬網路子網，其具有私人 IP 位址範圍。
 
 Azure AD DS 受控網域的健康狀態會在兩小時內自動更新，並移除警示。
 
@@ -129,7 +129,7 @@ Azure AD DS 需要有效的訂用帳戶，且無法移至不同的訂用帳戶�
 
 ### <a name="resolution"></a>解析度
 
-Azure AD DS 會建立可正常運作的特定資源，例如公用 IP 位址、Nic 和負載平衡器。 如果刪除這些資源的任何一項，則受控網域會處於不支援的狀態，並防止管理網域。 如需這些資源的詳細資訊，請參閱[AZURE AD DS 使用的網路資源](network-considerations.md#network-resources-used-by-azure-ad-ds)。
+Azure AD DS 會建立可正常運作的其他資源，例如公用 IP 位址、虛擬網路介面和負載平衡器。 如果刪除這些資源的任何一項，則受控網域會處於不支援的狀態，並防止管理網域。 如需這些資源的詳細資訊，請參閱[AZURE AD DS 使用的網路資源](network-considerations.md#network-resources-used-by-azure-ad-ds)。
 
 當其中一個必要資源被刪除時，就會產生此警示。 如果資源刪除時間不到4小時前，Azure 平臺可能會自動重新建立已刪除的資源。 下列步驟概述如何檢查資源刪除的健全狀況狀態和時間戳記：
 
@@ -160,7 +160,7 @@ Azure AD DS 的虛擬網路子網必須有足夠的 IP 位址可用於自動建�
 
 ### <a name="resolution"></a>解析度
 
-部分自動產生的服務主體可用來管理和建立 Azure AD DS 受控網域的資源。 如果其中一個服務主體的存取權限已變更，就無法正確地管理資源。 下列步驟說明如何瞭解並將存取權限授與服務主體：
+部分自動產生的服務主體可用來管理和建立 Azure AD DS 受控網域的資源。 如果其中一個服務主體的存取權限已變更，網域將無法正確地管理資源。 下列步驟說明如何瞭解並將存取權限授與服務主體：
 
 1. 閱讀有關[角色型存取控制，以及如何在 Azure 入口網站中授與應用程式存取權的](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)相關資訊。
 2. 檢查具有識別碼*abba844e-bc0e-44b0-947a-dc74e5d09022*之服務主體的存取權，並授與在較早日期拒絕的存取權。
@@ -173,18 +173,18 @@ Azure AD DS 的虛擬網路子網必須有足夠的 IP 位址可用於自動建�
 
 ### <a name="resolution"></a>解析度
 
-Azure AD DS 的虛擬網路子網必須有足夠的 IP 位址可用於自動建立的資源。 此 IP 位址空間包括在發生維護事件時，建立取代資源的需求。 若要將可用的 IP 位址用盡的風險降到最低，請不要將其他資源（例如您自己的 Vm）部署到與 Azure AD DS 相同的虛擬網路子網中。
+Azure AD DS 的虛擬網路子網需要有足夠的 IP 位址可用於自動建立的資源。 此 IP 位址空間包括在發生維護事件時，建立取代資源的需求。 若要將可用的 IP 位址用盡的風險降到最低，請不要將其他資源（例如您自己的 Vm）部署到與 Azure AD DS 相同的虛擬網路子網中。
 
 若要解決此警示，請刪除現有的 Azure AD DS 受控網域，然後在具有足夠 IP 位址範圍的虛擬網路中重新建立它。 因為 Azure AD DS 受控網域無法使用，而且您建立的任何自訂資源（例如 Ou 或服務帳戶）遺失，此程式會造成干擾。
 
 1. 從您的目錄中[刪除 AZURE AD DS 受控網域](delete-aadds.md)。
-1. 若要更新虛擬網路 IP 位址範圍，請在 Azure 入口網站中搜尋並選取 [*虛擬網路*]。 針對小型 IP 位址範圍選取 Azure AD DS 的虛擬網路。
+1. 若要更新虛擬網路 IP 位址範圍，請在 Azure 入口網站中搜尋並選取 [*虛擬網路*]。 針對具有小型 IP 位址範圍的 Azure AD DS 選取虛擬網路。
 1. 在 [**設定**] 底下，選取 [*位址空間*]。
 1. 選擇現有的位址範圍並進行編輯，或新增額外的位址範圍，以更新位址範圍。 請確定新的 IP 位址範圍夠大，可用於 Azure AD DS 子網範圍內。 準備就緒時，**儲存**變更。
 1. 選取左側導覽中的 [**子網**]。
 1. 選擇您想要編輯的子網，或建立額外的子網。
 1. 更新或指定夠大的 IP 位址範圍，然後**儲存**您的變更。
-1. [建立替代 AZURE AD DS 受控網域](tutorial-create-instance.md)。 請務必挑選已更新的虛擬網路子網，其 IP 位址範圍夠大。
+1. [建立替代 AZURE AD DS 受控網域](tutorial-create-instance.md)。 請確定您選擇的是已更新的虛擬網路子網，其 IP 位址範圍夠大。
 
 Azure AD DS 受控網域的健康狀態會在兩小時內自動更新，並移除警示。
 
@@ -216,11 +216,11 @@ Azure AD DS 受控網域的健康狀態會在兩小時內自動更新，並移�
 
 ### <a name="resolution"></a>解析度
 
-資源鎖定可以套用至 Azure 資源和資源群組，以避免變更或刪除。 因為 Azure AD DS 是受控服務，所以 Azure 平臺需要進行設定變更的功能。 如果資源鎖定套用在某些 Azure AD DS 元件上，Azure 平臺就無法執行其管理工作。
+資源鎖定可以套用至 Azure 資源，以避免變更或刪除。 因為 Azure AD DS 是受控服務，所以 Azure 平臺需要進行設定變更的功能。 如果資源鎖定套用在某些 Azure AD DS 元件上，Azure 平臺就無法執行其管理工作。
 
 若要檢查 Azure AD DS 元件上的資源鎖定，並將它們移除，請完成下列步驟：
 
-1. 針對資源群組中的每個 Azure AD DS 網路元件（例如虛擬網路、NIC 或公用 IP 位址），檢查 Azure 入口網站中的作業記錄。 這些作業記錄應該會指出作業失敗的原因，以及套用資源鎖定的位置。
+1. 針對資源群組中的每個 Azure AD DS 網路元件（例如虛擬網路、網路介面或公用 IP 位址），檢查 Azure 入口網站中的作業記錄。 這些作業記錄應該會指出作業失敗的原因，以及套用資源鎖定的位置。
 1. 選取已套用鎖定的資源，然後在 [**鎖定**] 底下，選取並移除鎖定。
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116：無法使用資源
@@ -246,7 +246,7 @@ Azure AD DS 受控網域的健康狀態會在兩小時內自動更新，並移�
 
 ### <a name="resolution"></a>解析度
 
-[檢查 AZURE AD DS 健全狀況](check-health.md)，以取得指出受控網域設定中有問題的任何警示。 網路設定的問題可能會封鎖 Azure AD 的同步處理。 如果您能夠解決任何指出設定問題的警示，請等候兩小時並回頭查看同步處理是否已完成。
+[檢查 AZURE AD DS 健全狀況](check-health.md)，以取得指出受控網域設定中有問題的任何警示。 網路設定的問題可能會封鎖 Azure AD 的同步處理。 如果您能夠解決指出設定問題的警示，請等候兩個小時並回頭查看同步處理是否已順利完成。
 
 下列常見原因會導致 Azure AD DS 受控網域中的同步處理停止：
 
@@ -261,7 +261,7 @@ Azure AD DS 受控網域的健康狀態會在兩小時內自動更新，並移�
 
 ### <a name="resolution"></a>解析度
 
-[檢查 AZURE AD DS 健全狀況](check-health.md)，以取得指出受控網域設定中有問題的任何警示。 網路設定的問題可能會封鎖 Azure 平臺，使其無法成功取得備份。 如果您能夠解決任何指出設定問題的警示，請等候兩小時並回頭查看同步處理是否已完成。
+[檢查 AZURE AD DS 健全狀況](check-health.md)，以取得指出受控網域設定中有問題的警示。 網路設定的問題可能會封鎖 Azure 平臺，使其無法成功取得備份。 如果您能夠解決指出設定問題的警示，請等候兩個小時並回頭查看同步處理是否已順利完成。
 
 ## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503：因為停用的訂用帳戶而造成擱置
 
@@ -292,7 +292,7 @@ Azure AD DS 需要有效的訂用帳戶。 如果與 Azure AD DS 受控網域相
 > [!WARNING]
 > 如果 Azure AD DS 受控網域已暫止一段時間，就會有風險遭到刪除。 儘快解決暫停的原因。 如需詳細資訊，請參閱[瞭解 AZURE AD DS 的已暫停狀態](suspension.md)。
 
-[檢查 AZURE AD DS 健全狀況](check-health.md)，以取得指出受控網域設定中有問題的任何警示。 如果您能夠解決任何指出設定問題的警示，請等候兩小時並回頭查看同步處理是否已完成。 準備好時，請[開啟 Azure 支援要求][azure-support]以重新啟用 Azure AD DS 受控網域。
+[檢查 AZURE AD DS 健全狀況](check-health.md)，以取得指出受控網域設定中有問題的警示。 如果您能夠解決指出設定問題的警示，請等候兩個小時並回頭查看同步處理是否已完成。 準備好時，請[開啟 Azure 支援要求][azure-support]以重新啟用 Azure AD DS 受控網域。
 
 ## <a name="next-steps"></a>後續步驟
 

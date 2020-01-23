@@ -1,7 +1,7 @@
 ---
-title: 媒體服務中的即時事件和即時輸出
+title: Azure 媒體服務 v3 中的實況活動和即時輸出概念
 titleSuffix: Azure Media Services
-description: 概述 Azure 媒體服務 v3 中的即時事件和即時輸出。
+description: 本主題概要說明 Azure 媒體服務 v3 中的即時事件和即時輸出。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: juliako
-ms.openlocfilehash: d2f0689dd1f1b5fbe349478ad885b76eb79d91a0
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cd1f55a4ca94aae73a56334c76f211afff6e9622
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569677"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514046"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>媒體服務中的即時事件和即時輸出
 
@@ -73,7 +73,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 建立「實況活動」時，您可以指定下列選項：
 
-* 即時事件的串流通訊協定 (目前支援 RTMP 和 Smooth Streaming 通訊協定)。<br/>當即時事件或其相關聯的即時輸出正在執行時，您無法變更通訊協定選項。 如果您需要不同的通訊協定，請為每個串流通訊協定建立個別的實況活動。  
+* 「實況活動」的串流通訊協定 (目前支援 RTMP 和 Smooth Streaming 通訊協定)。<br/>當「即時事件」或其相關「即時輸出」正在執行時，您無法變更通訊協定選項。 如果您需要不同的通訊協定，請為每個串流通訊協定建立個別的實況活動。  
 * 在建立事件時，您可以指定要自動啟動它。 <br/>當自動啟動設為 true 時，即時事件將會在建立後隨即啟動。 只要即時事件一執行，就會立即開始計費。 您必須對「實況活動」資源明確呼叫「停止」，才能終止進一步計費。 或者，您可以在準備好要開始串流處理時啟動事件。
 
     如需詳細資訊，請參閱[實況活動狀態和計費](live-event-states-billing.md)。
@@ -126,7 +126,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 ### <a name="live-ingest-url-naming-rules"></a>即時內嵌 URL 命名規則
 
 * 下方的 *random* \(隨機\) 字串是 128 位元的十六進位數字 (由 32 個字元的 0-9 a-f 所組成)。
-* *您的存取權杖*：您在使用虛名模式時所設定的有效 GUID 字串。 例如， `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`。
+* *您的存取權杖*：您在使用虛名模式時所設定的有效 GUID 字串。 例如： `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` 。
 * *資料流程名稱*：表示特定連接的資料流程名稱。 資料流程名稱值通常是由您所使用的即時編碼器所新增。 您可以設定即時編碼器使用任何名稱來描述連線，例如：「video1_audio1」、「video2_audio1」、「串流」。
 
 #### <a name="non-vanity-url"></a>非虛名 URL

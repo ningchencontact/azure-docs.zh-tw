@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43e50f8787516b1877f7867419b6edfd819ad158
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 67c42de09c75b7dd6737b80071f1f6eba094b132
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746056"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512414"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>如何：規劃 Azure AD Join 實作
 
@@ -129,7 +129,7 @@ Azure AD 已加入裝置的裝置管理是以 MDM 平臺（如 Intune）和 MDM 
 
 如果您的 MDM 解決方案無法透過 Azure AD 應用程式資源庫來啟用，您可以依照 [Azure Active Directory 與 MDM 的整合](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm)中所列的程序新增該解決方案。 
 
-透過共同管理，您可以使用 SCCM 來管理裝置的特定層面，同時透過 MDM 平台來提供原則。 Microsoft Intune 可支援與 SCCM 搭配的共同管理。 如需詳細資訊，請參閱 [Windows 10 裝置的共同管理](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview)。 如果您使用 Intune 以外的 MDM 產品，請向 MDM 提供者洽詢適用的共同管理案例。
+透過共同管理，您可以使用 SCCM 來管理裝置的特定層面，同時透過 MDM 平台來提供原則。 Microsoft Intune 可支援與 SCCM 搭配的共同管理。 如需有關 Windows 10 裝置共同管理的詳細資訊，請參閱[什麼是共同管理？](https://docs.microsoft.com/configmgr/core/clients/manage/co-management-overview)。 如果您使用 Intune 以外的 MDM 產品，請向 MDM 提供者洽詢適用的共同管理案例。
 
 **建議：** 針對已加入 Azure AD 的裝置，請考慮使用僅限 MDM 的管理。
 

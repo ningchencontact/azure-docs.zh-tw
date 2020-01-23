@@ -3,12 +3,12 @@ title: 常見問題-Azure Migrate 中的探索、評估和相依性分析
 description: 取得 Azure Migrate 中探索、評估和相依性分析的常見問題解答。
 ms.topic: conceptual
 ms.date: 12/29/2019
-ms.openlocfilehash: 0b7bb425bff1d26c2a0d6feeaf70be826eab2b9a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 0132563072ed04a52e4937da7a8df69196f1a91f
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564045"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513281"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>探索、評估和相依性分析的相關常見問題
 
@@ -20,7 +20,7 @@ ms.locfileid: "75564045"
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>我可以使用設備探索多少部 Vm？
 
-您最多可以探索10000個 VMware Vm，以及多達5000部具有單一設備的 Hyper-v Vm。 如果您的內部部署環境中有更多電腦，請參閱調整[hyper-v](scale-hyper-v-assessment.md)和[VMware](scale-vmware-assessment.md)評估。
+您最多可以探索10000個 VMware Vm，最多5000部 Hyper-v Vm，最多可達250部具有單一應用裝置的伺服器。 如果您的內部部署環境中有更多電腦，請參閱調整[hyper-v](scale-hyper-v-assessment.md)、 [VMware](scale-vmware-assessment.md)和[實體](scale-physical-assessment.md)評量。
 
 
 
@@ -99,7 +99,7 @@ Azure Migrate 設備會持續收集內部部署環境的相關資訊。 但評�
 
 使用此[腳本來安裝 Dependency agent](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples)。 遵循這些指示，使用命令列或自動化[來安裝 MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) 。 針對 MMA，請使用[此腳本](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)。
 
-除了腳本以外，您也可以使用 System Center Configuration Manager 和[Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration)等部署工具來部署代理程式。
+除了腳本以外，您也可以使用 Microsoft Endpoint Configuration Manager 和[Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration)等部署工具來部署代理程式。
 
 
 ## <a name="what-operating-systems-does-mma-support"></a>MMA 支援哪些作業系統？

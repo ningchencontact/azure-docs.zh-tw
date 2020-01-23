@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/22/2019
-ms.openlocfilehash: 95dbed72aeca639041d259e9c92c2a3b73ef63fe
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/21/2020
+ms.openlocfilehash: 3803802a3d81655091d8be543ae9cb17221a98d8
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456922"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511564"
 ---
 # <a name="egress-and-endpoints-in-azure-digital-twins"></a>Azure 數位 Twins 中的輸出和端點
 
@@ -23,7 +23,7 @@ Azure Digital Twins 的「端點」代表使用者 Azure 訂用帳戶內的訊�
 
 若要深入了解事件、路由與事件類型，請參閱 [Azure Digital Twins 中的路由事件和訊息](./concepts-events-routing.md)。
 
-## <a name="events"></a>事件
+## <a name="events"></a>活動
 
 IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和事件代理程式進行處理。 事件會根據下列 [Azure 事件方格事件結構描述參考](../event-grid/event-schema.md)來定義。
 
@@ -47,16 +47,16 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| 屬性 | 在系統提示您進行確認時，輸入 | 描述 |
+| 屬性 | 類型 | 說明 |
 | --- | --- | --- |
-| id | 字串 | 事件的唯一識別碼。 |
-| 主旨 | 字串 | 發行者定義事件主體的路徑。 |
-| data | 物件 | 資源提供者特有的事件資料。 |
-| eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
-| eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |
-| dataVersion | 字串 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
-| metadataVersion | 字串 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
-| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
+| id | string | 事件的唯一識別碼。 |
+| subject | string | 發行者定義事件主體的路徑。 |
+| data | object | 資源提供者特有的事件資料。 |
+| eventType | string | 此事件來源已註冊的事件類型之一。 |
+| eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
+| dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
+| metadataVersion | string | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
+| 主題 | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
 
 如需有關事件方格事件結構描述的詳細資訊：
 
@@ -90,13 +90,13 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 - 感應器
 - SensorBlobMetadata
 - SensorExtendedProperty
-- 空白字元
+- 外太空
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
 - SpaceRoleAssignment
 - 系統
-- 使用者
+- User
 - UserBlobMetadata
 - UserExtendedProperty
 
@@ -248,7 +248,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 
 已驗證的 HTTP POST 要求：
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/endpoints
 ```
 

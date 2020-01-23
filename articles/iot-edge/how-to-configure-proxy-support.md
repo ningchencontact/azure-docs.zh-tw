@@ -7,12 +7,12 @@ ms.date: 11/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6cc37875b84e215066c52ca8daef0fa0d879c54f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 12aa78d0ba7c9300fc012958660e2282e91568aa
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434454"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510816"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊
 
@@ -40,7 +40,7 @@ IoT Edge 裝置會傳送 HTTPS 要求以和 IoT 中樞通訊。 如果您的裝�
 
 4. **針對所有未來的模組部署，設定任何透過 proxy 進行通訊之模組的環境變數。**
 
-   一旦您的 IoT Edge 裝置已設定並透過 proxy 伺服器連接到 IoT 中樞，您就必須在所有未來的模組部署中維護連接。 如需詳細步驟，請參閱本文的[設定部署資訊清單](#configure-deployment-manifests)一節。 
+   一旦您的 IoT Edge 裝置已設定並透過 proxy 伺服器連接到 IoT 中樞，您就必須在所有未來的模組部署中維護連接。 如需詳細步驟，請參閱本文的[設定部署資訊清單](#configure-deployment-manifests)一節。
 
    此步驟是從遠端執行的持續程式，讓每個新的模組或部署更新都能維護裝置透過 proxy 伺服器進行通訊的能力。
 
@@ -70,7 +70,7 @@ Proxy URL 採用下列格式：**protocol**://**proxy_host**:**proxy_port**。
 
 下列步驟示範使用 `-proxy` 引數進行 windows 安裝的範例：
 
-1. WebRequest 命令需要 proxy 資訊，才能存取安裝程式腳本。 然後，IoTEdge 命令需要 proxy 資訊來下載安裝檔案。 
+1. WebRequest 命令需要 proxy 資訊，才能存取安裝程式腳本。 然後，IoTEdge 命令需要 proxy 資訊來下載安裝檔案。
 
    ```powershell
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Deploy-IoTEdge -proxy <proxy URL>
@@ -164,13 +164,13 @@ Restart-Service iotedge
 
 IoT Edge 代理程式是在任何 IoT Edge 裝置上皆應第一個啟動的模組。 它會根據 IoT Edge config.yaml 檔案中的資訊首次啟動。 IoT Edge 代理程式接著會連線至 IoT 中樞以擷取部署資訊清單，該資訊清單會宣告有哪些其他模組應部署於裝置上。
 
-此步驟會在初始裝置安裝期間，于 IoT Edge 裝置上進行一次。 
+此步驟會在初始裝置安裝期間，于 IoT Edge 裝置上進行一次。
 
-1. 在您的 IoT Edge 裝置上開啟 config.yaml 檔案。 在 Linux 系統上，此檔案位於 **/etc/iotedge/config.yaml**。 在 Windows 系統上，此檔案位於 **C:\ProgramData\iotedge\config.yaml**。 該設定檔是受保護的，因此您需要系統管理權限以開啟它。 在 Linux 系統上，使用 [`sudo`] 命令，然後在您慣用的文字編輯器中開啟檔案。 在 Windows 上，以系統管理員身分開啟 [記事本] 之類的文字編輯器，然後開啟檔案。 
+1. 在您的 IoT Edge 裝置上開啟 config.yaml 檔案。 在 Linux 系統上，此檔案位於 **/etc/iotedge/config.yaml**。 在 Windows 系統上，此檔案位於 **C:\ProgramData\iotedge\config.yaml**。 該設定檔是受保護的，因此您需要系統管理權限以開啟它。 在 Linux 系統上，使用 [`sudo`] 命令，然後在您慣用的文字編輯器中開啟檔案。 在 Windows 上，以系統管理員身分開啟 [記事本] 之類的文字編輯器，然後開啟檔案。
 
-2. 在 config.yaml 檔案中，找到 **Edge Agent module spec** 區段。 IoT Edge 代理程式定義包含 **env** 參數，可供您於該處新增環境變數。 
+2. 在 config.yaml 檔案中，找到 **Edge Agent module spec** 區段。 IoT Edge 代理程式定義包含 **env** 參數，可供您於該處新增環境變數。
 
-3. 移除作為 env 參數之預留位置的大括號，然後將新的變數加入至新的一行上。 請記得 YAML 中的縮排為兩個空格。 
+3. 移除作為 env 參數之預留位置的大括號，然後將新的變數加入至新的一行上。 請記得 YAML 中的縮排為兩個空格。
 
    ```yaml
    https_proxy: "<proxy URL>"
@@ -184,7 +184,7 @@ IoT Edge 代理程式是在任何 IoT Edge 裝置上皆應第一個啟動的模�
 
    ![具環境變數的 edgeAgent 定義](./media/how-to-configure-proxy-support/edgeagent-edited.png)
 
-5. 儲存對 config.yaml 所做的變更，然後關閉編輯器。 重新啟動 IoT Edge 來讓變更生效。 
+5. 儲存對 config.yaml 所做的變更，然後關閉編輯器。 重新啟動 IoT Edge 來讓變更生效。
 
    * Linux：
 

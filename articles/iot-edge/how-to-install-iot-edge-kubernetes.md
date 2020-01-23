@@ -8,16 +8,16 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7f3627a79cad6833b5fb20f3c829c1e3bcbd9c3e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: d11d23cf7d96482028a9d3738196fc5a787fec91
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457338"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510204"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>如何在 Kubernetes 上安裝 IoT Edge （預覽）
 
-IoT Edge 可以使用它來與 Kubernetes 整合，以作為彈性、高可用性的基礎結構層。 它會向 Kubernetes API 伺服器註冊 IoT Edge 的*自訂資源定義*（.crd）。 此外，它還提供一個*操作員*（IoT Edge 代理程式），以協調雲端管理的預期狀態與本機叢集狀態。 
+IoT Edge 可以使用它來與 Kubernetes 整合，以作為彈性、高可用性的基礎結構層。 它會向 Kubernetes API 伺服器註冊 IoT Edge 的*自訂資源定義*（.crd）。 此外，它還提供一個*操作員*（IoT Edge 代理程式），以協調雲端管理的預期狀態與本機叢集狀態。
 
 模組存留期是由 Kubernetes 排程器所管理，此排程器會維護模組可用性並選擇其位置。 IoT Edge 會管理在最上層執行的邊緣應用程式平臺，並持續協調 IoT 中樞中指定的所需狀態與邊緣叢集上的狀態。 Edge 應用程式模型仍然是以 IoT Edge 模組和路由為基礎的熟悉模型。 IoT Edge agent 操作員會執行*自動*轉譯至 Kubernetes 原生結構（例如 pod、部署、服務等）。
 
@@ -32,9 +32,9 @@ Edge 部署的每個元件都是以裝置特定的 Kubernetes 命名空間為範
 
 ## <a name="install-locally-for-a-quick-test-environment"></a>在本機安裝以進行快速測試環境
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
-* Kubernetes 1.10 或更新版本。 如果您沒有現有的叢集設定，可以針對本機叢集環境使用[Minikube](https://kubernetes.io/docs/setup/minikube/) 。 
+* Kubernetes 1.10 或更新版本。 如果您沒有現有的叢集設定，可以針對本機叢集環境使用[Minikube](https://kubernetes.io/docs/setup/minikube/) 。
 
 * [Helm](https://helm.sh/docs/using_helm/#quickstart-guide)，Kubernetes 套件管理員。
 
@@ -71,6 +71,7 @@ Edge 部署的每個元件都是以裝置特定的 Kubernetes 命名空間為範
     --set "deviceConnectionString=replace-with-device-connection-string" \
     edgek8s/edge-kubernetes
     ```
+
 1. 在瀏覽器中開啟 Kubernetes 儀表板
 
     ```shell
@@ -93,6 +94,6 @@ helm delete --purge k8s-edge1
 
 ## <a name="next-steps"></a>後續步驟
 
-### <a name="deploy-as-a-highly-available-edge-gateway"></a>部署為高可用性 edge 閘道 
+### <a name="deploy-as-a-highly-available-edge-gateway"></a>部署為高可用性 edge 閘道
 
 Kubernetes 叢集中的邊緣裝置可用來作為下游裝置的 IoT 閘道。 您可以將它設定為可復原節點失敗，因此可為邊緣部署提供高可用性。 請參閱這[份詳細的逐步](https://github.com/Azure-Samples/iotedge-gateway-on-kubernetes)解說，以在此案例中使用 IoT Edge。

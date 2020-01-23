@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1a749570fe2320be18c98bb6267656cf2687aa1
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3c0ff63a360d96d0e9db18d430e755e567197de1
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532191"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122078"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>教學課程：在 Azure 容器執行個體中部署映像分類模型
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -389,6 +389,6 @@ service.delete()
 
 + 了解所有的 [Azure Machine Learning 部署選項](how-to-deploy-and-where.md)。
 + 了解如何[建立 Web 服務的用戶端](how-to-consume-web-service.md)。
-+  以非同步的方式[對大量資料進行預測](how-to-run-batch-predictions.md)。
++  以非同步的方式[對大量資料進行預測](how-to-use-parallel-run-step.md)。
 + [使用 Application Insights 監視您的 Azure Machine Learning 模型](how-to-enable-app-insights.md)。
 + 請試試[自動選取演算法](tutorial-auto-train-models.md)教學課程。 

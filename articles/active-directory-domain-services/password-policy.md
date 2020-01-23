@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f462a3743eb33bd33e2d392eba1c5944f40ade4f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b08c3854ef330081b4c55331cb410c5925f00dec
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704534"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512754"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>受控網域上的密碼和帳戶鎖定原則
 
@@ -65,7 +65,7 @@ ms.locfileid: "74704534"
 
 帳戶鎖定只會發生在受控網域中。 使用者帳戶只會在 Azure AD DS 中被鎖定，而且只會因為對受控網域的登入嘗試失敗而受到限制。 從 Azure AD 或內部部署環境中同步處理的使用者帳戶，不會在其來原始目錄中被鎖定，只會在 Azure AD DS 中遭到封鎖。
 
-如果您的 Azure AD 密碼原則指定超過90天的密碼最長使用期限，則會將密碼使用期限套用至 Azure AD DS 中的預設原則。 您可以設定自訂密碼原則，在 Azure AD DS 中定義不同的密碼最長使用期限。 如果 Azure AD DS 密碼原則中所設定的密碼最長使用期限比 Azure AD 或內部部署 AD DS 環境還短，請小心。 在該案例中，使用者的密碼可能會在 Azure AD DS 中過期，然後系統會提示他們在內部部署 AD DS 環境的 Azure AD 中進行變更。
+如果您的 Azure AD 密碼原則指定超過90天的密碼最長使用期限，則會將密碼使用期限套用至 Azure AD DS 中的預設原則。 您可以設定自訂密碼原則，在 Azure AD DS 中定義不同的密碼最長使用期限。 如果 Azure AD DS 密碼原則中所設定的密碼最長使用期限比 Azure AD 或內部部署 AD DS 環境還短，請小心。 在該案例中，使用者的密碼可能會在 Azure AD DS 中到期，然後系統會提示他們在 Azure AD 或內部部署 AD DS 環境中進行變更。
 
 針對在 Azure AD DS 受控網域中手動建立的使用者帳戶，也會從預設原則套用下列額外的密碼設定。 這些設定不適用於從 Azure AD 同步處理的使用者帳戶，因為使用者無法直接在 Azure AD DS 中更新其密碼。
 
@@ -103,12 +103,12 @@ ms.locfileid: "74704534"
 1. 視需要編輯其他密碼原則設定。 請記住下列重點：
 
     * 只有手動在 Azure AD DS 受控網域中建立之使用者的密碼複雜性、存留期或到期時間等設定。
-    * 帳戶鎖定設定適用于所有使用者，但只會在受控網域中生效。
+    * 帳戶鎖定設定會套用至所有使用者，但只會在受控網域中生效，而不會在 Azure AD 本身中生效。
 
     ![建立自訂的更細緻密碼原則](./media/how-to/custom-fgpp.png)
 
 1. 取消核取 [**防止意外刪除**]。 如果選取此選項，您就無法儲存 FGPP。
-1. 在 [**直接套用至**] 區段中，選取 [**新增**] 按鈕。 在 [選取使用者或群組] 對話方塊中，按一下 [位置] 按鈕。
+1. 在 [**直接套用至**] 區段中，選取 [**新增**] 按鈕。 在 [**選取使用者或群組**] 對話方塊中，選取 [**位置**] 按鈕。
 
     ![選取要套用密碼原則的使用者和群組](./media/how-to/fgpp-applies-to.png)
 

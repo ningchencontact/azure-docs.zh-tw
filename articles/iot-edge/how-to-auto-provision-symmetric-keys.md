@@ -9,12 +9,12 @@ ms.date: 10/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c42d13f4d2e00b67a2ef471a07c80e1ef61e9c07
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 3adefbdf248deaec6170037521ab65890356d184
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666319"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510884"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>使用對稱金鑰證明建立和布建 IoT Edge 裝置
 
@@ -43,11 +43,7 @@ Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動�
 
 必須定義唯一的註冊識別碼以識別每個裝置。 您可以使用 MAC 位址、序號或裝置的任何唯一資訊。
 
-在此範例中，我們使用 MAC 位址和序號的組合，為註冊識別碼組成下列字串。
-
-```
-sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
-```
+在此範例中，我們使用 MAC 位址和序號的組合，而此序號會形成註冊識別碼的下列字串： `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`。
 
 為您的裝置建立唯一的註冊識別碼。 有效字元為小寫英數字元與破折號 ('-')。
 
@@ -155,7 +151,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 ## <a name="install-the-iot-edge-runtime"></a>安裝 IoT Edge 執行階段
 
-IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容器中執行，並可讓您將其他容器部署到裝置，以便您在邊緣上執行程式碼。
+IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容器中執行，並可讓您將其他容器部署到裝置，以便您在 Edge 上執行程式碼。
 
 布建您的裝置時，您將需要下列資訊：
 
@@ -186,7 +182,7 @@ provisioning:
       symmetric_key: "{symmetric_key}"
 ```
 
-將 `{scope_id}`、`{registration_id}`和 `{symmetric_key}` 的預留位置值，取代為您稍早收集的資料。
+將 `{scope_id}`、`{registration_id}`和 `{symmetric_key}` 的預留位置值，取代為您稍早收集的資料。 請確定布建 **：** 行沒有前面的空白字元，且嵌套的專案會以兩個空格縮排。
 
 ### <a name="windows-device"></a>Windows 裝置
 

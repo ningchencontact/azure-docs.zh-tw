@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f60ec802af0c88ee8cb3809bf27feef89e11570a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 5ee1a20d4a3c46cab484b03b5fcc212a79d19047
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769790"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513264"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>針對更新管理問題進行疑難排解
 
@@ -376,7 +376,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>我知道有可用的更新，但它們在我的機器上並未顯示為可用
 
-* 如果電腦設定為從 WSUS 或 System Center Configuration Manager （SCCM）取得更新，但 WSUS 和 SCCM 尚未核准更新，通常就會發生這種情況。
+* 這通常會發生在電腦設定為從 WSUS 或 Microsoft Endpoint Configuration Manager 取得更新時，但 WSUS 和 Configuration Manager 尚未核准更新。
 * 您可以藉由在本文的「編輯登錄」[一節自動更新中，交叉參照 UseWUServer 登錄機碼](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s)，檢查機器是否已針對 WSUS 和 SCCM 進行設定。
 * 如果未在 WSUS 中核准更新，則不會進行安裝。 您可以藉由執行下列查詢，在 Log Analytics 中檢查未核准的更新：
 

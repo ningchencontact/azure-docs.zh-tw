@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e4bf079d46271cadc0176fe5602adcdc3954dee5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 5c44561895bc1905328ec0eb357bee1c68a8eb55
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290711"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510527"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>從 Azure 入口網站部署 Azure IoT Edge 模組
 
@@ -43,9 +43,9 @@ Azure 入口網站有一個精靈，可以引導您建立部署資訊清單，�
 1. 在頁面的 [ **IoT Edge 模組**] 區段中，選取 [**新增**]。
 1. 從下拉式功能表中查看模組的類型：
 
-   * **IoT Edge 模組**-您提供模組名稱和容器映射 URI。 例如，範例 SimulatedTemperatureSensor 模組的映射 URI 為 `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`。 如果模組映射儲存在私人容器登錄中，請在此頁面上新增認證以存取該映射。 
+   * **IoT Edge 模組**-您提供模組名稱和容器映射 URI。 例如，範例 SimulatedTemperatureSensor 模組的映射 URI 為 `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`。 如果模組映射儲存在私人容器登錄中，請在此頁面上新增認證以存取該映射。
    * **Marketplace 模組**-裝載于 Azure Marketplace 中的模組。 某些 marketplace 模組需要額外的設定，因此請參閱[Azure Marketplace IoT Edge 模組](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) 清單中的模組詳細資料。
-   * **Azure 串流分析模組**-從 azure 串流分析工作負載產生的模組。 
+   * **Azure 串流分析模組**-從 azure 串流分析工作負載產生的模組。
 
 1. 新增模組之後，請從清單中選取模組名稱，以開啟模組設定。 視需要填寫選擇性欄位。 如需容器建立選項、重新啟動原則和所需狀態的詳細資訊，請參閱 [EdgeAgent 所需屬性](module-edgeagent-edgehub.md#edgeagent-desired-properties)。 如需模組對應項的詳細資訊，請參閱[定義或更新所需屬性](module-composition.md#define-or-update-desired-properties)。
 1. 如有需要，請重複步驟5到8，將其他模組新增至您的部署。

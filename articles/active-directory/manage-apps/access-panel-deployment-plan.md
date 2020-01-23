@@ -15,12 +15,12 @@ ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99c52f65bdec2b164cca86a6346d8865d210cf38
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 5e9b2119964ec2af792e2f2a5b942fde12cf7eab
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176055"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512846"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>規劃 Azure Active Directory 存取面板部署
 
@@ -37,7 +37,7 @@ Azure Active Directory （Azure AD）存取面板是以 web 為基礎的入口�
 它也可讓系統管理員管理：
 
 * 服務條款
-* 各
+* 組織
 * 存取檢閱
 
 
@@ -81,18 +81,18 @@ Azure AD 存取面板以下列方式獲益企業：
 
 下表概述存取面板部署的主要使用案例：
 
-| 區域| 描述 |
+| 區域| 說明 |
 | - | - |
-| Access| 您可以從公司網路內的公司和個人裝置存取存取面板入口網站。 |
-|Access | 存取面板入口網站可從公司網路外部的公司裝置存取。 |
+| 存取| 您可以從公司網路內的公司和個人裝置存取存取面板入口網站。 |
+|存取 | 存取面板入口網站可從公司網路外部的公司裝置存取。 |
 | 稽核| 使用量資料會至少每隔29天下載至公司系統。 |
 | 控管| 定義和監視 Azure AD 連線應用程式和群組的使用者指派生命週期。 |
 | 安全性| 資源的存取權是透過使用者和群組指派來控制。 只有授權的使用者可以管理資源存取權。 |
 | 效能| 已記載並監視存取指派傳播時間軸。 |
-| 使用者體驗| 使用者知道存取面板功能以及如何使用它們。|
-| 使用者體驗| 使用者可以管理其對應用程式和群組的存取權。|
-| 使用者體驗| 使用者可以管理自己的帳戶。 |
-| 使用者體驗| 使用者瞭解瀏覽器的相容性。 |
+| 使用者經驗| 使用者知道存取面板功能以及如何使用它們。|
+| 使用者經驗| 使用者可以管理其對應用程式和群組的存取權。|
+| 使用者經驗| 使用者可以管理自己的帳戶。 |
+| 使用者經驗| 使用者瞭解瀏覽器的相容性。 |
 | 支援| 使用者可以尋找存取面板問題的支援。 |
 
 ### <a name="best-practices-for-deploying-the-azure-ad-access-panel"></a>部署 Azure AD 存取面板的最佳做法
@@ -197,7 +197,7 @@ Azure AD 支援三種不同的方式，可[在應用程式中啟用單一登入]
 
 * [Internet Explorer 的群組原則](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
 
-* [適用于 Internet Explorer 的 System Center Configuration Manager （SCCM）](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Internet Explorer 的 Configuration Manager](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
 * [適用于 Chrome、Firefox、Microsoft Edge 或 IE 的使用者導向下載和設定](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
@@ -261,10 +261,10 @@ Azure AD 支援三種不同的方式，可[在應用程式中啟用單一登入]
 
 Azure AD 提供可提供[技術和商務深入解析的報表](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/)。 請與您的商務和技術應用程式擁有者合作，以取得這些報表的擁有權，並定期使用它們。 下表提供一般報告案例的一些範例。
 
-|   | 管理風險| 提高生產力| 治理和合規性 |
+|   | 管理風險| 提升生產力| 治理和合規性 |
 |  - |- | - | - |
 | 報表類型|  應用程式許可權和使用方式| 帳戶佈建活動| 審查誰正在存取應用程式 |
-| 可能的動作| Audit access;撤銷許可權| 補救任何布建錯誤| 撤銷存取權 |
+| 可能的動作| Audit access;撤銷許可權| 補救任何布建錯誤| [撤銷存取權] |
 
 Azure AD 會將大部分的審核資料保留30天。 資料可透過 Azure 系統管理員入口網站或 API 取得，供您下載至您的分析系統。
 
@@ -338,11 +338,11 @@ Azure AD 會將大部分的審核資料保留30天。 資料可透過 Azure 系�
 
 | 角色| 角色| Azure AD 角色  |
 | - | -| -|
-| 技術服務管理員| 第1層支援| None |
+| 技術服務管理員| 第1層支援| 無 |
 | 身分識別管理員| 在問題影響時設定和調試 Azure AD| 全域管理員 |
-| 應用程式管理員| 應用程式中的使用者證明，具有許可權的使用者設定| None |
+| 應用程式管理員| 應用程式中的使用者證明，具有許可權的使用者設定| 無 |
 | 基礎結構管理員| 憑證變換擁有者| 全域管理員 |
-| 商務擁有者/專案關係人| 應用程式中的使用者證明，具有許可權的使用者設定| None |
+| 商務擁有者/專案關係人| 應用程式中的使用者證明，具有許可權的使用者設定| 無 |
 
 您可以使用[Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)來管理您的角色，為具有目錄許可權的使用者提供額外的審核、控制和存取權審查。
 

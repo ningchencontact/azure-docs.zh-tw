@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: b106b1da5d012309e8d92c8e9555ee3982602e12
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9ed694ec524c4e3e033c3139735e8e079141ec4a
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707656"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515117"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>將受控實例中的 SQL database 還原至先前的時間點
 
@@ -136,7 +136,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
 
 ## <a name="restore-a-deleted-database"></a>還原已刪除的資料庫
 
-還原已刪除的資料庫只能使用 PowerShell 來完成。 資料庫可以還原至相同的實例或另一個實例。
+還原已刪除的資料庫可以使用 PowerShell 或 Azure 入口網站來完成。請使用這份檔，透過[Azure 入口網站](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#managed-instance-database-1)執行此動作。 資料庫可以還原至相同的實例或另一個實例。
 
 若要使用 PowerShell 還原已刪除的資料庫，請在下列命令中指定參數的值。 然後，執行命令：
 

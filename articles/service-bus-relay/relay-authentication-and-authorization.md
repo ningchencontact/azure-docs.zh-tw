@@ -1,6 +1,6 @@
 ---
 title: Azure 轉送驗證和授權 | Microsoft Docs
-description: Azure 轉送中的共用存取簽章 (SAS) 驗證概觀
+description: 本文概要說明使用 Azure 轉送服務的共用存取簽章（SAS）驗證。
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 206cca95c590a01f69d3664fb87398bc2fcb4ad9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aac5c973a99b13d5918a0162feb7f1ede443463b
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595535"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514573"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure 轉送驗證和授權
 
@@ -29,7 +29,7 @@ ms.locfileid: "60595535"
 
 [SAS 驗證](../service-bus-messaging/service-bus-sas.md)可讓您授與使用者具有特定權限之 Azure 轉送資源的存取權。 SAS 驗證牽涉到在資源上設定具有相關權限的密碼編譯金鑰。 接著用戶端可以藉由提出 SAS 權杖 (其中包含正在存取的資源 URI 及利用設定金鑰簽署的到期日) 存取該資源。
 
-您可以在轉送命名空間上設定 SAS 的金鑰。 不同於服務匯流排傳訊，[轉送混合式連線](relay-hybrid-connections-protocol.md)支援未經授權或匿名的寄件者。 您可以啟用實體的匿名存取您在建立時，從入口網站的下列螢幕擷取畫面所示：
+您可以在轉送命名空間上設定 SAS 的金鑰。 不同於服務匯流排傳訊，[轉送混合式連線](relay-hybrid-connections-protocol.md)支援未經授權或匿名的寄件者。 您可以在建立實體時啟用其匿名存取，如入口網站的下列螢幕擷取畫面所示：
 
 ![][0]
 

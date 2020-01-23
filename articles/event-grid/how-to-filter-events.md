@@ -1,18 +1,18 @@
 ---
 title: 如何針對 Azure 事件格線篩選事件
-description: 示範如何建立能篩選事件的 Azure 事件格線訂用帳戶。
+description: 本文說明如何在建立 Event Grid 訂用帳戶時篩選事件（依事件種類、依主題、依運算子和資料等）。
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 5bb95b80e12c818641e2be2b929cdfd01f8f5b5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58da209c68449d3a28b08f52ec575f7db520f121
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304219"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514522"
 ---
 # <a name="filter-events-for-event-grid"></a>針對事件格線篩選事件
 

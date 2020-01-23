@@ -3,23 +3,23 @@ title: SAP Hana 備份支援矩陣
 description: 在本文中，您將瞭解當您使用 Azure 備份來備份 Azure Vm 上的 SAP Hana 資料庫時，所支援的案例和限制。
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 0d847d2131a9a9c21fde14cae40a184de4195223
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: a0a7c25ec718dcd6a903d2149a8b3930fb25941e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288226"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514284"
 ---
-# <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Azure Vm 上 SAP Hana 資料庫備份的支援矩陣
+# <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Azure VM 上 SAP Hana 資料庫 備份的支援矩陣
 
 Azure 備份支援將 SAP Hana 資料庫備份至 Azure。 本文摘要說明當您使用 Azure 備份來備份 Azure Vm 上的 SAP Hana 資料庫時，所支援的案例和所提供的限制。
 
-## <a name="onboard-to-the-public-preview"></a>上架至公開預覽
+## <a name="onboard-to-the-public-preview"></a>上線至公開預覽
 
 上線至公開預覽，如下所示：
 
-* 在入口網站中，[依照本文所](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal)述，向復原服務服務提供者註冊您的訂用帳戶識別碼。
-* 針對 PowerShell，請執行此 Cmdlet。 它應該會完成為「已註冊」。
+* 在入口網站中，[依照本文的指示](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal)將您的訂用帳戶識別碼註冊至「復原服務」服務提供者。
+* 在 PowerShell 中，請執行下列 Cmdlet。 其結果應為「已註冊」。
 
 ```PowerShell
 Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
@@ -39,7 +39,7 @@ Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Micros
 | **HANA 部署**       | 單一 Azure VM 上的 SAP Hana-僅限相應增加               | 向外延展                                                    |
 | **HANA 實例**         | 單一 Azure VM 上的單一 SAP Hana 實例-僅相應增加 | 單一 VM 上的多個 SAP Hana 實例                  |
 | **HANA 資料庫類型**    | 2\.x 上的單一資料庫容器（SDC），2.x 上的多資料庫容器（MDC） | HANA 1.x 中的 MDC                                              |
-| **HANA 資料庫大小**     | 壓縮後的 2 TB 完整備份大小（M 系列 2 TB，4 TB RAM） |                                                              |
+| **HANA 資料庫大小**     | 2 TB 完整備份大小，由 HANA 回報） |                                                              |
 | **備份類型**           | 完整、差異和記錄備份                           | 增量，快照集                                       |
 | **還原類型**          | 請參閱 SAP Hana 附注[1642148](https://launchpad.support.sap.com/#/notes/1642148) ，以瞭解支援的還原類型 |                                                              |
 | **備份限制**          | 每個 SAP Hana 實例最多 2 TB 的完整備份大小  |                                                              |
@@ -56,5 +56,5 @@ Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Micros
 
 * 瞭解如何[備份在 Azure vm 上執行 SAP Hana 資料庫](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database)
 * 瞭解如何[還原在 Azure vm 上執行 SAP Hana 資料庫](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
-* 瞭解如何[管理使用 Azure 備份備份的 SAP Hana 資料庫](sap-hana-db-manage.md)
-* 瞭解如何[在備份 SAP Hana 資料庫時，針對常見的問題進行疑難排解](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot)
+* 了解如何[管理使用 Azure 備份進行備份的 SAP HANA 資料庫](sap-hana-db-manage.md)
+* 了解如何[對 SAP HANA 資料庫備份時的常見問題進行疑難排解](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot)

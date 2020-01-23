@@ -1,6 +1,6 @@
 ---
 title: Azure 轉送連接埠設定 | Microsoft Docs
-description: Azure 轉送連接埠值的相關詳細資料。
+description: 本文包含一個表格，說明 Azure 轉送的埠值所需的設定。
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 9d11179a8518ebf48f68f8607f94e0253d4edb80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55bb6b620c7ba9ee13068213cbc867b165acc185
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789921"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514879"
 ---
 # <a name="azure-relay-port-settings"></a>Azure 轉送連接埠設定
 
 下表說明 Azure 轉送的連接埠值所需的設定。
 
-## <a name="hybrid-connections"></a>混合式連線
+## <a name="hybrid-connections"></a>混合式連接
 
 混合式連線會在具有 SSL 的連接埠 443 上使用 WebSockets 作為基礎傳輸機制，而僅使用 **HTTPS**。 
 
@@ -35,20 +35,20 @@ ms.locfileid: "60789921"
 |-------------|------------------------|----------|  
 |[BasicHttpRelayBinding 類別](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (用戶端)|是|HTTPS| 
 |" |否|HTTP|  
-|[BasicHttpRelayBinding 類別](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (服務)|無論是|9351/HTTP|  
+|[BasicHttpRelayBinding 類別](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (服務)|之前或之後|9351/HTTP|  
 |[NetEventRelayBinding 類別](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (用戶端)|是|9351/HTTPS|  
 |" |否|9350/HTTP|  
-|[NetEventRelayBinding 類別](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (服務)|無論是|9351/HTTP|  
-|[NetTcpRelayBinding 類別](/dotnet/api/microsoft.servicebus.nettcprelaybinding) (用戶端/服務)|無論是|5671/9352/HTTP (如果使用混合式則為 9352/9353)|  
+|[NetEventRelayBinding 類別](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (服務)|之前或之後|9351/HTTP|  
+|[NetTcpRelayBinding 類別](/dotnet/api/microsoft.servicebus.nettcprelaybinding) (用戶端/服務)|之前或之後|5671/9352/HTTP (如果使用混合式則為 9352/9353)|  
 |[NetOnewayRelayBinding 類別](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (用戶端)|是|9351/HTTPS|  
 |" |否|9350/HTTP|  
-|[NetOnewayRelayBinding 類別](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (服務)|無論是|9351/HTTP|  
+|[NetOnewayRelayBinding 類別](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (服務)|之前或之後|9351/HTTP|  
 |[WebHttpRelayBinding 類別](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (用戶端)|是|HTTPS|  
 |" |否|HTTP|  
-|[WebHttpRelayBinding 類別](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (服務)|無論是|9351/HTTP|  
+|[WebHttpRelayBinding 類別](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (服務)|之前或之後|9351/HTTP|  
 |[WS2007HttpRelayBinding 類別](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (用戶端)|是|HTTPS|  
 |" |否|HTTP|  
-|[WS2007HttpRelayBinding 類別](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (服務)|無論是|9351/HTTP|
+|[WS2007HttpRelayBinding 類別](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (服務)|之前或之後|9351/HTTP|
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Azure 轉送，請造訪下列連結：

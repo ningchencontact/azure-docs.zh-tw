@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 09371cc66b54d822db5ad24679d28f40323eb871
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 42431c0db55219c3cb49968986c1a0c7f071b219
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561023"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509270"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的模組，並對其進行偵錯
 
@@ -30,12 +30,12 @@ ms.locfileid: "74561023"
 
 ## <a name="prerequisites"></a>必要條件
 
-您可以使用執行 Windows、macOS 或 Linux 的電腦或虛擬機器作為開發電腦。 在 Windows 電腦上，您可以開發 Windows 或 Linux 模組。 若要開發 Windows 模組，請使用執行 1809/組建17763或更新版本的 Windows 電腦。 若要開發 Linux 模組，請使用符合[Docker Desktop 需求](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)的 Windows 電腦。 
+您可以使用執行 Windows、macOS 或 Linux 的電腦或虛擬機器作為開發電腦。 在 Windows 電腦上，您可以開發 Windows 或 Linux 模組。 若要開發 Windows 模組，請使用執行 1809/組建17763或更新版本的 Windows 電腦。 若要開發 Linux 模組，請使用符合[Docker Desktop 需求](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)的 Windows 電腦。
 
 請先安裝 [Visual Studio Code](https://code.visualstudio.com/)，然後新增下列延伸模組：
 
 - [Azure IoT 工具組](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
-- [Docker 擴充](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
+- [Docker 擴充功能](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 - 開發所用語言的專屬 Visual Studio 延伸模組：
   - C#，包括 Azure Functions： [ C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
   - Python： [python 擴充](https://marketplace.visualstudio.com/items?itemName=ms-python.python)功能
@@ -66,6 +66,7 @@ ms.locfileid: "74561023"
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
+   
 > [!NOTE]
 > 目前，iotedgehubdev 使用與 Python 3.8 不相容的 docker .py 程式庫。
 >
@@ -77,7 +78,7 @@ ms.locfileid: "74561023"
 
 下列步驟示範如何使用 Visual Studio Code 和 Azure IoT 工具組，以您慣用的開發語言 (包括以 C# 撰寫的 Azure Functions) 來建立 IoT Edge 模組。 您開始建立解決方案，然後在該解決方案中產生第一個模組。 每個解決方案都可以包含多個模組。
 
-1. 選取 [檢視] > [命令選擇區]。
+1. 選取 [檢視] > [命令調色盤]。
 
 1. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge: New IoT Edge Solution**。
 
