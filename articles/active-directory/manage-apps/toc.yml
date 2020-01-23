@@ -139,6 +139,8 @@
               href: configure-linked-sign-on.md
         - name: 指派使用者和管理應用程式存取
           items:
+            - name: 設定使用者同意
+              href: configure-user-consent.md
             - name: 管理和評估同意要求
               href: manage-consent-requests.md
             - name: 授與全租用戶管理員同意
