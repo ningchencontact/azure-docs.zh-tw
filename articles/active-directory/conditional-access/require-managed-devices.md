@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd3a0341d9cf041155b09d41d8ff84d0b0cc3dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb0764b9c2c43faf88db165a11ae963c4f170f01
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424825"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512584"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>作法：透過條件式存取要求受管理的裝置存取雲端應用程式
 
@@ -69,7 +69,7 @@ ms.locfileid: "75424825"
 
 ![裝置型條件](./media/require-managed-devices/45.png)
 
-如何讓已加入混合式 Azure AD 的裝置成為受控裝置？  若為已加入內部部署 AD 的裝置，則會假設已使用管理解決方案 (例如 **System Center Configuration Manager (SCCM)** 或**群組原則 (GP)** 強制控制這些裝置，進而管理它們。 因為 Azure AD 沒有任何方法可判斷裝置是否已套用任何方法，所以需要已加入混合式 Azure AD 的裝置是需要受控裝置的相對較弱機制。 如果這類裝置也是已加入混合式 Azure AD 的裝置，則由系統管理員判斷已加入網域的內部部署裝置所套用的方法是否足以造就受控裝置。
+如何讓已加入混合式 Azure AD 的裝置成為受控裝置？  對於已加入內部部署 AD 的裝置，會假設使用管理解決方案（例如**Configuration Manager**或**群組原則（GP））** 來控制這些裝置，以管理它們。 因為 Azure AD 沒有任何方法可判斷裝置是否已套用任何方法，所以需要已加入混合式 Azure AD 的裝置是需要受控裝置的相對較弱機制。 如果這類裝置也是已加入混合式 Azure AD 的裝置，則由系統管理員判斷已加入網域的內部部署裝置所套用的方法是否足以造就受控裝置。
 
 ## <a name="require-device-to-be-marked-as-compliant"></a>裝置需要標記為符合規範
 

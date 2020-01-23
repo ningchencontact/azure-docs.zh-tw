@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 501214f87a65c71436e262608f7e9b3471cc9775
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f0719542eb693e52f9a7996e28699b7425b0e0fe
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705417"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509133"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>檢查 Azure Active Directory Domain Services 受控網域的健康情況
 
-Azure Active Directory Domain Services （Azure AD DS）會執行一些背景工作，讓受控網域保持良好且最新狀態。 這些工作包括取得備份、套用安全性更新，以及同步處理 Azure AD 的資料。 如果 Azure AD DS 受控網域發生問題，則這些工作可能無法順利執行。 若要檢查並解決任何問題，您可以使用 Azure 入口網站檢查 Azure AD DS 受控網域的健全狀況狀態。
+Azure Active Directory Domain Services （Azure AD DS）會執行一些背景工作，讓受控網域保持良好且最新狀態。 這些工作包括取得備份、套用安全性更新，以及同步處理 Azure AD 的資料。 如果 Azure AD DS 受控網域發生問題，則這些工作可能無法順利完成。 若要檢查並解決任何問題，您可以使用 Azure 入口網站檢查 Azure AD DS 受控網域的健全狀況狀態。
 
 本文說明如何查看 Azure AD DS 健全狀況狀態，並瞭解所顯示的資訊或警示。
 
@@ -47,13 +47,13 @@ Azure AD DS 受控網域的健全狀況狀態是使用 Azure 入口網站來查�
 
 ## <a name="understand-monitors-and-alerts"></a>瞭解監視和警示
 
-Azure AD DS 受控網域的健全狀況狀態會顯示兩種類型的資訊-監視和警示。 監視會顯示完成核心背景工作的時間。 警示會提供資訊或建議，以改善受控網域的穩定性。
+Azure AD DS 受控網域的健全狀況狀態會顯示兩種類型的資訊-*監視*和*警示*。 監視會顯示完成核心背景工作的時間。 警示會提供資訊或建議，以改善受控網域的穩定性。
 
 ### <a name="monitors"></a>監視器
 
-監視是定期檢查 Azure AD DS 受控網域的區域。 如果 Azure AD DS 受控網域有任何作用中警示，可能會導致其中一個監視器回報問題。 Azure AD Domain Services 目前會監視下欄區域：
+監視是定期檢查 Azure AD DS 受控網域的區域。 如果 Azure AD DS 受控網域有任何作用中警示，可能會導致其中一個監視器回報問題。 Azure AD Domain Services 目前有下欄區域的監視：
 
-* Backup
+* 備份
 * 與 Azure AD 的同步處理
 
 #### <a name="backup-monitor"></a>備份監視器
@@ -68,7 +68,7 @@ Azure AD DS 受控網域的健全狀況狀態會顯示兩種類型的資訊-監�
 
 #### <a name="synchronization-with-azure-ad-monitor"></a>與 Azure AD 監視器同步處理
 
-Azure AD DS 受控網域會定期與 Azure Active Directory 同步處理。 使用者和群組物件的數目，以及自上次同步之後在 Azure AD 目錄中進行的變更數目，會影響同步處理所需的時間。 如果 Azure AD DS 受控網域上次在三天內進行同步處理，請檢查並解決所有作用中的警示。 如果同步處理監視器不會更新狀態以顯示最近的同步處理，請[開啟 Azure 支援要求][azure-support]。
+Azure AD DS 受控網域會定期與 Azure Active Directory 同步處理。 使用者和群組物件的數目，以及自上次同步之後在 Azure AD 目錄中進行的變更數目，會影響同步處理所需的時間。 如果 Azure AD DS 受控網域上次在三天內進行同步處理，請檢查並解決所有作用中的警示。 如果同步處理監視器未在您解決任何作用中警示之後，將狀態更新為 [顯示最近的同步]，請[開啟 Azure 支援要求][azure-support]。
 
 ### <a name="alerts"></a>警示
 

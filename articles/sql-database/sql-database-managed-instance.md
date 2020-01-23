@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
-ms.openlocfilehash: b8cf7992617b7263b86fd98e5def8be1d43ca68c
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: fb9b665f5631e6992966679b1dc0864539fde543
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293363"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514550"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>什麼是 Azure SQL Database 受控實例？
 
@@ -72,7 +72,7 @@ ms.locfileid: "76293363"
 
 ## <a name="vcore-based-purchasing-model"></a>以虛擬核心為基礎的購買模型
 
-受控執行個體中[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)提供彈性、可控制、透明及直接的方法，讓您將內部部署工作負載需求平移到雲端。 此模型可讓您根據工作負載需求，變更計算、記憶體和儲存體。 V 核心模型也能夠透過[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，最多節省 30% 的成本。
+受控執行個體中[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)提供彈性、可控制、透明及直接的方法，讓您將內部部署工作負載需求平移到雲端。 此模型可讓您根據工作負載需求，變更計算、記憶體和儲存體。 VCore 模型也符合[SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，最高可省下55% 的費用。
 
 在 V 核心模型中，您可以選擇各硬體世代。
 

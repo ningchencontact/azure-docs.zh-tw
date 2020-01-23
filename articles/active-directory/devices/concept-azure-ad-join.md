@@ -1,5 +1,5 @@
 ---
-title: 什麼是 Azure AD 已加入裝置？
+title: 什麼是 Azure AD 聯結的裝置？
 description: 了解裝置身分識別管理如何協助您管理存取您環境中資源的裝置。
 services: active-directory
 ms.service: active-directory
@@ -11,45 +11,45 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4af3aea7218ea8792bb66188e8df7baf9f460b0b
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 24ec4373bceb3cc3c9e5be2c7a0dab1f62197b3c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462807"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512193"
 ---
 # <a name="azure-ad-joined-devices"></a>Azure AD 加入裝置
 
-Azure AD join 適用於想要為雲端優先或僅限雲端的組織。 任何組織可部署 Azure AD 加入裝置，無論何種大小或產業。 Azure AD join 適用於甚至在混合式環境中，啟用雲端和內部部署的應用程式和資源的存取。
+Azure AD join 適用于想要成為雲端優先或僅限雲端的組織。 任何組織都可以部署 Azure AD 加入的裝置，不論大小或產業為何。 即使在混合式環境中，Azure AD join 仍可運作，同時允許雲端和內部部署應用程式和資源的存取。
 
 |   | Azure AD Join |
 | --- | --- |
-| **定義** | 只有已加入 Azure AD 需要組織帳戶登入裝置 |
-| **主要對象** | 適用於兩者僅限雲端和混合式組織。 |
-|   | 適用於組織中的所有使用者 |
+| **[定義]** | 僅聯結至需要組織帳戶才能登入裝置 Azure AD |
+| **主要物件** | 適用于僅限雲端和混合式組織。 |
+|   | 適用于組織中的所有使用者 |
 | **裝置擁有權** | 組織 |
 | **作業系統** | 所有 Windows 10 裝置 |
-| **佈建** | 自助：Windows OOBE 或設定值 |
+| **佈建** | 自助： Windows OOBE 或設定 |
 |   | 大量註冊 |
 |   | Windows Autopilot |
-| **裝置登入選項** | 使用組織帳戶： |
+| **裝置登入選項** | 組織帳戶使用： |
 |   | 密碼 |
 |   | Windows Hello 企業版 |
-|   | FIDO2.0 安全性金鑰 （預覽） |
-| **裝置管理** | 行動裝置管理 (範例：Microsoft Intune) |
-|   | 使用 Microsoft Intune 和 System Center Configuration Manager 共同管理 |
-| **主要功能** | 雲端和內部部署資源的 SSO |
+|   | FIDO 2.0 安全性金鑰（預覽） |
+| **裝置管理** | 行動裝置管理（範例： Microsoft Intune） |
+|   | Microsoft Intune 與 Microsoft 端點的共同管理 Configuration Manager |
+| **主要功能** | SSO 到雲端和內部部署資源 |
 |   | 透過 MDM 註冊和 MDM 合規性評估的條件式存取 |
-|   | 自助式密碼重設 Windows Hello 的 pin 碼重設和鎖定畫面上 |
-|   | 在裝置上的企業狀態漫遊 |
+|   | 在鎖定畫面上進行自助式密碼重設和 Windows Hello PIN 重設 |
+|   | 跨裝置企業狀態漫遊 |
 
-Azure AD 聯結裝置使用組織登入 Azure AD 帳戶。 組織中資源的存取權可進一步限制根據該 Azure AD 帳戶及[條件式存取原則](../conditional-access/overview.md)套用至裝置身分識別。
+已加入 Azure AD 的裝置會使用組織 Azure AD 帳戶登入。 根據套用至裝置身分識別的 Azure AD 帳戶和[條件式存取原則](../conditional-access/overview.md)，可以進一步限制組織中資源的存取權。
 
-系統管理員可以保護並進一步控制 Azure AD 已加入使用行動裝置管理 (MDM) 工具，例如 Microsoft Intune，或使用 System Center Configuration Manager 的共同管理案例中的裝置。 這些工具能用來強制執行組織所需的設定，例如要求加密的儲存體、 密碼複雜性、 軟體安裝和軟體更新。 系統管理員可以將組織應用程式提供給使用 Azure AD 已加入裝置[System Center Configuration Manager 和 Microsoft Store for Business](https://docs.microsoft.com/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)。
+系統管理員可以使用行動裝置管理（MDM）工具（例如 Microsoft Intune 或使用 Microsoft 端點 Configuration Manager 的共同管理案例）來保護及進一步控制已加入 Azure AD 的裝置。 這些工具可讓您強制執行組織所需的設定，例如要求儲存加密、密碼複雜性、軟體安裝和軟體更新。 系統管理員可以使用 Configuration Manager，將組織應用程式提供給 Azure AD 加入的裝置，以[管理商務和教育 Microsoft Store 的應用](https://docs.microsoft.com/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business)程式。
 
-使用自助式選項等體驗 (OOBE)，大量註冊，就可以完成 azure AD join 或[Windows Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot)。
+使用全新體驗（OOBE）、大量註冊或[Windows Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot)等自助選項，即可完成 Azure AD 聯結。
 
-當它們位於組織的網路，則 azure AD 已加入裝置可以維持在內部部署資源的單一登入存取。 已加入 Azure ad 的裝置仍可以向內部部署伺服器，例如檔案、 列印及其他應用程式。
+Azure AD 已加入的裝置仍可在組織的網路上，維持對內部部署資源的單一登入存取權。 Azure AD 聯結的裝置仍然可以驗證內部部署伺服器，例如檔案、列印和其他應用程式。
 
 ## <a name="scenarios"></a>案例
 
@@ -58,7 +58,7 @@ Azure AD 聯結裝置使用組織登入 Azure AD 帳戶。 組織中資源的存
 - 您想要使用 Azure AD 和 MDM (例如 Intune) 來轉換成雲端式基礎結構。
 - 例如，如果您需要取得行動裝置 (例如控制下的平板電腦和電話)，您無法使用內部部署網域加入。
 - 您的使用者主要需要存取 Office 365 或與 Azure AD 整合的其他 SaaS 應用程序。
-- 您想要管理 Azure AD 中的使用者群組，而不是 Active Directory 中的使用者群組。 此案例適用於，例如季節性工作者、 承包商或學生。
+- 您想要管理 Azure AD 中的使用者群組，而不是 Active Directory 中的使用者群組。 例如，您可以將此案例套用至季節性工作者、承包商或學生。
 - 您要為內部部署基礎結構受到限制的遠端分公司工作者提供加入功能。
 
 您可以設定適用於 Windows 10 裝置的 Azure AD 已加入裝置。
@@ -68,7 +68,7 @@ Azure AD 加入裝置的目標是簡化：
 - Windows 部署工作用的裝置
 - 從任何 Windows 裝置存取組織應用程式與資源
 - 工作用裝置的雲端式管理
-- 他們使用其 Azure AD 的裝置登入的使用者或同步處理 Active Directory 工作或學校帳戶。
+- 使用者使用其 Azure AD 登入其裝置，或 Active Directory 工作或學校帳戶同步處理。
 
 ![Azure AD 加入裝置](./media/concept-azure-ad-join/azure-ad-joined-device.png)
 
@@ -80,7 +80,7 @@ Azure AD 加入裝置的目標是簡化：
 
 ## <a name="next-steps"></a>後續步驟
 
-- [規劃您的 Azure AD 聯結實作](azureadjoin-plan.md)
-- [如何在 Azure AD 中管理的本機 administrators 群組已加入裝置](assign-local-admin.md)
-- [管理裝置身分識別使用 Azure 入口網站](device-management-azure-portal.md)
+- [規劃 Azure AD Join 實作](azureadjoin-plan.md)
+- [如何管理 Azure AD 加入的裝置上的本機系統管理員群組](assign-local-admin.md)
+- [使用 Azure 入口網站管理裝置身分識別](device-management-azure-portal.md)
 - [管理 Azure AD 中的過時裝置](manage-stale-devices.md)

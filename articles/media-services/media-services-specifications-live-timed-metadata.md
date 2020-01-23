@@ -1,5 +1,5 @@
 ---
-title: Azure 媒體服務 - 針對即時串流中的計時中繼資料傳送訊號 | Microsoft Docs
+title: 即時串流中的 Azure 媒體服務信號計時中繼資料
 description: 此規格概述內嵌和串流至 Azure 媒體服務時，用來發出計時中繼資料信號的方法。 這包括對一般計時中繼資料信號（ID3）的支援，以及用於廣告插入和接合條件信號的 SCTE-35 信號。
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: fd8533ff310e307604e5ce25a4285cc90f3ea4ab
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: e686328464ac88abf28a0a8985d338838abca3d0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933993"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514233"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>針對即時串流中的計時中繼資料傳送訊號 
 

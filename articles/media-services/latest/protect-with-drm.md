@@ -1,5 +1,5 @@
 ---
-title: 使用 DRM 動態加密與授權傳遞服務
+title: Azure 媒體服務 DRM 加密和授權傳遞服務
 titleSuffix: Azure Media Services
 description: 瞭解如何使用 DRM 動態加密和授權傳遞服務來傳遞以 Microsoft PlayReady、Google Widevine 或 Apple FairPlay 授權加密的串流。
 services: media-services
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3d2dc7793c25fb20e267332beaa683f11ddcbfbb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: bd5c026da27c68e249532b70629ba01afea655fe
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974065"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513060"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>教學課程：使用 DRM 動態加密與授權傳遞服務
 
@@ -150,7 +150,7 @@ ContentKeyIdentifierClaim 用於 ContentKeyPolicy，表示向金鑰傳遞服務�
 
 ## <a name="build-a-streaming-url"></a>建立串流 URL
 
-建立了 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 之後，現在您就可以取得串流 URL。 若要建立 URL，您需要串連[StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)主機名稱和**串流定位器**路徑。 此範例會使用預設的**串流端點**。 初次建立媒體服務帳戶時，此預設的**串流端點**會處於停止狀態，因此您需要呼叫 **Start**。
+建立了 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 之後，現在您就可以取得串流 URL。 若要建立 URL，您需要串連[StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)主機名稱和**串流定位器**路徑。 在此範例中，會使用*預設*的**串流端點**。 當您第一次建立媒體服務帳戶時，此*預設***串流端點**會處於 [已停止] 狀態，因此您必須呼叫 [**啟動**]。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
@@ -178,7 +178,7 @@ az group delete --name amsResourceGroup
 
 ## <a name="additional-notes"></a>其他注意事項
 
-* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 

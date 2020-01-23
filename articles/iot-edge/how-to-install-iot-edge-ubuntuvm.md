@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 03c517ac80ed42f96cae00001a154e519ec94148
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 84dd1b6d657dfe5061f53698114f3dc4e0197571
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263331"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510051"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>在 Ubuntu 虛擬機器上執行 Azure IoT Edge
 
@@ -22,7 +22,7 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 
 若要深入了解 IoT Edge 執行階段的運作方式，以及會包含哪些元件，請參閱[了解 Azure IoT Edge 執行階段及其架構](iot-edge-runtime.md)。
 
-本文會列出使用預先設定的 [Ubuntu Azure Marketplace 上的 Azure IoT Edge 供應項目](https://aka.ms/azure-iot-edge-ubuntuvm)，在 Ubuntu 16.04 虛擬機器上執行 Azure IoT Edge 執行階段的步驟。 
+本文會列出使用預先設定的 [Ubuntu Azure Marketplace 上的 Azure IoT Edge 供應項目](https://aka.ms/azure-iot-edge-ubuntuvm)，在 Ubuntu 16.04 虛擬機器上執行 Azure IoT Edge 執行階段的步驟。
 
 在第一次開機時，Ubuntu VM 上的 Azure IoT Edge 會預先安裝最新版本的 Azure IoT Edge 執行階段。 它也包含指令碼，用以設定連接字串然後重新啟動執行階段，可以透過 Azure VM 入口網站或 Azure 命令列遠端觸發，讓您輕鬆地設定及連線 IoT Edge 裝置，不需要啟動 SSH 或遠端桌面工作階段。 此指令碼會等候 IoT Edge 用戶端完整安裝，然後才會設定連接字串，讓您不需要將其建置到您的自動化。
 
@@ -52,22 +52,22 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
    ```azurecli-interactive
    az login
    ```
-    
+
 1. 如果您有多個訂用帳戶，請選取想要使用的訂用帳戶：
    1. 列出您的訂用帳戶：
-    
+
       ```azurecli-interactive
       az account list --output table
       ```
-    
+
    1. 複製您想要使用之訂用帳戶的 [SubscriptionID] 欄位。
 
    1. 使用您剛才複製的識別碼來設定您的工作訂用帳戶：
-    
-      ```azurecli-interactive 
+
+      ```azurecli-interactive
       az account set -s {SubscriptionId}
       ```
-    
+
 1. 建立新的資源群組 (或在下一個步驟中指定現有的資源群組)：
 
    ```azurecli-interactive
@@ -93,7 +93,6 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
    ```
 
 如果您想要在設定之後使用 SSH 連線到這個 VM，請使用 publicIpAddress 與命令：`ssh azureuser@{publicIpAddress}`
-
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: juliako
-ms.openlocfilehash: 6a61c868da7b979b1ac5654f4be93b5245179105
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 457f5b8eb0a740800f9cc0fa69bd554f0679ae9a
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423926"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509167"
 ---
 # <a name="azure-media-services-legacy-components"></a>Azure 媒體服務舊版元件
 
@@ -26,7 +26,7 @@ ms.locfileid: "74423926"
  
 ## <a name="retirement-plans-of-legacy-components-and-migration-guidance"></a>舊版元件和遷移指引的淘汰計畫
 
-我們宣佈*Windows Azure 媒體編碼器*（WAME）和*Azure 媒體編碼器*（AME）媒體處理器已淘汰。 這些處理器將于2020年3月31日淘汰。
+我們宣佈*Windows Azure 媒體編碼器*（WAME）和*Azure 媒體編碼器*（AME）媒體處理器已淘汰。 這些處理器將于2020年3月1日淘汰。
 
 * [從 Windows Azure 媒體編碼器遷移至媒體編碼器標準](migrate-windows-azure-media-encoder.md)
 * [從 Azure 媒體編碼器遷移至媒體編碼器標準](migrate-azure-media-encoder.md)
@@ -35,7 +35,7 @@ ms.locfileid: "74423926"
  
 |媒體處理器名稱|停用日期|其他注意事項|
 |---|---|
-|[Azure 媒體索引子2](media-services-process-content-with-indexer2.md)| 2020年1月1日|[Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代此媒體處理器。 如需詳細資訊，請參閱[從 Azure 媒體索引子2遷移至 Azure 媒體服務影片索引子](migrate-indexer-v1-v2.md)。|
+|[Azure 媒體索引子2](media-services-process-content-with-indexer2.md)| 2020年10月1日|[Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代此媒體處理器。 如需詳細資訊，請參閱[從 Azure 媒體索引子2遷移至 Azure 媒體服務影片索引子](migrate-indexer-v1-v2.md)。|
 |[Azure Media Indexer](media-services-index-content.md)|2020年10月1日|[Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代此媒體處理器。 如需詳細資訊，請參閱[從 Azure 媒體索引子遷移至 Azure 媒體服務影片索引子](migrate-indexer-v1-v2.md)
 
 ## <a name="next-steps"></a>後續步驟

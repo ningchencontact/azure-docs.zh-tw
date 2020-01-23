@@ -1,19 +1,19 @@
 ---
 title: Azure Event Grid 事件結構描述
-description: 描述 Azure Event Grid 中事件提供的屬性
+description: 描述所有事件都有的屬性和架構。 事件包含一組五個必要的字串屬性和一個必要的資料物件。
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/20/2019
+ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 44cc611a9a7d71a3ac4ac7b0d779b18778d0aacd
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1fceda6fcbb6e8db1fa8afbc5181315bd0c98940
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607598"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512975"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 事件結構描述
 
@@ -85,14 +85,14 @@ ms.locfileid: "73607598"
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
-| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| subject | 字串 | 發行者定義事件主體的路徑。 |
-| eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
-| eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |
-| id | 字串 | 事件的唯一識別碼。 |
-| data | 物件 | 資源提供者特有的事件資料。 |
-| dataVersion | 字串 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
-| metadataVersion | 字串 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
+| 主題 | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
+| subject | string | 發行者定義事件主體的路徑。 |
+| eventType | string | 此事件來源已註冊的事件類型之一。 |
+| eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
+| id | string | 事件的唯一識別碼。 |
+| data | object | 資源提供者特有的事件資料。 |
+| dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
+| metadataVersion | string | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
 
 若要了解資料物件中的屬性，請參閱事件來源：
 

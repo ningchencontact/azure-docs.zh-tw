@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 12/16/2019
-ms.openlocfilehash: 96e7cbd09873192d8b73b57cb2b46bf5b7679742
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 3c921bda1b839ee18a91b28f875ba7c84c0dd944
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263450"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515032"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -160,7 +160,7 @@ Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不�
 | 名稱 | 注意 |
 |------|-------|
 | 運算式評估限制 | 131,072 個字元 | `@concat()`、`@base64()`、`@string()` 運算式的長度不能超過此限制。 |
-| 要求 URL 字元限制 | 32K 個字元 |
+| 要求 URL 字元限制 | 16384個字元 |
 |||
 
 #### <a name="retry-policy"></a>重試原則

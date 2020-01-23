@@ -16,22 +16,15 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41741249e9b1a142d75392025236a4d333b67666
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 378aa35ff4b43f5a268ac3dcd9530783ada6921e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295121"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512958"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory 混合式身分識別設計考量 - 後續步驟
 現在您已經完成定義需求以及檢查行動裝置管理解決方案的所有選項，您已準備好採取後續步驟，來部署最適合您和您的組織的支援基礎結構。
-
-## <a name="hybrid-identity-solutions"></a>混合式身分識別解決方案
--運用符合您需求的特定解決方案案例，是檢閱和規劃部署行動裝置管理基礎結構之詳細資料的好方法。 下列解決方案概述數個最常見的行動裝置管理案例：
-
-* [在企業環境解決方案中管理行動裝置和電腦](https://technet.microsoft.com/library/dn582037.aspx) 可協助您管理行動裝置，方法是使用 Microsoft Intune，將您的內部部署 System Center 2012 Configuration Manager 基礎結構擴充到雲端。 這個混合式基礎結構可以協助中大型環境的 IT 專業人員啟用 BYOD 及遠端存取，同時降低系統管理的複雜度。
-* [管理適用於 Configuration Manager 2007 解決方案的行動裝置](https://technet.microsoft.com/library/dn508400.aspx) 可在您的基礎結構是以 System Center Configuration Manager 2007 為基礎時，協助管理行動裝置。 這個解決方案示範如何設定執行 System Center 2012 Configuration Manager 的單一伺服器，讓您接著能夠執行 Microsoft Intune 並充分利用它的 MDM 功能。
-* [管理小型環境解決方案中的行動裝置](https://technet.microsoft.com/library/dn715906.aspx) 適用於需要支援 MDM 的小型企業。 它說明如何使用 Microsoft Intune 來擴充目前的基礎結構，以支援行動裝置管理和 BYOD。 這個解決方案說明最簡單的案例，支援在獨立式、純雲端且沒有本機伺服器的組態中使用 Microsoft Intune。
 
 ## <a name="hybrid-identity-documentation"></a>混合式身分識別文件
 在實作行動裝置管理解決方案時，概念性和程序性規劃、部署及系統管理內容是非常實用的：
@@ -46,9 +39,8 @@ ms.locfileid: "60295121"
 * [Microsoft Enterprise Mobility 部落格](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Microsoft In The Cloud 部落格](https://blogs.technet.com/b/in_the_cloud/)
 * [Microsoft Intune 部落格](https://blogs.technet.com/b/microsoftintune/)
-* [Microsoft System Center Configuration Manager 部落格](https://blogs.technet.com/b/configurationmgr/)
-* [Microsoft System Center Configuration Manager Team 部落格](https://blogs.technet.com/b/configmgrteam/)
+* [Microsoft 端點 Configuration Manager blog](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)
 
