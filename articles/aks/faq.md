@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: d8ff14c28b8fccbf3dce41f5e43daa9685a4786a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 58b372e1f80386c4e02339f67f4c5aeaa686a662
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277847"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549218"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -185,7 +185,7 @@ AKS 代理程式節點會以標準 Azure 虛擬機器計費，因此如果您已
 
 ## <a name="can-i-use-custom-vm-extensions"></a>我可以使用自訂 VM 擴充功能嗎？
 
-AKS 不是受控服務，且不支援操作 IaaS 資源。 安裝自訂群組件等。 請利用 kubernetes Api 和機制。 例如，利用 Daemonset 來安裝必要的元件。
+AKS 不是受控服務，且不支援操作 IaaS 資源。 安裝自訂群組件等。 請利用 Kubernetes Api 和機制。 例如，利用 Daemonset 來安裝必要的元件。
 
 <!-- LINKS - internal -->
 

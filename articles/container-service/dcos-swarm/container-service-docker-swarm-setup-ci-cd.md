@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 860c277e88918dc37eceb496d852691ced2af114
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 11a6debe735459b617f6f93c3f67a32350dd4623
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277895"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549048"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(已淘汰) 使用 Azure DevOps Services 搭配 Docker Swarm 在 Azure Container Service 上部署多容器應用程式的完整 CI/CD 管線
 
@@ -50,7 +50,7 @@ ms.locfileid: "76277895"
 
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]
 
-您也需要已經安裝 Docker 的 Ubuntu (14.04 or 16.04) 機器。 Azure DevOps Services 在 Azure Pipelines 程序執行期間會使用此機器。 建立此機器的其中一個方法是使用可在 [Azure Marketplace (英文)](https://azure.microsoft.com/marketplace/partners/canonicalandmsopentech/dockeronubuntuserver1404lts/) 中取得的映像。 
+您也需要已經安裝 Docker 的 Ubuntu (14.04 or 16.04) 機器。 Azure DevOps Services 在 Azure Pipelines 程序執行期間會使用此機器。 建立這部電腦的其中一種方式是使用 Azure Marketplace 中提供的映射。 
 
 ## <a name="step-1-configure-your-azure-devops-services-organization"></a>步驟 1：設定您的 Azure DevOps Services 組織 
 

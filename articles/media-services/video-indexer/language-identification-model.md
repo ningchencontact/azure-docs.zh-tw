@@ -1,5 +1,5 @@
 ---
-title: 使用影片索引子自動識別說話語言-Azure
+title: 使用影片索引子自動識別語音語言-Azure
 titleSuffix: Azure Media Services
 description: 本文說明如何使用影片索引子語言識別模型，在影片中自動識別說話的語言。
 services: media-services
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ellbe
-ms.openlocfilehash: ce3e488a6387f9a823d7c1b514b52af24944776b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7a2e03b8dacbf6c3ff20e02c804804b671e86d97
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838999"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513876"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>使用語言識別模型自動識別說話語言
 
@@ -47,7 +47,7 @@ ms.locfileid: "73838999"
       },
 ```
 
-## <a name="guidelines-and-limitations"></a>指導方針和限制
+## <a name="guidelines-and-limitations"></a>指南和限制
 
 * 支援的語言包括英文、西班牙文、法文、德文、義大利文、中文（簡體）、日文、俄文和巴西葡萄牙文。
 * 如果音訊包含上述支援清單以外的語言，則會產生非預期的結果。

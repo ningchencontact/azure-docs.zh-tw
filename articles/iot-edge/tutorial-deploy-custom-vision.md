@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2019
+ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 41a2fac48980cf376c833b022b833cfcf1e99821
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 07350ffe4a57bfe4a79bfce5d821b51535867935
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701883"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167004"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教學課程：使用自訂視覺服務在邊緣執行影像分類
 
@@ -37,12 +37,12 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 >[!TIP]
 >此教學課程是 [Raspberry Pi 3 上的自訂視覺和 Azure IoT Edge](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) \(英文\) 範例專案的簡化版本。 此教學課程是設計成在雲端 VM 上執行，並使用靜態影像來定型和測試影像分類器，這對於剛開始評估 IoT Edge 社的自訂視覺的人非常有用。 範例專案使用實體硬體並設定即時相機摘要來定型和測試影像分類器，這對於想要嘗試更詳細的真實案例的人非常有用。
 
-在開始此教學課程之前，您應該已經完成先前的教學課程，以針對 Linux 容器開發設定您的環境：[開發適用於 Linux 裝置的 IoT Edge 模組](tutorial-develop-for-linux.md)。 完成該教學課程之後，您應該會具備下列必要條件： 
+在開始此教學課程之前，您應該已經完成先前的教學課程，以針對 Linux 容器開發設定您的環境：[開發適用於 Linux 裝置的 IoT Edge 模組](tutorial-develop-for-linux.md)。 完成該教學課程之後，您應該會具備下列必要條件：
 
 * Azure 中的免費或標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
 * [執行 Azure IoT Edge 的 Linux 裝置](quickstart-linux.md)
@@ -50,23 +50,23 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
 * 已設定 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 的 [Visual Studio Code](https://code.visualstudio.com/)。
 * [Docker CE](https://docs.docker.com/install/) 設定為執行 Linux 容器。
 
-若要以自訂視覺服務開發 IoT Edge 模組，請在您的開發機器上安裝下列其他必要條件： 
+若要以自訂視覺服務開發 IoT Edge 模組，請在您的開發機器上安裝下列其他必要條件：
 
 * [Python](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
-* [適用於 Visual Studio Code 的 Python 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-python.python) \(英文\) 
+* [適用於 Visual Studio Code 的 Python 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-python.python) \(英文\)
 
 ## <a name="build-an-image-classifier-with-custom-vision"></a>使用電腦視覺建置影像分類器
 
 若要建置影像分類器，您必須建立自訂視覺專案，並提供訓練影像。 如需您在本節所採取步驟的詳細資訊，請參閱[如何使用自訂視覺建置分類器](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md)。
 
-完成影像分類器的建置和訓練後，您可以將它匯出為 Docker 容器，並部署到 IoT Edge 裝置。 
+完成影像分類器的建置和訓練後，您可以將它匯出為 Docker 容器，並部署到 IoT Edge 裝置。
 
 ### <a name="create-a-new-project"></a>建立新專案
 
 1. 在網頁瀏覽器中，瀏覽到[自訂視覺網頁](https://customvision.ai/) \(英文\)。
 
-2. 選取 [登入]  ，然後使用存取 Azure 資源時所用的同一個帳戶來登入。 
+2. 選取 [登入]  ，然後使用存取 Azure 資源時所用的同一個帳戶來登入。
 
 3. 選取 [新增專案]  。
 
@@ -75,7 +75,7 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
    | 欄位 | 值 |
    | ----- | ----- |
    | 名稱 | 提供專案名稱，例如 **EdgeTreeClassifier**。 |
-   | 說明 | 選擇性的專案描述。 |
+   | 描述 | 選擇性的專案描述。 |
    | 資源 | 選取包含自訂視覺服務資源的其中一個 Azure 資源群組，或如果您尚未新增，請**建立新項目**。 |
    | 專案類型 | **分類** |
    | 分類類型 | **多類別 (每個影像一個標記)** |
@@ -86,21 +86,21 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
 
 ### <a name="upload-images-and-train-your-classifier"></a>上傳影像並訓練分類器
 
-建立影像分類器需要用到一組訓練影像以及測試影像。 
+建立影像分類器需要用到一組訓練影像以及測試影像。
 
-1. 從 [Cognitive-CustomVision-Windows](https://github.com/Microsoft/Cognitive-CustomVision-Windows) 存放庫將影像範例複製或下載到本機開發機器。 
+1. 從 [Cognitive-CustomVision-Windows](https://github.com/Microsoft/Cognitive-CustomVision-Windows) 存放庫將影像範例複製或下載到本機開發機器。
 
    ```cmd/sh
    git clone https://github.com/Microsoft/Cognitive-CustomVision-Windows.git
    ```
 
-2. 返回自訂視覺專案，並選取 [新增影像]  。 
+2. 返回自訂視覺專案，並選取 [新增影像]  。
 
-3. 瀏覽至您複製到本機的 git 存放庫，然後瀏覽至第一個影像資料夾 **Cognitive-CustomVision-Windows / Samples / Images / Hemlock**。 將資料夾中的 10 個影像全都選取，然後 [開啟]  。 
+3. 瀏覽至您複製到本機的 git 存放庫，然後瀏覽至第一個影像資料夾 **Cognitive-CustomVision-Windows / Samples / Images / Hemlock**。 將資料夾中的 10 個影像全都選取，然後 [開啟]  。
 
-4. 對這一組影像新增**鐵杉**標記，然後按 **ENTER 鍵**來套用標記。 
+4. 對這一組影像新增**鐵杉**標記，然後按 **ENTER 鍵**來套用標記。
 
-5. 選取 [上傳 10 個檔案]  。 
+5. 選取 [上傳 10 個檔案]  。
 
    ![將 hemlock 標記檔案上傳到自訂視覺](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
 
@@ -108,17 +108,17 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
 
 7. 再次選取 [新增影像]  。
 
-8. 瀏覽至第二個影像資料夾 **Cognitive-CustomVision-Windows / Samples / Images / Japanese Cherry**。 將資料夾中的 10 個影像全都選取，然後 [開啟]  。 
+8. 瀏覽至第二個影像資料夾 **Cognitive-CustomVision-Windows / Samples / Images / Japanese Cherry**。 將資料夾中的 10 個影像全都選取，然後 [開啟]  。
 
-9. 對這一組影像新增**日本櫻**標記，然後按 **ENTER 鍵**來套用標記。 
+9. 對這一組影像新增**日本櫻**標記，然後按 **ENTER 鍵**來套用標記。
 
-10. 選取 [上傳 10 個檔案]  。 當影像上傳成功時，選取 [完成]  。 
+10. 選取 [上傳 10 個檔案]  。 當影像上傳成功時，選取 [完成]  。
 
-11. 當這兩組影像都加上標記並上傳時，選取 [訓練]  來訓練分類器。 
+11. 當這兩組影像都加上標記並上傳時，選取 [訓練]  來訓練分類器。
 
 ### <a name="export-your-classifier"></a>匯出分類器
 
-1. 分類器完成訓練後，選取分類器 [效能] 頁面上的 [匯出]  。 
+1. 分類器完成訓練後，選取分類器 [效能] 頁面上的 [匯出]  。
 
    ![匯出定型的影像分類器](./media/tutorial-deploy-custom-vision/export.png)
 
@@ -144,7 +144,7 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
 
 1. 選取 [檢視]   > [命令選擇區]  ，以開啟 VS Code 命令選擇區。 
 
-1. 在命令選擇區中，輸入並執行命令 Azure IoT Edge:  新增 IoT Edge 解決方案。 在命令選擇區中提供下列資訊，以建立解決方案： 
+1. 在命令選擇區中，輸入並執行命令 Azure IoT Edge：**新增 IoT Edge 解決方案**。 在命令選擇區中提供下列資訊，以建立解決方案： 
 
    | 欄位 | 值 |
    | ----- | ----- |
@@ -210,7 +210,7 @@ Visual Studio Code 中的 Python 模組範本包含一些程式碼範例，可�
 
 在本節中，您會在相同的 CustomVisionSolution 中新增模組，並提供程式碼以建立模擬觀景窗。 
 
-1. 在同一個 Visual Studio Code 視窗中，使用命令選擇區來執行 [Azure IoT Edge:  新增 IoT Edge 模組]。 在命令選擇區中，為新模組提供下列資訊： 
+1. 在同一個 Visual Studio Code 視窗中，使用命令選擇區來執行 [Azure IoT Edge:  新增 IoT Edge 模組] 命令來新增更多項目。 在命令選擇區中，為新模組提供下列資訊： 
 
    | Prompt | 值 | 
    | ------ | ----- |
@@ -263,7 +263,8 @@ Visual Studio Code 中的 Python 模組範本包含一些程式碼範例，可�
                 print("Response from classification service: (" + str(response.status_code) + ") " + json.dumps(response.json()) + "\n")
             except Exception as e:
                 print(e)
-                print("Response from classification service: (" + str(response.status_code))
+                print("No response from classification service")
+                return None
 
         return json.dumps(response.json())
 
@@ -282,7 +283,8 @@ Visual Studio Code 中的 Python 模組範本包含一些程式碼範例，可�
 
             while True:
                 classification = sendFrameForProcessing(imagePath, imageProcessingEndpoint)
-                send_to_hub(classification)
+                if classification:
+                    send_to_hub(classification)
                 time.sleep(10)
 
         except KeyboardInterrupt:
@@ -326,15 +328,15 @@ Visual Studio Code 中的 Python 模組範本包含一些程式碼範例，可�
 
 3. 瀏覽至 IoT Edge 解決方案目錄，並在 **modules** / **cameraCapture** 資料夾中貼上測試影像。 影像所在的資料夾，應該會和您在上一節所編輯的 main.py 檔案相同。 
 
-3. 在 Visual Studio Code 中，開啟 cameraCapture 模組的 **Dockerfile.amd64** 檔案。 
+4. 在 Visual Studio Code 中，開啟 cameraCapture 模組的 **Dockerfile.amd64** 檔案。
 
-4. 在建立工作目錄 `WORKDIR /app` 的程式行後面，新增下列程式碼： 
+5. 在建立工作目錄 `WORKDIR /app` 的程式行後面，新增下列程式碼：
 
    ```Dockerfile
    ADD ./test_image.jpg .
    ```
 
-5. 儲存 Dockerfile。 
+6. 儲存 Dockerfile。
 
 ### <a name="prepare-a-deployment-manifest"></a>準備部署資訊清單
 
@@ -358,7 +360,7 @@ Visual Studio Code 的 IoT Edge 擴充功能會在每個 IoT Edge 解決方案�
 
     如果您未將自訂視覺模組命名為 *classifier*，請更新影像處理端點值以便相符。 
 
-5. 在檔案底部，更新 $edgeHub 模組的 **routes** 參數。 請將預測結果從 cameraCapture 路由傳送到 IoT 中樞。 
+6. 在檔案底部，更新 $edgeHub 模組的 **routes** 參數。 請將預測結果從 cameraCapture 路由傳送到 IoT 中樞。
 
     ```json
         "routes": {
@@ -410,7 +412,6 @@ Visual Studio Code 的 IoT Edge 擴充功能會在每個 IoT Edge 解決方案�
 
 來自自訂視覺模組的結果 (從 cameraCapture 模組以訊息形式傳來)，會包含影像屬於鐵杉還是櫻花的機率。 由於影像是鐵杉，您應該看到機率為 1.0。 
 
-
 ## <a name="clean-up-resources"></a>清除資源
 
 如果您打算繼續閱讀下一篇建議的文章，則可以保留您所建立的資源和組態，並加以重複使用。 您可以也繼續使用相同的 IoT Edge 裝置作為測試裝置。 
@@ -418,7 +419,6 @@ Visual Studio Code 的 IoT Edge 擴充功能會在每個 IoT Edge 解決方案�
 否則，可以刪除您在本文中使用的本機設定和 Azure 資源，以避免產生費用。 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b84b5ee8682007191953bef34579973c7c24ca45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d7d7da659aed5a4ba6ef984384524254207d6eda
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448519"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311422"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>快速入門：使用適用於 Python 的 Bing 新聞搜尋 SDK 來執行新聞搜尋
 
@@ -45,18 +45,19 @@ python -m pip install azure-cognitiveservices-search-newssearch
 1. 在您最愛的 IDE 或編輯器中建立新的 Python 檔案，並匯入下列程式庫。 建立訂用帳戶金鑰變數和搜尋字詞。
 
     ```python
-    from azure.cognitiveservices.search.newssearch import NewsSearchAPI
+    from azure.cognitiveservices.search.newssearch import NewsSearchClient
     from msrest.authentication import CognitiveServicesCredentials
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
+    endpoint = "YOUR-ENDPOINT"
     search_term = "Quantum Computing"
     ```
 
 ## <a name="initialize-the-client-and-send-a-request"></a>初始化用戶端並傳送要求
 
-1. 建立 `CognitiveServicesCredentials` 執行個體。 具現化用戶端：
+1. 建立 `CognitiveServicesCredentials` 執行個體。
     
     ```python
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
+    client = NewsSearchClient(endpoint=endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 2. 將搜尋查詢傳送至 Bing 新聞搜尋 API，儲存回應。

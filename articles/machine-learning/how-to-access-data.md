@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4de8b032bd284ce0a2d6d8fd168b9ea3dd4937d3
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 6867862c130bf6f0b7cc34098064f6ce6eec282b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289045"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543490"
 ---
 # <a name="access-data-in-azure-storage-services"></a>存取 Azure 儲存體服務中的資料
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,7 +47,7 @@ ms.locfileid: "76289045"
 
 ## <a name="supported-data-storage-service-types"></a>支援的資料儲存體服務類型
 
-資料存放區目前支援將連接資訊儲存至下列矩陣中所列的儲存體服務。
+資料存放區目前支援將連接資訊儲存至下列矩陣中所列的儲存體服務。 目前不支援 Azure 資料倉儲。 
 
 | 儲存體&nbsp;類型 | 驗證&nbsp;類型 | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Azure&nbsp;機器&nbsp;學習 CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;機器&nbsp;學習&nbsp; Rest API](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---

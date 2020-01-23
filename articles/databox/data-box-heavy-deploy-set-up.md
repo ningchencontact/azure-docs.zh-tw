@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 3b27a4788bd144a8d2d423af1fa23ef09c5379f8
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: c96caf7a90f35913bcba04a00553ad1df2689999
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772861"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514420"
 ---
 ::: zone target = "docs"
 
@@ -32,7 +32,7 @@ ms.locfileid: "70772861"
 
 本教學課程說明如何連接 Azure Data Box Heavy 的纜線、加以連線並開啟。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 連接 Data Box Heavy 的纜線
@@ -46,7 +46,7 @@ ms.locfileid: "70772861"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 在您開始前，請確定：
 
@@ -129,7 +129,7 @@ ms.locfileid: "70772861"
     
     - 此頁面上的其中一個節點序號應與入口網站 UI 和本機 Web UI 上的相符。 請記下節點編號與序號的對應。 入口網站中會有兩個節點和兩個裝置序號。 此對應可協助您了解哪個節點對應至哪個序號。
     - 裝置此時處於鎖定狀態。
-    - 提供您在上一個步驟中取得的管理員密碼來登入裝置。 按一下 [ **登入**]。
+    - 提供您在上一個步驟中取得的管理員密碼來登入裝置。 按一下 **[登入]** 。
 
     ![登入 Data Box Heavy 本機 Web UI](media/data-box-heavy-deploy-set-up/data-box-heavy-unlock-device.png)
 

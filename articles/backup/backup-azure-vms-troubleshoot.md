@@ -4,12 +4,12 @@ description: 在本文中，您將瞭解如何針對 Azure 虛擬機器備份和
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 1e71f6f711bcee78538c573a8869b8fdfa2a10b0
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 9828309b080f5831a073fb7c5149455dc649fa13
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664633"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513791"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>針對 Azure 虛擬機器上的備份失敗進行疑難排解
 
@@ -262,7 +262,6 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 VM 備份仰賴發給底層儲存體的快照命令。 無法存取儲存體或快照集工作執行上的延遲，可能會造成備份作業失敗。 下列狀況可能導致快照集工作失敗：
 
-* **因使用 NSG 而導致封鎖儲存體的網路存取**。 深入瞭解如何使用允許的 Ip 清單或透過 proxy 伺服器，建立存放裝置的[網路存取](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
 * **已設定 SQL Server 備份的 VM 可能會造成快照集工作延遲**。 根據預設，VM 備份會在 Windows VM 上建立 VSS 完整備份。 執行 SQL Server 並已設定 SQL Server 備份的 VM，可能會遇到快照集延遲。 如果快照集延遲會導致備份失敗，請設定下列登錄機碼：
 
    ```text
@@ -276,29 +275,9 @@ VM 備份仰賴發給底層儲存體的快照命令。 無法存取儲存體或�
 
 ## <a name="networking"></a>網路
 
-如同所有的延伸模組，備份延伸模組需要存取公用網際網路才能運作。 沒有公用網際網路的存取權，可能會以各種不同方式的資訊清單形式顯現：
+必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。 如果您需要靜態私人 IP，請透過 Azure 入口網站或 PowerShell 加以設定。 確定 VM 內的 DHCP 選項已啟用。
+取得如何透過 PowerShell 設定靜態 IP 的詳細資訊：
 
-* 延伸模組安裝可能會失敗。
-* 備份作業 (如磁碟快照集) 可能會失敗。
-* 顯示備份作業狀態可能會失敗。
+* [如何將靜態內部 IP 位址新增至現有的 VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [針對指派至網路介面的私人 IP 位址變更配置方法](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 
-解決公用網際網路位址的需求，已在[這篇 Azure 支援部落格](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx) \(英文\) 中討論。 請檢查 VNET 的 DNS 設定，並確定 Azure URI 可以被解析。
-
-正確完成名稱解析後，也必須提供 Azure IP 的存取權。 若要解除封鎖對 Azure 基礎結構的存取，請遵循下列步驟進行：
-
-* 允許 Azure 資料中心 IP 範圍的清單：
-   1. 取得要在允許清單中的[Azure 資料中心 ip](https://www.microsoft.com/download/details.aspx?id=41653)清單。
-   1. 使用 [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) \(英文\) Cmdlet 來解除封鎖 IP。 在 Azure VM 內提升權限的 PowerShell 視窗中執行這個 Cmdlet。 請以系統管理員身分執行。
-   1. 將規則加入 NSG (若已有 NSG)，以允許存取該 IP。
-* 建立路徑來使 HTTP 流量得以流動：
-   1. 如果您有一些網路限制，請部署 HTTP Proxy 伺服器來路由傳送流量。 其中一個網路限制的範例為網路安全性群組。 請在[建立網路連線](backup-azure-arm-vms-prepare.md#establish-network-connectivity)中查看部署 HTTP Proxy 伺服器的步驟。
-   1. 將規則加入 NSG (若已有 NSG)，以允許從 HTTP Proxy 存取網際網路。
-
-> [!NOTE]
-> 必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。 如果您需要靜態私人 IP，請透過 Azure 入口網站或 PowerShell 加以設定。 確定 VM 內的 DHCP 選項已啟用。
-> 取得如何透過 PowerShell 設定靜態 IP 的詳細資訊：
->
-> * [如何將靜態內部 IP 位址新增至現有的 VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-> * [針對指派至網路介面的私人 IP 位址變更配置方法](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
->
->

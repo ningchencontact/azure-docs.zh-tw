@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/12/2020
 ms.author: mlearned
-ms.openlocfilehash: 054113da7fe06436fab0cdfff6c4257f1263de97
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 23a5dbf2333ca86c2d51d54bf983b00a71936eec
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290354"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547943"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service （AKS）中攜帶您自己的金鑰（BYOK）與 Azure 磁片
 
@@ -98,7 +98,7 @@ az role assignment create --assignee $desIdentity --role Reader --scope $keyVaul
 
 ## <a name="create-a-new-aks-cluster-and-encrypt-the-os-disk"></a>建立新的 AKS 叢集，並將 OS 磁片加密
 
-建立**新的資源群組**和 AKS 叢集，然後使用您的金鑰來加密 OS 磁片。 只有在 kubernetes 版本大於1.17 時，才支援客戶管理的金鑰。 
+建立**新的資源群組**和 AKS 叢集，然後使用您的金鑰來加密 OS 磁片。 只有在 Kubernetes 版本大於1.17 時，才支援客戶管理的金鑰。 
 
 > [!IMPORTANT]
 > 請務必為您的 AKS 叢集建立新的資源群組

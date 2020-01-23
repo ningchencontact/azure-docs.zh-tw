@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: d4c8dd4b3a53d484d5240f3514d171231fc93ae0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5b1daab724d979206983ee758760790967abc06d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968505"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513383"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 
@@ -32,7 +32,7 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 ## <a name="a-idissuesknown-issues"></a><a id="issues"/>的已知問題
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>媒體服務一般問題
 
-| 問題 | 描述 |
+| 問題 | 說明 |
 | --- | --- |
 | 有幾個常用的 HTTP 標題未提供於 REST API 中。 |如果您使用 REST API 來開發媒體服務應用程式，您會發現有些常用的 HTTP 標題欄位 (包括 CLIENT-REQUEST-ID、REQUEST-ID 和 RETURN-CLIENT-REQUEST-ID) 不受支援。 這些標頭將在未來的更新中加入。 |
 | 不允許 percent-encoding。 |媒體服務會在建置串流內容的 URL 時，使用 IAssetFile.Name 屬性的值 (例如 `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`)。 基於此原因，不允許使用 percent-encoding。 Name 屬性的值不可有下列任何[百分比編碼保留字元](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 此外，副檔名只能有一個 "."。 |
@@ -50,15 +50,17 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 
 ### <a name="deprecation-of-media-processors"></a>淘汰媒體處理器
 
-我們宣佈*Azure 媒體索引子*和*Azure 媒體索引子 2 Preview*已淘汰。 [Azure 媒體索引子](media-services-index-content.md)媒體處理器將于2020年10月1日淘汰。 [Azure 媒體索引子 2 Preview](media-services-process-content-with-indexer2.md)媒體處理器將于2020年1月1日淘汰。 [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代這些舊版媒體處理器。
+我們宣佈*Azure 媒體索引子*和*Azure 媒體索引子 2 Preview*已淘汰。 [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代這些舊版媒體處理器。
 
-如需詳細資訊，請參閱[從 Azure 媒體索引子遷移和 Azure 媒體索引子2，到 Azure 媒體服務影片索引子](migrate-indexer-v1-v2.md)。
+如需停用日期，請參閱此[舊版元件](legacy-components.md)主題。
+
+另請參閱[從 Azure 媒體索引子遷移和 Azure 媒體索引子2，到 Azure 媒體服務影片索引子](migrate-indexer-v1-v2.md)。
 
 ## <a name="august-2019"></a>2019 年 8 月
 
 ### <a name="deprecation-of-media-processors"></a>淘汰媒體處理器
 
-我們宣佈淘汰*Windows Azure 媒體編碼器*（WAME）和*Azure 媒體編碼器*（AME）媒體處理器，即將于2020年3月31日淘汰。
+我們宣佈淘汰*Windows Azure 媒體編碼器*（WAME）和*Azure 媒體編碼器*（AME）媒體處理器，其將于2020年3月1日淘汰。
 
 如需詳細資訊，請參閱[將 WAME 遷移至媒體編碼器標準](https://go.microsoft.com/fwlink/?LinkId=2101334)並[將 AME 遷移至媒體編碼器標準](https://go.microsoft.com/fwlink/?LinkId=2101335)。
 
@@ -206,7 +208,7 @@ Media Services SDK for .NET (3.5.3) 的最新版本包含 Google Widevine 相關
 ### <a name="azure-sdk-for-php"></a>Azure SDK for PHP
 Azure SDK 小組已發佈新版的 [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) 套件，其中包含媒體服務的更新與新功能。 特別是，Media Services SDK for PHP 現在支援最新的[內容保護](media-services-content-protection-overview.md)功能。 這些功能是採用 AES 和 DRM (PlayReady 與 Widevine)，並選擇性使用權杖限制的動態加密。 它也支援調整 [編碼單位](media-services-dotnet-encoding-units.md)大小。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 * 以下[程式碼範例](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)可協助您快速上手：
   * **vodworkflow_aes.php**：此 PHP 檔案說明如何使用 AES-128 動態加密和金鑰傳遞服務。 其內容以[使用 AES-128 動態加密和金鑰傳遞服務](media-services-protect-with-aes128.md)中說明的 .NET 範例為基礎。
@@ -245,7 +247,7 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](https://github.com/Azure/
 如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)。
 
 ## <a id="august_changes_15"></a>2015 年 8 月版本
-* 現在已有適用於 Java 0.8.0 版本的媒體服務 SDK 和新範例可供使用。 如需詳細資訊，請參閱
+* 現在已有適用於 Java 0.8.0 版本的媒體服務 SDK 和新範例可供使用。 如需詳細資訊，請參閱：
     
 * Azure 媒體播放器已更新而具有多重音訊串流支援。 如需詳細資訊，請參閱 [此部落格文章](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)。
 
@@ -452,16 +454,16 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 * Get-AzureMediaServices 
 
-    例如：`Get-AzureMediaServicesAccount`
+    例如： `Get-AzureMediaServicesAccount`
 * New-AzureMediaServicesAccount 
   
-    例如：`New-AzureMediaServicesAccount -Name "MediaAccountName" -Location "Region" -StorageAccountName "StorageAccountName"`
+    例如： `New-AzureMediaServicesAccount -Name "MediaAccountName" -Location "Region" -StorageAccountName "StorageAccountName"`
 * New-AzureMediaServicesKey 
   
-    例如：`New-AzureMediaServicesKey -Name "MediaAccountName" -KeyType Secondary -Force`
+    例如： `New-AzureMediaServicesKey -Name "MediaAccountName" -KeyType Secondary -Force`
 * Remove-AzureMediaServicesAccount 
   
-    例如：`Remove-AzureMediaServicesAccount -Name "MediaAccountName" -Force`
+    例如： `Remove-AzureMediaServicesAccount -Name "MediaAccountName" -Force`
 
 ## <a id="june_changes_13"></a>2013 年 6 月版本
 ### <a name="june_13_general_changes"></a>媒體服務變更
@@ -521,7 +523,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 ## <a id="november_changes_12"></a>2012 年 11 月版本
 本節說明的變更是 2012 年 11 月 (2.0.0.0 版) SDK 所包含的更新。 進行這些變更時，可能必須修改或重寫為 2012 年 6 月預覽 SDK 版本撰寫的程式碼。
 
-* 資產
+* Assets
   
     * IAsset.Create(assetName) 是*唯一的*資產建立函式。 IAsset.Create 已不會在方法呼叫期間上傳檔案。 請使用 IAssetFile 進行上傳。
     * IAsset.Publish 方法和 AssetState.Publish 列舉值已從服務 SDK 中移除。 任何依存於此值的程式碼都必須重寫。
@@ -557,7 +559,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 ## <a name="additional-notes"></a>其他注意事項
 
-* Widevine 是 Google Inc. 所提供的服務，並受到 Google，Inc. 的服務條款和隱私權原則所約束。
+* Widevine 是 Google Inc. 所提供的服務，並受到 Google Inc. 的服務條款和隱私權原則所約束。
 
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

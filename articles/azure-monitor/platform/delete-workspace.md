@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: 739f97e912a33402aa7482e59dd78f5aeb005772
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 03be29cde42478abf32492f55a296aeee0a4a478
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75944434"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547246"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>刪除和還原 Azure Log Analytics 工作區
 
@@ -57,6 +57,29 @@ ms.locfileid: "75944434"
 ```PowerShell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
+
+## <a name="permanent-workspace-delete"></a>永久刪除工作區
+在某些情況下，虛刪除方法可能無法納入，例如開發和測試，您需要使用相同的設定和工作區名稱來重複部署。 在這種情況下，您可以永久刪除您的工作區，並「覆寫」虛刪除期間。 永久的工作區刪除作業會釋放工作場所名稱，您可以使用相同的名稱建立新的工作區。
+
+
+> [!IMPORTANT]
+> 永久刪除您的工作區時請務必小心，因為作業無法復原，而且您的工作區和其資料將無法恢復。
+
+您目前可以透過 REST API 來執行永久的工作區刪除。
+
+> [!NOTE]
+> 任何 API 要求都必須在要求標頭中包含持有人授權權杖。
+>
+> 您可以使用下列內容取得權杖：
+> - [應用程式註冊](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
+> - 使用瀏覽器中的開發人員主控台（F12），流覽至 Azure 入口網站。 在 [**要求標頭**] 底下的驗證字串中，查看其中一個**batch？** 實例。 這會在模式授權中 *：持有人 <token>* 。 複製此程式，並將其新增至您的 API 呼叫，如範例中所示。
+> - 流覽至 Azure REST 檔網站。 在任何 API 上按下 [**試用**]，複製持有人權杖，並將它新增至您的 api 呼叫。
+若要永久刪除您的工作區，請使用[工作區-刪除 REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) API 呼叫搭配 force 標記：
+>
+> ```rst
+> DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
+> Authorization: Bearer eyJ0eXAiOiJKV1Qi….
+> ```
 
 ## <a name="recover-workspace"></a>復原工作區
 

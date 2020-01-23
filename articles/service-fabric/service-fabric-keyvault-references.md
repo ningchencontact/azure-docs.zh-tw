@@ -3,12 +3,12 @@ title: Azure Service Fabric-使用 Service Fabric 應用程式 KeyVault 參考
 description: 本文說明如何使用應用程式密碼的 service fabric KeyVaultReference 支援。
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 3f4c4979d0ce1329ac8ba49b236dae20a4e88b53
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167134"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545478"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Service Fabric 應用程式的 KeyVaultReference 支援（預覽）
 
@@ -22,7 +22,7 @@ ms.locfileid: "76167134"
 
 - 中央秘密存放區（CSS）。
 
-    中央秘密存放區（CSS）是 service fabric 的加密本機秘密快取，KeyVaultReference 一旦提取之後，就會在 CSS 中快取。
+    中央秘密存放區（CSS）是 Service Fabric 的加密本機秘密快取。 CSS 是一個本機秘密存放區快取，可讓機密資料（例如密碼、權杖和金鑰）在記憶體中加密。 提取之後，就會在 CSS 中快取 KeyVaultReference。
 
     將下方的新增至您的叢集設定底下 `fabricSettings`，以啟用 KeyVaultReference 支援的所有必要功能。
 

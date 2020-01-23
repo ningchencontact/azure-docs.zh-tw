@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 09ae896d26d534d3f9d5651834e181d37581c8f3
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 6e2437fadb743706d4f4215bbcbab8616817de5f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76288946"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545614"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift 的 Azure Active Directory 整合
 
@@ -55,6 +55,9 @@ Microsoft Azure Red Hat OpenShift 需要代表您的叢集執行工作的許可�
 
 9. 建立群組時，您會在 [所有群組] 清單中看到它。 按一下 [新增] 群組。
 10. 在出現的頁面上，複製 [**物件識別碼**]。 在[建立 Azure Red Hat OpenShift](tutorial-create-cluster.md)叢集教學課程中，我們會將此值稱為 `GROUPID`。
+
+> [!IMPORTANT]
+> 若要將此群組與 osa-customer-admins OpenShift 群組同步，請使用 Azure CLI 來建立叢集。 Azure 入口網站目前缺少設定此群組所需的欄位。
 
 ## <a name="create-an-azure-ad-app-registration"></a>建立 Azure AD 應用程式註冊
 

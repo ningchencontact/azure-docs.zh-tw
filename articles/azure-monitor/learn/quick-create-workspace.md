@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: 0ab8019a8537d4080afdb457459f09cd156ff4ed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bc8162a157cee10deeb8bf3f1e62a53fbdd30d0e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365524"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513434"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>在 Azure 入口網站中建立 Log Analytics 工作區
 使用 [Log Analytics 工作區] 功能表，以使用 Azure 入口網站建立 Log Analytics 工作區。 Log Analytics 工作區是 Azure 監視器記錄資料的唯一環境。 每個工作區都有自己的資料存放庫與設定，而且資料來源和解決方案會設定為將其資料儲存在特定的工作區中。 如果您想從下列來源收集資料，就必須要有 Log Analytics 工作區：
 
 * 訂用帳戶中的 Azure 資源
 * System Center Operations Manager 監視的內部部署電腦
-* 來自 System Center Configuration Manager 的裝置集合 
+* Configuration Manager 的裝置集合 
 * Azure 儲存體的診斷或記錄資料
 
 針對其他來源，例如環境中的 Azure VM 和 Windows 或 Linux VM，請參閱下列主題：
@@ -40,7 +40,7 @@ ms.locfileid: "75365524"
   
 2. 按一下 [加入]，然後選取下列項目：
 
-   * 為新的 [Log Analytics 工作區] 提供名稱，例如 DefaultLAWorkspace。 這個名稱在所有 Azure 監視器訂用帳戶中必須是全域唯一的。
+   * 為新的 [Log Analytics 工作區] 提供名稱，例如 DefaultLAWorkspace。 此名稱在所有 Azure 監視器訂用帳戶中必須是全域唯一的。
    * 如果選取的預設值不合適，請從下拉式清單中選取要連結的 [訂用帳戶]。
    * 針對 [資源群組]，選擇使用已設定的現有資源群組，或建立新的群組。  
    * 選取可用的**位置**。  如需詳細資訊，請參閱[Log Analytics 可在哪些區域中使用](https://azure.microsoft.com/regions/services/)，以及從 [**搜尋產品**] 欄位搜尋 Azure 監視器。  

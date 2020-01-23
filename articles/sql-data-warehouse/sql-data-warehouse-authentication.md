@@ -11,19 +11,19 @@ ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fda29e432fbd952261893f3c32a4df7b9990ae66
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 706c68cb7a139a5c4f6def5aed7ad67e49090ede
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692927"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545138"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>驗證 Azure SQL 資料倉儲
 了解如何使用 Azure Active Directory (AAD) 或 SQL Server 驗證來驗證 Azure SQL 資料倉儲。
 
 若要連線到 SQL 資料倉儲，您必須傳入安全性認證進行驗證用途。 建立連線時，會設定特定的連線設定，以做為建立查詢工作階段的一部分。  
 
-如需安全性以及如何啟用您資料倉儲連線的詳細資訊，請參閱 [保護 SQL 資料倉儲中的資料庫][Secure a database in SQL Data Warehouse]。
+如需安全性以及如何啟用您資料倉儲連線的詳細資訊，請參閱 [保護 SQL 資料倉儲中的資料庫](sql-data-warehouse-overview-manage-security.md)。
 
 ## <a name="sql-authentication"></a>SQL 驗證
 若要連線到 SQL 資料倉儲，您必須提供下列資訊：
@@ -40,14 +40,14 @@ ms.locfileid: "73692927"
 * 在 SSDT 中建立工作階段之前，先反白顯示使用者資料庫。
 
 > [!NOTE]
-> 變更連線的資料庫時，Transact-SQL 陳述式 **USE MyDatabase;** 不受支援。 如需使用 SSDT 連線到 SQL 資料倉儲的指引，請參閱 [使用 Visual Studio 查詢][Query with Visual Studio] 文章。
+> 變更連線的資料庫時，Transact-SQL 陳述式 **USE MyDatabase;** 不受支援。 如需使用 SSDT 連線到 SQL 資料倉儲的指引，請參閱 [使用 Visual Studio 查詢](sql-data-warehouse-query-visual-studio.md) 文章。
 > 
 > 
 
 ## <a name="azure-active-directory-aad-authentication"></a>Azure Active Directory (AAD) 驗證
-[Azure Active Directory][What is Azure Active Directory]驗證是使用 Azure Active Directory （Azure AD）中的身分識別連接到 Microsoft Azure SQL 資料倉儲的機制。 您可以使用 Azure Active Directory 驗證，在單一中央位置集中管理資料庫使用者和其他 Microsoft 服務的身分識別。 中央識別碼管理提供單一位置以管理 SQL 資料倉儲使用者並簡化權限管理。 
+[Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)驗證是使用 Azure Active Directory （Azure AD）中的身分識別連接到 Microsoft Azure SQL 資料倉儲的機制。 您可以使用 Azure Active Directory 驗證，在單一中央位置集中管理資料庫使用者和其他 Microsoft 服務的身分識別。 中央識別碼管理提供單一位置以管理 SQL 資料倉儲使用者並簡化權限管理。 
 
-### <a name="benefits"></a>優點
+### <a name="benefits"></a>優勢
 Azure Active Directory 的優點包括：
 
 * 提供 SQL Server 驗證的替代方案。
@@ -60,7 +60,7 @@ Azure Active Directory 的優點包括：
 * 透過 Active Directory 適用于各種工具（包括[SQL Server Management Studio](../sql-database/sql-database-ssms-mfa-authentication.md)和[SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/sql-data-warehouse/toc.json)）的通用驗證，支援多重要素驗證。
 
 > [!NOTE]
-> Azure Active Directory 相對來說仍較新，且具有一些限制。 若要確定 Azure Active Directory 適合您的環境，請參閱 [Azure AD 功能和限制][Azure AD features and limitations]，特別是＜其他考量＞。
+> Azure Active Directory 相對來說仍較新，且具有一些限制。 若要確定 Azure Active Directory 適合您的環境，請參閱 [Azure AD 功能和限制](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations)，特別是＜其他考量＞。
 > 
 > 
 
@@ -81,10 +81,4 @@ Azure Active Directory 使用者目前不會顯示在 SSDT 物件總管中。 �
 * 建立自訂資料庫角色，並加入使用者至角色。 然後授與角色細微的權限。 如需詳細資訊，請參閱 [資料庫引擎權限使用者入門](https://msdn.microsoft.com/library/mt667986.aspx)。
 
 ## <a name="next-steps"></a>後續步驟
-若要透過 Visual Studio 和其他應用程式開始查詢您的資料倉儲，請參閱 [使用 Visual Studio 查詢][Query with Visual Studio]。
-
-<!-- Article references -->
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[What is Azure Active Directory]:../active-directory/fundamentals/active-directory-whatis.md
-[Azure AD features and limitations]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
+若要透過 Visual Studio 和其他應用程式開始查詢您的資料倉儲，請參閱 [使用 Visual Studio 查詢](sql-data-warehouse-query-visual-studio.md)。

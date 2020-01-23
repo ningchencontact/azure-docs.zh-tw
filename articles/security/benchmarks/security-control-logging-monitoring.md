@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: ceb82bf729470f9996bc9ecc766329a0d1242ec4
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: ae9c678d9dfca895ec74ed92bcb1b541db6b134e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930021"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545495"
 ---
 # <a name="security-control-logging-and-monitoring"></a>安全性控制：記錄和監視
 
@@ -77,7 +77,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 |--|--|--|
 | 2.4 | 6.2、6。3 | 客戶 |
 
-如果計算資源是由 Microsoft 所擁有，則 Microsoft 會負責監視它。 如果計算資源由您的組織所擁有，則您必須負責監視它。 您可以使用 Azure 資訊安全中心來監視 OS。 資訊安全中心從作業系統收集的資料包括作業系統類型和版本、OS （Windows 事件記錄）、執行中的進程、電腦名稱稱、IP 位址，以及登入的使用者。 Log Analytics 代理程式也會收集損毀傾印檔案。
+如果計算資源是由 Microsoft 所擁有，則 Microsoft 會負責監視它。 如果計算資源由您的組織所擁有，則您必須負責監視它。 您可以使用 Azure 資訊安全中心來監視 OS。 資訊安全中心從作業系統收集的資料包括作業系統類型和版本、作業系統記錄（Windows 事件記錄）、執行中的進程、電腦名稱稱、IP 位址，以及已登入的使用者。 Log Analytics 代理程式也會收集損毀傾印檔案。
 
 如何使用 Azure 監視器收集 Azure 虛擬機器內部主機記錄檔：
 

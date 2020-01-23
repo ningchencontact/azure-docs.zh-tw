@@ -1,25 +1,23 @@
 ---
 title: (已被取代) Azure Container Service 教學課程 - 部署應用程式
 description: Azure Container Service 教學課程 - 部署應用程式
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: dafbb8d1221d5e9c6194611ad338b3714a089cea
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7e10fd982c19e45be8c5da4ffc7f7248276352c1
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998783"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275482"
 ---
 # <a name="deprecated-run-applications-in-kubernetes"></a>(已被取代) 在 Kubernetes 中執行應用程式
 
 > [!TIP]
-> 如需本教學課程中使用 Azure Kubernetes Service 的更新版本，請參閱[教學課程：執行 Azure Kubernetes Service (AKS) 中的應用程式](../../aks/tutorial-kubernetes-deploy-application.md)。
+> 如需使用 Azure Kubernetes Service 的本教學課程更新版本，請參閱[教學課程：執行 Azure Kubernetes Service (AKS) 中的應用程式](../../aks/tutorial-kubernetes-deploy-application.md)。
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

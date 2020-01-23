@@ -6,17 +6,16 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: 2cef965f8ba23e31444d8dd8e36cdfc51afa15f6
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 6bb8dfc4b85da47a70ba768400341317462bafd8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513247"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543472"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Azure Logic Apps 中觸發程式和動作類型的架構參考指南
 
-此參考描述用來在邏輯應用程式基礎工作流程定義中識別觸發程式和動作的一般類型，這是由[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)所描述和驗證。
-若要尋找您可以在邏輯應用程式中使用的特定連接器觸發程式和動作，請參閱[連接器總覽](https://docs.microsoft.com/connectors/)底下的清單。
+此參考描述用來在邏輯應用程式基礎工作流程定義中識別觸發程式和動作的一般類型，這是由[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)所描述和驗證。 若要尋找您可以在邏輯應用程式中使用的特定連接器觸發程式和動作，請參閱[連接器總覽](https://docs.microsoft.com/connectors/)底下的清單。
 
 <a name="triggers-overview"></a>
 
@@ -26,7 +25,7 @@ ms.locfileid: "76513247"
 
 * 輪詢觸發程序，用來定期檢查服務的端點
 
-* 推送觸發程序，用來建立端點的訂閱，並提供*回呼 URL*，讓端點在指定的事件發生或資料可供使用時，可以通知觸發程序。 然後，觸發程序會等到端點回應後才引發。 
+* 推送觸發程序，用來建立端點的訂閱，並提供*回呼 URL*，讓端點在指定的事件發生或資料可供使用時，可以通知觸發程序。 然後，觸發程序會等到端點回應後才引發。
 
 觸發程序具有下列最上層元素 (儘管有些是選用元素)：  
   
@@ -127,15 +126,15 @@ ms.locfileid: "76513247"
 
 *必要*
 
-| 值 | 類型 | 說明 | 
-|-------|------|-------------| 
-| <*APIConnection_trigger_name*> | String | 觸發程序的名稱 | 
-| <*connection-name*> | String | 工作流程所使用的受控 API 連線名稱 | 
-| <*method-type*> | String | 與受控 API 通訊時所使用的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" | 
-| <*api-operation*> | String | 要呼叫的 API 作業 | 
-| <*time-unit*> | String | 說明觸發程序多久引發一次的時間單位：[秒]、[分鐘]、[小時]、[天]、[週]、[月] | 
-| <*number-of-time-units*> | 整數 | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
-|||| 
+| 值 | 類型 | 說明 |
+|-------|------|-------------|
+| <*APIConnection_trigger_name*> | String | 觸發程序的名稱 |
+| <*connection-name*> | String | 工作流程所使用的受控 API 連線名稱 |
+| <*method-type*> | String | 與受控 API 通訊時所使用的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" |
+| <*api-operation*> | String | 要呼叫的 API 作業 |
+| <*time-unit*> | String | 說明觸發程序多久引發一次的時間單位：[秒]、[分鐘]、[小時]、[天]、[週]、[月] |
+| <*number-of-time-units*> | 整數 | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 |
+||||
 
 *選擇性*
 
@@ -143,7 +142,7 @@ ms.locfileid: "76513247"
 |-------|------|-------------| 
 | <*retry-behavior*> | JSON 物件 | 自訂間歇性失敗 (狀態碼為 408、429 和 5XX) 和任何連線例外狀況的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md#retry-policies)。 | 
 | <*query-parameters*> | JSON 物件 | 要包含在 API 呼叫中的任何查詢參數。 例如，`"queries": { "api-version": "2018-01-01" }` 物件會將 `?api-version=2018-01-01` 新增至呼叫。 | 
-| <*max-runs*> | 整數 | 根據預設，工作流程實例會在同一時間執行，或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
+| <*max-runs*> | 整數 | 根據預設，工作流程實例會以相同的時間（並行或平行）執行，直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
 | <*max-runs-queue*> | 整數 | 當您的工作流程已執行實例數目上限（您可以根據 `runtimeConfiguration.concurrency.runs` 屬性來變更）時，任何新的回合都會放入此佇列中，直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
 | <*splitOn-expression*> | String | 針對會傳回陣列的觸發程序，此運算式會參考要使用的陣列，讓您可以為每個陣列項目建立和執行工作流程執行個體，而非使用 "for each" 迴圈。 <p>例如，此運算式表示在觸發程序的主體內容中傳回的陣列項目：`@triggerbody()?['value']` |
 | <*operation-option*> | String | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 |
@@ -160,7 +159,7 @@ ms.locfileid: "76513247"
 
 *範例*
 
-此觸發程序定義會每天在 Office 365 Outlook 帳戶的收件匣內檢查電子郵件： 
+此觸發程序定義會每天在 Office 365 Outlook 帳戶的收件匣內檢查電子郵件：
 
 ```json
 "When_a_new_email_arrives": {
@@ -233,7 +232,7 @@ ms.locfileid: "76513247"
 |-------|------|-------------| 
 | <*retry-behavior*> | JSON 物件 | 自訂間歇性失敗 (狀態碼為 408、429 和 5XX) 和任何連線例外狀況的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md#retry-policies)。 | 
 | <*query-parameters*> | JSON 物件 | 要包含在 API 呼叫中的任何查詢參數 <p>例如，`"queries": { "api-version": "2018-01-01" }` 物件會將 `?api-version=2018-01-01` 新增至呼叫。 | 
-| <*max-runs*> | 整數 | 根據預設，工作流程實例會在同一時間執行，或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
+| <*max-runs*> | 整數 | 根據預設，工作流程實例會以相同的時間（並行或平行）執行，直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
 | <*max-runs-queue*> | 整數 | 當您的工作流程已執行實例數目上限（您可以根據 `runtimeConfiguration.concurrency.runs` 屬性來變更）時，任何新的回合都會放入此佇列中，直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
 | <*splitOn-expression*> | String | 針對會傳回陣列的觸發程序，此運算式會參考要使用的陣列，讓您可以為每個陣列項目建立和執行工作流程執行個體，而非使用 "for each" 迴圈。 <p>例如，此運算式表示在觸發程序的主體內容中傳回的陣列項目：`@triggerbody()?['value']` |
 | <*operation-option*> | String | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
@@ -319,7 +318,7 @@ ms.locfileid: "76513247"
 | `body` | <*body-content*> | JSON 物件 | 要以承載的形式透過要求傳送的訊息內容 |
 | `authentication` | <*驗證-類型和屬性值*> | JSON 物件 | 要求用來驗證輸出要求的驗證模型。 如需詳細資訊，請參閱[將驗證新增至輸出呼叫](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)。 除了排程器之外，還可支援 `authority` 屬性。 若未指定，則預設值為 `https://management.azure.com/`，但您可以使用不同的值。 |
 | `retryPolicy` > `type` | <*retry-behavior*> | JSON 物件 | 自訂間歇性失敗 (狀態碼為 408、429 和 5XX) 和任何連線例外狀況的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md#retry-policies)。 |
-| `runs` | <*max-runs*> | 整數 | 根據預設，工作流程實例會在同一時間執行，或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 |
+| `runs` | <*max-runs*> | 整數 | 根據預設，工作流程實例會以相同的時間（並行或平行）執行，直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 |
 | `maximumWaitingRuns` | <*max-runs-queue*> | 整數 | 當您的工作流程已執行實例數目上限（您可以根據 `runtimeConfiguration.concurrency.runs` 屬性來變更）時，任何新的回合都會放入此佇列中，直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 |
 | `operationOptions` | <*operation-option*> | String | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 |
 |||||
@@ -361,8 +360,7 @@ ms.locfileid: "76513247"
 
 此觸發程序會建立可藉由呼叫指定的端點 URL 來註冊訂閱的端點，讓您的邏輯應用程式可供呼叫。 當您在工作流程中建立此觸發程序時，連出要求將會使呼叫註冊訂閱。 如此，觸發程序即可開始接聽事件。 若有作業使這個觸發程序失效，連出要求即會自動使呼叫取消訂閱。 如需詳細資訊，請參閱[端點訂閱](#subscribe-unsubscribe)。
 
-您也可以指定 **HTTPWebhook** 觸發程序的[非同步限制](#asynchronous-limits)。
-此觸發程序的行為取決於您所使用或省略的區段。 
+您也可以指定 **HTTPWebhook** 觸發程序的[非同步限制](#asynchronous-limits)。 此觸發程序的行為取決於您所使用或省略的區段。
 
 ```json
 "HTTP_Webhook": {
@@ -414,7 +412,7 @@ ms.locfileid: "76513247"
 | <*body-content*> | String | 要在訂閱或取消要求中傳送的任何訊息內容 | 
 | <*驗證類型*> | JSON 物件 | 要求用來驗證輸出要求的驗證模型。 如需詳細資訊，請參閱[將驗證新增至輸出呼叫](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)。 |
 | <*retry-behavior*> | JSON 物件 | 自訂間歇性失敗 (狀態碼為 408、429 和 5XX) 和任何連線例外狀況的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md#retry-policies)。 | 
-| <*max-runs*> | 整數 | 根據預設，工作流程實例會在同一時間執行，或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
+| <*max-runs*> | 整數 | 根據預設，工作流程實例會同時（以並行或平行方式）執行，直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
 | <*max-runs-queue*> | 整數 | 當您的工作流程已執行實例數目上限（您可以根據 `runtimeConfiguration.concurrency.runs` 屬性來變更）時，任何新的回合都會放入此佇列中，直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
 | <*operation-option*> | String | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
 |||| 
@@ -462,7 +460,7 @@ ms.locfileid: "76513247"
 
 ### <a name="recurrence-trigger"></a>循環觸發程序  
 
-此觸發程序會根據指定的週期排程來執行，並提供建立定期執行工作流程的簡單方式。 
+此觸發程序會根據指定的週期排程來執行，並提供建立定期執行工作流程的簡單方式。
 
 ```json
 "Recurrence": {
@@ -508,7 +506,7 @@ ms.locfileid: "76513247"
 | <*one-or-more-hour-marks*> | 整數或整數陣列 | 當您想要執行工作流程時，如果針對 `frequency` 指定 "Day" 或 "Week"，便可指定從 0 到 23 的一或多個整數 (以逗號分隔) 來表示一天中的哪幾個整點。 <p>例如，如果您指定 "10"、"12" 及 "14"，就會得出上午 10 點、下午 12 點及下午 2 點作為整點標記。 | 
 | <*one-or-more-minute-marks*> | 整數或整數陣列 | 當您想要執行工作流程時，如果針對 `frequency` 指定 "Day" 或 "Week"，便可指定從 0 到 59 的一或多個整數 (以逗號分隔) 來表示小時中的哪幾個分鐘。 <p>例如，您可以指定 "30" 作為分鐘標記，然後使用上個範例代表一天中的整點，這樣就會得出上午 10:30、下午 12:30 及下午 2:30。 | 
 | weekDays | 字串或字串陣列 | 當您想要執行工作流程時，如果針對 `frequency` 指定 "Week"，便可指定一或多天 (以逗號分隔)："Monday"、"Tuesday"、"Wednesday"、"Thursday"、"Friday"、"Saturday" 及 "Sunday" | 
-| <*max-runs*> | 整數 | 根據預設，工作流程實例會在同一時間執行，或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
+| <*max-runs*> | 整數 | 根據預設，工作流程實例會同時（以並行或平行方式）執行，直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
 | <*max-runs-queue*> | 整數 | 當您的工作流程已執行實例數目上限（您可以根據 `runtimeConfiguration.concurrency.runs` 屬性來變更）時，任何新的回合都會放入此佇列中，直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
 | <*operation-option*> | String | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
 |||| 
@@ -569,7 +567,7 @@ ms.locfileid: "76513247"
 
 ### <a name="request-trigger"></a>要求觸發程序
 
-此觸發程序會藉由建立可接受連入要求的端點，讓您的邏輯應用程式可供呼叫。 針對此觸發程序，請提供 JSON 結構描述，用以說明及驗證承載，或觸發程序從連入要求接收的輸入。 此結構描述也可讓工作流程中的後續動作更容易參考觸發程序屬性。 
+此觸發程序會藉由建立可接受連入要求的端點，讓您的邏輯應用程式可供呼叫。 針對此觸發程序，請提供 JSON 結構描述，用以說明及驗證承載，或觸發程序從連入要求接收的輸入。 此結構描述也可讓工作流程中的後續動作更容易參考觸發程序屬性。
 
 若要呼叫此觸發程序，您必須使用[工作流程服務 REST API](https://docs.microsoft.com/rest/api/logic/workflows) 中說明的 `listCallbackUrl` API。 若要了解如何使用這個觸發程序作為 HTTP 端點，請參閱[透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](../logic-apps/logic-apps-http-endpoint.md)。
 
@@ -615,14 +613,14 @@ ms.locfileid: "76513247"
 | <*method-type*> | String | 連入要求呼叫您的邏輯應用程式時所必須使用的方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" |
 | <*relative-path-for-accepted-parameter*> | String | 端點 URL 可接受的參數相對路徑 | 
 | <*required-properties*> | Array | 需要值的一或多個屬性 | 
-| <*max-runs*> | 整數 | 根據預設，工作流程實例會在同一時間執行，或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
+| <*max-runs*> | 整數 | 根據預設，工作流程實例會同時（以並行或平行方式）執行，直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
 | <*max-runs-queue*> | 整數 | 當您的工作流程已執行實例數目上限（您可以根據 `runtimeConfiguration.concurrency.runs` 屬性來變更）時，任何新的回合都會放入此佇列中，直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
 | <*operation-option*> | String | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
 |||| 
 
 *範例*
 
-此觸發程序會指定連入要求必須使用 HTTP POST 方法來呼叫觸發程序，並且包含結構描述可驗證來自連入要求的輸入： 
+此觸發程序會指定連入要求必須使用 HTTP POST 方法來呼叫觸發程序，並且包含結構描述可驗證來自連入要求的輸入：
 
 ```json
 "manual": {
@@ -674,7 +672,7 @@ ms.locfileid: "76513247"
 }
 ```
 
-根據預設，觸發程序只會在收到「200 確定」回應時引發。 當運算式參考觸發程序的狀態碼時，就會取代觸發程序的預設行為。 因此，如果您要針對多個狀態碼 (例如狀態碼 "200" 和 "201") 來引發觸發程序，您必須將此運算式納入您的條件中： 
+根據預設，觸發程序只會在收到「200 確定」回應時引發。 當運算式參考觸發程序的狀態碼時，就會取代觸發程序的預設行為。 因此，如果您要針對多個狀態碼 (例如狀態碼 "200" 和 "201") 來引發觸發程序，您必須將此運算式納入您的條件中：
 
 `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
 
@@ -682,15 +680,14 @@ ms.locfileid: "76513247"
 
 ## <a name="trigger-multiple-runs"></a>觸發多個執行
 
-如果觸發程序傳回要讓邏輯應用程式處理的陣列，有時候 "for each" 迴圈會花太多時間來處理每個陣列項目。 您可以改用觸發程序中的 **SplitOn** 屬性來對該陣列進行「解除批次」。 解除批次處理會分割陣列專案，並啟動針對每個陣列專案執行的新工作流程實例。 例如，當您想要輪詢的端點可能在輪詢間隔之間傳回多個新項目時，就適用此方法。
-如需 **SplitOn** 在單一邏輯應用程式中可處理的陣列項目數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 
+如果觸發程序傳回要讓邏輯應用程式處理的陣列，有時候 "for each" 迴圈會花太多時間來處理每個陣列項目。 您可以改用觸發程序中的 **SplitOn** 屬性來對該陣列進行「解除批次」。 解除批次處理會分割陣列專案，並啟動針對每個陣列專案執行的新工作流程實例。 例如，當您想要輪詢的端點可能在輪詢間隔之間傳回多個新項目時，就適用此方法。 如需 **SplitOn** 在單一邏輯應用程式中可處理的陣列項目數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 
 
 > [!NOTE]
 > 您無法將 **SplitOn** 用於同步回應模式。 任何使用 **SplitOn** 並包含回應動作的工作流程會以非同步的方式執行，且會立即傳送 `202 ACCEPTED` 回應。
 >
 > 啟用觸發程式並行時， [SplitOn 限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)會大幅降低。 如果專案數超過此限制，則會停用 SplitOn 功能。
  
-如果觸發程序的 Swagger 說明承載屬於陣列，則 **SplitOn** 屬性會自動新增至您的觸發程序。 否則，就要在其中有陣列需要解除批次的回應承載內，新增此屬性。 
+如果觸發程序的 Swagger 說明承載屬於陣列，則 **SplitOn** 屬性會自動新增至您的觸發程序。 否則，就要在其中有陣列需要解除批次的回應承載內，新增此屬性。
 
 *範例*
 
@@ -711,7 +708,7 @@ ms.locfileid: "76513247"
    ]
 }
 ```
- 
+
 您的邏輯應用程式只需要陣列中的 `Rows` 所包含的內容，因此您可以建立如下列範例所示的觸發程序：
 
 ``` json
@@ -758,9 +755,7 @@ ms.locfileid: "76513247"
 
 ## <a name="actions-overview"></a>動作概觀
 
-Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定義動作的獨特行為。 
-
-動作具有下列高階元素 (儘管有些是選用元素)：
+Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定義動作的獨特行為。 動作具有下列高階元素 (儘管有些是選用元素)：
 
 ```json
 "<action-name>": {
@@ -1000,8 +995,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 ### <a name="compose-action"></a>撰寫動作
 
-此動作會從多個輸入 (包括運算式) 建立單一輸出。 輸出和輸入都具有 Azure Logic Apps 原生支援的任何類型，例如陣列、JSON 物件、XML 和二進位檔。
-其後，您可以在其他動作中使用該動作的輸出。 
+此動作會從多個輸入 (包括運算式) 建立單一輸出。 輸出和輸入都具有 Azure Logic Apps 原生支援的任何類型，例如陣列、JSON 物件、XML 和二進位檔。 其後，您可以在其他動作中使用該動作的輸出。 
 
 ```json
 "Compose": {
@@ -1310,7 +1304,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 ### <a name="parse-json-action"></a>剖析 JSON 動作
 
-此動作會從 JSON 內容中的屬性建立易記的欄位或*權杖*。 其後，您可以在邏輯應用程式中改用權杖，以存取這些屬性。 例如，如果您想要使用 Azure 服務匯流排和 Azure Cosmos DB 等服務的 JSON 輸出，您可以在邏輯應用程式中納入此動作，這樣您就可以更輕鬆地參考該輸出中的資料。 
+此動作會從 JSON 內容中的屬性建立易記的欄位或*權杖*。 其後，您可以在邏輯應用程式中改用權杖，以存取這些屬性。 例如，如果您想要使用 Azure 服務匯流排和 Azure Cosmos DB 等服務的 JSON 輸出，您可以在邏輯應用程式中納入此動作，這樣您就可以更輕鬆地參考該輸出中的資料。
 
 ```json
 "Parse_JSON": {
@@ -1333,7 +1327,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *範例*
 
-此動作定義會建立您可以在工作流程中使用的這些權杖，但僅適用于遵循**PARSE JSON**動作執行的動作： 
+此動作定義會建立您可以在工作流程中使用的這些權杖，但僅適用于遵循**PARSE JSON**動作執行的動作：
 
 `FirstName`、`LastName` 和 `Email`
 
@@ -1525,7 +1519,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 ### <a name="select-action"></a>選取動作
 
-此動作會根據指定的對應從另一個陣列中轉換項目，以使用 JSON 物件建立陣列。 來源陣列與輸出陣列一律有相同數目的項目。 雖然您無法變更輸出陣列中的物件數目，但您可以為這些物件新增或移除屬性及其值。 `select` 屬性會指定至少一個索引鍵/值組，用以定義轉換來源陣列中的項目時的對應。 索引鍵/值組代表輸出陣列中所有物件的屬性及其值。 
+此動作會根據指定的對應從另一個陣列中轉換項目，以使用 JSON 物件建立陣列。 來源陣列與輸出陣列一律有相同數目的項目。 雖然您無法變更輸出陣列中的物件數目，但您可以為這些物件新增或移除屬性及其值。 `select` 屬性會指定至少一個索引鍵/值組，用以定義轉換來源陣列中的項目時的對應。 索引鍵/值組代表輸出陣列中所有物件的屬性及其值。
 
 ```json
 "Select": {
@@ -1554,7 +1548,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *範例*
 
-此動作定義會從整數陣列建立 JSON 物件陣列。 此動作會逐一查看來源陣列、使用 `@item()` 運算式取得每個整數值，並將每個值指派給各個 JSON 物件中的 "`number`" 屬性： 
+此動作定義會從整數陣列建立 JSON 物件陣列。 此動作會逐一查看來源陣列、使用 `@item()` 運算式取得每個整數值，並將每個值指派給各個 JSON 物件中的 "`number`" 屬性：
 
 ```json
 "Select": {
@@ -1659,11 +1653,11 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *範例 1*
 
-假設您有先前建立的 "myItemArray" 變數，且目前包含下列陣列： 
+假設您有先前建立的 "myItemArray" 變數，且目前包含下列陣列：
 
 `[ {"ID": 0, "Product_Name": "Apples"}, {"ID": 1, "Product_Name": "Oranges"} ]`
 
-此動作定義會從 "myItemArray" 變數建立 CSV 資料表。 `from` 屬性所使用的運算式會透過 `variables()` 函式從 "myItemArray" 取得陣列： 
+此動作定義會從 "myItemArray" 變數建立 CSV 資料表。 `from` 屬性所使用的運算式會透過 `variables()` 函式從 "myItemArray" 取得陣列：
 
 ```json
 "Create_CSV_table": {
@@ -1686,7 +1680,7 @@ ID,Product_Name
 
 *範例 2*
 
-此動作定義會從 "myItemArray" 變數建立 HTML 資料表。 `from` 屬性所使用的運算式會透過 `variables()` 函式從 "myItemArray" 取得陣列： 
+此動作定義會從 "myItemArray" 變數建立 HTML 資料表。 `from` 屬性所使用的運算式會透過 `variables()` 函式從 "myItemArray" 取得陣列：
 
 ```json
 "Create_HTML_table": {
@@ -1736,7 +1730,7 @@ ID,Product_Name
 
 ### <a name="terminate-action"></a>終止動作
 
-此動作會停止執行工作流程實例、取消任何進行中的動作、略過任何剩餘的動作，並傳回指定的狀態。 例如，您可以在邏輯應用程式因錯誤狀態而必須完全結束時，使用**終止**動作。 此動作不會影響已完成的動作，且不可出現在 **Foreach** 和 **Until** 迴圈 (包括循序迴圈) 內。 
+此動作會停止執行工作流程實例、取消任何進行中的動作、略過任何剩餘的動作，並傳回指定的狀態。 例如，您可以在邏輯應用程式因錯誤狀態而必須完全結束時，使用**終止**動作。 此動作不會影響已完成的動作，且不可出現在 **Foreach** 和 **Until** 迴圈 (包括循序迴圈) 內。
 
 ```json
 "Terminate": {
@@ -1789,9 +1783,9 @@ ID,Product_Name
 
 <a name="wait-action"></a>
 
-### <a name="wait-action"></a>等候動作  
+### <a name="wait-action"></a>等候動作
 
-此動作會在一段指定間隔內暫停工作流程的執行，或暫停到指定的時間為止 (並非同時滿足二個條件)。 
+此動作會在一段指定間隔內暫停工作流程的執行，或暫停到指定的時間為止 (並非同時滿足二個條件)。
 
 *指定的間隔*
 
@@ -1876,7 +1870,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 * 與父邏輯應用程式相同的 Azure 訂用帳戶
 
-* 若要在父邏輯應用程式中使用巢狀邏輯應用程式的輸出，巢狀邏輯應用程式必須具有[回應](#response-action)動作 
+* 若要在父邏輯應用程式中使用巢狀邏輯應用程式的輸出，巢狀邏輯應用程式必須具有[回應](#response-action)動作
 
 ```json
 "<nested-logic-app-name>": {
@@ -1920,7 +1914,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 *範例*
 
-在 "Start_search" 動作順利完成後，此工作流程動作定義會呼叫名為 "Get_product_information" 的另一個邏輯應用程式，而傳入指定的輸入： 
+在 "Start_search" 動作順利完成後，此工作流程動作定義會呼叫名為 "Get_product_information" 的另一個邏輯應用程式，而傳入指定的輸入：
 
 ```json
 "actions": {
@@ -1985,7 +1979,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 | 值 | 類型 | 說明 | 
 |-------|------|-------------| 
-| <*count*> | 整數 | 根據預設，"for each" 迴圈逐一查看會同時執行，或依據[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)以平行方式執行。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更 "for each" 迴圈並行](#change-for-each-concurrency)。 | 
+| <*count*> | 整數 | 根據預設，"for each" 迴圈反復專案會在相同時間（以並行或平行方式）執行，直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更 "for each" 迴圈並行](#change-for-each-concurrency)。 | 
 | <*operation-option*> | String | 若要以循序方式 (而非以平行方式) 執行 "for each" 迴圈，請將 <*operation-option*> 設定為 `Sequential` 或將 <*count*> 設定為 `1`，但勿同時設定兩者。 如需詳細資訊，請參閱[循序執行 "for each" 迴圈](#sequential-for-each)。 | 
 |||| 
 
@@ -2316,7 +2310,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 *範例*
 
-此迴圈動作定義會持續將 HTTP 要求傳送至指定的 URL，直到符合下列條件之一為止： 
+此迴圈動作定義會持續將 HTTP 要求傳送至指定的 URL，直到符合下列條件之一為止：
 
 * 要求取得狀態碼為「200 確定」的回應。
 * 迴圈已執行 60 次。
@@ -2364,7 +2358,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 ## <a name="change-asynchronous-duration"></a>變更非同步持續時間
 
-對於觸發程序和動作，您都可以藉由新增 `limit.timeout` 屬性，將非同步模式的持續時間限定於特定的時間間隔。 如此，若動作在間隔結束後仍未完成，動作的狀態就會標示為 `Cancelled`，且附有 `ActionTimedOut` 代碼。 `timeout` 屬性會使用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)。 
+對於觸發程序和動作，您都可以藉由新增 `limit.timeout` 屬性，將非同步模式的持續時間限定於特定的時間間隔。 如此，若動作在間隔結束後仍未完成，動作的狀態就會標示為 `Cancelled`，且附有 `ActionTimedOut` 代碼。 `timeout` 屬性會使用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)。
 
 ``` json
 "<trigger-or-action-name>": {
@@ -2381,13 +2375,13 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 ## <a name="runtime-configuration-settings"></a>執行階段組態設定
 
-您可以使用觸發程序或動作定義中的下列 `runtimeConfiguration` 屬性，變更觸發程序和動作的預設執行階段行為。
+您可以藉由將這些 `runtimeConfiguration` 屬性加入至觸發程式或動作定義，變更觸發程式和動作的預設執行時間行為。
 
 | 屬性 | 類型 | 說明 | 觸發程序或動作 | 
 |----------|------|-------------|-------------------| 
-| `runtimeConfiguration.concurrency.runs` | 整數 | 變更可同時執行的工作流程實例數目[*預設限制*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)，或平行處理。 此值有助於限制後端系統接收的要求數目。 <p>將 `runs` 屬性設定為 `1` 的效用，與將 `operationOptions` 屬性設定為 `SingleInstance` 相同。 您可以設定任一屬性，但勿同時設定。 <p>若要變更預設限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)或[循序觸發執行個體](#sequential-trigger)。 | 所有觸發程序 | 
-| `runtimeConfiguration.concurrency.maximumWaitingRuns` | 整數 | 變更當您的工作流程已執行最大並行實例時，可以等候執行的工作流程實例數目的[*預設限制*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 您可以在 `concurrency.runs` 屬性中變更並行限制。 <p>若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 所有觸發程序 | 
-| `runtimeConfiguration.concurrency.repetitions` | 整數 | 變更可同時 (或以平行方式) 執行的 "for each" 迴圈反覆項目數的[*預設限制*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 <p>將 `repetitions` 屬性設定為 `1` 的效用，與將 `operationOptions` 屬性設定為 `SingleInstance` 相同。 您可以設定任一屬性，但勿同時設定。 <p>若要變更預設限制，請參閱[變更 "for each" 並行](#change-for-each-concurrency)或[循序執行 "for each" 迴圈](#sequential-for-each)。 | 動作： <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.concurrency.runs` | 整數 | 變更可同時執行的工作流程實例數目的[*預設限制*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)（同時或並行）。 調整此值有助於限制後端系統接收的要求數目。 <p>將 `runs` 屬性設定為 `1` 的效用，與將 `operationOptions` 屬性設定為 `SingleInstance` 相同。 您可以設定任一屬性，但勿同時設定。 <p>若要變更預設限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)或[循序觸發執行個體](#sequential-trigger)。 | 所有觸發程序 | 
+| `runtimeConfiguration.concurrency.maximumWaitingRuns` | 整數 | 變更當您的邏輯應用程式已執行最大並行實例時，必須等候執行的工作流程實例數目[*預設限制*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 <p>若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 所有觸發程序 | 
+| `runtimeConfiguration.concurrency.repetitions` | 整數 | 變更可同時執行的 "for each" 迴圈反復專案數目的[*預設限制*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)（同時或並行）。 <p>將 `repetitions` 屬性設定為 `1` 的效用，與將 `operationOptions` 屬性設定為 `SingleInstance` 相同。 您可以設定任一屬性，但勿同時設定。 <p>若要變更預設限制，請參閱[變更 "for each" 並行](#change-for-each-concurrency)或[循序執行 "for each" 迴圈](#sequential-for-each)。 | 動作： <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | 整數 | 針對支援且已開啟分頁的特定動作，此值會指定要抓取的結果數目*下限*。 <p>若要開啟分頁，請參閱[使用分頁取得大量資料、專案或結果](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | 動作：變動 |
 | `runtimeConfiguration.secureData.properties` | Array | 在許多觸發程式和動作上，這些設定會隱藏輸入、輸出，或兩者都從邏輯應用程式的執行歷程記錄。 <p>若要保護此資料，請參閱[隱藏執行歷程記錄中的輸入和輸出](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view)。 | 大部分的觸發程式和動作 |
 | `runtimeConfiguration.staticResult` | JSON 物件 | 針對支援且已開啟[靜態結果](../logic-apps/test-logic-apps-mock-data-static-results.md)設定的動作，`staticResult` 物件具有下列屬性： <p>- `name`，它會參考目前動作的靜態結果定義名稱，這會出現在邏輯應用程式工作流程 `definition` 屬性的 `staticResults` 屬性中。 如需詳細資訊，請參閱[靜態結果-工作流程定義語言的架構參考](../logic-apps/logic-apps-workflow-definition-language.md#static-results)。 <p> - `staticResultOptions`，指定是否 `Enabled` 目前動作的靜態結果。 <p>若要開啟靜態結果，請參閱藉[由設定靜態結果來以模擬資料測試邏輯應用程式](../logic-apps/test-logic-apps-mock-data-static-results.md) | 動作：變動 |
@@ -2411,7 +2405,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 ### <a name="change-trigger-concurrency"></a>變更觸發程序並行
 
-根據預設，邏輯應用程式實例會以相同的時間（並行或平行）執行，直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 因此，每個觸發程式實例會在前一個工作流程實例執行完成之前引發。 此限制有助於控制後端系統接收的要求數目。 
+根據預設，邏輯應用程式工作流程實例會同時執行（同時或平行）。 這個行為表示每個觸發程式實例都會在先前作用中的工作流程實例執行完成之前引發。 不過，同時執行的實例數目具有[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 當同時執行的工作流程實例數目達到此限制時，任何其他的新實例都必須等候執行。 此限制有助於控制後端系統接收的要求數目。
 
 若要變更預設限制，您可以使用程式碼檢視編輯器或 Logic Apps 設計工具，因為透過此設計工具變更並行設定，會新增或更新基礎觸發程序定義中的 `runtimeConfiguration.concurrency.runs` 屬性，反之亦然。 這個屬性會控制可平行執行的工作流程實例數目上限。 以下是當您想要啟用並行存取控制時的一些考慮：
 
@@ -2428,7 +2422,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
        ![選取最早的執行中實例](./media/logic-apps-workflow-actions-triggers/waiting-runs.png)
 
        > [!TIP]
-       > 若只要查看仍在執行中的實例，請開啟 [**全部**] 清單，**然後選取 [執行中]** 。    
+       > 若只要查看仍在執行中的實例，請開啟 [**全部**] 清單，**然後選取 [執行中]** 。
 
     1. 在 [**邏輯應用程式執行**] 底下，選取 [**取消執行**]。
 
@@ -2444,11 +2438,11 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
        ![指定超時時間](./media/logic-apps-workflow-actions-triggers/timeout.png)
 
-* 如果您想要依序執行邏輯應用程式，您可以使用 [程式碼視圖編輯器] 或設計工具，將觸發程式的並行設定為 `1`。 不過，也不要將觸發程式的 `operationOptions` 屬性設定為在程式碼視圖編輯器中 `SingleInstance`。 否則，將會發生驗證錯誤。 如需詳細資訊，請參閱[循序觸發執行個體](#sequential-trigger)。
+* 若要循序執行邏輯應用程式，請使用 [程式碼視圖編輯器] 或設計工具，將觸發程式的並行設定為 `1`。 請確定您也不會在程式碼視圖編輯器中將觸發程式的 `operationOptions` 屬性設定為 [`SingleInstance`]。 否則，將會發生驗證錯誤。 如需詳細資訊，請參閱[循序觸發執行個體](#sequential-trigger)。
 
 #### <a name="edit-in-code-view"></a>在程式碼檢視中編輯 
 
-在基礎觸發程序定義中新增 `runtimeConfiguration.concurrency.runs` 屬性，或將其更新為 `1` 與 `50` 之間的值 (含此二值)。
+在基礎觸發程序定義中，加入 `runtimeConfiguration.concurrency.runs` 屬性，其值的範圍可從 `1` 到 `50`。
 
 以下是將並行執行的執行個體限制為 10 個的範例：
 
@@ -2467,26 +2461,30 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 }
 ```
 
+如需詳細資訊，請參閱[執行階段組態設定](#runtime-config-options)。
+
 #### <a name="edit-in-logic-apps-designer"></a>在 Logic Apps 設計工具中編輯
 
-1. 在觸發程序的右上角，選擇省略符號 (...) 按鈕，然後選擇 [設定]。
+1. 在觸發程式的右上角，選取省略號（ **...** ）按鈕，然後選取 [**設定**]。
 
-2. 在 [並行控制] 底下，將 [限制] 設定成 [開啟]。 
+1. 在 [並行控制] 底下，將 [限制] 設定成 [開啟]。 
 
-3. 將 [平行處理原則的程度] 滑桿拖曳至您要的值。 若要循序執行邏輯應用程式，將滑桿值拖曳至 [1]。
+1. 將 [平行處理原則的程度] 滑桿拖曳至您要的值。 若要循序執行邏輯應用程式，將滑桿值拖曳至 [1]。
 
 <a name="change-for-each-concurrency"></a>
 
 ### <a name="change-for-each-concurrency"></a>變更 "for each" 並行
 
-根據預設，"for each" 迴圈逐一查看會同時執行，或依據[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)以平行方式執行。 若要變更預設限制，您可以使用程式碼檢視編輯器或 Logic Apps 設計工具，因為透過此設計工具變更並行設定，會新增或更新基礎 "for each" 動作定義中的 `runtimeConfiguration.concurrency.repetitions` 屬性，反之亦然。 此屬性可控制能夠以平行方式執行的反覆項目數上限。
+根據預設，"for each" 迴圈反覆運算會同時執行（同時或平行）。 這個行為表示每個反復專案會在上一個反復專案執行完成之前開始執行。 不過，並存執行的反復專案數目有[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 當同時執行的反復專案數達到此限制時，任何其他反復專案都必須等候執行。
+
+若要變更預設限制，您可以使用程式碼檢視編輯器或 Logic Apps 設計工具，因為透過此設計工具變更並行設定，會新增或更新基礎 "for each" 動作定義中的 `runtimeConfiguration.concurrency.repetitions` 屬性，反之亦然。 此屬性可控制能夠以平行方式執行的反覆項目數上限。
 
 > [!NOTE] 
 > 如果您使用設計工具或程式碼檢視編輯器將 "for each" 動作設定為循序執行，請勿在程式碼檢視編輯器中將此動作的 `operationOptions` 屬性設定為 `Sequential`。 否則，將會發生驗證錯誤。 如需詳細資訊，請參閱[循序執行 "for each" 迴圈](#sequential-for-each)。
 
 #### <a name="edit-in-code-view"></a>在程式碼檢視中編輯 
 
-在基礎 "for each" 定義中新增 `runtimeConfiguration.concurrency.repetitions` 屬性，或將其更新為 `1` 與 `50` 之間的值 (含此二值)。 
+在基礎 "for each" 定義中，新增或更新 `runtimeConfiguration.concurrency.repetitions` 屬性，其值的範圍可以是 `1` 和 `50`。
 
 以下是將並行執行的反覆項目限制為 10 個的範例：
 
@@ -2504,23 +2502,25 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 }
 ```
 
+如需詳細資訊，請參閱[執行階段組態設定](#runtime-config-options)。
+
 #### <a name="edit-in-logic-apps-designer"></a>在 Logic Apps 設計工具中編輯
 
-1. 在 **For each** 動作的右上角選擇省略符號 (...) 按鈕，然後選擇 [設定]。
+1. 在**For each**動作的右上角，選取省略號（ **...** ）按鈕，然後選取 [**設定**]。
 
-2. 在 [並行控制] 底下，將 [並行控制] 設定成 [開啟]。 
+1. 在 [並行控制] 底下，將 [並行控制] 設定成 [開啟]。
 
-3. 將 [平行處理原則的程度] 滑桿拖曳至您要的值。 若要循序執行邏輯應用程式，將滑桿值拖曳至 [1]。
+1. 將 [平行處理原則的程度] 滑桿拖曳至您要的值。 若要循序執行邏輯應用程式，將滑桿值拖曳至 [1]。
 
 <a name="change-waiting-runs"></a>
 
 ### <a name="change-waiting-runs-limit"></a>變更等候執行數限制
 
-根據預設，邏輯應用程式工作流程實例會同時、並行或平行執行至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 每個觸發程式實例都會在先前作用中的工作流程實例執行完成之前引發。 雖然您可以[變更此預設限制](#change-trigger-concurrency)，但當工作流程實例數目達到新的平行存取限制時，任何其他的新實例都必須等候執行。 
+根據預設，邏輯應用程式工作流程實例會同時執行（同時或平行）。 這個行為表示每個觸發程式實例都會在先前作用中的工作流程實例執行完成之前引發。 不過，同時執行的實例數目具有[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 當同時執行的工作流程實例數目達到此限制時，任何其他的新實例都必須等候執行。
 
-可等候執行的數目也有其[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)，但您可加以變更。 不過，在邏輯應用程式達到等待執行的限制後，Logic Apps 引擎就不會再接受新的執行。 要求和 Webhook 觸發程序會傳回 429 錯誤，且週期性觸發程序會開始略過輪詢嘗試。
+等待執行的數目也有[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 當等候的執行數目達到此限制時，Logic Apps 引擎就不會再接受新的執行。 要求和 Webhook 觸發程序會傳回 429 錯誤，且週期性觸發程序會開始略過輪詢嘗試。
 
-若要變更等候執行的預設限制，請在基礎觸發程序定義中新增 `runtimeConfiguration.concurency.maximumWaitingRuns` 屬性，並將其設定為介於 `1` 與 `100` 之間的值。 
+您不僅可以[變更觸發程式並行的預設限制](#change-trigger-concurrency)，還可以變更等候執行的預設限制。 在基礎觸發程序定義中，加入 `runtimeConfiguration.concurrency.maximumWaitingRuns` 屬性，其值的範圍可從 `1` 到 `100`。
 
 ```json
 "<trigger-name>": {
@@ -2537,11 +2537,13 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 }
 ```
 
+如需詳細資訊，請參閱[執行階段組態設定](#runtime-config-options)。
+
 <a name="sequential-trigger"></a>
 
 ### <a name="trigger-instances-sequentially"></a>循序觸發執行個體
 
-若要在上一個實例執行完成之後，才執行每個邏輯應用程式工作流程實例，請將觸發程式設定為循序執行。 您可以使用程式碼檢視編輯器或 Logic Apps 設計工具，因為透過此設計工具變更並行設定，也會新增或更新基礎觸發程序定義中的 `runtimeConfiguration.concurrency.runs` 屬性，反之亦然。 
+若要在上一個實例執行完成之後，才執行每個邏輯應用程式工作流程實例，請將觸發程式設定為循序執行。 您可以使用程式碼檢視編輯器或 Logic Apps 設計工具，因為透過此設計工具變更並行設定，也會新增或更新基礎觸發程序定義中的 `runtimeConfiguration.concurrency.runs` 屬性，反之亦然。
 
 > [!NOTE] 
 > 如果您使用設計工具或程式碼檢視編輯器將觸發程序設定為循序執行，請勿在程式碼檢視編輯器中將觸發程序的 `operationOptions` 屬性設定為 `Sequential`。 否則，將會發生驗證錯誤。 
@@ -2582,19 +2584,21 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 }
 ```
 
+如需詳細資訊，請參閱[執行時間設定](#runtime-config-options)和[操作選項](#operation-options)。
+
 #### <a name="edit-in-logic-apps-designer"></a>在 Logic Apps 設計工具中編輯
 
-1. 在觸發程序的右上角，選擇省略符號 (...) 按鈕，然後選擇 [設定]。
+1. 在觸發程式的右上角，選取省略號（ **...** ）按鈕，然後選取 [**設定**]。
 
-2. 在 [並行控制] 底下，將 [限制] 設定成 [開啟]。 
+1. 在 [並行控制] 底下，將 [限制] 設定成 [開啟]。 
 
-3. 將 [平行處理原則的程度] 滑桿拖曳至數字 `1`。 
+1. 將 [平行處理原則的程度] 滑桿拖曳至數字 `1`。 
 
 <a name="sequential-for-each"></a>
 
 ### <a name="run-for-each-loops-sequentially"></a>循序執行 "for each" 迴圈
 
-若要等到上一個反覆項目執行完成後才執行 "for each" 迴圈反覆項目，請將 "for each" 動作設定為循序執行。 您可以使用程式碼檢視編輯器或 Logic Apps 設計工具，因為透過此設計工具變更動作的並行，也會新增或更新基礎動作定義中的 `runtimeConfiguration.concurrency.repetitions` 屬性，反之亦然。 
+若要等到上一個反覆項目執行完成後才執行 "for each" 迴圈反覆項目，請將 "for each" 動作設定為循序執行。 您可以使用程式碼檢視編輯器或 Logic Apps 設計工具，因為透過此設計工具變更動作的並行，也會新增或更新基礎動作定義中的 `runtimeConfiguration.concurrency.repetitions` 屬性，反之亦然。
 
 > [!NOTE] 
 > 如果您使用設計工具或程式碼檢視編輯器將 "for each" 動作設定為循序執行，請勿在程式碼檢視編輯器中將此動作的 `operationOptions` 屬性設定為 `Sequential`。 否則，將會發生驗證錯誤。 
@@ -2633,13 +2637,15 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 }
 ```
 
+如需詳細資訊，請參閱[執行時間設定](#runtime-config-options)和[操作選項](#operation-options)。
+
 #### <a name="edit-in-logic-apps-designer"></a>在 Logic Apps 設計工具中編輯
 
-1. 在 **For each** 動作的右上角選擇省略符號 (...) 按鈕，然後選擇 [設定]。
+1. 在**For each**動作的右上角，選取省略號（ **...** ）按鈕，然後選取 [**設定**]。
 
-2. 在 [並行控制] 底下，將 [並行控制] 設定成 [開啟]。 
+1. 在 [並行控制] 底下，將 [並行控制] 設定成 [開啟]。
 
-3. 將 [平行處理原則的程度] 滑桿拖曳至數字 `1`。 
+1. 將 [平行處理原則的程度] 滑桿拖曳至數字 `1`。
 
 <a name="asynchronous-patterns"></a>
 
@@ -2648,7 +2654,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 根據預設，所有 HTTP 型動作皆會依循標準的非同步作業模式。 此模式會指定當 HTTP 型動作傳送要求到指定的端點時，遠端伺服器會傳回「202 已接受」回應。 此回覆表示伺服器已接受要求並進行處理。 Logic Apps 引擎會持續檢查回應的位置標頭所指定的 URL，直到處理停止 (可從任何非 202 回應看出)。
 
 不過，要求有其逾時限制，因此對於長時間執行的動作，您可以藉由在動作的輸入下方新增 `operationOptions` 屬性並將其設定為 `DisableAsyncPattern`，來停用非同步行為。
-  
+
 ```json
 "<some-long-running-action>": {
    "type": "Http",
@@ -2658,11 +2664,13 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 }
 ```
 
+如需詳細資訊，請參閱[作業選項](#operation-options)。
+
 <a name="run-high-throughput-mode"></a>
 
 ### <a name="run-in-high-throughput-mode"></a>在高輸送量模式中執行
 
-針對單一邏輯應用程式定義，每5分鐘執行的動作數目都有[預設限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)。 若要[盡可能提高](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)此限制，請將 `operationOptions` 屬性設定為 `OptimizedForHighThroughput`。 此設定會讓邏輯應用程式處於「高輸送量」模式。 
+針對單一邏輯應用程式定義，每5分鐘執行的動作數目都有[預設限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)。 若要[盡可能提高](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)此限制，請將 `operationOptions` 屬性設定為 `OptimizedForHighThroughput`。 此設定會讓邏輯應用程式處於「高輸送量」模式。
 
 > [!NOTE]
 > 高輸送量模式為預覽狀態。 您也可以視需要將工作負載分散到多個邏輯應用程式。

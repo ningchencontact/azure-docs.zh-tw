@@ -4,15 +4,15 @@ description: 針對 Azure 檔案同步常見問題進行疑難排解。
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/8/2019
+ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 1b24258efdd75977b5571506b3eabf952a4ae0a4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: f211d1c1a8a315ed9d999d146ce4eaf28af43206
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027775"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545036"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -41,8 +41,28 @@ StorageSyncAgent.msi /l*v AFSInstaller.log
 
 若要解決此問題，請將 PDC 角色轉移到另一個執行 Windows Server 2012 R2 或更新版本的網域控制站，然後安裝同步代理程式。
 
-<a id="server-registration-prerequisites"></a> **[伺服器註冊] 會顯示下列訊息：「缺少必要元件」**
+<a id="parameter-is-incorrect"></a>**存取 Windows Server 2012 R2 上的磁片區失敗，發生錯誤：參數不正確**  
+在 Windows Server 2012 R2 上建立伺服器端點之後，存取磁片區時，會發生下列錯誤：
 
+磁碟機號： \無法存取。  
+參數錯誤。
+
+若要解決此問題，請安裝最新的 Windows Server 2012 R2 更新，然後重新開機伺服器。
+
+<a id="server-registration-missing-subscriptions"></a>**伺服器註冊不會列出所有的 Azure 訂用帳戶**  
+使用 Serverregistration.exe 註冊伺服器時，當您按一下 [Azure 訂用帳戶] 下拉式按鈕時，就會遺失訂閱。
+
+發生此問題的原因是 Serverregistration.exe 目前不支援多租使用者環境。 未來 Azure 檔案同步代理程式更新將會修正此問題。
+
+若要解決此問題，請使用下列 PowerShell 命令來註冊伺服器：
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+Login-AzureRmStorageSync -SubscriptionID "<guid>" -TenantID "<guid>"
+Register-AzureRmStorageSyncServer -SubscriptionId "<guid>" -ResourceGroupName "<string>" -StorageSyncServiceName "<string>"
+```
+
+<a id="server-registration-prerequisites"></a> **[伺服器註冊] 會顯示下列訊息：「缺少必要元件」**  
 如果未在 PowerShell 5.1 上安裝 Az 或 AzureRM PowerShell 模組，則會顯示此訊息。 
 
 > [!Note]  
@@ -304,6 +324,7 @@ PerItemErrorCount: 1006.
 | 0x8000ffff | -2147418113 | E_UNEXPECTED | 因為發生未預期的錯誤，所以無法同步檔案。 | 如果錯誤持續數天，請開啟支援案例。 |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | 無法同步檔案，因為它正在使用中。 檔案不再處於使用中狀態時即會同步。 | 不需要任何動作。 |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | 檔案在同步處理期間已變更，因此必須再次同步。 | 不需要任何動作。 |
+| 0x80070017 | -2147024873 | ERROR_CRC | 因為 CRC 錯誤，所以無法同步檔案。 如果未在刪除伺服器端點之前回收階層式檔案，或檔案已損毀，就會發生此錯誤。 | 若要解決此問題，請參閱在刪除伺服器端點以移除孤立的階層式檔案[之後，伺服器上的](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)階層式檔案無法存取。 如果移除 oprhaned 階層式檔案之後，錯誤仍持續發生，請在磁片區上執行[chkdsk](https://docs.microsoft.com/windows-server/administration/windows-commands/chkdsk) 。 |
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | 無法同步檔案，因為已達到衝突檔案的最大數目。 Azure 檔案同步支援每個檔案100個衝突檔案。 若要深入瞭解檔案衝突，請參閱 Azure 檔案同步[常見問題](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution)。 | 若要解決此問題，請減少衝突檔案數。 一旦衝突檔案的數目小於100，檔案就會同步處理。 |
 
 #### <a name="handling-unsupported-characters"></a>處理不支援的字元
@@ -435,6 +456,17 @@ PerItemErrorCount: 1006.
 
 1. [確認儲存體帳戶確實存在。](#troubleshoot-storage-account)
 2. [請確認是否已在儲存體帳戶上正確設定防火牆和虛擬網路設定 (若已啟用的話)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+<a id="-2134364014"></a>**因為儲存體帳戶已鎖定，所以同步失敗。**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83092 |
+| **HRESULT (十進位)** | -2134364014 |
+| **錯誤字串** | ECS_E_STORAGE_ACCOUNT_LOCKED |
+| **需要補救** | 是 |
+
+之所以發生此錯誤，是因為儲存體帳戶具有唯讀的[資源鎖定](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources)。 若要解決此問題，請移除儲存體帳戶上的唯讀資源鎖定。 
 
 <a id="-1906441138"></a>**同步因同步資料庫發生問題而失敗。**  
 

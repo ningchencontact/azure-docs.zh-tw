@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: df2eb0886b71a2d5daaa95f33ef29a2afc7e112a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 11e6285ef70ffde5344add951801997f8541eaad
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980723"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543098"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>建立、變更或刪除網路介面
 
@@ -90,7 +90,7 @@ ms.locfileid: "75980723"
    - **屬性︰** 顯示有關網路介面的重要設定，包括其 MAC 位址 (如果網路介面未連結至虛擬機器，則位址會空白) 以及其所在的訂用帳戶。
    - **有效安全性規則︰** 如果網路介面已連結至執行中的虛擬機器，而且 NSG 與網路介面、為它指派的子網路或兩者相關聯，則會列出安全性規則。 若要深入了解顯示的內容，請參閱[檢視有效的安全性規則](#view-effective-security-rules)。 若要深入了解 NSG，請參閱[網路安全性群組](security-overview.md)。
    - **有效路由︰** 如果網路介面已連結至執行中的虛擬機器，則會列出路由。 路由是下列各項的組合：Azure 預設路由、任何使用者定義的路由，以及為網路介面所指派子網路的任何可能 BGP 路由。 若要深入了解所顯示的內容，請參閱[檢視有效的路由](#view-effective-routes)。 若要深入了解 Azure 預設路由和使用者定義的路由，請閱讀[路由概觀](virtual-networks-udr-overview.md)。
-   - **一般 Azure Resource Manager 設定：** 若要深入了解一般 Azure Resource Manager 設定，請參閱[活動記錄](../azure-monitor/platform/platform-logs-overview.md)、[存取控制 (IAM)](../role-based-access-control/overview.md)、[標記](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[鎖定](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[自動化指令碼](../azure-resource-manager/templates/export-template-portal.md)。
+一般 Azure Resource Manager 設定：若要深入瞭解常見的 Azure Resource Manager 設定，請參閱[活動記錄](../azure-monitor/platform/platform-logs-overview.md)、[存取控制（IAM）](../role-based-access-control/overview.md)、[標記](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[鎖定](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[自動化腳本](../azure-resource-manager/templates/export-template-portal.md)。
 
 <a name="view-settings-commands"></a>**命令**
 
@@ -168,7 +168,7 @@ IP 轉送讓網路介面連接的虛擬機器能夠：
 如果網路介面是連接至虛擬機器，您只能使用入口網站在應用程式安全性群組中新增或移除網路介面。 無論網路介面是否連接至虛擬機器，您都可以使用 PowerShell 或 Azure CLI 在應用程式安全性群組中新增或移除網路介面。 深入了解[應用程式安全性群組](security-overview.md#application-security-groups)和如何[建立應用程式安全性群組](manage-network-security-group.md)。
 
 1. 在入口網站頂端的 [搜尋資源、服務和文件] 方塊中，開始輸入您想要在應用程式安全性群組中新增或移除其網路介面的虛擬機器名稱。 當 VM 的名稱出現在搜尋結果中時，請加以選取。
-2. 在 [設定] 底下，選取 [網路]。  選取 [設定應用程式安全性群組]，選取您想要新增網路介面的應用程式安全性群組，或取消選取您想要移除網路介面的應用程式安全性群組，然後選取 [儲存]。 只有同一個虛擬網路中存在的網路介面可新增到同一個應用程式安全性群組。 應用程式安全性群組必須存在於網路介面所在的同一個位置。
+2. 在 [設定] 底下，選取 [網路]。  選取 [**應用程式安全性群組**]，然後**設定 [應用程式安全性群組**]，選擇您想要新增網路介面的應用程式安全性群組，或取消選取您想要移除網路介面的應用程式安全性群組，然後選取 [**儲存**]。 只有同一個虛擬網路中存在的網路介面可新增到同一個應用程式安全性群組。 應用程式安全性群組必須存在於網路介面所在的同一個位置。
 
 **命令**
 
@@ -196,8 +196,8 @@ IP 轉送讓網路介面連接的虛擬機器能夠：
 只要網路介面未連接至虛擬機器，您便可將它刪除。 如果網路介面已連接至虛擬機器，您必須先讓虛擬機器進入已停止 (已解除配置) 狀態，接著再中斷連結網路介面與虛擬機器。 若要讓網路介面與虛擬機器中斷連結，請完成[讓網路介面與虛擬機器中斷連結](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm)中的步驟。 但是，如果該網路介面是連接至虛擬機器的唯一網路介面，則無法將它從虛擬機器中斷連結。 虛擬機器必須一律至少有一個連接的網路介面。 刪除虛擬機器會中斷連結所有已連接的網路介面，但不會刪除網路介面。
 
 1. 在 Azure 入口網站頂端包含「搜尋資源」文字的方塊中，輸入「網路介面」。 當**網路介面**出現於搜尋結果時，請選取它。
-2. 選取要從網路介面清單中刪除之網路介面右邊的 [...]。
-3. 選取 [刪除]。
+2. 在清單中選取您想要刪除的網路介面。
+3. 在 **[總覽**] 底下，選取 [**刪除**]。
 4. 選取 [是] 以確認刪除網路介面。
 
 當您刪除網路介面時，會釋出指派給它的所有 MAC 或 IP 位址。

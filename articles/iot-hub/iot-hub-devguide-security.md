@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: b84855057b43daa0aeff4878a69dac4ae765d2ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 47eae55493c5db281ee1be0f9d32f8f8190fc286
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429312"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546940"
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中樞的存取權
 
@@ -347,7 +347,7 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 ## <a name="supported-x509-certificates"></a>支援的 X.509 憑證
 
-您可以使用任何 X.509 憑證來利用 IoT 中樞驗證裝置，只要將憑證指紋或憑證授權單位 (CA) 上傳至 Azure IoT 中樞即可。 使用憑證指紋來進行驗證時，只會驗證提供的憑證指紋與設定的憑證指紋是否相符。 使用憑證授權單位來進行驗證時，則會驗證憑證鏈結。 
+您可以使用任何 X.509 憑證來利用 IoT 中樞驗證裝置，只要將憑證指紋或憑證授權單位 (CA) 上傳至 Azure IoT 中樞即可。 使用憑證指紋進行驗證，會驗證出示的指紋是否符合設定的指紋。 使用憑證授權單位來進行驗證時，則會驗證憑證鏈結。 不論是哪一種情況，TLS 交握都需要裝置具有有效的憑證和私密金鑰。 如需詳細資訊，請參閱 TLS 規格，例如： [RFC 5246-傳輸層安全性（TLS）通訊協定版本 1.2](https://tools.ietf.org/html/rfc5246/)。
 
 支援的憑證包含：
 
@@ -461,6 +461,8 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 * [IoT 中樞查詢語言](iot-hub-devguide-query-language.md)描述可用來從 IoT 中樞擷取有關裝置對應項和作業之資訊的查詢語言。
 
 * [IoT 中樞 MQTT 支援](iot-hub-mqtt-support.md)針對 MQTT 通訊協定提供 IoT 中樞支援的詳細資訊。
+
+* [RFC 5246-傳輸層安全性（TLS）通訊協定版本 1.2](https://tools.ietf.org/html/rfc5246/)提供 TLS 驗證的詳細資訊。
 
 ## <a name="next-steps"></a>後續步驟
 

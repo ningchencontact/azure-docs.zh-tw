@@ -1,14 +1,14 @@
 ---
 title: 檢視及管理客戶與委派的資源
 description: 身為使用 Azure 委派的資源管理的服務提供者，您可以移至 Azure 入口網站中的 [我的客戶] 來檢視所有委派的客戶資源與訂用帳戶。
-ms.date: 12/18/2019
+ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac268d2899dcc3d940072bfbfd17770044dc3c66
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d4b3187066754e8a549f029623762df539b30b1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456825"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543421"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>檢視及管理客戶與委派的資源
 
@@ -40,13 +40,20 @@ ms.locfileid: "75456825"
 - 若要查看某個供應項目與其委派的更多詳細資料，請選取該供應項目的名稱。
 - 若要檢視所委派訂用帳戶或資源群組的角色指派詳細資料，請在 [委派] 欄中選取該項目。
 
-## <a name="view-delegations"></a>檢視委派
+## <a name="view-and-manage-delegations"></a>查看和管理委派
 
 [委派] 會顯示已委派的訂用帳戶/資源群組，以及能夠存取它的使用者與權限。 若要檢視此資訊，請選取位於 [我的客戶] 頁面左側的 [委派]。
 
 頁面頂端的篩選可讓您對存取指派進行排序及分組，或是依特定客戶、供應項目或關鍵字進行篩選。
 
+### <a name="view-role-assignments"></a>檢視角色指派
+
 與每個委派相關聯的使用者和權限會顯示在 [角色指派] 欄中。 您可以選取每個項目來檢視已被授與該訂用帳戶或資源群組存取權的使用者、群組與服務主體完整清單。 從那裡，您可以選取特定的使用者、群組或服務主體名稱來取得更多詳細資料。
+
+### <a name="remove-delegations"></a>移除委派
+
+如果您在將客戶上線以進行 Azure 委派的資源管理時，包含具有[受控服務註冊指派刪除角色](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)的使用者，則這些使用者可以藉由選取出現在該委派資料列中的垃圾桶圖示來移除委派。 當他們這麼做時，服務提供者租使用者中的任何使用者都無法存取先前已委派的資源。
+
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>在委派之訂用帳戶的內容中工作
 

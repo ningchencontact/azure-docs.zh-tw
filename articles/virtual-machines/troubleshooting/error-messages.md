@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 3b8c9c80c93430d8dc5a888742e4e4e96ba99400
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f5639d1cf94c77d699dc6de9841698b045ac1f96
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695317"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543013"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>了解當您在 Azure 中管理虛擬機器時，常見的錯誤訊息
 
@@ -37,7 +37,7 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
     "message":"Top level error message",
     "details":[
      {
-      "code":"Inner evel error code",
+      "code":"Inner level error code",
       "message":"Inner level error message"
      }
     ]
@@ -99,8 +99,8 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  InvalidParameter  |  提供的密碼長度必須介於 {0}-{1} 個字元之間，而且至少必須符合下列其中 {2} 項對密碼複雜性的要求： <ol><li> 包含大寫字元</li><li>包含小寫字元</li><li>包含數字</li><li>包含特殊字元。</li></ol>  |
 |  InvalidParameter  |  不允許指定的系統管理員使用者名稱。  |
 |  InvalidParameter  |  如果從平台或使用者映像建立 VM，將無法連結現有的作業系統磁碟。  |
-|  InvalidParameter  |  容器名稱 {0} 無效。 容器名稱長度必須是 3-63 個字元，而且只能包含小寫英數字元和連字號。 連字號必須前面和後面接著英數字元。  |
-|  InvalidParameter  |  URL {1} 中的容器名稱 {0} 無效。 容器名稱長度必須是 3-63 個字元，而且只能包含小寫英數字元和連字號。 連字號必須前面和後面接著英數字元。  |
+|  InvalidParameter  |  容器名稱 {0} 無效。 容器名稱長度必須是 3-63 個字元，而且只能包含小寫英數字元和連字號。 連字號的前面必須加上英數位元。  |
+|  InvalidParameter  |  URL {1} 中的容器名稱 {0} 無效。 容器名稱長度必須是 3-63 個字元，而且只能包含小寫英數字元和連字號。 連字號的前面必須加上英數位元。  |
 |  InvalidParameter  |  URL {0} 中的 blob 名稱包含斜線。 磁碟目前不支援這種作法。  |
 |  InvalidParameter  |  URI {0} 似乎不是正確的 blob URI。  |
 |  InvalidParameter  |  名為 '{0}' 的磁碟已使用相同的 LUN：{1}。  |
@@ -108,7 +108,7 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  InvalidParameter  |  無法為指定的映像參考中已定義的磁碟，指定使用者映像覆寫。  |
 |  InvalidParameter  |  名為 '{0}' 的磁碟已使用相同的 VHD URL {1}。  |
 |  InvalidParameter  |  指定的錯誤網域計數 {0} 必須介於 {1} 到 {2} 之間。  |
-|  InvalidParameter  |  授權類型 {0} 無效。 有效授權類型為：Windows_Client 或 Windows_Server (區分大小寫)。  |
+|  InvalidParameter  |  授權類型 {0} 無效。 有效授權類型為: Windows_Client 或 Windows_Server (區分大小寫)。  |
 |  InvalidParameter  |  Linux 主機名稱長度不可超過 {0} 個字元，也不得包含下列字元：{1}。  |
 |  InvalidParameter  |  由於 Linux 佈建代理程式中的已知問題，SSH 公開金鑰的目的地路徑目前僅限於其預設值 {0}。  |
 |  InvalidParameter  |  已有磁碟的 LUN 為 {0}。  |
@@ -179,7 +179,7 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  OSProvisioningTimedOut  |  VM '{0}'的 OS 佈建未於配置的時間內完成。 VM 仍可能成功完成佈建。 請稍後再查看佈建狀態。 也請確認已正確備妥 (一般化) 映像。   <ul><li>適用於 Windows 的指示： https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> 適用於 Linux 的指示： https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OSProvisioningTimedOut  |  VM '{0}'的 OS 佈建未於配置的時間內完成。 不過，已偵測到 VM 客體代理程式正在執行。 這表示客體 OS 尚未備妥做為 VM 映像 (CreateOption=FromImage)。 若要解決此問題，請依現狀使用 VHD 並指定 CreateOption=Attach，或適當備妥它做為映像：   <ul><li>適用於 Windows 的指示： https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> 適用於 Linux 的指示： https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  選取的位置目前沒有所要求的 VM 大小可用。  |
-|  ResourceUpdateBlockedOnPlatformUpdate  |  因為目前正在執行平台更新，所以無法更新資源。 請稍後再試一次。  |
+|  ResourceUpdateBlockedOnPlatformUpdate  |  因為目前正在執行平台更新，所以無法更新資源。 請稍後再試。  |
 |  StorageAccountLimitation  |  儲存體帳戶 '{0}' 不支援建立磁碟所需的分頁 blob。  |
 |  StorageAccountLimitation  |  儲存體帳戶 '{0}' 超過其配置的配額。  |
 |  StorageAccountLocationMismatch  |  無法解析儲存體帳戶 {0}。 請確定用來建立帳戶的儲存體資源提供者與計算資源位於相同的位置。  |
@@ -205,7 +205,7 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  VMExtensionManagementInternalError  |  準備 VM 擴充時發生多個錯誤。 如需詳細資訊，請參閱 VM 擴充執行個體檢視。  |
 |  VMExtensionProvisioningError  |  VM 回報在處理擴充 '{0}' 時失敗。 錯誤訊息："{1}"。  |
 |  VMExtensionProvisioningError  |  多個 VM 擴充無法佈建在 VM 上。 如需詳細資訊，請參閱 VM 擴充執行個體檢視。  |
-|  VMExtensionProvisioningTimeout  |  VM 擴充 '{0}' 的佈建已逾時。擴充安裝可能花太長的時間，或無法取得擴充狀態。  |
+|  VMExtensionProvisioningTimeout  |  VM 擴充功能 '{0}' 的布建已超時。延伸模組安裝可能會花費太長的時間，或無法取得延伸模組狀態。  |
 |  VMMarketplaceInvalidInput  |  從非 Marketplace 映像建立虛擬機器不需要方案資訊，請移除要求中的方案資訊。 作業系統磁碟名稱是 {0}。  |
 |  VMMarketplaceInvalidInput  |  購買資訊不符。 無法從 Marketplace 映像部署。 作業系統磁碟名稱是 {0}。  |
 |  VMMarketplaceInvalidInput  |  要求中必須有方案資訊，才能從 Marketplace 映像建立虛擬機器。 作業系統磁碟名稱是 {0}。  |
@@ -216,4 +216,4 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 
 
 ## <a name="next-steps"></a>後續步驟
-如果您需要更多協助，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。
+如果您需要更多協助，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。

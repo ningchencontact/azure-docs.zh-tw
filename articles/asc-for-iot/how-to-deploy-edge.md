@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: e85738c344189486726b4e7b7f5a76ab03c0ffa9
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 7dff2a88da2e12388bfb3a97cfdad236045170cf
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991435"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543880"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>在您的 IoT Edge 裝置上部署安全性模組
 
@@ -66,15 +66,15 @@ ms.locfileid: "72991435"
     >[!Note] 
     >如果您選取 [**大規模部署**]，請先新增裝置名稱和詳細資料，再繼續進行下列指示中的 [**新增模組**] 索引標籤。     
 
-有三個步驟可為適用于 IoT 的 Azure 資訊安全中心建立 IoT Edge 部署。 下列各節將逐步解說每一個步驟。 
+完成每個步驟，以完成適用于 IoT Azure 資訊安全中心的 IoT Edge 部署。 
 
-#### <a name="step-1-add-modules"></a>步驟1：新增模組
+#### <a name="step-1-modules"></a>步驟1：模組
 
-1. 從 [**新增模組**] 索引標籤的 [**部署模組**] 區域中，按一下 [ **AzureSecurityCenterforIoT**] 的 [**設定**] 選項。 
-   
-1. 將**名稱**變更為**azureiotsecurity**。
-1. 將**映射 URI**變更為**mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0**。
-1. 確認 [**容器建立選項**] 值設定為：      
+1. 選取 [ **AzureSecurityCenterforIoT** ] 模組。
+1. 在 [**模組設定**] 索引標籤上，將**名稱**變更為**azureiotsecurity**。
+1. 在 [**環境變數**] 索引標籤上，視需要新增變數（例如，debug level）。
+1. 在 [**容器建立選項**] 索引標籤上，新增下列設定：
+
     ``` json
     {
         "NetworkingConfig": {
@@ -92,24 +92,20 @@ ms.locfileid: "72991435"
         }
     }    
     ```
-1. 確認已選取 [**設定模組對應項的所需屬性**]，並將 configuration 物件變更為：
+    
+1. 在 [**模組**對應項設定] 索引標籤上，新增下列設定：
       
     ``` json
-    { 
-       "properties.desired":{ 
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{ 
-
-          }
-       }
-    }
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{}
     ```
 
-1. 按一下 [儲存]。
-1. 前往索引標籤的底部，然後選取 [**設定 Advanced Edge Runtime 設定**]。 
-   
-1. 將 [ **Edge 中樞**] 底下的**影像**變更為 [ **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**]。
+1. 選取 [更新]。
 
-1. 確認 [**建立選項**] 設定為： 
+#### <a name="step-2-runtime-settings"></a>步驟2：執行時間設定
+
+1. 選取 [**執行時間設定**]。
+1. 在 [ **Edge 中樞**] 底下，將**映射**變更為**mcr.microsoft.com/azureiotedge-hub:1.0.8.3**。
+1. 確認 [**建立選項**] 設為下列設定： 
          
     ``` json
     { 
@@ -134,25 +130,30 @@ ms.locfileid: "72991435"
        }
     }
     ```
-1. 按一下 [儲存]。
+    
+1. 選取 [儲存]。
    
-1. 按一下 [下一步]。
+1. 選取 [下一步]。
 
-#### <a name="step-2-specify-routes"></a>步驟2：指定路由 
+#### <a name="step-3-specify-routes"></a>步驟3：指定路由 
 
-1. 在 [**指定路由**] 索引標籤中，確定您有路由（明確或隱含），它會根據下列範例，將訊息從**azureiotsecurity**模組轉送至 **$Upstream** ，然後按 **[下一步]** 。 
+1. 在 [**指定路由**] 索引標籤上，確定您有路由（明確或隱含），它會根據下列範例，將訊息從**azureiotsecurity**模組轉送至 **$upstream** 。 只有在路由已就緒時，選取 **[下一步]** 。
 
-~~~Default implicit route
-"route": "FROM /messages/* INTO $upstream" 
-~~~
+   範例路由：
 
-~~~Explicit route
-"ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-~~~
+    ~~~Default implicit route
+    "route": "FROM /messages/* INTO $upstream" 
+    ~~~
 
-#### <a name="step-3-review-deployment"></a>步驟3：審查部署
+    ~~~Explicit route
+    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+    ~~~
 
-- 在 [**審查部署**] 索引標籤中，檢查您的部署資訊，然後選取 [**提交**] 以完成部署。
+1. 選取 [下一步]。
+
+#### <a name="step-4-review-deployment"></a>步驟4：審查部署
+
+- 在 [**審查部署**] 索引標籤上，檢查您的部署資訊，然後選取 [**建立**] 以完成部署。
 
 ## <a name="diagnostic-steps"></a>診斷步驟
 
@@ -166,7 +167,7 @@ ms.locfileid: "72991435"
    
 1. 確認下列容器正在執行：
    
-   | 名稱 | 包 |
+   | 名稱 | IMAGE |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.1 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

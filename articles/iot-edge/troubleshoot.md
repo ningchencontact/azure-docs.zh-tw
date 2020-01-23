@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8022304af0f429024a796e02e64f6e23b938bd57
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 93e3a5ed442c975f75045d86d6b890ee4113c465
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912277"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514250"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
 
@@ -105,7 +105,7 @@ ms.locfileid: "75912277"
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>如果 IoT Edge 安全性管理員未執行，請驗證您的 yaml 組態檔
 
 > [!WARNING]
-> YAML 檔案不能包含索引標籤做為縮排。 請改用 2 個空格。
+> YAML 檔案不能包含索引標籤做為縮排。 請改用 2 個空格。 最上層元素不應該有開頭空白。
 
 在 Linux 上：
 
@@ -121,7 +121,7 @@ ms.locfileid: "75912277"
 
 ### <a name="check-container-logs-for-issues"></a>檢查容器記錄的問題
 
-在 IoT Edge 安全性精靈開始執行後，請查看容器的記錄以偵測問題。 從您已部署的容器開始，然後查看組成 IoT Edge 執行時間的容器： edgeAgent 和 edgeHub。 IoT Edge 代理程式記錄通常會提供每個容器生命週期的相關資訊。 IoT Edge 中樞記錄檔會提供訊息和路由的相關資訊。 
+在 IoT Edge 安全性精靈開始執行後，請查看容器的記錄以偵測問題。 從您已部署的容器開始，然後查看組成 IoT Edge 執行時間的容器： edgeAgent 和 edgeHub。 IoT Edge 代理程式記錄通常會提供每個容器生命週期的相關資訊。 IoT Edge 中樞記錄檔會提供訊息和路由的相關資訊。
 
    ```cmd
    iotedge logs <container name>
@@ -163,7 +163,7 @@ ms.locfileid: "75912277"
    ```
 
    > [!WARNING]
-   > YAML 檔案不可包含使用 Tab 鍵的縮排。 請改用 2 個空格。
+   > YAML 檔案不可包含使用 Tab 鍵的縮排。 請改用 2 個空格。 最上層專案的開頭不能是空白。
 
 儲存檔案並重新啟動 IoT Edge 安全性管理員。
 
@@ -249,7 +249,7 @@ Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allo
 
 **根本原因**
 
-Iot Edge 代理程式沒有存取模組映射的許可權。
+IoT Edge 代理程式沒有存取模組映射的許可權。
 
 **解決方案**
 
@@ -435,6 +435,6 @@ Azure IoT Edge 允許使用支援的 IoT 中樞通訊協定，從內部部署伺
 
 ## <a name="next-steps"></a>後續步驟
 
-您在 IoT Edge 平台中發現到錯誤嗎？ [提交問題](https://github.com/Azure/iotedge/issues)，讓我們可以持續進行改善。 
+您在 IoT Edge 平台中發現到錯誤嗎？ [提交問題](https://github.com/Azure/iotedge/issues)，讓我們可以持續進行改善。
 
 如果您有其他問題，請建立[支援要求](https://portal.azure.com/#create/Microsoft.Support)以取得協助。

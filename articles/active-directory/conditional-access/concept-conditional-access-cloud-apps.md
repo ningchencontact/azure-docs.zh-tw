@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb291f33d2b757ca381e1d675ddc386c78a55d52
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 9afc25c906ecd3b7807e6bf3e0763ac1673ebd99
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170832"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544050"
 ---
 # <a name="conditional-access-cloud-apps-and-actions"></a>條件式存取：雲端應用程式和動作
 
@@ -79,7 +79,6 @@ Office 365 （預覽）用戶端應用程式中所包含的主要應用程式：
 
    - Microsoft Flow
    - Microsoft Forms
-   - Microsoft Office 365 入口網站
    - Microsoft Stream
    - Microsoft To-Do
    - Microsoft Teams
@@ -89,6 +88,7 @@ Office 365 （預覽）用戶端應用程式中所包含的主要應用程式：
    - Office 365 Yammer
    - Office Delve
    - Office Online
+   - Office.com
    - OneDrive
    - PowerApps
    - 商務用 Skype Online

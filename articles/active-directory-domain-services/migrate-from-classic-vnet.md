@@ -7,20 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: aafefeb94f3b150789a91c3cf669520ccb522dd8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5c50e3c17fe09b735aa4f4104615c4833164d94d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893054"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544152"
 ---
 # <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>預覽-將 Azure AD Domain Services 從傳統虛擬網路模型遷移至 Resource Manager
 
-Azure Active Directory Domain Services （AD DS）針對目前使用傳統虛擬網路模型的客戶，支援一次移動至 Resource Manager 虛擬網路模型。
+Azure Active Directory Domain Services （AD DS）針對目前使用傳統虛擬網路模型的客戶，支援一次移動至 Resource Manager 虛擬網路模型。 使用 Resource Manager 部署模型 Azure AD DS 受控網域提供額外的功能，例如更細緻的密碼原則、audit 記錄和帳戶鎖定保護。
 
-本文概述遷移的優點和考慮，然後是成功遷移現有 Azure AD DS 實例的必要步驟。 此功能目前為預覽狀態。
+本文概述遷移的優點和考慮，然後是成功遷移現有 Azure AD DS 實例的必要步驟。 這項遷移功能目前為預覽狀態。
 
 ## <a name="overview-of-the-migration-process"></a>移轉程序概觀
 
@@ -106,7 +106,7 @@ Azure AD 使用 Resource Manager 虛擬網路的 DS 受控網域，可協助您�
 
 ### <a name="ip-addresses"></a>IP 位址
 
-在遷移之後，Azure AD DS 受控網域的網域控制站 IP 位址會變更。 這包括安全 LDAP 端點的公用 IP 位址。 新的 IP 位址會在 Resource Manager 虛擬網路中新子網的位址範圍內。
+在遷移之後，Azure AD DS 受控網域的網域控制站 IP 位址會變更。 這種變更包括安全 LDAP 端點的公用 IP 位址。 新的 IP 位址會在 Resource Manager 虛擬網路中新子網的位址範圍內。
 
 在復原的情況下，IP 位址可能會在回復後變更。
 
@@ -122,13 +122,13 @@ Azure AD DS 通常會使用位址範圍中前兩個可用的 IP 位址，但這�
 
 根據預設，在2分鐘內，5次不正確的密碼嘗試會鎖定帳戶30分鐘。
 
-已鎖定的帳戶無法登入，這可能會干擾管理受此帳戶管理之 Azure AD DS 受控網域或應用程式的能力。 遷移 Azure AD DS 受控網域之後，帳戶可能會因為重複嘗試登入失敗，而遇到類似永久鎖定的情況。 遷移後的兩個常見案例包括下列各項：
+已鎖定的帳戶無法用來登入，這可能會干擾管理受此帳戶管理之 Azure AD DS 受控網域或應用程式的能力。 遷移 Azure AD DS 受控網域之後，帳戶可能會因為重複嘗試登入失敗，而遇到類似永久鎖定的情況。 遷移後的兩個常見案例包括下列各項：
 
 * 使用過期密碼的服務帳戶。
     * 服務帳戶會重複嘗試使用過期的密碼登入，這會鎖定帳戶。 若要修正此問題，請找出認證過期的應用程式或 VM，並更新密碼。
 * 惡意實體使用暴力密碼破解嘗試登入帳戶。
     * 當 Vm 公開至網際網路時，攻擊者通常會在嘗試簽署時嘗試一般使用者名稱和密碼組合。 這些重複的失敗登入嘗試可能會鎖定帳戶。 不建議使用具有一般名稱（例如*admin*或*administrator*）的系統管理員帳戶，以將管理帳戶的鎖定降至最低。
-    * 將公開給網際網路的 Vm 數目降至最低。 您可以使用[Azure 防禦（目前處於預覽狀態）][azure-bastion] ，利用 Azure 入口網站安全地連線到 vm。
+    * 將公開給網際網路的 Vm 數目降至最低。 您可以使用[Azure][azure-bastion]防禦安全地連線到使用 Azure 入口網站的 vm。
 
 如果您懷疑某些帳戶可能會在遷移之後遭到鎖定，最後的遷移步驟會概述如何啟用審核或變更更細緻的密碼原則設定。
 
@@ -151,7 +151,7 @@ Azure AD DS 通常會使用位址範圍中前兩個可用的 IP 位址，但這�
 
 遷移至 Resource Manager 部署模型和虛擬網路會分成5個主要步驟：
 
-| 步驟    | 執行  | 估計時間  | 停機  | 要復原/還原嗎？ |
+| 步驟    | 執行  | 預估時間  | 停機  | 要復原/還原嗎？ |
 |---------|--------------------|-----------------|-----------|-------------------|
 | [步驟 1-更新並尋找新的虛擬網路](#update-and-verify-virtual-network-settings) | Azure Portal | 15 分鐘 | 不需要停機 | N/A |
 | [步驟 2-準備要進行 Azure AD DS 受控網域以進行遷移](#prepare-the-managed-domain-for-migration) | PowerShell | 平均 15-30 分鐘 | 完成此命令之後，Azure AD DS 的停機時間就會啟動。 | 復原和還原可用。 |
@@ -164,11 +164,11 @@ Azure AD DS 通常會使用位址範圍中前兩個可用的 IP 位址，但這�
 
 ## <a name="update-and-verify-virtual-network-settings"></a>更新並確認虛擬網路設定
 
-開始進行遷移之前，請先完成下列初始檢查和更新。 這些步驟可能會在遷移前的任何時間發生，而且不會影響 Azure AD DS 受控網域的操作。
+開始進行遷移程式之前，請先完成下列初始檢查和更新。 這些步驟可能會在遷移前的任何時間發生，而且不會影響 Azure AD DS 受控網域的操作。
 
 1. 將您的本機 Azure PowerShell 環境更新為最新版本。 若要完成遷移步驟，您至少需要版本*2.3.2*。
 
-    如需有關如何檢查和更新的詳細資訊，請參閱[Azure PowerShell 總覽][azure-powershell]。
+    如需如何檢查和更新 PowerShell 版本的相關資訊，請參閱[Azure PowerShell 總覽][azure-powershell]。
 
 1. 建立或選擇現有的 Resource Manager 虛擬網路。
 
@@ -210,7 +210,8 @@ Azure PowerShell 可用來準備 Azure AD DS 受控網域以進行遷移。 這�
 
     ```powershell
     Migrate-Aadds `
-        -Prepare -ManagedDomainFqdn contoso.com `
+        -Prepare `
+        -ManagedDomainFqdn contoso.com `
         -Credentials $creds
     ```
 
@@ -273,17 +274,17 @@ Migrate-Aadds `
 
 成功完成遷移程式後，某些選擇性的設定步驟包括啟用審核記錄或電子郵件通知，或更新更細緻的密碼原則。
 
-#### <a name="subscribe-to-audit-logs-using-azure-monitor"></a>使用 Azure 監視器訂閱 audit 記錄
+### <a name="subscribe-to-audit-logs-using-azure-monitor"></a>使用 Azure 監視器訂閱 audit 記錄
 
 Azure AD DS 會公開 audit 記錄檔，以協助疑難排解及查看網域控制站上的事件。 如需詳細資訊，請參閱[啟用和使用 audit logs][security-audits]。
 
 您可以使用範本來監視記錄檔中所公開的重要資訊。 例如，「審核記錄」活頁簿範本可以監視 Azure AD DS 受控網域上可能的帳戶鎖定。
 
-#### <a name="configure-azure-ad-domain-services-email-notifications"></a>設定 Azure AD Domain Services 的電子郵件通知
+### <a name="configure-azure-ad-domain-services-email-notifications"></a>設定 Azure AD Domain Services 的電子郵件通知
 
 若要在 Azure AD DS 受控網域上偵測到問題時收到通知，請更新 Azure 入口網站中的電子郵件通知設定。 如需詳細資訊，請參閱[設定通知設定][notifications]。
 
-#### <a name="update-fine-grained-password-policy"></a>更新更細緻的密碼原則
+### <a name="update-fine-grained-password-policy"></a>更新更細緻的密碼原則
 
 如有需要，您可以將更細緻的密碼原則更新為低於預設設定的限制。 您可以使用 audit 記錄來判斷較不嚴格的設定是否合理，然後視需要設定原則。 使用下列高階步驟來審查和更新在遷移後重複鎖定之帳戶的原則設定：
 
@@ -293,7 +294,7 @@ Azure AD DS 會公開 audit 記錄檔，以協助疑難排解及查看網域控�
 1. 使用 VM 上的網路追蹤來找出攻擊的來源，並封鎖這些 IP 位址以嘗試登入。
 1. 當發生最少的鎖定問題時，請視需要將更細緻的密碼原則更新為嚴格。
 
-#### <a name="creating-a-network-security-group"></a>建立網路安全性群組
+### <a name="creating-a-network-security-group"></a>建立網路安全性群組
 
 Azure AD DS 需要一個網路安全性群組來保護受控網域所需的埠，並封鎖所有其他的連入流量。 此網路安全性群組可作為額外的保護層，以鎖定受控網域的存取權，且不會自動建立。 若要建立網路安全性群組並開啟所需的埠，請參閱下列步驟：
 
@@ -301,6 +302,8 @@ Azure AD DS 需要一個網路安全性群組來保護受控網域所需的埠�
 1. 如果您使用安全 LDAP，請將規則新增至網路安全性群組，以允許*TCP*埠*636*的連入流量。 如需詳細資訊，請參閱[設定安全 LDAP][secure-ldap]。
 
 ## <a name="roll-back-and-restore-from-migration"></a>復原並從遷移還原
+
+在遷移程式中的特定時間點，您可以選擇復原或還原 Azure AD DS 受控網域。
 
 ### <a name="roll-back"></a>復原
 
