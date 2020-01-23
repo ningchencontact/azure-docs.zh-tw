@@ -2,17 +2,17 @@
 title: Azure 應用程式設定搭配 .NET Core 的快速入門 | Microsoft Docs
 description: 搭配使用 Azure 應用程式設定與 .NET Core 應用程式的快速入門
 services: azure-app-configuration
-author: yegu-ms
+author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: yegu
-ms.openlocfilehash: 46aab7bcb9ec941bee465b0d87430b7415b2dfeb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 1/9/2019
+ms.author: lcozzens
+ms.openlocfilehash: cf6c84e0fa3d3d5306e3295d082efc4a27cfdea6
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75413680"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310028"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>快速入門：使用應用程式設定建立 .NET Core 應用程式
 
@@ -27,7 +27,7 @@ ms.locfileid: "75413680"
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 選取 [組態總管]   > [建立]  來新增下列索引鍵/值組：
+6. 選取 [組態總管]   > [建立]  以新增下列索引鍵/值組：
 
     | Key | 值 |
     |---|---|
@@ -52,7 +52,7 @@ ms.locfileid: "75413680"
 1. 透過執行下列命令，將參考新增至 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 套件：
 
     ```CLI
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 2.0.0-preview-009470001-1371
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 3.0.0-preview-010550001-251
     ```
 
 2. 執行下列命令以還原您專案的套件：

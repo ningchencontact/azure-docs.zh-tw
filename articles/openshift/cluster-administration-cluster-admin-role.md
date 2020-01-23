@@ -7,12 +7,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: 0cb875122c63be18f7c39cdfea7986d705ed434e
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 610b1e0112b8135aa09ade5c800eaed987635cb4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539262"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545631"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Azure Red Hat OpenShift 客戶系統管理員角色
 
@@ -22,7 +22,6 @@ ms.locfileid: "74539262"
 
 > [!Note] 
 > 客戶-系統管理員-叢集叢集角色與叢集管理員叢集角色不同。
-
 
 例如，您可以執行與一組動詞（`create`）相關聯的動作，以在一組資源名稱（`templates`）上操作。 若要查看這些角色及其動詞和資源集合的詳細資料，請執行下列命令：
 
@@ -34,7 +33,13 @@ ms.locfileid: "74539262"
 
 ## <a name="configure-the-customer-administrator-role"></a>設定客戶系統管理員角色
 
-在叢集建立期間，您可以藉由提供旗標 `--customer-admin-group-id`，來設定客戶-系統管理員-叢集叢集角色。 若要瞭解如何設定 Azure Active Directory 和 Administrators 群組，請參閱[Azure Red Hat 的 Azure Active Directory 整合 OpenShift](howto-aad-app-configuration.md)。
+在叢集建立期間，您可以藉由提供旗標 `--customer-admin-group-id`，來設定客戶-系統管理員-叢集叢集角色。 此欄位目前無法在 Azure 入口網站中設定。 若要瞭解如何設定 Azure Active Directory 和 Administrators 群組，請參閱[Azure Red Hat 的 Azure Active Directory 整合 OpenShift](howto-aad-app-configuration.md)。
+
+## <a name="confirm-membership-in-the-customer-administrator-role"></a>確認客戶系統管理員角色的成員資格
+
+若要確認客戶系統管理員群組中的成員資格，請嘗試 OpenShift CLI 命令 `oc get nodes` 或 `oc projects`。 如果您具有客戶-系統管理員-叢集角色，`oc get nodes` 將會顯示節點清單，如果您只有客戶管理專案角色，則會顯示許可權錯誤。 `oc projects` 會顯示叢集中的所有專案，而不只是您正在使用的專案。
+
+若要進一步探索叢集中的角色和許可權，您可以使用[`oc policy who-can <verb> <resource>`](https://docs.openshift.com/container-platform/3.11/admin_guide/manage_rbac.html#managing-role-bindings)命令。
 
 ## <a name="next-steps"></a>後續步驟
 

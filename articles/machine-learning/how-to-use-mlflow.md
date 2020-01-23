@@ -1,7 +1,7 @@
 ---
 title: 適用于 ML 實驗的 MLflow 追蹤
 titleSuffix: Azure Machine Learning
-description: 使用 Azure Machine Learning 設定 MLflow，以記錄計量 & 成品，並從 Databricks、您的本機環境或 VM 環境部署模型。
+description: 使用 Azure Machine Learning 設定 MLflow，以從 Databricks 叢集中建立的 ML 模型、您的本機環境或 VM 環境記錄計量和成品。
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -9,32 +9,33 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 01/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 47d4c1de12823eaf0aae5beeff776d50f8f5a6a7
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a1263ecacc2af0559c726fb12c799d0e6d2f1014
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896372"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543336"
 ---
-# <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>使用 MLflow 和 Azure Machine Learning 追蹤計量和部署模型（預覽）
+# <a name="track-models-metrics-with-mlflow-and-azure-machine-learning-preview"></a>使用 MLflow 和 Azure Machine Learning 追蹤模型計量（預覽）
+
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-本文示範如何使用 Azure Machine Learning 來啟用 MLflow 的追蹤 URI 和記錄 API，統稱為[MLflow 追蹤](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api)。 這麼做可讓您：
+本文示範如何啟用 MLflow 的追蹤 URI 和記錄 API （統稱為[MLflow 追蹤](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api)），以連接您的 MLflow 實驗和 Azure Machine Learning。 這麼做可讓您在[Azure Machine Learning 工作區](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workspaces)中追蹤和記錄實驗計量和成品。 如果您已針對實驗使用 MLflow 追蹤，工作區會提供集中式、安全且可擴充的位置來儲存定型計量和模型。
 
-+ 在您的[Azure Machine Learning 工作區](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workspaces)中追蹤並記錄實驗計量和成品。 如果您已針對實驗使用 MLflow 追蹤，工作區會提供集中式、安全且可擴充的位置來儲存定型計量和模型。
+<!--
++ Deploy your MLflow experiments as an Azure Machine Learning web service. By deploying as a web service, you can apply the Azure Machine Learning monitoring and data drift detection functionalities to your production models. 
+-->
 
-+ 將您的 MLflow 實驗部署為 Azure Machine Learning web 服務。 藉由部署為 web 服務，您可以將 Azure Machine Learning 監視和資料漂移偵測功能套用至生產環境模型。 
-
-[MLflow](https://www.mlflow.org)是一個開放原始碼程式庫，可用於管理機器學習實驗的生命週期。 MLFlow 追蹤是 MLflow 的元件，可記錄及追蹤您的定型執行計量和模型成品，不論您的實驗環境為何--在遠端計算目標上、虛擬機器本機、本機電腦或 Azure Databricks 叢集上。
+[MLflow](https://www.mlflow.org)是一個開放原始碼程式庫，可用於管理機器學習實驗的生命週期。 MLFlow 追蹤是 MLflow 的元件，不論您的實驗環境是在本機電腦、遠端計算目標、虛擬機器或 Azure Databricks 叢集上，都能記錄及追蹤您的定型執行計量和模型成品。 
 
 下圖說明使用 MLflow 追蹤時，您可以追蹤實驗的執行計量，並將模型成品儲存在 Azure Machine Learning 工作區中。
 
 ![使用 azure machine learning mlflow 的圖表](./media/how-to-use-mlflow/mlflow-diagram-track.png)
 
 > [!TIP]
-> 本檔中的資訊主要適用于想要監視模型定型流程的資料科學家和開發人員。 如果您是系統管理員，想要監視 Azure Machine learning 中的資源使用方式和事件（例如配額、已完成的定型回合或完成的模型部署），請參閱[監視 Azure Machine Learning](monitor-azure-machine-learning.md)。
+> 本檔中的資訊主要適用于想要監視模型定型流程的資料科學家和開發人員。 如果您是系統管理員，想要監視來自 Azure Machine Learning 的資源使用狀況和事件（例如配額、已完成的定型回合或完成的模型部署），請參閱[監視 Azure Machine Learning](monitor-azure-machine-learning.md)。
 
 ## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>比較 MLflow 和 Azure Machine Learning 用戶端
 
@@ -43,7 +44,7 @@ ms.locfileid: "75896372"
  MLflow 追蹤提供僅透過[Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)提供的計量記錄和成品儲存功能。
 
 
-| | MLflow 追蹤 & 部署 | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Machine Learning Studio|
+| | MLflow&nbsp;追蹤 <!--& Deployment--> | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Machine Learning Studio|
 |---|---|---|---|---|
 | 管理工作區 |   | ✓ | ✓ | ✓ |
 | 使用資料存放區  |   | ✓ | ✓ | |
@@ -51,10 +52,11 @@ ms.locfileid: "75896372"
 | 上傳構件 | ✓ | ✓ |   | |
 | 檢視計量     | ✓ | ✓ | ✓ | ✓ |
 | 管理計算   |   | ✓ | ✓ | ✓ |
-| 部署模型    | ✓ | ✓ | ✓ | ✓ |
-|監視模型效能||✓|  |   |
-| 偵測資料漂移 |   | ✓ |   | ✓ |
 
+<!--| Deploy models    | ✓ | ✓ | ✓ | ✓ |
+|Monitor model performance||✓|  |   |
+| Detect data drift |   | ✓ |   | ✓ |
+-->
 ## <a name="prerequisites"></a>必要條件
 
 * [安裝 MLflow。](https://mlflow.org/docs/latest/quickstart.html)
@@ -65,7 +67,7 @@ ms.locfileid: "75896372"
 
 具有 Azure Machine Learning 的 MLflow 追蹤可讓您將記錄的計量和成品從本機執行儲存至 Azure Machine Learning 工作區。
 
-安裝 `azureml-contrib-run` 套件，以在您的實驗中使用 Azure Machine Learning，在本機執行 Jupyter Notebook 或程式碼編輯器中的 MLflow 追蹤。
+安裝 `azureml-mlflow` 套件，以在您的實驗中使用 Azure Machine Learning，在本機執行 Jupyter Notebook 或程式碼編輯器中的 MLflow 追蹤。
 
 ```shell
 pip install azureml-mlflow
@@ -145,12 +147,11 @@ run = exp.submit(src)
 
 ## <a name="track-azure-databricks-runs"></a>追蹤 Azure Databricks 執行
 
-具有 Azure Machine Learning 的 MLflow 追蹤可讓您在 Azure Machine Learning 工作區中，儲存來自 Databricks 執行的已記錄計量和成品。
+使用 Azure Machine Learning 追蹤 MLflow，可讓您將 Azure Databricks 執行的已記錄計量和成品儲存在 Azure Machine Learning 工作區中。
 
-若要使用 Azure Databricks 執行您的 Mlflow 實驗，您必須先建立[Azure Databricks 工作區和](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)叢集
+若要使用 Azure Databricks 執行您的 Mlflow 實驗，您必須先建立[Azure Databricks 工作區和](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)叢集。 在您的叢集中，請務必從 PyPi 安裝*azureml mlflow*程式庫，以確保您的叢集能夠存取必要的函式和類別。
 
-在您的叢集中，請務必從 PyPi 安裝*azureml mlflow*程式庫，以確保您的叢集能夠存取必要的函式和類別。
-從這裡匯入您的實驗筆記本，將您的叢集附加至該筆記本並執行您的實驗。 
+從這裡匯入您的實驗筆記本，將其附加至您的 Azure Databricks 叢集並執行您的實驗。 
 
 ### <a name="install-libraries"></a>安裝程式庫
 
@@ -388,12 +389,12 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
 1. Enter the resource group name. Then select **Delete**.
 
-
-## Example notebooks
-
-The [MLflow with Azure ML notebooks](https://aka.ms/azureml-mlflow-examples) demonstrate and expand upon concepts presented in this article.
-
-## Next steps
-* [Manage your models](concept-model-management-and-deployment.md).
-* Monitor your production models for [data drift](how-to-monitor-data-drift.md).
  -->
+
+ ## <a name="example-notebooks"></a>Notebook 範例
+
+[使用 AZURE ML 筆記本的 MLflow](https://aka.ms/azureml-mlflow-examples)會示範並擴充本文中顯示的概念。
+
+## <a name="next-steps"></a>後續步驟
+* [管理您的模型](concept-model-management-and-deployment.md)。
+* 監視您的生產模型，以進行[資料漂移](how-to-monitor-data-drift.md)。

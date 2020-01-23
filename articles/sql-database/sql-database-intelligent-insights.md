@@ -11,14 +11,14 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: b576510749e691b6255c849f14275db221c54460
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 20c30a77201c4f728013bdd204eef81294eefb73
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745114"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545155"
 ---
-# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights 使用 AI 來針對資料庫的效能進行監視和疑難排解
+# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights 使用 AI 來監視和疑難排解資料庫效能（預覽）
 
 Azure SQL Database Intelligent Insights 可讓您知道 SQL Database 和受控執行個體資料庫效能發生了什麼。
 

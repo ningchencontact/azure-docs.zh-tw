@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 175ba6b4e65b4a6e276dbfb586e210027a6cd9b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cacc01151edaf31db938cf8abf3d46e75397758f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822427"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545019"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>如何使用批次處理來改善 SQL Database 應用程式效能
 
@@ -91,13 +91,13 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-這兩個範例實際上都使用交易。 在第一個範例中，每個個別的呼叫就是隱含的交易。 在第二個範例中，明確的交易包裝所有的呼叫。 如 [預先寫入交易記錄](https://msdn.microsoft.com/library/ms186259.aspx)所述，交易認可時，記錄檔記錄會排清到磁碟。 因此，交易中包含越多呼叫，就越可能延遲到認可交易時，才會寫入交易記錄檔。 事實上，您是對寫入伺服器交易記錄檔的動作啟用批次處理。
+這兩個範例實際上都使用交易。 在第一個範例中，每個個別的呼叫就是隱含的交易。 在第二個範例中，明確的交易包裝所有的呼叫。 如 [預先寫入交易記錄](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL)所述，交易認可時，記錄檔記錄會排清到磁碟。 因此，交易中包含越多呼叫，就越可能延遲到認可交易時，才會寫入交易記錄檔。 事實上，您是對寫入伺服器交易記錄檔的動作啟用批次處理。
 
 下表顯示一些特定的測試結果。 這些測試分別以有交易和無交易，執行相同的循序插入。 為了進一步觀察，第一組測試是從遠端的膝上型電腦連到 Microsoft Azure 中的資料庫執行。 第二組測試是從位在相同 Microsoft Azure 資料中心 (美國西部) 內的雲端服務和資料庫執行。 下表分別以有交易和無交易，顯示循序插入的持續時間 (以毫秒為單位)。
 
 **內部部署至 Azure**：
 
-| 作業 | 無交易 (毫秒) | 交易 (毫秒) |
+| Dynamics 365 | 無交易 (毫秒) | 交易 (毫秒) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
@@ -106,7 +106,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 **Azure 至 Azure (相同資料中心)** ：
 
-| 作業 | 無交易 (毫秒) | 交易 (毫秒) |
+| Dynamics 365 | 無交易 (毫秒) | 交易 (毫秒) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
@@ -193,7 +193,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 下表顯示使用資料表值參數的特定測試結果（以毫秒為單位）。
 
-| 作業 | 內部部署至 Azure (亳秒) | Azure 相同資料中心 (毫秒) |
+| Dynamics 365 | 內部部署至 Azure (亳秒) | Azure 相同資料中心 (毫秒) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
@@ -233,7 +233,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 下列臨機操作測試結果顯示**SqlBulkCopy**的批次處理效能（以毫秒為單位）。
 
-| 作業 | 內部部署至 Azure (亳秒) | Azure 相同資料中心 (毫秒) |
+| Dynamics 365 | 內部部署至 Azure (亳秒) | Azure 相同資料中心 (毫秒) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
@@ -278,7 +278,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 下列臨機操作測試結果顯示這種插入語句的效能（以毫秒為單位）。
 
-| 作業 | 資料表值參數 (毫秒) | 單一陳述式 INSERT (毫秒) |
+| Dynamics 365 | 資料表值參數 (毫秒) | 單一陳述式 INSERT (毫秒) |
 | --- | --- | --- |
 | 1 |32 |20 |
 | 10 |30 |25 |
@@ -382,7 +382,7 @@ Entity Framework 目前不支援批次處理。 社群中不同的開發人員�
 
 下列各節說明如何在三個應用程式案例中使用資料表值參數。 第一個案例示範緩衝和批次處理如何一起運作。 第二個案例在單一預存程序呼叫中執行主要/詳細架構作業以提高效能。 最後一個案例示範如何在 "UPSERT" 作業中使用資料表值參數。
 
-### <a name="buffering"></a>緩衝處理
+### <a name="buffering"></a>緩衝
 
 雖然有些案例很明顯適合使用批次處理，但也有許多案例可以藉由延遲處理來利用批次處理。 不過，延遲處理也會帶來更大的風險，發生非預期的失敗時會遺失資料。 請務必了解這項風險並考慮後果。
 

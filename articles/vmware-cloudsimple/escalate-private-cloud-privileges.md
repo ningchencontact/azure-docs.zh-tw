@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3ee722f88f766178dd658600893b4497bf611be9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3d06f3e8be449e7050c65c75339a0cff6efe19e4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372766"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544441"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>從 CloudSimple 入口網站提升私用雲端 vCenter 許可權
 
@@ -55,6 +55,9 @@ ms.locfileid: "75372766"
 
 > [!IMPORTANT]
 > 只有一位使用者可以有較高的權限。  您必須先取消呈報使用者的許可權，才能提升其他使用者的許可權。
+
+> [!CAUTION]
+> 新使用者必須僅新增至*雲端擁有者群組*、*雲端全域叢集-管理群組*、雲端-全域*存放裝置-* 系統管理群組、雲端-全域*網路-* 系統管理群組或*雲端全域 VM-管理群組*。  新增至系統*管理員*群組的使用者將會自動移除。  只有服務帳戶必須新增至*Administrators*群組，而服務帳戶不能用來登入 VSPHERE web UI。
 
 ## <a name="extend-privilege-escalation"></a>擴充許可權擴大
 

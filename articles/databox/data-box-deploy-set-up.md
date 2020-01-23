@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: b9d724a44a94ed13786391a235bb9967036f29dc
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: e892a8bfa3b4b0bb53d7a943e475d4e2a8228add
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338489"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514131"
 ---
 ::: zone target="docs"
 
@@ -38,7 +38,7 @@ ms.locfileid: "71338489"
 > * 連接資料箱的纜線
 > * 連線至資料箱
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 在您開始前，請確定：
 
@@ -89,9 +89,9 @@ ms.locfileid: "71338489"
 2. 在將裝置連接纜線之前，請確定您有下列的纜線：
     
     - (已包含) 額定電流為 10 A 或更高的接地電源線，一端帶有 IEC60320 C-13 接點，用於連接裝置。
-    - 一條 RJ-45 CAT 6 網路纜線 (與 MGMT 網路介面搭配使用)
+    - 一條 RJ-45 CAT 6 網路線 (與 MGMT 網路介面搭配使用)
     - 兩條 10 GbE SFP+ Twinax 銅纜線 (搭配 10 Gbps DATA 1、DATA 2 網路介面使用)
-    - 一條 RJ-45 CAT 6A 或一條 RJ-45 CAT 6 網路纜線 (與 DATA 3 網路介面搭配使用，分別設定為 10 Gbps 或 1 Gbps)
+    - 一條 RJ-45 CAT 6A 或一條 RJ-45 CAT 6 網路線 (與 DATA 3 網路介面搭配使用，分別設定為 10 Gbps 或 1 Gbps)
 
 3. 移除裝置並將其放在平面上。 
     
@@ -126,7 +126,7 @@ ms.locfileid: "71338489"
     ![取得裝置認證](media/data-box-deploy-set-up/data-box-device-credentials.png)
     
     
-7. 提供您在上一個步驟中從 Azure 入口網站取得的裝置密碼，以登入裝置的本機 Web UI。 按一下 [ **登入**]。
+7. 提供您在上一個步驟中從 Azure 入口網站取得的裝置密碼，以登入裝置的本機 Web UI。 按一下 **[登入]** 。
 8. 在 [儀表板]  上，確定網路介面已設定。 
    - 如果您的環境中啟用了 DHCP，則會自動設定網路介面。 
    - 如果未啟用 DHCP，請移至 [設定網路介面]  ，並視需要指派靜態 IP。

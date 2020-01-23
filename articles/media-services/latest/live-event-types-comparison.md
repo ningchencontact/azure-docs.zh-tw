@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 8377c4339b07e0b917e10ed413ffc79baef91fac
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2dd3b3ffae39d43a3b865804af2e743bad87f8ea
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888388"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543047"
 ---
 # <a name="live-event-types-comparison"></a>實況活動類型比較
 
@@ -28,7 +28,7 @@ ms.locfileid: "74888388"
 
 下表比較即時事件種類的功能。 在建立期間，會使用[LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype)來設定類型：
 
-* **LiveEventEncodingType。 None** -內部部署即時編碼器會傳送多位元率串流。 內嵌串流會通過即時事件，而不需要進行任何進一步的處理。 
+* **LiveEventEncodingType。 None** -內部部署即時編碼器會傳送多位元率串流。 內嵌串流會通過即時事件，而不需要進行任何進一步的處理。 也稱為傳遞實況活動。
 * **LiveEventEncodingType** -內部部署即時編碼器會將單一位元速率串流傳送至即時事件，媒體服務會建立多位元率串流。 如果「貢獻摘要」是720p 或更高解析度，則**Default720p**預設會將一組6個解析/位元速率配對（詳細資料會在本文稍後所述）進行編碼。
 * **LiveEventEncodingType. Premium1080p** -內部部署即時編碼器會將單一位元速率串流傳送至即時事件，媒體服務會建立多位元率串流。 Default1080p 預設值會指定解析/位元速率配對的輸出集（詳細資料會在本文稍後所述）。 
 
@@ -52,6 +52,7 @@ ms.locfileid: "74888388"
 | 價格|請參閱 [定價頁面](https://azure.microsoft.com/pricing/details/media-services/) 並按一下 [即時影片] 索引標籤|請參閱 [定價頁面](https://azure.microsoft.com/pricing/details/media-services/) 並按一下 [即時影片] 索引標籤|
 | 最長執行時間| 24 小時 x 365 天，即時線性 | 24小時 x 365 天，即時線性（預覽）|
 | 能夠透過內嵌的 CEA 608/708 字幕資料傳遞|是|是|
+| 開啟即時轉譯的能力|是|是|
 | 插入靜態圖像支援|否|否|
 | 支援透過 API 發出廣告訊號| 否|否|
 | 支援透過 SCTE-35 頻內訊息發出廣告訊號|是|是|

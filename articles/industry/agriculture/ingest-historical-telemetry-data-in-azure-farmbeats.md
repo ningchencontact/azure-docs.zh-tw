@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b4a567bc0495595da77ef7d6cd240ee7fb30f0ed
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 11dcf5dc0f05e51f3f427b09745cb581cc0d3780
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170158"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513927"
 ---
 # <a name="ingest-historical-telemetry-data"></a>內嵌歷程記錄遙測資料
 
@@ -20,7 +20,7 @@ ms.locfileid: "76170158"
 
 ## <a name="before-you-begin"></a>開始之前
 
-繼續進行本文之前，請確定您已從 IoT 安裝 FarmBeats 和收集的歷程記錄資料。
+繼續進行本文之前，請確定您已從 IoT 裝置安裝 FarmBeats 和收集的歷程記錄資料。
 您也需要啟用合作夥伴存取權，如下列步驟所述。
 
 ## <a name="enable-partner-access"></a>啟用合作夥伴存取
@@ -38,31 +38,36 @@ ms.locfileid: "76170158"
 >[!NOTE]
 > 您必須是系統管理員，才能執行下列步驟。
 
-1. 下載此[腳本](https://aka.ms/farmbeatspartnerscript)，並將它解壓縮到您的本機磁片磁碟機。 Zip 檔案中有兩個檔案。
-2. 登入 [Azure 入口網站](https://portal.azure.com/)並開啟 Azure Cloud Shell。 在入口網站右上角的工具列上，可以使用此選項。
+1. 下載[zip](https://aka.ms/farmbeatspartnerscriptv2)檔案，並將它解壓縮到您的本機磁片磁碟機。 Zip 檔案中將會有一個檔案。
+2. 登入 https://portal.azure.com/ 並移至 Azure Active Directory > 應用程式註冊
 
-    ![Azure 入口網站工具列](./media/for-tutorials/navigation-bar-1.png)
+3. 按一下在 FarmBeats 部署過程中建立的應用程式註冊。 它的名稱會與您的 FarmBeats Datahub 相同。
 
-3. 請確定環境已設定為**PowerShell**。
+4. 按一下 [公開 API]-> 按一下 [新增用戶端應用程式] 並輸入**04b07795-8ddb-461a-bbee-02f9e1bf7b46** ，然後選取 [授權範圍]。 這會授與 Azure CLI （Cloud Shell）的存取權，以執行下列步驟。
 
-    ![PowerShell 設定](./media/for-tutorials/power-shell-new-1.png)
+5. 開啟 Cloud Shell。 此選項可在 Azure 入口網站右上角的工具列上取得。
 
-4. 上傳您在 Cloud Shell 實例中步驟1下載的兩個檔案。
+    ![Azure 入口網站工具列](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-    ![工具列上的上傳按鈕](./media/for-tutorials/power-shell-two-1.png)
+6. 請確定環境已設定為**PowerShell**。 根據預設，它會設定為 Bash。
 
-5. 移至上傳檔案的目錄。
+    ![PowerShell 工具列設定](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-   >[!NOTE]
-   > 根據預設，檔案會上傳到主目錄/首頁/使用者名稱。
-6. 使用下列命令執行腳本：
+7. 上傳 Cloud Shell 實例中步驟1的檔案。
 
-    ```azurepowershell-interactive
-    ./generateCredentials.ps1
+    ![上傳工具列按鈕](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+
+8. 移至上傳檔案的目錄。 根據預設，檔案會上傳至使用者名稱底下的主目錄。
+
+9. 執行下列指令碼。 腳本會要求提供可從 Azure Active Directory > 總覽頁面取得的租使用者識別碼。
+
+    ```azurepowershell-interactive 
+
+    ./generatePartnerCredentials.ps1   
+
     ```
 
-7. 依照畫面上的指示來捕獲**API 端點**、租使用者**識別碼**、**用戶端識別碼**、**用戶端密碼**和**EventHub 連接字串**的值。 在 Swagger 中，可使用 EventHub 連接字串作為 API 回應的一部分。
-
+10. 依照畫面上的指示來捕獲**API 端點**、租使用者**識別碼**、**用戶端識別碼**、**用戶端密碼**和**EventHub 連接字串**的值。
 ## <a name="create-device-or-sensor-metadata"></a>建立裝置或感應器中繼資料
 
  現在您已有必要的認證，您可以定義裝置和感應器。 若要這麼做，請呼叫 FarmBeats Api 來建立中繼資料。 請注意，您將需要呼叫 Api，做為您在上一節中建立的用戶端應用程式

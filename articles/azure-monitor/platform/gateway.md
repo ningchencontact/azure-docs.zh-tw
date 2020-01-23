@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 8d48c889681eabc2519a0a60d0f9846b8f30bfd5
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: b68f19faa1542b873e90a4ce6d0426db7f3ff871
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830134"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547297"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>在 Azure 監視器中使用 Log Analytics 閘道將電腦連線，而不需要網際網路存取
 
@@ -60,7 +60,7 @@ Log Analytics 閘道會將資料從代理程式直接傳輸到服務。 它不�
 指定要執行 Log Analytics 閘道的電腦必須具有下列設定：
 
 * Windows 10、Windows 8.1 或 Windows 7
-* Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 或 Windows Server 2008
+* Windows Server 2019、Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 或 Windows Server 2008
 * Microsoft .NET Framework 4.5
 * 至少4核心處理器和 8 GB 的記憶體 
 * [適用于 Windows 的 Log Analytics 代理程式](agent-windows.md)，其設定為向透過閘道通訊的代理程式報告至相同的工作區

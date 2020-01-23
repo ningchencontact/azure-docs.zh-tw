@@ -1,20 +1,18 @@
 ---
 title: (即將淘汰) Azure Container Service 教學課程 - 更新應用程式
 description: Azure Container Service 教學課程 - 更新應用程式
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3c0be935a4ffb51c03d2f63b14ab7c0c713dd2ae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b4b893f185ba7e205ffebd7d939b8a2aa20a3e13
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006260"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275553"
 ---
 # <a name="deprecated-update-an-application-in-kubernetes"></a>(即將淘汰) 更新 Kubernetes 中的應用程式
 

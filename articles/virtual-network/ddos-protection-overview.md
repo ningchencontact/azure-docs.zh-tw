@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/13/2018
+ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: ef2319f18b6df15fd7f33e9344e8506f853f47e6
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 23dcabf74284c36f0cb221db7e192859aa75f1f6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532235"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544543"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection Standard 概觀
 
@@ -35,15 +35,15 @@ ms.locfileid: "72532235"
 |------------------------------------------------|--------------------------------------|----------------------------------------------|
 |主動流量監視 & always on 偵測 |是                                   |是                                           |
 |自動攻擊緩和措施                    |是                                   |是                                           |
-|可用性保證                          |Azure 地區                          |Application                                   |
+|可用性保證                          |Azure 地區                          |應用程式                                   |
 |風險降低原則                             |針對 Azure 流量區域量進行調整 |調整應用程式流量量          |
 |計量與警示                                |否                                    |即時攻擊計量透過 Azure 監視器 & 診斷記錄                                 |
 |風險降低報告                              |否                                    |攻擊後的風險降低報告                |
 |風險降低流程記錄                            |否                                    |適用于 SIEM 整合的 NRT 記錄資料流程           |
 |遷移原則自訂                 |否                                    |與 DDoS 專家接洽                           |
-|支援                                         |最佳做法                           |在主動攻擊期間存取 DDoS 專家|
+|支援                                         |盡力而為                           |在主動攻擊期間存取 DDoS 專家|
 |SLA                                             |Azure 地區                          |應用程式保證 & 成本保護       |
-|價格                                         |免費                                  |每月 & 使用方式                         |
+|定價                                         |免費                                  |每月 & 使用方式                         |
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>DDoS Protection Standard 可降低風險的 DDoS 攻擊類性
 
@@ -76,7 +76,7 @@ DDoS Protection Standard 功能包括：
 
 DDoS 保護標準層會監視實際流量使用率，且時常將它與 DDoS 原則中定義的閾值比較。 當超過該流量閾值時，就會自動起始 DDoS 安全防護功能。 當傳回流量低於閾值時，就會移除安全防護功能。
 
-![緩和](./media/ddos-protection-overview/mitigation.png)
+![降低](./media/ddos-protection-overview/mitigation.png)
 
 在安全防護期間，DDoS 保護服務會重新導向傳送至受保護資源的流量，而且會執行數個檢查，例如下列檢查：
 
