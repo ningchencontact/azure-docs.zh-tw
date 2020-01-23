@@ -107,9 +107,9 @@ ms.locfileid: "74978674"
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
 
-## <a name="manage-training-iterations"></a>管理定型反覆項目
+## <a name="manage-training-iterations"></a>訓練迭代管理
 
-每次您定型分類器時，都會使用更新的效能度量建立新_反覆項目_。 您可以在 [效能]  索引標籤的左窗格中檢視所有的反覆項目。您也會找到 [刪除]  按鈕，以用來刪除已經過時的反覆項目。 您刪除反覆項目時，會刪除唯一與它相關聯的任何影像。
+每次您定型分類器時，都會使用更新的效能度量建立新_訓練迭代_。 您可以在 [效能]  索引標籤的左窗格中檢視所有的訓練迭代。您也會找到 [刪除]  按鈕，以用來刪除已經過時的訓練迭代。 您刪除訓練迭代時，會刪除唯一與此訓練迭代相關聯的任何影像。
 
 ## <a name="next-steps"></a>後續步驟
 
