@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 85281088692d1c4b0245eb9d069519198f8f315d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 934fe8271796ed6196c9e50a0eddd5d7de3d8432
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919336"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511887"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 驗證管理操作參考指南
 
@@ -127,8 +127,8 @@ Microsoft 也建議您洽詢應用程式擁有者，以瞭解使用模式（如�
 
 您可以使用下列其中一種方法，在 Azure AD 中導入裝置身分識別並加以管理，藉此達成此目標：
 
-- 組織可以使用[Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune)來管理裝置及強制執行合規性政策、證明裝置健康情況，並根據裝置是否符合規範設定條件式存取原則。 Microsoft Intune 可以管理 iOS 裝置、Mac 桌面（透過 JAMF 整合）、Windows 桌面（原生使用適用于 Windows 10 的行動裝置管理）和 Android 行動裝置的共同 System Center Configuration Manager 管理。
-- [混合式 Azure AD 聯結](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains)可讓您在具有 Active Directory 已加入網域的電腦裝置的環境中，使用群組原則、System Center Configuration Manager 或 Microsoft Endpoint Manager 進行管理。 組織可以透過 PHS 或 PTA 使用無縫 SSO 部署受管理的環境。 讓您的裝置 Azure AD 透過 SSO 在雲端和內部部署資源中達到最大的使用者生產力，同時使用 [條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) 同時保護對雲端和內部部署資源的存取。
+- 組織可以使用[Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune)來管理裝置及強制執行合規性政策、證明裝置健康情況，並根據裝置是否符合規範設定條件式存取原則。 Microsoft Intune 可以管理 iOS 裝置、Mac 桌面（透過 JAMF 整合）、Windows 桌面（原生使用適用于 Windows 10 的行動裝置管理，以及與 Microsoft 端點 Configuration Manager 的共同管理）和 Android 行動裝置。
+- [混合式 Azure AD join](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains)可讓您在具有 Active Directory 已加入網域的電腦裝置的環境中，使用群組原則或 Microsoft 端點 Configuration Manager 進行管理。 組織可以透過 PHS 或 PTA 使用無縫 SSO 部署受管理的環境。 讓您的裝置 Azure AD 透過 SSO 在雲端和內部部署資源中達到最大的使用者生產力，同時使用 [條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) 同時保護對雲端和內部部署資源的存取。
 
 如果您有未在雲端註冊的已加入網域 Windows 裝置，或是已在雲端中註冊但沒有條件式存取原則的已加入網域 windows 裝置，則您應該註冊未註冊的裝置，並在任何一種情況下，在條件式存取原則中[使用混合式 Azure AD join 做為控制項](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)。
 
@@ -141,7 +141,7 @@ Microsoft 也建議您洽詢應用程式擁有者，以瞭解使用模式（如�
 #### <a name="device-trust-access-policies-recommended-reading"></a>建議閱讀的裝置信任存取原則
 
 - [如何：規劃混合式 Azure Active Directory 聯結執行](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-- [身分識別與裝置存取組態](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [身分識別與裝置存取設定](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>Windows Hello 企業版
 
@@ -256,7 +256,7 @@ Microsoft Intune 應用程式管理（MAM）可讓您將資料保護控制項（
 #### <a name="conditional-access-recommended-reading"></a>條件式存取建議閱讀
 
 - [Azure Active Directory 中的條件式存取最佳做法](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
-- [身分識別與裝置存取組態](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [身分識別與裝置存取設定](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Azure Active Directory 條件式存取設定參考](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
 - [一般條件式存取原則](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
@@ -279,7 +279,7 @@ Microsoft Intune 應用程式管理（MAM）可讓您將資料保護控制項（
 
    a. 將可支援新式驗證的用戶端升級至受影響的使用者。
    
-   b.這是另一個 C# 主控台應用程式。 規劃轉換的時間範圍，以根據下列步驟進行鎖定。
+   b. 規劃轉換的時間範圍，以根據下列步驟進行鎖定。
    
    c. 識別哪些繼承應用程式對舊版驗證有困難的相依性。 請參閱下面的步驟3。
 
@@ -373,7 +373,7 @@ Microsoft Intune 應用程式管理（MAM）可讓您將資料保護控制項（
 - [Office 365 管理活動 API 參考](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
 - [如何使用 Azure Active Directory Power BI 內容套件](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 安全身分識別基礎結構有12個層面。 這份清單可協助您進一步保護和管理認證、定義驗證體驗、委派指派、測量使用方式，以及根據企業安全性狀態定義存取原則。
 

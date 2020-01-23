@@ -8,18 +8,18 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 08/01/2019
 ms.author: metan
-ms.openlocfilehash: b82a86d6a3f7b2afd8feee18a863e34b7a6079a4
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 7f46f7697207fe194f4fb7c3584c40c87abdb727
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945483"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514199"
 ---
 # <a name="quickstart-create-an-ios-app-that-launches-the-immersive-reader-swift"></a>快速入門：建立可啟動沈浸式閱讀程式的 iOS 應用程式 (Swift)
 
 [沈浸式閱讀程式](https://www.onenote.com/learningtools)是經過全面設計的工具，可實作經實證的技術以改善閱讀理解程度。
 
-在本快速入門中，您將從頭開始建置 iOS 應用程式，並且整合沈浸式閱讀程式。 本快速入門的完整工作範例可以在[這裡](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/quickstart-swift)取得。
+在本快速入門中，您將從頭開始建置 iOS 應用程式，並且整合沈浸式閱讀程式。 本快速入門的完整工作範例可以在[這裡](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios)取得。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 

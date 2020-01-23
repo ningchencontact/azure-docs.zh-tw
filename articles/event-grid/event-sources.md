@@ -1,18 +1,18 @@
 ---
 title: Azure 事件方格事件來源
-description: 描述支援的 Azure 事件方格事件來源
+description: 本文說明 Azure 事件方格支援的事件來源。 事件來源是事件發生的地點。
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 63cd7cea65515488649507cb7d3c52877211ca04
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3a87475146e2b23c4a824e568ea3da33e1f4abf0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531440"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512941"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure 事件方格中的事件來源
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 5c2a8c8cfa2425985a22b93d4ade509320c48564
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 2c6f594b16aac40abf885e0d058c7aba48d32f9c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998722"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512618"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services 的常見錯誤和疑難排解步驟
 
@@ -30,20 +30,20 @@ ms.locfileid: "70998722"
 
 | **範例錯誤訊息** | **解決方案** |
 | --- |:--- |
-| *此網路上已有使用中的名稱 contoso.com。指定未使用的名稱。* |[虛擬網路中的網域名稱衝突](troubleshoot.md#domain-name-conflict) |
-| *無法在此 Azure AD 租用戶中啟用網域服務。對於名為「Azure AD 網域服務同步處理」的應用程式，此服務沒有足夠的權限。刪除名為「Azure AD 網域服務同步處理」的應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。* |[網域服務對 Azure AD Domain Services 同步應用程式沒有足夠的許可權](troubleshoot.md#inadequate-permissions) |
-| *無法在此 Azure AD 租用戶中啟用網域服務。Azure AD 租用戶中的網域服務應用程式沒有啟用網域服務所需的權限。刪除應用程式識別碼為 d87dcbc6-a371-462e-88e3-28ad15ec4e64 的應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。* |[未在您的 Azure AD 租使用者中正確設定網域服務應用程式](troubleshoot.md#invalid-configuration) |
-| *無法在此 Azure AD 租用戶中啟用網域服務。您的 Azure AD 租用戶已停用 Microsoft Azure AD 應用程式。啟用應用程式識別碼為 00000002-0000-0000-c000-000000000000 的應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。* |[您的 Azure AD 租用戶已停用 Microsoft Graph 應用程式](troubleshoot.md#microsoft-graph-disabled) |
+| *此網路上已有使用中的名稱 contoso.com。請指定未使用的名稱。* |[虛擬網路中的網域名稱衝突](troubleshoot.md#domain-name-conflict) |
+| *無法在此 Azure AD 租使用者中啟用網域服務。服務對名為「Azure AD Domain Services 同步」的應用程式沒有足夠的許可權。刪除名為「Azure AD Domain Services 同步」的應用程式，然後嘗試為您的 Azure AD 租使用者啟用網域服務。* |[網域服務對 Azure AD Domain Services 同步應用程式沒有足夠的許可權](troubleshoot.md#inadequate-permissions) |
+| *無法在此 Azure AD 租使用者中啟用網域服務。Azure AD 租使用者中的網域服務應用程式沒有啟用網域服務所需的許可權。使用應用程式識別碼 d87dcbc6-a371-462e-88e3-28ad15ec4e64 刪除應用程式，然後嘗試為您的 Azure AD 租使用者啟用網域服務。* |[未在您的 Azure AD 租使用者中正確設定網域服務應用程式](troubleshoot.md#invalid-configuration) |
+| *無法在此 Azure AD 租使用者中啟用網域服務。您的 Azure AD 租使用者中已停用 Microsoft Azure AD 應用程式。啟用應用程式識別碼為 00000002-0000-0000-c000-000000000000 的應用程式，然後嘗試為您的 Azure AD 租使用者啟用網域服務。* |[您的 Azure AD 租用戶已停用 Microsoft Graph 應用程式](troubleshoot.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>網域名稱衝突
 
 **錯誤訊息**
 
-*此網路上已有使用中的名稱 contoso.com。指定未使用的名稱。*
+*此網路上已有使用中的名稱 contoso.com。請指定未使用的名稱。*
 
 **解決方案**
 
-請確認您在虛擬網路上沒有具有相同功能變數名稱的現有 AD DS 環境。 例如，您可能會有一個名為*contoso.com*的 AD DS 網域，它會在 Azure vm 上執行。 當您嘗試在虛擬網路上啟用具有相同功能變數名稱*contoso.com*的 Azure AD DS 受控網域時，要求的作業會失敗。
+檢查您在相同或對等互連的虛擬網路上，沒有現有的 AD DS 環境具有相同的功能變數名稱。 例如，您可能會有一個名為*contoso.com*的 AD DS 網域，它會在 Azure vm 上執行。 當您嘗試在虛擬網路上啟用具有相同功能變數名稱*contoso.com*的 Azure AD DS 受控網域時，要求的作業會失敗。
 
 此失敗是因為虛擬網路上的功能變數名稱發生名稱衝突。 DNS 查閱會檢查現有的 AD DS 環境是否回應所要求的功能變數名稱。 若要解決此錯誤，請使用不同的名稱來設定您的 Azure AD DS 受控網域，或取消布建現有的 AD DS 網域，然後再試一次啟用 Azure AD DS。
 
@@ -51,11 +51,11 @@ ms.locfileid: "70998722"
 
 **錯誤訊息**
 
-*無法在此 Azure AD 租用戶中啟用網域服務。對於名為「Azure AD 網域服務同步處理」的應用程式，此服務沒有足夠的權限。刪除名為「Azure AD 網域服務同步處理」的應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。*
+*無法在此 Azure AD 租使用者中啟用網域服務。服務對名為「Azure AD Domain Services 同步」的應用程式沒有足夠的許可權。刪除名為「Azure AD Domain Services 同步」的應用程式，然後嘗試為您的 Azure AD 租使用者啟用網域服務。*
 
 **解決方案**
 
-檢查 Azure AD 目錄中是否有名為*Azure AD Domain Services 同步*處理的應用程式。 如果此應用程式存在，請將它刪除，然後再試一次，以啟用 Azure AD DS。 若要檢查現有的應用程式，並視需要將它刪除，請完成下列步驟：
+檢查 Azure AD 目錄中是否有名為*Azure AD Domain Services 同步*處理的應用程式。 如果此應用程式存在，請將它刪除，然後再試一次啟用 Azure AD DS。 若要檢查現有的應用程式，並視需要將它刪除，請完成下列步驟：
 
 1. 在 Azure 入口網站中，從左側導覽功能表中選取  **Azure Active Directory** 。
 1. 選取 [企業應用程式]。 從 [**應用程式類型**] 下拉式功能表**中選擇 [** *所有應用程式*]，然後選取 [套用]。
@@ -66,13 +66,13 @@ ms.locfileid: "70998722"
 
 **錯誤訊息**
 
-*無法在此 Azure AD 租用戶中啟用網域服務。Azure AD 租用戶中的網域服務應用程式沒有啟用網域服務所需的權限。刪除應用程式識別碼為 d87dcbc6-a371-462e-88e3-28ad15ec4e64 的應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。*
+*無法在此 Azure AD 租使用者中啟用網域服務。Azure AD 租使用者中的網域服務應用程式沒有啟用網域服務所需的許可權。使用應用程式識別碼 d87dcbc6-a371-462e-88e3-28ad15ec4e64 刪除應用程式，然後嘗試為您的 Azure AD 租使用者啟用網域服務。*
 
 **解決方案**
 
 檢查您的 Azure AD 目錄中是否有名稱為*AzureActiveDirectoryDomainControllerServices*的應用程式識別碼為*d87dcbc6-a371-462e-88e3-28ad15ec4e64*的現有應用程式。 如果此應用程式存在，請將它刪除，然後再試一次，以啟用 Azure AD DS。
 
-使用下列 PowerShell 腳本來搜尋現有的應用程式實例，並在必要時將它刪除。
+使用下列 PowerShell 腳本來搜尋現有的應用程式實例，並在需要時將它刪除：
 
 ```powershell
 $InformationPreference = "Continue"
@@ -110,7 +110,7 @@ if ($sp -ne $null)
 
 **錯誤訊息**
 
-*無法在此 Azure AD 租用戶中啟用網域服務。您的 Azure AD 租用戶已停用 Microsoft Azure AD 應用程式。啟用應用程式識別碼為 00000002-0000-0000-c000-000000000000 的應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。*
+*無法在此 Azure AD 租使用者中啟用網域服務。您的 Azure AD 租使用者中已停用 Microsoft Azure AD 應用程式。啟用應用程式識別碼為 00000002-0000-0000-c000-000000000000 的應用程式，然後嘗試為您的 Azure AD 租使用者啟用網域服務。*
 
 **解決方案**
 
@@ -128,7 +128,7 @@ if ($sp -ne $null)
 
 如果 Azure AD 租使用者中的一或多個使用者無法登入 Azure AD DS 受控網域，請完成下列疑難排解步驟：
 
-* **認證格式**-請嘗試使用 UPN 格式來指定認證，例如`dee@contoso.onmicrosoft.com`。 UPN 格式是在 Azure AD DS 中指定認證的建議方式。 請確定已在 Azure AD 中正確設定此 UPN。
+* **認證格式**-請嘗試使用 UPN 格式來指定認證，例如 `dee@contoso.onmicrosoft.com`。 UPN 格式是在 Azure AD DS 中指定認證的建議方式。 請確定已在 Azure AD 中正確設定此 UPN。
 
     如果您的租使用者中有多個使用者具有相同的 UPN 前置詞，或您的 UPN 前置詞太長，則您帳戶的*SAMAccountName* （例如*CONTOSO\driley* ）可能會自動產生。 因此，您帳戶的*SAMAccountName*格式可能會與您在內部部署網域中預期或使用的格式不同。
 
@@ -145,13 +145,13 @@ if ($sp -ne $null)
         net start 'Microsoft Azure AD Sync'
         ```
 
-    * **僅雲端帳戶**：如果受影響的使用者帳戶是僅限雲端的使用者帳戶，請確定在[您啟用 AZURE AD DS 之後，使用者已變更其密碼][cloud-only-passwords]。 此密碼重設會導致產生 Azure AD Domain Services 所需的認證雜湊。
+    * **僅限雲端帳戶**：如果受影響的使用者帳戶是僅限雲端的使用者帳戶，請確定在[您啟用 Azure AD DS 之後，使用者已變更其密碼][cloud-only-passwords]。 此密碼重設會導致產生 Azure AD Domain Services 所需的認證雜湊。
 
-* **確認使用者帳戶處於作用中狀態**：根據預設，在受控網域的2分鐘內，5次不正確密碼嘗試會導致使用者帳戶被鎖定30分鐘。 當帳戶被鎖定時，使用者無法登入。30 分鐘後，使用者帳戶會自動解除鎖定。
+* **確認使用者帳戶為**作用中：根據預設，受控網域2分鐘內的五個無效密碼嘗試會導致使用者帳戶被鎖定30分鐘。 當帳戶被鎖定時，使用者無法登入。30分鐘之後，使用者帳戶就會自動解除鎖定。
   * 在 Azure AD DS 受控網域上的密碼嘗試無效，無法在 Azure AD 中鎖定使用者帳戶。 只有在受控網域內，才會鎖定使用者帳戶。 使用[管理 VM][management-vm]（而不是在 Azure AD），檢查*Active Directory 系統管理主控台（ADAC）* 中的使用者帳戶狀態。
   * 您也可以設定更細緻的[密碼原則][password-policy]，以變更預設的鎖定閾值和持續時間。
 
-* **外部帳戶**-檢查受影響的使用者帳戶不是 Azure AD 租使用者中的外部帳戶。 外部帳戶的範例包括 Microsoft 帳戶（ `dee@live.com`例如）或來自外部 Azure AD 目錄的使用者帳戶。 Azure AD DS 不會儲存外部使用者帳戶的認證，因此無法登入受控網域。
+* **外部帳戶**-檢查受影響的使用者帳戶不是 Azure AD 租使用者中的外部帳戶。 外部帳戶的範例包括 Microsoft 帳戶，例如 `dee@live.com` 或來自外部 Azure AD 目錄的使用者帳戶。 Azure AD DS 不會儲存外部使用者帳戶的認證，因此無法登入受控網域。
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>受控網域有一或多個警示
 
@@ -165,11 +165,11 @@ Azure AD 可防止意外刪除使用者物件。 當您從 Azure AD 租使用者
 
 即使您在 Azure AD 目錄中使用相同的 UPN 重新建立使用者帳戶，使用者帳戶仍會保持在 Azure AD DS 受控網域中的已停用狀態。 若要從 Azure AD DS 受控網域移除使用者帳戶，您必須從 Azure AD 租使用者強制將其刪除。
 
-若要將使用者帳戶從 Azure AD DS 受控網域中完全移除，請使用[set-msoluser][Remove-MsolUser] PowerShell Cmdlet `-RemoveFromRecycleBin`搭配參數，從您的 Azure AD 租使用者中永久刪除使用者。
+若要將使用者帳戶從 Azure AD DS 受控網域中完全移除，請使用[Set-msoluser][Remove-MsolUser] PowerShell Cmdlet 搭配 `-RemoveFromRecycleBin` 參數，從您的 Azure AD 租使用者中永久刪除使用者。
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您仍有問題，請[開啟 Azure 支援要求][azure-support]以取得額外的疑難排解協助。
+如果您持續遇到問題，請[開啟 Azure 支援要求][azure-support]以取得額外的疑難排解協助。
 
 <!-- INTERNAL LINKS -->
 [cloud-only-passwords]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds

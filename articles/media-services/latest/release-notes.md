@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: ecc2a8236b51013895bfe831d6785ff3e6925906
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 03674d8fb42d56d6b4b40d8111c1a7bbce7c312b
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979672"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514481"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊
 
@@ -61,6 +61,7 @@ ms.locfileid: "75979672"
 - [Restream.io](https://restream.io/)
 
 ### <a name="file-encoding-enhancements"></a>檔案編碼增強功能
+
 - 現在提供新的內容感知編碼預設值。 它會使用內容感知編碼來產生一組對齊 GOP 的 Mp4。 針對任何輸入內容，此服務會執行輸入內容的初始輕量分析。 它會使用這些結果來判斷以彈性串流傳遞的最佳層級、適當的位元速率和解析度設定。 此預設值特別適用于低複雜度和中等複雜度的影片，其中輸出檔案是以較低的位元速率，但品質仍然可以讓檢視器獲得良好的體驗。 輸出會包含具有影片和音訊交錯的有案檔案。 如需詳細資訊，請參閱[OPEN API 規格](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json)。
 - 改善媒體編碼器標準中重新 sizer 的效能和多執行緒處理。 在特定情況下，客戶應該會看到 5-40% VOD 編碼之間的效能提升。 以多個位元速率編碼的低複雜性內容將會看到最高效能的增加。 
 - 標準編碼現在會在使用以時間為基礎的 GOP 設定時，為 VOD 編碼期間的變數畫面播放速率（VFR）內容保留一般的 GOP 節奏。  這表示客戶提交混合的畫面播放速率內容，會因 15-30 fps 而有所不同。例如，現在應該會看到輸出到彈性位元速率串流的檔案時，計算出一般的 GOP 距離。 這可改善在傳遞 HLS 或虛線時，在曲目之間順暢切換的能力。 
@@ -82,7 +83,7 @@ ms.locfileid: "75979672"
 
 #### <a name="deprecation-of-media-processors"></a>淘汰媒體處理器
 
-我們宣佈*Azure 媒體索引子*和*Azure 媒體索引子 2 Preview*已淘汰。 [Azure 媒體索引子](../previous/media-services-index-content.md)媒體處理器將于2020年10月1日淘汰。 [Azure 媒體索引子 2 Preview](../previous/media-services-process-content-with-indexer2.md)媒體處理器將于2020年1月1日淘汰。 [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代這些舊版媒體處理器。
+我們宣佈*Azure 媒體索引子*和*Azure 媒體索引子 2 Preview*已淘汰。 如需停用日期，請參閱此[舊版元件](../previous/legacy-components.md)主題。 [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代這些舊版媒體處理器。
 
 如需詳細資訊，請參閱[從 Azure 媒體索引子遷移和 Azure 媒體索引子2，到 Azure 媒體服務影片索引子](../previous/migrate-indexer-v1-v2.md)。
 
@@ -100,7 +101,7 @@ ms.locfileid: "75979672"
 
 #### <a name="deprecation-of-media-processors"></a>淘汰媒體處理器
 
-我們宣佈淘汰*Windows Azure 媒體編碼器*（WAME）和*Azure 媒體編碼器*（AME）媒體處理器，即將于2020年3月31日淘汰。
+我們宣佈淘汰*Windows Azure 媒體編碼器*（WAME）和*Azure 媒體編碼器*（AME）媒體處理器，這是即將淘汰的。 如需停用日期，請參閱此[舊版元件](../previous/legacy-components.md)主題。
 
 如需詳細資訊，請參閱[將 WAME 遷移至媒體編碼器標準](https://go.microsoft.com/fwlink/?LinkId=2101334)並[將 AME 遷移至媒體編碼器標準](https://go.microsoft.com/fwlink/?LinkId=2101335)。
  

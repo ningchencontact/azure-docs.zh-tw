@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 7cd0935177ad4070750a9b2a0ff129af2e13959f
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4a8725e3ba7be2dc572798d1397e098046a4b352
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772409"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510221"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>在以 Debian 為基礎的 Linux 系統上安裝 Azure IoT Edge 執行時間
 
@@ -30,7 +30,7 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 
 ## <a name="install-the-latest-runtime-version"></a>安裝最新的執行階段版本
 
-請使用下列各節，在您的裝置上安裝最新版本的 Azure IoT Edge 執行時間。 
+請使用下列各節，在您的裝置上安裝最新版本的 Azure IoT Edge 執行時間。
 
 ### <a name="register-microsoft-key-and-software-repository-feed"></a>註冊 Microsoft 金鑰和軟體存放庫摘要
 
@@ -39,16 +39,19 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 安裝存放庫設定。 選擇符合您裝置作業系統的**16.04**或**18.04**命令：
 
 * **Ubuntu Server 16.04**：
+
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
 * **Ubuntu Server 18.04**：
+
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
 * **Raspbian 延展**：
+
    ```bash
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
    ```
@@ -88,7 +91,7 @@ Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器�
    sudo apt-get install moby-cli
    ```
 
-如果您在安裝 Moby 容器執行時間時遇到錯誤，請遵循下列步驟來[驗證您的 Linux 核心是否符合 Moby 相容性](#verify-your-linux-kernel-for-moby-compatibility)，如本文稍後所述。 
+如果您在安裝 Moby 容器執行時間時遇到錯誤，請遵循下列步驟來[驗證您的 Linux 核心是否符合 Moby 相容性](#verify-your-linux-kernel-for-moby-compatibility)，如本文稍後所述。
 
 ### <a name="install-the-azure-iot-edge-security-daemon"></a>安裝 Azure IoT Edge 安全性精靈
 
@@ -108,7 +111,7 @@ Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器�
    sudo apt-get install iotedge
    ```
 
-成功安裝 IoT Edge 之後，輸出將會提示您更新設定檔。 遵循[設定安全性守護](#configure-the-security-daemon)程式一節中的步驟，完成布建您的裝置。 
+成功安裝 IoT Edge 之後，輸出將會提示您更新設定檔。 遵循[設定安全性守護](#configure-the-security-daemon)程式一節中的步驟，完成布建您的裝置。
 
 ## <a name="install-a-specific-runtime-version"></a>安裝特定的執行階段版本
 
@@ -145,7 +148,7 @@ Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器�
       ```bash
       curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
       ```
-   
+
    3. 尋找符合 IoT Edge 裝置架構的**iotedge**檔案。 在 [檔案] 連結上按一下滑鼠右鍵，並複製連結位址。 
 
    4. 在下列命令中使用複製的連結，安裝該版本的 IoT Edge 安全性守護程式。 
@@ -174,7 +177,7 @@ Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器�
 sudo nano /etc/iotedge/config.yaml
 ```
 
-尋找檔案的布建設定，並取消批註**手動**布建設定一節。 以來自 IoT Edge 裝置的連接字串更新 **device_connection_string** 的值。 請確定已將任何其他布建區段標記為批註。
+尋找檔案的布建設定，並取消批註**手動**布建設定一節。 以來自 IoT Edge 裝置的連接字串更新 **device_connection_string** 的值。 請確定已將任何其他布建區段標記為批註。請確定布建 **：** 行沒有前面的空白字元，且嵌套的專案會以兩個空格縮排。
 
    ```yaml
    # Manual provisioning configuration
@@ -190,7 +193,8 @@ sudo nano /etc/iotedge/config.yaml
    #   attestation:
    #     method: "tpm"
    #     registration_id: "{registration_id}"
-```
+   ```
+
 若要將剪貼簿內容貼入 Nano `Shift+Right Click` 或按 `Shift+Insert`。
 
 儲存並關閉檔案。
@@ -213,7 +217,7 @@ sudo systemctl restart iotedge
 sudo nano /etc/iotedge/config.yaml
 ```
 
-尋找檔案的布建設定，並取消批註適用于您證明機制的區段。 例如，在使用 TPM 證明時，請分別使用 IoT 中樞裝置布建服務的值和使用 TPM 的 IoT Edge 裝置來更新**scope_id**和**registration_id**的值。
+尋找檔案的布建設定，並取消批註適用于您證明機制的區段。 例如，在使用 TPM 證明時，請分別使用 IoT 中樞裝置布建服務的值和使用 TPM 的 IoT Edge 裝置來更新**scope_id**和**registration_id**的值。 請確定布建 **：** 行沒有前面的空白字元，且嵌套的專案會以兩個空格縮排。
 
    ```yaml
    # Manual provisioning configuration
@@ -265,7 +269,7 @@ journalctl -u iotedge --no-pager --no-full
 sudo iotedge check
 ```
 
-在您將第一個模組部署至裝置上的 IoT Edge 之前， **$edgeHub**系統模組不會部署到裝置。 因此，自動檢查會針對 `Edge Hub can bind to ports on host` 連線能力檢查傳回錯誤。 此錯誤可能會 ingored，除非在將模組部署至裝置之後發生。
+在您將第一個模組部署至裝置上的 IoT Edge 之前， **$edgeHub**系統模組不會部署到裝置。 因此，自動檢查會針對 `Edge Hub can bind to ports on host` 連線能力檢查傳回錯誤。 除非將模組部署至裝置之後，才會忽略此錯誤。
 
 最後，列出執行中的模組：
 

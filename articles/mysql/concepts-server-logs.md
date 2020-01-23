@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 9b661a7fa6a7b9f079a3b24d1b83f27118c4bd23
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/21/2020
+ms.openlocfilehash: e0c58c5c3fef41a472fe791f66292c9280531493
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745846"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514675"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的緩慢查詢記錄
 在適用於 MySQL 的 Azure 資料庫中，使用者可以使用慢速查詢記錄。 不支援存取交易記錄。 慢速查詢記錄檔可以用來找出效能瓶頸，以進行疑難排解。
@@ -43,8 +43,9 @@ ms.locfileid: "75745846"
 - **log_throttle_queries_not_using_indexes**：這個參數會限制可寫入至慢速查詢記錄的非索引查詢次數。 log_queries_not_using_indexes 設為 ON 時，這個參數會生效。
 - **log_output**：如果為 "File"，則允許將緩慢查詢記錄寫入本機伺服器儲存區，並 Azure 監視器診斷記錄。 如果為 "None"，則慢速查詢記錄檔只會寫入 Azure 監視器診斷記錄。 
 
-> [!Note]
-> 對於 `sql_text`，如果記錄檔超過2048個字元，則會被截斷。
+> [!IMPORTANT]
+> 如果您的資料表未編制索引，將 `log_queries_not_using_indexes` 和 `log_throttle_queries_not_using_indexes` 參數設定為 ON 可能會影響 MySQL 效能，因為針對這些非索引資料表執行的所有查詢都會寫入緩慢查詢記錄檔。<br><br>
+> 如果您計畫記錄緩慢的查詢長時間，建議您將 `log_output` 設定為「無」。 如果設定為「檔案」，這些記錄會寫入本機伺服器儲存區，而且可能會影響 MySQL 效能。 
 
 如需慢速查詢記錄參數的完整描述，請參閱 MySQL [慢速查詢記錄文件](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)。
 
@@ -84,5 +85,64 @@ ms.locfileid: "75745846"
 | `thread_id_s` | 執行緒識別碼 |
 | `\_ResourceId` | 資源 URI |
 
+> [!Note]
+> 對於 `sql_text`，如果記錄檔超過2048個字元，則會被截斷。
+
+## <a name="analyze-logs-in-azure-monitor-logs"></a>分析 Azure 監視器記錄中的記錄
+
+當您的緩慢查詢記錄透過診斷記錄輸送到 Azure 監視器記錄檔之後，您就可以進一步分析緩慢的查詢。 以下是一些可協助您開始使用的範例查詢。 請務必以您的伺服器名稱更新下列各節。
+
+- 特定伺服器上的查詢超過10秒
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | where query_time_d > 10
+    ```
+
+- 列出特定伺服器上前5個最長的查詢
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | order by query_time_d desc
+    | take 5
+    ```
+
+- 根據特定伺服器上的最小值、最大值、平均和標準差查詢時間來總結緩慢查詢
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | summarize count(), min(query_time_d), max(query_time_d), avg(query_time_d), stdev(query_time_d), percentile(query_time_d, 95) by LogicalServerName_s
+    ```
+
+- 圖形在特定伺服器上的慢速查詢散發
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
+    | render timechart
+    ```
+
+- 在已啟用診斷記錄的所有 MySQL 伺服器上顯示超過10秒的查詢
+
+    ```Kusto
+    AzureDiagnostics
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | where query_time_d > 10
+    ```    
+    
 ## <a name="next-steps"></a>後續步驟
-- [如何從 Azure CLI 設定和存取伺服器記錄](howto-configure-server-logs-in-cli.md)。
+- [如何設定 Azure 入口網站的慢速查詢記錄](howto-configure-server-logs-in-portal.md)
+- [如何設定 Azure CLI 的慢速查詢記錄](howto-configure-server-logs-in-cli.md)。

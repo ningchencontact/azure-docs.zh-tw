@@ -1,18 +1,18 @@
 ---
 title: 將 Azure 事件方格用於 CloudEvents 結構描述中的事件
-description: 說明如何在 Azure 事件方格中設定事件的 CloudEvents 結構描述。
+description: 說明如何在 Azure 事件方格中使用事件的 CloudEvents 架構。 服務支援在雲端事件的 JSON 實行中的事件。
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 78498f06a1ec921813d886b426d62452f850f5e5
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: f903a358ea493cd01238339ede10b4b16f98c7c5
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922753"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514590"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>搭配事件方格使用 CloudEvents v1.0 架構
 

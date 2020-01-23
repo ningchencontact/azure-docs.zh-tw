@@ -1,18 +1,18 @@
 ---
 title: Azure 事件方格中的事件網域
-description: 說明如何使用事件網域來管理 Azure 事件方格中的主題。
+description: 本文說明如何使用事件網域，來管理自訂事件到您各種不同商業組織、客戶或應用程式的流程。
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: ef0a9213d095d0b7ae4343e2af145236a7e005a1
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.date: 01/21/2020
+ms.openlocfilehash: df560df21740d5396bc177e20de5d0eb4bf47713
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305415"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511377"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>了解用於管理事件方格主題的事件網域
 
@@ -97,17 +97,17 @@ ms.locfileid: "68305415"
 事件網域會為您處理發行到主題。 不要將事件個別發行到您所管理的每個主題，您可以改為將所有事件發行到網域端點。 事件方格負責確保會將每個事件傳送到正確的主題。
 
 ## <a name="limits-and-quotas"></a>限制和配額
-以下是與事件網域相關的限制和配額:
+以下是與事件網域相關的限制和配額：
 
 - 100000每個事件網域的主題 
 - 每個 Azure 訂用帳戶100個事件網域 
 - 事件網域內每個主題 500 個事件訂閱
 - 50網域範圍訂閱 
-- 5000每秒事件的內嵌速率 (在網域中)
+- 5000每秒事件的內嵌速率（在網域中）
 
-如果這些限制不符合您的需要, 請開啟支援票證或傳送電子郵件給, 以與[askgrid@microsoft.com](mailto:askgrid@microsoft.com)產品小組聯繫。 
+如果這些限制不符合您的需要，請開啟支援票證或傳送電子郵件給[askgrid@microsoft.com](mailto:askgrid@microsoft.com)，以觸及產品小組。 
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 事件網域會使用事件方格中所有其他功能所使用的相同[作業定價](https://azure.microsoft.com/pricing/details/event-grid/)。
 
 作業在事件網域中的運作方式，與它們在自訂主題中所做的一樣。 每個對事件網域的事件輸入都是一項作業，而每次對於事件的傳遞嘗試都是一項作業。

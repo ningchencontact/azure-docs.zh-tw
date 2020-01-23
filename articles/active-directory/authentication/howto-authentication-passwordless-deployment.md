@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eb8398decd1a447d0676195d6369cdc7e791e40
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8323333f378f95f0a640313524f198bdd00dc340
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848488"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512567"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>完成無密碼 authentication 部署
 
@@ -71,7 +71,7 @@ Microsoft 的無密碼 authentication 方法可啟用不同的案例。 請考�
 
 組織必須符合下列必要條件，才能開始進行無密碼部署。
 
-| 先決條件 | 驗證器應用程式 | FIDO2 安全性金鑰 |
+| 必要條件 | 驗證器應用程式 | FIDO2 安全性金鑰 |
 | --- | --- | --- |
 | 已啟用[AZURE MFA 和自助式密碼重設（SSPR）的合併註冊](howto-registration-mfa-sspr-combined.md)（預覽功能） | √ | √ |
 | [使用者可以執行 Azure MFA](howto-mfa-getstarted.md) | √ | √ |
@@ -108,7 +108,7 @@ Windows Hello 的必要條件非常依賴您是部署在內部部署、混合式
    - Intune 部署是建議的選項。
 - [啟用具有布建套件的認證提供者](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
    - 如果無法部署 Intune，系統管理員必須在每部電腦上部署套件，以啟用認證提供者功能。 您可以使用下列其中一個選項來執行封裝安裝：
-      - 群組原則或 System Center Configuration Manager （SCCM）
+      - 群組原則或 Configuration Manager
       - 在 Windows 10 電腦上進行本機安裝
 
 ### <a name="register-security-keys"></a>註冊安全性金鑰
@@ -129,12 +129,12 @@ Windows Hello 的必要條件非常依賴您是部署在內部部署、混合式
 
 下表概述此專案期間要執行的使用案例。
 
-| 區域 | 描述 |
+| 區域 | 說明 |
 | --- | --- |
 | **Access** | 無密碼登入可從公司網路內部或外部的公司或個人裝置取得。 |
 | **稽核** | 使用方式資料可供系統管理員近乎即時地進行審核。 <br> 使用量資料會至少每隔29天下載到公司系統，或使用 SIEM 工具。 |
 | **治理** | 定義和監視適當驗證方法和相關聯群組之使用者指派的生命週期。 |
-| **Security** | 存取適當的驗證方法是透過使用者和群組指派來控制。 <br> 只有授權的使用者可以使用無密碼登入。 |
+| **安全性** | 存取適當的驗證方法是透過使用者和群組指派來控制。 <br> 只有授權的使用者可以使用無密碼登入。 |
 | **效能** | 已記載並監視存取指派傳播時間軸。 <br> 登入時間是為了方便使用而測量。 |
 | **使用者體驗** | 使用者瞭解行動相容性。 <br> 使用者可以設定驗證器應用程式無密碼登入。 |
 | **支援** | 使用者知道如何尋找無密碼登入問題的支援。 |
@@ -245,7 +245,7 @@ Azure AD 會在下列情況將專案新增至 audit 記錄檔：
 
 ### <a name="required-administrative-roles"></a>必要的系統管理角色
 
-| Azure AD 角色 | 描述 |
+| Azure AD 角色 | 說明 |
 | --- | --- |
 | 驗證系統管理員 | 最低特殊許可權角色能夠執行及管理驗證方法 |
 | User | 在裝置上設定驗證器應用程式，或註冊 web 或 Windows 10 登入的安全性金鑰裝置的最低特殊許可權角色。 |
@@ -260,7 +260,7 @@ Azure AD 會在下列情況將專案新增至 audit 記錄檔：
 
 ### <a name="troubleshoot-phone-sign-in"></a>針對手機登入進行疑難排解
 
-| 案例 | 方案 |
+| 案例 | 解決方案 |
 | --- | --- |
 | 使用者無法執行合併的註冊 | 請確定已啟用[合併註冊](concept-registration-mfa-sspr-combined.md)。 |
 | 使用者無法在驗證器應用程式中啟用電話登入 | 確保使用者在部署範圍內 |
@@ -268,7 +268,7 @@ Azure AD 會在下列情況將專案新增至 audit 記錄檔：
 
 ### <a name="troubleshoot-security-key-sign-in"></a>對安全性金鑰登入進行疑難排解
 
-| 案例 | 方案 |
+| 案例 | 解決方案 |
 | --- | --- |
 | 使用者無法執行合併的註冊 | 請確定已啟用[合併註冊](concept-registration-mfa-sspr-combined.md)。 |
 | 使用者無法在其[安全性設定](https://aka.ms/mysecurityinfo)中新增安全性金鑰 | 請確定已啟用[安全性金鑰](howto-authentication-passwordless-security-key.md)。 |

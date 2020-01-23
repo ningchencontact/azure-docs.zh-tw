@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 791287d693903007d09c2e82025bfe195f9f15d1
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 2268c074480f99ca23117ca2ffd2c87c1dbb10a2
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464046"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513230"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>從媒體索引子和媒體索引子2遷移到影片索引子
 
-[Azure 媒體索引子](media-services-index-content.md)媒體處理器將于2020年10月1日淘汰。 [Azure 媒體索引子 2 Preview](media-services-process-content-with-indexer2.md)媒體處理器將于2020年1月1日淘汰。  [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代這些舊版媒體處理器。
+[Azure 媒體索引子](media-services-index-content.md)媒體處理器和[Azure 媒體索引子 2 Preview](media-services-process-content-with-indexer2.md)媒體處理器已淘汰。 如需停用日期，請參閱此[舊版元件](legacy-components.md)主題。 [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代這些舊版媒體處理器。
 
 Azure 媒體服務影片索引子建基於 Azure 媒體分析、Azure 認知搜尋、認知服務（例如臉部 API、Microsoft Translator、電腦視覺 API 和自訂語音服務）。 它可讓您使用影片索引器的影片與音訊模型，從影片中擷取見解。 若要查看影片索引子可以在哪些案例中使用、它所提供的功能，以及如何開始進行，請參閱[影片索引子的影片和音訊模型](../video-indexer/video-indexer-overview.md)。 
 

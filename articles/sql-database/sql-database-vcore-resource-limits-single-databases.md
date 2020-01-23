@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 01/09/2020
-ms.openlocfilehash: 27868f062cd628347e38b5fdb9f243347dea3e23
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.date: 01/22/2020
+ms.openlocfilehash: 267779afc749fccba41935741630a759576d6e77
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834974"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515015"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>使用 vCore 購買模型的單一資料庫資源限制
 
@@ -181,7 +181,7 @@ ms.locfileid: "75834974"
 |儲存體類型| [附注1](#notes) |[附注1](#notes)|[附注1](#notes)|[附注1](#notes) |[附注1](#notes) |[附注1](#notes) |[附注1](#notes) |
 |最大資料 IOPS *|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|[附注2](#notes)|
 |IO 延遲 (大約)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|[附注3](#notes)|
-|並行背景工作 (要求) 數上限|200|400|800|1600|2400|3200|8000|
+|並行背景工作 (要求) 數上限|1600|1800|2000|2400|3200|4000|8000|
 |並行工作階段數上限|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |您應該|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |多重 AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|

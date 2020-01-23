@@ -8,17 +8,17 @@ ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8232a71140dcded907562a4f1c0f2196ff012c12
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cf073572cd5b371ec484c99f14cbefb4cba75ce7
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486244"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509898"
 ---
 # <a name="install-production-certificates-on-an-iot-edge-device"></a>在 IoT Edge 裝置上安裝生產憑證
 
 所有 IoT Edge 裝置都會使用憑證，在執行時間和裝置上執行的任何模組之間建立安全的連線。
-做為閘道的 IoT Edge 裝置也會使用這些相同的憑證來連線至其下游裝置。 
+做為閘道的 IoT Edge 裝置也會使用這些相同的憑證來連線至其下游裝置。
 
 當您第一次安裝 IoT Edge 並布建裝置時，會使用暫時憑證設定裝置，讓您可以測試服務。
 這些暫時性憑證會在90天后到期，或者可以藉由重新開機電腦來重設。
@@ -28,9 +28,9 @@ ms.locfileid: "75486244"
 若要在 IoT Edge 案例中深入瞭解不同類型的憑證及其角色，請參閱[瞭解 Azure IoT Edge 如何使用憑證](iot-edge-certs.md)。
 
 >[!NOTE]
->本文中使用的「根 CA」一詞指的是 IoT 解決方案的憑證鏈最上層授權公開憑證。 您不需要使用聯合憑證授權單位單位的憑證根目錄，或組織的憑證授權單位單位的根。 在許多情況下，它實際上是中繼 CA 公開憑證。 
+>本文中使用的「根 CA」一詞指的是 IoT 解決方案的憑證鏈最上層授權公開憑證。 您不需要使用聯合憑證授權單位單位的憑證根目錄，或組織的憑證授權單位單位的根。 在許多情況下，它實際上是中繼 CA 公開憑證。
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>必要條件
 
 * 在[Windows](how-to-install-iot-edge-windows.md)或[Linux](how-to-install-iot-edge-linux.md)上執行的 IoT Edge 裝置。
 * 擁有根憑證授權單位（CA）憑證，可以自我簽署或從受信任的商業憑證授權單位單位（例如巴爾的摩、Verisign、DigiCert 或透過 globalsign）購買。
@@ -40,17 +40,18 @@ ms.locfileid: "75486244"
 ## <a name="create-production-certificates"></a>建立生產環境憑證
 
 您應該使用自己的憑證授權單位單位來建立下列檔案：
+
 * 根 CA
 * 裝置 CA 憑證
 * 裝置 CA 私密金鑰
 
-在本文中，我們指的是*根 CA*不是組織最上層的憑證授權單位單位。 這是 IoT Edge 案例的最上層憑證授權單位單位，其中 IoT Edge 中樞模組、使用者模組和任何下游裝置都使用它來建立彼此之間的信任。 
+在本文中，我們指的是*根 CA*不是組織最上層的憑證授權單位單位。 這是 IoT Edge 案例的最上層憑證授權單位單位，其中 IoT Edge 中樞模組、使用者模組和任何下游裝置都使用它來建立彼此之間的信任。
 
-若要查看這些憑證的範例，請參閱在[管理測試 CA 憑證以取得範例和教學](https://github.com/Azure/iotedge/tree/master/tools/CACertificates)課程中建立示範憑證的腳本。 
+若要查看這些憑證的範例，請參閱在[管理測試 CA 憑證以取得範例和教學](https://github.com/Azure/iotedge/tree/master/tools/CACertificates)課程中建立示範憑證的腳本。
 
 ## <a name="install-certificates-on-the-device"></a>在裝置上安裝憑證
 
-在 IoT Edge 裝置上安裝您的憑證鏈，並將 IoT Edge 執行時間設定為參考新的憑證。 
+在 IoT Edge 裝置上安裝您的憑證鏈，並將 IoT Edge 執行時間設定為參考新的憑證。
 
 例如，如果您使用範例腳本來[建立示範憑證](how-to-create-test-certificates.md)，則需要複製到 IoT Edge 裝置上的三個檔案如下所示：
 
@@ -62,12 +63,12 @@ ms.locfileid: "75486244"
 
    您可以使用像是[Azure Key Vault](https://docs.microsoft.com/azure/key-vault)的服務或類似[安全複製通訊協定](https://www.ssh.com/ssh/scp/)的功能來移動憑證檔案。  如果您在 IoT Edge 裝置本身產生憑證，可以略過此步驟，並使用工作目錄的路徑。
 
-2. 開啟 IoT Edge 安全性精靈組態檔。 
+2. 開啟 IoT Edge 安全性精靈組態檔。
 
    * Windows：`C:\ProgramData\iotedge\config.yaml`
    * Linux：`/etc/iotedge/config.yaml`
 
-3. 將 yaml 檔案中的**憑證**屬性，設定為 IoT Edge 裝置上憑證和金鑰檔的檔案 URI。 移除憑證屬性之前的 `#` 字元，以取消批註四行。 請記住，yaml 中的縮排是兩個空格。 例如：
+3. 將 yaml 檔案中的**憑證**屬性，設定為 IoT Edge 裝置上憑證和金鑰檔的檔案 URI。 移除憑證屬性之前的 `#` 字元，以取消批註四行。 請確定 [**憑證：** ] 行沒有前面的空白字元，且已將該嵌套專案縮排為兩個空格。 例如：
 
    * Windows：
 
@@ -77,8 +78,9 @@ ms.locfileid: "75486244"
         device_ca_pk: "file:///c:/path/device-ca.key.pem"
         trusted_ca_certs: "file:///c:/path/root-ca.root.ca.cert.pem"
       ```
-   
-   * Linux： 
+
+   * Linux：
+
       ```yaml
       certificates:
         device_ca_cert: "file:///path/device-ca.cert.pem"
@@ -86,7 +88,7 @@ ms.locfileid: "75486244"
         trusted_ca_certs: "file:///path/root-ca.root.ca.cert.pem"
       ```
 
-4. 在 Linux 裝置上，請確定使用者**iotedge**具有保存憑證之目錄的 [讀取] 許可權。 
+4. 在 Linux 裝置上，請確定使用者**iotedge**具有保存憑證之目錄的 [讀取] 許可權。
 
 ## <a name="next-steps"></a>後續步驟
 

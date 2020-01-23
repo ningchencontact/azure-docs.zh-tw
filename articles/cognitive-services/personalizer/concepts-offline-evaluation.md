@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6b7414d67a5c5b068c675ef7b57391b8990a7a16
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: dec6faab0dfc7f073639186429767bbf653ceda1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953082"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513604"
 ---
 # <a name="offline-evaluation"></a>離線評估
 
-離線評估是可讓您測試及評估個人化工具服務效用的方法，而這不會變更您的程式碼或影響使用者體驗。 離線評估會使用過去的資料 (從您應用程式傳送至排名 API) 來比較不同排名執行的方式。
+離線評估是可讓您測試及評估個人化工具服務效用的方法，而這不會變更您的程式碼或影響使用者體驗。 離線評估會使用過去的資料，從您的應用程式傳送至排名和獎勵 Api，以比較不同的排名執行方式。
 
 離線評估會根據日期範圍來執行。 該範圍的最終時間可以是目前的時間。 範圍起點不能超過[資料保留](how-to-settings.md)的指定天數。
 
@@ -56,9 +56,9 @@ ms.locfileid: "73953082"
 
 ## <a name="how-offline-evaluations-are-done"></a>離線評估的運作方式
 
-離線評估會使用名為**反事實評估**的方法來進行。 
+離線評估會使用名為**反事實評估**的方法來進行。
 
-個人化工具的基礎假設是使用者行為 (和獎勵) 無法回溯預測 (如果對使用者顯示的內容個與他們看到的內容不同，則個人化工具無法得知會發生什麼事)，並且只能從預估的獎勵中了解。 
+個人化工具的基礎假設是使用者行為 (和獎勵) 無法回溯預測 (如果對使用者顯示的內容個與他們看到的內容不同，則個人化工具無法得知會發生什麼事)，並且只能從預估的獎勵中了解。
 
 這是用於評估的概念程序：
 
@@ -70,11 +70,11 @@ ms.locfileid: "73953082"
     [For every chronological event in the logs]
     {
         - Perform a Rank call
-    
+
         - Compare the reward of the results against the logged user behavior.
             - If they match, train the model on the observed reward in the logs.
             - If they don't match, then what the user would have done is unknown, so the event is discarded and not used for training or measurement.
-        
+
     }
 
     Add up the rewards and statistics that were predicted, do some aggregation to aid visualizations, and save the results.

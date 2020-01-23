@@ -4,16 +4,16 @@ description: 本文將說明如何管理 Azure 企業發票，並採取相關行
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 95df54eb096588fe23da87f7334f9d693e54cf9d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7cb2966c94485d0a05febf3085ab367fcba97434
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75992318"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514352"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 企業註冊發票
 
@@ -370,7 +370,7 @@ Microsoft 可能會在註冊期間內，就個別的 Azure 服務調降目前的
 | 進位定價 (2 個小數位數) | =MROUND({_source_}, 0.02) |
 | 進位定價 (0 個小數位數) | =MROUND({_source_}, 2) |
 
-**表**  **2**  **-雲端服務和虛擬機器時數轉換**
+**表格** **2** **– 雲端服務和虛擬機器的時數轉換**
 
 ### <a name="conversion-between-download-usage-file-and-usage-summary-portal-view"></a>下載使用量檔案與使用量摘要入口網站檢視之間的轉換
 
@@ -417,7 +417,7 @@ Microsoft 可能會在註冊期間內，就個別的 Azure 服務調降目前的
 | 區域 2 | 亞太地區東部 <br> 亞太地區東南部 <br> 日本東部 <br> 日本西部 <br> 澳大利亞東部 <br> 澳洲東南部 | 亞太地區 <br> 日本 <br> 拉丁美洲 <br> 中東 / 非洲 <br> 澳大利亞東部 <br> 澳洲東南部 |
 | 區域 3 | 巴西南部 |   |
 
-**表**  **4**  **–資料傳輸區域**
+**表格** **4** **– 資料傳輸區域**
 
 位於相同資料中心內的服務 (例如 O365 和 Azure) 之間的資料輸出不會產生任何費用。
 
@@ -557,7 +557,7 @@ EA 客戶將根據其 EA 價格等級支付遠端應用程式的費用，且沒�
 | [**易記服務名稱**](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | 列出所有作用中的服務，以及服務類別、易記服務名稱、承諾用量名稱和部分編號、取用名稱和部分編號、測量單位，以及報告的使用量與顯示的企業版入口網站使用量之間的轉換因子。 | Friendly\_Service\_Names.xlsx |
 | [**服務下載欄位**](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | 此試算表會列出「使用量下載報表」中的服務相關欄位所有的可能組合。 | Service\_Download\_Fields.xlsx |
 
-**表**  **5**  **–其他資訊來源**
+**表格** **5** **– 其他資訊來源**
 
 ## <a name="power-bi-reporting"></a>Power BI 報告
 
@@ -585,7 +585,7 @@ Power BI Pro 現已可供 EA 客戶使用。 使用 Power BI Pro，您將可透�
 1. 提供您的 API 存取金鑰以進行連線。 您可以在[企業版入口網站](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26)中找到註冊的金鑰。 按一下 [登入]。
 1. 匯入程序會自動開始。 完成時，新的儀表板、報表和模型將會出現在導覽窗格中。 請按一下儀表板以檢視匯入的資料。
 
-如需如何為您的註冊產生 API 金鑰的詳細資訊，請瀏覽[企業版入口網站](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26)上的 API 報表說明檔。 如需新內容套件的詳細資訊，請下載 [Microsoft Azure 使用量見解](https://automaticbillingspec.blob.core.windows.net/spec/Microsoft%20Azure%20Consumption%20Insights.docx?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26)文件。
+如需如何為您的註冊產生 API 金鑰的詳細資訊，請瀏覽[企業版入口網站](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26)上的 API 報表說明檔。 如需新內容套件的詳細資訊，請參閱[Microsoft Azure 使用量見解](/power-bi/desktop-connect-azure-cost-management)。
 
 ### <a name="to-access-the-legacy-power-bi-ea-content-pack"></a>若要存取舊版 Power BI EA 內容套件：
 

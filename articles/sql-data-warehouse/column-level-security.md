@@ -1,6 +1,6 @@
 ---
-title: 資料行層級安全性
-description: 資料行層級安全性 (CLS) 讓客戶能夠根據使用者的執行內容或其群組成員資格來控制資料庫資料表資料行的存取。 CLS 可簡化應用程式中安全性的設計和編碼。 CLS 可讓您實作資料行存取的限制。
+title: SQL 資料倉儲的資料行層級安全性為何？
+description: 資料行層級安全性可讓客戶根據使用者的執行內容或群組成員資格來控制資料庫資料表資料行的存取權，簡化應用程式中安全性的設計和編碼，並讓您能夠在資料行上執行限制權.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -11,21 +11,24 @@ ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 85f705022a0ff5970d30c61206d4f2631254b7ce
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 344701989a753e17d8a026f6bb771a6030bdb71f
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077113"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513043"
 ---
 # <a name="column-level-security"></a>資料行層級安全性
-資料行層級安全性 (CLS) 讓客戶能夠根據使用者的執行內容或其群組成員資格來控制資料庫資料表資料行的存取。
-以下的影片更新-因為這段影片已張貼在 SQL 資料倉儲中，所以也提供了資料[列層級安全性](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017)。 
+
+資料行層級安全性可讓客戶根據使用者的執行內容或群組成員資格來控制資料表資料行的存取權。
+
+
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
+因為這段影片已張貼資料[列層級安全性](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017)，所以可供 SQL 資料倉儲。 
 
-CLS 可簡化應用程式中安全性的設計和編碼。 CLS 可讓您實作資料行存取的限制來保護機密資料。 例如，確保特定使用者只能存取其部門相關資料表的特定資料行。 存取限制邏輯位於資料庫層，而不是遠離另一個應用程式層中的資料。 資料庫會在每次嘗試從任何層級存取該資料時套用存取限制。 此限制可藉由縮小整個安全性系統的介面區，讓安全性系統更加可靠和健全。 此外，CLS 也不需引進檢視以篩選出可用來將存取限制加諸於使用者的資料行。
+資料行層級安全性可簡化應用程式中安全性的設計和編碼，讓您可以限制資料行存取來保護機密資料。 例如，確保特定使用者只能存取其部門相關資料表的特定資料行。 存取限制邏輯是位於資料庫層，而不是離開這些資料，到另一個應用程式層。 資料庫會在每次嘗試從任何層存取資料時套用存取限制。 這項限制藉由減少整體安全性系統的介面區，讓您的安全性變得更可靠且更穩固。 此外，資料行層級安全性也不需要引入視圖來篩選出資料行，以限制使用者的存取權。
 
-您可以使用 [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) T-SQL 陳述式來實作 CLS。 透過這個機制，即可支援 SQL 和 Azure Active Directory (AAD) 驗證。
+您可以使用[GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) t-sql 語句來執行資料行層級安全性。 透過這個機制，即可支援 SQL 和 Azure Active Directory (AAD) 驗證。
 
 ![cls](./media/column-level-security/cls.png)
 
@@ -48,9 +51,9 @@ GRANT <permission> [ ,...n ] ON
 ```
 
 ## <a name="example"></a>範例
-下列範例示範如何限制 'TestUser' 存取 ‘Membership’ 資料表的 'SSN' 資料行：
+下列範例顯示如何限制 `TestUser` 存取 `Membership` 資料表的 `SSN` 資料行：
 
-建立 ‘Membership’ 資料表，其中含有用來儲存社會安全號碼的 SSN 資料行：
+建立 `Membership` 資料表，其中包含用來儲存社會保險號碼的 SSN 資料行：
 
 ```sql
 CREATE TABLE Membership
@@ -62,13 +65,13 @@ CREATE TABLE Membership
    Email varchar(100) NULL);
 ```
 
-允許 'TestUser' 存取含機密資料之 SSN 資料行以外的所有資料行：
+除了 [SSN] 資料行以外，允許 `TestUser` 存取所有的資料行，其中包含敏感性資料：
 
 ```sql
 GRANT SELECT ON Membership(MemberID, FirstName, LastName, Phone, Email) TO TestUser;
 ```
 
-如果以 ‘TestUser’ 執行的查詢中包含 SSN 資料行，則它們將會失敗：
+以 `TestUser` 執行的查詢若包含 SSN 資料行，將會失敗：
 
 ```sql
 SELECT * FROM Membership;
@@ -78,6 +81,8 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ## <a name="use-cases"></a>使用案例
-一些目前使用 CLS 的範例：
+
+目前如何使用資料行層級安全性的一些範例：
+
 - 某家金融服務公司只允許帳戶管理員能夠存取客戶社會安全號碼 (SSN)、電話號碼和其他個人識別資訊 (PII)。
-- 某家醫療保健供應商允許醫生和護士存取機密的醫療記錄，而不允許帳務部門的成員檢視此資料。
+- 醫療保健提供者只允許醫生和護士存取機密醫療記錄，同時防止帳單部門的成員看到此資料。

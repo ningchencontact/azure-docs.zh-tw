@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: 60458365fd9ed3a9a72f5c2da82431fb55792a50
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 9c463095612b1540cc593b17a0e52bfd24db30d2
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464059"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514471"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>使用 Azure Media Indexer 2 Preview 編製媒體檔案索引
 
 > [!NOTE]
-> [Azure 媒體索引子 2](media-services-process-content-with-indexer2.md)媒體處理器將于2020年1月1日淘汰。 [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代此舊版媒體處理器。 如需詳細資訊，請參閱[從 Azure 媒體索引子遷移和 Azure 媒體索引子2，到 Azure 媒體服務影片索引子](migrate-indexer-v1-v2.md)。
+> [Azure 媒體索引子 2](media-services-process-content-with-indexer2.md)媒體處理器將被淘汰。 如需停用日期，請參閱此[舊版元件](legacy-components.md)主題。 [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代此舊版媒體處理器。 如需詳細資訊，請參閱[從 Azure 媒體索引子遷移和 Azure 媒體索引子2，到 Azure 媒體服務影片索引子](migrate-indexer-v1-v2.md)。
 
 **Azure Media Indexer 2 Preview** 媒體處理器 (MP) 可讓您將媒體檔案和內容設為可供搜尋，並產生隱藏式輔助字幕追蹤。 相較於舊版的 [Azure Media Indexer](media-services-index-content.md)， **Azure Media Indexer 2 Preview** 編製索引速度更快，並提供更廣泛的語言支援。 支援的語言包括英文、西班牙文、法文、德文、義大利文、中文 (國語、簡體)、葡萄牙文、阿拉伯文、俄文和日文。
 
@@ -32,7 +32,7 @@ ms.locfileid: "74464059"
 
 本文章說明如何使用 **Azure Media Indexer 2 Preview** 建立索引工作。
 
-## <a name="considerations"></a>注意事項
+## <a name="considerations"></a>考量
 
 您必須考量下列事項：
  
@@ -51,7 +51,7 @@ ms.locfileid: "74464059"
 
 這些格式的隱藏式輔助字幕 (CC) 檔案可以用來讓具有聽力障礙的人存取音訊和視訊檔案。
 
-## <a name="task-configuration-preset"></a>工作設定 (預設)
+## <a name="task-configuration-preset"></a>工作組態 (預設)
 以 **Azure 媒體索引器 2 預覽**建立索引工作時，您必須指定設定預設值。
 
 下列 JSON 會設定可用的參數。
@@ -119,7 +119,7 @@ Azure Media Indexer 2 Preview 支援下列語言的語音轉文字 (在工作設
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
 
-設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)中所述。 
+設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)所述。 
 
 #### <a name="example"></a>範例
 

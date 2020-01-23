@@ -1,5 +1,5 @@
 ---
-title: Azure 媒體服務 - HEVC 的 Smooth Streaming 通訊協定 (MS-SSTR) 增修條款 | Microsoft Docs
+title: 適用于 HEVC 的 Smooth Streaming 通訊協定（MS-SSTR）修訂-Azure
 description: 此規格說明在 Azure 媒體服務中採用 HEVC 的分散式 MP4 即時串流所適用的通訊協定和格式。 本文僅指出為了傳遞 HEVC 而需要的變更，但「(無變更)」是表示複製文字僅供說明之用，則屬例外。
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: 6dd7e0dc7e58f33f952aa5531773a84ebd31a163
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: be4009d418f2f8f3dff755e2e990efee593f070b
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887861"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514216"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>HEVC 的 Smooth Streaming 通訊協定 (MS-SSTR) 增修條款 
 
@@ -64,7 +64,7 @@ ms.locfileid: "74887861"
 
 ### <a name="121-normative-references"></a>1.2.1 標準參考 
 
->  [MS-SSTR] Smooth Streaming Protocol *v20140502* [https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
+>  [MS-MS-SSTR]Smooth Streaming 通訊協定*v20140502* [https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
 > 
 >   [ISO/IEC 14496-12] 國際標準化組織，「資訊技術 -- 音訊-視覺化物件的編碼 -- 第 12 部分：ISO Base Media 檔案格式」，ISO/IEC 14496-12:2014，第4 版，Plus Corrigendum 1，修訂文件 1 和 2。
 >   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
@@ -78,17 +78,17 @@ ms.locfileid: "74887861"
 > 
 >   [RFC-6381] IETF RFC-6381，「貯體媒體類型的轉碼器和設定檔參數」<https://tools.ietf.org/html/rfc6381>
 > 
->   [MPEG4-RA]未通過的登錄授權單位 "MP4REG"， [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] MP4 登錄授權單位，"MP4REG"，[http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 > 
->   RFC2119Bradner，S，"用來在 Rfc 中指出需求層級的關鍵字"，BCP 14，RFC 2119，3月1997日， [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   [RFC2119] Bradner, S.，「在 RFC 中用來指出需求層級的關鍵字」，BCP 14，RFC 2119，1997 年 3 月，[https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 資訊參考 
 
 >   [MS-GLOS] Microsoft Corporation，「*Windows 通訊協定主要詞彙*」。
 > 
->   RFC3548Josefsson，S.，Ed.，"the Base16，Base32，and Base64 Data 編碼"，RFC 3548，7月2003日[https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Josefsson, S., Ed.,，「Base16、Base32 和 Base64 資料編碼」，RFC 3548，2003 年 7 月，[https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 > 
->   RFC5234Crocker、d.、Ed. 和 Overell p.、P.、
+>   [RFC5234] Crocker, D., Ed., and Overell, P., ，「語法規格的增強型 BNF：ABNF」，STD 68，RFC 5234，2008 年 1 月，[https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3 概觀 
@@ -281,7 +281,7 @@ ms.locfileid: "74887861"
 > * **MajorVersion**
 > * **MinorVersion**
 > * **TimeScale**
-> * **Duration**
+> * **有效期間**
 > * **IsLive**
 > * **LookaheadCount**
 > * **DVRWindowLength**
